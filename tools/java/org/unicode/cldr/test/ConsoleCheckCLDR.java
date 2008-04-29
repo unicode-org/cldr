@@ -229,7 +229,7 @@ public class ConsoleCheckCLDR {
     }
     
     if (options[VOTE_RESOLVE].doesOccur) {
-      VoteResolver.setTestData(options[VOTE_RESOLVE].value);
+      VoteResolver.setVoterToInfo(options[VOTE_RESOLVE].value);
       voteResolver = new VoteResolver();
     }
     
@@ -561,7 +561,7 @@ public class ConsoleCheckCLDR {
   }
 
   private static void showResolvedVotes(String resolveVotesDirectory) {
-    VoteResolver.setTestData(resolveVotesDirectory);
+    VoteResolver.setVoterToInfo(resolveVotesDirectory);
     Map<String, Map<Organization, Relation<VoteResolver.Level, Integer>>> map = VoteResolver.getLocaleToVetters();
   }
 

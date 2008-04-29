@@ -35,7 +35,7 @@ To Run the Tools:
 
 1. Download and install a JRE with version number greater than or equal to 1.4 from
 http://java.sun.com
-2. If using JDK 1.5 or later please download xalan.jar, xercesImpl.jar,xml-apis.jar  (from http://xalan.apache.org )
+2. If using JDK 1.5 or later please download xalan.jar, xercesImpl.jar, xml-apis.jar  (from http://xalan.apache.org )
 3. Download the following Jar files:
    ftp://www.unicode.org/Public/cldr/1.4/tools/cldr-utilities-1_4.jar
    ftp://www.unicode.org/Public/cldr/1.4/tools/cldr-1_4.jar
@@ -61,13 +61,19 @@ http://ant.apache.org
    ftp://www.unicode.org/Public/cldr/1.4/tools/cldr-utilities-1_4.jar
 5. Download ICU4J 3.6 jar from:
     http://prdownloads.sourceforge.net/icu/icu4j-3_6.jar?download
-6. Set the required environtment variables
+    
+6. Set the required environment variables
     o Unix
         export ICU4J_JAR=<dir>/icu4j.jar
         export UTILITIES_JAR=<dir>/utilities.jar
     o Windows
-        set  ICU4J_JAR=<dir>\icu4j.jar
+        set ICU4J_JAR=<dir>\icu4j.jar
         set UTILITIES_JAR=<dir>\utilities.jar
+    o Eclipse > Preferences > Ant > Runtime > Properties
+        set env.XML_APIS_JAR=<dir>xalan.jar
+        set env.ICU4J_JAR=<dir>\icu4j.jar
+        set env.UTILITIES_JAR=<dir>\utilities.jar
+
 7. Build the tools with the following command:
    <dir>/bin/ant clean all
    

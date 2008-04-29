@@ -214,7 +214,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         // printInfo("Reading alias table searching for draft overrides");
         // writeDeprecated(); // actually just reads the alias
         //}
-        if(remainingArgc==0 && (localesMap==null || localesMap.size()==0)){
+        if(remainingArgc==0 && (getLocalesMap()==null || getLocalesMap().size()==0)){
             printError("",      "No files specified for processing. Please check the arguments and try again");
             usage();
         }
@@ -258,10 +258,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 writeResource(res, fileName);
             }
         }else{
-            if(localesMap!=null && localesMap.size()>0){
-                for(Iterator iter = localesMap.keySet().iterator(); iter.hasNext(); ){
+            if(getLocalesMap()!=null && getLocalesMap().size()>0){
+                for(Iterator iter = getLocalesMap().keySet().iterator(); iter.hasNext(); ){
                     String fileName = (String) iter.next();
-                    String draft = (String)localesMap.get(fileName);
+                    String draft = (String)getLocalesMap().get(fileName);
                     if(draft!= null && !draft.equals("false")){
                         writeDraft = true;
                     }else{
@@ -294,6 +294,28 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         CLDRFile file;
         CLDRFile specialsFile = null;
         private CLDRFile fResolved = null;
+        
+        public String toString() {
+          return "{"
+          + "notOnDisk=" + notOnDisk
+          + " locale=" + locale
+          + " rawFile=" + abbreviated(rawFile)
+          + " file=" + abbreviated(file)
+          + " specialsFile=" + abbreviated(specialsFile)
+          + " fResolved=" + abbreviated(fResolved)
+          + "}";
+        }
+
+        private String abbreviated(Object raw) {
+          if (raw == null) {
+            return null;
+          }
+          String result = raw.toString();
+          if (result.length() <= 100) {
+            return result;
+          }
+          return result.substring(0,100) + "...";
+        }
 
         public CLDRFile resolved() {
             if (fResolved == null) {
@@ -858,7 +880,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private void createResourceBundle(InputLocale loc) {
         try {
             // calculate the list of vettable xpaths.
-            makeXPathList(loc);
+            try {
+              makeXPathList(loc);
+            } catch (RuntimeException e) {
+              throw new IllegalArgumentException("Can't make XPathList for: " + loc).initCause(e);
+            }
             // Create the Resource linked list which will hold the
             // data after parsing
             // The assumption here is that the top
@@ -6728,8 +6754,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return brkArray;
     }
     public boolean isDraftStatusOverridable(String locName){
-        if(localesMap!=null && localesMap.size()>0){
-            String draft = (String)localesMap.get(locName+".xml");
+        if(getLocalesMap()!=null && getLocalesMap().size()>0){
+            String draft = (String)getLocalesMap().get(locName+".xml");
             if(draft!= null && (draft.equals("true")|| locName.matches(draft))){
                 return true;
             }else{

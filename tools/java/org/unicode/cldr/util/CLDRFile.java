@@ -177,11 +177,20 @@ public class CLDRFile implements Freezable, Iterable<String> {
   
   
   public String toString() {
-    return "locked: " + locked + "\r\n" + dataSource;
+    return "{"
+    + "locked=" + locked 
+    + " locale=" + dataSource.getLocaleID() 
+    + " dataSource=" + dataSource.toString()
+    + "}";
   }
   
   public String toString(String regex) {
-    return "locked: " + locked + " [" + regex +  "]\r\n" + dataSource.toString(regex);
+    return "{"
+    + "locked=" + locked 
+    + " locale=" + dataSource.getLocaleID() 
+    + " regex=" + regex 
+    + " dataSource=" + dataSource.toString(regex)
+    + "}";
   }
   
   // for refactoring

@@ -48,7 +48,14 @@
         <echo message="java version: ${java.version}"/>
         <echo message="ant java version: ${ant.java.version}"/>
         <echo message="${ant.version}"/>
-        <echo message="${env.XML_APIS_JAR}"/>
+        <echo message="java.class.path: ${java.class.path}/"/>
+        <echo message="build.dir: ${build.dir}"/>
+        <echo message="env.ICU4J_CLASSES: ${env.ICU4J_CLASSES}"/>
+        <echo message="env.CLDR_CLASSES: ${env.CLDR_CLASSES}"/>
+        <echo message="env.ICU4J_JAR: ${env.ICU4J_JAR}"/>
+        <echo message="env.CLDR_JAR: ${env.CLDR_JAR}"/>
+        <echo message="env.UTILITIES_JAR: ${env.UTILITIES_JAR}"/>
+        <echo message="env.XML_APIS_JAR: ${env.XML_APIS_JAR}"/>
     </target>
 
     <!-- build everything but dist-related stuff -->

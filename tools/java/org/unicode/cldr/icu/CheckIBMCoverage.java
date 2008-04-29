@@ -110,7 +110,7 @@ public class CheckIBMCoverage  extends CLDRConverterTool {
         }
 
         try{
-            if(localesMap!=null && localesMap.size()>0){
+            if(getLocalesMap()!=null && getLocalesMap().size()>0){
                 processMap();
             }else if(remainingArgc>0){
                 for (int i = 0; i < remainingArgc; i++) {
@@ -127,11 +127,11 @@ public class CheckIBMCoverage  extends CLDRConverterTool {
                 };
                 File myDir = new File(sourceDir);
                 String[] files = myDir.list(filter);
-                if(localesMap == null){
-                    localesMap = new TreeMap();
+                if(getLocalesMap() == null){
+                    setLocalesMap(new TreeMap());
                 }
                 for(int i=0; i< files.length; i++){
-                    localesMap.put(files[i], "");
+                    getLocalesMap().put(files[i], "");
                 }
                 processMap();
             }else{
@@ -158,7 +158,7 @@ public class CheckIBMCoverage  extends CLDRConverterTool {
         fw.write("\t\t\t</tr>\n");
         int bp =0, bf=0, mp=0, mf=0, gp=0, gf=0;
         
-        for(Iterator iter = localesMap.keySet().iterator(); iter.hasNext(); ){
+        for(Iterator iter = getLocalesMap().keySet().iterator(); iter.hasNext(); ){
             String fileName = (String) iter.next();
             int index = fileName.indexOf(".");
             String locale = fileName.substring(0, index);

@@ -639,7 +639,7 @@ public class ConsoleCheckCLDR {
       .addColumn("Locale").setCellAttributes("class=\"{1}\"").setSortPriority(1).setSpanRows(true).setBreakSpans(true).setRepeatDivider(true)
       .addColumn("Name").setCellAttributes("class=\"{1}\"").setSpanRows(true).setBreakSpans(true)
       //.addColumn("HIDDEN").setSortPriority(2).setHidden(true)
-      .addColumn("Section").setCellAttributes("class=\"{1}\"").setSortPriority(2).setCellPattern("<a href=''http://unicode.org/cldr/apps/survey?_=" + localeID + "&x={0}''>{0}</a>").setSpanRows(true)
+      .addColumn("Section").setCellAttributes("class=\"{1}\"").setSortPriority(2).setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_=" + localeID + "&x={0}\">{0}</a>").setSpanRows(true)
       .addColumn("Count").setCellAttributes("class=\"{1}\" align=\"right\"");
       //showLineHeaders(generated_html_table);
     

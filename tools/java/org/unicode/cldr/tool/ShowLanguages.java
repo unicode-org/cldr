@@ -548,7 +548,7 @@ public class ShowLanguages {
       if (explanation != null) {
         out.write(explanation);
       }
-      out.write("<div align='center'><table>");
+      out.write("<div align='center'>");
     }
     
     public String getFilename() {
@@ -560,7 +560,7 @@ public class ShowLanguages {
     }
     
     public void close() throws IOException {
-      out.write("</table></div>");
+      out.write("</div>");
       PrintWriter pw2 = BagFormatter.openUTF8Writer(Utility.CHART_DIRECTORY + "/supplemental/", filename);
       String[] replacements = { "%header%", "", "%title%", title, "%version%", CHART_DISPLAY_VERSION, "%date%", df.format(new Date()), "%body%", out.toString() };
       final String templateFileName = Utility.BASE_DIRECTORY + "tools/java/org/unicode/cldr/tool/chart-template.html";
@@ -727,7 +727,7 @@ public class ShowLanguages {
           continue;
         }
         
-        if (path.indexOf("/mapTimezones") >= 0) {
+        if (path.indexOf("/mapTimezones") >= 0 && path.contains("[@type=\"windows\"]")) {
           Map attributes = parts.findAttributes("mapZone");
           String tzid = (String) attributes.get("type");
           String other = (String) attributes.get("other");
@@ -1554,6 +1554,7 @@ public class ShowLanguages {
     
     public void showCalendarData(PrintWriter pw0) throws IOException {
       PrintWriter pw = new PrintWriter(new FormattedFileWriter(pw0, "Other Territory Data", null));
+      pw.println("<table>");
       pw.println("<tr><th class='source'>Territory</th>");
       for (Iterator<String> it = territoryTypes.iterator(); it.hasNext();) {
         String header = (String) it.next();
@@ -1571,6 +1572,7 @@ public class ShowLanguages {
         showCountry(pw, country, country, worldData);
       }
       showCountry(pw, worldName, "Other", worldData);
+      pw.println("</table>");
       pw.close();
     }
     
@@ -1669,6 +1671,7 @@ public class ShowLanguages {
 //        ".</p>"
       ));
       //doTitle(pw, "Territory \u2192 Currency");
+      pw.println("<table>");
       pw.println("<tr><th class='source'>Territory</th><th class='target'>From</th><th class='target'>To</th><th class='target'>Currency</th></tr>");
       for (Iterator it = territory_currency.keySet().iterator(); it.hasNext();) {
         String territory = (String) it.next();
@@ -1720,6 +1723,7 @@ public class ShowLanguages {
         }
         pw.println("</td></tr>");
       }
+      pw.println("</table>");
       pw.close();
       //doFooter(pw);
       
@@ -1760,12 +1764,14 @@ public class ShowLanguages {
       PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Aliases", null));
       
       //doTitle(pw, "Aliases");
+      pw.println("<table>");
       pw.println("<tr><th class='source'>" + "Type" + "</th><th class='source'>" + "Code" + "</th><th class='target'>" + "Substitute (if avail)" + "</th></tr>");
       for (Iterator it = aliases.iterator(); it.hasNext();) {
         String[] items = (String[]) it.next();
         pw.println("<tr><td class='source'>" + items[0] + "</td><td class='source'>" + items[1] + "</td><td class='target'>" + items[2] + "</td></tr>");
       }
       //doFooter(pw);
+      pw.println("</table>");
       pw.close();
     }
     
@@ -1788,6 +1794,9 @@ public class ShowLanguages {
     
     public void printWindows_Tzid(PrintWriter index) throws IOException {
       PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Windows \u2192 Tzid", null));
+      pw.println("<table>");
+      // TODO add metazones
+
       //doTitle(pw, "Windows \u2192 Tzid");
       for (Iterator it = windows_tzid.keySet().iterator(); it.hasNext();) {
         String source = (String) it.next();
@@ -1795,6 +1804,7 @@ public class ShowLanguages {
         pw.println("<tr><td class='source'>" + source + "</td><td class='target'>" + target + "</td></tr>");
       }
       //doFooter(pw);
+      pw.println("</table>");
       pw.close();
     }
     
@@ -1872,11 +1882,12 @@ public class ShowLanguages {
         final String name = english.getName(locale);
         final Map<PluralInfo.Count, String> typeToExamples = plurals.getCountToStringExamplesMap();
         for (Count type : typeToExamples.keySet()) {
+          final String examples = typeToExamples.get(type).toString().replace(";", ";<br>");
           tablePrinter.addRow()
           .addCell(name)
           .addCell(locale)
           .addCell(type)
-          .addCell(typeToExamples.get(type).toString().replace(";", ";<br>"))
+          .addCell(examples)
           .addCell(rules)
           .finishRow();
         }
@@ -1890,6 +1901,8 @@ public class ShowLanguages {
       
       PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null));
       //doTitle(pw, title);
+      pw.println("<table>");
+
       pw.println("<tr><th colSpan='3'>Substitute for character (if not in repertoire)</th><th colSpan='4'>The following (in priority order, first string that <i>is</i> in repertoire)</th></tr>");
       UnicodeSet chars = new UnicodeSet("[:NFKC_QuickCheck=N:]");
       for (com.ibm.icu.text.UnicodeSetIterator it = new com.ibm.icu.text.UnicodeSetIterator(chars); it.next();) {
@@ -1932,6 +1945,8 @@ public class ShowLanguages {
         }
       }
       //doFooter(pw);
+      pw.println("</table>");
+
       pw.close();
       for (int i = 0; i < counts.length; ++i) {
         System.out.println("Count\t" + i + "\t" + counts[i]);

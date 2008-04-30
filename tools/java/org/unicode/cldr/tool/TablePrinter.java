@@ -86,12 +86,12 @@ public class TablePrinter {
     }
     
     public Column setCellAttributes(String cellAttributes) {
-      this.cellAttributes = new MessageFormat(cellAttributes);
+      this.cellAttributes = new MessageFormat(MessageFormat.autoQuoteApostrophe(cellAttributes));
       return this;
     }
     
     public Column setCellPattern(String cellPattern) {
-      this.cellPattern = cellPattern == null ? null : new MessageFormat(cellPattern);
+      this.cellPattern = cellPattern == null ? null : new MessageFormat(MessageFormat.autoQuoteApostrophe(cellPattern));
       return this;
     }
     
@@ -345,9 +345,7 @@ public class TablePrinter {
       }
       result.append("</tr>\r\n");
     }
-    if (tableAttributes != null) {
-      result.append("</table>");
-    }
+    result.append("</table>");
     return result.toString();
   }
   

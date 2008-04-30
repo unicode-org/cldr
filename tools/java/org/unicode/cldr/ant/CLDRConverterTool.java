@@ -193,7 +193,7 @@ public abstract class CLDRConverterTool {
         
         
         //fast path
-        String draft = (String)getLocalesMap().get(localeName+".xml");
+        String draft = getLocalesMap() == null ? null : (String)getLocalesMap().get(localeName+".xml");
         XPathParts parts = new XPathParts(null, null);
         if(draft!=null){
             for(int i=0; i<xpathList.size();i++){

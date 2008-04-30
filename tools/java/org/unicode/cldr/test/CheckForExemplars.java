@@ -46,7 +46,7 @@ public class CheckForExemplars extends CheckCLDR {
   static final Pattern supposedToBeMessageFormatPath = Pattern.compile("/(" +
           "codePattern" +
           "|dateRangePattern" +
-          "|dateTimeFormat/pattern" +
+          "|dateTimeFormat[^/]*?/pattern" +
           "|appendItem" +
           "|intervalFormatFallback" +
           "|hoursFormat" +

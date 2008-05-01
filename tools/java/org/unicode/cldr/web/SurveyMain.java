@@ -4733,7 +4733,7 @@ public class SurveyMain extends HttpServlet {
                 //subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
                 subCtx.removeQuery(QUERY_SECTION);
 
-               if(true && (this.phase()==Phase.VETTING || isPhaseVettingClosed()) == true) {
+               if(false && (this.phase()==Phase.VETTING || isPhaseVettingClosed()) == true) {
                     
                     if((numDisputed>0)||(numErrors>0)) {
                         ctx.print("<h2>Disputed items that need your attention:</h2>");
@@ -5617,9 +5617,9 @@ public class SurveyMain extends HttpServlet {
         String sortMode = null;
         if(prefix.indexOf("timeZone")!=-1 ||
             prefix.indexOf("localeDisplayName")!=-1) {
-            sortMode = ctx.pref(PREF_SORTMODE, (isPhaseVetting() || isPhaseVettingClosed())?PREF_SORTMODE_WARNING:PREF_SORTMODE_DEFAULT);
+            sortMode = ctx.pref(PREF_SORTMODE, false&&(isPhaseVetting() || isPhaseVettingClosed())?PREF_SORTMODE_WARNING:PREF_SORTMODE_DEFAULT);
         } else {
-            sortMode = ctx.pref(PREF_SORTMODE, (isPhaseVetting() || isPhaseVettingClosed())?PREF_SORTMODE_WARNING:/*PREF_SORTMODE_CODE*/PREF_SORTMODE_WARNING); // all the rest get Code Mode
+            sortMode = ctx.pref(PREF_SORTMODE, false&&(isPhaseVetting() || isPhaseVettingClosed())?PREF_SORTMODE_WARNING:/*PREF_SORTMODE_CODE*/PREF_SORTMODE_WARNING); // all the rest get Code Mode
         }
         return sortMode;
     }

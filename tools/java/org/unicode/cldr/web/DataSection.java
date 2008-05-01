@@ -680,7 +680,7 @@ public class DataSection extends Registerable {
             // fetch partitions..
             Vector v = new Vector();
             if(sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) { // priority
-                Partition testPartitions[] = SurveyMain.isPhaseSubmit()?createSubmitPartitions():
+                Partition testPartitions[] = (SurveyMain.isPhaseSubmit()||SurveyMain.isPhaseVetting())?createSubmitPartitions():
                                                                            createVettingPartitions();
                 // find the starts
                 int lastGood = 0;
@@ -957,7 +957,7 @@ public class DataSection extends Registerable {
         return rv;
       }
 
-      final Partition[] warningSort = SurveyMain.isPhaseSubmit()?createSubmitPartitions():
+      final Partition[] warningSort = (SurveyMain.isPhaseVetting()||SurveyMain.isPhaseSubmit())?createSubmitPartitions():
         createVettingPartitions();
 //    com.ibm.icu.text.Collator myCollator = rbc;
       public int compare(DataRow p1, DataRow p2){

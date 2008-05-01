@@ -125,7 +125,7 @@ public class CheckCoverage extends CheckCLDR {
         
         // Set to minimal if not in data submission
         if (Phase.SUBMISSION != getPhase()) {
-          requiredLevel = Level.MINIMAL;
+          requiredLevel = Level.BASIC;
         } else {
           requiredLevel = coverageLevel.getRequiredLevel(localeID, options);
         }

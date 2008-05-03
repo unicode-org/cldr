@@ -58,7 +58,7 @@ public class Utility {
 		public static class VariableReplacer {
 			// simple implementation for now
 			Comparator c;
-			private Map m = new TreeMap(Collections.reverseOrder());
+			private Map<String, String> m = new TreeMap<String, String>(Collections.reverseOrder());
 			public VariableReplacer add(String variable, String value) {
 				m.put(variable, value);
 				return this;
@@ -67,9 +67,9 @@ public class Utility {
 				String oldSource;
 				do {
 					oldSource = source;
-					for (Iterator it = m.keySet().iterator(); it.hasNext();) {
-						String variable = (String) it.next();
-						String value = (String) m.get(variable);
+					for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
+						String variable = it.next();
+						String value = m.get(variable);
 						source = replaceAll(source, variable, value);
 					}
 				} while (!source.equals(oldSource));
@@ -110,8 +110,8 @@ public class Utility {
 	/** If the generated BAT files are to work, this needs to be set right */
 	public static final String COMPARE_PROGRAM = "\"C:\\Program Files\\Compare It!\\wincmp3.exe\"";
 	
-	public static final List MINIMUM_LANGUAGES = Arrays.asList(new String[] {"ar", "en", "de", "fr", "hi", "it", "es", "pt", "ru", "zh", "ja"}); // plus language itself
-	public static final List MINIMUM_TERRITORIES = Arrays.asList(new String[] {"US", "GB", "DE", "FR", "IT", "JP", "CN", "IN", "RU", "BR"});
+	public static final List<String> MINIMUM_LANGUAGES = Arrays.asList(new String[] {"ar", "en", "de", "fr", "hi", "it", "es", "pt", "ru", "zh", "ja"}); // plus language itself
+	public static final List<String> MINIMUM_TERRITORIES = Arrays.asList(new String[] {"US", "GB", "DE", "FR", "IT", "JP", "CN", "IN", "RU", "BR"});
 	
 	public interface LineComparer {
 		static final int LINES_DIFFERENT = -1, LINES_SAME = 0, SKIP_FIRST = 1, SKIP_SECOND = 2;
@@ -360,22 +360,22 @@ public class Utility {
 	}
 	
 	public static String[] splitArray(String source, char separator, boolean trim) {
-		List piecesList = splitList(source, separator, trim);
+		List<String> piecesList = splitList(source, separator, trim);
 		String[] pieces = new String[piecesList.size()];
 		piecesList.toArray(pieces);
 		return pieces;
 	}
 
-	public static List splitList(String source, char separator) {
+	public static List<String> splitList(String source, char separator) {
 		return splitList(source, separator, false, null);
 	}
 	
-	public static List splitList(String source, char separator, boolean trim) {
+	public static List<String> splitList(String source, char separator, boolean trim) {
 		return splitList(source, separator, trim, null);
 	}
 	
-	public static List splitList(String source, char separator, boolean trim, List output) {
-		if (output == null) output = new ArrayList();
+	public static List<String> splitList(String source, char separator, boolean trim, List<String> output) {
+		if (output == null) output = new ArrayList<String>();
 		if (source.length() == 0) return output;
 		int pos = 0;
 		do {
@@ -431,7 +431,7 @@ public class Utility {
 	        : (T) Collections.unmodifiableMap(resultMap);
     } else if (source instanceof Collection) {
       Collection sourceCollection = (Collection) source;
-      Collection resultCollection = clone(sourceCollection);
+      Collection<Object> resultCollection = clone(sourceCollection);
       if (resultCollection == null) return (T) sourceCollection; // failed
       resultCollection.clear();
 
@@ -478,11 +478,11 @@ public static <T> T clone(T source) {
 	
     /** Appends two strings, inserting separator if either is empty. Modifies first map
 	 */
-	public static Map joinWithSeparation(Map a, String separator, Map b) {
+	public static Map<Object, String> joinWithSeparation(Map<Object, String> a, String separator, Map b) {
 		for (Iterator it = b.keySet().iterator(); it.hasNext();) {
 			Object key = it.next();
 			String bvalue = (String) b.get(key);
-			String avalue = (String) a.get(key);
+			String avalue = a.get(key);
 			if (avalue != null) {
 				if (avalue.trim().equals(bvalue.trim())) continue;
 				bvalue = joinWithSeparation(avalue, separator, bvalue);
@@ -524,7 +524,7 @@ public static <T> T clone(T source) {
 	/**
 	 * Utility like Arrays.asList()
 	 */
-	public static Map asMap(Object[][] source, Map target, boolean reverse) {
+  public static Map asMap(Object[][] source, Map target, boolean reverse) {
 		int from = 0, to = 1;
 		if (reverse) {
 			from = 1; to = 0;
@@ -795,7 +795,7 @@ public static <T> T clone(T source) {
   
   public static class CollectionComparator implements Comparator {
     boolean sizeFirst = true;
-    Comparator comparator = null;
+    Comparator<Object> comparator = null;
     public int compare(Object o1, Object o2) {
       if (o1 == o2) return 0;
       if (o1 == null) return -1;
@@ -818,7 +818,7 @@ public static <T> T clone(T source) {
         }
         Object obj1 = it1.next();
         Object obj2 = it2.next();
-        int result = comparator != null ? comparator.compare(obj1, obj2) : ((Comparable)obj1).compareTo(obj2);
+        int result = comparator != null ? comparator.compare(obj1, obj2) : ((Comparable<Object>)obj1).compareTo(obj2);
         if (result != 0) {
           return result;
         }
@@ -826,7 +826,15 @@ public static <T> T clone(T source) {
     }
     
   }
-
+  
+  public static class ComparableComparator<T> implements Comparator<T> {
+    @SuppressWarnings("unchecked")
+    public int compare(T arg0, T arg1) {
+      return arg0 == null ? (arg1 == null ? 0 : -1) 
+              : arg1 == null ? 1 
+                      : ((Comparable<T>) arg0).compareTo(arg1);
+    }
+  }
 
     /**
      * Replaces all occurances of piece with replacement, and returns new String
@@ -843,11 +851,11 @@ public static <T> T clone(T source) {
         }
     }
 
-    public static void addTreeMapChain(Map coverageData, Object... objects) {
-        Map base = coverageData;
+    public static void addTreeMapChain(Map<Object, Object> coverageData, Object... objects) {
+        Map<Object, Object> base = coverageData;
         for (int i = 0; i < objects.length-2; ++i) {
-            Map nextOne = (Map) base.get(objects[i]);
-            if (nextOne == null) base.put(objects[i], nextOne = new TreeMap());
+            Map<Object, Object> nextOne = (Map<Object, Object>) base.get(objects[i]);
+            if (nextOne == null) base.put(objects[i], nextOne = new TreeMap<Object, Object>());
             base = nextOne;
         }
         base.put(objects[objects.length-2], objects[objects.length-1]);
@@ -855,15 +863,15 @@ public static <T> T clone(T source) {
     
 	public static abstract class Transform {
 		public abstract Object transform(Object source);
-		public Collection transform(Collection input, Collection output) {
+		public Collection<Object> transform(Collection input, Collection<Object> output) {
 			for (Iterator it = input.iterator(); it.hasNext();) {
 				Object result = transform(it.next());
 				if (result != null) output.add(result);
 			}
 			return output;
 		}
-		public Collection transform(Collection input) {
-			return transform(input, new ArrayList());
+		public Collection<Object> transform(Collection input) {
+			return transform(input, new ArrayList<Object>());
 		}
 	}
   
@@ -923,11 +931,11 @@ public static <T> T clone(T source) {
 		public MatcherFilter(Matcher matcher) {
 			this.matcher = matcher;
 		}
-    public MatcherFilter set(Matcher matcher) {
+    public MatcherFilter<T> set(Matcher matcher) {
       this.matcher = matcher;
       return this;
     }
-    public MatcherFilter set(String pattern) {
+    public MatcherFilter<T> set(String pattern) {
       this.matcher = Pattern.compile(pattern).matcher("");
       return this;
     }
@@ -961,7 +969,7 @@ public static <T> T clone(T source) {
      * @param source_key_valueSet
      * @param output_value_key
      */
-    public static void putAllTransposed(Map source_key_valueSet, Map output_value_key) {
+    public static void putAllTransposed(Map source_key_valueSet, Map<Object, Object> output_value_key) {
         for (Iterator it = source_key_valueSet.keySet().iterator(); it.hasNext();) {
             Object key = it.next();
             Set values = (Set) source_key_valueSet.get(key);
@@ -1074,7 +1082,7 @@ public static <T> T clone(T source) {
       String name = methods[i].getName();
       names.add(name);
     }
-    for (Iterator it = names.iterator(); it.hasNext();) {
+    for (Iterator<String> it = names.iterator(); it.hasNext();) {
       System.out.println("\t" + it.next());
     }
   }
@@ -1127,7 +1135,7 @@ public static <T> T clone(T source) {
     return a.equals(b);
   }
 
-  public static int checkCompare(Comparable a, Comparable b) {
+  public static int checkCompare(Comparable<Comparable> a, Comparable b) {
     if (a == null) {
       return b == null ? 0 : -1;
     }

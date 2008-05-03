@@ -1,12 +1,15 @@
 package org.unicode.cldr.unittest;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -71,7 +74,7 @@ public class TestUtilities extends TestFmwk {
   }
 
   public void TestCounter() {
-    Counter<String> counter = new Counter<String>();
+    Counter<String> counter = new Counter<String>(true);
     Comparator<String> uca = Collator.getInstance(ULocale.ENGLISH);
     
     counter.add("c", 95);
@@ -102,11 +105,26 @@ public class TestUtilities extends TestFmwk {
     assertEquals("getKeysetSortedByCount(false, uca), descending, value", Arrays.asList("b", "a", "c", "d"),
             new ArrayList(counter.getKeysetSortedByCount(false, uca)));
   }
-
-  static String userFile = "/Users/markdavis/Documents/workspace/DATA/vxml/users.xml";
-  static String votesDirectory = "/Users/markdavis/Documents/workspace/DATA/vxml/votes/";
   
+  public void TestOrganizationOrder() {
+    Map<String, Organization> stringToOrg = new TreeMap<String, Organization>();
+    for (Organization org : Organization.values()) {
+      stringToOrg.put(org.toString(), org);
+    }
+    List reordered = new ArrayList(stringToOrg.values());
+    List plain = Arrays.asList(Organization.values());
+    if (!plain.equals(reordered)) {
+      errln("Items not in alphabetical order: use " + reordered);
+    }
+  }
+
   public void TestVoteResolverData() {
+    final PrintWriter errorLogPrintWriter = this.getErrorLogPrintWriter();
+    final PrintWriter logPrintWriter = this.getLogPrintWriter();
+    String userFile = "/Users/markdavis/Documents/workspace/DATA/survey_voting/users.xml";
+    String votesDirectory = "/Users/markdavis/Documents/workspace/DATA/survey_voting/vxml/votes/";
+    
+
     VoteResolver.setVoterToInfo(userFile);
     Map<String, Map<Organization, Relation<Level, Integer>>> map = VoteResolver
             .getLocaleToVetters();
@@ -116,8 +134,8 @@ public class TestUtilities extends TestFmwk {
       try {
         localeName = testInfo.getEnglish().getName(locale);
       } catch (RuntimeException e) {
-        e.printStackTrace();
-        throw e;
+        errln("Invalid locale:\t" + locale);
+        localeName = "UNVALID(" + locale + ")";
       }
       if (DEBUG) {
         for (Organization org : orgToLevelToVoter.keySet()) {
@@ -137,26 +155,51 @@ public class TestUtilities extends TestFmwk {
         continue;
       }
       if (file.endsWith(".xml")) {
-        checkLocaleVotes(file.substring(0,file.length()-4));
+        final String locale = file.substring(0,file.length()-4);
+        try {
+          checkLocaleVotes(locale, votesDirectory, errorLogPrintWriter, logPrintWriter);
+        } catch (RuntimeException e) {
+          throw (RuntimeException) new IllegalArgumentException("Can't process " + locale).initCause(e);
+        }
       }
     }
   }
+  
+  private String getValue(int item) {
+    return String.valueOf(item);
+  }
+  
+  static final boolean SHOW_DETAILS = Utility.getProperty("showdetails", false);
 
-  private void checkLocaleVotes(final String locale) {
-    logln("*** Locale " + locale + " ***");
+  private void checkLocaleVotes(final String locale, String votesDirectory, PrintWriter errorLog, PrintWriter warningLog) {
+    //logln("*** Locale " + locale + ": \t***");
     Map<Organization, Level> orgToMaxVote = VoteResolver.getOrganizationToMaxVote(locale);
+    if (orgToMaxVote.size() == 0) {
+      logln("");
+      warnln(locale + ": \tNo organizations with translators");
+    } else if (!locale.contains("_")){
+      logln("");
+      logln(locale + ": \tOrganizations with translators:\t" + orgToMaxVote);
+    }
 
     Map<Integer, Map<Integer, CandidateInfo>> info = VoteResolver.getBaseToAlternateToInfo(votesDirectory + locale + ".xml");
     Set<Organization> missingOrganizations = EnumSet.noneOf(Organization.class);
-    Counter<Organization> missingOrganizationCounter = new Counter<Organization>();
-    Counter<Organization> goodOrganizationCounter = new Counter<Organization>();
+    Counter<Organization> missingOrganizationCounter = new Counter<Organization>(true);
+    Counter<Organization> goodOrganizationCounter = new Counter<Organization>(true);
+    Counter<Status> winningStatusCounter = new Counter<Status>(true);
+    EnumSet<Organization> conflictedOrganizations = EnumSet.noneOf(Organization.class);
+    Set<Integer> missingOptimals = new TreeSet<Integer>();
+    
+    Set<Integer> surveyVsVoteResolverDifferences = new TreeSet<Integer>();
     
     Set<Integer> unknownVotersSoFar = new HashSet<Integer>();
 
-    Counter<Status> oldStatusCounter = new Counter<Status>();
-    Counter<Status> surveyStatusCounter = new Counter<Status>();
-    Counter<Type> surveyTypeCounter = new Counter<Type>();
-    VoteResolver<Integer> voteResolver = new VoteResolver<Integer>();
+    Counter<Status> oldStatusCounter = new Counter<Status>(true);
+    Counter<Status> surveyStatusCounter = new Counter<Status>(true);
+    Counter<Type> surveyTypeCounter = new Counter<Type>(true);
+    VoteResolver<String> voteResolver = new VoteResolver<String>();
+    Map<String,Integer> valueToItem = new HashMap<String,Integer>();
+    
     for (int basePath : info.keySet()) {
       final Map<Integer, CandidateInfo> itemInfo = info.get(basePath);
       // if there is any approved value, then continue;
@@ -166,66 +209,84 @@ public class TestUtilities extends TestFmwk {
       // find the last release status and value
       voteResolver.clear();
       boolean haveOldStatus = false;
+
+      valueToItem.clear();
      
       for (int item : itemInfo.keySet()) {
+        String itemValue = getValue(item);
+        if (valueToItem.containsKey(itemValue)) {
+          errln(locale + ": \tTwo alternatives with same value:\t" + item + ", " + itemValue);
+        } else {
+          valueToItem.put(itemValue, item);
+        }
+        
         CandidateInfo candidateInfo = itemInfo.get(item);
         oldStatusCounter.add(candidateInfo.oldStatus,1);
         surveyStatusCounter.add(candidateInfo.surveyStatus,1);
         surveyTypeCounter.add(candidateInfo.surveyType,1);
         if (candidateInfo.surveyType == Type.optimal) {
           if (surveyWinningValue != null) {
-            errln("duplicate optimal item: " + item);
+            errln(locale + ": \tDuplicate optimal item:\t" + item);
           }
           surveyWinningStatus = candidateInfo.surveyStatus;
           surveyWinningValue = item;
         }
         if (candidateInfo.oldStatus != null) {
           if (haveOldStatus) {
-            errln("duplicate optimal item: " + item);
+            errln(locale + ": \tDuplicate optimal item:\t" + item);
           }
           haveOldStatus = true;
-          voteResolver.setLastRelease(item, candidateInfo.oldStatus);
+          voteResolver.setLastRelease(itemValue, candidateInfo.oldStatus);
         }
-        voteResolver.add(item);
+        voteResolver.add(itemValue);
         for (int voter : candidateInfo.voters) {
           try {
-            voteResolver.add(item, voter);
+            voteResolver.add(itemValue, voter);
           } catch (UnknownVoterException e) {
             if (!unknownVotersSoFar.contains(e.getVoter())) {
-              errln(locale + ": " + e);
+              errln(locale + ":\t" + e);
               unknownVotersSoFar.add(e.getVoter());
             }
           }
         }
       }
       if (surveyWinningValue == null) {
-        errln("missing optimal item for basePath " + basePath);
+        missingOptimals.add(basePath);
         surveyWinningValue = -1;
       }
 
-      EnumSet<Organization> conflictedOrganizations = voteResolver.getConflictedOrganizations();
+      EnumSet<Organization> basePathConflictedOrganizations = voteResolver.getConflictedOrganizations();
+      conflictedOrganizations.addAll(basePathConflictedOrganizations);
+      
       Status winningStatus = voteResolver.getWinningStatus();
-      Integer winningValue = voteResolver.getWinningValue();
+      String winningValue = voteResolver.getWinningValue();
+      
+      winningStatusCounter.add(winningStatus,1);
+
       final boolean sameResults = surveyWinningStatus == winningStatus && surveyWinningValue.equals(winningValue);
       if (surveyWinningStatus == Status.approved && sameResults) {
         continue;
       } 
-      if (false && !sameResults) {
-        showPaths(locale, basePath, itemInfo);
-        log("\t***Different results for: " + basePath);
-        if (surveyWinningStatus != winningStatus) {
-          log(", status ST: " + surveyWinningStatus);
-          log(", VR: " + winningStatus);
+      if (!sameResults) {
+        surveyVsVoteResolverDifferences.add(basePath);
+        if (SHOW_DETAILS) {
+          showPaths(locale, basePath, itemInfo);
+          log("\t***Different results for:\t" + basePath);
+          if (surveyWinningStatus != winningStatus) {
+            log(", status ST:\t" + surveyWinningStatus);
+            log(", VR:\t" + winningStatus);
+          }
+          if (!surveyWinningValue.equals(winningValue)) {
+            log(", value ST:\t" + surveyWinningValue);
+            log(", VR:\t" + winningValue);
+          }
+          logln("");
         }
-        if (!surveyWinningValue.equals(winningValue)) {
-          log(", value ST: " + surveyWinningValue);
-          log(", VR: " + winningValue);
-        }
-        logln("");
-       }
+      }
       
-      CandidateInfo candidateInfo = itemInfo.get(winningValue);
+      CandidateInfo candidateInfo = itemInfo.get(valueToItem.get(winningValue));
       Map<Organization, Level> orgToMaxVoteHere = VoteResolver.getOrganizationToMaxVote(candidateInfo.voters);
+      
 
       // if the winning item is less than contributed, record the organizations that haven't given their maximum vote to the winning item.
       if (winningStatus.compareTo(Status.contributed) < 0) {
@@ -239,7 +300,7 @@ public class TestUtilities extends TestFmwk {
             missingOrganizationCounter.add(org,1);
           }
         }
-        //logln("&Missing organizations: " + missingOrganizations);
+        //logln("&Missing organizations:\t" + missingOrganizations);
       } else {
         for (Organization org : orgToMaxVote.keySet()) {
           Level maxVote = orgToMaxVote.get(org);
@@ -251,35 +312,46 @@ public class TestUtilities extends TestFmwk {
         }
       }
     }
-    if (missingOrganizationCounter.size() > 0) {
-      logln("oldStatus values: " + oldStatusCounter + ", TOTAL: " + oldStatusCounter.getTotal());
-      logln("surveyStatus values: " + surveyStatusCounter + ", TOTAL: " + surveyStatusCounter.getTotal());
-      logln("surveyType values: " + surveyTypeCounter + ", TOTAL: " + surveyTypeCounter.getTotal());
-      logln("Missing organizations: " + missingOrganizationCounter);
-      logln("Cool organizations!: " + goodOrganizationCounter);
+    if (missingOptimals.size() != 0) {
+      errln(locale + ": \tSurvey Tool missing optimal item for basePaths:\t" + missingOptimals);
     }
+    if (surveyVsVoteResolverDifferences.size() > 0) {
+      errln(locale + ": \tSurvey Tool vs VoteResolver differences (approx):\t" + surveyVsVoteResolverDifferences.size());
+    }
+    if (missingOrganizationCounter.size() > 0) {
+      if (SHOW_DETAILS) {
+        logln(locale + ": \toldStatus values:\t" + oldStatusCounter + ", TOTAL:\t" + oldStatusCounter.getTotal());
+        logln(locale + ": \tsurveyType values:\t" + surveyTypeCounter + ", TOTAL:\t" + surveyTypeCounter.getTotal());
+        logln(locale + ": \tsurveyStatus values:\t" + surveyStatusCounter + ", TOTAL:\t" + surveyStatusCounter.getTotal());
+      }
+      logln(locale + ": \tMIA organizations:\t" + missingOrganizationCounter);
+      logln(locale + ": \tConflicted organizations:\t" + conflictedOrganizations);
+      logln(locale + ": \tCool organizations!:\t" + goodOrganizationCounter);
+    }
+    logln(locale + ": \tOptimal Status:\t" + winningStatusCounter);
   }
 
   private void showPaths(String locale, int basePath, final Map<Integer, CandidateInfo> itemInfo) {
-    logln("locale: " + locale + "basePath: " + basePath);
+    logln(locale + " basePath:\t" + basePath);
     for (int item : itemInfo.keySet()) {
       CandidateInfo candidateInfo = itemInfo.get(item);
-      logln("\tpath: " + item + ", " + candidateInfo);
+      logln("\tpath:\t" + item + ", " + candidateInfo);
     }
   }
 
   public void TestVoteResolver() {
-    VoteResolver.setVoterToInfo(Utility.asMap(new Object[][] {
-        { 888, new VoterInfo(Organization.guest, Level.street, "O. Henry") }, 
-        { 777, new VoterInfo(Organization.gnome, Level.street, "S. Henry") }, 
-        { 666, new VoterInfo(Organization.google, Level.vetter, "J. Smith") },
-        { 555, new VoterInfo(Organization.google, Level.street, "S. Jones") },
-        { 444, new VoterInfo(Organization.google, Level.vetter, "S. Samuels") },
-        { 333, new VoterInfo(Organization.apple, Level.vetter, "A. Mutton") },
-        { 222, new VoterInfo(Organization.adobe, Level.expert, "A. Aldus") },
-        { 111, new VoterInfo(Organization.ibm, Level.street, "J. Henry") },
-        }));
-    VoteResolver resolver = new VoteResolver();
+    Map<Integer, VoterInfo> testdata = (Map<Integer, VoterInfo>) Utility.asMap(new Object[][] {
+      { 888, new VoterInfo(Organization.guest, Level.street, "O. Henry") }, 
+      { 777, new VoterInfo(Organization.gnome, Level.street, "S. Henry") }, 
+      { 666, new VoterInfo(Organization.google, Level.vetter, "J. Smith") },
+      { 555, new VoterInfo(Organization.google, Level.street, "S. Jones") },
+      { 444, new VoterInfo(Organization.google, Level.vetter, "S. Samuels") },
+      { 333, new VoterInfo(Organization.apple, Level.vetter, "A. Mutton") },
+      { 222, new VoterInfo(Organization.adobe, Level.expert, "A. Aldus") },
+      { 111, new VoterInfo(Organization.ibm, Level.street, "J. Henry") },
+      });
+    VoteResolver.setVoterToInfo(testdata);
+    VoteResolver<String> resolver = new VoteResolver<String>();
     String[] tests = {
             "oldValue=old-value",
             "oldStatus=provisional",
@@ -370,7 +442,7 @@ public class TestUtilities extends TestFmwk {
                 .toString());
         resolver.clear();
       } else {
-        errln("unknown command: " + test);
+        errln("unknown command:\t" + test);
       }
     }
   }

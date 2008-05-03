@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -67,7 +68,8 @@ public class VoteResolver<T> {
    * so that we know when new ones show up.
    */
   public enum Organization {
-    apple, adobe, google, ibm, gnome, pakistan, india, guest, iran_hci, kotoistus, lisa, openoffice_org, sun, surveytool, utilika
+    //apple, adobe, google, ibm, gnome, pakistan, india, guest, iran_hci, kotoistus, lisa, openoffice_org, sun, surveytool, utilika
+    adobe, apple, gnome, google, guest, ibm, india, iran_hci, kotoistus, lisa, openoffice_org, pakistan, sun, surveytool, utilika
   };
 
   /**
@@ -119,11 +121,11 @@ public class VoteResolver<T> {
   private static class OrganizationToValueAndVote<T> {
     private Map<Organization, Counter<T>> orgToVotes = new HashMap<Organization, Counter<T>>();
     private Map<Organization, Integer>         orgToMax   = new HashMap<Organization, Integer>();
-    private Counter<T>                    totals     = new Counter<T>();
+    private Counter<T>                    totals     = new Counter<T>(true);
 
     OrganizationToValueAndVote() {
       for (Organization org : Organization.values()) {
-        orgToVotes.put(org, new Counter<T>());
+        orgToVotes.put(org, new Counter<T>(true));
       }
     }
 
@@ -449,7 +451,7 @@ public class VoteResolver<T> {
         Level maxVote = organizationToMaxVote.get(info.organization);
         if (maxVote == null || info.level.compareTo(maxVote) > 0) {
           organizationToMaxVote.put(info.organization, info.level);
-          System.out.println("Best voter for " + locale + " for " + info.organization + " is " + info);
+          // System.out.println("Example best voter for " + locale + " for " + info.organization + " is " + info);
         }
       }
     }
@@ -638,7 +640,11 @@ public class VoteResolver<T> {
   }
   public static Map<Organization, Level> getOrganizationToMaxVote(String locale) {
     locale = locale.split("_")[0]; // take base language
-    return localeToOrganizationToMaxVote.get(locale);
+    Map<Organization, Level> result = localeToOrganizationToMaxVote.get(locale);
+    if (result == null) {
+      result = Collections.emptyMap();
+    }
+    return result;
   }
 
 

@@ -19,11 +19,30 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public final class Counter<T> implements Iterable<T> {
-  Map<T,RWLong> map = new LinkedHashMap<T,RWLong>();
+  Map<T,RWLong> map;
+  Comparator<T> comparator;
+  
+  public Counter() {
+    this(null);
+  }
+  
+  public Counter(boolean naturalOrdering) {
+    this(naturalOrdering ? new Utility.ComparableComparator<T>() : null);
+  }
 
+  public Counter(Comparator<T> comparator) {
+    if (comparator != null) {
+      this.comparator = comparator;
+      map = new TreeMap<T, RWLong>(comparator);
+    } else {
+      map = new LinkedHashMap<T, RWLong>();
+    }
+  }
+  
   static public final class RWLong implements Comparable<RWLong> {
     // the uniqueCount ensures that two different RWIntegers will always be different
     static int uniqueCount;
@@ -88,16 +107,16 @@ public final class Counter<T> implements Iterable<T> {
   }
   
   private static class EntryComparator<T> implements Comparator<Entry<T>>{
-    int ordering;
+    int countOrdering;
     Comparator<T> byValue;
     
     public EntryComparator(boolean ascending, Comparator<T> byValue) {
-      ordering = ascending ? 1 : -1;
+      countOrdering = ascending ? 1 : -1;
       this.byValue = byValue;
     }
     public int compare(Entry<T> o1, Entry<T> o2) {
-      if (o1.count.value < o2.count.value) return -ordering;
-      if (o1.count.value > o2.count.value) return ordering;
+      if (o1.count.value < o2.count.value) return -countOrdering;
+      if (o1.count.value > o2.count.value) return countOrdering;
       if (byValue != null) {
         return byValue.compare(o1.value, o2.value);
       }
@@ -123,15 +142,10 @@ public final class Counter<T> implements Iterable<T> {
   }
 
   public Set<T> getKeysetSortedByKey() {
-    return new TreeSet<T>(map.keySet());
-  }
-
-  public Set<T> getKeysetSortedByKey(Comparator<T> comparator) {
     Set<T> s = new TreeSet<T>(comparator);
     s.addAll(map.keySet());
     return s;
   }
-
 
 //public Map<T,RWInteger> getKeyToKey() {
 //Map<T,RWInteger> result = new HashMap<T,RWInteger>();

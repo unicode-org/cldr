@@ -1,8 +1,11 @@
 package org.unicode.cldr.unittest;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
@@ -15,10 +18,13 @@ import org.unicode.cldr.util.DelegatingIterator;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoteResolver.CandidateInfo;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
+import org.unicode.cldr.util.VoteResolver.Type;
+import org.unicode.cldr.util.VoteResolver.UnknownVoterException;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.Collator;
@@ -97,8 +103,11 @@ public class TestUtilities extends TestFmwk {
             new ArrayList(counter.getKeysetSortedByCount(false, uca)));
   }
 
+  static String userFile = "/Users/markdavis/Documents/workspace/DATA/vxml/users.xml";
+  static String votesDirectory = "/Users/markdavis/Documents/workspace/DATA/vxml/votes/";
+  
   public void TestVoteResolverData() {
-    VoteResolver.setVoterToInfo("/Users/markdavis/Downloads/users.xml");
+    VoteResolver.setVoterToInfo(userFile);
     Map<String, Map<Organization, Relation<Level, Integer>>> map = VoteResolver
             .getLocaleToVetters();
     for (String locale : map.keySet()) {
@@ -120,6 +129,142 @@ public class TestUtilities extends TestFmwk {
           logln("");
         }
       }
+    }
+    
+    File votesDir = new File(votesDirectory);
+    for (String file : votesDir.list()) {
+      if (file.startsWith("xpathTable")) {
+        continue;
+      }
+      if (file.endsWith(".xml")) {
+        checkLocaleVotes(file.substring(0,file.length()-4));
+      }
+    }
+  }
+
+  private void checkLocaleVotes(final String locale) {
+    logln("*** Locale " + locale + " ***");
+    Map<Organization, Level> orgToMaxVote = VoteResolver.getOrganizationToMaxVote(locale);
+
+    Map<Integer, Map<Integer, CandidateInfo>> info = VoteResolver.getBaseToAlternateToInfo(votesDirectory + locale + ".xml");
+    Set<Organization> missingOrganizations = EnumSet.noneOf(Organization.class);
+    Counter<Organization> missingOrganizationCounter = new Counter<Organization>();
+    Counter<Organization> goodOrganizationCounter = new Counter<Organization>();
+    
+    Set<Integer> unknownVotersSoFar = new HashSet<Integer>();
+
+    Counter<Status> oldStatusCounter = new Counter<Status>();
+    Counter<Status> surveyStatusCounter = new Counter<Status>();
+    Counter<Type> surveyTypeCounter = new Counter<Type>();
+    VoteResolver<Integer> voteResolver = new VoteResolver<Integer>();
+    for (int basePath : info.keySet()) {
+      final Map<Integer, CandidateInfo> itemInfo = info.get(basePath);
+      // if there is any approved value, then continue;
+      Status surveyWinningStatus = null;
+      Integer surveyWinningValue = null;
+
+      // find the last release status and value
+      voteResolver.clear();
+      boolean haveOldStatus = false;
+     
+      for (int item : itemInfo.keySet()) {
+        CandidateInfo candidateInfo = itemInfo.get(item);
+        oldStatusCounter.add(candidateInfo.oldStatus,1);
+        surveyStatusCounter.add(candidateInfo.surveyStatus,1);
+        surveyTypeCounter.add(candidateInfo.surveyType,1);
+        if (candidateInfo.surveyType == Type.optimal) {
+          if (surveyWinningValue != null) {
+            errln("duplicate optimal item: " + item);
+          }
+          surveyWinningStatus = candidateInfo.surveyStatus;
+          surveyWinningValue = item;
+        }
+        if (candidateInfo.oldStatus != null) {
+          if (haveOldStatus) {
+            errln("duplicate optimal item: " + item);
+          }
+          haveOldStatus = true;
+          voteResolver.setLastRelease(item, candidateInfo.oldStatus);
+        }
+        voteResolver.add(item);
+        for (int voter : candidateInfo.voters) {
+          try {
+            voteResolver.add(item, voter);
+          } catch (UnknownVoterException e) {
+            if (!unknownVotersSoFar.contains(e.getVoter())) {
+              errln(locale + ": " + e);
+              unknownVotersSoFar.add(e.getVoter());
+            }
+          }
+        }
+      }
+      if (surveyWinningValue == null) {
+        errln("missing optimal item for basePath " + basePath);
+        surveyWinningValue = -1;
+      }
+
+      EnumSet<Organization> conflictedOrganizations = voteResolver.getConflictedOrganizations();
+      Status winningStatus = voteResolver.getWinningStatus();
+      Integer winningValue = voteResolver.getWinningValue();
+      final boolean sameResults = surveyWinningStatus == winningStatus && surveyWinningValue.equals(winningValue);
+      if (surveyWinningStatus == Status.approved && sameResults) {
+        continue;
+      } 
+      if (false && !sameResults) {
+        showPaths(locale, basePath, itemInfo);
+        log("\t***Different results for: " + basePath);
+        if (surveyWinningStatus != winningStatus) {
+          log(", status ST: " + surveyWinningStatus);
+          log(", VR: " + winningStatus);
+        }
+        if (!surveyWinningValue.equals(winningValue)) {
+          log(", value ST: " + surveyWinningValue);
+          log(", VR: " + winningValue);
+        }
+        logln("");
+       }
+      
+      CandidateInfo candidateInfo = itemInfo.get(winningValue);
+      Map<Organization, Level> orgToMaxVoteHere = VoteResolver.getOrganizationToMaxVote(candidateInfo.voters);
+
+      // if the winning item is less than contributed, record the organizations that haven't given their maximum vote to the winning item.
+      if (winningStatus.compareTo(Status.contributed) < 0) {
+        //       showPaths(basePath, itemInfo);
+        missingOrganizations.clear();
+        for (Organization org : orgToMaxVote.keySet()) {
+          Level maxVote = orgToMaxVote.get(org);
+          Level maxVoteHere = orgToMaxVoteHere.get(org);
+          if (maxVoteHere == null || maxVoteHere.compareTo(maxVote) < 0) {
+            missingOrganizations.add(org);
+            missingOrganizationCounter.add(org,1);
+          }
+        }
+        //logln("&Missing organizations: " + missingOrganizations);
+      } else {
+        for (Organization org : orgToMaxVote.keySet()) {
+          Level maxVote = orgToMaxVote.get(org);
+          Level maxVoteHere = orgToMaxVoteHere.get(org);
+          if (maxVoteHere == null || maxVoteHere.compareTo(maxVote) < 0) {
+          } else {
+            goodOrganizationCounter.add(org,1);
+          }
+        }
+      }
+    }
+    if (missingOrganizationCounter.size() > 0) {
+      logln("oldStatus values: " + oldStatusCounter + ", TOTAL: " + oldStatusCounter.getTotal());
+      logln("surveyStatus values: " + surveyStatusCounter + ", TOTAL: " + surveyStatusCounter.getTotal());
+      logln("surveyType values: " + surveyTypeCounter + ", TOTAL: " + surveyTypeCounter.getTotal());
+      logln("Missing organizations: " + missingOrganizationCounter);
+      logln("Cool organizations!: " + goodOrganizationCounter);
+    }
+  }
+
+  private void showPaths(String locale, int basePath, final Map<Integer, CandidateInfo> itemInfo) {
+    logln("locale: " + locale + "basePath: " + basePath);
+    for (int item : itemInfo.keySet()) {
+      CandidateInfo candidateInfo = itemInfo.get(item);
+      logln("\tpath: " + item + ", " + candidateInfo);
     }
   }
 
@@ -195,10 +340,8 @@ public class TestUtilities extends TestFmwk {
         logln("#\t" + value);
       } else if (name.equalsIgnoreCase("oldValue")) {
         oldValue = value;
-        resolver.newPath(oldValue, oldStatus);
       } else if (name.equalsIgnoreCase("oldStatus")) {
         oldStatus = Status.valueOf(value);
-        resolver.newPath(oldValue, oldStatus);
       } else if (name.equalsIgnoreCase("value")) {
         expectedValue = value;
       } else if (name.equalsIgnoreCase("status")) {
@@ -216,7 +359,7 @@ public class TestUtilities extends TestFmwk {
         }
       } else if (name.equalsIgnoreCase("check")) {
         counter++;
-        resolver.newPath(oldValue, oldStatus);
+        resolver.setLastRelease(oldValue, oldStatus);
         for (int voter : values.keySet()) {
           resolver.add(values.get(voter), voter);
         }
@@ -225,6 +368,7 @@ public class TestUtilities extends TestFmwk {
         assertEquals(counter + " status", expectedStatus, resolver.getWinningStatus());
         assertEquals(counter + " org", expectedConflicts, resolver.getConflictedOrganizations()
                 .toString());
+        resolver.clear();
       } else {
         errln("unknown command: " + test);
       }

@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -48,14 +49,17 @@ import com.ibm.icu.util.ULocale;
  * conflicts = resolver.getConflictedOrganizations();
  * </pre>
  */
-public class VoteResolver {
+public class VoteResolver<T> {
   private static final boolean           DEBUG                      = false;
 
   /**
    * The status levels according to the committee, in ascending order
    */
   public enum Status {
-    unconfirmed, provisional, contributed, approved
+    missing, unconfirmed, provisional, contributed, approved;
+    public static Status fromString(String source) {
+      return source == null ? missing : Status.valueOf(source);
+    }
   }
 
   /**
@@ -112,14 +116,14 @@ public class VoteResolver {
   /**
    * Internal class for getting from an organization to its vote.
    */
-  private static class OrganizationToValueAndVote {
-    private Map<Organization, Counter<String>> orgToVotes = new HashMap<Organization, Counter<String>>();
+  private static class OrganizationToValueAndVote<T> {
+    private Map<Organization, Counter<T>> orgToVotes = new HashMap<Organization, Counter<T>>();
     private Map<Organization, Integer>         orgToMax   = new HashMap<Organization, Integer>();
-    private Counter<String>                    totals     = new Counter<String>();
+    private Counter<T>                    totals     = new Counter<T>();
 
     OrganizationToValueAndVote() {
       for (Organization org : Organization.values()) {
-        orgToVotes.put(org, new Counter<String>());
+        orgToVotes.put(org, new Counter<T>());
       }
     }
 
@@ -138,8 +142,11 @@ public class VoteResolver {
      * @param value
      * @param voter
      */
-    public void add(String value, int voter) {
+    public void add(T value, int voter) {
       VoterInfo info = getVoterToInfo().get(voter);
+      if (info == null) {
+        throw new UnknownVoterException(voter);
+      }
       final int votes = info.level.getVotes();
       orgToVotes.get(info.organization).add(value, votes);
       // add the new votes to orgToMax, if they are greater that what was there
@@ -148,26 +155,26 @@ public class VoteResolver {
         orgToMax.put(info.organization, votes);
       }
     }
-
+    
     /**
      * Return the overall vote for each organization. It is the max, except when
      * the organization is conflicted (the top two values have the same vote).
      * In that case, it is zero and the organization is added to disputed
      */
-    public Counter<String> getTotals(EnumSet<Organization> conflictedOrganizations) {
+    public Counter<T> getTotals(EnumSet<Organization> conflictedOrganizations) {
       conflictedOrganizations.clear();
       totals.clear();
       for (Organization org : orgToVotes.keySet()) {
-        Counter<String> items = orgToVotes.get(org);
+        Counter<T> items = orgToVotes.get(org);
         if (items.size() == 0) {
           continue;
         }
-        Iterator<String> iterator = items.getKeysetSortedByCount(false).iterator();
-        String value = iterator.next();
+        Iterator<T> iterator = items.getKeysetSortedByCount(false).iterator();
+        T value = iterator.next();
         long weight = items.getCount(value);
         // if there is more than one item, check that it is less
         if (iterator.hasNext()) {
-          String value2 = iterator.next();
+          T value2 = iterator.next();
           long weight2 = items.getCount(value2);
           // if the votes for #1 are not better than #2, we have a dispute
           if (weight == weight2) {
@@ -182,10 +189,10 @@ public class VoteResolver {
       return totals;
     }
 
-    public int getOrgCount(String winningValue) {
+    public int getOrgCount(T winningValue) {
       int orgCount = 0;
       for (Organization org : orgToVotes.keySet()) {
-        Counter<String> counter = orgToVotes.get(org);
+        Counter<T> counter = orgToVotes.get(org);
         long count = counter.getCount(winningValue);
         if (count > 0) {
           orgCount++;
@@ -197,7 +204,7 @@ public class VoteResolver {
     public String toString() {
       String orgToVotesString = "";
       for (Organization org: orgToVotes.keySet()) {
-        Counter<String> counter = orgToVotes.get(org);
+        Counter<T> counter = orgToVotes.get(org);
         if (counter.size() != 0) {
           if (orgToVotesString.length() != 0) {
             orgToVotesString += ", ";
@@ -214,19 +221,27 @@ public class VoteResolver {
    * Static info read from file
    */
   private static Map<Integer, VoterInfo> voterToInfo;
+
+  private static TreeMap<String, Map<Organization, Level>> localeToOrganizationToMaxVote;
   
   /**
    * Data built internally
    */
-  private String                         winningValue;
+  private T                         winningValue;
   private Status                         winningStatus;
   private EnumSet<Organization>          conflictedOrganizations    = EnumSet
                                                                             .noneOf(Organization.class);
-  private OrganizationToValueAndVote     organizationToValueAndVote = new OrganizationToValueAndVote();
-  private String                         lastReleaseValue;
+  private OrganizationToValueAndVote<T>     organizationToValueAndVote = new OrganizationToValueAndVote<T>();
+  private T                         lastReleaseValue;
   private Status                         lastReleaseStatus;
   private boolean                        resolved;
-  private final Comparator<String> ucaCollator = Collator.getInstance(ULocale.ENGLISH);
+  private final Comparator<T> ucaCollator = new Comparator<T>() {
+    Collator col = Collator.getInstance(ULocale.ENGLISH);
+    public int compare(T o1, T o2) {
+      // TODO Auto-generated method stub
+      return col.compare(String.valueOf(o1), String.valueOf(o2));
+    }   
+  };
 
   /**
    * Call this method first, for a new path. You'll then call add for each value
@@ -237,32 +252,71 @@ public class VoteResolver {
    * @param lastReleaseStatus
    */
 
-  public void newPath(String lastReleaseValue, Status lastReleaseStatus) {
+  public void setLastRelease(T lastReleaseValue, Status lastReleaseStatus) {
     this.lastReleaseValue = lastReleaseValue;
-    this.lastReleaseStatus = lastReleaseStatus;
+    this.lastReleaseStatus = lastReleaseStatus == null ? Status.missing : lastReleaseStatus;
+  }
+
+
+  /**
+   * Call this method first, for a new base path. You'll then call add for each value
+   * associated with that base path
+   */
+
+  public void clear() {
+    this.lastReleaseValue = null;
+    this.lastReleaseStatus = Status.missing;
     organizationToValueAndVote.clear();
     resolved = false;
+    values.clear();
   }
 
-  public void add(String value, int voter) {
+  /**
+   * Call once for each voter for a value. If there are no voters for an item, then call add(value);
+   * @param value
+   * @param voter
+   */
+  public void add(T value, int voter) {
     if (resolved) {
-      throw new IllegalArgumentException("Must be called after newPath, and before any getters.");
+      throw new IllegalArgumentException("Must be called after clear, and before any getters.");
     }
     organizationToValueAndVote.add(value, voter);
+    values.add(value);
+  }
+  
+  /**
+   * Call if a value has no voters. It is safe to also call this if there is a voter, just unnecessary.
+   * @param value
+   * @param voter
+   */
+  public void add(T value) {
+    if (resolved) {
+      throw new IllegalArgumentException("Must be called after clear, and before any getters.");
+    }
+    values.add(value);
   }
 
+  private Set<T> values = new HashSet<T>();
+
   private void resolveVotes() {
-    if (lastReleaseStatus == null || lastReleaseValue == null) {
-      throw new IllegalArgumentException("must call newPath before extracting information");
-    }
     resolved = true;
     // get the votes for each organization
-    Counter<String> totals = organizationToValueAndVote.getTotals(conflictedOrganizations);
-    Iterator<String> iterator = totals.getKeysetSortedByCount(false, ucaCollator).iterator();
+    Counter<T> totals = organizationToValueAndVote.getTotals(conflictedOrganizations);
+    Iterator<T> iterator = totals.getKeysetSortedByCount(false, ucaCollator).iterator();
     // if there are no (unconflicted) votes, return lastRelease
     if (!iterator.hasNext()) {
-      winningStatus = lastReleaseStatus;
-      winningValue = lastReleaseValue;
+      // if there *was* a real winning status, then return it.
+      if (lastReleaseStatus != Status.missing) {
+        winningStatus = lastReleaseStatus;
+        winningValue = lastReleaseValue;
+        return;
+      }
+      // otherwise pick the smallest value.
+      if (values.size() == 0) {
+        throw new IllegalArgumentException("No values added to resolver");
+      }
+      winningStatus = Status.unconfirmed;
+      winningValue = values.iterator().next();
       return;
     }
     // get the optimal value
@@ -270,7 +324,7 @@ public class VoteResolver {
     long weight = totals.getCount(winningValue);
     // could optimize the following line by only computing later.
     int orgCount = organizationToValueAndVote.getOrgCount(winningValue);
-    String value2 = null;
+    T value2 = null;
     long weight2 = 0;
     // if there is a tie
     // get the next item if there is one
@@ -299,7 +353,7 @@ public class VoteResolver {
     return winningStatus;
   }
 
-  public String getWinningValue() {
+  public T getWinningValue() {
     if (!resolved) {
       resolveVotes();
     }
@@ -345,6 +399,10 @@ public class VoteResolver {
       return voterToInfo;
     }
   }
+  
+  public static VoterInfo getInfoForVoter(int voter) {
+    return getVoterToInfo().get(voter);
+  }
 
   /**
    * Set the voter info.
@@ -374,6 +432,28 @@ public class VoteResolver {
     XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
     xfr.read(fileName, XMLFileReader.CONTENT_HANDLER | XMLFileReader.ERROR_HANDLER, false);
     setVoterToInfo(myHandler.testVoterToInfo);
+    
+    // compute the localeToOrganizationToMaxVote
+    localeToOrganizationToMaxVote = new TreeMap<String, Map<Organization,Level>>();
+    for (int voter : getVoterToInfo().keySet()) {
+      VoterInfo info = getVoterToInfo().get(voter);
+      if (info.level == Level.tc || info.level == Level.locked) {
+        continue; // skip TCs, locked
+      }
+
+      for (String locale : info.locales) {
+        Map<Organization, Level> organizationToMaxVote = localeToOrganizationToMaxVote.get(locale);
+        if (organizationToMaxVote == null) {
+          localeToOrganizationToMaxVote.put(locale, organizationToMaxVote = new TreeMap<Organization, Level>());
+        }
+        Level maxVote = organizationToMaxVote.get(info.organization);
+        if (maxVote == null || info.level.compareTo(maxVote) > 0) {
+          organizationToMaxVote.put(info.organization, info.level);
+          System.out.println("Best voter for " + locale + " for " + info.organization + " is " + info);
+        }
+      }
+    }
+    Utility.protectCollection(localeToOrganizationToMaxVote);
   }
 
   /**
@@ -432,6 +512,162 @@ public class VoteResolver {
       } else {
         //System.out.println("\tFailed match with " + path + "=" + value);
       }
+    }
+  }
+  public static Map<Integer,String> getVoteInfo(String fileName) {
+    XPathTableHandler myHandler = new XPathTableHandler();
+    XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
+    xfr.read(fileName, XMLFileReader.CONTENT_HANDLER | XMLFileReader.ERROR_HANDLER, false);
+    return myHandler.pathIdToPath;
+  }
+
+  static class XPathTableHandler extends XMLFileReader.SimpleHandler {
+    Matcher matcher = Pattern.compile("id=\"([0-9]+)\"").matcher("");
+    Map<Integer,String> pathIdToPath = new HashMap<Integer,String>();
+    
+    public void handlePathValue(String path, String value) {
+      // <xpathTable host="tintin.local" date="Tue Apr 29 14:34:32 PDT 2008"  count="18266" >
+      // <xpath id="1">//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]</xpath>
+      if (!matcher.reset(path).matches()) {
+        throw new IllegalArgumentException("Unknown path " + path);
+      }
+      pathIdToPath.put(Integer.parseInt(matcher.group(1)), value);
+    }
+  }
+  
+  public static Map<Integer, Map<Integer, CandidateInfo>> getBaseToAlternateToInfo(String fileName) {
+    try {
+      VotesHandler myHandler = new VotesHandler();
+      XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
+      xfr.read(fileName, XMLFileReader.CONTENT_HANDLER | XMLFileReader.ERROR_HANDLER, false);
+      return myHandler.basepathToInfo;
+    } catch (Exception e) {
+      throw (RuntimeException) new IllegalArgumentException("Can't handle file: " + fileName).initCause(e);
+    }
+  }
+  
+  public enum Type {proposal, optimal};
+  
+  public static class CandidateInfo {
+    public Status oldStatus;
+    public Type surveyType;
+    public Status surveyStatus;
+    public Set<Integer> voters = new TreeSet<Integer>();
+    public String toString() {
+      StringBuilder voterString = new StringBuilder("{");
+      for (int voter : voters) {
+        VoterInfo voterInfo = getInfoForVoter(voter);
+        if (voterString.length() > 1) {
+          voterString.append(" ");
+        }
+        voterString.append(voter);
+        if (voterInfo != null) {
+          voterString.append(" ").append(voterInfo);
+        }
+      }
+      voterString.append("}");
+      return 
+      "{oldStatus: " + oldStatus
+      + ", surveyType: " + surveyType
+      + ", surveyStatus: " + surveyStatus
+      + ", voters: " + voterString
+      + "};";
+    }
+  }
+
+  /*
+   * <locale-votes host="tintin.local" date="Tue Apr 29 14:34:32 PDT 2008"
+   * oldVersion="1.5.1" currentVersion="1.6" resolved="false" locale="zu">
+   *  <row baseXpath="1">
+   *    <item xpath="2855" type="proposal" id="1" status="unconfirmed">
+   *      <old status="unconfirmed"/>
+   *    </item>
+   *    <item xpath="1" type="optimal" id="56810" status="confirmed">
+   *      <vote user="210"/>
+   *    </item>
+   *  </row>
+   *  ...
+   * A base path has a set of candidates. Each candidate has various items of information.
+   */
+  static class VotesHandler extends XMLFileReader.SimpleHandler {
+    Map<Integer,Map<Integer,CandidateInfo>> basepathToInfo = new TreeMap<Integer,Map<Integer,CandidateInfo>>();
+    XPathParts parts = new XPathParts();
+    
+    public void handlePathValue(String path, String value) {
+      try {
+        parts.set(path);
+        if (parts.size() < 2) {
+          // empty data
+          return;
+        }
+        int baseId = Integer.parseInt(parts.getAttributeValue(1, "baseXpath"));
+        Map<Integer,CandidateInfo> info = basepathToInfo.get(baseId);
+        if (info == null) {
+          basepathToInfo.put(baseId, info = new TreeMap<Integer,CandidateInfo>());
+        }
+        int itemId = Integer.parseInt(parts.getAttributeValue(2, "xpath"));
+        CandidateInfo candidateInfo = info.get(itemId);
+        if (candidateInfo == null) {
+          info.put(itemId, candidateInfo = new CandidateInfo());
+          candidateInfo.surveyType = Type.valueOf(parts.getAttributeValue(2, "type"));
+          candidateInfo.surveyStatus = Status.valueOf(fixBogusDraftStatusValues(parts.getAttributeValue(2, "status")));
+          // ignore id
+        }
+        if (parts.size() < 4) {
+          return;
+        }
+        final String lastElement = parts.getElement(3);
+        if (lastElement.equals("old")) {
+          candidateInfo.oldStatus = Status.valueOf(fixBogusDraftStatusValues(parts.getAttributeValue(3, "status")));
+        } else if (lastElement.equals("vote")) {
+          candidateInfo.voters.add(Integer.parseInt(parts.getAttributeValue(3, "user")));
+        } else {
+          throw new IllegalArgumentException("unknown option: " + path);
+        }
+      } catch (Exception e) {
+        throw (RuntimeException) new IllegalArgumentException("Can't handle path: " + path).initCause(e);
+      }
+    }
+
+    private String fixBogusDraftStatusValues(String attributeValue) {
+      if ("confirmed".equals(attributeValue)) return "approved";
+      if ("true".equals(attributeValue)) return "unconfirmed";
+      if ("unknown".equals(attributeValue)) return "unconfirmed";
+      return attributeValue;
+    }
+  }
+  public static Map<Organization, Level> getOrganizationToMaxVote(String locale) {
+    locale = locale.split("_")[0]; // take base language
+    return localeToOrganizationToMaxVote.get(locale);
+  }
+
+
+  public static Map<Organization, Level> getOrganizationToMaxVote(Set<Integer> voters) {
+    Map<Organization, Level> orgToMaxVoteHere = new TreeMap<Organization, Level>();
+    for (int voter : voters) {
+      VoterInfo info = getInfoForVoter(voter);
+      if (info == null) {
+        continue; // skip unknown voter
+      }
+      Level maxVote = orgToMaxVoteHere.get(info.organization);
+      if (maxVote == null || info.level.compareTo(maxVote) > 0) {
+        orgToMaxVoteHere.put(info.organization, info.level);
+        //System.out.println("*Best voter for " + info.organization + " is " + info);
+      }
+    }
+    return orgToMaxVoteHere;
+  }
+  
+  public static class UnknownVoterException extends RuntimeException {
+    int voter;
+    public UnknownVoterException(int voter) {
+      this.voter = voter;
+    }
+    public String toString() {
+      return "Unknown voter: " + voter;
+    }
+    public int getVoter() {
+      return voter;
     }
   }
 }

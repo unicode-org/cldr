@@ -50,52 +50,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-class MyXSymbolTable extends UnicodeSet.XSymbolTable {
-  static VariantFolder caseFolder = new VariantFolder(new CaseVariantFolder());
-  static VariantFolder canonicalFolder = new VariantFolder(new CanonicalFolder());
-  static VariantFolder compatibilityFolder = new VariantFolder(new CompatibilityFolder());
-  public boolean applyPropertyAlias(String propertyName, String propertyValue, UnicodeSet result) {
-    if (propertyName.equalsIgnoreCase("close")) {
-      if (propertyValue.equalsIgnoreCase("case")) {
-        result.addAll(caseFolder.getClosure(result));
-      } else if (propertyValue.equalsIgnoreCase("canonical")) {
-        result.addAll(canonicalFolder.getClosure(result));   
-      } else if (propertyValue.equalsIgnoreCase("compatibility")) {
-        result.addAll(compatibilityFolder.getClosure(result));   
-      }
-      return true;
-    } else if (propertyName.equalsIgnoreCase("reduce")) {
-      if (propertyValue.equalsIgnoreCase("case")) {
-        UnicodeSet temp = caseFolder.reduce(result);
-        result.clear().addAll(temp);
-      } else if (propertyValue.equalsIgnoreCase("canonical")) {
-        UnicodeSet temp = canonicalFolder.reduce(result);
-        result.clear().addAll(temp);
-      } else if (propertyValue.equalsIgnoreCase("compatibility")) {
-        UnicodeSet temp = compatibilityFolder.reduce(result);
-        result.clear().addAll(temp);
-      }
-      return true;
-    } else if (propertyName.equalsIgnoreCase("reduceCase")) {
-      UnicodeSet temp = caseFolder.reduce(new UnicodeSet(propertyValue.replace(
-          "·]", ":]")));
-      result.clear().addAll(temp);
-      return true;
-    } else if (propertyName.equalsIgnoreCase("reduceCanonical")) {
-      UnicodeSet temp = canonicalFolder.reduce(new UnicodeSet(propertyValue.replace(
-          "·]", ":]")));
-      result.clear().addAll(temp);
-      return true;
-    } else if (propertyName.equalsIgnoreCase("reduceCase")) {
-      UnicodeSet temp = caseFolder.reduce(new UnicodeSet(propertyValue.replace(
-          "·]", ":]")));
-      result.clear().addAll(temp);
-      return true;
-    }
-    return false;
-  }
-}
-
 public class TestMisc {
   
   static Currency SWISS_FRANC = Currency.getInstance("CHF");
@@ -113,6 +67,12 @@ public class TestMisc {
   enum Foo {A, M, Z};
 
   public static void main(String[] args) {
+    
+    Locale locale = new Locale("abc-d αγζθ ?ef_g%hi","abc-d αγζθ ?ef_g%hi","abc-d αγζθ ?ef_g%hi");
+
+    System.out.println("Locale locale = new Locale(\"abc-d αγζθ ?ef_g%hi\",\"abc-d αγζθ ?ef_g%hi\",\"abc-d αγζθ ?ef_g%hi\");");
+    System.out.println("locale.toString() == \"" + locale + "\"");
+    
     MyXSymbolTable sym = new MyXSymbolTable();
     BagFormatter bf = new BagFormatter();
     for (String test : new String[]{
@@ -801,5 +761,52 @@ public class TestMisc {
             language_territory_hack_map.put(language_territory_hack[i][0],language_territory_hack[i][1]);
         }
     }
+
+  static class MyXSymbolTable extends UnicodeSet.XSymbolTable {
+      static VariantFolder caseFolder = new VariantFolder(new CaseVariantFolder());
+      static VariantFolder canonicalFolder = new VariantFolder(new CanonicalFolder());
+      static VariantFolder compatibilityFolder = new VariantFolder(new CompatibilityFolder());
+      public boolean applyPropertyAlias(String propertyName, String propertyValue, UnicodeSet result) {
+        if (propertyName.equalsIgnoreCase("close")) {
+          if (propertyValue.equalsIgnoreCase("case")) {
+            result.addAll(caseFolder.getClosure(result));
+          } else if (propertyValue.equalsIgnoreCase("canonical")) {
+            result.addAll(canonicalFolder.getClosure(result));   
+          } else if (propertyValue.equalsIgnoreCase("compatibility")) {
+            result.addAll(compatibilityFolder.getClosure(result));   
+          }
+          return true;
+        } else if (propertyName.equalsIgnoreCase("reduce")) {
+          if (propertyValue.equalsIgnoreCase("case")) {
+            UnicodeSet temp = caseFolder.reduce(result);
+            result.clear().addAll(temp);
+          } else if (propertyValue.equalsIgnoreCase("canonical")) {
+            UnicodeSet temp = canonicalFolder.reduce(result);
+            result.clear().addAll(temp);
+          } else if (propertyValue.equalsIgnoreCase("compatibility")) {
+            UnicodeSet temp = compatibilityFolder.reduce(result);
+            result.clear().addAll(temp);
+          }
+          return true;
+        } else if (propertyName.equalsIgnoreCase("reduceCase")) {
+          UnicodeSet temp = caseFolder.reduce(new UnicodeSet(propertyValue.replace(
+              "·]", ":]")));
+          result.clear().addAll(temp);
+          return true;
+        } else if (propertyName.equalsIgnoreCase("reduceCanonical")) {
+          UnicodeSet temp = canonicalFolder.reduce(new UnicodeSet(propertyValue.replace(
+              "·]", ":]")));
+          result.clear().addAll(temp);
+          return true;
+        } else if (propertyName.equalsIgnoreCase("reduceCase")) {
+          UnicodeSet temp = caseFolder.reduce(new UnicodeSet(propertyValue.replace(
+              "·]", ":]")));
+          result.clear().addAll(temp);
+          return true;
+        }
+        return false;
+      }
+    }
+
 
 }

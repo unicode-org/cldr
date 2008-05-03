@@ -21,19 +21,19 @@ class SimpleLocaleParser {
   // if we want to allow multiple --, change [-_] into [-_]+
   private static final Pattern rootPattern = Pattern.compile(
           "(?:" +
-          " (?: ( [a-z]{2,8} )" +
-          "   (?: [-_] ( [a-z]{4} ) )?" +
-          "   (?: [-_] ( [a-z]{2} | [0-9]{3} ) )?" +
-          "   (?: [-_] ( (?: [a-z 0-9]{5,8} | [0-9] [a-z 0-9]{3} ) (?: [-_] (?: [a-z 0-9]{5,8} | [0-9] [a-z 0-9]{3} ) )* ) )?" + 
-          "   (?: [-_] ( [a-w y-z] (?: [-_] [a-z 0-9]{2,8} )+ (?: [-_] [a-w y-z] (?: [-_] [a-z 0-9]{2,8} )+ )* ) )?" + 
-          "   (?: [-_] ( x (?: [-_] [a-z 0-9]{1,8} )+ ) )? )" + 
-          " | ( x (?: [-_] [a-z 0-9]{1,8} )+ )" + 
-          " | ( en [-_] GB [-_] oed" +
+          " (?: ( [a-z]{2,8} )" + // language
+          "   (?: [-_] ( [a-z]{4} ) )?" + // script
+          "   (?: [-_] ( [a-z]{2} | [0-9]{3} ) )?" + // region
+          "   (?: [-_] ( (?: [a-z 0-9]{5,8} | [0-9] [a-z 0-9]{3} ) (?: [-_] (?: [a-z 0-9]{5,8} | [0-9] [a-z 0-9]{3} ) )* ) )?" + // variant(s)
+          "   (?: [-_] ( [a-w y-z] (?: [-_] [a-z 0-9]{2,8} )+ (?: [-_] [a-w y-z] (?: [-_] [a-z 0-9]{2,8} )+ )* ) )?" + // extensions
+          "   (?: [-_] ( x (?: [-_] [a-z 0-9]{1,8} )+ ) )? )" + // private use
+          " | ( x (?: [-_] [a-z 0-9]{1,8} )+ )" + // private use
+          " | ( en [-_] GB [-_] oed" + // grandfathered gorp
           "   | i [-_] (?: ami | bnn | default | enochian | hak | klingon | lux | mingo | navajo | pwn | tao | tay | tsu )" +
           "   | no [-_] (?: bok | nyn )" +
           "   | sgn [-_] (?: BE [-_] (?: fr | nl) | CH [-_] de )" +
           "   | zh [-_] (?: cmn (?: [-_] Hans | [-_] Hant )? | gan | min (?: [-_] nan)? | wuu | yue ) ) )" +
-          " (?: \\@ ((?: [a-z 0-9]+ \\= [a-z 0-9]+) (?: \\; (?: [a-z 0-9]+ \\= [a-z 0-9]+))*))?" +
+          " (?: \\@ ((?: [a-z 0-9]+ \\= [a-z 0-9]+) (?: \\; (?: [a-z 0-9]+ \\= [a-z 0-9]+))*))?" + // CLDR/ICU keywords
           "", Pattern.COMMENTS | Pattern.CASE_INSENSITIVE);  // TODO change above to be lowercase, since source is already when we compare
   // Other regex patterns for splitting apart lists of items detected above.
   private static final Pattern variantSeparatorPattern = Pattern.compile("[-_]");

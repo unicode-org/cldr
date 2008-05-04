@@ -851,7 +851,7 @@ public static <T> T clone(T source) {
         }
     }
 
-    public static void addTreeMapChain(Map<Object, Object> coverageData, Object... objects) {
+    public static void addTreeMapChain(Map coverageData, Object... objects) {
         Map<Object, Object> base = coverageData;
         for (int i = 0; i < objects.length-2; ++i) {
             Map<Object, Object> nextOne = (Map<Object, Object>) base.get(objects[i]);
@@ -969,7 +969,7 @@ public static <T> T clone(T source) {
      * @param source_key_valueSet
      * @param output_value_key
      */
-    public static void putAllTransposed(Map source_key_valueSet, Map<Object, Object> output_value_key) {
+    public static void putAllTransposed(Map source_key_valueSet, Map output_value_key) {
         for (Iterator it = source_key_valueSet.keySet().iterator(); it.hasNext();) {
             Object key = it.next();
             Set values = (Set) source_key_valueSet.get(key);

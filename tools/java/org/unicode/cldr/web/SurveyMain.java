@@ -6048,7 +6048,7 @@ public class SurveyMain extends HttpServlet {
         }
         if(!choice.equals(CHANGETO)) {
             choice_v=""; // so that the value is ignored, as it is not changing
-        } else if (choice_v.length()>0) {
+        } else if (choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull)) {
             choice_v = ctx.processor.processInput(xpt.getById(p.base_xpath),choice_v, null);
         }
         
@@ -6212,11 +6212,11 @@ public class SurveyMain extends HttpServlet {
 		}
 		
         
-        if(choice.equals(CHANGETO)&& choice_v.length()==0) {
+        if(choice.equals(CHANGETO)&& !choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull)) {
             ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
             ctx.println(ctx.iconHtml("stop","empty value")+ " value was left empty. <!-- Use 'remove' to request removal. --><br>");
             ctx.temporaryStuff.put(fieldHash+"_v", choice_v);  // mark it 
-        } else if( (choice.equals(CHANGETO) && choice_v.length()>0) ||
+        } else if( (choice.equals(CHANGETO) && choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull)) ||
              (HAVE_REMOVE&&choice.equals(REMOVE)) ) {
             if(!canSubmit) {
                 ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
@@ -9038,5 +9038,12 @@ public class SurveyMain extends HttpServlet {
 
     public static String getProposedName() {
         return "Proposed&nbsp;"+getNewVersion();
+    }
+    
+    Pattern ALLOWED_EMPTY = Pattern.compile("//ldml/fallback(?![a-zA-Z])");
+    // TODO move to central location
+    
+    private boolean choiceNotEmptyOrAllowedEmpty(String choice_r, String path) {
+      return choice_r.length()>0 || ALLOWED_EMPTY.matcher(path).matches();
     }
 }

@@ -153,20 +153,7 @@ public class UserRegistry {
         }
 
         public final boolean userIsSpecialForCLDR15(String locale) {
-            Set<User> specials = getSpecialUsers();
-            if(specials != null && !specials.contains(this)) {
-                return false;
-            }
-            if(locale==null) {
-                return true; // if they are special at all
-            } else {
-                if(userIsTC(this)) {
-                    return true;
-                }
-                if((this.locales == null) && userIsExpert(this)) return true; // empty = ALL
-                String localeArray[] = tokenizeLocale(this.locales);
-                return userCanModifyLocale(localeArray,locale);
-            }
+		return false;
         }
 //            if(locale.equals("be")||locale.startsWith("be_")) {
 //                if( ( id == 315 /* V. P. */ ) || (id == 8 /* S. M. */ ) ) {

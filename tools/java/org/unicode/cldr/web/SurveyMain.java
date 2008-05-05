@@ -7832,7 +7832,7 @@ public class SurveyMain extends HttpServlet {
     public void destroy() {
         logger.warning("SurveyTool shutting down..");
         doShutdownDB();
-        busted("servlet destroyed");
+        if(isBusted!=null) isBusted="servlet destroyed";
         super.destroy();
     }
 
@@ -8697,15 +8697,6 @@ public class SurveyMain extends HttpServlet {
         {
             gotSQLExc = true;
             logger.info("DB: while shutting down: " + se.toString());
-        }
-        
-        if (!gotSQLExc)
-        {
-            logger.warning("Database did not shut down normally");
-        }
-        else
-        {
-            logger.info("Database shut down normally");
         }
     }
 

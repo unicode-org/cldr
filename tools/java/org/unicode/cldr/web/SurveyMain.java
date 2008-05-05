@@ -483,6 +483,9 @@ public class SurveyMain extends HttpServlet {
         if(!isSetup) {
             boolean isGET = "GET".equals(request.getMethod());
             int sec = 4;
+            if(isBusted != null) {
+		sec = 120;
+            }
             String base = WebContext.base(request);
             if(isGET) {
                 String qs  = "";
@@ -501,11 +504,32 @@ public class SurveyMain extends HttpServlet {
             out.println("<title>"+sysmsg("startup_title")+"</title>");
             out.println("<link rel='stylesheet' type='text/css' href='"+base+"/../surveytool.css'>");
             out.println("</head><body>");
+            if(isBusted != null) {
+                out.println(SHOWHIDE_SCRIPT);
+                out.println("</head>");
+                out.println("<body>");
+                showSpecialHeader(out);
+                out.println("<h1>The CLDR Survey Tool is offline</h1>");
+                out.println("<div class='ferrbox'><pre>" + isBusted +"</pre><hr>");
+                out.println("\n");
+                out.println(getShortened((SurveyForum.HTMLSafe(isBustedStack).replaceAll("\t", "&nbsp;&nbsp;&nbsp;").replaceAll("\n", "<br>"))));
+                out.println("</div><br>");
+
+
+                out.println("<hr>");
+                if(!isUnofficial) {
+                    out.println("Please try this link for info: <a href='"+CLDR_WIKI_BASE+"?SurveyTool/Status'>"+CLDR_WIKI_BASE+"?SurveyTool/Status</a><br>");
+                    out.println("<hr>");
+                }
+                out.println("An Administrator must intervene to bring the Survey Tool back online. <br> " +
+                            " <i>This message has been viewed " + pages + " time(s), SurveyTool has been down for " + isBustedTimer + "</i>");
+            } else {
             out.print(sysmsg("startup_header"));
             if(progressWhat != null) {
                 out.println(getProgress()+"<br><hr><br>");
             }
             out.print(sysmsg("startup_wait"));
+        }
             out.println("<br><i> "+uptime+"</i><br>");
             if(!isGET) {
                 out.println("(Sorry,  we can't automatically retry your "+request.getMethod()+" request - you may attempt Reload in a few seconds "+
@@ -7607,7 +7631,8 @@ public class SurveyMain extends HttpServlet {
             try {
                 doStartup();
             } catch(Throwable t) {
-                busted("On StartupThread", t);
+                t.printStackTrace();
+                busted("On StartupThread: "+t.toString(), t);
             }
         }
     };

@@ -11,9 +11,11 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -36,6 +38,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
@@ -50,6 +53,42 @@ import com.ibm.icu.util.ULocale;
  *
  */
 public class CoverageLevel {
+  private static final Pattern MINIMAL_PATTERNS = Pattern.compile(
+        "/(" +
+        "characters/exemplarCharacters(?!\\[@type=\"currencySymbol\"])" +
+        "|calendar\\[\\@type\\=\"gregorian\"\\].*(" +
+          "\\[@type=\"format\"].*\\[@type=\"(wide|abbreviated)\"]" +
+          "|\\[@type=\"stand-alone\"].*\\[@type=\"narrow\"]" +
+          "|/pattern" +
+          "|/dateFormatItem" +
+        ")" +
+        "|numbers/(" +
+          "symbols/(decimal/group)" +
+          "|.*/pattern(?!Digit)" +
+        ")" +
+        "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
+        "|units/unit.*/unitName" +
+        ")");
+
+  private static final Pattern BASIC_PATTERNS = Pattern.compile(
+        "/(" +
+        "measurementSystemName" +
+        "|characters/exemplarCharacters*(?!\\[@type=\"currencySymbol\"])" +
+        "|delimiters" +
+        "|codePattern" +
+        "|calendar\\[\\@type\\=\"gregorian\"\\].*(" +
+        "\\[@type=\"format\"].*\\[@type=\"(wide|abbreviated)\"]" +
+        "|\\[@type=\"stand-alone\"].*\\[@type=\"narrow\"]" +
+        "|/eraAbbr" +
+        "|/pattern" +
+        "|/dateFormatItem" +
+        "|/fields(?!.*relative.*(2|3))" +
+        ")" +
+        "|numbers/symbols/(decimal/group)" +
+        "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
+        "|fallback(?![a-zA-Z])" +
+        ")");
+
   public static final String EUROPEAN_UNION = "QU";
   
   /**
@@ -57,46 +96,45 @@ public class CoverageLevel {
    * @author davis
    *
    */
-  public static class Level implements Comparable<Level> {
-    private static List<Level> all = new ArrayList<Level>();
+  public enum Level {
+    UNDETERMINED(0, "none"),
+    POSIX(20,"G4"),
+    MINIMAL(30,"G3.5"),
+    BASIC(40,"G3"),
+    MODERATE(60, "G2"),
+    MODERN(80, "G1"),
+    COMPREHENSIVE(100, "G0"),
+    OPTIONAL(101, "optional");
+    
     private byte level;
-    private String name;
     private String altName;
     
-    private Level(int i, String name, String altName) {
+    private Level(int i, String altName) {
       level = (byte) i;
-      this.name = name;
       this.altName = altName;
-      all.add(this);
     }
     
-    public static final Level 
-    UNDETERMINED = new Level(0, "none", "none"),
-    POSIX = new Level(20,"posix", "G4"),
-    MINIMAL = new Level(30,"minimal", "G3.5"),
-    BASIC = new Level(40,"basic", "G3"),
-    MODERATE = new Level(60, "moderate", "G2"),
-    MODERN = new Level(80, "modern", "G1"),
-    COMPREHENSIVE = new Level(100, "comprehensive", "G0"),
-    OPTIONAL = new Level(101, "optional", "optional");
-    
     public static Level get(String name) {
-      for (int i = 0; i < all.size(); ++i) {
-        Level item = (Level) all.get(i);
-        if (item.name.equalsIgnoreCase(name)) return item;
-        if (item.altName.equalsIgnoreCase(name)) return item;
+      try {
+        return Level.valueOf(name.toUpperCase(Locale.ENGLISH));
+      } catch (RuntimeException e) {
+        for (Level level : Level.values()) {
+          if (name.equalsIgnoreCase(level.altName)) {
+            return level;
+          }
+        }
+        return UNDETERMINED;
       }
-      return UNDETERMINED;
     }
     
     public String toString() {
-      return name;
+      return this.name().toLowerCase();
     }
     
-    public int compareTo(Level o) {
-      int otherLevel = ((Level) o).level;
-      return level < otherLevel ? -1 : level > otherLevel ? 1 : 0;
-    }
+//    public int compareTo(Level o) {
+//      int otherLevel = ((Level) o).level;
+//      return level < otherLevel ? -1 : level > otherLevel ? 1 : 0;
+//    }
     
     public static int getDefaultWeight(String organization, String desiredLocale) {
       Level level = sc.getLocaleCoverageLevel(organization, desiredLocale);
@@ -413,40 +451,9 @@ public class CoverageLevel {
     }
   }
   
-  Matcher basicPatterns = Pattern.compile(
-      "/(" +
-      "measurementSystemName" +
-      "|characters/exemplarCharacters*(?!\\[@type=\"currencySymbol\"])" +
-      "|delimiters" +
-      "|codePattern" +
-      "|calendar\\[\\@type\\=\"gregorian\"\\].*(" +
-      "\\[@type=\"format\"].*\\[@type=\"(wide|abbreviated)\"]" +
-      "|\\[@type=\"stand-alone\"].*\\[@type=\"narrow\"]" +
-      "|/eraAbbr" +
-      "|/pattern" +
-      "|/dateFormatItem" +
-      "|/fields(?!.*relative.*(2|3))" +
-      ")" +
-      "|numbers/symbols/(decimal/group)" +
-      "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
-      ")").matcher("");
+  Matcher basicPatterns = BASIC_PATTERNS.matcher("");
   
-  Matcher minimalPatterns = Pattern.compile(
-      "/(" +
-      "characters/exemplarCharacters(?!\\[@type=\"currencySymbol\"])" +
-      "|calendar\\[\\@type\\=\"gregorian\"\\].*(" +
-        "\\[@type=\"format\"].*\\[@type=\"(wide|abbreviated)\"]" +
-        "|\\[@type=\"stand-alone\"].*\\[@type=\"narrow\"]" +
-        "|/pattern" +
-        "|/dateFormatItem" +
-      ")" +
-      "|numbers/(" +
-        "symbols/(decimal/group)" +
-        "|.*/pattern(?!Digit)" +
-      ")" +
-      "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
-      "|units/unit.*/unitName" +
-      ")").matcher("");
+  Matcher minimalPatterns = MINIMAL_PATTERNS.matcher("");
   
   // //ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="day"]/relative[@type="2"]
 

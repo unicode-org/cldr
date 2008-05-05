@@ -44,6 +44,7 @@ public class TablePrinter {
   private transient Column[] columnsFlat;
   private BitSet blockingRows = new BitSet();
   private List<Comparable[]> rows = new ArrayList();
+  private String caption;
   
   public String getTableAttributes() {
     return tableAttributes;
@@ -51,6 +52,11 @@ public class TablePrinter {
   
   public TablePrinter setTableAttributes(String tableAttributes) {
     this.tableAttributes = tableAttributes;
+    return this;
+  }
+  
+  public TablePrinter setCaption(String caption) {
+    this.caption = caption;
     return this;
   }
   
@@ -282,6 +288,10 @@ public class TablePrinter {
       result.append(' ').append(tableAttributes);
     }
     result.append(">\r\n");
+    
+    if (caption != null) {
+      result.append("<caption>").append(caption).append("</caption>");
+    }
 
     showHeader(result);
     int visibleWidth = 0;

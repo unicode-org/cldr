@@ -13,6 +13,7 @@
 package org.unicode.cldr.util;
 
 
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -22,7 +23,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-public final class Counter<T> implements Iterable<T> {
+public final class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
   Map<T,RWLong> map;
   Comparator<T> comparator;
   
@@ -68,10 +69,11 @@ public final class Counter<T> implements Iterable<T> {
     }
   }
 
-  public void add(T obj, long countValue) {
+  public Counter<T> add(T obj, long countValue) {
     RWLong count = map.get(obj);
     if (count == null) map.put(obj, count = new RWLong());
     count.value += countValue;
+    return this;
   }
 
   public long getCount(T obj) {
@@ -79,8 +81,9 @@ public final class Counter<T> implements Iterable<T> {
     return count == null ? 0 : count.value;
   }
 
-  public void clear() {
+  public Counter<T> clear() {
     map.clear();
+    return this;
   }
 
   public long getTotal() {
@@ -176,4 +179,44 @@ public final class Counter<T> implements Iterable<T> {
   public String toString() {
     return map.toString();
   }
+
+  public Counter<T> addAll(Collection<T> keys, int delta) {
+    for (T key : keys) {
+      add(key, delta);
+    }
+    return this;
+  }
+  
+  public Counter<T> addAll(Counter<T> keys) {
+    for (T key : keys) {
+      add(key, keys.getCount(key));
+    }
+    return this;
+  }
+
+  public int compareTo(Counter<T> o) {
+    Iterator<T> i = map.keySet().iterator();
+    Iterator<T> j = o.map.keySet().iterator();
+    while (true) {
+      boolean goti = i.hasNext();
+      boolean gotj = j.hasNext();
+      if (!goti || !gotj) {
+        return goti ? 1 : gotj ? -1 : 0;
+      }
+      T ii = i.next();
+      T jj = i.next();
+      int result = ((Comparable)ii).compareTo(jj);
+      if (result != 0) {
+        return result;
+      }
+      final long iv = map.get(ii).value;
+      final long jv = o.map.get(jj).value;
+      if (iv != jv) return iv < jv ? -1 : 0;
+    }
+  }
+
+  public Counter<T> increment(T key) {
+    return add(key, 1);
+  }
+
 }

@@ -770,8 +770,9 @@ september" instead of "dd MMM".</li>
 visible error.</li>
 
 
-                  <li>Collision errors are an exception, and are
-not subject to this treatment (but see below).</li>
+                  <li>Collision errors are an exception. In data resolution, one of the values is retained (unless it has other errors) and
+the other removed. The choice is based
+on which field is most commonly used, in the judgment of the committee.</li>
 
 
                 
@@ -1014,15 +1015,6 @@ on the optimal value, the <i>alt=proposed</i> is removed.</li>
 remaining error values are removed.</li>
 
 
-              
-              <ul>
-                <li>In the case of collisions, this is done by
-retaining one of the values (unless it has other errors) and removing
-the other (thus removing the error on the first). The choice is based
-on which field is most commonly used, in the judgment of the committee.
-The remaining optimal value gets the status it would have been assigned
-above.</li>
-              </ul>
               <li>Non-optimal values are handled as follows:</li>
               <ul>
                 <li>those with no votes are removed.</li>

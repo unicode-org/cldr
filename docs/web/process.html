@@ -620,77 +620,139 @@ according to the process.</p>
 
             
             <p>There are multiple levels of access and control:</p>
+            <table style="text-align: left;" border="1" cellpadding="1" cellspacing="0">
 
 
-            
-            <p><i>Committee Vetters (Technical Committee
-(TC) members) </i></p>
+                  <tbody>
 
 
-            
-            <ul>
+                    <tr>
 
 
-              <li>Can vet and submit data for all locales </li>
+                      <th style="font-weight: bold;">Vetter Level</th>
 
 
-              <li>Can manage users in their organization</li>
+                      <td style="font-weight: bold; text-align: center;">Vote</td>
+                  <th style="text-align: left; font-weight: bold;">Description</th>
 
 
-              <li>Can see the email addresses for all vetters </li>
+                    </tr>
 
 
-            
-            </ul>
+                    <tr>
 
 
-            
-            <p><i>Regular and Expert Vetter</i></p>
+                      <td style="font-style: italic;"><i>Committee Vetters</i></td>
 
 
-            
-            <ul>
+                      <td style="text-align: center;">8</td>
+                  <td style="text-align: left;">
+                  <ul>
+                    <li>Can vet and submit data for all locales </li>
+                    <li>Can manage users in their organization</li>
+                    <li>Can see the email addresses for all vetters</li>
+                    <li><i>Technical Committee
+(TC) members</i></li>
+                  </ul>
+                  </td>
 
 
-              <li>Can vet and submit data for a particular set of
+                    </tr>
+
+
+                    <tr>
+
+
+                      <td style="font-style: italic;"><i>Expert Vetters</i></td>
+
+
+                      <td style="text-align: center;">8</td>
+                  <td style="text-align: left;">
+                  <ul>
+                    <li>Can vet and submit data for a particular set of
 locales</li>
+                    <li>Cannot manage other users.</li>
+                    <li>Can see the email addresses for submitted data
+in their locales.</li>
+                  </ul>
+                  </td>
 
 
-              <li>Cannot manage other users.</li>
+                    </tr>
 
 
-              <li>Can see the email addresses for submitted data
-in their locales. </li>
+                    <tr>
+                  <td><i>Regular Vetters </i></td>
+                  <td style="text-align: center;">4</td>
+                  <td>
+                  <ul>
+                    <li>Can vet and submit data for a particular set of
+locales</li>
+                    <li>Cannot manage other users.</li>
+                    <li>Can see the email addresses for submitted data
+in their locales.</li>
+                  </ul>
+                  </td>
+                </tr>
+                <tr>
 
 
-            
-            </ul>
+                      <td style="font-style: italic;"><i>Guest Vetters</i></td>
 
 
-            
-            <p><i>Guest Vetters</i></p>
+                      <td style="text-align: center;">1</td>
+                  <td style="text-align: left;">
+                  <ul>
+                    <li>Can vet and submit data for a particular set of
+locales</li>
+                    <li>Cannot manage other users. </li>
+                    <li>Cannot see email addresses.</li>
+                  </ul>
+                  </td>
 
+
+                    </tr>
+                <tr>
+                  <td><span style="font-style: italic;">Locked Vetters</span></td>
+                  <td style="text-align: center;">0</td>
+                  <td>
+                  <ul>
+                    <li>If a user is locked or removed, then his/er
+vote is zero.</li>
+                  </ul>
+                  </td>
+                </tr>
+
+
+                    
+
+                  
+              </tbody>
+                
+            </table>
+            <i> </i>
 
             
             <ul>
-
-
-              <li>Can vet and submit data for a particular set of
-locales</li>
-
-
-              <li>Cannot manage other users. </li>
-
-
-              <li>Cannot see email addresses.</li>
-
-
-            
             </ul>
 
 
             
-            <p>These levels are decided by the TC representative
+
+            
+            <ul>
+            </ul>
+
+
+            
+
+            
+            <ul>
+            </ul>
+
+
+            
+            <p>These levels are decided by the technical committee and the TC representative
 for the respective organizations. </p>
 
 
@@ -699,10 +761,10 @@ for the respective organizations. </p>
 
 
               <li>Unicode TC members (full/institutional/supporting)
-can assign its users to regular or guest level, and with approval of the TC, users at the expert level. </li>
+can assign its users to Regular or Guest level, and with approval of the TC, users at the Expert level. </li>
 
 
-              <li>Liaison or associate members can assign to guest, or to other levels with approval of the TC.
+              <li>Liaison or associate members can assign to Guest, or to other levels with approval of the TC.
                 
                 <ul>
 
@@ -737,22 +799,8 @@ level.</li>
 
 
               <li>Each user gets one vote on each value, but the <i>strength</i>
-of the vote varies according to the user level:
+of the vote varies according to the user level according to the table above.
                 
-                <ul>
-
-
-                  <li>A Guest vote counts 1, a Vetter vote counts
-4, and an Expert/TC vote counts 8</li>
-
-
-                  <li>If a user is locked or removed, then his/er
-vote is zero.</li>
-
-
-                
-                </ul>
-
 
               </li>
 
@@ -1039,6 +1087,10 @@ value.</li>
 at a provisional level), then it may be excluded from the release.
 Where this is done, it may be restored to the repository for the next
 submission cycle.</p>
+            <p><span style="font-weight: bold;">Note: </span>Starting
+with CLDR 1.7, we are planning to save votes across releases, for any
+active (unlocked) voters. However, where there are English changes, old
+votes will be discarded.</p>
 
 
             

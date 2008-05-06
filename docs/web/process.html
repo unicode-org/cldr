@@ -770,9 +770,7 @@ september" instead of "dd MMM".</li>
 visible error.</li>
 
 
-                  <li>Collision errors are an exception. In data resolution, one of the values is retained (unless it has other errors) and
-the other removed. The choice is based
-on which field is most commonly used, in the judgment of the committee.</li>
+                  <li>Collision errors are an exception. They get normal votes, but are handled below.</li>
 
 
                 
@@ -1005,20 +1003,26 @@ on the optimal value, the <i>alt=proposed</i> is removed.</li>
 
             
             <h4>Further Processing</h4>
+            <br>
+            <p>After all other resolution is done:</p>
 
 
             
             <ul>
 
 
-              <li>After all other resolution is done, any
-remaining error values are removed.</li>
+              <li>Collisions errors are resolved. The errors are resolved by retaining of the values and
+removing the other(s). The choice is based
+on the judgment of the committee, typically according to which field is most commonly used.
+When an item is removed, an alternate may then become the new optimal
+value.</li>
+              <li>All errors are removed.</li>
 
 
               <li>Non-optimal values are handled as follows:</li>
               <ul>
-                <li>those with no votes are removed.</li>
-                <li>those with votes are marked with <i>alt=proposed
+                <li>Those with no votes are removed.</li>
+                <li>Those with votes are marked with <i>alt=proposed
                 </i>and given the draft status:<span style="font-weight: bold;"> unconfirmed</span></li>
               </ul>
 

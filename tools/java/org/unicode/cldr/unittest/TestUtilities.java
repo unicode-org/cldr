@@ -121,8 +121,8 @@ public class TestUtilities extends TestFmwk {
   public void TestVoteResolverData() {
     final PrintWriter errorLogPrintWriter = this.getErrorLogPrintWriter();
     final PrintWriter logPrintWriter = this.getLogPrintWriter();
-    String userFile = "/Users/markdavis/Documents/workspace/DATA/survey_voting/users.xml";
-    String votesDirectory = "/Users/markdavis/Documents/workspace/DATA/survey_voting/vxml/votes/";
+    String userFile = Utility.getProperty("usersxml", "/Users/markdavis/Documents/workspace/DATA/survey_voting/users.xml");
+    String votesDirectory = Utility.getProperty("votesxml", "/Users/markdavis/Documents/workspace/DATA/survey_voting/vxml/votes/");
     
 
     VoteResolver.setVoterToInfo(userFile);

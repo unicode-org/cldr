@@ -234,6 +234,8 @@ public class LDMLConstants {
     public static final String ZONE_FORMATTING   = "zoneFormatting";
     public static final String MULTIZONE         = "multizone";
     public static final String LIKELY_SUBTAGS    = "likelySubtags";
+    public static final String PLURALS           = "plurals";
+    public static final String TELEPHONE_CODE_DATA = "telephoneCodeData";
     
     //PN added
     public static final String MEDIUM          = "medium";

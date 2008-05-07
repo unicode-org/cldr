@@ -1121,6 +1121,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 if(DEBUG)printXPathWarning(node, getXPath(node, xpath));
             }else if(name.equals(LDMLConstants.LIKELY_SUBTAGS)){
                 //Ignore this
+            }else if(name.equals(LDMLConstants.PLURALS)){
+                //Ignore this
+            }else if(name.equals(LDMLConstants.TELEPHONE_CODE_DATA)){
+                //Ignore this
             }else{
                 printError(file,"Encountered unknown element "+ getXPath(node, xpath).toString());
                 System.exit(-1);

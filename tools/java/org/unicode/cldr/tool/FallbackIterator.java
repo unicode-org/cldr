@@ -76,7 +76,7 @@ public class FallbackIterator implements Iterator<String> {
             "zh-TW(-.*);zh-Hant-TW;zh-Hant;zh",
             "zh-CN(-.*);zh-Hans-CN;zh-Hans;zh",
             "decanonicalize",
-            "zh(-.*)?;cmn$1", // ;zh-cmn$1",
+            //"zh(-.*)?;cmn$1", // ;zh-cmn$1",
             "(.*-)CS(-.*)?;$1YU$2",
             "nb(-.*)?;no$1",
     };

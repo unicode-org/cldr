@@ -14,16 +14,20 @@ public class TestFallbackIterator extends TestFmwk {
   public void TestSimpleFallbacks() {
     String[] tests = {
             "en-Latn-US-foobar, en-Latn-US, en-Latn, en",
+            "no-NO, nb-NO, nb, no",
+            "nb-NO, no-NO, nb, no",
+            "no-YU, nb-CS, no-CS, nb-YU, nb, no",
             "cmn, zh",
-            "zh-cmn, zh, cmn",
-            "zh-YU, zh-CS, cmn-CS, cmn-YU, zh, cmn",
-            "zh-CN, cmn-CN, zh-Hans-CN, cmn-Hans-CN, zh-Hans, cmn-Hans, zh, cmn",
-            "zh-Hans, cmn-Hans, zh-CN, cmn-CN, zh-Hans-CN, cmn-Hans-CN, zh, cmn",
-            "zh-Hans-CN, cmn-Hans-CN, zh-Hans, cmn-Hans, zh-CN, cmn-CN, zh, cmn",
-            "zh-TW, cmn-TW, zh-Hant-TW, cmn-Hant-TW, zh-Hant, cmn-Hant, zh, cmn",
-            "zh-Hant, cmn-Hant, zh-TW, cmn-TW, zh-Hant-TW, cmn-Hant-TW, zh, cmn",
-            "zh-Hant-TW, cmn-Hant-TW, zh-Hant, cmn-Hant, zh-TW, cmn-TW, zh, cmn",
-            "zh-Hant-TW-foobar, cmn-Hant-TW-foobar, zh-Hant-TW, cmn-Hant-TW, zh-Hant, cmn-Hant, zh-TW, cmn-TW, zh, cmn",
+            "zh-cmn, zh",
+            "zh-YU, zh-CS, zh",
+            "zh-Hant-YU, zh-Hant-CS, zh-Hant, zh-TW, zh-Hant-TW, zh",
+            "zh-CN, zh-Hans-CN, zh-Hans, zh",
+            "zh-Hans, zh-CN, zh-Hans-CN, zh",
+            "zh-Hans-CN, zh-Hans, zh-CN, zh",
+            "zh-TW, zh-Hant-TW, zh-Hant, zh",
+            "zh-Hant, zh-TW, zh-Hant-TW, zh",
+            "zh-Hant-TW, zh-Hant, zh-TW, zh",
+            "zh-Hant-TW-foobar, zh-Hant-TW, zh-Hant, zh-TW, zh",
     };
     for (String testString : tests) {
       String[] test = testString.split(",\\s*");

@@ -13,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FallbackIterator implements Iterator<String> {
-  private static final boolean DEBUG = true;
+  private static final boolean DEBUG = false;
 
   private static class FallbackRule {
     Matcher matcher;

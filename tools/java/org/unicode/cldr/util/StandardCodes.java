@@ -794,7 +794,7 @@ public class StandardCodes {
     
     Set funnyTags = new TreeSet();
     String line;
-    String registryName = System.getProperty("REGISTRY", "language-subtag-registry");
+    String registryName = Utility.getProperty("registry", "language-subtag-registry", "lstreg-4646bis-draft-04.txt");
     try {
       BufferedReader lstreg = Utility.getUTF8Data(registryName);
       boolean started = false;

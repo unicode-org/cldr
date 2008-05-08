@@ -60,21 +60,85 @@ public class FallbackIterator implements Iterator<String> {
   private static final List<FallbackIterator.FallbackRule> DECANONICALIZE_LIST = new ArrayList<FallbackIterator.FallbackRule>();
   private enum Type {canonicalize, fallback, decanonicalize};
   
-  static { // load array
+  static {
+    // TODO add "JP" (ja_JP_JP) "TH" (th_TH_TH) "NY" (no_NO_NY)
+    // other languages with mixed scripts
+    // Table 8 languages
     String[] data = {
             "canonicalize",
-            "cmn(-.*)?;zh$1",
-            "zh-cmn(-.*)?;zh$1",
+            // grandfathered
+            "art-lojban;jbo",
+            "cel-gaulish;xcg",    // Grandfathered code with special replacement: cel-gaulish
+            "en-GB-oed;en-GB-x-oed",    // Grandfathered code with special replacement: en-GB-oed
+            "i-ami;ami",
+            "i-bnn;bnn",
+            "i-default;und",    // Grandfathered code with special replacement: i-default
+            "i-enochian;x-enochian",    // Grandfathered code with special replacement: i-enochian
+            "i-hak;zh-hakka",
+            "i-klingon;tlh",
+            "i-lux;lb",
+            "i-mingo;see",    // Grandfathered code with special replacement: i-mingo
+            "i-navajo;nv",
+            "i-pwn;pwn",
+            "i-tao;tao",
+            "i-tay;tay",
+            "i-tsu;tsu",
+            "no-bok;nb",
+            "no-nyn;nn",
+            "sgn-BE-fr;sfb",
+            "sgn-BE-nl;vgt",
+            "sgn-CH-de;sgg",
+            "zh-cmn;cmn",
+            "zh-cmn-Hans;cmn-Hans",
+            "zh-cmn-Hant;cmn-Hant",
+            "zh-gan;gan",
+            "zh-guoyu;zh-cmn",
+            "zh-hakka;hak",
+            "zh-min;nan",   // Grandfathered code with special replacement: zh-min
+            "zh-min-nan;nan",
+            "zh-wuu;wuu",
+            "zh-xiang;hsn",
+            "zh-yue;yue",
+            // language
+            "in(-.*)?;id$1",
+            "iw(-.*)?;he$1",
+            "ji(-.*)?;yi$1",
+            "jw(-.*)?;jv$1",
+            // skipping sh, deprecated but no replacement
+            // territory
+            "(.*-)BU(-.*)?;$1MM$2",
+            // skipping CS, deprecated but no replacement
+            "(.*-)DD(-.*)?;$1DE$2",
+            "(.*-)FX(-.*)?;$1FR$2",
+            // skipping NT, deprecated but no replacement
+            // skipping SU, deprecated but no replacement
+            "(.*-)TP(-.*)?;$1TL$2",
+            "(.*-)YD(-.*)?;$1YE$2",
             "(.*-)YU(-.*)?;$1CS$2",
+            "(.*-)ZR(-.*)?;$1CD$2",
+             
+            // Table 8
+            "arb(-.*)?;ar$1",
+            "knn(-.*)?;kok$1",
+            "mly(-.*)?;ms$1",
+            "swh(-.*)?;sw$1",
+            "uzn(-.*)?;uz$1",
+            "cmn(-.*)?;zh$1",
+            "uzn(-.*)?;uz$1",
+            
+            // special cases
             "no(-.*)?;nb$1",
+            "sh(?![a-zA-Z]{4})(-.*)?;sr-Latn$1",
+            
             "fallback",
+            
             "zh-Hant;zh-TW;zh",
             "zh-Hans;zh-CN;zh",
-            //"zh-Hant-TW;zh-Hant;zh-TW;zh",
             "zh-TW;zh-Hant-TW;zh-Hant;zh",
             "zh-CN;zh-Hans-CN;zh-Hans;zh",
             "zh-TW(-.*);zh-Hant-TW;zh-Hant;zh",
             "zh-CN(-.*);zh-Hans-CN;zh-Hans;zh",
+            
             "decanonicalize",
             //"zh(-.*)?;cmn$1", // ;zh-cmn$1",
             "(.*-)CS(-.*)?;$1YU$2",

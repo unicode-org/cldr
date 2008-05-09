@@ -13,19 +13,34 @@ public class TestFallbackIterator extends TestFmwk {
   }
   public void TestSimpleFallbacks() {
     String[] tests = {
+            // throw in some extreme cases with multiple variants
+            "zh-TW-foobar-variant, zh-Hant-TW-foobar-variant, zh-Hant-foobar-variant, zh-Hant-TW-foobar, zh-Hant-foobar, zh-TW-foobar, zh-Hant-TW, zh-Hant, zh-TW, zh",
+            "zh-HK-foobar-variant, zh-Hant-TW, zh-Hant, zh-TW, zh",
+            "zh-HK, zh-Hant-HK, zh-Hant, zh-TW, zh",
+            "zh-Hant-HK, zh-Hant, zh-TW, zh",
+            "zh-Hans-HK, zh-Hans, zh-CN, zh",
+            "zh-Hant-SG, zh-Hant, zh-TW, zh",
+            "zh-Hans-SG, zh-Hans, zh-CN, zh",
+            "zh-SG, zh-Hans-SG, zh-Hans, zh-CN, zh",
+            "zh-US, zh-Hans-US, zh-Hans, zh-CN, zh",
+            "zh-US-foobar, zh-Hans-US, zh-Hans, zh-CN, zh",
+            "zh-foobar-variant, zh-Hant-TW, zh-Hant, zh-TW, zh",
             "en-Latn-US-foobar, en-Latn-US, en-Latn, en",
             "no-NO, nb-NO, nb, no",
             "nb-NO, no-NO, nb, no",
+            "no-bok, nb, no", // note, "nb-bok" is not legal, but doesn't hurt
             "no-YU, nb-CS, no-CS, nb-YU, nb, no",
+            "sh-CS, sh-YU, sr-Latn-CS, sr-Latn-YU, sr-Latn, sr",
+            "sh-Cyrl-CS, sh-Cyrl-YU, sr-Cyrl-CS, sr-Cyrl-YU, sr-Cyrl, sr",
             "cmn, zh",
             "zh-cmn, zh",
-            "zh-YU, zh-CS, zh",
-            "zh-Hant-YU, zh-Hant-CS, zh-Hant, zh-TW, zh-Hant-TW, zh",
+            "zh-YU, zh-CS, zh-Hans-CS, zh-Hans-YU, zh-Hans, zh-CN, zh",
+            "zh-Hant-YU, zh-Hant-CS, zh-Hant, zh-TW, zh",
             "zh-CN, zh-Hans-CN, zh-Hans, zh",
-            "zh-Hans, zh-CN, zh-Hans-CN, zh",
+            "zh-Hans, zh-CN, zh",
             "zh-Hans-CN, zh-Hans, zh-CN, zh",
             "zh-TW, zh-Hant-TW, zh-Hant, zh",
-            "zh-Hant, zh-TW, zh-Hant-TW, zh",
+            "zh-Hant, zh-TW, zh",
             "zh-Hant-TW, zh-Hant, zh-TW, zh",
             "zh-Hant-TW-foobar, zh-Hant-TW, zh-Hant, zh-TW, zh",
     };

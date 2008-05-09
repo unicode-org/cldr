@@ -65,7 +65,9 @@ public class FallbackIterator implements Iterator<String> {
     // other languages with mixed scripts
     // Table 8 languages
     String[] data = {
-            "canonicalize",
+
+            "canonicalize",   // mechanically generated
+
             // grandfathered
             "art-lojban;jbo",
             "cel-gaulish;xcg",    // Grandfathered code with special replacement: cel-gaulish
@@ -116,6 +118,24 @@ public class FallbackIterator implements Iterator<String> {
             "(.*-)YD(-.*)?;$1YE$2",
             "(.*-)YU(-.*)?;$1CS$2",
             "(.*-)ZR(-.*)?;$1CD$2",
+
+            "decanonicalize",   // mechanically generated
+
+            "id(-.*)?;in$1",
+            "he(-.*)?;iw$1",
+            "yi(-.*)?;ji$1",
+            "jv(-.*)?;jw$1",
+            "(.*-)MM(-.*)?;$1BU$2",
+            "(.*-)DE(-.*)?;$1DD$2",
+            "(.*-)FR(-.*)?;$1FX$2",
+            "(.*-)TL(-.*)?;$1TP$2",
+            "(.*-)YE(-.*)?;$1YD$2",
+            "(.*-)CS(-.*)?;$1YU$2",
+            "(.*-)CD(-.*)?;$1ZR$2",
+            
+            // Not mechanically generated
+            
+            "canonicalize",
              
             // Table 8
             "arb(-.*)?;ar$1",
@@ -126,23 +146,35 @@ public class FallbackIterator implements Iterator<String> {
             "cmn(-.*)?;zh$1",
             "uzn(-.*)?;uz$1",
             
-            // special cases
+            // special cases: no, sh
+            
             "no(-.*)?;nb$1",
-            "sh(?![a-zA-Z]{4})(-.*)?;sr-Latn$1",
+            "sh(?!-[a-zA-Z]{4}(?:-.*)?)(-.*)?;sr-Latn$1", // insert if no script
+            "sh(-[a-zA-Z]{4}-.*);sr$1",
             
             "fallback",
             
-            "zh-Hant;zh-TW;zh",
-            "zh-Hans;zh-CN;zh",
-            "zh-TW;zh-Hant-TW;zh-Hant;zh",
-            "zh-CN;zh-Hans-CN;zh-Hans;zh",
-            "zh-TW(-.*);zh-Hant-TW;zh-Hant;zh",
-            "zh-CN(-.*);zh-Hans-CN;zh-Hans;zh",
+            //"zh-Hant;zh-TW;zh",
+            //"zh-Hans;zh-CN;zh",
+            "zh-TW(-.*)?;zh-Hant-TW$1",
+            "zh-HK(-.*)?;zh-Hant-HK$1",
+            "zh-MO(-.*)?;zh-Hant-MO$1",
+            "zh(?!-[a-zA-Z]{4}(?:-.*)?)(-.*);zh-Hans$1", // insert Hans if no script
+            //"zh-SG;zh-Hans-SG*",
+            //"zh-CN;zh-Hans-CN*",
             
+            // normal truncation
+            "(.*)-[^-]*;$1",
+                        
             "decanonicalize",
-            //"zh(-.*)?;cmn$1", // ;zh-cmn$1",
-            "(.*-)CS(-.*)?;$1YU$2",
+            "zh-Hant;zh-TW",
+            //"zh-TW;zh-Hant",
+            "zh-Hant-TW(-.*)?;zh-Hant$1;zh-TW$1",
+            "zh-Hant-HK(-.*)?;zh-HK$1",
+            "zh-Hans;zh-CN",
+            "zh-CN;zh-Hans",
             "nb(-.*)?;no$1",
+            
     };
     // do this way to emulate reading from file
     Type type = null;
@@ -153,9 +185,9 @@ public class FallbackIterator implements Iterator<String> {
       }
       final FallbackRule fallbackRule = new FallbackRule(row);
       switch (type) {
-        case canonicalize: CANONICALIZE_LIST.add(fallbackRule);
-        case fallback: FALLBACK_LIST.add(fallbackRule);
-        case decanonicalize: DECANONICALIZE_LIST.add(fallbackRule);
+        case canonicalize: CANONICALIZE_LIST.add(fallbackRule); break;
+        case fallback: FALLBACK_LIST.add(fallbackRule); break;
+        case decanonicalize: DECANONICALIZE_LIST.add(fallbackRule); break;
       }
       if (DEBUG) System.out.println(fallbackRule);
     }
@@ -179,6 +211,7 @@ public class FallbackIterator implements Iterator<String> {
     // all of this can be optimized later
     String original = source;
     List<String> items = new ArrayList<String>();
+    items.add(original);
     // canonicalize (normally in constructor)
     canonicalize:
     while (true) {
@@ -196,16 +229,26 @@ public class FallbackIterator implements Iterator<String> {
       for (FallbackIterator.FallbackRule rule : FALLBACK_LIST) {
         if (rule.matches(source)) {
           items.addAll(rule.getAdditions());
-          break fallback;
+          // try out
+          String last = items.get(items.size()-1);
+          //if (last.endsWith("*")) {
+            items.remove(items.size()-1);
+            source = last; // last.substring(0,last.length()-1);
+            continue fallback;
+          //}
+           // stop completely
+          //break fallback;
         }
       }
       // if we don't get a match, we use regular truncation fallback to get the next item
       items.add(source);
-      if (!regularFallback.reset(source).matches()) {
-        break; // bail when we get to the top
-      }
-      source = regularFallback.group(1);
+      break;
+//      if (!regularFallback.reset(source).matches()) {
+//        break; // bail when we get to the top
+//      }
+//      source = regularFallback.group(1);
     }
+    
     // for each decanonicalize rule, add all premutations it generates
     for (FallbackIterator.FallbackRule rule : DECANONICALIZE_LIST) {
       List<String> localExpanded = new ArrayList<String>();
@@ -220,13 +263,13 @@ public class FallbackIterator implements Iterator<String> {
     }
     // if we didn't need to start with the original, we could skip this bit.
     LinkedHashSet<String> results = new LinkedHashSet<String>();
-    results.add(original);
+    //results.add(original);
     results.addAll(items);
     iterator = results.iterator();
     return this;
   }
   
-  Matcher regularFallback = Pattern.compile("(.*)[-_][^-_]*").matcher("");
+  //Matcher regularFallback = Pattern.compile("(.*)[-_][^-_]*").matcher("");
 
   public void remove() {
     throw new UnsupportedOperationException(); 

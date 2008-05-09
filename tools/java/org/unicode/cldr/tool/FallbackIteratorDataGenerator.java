@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 
 public class FallbackIteratorDataGenerator {
@@ -61,6 +62,13 @@ public class FallbackIteratorDataGenerator {
         if (!isGrandfathered) {
           decanonicalizeList.add(String.format(canonicalizationFormat, canonicalValue, code));
         }
+      }
+    }
+    // now look for languages with multiple scripts
+    SupplementalDataInfo supplemental = testInfo.getSupplementalDataInfo();
+    for (String lang : supplemental.getLanguagesForTerritoriesPopulationData()) {
+      if (lang.contains("_") ){
+        System.out.println(lang);
       }
     }
     System.out.println();

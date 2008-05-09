@@ -631,12 +631,6 @@ public class VoteResolver<T> {
       }
     }
 
-    private String fixBogusDraftStatusValues(String attributeValue) {
-      if ("confirmed".equals(attributeValue)) return "approved";
-      if ("true".equals(attributeValue)) return "unconfirmed";
-      if ("unknown".equals(attributeValue)) return "unconfirmed";
-      return attributeValue;
-    }
   }
   public static Map<Organization, Level> getOrganizationToMaxVote(String locale) {
     locale = locale.split("_")[0]; // take base language
@@ -675,5 +669,12 @@ public class VoteResolver<T> {
     public int getVoter() {
       return voter;
     }
+  }
+  public static String fixBogusDraftStatusValues(String attributeValue) {
+      if(attributeValue==null) return "approved";
+      if ("confirmed".equals(attributeValue)) return "approved";
+      if ("true".equals(attributeValue)) return "unconfirmed";
+      if ("unknown".equals(attributeValue)) return "unconfirmed";
+      return attributeValue;
   }
 }

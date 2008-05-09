@@ -18,6 +18,9 @@ import java.sql.Statement;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
+import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoteResolver.VoterInfo;
+
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 
@@ -108,13 +111,13 @@ public class UserRegistry {
         public String locales;
         public String intlocs = null;
         public String ip;
-		public boolean equals(Object other ) {
-			if(!(other instanceof User)) {
-				return false;
-			}
-			User u = (User)other;
-			return(u.id == id);
-		}
+        public boolean equals(Object other ) {
+            if(!(other instanceof User)) {
+                return false;
+            }
+            User u = (User)other;
+            return(u.id == id);
+        }
         public void printPasswordLink(WebContext ctx) {
             UserRegistry.printPasswordLink(ctx, email, password);
         }
@@ -153,7 +156,7 @@ public class UserRegistry {
         }
 
         public final boolean userIsSpecialForCLDR15(String locale) {
-		return false;
+            return false;
         }
 //            if(locale.equals("be")||locale.startsWith("be_")) {
 //                if( ( id == 315 /* V. P. */ ) || (id == 8 /* S. M. */ ) ) {
@@ -167,7 +170,52 @@ public class UserRegistry {
 //                return false;
 //            }
         
-
+        /**
+         * Convert this User to a VoteREsolver.VoterInfo
+         */
+        public VoterInfo getVoterInfo() {
+            //VoterInfo(Organization.google, Level.vetter, &quot;J. Smith&quot;) },
+            VoteResolver.Organization o = this.getVoteOrganization();
+            VoteResolver.Level l = this.getVoteLevel();
+            VoterInfo v = new VoterInfo(o, l, this.name);
+            return v;
+        }
+        
+        /**
+         * Convert the level to a VoteResolver.Level
+         * @return VoteResolver.Level format
+         */
+        private VoteResolver.Level getVoteLevel() {
+            switch (this.userlevel) {
+            case ADMIN: return VoteResolver.Level.admin;
+            case TC: return VoteResolver.Level.tc;
+            case EXPERT: return VoteResolver.Level.expert;
+            case VETTER: return VoteResolver.Level.vetter;
+            case STREET: return VoteResolver.Level.street;
+            case LOCKED: return VoteResolver.Level.locked;
+            default:
+                throw new IllegalArgumentException("Illegal VoteLevel on " + this.toString() +" - "+this.userlevel);
+            }
+       }
+        
+        /**
+         * Convert the Organization into a VoteResolver.Organization
+         * @return VoteResolver.Organization format
+         */
+        private VoteResolver.Organization getVoteOrganization() {
+            VoteResolver.Organization o = null;
+            try {
+                String arg = this.org
+                                .replaceAll("Utilika Foundation", "utilika")
+                                .replaceAll("Government of Pakistan - National Language Authority", "pakistan")
+                                .toLowerCase().replaceAll("[.-]", "_");
+                o = VoteResolver.Organization.valueOf(arg);
+            } catch(IllegalArgumentException iae) {
+                o = VoteResolver.Organization.guest;
+                System.err.println("Unknown organization: "+this.org);
+            }
+            return o;
+        }
     }
         
     public static void printPasswordLink(WebContext ctx, String email, String password) {
@@ -293,58 +341,58 @@ public class UserRegistry {
      * Migrate the user DB from the separate user DB to the main DB
      * @deprecated
      */
-	public void migrateFrom(Connection uConn) throws SQLException {
-		System.err.println("USER MIGRATE");
-		Statement s = conn.createStatement(); // 'new' side
-		int n = s.executeUpdate("DROP TABLE "+CLDR_USERS+"");
-		System.err.println("drop table: " + n + " rows from 'new' side table");
-		setupDB();
-		System.err.println("Reset table");
-		Statement oldS = uConn.createStatement(); // old side
-
-		ResultSet rs = oldS.executeQuery("select id from "+CLDR_USERS+" order by id desc");
-		if(rs.next()) {
-			n=rs.getInt(1);
-		} else { 
-			throw new RuntimeException("Err: couldn't count old users");
-		}
-		rs.close();
-
-		System.err.println("max userid: " + n);
-		
-		for(;n>0;n--) {
-			s.execute("INSERT INTO "+CLDR_USERS+" (userlevel,name,org,email,password) VALUES(999,'junk user"+n+"','_Delete','delete"+n+"@example.com','delete"+("delete"+n).hashCode()+"')");
-		}
-		conn.commit();
-		System.err.println("dummy users created.");
-		
-		PreparedStatement patchStmt = conn.prepareStatement("UPDATE " + CLDR_USERS + " set userlevel=?,name=?,email=?,org=?,password=?,locales=?,intlocs=?,lastlogin=?  " +
-                                                    " where id=?" );
-
-		Statement us = uConn.createStatement();
-		rs = us.executeQuery("SELECT userlevel,name,email,org,password,locales,intlocs,lastlogin,id from "+CLDR_USERS);
-		//								1         2   3    4     5       6      7        8       9
-		n=0;
-		while(rs.next()) {
-			n++;
-			patchStmt.setInt(1,		rs.getInt(1));
-			SurveyMain.setStringUTF8(patchStmt, 2, SurveyMain.getStringUTF8(rs, 2));
-			patchStmt.setString(3,	rs.getString(3));
-			patchStmt.setString(4,	rs.getString(4));
-			patchStmt.setString(5,  rs.getString(5));
-			patchStmt.setString(6,  rs.getString(6));
-			patchStmt.setString(7,  rs.getString(7));
-			patchStmt.setTimestamp(8, rs.getTimestamp(8));
-			patchStmt.setInt(9, rs.getInt(9));
-			
-			int j = patchStmt.executeUpdate();
-			System.err.println("n"+n+", id"+rs.getInt(9)+", e:"+rs.getString(3) + " -> updt. " + j);
-		}
-		conn.commit();
-		rs.close();
-		
-		System.err.println("Done.  Probably good to restart ST now.");
-	}
+//	public void migrateFrom(Connection uConn) throws SQLException {
+//		System.err.println("USER MIGRATE");
+//		Statement s = conn.createStatement(); // 'new' side
+//		int n = s.executeUpdate("DROP TABLE "+CLDR_USERS+"");
+//		System.err.println("drop table: " + n + " rows from 'new' side table");
+//		setupDB();
+//		System.err.println("Reset table");
+//		Statement oldS = uConn.createStatement(); // old side
+//
+//		ResultSet rs = oldS.executeQuery("select id from "+CLDR_USERS+" order by id desc");
+//		if(rs.next()) {
+//			n=rs.getInt(1);
+//		} else { 
+//			throw new RuntimeException("Err: couldn't count old users");
+//		}
+//		rs.close();
+//
+//		System.err.println("max userid: " + n);
+//		
+//		for(;n>0;n--) {
+//			s.execute("INSERT INTO "+CLDR_USERS+" (userlevel,name,org,email,password) VALUES(999,'junk user"+n+"','_Delete','delete"+n+"@example.com','delete"+("delete"+n).hashCode()+"')");
+//		}
+//		conn.commit();
+//		System.err.println("dummy users created.");
+//		
+//		PreparedStatement patchStmt = conn.prepareStatement("UPDATE " + CLDR_USERS + " set userlevel=?,name=?,email=?,org=?,password=?,locales=?,intlocs=?,lastlogin=?  " +
+//                                                    " where id=?" );
+//
+//		Statement us = uConn.createStatement();
+//		rs = us.executeQuery("SELECT userlevel,name,email,org,password,locales,intlocs,lastlogin,id from "+CLDR_USERS);
+//		//								1         2   3    4     5       6      7        8       9
+//		n=0;
+//		while(rs.next()) {
+//			n++;
+//			patchStmt.setInt(1,		rs.getInt(1));
+//			SurveyMain.setStringUTF8(patchStmt, 2, SurveyMain.getStringUTF8(rs, 2));
+//			patchStmt.setString(3,	rs.getString(3));
+//			patchStmt.setString(4,	rs.getString(4));
+//			patchStmt.setString(5,  rs.getString(5));
+//			patchStmt.setString(6,  rs.getString(6));
+//			patchStmt.setString(7,  rs.getString(7));
+//			patchStmt.setTimestamp(8, rs.getTimestamp(8));
+//			patchStmt.setInt(9, rs.getInt(9));
+//			
+//			int j = patchStmt.executeUpdate();
+//			System.err.println("n"+n+", id"+rs.getInt(9)+", e:"+rs.getString(3) + " -> updt. " + j);
+//		}
+//		conn.commit();
+//		rs.close();
+//		
+//		System.err.println("Done.  Probably good to restart ST now.");
+//	}
     
     public void importOldUsers(String dir) throws SQLException
     {
@@ -386,20 +434,20 @@ public class UserRegistry {
     private void myinit() throws SQLException {
      try {
         synchronized(conn) {
-          insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password,locales) " +
-                                                    "VALUES(?,?,?,?,?,?)" );
-          queryStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs,lastlogin from " + CLDR_USERS +" where email=? AND password=?",
-                                                        ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-          queryIdStmt = conn.prepareStatement("SELECT name,org,email,userlevel,intlocs,locales,lastlogin,password from " + CLDR_USERS +" where id=?",
-                                                        ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-          queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs,lastlogin from " + CLDR_USERS +" where email=?",
-                                                        ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+            insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password,locales) " +
+            "VALUES(?,?,?,?,?,?)" );
+            queryStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs,lastlogin from " + CLDR_USERS +" where email=? AND password=?",
+                    ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+            queryIdStmt = conn.prepareStatement("SELECT name,org,email,userlevel,intlocs,locales,lastlogin,password from " + CLDR_USERS +" where id=?",
+                    ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+            queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs,lastlogin from " + CLDR_USERS +" where email=?",
+                    ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
             touchStmt = conn.prepareStatement("UPDATE "+CLDR_USERS+" set lastlogin=CURRENT_TIMESTAMP where id=?");
-            
+
             updateInfoEmailStmt = conn.prepareStatement("UPDATE "+CLDR_USERS+" set email=? WHERE id=? AND email=?");
             updateInfoNameStmt = conn.prepareStatement("UPDATE "+CLDR_USERS+" set name=? WHERE id=? AND email=?");
             updateInfoPasswordStmt = conn.prepareStatement("UPDATE "+CLDR_USERS+" set password=? WHERE id=? AND email=?");
-            
+
             removeIntLoc = conn.prepareStatement("DELETE FROM "+CLDR_INTEREST+" WHERE uid=?");
             updateIntLoc = conn.prepareStatement("INSERT INTO " + CLDR_INTEREST + " (uid,forum) VALUES(?,?)");
         }
@@ -433,7 +481,11 @@ public class UserRegistry {
     int arraySize = 0;
     UserRegistry.User infoArray[] = new UserRegistry.User[arraySize];
     
-    void zapInfo(int id) {
+    /**
+     * Mark user as modified
+     * @param id
+     */
+    void userModified(int id) {
         synchronized(infoArray) {
             try {
                 infoArray[id] = null;
@@ -441,8 +493,18 @@ public class UserRegistry {
                 // nothing to do
             }
         }
+        userModified(); // do this if any users are modified
     }
+
     
+    /**
+     * Mark the UserRegistry as changed, purging the VoterInfo map
+     * @see #getVoterToInfo()
+     */
+    private void userModified() {
+        voterInfo = null;
+    }
+
     public UserRegistry.User getInfo(int id) {
 //    System.err.println("Fetching info for id " + id);
         synchronized(infoArray) {
@@ -760,7 +822,7 @@ public class UserRegistry {
                 logger.info("Attempt user update by " + ctx.session.user.email + ": " + theSql);
                 int n = s.executeUpdate(theSql);
                 conn.commit();
-                zapInfo(theirId);
+                userModified(theirId);
                 if(n == 0) {
                     msg = msg + " [Error: no users were updated!] ";
                     logger.severe("Error: 0 records updated.");
@@ -811,7 +873,7 @@ public class UserRegistry {
                 ps.setString(1, newLocales);
                 int n = ps.executeUpdate();
                 conn.commit();
-                zapInfo(theirId);
+                userModified(theirId);
                 if(n == 0) {
                     msg = msg + " [Error: no users were updated!] ";
                     logger.severe("Error: 0 records updated.");
@@ -859,7 +921,7 @@ public class UserRegistry {
                 logger.info("Attempt user DELETE by " + ctx.session.user.email + ": " + theSql);
                 int n = s.executeUpdate(theSql);
                 conn.commit();
-                zapInfo(theirId);
+                userModified(theirId);
                 if(n == 0) {
                     msg = msg + " [Error: no users were removed!] ";
                     logger.severe("Error: 0 users removed.");
@@ -919,7 +981,7 @@ public class UserRegistry {
                 logger.info("Attempt user UPDATE by " + ctx.session.user.email + ": " + type.toString() + " = " + value);
                 int n = updateInfoStmt.executeUpdate();
                 conn.commit();
-                zapInfo(theirId);
+                userModified(theirId);
                 if(n == 0) {
                     msg = msg + " [Error: no users were updated!] ";
                     logger.severe("Error: 0 users updated.");
@@ -1017,6 +1079,7 @@ public class UserRegistry {
             } catch (Throwable t) {
                 logger.severe("UR: Adding: exception: " + t.toString());
             } finally  {
+                userModified(); // new user
               //  s.close();
             }
         }
@@ -1154,11 +1217,11 @@ public class UserRegistry {
         if(userIsAdmin(u)) return true; // Admin can modify all
         if(userIsTC(u)) return true; // TC can modify all
         if((SurveyMain.phase() == SurveyMain.Phase.VETTING_CLOSED)) {
-            if(u.userIsSpecialForCLDR15(locale)) {
-                return true;
-            } else {
-                return false;
-            }
+//            if(u.userIsSpecialForCLDR15(locale)) {
+//                return true;
+//            } else {
+//                return false;
+//            }
         }
         if(userIsTC(u)) return true; // TC can modify all
         if(SurveyMain.isPhaseClosed()) return false;
@@ -1199,9 +1262,9 @@ public class UserRegistry {
         if(u==null) return false; // no user, no dice
         if(userIsTC(u)) return true; // TC can modify all
         if((SurveyMain.phase() == SurveyMain.Phase.VETTING_CLOSED)) {
-            if(u.userIsSpecialForCLDR15("be")) {
-                return true;
-            }
+//            if(u.userIsSpecialForCLDR15("be")) {
+//                return true;
+//            }
         }
         if(SurveyMain.isPhaseClosed()) return false;
         if(SurveyMain.isPhaseVetting() && !userIsExpert(u)) return false; // only expert can submit new data.
@@ -1362,4 +1425,59 @@ public class UserRegistry {
         }
     }
     
+    // Interface for VoteResolver interface
+    /**
+     * Fetch the user map in VoterInfo format.
+     * @see #userModified()
+     */
+    public synchronized Map<Integer, VoterInfo> getVoterToInfo() {
+        if(voterInfo == null) {
+            Map<Integer, VoterInfo> map = new TreeMap<Integer, VoterInfo>();
+            
+            ResultSet rs = null;
+            try {
+                rs = list(null);
+                // id,userlevel,name,email,org,locales,intlocs,lastlogin    
+                while(rs.next()){
+                    // We don't go through the cache, because not all users may be loaded.
+                    
+                    User u = new UserRegistry.User();
+                    // from params:
+                    u.id = rs.getInt(1);
+                    u.userlevel = rs.getInt(2);
+                    u.name = SurveyMain.getStringUTF8(rs, 3);
+                    u.email = rs.getString(4);
+                    u.org = rs.getString(5);
+                    u.locales = rs.getString(6);
+                    u.intlocs = rs.getString(7);
+                    u.last_connect = rs.getTimestamp(8);
+                    
+                    // now, map it to a UserInfo
+                    VoterInfo v = u.getVoterInfo();
+                    
+                    map.put(u.id, v);
+                }
+                voterInfo = map;
+            } catch (SQLException se) {
+                logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to  update VoterInfo - " + SurveyMain.unchainSqlException(se),se);
+            } catch (Throwable t) {
+                logger.log(java.util.logging.Level.SEVERE, "UserRegistry: some error trying to update VoterInfo - "  + t.toString(),t);
+            } finally {
+                // close out the RS
+                try {
+                    if(rs!=null) {
+                        rs.close();
+                    }
+                } catch(SQLException se) {
+                    /*logger.severe*/System.err.println(/*java.util.logging.Level.SEVERE,*/ "UserRegistry: SQL error trying to close resultset for: VI "  + " - " + SurveyMain.unchainSqlException(se)/*,se*/);
+                }
+            } // end try
+        }
+        return voterInfo;
+    }
+    
+    /**
+     * VoterInfo map
+     */
+    private Map<Integer, VoterInfo> voterInfo = null;
 }

@@ -42,6 +42,7 @@ import com.ibm.icu.util.ULocale;
      
     private static final boolean SHOW_TIMES=false;
     private static final boolean SHOW_DEBUG=false;
+    private static final boolean TRACE_CONN=false;
     
     /**
      * show final, vetted data only?
@@ -67,7 +68,7 @@ import com.ibm.icu.util.ULocale;
      * TODO: 0 make private
      * factory for producing XMLFiles that go with the original source xml data.
      */
-    public CLDRFile.Factory  factory = null; 
+    public CLDRFile.Factory  rawXmlFactory = null; 
     /**
      * location of LDML data.
      */
@@ -331,7 +332,18 @@ import com.ibm.icu.util.ULocale;
      *
      * Verify that the Source data is available.
      */
+    
+    static int nn=0;
+    
     private void initConn(Connection newConn, CLDRFile.Factory theFactory) {
+        if(TRACE_CONN && SurveyMain.isUnofficial && (nn++%100)==0) {
+            try {
+                throw new Throwable("initConn called here");
+            } catch(Throwable t) {
+                t.printStackTrace();
+                System.err.println("initConns: "+nn);
+            }
+        }
         if(newConn != conn) {
             conn = newConn;
             if(stmts == null) {
@@ -340,7 +352,7 @@ import com.ibm.icu.util.ULocale;
                 }
             }
         }
-        factory = theFactory;
+        rawXmlFactory = theFactory;
         
         if(!loadAndValidate(getLocaleID(), null)) {
             throw new InternalError("Couldn't load and validate: " + getLocaleID());
@@ -383,7 +395,7 @@ import com.ibm.icu.util.ULocale;
             synchronized(conn) {            
             //            logger.info("srcid: " + srcId);
                 
-                CLDRFile file = factory.make(locale, false, true); // create the CLDRFile pointing to the raw XML
+                CLDRFile file = rawXmlFactory.make(locale, false, true); // create the CLDRFile pointing to the raw XML
                 
                 if(file == null) {
                     logger.severe("Couldn't load CLDRFile for " + locale);
@@ -602,21 +614,33 @@ import com.ibm.icu.util.ULocale;
      * Utility function called by manageSourceUpdates()
      * @see manageSourceUpdates
      */
-    private void manageSourceUpdates_locale(WebContext ctx, SurveyMain sm, int id, String loc)
+    private void manageSourceUpdates_locale(WebContext ctx, SurveyMain sm, int id, String loc, boolean quietUpdateAll)
         throws SQLException
     {
         String mySql = ("DELETE from "+CLDR_DATA+" where source="+id+" AND submitter IS NULL");
-        logger.severe("srcupdate: "+loc+" - "+ mySql);
+//        logger.severe("srcupdate: "+loc+" - "+ mySql);
         Statement s = conn.createStatement();
         int r = s.executeUpdate(mySql);
-        ctx.println("<br>Deleting data from src " + id + " ... " + r + " rows.<br />");
+        //ctx.println("<br>Deleting data from src " + id + " ... " + r + " rows.<br />");
         mySql = "UPDATE "+CLDR_SRC+" set inactive=1 WHERE id="+id;
-        logger.severe("srcupdate:  "+loc+" - " + mySql);
+        //logger.severe("srcupdate:  "+loc+" - " + mySql);
         int j = s.executeUpdate(mySql);
-        ctx.println(" Deactivating src: " + j + " rows<br />");
+        //ctx.println(" Deactivating src: " + j + " rows<br />");
+        ctx.println("Deactivated Source #"+id+"  and "+r+" rows of data<br>");
         logger.severe("srcupdate: " +loc + " - deleted " + r + " rows of data, and deactivated " + j + " rows of src ( id " + id +"). committing.. ");
+        s.close();
         conn.commit();
         sm.lcr.invalidateLocale(loc); // force a reload.
+    }
+    
+    /**
+     * 
+     * @param ctx
+     * @param sm
+     * @param quietUpdateAll if true - quietly do 'update all'
+     */
+    public int manageSourceUpdates(WebContext ctx, SurveyMain sm) {
+        return manageSourceUpdates(ctx, sm, false);
     }
     
     /**
@@ -624,26 +648,33 @@ import com.ibm.icu.util.ULocale;
      * presents the "manage source updates" interface, allowing new XML files to be updated
      * @param ctx the webcontext
      * @param sm alias to the SurveyMain
+     * @param quietUpdateAll if true, quietly do 'update all'
      */
-    public void manageSourceUpdates(WebContext ctx, SurveyMain sm) {
+    public int manageSourceUpdates(WebContext ctx, SurveyMain sm, boolean quietUpdateAll) {
         String what = ctx.field("src_update");
-        boolean updAll = what.equals("all_locs");
-        ctx.println("<h4>Source Update Manager</h4>");
+        boolean updAll = quietUpdateAll || what.equals("all_locs");
+        int updated = 0;
+        if(!quietUpdateAll) {
+            ctx.println("<h4>Source Update Manager</h4>");
+        }
         synchronized (conn) {
             synchronized(xpt) {
                 try {
                     boolean hadDiffs = false; // were there any differences? (used for 'update all')
                     ResultSet rs = stmts.querySourceActives.executeQuery();
-                    ctx.println("<table border='1'>");
-                    ctx.println("<tr><th>#</th><th>loc</th><th>DB Version</th><th>CVS/Disk</th><th>update</th></tr>");
+                    if(!quietUpdateAll) {
+                        ctx.println("<table border='1'>");
+                        ctx.println("<tr><th>#</th><th>loc</th><th>DB Version</th><th>CVS/Disk</th><th>update</th></tr>");
+                    }
                     while(rs.next()) {
                         int id = rs.getInt(1);
                         String loc = rs.getString(2);
                         String rev = rs.getString(3);
                         String disk = LDMLUtilities.getCVSVersion(dir, loc+".xml");
-                        ctx.println("<tr><th><a name='"+id+"'><tt>"+id+"</tt></a></th><td>" +loc + "</td>");
-                        ctx.println("<td>db="+rev+"</td>");
-                        
+                        if(!quietUpdateAll) {
+                            ctx.println("<tr><th><a name='"+id+"'><tt>"+id+"</tt></a></th><td>" +loc + "</td>");
+                            ctx.println("<td>db="+rev+"</td>");
+                        }
                         if(rev == null )  {
                             rev = "null";
                         }
@@ -651,37 +682,53 @@ import com.ibm.icu.util.ULocale;
                             disk = "null";
                         }
                         if(rev.equals(disk)) {
-                            ctx.println("<td class='proposed'>-</td><td></td>"); // no update available
+                            if(!quietUpdateAll) {
+                                ctx.println("<td class='proposed'>-</td><td></td>"); // no update available
+                            }
                         } else {
-                            hadDiffs = true;
-                            ctx.println("<td class='missing'>disk="+disk+ " </td> ");
                             WebContext subCtx = new WebContext(ctx);
+                            hadDiffs = true;
+                            if(!quietUpdateAll) {
+                                ctx.println("<td class='missing'>disk="+disk+ " </td> ");
+                            }
                             subCtx.addQuery("src_update",loc);
                             // ...
                             if(updAll || what.equals(loc)) { // did we request update of this one?
-                                ctx.println("<td class='proposed'>Updating...</td></tr><tr><td colspan='5'>");
-                                manageSourceUpdates_locale(ctx,sm,id,loc);
-                                ctx.println("</td>");
-                            } else {
+                                if(!quietUpdateAll) {
+                                    ctx.println("<td class='proposed'>Updating...</td></tr><tr><td colspan='5'>");
+                                } else {
+                                    ctx.println("<br><b>"+loc + "</b> " + rev + " &mdash;&gt; "+disk + " ");
+                                }
+                                manageSourceUpdates_locale(ctx,sm,id,loc, quietUpdateAll);
+                                updated++;
+                                if(!quietUpdateAll) {
+                                    ctx.println("</td>");
+                                }
+                            } else if(!quietUpdateAll) {
                                 ctx.println("<td><a href='"+subCtx.url()+"#"+id+"'>Update</a></td>"); // update available
                             }
                         }
-                        ctx.println("</tr>");
+                        if(!quietUpdateAll) {
+                            ctx.println("</tr>");
+                        }
                     }
-                    ctx.println("</table>");
-                    if(hadDiffs) {
-                            WebContext subCtx = new WebContext(ctx);
-                            subCtx.addQuery("src_update","all_locs");
-                            ctx.println("<p><b><a href='"+subCtx.url()+"'>Update ALL</b></p>");
+                    if(!quietUpdateAll) {
+                        ctx.println("</table>");
+                        if(hadDiffs) {
+                                WebContext subCtx = new WebContext(ctx);
+                                subCtx.addQuery("src_update","all_locs");
+                                ctx.println("<p><b><a href='"+subCtx.url()+"'>Update ALL</b></p>");
+                        }
                     }
                 } catch(SQLException se) {
                     String complaint = ("CLDRDBSource: err in manageSourceUpdates["+what+"] ("+tree + "/" + "*" +"): " + SurveyMain.unchainSqlException(se));
                     logger.severe(complaint);
                     ctx.println("<hr /><pre>" + complaint + "</pre><br />");
-                    return;
+                    return updated;
                 }
             }
         }
+        return updated;
     }
 
     /**
@@ -1059,6 +1106,40 @@ import com.ibm.icu.util.ULocale;
     public String getOrigXpath(int pathid) {
         return getOrigXpath(pathid, finalData);
     }
+    
+    public static final int CHUNKSIZE=75000;
+    static int xpMax = CHUNKSIZE;
+    
+    private String origXpaths[] = new String[xpMax];
+
+    
+    private final void resizeXpathCache(int size) {
+        xpMax = ((size/CHUNKSIZE)+1)*CHUNKSIZE;
+        
+        origXpaths = new String[xpMax];
+      //  System.err.println("gOXPFC: resize to " + origXpaths.length);
+    }
+    
+    private final String getOrigXPathFromCache(int path) {
+        try {
+            return origXpaths[path];
+        } catch(ArrayIndexOutOfBoundsException aioob) {
+            resizeXpathCache(path);
+            return null;
+        }
+    }
+
+    private void putOrigXpathInCache(int pathid, String result) {
+        try {
+            origXpaths[pathid]= result;
+        } catch (ArrayIndexOutOfBoundsException aioob) {
+            resizeXpathCache(pathid);
+            origXpaths[pathid] = result;
+        }
+    }
+
+//    static int xxo =0 ;
+//    static int  oox = 0;
     /**
      * get the 'original' xpath from a path-id#
      * @param pathid ID# of a path
@@ -1066,6 +1147,38 @@ import com.ibm.icu.util.ULocale;
      * @see XPathTable
      */
     public String getOrigXpath(int pathid, boolean useFinalData) {
+        if(useFinalData!=finalData) {
+            return getOrigXpathString(pathid, useFinalData);
+        } else {
+//            System.err.println(">> N:" + pathid );
+            String result = getOrigXPathFromCache(pathid); // will grow the array if too small.
+            if(result == null) {
+                result = getOrigXpathString(pathid, useFinalData);
+                if(result!=null) {
+                    putOrigXpathInCache(pathid, result);
+                }
+//                oox++;
+//                if(false||oox%50==0) {
+//                    System.err.println("gOX hits: " +xxo + "  MISS: " + oox);
+//                }
+            } else {
+//                xxo++;
+//                if(false||xxo%50==0) {
+//                    System.err.println("gOX HITS: " +xxo + "  miss: " + oox);
+//                }
+            }
+//            System.err.println("<< N: " + result);
+            return result;
+        }
+    }
+    
+
+    private final String getOrigXpathString(int pathid, boolean useFinalData) {
+        int n = getOrigXpathId(pathid, useFinalData);
+        return sm.xpt.getById(n);
+    }
+    
+    public int getOrigXpathId(int pathid, boolean useFinalData) {
         String locale = getLocaleID();
         //synchronized (conn) { // NB: many of these synchronizeds were removed as unnecessary.
             try {
@@ -1083,7 +1196,7 @@ import com.ibm.icu.util.ULocale;
 				
                 if(!rs.next()) {
                     rs.close();
-                    return null;
+                    return -1;
 //                    throw new InternalError  /* logger.severe */ ("getOrigXpath["+finalData+"] not found, falling back: " + locale + ":"+pathid+" " + xpt.getById(pathid));
                     //return xpt.getById(pathid); // not found - should be null?
                 
@@ -1095,10 +1208,10 @@ import com.ibm.icu.util.ULocale;
                     // fail?? what?
                 }*/
                 rs.close();
-                return xpt.getById(result);
+                return result;
             } catch(SQLException se) {
                 logger.severe("CLDRDBSource: Failed to find orig xpath ("+tree + "/" + locale +"/"+xpt.getById(pathid)+"): " + SurveyMain.unchainSqlException(se));
-                return xpt.getById(pathid); //? should be null?
+                return pathid; //? should be null?
             }
         //}
     }
@@ -1109,7 +1222,7 @@ import com.ibm.icu.util.ULocale;
      * @see Comments
      */
     public Comments getXpathComments() {
-        CLDRFile file = factory.make(getLocaleID(), false, true);
+        CLDRFile file = rawXmlFactory.make(getLocaleID(), false, true);
         return file.getXpath_comments();
     }
 
@@ -1384,6 +1497,12 @@ import com.ibm.icu.util.ULocale;
             return output;
         }
     }
+
+    Hashtable<String, XMLSource> makeHash = new Hashtable<String, XMLSource>();
+    
+    static int oo = 0;
+    static int mhs = 0;
+    
     
     /**
      * Factory function. Create a new XMLSource from the specified id. 
@@ -1393,16 +1512,38 @@ import com.ibm.icu.util.ULocale;
      */
     public XMLSource make(String localeID) {
         if(localeID == null) return null; // ???
-        if(localeID.startsWith(CLDRFile.SUPPLEMENTAL_PREFIX)) {
-            XMLSource msource = new CLDRFile.SimpleXMLSource(factory, localeID).make(localeID);
-//            System.err.println("Getting simpleXMLSource for " + localeID);
-            return msource; 
-        }
-        
-        CLDRDBSource result = (CLDRDBSource)clone();
-        if(!localeID.equals(result.getLocaleID())) {
-            result.setLocaleID(localeID);
-            result.initConn(conn, factory); // set up connection & prepared statements. conn/factory may be set twice.
+        XMLSource result = null;
+        result = makeHash.get(localeID);
+        if(result == null) {
+            if(localeID.startsWith(CLDRFile.SUPPLEMENTAL_PREFIX)) {
+                XMLSource msource = new CLDRFile.SimpleXMLSource(rawXmlFactory, localeID).make(localeID);
+                msource.freeze();
+//                System.err.println("Getting simpleXMLSource for " + localeID);
+                result = msource; 
+            } else {
+                CLDRDBSource dbresult = (CLDRDBSource)clone();
+                if(!localeID.equals(dbresult.getLocaleID())) {
+                    dbresult.setLocaleID(localeID);
+                    dbresult.initConn(conn, rawXmlFactory); // set up connection & prepared statements. conn/factory may be set twice.
+                }
+                result = dbresult;
+            }
+            makeHash.put(localeID, result);
+        } else if(TRACE_CONN && SurveyMain.isUnofficial) {
+            if(makeHash.size()>mhs) {
+                mhs=makeHash.size();
+            }
+            oo++;
+            if((oo%1000) == 0) {
+                System.err.println("make: cache hit "+oo+" times, hash size " + makeHash.size() + " (max " + mhs+"), initConn count " + nn);
+                if(true&& (oo % 1000)==0){
+                    try {
+                        throw new Throwable("cache hit make() called here");
+                    } catch(Throwable t) {
+                        t.printStackTrace();
+                    }                
+                }                    
+            }
         }
         return result;
     }
@@ -1412,7 +1553,7 @@ import com.ibm.icu.util.ULocale;
      * Caller wil fill in other stuff
      */
     private CLDRDBSource(CLDRFile.Factory nFactory, XPathTable nXpt) {
-            factory = nFactory; 
+            rawXmlFactory = nFactory; 
             xpt = nXpt; 
     }
     /**
@@ -1465,11 +1606,12 @@ import com.ibm.icu.util.ULocale;
             result.dir = dir;
             result.user = user;
             result.conn = conn;  // gets set twice. but don't call initConn because other fields are still valid if it's just a clone.
-            result.factory = factory;
+            result.rawXmlFactory = rawXmlFactory;
             result.stmts = stmts;
             result.srcHash = srcHash;
             result.aliasTable = aliasTable;
             result.vetting = vetting;
+            result.makeHash = makeHash;
             // do something here?
             return result;
 		} catch (CloneNotSupportedException e) {

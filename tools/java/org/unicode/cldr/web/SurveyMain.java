@@ -82,6 +82,7 @@ import com.ibm.icu.util.ULocale;
  */
 public class SurveyMain extends HttpServlet {
 
+    private static final String XML_CACHE_PROPERTIES = "xmlCache.properties";
     /**
      * 
      */
@@ -504,6 +505,11 @@ public class SurveyMain extends HttpServlet {
             out.println("<title>"+sysmsg("startup_title")+"</title>");
             out.println("<link rel='stylesheet' type='text/css' href='"+base+"/../surveytool.css'>");
             out.println("</head><body>");
+            if(isUnofficial) {
+                out.print("<div class='topnotices'><p class='unofficial' title='Not an official SurveyTool' >");
+                out.print("Unofficial");
+                out.println("</p></div>");
+            }
             if(isBusted != null) {
                 out.println(SHOWHIDE_SCRIPT);
                 out.println("</head>");
@@ -830,6 +836,9 @@ public class SurveyMain extends HttpServlet {
 		WebContext actionSubCtx = (WebContext)actionCtx.clone();
 		actionSubCtx.addQuery("action",action);
 
+		actionCtx.println("Click here to update data: ");
+        printMenu(actionCtx, action, "upd_1", "Easy Data Update", "action");       
+        actionCtx.println(" <br> ");
         printMenu(actionCtx, action, "sessions", "Sessions", "action");    
             actionCtx.println(" | ");
         printMenu(actionCtx, action, "stats", "Stats", "action");       
@@ -839,7 +848,7 @@ public class SurveyMain extends HttpServlet {
         printMenu(actionCtx, action, "specialusers", "Specialusers", "action");       
             actionCtx.println(" | ");
         printMenu(actionCtx, action, "specialmsg", "Update Special Message", "action");       
-            actionCtx.println(" | ");
+        actionCtx.println(" | ");
         printMenu(actionCtx, action, "upd_src", "Manage Sources", "action");       
             actionCtx.println(" | ");
         printMenu(actionCtx, action, "load_all", "Load all locales", "action");       
@@ -951,6 +960,40 @@ public class SurveyMain extends HttpServlet {
                 }
             }
             ctx.println("</table>");
+        } else if(action.equals("upd_1")) {
+            WebContext subCtx = (WebContext)ctx.clone();
+            actionCtx.addQuery("action",action);
+            ctx.println("<h2>1-click vetting update</h2>");
+            // 1: update all sources
+            ctx.println("<h3>1. update all sources</h3>");
+            Connection conn = this.getDBConnection();
+            try {
+                CLDRDBSource mySrc = makeDBSource(conn, null, new ULocale("root"));
+                resetLocaleCaches();
+                ctx.println("Update count: " + mySrc.manageSourceUpdates(actionCtx, this, true)); // do a quiet 'update all'
+                ctx.println("<hr>");
+            } finally {
+                SurveyMain.closeDBConnection(conn);
+            }
+            // 2: load all locales
+            loadAllLocales(ctx);
+            // 3: update impl votes
+            ctx.println("<br>");
+            ElapsedTimer et = new ElapsedTimer();
+            int n = vet.updateImpliedVotes();
+            ctx.println("Done updating "+n+" implied votes in: " + et + "<br>");
+            // 4: UpdateAll
+            ctx.println("<h4>Update All</h4>");
+            
+            et = new ElapsedTimer();
+            n = vet.updateResults(false); // don't RE update.
+            ctx.println("Done updating "+n+" vote results in: " + et + "<br>");
+            lcr.invalidateLocale("root");
+            // 5: update status
+            et = new ElapsedTimer();
+            n = vet.updateStatus();
+            ctx.println("Done updating "+n+" statuses [locales] in: " + et + "<br>");
+            ctx.println("<hr><h1>Data update done! Restart may be needed if 'root' or '"+this.BASELINE_ID+"' was involved.</h1>");
         } else if(action.equals("srl_vet_imp")) {
             WebContext subCtx = (WebContext)ctx.clone();
             subCtx.addQuery("dump",vap);
@@ -987,7 +1030,7 @@ public class SurveyMain extends HttpServlet {
             boolean reupdate = actionCtx.hasField("reupdate");
 
             if(what.equals("ALL")) {
-                ctx.println("<h4>Update All</h4>");
+                ctx.println("<h4>Update All (delete first: "+reupdate+")</h4>");
                 
                 ElapsedTimer et = new ElapsedTimer();
                 int n = vet.updateResults(reupdate);
@@ -997,8 +1040,10 @@ public class SurveyMain extends HttpServlet {
                 int zn = vet.updateStatus();
                 ctx.println("Done updating "+zn+" statuses [locales] in: " + zet + "<br>");
             } else {
-                ctx.println("All: [ <a href='"+actionCtx.url()+actionCtx.urlConnector()+"srl_vet_res=ALL'>Update all</a> ] | ");
-                ctx.println(" [ <a href='"+actionCtx.url()+actionCtx.urlConnector()+"srl_vet_res=ALL&reupdate=reupdate'><b>RE</b>Update all</a> ]<br>");
+                ctx.println("<h4>Update All</h4>");
+                ctx.println("* <a href='"+actionCtx.url()+actionCtx.urlConnector()+"srl_vet_res=ALL'>Update all (routine update)</a><p>  ");
+                ctx.println("* <a href='"+actionCtx.url()+actionCtx.urlConnector()+"srl_vet_res=ALL&reupdate=reupdate'><b>REupdate:</b> " +
+                        "Delete all old results, and recount everything. Takes a long time.</a><br>");
                 if(what.length()>0) {
                     if(reupdate) {
                         try {
@@ -1014,7 +1059,7 @@ public class SurveyMain extends HttpServlet {
                         }
                     }
                     
-                    ctx.println("<h4>Update "+what+"</h4>");
+                    ctx.println("<h4>Update just "+what+"</h4>");
                     ElapsedTimer et = new ElapsedTimer();
                     int n = vet.updateResults(what);
                     ctx.println("Done updating "+n+" vote results in: " + et + "<br>");
@@ -1026,10 +1071,11 @@ public class SurveyMain extends HttpServlet {
                     vet.stopUpdating = true;            
                 }
             }
+            actionCtx.println("<hr><h4>Update just certain locales</h4>");
             actionCtx.println("<form method='POST' action='"+actionCtx.url()+"'>");
             actionCtx.printUrlAsHiddenFields();
-            actionCtx.println("<label><input type='checkbox' name='reupdate' value='reupdate'>Delete before update?</label><br>");
-            actionCtx.println("Update just: <input name='srl_vet_res' value='"+what+"'><input type='submit' value='Update'></form>");
+            actionCtx.println("<label><input type='checkbox' name='reupdate' value='reupdate'>Delete old results before update?</label><br>");
+            actionCtx.println("Update just this locale: <input name='srl_vet_res' value='"+what+"'><input type='submit' value='Update'></form>");
         } else if(action.equals("srl_twiddle")) {
 			ctx.println("<h3>Parameters. Please do not click unless you know what you are doing.</h3>");
 			
@@ -1148,6 +1194,8 @@ public class SurveyMain extends HttpServlet {
             if(daily || output.equals("misc")) {
                 files += doOutput("users");
                 ctx.println("users" + "<br>");
+                files += doOutput("usersa");
+                ctx.println("usersa" + "<br>");
                 files += doOutput("translators");
                 ctx.println("translators" + "<br>");
             }
@@ -1205,40 +1253,7 @@ public class SurveyMain extends HttpServlet {
                 actionCtx.addQuery("really_load","y");
                 ctx.println("<b>Really Load "+nrInFiles+" locales?? <a class='ferrbox' href='"+actionCtx.url()+"'>YES</a><br>");
             } else {
-                com.ibm.icu.dev.test.util.ElapsedTimer allTime = new com.ibm.icu.dev.test.util.ElapsedTimer("Time to load all: {0}");
-                logger.info("Loading all..");            
-                Connection connx = null;
-                int ti = 0;
-                for(int i=0;i<nrInFiles;i++) {
-                    String localeName = inFiles[i].getName();
-                    int dot = localeName.indexOf('.');
-                    if(dot !=  -1) {
-                        localeName = localeName.substring(0,dot);
-                        if((i>0)&&((i%50)==0)) {
-                            logger.info("   "+ i + "/" + nrInFiles + ". " + usedK() + "K mem used");
-                            ctx.println("   "+ i + "/" + nrInFiles + ". " + usedK() + "K mem used<br>");
-                        }
-                        try {
-                            if(connx == null) {
-                                connx = this.getDBConnection();
-                            }
-                            ULocale locale = new ULocale(localeName);
-                            //                        WebContext xctx = new WebContext(false);
-                            //                        xctx.setLocale(locale);
-                            makeCLDRFile(makeDBSource(connx, null, locale));  // orphan result
-                        } catch(Throwable t) {
-                            t.printStackTrace();
-                            String complaint = ("Error loading: " + localeName + " - " + t.toString() + " ...");
-                            logger.severe("loading all: " + complaint);
-                            ctx.println(complaint + "<br>" + "<pre>");
-                            ctx.print(t);
-                            ctx.println("</pre>");
-                        }
-                    }
-                }
-                closeDBConnection(connx);
-                logger.info("Loaded all. " + allTime);
-                ctx.println("Loaded all." + allTime + "<br>");
+                loadAllLocales(ctx);
             }
         } else if(action.equals("specialusers")) {
             ctx.println("<hr>Re-reading special users list...<br>");
@@ -1330,6 +1345,44 @@ public class SurveyMain extends HttpServlet {
         }
                 
         printFooter(ctx);
+    }
+    private void loadAllLocales(WebContext ctx) {
+        File[] inFiles = getInFiles();
+        int nrInFiles = inFiles.length;
+        com.ibm.icu.dev.test.util.ElapsedTimer allTime = new com.ibm.icu.dev.test.util.ElapsedTimer("Time to load all: {0}");
+        logger.info("Loading all..");            
+        Connection connx = null;
+        int ti = 0;
+        for(int i=0;i<nrInFiles;i++) {
+            String localeName = inFiles[i].getName();
+            int dot = localeName.indexOf('.');
+            if(dot !=  -1) {
+                localeName = localeName.substring(0,dot);
+                if((i>0)&&((i%50)==0)) {
+                    logger.info("   "+ i + "/" + nrInFiles + ". " + usedK() + "K mem used");
+                    ctx.println("   "+ i + "/" + nrInFiles + ". " + usedK() + "K mem used<br>");
+                }
+                try {
+                    if(connx == null) {
+                        connx = this.getDBConnection();
+                    }
+                    ULocale locale = new ULocale(localeName);
+                    //                        WebContext xctx = new WebContext(false);
+                    //                        xctx.setLocale(locale);
+                    makeCLDRFile(makeDBSource(connx, null, locale));  // orphan result
+                } catch(Throwable t) {
+                    t.printStackTrace();
+                    String complaint = ("Error loading: " + localeName + " - " + t.toString() + " ...");
+                    logger.severe("loading all: " + complaint);
+                    ctx.println(complaint + "<br>" + "<pre>");
+                    ctx.print(t);
+                    ctx.println("</pre>");
+                }
+            }
+        }
+        closeDBConnection(connx);
+        logger.info("Loaded all. " + allTime);
+        ctx.println("Loaded all." + allTime + "<br>");
     }
     
     /* 
@@ -1531,13 +1584,13 @@ public class SurveyMain extends HttpServlet {
         int barX = (int)barWid;
         int remainX = PROGRESS_WID-barX;
         
-        buf.append("<table border=0 style='padding: 0; border-style: collapse;'><tr height='12'>");
+        buf.append("<table border=0 style='margin: 5px; padding: 0; border-collapse: collapse; border: 2px solid black;'><tr height='12'>");
         if(barX > 0) {
-            buf.append("<td width='"+barX+"' style='padding: 0; margin: 0; border: 1px solid black; background-color: blue;'>");
+            buf.append("<td width='"+barX+"' style='padding: 0; margin: 0; border-left: 2px solid black; border-right: none; background-color: #6c31fe;'>");
             buf.append("</td>");
         }
         if(remainX >0) {
-            buf.append("<td width='"+remainX+"' style='padding: 0; margin: 0; border: 1px solid black; background-color: #ddd;'>");
+            buf.append("<td width='"+remainX+"' style='padding: 0; margin: 0; border-left: none; border-right: 2px solid black; background-color: #ddd;'>");
             buf.append("</td>");
         }
         buf.append("</table>");
@@ -4186,6 +4239,8 @@ public class SurveyMain extends HttpServlet {
             resolved = true;
         } else if(kind.equals("users")) {
             users = true;
+        } else if(kind.equals("usersa")) {
+            users = true;
         } else if(kind.equals("translators")) {
             translators = true;
         } else {
@@ -4314,7 +4369,8 @@ public class SurveyMain extends HttpServlet {
             }
             nrOutFiles++;
          } else if(users) {
-            File outFile = new File(outdir,"users.xml");
+            boolean obscured = kind.equals("usersa");
+            File outFile = new File(outdir,kind+".xml");
             try {
                 PrintWriter out = new PrintWriter(
                     new OutputStreamWriter(
@@ -4323,7 +4379,7 @@ public class SurveyMain extends HttpServlet {
     //                throw new InternalError("UTF8 unsupported?").setCause(e);
                 out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
         //        ctx.println("<!DOCTYPE ldml SYSTEM \"http://.../.../stusers.dtd\">");
-                out.println("<users generated=\""+ourDate+"\" host=\""+localhost()+"\">");
+                out.println("<users generated=\""+ourDate+"\" host=\""+localhost()+"\" obscured=\""+obscured+"\">");
                 String org = null;
                 try { synchronized(reg) {
                     java.sql.ResultSet rs = reg.list(org);
@@ -4334,8 +4390,8 @@ public class SurveyMain extends HttpServlet {
                     while(rs.next()) {
                         int theirId = rs.getInt(1);
                         int theirLevel = rs.getInt(2);
-                        String theirName = SurveyMain.getStringUTF8(rs, 3);//rs.getString(3);
-                        String theirEmail = rs.getString(4);
+                        String theirName = obscured?("#"+theirId):SurveyMain.getStringUTF8(rs, 3);//rs.getString(3);
+                        String theirEmail = obscured?"?@??.??":rs.getString(4);
                         String theirOrg = rs.getString(5);
                         String theirLocales = rs.getString(6);
                         
@@ -5152,45 +5208,101 @@ public class SurveyMain extends HttpServlet {
     
     private static Hashtable aliasMap = null;
     private static Hashtable<String,String> directionMap = null;
+    
+    /**
+     * "Hash" a file to a string, including mod time and size
+     * @param f
+     * @return
+     */
+    private static String fileHash(File f) {
+        return("["+f.getAbsolutePath()+"|"+f.length()+"|"+f.hashCode()+"|"+f.lastModified()+"]");
+    }
 
     private synchronized void checkAllLocales() {
         if(aliasMap!=null) return;
+        
+        boolean useCache = isUnofficial; // NB: do NOT use the cache if we are in unofficial mode.  Parsing here doesn't take very long (about 16s), but 
+        // we want to save some time during development iterations.
         
         Hashtable aliasMapNew = new Hashtable();
         Hashtable directionMapNew = new Hashtable();
         Set locales  = getLocalesSet();
         ElapsedTimer et = new ElapsedTimer();
         setProgress("Parse locales from XML", locales.size());
+        int nn=0;
+        File xmlCache = new File(vetdir, XML_CACHE_PROPERTIES);
+        File xmlCacheBack = new File(vetdir, XML_CACHE_PROPERTIES+".backup");
+        Properties xmlCacheProps = new java.util.Properties(); 
+        Properties xmlCachePropsNew = new java.util.Properties(); 
+        if(useCache && xmlCache.exists()) try {
+            java.io.FileInputStream is = new java.io.FileInputStream(xmlCache);
+            xmlCacheProps.load(is);
+            is.close();
+        } catch(java.io.IOException ioe) {
+            /*throw new UnavailableException*/
+            logger.log(java.util.logging.Level.SEVERE, "Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': ",ioe);
+            busted("Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': ", ioe);
+            return;
+        }
+        
         int n=0;
+        int cachehit=0;
         System.err.println("Parse " + locales.size() + " locales from XML to look for aliases or errors...");
         for(Object loc : locales) {
-            updateProgress(n++, loc.toString());
+            String locString = loc.toString();
+//            ULocale uloc = new ULocale(locString);
+            updateProgress(n++, loc.toString() /* + " - " + uloc.getDisplayName(uloc) */);
             try {
-                Document d = LDMLUtilities.parse(fileBase+"/"+loc.toString()+".xml", false);
+                File  f = new File(fileBase, loc.toString()+".xml");
+//                String fileName = fileBase+"/"+loc.toString()+".xml";
+                String fileHash = fileHash(f);
+                String aliasTo = null;
+                String direction = null;
+                //System.err.println(fileHash);
                 
-                // look for directionality
-                Node[] directionalityItems = 
-                    LDMLUtilities.getNodeListAsArray(d,"//ldml/layout/orientation");
-                if(directionalityItems!=null&&directionalityItems.length>0) {
-                    String direction = LDMLUtilities.getAttributeValue(directionalityItems[0], LDMLConstants.CHARACTERS);
-                    if(direction != null&& direction.length()>0) {
-                        directionMapNew.put(loc.toString(), direction);
+                String oldHash = xmlCacheProps.getProperty(locString);
+                if(useCache && oldHash != null && oldHash.equals(fileHash)) {
+                    // cache hit! load from cache
+                    aliasTo = xmlCacheProps.getProperty(locString+".a",null);
+                    direction = xmlCacheProps.getProperty(locString+".d",null);
+                    cachehit++;
+                } else {
+                    Document d = LDMLUtilities.parse(f.getAbsolutePath(), false);
+                    
+                    // look for directionality
+                    Node[] directionalityItems = 
+                        LDMLUtilities.getNodeListAsArray(d,"//ldml/layout/orientation");
+                    if(directionalityItems!=null&&directionalityItems.length>0) {
+                        direction = LDMLUtilities.getAttributeValue(directionalityItems[0], LDMLConstants.CHARACTERS);
+                        if(direction != null&& direction.length()>0) {
+                        } else {
+                            direction = null;
+                        }
+                    }
+                    
+                    
+                    Node[] aliasItems = 
+                                LDMLUtilities.getNodeListAsArray(d,"//ldml/alias");
+                                
+                    if((aliasItems==null) || (aliasItems.length==0)) {
+                        aliasTo=null;
+                    } else if(aliasItems.length>1) {
+                        throw new InternalError("found " + aliasItems + " items at " + "//ldml/alias" + " - should have only found 1");
+                    } else {
+                        aliasTo = LDMLUtilities.getAttributeValue(aliasItems[0],"source");
                     }
                 }
-
                 
-                Node[] aliasItems = 
-                            LDMLUtilities.getNodeListAsArray(d,"//ldml/alias");
-                            
-                if((aliasItems==null) || (aliasItems.length==0)) {
-                    continue;
-                } else if(aliasItems.length>1) {
-                    throw new InternalError("found " + aliasItems + " items at " + "//ldml/alias" + " - should have only found 1");
+                // now, set it into the new map
+                xmlCachePropsNew.put(locString, fileHash);
+                if(direction != null) {
+                    directionMapNew.put(loc.toString(), direction);
+                    xmlCachePropsNew.put(locString+".d", direction);
                 }
-
-                String aliasTo = LDMLUtilities.getAttributeValue(aliasItems[0],"source");
-                
-                aliasMapNew.put(loc.toString(),aliasTo);
+                if(aliasTo!=null) {
+                    aliasMapNew.put(loc.toString(),aliasTo);
+                    xmlCachePropsNew.put(locString+".a", aliasTo);
+                }
             } catch (Throwable t) {
                 System.err.println("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
                 t.printStackTrace();
@@ -5198,7 +5310,27 @@ public class SurveyMain extends HttpServlet {
                 throw new InternalError("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
             }
         }
-        System.err.println("Finished verify+alias check of " + locales.size()+ ", " + aliasMapNew.size() + " aliased locales found in " + et.toString());
+        
+        if(useCache) try {
+            // delete old stuff
+            if(xmlCacheBack.exists()) { 
+                xmlCacheBack.delete();
+            }
+            if(xmlCache.exists()) {
+                xmlCache.renameTo(xmlCacheBack);
+            }
+            java.io.FileOutputStream os = new java.io.FileOutputStream(xmlCache);
+            xmlCachePropsNew.store(os, "YOU MAY DELETE THIS CACHE. Cache updated at " + new Date());
+            updateProgress(nn++, "Loading configuration..");
+            os.close();
+        } catch(java.io.IOException ioe) {
+            /*throw new UnavailableException*/
+            logger.log(java.util.logging.Level.SEVERE, "Couldn't write "+xmlCache+" file from '" + cldrHome + "': ",ioe);
+            busted("Couldn't write "+xmlCache+" file from '" + cldrHome+"': ", ioe);
+            return;
+        }
+        
+        System.err.println("Finished verify+alias check of " + locales.size()+ ", " + aliasMapNew.size() + " aliased locales ("+cachehit+" in cache) found in " + et.toString());
         aliasMap = aliasMapNew;
         directionMap = directionMapNew;
         clearProgress();
@@ -6977,9 +7109,9 @@ public class SurveyMain extends HttpServlet {
 			ctx.print("<td colspan="+(PODTABLE_WIDTH-2)+">");
 			
 			try {
-				Vetting.Race r =  vet.getRace(section.locale, p.base_xpath);
+				Race r =  vet.getRace(section.locale, p.base_xpath);
 
-				for(Vetting.Race.Organization org : r.orgVotes.values()) {
+				for(Race.Organization org : r.orgVotes.values()) {
 					ctx.print("<b>");
 					ctx.print(org.name+"</b>: ");
 					if(org.vote == null) {
@@ -7013,7 +7145,7 @@ public class SurveyMain extends HttpServlet {
                     
                     if(UserRegistry.userIsTC(ctx.session.user) && !org.votes.isEmpty()) {
                         ctx.print("<ul class='orgvotes'>");
-                        for(Vetting.Race.Chad item : org.votes) {
+                        for(Race.Chad item : org.votes) {
                             ctx.print("<li>");
                             String theValue = item.value;
                             if(theValue == null) {  
@@ -7059,7 +7191,7 @@ public class SurveyMain extends HttpServlet {
                     ctx.print("<i>not enough votes to overturn approved item</i><br>");
                 } else if(!r.disputes.isEmpty()) {
                     ctx.print(" "+ctx.iconHtml("warn","Warning")+"Disputed with: ");
-                    for(Vetting.Race.Chad disputor : r.disputes) {
+                    for(Race.Chad disputor : r.disputes) {
                         ctx.print("<span title='#"+disputor.xpath+"'>"+disputor.value+"</span> ");
                     }
                     ctx.print("");
@@ -7075,7 +7207,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.print("<table class='list' border=1 summary='voting results by item'>");
                 ctx.print("<tr><th>Value</th><th>Score</th><th>Votes</th></tr>");
                 int nn=0;
-                for(Vetting.Race.Chad item : r.chads.values()) {
+                for(Race.Chad item : r.chads.values()) {
                     ctx.println("<tr class='row"+(nn++ % 2)+"'>");
                     String theValue = item.value;
                     if(theValue == null) {  

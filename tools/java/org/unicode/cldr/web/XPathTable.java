@@ -465,5 +465,13 @@ public class XPathTable {
         synchronized(ppath) {
             return ppath.getOutputForm(prettyPath);
         }
+    }
+
+    /**
+     * How much is inside?
+     * @return
+     */
+    public int count() {
+        return stringToId.size();
     }            
 }

@@ -171,21 +171,29 @@ public class UserRegistry {
 //            }
         
         /**
-         * Convert this User to a VoteREsolver.VoterInfo
+         * Convert this User to a VoteREsolver.VoterInfo. Not cached.
          */
-        public VoterInfo getVoterInfo() {
+        private VoterInfo createVoterInfo() {
             //VoterInfo(Organization.google, Level.vetter, &quot;J. Smith&quot;) },
-            VoteResolver.Organization o = this.getVoteOrganization();
-            VoteResolver.Level l = this.getVoteLevel();
+            VoteResolver.Organization o = this.computeVROrganization();
+            VoteResolver.Level l = this.computeVRLevel();
             VoterInfo v = new VoterInfo(o, l, this.name);
             return v;
+        }
+        
+        /**
+         * Return the value of this voter info, out of the cache
+         * @return
+         */
+        public VoterInfo voterInfo() {
+            return getVoterToInfo(id);
         }
         
         /**
          * Convert the level to a VoteResolver.Level
          * @return VoteResolver.Level format
          */
-        private VoteResolver.Level getVoteLevel() {
+        private VoteResolver.Level computeVRLevel() {
             switch (this.userlevel) {
             case ADMIN: return VoteResolver.Level.admin;
             case TC: return VoteResolver.Level.tc;
@@ -202,7 +210,7 @@ public class UserRegistry {
          * Convert the Organization into a VoteResolver.Organization
          * @return VoteResolver.Organization format
          */
-        private VoteResolver.Organization getVoteOrganization() {
+        private VoteResolver.Organization computeVROrganization() {
             VoteResolver.Organization o = null;
             try {
                 String arg = this.org
@@ -215,6 +223,19 @@ public class UserRegistry {
                 System.err.println("Unknown organization: "+this.org);
             }
             return o;
+        }
+        
+        private String voterOrg = null;
+        
+        /**
+         * Convenience function for returning the "VoteResult friendly" organization.
+         * @return
+         */
+        public String voterOrg() {
+            if(voterOrg==null) {
+                voterOrg=voterInfo().organization().name();
+            }
+            return voterOrg;
         }
     }
         
@@ -1425,6 +1446,10 @@ public class UserRegistry {
         }
     }
     
+    public VoterInfo getVoterToInfo(int userid) {
+        return getVoterToInfo().get(userid);
+    }
+    
     // Interface for VoteResolver interface
     /**
      * Fetch the user map in VoterInfo format.
@@ -1453,7 +1478,7 @@ public class UserRegistry {
                     u.last_connect = rs.getTimestamp(8);
                     
                     // now, map it to a UserInfo
-                    VoterInfo v = u.getVoterInfo();
+                    VoterInfo v = u.createVoterInfo();
                     
                     map.put(u.id, v);
                 }

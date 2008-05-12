@@ -2038,7 +2038,7 @@ if(true == true)    throw new InternalError("removed from use.");
         }
         
         String loc = ctx.field("_");
-        final String org = ctx.session.user.org;
+        final String org = ctx.session.user.voterInfo().organization().name();
         if(loc.equals("")) {
             synchronized(conn) {
                 try {
@@ -2046,7 +2046,7 @@ if(true == true)    throw new InternalError("removed from use.");
                     
                     ResultSet rs = orgDisputeLocs.executeQuery();
                     if(rs.next()) {
-                        ctx.println("<h4>Vetting Disputes for "+ctx.session.user.org+"</h4>");
+                        ctx.println("<h4>Vetting Disputes for "+ctx.session.user.org+" ("+org+")</h4>");
                         
                         do {
                             loc = rs.getString(1);

@@ -3605,7 +3605,7 @@ public class SurveyMain extends HttpServlet {
         if(canModify) {
             rv = rv + (modifyThing(ctx));
             int odisp = 0;
-            if((this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT || isPhaseVettingClosed()) && ((odisp=vet.getOrgDisputeCount(ctx.session.user.org,localeName))>0)) {
+            if((this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT || isPhaseVettingClosed()) && ((odisp=vet.getOrgDisputeCount(ctx.session.user.voterOrg(),localeName))>0)) {
                 rv = rv + ctx.iconHtml("disp","("+odisp+" org disputes)");
             }
         }
@@ -4728,7 +4728,7 @@ public class SurveyMain extends HttpServlet {
             }
             int orgDisp = 0;
             if(ctx.session.user != null) {
-                orgDisp = vet.getOrgDisputeCount(ctx.session.user.org,localeName);
+                orgDisp = vet.getOrgDisputeCount(ctx.session.user.voterOrg(),localeName);
                 
                 if(orgDisp > 0) {
                     
@@ -4737,7 +4737,7 @@ public class SurveyMain extends HttpServlet {
                     Set<String> odItems = new TreeSet<String>();
                     synchronized(vet.conn) { 
                         try { // moderately expensive.. since we are tying up vet's connection..
-                            vet.orgDisputePaths.setString(1,ctx.session.user.org);
+                            vet.orgDisputePaths.setString(1,ctx.session.user.voterOrg());
                             vet.orgDisputePaths.setString(2,localeName);
                             ResultSet rs = vet.orgDisputePaths.executeQuery();
                             while(rs.next()) {
@@ -6773,7 +6773,7 @@ public class SurveyMain extends HttpServlet {
         {
             String disputeIcon = "";
             if(canModify) {
-                if(vet.queryOrgDispute(ctx.session.user.org, section.locale, p.base_xpath)) {
+                if(vet.queryOrgDispute(ctx.session.user.voterOrg(), section.locale, p.base_xpath)) {
                     disputeIcon = ctx.iconHtml("disp","Vetter Dispute");
                 }
             }

@@ -1107,7 +1107,8 @@ import com.ibm.icu.util.ULocale;
         return getOrigXpath(pathid, finalData);
     }
     
-    public static final int CHUNKSIZE=75000;
+    public static final boolean USE_XPATH_CACHE=false;
+    public static final int CHUNKSIZE=USE_XPATH_CACHE?75000:0;
     static int xpMax = CHUNKSIZE;
     
     private String origXpaths[] = new String[xpMax];
@@ -1138,8 +1139,6 @@ import com.ibm.icu.util.ULocale;
         }
     }
 
-//    static int xxo =0 ;
-//    static int  oox = 0;
     /**
      * get the 'original' xpath from a path-id#
      * @param pathid ID# of a path
@@ -1147,7 +1146,9 @@ import com.ibm.icu.util.ULocale;
      * @see XPathTable
      */
     public String getOrigXpath(int pathid, boolean useFinalData) {
-        if(useFinalData!=finalData) {
+        if(!USE_XPATH_CACHE) {
+            return getOrigXpathString(pathid, useFinalData);
+        } else if(useFinalData!=finalData) {
             return getOrigXpathString(pathid, useFinalData);
         } else {
 //            System.err.println(">> N:" + pathid );
@@ -1157,15 +1158,7 @@ import com.ibm.icu.util.ULocale;
                 if(result!=null) {
                     putOrigXpathInCache(pathid, result);
                 }
-//                oox++;
-//                if(false||oox%50==0) {
-//                    System.err.println("gOX hits: " +xxo + "  MISS: " + oox);
-//                }
             } else {
-//                xxo++;
-//                if(false||xxo%50==0) {
-//                    System.err.println("gOX HITS: " +xxo + "  miss: " + oox);
-//                }
             }
 //            System.err.println("<< N: " + result);
             return result;
@@ -1498,10 +1491,12 @@ import com.ibm.icu.util.ULocale;
         }
     }
 
+    static final boolean MAKE_CACHE = false;
+    
     Hashtable<String, XMLSource> makeHash = new Hashtable<String, XMLSource>();
     
-    static int oo = 0;
-    static int mhs = 0;
+    private static int makeHashHitCount = 0;
+    private static int maxMakeHashSize = 0;
     
     
     /**
@@ -1513,7 +1508,7 @@ import com.ibm.icu.util.ULocale;
     public XMLSource make(String localeID) {
         if(localeID == null) return null; // ???
         XMLSource result = null;
-        result = makeHash.get(localeID);
+        if(MAKE_CACHE) result = makeHash.get(localeID);
         if(result == null) {
             if(localeID.startsWith(CLDRFile.SUPPLEMENTAL_PREFIX)) {
                 XMLSource msource = new CLDRFile.SimpleXMLSource(rawXmlFactory, localeID).make(localeID);
@@ -1528,15 +1523,15 @@ import com.ibm.icu.util.ULocale;
                 }
                 result = dbresult;
             }
-            makeHash.put(localeID, result);
+            if(MAKE_CACHE) makeHash.put(localeID, result);
         } else if(TRACE_CONN && SurveyMain.isUnofficial) {
-            if(makeHash.size()>mhs) {
-                mhs=makeHash.size();
+            if(makeHash.size()>maxMakeHashSize) {
+                maxMakeHashSize=makeHash.size();
             }
-            oo++;
-            if((oo%1000) == 0) {
-                System.err.println("make: cache hit "+oo+" times, hash size " + makeHash.size() + " (max " + mhs+"), initConn count " + nn);
-                if(true&& (oo % 1000)==0){
+            makeHashHitCount++;
+            if((makeHashHitCount%1000) == 0) {
+                System.err.println("make: cache hit "+makeHashHitCount+" times, hash size " + makeHash.size() + " (max " + maxMakeHashSize+"), initConn count " + nn);
+                if(true&& (makeHashHitCount % 1000)==0){
                     try {
                         throw new Throwable("cache hit make() called here");
                     } catch(Throwable t) {

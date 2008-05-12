@@ -22,6 +22,7 @@ import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -273,4 +274,18 @@ public class TestBasic extends TestFmwk {
     }
   }
 
+  public void TestAPath() {
+    // <month type="1">1</month>
+    String path = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"1\"]";
+    CLDRFile root = testInfo.getRoot();
+    logln("path: " + path);
+    String fullpath = root.getFullXPath(path);
+    logln("fullpath: " + fullpath);
+    String value = root.getStringValue(path);
+    logln("value: " + value);
+    Status status = new Status();
+    String source = root.getSourceLocaleID(path, status);
+    logln("locale: " + source);
+    logln("status: " + status);
+  }
 }

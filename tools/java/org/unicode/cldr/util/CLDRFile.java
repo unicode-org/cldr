@@ -2517,10 +2517,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
     }
   }
   
-  
-  
   public static class Status {
     public String pathWhereFound;
+    public String toString() {
+      return pathWhereFound;
+    }
   }
   
   public static boolean isLOG_PROGRESS() {

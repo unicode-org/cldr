@@ -650,24 +650,28 @@ public abstract class XMLSource implements Freezable {
      * then the parent for //ldml/xyz/.../uvw/abc/.../def/
      * is source, and the path to search for is really: //ldml/xyz/.../uvw/path/abc/.../def/
      */
-    public static final boolean TRACE_VALUE = false;
+    public static final boolean TRACE_VALUE = Utility.getProperty("TRACE_VALUE", false);;
     
 //    Map<String,String> getValueAtDPathCache = new HashMap();
     
     public String getValueAtDPath(String xpath) {
-      if (TRACE_VALUE) System.out.println("xpath: " + xpath
-          + "\r\n\tsource: " + mySource.getClass().getName()
-          + "\r\n\tlocale: " + mySource.getLocaleID()
+      if (TRACE_VALUE) System.out.println("\t*xpath: " + xpath
+          + "\r\n\t*source: " + mySource.getClass().getName()
+          + "\r\n\t*locale: " + mySource.getLocaleID()
       );
       String result = mySource.getValueAtDPath(xpath);
       
       if (result == null) {
         AliasLocation fullStatus = getCachedFullStatus(xpath);
         if (fullStatus != null) {
+          if (TRACE_VALUE) {
+            System.out.println("\t*pathWhereFound: " + fullStatus.pathWhereFound);
+            System.out.println("\t*localeWhereFound: " + fullStatus.localeWhereFound);
+          }
           result = getSource(fullStatus).getValueAtDPath(fullStatus.pathWhereFound);
         }
       }
-      if (TRACE_VALUE) System.out.println("result: " + result);
+      if (TRACE_VALUE) System.out.println("\t*value: " + result);
       return result;
     }
     
@@ -899,7 +903,7 @@ public abstract class XMLSource implements Freezable {
      * We have to go through the source, add all the paths, then recurse to parents
      * However, aliases are tricky, so watch it.
      */
-    static final boolean TRACE_FILL = false;
+    static final boolean TRACE_FILL = Utility.getProperty("TRACE_FILL", false);
     private void fillKeys(int level, XMLSource currentSource, Alias alias, List<Alias> excludedAliases, Set<String> resultKeySet) {
       if (TRACE_FILL) {
         if (level > 10) throw new IllegalArgumentException("Stack overflow");
@@ -965,7 +969,9 @@ public abstract class XMLSource implements Freezable {
         }
         fillKeys(level+1, aliasSource, foundAlias, null, resultKeySet);
       }
-      if (TRACE_FILL) System.out.println(Utility.repeat("\t",level) + "=> cachedKeySet.size(): " + resultKeySet.size());
+      if (TRACE_FILL) {
+        System.out.println(Utility.repeat("\t",level) + "=> cachedKeySet.size(): " + resultKeySet.size());
+      }
     }
     
     private transient Set<String> cachedKeySet = null;

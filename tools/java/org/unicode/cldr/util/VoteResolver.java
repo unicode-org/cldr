@@ -1,11 +1,13 @@
 package org.unicode.cldr.util;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -229,14 +231,16 @@ public class VoteResolver<T> {
   /**
    * Data built internally
    */
-  private T                         winningValue;
-  private Status                         winningStatus;
-  private EnumSet<Organization>          conflictedOrganizations    = EnumSet
-                                                                            .noneOf(Organization.class);
-  private OrganizationToValueAndVote<T>     organizationToValueAndVote = new OrganizationToValueAndVote<T>();
-  private T                         lastReleaseValue;
-  private Status                         lastReleaseStatus;
-  private boolean                        resolved;
+  private T                                                winningValue;
+  private List<T>                                          valuesWithSameVotes = new ArrayList<T>();
+  private Status                                           winningStatus;
+  private EnumSet<Organization>                            conflictedOrganizations    = EnumSet
+                                                                                              .noneOf(Organization.class);
+  private OrganizationToValueAndVote<T>                    organizationToValueAndVote = new OrganizationToValueAndVote<T>();
+  private T                                                lastReleaseValue;
+  private Status                                           lastReleaseStatus;
+  private boolean                                          resolved;
+  
   private final Comparator<T> ucaCollator = new Comparator<T>() {
     Collator col = Collator.getInstance(ULocale.ENGLISH);
     public int compare(T o1, T o2) {
@@ -298,19 +302,22 @@ public class VoteResolver<T> {
     values.add(value);
   }
 
-  private Set<T> values = new HashSet<T>();
+  private Set<T> values = new TreeSet<T>(ucaCollator);
 
   private void resolveVotes() {
     resolved = true;
     // get the votes for each organization
     Counter<T> totals = organizationToValueAndVote.getTotals(conflictedOrganizations);
-    Iterator<T> iterator = totals.getKeysetSortedByCount(false, ucaCollator).iterator();
+    final Set<T> sortedValues = totals.getKeysetSortedByCount(false, ucaCollator);
+    Iterator<T> iterator = sortedValues.iterator();
+    valuesWithSameVotes.clear();
     // if there are no (unconflicted) votes, return lastRelease
-    if (!iterator.hasNext()) {
+    if (sortedValues.size() == 0) {
       // if there *was* a real winning status, then return it.
       if (lastReleaseStatus != Status.missing) {
         winningStatus = lastReleaseStatus;
         winningValue = lastReleaseValue;
+        valuesWithSameVotes.add(winningValue);
         return;
       }
       // otherwise pick the smallest value.
@@ -319,27 +326,45 @@ public class VoteResolver<T> {
       }
       winningStatus = Status.unconfirmed;
       winningValue = values.iterator().next();
+      valuesWithSameVotes.addAll(values);
       return;
     }
-    // get the optimal value
-    winningValue = iterator.next();
-    long weight = totals.getCount(winningValue);
+    // get the optimal value, and the penoptimal value
+    long weight1 = 0;
+    long weight2 = 0;
+
+    int i = -1;
+    for (T value : sortedValues) {
+      ++i;
+      long valueWeight = totals.getCount(value);
+      if (i == 0) {
+        winningValue = value;
+        weight1 = valueWeight;
+        valuesWithSameVotes.add(value);
+      } else {
+        if (i == 1) {
+          // get the next item if there is one
+          if (iterator.hasNext()) {
+            //value2 = value;
+            weight2 = valueWeight;
+          }
+        }
+        if (valueWeight == weight1) {
+          valuesWithSameVotes.add(value);
+        } else {
+          break;
+        }
+      }
+    }
     // could optimize the following line by only computing later.
     int orgCount = organizationToValueAndVote.getOrgCount(winningValue);
-    T value2 = null;
-    long weight2 = 0;
-    // if there is a tie
-    // get the next item if there is one
-    if (iterator.hasNext()) {
-      value2 = iterator.next();
-      weight2 = totals.getCount(value2);
-    }
+
     // here is the meat.
-    winningStatus = weight >= 2 * weight2 && weight >= 8 ? Status.approved
-            : (weight > weight2 && weight >= 4
-               || weight >= 2 * weight2 && weight >= 2 && orgCount >= 2
+    winningStatus = weight1 >= 2 * weight2 && weight1 >= 8 ? Status.approved
+            : (weight1 > weight2 && weight1 >= 4
+               || weight1 >= 2 * weight2 && weight1 >= 2 && orgCount >= 2
               ) ? Status.contributed
-            : weight >= weight2 && weight >= 2 ? Status.provisional
+            : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
             : Status.unconfirmed;
     // if we are not as good as the last release, use the last release
     if (winningStatus.compareTo(lastReleaseStatus) < 0) {
@@ -360,6 +385,13 @@ public class VoteResolver<T> {
       resolveVotes();
     }
     return winningValue;
+  }
+
+  public List<T> getValuesWithSameVotes() {
+    if (!resolved) {
+      resolveVotes();
+    }
+    return new ArrayList<T>(valuesWithSameVotes);
   }
 
   public EnumSet<Organization> getConflictedOrganizations() {
@@ -466,19 +498,34 @@ public class VoteResolver<T> {
    * //users[@host="sarasvati.unicode.org"]/user[@id="286"][@email="mike.tardif@adobe.com"]/org
    * Adobe
    * //users[@host="sarasvati.unicode.org"]/user[@id="286"][@email="mike.tardif@adobe.com"]/locales[@type="edit"]
+   * 
+   * Steven's new format:
+   * //users[@generated="Wed May 07 15:57:15 PDT 2008"][@host="tintin"][@obscured="true"]
+   *    /user[@id="286"][@email="?@??.??"]
+   *    /level[@n="1"][@type="TC"]
    */
 
   static class MyHandler extends XMLFileReader.SimpleHandler {
+    private static final Pattern userPathMatcher = Pattern
+    .compile(
+            "//users(?:[^/]*)"
+            + "/user\\[@id=\"([^\"]*)\"](?:[^/]*)"
+            + "/("
+            + "org" +
+            "|name" +
+            "|level\\[@n=\"([^\"]*)\"]\\[@type=\"([^\"]*)\"]" + 
+            "|locales\\[@type=\"([^\"]*)\"]" +
+                "(?:/locale\\[@id=\"([^\"]*)\"])?"
+            + ")",Pattern.COMMENTS);
+    enum Group {all, userId, mainType, n, levelType, localeType, localeId;
+      String get(Matcher matcher) {
+        return matcher.group(this.ordinal());
+        };
+      }
+    
     private static final boolean DEBUG_HANDLER           = false;
     Map<Integer, VoterInfo>      testVoterToInfo = new TreeMap<Integer, VoterInfo>();
-    Matcher                      matcher         = Pattern
-                                                         .compile(
-                                                                 "//users\\[@host=\"([^\"]*)\"]"
-                                                                         + "/user\\[@id=\"([^\"]*)\"]\\[@email=\"([^\"]*)\"]"
-                                                                         + "/("
-                                                                         + "org|name|level\\[@n=\"([^\"]*)\"]\\[@type=\"([^\"]*)\"]" +
-                                                                         		"|locales\\[@type=\"([^\"]*)\"]/locale\\[@id=\"([^\"]*)\"]"
-                                                                         + ")").matcher("");
+    Matcher                      matcher         = userPathMatcher.matcher("");
 
     public void handlePathValue(String path, String value) {
       if (DEBUG_HANDLER)
@@ -486,15 +533,16 @@ public class VoteResolver<T> {
       if (matcher.reset(path).matches()) {
         if (DEBUG_HANDLER) {
           for (int i = 1; i <= matcher.groupCount(); ++i) {
-            System.out.println(i + "\t" + matcher.group(i));
+            Group group = Group.values()[i];
+            System.out.println(i + "\t" + group + "\t" + group.get(matcher));
           }
         }
-        int id = Integer.parseInt(matcher.group(2));
+        int id = Integer.parseInt(Group.userId.get(matcher));
         VoterInfo voterInfo = testVoterToInfo.get(id);
         if (voterInfo == null) {
           testVoterToInfo.put(id, voterInfo = new VoterInfo());
         }
-        final String mainType = matcher.group(4);
+        final String mainType = Group.mainType.get(matcher);
         if (mainType.equals("org")) {
           value = value.toLowerCase().replace('-', '_').replace('.', '_');
           if (value.contains("pakistan")) {
@@ -506,13 +554,20 @@ public class VoteResolver<T> {
         } else if (mainType.equals("name")) {
           voterInfo.name = value;
         } else if (mainType.startsWith("level")) {
-          String level = matcher.group(6).toLowerCase();
+          String level = Group.levelType.get(matcher).toLowerCase();
           voterInfo.level = Level.valueOf(level);
         } else if (mainType.startsWith("locale")) {
-          voterInfo.locales.add(matcher.group(8).split("_")[0]);
+          final String localeIdString = Group.localeId.get(matcher);
+          if (localeIdString != null) {
+            voterInfo.locales.add(localeIdString.split("_")[0]);
+          } else if (DEBUG_HANDLER) {
+            System.out.println("\tskipping");
+          }
+        } else if (DEBUG_HANDLER) {
+          System.out.println("\tFailed match* with " + path + "=" + value);
         }
       } else {
-        //System.out.println("\tFailed match with " + path + "=" + value);
+        System.out.println("\tFailed match with " + path + "=" + value);
       }
     }
   }

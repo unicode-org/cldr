@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -15,6 +16,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.tool.ConvertLanguageData.InverseComparator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DelegatingIterator;
@@ -36,7 +38,7 @@ import com.ibm.icu.util.ULocale;
 
 public class TestUtilities extends TestFmwk {
   private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]");
-  private static final boolean DEBUG = false;
+  private static final boolean DEBUG = true;
   static TestInfo testInfo = TestInfo.getInstance();
 
   public static void main(String[] args) {
@@ -76,6 +78,7 @@ public class TestUtilities extends TestFmwk {
   public void TestCounter() {
     Counter<String> counter = new Counter<String>(true);
     Comparator<String> uca = Collator.getInstance(ULocale.ENGLISH);
+    InverseComparator ucaDown = new InverseComparator(uca);
     
     counter.add("c", 95);
     counter.add("b", 50);
@@ -88,21 +91,21 @@ public class TestUtilities extends TestFmwk {
     assertEquals("getCount(a)", counter.getTotal(), 338);
     assertEquals("getItemCount", counter.getItemCount(), 4);
 
-    assertEquals("getMap", counter.getMap().toString(), "{c=95, b=151, a=95, d=-3}");
+    assertEquals("getMap", "{a=95, b=151, c=95, d=-3}",counter.getMap().toString());
 
     assertEquals("getKeysetSortedByKey", Arrays.asList("a", "b", "c", "d"), new ArrayList(counter
             .getKeysetSortedByKey()));
 
-    assertEquals("getKeysetSortedByCount(true, null)", Arrays.asList("d", "c", "a", "b"), new ArrayList(counter
-            .getKeysetSortedByCount(true, null)));
+    assertEquals("getKeysetSortedByCount(true, ucaDown)", Arrays.asList("d", "c", "a", "b"), new ArrayList(counter
+            .getKeysetSortedByCount(true, ucaDown)));
 
-    assertEquals("getKeysetSortedByCount(true, uca), value", Arrays.asList("d", "a", "c", "b"), new ArrayList(
+    assertEquals("getKeysetSortedByCount(true, null), value", Arrays.asList("d", "a", "c", "b"), new ArrayList(
             counter.getKeysetSortedByCount(true, uca)));
 
-    assertEquals("getKeysetSortedByCount(false, null), descending", Arrays.asList("b", "c", "a", "d"),
-            new ArrayList(counter.getKeysetSortedByCount(false, null)));
+    assertEquals("getKeysetSortedByCount(false, ucaDown), descending", Arrays.asList("b", "c", "a", "d"),
+            new ArrayList(counter.getKeysetSortedByCount(false, ucaDown)));
 
-    assertEquals("getKeysetSortedByCount(false, uca), descending, value", Arrays.asList("b", "a", "c", "d"),
+    assertEquals("getKeysetSortedByCount(false, null), descending, value", Arrays.asList("b", "a", "c", "d"),
             new ArrayList(counter.getKeysetSortedByCount(false, uca)));
   }
   
@@ -121,8 +124,8 @@ public class TestUtilities extends TestFmwk {
   public void TestVoteResolverData() {
     final PrintWriter errorLogPrintWriter = this.getErrorLogPrintWriter();
     final PrintWriter logPrintWriter = this.getLogPrintWriter();
-    String userFile = Utility.getProperty("usersxml", "/Users/markdavis/Documents/workspace/DATA/survey_voting/users.xml");
-    String votesDirectory = Utility.getProperty("votesxml", "/Users/markdavis/Documents/workspace/DATA/survey_voting/vxml/votes/");
+    String userFile = Utility.getProperty("usersxml", Utility.BASE_DIRECTORY + "/incoming/vetted/usersa/usersa.xml");
+    String votesDirectory = Utility.getProperty("votesxml", Utility.BASE_DIRECTORY + "incoming/vetted/main/votes/");
     
 
     VoteResolver.setVoterToInfo(userFile);
@@ -262,8 +265,11 @@ public class TestUtilities extends TestFmwk {
       String winningValue = voteResolver.getWinningValue();
       
       winningStatusCounter.add(winningStatus,1);
+      
+      // we'll say the status is "good enough" if they have the same votes
 
-      final boolean sameResults = surveyWinningStatus == winningStatus && surveyWinningValue.equals(winningValue);
+      final boolean sameResults = surveyWinningStatus == winningStatus 
+        && voteResolver.getValuesWithSameVotes().contains(surveyWinningValue);
       if (surveyWinningStatus == Status.approved && sameResults) {
         continue;
       } 
@@ -356,37 +362,43 @@ public class TestUtilities extends TestFmwk {
             "oldValue=old-value",
             "oldStatus=provisional",
             "comment=Check that identical values get the alphabetically lowest",
-            "555=next",
-            "666=best",
+            "666=next",
+            "333=best",
             "value=best",
+            "sameVotes=best,next",
             "conflicts=[]",
-            "status=contributed",
+            "status=provisional",
             "check",
             
             "comment=now give next a slight edge (5 to 4)",
-            "444=next",
+            "888=next",
             "value=next",
+            "sameVotes=next",
             "status=contributed",
             "check",
             
             "comment=set up a case of conflict within organization",
-            "555=null",
+            "clear",
+            "666=next",
+            "444=best",
             "value=old-value",
+            "sameVotes=old-value",
             "conflicts=[google]",
             "status=provisional",
             "check",
             
             "comment=now cross-organizational conflict, also check for max value in same organization (4, 1) => 4 not 5",
-            "444=null",
             "555=best",
             "conflicts=[]",
             "333=app",
             "value=app",
+            "sameVotes=app,best",
             "check",
             
             "comment=now clear winner 8 over 4",
             "222=primo",
             "value=primo",
+            "sameVotes=primo",
             "status=approved",
             "check",
             
@@ -401,6 +413,7 @@ public class TestUtilities extends TestFmwk {
     Status expectedStatus = null;
     String oldValue = null;
     Status oldStatus = null;
+    List<String> sameVotes = null;
     Map<Integer, String> values = new TreeMap<Integer, String>();
     int counter = -1;
 
@@ -416,6 +429,8 @@ public class TestUtilities extends TestFmwk {
         oldStatus = Status.valueOf(value);
       } else if (name.equalsIgnoreCase("value")) {
         expectedValue = value;
+      } else if (name.equalsIgnoreCase("sameVotes")) {
+        sameVotes = value==null ? new ArrayList<String>(0) : Arrays.asList(value.split(",\\s*"));
       } else if (name.equalsIgnoreCase("status")) {
         expectedStatus = Status.valueOf(value);
       } else if (name.equalsIgnoreCase("conflicts")) {
@@ -437,6 +452,7 @@ public class TestUtilities extends TestFmwk {
         }
         logln(resolver.toString());
         assertEquals(counter + " value", expectedValue, resolver.getWinningValue());
+        assertEquals(counter + " sameVotes", sameVotes.toString(), resolver.getValuesWithSameVotes().toString());
         assertEquals(counter + " status", expectedStatus, resolver.getWinningStatus());
         assertEquals(counter + " org", expectedConflicts, resolver.getConflictedOrganizations()
                 .toString());

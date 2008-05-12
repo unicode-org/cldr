@@ -293,6 +293,7 @@ public class Race {
         this.base_xpath = base_xpath;
         this.locale = locale;
         this.id = id;
+        
     }
 
     /**
@@ -525,7 +526,9 @@ public class Race {
         vet.queryVoteForBaseXpath.setInt(2, base_xpath);
         vet.queryValue.setString(1, locale);
 
-        
+        // Add the base xpath. It may come in as data later, and there may be no other values (and no votes).
+        // If the base xpath wins, and there's no matching chad, the winning result will be 'null'.
+        resolver.add(base_xpath);
         
         ResultSet rs;
 
@@ -695,6 +698,9 @@ public class Race {
 //    }
 
     
+    /**
+     * Calculate the winning item of the race. May be null if n/a.
+     */
     private Chad calculateWinner() {
         int winner = resolver.getWinningValue();
         VoteResolver.Status newStatus = resolver.getWinningStatus();

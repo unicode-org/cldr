@@ -6857,14 +6857,22 @@ public class SurveyMain extends HttpServlet {
             ctx.print("<td rowspan='"+rowSpan+"' ></td>"); // empty box for baseline
         }
         
-        printCells(ctx,section,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
+//        if(topCurrent != null) {
+            printCells(ctx,section,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
+//        } else {
+//            printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
+//        }
 
         // ## 6.1, 6.2 - Print the top proposed item. Can be null if there aren't any.
         DataSection.DataRow.CandidateItem topProposed = null;
         if(proposedItems.size() > 0) {
             topProposed = proposedItems.get(0);
         }
-        printCells(ctx,section,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
+        if(topProposed != null) {
+            printCells(ctx,section,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
+        } else {
+            printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
+        }
 
         boolean areShowingInputBox = (canSubmit && !isAlias && canModify && !p.confirmOnly && (zoomedIn||!p.zoomOnly));
 
@@ -6982,18 +6990,20 @@ public class SurveyMain extends HttpServlet {
                 // current item
                 if(currentItems.size() > row) {
                     item = currentItems.get(row);
+                    printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
                 } else {
                     item = null;
+                    printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
                 }
-                printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
 
                 // #6.1, 6.2 - proposed items
                 if(proposedItems.size() > row) {
                     item = proposedItems.get(row);
+                    printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
                 } else {
                     item = null;
+                    printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
                 }
-                printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
                                 
                 ctx.println("</tr>");
             }
@@ -7269,6 +7279,25 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("</td></tr>");
             }
 		}
+    }
+    
+    /**
+     * Print empty cells. Not the equivalent of printCells(..., null), which will still print an example.
+     * @param ctx
+     * @param section
+     * @param p
+     */
+    void printEmptyCells(WebContext ctx, DataSection section, DataSection.DataRow p, String ourAlign, String ourDir, boolean zoomedIn) {
+        int colspan = zoomedIn?1:2;
+        boolean haveTests = false;
+        boolean haveReferences = false; // no item
+        ctx.print("<td  colspan='"+colspan+"' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
+        ctx.println("</td>");    
+        if(zoomedIn) {
+            ctx.println("<td></td>"); // no tests, no references
+        }
+        // ##6.2 example column. always present
+        ctx.println("<td></td>");
     }
 
     /**

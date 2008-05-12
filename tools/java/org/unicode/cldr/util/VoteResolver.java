@@ -115,6 +115,19 @@ public class VoteResolver<T> {
     public String toString() {
       return "{" + name + ", " + level + ", " + organization + "}";
     }
+    
+    public Organization organization() {
+        return organization;
+    }
+    public String name() {
+        return name;
+    }
+    public Level level() {
+        return level;
+    }
+    public Set<String> locales() {
+        return locales;
+    }
   }
 
   /**

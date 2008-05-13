@@ -7190,11 +7190,6 @@ public class SurveyMain extends HttpServlet {
                     }
 				}
 
-                if(UserRegistry.userIsTC(ctx.session.user)) {
-                    if(r.winner != null ) {
-                        ctx.print("<b class='selected'>Optimal field</b>: <span class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.status + ", score: "+r.winner.score);
-                    }
-                }
                   
                 if((r.nexthighest > 0) && (r.winner!=null)&&(r.winner.score==0)) {
                     // This says that the optimal value was NOT the numeric winner.
@@ -7250,7 +7245,11 @@ public class SurveyMain extends HttpServlet {
                     ctx.print("</tr>");
                 }
                 ctx.print("</table>");
-
+                //if(UserRegistry.userIsTC(ctx.session.user)) {
+                if(r.winner != null ) {
+                    ctx.print("<b class='selected'>Optimal field</b>: <span class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.status + ", score: "+r.winner.score);
+                }
+                //}
 			} catch (SQLException se) {
 				ctx.println("<div class='ferrbox'>Error fetching vetting results:<br><pre>"+se.toString()+"</pre></div>");
 			}

@@ -37,6 +37,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class TestUtilities extends TestFmwk {
+  private static final String BAD_VALUE = String.valueOf(-1);
   private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]");
   private static final boolean DEBUG = true;
   static TestInfo testInfo = TestInfo.getInstance();
@@ -207,7 +208,7 @@ public class TestUtilities extends TestFmwk {
       final Map<Integer, CandidateInfo> itemInfo = info.get(basePath);
       // if there is any approved value, then continue;
       Status surveyWinningStatus = null;
-      Integer surveyWinningValue = null;
+      String surveyWinningValue = null;
 
       // find the last release status and value
       voteResolver.clear();
@@ -232,7 +233,7 @@ public class TestUtilities extends TestFmwk {
             errln(locale + ": \tDuplicate optimal item:\t" + item);
           }
           surveyWinningStatus = candidateInfo.surveyStatus;
-          surveyWinningValue = item;
+          surveyWinningValue = String.valueOf(item);
         }
         if (candidateInfo.oldStatus != null) {
           if (haveOldStatus) {
@@ -255,7 +256,7 @@ public class TestUtilities extends TestFmwk {
       }
       if (surveyWinningValue == null) {
         missingOptimals.add(basePath);
-        surveyWinningValue = -1;
+        surveyWinningValue = BAD_VALUE;
       }
 
       EnumSet<Organization> basePathConflictedOrganizations = voteResolver.getConflictedOrganizations();

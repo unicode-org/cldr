@@ -223,7 +223,6 @@ public class SurveyMain extends HttpServlet {
     static final String PREF_SHOWCODES = "p_codes";
     static final String PREF_SORTMODE = "p_sort";
     static final String PREF_NOPOPUPS = "p_nopopups";
-    static final String PREF_JAVASCRIPT = "p_nojavascript";
     static final String PREF_CODES_PER_PAGE = "p_pager";
     static final String PREF_XPID = "p_xpid";
     static final String PREF_GROTTY = "p_grotty";
@@ -234,7 +233,9 @@ public class SurveyMain extends HttpServlet {
     static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
 //	static final String PREF_SHOW_VOTING_ALTS = "p_vetting_details";
     static final String PREF_NOSHOWDELETE = "p_nodelete";
+    static final String PREF_DELETEZOOMOUT = "p_deletezoomout";
     static final String PREF_NOJAVASCRIPT = "p_nojavascript";
+    static final String PREF_JAVASCRIPT = PREF_NOJAVASCRIPT;
     static final String PREF_ADV = "p_adv"; // show advanced prefs?
     static final String PREF_XPATHS = "p_xpaths"; // show xpaths?
     public static final String PREF_COVLEV = "p_covlev"; // covlev
@@ -1893,7 +1894,11 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("You are: <b>A CLDR TC Member:</b> ");
                 printMenu(ctx, doWhat, "list", "Manage " + ctx.session.user.org + " Users", QUERY_DO);
                 ctx.print(" | ");
-                printMenu(ctx, doWhat, "coverage", "Coverage", QUERY_DO);                    
+                printMenu(ctx, doWhat, "coverage", "Coverage", QUERY_DO);    
+                ctx.print(" | ");
+//              if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT) {
+                printMenu(ctx, doWhat, "disputed", "Disputed (Approximate)", QUERY_DO);
+//              ctx.print(" | ");
             } else {
                 if(UserRegistry.userIsVetter(ctx.session.user)) {
                     if(UserRegistry.userIsExpert(ctx.session.user)) {
@@ -3219,7 +3224,9 @@ public class SurveyMain extends HttpServlet {
             showTogglePref(ctx, PREF_XPID, "show XPATH ids");
             showTogglePref(ctx, PREF_GROTTY, "show obtuse items");
             showTogglePref(ctx, PREF_XPATHS, "Show full XPaths");
-			showTogglePref(ctx, PREF_NOSHOWDELETE, "Suppress controls for deleting unused items in zoomed-in view:");
+            showTogglePref(ctx, PREF_NOSHOWDELETE, "Suppress controls for deleting unused items in zoomed-in view:");
+            showTogglePref(ctx, PREF_DELETEZOOMOUT, "Show delete controls when not zoomed in:");
+            showTogglePref(ctx, PREF_NOJAVASCRIPT, "Reduce the use of JavaScript (unimplemented)");
             ctx.println("</div>");
         }
 
@@ -7485,18 +7492,19 @@ public class SurveyMain extends HttpServlet {
 //            ctx.print(ctx.iconHtml("okay","parent fallback"));
         }
         
-        if(zoomedIn) {
+        if(zoomedIn || ctx.prefBool(PREF_DELETEZOOMOUT)) {
             if( (item.getVotes() == null) ||  UserRegistry.userIsTC(ctx.session.user) || // nobody voted for it, or
                 ((item.getVotes().size()==1)&& item.getVotes().contains(ctx.session.user) ))  { // .. only this user voted for it
                 boolean deleteHidden = ctx.prefBool(PREF_NOSHOWDELETE);
-                if(!deleteHidden && canModify && (item.submitter != -1) && zoomedIn &&
+                if(!deleteHidden && canModify && (item.submitter != -1) &&
                     !( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
                     ( UserRegistry.userIsTC(ctx.session.user) || (item.submitter == ctx.session.user.id) ) ) {
                         ctx.println(" <label nowrap class='deletebox' style='padding: 4px;'>"+ "<input type='checkbox' title='#"+item.xpathId+
                             "' value='"+item.altProposed+"' name='"+fieldHash+"_del'>" +"Delete&nbsp;item</label>");
                 }
             }
-            
+        }
+        if(zoomedIn) {
             if(processed != null && /* ourDir.equals("rtl")&& */ CallOut.containsSome(processed)) {
                 String altProcessed = processed.replaceAll("\u200F","\u200F<b dir=rtl>RLM</b>\u200F")
                                                .replaceAll("\u200E","\u200E<b>LRM</b>\u200E");

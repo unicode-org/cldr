@@ -101,12 +101,20 @@ public class VoteResolver<T> {
     Organization organization;
     Level        level;
     String       name;
-    Set<String>  locales = new TreeSet<String>();
+    Set<String>  locales;
 
+
+    public VoterInfo(Organization organization, Level level, String name, Set<String> locales) {
+        this.organization = organization;
+        this.level = level;
+        this.name = name;
+        this.locales = locales;
+    }
     public VoterInfo(Organization organization, Level level, String name) {
       this.organization = organization;
       this.level = level;
       this.name = name;
+      locales = new TreeSet<String>();
     }
 
     public VoterInfo() {
@@ -137,6 +145,7 @@ public class VoteResolver<T> {
     private Map<Organization, Counter<T>> orgToVotes = new HashMap<Organization, Counter<T>>();
     private Map<Organization, Integer>         orgToMax   = new HashMap<Organization, Integer>();
     private Counter<T>                    totals     = new Counter<T>(true);
+    private Map<Organization, T> orgToAdd = new HashMap<Organization, T>(); // map an organization, to what it voted for.
 
     OrganizationToValueAndVote() {
       for (Organization org : Organization.values()) {
@@ -151,6 +160,7 @@ public class VoteResolver<T> {
       for (Organization org : orgToVotes.keySet()) {
         orgToVotes.get(org).clear();
       }
+      orgToAdd.clear();
     }
 
     /**
@@ -199,6 +209,7 @@ public class VoteResolver<T> {
             continue;
           }
         }
+        orgToAdd.put(org, value);
         // we don't actually add the total votes; instead we add the max found
         // for the organization
         totals.add(value, orgToMax.get(org));
@@ -217,7 +228,7 @@ public class VoteResolver<T> {
       }
       return orgCount;
     }
-
+    
     public String toString() {
       String orgToVotesString = "";
       for (Organization org: orgToVotes.keySet()) {
@@ -231,6 +242,10 @@ public class VoteResolver<T> {
       }
       EnumSet<Organization> conflicted = EnumSet.noneOf(Organization.class);
       return "{orgToVotes:" + orgToVotesString + ", totals:" + getTotals(conflicted) + ", conflicted:" + conflicted + "}";
+    }
+    
+    public T getOrgVote(Organization org) {
+        return orgToAdd.get(org);
     }
   }
 
@@ -413,6 +428,15 @@ public class VoteResolver<T> {
     }
     return conflictedOrganizations;
   }
+  
+  /**
+   * What value did this organization vote for?
+   * @param org
+   * @return
+   */
+  public T getOrgVote(Organization org) {
+      return organizationToValueAndVote.getOrgVote(org);
+  }
 
   public String toString() {
     return "{lastRelease:" + lastReleaseValue + ", " + lastReleaseStatus + ", " + organizationToValueAndVote
@@ -466,6 +490,7 @@ public class VoteResolver<T> {
         System.out.println("\t" + id + "=" + testVoterToInfo.get(id));
       }
     }
+    computeMaxVotes();
   }
 
   /**
@@ -480,6 +505,10 @@ public class VoteResolver<T> {
     xfr.read(fileName, XMLFileReader.CONTENT_HANDLER | XMLFileReader.ERROR_HANDLER, false);
     setVoterToInfo(myHandler.testVoterToInfo);
     
+    computeMaxVotes();
+  }
+  
+  private static synchronized void computeMaxVotes() {
     // compute the localeToOrganizationToMaxVote
     localeToOrganizationToMaxVote = new TreeMap<String, Map<Organization,Level>>();
     for (int voter : getVoterToInfo().keySet()) {

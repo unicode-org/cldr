@@ -64,6 +64,7 @@ import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalData;
+import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.w3c.dom.Document;
@@ -541,7 +542,7 @@ public class SurveyMain extends HttpServlet {
                 out.println("(Sorry,  we can't automatically retry your "+request.getMethod()+" request - you may attempt Reload in a few seconds "+
                             "<a href='"+base+"'>or click here</a><br>");
             } else {
-                out.println("We will <a href='"+base+"'>retry in "+sec+" seconds, or you may click here.</a>");
+                out.println("We will <a href='"+base+"'>reload this page in "+sec+" seconds, or you may click here.</a>");
             }
             out.print(sysmsg("startup_footer"));
             out.print("</body></html>");
@@ -7120,41 +7121,51 @@ public class SurveyMain extends HttpServlet {
 			
 			try {
 				Race r =  vet.getRace(section.locale, p.base_xpath);
-
+				ctx.println("<i>Voting results by organization:</i><br>");
+                ctx.print("<table class='list' border=1 summary='voting results by organization'>");
+                ctx.print("<tr class='heading'><th>Organization</th><th>Value or Comments</th></tr>");
+                int onn=0;
 				for(Race.Organization org : r.orgVotes.values()) {
-					ctx.print("<b>");
-					ctx.print(org.name+"</b>: ");
-					if(org.vote == null) {
-						ctx.print("X No Consensus. ");
+				    Race.Chad orgVote = r.getOrgVote(org.name);
+                    ctx.println("<tr class='row"+(onn++ % 2)+"'>");
+					ctx.print("<th>"+org.name+"</th>");
+					ctx.print("<td>");
+					if(orgVote == null) {
+						ctx.print("<i>(Dispute: No Vote.)</i>");
 						if(org.dispute) {
+						    ctx.print("<br>");
                             if((ctx.session.user != null) && (org.name.equals(ctx.session.user.org))) {
                                 ctx.print(ctx.iconHtml("disp","Vetter Dispute"));
                             }
 							ctx.print(" (Dispute among "+org.name+" vetters) ");
 						}
 					} else {
-                        String theValue = org.vote.value;
+                        String theValue = orgVote.value;
                         if(theValue == null) {  
-                            if(org.vote.xpath == r.base_xpath) {
+                            if(orgVote.xpath == r.base_xpath) {
                                 theValue = "<i>(Old Vote for Status Quo)</i>";
                             } else {
                                 theValue = "<strike>(Old Vote for Other Item)</strike>";
                             }
                         }
-                        if(org.vote.disqualified) {
+                        if(orgVote.disqualified) {
                             ctx.print("<strike>");
                         }
-						ctx.print(org.strength+ctx.iconHtml("vote","#"+org.vote.xpath)+theValue+"</span>");
-                        if(org.vote.disqualified) {
+                        ctx.print("<span>");
+//						ctx.print(VoteResolver.getOrganizationToMaxVote(section.locale).
+//						            get(VoteResolver.Organization.valueOf(org.name)).toString().replaceAll("street","guest")
+						ctx.print(ctx.iconHtml("vote","#"+orgVote.xpath)+theValue+"</span>");
+                        if(orgVote.disqualified) {
                             ctx.print("</strike>");
                         }
                         if(org.votes.isEmpty()/* && (r.winner.orgsDefaultFor!=null) && (r.winner.orgsDefaultFor.contains(org))*/) {
                             ctx.print(" (default vote)");
                         }
 					}
+					ctx.print("<td>");
                     
                     if(UserRegistry.userIsTC(ctx.session.user) && !org.votes.isEmpty()) {
-                        ctx.print("<ul class='orgvotes'>");
+                        ctx.print("<td>");
                         for(Race.Chad item : org.votes) {
                             ctx.print("<li>");
                             String theValue = item.value;
@@ -7184,11 +7195,12 @@ public class SurveyMain extends HttpServlet {
                             }
                             ctx.println("</li>");
                         }
-                        ctx.println("</ul>");
+                        ctx.println("</td>");
                     } else {   
-                        ctx.print("<br>");
+                        ctx.print("</tr>");
                     }
-				}
+                }
+				ctx.print("</table>"); // end of votes-by-organization
 
                   
                 if((r.nexthighest > 0) && (r.winner!=null)&&(r.winner.score==0)) {
@@ -7210,7 +7222,7 @@ public class SurveyMain extends HttpServlet {
                 
                 ctx.print("<br><hr><i>Voting results by item:</i>");
                 ctx.print("<table class='list' border=1 summary='voting results by item'>");
-                ctx.print("<tr><th>Value</th><th>Score</th><th>Votes</th></tr>");
+                ctx.print("<tr><th>Value</th><!-- <th>Score</th> --><th>Votes</th></tr>");
                 int nn=0;
                 for(Race.Chad item : r.chads.values()) {
                     ctx.println("<tr class='row"+(nn++ % 2)+"'>");
@@ -7241,13 +7253,14 @@ public class SurveyMain extends HttpServlet {
                         ctx.print(ctx.iconHtml("star","existing item"));
                     }
                     ctx.print("</td>");
-                    ctx.print("<td>"+item.score + "</td><td>"+ item.voters.size() +"</td>");
+                    //ctx.print("<td>"+item.score + "</td>");
+                    ctx.print("<td>"+ item.voters.size() +"</td>");
                     ctx.print("</tr>");
                 }
                 ctx.print("</table>");
                 //if(UserRegistry.userIsTC(ctx.session.user)) {
                 if(r.winner != null ) {
-                    ctx.print("<b class='selected'>Optimal field</b>: <span class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.status + ", score: "+r.winner.score);
+                    ctx.print("<b class='selected'>Optimal field</b>: <span class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.vrstatus + ", <!-- score: "+r.winner.score +" -->");
                 }
                 //}
 			} catch (SQLException se) {

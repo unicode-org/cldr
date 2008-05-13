@@ -177,7 +177,11 @@ public class UserRegistry {
             //VoterInfo(Organization.google, Level.vetter, &quot;J. Smith&quot;) },
             VoteResolver.Organization o = this.computeVROrganization();
             VoteResolver.Level l = this.computeVRLevel();
-            VoterInfo v = new VoterInfo(o, l, this.name);
+            Set<String> localesSet = new HashSet<String>();
+            for(String s: tokenizeLocale(locales)) {
+                localesSet.add(s);
+            }
+            VoterInfo v = new VoterInfo(o, l, this.name, localesSet);
             return v;
         }
         

@@ -203,6 +203,7 @@ public class Race {
     // winning info
     public Chad winner = null;
     public Status status = Status.INDETERMINATE;
+    public VoteResolver.Status vrstatus = VoteResolver.Status.missing;
     public Chad existing = null; // existing vote
     public Status existingStatus = Status.INDETERMINATE;
     int nexthighest = 0;
@@ -364,12 +365,10 @@ public class Race {
             c.vote(user);
 
             // add the chad to the set of orgs' chads
-            Organization theirOrg = getOrganization(user.org);
+            Organization theirOrg = getOrganization(user.voterOrg());
             theirOrg.add(c);
         } else {
             // "existing" vote
-            // Organization existingOrg = new Organization(c);
-            // orgVotes.put(existingOrg.name, existingOrg);
             existing = c;
 
             if (vote_xpath == full_xpath && vote_xpath == base_xpath) { // shortcut:
@@ -501,8 +500,8 @@ public class Race {
      */
     private Chad calculateWinner() {
         int winningXpath = resolver.getWinningValue();
-        VoteResolver.Status newStatus = resolver.getWinningStatus();
-        status = Status.toStatus(newStatus); // convert from VR status
+        vrstatus = resolver.getWinningStatus();
+        status = Status.toStatus(vrstatus); // convert from VR status
         winner = chads.get(winningXpath);
 //        System.out.println(resolver.toString() + " \n - resolved, winner: " + winner + " Found:"+(winner!=null));
         return winner;
@@ -703,5 +702,11 @@ public class Race {
             }
         }
         return type;
+    }
+    
+    public Chad getOrgVote(String organization) {
+        Integer v = resolver.getOrgVote(VoteResolver.Organization.valueOf(organization));
+        if(v==null) return null;
+        return chads.get(v);
     }
 }

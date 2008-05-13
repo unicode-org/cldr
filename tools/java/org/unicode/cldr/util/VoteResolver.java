@@ -128,7 +128,7 @@ public class VoteResolver<T> {
       this.organization = organization;
     }
 
-    Organization getOrganization() {
+    public Organization getOrganization() {
       return organization;
     }
 

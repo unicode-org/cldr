@@ -124,7 +124,7 @@ public class VoteResolver<T> {
       return "{" + getName() + ", " + getLevel() + ", " + getOrganization() + "}";
     }
     
-    void setOrganization(Organization organization) {
+    public void setOrganization(Organization organization) {
       this.organization = organization;
     }
 
@@ -132,31 +132,31 @@ public class VoteResolver<T> {
       return organization;
     }
 
-    void setLevel(Level level) {
+    public void setLevel(Level level) {
       this.level = level;
     }
 
-    Level getLevel() {
+    public Level getLevel() {
       return level;
     }
 
-    void setName(String name) {
+    public void setName(String name) {
       this.name = name;
     }
 
-    String getName() {
+    public String getName() {
       return name;
     }
 
-    void setLocales(Set<String> locales) {
+    public void setLocales(Set<String> locales) {
       this.locales = locales;
     }
 
-    void addLocales(Set<String> locales) {
+    public void addLocales(Set<String> locales) {
       this.locales.addAll(locales);
     }
 
-    Set<String> getLocales() {
+    public Set<String> getLocales() {
       return locales;
     }
 
@@ -239,7 +239,7 @@ public class VoteResolver<T> {
         orgToAdd.put(org, value);
         // we don't actually add the total votes; instead we add the max found
         // for the organization
-        totals.add(value, orgToMax.get(org));
+        totals.add(value, weight);
       }
       return totals;
     }
@@ -362,10 +362,10 @@ public class VoteResolver<T> {
   private void resolveVotes() {
     resolved = true;
     // get the votes for each organization
+    valuesWithSameVotes.clear();
     Counter<T> totals = organizationToValueAndVote.getTotals(conflictedOrganizations);
     final Set<T> sortedValues = totals.getKeysetSortedByCount(false, ucaCollator);
     Iterator<T> iterator = sortedValues.iterator();
-    valuesWithSameVotes.clear();
     // if there are no (unconflicted) votes, return lastRelease
     if (sortedValues.size() == 0) {
       // if there *was* a real winning status, then return it.

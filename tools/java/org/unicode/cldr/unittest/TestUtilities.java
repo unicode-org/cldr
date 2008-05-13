@@ -283,11 +283,12 @@ public class TestUtilities extends TestFmwk {
             log(", status ST:\t" + surveyWinningStatus);
             log(", VR:\t" + winningStatus);
           }
-          if (!surveyWinningValue.equals(winningValue)) {
+          if (!voteResolver.getValuesWithSameVotes().contains(surveyWinningValue)) {
             log(", value ST:\t" + surveyWinningValue);
             log(", VR:\t" + winningValue);
           }
           logln("");
+          logln("\t\tVR:" + voteResolver);
         }
       }
       

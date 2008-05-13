@@ -2038,7 +2038,7 @@ if(true == true)    throw new InternalError("removed from use.");
         }
         
         String loc = ctx.field("_");
-        final String org = ctx.session.user.voterInfo().organization().name();
+        final String org = ctx.session.user.voterInfo().getOrganization().name();
         if(loc.equals("")) {
             synchronized(conn) {
                 try {

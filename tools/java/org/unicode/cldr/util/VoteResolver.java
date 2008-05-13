@@ -98,43 +98,70 @@ public class VoteResolver<T> {
    * Internal class for voter information. It is public for testing only
    */
   public static class VoterInfo {
-    Organization organization;
-    Level        level;
-    String       name;
-    Set<String>  locales;
+    private Organization organization;
+    private Level        level;
+    private String       name;
+    private Set<String>  locales = new TreeSet<String>();
 
 
     public VoterInfo(Organization organization, Level level, String name, Set<String> locales) {
-        this.organization = organization;
-        this.level = level;
-        this.name = name;
-        this.locales = locales;
+        this.setOrganization(organization);
+        this.setLevel(level);
+        this.setName(name);
+        this.locales.addAll(locales);
     }
+    
     public VoterInfo(Organization organization, Level level, String name) {
-      this.organization = organization;
-      this.level = level;
-      this.name = name;
-      locales = new TreeSet<String>();
+      this.setOrganization(organization);
+      this.setLevel(level);
+      this.setName(name);
     }
 
     public VoterInfo() {
     }
 
     public String toString() {
-      return "{" + name + ", " + level + ", " + organization + "}";
+      return "{" + getName() + ", " + getLevel() + ", " + getOrganization() + "}";
     }
     
-    public Organization organization() {
-        return organization;
+    void setOrganization(Organization organization) {
+      this.organization = organization;
     }
-    public String name() {
-        return name;
+
+    Organization getOrganization() {
+      return organization;
     }
-    public Level level() {
-        return level;
+
+    void setLevel(Level level) {
+      this.level = level;
     }
-    public Set<String> locales() {
-        return locales;
+
+    Level getLevel() {
+      return level;
+    }
+
+    void setName(String name) {
+      this.name = name;
+    }
+
+    String getName() {
+      return name;
+    }
+
+    void setLocales(Set<String> locales) {
+      this.locales = locales;
+    }
+
+    void addLocales(Set<String> locales) {
+      this.locales.addAll(locales);
+    }
+
+    Set<String> getLocales() {
+      return locales;
+    }
+
+    public void addLocale(String locale) {
+      this.locales.add(locale);
     }
   }
 
@@ -174,12 +201,12 @@ public class VoteResolver<T> {
       if (info == null) {
         throw new UnknownVoterException(voter);
       }
-      final int votes = info.level.getVotes();
-      orgToVotes.get(info.organization).add(value, votes);
+      final int votes = info.getLevel().getVotes();
+      orgToVotes.get(info.getOrganization()).add(value, votes);
       // add the new votes to orgToMax, if they are greater that what was there
-      Integer max = orgToMax.get(info.organization);
+      Integer max = orgToMax.get(info.getOrganization());
       if (max == null || max < votes) {
-        orgToMax.put(info.organization, votes);
+        orgToMax.put(info.getOrganization(), votes);
       }
     }
     
@@ -398,6 +425,8 @@ public class VoteResolver<T> {
     if (winningStatus.compareTo(lastReleaseStatus) < 0) {
       winningStatus = lastReleaseStatus;
       winningValue = lastReleaseValue;
+      valuesWithSameVotes.clear();
+      valuesWithSameVotes.add(winningValue);
     }
   }
 
@@ -439,7 +468,7 @@ public class VoteResolver<T> {
   }
 
   public String toString() {
-    return "{lastRelease:" + lastReleaseValue + ", " + lastReleaseStatus + ", " + organizationToValueAndVote
+    return "{lastRelease:" + lastReleaseValue + ", " + lastReleaseStatus + ", " + organizationToValueAndVote + ", sameVotes: " + valuesWithSameVotes
             + "}";
   }
 
@@ -447,19 +476,19 @@ public class VoteResolver<T> {
     Map<String, Map<Organization, Relation<Level, Integer>>> result = new TreeMap<String, Map<Organization, Relation<Level, Integer>>>();
     for (int voter : getVoterToInfo().keySet()) {
       VoterInfo info = getVoterToInfo().get(voter);
-      if (info.level == Level.locked) {
+      if (info.getLevel() == Level.locked) {
         continue;
       }
-      for (String locale : info.locales) {
+      for (String locale : info.getLocales()) {
         Map<Organization, Relation<Level, Integer>> orgToVoter = result.get(locale);
         if (orgToVoter == null) {
           result.put(locale, orgToVoter = new TreeMap<Organization, Relation<Level, Integer>>());
         }
-        Relation<Level, Integer> rel = orgToVoter.get(info.organization);
+        Relation<Level, Integer> rel = orgToVoter.get(info.getOrganization());
         if (rel == null) {
-          orgToVoter.put(info.organization, rel = new Relation(new TreeMap(), TreeSet.class));
+          orgToVoter.put(info.getOrganization(), rel = new Relation(new TreeMap(), TreeSet.class));
         }
-        rel.put(info.level, voter);
+        rel.put(info.getLevel(), voter);
       }
     }
     return result;
@@ -513,18 +542,18 @@ public class VoteResolver<T> {
     localeToOrganizationToMaxVote = new TreeMap<String, Map<Organization,Level>>();
     for (int voter : getVoterToInfo().keySet()) {
       VoterInfo info = getVoterToInfo().get(voter);
-      if (info.level == Level.tc || info.level == Level.locked) {
+      if (info.getLevel() == Level.tc || info.getLevel() == Level.locked) {
         continue; // skip TCs, locked
       }
 
-      for (String locale : info.locales) {
+      for (String locale : info.getLocales()) {
         Map<Organization, Level> organizationToMaxVote = localeToOrganizationToMaxVote.get(locale);
         if (organizationToMaxVote == null) {
           localeToOrganizationToMaxVote.put(locale, organizationToMaxVote = new TreeMap<Organization, Level>());
         }
-        Level maxVote = organizationToMaxVote.get(info.organization);
-        if (maxVote == null || info.level.compareTo(maxVote) > 0) {
-          organizationToMaxVote.put(info.organization, info.level);
+        Level maxVote = organizationToMaxVote.get(info.getOrganization());
+        if (maxVote == null || info.getLevel().compareTo(maxVote) > 0) {
+          organizationToMaxVote.put(info.getOrganization(), info.getLevel());
           // System.out.println("Example best voter for " + locale + " for " + info.organization + " is " + info);
         }
       }
@@ -592,16 +621,16 @@ public class VoteResolver<T> {
           } else if (value.contains("utilika foundation")) {
             value = "utilika";
           }
-          voterInfo.organization = Organization.valueOf(value);
+          voterInfo.setOrganization(Organization.valueOf(value));
         } else if (mainType.equals("name")) {
-          voterInfo.name = value;
+          voterInfo.setName(value);
         } else if (mainType.startsWith("level")) {
           String level = Group.levelType.get(matcher).toLowerCase();
-          voterInfo.level = Level.valueOf(level);
+          voterInfo.setLevel(Level.valueOf(level));
         } else if (mainType.startsWith("locale")) {
           final String localeIdString = Group.localeId.get(matcher);
           if (localeIdString != null) {
-            voterInfo.locales.add(localeIdString.split("_")[0]);
+            voterInfo.addLocale(localeIdString.split("_")[0]);
           } else if (DEBUG_HANDLER) {
             System.out.println("\tskipping");
           }
@@ -746,9 +775,9 @@ public class VoteResolver<T> {
       if (info == null) {
         continue; // skip unknown voter
       }
-      Level maxVote = orgToMaxVoteHere.get(info.organization);
-      if (maxVote == null || info.level.compareTo(maxVote) > 0) {
-        orgToMaxVoteHere.put(info.organization, info.level);
+      Level maxVote = orgToMaxVoteHere.get(info.getOrganization());
+      if (maxVote == null || info.getLevel().compareTo(maxVote) > 0) {
+        orgToMaxVoteHere.put(info.getOrganization(), info.getLevel());
         //System.out.println("*Best voter for " + info.organization + " is " + info);
       }
     }

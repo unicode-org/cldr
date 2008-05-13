@@ -237,7 +237,7 @@ public class UserRegistry {
          */
         public String voterOrg() {
             if(voterOrg==null) {
-                voterOrg=voterInfo().organization().name();
+                voterOrg=voterInfo().getOrganization().name();
             }
             return voterOrg;
         }

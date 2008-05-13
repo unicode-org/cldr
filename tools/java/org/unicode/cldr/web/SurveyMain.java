@@ -3209,15 +3209,16 @@ public class SurveyMain extends HttpServlet {
         
         ctx.print("<hr>");
 
-/*		if(UserRegistry.userIsTC(ctx.session.user)) {
-			showTogglePref(ctx, PREF_SHOW_VOTING_ALTS, "Show details about vetting");
-		}*/
-        
+		if(UserRegistry.userIsAdmin(ctx.session.user)) {
+		    showTogglePref(ctx, PREF_DELETEZOOMOUT, "Show delete controls when not zoomed in:");
+		}
+		
         ctx.println("<h4>Advanced Options</h4>");
         ctx.print("<blockquote>");
         boolean adv = showTogglePref(ctx, PREF_ADV, "Show Advanced Options");
         ctx.println("</blockquote>");
 
+        
         if(adv == true) {
             ctx.println("<div class='ferrbox'><i>Do not enable these items unless instructed.</i><br>");
             showTogglePref(ctx, PREF_NOPOPUPS, "Reduce popup windows");
@@ -3225,7 +3226,6 @@ public class SurveyMain extends HttpServlet {
             showTogglePref(ctx, PREF_GROTTY, "show obtuse items");
             showTogglePref(ctx, PREF_XPATHS, "Show full XPaths");
             showTogglePref(ctx, PREF_NOSHOWDELETE, "Suppress controls for deleting unused items in zoomed-in view:");
-            showTogglePref(ctx, PREF_DELETEZOOMOUT, "Show delete controls when not zoomed in:");
             showTogglePref(ctx, PREF_NOJAVASCRIPT, "Reduce the use of JavaScript (unimplemented)");
             ctx.println("</div>");
         }
@@ -3280,7 +3280,7 @@ public class SurveyMain extends HttpServlet {
             }
         }
         
-        if(ctx.hasField(SurveyForum.F_FORUM)) {
+        if(ctx.hasField(SurveyForum.F_FORUM) || ctx.hasField(SurveyForum.F_XPATH)) {
             fora.doForum(ctx, sessionMessage);
             return;
         }
@@ -7130,7 +7130,7 @@ public class SurveyMain extends HttpServlet {
 				Race r =  vet.getRace(section.locale, p.base_xpath);
 				ctx.println("<i>Voting results by organization:</i><br>");
                 ctx.print("<table class='list' border=1 summary='voting results by organization'>");
-                ctx.print("<tr class='heading'><th>Organization</th><th>Value or Comments</th></tr>");
+                ctx.print("<tr class='heading'><th>Organization</th><th>Organization's Vote</th><th>Dissenting Votes</th></tr>");
                 int onn=0;
 				for(Race.Organization org : r.orgVotes.values()) {
 				    Race.Chad orgVote = r.getOrgVote(org.name);
@@ -7158,7 +7158,7 @@ public class SurveyMain extends HttpServlet {
                         if(orgVote.disqualified) {
                             ctx.print("<strike>");
                         }
-                        ctx.print("<span>");
+                        ctx.print("<span dir='"+ourDir+"'>");
 //						ctx.print(VoteResolver.getOrganizationToMaxVote(section.locale).
 //						            get(VoteResolver.Organization.valueOf(org.name)).toString().replaceAll("street","guest")
 						ctx.print(ctx.iconHtml("vote","#"+orgVote.xpath)+theValue+"</span>");
@@ -7168,44 +7168,44 @@ public class SurveyMain extends HttpServlet {
                         if(org.votes.isEmpty()/* && (r.winner.orgsDefaultFor!=null) && (r.winner.orgsDefaultFor.contains(org))*/) {
                             ctx.print(" (default vote)");
                         }
-					}
-					ctx.print("<td>");
-                    
-                    if(UserRegistry.userIsTC(ctx.session.user) && !org.votes.isEmpty()) {
-                        ctx.print("<td>");
-                        for(Race.Chad item : org.votes) {
-                            ctx.print("<li>");
-                            String theValue = item.value;
-                            if(theValue == null) {  
-                                if(item.xpath == r.base_xpath) {
-                                    theValue = "<i>(Old Vote for Status Quo)</i>";
-                                } else {
-                                    theValue = "<strike>(Old Vote for Other Item"+")</strike>";
-                                }
+                        if(true||UserRegistry.userIsTC(ctx.session.user)) {
+                            ctx.print("<br>");
+                            for(UserRegistry.User u:orgVote.voters) {
+                                if(!u.voterOrg().equals(org.name)) continue;
+                                ctx.print(u.toHtml(ctx.session.user)+", ");
                             }
-                            if(item==org.vote) {
-                                ctx.print("<b>");
-                            }
-                            if(item.disqualified) {
-                                ctx.print("<strike>");
-                            }
-                            ctx.print("<span title='#"+item.xpath+"'>"+theValue+"</span>: ");
-                            if(item.disqualified) {
-                                ctx.print("</strike>");
-                            }
-                            if(item==org.vote) {
-                                ctx.print("</b>");
-                            }
-                            for(UserRegistry.User u : item.voters)  { 
-                                if(!u.org.equals(org.name)) continue;
-                                ctx.print(u+", ");
-                            }
-                            ctx.println("</li>");
                         }
-                        ctx.println("</td>");
-                    } else {   
-                        ctx.print("</tr>");
+					}
+					ctx.print("</td>");
+                    
+                    ctx.print("<td>");
+                    if(!org.votes.isEmpty()) for(Race.Chad item : org.votes) {
+                        if(item==orgVote) continue;
+                        
+                        String theValue = item.value;
+                        if(theValue == null) {  
+                            if(item.xpath == r.base_xpath) {
+                                theValue = "<i>(Old Vote for Status Quo)</i>";
+                            } else {
+                                theValue = "<strike>(Old Vote for Other Item"+")</strike>";
+                            }
+                        }
+                        if(item.disqualified) {
+                            ctx.print("<strike>");
+                        }
+                        ctx.print("<span dir='"+ourDir+"' class='notselected' title='#"+item.xpath+"'>"+theValue+"</span>");
+                        if(item.disqualified) {
+                            ctx.print("</strike>");
+                        }
+                        ctx.print("<br>");
+                        for(UserRegistry.User u : item.voters)  { 
+                            if(!u.voterOrg().equals(org.name)) continue;
+                            ctx.print(u.toHtml(ctx.session.user)+", ");
+                        }
+                        ctx.println("<hr>");
                     }
+                    ctx.println("</td>");
+                    ctx.print("</tr>");
                 }
 				ctx.print("</table>"); // end of votes-by-organization
 
@@ -7229,7 +7229,7 @@ public class SurveyMain extends HttpServlet {
                 
                 ctx.print("<br><hr><i>Voting results by item:</i>");
                 ctx.print("<table class='list' border=1 summary='voting results by item'>");
-                ctx.print("<tr><th>Value</th><!-- <th>Score</th> --><th>Votes</th></tr>");
+                ctx.print("<tr class='heading'><th>Value</th><!-- <th>Score</th> --><th>Votes</th></tr>");
                 int nn=0;
                 for(Race.Chad item : r.chads.values()) {
                     ctx.println("<tr class='row"+(nn++ % 2)+"'>");
@@ -7249,7 +7249,7 @@ public class SurveyMain extends HttpServlet {
                     if(item.disqualified) {
                         ctx.print("<strike>");
                     }
-                    ctx.print("<span title='#"+item.xpath+"'>"+theValue+"</span> ");
+                    ctx.print("<span dir='"+ourDir+"' title='#"+item.xpath+"'>"+theValue+"</span> ");
                     if(item.disqualified) {
                         ctx.print("</strike>");
                     }
@@ -7267,7 +7267,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.print("</table>");
                 //if(UserRegistry.userIsTC(ctx.session.user)) {
                 if(r.winner != null ) {
-                    ctx.print("<b class='selected'>Optimal field</b>: <span class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.vrstatus + ", <!-- score: "+r.winner.score +" -->");
+                    ctx.print("<b class='selected'>Optimal field</b>: <span dir='"+ourDir+"' class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.vrstatus + ", <!-- score: "+r.winner.score +" -->");
                 }
                 //}
 			} catch (SQLException se) {
@@ -7493,12 +7493,12 @@ public class SurveyMain extends HttpServlet {
         }
         
         if(zoomedIn || ctx.prefBool(PREF_DELETEZOOMOUT)) {
-            if( (item.getVotes() == null) ||  UserRegistry.userIsTC(ctx.session.user) || // nobody voted for it, or
+            if( (item.getVotes() == null) ||  UserRegistry.userIsAdmin(ctx.session.user) || // nobody voted for it, or
                 ((item.getVotes().size()==1)&& item.getVotes().contains(ctx.session.user) ))  { // .. only this user voted for it
                 boolean deleteHidden = ctx.prefBool(PREF_NOSHOWDELETE);
                 if(!deleteHidden && canModify && (item.submitter != -1) &&
                     !( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
-                    ( UserRegistry.userIsTC(ctx.session.user) || (item.submitter == ctx.session.user.id) ) ) {
+                    ( UserRegistry.userIsAdmin(ctx.session.user) || (item.submitter == ctx.session.user.id) ) ) {
                         ctx.println(" <label nowrap class='deletebox' style='padding: 4px;'>"+ "<input type='checkbox' title='#"+item.xpathId+
                             "' value='"+item.altProposed+"' name='"+fieldHash+"_del'>" +"Delete&nbsp;item</label>");
                 }

@@ -181,6 +181,9 @@ public class SurveyForum {
         /* OK, let's see what we are doing here. */
         String forum = ctx.field(F_FORUM);
         int base_xpath = ctx.fieldInt(F_XPATH);
+        if(ctx.hasField(F_XPATH)&&!ctx.hasField(F_FORUM)) {
+            forum = localeToForum(ctx.field("_"));
+        }
         int forumNumber = getForumNumber(forum);
         String pD = ctx.field(F_DO); // do
         boolean loggedout = ((ctx.session==null)||(ctx.session.user==null));
@@ -1033,6 +1036,12 @@ public class SurveyForum {
     // "link" UI
     static public String forumUrl(WebContext ctx, DataSection section, DataSection.DataRow p, int xpath) {
         return ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+section.intgroup+"&"+F_XPATH+"="+xpath;
+    }
+    static public String localeToForum(String locale) {
+        return localeToForum(new ULocale(locale));
+    }
+    static public String localeToForum(ULocale locale) {
+        return locale.getLanguage();
     }
     static public String forumUrl(WebContext ctx, String locale, int xpath) {
         ULocale u = new ULocale(locale);

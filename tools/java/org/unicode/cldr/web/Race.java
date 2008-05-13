@@ -74,56 +74,6 @@ public class Race {
             strength = withStrength;
         }
 
-        // All votes have been cast, decide which one this org votes for.
-//        Chad calculateVote() {
-//            if (vote == null && !checked) {
-//                checked = true;
-//                int lowest = UserRegistry.LIMIT_LEVEL;
-//                for (Chad c : votes) {
-//                    if (c.disqualified && !Vetting.MARK_NO_DISQUALIFY)
-//                        continue;
-//                    int lowestUserLevel = UserRegistry.LIMIT_LEVEL;
-//                    for (UserRegistry.User aUser : c.voters) {
-//                        if (!aUser.org.equals(name))
-//                            continue;
-//                        if (lowestUserLevel > aUser.userlevel) {
-//                            lowestUserLevel = aUser.userlevel;
-//                        }
-//                    }
-//                    if (lowestUserLevel < UserRegistry.LIMIT_LEVEL) {
-//                        if (lowestUserLevel < lowest) {
-//                            lowest = lowestUserLevel;
-//                            vote = c;
-//                        } else if (lowestUserLevel == lowest) {
-//                            // Dispute.
-//                            lowest = UserRegistry.NO_LEVEL;
-//                            vote = null;
-//                        }
-//                    }
-//                }
-//
-//                // now, rate based on lowest user level ( = highest rank )
-//                if (vote != null) {
-//                    if (lowest <= UserRegistry.ADMIN) {
-//                        strength = Vetting.ADMIN_VOTE; // "2" * 4
-//                    } else if (lowest <= UserRegistry.EXPERT) {
-//                        strength = Vetting.EXPERT_VOTE; // "2" * 4
-//                    } else if (lowest <= UserRegistry.VETTER) {
-//                        strength = Vetting.VETTER_VOTE; // "1" * 4
-//                    } else if (lowest <= UserRegistry.STREET) {
-//                        strength = Vetting.STREET_VOTE; // "1/4" * 4
-//                        // TODO: liason / guest vote levels go here.
-//                    } else {
-//                        vote = null; // no vote cast
-//                    }
-//                } else if (lowest == -1) {
-//                    strength = 0;
-//                    dispute = true;
-//                    vote = null;
-//                }
-//            }
-//            return vote;
-//        }
 
         public int compareTo(Object o) {
             if (o == this) {
@@ -302,77 +252,7 @@ public class Race {
     public int optimal() throws SQLException {
         gatherVotes();
 
-//        calculateOrgVotes();
-
         Chad optimal = calculateWinner();
-
-//        if (!refConflicts.isEmpty()) {
-//            for (String conflictedValue : refConflicts) {
-//                String findings = "";
-//                if (conflictedValue == null) {
-//                    conflictedValue = "";
-//                }
-//                int numNoRefs = 0;
-//                int numRefs = 0;
-//                int numNoRefsVotes = 0;
-//                int numRefsVotes = 0;
-//                int numVotes = 0;
-//                for (Chad c : chads.values()) {
-//                    if (!conflictedValue.equals(c.value)) {
-//                        continue;
-//                    }
-//                    if (c == optimal) {
-//                        findings = findings + "[winner]";
-//                    }
-//                    findings = findings + "#" + c.xpath;
-//                    int votes = c.voters.size();
-//                    if (c.refs != null) {
-//                        findings = findings + "," + "ref:" + c.refs;
-//                        numNoRefs++;
-//                        if (votes > 0) {
-//                            numRefsVotes++;
-//                        }
-//                    } else {
-//                        numRefs++;
-//                        if (votes > 0) {
-//                            numNoRefsVotes++;
-//                        }
-//                    }
-//                    if (c.score > 0) {
-//                        findings = findings + ",s" + c.score;
-//                    }
-//                    if (votes > 0) {
-//                        findings = findings + ",v" + votes;
-//                        numVotes++;
-//                    }
-//                    findings = findings + " ";
-//                }
-//                String conclusion = "";
-//                if (numVotes == 0) {
-//                    conclusion = "[No votes!]";
-//                } else {
-//                    if (numVotes == 1) {
-//                        if (numRefsVotes > 0) {
-//                            conclusion = "[Unanimous: REF]";
-//                        } else {
-//                            conclusion = "[Unanimous: NO REF]";
-//                        }
-//                    } else if (numRefsVotes > 1) {
-//                        conclusion = "[Votes for differing references]";
-//                    } else if (numRefsVotes > 0 && numNoRefsVotes > 0) {
-//                        conclusion = "[Votes for both REF and NONREF]";
-//                    } else {
-//                        // none of the above.
-//                        conclusion = "[V" + numVotes + ": r" + numRefsVotes + " no"
-//                                + numNoRefsVotes + " - total: R" + numRefs + " NO" + numNoRefs
-//                                + "]";
-//                    }
-//                }
-//
-//                System.err.println(locale + ":" + base_xpath + " - refConflicts: "
-//                        + conflictedValue + ": " + conclusion + " :" + findings);
-//            }
-//        }
 
         if (optimal == null) {
             return -1;
@@ -615,174 +495,18 @@ public class Race {
         return count;
     }
 
-//    private void calculateOrgVotes() {
-//        // VR: not needed.
-//        for (Chad c : chads.values()) { // reset
-//            c.score = 0;
-//        }
-//        // calculate the org's choice
-//        for (Organization org : orgVotes.values()) {
-//            Chad vote = org.calculateVote();
-//            if (vote != null) {
-//                vote.add(org); // add that org's vote to the chad
-//            }
-//        }
-//
-//        // look for any default votes.
-//
-//        for (Chad c : chads.values()) {
-//            if (c.disqualified && !Vetting.MARK_NO_DISQUALIFY) {
-//                continue;
-//            }
-//            if (c.orgsDefaultFor != null) {
-//                for (Organization o : c.orgsDefaultFor) { // is this the
-//                                                            // default candidate
-//                                                            // vote for anyone?
-//                    if (o.votes.isEmpty()) { // if they do not have any other
-//                                                // votes..
-//                        int newStrength = vet.getDefaultWeight(o.name, locale);
-//                        boolean suppressDefault = false; // any reason to
-//                                                            // suppress the
-//                                                            // default vote?
-//
-//                        if (newStrength == 1 // if it's only a vote of 1
-//                                && c.score == 0) { // and no other organization
-//                                                    // voted for it
-//                            // See if anyone voted for anything else.
-//                            int otherStrengths = 0;
-//                            for (Chad k : chads.values()) {
-//                                if (k == c)
-//                                    continue; // votes for this item are OK
-//                                if (k.score > 0) {
-//                                    suppressDefault = true;
-//                                    // System.err.println("Suppressing DV on
-//                                    // "+locale+":"+base_xpath+" because of
-//                                    // other score.");
-//                                    break;
-//                                }
-//                            }
-//                        } else {
-//                            int otherStrengths = 0;
-//                            for (Chad k : chads.values()) {
-//                                if (k == c)
-//                                    continue; // votes for this item are OK
-//                                if (k.score > 0) {
-//                                    // System.err.println("NOT Suppressing DV on
-//                                    // "+locale+":"+base_xpath+" - other score,
-//                                    // but newStrength="+newStrength+" and
-//                                    // c.score="+c.score+".");
-//                                    break;
-//                                }
-//                            }
-//                        }
-//                        if (!suppressDefault) {
-//                            // #2 pre-set the vote
-//                            // System.err.println("G voting "+newStrength+" DV
-//                            // on "+locale+":"+base_xpath+" @:"+c.xpath+".");
-//                            o.setDefaultVote(c, newStrength);
-//                            // now, count it
-//                            Chad vote = o.calculateVote();
-//                            if (vote != null) {
-//                                vote.add(o); // add that org's vote to the
-//                                                // chad
-//                            }
-//                        } else {
-//                            orgVotes.remove(o.name); // remove the
-//                                                        // organization - it had
-//                                                        // no other votes.
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-
     
     /**
      * Calculate the winning item of the race. May be null if n/a.
      */
     private Chad calculateWinner() {
-        int winner = resolver.getWinningValue();
+        int winningXpath = resolver.getWinningValue();
         VoteResolver.Status newStatus = resolver.getWinningStatus();
         status = Status.toStatus(newStatus); // convert from VR status
-        //missing, unconfirmed, provisional, contributed, approved;
-        return chads.get(winner);
-//        * status = resolver.getWinningStatus();
-//        * conflicts = resolver.getConflictedOrganizations();
+        winner = chads.get(winningXpath);
+//        System.out.println(resolver.toString() + " \n - resolved, winner: " + winner + " Found:"+(winner!=null));
+        return winner;
     }
-//    private Chad calculateOldWinner() {
-//        int highest = 0;
-//
-//        for (Chad c : chads.values()) {
-//            if ((c.score == 0) || (c.disqualified && !Vetting.MARK_NO_DISQUALIFY))
-//                continue; // item had an error or is otherwise out of the
-//                            // running
-//
-//            if (c.score > highest) { // new highest score
-//                disputes.clear();
-//                winner = c;
-//                nexthighest = highest; // save old nexthighest for 'N'
-//                highest = c.score;
-//            } else if (c.score == highest) { // same level
-//                nexthighest = highest; // save old nexthighest for 'N' ( == )
-//                if (vet.gOurCollator.compare(c.value, winner.value) < 0) {
-//                    disputes.add(winner);
-//                    winner = c; // new item (c) is lower in UCA, so use it
-//                } else {
-//                    disputes.add(c); // new item (c) was higher in UCA, add
-//                                        // it to the disputes list
-//                }
-//            } // else: losing item
-//        }
-//
-//        // http://www.unicode.org/cldr/process.html#resolution_procedure
-//        if (highest > 0) {
-//            // Compare the optimal item vote O to the next highest vote getter
-//            // N:
-//            if (highest >= (2 * nexthighest) && highest >= 8) { // O >= 2N && O
-//                                                                // >= 8
-//                status = Status.APPROVED; // approved
-//            } else if (highest >= (2 * nexthighest) && highest >= 2 // O>=2N &&
-//                                                                    // O>= 2 &&
-//                                                                    // G>= 2
-//                    && winner.orgs.size() >= 2) {
-//                status = Status.CONTRIBUTED;
-//            } else if (highest > nexthighest && highest >= 2) { // O>N && O>=2
-//                status = Status.PROVISIONAL;
-//            } else {
-//                status = Status.UNCONFIRMED;
-//            }
-//        }
-//
-//        // was there an approved item that wasn't replaced by a confirmed item?
-//        if ((existing != null) && (existingStatus == Status.APPROVED)
-//                && (!(existing.disqualified && !Vetting.MARK_NO_DISQUALIFY)) && // good
-//                                                                                // existing
-//                                                                                // value
-//                ((winner == null) || (status != Status.APPROVED))) // no new
-//                                                                    // winner OR
-//                                                                    // not-confirmed
-//                                                                    // winner
-//        {
-//            if (winner != existing) { // is it a different item entirely?
-//                winner = existing;
-//                nexthighest = highest; // record that the highest scoring was
-//                                        // not the winner. "not enough votes
-//                                        // to.."
-//            }
-//            status = Status.APPROVED; // mark it confirmed. ( ==
-//                                        // existingStatus )
-//        }
-//
-//        // or, was there any existing item at all?
-//        if ((winner == null) && (existing != null)
-//                && (!(existing.disqualified && !Vetting.MARK_NO_DISQUALIFY))) {
-//            winner = existing;
-//            status = existingStatus; // whatever it is
-//        }
-//
-//        return winner;
-//    }
 
     /**
      * This function is called to update the CLDR_OUTPUT and CLDR_ORGDISPUTE

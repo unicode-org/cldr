@@ -43,7 +43,7 @@ public class CheckForExemplars extends CheckCLDR {
   private String informationMessage;
   private Status otherPathStatus = new Status();
   private Matcher patternMatcher = ExampleGenerator.PARAMETER.matcher("");
-  static final Pattern supposedToBeMessageFormatPath = Pattern.compile("/(" +
+  static final Pattern SUPPOSED_TO_BE_MESSAGE_FORMAT_PATTERN = Pattern.compile("/(" +
           "codePattern" +
           "|dateRangePattern" +
           "|dateTimeFormat[^/]*?/pattern" +
@@ -56,7 +56,15 @@ public class CheckForExemplars extends CheckCLDR {
           "|unitPattern" +
           "|localePattern" +
       ")");
-  private Matcher supposedToBeMessageFormat = supposedToBeMessageFormatPath.matcher("");
+  private Matcher supposedToBeMessageFormat = SUPPOSED_TO_BE_MESSAGE_FORMAT_PATTERN.matcher("");
+  
+  static final Pattern LEAD_OR_TRAIL_WHITESPACE_OK = Pattern.compile("/(" +
+          "localeSeparator" +
+          "|references/reference" +
+          "|insertBetween" +
+      ")");
+  private Matcher leadOrTrailWhitespaceOk = LEAD_OR_TRAIL_WHITESPACE_OK.matcher("");
+
   
   public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map<String, String> options, List<CheckStatus> possibleErrors) {
     if (cldrFile == null) return this;
@@ -185,10 +193,10 @@ public class CheckForExemplars extends CheckCLDR {
       }
     }
     // check for spaces 
-    if (!path.startsWith("//ldml/references/reference") && !path.endsWith("/insertBetween")) {
-      if (!value.equals(value.trim())) {
+    if (!value.equals(value.trim())) {
+      if (!leadOrTrailWhitespaceOk.reset(path).find()) {
         result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
-        .setMessage("This item must not start or end with whitespace."));
+                .setMessage("This item must not start or end with whitespace."));
       }
     }
     return this;

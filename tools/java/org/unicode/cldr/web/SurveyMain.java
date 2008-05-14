@@ -648,6 +648,7 @@ public class SurveyMain extends HttpServlet {
                             case java.sql.Types.VARCHAR: ctx.println("VARCHAR"); break;
                             case java.sql.Types.INTEGER: ctx.println("INTEGER"); break;
                             case java.sql.Types.BLOB: ctx.println("BLOB"); break;
+                            case java.sql.Types.TIMESTAMP: ctx.println("TIMESTAMP"); break;
                             case java.sql.Types.BINARY: ctx.println("BINARY"); break;
                             case java.sql.Types.LONGVARBINARY: ctx.println("LONGVARBINARY"); break;
                             default: ctx.println("type#"+t); break;
@@ -666,7 +667,19 @@ public class SurveyMain extends HttpServlet {
                     for(j=0;rs.next()&&(j<limit);j++) {
                         ctx.println("<tr class='r"+(j%2)+"'><th>" + j + "</th>");
                         for(i=1;i<=cc;i++) {
-                            String v = rs.getString(i);
+                            String v;
+                            try {
+                                v = rs.getString(i);
+                            } catch(SQLException se) {
+                                if(se.getSQLState().equals("S1009")) {
+                                    v="0000-00-00 00:00:00";
+                                } else {
+                                    v = "(Err:"+unchainSqlException(se)+")";
+                                }
+                            } catch (Throwable t) {
+                                t.printStackTrace();
+                                v = "(Err:"+t.toString()+")";
+                            }
                             if(v != null) {
                                 ctx.println("<td>"  );
                                 if(rsm.getColumnType(i)==java.sql.Types.LONGVARBINARY) {
@@ -676,6 +689,11 @@ public class SurveyMain extends HttpServlet {
                                     for(byte b : bytes) {
                                         ctx.println(Integer.toHexString(((int)b)&0xFF));
                                     }
+//                                } else if(rsm.getColumnType(i)==java.sql.Types.TIMESTAMP) {
+//                                    String out="(unknown)";
+//                                    try {
+//                                        out=v.t
+//                                    }
                                 } else {
                                     ctx.println(v );
 //                                  ctx.println("<br>"+rsm.getColumnTypeName(i));
@@ -4485,7 +4503,8 @@ public class SurveyMain extends HttpServlet {
                 int nrInFiles = inFiles.length;
                 progressWhat = "writing " +kind;
                 progressMax = nrInFiles+1;
-                Set<Integer> xpathSet = new TreeSet<Integer>();
+                //Set<Integer> xpathSet = new TreeSet<Integer>();
+                boolean xpathSet[] = new boolean[0];
                 Connection conn = getDBConnection();
                 for(int i=0;i<nrInFiles;i++) {
                     progressCount = i;
@@ -4505,7 +4524,7 @@ public class SurveyMain extends HttpServlet {
                     }
 
                     long nextTime = System.currentTimeMillis();
-                    if((nextTime - lastTime) > 10000) {
+                    if((nextTime - lastTime) > 10000) { // denote, every 10 seconds
                         lastTime = nextTime;
                         System.err.println("output: " + kind + " / " + localeName + ": #"+i+"/"+nrInFiles+", or "+
                             (((double)(System.currentTimeMillis()-countStart))/i)+"ms per.");
@@ -4536,7 +4555,7 @@ public class SurveyMain extends HttpServlet {
                         PrintWriter utf8OutStream = new PrintWriter(
                             new OutputStreamWriter(
                                 new FileOutputStream(voteFile), "UTF8"));
-                        this.vet.writeVoteFile(utf8OutStream, conn, dbSource, file, ourDate, xpathSet);
+                        xpathSet = this.vet.writeVoteFile(utf8OutStream, conn, dbSource, file, ourDate, xpathSet);
                         nrOutFiles++;
                         utf8OutStream.close();
                         lastfile = null;
@@ -5748,6 +5767,7 @@ public class SurveyMain extends HttpServlet {
                 
             boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.localeString()));
             
+            {
                 // TODO: move this into showExample. . .
                 String e = ctx.field(QUERY_EXAMPLE);
                 if(e.length() > 0) {
@@ -5770,6 +5790,7 @@ public class SurveyMain extends HttpServlet {
                         showPeas(ctx, section, canModify);
                     }
                 }
+            }
         }
     }
 
@@ -7130,7 +7151,7 @@ public class SurveyMain extends HttpServlet {
 				Race r =  vet.getRace(section.locale, p.base_xpath);
 				ctx.println("<i>Voting results by organization:</i><br>");
                 ctx.print("<table class='list' border=1 summary='voting results by organization'>");
-                ctx.print("<tr class='heading'><th>Organization</th><th>Organization's Vote</th><th>Dissenting Votes</th></tr>");
+                ctx.print("<tr class='heading'><th>Organization</th><th>Organization's Vote</th><th>Conflicting Votes</th></tr>");
                 int onn=0;
 				for(Race.Organization org : r.orgVotes.values()) {
 				    Race.Chad orgVote = r.getOrgVote(org.name);
@@ -7138,7 +7159,7 @@ public class SurveyMain extends HttpServlet {
 					ctx.print("<th>"+org.name+"</th>");
 					ctx.print("<td>");
 					if(orgVote == null) {
-						ctx.print("<i>(Dispute: No Vote.)</i>");
+						ctx.print("<i>(No vote.)</i>");
 						if(org.dispute) {
 						    ctx.print("<br>");
                             if((ctx.session.user != null) && (org.name.equals(ctx.session.user.org))) {
@@ -7208,6 +7229,11 @@ public class SurveyMain extends HttpServlet {
                     ctx.print("</tr>");
                 }
 				ctx.print("</table>"); // end of votes-by-organization
+				
+				if(isUnofficial && UserRegistry.userIsTC(ctx.session.user)) {
+				    ctx.println("<pre style='border: 1px solid gray; margin: 3px;'>"+r.resolverToString());
+				    ctx.print("</pre>");
+				}
 
                   
                 if((r.nexthighest > 0) && (r.winner!=null)&&(r.winner.score==0)) {

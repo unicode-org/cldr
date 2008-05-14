@@ -116,7 +116,8 @@ public class Race {
                                                         // involved, iff they
                                                         // didn't already vote.
 
-        boolean disqualified;
+        boolean checkedDisqualified = false;
+        boolean disqualified = false;
 
         public Chad(int xpath, int full_xpath, String value) {
             this.xpath = xpath;
@@ -125,14 +126,25 @@ public class Race {
 
         }
 
+        public boolean isDisqualified() {
+            if(checkedDisqualified) {
+                return disqualified;
+            } else {
+                return checkDisqualified();
+            }
+        }
+
         boolean checkDisqualified() {
             if (disqualified) {
                 return true;
             }
             if (value == null) { // non existent item. ignore.
+                checkedDisqualified=true;
+                disqualified=false;
                 return false;
             }
             disqualified = Race.this.vet.test(locale, xpath, full_xpath, value);
+            checkedDisqualified=true;
             if (disqualified && !Vetting.MARK_NO_DISQUALIFY) {
                 score = 0;
                 // if(/*sm.isUnofficial && */ base_xpath==83422) {
@@ -263,35 +275,35 @@ public class Race {
     }
 
     /* check for errors */
-    boolean recountIfHadDisqualified() {
-        boolean hadDisqualified = false;
-        for (Chad c : chads.values()) {
-            if (c.checkDisqualified()) {
-                hadDisqualified = true;
-            }
-        }
-        if (winner == null) {
-            /*
-             * if(test(locale, base_xpath, base_xpath, null)) { // check the
-             * base item - i.e. coverage... hadOtherError = true; }
-             */
-            return hadDisqualified || hadOtherError;
-        }
-        if (!winner.disqualified) {
-            return hadDisqualified;
-        }
-
-        if (!Vetting.MARK_NO_DISQUALIFY) {
-            // actually remove winner, set to 0, etc.
-            hadDisqualifiedWinner = true;
-            winner = null; // no winner
-            nexthighest = 0;
-//            calculateOrgVotes();
-
-            calculateWinner();
-        }
-        return hadDisqualified;
-    }
+//    boolean recountIfHadDisqualified() {
+//        boolean hadDisqualified = false;
+//        for (Chad c : chads.values()) {
+//            if (c.checkDisqualified()) {
+//                hadDisqualified = true;
+//            }
+//        }
+//        if (winner == null) {
+//            /*
+//             * if(test(locale, base_xpath, base_xpath, null)) { // check the
+//             * base item - i.e. coverage... hadOtherError = true; }
+//             */
+//            return hadDisqualified || hadOtherError;
+//        }
+//        if (!winner.disqualified) {
+//            return hadDisqualified;
+//        }
+//
+//        if (!Vetting.MARK_NO_DISQUALIFY) {
+//            // actually remove winner, set to 0, etc.
+//            hadDisqualifiedWinner = true;
+//            winner = null; // no winner
+//            nexthighest = 0;
+////            calculateOrgVotes();
+//
+//            calculateWinner();
+//        }
+//        return hadDisqualified;
+//    }
 
     private Chad getChad(int vote_xpath, int full_xpath, String value) {
         String valueForLookup = (value != null) ? value : Vetting.EMPTY_STRING;
@@ -365,8 +377,11 @@ public class Race {
             c.vote(user);
 
             // add the chad to the set of orgs' chads
-            Organization theirOrg = getOrganization(user.voterOrg());
+            Organization theirOrg = getOrganization(user.voterOrg()); // we use the VR organization code
             theirOrg.add(c);
+            if(!c.isDisqualified()) {
+                resolver.add(vote_xpath, user.id);
+            }
         } else {
             // "existing" vote
             existing = c;
@@ -430,11 +445,14 @@ public class Race {
             String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
             VoteResolver.Status newStatus = VoteResolver.Status.valueOf(
                         VoteResolver.fixBogusDraftStatusValues(eDraft));
+            // 'last release' here means, whatever is in CVS
             resolver.setLastRelease(base_xpath, newStatus );
         } else {
+            // 'last release' is missing
             resolver.setLastRelease(base_xpath, VoteResolver.Status.missing );
         }
         
+        // Now, fetch all votes for this path.
         rs = vet.queryVoteForBaseXpath.executeQuery();
         int count = 0;
         while (rs.next()) {
@@ -449,7 +467,6 @@ public class Race {
             vet.queryValue.setInt(2, vote_xpath);
             ResultSet crs = vet.queryValue.executeQuery();
             int orig_xpath = vote_xpath;
-            // String itemValue = "(could not find item#"+vote_xpath+")";
             String itemValue = null;
             if (crs.next()) {
                 itemValue = SurveyMain.getStringUTF8(crs, 1);
@@ -458,7 +475,6 @@ public class Race {
 
             UserRegistry.User u = vet.sm.reg.getInfo(submitter);
             vote(u, vote_xpath, orig_xpath, itemValue);
-            resolver.add(vote_xpath, submitter);
         }
 
 
@@ -488,9 +504,11 @@ public class Race {
             // 3 : alt_type
             String value = SurveyMain.getStringUTF8(rs, 4);
             Chad c = getChad(xpath, origXpath, value);
-            resolver.add(xpath);
+            if(!c.isDisqualified()) {
+                resolver.add(xpath);
+            }
         }
-
+        
         return count;
     }
 
@@ -505,6 +523,11 @@ public class Race {
         winner = chads.get(winningXpath);
 //        System.out.println(resolver.toString() + " \n - resolved, winner: " + winner + " Found:"+(winner!=null));
         return winner;
+    }
+    
+    public String resolverToString() {
+        return resolver.toString() + "\n"+
+            "WinningXpath: " +resolver.getWinningValue()+ " "+resolver.getWinningStatus()+"\n";
     }
 
     /**

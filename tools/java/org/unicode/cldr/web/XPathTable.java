@@ -473,5 +473,5 @@ public class XPathTable {
      */
     public int count() {
         return stringToId.size();
-    }            
+    }
 }

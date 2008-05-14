@@ -207,6 +207,7 @@ public class Vetting {
                                                         "unique(locale,submitter,base_xpath))");
                 s.execute("CREATE UNIQUE INDEX unique_xpath on " + CLDR_VET +" (locale,submitter,base_xpath)");
                 s.execute("CREATE INDEX "+CLDR_VET+"_loc_base on " + CLDR_VET +"(locale,base_xpath)");
+                s.execute("create index srl_vindex on cldr_vet (locale,vote_xpath)"); // speed up /vxml/ output
                 s.close();
                 conn.commit();
             }
@@ -322,6 +323,7 @@ public class Vetting {
     PreparedStatement rmResult = null;
     PreparedStatement rmResultAll = null;
     PreparedStatement rmResultLoc = null;
+    PreparedStatement rmOutputLoc = null;
     PreparedStatement queryTypes = null;
     PreparedStatement insertStatus = null;
     PreparedStatement updateStatus = null;
@@ -397,6 +399,8 @@ public class Vetting {
                 "delete from "+CLDR_RESULT+"");
             rmResultLoc = prepareStatement("rmResultLoc", 
                 "delete from "+CLDR_RESULT+" where locale=?");
+            rmOutputLoc = prepareStatement("rmOutputLoc", 
+                    "delete from "+CLDR_OUTPUT+" where locale=?");
             queryResult = prepareStatement("queryResult",
                 "select "+CLDR_RESULT+".result_xpath,"+CLDR_RESULT+".type from "+CLDR_RESULT+" where (locale=?) AND (base_xpath=?)");
             countResultByType = prepareStatement("countResultByType",
@@ -763,6 +767,25 @@ public class Vetting {
         }
         return gAllImportantXpaths;
     }
+    public int updateResults(String locale, boolean removeFirst) {
+        int tcount=0;
+        int lcount = 0;
+        int types[] = new int[1];
+        
+        ElapsedTimer et2 = new ElapsedTimer();
+        types[0]=0;
+        
+        int count = updateResults(locale,types, removeFirst);
+        tcount += count;
+        if(count>0) {
+            lcount++;
+            System.err.println("updateResults(1) ("+locale+ " ("+count+" updated, "+typeToStr(types[0])+") - "+1+"/"+1+") took " + et2.toString());
+        } else {
+            // no reason to print it.
+        }
+        return tcount;
+    }
+    
     public int updateResults(String locale, int type[]) {
         return updateResults(locale, type, false);
     }
@@ -796,7 +819,9 @@ public class Vetting {
                 if(removeFirst) {            
                     rmResultLoc.setString(1, locale);
                     int del = rmResultLoc.executeUpdate();
-                    System.err.println("** "+ locale + " - "+del+" results removed");
+                    rmOutputLoc.setString(1, locale);
+                    int del2 = rmOutputLoc.executeUpdate();
+                    System.err.println("** "+ locale + " - "+del+" results and "+del2+" outputs removed");
                     conn.commit();
                 }            
                 
@@ -811,7 +836,9 @@ public class Vetting {
                 insertResult.setString(1,locale);
                 
                 // Missing results...
+//                ElapsedTimer et_m = new ElapsedTimer();
                 ResultSet rs = missingResults.executeQuery();
+//                System.err.println("Missing results for " + locale + " found in " + et_m.toString());
                 while(rs.next()) {
                     ncount++;
                     base_xpath = rs.getInt(1);
@@ -821,68 +848,38 @@ public class Vetting {
 
                     updates |= rc;
                 }
+//                System.err.println("Missing results "+ncount+" for " + locale + " updated in " + et_m.toString());
                 // out of date results..
-                staleResult.setString(1,locale);
-                rs = staleResult.executeQuery();  // id, base_xpath
-                while(rs.next()) {
-                    ucount++;
-                    int id = rs.getInt(1);
-                    base_xpath = rs.getInt(2);
-                    
-                    int rc = updateResults(id, locale, base_xpath, racesToUpdate);
-                    //    System.err.println("*Updated id " + id + " of " + locale+":"+base_xpath);
-                    updates |= rc;
+                if(false) {  // stale results should not be needed anymore
+                    staleResult.setString(1,locale);
+                    rs = staleResult.executeQuery();  // id, base_xpath
+//                    System.err.println("Stale results for " + locale + " found in " + et_m.toString());
+                    while(rs.next()) {
+                        ucount++;
+                        int id = rs.getInt(1);
+                        base_xpath = rs.getInt(2);
+                        
+                        int rc = updateResults(id, locale, base_xpath, racesToUpdate);
+                        //    System.err.println("*Updated id " + id + " of " + locale+":"+base_xpath);
+                        updates |= rc;
+                    }
+//                    System.err.println("Stale results "+ucount+" for " + locale + " updated in " + et_m.toString());
                 }
-
                 int mcount=0;
-/*
-                missingResults2.setString(1,locale);
-                rs = missingResults2.executeQuery();
-                
-                while(rs.next()) {
-                    mcount++;
-                    base_xpath = rs.getInt(1);
-                    String base_xpath_str = sm.xpt.getById(base_xpath);
-
-                    int rc = updateResults(-1, locale, base_xpath, racesToUpdate);
-                    //    System.err.println("*Updated id " + id + " of " + locale+":"+base_xpath);
-                    updates |= rc;
-
-                    //System.err.println(locale+":"+base_xpath+" missing "+base_xpath_str);
-                }
-                if(mcount>0) {
-                    System.err.println("Missing items in "+ locale + " - "+mcount);
-                    conn.commit();
-                }
-*/
 
                 // if anything changed, commit it
                 if((ucount > 0) || (ncount > 0) || (mcount > 0)) {
                     int uscnt = updateStatus(locale, true);// update results
+                    String uncount = " "+ncount+" missing, " + ucount+" stale ";
                     if(uscnt>0) {
-                        System.err.println(locale+": updated " + uscnt + " statuses, due to vote change");
+                        System.err.println(locale+": updated " + uscnt + " statuses, due to vote change - "+uncount);
                     } else {
-                        System.err.println(locale+": updated " + uscnt + " statuses, due to vote change??");
+                        System.err.println(locale+": updated " + uscnt + " statuses, due to vote change??"+uncount);
                     }
                     conn.commit();
                 }
+//                System.err.println("Committed or not for " + locale + " after " + et_m.toString());
                 
-                // Now that we've committed, should be OK to look for errs.
-                Set<Race> errorRaces = searchForErrors(racesToUpdate);
-                
-                if(!errorRaces.isEmpty()) {
-                    correctErrors(errorRaces);
-                    updates |= RES_ERROR;
-
-                    // if anything changed, commit it
-                    int uscnt = updateStatus(locale, true);// update results
-                    if(uscnt>0) {
-                        System.err.println(locale+": updated " + uscnt + " statuses, due to error change");
-                    } else {
-                        System.err.println(locale+": updated " + uscnt + " statuses, due to error change??");
-                    }
-                    conn.commit();
-                }
                 
                 
             } catch ( SQLException se ) {
@@ -897,19 +894,19 @@ public class Vetting {
         }
     }
     
-    private Set<Race> searchForErrors(Set<Race> racesToUpdate) {
-//        System.err.println(racesToUpdate.size() + " to check");
-        Set<Race> errorRaces = new HashSet<Race>();
-        
-        for(Race r : racesToUpdate) {
-            if(r.recountIfHadDisqualified()) {
-//if(r.base_xpath==85942)                System.err.println("Had errs; " + r.locale + " / " + r.base_xpath);
-                errorRaces.add(r);
-            }
-        }
-        
-        return errorRaces;
-    }
+//    private Set<Race> searchForErrors(Set<Race> racesToUpdate) {
+////        System.err.println(racesToUpdate.size() + " to check");
+//        Set<Race> errorRaces = new HashSet<Race>();
+//        
+//        for(Race r : racesToUpdate) {
+//            if(r.recountIfHadDisqualified()) {
+////if(r.base_xpath==85942)                System.err.println("Had errs; " + r.locale + " / " + r.base_xpath);
+//                errorRaces.add(r);
+//            }
+//        }
+//        
+//        return errorRaces;
+//    }
     
     private int correctErrors(Set<Race> errorRaces) throws SQLException {
         int n = 0;
@@ -1275,7 +1272,6 @@ public class Vetting {
 			Race r = new Race(this);
 			r.clear(base_xpath, locale);
 			r.optimal();
-			r.recountIfHadDisqualified();
 			return r;
 		}
 	}
@@ -1435,6 +1431,9 @@ public class Vetting {
                 rmVote.setInt(3,base_xpath);
                 
                 int rs = rmVote.executeUpdate();
+                rmResult.setString(1,locale);
+                rmResult.setInt(2,base_xpath);
+                rs += rmResult.executeUpdate();
                 conn.commit();
                 return rs;
             } catch ( SQLException se ) {
@@ -1479,10 +1478,10 @@ public class Vetting {
                     insertVote.setInt(5,type);
                     insertVote.executeUpdate();
                 }
-      /*          rmResult.setString(1,locale);
+                rmResult.setString(1,locale);
                 rmResult.setInt(2,base_xpath);
                 rmResult.executeUpdate();
-*/
+
               //  updateResults(locale);// caller needs to do updateResults
             } catch ( SQLException se ) {
                 String complaint = "Vetter:  couldn't query voting result for  " + locale + ":"+base_xpath+" - " + SurveyMain.unchainSqlException(se);
@@ -2337,6 +2336,7 @@ if(true == true)    throw new InternalError("removed from use.");
         }
     }
     
+    /** Old version **/
     public void writeXpaths(PrintWriter out, String ourDate, Set<Integer> xpathSet) {
         out.println("<xpathTable host=\""+SurveyMain.localhost()+"\" date=\""+ourDate+"\"  count=\""+xpathSet.size()+"\" >");
         writeXpathFragment(out, xpathSet);
@@ -2349,6 +2349,22 @@ if(true == true)    throw new InternalError("removed from use.");
         }
     }
 
+    public void writeXpaths(PrintWriter out, String ourDate, boolean xpathSet[]) {
+        out.println("<xpathTable host=\""+SurveyMain.localhost()+"\" max=\""+xpathSet.length+"\" date=\""+ourDate+"\" >");
+        writeXpathFragment(out, xpathSet);
+        out.println("</xpathTable>");
+    }
+
+    public void writeXpathFragment(PrintWriter out, boolean xpathSet[]) {
+        for(int path=0;path<xpathSet.length;path++) {
+            if(xpathSet[path]) {
+                out.println("<xpath id=\""+path+"\">"+xmlescape(sm.xpt.getById(path))+"</xpath>");
+            }
+        }
+    }
+    
+    static int xpathMax=0;
+
     /**
      * Write a single vote file
      * @param conn2 DB connection to use
@@ -2357,11 +2373,12 @@ if(true == true)    throw new InternalError("removed from use.");
      * @param ourDate canonical date for generation
      * @throws SQLException 
      */
-    public void writeVoteFile(PrintWriter out, Connection conn2, CLDRDBSource source, CLDRFile file, String ourDate, Set<Integer> xpathSet) throws SQLException {
+    public boolean[] writeVoteFile(PrintWriter out, Connection conn2, CLDRDBSource source, CLDRFile file, String ourDate, boolean xpathSet[]) throws SQLException {
         boolean embeddedXpathTable = false;
         
         if(xpathSet == null) {
-            xpathSet = new TreeSet<Integer>();
+//            xpathSet = new TreeSet<Integer>();
+            xpathSet = new boolean[xpathMax];
             embeddedXpathTable=true;
         }
 
@@ -2393,7 +2410,8 @@ if(true == true)    throw new InternalError("removed from use.");
         votesByValue.setString(1, locale);
                 
         Statement basesByLocale = conn2.createStatement();
-        ResultSet base_result = basesByLocale.executeQuery("select distinct cldr_vet.base_xpath from cldr_vet where cldr_vet.locale='"+locale+"'");
+//        ResultSet base_result = basesByLocale.executeQuery("select distinct cldr_vet.base_xpath from cldr_vet where cldr_vet.locale='"+locale+"'");
+        ResultSet base_result = basesByLocale.executeQuery("select base_xpath from cldr_result where locale='"+locale+"'");
 
         
         int n=0;
@@ -2406,14 +2424,26 @@ if(true == true)    throw new InternalError("removed from use.");
             ResultSet results = resultsByBase.executeQuery();
             boolean sawBasePath = false;
             while(results.next()) {
+                int outPath = results.getInt(1);
+                int outFull = results.getInt(2);
+                if(outFull>=xpathSet.length || baseXpath>=xpathSet.length) {
+                    if(xpathMax==0) {
+                        xpathMax=sm.xpt.count()+XPathTable.CHUNKSIZE;
+                    }
+                    int max = java.lang.Math.max(outFull, baseXpath);
+                    xpathMax = java.lang.Math.max(max+XPathTable.CHUNKSIZE, xpathMax);
+                    boolean newXpathSet[] = new boolean[xpathMax];
+                    System.arraycopy(xpathSet, 0, newXpathSet, 0, xpathSet.length);
+                    xpathSet=newXpathSet;
+                    System.err.println("VV:XPT:Expand to "+xpathMax);
+                }
                 if(!hadRow) {
                     hadRow=true;
                     out.println("\t<row baseXpath=\""+baseXpath+"\">"); // result=\""+resultXpath+"\">");
-                    xpathSet.add(baseXpath);
+                    //xpathSet.add(baseXpath);
+                    xpathSet[baseXpath]=true;
                     //out.println("\t\t<xpath type=\"base\" id=\""+baseXpath+"\">"+xmlescape(sm.xpt.getById(baseXpath))+"</xpath>");
                 }
-                int outPath = results.getInt(1);
-                int outFull = results.getInt(2);
                 String outFullString = sm.xpt.getById(outFull);
 //                int outStatus = results.getInt(3);
 //                Status status = Status.find(outStatus);
@@ -2429,7 +2459,8 @@ if(true == true)    throw new InternalError("removed from use.");
                 if(iDraft == null || iDraft.length()==0) {
                     iDraft = "approved";
                 }
-                xpathSet.add(outFull);
+                //xpathSet.add(outFull);
+                xpathSet[outFull]=true;
 //                xpathSet.add(outDataPath);
                 out.println("\t\t<item xpath=\""+outFull+"\" type=\""+
                         (isBase?"optimal":"proposal")+"\" id=\""+outDataPath+"\" status=\""+iDraft+"\""+">");
@@ -2468,11 +2499,12 @@ if(true == true)    throw new InternalError("removed from use.");
             }
         }
         if(embeddedXpathTable) {
-            out.println(" <xpathTable count=\""+xpathSet.size()+"\">");
+            out.println(" <xpathTable max=\""+xpathSet.length+"\">");
             writeXpathFragment(out,xpathSet);
             out.println(" </xpathTable>");
         }
         out.println("</locale-votes>");
+        return xpathSet;
     }
 
     private String xmlescape(String str) {

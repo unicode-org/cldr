@@ -54,6 +54,7 @@ public class CheckForExemplars extends CheckCLDR {
           "|regionFormat" +
           "|fallbackFormat" +
           "|unitPattern" +
+          "|localePattern" +
       ")");
   private Matcher supposedToBeMessageFormat = supposedToBeMessageFormatPath.matcher("");
   

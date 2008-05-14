@@ -492,7 +492,10 @@ public class WebContext implements Cloneable {
     }
     static String serverHostport(HttpServletRequest request) {
         int port = request.getServerPort();
-        if(port == 80) {
+        String scheme = request.getScheme(); 
+        if(port == 80 && "http".equals(scheme)) {
+            return serverName(request);
+        } else if(port == 443 && "https".equals(scheme)) {
             return serverName(request);
         } else {
             return serverName(request) + ":"+port;

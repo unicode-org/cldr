@@ -576,12 +576,12 @@ public class SurveyMain extends HttpServlet {
                     } 
                     File homeFile = new File(cldrHome, "cldr");
                     
-                    if(!homeFile.isDirectory()) {
+                    if(!homeFile.exists()) {
                         throw new InternalError("CLDR basic does not exist- delete parent and start over.");
 //                        createBasicCldr(homeFile); // attempt to create
                     }
                     
-                    if(!homeFile.isDirectory()) {
+                    if(!homeFile.exists()) {
                         busted("$(catalina.home)/cldr isn't working as a CLDR home. Not a directory: " + homeFile.getAbsolutePath());
                         return;
                     }
@@ -1512,7 +1512,7 @@ public class SurveyMain extends HttpServlet {
                 }
             }
             out.print("<br>");
-            if(progressWhat != null) {
+            if(ctx != null && progressWhat != null) {
                 showProgress(ctx);
             }
             out.println("</div><br>");
@@ -7872,12 +7872,14 @@ public class SurveyMain extends HttpServlet {
                     return;
                 } 
                 File homeFile = new File(cldrHome, "cldr");
+ 		File propFile = new java.io.File(homeFile, "cldr.properties");
     
-                if(!homeFile.isDirectory()) {
+                if(!propFile.exists()) {
+			System.err.println("Does not exist: "+propFile.getAbsolutePath());
                     createBasicCldr(homeFile); // attempt to create
                 }
     
-                if(!homeFile.isDirectory()) {
+                if(!homeFile.exists()) {
                     busted("$(catalina.home)/cldr isn't working as a CLDR home. Not a directory: " + homeFile.getAbsolutePath());
                     return;
                 }

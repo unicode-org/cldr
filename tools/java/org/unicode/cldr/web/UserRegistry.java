@@ -248,6 +248,16 @@ public class UserRegistry {
             }
             return voterOrg;
         }
+        /**
+         * Is this user an administrator 'over' this user?  Always true if admin, orif TC in same org. 
+         * @param other
+         * @return
+         */
+        public boolean isAdminFor(User other) {
+            boolean adminOrRelevantTc = UserRegistry.userIsAdmin(this) || 
+                        ( UserRegistry.userIsTC(this) && (other!=null) && this.org.equals(other.org)); 
+            return adminOrRelevantTc;
+        }
     }
         
     public static void printPasswordLink(WebContext ctx, String email, String password) {

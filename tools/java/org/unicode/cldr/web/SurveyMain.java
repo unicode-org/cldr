@@ -3227,7 +3227,7 @@ public class SurveyMain extends HttpServlet {
         
         ctx.print("<hr>");
 
-		if(UserRegistry.userIsAdmin(ctx.session.user)) {
+		if(UserRegistry.userIsTC(ctx.session.user)) {
 		    showTogglePref(ctx, PREF_DELETEZOOMOUT, "Show delete controls when not zoomed in:");
 		}
 		
@@ -6373,8 +6373,9 @@ public class SurveyMain extends HttpServlet {
 		
 		boolean didSomething = false;  // Was any item modified?
 		
-		if(deleteItems != null) {
+		if(deleteItems != null && ctx.session.user!=null) {
 			for(DataSection.DataRow.CandidateItem item : deleteItems) {
+			    boolean adminOrRelevantTc = UserRegistry.userIsAdmin(ctx.session.user); // ctx.session.user.isAdminFor(reg.getInfo(item.submitter));
 				if((item.submitter != -1) && 
 					!( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
 						( (item.getVotes() == null) || UserRegistry.userIsTC(ctx.session.user) ||  // nobody voted for it, or
@@ -7518,13 +7519,14 @@ public class SurveyMain extends HttpServlet {
 //            ctx.print(ctx.iconHtml("okay","parent fallback"));
         }
         
-        if(zoomedIn || ctx.prefBool(PREF_DELETEZOOMOUT)) {
-            if( (item.getVotes() == null) ||  UserRegistry.userIsAdmin(ctx.session.user) || // nobody voted for it, or
+        if((ctx.session.user!=null)&& (zoomedIn || ctx.prefBool(PREF_DELETEZOOMOUT))) {
+            boolean adminOrRelevantTc = UserRegistry.userIsAdmin(ctx.session.user); //  ctx.session.user.isAdminFor(reg.getInfo(item.submitter));
+            if( (item.getVotes() == null) ||  adminOrRelevantTc || // nobody voted for it, or
                 ((item.getVotes().size()==1)&& item.getVotes().contains(ctx.session.user) ))  { // .. only this user voted for it
                 boolean deleteHidden = ctx.prefBool(PREF_NOSHOWDELETE);
                 if(!deleteHidden && canModify && (item.submitter != -1) &&
                     !( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
-                    ( UserRegistry.userIsAdmin(ctx.session.user) || (item.submitter == ctx.session.user.id) ) ) {
+                    ( adminOrRelevantTc || (item.submitter == ctx.session.user.id) ) ) {
                         ctx.println(" <label nowrap class='deletebox' style='padding: 4px;'>"+ "<input type='checkbox' title='#"+item.xpathId+
                             "' value='"+item.altProposed+"' name='"+fieldHash+"_del'>" +"Delete&nbsp;item</label>");
                 }

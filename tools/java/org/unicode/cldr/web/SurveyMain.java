@@ -224,6 +224,7 @@ public class SurveyMain extends HttpServlet {
     static final String SURVEYTOOL_COOKIE_NONE = "0";
     static final String PREF_SHOWCODES = "p_codes";
     static final String PREF_SORTMODE = "p_sort";
+    static final String PREF_SHOWUNVOTE = "p_unvote";
     static final String PREF_NOPOPUPS = "p_nopopups";
     static final String PREF_CODES_PER_PAGE = "p_pager";
     static final String PREF_XPID = "p_xpid";
@@ -3231,6 +3232,7 @@ public class SurveyMain extends HttpServlet {
 
 		if(UserRegistry.userIsTC(ctx.session.user)) {
 		    showTogglePref(ctx, PREF_DELETEZOOMOUT, "Show delete controls when not zoomed in:");
+		    showTogglePref(ctx, PREF_SHOWUNVOTE, "Show controls for removing votes:");
 		}
 		
         ctx.println("<h4>Advanced Options</h4>");
@@ -7580,7 +7582,7 @@ public class SurveyMain extends HttpServlet {
                 }
             }
         }
-        if(UserRegistry.userIsTC(ctx.session.user) && item.votesByMyOrg(ctx.session.user)) {
+        if(UserRegistry.userIsTC(ctx.session.user) && ctx.prefBool(PREF_SHOWUNVOTE) &&item.votesByMyOrg(ctx.session.user)) {
             ctx.println(" <label nowrap class='unvotebox' style='padding: 4px;'>"+ "<input type='checkbox' title='#"+item.xpathId+
                     "' value='"+item.altProposed+"' name='"+fieldHash+ACTION_UNVOTE+"'>" +"Unvote&nbsp;item</label>");
         }

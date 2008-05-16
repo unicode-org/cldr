@@ -661,16 +661,8 @@ public class Race {
 
         // Examine the results
         if (resultXpath != -1) {
-            if (!disputes.isEmpty() && (status != Status.APPROVED)) { // if it
-                                                                        // was
-                                                                        // approved
-                                                                        // anyways,
-                                                                        // then
-                                                                        // it's
-                                                                        // not
-                                                                        // makred
-                                                                        // as
-                                                                        // disputed.
+            if (resolver.isDisputed()/* && (status != Status.APPROVED)*/) { 
+             // if it  was  approved  anyways,  then  it's  not  makred  as disputed.
                 type = Vetting.RES_DISPUTED;
             } else {
                 type = Vetting.RES_GOOD;

@@ -2089,7 +2089,7 @@ if(true == true)    throw new InternalError("removed from use.");
                 ctx.println("<h1>Only showing ERROR (disqualified winner) items</h1>");
                 rs = s.executeQuery("select "+CLDR_RESULT+".locale,"+CLDR_RESULT+".base_xpath from "+CLDR_RESULT+" where ("+CLDR_RESULT+".type="+RES_ERROR+")");
              } else {
-                rs = s.executeQuery("select "+CLDR_RESULT+".locale,"+CLDR_RESULT+".base_xpath from "+CLDR_RESULT+" where ("+CLDR_RESULT+".type>"+RES_NO_VOTES+") AND ("+CLDR_RESULT+".type<="+RES_BAD_MAX+")");
+                rs = s.executeQuery("select "+CLDR_RESULT+".locale,"+CLDR_RESULT+".base_xpath from "+CLDR_RESULT+" where ("+CLDR_RESULT+".type>"+RES_INSUFFICIENT+") AND ("+CLDR_RESULT+".type<="+RES_BAD_MAX+")");
             }
 			while(rs.next()) {
 				n++;

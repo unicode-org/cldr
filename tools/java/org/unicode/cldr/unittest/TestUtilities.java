@@ -18,11 +18,13 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.tool.ConvertLanguageData.InverseComparator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DelegatingIterator;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.VoteResolver.CandidateInfo;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Organization;
@@ -128,6 +130,8 @@ public class TestUtilities extends TestFmwk {
     String userFile = Utility.getProperty("usersxml", Utility.BASE_DIRECTORY + "/incoming/vetted/usersa/usersa.xml");
     String votesDirectory = Utility.getProperty("votesxml", Utility.BASE_DIRECTORY + "incoming/vetted/main/votes/");
     
+    PathValueInfo.voteInfo = VoteResolver.getVoteInfo(votesDirectory + "xpathTable.xml");
+    Factory factory = CLDRFile.Factory.make(Utility.BASE_DIRECTORY + "incoming/vetted/main/", ".*");
 
     VoteResolver.setVoterToInfo(userFile);
     Map<String, Map<Organization, Relation<Level, Integer>>> map = VoteResolver
@@ -161,7 +165,7 @@ public class TestUtilities extends TestFmwk {
       if (file.endsWith(".xml")) {
         final String locale = file.substring(0,file.length()-4);
         try {
-          checkLocaleVotes(locale, votesDirectory, errorLogPrintWriter, logPrintWriter);
+          checkLocaleVotes(factory, locale, votesDirectory, errorLogPrintWriter, logPrintWriter);
         } catch (RuntimeException e) {
           throw (RuntimeException) new IllegalArgumentException("Can't process " + locale).initCause(e);
         }
@@ -175,8 +179,10 @@ public class TestUtilities extends TestFmwk {
   
   static final boolean SHOW_DETAILS = Utility.getProperty("showdetails", false);
 
-  private void checkLocaleVotes(final String locale, String votesDirectory, PrintWriter errorLog, PrintWriter warningLog) {
+  private void checkLocaleVotes(Factory factory, final String locale, String votesDirectory, PrintWriter errorLog, PrintWriter warningLog) {
     //logln("*** Locale " + locale + ": \t***");
+    PathValueInfo pathValueInfo = new PathValueInfo(factory, locale);
+
     Map<Organization, Level> orgToMaxVote = VoteResolver.getOrganizationToMaxVote(locale);
     if (orgToMaxVote.size() == 0) {
       logln("");
@@ -218,6 +224,17 @@ public class TestUtilities extends TestFmwk {
      
       for (int item : itemInfo.keySet()) {
         String itemValue = getValue(item);
+        String realPath = pathValueInfo.getRealPath(item);
+        if (realPath == null) {
+          logln(locale + ": \t!!! missing path for " + item);
+          continue;
+        }
+        String realValue = pathValueInfo.getRealValue(item);
+        if (realValue == null) {
+          logln(locale + ": \t!!! missing value for " + item);
+          continue;
+        }
+        
         if (valueToItem.containsKey(itemValue)) {
           errln(locale + ": \tTwo alternatives with same value:\t" + item + ", " + itemValue);
         } else {
@@ -254,6 +271,11 @@ public class TestUtilities extends TestFmwk {
           }
         }
       }
+      
+      if (voteResolver.size() == 0) {
+        logln(locale + ": \t!!! no values for " + basePath);
+        continue;
+      }
       if (surveyWinningValue == null) {
         missingOptimals.add(basePath);
         surveyWinningValue = BAD_VALUE;
@@ -277,7 +299,7 @@ public class TestUtilities extends TestFmwk {
       if (!sameResults) {
         surveyVsVoteResolverDifferences.add(basePath);
         if (SHOW_DETAILS) {
-          showPaths(locale, basePath, itemInfo);
+          showPaths(pathValueInfo, locale, basePath, itemInfo);
           log("\t***Different results for:\t" + basePath);
           if (surveyWinningStatus != winningStatus) {
             log(", status ST:\t" + surveyWinningStatus);
@@ -338,12 +360,32 @@ public class TestUtilities extends TestFmwk {
     }
     logln(locale + ": \tOptimal Status:\t" + winningStatusCounter);
   }
+  
+  static class PathValueInfo {
+    private static Map<Integer,String> voteInfo;
+    private CLDRFile file;
+    private String locale;
+    
+    public PathValueInfo(Factory factory, String locale) {
+      this.file = factory.make(locale, false);
+      this.locale = locale;
+    }
 
-  private void showPaths(String locale, int basePath, final Map<Integer, CandidateInfo> itemInfo) {
-    logln(locale + " basePath:\t" + basePath);
+    public String getRealValue(int id) {
+      return file.getStringValue(getRealPath(id));
+    }
+    
+    public String getRealPath(int id) {
+      return voteInfo.get(id);
+    }
+  }
+
+  private void showPaths(PathValueInfo pathValueInfo, String locale, int basePath, final Map<Integer, CandidateInfo> itemInfo) {
+    logln(locale + " basePath:\t" + basePath + "\t" + pathValueInfo.getRealPath(basePath));
     for (int item : itemInfo.keySet()) {
       CandidateInfo candidateInfo = itemInfo.get(item);
       logln("\tpath:\t" + item + ", " + candidateInfo);
+      logln("\tvalue:\t" + pathValueInfo.getRealValue(item) + "\tpath:\t<" + pathValueInfo.getRealPath(item) + ">");
     }
   }
 

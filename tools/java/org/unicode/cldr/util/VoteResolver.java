@@ -170,9 +170,10 @@ public class VoteResolver<T> {
    */
   private static class OrganizationToValueAndVote<T> {
     private Map<Organization, Counter<T>> orgToVotes = new HashMap<Organization, Counter<T>>();
-    private Map<Organization, Integer>         orgToMax   = new HashMap<Organization, Integer>();
+    private Map<Organization, Integer>    orgToMax   = new HashMap<Organization, Integer>();
     private Counter<T>                    totals     = new Counter<T>(true);
-    private Map<Organization, T> orgToAdd = new HashMap<Organization, T>(); // map an organization, to what it voted for.
+    // map an organization to what it voted for.
+    private Map<Organization, T>          orgToAdd   = new HashMap<Organization, T>();
 
     OrganizationToValueAndVote() {
       for (Organization org : Organization.values()) {
@@ -188,6 +189,7 @@ public class VoteResolver<T> {
         orgToVotes.get(org).clear();
       }
       orgToAdd.clear();
+      orgToMax.clear();
     }
 
     /**
@@ -254,6 +256,14 @@ public class VoteResolver<T> {
         }
       }
       return orgCount;
+    }
+    
+    public int getBestPossibleVote() {
+      int total = 0;
+      for (Organization org : orgToMax.keySet()) {
+        total += orgToMax.get(org);
+      }
+      return total;
     }
     
     public String toString() {
@@ -411,16 +421,9 @@ public class VoteResolver<T> {
         }
       }
     }
-    // could optimize the following line by only computing later.
-    int orgCount = organizationToValueAndVote.getOrgCount(winningValue);
 
     // here is the meat.
-    winningStatus = weight1 >= 2 * weight2 && weight1 >= 8 ? Status.approved
-            : (weight1 > weight2 && weight1 >= 4
-               || weight1 >= 2 * weight2 && weight1 >= 2 && orgCount >= 2
-              ) ? Status.contributed
-            : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
-            : Status.unconfirmed;
+    winningStatus = computeStatus(weight1, weight2);
     // if we are not as good as the last release, use the last release
     if (winningStatus.compareTo(lastReleaseStatus) < 0) {
       winningStatus = lastReleaseStatus;
@@ -428,6 +431,43 @@ public class VoteResolver<T> {
       valuesWithSameVotes.clear();
       valuesWithSameVotes.add(winningValue);
     }
+  }
+
+  private Status computeStatus(long weight1, long weight2) {
+    int orgCount = organizationToValueAndVote.getOrgCount(winningValue);
+    return weight1 >= 2 * weight2 && weight1 >= 8 ? Status.approved
+            : (weight1 > weight2 && weight1 >= 4
+               || weight1 >= 2 * weight2 && weight1 >= 2 && orgCount >= 2
+              ) ? Status.contributed
+            : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
+            : Status.unconfirmed;
+  }
+  
+  public Status getPossibleWinningStatus() {
+    if (!resolved) {
+      resolveVotes();
+    }
+    Status possibleStatus = computeStatus(organizationToValueAndVote.getBestPossibleVote(), 0);
+    return possibleStatus.compareTo(winningStatus) > 0 ? possibleStatus : winningStatus;
+  }
+  
+  /**
+   * If the winning item is not approved, and if all the people who voted had voted for the winning item,
+   * would it have made contributed or approved?
+   * @return
+   */
+  public boolean isDisputed() {
+    if (!resolved) {
+      resolveVotes();
+    }
+    if (winningStatus.compareTo(VoteResolver.Status.contributed) >= 0) {
+      return false;
+    }
+    VoteResolver.Status possibleStatus = getPossibleWinningStatus();
+    if (possibleStatus.compareTo(VoteResolver.Status.contributed) >= 0) {
+      return true;
+    }
+    return false;
   }
 
   public Status getWinningStatus() {
@@ -656,7 +696,7 @@ public class VoteResolver<T> {
     public void handlePathValue(String path, String value) {
       // <xpathTable host="tintin.local" date="Tue Apr 29 14:34:32 PDT 2008"  count="18266" >
       // <xpath id="1">//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]</xpath>
-      if (!matcher.reset(path).matches()) {
+      if (!matcher.reset(path).find()) {
         throw new IllegalArgumentException("Unknown path " + path);
       }
       pathIdToPath.put(Integer.parseInt(matcher.group(1)), value);
@@ -802,5 +842,16 @@ public class VoteResolver<T> {
       if ("true".equals(attributeValue)) return "unconfirmed";
       if ("unknown".equals(attributeValue)) return "unconfirmed";
       return attributeValue;
+  }
+
+
+  public static void getPathForId(int id) {
+    // TODO Auto-generated method stub
+    
+  }
+
+
+  public int size() {
+    return values.size();
   }
 }

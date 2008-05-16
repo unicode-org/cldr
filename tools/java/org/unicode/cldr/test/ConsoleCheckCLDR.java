@@ -93,8 +93,8 @@ public class ConsoleCheckCLDR {
   USER = 14,
   PHASE = 15,
   GENERATE_HTML = 16,
-  VOTE_RESOLVE = 17,
-  VOTE_RESOLVE2 = 18
+  VOTE_RESOLVE = 17
+  //VOTE_RESOLVE2 = 18
   ;
   
   private static final UOption[] options = {
@@ -115,8 +115,10 @@ public class ConsoleCheckCLDR {
     UOption.create("user", 'u',  UOption.REQUIRES_ARG),
     UOption.create("phase", 'z',  UOption.REQUIRES_ARG),
     UOption.create("generate_html", 'g',  UOption.OPTIONAL_ARG).setDefault(Utility.CHART_DIRECTORY + "errors/"),
-    UOption.create("vote resolution", 'v',  UOption.REQUIRES_ARG),
-    UOption.create("vote resolution2", 'w',  UOption.REQUIRES_ARG),
+    UOption.create("vote resolution", 'v',  UOption.OPTIONAL_ARG).setDefault(Utility.BASE_DIRECTORY + "incoming/vetted/"),
+    // UOption.create("vote resolution2", 'w',  UOption.OPTIONAL_ARG).setDefault(Utility.BASE_DIRECTORY + "incoming/vetted/main/votes/"),
+    //-v /Users/markdavis/Documents/workspace/cldr/src/incoming/vetted/main/usersa.xml
+    //-w /Users/markdavis/Documents/workspace/cldr/src/incoming/vetted/main/votes/
   };
   private static final Comparator<String> baseFirstCollator = new Comparator<String>() {
     LanguageTagParser languageTagParser1 = new LanguageTagParser();
@@ -231,13 +233,9 @@ public class ConsoleCheckCLDR {
       //Utility;
     }
     
-    if (options[VOTE_RESOLVE].doesOccur != options[VOTE_RESOLVE2].doesOccur) {
-      throw new IllegalArgumentException("Must have both options v and w or neither");
-    }
-    
     if (options[VOTE_RESOLVE].doesOccur) {
-      resolveVotesDirectory = options[VOTE_RESOLVE2].doesOccur ? Utility.checkValidFile(options[VOTE_RESOLVE2].value, true, null) : null;
-      VoteResolver.setVoterToInfo(Utility.checkValidFile(options[VOTE_RESOLVE].value, false, null));
+      resolveVotesDirectory = Utility.checkValidFile(options[VOTE_RESOLVE].value + "main/votes/", true, null);
+      VoteResolver.setVoterToInfo(Utility.checkValidFile(options[VOTE_RESOLVE].value + "usersa/usersa.xml", false, null));
       voteResolver = new VoteResolver<String>();
     }
     
@@ -572,6 +570,7 @@ public class ConsoleCheckCLDR {
   }
 
   static class LocaleVotingData {
+    int disputedCount = 0;
     Counter<Organization> missingOrganizationCounter = new Counter<Organization>(true);
     Counter<Organization> goodOrganizationCounter = new Counter<Organization>(true);
     Counter<Organization> conflictedOrganizations = new Counter<Organization>(true);
@@ -641,6 +640,9 @@ public class ConsoleCheckCLDR {
               missingOrganizationCounter.add(org,1);
             }
           }
+          if (voteResolver.isDisputed()) {
+            disputedCount++;
+          }
         } else {
           for (Organization org : orgToMaxVote.keySet()) {
             VoteResolver.Level maxVote = orgToMaxVote.get(org);
@@ -652,6 +654,11 @@ public class ConsoleCheckCLDR {
           }
         }
       }
+      System.out.println(getLocaleAndName(locale) + "\tEnabled Organizations:\t" + orgToMaxVote);
+      if (disputedCount != 0) {
+        System.out.println(getLocaleAndName(locale) + "\tDisputed Items:\t" + disputedCount);    
+      }
+      
       if (missingOrganizationCounter.size() > 0) {
         System.out.println(getLocaleAndName(locale) + "\tMIA organizations:\t" + missingOrganizationCounter);
         System.out.println(getLocaleAndName(locale) + "\tConflicted organizations:\t" + conflictedOrganizations);
@@ -670,7 +677,7 @@ public class ConsoleCheckCLDR {
   }
 
 
-  static Matcher draftStatusMatcher = Pattern.compile("\\[@draft=\"([^\"]*)\"]").matcher("");
+  static Matcher draftStatusMatcher = Pattern.compile("\\[@draft=\"(provisional|unconfirmed)\"]").matcher("");
   
   enum ErrorType {
     ok,

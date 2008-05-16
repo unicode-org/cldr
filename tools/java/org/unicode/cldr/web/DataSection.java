@@ -11,6 +11,7 @@
 
 package org.unicode.cldr.web;
 import org.unicode.cldr.util.*;
+import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.*;
 import java.util.*;
@@ -329,6 +330,21 @@ public class DataSection extends Registerable {
                     if(warningCount>0) /* row */ parentRow.anyItemHasWarnings = true;
                 }
                 return weHaveTests;
+            }
+
+            /**
+             * Did any voters in my org vote for it?
+             * @param me
+             * @return
+             */
+            public boolean votesByMyOrg(User me) {
+                if(me==null || getVotes()==null) return false;
+                for(UserRegistry.User u : getVotes()) {
+                    if(u.org.equals(me.org) && u.id!=me.id) {
+                        return true;
+                    }
+                }
+                return false;
             }
         }
         

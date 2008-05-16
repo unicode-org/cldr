@@ -53,7 +53,8 @@ public class Vetting {
     
     
     public static final int VET_EXPLICIT = 0; /** 0: vote was explicitly made by user **/
-    public static final int VET_IMPLIED  = 1; /** 1: vote was implicitly made by user as a result of new data entry **
+    public static final int VET_IMPLIED  = 1; /** 1: vote was implicitly made by user as a result of new data entry **/
+    public static final int VET_ADMIN  = 2; /** 1: vote was made by an admin or tc **/
 
     /* 
         0: no votes (and some draft data) - NO resolution
@@ -1420,7 +1421,7 @@ public class Vetting {
      * @param locale locale
      * @param base_xpath
      * @param submitter userid of the submitter
-     * @return 1 if successful
+     * @return >0 if successful
      */
     int unvote(String locale, int base_xpath, int submitter) {
         //rmVote;

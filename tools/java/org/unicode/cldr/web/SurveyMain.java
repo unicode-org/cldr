@@ -83,6 +83,8 @@ import com.ibm.icu.util.ULocale;
  */
 public class SurveyMain extends HttpServlet {
 
+    private static final String ACTION_DEL = "_del";
+    private static final String ACTION_UNVOTE = "_unvote";
     private static final String XML_CACHE_PROPERTIES = "xmlCache.properties";
     /**
      * 
@@ -6251,7 +6253,7 @@ public class SurveyMain extends HttpServlet {
         // . . .
         DataSection.DataRow.CandidateItem voteForItem = null;
         Set<DataSection.DataRow.CandidateItem> deleteItems = null; // remove item
-		String[] deleteAlts = ctx.fieldValues(fieldHash+"_del");
+		String[] deleteAlts = ctx.fieldValues(fieldHash+ACTION_DEL);
 		Set<String> deleteAltsSet = null;
 		
 		if(deleteAlts.length > 0) {
@@ -6260,6 +6262,17 @@ public class SurveyMain extends HttpServlet {
 			for(String anAlt : deleteAlts) {
 				deleteAltsSet.add(anAlt);
 			}
+		}
+		Set<DataSection.DataRow.CandidateItem> unvoteItems = null; // remove item
+		String[] unvoteAlts = ctx.fieldValues(fieldHash+ACTION_UNVOTE);
+		Set<String> unvoteAltsSet = null;
+		
+		if(unvoteAlts.length > 0) {
+		    unvoteAltsSet = new HashSet<String>();
+		    unvoteItems = new HashSet<DataSection.DataRow.CandidateItem>();
+		    for(String anAlt : unvoteAlts) {
+		        unvoteAltsSet.add(anAlt);
+		    }
 		}
         
         for(Iterator j = p.items.iterator();j.hasNext();) {
@@ -6272,6 +6285,11 @@ public class SurveyMain extends HttpServlet {
 			   (deleteAltsSet != null) &&
 			   (deleteAltsSet.contains(item.altProposed))) {
 				deleteItems.add(item);
+			}
+			if((item.altProposed != null) && 
+			        (unvoteAltsSet != null) &&
+			        (unvoteAltsSet.contains(item.altProposed))) {
+			    unvoteItems.add(item);
 			}
         }
         
@@ -6395,6 +6413,22 @@ public class SurveyMain extends HttpServlet {
 					ctx.println(" <p class='ferrbox'>Warning: You don't have permission to remove this item: " +item.altProposed + ".</p>");
 				}
 			}
+		}
+		if(unvoteItems != null && UserRegistry.userIsTC(ctx.session.user)) {
+		    for(DataSection.DataRow.CandidateItem item : unvoteItems) {
+		        if (item.getVotes()==null) continue;
+		        for(UserRegistry.User voter : item.getVotes()) {
+		            if(voter.org.equals(ctx.session.user.org)) {
+		                
+                        boolean did = doAdminRemoveVote(ctx, ctx.locale.getBaseName(), p.base_xpath, voter.id);
+                        if(did) {
+    	                    ctx.print("<tt title='#"+p.base_xpath+"' class='codebox'>"+ p.displayName +"</tt>:  Removing vote for <span title='#"+item.xpathId+"'>"+"\""+item.value+
+    	                            "\" ("+item.altProposed+")</span> by " + voter.toHtml(ctx.session.user) +  "<br>");
+    	                    didSomething = true;
+                        }
+		            }
+		        }
+		    }
 		}
 		
         
@@ -6567,13 +6601,27 @@ public class SurveyMain extends HttpServlet {
     }
 
     boolean doVote(WebContext ctx, String locale, int xpath, int base_xpath) {
-        vet.vote( locale,  base_xpath, ctx.session.user.id, xpath, Vetting.VET_EXPLICIT);
+        return doVote(ctx, locale, xpath, base_xpath, ctx.session.user.id);
+    }
+
+    boolean doVote(WebContext ctx, String locale, int xpath, int base_xpath, int id) {
+        vet.vote( locale,  base_xpath, id, xpath, Vetting.VET_EXPLICIT);
+        lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
+        return true;
+    }
+
+    boolean doAdminRemoveVote(WebContext ctx, String locale, int base_xpath, int id) {
+        vet.vote( locale,  base_xpath, id, -1, Vetting.VET_ADMIN);
         lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
         return true;
     }
 
     int doUnVote(WebContext ctx, String locale, int base_xpath) {
-        int rs = vet.unvote( locale,  base_xpath, ctx.session.user.id);
+        return doUnVote(ctx, locale, base_xpath, ctx.session.user.id);
+    }
+    
+    int doUnVote(WebContext ctx, String locale, int base_xpath, int submitter) {
+        int rs = vet.unvote( locale,  base_xpath, submitter);
         lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
         return rs;
     }
@@ -7528,9 +7576,13 @@ public class SurveyMain extends HttpServlet {
                     !( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
                     ( adminOrRelevantTc || (item.submitter == ctx.session.user.id) ) ) {
                         ctx.println(" <label nowrap class='deletebox' style='padding: 4px;'>"+ "<input type='checkbox' title='#"+item.xpathId+
-                            "' value='"+item.altProposed+"' name='"+fieldHash+"_del'>" +"Delete&nbsp;item</label>");
+                            "' value='"+item.altProposed+"' name='"+fieldHash+ACTION_DEL+"'>" +"Delete&nbsp;item</label>");
                 }
             }
+        }
+        if(UserRegistry.userIsTC(ctx.session.user) && item.votesByMyOrg(ctx.session.user)) {
+            ctx.println(" <label nowrap class='unvotebox' style='padding: 4px;'>"+ "<input type='checkbox' title='#"+item.xpathId+
+                    "' value='"+item.altProposed+"' name='"+fieldHash+ACTION_UNVOTE+"'>" +"Unvote&nbsp;item</label>");
         }
         if(zoomedIn) {
             if(processed != null && /* ourDir.equals("rtl")&& */ CallOut.containsSome(processed)) {

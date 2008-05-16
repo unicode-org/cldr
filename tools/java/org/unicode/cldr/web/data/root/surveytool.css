@@ -614,13 +614,25 @@ table.sqlbox form {
 
 .deletebox {
 	font-size: small;
-	margin-left: 3px;
-	margin-right: 3px;
+	margin-left: 1px;
+	margin-right: 1px;
 	color:  #d00;
 	font-weight: bold;
 	/* border: 1px solid red; margin: 1em; padding: 1em;	 */
     white-space: nowrap;
 }
+
+.unvotebox {
+	font-size: small;
+	margin-left: 1px;
+	margin-right: 1px;
+	margin-bottom:  2px;
+	color: #00989e;	
+	font-weight: bold;
+	/* border: 1px solid red; margin: 1em; padding: 1em;	 */
+    white-space: nowrap;
+}
+
 
 .fnotebox {
 	background-color:  #ddd;

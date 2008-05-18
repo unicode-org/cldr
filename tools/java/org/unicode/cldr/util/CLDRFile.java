@@ -1195,7 +1195,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
 
       CLDRFile result = cache.get(localeName);
       if (result == null) {
-        result = CLDRFile.make(localeName, isSupplementalName(localeName) ? sourceDirectory + File.separator + "../supplemental/" : sourceDirectory, minimalDraftStatus);
+        final String dir = isSupplementalName(localeName) ? sourceDirectory.replace("incoming/vetted/","common/") + File.separator + "../supplemental/" : sourceDirectory;
+        result = CLDRFile.make(localeName, dir, minimalDraftStatus);
         SimpleXMLSource mySource = (SimpleXMLSource)result.dataSource;
         mySource.factory = this;
         mySource.madeWithMinimalDraftStatus = minimalDraftStatus;

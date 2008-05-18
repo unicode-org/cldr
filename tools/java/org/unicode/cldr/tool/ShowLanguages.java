@@ -140,9 +140,9 @@ public class ShowLanguages {
     printLanguageScript(linfo, pw);
     printScriptLanguageTerritory(linfo, pw);
     
-    if (System.getProperty("Coverage") != null) {
+    //if (System.getProperty("Coverage") != null) {
       linfo.showCoverageGoals(pw);
-    }
+    //}
     
     linfo.showCorrespondances();
     
@@ -412,7 +412,7 @@ public class ShowLanguages {
         }
         UnicodeSet exemplars = nativeLanguage.getExemplarSet("",WinningChoice.WINNING);
         if (scriptSet.containsNone(exemplars)) {
-          System.out.println("Skipping CLDR file -- exemplars differ: " + scriptSet + "\t" + exemplars);
+          System.out.println("Skipping CLDR file -- exemplars differ: " + language + "\t" + nativeLanguage.getLocaleID() + "\t" + scriptSet + "\t" + exemplars);
           nativeLanguage = null;
         }
       }

@@ -234,7 +234,7 @@ public class ConsoleCheckCLDR {
     }
     
     if (options[VOTE_RESOLVE].doesOccur) {
-      resolveVotesDirectory = Utility.checkValidFile(options[VOTE_RESOLVE].value + "main/votes/", true, null);
+      resolveVotesDirectory = Utility.checkValidFile(options[VOTE_RESOLVE].value + "votes/", true, null);
       VoteResolver.setVoterToInfo(Utility.checkValidFile(options[VOTE_RESOLVE].value + "usersa/usersa.xml", false, null));
       voteResolver = new VoteResolver<String>();
     }

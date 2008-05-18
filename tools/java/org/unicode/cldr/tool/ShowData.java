@@ -99,7 +99,7 @@ public class ShowData {
       Utility.registerExtraTransliterators();
 
       Factory collationFactory = Factory
-          .make(sourceDir + "../collation/", ".*");
+          .make(sourceDir.replace("incoming/vetted/","common/") + "../collation/", ".*");
       ExtractCollationRules collationRules = new ExtractCollationRules();
 
       locales = new TreeSet(cldrFactory.getAvailable());
@@ -151,6 +151,10 @@ public class ShowData {
           if (path.indexOf("/usesMetazone") >= 0) {
             skippedCount++;
             continue; // skip code fllback
+          }
+          if (path.indexOf("/references") >= 0) {
+            skippedCount++;
+            continue; // skip references
           }
           if (path.indexOf("[@alt=\"proposed") >= 0) {
             skippedCount++;

@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2005, International Business Machines Corporation and        *
+ * Copyright (C) 2005-2008, International Business Machines Corporation and        *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -126,8 +126,9 @@ public class CheckForExemplars extends CheckCLDR {
   public CheckCLDR handleCheck(String path, String fullPath, String value,
       Map<String, String> options, List<CheckStatus> result) {
     if (fullPath == null) return this; // skip paths that we don't have
+    if (value == null) return this; // skip values that we don't have ?
     if (skip) return this;
-    /*srl*/ if(path == null) { 
+    if(path == null) { 
       throw new InternalCldrException("Empty path!");
     } else if(getCldrFileToCheck() == null) {
       throw new InternalCldrException("no file to check!");

@@ -429,6 +429,9 @@ public class GenerateSidewaysView {
         String cleanPath = fixPath(path, postFix);
         String fullPath = cldrFile.getFullXPath(path);
         String value = getValue(cldrFile, path, fullPath);
+        if (value == null) {
+          continue;
+        }
         if (fullPath.indexOf("[@draft=\"unconfirmed\"]") >= 0
                 || fullPath.indexOf("[@draft=\"provisional\"]") >= 0) {
           postFix[0] = "*";
@@ -493,11 +496,12 @@ public class GenerateSidewaysView {
       System.out.println("Null value for " + path);
       return value;
     }
-//    cldrFile.getSourceLocaleID(path, status);
-//    if (!path.equals(status.pathWhereFound)) {
-//      value = "[" + prettyPath.getOutputForm(status.pathWhereFound) + "]";
-//      return value;
-//    }
+    cldrFile.getSourceLocaleID(path, status);
+    if (!path.equals(status.pathWhereFound)) {
+      //value = "[" + prettyPath.getPrettyPath(status.pathWhereFound, false) + "]";
+      value = null;
+      return value;
+    }
     if (value.length() == 0) {
       parts.set(fullPath);
       removeAttributes(parts, skipSet);

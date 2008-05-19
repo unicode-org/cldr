@@ -17,6 +17,7 @@ import org.unicode.cldr.util.UnicodeMapIterator;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.LanguageTagParser.Fields;
 import org.xml.sax.SAXException;
 
@@ -428,11 +429,18 @@ public class GenerateSidewaysView {
         String cleanPath = fixPath(path, postFix);
         String fullPath = cldrFile.getFullXPath(path);
         String value = getValue(cldrFile, path, fullPath);
-        if (fullPath.indexOf("[@draft=") >= 0) postFix[0] = "*";
+        if (fullPath.indexOf("[@draft=\"unconfirmed\"]") >= 0
+                || fullPath.indexOf("[@draft=\"provisional\"]") >= 0) {
+          postFix[0] = "*";
+        }
         Map value_locales = (Map) path_value_locales.get(cleanPath);
-        if (value_locales == null ) path_value_locales.put(cleanPath, value_locales = new TreeMap(standardCollation));
+        if (value_locales == null ) {
+          path_value_locales.put(cleanPath, value_locales = new TreeMap(standardCollation));
+        }
         Set locales = (Set) value_locales.get(value);
-        if (locales == null) value_locales.put(value, locales = new TreeSet());
+        if (locales == null) {
+          value_locales.put(value, locales = new TreeSet());
+        }
         locales.add(localeID + postFix[0]);
       }
     }
@@ -473,6 +481,9 @@ public class GenerateSidewaysView {
   }
   
   static Set skipSet = new HashSet(Arrays.asList(new String[]{"draft", "alt"}));
+  
+  static Status status = new Status();
+
   /**
    * 
    */
@@ -482,11 +493,17 @@ public class GenerateSidewaysView {
       System.out.println("Null value for " + path);
       return value;
     }
+//    cldrFile.getSourceLocaleID(path, status);
+//    if (!path.equals(status.pathWhereFound)) {
+//      value = "[" + prettyPath.getOutputForm(status.pathWhereFound) + "]";
+//      return value;
+//    }
     if (value.length() == 0) {
       parts.set(fullPath);
       removeAttributes(parts, skipSet);
       int limit = parts.size();
       value = parts.toString(limit-1, limit);
+      return value;
     }
     return value;
   }

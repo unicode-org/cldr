@@ -26,13 +26,13 @@ public class SearchXml {
       System.out.println("Need Source Directory! ");
       return;
     }
-    fileMatcher = Pattern.compile(Utility.getProperty("FILE", ".*")).matcher("");
+    fileMatcher = Pattern.compile(Utility.getProperty("FILE", ".*\\.xml")).matcher("");
     pathMatcher = Pattern.compile(Utility.getProperty("XMLPATH", ".*")).matcher("");
     valueMatcher = Pattern.compile(Utility.getProperty("VALUE", ".*"), Pattern.DOTALL)
         .matcher("");
 
-    showFiles = Utility.getProperty("SHOWFILES", "FALSE","FALSE").equalsIgnoreCase("true");
-    showValues = Utility.getProperty("SHOWVALUES", "FALSE","FALSE").equalsIgnoreCase("true");
+    showFiles = Utility.getProperty("SHOWFILES", false);
+    showValues = Utility.getProperty("SHOWVALUES", false);
 
     double startTime = System.currentTimeMillis();
     File src = new File(sourceDirectory);
@@ -59,8 +59,12 @@ public class SearchXml {
       }
       myHandler.firstMessage = "* " + canonicalFile;
       XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
-      xfr.read(canonicalFile, XMLFileReader.CONTENT_HANDLER
-          | XMLFileReader.ERROR_HANDLER, false);
+      try {
+        xfr.read(canonicalFile, XMLFileReader.CONTENT_HANDLER
+            | XMLFileReader.ERROR_HANDLER, false);
+      } catch (RuntimeException e) {
+        e.printStackTrace();
+      }
       System.out.flush();
     }
   }

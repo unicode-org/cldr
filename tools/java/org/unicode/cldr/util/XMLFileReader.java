@@ -11,8 +11,10 @@ package org.unicode.cldr.util;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Arrays;
 import java.util.Stack;
 
 import org.xml.sax.Attributes;
@@ -66,7 +68,8 @@ public class XMLFileReader {
      */
     public XMLFileReader read(String fileName, int handlers, boolean validating) {
       try {
-        FileInputStream fis = new FileInputStream(fileName);
+        InputStream fis = new FileInputStream(fileName);
+        //fis = new DebuggingInputStream(fis);
         return read(fileName, new InputStreamReader(fis), handlers, validating);
       } catch (IOException e) {
         throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + fileName).initCause(e);
@@ -95,7 +98,7 @@ public class XMLFileReader {
         reader.close();
         return this;
       } catch (SAXParseException e) {
-        throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + systemID).initCause(e);
+        throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + systemID + "\tline:\t" + e.getLineNumber()).initCause(e);
       } catch (SAXException e) {
         throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + systemID).initCause(e);
       } catch (IOException e) {
@@ -305,5 +308,23 @@ public class XMLFileReader {
             e.printStackTrace();
         }
         return result;
+    }
+    static final class DebuggingInputStream extends InputStream {
+      InputStream contents;
+
+      public void close() throws IOException {
+        contents.close();
+      }
+
+      public DebuggingInputStream(InputStream fis) {
+        contents = fis;
+      }
+
+      public int read() throws IOException {
+        int x = contents.read();
+        System.out.println(Integer.toHexString(x) + ",");
+        return x;
+      }
+      
     }
 }

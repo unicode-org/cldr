@@ -128,7 +128,7 @@ public class TestUtilities extends TestFmwk {
     final PrintWriter errorLogPrintWriter = this.getErrorLogPrintWriter();
     final PrintWriter logPrintWriter = this.getLogPrintWriter();
     String userFile = Utility.getProperty("usersxml", Utility.BASE_DIRECTORY + "/incoming/vetted/usersa/usersa.xml");
-    String votesDirectory = Utility.getProperty("votesxml", Utility.BASE_DIRECTORY + "incoming/vetted/main/votes/");
+    String votesDirectory = Utility.getProperty("votesxml", Utility.BASE_DIRECTORY + "incoming/vetted/votes/");
     
     PathValueInfo.voteInfo = VoteResolver.getVoteInfo(votesDirectory + "xpathTable.xml");
     Factory factory = CLDRFile.Factory.make(Utility.BASE_DIRECTORY + "incoming/vetted/main/", ".*");

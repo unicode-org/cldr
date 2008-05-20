@@ -1864,7 +1864,8 @@ if(true == true)    throw new InternalError("removed from use.");
 							
 							if(theMenu != null) {
 								if(type == Vetting.RES_DISPUTED) {
-									disItems.put(theMenu, "");// what goes here?
+									disItems.put(theMenu, "");
+									
 								} /* else {
 									insItems.put(theMenu, "");
 								}*/ 
@@ -2074,7 +2075,8 @@ if(true == true)    throw new InternalError("removed from use.");
      * @param ctx webcontext for IN/OUT stuff
      */
     void doDisputePage(WebContext ctx) {
-        Map m = new TreeMap();
+        Map m = new  TreeMap ();
+        Set<String> badLocales = new TreeSet<String>(); 
         WebContext subCtx = (WebContext)ctx.clone();
         subCtx.setQuery("do","");
         int n = 0;
@@ -2099,13 +2101,15 @@ if(true == true)    throw new InternalError("removed from use.");
 				String theMenu = PathUtilities.xpathToMenu(path);
                 
 				if(theMenu==null) {
-					theMenu="raw";
+				    ctx.println("<div class='ferrbox'>Couldn't find menu for " + path + " ("+aLoc+":"+aXpath+")</div><br>");
+				    theMenu="unknown";
 				}
 				Hashtable ht = (Hashtable)m.get(aLoc);
 				if(ht==null) {
 					locs++;
 					ht = new Hashtable();
 					m.put(aLoc,ht);
+					badLocales.add(sm.getLocaleDisplayName(aLoc));
 				}
 				Set st = (Set)ht.get(theMenu);
 				if(st==null) {
@@ -2114,7 +2118,7 @@ if(true == true)    throw new InternalError("removed from use.");
 				}
 				st.add(path);
 			}
-			ctx.println("<hr>"+n+" disputed, error, or insufficient items total in " + m.size() + " locales.<br>");			
+			ctx.println("<hr>"+n+" disputed total in " + m.size() + " locales.<br>");			
          } catch ( SQLException se ) {
             String complaint = "Vetter:  couldn't do DisputePage - " + SurveyMain.unchainSqlException(se);
             logger.severe(complaint);
@@ -2143,12 +2147,18 @@ if(true == true)    throw new InternalError("removed from use.");
             n++;
         */
         TreeMap lm = sm.getLocaleListMap();
-		for(Iterator i = lm.keySet().iterator();i.hasNext();) {
+        
+        Iterator i;
+        
+//        i = lm.keySet().iterator();
+        //i = m.keySet().iterator();
+        i = badLocales.iterator();
+		for(;i.hasNext();) {
             String locName = (String)i.next();
-            String loc = (String)lm.get(locName);
-
-			Hashtable ht = (Hashtable)m.get(loc);
-
+            String loc = (String)sm.getLocaleCode(locName);
+            if(loc==null) loc = locName;
+			Hashtable ht;
+			ht = (Hashtable)m.get(loc);
             // calculate the # of total disputed items in this locale
             int totalbad = 0;
             
@@ -2164,7 +2174,18 @@ if(true == true)    throw new InternalError("removed from use.");
                 }
             }
             
-            if(totalbad==0 && genCount==0) continue;
+            if(totalbad==0 && genCount==0) {
+                if(sm.isUnofficial) {
+                    ctx.println("<tr class='row"+(nn++ % 2)+"'>");
+                    ctx.print("<th align='left'>"+totalbad+"</th>");
+                    ctx.print("<th class='hang' align='left'>");
+                    sm.printLocaleLink(subCtx,loc,new ULocale(loc).getDisplayName().replaceAll("\\(",
+                            "<br>(")); // subCtx = no 'do' portion, for now.
+                    ctx.println("</th>");
+                    ctx.println("</tr>");
+                }
+                continue;
+            }
             
 			ctx.println("<tr class='row"+(nn++ % 2)+"'>");
         /*

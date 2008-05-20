@@ -3192,7 +3192,7 @@ public class SurveyMain extends HttpServlet {
 
         ctx.addQuery(QUERY_DO,"disputed");
 
-        ctx.println("<h2>DisputedItems</h2>");
+        ctx.println("<h2>Disputed Items</h2>");
 
         vet.doDisputePage(ctx);
         
@@ -3499,6 +3499,7 @@ public class SurveyMain extends HttpServlet {
      */
     
     TreeMap localeListMap = null;
+    Map<String,String> localeNameToCode = null;
     Hashtable subLocales = null;
     
     private void addLocaleToListMap(String localeName)
@@ -3546,10 +3547,22 @@ public class SurveyMain extends HttpServlet {
         }
     }
     
+    public synchronized String getLocaleCode(String localeName) {
+        if(localeListMap==null) {
+            getLocaleListMap();
+        }
+        return localeNameToCode.get(localeName);
+    }
+    public synchronized String getLocaleDisplayName(String locale) {
+        ULocale lsl = new ULocale(locale);
+        return lsl.getDisplayName(BASELINE_LOCALE);
+    }
+    
     protected synchronized TreeMap getLocaleListMap()
     {
         if(localeListMap == null) {
             localeListMap = new TreeMap();
+            Map<String,String> nameToCode = new HashMap<String,String>();
             subLocales = new Hashtable();
             File inFiles[] = getInFiles();
             if(inFiles == null) {
@@ -3564,10 +3577,12 @@ public class SurveyMain extends HttpServlet {
                 if(dot !=  -1) {
                     localeName = localeName.substring(0,dot);
                     if(i != 0) {
+                        nameToCode.put(getLocaleDisplayName(localeName), localeName);
                         addLocaleToListMap(localeName);
                     }
                 }
             }
+            localeNameToCode = nameToCode;
         }
         return localeListMap;
     }

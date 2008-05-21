@@ -682,7 +682,7 @@ public class VoteResolver<T> {
       }
     }
   }
-  public static Map<Integer,String> getVoteInfo(String fileName) {
+  public static Map<Integer,String> getIdToPath(String fileName) {
     XPathTableHandler myHandler = new XPathTableHandler();
     XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
     xfr.read(fileName, XMLFileReader.CONTENT_HANDLER | XMLFileReader.ERROR_HANDLER, false);
@@ -842,12 +842,6 @@ public class VoteResolver<T> {
       if ("true".equals(attributeValue)) return "unconfirmed";
       if ("unknown".equals(attributeValue)) return "unconfirmed";
       return attributeValue;
-  }
-
-
-  public static void getPathForId(int id) {
-    // TODO Auto-generated method stub
-    
   }
 
 

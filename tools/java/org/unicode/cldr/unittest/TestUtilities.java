@@ -130,7 +130,7 @@ public class TestUtilities extends TestFmwk {
     String userFile = Utility.getProperty("usersxml", Utility.BASE_DIRECTORY + "/incoming/vetted/usersa/usersa.xml");
     String votesDirectory = Utility.getProperty("votesxml", Utility.BASE_DIRECTORY + "incoming/vetted/votes/");
     
-    PathValueInfo.voteInfo = VoteResolver.getVoteInfo(votesDirectory + "xpathTable.xml");
+    PathValueInfo.voteInfo = VoteResolver.getIdToPath(votesDirectory + "xpathTable.xml");
     Factory factory = CLDRFile.Factory.make(Utility.BASE_DIRECTORY + "incoming/vetted/main/", ".*");
 
     VoteResolver.setVoterToInfo(userFile);

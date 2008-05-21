@@ -305,6 +305,15 @@ public class StandardCodes {
     return platform_locale_level.keySet();
   }
   
+  public Set<String> getLocaleCoverageLocales(String organization) {
+    synchronized (StandardCodes.class) {
+      if (platform_locale_level == null) {
+        loadPlatformLocaleStatus();
+      }
+    }
+    return platform_locale_level.get(organization).keySet();
+  }
+  
   private void loadPlatformLocaleStatus() {
     LocaleIDParser parser = new LocaleIDParser();
     platform_locale_level = new TreeMap(caseless);

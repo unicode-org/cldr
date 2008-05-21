@@ -757,112 +757,73 @@ public class DataSection extends Registerable {
 
 
     private Partition[] createVettingPartitions() {
-        Partition theVetPartitions[] = 
-        {                 
-                new Partition(PARTITION_ERRORS, 
-                    new PartitionMembership() { 
-                        public boolean isMember(DataRow p) {
-                            return (p.hasErrors&&!p.hasProps) && ((p.allVoteType==0) || ((p.allVoteType & Vetting.RES_NO_VOTES)>0)
-                                    || ((p.allVoteType & Vetting.RES_NO_CHANGE)>0) ) ||
-                                       ((p.allVoteType & Vetting.RES_ERROR)>0) || p.hasErrors;
-                        }
-                    }),
-                new Partition(CHANGES_DISPUTED, 
-                    new PartitionMembership() { 
-                        public boolean isMember(DataRow p) {
-                            return ((p.allVoteType & Vetting.RES_DISPUTED)>0) ;
-                        }
-                    }),                  
-                new Partition(PARTITION_UNCONFIRMED, 
-                    new PartitionMembership() { 
-                        public boolean isMember(DataRow p) {
-                            return (p.allVoteType>0) &&   // make sure it actually has real items.
-                                (((p.confirmStatus!=Vetting.Status.APPROVED &&
-                                    p.confirmStatus!=Vetting.Status.INDETERMINATE)) ||
-                                    
-                                    p.hasProps&&(((p.allVoteType & Vetting.RES_INSUFFICIENT)>0) ||
-                                                ((p.allVoteType & Vetting.RES_NO_VOTES)>0)));
-                        }
-                    }),                  
-                new Partition(TENTATIVELY_APPROVED, 
-                    new PartitionMembership() { 
-                        public boolean isMember(DataRow p) {
-                            return ((p.hasProps)&&
-                                ((p.allVoteType & Vetting.RES_BAD_MASK)==0)&&
-                                    (p.allVoteType>0) &&
-                                        (p.confirmStatus==Vetting.Status.APPROVED) ); // has proposed, and has a 'good' mark. Excludes by definition RES_NO_CHANGE
-                        }
-                    }),
-                new Partition(STATUS_QUO, 
-                    new PartitionMembership() { 
-                        public boolean isMember(DataRow p) {
-                            return ((!p.hasInherited&&!p.hasProps) || // nothing to change.
-                                        ((p.allVoteType & Vetting.RES_NO_CHANGE)>0)) ||
-                                    (p.hasInherited&&!p.hasProps) ||
-                                    (p.confirmStatus==Vetting.Status.INDETERMINATE) ||
-                                    (/* !p.hasErrors&&!p.hasProps&&*/(p.allVoteType == 0));
-                        }
-                    }),
-        };
-        return theVetPartitions;
+        return createSubmitPartitions(); // added disputed into the Submit partitions
     }
 
     private Partition[] createSubmitPartitions() {
-        Partition theTestPartitions[] = 
-        {                 
-                new Partition("Errors", 
-                    new PartitionMembership() { 
-                        public boolean isMember(DataRow p) {
-                            return (p.hasErrors);
-                        }
-                    }),
-                new Partition("Warnings", 
-                    new PartitionMembership() { 
-                        public boolean isMember(DataRow p) {
-                            return (p.hasWarnings);
-                        }
-                    }),
-// Later, we might want more groups.
-//                  INDETERMINATE (-1),
-//                  APPROVED (0),
-//                  CONTRIBUTED (1),
-//                  PROVISIONAL (2),
-//                  UNCONFIRMED (3);
-                new Partition("Not Approved", 
-                    new PartitionMembership() { 
-                        public boolean isMember(DataRow p) {
-                          return p.winningXpathId != -1 && p.confirmStatus != Vetting.Status.APPROVED
-                          || p.winningXpathId == -1 && p.hasMultipleProposals;
-                        }
-                    }),
-                new Partition("Approved", 
-                    new PartitionMembership() { 
-                        public boolean isMember(DataRow p) {
-                          return p.winningXpathId != -1; // will be APPROVED
-                        }
-                    }),
-                new Partition("Missing", 
-                    new PartitionMembership() { 
-                        public boolean isMember(DataRow p) {
-                          //return "root".equals(p.aliasFromLocale) || XMLSource.CODE_FALLBACK_ID.equals(p.aliasFromLocale);
-                          return p.inheritedValue!=null && // found inherited item (extrapaths and some special paths may not have an inherited item)
-                          ( "root".equals(p.inheritedValue.inheritFrom) 
-                                  || XMLSource.CODE_FALLBACK_ID.equals(p.inheritedValue.inheritFrom) );
-                          /*
+      Partition theTestPartitions[] = 
+      {                 
+              new Partition("Errors", 
+                      new PartitionMembership() { 
+                public boolean isMember(DataRow p) {
+                  return (p.hasErrors);
+                }
+              }),
+              new Partition("Disputed", 
+                      new PartitionMembership() { 
+                public boolean isMember(DataRow p) {
+                  return ((p.allVoteType & Vetting.RES_DISPUTED)>0) ; // not sure why "allVoteType" is needed
+                }
+              }),
+              new Partition("Warnings", 
+                      new PartitionMembership() { 
+                public boolean isMember(DataRow p) {
+                  return (p.hasWarnings);
+                }
+              }),
+//            Later, we might want more groups.
+//            INDETERMINATE (-1),
+//            APPROVED (0),
+//            CONTRIBUTED (1),
+//            PROVISIONAL (2),
+//            UNCONFIRMED (3);
+              new Partition("Not (minimally) Approved", 
+                      new PartitionMembership() { 
+                public boolean isMember(DataRow p) {
+                  return p.winningXpathId != -1 
+                  && p.confirmStatus != Vetting.Status.APPROVED
+                  && p.confirmStatus != Vetting.Status.CONTRIBUTED;
+                  // || p.winningXpathId == -1 && p.hasMultipleProposals;
+                }
+              }),
+              new Partition("Approved", 
+                      new PartitionMembership() { 
+                public boolean isMember(DataRow p) {
+                  return p.winningXpathId != -1; // will be APPROVED
+                }
+              }),
+              new Partition("Missing", 
+                      new PartitionMembership() { 
+                public boolean isMember(DataRow p) {
+                  //return "root".equals(p.aliasFromLocale) || XMLSource.CODE_FALLBACK_ID.equals(p.aliasFromLocale);
+                  return p.inheritedValue!=null && // found inherited item (extrapaths and some special paths may not have an inherited item)
+                  ( "root".equals(p.inheritedValue.inheritFrom) 
+                          || XMLSource.CODE_FALLBACK_ID.equals(p.inheritedValue.inheritFrom) );
+                  /*
        p.winningXpathId==-1 &&    // no winning item
        p.inheritedValue!=null && // found inherited item (extrapaths and some special paths may not have an inherited item)
            ( "root".equals(p.inheritedValue.inheritFrom) ||XMLSource.CODE_FALLBACK_ID,equals(p.inheritedValue.inheritFrom) )
-                           */
-                        }
-                    }),
-                new Partition("Inherited", 
-                        new PartitionMembership() { 
-                            public boolean isMember(DataRow p) {
-                                return true;
-                            }
-                        }),
-        };
-        return theTestPartitions;
+                   */
+                }
+              }),
+              new Partition("Inherited", 
+                      new PartitionMembership() { 
+                public boolean isMember(DataRow p) {
+                  return true;
+                }
+              }),
+      };
+      return theTestPartitions;
     }        
     
 

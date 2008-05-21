@@ -906,6 +906,9 @@ public class ConsoleCheckCLDR {
         indexTablePrinter.addColumn("Summary")
         .addColumn("Missing");
       }
+      for (String org : orgToLocales.keySet()) {
+        indexTablePrinter.addColumn(org.substring(0,2));
+      }
       indexTablePrinter
       .addColumn("Disputed").setHeaderAttributes("class='disputed'").setCellAttributes("class='disputed'")
       .addColumn("Conflicted").setHeaderAttributes("class='conflicted'").setCellAttributes("class='conflicted'")
@@ -920,9 +923,6 @@ public class ConsoleCheckCLDR {
           columnTitle = "Missing Votes: " + columnTitle;
         }
         indexTablePrinter.addColumn(columnTitle).setHeaderAttributes("class='" + type + "'").setCellAttributes("class='" + type + "'");
-      }
-      for (String org : orgToLocales.keySet()) {
-        indexTablePrinter.addColumn(org.substring(0,2));
       }
 
       // now fill in the data
@@ -944,15 +944,15 @@ public class ConsoleCheckCLDR {
           indexTablePrinter.addCell(votingData == null ? "" : votingData.winningStatusCounter.toString())
           .addCell(votingData == null ? "" : votingData.missingOrganizationCounter.toString());
         }
+        for (String org : orgToLocales.keySet()) {
+          indexTablePrinter.addCell(orgToLocales.getAll(org).contains(htmlOpenedFileLanguage) ? org.substring(0,2) : "");
+        }
         indexTablePrinter
         .addCell(votingData == null ? "" : formatSkippingZero(votingData.getDisputedCount()))
         .addCell(votingData == null ? "" : votingData.getConflictedHTML())
         ;
         for (ConsoleCheckCLDR.ErrorType type : ConsoleCheckCLDR.ErrorType.toShow) {
           indexTablePrinter.addCell(formatSkippingZero(counts.getCount(type)));
-        }
-        for (String org : orgToLocales.keySet()) {
-          indexTablePrinter.addCell(orgToLocales.getAll(org).contains(htmlOpenedFileLanguage) ? "X" : "");
         }
         indexTablePrinter.finishRow();
       }      

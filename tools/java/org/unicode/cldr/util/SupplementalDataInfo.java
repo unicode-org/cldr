@@ -1276,8 +1276,8 @@ public class SupplementalDataInfo {
 //    throw new IllegalArgumentException ("Problem in plurals " + targetKeywords + ", " + this);
 //    }
       // now fix the longer examples
-      String fractionalExamples = "";
-      List<Double> fractions = new ArrayList(0);
+      String otherFractionalExamples = "";
+      List<Double> otherFractions = new ArrayList(0);
 
       // add fractional samples
       Map<Count,String> countToStringExampleRaw = new TreeMap<Count,String>();
@@ -1290,25 +1290,34 @@ public class SupplementalDataInfo {
           sample = temp.getRangeStart(0);
         }
         Integer sampleInteger = sample;
-        final ArrayList<Double> arrayList = new ArrayList<Double>();
-        arrayList.add((double)sample);
-        countToExampleListRaw.put(type, arrayList);
         exampleToCountRaw.put(sampleInteger, type);
 
+        final ArrayList<Double> arrayList = new ArrayList<Double>();
+        arrayList.add((double)sample);
+
         // add fractional examples
-        if (fractionalExamples.length() != 0) {
-          fractionalExamples += ", ";
-        }
         final double fraction = (sample + 0.31d);
-        fractionalExamples += fraction;
-        fractions.add(fraction);
+        Count fracType = Count.valueOf(pluralRules.select(fraction));
+        boolean addCurrentFractionalExample = false;
+        
+        if (fracType == Count.other) {
+          otherFractions.add(fraction);
+          if (otherFractionalExamples.length() != 0) {
+            otherFractionalExamples += ", ";
+          }
+          otherFractionalExamples += fraction;
+        } else if (fracType == type) {
+          arrayList.add(fraction);
+          addCurrentFractionalExample = true;
+        } // else we ignore it
 
         StringBuilder b = new StringBuilder();
         int limit = uset.getRangeCount();
         int count = 0;
+        boolean addEllipsis = false;
         for (int i = 0; i < limit; ++i) {
           if (count > 5) {
-            b.append("...");
+            addEllipsis = true;
             break;
           }
           int start = uset.getRangeStart(i);
@@ -1319,7 +1328,7 @@ public class SupplementalDataInfo {
           if (start == end) {
             b.append(start);
             ++count;
-          } else if (start == end+1) {
+          } else if (start+1 == end) {
             b.append(start).append(", ").append(end);
             count+=2;
           } else {
@@ -1327,22 +1336,32 @@ public class SupplementalDataInfo {
             count+=2;
           }
         }
+        if (addCurrentFractionalExample) {
+          if (b.length() != 0) {
+            b.append(", ");
+          }
+          b.append(fraction).append("...");
+        } else if (addEllipsis) {
+          b.append("...");
+        }
+
+        countToExampleListRaw.put(type, arrayList);
         countToStringExampleRaw.put(type, b.toString());
       }
       final String baseOtherExamples = countToStringExampleRaw.get(Count.other);
-      String otherExamples = (baseOtherExamples == null ? "" :  baseOtherExamples + "; ") + fractionalExamples + "...";
+      String otherExamples = (baseOtherExamples == null ? "" :  baseOtherExamples + "; ") + otherFractionalExamples + "...";
       countToStringExampleRaw.put(Count.other, otherExamples);
-      // add fractions
+      // add otherFractions
       List<Double> list_temp = countToExampleListRaw.get(Count.other);
       if (list_temp == null) {
         countToExampleListRaw.put(Count.other, list_temp = new ArrayList<Double>(0));
       }
-      list_temp.addAll(fractions);
+      list_temp.addAll(otherFractions);
 
       for (Count type : countToExampleListRaw.keySet()) {
         List<Double> list = countToExampleListRaw.get(type);
 //        if (type.equals(Count.other)) {
-//          list.addAll(fractions);
+//          list.addAll(otherFractions);
 //        }
         list = Collections.unmodifiableList(list);
       }
@@ -1364,17 +1383,7 @@ public class SupplementalDataInfo {
     }
 
     public Count getCount(double exampleCount) {
-      // HACK for now
-      try {
-        final long rounded = Math.round(exampleCount);
-        double diff = Math.abs(exampleCount - rounded);
-        if (diff > 0.0000001) {
-          return Count.other;
-        }
-        return Count.valueOf(pluralRules.select(rounded));
-      } catch (RuntimeException e) {
-        return null;
-      }
+      return Count.valueOf(pluralRules.select(exampleCount));
     }
 
     public String getRules() {

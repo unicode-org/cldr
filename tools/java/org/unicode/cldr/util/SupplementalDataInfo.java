@@ -448,6 +448,108 @@ public class SupplementalDataInfo {
     }
   }
 
+  /**
+   * Information about telephone code(s) for a given territory
+   */
+  public static class TelephoneCodeInfo implements Comparable<TelephoneCodeInfo> {
+    public static final Date END_OF_TIME = new Date(Long.MAX_VALUE);
+    public static final Date START_OF_TIME = new Date(Long.MIN_VALUE);
+    private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+    private String code;
+    private Date start;
+    private Date end;
+    private String alt;
+    private String errors = "";
+
+	// code must not be null, the others can be
+    public TelephoneCodeInfo(String code, String startDate, String endDate, String alt) {
+      if (code == null)
+        throw new NullPointerException();
+      this.code = code;                                 // code will not be null
+      this.start = parseDate(startDate, START_OF_TIME); // start will not be null
+      this.end = parseDate(endDate, END_OF_TIME);       // end willl not be null
+      this.alt = (alt == null)? "": alt;                // alt will not be null
+    }
+
+    static DateFormat[] simpleFormats = { 
+      new SimpleDateFormat("yyyy-MM-dd"),
+      new SimpleDateFormat("yyyy-MM"), 
+      new SimpleDateFormat("yyyy"), };
+
+    Date parseDate(String dateString, Date defaultDate) {
+      if (dateString == null) {
+        return defaultDate;
+      }
+      ParseException e2 = null;
+      for (int i = 0; i < simpleFormats.length; ++i) {
+        try {
+          Date result = simpleFormats[i].parse(dateString);
+          return result;
+        } catch (ParseException e) {
+          if (i == 0) {
+            errors += dateString + " ";
+          }
+          if (e2 == null) {
+            e2 = e;
+          }
+        }
+      }
+      throw (IllegalArgumentException)new IllegalArgumentException().initCause(e2);  
+    }
+
+    public String getCode() {
+      return code;
+    }
+
+    public Date getStart() {
+      return start;
+    }
+
+    public Date getEnd() {
+      return end;
+    }
+
+    public String getAlt() {
+      return alt; // may return null
+    }
+
+    public String getErrors() {
+      return errors;
+    }
+    
+    public boolean equals(Object o) {
+      if (!(o instanceof TelephoneCodeInfo))
+        return false;
+      TelephoneCodeInfo tc = (TelephoneCodeInfo)o;
+      return tc.code.equals(code) && tc.start.equals(start) && tc.end.equals(end) && tc.alt.equals(alt);
+    }
+
+    public int hashCode() {
+       return 31*code.hashCode() + start.hashCode() + end.hashCode() + alt.hashCode();
+    }
+
+    public int compareTo(TelephoneCodeInfo o) {
+      int result = code.compareTo(o.code);
+      if (result != 0) return result;
+      result = start.compareTo(o.start);
+      if (result != 0) return result;
+      result = end.compareTo(o.end);
+      if (result != 0) return result;
+      return alt.compareTo(o.alt);
+    }
+
+    public String toString() {
+      return "{" + code + ", " + formatDate(start) + ", " + formatDate(end) + ", " + alt + "}";
+    }
+
+    public static String formatDate(Date date) {
+      if (date.equals(START_OF_TIME)) return "-∞";
+      if (date.equals(END_OF_TIME)) return "∞";
+      return dateFormat.format(date);
+    }
+  }
+
   private Map<String, PopulationData> territoryToPopulationData = new TreeMap();
 
   private Map<String, Map<String, PopulationData>> territoryToLanguageToPopulationData = new TreeMap();
@@ -477,6 +579,9 @@ public class SupplementalDataInfo {
   private Map<String, CurrencyNumberInfo> currencyToCurrencyNumberInfo = new TreeMap();
 
   private Relation<String, CurrencyDateInfo> territoryToCurrencyDateInfo = new Relation(new TreeMap(), LinkedHashSet.class);
+
+  //private Relation<String, TelephoneCodeInfo> territoryToTelephoneCodeInfo = new Relation(new TreeMap(), LinkedHashSet.class);
+  private Map<String, Set<TelephoneCodeInfo>> territoryToTelephoneCodeInfo = new TreeMap<String, Set<TelephoneCodeInfo>>();
 
   private Set<String> multizone = new TreeSet();
 
@@ -587,6 +692,8 @@ public class SupplementalDataInfo {
     likelySubtags = Collections.unmodifiableMap(likelySubtags);
     currencyToCurrencyNumberInfo = Collections.unmodifiableMap(currencyToCurrencyNumberInfo);
     territoryToCurrencyDateInfo.freeze();
+    //territoryToTelephoneCodeInfo.freeze();
+    territoryToTelephoneCodeInfo = Collections.unmodifiableMap(territoryToTelephoneCodeInfo);
 
     metazoneToRegionToZone = Utility.protectCollection(metazoneToRegionToZone);
     typeToTagToReplacement = Utility.protectCollection(typeToTagToReplacement);
@@ -682,6 +789,11 @@ public class SupplementalDataInfo {
 
         if (level1.equals("plurals")) {
           addPluralPath(parts, value);
+          return;
+        }
+
+        if (level1.equals("telephoneCodeData")) {
+          handleTelephoneCodeData(parts);
           return;
         }
 
@@ -916,6 +1028,23 @@ public class SupplementalDataInfo {
       }
 
       return false;
+    }
+
+    private void handleTelephoneCodeData(XPathParts parts) {
+    	// element 2: codesByTerritory territory [draft] [references]
+    	String terr = parts.getAttributeValue(2, "territory");
+    	// element 3: telephoneCountryCode code [from] [to] [draft] [references] [alt]
+    	TelephoneCodeInfo tcInfo = new TelephoneCodeInfo( parts.getAttributeValue(3, "code"),
+    	                                                  parts.getAttributeValue(3, "from"),
+    	                                                  parts.getAttributeValue(3, "to"),
+    	                                                  parts.getAttributeValue(3, "alt") );
+     	
+     	Set<TelephoneCodeInfo> tcSet = territoryToTelephoneCodeInfo.get(terr);
+     	if (tcSet == null) {
+     		tcSet = new LinkedHashSet<TelephoneCodeInfo>();
+     		territoryToTelephoneCodeInfo.put( terr, tcSet );
+     	}
+     	tcSet.add(tcInfo);
     }
 
     private void handleZoneFormatting() {
@@ -1431,6 +1560,18 @@ public class SupplementalDataInfo {
    */
   public Set<CurrencyDateInfo> getCurrencyDateInfo(String territory) {
     return territoryToCurrencyDateInfo.getAll(territory);
+  }
+
+  public Map<String, Set<TelephoneCodeInfo>> getTerritoryToTelephoneCodeInfo() {
+  	return territoryToTelephoneCodeInfo;
+  }
+
+  public Set<TelephoneCodeInfo> getTelephoneCodeInfoForTerritory(String territory) {
+    return territoryToTelephoneCodeInfo.get(territory);
+  }
+
+  public Set<String> getTerritoriesForTelephoneCodeInfo() {
+    return territoryToTelephoneCodeInfo.keySet();
   }
 
   private List<String> attributeOrder;

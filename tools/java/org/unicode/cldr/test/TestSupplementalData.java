@@ -47,6 +47,8 @@ public class TestSupplementalData {
     System.out.println("Skipped Elements: " + supplementalData.getSkippedElements());
     checkAgainstLanguageScript();
     checkTerritoryMapping();
+    
+    checkTelephoneCodeData();
   }
   
   private static void showMultiZones() {
@@ -109,6 +111,17 @@ public class TestSupplementalData {
       System.out.println();
     }
 
+  }
+
+  private static void checkTelephoneCodeData() {
+    System.out.println( "==== territories for telephoneCodeData ====");
+    System.out.println( supplementalData.getTerritoriesForTelephoneCodeInfo() );
+    System.out.println( "==== telephone code data for 001 ====");
+    System.out.println( supplementalData.getTelephoneCodeInfoForTerritory("001") );
+    System.out.println( "==== telephone code data for US ====");
+    System.out.println( supplementalData.getTelephoneCodeInfoForTerritory("US") );
+    System.out.println( "==== all telephoneCodeData ====");
+    System.out.println( supplementalData.getTerritoryToTelephoneCodeInfo() );
   }
 
   static Matcher numericTerritory = Pattern.compile("[0-9]{3}").matcher("");

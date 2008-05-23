@@ -116,6 +116,7 @@ public class DisplayAndInputProcessor {
         }
 
         UnicodeSet exemplar = new UnicodeSet(value);
+        exemplar.retainAll(CheckExemplars.AllowedInExemplars);
         String fixedExemplar = CollectionUtilities.prettyPrint(exemplar, true,
             null, null, col, col);
         UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar);

@@ -23,7 +23,7 @@ public class CheckExemplars extends CheckCLDR {
 	boolean isRoot;
 	static final UnicodeSet HangulSyllables = new UnicodeSet("[[:Hangul_Syllable_Type=LVT:][:Hangul_Syllable_Type=LV:]]");
 	static final UnicodeSet AlwaysOK = new UnicodeSet("[[[:script=common:][:script=inherited:]-[:Default_Ignorable_Code_Point:]] [\u066A-\u066C]]"); //[\\u200c-\\u200f] [:script=common:][:script=inherited:]
-	static final UnicodeSet AllowedInExemplars = new UnicodeSet(AlwaysOK).complement()
+	public static final UnicodeSet AllowedInExemplars = new UnicodeSet(AlwaysOK).complement()
 		.removeAll(new UnicodeSet("[[:Uppercase:]-[\u0130]]"))
 		.addAll(new UnicodeSet("[[:Mn:][:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:]]"));
 
@@ -62,7 +62,7 @@ public class CheckExemplars extends CheckCLDR {
 
 	    } else { // auxiliary
 	      UnicodeSet auxiliarySet = new UnicodeSet(value);
-	      if (auxiliarySet.containsSome(mainSet)) {
+	      if (false && auxiliarySet.containsSome(mainSet)) {
 	        UnicodeSet overlap = new UnicodeSet(mainSet).retainAll(auxiliarySet).removeAll(HangulSyllables);
 	        if (overlap.size() != 0) {
 	          String fixedExemplar1 = CollectionUtilities.prettyPrint(overlap, true, null, null, col, col);
@@ -118,7 +118,7 @@ public class CheckExemplars extends CheckCLDR {
 //	    	result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
 //	    	.setMessage("Better formatting would be \u200E{0}\u200E", new Object[]{fixedExemplar1}));
 //    	}
-    	if (!AllowedInExemplars.containsAll(exemplar1)) {
+    	if (false && !AllowedInExemplars.containsAll(exemplar1)) {
     		exemplar1 = CollectionUtilities.flatten(exemplar1).removeAll(AllowedInExemplars);
     		if (exemplar1.size() != 0) {
     		fixedExemplar1 = CollectionUtilities.prettyPrint(exemplar1, true, null, null, col, col);

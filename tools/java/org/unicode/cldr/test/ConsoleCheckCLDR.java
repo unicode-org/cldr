@@ -20,6 +20,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.icu.CollectionUtilities;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.FormatDemo;
 import org.unicode.cldr.test.CheckCLDR.Phase;
@@ -54,7 +55,9 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Console test for CheckCLDR.
@@ -401,6 +404,7 @@ public class ConsoleCheckCLDR {
       // paths.addAll(englishPaths);
 
       UnicodeSet missingExemplars = new UnicodeSet();
+      UnicodeSet missingCurrencyExemplars = new UnicodeSet();
       if (checkFlexibleDates) {
         fset.set(file);
       }
@@ -492,12 +496,21 @@ public class ConsoleCheckCLDR {
             showedOne = true;
 
             Object[] parameters = status.getParameters();
-            if (parameters != null) for (int i = 0; i < parameters.length; ++i) {
-              if (showStackTrace && parameters[i] instanceof Throwable) {
-                ((Throwable)parameters[i]).printStackTrace();
+            if (parameters != null) {
+              if (parameters.length >= 1 && status.getCause().getClass() == CheckForExemplars.class) {
+                try {
+                  UnicodeSet set = new UnicodeSet(parameters[0].toString());
+                  if (status.getMessage().contains("currency")) {
+                    missingCurrencyExemplars.addAll(set);
+                  } else {
+                    missingExemplars.addAll(set);
+                  }
+                } catch (RuntimeException e) {} // skip if not parseable as set
               }
-              if (status.getMessage().startsWith("Not in exemplars")) {
-                missingExemplars.addAll(new UnicodeSet(parameters[i].toString()));
+              for (int i = 0; i < parameters.length; ++i) {
+                if (showStackTrace && parameters[i] instanceof Throwable) {
+                  ((Throwable) parameters[i]).printStackTrace();
+                }
               }
             }
             // survey tool will use: if (status.hasHTMLMessage()) System.out.println(status.getHTMLMessage());
@@ -527,7 +540,12 @@ public class ConsoleCheckCLDR {
 
       showSummary(checkCldr, localeID, level, "Items (including inherited):\t" + pathCount);
       if (missingExemplars.size() != 0) {
-        showSummary(checkCldr, localeID, level, "Total missing:\t" + missingExemplars);
+        Collator col = Collator.getInstance(new ULocale(localeID));
+        showSummary(checkCldr, localeID, level, "Total missing from general exemplars:\t" + CollectionUtilities.prettyPrint(missingExemplars, true, null, null, col, col));
+      }
+      if (missingCurrencyExemplars.size() != 0) {
+        Collator col = Collator.getInstance(new ULocale(localeID));
+        showSummary(checkCldr, localeID, level, "Total missing from currency exemplars:\t" + CollectionUtilities.prettyPrint(missingCurrencyExemplars, true, null, null, col, col));
       }
       for (ErrorType type : subtotalCount.keySet()) {
         showSummary(checkCldr, localeID, level, "Subtotal " + type + ":\t" + subtotalCount.getCount(type));
@@ -781,23 +799,18 @@ public class ConsoleCheckCLDR {
       ErrorFile.errorFileTable.setCaption("Problem Details")
       .addColumn("Problem").setCellAttributes("align=\"left\" class=\"{0}\"").setSortPriority(0).setSpanRows(true)
       .setBreakSpans(true).setRepeatHeader(true).setHeaderCell(true)
-      .addColumn("Locale").setCellAttributes("class=\"{1}\"").setSortPriority(1).setSpanRows(true).setBreakSpans(true).setRepeatDivider(true)
+      .addColumn("Locale").setCellAttributes("class=\"{1}\"").setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_={0}\">{0}</a>").setSortPriority(1).setSpanRows(true).setBreakSpans(true).setRepeatDivider(true)
       .addColumn("Name").setCellAttributes("class=\"{1}\"").setSpanRows(true).setBreakSpans(true)
       //.addColumn("HIDDEN").setSortPriority(2).setHidden(true)
-      .addColumn("Section").setCellAttributes("class=\"{1}\"").setSortPriority(2).setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_=" + localeID + "&x={0}\">{0}</a>").setSpanRows(true)
+      .addColumn("Section").setCellAttributes("class=\"{1}\"").setSortPriority(2).setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_={2}&x={0}\">{0}</a>").setSpanRows(true)
       .addColumn("Count").setCellAttributes("class=\"{1}\" align=\"right\"");
       //showLineHeaders(generated_html_table);
+      //"<a href='http://unicode.org/cldr/apps/survey?_=" + locale + "'>" + locale + "</a>";
 
       ErrorFile.htmlOpenedFileLanguage = baseLanguage;
-      ErrorFile.errorFileWriter.println("<html>"
-              + "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
-              + "<title>Errors in " + ConsoleCheckCLDR.getNameAndLocale(localeID, false) + "</title></head>"
-              + "<link rel='stylesheet' href='errors.css' type='text/css'>" + "<body>"
-              + "<h1>Errors in " + ConsoleCheckCLDR.getNameAndLocale(localeID, false) + "</h1>"
-              + "<p><a href='index.html#" + localeID + "'>Index</a></p>"
-              + "<p>The following errors have been detected in the locale "
-              + ConsoleCheckCLDR.getNameAndLocale(localeID, false) + ". " + ErrorFile.ERROR_CHART_HEADER); 
+      showIndexHead("", localeID, ErrorFile.errorFileWriter);
     }
+
 
     static TablePrinter errorFileTable = new TablePrinter();
     static Counter<Pair<String, Pair<String, ErrorType>>> errorFileCounter = new Counter<Pair<String, Pair<String, ErrorType>>>(true);
@@ -828,7 +841,7 @@ public class ConsoleCheckCLDR {
         //final String outputForm = path == null ? "general" : prettyPathMaker.getOutputForm(prettyPath);
         errorFileTable.addRow()
         .addCell(shortStatus)
-        .addCell(ConsoleCheckCLDR.getLinkedLocale(localeID))
+        .addCell(localeID)
         .addCell(ConsoleCheckCLDR.getLocaleName(localeID))
         //.addCell(prettyPath) // menuPath == null ? "" : "<a href='" + link + "'>" + menuPath + "</a>"
         .addCell(section) // menuPath == null ? "" : "<a href='" + link + "'>" + menuPath + "</a>"
@@ -973,10 +986,10 @@ public class ConsoleCheckCLDR {
       TablePrinter indexTablePrinter = new TablePrinter().setCaption("Problem Summary")
       .setTableAttributes("border='1' style='border-collapse: collapse' bordercolor='blue'")
       .addColumn("Section").setSpanRows(true).setBreakSpans(true).setRepeatDivider(true)
-      .addColumn("Problems").setCellAttributes("class=\"{0}\"").setSpanRows(true)
-      .addColumn("Locale")
-      .addColumn("Code").setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_={0}&x={1}\">{0}</a>")
-      .addColumn("Count")
+      .addColumn("Problems").setCellAttributes("class=\"{2}\"").setSpanRows(true)
+      .addColumn("Locale").setCellAttributes("class=\"{2}\"")
+      .addColumn("Code").setCellAttributes("class=\"{2}\"").setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_={0}&x={1}\">{0}</a>")
+      .addColumn("Count").setCellAttributes("class=\"{2}\"")
       ;
       for (String org : orgToLocales.keySet()) {
         indexTablePrinter.addColumn(org.substring(0,2));
@@ -1006,7 +1019,7 @@ public class ConsoleCheckCLDR {
         indexTablePrinter.finishRow();
       }
       PrintWriter generated_html_index = BagFormatter.openUTF8Writer(ErrorFile.generated_html_directory, "sections.html");
-      ConsoleCheckCLDR.ErrorFile.showIndexHead(generated_html_index);
+      ConsoleCheckCLDR.ErrorFile.showIndexHead("Error Report Index by Section", "", generated_html_index);
       generated_html_index.println(indexTablePrinter.toTable());
       generated_html_index.println("</html>");
       generated_html_index.close();
@@ -1019,20 +1032,32 @@ public class ConsoleCheckCLDR {
       return String.valueOf(count);
     }
 
-    static void showIndexHead(PrintWriter generated_html_index) {
+    static void showIndexHead(String title, String localeID, PrintWriter generated_html_index) {
+      final boolean notLocaleSpecific = localeID.length() == 0;
+      if ((!notLocaleSpecific)) {
+        title="Errors in " + ConsoleCheckCLDR.getNameAndLocale(localeID, false);
+      }
       generated_html_index.println("<html>" +
-              "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +
-              "<title>Error Report Index</title></head>" +
-              "<link rel='stylesheet' href='errors.css' type='text/css'>" +
-              "<body>" +
-              "<h1>Error Report Index</h1>" +
-              "<p>The following errors have been detected in the locales. " +
-              org.unicode.cldr.tool.ShowLanguages.getHelpHtml("error_index_header"));
+              "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\r\n" +
+              "<title>" + title + "</title>\r\n" +
+              "<link rel='stylesheet' href='errors.css' type='text/css'>\r\n" +
+              "<base target='_blank'>\r\n" +
+              "</head><body>\r\n" +
+              "<h1>" + title + "</h1>\r\n" +
+              "<p>" +
+              "<a href='index.html" + (notLocaleSpecific ? "" : "#" + localeID) + "'>Index</a> | " +
+              "<a href='sections.html" + (notLocaleSpecific ? "" : "#" + localeID) + "'>Index by Section</a>" +
+              		"</p>" +
+              "<p>The following errors have been detected in the locale" +
+              (notLocaleSpecific
+                      ? "s. " + org.unicode.cldr.tool.ShowLanguages.getHelpHtml("error_index_header")
+                      : " " + ConsoleCheckCLDR.getNameAndLocale(localeID, false) + ". " + ErrorFile.ERROR_CHART_HEADER
+              ));
     }
-
+    
     private static void writeErrorFileIndex() throws IOException {
       PrintWriter generated_html_index = BagFormatter.openUTF8Writer(ErrorFile.generated_html_directory, "index.html");
-      ConsoleCheckCLDR.ErrorFile.showIndexHead(generated_html_index);
+      ConsoleCheckCLDR.ErrorFile.showIndexHead("Error Report Index", "", generated_html_index);
       ConsoleCheckCLDR.ErrorFile.showErrorFileIndex(generated_html_index);
       generated_html_index.close();
       showSections();
@@ -1227,8 +1252,8 @@ public class ConsoleCheckCLDR {
       addError(localeID, path, shortStatus);
       //ErrorFile.htmlErrorsPerBaseLanguage.increment(shortStatus);
 
-      String menuPath = path == null ? null : PathUtilities.xpathToMenu(path);
-      String link = path == null ? null : "http://unicode.org/cldr/apps/survey?_=" + localeID + "&x=" + menuPath;
+      //String menuPath = path == null ? null : PathUtilities.xpathToMenu(path);
+      //String link = path == null ? null : "http://unicode.org/cldr/apps/survey?_=" + localeID + "&x=" + menuPath;
       ErrorFile.addDataToErrorFile(localeID, path, value, shortStatus);
     }
     if (PATH_IN_COUNT && ErrorFile.generated_html_count != null) {

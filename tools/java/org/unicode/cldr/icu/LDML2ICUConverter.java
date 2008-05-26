@@ -2731,7 +2731,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     continue;
                 }
                 String terr = LDMLUtilities.getAttributeValue(node,LDMLConstants.TERRITORIES);
-                if(terr!=null && (locName.equals("root")&& terr.equals("001")) || terr.indexOf(country) >= 0){
+                if(terr!=null && (locName.equals("root")&& terr.equals("001")) || terr.equals(country)){
                     ICUResourceWriter.ResourceInt resint = new ICUResourceWriter.ResourceInt();
                     String sys = LDMLUtilities.getAttributeValue(node,LDMLConstants.TYPE);
                     if(sys.equals("US")){
@@ -2744,7 +2744,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 }
             }else if(name.equals(LDMLConstants.PAPER_SIZE)){
                 String terr = LDMLUtilities.getAttributeValue(node,LDMLConstants.TERRITORIES);
-                if(terr!=null && (locName.equals("root")&& terr.equals("001")) || terr.indexOf(country) >= 0){
+                if(terr!=null && ((locName.equals("root")&& terr.equals("001")) || 
+                                  (country.length() > 0 && terr.indexOf(country) >= 0))){
                     ICUResourceWriter.ResourceIntVector vector = new ICUResourceWriter.ResourceIntVector();
                     vector.name = (String) keyNameMap.get(name);
                     ICUResourceWriter.ResourceInt height = new ICUResourceWriter.ResourceInt();

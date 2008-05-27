@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004, 2007 International Business Machines Corporation and   *
+ * Copyright (C) 2004-2008 International Business Machines Corporation and    *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -1009,6 +1009,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private static final String commentForCurrencyMap = "Map from ISO 3166 country codes to ISO 4217 currency codes \n"+
                                                         "NOTE: This is not true locale data; it exists only in ROOT";
     
+    private static final String commentForTelephoneCodeData = "Map from territory codes to ITU telephone codes.\n"+
+                                                        "NOTE: This is not true locale data; it exists only in ROOT";
+    
     private ICUResourceWriter.Resource parseMetazoneFile(Node root, String file){
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
         ICUResourceWriter.Resource current = null;
@@ -1124,7 +1127,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }else if(name.equals(LDMLConstants.PLURALS)){
                 //Ignore this
             }else if(name.equals(LDMLConstants.TELEPHONE_CODE_DATA)){
-                //Ignore this
+                res = addTelephoneCodeData(); // uses SupplementalDataInfo, doesn't need node, xpath
             }else{
                 printError(file,"Encountered unknown element "+ getXPath(node, xpath).toString());
                 System.exit(-1);
@@ -1635,7 +1638,46 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         return null;
     }
- 
+
+    // Quick & dirty bare-bones version of this for now just to start writing something out.
+    // Doesn't write from or to data (don't have any yet), and just writes alt as a comment.
+    // Add more once we figure out what ICU needs. -pedberg
+    private ICUResourceWriter.Resource addTelephoneCodeData(){ // uses SupplementalDataInfo, doesn't need node, xpath
+        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
+        table.name = LDMLConstants.TELEPHONE_CODE_DATA;
+        table.comment = commentForTelephoneCodeData;
+        ICUResourceWriter.Resource currTerr = null;
+        ICUResourceWriter.ResourceArray terrArray = null;
+        
+        for ( String terr: supplementalDataInfo.getTerritoriesForTelephoneCodeInfo() ) {
+            terrArray = new ICUResourceWriter.ResourceArray();
+            terrArray.name = terr;
+            ICUResourceWriter.Resource currCode = null;
+            for ( SupplementalDataInfo.TelephoneCodeInfo telephoneCodeInfo: supplementalDataInfo.getTelephoneCodeInfoForTerritory(terr) ) {
+                ICUResourceWriter.ResourceString codeString = new ICUResourceWriter.ResourceString();
+                codeString.val = telephoneCodeInfo.getCode();
+                String alt = telephoneCodeInfo.getAlt();
+                if (alt.length() > 0) {
+                    codeString.smallComment = alt;
+                }
+                if(currCode==null){
+                    terrArray.first = currCode = codeString;
+                }else{
+                    currCode.next = codeString;
+                    currCode = currCode.next;
+                }
+            }
+            if(currTerr == null){
+                table.first = terrArray;
+                currTerr = findLast(terrArray);
+            }else{
+                currTerr.next = terrArray;
+                currTerr = findLast(terrArray);
+            }
+        }
+        return table;
+    }
+
     private ICUResourceWriter.Resource parseZoneFormatting(Node root, StringBuffer xpath){
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
         ICUResourceWriter.Resource current = null;

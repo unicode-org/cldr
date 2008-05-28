@@ -38,6 +38,7 @@ then
 fi
 
 
+
 # root name of this script
 ME=`basename $0`
 
@@ -45,9 +46,11 @@ ME=`basename $0`
 # base package 
 case $ME
 in
-    "XMLValidator") PKG=org.unicode.cldr.tool;;
+    "XMLValidator") PKG=org.unicode.cldr.util;;
+    "ShowLanguages") PKG=org.unicode.cldr.tool;;
     "LDML2ICUConverter") PKG=org.unicode.cldr.icu;;
-    *)  PKG=UNKNOWN;;
+    "ConsoleCheckCLDR") PKG=org.unicode.cldr.test;;
+    *)  PKG=org.unicode.cldr.tool;;
 esac
 
 #error check
@@ -56,8 +59,7 @@ then
     echo "Unknown tool name $ME. Please set the package here.!"
     exit -1
 fi
-        
-    
+
 
 if [ $ME = "CLDRWrapper" ];
 then
@@ -65,5 +67,4 @@ then
     echo Symlink $0 to the names XMLValidator, LDML2ICUConverter, and other ${PKG} tools.
     exit 1
 fi
-
-exec ${JAVA} ${CWDEFS} ${CPCMD} ${PKG}.${ME} $@
+exec ${JAVA} ${VM_OPTS} ${WRAPPER_OPTS} ${CWDEFS} ${CPCMD} ${PKG}.${ME} "$@"

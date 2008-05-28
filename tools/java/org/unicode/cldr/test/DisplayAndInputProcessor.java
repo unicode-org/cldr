@@ -100,6 +100,13 @@ public class DisplayAndInputProcessor {
           value = newValue;
         }
       }
+      
+      if (path.startsWith("//ldml/numbers") && path.indexOf("Format[")>=0&& path.indexOf("/pattern")>=0) {
+          String newValue = value.replaceAll(" ", "\u00A0");
+          if (!value.equals(newValue)) {
+              value = newValue;
+          }
+      }
 
       // check specific cases
       if (path.contains("/exemplarCharacters")) {

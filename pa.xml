@@ -8,9 +8,17 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="ab" draft="contributed">ਅਬਖਾਜ਼ੀਅਨ</language>
+			<language type="ace" draft="contributed">ਅਚੀਨੀ</language>
+			<language type="ach" draft="contributed">ਅਕੋਲੀ</language>
 			<language type="af" draft="contributed">ਅਫ਼ਰੀਕੀ</language>
+			<language type="apa" draft="contributed">ਅਪਾਚੇ ਭਾਸ਼ਾ</language>
 			<language type="ar" draft="contributed">ਅਰਬੀ</language>
+			<language type="as" draft="contributed">ਅਸਾਮੀ</language>
+			<language type="aus" draft="contributed">ਆਸਟਰੇਲੀਅਨ ਭਾਸ਼ਾ</language>
 			<language type="az" draft="contributed">ਅਜ਼ੇਰਬੈਜਨਿ</language>
+			<language type="bat" draft="contributed">ਬੈਲਟਿਕ ਭਾਸ਼ਾ</language>
+			<language type="be" draft="contributed">ਬੇਲਾਰੂਸੀਅਨ</language>
 			<language type="bn" draft="contributed">ਬੰਗਾਲੀ</language>
 			<language type="da" draft="contributed">ਡੈਨਿਸ਼</language>
 			<language type="de" draft="contributed">ਜਰਮਨ</language>
@@ -19,7 +27,7 @@
 			<language type="es" draft="contributed">ਸਪੇਨਿਸ਼</language>
 			<language type="fi" draft="contributed">ਫਿਨਿਸ਼</language>
 			<language type="fr" draft="contributed">ਫਰੈਂਚ</language>
-			<language type="gu" draft="unconfirmed">ਗੁਜਰਤਿ</language>
+			<language type="gu" draft="contributed">ਗੁਜਰਾਤੀ</language>
 			<language type="hi" draft="contributed">ਹਿੰਦੀ</language>
 			<language type="id" draft="contributed">ਇੰਡੋਨੇਸ਼ੀਆਈ</language>
 			<language type="it" draft="contributed">ਇਤਾਲਵੀ</language>
@@ -35,6 +43,7 @@
 			<language type="th" draft="contributed">ਥਾਈ</language>
 			<language type="tw" draft="contributed">ਤ੍ਵਿ</language>
 			<language type="ug" draft="contributed">ਉਇਘੁਰ</language>
+			<language type="und" draft="contributed">und</language>
 		</languages>
 		<scripts>
 			<script type="Deva" draft="unconfirmed">ਦੇਵਨਾਗਰੀ</script>
@@ -44,17 +53,13 @@
 		</scripts>
 		<territories>
 			<territory type="IN">ਭਾਰਤ</territory>
-			<territory type="IN" alt="proposed-x1001" draft="unconfirmed">IN</territory>
 			<territory type="TO" draft="unconfirmed">TO</territory>
-			<territory type="TO" alt="proposed-x1001" draft="unconfirmed">ਤੋਨ੍ਗ</territory>
 			<territory type="ZZ" draft="unconfirmed">ਅਣਜਾਣ</territory>
-			<territory type="ZZ" alt="proposed-x1001" draft="unconfirmed">ZZ</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[਼ ੰ ੱ ੦-੯ ੴ ੳ ਉ ਊ ਓ ਅ ਆ ਐ ਔ ੲ ਇ ਈ ਏ ਸ {ਸ਼} ਹ ਕ ਖ {ਖ਼} ਗ {ਗ਼} ਘ-ਜ {ਜ਼} ਝ-ਨ ਪ ਫ {ਫ਼} ਬ-ਰ ਲ ਵ ੜ ਾ-ੂ ੇ ੈ ੋ-੍]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200C \u200D ਁ-ਃ {ਲ਼}]</exemplarCharacters>
-		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[\u200C \u200D ਼ ਁ-ਃ ੰ ੱ ੦-੯ ੴ ੳ ਉ ਊ ਓ ਅ ਆ ਐ ਔ ੲ ਇ ਈ ਏ ਸ {ਸ਼} ਹ ਕ ਖ {ਖ਼} ਗ {ਗ਼} ਘ-ਜ {ਜ਼} ਝ-ਨ ਪ ਫ {ਫ਼} ਬ-ਰ ਲ {ਲ਼} ਵ ੜ ਾ-ੂ ੇ ੈ ੋ-੍]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="unconfirmed">'</quotationStart>
@@ -99,29 +104,17 @@
 					<monthContext type="stand-alone">
 						<monthWidth type="narrow">
 							<month type="1" draft="unconfirmed">ਜ</month>
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">1</month>
 							<month type="2" draft="unconfirmed">ਫ</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">2</month>
 							<month type="3" draft="unconfirmed">ਮਾ</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">3</month>
 							<month type="4" draft="unconfirmed">ਅ</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">4</month>
 							<month type="5" draft="unconfirmed">ਮ</month>
-							<month type="5" alt="proposed-x1001" draft="unconfirmed">5</month>
 							<month type="6" draft="unconfirmed">ਜੂ</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">6</month>
 							<month type="7" draft="unconfirmed">ਜੁ</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">7</month>
 							<month type="8" draft="unconfirmed">ਅ</month>
-							<month type="8" alt="proposed-x1001" draft="unconfirmed">8</month>
 							<month type="9" draft="unconfirmed">ਸ</month>
-							<month type="9" alt="proposed-x1001" draft="unconfirmed">9</month>
 							<month type="10" draft="unconfirmed">ਅ</month>
-							<month type="10" alt="proposed-x1001" draft="unconfirmed">10</month>
 							<month type="11" draft="unconfirmed">ਨ</month>
-							<month type="11" alt="proposed-x1001" draft="unconfirmed">11</month>
 							<month type="12" draft="unconfirmed">ਦ</month>
-							<month type="12" alt="proposed-x1001" draft="unconfirmed">12</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -132,12 +125,9 @@
 							<day type="mon">ਸੋਮ.</day>
 							<day type="tue">ਮੰਗਲ.</day>
 							<day type="wed">ਬੁਧ.</day>
-							<day type="wed" alt="proposed-x1001" draft="unconfirmed">ਬੁੱਧ.</day>
 							<day type="thu">ਵੀਰ.</day>
 							<day type="fri">ਸ਼ੁਕਰ.</day>
-							<day type="fri" alt="proposed-x1001" draft="unconfirmed">ਸ਼ੁੱਕਰ.</day>
 							<day type="sat">ਸ਼ਨੀ.</day>
-							<day type="sat" alt="proposed-x1001" draft="unconfirmed">ਸ਼ਨਿੱਚਰ.</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun" draft="unconfirmed">ਐ</day>
@@ -147,29 +137,20 @@
 							<day type="mon">ਸੋਮਵਾਰ</day>
 							<day type="tue">ਮੰਗਲਵਾਰ</day>
 							<day type="wed">ਬੁਧਵਾਰ</day>
-							<day type="wed" alt="proposed-x1001" draft="unconfirmed">ਬੁੱਧਵਾਰ</day>
 							<day type="thu">ਵੀਰਵਾਰ</day>
 							<day type="fri">ਸ਼ੁੱਕਰਵਾਰ</day>
 							<day type="sat">ਸ਼ਨੀਚਰਵਾਰ</day>
-							<day type="sat" alt="proposed-x1001" draft="unconfirmed">ਸ਼ਨਿੱਚਰਵਾਰ</day>
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="narrow">
 							<day type="sun" draft="unconfirmed">ਐ</day>
-							<day type="sun" alt="proposed-x1001" draft="unconfirmed">1</day>
 							<day type="mon" draft="unconfirmed">ਸੋ</day>
-							<day type="mon" alt="proposed-x1001" draft="unconfirmed">2</day>
 							<day type="tue" draft="unconfirmed">ਮੰ</day>
-							<day type="tue" alt="proposed-x1001" draft="unconfirmed">3</day>
 							<day type="wed" draft="unconfirmed">ਬੁੱ</day>
-							<day type="wed" alt="proposed-x1001" draft="unconfirmed">4</day>
 							<day type="thu" draft="unconfirmed">ਵੀ</day>
-							<day type="thu" alt="proposed-x1001" draft="unconfirmed">5</day>
 							<day type="fri" draft="unconfirmed">ਸ਼ੁੱ</day>
-							<day type="fri" alt="proposed-x1001" draft="unconfirmed">6</day>
 							<day type="sat" draft="unconfirmed">ਸ਼</day>
-							<day type="sat" alt="proposed-x1001" draft="unconfirmed">7</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -190,7 +171,6 @@
 					</quarterContext>
 				</quarters>
 				<am>ਸਵੇਰੇ</am>
-				<am alt="proposed-x1001" draft="unconfirmed">ਸਵੇਰ</am>
 				<pm>ਸ਼ਾਮ</pm>
 				<eras>
 					<!-- These era names look like abbreviations and not full names. -->
@@ -207,7 +187,6 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="unconfirmed">EEEE, dd MMMM yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE, yyyy MMMM dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -223,7 +202,6 @@
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern draft="unconfirmed">dd/MM/yyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yy/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -260,7 +238,6 @@
 						<dateFormatItem id="Md" draft="unconfirmed">d/M    14/9</dateFormatItem>
 						<dateFormatItem id="mmss" draft="unconfirmed">mm:ss 	25:59</dateFormatItem>
 						<dateFormatItem id="yyMMM" draft="unconfirmed">MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMM" alt="proposed-x1001" draft="unconfirmed">MMMM yy</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -279,7 +256,6 @@
 						<relative type="0" draft="unconfirmed">ਅੱਜ</relative>
 						<relative type="1" draft="unconfirmed">ਭਲਕ</relative>
 						<relative type="2" draft="unconfirmed">ਭਲਕ</relative>
-						<relative type="2" alt="proposed-x1001" draft="unconfirmed">ਪਰਸੋਂ</relative>
 						<relative type="3" draft="unconfirmed">ਤਿੰਨ ਦਿਨ ਬਾਅਦ</relative>
 						<relative type="-2" draft="unconfirmed">ਪਰਸੋਂ</relative>
 						<relative type="-3" draft="unconfirmed">ਤਿੰਨ ਦਿਨ ਪਹਿਲਾਂ</relative>
@@ -308,7 +284,6 @@
 	<numbers>
 		<symbols>
 			<nativeZeroDigit>੦</nativeZeroDigit>
-			<nativeZeroDigit alt="proposed-x1001" draft="unconfirmed">0</nativeZeroDigit>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -340,7 +315,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>ਰੁਪਿਯ</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">ਰੁਪਈਆ</displayName>
 				<symbol>ਰੁ.</symbol>
 			</currency>
 			<currency type="XXX">
@@ -359,4 +333,3 @@
 		<reference type="R211" uri="http://tdil.mit.gov.in/newsIndexApr02.htm">Govt of India Vishwabhart Newsletter</reference>
 	</references>
 </ldml>
-

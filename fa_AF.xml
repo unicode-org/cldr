@@ -30,11 +30,14 @@
 			<language type="tg">تاجکی</language>
 		</languages>
 		<scripts>
+			<script type="Arab">عربی</script>
+			<script type="Mani">مانوی</script>
 			<script type="Mong">مغلی</script>
 		</scripts>
 		<territories>
 			<territory type="AD">اندورا</territory>
 			<territory type="AE">امارات متحدهٔ عربی</territory>
+			<territory type="AF">افغانستان</territory>
 			<territory type="AG">انتیگوا و باربودا</territory>
 			<territory type="AL">البانیا</territory>
 			<territory type="AO">انگولا</territory>
@@ -127,7 +130,7 @@
 			<territory type="UY">یوروگوای</territory>
 			<territory type="VC">سنت وینسنت و گرینادین</territory>
 			<territory type="VE">ونزویلا</territory>
-			<territory type="WS">ساموآی غربی</territory>
+			<territory type="WS">ساموآ</territory>
 			<territory type="ZW">زیمبابوی</territory>
 		</territories>
 	</localeDisplayNames>
@@ -182,6 +185,9 @@
 			<calendar type="persian">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="narrow">
+							<month type="7">م</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">حمل</month>
 							<month type="2">ثور</month>
@@ -205,14 +211,70 @@
 							<month type="4">س</month>
 							<month type="5">ا</month>
 							<month type="6">س</month>
+							<month type="7">م</month>
 							<month type="8">ع</month>
 							<month type="9">ق</month>
 							<month type="10">ج</month>
 							<month type="11">د</month>
 							<month type="12">ح</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">حمل</month>
+							<month type="2">ثور</month>
+							<month type="3">جوزا</month>
+							<month type="4">سرطان</month>
+							<month type="5">اسد</month>
+							<month type="6">سنبله</month>
+							<month type="7">میزان</month>
+							<month type="8">عقرب</month>
+							<month type="9">قوس</month>
+							<month type="10">جدی</month>
+							<month type="11">دلو</month>
+							<month type="12">حوت</month>
+						</monthWidth>
 					</monthContext>
 				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">یکشنبه</day>
+							<day type="mon">دوشنبه</day>
+							<day type="tue">سه‌شنبه</day>
+							<day type="wed">چهارشنبه</day>
+							<day type="thu">پنجشنبه</day>
+							<day type="fri">جمعه</day>
+							<day type="sat">شنبه</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">یکشنبه</day>
+							<day type="mon">دوشنبه</day>
+							<day type="tue">سه‌شنبه</day>
+							<day type="wed">چهارشنبه</day>
+							<day type="thu">پنجشنبه</day>
+							<day type="fri">جمعه</day>
+							<day type="sat">شنبه</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">ی</day>
+							<day type="mon">د</day>
+							<day type="tue">س</day>
+							<day type="wed">چ</day>
+							<day type="thu">پ</day>
+							<day type="fri">ج</day>
+							<day type="sat">ش</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<eras>
+					<eraNames>
+						<era type="0">هجری شمسی</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0">ه‍. ش.</era>
+					</eraAbbr>
+				</eras>
 			</calendar>
 		</calendars>
 	</dates>
@@ -232,6 +294,9 @@
 			</percentFormatLength>
 		</percentFormats>
 		<currencies>
+			<currency type="AFN">
+				<symbol>؋</symbol>
+			</currency>
 			<currency type="AUD">
 				<displayName>دالر آسترالیا</displayName>
 			</currency>
@@ -306,4 +371,3 @@ DateTimePatterns {
 ExemplarCharacters {"[\u0621-\u0624\u0626-\u063a\u0641\u0642\u0644-\u0648\u064a-\u0652\u0654\u0670\u067c\u067e\u0681\u0685-\u0686\u0689\u0693\u0696\u0698\u069a\u06a9\u06ab\u06af\u06bc\u06cc-\u06cd\u06d0 \u200c\u200d\u200f\u200e]"}
         "#,##0%", // The percent sign should appear on the right side. Academy says it should appear on the left (like fa_IR).
 -->
-

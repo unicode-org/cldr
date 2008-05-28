@@ -16,6 +16,7 @@
 			<language type="be" draft="unconfirmed">બેલરૂશિયન</language>
 			<language type="bg" draft="unconfirmed">બલ્ગેરિયન</language>
 			<language type="bh" draft="unconfirmed">બિહારી</language>
+			<language type="bho" draft="contributed">ભોજપુરી</language>
 			<language type="bn" draft="unconfirmed">બંગાળી</language>
 			<language type="br" draft="unconfirmed">બ્રેટોન</language>
 			<language type="bs" draft="unconfirmed">બૉઝ્નિયન</language>
@@ -96,7 +97,7 @@
 			<language type="su" draft="unconfirmed">સુન્ડનીઝ</language>
 			<language type="sv" draft="unconfirmed">સ્વીડીશ</language>
 			<language type="sw" draft="unconfirmed">સ્વાહિલી</language>
-			<language type="ta" draft="unconfirmed">તમિળ</language>
+			<language type="ta" draft="contributed">તમિલ</language>
 			<language type="te" draft="unconfirmed">તેલુગુ</language>
 			<language type="th" draft="unconfirmed">થાઇ</language>
 			<language type="ti" draft="unconfirmed">ટગ્રિન્યા</language>
@@ -111,10 +112,16 @@
 			<language type="yi" draft="unconfirmed">યિડિશ</language>
 			<language type="zu" draft="unconfirmed">ઝુલુ</language>
 		</languages>
+		<scripts>
+			<script type="Arab" draft="contributed">અરેબી</script>
+			<script type="Armn" draft="contributed">અર્મેનિયાઈ</script>
+			<script type="Beng" draft="contributed">બંગાળી</script>
+		</scripts>
 		<territories>
 			<territory type="CN">ચીન</territory>
 			<territory type="DE">જમિની</territory>
 			<territory type="EG">મિસર</territory>
+			<territory type="EG" alt="proposed-x1001" draft="unconfirmed">ઈજીપ્ત</territory>
 			<territory type="GE">જ્યોર્જીયા</territory>
 			<territory type="IN">ભારત</territory>
 			<territory type="NP">નેપાળ</territory>
@@ -123,6 +130,11 @@
 			<territory type="TR">તુર્કસ્તાન</territory>
 			<territory type="US">સંયુકત રાજ્ય અમેરિકા</territory>
 		</territories>
+		<keys>
+			<key type="calendar" draft="contributed">કેલેન્ડર</key>
+			<key type="collation" draft="contributed">ક્રમ</key>
+			<key type="currency" draft="contributed">ચલણ</key>
+		</keys>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[૦-૯ ૐ અ-ઋ ૠ ઍ એ-ઑ ઓ-ન પ-ર લ ળ વ-હ ઼ ઁ-ઃ ઽ ્ ા-ૅ ે-ૉ ો ૌ]</exemplarCharacters>
@@ -250,25 +262,21 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="unconfirmed">EEEE d MMMM yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE, yyyy MMMM dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern draft="unconfirmed">d MMMM yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern draft="unconfirmed">dd-MM-yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern draft="unconfirmed">d-MM-yy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yy/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -276,25 +284,21 @@
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern draft="unconfirmed">hh:mm:ss a v</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern draft="unconfirmed">hh:mm:ss a z</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern draft="unconfirmed">hh:mm:ss a</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern draft="unconfirmed">hh:mm a</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -359,7 +363,5 @@
 	</posix>
 	<references>
 		<reference type="R070" uri="http://tdil.mit.gov.in/newsIndexApr02.htm">TDIL Vishwabharat magazine with Gujarati data, April 2002</reference>
-		<reference type="R070" uri="isbn:0781800579" alt="proposed-x1001" draft="unconfirmed">Learn Gujarati in 30 Days</reference>
 	</references>
 </ldml>
-

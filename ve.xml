@@ -15,7 +15,6 @@
 		<exemplarCharacters draft="provisional">[a b d ḓ e-i k l ḽ m n ṅ ṋ o p r-t ṱ u-z]</exemplarCharacters>
 		<!-- http://developer.mimer.com/charts/venda.htm -->
 		<exemplarCharacters type="auxiliary" draft="unconfirmed">[c j q]</exemplarCharacters>
-		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[a b d-i k l ḽ m n ṅ ṋ o p r-t ṱ u-z]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="unconfirmed">‘</quotationStart>
@@ -198,6 +197,38 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group> </group>
+		</symbols>
+		<decimalFormats>
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats>
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats>
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="ZAR">
 				<symbol draft="unconfirmed">R</symbol>

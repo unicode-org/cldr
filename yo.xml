@@ -22,10 +22,16 @@
 			<language type="ca" draft="unconfirmed">Ede Catala</language>
 			<language type="cs" draft="unconfirmed">Orile-ede Tseki</language>
 			<language type="cy" draft="unconfirmed">Ede Welshi</language>
-			<language type="da" draft="unconfirmed">ede ile Denmark</language>
-			<language type="de" draft="unconfirmed">ede ilu Germany</language>
+			<language type="da">Èdè Ilẹ̀ Denmark</language>
+			<language type="de">Èdè Ilẹ̀ Germany</language>
+			<language type="de_AT">Èdè Ilẹ̀ Germany (AT)</language>
+			<language type="de_CH">Èdè Ilẹ̀ Germany (CH)</language>
 			<language type="el" draft="unconfirmed">giriki</language>
-			<language type="en" draft="unconfirmed">geesi</language>
+			<language type="en">Èdè Gẹ̀ẹ́sì</language>
+			<language type="en_AU">Èdè Gẹ̀ẹ́sì (AU)</language>
+			<language type="en_CA">Èdè Gẹ̀ẹ́sì (CA)</language>
+			<language type="en_GB">Èdè Gẹ̀ẹ́sì (GB)</language>
+			<language type="en_US">Èdè Gẹ̀ẹ́sì (US)</language>
 			<language type="eo" draft="unconfirmed">Ede Esperanto</language>
 			<language type="es" draft="unconfirmed">Panyan</language>
 			<language type="et" draft="unconfirmed">Ede Estonia</language>
@@ -34,7 +40,9 @@
 			<language type="fi" draft="unconfirmed">Finisi</language>
 			<language type="fil" draft="unconfirmed">Ede Tagalogi</language>
 			<language type="fo" draft="unconfirmed">Ede Faroesi</language>
-			<language type="fr" draft="unconfirmed">Faranse</language>
+			<language type="fr">Èdè Faransé</language>
+			<language type="fr_CA">Èdè Faransé (CA)</language>
+			<language type="fr_CH">Èdè Faransé (CH)</language>
 			<language type="fy" draft="unconfirmed">Ede Frisia</language>
 			<language type="ga" draft="unconfirmed">Ede Ireland</language>
 			<language type="gd" draft="unconfirmed">Ede Gaelik ti Ilu Scotland</language>
@@ -76,7 +84,7 @@
 			<language type="oc" draft="unconfirmed">Ede Occitani</language>
 			<language type="or" draft="unconfirmed">Oriya</language>
 			<language type="pa" draft="unconfirmed">Ede Punjabi</language>
-			<language type="pl" draft="unconfirmed">ede awon ara polandi</language>
+			<language type="pl">Èdè Ilẹ̀ Polandi</language>
 			<language type="ps" draft="unconfirmed">Pashto</language>
 			<language type="pt" draft="unconfirmed">Ede Portugi</language>
 			<language type="pt_PT" draft="unconfirmed">Ede Portugal</language>
@@ -110,11 +118,18 @@
 			<language type="vi" draft="unconfirmed">Ede Vietnamu</language>
 			<language type="xh" draft="unconfirmed">Ede Xhosa</language>
 			<language type="yi" draft="unconfirmed">Yiddishi</language>
+			<language type="yo" references="RP1">Yorùbá</language>
 			<language type="zu" draft="unconfirmed">Ede Zulu</language>
 		</languages>
 		<territories>
+			<territory type="BW" draft="contributed">BW</territory>
+			<territory type="NG">NG</territory>
 			<territory type="TO" draft="unconfirmed">Tonga</territory>
 		</territories>
+		<measurementSystemNames>
+			<measurementSystemName type="US" draft="contributed">US</measurementSystemName>
+			<measurementSystemName type="metric" draft="contributed">Metric</measurementSystemName>
+		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a á à b d e é è ẹ {ẹ́} {ẹ̀} f g {gb} h i í ì j-o ó ò ọ {ọ́} {ọ̀} p r s ṣ t u ú ù w y]</exemplarCharacters>
@@ -126,32 +141,32 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1" draft="unconfirmed">Sere</month>
-							<month type="2" draft="unconfirmed">Erele</month>
-							<month type="3" draft="unconfirmed">Erena</month>
-							<month type="4" draft="unconfirmed">Igbe</month>
-							<month type="5" draft="unconfirmed">Ebibi</month>
-							<month type="6" draft="unconfirmed">Okudu</month>
-							<month type="7" draft="unconfirmed">Agemo</month>
-							<month type="8" draft="unconfirmed">Ogun</month>
-							<month type="9" draft="unconfirmed">Owewe</month>
-							<month type="10" draft="unconfirmed">Owara</month>
-							<month type="11" draft="unconfirmed">Belu</month>
-							<month type="12" draft="unconfirmed">Ope</month>
+							<month type="1">Ṣẹ́rẹ́</month>
+							<month type="2">Èrèlè</month>
+							<month type="3">Ẹrẹ̀nà</month>
+							<month type="4">Ìgbé</month>
+							<month type="5">Ẹ̀bibi</month>
+							<month type="6">Òkúdu</month>
+							<month type="7">Agẹmọ</month>
+							<month type="8">Ògún</month>
+							<month type="9">Owewe</month>
+							<month type="10">Ọ̀wàrà</month>
+							<month type="11">Bélú</month>
+							<month type="12">Ọ̀pẹ̀</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1" draft="unconfirmed">Osukini</month>
-							<month type="2" draft="unconfirmed">Osukeji</month>
-							<month type="3" draft="unconfirmed">Osuketa</month>
-							<month type="4" draft="unconfirmed">Osukerin</month>
-							<month type="5" draft="unconfirmed">Osukarun</month>
-							<month type="6" draft="unconfirmed">Osukefa</month>
-							<month type="7" draft="unconfirmed">Osukeje</month>
-							<month type="8" draft="unconfirmed">Osukejo</month>
-							<month type="9" draft="unconfirmed">Osukesan</month>
-							<month type="10" draft="unconfirmed">Osukewa</month>
-							<month type="11" draft="unconfirmed">Osukokanla</month>
-							<month type="12" draft="unconfirmed">Osukejila</month>
+							<month type="1">Oṣù Ṣẹ́rẹ́</month>
+							<month type="2">Oṣù Èrèlè</month>
+							<month type="3">Oṣù Ẹrẹ̀nà</month>
+							<month type="4">Oṣù Ìgbé</month>
+							<month type="5">Oṣù Ẹ̀bibi</month>
+							<month type="6">Oṣù Òkúdu</month>
+							<month type="7">Oṣù Agẹmọ</month>
+							<month type="8">Oṣù Ògún</month>
+							<month type="9">Oṣù Owewe</month>
+							<month type="10">Oṣù Ọ̀wàrà</month>
+							<month type="11">Oṣù Bélú</month>
+							<month type="12">Oṣù Ọ̀pẹ̀</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -174,22 +189,22 @@
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">Aiku</day>
-							<day type="mon" draft="unconfirmed">Aje</day>
-							<day type="tue" draft="unconfirmed">Isegun</day>
-							<day type="wed" draft="unconfirmed">Ojoru</day>
-							<day type="thu" draft="unconfirmed">Ojobo</day>
-							<day type="fri" draft="unconfirmed">Eti</day>
-							<day type="sat" draft="unconfirmed">Abameta</day>
+							<day type="sun" references="RP1">Àìkú</day>
+							<day type="mon">Ajé</day>
+							<day type="tue" references="RP1">Ìsẹ́gun</day>
+							<day type="wed" references="RP1">Ọjọ́rú</day>
+							<day type="thu">Àṣẹ̀ṣẹ̀dáiyé</day>
+							<day type="fri" references="RP1">Ẹtì</day>
+							<day type="sat">Àbámẹ́ta</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">Ojoaiku</day>
-							<day type="mon" draft="unconfirmed">Ojoaje</day>
-							<day type="tue" draft="unconfirmed">Ojoisegun</day>
-							<day type="wed" draft="unconfirmed">Ojoru</day>
-							<day type="thu" draft="unconfirmed">Ojobo</day>
-							<day type="fri" draft="unconfirmed">Ojoeti</day>
-							<day type="sat" draft="unconfirmed">Ojoabameta</day>
+							<day type="sun" references="RP1">Ọjọ́ Àìkú</day>
+							<day type="mon" references="RP1">Ọjọ́ Ajé</day>
+							<day type="tue" references="RP1">Ọjọ́ Ìsẹ́gun</day>
+							<day type="wed" references="RP1">Ọjọ́rú</day>
+							<day type="thu">Ọjọ́ Àṣẹ̀ṣẹ̀dáiyé</day>
+							<day type="fri" references="RP1">Ọjọ́ Ẹtì</day>
+							<day type="sat">Ọjọ́ Àbámẹ́ta</day>
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
@@ -220,8 +235,8 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am draft="unconfirmed">ARO</am>
-				<pm draft="unconfirmed">ALE</pm>
+				<am>àárọ̀</am>
+				<pm>ọ̀sán</pm>
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">Saju Kristi</era>
@@ -286,19 +301,34 @@
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
+				<fields>
+					<field type="day">
+						<displayName references="RP1" draft="contributed">Ọjọ́</displayName>
+						<relative type="0">ọ̀ní</relative>
+						<relative type="1">ọ̣̀la</relative>
+						<relative type="2">òtúùnla</relative>
+						<relative type="3">ọjọ́mẹ́rin-òní</relative>
+						<relative type="-1">ànón</relative>
+						<relative type="-2">íjẹta</relative>
+						<relative type="-3">íjẹrin</relative>
+					</field>
+				</fields>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
 			<regionFormat draft="unconfirmed">{0}</regionFormat>
+			<zone type="Etc/Unknown">
+				<exemplarCity references="RP1">Africa/​Lagos/​exemplarCity</exemplarCity>
+			</zone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencies>
 			<currency type="NGN">
-				<displayName draft="unconfirmed">Naira</displayName>
-				<symbol draft="unconfirmed">₦</symbol>
+				<displayName>Naira</displayName>
+				<symbol>₦</symbol>
 			</currency>
 		</currencies>
 	</numbers>
@@ -306,5 +336,10 @@
 		<reference type="R243" uri="http://www.learnyoruba.com/orthography_1.htm">Learn Yoruba - orthography</reference>
 		<reference type="R244" uri="http://www.omniglot.com/writing/yoruba.htm">Omniglot on Yoruba</reference>
 		<reference type="R245" uri="http://www.motherlandnigeria.com/languages.html">Nigerian languages - Yoruba</reference>
+		<reference type="RP1" uri="http://books.google.comÃ¢â‚¬â€¹/books?isbn=isbn:0781809789">English-Yoruba, Yoruba-English Modern Practical Dictionary</reference>
+		<reference type="RP2" uri="http://en.wikipedia.org/wiki/Nigerian_naira">Nigerian Naira - Currency</reference>
+		<reference type="RP3" uri="http://www.cenbank.org/Currency/legaltender.asp">Central Bank of Nigeria - Legal Tender</reference>
+		<reference type="RP4" uri="http://books.google.com/books?hl=en&amp;id=UuUNAAAAYAAJ">Dictionary of the Yoruba Language</reference>
+		<reference type="RP5" uri="http://books.google.com/books?id=X_DXHQAACAAJ&amp;dq=isbn:0340176571" draft="contributed">Dictionary of Modern Yorùbá by Roy Clive Abraham. University of London Press</reference>
 	</references>
 </ldml>

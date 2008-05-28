@@ -1,68 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
 <ldml>
-    <identity>
-        <version number="$Revision$"/>
-        <generation date="$Date$"/>
-        <language type="mi"/>
-    </identity>
-    <characters>
-        <exemplarCharacters>[a ā e ē h i ī k m n {ng} o ō p r t u ū w {wh}]</exemplarCharacters>
-        <exemplarCharacters type="auxiliary">[b-d f g j l q s v x-z]</exemplarCharacters>
-    </characters>
-    <dates>
-        <calendars>
-            <calendar type="gregorian">
-                <months>
-                    <monthContext type="format">
-                        <monthWidth type="wide">
-                            <month type="1" draft="provisional">Hānuere</month>
-                            <month type="1" alt="proposed" draft="unconfirmed">Kohi-tātea</month>
-                            <month type="2" draft="provisional">Pēpuere</month>
-                            <month type="2" alt="proposed" draft="unconfirmed">Hui-tanguru</month>
-                            <month type="3" draft="provisional">Māehe</month>
-                            <month type="3" alt="proposed" draft="unconfirmed">Poutū-te-rangi</month>
-                            <month type="4" draft="provisional">Āperira</month>
-                            <month type="4" alt="proposed" draft="unconfirmed">Paenga-whāwhā</month>
-                            <month type="5" draft="provisional">Mei</month>
-                            <month type="5" alt="proposed" draft="unconfirmed">Haratua</month>
-                            <month type="6" draft="provisional">Hune</month>
-                            <month type="6" alt="proposed" draft="unconfirmed">Pipiri</month>
-                            <month type="7" draft="provisional">Hūrae</month>
-                            <month type="7" alt="proposed" draft="unconfirmed">Hōngongoi</month>
-                            <month type="8" draft="provisional">Ākuhata</month>
-                            <month type="8" alt="proposed" draft="unconfirmed">Here-turi-kōkā</month>
-                            <month type="9" draft="provisional">Hepetema</month>
-                            <month type="9" alt="proposed" draft="unconfirmed">Mahuru</month>
-                            <month type="10" draft="provisional">Oketopa</month>
-                            <month type="10" alt="proposed" draft="unconfirmed">Whiringa-ā-nuku</month>
-                            <month type="11" draft="provisional">Noema</month>
-                            <month type="11" alt="proposed" draft="unconfirmed">Whiringa-ā-rangi</month>
-                            <month type="12" draft="provisional">Tīhema</month>
-                            <month type="12" alt="proposed" draft="unconfirmed">Hakihea</month>
-                        </monthWidth>
-                    </monthContext>
-                </months>
-                <days>
-                    <dayContext type="format">
-                        <dayWidth type="wide">
-                            <day type="sun" draft="provisional">Rātapu</day>
-                            <day type="mon" draft="provisional">Mane</day>
-                            <day type="mon" alt="proposed" draft="unconfirmed">Rāhina</day>
-                            <day type="tue" draft="provisional">Tūrei</day>
-                            <day type="tue" alt="proposed" draft="unconfirmed">Rātū</day>
-                            <day type="wed" draft="provisional">Wenerei</day>
-                            <day type="wed" alt="proposed" draft="unconfirmed">Rāapa</day>
-                            <day type="thu" draft="provisional">Tāite</day>
-                            <day type="thu" alt="proposed" draft="unconfirmed">Rāpare</day>
-                            <day type="fri" draft="provisional">Paraire</day>
-                            <day type="fri" alt="proposed" draft="unconfirmed">Rāmere</day>
-                            <day type="sat" draft="provisional">Hātarei</day>
-                            <day type="sat" alt="proposed" draft="unconfirmed">Rāhoroi</day>
-                        </dayWidth>
-                    </dayContext>
-                </days>
-            </calendar>
-        </calendars>
-    </dates>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="mi"/>
+	</identity>
+	<characters>
+		<exemplarCharacters>[a ā e ē h i ī k m n {ng} o ō p r t u ū w {wh}]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[b-d f g j l q s v x-z]</exemplarCharacters>
+	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1" draft="provisional">Hānuere</month>
+							<month type="2" draft="provisional">Pēpuere</month>
+							<month type="3" draft="provisional">Māehe</month>
+							<month type="4" draft="provisional">Āperira</month>
+							<month type="5" draft="provisional">Mei</month>
+							<month type="6" draft="provisional">Hune</month>
+							<month type="7" draft="provisional">Hūrae</month>
+							<month type="8" draft="provisional">Ākuhata</month>
+							<month type="9" draft="provisional">Hepetema</month>
+							<month type="10" draft="provisional">Oketopa</month>
+							<month type="11" draft="provisional">Noema</month>
+							<month type="12" draft="provisional">Tīhema</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="wide">
+							<day type="sun" draft="provisional">Rātapu</day>
+							<day type="mon" draft="provisional">Mane</day>
+							<day type="tue" draft="provisional">Tūrei</day>
+							<day type="wed" draft="provisional">Wenerei</day>
+							<day type="thu" draft="provisional">Tāite</day>
+							<day type="fri" draft="provisional">Paraire</day>
+							<day type="sat" draft="provisional">Hātarei</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+			</calendar>
+		</calendars>
+	</dates>
 </ldml>

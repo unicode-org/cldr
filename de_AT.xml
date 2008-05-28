@@ -15,7 +15,6 @@
 						<monthWidth type="abbreviated">
 							<month type="1">Jän</month>
 							<month type="3">Mär</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">Mrz</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Jänner</month>
@@ -34,14 +33,12 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm 'Uhr' v</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0} - {1}</intervalFormatFallback>
 						<intervalFormatItem id="M">
@@ -129,4 +126,3 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-

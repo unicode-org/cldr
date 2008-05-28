@@ -24,7 +24,6 @@
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>dd-MMM-yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">dd-MMM-yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -149,6 +148,13 @@
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
+		<currencies>
+			<currency type="BZD">
+				<symbol>$</symbol>
+			</currency>
+			<currency type="USD">
+				<symbol>US$</symbol>
+			</currency>
+		</currencies>
 	</numbers>
 </ldml>
-

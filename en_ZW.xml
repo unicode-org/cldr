@@ -24,7 +24,6 @@
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>dd MMM,yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">dd MMM,yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -33,18 +32,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern alt="proposed-x1001" draft="unconfirmed">h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern alt="proposed-x1001" draft="unconfirmed">h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Md" draft="unconfirmed">d/M</dateFormatItem>
@@ -160,4 +147,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

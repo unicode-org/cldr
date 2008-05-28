@@ -12,51 +12,26 @@
 		<calendars>
 			<calendar type="gregorian">
 				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern alt="proposed-x1001" draft="unconfirmed">dd日MMMM月yyyy年</pattern>
-						</dateFormat>
-					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>ddMMMyyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy年M月d日</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern alt="proposed-x1001" draft="unconfirmed">dd-MMM-yy</pattern>
+							<pattern>yyyy年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>dd/MM/yy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yy-M-d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern alt="proposed-x1001" draft="unconfirmed">ahh:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern>ahh:mm:ssz</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">ahh时mm分ss秒</pattern>
-							<pattern alt="proposed-x1002" draft="unconfirmed">zahh时mm分ss秒</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern alt="proposed-x1001" draft="unconfirmed">ahh:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern>ahh:mm</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">ah:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -64,7 +39,6 @@
 					<availableFormats>
 						<dateFormatItem id="MMMMd" draft="provisional">MMMM月d日</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">M月d日</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">MM/yy</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0}至{1}</intervalFormatFallback>
@@ -148,4 +122,3 @@
 		</calendars>
 	</dates>
 </ldml>
-

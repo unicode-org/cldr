@@ -23,6 +23,7 @@
 							<month type="3">آذار</month>
 							<month type="4">نيسان</month>
 							<month type="5">نوار</month>
+							<month type="5" alt="proposed-x1001" draft="unconfirmed">أيار</month>
 							<month type="6">حزيران</month>
 							<month type="7">تموز</month>
 							<month type="8">آب</month>
@@ -37,6 +38,7 @@
 							<month type="3">آذار</month>
 							<month type="4">نيسان</month>
 							<month type="5">نوار</month>
+							<month type="5" alt="proposed-x1001" draft="unconfirmed">أيار</month>
 							<month type="6">حزيران</month>
 							<month type="7">تموز</month>
 							<month type="8">آب</month>
@@ -60,6 +62,27 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<am draft="contributed">ص</am>
+				<pm draft="contributed">م</pm>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Hm" draft="contributed">H:mm</dateFormatItem>
+						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
+						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="contributed">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="contributed">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="contributed">d MMM</dateFormatItem>
+						<dateFormatItem id="Md" draft="contributed">d/M</dateFormatItem>
+						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="contributed">EEE، d MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yMMMM" draft="contributed">MMMM yyyy</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="MMMM">
+							<greatestDifference id="M" draft="contributed">LLLL-LLLL</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -67,6 +90,10 @@
 		<symbols>
 			<exponential draft="provisional">E</exponential>
 		</symbols>
+		<currencies>
+			<currency type="LBP">
+				<symbol draft="contributed">ل.ل.‏</symbol>
+			</currency>
+		</currencies>
 	</numbers>
 </ldml>
-

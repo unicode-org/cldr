@@ -172,6 +172,9 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -186,8 +189,8 @@
 	<numbers>
 		<currencies>
 			<currency type="NGN">
-				<displayName draft="unconfirmed">Naịra</displayName>
-				<symbol draft="unconfirmed">₦</symbol>
+				<displayName>Naịra</displayName>
+				<symbol>₦</symbol>
 			</currency>
 		</currencies>
 	</numbers>
@@ -198,4 +201,3 @@
 		<reference type="R084" uri="http://www.omniglot.com/writing/igbo.htm">Omniglot on Igbo</reference>
 	</references>
 </ldml>
-

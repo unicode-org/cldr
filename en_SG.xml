@@ -14,7 +14,6 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="provisional">EEEE, dd MMMM yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">dd MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -25,7 +24,6 @@
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>dd-MMM-yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">dd-MMM-yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -38,19 +36,16 @@
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>a hh:mm:ss v</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">a hh:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern>a hh:mm:ss z</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">a hh:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern>a hh:mm:ss</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">a hh:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
@@ -156,7 +151,6 @@
 		<currencies>
 			<currency type="SGD">
 				<symbol>$</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">S$</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>USD</displayName>
@@ -170,4 +164,3 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/en_SG.txt?only_
 
 Singapore English locale: Data By Syn Wee Quek
 -->
-

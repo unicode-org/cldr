@@ -9,16 +9,13 @@
 	<localeDisplayNames>
 		<languages>
 			<language type="ar">అరబిక్</language>
-			<language type="ar" alt="proposed-x1001" draft="unconfirmed">అరబ్బీ</language>
 			<language type="bh" draft="unconfirmed">బీహారి</language>
 			<language type="bn" draft="unconfirmed">బెంగాలి</language>
 			<language type="cs" draft="unconfirmed">చెక్</language>
 			<language type="da" draft="unconfirmed">డానిష్</language>
 			<language type="de">ఙర్మన్</language>
-			<language type="de" alt="proposed-x1001" draft="unconfirmed">జర్మన్</language>
 			<language type="el" draft="unconfirmed">గ్రీకు</language>
 			<language type="en">ఆంగ్లం</language>
-			<language type="en" alt="proposed-x1001" draft="unconfirmed">ఆంగ్లము</language>
 			<language type="es">స్పానిష్</language>
 			<language type="et" draft="unconfirmed">ఈస్టోనియను</language>
 			<language type="fa" draft="unconfirmed">పార్శీ</language>
@@ -28,14 +25,11 @@
 			<language type="gu" draft="unconfirmed">గుజరాతి</language>
 			<language type="he" draft="unconfirmed">హీబ్రూ</language>
 			<language type="hi">హిందీ</language>
-			<language type="hi" alt="proposed-x1001" draft="unconfirmed">హింది</language>
 			<language type="hu" draft="unconfirmed">హంగేరియను</language>
 			<language type="id" draft="unconfirmed">ఇండొనేసియన్</language>
 			<language type="is" draft="unconfirmed">ఐస్ లాండు</language>
 			<language type="it">ఇటాలియన్ భాష</language>
-			<language type="it" alt="proposed-x1001" draft="unconfirmed">ఇటాలియన్</language>
 			<language type="ja">జపాను భాష</language>
-			<language type="ja" alt="proposed-x1001" draft="unconfirmed">జపనీస్</language>
 			<language type="kn" draft="unconfirmed">కన్నడ</language>
 			<language type="la" draft="unconfirmed">లాటిన్</language>
 			<language type="lt" draft="unconfirmed">లిథువేనియను</language>
@@ -51,7 +45,6 @@
 			<language type="pt">పొర్చుగల్ భాష</language>
 			<language type="ro" draft="unconfirmed">రొమేనియను</language>
 			<language type="ru">రష్యన్ భాష</language>
-			<language type="ru" alt="proposed-x1001" draft="unconfirmed">రష్యను</language>
 			<language type="si" draft="unconfirmed">సింహళీ</language>
 			<language type="sv" draft="unconfirmed">స్వీడిష్</language>
 			<language type="sw" draft="unconfirmed">స్వాహిలి</language>
@@ -65,6 +58,7 @@
 		</languages>
 		<scripts>
 			<script type="Arab">అరబ్బి లిపి</script>
+			<script type="Beng" draft="contributed">Beng</script>
 			<script type="Cyrl">సిరిలిక్ లిపి</script>
 			<script type="Hans">సరళమైన చైనా లిపి</script>
 			<script type="Hant">ప్రాచీన చైనా లిపి</script>
@@ -92,7 +86,7 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[అ-ఋ ౠ ఌ ౡ ఎ-ఐ ఒ-న ప-ళ వ-హ ఁ-ః ్ ా-ౄ ె-ై ొ-ౌ ౕ ౖ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[\u200C \u200D ౦-౯]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u200C \u200D ౦-౯ b c e g m q t]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="unconfirmed">'</quotationStart>
@@ -217,25 +211,21 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="unconfirmed">EEEE d MMMM yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE, yyyy MMMM dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern draft="unconfirmed">d MMMM yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern draft="unconfirmed">dd-MM-yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern draft="unconfirmed">dd-MM-yy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yy/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -243,25 +233,21 @@
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern draft="unconfirmed">h:mm:ss a v</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern draft="unconfirmed">h:mm:ss a z</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern draft="unconfirmed">h:mm:ss a</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern draft="unconfirmed">h:mm a</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>

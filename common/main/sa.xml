@@ -8,9 +8,40 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="aa" draft="unconfirmed">अफर</language>
+			<language type="ab" draft="provisional">अब्खासियन्</language>
+			<language type="ace" draft="unconfirmed">अचिनीस्</language>
+			<language type="ach" draft="unconfirmed">अचोलि</language>
+			<language type="ada" draft="unconfirmed">अडङ्गमे</language>
+			<language type="af" draft="unconfirmed">अफ्रिक्कान्स्</language>
+			<language type="afa" draft="unconfirmed">आफ्रो एष्यन् भाषा</language>
+			<language type="afh" draft="unconfirmed">अफ्रिहिलि</language>
+			<language type="ain" draft="unconfirmed">अयिनु</language>
+			<language type="ak" draft="unconfirmed">अकन्</language>
+			<language type="akk" draft="unconfirmed">अक्काटियान्</language>
+			<language type="ale" draft="unconfirmed">अलियुट्</language>
+			<language type="alg" draft="unconfirmed">अल्गोण्क्यन् भाषा</language>
+			<language type="am" draft="unconfirmed">अंहाऱिक्</language>
+			<language type="anp" draft="unconfirmed">अङ्गिक</language>
+			<language type="apa" draft="unconfirmed">अपाचे भाषा</language>
+			<language type="ar" draft="unconfirmed">अऱबिक्</language>
+			<language type="egy" draft="unconfirmed">प्राचीन ईजिप्त्यन्</language>
+			<language type="grc" draft="unconfirmed">पुरातन यवन भाषा</language>
+			<language type="nb" draft="unconfirmed">नोर्वीजियन् बॊकामल्</language>
 			<language type="sa" draft="contributed">संस्कृत भाषा</language>
-			<language type="sa" alt="proposed-x1001" draft="unconfirmed">संस्कृत</language>
+			<language type="sq" draft="unconfirmed">अल्बेनियन्</language>
+			<language type="tut" draft="unconfirmed">आळटिक् भाषा</language>
+			<language type="und" draft="provisional">अज्ञात भाषा</language>
 		</languages>
+		<scripts>
+			<script type="Arab" draft="unconfirmed">अरबिक्</script>
+			<script type="Armi" draft="unconfirmed">अर्मि</script>
+			<script type="Armn" draft="unconfirmed">अर्मेनियन्</script>
+			<script type="Avst" draft="unconfirmed">अवेस्थन्</script>
+			<script type="Bali" draft="unconfirmed">बालिनीस्</script>
+			<script type="Batk" draft="unconfirmed">बट्टक्</script>
+			<script type="Beng" draft="unconfirmed">बंगालि</script>
+		</scripts>
 		<territories>
 			<territory type="IN" draft="unconfirmed">भारतम्</territory>
 		</territories>
@@ -18,6 +49,7 @@
 	<characters>
 		<exemplarCharacters>[़ ँ-ः ॑-॔ ॐ अ-ऋ ॠ ऌ ॡ ए ऐ ओ-न र ल ळ व-ह ऽ-ॄ ॢ ॣ े ै ो-्]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200C \u200D ०-९ ऍ ऑ ॅ ॉ]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol" draft="unconfirmed">[a-z]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -131,25 +163,21 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="unconfirmed">EEEE d MMMM yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE, yyyy MMMM dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern draft="unconfirmed">d MMMM yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern draft="unconfirmed">dd-MM-yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern draft="unconfirmed">d-MM-yy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yy/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -157,25 +185,21 @@
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern draft="unconfirmed">hh:mm:ss a v</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern draft="unconfirmed">hh:mm:ss a z</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern draft="unconfirmed">hh:mm:ss a</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern draft="unconfirmed">hh:mm a</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -233,4 +257,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

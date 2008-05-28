@@ -289,7 +289,6 @@
 	<characters>
 		<exemplarCharacters>[፟ ᎐-᎙ ሀ-ሆ ለ-ሎ ሐ-ሖ መ-ሞ ሠ-ሦ ረ-ሮ ሰ-ሶ ቀ-ቆ ቈ ቊ-ቍ በ-ቦ ተ-ቶ ኀ-ኆ ኈ ኊ-ኍ ነ-ኖ አ-ኦ ከ-ኮ ኰ ኲ-ኵ ወ-ዎ ዐ-ዖ ዘ-ዞ የ-ዮ ደ-ዶ ገ-ጎ ጐ ጒ-ጕ ጠ-ጦ ጰ-ጶ ጸ-ጾ ፀ-ፆ ፈ-ፎ ፐ-ፖ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="unconfirmed">[ሇ ሏ ⶀ ሗ ሟ ᎀ-ᎃ ⶁ ሧ ሯ ⶂ ሷ ⶃ ሸ-ሿ ⶄ ቇ ቐ-ቖ ቘ ቚ-ቝ ቧ ᎄ-ᎇ ⶅ ቮ ቯ ቷ ⶆ ቿ ⶇ ኇ ኗ ⶈ ኟ ⶉ ኧ ⶊ ኯ ኸ-ኾ ዀ ዂ-ዅ ዏ ዟ ⶋ ዠ-ዧ ዷ ⶌ ዸ-ዿ ⶍ ጀ-ጇ ⶎ ጏ ጘ-ጟ ⶓ-ⶖ ጧ ⶏ ጨ-ጯ ⶐ ጷ ⶑ ጿ ፇ ፏ ᎈ-ᎋ ፗ ᎌ-ᎏ ⶒ ፘ-ፚ ⶠ-ⶦ ⶨ-ⶮ ⶰ-ⶶ ⶸ-ⶾ ⷀ-ⷆ ⷈ-ⷎ ⷐ-ⷖ ⷘ-ⷞ]</exemplarCharacters>
-		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[፟ ፡ ፣-፧ ። ፠ ፨ ᎐-᎙ ፲-፼ ፩-፱ ሀ-ሆ ለ-ሎ ሐ-ሖ መ-ሞ ሠ-ሦ ረ-ሮ ሰ-ሶ ቀ-ቆ ቈ ቊ-ቍ በ-ቦ ተ-ቶ ኀ-ኆ ኈ ኊ-ኍ ነ-ኖ አ-ኦ ከ-ኮ ኰ ኲ-ኵ ወ-ዎ ዐ-ዖ ዘ-ዞ የ-ዮ ደ-ዶ ገ-ጎ ጐ ጒ-ጕ ጠ-ጦ ጰ-ጶ ጸ-ጾ ፀ-ፆ ፈ-ፎ ፐ-ፖ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -403,25 +402,21 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="unconfirmed">EEEE፥ dd MMMM መዓልት yyyy G</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE, yyyy MMMM dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern draft="unconfirmed">dd MMMM yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern draft="unconfirmed">dd-MMM-yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern draft="unconfirmed">dd/MM/yy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yy/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -429,25 +424,21 @@
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern draft="unconfirmed">h:mm:ss a v</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern draft="unconfirmed">h:mm:ss a z</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern draft="unconfirmed">h:mm:ss a</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern draft="unconfirmed">h:mm a</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -498,7 +489,6 @@
 			<currency type="ETB">
 				<displayName draft="unconfirmed">የኢትዮጵያ ብር</displayName>
 				<symbol draft="unconfirmed">ETB$</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">$</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName draft="unconfirmed">አውሮ</displayName>
@@ -517,9 +507,8 @@
 			</currency>
 			<currency type="USD">
 				<displayName draft="unconfirmed">የአሜሪካን ዶላር</displayName>
-				<symbol alt="proposed-x1001" draft="unconfirmed">USD</symbol>
+				<symbol draft="unconfirmed">USD</symbol>
 			</currency>
 		</currencies>
 	</numbers>
 </ldml>
-

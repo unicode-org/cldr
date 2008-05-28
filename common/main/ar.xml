@@ -7,6 +7,10 @@
 		<language type="ar"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>،</localeSeparator>
+		</localeDisplayPattern>
 		<languages>
 			<language type="aa">الأفارية</language>
 			<language type="ab">الأبخازية</language>
@@ -16,7 +20,7 @@
 			<language type="ady">الأديجه</language>
 			<language type="ae">الأفستية</language>
 			<language type="af">الأفريقية</language>
-			<language type="afa">الأفرو آسيوية - أخرى</language>
+			<language type="afa">لغة أفرو آسيوية</language>
 			<language type="afh">الأفريهيلية</language>
 			<language type="ain">الآينوية</language>
 			<language type="ak">الأكانية</language>
@@ -29,16 +33,20 @@
 			<language type="ang">الانجليزية القديمة</language>
 			<language type="anp" draft="provisional">الأنجيكا</language>
 			<language type="apa">اللغات الأباتشية</language>
+			<language type="apa" alt="proposed-x1001" draft="unconfirmed">لغة أباتشية</language>
 			<language type="ar">العربية</language>
 			<language type="arc">الآرامية</language>
 			<language type="arn">الأروكانية</language>
 			<language type="arp">الأراباهو</language>
 			<language type="art">الصناعية - أخرى</language>
+			<language type="art" alt="proposed-x1001" draft="unconfirmed">لغة اصطناعية</language>
 			<language type="arw">الأراواكية</language>
 			<language type="as">الأسامية</language>
 			<language type="ast">الأسترية</language>
 			<language type="ath">اللغات الأزباسكانية</language>
+			<language type="ath" alt="proposed-x1001" draft="unconfirmed">لغة أزباسكانية</language>
 			<language type="aus">اللغات الأسترالية</language>
+			<language type="aus" alt="proposed-x1001" draft="unconfirmed">لغة أسترالية</language>
 			<language type="av">الأفاريكية</language>
 			<language type="awa">الأوادية</language>
 			<language type="ay">الأيمارا</language>
@@ -50,7 +58,9 @@
 			<language type="ban">اللغة البالية</language>
 			<language type="bas">الباسا</language>
 			<language type="bat">البلطيقية - أخرى</language>
+			<language type="bat" alt="proposed-x1001" draft="unconfirmed">لغة بلطيقية</language>
 			<language type="be">البيلوروسية</language>
+			<language type="be" alt="proposed-x1001" draft="unconfirmed">البيلاروسية</language>
 			<language type="bej">البيجا</language>
 			<language type="bem">البيمبا</language>
 			<language type="ber">البربرية</language>
@@ -73,14 +83,18 @@
 			<language type="bug">البجينيزية</language>
 			<language type="byn">البلينية</language>
 			<language type="ca">الكاتالوينية</language>
+			<language type="ca" alt="proposed-x1001" draft="unconfirmed">الكتالونية</language>
 			<language type="cad">الكادو</language>
 			<language type="cai">الهندية الأمريكية الوسطى - أخرى</language>
+			<language type="cai" alt="proposed-x1001" draft="unconfirmed">لغة هند أمريكية وسطى</language>
 			<language type="car">الكاريبية</language>
 			<language type="cau">القوقازية - أخرى</language>
+			<language type="cau" alt="proposed-x1001" draft="unconfirmed">لغة قوقازية</language>
 			<language type="cch" draft="provisional">الأتسام</language>
 			<language type="ce">الشيشانية</language>
 			<language type="ceb">السيبيونو</language>
 			<language type="cel">السلتية - أخرى</language>
+			<language type="cel" alt="proposed-x1001" draft="unconfirmed">لغة سلتية</language>
 			<language type="ch">التشامورو</language>
 			<language type="chb">التشيبشا</language>
 			<language type="chg">التشاجاتاى</language>
@@ -92,6 +106,7 @@
 			<language type="chr">الشيروكى</language>
 			<language type="chy">الشايان</language>
 			<language type="cmc">اللغات التشاميكية</language>
+			<language type="cmc" alt="proposed-x1001" draft="unconfirmed">لغة تشاميكية</language>
 			<language type="co">الكورسيكية</language>
 			<language type="cop">قبطية</language>
 			<language type="cop" alt="proposed-x1001" draft="unconfirmed">القبطية</language>
@@ -100,11 +115,13 @@
 			<language type="cpp">الكرييولى و اللغات المبسطة الأخرى للتفاهم بين الشعوب على أساس البرتغالية</language>
 			<language type="cr">الكرى</language>
 			<language type="crh">تركى كريمين، لغة توركية كريمينية</language>
+			<language type="crh" alt="proposed-x1001" draft="unconfirmed">تركية كريمينية</language>
 			<language type="crp">الكرييولى و اللغات المبسطة الأخرى للتفاهم بين الشعوب - أخرى</language>
 			<language type="cs">التشيكية</language>
 			<language type="csb">الكاشبايان</language>
 			<language type="cu">سلافية كنسية</language>
 			<language type="cus">الكشيتيك - أخرى</language>
+			<language type="cus" alt="proposed-x1001" draft="unconfirmed">لغة كشيتيكية</language>
 			<language type="cv">التشفاش</language>
 			<language type="cy">الولزية</language>
 			<language type="da">الدانماركية</language>
@@ -114,14 +131,13 @@
 			<language type="de">الألمانية</language>
 			<language type="de_AT">الألمانية النمساوية</language>
 			<language type="de_CH" draft="provisional">الألمانية العليا السويسرية</language>
-			<language type="de_CH" alt="proposed-x1001" draft="unconfirmed">الألمانية العليا (سويسرا)‏</language>
-			<language type="de_CH" alt="proposed-x1002" draft="unconfirmed">الألمانية (سويسرا)‏</language>
 			<language type="del">الديلوير</language>
 			<language type="den" draft="provisional">السلافية</language>
 			<language type="dgr">الدوجريب</language>
 			<language type="din">الدنكا</language>
 			<language type="doi">الدوجرى</language>
 			<language type="dra">الدرافيدين - أخرى</language>
+			<language type="dra" alt="proposed-x1001" draft="unconfirmed">لغة درافيدينية</language>
 			<language type="dsb">الصربية السفلى</language>
 			<language type="dua">الديولا</language>
 			<language type="dum">الهولندية الوسطى</language>
@@ -135,25 +151,27 @@
 			<language type="el">اليونانية</language>
 			<language type="elx">الامايت</language>
 			<language type="en">الانجليزية</language>
+			<language type="en" alt="proposed-x1001" draft="unconfirmed">الإنجليزية</language>
 			<language type="en_AU">الانجليزية الأسترالية</language>
-			<language type="en_AU" alt="proposed-x1002" draft="unconfirmed">الانجليزية الأستراليا</language>
-			<language type="en_AU" alt="proposed-x1003" draft="unconfirmed">الإنجليزية (أستراليا)</language>
-			<language type="en_CA" draft="provisional">الإنجليزية الكندية</language>
+			<language type="en_AU" alt="proposed-x1001" draft="unconfirmed">الإنجليزية الأسترالية</language>
+			<language type="en_CA" draft="contributed">الإنجليزية الكندية</language>
 			<language type="en_CA" alt="proposed-x1001" draft="unconfirmed">الإنجليزية (كندا)</language>
 			<language type="en_GB">الانجليزية البريطانية</language>
-			<language type="en_GB" alt="proposed-x1001" draft="unconfirmed">الإنجليزية (المملكة المتحدة)</language>
-			<language type="en_US" draft="provisional">إنجليزية الولايات المتحدة</language>
+			<language type="en_GB" alt="proposed-x1001" draft="unconfirmed">الإنجليزية البريطانية</language>
+			<language type="en_US" draft="contributed">إنجليزية الولايات المتحدة</language>
 			<language type="en_US" alt="proposed-x1001" draft="unconfirmed">الانجليزية (الولايات المتحدة الأمريكية)‏</language>
 			<language type="enm">الانجليزية الوسطى</language>
+			<language type="enm" alt="proposed-x1001" draft="unconfirmed">الإنجليزية الوسطى</language>
 			<language type="eo">اسبرانتو</language>
+			<language type="eo" alt="proposed-x1001" draft="unconfirmed">إسبرانتو</language>
 			<language type="es">الأسبانية</language>
-			<language type="es_419" draft="provisional">أسبانية أمريكا اللاتينية</language>
-			<language type="es_419" alt="proposed-x1001" draft="unconfirmed">الأيبانية (أمريكا اللاتينية)‏</language>
-			<language type="es_ES" draft="provisional">الأسبانية الأيبيرية</language>
-			<language type="es_ES" alt="proposed-x1001" draft="unconfirmed">الاسبانية (ايبريا)‏</language>
+			<language type="es_419" draft="contributed">أسبانية أمريكا اللاتينية</language>
+			<language type="es_ES" draft="contributed">الأسبانية الأيبيرية</language>
 			<language type="et">الأستونية</language>
+			<language type="et" alt="proposed-x1001" draft="unconfirmed">الإستونية</language>
 			<language type="eu">لغة الباسك</language>
 			<language type="ewo">الايوندو</language>
+			<language type="ewo" alt="proposed-x1001" draft="unconfirmed">الأيوندو</language>
 			<language type="fa">الفارسية</language>
 			<language type="fan">الفانج</language>
 			<language type="fat">الفانتى</language>
@@ -161,17 +179,18 @@
 			<language type="fi">الفنلندية</language>
 			<language type="fil">الفلبينية</language>
 			<language type="fiu">فينو أجرايان - أخرى</language>
+			<language type="fiu" alt="proposed-x1001" draft="unconfirmed">لغة فينو أجريانية</language>
 			<language type="fj">الفيجية</language>
 			<language type="fo">الفارويز</language>
 			<language type="fon">الفون</language>
 			<language type="fr">الفرنسية</language>
-			<language type="fr_CA" draft="provisional">الفرنسية الكندية</language>
-			<language type="fr_CH" draft="provisional">الفرنسية السويسرية</language>
+			<language type="fr_CA" draft="contributed">الفرنسية الكندية</language>
+			<language type="fr_CH" draft="contributed">الفرنسية السويسرية</language>
 			<language type="fr_CH" alt="proposed-x1001" draft="unconfirmed">الفرنسية (سويسرا)‏</language>
 			<language type="frm">الفرنسية الوسطى</language>
 			<language type="fro">الفرنسية القديمة</language>
-			<language type="frr" draft="provisional">الفريزينية الشمالية</language>
-			<language type="frs" draft="provisional">الفريزينية الشرقية</language>
+			<language type="frr" draft="contributed">الفريزينية الشمالية</language>
+			<language type="frs" draft="contributed">الفريزينية الشرقية</language>
 			<language type="fur">الفريلايان</language>
 			<language type="fy">الفريزيان</language>
 			<language type="ga">الأيرلندية</language>
@@ -180,6 +199,8 @@
 			<language type="gba">الجبيا</language>
 			<language type="gd">الغيلية الأسكتلندية</language>
 			<language type="gem">الجرمانية (أخرى)</language>
+			<language type="gem" alt="proposed-x1001" draft="unconfirmed">اللغة الجرمانية</language>
+			<language type="gem" alt="proposed-x1002" draft="unconfirmed">لغة جرمانية</language>
 			<language type="gez">الجيز</language>
 			<language type="gil">لغة أهل جبل طارق</language>
 			<language type="gl">الجاليكية</language>
@@ -188,16 +209,17 @@
 			<language type="goh">الألمانية العليا القديمة</language>
 			<language type="gon">الجندى</language>
 			<language type="gor">الجورونتالو</language>
-			<language type="got">الجرمانية</language>
+			<language type="got">القوطية</language>
 			<language type="grb">الجريبو</language>
 			<language type="grc">اليونانية القديمة</language>
-			<language type="gsw" draft="provisional">الألمانية السويسرية</language>
+			<language type="gsw" draft="contributed">الألمانية السويسرية</language>
 			<language type="gsw" alt="proposed-x1001" draft="unconfirmed">الألمانية (سويسرا)‏</language>
 			<language type="gu">الغوجاراتية</language>
 			<language type="gv">المنكية</language>
 			<language type="ha">الهوسا</language>
 			<language type="hai">الهيدا</language>
 			<language type="haw">لغة أهل الهاواى</language>
+			<language type="haw" alt="proposed-x1001" draft="unconfirmed">لغة هاواي</language>
 			<language type="he">العبرية</language>
 			<language type="hi">الهندية</language>
 			<language type="hil">الهيليجينون</language>
@@ -215,6 +237,7 @@
 			<language type="ia">اللّغة الوسيطة</language>
 			<language type="iba">الايبان</language>
 			<language type="id">الأندونيسية</language>
+			<language type="id" alt="proposed-x1001" draft="unconfirmed">الإندونيسية</language>
 			<language type="ie">الانترلينج</language>
 			<language type="ig">الايجبو</language>
 			<language type="ii">السيتشيون يى</language>
@@ -222,13 +245,20 @@
 			<language type="ik">الاينبياك</language>
 			<language type="ilo">الايلوكو</language>
 			<language type="inc">الهندية - أخرى</language>
+			<language type="inc" alt="proposed-x1001" draft="unconfirmed">لغة هندية</language>
 			<language type="ine">الهندية الأوروبية - أخرى</language>
+			<language type="ine" alt="proposed-x1001" draft="unconfirmed">لغة هندوأوربية</language>
+			<language type="ine" alt="proposed-x1002" draft="unconfirmed">لغة هند أوروبية</language>
 			<language type="inh">الانجوشية</language>
+			<language type="inh" alt="proposed-x1001" draft="unconfirmed">الإنجوشية</language>
 			<language type="io">الايدو</language>
 			<language type="ira">الايرانية</language>
+			<language type="ira" alt="proposed-x1001" draft="unconfirmed">لغة إيرانية</language>
 			<language type="iro">اللغات الايروكويانية</language>
+			<language type="iro" alt="proposed-x1001" draft="unconfirmed">لغة إيروكويانية</language>
 			<language type="is">الأيسلاندية</language>
 			<language type="it">الايطالية</language>
+			<language type="it" alt="proposed-x1001" draft="unconfirmed">الإيطالية</language>
 			<language type="iu">الاينكتيتت</language>
 			<language type="ja">اليابانية</language>
 			<language type="jbo">اللوجبان</language>
@@ -250,6 +280,7 @@
 			<language type="kg">الكونغو</language>
 			<language type="kha" draft="provisional">الكازية</language>
 			<language type="khi">الخويسان - أخرى</language>
+			<language type="khi" alt="proposed-x1001" draft="unconfirmed">لغة خويسانية</language>
 			<language type="kho">الخوتانيز</language>
 			<language type="ki">الكيكيو</language>
 			<language type="kj">الكيونياما</language>
@@ -284,9 +315,7 @@
 			<language type="ln">اللينجالا</language>
 			<language type="lo">اللاوية</language>
 			<language type="lol" draft="provisional">منغولى</language>
-			<language type="lol" alt="proposed-x1001" draft="unconfirmed">المنغولية</language>
-			<language type="lol" alt="proposed-x1002" draft="unconfirmed">المنغولية [lol]</language>
-			<language type="lol" alt="proposed-x1003" draft="unconfirmed">المنجو</language>
+			<language type="lol" alt="proposed-x1001" draft="unconfirmed">مونجو</language>
 			<language type="loz">اللوزى</language>
 			<language type="lt">اللتوانية</language>
 			<language type="lu">اللبا-كاتانجا</language>
@@ -313,8 +342,10 @@
 			<language type="mic">الميكماكيونية</language>
 			<language type="min">المينانجكاباو</language>
 			<language type="mis">اللغات المتنوعة</language>
+			<language type="mis" alt="proposed-x1001" draft="unconfirmed">لغات متنوعة</language>
 			<language type="mk">المقدونية</language>
 			<language type="mkh">المون خمير- أخرى</language>
+			<language type="mkh" alt="proposed-x1001" draft="unconfirmed">لغة مون - خمير</language>
 			<language type="ml">الماليالام</language>
 			<language type="mn">المنغولية</language>
 			<language type="mnc">المانشو</language>
@@ -327,16 +358,19 @@
 			<language type="ms">لغة الملايو</language>
 			<language type="mt">المالطية</language>
 			<language type="mul">اللغات المتعددة</language>
+			<language type="mul" alt="proposed-x1001" draft="unconfirmed">لغات متعددة</language>
 			<language type="mun">لغات المندا</language>
-			<language type="mus" draft="provisional">الكريك</language>
+			<language type="mus" draft="contributed">الكريك</language>
 			<language type="mwl">الميرانديز</language>
 			<language type="mwr">الماروارى</language>
 			<language type="my">البورمية</language>
 			<language type="myn">لغات المايا</language>
+			<language type="myn" alt="proposed-x1001" draft="unconfirmed">لغة مايا</language>
 			<language type="myv">اللغة الارزية</language>
 			<language type="na">النورو</language>
 			<language type="nah">الناهيوتل</language>
 			<language type="nai">الهندية الأمريكية الشمالية - أخرى</language>
+			<language type="nai" alt="proposed-x1001" draft="unconfirmed">لغة هند أمريكية شمالية</language>
 			<language type="nap">اللغة النابولية</language>
 			<language type="nb">البوكمالية النرويجية</language>
 			<language type="nd">النديبيل الشمالى</language>
@@ -353,10 +387,10 @@
 			<language type="nog">النوجاى</language>
 			<language type="non">النورس القديم</language>
 			<language type="nqo" draft="provisional">انكو</language>
-			<language type="nqo" alt="proposed-x1001" draft="unconfirmed">نكو</language>
 			<language type="nr">النديبيل الجنوبى</language>
-			<language type="nso" draft="provisional">السوتو الشمالية</language>
+			<language type="nso" draft="contributed">السوتو الشمالية</language>
 			<language type="nub">اللغات النوبية</language>
+			<language type="nub" alt="proposed-x1001" draft="unconfirmed">لغة نوبية</language>
 			<language type="nv">النافاجو</language>
 			<language type="nwc">النوارية التقليدية</language>
 			<language type="ny">النيانجا، التشيتشوا، التشوا</language>
@@ -365,7 +399,6 @@
 			<language type="nyo">النيورو</language>
 			<language type="nzi">النزيما</language>
 			<language type="oc">الأوكيتانية</language>
-			<language type="oc" alt="proposed-x1001" draft="unconfirmed">الأوكيتان (بعد 1500)، بروفينسية</language>
 			<language type="oj">الأوجيبوا</language>
 			<language type="om">الأورومو</language>
 			<language type="or">الأورييا</language>
@@ -373,8 +406,10 @@
 			<language type="osa">الأوساج</language>
 			<language type="ota">التركية العثمانية</language>
 			<language type="oto" draft="provisional">اللغات الأوتومية</language>
+			<language type="oto" alt="proposed-x1001" draft="unconfirmed">لغة أتومية</language>
 			<language type="pa">البنجابية</language>
 			<language type="paa">الغينية - أخرى</language>
+			<language type="paa" alt="proposed-x1001" draft="unconfirmed">لغة بابونية</language>
 			<language type="pag">البانجاسينان</language>
 			<language type="pal">البهلوية</language>
 			<language type="pam">البامبانجا</language>
@@ -382,6 +417,7 @@
 			<language type="pau">البالوان</language>
 			<language type="peo">الفارسية القديمة</language>
 			<language type="phi">الفليبينية - أخرى</language>
+			<language type="phi" alt="proposed-x1001" draft="unconfirmed">لغة فلبينية</language>
 			<language type="phn">الفينيقية</language>
 			<language type="pi">البالية</language>
 			<language type="pl">البولندية</language>
@@ -391,8 +427,7 @@
 			<language type="ps">البشتونية</language>
 			<language type="pt">البرتغالية</language>
 			<language type="pt_BR">البرتغالية البرازيلية</language>
-			<language type="pt_PT" draft="provisional">البرتغالية الأيبيرية</language>
-			<language type="pt_PT" alt="proposed-x1001" draft="unconfirmed">البرتغالية (ايبريا)‏</language>
+			<language type="pt_PT" draft="contributed">البرتغالية الأيبيرية</language>
 			<language type="qu">الكويتشوا</language>
 			<language type="raj">الراجاسثانية</language>
 			<language type="rap">الرابانى</language>
@@ -421,17 +456,21 @@
 			<language type="se">السامي الشمالى</language>
 			<language type="sel">السيلكب</language>
 			<language type="sem">السامية - أخرى</language>
+			<language type="sem" alt="proposed-x1001" draft="unconfirmed">لغة سامية</language>
 			<language type="sg">السانجو</language>
 			<language type="sga">الأيرلندية القديمة</language>
 			<language type="sgn">لغات الأشارة</language>
+			<language type="sgn" alt="proposed-x1001" draft="unconfirmed">لغة إشارة</language>
 			<language type="shn">الشانية</language>
 			<language type="si">السريلانكية</language>
 			<language type="sid">السيدامو</language>
 			<language type="sio">لغات السيويون</language>
 			<language type="sit">الصينية التيبتية - أخرى</language>
+			<language type="sit" alt="proposed-x1001" draft="unconfirmed">لغة صينية تبيتية</language>
 			<language type="sk">السلوفاكية</language>
 			<language type="sl">السلوفانية</language>
 			<language type="sla">السلافية - أخرى</language>
+			<language type="sla" alt="proposed-x1001" draft="unconfirmed">لغة سلافية</language>
 			<language type="sm">الساموائية</language>
 			<language type="sma">السامي الجنوبى</language>
 			<language type="smi">اللغات السامية - أخرى</language>
@@ -449,14 +488,17 @@
 			<language type="srr" draft="provisional">السرر</language>
 			<language type="ss">السواتى</language>
 			<language type="ssa">النيلية الصحراوية - أخرى</language>
+			<language type="ssa" alt="proposed-x1001" draft="unconfirmed">لغة نيلية صحراوية</language>
 			<language type="st" draft="provisional">السوتو الجنوبية</language>
 			<language type="su">السودانية</language>
 			<language type="su" alt="proposed-x1001" draft="unconfirmed">السوندانية</language>
+			<language type="su" alt="proposed-x1002" draft="unconfirmed">السندية</language>
 			<language type="suk">السوكوما</language>
 			<language type="sus">السوسو</language>
 			<language type="sux">السومارية</language>
 			<language type="sv">السويدية</language>
 			<language type="sw">السواحلية</language>
+			<language type="syc" draft="unconfirmed">سريانية تقليدية</language>
 			<language type="syr">السريانية</language>
 			<language type="ta">التاميلية</language>
 			<language type="tai">تاى - أخرى</language>
@@ -486,6 +528,7 @@
 			<language type="tum">التامبوكا</language>
 			<language type="tup">اللغات التوبية</language>
 			<language type="tut">الألطائية - أخرى</language>
+			<language type="tut" alt="proposed-x1001" draft="unconfirmed">لغة ألطائية</language>
 			<language type="tvl">التوفالو</language>
 			<language type="tw">التوى</language>
 			<language type="ty">التاهيتية</language>
@@ -495,6 +538,7 @@
 			<language type="uk">الأوكرانية</language>
 			<language type="umb">الأمبندو</language>
 			<language type="und">غير محدده</language>
+			<language type="und" alt="proposed-x1001" draft="unconfirmed">لغة غير معروفة</language>
 			<language type="ur">الأردية</language>
 			<language type="uz">الاوزباكية</language>
 			<language type="vai">الفاى</language>
@@ -507,6 +551,7 @@
 			<language type="war">الواراى</language>
 			<language type="was">الواشو</language>
 			<language type="wen">اللغات الصربية</language>
+			<language type="wen" alt="proposed-x1001" draft="unconfirmed">لغة صربية</language>
 			<language type="wo">الولوف</language>
 			<language type="xal">الكالميك</language>
 			<language type="yao">الياو</language>
@@ -518,12 +563,12 @@
 			<language type="zap">الزابوتيك</language>
 			<language type="zen">الزيناجا</language>
 			<language type="zh">الصينية</language>
-			<language type="zh_Hans" draft="provisional">الصينية المبسطة</language>
-			<language type="zh_Hant" draft="provisional">الصينية التقليدية</language>
+			<language type="zh_Hans">الصينية المبسطة</language>
+			<language type="zh_Hant">الصينية التقليدية</language>
 			<language type="znd">الزاند</language>
-			<language type="zu" draft="provisional">الزولو</language>
+			<language type="zu" draft="contributed">الزولو</language>
 			<language type="zun">الزونية</language>
-			<language type="zxx" draft="provisional">بدون محتوى لغوي</language>
+			<language type="zxx" draft="contributed">بدون محتوى لغوي</language>
 		</languages>
 		<scripts>
 			<script type="Arab">العربية</script>
@@ -537,8 +582,8 @@
 			<script type="Brai">البرايل</script>
 			<script type="Bugi">البجينيز</script>
 			<script type="Buhd">البهيدية</script>
-			<script type="Cans">رموز أصلية كندية موحدة</script>
-			<script type="Cari" draft="provisional">الكارية</script>
+			<script type="Cans">مقطعيات أصلية كندية موحدة</script>
+			<script type="Cari" draft="contributed">الكارية</script>
 			<script type="Cham">التشامية</script>
 			<script type="Cher">الشيروكى</script>
 			<script type="Cirt">السيرث</script>
@@ -546,12 +591,14 @@
 			<script type="Cprt">القبرصية</script>
 			<script type="Cyrl">السيريلية</script>
 			<script type="Cyrs">السيريلية - متغير السلافية الكنسية القديمة</script>
+			<script type="Cyrs" alt="proposed-x1001" draft="unconfirmed">السيريلية السلافية الكنسية القديمة</script>
 			<script type="Deva">الديفاناجارى</script>
 			<script type="Dsrt">الديسيريت</script>
 			<script type="Egyd">الديموطيقية</script>
 			<script type="Egyh">الهيراطيقية</script>
 			<script type="Egyp">الهيروغليفية</script>
 			<script type="Ethi">الاثيوبية</script>
+			<script type="Ethi" alt="proposed-x1001" draft="unconfirmed">الإثيوبية</script>
 			<script type="Geok">الأبجدية الجورجية - أسومتافرلى و نسخرى</script>
 			<script type="Geor">الجورجية</script>
 			<script type="Glag">الجلاجوليتيك</script>
@@ -560,6 +607,7 @@
 			<script type="Gujr">التاغجراتية</script>
 			<script type="Guru">الجرمخى</script>
 			<script type="Hang">الهانجل</script>
+			<script type="Hang" alt="proposed-x1001" draft="unconfirmed">الهانغول</script>
 			<script type="Hani">الهان</script>
 			<script type="Hano">الهانونو</script>
 			<script type="Hans">الهان المبسطة</script>
@@ -570,17 +618,16 @@
 			<script type="Hrkt">الكتكانا أو الهيراجانا</script>
 			<script type="Hung">المجرية القديمة</script>
 			<script type="Inds">اندس - هارابان</script>
-			<script type="Ital" draft="provisional">الايطالية القديمة</script>
-			<script type="Ital" alt="proposed-x1001" draft="unconfirmed">الأيطالية القديمة</script>
-			<script type="Ital" alt="proposed-x1002" draft="unconfirmed">اللأيطالية القديمة</script>
+			<script type="Ital">الإيطالية القديمة</script>
 			<script type="Java">الجاوية</script>
-			<script type="Jpan" draft="provisional">اليبانية</script>
+			<script type="Jpan">اليابانية</script>
 			<script type="Kali">الكياه لى</script>
 			<script type="Kana">الكتكانا</script>
 			<script type="Khar">الخاروشتى</script>
 			<script type="Khmr">الخميرية</script>
 			<script type="Knda">الكانادا</script>
-			<script type="Lana" draft="provisional">الانا</script>
+			<script type="Kore">الكورية</script>
+			<script type="Lana" draft="contributed">الانا</script>
 			<script type="Laoo">اللاو</script>
 			<script type="Latf">اللاتينية - متغير فراكتر</script>
 			<script type="Latg">اللاتينية - متغير غيلى</script>
@@ -589,14 +636,14 @@
 			<script type="Limb">الليمبو</script>
 			<script type="Lina">الخطية أ</script>
 			<script type="Linb">الخطية ب</script>
-			<script type="Lyci" draft="provisional">الليسية</script>
-			<script type="Lydi" draft="provisional">الليدية</script>
+			<script type="Lyci" draft="contributed">الليسية</script>
+			<script type="Lydi" draft="contributed">الليدية</script>
 			<script type="Mand">المانداينية</script>
 			<script type="Maya">المايا الهيروغليفية</script>
 			<script type="Mero">الميرويتيك</script>
 			<script type="Mlym">الماليالام</script>
 			<script type="Mong">المغولية</script>
-			<script type="Moon" draft="provisional">مون</script>
+			<script type="Moon" draft="contributed">مون</script>
 			<script type="Mymr">الميانمار</script>
 			<script type="Nkoo">انكو</script>
 			<script type="Ogam">الأوجهام</script>
@@ -613,12 +660,16 @@
 			<script type="Sara">الساراتى</script>
 			<script type="Shaw">الشوانى</script>
 			<script type="Sinh">السينهالا</script>
-			<script type="Sund" draft="provisional">السوندانية</script>
+			<script type="Sund">السوندانية</script>
 			<script type="Sylo">السيلوتى ناجرى</script>
 			<script type="Syrc">السريانية</script>
 			<script type="Syre">السريانية [Syre]</script>
+			<script type="Syre" alt="proposed-x1001" draft="unconfirmed">السرياني الإسطرنجيلي</script>
+			<script type="Syre" alt="proposed-x1002" draft="unconfirmed">السريانية الاسترنجيلية</script>
 			<script type="Syrj">السريانية - متغير غربى</script>
+			<script type="Syrj" alt="proposed-x1001" draft="unconfirmed">السريانية الغربية</script>
 			<script type="Syrn">السريانية - متغير شرقى</script>
+			<script type="Syrn" alt="proposed-x1001" draft="unconfirmed">السريانية الشرقية</script>
 			<script type="Tagb">التاجبانوا</script>
 			<script type="Tale">التاى لى</script>
 			<script type="Talu">التاى لى الجديد</script>
@@ -637,21 +688,30 @@
 			<script type="Xsux">الكتابة المسمارية الأكادية السومارية</script>
 			<script type="Yiii">اليى</script>
 			<script type="Zxxx">شفرة للغات الغير مكتوبة</script>
+			<script type="Zxxx" alt="proposed-x1001" draft="unconfirmed">غير مكتوب</script>
 			<script type="Zyyy">عام</script>
 			<script type="Zzzz">شفرة للنصوص الغير مشفرة</script>
+			<script type="Zzzz" alt="proposed-x1001" draft="unconfirmed">نظام كتابة غير معروف</script>
 		</scripts>
 		<territories>
 			<territory type="001">العالم</territory>
 			<territory type="002">افريقيا</territory>
-			<territory type="003" draft="provisional">أمريكا الشمالية</territory>
+			<territory type="002" alt="proposed-x1001" draft="unconfirmed">إفريقيا</territory>
+			<territory type="002" alt="proposed-x1002" draft="unconfirmed">أفريقيا</territory>
+			<territory type="003">أمريكا الشمالية</territory>
 			<territory type="005">أمريكا الجنوبية</territory>
 			<territory type="009">أوقيانوسيا</territory>
 			<territory type="011">غرب افريقيا</territory>
+			<territory type="011" alt="proposed-x1001" draft="unconfirmed">غرب إفريقيا</territory>
 			<territory type="013">أمريكا الوسطى</territory>
 			<territory type="014">شرق افريقيا</territory>
+			<territory type="014" alt="proposed-x1001" draft="unconfirmed">شرق إفريقيا</territory>
 			<territory type="015">شمال افريقيا</territory>
+			<territory type="015" alt="proposed-x1001" draft="unconfirmed">شمال إفريقيا</territory>
 			<territory type="017">وسط افريقيا</territory>
+			<territory type="017" alt="proposed-x1001" draft="unconfirmed">وسط إفريقيا</territory>
 			<territory type="018">جنوب افريقيا</territory>
+			<territory type="018" alt="proposed-x1001" draft="unconfirmed">جنوب إفريقيا</territory>
 			<territory type="019">الأمريكتين</territory>
 			<territory type="021">شمال أمريكا</territory>
 			<territory type="029">الكاريبي</territory>
@@ -663,7 +723,7 @@
 			<territory type="054">ميلانيزيا</territory>
 			<territory type="057">الجزر الميكرونيزية</territory>
 			<territory type="061">بولينيزيا</territory>
-			<territory type="062" draft="provisional">جنوب وسط آسيا</territory>
+			<territory type="062" draft="contributed">جنوب وسط آسيا</territory>
 			<territory type="142">آسيا</territory>
 			<territory type="143">وسط آسيا</territory>
 			<territory type="145">غرب آسيا</territory>
@@ -675,6 +735,7 @@
 			<territory type="419">أمريكا اللاتينية و الكاريبي</territory>
 			<territory type="AD">أندورا</territory>
 			<territory type="AE">الامارات العربية المتحدة</territory>
+			<territory type="AE" alt="proposed-x1001" draft="unconfirmed">الإمارات العربية المتحدة</territory>
 			<territory type="AF">أفغانستان</territory>
 			<territory type="AG">أنتيجوا وبربودا</territory>
 			<territory type="AI">أنجويلا</territory>
@@ -710,9 +771,10 @@
 			<territory type="BY">روسيا البيضاء</territory>
 			<territory type="BZ">بليز</territory>
 			<territory type="CA">كندا</territory>
-			<territory type="CC">جزر كوكوس (كيلنج)</territory>
+			<territory type="CC">جزر كوكوس</territory>
 			<territory type="CD">جمهورية الكونغو الديمقراطية</territory>
 			<territory type="CF">جمهورية افريقيا الوسطى</territory>
+			<territory type="CF" alt="proposed-x1001" draft="unconfirmed">جمهورية إفريقيا الوسطى</territory>
 			<territory type="CG">الكونغو - برازافيل</territory>
 			<territory type="CH">سويسرا</territory>
 			<territory type="CI">ساحل العاج</territory>
@@ -735,12 +797,15 @@
 			<territory type="DO">جمهورية الدومينيك</territory>
 			<territory type="DZ">الجزائر</territory>
 			<territory type="EC">الاكوادور</territory>
+			<territory type="EC" alt="proposed-x1001" draft="unconfirmed">الإكوادور</territory>
 			<territory type="EE">استونيا</territory>
 			<territory type="EG">مصر</territory>
 			<territory type="EH">الصحراء الغربية</territory>
 			<territory type="ER">اريتريا</territory>
+			<territory type="ER" alt="proposed-x1001" draft="unconfirmed">أريتريا</territory>
 			<territory type="ES">أسبانيا</territory>
 			<territory type="ET">اثيوبيا</territory>
+			<territory type="ET" alt="proposed-x1001" draft="unconfirmed">إثيوبيا</territory>
 			<territory type="FI">فنلندا</territory>
 			<territory type="FJ">فيجي</territory>
 			<territory type="FK">جزر فوكلاند</territory>
@@ -766,7 +831,7 @@
 			<territory type="GW">غينيا بيساو</territory>
 			<territory type="GY">غيانا</territory>
 			<territory type="HK">هونج كونج الصينية</territory>
-			<territory type="HK" alt="short" draft="provisional">هونج كونج</territory>
+			<territory type="HK" alt="short">هونج كونج</territory>
 			<territory type="HM">جزيرة هيرد وماكدونالد</territory>
 			<territory type="HN">هندوراس</territory>
 			<territory type="HR">كرواتيا</territory>
@@ -775,15 +840,17 @@
 			<territory type="ID">اندونيسيا</territory>
 			<territory type="IE">أيرلاندا</territory>
 			<territory type="IL">اسرائيل</territory>
-			<territory type="IM" draft="provisional">جزيرة مان</territory>
+			<territory type="IL" alt="proposed-x1001" draft="unconfirmed">إسرائيل</territory>
+			<territory type="IM">جزيرة مان</territory>
 			<territory type="IN">الهند</territory>
 			<territory type="IO">المحيط الهندي البريطاني</territory>
 			<territory type="IQ">العراق</territory>
 			<territory type="IR">ايران</territory>
+			<territory type="IR" alt="proposed-x1001" draft="unconfirmed">إيران</territory>
 			<territory type="IS">أيسلندا</territory>
 			<territory type="IT">ايطاليا</territory>
-			<territory type="JE" draft="provisional">جيرسى</territory>
-			<territory type="JE" alt="proposed-x1001" draft="unconfirmed">جرسي</territory>
+			<territory type="IT" alt="proposed-x1001" draft="unconfirmed">إيطاليا</territory>
+			<territory type="JE">جيرسي</territory>
 			<territory type="JM">جامايكا</territory>
 			<territory type="JO">الأردن</territory>
 			<territory type="JP">اليابان</territory>
@@ -812,7 +879,8 @@
 			<territory type="MA">المغرب</territory>
 			<territory type="MC">موناكو</territory>
 			<territory type="MD">مولدافيا</territory>
-			<territory type="ME" draft="provisional">الجبل الأسود</territory>
+			<territory type="ME">الجبل الأسود</territory>
+			<territory type="MF">سانت مارتين</territory>
 			<territory type="MG">مدغشقر</territory>
 			<territory type="MH">جزر المارشال</territory>
 			<territory type="MK">مقدونيا</territory>
@@ -820,7 +888,7 @@
 			<territory type="MM">ميانمار</territory>
 			<territory type="MN">منغوليا</territory>
 			<territory type="MO">ماكاو الصينية</territory>
-			<territory type="MO" alt="short" draft="provisional">ماكاو</territory>
+			<territory type="MO" alt="short">ماكاو</territory>
 			<territory type="MP">جزر ماريانا الشمالية</territory>
 			<territory type="MQ">مارتينيك</territory>
 			<territory type="MR">موريتانيا</territory>
@@ -847,9 +915,7 @@
 			<territory type="OM">عمان</territory>
 			<territory type="PA">بنما</territory>
 			<territory type="PE">بيرو</territory>
-			<territory type="PF">بولينيزيا [PF]</territory>
-			<territory type="PF" alt="proposed-x1001" draft="unconfirmed">بولينيزيا الفرنسية</territory>
-			<territory type="PF" alt="proposed-x1002" draft="unconfirmed">البولينيزية الفرنسية</territory>
+			<territory type="PF">بولينيزيا الفرنسية</territory>
 			<territory type="PG">بابوا غينيا الجديدة</territory>
 			<territory type="PH">الفيلبين</territory>
 			<territory type="PK">باكستان</territory>
@@ -863,11 +929,11 @@
 			<territory type="PY">باراجواي</territory>
 			<territory type="QA">قطر</territory>
 			<territory type="QO">أوقيانوسيا النائية</territory>
-			<territory type="QO" alt="proposed-x1001" draft="unconfirmed">اوقيانوسيا النائية</territory>
 			<territory type="QU">الاتحاد الاوروبي</territory>
+			<territory type="QU" alt="proposed-x1001" draft="unconfirmed">الاتحاد الأوروبي</territory>
 			<territory type="RE">روينيون</territory>
 			<territory type="RO">رومانيا</territory>
-			<territory type="RS" draft="provisional">صربيا</territory>
+			<territory type="RS">صربيا</territory>
 			<territory type="RU">روسيا</territory>
 			<territory type="RW">رواندا</territory>
 			<territory type="SA">المملكة العربية السعودية</territory>
@@ -926,44 +992,54 @@
 			<territory type="ZM">زامبيا</territory>
 			<territory type="ZW">زيمبابوي</territory>
 			<territory type="ZZ">منطقة غير معرفة</territory>
-			<territory type="ZZ" alt="proposed-x1001" draft="unconfirmed">غير معروف</territory>
 		</territories>
 		<variants>
-			<variant type="1901" draft="provisional">التهجئة الألمانية التقليدية</variant>
-			<variant type="1996" draft="provisional">التهجئة الألمانية 1996</variant>
+			<variant type="1901" draft="contributed">الكتابة الألمانية التقليدية</variant>
+			<variant type="1996" draft="contributed">الكتابة الألمانية لعام 1996</variant>
 			<variant type="AREVELA" draft="provisional">ارمنية شرقية</variant>
+			<variant type="AREVELA" alt="proposed-x1001" draft="unconfirmed">أرمنية شرقية</variant>
 			<variant type="AREVMDA" draft="provisional">ارمنية غربية</variant>
-			<variant type="MONOTON" draft="provisional">احادي النغمة</variant>
+			<variant type="BAKU1926" draft="unconfirmed">الأبجدية التركية اللاتينية الموحدة</variant>
+			<variant type="MONOTON" draft="contributed">أحادي النغمة</variant>
 			<variant type="NEDIS">لهجة ناتيسون</variant>
 			<variant type="POLYTON" draft="provisional">متعدد النغمات</variant>
-			<variant type="POSIX" draft="provisional">حاسب آلي</variant>
-			<variant type="REVISED" draft="provisional">تهجئة تم مراجعتها</variant>
+			<variant type="POSIX" draft="contributed">كمبيوتر</variant>
+			<variant type="POSIX" alt="proposed-x1001" draft="unconfirmed">حاسوب</variant>
+			<variant type="REVISED" draft="contributed">كتابة تم مراجعتها</variant>
 			<variant type="VALENCIA" draft="provisional">بلنسية</variant>
 		</variants>
 		<keys>
 			<key type="calendar">التقويم</key>
-			<key type="calendar" alt="proposed-x1001" draft="unconfirmed">تقويم</key>
 			<key type="collation">الترتيب</key>
+			<key type="collation" alt="proposed-x1001" draft="unconfirmed">ترتيب</key>
 			<key type="currency">العملات</key>
 		</keys>
 		<types>
-			<type type="big5han" key="collation">الصينية التقليدية (Big5)</type>
+			<type type="big5han" key="collation">الترتيب الصيني التقليدي - Big5</type>
 			<type type="buddhist" key="calendar">التقويم البوذي</type>
 			<type type="chinese" key="calendar">التقويم الصيني</type>
 			<type type="direct" key="collation">ترتيب مباشر</type>
-			<type type="gb2312han" key="collation">الصينية المبسطة (GB2312)</type>
+			<type type="gb2312han" key="collation">الترتيب الصيني المبسط - GB2312</type>
 			<type type="gregorian" key="calendar">التقويم الميلادي</type>
 			<type type="hebrew" key="calendar">التقويم العبري</type>
 			<type type="islamic" key="calendar">التقويم الهجري</type>
 			<type type="islamic-civil" key="calendar">تقويم اسلامي مدني</type>
+			<type type="islamic-civil" key="calendar" alt="proposed-x1001" draft="unconfirmed">تقويم إسلامي مدني</type>
 			<type type="japanese" key="calendar">التقويم الياباني</type>
 			<type type="phonebook" key="collation">ترتيب دليل الهاتف</type>
 			<type type="traditional" key="collation">تقليدي</type>
+			<type type="traditional" key="collation" alt="proposed-x1001" draft="unconfirmed">ترتيب تقليدي</type>
+			<type type="traditional" key="collation" alt="proposed-x1002" draft="unconfirmed">الترتيب التقليدي</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="US">النظام الأمريكي</measurementSystemName>
 			<measurementSystemName type="metric">النظام المتري</measurementSystemName>
 		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language" draft="contributed">اللغة: {0}</codePattern>
+			<codePattern type="script" draft="contributed">نظام الكتابة: {0}</codePattern>
+			<codePattern type="territory" draft="contributed">المنطقة: {0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<layout>
 		<orientation characters="right-to-left"/>
@@ -971,16 +1047,13 @@
 	<characters>
 		<exemplarCharacters>[ً-ْ ـ ء-غ ف-ي]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200C \u200D]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol" draft="contributed">[a-z]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="provisional">”</quotationStart>
-		<quotationStart alt="proposed-x1001" draft="unconfirmed">‘</quotationStart>
 		<quotationEnd draft="provisional">“</quotationEnd>
-		<quotationEnd alt="proposed-x1001" draft="unconfirmed">’</quotationEnd>
 		<alternateQuotationStart draft="provisional">’</alternateQuotationStart>
-		<alternateQuotationStart alt="proposed-x1001" draft="unconfirmed">&quot;</alternateQuotationStart>
 		<alternateQuotationEnd draft="provisional">‘</alternateQuotationEnd>
-		<alternateQuotationEnd alt="proposed-x1001" draft="unconfirmed">&quot;</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
@@ -1007,11 +1080,9 @@
 							<month type="2" draft="provisional">بابه</month>
 							<month type="3" draft="provisional">هاتور</month>
 							<month type="4" draft="provisional">كيهك</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">كياهك</month>
 							<month type="5" draft="provisional">طوبة</month>
 							<month type="6" draft="provisional">أمشير</month>
 							<month type="7" draft="provisional">برمهات</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">برامهات</month>
 							<month type="8" draft="provisional">برمودة</month>
 							<month type="9" draft="provisional">بشنس</month>
 							<month type="10" draft="provisional">بؤونة</month>
@@ -1024,11 +1095,9 @@
 							<month type="2" draft="provisional">بابه</month>
 							<month type="3" draft="provisional">هاتور</month>
 							<month type="4" draft="provisional">كيهك</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">كياهك</month>
 							<month type="5" draft="provisional">طوبة</month>
 							<month type="6" draft="provisional">أمشير</month>
 							<month type="7" draft="provisional">برمهات</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">برامهات</month>
 							<month type="8" draft="provisional">برمودة</month>
 							<month type="9" draft="provisional">بشنس</month>
 							<month type="10" draft="provisional">بؤونة</month>
@@ -1154,13 +1223,13 @@
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun" draft="provisional">أحد</day>
-							<day type="mon" draft="provisional">اثنين</day>
-							<day type="tue" draft="provisional">ثلاثاء</day>
-							<day type="wed" draft="provisional">أربعاء</day>
-							<day type="thu" draft="provisional">خميس</day>
-							<day type="fri" draft="provisional">جمعة</day>
-							<day type="sat" draft="provisional">سبت</day>
+							<day type="sun" draft="contributed">أحد</day>
+							<day type="mon" draft="contributed">اثنين</day>
+							<day type="tue" draft="contributed">ثلاثاء</day>
+							<day type="wed" draft="contributed">أربعاء</day>
+							<day type="thu" draft="contributed">خميس</day>
+							<day type="fri" draft="contributed">جمعة</day>
+							<day type="sat" draft="contributed">سبت</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">ح</day>
@@ -1190,10 +1259,10 @@
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="narrow">
-							<quarter type="1" draft="provisional">1</quarter>
-							<quarter type="2" draft="provisional">2</quarter>
-							<quarter type="3" draft="provisional">3</quarter>
-							<quarter type="4" draft="provisional">4</quarter>
+							<quarter type="1" draft="contributed">١</quarter>
+							<quarter type="2" draft="contributed">٢</quarter>
+							<quarter type="3" draft="contributed">٣</quarter>
+							<quarter type="4" draft="contributed">٤</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1201,8 +1270,8 @@
 				<pm>م</pm>
 				<eras>
 					<eraNames>
-						<era type="0" draft="provisional">قبل الميلاد</era>
-						<era type="1" draft="provisional">ميلادي</era>
+						<era type="0">قبل الميلاد</era>
+						<era type="1">ميلادي</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ق.م</era>
@@ -1213,27 +1282,23 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d MMMM, yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE d MMMM yyyy</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE، d MMMM، yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>d MMMM, yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">d MMMM yyyy</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">d MMMM، yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>dd‏/MM‏/yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">‮dd/MM/yyyy</pattern>
-							<pattern alt="proposed-x1002" draft="unconfirmed">dd/MM/yyyy</pattern>
-							<pattern alt="proposed-x1003" draft="unconfirmed">dd‏‏/MM‏/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>d‏/M‏/yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">d/M/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1246,7 +1311,6 @@
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern>z h:mm:ss a</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">h:mm:ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -1267,13 +1331,32 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
+						<dateFormatItem id="Hm" draft="contributed">H:mm</dateFormatItem>
+						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
+						<dateFormatItem id="MEd" draft="unconfirmed">E، d-M</dateFormatItem>
+						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="contributed">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd" draft="contributed">E d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="contributed">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="contributed">d MMM</dateFormatItem>
 						<dateFormatItem id="MMdd">dd‏/MM</dateFormatItem>
 						<dateFormatItem id="MMdd" alt="proposed-x1001" draft="unconfirmed">dd/MM</dateFormatItem>
-						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
+						<dateFormatItem id="Md" draft="unconfirmed">d/M</dateFormatItem>
+						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
+						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">yyyy</dateFormatItem>
+						<dateFormatItem id="yM" draft="contributed">M/yyyy</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="unconfirmed">EEE، d/M/yyyy</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="contributed">MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="unconfirmed">EEE، d MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yQ" draft="contributed">yyyy Q</dateFormatItem>
+						<dateFormatItem id="yQQQ" draft="contributed">yyyy QQQ</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="contributed">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM">MM‏/yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" alt="proposed-x1001" draft="unconfirmed">MM/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM, yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="contributed">MMMM, yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-x1001" draft="unconfirmed">MMMM، yyyy</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0} – {1}</intervalFormatFallback>
@@ -1367,18 +1450,17 @@
 						<displayName>الأسبوع</displayName>
 					</field>
 					<field type="day">
-						<displayName draft="provisional">يوم</displayName>
-						<displayName alt="proposed-x1001" draft="unconfirmed">اليوم</displayName>
+						<displayName>يوم</displayName>
 						<relative type="0">اليوم</relative>
 						<relative type="1">غدا</relative>
 						<relative type="2">بعد الغد</relative>
-						<relative type="-1" draft="provisional">امس</relative>
+						<relative type="-1">أمس</relative>
 					</field>
 					<field type="weekday">
 						<displayName>اليوم</displayName>
 					</field>
 					<field type="dayperiod">
-						<displayName draft="provisional">النهار</displayName>
+						<displayName>ص/م</displayName>
 					</field>
 					<field type="hour">
 						<displayName>الساعات</displayName>
@@ -1391,6 +1473,7 @@
 					</field>
 					<field type="zone">
 						<displayName>التوقيت</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">المنطقة</displayName>
 					</field>
 				</fields>
 			</calendar>
@@ -1402,14 +1485,12 @@
 							<month type="2" draft="provisional">مرحشوان</month>
 							<month type="3" draft="unconfirmed">كيسلو</month>
 							<month type="4" draft="provisional">طيفت</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">طيست</month>
 							<month type="5" draft="provisional">شباط</month>
 							<month type="6" draft="provisional">آذار الأول</month>
 							<month type="7" draft="provisional">آذار الثاني</month>
 							<month type="8" draft="provisional">نيسان</month>
 							<month type="9" draft="provisional">أيار</month>
 							<month type="10" draft="provisional">سيفان</month>
-							<month type="10" alt="proposed-x1001" draft="unconfirmed">سيوان</month>
 							<month type="11" draft="provisional">تموز</month>
 							<month type="12" draft="unconfirmed">آب</month>
 							<month type="13" draft="unconfirmed">أيلول</month>
@@ -1419,14 +1500,12 @@
 							<month type="2" draft="unconfirmed">مرحشوان</month>
 							<month type="3" draft="unconfirmed">كيسلو</month>
 							<month type="4" draft="provisional">طيفت</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">طيست</month>
 							<month type="5" draft="provisional">شباط</month>
 							<month type="6" draft="provisional">آذار الأول</month>
 							<month type="7" draft="provisional">آذار الثاني</month>
 							<month type="8" draft="provisional">نيسان</month>
 							<month type="9" draft="provisional">أيار</month>
 							<month type="10" draft="provisional">سيفان</month>
-							<month type="10" alt="proposed-x1001" draft="unconfirmed">سيوان</month>
 							<month type="11" draft="provisional">تموز</month>
 							<month type="12" draft="unconfirmed">آب</month>
 						</monthWidth>
@@ -1452,6 +1531,8 @@
 						</monthWidth>
 					</monthContext>
 				</months>
+				<am>ص</am>
+				<pm>م</pm>
 				<eras>
 					<eraAbbr>
 						<era type="0">ه‍</era>
@@ -1713,14 +1794,11 @@
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
 							<month type="1" draft="provisional">فرفردن</month>
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">فروردین</month>
 							<month type="2" draft="unconfirmed">أذربيهشت</month>
 							<month type="3" draft="unconfirmed">خرداد</month>
 							<month type="4" draft="provisional">تار</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">تیر</month>
 							<month type="5" draft="unconfirmed">مرداد</month>
 							<month type="6" draft="provisional">شهرفار</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">شهریار</month>
 							<month type="7" draft="unconfirmed">مهر</month>
 							<month type="8" draft="unconfirmed">آيان</month>
 							<month type="9" draft="unconfirmed">آذر</month>
@@ -1730,14 +1808,11 @@
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="provisional">فرفردن</month>
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">فروردین</month>
 							<month type="2" draft="unconfirmed">أذربيهشت</month>
 							<month type="3" draft="unconfirmed">خرداد</month>
 							<month type="4" draft="provisional">تار</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">تیر</month>
 							<month type="5" draft="unconfirmed">مرداد</month>
 							<month type="6" draft="provisional">شهرفار</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">شهریار</month>
 							<month type="7" draft="unconfirmed">مهر</month>
 							<month type="8" draft="unconfirmed">آيان</month>
 							<month type="9" draft="unconfirmed">آذر</month>
@@ -1756,253 +1831,253 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat alt="proposed-x1001" draft="unconfirmed">GMT{0}</gmtFormat>
-			<gmtFormat alt="proposed-x1002" draft="provisional">توقيت جرينتش{0}</gmtFormat>
 			<regionFormat draft="provisional">{0}</regionFormat>
 			<zone type="Africa/Timbuktu">
-				<exemplarCity draft="provisional">تمبوكتو</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">تيمبيوكتو</exemplarCity>
+				<exemplarCity draft="contributed">تمبكتو</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/ComodRivadavia">
-				<exemplarCity draft="provisional">كومودريفادافيا</exemplarCity>
+				<exemplarCity draft="contributed">كومودريفادافيا</exemplarCity>
 			</zone>
 			<!-- Svalbard and Jan Mayen -->
 			<zone type="Atlantic/Jan_Mayen">
-				<exemplarCity draft="unconfirmed">جان ماين</exemplarCity>
+				<exemplarCity draft="contributed">جان ماين</exemplarCity>
 			</zone>
 			<!-- United Kingdom -->
 			<zone type="Europe/Belfast">
-				<exemplarCity draft="unconfirmed">بلفاست</exemplarCity>
+				<exemplarCity draft="contributed">بلفاست</exemplarCity>
 			</zone>
 			<!-- Micronesia -->
 			<zone type="Pacific/Yap">
-				<exemplarCity draft="unconfirmed">ياب</exemplarCity>
+				<exemplarCity draft="contributed">ياب</exemplarCity>
 			</zone>
 			<zone type="Etc/Unknown">
-				<exemplarCity draft="provisional">غير معروف</exemplarCity>
+				<exemplarCity draft="contributed">غير معروف</exemplarCity>
 			</zone>
 			<!-- Antarctica -->
 			<zone type="Antarctica/Rothera">
-				<exemplarCity draft="unconfirmed">روثيرا</exemplarCity>
+				<exemplarCity draft="contributed">روثيرا</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Palmer">
-				<exemplarCity draft="unconfirmed">بالميرا</exemplarCity>
+				<exemplarCity draft="contributed">بالمير</exemplarCity>
 			</zone>
 			<zone type="Antarctica/South_Pole">
-				<exemplarCity draft="unconfirmed">القطب الجنوبي</exemplarCity>
+				<exemplarCity draft="contributed">القطب الجنوبي</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Syowa">
-				<exemplarCity draft="unconfirmed">سايووا</exemplarCity>
+				<exemplarCity draft="contributed">سايووا</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Mawson">
-				<exemplarCity draft="unconfirmed">ماوسون</exemplarCity>
+				<exemplarCity draft="contributed">ماوسون</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Davis">
-				<exemplarCity draft="unconfirmed">دافيز</exemplarCity>
+				<exemplarCity draft="contributed">دافيز</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Vostok">
-				<exemplarCity draft="unconfirmed">فوستوك</exemplarCity>
+				<exemplarCity draft="contributed">فوستوك</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Casey">
-				<exemplarCity draft="unconfirmed">كاساي</exemplarCity>
+				<exemplarCity draft="contributed">كاساي</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity draft="unconfirmed">دي مونت دو روفيل</exemplarCity>
+				<exemplarCity draft="contributed">دي مونت دو روفيل</exemplarCity>
 			</zone>
 			<zone type="Antarctica/McMurdo">
-				<exemplarCity draft="unconfirmed">ماك موردو</exemplarCity>
+				<exemplarCity draft="contributed">ماك موردو</exemplarCity>
 			</zone>
 			<!-- Argentina -->
 			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity draft="provisional">ريو جالييوس</exemplarCity>
+				<exemplarCity draft="contributed">ريو جالييوس</exemplarCity>
 			</zone>
 			<zone type="America/Mendoza">
-				<exemplarCity draft="unconfirmed">ميندوزا</exemplarCity>
+				<exemplarCity draft="contributed">ميندوزا</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/San_Juan">
-				<exemplarCity draft="unconfirmed">سان جوان</exemplarCity>
+				<exemplarCity draft="contributed">سان خوان</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity draft="unconfirmed">أشوا</exemplarCity>
+				<exemplarCity draft="contributed">أشوا</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity draft="provisional">لا ريوجا</exemplarCity>
+				<exemplarCity draft="contributed">لاريوها</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Luis">
+				<exemplarCity draft="contributed">سان لويس</exemplarCity>
 			</zone>
 			<zone type="America/Catamarca">
-				<exemplarCity draft="unconfirmed">كاتاماركا</exemplarCity>
+				<exemplarCity draft="contributed">كاتاماركا</exemplarCity>
 			</zone>
 			<zone type="America/Jujuy">
 				<exemplarCity draft="unconfirmed">جوجو</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
-				<exemplarCity draft="unconfirmed">تاكمان</exemplarCity>
+				<exemplarCity draft="contributed">تاكمان</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
-				<exemplarCity draft="unconfirmed">كوردوبا</exemplarCity>
+				<exemplarCity draft="contributed">كوردوبا</exemplarCity>
 			</zone>
 			<zone type="America/Buenos_Aires">
-				<exemplarCity draft="unconfirmed">بوينوس أيرس</exemplarCity>
+				<exemplarCity draft="contributed">بوينوس أيرس</exemplarCity>
 			</zone>
 			<!-- Australia -->
 			<zone type="Australia/Perth">
-				<exemplarCity draft="unconfirmed">برثا</exemplarCity>
+				<exemplarCity draft="contributed">برثا</exemplarCity>
 			</zone>
 			<zone type="Australia/Darwin">
-				<exemplarCity draft="unconfirmed">دارون</exemplarCity>
+				<exemplarCity draft="contributed">دارون</exemplarCity>
 			</zone>
 			<zone type="Australia/Adelaide">
-				<exemplarCity draft="provisional">إستراليا (توقيت أدليادا)</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">أدليادا</exemplarCity>
+				<exemplarCity draft="contributed">أدليادا</exemplarCity>
 			</zone>
 			<zone type="Australia/Broken_Hill">
-				<exemplarCity draft="unconfirmed">بروكن هيل</exemplarCity>
+				<exemplarCity draft="contributed">بروكن هيل</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">
-				<exemplarCity draft="unconfirmed">ميلبورن</exemplarCity>
+				<exemplarCity draft="contributed">ميلبورن</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
-				<exemplarCity draft="unconfirmed">هوبارت</exemplarCity>
+				<exemplarCity draft="contributed">هوبارت</exemplarCity>
 			</zone>
 			<zone type="Australia/Lindeman">
-				<exemplarCity draft="unconfirmed">ليندمان</exemplarCity>
+				<exemplarCity draft="contributed">ليندمان</exemplarCity>
 			</zone>
 			<zone type="Australia/Sydney">
-				<exemplarCity draft="unconfirmed">سيدني</exemplarCity>
+				<exemplarCity draft="contributed">سيدني</exemplarCity>
 			</zone>
 			<zone type="Australia/Brisbane">
-				<exemplarCity draft="unconfirmed">برسيبان</exemplarCity>
+				<exemplarCity draft="contributed">برسيبان</exemplarCity>
 			</zone>
 			<zone type="Australia/Lord_Howe">
-				<exemplarCity draft="unconfirmed">لورد هاو</exemplarCity>
+				<exemplarCity draft="contributed">لورد هاو</exemplarCity>
 			</zone>
 			<!-- Brazil -->
 			<zone type="America/Eirunepe">
-				<exemplarCity draft="unconfirmed">ايرونبي</exemplarCity>
+				<exemplarCity draft="contributed">ايرونبي</exemplarCity>
 			</zone>
 			<zone type="America/Rio_Branco">
-				<exemplarCity draft="unconfirmed">ريوبرانكو</exemplarCity>
+				<exemplarCity draft="contributed">ريوبرانكو</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">توقيت البرازيل (ريوبرانكو)</exemplarCity>
 			</zone>
 			<zone type="America/Porto_Velho">
-				<exemplarCity draft="unconfirmed">بورتو فيلو</exemplarCity>
+				<exemplarCity draft="contributed">بورتو فيلو</exemplarCity>
 			</zone>
 			<zone type="America/Boa_Vista">
-				<exemplarCity draft="unconfirmed">باو فيستا</exemplarCity>
+				<exemplarCity draft="contributed">باو فيستا</exemplarCity>
 			</zone>
 			<zone type="America/Manaus">
-				<exemplarCity draft="unconfirmed">ماناوس</exemplarCity>
+				<exemplarCity draft="contributed">ماناوس</exemplarCity>
 			</zone>
 			<zone type="America/Cuiaba">
-				<exemplarCity draft="unconfirmed">كيابا</exemplarCity>
+				<exemplarCity draft="contributed">كيابا</exemplarCity>
 			</zone>
 			<zone type="America/Campo_Grande">
-				<exemplarCity draft="unconfirmed">كومبو جراند</exemplarCity>
+				<exemplarCity draft="contributed">كومبو جراند</exemplarCity>
 			</zone>
 			<zone type="America/Belem">
-				<exemplarCity draft="unconfirmed">بلم</exemplarCity>
+				<exemplarCity draft="contributed">بلم</exemplarCity>
 			</zone>
 			<zone type="America/Araguaina">
-				<exemplarCity draft="provisional">أروجوانيا</exemplarCity>
+				<exemplarCity draft="contributed">أروجوانيا</exemplarCity>
 			</zone>
 			<zone type="America/Sao_Paulo">
-				<exemplarCity draft="unconfirmed">ساو باولو</exemplarCity>
+				<exemplarCity draft="contributed">ساو باولو</exemplarCity>
 			</zone>
 			<zone type="America/Bahia">
-				<exemplarCity draft="unconfirmed">باهيا</exemplarCity>
+				<exemplarCity draft="contributed">باهيا</exemplarCity>
 			</zone>
 			<zone type="America/Fortaleza">
-				<exemplarCity draft="unconfirmed">فورتاليزا</exemplarCity>
+				<exemplarCity draft="contributed">فورتاليزا</exemplarCity>
 			</zone>
 			<zone type="America/Maceio">
-				<exemplarCity draft="unconfirmed">ماشيو</exemplarCity>
+				<exemplarCity draft="contributed">ماشيو</exemplarCity>
 			</zone>
 			<zone type="America/Recife">
-				<exemplarCity draft="unconfirmed">ريسيف</exemplarCity>
+				<exemplarCity draft="contributed">ريسيف</exemplarCity>
 			</zone>
 			<zone type="America/Noronha">
-				<exemplarCity draft="unconfirmed">نوروناه</exemplarCity>
+				<exemplarCity draft="contributed">نوروناه</exemplarCity>
 			</zone>
 			<!-- Canada -->
 			<zone type="America/Dawson">
-				<exemplarCity draft="unconfirmed">داوسان</exemplarCity>
+				<exemplarCity draft="contributed">داوسان</exemplarCity>
 			</zone>
 			<zone type="America/Whitehorse">
-				<exemplarCity draft="unconfirmed">هوايت هورس</exemplarCity>
+				<exemplarCity draft="contributed">وايت هورس</exemplarCity>
 			</zone>
 			<zone type="America/Inuvik">
-				<exemplarCity draft="unconfirmed">اينوفيك</exemplarCity>
+				<exemplarCity draft="contributed">اينوفيك</exemplarCity>
 			</zone>
 			<zone type="America/Vancouver">
-				<exemplarCity draft="unconfirmed">فانكوفر</exemplarCity>
+				<exemplarCity draft="contributed">فانكوفر</exemplarCity>
 			</zone>
 			<zone type="America/Dawson_Creek">
-				<exemplarCity draft="unconfirmed">داوسن كريك</exemplarCity>
+				<exemplarCity draft="contributed">داوسن كريك</exemplarCity>
 			</zone>
 			<zone type="America/Yellowknife">
-				<exemplarCity draft="unconfirmed">يلونيف</exemplarCity>
+				<exemplarCity draft="contributed">يلونيف</exemplarCity>
 			</zone>
 			<zone type="America/Edmonton">
-				<exemplarCity draft="unconfirmed">ايدمونتون</exemplarCity>
+				<exemplarCity draft="contributed">ايدمونتون</exemplarCity>
 			</zone>
 			<zone type="America/Swift_Current">
-				<exemplarCity draft="unconfirmed">سوفت كارنت</exemplarCity>
+				<exemplarCity draft="contributed">سوفت كارنت</exemplarCity>
 			</zone>
 			<zone type="America/Cambridge_Bay">
-				<exemplarCity draft="unconfirmed">كامبرديج باي</exemplarCity>
+				<exemplarCity draft="contributed">كامبرديج باي</exemplarCity>
 			</zone>
 			<zone type="America/Regina">
-				<exemplarCity draft="unconfirmed">ريجينا</exemplarCity>
+				<exemplarCity draft="contributed">ريجينا</exemplarCity>
 			</zone>
 			<zone type="America/Winnipeg">
-				<exemplarCity draft="unconfirmed">وينيبيج</exemplarCity>
+				<exemplarCity draft="contributed">وينيبيج</exemplarCity>
 			</zone>
 			<zone type="America/Rainy_River">
-				<exemplarCity draft="unconfirmed">راني ريفر</exemplarCity>
+				<exemplarCity draft="contributed">راني ريفر</exemplarCity>
 			</zone>
 			<zone type="America/Rankin_Inlet">
-				<exemplarCity draft="unconfirmed">رانكن انلت</exemplarCity>
+				<exemplarCity draft="contributed">رانكن انلت</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
-				<exemplarCity draft="provisional">كورال هاربر</exemplarCity>
+				<exemplarCity draft="contributed">كورال هاربر</exemplarCity>
 			</zone>
 			<zone type="America/Thunder_Bay">
-				<exemplarCity draft="unconfirmed">ثندر باي</exemplarCity>
+				<exemplarCity draft="contributed">ثندر باي</exemplarCity>
 			</zone>
 			<zone type="America/Nipigon">
-				<exemplarCity draft="unconfirmed">نيبيجون</exemplarCity>
+				<exemplarCity draft="contributed">نيبيجون</exemplarCity>
 			</zone>
 			<zone type="America/Toronto">
-				<exemplarCity draft="unconfirmed">تورونتو</exemplarCity>
+				<exemplarCity draft="contributed">تورونتو</exemplarCity>
 			</zone>
 			<zone type="America/Montreal">
-				<exemplarCity draft="unconfirmed">مونتريال</exemplarCity>
+				<exemplarCity draft="contributed">مونتريال</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
-				<exemplarCity draft="unconfirmed">اكويلت</exemplarCity>
+				<exemplarCity draft="contributed">اكويلت</exemplarCity>
 			</zone>
 			<zone type="America/Pangnirtung">
-				<exemplarCity draft="unconfirmed">بانجينتينج</exemplarCity>
+				<exemplarCity draft="contributed">بانجينتينج</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
-				<exemplarCity draft="provisional">وينكتون</exemplarCity>
+				<exemplarCity draft="contributed">وينكتون</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
-				<exemplarCity draft="unconfirmed">هاليفاكس</exemplarCity>
+				<exemplarCity draft="contributed">هاليفاكس</exemplarCity>
 			</zone>
 			<zone type="America/Goose_Bay">
-				<exemplarCity draft="unconfirmed">جوس باي</exemplarCity>
+				<exemplarCity draft="contributed">جوس باي</exemplarCity>
 			</zone>
 			<zone type="America/Glace_Bay">
-				<exemplarCity draft="unconfirmed">جلاس باي</exemplarCity>
+				<exemplarCity draft="contributed">جلاس باي</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
-				<exemplarCity draft="unconfirmed">عيد سانت جونس</exemplarCity>
+				<exemplarCity draft="contributed">سانت جونز</exemplarCity>
 			</zone>
 			<!-- Democratic Republic of the Congo -->
 			<zone type="Africa/Kinshasa">
-				<exemplarCity draft="provisional">كينشاسا</exemplarCity>
+				<exemplarCity draft="contributed">كينشاسا</exemplarCity>
 			</zone>
 			<zone type="Africa/Lubumbashi">
-				<exemplarCity draft="provisional">لومبباشا</exemplarCity>
+				<exemplarCity draft="contributed">لومبباشا</exemplarCity>
 			</zone>
 			<!-- Chile -->
 			<zone type="Pacific/Easter">
@@ -2013,19 +2088,19 @@
 			</zone>
 			<!-- China -->
 			<zone type="Asia/Kashgar">
-				<exemplarCity draft="unconfirmed">كاشجار</exemplarCity>
+				<exemplarCity draft="contributed">كاشجار</exemplarCity>
 			</zone>
 			<zone type="Asia/Urumqi">
-				<exemplarCity draft="unconfirmed">أرومكي</exemplarCity>
+				<exemplarCity draft="contributed">أرومكي</exemplarCity>
 			</zone>
 			<zone type="Asia/Chongqing">
-				<exemplarCity draft="unconfirmed">تشونجكينج</exemplarCity>
+				<exemplarCity draft="contributed">تشونجكينج</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<exemplarCity draft="unconfirmed">العالمية</exemplarCity>
 			</zone>
 			<zone type="Asia/Harbin">
-				<exemplarCity draft="unconfirmed">هاربين</exemplarCity>
+				<exemplarCity draft="contributed">هاربين</exemplarCity>
 			</zone>
 			<!-- Ecuador -->
 			<zone type="Pacific/Galapagos">
@@ -2036,22 +2111,22 @@
 			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
-				<exemplarCity draft="unconfirmed">كناري</exemplarCity>
+				<exemplarCity draft="contributed">كناري</exemplarCity>
 			</zone>
 			<zone type="Africa/Ceuta">
-				<exemplarCity draft="provisional">سيتا</exemplarCity>
+				<exemplarCity draft="contributed">سيتا</exemplarCity>
 			</zone>
 			<zone type="Europe/Madrid">
 				<exemplarCity draft="unconfirmed">مدريد</exemplarCity>
 			</zone>
 			<zone type="Pacific/Truk">
-				<exemplarCity draft="unconfirmed">ترك</exemplarCity>
+				<exemplarCity draft="contributed">ترك</exemplarCity>
 			</zone>
 			<zone type="Pacific/Ponape">
-				<exemplarCity draft="unconfirmed">باناب</exemplarCity>
+				<exemplarCity draft="contributed">باناب</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kosrae">
-				<exemplarCity draft="unconfirmed">كوسرا</exemplarCity>
+				<exemplarCity draft="contributed">كوسرا</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
 				<exemplarCity draft="unconfirmed">لندن</exemplarCity>
@@ -2061,29 +2136,29 @@
 			</zone>
 			<!-- Greenland -->
 			<zone type="America/Thule">
-				<exemplarCity draft="unconfirmed">ثيل</exemplarCity>
+				<exemplarCity draft="contributed">ثيل</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
 				<exemplarCity draft="unconfirmed">جودثاب</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
-				<exemplarCity draft="unconfirmed">سكورسبيسند</exemplarCity>
+				<exemplarCity draft="contributed">سكورسبيسند</exemplarCity>
 			</zone>
 			<zone type="America/Danmarkshavn">
-				<exemplarCity draft="unconfirmed">دانمرك شافن</exemplarCity>
+				<exemplarCity draft="contributed">دانمرك شافن</exemplarCity>
 			</zone>
 			<!-- Indonesia -->
 			<zone type="Asia/Jakarta">
-				<exemplarCity draft="unconfirmed">جاكرتا</exemplarCity>
+				<exemplarCity draft="contributed">جاكرتا</exemplarCity>
 			</zone>
 			<zone type="Asia/Pontianak">
-				<exemplarCity draft="unconfirmed">بونتيانك</exemplarCity>
+				<exemplarCity draft="contributed">بونتيانك</exemplarCity>
 			</zone>
 			<zone type="Asia/Makassar">
-				<exemplarCity draft="unconfirmed">ماكسار</exemplarCity>
+				<exemplarCity draft="contributed">ماكسار</exemplarCity>
 			</zone>
 			<zone type="Asia/Jayapura">
-				<exemplarCity draft="unconfirmed">جايابيورا</exemplarCity>
+				<exemplarCity draft="contributed">جايابيورا</exemplarCity>
 			</zone>
 			<zone type="Europe/Rome">
 				<exemplarCity draft="provisional">إيطاليا</exemplarCity>
@@ -2096,36 +2171,36 @@
 				<exemplarCity draft="unconfirmed">اندربيرج</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
-				<exemplarCity draft="unconfirmed">كيريتي ماتي</exemplarCity>
+				<exemplarCity draft="contributed">كيريتي ماتي</exemplarCity>
 			</zone>
 			<zone type="Pacific/Tarawa">
-				<exemplarCity draft="unconfirmed">تاراوا</exemplarCity>
+				<exemplarCity draft="contributed">تاراوا</exemplarCity>
 			</zone>
 			<!-- Kazakhstan -->
 			<zone type="Asia/Aqtau">
-				<exemplarCity draft="unconfirmed">أكتاو</exemplarCity>
+				<exemplarCity draft="contributed">أكتاو</exemplarCity>
 			</zone>
 			<zone type="Asia/Oral">
-				<exemplarCity draft="unconfirmed">أورال</exemplarCity>
+				<exemplarCity draft="contributed">أورال</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
-				<exemplarCity draft="unconfirmed">أكتوب</exemplarCity>
+				<exemplarCity draft="contributed">أكتوب</exemplarCity>
 			</zone>
 			<zone type="Asia/Qyzylorda">
-				<exemplarCity draft="unconfirmed">كيزيلوردا</exemplarCity>
+				<exemplarCity draft="contributed">كيزيلوردا</exemplarCity>
 			</zone>
 			<zone type="Asia/Almaty">
-				<exemplarCity draft="unconfirmed">ألماتي</exemplarCity>
+				<exemplarCity draft="contributed">ألماتي</exemplarCity>
 			</zone>
 			<zone type="Europe/Podgorica">
 				<exemplarCity draft="provisional">الجبل الأسود</exemplarCity>
 			</zone>
 			<!-- Marshall Islands -->
 			<zone type="Pacific/Kwajalein">
-				<exemplarCity draft="unconfirmed">كواجالين</exemplarCity>
+				<exemplarCity draft="contributed">كواجالين</exemplarCity>
 			</zone>
 			<zone type="Pacific/Majuro">
-				<exemplarCity draft="unconfirmed">ماجورو</exemplarCity>
+				<exemplarCity draft="contributed">ماجورو</exemplarCity>
 			</zone>
 			<!-- Mali -->
 			<zone type="Africa/Bamako">
@@ -2133,49 +2208,49 @@
 			</zone>
 			<!-- Mongolia -->
 			<zone type="Asia/Hovd">
-				<exemplarCity draft="unconfirmed">هوفد</exemplarCity>
+				<exemplarCity draft="contributed">هوفد</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity draft="unconfirmed">آلانباتار</exemplarCity>
+				<exemplarCity draft="contributed">آلانباتار</exemplarCity>
 			</zone>
 			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="unconfirmed">تشوبالسان</exemplarCity>
+				<exemplarCity draft="contributed">تشوبالسان</exemplarCity>
 			</zone>
 			<!-- Mexico -->
 			<zone type="America/Tijuana">
-				<exemplarCity draft="unconfirmed">تيجوانا</exemplarCity>
+				<exemplarCity draft="contributed">تيخوانا</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
-				<exemplarCity draft="unconfirmed">هيرموسيلو</exemplarCity>
+				<exemplarCity draft="contributed">هيرموسيلو</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
-				<exemplarCity draft="unconfirmed">مازاتلان</exemplarCity>
+				<exemplarCity draft="contributed">مازاتلان</exemplarCity>
 			</zone>
 			<zone type="America/Chihuahua">
-				<exemplarCity draft="unconfirmed">تشيواوا</exemplarCity>
+				<exemplarCity draft="contributed">تشيواوا</exemplarCity>
 			</zone>
 			<zone type="America/Monterrey">
-				<exemplarCity draft="unconfirmed">مونتيري</exemplarCity>
+				<exemplarCity draft="contributed">مونتيري</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
-				<exemplarCity draft="unconfirmed">مدينة المكسيك</exemplarCity>
+				<exemplarCity draft="contributed">مدينة المكسيك</exemplarCity>
 			</zone>
 			<zone type="America/Merida">
-				<exemplarCity draft="unconfirmed">ميريدا</exemplarCity>
+				<exemplarCity draft="contributed">ميريدا</exemplarCity>
 			</zone>
 			<zone type="America/Cancun">
-				<exemplarCity draft="unconfirmed">كانكن</exemplarCity>
+				<exemplarCity draft="contributed">كانكون</exemplarCity>
 			</zone>
 			<!-- Malaysia -->
 			<zone type="Asia/Kuala_Lumpur">
 				<exemplarCity draft="unconfirmed">كوالالمبور</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuching">
-				<exemplarCity draft="unconfirmed">كيشينج</exemplarCity>
+				<exemplarCity draft="contributed">كيشينج</exemplarCity>
 			</zone>
 			<!-- New Zealand -->
 			<zone type="Pacific/Chatham">
-				<exemplarCity draft="unconfirmed">تشاثام</exemplarCity>
+				<exemplarCity draft="contributed">تشاثام</exemplarCity>
 			</zone>
 			<zone type="Pacific/Auckland">
 				<exemplarCity draft="unconfirmed">أوكلاند</exemplarCity>
@@ -2185,17 +2260,17 @@
 				<exemplarCity draft="unconfirmed">تاهيتي</exemplarCity>
 			</zone>
 			<zone type="Pacific/Marquesas">
-				<exemplarCity draft="unconfirmed">ماركيساس</exemplarCity>
+				<exemplarCity draft="contributed">ماركيساس</exemplarCity>
 			</zone>
 			<zone type="Pacific/Gambier">
-				<exemplarCity draft="unconfirmed">جامبير</exemplarCity>
+				<exemplarCity draft="contributed">جامبير</exemplarCity>
 			</zone>
 			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
-				<exemplarCity draft="unconfirmed">أزورس</exemplarCity>
+				<exemplarCity draft="contributed">أزورس</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Madeira">
-				<exemplarCity draft="unconfirmed">ماديرا</exemplarCity>
+				<exemplarCity draft="contributed">ماديرا</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity draft="unconfirmed">ليسبون</exemplarCity>
@@ -2205,159 +2280,159 @@
 			</zone>
 			<!-- Russia -->
 			<zone type="Europe/Kaliningrad">
-				<exemplarCity draft="unconfirmed">كالينجراد</exemplarCity>
+				<exemplarCity draft="contributed">كالينجراد</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
-				<exemplarCity draft="unconfirmed">موسكو</exemplarCity>
+				<exemplarCity draft="contributed">موسكو</exemplarCity>
 			</zone>
 			<zone type="Europe/Volgograd">
-				<exemplarCity draft="provisional">فولوجراد</exemplarCity>
+				<exemplarCity draft="contributed">فولوجراد</exemplarCity>
 			</zone>
 			<zone type="Europe/Samara">
 				<exemplarCity draft="unconfirmed">سمراء</exemplarCity>
 			</zone>
 			<zone type="Asia/Yekaterinburg">
-				<exemplarCity draft="unconfirmed">يكاترنبيرج</exemplarCity>
+				<exemplarCity draft="contributed">يكاترنبيرج</exemplarCity>
 			</zone>
 			<zone type="Asia/Omsk">
-				<exemplarCity draft="unconfirmed">أومسك</exemplarCity>
+				<exemplarCity draft="contributed">أومسك</exemplarCity>
 			</zone>
 			<zone type="Asia/Novosibirsk">
-				<exemplarCity draft="unconfirmed">نوفوسبيرسك</exemplarCity>
+				<exemplarCity draft="contributed">نوفوسبيرسك</exemplarCity>
 			</zone>
 			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity draft="unconfirmed">كراسنويارسك</exemplarCity>
+				<exemplarCity draft="contributed">كراسنويارسك</exemplarCity>
 			</zone>
 			<zone type="Asia/Irkutsk">
-				<exemplarCity draft="unconfirmed">ايركيتسك</exemplarCity>
+				<exemplarCity draft="contributed">ايركيتسك</exemplarCity>
 			</zone>
 			<zone type="Asia/Yakutsk">
-				<exemplarCity draft="unconfirmed">ياكتسك</exemplarCity>
+				<exemplarCity draft="contributed">ياكتسك</exemplarCity>
 			</zone>
 			<zone type="Asia/Vladivostok">
-				<exemplarCity draft="unconfirmed">فلاديفوستك</exemplarCity>
+				<exemplarCity draft="contributed">فلاديفوستك</exemplarCity>
 			</zone>
 			<zone type="Asia/Sakhalin">
-				<exemplarCity draft="unconfirmed">سكالين</exemplarCity>
+				<exemplarCity draft="contributed">سكالين</exemplarCity>
 			</zone>
 			<zone type="Asia/Magadan">
-				<exemplarCity draft="unconfirmed">مجادن</exemplarCity>
+				<exemplarCity draft="contributed">مجادن</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
-				<exemplarCity draft="unconfirmed">كامتشاتكا</exemplarCity>
+				<exemplarCity draft="contributed">كامتشاتكا</exemplarCity>
 			</zone>
 			<zone type="Asia/Anadyr">
-				<exemplarCity draft="unconfirmed">أندير</exemplarCity>
+				<exemplarCity draft="contributed">أندير</exemplarCity>
 			</zone>
 			<zone type="Arctic/Longyearbyen">
 				<exemplarCity draft="unconfirmed">لونجيربن</exemplarCity>
 			</zone>
 			<!-- Ukraine -->
 			<zone type="Europe/Uzhgorod">
-				<exemplarCity draft="unconfirmed">أوزجرود</exemplarCity>
+				<exemplarCity draft="contributed">أوزجرود</exemplarCity>
 			</zone>
 			<zone type="Europe/Kiev">
-				<exemplarCity draft="unconfirmed">كيف</exemplarCity>
+				<exemplarCity draft="contributed">كييف</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity draft="unconfirmed">سيمفروبول</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
-				<exemplarCity draft="unconfirmed">زابوروزي</exemplarCity>
+				<exemplarCity draft="contributed">زابوروزي</exemplarCity>
 			</zone>
 			<!-- United States Minor Outlying Islands -->
 			<zone type="Pacific/Midway">
-				<exemplarCity draft="unconfirmed">ميدواي</exemplarCity>
+				<exemplarCity draft="contributed">ميدواي</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
-				<exemplarCity draft="unconfirmed">جونستون</exemplarCity>
+				<exemplarCity draft="contributed">جونستون</exemplarCity>
 			</zone>
 			<zone type="Pacific/Wake">
-				<exemplarCity draft="unconfirmed">واك</exemplarCity>
+				<exemplarCity draft="contributed">واك</exemplarCity>
 			</zone>
 			<!-- United States -->
 			<zone type="America/Adak">
-				<exemplarCity draft="provisional">أداك</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">الولايات المتحدة الأمريكية (توقيت أداك)</exemplarCity>
+				<exemplarCity draft="contributed">أداك</exemplarCity>
 			</zone>
 			<zone type="America/Nome">
-				<exemplarCity draft="unconfirmed">نوم</exemplarCity>
+				<exemplarCity draft="contributed">نوم</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
-				<exemplarCity draft="unconfirmed">هونولولو</exemplarCity>
+				<exemplarCity draft="contributed">هونولولو</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
-				<exemplarCity draft="provisional">أنشوراج</exemplarCity>
+				<exemplarCity draft="contributed">أنكوريج</exemplarCity>
 			</zone>
 			<zone type="America/Yakutat">
-				<exemplarCity draft="unconfirmed">ياكوتات</exemplarCity>
+				<exemplarCity draft="contributed">ياكوتات</exemplarCity>
 			</zone>
 			<zone type="America/Juneau">
-				<exemplarCity draft="unconfirmed">جوني</exemplarCity>
+				<exemplarCity draft="contributed">جوني</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
-				<exemplarCity draft="unconfirmed">لوس انجلوس</exemplarCity>
+				<exemplarCity draft="contributed">لوس انجلوس</exemplarCity>
 			</zone>
 			<zone type="America/Boise">
-				<exemplarCity draft="unconfirmed">بويس</exemplarCity>
+				<exemplarCity draft="contributed">بويزي</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
-				<exemplarCity draft="unconfirmed">فونكس</exemplarCity>
+				<exemplarCity draft="contributed">فينكس</exemplarCity>
 			</zone>
 			<zone type="America/Shiprock">
-				<exemplarCity draft="unconfirmed">شيبروك</exemplarCity>
+				<exemplarCity draft="contributed">شيبروك</exemplarCity>
 			</zone>
 			<zone type="America/Denver">
-				<exemplarCity draft="unconfirmed">دنفر</exemplarCity>
+				<exemplarCity draft="contributed">دنفر</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
-				<exemplarCity draft="provisional">نيو ساليم</exemplarCity>
+				<exemplarCity draft="contributed">نيو ساليم</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
-				<exemplarCity draft="unconfirmed">سنتر</exemplarCity>
+				<exemplarCity draft="contributed">سنتر</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
-				<exemplarCity draft="unconfirmed">شيكاجو</exemplarCity>
+				<exemplarCity draft="contributed">شيكاغو</exemplarCity>
 			</zone>
 			<zone type="America/Menominee">
-				<exemplarCity draft="unconfirmed">مينوميني</exemplarCity>
+				<exemplarCity draft="contributed">مينوميني</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Vincennes">
-				<exemplarCity draft="provisional">فينسينس</exemplarCity>
+				<exemplarCity draft="contributed">فينسينس</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Petersburg">
 				<exemplarCity>بيترسبرج</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">بيترسبرغ</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Knox">
-				<exemplarCity draft="unconfirmed">كونكس</exemplarCity>
+				<exemplarCity draft="contributed">كونكس</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Winamac">
-				<exemplarCity draft="provisional">ويناماك</exemplarCity>
+				<exemplarCity draft="contributed">ويناماك</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Marengo">
-				<exemplarCity draft="unconfirmed">مارنجو</exemplarCity>
+				<exemplarCity draft="contributed">مارنجو</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
-				<exemplarCity draft="unconfirmed">انديانانابوليس</exemplarCity>
+				<exemplarCity draft="contributed">إنديانابوليس</exemplarCity>
 			</zone>
 			<zone type="America/Louisville">
-				<exemplarCity draft="unconfirmed">لويس فيل</exemplarCity>
+				<exemplarCity draft="contributed">لويس فيل</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Vevay">
-				<exemplarCity draft="unconfirmed">فيفاي</exemplarCity>
+				<exemplarCity draft="contributed">فيفاي</exemplarCity>
 			</zone>
 			<zone type="America/Kentucky/Monticello">
-				<exemplarCity draft="unconfirmed">مونتيسيلو</exemplarCity>
+				<exemplarCity draft="contributed">مونتيسيلو</exemplarCity>
 			</zone>
 			<zone type="America/Detroit">
-				<exemplarCity draft="unconfirmed">ديترويت</exemplarCity>
+				<exemplarCity draft="contributed">ديترويت</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
-				<exemplarCity draft="unconfirmed">نيويورك</exemplarCity>
+				<exemplarCity draft="contributed">نيويورك</exemplarCity>
 			</zone>
 			<!-- Uzbekistan -->
 			<zone type="Asia/Samarkand">
-				<exemplarCity draft="unconfirmed">سمرقند</exemplarCity>
+				<exemplarCity draft="contributed">سمرقند</exemplarCity>
 			</zone>
 			<zone type="Asia/Tashkent">
 				<exemplarCity draft="unconfirmed">طشقند</exemplarCity>
@@ -2368,11 +2443,11 @@
 		<symbols>
 			<decimal>٫</decimal>
 			<group>٬</group>
-			<list draft="provisional">؛</list>
+			<list draft="contributed">؛</list>
 			<percentSign>٪</percentSign>
 			<nativeZeroDigit>٠</nativeZeroDigit>
-			<exponential draft="provisional">اس</exponential>
-			<nan draft="provisional">ليس رقم</nan>
+			<exponential draft="contributed">اس</exponential>
+			<nan draft="contributed">ليس رقم</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -2385,15 +2460,16 @@
 			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>¤ #,##0.00;¤ #,##0.00-</pattern>
-					<pattern alt="proposed-x1001" draft="unconfirmed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="few"/>
-			<unitPattern count="many"/>
+			<unitPattern count="few">{0} {1}</unitPattern>
+			<unitPattern count="many">{0} {1}</unitPattern>
 			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other"/>
-			<unitPattern count="two"/>
-			<unitPattern count="zero"/>
+			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="two">{0} {1}</unitPattern>
+			<unitPattern count="two" alt="proposed-x1001" draft="unconfirmed">{0}</unitPattern>
+			<unitPattern count="zero">{0} {1}</unitPattern>
+			<unitPattern count="zero" alt="proposed-x1001" draft="unconfirmed">{0}</unitPattern>
 		</currencyFormats>
 		<!-- Please note that the Arabic translated currency symbols include the Right to
 			 Left Marker <RLM> to position the dot properly on the boundary between
@@ -2403,6 +2479,7 @@
 		<currencies>
 			<currency type="ADP">
 				<displayName>بيستا أندورى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">بيستا أندوري</displayName>
 			</currency>
 			<currency type="AED">
 				<displayName>درهم اماراتى</displayName>
@@ -2419,15 +2496,18 @@
 			</currency>
 			<currency type="AMD">
 				<displayName>درام أرمينى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">درام أرميني</displayName>
 			</currency>
 			<currency type="ANG">
 				<displayName>جلدر هولندى [ANG]</displayName>
 			</currency>
 			<currency type="AOA">
 				<displayName>كوانزا أنجولى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">كوانزا أنجولي</displayName>
 			</currency>
 			<currency type="AOK">
 				<displayName>كوانزا أنجولى - 1977-1990</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">كوانزا أنجولي</displayName>
 			</currency>
 			<currency type="AON">
 				<displayName>كوانزا أنجولى جديدة - 1990-2000</displayName>
@@ -2440,21 +2520,27 @@
 			</currency>
 			<currency type="ARP">
 				<displayName>بيزو أرجنتينى - 1983-1985</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">زو أرجنتيني</displayName>
 			</currency>
 			<currency type="ARS">
 				<displayName>بيزو أرجنتينى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">بيزو أرجنتيني</displayName>
 			</currency>
 			<currency type="ATS">
 				<displayName>شلن نمساوى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">شلن نمساوي</displayName>
 			</currency>
 			<currency type="AUD">
 				<displayName>دولار أسترالى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">دولار أسترالي</displayName>
 			</currency>
 			<currency type="AWG">
 				<displayName>جلدر أروبى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">جلدر آروبي</displayName>
 			</currency>
 			<currency type="AZM">
 				<displayName>مانات أذريبجانى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">مانات أذريبجاني</displayName>
 			</currency>
 			<currency type="BAD">
 				<displayName>دينار البوسنة و الهرسك</displayName>
@@ -2464,20 +2550,21 @@
 			</currency>
 			<currency type="BBD">
 				<displayName>دولار بربادوسى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">دولار بربادوسي</displayName>
 			</currency>
 			<currency type="BDT">
 				<displayName>تاكا بنجلاديشى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">تاكا بنجلاديشي</displayName>
 			</currency>
 			<currency type="BEC">
-				<displayName draft="provisional">فرنك بلجيكى  - تحويلات</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">فرنك بلجيكى (تحويلات)‏</displayName>
+				<displayName draft="contributed">فرنك بلجيكى (تحويلات)‏</displayName>
 			</currency>
 			<currency type="BEF">
 				<displayName>فرنك بلجيكى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">فرنك بلجيكي</displayName>
 			</currency>
 			<currency type="BEL">
-				<displayName draft="provisional">فرنك بلجيكى - مالى</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">فرنك بلجيكى (مالي)‏</displayName>
+				<displayName draft="contributed">فرنك بلجيكى (مالي)‏</displayName>
 			</currency>
 			<currency type="BGL">
 				<displayName>ليف بلغارى</displayName>
@@ -2487,6 +2574,7 @@
 			</currency>
 			<currency type="BHD">
 				<displayName>دينار بحرينى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">دينار بحريني</displayName>
 				<symbol>د.ب.‏</symbol>
 			</currency>
 			<currency type="BIF">
@@ -2494,15 +2582,18 @@
 			</currency>
 			<currency type="BMD">
 				<displayName>دولار برمودى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">دولار برمودي</displayName>
 			</currency>
 			<currency type="BND">
 				<displayName>دولار بروناى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">دولار بروناي</displayName>
 			</currency>
 			<currency type="BOB">
 				<displayName>بوليفاريو</displayName>
 			</currency>
 			<currency type="BOP">
 				<displayName>بيزو بوليفى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">بيزو بوليفي</displayName>
 			</currency>
 			<currency type="BOV">
 				<displayName>مفدول بوليفى</displayName>
@@ -2522,6 +2613,7 @@
 			</currency>
 			<currency type="BSD">
 				<displayName>دولار باهامى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">دولار باهامي</displayName>
 			</currency>
 			<currency type="BTN">
 				<displayName>نولتوم بوتانى</displayName>
@@ -2534,12 +2626,15 @@
 			</currency>
 			<currency type="BYB">
 				<displayName>روبل بيلاروسى جديد  - 1994-1999</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">روبل بيلاروسي جديد</displayName>
 			</currency>
 			<currency type="BYR">
 				<displayName>روبل بيلاروسى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">روبل بيلاروسي</displayName>
 			</currency>
 			<currency type="BZD">
 				<displayName>دولار بليزى</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">دولار بليزي</displayName>
 			</currency>
 			<currency type="CAD">
 				<displayName>دولار كندى</displayName>
@@ -2556,7 +2651,6 @@
 			<currency type="CNY">
 				<displayName>يوان صيني</displayName>
 				<symbol draft="provisional">ى.ص</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">.‏ي.ص</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>بيزو كولومبى</displayName>
@@ -3040,12 +3134,10 @@
 				<displayName>دولار أمريكي</displayName>
 			</currency>
 			<currency type="USN">
-				<displayName draft="provisional">دولار أمريكي  - اليوم التالى</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">دولار أمريكي (اليوم التالي)‏</displayName>
+				<displayName draft="contributed">دولار أمريكي (اليوم التالي)‏</displayName>
 			</currency>
 			<currency type="USS">
-				<displayName draft="provisional">دولار أمريكى - نفس اليوم</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">دولار أمريكي (نفس اليوم)‏</displayName>
+				<displayName draft="contributed">دولار أمريكي (نفس اليوم)‏</displayName>
 			</currency>
 			<currency type="UYP">
 				<displayName>بيزو أوروجواى  - 1975-1993</displayName>
@@ -3096,7 +3188,6 @@
 			<currency type="XXX">
 				<displayName>بدون عملة</displayName>
 				<symbol draft="provisional">***</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">XXX‏</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>دينار يمنى</displayName>
@@ -3131,6 +3222,106 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<unit type="day">
+			<unitPattern count="few">{0} {1}</unitPattern>
+			<unitPattern count="many">{0} {1}</unitPattern>
+			<unitPattern count="one">{1}</unitPattern>
+			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="two">{1}</unitPattern>
+			<unitPattern count="zero">{1}</unitPattern>
+			<unitName count="few" draft="contributed">أيام</unitName>
+			<unitName count="many" draft="contributed">يوم</unitName>
+			<unitName count="one" draft="contributed">يوم</unitName>
+			<unitName count="other" draft="contributed">يوم</unitName>
+			<unitName count="two" draft="contributed">يومان</unitName>
+			<unitName count="zero" draft="contributed">يوم</unitName>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="two" draft="contributed">{0}</unitPattern>
+			<unitPattern count="zero" draft="contributed">{0}</unitPattern>
+			<unitName count="few" draft="contributed">ساعات</unitName>
+			<unitName count="many" draft="contributed">ساعة</unitName>
+			<unitName count="one" draft="contributed">ساعة</unitName>
+			<unitName count="other" draft="contributed">ساعة</unitName>
+			<unitName count="two" draft="contributed">ساعتان</unitName>
+			<unitName count="zero" draft="contributed">ساعة</unitName>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="two" draft="contributed">{0}</unitPattern>
+			<unitPattern count="zero" draft="contributed">{0} {1}</unitPattern>
+			<unitName count="few" draft="contributed">دقائق</unitName>
+			<unitName count="many" draft="contributed">دقيقة</unitName>
+			<unitName count="one" draft="contributed">دقيقة</unitName>
+			<unitName count="other" draft="contributed">دقيقة</unitName>
+			<unitName count="two" draft="contributed">دقيقتان</unitName>
+			<unitName count="zero" draft="contributed">دقيقة</unitName>
+		</unit>
+		<unit type="month">
+			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="two" draft="contributed">{0}</unitPattern>
+			<unitPattern count="zero" draft="contributed">{0}</unitPattern>
+			<unitName count="few" draft="contributed">أشهر</unitName>
+			<unitName count="many" draft="contributed">شهراً</unitName>
+			<unitName count="one" draft="contributed">شهر</unitName>
+			<unitName count="other" draft="contributed">شهر</unitName>
+			<unitName count="two" draft="contributed">شهران</unitName>
+			<unitName count="zero" draft="contributed">شهر</unitName>
+		</unit>
+		<unit type="second">
+			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="two" draft="contributed">{0}</unitPattern>
+			<unitPattern count="zero" draft="contributed">{0}</unitPattern>
+			<unitName count="few" draft="contributed">ثوان</unitName>
+			<unitName count="many" draft="contributed">ثانية</unitName>
+			<unitName count="one" draft="contributed">ثانية</unitName>
+			<unitName count="other" draft="contributed">ثانية</unitName>
+			<unitName count="two" draft="contributed">ثانيتان</unitName>
+			<unitName count="zero" draft="contributed">ثانية</unitName>
+		</unit>
+		<unit type="week">
+			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="two" draft="contributed">{0}</unitPattern>
+			<unitPattern count="zero" draft="contributed">{0}</unitPattern>
+			<unitName count="few" draft="contributed">أسابيع</unitName>
+			<unitName count="many" draft="contributed">أسبوعاً</unitName>
+			<unitName count="one" draft="contributed">أسبوع</unitName>
+			<unitName count="other" draft="contributed">أسبوع</unitName>
+			<unitName count="two" draft="contributed">أسبوعان</unitName>
+			<unitName count="zero" draft="contributed">أسبوع</unitName>
+		</unit>
+		<unit type="year">
+			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="two" draft="contributed">{0}</unitPattern>
+			<unitPattern count="zero" draft="contributed">{0}</unitPattern>
+			<unitName count="few" draft="contributed">سنوات</unitName>
+			<unitName count="many" draft="contributed">سنة</unitName>
+			<unitName count="one" draft="contributed">سنة</unitName>
+			<unitName count="other" draft="contributed">سنة</unitName>
+			<unitName count="two" draft="contributed">سنتان</unitName>
+			<unitName count="zero" draft="contributed">سنة</unitName>
+		</unit>
+	</units>
 	<posix>
 		<messages>
 			<yesstr>نعم:ن</yesstr>
@@ -3153,4 +3344,3 @@ Note to translator: Sometimes the hamza is optional for these translations.
 "[\u0621 \u0627-\u063A \u0641-\u064A\u0651 \u0653-\u0655 \u0670-\u06B7 \u06BA-\u06BE \u06C1 \u06C3-\u06CE \u06D0-\u06D2]"
 Civil is identical other than in calculations
 -->
-

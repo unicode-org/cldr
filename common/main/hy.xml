@@ -46,7 +46,6 @@
 			<language type="hr" draft="unconfirmed">Խորվաթերեն</language>
 			<language type="hu" draft="unconfirmed">Հունգարերեն</language>
 			<language type="hy">Հայերէն</language>
-			<language type="hy" alt="proposed-x1001" draft="unconfirmed">Հայերեն</language>
 			<language type="ia" draft="unconfirmed">Ինտերլինգուա</language>
 			<language type="id" draft="unconfirmed">Ինդոնեզերեն</language>
 			<language type="ie" draft="unconfirmed">Ինտերլինգ</language>
@@ -128,7 +127,6 @@
 			<territory type="AG">Անտիգուա-Բարբուդա</territory>
 			<territory type="AL">Ալբանիա</territory>
 			<territory type="AM">Հայաստանի Հանրապետութիւն</territory>
-			<territory type="AM" alt="proposed-x1001" draft="unconfirmed">Հայաստան</territory>
 			<territory type="AO">Անգոլա</territory>
 			<territory type="AR">Արգենտինա</territory>
 			<territory type="AT">Ավստրիա</territory>
@@ -150,7 +148,6 @@
 			<territory type="BT">Բուտան</territory>
 			<territory type="BW">Բոտսվանա</territory>
 			<territory type="BY">Բելոռուս</territory>
-			<territory type="BY" alt="proposed-x1001" draft="unconfirmed">Բելառուս</territory>
 			<territory type="BZ">Բելիզ</territory>
 			<territory type="CA">Կանադա</territory>
 			<territory type="CF">Կենտրոնական Աֆրիկյան Հանրապետություն</territory>
@@ -177,7 +174,6 @@
 			<territory type="EE">Էստոնիա</territory>
 			<territory type="EG">Եգիպտոս</territory>
 			<territory type="EH">Արեվմտյան Սահարա</territory>
-			<territory type="EH" alt="proposed-x1001" draft="unconfirmed">Արևմտյան Սահարա</territory>
 			<territory type="ER">Էրիտրեա</territory>
 			<territory type="ES">Իսպանիա</territory>
 			<territory type="ET">Եթովպիա</territory>
@@ -187,7 +183,6 @@
 			<territory type="FR">Ֆրանսիա</territory>
 			<territory type="GA">Գաբոն</territory>
 			<territory type="GB">Մեծ Բրիտանիա</territory>
-			<territory type="GB" alt="proposed-x1001" draft="unconfirmed">Միացյալ Թագավորություն</territory>
 			<territory type="GD">Գրենադա</territory>
 			<territory type="GE">Վրաստան</territory>
 			<territory type="GH">Գանա</territory>
@@ -298,7 +293,6 @@
 			<territory type="TM">Թուրքմենստան</territory>
 			<territory type="TN">Թունիս</territory>
 			<territory type="TO">Տոնգա</territory>
-			<territory type="TO" alt="proposed-x1001" draft="unconfirmed">Տոնգերեն</territory>
 			<territory type="TR">Թուրքիա</territory>
 			<territory type="TT">Տրինիդադ-Տոբագո</territory>
 			<territory type="TV">Տուվալու</territory>
@@ -307,7 +301,6 @@
 			<territory type="UA">Ուկրաինա</territory>
 			<territory type="UG">Ուգանդա</territory>
 			<territory type="US">Ամէրիկայի Միացյալ Նահանգնէր</territory>
-			<territory type="US" alt="proposed-x1001" draft="unconfirmed">Միացյալ Նահանգներ</territory>
 			<territory type="UY">Ուրուգվայ</territory>
 			<territory type="UZ">Ուզբեկստան</territory>
 			<territory type="VA">Վատիկան</territory>
@@ -430,9 +423,7 @@
 				<eras>
 					<eraAbbr>
 						<era type="0">Ք․Ա․</era>
-						<era type="0" alt="proposed-x1001" draft="unconfirmed">Յ․Տ․</era>
 						<era type="1">Ք․Ե․</era>
-						<era type="1" alt="proposed-x1001" draft="unconfirmed">Ն․Ք․</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -598,6 +589,11 @@
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
+		<currencies>
+			<currency type="AMD">
+				<symbol>դր.</symbol>
+			</currency>
+		</currencies>
 	</numbers>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
@@ -617,4 +613,3 @@ currencies
                 "\u0545\u2024\u054F\u2024",            // 3.D.
                 "\u0546\u2024\u0554\u2024"             // N.K.
 -->
-

@@ -9,7 +9,6 @@
 	<localeDisplayNames>
 		<languages>
 			<language type="af" draft="provisional">isiBhulu</language>
-			<language type="af" alt="proposed-x1001" draft="unconfirmed">Isibhulu</language>
 			<language type="am" draft="unconfirmed">Isi-Amharic</language>
 			<language type="ar" draft="unconfirmed">Isi-Arabic</language>
 			<language type="as" draft="unconfirmed">isiAssamese</language>
@@ -27,7 +26,6 @@
 			<language type="de" draft="unconfirmed">Isi-German</language>
 			<language type="el" draft="unconfirmed">Isi-Greek</language>
 			<language type="en" draft="provisional">isiNgesi</language>
-			<language type="en" alt="proposed-x1001" draft="unconfirmed">Isingesi</language>
 			<language type="eo" draft="unconfirmed">Isi-Esperanto</language>
 			<language type="es" draft="unconfirmed">Isi-Spanish</language>
 			<language type="et" draft="unconfirmed">Isi-Estonian</language>
@@ -113,14 +111,14 @@
 			<language type="uz" draft="unconfirmed">Isi-Uzbek</language>
 			<language type="vi" draft="unconfirmed">Isi-Vietnamese</language>
 			<language type="xh" draft="provisional">isiXhosa</language>
-			<language type="xh" alt="proposed-x1001" draft="unconfirmed">IsiXhosa</language>
 			<language type="yi" draft="unconfirmed">Yiddish</language>
 			<language type="zu" draft="provisional">isiZulu</language>
-			<language type="zu" alt="proposed-x1001" draft="unconfirmed">Isi-Zulu</language>
 		</languages>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a-z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol">[a-z]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>‘</quotationStart>
@@ -304,8 +302,37 @@
 	</dates>
 	<numbers>
 		<symbols>
-			<decimal draft="unconfirmed">,</decimal>
+			<decimal>,</decimal>
+			<group> </group>
 		</symbols>
+		<decimalFormats>
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats>
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats>
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="ZAR">
 				<symbol>R</symbol>

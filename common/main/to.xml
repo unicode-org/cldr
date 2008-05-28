@@ -7,6 +7,10 @@
 		<language type="to"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="unconfirmed">{0} ({1})</localePattern>
+			<localeSeparator draft="unconfirmed">, </localeSeparator>
+		</localeDisplayPattern>
 		<languages>
 			<language type="ar" draft="unconfirmed">lea fakaʻalepea</language>
 			<language type="art" draft="unconfirmed">lea faʻu pē kehe</language>
@@ -16,7 +20,6 @@
 			<language type="es" draft="unconfirmed">lea fakasepeni</language>
 			<language type="fa" draft="unconfirmed">lea fakapēsia</language>
 			<language type="fi" draft="unconfirmed">lea fakafinilani</language>
-			<language type="fi" alt="proposed-x1001" draft="unconfirmed">le fakafinilani</language>
 			<language type="fj" draft="unconfirmed">lea fakafisi</language>
 			<language type="fr" draft="unconfirmed">lea fakafalanisē</language>
 			<language type="ga" draft="unconfirmed">lea fakaʻaealani</language>
@@ -60,10 +63,18 @@
 		<scripts>
 			<script type="Arab" draft="unconfirmed">tohinima fakaʻalepea</script>
 			<script type="Brai" draft="unconfirmed">tohinima maʻa e kakai kui</script>
+			<script type="Cyrl" draft="unconfirmed">tohinima fakalūsia</script>
 			<script type="Grek" draft="unconfirmed">tohinima fakakalisi</script>
+			<script type="Hani" draft="unconfirmed">tohinima fakasiaina</script>
+			<script type="Hans" draft="unconfirmed">tohinima fakasiaina fakafaingofua</script>
+			<script type="Hant" draft="unconfirmed">tohinima fakasiaina fakatukutala</script>
 			<script type="Hebr" draft="unconfirmed">tohinima fakahepelū</script>
 			<script type="Jpan" draft="unconfirmed">tohinima fakasiapani</script>
+			<script type="Kore" draft="unconfirmed">tohinima fakakolea</script>
 			<script type="Latn" draft="unconfirmed">tohinima fakalatina</script>
+			<script type="Zxxx" draft="unconfirmed">tohinima taʻetohitohiʻi</script>
+			<script type="Zyyy" draft="unconfirmed">tohinima meʻataha</script>
+			<script type="Zzzz" draft="unconfirmed">tohinima taʻeʻiloa</script>
 		</scripts>
 		<territories>
 			<territory type="001" draft="unconfirmed">Māmani</territory>
@@ -77,7 +88,6 @@
 			<territory type="015" draft="unconfirmed">ʻAfelika tokelau</territory>
 			<territory type="017" draft="unconfirmed">ʻAfelika lotoloto</territory>
 			<territory type="018" draft="unconfirmed">ʻAfelika fakatonga</territory>
-			<territory type="018" alt="proposed-x1001" draft="unconfirmed">ʻAfelika tonga</territory>
 			<territory type="019" draft="unconfirmed">Ongo ʻAmelika</territory>
 			<territory type="021" draft="unconfirmed">ʻAmelika tonga ange</territory>
 			<territory type="029" draft="unconfirmed">Kalipea</territory>
@@ -88,7 +98,6 @@
 			<territory type="053" draft="unconfirmed">ʻAositelēlia mo Nuʻusila</territory>
 			<territory type="054" draft="unconfirmed">Melanisia</territory>
 			<territory type="057" draft="unconfirmed">Potu fonua Mikolonisia</territory>
-			<territory type="057" alt="proposed-x1001" draft="unconfirmed">Mikolonisia</territory>
 			<territory type="061" draft="unconfirmed">Polinisia</territory>
 			<territory type="062" draft="unconfirmed">ʻĒsia tongalotoloto</territory>
 			<territory type="142" draft="unconfirmed">ʻĒsia</territory>
@@ -100,16 +109,24 @@
 			<territory type="155" draft="unconfirmed">ʻEulope hihifo</territory>
 			<territory type="172" draft="unconfirmed">Komoniueli</territory>
 			<territory type="419" draft="unconfirmed">ʻAmelika fakalatina mo Kalipea</territory>
+			<territory type="AG" draft="unconfirmed">Anitikua mo Palaputa</territory>
+			<territory type="AI" draft="unconfirmed">Anikuila</territory>
 			<territory type="AQ" draft="unconfirmed">ʻAnetātika</territory>
 			<territory type="AS" draft="unconfirmed">Haʻamoa fakaʻamelika</territory>
 			<territory type="AU" draft="unconfirmed">ʻAositelēlia</territory>
 			<territory type="BE" draft="unconfirmed">Pelesiume</territory>
 			<territory type="BR" draft="unconfirmed">Palāsili</territory>
+			<territory type="BS" draft="unconfirmed">Pahama</territory>
+			<territory type="BV" draft="unconfirmed">Motu Puveti</territory>
+			<territory type="BW" draft="unconfirmed">Potisiuana</territory>
+			<territory type="BZ" draft="unconfirmed">Pelise</territory>
 			<territory type="CA" draft="unconfirmed">Kānata</territory>
 			<territory type="CH" draft="unconfirmed">Suisilani</territory>
 			<territory type="CK" draft="unconfirmed">ʻOtumotu Kuki</territory>
 			<territory type="CN" draft="unconfirmed">Siaina</territory>
+			<territory type="CX" draft="unconfirmed">Motu Kilisimasi</territory>
 			<territory type="DE" draft="unconfirmed">Siamane</territory>
+			<territory type="DM" draft="unconfirmed">Tominika</territory>
 			<territory type="EG" draft="unconfirmed">ʻIsipite</territory>
 			<territory type="ES" draft="unconfirmed">Sepeni</territory>
 			<territory type="FI" draft="unconfirmed">Finilani</territory>
@@ -117,22 +134,45 @@
 			<territory type="FM" draft="unconfirmed">Mikolonisia</territory>
 			<territory type="FR" draft="unconfirmed">Falanisē</territory>
 			<territory type="GB" draft="unconfirmed">Pilitānia</territory>
+			<territory type="GD" draft="unconfirmed">Kelenatā</territory>
+			<territory type="GG" draft="unconfirmed">Kuenisī</territory>
+			<territory type="GH" draft="unconfirmed">Kana</territory>
+			<territory type="GI" draft="unconfirmed">Sipalālitā</territory>
+			<territory type="GM" draft="unconfirmed">Kamipia</territory>
 			<territory type="GR" draft="unconfirmed">Kalisi</territory>
+			<territory type="GS" draft="unconfirmed">ʻOtumotu Siosia-tonga mo Saniuisi-tonga</territory>
+			<territory type="GU" draft="unconfirmed">Kuami</territory>
+			<territory type="GY" draft="unconfirmed">Kuiana</territory>
+			<territory type="HK" draft="unconfirmed">Hongi Kongi SAR Siaina</territory>
+			<territory type="HK" alt="short" draft="unconfirmed">Hongi Kongi</territory>
+			<territory type="HM" draft="unconfirmed">ʻOtumotu Heati mo Makitonali</territory>
+			<territory type="HN" draft="unconfirmed">Honitulasi</territory>
 			<territory type="IE" draft="unconfirmed">ʻAealani</territory>
 			<territory type="IL" draft="unconfirmed">ʻIsileli</territory>
+			<territory type="IM" draft="unconfirmed">Motu Mani</territory>
 			<territory type="IN" draft="unconfirmed">ʻInitia</territory>
+			<territory type="IO" draft="unconfirmed">Potu fonua moana ʻInitia fakapilitānia</territory>
 			<territory type="IT" draft="unconfirmed">ʻĪtali</territory>
+			<territory type="JE" draft="unconfirmed">Selusī</territory>
 			<territory type="JP" draft="unconfirmed">Siapani</territory>
+			<territory type="KE" draft="unconfirmed">Kenia</territory>
 			<territory type="KI" draft="unconfirmed">Kilipasi</territory>
 			<territory type="KP" draft="unconfirmed">Kōloa tokelau</territory>
 			<territory type="KR" draft="unconfirmed">Kōlea tonga</territory>
-			<territory type="KR" alt="proposed-x1001" draft="unconfirmed">Kōlea Tonga</territory>
 			<territory type="LK" draft="unconfirmed">Sīloni</territory>
+			<territory type="LR" draft="unconfirmed">Laipelia</territory>
+			<territory type="LS" draft="unconfirmed">Lesoto</territory>
 			<territory type="MH" draft="unconfirmed">ʻOtumotu Māsolo</territory>
-			<territory type="MH" alt="proposed-x1001" draft="unconfirmed">ʻOtu Māsolo</territory>
-			<territory type="MH" alt="proposed-x1002" draft="unconfirmed">ʻOtu motu Māsolo</territory>
+			<territory type="MP" draft="unconfirmed">ʻOtumotu Maliana tokelau</territory>
+			<territory type="MS" draft="unconfirmed">Moʻungaselati</territory>
+			<territory type="MT" draft="unconfirmed">Malita</territory>
+			<territory type="MU" draft="unconfirmed">Maulitiusi</territory>
+			<territory type="MW" draft="unconfirmed">Malaui</territory>
 			<territory type="MX" draft="unconfirmed">Mekesikō</territory>
+			<territory type="NA" draft="unconfirmed">Namipia</territory>
 			<territory type="NC" draft="unconfirmed">Niu Kaletonia</territory>
+			<territory type="NF" draft="unconfirmed">Motu Nōfoliki</territory>
+			<territory type="NG" draft="unconfirmed">Naisilia</territory>
 			<territory type="NL" draft="unconfirmed">Holani</territory>
 			<territory type="NO" draft="unconfirmed">Noauē</territory>
 			<territory type="NR" draft="unconfirmed">Naulu</territory>
@@ -140,23 +180,34 @@
 			<territory type="NZ" draft="unconfirmed">Nuʻusila</territory>
 			<territory type="PA" draft="unconfirmed">Panamā</territory>
 			<territory type="PF" draft="unconfirmed">Polinisia fakafalanisē</territory>
+			<territory type="PG" draft="unconfirmed">Papuaniukini</territory>
+			<territory type="PK" draft="unconfirmed">Pakisitani</territory>
+			<territory type="PN" draft="unconfirmed">Pitikeni</territory>
 			<territory type="PT" draft="unconfirmed">Potukali</territory>
+			<territory type="PW" draft="unconfirmed">Palau</territory>
 			<territory type="QU" draft="unconfirmed">ʻEulope fakataha</territory>
-			<territory type="RU" draft="unconfirmed">Lusia</territory>
+			<territory type="RU" draft="unconfirmed">Lūsia</territory>
+			<territory type="RW" draft="unconfirmed">Luanitā</territory>
 			<territory type="SB" draft="unconfirmed">ʻOtumotu Solomone</territory>
+			<territory type="SC" draft="unconfirmed">ʻOtumotu Seiseli</territory>
 			<territory type="SE" draft="unconfirmed">Suēteni</territory>
 			<territory type="SG" draft="unconfirmed">Singapula</territory>
-			<territory type="SG" alt="proposed-x1001" draft="unconfirmed">Singapura</territory>
+			<territory type="TF" draft="unconfirmed">Potu fonua tonga fakafalanisē</territory>
 			<territory type="TK" draft="unconfirmed">Tokelau</territory>
 			<territory type="TO" draft="unconfirmed">Tonga</territory>
 			<territory type="TR" draft="unconfirmed">Toake</territory>
+			<territory type="TT" draft="unconfirmed">Tilinitati mo Topako</territory>
 			<territory type="TV" draft="unconfirmed">Tūvalu</territory>
+			<territory type="UM" draft="unconfirmed">ʻOtumotu siʻi ʻo ʻAmelika</territory>
 			<territory type="US" draft="unconfirmed">Puleʻanga fakataha ʻAmelika</territory>
 			<territory type="VA" draft="unconfirmed">Vatikani</territory>
+			<territory type="VG" draft="unconfirmed">ʻOtumotu Vilikini fakapilitānia</territory>
+			<territory type="VI" draft="unconfirmed">ʻOtumotu Vilikini fakaʻamelika</territory>
 			<territory type="VU" draft="unconfirmed">Vanuatu</territory>
 			<territory type="WF" draft="unconfirmed">ʻUvea mo Futuna</territory>
 			<territory type="WS" draft="unconfirmed">Haʻamoa</territory>
 			<territory type="ZA" draft="unconfirmed">ʻAfelika tonga</territory>
+			<territory type="ZW" draft="unconfirmed">Simipapue</territory>
 			<territory type="ZZ" draft="unconfirmed">Potu fonua taʻeʻiloa pe hala</territory>
 		</territories>
 		<keys>
@@ -167,8 +218,10 @@
 		<types>
 			<type type="buddhist" key="calendar" draft="unconfirmed">fakaputa</type>
 			<type type="chinese" key="calendar" draft="unconfirmed">fakasiaina</type>
+			<type type="direct" key="collation" draft="unconfirmed">hangatonu</type>
 			<type type="gregorian" key="calendar" draft="unconfirmed">fakakelekolia</type>
 			<type type="hebrew" key="calendar" draft="unconfirmed">fakahepelū</type>
+			<type type="indian" key="calendar" draft="unconfirmed">fakaʻinitia</type>
 			<type type="islamic" key="calendar" draft="unconfirmed">fakamohameti</type>
 			<type type="islamic-civil" key="calendar" draft="unconfirmed">fakamohameti-sivile</type>
 			<type type="japanese" key="calendar" draft="unconfirmed">fakasiapani</type>
@@ -181,9 +234,11 @@
 	<characters>
 		<exemplarCharacters draft="unconfirmed">[a á ā e é ē f h ʻ i í ī k-n {ng} o ó ō p s-u ú ū v]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="unconfirmed">[à ă â å ä æ b c ç d è ĕ ê ë g ì ĭ î ï j ñ ò ŏ ô ö ø œ q r ß ù ŭ û ü w-y ÿ z]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" alt="proposed-x1001" draft="unconfirmed">[à ă â å ä æ b c ç d è ĕ ê ë g ì ĭ î ï j ñ ò ŏ ô ö ø ō q r ß ù ŭ û ü w-y ÿ z]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol" draft="unconfirmed">[a-z]</exemplarCharacters>
 	</characters>
 	<delimiters>
+		<quotationStart draft="unconfirmed">“</quotationStart>
+		<quotationEnd draft="unconfirmed">”</quotationEnd>
 		<alternateQuotationStart draft="unconfirmed">«</alternateQuotationStart>
 		<alternateQuotationEnd draft="unconfirmed">»</alternateQuotationEnd>
 	</delimiters>
@@ -211,15 +266,12 @@
 							<month type="2" draft="unconfirmed">F</month>
 							<month type="3" draft="unconfirmed">M</month>
 							<month type="4" draft="unconfirmed">E</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">ʻE</month>
 							<month type="5" draft="unconfirmed">M</month>
 							<month type="6" draft="unconfirmed">S</month>
 							<month type="7" draft="unconfirmed">S</month>
 							<month type="8" draft="unconfirmed">A</month>
-							<month type="8" alt="proposed-x1001" draft="unconfirmed">ʻA</month>
 							<month type="9" draft="unconfirmed">S</month>
 							<month type="10" draft="unconfirmed">O</month>
-							<month type="10" alt="proposed-x1001" draft="unconfirmed">ʻO</month>
 							<month type="11" draft="unconfirmed">N</month>
 							<month type="12" draft="unconfirmed">T</month>
 						</monthWidth>
@@ -244,15 +296,12 @@
 							<month type="2" draft="unconfirmed">F</month>
 							<month type="3" draft="unconfirmed">M</month>
 							<month type="4" draft="unconfirmed">E</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">ʻE</month>
 							<month type="5" draft="unconfirmed">M</month>
 							<month type="6" draft="unconfirmed">S</month>
 							<month type="7" draft="unconfirmed">S</month>
 							<month type="8" draft="unconfirmed">A</month>
-							<month type="8" alt="proposed-x1001" draft="unconfirmed">ʻA</month>
 							<month type="9" draft="unconfirmed">S</month>
 							<month type="10" draft="unconfirmed">O</month>
-							<month type="10" alt="proposed-x1001" draft="unconfirmed">ʻO</month>
 							<month type="11" draft="unconfirmed">N</month>
 							<month type="12" draft="unconfirmed">T</month>
 						</monthWidth>
@@ -391,14 +440,56 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss v</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="unconfirmed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Hm" draft="unconfirmed">H:mm</dateFormatItem>
+						<dateFormatItem id="M" draft="unconfirmed">L</dateFormatItem>
+						<dateFormatItem id="MEd" draft="unconfirmed">E d-M</dateFormatItem>
+						<dateFormatItem id="MMM" draft="unconfirmed">LLL</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="unconfirmed">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd" draft="unconfirmed">E d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="unconfirmed">d MMM</dateFormatItem>
 						<dateFormatItem id="Md" draft="unconfirmed">d-M</dateFormatItem>
+						<dateFormatItem id="d" draft="unconfirmed">d</dateFormatItem>
+						<dateFormatItem id="ms" draft="unconfirmed">mm:ss</dateFormatItem>
+						<dateFormatItem id="y" draft="unconfirmed">yyyy</dateFormatItem>
+						<dateFormatItem id="yM" draft="unconfirmed">M-yyyy</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="unconfirmed">EEE d-M-yyyy</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="unconfirmed">MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="unconfirmed">EEE d MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yMMMM" draft="unconfirmed">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yQ" draft="unconfirmed">yyyy Q</dateFormatItem>
+						<dateFormatItem id="yQQQ" draft="unconfirmed">yyyy QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="unconfirmed">MM-yy</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">MM-yyyy</dateFormatItem>
 						<dateFormatItem id="yyMMM" draft="unconfirmed">MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMM" alt="proposed-x1001" draft="unconfirmed">MMM yyyy</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -444,11 +535,80 @@
 				</fields>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
+			<regionFormat draft="unconfirmed">Houa {0}</regionFormat>
+			<metazone type="Fiji">
+				<long>
+					<standard draft="unconfirmed">houa fakafisi</standard>
+					<daylight draft="unconfirmed">houa fakafisi fakamaama</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<long>
+					<standard draft="unconfirmed">houa fakahauaʻi</standard>
+				</long>
+			</metazone>
+			<metazone type="New_Zealand">
+				<long>
+					<generic draft="unconfirmed">houa fakanuʻusila</generic>
+					<standard draft="unconfirmed">houa fakanuʻusila fakasīpinga</standard>
+					<daylight draft="unconfirmed">houa fakanuʻusila fakamaama</daylight>
+				</long>
+			</metazone>
+			<metazone type="Niue">
+				<long>
+					<standard draft="unconfirmed">houa fakaniuē</standard>
+				</long>
+			</metazone>
+			<metazone type="Samoa">
+				<long>
+					<standard draft="unconfirmed">houa fakahaʻamoa</standard>
+				</long>
+			</metazone>
+			<metazone type="Tahiti">
+				<long>
+					<standard draft="unconfirmed">houa fakatahisi</standard>
+				</long>
+			</metazone>
+			<metazone type="Tokelau">
+				<long>
+					<standard draft="unconfirmed">houa fakatokelau</standard>
+				</long>
+			</metazone>
+			<metazone type="Tonga">
+				<long>
+					<standard draft="unconfirmed">houa fakatonga</standard>
+					<daylight draft="unconfirmed">houa fakatonga lotohē</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tuvalu">
+				<long>
+					<standard draft="unconfirmed">houa fakatūvalu</standard>
+				</long>
+			</metazone>
+			<metazone type="Wallis">
+				<long>
+					<standard draft="unconfirmed">houa fakaʻuvea mo futuna</standard>
+				</long>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>
 			<decimal draft="unconfirmed">.</decimal>
 			<group draft="unconfirmed">,</group>
+			<list draft="unconfirmed">;</list>
+			<percentSign draft="unconfirmed">%</percentSign>
+			<nativeZeroDigit draft="unconfirmed">0</nativeZeroDigit>
+			<patternDigit draft="unconfirmed">#</patternDigit>
+			<plusSign draft="unconfirmed">+</plusSign>
+			<minusSign draft="unconfirmed">-</minusSign>
+			<exponential draft="unconfirmed">E</exponential>
+			<perMille draft="unconfirmed">‰</perMille>
+			<infinity draft="unconfirmed">∞</infinity>
+			<nan draft="unconfirmed">NaN</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -477,8 +637,32 @@
 					<pattern draft="unconfirmed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<unitPattern count="one" draft="unconfirmed">{0} {1}</unitPattern>
 		</currencyFormats>
 	</numbers>
+	<units>
+		<unit type="day">
+			<unitName count="one" draft="unconfirmed">ʻa</unitName>
+		</unit>
+		<unit type="hour">
+			<unitName count="one" draft="unconfirmed">h</unitName>
+		</unit>
+		<unit type="minute">
+			<unitName count="one" draft="unconfirmed">m</unitName>
+		</unit>
+		<unit type="month">
+			<unitName count="one" draft="unconfirmed">m</unitName>
+		</unit>
+		<unit type="second">
+			<unitName count="one" draft="unconfirmed">s</unitName>
+		</unit>
+		<unit type="week">
+			<unitName count="one" draft="unconfirmed">u</unitName>
+		</unit>
+		<unit type="year">
+			<unitName count="one" draft="unconfirmed">t</unitName>
+		</unit>
+	</units>
 	<posix>
 		<messages>
 			<yesstr draft="unconfirmed">ʻio</yesstr>
@@ -486,4 +670,3 @@
 		</messages>
 	</posix>
 </ldml>
-

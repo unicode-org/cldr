@@ -102,7 +102,8 @@ public class DisplayAndInputProcessor {
       }
       
       if (path.startsWith("//ldml/numbers") && path.indexOf("Format[")>=0&& path.indexOf("/pattern")>=0) {
-          String newValue = value.replaceAll(" ", "\u00A0");
+          String newValue = value.replaceAll("([%\u00A4]) ", "$1\u00A0")
+                                 .replaceAll(" ([%\u00A4])", "\u00A0$1");
           if (!value.equals(newValue)) {
               value = newValue;
           }

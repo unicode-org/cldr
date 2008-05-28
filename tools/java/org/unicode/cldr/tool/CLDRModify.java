@@ -1317,7 +1317,7 @@ public class CLDRModify {
 					System.out.println(path + " =\t " + k.getStringValue(path));
 				}
 				System.out.println("Additions/Replacements:");
-				System.out.println(replacements);
+				System.out.println(replacements.toString().replaceAll("\u00A0", "<NBSP>"));
 			}
 		}
 		if (removal.size() != 0) {

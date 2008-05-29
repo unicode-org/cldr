@@ -1612,8 +1612,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                }
                else {
                     result = type;
-                 str.name = "\"" + result.replaceAll("/",":") + "\"";
-                    str.val = other;
+                    str.name = "\"" + other + "\"";
+                    str.val = result;
                 }
                 res = str;
             }else{

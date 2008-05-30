@@ -5,9 +5,10 @@
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
 		<language type="bn"/>
+		<territory type="IN"/>
 	</identity>
-	<collations  validSubLocales="bn_IN">
-		<collation type="standard" references="Biswas: Samsad Bengali-English Dictionary ISBN:8186806865 http://www.eki.ee/wgrs/rom1_bn.pdf">
+	<collations>
+		<collation type="standard" draft="unconfirmed" references="Biswas: Samsad Bengali-English Dictionary ISBN:8186806865 http://www.eki.ee/wgrs/rom1_bn.pdf">
 			<settings normalization="on"/>
 			<rules>
 			<!--
@@ -30,7 +31,7 @@
 
 			</rules>
 		</collation>
-		<collation type="traditional" references="Biswas: Samsad Bengali-English Dictionary ISBN:8186806865">
+		<collation type="traditional" draft="unconfirmed" references="Biswas: Samsad Bengali-English Dictionary ISBN:8186806865">
 			<settings normalization="on"/>
 			<rules>
 				<reset>ঔ</reset>

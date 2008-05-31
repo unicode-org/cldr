@@ -1408,18 +1408,18 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
+							<month type="1">1월</month>
+							<month type="2">2월</month>
+							<month type="3">3월</month>
+							<month type="4">4월</month>
+							<month type="5">5월</month>
+							<month type="6">6월</month>
+							<month type="7">7월</month>
+							<month type="8">8월</month>
+							<month type="9">9월</month>
+							<month type="10">10월</month>
+							<month type="11">11월</month>
+							<month type="12">12월</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
@@ -1436,18 +1436,18 @@
 							<month type="12">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
+							<month type="1">1월</month>
+							<month type="2">2월</month>
+							<month type="3">3월</month>
+							<month type="4">4월</month>
+							<month type="5">5월</month>
+							<month type="6">6월</month>
+							<month type="7">7월</month>
+							<month type="8">8월</month>
+							<month type="9">9월</month>
+							<month type="10">10월</month>
+							<month type="11">11월</month>
+							<month type="12">12월</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -1630,11 +1630,11 @@
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="MEd">M. d. (E)</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMEd">MMM월 d일 (E)</dateFormatItem>
-						<dateFormatItem id="MMMMEd">MMMM월 d일 (E)</dateFormatItem>
+						<dateFormatItem id="MMMEd">MMM d일 (E)</dateFormatItem>
+						<dateFormatItem id="MMMMEd">MMMM d일 (E)</dateFormatItem>
 						<dateFormatItem id="MMMMEd" alt="proposed-x1001" draft="unconfirmed">MMMM. d. E</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMM월 d일</dateFormatItem>
-						<dateFormatItem id="MMMd">MMM월 d일</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM d일</dateFormatItem>
+						<dateFormatItem id="MMMd">MMM d일</dateFormatItem>
 						<dateFormatItem id="MMdd">MM. dd</dateFormatItem>
 						<dateFormatItem id="MMdd" alt="proposed-x1001" draft="unconfirmed">MM. dd.</dateFormatItem>
 						<dateFormatItem id="Md">M. d.</dateFormatItem>
@@ -1644,14 +1644,14 @@
 						<dateFormatItem id="y">yyyy</dateFormatItem>
 						<dateFormatItem id="yM">yyyy. M.</dateFormatItem>
 						<dateFormatItem id="yMEd">yyyy. M. d. EEE</dateFormatItem>
-						<dateFormatItem id="yMMM">yyyy년 MMM월</dateFormatItem>
-						<dateFormatItem id="yMMMEd">yyyy년 MMM월 d일 EEE</dateFormatItem>
-						<dateFormatItem id="yMMMM">yyyy년 MMMM월</dateFormatItem>
+						<dateFormatItem id="yMMM">yyyy년 MMM</dateFormatItem>
+						<dateFormatItem id="yMMMEd">yyyy년 MMM d일 EEE</dateFormatItem>
+						<dateFormatItem id="yMMMM">yyyy년 MMMM</dateFormatItem>
 						<dateFormatItem id="yQ">yyyy년 Q분기</dateFormatItem>
 						<dateFormatItem id="yQQQ">yyyy년 QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="contributed">YY. M.</dateFormatItem>
 						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">yy-MM</dateFormatItem>
-						<dateFormatItem id="yyMMM">yy년 MMM월</dateFormatItem>
+						<dateFormatItem id="yyMMM">yy년 MMM</dateFormatItem>
 						<dateFormatItem id="yyQ">yy년 Q분기</dateFormatItem>
 						<dateFormatItem id="yyyyMM">yyyy. MM</dateFormatItem>
 					</availableFormats>
@@ -1667,7 +1667,7 @@
 							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">M월 d일 EEE ~ M월 d일 EEE</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
-							<greatestDifference id="M">MMM월 ~ MMM월</greatestDifference>
+							<greatestDifference id="M">MMM ~ MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEEEd">
 							<greatestDifference id="M">M월 d일 EEE ~ M월 d일 EEE</greatestDifference>

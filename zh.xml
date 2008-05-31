@@ -1056,18 +1056,18 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
+							<month type="1">1月</month>
+							<month type="2">2月</month>
+							<month type="3">3月</month>
+							<month type="4">4月</month>
+							<month type="5">5月</month>
+							<month type="6">6月</month>
+							<month type="7">7月</month>
+							<month type="8">8月</month>
+							<month type="9">9月</month>
+							<month type="10">10月</month>
+							<month type="11">11月</month>
+							<month type="12">12月</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
@@ -1084,18 +1084,18 @@
 							<month type="12">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
+							<month type="1">1月</month>
+							<month type="2">2月</month>
+							<month type="3">3月</month>
+							<month type="4">4月</month>
+							<month type="5">5月</month>
+							<month type="6">6月</month>
+							<month type="7">7月</month>
+							<month type="8">8月</month>
+							<month type="9">9月</month>
+							<month type="10">10月</month>
+							<month type="11">11月</month>
+							<month type="12">12月</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -1279,11 +1279,11 @@
 						<dateFormatItem id="MEd">9-14周二</dateFormatItem>
 						<dateFormatItem id="MEd" alt="proposed-x1001" draft="unconfirmed">E, M-d</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMEd">MMM月d日E</dateFormatItem>
-						<dateFormatItem id="MMMMEd">MMMM月d日E</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMM月d日</dateFormatItem>
-						<dateFormatItem id="MMMMdd">MMMM月dd日</dateFormatItem>
-						<dateFormatItem id="MMMd">MMM月d日</dateFormatItem>
+						<dateFormatItem id="MMMEd">MMMd日E</dateFormatItem>
+						<dateFormatItem id="MMMMEd">MMMMd日E</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMMd日</dateFormatItem>
+						<dateFormatItem id="MMMMdd">MMMMdd日</dateFormatItem>
+						<dateFormatItem id="MMMd">MMMd日</dateFormatItem>
 						<dateFormatItem id="MMdd">MM-dd</dateFormatItem>
 						<dateFormatItem id="MMdd" alt="proposed-x1001" draft="unconfirmed">MM/dd</dateFormatItem>
 						<dateFormatItem id="MMdd" alt="proposed-x1002" draft="unconfirmed">dd/MM</dateFormatItem>
@@ -1297,18 +1297,18 @@
 						<dateFormatItem id="yM">yyyy-M</dateFormatItem>
 						<dateFormatItem id="yMEd">1999年9月14日，星期二</dateFormatItem>
 						<dateFormatItem id="yMEd" alt="proposed-x1001" draft="unconfirmed">yyyy-M-dEEE</dateFormatItem>
-						<dateFormatItem id="yMMM">yyyy年MMM月</dateFormatItem>
-						<dateFormatItem id="yMMMEd">yyyy年MMM月d日EEE</dateFormatItem>
-						<dateFormatItem id="yMMMM">yyyy年MMMM月</dateFormatItem>
+						<dateFormatItem id="yMMM">yyyy年MMM</dateFormatItem>
+						<dateFormatItem id="yMMMEd">yyyy年MMMd日EEE</dateFormatItem>
+						<dateFormatItem id="yMMMM">yyyy年MMMM</dateFormatItem>
 						<dateFormatItem id="yMMMM" alt="proposed-x1001" draft="unconfirmed">yyyy MMMM</dateFormatItem>
 						<dateFormatItem id="yQ">yyyy年QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQ">yyyy年QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="contributed">yy-MM</dateFormatItem>
-						<dateFormatItem id="yyMMM">yy年MMM月</dateFormatItem>
+						<dateFormatItem id="yyMMM">yy年MMM</dateFormatItem>
 						<dateFormatItem id="yyQ">yy年第Q季度</dateFormatItem>
 						<dateFormatItem id="yyyy">yyyy年</dateFormatItem>
 						<dateFormatItem id="yyyyM">yyyy年M月</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">yyyy年MMMM月</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">yyyy年MMMM</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>

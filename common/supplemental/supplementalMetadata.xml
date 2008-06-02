@@ -707,14 +707,14 @@
         </validity>
         <alias>
             <!-- grandfathered 3066 codes -->
-            <languageAlias type="art-lojban" replacement="jbo"/> <!-- Lojban -->
-            <languageAlias type="i-hak" replacement="zh-hakka"/> <!-- Hakka -->
-            <languageAlias type="i-klingon" replacement="tlh"/> <!-- Klingon -->
-            <languageAlias type="i-lux" replacement="lb"/> <!-- Luxembourgish -->
-            <languageAlias type="i-navajo" replacement="nv"/> <!-- Navajo -->
-            <languageAlias type="no-bok" replacement="nb"/> <!-- Norwegian Bokmal -->
-            <languageAlias type="no-nyn" replacement="nn"/> <!-- Norwegian Nynorsk -->
-            <languageAlias type="zh-guoyu" replacement="zh-cmn"/> <!-- Mandarin or Standard Chinese -->
+            <languageAlias type="art_lojban" replacement="jbo"/> <!-- Lojban -->
+            <languageAlias type="i_hak" replacement="zh_hakka"/> <!-- Hakka -->
+            <languageAlias type="i_klingon" replacement="tlh"/> <!-- Klingon -->
+            <languageAlias type="i_lux" replacement="lb"/> <!-- Luxembourgish -->
+            <languageAlias type="i_navajo" replacement="nv"/> <!-- Navajo -->
+            <languageAlias type="no_bok" replacement="nb"/> <!-- Norwegian Bokmal -->
+            <languageAlias type="no_nyn" replacement="nn"/> <!-- Norwegian Nynorsk -->
+            <languageAlias type="zh_guoyu" replacement="zh"/> <!-- Mandarin or Standard Chinese. We use zh for that -->
             <!-- deprecated iso codes -->
             <languageAlias type="in" replacement="id"/> <!-- Indonesian -->
             <languageAlias type="iw" replacement="he"/> <!-- Hebrew -->
@@ -765,8 +765,10 @@
             <territoryAlias type="886" replacement="YE"/> <!-- Yemen (pre-1990) -->
             <territoryAlias type="890" replacement="RS ME SI HR MK BA"/> <!-- Yugoslavia (pre-1992) -->
             <variantAlias type="BOKMAL"/>
+            <variantAlias type="no_BOKMAL" replacement="nb"/>
             <variantAlias type="NYNORSK"/>
-            <variantAlias type="AALAND"/>
+            <variantAlias type="no_NYNORSK" replacement="nn"/>
+            <variantAlias type="AALAND" replacement="AX"/>
             <variantAlias type="BOONT"/>
             <variantAlias type="GAULISH"/>
             <variantAlias type="GUOYU"/>

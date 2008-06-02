@@ -1,6 +1,7 @@
 package org.unicode.cldr.test;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.XPathParts;
 
 import java.util.List;
@@ -30,8 +31,7 @@ public class CheckCurrencies extends CheckCLDR {
             }
             
             // the following is how you signal an error or warning (or add a demo....)
-            result.add(new CheckStatus().setCause(this) // boilerplate
-                    .setType(CheckStatus.warningType) // typically warningType or errorType
+            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.currencySymbolTooWide) // typically warningType or errorType
                     .setMessage("Currency symbol length > 5")); // the message; can be MessageFormat with arguments
         }
         return this;

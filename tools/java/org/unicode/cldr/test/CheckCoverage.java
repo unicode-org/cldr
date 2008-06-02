@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Phase;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.InternalCldrException;
@@ -90,8 +91,7 @@ public class CheckCoverage extends CheckCLDR {
         
         if (level == CoverageLevel.Level.UNDETERMINED) return this; // continue if we don't know what the status is
         if (requiredLevel.compareTo(level) >= 0) {
-            result.add(new CheckStatus().setCause(this)
-                .setType(CheckStatus.warningType /*level.compareTo( Level.MINIMAL) > 0 ? CheckStatus.warningType : CheckStatus.errorType */)
+            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.coverageLevel)
                 .setCheckOnSubmit(false)
                     .setMessage("Needed to meet {0} coverage level.", new Object[] { level }));
         } else if (DEBUG) {
@@ -109,7 +109,7 @@ public class CheckCoverage extends CheckCLDR {
           PluralInfo pluralInfo = supplementalData.getPlurals(localeID);
           if (pluralInfo == supplementalData.getPlurals("root")) {
             possibleErrors.add(new CheckStatus()
-            .setCause(this).setType(CheckStatus.errorType)
+            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.missingPluralInfo)
             .setMessage("Missing Plural Information - see supplemental plural charts to file bug.", 
                     new Object[]{}));          
           }

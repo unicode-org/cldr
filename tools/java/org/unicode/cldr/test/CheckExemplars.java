@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XPathParts;
 
@@ -55,7 +56,7 @@ public class CheckExemplars extends CheckCLDR {
 	      UnicodeSet auxiliarySet = getResolvedCldrFileToCheck().getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
 
 	      if (auxiliarySet == null) {
-	        result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+	        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingAuxiliaryExemplars)
 	                .setMessage("Missing Auxiliary Set")
 	                .setHTMLMessage("Most languages allow <i>some<i> auxiliary characters, so review this."));   			
 	      }
@@ -66,7 +67,7 @@ public class CheckExemplars extends CheckCLDR {
 	        UnicodeSet overlap = new UnicodeSet(mainSet).retainAll(auxiliarySet).removeAll(HangulSyllables);
 	        if (overlap.size() != 0) {
 	          String fixedExemplar1 = CollectionUtilities.prettyPrint(overlap, true, null, null, col, col);
-	          result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+	          result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.auxiliaryExemplarsOverlap)
 	                  .setMessage("Auxiliary overlaps with main \u200E{0}\u200E", new Object[]{fixedExemplar1}));   			
 	        }
 	      }
@@ -88,7 +89,7 @@ public class CheckExemplars extends CheckCLDR {
 	              ( UCharacter.getDirection(mi.codepoint) == UCharacterDirection.RIGHT_TO_LEFT ||
 	                      UCharacter.getDirection(mi.codepoint) == UCharacterDirection.RIGHT_TO_LEFT_ARABIC ) &&
 	                      ! localeIsRTL ) {
-	        result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+	        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.orientationDisagreesWithExemplars)
 	                .setMessage("Main exemplar set contains RTL characters, but orientation of this locale is not RTL."));
 	        break;
 	      }
@@ -103,14 +104,14 @@ public class CheckExemplars extends CheckCLDR {
     	try {
     		exemplar1 = new UnicodeSet(v);
     	} catch (Exception e) {
-	    	result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+	    	result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalExemplarSet)
 	    	    	.setMessage("This field must be a set of the form [a b c-d ...]: ", new Object[]{e.getMessage()}));
     		return;
     	}
     	String fixedExemplar1 = CollectionUtilities.prettyPrint(exemplar1, true, null, null, col, col);
     	UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar1);
     	if (!doubleCheck.equals(exemplar1)) {
-	    	result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+	    	result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.internalUnicodeSetFormattingError)
 	    	    	.setMessage("Internal Error: formatting not working for {0}", new Object[]{exemplar1}));
 
     	}
@@ -122,17 +123,17 @@ public class CheckExemplars extends CheckCLDR {
     		exemplar1 = CollectionUtilities.flatten(exemplar1).removeAll(AllowedInExemplars);
     		if (exemplar1.size() != 0) {
     		fixedExemplar1 = CollectionUtilities.prettyPrint(exemplar1, true, null, null, col, col);
-	    	result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+	    	result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.illegalCharactersInExemplars)
 	    	.setMessage("Should be limited to (specific-script - uppercase - invisibles + \u0130); thus not contain: \u200E{0}\u200E",
 	    			new Object[]{fixedExemplar1}));
     		}
     	} else if (!isRoot && exemplar1.size() == 0) {
         if (isAuxiliary) {
-          result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+          result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingAuxiliaryExemplars)
               .setMessage("Empty Auxiliary Set.")
               .setHTMLMessage("Most languages allow <i>some<i> auxiliary characters, so review this."));   
         } else {
-          result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+          result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.missingMainExemplars)
               .setMessage("Exemplar set must not be empty.")
               .setHTMLMessage("Exemplar set must not be empty -- that would imply that this language uses no letters!"));    
         }

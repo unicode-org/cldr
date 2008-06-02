@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Phase;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -67,7 +68,7 @@ public class CheckAttributeValues extends CheckCLDR {
                 if (attribute.equals("count")) {
                   if (!pluralInfo.getCountToExamplesMap().keySet().contains(attributeValue)) {
                     result.add(new CheckStatus()
-                    .setCause(this).setType(CheckStatus.errorType)
+                    .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalPlural)
                     .setMessage("Illegal plural value {0}; must be one of: {1}", 
                             new Object[]{attributeValue, pluralInfo.getCountToExamplesMap().keySet()}));          
                   }
@@ -88,18 +89,18 @@ public class CheckAttributeValues extends CheckCLDR {
             if (isEnglish) return; // don't flag English
             if (replacement.length() == 0) {
                 result.add(new CheckStatus()
-                        .setCause(this).setType(CheckStatus.warningType)
+                .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.deprecatedAttribute)
                         .setMessage("Deprecated Attribute Value {0}={1}. Consider removing.", 
                                 new Object[]{attribute, attributeValue}));
             } else {
                 result.add(new CheckStatus()
-                        .setCause(this).setType(CheckStatus.warningType)
+                .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.deprecatedAttributeWithReplacement)
                         .setMessage("Deprecated Attribute Value {0}={1}. Consider removing, and possibly modifying the related value for {2}.", 
                                 new Object[]{attribute, attributeValue, replacement}));
             }
         } else {
             result.add(new CheckStatus()
-                    .setCause(this).setType(CheckStatus.errorType)
+            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.unexpectedAttributeValue)
                     .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}", 
                             new Object[]{attribute, attributeValue, matcherPattern.pattern}));
         }
@@ -149,7 +150,7 @@ public class CheckAttributeValues extends CheckCLDR {
         }
         if (!localeMatcher.matches(cldrFileToCheck.getLocaleID())) {
             possibleErrors.add(new CheckStatus()
-                    .setCause(this).setType(CheckStatus.errorType)
+            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.invalidLocale)
                     .setMessage("Invalid Locale {0}", 
                             new Object[]{cldrFileToCheck.getLocaleID()}));
             

@@ -1,6 +1,7 @@
 package org.unicode.cldr.test;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XPathParts;
 
@@ -62,8 +63,7 @@ public class CheckCasing extends CheckCLDR {
     }
     if (!newValue.equals(value)) {
       // the following is how you signal an error or warning (or add a demo....)
-      result.add(new CheckStatus().setCause(this) // boilerplate
-          .setType(CheckStatus.errorType) // typically warningType or errorType
+      result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.incorrectCasing) // typically warningType or errorType
           .setMessage("Casing incorrect: either should have casing=\"verbatim\" or be <{0}>", new Object[]{newValue})); // the message; can be MessageFormat with arguments
     }
     return this;

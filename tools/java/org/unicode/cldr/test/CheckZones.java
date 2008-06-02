@@ -11,6 +11,7 @@ import java.util.Map;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Phase;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.TimezoneFormatter;
@@ -42,7 +43,7 @@ public class CheckZones extends CheckCLDR {
 		try {
 			timezoneFormatter = new TimezoneFormatter(getResolvedCldrFileToCheck());
 		} catch (RuntimeException e) {
-			possibleErrors.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+			possibleErrors.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.cannotCreateZoneFormatter)
 					.setMessage("Checking zones: " + e.getMessage()));
 		}
 		return this;
@@ -78,24 +79,24 @@ public class CheckZones extends CheckCLDR {
 		   
                 if ( zone.equals(previousZone) ) {
 		   if ( from.compareTo(previousTo) < 0 ) {
-				result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+				result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.multipleMetazoneMappings)
 				      .setMessage("Multiple metazone mappings between {1} and {0}",
                                                    new Object[] {previousTo,from} ));
                    }
 		   if ( from.compareTo(previousTo) > 0 ) {
-				result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+				result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.noMetazoneMapping)
 				      .setMessage("No metazone mapping between {0} and {1}",
                                                    new Object[] {previousTo,from} ));
                    }
                 }
                 else {
                    if ( previousFrom.compareTo("1970-01-01") != 0 ) {
-				result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+				result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.noMetazoneMappingAfter1970)
 				      .setMessage("Zone {0} has no metazone mapping between 1970-01-01 and {1}",
                                                    new Object[] {previousZone,previousFrom} ));
                    } 
                    if ( previousTo.compareTo("present") != 0 ) {
-				result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+				result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.noMetazoneMappingBeforeNow)
 				      .setMessage("Zone {0} has no metazone mapping between {1} and present.",
                                                    new Object[] {previousZone,previousTo} ));
                    }
@@ -152,8 +153,8 @@ public class CheckZones extends CheckCLDR {
         String formatted = exampleTextForXpath(parts, timezoneFormatter, path);
 
 		if(formatted != null) {
-            result.add(new CheckStatus().setCause(this).setType(
-                CheckStatus.exampleType).setMessage("Formatted value (if removed): \"{0}\"",
+            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.exampleType)
+                    .setMessage("Formatted value (if removed): \"{0}\"",
                 new Object[] { formatted }));
         }
 		return this;

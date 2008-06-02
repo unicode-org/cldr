@@ -11,6 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 
 public class CheckChildren extends CheckCLDR {
@@ -37,7 +38,7 @@ public class CheckChildren extends CheckCLDR {
 		}
 		if (tempSet.values().contains(value)) return this;
     
-		CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+		CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.valueAlwaysOverridden)
     .setCheckOnSubmit(false)
 		.setMessage("Value always overridden in children: {0}", new Object[]{tempSet.keySet().toString()});
 		result.add(item);
@@ -64,7 +65,7 @@ public class CheckChildren extends CheckCLDR {
 			if (!myLocalePlus.reset(locale).matches()) continue;
 			CLDRFile child = cldrFileToCheck.make(locale, true);
 			if (child == null) {
-				CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+				CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.nullChildFile)
 				.setMessage("Null file from: {0}", new Object[]{locale});
 				possibleErrors.add(item);				
 			} else {

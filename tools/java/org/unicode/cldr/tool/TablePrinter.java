@@ -190,6 +190,10 @@ public class TablePrinter {
   }
   
   public TablePrinter finishRow() {
+    if (partialRow.size() != columns.size()) {
+      throw new IllegalArgumentException("Items in row (" + partialRow.size() 
+              + " not same as number of columns" + columns.size());
+    }
     addRow(partialRow);
     partialRow = null;
     return this;

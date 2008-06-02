@@ -2,6 +2,7 @@ package org.unicode.cldr.test;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Phase;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 
 import java.util.List;
@@ -91,7 +92,9 @@ public class CheckNew extends CheckCLDR {
       // bail if it is already part of coverage
       if (hasCoverageError(result)) return this;
       
-      result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType).setMessage("Modified English value: may need translation or fixing."));
+      result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
+              .setSubtype(Subtype.modifiedEnglishValue)
+              .setMessage("Modified English value: may need translation or fixing."));
     }
 
     return this;

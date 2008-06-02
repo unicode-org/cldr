@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Random;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
 
@@ -77,7 +78,7 @@ public class CheckNumbers extends CheckCLDR {
       try {
         UnicodeSet s = new UnicodeSet(value);
       } catch (Exception e) {
-        result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.invalidCurrencyMatchSet)
         .setMessage("Error in creating UnicodeSet {0}; {1}; {2}", 
             new Object[]{value, e.getClass().getName(), e}));
       }
@@ -107,13 +108,13 @@ public class CheckNumbers extends CheckCLDR {
           UnicodeSet chars = new UnicodeSet().addAll(value);
           chars.retainAll(FORBIDDEN_NUMERIC_PATTERN_CHARS);
           result.add(new CheckStatus()
-              .setCause(this).setType(CheckStatus.errorType)
+          .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalCharactersInNumberPattern)
               .setMessage("Pattern contains forbidden characters: \u200E{0}\u200E", new Object[]{chars.toPattern(false)}));       
         }
         String pattern = getCanonicalPattern(value, type, isPOSIX);
         if (!pattern.equals(value)) {
           result.add(new CheckStatus()
-              .setCause(this).setType(CheckStatus.errorType)
+          .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.numberPatternNotCanonical)
               .setMessage("Value should be \u200E{0}\u200E", new Object[]{pattern}));				
         }
       // Make sure currency patterns contain a currency symbol
@@ -121,7 +122,7 @@ public class CheckNumbers extends CheckCLDR {
          String [] currencyPatterns = value.split(";",2);
          for ( int i = 0 ; i < currencyPatterns.length ; i++ ) {
             if ( currencyPatterns[i].indexOf("\u00a4") < 0 )
-               result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+               result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.currencyPatternMissingCurrencySymbol)
                   .setMessage("Currency formatting pattern must contain a currency symbol."));
          }
       }
@@ -129,12 +130,12 @@ public class CheckNumbers extends CheckCLDR {
       // Make sure percent formatting patterns contain a currency symbol
       if ( type == NumericType.PERCENT ) {
          if ( value.indexOf("%") < 0 )
-            result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.percentPatternMissingPercentSymbol)
                   .setMessage("Percentage formatting pattern must contain a % symbol."));
       }
 
     } catch (Exception e) {
-      result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+      result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalNumberFormat)
       .setMessage("Error in creating number format {0}; {1}", 
           new Object[]{e.getClass().getName(), e}));
     }
@@ -221,8 +222,8 @@ public class CheckNumbers extends CheckCLDR {
 //    }
     if (generateExamples) {
       result.add(new MyCheckStatus()
-          .setFormat(x, context)
-          .setCause(this).setType(CheckStatus.demoType));
+      .setFormat(x, context)
+      .setCause(this).setMainType(CheckStatus.demoType));
     }
   }
   

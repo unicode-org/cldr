@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.SimpleDemo;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckNumbers.MyCheckStatus;
 import org.unicode.cldr.test.CheckNumbers.MyDemo;
 import org.unicode.cldr.util.CLDRFile;
@@ -131,7 +132,7 @@ public class CheckDates extends CheckCLDR {
       	String pathToWide = path.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
       	String wideValue = getCldrFileToCheck().getStringValue(pathToWide);
       	if (wideValue != null && value.length() > wideValue.length()) {
-          CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+          CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.abbreviatedDateFieldTooWide)
           .setMessage("Illegal abbreviated value {0}, can't be longer than wide value {1}", value, wideValue);      
           result.add(item);
       	}
@@ -142,7 +143,7 @@ public class CheckDates extends CheckCLDR {
         // Per cldrbug 1456, skip the following test for Thai (or should we instead just change errorType to warningType in this case?)
         if (end != value.length() && !locale.equals("th") && !locale.startsWith("th_")) {
           result.add(new CheckStatus()
-              .setCause(this).setType(CheckStatus.errorType)
+          .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.narrowDateFieldTooWide)
               .setMessage(
                   "Illegal narrow value. Must be only one grapheme cluster: \u200E{0}\u200E would be ok, but has extra \u200E{1}\u200E",
                   new Object[]{value.substring(0,end), value.substring(end)}));
@@ -155,7 +156,7 @@ public class CheckDates extends CheckCLDR {
           SimpleDateFormat sdf = new SimpleDateFormat(value);
           patternBasicallyOk = true;
         } catch (RuntimeException e) {
-          CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+          CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
           .setMessage("Illegal date format pattern {0}", new Object[]{e});      
           result.add(item);
         }
@@ -164,11 +165,11 @@ public class CheckDates extends CheckCLDR {
         }
       }
     } catch (ParseException e) {
-      CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+      CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
       .setMessage("Error in creating date format {0}", new Object[]{e});    	
       result.add(item);
     } catch (Exception e) {
-      CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+      CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
       .setMessage("Error in creating date format {0}", new Object[]{e});    	
       result.add(item);
     }
@@ -217,7 +218,7 @@ public class CheckDates extends CheckCLDR {
       //String baseSkeleton = dateTimePatternGenerator.getBaseSkeleton(value);
       if (!dateTimePatternGenerator.skeletonsAreSimilar(id,skeleton)) {
         String fixedValue = dateTimePatternGenerator.replaceFieldTypes(value, id);
-        result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.incorrectDatePattern)
             // "Internal ID ({0}) doesn't match generated ID ({1}) for pattern ({2}). " +
             .setMessage("Your pattern ({2}) doesn't correspond to what is asked for. Yours would be right for an ID ({1}) but not for the ID ({0}). " +
                 "Please change your pattern to match what was asked, such as ({3}), with the right punctuation and/or ordering for your language.",
@@ -225,7 +226,7 @@ public class CheckDates extends CheckCLDR {
       }
       String failureMessage = (String) flexInfo.getFailurePath(path);
       if (failureMessage != null) {
-        result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
             .setMessage("{0}", new Object[]{failureMessage}));          
       }
 //      if (redundants.contains(value)) {
@@ -286,8 +287,7 @@ public class CheckDates extends CheckCLDR {
     DateTimeLengths dateTimeLength = DateTimeLengths.valueOf(len.toUpperCase(Locale.ENGLISH));
     style += dateTimeLength.ordinal();
     if (!dateTimePatterns[style].matcher(skeleton).matches()) {
-      result.add(new CheckStatus()
-          .setType(CheckStatus.errorType)
+      result.add(new CheckStatus().setMainType(CheckStatus.errorType).setSubtype(Subtype.missingOrExtraDateField)
           .setMessage("Missing or extra field, expected {0} [Internal: {1} / {2}]", new Object[]{dateTimeMessage[style], skeleton, dateTimePatterns[style].pattern()}));     
     }
     
@@ -365,8 +365,8 @@ public class CheckDates extends CheckCLDR {
 //        .setCause(this).setType(CheckStatus.exampleType)
 //        .setMessage(SampleList, arguments));
     result.add(new MyCheckStatus()
-        .setFormat(x)
-        .setCause(this).setType(CheckStatus.demoType));
+    .setFormat(x)
+    .setCause(this).setMainType(CheckStatus.demoType));
   }
   
   

@@ -24,6 +24,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.tool.GenerateLikelySubtagTests;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.InternalCldrException;
@@ -233,7 +234,7 @@ public class CoverageLevel {
         exemplars = file.getResolved().getExemplarSet("", CLDRFile.WinningChoice.WINNING); // need to use resolved version to get exemplars
     } catch(IllegalArgumentException iae) {
       possibleErrors.add(new CheckStatus()
-          .setCause(cause).setType(CheckStatus.errorType)
+      .setCause(cause).setMainType(CheckStatus.errorType).setSubtype(Subtype.couldNotAccessExemplars)
           .setMessage("Could not get exemplar set: " + iae.toString()));
       return this;
     }
@@ -372,7 +373,7 @@ public class CoverageLevel {
 
     if (mainTerritories == null) {
       possibleErrors.add(new CheckStatus()
-          .setCause(cause).setType(CheckStatus.errorType)
+      .setCause(cause).setMainType(CheckStatus.errorType).setSubtype(Subtype.missingLanguageTerritoryInfo)
           .setMessage("Missing language->territory information in supplemental data!"));
     } else for (Iterator it = mainTerritories.iterator(); it.hasNext();) {
       String territory = (String) it.next();
@@ -395,7 +396,7 @@ public class CoverageLevel {
     // A complaint.
     if(euroCountriesMissing) {
       possibleErrors.add(new CheckStatus()
-          .setCause(cause).setType(CheckStatus.errorType)
+      .setCause(cause).setMainType(CheckStatus.errorType).setSubtype(Subtype.missingEuroCountryInfo)
           .setMessage("Missing euro country information- '" + EUROPEAN_UNION + "' missing in territory codes?"));
     }
   }
@@ -1246,7 +1247,7 @@ public class CoverageLevel {
     
     if (level==null || level == CoverageLevel.Level.UNDETERMINED) return; // continue if we don't know what the status is
     if (Level.POSIX.compareTo(level) >= 0) {
-      result.add(new CheckStatus().setType(CheckStatus.errorType)
+      result.add(new CheckStatus().setMainType(CheckStatus.errorType).setSubtype(Subtype.insufficientCoverage)
           .setMessage("Needed to meet {0} coverage level.", new Object[] { level }));
     }
   }

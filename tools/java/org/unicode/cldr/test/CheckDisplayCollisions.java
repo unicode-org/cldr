@@ -2,6 +2,7 @@ package org.unicode.cldr.test;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Phase;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.XPathParts;
@@ -57,7 +58,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
             //Set codes = new TreeSet(s);
             //codes.remove(code); // don't show self
             
-            CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+            CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.displayCollision)
             .setCheckOnSubmit(false)
             .setMessage("Can't have same translation as {0}", new Object[]{codes.toString()});
             result.add(item);
@@ -118,7 +119,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
         return this;
       }
       
-      CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+      CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.displayCollision)
       .setCheckOnSubmit(false)
       .setMessage("Can't have same translation as {0}", new Object[]{collidingTypes.toString()});
       result.add(item);

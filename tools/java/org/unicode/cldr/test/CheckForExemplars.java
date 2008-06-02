@@ -12,6 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.XMLSource;
@@ -85,7 +86,7 @@ public class CheckForExemplars extends CheckCLDR {
     if (!ok[0]) exemplars = new UnicodeSet();
     
     if (exemplars == null) {
-      CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+      CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.noExemplarCharacters)
       .setMessage("No Exemplar Characters: {0}", new Object[]{this.getClass().getName()});
       possibleErrors.add(item);
       return this;
@@ -116,7 +117,7 @@ public class CheckForExemplars extends CheckCLDR {
         ok[0] = true;
     } catch(IllegalArgumentException iae) {
       possibleErrors.add(new CheckStatus()
-          .setCause(this).setType(CheckStatus.errorType)
+      .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.couldNotAccessExemplars)
           .setMessage("Could not get exemplar set: " + iae.toString()));
       ok[0] = false;
     }
@@ -153,7 +154,8 @@ public class CheckForExemplars extends CheckCLDR {
     boolean hasMessageFormatFields = patternMatcher.reset(value).find();
     boolean supposedToHaveMessageFormatFields = supposedToBeMessageFormat.reset(path).find();
     if (hasMessageFormatFields != supposedToHaveMessageFormatFields) {
-      result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+      result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+              .setSubtype(supposedToHaveMessageFormatFields ? Subtype.missingPlaceholders : Subtype.shouldntHavePlaceholders)
               .setMessage(supposedToHaveMessageFormatFields 
                       ? "This field is a message pattern, and should have '{0}, {1},' etc. See the English for an example."
                       : "This field is not a message pattern, and should not have '{0}, {1},' etc. See the English for an example.",
@@ -176,20 +178,20 @@ public class CheckForExemplars extends CheckCLDR {
       if (!currencySymbolExemplars.containsAll(value)) {
         UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(currencySymbolExemplars);
         String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
-        result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.charactersNotInCurrencyExemplars)
         .setMessage("The characters \u200E{0}\u200E are not used in currency symbols in this language, according to " + informationMessage + ".", new Object[]{fixedMissing}));
       }
     } else if (!exemplars.containsAll(value)) {
       UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
       String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
-      result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+      result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.charactersNotInMainOrAuxiliaryExemplars)
               .setMessage("The characters \u200E{0}\u200E are not used in this language, according to " + informationMessage + ".", new Object[]{fixedMissing}));
     } else if (path.contains("/localeDisplayNames") && !path.contains("/localeDisplayPattern")) {
       UnicodeSet appropriateExemplars = path.contains("_") ? scriptRegionExemplarsWithParens : scriptRegionExemplars;
       if (!appropriateExemplars.containsAll(value)) {
         UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(appropriateExemplars);
         String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
-        result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.discouragedCharactersInTranslation)
                 .setMessage("The characters \u200E{1}\u200E are discouraged in display names. Please choose the best single name.", new Object[]{null,fixedMissing}));
         // note: we are using {1} so that we don't include these in the console summary of bad characters.
       }
@@ -197,7 +199,7 @@ public class CheckForExemplars extends CheckCLDR {
     // check for spaces 
     if (!value.equals(value.trim())) {
       if (!leadOrTrailWhitespaceOk.reset(path).find()) {
-        result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.mustNotStartOrEndWithSpace)
                 .setMessage("This item must not start or end with whitespace."));
       }
     }

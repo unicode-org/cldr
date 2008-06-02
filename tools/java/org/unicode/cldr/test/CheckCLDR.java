@@ -7,6 +7,7 @@
 
 package org.unicode.cldr.test;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.Utility;
@@ -190,7 +191,22 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     errorType = "Error", 
     exampleType = "Example",
     demoType = "Demo";
+    enum Subtype {none, noUnproposedVariant, deprecatedAttribute, illegalPlural, invalidLocale, 
+      incorrectCasing, valueAlwaysOverridden, nullChildFile, internalError, coverageLevel, 
+      missingPluralInfo, currencySymbolTooWide, incorrectDatePattern, abbreviatedDateFieldTooWide, 
+      displayCollision, illegalExemplarSet, missingAuxiliaryExemplars, missingPlaceholders, shouldntHavePlaceholders,
+      couldNotAccessExemplars, noExemplarCharacters, modifiedEnglishValue, invalidCurrencyMatchSet, 
+      multipleMetazoneMappings, noMetazoneMapping, noMetazoneMappingAfter1970, noMetazoneMappingBeforeNow, 
+      cannotCreateZoneFormatter, insufficientCoverage, missingLanguageTerritoryInfo, missingEuroCountryInfo,
+      deprecatedAttributeWithReplacement, missingOrExtraDateField, internalUnicodeSetFormattingError, 
+      auxiliaryExemplarsOverlap, charactersNotInCurrencyExemplars, narrowDateFieldTooWide,
+      illegalCharactersInExemplars, orientationDisagreesWithExemplars, charactersNotInMainOrAuxiliaryExemplars,
+      illegalDatePattern, missingMainExemplars, discouragedCharactersInTranslation, mustNotStartOrEndWithSpace,
+      illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol,
+      percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue,
+      };
     private String type;
+    private Subtype subtype = Subtype.none;
     private String messageFormat;
     private Object[] parameters;
     private String htmlMessage;
@@ -210,7 +226,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     public String getType() {
       return type;
     }
-    public CheckStatus setType(String type) {
+    public CheckStatus setMainType(String type) {
       this.type = type;
       return this;
     }
@@ -262,6 +278,13 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     }
     public CheckStatus setCause(CheckCLDR cause) {
       this.cause = cause;
+      return this;
+    }
+    protected Subtype getSubtype() {
+      return subtype;
+    }
+    protected CheckStatus setSubtype(Subtype subtype) {
+      this.subtype = subtype;
       return this;
     }
   }
@@ -484,7 +507,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     }
     
     private void addError(List<CheckStatus> result, CheckCLDR item, Exception e) {
-      result.add(new CheckStatus().setType(CheckStatus.errorType)
+      result.add(new CheckStatus().setMainType(CheckStatus.errorType).setSubtype(Subtype.internalError)
           .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}", 
               new Object[]{item.getClass().getName(), e.getClass().getName(), e, 
               Arrays.asList(e.getStackTrace())}));

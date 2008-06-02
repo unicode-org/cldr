@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Phase;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -70,7 +71,7 @@ public class CheckAlt extends CheckCLDR {
 //        message += "MULTIPLE! ";
 //        checkOnSubmit = false;
 //      }
-			result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+			result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.noUnproposedVariant)
           .setCheckOnSubmit(false)
 					.setMessage("Proposed item but no unproposed variant", new Object[]{}));
 			seenSoFar.add(strippedPath);

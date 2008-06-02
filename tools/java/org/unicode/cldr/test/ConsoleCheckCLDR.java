@@ -39,6 +39,7 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.Relation;
+import org.unicode.cldr.util.Row;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
@@ -816,8 +817,8 @@ public class ConsoleCheckCLDR {
 
 
     static TablePrinter errorFileTable = new TablePrinter();
-    static Counter<Pair<String, Pair<String, Pair<ErrorType, Subtype>>>> errorFileCounter
-      = new Counter<Pair<String, Pair<String, Pair<ErrorType, Subtype>>>>(true);
+    static Counter<Row.R4<String, String, ErrorType, Subtype>> errorFileCounter
+      = new Counter<Row.R4<String, String, ErrorType, Subtype>>(true);
 
     private static void addDataToErrorFile(String localeID, String path, String value, ErrorType shortStatus, Subtype subType) {
       String section = path == null 
@@ -831,22 +832,19 @@ public class ConsoleCheckCLDR {
         String users = "";
       }
       errorFileCounter.add(
-              new Pair<String, Pair<String, Pair<ErrorType, Subtype>>>(
-                      localeID, new Pair<String, Pair<ErrorType, Subtype>>(section, new Pair(shortStatus, subType))), 1);
+              new Row.R4<String, String, ErrorType, Subtype>(localeID, section, shortStatus, subType), 1);
       ErrorFile.sectionToProblemsToLocaleToCount.add(
-              new Pair<String, Pair<Pair<ErrorType, Subtype>, String>>
-              (section, new Pair<Pair<ErrorType, Subtype>, String>
-                (new Pair(shortStatus, subType), localeID)), 1);
+              new Row.R4<String, ErrorType, Subtype, String>(section, shortStatus, subType, localeID), 1);
     }
 
     private static void closeErrorFile() {
       Set<String> locales = new TreeSet();
-      for (Pair<String, Pair<String, Pair<ErrorType, Subtype>>> item : errorFileCounter.keySet()) {
-        String localeID = item.getFirst();
+      for (Row.R4<String, String, ErrorType, Subtype> item : errorFileCounter.keySet()) {
+        String localeID = item.get0();
         locales.add(localeID);
-        String section = item.getSecond().getFirst();
-        ErrorType shortStatus = item.getSecond().getSecond().getFirst();
-        Subtype subtype = item.getSecond().getSecond().getSecond();
+        String section = item.get1();
+        ErrorType shortStatus = item.get2();
+        Subtype subtype = item.get3();
         //final String prettyPath = path == null ? "general" : prettyPathMaker.getPrettyPath(path, true);
         //final String outputForm = path == null ? "general" : prettyPathMaker.getOutputForm(prettyPath);
         errorFileTable.addRow()
@@ -997,8 +995,8 @@ public class ConsoleCheckCLDR {
       TablePrinter indexTablePrinter = new TablePrinter().setCaption("Problem Summary")
       .setTableAttributes("border='1' style='border-collapse: collapse' bordercolor='blue'")
       .addColumn("Section").setSpanRows(true).setBreakSpans(true).setRepeatDivider(true)
-      .addColumn("Problems").setCellAttributes("class=\"{2}\"").setSpanRows(true)
-      .addColumn("Subtype").setCellAttributes("class=\"{2}\"").setSpanRows(true)
+      .addColumn("Problems").setCellAttributes("style=\"text-align:left\" class=\"{2}\"").setSpanRows(true)
+      .addColumn("Subtype").setCellAttributes("style=\"text-align:left\" class=\"{2}\"").setSpanRows(true)
       .addColumn("Locale").setCellAttributes("class=\"{2}\"")
       .addColumn("Code").setCellAttributes("class=\"{2}\"").setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_={0}&x={1}\">{0}</a>")
       .addColumn("Count").setCellAttributes("class=\"{2}\"")
@@ -1007,19 +1005,19 @@ public class ConsoleCheckCLDR {
         indexTablePrinter.addColumn(org.substring(0,2));
       }
 
-      for (Pair<String, Pair<Pair<ErrorType, Subtype>, String>> sectionAndProblemsAndLocale : ErrorFile.sectionToProblemsToLocaleToCount.getKeysetSortedByKey()) {
-        final Pair<Pair<ErrorType, Subtype>, String> second = sectionAndProblemsAndLocale.getSecond();
-        final ErrorType problem = second.getFirst().getFirst();
-        final Subtype subtype = second.getFirst().getSecond();
+      for (Row.R4<String, ErrorType, Subtype, String> sectionAndProblemsAndLocale 
+              : ErrorFile.sectionToProblemsToLocaleToCount.getKeysetSortedByKey()) {
+        final ErrorType problem = sectionAndProblemsAndLocale.get1();
+        final Subtype subtype = sectionAndProblemsAndLocale.get2();
         if (!ConsoleCheckCLDR.ErrorType.showInSummary.contains(problem)) {
           continue;
         }
-        final String locale = second.getSecond();
+        final String locale = sectionAndProblemsAndLocale.get3();
         if (problem != ErrorType.error && problem != ErrorType.disputed && !orgToLocales.containsValue(locale)) {
           continue;
         }
         long count = ErrorFile.sectionToProblemsToLocaleToCount.getCount(sectionAndProblemsAndLocale);
-        final String section = sectionAndProblemsAndLocale.getFirst();
+        final String section = sectionAndProblemsAndLocale.get0();
         indexTablePrinter.addRow()
         .addCell(section)
         .addCell(problem)
@@ -1118,7 +1116,8 @@ public class ConsoleCheckCLDR {
 //  "However, it should let you see the problems and make sure that they get taken care of.)</i></p>" +
 //  "<p>Coverage depends on your organizations goals: the highest tier languages should include up through all Modern values.</p>\r\n";
     static  String generated_html_directory = null;
-    public static Counter<Pair<String, Pair<Pair<ErrorType, Subtype>, String>>> sectionToProblemsToLocaleToCount = new Counter<Pair<String, Pair<Pair<ErrorType, Subtype>, String>>>();
+    public static Counter<Row.R4<String, ErrorType, Subtype, String>> sectionToProblemsToLocaleToCount
+    = new Counter<Row.R4<String, ErrorType, Subtype, String>>();
   }
 
   private static void showSummary(CheckCLDR checkCldr, String localeID, Level level, String value) {

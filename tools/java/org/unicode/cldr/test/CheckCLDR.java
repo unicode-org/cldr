@@ -203,7 +203,11 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       illegalCharactersInExemplars, orientationDisagreesWithExemplars, charactersNotInMainOrAuxiliaryExemplars,
       illegalDatePattern, missingMainExemplars, discouragedCharactersInTranslation, mustNotStartOrEndWithSpace,
       illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol,
-      percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue,
+      percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue;
+        public String toString() {
+          return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
+        }
+        static Pattern TO_STRING = Pattern.compile("([A-Z])");
       };
     private String type;
     private Subtype subtype = Subtype.none;

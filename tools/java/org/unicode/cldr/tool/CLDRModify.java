@@ -45,6 +45,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
 
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
@@ -548,8 +549,17 @@ public class CLDRModify {
 	
 	static HashSet totalSkeletons = new HashSet();
 	
-	
+  static Map<String,String> rootUnitMap = new HashMap();
+
 	static {
+    rootUnitMap.put("second", "s");
+    rootUnitMap.put("minute", "min");
+    rootUnitMap.put("hour", "h");
+    rootUnitMap.put("day", "d");
+    rootUnitMap.put("week", "w");
+    rootUnitMap.put("month", "m");
+    rootUnitMap.put("year", "y");
+	  
 		fixList.add('y', "remove deprecated", new CLDRFilter() {
 			Map remapAppend = CollectionUtilities.asMap(new String[][] {
 					{"G", "Era"}, {"y", "Year"}, {"Q", "Quarter"}, {"M", "Month"}, {"w", "Week"}, {"E", "Day-Of-Week"}, {"d", "Day"}, {"H", "Hour"}, {"m", "Minute"}, {"s", "Second"}, {"v", "Timezone"}
@@ -638,6 +648,102 @@ public class CLDRModify {
 			}		
 		});
 		
+		/*
+		 *    <unit type="day">
+      <unitPattern count="one">{0} {1}</unitPattern>
+      <unitName>день</unitName>
+      <unitName count="few">дні</unitName>
+      <unitName count="many">днів</unitName>
+      <unitName count="one">день</unitName>
+      <unitName count="other">дня</unitName>
+      <unitName count="other" alt="proposed-x1001" draft="unconfirmed">днів</unitName>
+    </unit>
+
+		 */
+		
+		// comment this away, since it is very special purpose.
+    if (false) fixList.add('u', "fix unit patterns", new CLDRFilter() {
+      
+      public void handlePath(String xpath) {
+        if (!xpath.contains("/units")) {
+          return;
+        }
+        if (xpath.contains("/unitPattern")) {
+          remove(xpath, "merging with unitName");
+          return;
+        }
+        if (!xpath.contains("/unitName")) {
+          throw new IllegalArgumentException("Unexpected path");
+        }
+        // we have a unit name.
+        String unitName = cldrFileToFilter.getStringValue(xpath);
+        String originalXPath = xpath;
+        String xpathWithCount = xpath;
+        
+        // if it has no count, and there is no count=one, change to count="one" else remove
+        parts.set(xpath);
+        String key = rootUnitMap.get(parts.getAttributeValue(-2, "type"));
+        String count = parts.getAttributeValue(-1, "count");
+
+        if (!xpath.contains("count=")) {
+          parts.set(xpath).addAttribute("count", "one");
+          xpathWithCount = parts.toString();
+          String unitName2 = cldrFileToFilter.getStringValue(xpathWithCount);
+          if (unitName2 != null) {
+            if (!unitName2.equals(key)) {
+              remove(xpath, "have count version");
+              return;
+            }
+          }
+        } if (xpath.contains("count=\"one\"")) {
+          // if we were using the no-count version, then we have to suppress this one.
+          parts.set(xpath);
+          if (unitName.equals(key)) {
+            parts.addAttribute("count", null);
+            String countlessValue = cldrFileToFilter.getStringValue(xpathWithCount);
+            if (countlessValue != null) {
+              remove(xpath, "have no-count version");
+              return;
+            }
+          }
+        }
+        
+        // combine it with the unitPattern of the same name
+        // we may have to strip attributes
+        // we may have to change to count=one
+        // we use a default value if we have to.
+
+        String plainPatternPath = xpathWithCount.replace("unitName", "unitPattern");
+        // if ARABIC ONLY
+        String unitPattern = count.equals("zero") || count.equals("one") || count.equals("two") ? "{1}" : "{0} {1}";
+        
+//        String unitPattern = cldrFileToFilter.getStringValue(plainPatternPath);
+//        if (unitPattern == null) {
+//          String plainPatternPath2 = CLDRFile.getNondraftNonaltXPath(plainPatternPath);
+//          unitPattern = cldrFileToFilter.getStringValue(plainPatternPath2);
+//          if (unitPattern == null) {
+//            String plainPatternPath3 = parts.set(plainPatternPath).addAttribute("count", "one").toString();
+//            unitPattern = cldrFileToFilter.getStringValue(plainPatternPath3);
+//            if (unitPattern == null) {
+//              String plainPatternPath4 = parts.set(plainPatternPath2).addAttribute("count", "one").toString();
+//              unitPattern = cldrFileToFilter.getStringValue(plainPatternPath4);
+//              if (unitPattern == null) {
+//                unitPattern = "{0} {1}";
+//              }
+//            }
+//          }
+//        }
+        String newUnitPattern = MessageFormat.format(unitPattern, new Object[]{"{0}", unitName});
+
+        String fullOldXPath = cldrFileToFilter.getFullXPath(originalXPath);
+        String fullXPath = cldrFileToFilter.getFullXPath(plainPatternPath);
+        if (fullXPath == null) {
+          fullXPath = plainPatternPath;
+        }
+        replace(fullOldXPath, fullXPath, newUnitPattern, "merging unitName/Pattern");
+      }
+    });
+
 		
     fixList.add('n', "fix numbers", new CLDRFilter() {
       public void handlePath(String xpath) {

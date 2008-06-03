@@ -4086,25 +4086,25 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitName draft="contributed">日</unitName>
+			<unitPattern count="one">{0}日</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName draft="contributed">時間</unitName>
+			<unitPattern count="one">{0}時間</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName draft="contributed">分</unitName>
+			<unitPattern count="one">{0}分</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName draft="contributed">ヶ月</unitName>
+			<unitPattern count="one">{0}ヶ月</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName draft="contributed">秒</unitName>
+			<unitPattern count="one">{0}秒</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName draft="contributed">週間</unitName>
+			<unitPattern count="one">{0}週間</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName draft="contributed">年</unitName>
+			<unitPattern count="one">{0}年</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -4164,3 +4164,4 @@ zh_tw { "\u4e2d\u56fd\u8a9e (\u7e41\u4f53\u5b57)" }
 Qaai { "Inherited" } // PUA
 Zyyy { "Common" } // This may need to become "undetermined script"
 -->
+

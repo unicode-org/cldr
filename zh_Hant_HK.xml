@@ -221,10 +221,10 @@
 	</numbers>
 	<units>
 		<unit type="hour">
-			<unitName draft="contributed">時</unitName>
+			<unitPattern count="one">{0}時</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName draft="contributed">星期</unitName>
+			<unitPattern count="one">{0}星期</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -234,3 +234,4 @@
 		</messages>
 	</posix>
 </ldml>
+

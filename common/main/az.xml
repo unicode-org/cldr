@@ -3440,54 +3440,46 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitName draft="contributed">gün</unitName>
-			<unitName count="one">gün</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">1 gün</unitName>
-			<unitName count="other">gün</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">2 gün, 2,31 gün, 2,31 gün</unitName>
+			<unitPattern count="one">{0} gün</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} 1 gün</unitPattern>
+			<unitPattern count="other">{0} gün</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} 2 gün, 2,31 gün, 2,31 gün</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName draft="contributed">saat</unitName>
-			<unitName count="one">saat</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">1 saat</unitName>
-			<unitName count="other">saat</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">2 saat</unitName>
+			<unitPattern count="one">{0} saat</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} 1 saat</unitPattern>
+			<unitPattern count="other">{0} saat</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} 2 saat</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName draft="contributed">dəqiqə</unitName>
-			<unitName count="one">dəqiqə</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">1 dəqiqə</unitName>
-			<unitName count="other">dəqiqə</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">2 dəqiqə, 1,31 dəqiqə, 2,31 dəqiqə</unitName>
+			<unitPattern count="one">{0} dəqiqə</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} 1 dəqiqə</unitPattern>
+			<unitPattern count="other">{0} dəqiqə</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} 2 dəqiqə, 1,31 dəqiqə, 2,31 dəqiqə</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName draft="contributed">a</unitName>
-			<unitName count="one">ay</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">1 ay</unitName>
-			<unitName count="other">ay</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">2 ay, 1,31 ay, 2,31 ay</unitName>
+			<unitPattern count="one">{0} ay</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} 1 ay</unitPattern>
+			<unitPattern count="other">{0} ay</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} 2 ay, 1,31 ay, 2,31 ay</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName draft="contributed">s</unitName>
-			<unitName count="one">saniyə</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">1 saniyə</unitName>
-			<unitName count="other">saniyə</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">2 saniyə, 1,31 saniyə, 2,31 saniyə</unitName>
+			<unitPattern count="one">{0} saniyə</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} 1 saniyə</unitPattern>
+			<unitPattern count="other">{0} saniyə</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} 2 saniyə, 1,31 saniyə, 2,31 saniyə</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName draft="contributed">h</unitName>
-			<unitName count="one">həftə</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">1 həftə</unitName>
-			<unitName count="other">həftə</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">2 həftə</unitName>
+			<unitPattern count="one">{0} həftə</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} 1 həftə</unitPattern>
+			<unitPattern count="other">{0} həftə</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} 2 həftə</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName draft="contributed">i</unitName>
-			<unitName count="one">il</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">1 il</unitName>
-			<unitName count="other">il</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">2 il</unitName>
+			<unitPattern count="one">{0} il</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} 1 il</unitPattern>
+			<unitPattern count="other">{0} il</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} 2 il</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -3497,3 +3489,4 @@
 		</messages>
 	</posix>
 </ldml>
+

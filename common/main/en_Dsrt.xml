@@ -1064,32 +1064,32 @@
 	</dates>
 	<units>
 		<unit type="day">
-			<unitName count="one">𐐼𐐩</unitName>
-			<unitName count="other">𐐼𐐩𐑆</unitName>
+			<unitPattern count="one">{0} 𐐼𐐩</unitPattern>
+			<unitPattern count="other">{0} 𐐼𐐩𐑆</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName count="one">𐐵𐑉</unitName>
-			<unitName count="other">𐐵𐑉𐑆</unitName>
+			<unitPattern count="one">{0} 𐐵𐑉</unitPattern>
+			<unitPattern count="other">{0} 𐐵𐑉𐑆</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName count="one">𐑋𐐮𐑌𐐲𐐻</unitName>
-			<unitName count="other">𐑋𐐮𐑌𐐲𐐻𐑅</unitName>
+			<unitPattern count="one">{0} 𐑋𐐮𐑌𐐲𐐻</unitPattern>
+			<unitPattern count="other">{0} 𐑋𐐮𐑌𐐲𐐻𐑅</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName count="one">𐑋𐐲𐑌𐑃𐑅</unitName>
-			<unitName count="other">𐑋𐐲𐑌𐑃</unitName>
+			<unitPattern count="one">{0} 𐑋𐐲𐑌𐑃𐑅</unitPattern>
+			<unitPattern count="other">{0} 𐑋𐐲𐑌𐑃</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName count="one">𐑅𐐯𐐿𐐲𐑌𐐼</unitName>
-			<unitName count="other">𐑅𐐯𐐿𐐲𐑌𐐼𐑆</unitName>
+			<unitPattern count="one">{0} 𐑅𐐯𐐿𐐲𐑌𐐼</unitPattern>
+			<unitPattern count="other">{0} 𐑅𐐯𐐿𐐲𐑌𐐼𐑆</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName count="one">𐐶𐐨𐐿</unitName>
-			<unitName count="other">𐐶𐐨𐐿𐑅</unitName>
+			<unitPattern count="one">{0} 𐐶𐐨𐐿</unitPattern>
+			<unitPattern count="other">{0} 𐐶𐐨𐐿𐑅</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName count="one">𐐷𐐮𐑉</unitName>
-			<unitName count="other">𐐷𐐮𐑉𐑆</unitName>
+			<unitPattern count="one">{0} 𐐷𐐮𐑉</unitPattern>
+			<unitPattern count="other">{0} 𐐷𐐮𐑉𐑆</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -1099,3 +1099,4 @@
 		</messages>
 	</posix>
 </ldml>
+

@@ -2728,39 +2728,32 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitName draft="contributed">ημέρα</unitName>
-			<unitName count="one">ημέρα</unitName>
-			<unitName count="other" draft="contributed">ημέρες</unitName>
+			<unitPattern count="one">{0} ημέρα</unitPattern>
+			<unitPattern count="other">{0} ημέρες</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName draft="contributed">ώρα</unitName>
-			<unitName count="one">ώρα</unitName>
-			<unitName count="other" draft="contributed">ώρες</unitName>
+			<unitPattern count="one">{0} ώρα</unitPattern>
+			<unitPattern count="other">{0} ώρες</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName draft="contributed">λεπτό</unitName>
-			<unitName count="one">λεπτό</unitName>
-			<unitName count="other" draft="contributed">λεπτά</unitName>
+			<unitPattern count="one">{0} λεπτό</unitPattern>
+			<unitPattern count="other">{0} λεπτά</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName draft="contributed">μήνας</unitName>
-			<unitName count="one">μήνας</unitName>
-			<unitName count="other" draft="contributed">μήνες</unitName>
+			<unitPattern count="one">{0} μήνας</unitPattern>
+			<unitPattern count="other">{0} μήνες</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName draft="contributed">δευτερόλεπτο</unitName>
-			<unitName count="one">δευτερόλεπτο</unitName>
-			<unitName count="other" draft="contributed">δευτερόλεπτα</unitName>
+			<unitPattern count="one">{0} δευτερόλεπτο</unitPattern>
+			<unitPattern count="other">{0} δευτερόλεπτα</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName draft="contributed">εβδομάδα</unitName>
-			<unitName count="one">εβδομάδα</unitName>
-			<unitName count="other" draft="contributed">εβδομάδες</unitName>
+			<unitPattern count="one">{0} εβδομάδα</unitPattern>
+			<unitPattern count="other">{0} εβδομάδες</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName draft="contributed">έτος</unitName>
-			<unitName count="one">έτος</unitName>
-			<unitName count="other" draft="contributed">έτη</unitName>
+			<unitPattern count="one">{0} έτος</unitPattern>
+			<unitPattern count="other">{0} έτη</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -2807,3 +2800,4 @@ zh_tw { "\u039A\u03B9\u03BD\u03B5\u03B6\u03B9\u03BA\u03AC (\u03A0\u03B1\u03C1\u0
                 "\u039C\u039C", // The lowercase form is "\u03BC\u03BC". Both are valid. It's also been seen as mixed case too.
                 "h:mm a",   // While Greece uses both 12 and 24 hour formats, we use one for consistency due to limitations of current ICU API.
 -->
+

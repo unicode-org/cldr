@@ -1760,39 +1760,32 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitName draft="contributed">dia</unitName>
-			<unitName count="one" draft="contributed">dia</unitName>
-			<unitName count="other" draft="contributed">dies</unitName>
+			<unitPattern count="one">{0} dia</unitPattern>
+			<unitPattern count="other">{0} dies</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName draft="contributed">hora</unitName>
-			<unitName count="one" draft="contributed">hora</unitName>
-			<unitName count="other" draft="contributed">hores</unitName>
+			<unitPattern count="one">{0} hora</unitPattern>
+			<unitPattern count="other">{0} hores</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName draft="contributed">minut</unitName>
-			<unitName count="one" draft="contributed">minut</unitName>
-			<unitName count="other" draft="contributed">minuts</unitName>
+			<unitPattern count="one">{0} minut</unitPattern>
+			<unitPattern count="other">{0} minuts</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName draft="contributed">mes</unitName>
-			<unitName count="one" draft="contributed">mes</unitName>
-			<unitName count="other" draft="contributed">mesos</unitName>
+			<unitPattern count="one">{0} mes</unitPattern>
+			<unitPattern count="other">{0} mesos</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName draft="contributed">segon</unitName>
-			<unitName count="one" draft="contributed">segon</unitName>
-			<unitName count="other" draft="contributed">segons</unitName>
+			<unitPattern count="one">{0} segon</unitPattern>
+			<unitPattern count="other">{0} segons</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName draft="contributed">setmana</unitName>
-			<unitName count="one" draft="contributed">setmana</unitName>
-			<unitName count="other" draft="contributed">setmanes</unitName>
+			<unitPattern count="one">{0} setmana</unitPattern>
+			<unitPattern count="other">{0} setmanes</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName draft="contributed">any</unitName>
-			<unitName count="one" draft="contributed">any</unitName>
-			<unitName count="other" draft="contributed">anys</unitName>
+			<unitPattern count="one">{0} any</unitPattern>
+			<unitPattern count="other">{0} anys</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -1811,3 +1804,4 @@
 		<reference type="RP6" uri="http://ca.wikipedia.org/wiki/ISO_4217" draft="contributed">ISO 4217: noms de les monedes</reference>
 	</references>
 </ldml>
+

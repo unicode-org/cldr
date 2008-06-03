@@ -2255,27 +2255,26 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="few">dny</unitName>
-			<unitName count="one">den</unitName>
+			<unitPattern count="few">{0} dny</unitPattern>
+			<unitPattern count="one">{0} den</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName count="one">hodina</unitName>
+			<unitPattern count="one">{0} hodina</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName count="one">minuta</unitName>
+			<unitPattern count="one">{0} minuta</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName count="one">měsíc</unitName>
+			<unitPattern count="one">{0} měsíc</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName count="one">sekunda</unitName>
+			<unitPattern count="one">{0} sekunda</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName count="one">týden</unitName>
+			<unitPattern count="one">{0} týden</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName count="one">rok</unitName>
+			<unitPattern count="one">{0} rok</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -2338,3 +2337,4 @@ Comments without bases
 
  Indonesia 	 - was on: //ldml/dates/timeZoneNames/zone[@type="Asia/Jakarta"]
 -->
+

@@ -4634,39 +4634,32 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">day</unitName>
-			<unitName count="other">days</unitName>
+			<unitPattern count="one">{0} day</unitPattern>
+			<unitPattern count="other">{0} days</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">hour</unitName>
-			<unitName count="other">hours</unitName>
+			<unitPattern count="one">{0} hour</unitPattern>
+			<unitPattern count="other">{0} hours</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">minute</unitName>
-			<unitName count="other">minutes</unitName>
+			<unitPattern count="one">{0} minute</unitPattern>
+			<unitPattern count="other">{0} minutes</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">month</unitName>
-			<unitName count="other">months</unitName>
+			<unitPattern count="one">{0} month</unitPattern>
+			<unitPattern count="other">{0} months</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">second</unitName>
-			<unitName count="other">seconds</unitName>
+			<unitPattern count="one">{0} second</unitPattern>
+			<unitPattern count="other">{0} seconds</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">week</unitName>
-			<unitName count="other">weeks</unitName>
+			<unitPattern count="one">{0} week</unitPattern>
+			<unitPattern count="other">{0} weeks</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">year</unitName>
-			<unitName count="other">years</unitName>
+			<unitPattern count="one">{0} year</unitPattern>
+			<unitPattern count="other">{0} years</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -4693,3 +4686,4 @@
 
  See the National Bank of Romania for details http://www.bnro.ro/def_en.htm 	 - was on: //ldml/numbers/currencies/currency[@type="RON"]/displayName[@alt="proposed"] 
 -->
+

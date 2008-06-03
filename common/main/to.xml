@@ -642,25 +642,16 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitName count="one" draft="unconfirmed">ʻa</unitName>
-		</unit>
-		<unit type="hour">
-			<unitName count="one" draft="unconfirmed">h</unitName>
+			<unitPattern count="one">{0} ʻa</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName count="one" draft="unconfirmed">m</unitName>
-		</unit>
-		<unit type="month">
-			<unitName count="one" draft="unconfirmed">m</unitName>
-		</unit>
-		<unit type="second">
-			<unitName count="one" draft="unconfirmed">s</unitName>
+			<unitPattern count="one">{0} m</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName count="one" draft="unconfirmed">u</unitName>
+			<unitPattern count="one">{0} u</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName count="one" draft="unconfirmed">t</unitName>
+			<unitPattern count="one">{0} t</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -670,3 +661,4 @@
 		</messages>
 	</posix>
 </ldml>
+

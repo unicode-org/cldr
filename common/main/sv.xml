@@ -5262,53 +5262,32 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
-			<unitName draft="contributed">dag</unitName>
-			<unitName count="one" draft="contributed">dag</unitName>
-			<unitName count="other" draft="contributed">dagar</unitName>
+			<unitPattern count="one" draft="contributed">{0} dag</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} dagar</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
-			<unitName draft="contributed">timme</unitName>
-			<unitName count="one" draft="contributed">timme</unitName>
-			<unitName count="other" draft="contributed">timmar</unitName>
+			<unitPattern count="one" draft="contributed">{0} timme</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} timmar</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
-			<unitName draft="contributed">minut</unitName>
-			<unitName count="one" draft="contributed">minut</unitName>
-			<unitName count="other" draft="contributed">minuter</unitName>
+			<unitPattern count="one" draft="contributed">{0} minut</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} minuter</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
-			<unitName draft="contributed">månad</unitName>
-			<unitName count="one" draft="contributed">månad</unitName>
-			<unitName count="other" draft="contributed">månader</unitName>
+			<unitPattern count="one" draft="contributed">{0} månad</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} månader</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
-			<unitName draft="contributed">sekund</unitName>
-			<unitName count="one" draft="contributed">sekund</unitName>
-			<unitName count="other" draft="contributed">sekunder</unitName>
+			<unitPattern count="one" draft="contributed">{0} sekund</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} sekunder</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
-			<unitName draft="contributed">vecka</unitName>
-			<unitName count="one" draft="contributed">vecka</unitName>
-			<unitName count="other" draft="contributed">veckor</unitName>
+			<unitPattern count="one" draft="contributed">{0} vecka</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} veckor</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
-			<unitName draft="contributed">år</unitName>
-			<unitName count="one" draft="contributed">år</unitName>
-			<unitName count="other" draft="contributed">år</unitName>
+			<unitPattern count="one" draft="contributed">{0} år</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} år</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -5400,3 +5379,4 @@ Comments without bases
  Australia	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
  China	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
 -->
+

@@ -1522,26 +1522,27 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitName count="one" draft="contributed">दिन</unitName>
+			<unitPattern count="one">{0} दिन</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName count="one" draft="contributed">घण्टा</unitName>
+			<unitPattern count="one">{0} घण्टा</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName count="one" draft="contributed">मिनेट</unitName>
+			<unitPattern count="one">{0} मिनेट</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName count="one" draft="contributed">महिना</unitName>
+			<unitPattern count="one">{0} महिना</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName count="one" draft="contributed">सेकेण्ड</unitName>
+			<unitPattern count="one">{0} सेकेण्ड</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName count="one" draft="contributed">हप्ता</unitName>
+			<unitPattern count="one">{0} हप्ता</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName count="one" draft="contributed">बर्ष</unitName>
-			<unitName count="other" draft="contributed">बर्ष</unitName>
+			<unitPattern count="one">{0} बर्ष</unitPattern>
+			<unitPattern count="other">{0} बर्ष</unitPattern>
 		</unit>
 	</units>
 </ldml>
+

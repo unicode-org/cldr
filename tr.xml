@@ -5078,39 +5078,25 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitName>gün</unitName>
-			<unitName count="one">gün</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">d</unitName>
+			<unitPattern count="one">{0} gün</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName>saat</unitName>
-			<unitName count="one">saat</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">h</unitName>
+			<unitPattern count="one">{0} saat</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName>dakika</unitName>
-			<unitName count="one">dakika</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">min</unitName>
+			<unitPattern count="one">{0} dakika</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName>ay</unitName>
-			<unitName count="one">ay</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">m</unitName>
+			<unitPattern count="one">{0} ay</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName>saniye</unitName>
-			<unitName count="one">saniye</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">s</unitName>
+			<unitPattern count="one">{0} saniye</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName>hafta</unitName>
-			<unitName count="one">hafta</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">w</unitName>
+			<unitPattern count="one">{0} hafta</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName>yıl</unitName>
-			<unitName count="one">yıl</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">y</unitName>
+			<unitPattern count="one">{0} yıl</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -5171,3 +5157,4 @@ Comments without bases
 					 United States
 					 - was on: //ldml/dates/timeZoneNames/zone[@type="Pacific/Marquesas"]/exemplarCity[@alt="proposed-x650"]
 -->
+

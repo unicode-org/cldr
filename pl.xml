@@ -3992,53 +3992,39 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName>dzień</unitName>
-			<unitName count="few">dni</unitName>
-			<unitName count="one">dzień</unitName>
-			<unitName count="other">dni</unitName>
+			<unitPattern count="few">{0} dni</unitPattern>
+			<unitPattern count="one">{0} dzień</unitPattern>
+			<unitPattern count="other">{0} dni</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName>godzina</unitName>
-			<unitName count="few">godziny</unitName>
-			<unitName count="one">godzina</unitName>
-			<unitName count="other">godzin</unitName>
+			<unitPattern count="few">{0} godziny</unitPattern>
+			<unitPattern count="one">{0} godzina</unitPattern>
+			<unitPattern count="other">{0} godzin</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName>minuta</unitName>
-			<unitName count="few">minuty</unitName>
-			<unitName count="one">minuta</unitName>
-			<unitName count="other">minut</unitName>
+			<unitPattern count="few">{0} minuty</unitPattern>
+			<unitPattern count="one">{0} minuta</unitPattern>
+			<unitPattern count="other">{0} minut</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName>miesiąc</unitName>
-			<unitName count="few">miesiące</unitName>
-			<unitName count="one">miesiąc</unitName>
-			<unitName count="other">miesięcy</unitName>
+			<unitPattern count="few">{0} miesiące</unitPattern>
+			<unitPattern count="one">{0} miesiąc</unitPattern>
+			<unitPattern count="other">{0} miesięcy</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName>sekunda</unitName>
-			<unitName count="few">sekundy</unitName>
-			<unitName count="one">sekunda</unitName>
-			<unitName count="other">sekund</unitName>
+			<unitPattern count="few">{0} sekundy</unitPattern>
+			<unitPattern count="one">{0} sekunda</unitPattern>
+			<unitPattern count="other">{0} sekund</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName>tydzień</unitName>
-			<unitName count="few">tygodnie</unitName>
-			<unitName count="one">tydzień</unitName>
-			<unitName count="other">tygodni</unitName>
+			<unitPattern count="few">{0} tygodnie</unitPattern>
+			<unitPattern count="one">{0} tydzień</unitPattern>
+			<unitPattern count="other">{0} tygodni</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName>rok</unitName>
-			<unitName count="few">lata</unitName>
-			<unitName count="one">rok</unitName>
-			<unitName count="other">lat</unitName>
+			<unitPattern count="few">{0} lata</unitPattern>
+			<unitPattern count="one">{0} rok</unitPattern>
+			<unitPattern count="other">{0} lat</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -4101,3 +4087,4 @@ Comments without bases
 					 United States
 					 - was on: //ldml/dates/timeZoneNames/zone[@type="America/Mexico_City"]/exemplarCity[@alt="proposed-x1001"]
 -->
+

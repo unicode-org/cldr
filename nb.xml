@@ -3435,46 +3435,32 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName count="one">dag</unitName>
-			<unitName count="other">dager</unitName>
+			<unitPattern count="one">{0} dag</unitPattern>
+			<unitPattern count="other">{0} dager</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName count="one">time</unitName>
-			<unitName count="other">timer</unitName>
+			<unitPattern count="one">{0} time</unitPattern>
+			<unitPattern count="other">{0} timer</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName count="one">minutt</unitName>
-			<unitName count="other">minutter</unitName>
+			<unitPattern count="one">{0} minutt</unitPattern>
+			<unitPattern count="other">{0} minutter</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName count="one">måned</unitName>
-			<unitName count="other">måneder</unitName>
+			<unitPattern count="one">{0} måned</unitPattern>
+			<unitPattern count="other">{0} måneder</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName count="one">sekund</unitName>
-			<unitName count="other">sekunder</unitName>
+			<unitPattern count="one">{0} sekund</unitPattern>
+			<unitPattern count="other">{0} sekunder</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName count="one">uke</unitName>
-			<unitName count="other">uker</unitName>
+			<unitPattern count="one">{0} uke</unitPattern>
+			<unitPattern count="other">{0} uker</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName count="one">år</unitName>
-			<unitName count="other">år</unitName>
+			<unitPattern count="one">{0} år</unitPattern>
+			<unitPattern count="other">{0} år</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -3535,3 +3521,4 @@ Comments without bases
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
  China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
 -->
+

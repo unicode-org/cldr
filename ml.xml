@@ -5517,42 +5517,35 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">ദിവസം</unitName>
-			<unitName count="other">ദിവസം</unitName>
+			<unitPattern count="one">{0} ദിവസം</unitPattern>
+			<unitPattern count="other">{0} ദിവസം</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">മണിക്കൂര്‍</unitName>
-			<unitName count="other">മണിക്കൂര്‍</unitName>
+			<unitPattern count="one">{0} മണിക്കൂര്‍</unitPattern>
+			<unitPattern count="other">{0} മണിക്കൂര്‍</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">മിനിട്ട്</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">മിനുട്ട്</unitName>
-			<unitName count="other">മിനിട്ട്</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">മിനുട്ട്</unitName>
+			<unitPattern count="one">{0} മിനിട്ട്</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} മിനുട്ട്</unitPattern>
+			<unitPattern count="other">{0} മിനിട്ട്</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} മിനുട്ട്</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">മാസം</unitName>
-			<unitName count="other">മാസം</unitName>
+			<unitPattern count="one">{0} മാസം</unitPattern>
+			<unitPattern count="other">{0} മാസം</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">സെക്കന്റ്</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">സെക്കന്‍ഡ്</unitName>
-			<unitName count="other">സെക്കന്റ്</unitName>
+			<unitPattern count="one">{0} സെക്കന്റ്</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} സെക്കന്‍ഡ്</unitPattern>
+			<unitPattern count="other">{0} സെക്കന്റ്</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">ആഴ്ച</unitName>
-			<unitName count="other">ആഴ്ച</unitName>
+			<unitPattern count="one">{0} ആഴ്ച</unitPattern>
+			<unitPattern count="other">{0} ആഴ്ച</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">വര്‍ഷം</unitName>
-			<unitName count="other">വര്‍ഷം</unitName>
+			<unitPattern count="one">{0} വര്‍ഷം</unitPattern>
+			<unitPattern count="other">{0} വര്‍ഷം</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -5575,3 +5568,4 @@ Manasagangotri
 Mysore - 570 006
 Email: snair <at> ciil. stpmy. soft. net
 -->
+

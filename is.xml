@@ -2389,39 +2389,32 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
-			<unitName count="one" draft="contributed">dagur</unitName>
-			<unitName count="other" draft="contributed">dagar</unitName>
+			<unitPattern count="one">{0} dagur</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} dagar</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
-			<unitName count="one" draft="contributed">klukkustund</unitName>
-			<unitName count="other" draft="contributed">klukkustundir</unitName>
+			<unitPattern count="one">{0} klukkustund</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} klukkustundir</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
-			<unitName count="one" draft="contributed">mínúta</unitName>
-			<unitName count="other" draft="contributed">mínútur</unitName>
+			<unitPattern count="one">{0} mínúta</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} mínútur</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
-			<unitName count="one" draft="contributed">mánuður</unitName>
-			<unitName count="other" draft="contributed">mánuðir</unitName>
+			<unitPattern count="one">{0} mánuður</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} mánuðir</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
-			<unitName count="one" draft="contributed">sekúnda</unitName>
-			<unitName count="other" draft="contributed">sekúndur</unitName>
+			<unitPattern count="one">{0} sekúnda</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} sekúndur</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
-			<unitName count="one" draft="contributed">vika</unitName>
-			<unitName count="other" draft="contributed">vikur</unitName>
+			<unitPattern count="one">{0} vika</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} vikur</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
-			<unitName count="one" draft="contributed">ár</unitName>
-			<unitName count="other" draft="contributed">ár</unitName>
+			<unitPattern count="one">{0} ár</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} ár</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -2448,3 +2441,4 @@ Comments without bases
 				 Chile
 				 - was on: //ldml/dates/timeZoneNames/zone[@type="America/Santiago"]
 -->
+

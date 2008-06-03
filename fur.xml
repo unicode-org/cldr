@@ -1092,32 +1092,32 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitName count="one" draft="unconfirmed">zornade</unitName>
-			<unitName count="other" draft="unconfirmed">zornadis</unitName>
+			<unitPattern count="one">{0} zornade</unitPattern>
+			<unitPattern count="other">{0} zornadis</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName count="one" draft="unconfirmed">ore</unitName>
-			<unitName count="other" draft="unconfirmed">oris</unitName>
+			<unitPattern count="one">{0} ore</unitPattern>
+			<unitPattern count="other">{0} oris</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName count="one" draft="unconfirmed">minût</unitName>
-			<unitName count="other" draft="unconfirmed">minûts</unitName>
+			<unitPattern count="one">{0} minût</unitPattern>
+			<unitPattern count="other">{0} minûts</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName count="one" draft="unconfirmed">mês</unitName>
-			<unitName count="other" draft="unconfirmed">mês</unitName>
+			<unitPattern count="one">{0} mês</unitPattern>
+			<unitPattern count="other">{0} mês</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName count="one" draft="unconfirmed">secont</unitName>
-			<unitName count="other" draft="unconfirmed">seconts</unitName>
+			<unitPattern count="one">{0} secont</unitPattern>
+			<unitPattern count="other">{0} seconts</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName count="one" draft="unconfirmed">setemane</unitName>
-			<unitName count="other" draft="unconfirmed">setemanis</unitName>
+			<unitPattern count="one">{0} setemane</unitPattern>
+			<unitPattern count="other">{0} setemanis</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName count="one" draft="unconfirmed">an</unitName>
-			<unitName count="other" draft="unconfirmed">agns</unitName>
+			<unitPattern count="one">{0} an</unitPattern>
+			<unitPattern count="other">{0} agns</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -1131,3 +1131,4 @@
 		<reference type="RP1" uri="http://www.geocities.com/rpontisso/alphabet.html" draft="unconfirmed">Page about Friulian writing and phonology</reference>
 	</references>
 </ldml>
+

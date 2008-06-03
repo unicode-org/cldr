@@ -3689,55 +3689,34 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName count="one">दिन</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">d</unitName>
-			<unitName count="other" draft="contributed">दिन</unitName>
+			<unitPattern count="one" draft="contributed">{0} दिन</unitPattern>
+			<unitPattern count="other">{0} दिन</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName count="one">घंटा</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">h</unitName>
-			<unitName count="other" draft="contributed">घंटे</unitName>
+			<unitPattern count="one" draft="contributed">{0} घंटा</unitPattern>
+			<unitPattern count="other">{0} घंटे</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName count="one">मिन.</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">min</unitName>
-			<unitName count="other" draft="contributed">मिन.</unitName>
+			<unitPattern count="one" draft="contributed">{0} मिन.</unitPattern>
+			<unitPattern count="other">{0} मिन.</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName count="one">महीना</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">m</unitName>
-			<unitName count="one" alt="proposed-x1002" draft="unconfirmed">माह</unitName>
-			<unitName count="other">महीने</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">माह</unitName>
+			<unitPattern count="one" draft="contributed">{0} महीना</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002">{0} माह</unitPattern>
+			<unitPattern count="other">{0} महीने</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} माह</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName count="one">सेकं.</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">s</unitName>
-			<unitName count="other" draft="contributed">सेकं.</unitName>
+			<unitPattern count="one" draft="contributed">{0} सेकं.</unitPattern>
+			<unitPattern count="other">{0} सेकं.</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName count="one">सप्ताह</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">w</unitName>
-			<unitName count="other" draft="contributed">सप्ताह</unitName>
+			<unitPattern count="one" draft="contributed">{0} सप्ताह</unitPattern>
+			<unitPattern count="other">{0} सप्ताह</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName count="one">साल</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">y</unitName>
-			<unitName count="other" draft="contributed">साल</unitName>
+			<unitPattern count="one" draft="contributed">{0} साल</unitPattern>
+			<unitPattern count="other">{0} साल</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -3777,3 +3756,4 @@ UY { "\u0909\u0930\u0942\u0917\u0941\u090F" }
 VA { "\u0935\u093e\u0945\u091f\u093f\u0915\u0928" }
 VU { "\u0938\u093e\u0928\u0941\u0905\u0924\u0941" }  // CHECK - #12
 -->
+

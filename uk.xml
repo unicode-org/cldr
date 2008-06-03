@@ -4236,66 +4236,52 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName>день</unitName>
-			<unitName count="few">дні</unitName>
-			<unitName count="many">днів</unitName>
-			<unitName count="one">день</unitName>
-			<unitName count="other">дня</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">днів</unitName>
+			<unitPattern count="few">{0} дні</unitPattern>
+			<unitPattern count="many">{0} днів</unitPattern>
+			<unitPattern count="one">{0} день</unitPattern>
+			<unitPattern count="other">{0} дня</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} днів</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName>година</unitName>
-			<unitName count="few">години</unitName>
-			<unitName count="many">годин</unitName>
-			<unitName count="one">година</unitName>
-			<unitName count="other">години</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">годин</unitName>
+			<unitPattern count="few">{0} години</unitPattern>
+			<unitPattern count="many">{0} годин</unitPattern>
+			<unitPattern count="one">{0} година</unitPattern>
+			<unitPattern count="other">{0} години</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} годин</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName>хвилина</unitName>
-			<unitName count="few">хвилини</unitName>
-			<unitName count="many">хвилин</unitName>
-			<unitName count="one">хвилина</unitName>
-			<unitName count="other">хвилини</unitName>
+			<unitPattern count="few">{0} хвилини</unitPattern>
+			<unitPattern count="many">{0} хвилин</unitPattern>
+			<unitPattern count="one">{0} хвилина</unitPattern>
+			<unitPattern count="other">{0} хвилини</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName>місяць</unitName>
-			<unitName count="few">місяці</unitName>
-			<unitName count="many">місяців</unitName>
-			<unitName count="one">місяць</unitName>
-			<unitName count="other">місяця</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">місяців</unitName>
+			<unitPattern count="few">{0} місяці</unitPattern>
+			<unitPattern count="many">{0} місяців</unitPattern>
+			<unitPattern count="one">{0} місяць</unitPattern>
+			<unitPattern count="other">{0} місяця</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} місяців</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName>секунда</unitName>
-			<unitName count="few">секунди</unitName>
-			<unitName count="many">секунд</unitName>
-			<unitName count="one">секунда</unitName>
-			<unitName count="other">секунди</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">секунд</unitName>
+			<unitPattern count="few">{0} секунди</unitPattern>
+			<unitPattern count="many">{0} секунд</unitPattern>
+			<unitPattern count="one">{0} секунда</unitPattern>
+			<unitPattern count="other">{0} секунди</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} секунд</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName>тиждень</unitName>
-			<unitName count="few">тижні</unitName>
-			<unitName count="many">тижнів</unitName>
-			<unitName count="one">тиждень</unitName>
-			<unitName count="other">тижня</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">тижнів</unitName>
+			<unitPattern count="few">{0} тижні</unitPattern>
+			<unitPattern count="many">{0} тижнів</unitPattern>
+			<unitPattern count="one">{0} тиждень</unitPattern>
+			<unitPattern count="other">{0} тижня</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} тижнів</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName>рік</unitName>
-			<unitName count="few">роки</unitName>
-			<unitName count="many">років</unitName>
-			<unitName count="one">рік</unitName>
-			<unitName count="other">року</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">років</unitName>
+			<unitPattern count="few">{0} роки</unitPattern>
+			<unitPattern count="many">{0} років</unitPattern>
+			<unitPattern count="one">{0} рік</unitPattern>
+			<unitPattern count="other">{0} року</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} років</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -4340,3 +4326,4 @@ Comments without bases
  Luxemburzki Konvertovani Frank 	 - was on: //ldml/numbers/currencies/currency[@type="LUC"]/symbol
  Luxemborg Financial Frank 	 - was on: //ldml/numbers/currencies/currency[@type="LUL"]/symbol
 -->
+

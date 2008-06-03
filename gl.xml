@@ -1796,32 +1796,32 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitName draft="contributed">día</unitName>
-			<unitName count="other" draft="contributed">días</unitName>
+			<unitPattern count="one">{0} día</unitPattern>
+			<unitPattern count="other">{0} días</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName draft="contributed">hora</unitName>
-			<unitName count="other" draft="contributed">horas</unitName>
+			<unitPattern count="one">{0} hora</unitPattern>
+			<unitPattern count="other">{0} horas</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName draft="contributed">minuto</unitName>
-			<unitName count="other" draft="contributed">minutos</unitName>
+			<unitPattern count="one">{0} minuto</unitPattern>
+			<unitPattern count="other">{0} minutos</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName draft="contributed">mes</unitName>
-			<unitName count="other" draft="contributed">meses</unitName>
+			<unitPattern count="one">{0} mes</unitPattern>
+			<unitPattern count="other">{0} meses</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName draft="contributed">segundo</unitName>
-			<unitName count="other" draft="contributed">segundos</unitName>
+			<unitPattern count="one">{0} segundo</unitPattern>
+			<unitPattern count="other">{0} segundos</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName draft="contributed">semana</unitName>
-			<unitName count="other" draft="contributed">semanas</unitName>
+			<unitPattern count="one">{0} semana</unitPattern>
+			<unitPattern count="other">{0} semanas</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName draft="contributed">ano</unitName>
-			<unitName count="other" draft="contributed">anos</unitName>
+			<unitPattern count="one">{0} ano</unitPattern>
+			<unitPattern count="other">{0} anos</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -1831,3 +1831,4 @@
 		</messages>
 	</posix>
 </ldml>
+

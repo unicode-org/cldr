@@ -4636,60 +4636,39 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>Tag</unitName>
-			<unitName count="one">d</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">Tag</unitName>
-			<unitName count="other">Tage</unitName>
+			<unitPattern count="one">{0} Tag</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} Tag</unitPattern>
+			<unitPattern count="other">{0} Tage</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>Stunde</unitName>
-			<unitName count="one">h</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">Stunde</unitName>
-			<unitName count="other">Stunden</unitName>
+			<unitPattern count="one">{0} Stunde</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} Stunde</unitPattern>
+			<unitPattern count="other">{0} Stunden</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>Minute</unitName>
-			<unitName count="one">min</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">Minute</unitName>
-			<unitName count="other">Minuten</unitName>
+			<unitPattern count="one">{0} Minute</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} Minute</unitPattern>
+			<unitPattern count="other">{0} Minuten</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>Monat</unitName>
-			<unitName count="one">m</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">Monat</unitName>
-			<unitName count="other">Monate</unitName>
+			<unitPattern count="one">{0} Monat</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} Monat</unitPattern>
+			<unitPattern count="other">{0} Monate</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>Sekunde</unitName>
-			<unitName count="one">s</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">Sekunde</unitName>
-			<unitName count="other">Sekunden</unitName>
+			<unitPattern count="one">{0} Sekunde</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} Sekunde</unitPattern>
+			<unitPattern count="other">{0} Sekunden</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>Woche</unitName>
-			<unitName count="one">w</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">Woche</unitName>
-			<unitName count="other">Wochen</unitName>
+			<unitPattern count="one">{0} Woche</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} Woche</unitPattern>
+			<unitPattern count="other">{0} Wochen</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>Jahr</unitName>
-			<unitName count="one">y</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">Jahr</unitName>
-			<unitName count="other">Jahre</unitName>
+			<unitPattern count="one">{0} Jahr</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} Jahr</unitPattern>
+			<unitPattern count="other">{0} Jahre</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -4834,3 +4813,4 @@ Comments without bases
 
  <territory type="057">Mikronesien</territory> 	 - was on: //ldml/localeDisplayNames/territories/territory[@type="057"][@alt="proposed-u212-1"]
 -->
+

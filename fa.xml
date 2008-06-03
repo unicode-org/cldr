@@ -3443,60 +3443,32 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">{0,number,0.##} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>روز</unitName>
-			<unitName count="one">روز</unitName>
-			<unitName count="other">روز</unitName>
+			<unitPattern count="one">{0} روز</unitPattern>
+			<unitPattern count="other">{0} روز</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">{0,number,0.##} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>ساعت</unitName>
-			<unitName count="one">ساعت</unitName>
-			<unitName count="other">ساعت</unitName>
+			<unitPattern count="one">{0} ساعت</unitPattern>
+			<unitPattern count="other">{0} ساعت</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">{0,number,0.##} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>دقیقه</unitName>
-			<unitName count="one">دقیقه</unitName>
-			<unitName count="other">دقیقه</unitName>
+			<unitPattern count="one">{0} دقیقه</unitPattern>
+			<unitPattern count="other">{0} دقیقه</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">{0,number,0.##} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>ماه</unitName>
-			<unitName count="one">ماه</unitName>
-			<unitName count="other">ماه</unitName>
+			<unitPattern count="one">{0} ماه</unitPattern>
+			<unitPattern count="other">{0} ماه</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">{0,number,0.##} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>ثانیه</unitName>
-			<unitName count="one">ثانیه</unitName>
-			<unitName count="other">ثانیه</unitName>
+			<unitPattern count="one">{0} ثانیه</unitPattern>
+			<unitPattern count="other">{0} ثانیه</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">{0,number,0.##} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>هفته</unitName>
-			<unitName count="one">هفته</unitName>
-			<unitName count="other">هفته</unitName>
+			<unitPattern count="one">{0} هفته</unitPattern>
+			<unitPattern count="other">{0} هفته</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">{0,number,0.##} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>سال</unitName>
-			<unitName count="one">سال</unitName>
-			<unitName count="other">سال</unitName>
+			<unitPattern count="one">{0} سال</unitPattern>
+			<unitPattern count="other">{0} سال</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -3524,3 +3496,4 @@ Currency display names
 The Afghani symbol doesn't exist in Unicode. So we use the long name
 ZR { "\u0632\u0626\u06cc\u0631" } // Zaire is now the Democratic Republic of Congo (CD)
 -->
+

@@ -4324,53 +4324,32 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>päivä</unitName>
-			<unitName count="one">päivä</unitName>
-			<unitName count="other">päivää</unitName>
+			<unitPattern count="one">{0} päivä</unitPattern>
+			<unitPattern count="other">{0} päivää</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>tunti</unitName>
-			<unitName count="one">tunti</unitName>
-			<unitName count="other">tuntia</unitName>
+			<unitPattern count="one">{0} tunti</unitPattern>
+			<unitPattern count="other">{0} tuntia</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>minuutti</unitName>
-			<unitName count="one">minuutti</unitName>
-			<unitName count="other">minuuttia</unitName>
+			<unitPattern count="one">{0} minuutti</unitPattern>
+			<unitPattern count="other">{0} minuuttia</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>kuukausi</unitName>
-			<unitName count="one">kuukausi</unitName>
-			<unitName count="other">kuukautta</unitName>
+			<unitPattern count="one">{0} kuukausi</unitPattern>
+			<unitPattern count="other">{0} kuukautta</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>sekunti</unitName>
-			<unitName count="one">sekunti</unitName>
-			<unitName count="other">sekuntia</unitName>
+			<unitPattern count="one">{0} sekunti</unitPattern>
+			<unitPattern count="other">{0} sekuntia</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>viikko</unitName>
-			<unitName count="one">viikko</unitName>
-			<unitName count="other">viikkoa</unitName>
+			<unitPattern count="one">{0} viikko</unitPattern>
+			<unitPattern count="other">{0} viikkoa</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>vuosi</unitName>
-			<unitName count="one">vuosi</unitName>
-			<unitName count="other">vuotta</unitName>
+			<unitPattern count="one">{0} vuosi</unitPattern>
+			<unitPattern count="other">{0} vuotta</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -4441,3 +4420,4 @@ Comments without bases
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
  China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
 -->
+

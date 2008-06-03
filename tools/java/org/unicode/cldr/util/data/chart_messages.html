@@ -14,7 +14,7 @@
   
   
   <title>Help Text file for Supplemental Charts</title>
-  <style>
+  <style type="text/css">
 <!--
 DIV.chat {
 	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px
@@ -42,7 +42,7 @@ Insert</i> is what you want to show up as help text, or modify existing text. <b
 changes (see the end). </b></p>
 
 
-<table id="table1" style="border-collapse: collapse;" border="1" bordercolor="#000080" cellpadding="4" cellspacing="0" width="100%">
+<table id="table1" style="border-collapse: collapse;" border="1" cellpadding="4" cellspacing="0" width="100%">
 
 
 	<tbody>
@@ -218,7 +218,7 @@ different languages. This information is not complete, and is being
 enhanced over time. The table is sorted by language; for the same
 information sorted by script, see <a name="scripts_and_languages" href="scripts_and_languages.html">Scripts and Languages</a>. The following conventions are used in the table:
       
-      <table id="table2" style="margin: 1em; border-collapse: collapse;" border="1" bordercolor="#990000">
+      <table id="table2" style="margin: 1em; border-collapse: collapse;" border="1">
 
 
 			<tbody>
@@ -351,7 +351,7 @@ information sorted by script, see <a name="languages_and_scripts" href="http://w
 		conventions are used in the table:
 		
       
-      <table id="table3" style="margin: 1em; border-collapse: collapse;" border="1" bordercolor="#990000">
+      <table id="table3" style="margin: 1em; border-collapse: collapse;" border="1">
 
 
 			<tbody>
@@ -737,7 +737,7 @@ brackets before or after the English name, eg "Vanuatu [VU]"</p>
       <p>Languages
 vary in how they handle plurals of nouns or unit expressions ("hours",
 "meters", and so on). Some languages have two forms, like English;
-some languages have no forms; and some languages have multiple forms
+some languages have only a single form; and some languages have multiple forms
 (see <a href="#sl">Slovenian</a> below). CLDR uses short, mnemonic tags for these
 plural categories: <span style="font-family: monospace;"></span></p>
 
@@ -791,7 +791,26 @@ for a video: </p>
       
       <p style="margin-left: 40px; text-align: center;">"Duration: 1 hour" → "Duration: 3.2 hour<span style="text-decoration: underline; color: rgb(153, 0, 0);">s</span>"</p>
 
-      
+      <p><b>Plural rule syntax:</b> Each plural rule is a <em>condition</em> with a boolean result
+that specifies whether that rule (i.e. that plural form) applies for a given numeric value <em>n</em>;
+conditions have the following syntax:</p>
+
+      <pre>
+condition     = and_condition ('or' and_condition)*
+and_condition = relation ('and' relation)*
+relation      = is_relation | in_relation | within_relation | 'n' &lt;EOL&gt;
+is_relation   = expr 'is' ('not')? value
+in_relation   = expr ('not')? 'in' range
+within_relation = expr ('not')? 'within' range
+expr          = 'n' ('mod' value)?
+value         = digit+
+digit         = 0|1|2|3|4|5|6|7|8|9
+range         = value'..'value</pre>
+
+      <p>The difference between 'in' and 'within' is that 'in' only includes integers in the
+      specified range, while 'within' includes all values. Rules should be mutually exclusive;
+      for a given numeric value, only one rule should apply</p>
+
       <p style="color: rgb(153, 0, 0); font-style: italic; font-weight: bold;">The following is draft data for this version of CLDR, so please look it over carefully. Known omissions are:</p>
 
       
@@ -801,8 +820,7 @@ for a video: </p>
 
         <li>The available data may need adjustment if it is inaccurate.</li>
 
-        <li>The&nbsp;plural
-forms of numbers with decimals have yet to be determined. Please look over
+        <li>Please look over
 examples of decimal values (such as 1.31) to see which plural form they
 should have. The default in the absence of other information is for
 them to have the category&nbsp;<span style="font-family: monospace;">other</span>.<br>
@@ -812,7 +830,7 @@ them to have the category&nbsp;<span style="font-family: monospace;">other</span
 That
 is, in expressions like the following (where "hours" could be any
 countable nouns: minutes, degrees, meters, and so on), what categories
-should the numbers fall into?</li>
+should the numbers fall into?
 
         
         <ul>
@@ -828,7 +846,7 @@ should the numbers fall into?</li>
           <li>...</li>
 
         
-        </ul>
+        </ul></li>
 
       
       </ol>
@@ -845,7 +863,7 @@ should the numbers fall into?</li>
 
 		
       
-      <table id="table3" style="margin: 1em; border-collapse: collapse;" border="1" bordercolor="#990000">
+      <table id="table4" style="margin: 1em; border-collapse: collapse;" border="1">
 
 
 			<tbody>
@@ -895,40 +913,6 @@ Although rules for integer values are correct, there needs to be four categories
 			</tr>
 
 
-			<tr>
-
-
-				
-				
-			</tr>
-
-
-			<tr>
-
-
-				
-				
-			</tr>
-
-
-			<tr>
-
-
-				
-				
-			</tr>
-
-
-			<tr>
-
-
-				
-				
-			</tr>
-
-
-		
-        
         </tbody>
       
       </table>

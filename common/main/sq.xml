@@ -628,30 +628,29 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one" draft="contributed">ditë</unitName>
-			<unitName count="other" draft="contributed">ditë</unitName>
+			<unitPattern count="one">{0} ditë</unitPattern>
+			<unitPattern count="other">{0} ditë</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName count="one" draft="contributed">orë</unitName>
+			<unitPattern count="one">{0} orë</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName count="one" draft="contributed">minutë</unitName>
-			<unitName count="other" draft="contributed">minuta</unitName>
+			<unitPattern count="one">{0} minutë</unitPattern>
+			<unitPattern count="other">{0} minuta</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName count="one" draft="contributed">muaj</unitName>
+			<unitPattern count="one">{0} muaj</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName count="one" draft="contributed">sekondë</unitName>
-			<unitName count="other" draft="contributed">sekonda</unitName>
+			<unitPattern count="one">{0} sekondë</unitPattern>
+			<unitPattern count="other">{0} sekonda</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName count="one" draft="contributed">javë</unitName>
+			<unitPattern count="one">{0} javë</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName count="one" draft="contributed">vit</unitName>
-			<unitName count="other" draft="contributed">vjet</unitName>
+			<unitPattern count="one">{0} vit</unitPattern>
+			<unitPattern count="other">{0} vjet</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -672,3 +671,4 @@ SR { "Surinam" }
             "CEST", // TODO: Replace with long Albanian name
                 1, // "Minimal Days in First Week" is unknown. Root value used instead
 -->
+

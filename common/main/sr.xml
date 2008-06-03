@@ -2417,39 +2417,39 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitName count="few" draft="contributed">дана</unitName>
-			<unitName count="many" draft="contributed">дана</unitName>
-			<unitName count="one" draft="contributed">дан</unitName>
+			<unitPattern count="few">{0} дана</unitPattern>
+			<unitPattern count="many">{0} дана</unitPattern>
+			<unitPattern count="one">{0} дан</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName count="few" draft="contributed">сата</unitName>
-			<unitName count="many" draft="contributed">сати</unitName>
-			<unitName count="one" draft="contributed">сат</unitName>
+			<unitPattern count="few">{0} сата</unitPattern>
+			<unitPattern count="many">{0} сати</unitPattern>
+			<unitPattern count="one">{0} сат</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName count="few" draft="contributed">минута</unitName>
-			<unitName count="many" draft="contributed">минута</unitName>
-			<unitName count="one" draft="contributed">минут</unitName>
+			<unitPattern count="few">{0} минута</unitPattern>
+			<unitPattern count="many">{0} минута</unitPattern>
+			<unitPattern count="one">{0} минут</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName count="few" draft="contributed">месеца</unitName>
-			<unitName count="many" draft="contributed">месеци</unitName>
-			<unitName count="one" draft="contributed">месец</unitName>
+			<unitPattern count="few">{0} месеца</unitPattern>
+			<unitPattern count="many">{0} месеци</unitPattern>
+			<unitPattern count="one">{0} месец</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName count="few" draft="contributed">секунде</unitName>
-			<unitName count="many" draft="contributed">секунди</unitName>
-			<unitName count="one" draft="contributed">секунда</unitName>
+			<unitPattern count="few">{0} секунде</unitPattern>
+			<unitPattern count="many">{0} секунди</unitPattern>
+			<unitPattern count="one">{0} секунда</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName count="few" draft="contributed">недеље</unitName>
-			<unitName count="many" draft="contributed">недеља</unitName>
-			<unitName count="one" draft="contributed">недеља</unitName>
+			<unitPattern count="few">{0} недеље</unitPattern>
+			<unitPattern count="many">{0} недеља</unitPattern>
+			<unitPattern count="one">{0} недеља</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName count="few" draft="contributed">године</unitName>
-			<unitName count="many" draft="contributed">година</unitName>
-			<unitName count="one" draft="contributed">година</unitName>
+			<unitPattern count="few">{0} године</unitPattern>
+			<unitPattern count="many">{0} година</unitPattern>
+			<unitPattern count="one">{0} година</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -2459,3 +2459,4 @@
 		</messages>
 	</posix>
 </ldml>
+

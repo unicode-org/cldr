@@ -6688,62 +6688,37 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>jour</unitName>
-			<unitName count="one">jour</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">j</unitName>
-			<unitName count="other">jours</unitName>
+			<unitPattern count="one">{0} jour</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} j</unitPattern>
+			<unitPattern count="other">{0} jours</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>heure</unitName>
-			<unitName count="one">heure</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">h</unitName>
-			<unitName count="other">heures</unitName>
+			<unitPattern count="one">{0} heure</unitPattern>
+			<unitPattern count="other">{0} heures</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>minute</unitName>
-			<unitName count="one">minute</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">mn</unitName>
-			<unitName count="other">minutes</unitName>
+			<unitPattern count="one">{0} minute</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} mn</unitPattern>
+			<unitPattern count="other">{0} minutes</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>mois</unitName>
-			<unitName count="one">mois</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">m</unitName>
-			<unitName count="other">mois</unitName>
+			<unitPattern count="one">{0} mois</unitPattern>
+			<unitPattern count="other">{0} mois</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>seconde</unitName>
-			<unitName count="one">seconde</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">s</unitName>
-			<unitName count="other">secondes</unitName>
+			<unitPattern count="one">{0} seconde</unitPattern>
+			<unitPattern count="other">{0} secondes</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>semaine</unitName>
-			<unitName count="one">semaine</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">sem</unitName>
-			<unitName count="other">semaines</unitName>
+			<unitPattern count="one">{0} semaine</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} sem</unitPattern>
+			<unitPattern count="other">{0} semaines</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitName>année</unitName>
-			<unitName count="one">an</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">a</unitName>
-			<unitName count="other">années</unitName>
-			<unitName count="other" alt="proposed-x1001" draft="unconfirmed">ans</unitName>
-			<unitName alt="proposed-x1001" draft="unconfirmed">an</unitName>
+			<unitPattern count="one">{0} an</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0} a</unitPattern>
+			<unitPattern count="other">{0} années</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001">{0} ans</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -6824,3 +6799,4 @@ Comments without bases
  Svalbard and Jan Mayen 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Jan_Mayen"]
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
 -->
+

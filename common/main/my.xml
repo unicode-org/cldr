@@ -1608,32 +1608,25 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitName draft="provisional">ရက်</unitName>
-			<unitName count="one" draft="unconfirmed">ရက်</unitName>
+			<unitPattern count="one">{0} ရက်</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName draft="provisional">နာရီ</unitName>
-			<unitName count="one" draft="unconfirmed">နာရီ</unitName>
+			<unitPattern count="one">{0} နာရီ</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName draft="provisional">မိနစ်</unitName>
-			<unitName count="one" draft="unconfirmed">မိနစ်</unitName>
+			<unitPattern count="one">{0} မိနစ်</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName draft="provisional">လ</unitName>
-			<unitName count="one" draft="unconfirmed">လ</unitName>
+			<unitPattern count="one">{0} လ</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName draft="provisional">စက္ကန့်</unitName>
-			<unitName count="one" draft="unconfirmed">စက္ကန့်</unitName>
+			<unitPattern count="one">{0} စက္ကန့်</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName draft="provisional">ပတ်</unitName>
-			<unitName count="one" draft="unconfirmed">ပတ်</unitName>
+			<unitPattern count="one">{0} ပတ်</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName draft="provisional">နှစ်</unitName>
-			<unitName count="one" draft="unconfirmed">နှစ်</unitName>
+			<unitPattern count="one">{0} နှစ်</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -1648,3 +1641,4 @@
 		<reference type="RP3" draft="unconfirmed">Myanmar Language Commission Myanmar-English Dictionary 2006</reference>
 	</references>
 </ldml>
+

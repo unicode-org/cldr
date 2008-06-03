@@ -1846,53 +1846,46 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitName draft="contributed">dan</unitName>
-			<unitName count="few" draft="contributed">dnevi</unitName>
-			<unitName count="one" draft="contributed">dan</unitName>
-			<unitName count="other" draft="contributed">dni</unitName>
-			<unitName count="two" draft="contributed">dni</unitName>
+			<unitPattern count="few">{0} dnevi</unitPattern>
+			<unitPattern count="one">{0} dan</unitPattern>
+			<unitPattern count="other">{0} dni</unitPattern>
+			<unitPattern count="two">{0} dni</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName draft="contributed">h</unitName>
-			<unitName count="few" draft="contributed">ure</unitName>
-			<unitName count="one" draft="contributed">ura</unitName>
-			<unitName count="other" draft="contributed">ur</unitName>
-			<unitName count="two" draft="contributed">uri</unitName>
+			<unitPattern count="few">{0} ure</unitPattern>
+			<unitPattern count="one">{0} ura</unitPattern>
+			<unitPattern count="other">{0} ur</unitPattern>
+			<unitPattern count="two">{0} uri</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName draft="contributed">min</unitName>
-			<unitName count="few" draft="contributed">minute</unitName>
-			<unitName count="one" draft="contributed">minuta</unitName>
-			<unitName count="other" draft="contributed">minut</unitName>
-			<unitName count="two" draft="contributed">minuti</unitName>
+			<unitPattern count="few">{0} minute</unitPattern>
+			<unitPattern count="one">{0} minuta</unitPattern>
+			<unitPattern count="other">{0} minut</unitPattern>
+			<unitPattern count="two">{0} minuti</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName draft="contributed">m</unitName>
-			<unitName count="few" draft="contributed">meseci</unitName>
-			<unitName count="one" draft="contributed">mesec</unitName>
-			<unitName count="other" draft="contributed">meseci</unitName>
-			<unitName count="two" draft="contributed">meseca</unitName>
+			<unitPattern count="few">{0} meseci</unitPattern>
+			<unitPattern count="one">{0} mesec</unitPattern>
+			<unitPattern count="other">{0} meseci</unitPattern>
+			<unitPattern count="two">{0} meseca</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName draft="contributed">s</unitName>
-			<unitName count="few" draft="contributed">sekunde</unitName>
-			<unitName count="one" draft="contributed">sekunda</unitName>
-			<unitName count="other" draft="contributed">sekund</unitName>
-			<unitName count="two" draft="contributed">sekundi</unitName>
+			<unitPattern count="few">{0} sekunde</unitPattern>
+			<unitPattern count="one">{0} sekunda</unitPattern>
+			<unitPattern count="other">{0} sekund</unitPattern>
+			<unitPattern count="two">{0} sekundi</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName draft="contributed">teden</unitName>
-			<unitName count="few" draft="contributed">tedni</unitName>
-			<unitName count="one" draft="contributed">teden</unitName>
-			<unitName count="other" draft="contributed">tednov</unitName>
-			<unitName count="two" draft="contributed">tedna</unitName>
+			<unitPattern count="few">{0} tedni</unitPattern>
+			<unitPattern count="one">{0} teden</unitPattern>
+			<unitPattern count="other">{0} tednov</unitPattern>
+			<unitPattern count="two">{0} tedna</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName draft="contributed">leto</unitName>
-			<unitName count="few" draft="contributed">leta</unitName>
-			<unitName count="one" draft="contributed">leto</unitName>
-			<unitName count="other" draft="contributed">let</unitName>
-			<unitName count="two" draft="contributed">leti</unitName>
+			<unitPattern count="few">{0} leta</unitPattern>
+			<unitPattern count="one">{0} leto</unitPattern>
+			<unitPattern count="other">{0} let</unitPattern>
+			<unitPattern count="two">{0} leti</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -1916,3 +1909,4 @@ zh_cn { "Kitaj\u0161\u010Dina (poenostavljena)" }
 zh_tw { "Kitaj\u0161\u010Dina (tradicionalna)" }
         "Latn",  // ISO 15924 Name
 -->
+

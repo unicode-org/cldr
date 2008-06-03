@@ -2191,32 +2191,25 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">ngày</unitName>
+			<unitPattern count="one">{0} ngày</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">giờ</unitName>
+			<unitPattern count="one">{0} giờ</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">phút</unitName>
+			<unitPattern count="one">{0} phút</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">tháng</unitName>
+			<unitPattern count="one">{0} tháng</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">giây</unitName>
+			<unitPattern count="one">{0} giây</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">tuần</unitName>
+			<unitPattern count="one">{0} tuần</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitName count="one">năm</unitName>
+			<unitPattern count="one">{0} năm</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -2248,3 +2241,4 @@ It is difficult to decide whether Ti\u1EBFng should precede the translation, but
         it { "Ti\u1EBFng \u00DD" } // Just \u00DD seems okay because Ti\u1EBFng is used. \u00DD is sometimes used to mean Italy too.
         "Latn",  // ISO 15924 Name
 -->
+

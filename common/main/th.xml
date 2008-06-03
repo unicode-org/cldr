@@ -4629,32 +4629,25 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitName>วัน</unitName>
-			<unitName count="one">วัน</unitName>
+			<unitPattern count="one">{0} วัน</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName>ชั่วโมง</unitName>
-			<unitName count="one">ชั่วโมง</unitName>
+			<unitPattern count="one">{0} ชั่วโมง</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName>นาที</unitName>
-			<unitName count="one">นาที</unitName>
+			<unitPattern count="one">{0} นาที</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName>เดือน</unitName>
-			<unitName count="one">เดือน</unitName>
+			<unitPattern count="one">{0} เดือน</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName>วินาที</unitName>
-			<unitName count="one">วินาที</unitName>
+			<unitPattern count="one">{0} วินาที</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName>สัปดาห์</unitName>
-			<unitName count="one">สัปดาห์</unitName>
+			<unitPattern count="one">{0} สัปดาห์</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName>ปี</unitName>
-			<unitName count="one">ปี</unitName>
+			<unitPattern count="one">{0} ปี</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -4669,3 +4662,4 @@
 		<reference type="R228">New Model English-Thai Dictionary ISBN:974-08-6456-2</reference>
 	</references>
 </ldml>
+

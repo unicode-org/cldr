@@ -3921,46 +3921,32 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitName draft="contributed">giorno</unitName>
-			<unitName count="one" draft="contributed">giorno</unitName>
-			<unitName count="other">giorni</unitName>
+			<unitPattern count="one" draft="contributed">{0} giorno</unitPattern>
+			<unitPattern count="other">{0} giorni</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitName draft="contributed">ora</unitName>
-			<unitName count="one" draft="contributed">h</unitName>
-			<unitName count="other">ore</unitName>
+			<unitPattern count="one" draft="contributed">{0} ora</unitPattern>
+			<unitPattern count="other">{0} ore</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitName draft="contributed">minuto</unitName>
-			<unitName count="one" draft="contributed">min</unitName>
-			<unitName count="other">minuti</unitName>
+			<unitPattern count="one" draft="contributed">{0} minuto</unitPattern>
+			<unitPattern count="other">{0} minuti</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitName draft="contributed">mese</unitName>
-			<unitName count="one" draft="contributed">m</unitName>
-			<unitName count="other">mesi</unitName>
+			<unitPattern count="one" draft="contributed">{0} mese</unitPattern>
+			<unitPattern count="other">{0} mesi</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitName draft="contributed">secondo</unitName>
-			<unitName count="one" draft="contributed">s</unitName>
-			<unitName count="other">secondi</unitName>
+			<unitPattern count="one" draft="contributed">{0} secondo</unitPattern>
+			<unitPattern count="other">{0} secondi</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitName draft="contributed">settimana</unitName>
-			<unitName count="one" draft="contributed">settimana</unitName>
-			<unitName count="other">settimane</unitName>
+			<unitPattern count="one" draft="contributed">{0} settimana</unitPattern>
+			<unitPattern count="other">{0} settimane</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitName draft="contributed">anno</unitName>
-			<unitName count="one" draft="contributed">anno</unitName>
-			<unitName count="other">anni</unitName>
+			<unitPattern count="one" draft="contributed">{0} anno</unitPattern>
+			<unitPattern count="other">{0} anni</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -4028,3 +4014,4 @@ Comments without bases
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
  China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
 -->
+

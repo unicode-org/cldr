@@ -3224,102 +3224,60 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="few">{0} {1}</unitPattern>
-			<unitPattern count="many">{0} {1}</unitPattern>
-			<unitPattern count="one">{1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
-			<unitPattern count="two">{1}</unitPattern>
-			<unitPattern count="zero">{1}</unitPattern>
-			<unitName count="few" draft="contributed">أيام</unitName>
-			<unitName count="many" draft="contributed">يوم</unitName>
-			<unitName count="one" draft="contributed">يوم</unitName>
-			<unitName count="other" draft="contributed">يوم</unitName>
-			<unitName count="two" draft="contributed">يومان</unitName>
-			<unitName count="zero" draft="contributed">يوم</unitName>
+			<unitPattern count="few">{0} أيام</unitPattern>
+			<unitPattern count="many">{0} يوم</unitPattern>
+			<unitPattern count="one">يوم</unitPattern>
+			<unitPattern count="other">{0} يوم</unitPattern>
+			<unitPattern count="two">يومان</unitPattern>
+			<unitPattern count="zero">يوم</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="two" draft="contributed">{0}</unitPattern>
-			<unitPattern count="zero" draft="contributed">{0}</unitPattern>
-			<unitName count="few" draft="contributed">ساعات</unitName>
-			<unitName count="many" draft="contributed">ساعة</unitName>
-			<unitName count="one" draft="contributed">ساعة</unitName>
-			<unitName count="other" draft="contributed">ساعة</unitName>
-			<unitName count="two" draft="contributed">ساعتان</unitName>
-			<unitName count="zero" draft="contributed">ساعة</unitName>
+			<unitPattern count="few" draft="contributed">{0} ساعات</unitPattern>
+			<unitPattern count="many" draft="contributed">{0} ساعة</unitPattern>
+			<unitPattern count="one" draft="contributed">ساعة</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} ساعة</unitPattern>
+			<unitPattern count="two" draft="contributed">ساعتان</unitPattern>
+			<unitPattern count="zero" draft="contributed">ساعة</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="two" draft="contributed">{0}</unitPattern>
-			<unitPattern count="zero" draft="contributed">{0} {1}</unitPattern>
-			<unitName count="few" draft="contributed">دقائق</unitName>
-			<unitName count="many" draft="contributed">دقيقة</unitName>
-			<unitName count="one" draft="contributed">دقيقة</unitName>
-			<unitName count="other" draft="contributed">دقيقة</unitName>
-			<unitName count="two" draft="contributed">دقيقتان</unitName>
-			<unitName count="zero" draft="contributed">دقيقة</unitName>
+			<unitPattern count="few" draft="contributed">{0} دقائق</unitPattern>
+			<unitPattern count="many" draft="contributed">{0} دقيقة</unitPattern>
+			<unitPattern count="one" draft="contributed">دقيقة</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} دقيقة</unitPattern>
+			<unitPattern count="two" draft="contributed">دقيقتان</unitPattern>
+			<unitPattern count="zero" draft="contributed">دقيقة</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="two" draft="contributed">{0}</unitPattern>
-			<unitPattern count="zero" draft="contributed">{0}</unitPattern>
-			<unitName count="few" draft="contributed">أشهر</unitName>
-			<unitName count="many" draft="contributed">شهراً</unitName>
-			<unitName count="one" draft="contributed">شهر</unitName>
-			<unitName count="other" draft="contributed">شهر</unitName>
-			<unitName count="two" draft="contributed">شهران</unitName>
-			<unitName count="zero" draft="contributed">شهر</unitName>
+			<unitPattern count="few" draft="contributed">{0} أشهر</unitPattern>
+			<unitPattern count="many" draft="contributed">{0} شهراً</unitPattern>
+			<unitPattern count="one" draft="contributed">شهر</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} شهر</unitPattern>
+			<unitPattern count="two" draft="contributed">شهران</unitPattern>
+			<unitPattern count="zero" draft="contributed">شهر</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="two" draft="contributed">{0}</unitPattern>
-			<unitPattern count="zero" draft="contributed">{0}</unitPattern>
-			<unitName count="few" draft="contributed">ثوان</unitName>
-			<unitName count="many" draft="contributed">ثانية</unitName>
-			<unitName count="one" draft="contributed">ثانية</unitName>
-			<unitName count="other" draft="contributed">ثانية</unitName>
-			<unitName count="two" draft="contributed">ثانيتان</unitName>
-			<unitName count="zero" draft="contributed">ثانية</unitName>
+			<unitPattern count="few" draft="contributed">{0} ثوان</unitPattern>
+			<unitPattern count="many" draft="contributed">{0} ثانية</unitPattern>
+			<unitPattern count="one" draft="contributed">ثانية</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} ثانية</unitPattern>
+			<unitPattern count="two" draft="contributed">ثانيتان</unitPattern>
+			<unitPattern count="zero" draft="contributed">ثانية</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="two" draft="contributed">{0}</unitPattern>
-			<unitPattern count="zero" draft="contributed">{0}</unitPattern>
-			<unitName count="few" draft="contributed">أسابيع</unitName>
-			<unitName count="many" draft="contributed">أسبوعاً</unitName>
-			<unitName count="one" draft="contributed">أسبوع</unitName>
-			<unitName count="other" draft="contributed">أسبوع</unitName>
-			<unitName count="two" draft="contributed">أسبوعان</unitName>
-			<unitName count="zero" draft="contributed">أسبوع</unitName>
+			<unitPattern count="few" draft="contributed">{0} أسابيع</unitPattern>
+			<unitPattern count="many" draft="contributed">{0} أسبوعاً</unitPattern>
+			<unitPattern count="one" draft="contributed">أسبوع</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} أسبوع</unitPattern>
+			<unitPattern count="two" draft="contributed">أسبوعان</unitPattern>
+			<unitPattern count="zero" draft="contributed">أسبوع</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="two" draft="contributed">{0}</unitPattern>
-			<unitPattern count="zero" draft="contributed">{0}</unitPattern>
-			<unitName count="few" draft="contributed">سنوات</unitName>
-			<unitName count="many" draft="contributed">سنة</unitName>
-			<unitName count="one" draft="contributed">سنة</unitName>
-			<unitName count="other" draft="contributed">سنة</unitName>
-			<unitName count="two" draft="contributed">سنتان</unitName>
-			<unitName count="zero" draft="contributed">سنة</unitName>
+			<unitPattern count="few" draft="contributed">{0} سنوات</unitPattern>
+			<unitPattern count="many" draft="contributed">{0} سنة</unitPattern>
+			<unitPattern count="one" draft="contributed">سنة</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} سنة</unitPattern>
+			<unitPattern count="two" draft="contributed">سنتان</unitPattern>
+			<unitPattern count="zero" draft="contributed">سنة</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -3344,3 +3302,4 @@ Note to translator: Sometimes the hamza is optional for these translations.
 "[\u0621 \u0627-\u063A \u0641-\u064A\u0651 \u0653-\u0655 \u0670-\u06B7 \u06BA-\u06BE \u06C1 \u06C3-\u06CE \u06D0-\u06D2]"
 Civil is identical other than in calculations
 -->
+

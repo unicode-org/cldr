@@ -4862,32 +4862,25 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitName>日</unitName>
-			<unitName count="one">日</unitName>
+			<unitPattern count="one">{0}日</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitName>时</unitName>
-			<unitName count="one">时</unitName>
+			<unitPattern count="one">{0}时</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitName>分</unitName>
-			<unitName count="one">分</unitName>
+			<unitPattern count="one">{0}分</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitName>月</unitName>
-			<unitName count="one">月</unitName>
+			<unitPattern count="one">{0}月</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitName>秒</unitName>
-			<unitName count="one">秒</unitName>
+			<unitPattern count="one">{0}秒</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitName>周</unitName>
-			<unitName count="one">周</unitName>
+			<unitPattern count="one">{0}周</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitName>年</unitName>
-			<unitName count="one">年</unitName>
+			<unitPattern count="one">{0}年</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -5247,3 +5240,4 @@ Zyyy { "\u672A\u786E\u5B9A\u8BED\u7CFB" } // This may need to become "undetermin
 EURO    { "\u6b27\u5143" }
 PREEURO { "\u65e7\u5e01" }
 -->
+

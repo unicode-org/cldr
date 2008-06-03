@@ -5180,47 +5180,26 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitName draft="contributed">日</unitName>
-			<unitName count="one">日</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">d</unitName>
+			<unitPattern count="one" draft="contributed">{0}日</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitName>时</unitName>
-			<unitName count="one">时</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">h</unitName>
-			<unitName alt="proposed-x1001" draft="unconfirmed">時</unitName>
+			<unitPattern count="one" draft="contributed">{0}时</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001">{0}時</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitName draft="contributed">分</unitName>
-			<unitName count="one">分</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">min</unitName>
+			<unitPattern count="one" draft="contributed">{0}分</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitName draft="contributed">月</unitName>
-			<unitName count="one">月</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">m</unitName>
+			<unitPattern count="one" draft="contributed">{0}月</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitName draft="contributed">秒</unitName>
-			<unitName count="one">秒</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">s</unitName>
+			<unitPattern count="one" draft="contributed">{0}秒</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitName draft="contributed">周</unitName>
-			<unitName count="one">周</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">w</unitName>
+			<unitPattern count="one" draft="contributed">{0}周</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitName draft="contributed">年</unitName>
-			<unitName count="one">年</unitName>
-			<unitName count="one" alt="proposed-x1001" draft="unconfirmed">y</unitName>
+			<unitPattern count="one" draft="contributed">{0}年</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -5240,3 +5219,4 @@ Comments without bases
  inconsistent fullwidth char- moved to 'alt' to fall back from zh. 	 - was on: //ldml/numbers/symbols/list[@alt="proposed-x1001"]
  inconsistent fullwidth char- moved to 'alt' to fall back from zh. 	 - was on: //ldml/numbers/symbols/minusSign[@alt="proposed-x1001"]
 -->
+

@@ -3991,11 +3991,6 @@
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="any">
-			<unitPattern draft="contributed">{0,number,0.##} {1}</unitPattern>
-			<unitPattern count="few">{0,number,0.##} {1}</unitPattern>
-			<unitPattern count="other">{0,number,0.##} {1}</unitPattern>
-		</unit>
 		<unit type="day">
 			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitName>dzień</unitName>

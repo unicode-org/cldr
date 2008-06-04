@@ -1042,7 +1042,7 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="contributed">EEEE y'x'G-Ml-d</pattern>
+							<pattern draft="contributed">EEEEy'x'G-Ml-d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -1064,7 +1064,7 @@
 				<dateTimeFormats>
 					<intervalFormats>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">yyyy-MM – MM</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">yyyy-MM–MM</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1098,7 +1098,7 @@
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M" draft="contributed">yyyy-MM – MM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">yyyy-MM–MM</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1122,7 +1122,7 @@
 				<dateTimeFormats>
 					<intervalFormats>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M" draft="contributed">yyyy-MM – MM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">yyyy-MM–MM</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1535,7 +1535,7 @@
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M" draft="contributed">yyyy-MM – MM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">yyyy-MM–MM</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1557,7 +1557,7 @@
 			<calendar type="persian">
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MEd" draft="contributed">E, M-d</dateFormatItem>
+						<dateFormatItem id="MEd" draft="contributed">E,M-d</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="contributed">yyyy年MMM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -1626,12 +1626,12 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>G y/M/d</pattern>
+							<pattern>Gy/M/d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>G y/M/d</pattern>
+							<pattern>Gy/M/d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1646,9 +1646,9 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="contributed">格林威治標準時間 {0}</gmtFormat>
+			<gmtFormat draft="contributed">格林威治標準時間{0}</gmtFormat>
 			<regionFormat>{0}時間</regionFormat>
-			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<fallbackFormat>{1}({0})</fallbackFormat>
 			<zone type="Africa/Timbuktu">
 				<exemplarCity>廷巴克圖</exemplarCity>
 			</zone>

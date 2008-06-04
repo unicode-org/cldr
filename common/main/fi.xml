@@ -1512,24 +1512,6 @@
 						<dateFormatItem id="yM" draft="unconfirmed">M/yyyy</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="unconfirmed">M/yy</dateFormatItem>
 					</availableFormats>
-					<intervalFormats>
-						<intervalFormatItem id="M">
-							<greatestDifference id="M">M-M</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M">LLLL-LLLL</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMd">
-							<greatestDifference id="M">d.-d. MMMM</greatestDifference>
-							<greatestDifference id="d">d.-d. MMMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a">HH-HH</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d.-d. MMMM yyyy</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic">

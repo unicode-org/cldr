@@ -1511,26 +1511,6 @@
 					<availableFormats>
 						<dateFormatItem id="Hm" draft="contributed">H:mm</dateFormatItem>
 					</availableFormats>
-					<intervalFormats>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="contributed">HH-HH</greatestDifference>
-							<greatestDifference id="h" draft="contributed">HH-HH</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a" draft="contributed">HH:mm-HH:mm</greatestDifference>
-							<greatestDifference id="h" draft="contributed">HH:mm-HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="contributed">HH:mm-HH:mm</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a" draft="contributed">HH:mm-HH:mm v</greatestDifference>
-							<greatestDifference id="h" draft="contributed">HH:mm-HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="contributed">HH:mm-HH:mm v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="contributed">HH-HH v</greatestDifference>
-							<greatestDifference id="h" draft="contributed">HH-HH v</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic">
@@ -1626,11 +1606,6 @@
 						<era type="0" draft="contributed">যুগ</era>
 					</eraNarrow>
 				</eras>
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
-					</intervalFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic-civil">
 				<months>

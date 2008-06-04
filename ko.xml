@@ -1076,14 +1076,6 @@
 							<pattern alt="proposed-x1001" draft="unconfirmed">{0} {1}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
-					<intervalFormats>
-						<intervalFormatItem id="yM">
-							<greatestDifference id="y" draft="contributed">yyyy년 M월 ~ yyyy년 M월</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="y" draft="contributed">yyyy년 MM월 ~ yyyy년 MM월</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
@@ -1179,16 +1171,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatItem id="yM">
-							<greatestDifference id="y" draft="contributed">yyyy-MM – yyyy-MM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="y" draft="contributed">yyyy년 MM월 ~ yyyy년 MM월</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="coptic">
 				<months>
@@ -1287,16 +1269,6 @@
 						<era type="1">ERA1</era>
 					</eraNarrow>
 				</eras>
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatItem id="yM">
-							<greatestDifference id="y" draft="contributed">yyyy년 M월 ~ yyyy년 M월</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="y" draft="contributed">yyyy년 MM월 ~ yyyy년 MM월</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="ethiopic">
 				<months>
@@ -1396,13 +1368,6 @@
 						<era type="1">ERA1</era>
 					</eraNarrow>
 				</eras>
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="y" draft="contributed">yyyy년 MM월 ~ yyyy년 MM월</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1998,13 +1963,6 @@
 						<era type="0">SAKA</era>
 					</eraNarrow>
 				</eras>
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="y" draft="contributed">yyyy년 MM월 ~ yyyy년 MM월</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic">
 				<months>
@@ -2093,13 +2051,6 @@
 						<era type="0">AH</era>
 					</eraNarrow>
 				</eras>
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="y" draft="contributed">yyyy년 MM월 ~ yyyy년 MM월</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic-civil">
 				<am>오전</am>
@@ -2719,11 +2670,6 @@
 					<availableFormats>
 						<dateFormatItem id="yMMMEd" draft="unconfirmed">yyyy MMM d EEE</dateFormatItem>
 					</availableFormats>
-					<intervalFormats>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="y" draft="contributed">yyyy년 MM월 ~ yyyy년 MM월</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="roc">
@@ -2757,13 +2703,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="y" draft="contributed">yyyy년 MM월 ~ yyyy년 월</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

@@ -1625,18 +1625,18 @@
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M월 ~ M월</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="MEEEd">
-							<greatestDifference id="M">M. d EEE ~ M. d EEE</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">M월 d일 EEE ~ M월 d일 EEE</greatestDifference>
-							<greatestDifference id="d">M. d EEE ~ M. d EEE</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">M월 d일 EEE ~ M월 d일 EEE</greatestDifference>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="M">M. d E ~ M. d E</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">M월 d일 E ~ M월 d일 E</greatestDifference>
+							<greatestDifference id="d">M. d E ~ M. d E</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">M월 d일 E ~ M월 d일 E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M">MMM ~ MMM</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="MMMEEEd">
-							<greatestDifference id="M">M월 d일 EEE ~ M월 d일 EEE</greatestDifference>
-							<greatestDifference id="d">M월 d일 EEE ~ d일 EEE</greatestDifference>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="M">M월 d일 E ~ M월 d일 E</greatestDifference>
+							<greatestDifference id="d">M월 d일 E ~ d일 E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
 							<greatestDifference id="M">LLLL-LLLL</greatestDifference>
@@ -1698,22 +1698,22 @@
 							<greatestDifference id="y">yyyy. M ~ yyyy. M</greatestDifference>
 							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">yyyy년 M ~ yyyy년 M월</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="yMEEEd">
-							<greatestDifference id="M">yy. M. d. EEE ~ yy. M. d. EEE</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">yy년 M월 d일 EEE ~ yy년 M월 d일 EEE</greatestDifference>
-							<greatestDifference id="d">yy. M. d. EEE ~ yy. M. d. EEE</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">yy년 M월 d일 EEE ~ yy년 M월 d일 EEE</greatestDifference>
-							<greatestDifference id="y">yy. M. d. EEE ~ yy. M. d. EEE</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">yy년 M월 d일 EEE ~ yy년 M월 d일 EEE</greatestDifference>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="M">yy. M. d. E ~ yy. M. d. E</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">yy년 M월 d일 E ~ yy년 M월 d일 E</greatestDifference>
+							<greatestDifference id="d">yy. M. d. E ~ yy. M. d. E</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">yy년 M월 d일 E ~ yy년 M월 d일 E</greatestDifference>
+							<greatestDifference id="y">yy. M. d. E ~ yy. M. d. E</greatestDifference>
+							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">yy년 M월 d일 E ~ yy년 M월 d일 E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">yyyy년 M월~M월</greatestDifference>
 							<greatestDifference id="y">yyyy년 M월 ~ yyyy년 M월</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEEEd">
-							<greatestDifference id="M">yyyy년 M월 d일 EEE ~ M월 d일 EEE</greatestDifference>
-							<greatestDifference id="d">yyyy년 M월 d일 EEE ~ d일 EEE</greatestDifference>
-							<greatestDifference id="y">yyyy년 M월 d일 EEE ~ yyyy년 M월 d일 EEE</greatestDifference>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="M">yyyy년 M월 d일 E ~ M월 d일 E</greatestDifference>
+							<greatestDifference id="d">yyyy년 M월 d일 E ~ d일 E</greatestDifference>
+							<greatestDifference id="y">yyyy년 M월 d일 E ~ yyyy년 M월 d일 E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">yyyy년 MM월 ~ MM월</greatestDifference>

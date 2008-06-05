@@ -1249,19 +1249,19 @@
 							<greatestDifference id="M">M月～M月</greatestDifference>
 							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">M-M月</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="MEEEd">
-							<greatestDifference id="M">MM/dd(EEE)～MM/dd(EEE)</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">MM/dd(EEE)-MM/dd(EEE)</greatestDifference>
-							<greatestDifference id="d">MM/dd(EEE)～MM/dd(EEE)</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">MM/dd(EEE)-MM/dd(EEE)</greatestDifference>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="M">MM/dd(E)～MM/dd(E)</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">MM/dd(E)-MM/dd(E)</greatestDifference>
+							<greatestDifference id="d">MM/dd(E)～MM/dd(E)</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">MM/dd(E)-MM/dd(E)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M">M月～M月</greatestDifference>
 							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">M-M月</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="MMMEEEd">
-							<greatestDifference id="M">M月d日(EEE)～M月d日(EEE)</greatestDifference>
-							<greatestDifference id="d">M月d日(EEE)～d日(EEE)</greatestDifference>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="M">M月d日(E)～M月d日(E)</greatestDifference>
+							<greatestDifference id="d">M月d日(E)～d日(E)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
 							<greatestDifference id="M">LLLL～LLLL</greatestDifference>
@@ -1319,13 +1319,13 @@
 							<greatestDifference id="M">yy/MM～yy/MM</greatestDifference>
 							<greatestDifference id="y">yy/MM～yy/MM</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="yMEEEd">
-							<greatestDifference id="M">yy/MM/dd(EEE)～yy/MM/dd(EEE)</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">yy/MM/dd(EEE)-yy/MM/dd(EEE)</greatestDifference>
-							<greatestDifference id="d">yy/MM/dd(EEE)～yy/MM/dd(EEE)</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">yy/MM/dd(EEE)-yy/MM/dd(EEE)</greatestDifference>
-							<greatestDifference id="y">yy/MM/dd(EEE)～yy/MM/dd(EEE)</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">yy/MM/dd(EEE)-yy/MM/dd(EEE)</greatestDifference>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="M">yy/MM/dd(E)～yy/MM/dd(E)</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">yy/MM/dd(E)-yy/MM/dd(E)</greatestDifference>
+							<greatestDifference id="d">yy/MM/dd(E)～yy/MM/dd(E)</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">yy/MM/dd(E)-yy/MM/dd(E)</greatestDifference>
+							<greatestDifference id="y">yy/MM/dd(E)～yy/MM/dd(E)</greatestDifference>
+							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">yy/MM/dd(E)-yy/MM/dd(E)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">y年M月～M月</greatestDifference>
@@ -1333,10 +1333,10 @@
 							<greatestDifference id="y">y年M月～y年M月</greatestDifference>
 							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">yyyy年M月 - yyyy年M月</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEEEd">
-							<greatestDifference id="M">y年M月d日(EEE)～M月d日(EEE)</greatestDifference>
-							<greatestDifference id="d">y年M月d日(EEE)～d日(EEE)</greatestDifference>
-							<greatestDifference id="y">y年M月d日(EEE)～y年M月d日(EEE)</greatestDifference>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="M">y年M月d日(E)～M月d日(E)</greatestDifference>
+							<greatestDifference id="d">y年M月d日(E)～d日(E)</greatestDifference>
+							<greatestDifference id="y">y年M月d日(E)～y年M月d日(E)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">y年M月～M月</greatestDifference>

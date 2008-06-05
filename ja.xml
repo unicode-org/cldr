@@ -999,7 +999,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="provisional">yyyy年,MMMM月 D日,EEEE</pattern>
+							<pattern draft="provisional">yyyy年,MMMM月D日,EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1181,7 +1181,7 @@
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
+							<pattern>HH:mm:ssz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -1198,7 +1198,7 @@
 				<dateTimeFormats>
 					<dateTimeFormatLength>
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>{1}{0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -1331,7 +1331,7 @@
 							<greatestDifference id="M">y年M月～M月</greatestDifference>
 							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">yyyy年M月-M月</greatestDifference>
 							<greatestDifference id="y">y年M月～y年M月</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">yyyy年M月 - yyyy年M月</greatestDifference>
+							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">yyyy年M月-yyyy年M月</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
 							<greatestDifference id="M">y年M月d日(E)～M月d日(E)</greatestDifference>
@@ -1688,7 +1688,7 @@
 				<timeFormats>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss z</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ssz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -1707,9 +1707,9 @@
 						<dateFormatItem id="Ed">d日(EEE)</dateFormatItem>
 						<dateFormatItem id="Ed" alt="proposed-x1001" draft="unconfirmed">d（E）</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(EEE)</dateFormatItem>
-						<dateFormatItem id="MMMEd" alt="proposed-x1001" draft="unconfirmed">MMM d（E）</dateFormatItem>
+						<dateFormatItem id="MMMEd" alt="proposed-x1001" draft="unconfirmed">MMMd（E）</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
-						<dateFormatItem id="y" alt="proposed-x1001" draft="unconfirmed">GGG yyyy</dateFormatItem>
+						<dateFormatItem id="y" alt="proposed-x1001" draft="unconfirmed">GGGyyyy</dateFormatItem>
 						<dateFormatItem id="yyMM">Gyy/MM</dateFormatItem>
 						<dateFormatItem id="yyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyQ">Gyy/Q</dateFormatItem>
@@ -1737,12 +1737,12 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>G yy/MM/dd(EE)</pattern>
+							<pattern>Gyy/MM/dd(EE)</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>G yy/MM/dd(E)</pattern>
+							<pattern>Gyy/MM/dd(E)</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>

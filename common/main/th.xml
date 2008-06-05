@@ -1523,17 +1523,17 @@
 						<intervalFormatItem id="M">
 							<greatestDifference id="M" draft="contributed">M-M</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="MEEEd">
-							<greatestDifference id="M">EEE d/M – EEE d/M</greatestDifference>
-							<greatestDifference id="d">EEE d – EEE d/M</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">EEEที่ d/M - EEEที่ d/M</greatestDifference>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="M">E d/M – E d/M</greatestDifference>
+							<greatestDifference id="d">E d – E d/M</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">Eที่ d/M - Eที่ d/M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M" draft="contributed">LLL-LLL</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="MMMEEEd">
-							<greatestDifference id="M">EEE d MMM – EEE d MMM</greatestDifference>
-							<greatestDifference id="d">EEE d – EEE d MMM</greatestDifference>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="M">E d MMM – E d MMM</greatestDifference>
+							<greatestDifference id="d">E d – E d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
 							<greatestDifference id="M" draft="contributed">LLLL-LLLL</greatestDifference>
@@ -1569,19 +1569,19 @@
 							<greatestDifference id="M" draft="contributed">M–M/yy</greatestDifference>
 							<greatestDifference id="y" draft="unconfirmed">M/yyyy - M/yyyy</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="yMEEEd">
-							<greatestDifference id="M" draft="contributed">EEE d/M/yy – EEE d/M/yy</greatestDifference>
-							<greatestDifference id="d" draft="contributed">EEE d – EEE d/M/yy</greatestDifference>
-							<greatestDifference id="y" draft="contributed">EEE d/M/yy – EEE d/M/yy</greatestDifference>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="M" draft="contributed">E d/M/yy – E d/M/yy</greatestDifference>
+							<greatestDifference id="d" draft="contributed">E d – E d/M/yy</greatestDifference>
+							<greatestDifference id="y" draft="contributed">E d/M/yy – E d/M/yy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">MMM-MMM yyyy</greatestDifference>
 							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">MMM yyyy - MMM yyyy</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEEEd">
-							<greatestDifference id="M">EEE d MMM – EEE d MMM yyyy</greatestDifference>
-							<greatestDifference id="d">EEE d – EEE d MMM yyyy</greatestDifference>
-							<greatestDifference id="y">EEE d MMM yyyy – EEE d MMM yyyy</greatestDifference>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="M">E d MMM – E d MMM yyyy</greatestDifference>
+							<greatestDifference id="d">E d – E d MMM yyyy</greatestDifference>
+							<greatestDifference id="y">E d MMM yyyy – E d MMM yyyy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">M–M/yyyy</greatestDifference>

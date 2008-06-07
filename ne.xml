@@ -66,7 +66,7 @@
 			<language type="mr" draft="unconfirmed">मराठी</language>
 			<language type="ms" draft="unconfirmed">मलाया</language>
 			<language type="mt" draft="unconfirmed">माल्टिज</language>
-			<language type="ne" draft="unconfirmed">नेपाली</language>
+			<language type="ne">नेपाली</language>
 			<language type="nl" draft="unconfirmed">डच</language>
 			<language type="no" draft="unconfirmed">नर्वेजियाली</language>
 			<language type="oc" draft="unconfirmed">अक्सिटन</language>
@@ -433,6 +433,7 @@
 			<territory type="NI" draft="contributed">निकारागुवा</territory>
 			<territory type="NL" draft="contributed">नेदरल्याण्ड्स</territory>
 			<territory type="NO" draft="contributed">नर्वे</territory>
+			<territory type="NP" draft="contributed">नेपाल</territory>
 			<territory type="NR" draft="contributed">नाउरू</territory>
 			<territory type="NU" draft="contributed">नियुइ</territory>
 			<territory type="NZ" draft="contributed">न्युजिल्याण्ड</territory>
@@ -557,81 +558,8 @@
 	<dates>
 		<calendars>
 			<calendar type="buddhist">
-				<months>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="2" draft="contributed">२</month>
-							<month type="7" draft="contributed">७</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<days>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun" draft="contributed">१</day>
-							<day type="mon" draft="contributed">२</day>
-							<day type="tue" draft="contributed">३</day>
-							<day type="wed" draft="contributed">४</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">पहिलो सत्र</quarter>
-							<quarter type="2" draft="contributed">दोस्रो सत्र</quarter>
-							<quarter type="3" draft="contributed">तेस्रो सत्र</quarter>
-							<quarter type="4" draft="contributed">चौंथो सत्र</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="contributed">१</quarter>
-							<quarter type="2" draft="contributed">२</quarter>
-							<quarter type="3" draft="contributed">३</quarter>
-							<quarter type="4" draft="contributed">४</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<am draft="contributed">पूर्व मध्यान्ह</am>
 				<pm draft="contributed">पूर्व अपरान्ह</pm>
-			</calendar>
-			<calendar type="chinese">
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">पहिलो सत्र</quarter>
-							<quarter type="2" draft="contributed">दोस्रो सत्र</quarter>
-							<quarter type="3" draft="contributed">तेस्रो सत्र</quarter>
-							<quarter type="4" draft="contributed">चौंथो सत्र</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-			</calendar>
-			<calendar type="coptic">
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">पहिलो सत्र</quarter>
-							<quarter type="2" draft="contributed">दोस्रो सत्र</quarter>
-							<quarter type="3" draft="contributed">तेस्रो सत्र</quarter>
-							<quarter type="4" draft="contributed">चौंथो सत्र</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<am draft="contributed">पूर्व मध्यान्ह</am>
-			</calendar>
-			<calendar type="ethiopic">
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">पहिलो सत्र</quarter>
-							<quarter type="2" draft="contributed">दोस्रो सत्र</quarter>
-							<quarter type="3" draft="contributed">तेस्रो सत्र</quarter>
-							<quarter type="4" draft="contributed">चौंथो सत्र</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -651,7 +579,7 @@
 							<month type="12" draft="unconfirmed">डिसे</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">जनवरी</month>
+							<month type="1" draft="unconfirmed">जनवरी</month>
 							<month type="2" draft="unconfirmed">फेब्रुअरी</month>
 							<month type="3" draft="unconfirmed">मार्च</month>
 							<month type="4" draft="unconfirmed">अप्रिल</month>
@@ -666,10 +594,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="2" draft="contributed">फेब्रु</month>
-							<month type="7" draft="contributed">जुल</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1" draft="contributed">१</month>
 							<month type="2" draft="contributed">२</month>
@@ -857,80 +781,6 @@
 						<displayName draft="contributed">क्षेत्र</displayName>
 					</field>
 				</fields>
-			</calendar>
-			<calendar type="hebrew">
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">पहिलो सत्र</quarter>
-							<quarter type="2" draft="contributed">दोस्रो सत्र</quarter>
-							<quarter type="3" draft="contributed">तेस्रो सत्र</quarter>
-							<quarter type="4" draft="contributed">चौंथो सत्र</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-			</calendar>
-			<calendar type="islamic">
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">पहिलो सत्र</quarter>
-							<quarter type="2" draft="contributed">दोस्रो सत्र</quarter>
-							<quarter type="3" draft="contributed">तेस्रो सत्र</quarter>
-							<quarter type="4" draft="contributed">चौंथो सत्र</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-			</calendar>
-			<calendar type="japanese">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="7" draft="contributed">जुल</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">पहिलो सत्र</quarter>
-							<quarter type="2" draft="contributed">दोस्रो सत्र</quarter>
-							<quarter type="3" draft="contributed">तेस्रो सत्र</quarter>
-							<quarter type="4" draft="contributed">चौंथो सत्र</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-			</calendar>
-			<calendar type="persian">
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">पहिलो सत्र</quarter>
-							<quarter type="2" draft="contributed">दोस्रो सत्र</quarter>
-							<quarter type="3" draft="contributed">तेस्रो सत्र</quarter>
-							<quarter type="4" draft="contributed">चौंथो सत्र</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-			</calendar>
-			<calendar type="roc">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="7" draft="contributed">जुल</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">पहिलो सत्र</quarter>
-							<quarter type="2" draft="contributed">दोस्रो सत्र</quarter>
-							<quarter type="3" draft="contributed">तेस्रो सत्र</quarter>
-							<quarter type="4" draft="contributed">चौंथो सत्र</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

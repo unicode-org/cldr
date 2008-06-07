@@ -659,10 +659,10 @@
 					<field type="day">
 						<displayName draft="unconfirmed">دن</displayName>
 						<relative type="0">آج</relative>
-						<relative type="1" draft="provisional">کل</relative>
+						<relative type="1" draft="contributed">کل</relative>
 						<relative type="2" draft="unconfirmed">پرسوں</relative>
 						<relative type="3" draft="unconfirmed">ترسوں</relative>
-						<relative type="-1" draft="provisional">کل</relative>
+						<relative type="-1" draft="contributed">کل</relative>
 						<relative type="-2" draft="unconfirmed">پرسوں</relative>
 						<relative type="-3" draft="unconfirmed">ترسوں</relative>
 					</field>
@@ -722,16 +722,6 @@
 						<era type="1" draft="unconfirmed">CE</era>
 					</eraAbbr>
 				</eras>
-				<fields>
-					<field type="day">
-						<relative type="0" draft="contributed">آج</relative>
-						<relative type="1" draft="contributed">کل</relative>
-						<relative type="-1" draft="contributed">کل</relative>
-					</field>
-					<field type="dayperiod">
-						<displayName draft="unconfirmed">رات/صبح</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

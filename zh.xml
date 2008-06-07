@@ -1034,24 +1034,6 @@
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
-			<calendar type="coptic">
-				<dateFormats>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="contributed">yyyy-MM-dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-			</calendar>
-			<calendar type="ethiopic">
-				<dateFormats>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="contributed">yyyy-MM-dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -1266,7 +1248,7 @@
 				<dateTimeFormats>
 					<dateTimeFormatLength>
 						<dateTimeFormat>
-							<pattern>{1}{0}</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -1302,7 +1284,7 @@
 						<dateFormatItem id="yMMMM">yyyy年MMMM</dateFormatItem>
 						<dateFormatItem id="yMMMM" alt="proposed-x1001" draft="unconfirmed">yyyyMMMM</dateFormatItem>
 						<dateFormatItem id="yQ">yyyy年QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQ">yyyy年QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQ">y年QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="contributed">yy-MM</dateFormatItem>
 						<dateFormatItem id="yyMMM">yy年MMM</dateFormatItem>
 						<dateFormatItem id="yyQ">yy年第Q季度</dateFormatItem>
@@ -1433,15 +1415,6 @@
 						<displayName>区域</displayName>
 					</field>
 				</fields>
-			</calendar>
-			<calendar type="hebrew">
-				<dateFormats>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="contributed">yyyy-MM-dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 			</calendar>
 			<calendar type="islamic">
 				<dateFormats>
@@ -3017,7 +2990,7 @@
 			<metazone type="Australia_Eastern">
 				<long>
 					<generic draft="contributed">澳大利亚东部时间</generic>
-					<standard draft="contributed">澳大利亚中部标准时间</standard>
+					<standard draft="contributed">澳大利亚东部标准时间</standard>
 					<daylight>澳大利亚东部夏令时间</daylight>
 				</long>
 				<short>
@@ -3817,9 +3790,8 @@
 					<daylight draft="contributed">舍甫琴科夏令时间</daylight>
 				</long>
 				<short>
-					<generic draft="contributed">SHET</generic>
-					<standard draft="contributed">SHEDT</standard>
-					<daylight draft="contributed">SHEDT</daylight>
+					<standard draft="contributed">SHET</standard>
+					<daylight draft="contributed">SHEST</daylight>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>

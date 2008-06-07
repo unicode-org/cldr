@@ -128,6 +128,7 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="AL">
             <currency iso4217="ALL" from="1965-08-16"/>
+            <currency iso4217="ALK" from="1946-11-01" to="1965-08-16"/>
         </region>
         <region iso3166="AM">
             <currency iso4217="AMD" from="1993-11-22"/>
@@ -203,6 +204,7 @@ The printed version of ISO-4217:2001
         <region iso3166="BG">
             <currency iso4217="BGN" from="1999-07-05"/>
             <currency iso4217="BGL" from="1962-01-01" to="1999-07-05"/>
+            <currency iso4217="BGM" from="1952-05-12" to="1962-01-01"/>
         </region>
         <region iso3166="BH">
             <currency iso4217="BHD" from="1965-10-16"/>
@@ -3924,7 +3926,6 @@ XXX	Code for transations where no currency is involved
 			<mapZone other="Europe_Central" territory="CZ" type="Europe/Prague"/>
 			<mapZone other="Europe_Central" territory="DE" type="Europe/Berlin"/>
 			<mapZone other="Europe_Central" territory="DK" type="Europe/Copenhagen"/>
-			<mapZone other="Europe_Central" territory="DZ" type="Africa/Algiers"/>
 			<mapZone other="Europe_Central" territory="ES" type="Europe/Madrid"/>
 			<mapZone other="Europe_Central" territory="GI" type="Europe/Gibraltar"/>
 			<mapZone other="Europe_Central" territory="HR" type="Europe/Zagreb"/>
@@ -3946,26 +3947,15 @@ XXX	Code for transations where no currency is involved
 			<mapZone other="Europe_Central" territory="TN" type="Africa/Tunis"/>
 			<mapZone other="Europe_Eastern" territory="001" type="Europe/Bucharest"/>
 			<mapZone other="Europe_Eastern" territory="BG" type="Europe/Sofia"/>
-			<mapZone other="Europe_Eastern" territory="BY" type="Europe/Minsk"/>
 			<mapZone other="Europe_Eastern" territory="CY" type="Asia/Nicosia"/>
-			<mapZone other="Europe_Eastern" territory="EE" type="Europe/Tallinn"/>
 			<mapZone other="Europe_Eastern" territory="EG" type="Africa/Cairo"/>
 			<mapZone other="Europe_Eastern" territory="FI" type="Europe/Helsinki"/>
 			<mapZone other="Europe_Eastern" territory="GR" type="Europe/Athens"/>
 			<mapZone other="Europe_Eastern" territory="JO" type="Asia/Amman"/>
 			<mapZone other="Europe_Eastern" territory="LB" type="Asia/Beirut"/>
-			<mapZone other="Europe_Eastern" territory="LT" type="Europe/Vilnius"/>
-			<mapZone other="Europe_Eastern" territory="LV" type="Europe/Riga"/>
-			<mapZone other="Europe_Eastern" territory="LY" type="Africa/Tripoli"/>
-			<mapZone other="Europe_Eastern" territory="MD" type="Europe/Chisinau"/>
-			<mapZone other="Europe_Eastern" territory="PS" type="Asia/Gaza"/>
-			<mapZone other="Europe_Eastern" territory="RU" type="Europe/Kaliningrad"/>
 			<mapZone other="Europe_Eastern" territory="SY" type="Asia/Damascus"/>
-			<mapZone other="Europe_Eastern" territory="UA" type="Europe/Kiev"/>
 			<mapZone other="Europe_Western" territory="001" type="Atlantic/Canary"/>
-			<mapZone other="Europe_Western" territory="EH" type="Africa/El_Aaiun"/>
 			<mapZone other="Europe_Western" territory="FO" type="Atlantic/Faeroe"/>
-			<mapZone other="Europe_Western" territory="MA" type="Africa/Casablanca"/>
 			<mapZone other="Falkland" territory="001" type="Atlantic/Stanley"/>
 			<mapZone other="Fiji" territory="001" type="Pacific/Fiji"/>
 			<mapZone other="French_Guiana" territory="001" type="America/Cayenne"/>

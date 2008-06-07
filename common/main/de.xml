@@ -1275,22 +1275,6 @@
 		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="8">Aug</month>
-							<month type="9">Sep</month>
-							<month type="10">Okt</month>
-							<month type="11">Nov</month>
-							<month type="12">Dez</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">Mrz</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 				<am>vorm.</am>
 				<pm>nachm.</pm>
 				<eras>
@@ -1333,80 +1317,6 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 				<am>vorm.</am>
 				<pm>nachm.</pm>
 				<dateFormats>
@@ -1438,84 +1348,6 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="coptic">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">Tout</month>
-							<month type="2">Baba</month>
-							<month type="3">Hator</month>
-							<month type="4">Kiahk</month>
-							<month type="5">Toba</month>
-							<month type="6">Amshir</month>
-							<month type="7">Baramhat</month>
-							<month type="8">Baramouda</month>
-							<month type="9">Bashans</month>
-							<month type="10">Paona</month>
-							<month type="11">Epep</month>
-							<month type="13">Nasie</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-							<month type="13">13</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Tout</month>
-							<month type="2">Baba</month>
-							<month type="3">Hator</month>
-							<month type="4">Kiahk</month>
-							<month type="5">Toba</month>
-							<month type="6">Amshir</month>
-							<month type="7">Baramhat</month>
-							<month type="8">Baramouda</month>
-							<month type="9">Bashans</month>
-							<month type="10">Paona</month>
-							<month type="11">Epep</month>
-							<month type="12">Mesra</month>
-							<month type="13">Nasie</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="12">12</month>
-							<month type="13">13</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Tout</month>
-							<month type="2">Baba</month>
-							<month type="3">Hator</month>
-							<month type="4">Kiahk</month>
-							<month type="5">Toba</month>
-							<month type="6">Amshir</month>
-							<month type="7">Baramhat</month>
-							<month type="8">Baramouda</month>
-							<month type="9">Bashans</month>
-							<month type="11">Epep</month>
-							<month type="12">Mesra</month>
-							<month type="13">Nasie</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 				<am>vorm.</am>
 				<pm>nachm.</pm>
 				<eras>

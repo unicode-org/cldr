@@ -2075,81 +2075,32 @@
 				<long>
 					<daylight>Acre sommertid</daylight>
 				</long>
-				<short>
-					<standard>ACT (Acre)</standard>
-					<daylight>ACST (Acre)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>sentralafrikansk tid</standard>
 				</long>
-				<short>
-					<standard>CAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>østafrikansk tid</standard>
 				</long>
-				<short>
-					<standard>EAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
 					<standard>sørafrikansk normaltid</standard>
 				</long>
-				<short>
-					<standard>SAST</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
 					<standard>vestafrikansk tid</standard>
 					<daylight>vestafrikansk sommertid</daylight>
 				</long>
-				<short>
-					<standard>WAT</standard>
-					<daylight>WAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<daylight>Amazonas sommertid</daylight>
 				</long>
-				<short>
-					<standard>AMT</standard>
-					<daylight>AMST</daylight>
-				</short>
-			</metazone>
-			<metazone type="America_Central">
-				<short>
-					<generic>CT</generic>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="America_Eastern">
-				<short>
-					<generic>ET</generic>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="America_Mountain">
-				<short>
-					<generic>MT</generic>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="America_Pacific">
-				<short>
-					<generic>PT</generic>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Arabian">
 				<long>
@@ -2161,13 +2112,6 @@
 					<generic draft="contributed">AT (arabisk)</generic>
 					<standard draft="contributed">AST (arabisk)</standard>
 					<daylight draft="contributed">ADT (arabisk)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Atlantic">
-				<short>
-					<generic>AT</generic>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -2202,10 +2146,6 @@
 				<long>
 					<daylight>Brasilia sommertid</daylight>
 				</long>
-				<short>
-					<standard>BRT</standard>
-					<daylight>BRST</daylight>
-				</short>
 			</metazone>
 			<metazone type="China">
 				<long>
@@ -2220,88 +2160,54 @@
 					<standard>sentraleuropeisk normaltid</standard>
 					<daylight>sentraleuropeisk sommertid</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>østeuropeisk normaltid</standard>
 					<daylight>østeuropeisk sommertid</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>vesteuropeisk tid</standard>
 					<daylight>vesteuropeisk sommertid</daylight>
 				</long>
-				<short>
-					<standard>WET</standard>
-					<daylight>WEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard>Greenwich middeltid</standard>
 				</long>
-				<short>
-					<standard>GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
 					<standard>Hong Kong-tid</standard>
 					<daylight>Hong Kong-sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">HKT</standard>
-					<daylight draft="contributed">HKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="India">
 				<long>
 					<standard>indisk standardtid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">IST</standard>
-				</short>
 			</metazone>
 			<metazone type="Indochina">
 				<long>
 					<standard>indokinesisk tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">ICT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
 					<standard>sentralindonesisk tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">CIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
 					<standard>østindonesisk tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">EIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
 					<standard>vestindonesisk tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">WIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Israel">
 				<long>
@@ -2317,27 +2223,17 @@
 				<long>
 					<standard>japansk standardtid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">JST</standard>
-				</short>
 			</metazone>
 			<metazone type="Korea">
 				<long>
 					<standard>koreansk standardtid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">KST</standard>
-				</short>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
 					<standard>Moskva normaltid</standard>
 					<daylight>Moskva sommertid</daylight>
 				</long>
-				<short>
-					<standard>MSK</standard>
-					<daylight>MSKS</daylight>
-				</short>
 			</metazone>
 			<metazone type="New_Zealand">
 				<long>

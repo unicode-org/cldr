@@ -2453,9 +2453,6 @@
 					<standard alt="proposed-x1001" draft="unconfirmed">centralafrikansk normaltid</standard>
 					<daylight draft="unconfirmed">centralafrikansk sommartid</daylight>
 				</long>
-				<short>
-					<standard>CAT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Eastern">
@@ -2464,9 +2461,6 @@
 					<standard draft="contributed">östafrikansk normaltid</standard>
 					<daylight draft="unconfirmed">östafrikansk sommartid</daylight>
 				</long>
-				<short>
-					<standard>EAT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_FarWestern">
@@ -2482,10 +2476,6 @@
 					<standard draft="contributed">sydafrikansk normaltid</standard>
 					<daylight draft="unconfirmed">sydafrikansk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">SAT</generic>
-					<standard draft="contributed">SAST</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Western">
@@ -2494,10 +2484,6 @@
 					<standard draft="contributed">västafrikansk normaltid</standard>
 					<daylight draft="contributed">västafrikansk sommartid</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">WAT</standard>
-					<daylight draft="contributed">VAST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Aktyubinsk">
@@ -2516,9 +2502,6 @@
 					<daylight>Alaska, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Alaskasommartid</daylight>
 				</long>
-				<short>
-					<daylight draft="unconfirmed">AKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
 				<long>
@@ -2551,11 +2534,6 @@
 					<daylight>Central, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">centralnordamerikansk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">CT</generic>
-					<standard draft="contributed">CST</standard>
-					<daylight draft="contributed">CDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
@@ -2565,11 +2543,6 @@
 					<daylight>Eastern, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">östnordamerikansk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">ET</generic>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
@@ -2579,11 +2552,6 @@
 					<daylight>Mountain, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Klippiga Bergensommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">MT</generic>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -2593,11 +2561,6 @@
 					<daylight>Pacific, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">västnordamerikansk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">PT</generic>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
@@ -2668,11 +2631,6 @@
 					<daylight>Atlantic, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">nordamerikansk atlantsommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">AT</generic>
-					<standard draft="contributed">AST</standard>
-					<daylight draft="unconfirmed">AST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -2924,10 +2882,6 @@
 					<daylight>Centraleuropa, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">centraleuropeisk sommartid</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
@@ -2938,10 +2892,6 @@
 					<daylight>Östeuropa, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">östeuropeisk sommatid</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Western">
@@ -2950,10 +2900,6 @@
 					<standard draft="contributed">västeuropeisk normaltid</standard>
 					<daylight draft="contributed">västeuropeisk sommartid</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">WET</standard>
-					<daylight draft="contributed">WEST</daylight>
-				</short>
 				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Falkland">
@@ -2997,9 +2943,6 @@
 					<standard>Greenwichtid</standard>
 					<daylight draft="unconfirmed">Greenwichtid har per definition ingen sommartid</daylight>
 				</long>
-				<short>
-					<standard>GMT</standard>
-				</short>
 				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Galapagos">
@@ -3110,9 +3053,6 @@
 					<standard draft="unconfirmed">indisk normaltid</standard>
 					<daylight draft="unconfirmed">indisk sommartid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">IST</standard>
-				</short>
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
@@ -3192,10 +3132,6 @@
 					<daylight>Japan, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">japansk sommartid</daylight>
 				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
@@ -3208,10 +3144,6 @@
 				<long>
 					<standard draft="unconfirmed">Karachisommartid</standard>
 				</long>
-				<short>
-					<generic draft="unconfirmed">Karachinormaltid</generic>
-					<daylight draft="unconfirmed">Karachitid</daylight>
-				</short>
 			</metazone>
 			<metazone type="Kashgar">
 				<long>
@@ -3221,11 +3153,11 @@
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
-				<short>
+				<long>
 					<generic draft="unconfirmed">Alma-Atatid</generic>
 					<standard draft="unconfirmed">Alma-Atanormaltid</standard>
 					<daylight draft="unconfirmed">Alma-Atasommartid</daylight>
-				</short>
+				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
@@ -3247,11 +3179,6 @@
 					<standard draft="contributed">koreansk normaltid</standard>
 					<daylight draft="contributed">koreansk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="unconfirmed">KT</generic>
-					<standard draft="unconfirmed">KST</standard>
-					<daylight draft="unconfirmed">KDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Kosrae">
 				<long>
@@ -3370,9 +3297,6 @@
 					<generic draft="unconfirmed">Mauritiussommartid</generic>
 					<standard draft="unconfirmed">Mauritiustid</standard>
 				</long>
-				<short>
-					<daylight draft="unconfirmed">Mauritiusnormaltid</daylight>
-				</short>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
@@ -3433,10 +3357,6 @@
 					<daylight>Newfoundland, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Newfoundlandsommartid</daylight>
 				</long>
-				<short>
-					<standard>NST</standard>
-					<daylight>NDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Niue">
 				<long>
@@ -3465,10 +3385,6 @@
 					<standard draft="unconfirmed">Nordmarianernas normaltid</standard>
 					<daylight draft="unconfirmed">Nordmarianernas sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="unconfirmed">Nordmarianernas tid</generic>
-					<daylight draft="unconfirmed">Nordmarianernas sommartid</daylight>
-				</short>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
@@ -3692,9 +3608,6 @@
 					<generic draft="unconfirmed">Tongasommmartid</generic>
 					<standard draft="unconfirmed">Tongatid</standard>
 				</long>
-				<short>
-					<daylight draft="unconfirmed">Tonganormaltid</daylight>
-				</short>
 			</metazone>
 			<metazone type="Truk">
 				<long>

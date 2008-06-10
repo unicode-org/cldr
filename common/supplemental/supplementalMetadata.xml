@@ -296,7 +296,7 @@
 
                 Africa/Sao_Tome
 
-                Africa/Timbuktu Africa/Tripoli Africa/Tunis
+                Africa/Tripoli Africa/Tunis
 
                 Africa/Windhoek
 
@@ -518,7 +518,7 @@
 
                 Europe/Amsterdam Europe/Andorra Europe/Athens
 
-                Europe/Belfast Europe/Belgrade Europe/Berlin Europe/Bratislava Europe/Brussels
+                Europe/Belgrade Europe/Berlin Europe/Bratislava Europe/Brussels
 
                 Europe/Bucharest Europe/Budapest
 
@@ -603,8 +603,6 @@
                 Pacific/Tahiti Pacific/Tarawa Pacific/Tongatapu Pacific/Truk
 
                 Pacific/Wake Pacific/Wallis
-
-                Pacific/Yap
 
             </variable>
 
@@ -817,7 +815,7 @@
              <distinguishingItems exclude="true" elements="default measurementSystem mapping abbreviationFallback preferenceOrdering" attributes="type"/>
          </distinguishing>
         <blocking>
-             <blockingItems elements="supplementalData cldrTest collation transform"/>
+             <blockingItems elements="identity supplementalData cldrTest collation transform"/>
          </blocking>
         <coverageAdditions>
             <languageCoverage type="minimal" values="und"/>            

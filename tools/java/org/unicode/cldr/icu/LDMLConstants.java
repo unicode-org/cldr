@@ -217,6 +217,7 @@ public class LDMLConstants {
     public static final String TO                = "to";
     public static final String FROM              = "from";
     public static final String LOCALE            = "locale";
+    public static final String LOCALES           = "locales";
     public static final String META_DATA         = "metadata";
     public static final String LANGUAGE_ALIAS    = "languageAlias";
     public static final String TERRITORY_ALIAS   = "territoryAlias";
@@ -234,7 +235,14 @@ public class LDMLConstants {
     public static final String ZONE_FORMATTING   = "zoneFormatting";
     public static final String MULTIZONE         = "multizone";
     public static final String LIKELY_SUBTAGS    = "likelySubtags";
+    public static final String LIKELY_SUBTAG     = "likelySubtag";
+    public static final String LIKELYSUBTAGS_MAPPINGS = "likelySubtagsMappings";
     public static final String PLURALS           = "plurals";
+    public static final String PLURAL_RULE       = "pluralRule";
+    public static final String PLURAL_RULES      = "pluralRules";
+    public static final String ONE      		 = "one";
+    public static final String FEW      		 = "few";
+    public static final String MANY				 = "many";
     public static final String TELEPHONE_CODE_DATA = "telephoneCodeData";
     public static final String CLDR_VERSION      = "cldrVersion";
     
@@ -321,6 +329,22 @@ public class LDMLConstants {
     public static final String APPEND_ITEMS     = "appendItems";
     public static final String APPEND_ITEM      = "appendItem";
     public static final String REQUEST          = "request";
+    public static final String INTVL_FMTS       = "intervalFormats";
+    public static final String INTVL_FMT_FALL   = "intervalFormatFallback";
+    public static final String INTVL_FMT_ITEM   = "intervalFormatItem";
+    public static final String GREATEST_DIFF    = "greatestDifference";
+    
+    public static final String LOCALE_PATTERN   = "localePattern";
+    public static final String LOCALE_SEPARATOR = "localeSeparator";
+    
+    public static final String CURRENCY_DECIMAL = "currencyDecimal";
+    public static final String CURRENCY_GROUP   = "currencyGroup";
+    public static final String CURRENCY_UNIT_PATTERNS = "CurrencyUnitPatterns";
+    public static final String CURRENCY_PLURALS = "CurrencyPlurals";
+    
+    public static final String UNITS            = "units";
+    public static final String UNIT             = "unit";
+    public static final String UNIT_PATTERN     = "unitPattern";
     
     //PN added - Open and Close tags
     public static final String VERSION_C       = "</" + VERSION + ">";

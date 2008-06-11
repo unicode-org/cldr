@@ -52,7 +52,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private static final int SUPPLEMENTALDIR = 7;
     private static final int SUPPLEMENTALONLY = 8;
     private static final int METAZONE_ONLY = 9;
-    private static final int VERBOSE = 10;
+    private static final int LIKELYSUBTAGS_ONLY = 10;
+    private static final int PLURALS_ONLY = 11;
+    private static final int VERBOSE = 12;
 
 
     private static final UOption[] options = new UOption[] {
@@ -66,6 +68,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             UOption.create("supplementaldir", 'm', UOption.REQUIRES_ARG),
             UOption.create("supplemental-only", 'l', UOption.NO_ARG),
             UOption.create("metazone-only", 'z', UOption.NO_ARG),
+            UOption.create("likely-only", 't', UOption.NO_ARG),
+            UOption.create("plurals-only", 'r', UOption.NO_ARG),
         UOption.VERBOSE(),
     };
 
@@ -78,6 +82,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private boolean writeDraft = false;
     private boolean writeSupplemental = false;
     private boolean writeMetazone = false;
+    private boolean writeLikelySubtags = false;
+    private boolean writePlurals = false;
     private boolean verbose = false;
     /**
      * Add comments on the item to indicate where fallbacks came from. Good for
@@ -95,7 +101,15 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private String locName = null;
     private Document supplementalDoc = null;
     private Document metazoneDoc = null;
+    private Document likelySubtagsDoc = null;
+    private Document pluralsDoc = null;
     private static final boolean DEBUG = false;
+
+    // TODO: hard-coded file names for now
+    private static final String supplementalDataFile = "supplementalData.xml";
+    private static final String metazoneInfoFile = "metazoneInfo.xml";
+    private static final String likelySubtagsFile = "likelySubtags.xml";
+    private static final String pluralsFile = "plurals.xml";
 
     //TreeMap overrideMap = new TreeMap(); // list of locales to take regardless of draft status.  Written by writeDeprecated
 
@@ -114,8 +128,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             "-p or --specialsdir        source directory for files containing special data followed by the path. None if not spcified\n"+
             "-f or --write-draft        write data for LDML nodes marked draft.\n"+
             "-m or --suplementaldir     source directory for finding the supplemental data.\n" +
-            "-l or --supplemental-only  read supplementalData.xml file from the given directory and write appropriate files to destination directory\n"+
-            "-z or --metazone-only      read metazoneInfo.xml file from the given directory and write appropriate files to destination directory\n"+
+            "-l or --supplemental-only  read " + supplementalDataFile + " file from the given directory and write appropriate files to destination directory\n"+
+            "-t or --likely-only        read " + likelySubtagsFile + " file from the given directory and write appropriate files to destination directory\n"+
+            "-r or --plurals-only       read " + pluralsFile + " file from the given directory and write appropriate files to destination directory\n"+
+            "-z or --metazone-only      read " + metazoneInfoFile + " file from the given directory and write appropriate files to destination directory\n"+
             "-w [dir] or --write-deprecated [dir]   write data for deprecated locales. 'dir' is a directory of source xml files.\n"+
             "-h or -? or --help         this usage text.\n"+
             "-v or --verbose            print out verbose output.\n"+
@@ -194,6 +210,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         if(options[METAZONE_ONLY].doesOccur) {
             writeMetazone = true;
         }
+        if(options[LIKELYSUBTAGS_ONLY].doesOccur) {
+            writeLikelySubtags = true;
+        }
+        if(options[PLURALS_ONLY].doesOccur) {
+            writePlurals = true;
+        }
         if(options[VERBOSE].doesOccur) {
             verbose = true;
         }
@@ -225,6 +247,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             supplementalDataInfo = SupplementalDataInfo
                     .getInstance(supplementalDir);
             metazoneDoc = createMetazoneDoc();
+            likelySubtagsDoc = createLikelySubtagsDoc();
+            pluralsDoc = createPluralsDoc();
         }
         if(writeSupplemental==true){
              makeXPathList(supplementalDoc);
@@ -232,14 +256,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             // data after parsing
             // The assumption here is that the top
             // level resource is always a table in ICU
-            //TODO: hard code the file name for now
-            String fileName = "supplementalData.xml";
-            System.out.println("Processing: " + fileName );
-            ICUResourceWriter.Resource res = parseSupplemental(supplementalDoc, fileName);
+            System.out.println("Processing: " + supplementalDataFile);
+            ICUResourceWriter.Resource res = parseSupplemental(supplementalDoc, supplementalDataFile);
 
             if(res!=null && ((ICUResourceWriter.ResourceTable)res).first!=null){
                 // write out the bundle
-                writeResource(res, fileName);
+                writeResource(res, supplementalDataFile);
             }
         }
         else if(writeMetazone==true){
@@ -248,14 +270,38 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             // data after parsing
             // The assumption here is that the top
             // level resource is always a table in ICU
-            //TODO: hard code the file name for now
-            String fileName = "metazoneInfo.xml";
-            System.out.println("Processing: " + fileName );
-            ICUResourceWriter.Resource res = parseMetazoneFile(metazoneDoc, fileName);
+            System.out.println("Processing: " + metazoneInfoFile);
+            ICUResourceWriter.Resource res = parseMetazoneFile(metazoneDoc, metazoneInfoFile);
 
             if(res!=null && ((ICUResourceWriter.ResourceTable)res).first!=null){
                 // write out the bundle
-                writeResource(res, fileName);
+                writeResource(res, metazoneInfoFile);
+            }
+        }else if(writeLikelySubtags==true){
+            makeXPathList(likelySubtagsDoc);
+            // Create the Resource linked list which will hold the
+            // data after parsing
+            // The assumption here is that the top
+            // level resource is always a table in ICU
+            System.out.println("Processing: " + likelySubtagsFile);
+            ICUResourceWriter.Resource res = parseLikelySubtagsFile(likelySubtagsDoc, likelySubtagsFile);
+
+            if(res!=null && ((ICUResourceWriter.ResourceTable)res).first!=null){
+                // write out the bundle
+                writeResource(res, likelySubtagsFile);
+            }
+        }else if(writePlurals==true){
+            makeXPathList(pluralsDoc);
+            // Create the Resource linked list which will hold the
+            // data after parsing
+            // The assumption here is that the top
+            // level resource is always a table in ICU
+            System.out.println("Processing: " + pluralsFile);
+            ICUResourceWriter.Resource res = parsePluralsFile(pluralsDoc, pluralsFile);
+
+            if(res!=null && ((ICUResourceWriter.ResourceTable)res).first!=null){
+                // write out the bundle
+                writeResource(res, pluralsFile);
             }
         }else{
             if(getLocalesMap()!=null && getLocalesMap().size()>0){
@@ -815,7 +861,45 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         FilenameFilter filter = new FilenameFilter() {
             public boolean accept(File dir, String name) {
-                if (name.matches(".*\\.xml") && !name.equals("characters.xml") && !name.equals("metazoneInfo.xml")) {
+                if (name.matches(".*\\.xml") && !name.equals("characters.xml") &&
+                	!name.equals(metazoneInfoFile) && !name.equals(likelySubtagsFile)) {
+                    return true;
+                }
+                return false;
+            }
+        };
+        File myDir = new File(supplementalDir);
+        String[] files = myDir.list(filter);
+        if (files == null) {
+            printError(fileName,"Supplemental files are missing");
+            System.exit(-1);
+        }
+        Document doc = null;
+        for(int i=0; i<files.length; i++){
+            try {
+                printInfo("Parsing document "+files[i]);
+                String fileName = myDir.getAbsolutePath()+File.separator+files[i];
+                Document child = LDMLUtilities.parse(fileName, false);
+                if(doc==null){
+                    doc = child;
+                    continue;
+                }
+                StringBuffer xpath = new StringBuffer();
+                LDMLUtilities.mergeLDMLDocuments(doc, child, xpath, files[i], myDir.getAbsolutePath(), true, false);
+            }catch (Throwable se) {
+                printError(fileName , "Parsing: " + files[i] + " "+ se.toString());
+                se.printStackTrace();
+                System.exit(1);
+            }
+        }
+        return doc;
+    }
+
+    private Document createMetazoneDoc() {
+
+        FilenameFilter filter = new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                if (name.matches(metazoneInfoFile)) {
                     return true;
                 }
                 return false;
@@ -844,11 +928,44 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return doc;
     }
 
-    private Document createMetazoneDoc() {
+    private Document createLikelySubtagsDoc() {
 
         FilenameFilter filter = new FilenameFilter() {
             public boolean accept(File dir, String name) {
-                if (name.matches("metazoneInfo.xml")) {
+                if (name.matches(likelySubtagsFile)) {
+                    return true;
+                }
+                return false;
+            }
+        };
+        File myDir = new File(supplementalDir);
+        String[] files = myDir.list(filter);  
+        Document doc = null;
+        for(int i=0; i<files.length; i++){
+            try {
+                printInfo("Parsing document "+files[i]);
+                String fileName = myDir.getAbsolutePath()+File.separator+files[i];
+                Document child = LDMLUtilities.parse(fileName, false);
+                if(doc==null){
+                    doc = child;
+                    continue;
+                }
+                StringBuffer xpath = new StringBuffer();
+                LDMLUtilities.mergeLDMLDocuments(doc, child, xpath, files[i], myDir.getAbsolutePath(), true, false);
+            }catch (Throwable se) {
+                printError(fileName , "Parsing: " + files[i] + " "+ se.toString());
+                se.printStackTrace();
+                System.exit(1);
+            }
+        }
+        return doc;
+    }
+
+    private Document createPluralsDoc() {
+
+        FilenameFilter filter = new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                if (name.matches(pluralsFile)) {
                     return true;
                 }
                 return false;
@@ -974,6 +1091,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         keyNameMap.put("paperSize", "PaperSize");
         keyNameMap.put("measurementSystem", "MeasurementSystem");
         keyNameMap.put("measurementSystemNames", "measurementSystemNames");
+        keyNameMap.put("codePatterns", "codePatterns");
         keyNameMap.put("fractions", "CurrencyData");
         keyNameMap.put("quarters", "quarters");
         keyNameMap.put("displayName", "dn");
@@ -1055,6 +1173,102 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return table;
     }
 
+    private ICUResourceWriter.Resource parseLikelySubtagsFile(Node root, String file){
+        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
+        ICUResourceWriter.Resource current = null;
+        StringBuffer xpath = new StringBuffer();
+        xpath.append("//");
+        xpath.append(LDMLConstants.SUPPLEMENTAL_DATA);
+        table.name = LDMLConstants.LIKELY_SUBTAGS;
+        table.annotation = ICUResourceWriter.ResourceTable.NO_FALLBACK;
+        int savedLength = xpath.length();
+        for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
+            if(node.getNodeType()!=Node.ELEMENT_NODE){
+                continue;
+            }
+            String name = node.getNodeName();
+            ICUResourceWriter.Resource res = null;
+
+            if(name.equals(LDMLConstants.SUPPLEMENTAL_DATA) ){
+                node=node.getFirstChild();
+                continue;
+            }
+            else if(name.equals(LDMLConstants.LIKELY_SUBTAGS)){
+                res = parseLikelySubtagsInfo(node, xpath);
+            }
+            else if(name.equals(LDMLConstants.VERSION) ||
+                    name.equals(LDMLConstants.GENERATION)){
+                continue;
+            }
+            else{
+                printError(file,"Encountered unknown element "+ getXPath(node, xpath).toString());
+                System.exit(-1);
+            }
+
+            if(res!=null){
+                if(current == null){
+                    table.first = res;
+                    current = findLast(res);
+                }else{
+                    current.next = res;
+                    current = findLast(res);
+                }
+                res = null;
+            }
+            xpath.delete(savedLength,xpath.length());
+        }
+
+        return table;
+    }
+
+    private ICUResourceWriter.Resource parsePluralsFile(Node root, String file){
+        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
+        ICUResourceWriter.Resource current = null;
+        StringBuffer xpath = new StringBuffer();
+        xpath.append("//");
+        xpath.append(LDMLConstants.SUPPLEMENTAL_DATA);
+        table.name = LDMLConstants.PLURALS;
+        table.annotation = ICUResourceWriter.ResourceTable.NO_FALLBACK;
+        int savedLength = xpath.length();
+        for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
+            if(node.getNodeType()!=Node.ELEMENT_NODE){
+                continue;
+            }
+            String name = node.getNodeName();
+            ICUResourceWriter.Resource res = null;
+
+            if(name.equals(LDMLConstants.SUPPLEMENTAL_DATA) ){
+                node=node.getFirstChild();
+                continue;
+            }
+            else if(name.equals(LDMLConstants.PLURALS)){
+                res = parsePluralsInfo(node, xpath);
+            }
+            else if(name.equals(LDMLConstants.VERSION) ||
+                    name.equals(LDMLConstants.GENERATION)){
+                continue;
+            }
+            else{
+                printError(file,"Encountered unknown element "+ getXPath(node, xpath).toString());
+                System.exit(-1);
+            }
+
+            if(res!=null){
+                if(current == null){
+                    table.first = res;
+                    current = findLast(res);
+                }else{
+                    current.next = res;
+                    current = findLast(res);
+                }
+                res = null;
+            }
+            xpath.delete(savedLength,xpath.length());
+        }
+
+        return table;
+    }
+
     private ICUResourceWriter.Resource parseSupplemental(Node root, String file){
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
         ICUResourceWriter.Resource current = null;
@@ -1072,7 +1286,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             ICUResourceWriter.Resource res = null;
             if(name.equals(LDMLConstants.SUPPLEMENTAL_DATA) ){
                 // if(isNodeNotConvertible(node,xpath) && writeDraft==false){
-                //    printWarning(file,"The supplementalData.xml file is marked draft! Not producing ICU file. ");
+                //    printWarning(file,"The " + supplementalDataFile + " file is marked draft! Not producing ICU file. ");
                       //System.exit(-1);
                 // return null;
                 //}
@@ -1149,6 +1363,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         return table;
     }
+
     private ICUResourceWriter.Resource parseMetazoneInfo(Node root, StringBuffer xpath){
 
         ICUResourceWriter.Resource current = null;
@@ -1225,6 +1440,112 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         return null;
     }
+
+    private ICUResourceWriter.Resource parseLikelySubtagsInfo(Node root, StringBuffer xpath){
+
+        ICUResourceWriter.Resource first = null;
+        ICUResourceWriter.Resource current = null;
+
+        for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
+
+            if(node.getNodeType()!=Node.ELEMENT_NODE){
+                continue;
+            }
+
+            String name = node.getNodeName();
+            if (name.equals(LDMLConstants.LIKELY_SUBTAG)) {
+                ICUResourceWriter.ResourceString subtagString = new ICUResourceWriter.ResourceString();
+                subtagString.name = LDMLUtilities.getAttributeValue(node, LDMLConstants.FROM);
+                subtagString.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.TO);
+
+                if(current == null) {
+                    first = current = subtagString;
+                }
+                else {
+                    current.next = subtagString;
+                }
+                current = subtagString;
+            }
+        }
+
+        return first;
+    }
+
+    private ICUResourceWriter.Resource parsePluralsInfo(Node root, StringBuffer xpath){
+
+    	int currentSetNumber = 1;
+        ICUResourceWriter.ResourceTable localesTable =
+        	new ICUResourceWriter.ResourceTable();
+        localesTable.name = LDMLConstants.LOCALES;
+
+        ICUResourceWriter.ResourceTable ruleSetsTable =
+    		new ICUResourceWriter.ResourceTable();
+        ruleSetsTable.name = LDMLConstants.RULES;
+
+        // The ruleSetsTable is a sibling of the locales table.
+        localesTable.next = ruleSetsTable;
+
+        for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
+            if(node.getNodeType()!=Node.ELEMENT_NODE){
+                continue;
+            }
+
+            String name = node.getNodeName();
+            if (!name.equals(LDMLConstants.PLURAL_RULES)) {
+                System.err.println("Encountered element " + name + " processing plurals.");
+                System.exit(-1);
+            }
+            ICUResourceWriter.ResourceTable currentSetTable = null;
+        	ICUResourceWriter.ResourceString currentRuleString = null; 
+            for(Node child=node.getFirstChild(); child!=null; child=child.getNextSibling()) {
+            	if(child.getNodeType()!=Node.ELEMENT_NODE){
+            		continue;
+                }
+
+            	String childName = child.getNodeName();
+            	if (!childName.equals(LDMLConstants.PLURAL_RULE)) {
+            		System.err.println("Encountered element " + childName + " processing plurals.");
+            		System.exit(-1);
+                }
+
+            	// This creates a rule string for the current rule set
+                ICUResourceWriter.ResourceString ruleString = new ICUResourceWriter.ResourceString();
+                ruleString.name = LDMLUtilities.getAttributeValue(child, LDMLConstants.COUNT);
+                ruleString.val = LDMLUtilities.getNodeValue(child);
+
+            	// Defer the creation of the table until the first
+            	// rule for the locale, since there are some locales
+            	// with no rules, and we don't want those in the
+            	// ICU resource file.
+            	if (currentSetTable != null) {
+            		currentRuleString.next = ruleString;
+            	}
+            	else
+            	{
+                    currentSetTable = new ICUResourceWriter.ResourceTable();
+            		String currentSetName = new String("set") + currentSetNumber;
+            		++currentSetNumber;
+            		currentSetTable.name = currentSetName;
+            		currentSetTable.first = ruleString;
+            		ruleSetsTable.appendContents(currentSetTable);
+
+            		// Now that we've created a rule set table, we can put all of the
+            		// locales for this rule set into the locales table.
+                    String locales = LDMLUtilities.getAttributeValue(node, LDMLConstants.LOCALES);
+                    String [] localesArray = locales.split("\\s");
+                    for(int i = 0; i < localesArray.length; ++i) {
+                    	ICUResourceWriter.ResourceString localeString =
+                    		new ICUResourceWriter.ResourceString(localesArray[i], currentSetName);
+                    	localesTable.appendContents(localeString);
+                    }
+            	}
+            	currentRuleString = ruleString;
+            }
+        }
+
+        return localesTable.first == null ? null : localesTable;
+    }
+
 
     private ICUResourceWriter.Resource parseCLDRVersion(Node root, StringBuffer xpath){
        ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
@@ -1977,7 +2298,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         int oldLength = xpath.length();
         
         //if the whole node is marked draft then
-        //dont write anything
+        //don't write anything
         if(isNodeNotConvertible(root, xpath)){
             xpath.setLength(savedLength);
             return null;
@@ -2055,8 +2376,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         getXPath(root, xpath);
         int oldLength = xpath.length();
         
-        //if the whole collatoin node is marked draft then
-        //dont write anything
+        //if the whole collation node is marked draft then
+        //don't write anything
         if(isNodeNotConvertible(root, xpath)){
             xpath.setLength(savedLength);
             return null;
@@ -2136,7 +2457,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 LDMLConstants.POSIX,
                 // LDMLConstants.SEGMENTATIONS,
                 LDMLConstants.REFERENCES,
-                LDMLConstants.COLLATIONS, };
+                LDMLConstants.COLLATIONS, LDMLConstants.UNITS};
 
         for (int jj = 0; jj < stuff.length; jj++) {
             res = null;
@@ -2181,6 +2502,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 // TODO: This is special documentation... ignore for now
                 if (DEBUG)
                     printXPathWarning(loc, xpath);
+            } else if (name.equals(LDMLConstants.UNITS)) {
+                res = parseUnits(loc, xpath);
             } else {
                 System.err.println("Encountered unknown <" + "//ldml"
                         + "> subelement: " + name);
@@ -2440,15 +2763,14 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     || name.equals(LDMLConstants.TERRITORIES)
                     || name.equals(LDMLConstants.KEYS)
                     || name.equals(LDMLConstants.VARIANTS)
-                    || name.equals(LDMLConstants.MSNS)) {
+                    || name.equals(LDMLConstants.MSNS)
+                    || name.equals(LDMLConstants.CODE_PATTERNS)) {
                 res = parseList(loc, name);
             } else if (name.equals(LDMLConstants.TYPES)) {
                 res = parseDisplayTypes(loc, name);
             } else if (name.equals(LDMLConstants.ALIAS)) {
                 // res = parseAliasResource(loc, name);
                 // TODO: parseAliasResource - these are different types in ICU, can't just alias them all
-            } else if (name.equals(LDMLConstants.MSNS)) {
-            } else if (name.equals(LDMLConstants.CODE_PATTERNS)) {
             } else {
                 System.err.println("Unknown element found: " + name);
                 System.exit(-1);
@@ -3485,12 +3807,78 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return arr;
     }
 
+    private ICUResourceWriter.Resource parseIntervalFormats(InputLocale loc,
+            String parentxpath) {
+        ICUResourceWriter.ResourceTable formats = new ICUResourceWriter.ResourceTable();
+        formats.name = LDMLConstants.INTVL_FMTS;
+        Map<String, ICUResourceWriter.ResourceTable> tableMap =
+        	new HashMap<String, ICUResourceWriter.ResourceTable>();
+        String xpath = parentxpath + "/" + LDMLConstants.INTVL_FMTS;
+
+        for (Iterator<String> iter = loc.file.iterator(xpath); iter.hasNext();) {
+        	ICUResourceWriter.Resource newres = null;
+            String localxpath = iter.next();
+            if(loc.isPathNotConvertible(localxpath)) {
+                continue;
+            }
+            String name = loc.getXpathName(localxpath);
+            if (name.equals(LDMLConstants.ALIAS)) {
+            	newres = parseAliasResource(loc, localxpath);
+            }
+            else if (name.equals(LDMLConstants.SPECIAL)) {
+            	newres = parseSpecialElements(loc, xpath);
+            }
+            else if (name.equals(LDMLConstants.INTVL_FMT_FALL)) {
+            	newres = new ICUResourceWriter.ResourceString(
+            					LDMLConstants.FALLBACK,
+            					loc.file.getStringValue(localxpath));
+            }
+            else if (name.equals(LDMLConstants.GREATEST_DIFF)) {
+            	String parentName = loc.getXpathName(localxpath, -2);
+            	String tableName = loc.getAttributeValue(localxpath, parentName, LDMLConstants.ID);
+            	// See if we've already created a table for this particular
+            	// intervalFormatItem.
+            	ICUResourceWriter.ResourceTable table = tableMap.get(tableName);
+
+            	if (table == null) {
+            		// We haven't encountered this one yet, so
+            		// create a new table and put it into the map.
+            		table = new ICUResourceWriter.ResourceTable();
+            		table.name = tableName;
+                	tableMap.put(tableName, table);
+                	// Update newres to reflect the fact we've created a new
+                	// table.  This will link the table into the resource chain
+                	// for the enclosing table.
+                	newres = table;
+                }
+
+                ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                str.name = loc.getAttributeValue(localxpath, name, LDMLConstants.ID);
+                str.val = loc.file.getStringValue(localxpath);
+
+                table.appendContents(str);
+            }
+            else {
+                System.err.println("Err: unknown item " + localxpath);
+            }
+
+            if (newres != null) {
+            	formats.appendContents(newres);
+            }
+        }
+
+        if (formats.first != null) {
+            return formats;
+        }
+        return null;
+    }
+    
     private ICUResourceWriter.Resource parseCalendar(InputLocale loc,
             String xpath) {
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
         ICUResourceWriter.Resource current = null;
         // if the whole calendar node is marked draft then
-        // dont write anything
+        // don't write anything
         boolean writtenAmPm = false;
         boolean writtenDTF = false;
         table.name = loc.getAttributeValue(xpath, LDMLConstants.CALENDAR,
@@ -3540,7 +3928,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 // res = temp;
                 // }
                 // WEEK is deprecated in CLDR 1.4
-                printInfo("<week> element is deprecated and the data should moved to supplementalData.xml");
+                printInfo("<week> element is deprecated and the data should moved to " + supplementalDataFile);
             } else if (name.equals(LDMLConstants.AM)
                     || name.equals(LDMLConstants.PM)) {
                 // TODO: figure out the tricky parts .. basically get the
@@ -3574,6 +3962,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     temp = parseTable(loc,xpath+"/"+LDMLConstants.APPEND_ITEMS, LDMLConstants.APPEND_ITEM, LDMLConstants.REQUEST);
                     if(temp != null) {
                         temp.name = LDMLConstants.APPEND_ITEMS;
+                        res = ICUResourceWriter.Resource.addAfter(res, temp);    
+                    }
+                    
+                    temp = parseIntervalFormats(loc, xpath);
+                    if(temp != null) {
                         res = ICUResourceWriter.Resource.addAfter(res, temp);    
                     }
                 }
@@ -4811,13 +5204,18 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             String xpath) {
         ICUResourceWriter.Resource current = null, first = null;
         boolean writtenFormats = false;
+        boolean writtenCurrencyFormatPlurals = false;
+        boolean writtenCurrencies = false;
+        boolean writtenCurrencyPlurals = false;
 
         String origXpath = xpath;
         String names[] = { LDMLConstants.ALIAS, LDMLConstants.DEFAULT,
                 LDMLConstants.SYMBOLS, LDMLConstants.DECIMAL_FORMATS,
                 LDMLConstants.PERCENT_FORMATS,
                 LDMLConstants.SCIENTIFIC_FORMATS,
-                LDMLConstants.CURRENCY_FORMATS, LDMLConstants.CURRENCIES };
+                LDMLConstants.CURRENCY_FORMATS, LDMLConstants.CURRENCIES,
+                // Currencies appears twice so we can handle the plurals.
+                LDMLConstants.CURRENCIES};
         for (String name : names) {
             xpath = origXpath + "/" + name;
             if (loc.isPathNotConvertible(xpath))
@@ -4842,10 +5240,24 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     || name.equals(LDMLConstants.CURRENCY_FORMATS)) {
                 if (writtenFormats == false) {
                     res = parseNumberFormats(loc, xpath);
+
                     writtenFormats = true;
+                } else if (writtenCurrencyFormatPlurals == false){
+                    res = parseCurrencyFormatPlurals(loc, origXpath);
+
+                    writtenCurrencyFormatPlurals = true;
                 }
             } else if (name.equals(LDMLConstants.CURRENCIES)) {
-                res = parseCurrencies(loc, xpath);
+                if (writtenCurrencies == false) {
+                	res = parseCurrencies(loc, xpath);
+
+                	writtenCurrencies = true;
+                }
+                else if (writtenCurrencyPlurals == false){
+                	res = parseCurrencyPlurals(loc, origXpath);
+
+                	writtenCurrencyPlurals = true;
+                }
             } else {
                 System.err.println("Encountered unknown <" + xpath
                         + "> subelement: " + name);
@@ -4868,6 +5280,107 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return null;
     }
 
+    private ICUResourceWriter.Resource parseUnits(InputLocale loc,
+            String xpath) {
+    	ICUResourceWriter.ResourceTable unitsTable =
+    		new ICUResourceWriter.ResourceTable();
+    	unitsTable.name = LDMLConstants.UNITS;
+        ICUResourceWriter.Resource current = null, first = null;
+
+        String origXpath = xpath;
+        String names[] = { LDMLConstants.ALIAS, LDMLConstants.UNIT,
+                LDMLConstants.SPECIAL };
+        for (String name : names) {
+            xpath = origXpath + "/" + name;
+            if (loc.isPathNotConvertible(xpath))
+                continue;
+            ICUResourceWriter.Resource res = null;
+
+            if (name.equals(LDMLConstants.ALIAS)) {
+                if (!loc.file.isHere(xpath))
+                    continue;
+                res = parseAliasResource(loc, xpath);
+                res.name = name;
+                return res;
+            } else if (name.equals(LDMLConstants.UNIT)) {
+                res = parseUnit(loc, xpath);
+            } else if (name.equals(LDMLConstants.SPECIAL)) {
+            	res = parseSpecialElements(loc, xpath);
+            } else {
+                System.err.println("Encountered unknown <" + xpath
+                        + "> subelement: " + name);
+                System.exit(-1);
+            }
+            if (res != null) {
+                if (current == null) {
+                    first = res;
+                } else {
+                    current.next = res;
+                }
+                current = res;
+                res = null;
+            }
+        }
+        if (first != null) {
+        	unitsTable.first = first;
+            return unitsTable;
+        }
+        return null;
+    }
+
+    private ICUResourceWriter.Resource parseUnit(InputLocale loc,
+            String xpath) {
+        Map<String, ICUResourceWriter.ResourceTable> tableMap =
+        	new HashMap<String, ICUResourceWriter.ResourceTable>();
+
+        ICUResourceWriter.Resource first = null;
+        ICUResourceWriter.Resource last = null;
+
+        for (Iterator<String> iter = loc.file.iterator(xpath); iter.hasNext();) {
+            String localxpath = iter.next();
+            if(loc.isPathNotConvertible(localxpath)) {
+                continue;
+            }
+            String name = loc.getXpathName(localxpath);
+            if (name.equals(LDMLConstants.UNIT)) {
+                System.err.println("Err: unknown item " + localxpath);
+                continue;
+            }
+            else if (name.equals(LDMLConstants.UNIT_PATTERN)) {
+            	String parentName = loc.getXpathName(localxpath, -2);
+            	String tableName = loc.getAttributeValue(localxpath, parentName, LDMLConstants.TYPE);
+            	ICUResourceWriter.ResourceTable current = tableMap.get(tableName);
+
+            	if (current == null) {
+                	current = new ICUResourceWriter.ResourceTable();
+                	current.name = tableName;
+                	tableMap.put(tableName, current);
+                	// Hook everything up, because we need to
+                	// return the sibling chain. 
+                	if (last == null) {
+                		first = current;
+                	}
+                	else {
+                		last.next = current;
+                	}
+                	last = current;
+                }
+
+                ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                str.name = loc.getAttributeValue(localxpath, name, LDMLConstants.COUNT);
+                str.val = loc.file.getStringValue(localxpath);
+
+                current.appendContents(str);
+            }
+            else {
+                System.err.println("Err: unknown item " + localxpath);
+                continue;
+            }
+        }
+
+        return first;
+    }
+    
     enum GroupStatus {
         EMPTY, SPARSE, FALLBACK, COMPLETE
     };
@@ -4976,6 +5489,132 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     }
 
+    private ICUResourceWriter.Resource parseCurrencyPlurals(InputLocale loc,
+            String xpath) {
+
+    	// This resource is a table of tables, with each subtable containing
+    	// the data for a particular currency.  The structure of the XML file
+    	// is as follows:
+    	//
+    	// <ldml>
+    	//   <numbers>
+    	//     <currencies>
+    	//       <currency type="ADP">
+    	//         <displayName>Andorran Peseta</displayName>
+    	//         <displayName count="one">Andorran peseta</displayName>
+    	//         <displayName count="other">Andorran pesetas</displayName>
+    	//       </currency>
+    	//       <currency type="AED">
+    	//         <displayName>United Arab Emirates Dirham</displayName>
+    	//         <displayName count="one">UAE dirham</displayName>
+    	//         <displayName count="other">UAE dirhams</displayName>
+    	//         <symbol>AED</symbol>
+    	// 	     </currency>
+    	//     </currencies>
+    	//   </numbers>
+    	// </ldml>
+    	//
+    	// For this resource, the only interesting parts are the "displayName"
+    	// elements that have a "count" attribute.
+    	//
+    	// The resulting resource for this particular example would look like this:
+    	//
+    	//     CurrencyPlurals{
+    	//        ADP{
+    	//            one{"Andorran peseta"}
+    	//            other{"Andorran pesetas"}
+    	//        }
+    	//        AED{
+    	//            one{"UAE dirham"}
+    	//            other{"UAE dirhams"}
+    	//        }
+        ICUResourceWriter.ResourceTable parentTable = new ICUResourceWriter.ResourceTable();
+        parentTable.name = LDMLConstants.CURRENCY_PLURALS;
+        String xpathCurrency = xpath + "/currencies/currency";
+
+        // Since the leaf elements are not grouped by currency in the InputLocale
+        // instance, this map will hold the table for each currency.
+        Map<String, ICUResourceWriter.ResourceTable> tableMap =
+        	new HashMap<String, ICUResourceWriter.ResourceTable>();
+
+        ICUResourceWriter.Resource last = null;
+
+        for (Iterator<String> iter = loc.file.iterator(xpathCurrency); iter.hasNext();) {
+            String localxpath = iter.next();
+            if(loc.isPathNotConvertible(localxpath)) {
+                continue;
+            }
+
+            String name = loc.getXpathName(localxpath);
+        	if (!name.equals(LDMLConstants.DISPLAY_NAME)) {
+        		continue;
+        	}
+
+        	String count = loc.getAttributeValue(localxpath, name, LDMLConstants.COUNT);
+
+            // We only care about the elements with a "count" attribute.
+            if (count != null) {
+	        	String parentName = loc.getXpathName(localxpath, -2);
+	        	String tableName = loc.getAttributeValue(localxpath, parentName, LDMLConstants.TYPE);
+	        	ICUResourceWriter.ResourceTable current = tableMap.get(tableName);
+	
+	        	if (current == null) {
+	            	current = new ICUResourceWriter.ResourceTable();
+	            	current.name = tableName;
+	            	tableMap.put(tableName, current);
+	            	// If this is the first table, then update the
+	            	// start of the children in the parent table. 
+	            	if (last == null) {
+	            		parentTable.first = current;
+	            	}
+	            	else {
+	            		last.next = current;
+	            	}
+	            	last = current;
+	            }
+	        	
+	            ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+	            str.name = count;
+	            str.val = loc.file.getStringValue(localxpath);
+	            current.appendContents(str);
+            }
+        }
+
+        if (parentTable.first != null) {
+            return parentTable;
+        }
+        return null;
+    }
+
+    private ICUResourceWriter.Resource parseCurrencyFormatPlurals(InputLocale loc,
+            String xpath) {
+
+    	// This table contains formatting patterns for this locale's currency.
+    	// Each pattern is represented by a "unitPattern" element in the XML file.
+    	// Each pattern is represented as a string in the resource format, with
+    	// the name of the string being the value of the "count" attribute.
+        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
+        table.name = LDMLConstants.CURRENCY_UNIT_PATTERNS;
+        String xpathUnitPattern = xpath + "/currencyFormats/unitPattern";
+
+        for (Iterator<String> iter = loc.file.iterator(xpathUnitPattern); iter.hasNext();) {
+            String localxpath = iter.next();
+            if(loc.isPathNotConvertible(localxpath)) {
+                continue;
+            }
+            String name = loc.getXpathName(localxpath);
+            ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+            str.name = loc.getAttributeValue(localxpath, name, LDMLConstants.COUNT);
+            str.val = loc.file.getStringValue(localxpath);
+            table.appendContents(str);
+        }
+
+        if (table.first != null) {
+            return table;
+        }
+        return null;
+    }
+    
     // TODO figure out what to do for alias, draft and alt elements
     private static final String[] num_paths = new String[] {
             "decimalFormats/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",

@@ -1126,6 +1126,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 //Ignore this
             }else if(name.equals(LDMLConstants.PLURALS)){
                 //Ignore this
+            }else if(name.equals(LDMLConstants.CLDR_VERSION)){
+                res = parseCLDRVersion(node, xpath);
             }else if(name.equals(LDMLConstants.TELEPHONE_CODE_DATA)){
                 res = addTelephoneCodeData(); // uses SupplementalDataInfo, doesn't need node, xpath
             }else{
@@ -1222,6 +1224,13 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             return mzInfo;
         }
         return null;
+    }
+
+    private ICUResourceWriter.Resource parseCLDRVersion(Node root, StringBuffer xpath){
+       ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+       str.name = LDMLConstants.CLDR_VERSION;
+       str.val = LDMLUtilities.getAttributeValue(root, LDMLConstants.VERSION);
+       return str;
     }
 
     private ICUResourceWriter.Resource parseTerritoryContainment(Node root, StringBuffer xpath){

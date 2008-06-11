@@ -236,6 +236,7 @@ public class LDMLConstants {
     public static final String LIKELY_SUBTAGS    = "likelySubtags";
     public static final String PLURALS           = "plurals";
     public static final String TELEPHONE_CODE_DATA = "telephoneCodeData";
+    public static final String CLDR_VERSION      = "cldrVersion";
     
     //PN added
     public static final String MEDIUM          = "medium";

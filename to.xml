@@ -637,21 +637,21 @@
 					<pattern draft="unconfirmed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
 		</currencyFormats>
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} ʻa</unitPattern>
+			<unitPattern count="other">{0} ʻa</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} m</unitPattern>
+			<unitPattern count="other">{0} m</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} u</unitPattern>
+			<unitPattern count="other">{0} u</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} t</unitPattern>
+			<unitPattern count="other">{0} t</unitPattern>
 		</unit>
 	</units>
 	<posix>

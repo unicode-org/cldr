@@ -2533,7 +2533,7 @@
 					<pattern>¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one">{0} {1}</unitPattern>
+			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="BRL">
@@ -2569,25 +2569,25 @@
 	<units>
 		<!-- http://physics.nist.gov/cuu/Units/outside.html -->
 		<unit type="day">
-			<unitPattern count="one">{0} d</unitPattern>
+			<unitPattern count="other">{0} d</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} h</unitPattern>
+			<unitPattern count="other">{0} h</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} min</unitPattern>
+			<unitPattern count="other">{0} min</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} m</unitPattern>
+			<unitPattern count="other">{0} m</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} s</unitPattern>
+			<unitPattern count="other">{0} s</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} w</unitPattern>
+			<unitPattern count="other">{0} w</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} y</unitPattern>
+			<unitPattern count="other">{0} y</unitPattern>
 		</unit>
 	</units>
 	<posix>

@@ -3372,7 +3372,7 @@
 					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one">{0} {1}</unitPattern>
+			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -4462,25 +4462,25 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} gün</unitPattern>
+			<unitPattern count="other">{0} gün</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} saat</unitPattern>
+			<unitPattern count="other">{0} saat</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} dakika</unitPattern>
+			<unitPattern count="other">{0} dakika</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} ay</unitPattern>
+			<unitPattern count="other">{0} ay</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} saniye</unitPattern>
+			<unitPattern count="other">{0} saniye</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} hafta</unitPattern>
+			<unitPattern count="other">{0} hafta</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} yıl</unitPattern>
+			<unitPattern count="other">{0} yıl</unitPattern>
 		</unit>
 	</units>
 	<posix>

@@ -6,7 +6,8 @@
     <plurals>
         <!-- if locale is known to have no plurals, there are no rules -->
         <pluralRules locales="az fa hu ja ko my to tr vi yo zh
-        bo dz id jv ka km kn ms th"/> 
+        bo dz id jv ka km kn ms th
+        iw "/> 
         <!-- 2nd line from Tamplin's data -->
         <pluralRules locales="ar">
             <pluralRule count="zero">n is 0</pluralRule>
@@ -21,7 +22,7 @@
             <pluralRule count="one">n is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="pt
-        am bh fil guw hi ln mg nso ti wa"> <!-- last line from Tamplin's data -->
+        am bh fil tl guw hi ln mg nso ti wa"> <!-- last line from Tamplin's data -->
             <pluralRule count="one">n in 0..1</pluralRule>
         </pluralRules>
         <pluralRules locales="fr">
@@ -35,7 +36,7 @@
             <pluralRule count="one">n is 1</pluralRule>
             <pluralRule count="two">n is 2</pluralRule>
         </pluralRules>
-        <pluralRules locales="ro">
+        <pluralRules locales="ro mo">
             <pluralRule count="one">n is 1</pluralRule>
             <pluralRule count="few">n is 0 OR n is not 1 AND n mod 100 in 1..19</pluralRule>
         </pluralRules>
@@ -43,7 +44,7 @@
 	       <pluralRule count="one">n mod 10 is 1 and n mod 100 not in 11..19</pluralRule>
 	       <pluralRule count="few">n mod 10 in 2..9 and n mod 100 not in 11..19</pluralRule>
 	     </pluralRules>
-        <pluralRules locales="hr ru sr uk be bs">
+        <pluralRules locales="hr ru sr uk be bs sh">
             <pluralRule count="one">n mod 10 is 1 and n mod 100 is not 11</pluralRule>
             <pluralRule count="few">n mod 10 in 2..4 and n mod 100 not in 12..14</pluralRule>
             <pluralRule count="many">n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 11..14</pluralRule>

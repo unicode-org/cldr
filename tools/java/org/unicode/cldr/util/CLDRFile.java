@@ -481,7 +481,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   private String getFallbackPath(String xpath, boolean winning) {
     //  || xpath.contains("/currency") && xpath.contains("/displayName")
     if (xpath.contains("[@count=")) {
-      return getCountPathWithFallback(xpath, Count.one, winning);
+      return getCountPathWithFallback(xpath, Count.other, winning);
     }
     return null;
   }
@@ -2854,9 +2854,9 @@ public class CLDRFile implements Freezable, Iterable<String> {
     if (result != null && isNotRoot(result)) {
       return result;
     }
-    // now try one
-    if (count != Count.one) {
-      result = getCountPathWithFallback2(parts, xpath, Count.one, winning);
+    // now try fallback
+    if (count != Count.other) {
+      result = getCountPathWithFallback2(parts, xpath, Count.other, winning);
       if (result != null && isNotRoot(result)) {
         return result;
       }

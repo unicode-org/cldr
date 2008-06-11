@@ -172,9 +172,9 @@ public class ConvertTransforms extends CLDRConverterTool{
 				}
 			} else if (path.indexOf("/tRule") >= 0) {
 				//value = replaceUnquoted(value,"\u00A7", "&");
-				value = value.replace('\u2192', '>');
-				value = value.replace('\u2190', '<');
-				value = value.replaceAll("\u2194", "<>");
+				value = replaceUnquoted(value, "\u2192", ">");
+				value = replaceUnquoted(value, "\u2190", "<");
+				value = replaceUnquoted(value, "\u2194", "<>");
 				value=fixup.transliterate(value);
 				output.println(value);
 			} else {
@@ -187,31 +187,55 @@ public class ConvertTransforms extends CLDRConverterTool{
 	static Transliterator fixup = Transliterator.getInstance("[:Mn:]any-hex/java");
 
 	private String replaceUnquoted(String value, String toReplace, String replacement) {
-		// hack for now
-		int pos = 0;
-		while (true) {
-			pos = value.indexOf(toReplace, pos);
-			if (pos < 0) break;
-			if (hasOddNumberOfQuotesBefore(value,pos)) {
-				pos += toReplace.length();
+		// quick exit in most cases
+		if ( value.indexOf(toReplace) < 0 )
+			return value;
+		
+		String  updatedValue = "";
+		int     segmentStart = 0;
+		boolean inQuotes = false;
+		boolean ignoreCharValue = false;
+		int     length = value.length();
+		
+		for (int pos = 0; pos < length; ++pos) {
+			char curChar = (char)0;
+			
+			if (ignoreCharValue) {
+				ignoreCharValue = false;
+			} else {
+				curChar = value.charAt(pos);
 			}
-			value = value.substring(0,pos) + replacement + value.substring(pos+toReplace.length());
-			pos += replacement.length();
+		
+			if (curChar == '\\') {
+				// escape, ignore the value of the next char (actually the next UTF16 code unit, but that works here)
+				ignoreCharValue = true;
+			}
+			boolean isLastChar = (pos + 1 >= length);
+			if (curChar == '\'' || isLastChar) {
+				// quote, begin or end of a quoted literal (in which no replacement takes place)
+				if (inQuotes) {
+					// End of a quoted segment; guaranteed to include at least opening quote.
+					// Just add the segment (including current char) to updatedValue.
+					 updatedValue = updatedValue + value.substring(segmentStart, pos+1);
+					 segmentStart = pos+1;
+				} else {
+					if (isLastChar)
+						++pos;
+					if (pos > segmentStart) {
+						// End of a nonempty unquoted segment; perform requested replacements and
+						// then add segment to updatedValue.
+						String currentSegment = value.substring(segmentStart, pos);
+						updatedValue = updatedValue + currentSegment.replace(toReplace, replacement);
+						segmentStart = pos;
+					}
+				}
+				inQuotes = !inQuotes;
+			}
+			// else the char just becomes part of the current segment
 		}
-		return value;
+		return updatedValue;
 	}
 	
-	private boolean hasOddNumberOfQuotesBefore(String value, int pos) {
-		int pos2 = 0;
-		int count = 0;
-		while (true) {
-			pos2 = value.indexOf('\'', pos2+1);
-			if (pos2 < 0) break;
-			count ++;
-		}
-		return (count & 1) != 0;
-	}
-
 	static XPathParts parts = new XPathParts();
 	
 	private String addIndexInfo(PrintWriter index, String path, String transID) {

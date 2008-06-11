@@ -517,7 +517,7 @@ public class ConsoleCheckCLDR {
             }
             // survey tool will use: if (status.hasHTMLMessage()) System.out.println(status.getHTMLMessage());
           }
-          if (!showedOne) {
+          if (!showedOne && phase != Phase.FINAL_TESTING) {
             if (fullPath != null && draftStatusMatcher.reset(fullPath).find() && localeID.equals(sourceLocaleID) && path.equals(otherPath.pathWhereFound)) {
               final String draftStatus = draftStatusMatcher.group(1);
               // see if value is same as parents, then skip
@@ -529,6 +529,7 @@ public class ConsoleCheckCLDR {
             }
             if (!showedOne && showAll) {
               showValue(file, prettyPath, localeID, example, path, value, fullPath, "ok", Subtype.none, exampleContext);
+              showedOne = true;
               //pathShower.showHeader(path, value);
             }
           }

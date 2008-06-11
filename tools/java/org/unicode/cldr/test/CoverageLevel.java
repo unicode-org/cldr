@@ -68,7 +68,7 @@ public class CoverageLevel {
           "|.*/pattern(?!Digit)" +
         ")" +
         "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
-        "|units/unit.*/unitName" +
+        "|units/unit.*/unitPattern" +
         ")");
 
   private static final Pattern BASIC_PATTERNS = Pattern.compile(

@@ -109,23 +109,20 @@ public class CheckCoverage extends CheckCLDR {
           PluralInfo pluralInfo = supplementalData.getPlurals(localeID);
           if (pluralInfo == supplementalData.getPlurals("root")) {
             possibleErrors.add(new CheckStatus()
-            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.missingPluralInfo)
+            .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingPluralInfo)
             .setMessage("Missing Plural Information - see supplemental plural charts to file bug.", 
                     new Object[]{}));          
           }
         }
 
-        if (Phase.FINAL_TESTING == getPhase()) {
-          return this; // skip testing in final phase
-        }
         if (options != null && options.get("CheckCoverage.skip") != null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         if (localeID.equals("root")) return this;
         coverageLevel.setFile(cldrFileToCheck, options, this, possibleErrors);
         
         // Set to minimal if not in data submission
-        if (Phase.SUBMISSION != getPhase()) {
-          requiredLevel = Level.BASIC;
+        if (false && Phase.FINAL_TESTING == getPhase()) {
+          requiredLevel = Level.POSIX;
         } else {
           requiredLevel = coverageLevel.getRequiredLevel(localeID, options);
         }

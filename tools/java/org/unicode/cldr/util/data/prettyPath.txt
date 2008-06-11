@@ -128,7 +128,6 @@ $element=[a-zA-Z0-9]+;
 
 '/posix/messages/' (.*) > '1-misc|posix|' $1;
 
-'/units/unit[@type="' ($avalue) '"]/unitName' > '0-units|' $1 '|name';
 '/units/unit[@type="' ($avalue) '"]/unitPattern' > '0-units|' $1 '|pattern';
 
 #'[@alt="proposed' ($avalue) '"]' > '/' \u200B 'alt'; # remove!

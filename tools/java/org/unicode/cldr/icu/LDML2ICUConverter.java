@@ -1656,32 +1656,39 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         table.name = LDMLConstants.TELEPHONE_CODE_DATA;
         table.comment = commentForTelephoneCodeData;
         ICUResourceWriter.Resource currTerr = null;
-        ICUResourceWriter.ResourceArray terrArray = null;
+        ICUResourceWriter.ResourceTable terrTable = null;
         
         for ( String terr: supplementalDataInfo.getTerritoriesForTelephoneCodeInfo() ) {
-            terrArray = new ICUResourceWriter.ResourceArray();
-            terrArray.name = terr;
+            terrTable = new ICUResourceWriter.ResourceTable();
+            terrTable.name = terr;
             ICUResourceWriter.Resource currCode = null;
             for ( SupplementalDataInfo.TelephoneCodeInfo telephoneCodeInfo: supplementalDataInfo.getTelephoneCodeInfoForTerritory(terr) ) {
-                ICUResourceWriter.ResourceString codeString = new ICUResourceWriter.ResourceString();
-                codeString.val = telephoneCodeInfo.getCode();
+                ICUResourceWriter.ResourceTable codeData = new ICUResourceWriter.ResourceTable();
+                codeData.name = "";
+                ICUResourceWriter.ResourceString codeEntry = new ICUResourceWriter.ResourceString();
+                codeEntry.name = "code";
+                codeEntry.val = telephoneCodeInfo.getCode();
+                codeData.first = codeEntry;
                 String alt = telephoneCodeInfo.getAlt();
                 if (alt.length() > 0) {
-                    codeString.smallComment = alt;
+                    ICUResourceWriter.ResourceString altEntry = new ICUResourceWriter.ResourceString();
+                    altEntry.name = "alt";
+                    altEntry.val = alt;
+                    codeEntry.next = altEntry;
                 }
                 if(currCode==null){
-                    terrArray.first = currCode = codeString;
+                    terrTable.first = currCode = codeData;
                 }else{
-                    currCode.next = codeString;
+                    currCode.next = codeData;
                     currCode = currCode.next;
                 }
             }
             if(currTerr == null){
-                table.first = terrArray;
-                currTerr = findLast(terrArray);
+                table.first = terrTable;
+                currTerr = findLast(terrTable);
             }else{
-                currTerr.next = terrArray;
-                currTerr = findLast(terrArray);
+                currTerr.next = terrTable;
+                currTerr = findLast(terrTable);
             }
         }
         return table;

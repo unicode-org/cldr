@@ -120,7 +120,7 @@ public class ConsoleCheckCLDR {
     UOption.create("source_directory", 's',  UOption.REQUIRES_ARG).setDefault(Utility.MAIN_DIRECTORY),
     UOption.create("user", 'u',  UOption.REQUIRES_ARG),
     UOption.create("phase", 'z',  UOption.REQUIRES_ARG),
-    UOption.create("generate_html", 'g',  UOption.OPTIONAL_ARG).setDefault(Utility.CHART_DIRECTORY + "errors/"),
+    UOption.create("generate_html", 'g',  UOption.OPTIONAL_ARG).setDefault(Utility.CHART_DIRECTORY + "/errors/"),
     UOption.create("vote resolution", 'v',  UOption.NO_ARG),
     // UOption.create("vote resolution2", 'w',  UOption.OPTIONAL_ARG).setDefault(Utility.BASE_DIRECTORY + "incoming/vetted/main/votes/"),
     //-v /Users/markdavis/Documents/workspace/cldr/src/incoming/vetted/main/usersa.xml

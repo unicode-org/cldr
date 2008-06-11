@@ -24,6 +24,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 //import com.ibm.icu.dev.test.util.VariableReplacer;
 
 import org.unicode.cldr.icu.CollectionUtilities;
@@ -66,11 +67,12 @@ public class CheckAttributeValues extends CheckCLDR {
                 // then for the specific element
                 check(attribute_validity, attribute, attributeValue, result);
                 if (attribute.equals("count")) {
-                  if (!pluralInfo.getCountToExamplesMap().keySet().contains(attributeValue)) {
+                  final Count countValue = PluralInfo.Count.valueOf(attributeValue);
+                  if (!pluralInfo.getCountToExamplesMap().keySet().contains(countValue)) {
                     result.add(new CheckStatus()
                     .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalPlural)
                     .setMessage("Illegal plural value {0}; must be one of: {1}", 
-                            new Object[]{attributeValue, pluralInfo.getCountToExamplesMap().keySet()}));          
+                            new Object[]{countValue, pluralInfo.getCountToExamplesMap().keySet()}));          
                   }
                 }
             }

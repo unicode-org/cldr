@@ -3060,7 +3060,6 @@
 					<pattern references="R046">#,##0.00 ¤;'‪'-#,##0.00'‬' ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
@@ -3432,31 +3431,24 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} روز</unitPattern>
 			<unitPattern count="other">{0} روز</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} ساعت</unitPattern>
 			<unitPattern count="other">{0} ساعت</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} دقیقه</unitPattern>
 			<unitPattern count="other">{0} دقیقه</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} ماه</unitPattern>
 			<unitPattern count="other">{0} ماه</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} ثانیه</unitPattern>
 			<unitPattern count="other">{0} ثانیه</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} هفته</unitPattern>
 			<unitPattern count="other">{0} هفته</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} سال</unitPattern>
 			<unitPattern count="other">{0} سال</unitPattern>
 		</unit>
 	</units>

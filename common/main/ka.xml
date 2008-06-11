@@ -1565,7 +1565,7 @@
           <pattern draft="provisional">¤ #,##0.00</pattern>
         </currencyFormat>
       </currencyFormatLength>
-      <unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
+      <unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
     </currencyFormats>
     <currencies>
       <currency type="ADP">
@@ -2162,25 +2162,25 @@
   </numbers>
   <units>
     <unit type="day">
-      <unitPattern count="one" draft="contributed">{0} დღე</unitPattern>
+      <unitPattern count="other" draft="contributed">{0} დღე</unitPattern>
     </unit>
     <unit type="hour">
-      <unitPattern count="one" draft="contributed">{0} საათი</unitPattern>
+      <unitPattern count="other" draft="contributed">{0} საათი</unitPattern>
     </unit>
     <unit type="minute">
-      <unitPattern count="one" draft="contributed">{0} წუთი</unitPattern>
+      <unitPattern count="other" draft="contributed">{0} წუთი</unitPattern>
     </unit>
     <unit type="month">
-      <unitPattern count="one" draft="contributed">{0} თვე</unitPattern>
+      <unitPattern count="other" draft="contributed">{0} თვე</unitPattern>
     </unit>
     <unit type="second">
-      <unitPattern count="one" draft="contributed">{0} წამი</unitPattern>
+      <unitPattern count="other" draft="contributed">{0} წამი</unitPattern>
     </unit>
     <unit type="week">
-      <unitPattern count="one" draft="contributed">{0} კვირა</unitPattern>
+      <unitPattern count="other" draft="contributed">{0} კვირა</unitPattern>
     </unit>
     <unit type="year">
-      <unitPattern count="one" draft="contributed">{0} წელი</unitPattern>
+      <unitPattern count="other" draft="contributed">{0} წელი</unitPattern>
     </unit>
   </units>
   <posix>

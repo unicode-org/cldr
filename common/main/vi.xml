@@ -1243,7 +1243,7 @@
 					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -2184,25 +2184,25 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} ngày</unitPattern>
+			<unitPattern count="other">{0} ngày</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} giờ</unitPattern>
+			<unitPattern count="other">{0} giờ</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} phút</unitPattern>
+			<unitPattern count="other">{0} phút</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} tháng</unitPattern>
+			<unitPattern count="other">{0} tháng</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} giây</unitPattern>
+			<unitPattern count="other">{0} giây</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} tuần</unitPattern>
+			<unitPattern count="other">{0} tuần</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} năm</unitPattern>
+			<unitPattern count="other">{0} năm</unitPattern>
 		</unit>
 	</units>
 	<posix>

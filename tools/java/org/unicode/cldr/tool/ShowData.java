@@ -98,9 +98,9 @@ public class ShowData {
 
       Utility.registerExtraTransliterators();
 
-      Factory collationFactory = Factory
-          .make(sourceDir.replace("incoming/vetted/","common/") + "../collation/", ".*");
-      ExtractCollationRules collationRules = new ExtractCollationRules();
+//      Factory collationFactory = Factory
+//          .make(sourceDir.replace("incoming/vetted/","common/") + "../collation/", ".*");
+//      ExtractCollationRules collationRules = new ExtractCollationRules();
 
       locales = new TreeSet(cldrFactory.getAvailable());
       new Utility.MatcherFilter(options[MATCH].value).retainAll(locales);
@@ -505,7 +505,8 @@ public class ShowData {
         for (Iterator it = nonDistinguishingAttributes.keySet().iterator(); it
             .hasNext();) {
           String key = (String) it.next();
-          if (key.equals("draft")) {
+          String value = (String) nonDistinguishingAttributes.get(key);
+          if (key.equals("draft") && !value.equals("contributed")) {
             if (draftRef.length() != 0)
               draftRef.append(",");
             draftRef.append("d");

@@ -3660,14 +3660,14 @@ XXX	Code for transations where no currency is involved
     <weekData>
           <minDays count="1" territories="001" />
           <minDays count="4" territories="AT BE CA CH DE DK FI FR IT LI LT LU MC MT NL NO SE SK" />
-          <minDays count="4" territories="CD" draft="true" />
+          <minDays count="4" territories="CD" draft="unconfirmed" />
         
           <firstDay day="mon"  territories="001" />
           <firstDay day="fri"  territories="MV" />
           <firstDay day="sat"  territories="AE AF BH DJ DZ EG ER ET IQ IR JO KE KW LB LY MA OM QA SA SD SO TN YE" />
           <firstDay day="sun"  territories="AS AU AZ BW CA CN FO GE GL GU HK IE IL IS JM JP KG KR LA MH MN MO MP MT NZ PH PK SG TH TT TW UM US UZ VI ZA ZW" />
-          <firstDay day="sun"  territories="ET MW NG TJ" draft="true" />
-		  <firstDay day="sun"  territories="GB" draft="true"  alt="variant" references="Shorter Oxford Dictionary (5th edition, 2002)"/>
+          <firstDay day="sun"  territories="ET MW NG TJ" draft="unconfirmed" />
+		  <firstDay day="sun"  territories="GB" draft="unconfirmed"  alt="variant" references="Shorter Oxford Dictionary (5th edition, 2002)"/>
           <firstDay day="thu"  territories="SY" />
         
           <weekendStart day="sat"  territories="001"/>

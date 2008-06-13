@@ -955,7 +955,8 @@ public class StandardCodes {
       // "Tagb " +
       //"Tglg " +
       Arrays
-          .asList("Hans Hant Jpan Arab Armn Beng Bopo Brai Buhd Cans Cher Cyrl Deva Ethi Geor Grek Gujr Guru Hang Hani Hebr Hira Hrkt Kana Khmr Knda Laoo Latn Limb Mlym Mong Mymr Nkoo Orya Sinh Tale Talu Taml Telu Tfng Thaa Thai Tibt Yiii".split("\\s+"))));
+          .asList("Hans Hant Jpan Hrkt Kore Arab Armn Bali Beng Bopo Cans Cham Cher Cyrl Deva Ethi Geor Grek Gujr Guru Hani Hang Hebr Hira Knda Kana Kali Khmr Laoo Latn Lepc Limb Mlym Mong Mymr Talu Nkoo Olck Orya Saur Sinh Tale Taml Telu Thaa Thai Tibt Tfng Vaii Yiii".split("\\s+"))));
+  // updated to http://www.unicode.org/reports/tr31/tr31-9.html#Specific_Character_Adjustments
   
   public Map getZone_rules() {
     return zoneParser.getZone_rules();

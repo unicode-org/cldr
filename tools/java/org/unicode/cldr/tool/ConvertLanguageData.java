@@ -53,7 +53,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Put source into C:/cvsdata/unicode/cldr/tools/java/org/unicode/cldr/util/data/country_language_population_raw.txt
  * @author markdavis
  *
  */
@@ -370,6 +369,7 @@ public class ConvertLanguageData {
     }
     // get primary combinations
     Set<String> primaryCombos = new TreeSet();
+    Set<String> basicCombos = new TreeSet();
     for (String languageSubtag : language2BasicLanguageData.keySet()) {
       for (BasicLanguageData item : language2BasicLanguageData.getAll(languageSubtag)) {
         Set<String> scripts = new TreeSet();
@@ -384,13 +384,17 @@ public class ConvertLanguageData {
           territories.add("ZZ");
           continue;
         }
+        
         for (String script : scripts) {
           for (String territory : territories) {
             String locale = StandardCodes.fixLanguageTag(languageSubtag)
             // + (script.equals("Zzzz") ? "" : languageToScripts.getAll(languageSubtag).size() <= 1 ? "" : "_" + script)
             + (territories.equals("ZZ") ? "" : "_" + territory)
             ;
-            primaryCombos.add(locale);
+            if (item.getType() != BasicLanguageData.Type.secondary) {
+              primaryCombos.add(locale);
+            }
+            basicCombos.add(locale);
           }
         }
       }
@@ -438,7 +442,13 @@ public class ConvertLanguageData {
     }
 
     Set<String> inPopulationButNotBasic = new TreeSet(populationOver20);
-    inPopulationButNotBasic.removeAll(primaryCombos);
+    inPopulationButNotBasic.removeAll(basicCombos);
+    for (Iterator<String> it = inPopulationButNotBasic.iterator(); it.hasNext();) {
+      String locale = it.next();
+      if (locale.endsWith("_ZZ")) {
+        it.remove();
+      }
+    }
     System.out.println("In Population>20% but not Basic Data:\t" + inPopulationButNotBasic);
     for (String locale : inPopulationButNotBasic) {
       System.out.println("\t" + locale + "\t" + getLanguageName(locale) + "\t" + localeToRowData.get(locale));
@@ -900,9 +910,8 @@ public class ConvertLanguageData {
     
     LanguageTagParser ltp = new LanguageTagParser();
     
-    String dir = "C:\\Documents and Settings\\markdavis\\My Documents\\" +
-      "Excel Stuff\\countryLanguagePopulation\\";
-    List<List<String>> input = SpreadSheet.convert("C:/cvsdata/unicode/cldr/tools/java/org/unicode/cldr/util/data/country_language_population_raw.txt");
+    String dir = Utility.GEN_DIRECTORY + "countryLanguagePopulation/";
+    List<List<String>> input = SpreadSheet.convert(Utility.getUTF8Data("country_language_population_raw.txt"));
     
     StandardCodes sc = StandardCodes.make();
     Set<String> languages = languagesNeeded; // sc.getGoodAvailableCodes("language");
@@ -1183,17 +1192,35 @@ public class ConvertLanguageData {
     
     Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
     Set<String> locales = new TreeSet(cldrFactory.getAvailable());
+    LocaleIDParser lidp = new LocaleIDParser();
     
     // add all the combinations of language, script, and territory.
     for (String locale : localeToRowData.keySet()) {
-      if (!locales.contains(locale)) {
+      String baseLanguage = lidp.set(locale).getLanguage();
+      if (locales.contains(baseLanguage) && !locales.contains(locale)) {
         locales.add(locale);
         System.out.println("\tadding: " + locale);
       }
     }
+
+    // adding parents
+    Set<String> toAdd = new TreeSet();
+    while (true) {
+      for (String locale : locales) {
+        String newguy = lidp.set(locale).getParent();
+        if (newguy != null && !locales.contains(newguy) && !toAdd.contains(newguy)) {
+          toAdd.add(newguy);
+          System.out.println("\tadding parent: " + newguy);
+        }
+      }
+      if (toAdd.size() == 0) {
+        break;
+      }
+      locales.addAll(toAdd);
+      toAdd.clear();
+    }
     
     // get sets of siblings
-    LocaleIDParser lidp = new LocaleIDParser();
     Set<Set<String>> siblingSets  = new TreeSet<Set<String>>(firstElementComparator);
     Set<String> needsADoin = new TreeSet<String>(locales);
     
@@ -1202,6 +1229,7 @@ public class ConvertLanguageData {
     Set<String> deprecatedRegions = new TreeSet();
     deprecatedRegions.add("YU");
     deprecatedRegions.add("CS");
+    deprecatedRegions.add("ZZ");
     
     // first find all the language subtags that have scripts, and those we need to skip. Those are aliased-only
     Set<String> skippingItems = new TreeSet();
@@ -1215,12 +1243,14 @@ public class ConvertLanguageData {
       Set<LocaleIDParser.Level> levels = lidp.getLevels();
       // must have no variants, must have either script or region, no deprecated elements
       if (levels.contains(LocaleIDParser.Level.Variants) // no variants
-          || !(levels.contains(LocaleIDParser.Level.Script) || levels.contains(LocaleIDParser.Level.Region))
+          || !(levels.contains(LocaleIDParser.Level.Script) 
+                  || levels.contains(LocaleIDParser.Level.Region))
           || deprecatedLanguages.contains(lidp.getLanguage()) 
           || deprecatedRegions.contains(lidp.getRegion())) {
         // skip language-only locales, and ones with variants
         needsADoin.remove(locale);
         skippingItems.add(locale);
+        System.out.println("\tremoving: " + locale);
         continue;
       }
     }
@@ -1279,6 +1309,7 @@ public class ConvertLanguageData {
       // get best
       double best = Double.NEGATIVE_INFINITY;
       String bestLocale = "???";
+      Set<Pair<Double,String>> data = new TreeSet();
       for (String locale : siblingSet) {
         RowData rowData = localeToRowData.get(locale);
         double languageLiteratePopulation = -1;
@@ -1292,13 +1323,17 @@ public class ConvertLanguageData {
             missingData.add(locale);
           }
         }
+        data.add(new Pair(languageLiteratePopulation,locale));
         if (best < languageLiteratePopulation) {
           best = languageLiteratePopulation;
           bestLocale = locale;
         }
       }
       // show it
-      System.out.format("\tPicking default content: %s %f (based on literate population)\r\n", bestLocale, best);
+      for (Pair<Double,String> datum : data) {
+        System.out.format("\tContenders: %s %f (based on literate population)\r\n", datum.getSecond(), datum.getFirst());
+      }
+      //System.out.format("\tPicking default content: %s %f (based on literate population)\r\n", bestLocale, best);
       defaultLocaleContent.add(bestLocale);
     }
     
@@ -1452,13 +1487,18 @@ public class ConvertLanguageData {
   public static class InverseComparator implements Comparator {
     private Comparator other;
     
+    public InverseComparator() {
+      this.other = null;
+    }
+
     public InverseComparator(Comparator other) {
-      if (other == null) throw new NullPointerException();
       this.other = other;
     }
-    
+
     public int compare(Object a, Object b) {
-      return other.compare(b, a);
+      return other == null 
+      ? ((Comparable)b).compareTo(a) 
+              : other.compare(b, a);
     }
   }
   
@@ -1501,11 +1541,14 @@ public class ConvertLanguageData {
 //    System.out.println("Language 2 scripts: " + language_status_scripts);
     
     // #Lcode LanguageName  Status  Scode ScriptName  References
-    List<List<String>> input = SpreadSheet.convert("C:/cvsdata/unicode/cldr/tools/java/org/unicode/cldr/util/data/language_script_raw.txt");
+    List<List<String>> input = SpreadSheet.convert(Utility.getUTF8Data("language_script_raw.txt"));
+    // /Users/markdavis/Documents/workspace/cldr-code/java/org/unicode/cldr/util/data/language_script_raw.txt
     System.out.println("\r\nProblems in language_script_raw.txt\r\n");
+    int count = -1;
     for (List<String> row : input) {
       try {
         if (row.size() == 0) continue;
+        ++count;
         String language = row.get(0).trim();
         if (language.length() == 0 || language.startsWith("#")) continue;
         BasicLanguageData.Type status = BasicLanguageData.Type.valueOf(row.get(2));
@@ -1664,7 +1707,7 @@ public class ConvertLanguageData {
         if (langRegistryCodes.contains(alpha3)) {
           languageSubtag = alpha3;
         } else {
-          System.out.println("Language subtag <" + alpha3 + "> not found.");
+          System.out.println("Language subtag <" + alpha3 + "> not found, on line:\t" + line);
           continue;
         }
       }

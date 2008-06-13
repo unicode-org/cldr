@@ -121,6 +121,9 @@ public class Misc {
 	 */
 	public static void main(String[] args) throws Exception {
 		try {
+		  
+      showLanguageTagCount();
+
 //            Locale someLocale = Locale.FRENCH;
 //            Date someDate = new Date();
 //            ULocale uloc;
@@ -192,7 +195,6 @@ public class Misc {
       }
 
 			//getZoneData();
-			//showLanguageTagCount();
 
 		} finally {
 			System.out.println("DONE");
@@ -239,12 +241,17 @@ public class Misc {
 	 */
 	private static void showLanguageTagCount() {
 		StandardCodes sc = StandardCodes.make();
-		int languageCount = sc.getAvailableCodes("language").size();
-		int countryCount = sc.getAvailableCodes("territory").size();
-		for (Iterator it = sc.getAvailableCodes("territory").iterator(); it.hasNext();) {
-			System.out.print("fr-" + it.next() + ", ");
-		}
-		System.out.println(languageCount + ", " + countryCount + ", " + (23 + languageCount * countryCount));
+		int languageCount = sc.getGoodAvailableCodes("language").size();
+    int scriptCount = sc.getGoodAvailableCodes("script").size();
+    int countryCount = sc.getGoodAvailableCodes("territory").size();
+    System.out.println("language subtags:\t" + languageCount);
+    System.out.println("script subtags:\t" + scriptCount);
+    System.out.println("region subtags:\t" + countryCount);
+
+//		for (Iterator it = sc.getAvailableCodes("territory").iterator(); it.hasNext();) {
+//			System.out.print("fr-" + it.next() + ", ");
+//		}
+		System.out.println();
 	}
 
 	private static void listObsoletes() {

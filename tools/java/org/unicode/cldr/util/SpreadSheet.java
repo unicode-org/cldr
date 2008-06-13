@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SpreadSheet {
+  static boolean DEBUG = Utility.getProperty("SpreadSheetDebug", false);
+  
   public static List<List<String>> convert(String filename) throws IOException {
     return convert(BagFormatter.openUTF8Reader("", filename));
   }
@@ -17,6 +19,9 @@ public class SpreadSheet {
     while (true) {
       String line = r.readLine();
       if (line == null) break;
+      if (DEBUG) {
+        System.out.println("Spreadsheet:\t" + line);
+      }
       String[] parts = line.split("\t");
       List<String> row = new ArrayList<String>(parts.length);
       for (String part : parts) {

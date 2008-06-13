@@ -89,12 +89,16 @@ public class ConvertLanguageData {
   static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
   
   public static void main(String[] args) throws IOException, ParseException {
+    BufferedReader oldFile = null;
     try {
       // load elements we care about
-      Log.setLog(Utility.GEN_DIRECTORY + "/supplemental/language_code_fragment.xml");
-      Log.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-      Log.println("<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/data/dtd/ldmlSupplemental.dtd\">");
-      Log.println("<supplementalData version=\"1.5\">");
+      Log.setLogNoBOM(Utility.GEN_DIRECTORY + "/supplemental/supplementalData.xml");
+      //Log.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+      //Log.println("<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/data/dtd/ldmlSupplemental.dtd\">");
+      //Log.println("<supplementalData version=\"1.5\">");
+      
+      oldFile = BagFormatter.openUTF8Reader(Utility.SUPPLEMENTAL_DIRECTORY, "supplementalData.xml");
+      copyUpTo(oldFile, Pattern.compile("\\s*<languageData>\\s*"), Log.getLog(), false);
 
       cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
       Set available = cldrFactory.getAvailable();
@@ -141,17 +145,31 @@ public class ConvertLanguageData {
       showDefaultContentDifferences(defaultLocaleContent);
       
       showFailures(failures);
+      
+      copyUpTo(oldFile, Pattern.compile("\\s*</territoryInfo>\\s*"), null, false);
+      copyUpTo(oldFile, Pattern.compile("\\s*<references>\\s*"), Log.getLog(), false);
       //generateIso639_2Data();
       references.printReferences();
-      Log.println("</supplementalData>");
+      copyUpTo(oldFile, Pattern.compile("\\s*</references>\\s*"), null, false);
+      copyUpTo(oldFile, null, Log.getLog(), false);
+      //Log.println("</supplementalData>");
       Log.close();
-      Log.setLog(Utility.GEN_DIRECTORY + "/supplemental/language_code_fragment_metadata.xml");
-      Log.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-      Log.println("<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/data/dtd/ldmlSupplemental.dtd\">");
-      Log.println("<supplementalData version=\"1.5\">");
+      oldFile.close();
+      
+      Log.setLogNoBOM(Utility.GEN_DIRECTORY + "/supplemental/supplementalMetadata.xml");
+      oldFile = BagFormatter.openUTF8Reader(Utility.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
+      copyUpTo(oldFile, Pattern.compile("\\s*<defaultContent locales=\"\\s*"), Log.getLog(), false);
+ 
+//      Log.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+//      Log.println("<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/data/dtd/ldmlSupplemental.dtd\">");
+//      Log.println("<supplementalData version=\"1.5\">");
       printDefaultContent(defaultLocaleContent);
-      Log.println("</supplementalData>");
+//      Log.println("</supplementalData>");
+      copyUpTo(oldFile, Pattern.compile("\\s*/>\\s*"), null, false);
+      copyUpTo(oldFile, null, Log.getLog(), false);
+
       Log.close();
+      oldFile.close();
       
       Log.setLog(Utility.GEN_DIRECTORY + "/supplemental/language_script_raw.txt");
       getLanguageScriptSpreadsheet(Log.getLog());
@@ -159,8 +177,41 @@ public class ConvertLanguageData {
     } catch (Exception e) {
       e.printStackTrace();
     } finally {
+      if (oldFile != null) {
+        oldFile.close();
+      }
       System.out.println("DONE");
     } 
+  }
+
+  /**
+   * Copy up to matching line (not included). If output is null, then just skip until.
+   * @param oldFile
+   * @param readUntilPattern
+   * @param output
+   * @throws IOException
+   */
+  private static void copyUpTo(BufferedReader oldFile, final Pattern readUntilPattern,
+          final PrintWriter output, boolean includeMatchingLine) throws IOException {
+    Matcher readUntil = readUntilPattern == null ? null : readUntilPattern.matcher("");
+    while (true) {
+      String line = oldFile.readLine();
+      if (line == null) {
+        break;
+      }
+      if (line.startsWith("\uFEFF")) {
+        line = line.substring(1);
+      }
+      if (readUntil != null && readUntil.reset(line).matches()) {
+        if (includeMatchingLine && output != null) {
+          output.println(line);
+        }
+        break;
+      }
+      if (output != null) {
+        output.println(line);
+      }
+    }
   }
 
   private static void showDefaultContentDifferences(Set<String> defaultLocaleContent) {
@@ -1413,7 +1464,8 @@ public class ConvertLanguageData {
     String sep = "\r\n\t\t\t";
     String broken = Utility.breakLines(join(defaultLocaleContent," "), sep, Pattern.compile("(\\S)\\S*").matcher(""), 80);
     
-    Log.println("\t\t<defaultContent locales=\"" + broken + "\"/>");
+    Log.println("\t\t<defaultContent locales=\"" + broken + "\"");
+    Log.println("\t\t/>");
   }
   
   private static Object getSuppressScript(String languageCode) {

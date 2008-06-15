@@ -72,12 +72,12 @@ public class GenerateMaximalLocales {
       for (String locale : defaultContentLocales) {
         String parent = parser.getParent(locale);
         toMaximized.put(parent, locale);
-        if (SHOW_ADD) System.out.println("Adding: " + parent + " => " + locale + "\t\tDefaultContent");
+        if (SHOW_ADD) System.out.println("Adding:\t" + parent + "\t=>\t" + locale + "\t\tDefaultContent");
       }
 
       for (String[] specialCase : SpecialCases) {
         toMaximized.put(specialCase[0], specialCase[1]);
-        if (SHOW_ADD) System.out.println("Adding: " + specialCase[0] + " => " + specialCase[1] + "\t\tSpecial");
+        if (SHOW_ADD) System.out.println("Adding:\t" + specialCase[0] + "\t=>\t" + specialCase[1] + "\t\tSpecial");
       }
 
       // recurse and close
@@ -140,7 +140,7 @@ public class GenerateMaximalLocales {
             "\r\n zh-TW => zh-Hans-TW. Match, so return zh-TW." +
             "\r\n" +
             "\r\n (A variant of this uses {language, language-script, language-region}): that is, tries script before language." +
-            "\r\n toMaximal size: " + toMaximized.size() + 
+            "\r\n toMaximal size:\t" + toMaximized.size() + 
             "\r\n*/"
     );
 
@@ -188,7 +188,7 @@ public class GenerateMaximalLocales {
       scriptRegions.put(new Row.R2(script,region), new Row.R2(order, language));
       languageRegions.put(new Row.R2(language,region), new Row.R2(order, script));
       
-      System.out.println(language + "\t" + script + "\t" + region + "\t" + order);
+      System.out.println("Data:\t" + language + "\t" + script + "\t" + region + "\t" + order);
     }
     private void addCounter(Map<String, Counter<String>> map, String key, String key2, Double count) {
       Counter<String> counter = map.get(key);
@@ -481,10 +481,10 @@ public class GenerateMaximalLocales {
     }
     String oldValue = toAdd.get(key);
     if (oldValue != null && value.equals(oldValue)) {
-      if (SHOW_ADD) System.out.println("Replacing: " + key + " => " + oldValue);
+      if (SHOW_ADD) System.out.println("Replacing:\t" + key + "\t=>\t" + oldValue);
     }
     toAdd.put(key, value);
-    if (SHOW_ADD) System.out.println("Adding: " + key + " => " + value + "\t\t" + kind);
+    if (SHOW_ADD) System.out.println("Adding:\t" + key + "\t=>\t" + value + "\t\t" + kind);
   }
 
   private static void addCountries(Map<String, String> toMaximized) {
@@ -525,7 +525,7 @@ public class GenerateMaximalLocales {
         final String replacementTag = "und_" + territory;
         String maximized = biggestOfficial + "_" + territory;
         toMaximized.put(replacementTag, maximized);
-        if (SHOW_ADD) System.out.println("Adding: " + replacementTag + " => " + maximized + "\t\tLanguage-Territory");
+        if (SHOW_ADD) System.out.println("Adding:\t" + replacementTag + "\t=>\t" + maximized + "\t\tLanguage-Territory");
       }
     }
 
@@ -545,7 +545,7 @@ public class GenerateMaximalLocales {
         final String replacementTag = "und_" + script;
         String maximized = biggestOfficial + "_" + script;
         toMaximized.put(replacementTag, maximized);
-        if (SHOW_ADD) System.out.println("Adding: " + replacementTag + " => " + maximized + "\t\tUnd-Script");
+        if (SHOW_ADD) System.out.println("Adding:\t" + replacementTag + "\t=>\t" + maximized + "\t\tUnd-Script");
       }
     }
   }
@@ -829,12 +829,12 @@ public class GenerateMaximalLocales {
         String target = fluffup.get(locale);
         if (targetParser.set(target).getRegion().equals(UNKNOWN_REGION)) {
           removals.add(locale);
-          if (SHOW_ADD) System.out.println("Removing: " + locale + " => " + target +"\t\t - Unknown Region in target");
+          if (SHOW_ADD) System.out.println("Removing:\t" + locale + "\t=>\t" + target +"\t\t - Unknown Region in target");
           continue;            
         }
         if (targetParser.getScript().equals(UNKNOWN_SCRIPT)) {
           removals.add(locale);
-          if (SHOW_ADD) System.out.println("Removing: " + locale + " => " + target +"\t\t - Unknown Script in target");
+          if (SHOW_ADD) System.out.println("Removing:\t" + locale + "\t=>\t" + target +"\t\t - Unknown Script in target");
           continue;            
         }
 
@@ -842,7 +842,7 @@ public class GenerateMaximalLocales {
         if (region.length() != 0) {
           if (region.equals(UNKNOWN_REGION)) {
             removals.add(locale);
-            if (SHOW_ADD) System.out.println("Removing: " + locale + " => " + target +"\t\t - Unknown Region in source");
+            if (SHOW_ADD) System.out.println("Removing:\t" + locale + "\t=>\t" + target +"\t\t - Unknown Region in source");
             continue;            
           }
           parser.setRegion("");
@@ -852,7 +852,7 @@ public class GenerateMaximalLocales {
             newTarget = targetParser.set(newTarget).setRegion(region).toString();
             if (target.equals(newTarget)) {
               removals.add(locale);
-              if (SHOW_ADD) System.out.println("Removing: " + locale + " => " + target +"\t\tRedundant with " + newLocale);
+              if (SHOW_ADD) System.out.println("Removing:\t" + locale + "\t=>\t" + target +"\t\tRedundant with " + newLocale);
               continue;
             }
           }
@@ -864,7 +864,7 @@ public class GenerateMaximalLocales {
         if (script.length() != 0) {
           if (script.equals(UNKNOWN_SCRIPT)) {
             removals.add(locale);
-            if (SHOW_ADD) System.out.println("Removing: " + locale + " => " + target +"\t\t - Unknown Script");
+            if (SHOW_ADD) System.out.println("Removing:\t" + locale + "\t=>\t" + target +"\t\t - Unknown Script");
             continue;            
           }
           parser.setScript("");
@@ -874,7 +874,7 @@ public class GenerateMaximalLocales {
             newTarget = targetParser.set(newTarget).setScript(script).toString();
             if (target.equals(newTarget)) {
               removals.add(locale);
-              if (SHOW_ADD) System.out.println("Removing: " + locale + " => " + target + "\t\tRedundant with " + newLocale);
+              if (SHOW_ADD) System.out.println("Removing:\t" + locale + "\t=>\t" + target + "\t\tRedundant with " + newLocale);
               continue;
             }
           }
@@ -909,12 +909,12 @@ public class GenerateMaximalLocales {
         if (other != null) {
           if (!target.equals(other)) {
             System.out.println("**Failure with multiple sources in addLanguageScript: "
-                    + possibleSource + " => " + target + ", " + other);
+                    + possibleSource + "\t=>\t" + target + ", " + other);
           }
           continue;
         }
         temp.put(possibleSource, target);
-        if (SHOW_ADD) System.out.println("Adding: " + possibleSource + " => " + target + "\t\tLanguage-Script");
+        if (SHOW_ADD) System.out.println("Adding:\t" + possibleSource + "\t=>\t" + target + "\t\tLanguage-Script");
       }
       if (temp.size() == 0) {
         break;
@@ -947,7 +947,7 @@ public class GenerateMaximalLocales {
             script = getScriptForLocale(possibleSource);
             if (script == null) {
               System.out.println("**Failure with multiple sources in addLanguageCountry: "
-                      + possibleSource + " => " + target + ", " + other);
+                      + possibleSource + "\t=>\t" + target + ", " + other);
               continue; // error message in routine
             }
             parser.setScript(script);
@@ -956,7 +956,7 @@ public class GenerateMaximalLocales {
         }
 
         temp.put(possibleSource, target);
-        if (SHOW_ADD) System.out.println("Adding: " + possibleSource + " => " + target + "\t\tLanguageCountry");
+        if (SHOW_ADD) System.out.println("Adding:\t" + possibleSource + "\t=>\t" + target + "\t\tLanguageCountry");
       }
       if (temp.size() == 0) {
         break;
@@ -1043,15 +1043,15 @@ public class GenerateMaximalLocales {
       if (CLDRScripts.size() == 1) {
         return result = CLDRScripts.iterator().next();
       } else if (CLDRScripts.size() == 0) {
-        System.out.println("**Failed to get script for: " + locale);
+        System.out.println("**Failed to get script for:\t" + locale);
         return result = UNKNOWN_SCRIPT;
       } else {
-        System.out.println("**Failed, too many scripts for: " + locale + ", " + CLDRScripts);
+        System.out.println("**Failed, too many scripts for:\t" + locale + ", " + CLDRScripts);
         return result = UNKNOWN_SCRIPT;
       }
     } finally {
       localeToScriptCache.put(locale, result);
-      System.out.println("Script: " + locale + " => " + result);
+      System.out.println("Script:\t" + locale + "\t" + english.getName(locale) + "\t=>\t" + result + "\t" + english.getName(english.SCRIPT_NAME, result));
     }
   }
 

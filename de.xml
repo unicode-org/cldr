@@ -1261,7 +1261,7 @@
 		<exemplarCharacters>[a ä b-o ö p-s ß t u ü v-z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à ă â å ä ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ß ú ù ŭ û ü ū ÿ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" alt="proposed-x1001" draft="unconfirmed">[á à ă â å ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ø ō œ ú ù ŭ û ū ÿ]</exemplarCharacters>
-		<exemplarCharacters type="currencySymbol">[\$ £ ¥ ₤ ₧ € a-z]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol">[a-z]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol" alt="proposed-x1001" draft="unconfirmed">[a-z]</exemplarCharacters>
 	</characters>
 	<delimiters>
@@ -2783,14 +2783,14 @@
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
-					<pattern>#,##0 %</pattern>
+					<pattern>#,##0 %</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>#,##0.00 ¤</pattern>
+					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>

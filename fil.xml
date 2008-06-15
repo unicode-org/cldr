@@ -533,8 +533,8 @@
 		<inText type="variants" draft="contributed">mixed</inText>
 	</layout>
 	<characters>
-		<exemplarCharacters>[a-z {ng} ñ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[áéíóúàèìòùâêîôû]</exemplarCharacters>
+		<exemplarCharacters>[a-n ñ {ng} o-z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[á à â é è ê í ì î ó ò ô ú ù û]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol" draft="contributed">[a-z]</exemplarCharacters>
 	</characters>
 	<delimiters>
@@ -1115,7 +1115,7 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern draft="contributed">¤ #,##0.00</pattern>
+					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>

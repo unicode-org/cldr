@@ -1148,7 +1148,7 @@
 		<exemplarCharacters>[a à â æ b c ç d e é è ê ë f-i î ï j-o ô œ p-u ù û ü v-y ÿ z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á å ä ã ā ē í ì ī ñ ó ò ö ø ú ǔ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" alt="proposed-x1001" draft="unconfirmed">[á å ä ã ā č ē í ì ī ñ ó ò ö ø š ú ž]</exemplarCharacters>
-		<exemplarCharacters type="currencySymbol">[\$ £ € a-z Ұ]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol">[a-z Ұ]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol" alt="proposed-x1001" draft="unconfirmed">[a-z Ұ]</exemplarCharacters>
 	</characters>
 	<delimiters>
@@ -4844,7 +4844,7 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>#,##0.00 ¤</pattern>
+					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>

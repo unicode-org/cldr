@@ -172,21 +172,21 @@ public class GenerateMaximalLocales {
     Relation<Row.R2<String, String>,Row.R2<Double,String>> languageRegions = new Relation(new TreeMap(), TreeSet.class);
     
     void add(String language, String script, String region, Double order) {
-      languages.put(language, new Row.R3(order, script, region));
+      languages.put(language, Row.make(order, script, region));
       //addCounter(languagesToScripts, language, script, order);
       //addCounter(languagesToRegions, language, region, order);
       
-      scripts.put(script, new Row.R3(order, language, region));
+      scripts.put(script, Row.make(order, language, region));
       //addCounter(scriptsToLanguages, script, language, order);
       //addCounter(scriptsToRegions, script, region, order);
 
-      regions.put(region, new Row.R3(order, language, script));
+      regions.put(region, Row.make(order, language, script));
       //addCounter(regionsToLanguages, region, language, order);
       //addCounter(regionsToScripts, region, script, order);
 
-      languageScripts.put(new Row.R2(language,script), new Row.R2(order, region));
-      scriptRegions.put(new Row.R2(script,region), new Row.R2(order, language));
-      languageRegions.put(new Row.R2(language,region), new Row.R2(order, script));
+      languageScripts.put(Row.make(language,script), Row.make(order, region));
+      scriptRegions.put(Row.make(script,region), Row.make(order, language));
+      languageRegions.put(Row.make(language,region), Row.make(order, script));
       
       System.out.println("Data:\t" + language + "\t" + script + "\t" + region + "\t" + order);
     }

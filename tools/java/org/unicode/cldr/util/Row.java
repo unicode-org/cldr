@@ -16,6 +16,22 @@ public class Row<C0 extends Comparable, C1 extends Comparable, C2 extends Compar
   protected Comparable[] items;
   protected boolean frozen;
   
+  /**
+   * Convenience Methods
+   */
+  public static <C0 extends Comparable, C1 extends Comparable> R2<C0,C1> make(C0 p0, C1 p1) {
+    return new R2<C0,C1>(p0,p1);
+  }
+  public static <C0 extends Comparable, C1 extends Comparable, C2 extends Comparable> R3<C0,C1,C2> make(C0 p0, C1 p1, C2 p2) {
+    return new R3<C0,C1,C2>(p0,p1,p2);
+  }
+  public static <C0 extends Comparable, C1 extends Comparable, C2 extends Comparable, C3 extends Comparable> R4<C0,C1,C2,C3> make(C0 p0, C1 p1, C2 p2, C3 p3) {
+    return new R4<C0,C1,C2,C3>(p0,p1,p2,p3);
+  }
+  public static <C0 extends Comparable, C1 extends Comparable, C2 extends Comparable, C3 extends Comparable, C4 extends Comparable> R5<C0,C1,C2,C3,C4> make(C0 p0, C1 p1, C2 p2, C3 p3, C4 p4) {
+    return new R5<C0,C1,C2,C3,C4>(p0,p1,p2,p3,p4);
+  }
+  
   public static class R2<C0 extends Comparable, C1 extends Comparable> extends Row<C0, C1, C1, C1, C1> {
     public R2(C0 a, C1 b)  {
       items = new Comparable[] {a, b};

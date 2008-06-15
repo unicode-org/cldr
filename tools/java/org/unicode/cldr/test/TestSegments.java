@@ -6,19 +6,22 @@
  */
 package org.unicode.cldr.test;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.RandomStringGenerator;
 import org.unicode.cldr.util.Segmenter;
+import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.Segmenter.Rule.Breaks;
 
 import com.ibm.icu.dev.test.util.ICUPropertyFactory;
 import com.ibm.icu.dev.test.util.UnicodeProperty;
-import com.ibm.icu.impl.Utility;
+
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.RuleBasedBreakIterator;
 import com.ibm.icu.text.UTF16;
@@ -51,8 +54,20 @@ public class TestSegments {
 	/**
 	 * Quick test of features for debugging
 	 * @param args unused
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+    Log.setLogNoBOM(Utility.GEN_DIRECTORY + "/segments/root.xml");
+    Log.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+    Log.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.6/ldml.dtd\">");
+    Log.println("<ldml>");
+    Log.println("\t<identity>");
+    Log.println("\t\t<version number=\"$Revision$\"/>");
+    Log.println("\t\t<generation date=\"$Date$\"/>");
+    Log.println("\t\t<language type=\"root\"/>");
+    Log.println("\t</identity>");
+    Log.println("\t<segmentations>");
+    
 		if (args.length == 0) args = new String[] {"GraphemeClusterBreak", "LineBreak", "SentenceBreak", "WordBreak"};
 		List testChoice = Arrays.asList(args);
 		
@@ -80,7 +95,8 @@ public class TestSegments {
 				if (line.equals("test")) break;
 				rb.addLine(line);
 			}
-			System.out.print(rb.toString(testName, indent));
+			
+			Log.print(rb.toString(testName, indent));
 			if (!TESTING) continue;
 			System.out.println();
 			System.out.println("Testing");
@@ -111,6 +127,9 @@ public class TestSegments {
 				System.out.println(showingBreaks);
 			}
 		}
+    Log.println("\t</segmentations>");
+    Log.println("</ldml>");
+		Log.close();
 		System.out.println();
 		System.out.println("Done");
 	}
@@ -122,7 +141,7 @@ public class TestSegments {
 		String testStr = "\uA80D/\u0745\u2026";
 		for (int k = 0; k < testStr.length(); ++k) {
 			boolean inside = oldALSet.contains(testStr.charAt(k));
-			System.out.println(k + ": " + inside + Utility.escape(""+testStr.charAt(k)));
+			System.out.println(k + ": " + inside + com.ibm.icu.impl.Utility.escape(""+testStr.charAt(k)));
 		}
 		Breaks m = rule.matches(testStr, 3);
 	}
@@ -201,7 +220,7 @@ public class TestSegments {
 		for (int i = 0; i < test.length(); i += UTF16.getCharCount(cp)) {
 			if (i == j) results.append(icuBreakResults ? "<\r\n$ >" : "<\r\n@ >");
 			cp = UTF16.charAt(test, i);
-			results.append("[" + rsg.getValue(cp) + ":" + Utility.escape(UTF16.valueOf(cp)) + "]");
+			results.append("[" + rsg.getValue(cp) + ":" + com.ibm.icu.impl.Utility.escape(UTF16.valueOf(cp)) + "]");
 		}
 		if (test.length() == j) results.append(icuBreakResults ? "<\r\n$ >" : "<\r\n@ >");
 		return results.toString();

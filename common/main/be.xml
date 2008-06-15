@@ -557,11 +557,11 @@
 		<inText type="languages" draft="contributed">lowercase-words</inText>
 	</layout>
 	<characters>
-		<exemplarCharacters>[’ а-д {дж} {дз} е ё ж з й і к-у ў ф-ш ы-я]</exemplarCharacters>
+		<exemplarCharacters>[а-д {дж} {дз} е ё ж з й і к-у ў ф-ш ы-я]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" alt="proposed-x1001" draft="unconfirmed">[' и щ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" alt="proposed-x1001" draft="unconfirmed">[и щ]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a-z]</exemplarCharacters>
-		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[’ а-г ґ д {дж} {дз} е ё ж з й і к-у ў ф-ш ы-я]</exemplarCharacters>
+		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[а-г ґ д {дж} {дз} е ё ж з й і к-у ў ф-ш ы-я]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="contributed">„</quotationStart>
@@ -1247,7 +1247,7 @@
 			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>¤#,##0.00</pattern>
-					<pattern alt="proposed-x1001" draft="unconfirmed">#,##0.00 ¤</pattern>
+					<pattern alt="proposed-x1001" draft="unconfirmed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

@@ -19,7 +19,7 @@
 	</layout>
 	<characters>
 		<exemplarCharacters>[ܑ ܰ-݊ ܃-܉ ܁ ܂ ܀ ܊-܍ ܐ ܒ-ܔ ܖ ܕ ܗ-ܬ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[\u070F\u200C \u200D ܭ-ܯ ݍ-ݏ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[܏\u200C \u200D ܭ-ܯ ݍ-ݏ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -207,7 +207,7 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern draft="unconfirmed">¤ #,##0.00;¤ #,##0.00-</pattern>
+					<pattern draft="unconfirmed">¤ #,##0.00;¤ #,##0.00-</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -218,3 +218,4 @@
 		</currencies>
 	</numbers>
 </ldml>
+

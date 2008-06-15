@@ -1079,8 +1079,8 @@
 		<exemplarCharacters type="auxiliary">[i v x]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" alt="proposed-x1001" draft="unconfirmed">[a-z]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a-z]</exemplarCharacters>
-		<exemplarCharacters type="currencySymbol" alt="proposed-x1001" draft="unconfirmed">[₴]</exemplarCharacters>
-		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[' а-г ґ д е є ж-и і ї й-щ ь ю я]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol" alt="proposed-x1001" draft="unconfirmed">[]</exemplarCharacters>
+		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[а-г ґ д е є ж-и і ї й-щ ь ю я]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>«</quotationStart>
@@ -3053,7 +3053,7 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>#,##0.00 ¤</pattern>
+					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>

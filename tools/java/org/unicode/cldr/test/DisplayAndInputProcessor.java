@@ -3,8 +3,13 @@ package org.unicode.cldr.test;
 import org.unicode.cldr.util.CLDRFile;
 
 import org.unicode.cldr.icu.CollectionUtilities;
+
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+
 import org.unicode.cldr.test.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.util.ULocale;
 
@@ -124,7 +129,19 @@ public class DisplayAndInputProcessor {
         }
 
         UnicodeSet exemplar = new UnicodeSet(value);
-        exemplar.retainAll(CheckExemplars.AllowedInExemplars);
+        UnicodeSet toAdd = new UnicodeSet();
+        
+        for (UnicodeSetIterator usi = new UnicodeSetIterator(exemplar); usi.next(); ) {
+          final String string = usi.getString();
+          if (string.equals("ß")) {
+            continue;
+          }
+          final String newString = Normalizer.compose(UCharacter.toLowerCase(ULocale.ENGLISH, string), false);
+          toAdd.add(newString);
+        }
+        exemplar.addAll(toAdd);
+
+        exemplar.removeAll(CheckExemplars.TO_REMOVE_FROM_EXEMPLARS);
         String fixedExemplar = CollectionUtilities.prettyPrint(exemplar, true,
             null, null, col, col);
         UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar);

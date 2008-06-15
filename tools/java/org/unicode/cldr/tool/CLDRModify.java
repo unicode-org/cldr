@@ -142,7 +142,7 @@ public class CLDRModify {
 		String targetDir = Utility.checkValidDirectory(options[DESTDIR].value);	// Utility.GEN_DIRECTORY + "main/";
 		boolean makeResolved = options[RESOLVE].doesOccur;	// Utility.COMMON_DIRECTORY + "main/";
 		
-		Log.setLog(targetDir + "log.txt");
+		Log.setLog(targetDir + "diff/log.txt");
 		try {		//String[] failureLines = new String[2];
 			SimpleLineComparator lineComparer = new SimpleLineComparator(
 					//SimpleLineComparator.SKIP_SPACES + 

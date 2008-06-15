@@ -60,6 +60,10 @@ public class Log {
 		log = BagFormatter.openUTF8Writer("", file);
 		log.print('\uFEFF');
 	}
+	 
+  public static void setLogNoBOM(String file) throws IOException {
+    log = BagFormatter.openUTF8Writer("", file);
+  }
 
   public static void println() {
     log.println();

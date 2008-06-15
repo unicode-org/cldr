@@ -373,7 +373,7 @@ public class CoverageLevel {
 
     if (mainTerritories == null) {
       possibleErrors.add(new CheckStatus()
-      .setCause(cause).setMainType(CheckStatus.errorType).setSubtype(Subtype.missingLanguageTerritoryInfo)
+      .setCause(cause).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingLanguageTerritoryInfo)
           .setMessage("Missing language->territory information in supplemental data!"));
     } else for (Iterator it = mainTerritories.iterator(); it.hasNext();) {
       String territory = (String) it.next();

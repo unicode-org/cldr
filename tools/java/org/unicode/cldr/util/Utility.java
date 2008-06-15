@@ -342,12 +342,12 @@ public class Utility {
             } else {
                 File f = new File(batDir + batName);
                 if (f.exists()) {
-                    if (DEBUG_SHOW_BAT) System.out.println("*Deleting old " + f.getCanonicalPath());
+                    if (DEBUG_SHOW_BAT) System.out.println("*Deleting old:\t" + f.getCanonicalPath());
                     f.delete();
                 }
                 f = new File(fullTarget);
-                if (BagFormatter.SHOW_FILES) System.out.println("*Renaming old " + f.getCanonicalPath());
-                f.renameTo(new File(targetDir + File.separator + "_unchanged_" + targetFile));
+                if (BagFormatter.SHOW_FILES) System.out.println("*Deleting old:\t" + f.getCanonicalPath());
+                f.delete();
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block

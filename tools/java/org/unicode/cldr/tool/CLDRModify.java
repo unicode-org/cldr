@@ -604,17 +604,23 @@ public class CLDRModify {
 			}		
 		});
     
-    fixList.add('_', "remove superfluous compound language translations", new CLDRFilter() {
-      public void handlePath(String xpath) {
+		fixList.add('_', "remove superfluous compound language translations", new CLDRFilter() {
+		  private CLDRFile resolved;
+
+      public void handleStart() {
+		    resolved = cldrFileToFilter.make(cldrFileToFilter.getLocaleID(), true);
+		  }
+
+		  public void handlePath(String xpath) {
         if (!xpath.contains("_")) return;
         if (!xpath.contains("/language")) return;
         String languageCode = parts.set(xpath).findAttributeValue("language", "type");
-        String v = cldrFileToFilter.getStringValue(xpath);
+        String v = resolved.getStringValue(xpath);
         if (v.equals(languageCode)) {
           remove(xpath,"same as language code");
           return;
         }
-        String generatedTranslation = cldrFileToFilter.getName(languageCode, true);     
+        String generatedTranslation = resolved.getName(languageCode, true);     
         if (v.equals(generatedTranslation)) {
           remove(xpath,"superfluous compound language");
         }
@@ -881,6 +887,7 @@ public class CLDRModify {
 		
 		fixList.add('w', "fix alt='...proposed' when there is no alternative", new CLDRFilter() {
 			private XPathParts parts = new XPathParts();
+			private Set<String> newFullXPathSoFar = new HashSet<String>();
 			public void handlePath(String xpath) {
 				if (xpath.indexOf("proposed") < 0) return;
 				String fullXPath = cldrFileToFilter.getFullXPath(xpath);
@@ -898,8 +905,11 @@ public class CLDRModify {
 					}
 					return; // there is, so skip
 				}
-				// there isn't, so modify
-				replace(fullXPath, newFullXPath, value);
+				// there isn't, so modif if we haven't done so already
+				if (!newFullXPathSoFar.contains(newFullXPath)) {
+				  replace(fullXPath, newFullXPath, value);
+				  newFullXPathSoFar.add(newFullXPath);
+				}
 			}
 		});
 		
@@ -1324,7 +1334,8 @@ public class CLDRModify {
 				if (skipPaths.contains(xpath)) continue;
 				// skip certain elements
 				if (xpath.indexOf("/identity") >= 0) continue;
-				if (xpath.startsWith("//ldml/numbers/currencies/currency")) continue;
+        if (xpath.startsWith("//ldml/numbers/currencies/currency")) continue;
+        if (xpath.startsWith("//ldml/dates/timeZoneNames/metazone[")) continue;
 				if (xpath.indexOf("[@alt") >= 0) continue;
 				if (xpath.indexOf("/alias") >= 0) continue;
 				

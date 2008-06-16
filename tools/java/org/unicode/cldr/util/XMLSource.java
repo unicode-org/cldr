@@ -1105,6 +1105,19 @@ public abstract class XMLSource implements Freezable {
           addFallbackCode(typeNo, code, value);
         }
       }
+      
+//    Add commonlyUsed
+//    //ldml/dates/timeZoneNames/metazone[@type="New_Zealand"]/commonlyUsed
+//    should get this from supplemental metadata, but for now...
+//      String[] metazones = "Acre Afghanistan Africa_Central Africa_Eastern Africa_FarWestern Africa_Southern Africa_Western Aktyubinsk Alaska Alaska_Hawaii Almaty Amazon America_Central America_Eastern America_Mountain America_Pacific Anadyr Aqtau Aqtobe Arabian Argentina Argentina_Western Armenia Ashkhabad Atlantic Australia_Central Australia_CentralWestern Australia_Eastern Australia_Western Azerbaijan Azores Baku Bangladesh Bering Bhutan Bolivia Borneo Brasilia British Brunei Cape_Verde Chamorro Changbai Chatham Chile China Choibalsan Christmas Cocos Colombia Cook Cuba Dacca Davis Dominican DumontDUrville Dushanbe Dutch_Guiana East_Timor Easter Ecuador Europe_Central Europe_Eastern Europe_Western Falkland Fiji French_Guiana French_Southern Frunze Gambier GMT Galapagos Georgia Gilbert_Islands Goose_Bay Greenland_Central Greenland_Eastern Greenland_Western Guam Gulf Guyana Hawaii_Aleutian Hong_Kong Hovd India Indian_Ocean Indochina Indonesia_Central Indonesia_Eastern Indonesia_Western Iran Irkutsk Irish Israel Japan Kamchatka Karachi Kashgar Kazakhstan_Eastern Kazakhstan_Western Kizilorda Korea Kosrae Krasnoyarsk Kuybyshev Kwajalein Kyrgystan Lanka Liberia Line_Islands Long_Shu Lord_Howe Macau Magadan Malaya Malaysia Maldives Marquesas Marshall_Islands Mauritius Mawson Mongolia Moscow Myanmar Nauru Nepal New_Caledonia New_Zealand Newfoundland Niue Norfolk North_Mariana Noronha Novosibirsk Omsk Oral Pakistan Palau Papua_New_Guinea Paraguay Peru Philippines Phoenix_Islands Pierre_Miquelon Pitcairn Ponape Qyzylorda Reunion Rothera Sakhalin Samara Samarkand Samoa Seychelles Shevchenko Singapore Solomon South_Georgia Suriname Sverdlovsk Syowa Tahiti Tajikistan Tashkent Tbilisi Tokelau Tonga Truk Turkey Turkmenistan Tuvalu Uralsk Uruguay Urumqi Uzbekistan Vanuatu Venezuela Vladivostok Volgograd Vostok Wake Wallis Yakutsk Yekaterinburg Yerevan Yukon".split("\\s+");
+//      for (String metazone : metazones) {
+//        constructedItems.putValueAtPath(
+//                "//ldml/dates/timeZoneNames/metazone[@type=\"" 
+//                + metazone 
+//                + "\"]/commonlyUsed",
+//                "false");
+//      }
+      
       String[] extraCodes = {"de_AT", "de_CH", "en_AU", "en_CA", "en_GB", "en_US", "es_419", "es_ES", "fr_CA", "fr_CH", "nl_BE", "pt_BR", "pt_PT", "zh_Hans", "zh_Hant"};
       for (String extraCode : extraCodes) {
         addFallbackCode(CLDRFile.LANGUAGE_NAME, extraCode, extraCode);

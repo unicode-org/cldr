@@ -14,6 +14,65 @@
 		<language type="ml" /> 
 	</identity>
 		<collations  validSubLocales="ml_IN">
+			<collation type="standard" draft="unconfirmed" alt="proposed">
+                <rules>
+                    <reset><first_primary_ignorable/></reset>
+                    <s>ഃ</s>
+                    <reset>ഃ</reset>
+                    <s>ഽ</s>
+
+                    <reset>ോ</reset>
+                    <p>ൗ</p>
+                    <reset>ൗ</reset>
+                    <t>ൌ</t>
+                    <reset>ൗ</reset>
+                    <p>ു്</p>
+
+
+                    <reset>ണ്</reset>
+                    <s>ണ്‍ </s>
+                    <reset>ണ്‍ </reset>
+                    <t>ൺ</t>
+
+
+                    <reset>ന്</reset>
+                    <t>ൻ്</t>
+                    <reset>ന്</reset>
+                    <s>ന്‍</s>
+                    <reset>ന്‍</reset>
+                    <t>ൻ</t>
+
+                    <reset>ര്</reset>
+                    <s>ര്‍</s>
+                    <reset>ര്‍</reset>
+                    <t>ർ</t>
+
+                    <reset>ല്</reset>
+                    <s>ല്‍</s>
+                    <reset>ല്‍</reset>
+                    <t>ൽ</t>
+
+                    <reset>ള്</reset>
+                    <s>ള്‍</s>
+                    <reset>ള്‍</reset>
+                    <t>ൾ</t>
+
+                    <reset>ക്</reset>
+                    <s>ക്‍</s>
+                    <reset>ക്‍</reset>
+                    <t>ൿ</t>
+
+                    <reset>മ്</reset>
+                    <s>ം</s>
+
+
+                    <reset>ല</reset>
+                    <p>വ</p>
+                    <reset>ഴ</reset>
+                    <p>റ</p>
+                </rules>
+			</collation>
+        
 			<collation type="standard"
 references="R. Hari, Sr. IT Specialist, IBM India Ltd., India
 	Inputs from : Dr. V. Saratchandran Nair, Principal, South Regional

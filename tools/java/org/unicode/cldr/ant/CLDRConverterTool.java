@@ -168,7 +168,7 @@ public abstract class CLDRConverterTool {
             CLDRFile smd = CLDRFile.make(CLDRFile.SUPPLEMENTAL_METADATA, supplementalDir, true);
             HashMap options = new HashMap();
             coverageLevel = new CoverageLevel();
-            coverageLevel.init(sd, smd, options);
+            CoverageLevel.init(sd, smd);
             ArrayList errors = new ArrayList();
             coverageLevel.setFile(localeName, exemplarsContainA_Z, false, null, null, errors);
         }

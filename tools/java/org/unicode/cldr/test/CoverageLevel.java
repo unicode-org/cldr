@@ -61,19 +61,21 @@ public class CoverageLevel {
           "\\[@type=\"format\"].*\\[@type=\"(wide|abbreviated)\"]" +
           "|\\[@type=\"stand-alone\"].*\\[@type=\"narrow\"]" +
           "|/pattern" +
-          "|/dateFormatItem" +
-        ")" +
+//          "|/dateFormatItem" +
+          ")" +
         "|numbers/(" +
-          "symbols/(decimal/group)" +
+          "symbols" + // /(decimal/group)
           "|.*/pattern(?!Digit)" +
-        ")" +
+          ")" +
         "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
-        "|units/unit.*/unitPattern" +
+        "|unitPattern" + // "|units/unit.*/unitPattern" +
+        "|intervalFormatFallback" + 
         ")");
 
   private static final Pattern BASIC_PATTERNS = Pattern.compile(
         "/(" +
         "measurementSystemName" +
+        "|localeDisplayPattern" +
         "|characters/exemplarCharacters*(?!\\[@type=\"currencySymbol\"])" +
         "|delimiters" +
         "|codePattern" +
@@ -86,7 +88,7 @@ public class CoverageLevel {
         "|/fields(?!.*relative.*(2|3))" +
         ")" +
         "|numbers/symbols/(decimal/group)" +
-        "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
+        "|timeZoneNames/(hourFormat|gmtFormat|regionFormat|fallbackFormat)" +
         "|fallback(?![a-zA-Z])" +
         ")");
 
@@ -538,7 +540,26 @@ public class CoverageLevel {
       }
     } else if (part1.equals("identity")) {
       result = Level.UNDETERMINED;
+    } else if (lastElement.equals("greatestDifference")) {
+      String calendar = parts.getAttributeValue(3, "type");
+      if (calendar.equals("gregorian")) {
+        String id = parts.getAttributeValue(-2, "id");
+        if (INTERVAL_FORMATS.contains(id)) {
+          result = CoverageLevel.Level.BASIC;
+        }
+      }
+    } else if (lastElement.equals("dateFormatItem")) {
+      String calendar = parts.getAttributeValue(3, "type");
+      if (calendar.equals("gregorian")) {
+        String id = parts.getAttributeValue(-1, "id");
+        if (DATE_FORMAT_ITEM_IDS.contains(id)) {
+          result = CoverageLevel.Level.BASIC;
+        }
+      }
+    } else {
+      // System.out.println("Skipping\t" + fullPath);
     }
+    
     if (result == null) {
        if (distinguishedPath.contains("metazone") || distinguishedPath.contains("usesMetazone")) {
          result = CoverageLevel.Level.OPTIONAL;
@@ -551,15 +572,15 @@ public class CoverageLevel {
     return result;
   }
   
+  static final Set DATE_FORMAT_ITEM_IDS = new HashSet<String>(Arrays.asList(
+          "Hm  M  MEd  MMM  MMMEd  MMMMEd  MMMMd  MMMd  Md  d  ms  y  yM  yMEd  yMMM  yMMMEd  yMMMM  yQ  yQQQ".split("\\s+")));
+  static final Set INTERVAL_FORMATS = new HashSet<String>(Arrays.asList(
+          "M MEd MMM MMMEd MMMM MMMd Md d h hm hmv hv y yM yMEd yMMM yMMMEd yMMMM yMMMd yMd".split("\\s+")));
+  
+  //
+  
   // ========== Initialization Stuff ===================
 
-  /**
-   * Use version without options.
-   * @deprecated
-   */
-  public void init(CLDRFile supplementalData, CLDRFile supplementalMetadata, Map options) {
-    init(supplementalData, supplementalMetadata);
-  }
   /**
    * Should only be called once.
    */

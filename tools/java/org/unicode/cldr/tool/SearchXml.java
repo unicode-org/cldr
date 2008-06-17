@@ -21,7 +21,7 @@ public class SearchXml {
   private static int count = 0;
 
   public static void main(String[] args) throws IOException {
-    String sourceDirectory = Utility.getProperty("SOURCE", null);
+    String sourceDirectory = Utility.getProperty("SOURCE", Utility.MAIN_DIRECTORY);
     if (sourceDirectory == null) {
       System.out.println("Need Source Directory! ");
       return;

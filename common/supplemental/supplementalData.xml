@@ -3655,22 +3655,21 @@ XXX	Code for transations where no currency is involved
           <minDays count="4" territories="AT BE CA CH DE DK FI FR IT LI LT LU MC MT NL NO SE SK" />
           <minDays count="4" territories="CD" draft="unconfirmed" />
         
-          <firstDay day="mon"  territories="001" />
+          <firstDay day="mon"  territories="AE AU IE LB ZA 001" />
           <firstDay day="fri"  territories="MV" />
-          <firstDay day="sat"  territories="AE AF BH DJ DZ EG ER ET IQ IR JO KE KW LB LY MA OM QA SA SD SO TN YE" />
-          <firstDay day="sun"  territories="AS AU AZ BW CA CN FO GE GL GU HK IE IL IS JM JP KG KR LA MH MN MO MP MT NZ PH PK SG TH TT TW UM US UZ VI ZA ZW" />
+          <firstDay day="sat"  territories="AF BH DJ DZ EG ER ET IQ IR JO KE KW LY MA OM QA SA SD SO TN YE" />
+          <firstDay day="sun"  territories="AS AZ BW CA CN FO GE GL GU HK IL IS JM JP KG KR LA MH MN MO MP MT NZ PH PK SG SY TH TT TW UM US UZ VI ZW" />
           <firstDay day="sun"  territories="ET MW NG TJ" draft="unconfirmed" />
 		  <firstDay day="sun"  territories="GB" draft="unconfirmed"  alt="variant" references="Shorter Oxford Dictionary (5th edition, 2002)"/>
-          <firstDay day="thu"  territories="SY" />
         
-          <weekendStart day="sat"  territories="001"/>
-          <weekendStart day="fri"  territories="EG IL SY"/>
+          <weekendStart day="thu"  territories="DZ IQ KW LY OM SA SD YE AF IR"/>
+          <weekendStart day="fri"  territories="AE BH EG IL JO MA QA SY TN"/>
+          <weekendStart day="sat"  territories="LB 001"/>
           <weekendStart day="sun"  territories="IN"/>
-          <weekendStart day="thu"  territories="AE BH DZ IQ JO KW LB LY MA OM QA SA SD TN YE AF IR"/>
         
-          <weekendEnd day="sun"  territories="001"/>
-          <weekendEnd day="fri"  territories="AE BH DZ IQ JO KW LB LY MA OM QA SA SD TN YE AF IR"/>
-          <weekendEnd day="sat"  territories="EG IL SY"/>
+          <weekendEnd day="fri"  territories="DZ IQ KW LY OM SA SD YE AF IR"/>
+          <weekendEnd day="sat"  territories="AE BH EG IL JO MA QA SY TN"/>
+          <weekendEnd day="sun"  territories="LB 001"/>
     </weekData>
 
     <measurementData>

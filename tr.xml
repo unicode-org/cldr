@@ -954,7 +954,6 @@
 			<variant type="1994">Standart Resia Yazım Kuralları</variant>
 			<variant type="1996">1996 Alman Yazım Kuralları</variant>
 			<variant type="1606NICT">1606'ya Dek Geç Ortaçağ Fransızcası</variant>
-			<variant type="1694ACAD">1694ACAD</variant>
 			<variant type="AREVELA">Doğu Ermenicesi</variant>
 			<variant type="AREVMDA">Batı Ermenicesi</variant>
 			<variant type="BAKU1926">Birleştirilmiş Yeni Türk Alfabesi</variant>
@@ -978,7 +977,6 @@
 			<variant type="SCOUSE">Scouse</variant>
 			<variant type="SOLBA">Stolvizza/Solbica Lehçesi</variant>
 			<variant type="TARASK">Taraskievica Yazım Kuralları</variant>
-			<variant type="VALENCIA">VALENCIA</variant>
 		</variants>
 		<keys>
 			<key type="calendar">Takvim</key>
@@ -1027,12 +1025,10 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="chinese">
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="unconfirmed">MMMM d</dateFormatItem>
 						<dateFormatItem id="yyMMM" draft="unconfirmed">yy MMM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -1385,7 +1381,6 @@
 							<month type="5">Şevat</month>
 							<month type="6">Veadar</month>
 							<month type="9">İyar</month>
-							<month type="13">Elul</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tişri</month>
@@ -1393,7 +1388,6 @@
 							<month type="5">Şevat</month>
 							<month type="6">Veadar</month>
 							<month type="9">İyar</month>
-							<month type="13">Elul</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1459,11 +1453,8 @@
 							<month type="1">Ferverdin</month>
 							<month type="2">Ordibeheşt</month>
 							<month type="3">Hordad</month>
-							<month type="5">Mordad</month>
 							<month type="6">Şehriver</month>
-							<month type="8">Aban</month>
 							<month type="9">Azer</month>
-							<month type="10">Dey</month>
 							<month type="11">Behmen</month>
 							<month type="12">Esfend</month>
 						</monthWidth>
@@ -1471,11 +1462,8 @@
 							<month type="1">Ferverdin</month>
 							<month type="2">Ordibeheşt</month>
 							<month type="3">Hordad</month>
-							<month type="5">Mordad</month>
 							<month type="6">Şehriver</month>
-							<month type="8">Aban</month>
 							<month type="9">Azer</month>
-							<month type="10">Dey</month>
 							<month type="11">Behmen</month>
 							<month type="12">Esfend</month>
 						</monthWidth>
@@ -1497,104 +1485,17 @@
 			<zone type="Europe/Tirane">
 				<exemplarCity draft="provisional">Tiran</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Rothera">
-				<exemplarCity>Rothera</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Palmer">
-				<exemplarCity>Palmer</exemplarCity>
-			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Güney Kutbu</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Syowa">
-				<exemplarCity>Syowa</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Mawson">
-				<exemplarCity>Mawson</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Davis">
-				<exemplarCity>Davis</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Vostok">
-				<exemplarCity>Vostok</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Casey">
-				<exemplarCity>Casey</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>Dumont D'Urville</exemplarCity>
 			</zone>
-			<zone type="Antarctica/McMurdo">
-				<exemplarCity>McMurdo</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity>Rio Gallegos</exemplarCity>
-			</zone>
-			<zone type="America/Mendoza">
-				<exemplarCity>Mendoza</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Juan">
-				<exemplarCity>San Juan</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity>Ushuaia</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity>La Rioja</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity>Catamarca</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity>Jujuy</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Tucuman">
-				<exemplarCity>Tucuman</exemplarCity>
-			</zone>
-			<zone type="America/Cordoba">
-				<exemplarCity>Cordoba</exemplarCity>
-			</zone>
-			<zone type="America/Buenos_Aires">
-				<exemplarCity>Buenos Aires</exemplarCity>
-			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity draft="provisional">Viyana</exemplarCity>
 			</zone>
-			<zone type="Australia/Perth">
-				<exemplarCity>Perth</exemplarCity>
-			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity>Eucla</exemplarCity>
-			</zone>
-			<zone type="Australia/Darwin">
-				<exemplarCity>Darwin</exemplarCity>
-			</zone>
-			<zone type="Australia/Adelaide">
-				<exemplarCity>Adelaide</exemplarCity>
-			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity>Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Currie</exemplarCity>
-			</zone>
-			<zone type="Australia/Melbourne">
-				<exemplarCity>Melbourne</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity>Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity>Lindeman</exemplarCity>
-			</zone>
 			<zone type="Australia/Sydney">
 				<exemplarCity>Sidney</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity>Brisbane</exemplarCity>
-			</zone>
-			<zone type="Australia/Lord_Howe">
-				<exemplarCity>Lord Howe</exemplarCity>
 			</zone>
 			<zone type="Asia/Baku">
 				<exemplarCity draft="provisional">Bakü</exemplarCity>
@@ -1608,144 +1509,8 @@
 			<zone type="Asia/Bahrain">
 				<exemplarCity draft="provisional">Bahreyn</exemplarCity>
 			</zone>
-			<zone type="America/Eirunepe">
-				<exemplarCity>Eirunepe</exemplarCity>
-			</zone>
-			<zone type="America/Rio_Branco">
-				<exemplarCity>Rio Branco</exemplarCity>
-			</zone>
-			<zone type="America/Porto_Velho">
-				<exemplarCity>Porto Velho</exemplarCity>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity>Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Manaus">
-				<exemplarCity>Manaus</exemplarCity>
-			</zone>
-			<zone type="America/Cuiaba">
-				<exemplarCity>Cuiaba</exemplarCity>
-			</zone>
-			<zone type="America/Campo_Grande">
-				<exemplarCity>Campo Grande</exemplarCity>
-			</zone>
-			<zone type="America/Belem">
-				<exemplarCity>Belem</exemplarCity>
-			</zone>
-			<zone type="America/Araguaina">
-				<exemplarCity>Araguaina</exemplarCity>
-			</zone>
-			<zone type="America/Sao_Paulo">
-				<exemplarCity>Sao Paulo</exemplarCity>
-			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity>Bahia</exemplarCity>
-			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity>Fortaleza</exemplarCity>
-			</zone>
-			<zone type="America/Maceio">
-				<exemplarCity>Maceio</exemplarCity>
-			</zone>
-			<zone type="America/Recife">
-				<exemplarCity>Recife</exemplarCity>
-			</zone>
-			<zone type="America/Noronha">
-				<exemplarCity>Noronha</exemplarCity>
-			</zone>
-			<zone type="America/Dawson">
-				<exemplarCity>Dawson</exemplarCity>
-			</zone>
-			<zone type="America/Whitehorse">
-				<exemplarCity>Whitehorse</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity>Inuvik</exemplarCity>
-			</zone>
-			<zone type="America/Vancouver">
-				<exemplarCity>Vancouver</exemplarCity>
-			</zone>
-			<zone type="America/Dawson_Creek">
-				<exemplarCity>Dawson Creek</exemplarCity>
-			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>Yellowknife</exemplarCity>
-			</zone>
-			<zone type="America/Edmonton">
-				<exemplarCity>Edmonton</exemplarCity>
-			</zone>
-			<zone type="America/Swift_Current">
-				<exemplarCity>Swift Current</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity>Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Regina">
-				<exemplarCity>Regina</exemplarCity>
-			</zone>
-			<zone type="America/Winnipeg">
-				<exemplarCity>Winnipeg</exemplarCity>
-			</zone>
-			<zone type="America/Resolute">
-				<exemplarCity>Resolute</exemplarCity>
-			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>Rainy River</exemplarCity>
-			</zone>
-			<zone type="America/Rankin_Inlet">
-				<exemplarCity>Rankin Inlet</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity>Coral Harbour</exemplarCity>
-			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>Thunder Bay</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>Nipigon</exemplarCity>
-			</zone>
-			<zone type="America/Toronto">
-				<exemplarCity>Toronto</exemplarCity>
-			</zone>
-			<zone type="America/Montreal">
-				<exemplarCity>Montreal</exemplarCity>
-			</zone>
-			<zone type="America/Iqaluit">
-				<exemplarCity>Iqaluit</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity>Pangnirtung</exemplarCity>
-			</zone>
-			<zone type="America/Moncton">
-				<exemplarCity>Moncton</exemplarCity>
-			</zone>
-			<zone type="America/Halifax">
-				<exemplarCity>Halifax</exemplarCity>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<exemplarCity>Goose Bay</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity>Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity>Blanc-Sablon</exemplarCity>
-			</zone>
-			<zone type="America/St_Johns">
-				<exemplarCity>St. John's</exemplarCity>
-			</zone>
-			<!-- Democratic Republic of the Congo -->
-			<zone type="Africa/Kinshasa">
-				<exemplarCity>Kinshasa</exemplarCity>
-			</zone>
-			<zone type="Africa/Lubumbashi">
-				<exemplarCity>Lubumbashi</exemplarCity>
-			</zone>
 			<zone type="Europe/Zurich">
 				<exemplarCity draft="provisional">Zürih</exemplarCity>
-			</zone>
-			<zone type="Pacific/Easter">
-				<exemplarCity>Easter</exemplarCity>
 			</zone>
 			<!-- China -->
 			<zone type="Asia/Kashgar">
@@ -1768,9 +1533,6 @@
 			<zone type="Asia/Shanghai">
 				<exemplarCity>Şangay</exemplarCity>
 			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity>Harbin</exemplarCity>
-			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity draft="provisional">Kosta Rika</exemplarCity>
 			</zone>
@@ -1792,9 +1554,6 @@
 			<zone type="Africa/Algiers">
 				<exemplarCity draft="provisional">Cezayir</exemplarCity>
 			</zone>
-			<zone type="Pacific/Galapagos">
-				<exemplarCity>Galapagos</exemplarCity>
-			</zone>
 			<zone type="Africa/Cairo">
 				<exemplarCity draft="provisional">Kahire</exemplarCity>
 			</zone>
@@ -1811,15 +1570,6 @@
 			<zone type="Africa/Ceuta">
 				<exemplarCity>Septe</exemplarCity>
 			</zone>
-			<zone type="Pacific/Truk">
-				<exemplarCity>Truk</exemplarCity>
-			</zone>
-			<zone type="Pacific/Ponape">
-				<exemplarCity>Ponape</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kosrae">
-				<exemplarCity>Kosrae</exemplarCity>
-			</zone>
 			<zone type="Europe/London">
 				<exemplarCity>Londra</exemplarCity>
 			</zone>
@@ -1828,15 +1578,6 @@
 			</zone>
 			<zone type="Europe/Gibraltar">
 				<exemplarCity draft="provisional">Cebelitarık</exemplarCity>
-			</zone>
-			<zone type="America/Thule">
-				<exemplarCity>Thule</exemplarCity>
-			</zone>
-			<zone type="America/Scoresbysund">
-				<exemplarCity>Scoresbysund</exemplarCity>
-			</zone>
-			<zone type="America/Danmarkshavn">
-				<exemplarCity>Danmarkshavn</exemplarCity>
 			</zone>
 			<zone type="Europe/Athens">
 				<exemplarCity draft="provisional">Atina</exemplarCity>
@@ -1855,15 +1596,6 @@
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Cakarta</exemplarCity>
 			</zone>
-			<zone type="Asia/Pontianak">
-				<exemplarCity>Pontianak</exemplarCity>
-			</zone>
-			<zone type="Asia/Makassar">
-				<exemplarCity>Makassar</exemplarCity>
-			</zone>
-			<zone type="Asia/Jayapura">
-				<exemplarCity>Jayapura</exemplarCity>
-			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity draft="provisional">Kudüs</exemplarCity>
 			</zone>
@@ -1881,15 +1613,6 @@
 			</zone>
 			<zone type="Asia/Bishkek">
 				<exemplarCity draft="provisional">Bişkek</exemplarCity>
-			</zone>
-			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kiritimati">
-				<exemplarCity>Kiritimati</exemplarCity>
-			</zone>
-			<zone type="Pacific/Tarawa">
-				<exemplarCity>Tarawa</exemplarCity>
 			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity draft="provisional">St. Kitts</exemplarCity>
@@ -1942,12 +1665,6 @@
 			<zone type="Europe/Monaco">
 				<exemplarCity draft="provisional">Monako</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kwajalein">
-				<exemplarCity>Kwajalein</exemplarCity>
-			</zone>
-			<zone type="Pacific/Majuro">
-				<exemplarCity>Majuro</exemplarCity>
-			</zone>
 			<!-- Marshall Islands
 				 Mali
 				 Mongolia
@@ -1973,29 +1690,8 @@
 			<zone type="Indian/Maldives">
 				<exemplarCity draft="provisional">Maldivler</exemplarCity>
 			</zone>
-			<zone type="America/Tijuana">
-				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Hermosillo">
-				<exemplarCity>Hermosillo</exemplarCity>
-			</zone>
-			<zone type="America/Mazatlan">
-				<exemplarCity>Mazatlan</exemplarCity>
-			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity>Chihuahua</exemplarCity>
-			</zone>
-			<zone type="America/Monterrey">
-				<exemplarCity>Monterrey</exemplarCity>
-			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>Meksiko City</exemplarCity>
-			</zone>
-			<zone type="America/Merida">
-				<exemplarCity>Merida</exemplarCity>
-			</zone>
-			<zone type="America/Cancun">
-				<exemplarCity>Cancun</exemplarCity>
 			</zone>
 			<!-- Mexico
 				 Malaysia
@@ -2006,17 +1702,11 @@
 			<zone type="Pacific/Nauru">
 				<exemplarCity draft="provisional">Nauru Adası</exemplarCity>
 			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity>Chatham</exemplarCity>
-			</zone>
 			<!-- New Zealand
 				 French Polynesia
 			-->
 			<zone type="Pacific/Marquesas">
 				<exemplarCity>Markiz</exemplarCity>
-			</zone>
-			<zone type="Pacific/Gambier">
-				<exemplarCity>Gambier</exemplarCity>
 			</zone>
 			<zone type="Asia/Karachi">
 				<exemplarCity draft="provisional">Karaçi</exemplarCity>
@@ -2037,9 +1727,6 @@
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azor Adaları</exemplarCity>
 			</zone>
-			<zone type="Atlantic/Madeira">
-				<exemplarCity>Madeira</exemplarCity>
-			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity>Lizbon</exemplarCity>
 			</zone>
@@ -2052,44 +1739,14 @@
 			<zone type="Europe/Bucharest">
 				<exemplarCity draft="provisional">Bükreş</exemplarCity>
 			</zone>
-			<zone type="Europe/Kaliningrad">
-				<exemplarCity>Kaliningrad</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskova</exemplarCity>
-			</zone>
-			<zone type="Europe/Volgograd">
-				<exemplarCity>Volgograd</exemplarCity>
-			</zone>
-			<zone type="Europe/Samara">
-				<exemplarCity>Samara</exemplarCity>
-			</zone>
-			<zone type="Asia/Yekaterinburg">
-				<exemplarCity>Yekaterinburg</exemplarCity>
-			</zone>
-			<zone type="Asia/Omsk">
-				<exemplarCity>Omsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Novosibirsk">
-				<exemplarCity>Novosibirsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity>Krasnoyarsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Irkutsk">
 				<exemplarCity>İrkutsk</exemplarCity>
 			</zone>
-			<zone type="Asia/Yakutsk">
-				<exemplarCity>Yakutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Vladivostok">
-				<exemplarCity>Vladivostok</exemplarCity>
-			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>Sahalin</exemplarCity>
-			</zone>
-			<zone type="Asia/Magadan">
-				<exemplarCity>Magadan</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>Kamçatka</exemplarCity>
@@ -2108,9 +1765,6 @@
 			</zone>
 			<zone type="Asia/Singapore">
 				<exemplarCity draft="provisional">Singapur</exemplarCity>
-			</zone>
-			<zone type="Arctic/Longyearbyen">
-				<exemplarCity draft="contributed">Longyearbyen</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
 				<exemplarCity draft="provisional">Salvador</exemplarCity>
@@ -2136,56 +1790,8 @@
 			<zone type="Europe/Uzhgorod">
 				<exemplarCity>Ujgorod</exemplarCity>
 			</zone>
-			<zone type="Europe/Kiev">
-				<exemplarCity>Kiev</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Simferopol</exemplarCity>
-			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporojye</exemplarCity>
-			</zone>
-			<zone type="Pacific/Midway">
-				<exemplarCity>Midway</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>Johnston</exemplarCity>
-			</zone>
-			<zone type="Pacific/Wake">
-				<exemplarCity>Wake</exemplarCity>
-			</zone>
-			<zone type="America/Adak">
-				<exemplarCity>Adak</exemplarCity>
-			</zone>
-			<zone type="America/Nome">
-				<exemplarCity>Nome</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<exemplarCity>Anchorage</exemplarCity>
-			</zone>
-			<zone type="America/Yakutat">
-				<exemplarCity>Yakutat</exemplarCity>
-			</zone>
-			<zone type="America/Juneau">
-				<exemplarCity>Juneau</exemplarCity>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<exemplarCity>Los Angeles</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity>Boise</exemplarCity>
-			</zone>
-			<zone type="America/Phoenix">
-				<exemplarCity>Phoenix</exemplarCity>
-			</zone>
-			<zone type="America/Shiprock">
-				<exemplarCity>Shiprock</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<exemplarCity>Denver</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
 				<exemplarCity>New Salem, Kuzey Dakota</exemplarCity>
@@ -2195,47 +1801,13 @@
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Center, North Dakota</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
-				<exemplarCity>Chicago</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Şikago</exemplarCity>
-			</zone>
-			<zone type="America/Menominee">
-				<exemplarCity>Menominee</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vincennes">
-				<exemplarCity>Vincennes, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Petersburg">
-				<exemplarCity>Petersburg, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity>Tell City, Indiana</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Knox">
 				<exemplarCity>Knox</exemplarCity>
 			</zone>
-			<zone type="America/Indiana/Winamac">
-				<exemplarCity>Winamac, Indiana</exemplarCity>
-			</zone>
 			<zone type="America/Indiana/Marengo">
 				<exemplarCity>Marengo</exemplarCity>
-			</zone>
-			<zone type="America/Indianapolis">
-				<exemplarCity>Indianapolis</exemplarCity>
-			</zone>
-			<zone type="America/Louisville">
-				<exemplarCity>Louisville</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<exemplarCity>Vevay, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<exemplarCity>Monticello, Kentucky</exemplarCity>
-			</zone>
-			<zone type="America/Detroit">
-				<exemplarCity>Detroit</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
-				<exemplarCity>New York</exemplarCity>
 			</zone>
 			<!-- Uzbekistan -->
 			<zone type="Asia/Samarkand">
@@ -2810,7 +2382,6 @@
 				</long>
 				<short>
 					<standard>IST (İsrail)</standard>
-					<daylight>IDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Japan">
@@ -3374,15 +2945,12 @@
 		<currencies>
 			<currency type="ADP">
 				<displayName>Andora Pesetası</displayName>
-				<symbol>ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>Birleşik Arap Emirlikleri Dirhemi</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Afganistan Afganisi (1927-2002)</displayName>
-				<symbol>AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>Afganistan Afganisi</displayName>
@@ -3402,27 +2970,21 @@
 			</currency>
 			<currency type="AOA">
 				<displayName>Angola Kvanzası</displayName>
-				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Angola Kvanzası (1977-1990)</displayName>
-				<symbol>AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>Yeni Angola Kvanzası (1990-2000)</displayName>
-				<symbol>AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>Angola Kvanzası Reajustado (1995-1999)</displayName>
-				<symbol>AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName>Arjantin Australi</displayName>
-				<symbol>ARA</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>Arjantin Pezosu (1983-1985)</displayName>
-				<symbol>ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>Arjantin Pezosu</displayName>
@@ -3430,7 +2992,6 @@
 			</currency>
 			<currency type="ATS">
 				<displayName>Avusturya Şilini</displayName>
-				<symbol>ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>Avustralya Doları</displayName>
@@ -3438,19 +2999,15 @@
 			</currency>
 			<currency type="AWG">
 				<displayName>Aruba Florini</displayName>
-				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>Azerbaycan Manatı</displayName>
-				<symbol>AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>Azeri Manatı</displayName>
-				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>Bosna Hersek Dinarı</displayName>
-				<symbol>BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Konvertibl Bosna Hersek Markı</displayName>
@@ -3466,7 +3023,6 @@
 			</currency>
 			<currency type="BEC">
 				<displayName>Belçika Frangı (konvertibl)</displayName>
-				<symbol>BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>Belçika Frangı</displayName>
@@ -3474,7 +3030,6 @@
 			</currency>
 			<currency type="BEL">
 				<displayName>Belçika Frangı (finansal)</displayName>
-				<symbol>BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>Bulgar Levası (Hard)</displayName>
@@ -3482,7 +3037,6 @@
 			</currency>
 			<currency type="BGN">
 				<displayName>Yeni Bulgar Levası</displayName>
-				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Bahreyn Dinarı</displayName>
@@ -3498,7 +3052,6 @@
 			</currency>
 			<currency type="BND">
 				<displayName>Brunei Doları</displayName>
-				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Bolivya Bolivyanosu</displayName>
@@ -3506,39 +3059,30 @@
 			</currency>
 			<currency type="BOP">
 				<displayName>Bolivya Pezosu</displayName>
-				<symbol>BOP</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>Bolivya Mvdol</displayName>
-				<symbol>BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>Yeni Brezilya Kruzeirosu (1967-1986)</displayName>
-				<symbol>BRB</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName>Brezilya Kruzadosu</displayName>
-				<symbol>BRC</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName>Brezilya Kruzeirosu (1990-1993)</displayName>
-				<symbol>BRE</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Brezilya Reali</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Yeni Brezilya Kruzadosu</displayName>
-				<symbol>BRN</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>Brezilya Kruzeirosu</displayName>
-				<symbol>BRR</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Bahama Doları</displayName>
-				<symbol>BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Bhutan Ngultrumu</displayName>
@@ -3546,15 +3090,12 @@
 			</currency>
 			<currency type="BUK">
 				<displayName>Burma Kyatı</displayName>
-				<symbol>BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>Botsvana Pulası</displayName>
-				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Yeni Beyaz Rusya Rublesi (1994-1999)</displayName>
-				<symbol>BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>Beyaz Rusya Rublesi</displayName>
@@ -3570,11 +3111,9 @@
 			</currency>
 			<currency type="CDF">
 				<displayName>Kongo Frangı</displayName>
-				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>WIR Avrosu</displayName>
-				<symbol>CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>İsviçre Frangı</displayName>
@@ -3582,11 +3121,9 @@
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR Frangı</displayName>
-				<symbol>CHW</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>Şili Unidades de Fomento</displayName>
-				<symbol>CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>Şili Pezosu</displayName>
@@ -3602,7 +3139,6 @@
 			</currency>
 			<currency type="COU">
 				<displayName>Unidad de Valor Real</displayName>
-				<symbol>COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>Kosta Rika Kolonu</displayName>
@@ -3610,15 +3146,12 @@
 			</currency>
 			<currency type="CSD">
 				<displayName>Eski Sırbistan Dinarı</displayName>
-				<symbol>CSD</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>Çekoslavak Korunası (Hard)</displayName>
-				<symbol>CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Küba Pezosu</displayName>
-				<symbol>CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Cape Verde Esküdosu</displayName>
@@ -3630,15 +3163,12 @@
 			</currency>
 			<currency type="CZK">
 				<displayName>Çek Cumhuriyeti Korunası</displayName>
-				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Doğu Alman Markı</displayName>
-				<symbol>DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Alman Markı</displayName>
-				<symbol>DEM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Cibuti Frangı</displayName>
@@ -3658,35 +3188,27 @@
 			</currency>
 			<currency type="ECS">
 				<displayName>Ekvator Sukresi</displayName>
-				<symbol>ECS</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>Ekvator Unidad de Valor Constante (UVC)</displayName>
-				<symbol>ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>Estonya Krunu</displayName>
-				<symbol>EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Mısır Lirası</displayName>
-				<symbol>EGP</symbol>
 			</currency>
 			<currency type="EQE">
 				<displayName>Ekuele</displayName>
-				<symbol>EQE</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Eritre Nakfası</displayName>
-				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>İspanyol Pesetası (A hesabı)</displayName>
-				<symbol>ESA</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName>İspanyol Pesetası (konvertibl hesap)</displayName>
-				<symbol>ESB</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>İspanyol Pezetası</displayName>
@@ -3698,11 +3220,9 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Fin Markkası</displayName>
-				<symbol>FIM</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>Fiji Doları</displayName>
@@ -3710,11 +3230,9 @@
 			</currency>
 			<currency type="FKP">
 				<displayName>Falkland Adaları Lirası</displayName>
-				<symbol>FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Fransız Frangı</displayName>
-				<symbol>FRF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>İngiliz Sterlini</displayName>
@@ -3722,7 +3240,6 @@
 			</currency>
 			<currency type="GEK">
 				<displayName>Gürcistan Kupon Larisi</displayName>
-				<symbol>GEK</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>Gürcistan Larisi</displayName>
@@ -3730,18 +3247,15 @@
 			</currency>
 			<currency type="GHC">
 				<displayName>Gana Sedisi (1979-2007)</displayName>
-				<symbol>GHC</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>Gana Sedisi</displayName>
 			</currency>
 			<currency type="GIP">
 				<displayName>Cebelitarık Lirası</displayName>
-				<symbol>GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Gambiya Dalasisi</displayName>
-				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Gine Frangı</displayName>
@@ -3749,15 +3263,12 @@
 			</currency>
 			<currency type="GNS">
 				<displayName>Gine Syli</displayName>
-				<symbol>GNS</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName>Ekvator Ginesi Ekuelesi</displayName>
-				<symbol>GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>Yunan Drahmisi</displayName>
-				<symbol>GRD</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Guatemala Ketzali</displayName>
@@ -3765,11 +3276,9 @@
 			</currency>
 			<currency type="GWE">
 				<displayName>Portekiz Ginesi Esküdosu</displayName>
-				<symbol>GWE</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName>Gine-Bissau Pezosu</displayName>
-				<symbol>GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Guyana Doları</displayName>
@@ -3785,15 +3294,12 @@
 			</currency>
 			<currency type="HRD">
 				<displayName>Hırvat Dinarı</displayName>
-				<symbol>HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>Hırvat Kunası</displayName>
-				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Haiti Gurdu</displayName>
-				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Macar Forinti</displayName>
@@ -3809,11 +3315,9 @@
 			</currency>
 			<currency type="ILP">
 				<displayName>İsrail Lirası</displayName>
-				<symbol>ILP</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>Yeni İsrail Şekeli</displayName>
-				<symbol>ILS</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Hindistan Rupisi</displayName>
@@ -3829,7 +3333,6 @@
 			</currency>
 			<currency type="ISK">
 				<displayName>İzlanda Kronu</displayName>
-				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>İtalyan Lireti</displayName>
@@ -3865,11 +3368,9 @@
 			</currency>
 			<currency type="KPW">
 				<displayName>Kuzey Kore Wonu</displayName>
-				<symbol>KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Güney Kore Wonu</displayName>
-				<symbol>KRW</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Kuveyt Dinarı</displayName>
@@ -3877,7 +3378,6 @@
 			</currency>
 			<currency type="KYD">
 				<displayName>Kayman Adaları Doları</displayName>
-				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Kazakistan Tengesi</displayName>
@@ -3885,7 +3385,6 @@
 			</currency>
 			<currency type="LAK">
 				<displayName>Laos Kipi</displayName>
-				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Lübnan Lirası</displayName>
@@ -3897,7 +3396,6 @@
 			</currency>
 			<currency type="LRD">
 				<displayName>Liberya Doları</displayName>
-				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Lesotho Lotisi</displayName>
@@ -3905,35 +3403,27 @@
 			</currency>
 			<currency type="LSM">
 				<displayName>Maloti</displayName>
-				<symbol>LSM</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>Litvanya Litası</displayName>
-				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Litvanya Talonu</displayName>
-				<symbol>LTT</symbol>
 			</currency>
 			<currency type="LUC">
 				<displayName>Konvertibl Lüksemburg Frangı</displayName>
-				<symbol>LUC</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>Lüksemburg Frangı</displayName>
-				<symbol>LUF</symbol>
 			</currency>
 			<currency type="LUL">
 				<displayName>Finansal Lüksemburg Frangı</displayName>
-				<symbol>LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>Letonya Latı</displayName>
-				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Letonya Rublesi</displayName>
-				<symbol>LVR</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Libya Dinarı</displayName>
@@ -3941,23 +3431,18 @@
 			</currency>
 			<currency type="MAD">
 				<displayName>Fas Dirhemi</displayName>
-				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Fas Frangı</displayName>
-				<symbol>MAF</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>Moldova Leyi</displayName>
-				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Madagaskar Ariary</displayName>
-				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Madagaskar Frangı</displayName>
-				<symbol>MGF</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>Makedonya Dinarı</displayName>
@@ -3965,11 +3450,9 @@
 			</currency>
 			<currency type="MLF">
 				<displayName>Mali Frangı</displayName>
-				<symbol>MLF</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>Myanmar Kyatı</displayName>
-				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Moğol Tugriki</displayName>
@@ -3977,7 +3460,6 @@
 			</currency>
 			<currency type="MOP">
 				<displayName>Makao Patacası</displayName>
-				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Moritanya Ouguiyası</displayName>
@@ -3989,15 +3471,12 @@
 			</currency>
 			<currency type="MTP">
 				<displayName>Malta Sterlini</displayName>
-				<symbol>MTP</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Mauritius Rupisi</displayName>
-				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Maldiv Adaları Rufiyaa</displayName>
-				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Malavi Kvaçası</displayName>
@@ -4009,11 +3488,9 @@
 			</currency>
 			<currency type="MXP">
 				<displayName>Gümüş Meksika Pezosu (1861-1992)</displayName>
-				<symbol>MXP</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName>Meksika Unidad de Inversion (UDI)</displayName>
-				<symbol>MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>Malezya Ringiti</displayName>
@@ -4021,7 +3498,6 @@
 			</currency>
 			<currency type="MZE">
 				<displayName>Mozambik Esküdosu</displayName>
-				<symbol>MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>Eski Mozambik Metikali</displayName>
@@ -4037,19 +3513,15 @@
 			</currency>
 			<currency type="NGN">
 				<displayName>Nijerya Nairası</displayName>
-				<symbol>NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>Nikaragua Kordobası</displayName>
-				<symbol>NIC</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>Nikaragua Kordobası (Oro)</displayName>
-				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Hollanda Florini</displayName>
-				<symbol>NLG</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Norveç Kronu</displayName>
@@ -4069,23 +3541,18 @@
 			</currency>
 			<currency type="PAB">
 				<displayName>Panama Balboası</displayName>
-				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>Peru İnti</displayName>
-				<symbol>PEI</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Yeni Peru Solu</displayName>
-				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>Peru Solu</displayName>
-				<symbol>PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>Papua Yeni Gine Kinası</displayName>
-				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Filipinler Pezosu</displayName>
@@ -4101,15 +3568,12 @@
 			</currency>
 			<currency type="PLZ">
 				<displayName>Polonya Zlotisi (1950-1995)</displayName>
-				<symbol>PLZ</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>Portekiz Esküdosu</displayName>
-				<symbol>PTE</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>Paraguay Guaranisi</displayName>
-				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Katar Riyali</displayName>
@@ -4117,7 +3581,6 @@
 			</currency>
 			<currency type="RHD">
 				<displayName>Rodezya Doları</displayName>
-				<symbol>RHD</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>Eski Romen Leyi</displayName>
@@ -4125,23 +3588,18 @@
 			</currency>
 			<currency type="RON">
 				<displayName>Romen Leyi</displayName>
-				<symbol draft="contributed">RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Sırp Dinarı</displayName>
-				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Rus Rublesi</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Rus Rublesi (1991-1998)</displayName>
-				<symbol>RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Ruanda Frangı</displayName>
-				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Suudi Arabistan Riyali</displayName>
@@ -4157,15 +3615,12 @@
 			</currency>
 			<currency type="SDD">
 				<displayName>Sudan Dinarı</displayName>
-				<symbol>SDD</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>Sudan Lirası</displayName>
-				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Eski Sudan Lirası</displayName>
-				<symbol>SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>İsveç Kronu</displayName>
@@ -4177,11 +3632,9 @@
 			</currency>
 			<currency type="SHP">
 				<displayName>Saint Helena Lirası</displayName>
-				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Slovenya Toları</displayName>
-				<symbol>SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>Slovak Korunası</displayName>
@@ -4189,7 +3642,6 @@
 			</currency>
 			<currency type="SLL">
 				<displayName>Sierra Leone Leonesi</displayName>
-				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Somali Şilini</displayName>
@@ -4197,7 +3649,6 @@
 			</currency>
 			<currency type="SRD">
 				<displayName>Surinam Doları</displayName>
-				<symbol>SRD</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>Surinam Guldeni</displayName>
@@ -4209,11 +3660,9 @@
 			</currency>
 			<currency type="SUR">
 				<displayName>Sovyet Rublesi</displayName>
-				<symbol>SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName>El Salvador Kolonu</displayName>
-				<symbol>SVC</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Suriye Lirası</displayName>
@@ -4225,23 +3674,18 @@
 			</currency>
 			<currency type="THB">
 				<displayName>Tayland Bahtı</displayName>
-				<symbol>THB</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Tacikistan Rublesi</displayName>
-				<symbol>TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>Tacikistan Somonisi</displayName>
-				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>Türkmenistan Manatı</displayName>
-				<symbol>TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Tunus Dinarı</displayName>
-				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Tonga Paʻangası</displayName>
@@ -4249,7 +3693,6 @@
 			</currency>
 			<currency type="TPE">
 				<displayName>Timor Esküdosu</displayName>
-				<symbol>TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>Eski Türk Lirası</displayName>
@@ -4257,7 +3700,6 @@
 			</currency>
 			<currency type="TRY">
 				<displayName>Türk Lirası</displayName>
-				<symbol>TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad ve Tobago Doları</displayName>
@@ -4273,15 +3715,12 @@
 			</currency>
 			<currency type="UAH">
 				<displayName>Ukrayna Grivnası</displayName>
-				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>Ukrayna Karbovanetz</displayName>
-				<symbol>UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>Uganda Şilini (1966-1987)</displayName>
-				<symbol>UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>Uganda Şilini</displayName>
@@ -4293,19 +3732,15 @@
 			</currency>
 			<currency type="USN">
 				<displayName>ABD Doları (Ertesi gün)</displayName>
-				<symbol>USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>ABD Doları (Aynı gün)</displayName>
-				<symbol>USS</symbol>
 			</currency>
 			<currency type="UYI">
 				<displayName>Uruguay Peso en Unidades Indexadas</displayName>
-				<symbol>UYI</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>Uruguay Pezosu (1975-1993)</displayName>
-				<symbol>UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>Uruguay Pezosu (Uruguayo)</displayName>
@@ -4313,7 +3748,6 @@
 			</currency>
 			<currency type="UZS">
 				<displayName>Özbekistan Sumu</displayName>
-				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Venezuela Bolivarı</displayName>
@@ -4325,7 +3759,6 @@
 			</currency>
 			<currency type="VND">
 				<displayName>Vietnam Dongu</displayName>
-				<symbol>VND</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>Vanuatu Vatusu</displayName>
@@ -4333,35 +3766,27 @@
 			</currency>
 			<currency type="WST">
 				<displayName>Batı Samoa Talası</displayName>
-				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>CFA Frangı BEAC</displayName>
-				<symbol>XAF</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName>Gümüş</displayName>
-				<symbol>XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>Altın</displayName>
-				<symbol>XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>Birleşik Avrupa Birimi</displayName>
-				<symbol>XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>Avrupa Para Birimi (EMU)</displayName>
-				<symbol>XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>Avrupa Hesap Birimi (XBC)</displayName>
-				<symbol>XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>Avrupa Hesap Birimi (XBD)</displayName>
-				<symbol>XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>Doğu Karayip Doları</displayName>
@@ -4369,27 +3794,21 @@
 			</currency>
 			<currency type="XDR">
 				<displayName>Özel Çekme Hakkı (SDR)</displayName>
-				<symbol>XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>Avrupa Para Birimi</displayName>
-				<symbol>XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>Fransız Altın Frangı</displayName>
-				<symbol>XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>Fransız UIC-Frangı</displayName>
-				<symbol>XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>CFA Frangı BCEAO</displayName>
-				<symbol>XOF</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>Paladyum</displayName>
-				<symbol>XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP Frangı</displayName>
@@ -4397,23 +3816,18 @@
 			</currency>
 			<currency type="XPT">
 				<displayName>Platin</displayName>
-				<symbol>XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET Fonları</displayName>
-				<symbol>XRE</symbol>
 			</currency>
 			<currency type="XTS">
 				<displayName>Test Para Birimi Kodu</displayName>
-				<symbol>XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>Bilinmeyen veya Geçersiz Para Birimi</displayName>
-				<symbol>XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>Yemen Dinarı</displayName>
-				<symbol>YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>Yemen Riyali</displayName>
@@ -4421,19 +3835,15 @@
 			</currency>
 			<currency type="YUD">
 				<displayName>Yugoslav Dinarı (Hard)</displayName>
-				<symbol>YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>Yeni Yugoslav Dinarı</displayName>
-				<symbol>YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>Konvertibl Yugoslav Dinarı</displayName>
-				<symbol>YUN</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>Güney Afrika Randı (finansal)</displayName>
-				<symbol>ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Güney Afrika Randı</displayName>
@@ -4441,15 +3851,12 @@
 			</currency>
 			<currency type="ZMK">
 				<displayName>Zambiya Kvaçası</displayName>
-				<symbol>ZMK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Yeni Zaire Zairesi</displayName>
-				<symbol>ZRN</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>Zaire Zairesi</displayName>
-				<symbol>ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>Zimbabwe Doları</displayName>
@@ -4537,5 +3944,9 @@ Comments without bases
 					 United States Minor Outlying Islands
 					 United States
 					 - was on: //ldml/dates/timeZoneNames/zone[@type="Pacific/Marquesas"]/exemplarCity[@alt="proposed-x650"]
+
+Comments without bases
+
+ Democratic Republic of the Congo 	 - was on: //ldml/dates/timeZoneNames/zone[@type="Africa/Kinshasa"]
 -->
 

@@ -967,7 +967,6 @@
 			<variant type="1994" draft="contributed">Szabványosított reziján helyesírás</variant>
 			<variant type="1996">1996-os német helyesírás</variant>
 			<variant type="1606NICT" draft="contributed">Késői közép francia 1606-ig</variant>
-			<variant type="1694ACAD" draft="contributed">1694ACAD</variant>
 			<variant type="AREVELA">Keleti örmény</variant>
 			<variant type="AREVMDA">Nyugati örmény</variant>
 			<variant type="BAKU1926" draft="contributed">Egyesített türkic latin ábécé</variant>
@@ -1042,14 +1041,10 @@
 	<layout>
 		<inList draft="contributed">titlecase-firstword</inList>
 		<inText type="currency" draft="contributed">lowercase-words</inText>
-		<inText type="fields" draft="contributed">mixed</inText>
 		<inText type="keys" draft="contributed">titlecase-firstword</inText>
 		<inText type="languages" draft="contributed">lowercase-words</inText>
-		<inText type="long" draft="contributed">mixed</inText>
 		<inText type="measurementSystemNames" draft="contributed">lowercase-words</inText>
-		<inText type="quarterWidth" draft="contributed">mixed</inText>
 		<inText type="scripts" draft="contributed">lowercase-words</inText>
-		<inText type="territories" draft="contributed">mixed</inText>
 		<inText type="types" draft="contributed">lowercase-words</inText>
 		<inText type="variants" draft="contributed">lowercase-words</inText>
 	</layout>
@@ -1066,7 +1061,6 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
-		<dateRangePattern draft="contributed">{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
 				<eras>
@@ -1436,59 +1430,14 @@
 			<zone type="Asia/Yerevan">
 				<exemplarCity>Jereván</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Rothera">
-				<exemplarCity draft="contributed">Rothera</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Palmer">
-				<exemplarCity draft="contributed">Palmer</exemplarCity>
-			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Déli-sark</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Syowa">
-				<exemplarCity draft="contributed">Syowa</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Mawson">
-				<exemplarCity draft="contributed">Mawson</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Davis">
-				<exemplarCity draft="contributed">Davis</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Vostok">
 				<exemplarCity>Vosztok</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Casey">
-				<exemplarCity draft="contributed">Casey</exemplarCity>
-			</zone>
-			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity>Dumont d'Urville</exemplarCity>
-			</zone>
-			<zone type="Antarctica/McMurdo">
-				<exemplarCity draft="contributed">McMurdo</exemplarCity>
-			</zone>
 			<zone type="America/Argentina/Rio_Gallegos">
 				<exemplarCity>Río Gallegos</exemplarCity>
-			</zone>
-			<zone type="America/Mendoza">
-				<exemplarCity draft="contributed">Mendoza</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Juan">
-				<exemplarCity draft="contributed">San Juan</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity draft="contributed">Ushuaia</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity draft="contributed">La Rioja</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Luis">
-				<exemplarCity draft="contributed">San Luis</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity draft="contributed">Catamarca</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity draft="contributed">Jujuy</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
 				<exemplarCity>Tucumán</exemplarCity>
@@ -1496,47 +1445,8 @@
 			<zone type="America/Cordoba">
 				<exemplarCity>Córdoba</exemplarCity>
 			</zone>
-			<zone type="America/Buenos_Aires">
-				<exemplarCity draft="contributed">Buenos Aires</exemplarCity>
-			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity>Bécs</exemplarCity>
-			</zone>
-			<zone type="Australia/Perth">
-				<exemplarCity draft="contributed">Perth</exemplarCity>
-			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity draft="contributed">Eucla</exemplarCity>
-			</zone>
-			<zone type="Australia/Darwin">
-				<exemplarCity draft="contributed">Darwin</exemplarCity>
-			</zone>
-			<zone type="Australia/Adelaide">
-				<exemplarCity draft="contributed">Adelaide</exemplarCity>
-			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity draft="contributed">Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="contributed">Currie</exemplarCity>
-			</zone>
-			<zone type="Australia/Melbourne">
-				<exemplarCity draft="contributed">Melbourne</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity draft="contributed">Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity draft="contributed">Lindeman</exemplarCity>
-			</zone>
-			<zone type="Australia/Sydney">
-				<exemplarCity draft="contributed">Sydney</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity draft="contributed">Brisbane</exemplarCity>
-			</zone>
-			<zone type="Australia/Lord_Howe">
-				<exemplarCity draft="contributed">Lord Howe</exemplarCity>
 			</zone>
 			<zone type="America/Barbados">
 				<exemplarCity>Barbadosz</exemplarCity>
@@ -1561,17 +1471,8 @@
 				<exemplarCity>Pôrto Velho</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Porto Velho-i idő</exemplarCity>
 			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity draft="contributed">Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Manaus">
-				<exemplarCity draft="contributed">Manaus</exemplarCity>
-			</zone>
 			<zone type="America/Cuiaba">
 				<exemplarCity>Cuiabá</exemplarCity>
-			</zone>
-			<zone type="America/Campo_Grande">
-				<exemplarCity draft="contributed">Campo Grande</exemplarCity>
 			</zone>
 			<zone type="America/Belem">
 				<exemplarCity>Belém</exemplarCity>
@@ -1583,20 +1484,8 @@
 				<exemplarCity>São Paulo</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Sao Paulo-i idő</exemplarCity>
 			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity draft="contributed">Bahia</exemplarCity>
-			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity draft="contributed">Fortaleza</exemplarCity>
-			</zone>
 			<zone type="America/Maceio">
 				<exemplarCity>Maceió</exemplarCity>
-			</zone>
-			<zone type="America/Recife">
-				<exemplarCity draft="contributed">Recife</exemplarCity>
-			</zone>
-			<zone type="America/Noronha">
-				<exemplarCity draft="contributed">Noronha</exemplarCity>
 			</zone>
 			<zone type="Europe/Minsk">
 				<exemplarCity>Minszk</exemplarCity>
@@ -1604,92 +1493,8 @@
 			<zone type="America/Belize">
 				<exemplarCity>Beliz</exemplarCity>
 			</zone>
-			<zone type="America/Dawson">
-				<exemplarCity draft="contributed">Dawson</exemplarCity>
-			</zone>
-			<zone type="America/Whitehorse">
-				<exemplarCity draft="contributed">Whitehorse</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity draft="contributed">Inuvik</exemplarCity>
-			</zone>
-			<zone type="America/Vancouver">
-				<exemplarCity draft="contributed">Vancouver</exemplarCity>
-			</zone>
-			<zone type="America/Dawson_Creek">
-				<exemplarCity draft="contributed">Dawson Creek</exemplarCity>
-			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity draft="contributed">Yellowknife</exemplarCity>
-			</zone>
-			<zone type="America/Edmonton">
-				<exemplarCity draft="contributed">Edmonton</exemplarCity>
-			</zone>
-			<zone type="America/Swift_Current">
-				<exemplarCity draft="contributed">Swift Current</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity draft="contributed">Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Regina">
-				<exemplarCity draft="contributed">Regina</exemplarCity>
-			</zone>
-			<zone type="America/Winnipeg">
-				<exemplarCity draft="contributed">Winnipeg</exemplarCity>
-			</zone>
-			<zone type="America/Resolute">
-				<exemplarCity draft="contributed">Resolute</exemplarCity>
-			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity draft="contributed">Rainy River</exemplarCity>
-			</zone>
-			<zone type="America/Rankin_Inlet">
-				<exemplarCity draft="contributed">Rankin Inlet</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity draft="contributed">Coral Harbour</exemplarCity>
-			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity draft="contributed">Thunder Bay</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity draft="contributed">Nipigon</exemplarCity>
-			</zone>
-			<zone type="America/Toronto">
-				<exemplarCity draft="contributed">Toronto</exemplarCity>
-			</zone>
 			<zone type="America/Montreal">
 				<exemplarCity>Montréal</exemplarCity>
-			</zone>
-			<zone type="America/Iqaluit">
-				<exemplarCity draft="contributed">Iqaluit</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity draft="contributed">Pangnirtung</exemplarCity>
-			</zone>
-			<zone type="America/Moncton">
-				<exemplarCity draft="contributed">Moncton</exemplarCity>
-			</zone>
-			<zone type="America/Halifax">
-				<exemplarCity draft="contributed">Halifax</exemplarCity>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<exemplarCity draft="contributed">Goose Bay</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity draft="contributed">Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity draft="contributed">Blanc-Sablon</exemplarCity>
-			</zone>
-			<zone type="America/St_Johns">
-				<exemplarCity>St. John's</exemplarCity>
-			</zone>
-			<zone type="Africa/Kinshasa">
-				<exemplarCity draft="contributed">Kinshasa</exemplarCity>
-			</zone>
-			<zone type="Africa/Lubumbashi">
-				<exemplarCity draft="contributed">Lubumbashi</exemplarCity>
 			</zone>
 			<zone type="Europe/Zurich">
 				<exemplarCity>Zürich</exemplarCity>
@@ -1709,9 +1514,6 @@
 			</zone>
 			<zone type="Asia/Shanghai">
 				<exemplarCity>Sanghaj</exemplarCity>
-			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity draft="contributed">Harbin</exemplarCity>
 			</zone>
 			<zone type="America/Havana">
 				<exemplarCity>Havanna</exemplarCity>
@@ -1739,9 +1541,6 @@
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Kanári-szigetek</exemplarCity>
 			</zone>
-			<zone type="Africa/Ceuta">
-				<exemplarCity draft="contributed">Ceuta</exemplarCity>
-			</zone>
 			<zone type="Pacific/Fiji">
 				<exemplarCity>Fidzsi</exemplarCity>
 			</zone>
@@ -1759,9 +1558,6 @@
 			</zone>
 			<zone type="Europe/Gibraltar">
 				<exemplarCity>Gibraltár</exemplarCity>
-			</zone>
-			<zone type="America/Thule">
-				<exemplarCity draft="contributed">Thule</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
 				<exemplarCity>Godthåb</exemplarCity>
@@ -1782,14 +1578,8 @@
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Dzsakarta</exemplarCity>
 			</zone>
-			<zone type="Asia/Pontianak">
-				<exemplarCity draft="contributed">Pontianak</exemplarCity>
-			</zone>
 			<zone type="Asia/Makassar">
 				<exemplarCity>Makasar</exemplarCity>
-			</zone>
-			<zone type="Asia/Jayapura">
-				<exemplarCity draft="contributed">Jayapura</exemplarCity>
 			</zone>
 			<zone type="Asia/Baghdad">
 				<exemplarCity>Bagdad</exemplarCity>
@@ -1806,14 +1596,10 @@
 			<zone type="Asia/Tokyo">
 				<exemplarCity>Tokio</exemplarCity>
 			</zone>
-			<zone type="Pacific/Enderbury">
-				<exemplarCity draft="contributed">Enderbury</exemplarCity>
-			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>Kiritimati-sziget</exemplarCity>
 			</zone>
 			<zone type="Pacific/Tarawa">
-				<exemplarCity>Tarawa</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">tarawai idő</exemplarCity>
 			</zone>
 			<zone type="America/St_Kitts">
@@ -1831,9 +1617,6 @@
 			<zone type="Asia/Aqtau">
 				<exemplarCity>Aktau</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">aktaui idő</exemplarCity>
-			</zone>
-			<zone type="Asia/Oral">
-				<exemplarCity draft="contributed">Oral</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aktöbe</exemplarCity>
@@ -1870,9 +1653,6 @@
 			<zone type="Pacific/Majuro">
 				<exemplarCity>Majuro-zátony</exemplarCity>
 			</zone>
-			<zone type="Asia/Hovd">
-				<exemplarCity draft="contributed">Hovd</exemplarCity>
-			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulánbátor</exemplarCity>
 			</zone>
@@ -1888,20 +1668,8 @@
 			<zone type="Indian/Maldives">
 				<exemplarCity>Maldív-szigetek</exemplarCity>
 			</zone>
-			<zone type="America/Tijuana">
-				<exemplarCity draft="contributed">Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Hermosillo">
-				<exemplarCity draft="contributed">Hermosillo</exemplarCity>
-			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>Mazatlán</exemplarCity>
-			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity draft="contributed">Chihuahua</exemplarCity>
-			</zone>
-			<zone type="America/Monterrey">
-				<exemplarCity draft="contributed">Monterrey</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>Mexikóváros</exemplarCity>
@@ -1911,9 +1679,6 @@
 			</zone>
 			<zone type="America/Cancun">
 				<exemplarCity>Cancún</exemplarCity>
-			</zone>
-			<zone type="Asia/Kuching">
-				<exemplarCity draft="contributed">Kuching</exemplarCity>
 			</zone>
 			<!-- New Zealand -->
 			<zone type="Pacific/Chatham">
@@ -1936,7 +1701,6 @@
 				<exemplarCity>Azori-szigetek</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Madeira">
-				<exemplarCity>Madeira</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">madeirai idő</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
@@ -2033,93 +1797,14 @@
 			<zone type="Pacific/Midway">
 				<exemplarCity>Midway-szigetek</exemplarCity>
 			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity draft="contributed">Johnston</exemplarCity>
-			</zone>
 			<zone type="Pacific/Wake">
 				<exemplarCity>Wake-sziget</exemplarCity>
 			</zone>
-			<zone type="America/Adak">
-				<exemplarCity draft="contributed">Adak</exemplarCity>
-			</zone>
-			<zone type="America/Nome">
-				<exemplarCity draft="contributed">Nome</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity draft="contributed">Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
-				<exemplarCity>Anchorage</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">anchorage-i idő</exemplarCity>
-			</zone>
-			<zone type="America/Yakutat">
-				<exemplarCity draft="contributed">Yakutat</exemplarCity>
-			</zone>
-			<zone type="America/Juneau">
-				<exemplarCity draft="contributed">Juneau</exemplarCity>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<exemplarCity draft="contributed">Los Angeles</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity draft="contributed">Boise</exemplarCity>
-			</zone>
-			<zone type="America/Phoenix">
-				<exemplarCity draft="contributed">Phoenix</exemplarCity>
-			</zone>
-			<zone type="America/Shiprock">
-				<exemplarCity draft="contributed">Shiprock</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<exemplarCity draft="contributed">Denver</exemplarCity>
-			</zone>
-			<zone type="America/North_Dakota/New_Salem">
-				<exemplarCity draft="contributed">New Salem, North Dakota</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity draft="contributed">Középső, Észak-Dakota</exemplarCity>
-			</zone>
-			<zone type="America/Chicago">
-				<exemplarCity draft="contributed">Chicago</exemplarCity>
-			</zone>
-			<zone type="America/Menominee">
-				<exemplarCity draft="contributed">Menominee</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vincennes">
-				<exemplarCity draft="contributed">Vincennes, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Petersburg">
-				<exemplarCity draft="contributed">Petersburg, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity draft="contributed">Tell City, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Knox">
-				<exemplarCity draft="contributed">Knox, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Winamac">
-				<exemplarCity draft="contributed">Winamac, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Marengo">
-				<exemplarCity draft="contributed">Marengo, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indianapolis">
-				<exemplarCity draft="contributed">Indianapolis</exemplarCity>
-			</zone>
-			<zone type="America/Louisville">
-				<exemplarCity draft="contributed">Louisville</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<exemplarCity draft="contributed">Vevay, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<exemplarCity draft="contributed">Monticello, Kentucky</exemplarCity>
-			</zone>
-			<zone type="America/Detroit">
-				<exemplarCity draft="contributed">Detroit</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
-				<exemplarCity draft="contributed">New York</exemplarCity>
 			</zone>
 			<!-- Uzbekistan -->
 			<zone type="Asia/Samarkand">
@@ -2869,7 +2554,6 @@
 				</long>
 				<short>
 					<standard>IST (Izrael)</standard>
-					<daylight>IDT</daylight>
 				</short>
 				<commonlyUsed>false</commonlyUsed>
 			</metazone>
@@ -3559,17 +3243,14 @@
 				<displayName>Andorrai peseta</displayName>
 				<displayName count="other" draft="contributed">Andorrai peseta</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">andorrai peseta</displayName>
-				<symbol draft="contributed">ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>EAE dirham</displayName>
 				<displayName count="other" draft="contributed">UAE dirham</displayName>
-				<symbol draft="contributed">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Afghani (1927-2002)</displayName>
 				<displayName count="other" draft="contributed">Afghani (AFA)</displayName>
-				<symbol draft="contributed">AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>Afghani</displayName>
@@ -3597,33 +3278,27 @@
 				<displayName>Angolai kwanza</displayName>
 				<displayName count="other" draft="contributed">Angolai kwanza</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">kwanza</displayName>
-				<symbol draft="contributed">AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Angolai kwanza (1977-1990)</displayName>
 				<displayName count="other" draft="contributed">Angolai kwanza (AOK)</displayName>
-				<symbol draft="contributed">AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>Angolai új kwanza (1990-2000)</displayName>
 				<displayName count="other" draft="contributed">Angolai új kwanza (AON)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">új kwanza</displayName>
-				<symbol draft="contributed">AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>Angolai kwanza reajustado (1995-1999)</displayName>
 				<displayName count="other" draft="contributed">Angolai kwanza reajustado (AOR)</displayName>
-				<symbol draft="contributed">AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName>Argentín austral</displayName>
 				<displayName count="other" draft="contributed">Argentin austral</displayName>
-				<symbol draft="contributed">ARA</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>Argentín peso (1983-1985)</displayName>
 				<displayName count="other" draft="contributed">Argentin peso (ARP)</displayName>
-				<symbol draft="contributed">ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>Peso</displayName>
@@ -3634,7 +3309,6 @@
 				<displayName>Osztrák schilling</displayName>
 				<displayName count="other" draft="contributed">Osztrák schilling</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">osztrák schilling</displayName>
-				<symbol draft="contributed">ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>Ausztrál dollár</displayName>
@@ -3645,22 +3319,18 @@
 			<currency type="AWG">
 				<displayName>Arubai forint</displayName>
 				<displayName count="other" draft="contributed">Arubai forint</displayName>
-				<symbol draft="contributed">AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>Azerbajdzsáni manat (1993-2006)</displayName>
 				<displayName count="other" draft="contributed">Azerbajdzsáni manat (AZM)</displayName>
-				<symbol draft="contributed">AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName draft="contributed">Azerbajdzsáni manat</displayName>
 				<displayName count="other">Azerbajdzsáni manat</displayName>
-				<symbol draft="contributed">AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>Bosznia-hercegovinai dínár</displayName>
 				<displayName count="other" draft="contributed">Bosznia-hercegovinai dínár</displayName>
-				<symbol draft="contributed">BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Bozsnia-hercegovinai konvertibilis márka</displayName>
@@ -3682,7 +3352,6 @@
 			<currency type="BEC">
 				<displayName>Belga frank (konvertibilis)</displayName>
 				<displayName count="other" draft="contributed">Belga frank (konvertibilis)</displayName>
-				<symbol draft="contributed">BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>Belga frank</displayName>
@@ -3692,7 +3361,6 @@
 			<currency type="BEL">
 				<displayName>Belga frank (pénzügyi)</displayName>
 				<displayName count="other" draft="contributed">Belga frank (pénzügyi)</displayName>
-				<symbol draft="contributed">BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>Bolgár kemény leva</displayName>
@@ -3702,7 +3370,6 @@
 			<currency type="BGN">
 				<displayName>Bolgár új leva</displayName>
 				<displayName count="other" draft="contributed">Bolgár új leva</displayName>
-				<symbol draft="contributed">BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Bahreini dinár</displayName>
@@ -3723,7 +3390,6 @@
 			<currency type="BND">
 				<displayName>Brunei dollár</displayName>
 				<displayName count="other" draft="contributed">Brunei dollár</displayName>
-				<symbol draft="contributed">BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Boliviano</displayName>
@@ -3733,27 +3399,22 @@
 			<currency type="BOP">
 				<displayName>Bolíviai peso</displayName>
 				<displayName count="other" draft="contributed">Bolíviai peso</displayName>
-				<symbol draft="contributed">BOP</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>Bolíviai mvdol</displayName>
 				<displayName count="other" draft="contributed">Bolíviai mvdol</displayName>
-				<symbol draft="contributed">BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>Brazi cruzeiro novo (1967-1986)</displayName>
 				<displayName count="other" draft="contributed">Brazi cruzeiro novo (1967-1986)</displayName>
-				<symbol draft="contributed">BRB</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName>Brazi cruzado</displayName>
 				<displayName count="other" draft="contributed">Brazi cruzado</displayName>
-				<symbol draft="contributed">BRC</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName>Brazil cruzeiro (1990-1993)</displayName>
 				<displayName count="other" draft="contributed">Brazil cruzeiro (1990-1993)</displayName>
-				<symbol draft="contributed">BRE</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Brazil real</displayName>
@@ -3763,16 +3424,13 @@
 			<currency type="BRN">
 				<displayName>Brazil cruzado novo</displayName>
 				<displayName count="other" draft="contributed">Brazil cruzado novo</displayName>
-				<symbol draft="contributed">BRN</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>Brazil cruzeiro</displayName>
-				<symbol draft="contributed">BRR</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Bahamai dollár</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">bahamai dollár</displayName>
-				<symbol draft="contributed">BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Bhutáni ngultrum</displayName>
@@ -3780,15 +3438,12 @@
 			</currency>
 			<currency type="BUK">
 				<displayName>Burmai kyat</displayName>
-				<symbol draft="contributed">BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>Botswanai pula</displayName>
-				<symbol draft="contributed">BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Fehérorosz új rubel (1994-1999)</displayName>
-				<symbol draft="contributed">BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>Fehérorosz rubel</displayName>
@@ -3804,11 +3459,9 @@
 			</currency>
 			<currency type="CDF">
 				<displayName>Kongói frank</displayName>
-				<symbol draft="contributed">CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>WIR euro</displayName>
-				<symbol draft="contributed">CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Svájci frank</displayName>
@@ -3816,11 +3469,9 @@
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR frank</displayName>
-				<symbol draft="contributed">CHW</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>Chilei unidades de fomento</displayName>
-				<symbol draft="contributed">CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>Chilei peso</displayName>
@@ -3836,7 +3487,6 @@
 			</currency>
 			<currency type="COU">
 				<displayName draft="contributed">Unidad de Valor Real</displayName>
-				<symbol draft="contributed">COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>Costa Ricai colon</displayName>
@@ -3844,15 +3494,12 @@
 			</currency>
 			<currency type="CSD">
 				<displayName>szerb dinár</displayName>
-				<symbol draft="contributed">CSD</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>Csehszlovák kemény korona</displayName>
-				<symbol draft="contributed">CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Kubai peso</displayName>
-				<symbol draft="contributed">CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Cape Verdei escudo</displayName>
@@ -3864,15 +3511,12 @@
 			</currency>
 			<currency type="CZK">
 				<displayName>Cseh korona</displayName>
-				<symbol draft="contributed">CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Kelet-Német márka</displayName>
-				<symbol draft="contributed">DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Német márka</displayName>
-				<symbol draft="contributed">DEM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Dzsibuti frank</displayName>
@@ -3893,35 +3537,27 @@
 			</currency>
 			<currency type="ECS">
 				<displayName>Ecuadori sucre</displayName>
-				<symbol draft="contributed">ECS</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>Ecuadori Unidad de Valor Constante (UVC)</displayName>
-				<symbol draft="contributed">ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>Észt korona</displayName>
-				<symbol draft="contributed">EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Egyiptomi font</displayName>
-				<symbol draft="contributed">EGP</symbol>
 			</currency>
 			<currency type="EQE">
 				<displayName>ekwele</displayName>
-				<symbol draft="contributed">EQE</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Eritreai nakfa</displayName>
-				<symbol draft="contributed">ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>spanyol peseta (A-kontó)</displayName>
-				<symbol draft="contributed">ESA</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName>spanyol peseta (konvertibilis kontó)</displayName>
-				<symbol draft="contributed">ESB</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>Spanyol peseta</displayName>
@@ -3937,7 +3573,6 @@
 			</currency>
 			<currency type="FIM">
 				<displayName>Finn markka</displayName>
-				<symbol draft="contributed">FIM</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>Fidzsi dollár</displayName>
@@ -3945,11 +3580,9 @@
 			</currency>
 			<currency type="FKP">
 				<displayName>Falkland-szigeteki font</displayName>
-				<symbol draft="contributed">FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Francia frank</displayName>
-				<symbol draft="contributed">FRF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Brit font sterling</displayName>
@@ -3957,7 +3590,6 @@
 			</currency>
 			<currency type="GEK">
 				<displayName>Grúz kupon larit</displayName>
-				<symbol draft="contributed">GEK</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>Grúz lari</displayName>
@@ -3965,7 +3597,6 @@
 			</currency>
 			<currency type="GHC">
 				<displayName>Ghánai cedi (1979-2007)</displayName>
-				<symbol draft="contributed">GHC</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName draft="contributed">Ghánai cedi</displayName>
@@ -3974,11 +3605,9 @@
 			</currency>
 			<currency type="GIP">
 				<displayName>Gibraltári font</displayName>
-				<symbol draft="contributed">GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Gambiai dalasi</displayName>
-				<symbol draft="contributed">GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Guineai frank</displayName>
@@ -3986,16 +3615,13 @@
 			</currency>
 			<currency type="GNS">
 				<displayName>Guineai syli</displayName>
-				<symbol draft="contributed">GNS</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName>Egyenlítői-guineai ekwele guineana</displayName>
 				<displayName count="other" draft="contributed">Egyenlítői-guineai ekwele</displayName>
-				<symbol draft="contributed">GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>Görög drachma</displayName>
-				<symbol draft="contributed">GRD</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Guatemalai quetzal</displayName>
@@ -4003,11 +3629,9 @@
 			</currency>
 			<currency type="GWE">
 				<displayName>Portugál guinea escudo</displayName>
-				<symbol draft="contributed">GWE</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName>Guinea-Bissaui peso</displayName>
-				<symbol draft="contributed">GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Guyanai dollár</displayName>
@@ -4023,15 +3647,12 @@
 			</currency>
 			<currency type="HRD">
 				<displayName>Horvát dínár</displayName>
-				<symbol draft="contributed">HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>Horvát kuna</displayName>
-				<symbol draft="contributed">HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Haiti gourde</displayName>
-				<symbol draft="contributed">HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Magyar forint</displayName>
@@ -4047,11 +3668,9 @@
 			</currency>
 			<currency type="ILP">
 				<displayName>Izraeli font</displayName>
-				<symbol draft="contributed">ILP</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>Izraeli új sékel</displayName>
-				<symbol draft="contributed">ILS</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>indiai rúpia</displayName>
@@ -4068,7 +3687,6 @@
 			</currency>
 			<currency type="ISK">
 				<displayName>Izlandi korona</displayName>
-				<symbol draft="contributed">ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Olasz líra</displayName>
@@ -4104,11 +3722,9 @@
 			</currency>
 			<currency type="KPW">
 				<displayName>Észak-koreai won</displayName>
-				<symbol draft="contributed">KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Dél-koreai won</displayName>
-				<symbol draft="contributed">KRW</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Kuvaiti dínár</displayName>
@@ -4116,7 +3732,6 @@
 			</currency>
 			<currency type="KYD">
 				<displayName>Kajmán-szigeteki dollár</displayName>
-				<symbol draft="contributed">KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Kazahsztáni tenge</displayName>
@@ -4124,7 +3739,6 @@
 			</currency>
 			<currency type="LAK">
 				<displayName>Laoszi kip</displayName>
-				<symbol draft="contributed">LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Libanoni font</displayName>
@@ -4136,7 +3750,6 @@
 			</currency>
 			<currency type="LRD">
 				<displayName>Libériai dollár</displayName>
-				<symbol draft="contributed">LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Lesothoi loti</displayName>
@@ -4144,35 +3757,27 @@
 			</currency>
 			<currency type="LSM">
 				<displayName draft="contributed">Maloti</displayName>
-				<symbol draft="contributed">LSM</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>Litvániai litas</displayName>
-				<symbol draft="contributed">LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Litvániai talonas</displayName>
-				<symbol draft="contributed">LTT</symbol>
 			</currency>
 			<currency type="LUC">
 				<displayName>luxemburgi konvertibilis frank</displayName>
-				<symbol draft="contributed">LUC</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>Luxemburgi frank</displayName>
-				<symbol draft="contributed">LUF</symbol>
 			</currency>
 			<currency type="LUL">
 				<displayName>luxemburgi pénzügyi frank</displayName>
-				<symbol draft="contributed">LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>Lett lats</displayName>
-				<symbol draft="contributed">LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Lett rubel</displayName>
-				<symbol draft="contributed">LVR</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Líbiai dínár</displayName>
@@ -4180,23 +3785,18 @@
 			</currency>
 			<currency type="MAD">
 				<displayName>Marokkói dirham</displayName>
-				<symbol draft="contributed">MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Marokkói frank</displayName>
-				<symbol draft="contributed">MAF</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>Moldován lei</displayName>
-				<symbol draft="contributed">MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Madagaszkári ariary</displayName>
-				<symbol draft="contributed">MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Madagaszkári frank</displayName>
-				<symbol draft="contributed">MGF</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>Macedon dínár</displayName>
@@ -4204,11 +3804,9 @@
 			</currency>
 			<currency type="MLF">
 				<displayName>Mali frank</displayName>
-				<symbol draft="contributed">MLF</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>Mianmari kyat</displayName>
-				<symbol draft="contributed">MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Mongóliai tugrik</displayName>
@@ -4216,7 +3814,6 @@
 			</currency>
 			<currency type="MOP">
 				<displayName>makaói pataca</displayName>
-				<symbol draft="contributed">MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Mauritániai ouguiya</displayName>
@@ -4228,15 +3825,12 @@
 			</currency>
 			<currency type="MTP">
 				<displayName>Máltai font</displayName>
-				<symbol draft="contributed">MTP</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Mauritiusi rúpia</displayName>
-				<symbol draft="contributed">MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Maldív-szigeteki rufiyaa</displayName>
-				<symbol draft="contributed">MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Malawi kwacha</displayName>
@@ -4248,11 +3842,9 @@
 			</currency>
 			<currency type="MXP">
 				<displayName>Mexikói ezüst peso (1861-1992)</displayName>
-				<symbol draft="contributed">MXP</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName>Mexikói Unidad de Inversion (UDI)</displayName>
-				<symbol draft="contributed">MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>Malajziai ringgit</displayName>
@@ -4260,7 +3852,6 @@
 			</currency>
 			<currency type="MZE">
 				<displayName>Mozambik escudo</displayName>
-				<symbol draft="contributed">MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>Mozambik metical</displayName>
@@ -4276,19 +3867,15 @@
 			</currency>
 			<currency type="NGN">
 				<displayName>Nigériai naira</displayName>
-				<symbol draft="contributed">NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>Nikaraguai cordoba</displayName>
-				<symbol draft="contributed">NIC</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>Nikaraguai cordoba oro</displayName>
-				<symbol draft="contributed">NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Holland forint</displayName>
-				<symbol draft="contributed">NLG</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Norvég korona</displayName>
@@ -4308,23 +3895,18 @@
 			</currency>
 			<currency type="PAB">
 				<displayName>Panamai balboa</displayName>
-				<symbol draft="contributed">PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>Perui inti</displayName>
-				<symbol draft="contributed">PEI</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Perui sol nuevo</displayName>
-				<symbol draft="contributed">PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>Perui sol</displayName>
-				<symbol draft="contributed">PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>Pápua új-guineai kina</displayName>
-				<symbol draft="contributed">PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Fülöp-szigeteki peso</displayName>
@@ -4340,15 +3922,12 @@
 			</currency>
 			<currency type="PLZ">
 				<displayName>Lengyel zloty (1950-1995)</displayName>
-				<symbol draft="contributed">PLZ</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>Portugál escudo</displayName>
-				<symbol draft="contributed">PTE</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>Paraguayi guarani</displayName>
-				<symbol draft="contributed">PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Katari rial</displayName>
@@ -4357,7 +3936,6 @@
 			<currency type="RHD">
 				<displayName>rhodéziai dollár</displayName>
 				<displayName count="other" draft="contributed">Rhodéziai dollár</displayName>
-				<symbol draft="contributed">RHD</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>Régi román lej</displayName>
@@ -4370,20 +3948,16 @@
 			</currency>
 			<currency type="RSD">
 				<displayName>Szerb Dínár</displayName>
-				<symbol draft="contributed">RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Orosz rubel</displayName>
-				<symbol draft="contributed">RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Orosz rubel (1991-1998)</displayName>
 				<displayName count="other" draft="contributed">Orosz rubel (RUR)</displayName>
-				<symbol draft="contributed">RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Ruandai frank</displayName>
-				<symbol draft="contributed">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Szaúdi riyal</displayName>
@@ -4400,17 +3974,14 @@
 			<currency type="SDD">
 				<displayName>Szudáni dínár</displayName>
 				<displayName count="other" draft="contributed">Régi szudáni dínár</displayName>
-				<symbol draft="contributed">SDD</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>Szudáni font</displayName>
 				<displayName count="other">Szudáni font</displayName>
-				<symbol draft="contributed">SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Régi szudáni font</displayName>
 				<displayName count="other" draft="contributed">Régi szudáni font</displayName>
-				<symbol draft="contributed">SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>Svéd korona</displayName>
@@ -4422,11 +3993,9 @@
 			</currency>
 			<currency type="SHP">
 				<displayName>Saint Helena font</displayName>
-				<symbol draft="contributed">SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Szlovén tolar</displayName>
-				<symbol draft="contributed">SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>Szlovák korona</displayName>
@@ -4434,7 +4003,6 @@
 			</currency>
 			<currency type="SLL">
 				<displayName>Sierra Leonei leone</displayName>
-				<symbol draft="contributed">SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Szomáli shilling</displayName>
@@ -4443,7 +4011,6 @@
 			<currency type="SRD">
 				<displayName draft="contributed">Surinamei dollár</displayName>
 				<displayName count="other" draft="contributed">Surinamei dollár</displayName>
-				<symbol draft="contributed">SRD</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>Suriname-i gulden</displayName>
@@ -4455,11 +4022,9 @@
 			</currency>
 			<currency type="SUR">
 				<displayName>Szovjet rubel</displayName>
-				<symbol draft="contributed">SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName>Salvadori colón</displayName>
-				<symbol draft="contributed">SVC</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Szíriai font</displayName>
@@ -4474,19 +4039,15 @@
 			</currency>
 			<currency type="TJR">
 				<displayName>Tádzsikisztáni rubel</displayName>
-				<symbol draft="contributed">TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>Tádzsikisztáni somoni</displayName>
-				<symbol draft="contributed">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>Türkmenisztáni manat</displayName>
-				<symbol draft="contributed">TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Tunéziai dínár</displayName>
-				<symbol draft="contributed">TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>tongai paanga</displayName>
@@ -4495,7 +4056,6 @@
 			</currency>
 			<currency type="TPE">
 				<displayName>Timori escudo</displayName>
-				<symbol draft="contributed">TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>Régi török líra</displayName>
@@ -4506,7 +4066,6 @@
 			<currency type="TRY">
 				<displayName>új török líra</displayName>
 				<displayName count="other">Török líra</displayName>
-				<symbol draft="contributed">TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad és tobagoi dollár</displayName>
@@ -4523,16 +4082,13 @@
 			</currency>
 			<currency type="UAH">
 				<displayName>Ukrán hrivnya</displayName>
-				<symbol draft="contributed">UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>Ukrán karbovanec</displayName>
-				<symbol draft="contributed">UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>Ugandai shilling (1966-1987)</displayName>
 				<displayName count="other" draft="contributed">Ugandai shilling (UGS)</displayName>
-				<symbol draft="contributed">UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>Ugandai shilling</displayName>
@@ -4544,21 +4100,17 @@
 			</currency>
 			<currency type="USN">
 				<displayName>USA dollár (következő napi)</displayName>
-				<symbol draft="contributed">USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>USA dollár (aznapi)</displayName>
-				<symbol draft="contributed">USS</symbol>
 			</currency>
 			<currency type="UYI">
 				<displayName draft="contributed">Uruguayi peso en unidades indexadas</displayName>
 				<displayName count="other" draft="contributed">Uruguayi peso en unidades indexadas</displayName>
-				<symbol draft="contributed">UYI</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>Uruguay-i peso (1975-1993)</displayName>
 				<displayName count="other" draft="contributed">Uruguayi peso (UYP)</displayName>
-				<symbol draft="contributed">UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>Uruguay-i peso uruguayo</displayName>
@@ -4567,7 +4119,6 @@
 			</currency>
 			<currency type="UZS">
 				<displayName>Üzbegisztáni szum</displayName>
-				<symbol draft="contributed">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Venezuelai bolívar</displayName>
@@ -4580,7 +4131,6 @@
 			</currency>
 			<currency type="VND">
 				<displayName>Vietnámi dong</displayName>
-				<symbol draft="contributed">VND</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>Vanuatui vatu</displayName>
@@ -4588,39 +4138,31 @@
 			</currency>
 			<currency type="WST">
 				<displayName>Nyugat-szamoai tala</displayName>
-				<symbol draft="contributed">WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>CFA frank BEAC</displayName>
-				<symbol draft="contributed">XAF</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName>Ezüst</displayName>
-				<symbol draft="contributed">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>Arany</displayName>
-				<symbol draft="contributed">XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>European Composite Unit</displayName>
 				<displayName count="other" draft="contributed">Európai kompozit egység</displayName>
-				<symbol draft="contributed">XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>European Monetary Unit</displayName>
 				<displayName count="other" draft="contributed">Európai monetáris egység</displayName>
-				<symbol draft="contributed">XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>European Unit of Account (XBC)</displayName>
 				<displayName count="other" draft="contributed">Európai kontó egység (XBC)</displayName>
-				<symbol draft="contributed">XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>European Unit of Account (XBD)</displayName>
 				<displayName count="other" draft="contributed">Európai kontó egység (XBD)</displayName>
-				<symbol draft="contributed">XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>Kelet-karibi dollár</displayName>
@@ -4628,29 +4170,23 @@
 			</currency>
 			<currency type="XDR">
 				<displayName>Special Drawing Rights</displayName>
-				<symbol draft="contributed">XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>európai pénznemegység</displayName>
 				<displayName count="other" draft="contributed">Európai pénznemegység</displayName>
-				<symbol draft="contributed">XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>Francia arany frank</displayName>
-				<symbol draft="contributed">XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>Francia UIC-frank</displayName>
-				<symbol draft="contributed">XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>CFA frank BCEAO</displayName>
-				<symbol draft="contributed">XOF</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>palládium</displayName>
 				<displayName count="other" draft="contributed">Palládium</displayName>
-				<symbol draft="contributed">XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP frank</displayName>
@@ -4660,24 +4196,19 @@
 				<displayName>platina</displayName>
 				<displayName count="other" draft="contributed">Platina</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Platina</displayName>
-				<symbol draft="contributed">XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName draft="contributed">RINET tőke</displayName>
-				<symbol draft="contributed">XRE</symbol>
 			</currency>
 			<currency type="XTS">
 				<displayName draft="contributed">Tesztelési pénznemkód</displayName>
-				<symbol draft="contributed">XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName draft="contributed">Ismeretlen vagy érvénytelen pénznem</displayName>
 				<displayName count="other" draft="contributed">Ismeretlen/érvénytelen pénznem</displayName>
-				<symbol draft="contributed">XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>Jemeni dínár</displayName>
-				<symbol draft="contributed">YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>Jemeni rial</displayName>
@@ -4685,19 +4216,15 @@
 			</currency>
 			<currency type="YUD">
 				<displayName>Jugoszláv kemény dínár</displayName>
-				<symbol draft="contributed">YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>Jugoszláv új dínár</displayName>
-				<symbol draft="contributed">YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>Jugoszláv konvertibilis dínár</displayName>
-				<symbol draft="contributed">YUN</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>Dél-afrikai rand (pénzügyi)</displayName>
-				<symbol draft="contributed">ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Dél-afrikai rand</displayName>
@@ -4705,15 +4232,12 @@
 			</currency>
 			<currency type="ZMK">
 				<displayName>Zambiai kwacha</displayName>
-				<symbol draft="contributed">ZMK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Zairei új zaire</displayName>
-				<symbol draft="contributed">ZRN</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>Zairei zaire</displayName>
-				<symbol draft="contributed">ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>Zimbabwei dollár</displayName>

@@ -1001,7 +1001,6 @@
 			<variant type="1994" draft="contributed">ortografia resiana padronizada</variant>
 			<variant type="1996">ortografia alemã de 1996</variant>
 			<variant type="1606NICT" draft="contributed">francês antigo de 1606</variant>
-			<variant type="1694ACAD" draft="contributed">1694ACAD</variant>
 			<variant type="AREVELA">armênio oriental</variant>
 			<variant type="AREVMDA">armênio ocidental</variant>
 			<variant type="BAKU1926" draft="contributed">alfabeto latino turco unificado</variant>
@@ -1025,7 +1024,6 @@
 			<variant type="SCOUSE" draft="contributed">scouse</variant>
 			<variant type="SOLBA" draft="contributed">dialeto stolvizza/solbica</variant>
 			<variant type="TARASK" draft="contributed">ortografia taraskievica</variant>
-			<variant type="VALENCIA" draft="contributed">VALENCIA</variant>
 		</variants>
 		<keys>
 			<key type="calendar">Calendário</key>
@@ -1063,20 +1061,6 @@
 			<codePattern type="territory" draft="contributed">Região: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList draft="contributed">mixed</inList>
-		<inText type="currency" draft="contributed">mixed</inText>
-		<inText type="fields" draft="contributed">mixed</inText>
-		<inText type="keys" draft="contributed">mixed</inText>
-		<inText type="languages" draft="contributed">mixed</inText>
-		<inText type="long" draft="contributed">mixed</inText>
-		<inText type="measurementSystemNames" draft="contributed">mixed</inText>
-		<inText type="quarterWidth" draft="contributed">mixed</inText>
-		<inText type="scripts" draft="contributed">mixed</inText>
-		<inText type="territories" draft="contributed">mixed</inText>
-		<inText type="types" draft="contributed">mixed</inText>
-		<inText type="variants" draft="contributed">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a á à â ã b c ç d e é ê f-i í j-o ó ò ô õ p-u ú ü v-z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="contributed">[ă å ä ā æ è ĕ ë ē ì ĭ î ï ī k ñ º ŏ ö ø ō œ ß ù ŭ û ū w y ÿ]</exemplarCharacters>
@@ -1089,22 +1073,8 @@
 		<alternateQuotationEnd>’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
-		<dateRangePattern draft="contributed">{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
-				<am draft="contributed">AM</am>
-				<pm draft="contributed">PM</pm>
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">BE</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">BE</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">BE</era>
-					</eraNarrow>
-				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1134,80 +1104,6 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MEd" draft="contributed">E, M-d</dateFormatItem>
-						<dateFormatItem id="MMMMEd" draft="contributed">E MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="chinese">
-				<am draft="contributed">AM</am>
-				<pm draft="contributed">PM</pm>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern draft="contributed">EEEE y'x'G-Ml-d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern draft="contributed">y'x'G-Ml-d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern draft="contributed">y'x'G-Ml-d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="contributed">y'x'G-Ml-d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-			</calendar>
-			<calendar type="coptic">
-				<am draft="contributed">AM</am>
-				<pm draft="contributed">PM</pm>
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraNarrow>
-				</eras>
-			</calendar>
-			<calendar type="ethiopic">
-				<am draft="contributed">AM</am>
-				<pm draft="contributed">PM</pm>
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraNarrow>
-				</eras>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MEd" draft="contributed">E, M-d</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1537,767 +1433,7 @@
 					</field>
 				</fields>
 			</calendar>
-			<calendar type="hebrew">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="contributed">Tishri</month>
-							<month type="2" draft="contributed">Heshvan</month>
-							<month type="3" draft="contributed">Kislev</month>
-							<month type="4" draft="contributed">Tevet</month>
-							<month type="5" draft="contributed">Shevat</month>
-							<month type="6" draft="contributed">Adar I</month>
-							<month type="7" draft="contributed">Adar</month>
-							<month type="8" draft="contributed">Nisan</month>
-							<month type="9" draft="contributed">Iyar</month>
-							<month type="10" draft="contributed">Sivan</month>
-							<month type="11" draft="contributed">Tamuz</month>
-							<month type="12" draft="contributed">Av</month>
-							<month type="13" draft="contributed">Elul</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-							<month type="13" draft="contributed">13</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="contributed">Tishri</month>
-							<month type="2" draft="contributed">Heshvan</month>
-							<month type="3" draft="contributed">Kislev</month>
-							<month type="4" draft="contributed">Tevet</month>
-							<month type="5" draft="contributed">Shevat</month>
-							<month type="6" draft="contributed">Adar I</month>
-							<month type="7" draft="contributed">Adar</month>
-							<month type="8" draft="contributed">Nisan</month>
-							<month type="9" draft="contributed">Iyar</month>
-							<month type="10" draft="contributed">Sivan</month>
-							<month type="11" draft="contributed">Tamuz</month>
-							<month type="12" draft="contributed">Av</month>
-							<month type="13" draft="contributed">Elul</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-							<month type="13" draft="contributed">13</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="contributed">Tishri</month>
-							<month type="2" draft="contributed">Heshvan</month>
-							<month type="3" draft="contributed">Kislev</month>
-							<month type="4" draft="contributed">Tevet</month>
-							<month type="5" draft="contributed">Shevat</month>
-							<month type="6" draft="contributed">Adar I</month>
-							<month type="7" draft="contributed">Adar</month>
-							<month type="8" draft="contributed">Nisan</month>
-							<month type="9" draft="contributed">Iyar</month>
-							<month type="10" draft="contributed">Sivan</month>
-							<month type="12" draft="contributed">Av</month>
-							<month type="13" draft="contributed">Elul</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<am draft="contributed">AM</am>
-				<pm draft="contributed">PM</pm>
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">AM</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">AM</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">AM</era>
-					</eraNarrow>
-				</eras>
-			</calendar>
-			<calendar type="indian">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="contributed">Chaitra</month>
-							<month type="2" draft="contributed">Vaisakha</month>
-							<month type="3" draft="contributed">Jyaistha</month>
-							<month type="4" draft="contributed">Asadha</month>
-							<month type="5" draft="contributed">Sravana</month>
-							<month type="6" draft="contributed">Bhadra</month>
-							<month type="7" draft="contributed">Asvina</month>
-							<month type="8" draft="contributed">Kartika</month>
-							<month type="9" draft="contributed">Agrahayana</month>
-							<month type="10" draft="contributed">Pausa</month>
-							<month type="11" draft="contributed">Magha</month>
-							<month type="12" draft="contributed">Phalguna</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="contributed">Chaitra</month>
-							<month type="2" draft="contributed">Vaisakha</month>
-							<month type="3" draft="contributed">Jyaistha</month>
-							<month type="4" draft="contributed">Asadha</month>
-							<month type="5" draft="contributed">Sravana</month>
-							<month type="6" draft="contributed">Bhadra</month>
-							<month type="7" draft="contributed">Asvina</month>
-							<month type="8" draft="contributed">Kartika</month>
-							<month type="9" draft="contributed">Agrahayana</month>
-							<month type="10" draft="contributed">Pausa</month>
-							<month type="11" draft="contributed">Magha</month>
-							<month type="12" draft="contributed">Phalguna</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="contributed">Chaitra</month>
-							<month type="2" draft="contributed">Vaisakha</month>
-							<month type="3" draft="contributed">Jyaistha</month>
-							<month type="4" draft="contributed">Asadha</month>
-							<month type="5" draft="contributed">Sravana</month>
-							<month type="6" draft="contributed">Bhadra</month>
-							<month type="7" draft="contributed">Asvina</month>
-							<month type="8" draft="contributed">Kartika</month>
-							<month type="9" draft="contributed">Agrahayana</month>
-							<month type="10" draft="contributed">Pausa</month>
-							<month type="12" draft="contributed">Phalguna</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<am draft="contributed">AM</am>
-				<pm draft="contributed">PM</pm>
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">SAKA</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">SAKA</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">SAKA</era>
-					</eraNarrow>
-				</eras>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="islamic">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="contributed">Muharram</month>
-							<month type="2" draft="contributed">Safar</month>
-							<month type="3" draft="contributed">Rabiʻ I</month>
-							<month type="4" draft="contributed">Rabiʻ II</month>
-							<month type="5" draft="contributed">Jumada I</month>
-							<month type="6" draft="contributed">Jumada II</month>
-							<month type="7" draft="contributed">Rajab</month>
-							<month type="8" draft="contributed">Shaʻban</month>
-							<month type="9" draft="contributed">Ramadan</month>
-							<month type="10" draft="contributed">Shawwal</month>
-							<month type="11" draft="contributed">Dhuʻl-Qiʻdah</month>
-							<month type="12" draft="contributed">Dhuʻl-Hijjah</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="contributed">Muharram</month>
-							<month type="2" draft="contributed">Safar</month>
-							<month type="3" draft="contributed">Rabiʻ I</month>
-							<month type="4" draft="contributed">Rabiʻ II</month>
-							<month type="5" draft="contributed">Jumada I</month>
-							<month type="6" draft="contributed">Jumada II</month>
-							<month type="7" draft="contributed">Rajab</month>
-							<month type="8" draft="contributed">Shaʻban</month>
-							<month type="9" draft="contributed">Ramadan</month>
-							<month type="10" draft="contributed">Shawwal</month>
-							<month type="11" draft="contributed">Dhuʻl-Qiʻdah</month>
-							<month type="12" draft="contributed">Dhuʻl-Hijjah</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="contributed">Muharram</month>
-							<month type="2" draft="contributed">Safar</month>
-							<month type="3" draft="contributed">Rabiʻ I</month>
-							<month type="4" draft="contributed">Rabiʻ II</month>
-							<month type="5" draft="contributed">Jumada I</month>
-							<month type="6" draft="contributed">Jumada II</month>
-							<month type="7" draft="contributed">Rajab</month>
-							<month type="8" draft="contributed">Shaʻban</month>
-							<month type="9" draft="contributed">Ramadan</month>
-							<month type="10" draft="contributed">Shawwal</month>
-							<month type="11" draft="contributed">Dhuʻl-Qiʻdah</month>
-							<month type="12" draft="contributed">Dhuʻl-Hijjah</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<am draft="contributed">AM</am>
-				<pm draft="contributed">PM</pm>
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">AH</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">AH</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">AH</era>
-					</eraNarrow>
-				</eras>
-			</calendar>
 			<calendar type="japanese">
-				<am draft="contributed">AM</am>
-				<pm draft="contributed">PM</pm>
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">Taika</era>
-						<era type="1" draft="contributed">Hakuchi</era>
-						<era type="2" draft="contributed">Hakuhō</era>
-						<era type="3" draft="contributed">Shuchō</era>
-						<era type="4" draft="contributed">Taihō</era>
-						<era type="5" draft="contributed">Keiun</era>
-						<era type="6" draft="contributed">Wadō</era>
-						<era type="7" draft="contributed">Reiki</era>
-						<era type="8" draft="contributed">Yōrō</era>
-						<era type="9" draft="contributed">Jinki</era>
-						<era type="10" draft="contributed">Tempyō</era>
-						<era type="11" draft="contributed">Tempyō-kampō</era>
-						<era type="12" draft="contributed">Tempyō-shōhō</era>
-						<era type="13" draft="contributed">Tempyō-hōji</era>
-						<era type="14" draft="contributed">Temphō-jingo</era>
-						<era type="16" draft="contributed">Hōki</era>
-						<era type="17" draft="contributed">Ten-ō</era>
-						<era type="18" draft="contributed">Enryaku</era>
-						<era type="19" draft="contributed">Daidō</era>
-						<era type="20" draft="contributed">Kōnin</era>
-						<era type="21" draft="contributed">Tenchō</era>
-						<era type="22" draft="contributed">Shōwa</era>
-						<era type="23" draft="contributed">Kajō</era>
-						<era type="24" draft="contributed">Ninju</era>
-						<era type="25" draft="contributed">Saiko</era>
-						<era type="26" draft="contributed">Tennan</era>
-						<era type="27" draft="contributed">Jōgan</era>
-						<era type="28" draft="contributed">Genkei</era>
-						<era type="29" draft="contributed">Ninna</era>
-						<era type="30" draft="contributed">Kampyō</era>
-						<era type="31" draft="contributed">Shōtai</era>
-						<era type="32" draft="contributed">Engi</era>
-						<era type="33" draft="contributed">Enchō</era>
-						<era type="34" draft="contributed">Shōhei</era>
-						<era type="35" draft="contributed">Tengyō</era>
-						<era type="36" draft="contributed">Tenryaku</era>
-						<era type="37" draft="contributed">Tentoku</era>
-						<era type="38" draft="contributed">Ōwa</era>
-						<era type="39" draft="contributed">Kōhō</era>
-						<era type="40" draft="contributed">Anna</era>
-						<era type="41" draft="contributed">Tenroku</era>
-						<era type="42" draft="contributed">Ten-en</era>
-						<era type="43" draft="contributed">Jōgen</era>
-						<era type="44" draft="contributed">Tengen</era>
-						<era type="45" draft="contributed">Eikan</era>
-						<era type="46" draft="contributed">Kanna</era>
-						<era type="47" draft="contributed">Ei-en</era>
-						<era type="48" draft="contributed">Eiso</era>
-						<era type="49" draft="contributed">Shōryaku</era>
-						<era type="50" draft="contributed">Chōtoku</era>
-						<era type="51" draft="contributed">Chōhō</era>
-						<era type="52" draft="contributed">Kankō</era>
-						<era type="53" draft="contributed">Chōwa</era>
-						<era type="54" draft="contributed">Kannin</era>
-						<era type="56" draft="contributed">Manju</era>
-						<era type="57" draft="contributed">Chōgen</era>
-						<era type="58" draft="contributed">Chōryaku</era>
-						<era type="59" draft="contributed">Chōkyū</era>
-						<era type="60" draft="contributed">Kantoku</era>
-						<era type="61" draft="contributed">Eishō</era>
-						<era type="62" draft="contributed">Tengi</era>
-						<era type="63" draft="contributed">Kōhei</era>
-						<era type="64" draft="contributed">Jiryaku</era>
-						<era type="65" draft="contributed">Enkyū</era>
-						<era type="66" draft="contributed">Shōho</era>
-						<era type="67" draft="contributed">Shōryaku</era>
-						<era type="68" draft="contributed">Eiho</era>
-						<era type="69" draft="contributed">Ōtoku</era>
-						<era type="70" draft="contributed">Kanji</era>
-						<era type="71" draft="contributed">Kaho</era>
-						<era type="72" draft="contributed">Eichō</era>
-						<era type="73" draft="contributed">Shōtoku</era>
-						<era type="74" draft="contributed">Kōwa</era>
-						<era type="75" draft="contributed">Chōji</era>
-						<era type="76" draft="contributed">Kashō</era>
-						<era type="77" draft="contributed">Tennin</era>
-						<era type="78" draft="contributed">Ten-ei</era>
-						<era type="79" draft="contributed">Eikyū</era>
-						<era type="80" draft="contributed">Gen-ei</era>
-						<era type="81" draft="contributed">Hoan</era>
-						<era type="82" draft="contributed">Tenji</era>
-						<era type="83" draft="contributed">Daiji</era>
-						<era type="84" draft="contributed">Tenshō</era>
-						<era type="85" draft="contributed">Chōshō</era>
-						<era type="86" draft="contributed">Hoen</era>
-						<era type="87" draft="contributed">Eiji</era>
-						<era type="88" draft="contributed">Kōji</era>
-						<era type="89" draft="contributed">Tenyō</era>
-						<era type="90" draft="contributed">Kyūan</era>
-						<era type="91" draft="contributed">Ninpei</era>
-						<era type="92" draft="contributed">Kyūju</era>
-						<era type="93" draft="contributed">Hogen</era>
-						<era type="94" draft="contributed">Heiji</era>
-						<era type="96" draft="contributed">Ōho</era>
-						<era type="97" draft="contributed">Chōkan</era>
-						<era type="98" draft="contributed">Eiman</era>
-						<era type="99" draft="contributed">Nin-an</era>
-						<era type="100" draft="contributed">Kaō</era>
-						<era type="101" draft="contributed">Shōan</era>
-						<era type="102" draft="contributed">Angen</era>
-						<era type="103" draft="contributed">Jishō</era>
-						<era type="104" draft="contributed">Yōwa</era>
-						<era type="105" draft="contributed">Juei</era>
-						<era type="106" draft="contributed">Genryuku</era>
-						<era type="107" draft="contributed">Bunji</era>
-						<era type="108" draft="contributed">Kenkyū</era>
-						<era type="109" draft="contributed">Shōji</era>
-						<era type="110" draft="contributed">Kennin</era>
-						<era type="111" draft="contributed">Genkyū</era>
-						<era type="112" draft="contributed">Ken-ei</era>
-						<era type="113" draft="contributed">Shōgen</era>
-						<era type="114" draft="contributed">Kenryaku</era>
-						<era type="115" draft="contributed">Kenpō</era>
-						<era type="116" draft="contributed">Shōkyū</era>
-						<era type="117" draft="contributed">Jōō</era>
-						<era type="118" draft="contributed">Gennin</era>
-						<era type="119" draft="contributed">Karoku</era>
-						<era type="120" draft="contributed">Antei</era>
-						<era type="121" draft="contributed">Kanki</era>
-						<era type="122" draft="contributed">Jōei</era>
-						<era type="123" draft="contributed">Tempuku</era>
-						<era type="124" draft="contributed">Bunryaku</era>
-						<era type="125" draft="contributed">Katei</era>
-						<era type="126" draft="contributed">Ryakunin</era>
-						<era type="127" draft="contributed">En-ō</era>
-						<era type="128" draft="contributed">Ninji</era>
-						<era type="129" draft="contributed">Kangen</era>
-						<era type="130" draft="contributed">Hōji</era>
-						<era type="131" draft="contributed">Kenchō</era>
-						<era type="132" draft="contributed">Kōgen</era>
-						<era type="133" draft="contributed">Shōka</era>
-						<era type="134" draft="contributed">Shōgen</era>
-						<era type="136" draft="contributed">Kōchō</era>
-						<era type="137" draft="contributed">Bun-ei</era>
-						<era type="138" draft="contributed">Kenji</era>
-						<era type="139" draft="contributed">Kōan</era>
-						<era type="140" draft="contributed">Shōō</era>
-						<era type="141" draft="contributed">Einin</era>
-						<era type="142" draft="contributed">Shōan</era>
-						<era type="143" draft="contributed">Kengen</era>
-						<era type="144" draft="contributed">Kagen</era>
-						<era type="145" draft="contributed">Tokuji</era>
-						<era type="146" draft="contributed">Enkei</era>
-						<era type="147" draft="contributed">Ōchō</era>
-						<era type="148" draft="contributed">Shōwa</era>
-						<era type="149" draft="contributed">Bunpō</era>
-						<era type="150" draft="contributed">Genō</era>
-						<era type="151" draft="contributed">Genkyō</era>
-						<era type="152" draft="contributed">Shōchū</era>
-						<era type="153" draft="contributed">Kareki</era>
-						<era type="154" draft="contributed">Gentoku</era>
-						<era type="155" draft="contributed">Genkō</era>
-						<era type="156" draft="contributed">Kemmu</era>
-						<era type="157" draft="contributed">Engen</era>
-						<era type="158" draft="contributed">Kōkoku</era>
-						<era type="159" draft="contributed">Shōhei</era>
-						<era type="160" draft="contributed">Kentoku</era>
-						<era type="161" draft="contributed">Bunchũ</era>
-						<era type="162" draft="contributed">Tenju</era>
-						<era type="163" draft="contributed">Kōryaku</era>
-						<era type="164" draft="contributed">Kōwa</era>
-						<era type="165" draft="contributed">Genchũ</era>
-						<era type="166" draft="contributed">Meitoku</era>
-						<era type="167" draft="contributed">Kakei</era>
-						<era type="168" draft="contributed">Kōō</era>
-						<era type="169" draft="contributed">Meitoku</era>
-						<era type="170" draft="contributed">Ōei</era>
-						<era type="171" draft="contributed">Shōchō</era>
-						<era type="172" draft="contributed">Eikyō</era>
-						<era type="173" draft="contributed">Kakitsu</era>
-						<era type="174" draft="contributed">Bun-an</era>
-						<era type="176" draft="contributed">Kyōtoku</era>
-						<era type="177" draft="contributed">Kōshō</era>
-						<era type="178" draft="contributed">Chōroku</era>
-						<era type="179" draft="contributed">Kanshō</era>
-						<era type="180" draft="contributed">Bunshō</era>
-						<era type="181" draft="contributed">Ōnin</era>
-						<era type="182" draft="contributed">Bunmei</era>
-						<era type="183" draft="contributed">Chōkyō</era>
-						<era type="184" draft="contributed">Entoku</era>
-						<era type="185" draft="contributed">Meiō</era>
-						<era type="186" draft="contributed">Bunki</era>
-						<era type="187" draft="contributed">Eishō</era>
-						<era type="188" draft="contributed">Taiei</era>
-						<era type="189" draft="contributed">Kyōroku</era>
-						<era type="190" draft="contributed">Tenmon</era>
-						<era type="191" draft="contributed">Kōji</era>
-						<era type="192" draft="contributed">Eiroku</era>
-						<era type="193" draft="contributed">Genki</era>
-						<era type="194" draft="contributed">Tenshō</era>
-						<era type="195" draft="contributed">Bunroku</era>
-						<era type="196" draft="contributed">Keichō</era>
-						<era type="197" draft="contributed">Genwa</era>
-						<era type="198" draft="contributed">Kan-ei</era>
-						<era type="199" draft="contributed">Shōho</era>
-						<era type="200" draft="contributed">Keian</era>
-						<era type="201" draft="contributed">Shōō</era>
-						<era type="202" draft="contributed">Meiryaku</era>
-						<era type="203" draft="contributed">Manji</era>
-						<era type="204" draft="contributed">Kanbun</era>
-						<era type="205" draft="contributed">Enpō</era>
-						<era type="206" draft="contributed">Tenwa</era>
-						<era type="207" draft="contributed">Jōkyō</era>
-						<era type="208" draft="contributed">Genroku</era>
-						<era type="209" draft="contributed">Hōei</era>
-						<era type="210" draft="contributed">Shōtoku</era>
-						<era type="211" draft="contributed">Kyōhō</era>
-						<era type="212" draft="contributed">Genbun</era>
-						<era type="213" draft="contributed">Kanpō</era>
-						<era type="214" draft="contributed">Enkyō</era>
-						<era type="216" draft="contributed">Hōryaku</era>
-						<era type="217" draft="contributed">Meiwa</era>
-						<era type="218" draft="contributed">An-ei</era>
-						<era type="219" draft="contributed">Tenmei</era>
-						<era type="220" draft="contributed">Kansei</era>
-						<era type="221" draft="contributed">Kyōwa</era>
-						<era type="222" draft="contributed">Bunka</era>
-						<era type="223" draft="contributed">Bunsei</era>
-						<era type="224" draft="contributed">Tenpō</era>
-						<era type="225" draft="contributed">Kōka</era>
-						<era type="226" draft="contributed">Kaei</era>
-						<era type="227" draft="contributed">Ansei</era>
-						<era type="228" draft="contributed">Man-en</era>
-						<era type="229" draft="contributed">Bunkyū</era>
-						<era type="230" draft="contributed">Genji</era>
-						<era type="231" draft="contributed">Keiō</era>
-						<era type="232" draft="contributed">Meiji</era>
-						<era type="233" draft="contributed">Taishō</era>
-						<era type="234" draft="contributed">Shōwa</era>
-						<era type="235" draft="contributed">Heisei</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">Taika</era>
-						<era type="1" draft="contributed">Hakuchi</era>
-						<era type="2" draft="contributed">Hakuhō</era>
-						<era type="3" draft="contributed">Shuchō</era>
-						<era type="4" draft="contributed">Taihō</era>
-						<era type="5" draft="contributed">Keiun</era>
-						<era type="6" draft="contributed">Wadō</era>
-						<era type="7" draft="contributed">Reiki</era>
-						<era type="8" draft="contributed">Yōrō</era>
-						<era type="9" draft="contributed">Jinki</era>
-						<era type="10" draft="contributed">Tempyō</era>
-						<era type="11" draft="contributed">Tempyō-kampō</era>
-						<era type="12" draft="contributed">Tempyō-shōhō</era>
-						<era type="13" draft="contributed">Tempyō-hōji</era>
-						<era type="14" draft="contributed">Temphō-jingo</era>
-						<era type="15" draft="contributed">Jingo-keiun</era>
-						<era type="16" draft="contributed">Hōki</era>
-						<era type="17" draft="contributed">Ten-ō</era>
-						<era type="18" draft="contributed">Enryaku</era>
-						<era type="19" draft="contributed">Daidō</era>
-						<era type="20" draft="contributed">Kōnin</era>
-						<era type="21" draft="contributed">Tenchō</era>
-						<era type="22" draft="contributed">Shōwa</era>
-						<era type="23" draft="contributed">Kajō</era>
-						<era type="24" draft="contributed">Ninju</era>
-						<era type="25" draft="contributed">Saiko</era>
-						<era type="26" draft="contributed">Tennan</era>
-						<era type="27" draft="contributed">Jōgan</era>
-						<era type="28" draft="contributed">Genkei</era>
-						<era type="29" draft="contributed">Ninna</era>
-						<era type="30" draft="contributed">Kampyō</era>
-						<era type="31" draft="contributed">Shōtai</era>
-						<era type="32" draft="contributed">Engi</era>
-						<era type="33" draft="contributed">Enchō</era>
-						<era type="34" draft="contributed">Shōhei</era>
-						<era type="35" draft="contributed">Tengyō</era>
-						<era type="36" draft="contributed">Tenryaku</era>
-						<era type="37" draft="contributed">Tentoku</era>
-						<era type="38" draft="contributed">Ōwa</era>
-						<era type="39" draft="contributed">Kōhō</era>
-						<era type="40" draft="contributed">Anna</era>
-						<era type="41" draft="contributed">Tenroku</era>
-						<era type="42" draft="contributed">Ten-en</era>
-						<era type="43" draft="contributed">Jōgen</era>
-						<era type="44" draft="contributed">Tengen</era>
-						<era type="45" draft="contributed">Eikan</era>
-						<era type="46" draft="contributed">Kanna</era>
-						<era type="47" draft="contributed">Ei-en</era>
-						<era type="48" draft="contributed">Eiso</era>
-						<era type="49" draft="contributed">Shōryaku</era>
-						<era type="50" draft="contributed">Chōtoku</era>
-						<era type="51" draft="contributed">Chōhō</era>
-						<era type="52" draft="contributed">Kankō</era>
-						<era type="53" draft="contributed">Chōwa</era>
-						<era type="54" draft="contributed">Kannin</era>
-						<era type="55" draft="contributed">Jian</era>
-						<era type="56" draft="contributed">Manju</era>
-						<era type="57" draft="contributed">Chōgen</era>
-						<era type="58" draft="contributed">Chōryaku</era>
-						<era type="59" draft="contributed">Chōkyū</era>
-						<era type="60" draft="contributed">Kantoku</era>
-						<era type="61" draft="contributed">Eishō</era>
-						<era type="62" draft="contributed">Tengi</era>
-						<era type="63" draft="contributed">Kōhei</era>
-						<era type="64" draft="contributed">Jiryaku</era>
-						<era type="65" draft="contributed">Enkyū</era>
-						<era type="66" draft="contributed">Shōho</era>
-						<era type="67" draft="contributed">Shōryaku</era>
-						<era type="68" draft="contributed">Eiho</era>
-						<era type="69" draft="contributed">Ōtoku</era>
-						<era type="70" draft="contributed">Kanji</era>
-						<era type="71" draft="contributed">Kaho</era>
-						<era type="72" draft="contributed">Eichō</era>
-						<era type="73" draft="contributed">Shōtoku</era>
-						<era type="74" draft="contributed">Kōwa</era>
-						<era type="75" draft="contributed">Chōji</era>
-						<era type="76" draft="contributed">Kashō</era>
-						<era type="77" draft="contributed">Tennin</era>
-						<era type="78" draft="contributed">Ten-ei</era>
-						<era type="79" draft="contributed">Eikyū</era>
-						<era type="80" draft="contributed">Gen-ei</era>
-						<era type="81" draft="contributed">Hoan</era>
-						<era type="82" draft="contributed">Tenji</era>
-						<era type="83" draft="contributed">Daiji</era>
-						<era type="84" draft="contributed">Tenshō</era>
-						<era type="85" draft="contributed">Chōshō</era>
-						<era type="86" draft="contributed">Hoen</era>
-						<era type="87" draft="contributed">Eiji</era>
-						<era type="88" draft="contributed">Kōji</era>
-						<era type="89" draft="contributed">Tenyō</era>
-						<era type="90" draft="contributed">Kyūan</era>
-						<era type="91" draft="contributed">Ninpei</era>
-						<era type="92" draft="contributed">Kyūju</era>
-						<era type="93" draft="contributed">Hogen</era>
-						<era type="94" draft="contributed">Heiji</era>
-						<era type="95" draft="contributed">Eiryaku</era>
-						<era type="96" draft="contributed">Ōho</era>
-						<era type="97" draft="contributed">Chōkan</era>
-						<era type="98" draft="contributed">Eiman</era>
-						<era type="99" draft="contributed">Nin-an</era>
-						<era type="100" draft="contributed">Kaō</era>
-						<era type="101" draft="contributed">Shōan</era>
-						<era type="102" draft="contributed">Angen</era>
-						<era type="103" draft="contributed">Jishō</era>
-						<era type="104" draft="contributed">Yōwa</era>
-						<era type="105" draft="contributed">Juei</era>
-						<era type="106" draft="contributed">Genryuku</era>
-						<era type="107" draft="contributed">Bunji</era>
-						<era type="108" draft="contributed">Kenkyū</era>
-						<era type="109" draft="contributed">Shōji</era>
-						<era type="110" draft="contributed">Kennin</era>
-						<era type="111" draft="contributed">Genkyū</era>
-						<era type="112" draft="contributed">Ken-ei</era>
-						<era type="113" draft="contributed">Shōgen</era>
-						<era type="114" draft="contributed">Kenryaku</era>
-						<era type="115" draft="contributed">Kenpō</era>
-						<era type="116" draft="contributed">Shōkyū</era>
-						<era type="117" draft="contributed">Jōō</era>
-						<era type="118" draft="contributed">Gennin</era>
-						<era type="119" draft="contributed">Karoku</era>
-						<era type="120" draft="contributed">Antei</era>
-						<era type="121" draft="contributed">Kanki</era>
-						<era type="122" draft="contributed">Jōei</era>
-						<era type="123" draft="contributed">Tempuku</era>
-						<era type="124" draft="contributed">Bunryaku</era>
-						<era type="125" draft="contributed">Katei</era>
-						<era type="126" draft="contributed">Ryakunin</era>
-						<era type="127" draft="contributed">En-ō</era>
-						<era type="128" draft="contributed">Ninji</era>
-						<era type="129" draft="contributed">Kangen</era>
-						<era type="130" draft="contributed">Hōji</era>
-						<era type="131" draft="contributed">Kenchō</era>
-						<era type="132" draft="contributed">Kōgen</era>
-						<era type="133" draft="contributed">Shōka</era>
-						<era type="134" draft="contributed">Shōgen</era>
-						<era type="135" draft="contributed">Bun-ō</era>
-						<era type="136" draft="contributed">Kōchō</era>
-						<era type="137" draft="contributed">Bun-ei</era>
-						<era type="138" draft="contributed">Kenji</era>
-						<era type="139" draft="contributed">Kōan</era>
-						<era type="140" draft="contributed">Shōō</era>
-						<era type="141" draft="contributed">Einin</era>
-						<era type="142" draft="contributed">Shōan</era>
-						<era type="143" draft="contributed">Kengen</era>
-						<era type="144" draft="contributed">Kagen</era>
-						<era type="145" draft="contributed">Tokuji</era>
-						<era type="146" draft="contributed">Enkei</era>
-						<era type="147" draft="contributed">Ōchō</era>
-						<era type="148" draft="contributed">Shōwa</era>
-						<era type="149" draft="contributed">Bunpō</era>
-						<era type="150" draft="contributed">Genō</era>
-						<era type="151" draft="contributed">Genkyō</era>
-						<era type="152" draft="contributed">Shōchū</era>
-						<era type="153" draft="contributed">Kareki</era>
-						<era type="154" draft="contributed">Gentoku</era>
-						<era type="155" draft="contributed">Genkō</era>
-						<era type="156" draft="contributed">Kemmu</era>
-						<era type="157" draft="contributed">Engen</era>
-						<era type="158" draft="contributed">Kōkoku</era>
-						<era type="159" draft="contributed">Shōhei</era>
-						<era type="160" draft="contributed">Kentoku</era>
-						<era type="161" draft="contributed">Bunchũ</era>
-						<era type="162" draft="contributed">Tenju</era>
-						<era type="163" draft="contributed">Kōryaku</era>
-						<era type="164" draft="contributed">Kōwa</era>
-						<era type="165" draft="contributed">Genchũ</era>
-						<era type="166" draft="contributed">Meitoku</era>
-						<era type="167" draft="contributed">Kakei</era>
-						<era type="168" draft="contributed">Kōō</era>
-						<era type="169" draft="contributed">Meitoku</era>
-						<era type="170" draft="contributed">Ōei</era>
-						<era type="171" draft="contributed">Shōchō</era>
-						<era type="172" draft="contributed">Eikyō</era>
-						<era type="173" draft="contributed">Kakitsu</era>
-						<era type="174" draft="contributed">Bun-an</era>
-						<era type="175" draft="contributed">Hōtoku</era>
-						<era type="176" draft="contributed">Kyōtoku</era>
-						<era type="177" draft="contributed">Kōshō</era>
-						<era type="178" draft="contributed">Chōroku</era>
-						<era type="179" draft="contributed">Kanshō</era>
-						<era type="180" draft="contributed">Bunshō</era>
-						<era type="181" draft="contributed">Ōnin</era>
-						<era type="182" draft="contributed">Bunmei</era>
-						<era type="183" draft="contributed">Chōkyō</era>
-						<era type="184" draft="contributed">Entoku</era>
-						<era type="185" draft="contributed">Meiō</era>
-						<era type="186" draft="contributed">Bunki</era>
-						<era type="187" draft="contributed">Eishō</era>
-						<era type="188" draft="contributed">Taiei</era>
-						<era type="189" draft="contributed">Kyōroku</era>
-						<era type="190" draft="contributed">Tenmon</era>
-						<era type="191" draft="contributed">Kōji</era>
-						<era type="192" draft="contributed">Eiroku</era>
-						<era type="193" draft="contributed">Genki</era>
-						<era type="194" draft="contributed">Tenshō</era>
-						<era type="195" draft="contributed">Bunroku</era>
-						<era type="196" draft="contributed">Keichō</era>
-						<era type="197" draft="contributed">Genwa</era>
-						<era type="198" draft="contributed">Kan-ei</era>
-						<era type="199" draft="contributed">Shōho</era>
-						<era type="200" draft="contributed">Keian</era>
-						<era type="201" draft="contributed">Shōō</era>
-						<era type="202" draft="contributed">Meiryaku</era>
-						<era type="203" draft="contributed">Manji</era>
-						<era type="204" draft="contributed">Kanbun</era>
-						<era type="205" draft="contributed">Enpō</era>
-						<era type="206" draft="contributed">Tenwa</era>
-						<era type="207" draft="contributed">Jōkyō</era>
-						<era type="208" draft="contributed">Genroku</era>
-						<era type="209" draft="contributed">Hōei</era>
-						<era type="210" draft="contributed">Shōtoku</era>
-						<era type="211" draft="contributed">Kyōhō</era>
-						<era type="212" draft="contributed">Genbun</era>
-						<era type="213" draft="contributed">Kanpō</era>
-						<era type="214" draft="contributed">Enkyō</era>
-						<era type="215" draft="contributed">Kan-en</era>
-						<era type="216" draft="contributed">Hōryaku</era>
-						<era type="217" draft="contributed">Meiwa</era>
-						<era type="218" draft="contributed">An-ei</era>
-						<era type="219" draft="contributed">Tenmei</era>
-						<era type="220" draft="contributed">Kansei</era>
-						<era type="221" draft="contributed">Kyōwa</era>
-						<era type="222" draft="contributed">Bunka</era>
-						<era type="223" draft="contributed">Bunsei</era>
-						<era type="224" draft="contributed">Tenpō</era>
-						<era type="225" draft="contributed">Kōka</era>
-						<era type="226" draft="contributed">Kaei</era>
-						<era type="227" draft="contributed">Ansei</era>
-						<era type="228" draft="contributed">Man-en</era>
-						<era type="229" draft="contributed">Bunkyū</era>
-						<era type="230" draft="contributed">Genji</era>
-						<era type="231" draft="contributed">Keiō</era>
-						<era type="232" draft="contributed">Meiji</era>
-						<era type="233" draft="contributed">Taishō</era>
-						<era type="234" draft="contributed">Shōwa</era>
-						<era type="235" draft="contributed">Heisei</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="232" draft="contributed">M</era>
-						<era type="233" draft="contributed">T</era>
-						<era type="234" draft="contributed">S</era>
-						<era type="235" draft="contributed">H</era>
-					</eraNarrow>
-				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -2320,156 +1456,16 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern draft="contributed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<availableFormats>
-						<dateFormatItem id="Ed" draft="contributed">E d</dateFormatItem>
-						<dateFormatItem id="H" draft="contributed">H</dateFormatItem>
-						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
-						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="contributed">E MMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="contributed">MMMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
-						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
-						<dateFormatItem id="y" draft="contributed">yyyy GGG</dateFormatItem>
-						<dateFormatItem id="yM" draft="contributed">GGGGG yy-MM</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">GGGGG yy MMM</dateFormatItem>
-						<dateFormatItem id="yQ" draft="contributed">GGGGG yy Q</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="persian">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="contributed">Farvardin</month>
-							<month type="2" draft="contributed">Ordibehesht</month>
-							<month type="3" draft="contributed">Khordad</month>
-							<month type="4" draft="contributed">Tir</month>
-							<month type="5" draft="contributed">Mordad</month>
-							<month type="6" draft="contributed">Shahrivar</month>
-							<month type="7" draft="contributed">Mehr</month>
-							<month type="8" draft="contributed">Aban</month>
-							<month type="9" draft="contributed">Azar</month>
-							<month type="10" draft="contributed">Dey</month>
-							<month type="11" draft="contributed">Bahman</month>
-							<month type="12" draft="contributed">Esfand</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="contributed">Farvardin</month>
-							<month type="2" draft="contributed">Ordibehesht</month>
-							<month type="3" draft="contributed">Khordad</month>
-							<month type="4" draft="contributed">Tir</month>
-							<month type="5" draft="contributed">Mordad</month>
-							<month type="6" draft="contributed">Shahrivar</month>
-							<month type="7" draft="contributed">Mehr</month>
-							<month type="8" draft="contributed">Aban</month>
-							<month type="9" draft="contributed">Azar</month>
-							<month type="10" draft="contributed">Dey</month>
-							<month type="11" draft="contributed">Bahman</month>
-							<month type="12" draft="contributed">Esfand</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="contributed">Farvardin</month>
-							<month type="2" draft="contributed">Ordibehesht</month>
-							<month type="3" draft="contributed">Khordad</month>
-							<month type="4" draft="contributed">Tir</month>
-							<month type="5" draft="contributed">Mordad</month>
-							<month type="6" draft="contributed">Shahrivar</month>
-							<month type="7" draft="contributed">Mehr</month>
-							<month type="8" draft="contributed">Aban</month>
-							<month type="9" draft="contributed">Azar</month>
-							<month type="10" draft="contributed">Dey</month>
-							<month type="12" draft="contributed">Esfand</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<am draft="contributed">AM</am>
-				<pm draft="contributed">PM</pm>
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">AP</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">AP</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">AP</era>
-					</eraNarrow>
-				</eras>
 			</calendar>
 			<calendar type="roc">
-				<am draft="contributed">AM</am>
-				<pm draft="contributed">PM</pm>
 				<eras>
 					<eraNames>
 						<era type="0" draft="contributed">Antes de R.O.C.</era>
-						<era type="1" draft="contributed">R.O.C.</era>
 					</eraNames>
-					<eraAbbr>
-						<era type="1" draft="contributed">R.O.C.</era>
-					</eraAbbr>
 					<eraNarrow>
 						<era type="0" draft="contributed">Antes de R.O.C.</era>
-						<era type="1" draft="contributed">R.O.C.</era>
 					</eraNarrow>
 				</eras>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern draft="contributed">EEEE, MMMM d, G y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern draft="contributed">MMMM d, G y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern draft="contributed">MMM d, G y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="contributed">G y/M/d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -2498,59 +1494,11 @@
 			<zone type="America/Curacao">
 				<exemplarCity draft="provisional">Curaçao</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Rothera">
-				<exemplarCity draft="contributed">Rothera</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Palmer">
-				<exemplarCity draft="contributed">Palmer</exemplarCity>
-			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Pólo Sul</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Syowa">
-				<exemplarCity draft="contributed">Syowa</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Mawson">
-				<exemplarCity draft="contributed">Mawson</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Davis">
-				<exemplarCity draft="contributed">Davis</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Vostok">
-				<exemplarCity draft="contributed">Vostok</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Casey">
-				<exemplarCity draft="contributed">Casey</exemplarCity>
-			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity draft="contributed">Dumont D'Urville</exemplarCity>
-			</zone>
-			<zone type="Antarctica/McMurdo">
-				<exemplarCity draft="contributed">McMurdo</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity draft="contributed">Rio Gallegos</exemplarCity>
-			</zone>
-			<zone type="America/Mendoza">
-				<exemplarCity draft="contributed">Mendoza</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Juan">
-				<exemplarCity draft="contributed">San Juan</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity draft="contributed">Ushuaia</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity draft="contributed">La Rioja</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Luis">
-				<exemplarCity draft="contributed">San Luis</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity draft="contributed">Catamarca</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity draft="contributed">Jujuy</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
 				<exemplarCity draft="contributed">Tucumã</exemplarCity>
@@ -2558,47 +1506,8 @@
 			<zone type="America/Cordoba">
 				<exemplarCity>Córdoba</exemplarCity>
 			</zone>
-			<zone type="America/Buenos_Aires">
-				<exemplarCity draft="contributed">Buenos Aires</exemplarCity>
-			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity draft="provisional">Viena</exemplarCity>
-			</zone>
-			<zone type="Australia/Perth">
-				<exemplarCity draft="contributed">Perth</exemplarCity>
-			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity draft="contributed">Eucla</exemplarCity>
-			</zone>
-			<zone type="Australia/Darwin">
-				<exemplarCity draft="contributed">Darwin</exemplarCity>
-			</zone>
-			<zone type="Australia/Adelaide">
-				<exemplarCity draft="contributed">Adelaide</exemplarCity>
-			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity draft="contributed">Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="contributed">Currie</exemplarCity>
-			</zone>
-			<zone type="Australia/Melbourne">
-				<exemplarCity draft="contributed">Melbourne</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity draft="contributed">Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity draft="contributed">Lindeman</exemplarCity>
-			</zone>
-			<zone type="Australia/Sydney">
-				<exemplarCity draft="contributed">Sydney</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity draft="contributed">Brisbane</exemplarCity>
-			</zone>
-			<zone type="Australia/Lord_Howe">
-				<exemplarCity draft="contributed">Lord Howe</exemplarCity>
 			</zone>
 			<zone type="Asia/Dhaka">
 				<exemplarCity draft="provisional">Dacca</exemplarCity>
@@ -2621,23 +1530,8 @@
 			<zone type="America/Eirunepe">
 				<exemplarCity draft="contributed">Eirunepé</exemplarCity>
 			</zone>
-			<zone type="America/Rio_Branco">
-				<exemplarCity>Rio Branco</exemplarCity>
-			</zone>
-			<zone type="America/Porto_Velho">
-				<exemplarCity draft="contributed">Porto Velho</exemplarCity>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity>Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Manaus">
-				<exemplarCity draft="contributed">Manaus</exemplarCity>
-			</zone>
 			<zone type="America/Cuiaba">
 				<exemplarCity>Cuiabá</exemplarCity>
-			</zone>
-			<zone type="America/Campo_Grande">
-				<exemplarCity draft="contributed">Campo Grande</exemplarCity>
 			</zone>
 			<zone type="America/Belem">
 				<exemplarCity>Belém</exemplarCity>
@@ -2648,104 +1542,14 @@
 			<zone type="America/Sao_Paulo">
 				<exemplarCity>São Paulo</exemplarCity>
 			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity>Bahia</exemplarCity>
-			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity draft="contributed">Fortaleza</exemplarCity>
-			</zone>
 			<zone type="America/Maceio">
 				<exemplarCity>Maceió</exemplarCity>
-			</zone>
-			<zone type="America/Recife">
-				<exemplarCity draft="contributed">Recife</exemplarCity>
 			</zone>
 			<zone type="America/Noronha">
 				<exemplarCity draft="contributed">Fernando de Noronha</exemplarCity>
 			</zone>
-			<zone type="America/Dawson">
-				<exemplarCity draft="contributed">Dawson</exemplarCity>
-			</zone>
-			<zone type="America/Whitehorse">
-				<exemplarCity draft="contributed">Whitehorse</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity draft="contributed">Inuvik</exemplarCity>
-			</zone>
-			<zone type="America/Vancouver">
-				<exemplarCity draft="contributed">Vancouver</exemplarCity>
-			</zone>
-			<zone type="America/Dawson_Creek">
-				<exemplarCity draft="contributed">Dawson Creek</exemplarCity>
-			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity draft="contributed">Yellowknife</exemplarCity>
-			</zone>
-			<zone type="America/Edmonton">
-				<exemplarCity draft="contributed">Edmonton</exemplarCity>
-			</zone>
-			<zone type="America/Swift_Current">
-				<exemplarCity draft="contributed">Swift Current</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity draft="contributed">Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Regina">
-				<exemplarCity draft="contributed">Regina</exemplarCity>
-			</zone>
-			<zone type="America/Winnipeg">
-				<exemplarCity draft="contributed">Winnipeg</exemplarCity>
-			</zone>
-			<zone type="America/Resolute">
-				<exemplarCity draft="contributed">Resolute</exemplarCity>
-			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity draft="contributed">Rainy River</exemplarCity>
-			</zone>
-			<zone type="America/Rankin_Inlet">
-				<exemplarCity draft="contributed">Rankin Inlet</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity draft="contributed">Coral Harbour</exemplarCity>
-			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity draft="contributed">Thunder Bay</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity draft="contributed">Nipigon</exemplarCity>
-			</zone>
-			<zone type="America/Toronto">
-				<exemplarCity draft="contributed">Toronto</exemplarCity>
-			</zone>
-			<zone type="America/Montreal">
-				<exemplarCity draft="contributed">Montreal</exemplarCity>
-			</zone>
-			<zone type="America/Iqaluit">
-				<exemplarCity draft="contributed">Iqaluit</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity draft="contributed">Pangnirtung</exemplarCity>
-			</zone>
-			<zone type="America/Moncton">
-				<exemplarCity draft="contributed">Moncton</exemplarCity>
-			</zone>
-			<zone type="America/Halifax">
-				<exemplarCity draft="contributed">Halifax</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity draft="contributed">Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity draft="contributed">Blanc-Sablon</exemplarCity>
-			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity>St. Johns</exemplarCity>
-			</zone>
-			<zone type="Africa/Kinshasa">
-				<exemplarCity draft="contributed">Kinshasa</exemplarCity>
-			</zone>
-			<zone type="Africa/Lubumbashi">
-				<exemplarCity draft="contributed">Lubumbashi</exemplarCity>
 			</zone>
 			<zone type="Europe/Zurich">
 				<exemplarCity draft="provisional">Zurique</exemplarCity>
@@ -2756,20 +1560,8 @@
 			<zone type="Pacific/Easter">
 				<exemplarCity>Ilha de Páscoa</exemplarCity>
 			</zone>
-			<zone type="Asia/Kashgar">
-				<exemplarCity draft="contributed">Kashgar</exemplarCity>
-			</zone>
-			<zone type="Asia/Urumqi">
-				<exemplarCity draft="contributed">Urumqi</exemplarCity>
-			</zone>
-			<zone type="Asia/Chongqing">
-				<exemplarCity draft="contributed">Chongqing</exemplarCity>
-			</zone>
 			<zone type="Asia/Shanghai">
 				<exemplarCity>Xangai</exemplarCity>
-			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity draft="contributed">Harbin</exemplarCity>
 			</zone>
 			<zone type="America/Bogota">
 				<exemplarCity draft="provisional">Bogotá</exemplarCity>
@@ -2803,23 +1595,11 @@
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Canárias</exemplarCity>
 			</zone>
-			<zone type="Africa/Ceuta">
-				<exemplarCity draft="contributed">Ceuta</exemplarCity>
-			</zone>
 			<zone type="Europe/Madrid">
 				<exemplarCity>Madri</exemplarCity>
 			</zone>
 			<zone type="Europe/Helsinki">
 				<exemplarCity draft="provisional">Helsinque</exemplarCity>
-			</zone>
-			<zone type="Pacific/Truk">
-				<exemplarCity draft="contributed">Truk</exemplarCity>
-			</zone>
-			<zone type="Pacific/Ponape">
-				<exemplarCity draft="contributed">Ponape</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kosrae">
-				<exemplarCity draft="contributed">Kosrae</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity draft="provisional">Ilhas Faroe</exemplarCity>
@@ -2832,15 +1612,6 @@
 			</zone>
 			<zone type="America/Cayenne">
 				<exemplarCity draft="provisional">Caiena</exemplarCity>
-			</zone>
-			<zone type="America/Thule">
-				<exemplarCity draft="contributed">Thule</exemplarCity>
-			</zone>
-			<zone type="America/Scoresbysund">
-				<exemplarCity draft="contributed">Scoresbysund</exemplarCity>
-			</zone>
-			<zone type="America/Danmarkshavn">
-				<exemplarCity draft="contributed">Danmarkshavn</exemplarCity>
 			</zone>
 			<zone type="America/Guadeloupe">
 				<exemplarCity draft="provisional">Guadalupe</exemplarCity>
@@ -2864,15 +1635,6 @@
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Jacarta</exemplarCity>
 			</zone>
-			<zone type="Asia/Pontianak">
-				<exemplarCity draft="contributed">Pontianak</exemplarCity>
-			</zone>
-			<zone type="Asia/Makassar">
-				<exemplarCity draft="contributed">Makassar</exemplarCity>
-			</zone>
-			<zone type="Asia/Jayapura">
-				<exemplarCity draft="contributed">Jayapura</exemplarCity>
-			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Jerusalém</exemplarCity>
 			</zone>
@@ -2894,15 +1656,6 @@
 			<zone type="Africa/Nairobi">
 				<exemplarCity draft="provisional">Nairóbi</exemplarCity>
 			</zone>
-			<zone type="Pacific/Enderbury">
-				<exemplarCity draft="contributed">Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kiritimati">
-				<exemplarCity draft="contributed">Kiritimati</exemplarCity>
-			</zone>
-			<zone type="Pacific/Tarawa">
-				<exemplarCity draft="contributed">Tarawa</exemplarCity>
-			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity draft="provisional">São Cristóvão</exemplarCity>
 			</zone>
@@ -2911,21 +1664,6 @@
 			</zone>
 			<zone type="America/Cayman">
 				<exemplarCity draft="provisional">Caimã</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtau">
-				<exemplarCity draft="contributed">Aqtau</exemplarCity>
-			</zone>
-			<zone type="Asia/Oral">
-				<exemplarCity draft="contributed">Oral</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtobe">
-				<exemplarCity draft="contributed">Aqtobe</exemplarCity>
-			</zone>
-			<zone type="Asia/Qyzylorda">
-				<exemplarCity draft="contributed">Qyzylorda</exemplarCity>
-			</zone>
-			<zone type="Asia/Almaty">
-				<exemplarCity draft="contributed">Almaty</exemplarCity>
 			</zone>
 			<zone type="Asia/Vientiane">
 				<exemplarCity draft="provisional">Vienciana</exemplarCity>
@@ -2948,21 +1686,6 @@
 			<zone type="Europe/Monaco">
 				<exemplarCity draft="provisional">Mônaco</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kwajalein">
-				<exemplarCity draft="contributed">Kwajalein</exemplarCity>
-			</zone>
-			<zone type="Pacific/Majuro">
-				<exemplarCity draft="contributed">Majuro</exemplarCity>
-			</zone>
-			<zone type="Asia/Hovd">
-				<exemplarCity draft="contributed">Hovd</exemplarCity>
-			</zone>
-			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity draft="contributed">Ulaanbaatar</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="contributed">Choibalsan</exemplarCity>
-			</zone>
 			<zone type="America/Martinique">
 				<exemplarCity draft="provisional">Martinica</exemplarCity>
 			</zone>
@@ -2971,21 +1694,6 @@
 			</zone>
 			<zone type="Indian/Maldives">
 				<exemplarCity draft="provisional">Maldivas</exemplarCity>
-			</zone>
-			<zone type="America/Tijuana">
-				<exemplarCity draft="contributed">Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Hermosillo">
-				<exemplarCity draft="contributed">Hermosillo</exemplarCity>
-			</zone>
-			<zone type="America/Mazatlan">
-				<exemplarCity draft="contributed">Mazatlan</exemplarCity>
-			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity draft="contributed">Chihuahua</exemplarCity>
-			</zone>
-			<zone type="America/Monterrey">
-				<exemplarCity draft="contributed">Monterrey</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>Cidade do México</exemplarCity>
@@ -2996,9 +1704,6 @@
 			<zone type="America/Cancun">
 				<exemplarCity>Cancún</exemplarCity>
 			</zone>
-			<zone type="Asia/Kuching">
-				<exemplarCity draft="contributed">Kuching</exemplarCity>
-			</zone>
 			<zone type="America/Managua">
 				<exemplarCity draft="provisional">Manágua</exemplarCity>
 			</zone>
@@ -3008,21 +1713,12 @@
 			<zone type="Asia/Katmandu">
 				<exemplarCity draft="provisional">Catmandu</exemplarCity>
 			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity draft="contributed">Chatham</exemplarCity>
-			</zone>
 			<zone type="America/Panama">
 				<exemplarCity draft="provisional">Panamá</exemplarCity>
 			</zone>
 			<!-- French Polynesia -->
 			<zone type="Pacific/Tahiti">
 				<exemplarCity>Taiti</exemplarCity>
-			</zone>
-			<zone type="Pacific/Marquesas">
-				<exemplarCity draft="contributed">Marquesas</exemplarCity>
-			</zone>
-			<zone type="Pacific/Gambier">
-				<exemplarCity draft="contributed">Gambier</exemplarCity>
 			</zone>
 			<zone type="Europe/Warsaw">
 				<exemplarCity draft="provisional">Varsóvia</exemplarCity>
@@ -3033,9 +1729,6 @@
 			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Açores</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Madeira">
-				<exemplarCity draft="contributed">Madeira</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity>Lisboa</exemplarCity>
@@ -3052,50 +1745,8 @@
 			<zone type="Europe/Bucharest">
 				<exemplarCity>Bucareste</exemplarCity>
 			</zone>
-			<zone type="Europe/Kaliningrad">
-				<exemplarCity draft="contributed">Kaliningrad</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moscou</exemplarCity>
-			</zone>
-			<zone type="Europe/Volgograd">
-				<exemplarCity draft="contributed">Volgograd</exemplarCity>
-			</zone>
-			<zone type="Europe/Samara">
-				<exemplarCity draft="contributed">Samara</exemplarCity>
-			</zone>
-			<zone type="Asia/Yekaterinburg">
-				<exemplarCity draft="contributed">Yekaterinburg</exemplarCity>
-			</zone>
-			<zone type="Asia/Omsk">
-				<exemplarCity draft="contributed">Omsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Novosibirsk">
-				<exemplarCity draft="contributed">Novosibirsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity draft="contributed">Krasnoyarsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Irkutsk">
-				<exemplarCity draft="contributed">Irkutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Yakutsk">
-				<exemplarCity draft="contributed">Yakutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Vladivostok">
-				<exemplarCity draft="contributed">Vladivostok</exemplarCity>
-			</zone>
-			<zone type="Asia/Sakhalin">
-				<exemplarCity draft="contributed">Sakhalin</exemplarCity>
-			</zone>
-			<zone type="Asia/Magadan">
-				<exemplarCity draft="contributed">Magadan</exemplarCity>
-			</zone>
-			<zone type="Asia/Kamchatka">
-				<exemplarCity draft="contributed">Kamchatka</exemplarCity>
-			</zone>
-			<zone type="Asia/Anadyr">
-				<exemplarCity draft="contributed">Anadyr</exemplarCity>
 			</zone>
 			<zone type="Asia/Riyadh">
 				<exemplarCity draft="provisional">Riad</exemplarCity>
@@ -3133,113 +1784,20 @@
 			<zone type="America/Port_of_Spain">
 				<exemplarCity draft="provisional">Porto Espanha</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity draft="contributed">Uzhgorod</exemplarCity>
-			</zone>
-			<zone type="Europe/Kiev">
-				<exemplarCity draft="contributed">Kiev</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity draft="contributed">Simferopol</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity draft="contributed">Zaporozhye</exemplarCity>
-			</zone>
-			<zone type="Pacific/Midway">
-				<exemplarCity draft="contributed">Midway</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity draft="contributed">Johnston</exemplarCity>
-			</zone>
-			<zone type="Pacific/Wake">
-				<exemplarCity draft="contributed">Wake</exemplarCity>
-			</zone>
-			<zone type="America/Adak">
-				<exemplarCity draft="contributed">Adak</exemplarCity>
-			</zone>
-			<zone type="America/Nome">
-				<exemplarCity draft="contributed">Nome</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity draft="contributed">Honolulu</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<exemplarCity draft="contributed">Anchorage</exemplarCity>
-			</zone>
-			<zone type="America/Yakutat">
-				<exemplarCity draft="contributed">Yakutat</exemplarCity>
-			</zone>
-			<zone type="America/Juneau">
-				<exemplarCity draft="contributed">Juneau</exemplarCity>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<exemplarCity draft="contributed">Los Angeles</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity draft="contributed">Boise</exemplarCity>
-			</zone>
-			<zone type="America/Phoenix">
-				<exemplarCity draft="contributed">Phoenix</exemplarCity>
-			</zone>
-			<zone type="America/Shiprock">
-				<exemplarCity draft="contributed">Shiprock</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<exemplarCity draft="contributed">Denver</exemplarCity>
-			</zone>
 			<zone type="America/North_Dakota/New_Salem">
 				<exemplarCity draft="contributed">New Salen, Dakota do Norte</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Central</exemplarCity>
 			</zone>
-			<zone type="America/Chicago">
-				<exemplarCity draft="contributed">Chicago</exemplarCity>
-			</zone>
-			<zone type="America/Menominee">
-				<exemplarCity draft="contributed">Menominee</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vincennes">
-				<exemplarCity draft="contributed">Vincennes, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Petersburg">
-				<exemplarCity draft="contributed">Petersburg, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity draft="contributed">Tell City, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Knox">
-				<exemplarCity draft="contributed">Knox, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Winamac">
-				<exemplarCity draft="contributed">Winamac, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Marengo">
-				<exemplarCity draft="contributed">Marengo, Indiana</exemplarCity>
-			</zone>
 			<zone type="America/Indianapolis">
 				<exemplarCity>Indianápolis</exemplarCity>
-			</zone>
-			<zone type="America/Louisville">
-				<exemplarCity draft="contributed">Louisville</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<exemplarCity draft="contributed">Vevay, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<exemplarCity draft="contributed">Monticello, Kentucky</exemplarCity>
-			</zone>
-			<zone type="America/Detroit">
-				<exemplarCity draft="contributed">Detroit</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
 				<exemplarCity>Nova Iorque</exemplarCity>
 			</zone>
 			<zone type="America/Montevideo">
 				<exemplarCity draft="provisional">Montevidéu</exemplarCity>
-			</zone>
-			<zone type="Asia/Samarkand">
-				<exemplarCity draft="contributed">Samarkand</exemplarCity>
 			</zone>
 			<zone type="America/St_Vincent">
 				<exemplarCity draft="provisional">São Vicente</exemplarCity>
@@ -3270,17 +1828,11 @@
 				<long>
 					<standard draft="contributed">Horário do Afeganistão</standard>
 				</long>
-				<short>
-					<standard draft="contributed">AFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>Horário da África Central</standard>
 				</long>
-				<short>
-					<standard>CAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
@@ -3819,7 +2371,6 @@
 				</long>
 				<short>
 					<standard>IST (Israel)</standard>
-					<daylight>IDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Japan">
@@ -4381,19 +2932,16 @@
 				<displayName>Peseta de Andorra</displayName>
 				<displayName count="one" draft="contributed">Peseta de Andorra</displayName>
 				<displayName count="other" draft="contributed">Pesetas de Andorra</displayName>
-				<symbol draft="contributed">ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>Dirém dos Emirados Árabes Unidos</displayName>
 				<displayName count="one" draft="contributed">Dirham de UAE</displayName>
 				<displayName count="other" draft="contributed">Dirhans de UAE</displayName>
-				<symbol draft="contributed">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Afegane (1927-2002)</displayName>
 				<displayName count="one" draft="contributed">Afghani (AFA)</displayName>
 				<displayName count="other" draft="contributed">Afghani (AFA)</displayName>
-				<symbol draft="contributed">AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>Afegane</displayName>
@@ -4424,37 +2972,31 @@
 				<displayName>Cuanza angolano</displayName>
 				<displayName count="one" draft="contributed">Kwanza angolano</displayName>
 				<displayName count="other" draft="contributed">Kwanzas angolanos</displayName>
-				<symbol draft="contributed">AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Cuanza angolano (1977-1990)</displayName>
 				<displayName count="one" draft="contributed">Kwanza angolano (AOK)</displayName>
 				<displayName count="other" draft="contributed">Kwanzas angolanos (AOK)</displayName>
-				<symbol draft="contributed">AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName draft="contributed">Novo cuanza angolano (1990-2000)</displayName>
 				<displayName count="one" draft="contributed">Novo kwanza angolano (AOK)</displayName>
 				<displayName count="other" draft="contributed">Novos kwanzas angolanos (AOK)</displayName>
-				<symbol draft="contributed">AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>Cuanza angolano reajustado (1995-1999)</displayName>
 				<displayName count="one" draft="contributed">Kwanza angolano reajustado (AOR)</displayName>
 				<displayName count="other" draft="contributed">Kwanzas angolanos reajustados (AOR)</displayName>
-				<symbol draft="contributed">AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName>Austral argentino</displayName>
 				<displayName count="one" draft="contributed">Austral argentino</displayName>
 				<displayName count="other" draft="contributed">Austrais argentinos</displayName>
-				<symbol draft="contributed">ARA</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>Peso argentino (1983-1985)</displayName>
 				<displayName count="one" draft="contributed">Peso argentino (ARP)</displayName>
 				<displayName count="other" draft="contributed">Pesos argentinos (ARP)</displayName>
-				<symbol draft="contributed">ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>Peso argentino</displayName>
@@ -4466,7 +3008,6 @@
 				<displayName>Xelim austríaco</displayName>
 				<displayName count="one" draft="contributed">Schilling australiano</displayName>
 				<displayName count="other" draft="contributed">Schillings australianos</displayName>
-				<symbol draft="contributed">ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>Dólar australiano</displayName>
@@ -4478,25 +3019,21 @@
 				<displayName>Guilder de Aruba</displayName>
 				<displayName count="one" draft="contributed">Florim de Aruba</displayName>
 				<displayName count="other" draft="contributed">Florins de Aruba</displayName>
-				<symbol draft="contributed">AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>Manat azerbaijano</displayName>
 				<displayName count="one" draft="contributed">Manat do Azeibaijão (AZM)</displayName>
 				<displayName count="other" draft="contributed">Manats do Azeibaijão (AZM)</displayName>
-				<symbol draft="contributed">AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName draft="contributed">Manat do Azerbaijão</displayName>
 				<displayName count="one" draft="contributed">Manat do Azeibaijão</displayName>
 				<displayName count="other" draft="contributed">Manats do Azeibaijão</displayName>
-				<symbol draft="contributed">AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName draft="contributed">Dinar da Bósnia-Herzegovina</displayName>
 				<displayName count="one" draft="contributed">Dinar da Bósnia Herzegovina</displayName>
 				<displayName count="other" draft="contributed">Dinares da Bósnia Herzegovina</displayName>
-				<symbol draft="contributed">BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName draft="contributed">Marco bósnio-herzegovino conversível</displayName>
@@ -4520,7 +3057,6 @@
 				<displayName>Franco belga (conversível)</displayName>
 				<displayName count="one" draft="contributed">Franco belga (conversível)</displayName>
 				<displayName count="other" draft="contributed">Francos belgas (conversível)</displayName>
-				<symbol draft="contributed">BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>Franco belga</displayName>
@@ -4532,7 +3068,6 @@
 				<displayName>Franco belga (financeiro)</displayName>
 				<displayName count="one" draft="contributed">Franco belga (financeiro)</displayName>
 				<displayName count="other" draft="contributed">Francos belgas (financeiro)</displayName>
-				<symbol draft="contributed">BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>Lev forte búlgaro</displayName>
@@ -4544,7 +3079,6 @@
 				<displayName>Lev novo búlgaro</displayName>
 				<displayName count="one" draft="contributed">Novo lev da Bulgária</displayName>
 				<displayName count="other" draft="contributed">Novos levs da Bulgária</displayName>
-				<symbol draft="contributed">BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Dinar bareinita</displayName>
@@ -4568,7 +3102,6 @@
 				<displayName>Dólar do Brunei</displayName>
 				<displayName count="one" draft="contributed">Dólar de Brunei</displayName>
 				<displayName count="other" draft="contributed">Dólares de Brunei</displayName>
-				<symbol draft="contributed">BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Boliviano</displayName>
@@ -4580,55 +3113,46 @@
 				<displayName>Peso boliviano</displayName>
 				<displayName count="one" draft="contributed">Peso boliviano</displayName>
 				<displayName count="other" draft="contributed">Pesos bolivianos</displayName>
-				<symbol draft="contributed">BOP</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>Mvdol boliviano</displayName>
 				<displayName count="one" draft="contributed">Mvdol boliviano</displayName>
 				<displayName count="other" draft="contributed">Mvdols bolivianos</displayName>
-				<symbol draft="contributed">BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>Cruzeiro novo brasileiro (1967-1986)</displayName>
 				<displayName count="one">Cruzeiro novo brasileiro</displayName>
 				<displayName count="other" draft="contributed">Cruzeiro novo brasileiro (BRB)</displayName>
-				<symbol draft="contributed">BRB</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName>Cruzado brasileiro</displayName>
 				<displayName count="one" draft="contributed">Cruzado brasileiro</displayName>
 				<displayName count="other" draft="contributed">Cruzados brasileiros</displayName>
-				<symbol draft="contributed">BRC</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName>Cruzeiro brasileiro (1990-1993)</displayName>
 				<displayName count="one" draft="contributed">Cruzeiro brasileiro (BRE)</displayName>
 				<displayName count="other" draft="contributed">Cruzeiros brasileiros (BRE)</displayName>
-				<symbol draft="contributed">BRE</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Real brasileiro</displayName>
 				<displayName count="one" draft="contributed">Real brasileiro</displayName>
 				<displayName count="other" draft="contributed">Reais brasileiros</displayName>
-				<symbol draft="contributed">R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Cruzado novo brasileiro</displayName>
 				<displayName count="one" draft="contributed">Cruzado novo brasileiro</displayName>
 				<displayName count="other" draft="contributed">Cruzados novos brasileiros</displayName>
-				<symbol draft="contributed">BRN</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>Cruzeiro brasileiro</displayName>
 				<displayName count="one" draft="contributed">Cruzeiro brasileiro</displayName>
 				<displayName count="other" draft="contributed">Cruzeiros brasileiros</displayName>
-				<symbol draft="contributed">BRR</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Dólar das Bahamas</displayName>
 				<displayName count="one" draft="contributed">Dólar de Bahamian</displayName>
 				<displayName count="other" draft="contributed">Dólares de Bahamian</displayName>
-				<symbol draft="contributed">BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Ngultrum do Butão</displayName>
@@ -4640,19 +3164,16 @@
 				<displayName>Kyat birmanês</displayName>
 				<displayName count="one" draft="contributed">Kyat burmês</displayName>
 				<displayName count="other" draft="contributed">Kyats burmeses</displayName>
-				<symbol draft="contributed">BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>Pula botsuanesa</displayName>
 				<displayName count="one" draft="contributed">Pula de Botsuana</displayName>
 				<displayName count="other" draft="contributed">Pulas de Botsuana</displayName>
-				<symbol draft="contributed">BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Rublo novo bielo-russo (1994-1999)</displayName>
 				<displayName count="one" draft="contributed">Novo rublo bielorusso</displayName>
 				<displayName count="other" draft="contributed">Novos rublos bielorussos</displayName>
-				<symbol draft="contributed">BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>Rublo bielo-russo</displayName>
@@ -4676,13 +3197,11 @@
 				<displayName>Franco congolês</displayName>
 				<displayName count="one" draft="contributed">Franco congolês</displayName>
 				<displayName count="other" draft="contributed">Francos congoleses</displayName>
-				<symbol draft="contributed">CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName draft="contributed">Euro WIR</displayName>
 				<displayName count="one" draft="contributed">Euro WIR</displayName>
 				<displayName count="other" draft="contributed">Euros WIR</displayName>
-				<symbol draft="contributed">CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Franco suíço</displayName>
@@ -4694,13 +3213,11 @@
 				<displayName draft="contributed">Franco WIR</displayName>
 				<displayName count="one" draft="contributed">Franco WIR</displayName>
 				<displayName count="other" draft="contributed">Francos WIR</displayName>
-				<symbol draft="contributed">CHW</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>Unidades de Fomento chilenas</displayName>
 				<displayName count="one" draft="contributed">Unidade de fomento chilena</displayName>
 				<displayName count="other" draft="contributed">Unidades de fomento chilenas</displayName>
-				<symbol draft="contributed">CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>Peso chileno</displayName>
@@ -4724,7 +3241,6 @@
 				<displayName>Unidade de Valor Real</displayName>
 				<displayName count="one" draft="contributed">Unidade de valor real</displayName>
 				<displayName count="other" draft="contributed">Unidades de valor real</displayName>
-				<symbol draft="contributed">COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>Colon da Costa Rica</displayName>
@@ -4736,19 +3252,16 @@
 				<displayName draft="contributed">Dinar Antigo sérvio</displayName>
 				<displayName count="one" draft="contributed">Dinar antigo da Sérvia</displayName>
 				<displayName count="other" draft="contributed">Dinares antigos da Sérvia</displayName>
-				<symbol draft="contributed">CSD</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>Coroa Forte checoslovaca</displayName>
 				<displayName count="one" draft="contributed">Corona tcheca</displayName>
 				<displayName count="other" draft="contributed">Coronas tchecas</displayName>
-				<symbol draft="contributed">CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Peso cubano</displayName>
 				<displayName count="one" draft="contributed">Peso cubano</displayName>
 				<displayName count="other" draft="contributed">Pesos cubanos</displayName>
-				<symbol draft="contributed">CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Escudo cabo-verdiano</displayName>
@@ -4766,19 +3279,16 @@
 				<displayName draft="contributed">Coroa checa</displayName>
 				<displayName count="one" draft="contributed">Corona da República Tcheca</displayName>
 				<displayName count="other" draft="contributed">Coronas da República Tcheca</displayName>
-				<symbol draft="contributed">CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Ostmark da Alemanha Oriental</displayName>
 				<displayName count="one" draft="contributed">Ostmark da Alemannha Oriental</displayName>
 				<displayName count="other" draft="contributed">Ostmarks da Alemannha Oriental</displayName>
-				<symbol draft="contributed">DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Marco alemão</displayName>
 				<displayName count="one" draft="contributed">Marco alemão</displayName>
 				<displayName count="other" draft="contributed">Marcos alemães</displayName>
-				<symbol draft="contributed">DEM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Franco do Djibuti</displayName>
@@ -4808,49 +3318,41 @@
 				<displayName>Sucre equatoriano</displayName>
 				<displayName count="one" draft="contributed">Sucre equatoriano</displayName>
 				<displayName count="other" draft="contributed">Sucres equatorianos</displayName>
-				<symbol draft="contributed">ECS</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>Unidade de Valor Constante (UVC) do Equador</displayName>
 				<displayName count="one" draft="contributed">Unidade de valor constante equatoriana (UVC)</displayName>
 				<displayName count="other" draft="contributed">Unidades de valor constante equatoriana (UVC)</displayName>
-				<symbol draft="contributed">ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>Coroa estoniana</displayName>
 				<displayName count="one" draft="contributed">Kroon estoniano</displayName>
 				<displayName count="other" draft="contributed">Kroons estonianos</displayName>
-				<symbol draft="contributed">EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Libra egípcia</displayName>
 				<displayName count="one" draft="contributed">Libra egípcia</displayName>
 				<displayName count="other" draft="contributed">Libras egípcias</displayName>
-				<symbol draft="contributed">EGP</symbol>
 			</currency>
 			<currency type="EQE">
 				<displayName draft="contributed">Ekwele</displayName>
 				<displayName count="one" draft="contributed">Ekwele</displayName>
 				<displayName count="other" draft="contributed">Ekweles</displayName>
-				<symbol draft="contributed">EQE</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Nakfa da Eritréia</displayName>
 				<displayName count="one" draft="contributed">Nakfa da Eritréia</displayName>
 				<displayName count="other" draft="contributed">Nakfas da Eritréia</displayName>
-				<symbol draft="contributed">ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>Peseta espanhola (conta A)</displayName>
 				<displayName count="one" draft="contributed">Peseta espanhola (conta A)</displayName>
 				<displayName count="other" draft="contributed">Pesetas espanholas (conta A)</displayName>
-				<symbol draft="contributed">ESA</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName>Peseta espanhola (conta conversível)</displayName>
 				<displayName count="one" draft="contributed">Peseta espanhola (conta conversível)</displayName>
 				<displayName count="other" draft="contributed">Pesetas espanholas (conta conversível)</displayName>
-				<symbol draft="contributed">ESB</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>Peseta espanhola</displayName>
@@ -4868,13 +3370,11 @@
 				<displayName>Euro</displayName>
 				<displayName count="one" draft="contributed">Euro</displayName>
 				<displayName count="other" draft="contributed">Euros</displayName>
-				<symbol draft="contributed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Marca finlandesa</displayName>
 				<displayName count="one" draft="contributed">Markka finlandesa</displayName>
 				<displayName count="other" draft="contributed">Markkas finlandesas</displayName>
-				<symbol draft="contributed">FIM</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>Dólar de Fiji</displayName>
@@ -4886,13 +3386,11 @@
 				<displayName>Libra das Malvinas</displayName>
 				<displayName count="one" draft="contributed">Libra das Ilhas Malvinas</displayName>
 				<displayName count="other" draft="contributed">Libras das Ilhas Malvinas</displayName>
-				<symbol draft="contributed">FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Franco francês</displayName>
 				<displayName count="one" draft="contributed">Franco francês</displayName>
 				<displayName count="other" draft="contributed">Francos franceses</displayName>
-				<symbol draft="contributed">FRF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Libra esterlina britânica</displayName>
@@ -4904,7 +3402,6 @@
 				<displayName>Cupom Lari georgiano</displayName>
 				<displayName count="one" draft="contributed">Kupon larit da Geórgia</displayName>
 				<displayName count="other" draft="contributed">Kupon larits da Geórgia</displayName>
-				<symbol draft="contributed">GEK</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>Lari georgiano</displayName>
@@ -4916,25 +3413,21 @@
 				<displayName>Cedi de Gana (1979-2007)</displayName>
 				<displayName count="one" draft="contributed">Cedi de Gana (GHC)</displayName>
 				<displayName count="other" draft="contributed">Cedis de Gana (GHC)</displayName>
-				<symbol draft="contributed">GHC</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName draft="contributed">Cedi ganês</displayName>
 				<displayName count="one" draft="contributed">Cedi de Gana</displayName>
 				<displayName count="other" draft="contributed">Cedis de Gana</displayName>
-				<symbol draft="contributed">GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Libra de Gibraltar</displayName>
 				<displayName count="one" draft="contributed">Libra de Gibraltar</displayName>
 				<displayName count="other" draft="contributed">Libras de Gibraltar</displayName>
-				<symbol draft="contributed">GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Dalasi de Gâmbia</displayName>
 				<displayName count="one" draft="contributed">Dalasi da Gâmbia</displayName>
 				<displayName count="other" draft="contributed">Dalasis da Gâmbia</displayName>
-				<symbol draft="contributed">GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Franco de Guiné</displayName>
@@ -4946,19 +3439,16 @@
 				<displayName draft="contributed">Syli da Guiné</displayName>
 				<displayName count="one" draft="contributed">Syli da Guinéa</displayName>
 				<displayName count="other" draft="contributed">Sylis da Guinéa</displayName>
-				<symbol draft="contributed">GNS</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName draft="contributed">Ekwele da Guiné Equatorial</displayName>
 				<displayName count="one" draft="contributed">Ekwele da Guinéa Equatorial</displayName>
 				<displayName count="other" draft="contributed">Ekweles da Guinéa Equatorial</displayName>
-				<symbol draft="contributed">GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>Dracma grego</displayName>
 				<displayName count="one" draft="contributed">Dracma grego</displayName>
 				<displayName count="other" draft="contributed">Dracmas gregos</displayName>
-				<symbol draft="contributed">GRD</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Quetçal da Guatemala</displayName>
@@ -4970,13 +3460,11 @@
 				<displayName>Escudo da Guiné Portuguesa</displayName>
 				<displayName count="one" draft="contributed">Escudo da Guinéa Portuguesa</displayName>
 				<displayName count="other" draft="contributed">Escudos da Guinéa Portuguesa</displayName>
-				<symbol draft="contributed">GWE</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName>Peso da Guiné-Bissau</displayName>
 				<displayName count="one" draft="contributed">Peso de Guiné-Bissau</displayName>
 				<displayName count="other" draft="contributed">Pesos de Guiné-Bissau</displayName>
-				<symbol draft="contributed">GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Dólar da Guiana</displayName>
@@ -5000,19 +3488,16 @@
 				<displayName>Dinar croata</displayName>
 				<displayName count="one" draft="contributed">Dinar croata</displayName>
 				<displayName count="other" draft="contributed">Dinares croata</displayName>
-				<symbol draft="contributed">HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>Kuna croata</displayName>
 				<displayName count="one" draft="contributed">Kuna croata</displayName>
 				<displayName count="other" draft="contributed">Kunas croatas</displayName>
-				<symbol draft="contributed">HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Gurde do Haiti</displayName>
 				<displayName count="one" draft="contributed">Gourde haitiano</displayName>
 				<displayName count="other" draft="contributed">Gourdes haitianos</displayName>
-				<symbol draft="contributed">HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Forinte húngaro</displayName>
@@ -5036,13 +3521,11 @@
 				<displayName>Libra israelita</displayName>
 				<displayName count="one" draft="contributed">Libra israeli</displayName>
 				<displayName count="other" draft="contributed">Libras israelis</displayName>
-				<symbol draft="contributed">ILP</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>Sheqel Novo israelita</displayName>
 				<displayName count="one" draft="contributed">Sheqel novo israeli</displayName>
 				<displayName count="other" draft="contributed">Sheqels novos israelis</displayName>
-				<symbol draft="contributed">ILS</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Rúpia indiana</displayName>
@@ -5066,7 +3549,6 @@
 				<displayName>Coroa islandesa</displayName>
 				<displayName count="one" draft="contributed">Krona islandesa</displayName>
 				<displayName count="other" draft="contributed">Kronas islandesas</displayName>
-				<symbol draft="contributed">ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Lira italiana</displayName>
@@ -5120,13 +3602,11 @@
 				<displayName>Won norte-coreano</displayName>
 				<displayName count="one" draft="contributed">Won norte coreano</displayName>
 				<displayName count="other" draft="contributed">Wons norte coreano</displayName>
-				<symbol draft="contributed">KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Won sul-coreano</displayName>
 				<displayName count="one">Won sul-coreano</displayName>
 				<displayName count="other" draft="contributed">Won sul coreano</displayName>
-				<symbol draft="contributed">KRW</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Dinar coveitiano</displayName>
@@ -5138,7 +3618,6 @@
 				<displayName draft="contributed">Dólar das Ilhas Caiman</displayName>
 				<displayName count="one">Dólar das Ilhas Cayman</displayName>
 				<displayName count="other" draft="contributed">Dólares das Ilhas Caiman</displayName>
-				<symbol draft="contributed">KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Tenge do Cazaquistão</displayName>
@@ -5149,7 +3628,6 @@
 				<displayName>Kip de Laos</displayName>
 				<displayName count="one" draft="contributed">Kip do Laos</displayName>
 				<displayName count="other" draft="contributed">Kips do Laos</displayName>
-				<symbol draft="contributed">LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Libra libanesa</displayName>
@@ -5167,7 +3645,6 @@
 				<displayName>Dólar liberiano</displayName>
 				<displayName count="one" draft="contributed">Dólar da Libéria</displayName>
 				<displayName count="other" draft="contributed">Dólares da Libéria</displayName>
-				<symbol draft="contributed">LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName draft="contributed">Loti do Lesoto</displayName>
@@ -5179,49 +3656,41 @@
 				<displayName draft="contributed">Maloti</displayName>
 				<displayName count="one" draft="contributed">Maloti</displayName>
 				<displayName count="other" draft="contributed">Malotis</displayName>
-				<symbol draft="contributed">LSM</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>Lita lituano</displayName>
 				<displayName count="one" draft="contributed">Lita lituana</displayName>
 				<displayName count="other" draft="contributed">Litas lituanas</displayName>
-				<symbol draft="contributed">LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Talonas lituano</displayName>
 				<displayName count="one" draft="contributed">Talonas lituanas</displayName>
 				<displayName count="other" draft="contributed">Talonases lituanas</displayName>
-				<symbol draft="contributed">LTT</symbol>
 			</currency>
 			<currency type="LUC">
 				<displayName>Franco conversível de Luxemburgo</displayName>
 				<displayName count="one" draft="contributed">Franco conversível de Luxemburgo</displayName>
 				<displayName count="other" draft="contributed">Francos conversíveis de Luxemburgo</displayName>
-				<symbol draft="contributed">LUC</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>Franco luxemburguês</displayName>
 				<displayName count="one" draft="contributed">Franco de Luxemburgo</displayName>
 				<displayName count="other" draft="contributed">Francos de Luxemburgo</displayName>
-				<symbol draft="contributed">LUF</symbol>
 			</currency>
 			<currency type="LUL">
 				<displayName>Franco financeiro de Luxemburgo</displayName>
 				<displayName count="one" draft="contributed">Franco financeiro de Luxemburgo</displayName>
 				<displayName count="other" draft="contributed">Francos financeiros de Luxemburgo</displayName>
-				<symbol draft="contributed">LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>Lats letão</displayName>
 				<displayName count="one" draft="contributed">Lats da Letônia</displayName>
 				<displayName count="other" draft="contributed">Latses da Letônia</displayName>
-				<symbol draft="contributed">LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Rublo letão</displayName>
 				<displayName count="one" draft="contributed">Rublo da Letônia</displayName>
 				<displayName count="other" draft="contributed">Rublos da Letônia</displayName>
-				<symbol draft="contributed">LVR</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Dinar líbio</displayName>
@@ -5233,31 +3702,26 @@
 				<displayName>Dirém marroquino</displayName>
 				<displayName count="one" draft="contributed">Dirham marroquino</displayName>
 				<displayName count="other" draft="contributed">Dirhams marroquinos</displayName>
-				<symbol draft="contributed">MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Franco marroquino</displayName>
 				<displayName count="one" draft="contributed">Franco marroquino</displayName>
 				<displayName count="other" draft="contributed">Francos marroquinos</displayName>
-				<symbol draft="contributed">MAF</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName draft="contributed">Leu da Moldávia</displayName>
 				<displayName count="one" draft="contributed">Leu da Moldávia</displayName>
 				<displayName count="other" draft="contributed">Leus da Moldávia</displayName>
-				<symbol draft="contributed">MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Ariary de Madagascar</displayName>
 				<displayName count="one" draft="contributed">Ariari de Madagascar</displayName>
 				<displayName count="other" draft="contributed">Ariaries de Madagascar</displayName>
-				<symbol draft="contributed">MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Franco de Madagascar</displayName>
 				<displayName count="one" draft="contributed">Franco de Madagascar</displayName>
 				<displayName count="other" draft="contributed">Francos de Madagascar</displayName>
-				<symbol draft="contributed">MGF</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>Dinar macedônio</displayName>
@@ -5269,13 +3733,11 @@
 				<displayName>Franco de Mali</displayName>
 				<displayName count="one" draft="contributed">Franco de Mali</displayName>
 				<displayName count="other" draft="contributed">Francos de Mali</displayName>
-				<symbol draft="contributed">MLF</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>Kyat de Mianmar</displayName>
 				<displayName count="one" draft="contributed">Kyat de Mianmar</displayName>
 				<displayName count="other" draft="contributed">Kyats de Mianmar</displayName>
-				<symbol draft="contributed">MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Tugrik mongol</displayName>
@@ -5287,7 +3749,6 @@
 				<displayName>Pataca macaense</displayName>
 				<displayName count="one" draft="contributed">Pataca de Macau</displayName>
 				<displayName count="other" draft="contributed">Patacas de Macau</displayName>
-				<symbol draft="contributed">MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Ouguiya da Mauritânia</displayName>
@@ -5305,19 +3766,16 @@
 				<displayName>Libra maltesa</displayName>
 				<displayName count="one" draft="contributed">Libra maltesa</displayName>
 				<displayName count="other" draft="contributed">Libras maltesas</displayName>
-				<symbol draft="contributed">MTP</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Rupia de Maurício</displayName>
 				<displayName count="one" draft="contributed">Rúpia das Ilhas Maurício</displayName>
 				<displayName count="other" draft="contributed">Rúpias das Ilhas Maurício</displayName>
-				<symbol draft="contributed">MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Rupias das Ilhas Maldivas</displayName>
 				<displayName count="one" draft="contributed">Rufiyaa das Ilhas Maldivas</displayName>
 				<displayName count="other" draft="contributed">Rufiyaas das Ilhas Maldivas</displayName>
-				<symbol draft="contributed">MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Cuacha do Maláui</displayName>
@@ -5335,13 +3793,11 @@
 				<displayName draft="contributed">Peso Prata mexicano (1861-1992)</displayName>
 				<displayName count="one" draft="contributed">Peso de prata mexicano (MXP)</displayName>
 				<displayName count="other" draft="contributed">Pesos de prata mexicanos (MXP)</displayName>
-				<symbol draft="contributed">MXP</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName draft="contributed">Unidade de Investimento (UDI) mexicana</displayName>
 				<displayName count="one" draft="contributed">Unidade de investimento mexicana (UDI)</displayName>
 				<displayName count="other" draft="contributed">Unidades de investimento mexicanas (UDI)</displayName>
-				<symbol draft="contributed">MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>Ringgit malaio</displayName>
@@ -5353,7 +3809,6 @@
 				<displayName>Escudo de Moçambique</displayName>
 				<displayName count="one" draft="contributed">Escudo de Moçambique</displayName>
 				<displayName count="other" draft="contributed">Escudos de Moçambique</displayName>
-				<symbol draft="contributed">MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>Metical antigo de Moçambique</displayName>
@@ -5377,25 +3832,21 @@
 				<displayName>Naira nigeriana</displayName>
 				<displayName count="one" draft="contributed">Naira da Nigéria</displayName>
 				<displayName count="other" draft="contributed">Nairas da Nigéria</displayName>
-				<symbol draft="contributed">NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName draft="contributed">Córdoba nicaraguense</displayName>
 				<displayName count="one">Córdoba nicaraguense</displayName>
 				<displayName count="other" draft="contributed">Córdobas da Nicarágua</displayName>
-				<symbol draft="contributed">NIC</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName draft="contributed">Córdoba Ouro nicaraguense</displayName>
 				<displayName count="one" draft="contributed">Córdoba de ouro da Nicarágua</displayName>
 				<displayName count="other" draft="contributed">Córdobas de ouro da Nicarágua</displayName>
-				<symbol draft="contributed">NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName draft="contributed">Florim holandês</displayName>
 				<displayName count="one" draft="contributed">Florim holandês</displayName>
 				<displayName count="other" draft="contributed">Florins holandeses</displayName>
-				<symbol draft="contributed">NLG</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Coroa norueguesa</displayName>
@@ -5425,31 +3876,26 @@
 				<displayName>Balboa panamenho</displayName>
 				<displayName count="one" draft="contributed">Balboa do Panamá</displayName>
 				<displayName count="other" draft="contributed">Balboas do Panamá</displayName>
-				<symbol draft="contributed">PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>Inti peruano</displayName>
 				<displayName count="one" draft="contributed">Inti peruano</displayName>
 				<displayName count="other" draft="contributed">Intis peruanos</displayName>
-				<symbol draft="contributed">PEI</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Sol Novo peruano</displayName>
 				<displayName count="one" draft="contributed">Novo sol peruano</displayName>
 				<displayName count="other" draft="contributed">Novos soles peruanos</displayName>
-				<symbol draft="contributed">PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>Sol peruano</displayName>
 				<displayName count="one" draft="contributed">Sol peruano</displayName>
 				<displayName count="other" draft="contributed">Soles peruanos</displayName>
-				<symbol draft="contributed">PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>Kina da Papua-Nova Guiné</displayName>
 				<displayName count="one" draft="contributed">Kina de Papua Nova Guiné</displayName>
 				<displayName count="other" draft="contributed">Kinas de Papua Nova Guiné</displayName>
-				<symbol draft="contributed">PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Peso filipino</displayName>
@@ -5473,7 +3919,6 @@
 				<displayName>Zloti polonês (1950-1995)</displayName>
 				<displayName count="one" draft="contributed">Zloti polonês (PLZ)</displayName>
 				<displayName count="other" draft="contributed">Zlotis poloneses (PLZ)</displayName>
-				<symbol draft="contributed">PLZ</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>Escudo português</displayName>
@@ -5486,7 +3931,6 @@
 				<displayName>Guarani paraguaio</displayName>
 				<displayName count="one" draft="contributed">Guarani paraguaio</displayName>
 				<displayName count="other" draft="contributed">Guaranis paraguaios</displayName>
-				<symbol draft="contributed">PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Rial catariano</displayName>
@@ -5498,13 +3942,11 @@
 				<displayName draft="contributed">Dólar rodesiano</displayName>
 				<displayName count="one" draft="contributed">Dólar da Rodésia</displayName>
 				<displayName count="other" draft="contributed">Dólares da Rodésia</displayName>
-				<symbol draft="contributed">RHD</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName draft="contributed">Leu romeno antigo</displayName>
 				<displayName count="one" draft="contributed">Leu antigo da Romênia</displayName>
 				<displayName count="other" draft="contributed">Leus antigos da Romênia</displayName>
-				<symbol draft="contributed">ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName draft="contributed">Leu romeno</displayName>
@@ -5516,25 +3958,21 @@
 				<displayName draft="contributed">Dinar sérvio</displayName>
 				<displayName count="one" draft="contributed">Dinar sérvio</displayName>
 				<displayName count="other" draft="contributed">Dinares sérvios</displayName>
-				<symbol draft="contributed">RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Rublo russo</displayName>
 				<displayName count="one" draft="contributed">Rúpias russa</displayName>
 				<displayName count="other" draft="contributed">Rúpias russas</displayName>
-				<symbol draft="contributed">RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Rublo russo (1991-1998)</displayName>
 				<displayName count="one" draft="contributed">Rúpia russa (RUR)</displayName>
 				<displayName count="other" draft="contributed">Rúpias russas (RUR)</displayName>
-				<symbol draft="contributed">RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Franco ruandês</displayName>
 				<displayName count="one" draft="contributed">Franco de Ruanda</displayName>
 				<displayName count="other" draft="contributed">Francos de Ruanda</displayName>
-				<symbol draft="contributed">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Rial saudita</displayName>
@@ -5558,19 +3996,16 @@
 				<displayName>Dinar sudanês</displayName>
 				<displayName count="one" draft="contributed">Dinar antigo do Sudão</displayName>
 				<displayName count="other" draft="contributed">Dinares antigos do Sudão</displayName>
-				<symbol draft="contributed">SDD</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>Libra sudanesa</displayName>
 				<displayName count="one">Libra sudanesa</displayName>
 				<displayName count="other" draft="contributed">Libras sudanesas</displayName>
-				<symbol draft="contributed">SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Libra sudanesa antiga</displayName>
 				<displayName count="one" draft="contributed">Libra antiga sudanesa</displayName>
 				<displayName count="other" draft="contributed">Libras antigas sudanesas</displayName>
-				<symbol draft="contributed">SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>Coroa sueca</displayName>
@@ -5588,13 +4023,11 @@
 				<displayName>Libra de Santa Helena</displayName>
 				<displayName count="one" draft="contributed">Libra de Santa Helena</displayName>
 				<displayName count="other" draft="contributed">Libras de Santa Helena</displayName>
-				<symbol draft="contributed">SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Tolar Bons esloveno</displayName>
 				<displayName count="one" draft="contributed">Tolar da Eslovênia</displayName>
 				<displayName count="other" draft="contributed">Tolares da Eslovênia</displayName>
-				<symbol draft="contributed">SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>Coroa eslovaca</displayName>
@@ -5606,7 +4039,6 @@
 				<displayName>Leone de Serra Leoa</displayName>
 				<displayName count="one" draft="contributed">Leone de Serra Leoa</displayName>
 				<displayName count="other" draft="contributed">Leones de Serra Leoa</displayName>
-				<symbol draft="contributed">SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Xelim somali</displayName>
@@ -5618,7 +4050,6 @@
 				<displayName draft="contributed">Dólar do Suriname</displayName>
 				<displayName count="one" draft="contributed">Dólar do Suriname</displayName>
 				<displayName count="other" draft="contributed">Dólares do Suriname</displayName>
-				<symbol draft="contributed">SRD</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName draft="contributed">Florim do Suriname</displayName>
@@ -5636,13 +4067,11 @@
 				<displayName>Rublo soviético</displayName>
 				<displayName count="one" draft="contributed">Rúpia soviética</displayName>
 				<displayName count="other" draft="contributed">Rúpias soviéticas</displayName>
-				<symbol draft="contributed">SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName>Colom salvadorenho</displayName>
 				<displayName count="one" draft="contributed">Colon de El Salvador</displayName>
 				<displayName count="other" draft="contributed">Colons de El Salvador</displayName>
-				<symbol draft="contributed">SVC</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Libra síria</displayName>
@@ -5660,31 +4089,26 @@
 				<displayName>Baht tailandês</displayName>
 				<displayName count="one" draft="contributed">Baht da Tailândia</displayName>
 				<displayName count="other" draft="contributed">Bahts da Tailândia</displayName>
-				<symbol draft="contributed">THB</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Rublo do Tadjiquistão</displayName>
 				<displayName count="one" draft="contributed">Rúpia do Tajaquistão</displayName>
 				<displayName count="other" draft="contributed">Rúpias do Tajaquistão</displayName>
-				<symbol draft="contributed">TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>Somoni tadjique</displayName>
 				<displayName count="one" draft="contributed">Somoni do Tajaquistão</displayName>
 				<displayName count="other" draft="contributed">Somonis do Tajaquistão</displayName>
-				<symbol draft="contributed">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>Manat do Turcomenistão</displayName>
 				<displayName count="one" draft="contributed">Manat do Turcomenistão</displayName>
 				<displayName count="other" draft="contributed">Manats do Turcomenistão</displayName>
-				<symbol draft="contributed">TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Dinar tunisiano</displayName>
 				<displayName count="one" draft="contributed">Dinar da Tunísia</displayName>
 				<displayName count="other" draft="contributed">Dinares da Tunísia</displayName>
-				<symbol draft="contributed">TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Paʻanga de Tonga</displayName>
@@ -5696,7 +4120,6 @@
 				<displayName>Escudo timorense</displayName>
 				<displayName count="one" draft="contributed">Escudo do Timor</displayName>
 				<displayName count="other" draft="contributed">Escudos do Timor</displayName>
-				<symbol draft="contributed">TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>Lira turca antiga</displayName>
@@ -5709,7 +4132,6 @@
 				<displayName>Lira turca</displayName>
 				<displayName count="one" draft="contributed">Nova Lira turca</displayName>
 				<displayName count="other" draft="contributed">Liras turcas</displayName>
-				<symbol draft="contributed">TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Dólar de Trinidad e Tobago</displayName>
@@ -5733,19 +4155,16 @@
 				<displayName>Hryvnia ucraniano</displayName>
 				<displayName count="one" draft="contributed">Hryvnia da Ucrânia</displayName>
 				<displayName count="other" draft="contributed">Hryvnias da Ucrânia</displayName>
-				<symbol draft="contributed">UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>Karbovanetz ucraniano</displayName>
 				<displayName count="one" draft="contributed">Karbovanetz da Ucrânia</displayName>
 				<displayName count="other" draft="contributed">Karbovanetzs da Ucrânia</displayName>
-				<symbol draft="contributed">UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>Xelim ugandense (1966-1987)</displayName>
 				<displayName count="one" draft="contributed">Shilling de Uganda (UGS)</displayName>
 				<displayName count="other" draft="contributed">Shillings de Uganda (UGS)</displayName>
-				<symbol draft="contributed">UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>Xelim ugandense</displayName>
@@ -5757,31 +4176,26 @@
 				<displayName>Dólar norte-americano</displayName>
 				<displayName count="one" draft="contributed">Dólar americano</displayName>
 				<displayName count="other" draft="contributed">Dólares americanos</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>Dólar norte-americano (Dia seguinte)</displayName>
 				<displayName count="one" draft="contributed">Dólar americano (dia seguinte)</displayName>
 				<displayName count="other" draft="contributed">Dólares americanos (dia seguinte)</displayName>
-				<symbol draft="contributed">USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>Dólar norte-americano (Mesmo dia)</displayName>
 				<displayName count="one" draft="contributed">Dólar americano (mesmo dia)</displayName>
 				<displayName count="other" draft="contributed">Dólares americanos (mesmo dia)</displayName>
-				<symbol draft="contributed">USS</symbol>
 			</currency>
 			<currency type="UYI">
 				<displayName draft="contributed">Peso uruguaio en unidades indexadas</displayName>
 				<displayName count="one" draft="contributed">Peso uruguaio em unidades indexadas</displayName>
 				<displayName count="other" draft="contributed">Pesos uruguaios em unidades indexadas</displayName>
-				<symbol draft="contributed">UYI</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>Peso uruguaio (1975-1993)</displayName>
 				<displayName count="one" draft="contributed">Peso uruguaio (UYP)</displayName>
 				<displayName count="other" draft="contributed">Pesos uruguaios (UYP)</displayName>
-				<symbol draft="contributed">UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>Peso uruguaio</displayName>
@@ -5793,7 +4207,6 @@
 				<displayName>Sum do Usbequistão</displayName>
 				<displayName count="one" draft="contributed">Sum do Uzbequistão</displayName>
 				<displayName count="other" draft="contributed">Sums do Uzbequistão</displayName>
-				<symbol draft="contributed">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Bolívar venezuelano</displayName>
@@ -5806,7 +4219,6 @@
 				<displayName>Bolívar v enezuelano forte</displayName>
 				<displayName count="one" draft="contributed">Bolívar forte da Venezuela</displayName>
 				<displayName count="other" draft="contributed">Bolívares fortes da Venezuela</displayName>
-				<symbol draft="contributed">VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Dong vietnamita</displayName>
@@ -5825,47 +4237,39 @@
 				<displayName draft="contributed">Tala da Samoa Ocidental</displayName>
 				<displayName count="one" draft="contributed">Tala da Samoa Ocidental</displayName>
 				<displayName count="other" draft="contributed">Talas da Samoa Ocidental</displayName>
-				<symbol draft="contributed">WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>Franco CFA BEAC</displayName>
 				<displayName count="one" draft="contributed">Franco CFA de BEAC</displayName>
 				<displayName count="other" draft="contributed">Francos CFA de BEAC</displayName>
-				<symbol draft="contributed">XAF</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName draft="contributed">Prata</displayName>
 				<displayName count="one" draft="contributed">Prata</displayName>
-				<symbol draft="contributed">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>Ouro</displayName>
 				<displayName count="one" draft="contributed">Ouro</displayName>
-				<symbol draft="contributed">XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>Unidade Composta Européia</displayName>
 				<displayName count="one" draft="contributed">Unidade de composição européia</displayName>
 				<displayName count="other" draft="contributed">Unidades de composição européias</displayName>
-				<symbol draft="contributed">XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>Unidade Monetária Européia</displayName>
 				<displayName count="one" draft="contributed">Unidade monetária européia</displayName>
 				<displayName count="other" draft="contributed">Unidades monetárias européias</displayName>
-				<symbol draft="contributed">XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>Unidade de Conta Européia (XBC)</displayName>
 				<displayName count="one" draft="contributed">Unidade européia de conta (XBC)</displayName>
 				<displayName count="other" draft="contributed">Unidades européias de conta (XBC)</displayName>
-				<symbol draft="contributed">XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>Unidade de Conta Européia (XBD)</displayName>
 				<displayName count="one" draft="contributed">Unidade européia de conta (XBD)</displayName>
 				<displayName count="other" draft="contributed">Unidades européias de conta (XBD)</displayName>
-				<symbol draft="contributed">XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>Dólar do Caribe Oriental</displayName>
@@ -5877,36 +4281,30 @@
 				<displayName>Direitos Especiais de Giro</displayName>
 				<displayName count="one" draft="contributed">direitos de desenho especiais</displayName>
 				<displayName count="other" draft="contributed">direitos de desenho especiais</displayName>
-				<symbol draft="contributed">XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>Unidade de Moeda Européia</displayName>
 				<displayName count="one" draft="contributed">Unidade de moeda européia</displayName>
 				<displayName count="other" draft="contributed">Unidades de moedas européias</displayName>
-				<symbol draft="contributed">XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>Franco-ouro francês</displayName>
 				<displayName count="one" draft="contributed">Franco de ouro francês</displayName>
 				<displayName count="other" draft="contributed">Francos de ouro franceses</displayName>
-				<symbol draft="contributed">XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>Franco UIC francês</displayName>
 				<displayName count="one" draft="contributed">Franco UIC francês</displayName>
 				<displayName count="other" draft="contributed">Francos UIC franceses</displayName>
-				<symbol draft="contributed">XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>Franco CFA BCEAO</displayName>
 				<displayName count="one" draft="contributed">Franco CFA de BCEAO</displayName>
 				<displayName count="other" draft="contributed">Francos CFA de BCEAO</displayName>
-				<symbol draft="contributed">XOF</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName draft="contributed">Paládio</displayName>
 				<displayName count="one" draft="contributed">Paládio</displayName>
-				<symbol draft="contributed">XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>Franco CFP</displayName>
@@ -5917,28 +4315,23 @@
 			<currency type="XPT">
 				<displayName draft="contributed">Platina</displayName>
 				<displayName count="one" draft="contributed">Platina</displayName>
-				<symbol draft="contributed">XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName draft="contributed">Fundos RINET</displayName>
 				<displayName count="one" draft="contributed">Fundos RINET</displayName>
-				<symbol draft="contributed">XRE</symbol>
 			</currency>
 			<currency type="XTS">
 				<displayName>Código de Moeda de Teste</displayName>
 				<displayName count="one" draft="contributed">Código de moeda de teste</displayName>
-				<symbol draft="contributed">XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>Moeda Desconhecida ou Inválida</displayName>
 				<displayName count="one" draft="contributed">moeda desconhecida ou inválida</displayName>
-				<symbol draft="contributed">XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>Dinar iemenita</displayName>
 				<displayName count="one" draft="contributed">Dinar do Iêmen</displayName>
 				<displayName count="other" draft="contributed">Dinares do Iêmen</displayName>
-				<symbol draft="contributed">YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>Rial iemenita</displayName>
@@ -5950,25 +4343,21 @@
 				<displayName>Dinar forte iugoslavo</displayName>
 				<displayName count="one" draft="contributed">Dinar pesado da Iugoslávia</displayName>
 				<displayName count="other" draft="contributed">Dinares pesados da Iugoslávia</displayName>
-				<symbol draft="contributed">YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>Super Dinar iugoslavo</displayName>
 				<displayName count="one" draft="contributed">Dinar noviy da Iugoslávia</displayName>
 				<displayName count="other" draft="contributed">Dinares noviy da Iugoslávia</displayName>
-				<symbol draft="contributed">YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>Dinar conversível iugoslavo</displayName>
 				<displayName count="one" draft="contributed">Dinar conversível da Iugoslávia</displayName>
 				<displayName count="other" draft="contributed">Dinares conversíveis da Iugoslávia</displayName>
-				<symbol draft="contributed">YUN</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>Rand sul-africano (financeiro)</displayName>
 				<displayName count="one" draft="contributed">Rand da África do Sul (financeiro)</displayName>
 				<displayName count="other" draft="contributed">Rands da África do Sul (financeiro)</displayName>
-				<symbol draft="contributed">ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Rand sul-africano</displayName>
@@ -5980,19 +4369,16 @@
 				<displayName>Cuacha zambiano</displayName>
 				<displayName count="one" draft="contributed">Kwacha da Zâmbia</displayName>
 				<displayName count="other" draft="contributed">Kwachas da Zâmbia</displayName>
-				<symbol draft="contributed">ZMK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Zaire Novo zairense</displayName>
 				<displayName count="one" draft="contributed">Novo zaire do Zaire</displayName>
 				<displayName count="other" draft="contributed">Novos zaires do Zaire</displayName>
-				<symbol draft="contributed">ZRN</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>Zaire zairense</displayName>
 				<displayName count="one" draft="contributed">Zaire do Zaire</displayName>
 				<displayName count="other" draft="contributed">Zaires do Zaire</displayName>
-				<symbol draft="contributed">ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>Dólar do Zimbábue</displayName>

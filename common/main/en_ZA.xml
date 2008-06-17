@@ -7,16 +7,6 @@
 		<language type="en"/>
 		<territory type="ZA"/>
 	</identity>
-	<localeDisplayNames>
-		<languages>
-			<language type="ss" draft="contributed">Swati</language>
-			<language type="st" draft="contributed">Southern Sotho</language>
-			<language type="sw" draft="contributed">Swahili</language>
-			<language type="tn" draft="contributed">Tswana</language>
-			<language type="ts" draft="contributed">Tsonga</language>
-			<language type="ve" draft="contributed">Venda</language>
-		</languages>
-	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters type="auxiliary" draft="contributed">[á à ă â å ä ā æ ç ḓ é è ĕ ê ë ē í ì ĭ î ï ī ḽ ñ ṅ ṋ ó ò ŏ ô ö ø ō œ š ß ṱ ú ù ŭ û ü ū ÿ]</exemplarCharacters>
 	</characters>
@@ -45,28 +35,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a v</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="MMdd" draft="unconfirmed">MM/dd</dateFormatItem>
@@ -172,38 +140,7 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>NaN</nan>
 		</symbols>
-		<decimalFormats>
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern>#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<scientificFormats>
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
-		<percentFormats>
-			<percentFormatLength>
-				<percentFormat>
-					<pattern>#,##0%</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -212,35 +149,5 @@
 			</currencyFormatLength>
 		</currencyFormats>
 	</numbers>
-	<units>
-		<unit type="day">
-			<unitPattern count="one" draft="contributed">{0} day</unitPattern>
-			<unitPattern count="other">{0} days</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one" draft="contributed">{0} hour</unitPattern>
-			<unitPattern count="other">{0} hours</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one" draft="contributed">{0} minute</unitPattern>
-			<unitPattern count="other">{0} minutes</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one" draft="contributed">{0} month</unitPattern>
-			<unitPattern count="other">{0} months</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one" draft="contributed">{0} second</unitPattern>
-			<unitPattern count="other">{0} seconds</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one" draft="contributed">{0} week</unitPattern>
-			<unitPattern count="other">{0} weeks</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one" draft="contributed">{0} year</unitPattern>
-			<unitPattern count="other">{0} years</unitPattern>
-		</unit>
-	</units>
 </ldml>
 

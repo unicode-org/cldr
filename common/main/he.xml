@@ -804,14 +804,11 @@
 			<type type="gb2312han" key="collation">מיון סינית מודרנית</type>
 			<type type="gregorian" key="calendar">לוח שנה גרגוריאני</type>
 			<type type="hebrew" key="calendar">לוח שנה עברי</type>
-			<type type="indian" key="calendar" draft="contributed">indian</type>
 			<type type="islamic" key="calendar">לוח שנה מוסלמי</type>
 			<type type="islamic-civil" key="calendar">לוח שנה מוסלמי-אזרחי</type>
 			<type type="japanese" key="calendar">לוח שנה יפני</type>
 			<type type="phonebook" key="collation">מיון ספר טלפונים</type>
 			<type type="pinyin" key="collation">מיון פיניין</type>
-			<type type="roc" key="calendar" draft="contributed">roc</type>
-			<type type="stroke" key="collation" draft="contributed">stroke</type>
 			<type type="traditional" key="collation">מיון מסורתי</type>
 		</types>
 		<measurementSystemNames>
@@ -826,18 +823,6 @@
 	</localeDisplayNames>
 	<layout>
 		<orientation characters="right-to-left"/>
-		<inList draft="contributed">mixed</inList>
-		<inText type="currency" draft="contributed">mixed</inText>
-		<inText type="fields" draft="contributed">mixed</inText>
-		<inText type="keys" draft="contributed">mixed</inText>
-		<inText type="languages" draft="contributed">mixed</inText>
-		<inText type="long" draft="contributed">mixed</inText>
-		<inText type="measurementSystemNames" draft="contributed">mixed</inText>
-		<inText type="quarterWidth" draft="contributed">mixed</inText>
-		<inText type="scripts" draft="contributed">mixed</inText>
-		<inText type="territories" draft="contributed">mixed</inText>
-		<inText type="types" draft="contributed">mixed</inText>
-		<inText type="variants" draft="contributed">mixed</inText>
 	</layout>
 	<characters>
 		<exemplarCharacters>[א-י כ ך ל מ ם נ ן ס ע פ ף צ ץ ק-ת]</exemplarCharacters>
@@ -852,7 +837,6 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
-		<dateRangePattern draft="contributed">{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
 				<months>
@@ -1247,25 +1231,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Hm" draft="contributed">H:mm</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="MEd" draft="contributed">E, M-d</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMMEd" draft="unconfirmed">E MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="unconfirmed">MMM d</dateFormatItem>
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">yyyy</dateFormatItem>
-						<dateFormatItem id="yM" draft="unconfirmed">yyyy-M</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="unconfirmed">EEE, yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="unconfirmed">EEE, yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="unconfirmed">yyyy MMMM</dateFormatItem>
-						<dateFormatItem id="yQ" draft="unconfirmed">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="unconfirmed">yyyy QQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic">
 				<months>
@@ -1368,33 +1333,12 @@
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity draft="contributed">מקמרדו</exemplarCity>
 			</zone>
-			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity draft="contributed">Rio Gallegos</exemplarCity>
-			</zone>
 			<!-- Argentina -->
 			<zone type="America/Mendoza">
 				<exemplarCity>אמריקה/מנדוזה</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/San_Juan">
 				<exemplarCity>אמריקה/ארגנטינה/סאן-חואן</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity draft="contributed">Ushuaia</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity draft="contributed">La Rioja</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Luis">
-				<exemplarCity draft="contributed">San Luis</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity draft="contributed">Catamarca</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity draft="contributed">Jujuy</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Tucuman">
-				<exemplarCity draft="contributed">Tucuman</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
 				<exemplarCity>אמריקה/קורדובה</exemplarCity>
@@ -1412,9 +1356,6 @@
 			<zone type="Australia/Perth">
 				<exemplarCity>אוסטרליה/פרת'</exemplarCity>
 			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity draft="contributed">Eucla</exemplarCity>
-			</zone>
 			<zone type="Australia/Darwin">
 				<exemplarCity>אוסטרליה/דרווין</exemplarCity>
 			</zone>
@@ -1424,26 +1365,17 @@
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>אוסטרליה/ברוקן-היל</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="contributed">Currie</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>אוסטרליה/מלבורן</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>אוסטרליה/הוברט</exemplarCity>
 			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity draft="contributed">Lindeman</exemplarCity>
-			</zone>
 			<zone type="Australia/Sydney">
 				<exemplarCity>אוסטרליה/סידני</exemplarCity>
 			</zone>
 			<zone type="Australia/Brisbane">
 				<exemplarCity>אוסטרליה/בריסבן</exemplarCity>
-			</zone>
-			<zone type="Australia/Lord_Howe">
-				<exemplarCity draft="contributed">Lord Howe</exemplarCity>
 			</zone>
 			<zone type="America/Aruba">
 				<exemplarCity draft="provisional">ארובה</exemplarCity>
@@ -1483,9 +1415,6 @@
 			</zone>
 			<zone type="America/La_Paz">
 				<exemplarCity draft="provisional">לה פאז</exemplarCity>
-			</zone>
-			<zone type="America/Eirunepe">
-				<exemplarCity draft="contributed">Eirunepe</exemplarCity>
 			</zone>
 			<zone type="America/Rio_Branco">
 				<exemplarCity draft="contributed">ריאו ברנצ'ו</exemplarCity>
@@ -1546,15 +1475,6 @@
 			<zone type="America/Belize">
 				<exemplarCity draft="provisional">בליז</exemplarCity>
 			</zone>
-			<zone type="America/Dawson">
-				<exemplarCity draft="contributed">Dawson</exemplarCity>
-			</zone>
-			<zone type="America/Whitehorse">
-				<exemplarCity draft="contributed">Whitehorse</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity draft="contributed">Inuvik</exemplarCity>
-			</zone>
 			<!-- Canada -->
 			<zone type="America/Vancouver">
 				<exemplarCity>אמריקה/ונקובר</exemplarCity>
@@ -1562,41 +1482,11 @@
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>אמריקה/דוסון-קריק</exemplarCity>
 			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity draft="contributed">Yellowknife</exemplarCity>
-			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>אמריקה/אדמנטון</exemplarCity>
 			</zone>
-			<zone type="America/Swift_Current">
-				<exemplarCity draft="contributed">Swift Current</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity draft="contributed">Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Regina">
-				<exemplarCity draft="contributed">Regina</exemplarCity>
-			</zone>
 			<zone type="America/Winnipeg">
 				<exemplarCity>אמריקה/וויניפוג</exemplarCity>
-			</zone>
-			<zone type="America/Resolute">
-				<exemplarCity draft="contributed">Resolute</exemplarCity>
-			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity draft="contributed">Rainy River</exemplarCity>
-			</zone>
-			<zone type="America/Rankin_Inlet">
-				<exemplarCity draft="contributed">Rankin Inlet</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity draft="contributed">Coral Harbour</exemplarCity>
-			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity draft="contributed">Thunder Bay</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity draft="contributed">Nipigon</exemplarCity>
 			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>אמריקה/טורנטו</exemplarCity>
@@ -1604,29 +1494,8 @@
 			<zone type="America/Montreal">
 				<exemplarCity>אמריקה/מונטריאול</exemplarCity>
 			</zone>
-			<zone type="America/Iqaluit">
-				<exemplarCity draft="contributed">Iqaluit</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity draft="contributed">Pangnirtung</exemplarCity>
-			</zone>
-			<zone type="America/Moncton">
-				<exemplarCity draft="contributed">Moncton</exemplarCity>
-			</zone>
 			<zone type="America/Halifax">
 				<exemplarCity>אמריקה/הליפקס</exemplarCity>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<exemplarCity draft="contributed">Goose Bay</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity draft="contributed">Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity draft="contributed">Blanc-Sablon</exemplarCity>
-			</zone>
-			<zone type="America/St_Johns">
-				<exemplarCity draft="contributed">St. John's</exemplarCity>
 			</zone>
 			<zone type="Indian/Cocos">
 				<exemplarCity draft="provisional">קוקוס</exemplarCity>
@@ -1664,21 +1533,9 @@
 			<zone type="Africa/Douala">
 				<exemplarCity draft="provisional">דואלה</exemplarCity>
 			</zone>
-			<zone type="Asia/Kashgar">
-				<exemplarCity draft="contributed">Kashgar</exemplarCity>
-			</zone>
-			<zone type="Asia/Urumqi">
-				<exemplarCity draft="contributed">Urumqi</exemplarCity>
-			</zone>
-			<zone type="Asia/Chongqing">
-				<exemplarCity draft="contributed">Chongqing</exemplarCity>
-			</zone>
 			<!-- China -->
 			<zone type="Asia/Shanghai">
 				<exemplarCity>אסיה/שנחאי</exemplarCity>
-			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity draft="contributed">Harbin</exemplarCity>
 			</zone>
 			<zone type="America/Bogota">
 				<exemplarCity draft="provisional">בוגוטה</exemplarCity>
@@ -1850,9 +1707,6 @@
 			<zone type="Asia/Jakarta">
 				<exemplarCity>אסיה/ג'קרטה</exemplarCity>
 			</zone>
-			<zone type="Asia/Pontianak">
-				<exemplarCity draft="contributed">Pontianak</exemplarCity>
-			</zone>
 			<zone type="Asia/Makassar">
 				<exemplarCity draft="contributed">מאקאסאר</exemplarCity>
 			</zone>
@@ -1937,9 +1791,6 @@
 			<zone type="Asia/Aqtobe">
 				<exemplarCity draft="contributed">אקטובה</exemplarCity>
 			</zone>
-			<zone type="Asia/Qyzylorda">
-				<exemplarCity draft="contributed">Qyzylorda</exemplarCity>
-			</zone>
 			<zone type="Asia/Almaty">
 				<exemplarCity draft="contributed">אלמאטי</exemplarCity>
 			</zone>
@@ -1988,9 +1839,6 @@
 			<zone type="Indian/Antananarivo">
 				<exemplarCity draft="provisional">אנטננרבינו</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kwajalein">
-				<exemplarCity draft="contributed">Kwajalein</exemplarCity>
-			</zone>
 			<zone type="Pacific/Majuro">
 				<exemplarCity draft="contributed">מאג'ורו</exemplarCity>
 			</zone>
@@ -2036,20 +1884,11 @@
 			<zone type="Africa/Blantyre">
 				<exemplarCity draft="provisional">בלנטיר</exemplarCity>
 			</zone>
-			<zone type="America/Tijuana">
-				<exemplarCity draft="contributed">Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Hermosillo">
-				<exemplarCity draft="contributed">Hermosillo</exemplarCity>
-			</zone>
 			<!-- Mongolia
 				 Mexico
 			-->
 			<zone type="America/Mazatlan">
 				<exemplarCity>אמריקה/מזטלן</exemplarCity>
-			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity draft="contributed">Chihuahua</exemplarCity>
 			</zone>
 			<zone type="America/Monterrey">
 				<exemplarCity>אמריקה/מונטריי</exemplarCity>
@@ -2057,18 +1896,12 @@
 			<zone type="America/Mexico_City">
 				<exemplarCity>אמריקה/מקסיקו סיטי</exemplarCity>
 			</zone>
-			<zone type="America/Merida">
-				<exemplarCity draft="contributed">Merida</exemplarCity>
-			</zone>
 			<zone type="America/Cancun">
 				<exemplarCity>אמריקה/קנקון</exemplarCity>
 			</zone>
 			<!-- Malaysia -->
 			<zone type="Asia/Kuala_Lumpur">
 				<exemplarCity>קואלה לומפור</exemplarCity>
-			</zone>
-			<zone type="Asia/Kuching">
-				<exemplarCity draft="contributed">Kuching</exemplarCity>
 			</zone>
 			<zone type="Africa/Maputo">
 				<exemplarCity draft="provisional">מאפוטו</exemplarCity>
@@ -2105,9 +1938,6 @@
 			</zone>
 			<zone type="Pacific/Niue">
 				<exemplarCity draft="provisional">ניווה</exemplarCity>
-			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity draft="contributed">Chatham</exemplarCity>
 			</zone>
 			<!-- New Zealand -->
 			<zone type="Pacific/Auckland">
@@ -2159,9 +1989,6 @@
 			<zone type="Atlantic/Azores">
 				<exemplarCity draft="contributed">האיים האזורים</exemplarCity>
 			</zone>
-			<zone type="Atlantic/Madeira">
-				<exemplarCity draft="contributed">Madeira</exemplarCity>
-			</zone>
 			<!-- Portugal -->
 			<zone type="Europe/Lisbon">
 				<exemplarCity>אירופה/ליסבון</exemplarCity>
@@ -2181,51 +2008,18 @@
 			<zone type="Europe/Bucharest">
 				<exemplarCity draft="provisional">בוקרשט</exemplarCity>
 			</zone>
-			<zone type="Europe/Kaliningrad">
-				<exemplarCity draft="contributed">Kaliningrad</exemplarCity>
-			</zone>
 			<!-- Russia -->
 			<zone type="Europe/Moscow">
 				<exemplarCity>אירופה/מוסקבה</exemplarCity>
 			</zone>
-			<zone type="Europe/Volgograd">
-				<exemplarCity draft="contributed">Volgograd</exemplarCity>
-			</zone>
 			<zone type="Europe/Samara">
 				<exemplarCity>אירופה/סמרה</exemplarCity>
-			</zone>
-			<zone type="Asia/Yekaterinburg">
-				<exemplarCity draft="contributed">Yekaterinburg</exemplarCity>
 			</zone>
 			<zone type="Asia/Omsk">
 				<exemplarCity>איה/אומסק</exemplarCity>
 			</zone>
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>אסיה/נובוסיבירסק</exemplarCity>
-			</zone>
-			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity draft="contributed">Krasnoyarsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Irkutsk">
-				<exemplarCity draft="contributed">Irkutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Yakutsk">
-				<exemplarCity draft="contributed">Yakutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Vladivostok">
-				<exemplarCity draft="contributed">Vladivostok</exemplarCity>
-			</zone>
-			<zone type="Asia/Sakhalin">
-				<exemplarCity draft="contributed">Sakhalin</exemplarCity>
-			</zone>
-			<zone type="Asia/Magadan">
-				<exemplarCity draft="contributed">Magadan</exemplarCity>
-			</zone>
-			<zone type="Asia/Kamchatka">
-				<exemplarCity draft="contributed">Kamchatka</exemplarCity>
-			</zone>
-			<zone type="Asia/Anadyr">
-				<exemplarCity draft="contributed">Anadyr</exemplarCity>
 			</zone>
 			<zone type="Africa/Kigali">
 				<exemplarCity draft="provisional">קיגאלי</exemplarCity>
@@ -2323,20 +2117,11 @@
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity draft="provisional">דאר א-סאלם</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity draft="contributed">Uzhgorod</exemplarCity>
-			</zone>
 			<!-- Svalbard and Jan Mayen
 				 Ukraine
 			-->
 			<zone type="Europe/Kiev">
 				<exemplarCity>אירופה/קייב</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity draft="contributed">Simferopol</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity draft="contributed">Zaporozhye</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
 				<exemplarCity draft="provisional">קמפלה</exemplarCity>
@@ -2350,12 +2135,6 @@
 			<zone type="Pacific/Wake">
 				<exemplarCity draft="contributed">וואק</exemplarCity>
 			</zone>
-			<zone type="America/Adak">
-				<exemplarCity draft="contributed">Adak</exemplarCity>
-			</zone>
-			<zone type="America/Nome">
-				<exemplarCity draft="contributed">Nome</exemplarCity>
-			</zone>
 			<!-- United States Minor Outlying Islands
 				 United States
 			-->
@@ -2365,17 +2144,8 @@
 			<zone type="America/Anchorage">
 				<exemplarCity draft="contributed">זמן אלסקה</exemplarCity>
 			</zone>
-			<zone type="America/Yakutat">
-				<exemplarCity draft="contributed">Yakutat</exemplarCity>
-			</zone>
-			<zone type="America/Juneau">
-				<exemplarCity draft="contributed">Juneau</exemplarCity>
-			</zone>
 			<zone type="America/Los_Angeles">
 				<exemplarCity>אמריקה/לוס-אנג'לס</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity draft="contributed">Boise</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
 				<exemplarCity>אמריקה/פיניקס</exemplarCity>
@@ -2386,47 +2156,17 @@
 			<zone type="America/Denver">
 				<exemplarCity>אמריקה/דנוור</exemplarCity>
 			</zone>
-			<zone type="America/North_Dakota/New_Salem">
-				<exemplarCity draft="contributed">New Salem, North Dakota</exemplarCity>
-			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>אמריקה/צפון דקוטה/מרכז</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<exemplarCity>אמריקה/שיקגו</exemplarCity>
 			</zone>
-			<zone type="America/Menominee">
-				<exemplarCity draft="contributed">Menominee</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vincennes">
-				<exemplarCity draft="contributed">Vincennes, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Petersburg">
-				<exemplarCity draft="contributed">Petersburg, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity draft="contributed">Tell City, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Knox">
-				<exemplarCity draft="contributed">Knox, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Winamac">
-				<exemplarCity draft="contributed">Winamac, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Marengo">
-				<exemplarCity draft="contributed">Marengo, Indiana</exemplarCity>
-			</zone>
 			<zone type="America/Indianapolis">
 				<exemplarCity>אינדיאנפוליס</exemplarCity>
 			</zone>
 			<zone type="America/Louisville">
 				<exemplarCity>אמריקה/לואיסוויל</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<exemplarCity draft="contributed">Vevay, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<exemplarCity draft="contributed">Monticello, Kentucky</exemplarCity>
 			</zone>
 			<zone type="America/Detroit">
 				<exemplarCity>אמריקה/דטרויט</exemplarCity>
@@ -2740,7 +2480,6 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>אירו</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>מרק פיני</displayName>
@@ -2756,7 +2495,6 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>לירה שטרלינג</displayName>
-				<symbol>UK£</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName draft="provisional">לרי</displayName>
@@ -2815,7 +2553,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>רופי הודית</displayName>
-				<symbol choice="true">0≤Rs.|1≤Re.|1&lt;Rs.</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>דינר עירקי</displayName>
@@ -2837,7 +2574,6 @@
 			</currency>
 			<currency type="JPY">
 				<displayName>ין יפני</displayName>
-				<symbol>JP¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>שילינג קנייאתי</displayName>
@@ -3106,7 +2842,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>דולר אמריקאי</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>דולר אמריקאי (היום הבא)</displayName>

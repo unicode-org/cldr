@@ -926,22 +926,16 @@
 			<territory type="ZZ" draft="contributed">bilinmir</territory>
 		</territories>
 		<types>
-			<type type="big5han" key="collation" draft="contributed">big5han</type>
 			<type type="buddhist" key="calendar" draft="contributed">Budist təqvimi</type>
 			<type type="chinese" key="calendar" draft="contributed">Çin təqvimi</type>
-			<type type="direct" key="collation" draft="contributed">direct</type>
-			<type type="gb2312han" key="collation" draft="contributed">gb2312han</type>
 			<type type="gregorian" key="calendar" draft="contributed">Qreqoriy təqvimi</type>
 			<type type="hebrew" key="calendar" draft="contributed">Yahudi təqvimi</type>
 			<type type="indian" key="calendar" draft="contributed">Hindi təqvimi</type>
 			<type type="islamic" key="calendar" draft="contributed">Müsəlman təqvimi</type>
 			<type type="islamic-civil" key="calendar" draft="contributed">Ivrit təqvimi</type>
 			<type type="japanese" key="calendar" draft="contributed">Yapon təqvimi</type>
-			<type type="phonebook" key="collation" draft="contributed">phonebook</type>
 			<type type="pinyin" key="collation" draft="contributed">Pinyin təqvimi</type>
 			<type type="roc" key="calendar" draft="contributed">Çin respublikası təqvimi</type>
-			<type type="stroke" key="collation" draft="contributed">stroke</type>
-			<type type="traditional" key="collation" draft="contributed">traditional</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="US" draft="contributed">ABŞ</measurementSystemName>
@@ -953,20 +947,6 @@
 			<codePattern type="territory" draft="contributed">Rayon: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList draft="contributed">mixed</inList>
-		<inText type="currency" draft="contributed">mixed</inText>
-		<inText type="fields" draft="contributed">mixed</inText>
-		<inText type="keys" draft="contributed">mixed</inText>
-		<inText type="languages" draft="contributed">mixed</inText>
-		<inText type="long" draft="contributed">mixed</inText>
-		<inText type="measurementSystemNames" draft="contributed">mixed</inText>
-		<inText type="quarterWidth" draft="contributed">mixed</inText>
-		<inText type="scripts" draft="contributed">mixed</inText>
-		<inText type="territories" draft="contributed">mixed</inText>
-		<inText type="types" draft="contributed">mixed</inText>
-		<inText type="variants" draft="contributed">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a-c ç d e ə f g ğ h i {i̇} İ ı j-o ö p-s ş t u ü v x-z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[w]</exemplarCharacters>
@@ -979,7 +959,6 @@
 		<alternateQuotationEnd draft="contributed">’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
-		<dateRangePattern draft="contributed">{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="gregorian">
 				<months>
@@ -1073,9 +1052,6 @@
 							<quarter type="2" draft="contributed">2-ci kv.</quarter>
 							<quarter type="3" draft="contributed">3-cü kv.</quarter>
 							<quarter type="4" draft="contributed">4-cü kv.</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="4" draft="contributed">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="contributed">1-ci kvartal</quarter>
@@ -1201,9 +1177,6 @@
 			<zone type="Antarctica/Rothera">
 				<exemplarCity draft="contributed">rofera</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Palmer">
-				<exemplarCity draft="contributed">Palmer</exemplarCity>
-			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity draft="contributed">çənub polus</exemplarCity>
 			</zone>
@@ -1282,12 +1255,6 @@
 			<zone type="Australia/Melbourne">
 				<exemplarCity draft="contributed">melburn</exemplarCity>
 			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity draft="contributed">Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity draft="contributed">Lindeman</exemplarCity>
-			</zone>
 			<zone type="Australia/Sydney">
 				<exemplarCity draft="contributed">sidney</exemplarCity>
 			</zone>
@@ -1306,20 +1273,11 @@
 			<zone type="America/Porto_Velho">
 				<exemplarCity draft="contributed">porto velo</exemplarCity>
 			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity draft="contributed">Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Manaus">
-				<exemplarCity draft="contributed">Manaus</exemplarCity>
-			</zone>
 			<zone type="America/Cuiaba">
 				<exemplarCity draft="contributed">Kuyaba</exemplarCity>
 			</zone>
 			<zone type="America/Campo_Grande">
 				<exemplarCity draft="contributed">Kampo Qrande</exemplarCity>
-			</zone>
-			<zone type="America/Belem">
-				<exemplarCity draft="contributed">Belem</exemplarCity>
 			</zone>
 			<zone type="America/Araguaina">
 				<exemplarCity draft="contributed">Araguayna</exemplarCity>
@@ -1329,9 +1287,6 @@
 			</zone>
 			<zone type="America/Bahia">
 				<exemplarCity draft="contributed">Bahiya</exemplarCity>
-			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity draft="contributed">Fortaleza</exemplarCity>
 			</zone>
 			<zone type="America/Maceio">
 				<exemplarCity draft="contributed">Maseyo</exemplarCity>
@@ -1441,9 +1396,6 @@
 			<zone type="Asia/Chongqing">
 				<exemplarCity draft="contributed">Conqinq</exemplarCity>
 			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity draft="contributed">Harbin</exemplarCity>
-			</zone>
 			<zone type="Pacific/Galapagos">
 				<exemplarCity draft="contributed">Qalapaqos</exemplarCity>
 			</zone>
@@ -1452,9 +1404,6 @@
 			</zone>
 			<zone type="Africa/Ceuta">
 				<exemplarCity draft="contributed">Seuta</exemplarCity>
-			</zone>
-			<zone type="Pacific/Truk">
-				<exemplarCity draft="contributed">Truk</exemplarCity>
 			</zone>
 			<zone type="Pacific/Ponape">
 				<exemplarCity draft="contributed">ponape</exemplarCity>
@@ -1495,12 +1444,6 @@
 			<zone type="Asia/Aqtau">
 				<exemplarCity draft="contributed">Aktau</exemplarCity>
 			</zone>
-			<zone type="Asia/Oral">
-				<exemplarCity draft="contributed">Oral</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtobe">
-				<exemplarCity draft="contributed">Aqtobe</exemplarCity>
-			</zone>
 			<zone type="Asia/Qyzylorda">
 				<exemplarCity draft="contributed">qüzülorda</exemplarCity>
 			</zone>
@@ -1512,9 +1455,6 @@
 			</zone>
 			<zone type="Pacific/Majuro">
 				<exemplarCity draft="contributed">Maxiro</exemplarCity>
-			</zone>
-			<zone type="Asia/Hovd">
-				<exemplarCity draft="contributed">Hovd</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity draft="contributed">ulanbatar</exemplarCity>
@@ -1540,9 +1480,6 @@
 			<zone type="America/Mexico_City">
 				<exemplarCity draft="contributed">mexiko</exemplarCity>
 			</zone>
-			<zone type="America/Merida">
-				<exemplarCity draft="contributed">Merida</exemplarCity>
-			</zone>
 			<zone type="America/Cancun">
 				<exemplarCity draft="contributed">Kankun</exemplarCity>
 			</zone>
@@ -1557,9 +1494,6 @@
 			</zone>
 			<zone type="Pacific/Gambier">
 				<exemplarCity draft="contributed">Qambiyer</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Azores">
-				<exemplarCity draft="contributed">Azores</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Madeira">
 				<exemplarCity draft="contributed">Madeyra</exemplarCity>
@@ -1579,14 +1513,8 @@
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity draft="contributed">yekaterinburq</exemplarCity>
 			</zone>
-			<zone type="Asia/Omsk">
-				<exemplarCity draft="contributed">Omsk</exemplarCity>
-			</zone>
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity draft="contributed">novosibirsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity draft="contributed">Krasnoyarsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Irkutsk">
 				<exemplarCity draft="contributed">İrkutsk</exemplarCity>
@@ -1630,14 +1558,8 @@
 			<zone type="Pacific/Wake">
 				<exemplarCity draft="contributed">veyk</exemplarCity>
 			</zone>
-			<zone type="America/Adak">
-				<exemplarCity draft="contributed">Adak</exemplarCity>
-			</zone>
 			<zone type="America/Nome">
 				<exemplarCity draft="contributed">nom</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity draft="contributed">Honolulu</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity draft="contributed">Ankorac</exemplarCity>
@@ -1659,9 +1581,6 @@
 			</zone>
 			<zone type="America/Shiprock">
 				<exemplarCity draft="contributed">şiprok</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<exemplarCity draft="contributed">Denver</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
 				<exemplarCity draft="contributed">nyu salem</exemplarCity>
@@ -1806,21 +1725,17 @@
 			<currency type="ADP">
 				<displayName draft="contributed">Andora pesetası</displayName>
 				<displayName count="other" draft="contributed">Andora pesetası</displayName>
-				<symbol draft="contributed">ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName draft="contributed">Birləşmiş ərəb emiratlar dirhamı</displayName>
 				<displayName count="other" draft="contributed">BƏE dirhamı</displayName>
-				<symbol draft="contributed">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName count="other" draft="contributed">Əfgən (AFA)</displayName>
-				<symbol draft="contributed">AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName draft="contributed">Əfgəni</displayName>
 				<displayName count="other" draft="contributed">Əfgən</displayName>
-				<symbol draft="contributed">AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName draft="contributed">Alban leki</displayName>
@@ -1835,57 +1750,45 @@
 			<currency type="ANG">
 				<displayName draft="contributed">Hollandiya antila gilderi</displayName>
 				<displayName count="other" draft="contributed">Hollandiya Antila gilderi</displayName>
-				<symbol draft="contributed">ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName draft="contributed">Anqola kvanzası</displayName>
 				<displayName count="other" draft="contributed">Anqola kvanzasi</displayName>
-				<symbol draft="contributed">AOA</symbol>
 			</currency>
 			<currency type="AOK">
-				<displayName draft="contributed">AOK</displayName>
 				<displayName count="other" draft="contributed">Anqola kvanzasi (AOK)</displayName>
-				<symbol draft="contributed">AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName draft="contributed">Anqola yeni kvanzası (1990-2000)</displayName>
 				<displayName count="other" draft="contributed">Anqola yeni kvanzasi (AON)</displayName>
-				<symbol draft="contributed">AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName draft="contributed">Anqola kvanzası (1995-1999)</displayName>
 				<displayName count="other" draft="contributed">Anqola kvanzasi (AOR)</displayName>
-				<symbol draft="contributed">AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName draft="contributed">Argentina avstralı</displayName>
 				<displayName count="other" draft="contributed">Argentina avstralı</displayName>
-				<symbol draft="contributed">ARA</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName draft="contributed">Argentina pesosu (1983-1985)</displayName>
 				<displayName count="other" draft="contributed">Argentina pesosu (ARP)</displayName>
-				<symbol draft="contributed">ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName draft="contributed">Argentina pesosu</displayName>
 				<displayName count="other" draft="contributed">Argentina pesosu</displayName>
-				<symbol draft="contributed">ARS</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName draft="contributed">Avstriya şilingi</displayName>
 				<displayName count="other" draft="contributed">Avstriya şilingi</displayName>
-				<symbol draft="contributed">ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName draft="contributed">Avstraliya dolları</displayName>
 				<displayName count="other" draft="contributed">Avstraliya dolları</displayName>
-				<symbol draft="contributed">AUD</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName draft="contributed">Aruba qilderi</displayName>
 				<displayName count="other" draft="contributed">Aruba qilderi</displayName>
-				<symbol draft="contributed">AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>Manat</displayName>
@@ -1901,12 +1804,10 @@
 			<currency type="BAD">
 				<displayName draft="contributed">Bosniya-Herzeqovina dinarı</displayName>
 				<displayName count="other" draft="contributed">Bosniya-Herzeqovina dinarı</displayName>
-				<symbol draft="contributed">BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName draft="contributed">Bosniya-Herzeqovina markası</displayName>
 				<displayName count="other" draft="contributed">Bosniya-Herzeqovina markası</displayName>
-				<symbol draft="contributed">BAM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName draft="contributed">Barbados dolları</displayName>
@@ -1915,82 +1816,64 @@
 			<currency type="BDT">
 				<displayName draft="contributed">Banqladeş takası</displayName>
 				<displayName count="other" draft="contributed">Banqladeş takası</displayName>
-				<symbol draft="contributed">BDT</symbol>
 			</currency>
 			<currency type="BEC">
-				<displayName draft="contributed">BEC</displayName>
 				<displayName count="other" draft="contributed">Belçika frankı (deyşirik)</displayName>
-				<symbol draft="contributed">BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName draft="contributed">Belçika frankı</displayName>
 				<displayName count="other" draft="contributed">Belçika frankı</displayName>
-				<symbol draft="contributed">BEF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName draft="contributed">Belçika frankı (finans)</displayName>
 				<displayName count="other" draft="contributed">Belçika frankı (finans)</displayName>
-				<symbol draft="contributed">BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName draft="contributed">Bolqariya levası</displayName>
 				<displayName count="other" draft="contributed">Bolqariya levası</displayName>
-				<symbol draft="contributed">BGL</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName draft="contributed">Bolqariya yeni levası</displayName>
 				<displayName count="other" draft="contributed">Bolqariya yeni levası</displayName>
-				<symbol draft="contributed">BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName draft="contributed">Bahreyn dinarı</displayName>
 				<displayName count="other" draft="contributed">Bahreyn dinarı</displayName>
-				<symbol draft="contributed">BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName draft="contributed">Burundi frankası</displayName>
 				<displayName count="other" draft="contributed">Burundi frankası</displayName>
-				<symbol draft="contributed">BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName draft="contributed">Bermuda dolları</displayName>
 				<displayName count="other" draft="contributed">Bermuda dolları</displayName>
-				<symbol draft="contributed">BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName draft="contributed">Bruney dolları</displayName>
 				<displayName count="other" draft="contributed">Bruney dolları</displayName>
-				<symbol draft="contributed">BND</symbol>
 			</currency>
 			<currency type="BOB">
-				<displayName draft="contributed">BOB</displayName>
 				<displayName count="other" draft="contributed">Boliviano</displayName>
-				<symbol draft="contributed">BOB</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName draft="contributed">Boliviya pesosu</displayName>
 				<displayName count="other" draft="contributed">Boliviya pesosu</displayName>
-				<symbol draft="contributed">BOP</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName draft="contributed">Boliviya mvdolı</displayName>
 				<displayName count="other" draft="contributed">Boliviya mvdolı</displayName>
-				<symbol draft="contributed">BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName draft="contributed">Braziliya kruzeyro novası</displayName>
 				<displayName count="other" draft="contributed">Braziliya kruzeyro novası</displayName>
-				<symbol draft="contributed">BRB</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName draft="contributed">Braziliya kruzadosu</displayName>
 				<displayName count="other" draft="contributed">Braziliya kruzadosu</displayName>
-				<symbol draft="contributed">BRC</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName draft="contributed">Braziliya kruzeyrosu (1990-1993)</displayName>
 				<displayName count="other" draft="contributed">Braziliya kruzeyrosu (BRE)</displayName>
-				<symbol draft="contributed">BRE</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName draft="contributed">Braziliya realı</displayName>
@@ -2000,17 +1883,14 @@
 			<currency type="BRN">
 				<displayName draft="contributed">Braziliya kruzado novası</displayName>
 				<displayName count="other" draft="contributed">Braziliya kruzado novası</displayName>
-				<symbol draft="contributed">BRN</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName draft="contributed">Braziliya kruzeyrosu</displayName>
 				<displayName count="other" draft="contributed">Braziliya kruzeyrosu</displayName>
-				<symbol draft="contributed">BRR</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName draft="contributed">Bahama dolları</displayName>
 				<displayName count="other" draft="contributed">Bahama dolları</displayName>
-				<symbol draft="contributed">BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName draft="contributed">Butan ngultrumu</displayName>
@@ -2019,22 +1899,18 @@
 			<currency type="BUK">
 				<displayName draft="contributed">Burmis kyatı</displayName>
 				<displayName count="other" draft="contributed">Burmis kyatı</displayName>
-				<symbol draft="contributed">BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName draft="contributed">Botsvana pulası</displayName>
 				<displayName count="other" draft="contributed">Botsvana pulası</displayName>
-				<symbol draft="contributed">BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName draft="contributed">Belarusiya yeni rublu</displayName>
 				<displayName count="other" draft="contributed">Belarusiya yeni rublu</displayName>
-				<symbol draft="contributed">BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName draft="contributed">Belarusiya rublu</displayName>
 				<displayName count="other" draft="contributed">Belarusiya rublu</displayName>
-				<symbol draft="contributed">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName draft="contributed">Beliz dolları</displayName>
@@ -2043,36 +1919,26 @@
 			<currency type="CAD">
 				<displayName draft="contributed">Kanadiya dolları</displayName>
 				<displayName count="other" draft="contributed">Kanada dolları</displayName>
-				<symbol draft="contributed">CAD</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName draft="contributed">Konqoliz frank konqolaysı</displayName>
 				<displayName count="other" draft="contributed">Konqoliz frank konqolaysı</displayName>
-				<symbol draft="contributed">CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName draft="contributed">WIR Yevrosu</displayName>
 				<displayName count="other" draft="contributed">WIR Yevrosu</displayName>
-				<symbol draft="contributed">CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName draft="contributed">İsveçriya frankası</displayName>
 				<displayName count="other" draft="contributed">İsveçriya frankası</displayName>
-				<symbol draft="contributed">CHF</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName draft="contributed">WIR frankası</displayName>
 				<displayName count="other" draft="contributed">WIR frankası</displayName>
-				<symbol draft="contributed">CHW</symbol>
-			</currency>
-			<currency type="CLF">
-				<displayName draft="contributed">CLF</displayName>
-				<symbol draft="contributed">CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName draft="contributed">Çili pesosu</displayName>
 				<displayName count="other" draft="contributed">Çili pesosu</displayName>
-				<symbol draft="contributed">CLP</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName draft="contributed">Çin yuan renminbi</displayName>
@@ -2082,125 +1948,94 @@
 			<currency type="COP">
 				<displayName draft="contributed">Kolombiya pesosu</displayName>
 				<displayName count="other" draft="contributed">Kolombiya pesosu</displayName>
-				<symbol draft="contributed">COP</symbol>
-			</currency>
-			<currency type="COU">
-				<displayName draft="contributed">COU</displayName>
-				<symbol draft="contributed">COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName draft="contributed">Kosta rika kolonu</displayName>
 				<displayName count="other" draft="contributed">Kosta Rika kolonu</displayName>
-				<symbol draft="contributed">CRC</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName draft="contributed">Qədimi Serb dinarı</displayName>
 				<displayName count="other" draft="contributed">Qədimi serb dinarı</displayName>
-				<symbol draft="contributed">CSD</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName draft="contributed">Çexoslavakiya korunası</displayName>
 				<displayName count="other" draft="contributed">Çexoslavakiya korunası</displayName>
-				<symbol draft="contributed">CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName draft="contributed">Kuba pesosu</displayName>
 				<displayName count="other" draft="contributed">Kuba pesosu</displayName>
-				<symbol draft="contributed">CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName draft="contributed">Kape Verde eskudosu</displayName>
 				<displayName count="other" draft="contributed">Kape Verde eskudosu</displayName>
-				<symbol draft="contributed">CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName draft="contributed">Kipr paundu</displayName>
 				<displayName count="other" draft="contributed">Kipr paundu</displayName>
-				<symbol draft="contributed">CYP</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName draft="contributed">Çex respublikası korunası</displayName>
 				<displayName count="other" draft="contributed">Cex respublika korunası</displayName>
-				<symbol draft="contributed">CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName draft="contributed">şərq almaniya ostmarkı</displayName>
 				<displayName count="other" draft="contributed">Şərq Almaniya ostmarkı</displayName>
-				<symbol draft="contributed">DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName draft="contributed">alman markası</displayName>
 				<displayName count="other" draft="contributed">Alman markası</displayName>
-				<symbol draft="contributed">DEM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName draft="contributed">jibouti frankası</displayName>
 				<displayName count="other" draft="contributed">Jibouti frankası</displayName>
-				<symbol draft="contributed">DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName draft="contributed">Danemarka kronası</displayName>
 				<displayName count="other" draft="contributed">Danemarka kronası</displayName>
-				<symbol draft="contributed">DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName draft="contributed">dominika pesosu</displayName>
 				<displayName count="other" draft="contributed">Dominika pesosu</displayName>
-				<symbol draft="contributed">DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName draft="contributed">Alcəzir dinarı</displayName>
 				<displayName count="other" draft="contributed">Alcəzir dinarı</displayName>
-				<symbol draft="contributed">DZD</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName draft="contributed">ekvador sukresi</displayName>
 				<displayName count="other" draft="contributed">Ekvador sukresi</displayName>
-				<symbol draft="contributed">ECS</symbol>
-			</currency>
-			<currency type="ECV">
-				<displayName draft="contributed">ECV</displayName>
-				<symbol draft="contributed">ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName draft="contributed">Estoniya krunu</displayName>
 				<displayName count="other" draft="contributed">Estoniya krunu</displayName>
-				<symbol draft="contributed">EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName draft="contributed">misir paundu</displayName>
 				<displayName count="other" draft="contributed">Misir paundu</displayName>
-				<symbol draft="contributed">EGP</symbol>
 			</currency>
 			<currency type="EQE">
 				<displayName draft="contributed">ekvele</displayName>
 				<displayName count="other" draft="contributed">Ekvele</displayName>
-				<symbol draft="contributed">EQE</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName draft="contributed">Eirtreya nakfası</displayName>
 				<displayName count="other" draft="contributed">Eritreya nakfası</displayName>
-				<symbol draft="contributed">ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName draft="contributed">İspan pesetası (A)</displayName>
 				<displayName count="other" draft="contributed">İspan pesetası (A account)</displayName>
-				<symbol draft="contributed">ESA</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName draft="contributed">İspan pesetası (dəyşirik)</displayName>
 				<displayName count="other" draft="contributed">İspan pesetası (dəyşirik)</displayName>
-				<symbol draft="contributed">ESB</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName draft="contributed">İspan pesetası</displayName>
 				<displayName count="other" draft="contributed">İspan pesetası</displayName>
-				<symbol draft="contributed">ESP</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName draft="contributed">Efiopiya birası</displayName>
 				<displayName count="other" draft="contributed">Efiopiya birası</displayName>
-				<symbol draft="contributed">ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName draft="contributed">Yevro</displayName>
@@ -2210,22 +2045,18 @@
 			<currency type="FIM">
 				<displayName draft="contributed">Fin markası</displayName>
 				<displayName count="other" draft="contributed">Fin markası</displayName>
-				<symbol draft="contributed">FIM</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName draft="contributed">Fici dolları</displayName>
 				<displayName count="other" draft="contributed">Fici dolları</displayName>
-				<symbol draft="contributed">FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName draft="contributed">Folkland Adası paundu</displayName>
 				<displayName count="other" draft="contributed">Folkland adası paundu</displayName>
-				<symbol draft="contributed">FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName draft="contributed">Fransız markası</displayName>
 				<displayName count="other" draft="contributed">Fransız markası</displayName>
-				<symbol draft="contributed">FRF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName draft="contributed">Britaniya paund sterlingi</displayName>
@@ -2235,7 +2066,6 @@
 			<currency type="GEK">
 				<displayName draft="contributed">Gürcüstan kupon lariti</displayName>
 				<displayName count="other" draft="contributed">Gürcüstan kupon lariti</displayName>
-				<symbol draft="contributed">GEK</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName draft="contributed">Gürcüstan larisi</displayName>
@@ -2245,112 +2075,90 @@
 			<currency type="GHC">
 				<displayName draft="contributed">Qana sedisi (1979-2007)</displayName>
 				<displayName count="other" draft="contributed">Qana sedisi (GHC)</displayName>
-				<symbol draft="contributed">GHC</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName draft="contributed">Qana sedisi</displayName>
 				<displayName count="other" draft="contributed">Qana sedisi</displayName>
-				<symbol draft="contributed">GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName draft="contributed">Gibraltar paundu</displayName>
 				<displayName count="other" draft="contributed">Gibraltar paundu</displayName>
-				<symbol draft="contributed">GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName draft="contributed">Qambiya dalasi</displayName>
 				<displayName count="other" draft="contributed">Qambiya dalasi</displayName>
-				<symbol draft="contributed">GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName draft="contributed">Qvineya frankası</displayName>
 				<displayName count="other" draft="contributed">qvineya frankası</displayName>
-				<symbol draft="contributed">GNF</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName draft="contributed">Qvineya sulisi</displayName>
 				<displayName count="other" draft="contributed">Gineya sulisi</displayName>
-				<symbol draft="contributed">GNS</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName draft="contributed">Ekvatoriya Gvineya ekvele quneanası</displayName>
 				<displayName count="other" draft="contributed">Ekvatoriya Gvineya ekvele quneanası</displayName>
-				<symbol draft="contributed">GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName draft="contributed">Yunan draçması</displayName>
 				<displayName count="other" draft="contributed">Yunan draxması</displayName>
-				<symbol draft="contributed">GRD</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName draft="contributed">Qvatemala küetzalı</displayName>
 				<displayName count="other" draft="contributed">Qvatemala küetzalı</displayName>
-				<symbol draft="contributed">GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName draft="contributed">Portugal Qvineya eskudosu</displayName>
 				<displayName count="other" draft="contributed">Portugal Qvineya eskudosu</displayName>
-				<symbol draft="contributed">GWE</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName draft="contributed">Qvineya-Bisau pesosu</displayName>
 				<displayName count="other" draft="contributed">Qvineya-Bisau pesosu</displayName>
-				<symbol draft="contributed">GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName draft="contributed">Quyana dolları</displayName>
 				<displayName count="other" draft="contributed">Quyana dolları</displayName>
-				<symbol draft="contributed">GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName draft="contributed">Honk Konq dolları</displayName>
 				<displayName count="other" draft="contributed">Honk Konq dolları</displayName>
-				<symbol draft="contributed">HKD</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName draft="contributed">Honduras lempirası</displayName>
 				<displayName count="other" draft="contributed">Honduras lempirası</displayName>
-				<symbol draft="contributed">HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName draft="contributed">Xorvatiya dinarı</displayName>
 				<displayName count="other" draft="contributed">Xorvatiya dinarı</displayName>
-				<symbol draft="contributed">HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName draft="contributed">Xorvatiya kunu</displayName>
 				<displayName count="other" draft="contributed">Xorvatiya kunu</displayName>
-				<symbol draft="contributed">HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName draft="contributed">Haiti qourdu</displayName>
 				<displayName count="other" draft="contributed">Haiti qourdu</displayName>
-				<symbol draft="contributed">HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName draft="contributed">Macarıstan forinti</displayName>
 				<displayName count="other" draft="contributed">Macarıstan forinti</displayName>
-				<symbol draft="contributed">HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName draft="contributed">İndoneziya rupisi</displayName>
 				<displayName count="other" draft="contributed">İndoneziya rupisi</displayName>
-				<symbol draft="contributed">IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName draft="contributed">İrlandiya paundu</displayName>
 				<displayName count="other" draft="contributed">İrlandiya paundu</displayName>
-				<symbol draft="contributed">IEP</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName draft="contributed">İzrail paundu</displayName>
 				<displayName count="other" draft="contributed">İzrail paundu</displayName>
-				<symbol draft="contributed">ILP</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName draft="contributed">İzrail yeni şekeli</displayName>
 				<displayName count="other" draft="contributed">İzrail ail yeni şekeli</displayName>
-				<symbol draft="contributed">ILS</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName draft="contributed">Hindistan rupisi</displayName>
@@ -2360,32 +2168,26 @@
 			<currency type="IQD">
 				<displayName draft="contributed">İraq dinarı</displayName>
 				<displayName count="other" draft="contributed">İraq dinarı</displayName>
-				<symbol draft="contributed">IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName draft="contributed">İran rialı</displayName>
 				<displayName count="other" draft="contributed">İran rialı</displayName>
-				<symbol draft="contributed">IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName draft="contributed">Aysland kronası</displayName>
 				<displayName count="other" draft="contributed">Aysland kronası</displayName>
-				<symbol draft="contributed">ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName draft="contributed">İtaliya lirası</displayName>
 				<displayName count="other" draft="contributed">İtaliya lirası</displayName>
-				<symbol draft="contributed">IT₤</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName draft="contributed">Yamayka dolları</displayName>
 				<displayName count="other" draft="contributed">Yamayka dolları</displayName>
-				<symbol draft="contributed">JMD</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName draft="contributed">İordaniya dinarı</displayName>
 				<displayName count="other" draft="contributed">İordaniya dinarı</displayName>
-				<symbol draft="contributed">JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName draft="contributed">Yapon yeni</displayName>
@@ -2395,27 +2197,22 @@
 			<currency type="KES">
 				<displayName draft="contributed">Kenya şillingi</displayName>
 				<displayName count="other" draft="contributed">Kenya şillingi</displayName>
-				<symbol draft="contributed">KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName draft="contributed">Kırğızstan somu</displayName>
 				<displayName count="other" draft="contributed">Kırğızstan somu</displayName>
-				<symbol draft="contributed">KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName draft="contributed">Kambodiya riyeli</displayName>
 				<displayName count="other" draft="contributed">Kambodiya riyeli</displayName>
-				<symbol draft="contributed">KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName draft="contributed">Komoro frankı</displayName>
 				<displayName count="other" draft="contributed">Komoro frankı</displayName>
-				<symbol draft="contributed">KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName draft="contributed">Şimal koreya vonu</displayName>
 				<displayName count="other" draft="contributed">Şimal Koreya vonu</displayName>
-				<symbol draft="contributed">KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName draft="contributed">Cənub koreya vonu</displayName>
@@ -2424,22 +2221,18 @@
 			<currency type="KWD">
 				<displayName draft="contributed">Kuveyt dinarı</displayName>
 				<displayName count="other" draft="contributed">Kuveyt dinarı</displayName>
-				<symbol draft="contributed">KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName draft="contributed">Keyman Adaları dolları</displayName>
 				<displayName count="other" draft="contributed">Keyman Adaları dolları</displayName>
-				<symbol draft="contributed">KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName draft="contributed">Kazaxstan tenqesi</displayName>
 				<displayName count="other" draft="contributed">Kazaxstan tenqesi</displayName>
-				<symbol draft="contributed">KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName draft="contributed">Laotiya kipi</displayName>
 				<displayName count="other" draft="contributed">Laotiya kipi</displayName>
-				<symbol draft="contributed">LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName draft="contributed">Lebanon paundu</displayName>
@@ -2448,112 +2241,90 @@
 			<currency type="LKR">
 				<displayName draft="contributed">Şri Lanka rupisi</displayName>
 				<displayName count="other" draft="contributed">Şri Lanka rupisi</displayName>
-				<symbol draft="contributed">LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName draft="contributed">Liberiya dolları</displayName>
 				<displayName count="other" draft="contributed">Liberiya dolları</displayName>
-				<symbol draft="contributed">LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName draft="contributed">Lesoto lotisi</displayName>
 				<displayName count="other" draft="contributed">Lesoto lotisi</displayName>
-				<symbol draft="contributed">LSL</symbol>
 			</currency>
 			<currency type="LSM">
 				<displayName draft="contributed">Maloti</displayName>
 				<displayName count="other" draft="contributed">Maloti</displayName>
-				<symbol draft="contributed">LSM</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName draft="contributed">Litva litası</displayName>
 				<displayName count="other" draft="contributed">Litva litası</displayName>
-				<symbol draft="contributed">LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName draft="contributed">Litva talonası</displayName>
 				<displayName count="other" draft="contributed">Litva talonası</displayName>
-				<symbol draft="contributed">LTT</symbol>
 			</currency>
 			<currency type="LUC">
 				<displayName draft="contributed">Luksemburq frankası (dəyişik)</displayName>
 				<displayName count="other" draft="contributed">Luksemburq dəyişik frankası</displayName>
-				<symbol draft="contributed">LUC</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName draft="contributed">Luksemburq frankası</displayName>
 				<displayName count="other" draft="contributed">Luksemburq frankası</displayName>
-				<symbol draft="contributed">LUF</symbol>
 			</currency>
 			<currency type="LUL">
 				<displayName draft="contributed">Luksemburq frankası (finans)</displayName>
 				<displayName count="other" draft="contributed">Luksemburq finans frankası</displayName>
-				<symbol draft="contributed">LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName draft="contributed">Latviya latsı</displayName>
 				<displayName count="other" draft="contributed">Latviya latsı</displayName>
-				<symbol draft="contributed">LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName draft="contributed">Latviya rublu</displayName>
 				<displayName count="other" draft="contributed">Latviya rublu</displayName>
-				<symbol draft="contributed">LVR</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName draft="contributed">Liviya dinarı</displayName>
 				<displayName count="other" draft="contributed">Liviya dinarı</displayName>
-				<symbol draft="contributed">LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName draft="contributed">Morokko dirhamı</displayName>
 				<displayName count="other" draft="contributed">Morokko dirhamı</displayName>
-				<symbol draft="contributed">MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName draft="contributed">Morokko frankası</displayName>
 				<displayName count="other" draft="contributed">Morokko frankası</displayName>
-				<symbol draft="contributed">MAF</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName draft="contributed">Moldova leyusu</displayName>
 				<displayName count="other" draft="contributed">Moldova leyusu</displayName>
-				<symbol draft="contributed">MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName draft="contributed">Madaqaskar ariarisi</displayName>
 				<displayName count="other" draft="contributed">Madaqaskar ariarisi</displayName>
-				<symbol draft="contributed">MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName draft="contributed">Madaqaskar frankası</displayName>
 				<displayName count="other" draft="contributed">Madaqaskar frankası</displayName>
-				<symbol draft="contributed">MGF</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName draft="contributed">Masedoniya denarı</displayName>
 				<displayName count="other" draft="contributed">Masedoniya denarı</displayName>
-				<symbol draft="contributed">MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName draft="contributed">Mali frankı</displayName>
 				<displayName count="other" draft="contributed">Mali frankı</displayName>
-				<symbol draft="contributed">MLF</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName draft="contributed">Myanmar kiyatı</displayName>
 				<displayName count="other" draft="contributed">Myanmar kiyatı</displayName>
-				<symbol draft="contributed">MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName draft="contributed">Monqoliya tuqriki</displayName>
 				<displayName count="other" draft="contributed">Monqoliya tuqriki</displayName>
-				<symbol draft="contributed">MNT</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName draft="contributed">Makao patakası</displayName>
 				<displayName count="other" draft="contributed">Makao patakası</displayName>
-				<symbol draft="contributed">MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName draft="contributed">Mavritaniya oyuquyası</displayName>
@@ -2561,7 +2332,6 @@
 			</currency>
 			<currency type="MTP">
 				<displayName count="other" draft="contributed">Maltiz paundu</displayName>
-				<symbol draft="contributed">MTP</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName draft="contributed">Mavritis rupiyi</displayName>
@@ -2570,50 +2340,38 @@
 			<currency type="MVR">
 				<displayName draft="contributed">Maldiv Adaları rufiyi</displayName>
 				<displayName count="other" draft="contributed">Maldiv adaları rufiyi</displayName>
-				<symbol draft="contributed">MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName draft="contributed">Malavi kvaçası</displayName>
 				<displayName count="other" draft="contributed">Malavi kvaçası</displayName>
-				<symbol draft="contributed">MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName draft="contributed">Meksika pesosu</displayName>
 				<displayName count="other" draft="contributed">Meksika pesosu</displayName>
-				<symbol draft="contributed">MXN</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName draft="contributed">Meksika gümüş pesosu</displayName>
 				<displayName count="other" draft="contributed">Meksika gümüş pesosu</displayName>
-				<symbol draft="contributed">MXP</symbol>
-			</currency>
-			<currency type="MXV">
-				<displayName draft="contributed">MXV</displayName>
 			</currency>
 			<currency type="MYR">
 				<displayName draft="contributed">Malaysiya rinqiti</displayName>
 				<displayName count="other" draft="contributed">Malaysiya rinqiti</displayName>
-				<symbol draft="contributed">MYR</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName draft="contributed">Mozambik eskudosu</displayName>
 				<displayName count="other" draft="contributed">Mozambik eskudosu</displayName>
-				<symbol draft="contributed">MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName draft="contributed">Qədim Mozambik metikalı</displayName>
 				<displayName count="other" draft="contributed">Qədim mozambik metikalı</displayName>
-				<symbol draft="contributed">MZM</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName draft="contributed">Mozambik metikalı</displayName>
 				<displayName count="other" draft="contributed">Mozambik metikalı</displayName>
-				<symbol draft="contributed">MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName draft="contributed">Namibiya dolları</displayName>
 				<displayName count="other" draft="contributed">Namibiya dolları</displayName>
-				<symbol draft="contributed">NAD</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName draft="contributed">Nigeriya nairi</displayName>
@@ -2622,115 +2380,90 @@
 			<currency type="NIC">
 				<displayName draft="contributed">Nikaraqua kordobu</displayName>
 				<displayName count="other" draft="contributed">Nikaraqua kordobu</displayName>
-				<symbol draft="contributed">NIC</symbol>
-			</currency>
-			<currency type="NIO">
-				<displayName draft="contributed">NIO</displayName>
 			</currency>
 			<currency type="NLG">
 				<displayName draft="contributed">Hollandiya gilderi</displayName>
 				<displayName count="other" draft="contributed">Hollandiya gilderi</displayName>
-				<symbol draft="contributed">NLG</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName draft="contributed">Norveç kronu</displayName>
 				<displayName count="other" draft="contributed">Norveç kronu</displayName>
-				<symbol draft="contributed">NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName draft="contributed">Nepal rupiyi</displayName>
 				<displayName count="other" draft="contributed">Nepal rupiyi</displayName>
-				<symbol draft="contributed">NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName draft="contributed">Yeni Zelandiya dolları</displayName>
 				<displayName count="other" draft="contributed">Yeni Zelandiya dolları</displayName>
-				<symbol draft="contributed">NZD</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName draft="contributed">Mman rialı</displayName>
 				<displayName count="other" draft="contributed">Oman rialı</displayName>
-				<symbol draft="contributed">OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName draft="contributed">Panamaniya balboa</displayName>
 				<displayName count="other" draft="contributed">Panamaniya balboa</displayName>
-				<symbol draft="contributed">PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName draft="contributed">Peru inti</displayName>
 				<displayName count="other" draft="contributed">Peru inti</displayName>
-				<symbol draft="contributed">PEI</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName draft="contributed">Peru sol nuyevosu</displayName>
 				<displayName count="other" draft="contributed">Peru sol nuyevosu</displayName>
-				<symbol draft="contributed">PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName draft="contributed">Peru solu</displayName>
 				<displayName count="other" draft="contributed">Peru solu</displayName>
-				<symbol draft="contributed">PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName draft="contributed">Papua Yeni Qvineya kini</displayName>
 				<displayName count="other" draft="contributed">Papua Yeni Qvineya kini</displayName>
-				<symbol draft="contributed">PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName draft="contributed">Filipin pesosu</displayName>
 				<displayName count="other" draft="contributed">Filipin pesosu</displayName>
-				<symbol draft="contributed">PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName draft="contributed">Pakistan rupiyi</displayName>
 				<displayName count="other" draft="contributed">Pakistan rupiyi</displayName>
-				<symbol draft="contributed">PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName draft="contributed">Polsha zlotisi</displayName>
 				<displayName count="other" draft="contributed">Polsha zlotisi</displayName>
-				<symbol draft="contributed">PLN</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName draft="contributed">Polsha zlotisi (1950-1995)</displayName>
 				<displayName count="other" draft="contributed">Polsha zlotisi (PLZ)</displayName>
-				<symbol draft="contributed">PLZ</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName draft="contributed">Portuqal eskudosu</displayName>
 				<displayName count="other" draft="contributed">Portuqal eskudosu</displayName>
-				<symbol draft="contributed">PTE</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName draft="contributed">Paraqvay quarani</displayName>
 				<displayName count="other" draft="contributed">Paraqvay quarani</displayName>
-				<symbol draft="contributed">PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName draft="contributed">Qatar rialı</displayName>
 				<displayName count="other" draft="contributed">Qatar rialı</displayName>
-				<symbol draft="contributed">QAR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName draft="contributed">Rodezian dolları</displayName>
 				<displayName count="other" draft="contributed">Rodezian dolları</displayName>
-				<symbol draft="contributed">RHD</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName draft="contributed">Qədim Roman leyu</displayName>
 				<displayName count="other" draft="contributed">Roman qədimi leyu</displayName>
-				<symbol draft="contributed">ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName draft="contributed">Roman leyu</displayName>
 				<displayName count="other" draft="contributed">Roman leyu</displayName>
-				<symbol draft="contributed">RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName draft="contributed">Serbiya dinarı</displayName>
 				<displayName count="other" draft="contributed">Serbiya dinarı</displayName>
-				<symbol draft="contributed">RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName draft="contributed">Rusiya rublu</displayName>
@@ -2740,141 +2473,102 @@
 			<currency type="RUR">
 				<displayName draft="contributed">Rusiya rublu (1991-1998)</displayName>
 				<displayName count="other" draft="contributed">Rusiya rublu (RUR)</displayName>
-				<symbol draft="contributed">RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName draft="contributed">Rvanda frankı</displayName>
 				<displayName count="other" draft="contributed">Rvanda frankı</displayName>
-				<symbol draft="contributed">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName draft="contributed">Saudi riyalı</displayName>
 				<displayName count="other" draft="contributed">Saudi riyalı</displayName>
-				<symbol draft="contributed">SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName draft="contributed">Solomon Adaları dolları</displayName>
 				<displayName count="other" draft="contributed">Solomon Adaları dolları</displayName>
-				<symbol draft="contributed">SBD</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName draft="contributed">Seyçel rupiyi</displayName>
 				<displayName count="other" draft="contributed">Seyçel rupiyi</displayName>
-				<symbol draft="contributed">SCR</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName draft="contributed">Sudan paundu</displayName>
 				<displayName count="other" draft="contributed">Sudan paundu</displayName>
-				<symbol draft="contributed">SDG</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName draft="contributed">İsveç kronu</displayName>
 				<displayName count="other" draft="contributed">İsveç kronu</displayName>
-				<symbol draft="contributed">SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName draft="contributed">Sinqapur dolları</displayName>
 				<displayName count="other" draft="contributed">Sinqapur dolları</displayName>
 			</currency>
-			<currency type="SHP">
-				<displayName draft="contributed">SHP</displayName>
-			</currency>
 			<currency type="SIT">
 				<displayName draft="contributed">Sloveniya toları</displayName>
 				<displayName count="other" draft="contributed">Sloveniya toları</displayName>
-				<symbol draft="contributed">SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName draft="contributed">Slovak korunası</displayName>
 				<displayName count="other" draft="contributed">Slovak korunası</displayName>
-				<symbol draft="contributed">SKK</symbol>
-			</currency>
-			<currency type="SLL">
-				<displayName draft="contributed">SLL</displayName>
-				<symbol draft="contributed">SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName draft="contributed">Somaliya şillingi</displayName>
 				<displayName count="other" draft="contributed">Somaliya şillingi</displayName>
-				<symbol draft="contributed">SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName draft="contributed">Surinam dolları</displayName>
 				<displayName count="other" draft="contributed">Surinam dolları</displayName>
-				<symbol draft="contributed">SRD</symbol>
-			</currency>
-			<currency type="SRG">
-				<displayName draft="contributed">SRG</displayName>
-				<symbol draft="contributed">SRG</symbol>
-			</currency>
-			<currency type="STD">
-				<displayName draft="contributed">STD</displayName>
-				<symbol draft="contributed">STD</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName draft="contributed">Sovet rublu</displayName>
 				<displayName count="other" draft="contributed">Sovet rublu</displayName>
-				<symbol draft="contributed">SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName draft="contributed">el salvador kolonu</displayName>
 				<displayName count="other" draft="contributed">El Salvador kolonu</displayName>
-				<symbol draft="contributed">SVC</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName draft="contributed">Siriya paundu</displayName>
 				<displayName count="other" draft="contributed">Siriya paundu</displayName>
-				<symbol draft="contributed">SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName draft="contributed">Svazilənd lilangeni</displayName>
 				<displayName count="other" draft="contributed">Svazilənd lilangeni</displayName>
-				<symbol draft="contributed">SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName draft="contributed">tay bahtı</displayName>
 				<displayName count="other" draft="contributed">Tay bahtı</displayName>
-				<symbol draft="contributed">THB</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName draft="contributed">Tacikistan rublu</displayName>
 				<displayName count="other" draft="contributed">Tacikistan rublu</displayName>
-				<symbol draft="contributed">TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName draft="contributed">Tacikistan somoni</displayName>
 				<displayName count="other" draft="contributed">Tacikistan somoni</displayName>
-				<symbol draft="contributed">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName draft="contributed">Türkmənistan manatı</displayName>
 				<displayName count="other" draft="contributed">Türkmənistan manatı</displayName>
-				<symbol draft="contributed">TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName draft="contributed">Tunis dinarı</displayName>
 				<displayName count="other" draft="contributed">Tunis dinarı</displayName>
-				<symbol draft="contributed">TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName draft="contributed">Tonqa panqası</displayName>
 				<displayName count="other" draft="contributed">Tonqa panqası</displayName>
-				<symbol draft="contributed">TOP</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName draft="contributed">Timor eskudu</displayName>
 				<displayName count="other" draft="contributed">Timor eskudu</displayName>
-				<symbol draft="contributed">TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName draft="contributed">Türk köhnə lirası</displayName>
 				<displayName count="other" draft="contributed">Türk köhnə lirası</displayName>
-				<symbol draft="contributed">TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName draft="contributed">Türk lirası</displayName>
 				<displayName count="other" draft="contributed">Türk lira</displayName>
-				<symbol draft="contributed">TRY</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName draft="contributed">Tayvan yeni dolları</displayName>
@@ -2887,22 +2581,18 @@
 			<currency type="UAH">
 				<displayName draft="contributed">Ukraina hrivnyası</displayName>
 				<displayName count="other" draft="contributed">Ukraina hrivnyası</displayName>
-				<symbol draft="contributed">UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName draft="contributed">Ukraina karbovenesası</displayName>
 				<displayName count="other" draft="contributed">Ukraina karbovenesası</displayName>
-				<symbol draft="contributed">UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName draft="contributed">Uqanda şelingi (1966-1987)</displayName>
 				<displayName count="other" draft="contributed">Uqanda şelingi (UGS)</displayName>
-				<symbol draft="contributed">UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName draft="contributed">Uqanda şelingi</displayName>
 				<displayName count="other" draft="contributed">Uqanda şelingi</displayName>
-				<symbol draft="contributed">UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName draft="contributed">ABŞ dolları</displayName>
@@ -2912,32 +2602,26 @@
 			<currency type="USN">
 				<displayName draft="contributed">ABŞ dolları (yeni gün)</displayName>
 				<displayName count="other" draft="contributed">ABŞ dolları (yeni gün)</displayName>
-				<symbol draft="contributed">USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName draft="contributed">ABŞ dolları (həmin gün)</displayName>
 				<displayName count="other" draft="contributed">ABŞ dolları (həmin gün)</displayName>
-				<symbol draft="contributed">USS</symbol>
 			</currency>
 			<currency type="UYI">
 				<displayName draft="contributed">Uruqvay pesosu Unidades Indexadas</displayName>
 				<displayName count="other" draft="contributed">Uruqvay pesosu unidades indexadas</displayName>
-				<symbol draft="contributed">UYI</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName draft="contributed">Uruqvay pesosu (1975-1993)</displayName>
 				<displayName count="other" draft="contributed">Uruqvay pesosu (UYP)</displayName>
-				<symbol draft="contributed">UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName draft="contributed">Uruqvay pesosu (Uruguayo)</displayName>
 				<displayName count="other" draft="contributed">Uruqvay pesosu</displayName>
-				<symbol draft="contributed">UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName draft="contributed">özbəkistan sumu</displayName>
 				<displayName count="other" draft="contributed">Özbəkistan sumu</displayName>
-				<symbol draft="contributed">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName draft="contributed">venesuela bolivarı</displayName>
@@ -2946,21 +2630,14 @@
 			<currency type="VEF">
 				<displayName draft="contributed">venesuela bolivar fuerti</displayName>
 				<displayName count="other" draft="contributed">Venesuela Bolivar fuerti</displayName>
-				<symbol draft="contributed">VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName draft="contributed">vyetnam donqu</displayName>
 				<displayName count="other" draft="contributed">Vyetnam donqu</displayName>
-				<symbol draft="contributed">VND</symbol>
-			</currency>
-			<currency type="VUV">
-				<displayName draft="contributed">VUV</displayName>
-				<symbol draft="contributed">VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName draft="contributed">qərb samoa talası</displayName>
 				<displayName count="other" draft="contributed">Qərb Samoa talası</displayName>
-				<symbol draft="contributed">WST</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName draft="contributed">gümüş</displayName>
@@ -2970,44 +2647,17 @@
 				<displayName draft="contributed">qızıl</displayName>
 				<displayName count="other" draft="contributed">qızıl</displayName>
 			</currency>
-			<currency type="XBA">
-				<displayName draft="contributed">XBA</displayName>
-				<symbol draft="contributed">XBA</symbol>
-			</currency>
-			<currency type="XBB">
-				<displayName draft="contributed">XBB</displayName>
-				<symbol draft="contributed">XBB</symbol>
-			</currency>
-			<currency type="XBC">
-				<displayName draft="contributed">XBC</displayName>
-				<symbol draft="contributed">XBC</symbol>
-			</currency>
-			<currency type="XBD">
-				<displayName draft="contributed">XBD</displayName>
-				<symbol draft="contributed">XBD</symbol>
-			</currency>
 			<currency type="XCD">
 				<displayName draft="contributed">şərq karib dolları</displayName>
 				<displayName count="other" draft="contributed">Şərq karib dolları</displayName>
-				<symbol draft="contributed">XCD</symbol>
-			</currency>
-			<currency type="XDR">
-				<displayName draft="contributed">XDR</displayName>
-				<symbol draft="contributed">XDR</symbol>
-			</currency>
-			<currency type="XEU">
-				<displayName draft="contributed">XEU</displayName>
-				<symbol draft="contributed">XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName draft="contributed">Fransız gızıl frankı</displayName>
 				<displayName count="other" draft="contributed">Fransız gızıl frankı</displayName>
-				<symbol draft="contributed">XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName draft="contributed">Fransız UİC frankı</displayName>
 				<displayName count="other" draft="contributed">Fransız UİC frankı</displayName>
-				<symbol draft="contributed">XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName draft="contributed">CFA franka BCEAO</displayName>
@@ -3020,20 +2670,10 @@
 			<currency type="XPF">
 				<displayName draft="contributed">CFP frankı</displayName>
 				<displayName count="other" draft="contributed">CFP frankı</displayName>
-				<symbol draft="contributed">XPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName draft="contributed">platinum</displayName>
 				<displayName count="other" draft="contributed">platinum</displayName>
-				<symbol draft="contributed">XPT</symbol>
-			</currency>
-			<currency type="XRE">
-				<displayName draft="contributed">XRE</displayName>
-				<symbol draft="contributed">XRE</symbol>
-			</currency>
-			<currency type="XTS">
-				<displayName draft="contributed">XTS</displayName>
-				<symbol draft="contributed">XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName draft="contributed">bilinməyən vəya gəcərsiz</displayName>
@@ -3043,22 +2683,18 @@
 			<currency type="YDD">
 				<displayName draft="contributed">yemen dinarı</displayName>
 				<displayName count="other" draft="contributed">Yemen dinarı</displayName>
-				<symbol draft="contributed">YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName draft="contributed">yemen rialı</displayName>
 				<displayName count="other" draft="contributed">Yemen rialı</displayName>
-				<symbol draft="contributed">YER</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName draft="contributed">Yuqoslaviya dinarı (hard)</displayName>
 				<displayName count="other" draft="contributed">Yuqoslaviya dinarı (hard)</displayName>
-				<symbol draft="contributed">YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName draft="contributed">Yuqoslaviya yeni dinarı (hard)</displayName>
 				<displayName count="other" draft="contributed">Yuqoslaviya yeni  dinarı (hard)</displayName>
-				<symbol draft="contributed">YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName draft="contributed">Yuqoslaviya dinarı (dəyişik)</displayName>
@@ -3067,32 +2703,26 @@
 			<currency type="ZAL">
 				<displayName draft="contributed">Cənub afrika randı (finans)</displayName>
 				<displayName count="other" draft="contributed">Cənub Afrika randı (finans)</displayName>
-				<symbol draft="contributed">ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName draft="contributed">Cənub afrika randı</displayName>
 				<displayName count="other" draft="contributed">Cənub Afrika randı</displayName>
-				<symbol draft="contributed">ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName draft="contributed">Zambiya kvaçı</displayName>
 				<displayName count="other" draft="contributed">Zambiya kvaçı</displayName>
-				<symbol draft="contributed">ZMK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName draft="contributed">Zair yeni zairi</displayName>
 				<displayName count="other" draft="contributed">Zair yeni zairi</displayName>
-				<symbol draft="contributed">ZRN</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName draft="contributed">Zair zairi</displayName>
 				<displayName count="other" draft="contributed">Zair zairi</displayName>
-				<symbol draft="contributed">ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName draft="contributed">Zimbabve dolları</displayName>
 				<displayName count="other" draft="contributed">Zimbabve dolları</displayName>
-				<symbol draft="contributed">ZWD</symbol>
 			</currency>
 		</currencies>
 	</numbers>

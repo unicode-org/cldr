@@ -1281,21 +1281,8 @@
 		<alternateQuotationEnd alt="proposed-x1001" draft="unconfirmed">’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
-				<am>AM</am>
-				<eras>
-					<eraNames>
-						<era type="0">BE</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0">BE</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0">BE</era>
-					</eraNarrow>
-				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1315,32 +1302,13 @@
 							<pattern alt="proposed-x1001" draft="unconfirmed">MMM d, yyyy G</pattern>
 						</dateFormat>
 					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>M/d/yyyy</pattern>
-						</dateFormat>
-					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="Hm">H:mm</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="MEd">E, M-d</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="unconfirmed">E MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMEd" draft="unconfirmed">E d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd" alt="proposed-x1001" draft="unconfirmed">E MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMd" alt="proposed-x1001" draft="unconfirmed">MMM d</dateFormatItem>
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">yyyy</dateFormatItem>
-						<dateFormatItem id="yM">yyyy-M</dateFormatItem>
-						<dateFormatItem id="yMEd">EEE, yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM">yyyy MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="unconfirmed">EEE, yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yQ">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ">yyyy QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQ" alt="proposed-x1001" draft="unconfirmed">QQQ yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -1351,15 +1319,6 @@
 						<dateFormatItem id="MEd" draft="unconfirmed">E, d.M</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-			</calendar>
-			<calendar type="ethiopic">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="wide">
-							<month type="2" draft="contributed">Tekemt</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1752,15 +1711,6 @@
 					</field>
 				</fields>
 			</calendar>
-			<calendar type="indian">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="narrow">
-							<month type="9" draft="contributed">9</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
@@ -1822,44 +1772,8 @@
 			<zone type="Antarctica/Casey">
 				<exemplarCity>Stacja Casey</exemplarCity>
 			</zone>
-			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity>Dumont d'Urville</exemplarCity>
-			</zone>
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity>Mc Murdo</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity>Rio Gallegos</exemplarCity>
-			</zone>
-			<zone type="America/Mendoza">
-				<exemplarCity>Mendoza</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Juan">
-				<exemplarCity>San Juan</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity>Ushuaia</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity>La Rioja</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Luis">
-				<exemplarCity>San Luis</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity>Catamarca</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity>Jujuy</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Tucuman">
-				<exemplarCity>Tucuman</exemplarCity>
-			</zone>
-			<zone type="America/Cordoba">
-				<exemplarCity>Cordoba</exemplarCity>
-			</zone>
-			<zone type="America/Buenos_Aires">
-				<exemplarCity>Buenos Aires</exemplarCity>
 			</zone>
 			<zone type="Pacific/Pago_Pago">
 				<exemplarCity draft="unconfirmed">Samoa Amerykańskie</exemplarCity>
@@ -1867,38 +1781,8 @@
 			<zone type="Europe/Vienna">
 				<exemplarCity>Wiedeń</exemplarCity>
 			</zone>
-			<zone type="Australia/Perth">
-				<exemplarCity draft="contributed">Perth</exemplarCity>
-			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity draft="contributed">Eucla</exemplarCity>
-			</zone>
-			<zone type="Australia/Darwin">
-				<exemplarCity draft="contributed">Darwin</exemplarCity>
-			</zone>
 			<zone type="Australia/Adelaide">
 				<exemplarCity draft="contributed">Adelajda</exemplarCity>
-			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity draft="contributed">Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="contributed">Currie</exemplarCity>
-			</zone>
-			<zone type="Australia/Melbourne">
-				<exemplarCity draft="contributed">Melbourne</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity draft="contributed">Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity draft="contributed">Lindeman</exemplarCity>
-			</zone>
-			<zone type="Australia/Sydney">
-				<exemplarCity draft="contributed">Sydney</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity draft="contributed">Brisbane</exemplarCity>
 			</zone>
 			<!-- Argentina
 				 Australia
@@ -1942,32 +1826,14 @@
 			<zone type="America/La_Paz">
 				<exemplarCity draft="unconfirmed">Boliwia</exemplarCity>
 			</zone>
-			<zone type="America/Eirunepe">
-				<exemplarCity>Eirunepe</exemplarCity>
-			</zone>
-			<zone type="America/Rio_Branco">
-				<exemplarCity>Rio Branco</exemplarCity>
-			</zone>
 			<zone type="America/Porto_Velho">
 				<exemplarCity>Pôrto Velho</exemplarCity>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity>Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Manaus">
-				<exemplarCity>Manaus</exemplarCity>
 			</zone>
 			<zone type="America/Cuiaba">
 				<exemplarCity>Cuiabá</exemplarCity>
 			</zone>
-			<zone type="America/Campo_Grande">
-				<exemplarCity>Campo Grande</exemplarCity>
-			</zone>
 			<zone type="America/Belem">
 				<exemplarCity>Belém</exemplarCity>
-			</zone>
-			<zone type="America/Araguaina">
-				<exemplarCity>Araguaina</exemplarCity>
 			</zone>
 			<zone type="America/Sao_Paulo">
 				<exemplarCity>Săo Paulo</exemplarCity>
@@ -1975,17 +1841,8 @@
 			<zone type="America/Bahia">
 				<exemplarCity>Salvador</exemplarCity>
 			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity>Fortaleza</exemplarCity>
-			</zone>
 			<zone type="America/Maceio">
 				<exemplarCity>Maceió</exemplarCity>
-			</zone>
-			<zone type="America/Recife">
-				<exemplarCity>Recife</exemplarCity>
-			</zone>
-			<zone type="America/Noronha">
-				<exemplarCity>Noronha</exemplarCity>
 			</zone>
 			<zone type="America/Nassau">
 				<exemplarCity draft="unconfirmed">Bahamy</exemplarCity>
@@ -1996,96 +1853,12 @@
 			<zone type="Europe/Minsk">
 				<exemplarCity>Mińsk</exemplarCity>
 			</zone>
-			<zone type="America/Dawson">
-				<exemplarCity>Dawson</exemplarCity>
-			</zone>
-			<zone type="America/Whitehorse">
-				<exemplarCity>Whitehorse</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity>Inuvik</exemplarCity>
-			</zone>
-			<zone type="America/Vancouver">
-				<exemplarCity>Vancouver</exemplarCity>
-			</zone>
-			<zone type="America/Dawson_Creek">
-				<exemplarCity>Dawson Creek</exemplarCity>
-			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>Yellowknife</exemplarCity>
-			</zone>
-			<zone type="America/Edmonton">
-				<exemplarCity>Edmonton</exemplarCity>
-			</zone>
-			<zone type="America/Swift_Current">
-				<exemplarCity>Swift Current</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity>Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Regina">
-				<exemplarCity>Regina</exemplarCity>
-			</zone>
-			<zone type="America/Winnipeg">
-				<exemplarCity>Winnipeg</exemplarCity>
-			</zone>
-			<zone type="America/Resolute">
-				<exemplarCity>Resolute</exemplarCity>
-			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>Rainy River</exemplarCity>
-			</zone>
-			<zone type="America/Rankin_Inlet">
-				<exemplarCity>Rankin Inlet</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity>Coral Harbour</exemplarCity>
-			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>Thunder Bay</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>Nipigon</exemplarCity>
-			</zone>
-			<zone type="America/Toronto">
-				<exemplarCity>Toronto</exemplarCity>
-			</zone>
-			<zone type="America/Montreal">
-				<exemplarCity>Montreal</exemplarCity>
-			</zone>
-			<zone type="America/Iqaluit">
-				<exemplarCity>Iqaluit</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity>Pangnirtung</exemplarCity>
-			</zone>
-			<zone type="America/Moncton">
-				<exemplarCity>Moncton</exemplarCity>
-			</zone>
-			<zone type="America/Halifax">
-				<exemplarCity>Halifax</exemplarCity>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<exemplarCity>Goose Bay</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity>Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity>Blanc-Sablon</exemplarCity>
-			</zone>
-			<zone type="America/St_Johns">
-				<exemplarCity>St. John's</exemplarCity>
-			</zone>
 			<zone type="Indian/Cocos">
 				<exemplarCity>Wyspy Kokosowe</exemplarCity>
 			</zone>
 			<!-- Democratic Republic of the Congo -->
 			<zone type="Africa/Kinshasa">
 				<exemplarCity>Kinszasa</exemplarCity>
-			</zone>
-			<zone type="Africa/Lubumbashi">
-				<exemplarCity>Lubumbashi</exemplarCity>
 			</zone>
 			<zone type="Africa/Bangui">
 				<exemplarCity>Bangi</exemplarCity>
@@ -2127,9 +1900,6 @@
 			<zone type="Asia/Shanghai">
 				<exemplarCity>Szanghaj</exemplarCity>
 			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity>Harbin</exemplarCity>
-			</zone>
 			<zone type="America/Bogota">
 				<exemplarCity draft="provisional">Kolumbia</exemplarCity>
 			</zone>
@@ -2169,9 +1939,6 @@
 			<zone type="Africa/Algiers">
 				<exemplarCity>Algier</exemplarCity>
 			</zone>
-			<zone type="Pacific/Galapagos">
-				<exemplarCity draft="contributed">Galapagos</exemplarCity>
-			</zone>
 			<zone type="America/Guayaquil">
 				<exemplarCity draft="unconfirmed">Ekwador</exemplarCity>
 			</zone>
@@ -2191,9 +1958,6 @@
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Wyspy Kanaryjskie</exemplarCity>
 			</zone>
-			<zone type="Africa/Ceuta">
-				<exemplarCity>Ceuta</exemplarCity>
-			</zone>
 			<zone type="Europe/Madrid">
 				<exemplarCity>Madryt</exemplarCity>
 			</zone>
@@ -2208,15 +1972,6 @@
 			</zone>
 			<zone type="Atlantic/Stanley">
 				<exemplarCity draft="unconfirmed">Falklandy (Malwiny)</exemplarCity>
-			</zone>
-			<zone type="Pacific/Truk">
-				<exemplarCity draft="contributed">Truk</exemplarCity>
-			</zone>
-			<zone type="Pacific/Ponape">
-				<exemplarCity draft="contributed">Ponape</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kosrae">
-				<exemplarCity draft="contributed">Kosrae</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Wyspy Owcze</exemplarCity>
@@ -2236,17 +1991,8 @@
 			<zone type="Africa/Accra">
 				<exemplarCity>Akra</exemplarCity>
 			</zone>
-			<zone type="America/Thule">
-				<exemplarCity>Thule</exemplarCity>
-			</zone>
 			<zone type="America/Godthab">
 				<exemplarCity draft="unconfirmed">Grenlandia</exemplarCity>
-			</zone>
-			<zone type="America/Scoresbysund">
-				<exemplarCity>Scoresbysund</exemplarCity>
-			</zone>
-			<zone type="America/Danmarkshavn">
-				<exemplarCity>Danmarkshavn</exemplarCity>
 			</zone>
 			<zone type="Africa/Banjul">
 				<exemplarCity>Bandżul</exemplarCity>
@@ -2287,15 +2033,6 @@
 			<!-- Indonesia -->
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Dżakarta</exemplarCity>
-			</zone>
-			<zone type="Asia/Pontianak">
-				<exemplarCity draft="contributed">Pontianak</exemplarCity>
-			</zone>
-			<zone type="Asia/Makassar">
-				<exemplarCity>Makassar</exemplarCity>
-			</zone>
-			<zone type="Asia/Jayapura">
-				<exemplarCity>Jayapura</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
 				<exemplarCity draft="unconfirmed">Irlandia</exemplarCity>
@@ -2338,15 +2075,6 @@
 			</zone>
 			<zone type="Asia/Phnom_Penh">
 				<exemplarCity draft="unconfirmed">Kambodża</exemplarCity>
-			</zone>
-			<zone type="Pacific/Enderbury">
-				<exemplarCity draft="contributed">Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kiritimati">
-				<exemplarCity draft="contributed">Kiritimati</exemplarCity>
-			</zone>
-			<zone type="Pacific/Tarawa">
-				<exemplarCity draft="contributed">Tarawa</exemplarCity>
 			</zone>
 			<zone type="Indian/Comoro">
 				<exemplarCity draft="provisional">Komory</exemplarCity>
@@ -2429,12 +2157,6 @@
 			<zone type="Indian/Antananarivo">
 				<exemplarCity>Antananarywa</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kwajalein">
-				<exemplarCity draft="contributed">Kwajalein</exemplarCity>
-			</zone>
-			<zone type="Pacific/Majuro">
-				<exemplarCity draft="contributed">Majuro</exemplarCity>
-			</zone>
 			<zone type="Europe/Skopje">
 				<exemplarCity draft="unconfirmed">Macedonia</exemplarCity>
 			</zone>
@@ -2470,30 +2192,9 @@
 			<zone type="Indian/Maldives">
 				<exemplarCity>Malediwy</exemplarCity>
 			</zone>
-			<zone type="America/Tijuana">
-				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Hermosillo">
-				<exemplarCity>Hermosillo</exemplarCity>
-			</zone>
-			<zone type="America/Mazatlan">
-				<exemplarCity>Mazatlan</exemplarCity>
-			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity>Chihuahua</exemplarCity>
-			</zone>
-			<zone type="America/Monterrey">
-				<exemplarCity>Monterrey</exemplarCity>
-			</zone>
 			<!-- Mexico -->
 			<zone type="America/Mexico_City">
 				<exemplarCity>Meksyk</exemplarCity>
-			</zone>
-			<zone type="America/Merida">
-				<exemplarCity>Merida</exemplarCity>
-			</zone>
-			<zone type="America/Cancun">
-				<exemplarCity>Cancun</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuching">
 				<exemplarCity>Kuczing</exemplarCity>
@@ -2522,9 +2223,6 @@
 			<zone type="Asia/Katmandu">
 				<exemplarCity draft="unconfirmed">Nepal</exemplarCity>
 			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity draft="contributed">Chatham</exemplarCity>
-			</zone>
 			<zone type="Asia/Muscat">
 				<exemplarCity>Maskat</exemplarCity>
 			</zone>
@@ -2533,9 +2231,6 @@
 			</zone>
 			<zone type="Pacific/Marquesas">
 				<exemplarCity>Markizy</exemplarCity>
-			</zone>
-			<zone type="Pacific/Gambier">
-				<exemplarCity draft="contributed">Gambier</exemplarCity>
 			</zone>
 			<zone type="Pacific/Port_Moresby">
 				<exemplarCity draft="unconfirmed">Papua Nowa Gwinea</exemplarCity>
@@ -2583,23 +2278,14 @@
 			<zone type="Europe/Belgrade">
 				<exemplarCity draft="provisional">Belgrad</exemplarCity>
 			</zone>
-			<zone type="Europe/Kaliningrad">
-				<exemplarCity draft="contributed">Kaliningrad</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskwa</exemplarCity>
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity draft="contributed">Wołgograd</exemplarCity>
 			</zone>
-			<zone type="Europe/Samara">
-				<exemplarCity draft="contributed">Samara</exemplarCity>
-			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity>Jekaterynburg</exemplarCity>
-			</zone>
-			<zone type="Asia/Omsk">
-				<exemplarCity draft="contributed">Omsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>Nowosybirsk</exemplarCity>
@@ -2619,14 +2305,8 @@
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>Sachalin</exemplarCity>
 			</zone>
-			<zone type="Asia/Magadan">
-				<exemplarCity>Magadan</exemplarCity>
-			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>Kamczatka</exemplarCity>
-			</zone>
-			<zone type="Asia/Anadyr">
-				<exemplarCity>Anadyr</exemplarCity>
 			</zone>
 			<zone type="Asia/Riyadh">
 				<exemplarCity>Rijad</exemplarCity>
@@ -2651,9 +2331,6 @@
 			</zone>
 			<zone type="Europe/Ljubljana">
 				<exemplarCity draft="provisional">Lublana</exemplarCity>
-			</zone>
-			<zone type="Arctic/Longyearbyen">
-				<exemplarCity draft="contributed">Longyearbyen</exemplarCity>
 			</zone>
 			<zone type="Europe/Bratislava">
 				<exemplarCity draft="provisional">Bratysława</exemplarCity>
@@ -2732,70 +2409,18 @@
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporoże</exemplarCity>
 			</zone>
-			<zone type="Pacific/Midway">
-				<exemplarCity draft="contributed">Midway</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity draft="contributed">Johnston</exemplarCity>
-			</zone>
-			<zone type="Pacific/Wake">
-				<exemplarCity draft="contributed">Wake</exemplarCity>
-			</zone>
-			<zone type="America/Adak">
-				<exemplarCity>Adak</exemplarCity>
-			</zone>
-			<zone type="America/Nome">
-				<exemplarCity>Nome</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity draft="contributed">Honolulu</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<exemplarCity>Anchorage</exemplarCity>
-			</zone>
-			<zone type="America/Yakutat">
-				<exemplarCity>Yakutat</exemplarCity>
-			</zone>
-			<zone type="America/Juneau">
-				<exemplarCity>Juneau</exemplarCity>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<exemplarCity>Los Angeles</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity>Boise</exemplarCity>
-			</zone>
-			<zone type="America/Phoenix">
-				<exemplarCity>Phoenix</exemplarCity>
-			</zone>
-			<zone type="America/Shiprock">
-				<exemplarCity>Shiprock</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<exemplarCity>Denver</exemplarCity>
-			</zone>
 			<zone type="America/North_Dakota/New_Salem">
 				<exemplarCity>New Salem</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">New Salem, North Dakota</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
-				<exemplarCity>Center, North Dakota</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Center</exemplarCity>
-			</zone>
-			<zone type="America/Chicago">
-				<exemplarCity>Chicago</exemplarCity>
-			</zone>
-			<zone type="America/Menominee">
-				<exemplarCity>Menominee</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Vincennes">
 				<exemplarCity>Vincennes</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Petersburg">
 				<exemplarCity>Petersburg</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity>Tell City, Indiana</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Knox">
 				<exemplarCity>Knox</exemplarCity>
@@ -2806,20 +2431,11 @@
 			<zone type="America/Indiana/Marengo">
 				<exemplarCity>Marengo</exemplarCity>
 			</zone>
-			<zone type="America/Indianapolis">
-				<exemplarCity>Indianapolis</exemplarCity>
-			</zone>
-			<zone type="America/Louisville">
-				<exemplarCity>Louisville</exemplarCity>
-			</zone>
 			<zone type="America/Indiana/Vevay">
 				<exemplarCity>Vevay</exemplarCity>
 			</zone>
 			<zone type="America/Kentucky/Monticello">
 				<exemplarCity>Monticello</exemplarCity>
-			</zone>
-			<zone type="America/Detroit">
-				<exemplarCity>Detroit</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
 				<exemplarCity>Nowy Jork</exemplarCity>
@@ -2967,19 +2583,16 @@
 				<displayName>peseta andorska</displayName>
 				<displayName count="few">pesety andorskie</displayName>
 				<displayName count="other">peset andorskich</displayName>
-				<symbol>ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>dirham arabski</displayName>
 				<displayName count="few">dirhamy arabskie</displayName>
 				<displayName count="other">dirhamów arabskich</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>afgani (1927-2002)</displayName>
 				<displayName count="few">afgani (1927-2002)</displayName>
 				<displayName count="other">afgani (1927-2002)</displayName>
-				<symbol>AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>afgani</displayName>
@@ -3131,7 +2744,6 @@
 			</currency>
 			<currency type="BRL">
 				<displayName>real brazylijski</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>nowe cruzado brazylijskie</displayName>
@@ -3287,7 +2899,6 @@
 				<displayName count="few">euro</displayName>
 				<displayName count="one">euro</displayName>
 				<displayName count="other">euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>marka fińska</displayName>
@@ -3487,9 +3098,6 @@
 			<currency type="LTT">
 				<displayName>talon litewski</displayName>
 			</currency>
-			<currency type="LUC">
-				<displayName draft="contributed">LUC</displayName>
-			</currency>
 			<currency type="LUF">
 				<displayName>frank luksemburski</displayName>
 			</currency>
@@ -3678,7 +3286,6 @@
 				<displayName count="few">ruble rosyjskie</displayName>
 				<displayName count="one">rubel rosyjski</displayName>
 				<displayName count="other">rubli rosyjskich</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>rubel rosyjski (1991-1998)</displayName>
@@ -3927,7 +3534,6 @@
 				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">XXX</displayName>
 				<displayName count="other">XXX</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">XXX</displayName>
-				<symbol>XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>dinar jemeński</displayName>

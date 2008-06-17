@@ -1161,7 +1161,6 @@
 			<variant type="1996">Neue deutsche Rechtschreibung</variant>
 			<variant type="1996" alt="proposed-x1001" draft="unconfirmed">neue deutsche Rechtschreibung</variant>
 			<variant type="1606NICT">Spätes Mittelfranzösisch</variant>
-			<variant type="1694ACAD">1694ACAD</variant>
 			<variant type="AREVELA">Ostarmenisch</variant>
 			<variant type="AREVMDA">Westarmenisch</variant>
 			<variant type="BAKU1926">Einheitliches Türkisches Alphabet</variant>
@@ -1187,7 +1186,6 @@
 			<variant type="SCOUSE">Scouse-Dialekt</variant>
 			<variant type="SOLBA">Solbica-Dialekt</variant>
 			<variant type="TARASK">Taraskievica-Orthographie</variant>
-			<variant type="VALENCIA">VALENCIA</variant>
 		</variants>
 		<keys>
 			<key type="calendar">Kalender</key>
@@ -1225,25 +1223,13 @@
 		</codePatterns>
 	</localeDisplayNames>
 	<layout>
-		<inList>mixed</inList>
-		<inText type="currency">mixed</inText>
 		<inText type="currency" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
-		<inText type="fields">mixed</inText>
-		<inText type="keys">mixed</inText>
 		<inText type="keys" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
-		<inText type="languages">mixed</inText>
 		<inText type="languages" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
-		<inText type="long">mixed</inText>
-		<inText type="measurementSystemNames">mixed</inText>
 		<inText type="measurementSystemNames" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
-		<inText type="quarterWidth">mixed</inText>
-		<inText type="scripts">mixed</inText>
 		<inText type="scripts" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
-		<inText type="territories">mixed</inText>
 		<inText type="territories" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
-		<inText type="types">mixed</inText>
 		<inText type="types" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
-		<inText type="variants">mixed</inText>
 		<inText type="variants" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
 	</layout>
 	<characters>
@@ -1261,22 +1247,10 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GjMtkHmsSEDFwWahKzJeugAZvcL</localizedPatternChars>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
 				<am>vorm.</am>
 				<pm>nachm.</pm>
-				<eras>
-					<eraNames>
-						<era type="0">BE</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0">BE</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0">BE</era>
-					</eraNarrow>
-				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1299,66 +1273,14 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yMMMM">yyyy MMMM</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
 				<am>vorm.</am>
 				<pm>nachm.</pm>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE y'x'G-Ml-d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>y'x'G-Ml-d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>y'x'G-Ml-d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>y'x'G-Ml-d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="coptic">
 				<am>vorm.</am>
 				<pm>nachm.</pm>
-				<eras>
-					<eraNames>
-						<era type="0">ERA0</era>
-						<era type="1">ERA1</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0">ERA0</era>
-						<era type="1">ERA1</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0">ERA0</era>
-					</eraNarrow>
-				</eras>
-			</calendar>
-			<calendar type="ethiopic">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MEd">E, M-d</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1714,87 +1636,6 @@
 				</fields>
 			</calendar>
 			<calendar type="hebrew">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">Tishri</month>
-							<month type="2">Heshvan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tevet</month>
-							<month type="5">Shevat</month>
-							<month type="6">Adar I</month>
-							<month type="7">Adar</month>
-							<month type="8">Nisan</month>
-							<month type="9">Iyar</month>
-							<month type="10">Sivan</month>
-							<month type="11">Tamuz</month>
-							<month type="12">Av</month>
-							<month type="13">Elul</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-							<month type="13">13</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Tishri</month>
-							<month type="2">Heshvan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tevet</month>
-							<month type="5">Shevat</month>
-							<month type="6">Adar I</month>
-							<month type="7">Adar</month>
-							<month type="8">Nisan</month>
-							<month type="9">Iyar</month>
-							<month type="10">Sivan</month>
-							<month type="11">Tamuz</month>
-							<month type="12">Av</month>
-							<month type="13">Elul</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-							<month type="13">13</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Tishri</month>
-							<month type="2">Heshvan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tevet</month>
-							<month type="5">Shevat</month>
-							<month type="6">Adar I</month>
-							<month type="7">Adar</month>
-							<month type="8">Nisan</month>
-							<month type="9">Iyar</month>
-							<month type="10">Sivan</month>
-							<month type="11">Tamuz</month>
-							<month type="12">Av</month>
-							<month type="13">Elul</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 				<am>vorm.</am>
 				<pm>nachm.</pm>
 				<eras>
@@ -1810,105 +1651,8 @@
 				</eras>
 			</calendar>
 			<calendar type="islamic">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">Muharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabiʻ I</month>
-							<month type="4">Rabiʻ II</month>
-							<month type="5">Jumada I</month>
-							<month type="6">Jumada II</month>
-							<month type="7">Rajab</month>
-							<month type="8">Shaʻban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Shawwal</month>
-							<month type="11">Dhuʻl-Qiʻdah</month>
-							<month type="12">Dhuʻl-Hijjah</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Muharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabiʻ I</month>
-							<month type="4">Rabiʻ II</month>
-							<month type="5">Jumada I</month>
-							<month type="6">Jumada II</month>
-							<month type="7">Rajab</month>
-							<month type="8">Shaʻban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Shawwal</month>
-							<month type="11">Dhuʻl-Qiʻdah</month>
-							<month type="12">Dhuʻl-Hijjah</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Muharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabiʻ I</month>
-							<month type="4">Rabiʻ II</month>
-							<month type="5">Jumada I</month>
-							<month type="6">Jumada II</month>
-							<month type="7">Rajab</month>
-							<month type="8">Shaʻban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Shawwal</month>
-							<month type="11">Dhuʻl-Qiʻdah</month>
-							<month type="12">Dhuʻl-Hijjah</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 				<am>vorm.</am>
 				<pm>nachm.</pm>
-				<eras>
-					<eraNames>
-						<era type="0">AH</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0">AH</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0">AH</era>
-					</eraNarrow>
-				</eras>
-			</calendar>
-			<calendar type="roc">
-				<months>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="3" draft="unconfirmed">3</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<am>AM</am>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -1928,107 +1672,17 @@
 			<zone type="America/Curacao">
 				<exemplarCity>Curaçao</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Rothera">
-				<exemplarCity>Rothera</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Palmer">
-				<exemplarCity>Palmer</exemplarCity>
-			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Südpol</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Syowa">
-				<exemplarCity>Syowa</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Mawson">
-				<exemplarCity>Mawson</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Davis">
-				<exemplarCity>Davis</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Vostok">
 				<exemplarCity>Wostok</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Casey">
-				<exemplarCity>Casey</exemplarCity>
-			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>Dumont D'Urville</exemplarCity>
 			</zone>
-			<zone type="Antarctica/McMurdo">
-				<exemplarCity>McMurdo</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity>Rio Gallegos</exemplarCity>
-			</zone>
-			<zone type="America/Mendoza">
-				<exemplarCity>Mendoza</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Juan">
-				<exemplarCity>San Juan</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity>Ushuaia</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity>La Rioja</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Luis">
-				<exemplarCity>San Luis</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity>Catamarca</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity>Jujuy</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Tucuman">
-				<exemplarCity>Tucuman</exemplarCity>
-			</zone>
-			<zone type="America/Cordoba">
-				<exemplarCity>Cordoba</exemplarCity>
-			</zone>
-			<zone type="America/Buenos_Aires">
-				<exemplarCity>Buenos Aires</exemplarCity>
-			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity>Wien</exemplarCity>
-			</zone>
-			<zone type="Australia/Perth">
-				<exemplarCity>Perth</exemplarCity>
-			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity>Eucla</exemplarCity>
-			</zone>
-			<zone type="Australia/Darwin">
-				<exemplarCity>Darwin</exemplarCity>
-			</zone>
-			<zone type="Australia/Adelaide">
-				<exemplarCity>Adelaide</exemplarCity>
-			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity>Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Currie</exemplarCity>
-			</zone>
-			<zone type="Australia/Melbourne">
-				<exemplarCity>Melbourne</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity>Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity>Lindeman</exemplarCity>
-			</zone>
-			<zone type="Australia/Sydney">
-				<exemplarCity>Sydney</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity>Brisbane</exemplarCity>
-			</zone>
-			<zone type="Australia/Lord_Howe">
-				<exemplarCity>Lord Howe</exemplarCity>
 			</zone>
 			<zone type="Europe/Brussels">
 				<exemplarCity>Brüssel</exemplarCity>
@@ -2039,156 +1693,12 @@
 			<zone type="Atlantic/Bermuda">
 				<exemplarCity>Bermudas</exemplarCity>
 			</zone>
-			<zone type="America/Eirunepe">
-				<exemplarCity>Eirunepe</exemplarCity>
-			</zone>
-			<zone type="America/Rio_Branco">
-				<exemplarCity>Rio Branco</exemplarCity>
-			</zone>
-			<zone type="America/Porto_Velho">
-				<exemplarCity>Porto Velho</exemplarCity>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity>Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Manaus">
-				<exemplarCity>Manaus</exemplarCity>
-			</zone>
-			<zone type="America/Cuiaba">
-				<exemplarCity>Cuiaba</exemplarCity>
-			</zone>
-			<zone type="America/Campo_Grande">
-				<exemplarCity>Campo Grande</exemplarCity>
-			</zone>
-			<zone type="America/Belem">
-				<exemplarCity>Belem</exemplarCity>
-			</zone>
-			<zone type="America/Araguaina">
-				<exemplarCity>Araguaina</exemplarCity>
-			</zone>
-			<zone type="America/Sao_Paulo">
-				<exemplarCity>Sao Paulo</exemplarCity>
-			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity>Bahia</exemplarCity>
-			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity>Fortaleza</exemplarCity>
-			</zone>
-			<zone type="America/Maceio">
-				<exemplarCity>Maceio</exemplarCity>
-			</zone>
-			<zone type="America/Recife">
-				<exemplarCity>Recife</exemplarCity>
-			</zone>
-			<zone type="America/Noronha">
-				<exemplarCity>Noronha</exemplarCity>
-			</zone>
-			<zone type="America/Dawson">
-				<exemplarCity>Dawson</exemplarCity>
-			</zone>
-			<zone type="America/Whitehorse">
-				<exemplarCity>Whitehorse</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity>Inuvik</exemplarCity>
-			</zone>
-			<zone type="America/Vancouver">
-				<exemplarCity>Vancouver</exemplarCity>
-			</zone>
-			<zone type="America/Dawson_Creek">
-				<exemplarCity>Dawson Creek</exemplarCity>
-			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>Yellowknife</exemplarCity>
-			</zone>
-			<zone type="America/Edmonton">
-				<exemplarCity>Edmonton</exemplarCity>
-			</zone>
-			<zone type="America/Swift_Current">
-				<exemplarCity>Swift Current</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity>Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Regina">
-				<exemplarCity>Regina</exemplarCity>
-			</zone>
-			<zone type="America/Winnipeg">
-				<exemplarCity>Winnipeg</exemplarCity>
-			</zone>
-			<zone type="America/Resolute">
-				<exemplarCity>Resolute</exemplarCity>
-			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>Rainy River</exemplarCity>
-			</zone>
-			<zone type="America/Rankin_Inlet">
-				<exemplarCity>Rankin Inlet</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity>Coral Harbour</exemplarCity>
-			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>Thunder Bay</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>Nipigon</exemplarCity>
-			</zone>
-			<zone type="America/Toronto">
-				<exemplarCity>Toronto</exemplarCity>
-			</zone>
-			<zone type="America/Montreal">
-				<exemplarCity>Montreal</exemplarCity>
-			</zone>
-			<zone type="America/Iqaluit">
-				<exemplarCity>Iqaluit</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity>Pangnirtung</exemplarCity>
-			</zone>
-			<zone type="America/Moncton">
-				<exemplarCity>Moncton</exemplarCity>
-			</zone>
-			<zone type="America/Halifax">
-				<exemplarCity>Halifax</exemplarCity>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<exemplarCity>Goose Bay</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity>Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity>Blanc-Sablon</exemplarCity>
-			</zone>
-			<zone type="America/St_Johns">
-				<exemplarCity>St. John's</exemplarCity>
-			</zone>
-			<zone type="Africa/Kinshasa">
-				<exemplarCity>Kinshasa</exemplarCity>
-			</zone>
-			<zone type="Africa/Lubumbashi">
-				<exemplarCity>Lubumbashi</exemplarCity>
-			</zone>
 			<zone type="Europe/Zurich">
 				<exemplarCity>Zürich</exemplarCity>
 			</zone>
 			<!-- Chile -->
 			<zone type="Pacific/Easter">
 				<exemplarCity>Osterinsel</exemplarCity>
-			</zone>
-			<zone type="Asia/Kashgar">
-				<exemplarCity>Kashgar</exemplarCity>
-			</zone>
-			<zone type="Asia/Urumqi">
-				<exemplarCity>Urumqi</exemplarCity>
-			</zone>
-			<zone type="Asia/Chongqing">
-				<exemplarCity>Chongqing</exemplarCity>
-			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity>Harbin</exemplarCity>
 			</zone>
 			<zone type="America/Havana">
 				<exemplarCity>Havanna</exemplarCity>
@@ -2211,9 +1721,6 @@
 			<zone type="Africa/Algiers">
 				<exemplarCity>Algier</exemplarCity>
 			</zone>
-			<zone type="Pacific/Galapagos">
-				<exemplarCity>Galapagos</exemplarCity>
-			</zone>
 			<zone type="Africa/Cairo">
 				<exemplarCity>Kairo</exemplarCity>
 			</zone>
@@ -2224,23 +1731,11 @@
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Kanaren</exemplarCity>
 			</zone>
-			<zone type="Africa/Ceuta">
-				<exemplarCity>Ceuta</exemplarCity>
-			</zone>
 			<zone type="Africa/Addis_Ababa">
 				<exemplarCity>Addis Abeba</exemplarCity>
 			</zone>
 			<zone type="Pacific/Fiji">
 				<exemplarCity>Fidschi</exemplarCity>
-			</zone>
-			<zone type="Pacific/Truk">
-				<exemplarCity>Truk</exemplarCity>
-			</zone>
-			<zone type="Pacific/Ponape">
-				<exemplarCity>Ponape</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kosrae">
-				<exemplarCity>Kosrae</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Färöer</exemplarCity>
@@ -2251,15 +1746,8 @@
 			<zone type="Africa/Accra">
 				<exemplarCity>Akkra</exemplarCity>
 			</zone>
-			<zone type="America/Thule">
-				<exemplarCity>Thule</exemplarCity>
-			</zone>
 			<zone type="America/Scoresbysund">
-				<exemplarCity>Scoresbysund</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Ittoqqortoormiit</exemplarCity>
-			</zone>
-			<zone type="America/Danmarkshavn">
-				<exemplarCity>Danmarkshavn</exemplarCity>
 			</zone>
 			<zone type="Europe/Athens">
 				<exemplarCity>Athen</exemplarCity>
@@ -2269,18 +1757,6 @@
 			</zone>
 			<zone type="Asia/Hong_Kong">
 				<exemplarCity>Hongkong</exemplarCity>
-			</zone>
-			<zone type="Asia/Jakarta">
-				<exemplarCity>Jakarta</exemplarCity>
-			</zone>
-			<zone type="Asia/Pontianak">
-				<exemplarCity>Pontianak</exemplarCity>
-			</zone>
-			<zone type="Asia/Makassar">
-				<exemplarCity>Makassar</exemplarCity>
-			</zone>
-			<zone type="Asia/Jayapura">
-				<exemplarCity>Jayapura</exemplarCity>
 			</zone>
 			<zone type="Asia/Baghdad">
 				<exemplarCity>Bagdad</exemplarCity>
@@ -2300,15 +1776,6 @@
 			<zone type="Asia/Bishkek">
 				<exemplarCity>Bischkek</exemplarCity>
 			</zone>
-			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kiritimati">
-				<exemplarCity>Kiritimati</exemplarCity>
-			</zone>
-			<zone type="Pacific/Tarawa">
-				<exemplarCity>Tarawa</exemplarCity>
-			</zone>
 			<zone type="Indian/Comoro">
 				<exemplarCity>Komoren</exemplarCity>
 			</zone>
@@ -2321,20 +1788,8 @@
 			<zone type="America/Cayman">
 				<exemplarCity>Kaimaninseln</exemplarCity>
 			</zone>
-			<zone type="Asia/Aqtau">
-				<exemplarCity>Aqtau</exemplarCity>
-			</zone>
-			<zone type="Asia/Oral">
-				<exemplarCity>Oral</exemplarCity>
-			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aktobe</exemplarCity>
-			</zone>
-			<zone type="Asia/Qyzylorda">
-				<exemplarCity>Qyzylorda</exemplarCity>
-			</zone>
-			<zone type="Asia/Almaty">
-				<exemplarCity>Almaty</exemplarCity>
 			</zone>
 			<zone type="America/St_Lucia">
 				<exemplarCity>St. Lucia</exemplarCity>
@@ -2351,21 +1806,8 @@
 			<zone type="Europe/Chisinau">
 				<exemplarCity>Kischinau</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kwajalein">
-				<exemplarCity>Kwajalein</exemplarCity>
-			</zone>
-			<zone type="Pacific/Majuro">
-				<exemplarCity>Majuro</exemplarCity>
-			</zone>
-			<zone type="Asia/Hovd">
-				<exemplarCity>Hovd</exemplarCity>
-			</zone>
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity>Ulaanbaatar</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Ulan-Bator</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Choibalsan</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Macao</exemplarCity>
@@ -2373,56 +1815,20 @@
 			<zone type="Indian/Maldives">
 				<exemplarCity>Malediven</exemplarCity>
 			</zone>
-			<zone type="America/Tijuana">
-				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Hermosillo">
-				<exemplarCity>Hermosillo</exemplarCity>
-			</zone>
-			<zone type="America/Mazatlan">
-				<exemplarCity>Mazatlan</exemplarCity>
-			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity>Chihuahua</exemplarCity>
-			</zone>
-			<zone type="America/Monterrey">
-				<exemplarCity>Monterrey</exemplarCity>
-			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>Mexiko-Stadt</exemplarCity>
-			</zone>
-			<zone type="America/Merida">
-				<exemplarCity>Merida</exemplarCity>
-			</zone>
-			<zone type="America/Cancun">
-				<exemplarCity>Cancun</exemplarCity>
-			</zone>
-			<zone type="Asia/Kuching">
-				<exemplarCity>Kuching</exemplarCity>
 			</zone>
 			<zone type="Africa/Niamey">
 				<exemplarCity>Niger</exemplarCity>
 			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity>Chatham</exemplarCity>
-			</zone>
 			<zone type="Asia/Muscat">
 				<exemplarCity>Muskat</exemplarCity>
-			</zone>
-			<zone type="Pacific/Marquesas">
-				<exemplarCity>Marquesas</exemplarCity>
-			</zone>
-			<zone type="Pacific/Gambier">
-				<exemplarCity>Gambier</exemplarCity>
 			</zone>
 			<zone type="Europe/Warsaw">
 				<exemplarCity>Warschau</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azoren</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Madeira">
-				<exemplarCity>Madeira</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity>Lissabon</exemplarCity>
@@ -2439,32 +1845,17 @@
 			<zone type="Europe/Bucharest">
 				<exemplarCity>Bukarest</exemplarCity>
 			</zone>
-			<zone type="Europe/Kaliningrad">
-				<exemplarCity>Kaliningrad</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskau</exemplarCity>
 			</zone>
-			<zone type="Europe/Volgograd">
-				<exemplarCity>Volgograd</exemplarCity>
-			</zone>
-			<zone type="Europe/Samara">
-				<exemplarCity>Samara</exemplarCity>
-			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity>Jekaterinburg</exemplarCity>
-			</zone>
-			<zone type="Asia/Omsk">
-				<exemplarCity>Omsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>Nowosibirsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Krasnoyarsk">
 				<exemplarCity>Krasnojarsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Irkutsk">
-				<exemplarCity>Irkutsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Yakutsk">
 				<exemplarCity>Jakutsk</exemplarCity>
@@ -2475,14 +1866,8 @@
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>Sachalin</exemplarCity>
 			</zone>
-			<zone type="Asia/Magadan">
-				<exemplarCity>Magadan</exemplarCity>
-			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>Kamtschatka</exemplarCity>
-			</zone>
-			<zone type="Asia/Anadyr">
-				<exemplarCity>Anadyr</exemplarCity>
 			</zone>
 			<zone type="Asia/Riyadh">
 				<exemplarCity>Riad</exemplarCity>
@@ -2527,105 +1912,11 @@
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kiew</exemplarCity>
 			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Simferopol</exemplarCity>
-			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Saporischja</exemplarCity>
 			</zone>
-			<zone type="Pacific/Midway">
-				<exemplarCity>Midway</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>Johnston</exemplarCity>
-			</zone>
-			<zone type="Pacific/Wake">
-				<exemplarCity>Wake</exemplarCity>
-			</zone>
-			<zone type="America/Adak">
-				<exemplarCity>Adak</exemplarCity>
-			</zone>
-			<zone type="America/Nome">
-				<exemplarCity>Nome</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<exemplarCity>Anchorage</exemplarCity>
-			</zone>
-			<zone type="America/Yakutat">
-				<exemplarCity>Yakutat</exemplarCity>
-			</zone>
-			<zone type="America/Juneau">
-				<exemplarCity>Juneau</exemplarCity>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<exemplarCity>Los Angeles</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity>Boise</exemplarCity>
-			</zone>
-			<zone type="America/Phoenix">
-				<exemplarCity>Phoenix</exemplarCity>
-			</zone>
-			<zone type="America/Shiprock">
-				<exemplarCity>Shiprock</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<exemplarCity>Denver</exemplarCity>
-			</zone>
-			<zone type="America/North_Dakota/New_Salem">
-				<exemplarCity>New Salem, North Dakota</exemplarCity>
-			</zone>
-			<zone type="America/North_Dakota/Center">
-				<exemplarCity>Center, North Dakota</exemplarCity>
-			</zone>
-			<zone type="America/Chicago">
-				<exemplarCity>Chicago</exemplarCity>
-			</zone>
-			<zone type="America/Menominee">
-				<exemplarCity>Menominee</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vincennes">
-				<exemplarCity>Vincennes, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Petersburg">
-				<exemplarCity>Petersburg, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity>Tell City, Indiana</exemplarCity>
-			</zone>
 			<zone type="America/Indiana/Knox">
-				<exemplarCity>Knox, Indiana</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Knox</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Winamac">
-				<exemplarCity>Winamac, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Marengo">
-				<exemplarCity>Marengo, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indianapolis">
-				<exemplarCity>Indianapolis</exemplarCity>
-			</zone>
-			<zone type="America/Louisville">
-				<exemplarCity>Louisville</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<exemplarCity>Vevay, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<exemplarCity>Monticello, Kentucky</exemplarCity>
-			</zone>
-			<zone type="America/Detroit">
-				<exemplarCity>Detroit</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
-				<exemplarCity>New York</exemplarCity>
-			</zone>
-			<zone type="Asia/Samarkand">
-				<exemplarCity>Samarkand</exemplarCity>
 			</zone>
 			<zone type="Asia/Tashkent">
 				<exemplarCity>Taschkent</exemplarCity>
@@ -2789,18 +2080,15 @@
 			<currency type="ADP">
 				<displayName>Andorranische Pesete</displayName>
 				<displayName count="other">Andorranische Peseten</displayName>
-				<symbol>ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>UAE Dirham</displayName>
 				<displayName count="other">UAE Dirham</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Dirham der Vereinigten Arabischen Emirate</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Afghani (1927-2002)</displayName>
 				<displayName count="other">Afghani (1927-2002)</displayName>
-				<symbol>AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>Afghani</displayName>
@@ -2811,57 +2099,48 @@
 				<displayName>Lek</displayName>
 				<displayName count="other">Albanische Lek</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Lek</displayName>
-				<symbol>ALL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">lek</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Dram</displayName>
 				<displayName count="other">Armenische Dram</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Dram</displayName>
-				<symbol>AMD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">dram</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Niederl. Antillen Gulden</displayName>
 				<displayName count="other">Niederländische-Antillen-Gulden</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Niederl. Antillen Gulden</displayName>
-				<symbol>ANG</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">NA f.</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>Kwanza</displayName>
 				<displayName count="other">Angolanische Kwanza</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Kwanza</displayName>
-				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Angolanischer Kwanza (1977-1990)</displayName>
 				<displayName count="other">Angolanische Kwanza (AOK)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Angolanische Kwanza (1977-1990)</displayName>
-				<symbol>AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>Neuer Kwanza</displayName>
 				<displayName count="other">Angolanische Neue Kwanza (AON)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Neue Kwanza</displayName>
-				<symbol>AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>Kwanza Reajustado</displayName>
 				<displayName count="other">Angolanische Kwanza Reajustado (AOR)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Kwanza Reajustado</displayName>
-				<symbol>AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName>Argentinischer Austral</displayName>
 				<displayName count="other">Argentinische Austral</displayName>
-				<symbol>ARA</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>Argentinischer Peso (1983-1985)</displayName>
 				<displayName count="other">Argentinische Peso (ARP)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Argentinische Peso (1983-1985)</displayName>
-				<symbol>ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>Argentinischer Peso</displayName>
@@ -2883,24 +2162,20 @@
 			<currency type="AWG">
 				<displayName>Aruba Florin</displayName>
 				<displayName count="other">Aruba Florin</displayName>
-				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>Aserbeidschan Manat</displayName>
 				<displayName count="other">Aserbaidschan-Manat (AZM)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Aserbaidschan-Manat (1993-2006)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Aserbaidschan-Manat (1993-2006)</displayName>
-				<symbol>AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>Aserbaidschan-Manat</displayName>
 				<displayName count="other">Aserbaidschan-Manat</displayName>
-				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>Bosnien und Herzegowina Dinar</displayName>
 				<displayName count="other">Bosnien und Herzegowina Dinar</displayName>
-				<symbol>BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Konvertierbare Mark</displayName>
@@ -2925,7 +2200,6 @@
 			<currency type="BEC">
 				<displayName>Belgischer Franc (konvertibel)</displayName>
 				<displayName count="other">Belgische Franc (konvertibel)</displayName>
-				<symbol>BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>Belgischer Franc</displayName>
@@ -2936,7 +2210,6 @@
 			<currency type="BEL">
 				<displayName>Belgischer Finanz-Franc</displayName>
 				<displayName count="other">Belgische Finanz-Franc</displayName>
-				<symbol>BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>Lew (1962-1999)</displayName>
@@ -2950,7 +2223,6 @@
 				<displayName count="other">Bulgarische Lew (BGN)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Lew</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Bulgarische Lew (BGN)</displayName>
-				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Bahrain-Dinar</displayName>
@@ -2973,7 +2245,6 @@
 			<currency type="BND">
 				<displayName>Brunei-Dollar</displayName>
 				<displayName count="other">Brunei-Dollar</displayName>
-				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Boliviano</displayName>
@@ -2984,51 +2255,42 @@
 			<currency type="BOP">
 				<displayName>Bolivianischer Peso</displayName>
 				<displayName count="other">Bolivianische Peso</displayName>
-				<symbol>BOP</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>Mvdol</displayName>
 				<displayName count="other">Bolivianische Mvdol</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Mvdol</displayName>
-				<symbol>BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>Brasilianischer Cruzeiro Novo (1967-1986)</displayName>
 				<displayName count="other">Brasilianische Cruzeiro Novo (BRB)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Brasilianische Cruzeiro Novo (1967-1986)</displayName>
-				<symbol>BRB</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName>Brasilianischer Cruzado</displayName>
 				<displayName count="other">Brasilianische Cruzado</displayName>
-				<symbol>BRC</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName>Brasilianischer Cruzeiro (1990-1993)</displayName>
 				<displayName count="other">Brasilianische Cruzeiro (BRE)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Brasilianische Cruzeiro (1990-1993)</displayName>
-				<symbol>BRE</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Real</displayName>
 				<displayName count="other">Brasilianische Real</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Real</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Brasilianischer Cruzado Novo</displayName>
 				<displayName count="other">Brasilianische Cruzado Novo</displayName>
-				<symbol>BRN</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>Brasilianischer Cruzeiro</displayName>
 				<displayName count="other">Brasilianische Cruzeiro</displayName>
-				<symbol>BRR</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Bahama-Dollar</displayName>
 				<displayName count="other">Bahama-Dollar</displayName>
-				<symbol>BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Ngultrum</displayName>
@@ -3040,19 +2302,16 @@
 			<currency type="BUK">
 				<displayName>Birmanischer Kyat</displayName>
 				<displayName count="other">Birmanische Kyat</displayName>
-				<symbol>BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>Pula</displayName>
 				<displayName count="other">Botswanische Pula</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Pula</displayName>
-				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Belarus Rubel (alt)</displayName>
 				<displayName count="other">Belarus-Rubel (BYB)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Belarus Rubel (alt)</displayName>
-				<symbol>BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>Belarus Rubel (neu)</displayName>
@@ -3076,7 +2335,6 @@
 			<currency type="CDF">
 				<displayName>Franc congolais</displayName>
 				<displayName count="other">Franc congolais</displayName>
-				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>WIR-Euro</displayName>
@@ -3089,13 +2347,11 @@
 			<currency type="CHW">
 				<displayName>WIR Franken</displayName>
 				<displayName count="other">WIR Franken</displayName>
-				<symbol>CHW</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>Unidades de Fomento</displayName>
 				<displayName count="other">Chilenische Unidades de Fomento</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Unidades de Fomento</displayName>
-				<symbol>CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>Chilenischer Peso</displayName>
@@ -3120,7 +2376,6 @@
 			<currency type="COU">
 				<displayName>Unidad de Valor Real</displayName>
 				<displayName count="other">Unidad de Valor Real</displayName>
-				<symbol>COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>Costa Rica Colon</displayName>
@@ -3131,18 +2386,15 @@
 			<currency type="CSD">
 				<displayName>Alter Serbischer Dinar</displayName>
 				<displayName count="other">Alte Serbische Dinar</displayName>
-				<symbol>CSD</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>Tschechoslowakische Krone</displayName>
 				<displayName count="other">Tschechoslowakische Kronen</displayName>
-				<symbol>CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Kubanischer Peso</displayName>
 				<displayName count="other">Kubanische Pesos</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Kubanische Peso</displayName>
-				<symbol>CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Kap Verde Escudo</displayName>
@@ -3160,12 +2412,10 @@
 			<currency type="CZK">
 				<displayName>Tschechische Krone</displayName>
 				<displayName count="other">Tschechische Kronen</displayName>
-				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Mark der DDR</displayName>
 				<displayName count="other">Mark der DDR</displayName>
-				<symbol>DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Deutsche Mark</displayName>
@@ -3182,13 +2432,11 @@
 				<displayName>Dänische Krone</displayName>
 				<displayName count="other">Dänische Kronen</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Dänische Kronen</displayName>
-				<symbol>DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Dominikanischer Peso</displayName>
 				<displayName count="other">Dominikanische Pesos</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Dominikanische Peso</displayName>
-				<symbol>DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Algerischer Dinar</displayName>
@@ -3199,43 +2447,35 @@
 			<currency type="ECS">
 				<displayName>Ecuadorianischer Sucre</displayName>
 				<displayName count="other">Ecuadorianische Sucre</displayName>
-				<symbol>ECS</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>Verrechnungseinheit für EC</displayName>
 				<displayName count="other">Verrechnungseinheiten für EC</displayName>
-				<symbol>ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>Estnische Krone</displayName>
 				<displayName count="other">Estnische Kronen</displayName>
-				<symbol>EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Ägyptisches Pfund</displayName>
 				<displayName count="other">Ägyptische Pfund</displayName>
-				<symbol>EGP</symbol>
 			</currency>
 			<currency type="EQE">
 				<displayName>Ekwele</displayName>
 				<displayName count="other">Ekwele</displayName>
-				<symbol>EQE</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Nakfa</displayName>
 				<displayName count="other">Eritreische Nakfa</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Nakfa</displayName>
-				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName references="R021">Spanische Peseta (A-Konten)</displayName>
 				<displayName count="other">Spanische Peseten (A-Konten)</displayName>
-				<symbol>ESA</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName references="R021">Spanische Peseta (konvertibel)</displayName>
 				<displayName count="other">Spanische Peseten (konvertibel)</displayName>
-				<symbol>ESB</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>Spanische Pesete</displayName>
@@ -3253,12 +2493,10 @@
 			<currency type="EUR">
 				<displayName>Euro</displayName>
 				<displayName count="other">Euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Finnische Mark</displayName>
 				<displayName count="other">Finnische Mark</displayName>
-				<symbol>FIM</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>Fidschi Dollar</displayName>
@@ -3271,7 +2509,6 @@
 				<displayName>Falkland Pfund</displayName>
 				<displayName count="other">Falkland Pfund</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Falkland-Pfund</displayName>
-				<symbol>FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Französischer Franc</displayName>
@@ -3286,7 +2523,6 @@
 			<currency type="GEK">
 				<displayName>Georgischer Kupon Larit</displayName>
 				<displayName count="other">Georgische Kupon Larit</displayName>
-				<symbol>GEK</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>Georgischer Lari</displayName>
@@ -3298,24 +2534,20 @@
 				<displayName>Cedi</displayName>
 				<displayName count="other">Cedi</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Ghanaische Cedi (GHC)</displayName>
-				<symbol>GHC</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>Ghanaische Cedi</displayName>
-				<symbol>GHS</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">GH¢</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Gibraltar Pfund</displayName>
 				<displayName count="other">Gibraltar Pfund</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Gibraltar-Pfund</displayName>
-				<symbol>GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Dalasi</displayName>
 				<displayName count="other">Gambische Dalasi</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Dalasi</displayName>
-				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Guinea Franc</displayName>
@@ -3327,37 +2559,31 @@
 			<currency type="GNS">
 				<displayName references="R021">Guineischer Syli</displayName>
 				<displayName count="other">Guineische Syli</displayName>
-				<symbol>GNS</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName>Äquatorialguinea Ekwele Guineana</displayName>
 				<displayName count="other">Äquatorialguinea-Ekwele</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Ekwele</displayName>
 				<displayName count="other" alt="proposed-x1002" draft="unconfirmed">Äquatorialguinea Ekwele Guineana</displayName>
-				<symbol>GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>Griechische Drachme</displayName>
 				<displayName count="other">Griechische Drachmen</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Griechische Drachme</displayName>
-				<symbol>GRD</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Quetzal</displayName>
 				<displayName count="other">Quetzal</displayName>
-				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>Portugiesisch Guinea Escudo</displayName>
 				<displayName count="other">Portugiesisch Guinea Escudo</displayName>
-				<symbol>GWE</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName>Guinea Bissau Peso</displayName>
 				<displayName count="other">Guinea-Bissau Pesos</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Guinea Bissau Pesos</displayName>
 				<displayName count="other" alt="proposed-x1002" draft="unconfirmed">Guinea-Bissau Peso</displayName>
-				<symbol>GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Guyana Dollar</displayName>
@@ -3369,7 +2595,6 @@
 			<currency type="HKD">
 				<displayName>Hongkong-Dollar</displayName>
 				<displayName count="other">Hongkong-Dollar</displayName>
-				<symbol>HKD</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Lempira</displayName>
@@ -3380,17 +2605,14 @@
 			<currency type="HRD">
 				<displayName>Kroatischer Dinar</displayName>
 				<displayName count="other">Kroatische Dinar</displayName>
-				<symbol>HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>Kuna</displayName>
 				<displayName count="other">Kuna</displayName>
-				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Gourde</displayName>
 				<displayName count="other">Gourde</displayName>
-				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Forint</displayName>
@@ -3413,13 +2635,11 @@
 			<currency type="ILP">
 				<displayName>Israelisches Pfund</displayName>
 				<displayName count="other">Israelische Pfund</displayName>
-				<symbol>ILP</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>Schekel</displayName>
 				<displayName count="other">Neue Schekel</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Schekel</displayName>
-				<symbol>ILS</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Indische Rupie</displayName>
@@ -3443,7 +2663,6 @@
 			<currency type="ISK">
 				<displayName>Isländische Krone</displayName>
 				<displayName count="other">Isländische Kronen</displayName>
-				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Italienische Lire</displayName>
@@ -3499,12 +2718,10 @@
 			<currency type="KPW">
 				<displayName>Nordkoreanischer Won</displayName>
 				<displayName count="other">Nordkoreanische Won</displayName>
-				<symbol>KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Südkoreanischer Won</displayName>
 				<displayName count="other">Südkoreanische Won</displayName>
-				<symbol>KRW</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Kuwait Dinar</displayName>
@@ -3515,7 +2732,6 @@
 			<currency type="KYD">
 				<displayName>Kaiman-Dollar</displayName>
 				<displayName count="other">Kaiman-Dollar</displayName>
-				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Tenge</displayName>
@@ -3526,7 +2742,6 @@
 			<currency type="LAK">
 				<displayName>Kip</displayName>
 				<displayName count="other">Kip</displayName>
-				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Libanesisches Pfund</displayName>
@@ -3543,7 +2758,6 @@
 			<currency type="LRD">
 				<displayName>Liberianischer Dollar</displayName>
 				<displayName count="other">Liberianische Dollar</displayName>
-				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Loti</displayName>
@@ -3554,42 +2768,34 @@
 			<currency type="LSM">
 				<displayName>Maloti</displayName>
 				<displayName count="other">Maloti</displayName>
-				<symbol>LSM</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>Litauischer Litas</displayName>
 				<displayName count="other">Litauische Litas</displayName>
-				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Litauischer Talonas</displayName>
 				<displayName count="other">Litauische Talonas</displayName>
-				<symbol>LTT</symbol>
 			</currency>
 			<currency type="LUC">
 				<displayName>Luxemburgischer Franc (konvertibel)</displayName>
 				<displayName count="other">Luxemburgische Franc (konvertibel)</displayName>
-				<symbol>LUC</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>Luxemburgischer Franc</displayName>
 				<displayName count="other">Luxemburgische Franc</displayName>
-				<symbol>LUF</symbol>
 			</currency>
 			<currency type="LUL">
 				<displayName>Luxemburgischer Finanz-Franc</displayName>
 				<displayName count="other">Luxemburgische Finanz-Franc</displayName>
-				<symbol>LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>Lettischer Lats</displayName>
 				<displayName count="other">Lettische Lats</displayName>
-				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Lettischer Rubel</displayName>
 				<displayName count="other">Lettische Rubel</displayName>
-				<symbol>LVR</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Libyscher Dinar</displayName>
@@ -3600,30 +2806,25 @@
 			<currency type="MAD">
 				<displayName>Marokkanischer Dirham</displayName>
 				<displayName count="other">Marokkanische Dirham</displayName>
-				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Marokkanischer Franc</displayName>
 				<displayName count="other">Marokkanische Franc</displayName>
-				<symbol>MAF</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>Moldau Leu</displayName>
 				<displayName count="other">Moldau Leu</displayName>
-				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Madagaskar Ariary</displayName>
 				<displayName count="other">Madagaskar Ariary</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Madagaskar-Ariary</displayName>
-				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Madagaskar Franc</displayName>
 				<displayName count="other">Madagaskar-Franc</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Madagaskar Franc</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Madagaskar-Franc</displayName>
-				<symbol>MGF</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>Denar</displayName>
@@ -3634,12 +2835,10 @@
 			<currency type="MLF">
 				<displayName>Malischer Franc</displayName>
 				<displayName count="other">Malische Franc</displayName>
-				<symbol>MLF</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>Kyat</displayName>
 				<displayName count="other">Kyat</displayName>
-				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Tugrik</displayName>
@@ -3650,7 +2849,6 @@
 			<currency type="MOP">
 				<displayName>Pataca</displayName>
 				<displayName count="other">Pataca</displayName>
-				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Ouguiya</displayName>
@@ -3667,18 +2865,15 @@
 			<currency type="MTP">
 				<displayName>Maltesisches Pfund</displayName>
 				<displayName count="other">Maltesische Pfund</displayName>
-				<symbol>MTP</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Mauritius Rupie</displayName>
 				<displayName count="other">Mauritius Rupie</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Mauritius-Rupie</displayName>
-				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Rufiyaa</displayName>
 				<displayName count="other">Rufiyaa</displayName>
-				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Malawi Kwacha</displayName>
@@ -3699,13 +2894,11 @@
 				<displayName count="other">Mexikanische Silber-Pesos (MXP)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Mexikanische Silber-Peso (1861-1992)</displayName>
 				<displayName count="other" alt="proposed-x1002" draft="unconfirmed">Mexikanische Silber-Peso (MXP)</displayName>
-				<symbol>MXP</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName>Mexican Unidad de Inversion (UDI)</displayName>
 				<displayName count="other">Mexikanische Unidad de Inversion (UDI)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Mexican Unidad de Inversion (UDI)</displayName>
-				<symbol>MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>Malaysischer Ringgit</displayName>
@@ -3716,7 +2909,6 @@
 			<currency type="MZE">
 				<displayName>Mosambikanischer Escudo</displayName>
 				<displayName count="other">Mozambikanische Escudo</displayName>
-				<symbol>MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>Alter Metical</displayName>
@@ -3741,22 +2933,18 @@
 			<currency type="NGN">
 				<displayName>Naira</displayName>
 				<displayName count="other">Naira</displayName>
-				<symbol>NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>Cordoba</displayName>
 				<displayName count="other">Cordoba</displayName>
-				<symbol>NIC</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>Gold-Cordoba</displayName>
 				<displayName count="other">Gold-Cordoba</displayName>
-				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Holländischer Gulden</displayName>
 				<displayName count="other">Holländische Gulden</displayName>
-				<symbol>NLG</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Norwegische Krone</displayName>
@@ -3785,27 +2973,22 @@
 			<currency type="PAB">
 				<displayName>Balboa</displayName>
 				<displayName count="other">Balboa</displayName>
-				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>Peruanischer Inti</displayName>
 				<displayName count="other">Peruanische Inti</displayName>
-				<symbol>PEI</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Neuer Sol</displayName>
 				<displayName count="other">Neue Sol</displayName>
-				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>Sol</displayName>
 				<displayName count="other">Sol</displayName>
-				<symbol>PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>Kina</displayName>
 				<displayName count="other">Kina</displayName>
-				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Philippinischer Peso</displayName>
@@ -3829,17 +3012,14 @@
 				<displayName>Zloty (1950-1995)</displayName>
 				<displayName count="other">Zloty (PLZ)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Zloty (1950-1995)</displayName>
-				<symbol>PLZ</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>Portugiesischer Escudo</displayName>
 				<displayName count="other">Portugiesische Escudo</displayName>
-				<symbol>PTE</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>Guarani</displayName>
 				<displayName count="other">Guarani</displayName>
-				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Katar Riyal</displayName>
@@ -3850,40 +3030,33 @@
 			<currency type="RHD">
 				<displayName>Rhodesischer Dollar</displayName>
 				<displayName count="other">Rhodesische Dollar</displayName>
-				<symbol>RHD</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>Leu</displayName>
 				<displayName count="other">Leu</displayName>
-				<symbol>ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>Rumänischer Leu</displayName>
 				<displayName count="other">Rumänische Leu</displayName>
-				<symbol>RON</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">0≤lei|1≤leu|1</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Serbischer Dinar</displayName>
 				<displayName count="other">Serbische Dinar</displayName>
-				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Russischer Rubel (neu)</displayName>
 				<displayName count="other">Russische Rubel (neu)</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Russischer Rubel (alt)</displayName>
 				<displayName count="other">Russische Rubel (alt)</displayName>
-				<symbol>RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Ruanda Franc</displayName>
 				<displayName count="other">Ruanda-Franc</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Ruanda Franc</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Ruanda-Franc</displayName>
-				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Saudi Riyal</displayName>
@@ -3910,22 +3083,18 @@
 			<currency type="SDD">
 				<displayName>Sudanesischer Dinar</displayName>
 				<displayName count="other">Sudanesische Dinar</displayName>
-				<symbol>SDD</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>Sudanesisches Pfund</displayName>
 				<displayName count="other">Sudanesische Pfund</displayName>
-				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Sudanesisches Pfund (alt)</displayName>
 				<displayName count="other">Sudanesische Pfund (alt)</displayName>
-				<symbol>SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>Schwedische Krone</displayName>
 				<displayName count="other">Schwedische Kronen</displayName>
-				<symbol>SEK</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">SKr</symbol>
 			</currency>
 			<currency type="SGD">
@@ -3938,12 +3107,10 @@
 				<displayName>St. Helena Pfund</displayName>
 				<displayName count="other">St. Helena-Pfund</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">St. Helena Pfund</displayName>
-				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Tolar</displayName>
 				<displayName count="other">Tolar</displayName>
-				<symbol>SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>Slowakische Krone</displayName>
@@ -3954,20 +3121,17 @@
 			<currency type="SLL">
 				<displayName>Leone</displayName>
 				<displayName count="other">Leone</displayName>
-				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Somalia Schilling</displayName>
 				<displayName count="other">Somalia-Schilling</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Somalia Schilling</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Somalia-Schilling</displayName>
-				<symbol>SOS</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Sh.</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName references="R021">Surinamischer Dollar</displayName>
 				<displayName count="other">Surinamische Dollar</displayName>
-				<symbol>SRD</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>Suriname Gulden</displayName>
@@ -3985,13 +3149,11 @@
 			<currency type="SUR">
 				<displayName>Sowjetischer Rubel</displayName>
 				<displayName count="other">Sowjetische Rubel</displayName>
-				<symbol>SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName>El Salvador Colon</displayName>
 				<displayName count="other">El Salvador-Colon</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">El Salvador Colon</displayName>
-				<symbol>SVC</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Syrisches Pfund</displayName>
@@ -4008,29 +3170,24 @@
 			<currency type="THB">
 				<displayName>Baht</displayName>
 				<displayName count="other">Baht</displayName>
-				<symbol>THB</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Tadschikistan Rubel</displayName>
 				<displayName count="other">Tadschikistan-Rubel</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Tadschikistan Rubel</displayName>
-				<symbol>TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>Tadschikistan Somoni</displayName>
 				<displayName count="other">Tadschikistan-Somoni</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Tadschikistan Somoni</displayName>
-				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>Turkmenistan-Manat</displayName>
 				<displayName count="other">Turkmenistan-Manat</displayName>
-				<symbol>TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Tunesischer Dinar</displayName>
 				<displayName count="other">Tunesische Dinar</displayName>
-				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Paʻanga</displayName>
@@ -4042,7 +3199,6 @@
 				<displayName>Timor Escudo</displayName>
 				<displayName count="other">Timor-Escudo</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Timor Escudo</displayName>
-				<symbol>TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>Türkische Lira</displayName>
@@ -4057,7 +3213,6 @@
 				<displayName count="one">Neue Türkische Lira</displayName>
 				<displayName count="other">Neue Türkische Lire</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Neue Türkische Lira</displayName>
-				<symbol>TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad und Tobago Dollar</displayName>
@@ -4085,19 +3240,16 @@
 			<currency type="UAH">
 				<displayName>Hryvnia</displayName>
 				<displayName count="other">Hryvnia</displayName>
-				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>Ukrainischer Karbovanetz</displayName>
 				<displayName count="other">Ukrainische Karbovanetz</displayName>
-				<symbol>UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>Uganda Schilling (1966-1987)</displayName>
 				<displayName count="other">Uganda-Schilling (UGS)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Uganda Schilling (1966-1987)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Uganda-Schilling (1966-1987)</displayName>
-				<symbol>UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>Uganda Schilling</displayName>
@@ -4115,18 +3267,15 @@
 			<currency type="USN">
 				<displayName>US Dollar (Nächster Tag)</displayName>
 				<displayName count="other">US-Dollar (Nächster Tag)</displayName>
-				<symbol>USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>US Dollar (Gleicher Tag)</displayName>
 				<displayName count="other">US-Dollar (Gleicher Tag)</displayName>
-				<symbol>USS</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName references="R021">Uruguayischer Neuer Peso (1975-1993)</displayName>
 				<displayName count="other">Uruguayische Pesos (UYP)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Uruguayische Neue Pesos (1975-1993)</displayName>
-				<symbol>UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>Uruguayischer Peso</displayName>
@@ -4139,7 +3288,6 @@
 				<displayName>Usbekistan Sum</displayName>
 				<displayName count="other">Usbekistan-Sum</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Usbekistan Sum</displayName>
-				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Bolivar</displayName>
@@ -4149,59 +3297,48 @@
 			</currency>
 			<currency type="VEF">
 				<displayName>Bolívar Fuerte</displayName>
-				<symbol>VEF</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">BsF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Dong</displayName>
 				<displayName count="other">Dong</displayName>
-				<symbol>VND</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>Vatu</displayName>
 				<displayName count="other">Vatu</displayName>
-				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>Tala</displayName>
 				<displayName count="other">Tala</displayName>
-				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>CFA Franc (Äquatorial)</displayName>
 				<displayName count="other">CFA-Franc (BEAC)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">CFA Franc (Äquatorial)</displayName>
-				<symbol>XAF</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName>Silber</displayName>
 				<displayName count="other">Silber</displayName>
-				<symbol>XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>Gold</displayName>
 				<displayName count="other">Gold</displayName>
-				<symbol>XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>Europäische Rechnungseinheit</displayName>
 				<displayName count="other">Europäische Rechnungseinheiten</displayName>
-				<symbol>XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>Europäische Währungseinheit (XBB)</displayName>
 				<displayName count="other">Europäische Währungseinheiten (XBB)</displayName>
-				<symbol>XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>Europäische Rechnungseinheit (XBC)</displayName>
 				<displayName count="other">Europäische Rechnungseinheiten (XBC)</displayName>
-				<symbol>XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>Europäische Rechnungseinheit (XBD)</displayName>
 				<displayName count="other">Europäische Rechnungseinheiten (XBD)</displayName>
-				<symbol>XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>Ostkaribischer Dollar</displayName>
@@ -4212,67 +3349,55 @@
 				<displayName>Sonderziehungsrechte</displayName>
 				<displayName count="other">Sonderziehungsrechte</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Sonderziehungsrecht</displayName>
-				<symbol>XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>Europäische Währungseinheit (XEU)</displayName>
 				<displayName count="other">Europäische Währungseinheiten (XEU)</displayName>
-				<symbol>XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>Französischer Gold-Franc</displayName>
 				<displayName count="other">Französische Gold-Franc</displayName>
-				<symbol>XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>Französischer UIC-Franc</displayName>
 				<displayName count="other">Französische UIC-Franc</displayName>
-				<symbol>XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>CFA Franc (West)</displayName>
 				<displayName count="other">CFA-Franc (BCEAO)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">CFA Franc (West)</displayName>
-				<symbol>XOF</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>Palladium</displayName>
 				<displayName count="other">Palladium</displayName>
-				<symbol>XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP Franc</displayName>
 				<displayName count="other">CFP-Franc</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">CFP Franc</displayName>
-				<symbol>XPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>Platin</displayName>
 				<displayName count="other">Platin</displayName>
-				<symbol>XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET Funds</displayName>
 				<displayName count="other">RINET Funds</displayName>
-				<symbol>XRE</symbol>
 			</currency>
 			<currency type="XTS">
 				<displayName>Testwährung</displayName>
 				<displayName count="other">Testwährung</displayName>
-				<symbol>XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>Unbekannte Währung</displayName>
 				<displayName count="one">Unbekannte Währung</displayName>
 				<displayName count="other">Unbekannte Währung</displayName>
-				<symbol>XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>Jemen Dinar</displayName>
 				<displayName count="other">Jemen-Dinar</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Jemen Dinar</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Jemen-Dinar</displayName>
-				<symbol>YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>Jemen Rial</displayName>
@@ -4286,18 +3411,15 @@
 				<displayName>Jugoslawischer Dinar (1966-1990)</displayName>
 				<displayName count="other">Jugoslawische Dinar</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Jugoslawische Dinar (1966-1990)</displayName>
-				<symbol>YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>Neuer Dinar</displayName>
 				<displayName count="other">Jugoslawische Neue Dinar</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Neue Dinar</displayName>
-				<symbol>YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>Jugoslawischer Dinar (konvertibel)</displayName>
 				<displayName count="other">Jugoslawische Dinar (konvertibel)</displayName>
-				<symbol>YUN</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Rand</displayName>
@@ -4308,17 +3430,14 @@
 			<currency type="ZMK">
 				<displayName>Kwacha</displayName>
 				<displayName count="other">Kwacha</displayName>
-				<symbol>ZMK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Neuer Zaire</displayName>
 				<displayName count="other">Neue Zaire</displayName>
-				<symbol>ZRN</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>Zaire</displayName>
 				<displayName count="other">Zaire</displayName>
-				<symbol>ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>Simbabwe Dollar</displayName>

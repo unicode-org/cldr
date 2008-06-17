@@ -68,9 +68,6 @@
 				<dateTimeFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0} - {1}</intervalFormatFallback>
-						<intervalFormatItem id="M">
-							<greatestDifference id="M" draft="unconfirmed">M-M</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="M" draft="unconfirmed">E፡ MM-dd - E፡ MM-dd</greatestDifference>
 							<greatestDifference id="d" draft="unconfirmed">E፡ MM-dd - E፡ MM-dd</greatestDifference>
@@ -89,26 +86,6 @@
 						<intervalFormatItem id="Md">
 							<greatestDifference id="M" draft="unconfirmed">MM-dd - MM-dd</greatestDifference>
 							<greatestDifference id="d" draft="unconfirmed">MM-dd - MM-dd</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="d">
-							<greatestDifference id="d" draft="unconfirmed">d-d</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="h">
-							<greatestDifference id="h" draft="unconfirmed">HH-HH</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="h" draft="unconfirmed">HH:mm-HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">HH:mm-HH:mm</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="h" draft="unconfirmed">HH:mm-HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">HH:mm-HH:mm v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="h" draft="unconfirmed">HH-HH v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="y">
-							<greatestDifference id="y" draft="unconfirmed">y-y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M" draft="unconfirmed">yyyy-MM - yyyy-MM</greatestDifference>
@@ -161,3 +138,4 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ti_ER.txt?only_
 * Contributed by Daniel Yacob <yacob@geez.org>, Ge'ez Frontier Foundation
 Measurement { "Metric" }
 -->
+

@@ -776,20 +776,6 @@
 			<codePattern type="territory">Regió: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList draft="contributed">mixed</inList>
-		<inText type="currency" draft="contributed">mixed</inText>
-		<inText type="fields" draft="contributed">mixed</inText>
-		<inText type="keys" draft="contributed">mixed</inText>
-		<inText type="languages" draft="contributed">mixed</inText>
-		<inText type="long" draft="contributed">mixed</inText>
-		<inText type="measurementSystemNames" draft="contributed">mixed</inText>
-		<inText type="quarterWidth" draft="contributed">mixed</inText>
-		<inText type="scripts" draft="contributed">mixed</inText>
-		<inText type="territories" draft="contributed">mixed</inText>
-		<inText type="types" draft="contributed">mixed</inText>
-		<inText type="variants" draft="contributed">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a à b c ç d e é è f-i í ï j-l ŀ m-o ó ò p-u ú ü v-z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á ñ]</exemplarCharacters>
@@ -808,26 +794,7 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GuMtkHmsSEDFwWahKzUeygAZvcL</localizedPatternChars>
-		<dateRangePattern draft="contributed">{0} - {1}</dateRangePattern>
 		<calendars>
-			<calendar type="buddhist">
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">BE</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">BE</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">BE</era>
-					</eraNarrow>
-				</eras>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -946,12 +913,6 @@
 							<quarter type="2">2T</quarter>
 							<quarter type="3">3T</quarter>
 							<quarter type="4">4T</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="contributed">1</quarter>
-							<quarter type="2" draft="contributed">2</quarter>
-							<quarter type="3" draft="contributed">3</quarter>
-							<quarter type="4" draft="contributed">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">1r trimestre</quarter>
@@ -1190,35 +1151,14 @@
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity draft="provisional">Dumont D'Urville</exemplarCity>
 			</zone>
-			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity draft="contributed">Ushuaia</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity draft="contributed">La Rioja</exemplarCity>
-			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity draft="provisional">Viena</exemplarCity>
-			</zone>
-			<zone type="Australia/Sydney">
-				<exemplarCity draft="contributed">Sydney</exemplarCity>
 			</zone>
 			<zone type="Europe/Brussels">
 				<exemplarCity draft="provisional">Brussel·les</exemplarCity>
 			</zone>
-			<zone type="America/Rio_Branco">
-				<exemplarCity draft="contributed">Rio Branco</exemplarCity>
-			</zone>
-			<zone type="America/Sao_Paulo">
-				<exemplarCity draft="contributed">Sao Paulo</exemplarCity>
-			</zone>
 			<zone type="America/Belize">
 				<exemplarCity draft="provisional">Belise</exemplarCity>
-			</zone>
-			<zone type="America/Vancouver">
-				<exemplarCity draft="contributed">Vancouver</exemplarCity>
-			</zone>
-			<zone type="America/Toronto">
-				<exemplarCity draft="contributed">Toronto</exemplarCity>
 			</zone>
 			<zone type="Europe/Zurich">
 				<exemplarCity draft="provisional">Zuric</exemplarCity>
@@ -1331,9 +1271,6 @@
 			</zone>
 			<zone type="Indian/Maldives">
 				<exemplarCity draft="provisional">Les Maldives</exemplarCity>
-			</zone>
-			<zone type="America/Tijuana">
-				<exemplarCity draft="contributed">Tijuana</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity draft="contributed">Mèxic Districte Federal</exemplarCity>
@@ -1468,7 +1405,6 @@
 				<displayName count="one" draft="contributed">Pesseta andorrana</displayName>
 				<displayName count="other" draft="contributed">Pessetes andorranes</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Pesseta andorrana</displayName>
-				<symbol draft="contributed">ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName draft="provisional">Dirhem dels Emirats Àrabs Units</displayName>
@@ -1480,7 +1416,6 @@
 				<displayName draft="contributed">Xíling austríac</displayName>
 				<displayName count="one" draft="contributed">Xíling austríac</displayName>
 				<displayName count="other" draft="contributed">Xílings austríacs</displayName>
-				<symbol draft="contributed">ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName draft="provisional">Dòlar australià</displayName>
@@ -1489,7 +1424,6 @@
 				<displayName draft="contributed">Franc belga</displayName>
 				<displayName count="one" draft="contributed">Franc belga</displayName>
 				<displayName count="other" draft="contributed">Francs belges</displayName>
-				<symbol draft="contributed">BEF</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName draft="provisional">Lev búlgar</displayName>
@@ -1510,7 +1444,6 @@
 				<displayName draft="contributed">Franc suís</displayName>
 				<displayName count="one" draft="contributed">Franc suís</displayName>
 				<displayName count="other" draft="contributed">Francs suíssos</displayName>
-				<symbol draft="contributed">CHF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName draft="provisional">Peso xilè</displayName>
@@ -1534,7 +1467,6 @@
 				<displayName draft="contributed">Marc alemany</displayName>
 				<displayName count="one" draft="contributed">Marc alemany</displayName>
 				<displayName count="other" draft="contributed">Marcs alemanys</displayName>
-				<symbol draft="contributed">DEM</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName draft="provisional">Corona danesa</displayName>
@@ -1561,13 +1493,11 @@
 				<displayName>Euro</displayName>
 				<displayName count="one" draft="contributed">Euro</displayName>
 				<displayName count="other" draft="contributed">Euro</displayName>
-				<symbol draft="contributed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName draft="contributed">Marc finlandès</displayName>
 				<displayName count="one" draft="contributed">Marc finlandès</displayName>
 				<displayName count="other" draft="contributed">Marcs finlandèsos</displayName>
-				<symbol draft="contributed">FIM</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName draft="provisional">Dòlar fijià</displayName>
@@ -1576,19 +1506,16 @@
 				<displayName draft="provisional">Franc francès</displayName>
 				<displayName count="one" draft="contributed">Franc francès</displayName>
 				<displayName count="other" draft="contributed">Francs francèsos</displayName>
-				<symbol draft="contributed">FRF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Lliura esterlina britànica</displayName>
 				<displayName count="one" draft="contributed">Lliura esterlina</displayName>
 				<displayName count="other" draft="contributed">Lliures esterlines</displayName>
-				<symbol draft="contributed">UK£</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName draft="contributed">Dracma grega</displayName>
 				<displayName count="one" draft="contributed">Dracma grega</displayName>
 				<displayName count="other" draft="contributed">Dracmes gregues</displayName>
-				<symbol draft="contributed">GRD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName draft="provisional">Dòlar De Hong Kong</displayName>
@@ -1618,7 +1545,6 @@
 				<displayName draft="contributed">Lira italiana</displayName>
 				<displayName count="one" draft="contributed">Lira italiana</displayName>
 				<displayName count="other" draft="contributed">Lires italianes</displayName>
-				<symbol draft="contributed">IT₤</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Ien japonès</displayName>
@@ -1636,7 +1562,6 @@
 				<displayName draft="contributed">Franc luxemburguès</displayName>
 				<displayName count="one" draft="contributed">Franc luxemburguès</displayName>
 				<displayName count="other" draft="contributed">Francs luxemburguèsos</displayName>
-				<symbol draft="contributed">LUF</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName draft="contributed">Lats</displayName>
@@ -1648,7 +1573,6 @@
 				<displayName draft="contributed">Lira maltesa</displayName>
 				<displayName count="one" draft="contributed">Lira maltesa</displayName>
 				<displayName count="other" draft="contributed">Lires malteses</displayName>
-				<symbol draft="contributed">MTL</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName draft="provisional">Peso mexicà</displayName>
@@ -1660,7 +1584,6 @@
 				<displayName draft="contributed">Florí neerlandès</displayName>
 				<displayName count="one" draft="contributed">Florí neerlandès</displayName>
 				<displayName count="other" draft="contributed">Florís neerlandèsos</displayName>
-				<symbol draft="contributed">NLG</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName draft="provisional">Corona noruega</displayName>
@@ -1684,7 +1607,6 @@
 				<displayName draft="contributed">Escut portuguès</displayName>
 				<displayName count="one" draft="contributed">Escut portuguès</displayName>
 				<displayName count="other" draft="contributed">Escuts portuguèsos</displayName>
-				<symbol draft="contributed">PTE</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName draft="provisional">Nou leu romanès</displayName>
@@ -1708,7 +1630,6 @@
 				<displayName draft="contributed">Tolar eslovè</displayName>
 				<displayName count="one" draft="contributed">Tolar eslovè</displayName>
 				<displayName count="other" draft="contributed">Tolars eslovens</displayName>
-				<symbol draft="contributed">SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName draft="provisional">Corona eslovaca</displayName>
@@ -1732,7 +1653,6 @@
 				<displayName>Dòlar EUA</displayName>
 				<displayName count="one" draft="contributed">Dòlar EUA</displayName>
 				<displayName count="other" draft="contributed">Dòlars EUA</displayName>
-				<symbol draft="contributed">US$</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName draft="provisional">Bolívar veneçolà</displayName>
@@ -1744,7 +1664,6 @@
 				<displayName draft="contributed">Unitat de compte europea</displayName>
 				<displayName count="one" draft="contributed">Unitat de compte europea</displayName>
 				<displayName count="other" draft="contributed">Unitats de compte europea</displayName>
-				<symbol draft="contributed">XEU</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>sense moneda</displayName>

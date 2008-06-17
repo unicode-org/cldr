@@ -420,22 +420,7 @@
 			<territory type="ZZ" draft="contributed">Vùng Chưa biết hoặc không Hợp lệ</territory>
 		</territories>
 		<types>
-			<type type="big5han" key="collation" draft="contributed">big5han</type>
-			<type type="buddhist" key="calendar" draft="contributed">buddhist</type>
-			<type type="chinese" key="calendar" draft="contributed">chinese</type>
-			<type type="direct" key="collation" draft="contributed">direct</type>
-			<type type="gb2312han" key="collation" draft="contributed">gb2312han</type>
 			<type type="gregorian" key="calendar" draft="contributed">gregorian</type>
-			<type type="hebrew" key="calendar" draft="contributed">hebrew</type>
-			<type type="indian" key="calendar" draft="contributed">indian</type>
-			<type type="islamic" key="calendar" draft="contributed">islamic</type>
-			<type type="islamic-civil" key="calendar" draft="contributed">islamic-civil</type>
-			<type type="japanese" key="calendar" draft="contributed">japanese</type>
-			<type type="phonebook" key="collation" draft="contributed">phonebook</type>
-			<type type="pinyin" key="collation" draft="contributed">pinyin</type>
-			<type type="roc" key="calendar" draft="contributed">roc</type>
-			<type type="stroke" key="collation" draft="contributed">stroke</type>
-			<type type="traditional" key="collation" draft="contributed">traditional</type>
 		</types>
 		<codePatterns>
 			<codePattern type="language" draft="contributed">Ngôn ngữ: {0}</codePattern>
@@ -443,20 +428,6 @@
 			<codePattern type="territory" draft="contributed">Vùng: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList>mixed</inList>
-		<inText type="currency">mixed</inText>
-		<inText type="fields">mixed</inText>
-		<inText type="keys">mixed</inText>
-		<inText type="languages">mixed</inText>
-		<inText type="long">mixed</inText>
-		<inText type="measurementSystemNames">mixed</inText>
-		<inText type="quarterWidth">mixed</inText>
-		<inText type="scripts">mixed</inText>
-		<inText type="territories">mixed</inText>
-		<inText type="types">mixed</inText>
-		<inText type="variants">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a à ả ã á ạ ă ằ ẳ ẵ ắ ặ â ầ ẩ ẫ ấ ậ b-d đ e è ẻ ẽ é ẹ ê ề ể ễ ế ệ f-i ì ỉ ĩ í ị j-o ò ỏ õ ó ọ ô ồ ổ ỗ ố ộ ơ ờ ở ỡ ớ ợ p-u ù ủ ũ ú ụ ư ừ ử ữ ứ ự v-y ỳ ỷ ỹ ý ỵ z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[f j w z]</exemplarCharacters>
@@ -471,55 +442,7 @@
 		<alternateQuotationEnd>’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
-			<calendar type="buddhist">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMEd" draft="contributed">E MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="contributed">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">EEE, yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">yyyy MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">EEE, yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="contributed">yyyy MMMM</dateFormatItem>
-						<dateFormatItem id="yQ" draft="contributed">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="contributed">yyyy QQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="coptic">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMEd" draft="contributed">E MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="contributed">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">EEE, yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">yyyy MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">EEE, yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="contributed">yyyy MMMM</dateFormatItem>
-						<dateFormatItem id="yQ" draft="contributed">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="contributed">yyyy QQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="ethiopic">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMEd" draft="contributed">E MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="contributed">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">EEE, yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">yyyy MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">EEE, yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="contributed">yyyy MMMM</dateFormatItem>
-						<dateFormatItem id="yQ" draft="contributed">yyyy Q</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -775,70 +698,6 @@
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
-			<calendar type="hebrew">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMEd" draft="contributed">E MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="contributed">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">EEE, yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">yyyy MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">EEE, yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="contributed">yyyy MMMM</dateFormatItem>
-						<dateFormatItem id="yQ" draft="contributed">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="contributed">yyyy QQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="indian">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMEd" draft="contributed">E MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="contributed">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">EEE, yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">yyyy MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">EEE, yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="contributed">yyyy MMMM</dateFormatItem>
-						<dateFormatItem id="yQ" draft="contributed">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="contributed">yyyy QQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="persian">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMEd" draft="contributed">E MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="contributed">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">EEE, yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">yyyy MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">EEE, yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="contributed">yyyy MMMM</dateFormatItem>
-						<dateFormatItem id="yQ" draft="contributed">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="contributed">yyyy QQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="roc">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMEd" draft="contributed">E MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="contributed">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">EEE, yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">yyyy MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">EEE, yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="contributed">yyyy MMMM</dateFormatItem>
-						<dateFormatItem id="yQ" draft="contributed">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="contributed">yyyy QQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
@@ -851,62 +710,8 @@
 			<zone type="Europe/Andorra">
 				<exemplarCity draft="provisional">Andorra Time</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Rothera">
-				<exemplarCity draft="contributed">Rothera</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Palmer">
-				<exemplarCity draft="contributed">Palmer</exemplarCity>
-			</zone>
-			<zone type="Antarctica/South_Pole">
-				<exemplarCity draft="contributed">South Pole</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Syowa">
-				<exemplarCity draft="contributed">Syowa</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Mawson">
-				<exemplarCity draft="contributed">Mawson</exemplarCity>
-			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity draft="contributed">Dumont D'Urville</exemplarCity>
-			</zone>
-			<zone type="Antarctica/McMurdo">
-				<exemplarCity draft="contributed">McMurdo</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity draft="contributed">Rio Gallegos</exemplarCity>
-			</zone>
-			<zone type="America/Mendoza">
-				<exemplarCity draft="contributed">Mendoza</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Juan">
-				<exemplarCity draft="contributed">San Juan</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity draft="contributed">Ushuaia</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity draft="contributed">La Rioja</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Luis">
-				<exemplarCity draft="contributed">San Luis</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Tucuman">
-				<exemplarCity draft="contributed">Tucuman</exemplarCity>
-			</zone>
-			<zone type="Australia/Perth">
-				<exemplarCity draft="contributed">Perth</exemplarCity>
-			</zone>
-			<zone type="Australia/Melbourne">
-				<exemplarCity draft="contributed">Melbourne</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity draft="contributed">Lindeman</exemplarCity>
-			</zone>
-			<zone type="Australia/Sydney">
-				<exemplarCity draft="contributed">Sydney</exemplarCity>
-			</zone>
-			<zone type="Australia/Lord_Howe">
-				<exemplarCity draft="contributed">Lord Howe</exemplarCity>
 			</zone>
 			<zone type="America/Barbados">
 				<exemplarCity draft="provisional">Barbados Time</exemplarCity>
@@ -914,74 +719,8 @@
 			<zone type="Asia/Bahrain">
 				<exemplarCity draft="provisional">Bahrain Time</exemplarCity>
 			</zone>
-			<zone type="America/Rio_Branco">
-				<exemplarCity draft="contributed">Rio Branco</exemplarCity>
-			</zone>
-			<zone type="America/Manaus">
-				<exemplarCity draft="contributed">Manaus</exemplarCity>
-			</zone>
-			<zone type="America/Sao_Paulo">
-				<exemplarCity draft="contributed">Sao Paulo</exemplarCity>
-			</zone>
-			<zone type="America/Maceio">
-				<exemplarCity draft="contributed">Maceio</exemplarCity>
-			</zone>
-			<zone type="America/Recife">
-				<exemplarCity draft="contributed">Recife</exemplarCity>
-			</zone>
-			<zone type="America/Noronha">
-				<exemplarCity draft="contributed">Noronha</exemplarCity>
-			</zone>
 			<zone type="America/Belize">
 				<exemplarCity draft="provisional">Belize Time</exemplarCity>
-			</zone>
-			<zone type="America/Vancouver">
-				<exemplarCity draft="contributed">Vancouver</exemplarCity>
-			</zone>
-			<zone type="America/Swift_Current">
-				<exemplarCity draft="contributed">Swift Current</exemplarCity>
-			</zone>
-			<zone type="America/Regina">
-				<exemplarCity draft="contributed">Regina</exemplarCity>
-			</zone>
-			<zone type="America/Resolute">
-				<exemplarCity draft="contributed">Resolute</exemplarCity>
-			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity draft="contributed">Rainy River</exemplarCity>
-			</zone>
-			<zone type="America/Rankin_Inlet">
-				<exemplarCity draft="contributed">Rankin Inlet</exemplarCity>
-			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity draft="contributed">Thunder Bay</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity draft="contributed">Nipigon</exemplarCity>
-			</zone>
-			<zone type="America/Toronto">
-				<exemplarCity draft="contributed">Toronto</exemplarCity>
-			</zone>
-			<zone type="America/Montreal">
-				<exemplarCity draft="contributed">Montreal</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity draft="contributed">Pangnirtung</exemplarCity>
-			</zone>
-			<zone type="America/Moncton">
-				<exemplarCity draft="contributed">Moncton</exemplarCity>
-			</zone>
-			<zone type="America/St_Johns">
-				<exemplarCity draft="contributed">St. John's</exemplarCity>
-			</zone>
-			<zone type="Africa/Lubumbashi">
-				<exemplarCity draft="contributed">Lubumbashi</exemplarCity>
-			</zone>
-			<zone type="Pacific/Easter">
-				<exemplarCity draft="contributed">Easter</exemplarCity>
-			</zone>
-			<zone type="Asia/Urumqi">
-				<exemplarCity draft="contributed">Urumqi</exemplarCity>
 			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity draft="provisional">Costa Rica Time</exemplarCity>
@@ -1001,20 +740,8 @@
 			<zone type="Pacific/Fiji">
 				<exemplarCity draft="provisional">Fiji Time</exemplarCity>
 			</zone>
-			<zone type="Pacific/Truk">
-				<exemplarCity draft="contributed">Truk</exemplarCity>
-			</zone>
-			<zone type="Pacific/Ponape">
-				<exemplarCity draft="contributed">Ponape</exemplarCity>
-			</zone>
 			<zone type="America/Grenada">
 				<exemplarCity draft="provisional">Grenada Time</exemplarCity>
-			</zone>
-			<zone type="America/Thule">
-				<exemplarCity draft="contributed">Thule</exemplarCity>
-			</zone>
-			<zone type="America/Scoresbysund">
-				<exemplarCity draft="contributed">Scoresbysund</exemplarCity>
 			</zone>
 			<zone type="Atlantic/South_Georgia">
 				<exemplarCity draft="provisional">South Georgia and the South Sandwich Islands Time</exemplarCity>
@@ -1028,29 +755,14 @@
 			<zone type="Asia/Hong_Kong">
 				<exemplarCity draft="provisional">Hong Kong SAR China Time</exemplarCity>
 			</zone>
-			<zone type="Asia/Pontianak">
-				<exemplarCity draft="contributed">Pontianak</exemplarCity>
-			</zone>
-			<zone type="Asia/Makassar">
-				<exemplarCity draft="contributed">Makassar</exemplarCity>
-			</zone>
 			<zone type="America/Jamaica">
 				<exemplarCity draft="provisional">Jamaica Time</exemplarCity>
-			</zone>
-			<zone type="Pacific/Tarawa">
-				<exemplarCity draft="contributed">Tarawa</exemplarCity>
 			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity draft="provisional">Saint Kitts and Nevis Time</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuwait">
 				<exemplarCity draft="provisional">Kuwait Time</exemplarCity>
-			</zone>
-			<zone type="Asia/Oral">
-				<exemplarCity draft="contributed">Oral</exemplarCity>
-			</zone>
-			<zone type="Asia/Qyzylorda">
-				<exemplarCity draft="contributed">Qyzylorda</exemplarCity>
 			</zone>
 			<zone type="Asia/Vientiane">
 				<exemplarCity draft="provisional">Laos Time</exemplarCity>
@@ -1064,12 +776,6 @@
 			<zone type="Europe/Monaco">
 				<exemplarCity draft="provisional">Monaco Time</exemplarCity>
 			</zone>
-			<zone type="Pacific/Majuro">
-				<exemplarCity draft="contributed">Majuro</exemplarCity>
-			</zone>
-			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity draft="contributed">Ulaanbaatar</exemplarCity>
-			</zone>
 			<zone type="Europe/Malta">
 				<exemplarCity draft="provisional">Malta Time</exemplarCity>
 			</zone>
@@ -1079,56 +785,17 @@
 			<zone type="Indian/Maldives">
 				<exemplarCity draft="provisional">Maldives Time</exemplarCity>
 			</zone>
-			<zone type="America/Tijuana">
-				<exemplarCity draft="contributed">Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Mazatlan">
-				<exemplarCity draft="contributed">Mazatlan</exemplarCity>
-			</zone>
-			<zone type="America/Monterrey">
-				<exemplarCity draft="contributed">Monterrey</exemplarCity>
-			</zone>
-			<zone type="America/Mexico_City">
-				<exemplarCity draft="contributed">Mexico City</exemplarCity>
-			</zone>
-			<zone type="America/Merida">
-				<exemplarCity draft="contributed">Merida</exemplarCity>
-			</zone>
 			<zone type="Pacific/Nauru">
 				<exemplarCity draft="provisional">Nauru Time</exemplarCity>
 			</zone>
 			<zone type="America/Panama">
 				<exemplarCity draft="provisional">Panama Time</exemplarCity>
 			</zone>
-			<zone type="Pacific/Marquesas">
-				<exemplarCity draft="contributed">Marquesas</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Madeira">
-				<exemplarCity draft="contributed">Madeira</exemplarCity>
-			</zone>
 			<zone type="Pacific/Palau">
 				<exemplarCity draft="provisional">Palau Time</exemplarCity>
 			</zone>
 			<zone type="Asia/Qatar">
 				<exemplarCity draft="provisional">Qatar Time</exemplarCity>
-			</zone>
-			<zone type="Europe/Moscow">
-				<exemplarCity draft="contributed">Moscow</exemplarCity>
-			</zone>
-			<zone type="Europe/Samara">
-				<exemplarCity draft="contributed">Samara</exemplarCity>
-			</zone>
-			<zone type="Asia/Omsk">
-				<exemplarCity draft="contributed">Omsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Novosibirsk">
-				<exemplarCity draft="contributed">Novosibirsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Sakhalin">
-				<exemplarCity draft="contributed">Sakhalin</exemplarCity>
-			</zone>
-			<zone type="Asia/Magadan">
-				<exemplarCity draft="contributed">Magadan</exemplarCity>
 			</zone>
 			<zone type="Asia/Singapore">
 				<exemplarCity draft="provisional">Singapore Time</exemplarCity>
@@ -1138,57 +805,6 @@
 			</zone>
 			<zone type="Asia/Taipei">
 				<exemplarCity draft="provisional">Taiwan Time</exemplarCity>
-			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity draft="contributed">Uzhgorod</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity draft="contributed">Simferopol</exemplarCity>
-			</zone>
-			<zone type="Pacific/Midway">
-				<exemplarCity draft="contributed">Midway</exemplarCity>
-			</zone>
-			<zone type="America/Nome">
-				<exemplarCity draft="contributed">Nome</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<exemplarCity draft="contributed">Anchorage</exemplarCity>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<exemplarCity draft="contributed">Los Angeles</exemplarCity>
-			</zone>
-			<zone type="America/Phoenix">
-				<exemplarCity draft="contributed">Phoenix</exemplarCity>
-			</zone>
-			<zone type="America/Shiprock">
-				<exemplarCity draft="contributed">Shiprock</exemplarCity>
-			</zone>
-			<zone type="America/North_Dakota/New_Salem">
-				<exemplarCity draft="contributed">New Salem, North Dakota</exemplarCity>
-			</zone>
-			<zone type="America/Menominee">
-				<exemplarCity draft="contributed">Menominee</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity draft="contributed">Tell City, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Marengo">
-				<exemplarCity draft="contributed">Marengo, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Louisville">
-				<exemplarCity draft="contributed">Louisville</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<exemplarCity draft="contributed">Vevay, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<exemplarCity draft="contributed">Monticello, Kentucky</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
-				<exemplarCity draft="contributed">New York</exemplarCity>
-			</zone>
-			<zone type="Asia/Samarkand">
-				<exemplarCity draft="contributed">Samarkand</exemplarCity>
 			</zone>
 			<zone type="America/St_Vincent">
 				<exemplarCity draft="provisional">Saint Vincent and the Grenadines Time</exemplarCity>
@@ -1246,378 +862,89 @@
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
-			<currency type="ADP">
-				<displayName draft="contributed">ADP</displayName>
-			</currency>
 			<currency type="AED">
 				<displayName draft="contributed">Điram UAE</displayName>
-			</currency>
-			<currency type="AFA">
-				<displayName draft="contributed">AFA</displayName>
-			</currency>
-			<currency type="AFN">
-				<displayName draft="contributed">AFN</displayName>
-			</currency>
-			<currency type="ALL">
-				<displayName draft="contributed">ALL</displayName>
-			</currency>
-			<currency type="AMD">
-				<displayName draft="contributed">AMD</displayName>
-			</currency>
-			<currency type="ANG">
-				<displayName draft="contributed">ANG</displayName>
-			</currency>
-			<currency type="AOA">
-				<displayName draft="contributed">AOA</displayName>
-			</currency>
-			<currency type="AOK">
-				<displayName draft="contributed">AOK</displayName>
-			</currency>
-			<currency type="AON">
-				<displayName draft="contributed">AON</displayName>
-			</currency>
-			<currency type="AOR">
-				<displayName draft="contributed">AOR</displayName>
-			</currency>
-			<currency type="ARA">
-				<displayName draft="contributed">ARA</displayName>
-			</currency>
-			<currency type="ARP">
-				<displayName draft="contributed">ARP</displayName>
-			</currency>
-			<currency type="ARS">
-				<displayName draft="contributed">ARS</displayName>
-			</currency>
-			<currency type="ATS">
-				<displayName draft="contributed">ATS</displayName>
-			</currency>
-			<currency type="AUD">
-				<displayName draft="contributed">AUD</displayName>
-			</currency>
-			<currency type="AWG">
-				<displayName draft="contributed">AWG</displayName>
-			</currency>
-			<currency type="AZM">
-				<displayName draft="contributed">AZM</displayName>
-			</currency>
-			<currency type="AZN">
-				<displayName draft="contributed">AZN</displayName>
-			</currency>
-			<currency type="BAD">
-				<displayName draft="contributed">BAD</displayName>
-			</currency>
-			<currency type="BAM">
-				<displayName draft="contributed">BAM</displayName>
-			</currency>
-			<currency type="BBD">
-				<displayName draft="contributed">BBD</displayName>
-			</currency>
-			<currency type="BDT">
-				<displayName draft="contributed">BDT</displayName>
-			</currency>
-			<currency type="BEC">
-				<displayName draft="contributed">BEC</displayName>
-			</currency>
-			<currency type="BEF">
-				<displayName draft="contributed">BEF</displayName>
-			</currency>
-			<currency type="BEL">
-				<displayName draft="contributed">BEL</displayName>
-			</currency>
-			<currency type="BGL">
-				<displayName draft="contributed">BGL</displayName>
 			</currency>
 			<currency type="BGN">
 				<displayName draft="contributed">Lép Bungari</displayName>
 			</currency>
-			<currency type="BHD">
-				<displayName draft="contributed">BHD</displayName>
-			</currency>
-			<currency type="BIF">
-				<displayName draft="contributed">BIF</displayName>
-			</currency>
-			<currency type="BMD">
-				<displayName draft="contributed">BMD</displayName>
-			</currency>
-			<currency type="BND">
-				<displayName draft="contributed">BND</displayName>
-			</currency>
-			<currency type="BOB">
-				<displayName draft="contributed">BOB</displayName>
-			</currency>
-			<currency type="BOP">
-				<displayName draft="contributed">BOP</displayName>
-			</currency>
-			<currency type="BOV">
-				<displayName draft="contributed">BOV</displayName>
-			</currency>
-			<currency type="BRB">
-				<displayName draft="contributed">BRB</displayName>
-			</currency>
-			<currency type="BRC">
-				<displayName draft="contributed">BRC</displayName>
-			</currency>
-			<currency type="BRE">
-				<displayName draft="contributed">BRE</displayName>
-			</currency>
 			<currency type="BRL">
 				<displayName draft="contributed">BRL</displayName>
-			</currency>
-			<currency type="BRN">
-				<displayName draft="contributed">BRN</displayName>
-			</currency>
-			<currency type="BRR">
-				<displayName draft="contributed">BRR</displayName>
-			</currency>
-			<currency type="BSD">
-				<displayName draft="contributed">BSD</displayName>
-			</currency>
-			<currency type="BTN">
-				<displayName draft="contributed">BTN</displayName>
-			</currency>
-			<currency type="BUK">
-				<displayName draft="contributed">BUK</displayName>
-			</currency>
-			<currency type="BWP">
-				<displayName draft="contributed">BWP</displayName>
-			</currency>
-			<currency type="BYB">
-				<displayName draft="contributed">BYB</displayName>
-			</currency>
-			<currency type="BYR">
-				<displayName draft="contributed">BYR</displayName>
-			</currency>
-			<currency type="BZD">
-				<displayName draft="contributed">BZD</displayName>
-			</currency>
-			<currency type="CAD">
-				<displayName draft="contributed">CAD</displayName>
-			</currency>
-			<currency type="CDF">
-				<displayName draft="contributed">CDF</displayName>
 			</currency>
 			<currency type="CHF">
 				<displayName draft="contributed">Franc Thụy sĩ</displayName>
 			</currency>
-			<currency type="CLF">
-				<displayName draft="contributed">CLF</displayName>
-			</currency>
-			<currency type="CLP">
-				<displayName draft="contributed">CLP</displayName>
-			</currency>
 			<currency type="CNY">
 				<displayName draft="contributed">CNY</displayName>
 			</currency>
-			<currency type="COP">
-				<displayName draft="contributed">COP</displayName>
-			</currency>
-			<currency type="COU">
-				<displayName draft="contributed">COU</displayName>
-			</currency>
-			<currency type="CRC">
-				<displayName draft="contributed">CRC</displayName>
-			</currency>
-			<currency type="CSD">
-				<displayName draft="contributed">CSD</displayName>
-			</currency>
-			<currency type="CSK">
-				<displayName draft="contributed">CSK</displayName>
-			</currency>
-			<currency type="CUP">
-				<displayName draft="contributed">CUP</displayName>
-			</currency>
-			<currency type="CVE">
-				<displayName draft="contributed">CVE</displayName>
-			</currency>
-			<currency type="CYP">
-				<displayName draft="contributed">CYP</displayName>
-			</currency>
-			<currency type="CZK">
-				<displayName draft="contributed">CZK</displayName>
-			</currency>
-			<currency type="DDM">
-				<displayName draft="contributed">DDM</displayName>
-				<symbol draft="contributed">DDM</symbol>
-			</currency>
-			<currency type="DEM">
-				<displayName draft="contributed">DEM</displayName>
-				<symbol draft="contributed">DEM</symbol>
-			</currency>
-			<currency type="DJF">
-				<displayName draft="contributed">DJF</displayName>
-				<symbol draft="contributed">DJF</symbol>
-			</currency>
-			<currency type="DKK">
-				<displayName draft="contributed">DKK</displayName>
-				<symbol draft="contributed">DKK</symbol>
-			</currency>
-			<currency type="DOP">
-				<displayName draft="contributed">DOP</displayName>
-				<symbol draft="contributed">DOP</symbol>
-			</currency>
-			<currency type="DZD">
-				<displayName draft="contributed">DZD</displayName>
-				<symbol draft="contributed">DZD</symbol>
-			</currency>
-			<currency type="ECS">
-				<displayName draft="contributed">ECS</displayName>
-				<symbol draft="contributed">ECS</symbol>
-			</currency>
-			<currency type="ECV">
-				<displayName draft="contributed">ECV</displayName>
-				<symbol draft="contributed">ECV</symbol>
-			</currency>
 			<currency type="EEK">
 				<displayName draft="contributed">Crun Extônia</displayName>
-				<symbol draft="contributed">EEK</symbol>
-			</currency>
-			<currency type="EGP">
-				<displayName draft="contributed">EGP</displayName>
-				<symbol draft="contributed">EGP</symbol>
-			</currency>
-			<currency type="EQE">
-				<displayName draft="contributed">EQE</displayName>
-				<symbol draft="contributed">EQE</symbol>
-			</currency>
-			<currency type="ERN">
-				<displayName draft="contributed">ERN</displayName>
-				<symbol draft="contributed">ERN</symbol>
-			</currency>
-			<currency type="ESA">
-				<displayName draft="contributed">ESA</displayName>
-				<symbol draft="contributed">ESA</symbol>
-			</currency>
-			<currency type="ESB">
-				<displayName draft="contributed">ESB</displayName>
-				<symbol draft="contributed">ESB</symbol>
-			</currency>
-			<currency type="ESP">
-				<displayName draft="contributed">ESP</displayName>
-				<symbol draft="contributed">ESP</symbol>
-			</currency>
-			<currency type="ETB">
-				<displayName draft="contributed">ETB</displayName>
-				<symbol draft="contributed">ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName draft="contributed">Euro</displayName>
-				<symbol draft="contributed">€</symbol>
-			</currency>
-			<currency type="FIM">
-				<displayName draft="contributed">FIM</displayName>
-				<symbol draft="contributed">FIM</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName draft="contributed">Đô-la Fi-ji</displayName>
-				<symbol draft="contributed">FJD</symbol>
-			</currency>
-			<currency type="FKP">
-				<displayName draft="contributed">FKP</displayName>
-				<symbol draft="contributed">FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName draft="contributed">Franc Pháp</displayName>
-				<symbol draft="contributed">FRF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName draft="contributed">Bảng Anh</displayName>
-				<symbol draft="contributed">UK£</symbol>
-			</currency>
-			<currency type="GEK">
-				<displayName draft="contributed">GEK</displayName>
-				<symbol draft="contributed">GEK</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName draft="contributed">Lari Georgia</displayName>
-				<symbol draft="contributed">GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName draft="contributed">Cedi Ghana (1979-2007)</displayName>
-				<symbol draft="contributed">GHC</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName draft="contributed">Cedi Ghana</displayName>
-				<symbol draft="contributed">GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName draft="contributed">Pao Gibraltar</displayName>
-				<symbol draft="contributed">GIP</symbol>
-			</currency>
-			<currency type="GMD">
-				<displayName draft="contributed">GMD</displayName>
-				<symbol draft="contributed">GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName draft="contributed">Franc Guinea</displayName>
-				<symbol draft="contributed">GNF</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName draft="contributed">Syli Guinea</displayName>
-				<symbol draft="contributed">GNS</symbol>
-			</currency>
-			<currency type="GQE">
-				<displayName draft="contributed">GQE</displayName>
-				<symbol draft="contributed">GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName draft="contributed">Drachma Hy Lạp</displayName>
-				<symbol draft="contributed">GRD</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName draft="contributed">Quetzal Guatemala</displayName>
-				<symbol draft="contributed">GTQ</symbol>
-			</currency>
-			<currency type="GWE">
-				<displayName draft="contributed">GWE</displayName>
-				<symbol draft="contributed">GWE</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName draft="contributed">Peso Guinea-Bissau</displayName>
-				<symbol draft="contributed">GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName draft="contributed">Đô-la Guyana</displayName>
-				<symbol draft="contributed">GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName draft="contributed">Đô-la Hồng Kông</displayName>
-				<symbol draft="contributed">HKD</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName draft="contributed">Honduras Lempira</displayName>
-				<symbol draft="contributed">HNL</symbol>
-			</currency>
-			<currency type="HRD">
-				<displayName draft="contributed">HRD</displayName>
-				<symbol draft="contributed">HRD</symbol>
-			</currency>
-			<currency type="HRK">
-				<displayName draft="contributed">HRK</displayName>
-				<symbol draft="contributed">HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName draft="contributed">Gourde Haiti</displayName>
-				<symbol draft="contributed">HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName draft="contributed">Phôrin Hungari</displayName>
-				<symbol draft="contributed">HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName draft="contributed">Rupia Inđônêxia</displayName>
-				<symbol draft="contributed">IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName draft="contributed">Pao Ai-len</displayName>
-				<symbol draft="contributed">IEP</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName draft="contributed">Pao Ixraen</displayName>
-				<symbol draft="contributed">ILP</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName draft="contributed">Sêken Ixraen</displayName>
-				<symbol draft="contributed">ILS</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName draft="contributed">Rupi Ấn Độ</displayName>
@@ -1625,234 +952,54 @@
 			</currency>
 			<currency type="IQD">
 				<displayName draft="contributed">Dinar I-rắc</displayName>
-				<symbol draft="contributed">IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName draft="contributed">Rial I-ran</displayName>
-				<symbol draft="contributed">IRR</symbol>
-			</currency>
-			<currency type="ISK">
-				<displayName draft="contributed">ISK</displayName>
-				<symbol draft="contributed">ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName draft="contributed">Lia Ý</displayName>
-				<symbol draft="contributed">IT₤</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName draft="contributed">Đô la Jamaica</displayName>
-				<symbol draft="contributed">JMD</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName draft="contributed">Dinar Jordan</displayName>
-				<symbol draft="contributed">JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName draft="contributed">Yên Nhật</displayName>
-				<symbol draft="contributed">JP¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName draft="contributed">Si-ling Kê-ny-a</displayName>
-				<symbol draft="contributed">KES</symbol>
-			</currency>
-			<currency type="KGS">
-				<displayName draft="contributed">KGS</displayName>
-				<symbol draft="contributed">KGS</symbol>
-			</currency>
-			<currency type="KHR">
-				<displayName draft="contributed">KHR</displayName>
-				<symbol draft="contributed">KHR</symbol>
-			</currency>
-			<currency type="KMF">
-				<displayName draft="contributed">KMF</displayName>
-				<symbol draft="contributed">KMF</symbol>
-			</currency>
-			<currency type="KPW">
-				<displayName draft="contributed">KPW</displayName>
-				<symbol draft="contributed">KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName draft="contributed">Won Hàn Quốc</displayName>
-				<symbol draft="contributed">KRW</symbol>
-			</currency>
-			<currency type="KWD">
-				<displayName draft="contributed">KWD</displayName>
-				<symbol draft="contributed">KWD</symbol>
-			</currency>
-			<currency type="KYD">
-				<displayName draft="contributed">KYD</displayName>
-				<symbol draft="contributed">KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName draft="contributed">Kazakhstan Tenge</displayName>
-				<symbol draft="contributed">KZT</symbol>
-			</currency>
-			<currency type="LAK">
-				<displayName draft="contributed">LAK</displayName>
-				<symbol draft="contributed">LAK</symbol>
-			</currency>
-			<currency type="LBP">
-				<displayName draft="contributed">LBP</displayName>
-				<symbol draft="contributed">LBP</symbol>
-			</currency>
-			<currency type="LKR">
-				<displayName draft="contributed">LKR</displayName>
-				<symbol draft="contributed">LKR</symbol>
-			</currency>
-			<currency type="LRD">
-				<displayName draft="contributed">LRD</displayName>
-				<symbol draft="contributed">LRD</symbol>
-			</currency>
-			<currency type="LSL">
-				<displayName draft="contributed">LSL</displayName>
-				<symbol draft="contributed">LSL</symbol>
-			</currency>
-			<currency type="LSM">
-				<displayName draft="contributed">LSM</displayName>
-				<symbol draft="contributed">LSM</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName draft="contributed">Litat Lituani</displayName>
-				<symbol draft="contributed">LTL</symbol>
-			</currency>
-			<currency type="LTT">
-				<displayName draft="contributed">LTT</displayName>
-				<symbol draft="contributed">LTT</symbol>
-			</currency>
-			<currency type="LUC">
-				<displayName draft="contributed">LUC</displayName>
-				<symbol draft="contributed">LUC</symbol>
-			</currency>
-			<currency type="LUF">
-				<displayName draft="contributed">LUF</displayName>
-				<symbol draft="contributed">LUF</symbol>
-			</currency>
-			<currency type="LUL">
-				<displayName draft="contributed">LUL</displayName>
-				<symbol draft="contributed">LUL</symbol>
-			</currency>
-			<currency type="LVL">
-				<displayName draft="contributed">LVL</displayName>
-				<symbol draft="contributed">LVL</symbol>
-			</currency>
-			<currency type="LVR">
-				<displayName draft="contributed">LVR</displayName>
-				<symbol draft="contributed">LVR</symbol>
-			</currency>
-			<currency type="LYD">
-				<displayName draft="contributed">LYD</displayName>
-				<symbol draft="contributed">LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName draft="contributed">Điaham Marốc</displayName>
-				<symbol draft="contributed">MAD</symbol>
-			</currency>
-			<currency type="MAF">
-				<displayName draft="contributed">MAF</displayName>
-				<symbol draft="contributed">MAF</symbol>
-			</currency>
-			<currency type="MDL">
-				<displayName draft="contributed">MDL</displayName>
-				<symbol draft="contributed">MDL</symbol>
-			</currency>
-			<currency type="MGA">
-				<displayName draft="contributed">MGA</displayName>
-			</currency>
-			<currency type="MGF">
-				<displayName draft="contributed">MGF</displayName>
-			</currency>
-			<currency type="MLF">
-				<displayName draft="contributed">MLF</displayName>
-			</currency>
-			<currency type="MMK">
-				<displayName draft="contributed">MMK</displayName>
-			</currency>
-			<currency type="MNT">
-				<displayName draft="contributed">MNT</displayName>
-			</currency>
-			<currency type="MOP">
-				<displayName draft="contributed">MOP</displayName>
-			</currency>
-			<currency type="MRO">
-				<displayName draft="contributed">MRO</displayName>
 			</currency>
 			<currency type="MTL">
 				<displayName draft="contributed">Lia xứ Man-tơ</displayName>
 			</currency>
-			<currency type="MTP">
-				<displayName draft="contributed">MTP</displayName>
-			</currency>
-			<currency type="MUR">
-				<displayName draft="contributed">MUR</displayName>
-			</currency>
-			<currency type="MVR">
-				<displayName draft="contributed">MVR</displayName>
-			</currency>
-			<currency type="MWK">
-				<displayName draft="contributed">MWK</displayName>
-			</currency>
 			<currency type="MXN">
 				<displayName draft="contributed">Peso Mêhicô</displayName>
-			</currency>
-			<currency type="MXP">
-				<displayName draft="contributed">MXP</displayName>
-			</currency>
-			<currency type="MXV">
-				<displayName draft="contributed">MXV</displayName>
 			</currency>
 			<currency type="MYR">
 				<displayName draft="contributed">Rinhgit Malaixia</displayName>
 			</currency>
-			<currency type="MZE">
-				<displayName draft="contributed">MZE</displayName>
-			</currency>
-			<currency type="MZM">
-				<displayName draft="contributed">MZM</displayName>
-			</currency>
-			<currency type="MZN">
-				<displayName draft="contributed">MZN</displayName>
-			</currency>
-			<currency type="NAD">
-				<displayName draft="contributed">NAD</displayName>
-			</currency>
-			<currency type="NGN">
-				<displayName draft="contributed">NGN</displayName>
-			</currency>
-			<currency type="NIC">
-				<displayName draft="contributed">NIC</displayName>
-			</currency>
-			<currency type="NIO">
-				<displayName draft="contributed">NIO</displayName>
-			</currency>
-			<currency type="NLG">
-				<displayName draft="contributed">NLG</displayName>
-			</currency>
 			<currency type="NOK">
 				<displayName draft="contributed">Curon Na Uy</displayName>
-			</currency>
-			<currency type="NPR">
-				<displayName draft="contributed">NPR</displayName>
 			</currency>
 			<currency type="NZD">
 				<displayName draft="contributed">Đô-la New Zealand</displayName>
 			</currency>
-			<currency type="OMR">
-				<displayName draft="contributed">OMR</displayName>
-			</currency>
-			<currency type="PAB">
-				<displayName draft="contributed">PAB</displayName>
-			</currency>
-			<currency type="PEI">
-				<displayName draft="contributed">PEI</displayName>
-			</currency>
 			<currency type="PEN">
 				<displayName draft="contributed">Nuevo Sol Pêru</displayName>
-			</currency>
-			<currency type="PES">
-				<displayName draft="contributed">PES</displayName>
-			</currency>
-			<currency type="PGK">
-				<displayName draft="contributed">PGK</displayName>
 			</currency>
 			<currency type="PHP">
 				<displayName draft="contributed">Peso Philíppin</displayName>
@@ -1863,24 +1010,6 @@
 			<currency type="PLN">
 				<displayName draft="contributed">Zloty Ba Lan</displayName>
 			</currency>
-			<currency type="PLZ">
-				<displayName draft="contributed">PLZ</displayName>
-			</currency>
-			<currency type="PTE">
-				<displayName draft="contributed">PTE</displayName>
-			</currency>
-			<currency type="PYG">
-				<displayName draft="contributed">PYG</displayName>
-			</currency>
-			<currency type="QAR">
-				<displayName draft="contributed">QAR</displayName>
-			</currency>
-			<currency type="RHD">
-				<displayName draft="contributed">RHD</displayName>
-			</currency>
-			<currency type="ROL">
-				<displayName draft="contributed">ROL</displayName>
-			</currency>
 			<currency type="RON">
 				<displayName draft="contributed">Lây Rumani</displayName>
 			</currency>
@@ -1890,29 +1019,8 @@
 			<currency type="RUB">
 				<displayName draft="contributed">Rúp Nga</displayName>
 			</currency>
-			<currency type="RUR">
-				<displayName draft="contributed">RUR</displayName>
-			</currency>
-			<currency type="RWF">
-				<displayName draft="contributed">RWF</displayName>
-			</currency>
 			<currency type="SAR">
 				<displayName draft="contributed">Rian Ả rập Xêút</displayName>
-			</currency>
-			<currency type="SBD">
-				<displayName draft="contributed">SBD</displayName>
-			</currency>
-			<currency type="SCR">
-				<displayName draft="contributed">SCR</displayName>
-			</currency>
-			<currency type="SDD">
-				<displayName draft="contributed">SDD</displayName>
-			</currency>
-			<currency type="SDG">
-				<displayName draft="contributed">SDG</displayName>
-			</currency>
-			<currency type="SDP">
-				<displayName draft="contributed">SDP</displayName>
 			</currency>
 			<currency type="SEK">
 				<displayName draft="contributed">Cua-ron Thuỵ Điển</displayName>
@@ -1920,265 +1028,46 @@
 			<currency type="SGD">
 				<displayName draft="contributed">Đô-la Singapore</displayName>
 			</currency>
-			<currency type="SHP">
-				<displayName draft="contributed">SHP</displayName>
-			</currency>
 			<currency type="SIT">
 				<displayName draft="contributed">Tôla Xlôvênia</displayName>
 			</currency>
 			<currency type="SKK">
 				<displayName draft="contributed">Cuaron Xlôvác</displayName>
 			</currency>
-			<currency type="SLL">
-				<displayName draft="contributed">SLL</displayName>
-			</currency>
-			<currency type="SOS">
-				<displayName draft="contributed">SOS</displayName>
-			</currency>
-			<currency type="SRD">
-				<displayName draft="contributed">SRD</displayName>
-				<symbol draft="contributed">SRD</symbol>
-			</currency>
-			<currency type="SRG">
-				<displayName draft="contributed">SRG</displayName>
-				<symbol draft="contributed">SRG</symbol>
-			</currency>
-			<currency type="STD">
-				<displayName draft="contributed">STD</displayName>
-				<symbol draft="contributed">STD</symbol>
-			</currency>
-			<currency type="SUR">
-				<displayName draft="contributed">SUR</displayName>
-				<symbol draft="contributed">SUR</symbol>
-			</currency>
-			<currency type="SVC">
-				<displayName draft="contributed">SVC</displayName>
-				<symbol draft="contributed">SVC</symbol>
-			</currency>
-			<currency type="SYP">
-				<displayName draft="contributed">SYP</displayName>
-				<symbol draft="contributed">SYP</symbol>
-			</currency>
-			<currency type="SZL">
-				<displayName draft="contributed">SZL</displayName>
-				<symbol draft="contributed">SZL</symbol>
-			</currency>
 			<currency type="THB">
 				<displayName draft="contributed">Bạt Thái Lan</displayName>
-				<symbol draft="contributed">THB</symbol>
-			</currency>
-			<currency type="TJR">
-				<displayName draft="contributed">TJR</displayName>
-				<symbol draft="contributed">TJR</symbol>
-			</currency>
-			<currency type="TJS">
-				<displayName draft="contributed">TJS</displayName>
-				<symbol draft="contributed">TJS</symbol>
-			</currency>
-			<currency type="TMM">
-				<displayName draft="contributed">TMM</displayName>
-				<symbol draft="contributed">TMM</symbol>
-			</currency>
-			<currency type="TND">
-				<displayName draft="contributed">TND</displayName>
-				<symbol draft="contributed">TND</symbol>
-			</currency>
-			<currency type="TOP">
-				<displayName draft="contributed">TOP</displayName>
-				<symbol draft="contributed">TOP</symbol>
-			</currency>
-			<currency type="TPE">
-				<displayName draft="contributed">TPE</displayName>
-				<symbol draft="contributed">TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName draft="contributed">Lia Thổ Nhĩ Kỳ</displayName>
-				<symbol draft="contributed">TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName draft="contributed">Lia Thổ Nhĩ Kỳ Mới</displayName>
-				<symbol draft="contributed">TRY</symbol>
-			</currency>
-			<currency type="TTD">
-				<displayName draft="contributed">TTD</displayName>
-				<symbol draft="contributed">TTD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName draft="contributed">Đô-la Đài Loan</displayName>
-				<symbol draft="contributed">TWD</symbol>
-			</currency>
-			<currency type="TZS">
-				<displayName draft="contributed">TZS</displayName>
-				<symbol draft="contributed">TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName draft="contributed">Rúp U-crai-na</displayName>
-				<symbol draft="contributed">UAH</symbol>
-			</currency>
-			<currency type="UAK">
-				<displayName draft="contributed">UAK</displayName>
-				<symbol draft="contributed">UAK</symbol>
-			</currency>
-			<currency type="UGS">
-				<displayName draft="contributed">UGS</displayName>
-				<symbol draft="contributed">UGS</symbol>
-			</currency>
-			<currency type="UGX">
-				<displayName draft="contributed">UGX</displayName>
-				<symbol draft="contributed">UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>Đô-la Mỹ</displayName>
-				<symbol draft="contributed">US$</symbol>
-			</currency>
-			<currency type="USN">
-				<symbol draft="contributed">USN</symbol>
-			</currency>
-			<currency type="USS">
-				<symbol draft="contributed">USS</symbol>
-			</currency>
-			<currency type="UYI">
-				<symbol draft="contributed">UYI</symbol>
-			</currency>
-			<currency type="UYP">
-				<displayName draft="contributed">UYP</displayName>
-				<symbol draft="contributed">UYP</symbol>
-			</currency>
-			<currency type="UYU">
-				<symbol draft="contributed">UYU</symbol>
-			</currency>
-			<currency type="UZS">
-				<symbol draft="contributed">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName draft="contributed">Bôliva Vênêduêla</displayName>
-				<symbol draft="contributed">VEB</symbol>
-			</currency>
-			<currency type="VEF">
-				<symbol draft="contributed">VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>đồng</displayName>
 				<symbol>₫</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">đ</symbol>
 			</currency>
-			<currency type="VUV">
-				<displayName draft="contributed">VUV</displayName>
-				<symbol draft="contributed">VUV</symbol>
-			</currency>
-			<currency type="WST">
-				<displayName draft="contributed">WST</displayName>
-				<symbol draft="contributed">WST</symbol>
-			</currency>
-			<currency type="XAF">
-				<displayName draft="contributed">XAF</displayName>
-				<symbol draft="contributed">XAF</symbol>
-			</currency>
-			<currency type="XAG">
-				<displayName draft="contributed">XAG</displayName>
-				<symbol draft="contributed">XAG</symbol>
-			</currency>
 			<currency type="XAU">
 				<displayName draft="contributed">Vàng</displayName>
-				<symbol draft="contributed">XAU</symbol>
-			</currency>
-			<currency type="XBA">
-				<displayName draft="contributed">XBA</displayName>
-				<symbol draft="contributed">XBA</symbol>
-			</currency>
-			<currency type="XBB">
-				<displayName draft="contributed">XBB</displayName>
-				<symbol draft="contributed">XBB</symbol>
-			</currency>
-			<currency type="XBC">
-				<displayName draft="contributed">XBC</displayName>
-				<symbol draft="contributed">XBC</symbol>
-			</currency>
-			<currency type="XBD">
-				<displayName draft="contributed">XBD</displayName>
-				<symbol draft="contributed">XBD</symbol>
-			</currency>
-			<currency type="XCD">
-				<displayName draft="contributed">XCD</displayName>
-				<symbol draft="contributed">XCD</symbol>
-			</currency>
-			<currency type="XDR">
-				<displayName draft="contributed">XDR</displayName>
-				<symbol draft="contributed">XDR</symbol>
-			</currency>
-			<currency type="XEU">
-				<displayName draft="contributed">XEU</displayName>
-				<symbol draft="contributed">XEU</symbol>
-			</currency>
-			<currency type="XFO">
-				<displayName draft="contributed">XFO</displayName>
-				<symbol draft="contributed">XFO</symbol>
-			</currency>
-			<currency type="XFU">
-				<displayName draft="contributed">XFU</displayName>
-				<symbol draft="contributed">XFU</symbol>
-			</currency>
-			<currency type="XOF">
-				<displayName draft="contributed">XOF</displayName>
-				<symbol draft="contributed">XOF</symbol>
-			</currency>
-			<currency type="XPD">
-				<displayName draft="contributed">XPD</displayName>
-				<symbol draft="contributed">XPD</symbol>
-			</currency>
-			<currency type="XPF">
-				<displayName draft="contributed">XPF</displayName>
-				<symbol draft="contributed">XPF</symbol>
-			</currency>
-			<currency type="XPT">
-				<displayName draft="contributed">XPT</displayName>
-				<symbol draft="contributed">XPT</symbol>
-			</currency>
-			<currency type="XRE">
-				<displayName draft="contributed">XRE</displayName>
-				<symbol draft="contributed">XRE</symbol>
-			</currency>
-			<currency type="XTS">
-				<displayName draft="contributed">XTS</displayName>
-				<symbol draft="contributed">XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName draft="contributed">Tiền tệ chưa biết hoặc không hợp lệ</displayName>
-				<symbol draft="contributed">XXX</symbol>
-			</currency>
-			<currency type="YDD">
-				<symbol draft="contributed">YDD</symbol>
-			</currency>
-			<currency type="YER">
-				<symbol draft="contributed">YER</symbol>
-			</currency>
-			<currency type="YUD">
-				<symbol draft="contributed">YUD</symbol>
-			</currency>
-			<currency type="YUM">
-				<symbol draft="contributed">YUM</symbol>
-			</currency>
-			<currency type="ZAL">
-				<displayName draft="contributed">ZAL</displayName>
-				<symbol draft="contributed">ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName draft="contributed">Ran Nam Phi</displayName>
-				<symbol draft="contributed">ZAR</symbol>
-			</currency>
-			<currency type="ZMK">
-				<displayName draft="contributed">ZMK</displayName>
-				<symbol draft="contributed">ZMK</symbol>
-			</currency>
-			<currency type="ZRN">
-				<symbol draft="contributed">ZRN</symbol>
-			</currency>
-			<currency type="ZRZ">
-				<symbol draft="contributed">ZRZ</symbol>
-			</currency>
-			<currency type="ZWD">
-				<displayName draft="contributed">ZWD</displayName>
-				<symbol draft="contributed">ZWD</symbol>
 			</currency>
 		</currencies>
 	</numbers>

@@ -994,11 +994,6 @@
 			<variant type="VALENCIA">Valencian</variant>
 			<variant type="XIANG">Xiang or Hunanese</variant>
 		</variants>
-		<keys>
-			<key type="calendar">calendar</key>
-			<key type="collation">collation</key>
-			<key type="currency">currency</key>
-		</keys>
 		<types>
 			<type type="big5han" key="collation">Traditional Chinese Sort Order - Big5</type>
 			<type type="buddhist" key="calendar">Buddhist Calendar</type>
@@ -1039,7 +1034,6 @@
 		<alternateQuotationEnd>’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="gregorian">
 				<months>
@@ -1357,42 +1351,6 @@
 						<displayName>Zone</displayName>
 					</field>
 				</fields>
-			</calendar>
-			<calendar type="persian">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="wide">
-							<month type="1">Farvardin</month>
-							<month type="2">Ordibehesht</month>
-							<month type="3">Khordad</month>
-							<month type="4">Tir</month>
-							<month type="5">Mordad</month>
-							<month type="6">Shahrivar</month>
-							<month type="7">Mehr</month>
-							<month type="8">Aban</month>
-							<month type="9">Azar</month>
-							<month type="10">Dey</month>
-							<month type="11">Bahman</month>
-							<month type="12">Esfand</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="wide">
-							<month type="1">Farvardin</month>
-							<month type="2">Ordibehesht</month>
-							<month type="3">Khordad</month>
-							<month type="4">Tir</month>
-							<month type="5">Mordad</month>
-							<month type="6">Shahrivar</month>
-							<month type="7">Mehr</month>
-							<month type="8">Aban</month>
-							<month type="9">Azar</month>
-							<month type="10">Dey</month>
-							<month type="11">Bahman</month>
-							<month type="12">Esfand</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -1965,7 +1923,6 @@
 				</long>
 				<short>
 					<standard>IST (Israel)</standard>
-					<daylight>IDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Japan">
@@ -2530,7 +2487,6 @@
 				<displayName>United Arab Emirates Dirham</displayName>
 				<displayName count="one">UAE dirham</displayName>
 				<displayName count="other">UAE dirhams</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Afghani (1927-2002)</displayName>
@@ -3556,7 +3512,6 @@
 				<displayName>Romanian Leu</displayName>
 				<displayName count="one">Romanian leu</displayName>
 				<displayName count="other">Romanian lei</displayName>
-				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Serbian Dinar</displayName>

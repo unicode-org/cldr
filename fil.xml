@@ -461,52 +461,6 @@
 			<territory type="ZW" draft="provisional">Zimbabwe</territory>
 			<territory type="ZZ" draft="contributed">Hindi kilala o Hindi wastong Rehiyon</territory>
 		</territories>
-		<variants>
-			<variant type="1901" draft="contributed">1901</variant>
-			<variant type="1994" draft="contributed">1994</variant>
-			<variant type="1996" draft="contributed">1996</variant>
-			<variant type="1606NICT" draft="contributed">1606NICT</variant>
-			<variant type="1694ACAD" draft="contributed">1694ACAD</variant>
-			<variant type="AREVELA" draft="contributed">AREVELA</variant>
-			<variant type="AREVMDA" draft="contributed">AREVMDA</variant>
-			<variant type="BAKU1926" draft="contributed">BAKU1926</variant>
-			<variant type="BISKE" draft="contributed">BISKE</variant>
-			<variant type="BOONT" draft="contributed">BOONT</variant>
-			<variant type="FONIPA" draft="contributed">FONIPA</variant>
-			<variant type="FONUPA" draft="contributed">FONUPA</variant>
-			<variant type="LIPAW" draft="contributed">LIPAW</variant>
-			<variant type="MONOTON" draft="contributed">MONOTON</variant>
-			<variant type="NEDIS" draft="contributed">NEDIS</variant>
-			<variant type="NJIVA" draft="contributed">NJIVA</variant>
-			<variant type="OSOJS" draft="contributed">OSOJS</variant>
-			<variant type="POLYTON" draft="contributed">POLYTON</variant>
-			<variant type="POSIX" draft="contributed">POSIX</variant>
-			<variant type="REVISED" draft="contributed">REVISED</variant>
-			<variant type="ROZAJ" draft="contributed">ROZAJ</variant>
-			<variant type="SAAHO" draft="contributed">SAAHO</variant>
-			<variant type="SCOTLAND" draft="contributed">SCOTLAND</variant>
-			<variant type="SCOUSE" draft="contributed">SCOUSE</variant>
-			<variant type="SOLBA" draft="contributed">SOLBA</variant>
-			<variant type="TARASK" draft="contributed">TARASK</variant>
-			<variant type="VALENCIA" draft="contributed">VALENCIA</variant>
-		</variants>
-		<types>
-			<type type="big5han" key="collation" draft="contributed">big5han</type>
-			<type type="buddhist" key="calendar" draft="contributed">buddhist</type>
-			<type type="chinese" key="calendar" draft="contributed">chinese</type>
-			<type type="direct" key="collation" draft="contributed">direct</type>
-			<type type="gb2312han" key="collation" draft="contributed">gb2312han</type>
-			<type type="hebrew" key="calendar" draft="contributed">hebrew</type>
-			<type type="indian" key="calendar" draft="contributed">indian</type>
-			<type type="islamic" key="calendar" draft="contributed">islamic</type>
-			<type type="islamic-civil" key="calendar" draft="contributed">islamic-civil</type>
-			<type type="japanese" key="calendar" draft="contributed">japanese</type>
-			<type type="phonebook" key="collation" draft="contributed">phonebook</type>
-			<type type="pinyin" key="collation" draft="contributed">pinyin</type>
-			<type type="roc" key="calendar" draft="contributed">roc</type>
-			<type type="stroke" key="collation" draft="contributed">stroke</type>
-			<type type="traditional" key="collation" draft="contributed">traditional</type>
-		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="US" draft="contributed">US</measurementSystemName>
 			<measurementSystemName type="metric" draft="contributed">Metric</measurementSystemName>
@@ -517,20 +471,6 @@
 			<codePattern type="territory" draft="contributed">{0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList draft="contributed">mixed</inList>
-		<inText type="currency" draft="contributed">mixed</inText>
-		<inText type="fields" draft="contributed">mixed</inText>
-		<inText type="keys" draft="contributed">mixed</inText>
-		<inText type="languages" draft="contributed">mixed</inText>
-		<inText type="long" draft="contributed">mixed</inText>
-		<inText type="measurementSystemNames" draft="contributed">mixed</inText>
-		<inText type="quarterWidth" draft="contributed">mixed</inText>
-		<inText type="scripts" draft="contributed">mixed</inText>
-		<inText type="territories" draft="contributed">mixed</inText>
-		<inText type="types" draft="contributed">mixed</inText>
-		<inText type="variants" draft="contributed">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a-n ñ {ng} o-z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à â é è ê í ì î ó ò ô ú ù û]</exemplarCharacters>
@@ -543,7 +483,6 @@
 		<alternateQuotationEnd draft="contributed">’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
-		<dateRangePattern draft="contributed">{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="gregorian">
 				<months>
@@ -803,173 +742,20 @@
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="contributed">Unknown</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Davis">
-				<exemplarCity draft="contributed">Davis</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Casey">
-				<exemplarCity draft="contributed">Casey</exemplarCity>
-			</zone>
-			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity draft="contributed">Dumont d'Urville</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity draft="contributed">La Rioja</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity draft="contributed">Catamarca</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity draft="contributed">Jujuy</exemplarCity>
-			</zone>
-			<zone type="America/Cordoba">
-				<exemplarCity draft="contributed">Cordoba</exemplarCity>
-			</zone>
-			<zone type="America/Buenos_Aires">
-				<exemplarCity draft="contributed">Buenos Aires</exemplarCity>
-			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity draft="contributed">Eucla</exemplarCity>
-			</zone>
-			<zone type="Australia/Darwin">
-				<exemplarCity draft="contributed">Darwin</exemplarCity>
-			</zone>
-			<zone type="Australia/Adelaide">
-				<exemplarCity draft="contributed">Adelaide</exemplarCity>
-			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity draft="contributed">Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="contributed">Currie</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity draft="contributed">Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity draft="contributed">Brisbane</exemplarCity>
-			</zone>
 			<zone type="Africa/Porto-Novo">
 				<exemplarCity draft="provisional">Porto - Novo</exemplarCity>
-			</zone>
-			<zone type="America/Eirunepe">
-				<exemplarCity draft="contributed">Eirunepe</exemplarCity>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity draft="contributed">Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Cuiaba">
-				<exemplarCity draft="contributed">Cuiaba</exemplarCity>
-			</zone>
-			<zone type="America/Campo_Grande">
-				<exemplarCity draft="contributed">Campo Grande</exemplarCity>
-			</zone>
-			<zone type="America/Belem">
-				<exemplarCity draft="contributed">Belem</exemplarCity>
-			</zone>
-			<zone type="America/Araguaina">
-				<exemplarCity draft="contributed">Araguaina</exemplarCity>
-			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity draft="contributed">Bahia</exemplarCity>
-			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity draft="contributed">Fortaleza</exemplarCity>
-			</zone>
-			<zone type="America/Dawson">
-				<exemplarCity draft="contributed">Dawson</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity draft="contributed">Inuvik</exemplarCity>
-			</zone>
-			<zone type="America/Dawson_Creek">
-				<exemplarCity draft="contributed">Dawson Creek</exemplarCity>
-			</zone>
-			<zone type="America/Edmonton">
-				<exemplarCity draft="contributed">Edmonton</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity draft="contributed">Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity draft="contributed">Coral Harbour</exemplarCity>
-			</zone>
-			<zone type="America/Iqaluit">
-				<exemplarCity draft="contributed">Iqaluit</exemplarCity>
-			</zone>
-			<zone type="America/Halifax">
-				<exemplarCity draft="contributed">Halifax</exemplarCity>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<exemplarCity draft="contributed">Goose Bay</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity draft="contributed">Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity draft="contributed">Blanc-Sablon</exemplarCity>
-			</zone>
-			<zone type="Africa/Kinshasa">
-				<exemplarCity draft="contributed">Kinshasa</exemplarCity>
-			</zone>
-			<zone type="Pacific/Easter">
-				<exemplarCity draft="contributed">Easter</exemplarCity>
-			</zone>
-			<zone type="Asia/Kashgar">
-				<exemplarCity draft="contributed">Kashgar</exemplarCity>
-			</zone>
-			<zone type="Asia/Chongqing">
-				<exemplarCity draft="contributed">Chongqing</exemplarCity>
-			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity draft="contributed">Harbin</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity draft="provisional">Pasko.</exemplarCity>
 			</zone>
-			<zone type="Pacific/Galapagos">
-				<exemplarCity draft="contributed">Galapagos</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Canary">
-				<exemplarCity draft="contributed">Canary</exemplarCity>
-			</zone>
-			<zone type="Africa/Ceuta">
-				<exemplarCity draft="contributed">Ceuta</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kosrae">
-				<exemplarCity draft="contributed">Kosrae</exemplarCity>
-			</zone>
 			<zone type="Asia/Tbilisi">
 				<exemplarCity draft="provisional">Tbilisi.</exemplarCity>
-			</zone>
-			<zone type="America/Danmarkshavn">
-				<exemplarCity draft="contributed">Danmarkshavn</exemplarCity>
 			</zone>
 			<zone type="Africa/Conakry">
 				<exemplarCity draft="provisional">Conarky</exemplarCity>
 			</zone>
-			<zone type="Asia/Jakarta">
-				<exemplarCity draft="contributed">Jakarta</exemplarCity>
-			</zone>
-			<zone type="Asia/Jayapura">
-				<exemplarCity draft="contributed">Jayapura</exemplarCity>
-			</zone>
-			<zone type="Pacific/Enderbury">
-				<exemplarCity draft="contributed">Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kiritimati">
-				<exemplarCity draft="contributed">Kiritimati</exemplarCity>
-			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity draft="provisional">St. Kitts</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtau">
-				<exemplarCity draft="contributed">Aqtau</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtobe">
-				<exemplarCity draft="contributed">Aqtobe</exemplarCity>
-			</zone>
-			<zone type="Asia/Almaty">
-				<exemplarCity draft="contributed">Almaty</exemplarCity>
 			</zone>
 			<zone type="America/St_Lucia">
 				<exemplarCity draft="provisional">St. Lucia</exemplarCity>
@@ -977,92 +763,11 @@
 			<zone type="Africa/Maseru">
 				<exemplarCity draft="provisional">Maseru.</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kwajalein">
-				<exemplarCity draft="contributed">Kwajalein</exemplarCity>
-			</zone>
-			<zone type="Asia/Hovd">
-				<exemplarCity draft="contributed">Hovd</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="contributed">Choibalsan</exemplarCity>
-			</zone>
-			<zone type="America/Hermosillo">
-				<exemplarCity draft="contributed">Hermosillo</exemplarCity>
-			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity draft="contributed">Chihuahua</exemplarCity>
-			</zone>
-			<zone type="America/Cancun">
-				<exemplarCity draft="contributed">Cancun</exemplarCity>
-			</zone>
-			<zone type="Asia/Kuching">
-				<exemplarCity draft="contributed">Kuching</exemplarCity>
-			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity draft="contributed">Chatham</exemplarCity>
-			</zone>
-			<zone type="Pacific/Gambier">
-				<exemplarCity draft="contributed">Gambier</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Azores">
-				<exemplarCity draft="contributed">Azores</exemplarCity>
-			</zone>
-			<zone type="Europe/Kaliningrad">
-				<exemplarCity draft="contributed">Kaliningrad</exemplarCity>
-			</zone>
-			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity draft="contributed">Krasnoyarsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Irkutsk">
-				<exemplarCity draft="contributed">Irkutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Kamchatka">
-				<exemplarCity draft="contributed">Kamchatka</exemplarCity>
-			</zone>
-			<zone type="Asia/Anadyr">
-				<exemplarCity draft="contributed">Anadyr</exemplarCity>
-			</zone>
 			<zone type="Asia/Dushanbe">
 				<exemplarCity draft="provisional">Dushanbe.</exemplarCity>
 			</zone>
 			<zone type="America/Port_of_Spain">
 				<exemplarCity draft="provisional">Port nang Espanya</exemplarCity>
-			</zone>
-			<zone type="Europe/Kiev">
-				<exemplarCity draft="contributed">Kiev</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity draft="contributed">Johnston</exemplarCity>
-			</zone>
-			<zone type="America/Adak">
-				<exemplarCity draft="contributed">Adak</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity draft="contributed">Honolulu</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<exemplarCity draft="contributed">Anchorage</exemplarCity>
-			</zone>
-			<zone type="America/Juneau">
-				<exemplarCity draft="contributed">Juneau</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity draft="contributed">Boise</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<exemplarCity draft="contributed">Denver</exemplarCity>
-			</zone>
-			<zone type="America/North_Dakota/Center">
-				<exemplarCity draft="contributed">Center, North Dakota</exemplarCity>
-			</zone>
-			<zone type="America/Chicago">
-				<exemplarCity draft="contributed">Chicago</exemplarCity>
-			</zone>
-			<zone type="America/Indianapolis">
-				<exemplarCity draft="contributed">Indianapolis</exemplarCity>
-			</zone>
-			<zone type="America/Detroit">
-				<exemplarCity draft="contributed">Detroit</exemplarCity>
 			</zone>
 			<zone type="America/St_Vincent">
 				<exemplarCity draft="provisional">St. Vincent</exemplarCity>
@@ -1121,27 +826,14 @@
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
-			<currency type="ADP">
-				<displayName draft="contributed">ADP</displayName>
-			</currency>
 			<currency type="AED">
 				<displayName draft="contributed">United Arab Emirates Dirham</displayName>
-			</currency>
-			<currency type="AFA">
-				<displayName draft="contributed">AFA</displayName>
-			</currency>
-			<currency type="AFN">
-				<displayName draft="contributed">AFN</displayName>
-			</currency>
-			<currency type="ALL">
-				<displayName draft="contributed">ALL</displayName>
 			</currency>
 			<currency type="ARS">
 				<displayName draft="contributed">Argentine Peso</displayName>
 			</currency>
 			<currency type="AUD">
 				<displayName draft="contributed">Australian Dollar</displayName>
-				<symbol draft="contributed">AUD</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName draft="contributed">Bulgarian Lev</displayName>
@@ -1151,7 +843,6 @@
 			</currency>
 			<currency type="BRL">
 				<displayName draft="contributed">Brazilian Real</displayName>
-				<symbol draft="contributed">R$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName draft="contributed">Canadian Dollar</displayName>
@@ -1164,7 +855,6 @@
 			</currency>
 			<currency type="CNY">
 				<displayName draft="contributed">Yuan Renminbi</displayName>
-				<symbol draft="contributed">CNY</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName draft="contributed">Colombian Peso</displayName>
@@ -1177,10 +867,6 @@
 			</currency>
 			<currency type="DKK">
 				<displayName draft="contributed">Denmark Kroner</displayName>
-				<symbol draft="contributed">DKK</symbol>
-			</currency>
-			<currency type="DZD">
-				<displayName draft="contributed">DZD</displayName>
 			</currency>
 			<currency type="EEK">
 				<displayName draft="contributed">Estonian Kroon</displayName>
@@ -1190,18 +876,15 @@
 			</currency>
 			<currency type="EUR">
 				<displayName draft="contributed">Euros</displayName>
-				<symbol draft="contributed">€</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName draft="contributed">French Franc</displayName>
 			</currency>
 			<currency type="GBP">
 				<displayName draft="contributed">British Pounds Sterling</displayName>
-				<symbol draft="contributed">UK£</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName draft="contributed">Hong Kong Dollars</displayName>
-				<symbol draft="contributed">HKD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName draft="contributed">Croatian Kuna</displayName>
@@ -1211,7 +894,6 @@
 			</currency>
 			<currency type="IDR">
 				<displayName draft="contributed">Indonesian Rupiah</displayName>
-				<symbol draft="contributed">IDR</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName draft="contributed">Israeli Shekel</displayName>
@@ -1222,7 +904,6 @@
 			</currency>
 			<currency type="JPY">
 				<displayName draft="contributed">Japanese Yen</displayName>
-				<symbol draft="contributed">JP¥</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName draft="contributed">South Korean Won</displayName>
@@ -1241,7 +922,6 @@
 			</currency>
 			<currency type="NOK">
 				<displayName draft="contributed">Norwegian Kroner</displayName>
-				<symbol draft="contributed">NOK</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName draft="contributed">New Zealand Dollars</displayName>
@@ -1258,7 +938,6 @@
 			</currency>
 			<currency type="PLN">
 				<displayName draft="contributed">Polish NewZloty</displayName>
-				<symbol draft="contributed">PLN</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName draft="contributed">Romanian Leu</displayName>
@@ -1268,15 +947,12 @@
 			</currency>
 			<currency type="RUB">
 				<displayName draft="contributed">Russian Ruble</displayName>
-				<symbol draft="contributed">RUB</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName draft="contributed">Saudi Riyal</displayName>
-				<symbol draft="contributed">SAR</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName draft="contributed">Sweden Kronor</displayName>
-				<symbol draft="contributed">SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName draft="contributed">Singapore Dollars</displayName>
@@ -1289,34 +965,27 @@
 			</currency>
 			<currency type="THB">
 				<displayName draft="contributed">Thai Baht</displayName>
-				<symbol draft="contributed">THB</symbol>
 			</currency>
 			<currency type="TRL">
-				<displayName>TRL</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Turkish Lira</displayName>
 			</currency>
 			<currency type="TRY">
 				<displayName draft="contributed">Turkish Lira</displayName>
-				<symbol draft="contributed">TRY</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName draft="contributed">New Taiwan Dollar</displayName>
-				<symbol draft="contributed">TWD</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName draft="contributed">US Dollar</displayName>
-				<symbol draft="contributed">US$</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName draft="contributed">Venezuela Bolivar</displayName>
 			</currency>
 			<currency type="XXX">
 				<displayName draft="contributed">XXX</displayName>
-				<symbol draft="contributed">XXX</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName draft="contributed">South African Rand</displayName>
-				<symbol draft="contributed">ZAR</symbol>
 			</currency>
 		</currencies>
 	</numbers>

@@ -1047,20 +1047,6 @@
 							<month type="11">11月</month>
 							<month type="12">12月</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">1月</month>
 							<month type="2">2月</month>
@@ -1411,15 +1397,6 @@
 						<displayName>区域</displayName>
 					</field>
 				</fields>
-			</calendar>
-			<calendar type="islamic">
-				<dateFormats>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="contributed">yyyy-MM-dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 			</calendar>
 			<calendar type="islamic-civil">
 				<dateTimeFormats>
@@ -3315,7 +3292,6 @@
 				</long>
 				<short>
 					<standard>IST (Israel)</standard>
-					<daylight>IDT</daylight>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>

@@ -760,20 +760,6 @@
 			<measurementSystemName type="metric" draft="contributed">मेट्रिक</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
-	<layout>
-		<inList draft="contributed">mixed</inList>
-		<inText type="currency" draft="contributed">mixed</inText>
-		<inText type="fields" draft="contributed">mixed</inText>
-		<inText type="keys" draft="contributed">mixed</inText>
-		<inText type="languages" draft="contributed">mixed</inText>
-		<inText type="long" draft="contributed">mixed</inText>
-		<inText type="measurementSystemNames" draft="contributed">mixed</inText>
-		<inText type="quarterWidth" draft="contributed">mixed</inText>
-		<inText type="scripts" draft="contributed">mixed</inText>
-		<inText type="territories" draft="contributed">mixed</inText>
-		<inText type="types" draft="contributed">mixed</inText>
-		<inText type="variants" draft="contributed">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[ॐ ०-९ अ-ऍ ए-ऑ ओ-न प-र ल ळ व-ह ़ ँ-ः ऽ ् ा-ॅ े-ॉ ो ौ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200C \u200D]</exemplarCharacters>
@@ -1048,23 +1034,6 @@
 					</field>
 				</fields>
 			</calendar>
-			<calendar type="hebrew">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="narrow">
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-							<month type="13" draft="contributed">13</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-			</calendar>
 			<calendar type="indian">
 				<months>
 					<monthContext type="format">
@@ -1073,33 +1042,18 @@
 							<month type="2">वैशाख</month>
 							<month type="3" draft="contributed">ज्येष्ठ</month>
 							<month type="4" draft="contributed">असध</month>
-							<month type="5">Sravana</month>
 							<month type="5" alt="proposed-x1001" draft="unconfirmed">श्रवण</month>
 							<month type="5" alt="proposed-x1002" draft="unconfirmed">श्रावण</month>
-							<month type="6">Bhadra</month>
 							<month type="6" alt="proposed-x1001" draft="unconfirmed">भद्र</month>
 							<month type="6" alt="proposed-x1002" draft="unconfirmed">भाद्र</month>
-							<month type="7">Asvina</month>
 							<month type="7" alt="proposed-x1001" draft="unconfirmed">आश्विन</month>
 							<month type="7" alt="proposed-x1002" draft="unconfirmed">अश्विन</month>
 							<month type="8">कार्तिक</month>
-							<month type="9">Agrahayana</month>
 							<month type="9" alt="proposed-x1001" draft="unconfirmed">अग्रहण</month>
 							<month type="9" alt="proposed-x1002" draft="unconfirmed">अग्रायण</month>
 							<month type="10" draft="contributed">पौष</month>
 							<month type="11" draft="contributed">माघ</month>
 							<month type="12" draft="contributed">फाल्गुन</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">चैत्र</month>
@@ -1129,34 +1083,19 @@
 							<month type="7" draft="contributed">आश्विन</month>
 							<month type="9" draft="contributed">अग्रहण</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">चैत्र</month>
 							<month type="2" draft="contributed">वैशाख</month>
 							<month type="3" draft="contributed">ज्येष्ठ</month>
-							<month type="4">Asadha</month>
 							<month type="4" alt="proposed-x1001" draft="unconfirmed">असाढ़</month>
 							<month type="4" alt="proposed-x1002" draft="unconfirmed">असध</month>
-							<month type="5">Sravana</month>
 							<month type="5" alt="proposed-x1001" draft="unconfirmed">श्रवण</month>
 							<month type="5" alt="proposed-x1002" draft="unconfirmed">श्रावण</month>
-							<month type="6">Bhadra</month>
 							<month type="6" alt="proposed-x1001" draft="unconfirmed">भाद्र</month>
 							<month type="6" alt="proposed-x1002" draft="unconfirmed">भद्र</month>
-							<month type="7">Asvina</month>
 							<month type="7" alt="proposed-x1001" draft="unconfirmed">अश्विन</month>
 							<month type="7" alt="proposed-x1002" draft="unconfirmed">आश्विन</month>
 							<month type="8">कार्तिक</month>
-							<month type="9">Agrahayana</month>
 							<month type="9" alt="proposed-x1001" draft="unconfirmed">अग्रहण</month>
 							<month type="9" alt="proposed-x1002" draft="unconfirmed">अग्रायण</month>
 							<month type="10">पौष</month>
@@ -1181,17 +1120,6 @@
 							<month type="9" draft="contributed">रमजान</month>
 							<month type="10" draft="contributed">शव्व्ल</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">मुहर्रम</month>
 							<month type="2" draft="contributed">सफर</month>
@@ -1206,16 +1134,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="10" draft="contributed">10</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">मुहर्रम</month>
 							<month type="2" draft="contributed">सफर</month>
@@ -1728,20 +1646,6 @@
 							<month type="11" draft="contributed">बहमन</month>
 							<month type="12" draft="contributed">ईस्फन्द्</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">फर्वादिन</month>
 							<month type="2" draft="contributed">ओर्दिवेहेस्ट</month>
@@ -1758,19 +1662,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">फर्वादिन</month>
 							<month type="2" draft="contributed">ओर्दिवेहेस्ट</month>
@@ -1787,66 +1678,6 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMEd" draft="contributed">E MMMM d</dateFormatItem>
-						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
-						<dateFormatItem id="y" draft="contributed">yyyy</dateFormatItem>
-						<dateFormatItem id="yM" draft="contributed">yyyy-M</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">EEE, yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">yyyy MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">EEE, yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yQ" draft="contributed">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="contributed">yyyy QQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="roc">
-				<pm draft="contributed">PM</pm>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern draft="contributed">EEEE, MMMM d, G y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern draft="contributed">MMMM d, G y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern draft="contributed">MMM d, G y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="contributed">G y/M/d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Hm" draft="contributed">H:mm</dateFormatItem>
-						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
-						<dateFormatItem id="MEd" draft="contributed">E, M-d</dateFormatItem>
-						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="contributed">E MMM d</dateFormatItem>
-						<dateFormatItem id="MMMMEd" draft="contributed">E MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
-						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
-						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
-						<dateFormatItem id="y" draft="contributed">yyyy</dateFormatItem>
-						<dateFormatItem id="yM" draft="contributed">yyyy-M</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">EEE, yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">yyyy MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">EEE, yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="contributed">yyyy MMMM</dateFormatItem>
-						<dateFormatItem id="yQ" draft="contributed">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="contributed">yyyy QQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

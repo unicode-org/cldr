@@ -47,9 +47,6 @@
 				<dateTimeFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0} - {1}</intervalFormatFallback>
-						<intervalFormatItem id="M">
-							<greatestDifference id="M" draft="unconfirmed">M-M</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="M" draft="unconfirmed">MM-dd - MM-dd</greatestDifference>
 							<greatestDifference id="d" draft="unconfirmed">MM-dd - MM-dd</greatestDifference>
@@ -69,9 +66,6 @@
 							<greatestDifference id="M" draft="unconfirmed">MM-dd - MM-dd</greatestDifference>
 							<greatestDifference id="d" draft="unconfirmed">MM-dd - MM-dd</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="d">
-							<greatestDifference id="d" draft="unconfirmed">d-d</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="h" draft="unconfirmed">H-H</greatestDifference>
 						</intervalFormatItem>
@@ -85,9 +79,6 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="h" draft="unconfirmed">H-H v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="y">
-							<greatestDifference id="y" draft="unconfirmed">y-y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M" draft="unconfirmed">yyyy-MM - yyyy-MM</greatestDifference>
@@ -137,9 +128,6 @@
 		<currencies>
 			<currency type="BND">
 				<symbol>$</symbol>
-			</currency>
-			<currency type="USD">
-				<symbol>US$</symbol>
 			</currency>
 		</currencies>
 	</numbers>

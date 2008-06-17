@@ -9,38 +9,6 @@
 	</identity>
 	<dates>
 		<calendars>
-			<calendar type="buddhist">
-				<am>AM</am>
-				<pm>PM</pm>
-				<eras>
-					<eraNames>
-						<era type="0">BE</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0">BE</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0">BE</era>
-					</eraNarrow>
-				</eras>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE, MMMM d, yyyy G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>MMMM d, yyyy G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>MMM d, yyyy G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-			</calendar>
 			<calendar type="gregorian">
 				<dateFormats>
 					<dateFormatLength type="medium">
@@ -159,3 +127,4 @@
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/en_CA.txt?only_with_tag=final-update-LDML
 -->
+

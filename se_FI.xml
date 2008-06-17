@@ -226,7 +226,6 @@
 		</measurementSystemNames>
 	</localeDisplayNames>
 	<dates>
-		<dateRangePattern draft="unconfirmed">{0}–{1}</dateRangePattern>
 		<calendars>
 			<calendar type="gregorian">
 				<months>
@@ -320,19 +319,10 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
 			<fallbackFormat draft="unconfirmed">{1} ({0})</fallbackFormat>
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<percentFormats>
-			<percentFormatLength>
-				<percentFormat>
-					<pattern draft="unconfirmed">#,##0 %</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
 		<currencies>
 			<currency type="FIM">
 				<displayName>FIM</displayName>
@@ -358,3 +348,4 @@
 		</messages>
 	</posix>
 </ldml>
+

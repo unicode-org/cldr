@@ -982,42 +982,6 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
 		<calendars>
-			<calendar type="buddhist">
-				<am draft="provisional">午前</am>
-				<pm draft="provisional">午後</pm>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern draft="provisional">yyyy年,MMMM月D日,EEEE</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern draft="provisional">yyyy年,MMMM月D日,EEEE</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern draft="provisional">yyyy年,MMMM月D日,EEEE</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="provisional">yyyy/M/d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="provisional">MMMM月d日</dateFormatItem>
-						<dateFormatItem id="MMMd">MMM月d日</dateFormatItem>
-						<dateFormatItem id="Md" draft="provisional">M/d</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="provisional">yy年MM月</dateFormatItem>
-						<dateFormatItem id="yyMMM" draft="provisional">yy年MMM月</dateFormatItem>
-						<dateFormatItem id="yyQ" draft="provisional">yy年Q</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

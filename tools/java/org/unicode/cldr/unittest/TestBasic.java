@@ -288,4 +288,25 @@ public class TestBasic extends TestFmwk {
     logln("locale: " + source);
     logln("status: " + status);
   }
+  
+  public void TestDefaultContents() {
+    Set<String> defaultContents = testInfo.getSupplementalDataInfo().getDefaultContentLocales();
+    for (String locale : defaultContents) {
+      CLDRFile cldrFile;
+      try {
+        cldrFile = testInfo.getCldrFactory().make(locale, false);
+      } catch (RuntimeException e) {
+        logln("Can't open default content file:\t" + locale);
+        continue;
+      }
+      for (Iterator<String> it = cldrFile.iterator(); it.hasNext();) {
+        String path = it.next();
+        if (path.contains("/identity")) {
+          continue;
+        }
+        errln("Default content file not empty:\t" + locale + ", \t" + path);
+        break;
+      }
+    }
+  }
 }

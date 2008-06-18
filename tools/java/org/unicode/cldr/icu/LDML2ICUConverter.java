@@ -2755,7 +2755,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 LDMLConstants.VARIANTS, LDMLConstants.MSNS,
                 LDMLConstants.TYPES, LDMLConstants.ALIAS,
                 //LDMLConstants.MSNS,
-                LDMLConstants.CODE_PATTERNS, };
+                LDMLConstants.CODE_PATTERNS,
+                LDMLConstants.LOCALEDISPLAYPATTERN };
 
         for (String name : stuff) {
             if (name.equals(LDMLConstants.LANGUAGES)
@@ -2768,6 +2769,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 res = parseList(loc, name);
             } else if (name.equals(LDMLConstants.TYPES)) {
                 res = parseDisplayTypes(loc, name);
+            } else if (name.equals(LDMLConstants.LOCALEDISPLAYPATTERN)) {
+                res = parseLocaleDisplayPattern(loc);
             } else if (name.equals(LDMLConstants.ALIAS)) {
                 // res = parseAliasResource(loc, name);
                 // TODO: parseAliasResource - these are different types in ICU, can't just alias them all
@@ -2829,6 +2832,51 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 table.appendContents(subTable);
             }
         }
+        if(!table.isEmpty()) {
+            return table;
+        }
+        return null;
+    }
+    
+    private ICUResourceWriter.Resource parseLocaleDisplayPattern(InputLocale loc) {
+                
+        StringBuffer myXpath = new StringBuffer();
+        myXpath.append("//ldml/localeDisplayNames/");
+        myXpath.append(LDMLConstants.LOCALEDISPLAYPATTERN);
+        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
+        table.name = LDMLConstants.LOCALEDISPLAYPATTERN;
+        ICUResourceWriter.Resource alias = null;
+
+        // if the whole thing is an alias
+        if((alias=getAliasResource(loc, myXpath.toString()))!=null) {
+            alias.name = table.name;
+            return alias;
+        }
+        
+        for (Iterator<String> iter = loc.file.iterator(myXpath.toString()); iter
+                .hasNext();) {
+            String xpath = iter.next();
+            if(loc.isPathNotConvertible(xpath)) {
+                continue;
+            }            
+            String element = loc.getXpathName(xpath);
+            String name = null;
+            if(LDMLConstants.LOCALE_PATTERN.equals(element)) {
+            	name = LDMLConstants.PATTERN;
+            }
+            else if (LDMLConstants.LOCALE_SEPARATOR.equals(element)) {
+            	name = LDMLConstants.SEPARATOR;
+            }
+            else {
+                printError(loc.locale,"Encountered unknown <" + xpath
+                        + "> subelement: " + element + " while looking for " + LDMLConstants.TYPE);
+                System.exit(-1);
+            }
+            String value = loc.file.getStringValue(xpath);
+            ICUResourceWriter.Resource res = ICUResourceWriter.createString(name, value);
+            table.appendContents(res);
+        }
+
         if(!table.isEmpty()) {
             return table;
         }

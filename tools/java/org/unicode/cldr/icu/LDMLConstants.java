@@ -103,7 +103,8 @@ public class LDMLConstants {
     public static final String DATE_FORMATS      = "dateFormats";
     public static final String DFL               = "dateFormatLength";
     public static final String DATE_FORMAT       = "dateFormat";
-    
+    public static final String SEPARATOR       = "separator";
+
     public static final String TIME_FORMATS      = "timeFormats";
     public static final String TFL               = "timeFormatLength";
     public static final String TIME_FORMAT       = "timeFormat";

@@ -211,9 +211,10 @@
       <likelySubtag from="und_AW" to="nl_Latn_AW"/> <!--{ ?; ?; Aruba } => { Dutch; Latin; Aruba }-->
       <likelySubtag from="und_AX" to="sv_Latn_AX"/> <!--{ ?; ?; Aland Islands } => { Swedish; Latin; Aland Islands }-->
       <likelySubtag from="und_AZ" to="az_Cyrl_AZ"/> <!--{ ?; ?; Azerbaijan } => { Azerbaijani; Cyrillic; Azerbaijan }-->
-      <likelySubtag from="und_Arab" to="ar_Arab_EG"/> <!--{ ?; Arabic; ? } => { Arabic; Arabic; Egypt }-->
+      <likelySubtag from="und_Arab" to="ur_Arab_PK"/> <!--{ ?; Arabic; ? } => { Urdu; Arabic; Pakistan }-->
       <likelySubtag from="und_Arab_CN" to="ug_Arab_CN"/> <!--{ ?; Arabic; China } => { Uighur; Arabic; China }-->
-      <likelySubtag from="und_Arab_IN" to="ur_Arab_IN"/> <!--{ ?; Arabic; India } => { Urdu; Arabic; India }-->
+      <likelySubtag from="und_Arab_ER" to="ar_Arab_ER"/> <!--{ ?; Arabic; Eritrea } => { Arabic; Arabic; Eritrea }-->
+      <likelySubtag from="und_Arab_IL" to="ar_Arab_IL"/> <!--{ ?; Arabic; Israel } => { Arabic; Arabic; Israel }-->
       <likelySubtag from="und_Armn" to="hy_Armn_AM"/> <!--{ ?; Armenian; ? } => { Armenian; Armenian; Armenia }-->
       <likelySubtag from="und_BA" to="bs_Latn_BA"/> <!--{ ?; ?; Bosnia and Herzegovina } => { Bosnian; Latin; Bosnia and Herzegovina }-->
       <likelySubtag from="und_BD" to="bn_Beng_BD"/> <!--{ ?; ?; Bangladesh } => { Bengali; Bengali; Bangladesh }-->
@@ -247,7 +248,6 @@
       <likelySubtag from="und_Cans" to="cwd_Cans_CA"/> <!--{ ?; Unified Canadian Aboriginal Syllabics; ? } => { Woods Cree; Unified Canadian Aboriginal Syllabics; Canada }-->
       <likelySubtag from="und_Cyrl" to="ru_Cyrl_RU"/> <!--{ ?; Cyrillic; ? } => { Russian; Cyrillic; Russia }-->
       <likelySubtag from="und_Cyrl_BA" to="sr_Cyrl_BA"/> <!--{ ?; Cyrillic; Bosnia and Herzegovina } => { Serbian; Cyrillic; Bosnia and Herzegovina }-->
-      <likelySubtag from="und_Cyrl_CN" to="kk_Cyrl_CN"/> <!--{ ?; Cyrillic; China } => { Kazakh; Cyrillic; China }-->
       <likelySubtag from="und_Cyrl_GE" to="ab_Cyrl_GE"/> <!--{ ?; Cyrillic; Georgia } => { Abkhazian; Cyrillic; Georgia }-->
       <likelySubtag from="und_DE" to="de_Latn_DE"/> <!--{ ?; ?; Germany } => { German; Latin; Germany }-->
       <likelySubtag from="und_DJ" to="ar_Arab_DJ"/> <!--{ ?; ?; Djibouti } => { Arabic; Arabic; Djibouti }-->
@@ -289,7 +289,7 @@
       <likelySubtag from="und_HR" to="hr_Latn_HR"/> <!--{ ?; ?; Croatia } => { Croatian; Latin; Croatia }-->
       <likelySubtag from="und_HT" to="ht_Latn_HT"/> <!--{ ?; ?; Haiti } => { Haitian; Latin; Haiti }-->
       <likelySubtag from="und_HU" to="hu_Latn_HU"/> <!--{ ?; ?; Hungary } => { Hungarian; Latin; Hungary }-->
-      <likelySubtag from="und_Hani" to="za_Hani_CN"/> <!--{ ?; Han; ? } => { Zhuang; Han; China }-->
+      <likelySubtag from="und_Hani" to="zh_Hans_CN"/> <!--{ ?; Han; ? } => { Chinese; Simplified Han; China }-->
       <likelySubtag from="und_Hans" to="zh_Hans_CN"/> <!--{ ?; Simplified Han; ? } => { Chinese; Simplified Han; China }-->
       <likelySubtag from="und_Hant" to="zh_Hant_TW"/> <!--{ ?; Traditional Han; ? } => { Chinese; Traditional Han; Taiwan }-->
       <likelySubtag from="und_Hebr" to="he_Hebr_IL"/> <!--{ ?; Hebrew; ? } => { Hebrew; Hebrew; Israel }-->
@@ -441,9 +441,10 @@
       <likelySubtag from="xh" to="xh_Latn_ZA"/> <!--{ Xhosa; ?; ? } => { Xhosa; Latin; South Africa }-->
       <likelySubtag from="yap" to="yap_Latn_FM"/> <!--{ Yapese; ?; ? } => { Yapese; Latin; Micronesia }-->
       <likelySubtag from="yo" to="yo_Latn_NG"/> <!--{ Yoruba; ?; ? } => { Yoruba; Latin; Nigeria }-->
-      <likelySubtag from="za" to="za_Hani_CN"/> <!--{ Zhuang; ?; ? } => { Zhuang; Han; China }-->
+      <likelySubtag from="za" to="za_Hans_CN"/> <!--{ Zhuang; ?; ? } => { Zhuang; Simplified Han; China }-->
       <likelySubtag from="zh" to="zh_Hans_CN"/> <!--{ Chinese; ?; ? } => { Chinese; Simplified Han; China }-->
       <likelySubtag from="zh_HK" to="zh_Hant_HK"/> <!--{ Chinese; ?; Hong Kong SAR China } => { Chinese; Traditional Han; Hong Kong SAR China }-->
+      <likelySubtag from="zh_Hani" to="zh_Hans_CN"/> <!--{ Chinese; Han; ? } => { Chinese; Simplified Han; China }-->
       <likelySubtag from="zh_Hant" to="zh_Hant_TW"/> <!--{ Chinese; Traditional Han; ? } => { Chinese; Traditional Han; Taiwan }-->
       <likelySubtag from="zh_ID" to="zh_Hant_ID"/> <!--{ Chinese; ?; Indonesia } => { Chinese; Traditional Han; Indonesia }-->
       <likelySubtag from="zh_MO" to="zh_Hant_MO"/> <!--{ Chinese; ?; Macau SAR China } => { Chinese; Traditional Han; Macau SAR China }-->

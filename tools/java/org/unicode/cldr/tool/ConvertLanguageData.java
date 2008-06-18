@@ -59,7 +59,7 @@ import java.util.regex.Pattern;
 public class ConvertLanguageData {
   
   // change this if you need to override what is generated for the default contents.
-  private static final List<String> defaultOverrides = Arrays.asList("es_ES und_ZZ".split("\\s+"));
+  private static final List<String> defaultOverrides = Arrays.asList("es_ES".split("\\s+")); //  und_ZZ
 
   private static final boolean ALLOW_SMALL_NUMBERS = true;
  
@@ -1385,7 +1385,13 @@ public class ConvertLanguageData {
         System.out.format("\tContenders: %s %f (based on literate population)\r\n", datum.getSecond(), datum.getFirst());
       }
       //System.out.format("\tPicking default content: %s %f (based on literate population)\r\n", bestLocale, best);
-      defaultLocaleContent.add(bestLocale);
+      // Hack to fix English
+      // TODO Generalize in the future for other locales with non-primary scripts
+      if (bestLocale.startsWith("en_")) {
+        defaultLocaleContent.add("en_US");
+      } else {
+        defaultLocaleContent.add(bestLocale);
+      }
     }
     
     System.out.format("Skipping Singletons %s\r\n", skippingSingletons);

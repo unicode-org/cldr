@@ -1682,8 +1682,8 @@ XXX	Code for transations where no currency is involved
 		<language type="so" scripts="Osma" territories="DJ ET" alt="secondary"/>
 		<language type="son" scripts="Latn"/>
 		<language type="sou" territories="TH" alt="secondary"/>
-		<language type="sq" scripts="Latn" territories="AL"/>
-		<language type="sq" territories="MK RS" alt="secondary"/>
+		<language type="sq" scripts="Latn" territories="AL MK"/>
+		<language type="sq" territories="RS" alt="secondary"/>
 		<language type="sr" scripts="Cyrl Latn" territories="BA ME RS"/>
 		<language type="srn" scripts="Latn"/>
 		<language type="srn" territories="SR" alt="secondary"/>
@@ -1799,7 +1799,7 @@ XXX	Code for transations where no currency is involved
 		<language type="yi" scripts="Hebr"/>
 		<language type="yo" scripts="Latn" territories="NG"/>
 		<language type="yrk" scripts="Cyrl"/>
-		<language type="za" scripts="Hani"/>
+		<language type="za" scripts="Hans"/>
 		<language type="za" territories="CN" alt="secondary"/>
 		<language type="zbl" scripts="Blis"/>
 		<language type="zh" scripts="Hans Hant" territories="CN HK MO SG TW"/>
@@ -1822,14 +1822,14 @@ XXX	Code for transations where no currency is involved
 		</territory>
 		<territory type="AF" gdp="21500000000" literacyPercent="28.1" population="30000000">	<!--Afghanistan-->
 			<languagePopulation type="fa" populationPercent="50" officialStatus="official"/>	<!--Persian-->
-			<languagePopulation type="ps" populationPercent="33.3" officialStatus="official"/>	<!--Pashto-->
+			<languagePopulation type="ps" populationPercent="43.3" officialStatus="official" references="R1055"/>	<!--Pashto-->
 			<languagePopulation type="haz" populationPercent="6"/>	<!--Hazaragi-->
 			<languagePopulation type="uz_Arab" populationPercent="4.67"/>	<!--Uzbek (Arabic)-->
 			<languagePopulation type="tk" populationPercent="1.67"/>	<!--Turkmen-->
 			<languagePopulation type="prd" populationPercent="1.17"/>	<!--Parsi-Dari-->
 			<languagePopulation type="bal" populationPercent="0.667"/>	<!--Baluchi-->
 			<languagePopulation type="ug" populationPercent="0.01"/>	<!--Uighur-->
-			<languagePopulation type="kk" populationPercent="0.007"/>	<!--Kazakh-->
+			<languagePopulation type="kk_Arab" populationPercent="0.007"/>	<!--Kazakh (Arabic)-->
 		</territory>
 		<territory type="AG" gdp="750000000" literacyPercent="85.8" population="80000">	<!--Antigua and Barbuda-->
 			<languagePopulation type="en" populationPercent="86.3" officialStatus="official"/>	<!--English-->
@@ -2059,7 +2059,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="mn_Mong" populationPercent="0.262" officialStatus="official_regional"/>	<!--Mongolian (Mongolian)-->
 			<languagePopulation type="bo" populationPercent="0.2" officialStatus="official_regional"/>	<!--Tibetan-->
 			<languagePopulation type="ko" populationPercent="0.146" officialStatus="official_regional"/>	<!--Korean-->
-			<languagePopulation type="kk" populationPercent="0.085"/>	<!--Kazakh-->
+			<languagePopulation type="kk_Arab" populationPercent="0.085"/>	<!--Kazakh (Arabic)-->
 			<languagePopulation type="lis" populationPercent="0.045"/>	<!--Lisu-->
 			<languagePopulation type="ky_Arab" populationPercent="0.034"/>	<!--Kirghiz (Arabic)-->
 			<languagePopulation type="nbf" populationPercent="0.024"/>	<!--Naxi-->
@@ -2178,7 +2178,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="ru" populationPercent="0.808" references="R1110"/>	<!--Russian-->
 			<languagePopulation type="en" populationPercent="0.187" references="R1110"/>	<!--English-->
 			<languagePopulation type="et" populationPercent="0.115"/>	<!--Estonian-->
-			<languagePopulation type="rom" populationPercent="0.096" references="R1111"/>	<!--Romany-->
+			<languagePopulation type="rmf" populationPercent="0.096" references="R1111"/>	<!--Kalo Finnish Romani-->
 			<languagePopulation type="se" populationPercent="0.038"/>	<!--Northern Sami-->
 			<languagePopulation type="smn" populationPercent="0.012" references="R1112"/>	<!--Inari Sami-->
 			<languagePopulation type="sms" populationPercent="0.012" references="R1112"/>	<!--Skolt Sami-->
@@ -2487,7 +2487,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="hy" populationPercent="0.243"/>	<!--Armenian-->
 			<languagePopulation type="ps" populationPercent="0.157"/>	<!--Pashto-->
 			<languagePopulation type="ka" populationPercent="0.071"/>	<!--Georgian-->
-			<languagePopulation type="kk" populationPercent="0.004"/>	<!--Kazakh-->
+			<languagePopulation type="kk_Arab" populationPercent="0.004"/>	<!--Kazakh (Arabic)-->
 		</territory>
 		<territory type="IS" gdp="10570000000" literacyPercent="99.1" population="320000">	<!--Iceland-->
 			<languagePopulation type="is" populationPercent="100" officialStatus="official" references="R1035"/>	<!--Icelandic-->
@@ -2571,7 +2571,7 @@ XXX	Code for transations where no currency is involved
 		</territory>
 		<territory type="KZ" gdp="124300000000" literacyPercent="99.5" population="15000000">	<!--Kazakhstan-->
 			<languagePopulation type="ru" populationPercent="93.3" officialStatus="official" references="R1068"/>	<!--Russian-->
-			<languagePopulation type="kk" populationPercent="64" officialStatus="official" references="R1068"/>	<!--Kazakh-->
+			<languagePopulation type="kk_Cyrl" populationPercent="64" officialStatus="official" references="R1068"/>	<!--Kazakh (Cyrillic)-->
 			<languagePopulation type="de" populationPercent="6.4"/>	<!--German-->
 			<languagePopulation type="ug" populationPercent="2"/>	<!--Uighur-->
 		</territory>
@@ -2652,7 +2652,7 @@ XXX	Code for transations where no currency is involved
 		</territory>
 		<territory type="MG" gdp="16360000000" literacyPercent="70.7" population="17000000">	<!--Madagascar-->
 			<languagePopulation type="mg" populationPercent="58.8" officialStatus="official"/>	<!--Malagasy-->
-			<languagePopulation type="kk" populationPercent="1.06"/>	<!--Kazakh-->
+			<languagePopulation type="kk_Arab" populationPercent="1.06"/>	<!--Kazakh (Arabic)-->
 			<languagePopulation type="fr" populationPercent="0.106" officialStatus="official"/>	<!--French-->
 		</territory>
 		<territory type="MH" gdp="115000000" literacyPercent="93.7" population="60000">	<!--Marshall Islands-->
@@ -2661,7 +2661,7 @@ XXX	Code for transations where no currency is involved
 		</territory>
 		<territory type="MK" gdp="16030000000" literacyPercent="96.1" population="2100000">	<!--Macedonia-->
 			<languagePopulation type="mk" populationPercent="66.7" officialStatus="official"/>	<!--Macedonian-->
-			<languagePopulation type="sq" populationPercent="24.8" references="R1053"/>	<!--Albanian-->
+			<languagePopulation type="sq" populationPercent="24.8" officialStatus="de_facto_official" references="R1053"/>	<!--Albanian-->
 			<languagePopulation type="tr" populationPercent="9.52" officialStatus="official_regional"/>	<!--Turkish-->
 		</territory>
 		<territory type="ML" gdp="13560000000" literacyPercent="19" population="12000000">	<!--Mali-->
@@ -2910,11 +2910,11 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="es" populationPercent="0.003" officialStatus="official"/>	<!--Spanish-->
 		</territory>
 		<territory type="PK" gdp="393400000000" literacyPercent="49.9" population="150000000">	<!--Pakistan-->
-			<languagePopulation type="ur" populationPercent="50" officialStatus="official"/>	<!--Urdu-->
+			<languagePopulation type="ur" populationPercent="93.3" officialStatus="official" references="R1106"/>	<!--Urdu-->
+			<languagePopulation type="en" populationPercent="50.7" officialStatus="official" references="R1106"/>	<!--English-->
 			<languagePopulation type="lah" populationPercent="40.7"/>	<!--Lahnda-->
-			<languagePopulation type="ps" populationPercent="12.7"/>	<!--Pashto-->
+			<languagePopulation type="ps" populationPercent="15.3" references="R1107"/>	<!--Pashto-->
 			<languagePopulation type="sd_Arab" populationPercent="12.7"/>	<!--Sindhi (Arabic)-->
-			<languagePopulation type="en" populationPercent="11.3" officialStatus="official"/>	<!--English-->
 			<languagePopulation type="bal" populationPercent="3.8"/>	<!--Baluchi-->
 			<languagePopulation type="brh" populationPercent="1.33"/>	<!--Brahui-->
 			<languagePopulation type="hno" populationPercent="1.27"/>	<!--Northern Hindko-->
@@ -3051,7 +3051,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="sma" writingPercent="75" populationPercent="0.003"/>	<!--Southern Sami-->
 		</territory>
 		<territory type="SG" gdp="124300000000" literacyPercent="92.6" population="4300000">	<!--Singapore-->
-			<languagePopulation type="en" populationPercent="81.4" officialStatus="official"/>	<!--English-->
+			<languagePopulation type="en" populationPercent="81.4" officialStatus="official" references="R1118"/>	<!--English-->
 			<languagePopulation type="zh_Hans" populationPercent="76.7" officialStatus="official"/>	<!--Chinese (Simplified Han)-->
 			<languagePopulation type="ms" populationPercent="14.2" officialStatus="official"/>	<!--Malay-->
 			<languagePopulation type="ta" populationPercent="2.09" officialStatus="official"/>	<!--Tamil-->
@@ -3193,7 +3193,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="el" populationPercent="0.006"/>	<!--Greek-->
 			<languagePopulation type="uz_Latn" populationPercent="0.003"/>	<!--Uzbek (Latin)-->
 			<languagePopulation type="ky_Latn" populationPercent="0.002"/>	<!--Kirghiz (Latin)-->
-			<languagePopulation type="kk" populationPercent="0.001"/>	<!--Kazakh-->
+			<languagePopulation type="kk_Latn" populationPercent="0.001"/>	<!--Kazakh (Latin)-->
 		</territory>
 		<territory type="TT" gdp="18010000000" literacyPercent="98" population="1300000">	<!--Trinidad and Tobago-->
 			<languagePopulation type="es" populationPercent="0.315"/>	<!--Spanish-->
@@ -4880,6 +4880,7 @@ XXX	Code for transations where no currency is involved
 		<reference type="R1052" uri="http://en.wikipedia.org/wiki/List_of_countries_by_English-speaking_population">The figure is from Wikipedia article on English-speaking populations</reference>
 		<reference type="R1053" uri="https://www.cia.gov/cia/publications/factbook/fields/2098.html">Albanian 25.1%</reference>
 		<reference type="R1054" uri="https://www.cia.gov/cia/publications/factbook/geos/rw.html">English is an official language, not widely spoken</reference>
+		<reference type="R1055" uri="http://en.wikipedia.org/wiki/Pashto_language">42.6% of population</reference>
 		<reference type="R1056" uri="http://www.joshuaproject.net/peopctry.php?rop3=101703&amp;rog3=MY">[missing]</reference>
 		<reference type="R1057" uri="http://www.ethnologue.com/show_language.asp?code=tpi">4mil 2nd lang speakers, 120k 1st lang, 20k monolinguals. English creole; 40-45% literacy.</reference>
 		<reference type="R1058" uri="http://www.ethnologue.com/show_language.asp?code=hmo">A pidginizatino of Motu; 120k 2nd lang speakers, very few 1st lang.</reference>
@@ -4930,6 +4931,8 @@ XXX	Code for transations where no currency is involved
 		<reference type="R1103" uri="http://www.ethnologue.com/show_language.asp?code=srn">The lingua franca of 80% of the population</reference>
 		<reference type="R1104" uri="http://www.ethnologue.com/show_language.asp?code=bem">[missing]</reference>
 		<reference type="R1105" uri="http://en.wikipedia.org/wiki/Uzbek_language#Writing_systems">[missing]</reference>
+		<reference type="R1106" uri="http://en.wikipedia.org/wiki/Languages_of_Pakistan">- More than 95% of Pakistanis can speak or understand Urdu as their second or third language</reference>
+		<reference type="R1107" uri="http://en.wikipedia.org/wiki/Pashto_language">15.42% of population</reference>
 		<reference type="R1108" uri="http://www.ethnologue.com/show_language.asp?code=mos">Also called Mòoré</reference>
 		<reference type="R1109" uri="http://www.ethnologue.com/show_country.asp?name=Bahrain">[missing]</reference>
 		<reference type="R1110" uri="http://www.vaestorekisterikeskus.fi/vrk/home.nsf/pages/index_eng">[missing]</reference>
@@ -4940,5 +4943,6 @@ XXX	Code for transations where no currency is involved
 		<reference type="R1115" uri="http://www.jewish-languages.org/jewish-malayalam.html">[missing]</reference>
 		<reference type="R1116" uri="https://www.cia.gov/cia/publications/factbook/geos/sv.html">CIA Factbook lists spoken language, the entry for Bokmål only on Svalbard and Jan Mayan is an assumption.</reference>
 		<reference type="R1117" uri="http://en.wikipedia.org/wiki/Volap%C3%BCk">Artificial: 'There are an estimated 20-30 Volapük speakers in the world today.'; see also http://www.villagevoice.com/arts/0031,lafarge,16942,12.html</reference>
+		<reference type="R1118" uri="http://en.wikipedia.org/wiki/Singapore">  English is the first language learned by half the children by the time they reach preschool age</reference>
 	</references>
 </supplementalData>

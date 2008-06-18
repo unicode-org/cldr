@@ -15,6 +15,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
@@ -199,9 +200,10 @@ public class GenerateMaximalLocales {
     }
   }
  
-  private static final double MAX_MIN_UNOFFICIAL_LANGUAGE_SIZE = Double.MAX_VALUE;
-  private static final double MIN_UNOFFICIAL_LANGUAGE_SIZE = Double.MAX_VALUE;
+  private static final double MIN_UNOFFICIAL_LANGUAGE_SIZE = 10000000;
   private static final double MIN_UNOFFICIAL_LANGUAGE_PROPORTION = 0.20;
+  private static final double MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE = 1000000;
+  
   private static final Map<String,String> LANGUAGE_OVERRIDES = Utility.asMap(new String[][]{
           {"es", "es_Latn_ES"},
           {"es_Latn", "es_Latn_ES"},
@@ -212,6 +214,8 @@ public class GenerateMaximalLocales {
           {"pa_PK", "pa_Arab_PK"}, // because Albanian not official language
   });
 
+  static NumberFormat percent = NumberFormat.getPercentInstance();
+  static NumberFormat number = NumberFormat.getIntegerInstance();
 
   private static void tryDifferentAlgorithm(Map<String, String> toMaximized) {
     // we are going to try a different approach.
@@ -227,11 +231,11 @@ public class GenerateMaximalLocales {
       otherTerritories.remove(region);
       PopulationData regionData = supplementalData.getPopulationDataForTerritory(region);
       final double literateTerritoryPopulation = regionData.getLiteratePopulation();
+      // we need any unofficial language to meet a certain absolute size requirement and proportion size requirement.
+      // so the bar is x percent of the population, reset up to y absolute size.
       double minimalLiteratePopulation = literateTerritoryPopulation*MIN_UNOFFICIAL_LANGUAGE_PROPORTION;
       if (minimalLiteratePopulation < MIN_UNOFFICIAL_LANGUAGE_SIZE) {
         minimalLiteratePopulation = MIN_UNOFFICIAL_LANGUAGE_SIZE;
-      } else if (minimalLiteratePopulation > MAX_MIN_UNOFFICIAL_LANGUAGE_SIZE) {
-        minimalLiteratePopulation = MAX_MIN_UNOFFICIAL_LANGUAGE_SIZE;
       }
 
       for (String writtenLanguage : supplementalData.getLanguagesForTerritoryWithPopulationData(region)) {
@@ -239,10 +243,20 @@ public class GenerateMaximalLocales {
         final double literatePopulation = data.getLiteratePopulation();
         if (data.getOfficialStatus() == OfficialStatus.unknown) {
           final String locale = writtenLanguage + "_" + region;
-          if (literatePopulation < minimalLiteratePopulation && !cldrLocales.contains(locale)) {
-            System.out.println("Skipping\t" + writtenLanguage + "\t" + region + "\t" + english.getName(locale) + "\t-- too small:\t" + literatePopulation);
+          if (literatePopulation >= minimalLiteratePopulation) {
+            // ok, skip
+          } else if (literatePopulation >= MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE && cldrLocales.contains(writtenLanguage)) {
+            // ok, skip
+          } else {
+            System.out.println("Skipping\t" + writtenLanguage + "\t" + region + "\t" + english.getName(locale)
+                    + "\t-- too small:\t" + number.format(literatePopulation));
             continue;
           }
+          System.out.println("Retaining\t" + writtenLanguage + "\t" + region + "\t" + english.getName(locale) 
+                  + "\t" + number.format(literatePopulation)
+                  + "\t" + percent.format(literatePopulation/literateTerritoryPopulation)
+                  + (cldrLocales.contains(locale) ? "\tin-CLDR" : "")
+                  );
         }
         String script;
         String language = writtenLanguage;

@@ -304,9 +304,35 @@ public class TestBasic extends TestFmwk {
         if (path.contains("/identity")) {
           continue;
         }
-        errln("Default content file not empty:\t" + locale + ", \t" + path);
+        errln("Default content file not empty:\t" + locale);
+        showDifferences(locale);
         break;
       }
     }
+  }
+
+  private void showDifferences(String locale) {
+    CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, false);
+    final String localeParent = cldrFile.getParent(locale);
+    CLDRFile parentFile = testInfo.getCldrFactory().make(localeParent, true);
+    int funnyCount = 0;
+    for (Iterator<String> it = cldrFile.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
+      String path = it.next();
+      if (path.contains("/identity")) {
+        continue;
+      }
+      final String fullXPath = cldrFile.getFullXPath(path);
+      if (fullXPath.contains("[@draft=\"unconfirmed\"]") || fullXPath.contains("[@draft=\"provisional\"]")) {
+        funnyCount++;
+        continue;
+      }
+      logln("\tpath:\t" + path);
+      logln("\t\t" + locale + " value:\t<" + cldrFile.getStringValue(path) + ">");
+      final String parentFullPath = parentFile.getFullXPath(path);
+      logln("\t\t" + localeParent + " value:\t<" + parentFile.getStringValue(path) + ">");
+      logln("\t\t" + locale + " fullpath:\t" + fullXPath);
+      logln("\t\t" + localeParent + " fullpath:\t" + parentFullPath);
+        }
+    logln("\tCount of non-approved:\t" + funnyCount);
   }
 }

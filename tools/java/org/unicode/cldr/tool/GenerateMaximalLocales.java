@@ -1,8 +1,21 @@
 package org.unicode.cldr.tool;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.BitSet;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.regex.Pattern;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.Row;
 import org.unicode.cldr.util.StandardCodes;
@@ -19,18 +32,6 @@ import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.BitSet;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
 
 /**
  * Problems:
@@ -61,53 +62,13 @@ public class GenerateMaximalLocales {
   private static int errorCount;
 
   public static void main(String[] args) throws IOException {
-    Set<String> defaultContentLocales = supplementalData.getDefaultContentLocales();
     Map<String,String> toMaximized = new TreeMap<String,String>();
-    LanguageTagParser parser = new LanguageTagParser();
 
     if (tryDifferent) {
       tryDifferentAlgorithm(toMaximized);
 
     } else {
-
-      for (String locale : defaultContentLocales) {
-        String parent = parser.getParent(locale);
-        toMaximized.put(parent, locale);
-        if (SHOW_ADD) System.out.println("Adding:\t" + parent + "\t=>\t" + locale + "\t\tDefaultContent");
-      }
-
-      for (String[] specialCase : SpecialCases) {
-        toMaximized.put(specialCase[0], specialCase[1]);
-        if (SHOW_ADD) System.out.println("Adding:\t" + specialCase[0] + "\t=>\t" + specialCase[1] + "\t\tSpecial");
-      }
-
-      // recurse and close
-      closeMapping(toMaximized);
-
-      addScript(toMaximized, parser);
-
-      closeMapping(toMaximized);
-
-      addLanguageScript(toMaximized, parser);
-
-      closeMapping(toMaximized);
-
-      addLanguageCountry(toMaximized, parser);
-
-      closeMapping(toMaximized);
-
-      addCountries(toMaximized);
-      addScript(toMaximized, parser);   
-      closeMapping(toMaximized);
-      closeUnd(toMaximized);
-      
-      addDeprecated(toMaximized);
-
-      closeMapping(toMaximized);
-
-      checkConsistency(toMaximized);
-
-
+      oldAlgorithm(toMaximized);
     }
 
     minimize(toMaximized);
@@ -116,7 +77,7 @@ public class GenerateMaximalLocales {
       doAlt(toMaximized);
     }
 
-    System.out.println("/*\r\n To Maximize:" +
+    if (SHOW_ADD) System.out.println("/*\r\n To Maximize:" +
             "\r\n If using raw strings, make sure the input language/locale uses the right separator, and has the right casing." +
             "\r\n Remove the script Zzzz and the region ZZ if they occur; change an empty language subtag to 'und'." +
             "\r\n Get the language, region, and script from the cleaned-up tag, plus any variants/extensions" +
@@ -151,8 +112,149 @@ public class GenerateMaximalLocales {
 //  printMap("const MapToMinimalSubtags default_subtags[]", toMinimized, null);
 //  }
 
+    printDefaultContent(toMaximized);
+    
     System.out.println("\r\nERRORS:\t" + errorCount + "\r\n");
+    
 
+
+  }
+  
+  static void printDefaultContent(Map<String, String> toMaximized) throws IOException {
+    
+    Set<String> defaultLocaleContent = new TreeSet<String>();
+    
+    // go through all the cldr locales, and add default contents
+    // now computed from toMaximized
+    Set<String> available = factory.getAvailable();
+    Relation<String,String> toChildren = new Relation(new TreeMap(), TreeSet.class);
+    LanguageTagParser ltp = new LanguageTagParser();
+    
+    //System.out.println(maximize("az_Latn_AZ", toMaximized));
+    Set<String> hasScript = new TreeSet<String>();
+
+    // first get a mapping to children
+    for (String locale : available) {
+      if (locale.equals("root")) {
+        continue;
+      }
+      if (ltp.set(locale).getVariants().size() != 0) {
+        continue;
+      }
+      String parent = LanguageTagParser.getParent(locale);
+      if (ltp.getScript().length() != 0) {
+        hasScript.add(parent);
+      }
+      if (parent.equals("root")) {
+        continue;
+      }
+      toChildren.put(parent, locale);
+    }
+    
+    // if any have a script, then throw out any that don't have a script (they're aliases)
+    Set<String> toRemove = new TreeSet<String>();
+    for (String locale : hasScript) {
+      toRemove.clear();
+      Set<String> children = toChildren.getAll(locale);
+      for (String child : children) {
+        if (ltp.set(child).getScript().length() == 0) {
+          toRemove.add(child);
+        }
+      }
+      if (toRemove.size() != 0) {
+        if (SHOW_ADD) System.out.println("Removing:\t" + locale + "\t" + toRemove + "\tfrom\t" + children);
+        toChildren.removeAll(locale, toRemove);
+      }
+    }
+
+
+    // we add a child as a default locale if it has the same maximization
+    main:
+      for (String locale : toChildren.keySet()) {
+        if (locale.equals("en")) {
+          // special case English (because of Deseret)
+          defaultLocaleContent.add("en_US");
+          continue;
+        }
+        String maximized = maximize(locale, toMaximized);
+        if (maximized == null) {
+          if (SHOW_ADD) System.out.println("Missing maximized:\t" + locale);
+          continue;
+        }
+        Set<String> children = toChildren.getAll(locale);
+        Map<String,String> debugStuff = new TreeMap<String, String>();
+        for (String child : children) {
+          String maximizedChild = maximize(child, toMaximized);
+          if (maximized.equals(maximizedChild)) {
+            defaultLocaleContent.add(child);
+            continue main;
+          }
+          debugStuff.put(child, maximizedChild);
+        }
+        if (SHOW_ADD) System.out.println("Can't find maximized: " + locale + "=" + maximized
+                + "\tin\t" + debugStuff);
+      }
+
+
+    Log.setLogNoBOM(Utility.GEN_DIRECTORY + "/supplemental/supplementalMetadata.xml");
+    BufferedReader oldFile = BagFormatter.openUTF8Reader(Utility.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
+    Utility.copyUpTo(oldFile, Pattern.compile("\\s*<defaultContent locales=\"\\s*"), Log.getLog(), false);
+
+
+
+    String sep = "\r\n\t\t\t";
+    String broken = Utility.breakLines(Utility.join(defaultLocaleContent," "), sep, Pattern.compile("(\\S)\\S*").matcher(""), 80);
+    
+    Log.println("\t\t<defaultContent locales=\"" + broken + "\"");
+    Log.println("\t\t/>");
+    
+//  Log.println("</supplementalData>");
+    Utility.copyUpTo(oldFile, Pattern.compile("\\s*/>\\s*"), null, false);
+    Utility.copyUpTo(oldFile, null, Log.getLog(), false);
+
+    Log.close();
+    oldFile.close();
+  }
+
+  private static void oldAlgorithm(Map<String,String> toMaximized) {
+    Set<String> defaultContentLocales = supplementalData.getDefaultContentLocales();
+    LanguageTagParser parser = new LanguageTagParser();
+    for (String locale : defaultContentLocales) {
+      String parent = parser.getParent(locale);
+      toMaximized.put(parent, locale);
+      if (SHOW_ADD) System.out.println("Adding:\t" + parent + "\t=>\t" + locale + "\t\tDefaultContent");
+    }
+
+    for (String[] specialCase : SpecialCases) {
+      toMaximized.put(specialCase[0], specialCase[1]);
+      if (SHOW_ADD) System.out.println("Adding:\t" + specialCase[0] + "\t=>\t" + specialCase[1] + "\t\tSpecial");
+    }
+
+    // recurse and close
+    closeMapping(toMaximized);
+
+    addScript(toMaximized, parser);
+
+    closeMapping(toMaximized);
+
+    addLanguageScript(toMaximized, parser);
+
+    closeMapping(toMaximized);
+
+    addLanguageCountry(toMaximized, parser);
+
+    closeMapping(toMaximized);
+
+    addCountries(toMaximized);
+    addScript(toMaximized, parser);   
+    closeMapping(toMaximized);
+    closeUnd(toMaximized);
+    
+    addDeprecated(toMaximized);
+
+    closeMapping(toMaximized);
+
+    checkConsistency(toMaximized);
   }
 
   static class MaxData {
@@ -189,7 +291,7 @@ public class GenerateMaximalLocales {
       scriptRegions.put(Row.make(script,region), Row.make(order, language));
       languageRegions.put(Row.make(language,region), Row.make(order, script));
       
-      System.out.println("Data:\t" + language + "\t" + script + "\t" + region + "\t" + order);
+      if (SHOW_ADD) System.out.println("Data:\t" + language + "\t" + script + "\t" + region + "\t" + order);
     }
     private void addCounter(Map<String, Counter<String>> map, String key, String key2, Double count) {
       Counter<String> counter = map.get(key);
@@ -202,17 +304,37 @@ public class GenerateMaximalLocales {
  
   private static final double MIN_UNOFFICIAL_LANGUAGE_SIZE = 10000000;
   private static final double MIN_UNOFFICIAL_LANGUAGE_PROPORTION = 0.20;
-  private static final double MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE = 1000000;
-  
+  private static final double MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE = 100000;
+  static final double UNOFFICIAL_SCALE_DOWN = 1.0;
+
   private static final Map<String,String> LANGUAGE_OVERRIDES = Utility.asMap(new String[][]{
           {"es", "es_Latn_ES"},
           {"es_Latn", "es_Latn_ES"},
+          {"az", "az_Cyrl_AZ"},
+          {"az_Cyrl", "az_Cyrl_AZ"},
+          {"mn", "mn_Cyrl_MN"},
+          {"mn_Cyrl", "mn_Cyrl_MN"},
+          {"sw", "sw_Latn_TZ"},
+          {"sw_Latn", "sw_Latn_TZ"},
           {"und", "en_Latn_US"},
+          {"und_Hani", "zh_Hans_CN"},
+          {"und_Hani_CN", "zh_Hans_CN"},
+          {"zh_Hani", "zh_Hans_CN"},
           {"trv", "trv_Latn_TW"}, // should fix by having tr_TW in repository
-          {"und_Latn_MK", "sq_Latn_MK"}, // because Albanian not official language
-          {"pa_Arab", "pa_Arab_PK"}, // because Albanian not official language
-          {"pa_PK", "pa_Arab_PK"}, // because Albanian not official language
+          //{"und_Latn_MK", "sq_Latn_MK"}, // because Albanian not official language
+          {"pa_Arab", "pa_Arab_PK"},
+          {"pa_PK", "pa_Arab_PK"},
+          {"ps", "ps_Arab_AF"},
+          {"ps_Arab", "ps_Arab_AF"},
   });
+  
+//  private static final Map<String,String> LANGUAGE_SEGMENT_OVERRIDES = Utility.asMap(new String[][]{
+//          {"es_Latn_ES", "1e10"}
+//          {"en_Latn_US", "1e10"}
+//          "trv_Latn_TW",
+//          //"pa_Arab_PK"
+//  ));
+
 
   static NumberFormat percent = NumberFormat.getPercentInstance();
   static NumberFormat number = NumberFormat.getIntegerInstance();
@@ -241,18 +363,21 @@ public class GenerateMaximalLocales {
       for (String writtenLanguage : supplementalData.getLanguagesForTerritoryWithPopulationData(region)) {
         PopulationData data = supplementalData.getLanguageAndTerritoryPopulationData(writtenLanguage, region);
         final double literatePopulation = data.getLiteratePopulation();
+        double order = -literatePopulation;
+        
         if (data.getOfficialStatus() == OfficialStatus.unknown) {
           final String locale = writtenLanguage + "_" + region;
           if (literatePopulation >= minimalLiteratePopulation) {
             // ok, skip
-          } else if (literatePopulation >= MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE && cldrLocales.contains(writtenLanguage)) {
+          } else if (literatePopulation >= MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE && cldrLocales.contains(locale)) {
             // ok, skip
           } else {
-            System.out.println("Skipping\t" + writtenLanguage + "\t" + region + "\t" + english.getName(locale)
+            if (SHOW_ADD) System.out.println("Skipping:\t" + writtenLanguage + "\t" + region + "\t" + english.getName(locale)
                     + "\t-- too small:\t" + number.format(literatePopulation));
             continue;
           }
-          System.out.println("Retaining\t" + writtenLanguage + "\t" + region + "\t" + english.getName(locale) 
+          order *= UNOFFICIAL_SCALE_DOWN;
+          if (SHOW_ADD) System.out.println("Retaining\t" + writtenLanguage + "\t" + region + "\t" + english.getName(locale) 
                   + "\t" + number.format(literatePopulation)
                   + "\t" + percent.format(literatePopulation/literateTerritoryPopulation)
                   + (cldrLocales.contains(locale) ? "\tin-CLDR" : "")
@@ -267,7 +392,6 @@ public class GenerateMaximalLocales {
         } else {
           script = getScriptForLocale2(language);
         }
-        Double order = -literatePopulation;
         maxData.add(language, script, region, order);
       }
     }
@@ -277,6 +401,14 @@ public class GenerateMaximalLocales {
       if (region.length() == 3) continue; // FIX ONCE WE ADD REGIONS
       maxData.add("en", "Latn", region, 1.0);
     }
+    
+    // add override segments
+//    double higherThanAny = -1e12;
+//    for (String locale : LANGUAGE_SEGMENT_OVERRIDES) {
+//      String[] parts = locale.split("_");
+//      maxData.add(parts[0], parts[1], parts[2], higherThanAny);
+//      higherThanAny += 1; // lower slightly for next one
+//    }
     
     // now, get the best for each one
     for (String language : maxData.languages.keySet()) {
@@ -354,6 +486,7 @@ public class GenerateMaximalLocales {
     }
   }
 
+
   private static void doAlt(Map<String, String> toMaximized) {
     // TODO Auto-generated method stub
     Map<String, String> temp = new TreeMap();
@@ -412,7 +545,7 @@ public class GenerateMaximalLocales {
       if (region.length() != 0) {
         result = toMaximized.get(ltp.setRegion("").toString());
         if (result != null) {
-          return ltp.set(result).setRegion(region).toString();
+          return ltp.set(result).setScript(script).setRegion(region).toString();
         }
       }
     }
@@ -1065,7 +1198,7 @@ public class GenerateMaximalLocales {
       }
     } finally {
       localeToScriptCache.put(locale, result);
-      System.out.println("Script:\t" + locale + "\t" + english.getName(locale) + "\t=>\t" + result + "\t" + english.getName(english.SCRIPT_NAME, result));
+      if (SHOW_ADD) System.out.println("Script:\t" + locale + "\t" + english.getName(locale) + "\t=>\t" + result + "\t" + english.getName(english.SCRIPT_NAME, result));
     }
   }
 

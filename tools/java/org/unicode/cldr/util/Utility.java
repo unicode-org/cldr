@@ -525,15 +525,18 @@ public static <T> T clone(T source) {
 	 * Utility like Arrays.asList()
 	 */
   public static Map asMap(Object[][] source, Map target, boolean reverse) {
-		int from = 0, to = 1;
-		if (reverse) {
-			from = 1; to = 0;
-		}
-    	for (int i = 0; i < source.length; ++i) {
-    		target.put(source[i][from], source[i][to]);
-    	}
-    	return target;
-	}
+    int from = 0, to = 1;
+    if (reverse) {
+      from = 1; to = 0;
+    }
+    for (int i = 0; i < source.length; ++i) {
+      if (source[i].length != 2) {
+        throw new IllegalArgumentException("Source must be array of pairs of strings: " + Arrays.asList(source[i]));
+      }
+      target.put(source[i][from], source[i][to]);
+    }
+    return target;
+  }
 	
 	public static Map asMap(Object[][] source) {
     	return asMap(source, new HashMap(), false);
@@ -1269,6 +1272,36 @@ public static <T> T clone(T source) {
           + (correction == null ? "" : "\r\n" + correction));
     }
     return canonicalPath;
+  }
+
+  /**
+   * Copy up to matching line (not included). If output is null, then just skip until.
+   * @param oldFile
+   * @param readUntilPattern
+   * @param output
+   * @throws IOException
+   */
+  public static void copyUpTo(BufferedReader oldFile, final Pattern readUntilPattern,
+          final PrintWriter output, boolean includeMatchingLine) throws IOException {
+    Matcher readUntil = readUntilPattern == null ? null : readUntilPattern.matcher("");
+    while (true) {
+      String line = oldFile.readLine();
+      if (line == null) {
+        break;
+      }
+      if (line.startsWith("\uFEFF")) {
+        line = line.substring(1);
+      }
+      if (readUntil != null && readUntil.reset(line).matches()) {
+        if (includeMatchingLine && output != null) {
+          output.println(line);
+        }
+        break;
+      }
+      if (output != null) {
+        output.println(line);
+      }
+    }
   }
 
 }

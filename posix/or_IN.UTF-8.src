@@ -7,6 +7,29 @@ escape_char /
 * see http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap07.html                    *
 * Locale Name : or_IN   Codeset : UTF-8
 *************************************************************************************************
+* Copyright 1991-2008 Unicode, Inc. All rights reserved. Distributed under the Terms of Use in  *
+* http://www.unicode.org/copyright.html.                                                        *
+*                                                                                               *
+* Permission is hereby granted, free of charge, to any person obtaining a copy of the Unicode   *
+* data files and any associated documentation (the "Data Files") or Unicode software and any    *
+* associated documentation (the "Software") to deal in the Data Files or Software without       *
+* restriction, including without limitation the rights to use, copy, modify, merge, publish,    *
+* distribute, and/or sell copies of the Data Files or Software, and to permit persons to whom   *
+* the Data Files or Software are furnished to do so, provided that (a) the above copyright      *
+* notice(s) and this permission notice appear with all copies of the Data Files or Software,    *
+* (b) both the above copyright notice(s) and this permission notice appear in associated        *
+* documentation, and (c) there is clear notice in each modified Data File or in the Software as *
+* well as in the documentation associated with the Data File(s) or Software that the data or    *
+* software has been modified.                                                                   *
+*                                                                                               *
+* THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR    *
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A        *
+* PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT *
+* HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR *
+* CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, *
+* WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN   *
+* CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.                         *
+*************************************************************************************************
 
 *************
 LC_CTYPE
@@ -122,6 +145,7 @@ alpha	<ORIYA_SIGN_CANDRABINDU>;/
 	<ORIYA_VOWEL_SIGN_U>;/
 	<ORIYA_VOWEL_SIGN_UU>;/
 	<ORIYA_VOWEL_SIGN_VOCALIC_R>;/
+	<ORIYA_VOWEL_SIGN_VOCALIC_RR>;/
 	<ORIYA_VOWEL_SIGN_E>;/
 	<ORIYA_VOWEL_SIGN_AI>;/
 	<ORIYA_VOWEL_SIGN_O>;/
@@ -133,6 +157,8 @@ alpha	<ORIYA_SIGN_CANDRABINDU>;/
 	<ORIYA_LETTER_YYA>;/
 	<ORIYA_LETTER_VOCALIC_RR>;/
 	<ORIYA_LETTER_VOCALIC_LL>;/
+	<ORIYA_VOWEL_SIGN_VOCALIC_L>;/
+	<ORIYA_VOWEL_SIGN_VOCALIC_LL>;/
 	<ORIYA_LETTER_WA>
 
 space	<tab>;/
@@ -327,6 +353,7 @@ graph	<EXCLAMATION_MARK>;/
 	<ORIYA_VOWEL_SIGN_U>;/
 	<ORIYA_VOWEL_SIGN_UU>;/
 	<ORIYA_VOWEL_SIGN_VOCALIC_R>;/
+	<ORIYA_VOWEL_SIGN_VOCALIC_RR>;/
 	<ORIYA_VOWEL_SIGN_E>;/
 	<ORIYA_VOWEL_SIGN_AI>;/
 	<ORIYA_VOWEL_SIGN_O>;/
@@ -339,6 +366,8 @@ graph	<EXCLAMATION_MARK>;/
 	<ORIYA_LETTER_YYA>;/
 	<ORIYA_LETTER_VOCALIC_RR>;/
 	<ORIYA_LETTER_VOCALIC_LL>;/
+	<ORIYA_VOWEL_SIGN_VOCALIC_L>;/
+	<ORIYA_VOWEL_SIGN_VOCALIC_LL>;/
 	<ORIYA_DIGIT_ZERO>;/
 	<ORIYA_DIGIT_ONE>;/
 	<ORIYA_DIGIT_TWO>;/
@@ -504,6 +533,7 @@ print	<space>;/
 	<ORIYA_VOWEL_SIGN_U>;/
 	<ORIYA_VOWEL_SIGN_UU>;/
 	<ORIYA_VOWEL_SIGN_VOCALIC_R>;/
+	<ORIYA_VOWEL_SIGN_VOCALIC_RR>;/
 	<ORIYA_VOWEL_SIGN_E>;/
 	<ORIYA_VOWEL_SIGN_AI>;/
 	<ORIYA_VOWEL_SIGN_O>;/
@@ -516,6 +546,8 @@ print	<space>;/
 	<ORIYA_LETTER_YYA>;/
 	<ORIYA_LETTER_VOCALIC_RR>;/
 	<ORIYA_LETTER_VOCALIC_LL>;/
+	<ORIYA_VOWEL_SIGN_VOCALIC_L>;/
+	<ORIYA_VOWEL_SIGN_VOCALIC_LL>;/
 	<ORIYA_DIGIT_ZERO>;/
 	<ORIYA_DIGIT_ONE>;/
 	<ORIYA_DIGIT_TWO>;/
@@ -660,10 +692,10 @@ collating-element <ORIYA_LETTER_DDHA-ORIYA_SIGN_NUKTA> from "<ORIYA_LETTER_DDHA>
 
 collating-symbol <X0001>
 collating-symbol <X0005>
-collating-symbol <X0031>
 collating-symbol <X008F>
+collating-symbol <X0095>
 collating-symbol <X00C0>
-collating-symbol <X00E5>
+collating-symbol <X00E6>
 collating-symbol <X0400>
 collating-symbol <X0500>
 collating-symbol <X0507>
@@ -678,138 +710,141 @@ collating-symbol <X076C>
 collating-symbol <X0784>
 collating-symbol <X0790>
 collating-symbol <X07B0>
-collating-symbol <X07C8>
-collating-symbol <X07CE>
-collating-symbol <X07FA>
+collating-symbol <X07CA>
+collating-symbol <X07D0>
+collating-symbol <X07FC>
 collating-symbol <X0800>
-collating-symbol <X0809>
-collating-symbol <X081D>
-collating-symbol <X0891>
-collating-symbol <X089F>
-collating-symbol <X08B3>
-collating-symbol <X08B5>
-collating-symbol <X08B7>
-collating-symbol <X08B9>
-collating-symbol <X08BB>
-collating-symbol <X08BD>
+collating-symbol <X080B>
+collating-symbol <X0825>
+collating-symbol <X08BF>
+collating-symbol <X08CD>
+collating-symbol <X08E1>
+collating-symbol <X08E3>
+collating-symbol <X08E5>
+collating-symbol <X08E7>
+collating-symbol <X08E9>
+collating-symbol <X08EB>
 collating-symbol <X0900>
-collating-symbol <X094B>
-collating-symbol <X094D>
-collating-symbol <X0955>
-collating-symbol <X0959>
-collating-symbol <X095B>
-collating-symbol <X0961>
-collating-symbol <X0963>
+collating-symbol <X0995>
+collating-symbol <X0997>
+collating-symbol <X09A1>
+collating-symbol <X09A5>
+collating-symbol <X09A7>
+collating-symbol <X09AD>
+collating-symbol <X09AF>
 collating-symbol <X0A00>
-collating-symbol <X0AEB>
 collating-symbol <X0B00>
+collating-symbol <X0B71>
 collating-symbol <X0C00>
-collating-symbol <X0CD9>
-collating-symbol <X0CE1>
-collating-symbol <X0CE3>
-collating-symbol <X0CE5>
-collating-symbol <X0CE9>
-collating-symbol <X0CEF>
 collating-symbol <X0D00>
+collating-symbol <X0D67>
+collating-symbol <X0D6F>
+collating-symbol <X0D71>
+collating-symbol <X0D73>
+collating-symbol <X0D77>
+collating-symbol <X0D7D>
 collating-symbol <X0E00>
-collating-symbol <X263C>
-collating-symbol <X267A>
-collating-symbol <X267C>
-collating-symbol <X267E>
-collating-symbol <X2680>
-collating-symbol <X2682>
-collating-symbol <X2684>
-collating-symbol <X2686>
-collating-symbol <X2688>
-collating-symbol <X268A>
-collating-symbol <X268C>
-collating-symbol <X2900>
-collating-symbol <X2B00>
-collating-symbol <X2D00>
-collating-symbol <X2F00>
-collating-symbol <X3100>
-collating-symbol <X3300>
-collating-symbol <X3500>
-collating-symbol <X3700>
-collating-symbol <X3900>
-collating-symbol <X3B00>
-collating-symbol <X3D00>
-collating-symbol <X3F00>
-collating-symbol <X4100>
-collating-symbol <X4300>
-collating-symbol <X4500>
-collating-symbol <X4700>
-collating-symbol <X4900>
-collating-symbol <X4B00>
-collating-symbol <X4D00>
-collating-symbol <X4F00>
-collating-symbol <X5100>
-collating-symbol <X5300>
-collating-symbol <X5500>
-collating-symbol <X5700>
-collating-symbol <X5900>
-collating-symbol <X5B00>
-collating-symbol <X7320>
-collating-symbol <X7322>
-collating-symbol <X7324>
-collating-symbol <X7326>
-collating-symbol <X7328>
-collating-symbol <X732A>
-collating-symbol <X732C>
-collating-symbol <X732E>
-collating-symbol <X7330>
-collating-symbol <X7332>
-collating-symbol <X7334>
-collating-symbol <X7336>
-collating-symbol <X7338>
-collating-symbol <X733A>
-collating-symbol <X733C>
-collating-symbol <X733E>
-collating-symbol <X7340>
-collating-symbol <X7342>
-collating-symbol <X7344>
-collating-symbol <X7346>
-collating-symbol <X7348>
-collating-symbol <X734A>
-collating-symbol <X734C>
-collating-symbol <X734E>
-collating-symbol <X7350>
-collating-symbol <X7352>
-collating-symbol <X7354>
-collating-symbol <X7356>
-collating-symbol <X7358>
-collating-symbol <X735A>
-collating-symbol <X735C>
-collating-symbol <X735E>
-collating-symbol <X7360>
-collating-symbol <X7362>
-collating-symbol <X7364>
-collating-symbol <X7366>
-collating-symbol <X7368>
-collating-symbol <X736A>
-collating-symbol <X736C>
-collating-symbol <X736E>
-collating-symbol <X7372>
-collating-symbol <X7374>
-collating-symbol <X7376>
-collating-symbol <X737C>
-collating-symbol <X737E>
-collating-symbol <X7380>
-collating-symbol <X7382>
-collating-symbol <X7383>
-collating-symbol <X7384>
-collating-symbol <X7386>
-collating-symbol <X7388>
-collating-symbol <X738A>
-collating-symbol <X738C>
-collating-symbol <X738E>
-collating-symbol <X7390>
-collating-symbol <X7392>
-collating-symbol <X7394>
-collating-symbol <X7396>
-collating-symbol <X7398>
-collating-symbol <X739C>
-collating-symbol <X739E>
+collating-symbol <X293E>
+collating-symbol <X297C>
+collating-symbol <X297E>
+collating-symbol <X2980>
+collating-symbol <X2982>
+collating-symbol <X2984>
+collating-symbol <X2986>
+collating-symbol <X2988>
+collating-symbol <X298A>
+collating-symbol <X298C>
+collating-symbol <X298E>
+collating-symbol <X2C00>
+collating-symbol <X2E00>
+collating-symbol <X3000>
+collating-symbol <X3200>
+collating-symbol <X3400>
+collating-symbol <X3600>
+collating-symbol <X3800>
+collating-symbol <X3A00>
+collating-symbol <X3C00>
+collating-symbol <X3E00>
+collating-symbol <X4000>
+collating-symbol <X4200>
+collating-symbol <X4400>
+collating-symbol <X4600>
+collating-symbol <X4800>
+collating-symbol <X4A00>
+collating-symbol <X4C00>
+collating-symbol <X4E00>
+collating-symbol <X5000>
+collating-symbol <X5200>
+collating-symbol <X5400>
+collating-symbol <X5600>
+collating-symbol <X5800>
+collating-symbol <X5A00>
+collating-symbol <X5C00>
+collating-symbol <X5E00>
+collating-symbol <X7620>
+collating-symbol <X7622>
+collating-symbol <X7624>
+collating-symbol <X7626>
+collating-symbol <X7628>
+collating-symbol <X762A>
+collating-symbol <X762C>
+collating-symbol <X762E>
+collating-symbol <X7630>
+collating-symbol <X7632>
+collating-symbol <X7634>
+collating-symbol <X7636>
+collating-symbol <X7638>
+collating-symbol <X763A>
+collating-symbol <X763C>
+collating-symbol <X763E>
+collating-symbol <X7640>
+collating-symbol <X7642>
+collating-symbol <X7644>
+collating-symbol <X7646>
+collating-symbol <X7648>
+collating-symbol <X764A>
+collating-symbol <X764C>
+collating-symbol <X764E>
+collating-symbol <X7650>
+collating-symbol <X7652>
+collating-symbol <X7654>
+collating-symbol <X7656>
+collating-symbol <X7658>
+collating-symbol <X765A>
+collating-symbol <X765C>
+collating-symbol <X765E>
+collating-symbol <X7660>
+collating-symbol <X7662>
+collating-symbol <X7664>
+collating-symbol <X7666>
+collating-symbol <X7668>
+collating-symbol <X766A>
+collating-symbol <X766C>
+collating-symbol <X766E>
+collating-symbol <X7672>
+collating-symbol <X7674>
+collating-symbol <X7676>
+collating-symbol <X767C>
+collating-symbol <X767E>
+collating-symbol <X7680>
+collating-symbol <X7682>
+collating-symbol <X7683>
+collating-symbol <X7684>
+collating-symbol <X7686>
+collating-symbol <X7688>
+collating-symbol <X768A>
+collating-symbol <X768C>
+collating-symbol <X768E>
+collating-symbol <X7690>
+collating-symbol <X7692>
+collating-symbol <X7694>
+collating-symbol <X7696>
+collating-symbol <X7698>
+collating-symbol <X769A>
+collating-symbol <X769C>
+collating-symbol <X769E>
+collating-symbol <X76A2>
+collating-symbol <X76A4>
 
 order_start forward;forward;forward;forward
 
@@ -818,10 +853,10 @@ order_start forward;forward;forward;forward
 
 <X0001>
 <X0005>
-<X0031>
 <X008F>
+<X0095>
 <X00C0>
-<X00E5>
+<X00E6>
 <X0400>
 <X0500>
 <X0507>
@@ -836,169 +871,172 @@ order_start forward;forward;forward;forward
 <X0784>
 <X0790>
 <X07B0>
-<X07C8>
-<X07CE>
-<X07FA>
+<X07CA>
+<X07D0>
+<X07FC>
 <X0800>
-<X0809>
-<X081D>
-<X0891>
-<X089F>
-<X08B3>
-<X08B5>
-<X08B7>
-<X08B9>
-<X08BB>
-<X08BD>
+<X080B>
+<X0825>
+<X08BF>
+<X08CD>
+<X08E1>
+<X08E3>
+<X08E5>
+<X08E7>
+<X08E9>
+<X08EB>
 <X0900>
-<X094B>
-<X094D>
-<X0955>
-<X0959>
-<X095B>
-<X0961>
-<X0963>
+<X0995>
+<X0997>
+<X09A1>
+<X09A5>
+<X09A7>
+<X09AD>
+<X09AF>
 <X0A00>
-<X0AEB>
 <X0B00>
+<X0B71>
 <X0C00>
-<X0CD9>
-<X0CE1>
-<X0CE3>
-<X0CE5>
-<X0CE9>
-<X0CEF>
 <X0D00>
+<X0D67>
+<X0D6F>
+<X0D71>
+<X0D73>
+<X0D77>
+<X0D7D>
 <X0E00>
-<X263C>
-<X267A>
-<X267C>
-<X267E>
-<X2680>
-<X2682>
-<X2684>
-<X2686>
-<X2688>
-<X268A>
-<X268C>
-<X2900>
-<X2B00>
-<X2D00>
-<X2F00>
-<X3100>
-<X3300>
-<X3500>
-<X3700>
-<X3900>
-<X3B00>
-<X3D00>
-<X3F00>
-<X4100>
-<X4300>
-<X4500>
-<X4700>
-<X4900>
-<X4B00>
-<X4D00>
-<X4F00>
-<X5100>
-<X5300>
-<X5500>
-<X5700>
-<X5900>
-<X5B00>
-<X7320>
-<X7322>
-<X7324>
-<X7326>
-<X7328>
-<X732A>
-<X732C>
-<X732E>
-<X7330>
-<X7332>
-<X7334>
-<X7336>
-<X7338>
-<X733A>
-<X733C>
-<X733E>
-<X7340>
-<X7342>
-<X7344>
-<X7346>
-<X7348>
-<X734A>
-<X734C>
-<X734E>
-<X7350>
-<X7352>
-<X7354>
-<X7356>
-<X7358>
-<X735A>
-<X735C>
-<X735E>
-<X7360>
-<X7362>
-<X7364>
-<X7366>
-<X7368>
-<X736A>
-<X736C>
-<X736E>
-<X7372>
-<X7374>
-<X7376>
-<X737C>
-<X737E>
-<X7380>
-<X7382>
-<X7383>
-<X7384>
-<X7386>
-<X7388>
-<X738A>
-<X738C>
-<X738E>
-<X7390>
-<X7392>
-<X7394>
-<X7396>
-<X7398>
-<X739C>
-<X739E>
+<X293E>
+<X297C>
+<X297E>
+<X2980>
+<X2982>
+<X2984>
+<X2986>
+<X2988>
+<X298A>
+<X298C>
+<X298E>
+<X2C00>
+<X2E00>
+<X3000>
+<X3200>
+<X3400>
+<X3600>
+<X3800>
+<X3A00>
+<X3C00>
+<X3E00>
+<X4000>
+<X4200>
+<X4400>
+<X4600>
+<X4800>
+<X4A00>
+<X4C00>
+<X4E00>
+<X5000>
+<X5200>
+<X5400>
+<X5600>
+<X5800>
+<X5A00>
+<X5C00>
+<X5E00>
+<X7620>
+<X7622>
+<X7624>
+<X7626>
+<X7628>
+<X762A>
+<X762C>
+<X762E>
+<X7630>
+<X7632>
+<X7634>
+<X7636>
+<X7638>
+<X763A>
+<X763C>
+<X763E>
+<X7640>
+<X7642>
+<X7644>
+<X7646>
+<X7648>
+<X764A>
+<X764C>
+<X764E>
+<X7650>
+<X7652>
+<X7654>
+<X7656>
+<X7658>
+<X765A>
+<X765C>
+<X765E>
+<X7660>
+<X7662>
+<X7664>
+<X7666>
+<X7668>
+<X766A>
+<X766C>
+<X766E>
+<X7672>
+<X7674>
+<X7676>
+<X767C>
+<X767E>
+<X7680>
+<X7682>
+<X7683>
+<X7684>
+<X7686>
+<X7688>
+<X768A>
+<X768C>
+<X768E>
+<X7690>
+<X7692>
+<X7694>
+<X7696>
+<X7698>
+<X769A>
+<X769C>
+<X769E>
+<X76A2>
+<X76A4>
 
 * assignment of characters to weights
 
-<SHIFT_IN>                    IGNORE;IGNORE;IGNORE;<SHIFT_IN>
-<INFORMATION_SEPARATOR_TWO>   IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_TWO>
-<BACKSPACE>                   IGNORE;IGNORE;IGNORE;<BACKSPACE>
-<END_OF_TRANSMISSION_BLOCK>   IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION_BLOCK>
-<INFORMATION_SEPARATOR_ONE>   IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_ONE>
-<DATA_LINK_ESCAPE>            IGNORE;IGNORE;IGNORE;<DATA_LINK_ESCAPE>
-<BELL>                        IGNORE;IGNORE;IGNORE;<BELL>
-<SYNCHRONOUS_IDLE>            IGNORE;IGNORE;IGNORE;<SYNCHRONOUS_IDLE>
-<NEGATIVE_ACKNOWLEDGE>        IGNORE;IGNORE;IGNORE;<NEGATIVE_ACKNOWLEDGE>
-<ACKNOWLEDGE>                 IGNORE;IGNORE;IGNORE;<ACKNOWLEDGE>
-<START_OF_HEADING>            IGNORE;IGNORE;IGNORE;<START_OF_HEADING>
-<INFORMATION_SEPARATOR_THREE> IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_THREE>
-<SHIFT_OUT>                   IGNORE;IGNORE;IGNORE;<SHIFT_OUT>
-<CANCEL>                      IGNORE;IGNORE;IGNORE;<CANCEL>
-<END_OF_TRANSMISSION>         IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION>
-<DEVICE_CONTROL_THREE>        IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_THREE>
-<SUBSTITUTE>                  IGNORE;IGNORE;IGNORE;<SUBSTITUTE>
-<DELETE>                      IGNORE;IGNORE;IGNORE;<DELETE>
-<DEVICE_CONTROL_TWO>          IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_TWO>
-<END_OF_TEXT>                 IGNORE;IGNORE;IGNORE;<END_OF_TEXT>
-<ESCAPE>                      IGNORE;IGNORE;IGNORE;<ESCAPE>
-<DEVICE_CONTROL_ONE>          IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_ONE>
-<START_OF_TEXT>               IGNORE;IGNORE;IGNORE;<START_OF_TEXT>
-<INFORMATION_SEPARATOR_FOUR>  IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_FOUR>
-<DEVICE_CONTROL_FOUR>         IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_FOUR>
-<END_OF_MEDIUM>               IGNORE;IGNORE;IGNORE;<END_OF_MEDIUM>
-<ENQUIRY>                     IGNORE;IGNORE;IGNORE;<ENQUIRY>
 <NULL>                        IGNORE;IGNORE;IGNORE;<NULL>
+<START_OF_HEADING>            IGNORE;IGNORE;IGNORE;<START_OF_HEADING>
+<START_OF_TEXT>               IGNORE;IGNORE;IGNORE;<START_OF_TEXT>
+<END_OF_TEXT>                 IGNORE;IGNORE;IGNORE;<END_OF_TEXT>
+<END_OF_TRANSMISSION>         IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION>
+<ENQUIRY>                     IGNORE;IGNORE;IGNORE;<ENQUIRY>
+<ACKNOWLEDGE>                 IGNORE;IGNORE;IGNORE;<ACKNOWLEDGE>
+<BELL>                        IGNORE;IGNORE;IGNORE;<BELL>
+<BACKSPACE>                   IGNORE;IGNORE;IGNORE;<BACKSPACE>
+<SHIFT_OUT>                   IGNORE;IGNORE;IGNORE;<SHIFT_OUT>
+<SHIFT_IN>                    IGNORE;IGNORE;IGNORE;<SHIFT_IN>
+<DEVICE_CONTROL_ONE>          IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_ONE>
+<DATA_LINK_ESCAPE>            IGNORE;IGNORE;IGNORE;<DATA_LINK_ESCAPE>
+<DEVICE_CONTROL_THREE>        IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_THREE>
+<DEVICE_CONTROL_TWO>          IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_TWO>
+<NEGATIVE_ACKNOWLEDGE>        IGNORE;IGNORE;IGNORE;<NEGATIVE_ACKNOWLEDGE>
+<DEVICE_CONTROL_FOUR>         IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_FOUR>
+<END_OF_TRANSMISSION_BLOCK>   IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION_BLOCK>
+<SYNCHRONOUS_IDLE>            IGNORE;IGNORE;IGNORE;<SYNCHRONOUS_IDLE>
+<END_OF_MEDIUM>               IGNORE;IGNORE;IGNORE;<END_OF_MEDIUM>
+<CANCEL>                      IGNORE;IGNORE;IGNORE;<CANCEL>
+<ESCAPE>                      IGNORE;IGNORE;IGNORE;<ESCAPE>
+<SUBSTITUTE>                  IGNORE;IGNORE;IGNORE;<SUBSTITUTE>
+<INFORMATION_SEPARATOR_THREE> IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_THREE>
+<INFORMATION_SEPARATOR_FOUR>  IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_FOUR>
+<INFORMATION_SEPARATOR_ONE>   IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_ONE>
+<INFORMATION_SEPARATOR_TWO>   IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_TWO>
+<DELETE>                      IGNORE;IGNORE;IGNORE;<DELETE>
 <tab>                         <X0507>;<X0005>;<X0005>;IGNORE
 <newline>                     <X0509>;<X0005>;<X0005>;IGNORE
 <vertical-tab>                <X050B>;<X0005>;<X0005>;IGNORE
@@ -1010,179 +1048,182 @@ order_start forward;forward;forward;forward
 <LOW_LINE>                    <X0784>;<X0005>;<X0005>;IGNORE
 <HYPHEN-MINUS>                <X0790>;<X0005>;<X0005>;IGNORE
 <COMMA>                       <X07B0>;<X0005>;<X0005>;IGNORE
-<SEMICOLON>                   <X07C8>;<X0005>;<X0005>;IGNORE
-<COLON>                       <X07CE>;<X0005>;<X0005>;IGNORE
-<EXCLAMATION_MARK>            <X07FA>;<X0005>;<X0005>;IGNORE
-<QUESTION_MARK>               <X0809>;<X0005>;<X0005>;IGNORE
-<FULL_STOP>                   <X081D>;<X0005>;<X0005>;IGNORE
-<APOSTROPHE>                  <X0891>;<X0005>;<X0005>;IGNORE
-<QUOTATION_MARK>              <X089F>;<X0005>;<X0005>;IGNORE
-<LEFT_PARENTHESIS>            <X08B3>;<X0005>;<X0005>;IGNORE
-<RIGHT_PARENTHESIS>           <X08B5>;<X0005>;<X0005>;IGNORE
-<LEFT_SQUARE_BRACKET>         <X08B7>;<X0005>;<X0005>;IGNORE
-<RIGHT_SQUARE_BRACKET>        <X08B9>;<X0005>;<X0005>;IGNORE
-<LEFT_CURLY_BRACKET>          <X08BB>;<X0005>;<X0005>;IGNORE
-<RIGHT_CURLY_BRACKET>         <X08BD>;<X0005>;<X0005>;IGNORE
-<COMMERCIAL_AT>               <X094B>;<X0005>;<X0005>;IGNORE
-<ASTERISK>                    <X094D>;<X0005>;<X0005>;IGNORE
-<SOLIDUS>                     <X0955>;<X0005>;<X0005>;IGNORE
-<REVERSE_SOLIDUS>             <X0959>;<X0005>;<X0005>;IGNORE
-<AMPERSAND>                   <X095B>;<X0005>;<X0005>;IGNORE
-<NUMBER_SIGN>                 <X0961>;<X0005>;<X0005>;IGNORE
-<PERCENT_SIGN>                <X0963>;<X0005>;<X0005>;IGNORE
-<ORIYA_ISSHAR>                <X0AEB>;<X0005>;<X0005>;IGNORE
-<PLUS_SIGN>                   <X0CD9>;<X0005>;<X0005>;IGNORE
-<LESS-THAN_SIGN>              <X0CE1>;<X0005>;<X0005>;IGNORE
-<EQUALS_SIGN>                 <X0CE3>;<X0005>;<X0005>;IGNORE
-<GREATER-THAN_SIGN>           <X0CE5>;<X0005>;<X0005>;IGNORE
-<VERTICAL_LINE>               <X0CE9>;<X0005>;<X0005>;IGNORE
-<TILDE>                       <X0CEF>;<X0005>;<X0005>;IGNORE
-<DOLLAR_SIGN>                 <X263C>;<X0005>;<X0005>;IGNORE
-<zero>                        <X267A>;<X0005>;<X0005>;IGNORE
-<ORIYA_DIGIT_ZERO>            <X267A>;"<X0005><X00E5><X0031>";"<X0005><X0005><X00C0>";IGNORE
-<one>                         <X267C>;<X0005>;<X0005>;IGNORE
-<ORIYA_DIGIT_ONE>             <X267C>;"<X0005><X00E5><X0031>";"<X0005><X0005><X00C0>";IGNORE
-<two>                         <X267E>;<X0005>;<X0005>;IGNORE
-<ORIYA_DIGIT_TWO>             <X267E>;"<X0005><X00E5><X0031>";"<X0005><X0005><X00C0>";IGNORE
-<three>                       <X2680>;<X0005>;<X0005>;IGNORE
-<ORIYA_DIGIT_THREE>           <X2680>;"<X0005><X00E5><X0031>";"<X0005><X0005><X00C0>";IGNORE
-<four>                        <X2682>;<X0005>;<X0005>;IGNORE
-<ORIYA_DIGIT_FOUR>            <X2682>;"<X0005><X00E5><X0031>";"<X0005><X0005><X00C0>";IGNORE
-<five>                        <X2684>;<X0005>;<X0005>;IGNORE
-<ORIYA_DIGIT_FIVE>            <X2684>;"<X0005><X00E5><X0031>";"<X0005><X0005><X00C0>";IGNORE
-<six>                         <X2686>;<X0005>;<X0005>;IGNORE
-<ORIYA_DIGIT_SIX>             <X2686>;"<X0005><X00E5><X0031>";"<X0005><X0005><X00C0>";IGNORE
-<seven>                       <X2688>;<X0005>;<X0005>;IGNORE
-<ORIYA_DIGIT_SEVEN>           <X2688>;"<X0005><X00E5><X0031>";"<X0005><X0005><X00C0>";IGNORE
-<eight>                       <X268A>;<X0005>;<X0005>;IGNORE
-<ORIYA_DIGIT_EIGHT>           <X268A>;"<X0005><X00E5><X0031>";"<X0005><X0005><X00C0>";IGNORE
-<nine>                        <X268C>;<X0005>;<X0005>;IGNORE
-<ORIYA_DIGIT_NINE>            <X268C>;"<X0005><X00E5><X0031>";"<X0005><X0005><X00C0>";IGNORE
-<a>                           <X2900>;<X0005>;<X0005>;IGNORE
-<A>                           <X2900>;<X0005>;<X008F>;IGNORE
-<b>                           <X2B00>;<X0005>;<X0005>;IGNORE
-<B>                           <X2B00>;<X0005>;<X008F>;IGNORE
-<c>                           <X2D00>;<X0005>;<X0005>;IGNORE
-<C>                           <X2D00>;<X0005>;<X008F>;IGNORE
-<d>                           <X2F00>;<X0005>;<X0005>;IGNORE
-<D>                           <X2F00>;<X0005>;<X008F>;IGNORE
-<e>                           <X3100>;<X0005>;<X0005>;IGNORE
-<E>                           <X3100>;<X0005>;<X008F>;IGNORE
-<f>                           <X3300>;<X0005>;<X0005>;IGNORE
-<F>                           <X3300>;<X0005>;<X008F>;IGNORE
-<g>                           <X3500>;<X0005>;<X0005>;IGNORE
-<G>                           <X3500>;<X0005>;<X008F>;IGNORE
-<h>                           <X3700>;<X0005>;<X0005>;IGNORE
-<H>                           <X3700>;<X0005>;<X008F>;IGNORE
-<i>                           <X3900>;<X0005>;<X0005>;IGNORE
-<I>                           <X3900>;<X0005>;<X008F>;IGNORE
-<j>                           <X3B00>;<X0005>;<X0005>;IGNORE
-<J>                           <X3B00>;<X0005>;<X008F>;IGNORE
-<k>                           <X3D00>;<X0005>;<X0005>;IGNORE
-<K>                           <X3D00>;<X0005>;<X008F>;IGNORE
-<l>                           <X3F00>;<X0005>;<X0005>;IGNORE
-<L>                           <X3F00>;<X0005>;<X008F>;IGNORE
-<m>                           <X4100>;<X0005>;<X0005>;IGNORE
-<M>                           <X4100>;<X0005>;<X008F>;IGNORE
-<n>                           <X4300>;<X0005>;<X0005>;IGNORE
-<N>                           <X4300>;<X0005>;<X008F>;IGNORE
-<o>                           <X4500>;<X0005>;<X0005>;IGNORE
-<O>                           <X4500>;<X0005>;<X008F>;IGNORE
-<p>                           <X4700>;<X0005>;<X0005>;IGNORE
-<P>                           <X4700>;<X0005>;<X008F>;IGNORE
-<q>                           <X4900>;<X0005>;<X0005>;IGNORE
-<Q>                           <X4900>;<X0005>;<X008F>;IGNORE
-<r>                           <X4B00>;<X0005>;<X0005>;IGNORE
-<R>                           <X4B00>;<X0005>;<X008F>;IGNORE
-<s>                           <X4D00>;<X0005>;<X0005>;IGNORE
-<S>                           <X4D00>;<X0005>;<X008F>;IGNORE
-<t>                           <X4F00>;<X0005>;<X0005>;IGNORE
-<T>                           <X4F00>;<X0005>;<X008F>;IGNORE
-<u>                           <X5100>;<X0005>;<X0005>;IGNORE
-<U>                           <X5100>;<X0005>;<X008F>;IGNORE
-<v>                           <X5300>;<X0005>;<X0005>;IGNORE
-<V>                           <X5300>;<X0005>;<X008F>;IGNORE
-<w>                           <X5500>;<X0005>;<X0005>;IGNORE
-<W>                           <X5500>;<X0005>;<X008F>;IGNORE
-<x>                           <X5700>;<X0005>;<X0005>;IGNORE
-<X>                           <X5700>;<X0005>;<X008F>;IGNORE
-<y>                           <X5900>;<X0005>;<X0005>;IGNORE
-<Y>                           <X5900>;<X0005>;<X008F>;IGNORE
-<z>                           <X5B00>;<X0005>;<X0005>;IGNORE
-<Z>                           <X5B00>;<X0005>;<X008F>;IGNORE
-<ORIYA_LETTER_A>              <X7320>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_AA>             <X7322>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_I>              <X7324>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_II>             <X7326>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_U>              <X7328>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_UU>             <X732A>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_VOCALIC_R>      <X732C>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_VOCALIC_RR>     <X732E>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_VOCALIC_L>      <X7330>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_VOCALIC_LL>     <X7332>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_E>              <X7334>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_AI>             <X7336>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_O>              <X7338>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_AU>             <X733A>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_KA>             <X733C>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_KHA>            <X733E>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_GA>             <X7340>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_GHA>            <X7342>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_NGA>            <X7344>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_CA>             <X7346>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_CHA>            <X7348>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_JA>             <X734A>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_JHA>            <X734C>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_NYA>            <X734E>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_TTA>            <X7350>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_TTHA>           <X7352>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_DDA>            <X7354>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_DDHA>           <X7356>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_NNA>            <X7358>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_TA>             <X735A>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_THA>            <X735C>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_DA>             <X735E>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_DHA>            <X7360>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_NA>             <X7362>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_PA>             <X7364>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_PHA>            <X7366>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_BA>             <X7368>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_BHA>            <X736A>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_MA>             <X736C>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_YA>             <X736E>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_RA>             <X7372>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_LA>             <X7374>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_LLA>            <X7376>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_SHA>            <X737C>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_SSA>            <X737E>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_SA>             <X7380>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_HA>             <X7382>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_KA-ORIYA_SIGN_VIRAMA-ORIYA_LETTER_SSA> "<X7383><X0400>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_LETTER_DDA-ORIYA_SIGN_NUKTA> "<X7383><X0500>";<X0005>;"<X0005><X00C0>";"<ORIYA_LETTER_DDA><ORIYA_SIGN_NUKTA>"
-<ORIYA_LETTER_RRA>            "<X7383><X0500>";<X0005>;"<X0005><X00C0>";"<ORIYA_LETTER_DDA><ORIYA_SIGN_NUKTA>"
-<ORIYA_LETTER_DDHA-ORIYA_SIGN_NUKTA> "<X7383><X0600>";<X0005>;"<X0005><X00C0>";"<ORIYA_LETTER_DDHA><ORIYA_SIGN_NUKTA>"
-<ORIYA_LETTER_RHA>            "<X7383><X0600>";<X0005>;"<X0005><X00C0>";"<ORIYA_LETTER_DDHA><ORIYA_SIGN_NUKTA>"
-<ORIYA_LETTER_YYA>            "<X7383><X0700>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_LETTER_WA>             "<X7383><X0800>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_LETTER_VA>             "<X7383><X0900>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_SIGN_ANUSVARA>         "<X7383><X0A00>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_SIGN_VISARGA>          "<X7383><X0B00>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_SIGN_CANDRABINDU>      "<X7383><X0C00>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_SIGN_VIRAMA>           "<X7383><X0D00>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_SIGN_NUKTA>            "<X7383><X0E00>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_SIGN_AVAGRAHA>         <X7384>;<X0005>;<X0005>;IGNORE
-<ORIYA_VOWEL_SIGN_AA>         <X7386>;<X0005>;<X0005>;IGNORE
-<ORIYA_VOWEL_SIGN_I>          <X7388>;<X0005>;<X0005>;IGNORE
-<ORIYA_VOWEL_SIGN_II>         <X738A>;<X0005>;<X0005>;IGNORE
-<ORIYA_VOWEL_SIGN_U>          <X738C>;<X0005>;<X0005>;IGNORE
-<ORIYA_VOWEL_SIGN_UU>         <X738E>;<X0005>;<X0005>;IGNORE
-<ORIYA_VOWEL_SIGN_VOCALIC_R>  <X7390>;<X0005>;<X0005>;IGNORE
-<ORIYA_VOWEL_SIGN_E>          <X7392>;<X0005>;<X0005>;IGNORE
-<ORIYA_VOWEL_SIGN_AI>         <X7394>;<X0005>;<X0005>;IGNORE
-<ORIYA_VOWEL_SIGN_O>          <X7396>;<X0005>;<X0005>;IGNORE
-<ORIYA_VOWEL_SIGN_AU>         <X7398>;<X0005>;<X0005>;IGNORE
-<ORIYA_AI_LENGTH_MARK>        <X739C>;<X0005>;<X0005>;IGNORE
-<ORIYA_AU_LENGTH_MARK>        <X739E>;<X0005>;<X0005>;IGNORE
+<SEMICOLON>                   <X07CA>;<X0005>;<X0005>;IGNORE
+<COLON>                       <X07D0>;<X0005>;<X0005>;IGNORE
+<EXCLAMATION_MARK>            <X07FC>;<X0005>;<X0005>;IGNORE
+<QUESTION_MARK>               <X080B>;<X0005>;<X0005>;IGNORE
+<FULL_STOP>                   <X0825>;<X0005>;<X0005>;IGNORE
+<APOSTROPHE>                  <X08BF>;<X0005>;<X0005>;IGNORE
+<QUOTATION_MARK>              <X08CD>;<X0005>;<X0005>;IGNORE
+<LEFT_PARENTHESIS>            <X08E1>;<X0005>;<X0005>;IGNORE
+<RIGHT_PARENTHESIS>           <X08E3>;<X0005>;<X0005>;IGNORE
+<LEFT_SQUARE_BRACKET>         <X08E5>;<X0005>;<X0005>;IGNORE
+<RIGHT_SQUARE_BRACKET>        <X08E7>;<X0005>;<X0005>;IGNORE
+<LEFT_CURLY_BRACKET>          <X08E9>;<X0005>;<X0005>;IGNORE
+<RIGHT_CURLY_BRACKET>         <X08EB>;<X0005>;<X0005>;IGNORE
+<COMMERCIAL_AT>               <X0995>;<X0005>;<X0005>;IGNORE
+<ASTERISK>                    <X0997>;<X0005>;<X0005>;IGNORE
+<SOLIDUS>                     <X09A1>;<X0005>;<X0005>;IGNORE
+<REVERSE_SOLIDUS>             <X09A5>;<X0005>;<X0005>;IGNORE
+<AMPERSAND>                   <X09A7>;<X0005>;<X0005>;IGNORE
+<NUMBER_SIGN>                 <X09AD>;<X0005>;<X0005>;IGNORE
+<PERCENT_SIGN>                <X09AF>;<X0005>;<X0005>;IGNORE
+<ORIYA_ISSHAR>                <X0B71>;<X0005>;<X0005>;IGNORE
+<PLUS_SIGN>                   <X0D67>;<X0005>;<X0005>;IGNORE
+<LESS-THAN_SIGN>              <X0D6F>;<X0005>;<X0005>;IGNORE
+<EQUALS_SIGN>                 <X0D71>;<X0005>;<X0005>;IGNORE
+<GREATER-THAN_SIGN>           <X0D73>;<X0005>;<X0005>;IGNORE
+<VERTICAL_LINE>               <X0D77>;<X0005>;<X0005>;IGNORE
+<TILDE>                       <X0D7D>;<X0005>;<X0005>;IGNORE
+<DOLLAR_SIGN>                 <X293E>;<X0005>;<X0005>;IGNORE
+<zero>                        <X297C>;<X0005>;<X0005>;IGNORE
+<ORIYA_DIGIT_ZERO>            <X297C>;"<X0005><X00E6><X0095>";"<X0005><X0005><X00C0>";IGNORE
+<one>                         <X297E>;<X0005>;<X0005>;IGNORE
+<ORIYA_DIGIT_ONE>             <X297E>;"<X0005><X00E6><X0095>";"<X0005><X0005><X00C0>";IGNORE
+<two>                         <X2980>;<X0005>;<X0005>;IGNORE
+<ORIYA_DIGIT_TWO>             <X2980>;"<X0005><X00E6><X0095>";"<X0005><X0005><X00C0>";IGNORE
+<three>                       <X2982>;<X0005>;<X0005>;IGNORE
+<ORIYA_DIGIT_THREE>           <X2982>;"<X0005><X00E6><X0095>";"<X0005><X0005><X00C0>";IGNORE
+<four>                        <X2984>;<X0005>;<X0005>;IGNORE
+<ORIYA_DIGIT_FOUR>            <X2984>;"<X0005><X00E6><X0095>";"<X0005><X0005><X00C0>";IGNORE
+<five>                        <X2986>;<X0005>;<X0005>;IGNORE
+<ORIYA_DIGIT_FIVE>            <X2986>;"<X0005><X00E6><X0095>";"<X0005><X0005><X00C0>";IGNORE
+<six>                         <X2988>;<X0005>;<X0005>;IGNORE
+<ORIYA_DIGIT_SIX>             <X2988>;"<X0005><X00E6><X0095>";"<X0005><X0005><X00C0>";IGNORE
+<seven>                       <X298A>;<X0005>;<X0005>;IGNORE
+<ORIYA_DIGIT_SEVEN>           <X298A>;"<X0005><X00E6><X0095>";"<X0005><X0005><X00C0>";IGNORE
+<eight>                       <X298C>;<X0005>;<X0005>;IGNORE
+<ORIYA_DIGIT_EIGHT>           <X298C>;"<X0005><X00E6><X0095>";"<X0005><X0005><X00C0>";IGNORE
+<nine>                        <X298E>;<X0005>;<X0005>;IGNORE
+<ORIYA_DIGIT_NINE>            <X298E>;"<X0005><X00E6><X0095>";"<X0005><X0005><X00C0>";IGNORE
+<a>                           <X2C00>;<X0005>;<X0005>;IGNORE
+<A>                           <X2C00>;<X0005>;<X008F>;IGNORE
+<b>                           <X2E00>;<X0005>;<X0005>;IGNORE
+<B>                           <X2E00>;<X0005>;<X008F>;IGNORE
+<c>                           <X3000>;<X0005>;<X0005>;IGNORE
+<C>                           <X3000>;<X0005>;<X008F>;IGNORE
+<d>                           <X3200>;<X0005>;<X0005>;IGNORE
+<D>                           <X3200>;<X0005>;<X008F>;IGNORE
+<e>                           <X3400>;<X0005>;<X0005>;IGNORE
+<E>                           <X3400>;<X0005>;<X008F>;IGNORE
+<f>                           <X3600>;<X0005>;<X0005>;IGNORE
+<F>                           <X3600>;<X0005>;<X008F>;IGNORE
+<g>                           <X3800>;<X0005>;<X0005>;IGNORE
+<G>                           <X3800>;<X0005>;<X008F>;IGNORE
+<h>                           <X3A00>;<X0005>;<X0005>;IGNORE
+<H>                           <X3A00>;<X0005>;<X008F>;IGNORE
+<i>                           <X3C00>;<X0005>;<X0005>;IGNORE
+<I>                           <X3C00>;<X0005>;<X008F>;IGNORE
+<j>                           <X3E00>;<X0005>;<X0005>;IGNORE
+<J>                           <X3E00>;<X0005>;<X008F>;IGNORE
+<k>                           <X4000>;<X0005>;<X0005>;IGNORE
+<K>                           <X4000>;<X0005>;<X008F>;IGNORE
+<l>                           <X4200>;<X0005>;<X0005>;IGNORE
+<L>                           <X4200>;<X0005>;<X008F>;IGNORE
+<m>                           <X4400>;<X0005>;<X0005>;IGNORE
+<M>                           <X4400>;<X0005>;<X008F>;IGNORE
+<n>                           <X4600>;<X0005>;<X0005>;IGNORE
+<N>                           <X4600>;<X0005>;<X008F>;IGNORE
+<o>                           <X4800>;<X0005>;<X0005>;IGNORE
+<O>                           <X4800>;<X0005>;<X008F>;IGNORE
+<p>                           <X4A00>;<X0005>;<X0005>;IGNORE
+<P>                           <X4A00>;<X0005>;<X008F>;IGNORE
+<q>                           <X4C00>;<X0005>;<X0005>;IGNORE
+<Q>                           <X4C00>;<X0005>;<X008F>;IGNORE
+<r>                           <X4E00>;<X0005>;<X0005>;IGNORE
+<R>                           <X4E00>;<X0005>;<X008F>;IGNORE
+<s>                           <X5000>;<X0005>;<X0005>;IGNORE
+<S>                           <X5000>;<X0005>;<X008F>;IGNORE
+<t>                           <X5200>;<X0005>;<X0005>;IGNORE
+<T>                           <X5200>;<X0005>;<X008F>;IGNORE
+<u>                           <X5400>;<X0005>;<X0005>;IGNORE
+<U>                           <X5400>;<X0005>;<X008F>;IGNORE
+<v>                           <X5600>;<X0005>;<X0005>;IGNORE
+<V>                           <X5600>;<X0005>;<X008F>;IGNORE
+<w>                           <X5800>;<X0005>;<X0005>;IGNORE
+<W>                           <X5800>;<X0005>;<X008F>;IGNORE
+<x>                           <X5A00>;<X0005>;<X0005>;IGNORE
+<X>                           <X5A00>;<X0005>;<X008F>;IGNORE
+<y>                           <X5C00>;<X0005>;<X0005>;IGNORE
+<Y>                           <X5C00>;<X0005>;<X008F>;IGNORE
+<z>                           <X5E00>;<X0005>;<X0005>;IGNORE
+<Z>                           <X5E00>;<X0005>;<X008F>;IGNORE
+<ORIYA_LETTER_A>              <X7620>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_AA>             <X7622>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_I>              <X7624>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_II>             <X7626>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_U>              <X7628>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_UU>             <X762A>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_VOCALIC_R>      <X762C>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_VOCALIC_RR>     <X762E>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_VOCALIC_L>      <X7630>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_VOCALIC_LL>     <X7632>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_E>              <X7634>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_AI>             <X7636>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_O>              <X7638>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_AU>             <X763A>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_KA>             <X763C>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_KHA>            <X763E>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_GA>             <X7640>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_GHA>            <X7642>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_NGA>            <X7644>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_CA>             <X7646>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_CHA>            <X7648>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_JA>             <X764A>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_JHA>            <X764C>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_NYA>            <X764E>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_TTA>            <X7650>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_TTHA>           <X7652>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_DDA>            <X7654>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_DDHA>           <X7656>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_NNA>            <X7658>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_TA>             <X765A>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_THA>            <X765C>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_DA>             <X765E>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_DHA>            <X7660>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_NA>             <X7662>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_PA>             <X7664>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_PHA>            <X7666>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_BA>             <X7668>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_BHA>            <X766A>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_MA>             <X766C>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_YA>             <X766E>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_RA>             <X7672>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_LA>             <X7674>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_LLA>            <X7676>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_SHA>            <X767C>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_SSA>            <X767E>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_SA>             <X7680>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_HA>             <X7682>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_KA-ORIYA_SIGN_VIRAMA-ORIYA_LETTER_SSA> "<X7683><X0400>";<X0005>;"<X0005><X00C0>";IGNORE
+<ORIYA_LETTER_RRA>            "<X7683><X0500>";<X0005>;"<X0005><X00C0>";"<ORIYA_LETTER_DDA><ORIYA_SIGN_NUKTA>"
+<ORIYA_LETTER_DDA-ORIYA_SIGN_NUKTA> "<X7683><X0500>";<X0005>;"<X0005><X00C0>";"<ORIYA_LETTER_DDA><ORIYA_SIGN_NUKTA>"
+<ORIYA_LETTER_DDHA-ORIYA_SIGN_NUKTA> "<X7683><X0600>";<X0005>;"<X0005><X00C0>";"<ORIYA_LETTER_DDHA><ORIYA_SIGN_NUKTA>"
+<ORIYA_LETTER_RHA>            "<X7683><X0600>";<X0005>;"<X0005><X00C0>";"<ORIYA_LETTER_DDHA><ORIYA_SIGN_NUKTA>"
+<ORIYA_LETTER_YYA>            "<X7683><X0700>";<X0005>;"<X0005><X00C0>";IGNORE
+<ORIYA_LETTER_WA>             "<X7683><X0800>";<X0005>;"<X0005><X00C0>";IGNORE
+<ORIYA_LETTER_VA>             "<X7683><X0900>";<X0005>;"<X0005><X00C0>";IGNORE
+<ORIYA_SIGN_ANUSVARA>         "<X7683><X0A00>";<X0005>;"<X0005><X00C0>";IGNORE
+<ORIYA_SIGN_VISARGA>          "<X7683><X0B00>";<X0005>;"<X0005><X00C0>";IGNORE
+<ORIYA_SIGN_CANDRABINDU>      "<X7683><X0C00>";<X0005>;"<X0005><X00C0>";IGNORE
+<ORIYA_SIGN_VIRAMA>           "<X7683><X0D00>";<X0005>;"<X0005><X00C0>";IGNORE
+<ORIYA_SIGN_NUKTA>            "<X7683><X0E00>";<X0005>;"<X0005><X00C0>";IGNORE
+<ORIYA_SIGN_AVAGRAHA>         <X7684>;<X0005>;<X0005>;IGNORE
+<ORIYA_VOWEL_SIGN_AA>         <X7686>;<X0005>;<X0005>;IGNORE
+<ORIYA_VOWEL_SIGN_I>          <X7688>;<X0005>;<X0005>;IGNORE
+<ORIYA_VOWEL_SIGN_II>         <X768A>;<X0005>;<X0005>;IGNORE
+<ORIYA_VOWEL_SIGN_U>          <X768C>;<X0005>;<X0005>;IGNORE
+<ORIYA_VOWEL_SIGN_UU>         <X768E>;<X0005>;<X0005>;IGNORE
+<ORIYA_VOWEL_SIGN_VOCALIC_R>  <X7690>;<X0005>;<X0005>;IGNORE
+<ORIYA_VOWEL_SIGN_VOCALIC_RR> <X7692>;<X0005>;<X0005>;IGNORE
+<ORIYA_VOWEL_SIGN_VOCALIC_L>  <X7694>;<X0005>;<X0005>;IGNORE
+<ORIYA_VOWEL_SIGN_VOCALIC_LL> <X7696>;<X0005>;<X0005>;IGNORE
+<ORIYA_VOWEL_SIGN_E>          <X7698>;<X0005>;<X0005>;IGNORE
+<ORIYA_VOWEL_SIGN_AI>         <X769A>;<X0005>;<X0005>;IGNORE
+<ORIYA_VOWEL_SIGN_O>          <X769C>;<X0005>;<X0005>;IGNORE
+<ORIYA_VOWEL_SIGN_AU>         <X769E>;<X0005>;<X0005>;IGNORE
+<ORIYA_AI_LENGTH_MARK>        <X76A2>;<X0005>;<X0005>;IGNORE
+<ORIYA_AU_LENGTH_MARK>        <X76A4>;<X0005>;<X0005>;IGNORE
 UNDEFINED                     IGNORE;IGNORE;IGNORE;...
 
 order_end
@@ -1194,7 +1235,7 @@ LC_NUMERIC
 
 decimal_point     "<FULL_STOP>"
 thousands_sep     "<COMMA>"
-grouping          3
+grouping          3;2
 
 END LC_NUMERIC
 
@@ -1207,21 +1248,21 @@ int_curr_symbol       "<I><N><R><space>"
 currency_symbol       "<R><s><FULL_STOP>"
 mon_decimal_point     "<FULL_STOP>"
 mon_thousands_sep     "<COMMA>"
-mon_grouping          3
+mon_grouping          3;2
 positive_sign         ""
 negative_sign         "<HYPHEN-MINUS>"
 int_frac_digits       2
 frac_digits           2
 p_cs_precedes         1
-p_sep_by_space        1
+p_sep_by_space        0
 n_cs_precedes         1
-n_sep_by_space        1
+n_sep_by_space        0
 p_sign_posn           1
 n_sign_posn           1
 int_p_cs_precedes     1
-int_p_sep_by_space    1
+int_p_sep_by_space    0
 int_n_cs_precedes     1
-int_n_sep_by_space    1
+int_n_sep_by_space    0
 int_p_sign_posn       1
 int_n_sign_posn       1
 
@@ -1232,70 +1273,170 @@ END LC_MONETARY
 LC_TIME
 *************
 
-abday   "<one>";/
+abday   "<ORIYA_LETTER_RA><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_I><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA>";/
         "<ORIYA_LETTER_SA><ORIYA_VOWEL_SIGN_O><ORIYA_LETTER_MA>";/
         "<ORIYA_LETTER_MA><ORIYA_LETTER_NGA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_GA><ORIYA_LETTER_LLA><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA>";/
-        "<four>";/
-        "<ORIYA_LETTER_GA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_U>";/
+        "<ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_DHA><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA>";/
+        "<ORIYA_LETTER_GA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA>";/
         "<ORIYA_LETTER_SHA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_KA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_RA>";/
+        "<ORIYA_LETTER_SHA><ORIYA_LETTER_NA><ORIYA_VOWEL_SIGN_I>"
+
+day     "<ORIYA_LETTER_RA><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_I><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA>";/
+        "<ORIYA_LETTER_SA><ORIYA_VOWEL_SIGN_O><ORIYA_LETTER_MA><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA>";/
+        "<ORIYA_LETTER_MA><ORIYA_LETTER_NGA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_GA><ORIYA_LETTER_LLA><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA>";/
+        "<ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_DHA><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA>";/
+        "<ORIYA_LETTER_GA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA>";/
+        "<ORIYA_LETTER_SHA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_KA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_RA><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA>";/
         "<ORIYA_LETTER_SHA><ORIYA_LETTER_NA><ORIYA_VOWEL_SIGN_I><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA>"
 
-day     "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>"
-
-abmon   "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
+abmon   "<ORIYA_LETTER_JA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_NA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_AA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_II>";/
+        "<ORIYA_LETTER_PHA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_BA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_YYA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_II>";/
+        "<ORIYA_LETTER_MA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_CA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_CA>";/
+        "<ORIYA_LETTER_A><ORIYA_LETTER_PA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_LA>";/
+        "<ORIYA_LETTER_MA><ORIYA_VOWEL_SIGN_E>";/
         "<ORIYA_LETTER_JA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_NA>";/
-        "<seven>";/
-        "<eight>";/
+        "<ORIYA_LETTER_JA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_LA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_I>";/
+        "<ORIYA_LETTER_A><ORIYA_LETTER_GA><ORIYA_LETTER_SSA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_TTA>";/
         "<ORIYA_LETTER_SA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_PA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_TTA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_MA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_BA><ORIYA_LETTER_RA>";/
-        "<one><zero>";/
+        "<ORIYA_LETTER_A><ORIYA_LETTER_KA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_TTA><ORIYA_VOWEL_SIGN_O><ORIYA_LETTER_BA><ORIYA_LETTER_RA>";/
         "<ORIYA_LETTER_NA><ORIYA_LETTER_BHA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_MA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_BA><ORIYA_LETTER_RA>";/
-        "<one><two>"
+        "<ORIYA_LETTER_DDA><ORIYA_VOWEL_SIGN_I><ORIYA_LETTER_SA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_MA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_BA><ORIYA_LETTER_RA>"
 
-mon     "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>";/
-        "<eight>";/
-        "<nine>";/
-        "<one><zero>";/
-        "<one><one>";/
-        "<one><two>"
+mon     "<ORIYA_LETTER_JA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_NA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_AA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_II>";/
+        "<ORIYA_LETTER_PHA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_BA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_YYA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_II>";/
+        "<ORIYA_LETTER_MA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_CA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_CA>";/
+        "<ORIYA_LETTER_A><ORIYA_LETTER_PA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_LA>";/
+        "<ORIYA_LETTER_MA><ORIYA_VOWEL_SIGN_E>";/
+        "<ORIYA_LETTER_JA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_NA>";/
+        "<ORIYA_LETTER_JA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_LA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_I>";/
+        "<ORIYA_LETTER_A><ORIYA_LETTER_GA><ORIYA_LETTER_SSA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_TTA>";/
+        "<ORIYA_LETTER_SA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_PA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_TTA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_MA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_BA><ORIYA_LETTER_RA>";/
+        "<ORIYA_LETTER_A><ORIYA_LETTER_KA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_TTA><ORIYA_VOWEL_SIGN_O><ORIYA_LETTER_BA><ORIYA_LETTER_RA>";/
+        "<ORIYA_LETTER_NA><ORIYA_LETTER_BHA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_MA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_BA><ORIYA_LETTER_RA>";/
+        "<ORIYA_LETTER_DDA><ORIYA_VOWEL_SIGN_I><ORIYA_LETTER_SA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_MA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_BA><ORIYA_LETTER_RA>"
 
-d_fmt    "%Y-%m-%d"
+d_fmt    "%Od-%Om-%Oy"
 
-t_fmt    "%H:%M:%S"
+t_fmt    "%OH:%OM:%OS"
 
-d_t_fmt  "%Y %B %e %H:%M:%S %Z"
+d_t_fmt  "%B %Oe, %Oy %OH:%OM:%OS %Z"
 
 am_pm    "<A><M>";"<P><M>"
 
 t_fmt_ampm  ""
 
+alt_digits "<ORIYA_DIGIT_ZERO>";/
+           "<ORIYA_DIGIT_ONE>";/
+           "<ORIYA_DIGIT_TWO>";/
+           "<ORIYA_DIGIT_THREE>";/
+           "<ORIYA_DIGIT_FOUR>";/
+           "<ORIYA_DIGIT_FIVE>";/
+           "<ORIYA_DIGIT_SIX>";/
+           "<ORIYA_DIGIT_SEVEN>";/
+           "<ORIYA_DIGIT_EIGHT>";/
+           "<ORIYA_DIGIT_NINE>";/
+           "<ORIYA_DIGIT_ONE><ORIYA_DIGIT_ZERO>";/
+           "<ORIYA_DIGIT_ONE><ORIYA_DIGIT_ONE>";/
+           "<ORIYA_DIGIT_ONE><ORIYA_DIGIT_TWO>";/
+           "<ORIYA_DIGIT_ONE><ORIYA_DIGIT_THREE>";/
+           "<ORIYA_DIGIT_ONE><ORIYA_DIGIT_FOUR>";/
+           "<ORIYA_DIGIT_ONE><ORIYA_DIGIT_FIVE>";/
+           "<ORIYA_DIGIT_ONE><ORIYA_DIGIT_SIX>";/
+           "<ORIYA_DIGIT_ONE><ORIYA_DIGIT_SEVEN>";/
+           "<ORIYA_DIGIT_ONE><ORIYA_DIGIT_EIGHT>";/
+           "<ORIYA_DIGIT_ONE><ORIYA_DIGIT_NINE>";/
+           "<ORIYA_DIGIT_TWO><ORIYA_DIGIT_ZERO>";/
+           "<ORIYA_DIGIT_TWO><ORIYA_DIGIT_ONE>";/
+           "<ORIYA_DIGIT_TWO><ORIYA_DIGIT_TWO>";/
+           "<ORIYA_DIGIT_TWO><ORIYA_DIGIT_THREE>";/
+           "<ORIYA_DIGIT_TWO><ORIYA_DIGIT_FOUR>";/
+           "<ORIYA_DIGIT_TWO><ORIYA_DIGIT_FIVE>";/
+           "<ORIYA_DIGIT_TWO><ORIYA_DIGIT_SIX>";/
+           "<ORIYA_DIGIT_TWO><ORIYA_DIGIT_SEVEN>";/
+           "<ORIYA_DIGIT_TWO><ORIYA_DIGIT_EIGHT>";/
+           "<ORIYA_DIGIT_TWO><ORIYA_DIGIT_NINE>";/
+           "<ORIYA_DIGIT_THREE><ORIYA_DIGIT_ZERO>";/
+           "<ORIYA_DIGIT_THREE><ORIYA_DIGIT_ONE>";/
+           "<ORIYA_DIGIT_THREE><ORIYA_DIGIT_TWO>";/
+           "<ORIYA_DIGIT_THREE><ORIYA_DIGIT_THREE>";/
+           "<ORIYA_DIGIT_THREE><ORIYA_DIGIT_FOUR>";/
+           "<ORIYA_DIGIT_THREE><ORIYA_DIGIT_FIVE>";/
+           "<ORIYA_DIGIT_THREE><ORIYA_DIGIT_SIX>";/
+           "<ORIYA_DIGIT_THREE><ORIYA_DIGIT_SEVEN>";/
+           "<ORIYA_DIGIT_THREE><ORIYA_DIGIT_EIGHT>";/
+           "<ORIYA_DIGIT_THREE><ORIYA_DIGIT_NINE>";/
+           "<ORIYA_DIGIT_FOUR><ORIYA_DIGIT_ZERO>";/
+           "<ORIYA_DIGIT_FOUR><ORIYA_DIGIT_ONE>";/
+           "<ORIYA_DIGIT_FOUR><ORIYA_DIGIT_TWO>";/
+           "<ORIYA_DIGIT_FOUR><ORIYA_DIGIT_THREE>";/
+           "<ORIYA_DIGIT_FOUR><ORIYA_DIGIT_FOUR>";/
+           "<ORIYA_DIGIT_FOUR><ORIYA_DIGIT_FIVE>";/
+           "<ORIYA_DIGIT_FOUR><ORIYA_DIGIT_SIX>";/
+           "<ORIYA_DIGIT_FOUR><ORIYA_DIGIT_SEVEN>";/
+           "<ORIYA_DIGIT_FOUR><ORIYA_DIGIT_EIGHT>";/
+           "<ORIYA_DIGIT_FOUR><ORIYA_DIGIT_NINE>";/
+           "<ORIYA_DIGIT_FIVE><ORIYA_DIGIT_ZERO>";/
+           "<ORIYA_DIGIT_FIVE><ORIYA_DIGIT_ONE>";/
+           "<ORIYA_DIGIT_FIVE><ORIYA_DIGIT_TWO>";/
+           "<ORIYA_DIGIT_FIVE><ORIYA_DIGIT_THREE>";/
+           "<ORIYA_DIGIT_FIVE><ORIYA_DIGIT_FOUR>";/
+           "<ORIYA_DIGIT_FIVE><ORIYA_DIGIT_FIVE>";/
+           "<ORIYA_DIGIT_FIVE><ORIYA_DIGIT_SIX>";/
+           "<ORIYA_DIGIT_FIVE><ORIYA_DIGIT_SEVEN>";/
+           "<ORIYA_DIGIT_FIVE><ORIYA_DIGIT_EIGHT>";/
+           "<ORIYA_DIGIT_FIVE><ORIYA_DIGIT_NINE>";/
+           "<ORIYA_DIGIT_SIX><ORIYA_DIGIT_ZERO>";/
+           "<ORIYA_DIGIT_SIX><ORIYA_DIGIT_ONE>";/
+           "<ORIYA_DIGIT_SIX><ORIYA_DIGIT_TWO>";/
+           "<ORIYA_DIGIT_SIX><ORIYA_DIGIT_THREE>";/
+           "<ORIYA_DIGIT_SIX><ORIYA_DIGIT_FOUR>";/
+           "<ORIYA_DIGIT_SIX><ORIYA_DIGIT_FIVE>";/
+           "<ORIYA_DIGIT_SIX><ORIYA_DIGIT_SIX>";/
+           "<ORIYA_DIGIT_SIX><ORIYA_DIGIT_SEVEN>";/
+           "<ORIYA_DIGIT_SIX><ORIYA_DIGIT_EIGHT>";/
+           "<ORIYA_DIGIT_SIX><ORIYA_DIGIT_NINE>";/
+           "<ORIYA_DIGIT_SEVEN><ORIYA_DIGIT_ZERO>";/
+           "<ORIYA_DIGIT_SEVEN><ORIYA_DIGIT_ONE>";/
+           "<ORIYA_DIGIT_SEVEN><ORIYA_DIGIT_TWO>";/
+           "<ORIYA_DIGIT_SEVEN><ORIYA_DIGIT_THREE>";/
+           "<ORIYA_DIGIT_SEVEN><ORIYA_DIGIT_FOUR>";/
+           "<ORIYA_DIGIT_SEVEN><ORIYA_DIGIT_FIVE>";/
+           "<ORIYA_DIGIT_SEVEN><ORIYA_DIGIT_SIX>";/
+           "<ORIYA_DIGIT_SEVEN><ORIYA_DIGIT_SEVEN>";/
+           "<ORIYA_DIGIT_SEVEN><ORIYA_DIGIT_EIGHT>";/
+           "<ORIYA_DIGIT_SEVEN><ORIYA_DIGIT_NINE>";/
+           "<ORIYA_DIGIT_EIGHT><ORIYA_DIGIT_ZERO>";/
+           "<ORIYA_DIGIT_EIGHT><ORIYA_DIGIT_ONE>";/
+           "<ORIYA_DIGIT_EIGHT><ORIYA_DIGIT_TWO>";/
+           "<ORIYA_DIGIT_EIGHT><ORIYA_DIGIT_THREE>";/
+           "<ORIYA_DIGIT_EIGHT><ORIYA_DIGIT_FOUR>";/
+           "<ORIYA_DIGIT_EIGHT><ORIYA_DIGIT_FIVE>";/
+           "<ORIYA_DIGIT_EIGHT><ORIYA_DIGIT_SIX>";/
+           "<ORIYA_DIGIT_EIGHT><ORIYA_DIGIT_SEVEN>";/
+           "<ORIYA_DIGIT_EIGHT><ORIYA_DIGIT_EIGHT>";/
+           "<ORIYA_DIGIT_EIGHT><ORIYA_DIGIT_NINE>";/
+           "<ORIYA_DIGIT_NINE><ORIYA_DIGIT_ZERO>";/
+           "<ORIYA_DIGIT_NINE><ORIYA_DIGIT_ONE>";/
+           "<ORIYA_DIGIT_NINE><ORIYA_DIGIT_TWO>";/
+           "<ORIYA_DIGIT_NINE><ORIYA_DIGIT_THREE>";/
+           "<ORIYA_DIGIT_NINE><ORIYA_DIGIT_FOUR>";/
+           "<ORIYA_DIGIT_NINE><ORIYA_DIGIT_FIVE>";/
+           "<ORIYA_DIGIT_NINE><ORIYA_DIGIT_SIX>";/
+           "<ORIYA_DIGIT_NINE><ORIYA_DIGIT_SEVEN>";/
+           "<ORIYA_DIGIT_NINE><ORIYA_DIGIT_EIGHT>";/
+           "<ORIYA_DIGIT_NINE><ORIYA_DIGIT_NINE>"
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "yes:y:YES:Y"
+yesstr   "<ORIYA_LETTER_HA><ORIYA_SIGN_CANDRABINDU>:yes:y:YES:Y"
 
-nostr    "no:n:NO:N"
+nostr    "<ORIYA_LETTER_NA><ORIYA_VOWEL_SIGN_AA>:no:n:NO:N"
 
-yesexpr  "^(([yY]([eE][sS])?))"
+yesexpr  "^((<ORIYA_LETTER_HA><ORIYA_SIGN_CANDRABINDU>)|([yY]([eE][sS])?))"
 
-noexpr   "^(([nN]([oO])?))"
+noexpr   "^((<ORIYA_LETTER_NA><ORIYA_VOWEL_SIGN_AA>)|([nN]([oO])?))"
 
 
 END LC_MESSAGES

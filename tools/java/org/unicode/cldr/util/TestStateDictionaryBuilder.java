@@ -219,11 +219,11 @@ public class TestStateDictionaryBuilder<T> {
     System.out.println("Dictionary: " + Dictionary.load(stateDictionary.getMapping(), new TreeMap()));
     System.out.println();
     if (SHOW_STATES) {
-      System.out.println("States:\r\n" + stateDictionary);
+      System.out.println("States:" + Utility.LINE_SEPARATOR + stateDictionary);
       System.out.println();
     }
     if (SHOW_CONTENTS) {
-      System.out.println("Structure:\r\n" + stateDictionary.debugShow());
+      System.out.println("Structure:" + Utility.LINE_SEPARATOR + stateDictionary.debugShow());
       System.out.println();
     }
   }
@@ -337,7 +337,7 @@ public class TestStateDictionaryBuilder<T> {
   }
   
   private String showValues(Status stateStatus, Status simpleStatus) {
-    return "\r\nTEXT:\t" + stateMatcher.text + "\r\nSTATE:\t" + showValues(stateStatus, stateMatcher) + "\r\nSIMPLE:\t" + showValues(simpleStatus, simpleMatcher);
+    return Utility.LINE_SEPARATOR + "TEXT:\t" + stateMatcher.text + Utility.LINE_SEPARATOR + "STATE:\t" + showValues(stateStatus, stateMatcher) + Utility.LINE_SEPARATOR + "SIMPLE:\t" + showValues(simpleStatus, simpleMatcher);
   }
   
   private String showValues(Status status, Matcher<T> matcher) {
@@ -397,7 +397,7 @@ public class TestStateDictionaryBuilder<T> {
   }
   
   private void showWords(String myText) {
-    System.out.format("Finding words in: \"%s\"\r\n", myText);
+    System.out.format("Finding words in: \"%s\""+Utility.LINE_SEPARATOR, myText);
     if (SIMPLE_ONLY) {
       showWords("", simpleMatcher, myText);
     } else {

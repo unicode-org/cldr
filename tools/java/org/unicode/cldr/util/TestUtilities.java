@@ -150,7 +150,7 @@ public class TestUtilities {
     for (String message : message_paths.keySet()) {
       Set<String> paths = message_paths.getAll(message);
       out.println("<p>");
-      out.println(Utility.join(paths, "<br>\r\n"));
+      out.println(Utility.join(paths, "<br>" + Utility.LINE_SEPARATOR));
       out.println("</p><blockquote>");
       out.println(message);
       out.println("</blockquote>");

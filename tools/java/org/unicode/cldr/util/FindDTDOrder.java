@@ -1,5 +1,7 @@
 package org.unicode.cldr.util;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,6 +19,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
@@ -30,18 +33,25 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 
+import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.Differ;
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
 import com.ibm.icu.dev.test.util.XEquivalenceMap;
 
 public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
-  static final boolean SHOW_PROGRESS = Utility.getProperty("verbose") != null;
-  static final boolean SHOW_ALL = "all".equalsIgnoreCase(Utility.getProperty("verbose"));
+  private static final Pattern FIRST_LETTER_CHANGE = Pattern.compile("(\\S)\\S*");
+  static final boolean SHOW_PROGRESS = Utility.getProperty("verbose",false);
+  static final boolean SHOW_ALL = Utility.getProperty("show_all", false);
 
   private static FindDTDOrder INSTANCE;
 
   private boolean recordingAttributeElements;
   
+  public static void main(String[] args) throws IOException {
+    FindDTDOrder me = getInstance();
+    me.showData();
+  }
+
   public static FindDTDOrder getInstance() {
     synchronized (FindDTDOrder.class) {
       if (INSTANCE == null) {
@@ -56,13 +66,13 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
           FileInputStream fis;
           InputSource is;
           me.recordingAttributeElements = true;
-          fis = new FileInputStream(Utility.COMMON_DIRECTORY + "main/root.xml");
+          fis = new FileInputStream(Utility.MAIN_DIRECTORY + "/root.xml");
           is = new InputSource(fis);
           xmlReader.parse(is);
   
           me.recordingAttributeElements = false;
-          fis = new FileInputStream(Utility.COMMON_DIRECTORY
-              + "supplemental/supplementalData.xml");
+          fis = new FileInputStream(Utility.SUPPLEMENTAL_DIRECTORY
+              + "/supplementalData.xml");
           is = new InputSource(fis);
           xmlReader.parse(is);
           me.attributeList = Collections.unmodifiableList(new ArrayList(me.attributeSet));
@@ -79,13 +89,8 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     return INSTANCE;
   }
 
-  public static void main(String[] args) {
-    FindDTDOrder me = getInstance();
-    //me.showData();
-  }
-
   public void writeAttributeElements() {
-    System.out.println("\r\n======== Start Attributes to Elements (unblocked) \r\n");
+    System.out.println(Utility.LINE_SEPARATOR + "======== Start Attributes to Elements (unblocked) " + Utility.LINE_SEPARATOR);
     for (String attribute : attributeToElements.keySet()) {
       Set<String> filtered = new TreeSet();
       for (String element : attributeToElements.getAll(attribute)) {
@@ -95,10 +100,10 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
       }
       System.out.println(attribute + "\t" + Utility.join(filtered, " "));
     }
-    System.out.println("\r\n======== End Attributes to Elements\r\n");
-    System.out.println("\r\n======== Start Elements to Children (skipping alias, special)\r\n");
+    System.out.println(Utility.LINE_SEPARATOR + "======== End Attributes to Elements" + Utility.LINE_SEPARATOR);
+    System.out.println(Utility.LINE_SEPARATOR + "======== Start Elements to Children (skipping alias, special)" + Utility.LINE_SEPARATOR);
     showElementTree("ldml", "", new HashSet<String>());
-    System.out.println("\r\n======== End Elements to Children\r\n");
+    System.out.println(Utility.LINE_SEPARATOR + "======== End Elements to Children" + Utility.LINE_SEPARATOR);
   }
 
   private void showElementTree(String element, String indent, HashSet<String> seenSoFar) {
@@ -237,15 +242,17 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     }
     
   }
+  
+  String sep = Utility.LINE_SEPARATOR + "\t\t\t";
 
-  private void showData() {
+  private void showData() throws IOException {
     // finish up
     log.println("Successful Ordering");
     log.print("Old Attributes: ");
     log.println(CLDRFile.attributeOrdering.getOrder());
     
     log.print("*** New Attributes: ");
-    log.println(getJavaList(attributeSet));
+    log.println(breakLines(attributeSet));
     log.println("*** Replace in supplementalMetadata attributeOrder and in CLDRFile attributeOrdering ***");
     
     log.println("Attribute Eq: ");
@@ -268,7 +275,8 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     log.println("Old Element Ordering: "
         + getJavaList(CLDRFile.elementOrdering.getOrder()));
     
-    log.println("*** New Element Ordering: " + getJavaList(orderingList));
+    
+    log.println("*** New Element Ordering: " + breakLines(orderingList));// getJavaList(orderingList));
     log.println("*** Replace in supplementalMetadata elementOrder and in CLDRFile elementOrdering ***");
 
     log.println("Old Size: " + CLDRFile.elementOrdering.getOrder().size());
@@ -303,8 +311,29 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     }
     log.println("Done with differences");
 
-    if (SHOW_PROGRESS)
-      log.flush();
+    log.flush();
+    
+    Log.setLogNoBOM(Utility.GEN_DIRECTORY + "/supplemental/supplementalMetadata.xml");
+    BufferedReader oldFile = BagFormatter.openUTF8Reader(Utility.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
+    String sep = Utility.LINE_SEPARATOR + "\t\t\t";
+
+    Utility.copyUpTo(oldFile, Pattern.compile("\\s*<attributeOrder>\\s*"), Log.getLog(), true);
+    Log.println(sep + breakLines(attributeSet) + sep + "</attributeOrder>");
+    Utility.copyUpTo(oldFile, Pattern.compile("\\s*</attributeOrder>\\s*"), null, true);
+    
+    Utility.copyUpTo(oldFile, Pattern.compile("\\s*<elementOrder>\\s*"), Log.getLog(), true);
+    Log.println(sep + breakLines(orderingList) + sep + "</elementOrder>");
+    Utility.copyUpTo(oldFile, Pattern.compile("\\s*</elementOrder>\\s*"), null, true);
+
+    Utility.copyUpTo(oldFile, null, Log.getLog(), false);
+
+    Log.close();
+    oldFile.close();
+  }
+
+  private String breakLines(Collection orderingList) {
+    final String joined = Utility.join(orderingList," ");
+    return joined; // return Utility.breakLines(joined, sep, FIRST_LETTER_CHANGE.matcher(""), 80);
   }
 
   private String getJavaList(Collection orderingList) {

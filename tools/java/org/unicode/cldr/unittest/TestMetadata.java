@@ -73,10 +73,10 @@ public class TestMetadata extends TestFmwk {
 
   private void checkEquals(String title, String firstTitle, Collection<String> cldrFileOrder, String secondTitle, Collection<String> dtdAttributeOrder) {
     if (!cldrFileOrder.equals(dtdAttributeOrder)) {
-      errln(title + " differ:\r\n" 
-              + firstTitle + ": " + cldrFileOrder + "\r\n" 
-              + secondTitle + ": " + dtdAttributeOrder + "\r\n" 
-              + "to fix, replace in " + firstTitle + ":\r\n\t"
+      errln(title + " differ:" + Utility.LINE_SEPARATOR 
+              + firstTitle + ": " + cldrFileOrder + Utility.LINE_SEPARATOR 
+              + secondTitle + ": " + dtdAttributeOrder + Utility.LINE_SEPARATOR 
+              + "to fix, replace in " + firstTitle + ":" + Utility.LINE_SEPARATOR + "\t"
               + Utility.join(dtdAttributeOrder, " ")
               );
       Differ differ = new Differ(200, 1);
@@ -92,7 +92,7 @@ public class TestMetadata extends TestFmwk {
         if (differ.getACount() != 0 || differ.getBCount() != 0) {
           final Object start = differ.getA(-1);
           if (start.toString().length() != 0) {
-            logln("...\r\n\tSame: " + start);
+            logln("..." + Utility.LINE_SEPARATOR + "\tSame: " + start);
           }
           for (int i = 0; i < differ.getACount(); ++i) {
             logln("\t"+firstTitle+": " + differ.getA(i));
@@ -102,7 +102,7 @@ public class TestMetadata extends TestFmwk {
           }
           final Object end = differ.getA(differ.getACount());
           if (end.toString().length() != 0) {
-            logln("Same: " + end + "\r\n\t...");
+            logln("Same: " + end + Utility.LINE_SEPARATOR + "\t...");
           }
         }
       }

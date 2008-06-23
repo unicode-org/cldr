@@ -48,7 +48,7 @@ public class GenerateMaximalLocales {
   private static OutputStyle OUTPUT_STYLE = OutputStyle.valueOf(Utility.getProperty("OutputStyle", "XML", "XML").toUpperCase());
 
   // set based on above
-  private static final String SEPARATOR = OUTPUT_STYLE == OutputStyle.C  || OUTPUT_STYLE == OutputStyle.C_ALT ? "\r\n" : "\t";
+  private static final String SEPARATOR = OUTPUT_STYLE == OutputStyle.C  || OUTPUT_STYLE == OutputStyle.C_ALT ? Utility.LINE_SEPARATOR : "\t";
   private static final String TAG_SEPARATOR = OUTPUT_STYLE == OutputStyle.C_ALT ? "-" : "_";
   private static final boolean FAVOR_REGION = true; // OUTPUT_STYLE == OutputStyle.C_ALT;
 
@@ -77,33 +77,33 @@ public class GenerateMaximalLocales {
       doAlt(toMaximized);
     }
 
-    if (SHOW_ADD) System.out.println("/*\r\n To Maximize:" +
-            "\r\n If using raw strings, make sure the input language/locale uses the right separator, and has the right casing." +
-            "\r\n Remove the script Zzzz and the region ZZ if they occur; change an empty language subtag to 'und'." +
-            "\r\n Get the language, region, and script from the cleaned-up tag, plus any variants/extensions" +
-            "\r\n Try each of the following in order (where the field exists)" +
-            "\r\n   Lookup language-script-region. If in the table, return the result + variants" +
-            "\r\n   Lookup language-script. If in the table, return the result (substituting the original region if it exists) + variants" +
-            "\r\n   Lookup language-region. If in the table, return the result (substituting the original script if it exists) + variants" +
-            "\r\n   Lookup language. If in the table, return the result (substituting the original region and script if either or both exist) + variants" +
-            "\r\n" +
-            "\r\n Example: Input is zh-ZZZZ-SG." +
-            "\r\n Normalize to zh-SG. Lookup in table. No match." +
-            "\r\n Remove SG, but remember it. Lookup zh, and get the match (zh-Hans-CN). Substitute SG, and return zh-Hans-SG." +
-            "\r\n" +
-            "\r\n To Minimize:" +
-            "\r\n First get max = maximize(input)." +
-            "\r\n Then for trial in {language, language-region, language-script}" +
-            "\r\n     If maximize(trial) == max, then return trial." +
-            "\r\n If you don't get a match, return max." +
-            "\r\n" +
-            "\r\n Example: Input is zh-Hant. Maximize to get zh-Hant-TW." +
-            "\r\n zh => zh-Hans-CN. No match, so continue." +
-            "\r\n zh-TW => zh-Hans-TW. Match, so return zh-TW." +
-            "\r\n" +
-            "\r\n (A variant of this uses {language, language-script, language-region}): that is, tries script before language." +
-            "\r\n toMaximal size:\t" + toMaximized.size() + 
-            "\r\n*/"
+    if (SHOW_ADD) System.out.println("/*" + Utility.LINE_SEPARATOR + " To Maximize:" +
+            Utility.LINE_SEPARATOR + " If using raw strings, make sure the input language/locale uses the right separator, and has the right casing." +
+            Utility.LINE_SEPARATOR + " Remove the script Zzzz and the region ZZ if they occur; change an empty language subtag to 'und'." +
+            Utility.LINE_SEPARATOR + " Get the language, region, and script from the cleaned-up tag, plus any variants/extensions" +
+            Utility.LINE_SEPARATOR + " Try each of the following in order (where the field exists)" +
+            Utility.LINE_SEPARATOR + "   Lookup language-script-region. If in the table, return the result + variants" +
+            Utility.LINE_SEPARATOR + "   Lookup language-script. If in the table, return the result (substituting the original region if it exists) + variants" +
+            Utility.LINE_SEPARATOR + "   Lookup language-region. If in the table, return the result (substituting the original script if it exists) + variants" +
+            Utility.LINE_SEPARATOR + "   Lookup language. If in the table, return the result (substituting the original region and script if either or both exist) + variants" +
+            Utility.LINE_SEPARATOR +
+            Utility.LINE_SEPARATOR + " Example: Input is zh-ZZZZ-SG." +
+            Utility.LINE_SEPARATOR + " Normalize to zh-SG. Lookup in table. No match." +
+            Utility.LINE_SEPARATOR + " Remove SG, but remember it. Lookup zh, and get the match (zh-Hans-CN). Substitute SG, and return zh-Hans-SG." +
+            Utility.LINE_SEPARATOR +
+            Utility.LINE_SEPARATOR + " To Minimize:" +
+            Utility.LINE_SEPARATOR + " First get max = maximize(input)." +
+            Utility.LINE_SEPARATOR + " Then for trial in {language, language-region, language-script}" +
+            Utility.LINE_SEPARATOR + "     If maximize(trial) == max, then return trial." +
+            Utility.LINE_SEPARATOR + " If you don't get a match, return max." +
+            Utility.LINE_SEPARATOR +
+            Utility.LINE_SEPARATOR + " Example: Input is zh-Hant. Maximize to get zh-Hant-TW." +
+            Utility.LINE_SEPARATOR + " zh => zh-Hans-CN. No match, so continue." +
+            Utility.LINE_SEPARATOR + " zh-TW => zh-Hans-TW. Match, so return zh-TW." +
+            Utility.LINE_SEPARATOR +
+            Utility.LINE_SEPARATOR + " (A variant of this uses {language, language-script, language-region}): that is, tries script before language." +
+            Utility.LINE_SEPARATOR + " toMaximal size:\t" + toMaximized.size() + 
+            Utility.LINE_SEPARATOR + "*/"
     );
 
     printMap(toMaximized);
@@ -114,7 +114,7 @@ public class GenerateMaximalLocales {
 
     printDefaultContent(toMaximized);
     
-    System.out.println("\r\nERRORS:\t" + errorCount + "\r\n");
+    System.out.println(Utility.LINE_SEPARATOR + "ERRORS:\t" + errorCount + Utility.LINE_SEPARATOR);
     
 
 
@@ -202,7 +202,7 @@ public class GenerateMaximalLocales {
 
 
 
-    String sep = "\r\n\t\t\t";
+    String sep = Utility.LINE_SEPARATOR + "\t\t\t";
     String broken = Utility.breakLines(Utility.join(defaultLocaleContent," "), sep, Pattern.compile("(\\S)\\S*").matcher(""), 80);
     
     Log.println("\t\t<defaultContent locales=\"" + broken + "\"");
@@ -824,14 +824,14 @@ public class GenerateMaximalLocales {
             "/supplemental/likelySubtags" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
     String spacing = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t" : " ";
     String header = OUTPUT_STYLE != OutputStyle.XML ? "const MapToMaximalSubtags default_subtags[] = {"
-            : "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n"
-              + "<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/dtd/1.5.1/ldmlSupplemental.dtd\">\r\n"
-              + "<supplementalData>\r\n"
-              + "    <version number=\"$Revision$\"/>\r\n"
-              + "    <generation date=\"$Date$\"/>\r\n"
+            : "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" + Utility.LINE_SEPARATOR
+              + "<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/dtd/1.5.1/ldmlSupplemental.dtd\">" + Utility.LINE_SEPARATOR
+              + "<supplementalData>" + Utility.LINE_SEPARATOR
+              + "    <version number=\"$Revision$\"/>" + Utility.LINE_SEPARATOR
+              + "    <generation date=\"$Date$\"/>" + Utility.LINE_SEPARATOR
               + "    <likelySubtags>";
     String footer = OUTPUT_STYLE  != OutputStyle.XML ? SEPARATOR + "};" 
-            : "    </likelySubtags>\r\n"
+            : "    </likelySubtags>" + Utility.LINE_SEPARATOR
               + "</supplementalData>";
     out.println(header);
     boolean first = true;
@@ -849,7 +849,7 @@ public class GenerateMaximalLocales {
         } else {
           out.print(",");
         }
-        if (comment.length() > 70 && SEPARATOR.equals("\r\n")) {
+        if (comment.length() > 70 && SEPARATOR.equals(Utility.LINE_SEPARATOR)) {
           comment = printingName(printingLocale, spacing) +SEPARATOR + "    // " + spacing + "=>" + spacing + printingName(printingTarget, spacing);
         }
         out.print(
@@ -857,7 +857,7 @@ public class GenerateMaximalLocales {
                 + SEPARATOR + "    // " + comment
                 + SEPARATOR + "    \"" + printingLocale + "\","
                 + SEPARATOR + "    \"" + printingTarget + "\""
-                + "\r\n" + "  }"
+                + Utility.LINE_SEPARATOR + "  }"
         );
       }
     }

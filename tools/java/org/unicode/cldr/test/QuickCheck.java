@@ -234,19 +234,19 @@ public class QuickCheck {
     }
     System.out.println();
     
-    System.out.format("Distinguishing Elements: %s\r\n", distinguishing);
-    System.out.format("Nondistinguishing Elements: %s\r\n", nonDistinguishing);
-    System.out.format("Skipped %s\r\n", skipAttributes);
+    System.out.format("Distinguishing Elements: %s" + Utility.LINE_SEPARATOR, distinguishing);
+    System.out.format("Nondistinguishing Elements: %s" + Utility.LINE_SEPARATOR, nonDistinguishing);
+    System.out.format("Skipped %s" + Utility.LINE_SEPARATOR, skipAttributes);
     
     if (verbose) {
-      System.out.println("\r\nPaths to skip in Survey Tool");
+      System.out.println(Utility.LINE_SEPARATOR + "Paths to skip in Survey Tool");
       for (String path : pathToLocale.keySet()) {
         if (CheckCLDR.skipShowingInSurvey.matcher(path).matches()) {
           System.out.println("Skipping: " + path);
         }
       }
       
-      System.out.println("\r\nPaths to force zoom in Survey Tool");
+      System.out.println(Utility.LINE_SEPARATOR + "Paths to force zoom in Survey Tool");
       for (String path : pathToLocale.keySet()) {
         if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(path).matches()) {
           System.out.println("Forced Zoom Edit: " + path);
@@ -256,7 +256,7 @@ public class QuickCheck {
     
     if (pretty) {
       if (showInfo) {
-        System.out.println("\r\nShowing Path to PrettyPath mapping\r\n");
+        System.out.println(Utility.LINE_SEPARATOR + "Showing Path to PrettyPath mapping" + Utility.LINE_SEPARATOR);
       }
       PrettyPath prettyPath = new PrettyPath().setShowErrors(true);
       Set<String> badPaths = new TreeSet();
@@ -270,7 +270,7 @@ public class QuickCheck {
       // now remove root
       
       if (showInfo) {
-        System.out.println("\r\nShowing Paths not in root\r\n");
+        System.out.println(Utility.LINE_SEPARATOR + "Showing Paths not in root" + Utility.LINE_SEPARATOR);
       }
       
       CLDRFile root = cldrFactory.make("root", true);

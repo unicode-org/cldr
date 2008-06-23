@@ -1051,12 +1051,12 @@ public class ConsoleCheckCLDR {
         title="Errors in " + ConsoleCheckCLDR.getNameAndLocale(localeID, false);
       }
       generated_html_index.println("<html>" +
-              "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\r\n" +
-              "<title>" + title + "</title>\r\n" +
-              "<link rel='stylesheet' href='errors.css' type='text/css'>\r\n" +
-              "<base target='_blank'>\r\n" +
-              "</head><body>\r\n" +
-              "<h1>" + title + "</h1>\r\n" +
+              "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" + Utility.LINE_SEPARATOR +
+              "<title>" + title + "</title>" + Utility.LINE_SEPARATOR +
+              "<link rel='stylesheet' href='errors.css' type='text/css'>" + Utility.LINE_SEPARATOR +
+              "<base target='_blank'>" + Utility.LINE_SEPARATOR +
+              "</head><body>" + Utility.LINE_SEPARATOR +
+              "<h1>" + title + "</h1>" + Utility.LINE_SEPARATOR +
               "<p>" +
               "<a href='index.html" + (notLocaleSpecific ? "" : "#" + localeID) + "'>Index</a> | " +
               "<a href='sections.html" + (notLocaleSpecific ? "" : "#" + localeID) + "'>Index by Section</a>" +
@@ -1111,11 +1111,11 @@ public class ConsoleCheckCLDR {
     private static String htmlOpenedFileLocale = null;
     private static final String ERROR_CHART_HEADER = org.unicode.cldr.tool.ShowLanguages.getHelpHtml("error_locale_header");
 //  "Please review and correct them. " +
-//  "Note that errors in <i>sublocales</i> are often fixed by fixing the main locale.</p>\r\n" +
+//  "Note that errors in <i>sublocales</i> are often fixed by fixing the main locale.</p>" + Utility.LINE_SEPARATOR +
 //  "<p><i>This list is only generated daily, and so may not reflect fixes you have made until tomorrow. " +
 //  "(There were production problems in integrating it fully into the Survey tool. " +
 //  "However, it should let you see the problems and make sure that they get taken care of.)</i></p>" +
-//  "<p>Coverage depends on your organizations goals: the highest tier languages should include up through all Modern values.</p>\r\n";
+//  "<p>Coverage depends on your organizations goals: the highest tier languages should include up through all Modern values.</p>" + Utility.LINE_SEPARATOR;
     static  String generated_html_directory = null;
     public static Counter<Row.R4<String, ErrorType, Subtype, String>> sectionToProblemsToLocaleToCount
     = new Counter<Row.R4<String, ErrorType, Subtype, String>>();

@@ -104,9 +104,9 @@ public class TestMisc {
       ParsePosition p = new ParsePosition(0);
       UnicodeSet set = new UnicodeSet(test,  p, sym);
       UnicodeSet codes = set.complement().complement();
-      System.out.println(test + "\r\n" + 
-          codes.toPattern(true) + "\r\n" + 
-          bf.showSetNames(set.complement().complement()) + "\r\n");
+      System.out.println(test + Utility.LINE_SEPARATOR + 
+          codes.toPattern(true) + Utility.LINE_SEPARATOR + 
+          bf.showSetNames(set.complement().complement()) + Utility.LINE_SEPARATOR);
     }
     if (true) return;
       
@@ -262,7 +262,7 @@ public class TestMisc {
       System.out.println("functionalExceptCase: " + functionalExceptCase);
       System.out.println("archaic: " + archaic);
       
-      System.out.println("SimpleCaseFolded & !CaseFolded & Functional & !Archaic:\r\n" 
+      System.out.println("SimpleCaseFolded & !CaseFolded & Functional & !Archaic:" + Utility.LINE_SEPARATOR 
           +  bf.showSetNames(new UnicodeSet(simpleCaseFolded)
               .removeAll(caseFolded)
               .retainAll(functionalExceptCase)
@@ -279,14 +279,14 @@ public class TestMisc {
       //System.out.println(bf.showSetNames("Case Folded", caseFolded,"Simple Case Folded", simpleCaseFolded));
 
       UnicodeSet functionalCommon = new UnicodeSet("[:script=common:]").retainAll(functional).removeAll(archaic).removeAll(asciiIdn);
-      System.out.println("Common & Functional & !Archaic:\r\n" + bf.showSetNames(functionalCommon));
+      System.out.println("Common & Functional & !Archaic:" + Utility.LINE_SEPARATOR + bf.showSetNames(functionalCommon));
  
       UnicodeSet functionalInherited = new UnicodeSet("[:script=inherited:]").retainAll(functional).removeAll(archaic).removeAll(asciiIdn);
-      System.out.println("Inherited & Functional & !Archaic:\r\n" + bf.showSetNames(functionalInherited));
+      System.out.println("Inherited & Functional & !Archaic:" + Utility.LINE_SEPARATOR + bf.showSetNames(functionalInherited));
       
       UnicodeSet nl =new UnicodeSet("[:Nl:]").retainAll(functional).removeAll(archaic);
-      System.out.println("Nl:\r\n" + bf.showSetNames(new UnicodeSet("[:Nl:]")));
-      System.out.println("Nl & Functional & !Archaic:\r\n" + bf.showSetNames(nl));
+      System.out.println("Nl:" + Utility.LINE_SEPARATOR + bf.showSetNames(new UnicodeSet("[:Nl:]")));
+      System.out.println("Nl & Functional & !Archaic:" + Utility.LINE_SEPARATOR + bf.showSetNames(nl));
       
       UnicodeSet restrictedXidContinue = new UnicodeSet(
           "[[:xid_continue:]" +
@@ -336,7 +336,7 @@ public class TestMisc {
           System.out.println(item + "\t" + Utility.join(Iso639Data.getNames(item), ", "));
         }
       }.applyTo(Iso639Data.getAvailable());
-      System.out.println("\r\nMacrolanguages");
+      System.out.println(Utility.LINE_SEPARATOR + "Macrolanguages");
       new org.unicode.cldr.util.Utility.Apply<String>() {
         public void apply(String item) {
           if (Iso639Data.getScope(item.toString()) != Scope.Macrolanguage) return;
@@ -380,11 +380,11 @@ public class TestMisc {
       UnicodeSet dontCares2 = (UnicodeSet) new UnicodeSet("[:^letter:]").freeze();
       
 //      UnicodeSet wide = new UnicodeSet("[[:East_Asian_Width=wide:][:East_Asian_Width=fullwidth:][:Co:]]"); // remove supplementaries
-//      System.out.format("Wide %s\r\n\r\n", wide);
-//      System.out.format("Wide(spanned) %s\r\n\r\n", Utility.addDontCareSpans(wide, dontCares));
+//      System.out.format("Wide %s" + Utility.LINE_SEPARATOR + "" + Utility.LINE_SEPARATOR, wide);
+//      System.out.format("Wide(spanned) %s" + Utility.LINE_SEPARATOR + "" + Utility.LINE_SEPARATOR, Utility.addDontCareSpans(wide, dontCares));
 //      UnicodeSet zeroWidth = new UnicodeSet("[[:default_ignorable_code_point:][:Mn:][:Me:]-[:Noncharacter_Code_Point:]-[:Cc:]]"); // remove supplementaries
-//      System.out.format("ZeroWidth %s\r\n\r\n", zeroWidth);
-//      System.out.format("ZeroWidth(spanned) %s\r\n\r\n", Utility.addDontCareSpans(zeroWidth, dontCares));
+//      System.out.format("ZeroWidth %s" + Utility.LINE_SEPARATOR + "" + Utility.LINE_SEPARATOR, zeroWidth);
+//      System.out.format("ZeroWidth(spanned) %s" + Utility.LINE_SEPARATOR + "" + Utility.LINE_SEPARATOR, Utility.addDontCareSpans(zeroWidth, dontCares));
       
       // P2. In each paragraph, find the first character of type L, AL, or R.
       UnicodeSet strongL = (UnicodeSet) new UnicodeSet("[[:BidiClass=L:]-[:unassigned:]]").freeze(); // 
@@ -403,15 +403,15 @@ public class TestMisc {
 
     private static void showSpans(String title, UnicodeSet sourceSet, UnicodeSet dontCares) {
       System.out.println(title);
-      System.out.format("\tSource Set: %s\r\n", sourceSet);
-      System.out.format("\tDon't Cares: %s\r\n", dontCares);
+      System.out.format("\tSource Set: %s" + Utility.LINE_SEPARATOR, sourceSet);
+      System.out.format("\tDon't Cares: %s" + Utility.LINE_SEPARATOR, dontCares);
       UnicodeSet spanned = Utility.addDontCareSpans(new UnicodeSet(sourceSet), dontCares);
       spanned = spanned.complement().complement();
       String spannedString = spanned.toString();
       String unescapedString = spanned.toPattern(false);
-      System.out.format("\tRanges: %d\r\n", spanned.getRangeCount());
-      System.out.format("\tStrlen(\\u): %d\r\n", spannedString.length());
-      System.out.format("\tStrlen(!\\u): %d\r\n", unescapedString.length());
+      System.out.format("\tRanges: %d" + Utility.LINE_SEPARATOR, spanned.getRangeCount());
+      System.out.format("\tStrlen(\\u): %d" + Utility.LINE_SEPARATOR, spannedString.length());
+      System.out.format("\tStrlen(!\\u): %d" + Utility.LINE_SEPARATOR, unescapedString.length());
       String title2 = "Result";
       String sample = spannedString;
       if (false) {
@@ -420,7 +420,7 @@ public class TestMisc {
           sample = sample.substring(0,60) + " ...";
         }
       }
-      System.out.format("\t%s: %s\r\n", title2, sample);
+      System.out.format("\t%s: %s" + Utility.LINE_SEPARATOR, title2, sample);
       System.out.println();
      }
     

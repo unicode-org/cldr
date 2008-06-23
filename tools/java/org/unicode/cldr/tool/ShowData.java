@@ -175,22 +175,22 @@ public class ShowData {
         getChartTemplate(
             "Locale Data Summary for " + getName(locale),
             ShowLanguages.CHART_DISPLAY_VERSION,
-            // "<style type='text/css'>\r\n" +
-            // "h1 {margin-bottom:1em}\r\n" +
-            // ".e {background-color: #EEEEEE}\r\n" +
-            // ".i {background-color: #FFFFCC}\r\n" +
-            // ".v {background-color: #FFFF00}\r\n" +
-            // ".a {background-color: #9999FF}\r\n" +
-            // ".ah {background-color: #FF99FF}\r\n" +
-            // ".h {background-color: #FF9999}\r\n" +
-            // ".n {color: #999999}\r\n" +
-            // ".g {background-color: #99FF99}\r\n" +
-            // "</style>\r\n" +
-            "<script>\r\n"
-                + "if (location.href.split('?')[1].split(',')[0]=='hide') {\r\n"
-                + "document.write('<style>');\r\n"
-                + "document.write('.xx {display:none}');\r\n"
-                + "document.write('</style>');\r\n" + "}\r\n" + "</script>",
+            // "<style type='text/css'>" + Utility.LINE_SEPARATOR +
+            // "h1 {margin-bottom:1em}" + Utility.LINE_SEPARATOR +
+            // ".e {background-color: #EEEEEE}" + Utility.LINE_SEPARATOR +
+            // ".i {background-color: #FFFFCC}" + Utility.LINE_SEPARATOR +
+            // ".v {background-color: #FFFF00}" + Utility.LINE_SEPARATOR +
+            // ".a {background-color: #9999FF}" + Utility.LINE_SEPARATOR +
+            // ".ah {background-color: #FF99FF}" + Utility.LINE_SEPARATOR +
+            // ".h {background-color: #FF9999}" + Utility.LINE_SEPARATOR +
+            // ".n {color: #999999}" + Utility.LINE_SEPARATOR +
+            // ".g {background-color: #99FF99}" + Utility.LINE_SEPARATOR +
+            // "</style>" + Utility.LINE_SEPARATOR +
+            "<script>" + Utility.LINE_SEPARATOR
+                + "if (location.href.split('?')[1].split(',')[0]=='hide') {" + Utility.LINE_SEPARATOR
+                + "document.write('<style>');" + Utility.LINE_SEPARATOR
+                + "document.write('.xx {display:none}');" + Utility.LINE_SEPARATOR
+                + "document.write('</style>');" + Utility.LINE_SEPARATOR + "}" + Utility.LINE_SEPARATOR + "</script>",
             headerAndFooter);
         pw.println(headerAndFooter[0]);
         // pw.println("<html><head>");
@@ -606,7 +606,7 @@ public class ShowData {
         result.setLength(0);
         continue;
       }
-      result.append(langTagPattern).append("\r\n");
+      result.append(langTagPattern).append(Utility.LINE_SEPARATOR);
     }
     headerAndFooter[1] = result.toString();
   }

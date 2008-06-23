@@ -1050,12 +1050,12 @@ public class GenerateSidewaysView {
             out.append("<!-- ");
             out.append(comment);
             if (comment.indexOf('\n') >= 0) {
-                out.append("\r\n");
+                out.append(Utility.LINE_SEPARATOR);
                 indent(common, out);
             } else {
                 out.append(" ");
             }
-            out.append("-->\r\n");
+            out.append("-->" + Utility.LINE_SEPARATOR);
         }
     }
 

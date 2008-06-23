@@ -216,18 +216,18 @@ public class TestBasic extends TestFmwk {
 
     if (isVerbose()) {
 
-      System.out.format("Distinguishing Elements: %s\r\n", distinguishing);
-      System.out.format("Nondistinguishing Elements: %s\r\n", nonDistinguishing);
-      System.out.format("Skipped %s\r\n", skipAttributes);
+      System.out.format("Distinguishing Elements: %s" + Utility.LINE_SEPARATOR, distinguishing);
+      System.out.format("Nondistinguishing Elements: %s" + Utility.LINE_SEPARATOR, nonDistinguishing);
+      System.out.format("Skipped %s" + Utility.LINE_SEPARATOR, skipAttributes);
 
-      logln("\r\nPaths to skip in Survey Tool");
+      logln(Utility.LINE_SEPARATOR + "Paths to skip in Survey Tool");
       for (String path : pathToLocale.keySet()) {
         if (CheckCLDR.skipShowingInSurvey.matcher(path).matches()) {
           logln("Skipping: " + path);
         }
       }
 
-      logln("\r\nPaths to force zoom in Survey Tool");
+      logln(Utility.LINE_SEPARATOR + "Paths to force zoom in Survey Tool");
       for (String path : pathToLocale.keySet()) {
         if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(path).matches()) {
           logln("Forced Zoom Edit: " + path);
@@ -237,7 +237,7 @@ public class TestBasic extends TestFmwk {
 
     if (pretty) {
       if (showInfo) {
-        logln("\r\nShowing Path to PrettyPath mapping\r\n");
+        logln(Utility.LINE_SEPARATOR + "Showing Path to PrettyPath mapping" + Utility.LINE_SEPARATOR);
       }
       PrettyPath prettyPath = new PrettyPath().setShowErrors(true);
       Set<String> badPaths = new TreeSet();
@@ -252,7 +252,7 @@ public class TestBasic extends TestFmwk {
       // now remove root
 
       if (showInfo) {
-        logln("\r\nShowing Paths not in root\r\n");
+        logln(Utility.LINE_SEPARATOR + "Showing Paths not in root" + Utility.LINE_SEPARATOR);
       }
 
       CLDRFile root = cldrFactory.make("root", true);

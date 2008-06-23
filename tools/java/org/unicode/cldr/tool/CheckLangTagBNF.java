@@ -62,7 +62,7 @@ class CheckLangTagBNF {
     for (int count = 1; ; ++count) {
       String line = in.readLine();
       if (line == null) break;
-      ruleBuffer.append(line).append("\r\n");
+      ruleBuffer.append(line).append(Utility.LINE_SEPARATOR);
       // remove initial bom, comments
       if (line.length() == 0) continue;
       if (line.charAt(0) == '\uFEFF') line = line.substring(1);
@@ -70,7 +70,7 @@ class CheckLangTagBNF {
       if (hashPos >= 0) line = line.substring(0, hashPos);
       String trimline = line.trim();
       if (trimline.length() == 0) continue;
-      generationRuleBuffer.append(trimline).append("\r\n");
+      generationRuleBuffer.append(trimline).append(Utility.LINE_SEPARATOR);
 
       // String[] lineParts = line.split(";");
       String linePart = line; // lineParts[i]; // .trim().replace("\\s+", " ");
@@ -90,7 +90,7 @@ class CheckLangTagBNF {
         if (variable == null) {
           throw new IllegalArgumentException("Missing '=' at " + count + ") " + line);
         }
-        definition.append("\r\n").append(linePart);
+        definition.append(Utility.LINE_SEPARATOR).append(linePart);
       }
       // we are terminated if i is not at the end, or the line ends with a ;
       if (terminated) {

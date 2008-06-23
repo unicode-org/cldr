@@ -68,7 +68,7 @@ public class StateDictionary<T> extends Dictionary<T> {
     StringBuilder result = new StringBuilder();
     //TreeSet<Row> rowSet = new TreeSet<Row>(builtRows);
     for (Row row : builtRows) {
-      result.append(row.toString()).append("\r\n");
+      result.append(row.toString()).append(Utility.LINE_SEPARATOR);
     }
     Map<T, Integer> map = builtResults.getValueMap();
     Set<Pair<Integer, String>> sorted = new TreeSet<Pair<Integer, String>>();
@@ -76,7 +76,7 @@ public class StateDictionary<T> extends Dictionary<T> {
       sorted.add(new Pair(map.get(item), item.toString()));
     }
     for (Pair<Integer, String> pair : sorted) {
-      result.append(pair.getFirst()).append("*=").append(pair.getSecond()).append("\r\n");
+      result.append(pair.getFirst()).append("*=").append(pair.getSecond()).append(Utility.LINE_SEPARATOR);
     }
     return result.toString();
   }
@@ -521,7 +521,7 @@ public class StateDictionary<T> extends Dictionary<T> {
           .getKeysetSortedByKey()) {
         debugTreeView.append("cells in row=\t").append(item).append(
             "\trows with count=\t").append(debugCounter.getCount(item)).append(
-            "\r\n");
+            Utility.LINE_SEPARATOR);
       }
       return debugTreeView.toString();
     }
@@ -561,7 +561,7 @@ public class StateDictionary<T> extends Dictionary<T> {
             }
           }
           debugTreeView.append("\t<").append(key2).append(">\t<")
-              .append(value2).append(">\r\n");
+              .append(value2).append(">" + Utility.LINE_SEPARATOR);
         }
         if (cell.nextRow != null) {
           getDebugWords(byteLength + 1, currentValue, cell.nextRow,

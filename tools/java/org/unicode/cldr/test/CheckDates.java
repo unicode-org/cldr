@@ -54,7 +54,7 @@ public class CheckDates extends CheckCLDR {
     //"AD 2100-07-11T10:15:16Z",
   }; // keep aligned with following
   static String SampleList = "{0}"
-    //+ "\r\n\t\u200E{1}\u200E\r\n\t\u200E{2}\u200E\r\n\t\u200E{3}\u200E"
+    //+ Utility.LINE_SEPARATOR + "\t\u200E{1}\u200E" + Utility.LINE_SEPARATOR + "\t\u200E{2}\u200E" + Utility.LINE_SEPARATOR + "\t\u200E{3}\u200E"
     ; // keep aligned with previous
   
   private static final String DECIMAL_XPATH = "//ldml/numbers/symbols/decimal";

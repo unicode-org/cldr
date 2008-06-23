@@ -92,11 +92,11 @@ public class GenerateEnums {
   }
 
   private void showCounts() {
-    System.out.format("Language Subtags: %s\r\n", sc.getGoodAvailableCodes(
+    System.out.format("Language Subtags: %s" + Utility.LINE_SEPARATOR, sc.getGoodAvailableCodes(
         "language").size());
-    System.out.format("Script Subtags: %s\r\n", sc.getGoodAvailableCodes(
+    System.out.format("Script Subtags: %s" + Utility.LINE_SEPARATOR, sc.getGoodAvailableCodes(
         "script").size());
-    System.out.format("Territory Subtags: %s\r\n", sc.getGoodAvailableCodes(
+    System.out.format("Territory Subtags: %s" + Utility.LINE_SEPARATOR, sc.getGoodAvailableCodes(
         "territory").size());
   }
 
@@ -118,7 +118,7 @@ public class GenerateEnums {
     for (String code : validCurrencyCodes) {
       if (unused.contains(code) && !code.equals("CLF"))
         continue; // we include CLF for compatibility
-      sorted.put(english.getName(CLDRFile.CURRENCY_NAME, code), code);
+      sorted.put(getName(code), code);
     }
     int lineLength = "  /** Belgian Franc */                                            BEF,"
         .length();
@@ -130,11 +130,20 @@ public class GenerateEnums {
     Log.close();
   }
 
+  private String getName(String code) {
+    String result = english.getName(CLDRFile.CURRENCY_NAME, code);
+    if (result == null) {
+      result = code;
+      System.out.println("Failed to find: " + code);
+    }
+    return result;
+  }
+
   private void showCurrencies(Set both) {
     // /** Afghani */ AFN,
     for (Iterator it = both.iterator(); it.hasNext();) {
       String code = (String) it.next();
-      String englishName = english.getName(CLDRFile.CURRENCY_NAME, code);
+      String englishName = getName(code);
       if (englishName == null) {
       }
       Set<String> regions = unlimitedCurrencyCodes.getAll(code);
@@ -835,7 +844,7 @@ public class GenerateEnums {
 
     String resolvedEnglishName = englishName != null ? englishName : type
         .equals("territory") ? getEnglishName(codeName) : type
-        .equals("currency") ? english.getName(CLDRFile.CURRENCY_NAME, codeName) : english.getName(CLDRFile.SCRIPT_NAME, codeName);
+        .equals("currency") ? getName(codeName) : english.getName(CLDRFile.SCRIPT_NAME, codeName);
     resolvedEnglishName = doFallbacks.transliterate(resolvedEnglishName);
 
     String prefix = CODE_INDENT + "/** " + resolvedEnglishName; // + " - " +

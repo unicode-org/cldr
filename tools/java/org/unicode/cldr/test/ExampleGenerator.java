@@ -848,7 +848,7 @@ public class ExampleGenerator {
   public static class HelpMessages {
     private static final Matcher CLEANUP_BOOKMARK = Pattern.compile("[^a-zA-Z0-9]").matcher("");
 
-    private static final MessageFormat DEFAULT_HEADER_PATTERN = new MessageFormat("<p>{0}</p>\r\n");
+    private static final MessageFormat DEFAULT_HEADER_PATTERN = new MessageFormat("<p>{0}</p>" + Utility.LINE_SEPARATOR);
 
     private static final Matcher HEADER_HTML = Pattern.compile("<h[0-9]>(.*)</h[0-9]>").matcher("");
 
@@ -975,7 +975,7 @@ public class ExampleGenerator {
       for (int i = 0; i < keys.size(); ++i) {
         if (keys.get(i).reset(key).matches()) {
           if (result.length() != 0) {
-            result.append("\r\n");
+            result.append(Utility.LINE_SEPARATOR);
           }
           String value = values.get(i);
           if (headerPattern != null) {

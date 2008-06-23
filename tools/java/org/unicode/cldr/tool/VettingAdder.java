@@ -304,17 +304,17 @@ public class VettingAdder {
     			showSet(emails);
     			lastLocale = (String)items[0];
     			cldr = cldrFactory.make(lastLocale, false);
-    			entry = "==========" + "\r\n" + lastLocale + "\r\n";
+    			entry = "==========" + Utility.LINE_SEPARATOR + lastLocale + Utility.LINE_SEPARATOR;
     		}
     		String path = CLDRFile.getDistinguishingXPath((String)items[1], null, false);
        		String current = cldr.getStringValue(path);
-    		entry += "\tpath:\t" + path + "\r\n\tcurrent value:\t" + getValue(any_latin, current) + "\r\n";
+    		entry += "\tpath:\t" + path + Utility.LINE_SEPARATOR + "\tcurrent value:\t" + getValue(any_latin, current) + Utility.LINE_SEPARATOR;
     		
-    		entry += "\tEnglish value:\t" + getValue(any_latin, english.getStringValue(path)) + "\r\n";
+    		entry += "\tEnglish value:\t" + getValue(any_latin, english.getStringValue(path)) + Utility.LINE_SEPARATOR;
     		Collection c = (Collection) items[2];
     		for (Iterator it2 = c.iterator(); it2.hasNext();) {
     			VettingInfo vi = (VettingInfo) it2.next();
-    			entry += "\t\tvalue:\t" + getValue(any_latin, vi.value) + "\t source: " + vi.dir + "\r\n";
+    			entry += "\t\tvalue:\t" + getValue(any_latin, vi.value) + "\t source: " + vi.dir + Utility.LINE_SEPARATOR;
     			// get third field, that's the email
     			Utility.split(vi.dir, '\\', pieces);
     			emails.add(pieces[2]);

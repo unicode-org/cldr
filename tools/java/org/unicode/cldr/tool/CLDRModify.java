@@ -359,7 +359,7 @@ public class CLDRModify {
 					+ givenOptions.shortName 
 					+ ": "
 					+ new UnicodeSet().addAll(givenOptions.value).removeAll(allowedOptions) 
-					+ "\r\nUse -? for help.");
+					+ Utility.LINE_SEPARATOR + "Use -? for help.");
 		}
 	}
 	

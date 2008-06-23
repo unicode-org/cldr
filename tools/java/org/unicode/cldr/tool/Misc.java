@@ -714,14 +714,14 @@ public class Misc {
 		.add("$privateuse2", "(?:-$privateuse)");
 	static String langTagPattern = langTag.replace(			
 			"($lang)"
-				+ "\r\n\t($extlang{0,3})"
-				+ "\r\n\t($script?)"
-				+ "\r\n\t($region?)"
-				+ "\r\n\t($variant*)"
-				+ "\r\n\t($extension*)"
-				+ "\r\n\t($privateuse2?)"
-			+ "\r\n|($grandfathered)"
-			+ "\r\n|($privateuse)"
+				+ Utility.LINE_SEPARATOR + "\t($extlang{0,3})"
+				+ Utility.LINE_SEPARATOR + "\t($script?)"
+				+ Utility.LINE_SEPARATOR + "\t($region?)"
+				+ Utility.LINE_SEPARATOR + "\t($variant*)"
+				+ Utility.LINE_SEPARATOR + "\t($extension*)"
+				+ Utility.LINE_SEPARATOR + "\t($privateuse2?)"
+			+ Utility.LINE_SEPARATOR + "|($grandfathered)"
+			+ Utility.LINE_SEPARATOR + "|($privateuse)"
 			);
 	static String cleanedLangTagPattern = langTagPattern.replaceAll("[\\r\\t\\n\\s]","");
 	static Matcher regexLanguageTagOld = Pattern.compile(cleanedLangTagPattern).matcher("");
@@ -832,7 +832,7 @@ public class Misc {
           Set abb = getAbbreviations(ruleID_Rules, lastZoneLine, zoneLine);
           if (abb.size() == 0) {
             System.out.println("??? Didn't find %s values for " + format + " under " + key 
-                + ";\r\n\tLast:" + lastZoneLine + ";\r\n\tCurrent: " + zoneLine);
+                + ";" + Utility.LINE_SEPARATOR + "\tLast:" + lastZoneLine + ";" + Utility.LINE_SEPARATOR + "\tCurrent: " + zoneLine);
             abb = getAbbreviations(ruleID_Rules, lastZoneLine, zoneLine);
           }
 
@@ -881,7 +881,7 @@ public class Misc {
   private static void add(Set abbreviations, String format, String zone, ZoneLine lastZoneLine, ZoneLine zoneLine) {
     if (format.length() < 3) {
     System.out.println("??? Format too short: '" + format + "' under " + zone 
-        + ";\r\n\tLast:" + lastZoneLine + ";\r\n\tCurrent: " + zoneLine);
+        + ";" + Utility.LINE_SEPARATOR + "\tLast:" + lastZoneLine + ";" + Utility.LINE_SEPARATOR + "\tCurrent: " + zoneLine);
     return;
     }
     abbreviations.add(format);

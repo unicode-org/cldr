@@ -13,6 +13,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.TreeSet;
 
+import org.unicode.cldr.util.Utility;
+
 public class TablePrinter {
   public static void main(String[] args) {
     // quick test;
@@ -291,7 +293,7 @@ public class TablePrinter {
     if (tableAttributes != null) {
       result.append(' ').append(tableAttributes);
     }
-    result.append(">\r\n");
+    result.append(">" + Utility.LINE_SEPARATOR);
     
     if (caption != null) {
       result.append("<caption>").append(caption).append("</caption>");
@@ -357,7 +359,7 @@ public class TablePrinter {
         }
         result.append(columnsFlat[j].isHeader ? "</th>" : "</td>");
       }
-      result.append("</tr>\r\n");
+      result.append("</tr>" + Utility.LINE_SEPARATOR);
     }
     result.append("</table>");
     return result.toString();
@@ -376,7 +378,7 @@ public class TablePrinter {
       result.append('>').append(columnsFlat[j].header).append("</th>");
       
     }
-    result.append("</tr>\r\n");
+    result.append("</tr>" + Utility.LINE_SEPARATOR);
   }
   
   /**

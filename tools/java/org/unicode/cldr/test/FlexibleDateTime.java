@@ -52,7 +52,7 @@ public class FlexibleDateTime {
     static final boolean SHOW_MATCHING = false;
     static final boolean SHOW2 = false;
     static final boolean SHOW_OO = false;
-    static final String SEPARATOR = "\r\n\t";
+    static final String SEPARATOR = Utility.LINE_SEPARATOR + "\t";
     
     /**
      * Test different ways of doing flexible date/times.

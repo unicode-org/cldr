@@ -611,8 +611,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
           if (cpath.startsWith("//ldml/identity/")) continue; // skip, since the error msg is not needed.
           String myVersion = getStringValue(cpath);
           if (myVersion == null || !newValue.equals(myVersion)) {
-            Log.logln(getLocaleID() + "\tDenied attempt to replace non-draft\r\n\tcurr: [" + cpath + ",\t"
-                + myVersion + "]\r\n\twith: [" + newValue + "]");
+            Log.logln(getLocaleID() + "\tDenied attempt to replace non-draft" + Utility.LINE_SEPARATOR + "\tcurr: [" + cpath + ",\t"
+                + myVersion + "]" + Utility.LINE_SEPARATOR + "\twith: [" + newValue + "]");
             continue;
           }
         }
@@ -1450,7 +1450,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
 
     private void warnOnOverride(String former, String formerPath) {
       System.out.println("\tWARNING: overriding " + target.getLocaleID() + "\t<" + former + ">\t\t" + formerPath + 
-          "\r\n\twith " + target.getLocaleID() + "\t<" + lastChars + ">\t" + (currentFullXPath.equals(formerPath) ? "" : currentFullXPath));
+          Utility.LINE_SEPARATOR + "\twith " + target.getLocaleID() + "\t<" + lastChars + ">\t" + (currentFullXPath.equals(formerPath) ? "" : currentFullXPath));
     }
     
     private static String stripAfter(String input, String qName) {
@@ -1765,7 +1765,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
         String newPath = fullTemp.toString();
         String value = dataSource.getValueAtPath(path);
         //value = value.changePath(fullTemp.toString());
-        if (SHOW_ALIAS_FIXES) System.out.println("Adding*: " + path + ";\r\n\t" + newPath + ";\r\n\t" 
+        if (SHOW_ALIAS_FIXES) System.out.println("Adding*: " + path + ";" + Utility.LINE_SEPARATOR + "\t" + newPath + ";" + Utility.LINE_SEPARATOR + "\t" 
             + dataSource.getValueAtPath(path));
         stuffToAdd.put(newPath, value);
         // to do, fix path

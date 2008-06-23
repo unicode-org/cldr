@@ -18,7 +18,7 @@ import java.util.TreeSet;
 
 public class GenerateLikelySubtagTests {
   private static final String TAG_SEPARATOR = "_";
-  private static final String SEPARATOR = "\r\n";
+  private static final String SEPARATOR = Utility.LINE_SEPARATOR;
   private static final boolean DEBUG = true;
   private static final OutputStyle OUTPUT_STYLE = OutputStyle.XML;
   private static PrintWriter out;
@@ -29,10 +29,10 @@ public class GenerateLikelySubtagTests {
      if (OUTPUT_STYLE == OutputStyle.C) {
        out.println("// START");
      } else {
-      out.println("<?xml version='1.0' encoding='UTF-8' ?>\r\n" +
-        "<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5.1/cldrTest.dtd'>\r\n" +
-        "<!-- For information, see readme.html -->\r\n" +
-         "<cldrTest version='1.5.1' base='aa'>\r\n" +
+      out.println("<?xml version='1.0' encoding='UTF-8' ?>" + Utility.LINE_SEPARATOR +
+        "<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5.1/cldrTest.dtd'>" + Utility.LINE_SEPARATOR +
+        "<!-- For information, see readme.html -->" + Utility.LINE_SEPARATOR +
+         "<cldrTest version='1.5.1' base='aa'>" + Utility.LINE_SEPARATOR +
          "  <likelySubtags>");
      }
     SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
@@ -68,9 +68,9 @@ public class GenerateLikelySubtagTests {
       }
     }
     if (OUTPUT_STYLE == OutputStyle.C) {
-      out.println("\r\n// END");
+      out.println(Utility.LINE_SEPARATOR + "// END");
     } else {
-     out.println("  </likelySubtags>\r\n</cldrTest>");
+     out.println("  </likelySubtags>" + Utility.LINE_SEPARATOR + "</cldrTest>");
     }
     out.close();
   }
@@ -90,7 +90,7 @@ public class GenerateLikelySubtagTests {
         + SEPARATOR + "    " + getItem(from) +","
         + SEPARATOR + "    " + getItem(maxFrom) +","
         + SEPARATOR + "    " + getItem(minFrom) //+","
-        + "\r\n" + "  },");
+        + Utility.LINE_SEPARATOR + "  },");
     } else {
       out.println("    <!-- " + printNameOrError(from) + " \u2192 " + 
           printNameOrError(maxFrom) + " \u2192 " +

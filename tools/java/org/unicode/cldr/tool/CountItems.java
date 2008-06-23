@@ -431,7 +431,7 @@ public class CountItems {
 
     }
     System.out.println();
-    String sep = "\r\n\t\t\t\t";
+    String sep = Utility.LINE_SEPARATOR + "\t\t\t\t";
     // "((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*"
     String broken = Utility.breakLines(list.toString(), sep, Pattern.compile(
         "([A-Z])[A-Z][A-Z]").matcher(""), 80);
@@ -439,7 +439,7 @@ public class CountItems {
     System.out.println("\t\t\t<!-- currency version "
         + isoCurrencyParser.getVersion() + " -->");
     System.out.println("\t\t\t<variable id=\"$currency\" type=\"choice\">"
-        + broken + "\r\n\t\t\t</variable>");
+        + broken + Utility.LINE_SEPARATOR + "\t\t\t</variable>");
     Set<String> isoTextFileCodes = StandardCodes.make().getAvailableCodes(
         "currency");
     Set temp = new TreeSet(codeList.keySet());
@@ -547,14 +547,14 @@ public class CountItems {
     System.out.println("\t</timezoneData>");
     System.out.println("</supplementalData>");
     System.out.println();
-    String sep = "\r\n\t\t\t\t";
+    String sep = Utility.LINE_SEPARATOR + "\t\t\t\t";
     // "((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*"
     String broken = Utility.breakLines(tzid, sep, Pattern.compile(
         "((?:[-+_A-Za-z0-9]+[/])+[-+_A-Za-z0-9])[-+_A-Za-z0-9]*").matcher(""),
         80);
     assert (tzid.toString().equals(broken.replace(sep, " ")));
     System.out.println("\t\t\t<variable id=\"$tzid\" type=\"choice\">" + broken
-        + "\r\n\t\t\t</variable>");
+        + Utility.LINE_SEPARATOR + "\t\t\t</variable>");
   }
 
   public static void writeMetazonePrettyPath() {
@@ -692,7 +692,7 @@ public class CountItems {
   public static void getSubtagVariables() {
     System.out.println("</supplementalData>");
     System.out.println();
-    String sep = "\r\n\t\t\t\t";
+    String sep = Utility.LINE_SEPARATOR + "\t\t\t\t";
     StandardCodes sc = StandardCodes.make();
     for (String type : new String[] { "grandfathered", "language", "territory",
         "script", "variant", "currency", "currency2" }) {
@@ -714,7 +714,7 @@ public class CountItems {
           "([-_A-Za-z0-9])[-_A-Za-z0-9]*").matcher(""), 80);
       assert (b.toString().equals(broken.replace(sep, " ")));
       System.out.println("\t\t\t<variable id=\"$" + type
-          + "\" type=\"choice\">" + broken + "\r\n\t\t\t</variable>");
+          + "\" type=\"choice\">" + broken + Utility.LINE_SEPARATOR + "\t\t\t</variable>");
     }
 
   }

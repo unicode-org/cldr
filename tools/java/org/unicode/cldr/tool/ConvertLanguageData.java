@@ -808,7 +808,7 @@ public class ConvertLanguageData {
           + "countryPopulation: " + countryPopulation + "\t"
           + "countryGDP: " + countryGDP + "\t"
           + "languageCode: " + languageCode + "\t"
-          + "languagePopulation: " + languagePopulation + "\r\n"
+          + "languagePopulation: " + languagePopulation + Utility.LINE_SEPARATOR
       );
       //}
     }
@@ -1352,9 +1352,9 @@ public class ConvertLanguageData {
       }
       // show it
       for (Pair<Double,String> datum : data) {
-        System.out.format("\tContenders: %s %f (based on literate population)\r\n", datum.getSecond(), datum.getFirst());
+        System.out.format("\tContenders: %s %f (based on literate population)" + Utility.LINE_SEPARATOR, datum.getSecond(), datum.getFirst());
       }
-      //System.out.format("\tPicking default content: %s %f (based on literate population)\r\n", bestLocale, best);
+      //System.out.format("\tPicking default content: %s %f (based on literate population)" + Utility.LINE_SEPARATOR, bestLocale, best);
       // Hack to fix English
       // TODO Generalize in the future for other locales with non-primary scripts
       if (bestLocale.startsWith("en_")) {
@@ -1364,8 +1364,8 @@ public class ConvertLanguageData {
       }
     }
     
-    System.out.format("Skipping Singletons %s\r\n", skippingSingletons);
-    System.out.format("Missing Data %s\r\n", missingData);
+    System.out.format("Skipping Singletons %s" + Utility.LINE_SEPARATOR, skippingSingletons);
+    System.out.format("Missing Data %s" + Utility.LINE_SEPARATOR, missingData);
     
 //  LanguageTagParser ltp = new LanguageTagParser();
 //  Set<String> warnings = new LinkedHashSet();
@@ -1437,7 +1437,7 @@ public class ConvertLanguageData {
   }
 
 //  private static void printDefaultContent(Set<String> defaultLocaleContent) {
-//    String sep = "\r\n\t\t\t";
+//    String sep = Utility.LINE_SEPARATOR + "\t\t\t";
 //    String broken = Utility.breakLines(join(defaultLocaleContent," "), sep, Pattern.compile("(\\S)\\S*").matcher(""), 80);
 //    
 //    Log.println("\t\t<defaultContent locales=\"" + broken + "\"");
@@ -1571,7 +1571,7 @@ public class ConvertLanguageData {
     // #Lcode LanguageName  Status  Scode ScriptName  References
     List<List<String>> input = SpreadSheet.convert(Utility.getUTF8Data("language_script_raw.txt"));
     // /Users/markdavis/Documents/workspace/cldr-code/java/org/unicode/cldr/util/data/language_script_raw.txt
-    System.out.println("\r\nProblems in language_script_raw.txt\r\n");
+    System.out.println(Utility.LINE_SEPARATOR + "Problems in language_script_raw.txt" + Utility.LINE_SEPARATOR);
     int count = -1;
     for (List<String> row : input) {
       try {

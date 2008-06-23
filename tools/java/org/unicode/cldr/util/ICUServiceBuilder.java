@@ -252,7 +252,7 @@ public class ICUServiceBuilder {
     + type + "/" + dateOrTime + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]";
     
     String value = cldrFile.getWinningValue(key);
-    if (value == null) throw new IllegalArgumentException("locale: " + cldrFile.getLocaleID() + "\tpath: " + key + "\r\nvalue: " + value);
+    if (value == null) throw new IllegalArgumentException("locale: " + cldrFile.getLocaleID() + "\tpath: " + key + Utility.LINE_SEPARATOR + "value: " + value);
     return value;
   }
   

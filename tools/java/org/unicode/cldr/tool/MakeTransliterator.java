@@ -1,7 +1,21 @@
 package org.unicode.cldr.tool;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Relation;
+import org.unicode.cldr.util.Utility;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.lang.UCharacter;
@@ -12,20 +26,6 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
 
 /**
  * Takes a list of mappings (tab delimited) from source to target and produces a
@@ -236,9 +236,9 @@ public class MakeTransliterator {
     System.out.println("skipped frequency-weighted: " + nf.format(skippedFrequency));
     
     if (false) {
-      System.out.println("\r\nSource Characters ");
+      System.out.println(Utility.LINE_SEPARATOR + "Source Characters ");
       showSet(sourceCharacters);
-      System.out.println("\r\nTarget Characters ");
+      System.out.println(Utility.LINE_SEPARATOR + "Target Characters ");
       showSet(targetCharacters);
     }
     
@@ -334,7 +334,7 @@ public class MakeTransliterator {
           }
           // strange hack
           String hackSource = source.startsWith("use") ? "'" + source + "'" : source;
-          newRules.add(hackSource + " → " + bestTarget + " ; # " + targetUsingCore + (targetUsingBaseCore.equals(targetUsingCore) ? "" : "\t\t" + targetUsingBaseCore) + "\r\n");
+          newRules.add(hackSource + " → " + bestTarget + " ; # " + targetUsingCore + (targetUsingBaseCore.equals(targetUsingCore) ? "" : "\t\t" + targetUsingBaseCore) + Utility.LINE_SEPARATOR);
           skippedOut.println("# couldn't replace  " + source + " → " + bestTarget + " ; # " + targetUsingCore );
           count_failures.put(-frequency, source + " → " + bestTarget + " ; # " + targetUsingCore);
           countAdded++;
@@ -458,12 +458,12 @@ public class MakeTransliterator {
     // build backwards!!
     buffer.setLength(0);
     buffer.append(
-        "# Author: M Davis\r\n" +
-        "# Email: mark.davis@icu-project.org\r\n" +
-        "# Description: English to IPA\r\n" +
-        //"$nletter {([A-Z]+)} $nletter > &en-IPA/spellout($1) ; \r\n" +
-        ":: lower(); \r\n" +
-    "$x = [:^letter:] ;\r\n");
+        "# Author: M Davis" + Utility.LINE_SEPARATOR +
+        "# Email: mark.davis@icu-project.org" + Utility.LINE_SEPARATOR +
+        "# Description: English to IPA" + Utility.LINE_SEPARATOR +
+        //"$nletter {([A-Z]+)} $nletter > &en-IPA/spellout($1) ; " + Utility.LINE_SEPARATOR +
+        ":: lower(); " + Utility.LINE_SEPARATOR +
+    "$x = [:^letter:] ;" + Utility.LINE_SEPARATOR);
     for (int i = newRules.size() - 1; i >= 0; --i) {
       buffer.append(newRules.get(i));
     }
@@ -665,7 +665,7 @@ public class MakeTransliterator {
       }
       
       buffer.append(line);
-      buffer.append("\r\n"); // separate with whitespace
+      buffer.append(Utility.LINE_SEPARATOR); // separate with whitespace
     }
     fli.close();
     return buffer.toString();

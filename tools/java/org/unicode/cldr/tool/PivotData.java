@@ -26,8 +26,8 @@ public class PivotData {
   private static Matcher fileMatcher;
   
   public static void main(String[] args) throws IOException {
-    System.out.println("WARNING: Must be done in 3 phases. -DPhase=1, then -DPhase=2, then -DPhase=3\r\n" +
-        "These are Lang+Script+Region, then Lang+Region, then Lang+Script\r\n" +
+    System.out.println("WARNING: Must be done in 3 phases. -DPhase=1, then -DPhase=2, then -DPhase=3" + Utility.LINE_SEPARATOR +
+        "These are Lang+Script+Region, then Lang+Region, then Lang+Script" + Utility.LINE_SEPARATOR +
     "Inspect and check-in after each phase");
     fileMatcher = Pattern.compile(Utility.getProperty("FILE", ".*")).matcher("");
     int phase = Integer.parseInt(Utility.getProperty("phase", null));
@@ -110,7 +110,7 @@ public class PivotData {
     }
     String parentID = CLDRFile.getParent(localeID);
     
-    if (DEBUG) System.out.format("LocaleID: %s, %s\r\n", localeID, parentID);
+    if (DEBUG) System.out.format("LocaleID: %s, %s" + Utility.LINE_SEPARATOR, localeID, parentID);
     
     // find all the unique paths that I have, where the value or fullpath is different from the parent.
     // AND the parent has the path
@@ -137,7 +137,7 @@ public class PivotData {
         if (fullPath.contains("[@casing") != oldFullXPath.contains("[@casing")) {
           // only do if parent's value is "real"
           if (resolvedParent.getSourceLocaleID(path,status).equals(parentID)) {
-            throw new IllegalArgumentException("Mismatched casing: " + localeID + ", " + parentID + " For:\r\n" + fullPath + "\r\n" + oldFullXPath);
+            throw new IllegalArgumentException("Mismatched casing: " + localeID + ", " + parentID + " For:" + Utility.LINE_SEPARATOR + fullPath + Utility.LINE_SEPARATOR + oldFullXPath);
           }
         }
         uniquePaths.add(path);
@@ -146,7 +146,7 @@ public class PivotData {
     
     // if there are no unique paths our work here is done
     if (uniquePaths.size() == 0) {
-      if (DEBUG) System.out.format("LocaleID: %s is EMPTY, no changes necessary\r\n", localeID);
+      if (DEBUG) System.out.format("LocaleID: %s is EMPTY, no changes necessary" + Utility.LINE_SEPARATOR, localeID);
       return countChanges;
     }
     
@@ -154,14 +154,14 @@ public class PivotData {
     Set<String> siblings = lidp.set(localeID).getSiblings(factory.getAvailable());
     siblings.remove(localeID); // remove myself
     
-    if (DEBUG) System.out.format("Siblings: %s\r\n", siblings);
+    if (DEBUG) System.out.format("Siblings: %s" + Utility.LINE_SEPARATOR, siblings);
     
     // we now have a list of siblings. 
     // Create and write a new CLDRFile that is an empty me
     
     CLDRFile newFile = CLDRFile.make(localeID);
     writeFile(newFile);
-    if (DEBUG) System.out.format("%s changes in: %s\r\n", uniquePaths.size(), localeID);
+    if (DEBUG) System.out.format("%s changes in: %s" + Utility.LINE_SEPARATOR, uniquePaths.size(), localeID);
     
     // now add the different paths to the copy of the parent, and write out
     
@@ -170,7 +170,7 @@ public class PivotData {
     //System.out.println("clone " + size(newFile.iterator()));
     int deltaChangeCount = addPathsAndValuesFrom(newFile, uniquePaths, me, true);
     countChanges += deltaChangeCount;
-    if (DEBUG) System.out.format("%s changes in: %s\r\n", deltaChangeCount, parentID);
+    if (DEBUG) System.out.format("%s changes in: %s" + Utility.LINE_SEPARATOR, deltaChangeCount, parentID);
     writeFile(newFile);
     
     //  now add the parent's values for the paths to the siblings, and write out
@@ -182,7 +182,7 @@ public class PivotData {
       }
       deltaChangeCount = addPathsAndValuesFrom(newFile, uniquePaths, resolvedParent, false);
       countChanges += deltaChangeCount;
-      if (DEBUG) System.out.format("%s changes in: %s\r\n", deltaChangeCount, id);
+      if (DEBUG) System.out.format("%s changes in: %s" + Utility.LINE_SEPARATOR, deltaChangeCount, id);
       writeFile(newFile);
     }
     

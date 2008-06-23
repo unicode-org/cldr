@@ -678,7 +678,7 @@ public final class UnicodeMap implements Cloneable, Freezable, Externalizable {
                 .append(Utility.hex(end));
                 result.append("\t=> ")
                 .append(values[i] == null ? "null" : values[i].toString())
-                .append("\r\n");
+                .append(Utility.LINE_SEPARATOR);
             }
         } else {
             Set set = (Set) getAvailableValues(new TreeSet(collected));
@@ -688,7 +688,7 @@ public final class UnicodeMap implements Cloneable, Freezable, Externalizable {
                 result.append(value)
                 .append("\t=> ")
                 .append(s.toPattern(true))
-                .append("\r\n");
+                .append(Utility.LINE_SEPARATOR);
             }
         }
         return result.toString();

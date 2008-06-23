@@ -158,7 +158,7 @@ public class Segmenter {
 	public String toString(boolean showResolved) {
 		String result = "";
 		for (int i = 0; i < rules.size(); ++i) {
-			if (i != 0) result += "\r\n";
+			if (i != 0) result += Utility.LINE_SEPARATOR;
 			result += orders.get(i) + ")\t" + ((Rule)rules.get(i)).toString(showResolved);
 		}
 		return result;
@@ -310,22 +310,22 @@ public class Segmenter {
 		public String toString(String testName, String indent) {
 			
 			StringBuffer result = new StringBuffer();
-			result.append(indent + "<segmentation type=\"" + testName + "\">").append("\r\n");
-			result.append(indent + "\t<variables>").append("\r\n");
+			result.append(indent + "<segmentation type=\"" + testName + "\">").append(Utility.LINE_SEPARATOR);
+			result.append(indent + "\t<variables>").append(Utility.LINE_SEPARATOR);
 			for (int i = 0; i < rawVariables.size(); ++i) {
-				result.append(indent + "\t\t").append(rawVariables.get(i)).append("\r\n");
+				result.append(indent + "\t\t").append(rawVariables.get(i)).append(Utility.LINE_SEPARATOR);
 			}
-			result.append(indent + "\t</variables>").append("\r\n");
-			result.append(indent + "\t<segmentRules>").append("\r\n");
+			result.append(indent + "\t</variables>").append(Utility.LINE_SEPARATOR);
+			result.append(indent + "\t<segmentRules>").append(Utility.LINE_SEPARATOR);
 			for (Iterator it = xmlRules.keySet().iterator(); it.hasNext();) {
 				Object key = it.next();
-				result.append(indent + "\t\t").append(xmlRules.get(key)).append("\r\n");
+				result.append(indent + "\t\t").append(xmlRules.get(key)).append(Utility.LINE_SEPARATOR);
 			}
-			result.append(indent + "\t</segmentRules>").append("\r\n");
+			result.append(indent + "\t</segmentRules>").append(Utility.LINE_SEPARATOR);
 			for (int i = 0; i < lastComments.size(); ++i) {
-				result.append(indent + "\t").append(lastComments.get(i)).append("\r\n");
+				result.append(indent + "\t").append(lastComments.get(i)).append(Utility.LINE_SEPARATOR);
 			}
-			result.append(indent + "</segmentation>").append("\r\n");
+			result.append(indent + "</segmentation>").append(Utility.LINE_SEPARATOR);
 			return result.toString();
 		}
 		

@@ -170,7 +170,7 @@ public class CLDRTransforms {
                 value = value.replace('\u2190', '<');
                 value = value.replaceAll("\u2194", "<>");
                 value = fixup.transliterate(value);
-                rules.append(value).append("\r\n");
+                rules.append(value).append(Utility.LINE_SEPARATOR);
             } else {
                 throw new IllegalArgumentException("Unknown element: "
                         + path + "\t " + value);

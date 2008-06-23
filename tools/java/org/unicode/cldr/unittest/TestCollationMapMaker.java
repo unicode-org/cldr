@@ -59,6 +59,6 @@ public class TestCollationMapMaker {
   }
 
   private static void testTranslit() {
-     System.out.println(javaEscape.transform("\u0001\u001F\r\n\u0061\u00A5\uFFFF\uD800\uDC00"));
+     System.out.println(javaEscape.transform("\u0001\u001F" + Utility.LINE_SEPARATOR + "\u0061\u00A5\uFFFF\uD800\uDC00"));
   }
 }

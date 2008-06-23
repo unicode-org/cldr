@@ -596,9 +596,9 @@ public class GenerateSidewaysView {
     ShowLanguages.CHART_DISPLAY_VERSION, 
     "",
     //"<link rel='stylesheet' type='text/css' href='by_type.css'>" +
-//    "<style type='text/css'>\r\n" +
-//    "h1 {margin-bottom:1em}\r\n" +
-//    "</style>\r\n",
+//    "<style type='text/css'>" + Utility.LINE_SEPARATOR +
+//    "h1 {margin-bottom:1em}" + Utility.LINE_SEPARATOR +
+//    "</style>" + Utility.LINE_SEPARATOR,
     headerAndFooter);
     out.println(headerAndFooter[0]);
     out.println("<blockquote><p>");

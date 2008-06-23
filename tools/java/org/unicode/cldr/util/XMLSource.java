@@ -303,16 +303,16 @@ public abstract class XMLSource implements Freezable {
       //if (!fullPath.startsWith(newPath)) {
 //    if (false) {
 //    throw new IllegalArgumentException("Failure to fix path. "
-//    + "\r\n\tfullPath: " + fullPath
-//    + "\r\n\toldPath: " + oldPath
-//    + "\r\n\tnewPath: " + newPath
+//    + Utility.LINE_SEPARATOR + "\tfullPath: " + fullPath
+//    + Utility.LINE_SEPARATOR + "\toldPath: " + oldPath
+//    + Utility.LINE_SEPARATOR + "\tnewPath: " + newPath
 //    );
 //    }
 //    String tempResult = oldPath + fullPath.substring(newPath.length());
 //    if (!result.equals(tempResult)) {
-//    System.err.println("fullPath: " + fullPath + "\r\n\toldPath: "
-//    + oldPath + "\r\n\tnewPath: " + newPath
-//    + "\r\n\tnewPath: " + result);
+//    System.err.println("fullPath: " + fullPath + Utility.LINE_SEPARATOR + "\toldPath: "
+//    + oldPath + Utility.LINE_SEPARATOR + "\tnewPath: " + newPath
+//    + Utility.LINE_SEPARATOR + "\tnewPath: " + result);
 //    }
       return result;
     }
@@ -547,7 +547,7 @@ public abstract class XMLSource implements Freezable {
       String path = it.next();
       String value = getValueAtDPath(path);
       String fullpath = getFullPathAtDPath(path);
-      result.append(fullpath).append(" =\t ").append(value).append("\r\n");
+      result.append(fullpath).append(" =\t ").append(value).append(Utility.LINE_SEPARATOR);
     }
     return result.toString();
   }
@@ -563,7 +563,7 @@ public abstract class XMLSource implements Freezable {
       //if (!matcher.reset(path).matches()) continue;
       String value = getValueAtDPath(path);
       String fullpath = getFullPathAtDPath(path);
-      result.append(fullpath).append(" =\t ").append(value).append("\r\n");
+      result.append(fullpath).append(" =\t ").append(value).append(Utility.LINE_SEPARATOR);
     }
     return result.toString();
   }
@@ -657,8 +657,8 @@ public abstract class XMLSource implements Freezable {
     
     public String getValueAtDPath(String xpath) {
       if (TRACE_VALUE) System.out.println("\t*xpath: " + xpath
-          + "\r\n\t*source: " + mySource.getClass().getName()
-          + "\r\n\t*locale: " + mySource.getLocaleID()
+          + Utility.LINE_SEPARATOR + "\t*source: " + mySource.getClass().getName()
+          + Utility.LINE_SEPARATOR + "\t*locale: " + mySource.getLocaleID()
       );
       String result = mySource.getValueAtDPath(xpath);
       
@@ -695,8 +695,8 @@ public abstract class XMLSource implements Freezable {
 //        }
 //        currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
 //        if (TRACE_VALUE) System.out.println("xpath: " + parentAndPath.path
-//            + "\r\n\tsource: " + currentSource.getClass().getName()
-//            + "\r\n\tlocale: " + currentSource.getLocaleID()
+//            + Utility.LINE_SEPARATOR + "\tsource: " + currentSource.getClass().getName()
+//            + Utility.LINE_SEPARATOR + "\tlocale: " + currentSource.getLocaleID()
 //        );
 //        result = currentSource.getValueAtDPath(parentAndPath.path);
 //        if (result != null) {

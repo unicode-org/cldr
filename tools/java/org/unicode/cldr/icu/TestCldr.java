@@ -243,7 +243,7 @@ public class TestCldr extends TestFmwk {
         PrintWriter pw = new PrintWriter(sw);
         e.printStackTrace(pw);
         pw.flush();
-        errln("Exception: Locale: " + ul + ",\tValue: <" + value + ">\r\n"
+        errln("Exception: Locale: " + ul + ",\tValue: <" + value + ">" + Utility.LINE_SEPARATOR
             + sw.toString());
       }
     }

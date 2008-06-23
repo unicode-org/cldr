@@ -218,11 +218,11 @@ public class TestSegments {
 		StringBuffer results = new StringBuffer();
 		int cp;
 		for (int i = 0; i < test.length(); i += UTF16.getCharCount(cp)) {
-			if (i == j) results.append(icuBreakResults ? "<\r\n$ >" : "<\r\n@ >");
+			if (i == j) results.append(icuBreakResults ? "<" + Utility.LINE_SEPARATOR + "$ >" : "<" + Utility.LINE_SEPARATOR + "@ >");
 			cp = UTF16.charAt(test, i);
 			results.append("[" + rsg.getValue(cp) + ":" + com.ibm.icu.impl.Utility.escape(UTF16.valueOf(cp)) + "]");
 		}
-		if (test.length() == j) results.append(icuBreakResults ? "<\r\n$ >" : "<\r\n@ >");
+		if (test.length() == j) results.append(icuBreakResults ? "<" + Utility.LINE_SEPARATOR + "$ >" : "<" + Utility.LINE_SEPARATOR + "@ >");
 		return results.toString();
 	}
 	
@@ -271,17 +271,17 @@ public class TestSegments {
 		"test",
 		"\uCD40\u1185",
 		"http://www.cs.tut.fi/%7Ejkorpela/html/nobr.html?abcd=high&hijk=low#anchor",
-		"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
+		"T\u0300he qui\u0300ck 100.1 brown" + Utility.LINE_SEPARATOR + "\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
 		"compareLine"
 	},{
 		"SentenceBreak",
 		"test",
-		"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
+		"T\u0300he qui\u0300ck 100.1 brown" + Utility.LINE_SEPARATOR + "\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
 		"compareSentence"
 	},{
 		"WordBreak",
 		"test",
-		"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes.",
+		"T\u0300he qui\u0300ck 100.1 brown" + Utility.LINE_SEPARATOR + "\u0300foxes.",
 		"compareWord"
 	}};
 }

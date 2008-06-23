@@ -205,7 +205,7 @@ public class TestMetazones {
           if (list.size() != 0) {
             errln("Zones " + showZone(value.zone) + " and " + showZone(value2.zone)
                 + " shouldn't be in the same metazone <" + mzone + "> during the period "
-                + overlap + ". " + "Sample dates:" + "\r\n\t"
+                + overlap + ". " + "Sample dates:" + Utility.LINE_SEPARATOR + "\t"
                 + showDifferences(timezone1, timezone2, list));
           }
         }
@@ -240,7 +240,7 @@ public class TestMetazones {
       totalErrorPeriod += errorPeriod;
       if (abbreviating) {
         if (count == 4)
-          buffer.append("...\r\n\t");
+          buffer.append("..." + Utility.LINE_SEPARATOR + "\t");
         if (count >= 4 && count < list.size() - 2)
           continue;
       }
@@ -248,7 +248,7 @@ public class TestMetazones {
       buffer.append("delta=\t"
           + hours.format(startDelta / (double)HOUR) + " hours:\t" + DateRange.format(start) + "\tto\t" +
           DateRange.format(end) + ";\ttotal:\t" + days.format((errorPeriod)/(double)DAY) + " days"
-          + "\r\n\t"
+          + Utility.LINE_SEPARATOR + "\t"
           );
     }
     buffer.append("\tTotal Period in Error:\t" + days.format((totalErrorPeriod)/(double)DAY) + " days");

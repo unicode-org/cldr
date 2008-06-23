@@ -71,7 +71,7 @@ public class IsoCurrencyParser {
       }
       String name = iso4217CountryToCountryCode.get(iso4217Country);
       if (name != null) return name;
-      System.out.format("\t\t{\"%s\", \"XXX\"},\r\n", iso4217Country);
+      System.out.format("\t\t{\"%s\", \"XXX\"}," + Utility.LINE_SEPARATOR, iso4217Country);
       return "???" + iso4217Country;
     }
 
@@ -127,7 +127,7 @@ public class IsoCurrencyParser {
       codeList.freeze();
       countryToCodes.freeze();
 //      Set<String> remainder = new TreeSet(codeList.keySet());
-//      System.out.format("MISSING: %s\r\n", Utility.join(oldValues," "));
+//      System.out.format("MISSING: %s" + Utility.LINE_SEPARATOR, Utility.join(oldValues," "));
 //      remainder.removeAll(StandardCodes.make().getAvailableCodes("currency"));
 //      if (remainder.size() != 0) {
 //        throw new IllegalArgumentException("Missing value; update internal list");
@@ -160,7 +160,7 @@ public class IsoCurrencyParser {
       parts = line.split("\t");
       if (parts.length == 0) continue;
       if (parts.length < 4 || parts[3].equals("Numeric") || parts[3].equals("")) {
-        //System.out.format("Skipping %s\r\n", Arrays.asList(parts));
+        //System.out.format("Skipping %s" + Utility.LINE_SEPARATOR, Arrays.asList(parts));
         continue;
       }
       // AFGHANISTAN  Afghani AFN 971

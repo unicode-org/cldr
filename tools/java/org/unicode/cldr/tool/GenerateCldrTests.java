@@ -946,19 +946,19 @@ public class GenerateCldrTests {
      */
     String last = "";
     boolean needEquals = false;
-    StringBuffer tempResult = new StringBuffer("\r\n");
+    StringBuffer tempResult = new StringBuffer(Utility.LINE_SEPARATOR);
     for (Iterator it = bag.iterator(); it.hasNext();) {
       String s = (String) it.next();
       if (col.compare(s, last) != 0) {
         if (needEquals)
-          tempResult.append(last).append("\r\n");
+          tempResult.append(last).append(Utility.LINE_SEPARATOR);
         needEquals = false;
         last = s;
       } else {
         needEquals = true;
       }
       tempResult.append(TransliteratorUtilities.toXML.transliterate(s)).append(
-          "\r\n");
+          Utility.LINE_SEPARATOR);
     }
     ResultsPrinter result = new ResultsPrinter();
     result.setResult(tempResult.toString());

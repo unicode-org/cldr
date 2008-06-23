@@ -146,7 +146,7 @@ public class PrettyPrinter {
 //        try {
 //            UnicodeSet  doubleCheck = new UnicodeSet(sresult);
 //            if (!uset.equals(doubleCheck)) {
-//                throw new IllegalStateException("Failure to round-trip in pretty-print " + uset + " => " + sresult + "\r\n source-result: " + new UnicodeSet(uset).removeAll(doubleCheck) +  "\r\n result-source: " + new UnicodeSet(doubleCheck).removeAll(uset));
+//                throw new IllegalStateException("Failure to round-trip in pretty-print " + uset + " => " + sresult + Utility.LINE_SEPARATOR + " source-result: " + new UnicodeSet(uset).removeAll(doubleCheck) +  Utility.LINE_SEPARATOR + " result-source: " + new UnicodeSet(doubleCheck).removeAll(uset));
 //            }
 //        } catch (RuntimeException e) {
 //            throw (RuntimeException) new IllegalStateException("Failure to round-trip in pretty-print " + uset).initCause(e);

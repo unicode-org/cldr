@@ -304,17 +304,17 @@ public class TestMetazoneTransitions {
         allOffsets.remove(offset);
         stableZones.add(nonDaylightPartitionName + ", " + offset/(double)HOUR + "hrs " + "{" + Utility.join(partition.getAll(transitions),", ") + "}");
       }
-      System.out.println("\t\t" + transitions.toString("\r\n\t\t", -1));
+      System.out.println("\t\t" + transitions.toString(Utility.LINE_SEPARATOR + "\t\t", -1));
     }
     System.out.println();
     System.out.println("*** Non-Daylight Partitions with no canonical meta");
-    System.out.println("\t" + Utility.join(noMeta, "\r\n\t"));
+    System.out.println("\t" + Utility.join(noMeta, Utility.LINE_SEPARATOR + "\t"));
     System.out.println();
     System.out.println("*** Non-Daylight Partitions with more than one canonical meta");
-    System.out.println("\t" + Utility.join(multiMeta, "\r\n\t"));
+    System.out.println("\t" + Utility.join(multiMeta, Utility.LINE_SEPARATOR + "\t"));
     System.out.println();
     System.out.println("*** Stable Non-Daylight Partitions");
-    System.out.println("\t" + Utility.join(stableZones, "\r\n\t"));
+    System.out.println("\t" + Utility.join(stableZones, Utility.LINE_SEPARATOR + "\t"));
     System.out.println();
     System.out.println("*** Offsets with no stable partition");
     for (int offset : allOffsets) {
@@ -337,7 +337,7 @@ public class TestMetazoneTransitions {
       for (String zone : daylightPartition.getAll(transitions)) {
         System.out.println("\t" + zone);
       }
-      System.out.println("\t\t" + transitions.toString("\r\n\t\t", printDaylightTransitions));
+      System.out.println("\t\t" + transitions.toString(Utility.LINE_SEPARATOR + "\t\t", printDaylightTransitions));
       if (lastTransitions != null ) {
         Pair<ZoneTransitions, ZoneTransitions> diff = transitions.getDifferenceFrom(lastTransitions);
         System.out.println("\t\tTransition Difference from " + lastName + ":\t"+ diff);

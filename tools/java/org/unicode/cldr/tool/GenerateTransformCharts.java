@@ -545,13 +545,13 @@ public class GenerateTransformCharts {
     String[] headerAndFooter = new String[2];
     ShowData.getChartTemplate("Latin-" + scriptChoice + " Transliteration Chart",
         null, "",
-//      "<style>\r\n" +
-//      "td, th { background-color: white }\r\n" +
-//      "td { text-align: Center; font-size: 200%}\r\n" +
-//      "tt { font-size: 50% }\r\n" +
-//      "td.miss { background-color: #CCCCFF }\r\n" +
-//      "td.none { background-color: #FFCCCC }\r\n" +
-//      "td.main { align: center; vertical-align: top; background-color: #DDDDDD }\r\n" +
+//      "<style>" + Utility.LINE_SEPARATOR +
+//      "td, th { background-color: white }" + Utility.LINE_SEPARATOR +
+//      "td { text-align: Center; font-size: 200%}" + Utility.LINE_SEPARATOR +
+//      "tt { font-size: 50% }" + Utility.LINE_SEPARATOR +
+//      "td.miss { background-color: #CCCCFF }" + Utility.LINE_SEPARATOR +
+//      "td.none { background-color: #FFCCCC }" + Utility.LINE_SEPARATOR +
+//      "td.main { align: center; vertical-align: top; background-color: #DDDDDD }" + Utility.LINE_SEPARATOR +
 //      "</style>",
         headerAndFooter);
     pw.println(headerAndFooter[0]);

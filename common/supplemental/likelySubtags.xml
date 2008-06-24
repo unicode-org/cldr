@@ -15,7 +15,8 @@
       <likelySubtag from="ast" to="ast_Latn_ES"/> <!--{ Asturian; ?; ? } => { Asturian; Latin; Spain }-->
       <likelySubtag from="av" to="av_Cyrl_RU"/> <!--{ Avaric; ?; ? } => { Avaric; Cyrillic; Russia }-->
       <likelySubtag from="ay" to="ay_Latn_BO"/> <!--{ Aymara; ?; ? } => { Aymara; Latin; Bolivia }-->
-      <likelySubtag from="az" to="az_Cyrl_AZ"/> <!--{ Azerbaijani; ?; ? } => { Azerbaijani; Cyrillic; Azerbaijan }-->
+      <likelySubtag from="az" to="az_Latn_AZ"/> <!--{ Azerbaijani; ?; ? } => { Azerbaijani; Latin; Azerbaijan }-->
+      <likelySubtag from="az_Cyrl" to="az_Cyrl_AZ"/> <!--{ Azerbaijani; Cyrillic; ? } => { Azerbaijani; Cyrillic; Azerbaijan }-->
       <likelySubtag from="az_Arab" to="az_Arab_IR"/> <!--{ Azerbaijani; Arabic; ? } => { Azerbaijani; Arabic; Iran }-->
       <likelySubtag from="az_IR" to="az_Arab_IR"/> <!--{ Azerbaijani; ?; Iran } => { Azerbaijani; Arabic; Iran }-->
       <likelySubtag from="ba" to="ba_Cyrl_RU"/> <!--{ Bashkir; ?; ? } => { Bashkir; Cyrillic; Russia }-->
@@ -218,7 +219,7 @@
       <likelySubtag from="und_AT" to="de_Latn_AT"/> <!--{ ?; ?; Austria } => { German; Latin; Austria }-->
       <likelySubtag from="und_AW" to="nl_Latn_AW"/> <!--{ ?; ?; Aruba } => { Dutch; Latin; Aruba }-->
       <likelySubtag from="und_AX" to="sv_Latn_AX"/> <!--{ ?; ?; Aland Islands } => { Swedish; Latin; Aland Islands }-->
-      <likelySubtag from="und_AZ" to="az_Cyrl_AZ"/> <!--{ ?; ?; Azerbaijan } => { Azerbaijani; Cyrillic; Azerbaijan }-->
+      <likelySubtag from="und_AZ" to="az_Latn_AZ"/> <!--{ ?; ?; Azerbaijan } => { Azerbaijani; Latin; Azerbaijan }-->
       <likelySubtag from="und_Arab" to="ar_Arab_EG"/> <!--{ ?; Arabic; ? } => { Arabic; Arabic; Egypt }-->
       <likelySubtag from="und_Arab_CN" to="ug_Arab_CN"/> <!--{ ?; Arabic; China } => { Uighur; Arabic; China }-->
       <likelySubtag from="und_Arab_DJ" to="ar_Arab_DJ"/> <!--{ ?; Arabic; Djibouti } => { Arabic; Arabic; Djibouti }-->

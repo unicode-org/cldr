@@ -29,7 +29,7 @@ import com.ibm.icu.text.RuleBasedTransliterator;
 import com.ibm.icu.text.Transliterator;
 
 public class TestTransforms {
-	static String target = "C:\\work\\cldr\\dropbox\\gen\\transforms\\";
+	static String target = Utility.BASE_DIRECTORY + "dropbox/gen/icu-transforms/";
 	static Matcher getId = Pattern.compile("\\s*(\\S*)\\s*\\{\\s*").matcher("");
 	static Matcher getSource = Pattern.compile("\\s*(\\S*)\\s*\\{\\s*\\\"(.*)\\\".*").matcher("");
 	
@@ -170,10 +170,10 @@ public class TestTransforms {
         try{
     		Class ta = Class.forName("com.ibm.icu.dev.test.translit.TestAll");
     		Object testAll = ta.newInstance();
-            String[] params = new String[]{"-n"};
+            //String[] params = new String[]{"-n "};
             Method m = ta.getDeclaredMethod("main", new Class[]{String[].class});
-            System.out.println("here");
-            m.invoke(ta, new Object[]{params});
+            System.out.println("Starting ICU Test");
+            m.invoke(ta, new Object[]{args});
     		//TestAll.main(new String[]{"-n"});
         }catch(Exception ex){
             System.err.println("Could not load TestAll. Encountered exception: " + ex.toString());

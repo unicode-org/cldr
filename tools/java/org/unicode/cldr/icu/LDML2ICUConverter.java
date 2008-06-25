@@ -1496,51 +1496,64 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 System.exit(-1);
             }
             ICUResourceWriter.ResourceTable currentSetTable = null;
-        	ICUResourceWriter.ResourceString currentRuleString = null; 
-            for(Node child=node.getFirstChild(); child!=null; child=child.getNextSibling()) {
-            	if(child.getNodeType()!=Node.ELEMENT_NODE){
-            		continue;
+        	ICUResourceWriter.ResourceString currentRuleString = null;
+        	Node child=node.getFirstChild();
+
+            String locales = LDMLUtilities.getAttributeValue(node, LDMLConstants.LOCALES);
+            String [] localesArray = locales.split("\\s");
+
+            if (child == null) {
+        		// Create empty resource strings with the locale as the ID.
+                for(int i = 0; i < localesArray.length; ++i) {
+                	ICUResourceWriter.ResourceString localeString =
+                		new ICUResourceWriter.ResourceString(localesArray[i], "");
+                	localesTable.appendContents(localeString);
                 }
-
-            	String childName = child.getNodeName();
-            	if (!childName.equals(LDMLConstants.PLURAL_RULE)) {
-            		System.err.println("Encountered element " + childName + " processing plurals.");
-            		System.exit(-1);
-                }
-
-            	// This creates a rule string for the current rule set
-                ICUResourceWriter.ResourceString ruleString = new ICUResourceWriter.ResourceString();
-                ruleString.name = LDMLUtilities.getAttributeValue(child, LDMLConstants.COUNT);
-                ruleString.val = LDMLUtilities.getNodeValue(child);
-
-            	// Defer the creation of the table until the first
-            	// rule for the locale, since there are some locales
-            	// with no rules, and we don't want those in the
-            	// ICU resource file.
-            	if (currentSetTable != null) {
-            		currentRuleString.next = ruleString;
-            	}
-            	else
-            	{
-                    currentSetTable = new ICUResourceWriter.ResourceTable();
-            		String currentSetName = new String("set") + currentSetNumber;
-            		++currentSetNumber;
-            		currentSetTable.name = currentSetName;
-            		currentSetTable.first = ruleString;
-            		ruleSetsTable.appendContents(currentSetTable);
-
-            		// Now that we've created a rule set table, we can put all of the
-            		// locales for this rule set into the locales table.
-                    String locales = LDMLUtilities.getAttributeValue(node, LDMLConstants.LOCALES);
-                    String [] localesArray = locales.split("\\s");
-                    for(int i = 0; i < localesArray.length; ++i) {
-                    	ICUResourceWriter.ResourceString localeString =
-                    		new ICUResourceWriter.ResourceString(localesArray[i], currentSetName);
-                    	localesTable.appendContents(localeString);
-                    }
-            	}
-            	currentRuleString = ruleString;
-            }
+        	}
+        	else {
+	            do {
+	            	if(child.getNodeType() == Node.ELEMENT_NODE) {
+		            	String childName = child.getNodeName();
+		            	if (!childName.equals(LDMLConstants.PLURAL_RULE)) {
+		            		System.err.println("Encountered element " + childName + " processing plurals.");
+		            		System.exit(-1);
+		                }
+		
+		            	// This creates a rule string for the current rule set
+		                ICUResourceWriter.ResourceString ruleString = new ICUResourceWriter.ResourceString();
+		                ruleString.name = LDMLUtilities.getAttributeValue(child, LDMLConstants.COUNT);
+		                ruleString.val = LDMLUtilities.getNodeValue(child);
+		
+		            	// Defer the creation of the table until the first
+		            	// rule for the locale, since there are some locales
+		            	// with no rules, and we don't want those in the
+		            	// ICU resource file.
+		            	if (currentSetTable != null) {
+		            		currentRuleString.next = ruleString;
+		            	}
+		            	else
+		            	{
+		                    currentSetTable = new ICUResourceWriter.ResourceTable();
+		            		String currentSetName = new String("set") + currentSetNumber;
+		            		++currentSetNumber;
+		            		currentSetTable.name = currentSetName;
+		            		currentSetTable.first = ruleString;
+		            		ruleSetsTable.appendContents(currentSetTable);
+		
+		            		// Now that we've created a rule set table, we can put all of the
+		            		// locales for this rule set into the locales table.
+		                    for(int i = 0; i < localesArray.length; ++i) {
+		                    	ICUResourceWriter.ResourceString localeString =
+		                    		new ICUResourceWriter.ResourceString(localesArray[i], currentSetName);
+		                    	localesTable.appendContents(localeString);
+		                    }
+		            	}
+		            	currentRuleString = ruleString;
+	            	}
+	            	child=child.getNextSibling();
+	            }
+	            while( child!=null); 
+        	}
         }
 
         return localesTable.first == null ? null : localesTable;

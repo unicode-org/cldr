@@ -256,7 +256,7 @@
 			<tRule>$sep ← $latinMedialEnd l s {} [$Si $SSi];</tRule>
 			<tRule>$sep ← $latinMedialEnd n g {} [$Gi];</tRule>
 			<tRule>$sep ← $latinMedialEnd n j {} [$Ji $JJi];</tRule>
-
+			
 			<tRule>$sep ← $latinMedialEnd l  {} [$PPi];</tRule>
 			<tRule>$sep ← $latinMedialEnd l  {} [$TTi];</tRule>
 			<tRule>$sep ← $latinMedialEnd k  {} [$KKi $Ki];</tRule>
@@ -318,13 +318,18 @@
 			<comment># consonants, we must handle the sequence &quot;axyy&quot; specially.  Here XYf</comment>
 			<comment># and YYi must exist.  In these cases, we map to Xf YYi rather than</comment>
 			<comment># XYf.</comment>
+			<comment># However, there are two special cases.</comment>
+            <!-- <tRule>$jamoMedial {lp} p p → $LP;</tRule> -->
+            <!-- <tRule>$jamoMedial {lt} t t → $LT;</tRule> -->
+			<comment># End special cases</comment>
+			
 			<tRule>$jamoMedial {b} s s → $Bf;</tRule>
 			<tRule>$jamoMedial {g} s s → $Gf;</tRule>
 			<tRule>$jamoMedial {l} b b → $L;</tRule>
 			<tRule>$jamoMedial {l} g g → $L;</tRule>
             <tRule>$jamoMedial {l} s s → $L;</tRule>
-            <tRule>$jamoMedial {l} t t → $L;</tRule>
-            <tRule>$jamoMedial {l} p p → $L;</tRule>
+            <!--  <tRule>$jamoMedial {l} t t → $L;</tRule> -->
+            <!--  <tRule>$jamoMedial {l} p p → $L;</tRule> -->
 			<tRule>$jamoMedial {n} g g → $Nf;</tRule>
 			<tRule>$jamoMedial {n} j j → $Nf;</tRule>
 			

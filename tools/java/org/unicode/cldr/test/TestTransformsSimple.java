@@ -1,6 +1,7 @@
 package org.unicode.cldr.test;
 
 import org.unicode.cldr.util.CLDRTransforms;
+import org.unicode.cldr.util.Utility;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.text.Normalizer;
@@ -15,6 +16,7 @@ import java.util.regex.Pattern;
 
 public class TestTransformsSimple {
   
+  private static final boolean verbose = Utility.getProperty("verbose", false);
   static CLDRTransforms transforms;
   
   public static void main(String[] args) throws IOException {
@@ -34,7 +36,7 @@ public class TestTransformsSimple {
       String name = "Tamil-Devanagari";
       Transliterator tamil_devanagari = transforms.getInstance(name);
       Transliterator devanagari_tamil = transforms.getReverseInstance(name);
-      writeFile(name, new UnicodeSet("[[:block=tamil:]-[ௗ]]"), null, tamil_devanagari, devanagari_tamil, false, null);
+      writeFile(name, new UnicodeSet("[[:block=tamil:]-[ௗ]]"), null, tamil_devanagari, devanagari_tamil, false, null, null);
     }
   }
   
@@ -63,19 +65,22 @@ public class TestTransformsSimple {
       //Transliterator.DEBUG = true;  
       Transliterator nfd = Transliterator.getInstance("nfd");
       
-      writeFile(name, multiply, nfd, toLatin, fromLatin, true, null);
+      UnicodeSet specials = null; // new UnicodeSet("[{ch}]");
+      writeFile(name, multiply, nfd, toLatin, fromLatin, true, null, specials);
     }
   }
 
-  private static void writeFile(String title, UnicodeSet sourceSet, Transliterator nfd, Transliterator toLatin, Transliterator fromLatin, boolean doLatin, UnicodeSet specials) throws IOException {
+  private static void writeFile(String title, UnicodeSet sourceSet, Transliterator nfd, Transliterator toLatin, 
+          Transliterator fromLatin, boolean doLatin, UnicodeSet nativeSpecials, UnicodeSet latinSpecials) throws IOException {
     int errorCount = 0;
     PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.Utility.GEN_DIRECTORY + "transTest/", title + ".html");
     out.println("<html><head>");
     out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><body>");
-    if (specials != null) {
+    if (nativeSpecials != null) {
       out.println("<h1>Specials</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
-      for (UnicodeSetIterator it = new UnicodeSetIterator(specials); it.next();) {
-        String item = it.toString();
+      showItems(out, true, "Source", "ToLatin", "FromLatin", "BackToLatin");
+      for (UnicodeSetIterator it = new UnicodeSetIterator(nativeSpecials); it.next();) {
+        String item = it.getString();
         errorCount = checkString(out, item, nfd, fromLatin, toLatin, errorCount, null);
         errorCount = checkString(out, item, nfd, fromLatin, toLatin, errorCount, "-");
       }
@@ -83,8 +88,21 @@ public class TestTransformsSimple {
       out.println("</table><p>Special failures:\t" + errorCount + "</p>");
     }
     
+    if (latinSpecials != null) {
+      out.println("<h1>Specials</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
+      showItems(out, true, "Latin", "ToNative", "BackToLatin", "BackToNative");
+      for (UnicodeSetIterator it = new UnicodeSetIterator(latinSpecials); it.next();) {
+        String item = it.getString();
+        errorCount = checkString(out, item, nfd, toLatin, fromLatin, errorCount, null);
+        //errorCount = checkString(out, item, nfd, fromLatin, toLatin, errorCount, "-");
+      }
+      System.out.println("Special failures:\t" + errorCount);
+      out.println("</table><p>Special failures:\t" + errorCount + "</p>");
+    }
+    
     if (doLatin) {
       out.println("<h1>Latin failures</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
+      showItems(out, true, "Latin", "Target", "BackToLatin", "BackToTarget");
       errorCount = checkLatin(out, fromLatin, toLatin);
       System.out.println("Latin failures:\t" + errorCount);
       out.println("</table><p>Latin failures:\t" + errorCount + "</p>");
@@ -114,7 +132,7 @@ public class TestTransformsSimple {
       if (latin.containsSome(to)) {
         String from = toLatin.transliterate(to);
         String backto = toLatin.transliterate(from);
-        errorCount += showItems(out, source, to, from, backto);
+        errorCount += showItems(out, false, source, to, from, backto);
       }
     }
     return errorCount;
@@ -122,6 +140,11 @@ public class TestTransformsSimple {
   
   private static int showMappings(PrintWriter out, UnicodeSet testSet, String separator, Transliterator nfd, Transliterator fromLatin, Transliterator toLatin) {
     int errorCount = 0;
+    if (separator == null) {
+      showItems(out, true, "Source", "ToLatin", "FromLatin", "BackToLatin");
+    } else {
+      showItems(out, true, "Source", "ToLatin", "FromLatin", "BackToLatin", "WithoutSeparator");
+    }
     for (UnicodeSetIterator it = new UnicodeSetIterator(testSet); it.next();) {
       errorCount = checkString(out, it.getString(), nfd, fromLatin, toLatin, errorCount, separator);
     }
@@ -133,9 +156,11 @@ public class TestTransformsSimple {
     String to = toLatin.transliterate(source);
     String from = fromLatin.transliterate(to);
     if (separator == null) {
-      if (!source.equals(from)) {
+      final boolean bad = !source.equals(from);
+      if (bad || verbose) {
         String backto = toLatin.transliterate(from);
-        errorCount += showItems(out, source, to, from, backto);
+        errorCount += 1;
+        showItems(out, false, source, to, from, backto, bad ? "FAIL" : null);
       } else {
         //showItems(out, source, to, from, "OK");
       }
@@ -143,20 +168,23 @@ public class TestTransformsSimple {
       if (to.contains(separator)) { // check separators, only put in when needed
         String otherTo = to.replace("-","");
         String otherFrom =  fromLatin.transliterate(otherTo);
-        if (otherFrom.equals(from)) {
+        final boolean bad = otherFrom.equals(from);
+        if (bad) {
           //String backto = toLatin.transliterate(from);
-          errorCount += showItems(out, source, to, from, otherTo, otherFrom);
+          errorCount += 1;
+          showItems(out, false, source, to, from, otherTo, otherFrom, bad ? "FAIL" : null);
         }
       }
     }
     return errorCount;
   }
   
-  private static int showItems(PrintWriter out, String... sourceList) {
+  private static int showItems(PrintWriter out, boolean th, String... sourceList) {
     out.println("<tr>");
     for (String source : sourceList) {
+      if (source == null) continue;
       System.out.print("<" + source + ">\t");
-      out.println("<td>" + pretty(source) + "</td>");
+      out.println((th ? "<th>" : "<td>") + pretty(source) + (th ? "</th>" : "</td>"));
     }
     System.out.println();
     out.println("</tr>");

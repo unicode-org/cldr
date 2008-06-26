@@ -593,23 +593,6 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
 		<calendars>
-			<calendar type="buddhist">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="tue" draft="provisional">Τρ</day>
-							<day type="sat" draft="provisional">Σάβ</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<dateFormats>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="provisional">D/m/yyyy</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -627,20 +610,6 @@
 							<month type="11">Νοε</month>
 							<month type="12">Δεκ</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">Ι</month>
-							<month type="2">Φ</month>
-							<month type="3">Μ</month>
-							<month type="4">Α</month>
-							<month type="5">Μ</month>
-							<month type="6">Ι</month>
-							<month type="7">Ι</month>
-							<month type="8">Α</month>
-							<month type="9">Σ</month>
-							<month type="10">Ο</month>
-							<month type="11">Ν</month>
-							<month type="12">Δ</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Ιανουαρίου</month>
 							<month type="2">Φεβρουαρίου</month>
@@ -657,20 +626,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">Ιαν</month>
-							<month type="2">Φεβ</month>
-							<month type="3">Μαρ</month>
-							<month type="4">Απρ</month>
-							<month type="5">Μαϊ</month>
-							<month type="6">Ιουν</month>
-							<month type="7">Ιουλ</month>
-							<month type="8">Αυγ</month>
-							<month type="9">Σεπ</month>
-							<month type="10">Οκτ</month>
-							<month type="11">Νοε</month>
-							<month type="12">Δεκ</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">Ι</month>
 							<month type="2">Φ</month>

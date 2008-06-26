@@ -1430,14 +1430,6 @@
 					</field>
 				</fields>
 			</calendar>
-			<calendar type="hebrew">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMEd" draft="contributed">MMMM d E</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">yyyy MMM d EEE</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="islamic-civil">
 				<am>오전</am>
 				<pm draft="contributed">오후</pm>
@@ -1448,11 +1440,7 @@
 			</calendar>
 			<calendar type="persian">
 				<am>오전</am>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yMMMEd" draft="unconfirmed">yyyy MMM d EEE</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
+				<pm draft="contributed">오후</pm>
 			</calendar>
 			<calendar type="roc">
 				<am>오전</am>

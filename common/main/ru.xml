@@ -1152,15 +1152,6 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
 		<calendars>
-			<calendar type="buddhist">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="3" draft="provisional">мар.</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -1177,20 +1168,6 @@
 							<month type="10" references="R215">окт.</month>
 							<month type="11" references="R215">нояб.</month>
 							<month type="12" references="R215">дек.</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">Я</month>
-							<month type="2">Ф</month>
-							<month type="3">М</month>
-							<month type="4">А</month>
-							<month type="5">М</month>
-							<month type="6">И</month>
-							<month type="7">И</month>
-							<month type="8">А</month>
-							<month type="9">С</month>
-							<month type="10">О</month>
-							<month type="11">Н</month>
-							<month type="12">Д</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">января</month>
@@ -1406,10 +1383,10 @@
 						<dateFormatItem id="y" draft="contributed">yyyy</dateFormatItem>
 						<dateFormatItem id="yM" draft="contributed">yyyy-M</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="contributed">EEE, yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM" references="RP6" draft="contributed">'сент'. 1999</dateFormatItem>
-						<dateFormatItem id="yMMMEd" references="RP6" draft="contributed">'Вт', 14 'сент'. 1999</dateFormatItem>
-						<dateFormatItem id="yMMMM" references="RP6" draft="contributed">'сентябрь' 1999</dateFormatItem>
-						<dateFormatItem id="yQ" references="RP6" draft="unconfirmed">3 1999</dateFormatItem>
+						<dateFormatItem id="yMMM" references="RP6" draft="contributed">MMM. y</dateFormatItem>
+						<dateFormatItem id="yMMMEd" references="RP6" draft="contributed">E, d MMM. y</dateFormatItem>
+						<dateFormatItem id="yMMMM" references="RP6" draft="contributed">MMMM y</dateFormatItem>
+						<dateFormatItem id="yQ" references="RP6" draft="unconfirmed">Q y</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="contributed">yyyy QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="contributed">MM.yy</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM yy</dateFormatItem>
@@ -1652,13 +1629,6 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<timeFormats>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>'Эсфанд'</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

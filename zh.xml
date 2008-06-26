@@ -1014,15 +1014,6 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
 		<calendars>
-			<calendar type="buddhist">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="wide">
-							<month type="10" draft="provisional">十月</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-			</calendar>
 			<calendar type="chinese">
 				<dateTimeFormats>
 					<availableFormats>
@@ -1397,13 +1388,6 @@
 						<displayName>区域</displayName>
 					</field>
 				</fields>
-			</calendar>
-			<calendar type="islamic-civil">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yyyyM" draft="contributed">yyyy年M月</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
 				<dateTimeFormats>

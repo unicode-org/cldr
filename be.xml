@@ -573,35 +573,6 @@
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
 		<calendars>
 			<calendar type="buddhist">
-				<days>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">нд</day>
-							<day type="mon" draft="unconfirmed">пн</day>
-							<day type="tue" draft="unconfirmed">аў</day>
-							<day type="wed" draft="unconfirmed">ср</day>
-							<day type="thu" draft="unconfirmed">чц</day>
-							<day type="fri" draft="unconfirmed">пт</day>
-							<day type="sat" draft="unconfirmed">сб</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">1-шы кв.</quarter>
-							<quarter type="2" draft="unconfirmed">2-гі кв.</quarter>
-							<quarter type="3" draft="unconfirmed">3-ці кв.</quarter>
-							<quarter type="4" draft="unconfirmed">4-ты кв.</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">1-шы квартал</quarter>
-							<quarter type="2" draft="unconfirmed">2-гі квартал</quarter>
-							<quarter type="3" draft="unconfirmed">3-ці квартал</quarter>
-							<quarter type="4" draft="unconfirmed">4-ты квартал</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -632,35 +603,6 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
-				<days>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">нд</day>
-							<day type="mon" draft="unconfirmed">пн</day>
-							<day type="tue" draft="unconfirmed">аў</day>
-							<day type="wed" draft="unconfirmed">ср</day>
-							<day type="thu" draft="unconfirmed">чц</day>
-							<day type="fri" draft="unconfirmed">пт</day>
-							<day type="sat" draft="unconfirmed">сб</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">1-шы кв.</quarter>
-							<quarter type="2" draft="unconfirmed">2-гі кв.</quarter>
-							<quarter type="3" draft="unconfirmed">3-ці кв.</quarter>
-							<quarter type="4" draft="unconfirmed">4-ты кв.</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">1-шы квартал</quarter>
-							<quarter type="2" draft="unconfirmed">2-гі квартал</quarter>
-							<quarter type="3" draft="unconfirmed">3-ці квартал</quarter>
-							<quarter type="4" draft="unconfirmed">4-ты квартал</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Md" draft="unconfirmed">dd.MM</dateFormatItem>
@@ -670,19 +612,6 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="coptic">
-				<days>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">нд</day>
-							<day type="mon" draft="unconfirmed">пн</day>
-							<day type="tue" draft="unconfirmed">аў</day>
-							<day type="wed" draft="unconfirmed">ср</day>
-							<day type="thu" draft="unconfirmed">чц</day>
-							<day type="fri" draft="unconfirmed">пт</day>
-							<day type="sat" draft="unconfirmed">сб</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
@@ -699,25 +628,6 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<dateFormats>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern draft="unconfirmed">dd.MM.yyyy</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="unconfirmed">dd.MM.yy</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Md" draft="unconfirmed">dd.MM</dateFormatItem>
-						<dateFormatItem id="yyMMM" draft="unconfirmed">MMM yy</dateFormatItem>
-						<dateFormatItem id="yyyyM" draft="unconfirmed">MM.yyyy</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -826,23 +736,11 @@
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">1-шы кв.</quarter>
-							<quarter type="2">2-гі кв.</quarter>
-							<quarter type="3">3-ці кв.</quarter>
-							<quarter type="4">4-ты кв.</quarter>
-						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
 							<quarter type="2">2</quarter>
 							<quarter type="3">3</quarter>
 							<quarter type="4">4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">1-шы квартал</quarter>
-							<quarter type="2">2-гі квартал</quarter>
-							<quarter type="3">3-ці квартал</quarter>
-							<quarter type="4">4-ты квартал</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>

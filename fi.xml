@@ -1492,14 +1492,6 @@
 					</monthContext>
 				</months>
 			</calendar>
-			<calendar type="indian">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yM" draft="unconfirmed">M/yyyy</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="unconfirmed">M/yy</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="islamic">
 				<months>
 					<monthContext type="format">
@@ -1524,13 +1516,6 @@
 				<months>
 					<alias source="locale" path="../../calendar[@type='islamic']/months"/>
 				</months>
-			</calendar>
-			<calendar type="roc">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMEd">E d. MMMM'ta'</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

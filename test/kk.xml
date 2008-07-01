@@ -4,8 +4,8 @@
  <cldrTest version='1.5' base='kk'>
  <!-- Kazakh [Қазақ] -->
   <number 
-locales='kk kk_KZ'>
-<!-- Kazakh [Қазақ]; Kazakh (Kazakhstan) [Қазақ (Қазақстан)] -->
+locales='kk kk_Cyrl kk_Cyrl_KZ kk_KZ'>
+<!-- Kazakh [Қазақ]; Kazakh (Cyrillic) [Қазақ (Cyrl)]; Kazakh (Cyrillic, Kazakhstan) [Қазақ (Cyrl, Қазақстан)]; Kazakh (Kazakhstan) [Қазақ (Қазақстан)] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='kk kk_KZ'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='kk kk_KZ'>
-<!-- Kazakh [Қазақ]; Kazakh (Kazakhstan) [Қазақ (Қазақстан)] -->
+locales='kk kk_Cyrl kk_Cyrl_KZ kk_KZ'>
+<!-- Kazakh [Қазақ]; Kazakh (Cyrillic) [Қазақ (Cyrl)]; Kazakh (Cyrillic, Kazakhstan) [Қазақ (Cyrl, Қазақстан)]; Kazakh (Kazakhstan) [Қазақ (Қазақстан)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -288,8 +288,8 @@ locales='kk kk_KZ'>
    <result timeType='full'>сәренбі, 1 желтоқсан 2010 ж. 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
-locales='kk kk_KZ'>
-<!-- Kazakh [Қазақ]; Kazakh (Kazakhstan) [Қазақ (Қазақстан)] -->
+locales='kk kk_Cyrl kk_Cyrl_KZ kk_KZ'>
+<!-- Kazakh [Қазақ]; Kazakh (Cyrillic) [Қазақ (Cyrl)]; Kazakh (Cyrillic, Kazakhstan) [Қазақ (Cyrl, Қазақстан)]; Kazakh (Kazakhstan) [Қазақ (Қазақстан)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='v' parse='America/Los_Angeles'>US (Los Angeles)</result>
@@ -364,8 +364,8 @@ locales='kk kk_KZ'>
    <result field='vvvv'>GMT-03:00</result>
   </zoneFields>
   <collation 
-locales='kk kk_KZ'>
-<!-- Kazakh [Қазақ]; Kazakh (Kazakhstan) [Қазақ (Қазақстан)] -->
+locales='kk kk_Cyrl kk_Cyrl_KZ kk_KZ'>
+<!-- Kazakh [Қазақ]; Kazakh (Cyrillic) [Қазақ (Cyrl)]; Kazakh (Cyrillic, Kazakhstan) [Қазақ (Cyrl, Қазақстан)]; Kazakh (Kazakhstan) [Қазақ (Қазақстан)] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -454,12 +454,6 @@ xиx
 xИx
 xйx
 xЙx
-xі
-xІ
-Xі
-XІ
-xіx
-xІx
 xк
 xК
 Xк
@@ -497,11 +491,17 @@ XҢ
 xңx
 xҢx
 xо
-xО
 Xо
-XО
 xоx
+xО
+XО
 xОx
+xө
+xӨ
+Xө
+XӨ
+xөx
+xӨx
 xп
 xП
 Xп
@@ -598,6 +598,12 @@ Xы
 XЫ
 xыx
 xЫx
+xі
+xІ
+Xі
+XІ
+xіx
+xІx
 xь
 xЬ
 Xь

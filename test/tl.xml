@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.5' base='fil'>
- <!-- Filipino [Filipino] -->
+ <cldrTest version='1.5' base='tl'>
+ <!-- Tagalog [Tagalog] -->
   <number 
-locales='fil fil_PH'>
-<!-- Filipino [Filipino]; Filipino (Philippines) [Filipino (Philippines)] -->
+locales='tl'>
+<!-- Tagalog [Tagalog] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='fil fil_PH'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='fil fil_PH'>
-<!-- Filipino [Filipino]; Filipino (Philippines) [Filipino (Philippines)] -->
+locales='tl'>
+<!-- Tagalog [Tagalog] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -296,8 +296,8 @@ locales='fil fil_PH'>
    <result timeType='full'>Miyerkules, Disyembre 01 2010 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
-locales='fil fil_PH'>
-<!-- Filipino [Filipino]; Filipino (Philippines) [Filipino (Philippines)] -->
+locales='tl'>
+<!-- Tagalog [Tagalog] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>United States (Los Angeles)</result>
@@ -404,8 +404,8 @@ locales='fil fil_PH'>
    <result field='vvvv'>GMT-03:00</result>
   </zoneFields>
   <collation 
-locales='fil fil_PH'>
-<!-- Filipino [Filipino]; Filipino (Philippines) [Filipino (Philippines)] -->
+locales='tl'>
+<!-- Tagalog [Tagalog] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -558,26 +558,26 @@ xn
 xN
 Xn
 XN
-xnG
-XnG
-xnGx
-xnx
-xNx
 xñ
 xÑ
 Xñ
 XÑ
-xñx
-xÑx
 xng
+xnG
 xNg
 xNG
 Xng
+XnG
 XNg
 XNG
 xngx
+xnGx
 xNgx
 xNGx
+xnx
+xNx
+xñx
+xÑx
 xo
 xO
 Xo

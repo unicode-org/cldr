@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.5' base='hi'>
- <!-- Hindi [हिंदी] -->
+ <!-- Hindi [हिन्दी] -->
   <number 
 locales='hi hi_IN'>
-<!-- Hindi [हिंदी]; Hindi (India) [हिंदी (भारत)] -->
+<!-- Hindi [हिन्दी]; Hindi (India) [हिन्दी (भारत)] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>०</result>
    <result numberType='decimal'>०</result>
    <result numberType='percent'>०%</result>
@@ -57,7 +57,7 @@ locales='hi hi_IN'>
   </number>
   <date 
 locales='hi hi_IN'>
-<!-- Hindi [हिंदी]; Hindi (India) [हिंदी (भारत)] -->
+<!-- Hindi [हिन्दी]; Hindi (India) [हिन्दी (भारत)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>१२:०० पूर्वाह्न</result>
    <result draft='approved'>००:००</result>
    <result timeType='medium' draft='unconfirmed'>१२:००:०० पूर्वाह्न</result>
@@ -517,38 +517,42 @@ locales='hi hi_IN'>
   </date>
   <zoneFields 
 locales='hi hi_IN'>
-<!-- Hindi [हिंदी]; Hindi (India) [हिंदी (भारत)] -->
+<!-- Hindi [हिन्दी]; Hindi (India) [हिन्दी (भारत)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-०८:००</result>
-   <result field='v' parse='America/Los_Angeles'>संयुक्त राज्य अमरिका (Los Angeles)</result>
-   <result field='vvvv'>संयुक्त राज्य अमरिका (Los Angeles)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>संयुक्त राज्य अमरिका (लोस एंजिलेस)</result>
+   <result draft='approved'>संयुक्त राज्य अमरिका (Los Angeles)</result>
+   <result field='vvvv' draft='unconfirmed'>संयुक्त राज्य अमरिका (लोस एंजिलेस)</result>
+   <result draft='approved'>संयुक्त राज्य अमरिका (Los Angeles)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='unconfirmed approved'>-0700</result>
    <result field='ZZZZ'>GMT-०७:००</result>
-   <result field='v' parse='America/Los_Angeles'>संयुक्त राज्य अमरिका (Los Angeles)</result>
-   <result field='vvvv'>संयुक्त राज्य अमरिका (Los Angeles)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>संयुक्त राज्य अमरिका (लोस एंजिलेस)</result>
+   <result draft='approved'>संयुक्त राज्य अमरिका (Los Angeles)</result>
+   <result field='vvvv' draft='unconfirmed'>संयुक्त राज्य अमरिका (लोस एंजिलेस)</result>
+   <result draft='approved'>संयुक्त राज्य अमरिका (Los Angeles)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-०३:००</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयर्स)</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयरस)</result>
    <result draft='approved'>अर्जेन्टीना (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयर्स)</result>
+   <result field='vvvv' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयरस)</result>
    <result draft='approved'>अर्जेन्टीना (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-०३:००</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयर्स)</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयरस)</result>
    <result draft='approved'>अर्जेन्टीना (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयर्स)</result>
+   <result field='vvvv' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयरस)</result>
    <result draft='approved'>अर्जेन्टीना (Buenos Aires)</result>
    <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-०३:००</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयर्स)</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयरस)</result>
    <result draft='approved'>अर्जेन्टीना (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयर्स)</result>
+   <result field='vvvv' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयरस)</result>
    <result draft='approved'>अर्जेन्टीना (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-०३:००</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयर्स)</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयरस)</result>
    <result draft='approved'>अर्जेन्टीना (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयर्स)</result>
+   <result field='vvvv' draft='unconfirmed'>अर्जेन्टीना (ब्यूनस आयरस)</result>
    <result draft='approved'>अर्जेन्टीना (Buenos Aires)</result>
    <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5' draft='unconfirmed approved'>-0500</result>
    <result field='ZZZZ'>GMT-०५:००</result>
@@ -560,21 +564,29 @@ locales='hi hi_IN'>
    <result field='vvvv'>क्यूबा</result>
    <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ'>GMT+११:००</result>
-   <result field='v' parse='Australia/Sydney'>ऑस्ट्रेलिया (Sydney)</result>
-   <result field='vvvv'>ऑस्ट्रेलिया (Sydney)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>ऑस्ट्रेलिया (सिडनी)</result>
+   <result draft='approved'>ऑस्ट्रेलिया (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>ऑस्ट्रेलिया (सिडनी)</result>
+   <result draft='approved'>ऑस्ट्रेलिया (Sydney)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='unconfirmed approved'>+1000</result>
    <result field='ZZZZ'>GMT+१०:००</result>
-   <result field='v' parse='Australia/Sydney'>ऑस्ट्रेलिया (Sydney)</result>
-   <result field='vvvv'>ऑस्ट्रेलिया (Sydney)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>ऑस्ट्रेलिया (सिडनी)</result>
+   <result draft='approved'>ऑस्ट्रेलिया (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>ऑस्ट्रेलिया (सिडनी)</result>
+   <result draft='approved'>ऑस्ट्रेलिया (Sydney)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='unconfirmed approved'>+1100</result>
    <result field='ZZZZ'>GMT+११:००</result>
-   <result field='v' parse='Australia/Sydney'>ऑस्ट्रेलिया (Sydney)</result>
-   <result field='vvvv'>ऑस्ट्रेलिया (Sydney)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>ऑस्ट्रेलिया (सिडनी)</result>
+   <result draft='approved'>ऑस्ट्रेलिया (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>ऑस्ट्रेलिया (सिडनी)</result>
+   <result draft='approved'>ऑस्ट्रेलिया (Sydney)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='unconfirmed approved'>+1000</result>
    <result field='ZZZZ'>GMT+१०:००</result>
-   <result field='v' parse='Australia/Sydney'>ऑस्ट्रेलिया (Sydney)</result>
-   <result field='vvvv'>ऑस्ट्रेलिया (Sydney)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>ऑस्ट्रेलिया (सिडनी)</result>
+   <result draft='approved'>ऑस्ट्रेलिया (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>ऑस्ट्रेलिया (सिडनी)</result>
+   <result draft='approved'>ऑस्ट्रेलिया (Sydney)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='unconfirmed approved'>+0000</result>
    <result field='ZZZZ'>GMT+००:००</result>
    <result field='v' parse='Europe/London'>ब्रितन</result>
    <result field='vvvv'>ब्रितन</result>
@@ -584,13 +596,17 @@ locales='hi hi_IN'>
    <result field='vvvv'>ब्रितन</result>
    <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
    <result field='ZZZZ'>GMT+०३:००</result>
-   <result field='v' parse='Europe/Moscow'>रूस (Moscow)</result>
-   <result field='vvvv'>रूस (Moscow)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>रूस (मॉस्को)</result>
+   <result draft='approved'>रूस (Moscow)</result>
+   <result field='vvvv' draft='unconfirmed'>रूस (मॉस्को)</result>
+   <result draft='approved'>रूस (Moscow)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='unconfirmed approved'>+0400</result>
    <result field='ZZZZ'>GMT+०४:००</result>
-   <result field='v' parse='Europe/Moscow'>रूस (Moscow)</result>
-   <result field='vvvv'>रूस (Moscow)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>रूस (मॉस्को)</result>
+   <result draft='approved'>रूस (Moscow)</result>
+   <result field='vvvv' draft='unconfirmed'>रूस (मॉस्को)</result>
+   <result draft='approved'>रूस (Moscow)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-०३:००</result>
    <result field='v'>GMT-०३:००</result>
    <result field='vvvv'>GMT-०३:००</result>
@@ -601,7 +617,7 @@ locales='hi hi_IN'>
   </zoneFields>
   <collation 
 locales='hi hi_IN'>
-<!-- Hindi [हिंदी]; Hindi (India) [हिंदी (भारत)] -->
+<!-- Hindi [हिन्दी]; Hindi (India) [हिन्दी (भारत)] -->
    <result draft='unconfirmed approved'>
 x‍
 x‌
@@ -865,7 +881,7 @@ x्x
   </collation>
   <collation 
 locales='hi@collation=direct hi_IN@collation=direct'>
-<!-- Hindi (collation=Direct Sort Order) [हिंदी (collation=direct)]; Hindi (India, collation=Direct Sort Order) [हिंदी (भारत, collation=direct)] -->
+<!-- Hindi (collation=Direct Sort Order) [हिन्दी (मिलान=प्रत्यक्ष वर्गीकरण)]; Hindi (India, collation=Direct Sort Order) [हिन्दी (भारत, मिलान=प्रत्यक्ष वर्गीकरण)] -->
    <result draft='unconfirmed approved'>
 x‍
 x‌

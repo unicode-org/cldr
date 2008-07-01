@@ -4,108 +4,20 @@
  <cldrTest version='1.5' base='se'>
  <!-- Northern Sami [Northern Sami] -->
   <number 
-locales='se se_NO'>
-<!-- Northern Sami [Northern Sami]; Northern Sami (Norway) [Northern Sami (Norway)] -->
-   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
-   <result numberType='decimal'>0</result>
-   <result numberType='percent' draft='unconfirmed'>0 %</result>
-   <result draft='approved'>0%</result>
-   <result numberType='scientific' draft='unconfirmed approved'>0E0</result>
-   <result input='0.01' numberType='integer'>0</result>
-   <result numberType='decimal' draft='unconfirmed'>0,01</result>
-   <result draft='approved'>0.01</result>
-   <result numberType='percent' draft='unconfirmed'>1 %</result>
-   <result draft='approved'>1%</result>
-   <result numberType='scientific' draft='unconfirmed'>1E−2</result>
-   <result draft='approved'>1E-2</result>
-   <result input='-0.01' numberType='integer' draft='unconfirmed'>−0</result>
-   <result draft='approved'>-0</result>
-   <result numberType='decimal' draft='unconfirmed'>−0,01</result>
-   <result draft='approved'>-0.01</result>
-   <result numberType='percent' draft='unconfirmed'>−1 %</result>
-   <result draft='approved'>-1%</result>
-   <result numberType='scientific' draft='unconfirmed'>−1E−2</result>
-   <result draft='approved'>-1E-2</result>
-   <result input='1.0' numberType='integer' draft='unconfirmed approved'>1</result>
-   <result numberType='decimal'>1</result>
-   <result numberType='percent' draft='unconfirmed'>100 %</result>
-   <result draft='approved'>100%</result>
-   <result numberType='scientific' draft='unconfirmed approved'>1E0</result>
-   <result input='-1.0' numberType='integer' draft='unconfirmed'>−1</result>
-   <result draft='approved'>-1</result>
-   <result numberType='decimal' draft='unconfirmed'>−1</result>
-   <result draft='approved'>-1</result>
-   <result numberType='percent' draft='unconfirmed'>−100 %</result>
-   <result draft='approved'>-100%</result>
-   <result numberType='scientific' draft='unconfirmed'>−1E0</result>
-   <result draft='approved'>-1E0</result>
-   <result input='123.456' numberType='integer' draft='unconfirmed approved'>123</result>
-   <result numberType='decimal' draft='unconfirmed'>123,456</result>
-   <result draft='approved'>123.456</result>
-   <result numberType='percent' draft='unconfirmed'>12 346 %</result>
-   <result draft='approved'>12,346%</result>
-   <result numberType='scientific' draft='unconfirmed'>1,23456E2</result>
-   <result draft='approved'>1.23456E2</result>
-   <result input='-123.456' numberType='integer' draft='unconfirmed'>−123</result>
-   <result draft='approved'>-123</result>
-   <result numberType='decimal' draft='unconfirmed'>−123,456</result>
-   <result draft='approved'>-123.456</result>
-   <result numberType='percent' draft='unconfirmed'>−12 346 %</result>
-   <result draft='approved'>-12,346%</result>
-   <result numberType='scientific' draft='unconfirmed'>−1,23456E2</result>
-   <result draft='approved'>-1.23456E2</result>
-   <result input='123456.78' numberType='integer' draft='unconfirmed'>123 457</result>
-   <result draft='approved'>123,457</result>
-   <result numberType='decimal' draft='unconfirmed'>123 456,78</result>
-   <result draft='approved'>123,456.78</result>
-   <result numberType='percent' draft='unconfirmed'>12 345 678 %</result>
-   <result draft='approved'>12,345,678%</result>
-   <result numberType='scientific' draft='unconfirmed'>1,2345678E5</result>
-   <result draft='approved'>1.2345678E5</result>
-   <result input='-123456.78' numberType='integer' draft='unconfirmed'>−123 457</result>
-   <result draft='approved'>-123,457</result>
-   <result numberType='decimal' draft='unconfirmed'>−123 456,78</result>
-   <result draft='approved'>-123,456.78</result>
-   <result numberType='percent' draft='unconfirmed'>−12 345 678 %</result>
-   <result draft='approved'>-12,345,678%</result>
-   <result numberType='scientific' draft='unconfirmed'>−1,2345678E5</result>
-   <result draft='approved'>-1.2345678E5</result>
-   <result input='Infinity' numberType='integer' draft='unconfirmed approved'>∞</result>
-   <result numberType='decimal'>∞</result>
-   <result numberType='percent' draft='unconfirmed'>∞ %</result>
-   <result draft='approved'>∞%</result>
-   <result numberType='scientific' draft='unconfirmed approved'>∞</result>
-   <result input='-Infinity' numberType='integer' draft='unconfirmed'>−∞</result>
-   <result draft='approved'>-∞</result>
-   <result numberType='decimal' draft='unconfirmed'>−∞</result>
-   <result draft='approved'>-∞</result>
-   <result numberType='percent' draft='unconfirmed'>−∞ %</result>
-   <result draft='approved'>-∞%</result>
-   <result numberType='scientific' draft='unconfirmed'>−∞</result>
-   <result draft='approved'>-∞</result>
-   <result input='NaN' numberType='integer' draft='unconfirmed'>¤¤¤</result>
-   <result draft='approved'>NaN</result>
-   <result numberType='decimal' draft='unconfirmed'>¤¤¤</result>
-   <result draft='approved'>NaN</result>
-   <result numberType='percent' draft='unconfirmed'>¤¤¤</result>
-   <result draft='approved'>NaN</result>
-   <result numberType='scientific' draft='unconfirmed'>¤¤¤</result>
-   <result draft='approved'>NaN</result>
-  </number>
-  <number 
-locales='se_FI'>
-<!-- Northern Sami (Finland) [Northern Sami (Finland)] -->
+locales='se se_FI se_NO'>
+<!-- Northern Sami [Northern Sami]; Northern Sami (Finland) [Northern Sami (Finland)]; Northern Sami (Norway) [Northern Sami (Norway)] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent' draft='unconfirmed'>0 %</result>
    <result draft='approved'>0%</result>
-   <result numberType='scientific' draft='unconfirmed approved'>0E0</result>
-   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='scientific' draft='unconfirmed'>0×10^0</result>
+   <result draft='approved'>0E0</result>
+   <result input='0.01' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal' draft='unconfirmed'>0,01</result>
    <result draft='approved'>0.01</result>
    <result numberType='percent' draft='unconfirmed'>1 %</result>
    <result draft='approved'>1%</result>
-   <result numberType='scientific' draft='unconfirmed'>1E−2</result>
+   <result numberType='scientific' draft='unconfirmed'>1×10^−2</result>
    <result draft='approved'>1E-2</result>
    <result input='-0.01' numberType='integer' draft='unconfirmed'>−0</result>
    <result draft='approved'>-0</result>
@@ -113,27 +25,28 @@ locales='se_FI'>
    <result draft='approved'>-0.01</result>
    <result numberType='percent' draft='unconfirmed'>−1 %</result>
    <result draft='approved'>-1%</result>
-   <result numberType='scientific' draft='unconfirmed'>−1E−2</result>
+   <result numberType='scientific' draft='unconfirmed'>−1×10^−2</result>
    <result draft='approved'>-1E-2</result>
    <result input='1.0' numberType='integer' draft='unconfirmed approved'>1</result>
    <result numberType='decimal'>1</result>
    <result numberType='percent' draft='unconfirmed'>100 %</result>
    <result draft='approved'>100%</result>
-   <result numberType='scientific' draft='unconfirmed approved'>1E0</result>
+   <result numberType='scientific' draft='unconfirmed'>1×10^0</result>
+   <result draft='approved'>1E0</result>
    <result input='-1.0' numberType='integer' draft='unconfirmed'>−1</result>
    <result draft='approved'>-1</result>
    <result numberType='decimal' draft='unconfirmed'>−1</result>
    <result draft='approved'>-1</result>
    <result numberType='percent' draft='unconfirmed'>−100 %</result>
    <result draft='approved'>-100%</result>
-   <result numberType='scientific' draft='unconfirmed'>−1E0</result>
+   <result numberType='scientific' draft='unconfirmed'>−1×10^0</result>
    <result draft='approved'>-1E0</result>
    <result input='123.456' numberType='integer' draft='unconfirmed approved'>123</result>
    <result numberType='decimal' draft='unconfirmed'>123,456</result>
    <result draft='approved'>123.456</result>
    <result numberType='percent' draft='unconfirmed'>12 346 %</result>
    <result draft='approved'>12,346%</result>
-   <result numberType='scientific' draft='unconfirmed'>1,23456E2</result>
+   <result numberType='scientific' draft='unconfirmed'>1,23456×10^2</result>
    <result draft='approved'>1.23456E2</result>
    <result input='-123.456' numberType='integer' draft='unconfirmed'>−123</result>
    <result draft='approved'>-123</result>
@@ -141,7 +54,7 @@ locales='se_FI'>
    <result draft='approved'>-123.456</result>
    <result numberType='percent' draft='unconfirmed'>−12 346 %</result>
    <result draft='approved'>-12,346%</result>
-   <result numberType='scientific' draft='unconfirmed'>−1,23456E2</result>
+   <result numberType='scientific' draft='unconfirmed'>−1,23456×10^2</result>
    <result draft='approved'>-1.23456E2</result>
    <result input='123456.78' numberType='integer' draft='unconfirmed'>123 457</result>
    <result draft='approved'>123,457</result>
@@ -149,7 +62,7 @@ locales='se_FI'>
    <result draft='approved'>123,456.78</result>
    <result numberType='percent' draft='unconfirmed'>12 345 678 %</result>
    <result draft='approved'>12,345,678%</result>
-   <result numberType='scientific' draft='unconfirmed'>1,2345678E5</result>
+   <result numberType='scientific' draft='unconfirmed'>1,2345678×10^5</result>
    <result draft='approved'>1.2345678E5</result>
    <result input='-123456.78' numberType='integer' draft='unconfirmed'>−123 457</result>
    <result draft='approved'>-123,457</result>
@@ -157,7 +70,7 @@ locales='se_FI'>
    <result draft='approved'>-123,456.78</result>
    <result numberType='percent' draft='unconfirmed'>−12 345 678 %</result>
    <result draft='approved'>-12,345,678%</result>
-   <result numberType='scientific' draft='unconfirmed'>−1,2345678E5</result>
+   <result numberType='scientific' draft='unconfirmed'>−1,2345678×10^5</result>
    <result draft='approved'>-1.2345678E5</result>
    <result input='Infinity' numberType='integer' draft='unconfirmed approved'>∞</result>
    <result numberType='decimal'>∞</result>
@@ -1035,44 +948,44 @@ locales='se se_NO'>
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ' draft='unconfirmed'>GMT−08:00</result>
    <result draft='approved'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Amerihká Ovttastuvvan Stáhtat (Los Angeles)</result>
+   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Los Angeles (Amerihká ovttastuvvan stáhtat)</result>
    <result draft='approved'>US (Los Angeles)</result>
-   <result field='vvvv' draft='unconfirmed'>Amerihká Ovttastuvvan Stáhtat (Los Angeles)</result>
+   <result field='vvvv' draft='unconfirmed'>Los Angeles (Amerihká ovttastuvvan stáhtat)</result>
    <result draft='approved'>US (Los Angeles)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='unconfirmed approved'>-0700</result>
    <result field='ZZZZ' draft='unconfirmed'>GMT−07:00</result>
    <result draft='approved'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Amerihká Ovttastuvvan Stáhtat (Los Angeles)</result>
+   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Los Angeles (Amerihká ovttastuvvan stáhtat)</result>
    <result draft='approved'>US (Los Angeles)</result>
-   <result field='vvvv' draft='unconfirmed'>Amerihká Ovttastuvvan Stáhtat (Los Angeles)</result>
+   <result field='vvvv' draft='unconfirmed'>Los Angeles (Amerihká ovttastuvvan stáhtat)</result>
    <result draft='approved'>US (Los Angeles)</result>
    <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ' draft='unconfirmed'>GMT−03:00</result>
    <result draft='approved'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Argentina (Buenos Aires)</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Buenos Aires (Argentina)</result>
    <result draft='approved'>AR (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>Argentina (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Buenos Aires (Argentina)</result>
    <result draft='approved'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ' draft='unconfirmed'>GMT−03:00</result>
    <result draft='approved'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Argentina (Buenos Aires)</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Buenos Aires (Argentina)</result>
    <result draft='approved'>AR (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>Argentina (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Buenos Aires (Argentina)</result>
    <result draft='approved'>AR (Buenos Aires)</result>
    <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ' draft='unconfirmed'>GMT−03:00</result>
    <result draft='approved'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Argentina (Buenos Aires)</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Buenos Aires (Argentina)</result>
    <result draft='approved'>AR (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>Argentina (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Buenos Aires (Argentina)</result>
    <result draft='approved'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ' draft='unconfirmed'>GMT−03:00</result>
    <result draft='approved'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Argentina (Buenos Aires)</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Buenos Aires (Argentina)</result>
    <result draft='approved'>AR (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>Argentina (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Buenos Aires (Argentina)</result>
    <result draft='approved'>AR (Buenos Aires)</result>
    <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5' draft='unconfirmed approved'>-0500</result>
    <result field='ZZZZ' draft='unconfirmed'>GMT−05:00</result>
@@ -1090,27 +1003,27 @@ locales='se se_NO'>
    <result draft='approved'>CU</result>
    <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='unconfirmed approved'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Austrália (Sydney)</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Sydney (Austrália)</result>
    <result draft='approved'>AU (Sydney)</result>
-   <result field='vvvv' draft='unconfirmed'>Austrália (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Sydney (Austrália)</result>
    <result draft='approved'>AU (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='unconfirmed approved'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Austrália (Sydney)</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Sydney (Austrália)</result>
    <result draft='approved'>AU (Sydney)</result>
-   <result field='vvvv' draft='unconfirmed'>Austrália (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Sydney (Austrália)</result>
    <result draft='approved'>AU (Sydney)</result>
    <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='unconfirmed approved'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Austrália (Sydney)</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Sydney (Austrália)</result>
    <result draft='approved'>AU (Sydney)</result>
-   <result field='vvvv' draft='unconfirmed'>Austrália (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Sydney (Austrália)</result>
    <result draft='approved'>AU (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='unconfirmed approved'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Austrália (Sydney)</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Sydney (Austrália)</result>
    <result draft='approved'>AU (Sydney)</result>
-   <result field='vvvv' draft='unconfirmed'>Austrália (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Sydney (Austrália)</result>
    <result draft='approved'>AU (Sydney)</result>
    <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='unconfirmed approved'>+0000</result>
    <result field='ZZZZ'>GMT+00:00</result>
@@ -1126,15 +1039,15 @@ locales='se se_NO'>
    <result draft='approved'>GB</result>
    <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='unconfirmed approved'>+0300</result>
    <result field='ZZZZ'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Ruošša (Moscow)</result>
+   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Moscow (Ruošša)</result>
    <result draft='approved'>RU (Moscow)</result>
-   <result field='vvvv' draft='unconfirmed'>Ruošša (Moscow)</result>
+   <result field='vvvv' draft='unconfirmed'>Moscow (Ruošša)</result>
    <result draft='approved'>RU (Moscow)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='unconfirmed approved'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Ruošša (Moscow)</result>
+   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Moscow (Ruošša)</result>
    <result draft='approved'>RU (Moscow)</result>
-   <result field='vvvv' draft='unconfirmed'>Ruošša (Moscow)</result>
+   <result field='vvvv' draft='unconfirmed'>Moscow (Ruošša)</result>
    <result draft='approved'>RU (Moscow)</result>
    <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ' draft='unconfirmed'>GMT−03:00</result>

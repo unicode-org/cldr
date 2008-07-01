@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.5' base='ro'>
- <!-- Romanian [română] -->
+ <cldrTest version='1.5' base='mo'>
+ <!-- Moldavian [Moldavian] -->
   <number 
-locales='ro ro_MD ro_RO'>
-<!-- Romanian [română]; Romanian (Moldova) [română (Moldova, Republica)]; Romanian (Romania) [română (România)] -->
+locales='mo'>
+<!-- Moldavian [Moldavian] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='ro ro_MD ro_RO'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='ro ro_MD ro_RO'>
-<!-- Romanian [română]; Romanian (Moldova) [română (Moldova, Republica)]; Romanian (Romania) [română (România)] -->
+locales='mo'>
+<!-- Moldavian [Moldavian] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -288,8 +288,8 @@ locales='ro ro_MD ro_RO'>
    <result timeType='full'>miercuri, 1 decembrie 2010, 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
-locales='ro ro_MD ro_RO'>
-<!-- Romanian [română]; Romanian (Moldova) [română (Moldova, Republica)]; Romanian (Romania) [română (România)] -->
+locales='mo'>
+<!-- Moldavian [Moldavian] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT−08:00</result>
    <result field='v' parse='America/Los_Angeles'>Statele Unite (Los Angeles)</result>
@@ -364,8 +364,8 @@ locales='ro ro_MD ro_RO'>
    <result field='vvvv'>GMT−03:00</result>
   </zoneFields>
   <collation 
-locales='ro ro_MD ro_RO'>
-<!-- Romanian [română]; Romanian (Moldova) [română (Moldova, Republica)]; Romanian (Romania) [română (România)] -->
+locales='mo'>
+<!-- Moldavian [Moldavian] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -386,18 +386,18 @@ xa
 xA
 Xa
 XA
-xax
-xAx
 xă
 xĂ
 Xă
 XĂ
-xăx
-xĂx
 xâ
 xÂ
 Xâ
 XÂ
+xax
+xAx
+xăx
+xĂx
 xâx
 xÂx
 xb
@@ -446,12 +446,12 @@ xi
 xI
 Xi
 XI
-xix
-xIx
 xî
 xÎ
 Xî
 XÎ
+xix
+xIx
 xîx
 xÎx
 xj
@@ -512,49 +512,25 @@ xs
 xS
 Xs
 XS
+xș
+xȘ
+Xș
+XȘ
 xsx
 xSx
-xş
-xș
-xş
-xȘ
-xŞ
-xȘ
-Xş
-Xș
-Xş
-XŞ
-XȘ
-XŞ
-xşx
 xșx
-xşx
-xȘx
-xŞx
 xȘx
 xt
 xT
 Xt
 XT
+xț
+xȚ
+Xț
+XȚ
 xtx
 xTx
-xţ
-xț
-xţ
-xŢ
-xȚ
-xŢ
-Xț
-Xţ
-Xț
-XŢ
-XȚ
-XŢ
-xţx
 xțx
-xţx
-xȚx
-xŢx
 xȚx
 xu
 xU

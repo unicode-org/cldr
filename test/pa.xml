@@ -5,7 +5,7 @@
  <!-- Punjabi [ਪੰਜਾਬੀ] -->
   <number 
 locales='pa pa_Arab pa_Arab_PK pa_Guru pa_Guru_IN pa_IN pa_PK'>
-<!-- Punjabi [ਪੰਜਾਬੀ]; Punjabi (Arabic) [ਪੰਜਾਬੀ (Arab)]; Punjabi (Arabic, Pakistan) [ਪੰਜਾਬੀ (Arab, PK)]; Punjabi (Gurmukhi) [ਪੰਜਾਬੀ (Guru)]; Punjabi (Gurmukhi, India) [ਪੰਜਾਬੀ (Guru, ਭਾਰਤ)]; Punjabi (India) [ਪੰਜਾਬੀ (ਭਾਰਤ)]; Punjabi (Pakistan) [ਪੰਜਾਬੀ (PK)] -->
+<!-- Punjabi [ਪੰਜਾਬੀ]; Punjabi (Arabic) [پنجاب (العربية)]; Punjabi (Arabic, Pakistan) [پنجاب (العربية, پکستان)]; Punjabi (Gurmukhi) [ਪੰਜਾਬੀ (Guru)]; Punjabi (Gurmukhi, India) [ਪੰਜਾਬੀ (Guru, ਭਾਰਤ)]; Punjabi (India) [ਪੰਜਾਬੀ (ਭਾਰਤ)]; Punjabi (Pakistan) [پنجاب (پکستان)] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>੦</result>
    <result numberType='decimal'>੦</result>
    <result numberType='percent'>੦%</result>
@@ -385,7 +385,7 @@ locales='pa pa_Guru pa_Guru_IN pa_IN'>
   </date>
   <date 
 locales='pa_Arab pa_Arab_PK pa_PK'>
-<!-- Punjabi (Arabic) [ਪੰਜਾਬੀ (Arab)]; Punjabi (Arabic, Pakistan) [ਪੰਜਾਬੀ (Arab, PK)]; Punjabi (Pakistan) [ਪੰਜਾਬੀ (PK)] -->
+<!-- Punjabi (Arabic) [پنجاب (العربية)]; Punjabi (Arabic, Pakistan) [پنجاب (العربية, پکستان)]; Punjabi (Pakistan) [پنجاب (پکستان)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>੦੦:੦੦</result>
    <result timeType='medium'>੦੦:੦੦:੦੦</result>
    <result timeType='full'>੦੦:੦੦:੦੦ GMT+੦੦:੦੦</result>
@@ -713,7 +713,7 @@ locales='pa_Arab pa_Arab_PK pa_PK'>
   </date>
   <zoneFields 
 locales='pa pa_Arab pa_Arab_PK pa_Guru pa_Guru_IN pa_IN pa_PK'>
-<!-- Punjabi [ਪੰਜਾਬੀ]; Punjabi (Arabic) [ਪੰਜਾਬੀ (Arab)]; Punjabi (Arabic, Pakistan) [ਪੰਜਾਬੀ (Arab, PK)]; Punjabi (Gurmukhi) [ਪੰਜਾਬੀ (Guru)]; Punjabi (Gurmukhi, India) [ਪੰਜਾਬੀ (Guru, ਭਾਰਤ)]; Punjabi (India) [ਪੰਜਾਬੀ (ਭਾਰਤ)]; Punjabi (Pakistan) [ਪੰਜਾਬੀ (PK)] -->
+<!-- Punjabi [ਪੰਜਾਬੀ]; Punjabi (Arabic) [پنجاب (العربية)]; Punjabi (Arabic, Pakistan) [پنجاب (العربية, پکستان)]; Punjabi (Gurmukhi) [ਪੰਜਾਬੀ (Guru)]; Punjabi (Gurmukhi, India) [ਪੰਜਾਬੀ (Guru, ਭਾਰਤ)]; Punjabi (India) [ਪੰਜਾਬੀ (ਭਾਰਤ)]; Punjabi (Pakistan) [پنجاب (پکستان)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-੦੮:੦੦</result>
    <result field='v' parse='America/Los_Angeles'>US (Los Angeles)</result>
@@ -1050,8 +1050,10 @@ xੌx
   </collation>
   <collation 
 locales='pa_Arab pa_Arab_PK pa_PK'>
-<!-- Punjabi (Arabic) [ਪੰਜਾਬੀ (Arab)]; Punjabi (Arabic, Pakistan) [ਪੰਜਾਬੀ (Arab, PK)]; Punjabi (Pakistan) [ਪੰਜਾਬੀ (PK)] -->
+<!-- Punjabi (Arabic) [پنجاب (العربية)]; Punjabi (Arabic, Pakistan) [پنجاب (العربية, پکستان)]; Punjabi (Pakistan) [پنجاب (پکستان)] -->
    <result draft='unconfirmed approved'>
+xُ
+Xُ
 xੰ
 Xੰ
 xਂ
@@ -1075,6 +1077,7 @@ x12x
 x2
 X2
 x2x
+xُx
 xੰx
 xਂx
 xਁx
@@ -1214,6 +1217,9 @@ xهx
 xھ
 Xھ
 xھx
+xہ
+Xہ
+xہx
 xو
 Xو
 xوx

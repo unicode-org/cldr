@@ -4,45 +4,54 @@
  <cldrTest version='1.5' base='ur'>
  <!-- Urdu [اردو] -->
   <number 
-locales='ur ur_IN ur_PK'>
-<!-- Urdu [اردو]; Urdu (India) [اردو (بھارت)]; Urdu (Pakistan) [اردو (پاکستان)] -->
+locales='ur ur_PK'>
+<!-- Urdu [اردو]; Urdu (Pakistan) [اردو (پاکستان)] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
-   <result numberType='scientific'>0E0</result>
-   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='scientific' draft='unconfirmed'>0ق0</result>
+   <result draft='approved'>0E0</result>
+   <result input='0.01' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0.01</result>
    <result numberType='percent'>1%</result>
-   <result numberType='scientific'>1E-2</result>
-   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='scientific' draft='unconfirmed'>1ق-2</result>
+   <result draft='approved'>1E-2</result>
+   <result input='-0.01' numberType='integer' draft='unconfirmed approved'>-0</result>
    <result numberType='decimal'>-0.01</result>
    <result numberType='percent'>-1%</result>
-   <result numberType='scientific'>-1E-2</result>
-   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='scientific' draft='unconfirmed'>-1ق-2</result>
+   <result draft='approved'>-1E-2</result>
+   <result input='1.0' numberType='integer' draft='unconfirmed approved'>1</result>
    <result numberType='decimal'>1</result>
    <result numberType='percent'>100%</result>
-   <result numberType='scientific'>1E0</result>
-   <result input='-1.0' numberType='integer'>-1</result>
+   <result numberType='scientific' draft='unconfirmed'>1ق0</result>
+   <result draft='approved'>1E0</result>
+   <result input='-1.0' numberType='integer' draft='unconfirmed approved'>-1</result>
    <result numberType='decimal'>-1</result>
    <result numberType='percent'>-100%</result>
-   <result numberType='scientific'>-1E0</result>
-   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='scientific' draft='unconfirmed'>-1ق0</result>
+   <result draft='approved'>-1E0</result>
+   <result input='123.456' numberType='integer' draft='unconfirmed approved'>123</result>
    <result numberType='decimal'>123.456</result>
    <result numberType='percent'>12,346%</result>
-   <result numberType='scientific'>1.23456E2</result>
-   <result input='-123.456' numberType='integer'>-123</result>
+   <result numberType='scientific' draft='unconfirmed'>1.23456ق2</result>
+   <result draft='approved'>1.23456E2</result>
+   <result input='-123.456' numberType='integer' draft='unconfirmed approved'>-123</result>
    <result numberType='decimal'>-123.456</result>
    <result numberType='percent'>-12,346%</result>
-   <result numberType='scientific'>-1.23456E2</result>
-   <result input='123456.78' numberType='integer'>123,457</result>
+   <result numberType='scientific' draft='unconfirmed'>-1.23456ق2</result>
+   <result draft='approved'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer' draft='unconfirmed approved'>123,457</result>
    <result numberType='decimal'>123,456.78</result>
    <result numberType='percent'>12,345,678%</result>
-   <result numberType='scientific'>1.2345678E5</result>
-   <result input='-123456.78' numberType='integer'>-123,457</result>
+   <result numberType='scientific' draft='unconfirmed'>1.2345678ق5</result>
+   <result draft='approved'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer' draft='unconfirmed approved'>-123,457</result>
    <result numberType='decimal'>-123,456.78</result>
    <result numberType='percent'>-12,345,678%</result>
-   <result numberType='scientific'>-1.2345678E5</result>
-   <result input='Infinity' numberType='integer'>∞</result>
+   <result numberType='scientific' draft='unconfirmed'>-1.2345678ق5</result>
+   <result draft='approved'>-1.2345678E5</result>
+   <result input='Infinity' numberType='integer' draft='unconfirmed approved'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
@@ -50,386 +59,491 @@ locales='ur ur_IN ur_PK'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>NaN</result>
-   <result numberType='decimal'>NaN</result>
-   <result numberType='percent'>NaN</result>
-   <result numberType='scientific'>NaN</result>
+   <result input='NaN' numberType='integer' draft='unconfirmed'>یہ عدد نہیں</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='decimal' draft='unconfirmed'>یہ عدد نہیں</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='percent' draft='unconfirmed'>یہ عدد نہیں</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='scientific' draft='unconfirmed'>یہ عدد نہیں</result>
+   <result draft='approved'>NaN</result>
+  </number>
+  <number 
+locales='ur_IN'>
+<!-- Urdu (India) [اردو (بھارت)] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific' draft='unconfirmed'>0ق0</result>
+   <result draft='approved'>0E0</result>
+   <result input='0.01' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0.01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific' draft='unconfirmed'>1ق-2</result>
+   <result draft='approved'>1E-2</result>
+   <result input='-0.01' numberType='integer' draft='unconfirmed approved'>-0</result>
+   <result numberType='decimal'>-0.01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific' draft='unconfirmed'>-1ق-2</result>
+   <result draft='approved'>-1E-2</result>
+   <result input='1.0' numberType='integer' draft='unconfirmed approved'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific' draft='unconfirmed'>1ق0</result>
+   <result draft='approved'>1E0</result>
+   <result input='-1.0' numberType='integer' draft='unconfirmed approved'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific' draft='unconfirmed'>-1ق0</result>
+   <result draft='approved'>-1E0</result>
+   <result input='123.456' numberType='integer' draft='unconfirmed approved'>123</result>
+   <result numberType='decimal'>123.456</result>
+   <result numberType='percent'>12,346%</result>
+   <result numberType='scientific' draft='unconfirmed'>1.23456ق2</result>
+   <result draft='approved'>1.23456E2</result>
+   <result input='-123.456' numberType='integer' draft='unconfirmed approved'>-123</result>
+   <result numberType='decimal'>-123.456</result>
+   <result numberType='percent'>-12,346%</result>
+   <result numberType='scientific' draft='unconfirmed'>-1.23456ق2</result>
+   <result draft='approved'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer' draft='unconfirmed approved'>1,23,457</result>
+   <result numberType='decimal'>1,23,456.78</result>
+   <result numberType='percent'>1,23,45,678%</result>
+   <result numberType='scientific' draft='unconfirmed'>1.2345678ق5</result>
+   <result draft='approved'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer' draft='unconfirmed approved'>-1,23,457</result>
+   <result numberType='decimal'>-1,23,456.78</result>
+   <result numberType='percent'>-1,23,45,678%</result>
+   <result numberType='scientific' draft='unconfirmed'>-1.2345678ق5</result>
+   <result draft='approved'>-1.2345678E5</result>
+   <result input='Infinity' numberType='integer' draft='unconfirmed approved'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result input='-Infinity' numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result input='NaN' numberType='integer' draft='unconfirmed'>یہ عدد نہیں</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='decimal' draft='unconfirmed'>یہ عدد نہیں</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='percent' draft='unconfirmed'>یہ عدد نہیں</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='scientific' draft='unconfirmed'>یہ عدد نہیں</result>
+   <result draft='approved'>NaN</result>
   </number>
   <date 
 locales='ur ur_IN ur_PK'>
 <!-- Urdu [اردو]; Urdu (India) [اردو (بھارت)]; Urdu (Pakistan) [اردو (پاکستان)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
-   <result timeType='medium'>00:00:00</result>
-   <result timeType='full'>00:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>1900-01-31</result>
-   <result timeType='short'>1900-01-31 00:00</result>
-   <result timeType='medium'>1900-01-31 00:00:00</result>
-   <result timeType='full'>1900-01-31 00:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1900 جنوری 31</result>
-   <result draft='approved'>1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>1900 جنوری 31 00:00</result>
-   <result draft='approved'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1900 جنوری 31 00:00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00</result>
-   <result timeType='full' draft='unconfirmed'>1900 جنوری 31 00:00:00 GMT+00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1900 جنوری 31</result>
-   <result draft='approved'>1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>1900 جنوری 31 00:00</result>
-   <result draft='approved'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1900 جنوری 31 00:00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00</result>
-   <result timeType='full' draft='unconfirmed'>1900 جنوری 31 00:00:00 GMT+00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>بدھ, 1900 جنوری 31</result>
-   <result draft='approved'>4, 1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>بدھ, 1900 جنوری 31 00:00</result>
-   <result draft='approved'>4, 1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>بدھ, 1900 جنوری 31 00:00:00</result>
-   <result draft='approved'>4, 1900 1 31 00:00:00</result>
-   <result timeType='full' draft='unconfirmed'>بدھ, 1900 جنوری 31 00:00:00 GMT+00:00</result>
-   <result draft='approved'>4, 1900 1 31 00:00:00 GMT+00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
-   <result timeType='medium'>00:00:01</result>
-   <result timeType='full'>00:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>1909-02-28</result>
-   <result timeType='short'>1909-02-28 00:00</result>
-   <result timeType='medium'>1909-02-28 00:00:01</result>
-   <result timeType='full'>1909-02-28 00:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1909 فروری 28</result>
-   <result draft='approved'>1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>1909 فروری 28 00:00</result>
-   <result draft='approved'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1909 فروری 28 00:00:01</result>
-   <result draft='approved'>1909 2 28 00:00:01</result>
-   <result timeType='full' draft='unconfirmed'>1909 فروری 28 00:00:01 GMT+00:00</result>
-   <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1909 فروری 28</result>
-   <result draft='approved'>1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>1909 فروری 28 00:00</result>
-   <result draft='approved'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1909 فروری 28 00:00:01</result>
-   <result draft='approved'>1909 2 28 00:00:01</result>
-   <result timeType='full' draft='unconfirmed'>1909 فروری 28 00:00:01 GMT+00:00</result>
-   <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>اتوار, 1909 فروری 28</result>
-   <result draft='approved'>1, 1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>اتوار, 1909 فروری 28 00:00</result>
-   <result draft='approved'>1, 1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>اتوار, 1909 فروری 28 00:00:01</result>
-   <result draft='approved'>1, 1909 2 28 00:00:01</result>
-   <result timeType='full' draft='unconfirmed'>اتوار, 1909 فروری 28 00:00:01 GMT+00:00</result>
-   <result draft='approved'>1, 1909 2 28 00:00:01 GMT+00:00</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:59</result>
-   <result timeType='medium'>00:59:59</result>
-   <result timeType='full'>00:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>1918-03-26</result>
-   <result timeType='short'>1918-03-26 00:59</result>
-   <result timeType='medium'>1918-03-26 00:59:59</result>
-   <result timeType='full'>1918-03-26 00:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1918 مار چ 26</result>
-   <result draft='approved'>1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>1918 مار چ 26 00:59</result>
-   <result draft='approved'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>1918 مار چ 26 00:59:59</result>
-   <result draft='approved'>1918 3 26 00:59:59</result>
-   <result timeType='full' draft='unconfirmed'>1918 مار چ 26 00:59:59 GMT+00:00</result>
-   <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1918 مار چ 26</result>
-   <result draft='approved'>1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>1918 مار چ 26 00:59</result>
-   <result draft='approved'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>1918 مار چ 26 00:59:59</result>
-   <result draft='approved'>1918 3 26 00:59:59</result>
-   <result timeType='full' draft='unconfirmed'>1918 مار چ 26 00:59:59 GMT+00:00</result>
-   <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>منگل, 1918 مار چ 26</result>
-   <result draft='approved'>3, 1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>منگل, 1918 مار چ 26 00:59</result>
-   <result draft='approved'>3, 1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>منگل, 1918 مار چ 26 00:59:59</result>
-   <result draft='approved'>3, 1918 3 26 00:59:59</result>
-   <result timeType='full' draft='unconfirmed'>منگل, 1918 مار چ 26 00:59:59 GMT+00:00</result>
-   <result draft='approved'>3, 1918 3 26 00:59:59 GMT+00:00</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
-   <result timeType='medium'>01:00:00</result>
-   <result timeType='full'>01:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>1932-04-24</result>
-   <result timeType='short'>1932-04-24 01:00</result>
-   <result timeType='medium'>1932-04-24 01:00:00</result>
-   <result timeType='full'>1932-04-24 01:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1932 اپريل 24</result>
-   <result draft='approved'>1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>1932 اپريل 24 01:00</result>
-   <result draft='approved'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1932 اپريل 24 01:00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00</result>
-   <result timeType='full' draft='unconfirmed'>1932 اپريل 24 01:00:00 GMT+00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1932 اپريل 24</result>
-   <result draft='approved'>1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>1932 اپريل 24 01:00</result>
-   <result draft='approved'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1932 اپريل 24 01:00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00</result>
-   <result timeType='full' draft='unconfirmed'>1932 اپريل 24 01:00:00 GMT+00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>اتوار, 1932 اپريل 24</result>
-   <result draft='approved'>1, 1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>اتوار, 1932 اپريل 24 01:00</result>
-   <result draft='approved'>1, 1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>اتوار, 1932 اپريل 24 01:00:00</result>
-   <result draft='approved'>1, 1932 4 24 01:00:00</result>
-   <result timeType='full' draft='unconfirmed'>اتوار, 1932 اپريل 24 01:00:00 GMT+00:00</result>
-   <result draft='approved'>1, 1932 4 24 01:00:00 GMT+00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
-   <result timeType='medium'>01:00:01</result>
-   <result timeType='full'>01:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>1945-05-20</result>
-   <result timeType='short'>1945-05-20 01:00</result>
-   <result timeType='medium'>1945-05-20 01:00:01</result>
-   <result timeType='full'>1945-05-20 01:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1945 مئی 20</result>
-   <result draft='approved'>1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>1945 مئی 20 01:00</result>
-   <result draft='approved'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1945 مئی 20 01:00:01</result>
-   <result draft='approved'>1945 5 20 01:00:01</result>
-   <result timeType='full' draft='unconfirmed'>1945 مئی 20 01:00:01 GMT+00:00</result>
-   <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1945 مئی 20</result>
-   <result draft='approved'>1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>1945 مئی 20 01:00</result>
-   <result draft='approved'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1945 مئی 20 01:00:01</result>
-   <result draft='approved'>1945 5 20 01:00:01</result>
-   <result timeType='full' draft='unconfirmed'>1945 مئی 20 01:00:01 GMT+00:00</result>
-   <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>اتوار, 1945 مئی 20</result>
-   <result draft='approved'>1, 1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>اتوار, 1945 مئی 20 01:00</result>
-   <result draft='approved'>1, 1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>اتوار, 1945 مئی 20 01:00:01</result>
-   <result draft='approved'>1, 1945 5 20 01:00:01</result>
-   <result timeType='full' draft='unconfirmed'>اتوار, 1945 مئی 20 01:00:01 GMT+00:00</result>
-   <result draft='approved'>1, 1945 5 20 01:00:01 GMT+00:00</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>11:59</result>
-   <result timeType='medium'>11:59:59</result>
-   <result timeType='full'>11:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>1952-06-18</result>
-   <result timeType='short'>1952-06-18 11:59</result>
-   <result timeType='medium'>1952-06-18 11:59:59</result>
-   <result timeType='full'>1952-06-18 11:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1952 جون 18</result>
-   <result draft='approved'>1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>1952 جون 18 11:59</result>
-   <result draft='approved'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>1952 جون 18 11:59:59</result>
-   <result draft='approved'>1952 6 18 11:59:59</result>
-   <result timeType='full' draft='unconfirmed'>1952 جون 18 11:59:59 GMT+00:00</result>
-   <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1952 جون 18</result>
-   <result draft='approved'>1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>1952 جون 18 11:59</result>
-   <result draft='approved'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>1952 جون 18 11:59:59</result>
-   <result draft='approved'>1952 6 18 11:59:59</result>
-   <result timeType='full' draft='unconfirmed'>1952 جون 18 11:59:59 GMT+00:00</result>
-   <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>بدھ, 1952 جون 18</result>
-   <result draft='approved'>4, 1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>بدھ, 1952 جون 18 11:59</result>
-   <result draft='approved'>4, 1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>بدھ, 1952 جون 18 11:59:59</result>
-   <result draft='approved'>4, 1952 6 18 11:59:59</result>
-   <result timeType='full' draft='unconfirmed'>بدھ, 1952 جون 18 11:59:59 GMT+00:00</result>
-   <result draft='approved'>4, 1952 6 18 11:59:59 GMT+00:00</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
-   <result timeType='medium'>12:00:00</result>
-   <result timeType='full'>12:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>1973-07-16</result>
-   <result timeType='short'>1973-07-16 12:00</result>
-   <result timeType='medium'>1973-07-16 12:00:00</result>
-   <result timeType='full'>1973-07-16 12:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1973 جولائی 16</result>
-   <result draft='approved'>1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>1973 جولائی 16 12:00</result>
-   <result draft='approved'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1973 جولائی 16 12:00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00</result>
-   <result timeType='full' draft='unconfirmed'>1973 جولائی 16 12:00:00 GMT+00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1973 جولائی 16</result>
-   <result draft='approved'>1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>1973 جولائی 16 12:00</result>
-   <result draft='approved'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1973 جولائی 16 12:00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00</result>
-   <result timeType='full' draft='unconfirmed'>1973 جولائی 16 12:00:00 GMT+00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>پير, 1973 جولائی 16</result>
-   <result draft='approved'>2, 1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>پير, 1973 جولائی 16 12:00</result>
-   <result draft='approved'>2, 1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>پير, 1973 جولائی 16 12:00:00</result>
-   <result draft='approved'>2, 1973 7 16 12:00:00</result>
-   <result timeType='full' draft='unconfirmed'>پير, 1973 جولائی 16 12:00:00 GMT+00:00</result>
-   <result draft='approved'>2, 1973 7 16 12:00:00 GMT+00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
-   <result timeType='medium'>12:00:01</result>
-   <result timeType='full'>12:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>1999-08-14</result>
-   <result timeType='short'>1999-08-14 12:00</result>
-   <result timeType='medium'>1999-08-14 12:00:01</result>
-   <result timeType='full'>1999-08-14 12:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1999 اگست 14</result>
-   <result draft='approved'>1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>1999 اگست 14 12:00</result>
-   <result draft='approved'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1999 اگست 14 12:00:01</result>
-   <result draft='approved'>1999 8 14 12:00:01</result>
-   <result timeType='full' draft='unconfirmed'>1999 اگست 14 12:00:01 GMT+00:00</result>
-   <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1999 اگست 14</result>
-   <result draft='approved'>1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>1999 اگست 14 12:00</result>
-   <result draft='approved'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1999 اگست 14 12:00:01</result>
-   <result draft='approved'>1999 8 14 12:00:01</result>
-   <result timeType='full' draft='unconfirmed'>1999 اگست 14 12:00:01 GMT+00:00</result>
-   <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>ہفتہ, 1999 اگست 14</result>
-   <result draft='approved'>7, 1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>ہفتہ, 1999 اگست 14 12:00</result>
-   <result draft='approved'>7, 1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>ہفتہ, 1999 اگست 14 12:00:01</result>
-   <result draft='approved'>7, 1999 8 14 12:00:01</result>
-   <result timeType='full' draft='unconfirmed'>ہفتہ, 1999 اگست 14 12:00:01 GMT+00:00</result>
-   <result draft='approved'>7, 1999 8 14 12:00:01 GMT+00:00</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>22:59</result>
-   <result timeType='medium'>22:59:59</result>
-   <result timeType='full'>22:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>2000-09-12</result>
-   <result timeType='short'>2000-09-12 22:59</result>
-   <result timeType='medium'>2000-09-12 22:59:59</result>
-   <result timeType='full'>2000-09-12 22:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2000 ستمبر 12</result>
-   <result draft='approved'>2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>2000 ستمبر 12 22:59</result>
-   <result draft='approved'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>2000 ستمبر 12 22:59:59</result>
-   <result draft='approved'>2000 9 12 22:59:59</result>
-   <result timeType='full' draft='unconfirmed'>2000 ستمبر 12 22:59:59 GMT+00:00</result>
-   <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2000 ستمبر 12</result>
-   <result draft='approved'>2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>2000 ستمبر 12 22:59</result>
-   <result draft='approved'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>2000 ستمبر 12 22:59:59</result>
-   <result draft='approved'>2000 9 12 22:59:59</result>
-   <result timeType='full' draft='unconfirmed'>2000 ستمبر 12 22:59:59 GMT+00:00</result>
-   <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>منگل, 2000 ستمبر 12</result>
-   <result draft='approved'>3, 2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>منگل, 2000 ستمبر 12 22:59</result>
-   <result draft='approved'>3, 2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>منگل, 2000 ستمبر 12 22:59:59</result>
-   <result draft='approved'>3, 2000 9 12 22:59:59</result>
-   <result timeType='full' draft='unconfirmed'>منگل, 2000 ستمبر 12 22:59:59 GMT+00:00</result>
-   <result draft='approved'>3, 2000 9 12 22:59:59 GMT+00:00</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
-   <result timeType='medium'>23:00:00</result>
-   <result timeType='full'>23:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>2001-10-08</result>
-   <result timeType='short'>2001-10-08 23:00</result>
-   <result timeType='medium'>2001-10-08 23:00:00</result>
-   <result timeType='full'>2001-10-08 23:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2001 اکتوبر 8</result>
-   <result draft='approved'>2001 10 8</result>
-   <result timeType='short' draft='unconfirmed'>2001 اکتوبر 8 23:00</result>
-   <result draft='approved'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2001 اکتوبر 8 23:00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00</result>
-   <result timeType='full' draft='unconfirmed'>2001 اکتوبر 8 23:00:00 GMT+00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2001 اکتوبر 8</result>
-   <result draft='approved'>2001 10 8</result>
-   <result timeType='short' draft='unconfirmed'>2001 اکتوبر 8 23:00</result>
-   <result draft='approved'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2001 اکتوبر 8 23:00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00</result>
-   <result timeType='full' draft='unconfirmed'>2001 اکتوبر 8 23:00:00 GMT+00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>پير, 2001 اکتوبر 08</result>
-   <result draft='approved'>2, 2001 10 08</result>
-   <result timeType='short' draft='unconfirmed'>پير, 2001 اکتوبر 08 23:00</result>
-   <result draft='approved'>2, 2001 10 08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>پير, 2001 اکتوبر 08 23:00:00</result>
-   <result draft='approved'>2, 2001 10 08 23:00:00</result>
-   <result timeType='full' draft='unconfirmed'>پير, 2001 اکتوبر 08 23:00:00 GMT+00:00</result>
-   <result draft='approved'>2, 2001 10 08 23:00:00 GMT+00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
-   <result timeType='medium'>23:00:01</result>
-   <result timeType='full'>23:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>2004-11-04</result>
-   <result timeType='short'>2004-11-04 23:00</result>
-   <result timeType='medium'>2004-11-04 23:00:01</result>
-   <result timeType='full'>2004-11-04 23:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2004 نومبر 4</result>
-   <result draft='approved'>2004 11 4</result>
-   <result timeType='short' draft='unconfirmed'>2004 نومبر 4 23:00</result>
-   <result draft='approved'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2004 نومبر 4 23:00:01</result>
-   <result draft='approved'>2004 11 4 23:00:01</result>
-   <result timeType='full' draft='unconfirmed'>2004 نومبر 4 23:00:01 GMT+00:00</result>
-   <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2004 نومبر 4</result>
-   <result draft='approved'>2004 11 4</result>
-   <result timeType='short' draft='unconfirmed'>2004 نومبر 4 23:00</result>
-   <result draft='approved'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2004 نومبر 4 23:00:01</result>
-   <result draft='approved'>2004 11 4 23:00:01</result>
-   <result timeType='full' draft='unconfirmed'>2004 نومبر 4 23:00:01 GMT+00:00</result>
-   <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>جمعرات, 2004 نومبر 04</result>
-   <result draft='approved'>5, 2004 11 04</result>
-   <result timeType='short' draft='unconfirmed'>جمعرات, 2004 نومبر 04 23:00</result>
-   <result draft='approved'>5, 2004 11 04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>جمعرات, 2004 نومبر 04 23:00:01</result>
-   <result draft='approved'>5, 2004 11 04 23:00:01</result>
-   <result timeType='full' draft='unconfirmed'>جمعرات, 2004 نومبر 04 23:00:01 GMT+00:00</result>
-   <result draft='approved'>5, 2004 11 04 23:00:01 GMT+00:00</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:59</result>
-   <result timeType='medium'>23:59:59</result>
-   <result timeType='full'>23:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>2010-12-01</result>
-   <result timeType='short'>2010-12-01 23:59</result>
-   <result timeType='medium'>2010-12-01 23:59:59</result>
-   <result timeType='full'>2010-12-01 23:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2010 دسمبر 1</result>
-   <result draft='approved'>2010 12 1</result>
-   <result timeType='short' draft='unconfirmed'>2010 دسمبر 1 23:59</result>
-   <result draft='approved'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>2010 دسمبر 1 23:59:59</result>
-   <result draft='approved'>2010 12 1 23:59:59</result>
-   <result timeType='full' draft='unconfirmed'>2010 دسمبر 1 23:59:59 GMT+00:00</result>
-   <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2010 دسمبر 1</result>
-   <result draft='approved'>2010 12 1</result>
-   <result timeType='short' draft='unconfirmed'>2010 دسمبر 1 23:59</result>
-   <result draft='approved'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>2010 دسمبر 1 23:59:59</result>
-   <result draft='approved'>2010 12 1 23:59:59</result>
-   <result timeType='full' draft='unconfirmed'>2010 دسمبر 1 23:59:59 GMT+00:00</result>
-   <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>بدھ, 2010 دسمبر 01</result>
-   <result draft='approved'>4, 2010 12 01</result>
-   <result timeType='short' draft='unconfirmed'>بدھ, 2010 دسمبر 01 23:59</result>
-   <result draft='approved'>4, 2010 12 01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>بدھ, 2010 دسمبر 01 23:59:59</result>
-   <result draft='approved'>4, 2010 12 01 23:59:59</result>
-   <result timeType='full' draft='unconfirmed'>بدھ, 2010 دسمبر 01 23:59:59 GMT+00:00</result>
-   <result draft='approved'>4, 2010 12 01 23:59:59 GMT+00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 قبل دوپہر</result>
+   <result draft='approved'>12:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>12:00:00 قبل دوپہر</result>
+   <result draft='approved'>12:00:00 AM</result>
+   <result timeType='full' draft='unconfirmed'>12:00:00 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>12:00:00 AM GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>31/1/00</result>
+   <result timeType='short' draft='unconfirmed'>31/1/00 12:00 قبل دوپہر</result>
+   <result draft='approved'>31/1/00 12:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>31/1/00 12:00:00 قبل دوپہر</result>
+   <result draft='approved'>31/1/00 12:00:00 AM</result>
+   <result timeType='full' draft='unconfirmed'>31/1/00 12:00:00 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>31/1/00 12:00:00 AM GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>31, جنوری 1900</result>
+   <result timeType='short' draft='unconfirmed'>31, جنوری 1900 12:00 قبل دوپہر</result>
+   <result draft='approved'>31, جنوری 1900 12:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>31, جنوری 1900 12:00:00 قبل دوپہر</result>
+   <result draft='approved'>31, جنوری 1900 12:00:00 AM</result>
+   <result timeType='full' draft='unconfirmed'>31, جنوری 1900 12:00:00 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>31, جنوری 1900 12:00:00 AM GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>31, جنوری 1900</result>
+   <result timeType='short' draft='unconfirmed'>31, جنوری 1900 12:00 قبل دوپہر</result>
+   <result draft='approved'>31, جنوری 1900 12:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>31, جنوری 1900 12:00:00 قبل دوپہر</result>
+   <result draft='approved'>31, جنوری 1900 12:00:00 AM</result>
+   <result timeType='full' draft='unconfirmed'>31, جنوری 1900 12:00:00 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>31, جنوری 1900 12:00:00 AM GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>بده, 31, جنوری 1900</result>
+   <result timeType='short' draft='unconfirmed'>بده, 31, جنوری 1900 12:00 قبل دوپہر</result>
+   <result draft='approved'>بده, 31, جنوری 1900 12:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>بده, 31, جنوری 1900 12:00:00 قبل دوپہر</result>
+   <result draft='approved'>بده, 31, جنوری 1900 12:00:00 AM</result>
+   <result timeType='full' draft='unconfirmed'>بده, 31, جنوری 1900 12:00:00 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>بده, 31, جنوری 1900 12:00:00 AM GMT+00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 قبل دوپہر</result>
+   <result draft='approved'>12:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>12:00:01 قبل دوپہر</result>
+   <result draft='approved'>12:00:01 AM</result>
+   <result timeType='full' draft='unconfirmed'>12:00:01 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>12:00:01 AM GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>28/2/09</result>
+   <result timeType='short' draft='unconfirmed'>28/2/09 12:00 قبل دوپہر</result>
+   <result draft='approved'>28/2/09 12:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>28/2/09 12:00:01 قبل دوپہر</result>
+   <result draft='approved'>28/2/09 12:00:01 AM</result>
+   <result timeType='full' draft='unconfirmed'>28/2/09 12:00:01 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>28/2/09 12:00:01 AM GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>28, فروری 1909</result>
+   <result timeType='short' draft='unconfirmed'>28, فروری 1909 12:00 قبل دوپہر</result>
+   <result draft='approved'>28, فروری 1909 12:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>28, فروری 1909 12:00:01 قبل دوپہر</result>
+   <result draft='approved'>28, فروری 1909 12:00:01 AM</result>
+   <result timeType='full' draft='unconfirmed'>28, فروری 1909 12:00:01 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>28, فروری 1909 12:00:01 AM GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>28, فروری 1909</result>
+   <result timeType='short' draft='unconfirmed'>28, فروری 1909 12:00 قبل دوپہر</result>
+   <result draft='approved'>28, فروری 1909 12:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>28, فروری 1909 12:00:01 قبل دوپہر</result>
+   <result draft='approved'>28, فروری 1909 12:00:01 AM</result>
+   <result timeType='full' draft='unconfirmed'>28, فروری 1909 12:00:01 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>28, فروری 1909 12:00:01 AM GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>اتوار, 28, فروری 1909</result>
+   <result timeType='short' draft='unconfirmed'>اتوار, 28, فروری 1909 12:00 قبل دوپہر</result>
+   <result draft='approved'>اتوار, 28, فروری 1909 12:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>اتوار, 28, فروری 1909 12:00:01 قبل دوپہر</result>
+   <result draft='approved'>اتوار, 28, فروری 1909 12:00:01 AM</result>
+   <result timeType='full' draft='unconfirmed'>اتوار, 28, فروری 1909 12:00:01 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>اتوار, 28, فروری 1909 12:00:01 AM GMT+00:00</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>12:59 قبل دوپہر</result>
+   <result draft='approved'>12:59 AM</result>
+   <result timeType='medium' draft='unconfirmed'>12:59:59 قبل دوپہر</result>
+   <result draft='approved'>12:59:59 AM</result>
+   <result timeType='full' draft='unconfirmed'>12:59:59 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>12:59:59 AM GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>26/3/18</result>
+   <result timeType='short' draft='unconfirmed'>26/3/18 12:59 قبل دوپہر</result>
+   <result draft='approved'>26/3/18 12:59 AM</result>
+   <result timeType='medium' draft='unconfirmed'>26/3/18 12:59:59 قبل دوپہر</result>
+   <result draft='approved'>26/3/18 12:59:59 AM</result>
+   <result timeType='full' draft='unconfirmed'>26/3/18 12:59:59 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>26/3/18 12:59:59 AM GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>26, مار چ 1918</result>
+   <result timeType='short' draft='unconfirmed'>26, مار چ 1918 12:59 قبل دوپہر</result>
+   <result draft='approved'>26, مار چ 1918 12:59 AM</result>
+   <result timeType='medium' draft='unconfirmed'>26, مار چ 1918 12:59:59 قبل دوپہر</result>
+   <result draft='approved'>26, مار چ 1918 12:59:59 AM</result>
+   <result timeType='full' draft='unconfirmed'>26, مار چ 1918 12:59:59 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>26, مار چ 1918 12:59:59 AM GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>26, مار چ 1918</result>
+   <result timeType='short' draft='unconfirmed'>26, مار چ 1918 12:59 قبل دوپہر</result>
+   <result draft='approved'>26, مار چ 1918 12:59 AM</result>
+   <result timeType='medium' draft='unconfirmed'>26, مار چ 1918 12:59:59 قبل دوپہر</result>
+   <result draft='approved'>26, مار چ 1918 12:59:59 AM</result>
+   <result timeType='full' draft='unconfirmed'>26, مار چ 1918 12:59:59 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>26, مار چ 1918 12:59:59 AM GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>منگل, 26, مار چ 1918</result>
+   <result timeType='short' draft='unconfirmed'>منگل, 26, مار چ 1918 12:59 قبل دوپہر</result>
+   <result draft='approved'>منگل, 26, مار چ 1918 12:59 AM</result>
+   <result timeType='medium' draft='unconfirmed'>منگل, 26, مار چ 1918 12:59:59 قبل دوپہر</result>
+   <result draft='approved'>منگل, 26, مار چ 1918 12:59:59 AM</result>
+   <result timeType='full' draft='unconfirmed'>منگل, 26, مار چ 1918 12:59:59 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>منگل, 26, مار چ 1918 12:59:59 AM GMT+00:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>1:00 قبل دوپہر</result>
+   <result draft='approved'>1:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>1:00:00 قبل دوپہر</result>
+   <result draft='approved'>1:00:00 AM</result>
+   <result timeType='full' draft='unconfirmed'>1:00:00 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>1:00:00 AM GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>24/4/32</result>
+   <result timeType='short' draft='unconfirmed'>24/4/32 1:00 قبل دوپہر</result>
+   <result draft='approved'>24/4/32 1:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>24/4/32 1:00:00 قبل دوپہر</result>
+   <result draft='approved'>24/4/32 1:00:00 AM</result>
+   <result timeType='full' draft='unconfirmed'>24/4/32 1:00:00 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>24/4/32 1:00:00 AM GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>24, اپريل 1932</result>
+   <result timeType='short' draft='unconfirmed'>24, اپريل 1932 1:00 قبل دوپہر</result>
+   <result draft='approved'>24, اپريل 1932 1:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>24, اپريل 1932 1:00:00 قبل دوپہر</result>
+   <result draft='approved'>24, اپريل 1932 1:00:00 AM</result>
+   <result timeType='full' draft='unconfirmed'>24, اپريل 1932 1:00:00 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>24, اپريل 1932 1:00:00 AM GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>24, اپريل 1932</result>
+   <result timeType='short' draft='unconfirmed'>24, اپريل 1932 1:00 قبل دوپہر</result>
+   <result draft='approved'>24, اپريل 1932 1:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>24, اپريل 1932 1:00:00 قبل دوپہر</result>
+   <result draft='approved'>24, اپريل 1932 1:00:00 AM</result>
+   <result timeType='full' draft='unconfirmed'>24, اپريل 1932 1:00:00 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>24, اپريل 1932 1:00:00 AM GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>اتوار, 24, اپريل 1932</result>
+   <result timeType='short' draft='unconfirmed'>اتوار, 24, اپريل 1932 1:00 قبل دوپہر</result>
+   <result draft='approved'>اتوار, 24, اپريل 1932 1:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>اتوار, 24, اپريل 1932 1:00:00 قبل دوپہر</result>
+   <result draft='approved'>اتوار, 24, اپريل 1932 1:00:00 AM</result>
+   <result timeType='full' draft='unconfirmed'>اتوار, 24, اپريل 1932 1:00:00 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>اتوار, 24, اپريل 1932 1:00:00 AM GMT+00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>1:00 قبل دوپہر</result>
+   <result draft='approved'>1:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>1:00:01 قبل دوپہر</result>
+   <result draft='approved'>1:00:01 AM</result>
+   <result timeType='full' draft='unconfirmed'>1:00:01 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>1:00:01 AM GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>20/5/45</result>
+   <result timeType='short' draft='unconfirmed'>20/5/45 1:00 قبل دوپہر</result>
+   <result draft='approved'>20/5/45 1:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>20/5/45 1:00:01 قبل دوپہر</result>
+   <result draft='approved'>20/5/45 1:00:01 AM</result>
+   <result timeType='full' draft='unconfirmed'>20/5/45 1:00:01 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>20/5/45 1:00:01 AM GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>20, مئ 1945</result>
+   <result timeType='short' draft='unconfirmed'>20, مئ 1945 1:00 قبل دوپہر</result>
+   <result draft='approved'>20, مئ 1945 1:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>20, مئ 1945 1:00:01 قبل دوپہر</result>
+   <result draft='approved'>20, مئ 1945 1:00:01 AM</result>
+   <result timeType='full' draft='unconfirmed'>20, مئ 1945 1:00:01 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>20, مئ 1945 1:00:01 AM GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>20, مئ 1945</result>
+   <result timeType='short' draft='unconfirmed'>20, مئ 1945 1:00 قبل دوپہر</result>
+   <result draft='approved'>20, مئ 1945 1:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>20, مئ 1945 1:00:01 قبل دوپہر</result>
+   <result draft='approved'>20, مئ 1945 1:00:01 AM</result>
+   <result timeType='full' draft='unconfirmed'>20, مئ 1945 1:00:01 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>20, مئ 1945 1:00:01 AM GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>اتوار, 20, مئ 1945</result>
+   <result timeType='short' draft='unconfirmed'>اتوار, 20, مئ 1945 1:00 قبل دوپہر</result>
+   <result draft='approved'>اتوار, 20, مئ 1945 1:00 AM</result>
+   <result timeType='medium' draft='unconfirmed'>اتوار, 20, مئ 1945 1:00:01 قبل دوپہر</result>
+   <result draft='approved'>اتوار, 20, مئ 1945 1:00:01 AM</result>
+   <result timeType='full' draft='unconfirmed'>اتوار, 20, مئ 1945 1:00:01 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>اتوار, 20, مئ 1945 1:00:01 AM GMT+00:00</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>11:59 قبل دوپہر</result>
+   <result draft='approved'>11:59 AM</result>
+   <result timeType='medium' draft='unconfirmed'>11:59:59 قبل دوپہر</result>
+   <result draft='approved'>11:59:59 AM</result>
+   <result timeType='full' draft='unconfirmed'>11:59:59 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>11:59:59 AM GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>18/6/52</result>
+   <result timeType='short' draft='unconfirmed'>18/6/52 11:59 قبل دوپہر</result>
+   <result draft='approved'>18/6/52 11:59 AM</result>
+   <result timeType='medium' draft='unconfirmed'>18/6/52 11:59:59 قبل دوپہر</result>
+   <result draft='approved'>18/6/52 11:59:59 AM</result>
+   <result timeType='full' draft='unconfirmed'>18/6/52 11:59:59 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>18/6/52 11:59:59 AM GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>18, جون 1952</result>
+   <result timeType='short' draft='unconfirmed'>18, جون 1952 11:59 قبل دوپہر</result>
+   <result draft='approved'>18, جون 1952 11:59 AM</result>
+   <result timeType='medium' draft='unconfirmed'>18, جون 1952 11:59:59 قبل دوپہر</result>
+   <result draft='approved'>18, جون 1952 11:59:59 AM</result>
+   <result timeType='full' draft='unconfirmed'>18, جون 1952 11:59:59 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>18, جون 1952 11:59:59 AM GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>18, جون 1952</result>
+   <result timeType='short' draft='unconfirmed'>18, جون 1952 11:59 قبل دوپہر</result>
+   <result draft='approved'>18, جون 1952 11:59 AM</result>
+   <result timeType='medium' draft='unconfirmed'>18, جون 1952 11:59:59 قبل دوپہر</result>
+   <result draft='approved'>18, جون 1952 11:59:59 AM</result>
+   <result timeType='full' draft='unconfirmed'>18, جون 1952 11:59:59 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>18, جون 1952 11:59:59 AM GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>بده, 18, جون 1952</result>
+   <result timeType='short' draft='unconfirmed'>بده, 18, جون 1952 11:59 قبل دوپہر</result>
+   <result draft='approved'>بده, 18, جون 1952 11:59 AM</result>
+   <result timeType='medium' draft='unconfirmed'>بده, 18, جون 1952 11:59:59 قبل دوپہر</result>
+   <result draft='approved'>بده, 18, جون 1952 11:59:59 AM</result>
+   <result timeType='full' draft='unconfirmed'>بده, 18, جون 1952 11:59:59 قبل دوپہر GMT+00:00</result>
+   <result draft='approved'>بده, 18, جون 1952 11:59:59 AM GMT+00:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 بعد دوپہر</result>
+   <result draft='approved'>12:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>12:00:00 بعد دوپہر</result>
+   <result draft='approved'>12:00:00 PM</result>
+   <result timeType='full' draft='unconfirmed'>12:00:00 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>12:00:00 PM GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>16/7/73</result>
+   <result timeType='short' draft='unconfirmed'>16/7/73 12:00 بعد دوپہر</result>
+   <result draft='approved'>16/7/73 12:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>16/7/73 12:00:00 بعد دوپہر</result>
+   <result draft='approved'>16/7/73 12:00:00 PM</result>
+   <result timeType='full' draft='unconfirmed'>16/7/73 12:00:00 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>16/7/73 12:00:00 PM GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>16, جولائ 1973</result>
+   <result timeType='short' draft='unconfirmed'>16, جولائ 1973 12:00 بعد دوپہر</result>
+   <result draft='approved'>16, جولائ 1973 12:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>16, جولائ 1973 12:00:00 بعد دوپہر</result>
+   <result draft='approved'>16, جولائ 1973 12:00:00 PM</result>
+   <result timeType='full' draft='unconfirmed'>16, جولائ 1973 12:00:00 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>16, جولائ 1973 12:00:00 PM GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>16, جولائ 1973</result>
+   <result timeType='short' draft='unconfirmed'>16, جولائ 1973 12:00 بعد دوپہر</result>
+   <result draft='approved'>16, جولائ 1973 12:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>16, جولائ 1973 12:00:00 بعد دوپہر</result>
+   <result draft='approved'>16, جولائ 1973 12:00:00 PM</result>
+   <result timeType='full' draft='unconfirmed'>16, جولائ 1973 12:00:00 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>16, جولائ 1973 12:00:00 PM GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>پير, 16, جولائ 1973</result>
+   <result timeType='short' draft='unconfirmed'>پير, 16, جولائ 1973 12:00 بعد دوپہر</result>
+   <result draft='approved'>پير, 16, جولائ 1973 12:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>پير, 16, جولائ 1973 12:00:00 بعد دوپہر</result>
+   <result draft='approved'>پير, 16, جولائ 1973 12:00:00 PM</result>
+   <result timeType='full' draft='unconfirmed'>پير, 16, جولائ 1973 12:00:00 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>پير, 16, جولائ 1973 12:00:00 PM GMT+00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 بعد دوپہر</result>
+   <result draft='approved'>12:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>12:00:01 بعد دوپہر</result>
+   <result draft='approved'>12:00:01 PM</result>
+   <result timeType='full' draft='unconfirmed'>12:00:01 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>12:00:01 PM GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>14/8/99</result>
+   <result timeType='short' draft='unconfirmed'>14/8/99 12:00 بعد دوپہر</result>
+   <result draft='approved'>14/8/99 12:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>14/8/99 12:00:01 بعد دوپہر</result>
+   <result draft='approved'>14/8/99 12:00:01 PM</result>
+   <result timeType='full' draft='unconfirmed'>14/8/99 12:00:01 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>14/8/99 12:00:01 PM GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>14, اگست 1999</result>
+   <result timeType='short' draft='unconfirmed'>14, اگست 1999 12:00 بعد دوپہر</result>
+   <result draft='approved'>14, اگست 1999 12:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>14, اگست 1999 12:00:01 بعد دوپہر</result>
+   <result draft='approved'>14, اگست 1999 12:00:01 PM</result>
+   <result timeType='full' draft='unconfirmed'>14, اگست 1999 12:00:01 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>14, اگست 1999 12:00:01 PM GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>14, اگست 1999</result>
+   <result timeType='short' draft='unconfirmed'>14, اگست 1999 12:00 بعد دوپہر</result>
+   <result draft='approved'>14, اگست 1999 12:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>14, اگست 1999 12:00:01 بعد دوپہر</result>
+   <result draft='approved'>14, اگست 1999 12:00:01 PM</result>
+   <result timeType='full' draft='unconfirmed'>14, اگست 1999 12:00:01 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>14, اگست 1999 12:00:01 PM GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>ہفتہ, 14, اگست 1999</result>
+   <result timeType='short' draft='unconfirmed'>ہفتہ, 14, اگست 1999 12:00 بعد دوپہر</result>
+   <result draft='approved'>ہفتہ, 14, اگست 1999 12:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>ہفتہ, 14, اگست 1999 12:00:01 بعد دوپہر</result>
+   <result draft='approved'>ہفتہ, 14, اگست 1999 12:00:01 PM</result>
+   <result timeType='full' draft='unconfirmed'>ہفتہ, 14, اگست 1999 12:00:01 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>ہفتہ, 14, اگست 1999 12:00:01 PM GMT+00:00</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>10:59 بعد دوپہر</result>
+   <result draft='approved'>10:59 PM</result>
+   <result timeType='medium' draft='unconfirmed'>10:59:59 بعد دوپہر</result>
+   <result draft='approved'>10:59:59 PM</result>
+   <result timeType='full' draft='unconfirmed'>10:59:59 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>10:59:59 PM GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>12/9/00</result>
+   <result timeType='short' draft='unconfirmed'>12/9/00 10:59 بعد دوپہر</result>
+   <result draft='approved'>12/9/00 10:59 PM</result>
+   <result timeType='medium' draft='unconfirmed'>12/9/00 10:59:59 بعد دوپہر</result>
+   <result draft='approved'>12/9/00 10:59:59 PM</result>
+   <result timeType='full' draft='unconfirmed'>12/9/00 10:59:59 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>12/9/00 10:59:59 PM GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>12, ستمبر 2000</result>
+   <result timeType='short' draft='unconfirmed'>12, ستمبر 2000 10:59 بعد دوپہر</result>
+   <result draft='approved'>12, ستمبر 2000 10:59 PM</result>
+   <result timeType='medium' draft='unconfirmed'>12, ستمبر 2000 10:59:59 بعد دوپہر</result>
+   <result draft='approved'>12, ستمبر 2000 10:59:59 PM</result>
+   <result timeType='full' draft='unconfirmed'>12, ستمبر 2000 10:59:59 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>12, ستمبر 2000 10:59:59 PM GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>12, ستمبر 2000</result>
+   <result timeType='short' draft='unconfirmed'>12, ستمبر 2000 10:59 بعد دوپہر</result>
+   <result draft='approved'>12, ستمبر 2000 10:59 PM</result>
+   <result timeType='medium' draft='unconfirmed'>12, ستمبر 2000 10:59:59 بعد دوپہر</result>
+   <result draft='approved'>12, ستمبر 2000 10:59:59 PM</result>
+   <result timeType='full' draft='unconfirmed'>12, ستمبر 2000 10:59:59 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>12, ستمبر 2000 10:59:59 PM GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>منگل, 12, ستمبر 2000</result>
+   <result timeType='short' draft='unconfirmed'>منگل, 12, ستمبر 2000 10:59 بعد دوپہر</result>
+   <result draft='approved'>منگل, 12, ستمبر 2000 10:59 PM</result>
+   <result timeType='medium' draft='unconfirmed'>منگل, 12, ستمبر 2000 10:59:59 بعد دوپہر</result>
+   <result draft='approved'>منگل, 12, ستمبر 2000 10:59:59 PM</result>
+   <result timeType='full' draft='unconfirmed'>منگل, 12, ستمبر 2000 10:59:59 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>منگل, 12, ستمبر 2000 10:59:59 PM GMT+00:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>11:00 بعد دوپہر</result>
+   <result draft='approved'>11:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>11:00:00 بعد دوپہر</result>
+   <result draft='approved'>11:00:00 PM</result>
+   <result timeType='full' draft='unconfirmed'>11:00:00 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>11:00:00 PM GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>8/10/01</result>
+   <result timeType='short' draft='unconfirmed'>8/10/01 11:00 بعد دوپہر</result>
+   <result draft='approved'>8/10/01 11:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>8/10/01 11:00:00 بعد دوپہر</result>
+   <result draft='approved'>8/10/01 11:00:00 PM</result>
+   <result timeType='full' draft='unconfirmed'>8/10/01 11:00:00 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>8/10/01 11:00:00 PM GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>8, اکتوبر 2001</result>
+   <result timeType='short' draft='unconfirmed'>8, اکتوبر 2001 11:00 بعد دوپہر</result>
+   <result draft='approved'>8, اکتوبر 2001 11:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>8, اکتوبر 2001 11:00:00 بعد دوپہر</result>
+   <result draft='approved'>8, اکتوبر 2001 11:00:00 PM</result>
+   <result timeType='full' draft='unconfirmed'>8, اکتوبر 2001 11:00:00 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>8, اکتوبر 2001 11:00:00 PM GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>8, اکتوبر 2001</result>
+   <result timeType='short' draft='unconfirmed'>8, اکتوبر 2001 11:00 بعد دوپہر</result>
+   <result draft='approved'>8, اکتوبر 2001 11:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>8, اکتوبر 2001 11:00:00 بعد دوپہر</result>
+   <result draft='approved'>8, اکتوبر 2001 11:00:00 PM</result>
+   <result timeType='full' draft='unconfirmed'>8, اکتوبر 2001 11:00:00 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>8, اکتوبر 2001 11:00:00 PM GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>پير, 8, اکتوبر 2001</result>
+   <result timeType='short' draft='unconfirmed'>پير, 8, اکتوبر 2001 11:00 بعد دوپہر</result>
+   <result draft='approved'>پير, 8, اکتوبر 2001 11:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>پير, 8, اکتوبر 2001 11:00:00 بعد دوپہر</result>
+   <result draft='approved'>پير, 8, اکتوبر 2001 11:00:00 PM</result>
+   <result timeType='full' draft='unconfirmed'>پير, 8, اکتوبر 2001 11:00:00 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>پير, 8, اکتوبر 2001 11:00:00 PM GMT+00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>11:00 بعد دوپہر</result>
+   <result draft='approved'>11:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>11:00:01 بعد دوپہر</result>
+   <result draft='approved'>11:00:01 PM</result>
+   <result timeType='full' draft='unconfirmed'>11:00:01 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>11:00:01 PM GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>4/11/04</result>
+   <result timeType='short' draft='unconfirmed'>4/11/04 11:00 بعد دوپہر</result>
+   <result draft='approved'>4/11/04 11:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>4/11/04 11:00:01 بعد دوپہر</result>
+   <result draft='approved'>4/11/04 11:00:01 PM</result>
+   <result timeType='full' draft='unconfirmed'>4/11/04 11:00:01 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>4/11/04 11:00:01 PM GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>4, نومبر 2004</result>
+   <result timeType='short' draft='unconfirmed'>4, نومبر 2004 11:00 بعد دوپہر</result>
+   <result draft='approved'>4, نومبر 2004 11:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>4, نومبر 2004 11:00:01 بعد دوپہر</result>
+   <result draft='approved'>4, نومبر 2004 11:00:01 PM</result>
+   <result timeType='full' draft='unconfirmed'>4, نومبر 2004 11:00:01 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>4, نومبر 2004 11:00:01 PM GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>4, نومبر 2004</result>
+   <result timeType='short' draft='unconfirmed'>4, نومبر 2004 11:00 بعد دوپہر</result>
+   <result draft='approved'>4, نومبر 2004 11:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>4, نومبر 2004 11:00:01 بعد دوپہر</result>
+   <result draft='approved'>4, نومبر 2004 11:00:01 PM</result>
+   <result timeType='full' draft='unconfirmed'>4, نومبر 2004 11:00:01 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>4, نومبر 2004 11:00:01 PM GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>جمعرات, 4, نومبر 2004</result>
+   <result timeType='short' draft='unconfirmed'>جمعرات, 4, نومبر 2004 11:00 بعد دوپہر</result>
+   <result draft='approved'>جمعرات, 4, نومبر 2004 11:00 PM</result>
+   <result timeType='medium' draft='unconfirmed'>جمعرات, 4, نومبر 2004 11:00:01 بعد دوپہر</result>
+   <result draft='approved'>جمعرات, 4, نومبر 2004 11:00:01 PM</result>
+   <result timeType='full' draft='unconfirmed'>جمعرات, 4, نومبر 2004 11:00:01 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>جمعرات, 4, نومبر 2004 11:00:01 PM GMT+00:00</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>11:59 بعد دوپہر</result>
+   <result draft='approved'>11:59 PM</result>
+   <result timeType='medium' draft='unconfirmed'>11:59:59 بعد دوپہر</result>
+   <result draft='approved'>11:59:59 PM</result>
+   <result timeType='full' draft='unconfirmed'>11:59:59 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>11:59:59 PM GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>1/12/10</result>
+   <result timeType='short' draft='unconfirmed'>1/12/10 11:59 بعد دوپہر</result>
+   <result draft='approved'>1/12/10 11:59 PM</result>
+   <result timeType='medium' draft='unconfirmed'>1/12/10 11:59:59 بعد دوپہر</result>
+   <result draft='approved'>1/12/10 11:59:59 PM</result>
+   <result timeType='full' draft='unconfirmed'>1/12/10 11:59:59 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>1/12/10 11:59:59 PM GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1, دسمبر 2010</result>
+   <result timeType='short' draft='unconfirmed'>1, دسمبر 2010 11:59 بعد دوپہر</result>
+   <result draft='approved'>1, دسمبر 2010 11:59 PM</result>
+   <result timeType='medium' draft='unconfirmed'>1, دسمبر 2010 11:59:59 بعد دوپہر</result>
+   <result draft='approved'>1, دسمبر 2010 11:59:59 PM</result>
+   <result timeType='full' draft='unconfirmed'>1, دسمبر 2010 11:59:59 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>1, دسمبر 2010 11:59:59 PM GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>1, دسمبر 2010</result>
+   <result timeType='short' draft='unconfirmed'>1, دسمبر 2010 11:59 بعد دوپہر</result>
+   <result draft='approved'>1, دسمبر 2010 11:59 PM</result>
+   <result timeType='medium' draft='unconfirmed'>1, دسمبر 2010 11:59:59 بعد دوپہر</result>
+   <result draft='approved'>1, دسمبر 2010 11:59:59 PM</result>
+   <result timeType='full' draft='unconfirmed'>1, دسمبر 2010 11:59:59 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>1, دسمبر 2010 11:59:59 PM GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>بده, 1, دسمبر 2010</result>
+   <result timeType='short' draft='unconfirmed'>بده, 1, دسمبر 2010 11:59 بعد دوپہر</result>
+   <result draft='approved'>بده, 1, دسمبر 2010 11:59 PM</result>
+   <result timeType='medium' draft='unconfirmed'>بده, 1, دسمبر 2010 11:59:59 بعد دوپہر</result>
+   <result draft='approved'>بده, 1, دسمبر 2010 11:59:59 PM</result>
+   <result timeType='full' draft='unconfirmed'>بده, 1, دسمبر 2010 11:59:59 بعد دوپہر GMT+00:00</result>
+   <result draft='approved'>بده, 1, دسمبر 2010 11:59:59 PM GMT+00:00</result>
   </date>
   <zoneFields 
 locales='ur ur_IN ur_PK'>
@@ -542,7 +656,43 @@ locales='ur ur_IN ur_PK'>
   <collation 
 locales='ur ur_IN ur_PK'>
 <!-- Urdu [اردو]; Urdu (India) [اردو (بھارت)]; Urdu (Pakistan) [اردو (پاکستان)] -->
-   <result draft='unconfirmed approved'>
+   <result draft='unconfirmed'>
+xؐ
+xؑ
+xؒ
+xؓ
+xؔ
+xَ
+Xؐ
+Xؑ
+Xؒ
+Xؓ
+Xؔ
+Xَ
+xِ
+Xِ
+xُ
+Xُ
+xٰ
+Xٰ
+xٖ
+Xٖ
+xٗ
+Xٗ
+xً
+Xً
+xٍ
+Xٍ
+xٌ
+Xٌ
+xٔ
+Xٔ
+xّ
+Xّ
+x٘
+X٘
+xٓ
+Xٓ
 x 
 X 
 x x
@@ -558,54 +708,48 @@ x12x
 x2
 X2
 x2x
-xء
-Xء
-xءx
-xآ
-Xآ
-xآx
+xؑx
+xؒx
+xؓx
+xؐx
+xؔx
+xَx
+xِx
+xُx
+xٰx
+xٖx
+xٗx
+xًx
+xٍx
+xٌx
+xٔx
+xّx
+x٘x
+xٓx
 xأ
 Xأ
 xأx
-xؤ
-Xؤ
-xؤx
-xئ
-Xئ
-xئx
 xا
 Xا
 xاx
+xآ
+Xآ
+xآx
 xب
 Xب
 xبx
-xٻ
-Xٻ
-xٻx
 xپ
 Xپ
 xپx
-xة
-Xة
-xةx
 xت
 Xت
 xتx
-xث
-Xث
-xثx
 xٹ
 Xٹ
 xٹx
-xٺ
-Xٺ
-xٺx
-xټ
-Xټ
-xټx
-xٽ
-Xٽ
-xٽx
+xث
+Xث
+xثx
 xج
 Xج
 xجx
@@ -621,21 +765,21 @@ xخx
 xد
 Xد
 xدx
-xذ
-Xذ
-xذx
 xڈ
 Xڈ
 xڈx
+xذ
+Xذ
+xذx
 xر
 Xر
 xرx
-xز
-Xز
-xزx
 xڑ
 Xڑ
 xڑx
+xز
+Xز
+xزx
 xژ
 Xژ
 xژx
@@ -687,27 +831,284 @@ xنx
 xں
 Xں
 xںx
+xو
+Xو
+xؤ
+Xؤ
+xوx
+xؤx
+xہ
+Xہ
+xہx
+xی
+Xی
+xیx
+xۂ
+Xۂ
+xۂx
+xِھ
+Xِھ
+xِھx
+xۃ
+Xۃ
+xۃx
+xء
+Xء
+xءx
+xئ
+Xئ
+xئx
+xے
+Xے
+xےx
+xٻ
+Xٻ
+xٻx
+xة
+Xة
+xةx
+xٺ
+Xٺ
+xٺx
+xټ
+Xټ
+xټx
+xٽ
+Xٽ
+xٽx
 xه
 Xه
 xهx
 xھ
 Xھ
 xھx
-xہ
-Xہ
-xہx
-xو
-Xو
-xوx
 xي
 Xي
 xيx
+</result>
+   <result draft='approved'>
+xؑ
+xؒ
+xؓ
+xؔ
+xَ
+Xؑ
+Xؒ
+Xؓ
+Xؔ
+Xَ
+xُ
+Xُ
+xٰ
+Xٰ
+xٖ
+Xٖ
+xٗ
+Xٗ
+xً
+Xً
+xٍ
+Xٍ
+xٌ
+Xٌ
+xٔ
+Xٔ
+xّ
+Xّ
+x٘
+X٘
+xٓ
+Xٓ
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xؑx
+xؒx
+xؓx
+xؔx
+xَx
+xُx
+xٰx
+xٖx
+xٗx
+xًx
+xٍx
+xٌx
+xٔx
+xّx
+x٘x
+xٓx
+xأ
+Xأ
+xأx
+xا
+Xا
+xاx
+xآ
+Xآ
+xآx
+xب
+Xب
+xبx
+xپ
+Xپ
+xپx
+xت
+Xت
+xتx
+xٹ
+Xٹ
+xٹx
+xث
+Xث
+xثx
+xج
+Xج
+xجx
+xچ
+Xچ
+xچx
+xح
+Xح
+xحx
+xخ
+Xخ
+xخx
+xد
+Xد
+xدx
+xڈ
+Xڈ
+xڈx
+xذ
+Xذ
+xذx
+xر
+Xر
+xرx
+xڑ
+Xڑ
+xڑx
+xز
+Xز
+xزx
+xژ
+Xژ
+xژx
+xس
+Xس
+xسx
+xش
+Xش
+xشx
+xص
+Xص
+xصx
+xض
+Xض
+xضx
+xط
+Xط
+xطx
+xظ
+Xظ
+xظx
+xع
+Xع
+xعx
+xغ
+Xغ
+xغx
+xف
+Xف
+xفx
+xق
+Xق
+xقx
+xک
+Xک
+xکx
+xگ
+Xگ
+xگx
+xل
+Xل
+xلx
+xم
+Xم
+xمx
+xن
+Xن
+xنx
+xں
+Xں
+xںx
+xو
+Xو
+xؤ
+Xؤ
+xوx
+xؤx
+xہ
+Xہ
+xہx
 xی
 Xی
 xیx
+xۂ
+Xۂ
+xۂx
+xِھ
+Xِھ
+xِھx
+xۃ
+Xۃ
+xۃx
+xء
+Xء
+xءx
+xئ
+Xئ
+xئx
 xے
 Xے
 xےx
+xٻ
+Xٻ
+xٻx
+xة
+Xة
+xةx
+xٺ
+Xٺ
+xٺx
+xټ
+Xټ
+xټx
+xٽ
+Xٽ
+xٽx
+xه
+Xه
+xهx
+xھ
+Xھ
+xھx
+xي
+Xي
+xيx
 </result>
   </collation>
  </cldrTest>

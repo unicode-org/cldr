@@ -11,11 +11,11 @@ locales='nso nso_ZA'>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
    <result input='0.01' numberType='integer'>0</result>
-   <result numberType='decimal'>0.01</result>
+   <result numberType='decimal'>0,01</result>
    <result numberType='percent'>1%</result>
    <result numberType='scientific'>1E-2</result>
    <result input='-0.01' numberType='integer'>-0</result>
-   <result numberType='decimal'>-0.01</result>
+   <result numberType='decimal'>-0,01</result>
    <result numberType='percent'>-1%</result>
    <result numberType='scientific'>-1E-2</result>
    <result input='1.0' numberType='integer'>1</result>
@@ -27,21 +27,21 @@ locales='nso nso_ZA'>
    <result numberType='percent'>-100%</result>
    <result numberType='scientific'>-1E0</result>
    <result input='123.456' numberType='integer'>123</result>
-   <result numberType='decimal'>123.456</result>
-   <result numberType='percent'>12,346%</result>
-   <result numberType='scientific'>1.23456E2</result>
+   <result numberType='decimal'>123,456</result>
+   <result numberType='percent'>12 346%</result>
+   <result numberType='scientific'>1,23456E2</result>
    <result input='-123.456' numberType='integer'>-123</result>
-   <result numberType='decimal'>-123.456</result>
-   <result numberType='percent'>-12,346%</result>
-   <result numberType='scientific'>-1.23456E2</result>
-   <result input='123456.78' numberType='integer'>123,457</result>
-   <result numberType='decimal'>123,456.78</result>
-   <result numberType='percent'>12,345,678%</result>
-   <result numberType='scientific'>1.2345678E5</result>
-   <result input='-123456.78' numberType='integer'>-123,457</result>
-   <result numberType='decimal'>-123,456.78</result>
-   <result numberType='percent'>-12,345,678%</result>
-   <result numberType='scientific'>-1.2345678E5</result>
+   <result numberType='decimal'>-123,456</result>
+   <result numberType='percent'>-12 346%</result>
+   <result numberType='scientific'>-1,23456E2</result>
+   <result input='123456.78' numberType='integer'>123 457</result>
+   <result numberType='decimal'>123 456,78</result>
+   <result numberType='percent'>12 345 678%</result>
+   <result numberType='scientific'>1,2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-123 457</result>
+   <result numberType='decimal'>-123 456,78</result>
+   <result numberType='percent'>-12 345 678%</result>
+   <result numberType='scientific'>-1,2345678E5</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
@@ -558,7 +558,7 @@ locales='nso nso_ZA'>
   <collation 
 locales='nso nso_ZA'>
 <!-- Northern Sotho [Northern Sotho]; Northern Sotho (South Africa) [Northern Sotho (South Africa)] -->
-   <result draft='unconfirmed'>
+   <result draft='unconfirmed approved'>
 x 
 X 
 x x
@@ -602,14 +602,14 @@ xe
 xE
 Xe
 XE
-xè
-xÈ
-Xè
-XÈ
+xê
+xÊ
+Xê
+XÊ
 xex
 xEx
-xèx
-xÈx
+xêx
+xÊx
 xf
 xF
 Xf
@@ -668,14 +668,14 @@ xo
 xO
 Xo
 XO
-xò
-xÒ
-Xò
-XÒ
+xô
+xÔ
+Xô
+XÔ
 xox
 xOx
-xòx
-xÒx
+xôx
+xÔx
 xp
 xP
 Xp
@@ -748,23 +748,6 @@ Xz
 XZ
 xzx
 xZx
-</result>
-   <result draft='approved'>
-x 
-X 
-x x
-x.
-X.
-x.x
-x0
-X0
-x0x
-x12
-X12
-x12x
-x2
-X2
-x2x
 </result>
   </collation>
  </cldrTest>

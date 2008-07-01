@@ -4,8 +4,8 @@
  <cldrTest version='1.5' base='cop'>
  <!-- Coptic [Coptic] -->
   <number 
-locales='cop cop_Arab cop_Arab_EG cop_Arab_US cop_EG cop_US'>
-<!-- Coptic [Coptic]; Coptic (Arabic) [Coptic (Arabic)]; Coptic (Arabic, Egypt) [Coptic (Arabic, Egypt)]; Coptic (Arabic, United States) [Coptic (Arabic, United States)]; Coptic (Egypt) [Coptic (Egypt)]; Coptic (United States) [Coptic (United States)] -->
+locales='cop'>
+<!-- Coptic [Coptic] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='cop cop_Arab cop_Arab_EG cop_Arab_US cop_EG cop_US'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='cop cop_Arab cop_Arab_EG cop_Arab_US cop_EG cop_US'>
-<!-- Coptic [Coptic]; Coptic (Arabic) [Coptic (Arabic)]; Coptic (Arabic, Egypt) [Coptic (Arabic, Egypt)]; Coptic (Arabic, United States) [Coptic (Arabic, United States)]; Coptic (Egypt) [Coptic (Egypt)]; Coptic (United States) [Coptic (United States)] -->
+locales='cop'>
+<!-- Coptic [Coptic] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -336,8 +336,8 @@ locales='cop cop_Arab cop_Arab_EG cop_Arab_US cop_EG cop_US'>
    <result timeType='full'>4, 2010 12 01 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
-locales='cop cop_Arab cop_Arab_EG cop_Arab_US cop_EG cop_US'>
-<!-- Coptic [Coptic]; Coptic (Arabic) [Coptic (Arabic)]; Coptic (Arabic, Egypt) [Coptic (Arabic, Egypt)]; Coptic (Arabic, United States) [Coptic (Arabic, United States)]; Coptic (Egypt) [Coptic (Egypt)]; Coptic (United States) [Coptic (United States)] -->
+locales='cop'>
+<!-- Coptic [Coptic] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='v' parse='America/Los_Angeles'>US (Los Angeles)</result>
@@ -412,8 +412,8 @@ locales='cop cop_Arab cop_Arab_EG cop_Arab_US cop_EG cop_US'>
    <result field='vvvv'>GMT-03:00</result>
   </zoneFields>
   <collation 
-locales='cop cop_Arab cop_Arab_EG cop_Arab_US cop_EG cop_US'>
-<!-- Coptic [Coptic]; Coptic (Arabic) [Coptic (Arabic)]; Coptic (Arabic, Egypt) [Coptic (Arabic, Egypt)]; Coptic (Arabic, United States) [Coptic (Arabic, United States)]; Coptic (Egypt) [Coptic (Egypt)]; Coptic (United States) [Coptic (United States)] -->
+locales='cop'>
+<!-- Coptic [Coptic] -->
    <result draft='unconfirmed approved'>
 x 
 X 

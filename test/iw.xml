@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.5' base='he'>
+ <cldrTest version='1.5' base='iw'>
  <!-- Hebrew [עברית] -->
   <number 
-locales='he he_IL'>
-<!-- Hebrew [עברית]; Hebrew (Israel) [עברית (ישראל)] -->
+locales='iw'>
+<!-- Hebrew [עברית] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='he he_IL'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='he he_IL'>
-<!-- Hebrew [עברית]; Hebrew (Israel) [עברית (ישראל)] -->
+locales='iw'>
+<!-- Hebrew [עברית] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -288,8 +288,8 @@ locales='he he_IL'>
    <result timeType='full'>יום רביעי 1 דצמבר 2010 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
-locales='he he_IL'>
-<!-- Hebrew [עברית]; Hebrew (Israel) [עברית (ישראל)] -->
+locales='iw'>
+<!-- Hebrew [עברית] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='v' parse='America/Los_Angeles'>שעון ארצות הברית (אמריקה/לוס-אנג&apos;לס)</result>
@@ -364,8 +364,8 @@ locales='he he_IL'>
    <result field='vvvv'>GMT-03:00</result>
   </zoneFields>
   <collation 
-locales='he he_IL'>
-<!-- Hebrew [עברית]; Hebrew (Israel) [עברית (ישראל)] -->
+locales='iw'>
+<!-- Hebrew [עברית] -->
    <result draft='unconfirmed approved'>
 xֽ
 xׄ

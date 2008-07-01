@@ -143,7 +143,7 @@ public class Misc {
             Utility.showMethods(Misc.class);
 	        	return;
 	        }
-			cldrFactory = Factory.make(options[SOURCEDIR].value + "main\\", options[MATCH].value);
+			cldrFactory = Factory.make(options[SOURCEDIR].value + "/main/", options[MATCH].value);
 			english = cldrFactory.make("en", false);
 			resolvedRoot = cldrFactory.make("root", true);
 			if (options[MATCH].value.equals("group1")) options[MATCH].value = "(en|fr|de|it|es|pt|ja|ko|zh)";

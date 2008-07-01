@@ -25,10 +25,12 @@
     <result input='av' add='av-Cyrl-RU' remove='av'/>
     <!-- {Aymara;?;?} → {Aymara;Latin;Bolivia} → {Aymara;?;?} -->
     <result input='ay' add='ay-Latn-BO' remove='ay'/>
-    <!-- {Azerbaijani;?;?} → {Azerbaijani;Cyrillic;Azerbaijan} → {Azerbaijani;?;?} -->
-    <result input='az' add='az-Cyrl-AZ' remove='az'/>
+    <!-- {Azerbaijani;?;?} → {Azerbaijani;Latin;Azerbaijan} → {Azerbaijani;?;?} -->
+    <result input='az' add='az-Latn-AZ' remove='az'/>
     <!-- {Azerbaijani;Arabic;?} → {Azerbaijani;Arabic;Iran} → {Azerbaijani;?;Iran} -->
     <result input='az-Arab' add='az-Arab-IR' remove='az-IR'/>
+    <!-- {Azerbaijani;Cyrillic;?} → {Azerbaijani;Cyrillic;Azerbaijan} → {Azerbaijani;Cyrillic;?} -->
+    <result input='az-Cyrl' add='az-Cyrl-AZ' remove='az-Cyrl'/>
     <!-- {Azerbaijani;?;Iran} → {Azerbaijani;Arabic;Iran} → {Azerbaijani;?;Iran} -->
     <result input='az-IR' add='az-Arab-IR' remove='az-IR'/>
     <!-- {Bashkir;?;?} → {Bashkir;Cyrillic;Russia} → {Bashkir;?;?} -->
@@ -431,8 +433,8 @@
     <result input='und-AW' add='nl-Latn-AW' remove='nl-AW'/>
     <!-- {?;?;Aland Islands} → {Swedish;Latin;Aland Islands} → {Swedish;?;Aland Islands} -->
     <result input='und-AX' add='sv-Latn-AX' remove='sv-AX'/>
-    <!-- {?;?;Azerbaijan} → {Azerbaijani;Cyrillic;Azerbaijan} → {Azerbaijani;?;?} -->
-    <result input='und-AZ' add='az-Cyrl-AZ' remove='az'/>
+    <!-- {?;?;Azerbaijan} → {Azerbaijani;Latin;Azerbaijan} → {Azerbaijani;?;?} -->
+    <result input='und-AZ' add='az-Latn-AZ' remove='az'/>
     <!-- {?;Arabic;?} → {Arabic;Arabic;Egypt} → {Arabic;?;?} -->
     <result input='und-Arab' add='ar-Arab-EG' remove='ar'/>
     <!-- {?;Arabic;China} → {Uighur;Arabic;China} → {Uighur;?;?} -->

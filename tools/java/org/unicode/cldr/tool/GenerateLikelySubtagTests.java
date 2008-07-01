@@ -25,7 +25,7 @@ public class GenerateLikelySubtagTests {
 
   public static void main(String[] args) throws IOException {
     out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, 
-            "likelySubtagTests" +  (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
+            "test/supplemental/likelySubtagTests" +  (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
      if (OUTPUT_STYLE == OutputStyle.C) {
        out.println("// START");
      } else {

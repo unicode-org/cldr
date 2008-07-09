@@ -117,9 +117,11 @@
 			<usesMetazone mzone="Argentina"/>
 		</timezone>
 		<timezone type="America/Argentina/San_Luis">
-			<usesMetazone to="1991-03-01 02:00" mzone="Argentina"/>
-			<usesMetazone to="1991-05-07 04:00" from="1991-03-01 02:00" mzone="Argentina_Western"/>
-			<usesMetazone to="2004-05-31 03:00" from="1991-05-07 04:00" mzone="Argentina"/>
+			<usesMetazone to="1990-03-14 02:00" mzone="Argentina"/>
+			<usesMetazone to="1991-06-01 04:00" from="1990-03-14 02:00" mzone="Argentina_Western"/>
+			<usesMetazone to="1999-10-03 03:00" from="1991-06-01 04:00" mzone="Argentina"/>
+			<usesMetazone to="2000-03-03 03:00" from="1999-10-03 03:00" mzone="Argentina_Western"/>
+			<usesMetazone to="2004-05-31 03:00" from="2000-03-03 03:00" mzone="Argentina"/>
 			<usesMetazone to="2004-07-25 04:00" from="2004-05-31 03:00" mzone="Argentina_Western"/>
 			<usesMetazone from="2004-07-25 04:00" mzone="Argentina"/>
 		</timezone>
@@ -219,10 +221,12 @@
 			<usesMetazone mzone="Bolivia"/>
 		</timezone>
 		<timezone type="America/Eirunepe">
-			<usesMetazone mzone="Acre"/>
+			<usesMetazone to="2008-06-24 05:00" mzone="Acre"/>
+			<usesMetazone from="2008-06-24 05:00" mzone="Amazon"/>
 		</timezone>
 		<timezone type="America/Rio_Branco">
-			<usesMetazone mzone="Acre"/>
+			<usesMetazone to="2008-06-24 05:00" mzone="Acre"/>
+			<usesMetazone from="2008-06-24 05:00" mzone="Amazon"/>
 		</timezone>
 		<timezone type="America/Porto_Velho">
 			<usesMetazone mzone="Amazon"/>
@@ -262,6 +266,10 @@
 		</timezone>
 		<timezone type="America/Noronha">
 			<usesMetazone mzone="Noronha"/>
+		</timezone>
+		<timezone type="America/Santarem">
+			<usesMetazone to="2008-06-24 04:00" mzone="Amazon"/>
+			<usesMetazone from="2008-06-24 04:00" mzone="Brasilia"/>
 		</timezone>
 		<timezone type="America/Nassau">
 			<usesMetazone mzone="America_Eastern"/>

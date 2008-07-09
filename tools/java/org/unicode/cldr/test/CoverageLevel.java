@@ -941,7 +941,7 @@ public class CoverageLevel {
        { "Maldives", "standard" },
        { "Marquesas", "standard" },
        { "Marshall_Islands", "standard" },
-       { "Mauritius", "standard" },
+       { "Mauritius", "daylight" },
        { "Mawson", "standard" },
        { "Mongolia", "daylight" },
        { "Nauru", "standard" },

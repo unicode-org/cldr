@@ -1174,12 +1174,12 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>yyyy年M月d日EEEE</pattern>
+							<pattern>y年M月d日EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>yyyy年M月d日</pattern>
+							<pattern>y年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1247,23 +1247,23 @@
 						<dateFormatItem id="d" alt="proposed-x1001" draft="unconfirmed">号</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">yyyy年</dateFormatItem>
-						<dateFormatItem id="y" alt="proposed-x1001" draft="unconfirmed">yyyy</dateFormatItem>
+						<dateFormatItem id="y">y年</dateFormatItem>
+						<dateFormatItem id="y" alt="proposed-x1001" draft="unconfirmed">y</dateFormatItem>
 						<dateFormatItem id="yM">yyyy-M</dateFormatItem>
-						<dateFormatItem id="yMEd">yyyy年M月d日，E</dateFormatItem>
+						<dateFormatItem id="yMEd">y年M月d日，E</dateFormatItem>
 						<dateFormatItem id="yMEd" alt="proposed-x1001" draft="unconfirmed">yyyy-M-dEEE</dateFormatItem>
-						<dateFormatItem id="yMMM">yyyy年MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd">yyyy年MMMd日EEE</dateFormatItem>
-						<dateFormatItem id="yMMMM">yyyy年MMMM</dateFormatItem>
-						<dateFormatItem id="yMMMM" alt="proposed-x1001" draft="unconfirmed">yyyyMMMM</dateFormatItem>
-						<dateFormatItem id="yQ">yyyy年QQQ</dateFormatItem>
+						<dateFormatItem id="yMMM">y年MMM</dateFormatItem>
+						<dateFormatItem id="yMMMEd">y年MMMd日EEE</dateFormatItem>
+						<dateFormatItem id="yMMMM">y年MMMM</dateFormatItem>
+						<dateFormatItem id="yMMMM" alt="proposed-x1001" draft="unconfirmed">yMMMM</dateFormatItem>
+						<dateFormatItem id="yQ">y年QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQ">y年QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="contributed">yy-MM</dateFormatItem>
 						<dateFormatItem id="yyMMM">yy年MMM</dateFormatItem>
 						<dateFormatItem id="yyQ">yy年第Q季度</dateFormatItem>
-						<dateFormatItem id="yyyy">yyyy年</dateFormatItem>
-						<dateFormatItem id="yyyyM">yyyy年M月</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">yyyy年MMMM</dateFormatItem>
+						<dateFormatItem id="yyyy">y年</dateFormatItem>
+						<dateFormatItem id="yyyyM">y年M月</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">y年MMMM</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0}–{1}</intervalFormatFallback>
@@ -1328,18 +1328,18 @@
 							<greatestDifference id="y">yy-M-dE至yy-M-dE</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">yyyy年M月至M月</greatestDifference>
-							<greatestDifference id="y">yyyy年M月至yyyy年M月</greatestDifference>
+							<greatestDifference id="M">y年M月至M月</greatestDifference>
+							<greatestDifference id="y">y年M月至y年M月</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="M">yyyy年M月d日E至M月d日E</greatestDifference>
-							<greatestDifference id="d">yyyy年M月d日E至d日E</greatestDifference>
-							<greatestDifference id="y">yyyy年M月d日E至yyyy年M月d日E</greatestDifference>
+							<greatestDifference id="M">y年M月d日E至M月d日E</greatestDifference>
+							<greatestDifference id="d">y年M月d日E至d日E</greatestDifference>
+							<greatestDifference id="y">y年M月d日E至y年M月d日E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M">yyyy年M月d日至M月d日</greatestDifference>
-							<greatestDifference id="d">yyyy年M月d日至d日</greatestDifference>
-							<greatestDifference id="y">yyyy年M月d日至yyyy年M月d日</greatestDifference>
+							<greatestDifference id="M">y年M月d日至M月d日</greatestDifference>
+							<greatestDifference id="d">y年M月d日至d日</greatestDifference>
+							<greatestDifference id="y">y年M月d日至y年M月d日</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="M">yy-M-d至yy-M-d</greatestDifference>

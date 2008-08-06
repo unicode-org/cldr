@@ -619,18 +619,18 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="provisional">EEEE, yyyy MMMM dd</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy MMMM d၊ EEEE</pattern>
+							<pattern draft="provisional">EEEE, y MMMM dd</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">y MMMM d၊ EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="provisional">yyyy MMMM d</pattern>
+							<pattern draft="provisional">y MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="provisional">yyyy MMM d</pattern>
+							<pattern draft="provisional">y MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -679,16 +679,16 @@
 						<dateFormatItem id="Md" draft="provisional">M-d</dateFormatItem>
 						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
 						<dateFormatItem id="ms" draft="unconfirmed">mm:ss</dateFormatItem>
-						<dateFormatItem id="y" draft="provisional">yyyy</dateFormatItem>
+						<dateFormatItem id="y" draft="provisional">y</dateFormatItem>
 						<dateFormatItem id="yM" draft="provisional">yyyy-M</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="unconfirmed">EEE, yyyy-M-d</dateFormatItem>
 						<dateFormatItem id="yMEd" alt="proposed-x1001" draft="unconfirmed">EEE၊ yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="provisional">yyyy MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="unconfirmed">EEE, yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMEd" alt="proposed-x1001" draft="unconfirmed">EEE၊ yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="provisional">yyyy MMMM</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="provisional">y MMM</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="unconfirmed">EEE, y MMM d</dateFormatItem>
+						<dateFormatItem id="yMMMEd" alt="proposed-x1001" draft="unconfirmed">EEE၊ y MMM d</dateFormatItem>
+						<dateFormatItem id="yMMMM" draft="provisional">y MMMM</dateFormatItem>
 						<dateFormatItem id="yQ" draft="unconfirmed">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="provisional">yyyy QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQ" draft="provisional">y QQQ</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
@@ -738,13 +738,13 @@
 							<greatestDifference id="y" draft="unconfirmed">EEEE၊ d-M-yyyy – EEEE၊ d-M-yyyy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="M" draft="unconfirmed">yyyy၊ MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">yyyy၊ MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">yyyy၊ MMM d၊ EEEE – yyyy၊ MMM d၊ EEEE</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">y၊ MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">y၊ MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">y၊ MMM d၊ EEEE – y၊ MMM d၊ EEEE</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M" draft="unconfirmed">yyyy၊ MMM d – MMM d</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">yyyy MMM d – yyyy MMM d</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">y၊ MMM d – MMM d</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">y MMM d – y MMM d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="M" draft="unconfirmed">d/M/yy – d/M/yy</greatestDifference>

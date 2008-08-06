@@ -1198,12 +1198,12 @@
 					<default choice="long" draft="unconfirmed"/>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern references="R046">EEEE d MMMM yyyy GGGG</pattern>
+							<pattern references="R046">EEEE d MMMM y GGGG</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern references="R046">d MMMM yyyy</pattern>
+							<pattern references="R046">d MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1247,7 +1247,7 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="GGGGyyyyMMMMd" references="R046">d MMMM yyyy GGGG</dateFormatItem>
+						<dateFormatItem id="GGGGyyyyMMMMd" references="R046">d MMMM y GGGG</dateFormatItem>
 						<dateFormatItem id="HHmmZ" references="R046">HH:mm (Z)</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
@@ -1261,18 +1261,18 @@
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">yyyy</dateFormatItem>
+						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">yyyy/M</dateFormatItem>
 						<dateFormatItem id="yMEd">E yyyy/M/d</dateFormatItem>
-						<dateFormatItem id="yMMM">MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E d MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yMMMM">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQ" draft="contributed">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="contributed">yyyy QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQ" draft="contributed">y QQQ</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyM">yyyy/M</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd">EEEE d MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd">EEEE d MMMM y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Day-Of-Week" references="R046">{1} {0}</appendItem>
@@ -1326,7 +1326,7 @@
 							<greatestDifference id="h">H تا H (v)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y">yyyy تا yyyy</greatestDifference>
+							<greatestDifference id="y">y تا y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">yyyy/M تا yyyy/M</greatestDifference>
@@ -1338,22 +1338,22 @@
 							<greatestDifference id="y">E yyyy/M/d تا E yyyy/M/d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">LLL تا MMM yyyy</greatestDifference>
-							<greatestDifference id="y">MMM yyyy تا MMM yyyy</greatestDifference>
+							<greatestDifference id="M">LLL تا MMM y</greatestDifference>
+							<greatestDifference id="y">MMM y تا MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="M">E d LLL تا E d MMM yyyy</greatestDifference>
-							<greatestDifference id="d">E d LLL تا E d MMM yyyy</greatestDifference>
-							<greatestDifference id="y">E d MMM yyyy تا E d MMM yyyy</greatestDifference>
+							<greatestDifference id="M">E d LLL تا E d MMM y</greatestDifference>
+							<greatestDifference id="d">E d LLL تا E d MMM y</greatestDifference>
+							<greatestDifference id="y">E d MMM y تا E d MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">LLLL تا MMMM yyyy</greatestDifference>
-							<greatestDifference id="y">MMMM yyyy تا MMMM yyyy</greatestDifference>
+							<greatestDifference id="M">LLLL تا MMMM y</greatestDifference>
+							<greatestDifference id="y">MMMM y تا MMMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M">d LLL تا d MMM yyyy</greatestDifference>
-							<greatestDifference id="d">d تا d MMM yyyy</greatestDifference>
-							<greatestDifference id="y">d MMM yyyy تا d MMM yyyy</greatestDifference>
+							<greatestDifference id="M">d LLL تا d MMM y</greatestDifference>
+							<greatestDifference id="d">d تا d MMM y</greatestDifference>
+							<greatestDifference id="y">d MMM y تا d MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="M">yyyy/M/d تا yyyy/M/d</greatestDifference>
@@ -1629,12 +1629,12 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern references="R046">EEEE d MMMM yyyy</pattern>
+							<pattern references="R046">EEEE d MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern references="R046">d MMMM yyyy</pattern>
+							<pattern references="R046">d MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">

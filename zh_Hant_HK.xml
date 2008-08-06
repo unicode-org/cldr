@@ -41,7 +41,7 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="MMMMEd" draft="contributed">M月d日E</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">yyyy年M月d日，E</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="contributed">y年M月d日，E</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -49,17 +49,17 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern references="R698">yyyy年M月d日EEEE</pattern>
+							<pattern references="R698">y年M月d日EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern references="R698">yyyy年M月d日</pattern>
+							<pattern references="R698">y年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>yyyy年M月d日</pattern>
+							<pattern>y年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">

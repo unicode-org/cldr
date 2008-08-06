@@ -552,17 +552,17 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern references="R000" draft="unconfirmed">EEEE dd MMMM yyyy</pattern>
+							<pattern references="R000" draft="unconfirmed">EEEE dd MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern references="R000" draft="unconfirmed">dd MMMM yyyy</pattern>
+							<pattern references="R000" draft="unconfirmed">dd MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern references="R000" draft="unconfirmed">dd MMM yyyy</pattern>
+							<pattern references="R000" draft="unconfirmed">dd MMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -605,7 +605,7 @@
 						<dateFormatItem id="MMdd" draft="unconfirmed">MM/dd</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="unconfirmed">yyyy/MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0} - {1}</intervalFormatFallback>
@@ -661,18 +661,18 @@
 							<greatestDifference id="y" draft="unconfirmed">E, yyyy-MM-dd - E, yyyy-MM-dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="unconfirmed">yyyy MMM-MMM</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">yyyy MMM - yyyy MMM</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">y MMM-MMM</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">y MMM - y MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="M" draft="unconfirmed">E, yyyy MMM dd - E, yyyy MMM dd</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">E, yyyy MMM dd - E, yyyy MMM dd</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">E, yyyy MMM dd - E, yyyy MMM dd</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">E, y MMM dd - E, y MMM dd</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">E, y MMM dd - E, y MMM dd</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">E, y MMM dd - E, y MMM dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M" draft="unconfirmed">yyyy MMM d - MMM d</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">yyyy MMM d-d</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">yyyy MMM d - yyyy MMM d</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">y MMM d - MMM d</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">y MMM d-d</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">y MMM d - y MMM d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="M" draft="unconfirmed">yyyy-MM-dd - yyyy-MM-dd</greatestDifference>

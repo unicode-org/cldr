@@ -1190,14 +1190,14 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE d. MMMM yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE d. MMMM'ta' yyyy</pattern>
+							<pattern>EEEE d. MMMM y</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE d. MMMM'ta' y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d. MMMM yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">d. MMMM'ta' yyyy</pattern>
+							<pattern>d. MMMM y</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">d. MMMM'ta' y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1261,21 +1261,21 @@
 						<dateFormatItem id="mmss">mm.ss</dateFormatItem>
 						<dateFormatItem id="ms">mm.ss</dateFormatItem>
 						<dateFormatItem id="ms" alt="proposed-x1001" draft="unconfirmed">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">yyyy</dateFormatItem>
+						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">L.yyyy</dateFormatItem>
 						<dateFormatItem id="yM" alt="proposed-x1001" draft="unconfirmed">yyyy-M</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE d.M.yyyy</dateFormatItem>
 						<dateFormatItem id="yMEd" alt="proposed-x1001" draft="unconfirmed">EEE, yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM">LLL yyyy</dateFormatItem>
-						<dateFormatItem id="yMMM" alt="proposed-x1001" draft="unconfirmed">yyyy MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd">EEE d. MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yMMMEd" alt="proposed-x1001" draft="unconfirmed">EEE, yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMM">LLLL yyyy</dateFormatItem>
-						<dateFormatItem id="yMMMM" alt="proposed-x1001" draft="unconfirmed">yyyy MMMM</dateFormatItem>
+						<dateFormatItem id="yMMM">LLL y</dateFormatItem>
+						<dateFormatItem id="yMMM" alt="proposed-x1001" draft="unconfirmed">y MMM</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE d. MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd" alt="proposed-x1001" draft="unconfirmed">EEE, y MMM d</dateFormatItem>
+						<dateFormatItem id="yMMMM">LLLL y</dateFormatItem>
+						<dateFormatItem id="yMMMM" alt="proposed-x1001" draft="unconfirmed">y MMMM</dateFormatItem>
 						<dateFormatItem id="yQ">Q/yyyy</dateFormatItem>
 						<dateFormatItem id="yQ" alt="proposed-x1001" draft="unconfirmed">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ yyyy</dateFormatItem>
-						<dateFormatItem id="yQQQ" alt="proposed-x1001" draft="unconfirmed">yyyy QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
+						<dateFormatItem id="yQQQ" alt="proposed-x1001" draft="unconfirmed">y QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM">M/yy</dateFormatItem>
 						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">MM/yy</dateFormatItem>
 						<dateFormatItem id="yyMM" alt="proposed-x1002" draft="unconfirmed">MM.yy</dateFormatItem>
@@ -1284,9 +1284,9 @@
 						<dateFormatItem id="yyyyM">M/yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyM" alt="proposed-x1001" draft="unconfirmed">M.yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMEEEd">EEE d.M.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">LLLL yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" alt="proposed-x1001" draft="unconfirmed">MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">QQQQ yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-x1001" draft="unconfirmed">MMMM y</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0}–{1}</intervalFormatFallback>
@@ -1364,10 +1364,10 @@
 							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">y - y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">LLL–LLLL yyyy</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">LLL-LLLL yyyy</greatestDifference>
-							<greatestDifference id="y">LLLL yyyy – LLLL yyyy</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">LLLL yyyy - LLLL yyyy</greatestDifference>
+							<greatestDifference id="M">LLL–LLLL y</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">LLL-LLLL y</greatestDifference>
+							<greatestDifference id="y">LLLL y – LLLL y</greatestDifference>
+							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">LLLL y - LLLL y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
 							<greatestDifference id="M">E d.M.yyyy – E d.M.yyyy</greatestDifference>
@@ -1378,32 +1378,32 @@
 							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">E d.M.yyyy - E d.M.yyyy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">LLL–LLLL yyyy</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">LLL-LLLL yyyy</greatestDifference>
-							<greatestDifference id="y">LLLL yyyy – LLLL yyyy</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">LLLL yyyy - LLLL yyyy</greatestDifference>
+							<greatestDifference id="M">LLL–LLLL y</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">LLL-LLLL y</greatestDifference>
+							<greatestDifference id="y">LLLL y – LLLL y</greatestDifference>
+							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">LLLL y - LLLL y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="M">E d. MMMM – E d. MMMM yyyy</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">E d. MMMM - E d. MMMM yyyy</greatestDifference>
-							<greatestDifference id="d">E d. – E d. MMMM yyyy</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">E d. - E d. MMMM yyyy</greatestDifference>
-							<greatestDifference id="y">E d. MMMM yyyy – E d. MMMM yyyy</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">E d. MMMM yyyy - E d. MMMM yyyy</greatestDifference>
+							<greatestDifference id="M">E d. MMMM – E d. MMMM y</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">E d. MMMM - E d. MMMM y</greatestDifference>
+							<greatestDifference id="d">E d. – E d. MMMM y</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">E d. - E d. MMMM y</greatestDifference>
+							<greatestDifference id="y">E d. MMMM y – E d. MMMM y</greatestDifference>
+							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">E d. MMMM y - E d. MMMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">LLL–LLLL yyyy</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">LLL-LLLL yyyy</greatestDifference>
-							<greatestDifference id="y">LLLL yyyy – LLLL yyyy</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">LLLL yyyy - LLLL yyyy</greatestDifference>
+							<greatestDifference id="M">LLL–LLLL y</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">LLL-LLLL y</greatestDifference>
+							<greatestDifference id="y">LLLL y – LLLL y</greatestDifference>
+							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">LLLL y - LLLL y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M">d. MMMM – d. MMMM yyyy</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">d. MMMM - d. MMMM yyyy</greatestDifference>
-							<greatestDifference id="d">d.–d. MMMM yyyy</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">d. - d. MMMM yyyy</greatestDifference>
-							<greatestDifference id="y">d. MMMM yyyy – d. MMMM yyyy</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">d. MMMM yyyy - d. MMMM yyyy</greatestDifference>
+							<greatestDifference id="M">d. MMMM – d. MMMM y</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">d. MMMM - d. MMMM y</greatestDifference>
+							<greatestDifference id="d">d.–d. MMMM y</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">d. - d. MMMM y</greatestDifference>
+							<greatestDifference id="y">d. MMMM y – d. MMMM y</greatestDifference>
+							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">d. MMMM y - d. MMMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="M">d.M.–d.M.yyyy</greatestDifference>

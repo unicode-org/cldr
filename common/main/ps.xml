@@ -307,17 +307,17 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE د yyyy د MMMM d</pattern>
+							<pattern>EEEE د y د MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>د yyyy د MMMM d</pattern>
+							<pattern>د y د MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM yyyy</pattern>
+							<pattern>d MMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -360,7 +360,7 @@
 						<dateFormatItem id="mmss" draft="unconfirmed">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyM" draft="unconfirmed">yyyy/M</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">د yyyy د MMMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">د y د MMMM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

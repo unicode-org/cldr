@@ -1053,12 +1053,12 @@
 						<dateFormatItem id="yM" draft="contributed">yyyy/M</dateFormatItem>
 						<dateFormatItem id="yM" alt="proposed-x1001" draft="unconfirmed">yyyy-M</dateFormatItem>
 						<dateFormatItem id="yMEd">yyyy/M/d（EEE）</dateFormatItem>
-						<dateFormatItem id="yMMM">yyyy年M月</dateFormatItem>
-						<dateFormatItem id="yMMMEd" alt="proposed-x1001" draft="unconfirmed">yyyy年M月d日EEE</dateFormatItem>
-						<dateFormatItem id="yMMMM">yyyy年M月</dateFormatItem>
+						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
+						<dateFormatItem id="yMMMEd" alt="proposed-x1001" draft="unconfirmed">y年M月d日EEE</dateFormatItem>
+						<dateFormatItem id="yMMMM">y年M月</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="contributed">yyyy/MM</dateFormatItem>
 						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">yy-MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" alt="proposed-x1001" draft="unconfirmed">yyyy年M月</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-x1001" draft="unconfirmed">y年M月</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0}至{1}</intervalFormatFallback>
@@ -1104,9 +1104,9 @@
 							<greatestDifference id="y">yyyy/M/dE至yyyy/M/dE</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">yyyy年M月至M月</greatestDifference>
-							<greatestDifference id="y">yyyy/M至yyyy/M</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">yyyy年M月至yyyy年M月</greatestDifference>
+							<greatestDifference id="M">y年M月至M月</greatestDifference>
+							<greatestDifference id="y">y/M至y/M</greatestDifference>
+							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">y年M月至y年M月</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="M">yyyy/M/d至yyyy/M/d</greatestDifference>

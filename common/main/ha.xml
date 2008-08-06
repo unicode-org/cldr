@@ -246,17 +246,17 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, d MMMM, yyyy</pattern>
+							<pattern>EEEE, d MMMM, y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern references="RP2">d MMMM, yyyy</pattern>
+							<pattern references="RP2">d MMMM, y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern references="RP2">d MMM, yyyy</pattern>
+							<pattern references="RP2">d MMM, y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -305,9 +305,9 @@
 						<dateFormatItem id="Md">M-d</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">yyyy</dateFormatItem>
+						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yMEd" references="RP2">EEE, d/M/yyyy</dateFormatItem>
-						<dateFormatItem id="yMMMEd" references="RP2">EEE, d MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yMMMEd" references="RP2">EEE, d MMM y</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>

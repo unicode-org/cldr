@@ -552,12 +552,12 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, 'ngày' dd MMMM 'năm' yyyy</pattern>
+							<pattern>EEEE, 'ngày' dd MMMM 'năm' y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>'Ngày' dd 'tháng' M 'năm' yyyy</pattern>
+							<pattern>'Ngày' dd 'tháng' M 'năm' y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -612,13 +612,13 @@
 						<dateFormatItem id="Md">d-M</dateFormatItem>
 						<dateFormatItem id="mmss" draft="contributed">mm:ss</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, d-M-yyyy</dateFormatItem>
-						<dateFormatItem id="yMMM">MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yMMMEd">EEE, d MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yMMMM">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQ">Q yyyy</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ yyyy</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="contributed">Q yy</dateFormatItem>
-						<dateFormatItem id="yyyy" draft="contributed">yyyy</dateFormatItem>
+						<dateFormatItem id="yyyy" draft="contributed">y</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="contributed">MM-yyyy</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
@@ -677,18 +677,18 @@
 							<greatestDifference id="y" draft="contributed">EEEE, dd/MM/yyyy - EEEE, dd/MM/yyyy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="contributed">'Tháng' M - 'Tháng' M 'năm' yyyy</greatestDifference>
-							<greatestDifference id="y" draft="contributed">'Tháng' M 'năm' yyyy - 'Tháng' M 'năm' yyyy</greatestDifference>
+							<greatestDifference id="M" draft="contributed">'Tháng' M - 'Tháng' M 'năm' y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">'Tháng' M 'năm' y - 'Tháng' M 'năm' y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="M" draft="contributed">EEEE, 'ngày' dd MMM - EEEE, 'ngày' dd MMM 'năm' yyyy</greatestDifference>
-							<greatestDifference id="d" draft="contributed">EEEE, 'ngày' dd MMM - EEEE, 'ngày' dd MMM 'năm' yyyy</greatestDifference>
-							<greatestDifference id="y" draft="contributed">EEEE, 'ngày' dd MMM 'năm' yyyy - EEEE, 'ngày' dd MMM 'năm' yyyy</greatestDifference>
+							<greatestDifference id="M" draft="contributed">EEEE, 'ngày' dd MMM - EEEE, 'ngày' dd MMM 'năm' y</greatestDifference>
+							<greatestDifference id="d" draft="contributed">EEEE, 'ngày' dd MMM - EEEE, 'ngày' dd MMM 'năm' y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">EEEE, 'ngày' dd MMM 'năm' y - EEEE, 'ngày' dd MMM 'năm' y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M" draft="contributed">'Ngày' dd 'tháng' M - 'Ngày' dd 'tháng' M 'năm' yyyy</greatestDifference>
-							<greatestDifference id="d" draft="contributed">'Ngày' dd 'tháng' M - 'Ngày' dd 'tháng' M 'năm' yyyy</greatestDifference>
-							<greatestDifference id="y" draft="contributed">'Ngày' dd 'tháng' M 'năm' yyyy - 'Ngày' dd 'tháng' M 'năm' yyyy</greatestDifference>
+							<greatestDifference id="M" draft="contributed">'Ngày' dd 'tháng' M - 'Ngày' dd 'tháng' M 'năm' y</greatestDifference>
+							<greatestDifference id="d" draft="contributed">'Ngày' dd 'tháng' M - 'Ngày' dd 'tháng' M 'năm' y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">'Ngày' dd 'tháng' M 'năm' y - 'Ngày' dd 'tháng' M 'năm' y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="M" draft="contributed">dd/MM/yyyy - dd/MM/yyyy</greatestDifference>

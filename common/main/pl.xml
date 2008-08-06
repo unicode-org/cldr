@@ -1286,20 +1286,20 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="contributed">EEEE, d MMMM, yyyy G</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE, MMMM d, yyyy G</pattern>
+							<pattern draft="contributed">EEEE, d MMMM, y G</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE, MMMM d, y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="contributed">d MMMM, yyyy G</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">MMMM d, yyyy G</pattern>
+							<pattern draft="contributed">d MMMM, y G</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">MMMM d, y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM, yyyy G</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">MMM d, yyyy G</pattern>
+							<pattern>d MMM, y G</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">MMM d, y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1309,7 +1309,7 @@
 						<dateFormatItem id="MMMMEd" alt="proposed-x1001" draft="unconfirmed">E MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMd" alt="proposed-x1001" draft="unconfirmed">MMM d</dateFormatItem>
-						<dateFormatItem id="yQQQ" alt="proposed-x1001" draft="unconfirmed">QQQ yyyy</dateFormatItem>
+						<dateFormatItem id="yQQQ" alt="proposed-x1001" draft="unconfirmed">QQQ y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1458,12 +1458,12 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, d MMMM yyyy</pattern>
+							<pattern>EEEE, d MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM yyyy</pattern>
+							<pattern>d MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1529,24 +1529,24 @@
 						<dateFormatItem id="hhmmss">hh:mm:ss a</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">yyyy</dateFormatItem>
+						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">yyyy-M</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, d.M.yyyy</dateFormatItem>
 						<dateFormatItem id="yMEd" alt="proposed-x1001" draft="unconfirmed">EEE, yyyy-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="unconfirmed">yyyy MMM</dateFormatItem>
-						<dateFormatItem id="yMMM" alt="proposed-x1001" draft="unconfirmed">MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yMMMEd">EEE, d MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yMMMEd" alt="proposed-x1001" draft="unconfirmed">EEE, yyyy MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMM">LLLL yyyy</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="unconfirmed">y MMM</dateFormatItem>
+						<dateFormatItem id="yMMM" alt="proposed-x1001" draft="unconfirmed">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd" alt="proposed-x1001" draft="unconfirmed">EEE, y MMM d</dateFormatItem>
+						<dateFormatItem id="yMMMM">LLLL y</dateFormatItem>
 						<dateFormatItem id="yQ">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ">yyyy QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM">MM/yy</dateFormatItem>
 						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">MM.yy</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM yy</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM">yyyy-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMM" alt="proposed-x1001" draft="unconfirmed">yyyy.MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">LLLL yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} - {1}</intervalFormatFallback>
@@ -1609,22 +1609,22 @@
 							<greatestDifference id="y" draft="contributed">E, dd-MM-yyyy-E, dd-MM-yyyy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="contributed">LLL-LLL yyyy</greatestDifference>
-							<greatestDifference id="y" draft="contributed">LLL yyyy - LLL yyyy</greatestDifference>
+							<greatestDifference id="M" draft="contributed">LLL-LLL y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">LLL y - LLL y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="M" draft="contributed">E, d MMM - E, d MMM yyyy</greatestDifference>
-							<greatestDifference id="d" draft="contributed">E, d - E, d MMM yyyy</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E, d MMM yyyy - E, d MMM yyyy</greatestDifference>
+							<greatestDifference id="M" draft="contributed">E, d MMM - E, d MMM y</greatestDifference>
+							<greatestDifference id="d" draft="contributed">E, d - E, d MMM y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">E, d MMM y - E, d MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M" draft="contributed">MM.yyyy - MM.yyyy</greatestDifference>
 							<greatestDifference id="y" draft="contributed">MM.yyyy - MM.yyyy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M" draft="contributed">d MMM - d MMM yyyy</greatestDifference>
-							<greatestDifference id="d" draft="contributed">d-d MMM yyyy</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM yyyy - d MMM yyyy</greatestDifference>
+							<greatestDifference id="M" draft="contributed">d MMM - d MMM y</greatestDifference>
+							<greatestDifference id="d" draft="contributed">d-d MMM y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">d MMM y - d MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="M" draft="contributed">dd.MM-dd.MM.yyyy</greatestDifference>

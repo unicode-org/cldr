@@ -339,17 +339,17 @@
 					<default choice="long" draft="unconfirmed"/>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="unconfirmed">EEEE ថ្ងៃ d ខែ MMMM ឆ្នាំ  yyyy</pattern>
+							<pattern draft="unconfirmed">EEEE ថ្ងៃ d ខែ MMMM ឆ្នាំ  y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="unconfirmed">EEEE ថ្ងៃ d ខែ MMMM ឆ្នាំ  yyyy</pattern>
+							<pattern draft="unconfirmed">EEEE ថ្ងៃ d ខែ MMMM ឆ្នាំ  y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="unconfirmed">d MMMM yyyy</pattern>
+							<pattern draft="unconfirmed">d MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -508,17 +508,17 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="unconfirmed">EEEE ថ្ងៃ d ខែ MMMM ឆ្នាំ  yyyy</pattern>
+							<pattern draft="unconfirmed">EEEE ថ្ងៃ d ខែ MMMM ឆ្នាំ  y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="unconfirmed">d ខែ MMMM ឆ្នាំ  yyyy</pattern>
+							<pattern draft="unconfirmed">d ខែ MMMM ឆ្នាំ  y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM yyyy</pattern>
+							<pattern>d MMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -564,7 +564,7 @@
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="unconfirmed">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyyM" draft="unconfirmed">M/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0} - {1}</intervalFormatFallback>
@@ -620,18 +620,18 @@
 							<greatestDifference id="y" draft="unconfirmed">E, d/M/yyyy - E, d/M/yyyy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="unconfirmed">yyyy MMM-MMM</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">yyyy MMM - yyyy MMM</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">y MMM-MMM</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">y MMM - y MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="M" draft="unconfirmed">E, yyyy MMM dd - E, yyyy MMM dd</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">E, yyyy MMM dd - E, yyyy MMM dd</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">E, yyyy MMM dd - E, yyyy MMM dd</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">E, y MMM dd - E, y MMM dd</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">E, y MMM dd - E, y MMM dd</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">E, y MMM dd - E, y MMM dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M" draft="unconfirmed">yyyy MMM d - MMM d</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">yyyy MMM d-d</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">yyyy MMM d - yyyy MMM d</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">y MMM d - MMM d</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">y MMM d-d</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">y MMM d - y MMM d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="M" draft="unconfirmed">d/M/yyyy - d/M/yyyy</greatestDifference>

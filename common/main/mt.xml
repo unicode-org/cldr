@@ -927,17 +927,17 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, d 'ta'’ MMMM yyyy</pattern>
+							<pattern>EEEE, d 'ta'’ MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d 'ta'’ MMMM yyyy</pattern>
+							<pattern>d 'ta'’ MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>dd MMM yyyy</pattern>
+							<pattern>dd MMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -979,7 +979,7 @@
 						<dateFormatItem id="MMdd" draft="unconfirmed">dd/MM</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="unconfirmed">MM/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMM" draft="unconfirmed">MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMM" draft="unconfirmed">MMM y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0} - {1}</intervalFormatFallback>
@@ -1035,18 +1035,18 @@
 							<greatestDifference id="y" draft="unconfirmed">E, dd/MM/yyyy - E, dd/MM/yyyy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="unconfirmed">MMM-MMM yyyy</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">MMM yyyy - MMM yyyy</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">MMM-MMM y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">MMM y - MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="M" draft="unconfirmed">E, d 'ta'’ MMM - E, d 'ta'’ MMM yyyy</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">E, d 'ta'’ - E, d 'ta'’ MMM yyyy</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">E, d 'ta'’ MMM yyyy - E, d 'ta'’ MMM yyyy</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">E, d 'ta'’ MMM - E, d 'ta'’ MMM y</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">E, d 'ta'’ - E, d 'ta'’ MMM y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">E, d 'ta'’ MMM y - E, d 'ta'’ MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M" draft="unconfirmed">d 'ta'’ MMM - d 'ta'’ MMM yyyy</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">d 'ta'’-d 'ta'’ MMM yyyy</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">d 'ta'’ MMM yyyy - d 'ta'’ MMM yyyy</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">d 'ta'’ MMM - d 'ta'’ MMM y</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">d 'ta'’-d 'ta'’ MMM y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">d 'ta'’ MMM y - d 'ta'’ MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="M" draft="unconfirmed">dd/MM/yyyy - dd/MM/yyyy</greatestDifference>
@@ -1181,8 +1181,8 @@ illum is-Sibt, 01 ta'' Awissu, 1998 :)
                 4        // four days minimal in first week for week numbering  [MSA 200:2003 4.5.5, referencing 8601?]
 Monday is first day of workweek. [MSA 200:2003 4.5.5]
                 "HH:mm:ss z",   // needs to be 24 hour
-                "EEEE, d 'ta''' MMMM yyyy", // long day with weekday [MSA 200:2003 4.5.2]
-                "d 'ta''' MMMM yyyy", //
+                "EEEE, d 'ta''' MMMM y", // long day with weekday [MSA 200:2003 4.5.2]
+                "d 'ta''' MMMM y", //
                  "QK",  // "Qabel Kristu" 
                  "WK"   // "Wara Kristu"
 NumberElements {    // Ex: 12,345.67 [MSA 200:2003 4.3 & 4.4]     (duplicated in root)

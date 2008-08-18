@@ -5,7 +5,10 @@ import java.util.regex.Matcher;
 
 public class RegexTransformState {
   
-  public enum Status {NOMATCH, BLOCKED, MATCH};
+  public enum Status {NOMATCH, BLOCKED, MATCH}
+
+  private static final boolean DEBUG = true;
+  private static final boolean DEBUG2 = false;
   
   StringBuilder processedAlready = new StringBuilder();
   StringBuilder toBeProcessed;
@@ -14,17 +17,21 @@ public class RegexTransformState {
   public RegexTransformState(RegexTransform regexTransform, CharSequence text) {
     this.regexTransform = regexTransform;
     toBeProcessed = new StringBuilder(text);
+
     main:
     while (true) {
+      if (DEBUG) {
+        System.out.println("T:\t" + processedAlready + "|" + toBeProcessed);
+      }
       Status s = match();
       switch (s) {
-        case BLOCKED:
-        // we can't convert any more, so stop
-        processedAlready.append(toBeProcessed);
-        break main;
         case MATCH:
           // the actions have been done inside the match
           break;
+        case BLOCKED:
+          // we can't convert any more, so stop
+          //processedAlready.append(toBeProcessed);
+          //break main;
         case NOMATCH:
           if (toBeProcessed.length() == 0) {
             break main;
@@ -57,15 +64,28 @@ public class RegexTransformState {
    */
   public Status match(Rule rule) {
     // fix to use real API
+    if (DEBUG2) {
+      System.out.println("R:\t" + rule);
+    }
     final Matcher prematcher = rule.getPrematcher(processedAlready);
     if (prematcher != null && !prematcher.find(processedAlready.length())) {
+      if (DEBUG2) {
+        System.out.println("=>" + Status.NOMATCH);
+      }
       return Status.NOMATCH;
     }
     final Matcher postmatcher = rule.getPostmatcher(toBeProcessed);
     if (!postmatcher.lookingAt()) {
       if (postmatcher.hitEnd()) {
-        return Status.BLOCKED;
+        if (DEBUG2) {
+          System.out.println("=>" + Status.BLOCKED);
+        }
+        //return Status.BLOCKED;
+        return Status.NOMATCH;
       } else {
+        if (DEBUG2) {
+          System.out.println("=>" + Status.NOMATCH);
+        }
         return Status.NOMATCH;
       }
     }

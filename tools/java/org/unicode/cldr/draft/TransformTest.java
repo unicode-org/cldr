@@ -10,11 +10,13 @@ import com.ibm.icu.text.UnicodeFilter;
 
 public class TransformTest extends TestFmwk {
 
+  private static final boolean SHOW = false;
+
   public static void main(String[] args) {
     new TransformTest().run(args);
   }
 
-  public void TestBasic() {
+  public void TestSomeBasic() {
     String[] tests = {
             "RULES",
             "ab > AB; ::NULL; BA > CD;",
@@ -54,18 +56,37 @@ public class TransformTest extends TestFmwk {
       if (setRules) {
         rules = testCase;
         transform = RegexTransformBuilder.createFromRules(rules);
-        logln("New:\r\n" + transform.toString());
+        if (SHOW) logln("New:\r\n" + transform.toString());
         oldTransform = Transliterator.createFromRules("foo", rules, Transliterator.FORWARD);
-        show(oldTransform);
+        if (SHOW) show(oldTransform);
         setRules = false;
         continue;
       }
       test = testCase;
-      int iterations = 10000;
+      int iterations = 1;
       check(iterations, testCase, transform, transform);
     }
   }
 
+  public void TestCyrillic () {
+    checkAgainstCurrent("Latin-Cyrillic", "abc", "Def", "ango");
+  }
+  
+  public void TestGreek () {
+    checkAgainstCurrent("Latin-Greek", "abk", "Delpho", "ango", "ago");
+  }
+  
+  public void checkAgainstCurrent(String translitId, String... tests) {
+    Transliterator oldGreek = Transliterator.getInstance(translitId);
+    String rules = oldGreek.toRules(false);
+    if (SHOW) logln(rules);
+    StringTransform newGreek = RegexTransformBuilder.createFromRules(rules);
+    if (SHOW) logln(newGreek.toString());
+    for (String test : tests) {
+      check(1, test, newGreek, oldGreek);
+    }
+  }
+  
   private void check(int iterations, String test, StringTransform newTransform, StringTransform oldTransform) {
 
     Timer t = new Timer();
@@ -90,7 +111,8 @@ public class TransformTest extends TestFmwk {
     } else {
       logln("OK:\t" + test + "\t=>\t" + result);
     }
-    logln("new time: " + newDuration/1.0/iterations + "\told time: " + oldDuration/1.0/iterations + "\tnew%: " + (newDuration*100/oldDuration) + "%");
+    final String percent = oldDuration == 0 ? "INF" : String.valueOf(newDuration*100/oldDuration);
+    logln("new time: " + newDuration/1.0/iterations + "\told time: " + oldDuration/1.0/iterations + "\tnew%: " + percent + "%");
   }
 
   private void show(Transliterator oldTransform) {
@@ -98,17 +120,4 @@ public class TransformTest extends TestFmwk {
     logln("Old:\r\n" + (filter == null ? "" : filter.toString() + ";\r\n") + oldTransform.toRules(true));
   }
 
-  public void TestGreek() {
-    Transliterator oldGreek = Transliterator.getInstance("Latin-Greek");
-    String rules = oldGreek.toRules(false);
-    logln(rules);
-    StringTransform newGreek = RegexTransformBuilder.createFromRules(rules);
-    logln(newGreek.toString());
-    String[] tests = {
-            "abc", "Def", "ango"
-    };
-    for (String test : tests) {
-      check(1000, test, newGreek, oldGreek);
-    }
-  }
 }

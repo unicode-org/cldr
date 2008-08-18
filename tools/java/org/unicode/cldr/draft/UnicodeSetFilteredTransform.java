@@ -18,7 +18,7 @@ public class UnicodeSetFilteredTransform extends FilteredTransform {
   // TODO optimize scanning, add strings
   @Override
   protected boolean getNextRegion(String text, int[] startEnd) {
-    int i = startEnd[0];
+    int i = startEnd[1];
     final int length = text.length();
     if (length <= i) {
       return false; // done
@@ -29,7 +29,7 @@ public class UnicodeSetFilteredTransform extends FilteredTransform {
       // scan for items that are not in set
       for (; i < length; i += Character.charCount(cp)) {
         cp = text.codePointAt(i);
-        if (unicodeSet.contains(i)) {
+        if (unicodeSet.contains(cp)) {
           startEnd[0] = i;
           break findOut;
         }
@@ -42,7 +42,7 @@ public class UnicodeSetFilteredTransform extends FilteredTransform {
       // now for items that are
       for (; i < length; i += Character.charCount(cp)) {
         cp = text.codePointAt(i);
-        if (!unicodeSet.contains(i)) {
+        if (!unicodeSet.contains(cp)) {
           startEnd[1] = i;
           break findIn;
         }

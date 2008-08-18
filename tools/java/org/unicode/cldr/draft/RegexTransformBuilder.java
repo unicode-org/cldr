@@ -11,7 +11,8 @@ import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 
 public class RegexTransformBuilder {
-  static final boolean DEBUG = true;
+  static final boolean DEBUG = false;
+  private static final boolean SKIP_BAD = true;
 
   // initially just very rough rule parser, for proof-of-concept
   public static StringTransform createFromRules(String string) {
@@ -51,7 +52,7 @@ public class RegexTransformBuilder {
         continue;
       }
       if (!m.reset(ruleString).matches()) {
-        if (DEBUG) {
+        if (SKIP_BAD) {
           System.out.println("BAD RULE");
           continue;
         } else {

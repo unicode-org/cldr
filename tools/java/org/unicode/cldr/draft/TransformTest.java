@@ -1,6 +1,5 @@
 package org.unicode.cldr.draft;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Timer;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -17,8 +16,21 @@ public class TransformTest extends TestFmwk {
   }
   
   public void TestFix() {
-    String test = "([:m:])*";
-    logln (new PatternFixer(PatternFixer.Target.JAVA).fix(test));
+    String[][] tests = {
+            {"!=", "([:m:])*"},
+            {"==", "(\\[:m:])*"},
+            {"==", "\\Q([:m:])*\\E"},
+            {"a(?:gh|[b])", "a[b{gh}]"},
+            };
+    for (String[] test : tests) {
+      if (test[0].equals("!=")) {
+        assertNotEquals("Should be different", test[1], 
+                PatternFixer.fixJava(test[1]));
+      } else {
+        assertEquals("Should be equal", test[0].equals("==") ? test[1] : test[0],
+                PatternFixer.fixJava(test[1]));
+      }
+    }
   }
 
   public void TestSomeBasic() {

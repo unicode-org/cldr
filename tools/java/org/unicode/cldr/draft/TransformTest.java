@@ -15,6 +15,11 @@ public class TransformTest extends TestFmwk {
   public static void main(String[] args) {
     new TransformTest().run(args);
   }
+  
+  public void TestFix() {
+    String test = "([:m:])*";
+    logln (new PatternFixer(PatternFixer.Target.JAVA).fix(test));
+  }
 
   public void TestSomeBasic() {
     String[] tests = {

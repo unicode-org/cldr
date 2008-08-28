@@ -825,7 +825,7 @@
 							<month type="5">Mej</month>
 							<month type="6">Ġun</month>
 							<month type="7">Lul</month>
-							<month type="8">Awi</month>
+							<month type="8" references="R501">Aww</month>
 							<month type="9">Set</month>
 							<month type="10">Ott</month>
 							<month type="11">Nov</month>
@@ -839,7 +839,7 @@
 							<month type="5">Mejju</month>
 							<month type="6">Ġunju</month>
 							<month type="7">Lulju</month>
-							<month type="8">Awissu</month>
+							<month type="8" references="R501">Awwissu</month>
 							<month type="9">Settembru</month>
 							<month type="10">Ottubru</month>
 							<month type="11">Novembru</month>
@@ -1142,67 +1142,42 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr>iva:i</yesstr>
-			<nostr>le:l</nostr>
-			<!-- allow English yes also
-				 allow English no also
-			-->
+		<!--  * [MSA 200:2003 4.6] YES:  'I' 'i' 'iva' TRUE:  'V' 'v' 'veru' NO:  'L' 'l' 'le' FALSE:  'F' 'f' 'falz'  -->
+			<yesstr references="R200">iva:i</yesstr>
+			<nostr references="R200">le:l</nostr>
 		</messages>
 	</posix>
 	<references>
-		<reference type="R200" uri="http://www.msa.org.mt/standards/standards.htm">MSA 200:2003</reference>
+        <reference type="R200" uri="http://www.msa.org.mt/standards/standards.htm">MSA 200:2003</reference>
+        <reference type="R501" uri="http://www.kunsilltalmalti.gov.mt/filebank/documents/decizjonijiet_.pdf">Deċiżjonijiet 1: dwar il-Varjanti Ortografiċi. Il-Kunsill Nazzjonali tal-Ilsien Malti, 2008</reference>
 		<reference type="RP1" uri="isbn:99932-7-070-9">Concise Maltese-English English-Maltese Dictionary, Joseph Aquilina. Malta: Midsea Books, Ltd, 2006.</reference>
 	</references>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/mt.txt?only_with_tag=final-update-LDML
-
-Maltese locale.
-Maintained by srl@jtcsv.com [See below for full credits]
-Search for 'Sources' below for source abbreviations
-Note, this file is in UTF-8
-Quick rundown on Maltese Unicode: 
-
-Maltese locale. Conforms to MSA 200:2003 http://www.msa.org.mt
-http://www.msa.org.mt/standards/maltese_stds.htm#msa200
-MSA 200:2003 - Maltese Data and Information Requirements on Information and Communication Technology
-
-l            U
-ċ = U+010B   Ċ = U+010A  'ch'    
-ġ = U+0121   Ġ = U+0120  soft G
-ħ = U+0127   Ħ = U+0126  voiced H [or 2nd letter of 'silent' għ]
-ż = U+017c   Ż = U+017B  'dz'
-COMBINING MARKS:
-There is no combining mark for the slash (h/)
-but, U+0307 is the DOT ABOVE needed for ż, ċ, and ġ (in collation rules)
-    Version { "2.0" } // 2003-10-18 - first MSA 200:2003 compliant v
-illum is-Sibt, 01 ta'' Awissu, 1998 :)
-                1,       // Sunday (il-Hadd) is first day of calendar week
-                4        // four days minimal in first week for week numbering  [MSA 200:2003 4.5.5, referencing 8601?]
-Monday is first day of workweek. [MSA 200:2003 4.5.5]
-                "HH:mm:ss z",   // needs to be 24 hour
-                "EEEE, d 'ta''' MMMM y", // long day with weekday [MSA 200:2003 4.5.2]
-                "d 'ta''' MMMM y", //
-                 "QK",  // "Qabel Kristu" 
-                 "WK"   // "Wara Kristu"
-NumberElements {    // Ex: 12,345.67 [MSA 200:2003 4.3 & 4.4]     (duplicated in root)
-"‰",
-"∞",
-"�"
-}
-Variants{
-PREEURO { "Qabel il-Euro" }
-}
-        "Latn",  // ISO 15924 Name 
-    ExemplarCharacters { "[[a-z \u00e0 \u00ec \u00f9 \u00e8 \u00f2 ċ ġ ħ {għ} ż]-[cy]]" } // [MSA 200:2003 4.10]
-Time zone // [MSA 200:2003 4.5.5]
-TODO: (no format yet)
-* [MSA 200:2003 4.12]
-measurement: metric
-'full stop is writen after ordinals'
-* [MSA 200:2003 4.6]
-YES:  'I' 'i' 'iva'
-TRUE:  'V' 'v' 'veru'
-NO:  'L' 'l' 'le'
-FALSE:  'F' 'f' 'falz'
+<!-- 
+ Maltese locale. 
+ Conforms to MSA 200:2003 http://www.msa.org.mt http://www.msa.org.mt/standards/maltese_stds.htm#msa200 
+ MSA 200:2003 - Maltese Data and Information Requirements on Information and Communication Technology  
+ Quick rundown on Maltese Unicode:   
+ l            U 
+ ċ = U+010B   Ċ = U+010A  'ch'     
+ ġ = U+0121   Ġ = U+0120  soft 
+ G ħ = U+0127   Ħ = U+0126  
+ voiced H [or 2nd letter of 'silent' għ] 
+ ż = U+017c   Ż = U+017B  'dz' 
+ COMBINING MARKS: There is no combining mark for the slash (h/) but, U+0307 is the DOT ABOVE needed for ż, ċ, and ġ (in collation rules)     
+ Version { "2.0" } 
+ // 2003-10-18 - first MSA 200:2003 compliant v illum is-Sibt, 01 ta'' Awissu, 1998 :)                 1,       
+ // Sunday (il-Hadd) is first day of calendar week        
+          4        // four days minimal in first week for week numbering  [MSA 200:2003 4.5.5, referencing 8601?] Monday is first day of workweek. [MSA 200:2003 4.5.5]
+"HH:mm:ss z",   // needs to be 24 hour          
+"EEEE, d 'ta''' MMMM y", // long day with weekday [MSA 200:2003 4.5.2]        
+"d 'ta''' MMMM y",
+//                  "QK",  // "Qabel Kristu"                   "WK"   // "Wara Kristu" 
+NumberElements {    // Ex: 12,345.67 [MSA 200:2003 4.3 & 4.4]     (duplicated in root) "‰", "∞", "�" }
+Variants{ PREEURO { "Qabel il-Euro" } }       
+"Latn",  // ISO 15924 Name    
+ExemplarCharacters { "[[a-z \u00e0 \u00ec \u00f9 \u00e8 \u00f2 ċ ġ ħ {għ} ż]-[cy]]" } 
+// [MSA 200:2003 4.10] Time zone 
+// [MSA 200:2003 4.5.5] TODO: (no format yet) 
+* [MSA 200:2003 4.12] measurement: metric 'full stop is writen after ordinals' 
 -->

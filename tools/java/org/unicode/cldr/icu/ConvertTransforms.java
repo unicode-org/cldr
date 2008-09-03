@@ -144,7 +144,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 		}	
 	}
 
-	private void convertFile(Factory cldrFactory, String id, String outputDirectory, PrintWriter index) throws IOException {
+	public void convertFile(Factory cldrFactory, String id, String outputDirectory, PrintWriter index) throws IOException {
 		PrintWriter output = null;
 		String filename = null;
 		CLDRFile cldrFile = cldrFactory.make(id, false);
@@ -184,9 +184,9 @@ public class ConvertTransforms extends CLDRConverterTool{
 		output.close();
 	}
 	
-	static Transliterator fixup = Transliterator.getInstance("[:Mn:]any-hex/java");
+	public static final Transliterator fixup = Transliterator.getInstance("[:Mn:]any-hex/java");
 
-	private String replaceUnquoted(String value, String toReplace, String replacement) {
+	public static String replaceUnquoted(String value, String toReplace, String replacement) {
 		// quick exit in most cases
 		if ( value.indexOf(toReplace) < 0 )
 			return value;

@@ -37,6 +37,7 @@ import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.Differ;
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
 import com.ibm.icu.dev.test.util.XEquivalenceMap;
+import com.ibm.icu.text.UTF16;
 
 public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
   private static final Pattern FIRST_LETTER_CHANGE = Pattern.compile("(\\S)\\S*");
@@ -187,6 +188,15 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     // do this by building an ordering from the lists.
     // The first item has no greater item in any set. So find an item that is
     // only first
+    MergeLists<String> mergeLists = new MergeLists<String>(new TreeSet(new UTF16.StringComparator(true, false, 0)))
+    .add(Arrays.asList("ldml"))
+    .addAll(elementOrderings); // 
+    List<String> result = mergeLists.merge();
+    Collection badOrder = MergeLists.hasConsistentOrderWithEachOf(result, elementOrderings);
+    if (badOrder != null) {
+      throw new IllegalArgumentException("Failed to find good order: " + badOrder);
+    }
+
     showReason = false;
     orderingList.add("ldml");
     if (SHOW_PROGRESS)
@@ -226,6 +236,10 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         break;
       }
     }
+    System.out.println("New code: " + result);
+    System.out.println("Old code: " + orderingList);
+    System.out.println("New code2: " + Utility.breakLines(Utility.join(result, " "), sep, FIRST_LETTER_CHANGE.matcher(""), 80));
+    
     Set missing = new TreeSet(allDefinedElements);
     missing.removeAll(orderingList);
     orderingList.addAll(missing);

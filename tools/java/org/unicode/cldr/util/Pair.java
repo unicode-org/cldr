@@ -17,6 +17,14 @@ public final class Pair<T extends Comparable, U extends Comparable> implements j
   private U second;
   private boolean frozen;
   
+  public static <T extends Comparable, U extends Comparable> Pair<T,U> of(T arg0, U arg1) {
+    return new Pair<T,U>(arg0, arg1);
+  }
+  
+  public static <T extends Comparable, U extends Comparable> Pair<T,U> ofFrozen(T arg0, U arg1) {
+    return of(arg0, arg1).freeze();
+  }
+  
   public Pair setFirst(T first) {
     if (frozen) {
       throw new UnsupportedOperationException("Attempt to modify frozen object");
@@ -93,7 +101,7 @@ public final class Pair<T extends Comparable, U extends Comparable> implements j
     return frozen;
   }
   
-  public Object freeze() {
+  public Pair<T,U> freeze() {
     frozen = true;
     return this;
   }

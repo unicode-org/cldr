@@ -392,8 +392,8 @@ public class StandardCodes {
         locale_levelString.put(locale, locale_level.get(locale).toString());
       }
     }
-    Utility.protectCollection(platform_locale_level);
-    Utility.protectCollection(platform_locale_levelString);
+    platform_locale_level = Utility.protectCollection(platform_locale_level);
+    platform_locale_levelString = Utility.protectCollection(platform_locale_levelString);
   }
   
   private String validate(LocaleIDParser parser) {
@@ -547,7 +547,7 @@ public class StandardCodes {
             "Can't read " + files[fileIndex] + "\t" + originalLine)
             .initCause(e);
       }
-      Utility.protectCollection(country_modernCurrency);
+      country_modernCurrency = Utility.protectCollection(country_modernCurrency);
     }
     
     // data is: description | date | canonical_value | recommended_prefix #
@@ -555,7 +555,7 @@ public class StandardCodes {
     // HACK, just rework
     
     languageRegistry = getLStreg();
-    Utility.protectCollection(languageRegistry);
+    languageRegistry = Utility.protectCollection(languageRegistry);
     
     for (Iterator it = languageRegistry.keySet().iterator(); it.hasNext();) {
       String type = (String) it.next();
@@ -688,7 +688,7 @@ public class StandardCodes {
   
   public Map getWorldBankInfo() {
     if (WorldBankInfo == null) {
-      List temp = fillFromCommaFile(Utility.UTIL_DATA_DIR, "WorldBankInfo.txt");
+      List temp = fillFromCommaFile(Utility.UTIL_DATA_DIR, "WorldBankInfo.txt", false);
       WorldBankInfo = new HashMap();
       for (Iterator it = temp.iterator(); it.hasNext();) {
         String line = (String) it.next();
@@ -697,7 +697,7 @@ public class StandardCodes {
         row.remove(0);
         WorldBankInfo.put(key, row);
       }
-      Utility.protectCollection(WorldBankInfo);
+      WorldBankInfo = Utility.protectCollection(WorldBankInfo);
     }
     return WorldBankInfo;
   }
@@ -706,16 +706,28 @@ public class StandardCodes {
   
   public Set getMainTimeZones() {
     if (MainTimeZones == null) {
-      List temp = fillFromCommaFile(Utility.UTIL_DATA_DIR, "MainTimeZones.txt");
+      List temp = fillFromCommaFile(Utility.UTIL_DATA_DIR, "MainTimeZones.txt", false);
       MainTimeZones = new TreeSet();
       MainTimeZones.addAll(temp);
-      Utility.protectCollection(MainTimeZones);
+      MainTimeZones = Utility.protectCollection(MainTimeZones);
     }
     return MainTimeZones;
   }
   
+  Set moribundLanguages;
+
+  public Set<String> getMoribundLanguages() {
+    if (moribundLanguages == null) {
+      List temp = fillFromCommaFile(Utility.UTIL_DATA_DIR, "moribund_languages.txt", true);
+      moribundLanguages = new TreeSet<String>();
+      moribundLanguages.addAll(temp);
+      moribundLanguages = Utility.protectCollection(moribundLanguages);
+    }
+    return moribundLanguages;
+  }
+  
   // produces a list of the 'clean' lines
-  private List fillFromCommaFile(String dir, String filename) {
+  private List fillFromCommaFile(String dir, String filename, boolean trim) {
     try {
       List result = new ArrayList();
       String line;
@@ -725,8 +737,12 @@ public class StandardCodes {
         if (line == null)
           break;
         int commentPos = line.indexOf('#');
-        if (commentPos >= 0)
+        if (commentPos >= 0) {
           line = line.substring(0, commentPos);
+        }
+        if (trim) {
+          line = line.trim();
+        }    
         if (line.length() == 0)
           continue;
         result.add(line);
@@ -1007,7 +1023,8 @@ public class StandardCodes {
     return languageSubtag;
   }
 
-  public static boolean isModernLanguage(String languageCode) {
+  public boolean isModernLanguage(String languageCode) {
+      if (getMoribundLanguages().contains(languageCode)) return false;
       Type type = Iso639Data.getType(languageCode);
       if (type == Type.Living) return true;
       if (languageCode.equals("eo")) return true; // exception for Esperanto

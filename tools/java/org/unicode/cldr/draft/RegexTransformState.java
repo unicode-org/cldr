@@ -7,7 +7,7 @@ public class RegexTransformState {
   
   public enum Status {NOMATCH, BLOCKED, MATCH}
 
-  private static final boolean DEBUG = true;
+  private static final boolean DEBUG = false;
   private static final boolean DEBUG2 = false;
   
   StringBuilder processedAlready = new StringBuilder();
@@ -67,8 +67,8 @@ public class RegexTransformState {
     if (DEBUG2) {
       System.out.println("R:\t" + rule);
     }
-    final Matcher prematcher = rule.getPrematcher(processedAlready);
-    if (prematcher != null && !prematcher.find(processedAlready.length())) {
+    Matcher prematcher = rule.getPrematcher(processedAlready);
+    if (prematcher != null && !rule.prematch(prematcher, processedAlready)) {
       if (DEBUG2) {
         System.out.println("=>" + Status.NOMATCH);
       }

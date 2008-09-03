@@ -10,6 +10,7 @@ import com.ibm.icu.text.UnicodeFilter;
 public class TransformTest extends TestFmwk {
 
   private static final boolean SHOW = false;
+  private static final int TIMING_ITERATIONS = 10000;
 
   public static void main(String[] args) {
     new TransformTest().run(args);
@@ -80,8 +81,7 @@ public class TransformTest extends TestFmwk {
         continue;
       }
       test = testCase;
-      int iterations = 1;
-      check(iterations, testCase, transform, transform);
+      check(TIMING_ITERATIONS, testCase, transform, transform);
     }
   }
 
@@ -100,7 +100,7 @@ public class TransformTest extends TestFmwk {
     StringTransform newGreek = RegexTransformBuilder.createFromRules(rules);
     if (SHOW) logln(newGreek.toString());
     for (String test : tests) {
-      check(1, test, newGreek, oldGreek);
+      check(TIMING_ITERATIONS, test, newGreek, oldGreek);
     }
   }
   
@@ -128,7 +128,7 @@ public class TransformTest extends TestFmwk {
     } else {
       logln("OK:\t" + test + "\t=>\t" + result);
     }
-    final String percent = oldDuration == 0 ? "INF" : String.valueOf(newDuration*100/oldDuration);
+    final String percent = oldDuration == 0 ? "INF" : String.valueOf(newDuration*100/oldDuration - 100);
     logln("new time: " + newDuration/1.0/iterations + "\told time: " + oldDuration/1.0/iterations + "\tnew%: " + percent + "%");
   }
 

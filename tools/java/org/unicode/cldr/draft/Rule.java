@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 public class Rule {
   private final Pattern prematch;
+  private final boolean prematchFindAtEnd;
   private final Pattern postmatch;
   private final List<Item> results = new ArrayList<Item>();
   /**
@@ -66,12 +67,21 @@ public class Rule {
   }
 
   public Rule(String pre, String post, List<String> results2) {
+    Pattern tempPrematch;
+    boolean tempPrematchFindAtEnd = false;
     if (pre.length() == 0) {
-      prematch = null;
+      tempPrematch = null;
     } else {
-      prematch = Pattern.compile("(?<=" + pre + ")", Pattern.COMMENTS);
+      try {
+        tempPrematch = Pattern.compile("(?<=" + pre + ")", Pattern.COMMENTS + Pattern.DOTALL);
+        tempPrematchFindAtEnd = true;
+      } catch (Exception e) {
+        tempPrematch = Pattern.compile(pre + "$", Pattern.COMMENTS + Pattern.DOTALL);
+      }
     }
-    postmatch = Pattern.compile(post, Pattern.COMMENTS);
+    prematch = tempPrematch;
+    prematchFindAtEnd = tempPrematchFindAtEnd;
+    postmatch = Pattern.compile(post, Pattern.COMMENTS + Pattern.DOTALL);
     for (String s : results2) {
       if (s.startsWith("$")) {
         results.add(new NumberedItem(Integer.parseInt(s.substring(1)), true));
@@ -110,13 +120,19 @@ public class Rule {
       + main + " > " + results + " ; ";
   }
 
-  public Matcher getPrematcher(StringBuilder processedAlready) {
+  public Matcher getPrematcher(CharSequence processedAlready) {
     return prematch == null ? null 
             : prematch.matcher(processedAlready);
   }
   
-  public Matcher getPostmatcher(StringBuilder toBeProcessed) {
+  public Matcher getPostmatcher(CharSequence toBeProcessed) {
     return postmatch.matcher(toBeProcessed);
+  }
+
+  public boolean prematch(Matcher prematcher, CharSequence processedAlready) {
+    return prematchFindAtEnd 
+            ? prematcher.find(processedAlready.length()) 
+            : prematcher.find();
   }
 }
 

@@ -5,7 +5,10 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.PatternFixer.Target;
+
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
@@ -109,12 +112,17 @@ public class RegexTransformBuilder {
     return result;
   }
   
-  private static String fix(String pre) {
-    pre = pre.trim();
-    pre = pre.replace("[:", "\\p{");
-    pre = pre.replace(":]", "}");
-    return pre;
+  private static String fix(String pattern) {
+    pattern = pattern.trim();
+    // TODO fix pattern to not have anything but NFD in patterns
+    PATTERN_FIXER.fix(pattern);
+    pattern = Normalizer.decompose(pattern, false);
+    //pre = pre.replace("[:", "\\p{");
+    //pre = pre.replace(":]", "}");
+    return pattern;
   }
+  
+  private static final PatternFixer PATTERN_FIXER = new PatternFixer(Target.JAVA);
   
   static Pattern RULE_PATTERN = Pattern.compile(
           "(?:([^{}>]*) \\{)?" +

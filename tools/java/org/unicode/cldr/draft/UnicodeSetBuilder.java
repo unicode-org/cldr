@@ -7,7 +7,11 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.PatternFixer.Target;
+import org.unicode.cldr.util.PrettyPrinter;
 
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 
@@ -31,6 +35,7 @@ public class UnicodeSetBuilder extends Format {
   @Override
   // TODO clean up prototype
   public StringBuffer format(Object obj, StringBuffer toAppendTo, FieldPosition pos) {
+    PrettyPrinter foo;
     // API for Format calls for StringBuffer, but should update to StringBuilder
     int startPos = toAppendTo.length();
     Set<String> strings = null;
@@ -60,8 +65,36 @@ public class UnicodeSetBuilder extends Format {
     return toAppendTo;
   }
 
-  private StringBuffer appendQuoted(StringBuffer target, int codepoint) {
-    return target.append((char) codepoint);
+  // TODO optimize this to only quote what is needed for the particular target 
+  // and (possibly) the given location in the character class
+  private StringBuffer appendQuoted(StringBuffer target, int codePoint) {
+    switch (codePoint) {
+      case '[': // SET_OPEN:
+      case ']': // SET_CLOSE:
+      case '-': // HYPHEN:
+      case '^': // COMPLEMENT:
+      case '&': // INTERSECTION:
+      case '\\': //BACKSLASH:
+      case '{':
+      case '}':
+      case '$':
+      case ':':
+        target.append('\\');
+        break;
+      default:
+        if (toQuote.contains(codePoint)) {
+          if (codePoint > 0xFFFF) {
+            target.append("\\u");
+            target.append(Utility.hex(UTF16.getLeadSurrogate(codePoint),4));
+            codePoint = UTF16.getTrailSurrogate(codePoint);
+          }
+          target.append("\\u");
+          target.append(Utility.hex(codePoint,4));                    
+          return target;
+        }
+    }
+    UTF16.append(target, codePoint);
+    return target;
   }
 
   private StringBuffer appendQuoted(StringBuffer target, String string) {
@@ -137,4 +170,5 @@ public class UnicodeSetBuilder extends Format {
   private Target target;
   private int options;
   private Extension[] extensions;
+  private static final UnicodeSet toQuote = (UnicodeSet) new UnicodeSet("[[:Cn:][:Default_Ignorable_Code_Point:][:patternwhitespace:]]").freeze();
 }

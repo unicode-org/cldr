@@ -50,18 +50,19 @@ public class GapString implements CharSequence {
   }
   
   public GapString insert(int index, CharSequence s) {
-    if (pastLength != index) {
-      shiftTo(index);
+    final int length = s.length();
+    if (pastLength != index || pastLength < index + length) {
+      shiftTo(index, length);
     }
-    for (int i = 0; i < s.length(); ++i) {
+    for (int i = 0; i < length; ++i) {
       past[pastLength++] = s.charAt(i);
     }
     return this;
   }
   
   public GapString insert(int index, char s) {
-    if (pastLength != index) {
-      shiftTo(index);
+    if (pastLength != index || pastLength < index + 1) {
+      shiftTo(index, 1);
     }
     past[pastLength++] = s;
     return this;
@@ -72,7 +73,7 @@ public class GapString implements CharSequence {
     // if pastLength is between index and end, then can remove from both sides.
     // if not, only move enough to get to one end or the other.
     if (pastLength != index) {
-      shiftTo(index);
+      shiftTo(index,0);
     }
     futureLength -= (end - index);
     return this;
@@ -117,11 +118,13 @@ public class GapString implements CharSequence {
   }
   // ======== PRIVATES ===========
   
-  private void shiftTo(int index) {
+  private void shiftTo(int index, int gapNeeded) {
+    final int pastNeeded = index + gapNeeded;
+    if (past.length < pastNeeded) {
+      past = grow(past, pastLength, pastNeeded*3/2 + 10);
+    }
+
     if (pastLength < index) {
-      if (past.length < index) {
-        past = grow(past, pastLength, index*3/2 + 10);
-      }
       final int end = index - pastLength;
       for (int i = 0; i < end; ++i) {
         past[pastLength++] = future[--futureLength];

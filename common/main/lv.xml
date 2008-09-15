@@ -2486,39 +2486,60 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one" draft="provisional">{0} diena</unitPattern>
-			<unitPattern count="other" draft="provisional">{0} dienas</unitPattern>
-			<unitPattern count="zero" draft="provisional">{0} dienu</unitPattern>
+			<unitPattern count="one">{0} diena</unitPattern>
+			<unitPattern count="other">{0} dienas</unitPattern>
+			<unitPattern count="zero">{0} dienas</unitPattern>
+			<unitPattern count="one" alt="short">{0} d</unitPattern>
+			<unitPattern count="other" alt="short">{0} d</unitPattern>
+			<unitPattern count="zero" alt="short">{0} d</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one" draft="provisional">{0} stunda</unitPattern>
-			<unitPattern count="other" draft="provisional">{0} stundas</unitPattern>
-			<unitPattern count="zero" draft="provisional">{0} stundu</unitPattern>
+			<unitPattern count="one">{0} stunda</unitPattern>
+			<unitPattern count="other">{0} stundas</unitPattern>
+			<unitPattern count="zero">{0} stundas</unitPattern>
+			<unitPattern count="one" alt="short">{0} h</unitPattern>
+			<unitPattern count="other" alt="short">{0} h</unitPattern>
+			<unitPattern count="zero" alt="short">{0} h</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one" draft="provisional">{0} minūte</unitPattern>
-			<unitPattern count="other" draft="provisional">{0} minūtes</unitPattern>
-			<unitPattern count="zero" draft="provisional">{0} minūšu</unitPattern>
+			<unitPattern count="one">{0} minūte</unitPattern>
+			<unitPattern count="other">{0} minūtes</unitPattern>
+			<unitPattern count="zero">{0} minūtes</unitPattern>
+			<unitPattern count="one" alt="short">{0} min</unitPattern>
+			<unitPattern count="other" alt="short">{0} min</unitPattern>
+			<unitPattern count="zero" alt="short">{0} min</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one" draft="provisional">{0} mēnesis</unitPattern>
-			<unitPattern count="other" draft="provisional">{0} mēneši</unitPattern>
-			<unitPattern count="zero" draft="provisional">{0} mēnešu</unitPattern>
+			<unitPattern count="one">{0} mēnesis</unitPattern>
+			<unitPattern count="other">{0} mēneši</unitPattern>
+			<unitPattern count="zero">{0} mēneši</unitPattern>
+			<unitPattern count="one" alt="short">{0} mēn</unitPattern>
+			<unitPattern count="other" alt="short">{0} mēn</unitPattern>
+			<unitPattern count="zero" alt="short">{0} mēn</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one" draft="provisional">{0} sekunde</unitPattern>
-			<unitPattern count="other" draft="provisional">{0} sekundes</unitPattern>
-			<unitPattern count="zero" draft="provisional">{0} sekunžu</unitPattern>
+			<unitPattern count="one">{0} sekunde</unitPattern>
+			<unitPattern count="other">{0} sekundes</unitPattern>
+			<unitPattern count="zero">{0} sekundes</unitPattern>
+			<unitPattern count="one" alt="short">{0} s</unitPattern>
+			<unitPattern count="other" alt="short">{0} s</unitPattern>
+			<unitPattern count="zero" alt="short">{0} s</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one" draft="provisional">{0} nedēļa</unitPattern>
-			<unitPattern count="other" draft="provisional">{0} nedēļas</unitPattern>
-			<unitPattern count="zero" draft="provisional">{0} nedēļu</unitPattern>
+			<unitPattern count="one">{0} nedēļa</unitPattern>
+			<unitPattern count="other">{0} nedēļas</unitPattern>
+			<unitPattern count="zero">{0} nedēļas</unitPattern>
+			<unitPattern count="one" alt="short">{0} ned</unitPattern>
+			<unitPattern count="other" alt="short">{0} ned</unitPattern>
+			<unitPattern count="zero" alt="short">{0} ned</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one" draft="provisional">{0} gads</unitPattern>
-			<unitPattern count="other" draft="provisional">{0} gadi</unitPattern>
-			<unitPattern count="zero" draft="provisional">{0} gadu</unitPattern>
+			<unitPattern count="one">{0} gads</unitPattern>
+			<unitPattern count="other">{0} gadi</unitPattern>
+			<unitPattern count="zero">{0} gadi</unitPattern>
+			<unitPattern count="one" alt="short">{0} g</unitPattern>
+			<unitPattern count="other" alt="short">{0} g</unitPattern>
+			<unitPattern count="zero" alt="short">{0} g</unitPattern>
 		</unit>
 	</units>
 	<posix>

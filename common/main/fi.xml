@@ -3517,30 +3517,44 @@
 		<unit type="day">
 			<unitPattern count="one">{0} päivä</unitPattern>
 			<unitPattern count="other">{0} päivää</unitPattern>
+			<unitPattern count="one" alt="short">{0} pv</unitPattern>
+			<unitPattern count="other" alt="short">{0} pv</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} tunti</unitPattern>
 			<unitPattern count="other">{0} tuntia</unitPattern>
+			<unitPattern count="one" alt="short">{0} t</unitPattern>
+			<unitPattern count="other" alt="short">{0} t</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minuutti</unitPattern>
 			<unitPattern count="other">{0} minuuttia</unitPattern>
+			<unitPattern count="one" alt="short">{0} min</unitPattern>
+			<unitPattern count="other" alt="short">{0} min</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} kuukausi</unitPattern>
 			<unitPattern count="other">{0} kuukautta</unitPattern>
+			<unitPattern count="one" alt="short">{0} kk</unitPattern>
+			<unitPattern count="other" alt="short">{0} kk</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} sekunti</unitPattern>
 			<unitPattern count="other">{0} sekuntia</unitPattern>
+			<unitPattern count="one" alt="short">{0} s</unitPattern>
+			<unitPattern count="other" alt="short">{0} s</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} viikko</unitPattern>
 			<unitPattern count="other">{0} viikkoa</unitPattern>
+			<unitPattern count="one" alt="short">{0} vko</unitPattern>
+			<unitPattern count="other" alt="short">{0} vko</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} vuosi</unitPattern>
 			<unitPattern count="other">{0} vuotta</unitPattern>
+			<unitPattern count="one" alt="short">{0} v</unitPattern>
+			<unitPattern count="other" alt="short">{0} v</unitPattern>
 		</unit>
 	</units>
 	<posix>

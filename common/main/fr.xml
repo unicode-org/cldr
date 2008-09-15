@@ -6006,36 +6006,45 @@
 	<units>
 		<unit type="day">
 			<unitPattern count="one">{0} jour</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001">{0} j</unitPattern>
 			<unitPattern count="other">{0} jours</unitPattern>
+			<unitPattern count="one" alt="short">{0} j</unitPattern>
+			<unitPattern count="other" alt="short">{0} j</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} heure</unitPattern>
 			<unitPattern count="other">{0} heures</unitPattern>
+			<unitPattern count="one" alt="short">{0} h</unitPattern>
+			<unitPattern count="other" alt="short">{0} h</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minute</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001">{0} mn</unitPattern>
 			<unitPattern count="other">{0} minutes</unitPattern>
+			<unitPattern count="one" alt="short">{0} mn</unitPattern>
+			<unitPattern count="other" alt="short">{0} mn</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} mois</unitPattern>
 			<unitPattern count="other">{0} mois</unitPattern>
+			<unitPattern count="one" alt="short">{0} mois</unitPattern>
+			<unitPattern count="other" alt="short">{0} mois</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} seconde</unitPattern>
 			<unitPattern count="other">{0} secondes</unitPattern>
+			<unitPattern count="one" alt="short">{0} s</unitPattern>
+			<unitPattern count="other" alt="short">{0} s</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} semaine</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001">{0} sem</unitPattern>
 			<unitPattern count="other">{0} semaines</unitPattern>
+			<unitPattern count="one" alt="short">{0} sem.</unitPattern>
+			<unitPattern count="other" alt="short">{0} sem.</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} an</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001">{0} a</unitPattern>
+			<unitPattern count="one">{0} année</unitPattern>
 			<unitPattern count="other">{0} années</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001">{0} ans</unitPattern>
+			<unitPattern count="one" alt="short">{0} an</unitPattern>
+			<unitPattern count="other" alt="short">{0} ans</unitPattern>
 		</unit>
 	</units>
 	<posix>

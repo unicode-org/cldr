@@ -3373,32 +3373,46 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one" draft="contributed">{0} giorno</unitPattern>
+			<unitPattern count="one">{0} giorno</unitPattern>
 			<unitPattern count="other">{0} giorni</unitPattern>
+			<unitPattern count="one" alt="short">{0} g</unitPattern>
+			<unitPattern count="other" alt="short">{0} gg</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one" draft="contributed">{0} ora</unitPattern>
+			<unitPattern count="one">{0} ora</unitPattern>
 			<unitPattern count="other">{0} ore</unitPattern>
+			<unitPattern count="one" alt="short">{0} h</unitPattern>
+			<unitPattern count="other" alt="short">{0} h</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one" draft="contributed">{0} minuto</unitPattern>
+			<unitPattern count="one">{0} minuto</unitPattern>
 			<unitPattern count="other">{0} minuti</unitPattern>
+			<unitPattern count="one" alt="short">{0} min</unitPattern>
+			<unitPattern count="other" alt="short">{0} min</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one" draft="contributed">{0} mese</unitPattern>
+			<unitPattern count="one">{0} mese</unitPattern>
 			<unitPattern count="other">{0} mesi</unitPattern>
+			<unitPattern count="one" alt="short">{0} mese</unitPattern>
+			<unitPattern count="other" alt="short">{0} mesi</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one" draft="contributed">{0} secondo</unitPattern>
+			<unitPattern count="one">{0} secondo</unitPattern>
 			<unitPattern count="other">{0} secondi</unitPattern>
+			<unitPattern count="one" alt="short">{0} sec</unitPattern>
+			<unitPattern count="other" alt="short">{0} sec</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one" draft="contributed">{0} settimana</unitPattern>
+			<unitPattern count="one">{0} settimana</unitPattern>
 			<unitPattern count="other">{0} settimane</unitPattern>
+			<unitPattern count="one" alt="short">{0} sett.</unitPattern>
+			<unitPattern count="other" alt="short">{0} sett.</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one" draft="contributed">{0} anno</unitPattern>
+			<unitPattern count="one">{0} anno</unitPattern>
 			<unitPattern count="other">{0} anni</unitPattern>
+			<unitPattern count="one" alt="short">{0} anno</unitPattern>
+			<unitPattern count="other" alt="short">{0} anni</unitPattern>
 		</unit>
 	</units>
 	<posix>

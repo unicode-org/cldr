@@ -2473,6 +2473,64 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<unit type="day">
+			<unitPattern count="one">{0} diena</unitPattern>
+			<unitPattern count="other">{0} dienų</unitPattern>
+			<unitPattern count="few">{0} dienos</unitPattern>
+			<unitPattern count="one" alt="short">{0} d.</unitPattern>
+			<unitPattern count="other" alt="short">{0} d.</unitPattern>
+			<unitPattern count="few" alt="short">{0} d.</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="one">{0} valanda</unitPattern>
+			<unitPattern count="other">{0} valandų</unitPattern>
+			<unitPattern count="few">{0} valandos</unitPattern>
+			<unitPattern count="one" alt="short">{0} val.</unitPattern>
+			<unitPattern count="other" alt="short">{0} val.</unitPattern>
+			<unitPattern count="few" alt="short">{0} val.</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="one">{0} minutė</unitPattern>
+			<unitPattern count="other">{0} minučių</unitPattern>
+			<unitPattern count="few">{0} minutės</unitPattern>
+			<unitPattern count="one" alt="short">{0} min.</unitPattern>
+			<unitPattern count="other" alt="short">{0} min.</unitPattern>
+			<unitPattern count="few" alt="short">{0} min.</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="one">{0} mėnuo</unitPattern>
+			<unitPattern count="other">{0} mėnesių</unitPattern>
+			<unitPattern count="few">{0} mėnesiai</unitPattern>
+			<unitPattern count="one" alt="short">{0} mėn.</unitPattern>
+			<unitPattern count="other" alt="short">{0} mėn.</unitPattern>
+			<unitPattern count="few" alt="short">{0} mėn.</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="one">{0} sekundė</unitPattern>
+			<unitPattern count="other">{0} sekundžių</unitPattern>
+			<unitPattern count="few">{0} sekundės</unitPattern>
+			<unitPattern count="one" alt="short">{0} sek.</unitPattern>
+			<unitPattern count="other" alt="short">{0} sek.</unitPattern>
+			<unitPattern count="few" alt="short">{0} sek.</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="one">{0} savaitė</unitPattern>
+			<unitPattern count="other">{0} savaičių</unitPattern>
+			<unitPattern count="few">{0} savaitės</unitPattern>
+			<unitPattern count="one" alt="short">{0} sav.</unitPattern>
+			<unitPattern count="other" alt="short">{0} sav.</unitPattern>
+			<unitPattern count="few" alt="short">{0} sav.</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="one">{0} metai</unitPattern>
+			<unitPattern count="other">{0} metų</unitPattern>
+			<unitPattern count="few">{0} metai</unitPattern>
+			<unitPattern count="one" alt="short">{0} m.</unitPattern>
+			<unitPattern count="other" alt="short">{0} m.</unitPattern>
+			<unitPattern count="few" alt="short">{0} m.</unitPattern>
+		</unit>
+	</units>
 	<posix>
 		<messages>
 			<yesstr>taip:t</yesstr>

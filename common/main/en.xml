@@ -4024,30 +4024,44 @@
 		<unit type="day">
 			<unitPattern count="one">{0} day</unitPattern>
 			<unitPattern count="other">{0} days</unitPattern>
+			<unitPattern count="one" alt="short">{0} day</unitPattern>
+			<unitPattern count="other" alt="short">{0} days</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} hour</unitPattern>
 			<unitPattern count="other">{0} hours</unitPattern>
+			<unitPattern count="one" alt="short">{0} hr</unitPattern>
+			<unitPattern count="other" alt="short">{0} hrs</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minute</unitPattern>
 			<unitPattern count="other">{0} minutes</unitPattern>
+			<unitPattern count="one" alt="short">{0} min</unitPattern>
+			<unitPattern count="other" alt="short">{0} mins</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} month</unitPattern>
 			<unitPattern count="other">{0} months</unitPattern>
+			<unitPattern count="one" alt="short">{0} mth</unitPattern>
+			<unitPattern count="other" alt="short">{0} mths</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} second</unitPattern>
 			<unitPattern count="other">{0} seconds</unitPattern>
+			<unitPattern count="one" alt="short">{0} sec</unitPattern>
+			<unitPattern count="other" alt="short">{0} secs</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} week</unitPattern>
 			<unitPattern count="other">{0} weeks</unitPattern>
+			<unitPattern count="one" alt="short">{0} wk</unitPattern>
+			<unitPattern count="other" alt="short">{0} wks</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} year</unitPattern>
 			<unitPattern count="other">{0} years</unitPattern>
+			<unitPattern count="one" alt="short">{0} yr</unitPattern>
+			<unitPattern count="other" alt="short">{0} yrs</unitPattern>
 		</unit>
 	</units>
 	<posix>

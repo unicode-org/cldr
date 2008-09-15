@@ -2915,25 +2915,46 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one" draft="contributed">{0} ימים</unitPattern>
+			<unitPattern count="one">{0} יום</unitPattern>
+			<unitPattern count="other">{0} ימים</unitPattern>
+			<unitPattern count="one" alt="short">{0} יום</unitPattern>
+			<unitPattern count="other" alt="short">{0} ימים</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one" draft="contributed">{0} שעות</unitPattern>
+			<unitPattern count="one">{0} שעה</unitPattern>
+			<unitPattern count="other">{0} שעות</unitPattern>
+			<unitPattern count="one" alt="short">{0} שעה</unitPattern>
+			<unitPattern count="other" alt="short">{0} שעות</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one" draft="contributed">{0} דקות</unitPattern>
+			<unitPattern count="one">{0} דקה</unitPattern>
+			<unitPattern count="other">{0} דקות</unitPattern>
+			<unitPattern count="one" alt="short">{0} דק'</unitPattern>
+			<unitPattern count="other" alt="short">{0} דק'</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one" draft="contributed">{0} חודשים</unitPattern>
+			<unitPattern count="one">{0} חודש</unitPattern>
+			<unitPattern count="other">{0} חודשים</unitPattern>
+			<unitPattern count="one" alt="short">{0} חודש</unitPattern>
+			<unitPattern count="other" alt="short">{0} חודשים</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one" draft="contributed">{0} שניות</unitPattern>
+			<unitPattern count="one">{0} שניה</unitPattern>
+			<unitPattern count="other">{0} שניות</unitPattern>
+			<unitPattern count="one" alt="short">{0} שנ'</unitPattern>
+			<unitPattern count="other" alt="short">{0} שנ'</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one" draft="contributed">{0} שבועות</unitPattern>
+			<unitPattern count="one">{0} שבוע</unitPattern>
+			<unitPattern count="other">{0} שבועות</unitPattern>
+			<unitPattern count="one" alt="short">{0} שבוע</unitPattern>
+			<unitPattern count="other" alt="short">{0} שבועות</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one" draft="contributed">{0} שנים</unitPattern>
+			<unitPattern count="one">{0} שנה</unitPattern>
+			<unitPattern count="other">{0} שנים</unitPattern>
+			<unitPattern count="one" alt="short">{0} שנה</unitPattern>
+			<unitPattern count="other" alt="short">{0} שנים</unitPattern>
 		</unit>
 	</units>
 	<posix>

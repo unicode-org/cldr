@@ -3755,30 +3755,44 @@
 		<unit type="day">
 			<unitPattern count="one">{0} día</unitPattern>
 			<unitPattern count="other">{0} días</unitPattern>
+			<unitPattern count="one" alt="short">{0} día</unitPattern>
+			<unitPattern count="other" alt="short">{0} días</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} hora</unitPattern>
 			<unitPattern count="other">{0} horas</unitPattern>
+			<unitPattern count="one" alt="short">{0} h</unitPattern>
+			<unitPattern count="other" alt="short">{0} h</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minuto</unitPattern>
 			<unitPattern count="other">{0} minutos</unitPattern>
+			<unitPattern count="one" alt="short">{0} min</unitPattern>
+			<unitPattern count="other" alt="short">{0} min</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} mes</unitPattern>
 			<unitPattern count="other">{0} meses</unitPattern>
+			<unitPattern count="one" alt="short">{0} mes</unitPattern>
+			<unitPattern count="other" alt="short">{0} meses</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} segundo</unitPattern>
 			<unitPattern count="other">{0} segundos</unitPattern>
+			<unitPattern count="one" alt="short">{0} s</unitPattern>
+			<unitPattern count="other" alt="short">{0} s</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} semana</unitPattern>
 			<unitPattern count="other">{0} semanas</unitPattern>
+			<unitPattern count="one" alt="short">{0} semana</unitPattern>
+			<unitPattern count="other" alt="short">{0} semanas</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} año</unitPattern>
 			<unitPattern count="other">{0} años</unitPattern>
+			<unitPattern count="one" alt="short">{0} año</unitPattern>
+			<unitPattern count="other" alt="short">{0} años</unitPattern>
 		</unit>
 	</units>
 	<posix>

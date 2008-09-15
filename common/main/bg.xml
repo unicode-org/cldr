@@ -3090,6 +3090,50 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<unit type="day">
+			<unitPattern count="one">{0} ден</unitPattern>
+			<unitPattern count="other">{0} дена</unitPattern>
+			<unitPattern count="one" alt="short">{0} дн.</unitPattern>
+			<unitPattern count="other" alt="short">{0} дн.</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="one">{0} час</unitPattern>
+			<unitPattern count="other">{0} часа</unitPattern>
+			<unitPattern count="one" alt="short">{0} ч</unitPattern>
+			<unitPattern count="other" alt="short">{0} ч</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="one">{0} минута</unitPattern>
+			<unitPattern count="other">{0} минути</unitPattern>
+			<unitPattern count="one" alt="short">{0} мин</unitPattern>
+			<unitPattern count="other" alt="short">{0} мин</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="one">{0} месец</unitPattern>
+			<unitPattern count="other">{0} месеца</unitPattern>
+			<unitPattern count="one" alt="short">{0} мес.</unitPattern>
+			<unitPattern count="other" alt="short">{0} мес.</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="one">{0} секунда</unitPattern>
+			<unitPattern count="other">{0} секунди</unitPattern>
+			<unitPattern count="one" alt="short">{0} сек</unitPattern>
+			<unitPattern count="other" alt="short">{0} сек</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="one">{0} седмица</unitPattern>
+			<unitPattern count="other">{0} седмици</unitPattern>
+			<unitPattern count="one" alt="short">{0} седм.</unitPattern>
+			<unitPattern count="other" alt="short">{0} седм.</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="one">{0} година</unitPattern>
+			<unitPattern count="other">{0} години</unitPattern>
+			<unitPattern count="one" alt="short">{0} год.</unitPattern>
+			<unitPattern count="other" alt="short">{0} год.</unitPattern>
+		</unit>
+	</units>
 	<posix>
 		<messages>
 			<yesstr>да:д</yesstr>

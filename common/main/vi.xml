@@ -1074,24 +1074,31 @@
 	<units>
 		<unit type="day">
 			<unitPattern count="other">{0} ngày</unitPattern>
+			<unitPattern count="other" alt="short">{0} ngày</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="other">{0} giờ</unitPattern>
+			<unitPattern count="other" alt="short">{0} g</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="other">{0} phút</unitPattern>
+			<unitPattern count="other" alt="short">{0} ph</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="other">{0} tháng</unitPattern>
+			<unitPattern count="other" alt="short">{0} tháng</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="other">{0} giây</unitPattern>
+			<unitPattern count="other" alt="short">{0} s</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="other">{0} tuần</unitPattern>
+			<unitPattern count="other" alt="short">{0} tuần</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="other">{0} năm</unitPattern>
+			<unitPattern count="other" alt="short">{0} năm</unitPattern>
 		</unit>
 	</units>
 	<posix>

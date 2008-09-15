@@ -1675,30 +1675,44 @@
 		<unit type="day">
 			<unitPattern count="one">{0} dia</unitPattern>
 			<unitPattern count="other">{0} dies</unitPattern>
+			<unitPattern count="one" alt="short">{0} dia</unitPattern>
+			<unitPattern count="other" alt="short">{0} dies</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} hora</unitPattern>
 			<unitPattern count="other">{0} hores</unitPattern>
+			<unitPattern count="one" alt="short">{0} h</unitPattern>
+			<unitPattern count="other" alt="short">{0} h</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minut</unitPattern>
 			<unitPattern count="other">{0} minuts</unitPattern>
+			<unitPattern count="one" alt="short">{0} m</unitPattern>
+			<unitPattern count="other" alt="short">{0} m</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} mes</unitPattern>
 			<unitPattern count="other">{0} mesos</unitPattern>
+			<unitPattern count="one" alt="short">{0} mes</unitPattern>
+			<unitPattern count="other" alt="short">{0} mesos</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} segon</unitPattern>
 			<unitPattern count="other">{0} segons</unitPattern>
+			<unitPattern count="one" alt="short">{0} s</unitPattern>
+			<unitPattern count="other" alt="short">{0} s</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} setmana</unitPattern>
 			<unitPattern count="other">{0} setmanes</unitPattern>
+			<unitPattern count="one" alt="short">{0} setmana</unitPattern>
+			<unitPattern count="other" alt="short">{0} setmanes</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} any</unitPattern>
 			<unitPattern count="other">{0} anys</unitPattern>
+			<unitPattern count="one" alt="short">{0} any</unitPattern>
+			<unitPattern count="other" alt="short">{0} anys</unitPattern>
 		</unit>
 	</units>
 	<posix>

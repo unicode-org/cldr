@@ -4738,32 +4738,46 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one" draft="contributed">{0} dag</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} dagar</unitPattern>
+			<unitPattern count="one">{0} dag</unitPattern>
+			<unitPattern count="other">{0} dagar</unitPattern>
+			<unitPattern count="one" alt="short">{0} dag</unitPattern>
+			<unitPattern count="other" alt="short">{0} dagar</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one" draft="contributed">{0} timme</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} timmar</unitPattern>
+			<unitPattern count="one">{0} timme</unitPattern>
+			<unitPattern count="other">{0} timmar</unitPattern>
+			<unitPattern count="one" alt="short">{0} tim.</unitPattern>
+			<unitPattern count="other" alt="short">{0} tim.</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one" draft="contributed">{0} minut</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} minuter</unitPattern>
+			<unitPattern count="one">{0} minut</unitPattern>
+			<unitPattern count="other">{0} minuter</unitPattern>
+			<unitPattern count="one" alt="short">{0} min.</unitPattern>
+			<unitPattern count="other" alt="short">{0} min.</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one" draft="contributed">{0} månad</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} månader</unitPattern>
+			<unitPattern count="one">{0} månad</unitPattern>
+			<unitPattern count="other">{0} månader</unitPattern>
+			<unitPattern count="one" alt="short">{0} mån.</unitPattern>
+			<unitPattern count="other" alt="short">{0} mån.</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one" draft="contributed">{0} sekund</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} sekunder</unitPattern>
+			<unitPattern count="one">{0} sekund</unitPattern>
+			<unitPattern count="other">{0} sekunder</unitPattern>
+			<unitPattern count="one" alt="short">{0} sek.</unitPattern>
+			<unitPattern count="other" alt="short">{0} sek.</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one" draft="contributed">{0} vecka</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} veckor</unitPattern>
+			<unitPattern count="one">{0} vecka</unitPattern>
+			<unitPattern count="other">{0} veckor</unitPattern>
+			<unitPattern count="one" alt="short">{0} v.</unitPattern>
+			<unitPattern count="other" alt="short">{0} v.</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one" draft="contributed">{0} år</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} år</unitPattern>
+			<unitPattern count="one">{0} år</unitPattern>
+			<unitPattern count="other">{0} år</unitPattern>
+			<unitPattern count="one" alt="short">{0} år</unitPattern>
+			<unitPattern count="other" alt="short">{0} år</unitPattern>
 		</unit>
 	</units>
 	<posix>

@@ -4294,6 +4294,79 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<unit type="day">
+			<unitPattern count="one">{0} день</unitPattern>
+			<unitPattern count="other">{0} дня</unitPattern>
+			<unitPattern count="many">{0} дней</unitPattern>
+			<unitPattern count="few">{0} дня</unitPattern>
+			<unitPattern count="one" alt="short">{0} дн.</unitPattern>
+			<unitPattern count="other" alt="short">{0} дн.</unitPattern>
+			<unitPattern count="many" alt="short">{0} дн.</unitPattern>
+			<unitPattern count="few" alt="short">{0} дн.</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="one">{0} час</unitPattern>
+			<unitPattern count="other">{0} часа</unitPattern>
+			<unitPattern count="many">{0} часов</unitPattern>
+			<unitPattern count="few">{0} часа</unitPattern>
+			<unitPattern count="one" alt="short">{0} ч.</unitPattern>
+			<unitPattern count="other" alt="short">{0} ч.</unitPattern>
+			<unitPattern count="many" alt="short">{0} ч.</unitPattern>
+			<unitPattern count="few" alt="short">{0} ч.</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="one">{0} минута</unitPattern>
+			<unitPattern count="other">{0} минуты</unitPattern>
+			<unitPattern count="many">{0} минут</unitPattern>
+			<unitPattern count="few">{0} минуты</unitPattern>
+			<unitPattern count="one" alt="short">{0} мин.</unitPattern>
+			<unitPattern count="other" alt="short">{0} мин.</unitPattern>
+			<unitPattern count="many" alt="short">{0} мин.</unitPattern>
+			<unitPattern count="few" alt="short">{0} мин.</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="one">{0} месяц</unitPattern>
+			<unitPattern count="other">{0} месяца</unitPattern>
+			<unitPattern count="many">{0} месяцев</unitPattern>
+			<unitPattern count="few">{0} месяца</unitPattern>
+			<unitPattern count="one" alt="short">{0} мес.</unitPattern>
+			<unitPattern count="other" alt="short">{0} мес.</unitPattern>
+			<unitPattern count="many" alt="short">{0} мес.</unitPattern>
+			<unitPattern count="few" alt="short">{0} мес.</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="one">{0} секунда</unitPattern>
+			<unitPattern count="other">{0} секунды</unitPattern>
+			<unitPattern count="many">{0} секунд</unitPattern>
+			<unitPattern count="few">{0} секунды</unitPattern>
+			<unitPattern count="one" alt="short">
+</unitPattern>
+			<unitPattern count="other" alt="short">{0} сек.</unitPattern>
+			<unitPattern count="many" alt="short">{0} сек.</unitPattern>
+			<unitPattern count="few" alt="short">{0} сек.</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="one">{0} неделя</unitPattern>
+			<unitPattern count="other">{0} недели</unitPattern>
+			<unitPattern count="many">{0} недель</unitPattern>
+			<unitPattern count="few">{0} недели</unitPattern>
+			<unitPattern count="one" alt="short">{0} нед.</unitPattern>
+			<unitPattern count="other" alt="short">{0} нед.</unitPattern>
+			<unitPattern count="many" alt="short">{0} нед.</unitPattern>
+			<unitPattern count="few" alt="short">{0} нед.</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="one">{0} год</unitPattern>
+			<unitPattern count="other">{0} года</unitPattern>
+			<unitPattern count="many">{0} лет</unitPattern>
+			<unitPattern count="few">{0} года</unitPattern>
+			<unitPattern count="one" alt="short">{0} г.</unitPattern>
+			<unitPattern count="other" alt="short">{0} г.</unitPattern>
+			<unitPattern count="many" alt="short">{0} лет</unitPattern>
+			<unitPattern count="few" alt="short">{0} г.</unitPattern>
+		</unit>
+	</units>
 	<posix>
 		<messages>
 			<yesstr>да:д</yesstr>

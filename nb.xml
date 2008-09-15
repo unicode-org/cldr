@@ -2653,30 +2653,44 @@
 		<unit type="day">
 			<unitPattern count="one">{0} dag</unitPattern>
 			<unitPattern count="other">{0} dager</unitPattern>
+			<unitPattern count="one" alt="short">{0} dag</unitPattern>
+			<unitPattern count="other" alt="short">{0} dager</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} time</unitPattern>
 			<unitPattern count="other">{0} timer</unitPattern>
+			<unitPattern count="one" alt="short">{0} t</unitPattern>
+			<unitPattern count="other" alt="short">{0} t</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minutt</unitPattern>
 			<unitPattern count="other">{0} minutter</unitPattern>
+			<unitPattern count="one" alt="short">{0} min</unitPattern>
+			<unitPattern count="other" alt="short">{0} min</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} måned</unitPattern>
 			<unitPattern count="other">{0} måneder</unitPattern>
+			<unitPattern count="one" alt="short">{0} md.</unitPattern>
+			<unitPattern count="other" alt="short">{0} md.</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} sekund</unitPattern>
 			<unitPattern count="other">{0} sekunder</unitPattern>
+			<unitPattern count="one" alt="short">{0} sek</unitPattern>
+			<unitPattern count="other" alt="short">{0} sek</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} uke</unitPattern>
 			<unitPattern count="other">{0} uker</unitPattern>
+			<unitPattern count="one" alt="short">{0} uke</unitPattern>
+			<unitPattern count="other" alt="short">{0} uker</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} år</unitPattern>
 			<unitPattern count="other">{0} år</unitPattern>
+			<unitPattern count="one" alt="short">{0} år</unitPattern>
+			<unitPattern count="other" alt="short">{0} år</unitPattern>
 		</unit>
 	</units>
 	<posix>

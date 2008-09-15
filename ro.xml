@@ -1821,6 +1821,64 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<unit type="day">
+			<unitPattern count="one">{0} zi</unitPattern>
+			<unitPattern count="other">{0} de zile</unitPattern>
+			<unitPattern count="few">{0} zile</unitPattern>
+			<unitPattern count="one" alt="short">{0} zi</unitPattern>
+			<unitPattern count="other" alt="short">{0} zile</unitPattern>
+			<unitPattern count="few" alt="short">{0} zile</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="one">{0} oră</unitPattern>
+			<unitPattern count="other">{0} de ore</unitPattern>
+			<unitPattern count="few">{0} ore</unitPattern>
+			<unitPattern count="one" alt="short">{0} oră</unitPattern>
+			<unitPattern count="other" alt="short">{0} ore</unitPattern>
+			<unitPattern count="few" alt="short">{0} ore</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="one">{0} minut</unitPattern>
+			<unitPattern count="other">{0} de minute</unitPattern>
+			<unitPattern count="few">{0} minute</unitPattern>
+			<unitPattern count="one" alt="short">{0} min.</unitPattern>
+			<unitPattern count="other" alt="short">{0} min.</unitPattern>
+			<unitPattern count="few" alt="short">{0} min.</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="one">{0} lună</unitPattern>
+			<unitPattern count="other">{0} de luni</unitPattern>
+			<unitPattern count="few">{0} luni</unitPattern>
+			<unitPattern count="one" alt="short">{0} lună</unitPattern>
+			<unitPattern count="other" alt="short">{0} luni</unitPattern>
+			<unitPattern count="few" alt="short">{0} luni</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="one">{0} secundă</unitPattern>
+			<unitPattern count="other">{0} de secunde</unitPattern>
+			<unitPattern count="few">{0} secunde</unitPattern>
+			<unitPattern count="one" alt="short">{0} sec.</unitPattern>
+			<unitPattern count="other" alt="short">{0} sec.</unitPattern>
+			<unitPattern count="few" alt="short">{0} sec.</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="one">{0} săptămână</unitPattern>
+			<unitPattern count="other">{0} de săptămâni</unitPattern>
+			<unitPattern count="few">{0} săptămâni</unitPattern>
+			<unitPattern count="one" alt="short">{0} săpt.</unitPattern>
+			<unitPattern count="other" alt="short">{0} săpt.</unitPattern>
+			<unitPattern count="few" alt="short">{0} săpt.</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="one">{0} an</unitPattern>
+			<unitPattern count="other">{0} de ani</unitPattern>
+			<unitPattern count="few">{0} ani</unitPattern>
+			<unitPattern count="one" alt="short">{0} an</unitPattern>
+			<unitPattern count="other" alt="short">{0} ani</unitPattern>
+			<unitPattern count="few" alt="short">{0} ani</unitPattern>
+		</unit>
+	</units>
 	<posix>
 		<messages>
 			<yesstr>da:d</yesstr>

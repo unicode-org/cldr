@@ -1818,6 +1818,64 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<unit type="day">
+			<unitPattern count="one">{0} deň</unitPattern>
+			<unitPattern count="other">{0} dní</unitPattern>
+			<unitPattern count="few">{0} dni</unitPattern>
+			<unitPattern count="one" alt="short">{0} d.</unitPattern>
+			<unitPattern count="other" alt="short">{0} d.</unitPattern>
+			<unitPattern count="few" alt="short">{0} d.</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="one">{0} hodina</unitPattern>
+			<unitPattern count="other">{0} hodín</unitPattern>
+			<unitPattern count="few">{0} hodiny</unitPattern>
+			<unitPattern count="one" alt="short">{0} h</unitPattern>
+			<unitPattern count="other" alt="short">{0} h</unitPattern>
+			<unitPattern count="few" alt="short">{0} h</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="one">{0} minúta</unitPattern>
+			<unitPattern count="other">{0} minút</unitPattern>
+			<unitPattern count="few">{0} minúty</unitPattern>
+			<unitPattern count="one" alt="short">{0} min</unitPattern>
+			<unitPattern count="other" alt="short">{0} min</unitPattern>
+			<unitPattern count="few" alt="short">{0} min</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="one">{0} mesiac</unitPattern>
+			<unitPattern count="other">{0} mesiacov</unitPattern>
+			<unitPattern count="few">{0} mesiace</unitPattern>
+			<unitPattern count="one" alt="short">{0} mes.</unitPattern>
+			<unitPattern count="other" alt="short">{0} mes.</unitPattern>
+			<unitPattern count="few" alt="short">{0} mes.</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="one">{0} sekunda</unitPattern>
+			<unitPattern count="other">{0} sekúnd</unitPattern>
+			<unitPattern count="few">{0} sekundy</unitPattern>
+			<unitPattern count="one" alt="short">{0} s</unitPattern>
+			<unitPattern count="other" alt="short">{0} s</unitPattern>
+			<unitPattern count="few" alt="short">{0} s</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="one">{0} týždeň</unitPattern>
+			<unitPattern count="other">{0} týždňov</unitPattern>
+			<unitPattern count="few">{0} týždne</unitPattern>
+			<unitPattern count="one" alt="short">{0} týžd.</unitPattern>
+			<unitPattern count="other" alt="short">{0} týžd.</unitPattern>
+			<unitPattern count="few" alt="short">{0} týžd.</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="one">{0} rok</unitPattern>
+			<unitPattern count="other">{0} rokov</unitPattern>
+			<unitPattern count="few">{0} roky</unitPattern>
+			<unitPattern count="one" alt="short">{0} r.</unitPattern>
+			<unitPattern count="other" alt="short">{0} r.</unitPattern>
+			<unitPattern count="few" alt="short">{0} r.</unitPattern>
+		</unit>
+	</units>
 	<posix>
 		<messages>
 			<yesstr>ano:a</yesstr>

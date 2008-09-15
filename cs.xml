@@ -2184,26 +2184,60 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="few">{0} dny</unitPattern>
 			<unitPattern count="one">{0} den</unitPattern>
+			<unitPattern count="other">{0} dní</unitPattern>
+			<unitPattern count="few">{0} dny</unitPattern>
+			<unitPattern count="one" alt="short">{0} den</unitPattern>
+			<unitPattern count="other" alt="short">{0} dní</unitPattern>
+			<unitPattern count="few" alt="short">{0} dny</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} hodina</unitPattern>
+			<unitPattern count="other">{0} hodin</unitPattern>
+			<unitPattern count="few">{0} hodiny</unitPattern>
+			<unitPattern count="one" alt="short">{0} hod.</unitPattern>
+			<unitPattern count="other" alt="short">{0} hod.</unitPattern>
+			<unitPattern count="few" alt="short">{0} hod.</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minuta</unitPattern>
+			<unitPattern count="other">{0} minut</unitPattern>
+			<unitPattern count="few">{0} minuty</unitPattern>
+			<unitPattern count="one" alt="short">{0} min.</unitPattern>
+			<unitPattern count="other" alt="short">{0} min.</unitPattern>
+			<unitPattern count="few" alt="short">{0} min.</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} měsíc</unitPattern>
+			<unitPattern count="other">{0} měsíců</unitPattern>
+			<unitPattern count="few">{0} měsíce</unitPattern>
+			<unitPattern count="one" alt="short">{0} měs.</unitPattern>
+			<unitPattern count="other" alt="short">{0} měs.</unitPattern>
+			<unitPattern count="few" alt="short">{0} měs.</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} sekunda</unitPattern>
+			<unitPattern count="other">{0} sekund</unitPattern>
+			<unitPattern count="few">{0} sekundy</unitPattern>
+			<unitPattern count="one" alt="short">{0} sek.</unitPattern>
+			<unitPattern count="other" alt="short">{0} sek.</unitPattern>
+			<unitPattern count="few" alt="short">{0} sek.</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} týden</unitPattern>
+			<unitPattern count="other">{0} týdnů</unitPattern>
+			<unitPattern count="few">{0} týdny</unitPattern>
+			<unitPattern count="one" alt="short">{0} týd.</unitPattern>
+			<unitPattern count="other" alt="short">{0} týd.</unitPattern>
+			<unitPattern count="few" alt="short">{0} týd.</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} rok</unitPattern>
+			<unitPattern count="other">{0} let</unitPattern>
+			<unitPattern count="few">{0} roky</unitPattern>
+			<unitPattern count="one" alt="short">{0} rok</unitPattern>
+			<unitPattern count="other" alt="short">{0} let</unitPattern>
+			<unitPattern count="few" alt="short">{0} roky</unitPattern>
 		</unit>
 	</units>
 	<posix>

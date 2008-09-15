@@ -2297,39 +2297,74 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="few">{0} дана</unitPattern>
-			<unitPattern count="many">{0} дана</unitPattern>
 			<unitPattern count="one">{0} дан</unitPattern>
+			<unitPattern count="other">{0} дан</unitPattern>
+			<unitPattern count="many">{0} дана</unitPattern>
+			<unitPattern count="few">{0} дана</unitPattern>
+			<unitPattern count="one" alt="short">{0} дан</unitPattern>
+			<unitPattern count="other" alt="short">{0} дан</unitPattern>
+			<unitPattern count="many" alt="short">{0} дана</unitPattern>
+			<unitPattern count="few" alt="short">{0} дана</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="few">{0} сата</unitPattern>
-			<unitPattern count="many">{0} сати</unitPattern>
 			<unitPattern count="one">{0} сат</unitPattern>
+			<unitPattern count="other">{0} сат</unitPattern>
+			<unitPattern count="many">{0} сати</unitPattern>
+			<unitPattern count="few">{0} сата</unitPattern>
+			<unitPattern count="one" alt="short">{0} сат</unitPattern>
+			<unitPattern count="other" alt="short">{0} сат</unitPattern>
+			<unitPattern count="many" alt="short">{0} сати</unitPattern>
+			<unitPattern count="few" alt="short">{0} сата</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="few">{0} минута</unitPattern>
-			<unitPattern count="many">{0} минута</unitPattern>
 			<unitPattern count="one">{0} минут</unitPattern>
+			<unitPattern count="other">{0} минут</unitPattern>
+			<unitPattern count="many">{0} минута</unitPattern>
+			<unitPattern count="few">{0} минута</unitPattern>
+			<unitPattern count="one" alt="short">{0} мин</unitPattern>
+			<unitPattern count="other" alt="short">{0} мин</unitPattern>
+			<unitPattern count="many" alt="short">{0} мин</unitPattern>
+			<unitPattern count="few" alt="short">{0} мин</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="few">{0} месеца</unitPattern>
-			<unitPattern count="many">{0} месеци</unitPattern>
 			<unitPattern count="one">{0} месец</unitPattern>
+			<unitPattern count="other">{0} месец</unitPattern>
+			<unitPattern count="many">{0} месеци</unitPattern>
+			<unitPattern count="few">{0} месеца</unitPattern>
+			<unitPattern count="one" alt="short">{0} мес</unitPattern>
+			<unitPattern count="other" alt="short">{0} мес</unitPattern>
+			<unitPattern count="many" alt="short">{0} мес</unitPattern>
+			<unitPattern count="few" alt="short">{0} мес</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="few">{0} секунде</unitPattern>
-			<unitPattern count="many">{0} секунди</unitPattern>
 			<unitPattern count="one">{0} секунда</unitPattern>
+			<unitPattern count="other">{0} секунда</unitPattern>
+			<unitPattern count="many">{0} секунди</unitPattern>
+			<unitPattern count="few">{0} секунде</unitPattern>
+			<unitPattern count="one" alt="short">{0} сек</unitPattern>
+			<unitPattern count="other" alt="short">{0} сек</unitPattern>
+			<unitPattern count="many" alt="short">{0} сек</unitPattern>
+			<unitPattern count="few" alt="short">{0} сек</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="few">{0} недеље</unitPattern>
-			<unitPattern count="many">{0} недеља</unitPattern>
 			<unitPattern count="one">{0} недеља</unitPattern>
+			<unitPattern count="other">{0} недеља</unitPattern>
+			<unitPattern count="many">{0} недеља</unitPattern>
+			<unitPattern count="few">{0} недеље</unitPattern>
+			<unitPattern count="one" alt="short">{0} нед</unitPattern>
+			<unitPattern count="other" alt="short">{0} нед</unitPattern>
+			<unitPattern count="many" alt="short">{0} нед</unitPattern>
+			<unitPattern count="few" alt="short">{0} нед</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="few">{0} године</unitPattern>
-			<unitPattern count="many">{0} година</unitPattern>
 			<unitPattern count="one">{0} година</unitPattern>
+			<unitPattern count="other">{0} година</unitPattern>
+			<unitPattern count="many">{0} година</unitPattern>
+			<unitPattern count="few">{0} године</unitPattern>
+			<unitPattern count="one" alt="short">{0} год</unitPattern>
+			<unitPattern count="other" alt="short">{0} год</unitPattern>
+			<unitPattern count="many" alt="short">{0} год</unitPattern>
+			<unitPattern count="few" alt="short">{0} год</unitPattern>
 		</unit>
 	</units>
 	<posix>

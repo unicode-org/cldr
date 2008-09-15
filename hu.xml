@@ -4247,24 +4247,31 @@
 	<units>
 		<unit type="day">
 			<unitPattern count="other">{0} nap</unitPattern>
+			<unitPattern count="other" alt="short">{0} nap</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="other">{0} óra</unitPattern>
+			<unitPattern count="other" alt="short">{0} ó</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="other">{0} perc</unitPattern>
+			<unitPattern count="other" alt="short">{0} p</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="other">{0} hónap</unitPattern>
+			<unitPattern count="other" alt="short">{0} hónap</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="other">{0} másodperc</unitPattern>
+			<unitPattern count="other" alt="short">{0} mp</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="other">{0} hét</unitPattern>
+			<unitPattern count="other" alt="short">{0} hét</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="other">{0} év</unitPattern>
+			<unitPattern count="other" alt="short">{0} év</unitPattern>
 		</unit>
 	</units>
 	<posix>

@@ -1841,6 +1841,78 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<unit type="day">
+			<unitPattern count="one">{0} dan</unitPattern>
+			<unitPattern count="other">{0} dan</unitPattern>
+			<unitPattern count="many">{0} dana</unitPattern>
+			<unitPattern count="few">{0} dana</unitPattern>
+			<unitPattern count="one" alt="short">{0} dan</unitPattern>
+			<unitPattern count="other" alt="short">{0} dan</unitPattern>
+			<unitPattern count="many" alt="short">{0} dana</unitPattern>
+			<unitPattern count="few" alt="short">{0} dana</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="one">{0} sat</unitPattern>
+			<unitPattern count="other">{0} sat</unitPattern>
+			<unitPattern count="many">{0} sati</unitPattern>
+			<unitPattern count="few">{0} sata</unitPattern>
+			<unitPattern count="one" alt="short">{0} h</unitPattern>
+			<unitPattern count="other" alt="short">{0} h</unitPattern>
+			<unitPattern count="many" alt="short">{0} h</unitPattern>
+			<unitPattern count="few" alt="short">{0} h</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="one">{0} minuta</unitPattern>
+			<unitPattern count="other">{0} minuta</unitPattern>
+			<unitPattern count="many">{0} minuta</unitPattern>
+			<unitPattern count="few">{0} minute</unitPattern>
+			<unitPattern count="one" alt="short">{0} min</unitPattern>
+			<unitPattern count="other" alt="short">{0} min</unitPattern>
+			<unitPattern count="many" alt="short">{0} min</unitPattern>
+			<unitPattern count="few" alt="short">{0} min</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="one">{0} mjesec</unitPattern>
+			<unitPattern count="other">{0} mjesec</unitPattern>
+			<unitPattern count="many">{0} mjeseci</unitPattern>
+			<unitPattern count="few">{0} mjeseca</unitPattern>
+			<unitPattern count="one" alt="short">{0} mj.</unitPattern>
+			<unitPattern count="other" alt="short">{0} mj.</unitPattern>
+			<unitPattern count="many" alt="short">{0} mj.</unitPattern>
+			<unitPattern count="few" alt="short">{0} mj.</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="one">{0} sekunda</unitPattern>
+			<unitPattern count="other">{0} sekunda</unitPattern>
+			<unitPattern count="many">{0} sekundi</unitPattern>
+			<unitPattern count="few">{0} sekunde</unitPattern>
+			<unitPattern count="one" alt="short">{0} s</unitPattern>
+			<unitPattern count="other" alt="short">{0} s</unitPattern>
+			<unitPattern count="many" alt="short">{0} s</unitPattern>
+			<unitPattern count="few" alt="short">{0} s</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="one">{0} tjedan</unitPattern>
+			<unitPattern count="other">{0} tjedan</unitPattern>
+			<unitPattern count="many">{0} tjedana</unitPattern>
+			<unitPattern count="few">{0} tjedna</unitPattern>
+			<unitPattern count="one" alt="short">{0} tj.</unitPattern>
+			<unitPattern count="other" alt="short">{0} tj.</unitPattern>
+			<unitPattern count="many" alt="short">{0} tj.</unitPattern>
+			<unitPattern count="few" alt="short">{0} tj.</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="one">{0} godina</unitPattern>
+			<unitPattern count="other">{0} godina</unitPattern>
+			<unitPattern count="many">{0} godina</unitPattern>
+			<unitPattern count="few">{0} godine</unitPattern>
+			<unitPattern count="one" alt="short">{0} g.</unitPattern>
+			<unitPattern count="other" alt="short">{0} g.</unitPattern>
+			<unitPattern count="many" alt="short">{0} g.</unitPattern>
+			<unitPattern count="few" alt="short">{0} g.</unitPattern>
+		</unit>
+	</units>
 	<posix>
 		<messages>
 			<yesstr>da:d</yesstr>

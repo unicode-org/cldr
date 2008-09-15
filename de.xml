@@ -3441,30 +3441,44 @@
 		<unit type="day">
 			<unitPattern count="one">{0} Tag</unitPattern>
 			<unitPattern count="other">{0} Tage</unitPattern>
+			<unitPattern count="one" alt="short">{0} Tag</unitPattern>
+			<unitPattern count="other" alt="short">{0} Tage</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} Stunde</unitPattern>
 			<unitPattern count="other">{0} Stunden</unitPattern>
+			<unitPattern count="one" alt="short">{0} Std.</unitPattern>
+			<unitPattern count="other" alt="short">{0} Std.</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} Minute</unitPattern>
 			<unitPattern count="other">{0} Minuten</unitPattern>
+			<unitPattern count="one" alt="short">{0} Min.</unitPattern>
+			<unitPattern count="other" alt="short">{0} Min.</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} Monat</unitPattern>
 			<unitPattern count="other">{0} Monate</unitPattern>
+			<unitPattern count="one" alt="short">{0} Monat</unitPattern>
+			<unitPattern count="other" alt="short">{0} Monate</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} Sekunde</unitPattern>
 			<unitPattern count="other">{0} Sekunden</unitPattern>
+			<unitPattern count="one" alt="short">{0} Sek.</unitPattern>
+			<unitPattern count="other" alt="short">{0} Sek.</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} Woche</unitPattern>
 			<unitPattern count="other">{0} Wochen</unitPattern>
+			<unitPattern count="one" alt="short">{0} Woche</unitPattern>
+			<unitPattern count="other" alt="short">{0} Wochen</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} Jahr</unitPattern>
 			<unitPattern count="other">{0} Jahre</unitPattern>
+			<unitPattern count="one" alt="short">{0} Jahr</unitPattern>
+			<unitPattern count="other" alt="short">{0} Jahre</unitPattern>
 		</unit>
 	</units>
 	<posix>

@@ -4007,52 +4007,74 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="few">{0} дні</unitPattern>
-			<unitPattern count="many">{0} днів</unitPattern>
 			<unitPattern count="one">{0} день</unitPattern>
 			<unitPattern count="other">{0} дня</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001">{0} днів</unitPattern>
+			<unitPattern count="many">{0} днів</unitPattern>
+			<unitPattern count="few">{0} дні</unitPattern>
+			<unitPattern count="one" alt="short">{0} день</unitPattern>
+			<unitPattern count="other" alt="short">{0} дня</unitPattern>
+			<unitPattern count="many" alt="short">{0} днів</unitPattern>
+			<unitPattern count="few" alt="short">{0} дні</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="few">{0} години</unitPattern>
-			<unitPattern count="many">{0} годин</unitPattern>
 			<unitPattern count="one">{0} година</unitPattern>
 			<unitPattern count="other">{0} години</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001">{0} годин</unitPattern>
+			<unitPattern count="many">{0} годин</unitPattern>
+			<unitPattern count="few">{0} години</unitPattern>
+			<unitPattern count="one" alt="short">{0} год.</unitPattern>
+			<unitPattern count="other" alt="short">{0} год.</unitPattern>
+			<unitPattern count="many" alt="short">{0} год.</unitPattern>
+			<unitPattern count="few" alt="short">{0} год.</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="few">{0} хвилини</unitPattern>
-			<unitPattern count="many">{0} хвилин</unitPattern>
 			<unitPattern count="one">{0} хвилина</unitPattern>
 			<unitPattern count="other">{0} хвилини</unitPattern>
+			<unitPattern count="many">{0} хвилин</unitPattern>
+			<unitPattern count="few">{0} хвилини</unitPattern>
+			<unitPattern count="one" alt="short">{0} хв.</unitPattern>
+			<unitPattern count="other" alt="short">{0} хв.</unitPattern>
+			<unitPattern count="many" alt="short">{0} хв.</unitPattern>
+			<unitPattern count="few" alt="short">{0} хв.</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="few">{0} місяці</unitPattern>
-			<unitPattern count="many">{0} місяців</unitPattern>
 			<unitPattern count="one">{0} місяць</unitPattern>
 			<unitPattern count="other">{0} місяця</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001">{0} місяців</unitPattern>
+			<unitPattern count="many">{0} місяців</unitPattern>
+			<unitPattern count="few">{0} місяці</unitPattern>
+			<unitPattern count="one" alt="short">{0} міс.</unitPattern>
+			<unitPattern count="other" alt="short">{0} міс.</unitPattern>
+			<unitPattern count="many" alt="short">{0} міс.</unitPattern>
+			<unitPattern count="few" alt="short">{0} міс.</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="few">{0} секунди</unitPattern>
-			<unitPattern count="many">{0} секунд</unitPattern>
 			<unitPattern count="one">{0} секунда</unitPattern>
 			<unitPattern count="other">{0} секунди</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001">{0} секунд</unitPattern>
+			<unitPattern count="many">{0} секунд</unitPattern>
+			<unitPattern count="few">{0} секунди</unitPattern>
+			<unitPattern count="one" alt="short">{0} сек.</unitPattern>
+			<unitPattern count="other" alt="short">{0} сек.</unitPattern>
+			<unitPattern count="many" alt="short">{0} сек.</unitPattern>
+			<unitPattern count="few" alt="short">{0} сек.</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="few">{0} тижні</unitPattern>
-			<unitPattern count="many">{0} тижнів</unitPattern>
 			<unitPattern count="one">{0} тиждень</unitPattern>
 			<unitPattern count="other">{0} тижня</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001">{0} тижнів</unitPattern>
+			<unitPattern count="many">{0} тижнів</unitPattern>
+			<unitPattern count="few">{0} тижні</unitPattern>
+			<unitPattern count="one" alt="short">{0} тиж.</unitPattern>
+			<unitPattern count="other" alt="short">{0} тиж.</unitPattern>
+			<unitPattern count="many" alt="short">{0} тиж.</unitPattern>
+			<unitPattern count="few" alt="short">{0} тиж.</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="few">{0} роки</unitPattern>
-			<unitPattern count="many">{0} років</unitPattern>
 			<unitPattern count="one">{0} рік</unitPattern>
 			<unitPattern count="other">{0} року</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001">{0} років</unitPattern>
+			<unitPattern count="many">{0} років</unitPattern>
+			<unitPattern count="few">{0} роки</unitPattern>
+			<unitPattern count="one" alt="short">{0} р.</unitPattern>
+			<unitPattern count="other" alt="short">{0} р.</unitPattern>
+			<unitPattern count="many" alt="short">{0} р.</unitPattern>
+			<unitPattern count="few" alt="short">{0} р.</unitPattern>
 		</unit>
 	</units>
 	<posix>

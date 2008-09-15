@@ -1378,46 +1378,74 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="few">{0} dnevi</unitPattern>
 			<unitPattern count="one">{0} dan</unitPattern>
 			<unitPattern count="other">{0} dni</unitPattern>
 			<unitPattern count="two">{0} dni</unitPattern>
+			<unitPattern count="few">{0} dnevi</unitPattern>
+			<unitPattern count="one" alt="short">{0} d</unitPattern>
+			<unitPattern count="other" alt="short">{0} d</unitPattern>
+			<unitPattern count="two" alt="short">{0} d</unitPattern>
+			<unitPattern count="few" alt="short">{0} d</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="few">{0} ure</unitPattern>
 			<unitPattern count="one">{0} ura</unitPattern>
 			<unitPattern count="other">{0} ur</unitPattern>
 			<unitPattern count="two">{0} uri</unitPattern>
+			<unitPattern count="few">{0} ure</unitPattern>
+			<unitPattern count="one" alt="short">{0} h</unitPattern>
+			<unitPattern count="other" alt="short">{0} h</unitPattern>
+			<unitPattern count="two" alt="short">{0} h</unitPattern>
+			<unitPattern count="few" alt="short">{0} h</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="few">{0} minute</unitPattern>
 			<unitPattern count="one">{0} minuta</unitPattern>
 			<unitPattern count="other">{0} minut</unitPattern>
 			<unitPattern count="two">{0} minuti</unitPattern>
+			<unitPattern count="few">{0} minute</unitPattern>
+			<unitPattern count="one" alt="short">{0} min</unitPattern>
+			<unitPattern count="other" alt="short">{0} min</unitPattern>
+			<unitPattern count="two" alt="short">{0} min</unitPattern>
+			<unitPattern count="few" alt="short">{0} min</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="few">{0} meseci</unitPattern>
 			<unitPattern count="one">{0} mesec</unitPattern>
-			<unitPattern count="other">{0} meseci</unitPattern>
+			<unitPattern count="other">{0} mesecev</unitPattern>
 			<unitPattern count="two">{0} meseca</unitPattern>
+			<unitPattern count="few">{0} meseci</unitPattern>
+			<unitPattern count="one" alt="short">{0} m</unitPattern>
+			<unitPattern count="other" alt="short">{0} m</unitPattern>
+			<unitPattern count="two" alt="short">{0} m</unitPattern>
+			<unitPattern count="few" alt="short">{0} m</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="few">{0} sekunde</unitPattern>
 			<unitPattern count="one">{0} sekunda</unitPattern>
 			<unitPattern count="other">{0} sekund</unitPattern>
 			<unitPattern count="two">{0} sekundi</unitPattern>
+			<unitPattern count="few">{0} sekunde</unitPattern>
+			<unitPattern count="one" alt="short">{0} s</unitPattern>
+			<unitPattern count="other" alt="short">{0} s</unitPattern>
+			<unitPattern count="two" alt="short">{0} s</unitPattern>
+			<unitPattern count="few" alt="short">{0} s</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="few">{0} tedni</unitPattern>
 			<unitPattern count="one">{0} teden</unitPattern>
 			<unitPattern count="other">{0} tednov</unitPattern>
 			<unitPattern count="two">{0} tedna</unitPattern>
+			<unitPattern count="few">{0} tedni</unitPattern>
+			<unitPattern count="one" alt="short">{0} t</unitPattern>
+			<unitPattern count="other" alt="short">{0} t</unitPattern>
+			<unitPattern count="two" alt="short">{0} t</unitPattern>
+			<unitPattern count="few" alt="short">{0} t</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="few">{0} leta</unitPattern>
 			<unitPattern count="one">{0} leto</unitPattern>
 			<unitPattern count="other">{0} let</unitPattern>
 			<unitPattern count="two">{0} leti</unitPattern>
+			<unitPattern count="few">{0} leta</unitPattern>
+			<unitPattern count="one" alt="short">{0} l</unitPattern>
+			<unitPattern count="other" alt="short">{0} l</unitPattern>
+			<unitPattern count="two" alt="short">{0} l</unitPattern>
+			<unitPattern count="few" alt="short">{0} l</unitPattern>
 		</unit>
 	</units>
 	<posix>

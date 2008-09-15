@@ -1308,6 +1308,36 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<unit type="day">
+			<unitPattern count="other">{0} hari</unitPattern>
+			<unitPattern count="other" alt="short">{0} hr</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="other">{0} jam</unitPattern>
+			<unitPattern count="other" alt="short">{0} jam</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="other">{0} menit</unitPattern>
+			<unitPattern count="other" alt="short">{0} mnt</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="other">{0} bulan</unitPattern>
+			<unitPattern count="other" alt="short">{0} bln</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="other">{0} detik</unitPattern>
+			<unitPattern count="other" alt="short">{0} dtk</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="other">{0} minggu</unitPattern>
+			<unitPattern count="other" alt="short">{0} mggu</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="other">{0} tahun</unitPattern>
+			<unitPattern count="other" alt="short">{0} thn</unitPattern>
+		</unit>
+	</units>
 	<posix>
 		<messages>
 			<yesstr draft="unconfirmed">ya:y</yesstr>

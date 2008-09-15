@@ -1,17 +1,18 @@
 package org.unicode.cldr.draft;
 
 /**
- * Class that permits quick edits; does insertions/deletions faster, in general, than StringBuilder. This is based on the fact
+ * Class that permits quick edits; does insertions/deletions much faster, in general, than StringBuilder. This is based on the fact
  * that such changes are generally not random; instead they tend to happen more often in either nearby or successive locations.
  * The structure of the class keeps 2 buffers; one for the front and one for the end. 
  * @author markdavis
  */
 // TODO investigate whether keeping the future in reverse order is the right approach in terms of performance.
 public class GapString implements CharSequence {
-  private char[] past = new char[10];
+  private static final int GROWTH_INCREMENT = 15;
+  private static final int GROWTH_FACTOR = 3;
+  private char[] buffer = new char[10];
   private int pastLength = 0;
-  private char[] future = new char[10]; // reverse order!!
-  private int futureLength = 0;
+  private int gapLength = 10;
   
   public GapString() {}
   public GapString(CharSequence s) {
@@ -20,17 +21,14 @@ public class GapString implements CharSequence {
   
   public char charAt(int index) {
     try {
-      if (index < pastLength) {
-        return past[index];
-      }
-      return future[futureLength - (index - pastLength)];
+      return buffer[index < pastLength ? index : index + gapLength];
     } catch (ArrayIndexOutOfBoundsException e) {
       throw new StringIndexOutOfBoundsException(index);
     }
   }
 
   public int length() {
-    return pastLength + futureLength;
+    return buffer.length - gapLength;
   }
 
   public CharSequence subSequence(int start, int end) {
@@ -40,23 +38,74 @@ public class GapString implements CharSequence {
   
   public String toString() {
     StringBuilder b = new StringBuilder();
-    for (int i = 0; i < pastLength; ++i) {
-      b.append(past[i]);
-    }
-    for (int i = futureLength - 1; i >= 0; --i) {
-      b.append(future[i]);
-    }
+    // check to see whether second argument is length or count
+    b.append(buffer, 0, pastLength);
+    final int futureStart = pastLength + gapLength;
+    b.append(buffer, futureStart, buffer.length - futureStart);
     return b.toString();
   }
   
+  public GapString insert(int index, CharSequence s, int start, int end) {
+    if (s instanceof String) {
+      return insert(index, (String) s, start, end);
+    }
+    final int gapNeeded = end - start;
+    if (pastLength != index) {
+      shiftTo(index, gapNeeded);
+    } else {
+      final int growthNeeded = gapNeeded - gapLength;
+      if (growthNeeded > 0) {
+        growToLength((buffer.length + growthNeeded)*GROWTH_FACTOR + GROWTH_INCREMENT); 
+      }
+    }
+    for (int i = start; i < end; ++i) {
+      buffer[pastLength++] = s.charAt(i);
+    }
+    gapLength -= gapNeeded;
+    return this;
+  }
+
   public GapString insert(int index, CharSequence s) {
-    final int length = s.length();
-    if (pastLength != index || pastLength < index + length) {
-      shiftTo(index, length);
+    return insert(index, s, 0, s.length());
+  }
+  
+  public GapString insert(int index, String s) {
+    return insert(index, s, 0, s.length());
+  }
+  
+  public GapString insert(int index, String s, int start, int end) {
+    final int gapNeeded = end - start;
+    if (pastLength != index) {
+      shiftTo(index, gapNeeded);
+    } else {
+      final int growthNeeded = gapNeeded - gapLength;
+      if (growthNeeded > 0) {
+        growToLength((buffer.length + growthNeeded)*GROWTH_FACTOR + GROWTH_INCREMENT); 
+      }
     }
-    for (int i = 0; i < length; ++i) {
-      past[pastLength++] = s.charAt(i);
+    s.getChars(start, end, buffer, pastLength);
+    pastLength += (end - start);
+    gapLength -= gapNeeded;
+    return this;
+  }
+  
+  public GapString insert(int index, char[] s) {
+    return insert(index, s, 0, s.length);
+  }
+  
+  public GapString insert(int index, char[] s, int start, int end) {
+    final int gapNeeded = end - start;
+    if (pastLength != index) {
+      shiftTo(index, gapNeeded);
+    } else {
+      final int growthNeeded = gapNeeded - gapLength;
+      if (growthNeeded > 0) {
+        growToLength((buffer.length + growthNeeded)*GROWTH_FACTOR + GROWTH_INCREMENT); 
+      }
     }
+    System.arraycopy(s, start, buffer, pastLength, gapNeeded);
+    pastLength += (end - start);
+    gapLength -= gapNeeded;
     return this;
   }
   
@@ -64,21 +113,97 @@ public class GapString implements CharSequence {
     if (pastLength != index || pastLength < index + 1) {
       shiftTo(index, 1);
     }
-    past[pastLength++] = s;
+    buffer[pastLength++] = s;
+    gapLength -= 1;
     return this;
   }
   
-  public GapString delete(int index, int end) {
-    // TODO optimize this
-    // if pastLength is between index and end, then can remove from both sides.
-    // if not, only move enough to get to one end or the other.
-    if (pastLength != index) {
-      shiftTo(index,0);
+  
+  public GapString append(boolean x) {
+    return insert(length(), String.valueOf(x));
+  }
+  
+  public GapString append(char x) {
+    return insert(length(), x);
+  }
+  
+  public GapString append(char[] x) {
+    return insert(length(), x);
+  }
+  public GapString append(char[] x, int start, int end) {
+    return insert(length(), x, start, end);
+  }
+  
+  public GapString append(double x) {
+    return insert(length(), String.valueOf(x));
+  }
+  
+  public GapString append(float x) {
+    return insert(length(), String.valueOf(x));
+  }
+  
+  public GapString append(int x) {
+    return insert(length(), String.valueOf(x));
+  }
+  
+  public GapString append(CharSequence x, int start, int end) {
+    return insert(length(), x, start, end);
+  }
+  
+  public GapString append(Object x) {
+    return insert(length(), String.valueOf(x));
+  }
+  
+  public GapString append(long x) {
+    return insert(length(), String.valueOf(x));
+  }
+  
+  public GapString appendCodePoint(int x) {
+    return insertCodePoint(length(), x);
+  }
+  
+  private GapString insertCodePoint(int index, int x) {
+    if (x < 0x10000) {
+      return insert(index, (char)x);
     }
-    futureLength -= (end - index);
+    return insert(index, Character.toChars(x)); // rare, so inefficiency doesn't matter
+  }
+  
+  public GapString append(String s) {
+    return insert(buffer.length - gapLength, s, 0, s.length());
+  }
+  
+  public GapString append(CharSequence string) {
+    return insert(buffer.length - gapLength, string);
+  }
+  
+  public GapString delete(int start, int end) {
+    // if our deletion includes the gap, we can shortcut this
+    // we just reset the pastLength and gap
+    if (pastLength >= start && pastLength < end) {
+      pastLength = start;
+    } else {
+      // TODO There is a possible optimization, to only move enough to get to one end or the other.
+      // However, I don't know whether it would be worth it or not: have to test.
+      if (pastLength != start) {
+        shiftTo(start,0);
+      }
+    }
+    gapLength += (end - start);
     return this;
   }
   
+  public GapString replace(int start, int end, CharSequence other, int otherStart, int otherEnd) {
+    delete(start,end);
+    return insert(start, other, otherStart, otherEnd);
+  }
+  
+  public GapString compact() {
+    if (gapLength > 0) {
+      growToLength(buffer.length - gapLength); // remove any gap
+    }
+    return this;
+  }
   
   public boolean equals(Object other) {
     try {
@@ -87,19 +212,22 @@ public class GapString implements CharSequence {
       return false;
     }
   }
+  
   public boolean equals(CharSequence other) {
-    final int len = length();
+    final int len = buffer.length - gapLength;
     if (other.length() != len) {
       return false;
     }
-    for (int i = 0; i < pastLength; ++i) {
-      if (past[i] != other.charAt(i)) {
+    int i = 0;
+    for (; i < pastLength; ++i) {
+      if (buffer[i] != other.charAt(i)) {
         return false;
       }
     }
-    int delta = len - 1;
-    for (int i = futureLength-1; i >= 0; --i) {
-      if (future[i] != other.charAt(delta - i)) {
+    int j = i;
+    i += gapLength;
+    for (; i < buffer.length; ++i) {
+      if (buffer[i] != other.charAt(j++)) {
         return false;
       }
     }
@@ -108,43 +236,53 @@ public class GapString implements CharSequence {
   
   public int hashCode() {
     int result = 0;
-    for (int i = 0; i < pastLength; ++i) {
-      result = 37*result + past[i];
+    int i = 0;
+    for (; i < pastLength; ++i) {
+      result = 37*result + buffer[i];
     }
-    for (int i = futureLength-1; i >= 0; --i) {
-      result = 37*result + future[i];
+    i += gapLength;
+    for (; i < buffer.length; ++i) {
+      result = 37*result + buffer[i];
     }
     return result;
   }
+  
   // ======== PRIVATES ===========
   
-  private void shiftTo(int index, int gapNeeded) {
-    final int pastNeeded = index + gapNeeded;
-    if (past.length < pastNeeded) {
-      past = grow(past, pastLength, pastNeeded*3/2 + 10);
+  /**
+   * This utility function just shifts the gap, so that it starts at newPastLength. The logical contents
+   * of the string are unchanged.
+   */
+  private void shiftTo(int newPastLength, int gapNeeded) {
+    int growth = gapNeeded - gapLength;
+    if (growth > 0) {
+      growToLength((buffer.length + growth)*GROWTH_FACTOR + GROWTH_INCREMENT);
     }
 
-    if (pastLength < index) {
-      final int end = index - pastLength;
-      for (int i = 0; i < end; ++i) {
-        past[pastLength++] = future[--futureLength];
-      }
-    } else if (pastLength > index) {
-      int futureNeeded = length() - index;
-      if (future.length < futureNeeded) {
-        future = grow(future, futureLength, futureNeeded*3/2 + 10);
-      }
-      final int end = pastLength - index;
-      for (int i = 0; i < end; ++i) {
-        future[futureLength++] = past[--pastLength];
-      }
+    int newMinusOldPastLength = newPastLength - pastLength;
+    if (newMinusOldPastLength == 0) {
+      return;
     }
+    if (newMinusOldPastLength > 0) {
+      System.arraycopy(buffer, pastLength + gapLength, buffer, pastLength, newMinusOldPastLength);
+    } else {
+      System.arraycopy(buffer, newPastLength, buffer, pastLength + gapLength + newMinusOldPastLength, -newMinusOldPastLength);
+    }
+    pastLength = newPastLength;
   }
 
-  private char[] grow(char[] charArray, int oldLengthUsed, int neededLength) {
+  /**
+   * This utility function just grows the gap (and thus the storage). The logical contents
+   * of the string are unchanged.
+   */
+  private void growToLength(int neededLength) {
     char[] temp = new char[neededLength];
-    System.arraycopy(charArray, 0, temp, 0, oldLengthUsed);
-    return temp;
+    System.arraycopy(buffer, 0, temp, 0, pastLength);
+    final int futureStart = pastLength + gapLength;
+    final int futureLength = buffer.length - futureStart;
+    System.arraycopy(buffer, futureStart, temp, neededLength - futureLength, futureLength);
+    gapLength += neededLength - buffer.length;
+    buffer = temp;
   }
 
 }

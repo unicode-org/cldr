@@ -4583,24 +4583,31 @@
 	<units>
 		<unit type="day">
 			<unitPattern count="other">{0}日</unitPattern>
+			<unitPattern count="other" alt="short">{0}日</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="other">{0}小时</unitPattern>
+			<unitPattern count="other" alt="short">{0}小时</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="other">{0}分</unitPattern>
+			<unitPattern count="other" alt="short">{0}分</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="other">{0}月</unitPattern>
+			<unitPattern count="other" alt="short">{0}月</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="other">{0}秒</unitPattern>
+			<unitPattern count="other" alt="short">{0}秒</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="other">{0}周</unitPattern>
+			<unitPattern count="other" alt="short">{0}周</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="other">{0}年</unitPattern>
+			<unitPattern count="other" alt="short">{0}年</unitPattern>
 		</unit>
 	</units>
 	<posix>

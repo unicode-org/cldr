@@ -4322,24 +4322,31 @@
 	<units>
 		<unit type="day">
 			<unitPattern count="other">{0}일</unitPattern>
+			<unitPattern count="other" alt="short">{0}일</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="other">{0}시간</unitPattern>
+			<unitPattern count="other" alt="short">{0}시간</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="other">{0}분</unitPattern>
+			<unitPattern count="other" alt="short">{0}분</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="other">{0}개월</unitPattern>
+			<unitPattern count="other" alt="short">{0}개월</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="other">{0}초</unitPattern>
+			<unitPattern count="other" alt="short">{0}초</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="other">{0}주</unitPattern>
+			<unitPattern count="other" alt="short">{0}주</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="other">{0}년</unitPattern>
+			<unitPattern count="other" alt="short">{0}년</unitPattern>
 		</unit>
 	</units>
 	<posix>

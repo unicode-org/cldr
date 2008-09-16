@@ -981,6 +981,50 @@
 			</currency>
 		</currencies>
 	</numbers>
+        <units>
+                <unit type="day">
+                        <unitPattern count="one">{0} araw</unitPattern>
+                        <unitPattern count="other">{0} araw</unitPattern>
+                        <unitPattern count="one" alt="short">{0} arw</unitPattern>
+                        <unitPattern count="other" alt="short">{0} arw</unitPattern>
+                </unit>
+                <unit type="hour">
+                        <unitPattern count="one">{0} oras</unitPattern>
+                        <unitPattern count="other">{0} oras</unitPattern>
+                        <unitPattern count="one" alt="short">{0} or</unitPattern>
+                        <unitPattern count="other" alt="short">{0} or</unitPattern>
+                </unit>
+                <unit type="minute">
+                        <unitPattern count="one">{0} minuto</unitPattern>
+                        <unitPattern count="other">{0} minuto</unitPattern>
+                        <unitPattern count="one" alt="short">{0} min</unitPattern>
+                        <unitPattern count="other" alt="short">{0} min</unitPattern>
+                </unit>
+                <unit type="month">
+                        <unitPattern count="one">{0} buwan</unitPattern>
+                        <unitPattern count="other">{0} buwan</unitPattern>
+                        <unitPattern count="one" alt="short">{0} buw</unitPattern>
+                        <unitPattern count="other" alt="short">{0} buw</unitPattern>
+                </unit>
+                <unit type="second">
+                        <unitPattern count="one">{0} segundo</unitPattern>
+                        <unitPattern count="other">{0} segundo</unitPattern>
+                        <unitPattern count="one" alt="short">{0} seg</unitPattern>
+                        <unitPattern count="other" alt="short">{0} seg</unitPattern>
+                </unit>
+                <unit type="week">
+                        <unitPattern count="one">{0} linggo</unitPattern>
+                        <unitPattern count="other">{0} linggo</unitPattern>
+                        <unitPattern count="one" alt="short">{0} ling</unitPattern>
+                        <unitPattern count="other" alt="short">{0} ling</unitPattern>
+                </unit>
+                <unit type="year">
+                        <unitPattern count="one">{0} taon</unitPattern>
+                        <unitPattern count="other">{0} taon</unitPattern>
+                        <unitPattern count="one" alt="short">{0} ta</unitPattern>
+                        <unitPattern count="other" alt="short">{0} ta</unitPattern>
+                </unit>
+        </units>
 	<posix>
 		<messages>
 			<yesstr draft="contributed">yes:y</yesstr>

@@ -4,9 +4,7 @@
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
-/**
- * @author Ram Viswanadha
- */
+
 package org.unicode.cldr.icu;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
@@ -25,11 +23,10 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.XPathTokenizer;
 import org.unicode.cldr.ant.CLDRConverterTool;
+import org.unicode.cldr.icu.LDML2ICUBinaryWriter;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 
 import java.io.*;
@@ -38,6 +35,12 @@ import java.util.*;
 
 import javax.xml.transform.TransformerException;
 
+/**
+ * Converts from LDML files (from the CLDR project) into ICU text or binary format.
+ * 
+ * @author Ram Viswanadha
+ * @author Brian Rower - Added Binary file writing and fixed memory leak - June 2008
+ */
 public class LDML2ICUConverter extends CLDRConverterTool {
     /**
      * These must be kept in sync with getOptions().
@@ -54,7 +57,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private static final int METAZONE_ONLY = 9;
     private static final int LIKELYSUBTAGS_ONLY = 10;
     private static final int PLURALS_ONLY = 11;
-    private static final int VERBOSE = 12;
+    private static final int WRITE_BINARY = 12;
+    private static final int VERBOSE = 13;
 
 
     private static final UOption[] options = new UOption[] {
@@ -70,6 +74,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             UOption.create("metazone-only", 'z', UOption.NO_ARG),
             UOption.create("likely-only", 't', UOption.NO_ARG),
             UOption.create("plurals-only", 'r', UOption.NO_ARG),
+            UOption.create("write-binary", 'b', UOption.NO_ARG),
         UOption.VERBOSE(),
     };
 
@@ -84,7 +89,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private boolean writeMetazone = false;
     private boolean writeLikelySubtags = false;
     private boolean writePlurals = false;
+    private boolean writeBinary = false;
     private boolean verbose = false;
+    private String factoryDir = null;
     /**
      * Add comments on the item to indicate where fallbacks came from. Good for
      * information, bad for diffs.
@@ -111,6 +118,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private static final String likelySubtagsFile = "likelySubtags.xml";
     private static final String pluralsFile = "plurals.xml";
 
+    private List xpathList = new ArrayList();
+    
+    private CLDRFile.Factory cldrFactory = null;
+    private CLDRFile.Factory specialsFactory = null;
+    private SupplementalDataInfo supplementalDataInfo = null;
     //TreeMap overrideMap = new TreeMap(); // list of locales to take regardless of draft status.  Written by writeDeprecated
 
     public static void main(String[] args) {
@@ -133,6 +145,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             "-r or --plurals-only       read " + pluralsFile + " file from the given directory and write appropriate files to destination directory\n"+
             "-z or --metazone-only      read " + metazoneInfoFile + " file from the given directory and write appropriate files to destination directory\n"+
             "-w [dir] or --write-deprecated [dir]   write data for deprecated locales. 'dir' is a directory of source xml files.\n"+
+            "-b or --write-binary       write data in binary (.res) files rather than .txt"+
             "-h or -? or --help         this usage text.\n"+
             "-v or --verbose            print out verbose output.\n"+
             "example: org.unicode.cldr.icu.LDML2ICUConverter -s xxx -d yyy en.xml");
@@ -169,6 +182,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private void printError(String fileName, String message){
         System.err.println(fileName + ": ERROR : "+message);
     }
+    /*
+     * First method called from the main method. Will check all the args 
+     * and direct us from there.
+     * If not doing anything special, just taking in XML files and writing
+     * TXT or Binary files, then will call processFile()
+     */
     public void processArgs(String[] args) {
         int remainingArgc = 0;
         // for some reason when 
@@ -215,6 +234,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         if(options[PLURALS_ONLY].doesOccur) {
             writePlurals = true;
+        }
+        if(options[WRITE_BINARY].doesOccur)
+        {
+        	writeBinary = true;
         }
         if(options[VERBOSE].doesOccur) {
             verbose = true;
@@ -305,8 +328,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
         }else{
             if(getLocalesMap()!=null && getLocalesMap().size()>0){
+            	factoryDir = sourceDir;
                 for(Iterator iter = getLocalesMap().keySet().iterator(); iter.hasNext(); ){
-                    String fileName = (String) iter.next();
+                	String fileName = (String) iter.next();
                     String draft = (String)getLocalesMap().get(fileName);
                     if(draft!= null && !draft.equals("false")){
                         writeDraft = true;
@@ -317,6 +341,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     processFile(fileName);
                 }
             }else if(remainingArgc>0){
+            	factoryDir = sourceDir;
                 for (int i = 0; i < remainingArgc; i++) {
                     processFile(args[i]);
                 }
@@ -325,13 +350,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
         }
     }
-
-    private List<String> xpathList = new ArrayList<String>();
-
-    CLDRFile.Factory cldrFactory = null;
-    CLDRFile.Factory specialsFactory = null;
-    Set<String> allLocales = new TreeSet<String>();
-    SupplementalDataInfo supplementalDataInfo = null;
 
     private class InputLocale {
         boolean notOnDisk = false;
@@ -366,7 +384,16 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         public CLDRFile resolved() {
             if (fResolved == null) {
                 // System.err.println("** spinning up resolved for " + locale);
-                fResolved = cldrFactory.make(locale, true, DraftStatus.contributed);
+            	if(cldrFactory != null)
+            	{
+            		fResolved = cldrFactory.make(locale, true, DraftStatus.contributed);	
+            	}
+            	else
+            	{
+            		System.err.println("Error: cldrFactory is null in \"resolved()\"");
+            		System.err.flush();
+            		System.exit(1);
+            	}
             }
             return fResolved;
         }
@@ -664,6 +691,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         
     }
 
+    /*
+     * Sets some stuff up and calls createResourceBundle
+     */
     private void processFile(String fileName) {
         int lastIndex = fileName.lastIndexOf(File.separator, fileName.length()) + 1; /* add 1 to skip past the separator */
         fileName = fileName.substring(lastIndex, fileName.length());
@@ -678,13 +708,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         if (cldrFactory == null) {
             printInfo("* Spinning up CLDRFactory on " + sourceDir);
-            cldrFactory = CLDRFile.Factory.make(sourceDir, ".*");
+            cldrFactory = CLDRFile.Factory.make(factoryDir, ".*");
             if (specialsDir != null) {
                 printInfo("* Spinning up specials CLDRFactory on "
                         + specialsDir);
                 specialsFactory = CLDRFile.Factory.make(specialsDir, ".*");
             }
-            allLocales = cldrFactory.getAvailable();
         }
 
         // if (CLDRFile.isSupplementalName(localeID)) continue;
@@ -994,6 +1023,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return doc;
     }
 
+    /*
+     * Create the Resource tree, and then Call writeResource or LDML2ICUBinaryWriter.writeBinaryFile(),
+     * whichever is appropriate
+     */
     private void createResourceBundle(InputLocale loc) {
         try {
             // calculate the list of vettable xpaths.
@@ -1021,8 +1054,23 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                                 + dir + "/" + locName + ".xml";
                     }
                 }
-                // write out the bundle
-                writeResource(res, sourceDir.replace('\\','/')+"/"+loc.locale+".xml");
+                // write out the bundle depending on if writing Binary or txt
+                if(writeBinary)
+                {
+                	specialsFactory = null;
+                    cldrFactory = null;
+                	LDML2ICUBinaryWriter.writeBinaryFile(res, destDir, loc.locale);
+                }
+                else
+                {
+                	//allLocales = null;
+                    //specialsFactory = null;
+                    cldrFactory = null;
+                    
+                	
+                	String theFileName = sourceDir.replace('\\','/')+"/"+loc.locale+".xml";
+                	writeResource(res, theFileName);
+                }
             }
 
             // writeAliasedResource();
@@ -2959,7 +3007,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         String name = loc.getXpathName(xpath);
         array.name = keyNameMap.get(name);
         ICUResourceWriter.Resource current = null;
-        String origXpath = xpath;
         // want them in sorted order (?)
         Set<String> xpaths = new TreeSet<String>();
         for (Iterator<String> iter = loc.file.iterator(xpath); iter.hasNext();) {
@@ -3000,12 +3047,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         ICUResourceWriter.ResourceTable array = new ICUResourceWriter.ResourceTable();
         String name = loc.getXpathName(xpath);
         array.name = keyNameMap.get(name); // attempt
-        ICUResourceWriter.Resource current = null;
-        String origXpath = xpath;
-//        System.err.println("parseTable: parsing " + xpath + " looking for " + element+"'s for their " + attribute);
         for (Iterator<String> iter = loc.file.iterator(xpath); iter.hasNext();) {
             xpath = iter.next();
-//            System.err.println("parseTable: gotch " + xpath);
             if(loc.isPathNotConvertible(xpath)) {
                 continue;
             }
@@ -3025,12 +3068,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return null;
     }
 
-    private static final String ICU_SCRIPTS = "icu:scripts";
     private static final String ICU_SCRIPT = "icu:script";
 
     private ICUResourceWriter.Resource parseCharacters(InputLocale loc,
             String xpath) {
-        ICUResourceWriter.Resource current = null, first = null;
+        ICUResourceWriter.Resource first = null;
         for (Iterator<String> iter = loc.file.iterator(xpath); iter.hasNext();) {
             String aPath = iter.next();
 
@@ -3072,13 +3114,15 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         return first;
     }
+    
+    /*
     private ICUResourceWriter.Resource parseStringResource(Node node){
         ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
         str.val = LDMLUtilities.getNodeValue(node);
         str.name = node.getNodeName();
         return str;
     }
-
+    */
     private ICUResourceWriter.Resource parseStringResource(InputLocale loc,
             String xpath) {
         ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
@@ -3097,7 +3141,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         table.name = loc.getXpathName(xpath);
 
         ICUResourceWriter.Resource current = table.first;
-        String origXpath = xpath;
         for (Iterator<String> iter = loc.file.iterator(xpath); iter.hasNext();) {
             xpath = iter.next();
             String name = loc.getXpathName(xpath);
@@ -3432,7 +3475,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         Set<String> zones = new HashSet<String>();
         Set<String> metazones = new HashSet<String>();
-        String origXpath = xpath;
         for (Iterator<String> iter = loc.file.iterator(xpath); iter.hasNext();) {
             String apath = iter.next();
             String name = loc.getXpathName(apath,3);
@@ -3561,6 +3603,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return null;
     }
 
+    /*
     private ICUResourceWriter.Resource getStringResource(String name,
             Node node, ICUResourceWriter.Resource res) {
         ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
@@ -3576,6 +3619,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         return res;
     }
+    */
 
     private ICUResourceWriter.ResourceString getDefaultResource(
             InputLocale loc, String xpath) {
@@ -4101,7 +4145,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             return current;
         }
 
-        String origXpath = xpath;
         for (Iterator<String> iter = loc.file.iterator(xpath); iter.hasNext();) {
             xpath = iter.next();
             String name = loc.getXpathName(xpath);
@@ -4428,16 +4471,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return null;
     }
 
-    /**
-     * @deprecated
-     * @param root
-     * @param xpath
-     * @return
-     */
+    /*
     private TreeMap getElementsMap(Node root, StringBuffer xpath) {
         return getElementsMap(root, xpath, false);
     }
-
+*/
     private static Set<String> completion_day = null;
     private static Set<String> completion_month = null;
     private static Set<String> completion_era = null;
@@ -4543,7 +4581,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 System.exit(-1);
             }
         }
-        int mapSize = map.size();
         Set<String> completion = getSetCompletion(loc, element, xpath);
         if (completion != null) {
             for (String type : completion) {
@@ -4578,14 +4615,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return map;
     }
 
-    /**
-     * @deprecated
-     * @param root
-     * @param xpath
-     * @param isNodeFromRoot
-     * @return
-     */
 
+/*
     private TreeMap getElementsMap(Node root, StringBuffer xpath,
             boolean isNodeFromRoot) {
         TreeMap map = new TreeMap();
@@ -4620,7 +4651,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         return map;
     }
-
+*/
 
     private ICUResourceWriter.Resource parseWeek(){
         String country = ULocale.getCountry(locName);
@@ -4938,9 +4969,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return !xpathList.contains(xpath.toString());
 
     }
+    /*
     private Node getVettedNode(Node parent, String childName, StringBuffer xpath){
         return getVettedNode(fullyResolvedDoc, parent, childName, xpath, true);
     }
+    */
     public Node getVettedNode(Document fullyResolvedDoc, Node parent, String childName, StringBuffer xpath, boolean ignoreDraft){
         //NodeList list = LDMLUtilities.getNodeList(parent, childName, fullyResolvedDoc, xpath.toString());
         String ctx = "./"+ childName;
@@ -5791,7 +5824,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
          */
         ICUResourceWriter.ResourceArray arr = new ICUResourceWriter.ResourceArray();
         arr.name = type;
-        ICUResourceWriter.Resource current = null;
         ICUResourceWriter.ResourceString strs[] = new ICUResourceWriter.ResourceString[curr_syms.length];
         GroupStatus status = parseGroupWithFallback(loc, xpath, curr_syms, strs);
         if (status == GroupStatus.EMPTY) {
@@ -5959,69 +5991,68 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         // return first;
     }
 
-    private ICUResourceWriter.Resource parseMessages(InputLocale loc,
-            String xpath) {
-        throw new InternalError("not imp " + xpath);
-        // ICUResourceWriter.ResourceTable table = new
-        // ICUResourceWriter.ResourceTable();
-        // ICUResourceWriter.Resource current = null;
-        //
-        // int savedLength = xpath.length();
-        // getXPath(root, xpath);
-        // int oldLength = xpath.length();
-        //
-        // // if the whole node is marked draft then
-        // // dont write anything
-        // if (isNodeNotConvertible(root, xpath)) {
-        // xpath.setLength(savedLength);
-        // return null;
-        // }
-        // table.name = root.getNodeName();
-        //
-        // for (Node node = root.getFirstChild(); node != null; node = node
-        // .getNextSibling()) {
-        // if (node.getNodeType() != Node.ELEMENT_NODE) {
-        // continue;
-        // }
-        // String name = node.getNodeName();
-        // ICUResourceWriter.Resource res = null;
-        // if (name.equals(LDMLConstants.YESSTR)
-        // || name.equals(LDMLConstants.YESEXPR)
-        // || name.equals(LDMLConstants.NOSTR)
-        // || name.equals(LDMLConstants.NOEXPR)) {
-        // getXPath(node, xpath);
-        // if (isNodeNotConvertible(node, xpath)) {
-        // xpath.setLength(oldLength);
-        // continue;
-        // }
-        // ICUResourceWriter.ResourceString str = new
-        // ICUResourceWriter.ResourceString();
-        // str.name = name;
-        // str.val = LDMLUtilities.getNodeValue(node);
-        // res = str;
-        // } else if (name.equals(LDMLConstants.ALIAS)) {
-        // res = parseAliasResource(node, xpath);
-        // } else {
-        // System.err.println("Unknown element found: " + xpath + " / " + name);
-        // System.exit(-1);
-        // }
-        // if (res != null) {
-        // if (current == null) {
-        // current = table.first = res;
-        // } else {
-        // current.next = res;
-        // current = current.next;
-        // }
-        // res = null;
-        // }
-        // xpath.delete(oldLength, xpath.length());
-        // }
-        // xpath.delete(savedLength, xpath.length());
-        // if (table.first != null) {
-        // return table;
-        // }
-        // return null;
+    /*
+    private ICUResourceWriter.Resource parseMessages(InputLocale loc, String xpath) {
+        ICUResourceWriter.ResourceTable table = new
+        ICUResourceWriter.ResourceTable();
+        ICUResourceWriter.Resource current = null;
+        
+        int savedLength = xpath.length();
+        getXPath(root, xpath);
+        int oldLength = xpath.length();
+       	// if the whole node is marked draft then
+        // dont write anything
+        if (isNodeNotConvertible(root, xpath)) {
+        xpath.setLength(savedLength);
+        return null;
+        }
+        table.name = root.getNodeName();
+        
+        for (Node node = root.getFirstChild(); node != null; node = node
+        .getNextSibling()) {
+        if (node.getNodeType() != Node.ELEMENT_NODE) {
+        continue;
+        }
+        String name = node.getNodeName();
+        ICUResourceWriter.Resource res = null;
+        if (name.equals(LDMLConstants.YESSTR)
+        || name.equals(LDMLConstants.YESEXPR)
+        || name.equals(LDMLConstants.NOSTR)
+        || name.equals(LDMLConstants.NOEXPR)) {
+        getXPath(node, xpath);
+        if (isNodeNotConvertible(node, xpath)) {
+        xpath.setLength(oldLength);
+        continue;
+        }
+        ICUResourceWriter.ResourceString str = new
+        ICUResourceWriter.ResourceString();
+        str.name = name;
+        str.val = LDMLUtilities.getNodeValue(node);
+        res = str;
+        } else if (name.equals(LDMLConstants.ALIAS)) {
+        res = parseAliasResource(node, xpath);
+        } else {
+        System.err.println("Unknown element found: " + xpath + " / " + name);
+        System.exit(-1);
+        }
+        if (res != null) {
+        if (current == null) {
+        current = table.first = res;
+        } else {
+        current.next = res;
+        current = current.next;
+        }
+        res = null;
+        }
+        xpath.delete(oldLength, xpath.length());
+        }
+        xpath.delete(savedLength, xpath.length());
+        if (table.first != null) {
+        return table;
+        }
+        return null;
     }
+*/
 
     /**
      * Shim. Transitions us from CLDRFile based processing to DOM. 
@@ -7030,7 +7061,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
 
             //Now start writing the resource;
-            /*ICUResourceWriter.Resource */current = set;
+            /*ICUResourceWriter.Resource */
+            current = set;
             while(current!=null){
                 current.write(writer, 0, false);
                 current = current.next;
@@ -7057,6 +7089,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
     }
 
+    /*
     private boolean isType(Node node, String type){
         NamedNodeMap attributes = node.getAttributes();
         Node attr = attributes.getNamedItem(LDMLConstants.TYPE);
@@ -7065,6 +7098,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         return false;
     }
+    */
     private void writeLine(OutputStream writer, String line) {
         try {
             byte[] bytes = line.getBytes(CHARSET);

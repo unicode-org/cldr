@@ -7,14 +7,12 @@
     <metadata>
         <attributeOrder>
 
-            _q type id choice key registry source target path day date version count lines characters iso4217 before from to mzone number time casing list uri digits rounding iso3166 hex request direction alternate backwards caseFirst caseLevel hiraganaQuarternary hiraganaQuaternary variableTop normalization numeric strength elements element attributes attribute aliases attributeValue contains multizone order other replacement scripts services territories territory tzidVersion value values variant variants visibility alpha3 code end exclude fips10 gdp internet literacyPercent locales officialStatus population populationPercent start used writingPercent validSubLocales standard references alt draft
-
-        </attributeOrder>
+			_q aliases alpha3 alternate attribute attributeValue attributes backwards before caseFirst caseLevel casing characters choice code contains count date day digits direction element elements end exclude fips10 from gdp hex hiraganaQuarternary hiraganaQuaternary id internet iso3166 iso4217 key lines list literacyPercent locales multizone mzone normalization number numeric officialStatus order other path population populationPercent registry replacement request rounding scripts services source start strength target territories territory time to type tzidVersion uri used value values variableTop variant variants version visibility writingPercent
+			</attributeOrder>
         <elementOrder>
 
-            ldml alternate attributeOrder attributes blockingItems calendarSystem character character-fallback codePattern codesByTerritory comment context cp deprecatedItems distinguishingItems elementOrder first_variable fractions identity info languageAlias languageCodes languageCoverage languagePopulation last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing likelySubtag mapTimezones mapZone pluralRule pluralRules reference region scriptAlias scriptCoverage serialElements substitute suppress tRule telephoneCountryCode territoryAlias territoryCodes territoryCoverage currencyCoverage timezone timezoneCoverage transform usesMetazone validity alias appendItem base beforeCurrency afterCurrency currencyMatch dateFormatItem day deprecated distinguishing blocking coverageAdditions era eraNames eraAbbr eraNarrow exemplarCharacters fallback field generic greatestDifference height hourFormat hoursFormat gmtFormat intervalFormatFallback intervalFormatItem key localeDisplayNames layout localeDisplayPattern languages localePattern localeSeparator localizedPatternChars dateRangePattern calendars long mapping measurementSystem measurementSystemName messages minDays firstDay month months monthNames monthAbbr days dayNames dayAbbr orientation inList inText paperSize pattern displayName quarter quarters quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd regionFormat fallbackFormat abbreviationFallback preferenceOrdering relative reset p pc rule s sc scripts segmentation settings short commonlyUsed exemplarCity singleCountries default calendar collation currency currencyFormat currencySpacing currencyFormatLength dateFormat dateFormatLength dateTimeFormat dateTimeFormatLength availableFormats appendItems dayContext dayWidth decimalFormat decimalFormatLength intervalFormats monthContext monthWidth percentFormat percentFormatLength quarterContext quarterWidth scientificFormat scientificFormatLength skipDefaultLocale defaultContent standard daylight suppress_contractions optimize rules surroundingMatch insertBetween symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan currencyDecimal currencyGroup symbols decimalFormats scientificFormats percentFormats currencyFormats currencies t tc q qc i ic extend territories timeFormat timeFormatLength timeZoneNames type unit unitPattern unitName variable attributeValues variables segmentRules variantAlias variants keys types measurementSystemNames codePatterns version generation currencyData language script territory territoryContainment languageData territoryInfo calendarData variant week am pm eras dateFormats timeFormats dateTimeFormats fields weekData measurementData timezoneData characters delimiters measurement dates numbers transforms metadata codeMappings likelySubtags metazoneInfo plurals telephoneCodeData units collations posix segmentations references weekendStart weekendEnd width x yesstr nostr yesexpr noexpr zone metazone special zoneAlias zoneFormatting zoneItem supplementalData
-
-        </elementOrder>
+			ldml alternate attributeOrder attributes blockingItems calendarSystem character character-fallback codePattern codesByTerritory comment context cp deprecatedItems distinguishingItems elementOrder first_variable fractions identity info languageAlias languageCodes languageCoverage languagePopulation last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing likelySubtag mapTimezones mapZone pluralRule pluralRules reference region scriptAlias scriptCoverage serialElements substitute suppress tRule telephoneCountryCode territoryAlias territoryCodes territoryCoverage currencyCoverage timezone timezoneCoverage transform usesMetazone validity alias appendItem base beforeCurrency afterCurrency currencyMatch dateFormatItem day deprecated distinguishing blocking coverageAdditions era eraNames eraAbbr eraNarrow exemplarCharacters fallback field generic greatestDifference height hourFormat hoursFormat gmtFormat intervalFormatFallback intervalFormatItem key localeDisplayNames layout localeDisplayPattern languages localePattern localeSeparator localizedPatternChars dateRangePattern calendars long mapping measurementSystem measurementSystemName messages minDays firstDay month months monthNames monthAbbr days dayNames dayAbbr orientation inList inText paperSize pattern displayName quarter quarters quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd regionFormat fallbackFormat abbreviationFallback preferenceOrdering relative reset p pc rule s sc scripts segmentation settings short commonlyUsed exemplarCity singleCountries default calendar collation currency currencyFormat currencySpacing currencyFormatLength dateFormat dateFormatLength dateTimeFormat dateTimeFormatLength availableFormats appendItems dayContext dayWidth decimalFormat decimalFormatLength intervalFormats monthContext monthWidth percentFormat percentFormatLength quarterContext quarterWidth scientificFormat scientificFormatLength skipDefaultLocale defaultContent standard daylight suppress_contractions optimize rules surroundingMatch insertBetween symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan currencyDecimal currencyGroup symbols decimalFormats scientificFormats percentFormats currencyFormats currencies t tc q qc i ic extend territories timeFormat timeFormatLength timeZoneNames type unit unitPattern variable attributeValues variables segmentRules variantAlias variants keys types measurementSystemNames codePatterns version generation cldrVersion currencyData language script territory territoryContainment languageData territoryInfo calendarData variant week am pm eras dateFormats timeFormats dateTimeFormats fields weekData measurementData timezoneData characters delimiters measurement dates numbers transforms metadata codeMappings likelySubtags metazoneInfo plurals telephoneCodeData units collations posix segmentations references weekendStart weekendEnd width x yesstr nostr yesexpr noexpr zone metazone special zoneAlias zoneFormatting zoneItem supplementalData
+			</elementOrder>
         <serialElements>
 
             attributeValues base comment extend first_non_ignorable first_primary_ignorable first_secondary_ignorable first_tertiary_ignorable first_trailing first_variable i ic languagePopulation last_non_ignorable last_primary_ignorable last_secondary_ignorable last_tertiary_ignorable last_trailing last_variable optimize p pc q qc reset rules s sc settings suppress_contractions t tRule tc variable x
@@ -257,6 +255,7 @@
 			<!-- end of data generated by CountItems -->
 			<!-- start of data generated with CountItems from language tag registry + CLDR-specific items as per http://unicode.org/cldr/data/tools/java/org/unicode/cldr/tool/package.html -->
             <variable id="$tzid" type="choice">
+
                 Africa/Abidjan Africa/Accra Africa/Addis_Ababa Africa/Algiers Africa/Asmera
 
                 Africa/Bamako Africa/Bangui Africa/Banjul Africa/Bissau Africa/Blantyre
@@ -391,13 +390,11 @@
 
                 America/Resolute America/Rio_Branco
 
-                America/Santarem America/Santiago America/Santo_Domingo America/Sao_Paulo
+                America/Santiago America/Santo_Domingo America/Sao_Paulo America/Scoresbysund
 
-                America/Scoresbysund America/Shiprock America/St_Barthelemy America/St_Johns
+                America/Shiprock America/St_Barthelemy America/St_Johns America/St_Kitts
 
-                America/St_Kitts America/St_Lucia America/St_Thomas America/St_Vincent
-
-                America/Swift_Current
+                America/St_Lucia America/St_Thomas America/St_Vincent America/Swift_Current
 
                 America/Tegucigalpa America/Thule America/Thunder_Bay America/Tijuana
 
@@ -604,6 +601,7 @@
                 Pacific/Tahiti Pacific/Tarawa Pacific/Tongatapu Pacific/Truk
 
                 Pacific/Wake Pacific/Wallis
+
             </variable>
 
 			<!-- end of data generated by CountItems -->
@@ -844,7 +842,7 @@
         </coverageAdditions>
         <skipDefaultLocale services="segmentation collation"/>
 		<defaultContent locales="
-			aa_ET af_ZA ak_GH am_ET ar_EG as_IN az_Cyrl_AZ az_Latn az_Latn_AZ
+			aa_ET af_ZA ak_GH am_ET ar_EG as_IN az_Cyrl az_Cyrl_AZ az_Latn_AZ
 			be_BY bg_BG bn_BD bs_BA
 			ca_ES cs_CZ cy_GB
 			da_DK de_DE dv_MV dz_BT

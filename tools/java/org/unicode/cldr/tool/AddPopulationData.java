@@ -15,6 +15,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 
@@ -48,11 +49,11 @@ public class AddPopulationData {
   private static Counter<String> worldbank_population = new Counter<String>();
   private static Counter<String> factbook_gdp          = new Counter<String>();
   private static Counter<String> factbook_population   = new Counter<String>();
-  private static Counter<String> factbook_literacy   = new Counter<String>();
-  private static Counter<String> un_literacy   = new Counter<String>();
+  private static Counter2<String> factbook_literacy   = new Counter2<String>();
+  private static Counter2<String> un_literacy   = new Counter2<String>();
   private static Counter<String> other_population   = new Counter<String>();
   private static Counter<String> other_gdp   = new Counter<String>();
-  private static Counter<String> other_literacy   = new Counter<String>();
+  private static Counter2<String> other_literacy   = new Counter2<String>();
   private static Map<String, String> nameToCountryCode     = new TreeMap(new UTF16.StringComparator(true, true, 0));
 
 
@@ -118,27 +119,27 @@ public class AddPopulationData {
     );
   }
 
-  public static long getLiteracy(String country) {
+  public static Number getLiteracy(String country) {
     return firstNonZero(factbook_literacy.getCount(country),
             un_literacy.getCount(country),
             other_literacy.getCount(country));
   }
 
-  public static long getGdp(String country) {
+  public static Number getGdp(String country) {
     return firstNonZero(factbook_gdp.getCount(country),
             worldbank_gdp.getCount(country),
             other_gdp.getCount(country));
   }
 
-  public static long getPopulation(String country) {
+  public static Number getPopulation(String country) {
     return firstNonZero(factbook_population.getCount(country),
             worldbank_population.getCount(country),
             other_population.getCount(country));
   }
 
-  private static long firstNonZero(long...items) {
-    for (long item : items) {
-      if (item != 0) {
+  private static Number firstNonZero(Number...items) {
+    for (Number item : items) {
+      if (item.doubleValue() != 0) {
         return item;
       }
     }
@@ -376,7 +377,7 @@ public class AddPopulationData {
   }
 
   static final NumberFormat dollars = NumberFormat.getCurrencyInstance(ULocale.US);
-  static final NumberFormat number = NumberFormat.getIntegerInstance(ULocale.US);
+  static final NumberFormat number = NumberFormat.getNumberInstance(ULocale.US);
 
   private static void loadOtherInfo() throws IOException {
     final String filename = "external/other_country_data.txt";
@@ -398,14 +399,14 @@ public class AddPopulationData {
         } else if (typeString.equals("population")) {
           other_population.add(code, number.parse(data).longValue());
         } else if (typeString.equals("literacy")) {
-          final long literacy;
+          final double literacy;
           if (!DIGITS.containsSome(data)) {
             literacy = factbook_literacy.getCount(data);
             if (literacy == 0) {
               throw new IllegalArgumentException("Need to do factbook literacy first");
             }
           } else {
-            literacy = number.parse(data).longValue();
+            literacy = number.parse(data).doubleValue();
           }
           other_literacy.add(code, literacy);
         } else {
@@ -445,7 +446,13 @@ public class AddPopulationData {
         }
         // <a href="../geos/al.html" class="CountryLink">Albania</a>
         // AX Aland Islands www.aland.ax  26,200  $929,773,254
-        factbook_literacy.add(code, number.parse(m.group(1)).longValue());
+        final String percentString = m.group(1);
+        final double percent = number.parse(percentString).doubleValue();
+        if (factbook_literacy.getCount(code) != 0) {
+          System.out.println("Duplicate literacy: " + code);
+          return false;
+        }
+        factbook_literacy.add(code, percent);
         return true;
       }
     });
@@ -504,7 +511,7 @@ public class AddPopulationData {
         if (code == null) {
           return false;
         }
-        int percent = Integer.parseInt(pieces[3]);
+        double percent = Double.parseDouble(pieces[3]);
         un_literacy.add(code, percent);
         return true;
       }

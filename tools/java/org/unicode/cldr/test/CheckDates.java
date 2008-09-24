@@ -287,8 +287,11 @@ public class CheckDates extends CheckCLDR {
     DateTimeLengths dateTimeLength = DateTimeLengths.valueOf(len.toUpperCase(Locale.ENGLISH));
     style += dateTimeLength.ordinal();
     if (!dateTimePatterns[style].matcher(skeleton).matches()) {
-      result.add(new CheckStatus().setMainType(CheckStatus.errorType).setSubtype(Subtype.missingOrExtraDateField)
-          .setMessage("Missing or extra field, expected {0} [Internal: {1} / {2}]", new Object[]{dateTimeMessage[style], skeleton, dateTimePatterns[style].pattern()}));     
+      result.add(new CheckStatus()
+      .setCause(this)
+      .setMainType(CheckStatus.errorType)
+      .setSubtype(Subtype.missingOrExtraDateField)
+      .setMessage("Missing or extra field, expected {0} [Internal: {1} / {2}]", new Object[]{dateTimeMessage[style], skeleton, dateTimePatterns[style].pattern()}));     
     }
     
     // TODO fix this up.
@@ -308,9 +311,9 @@ public class CheckDates extends CheckCLDR {
       Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)(z+)"), // time-long
       Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)(v+)"), // time-full
       Pattern.compile("y{2,4}M{1,2}(d|dd)"), // date-short
-      Pattern.compile("yyyyM{1,3}(d|dd)"), // date-medium
-      Pattern.compile("yyyyM{1,4}(d|dd)"), // date-long
-      Pattern.compile("G*yyyyM{1,4}E*(d|dd)"), // date-full
+      Pattern.compile("y(yyy)?M{1,3}(d|dd)"), // date-medium
+      Pattern.compile("y(yyy)?M{1,4}(d|dd)"), // date-long
+      Pattern.compile("G*y(yyy)?M{1,4}E*(d|dd)"), // date-full
   };
   String[] dateTimeMessage = {
       "hours (H, HH, h, or hh), and minutes (m or mm)", // time-short

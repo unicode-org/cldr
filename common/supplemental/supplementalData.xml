@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldmlSupplemental.dtd">
+<!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldmlSupplemental.dtd">
 
 <supplementalData>
 	<version number="$Revision$"/>
@@ -3743,6 +3743,8 @@ XXX	Code for transations where no currency is involved
 		      <era type="1" start="1912"/>
 		  </eras>
 		</calendar>
+                <calendarPreference territories="001" ordering="gregorian"/>
+                <calendarPreference territories="TH" ordering="buddhist gregorian"/>
 	</calendarData>
     <weekData>
           <minDays count="1" territories="001" />

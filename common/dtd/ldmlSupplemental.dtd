@@ -7,8 +7,8 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.59 $
-    $Date: 2008-09-29 16:27:11 $
+    $Revision: 1.60 $
+    $Date: 2008-10-06 17:13:38 $
 -->
 
 <!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, references? ) >
@@ -45,6 +45,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST currency to NMTOKEN #IMPLIED >
 <!ATTLIST currency iso4217 NMTOKEN #REQUIRED >
 <!ATTLIST currency draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST currency tender ( true | false ) #IMPLIED >
 <!ATTLIST currency references CDATA #IMPLIED >
 
 <!ELEMENT alternate EMPTY > <!-- This usage is deprecated. Use from and to. -->

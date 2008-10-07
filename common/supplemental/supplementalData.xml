@@ -107,10 +107,9 @@ The printed version of ISO-4217:2001
 -->
         <region iso3166="AD">
             <currency iso4217="EUR" from="1999-01-01"/>
-            <currency iso4217="ESP" from="1873" to="2002-02-28"/>
+            <currency iso4217="ESP" from="1873-01-01" to="2002-02-28"/>
             <currency iso4217="FRF" from="1960-01-01" to="2002-02-17"/>
-            <currency iso4217="ADP" from="1936" to="2001-12-31"/><!-- End date from europa.eu.int. -->
-            <!-- currency iso4217="ADD" from="1873" to="2002-02-28"/ --><!-- Not listed in the 2001 list -->
+            <currency iso4217="ADP" from="1936-01-01" to="2001-12-31"/>
         </region>
         <region iso3166="AE">
             <currency iso4217="AED" from="1973-05-19"/>
@@ -141,9 +140,9 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="AO">
             <currency iso4217="AOA" from="1999-12-13"/>
-            <currency iso4217="AOR" from="1995-07-01" to="2000-02"/>
-            <currency iso4217="AON" from="1990-09-25" to="2000-02"/>
-            <currency iso4217="AOK" from="1977-01-08" to="1991-03"/>
+            <currency iso4217="AOR" from="1995-07-01" to="2000-02-01"/>
+            <currency iso4217="AON" from="1990-09-25" to="2000-02-01"/>
+            <currency iso4217="AOK" from="1977-01-08" to="1991-03-01"/>
         </region>
         <region iso3166="AQ">
         <currency iso4217="XXX"/>
@@ -153,6 +152,8 @@ The printed version of ISO-4217:2001
             <currency iso4217="ARS" from="1992-01-01"/>
             <currency iso4217="ARA" from="1985-06-14" to="1992-01-01"/>
             <currency iso4217="ARP" from="1983-06-01" to="1985-06-14"/>
+            <currency iso4217="ARL" from="1970-01-01" to="1983-06-01"/>
+            <currency iso4217="ARM" from="1881-11-05" to="1970-01-01"/>
         </region>
         <region iso3166="AS">
             <currency iso4217="USD" from="1904-07-16"/>
@@ -179,9 +180,9 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="BA">
             <currency iso4217="BAM" from="1995-01-01"/>
-            <!-- currency iso4217="BAN" from="1994-08-15" to="1997-07"/ --><!-- Not listed in the 2001 list -->
-            <currency iso4217="BAD" from="1992-07-01" to="1997-07"/>
-            <!-- currency iso4217="YUR" from="1992-07-01" to="1993-10-01"/ --><!-- Not listed in the 2001 list -->
+            <currency iso4217="BAN" from="1994-08-15" to="1997-07-01"/>
+            <currency iso4217="BAD" from="1992-07-01" to="1994-08-15"/>
+            <currency iso4217="YUR" from="1992-07-01" to="1993-10-01"/>
             <currency iso4217="YUN" from="1990-01-01" to="1992-07-01"/>
             <currency iso4217="YUD" from="1966-01-01" to="1990-01-01"/>
         </region>
@@ -198,6 +199,8 @@ The printed version of ISO-4217:2001
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="BEF" from="1831-02-07" to="2002-02-28"/>
             <currency iso4217="NLG" from="1816-12-15" to="1831-02-07"/>
+            <currency iso4217="BEL" tender="false"/>
+            <currency iso4217="BEC" tender="false"/>
         </region>
         <region iso3166="BF">
             <currency iso4217="XOF" from="1984-08-04"/>
@@ -206,6 +209,7 @@ The printed version of ISO-4217:2001
             <currency iso4217="BGN" from="1999-07-05"/>
             <currency iso4217="BGL" from="1962-01-01" to="1999-07-05"/>
             <currency iso4217="BGM" from="1952-05-12" to="1962-01-01"/>
+            <currency iso4217="BGO" from="1879-07-08" to="1952-05-12"/>
         </region>
         <region iso3166="BH">
             <currency iso4217="BHD" from="1965-10-16"/>
@@ -230,7 +234,8 @@ The printed version of ISO-4217:2001
         <region iso3166="BO">
             <currency iso4217="BOB" from="1987-01-01"/>
             <currency iso4217="BOP" from="1963-01-01" to="1986-12-31"/>
-            <!-- currency iso4217="BOL" from="1863-06-23" to="1962-12-31"/ --><!-- Not listed in the 2001 list -->
+            <currency iso4217="BOL" from="1863-06-23" to="1963-01-01"/>
+            <currency iso4217="BOV" tender="false"/>
         </region>
         <region iso3166="BR">
             <currency iso4217="BRL" from="1994-07-01"/>
@@ -238,15 +243,15 @@ The printed version of ISO-4217:2001
             <currency iso4217="BRE" from="1990-03-16" to="1993-08-01"/>
             <currency iso4217="BRN" from="1989-01-15" to="1990-03-16"/>
             <currency iso4217="BRC" from="1986-02-28" to="1989-01-15"/>
-            <!-- currency iso4217="BRZ" from="1942-11-01" to="1987-02-13"/ --><!-- Not listed in the 2001 list -->
             <currency iso4217="BRB" from="1967-02-13" to="1986-02-28"/>
+            <currency iso4217="BRZ" from="1942-11-01" to="1967-02-13"/>
         </region>
         <region iso3166="BS">
             <currency iso4217="BSD" from="1966-05-25"/>
         </region>
         <region iso3166="BT">
-            <currency iso4217="INR" from="1907"/>
             <currency iso4217="BTN" from="1974-04-16"/>
+            <currency iso4217="INR" from="1907-01-01" to="1974-04-16"/>
         </region>
         <!-- Burma (BU) was renamed to Myanmar (MM). Look at "MM" for latest history. -->
         <region iso3166="BU">
@@ -261,9 +266,8 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="BY">
             <currency iso4217="BYR" from="2000-01-01"/>
-            <currency iso4217="BYB" from="1994-08" to="2000-12-31"/><!-- This was a valid currency according to eu.int -->
+            <currency iso4217="BYB" from="1994-08-01" to="2000-12-31"/><!-- This was a valid currency according to eu.int -->
             <currency iso4217="RUR" from="1991-12-25" to="1994-11-08"/>
-            <!-- currency iso4217="BYL" from="1992-09-25" to="1994-08"/--><!-- Validity is unknown -->
             <currency iso4217="SUR" from="1961-01-01" to="1991-12-25"/>
         </region>
         <region iso3166="BZ">
@@ -276,9 +280,9 @@ The printed version of ISO-4217:2001
             <currency iso4217="AUD" from="1966-02-14"/>
         </region>
         <region iso3166="CD">
-            <currency iso4217="CDF" from="1998-07"/>
+            <currency iso4217="CDF" from="1998-07-01"/>
             <!-- Zaire (ZR) was renamed to Democratic Republic of Congo (CD) -->
-            <currency iso4217="ZRN" from="1993-11-01" to="1998-07"/>
+            <currency iso4217="ZRN" from="1993-11-01" to="1998-07-01"/>
             <currency iso4217="ZRZ" from="1971-10-27" to="1993-11-01"/>
         </region>
         <region iso3166="CF">
@@ -286,28 +290,34 @@ The printed version of ISO-4217:2001
             <!-- currency iso4217="CFF" from="1973-04-01" to="1992-12-31"/ --><!-- Validity is unknown -->
         </region>
         <region iso3166="CG">
-            <currency iso4217="XAF" from="1993"/>
+            <currency iso4217="XAF" from="1993-01-01"/>
         </region>
         <region iso3166="CH">
             <currency iso4217="CHF" from="1799-03-17"/>
+            <currency iso4217="CHE" tender="false"/>
+            <currency iso4217="CHW" tender="false"/>
         </region>
         <region iso3166="CI">
             <currency iso4217="XOF" from="1958-12-04"/>
         </region>
         <region iso3166="CK">
-            <currency iso4217="NZD" from="1967-7-10"/>
+            <currency iso4217="NZD" from="1967-07-10"/>
         </region>
         <region iso3166="CL">
             <currency iso4217="CLP" from="1975-09-29"/>
+            <currency iso4217="CLE" from="1960-01-01" to="1975-09-29"/>
+            <currency iso4217="CLF" tender="false"/>
         </region>
         <region iso3166="CM">
             <currency iso4217="XAF" from="1973-04-01"/>
         </region>
         <region iso3166="CN">
             <currency iso4217="CNY" from="1953-03-01"/>
+            <currency iso4217="CNX" tender="false"/>
         </region>
         <region iso3166="CO">
-            <currency iso4217="COP" from="1905"/>
+            <currency iso4217="COP" from="1905-01-01"/>
+            <currency iso4217="COU" tender="false"/>
         </region>
         <region iso3166="CR">
             <currency iso4217="CRC" from="1896-10-26"/>
@@ -321,7 +331,7 @@ The printed version of ISO-4217:2001
         <region iso3166="CU">
             <currency iso4217="CUP" from="1859-01-01"/>
             <!-- currency iso4217="USD" from="1994"/ --><!-- Unofficially used -->
-            <currency iso4217="USD" from="1899" to="1959"/>
+            <currency iso4217="USD" from="1899-01-01" to="1959-01-01"/>
         </region>
         <region iso3166="CV">
             <currency iso4217="CVE" from="1914-01-01"/>
@@ -338,7 +348,7 @@ The printed version of ISO-4217:2001
         <region iso3166="CZ">
             <currency iso4217="CZK" from="1993-01-01"/>
             <!-- CS was renamed to CZ -->
-            <currency iso4217="CSK" from="1953-06-01" to="1993-03"/>
+            <currency iso4217="CSK" from="1953-06-01" to="1993-03-01"/>
         </region>
         <!-- East Germany merged with West Germany, and no longer exists as "DD". DDM was an ISO-4217 code. -->
         <region iso3166="DD">
@@ -358,8 +368,8 @@ The printed version of ISO-4217:2001
             <currency iso4217="XCD" from="1965-10-06"/>
         </region>
         <region iso3166="DO">
-            <currency iso4217="DOP" from="1947-10"/>
-            <currency iso4217="USD" from="1905-06-21" to="1947-10"/>
+            <currency iso4217="DOP" from="1947-10-01"/>
+            <currency iso4217="USD" from="1905-06-21" to="1947-10-01"/>
         </region>
         <region iso3166="DZ">
             <currency iso4217="DZD" from="1964-04-01"/>
@@ -367,6 +377,7 @@ The printed version of ISO-4217:2001
         <region iso3166="EC">
             <currency iso4217="USD" from="2000-10-02"/>
             <currency iso4217="ECS" from="1884-04-01" to="2000-10-02"/>
+            <currency iso4217="ECV" tender="false"/>
         </region>
         <region iso3166="EE">
             <currency iso4217="EEK" from="1992-06-21"/>
@@ -380,10 +391,13 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="ER">
             <currency iso4217="ERN" from="1997-11-08"/>
+            <currency iso4217="ETB" from="1993-05-24" to="1997-11-08"/>
         </region>
         <region iso3166="ES">
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="ESP" from="1868-10-19" to="2002-02-28"/>
+            <currency iso4217="ESA" tender="false"/>
+            <currency iso4217="ESB" tender="false"/>
         </region>
         <region iso3166="ET">
             <currency iso4217="ETB" from="1976-09-15"/>
@@ -396,15 +410,15 @@ The printed version of ISO-4217:2001
             <currency iso4217="FJD" from="1969-01-13"/>
         </region>
         <region iso3166="FK">
-            <currency iso4217="FKP" from="1901"/>
+            <currency iso4217="FKP" from="1901-01-01"/>
         </region>
         <region iso3166="FM">
-            <currency iso4217="USD" from="1944"/>
-            <currency iso4217="JPY" from="1914-10-03" to="1944"/>
+            <currency iso4217="USD" from="1944-01-01"/>
+            <currency iso4217="JPY" from="1914-10-03" to="1944-01-01"/>
         </region>
         <region iso3166="FO">
             <!-- ISO-4217 doesn't have a code for the Faroese krona, but it depends on the DKK currency.  -->
-            <currency iso4217="DKK" from="1948"/>
+            <currency iso4217="DKK" from="1948-01-01"/>
         </region>
         <region iso3166="FR">
             <currency iso4217="EUR" from="1999-01-01"/>
@@ -432,14 +446,14 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="GG">
             <!-- ISO-4217 doesn't have a code for the Guernsey pound, but it depends on the GBP currency.  -->
-            <currency iso4217="GBP" from="1830"/>
+            <currency iso4217="GBP" from="1830-01-01"/>
         </region>
         <region iso3166="GH">
           <currency iso4217="GHS" from="2007-07-03"/>
           <currency iso4217="GHC" from="1979-03-09" to="2007-12-31"/>
         </region>
         <region iso3166="GI">
-            <currency iso4217="GIP" from="1713"/>
+            <currency iso4217="GIP" from="1713-01-01"/>
             <!-- currency iso4217="GBP" from="1713"/ --><!-- Not listed in the 2001 or 2004 list -->
         </region>
         <region iso3166="GL">
@@ -458,15 +472,14 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="GQ">
             <currency iso4217="XAF" from="1993-01-01"/>
-            <!-- currency iso4217="EQE" to="1989-12"/ --><!-- Deprecated code in ISO-4217:2001. Start date is unknown. -->
-            <currency iso4217="GQE" from="1975-07-07" to="1986-06"/>
+            <currency iso4217="GQE" from="1975-07-07" to="1986-06-01"/>
         </region>
         <region iso3166="GR">
             <currency iso4217="EUR" from="2001-01-01"/>
             <currency iso4217="GRD" from="1954-05-01" to="2002-02-28"/>
         </region>
         <region iso3166="GS"><!-- UK overseas territory. No indigenous population -->
-            <currency iso4217="GBP" from="1908"/>
+            <currency iso4217="GBP" from="1908-01-01"/>
         </region>
         <region iso3166="GT">
             <currency iso4217="GTQ" from="1925-05-27"/>
@@ -494,7 +507,7 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="HR">
             <currency iso4217="HRK" from="1994-05-30"/>
-            <currency iso4217="HRD" from="1991-12-23" to="1995-01"/>
+            <currency iso4217="HRD" from="1991-12-23" to="1995-01-01"/>
             <currency iso4217="YUN" from="1990-01-01" to="1991-12-23"/>
             <currency iso4217="YUD" from="1966-01-01" to="1990-01-01"/>
         </region>
@@ -509,12 +522,13 @@ The printed version of ISO-4217:2001
             <currency iso4217="IDR" from="1965-12-13"/>
         </region>
         <region iso3166="IE">
-            <currency iso4217="EUR" from="1999"/>
-            <currency iso4217="IEP" from="1922" to="2002-02-09"/>
-            <currency iso4217="GBP" from="1800" to="1922"/>
+            <currency iso4217="EUR" from="1999-01-01"/>
+            <currency iso4217="IEP" from="1922-01-01" to="2002-02-09"/>
+            <currency iso4217="GBP" from="1800-01-01" to="1922-01-01"/>
         </region>
         <region iso3166="IL">
             <currency iso4217="ILS" from="1985-09-04"/>
+            <currency iso4217="ILR" from="1980-02-22" to="1985-09-04"/>
             <currency iso4217="ILP" from="1948-08-16" to="1980-02-22"/>
         </region>
         <region iso3166="IM">
@@ -537,15 +551,16 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="IS">
             <currency iso4217="ISK" from="1981-01-01"/>
+            <currency iso4217="ISJ" from="1918-12-01" to="1981-01-01"/>
             <currency iso4217="DKK" from="1873-05-27" to="1918-12-01"/>
         </region>
         <region iso3166="IT">
             <currency iso4217="EUR" from="1999-01-01"/>
-            <currency iso4217="ITL" from="1862-8-24" to="2002-02-28"/>
+            <currency iso4217="ITL" from="1862-08-24" to="2002-02-28"/>
         </region>
         <region iso3166="JE">
             <!-- ISO-4217 doesn't have a code for the Jersey pound, but it depends on the GBP currency.  -->
-            <currency iso4217="GBP" from="1837"/>
+            <currency iso4217="GBP" from="1837-01-01"/>
         </region>
         <region iso3166="JM">
             <currency iso4217="JMD" from="1969-09-08"/>
@@ -554,7 +569,7 @@ The printed version of ISO-4217:2001
             <currency iso4217="JOD" from="1950-07-01"/>
         </region>
         <region iso3166="JP">
-            <currency iso4217="JPY" from="1871-06"/>
+            <currency iso4217="JPY" from="1871-06-01"/>
         </region>
         <region iso3166="KE">
             <currency iso4217="KES" from="1966-09-14"/>
@@ -583,13 +598,15 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="KR">
             <currency iso4217="KRW" from="1962-06-10"/>
+            <currency iso4217="KRH" from="1953-02-15" to="1962-06-10"/>
+            <currency iso4217="KRO" from="1945-08-15" to="1953-02-15"/>
         </region>
         <region iso3166="KW">
             <currency iso4217="KWD" from="1961-04-01"/>
         </region>
         <region iso3166="KY">
-            <currency iso4217="KYD" from="1971"/>
-            <currency iso4217="JMD" from="1969-09-08" to="1971"/>
+            <currency iso4217="KYD" from="1971-01-01"/>
+            <currency iso4217="JMD" from="1969-09-08" to="1971-01-01"/>
         </region>
         <region iso3166="KZ">
             <currency iso4217="KZT" from="1993-11-05"/>
@@ -607,7 +624,7 @@ The printed version of ISO-4217:2001
             <currency iso4217="XCD" from="1965-10-06"/>
         </region>
         <region iso3166="LI">
-            <currency iso4217="CHF" from="1921-02"/>
+            <currency iso4217="CHF" from="1921-02-01"/>
         </region>
         <region iso3166="LK">
             <currency iso4217="LKR" from="1978-05-22"/>
@@ -618,16 +635,17 @@ The printed version of ISO-4217:2001
         <region iso3166="LS">
             <currency iso4217="ZAR" from="1961-02-14"/>
             <currency iso4217="LSL" from="1980-01-22"/>
-            <!-- currency iso4217="LSM" to="1985-05"/ --><!-- Start date is unkown -->
         </region>
         <region iso3166="LT">
             <currency iso4217="LTL" from="1993-06-25"/>
-            <currency iso4217="LTT" from="1992-10-1" to="1993-06-25"/>
-            <currency iso4217="SUR" from="1961-1-1" to="1992-10-01"/>
+            <currency iso4217="LTT" from="1992-10-01" to="1993-06-25"/>
+            <currency iso4217="SUR" from="1961-01-01" to="1992-10-01"/>
         </region>
         <region iso3166="LU">
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="LUF" from="1944-09-4" to="2002-02-28"/>
+            <currency iso4217="LUC" tender="false"/>
+            <currency iso4217="LUL" tender="false"/>
         </region>
         <region iso3166="LV">
             <currency iso4217="LVL" from="1993-06-28"/>
@@ -639,15 +657,16 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="MA">
             <currency iso4217="MAD" from="1959-10-17"/>
+            <currency iso4217="MAF" from="1881-01-01" to="1959-10-17"/>
         </region>
         <region iso3166="MC">
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="FRF" from="1960-01-01" to="2002-02-17"/>
-            <!-- currency iso4217="MCF" from="1960-01-01" to="2002-02-17"/ --><!-- Not listed in the 2001 list -->
+            <currency iso4217="MCF" from="1960-01-01" to="2002-02-17"/>
         </region>
         <region iso3166="MD">
             <currency iso4217="MDL" from="1993-11-29"/>
-            <!-- currency iso4217="MDC" from="1992-06" to="1993-11-29"/ --><!-- Not listed in the 2001 list -->
+            <currency iso4217="MDC" from="1992-06-01" to="1993-11-29"/>
             <!-- currency iso4217="MDR" from="1991-05-23" to="1992-06"/ --><!-- Not listed in the 2001 list -->
             <!-- currency iso4217="SUR" from="1961-01-01" to="1991-05-23"/ -->
         </region>
@@ -666,12 +685,12 @@ The printed version of ISO-4217:2001
             <currency iso4217="MGF" from="1963-07-01" to="2004-12-31"/>
         </region>
         <region iso3166="MH">
-            <currency iso4217="USD" from="1944"/>
+            <currency iso4217="USD" from="1944-01-01"/>
             <!-- currency iso4217="MHD" from="1979-05-01"/ --><!-- Not listed in the 2001 or 2004 list -->
         </region>
         <region iso3166="MK">
             <currency iso4217="MKD" from="1993-05-20"/>
-            <!-- currency iso4217="MKN" from="1992-04-26" to="1993-05-20"/ --><!-- Not listed in the 2001 list -->
+            <currency iso4217="MKN" from="1992-04-26" to="1993-05-20"/>
             <!-- currency iso4217="YUN" from="1990" to="1992-07"/ -->
             <!-- currency iso4217="YUD" from="1966-01-01" to="1990"/ -->
         </region>
@@ -686,13 +705,13 @@ The printed version of ISO-4217:2001
             <currency iso4217="BUK" from="1952-07-01" to="1989-06-18"/>
         </region>
         <region iso3166="MN">
-            <currency iso4217="MNT" from="1915-03"/>
+            <currency iso4217="MNT" from="1915-03-01"/>
         </region>
         <region iso3166="MO">
-            <currency iso4217="MOP" from="1901"/>
+            <currency iso4217="MOP" from="1901-01-01"/>
         </region>
         <region iso3166="MP">
-            <currency iso4217="USD" from="1944"/>
+            <currency iso4217="USD" from="1944-01-01"/>
         </region>
         <region iso3166="MQ">
             <currency iso4217="EUR" from="1999-01-01"/>
@@ -721,10 +740,11 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="MX">
             <currency iso4217="MXN" from="1993-01-01"/>
-            <currency iso4217="MXP" from="1822" to="1992-12-31"/>
+            <currency iso4217="MXP" from="1822-01-01" to="1992-12-31"/>
+            <currency iso4217="MXV" tender="false"/>
         </region>
         <region iso3166="MY">
-            <currency iso4217="MYR" from="1963-9-16"/>
+            <currency iso4217="MYR" from="1963-09-16"/>
         </region>
         <region iso3166="MZ">
             <currency iso4217="MZN" from="2006-07-01"/>
@@ -732,11 +752,11 @@ The printed version of ISO-4217:2001
             <currency iso4217="MZE" from="1975-06-25" to="1980-06-16"/>
         </region>
         <region iso3166="NA">
-            <currency iso4217="ZAR" from="1961-02-14"/>
-            <currency iso4217="NAD" from="1993"/>
+            <currency iso4217="NAD" from="1993-01-01"/>
+            <currency iso4217="ZAR" from="1961-02-14" to="1993-01-01"/>
         </region>
         <region iso3166="NC">
-            <currency iso4217="XPF" from="1985"/>
+            <currency iso4217="XPF" from="1985-01-01"/>
         </region>
         <region iso3166="NE">
             <currency iso4217="XOF" from="1958-12-19"/>
@@ -752,16 +772,16 @@ The printed version of ISO-4217:2001
             <currency iso4217="NIC" from="1988-02-15" to="1991-04-30"/>
         </region>
         <region iso3166="NL">
-            <currency iso4217="EUR" from="1999-1-1"/>
-            <currency iso4217="NLG" from="1813" to="2002-02-28"/>
+            <currency iso4217="EUR" from="1999-01-01"/>
+            <currency iso4217="NLG" from="1813-01-01" to="2002-02-28"/>
         </region>
         <region iso3166="NO">
             <currency iso4217="NOK" from="1905-06-07"/>
-            <currency iso4217="SEK" from="1873-5-27" to="1905-06-07"/>
+            <currency iso4217="SEK" from="1873-05-27" to="1905-06-07"/>
         </region>
         <region iso3166="NP">
-            <currency iso4217="NPR" from="1933"/>
-            <currency iso4217="INR" from="1870" to="1966-10-17"/>
+            <currency iso4217="NPR" from="1933-01-01"/>
+            <currency iso4217="INR" from="1870-01-01" to="1966-10-17"/>
         </region>
         <region iso3166="NR">
             <currency iso4217="AUD" from="1966-02-14"/>
@@ -811,23 +831,23 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="PR">
             <currency iso4217="USD" from="1898-12-10"/>
-            <currency iso4217="ESP" from="1800" to="1898-12-10"/>
+            <currency iso4217="ESP" from="1800-01-01" to="1898-12-10"/>
         </region>
         <region iso3166="PS">
             <currency iso4217="JOD" from="1996-02-12"/>
             <currency iso4217="ILS" from="1985-09-04"/>
             <currency iso4217="ILP" from="1967-06" to="1980-02-22"/>
-            <currency iso4217="JOD" from="1950-07-01" to="1967-06"/>
+            <currency iso4217="JOD" from="1950-07-01" to="1967-06-01"/>
         </region>
         <region iso3166="PT">
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="PTE" from="1911-05-22" to="2002-02-28"/>
         </region>
         <region iso3166="PW">
-            <currency iso4217="USD" from="1944"/>
+            <currency iso4217="USD" from="1944-01-01"/>
         </region>
         <region iso3166="PY">
-            <currency iso4217="PYG" from="1943-11"/>
+            <currency iso4217="PYG" from="1943-11-01"/>
         </region>
         <region iso3166="QA">
             <currency iso4217="QAR" from="1973-05-19"/>
@@ -864,17 +884,17 @@ The printed version of ISO-4217:2001
             <currency iso4217="AUD" from="1966-02-14" to="1978-06-30"/>
         </region>
         <region iso3166="SC">
-            <currency iso4217="SCR" from="1903-11"/>
+            <currency iso4217="SCR" from="1903-11-01"/>
         </region>
         <region iso3166="SD">
             <currency iso4217="SDG" from="2007-01-10"/>
             <currency iso4217="SDD" from="1992-06-08" to="2007-06-30"/>
-            <currency iso4217="SDP" from="1957-04-08" to="1998-06"/>
+            <currency iso4217="SDP" from="1957-04-08" to="1998-06-01"/>
             <currency iso4217="EGP" from="1889-01-19" to="1958-01-01"/>
             <currency iso4217="GBP" from="1889-01-19" to="1958-01-01"/>
         </region>
         <region iso3166="SE">
-            <currency iso4217="SEK" from="1873-5-27"/>
+            <currency iso4217="SEK" from="1873-05-27"/>
         </region>
         <region iso3166="SG">
             <currency iso4217="SGD" from="1967-06-12"/>
@@ -924,8 +944,8 @@ The printed version of ISO-4217:2001
             <currency iso4217="SUR" from="1961-01-01" to="1991-12-25"/>
         </region>
         <region iso3166="SV">
-            <currency iso4217="SVC" from="1919-11-11"/>
             <currency iso4217="USD" from="2001-01-01"/>
+            <currency iso4217="SVC" from="1919-11-11" to="2001-01-01"/>
         </region>
         <region iso3166="SY">
             <currency iso4217="SYP" from="1948-01-01"/>
@@ -958,6 +978,7 @@ The printed version of ISO-4217:2001
         <region iso3166="TJ">
             <currency iso4217="TJS" from="2000-10-26"/>
             <currency iso4217="TJR" from="1995-05-10" to="2000-10-25"/>
+            <currency iso4217="RUR" from="1991-12-25" to="1995-05-10"/>
         </region>
         <region iso3166="TK">
             <currency iso4217="NZD" from="1967-07-10"/>
@@ -988,7 +1009,7 @@ The printed version of ISO-4217:2001
             <currency iso4217="TRL" from="1922-11-01" to="2005-12-31"/>
         </region>
         <region iso3166="TT">
-            <currency iso4217="TTD" from="1964"/>
+            <currency iso4217="TTD" from="1964-01-01"/>
         </region>
         <region iso3166="TV">
             <!-- ISO-4217 doesn't have a code for the Tuvaluan dollar, but it depends on the AUD currency.  -->
@@ -1005,21 +1026,24 @@ The printed version of ISO-4217:2001
             <!-- Period of hyperinflation -->
             <currency iso4217="UAK" from="1992-11-13" to="1993-10-17"/>
             <currency iso4217="RUR" from="1991-12-25" to="1992-11-13"/>
-            <currency iso4217="SUR" from="1961-1-1" to="1991-12-25"/>
+            <currency iso4217="SUR" from="1961-01-01" to="1991-12-25"/>
         </region>
         <region iso3166="UG">
             <currency iso4217="UGX" from="1987-05-15"/>
             <currency iso4217="UGS" from="1966-08-15" to="1987-05-15"/>
         </region>
         <region iso3166="UM">
-            <currency iso4217="USD" from="1944"/>
+            <currency iso4217="USD" from="1944-01-01"/>
         </region>
         <region iso3166="US">
-            <currency iso4217="USD" from="1792"/>
+            <currency iso4217="USD" from="1792-01-01"/>
+            <currency iso4217="USN" tender="false"/>
+            <currency iso4217="USS" tender="false"/>
         </region>
         <region iso3166="UY">
             <currency iso4217="UYU" from="1993-03-01"/>
             <currency iso4217="UYP" from="1975-07-01" to="1993-03-01"/>
+            <currency iso4217="UYI" tender="false"/>
         </region>
         <region iso3166="UZ">
             <currency iso4217="UZS" from="1994-07-01"/>
@@ -1037,15 +1061,16 @@ The printed version of ISO-4217:2001
             <currency iso4217="VEB" from="1871-05-11" to="2008-06-30"/>
         </region>
         <region iso3166="VG">
-            <currency iso4217="USD" from="1833"/>
+            <currency iso4217="USD" from="1833-01-01"/>
             <!-- currency iso4217="VGD" from="1973"/ --><!-- Not listed in the 2001 or 2004 list -->
-            <currency iso4217="GBP" from="1833" to="1959"/>
+            <currency iso4217="GBP" from="1833-01-01" to="1959-01-01"/>
         </region>
         <region iso3166="VI">
-            <currency iso4217="USD" from="1837"/>
+            <currency iso4217="USD" from="1837-01-01"/>
         </region>
         <region iso3166="VN">
             <currency iso4217="VND" from="1985-09-14"/>
+            <currency iso4217="VNN" from="1978-05-03" to="1985-09-14"/>
         </region>
         <region iso3166="VU">
             <currency iso4217="VUV" from="1981-01-01"/>
@@ -1059,10 +1084,9 @@ The printed version of ISO-4217:2001
         <region iso3166="YE">
             <currency iso4217="YER" from="1990-05-22"/><!-- You might be able to say 1964-05-08 is the starting date -->
         </region>
-        <!-- YD is not listed as a valid ISO-3166 code. If it was valid, it merged with North Yemen (YE) -->
-        <!-- region iso3166="YD" -->
-            <!-- currency iso4217="YDD" from="1965-04-01" to="1991-09"/ --><!-- ISO-4217 says 1991-09, but it was recognized as legal tender until 1996-06-11. -->
-        <!-- /region -->
+        <region iso3166="YD">
+            <currency iso4217="YDD" from="1965-04-01" to="1996-01-01"/>
+        </region>
         <region iso3166="YT">
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="FRF" from="1976-02-23" to="2002-02-17"/>
@@ -1080,6 +1104,7 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="ZA">
             <currency iso4217="ZAR" from="1961-02-14"/>
+            <currency iso4217="ZAL" tender="false"/>
         </region>
         <region iso3166="ZM">
             <currency iso4217="ZMK" from="1968-01-16"/>
@@ -1091,21 +1116,25 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="ZW">
             <currency iso4217="ZWD" from="1980-04-18"/>
+            <currency iso4217="RHD" from="1970-02-17" to="1980-04-18"/>
         </region>
-<!--
-The following are fund codes. They are not really in the form of hard currency.
-They are mainly interesting to certain parts of the financing industry, and average people won't use them.
--->
-<!--
-BOV	Bolivia Mvdol
-CLF	Unidades de Fomento
-ECV	Unidad de Valor Constante
-MXV	Mexico Unidad de Inversion
-USN	US Dollar (Next day)
-USS	US Dollar (same day)
-ZAL	South African Financial Rand (02/02/1976-02/06/1983, 09/01/1985-3/13/1995)
--->
-<!-- The following are precious metals -->
+        <region iso3166="ZZ">
+            <currency iso4217="XAG" tender="false"/>
+            <currency iso4217="XAU" tender="false"/>
+            <currency iso4217="XBA" tender="false"/>
+            <currency iso4217="XBB" tender="false"/>
+            <currency iso4217="XBC" tender="false"/>
+            <currency iso4217="XBD" tender="false"/>
+            <currency iso4217="XDR" tender="false"/>
+            <currency iso4217="XEU" tender="false"/>
+            <currency iso4217="XFO" tender="false"/>
+            <currency iso4217="XFU" tender="false"/>
+            <currency iso4217="XPD" tender="false"/>
+            <currency iso4217="XPT" tender="false"/>
+            <currency iso4217="XRE" tender="false"/>
+            <currency iso4217="XTS" tender="false"/>
+            <currency iso4217="XXX" tender="false"/>
+        </region>
 <!--
 XAG	Silver
 XAU	Gold

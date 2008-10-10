@@ -60,7 +60,7 @@ public class SupplementalDataInfo {
    * Official status of languages
    */
   public enum OfficialStatus {
-    unknown, de_facto_official, official, official_regional, official_minority;
+    unknown, official_regional, official_minority, de_facto_official, official;
 
     public String toShortString() {
       switch (this) {
@@ -1303,8 +1303,13 @@ public class SupplementalDataInfo {
         }
       }
       PopulationData territoryPopulationData = getPopulationDataForTerritory(territory);
-      weight += territoryPopulationData.getGdp() * targetLiteratePopulation
-      / totalLiteratePopulation;
+      final double gdp = territoryPopulationData.getGdp();
+        final double scaledGdp = gdp * targetLiteratePopulation / totalLiteratePopulation;
+      if (scaledGdp > 0) {
+        weight += scaledGdp;
+      } else {
+        //System.out.println("?\t" + territory + "\t" + targetLanguage);
+      }
     }
     return weight;
   }

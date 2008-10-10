@@ -450,14 +450,14 @@ public class ConvertLanguageData {
       System.out.println(
           getDisplayCountry(region)
               + "\t" + region
-              + "\t\"" + formatNumber(popData.getPopulation(), 0) + "\""
-              + "\t\"" + formatPercent(popData.getLiteratePopulation()/popData.getPopulation(),0) + "\""
-              + "\t\"" + formatPercent(popData.getGdp(),0) + "\""
+              + "\t\"" + formatNumber(popData.getPopulation(), 0, false) + "\""
+              + "\t\"" + formatPercent(popData.getLiteratePopulation()/popData.getPopulation(),0, false) + "\""
+              + "\t\"" + formatPercent(popData.getGdp(),0, false) + "\""
               + "\t" + ""
               + "\t" + getLanguageName(language)
               + "\t" + language
               + "\t" + -1
-              + "\t\"" + formatPercent(popData.getLiteratePopulation()/popData.getPopulation(),0) + "\""
+              + "\t\"" + formatPercent(popData.getLiteratePopulation()/popData.getPopulation(),0, false) + "\""
               );
     }
 
@@ -636,10 +636,10 @@ public class ConvertLanguageData {
     private void showDiff(double a, double new_a, double maxRelativeDiff, boolean showLang) {
       final double diff = new_a/a - 1;
       if (Math.abs(diff) > maxRelativeDiff) {
-      System.out.println(formatPercent(diff,0) 
+      System.out.println(formatPercent(diff,0, false) 
               + "\t" + countryCode + "\t" + getDisplayCountry(countryCode) 
               + (showLang ? "\t" + languageCode + "\t" + getLanguageName(languageCode) : "")
-              + "\t" + formatNumber(a, 0) + "\t=>\t" + formatNumber(new_a, 0));
+              + "\t" + formatNumber(a, 0, false) + "\t=>\t" + formatNumber(new_a, 0, false));
       }
     }
 
@@ -761,19 +761,19 @@ public class ConvertLanguageData {
     }
 
     public String getCountryGdpString() {
-      return getExcelQuote(formatNumber(countryGdp, 0));
+      return getExcelQuote(formatNumber(countryGdp, 0, false));
     }
 
     public String getCountryLiteracyString() {
-      return formatPercent(countryLiteracy,2);
+      return formatPercent(countryLiteracy,2, false);
     }
 
     public String getCountryPopulationString() {
-      return getExcelQuote(formatNumber(countryPopulation, 0));
+      return getExcelQuote(formatNumber(countryPopulation, 0, false));
     }
 
     public String getLanguageLiteracyString() {
-      return formatPercent(languageLiteracy, 2);
+      return formatPercent(languageLiteracy, 2, false);
     }
 
     public String getLanguagePopulationString() {
@@ -782,8 +782,8 @@ public class ConvertLanguageData {
       return getExcelQuote(relativeLanguagePopulation  
               && percent > 0.03
               && languagePopulation > 10000
-              ? formatPercent(percent,2) 
-                      : formatNumber(languagePopulation, 3));
+              ? formatPercent(percent,2, false) 
+                      : formatNumber(languagePopulation, 3, false));
     }
 
   }
@@ -846,9 +846,9 @@ public class ConvertLanguageData {
           Log.println("\t\t</territory>");
         }
         Log.print("\t\t<territory type=\"" + countryCode + "\""
-            + " gdp=\"" + formatNumber(countryGDP,3) + "\""
-            + " literacyPercent=\"" + formatPercent(countryLiteracy, 0) + "\""
-            + " population=\"" + formatNumber(countryPopulation,6) + "\">");
+            + " gdp=\"" + formatNumber(countryGDP,4, true) + "\""
+            + " literacyPercent=\"" + formatPercent(countryLiteracy, 3, true) + "\""
+            + " population=\"" + formatNumber(countryPopulation,6, true) + "\">");
         lastCountryCode = countryCode;
         Log.println("\t<!--" + getDisplayCountry(countryCode) + "-->");
       }
@@ -869,8 +869,8 @@ public class ConvertLanguageData {
         }
         
         Log.print("\t\t\t<languagePopulation type=\"" + languageCode + "\""
-            + (languageLiteracy != countryLiteracy ? " writingPercent=\"" + formatPercent(languageLiteracy, 2) + "\"" : "")
-            + " populationPercent=\"" + formatPercent(languagePopulationPercent, 2) + "\""
+            + (languageLiteracy != countryLiteracy ? " writingPercent=\"" + formatPercent(languageLiteracy, 2, true) + "\"" : "")
+            + " populationPercent=\"" + formatPercent(languagePopulationPercent, 2, true) + "\""
             + (row.officialStatus != OfficialStatus.unknown ? " officialStatus=\"" + row.officialStatus + "\"" : "")
             + references.addReference(row.comment)
             + "/>");
@@ -1975,20 +1975,31 @@ public class ConvertLanguageData {
   }
   
   static NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
+  static NumberFormat nf_no_comma = NumberFormat.getInstance(ULocale.ENGLISH);
+  static {
+    nf_no_comma.setGroupingUsed(false);
+  }
   static NumberFormat pf = NumberFormat.getPercentInstance(ULocale.ENGLISH);
   
-  public static String formatNumber(double d, int roundDigits) {
+  public static String formatNumber(double d, int roundDigits, boolean xml) {
     if (roundDigits != 0) {
       d = Utility.roundToDecimals(d, roundDigits);
+    }    
+    if (xml) {
+      return nf_no_comma.format(d);
     }
     return nf.format(d);
   }
   
-  public static String formatPercent(double d, int roundDigits) {
+  public static String formatPercent(double d, int roundDigits, boolean xml) {
     if (roundDigits != 0) {
       d = Utility.roundToDecimals(d, roundDigits);
     }
-    pf.setMaximumFractionDigits(roundDigits);
+    if (xml) {
+      nf_no_comma.setMaximumFractionDigits(roundDigits+2);
+      return nf_no_comma.format(d*100.0);
+    }
+    pf.setMaximumFractionDigits(roundDigits+2);
     return pf.format(d);
   }
 }

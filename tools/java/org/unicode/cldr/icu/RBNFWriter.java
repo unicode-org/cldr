@@ -117,7 +117,7 @@ public class RBNFWriter {
                            out.println("        <ruleset type=\"spellout\">");
                            firstRuleset = false;
                        }
-                       out.println("            <rule value=\""+numberString+"\">"+ruleString.trim().replace('<',LARROW).replace('>',RARROW)+"</rule>");
+                       out.println("            <rbnfrule value=\""+numberString+"\">"+ruleString.trim().replace('<',LARROW).replace('>',RARROW)+"</rbnfrule>");
                        int i = ruleString.indexOf(";");
                        while ( i != -1 ) {
                            i = ruleString.indexOf(";",i+1); 

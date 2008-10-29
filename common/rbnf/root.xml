@@ -1,6 +1,6 @@
 <ldml>
     <rbnf>
-        <ruleset type="roman">
+        <ruleset type="lower-roman">
             <rbnfrule value="-x">→→n;</rbnfrule>
             <rbnfrule value="0">n; i; ii; iii; iv; v; vi; vii; viii; ix;</rbnfrule>
             <rbnfrule value="10">x[→→];</rbnfrule>
@@ -27,7 +27,7 @@
             <rbnfrule value="4000">mmmm[→→];</rbnfrule>
             <rbnfrule value="5000">=#,##0=;</rbnfrule>
         </ruleset>
-        <ruleset type="ROMAN">
+        <ruleset type="upper-roman">
             <rbnfrule value="-x">→→N;</rbnfrule>
             <rbnfrule value="0">N; I; II; III; IV; V; VI; VII; VIII; IX;</rbnfrule>
             <rbnfrule value="10">X[→→];</rbnfrule>
@@ -54,10 +54,11 @@
             <rbnfrule value="4000">MMMM[→→];</rbnfrule>
             <rbnfrule value="5000">=#,##0=;</rbnfrule>
         </ruleset>
-        <ruleset type="main">
+        <ruleset type="spellout">
             <rbnfrule value="0">=#,##0.#=;</rbnfrule>
-            <rbnfrule value="1">=#,##0=;</rbnfrule>
-            <rbnfrule value="2">=#,##0=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ordinal">
+            <rbnfrule value="0">=#,##0=;</rbnfrule>
         </ruleset>
     </rbnf>
 </ldml>

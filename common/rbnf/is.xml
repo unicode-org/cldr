@@ -1,0 +1,112 @@
+<ldml>
+    <rbnf>
+        <ruleset type="spellout_year">
+            <rbnfrule value="-x">mínus →→;</rbnfrule>
+            <rbnfrule value="0">núll; ein; tvö; þrjú; fjögur; fimm; sex; sjó; átta; níu;</rbnfrule>
+            <rbnfrule value="10">tíu; ellefu; tólf; þrettán; fjórtán; fimmtán; sextán;</rbnfrule>
+            <rbnfrule value="17">sautján; átján; nítján;</rbnfrule>
+            <rbnfrule value="20">tuttugu[ og →→];</rbnfrule>
+            <rbnfrule value="30">þrjátíu[ og →→];</rbnfrule>
+            <rbnfrule value="40">fjörutíu[ og →→];</rbnfrule>
+            <rbnfrule value="50">fimmtíu[ og →→];</rbnfrule>
+            <rbnfrule value="60">sextíu[ og →→];</rbnfrule>
+            <rbnfrule value="70">sjötíu[ og →→];</rbnfrule>
+            <rbnfrule value="80">áttatíu[ og →→];</rbnfrule>
+            <rbnfrule value="90">níutíu[ og →→];</rbnfrule>
+            <rbnfrule value="100">←←­hundrað[ og →→];</rbnfrule>
+            <rbnfrule value="1000">þúsund[ og →→];</rbnfrule>
+            <rbnfrule value="1100/100">←← hundrað[ og →→];</rbnfrule>
+            <rbnfrule value="10000">=%spellout=;</rbnfrule>
+        </ruleset>
+        <ruleset type="spellout">
+            <rbnfrule value="0">=%masculine=;</rbnfrule>
+        </ruleset>
+        <ruleset type="neuter">
+            <rbnfrule value="-x">mínus →→;</rbnfrule>
+            <rbnfrule value="x.x">←← komma →→;</rbnfrule>
+            <rbnfrule value="0">núll; eitt; tvö; þrjú; fjögur; fimm; sex; sjó; átta; níu;</rbnfrule>
+            <rbnfrule value="10">tíu; ellefu; tólf; þrettán; fjórtán; fimmtán; sextán;</rbnfrule>
+            <rbnfrule value="17">sautján; átján; nítján;</rbnfrule>
+            <rbnfrule value="20">tuttugu[ og →→];</rbnfrule>
+            <rbnfrule value="30">þrjátíu[ og →→];</rbnfrule>
+            <rbnfrule value="40">fjörutíu[ og →→];</rbnfrule>
+            <rbnfrule value="50">fimmtíu[ og →→];</rbnfrule>
+            <rbnfrule value="60">sextíu[ og →→];</rbnfrule>
+            <rbnfrule value="70">sjötíu[ og →→];</rbnfrule>
+            <rbnfrule value="80">áttatíu[ og →→];</rbnfrule>
+            <rbnfrule value="90">níutíu[ og →→];</rbnfrule>
+            <rbnfrule value="100">←%neutrum←­hundrað[ og →→];</rbnfrule>
+            <rbnfrule value="1000">←%neutrum← þúsund[ og →→];</rbnfrule>
+            <rbnfrule value="1000000">ein millión[ og →→];</rbnfrule>
+            <rbnfrule value="2000000">←← milliónur[ og →→];</rbnfrule>
+            <rbnfrule value="1000000000">ein milliarð[ og →→];</rbnfrule>
+            <rbnfrule value="2000000000">←← milliarður[ og →→];</rbnfrule>
+            <rbnfrule value="1000000000000">ein billión[ og →→];</rbnfrule>
+            <rbnfrule value="2000000000000">←← billiónur[ og →→];</rbnfrule>
+            <rbnfrule value="1000000000000000">ein billiarð[ og →→];</rbnfrule>
+            <rbnfrule value="2000000000000000">←← billiarður[ og →→];</rbnfrule>
+            <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
+        </ruleset>
+        <ruleset type="masculine">
+            <rbnfrule value="-x">mínus →→;</rbnfrule>
+            <rbnfrule value="x.x">←← komma →→;</rbnfrule>
+            <rbnfrule value="0">núll; einn; tveir; þrír; fjórir; fimm; sex; sjó; átta; níu;</rbnfrule>
+            <rbnfrule value="10">tíu; ellefu; tólf; þrettán; fjórtán; fimmtán; sextán;</rbnfrule>
+            <rbnfrule value="17">sautján; átján; nítján;</rbnfrule>
+            <rbnfrule value="20">tuttugu[ og →→];</rbnfrule>
+            <rbnfrule value="30">þrjátíu[ og →→];</rbnfrule>
+            <rbnfrule value="40">fjörutíu[ og →→];</rbnfrule>
+            <rbnfrule value="50">fimmtíu[ og →→];</rbnfrule>
+            <rbnfrule value="60">sextíu[ og →→];</rbnfrule>
+            <rbnfrule value="70">sjötíu[ og →→];</rbnfrule>
+            <rbnfrule value="80">áttatíu[ og →→];</rbnfrule>
+            <rbnfrule value="90">níutíu[ og →→];</rbnfrule>
+            <rbnfrule value="100">←%neutrum←­hundrað[ og →→];</rbnfrule>
+            <rbnfrule value="1000">←%neutrum← þúsund[ og →→];</rbnfrule>
+            <rbnfrule value="1000000">ein millión[ og →→];</rbnfrule>
+            <rbnfrule value="2000000">←%feminine← milliónur[ og →→];</rbnfrule>
+            <rbnfrule value="1000000000">ein milliarð[ og →→];</rbnfrule>
+            <rbnfrule value="2000000000">←%feminine← milliarður[ og →→];</rbnfrule>
+            <rbnfrule value="1000000000000">ein billión[ og →→];</rbnfrule>
+            <rbnfrule value="2000000000000">←%feminine← billiónur[ og →→];</rbnfrule>
+            <rbnfrule value="1000000000000000">ein billiarð[ og →→];</rbnfrule>
+            <rbnfrule value="2000000000000000">←%feminine← billiarður[ og →→];</rbnfrule>
+            <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
+        </ruleset>
+        <ruleset type="feminine">
+            <rbnfrule value="-x">mínus →→;</rbnfrule>
+            <rbnfrule value="x.x">←← komma →→;</rbnfrule>
+            <rbnfrule value="0">núll; ein; tvær; þrjár; fjórar; fimm; sex; sjó; átta; níu;</rbnfrule>
+            <rbnfrule value="10">tíu; ellefu; tólf; þrettán; fjórtán; fimmtán; sextán;</rbnfrule>
+            <rbnfrule value="17">sautján; átján; nítján;</rbnfrule>
+            <rbnfrule value="20">tuttugu[ og →→];</rbnfrule>
+            <rbnfrule value="30">þrjátíu[ og →→];</rbnfrule>
+            <rbnfrule value="40">fjörutíu[ og →→];</rbnfrule>
+            <rbnfrule value="50">fimmtíu[ og →→];</rbnfrule>
+            <rbnfrule value="60">sextíu[ og →→];</rbnfrule>
+            <rbnfrule value="70">sjötíu[ og →→];</rbnfrule>
+            <rbnfrule value="80">áttatíu[ og →→];</rbnfrule>
+            <rbnfrule value="90">níutíu[ og →→];</rbnfrule>
+            <rbnfrule value="100">←%neutrum←­hundrað[ og →→];</rbnfrule>
+            <rbnfrule value="1000">←%neutrum← þúsund[ og →→];</rbnfrule>
+            <rbnfrule value="1000000">ein millión[ og →→];</rbnfrule>
+            <rbnfrule value="2000000">←%feminine← milliónur[ og →→];</rbnfrule>
+            <rbnfrule value="1000000000">ein milliarð[ og →→];</rbnfrule>
+            <rbnfrule value="2000000000">←%feminine← milliarður[ og →→];</rbnfrule>
+            <rbnfrule value="1000000000000">ein billión[ og →→];</rbnfrule>
+            <rbnfrule value="2000000000000">←%feminine← billiónur[ og →→];</rbnfrule>
+            <rbnfrule value="1000000000000000">ein billiarð[ og →→];</rbnfrule>
+            <rbnfrule value="2000000000000000">←%feminine← billiarður[ og →→];</rbnfrule>
+            <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ordinal">
+            <rbnfrule value="0">=#,##0==%%ordabbrev=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ordabbrev" access="private">
+            <rbnfrule value="0">'.;</rbnfrule>
+        </ruleset>
+        <ruleset type="default">
+            <rbnfrule value="0">=%spellout=;</rbnfrule>
+        </ruleset>
+    </rbnf>
+</ldml>

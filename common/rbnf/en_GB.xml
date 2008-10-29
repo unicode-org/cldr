@@ -1,0 +1,24 @@
+<ldml>
+    <rbnf>
+        <ruleset type="spellout">
+            <rbnfrule value="-x">minus →→;</rbnfrule>
+            <rbnfrule value="x.x">←← point →→;</rbnfrule>
+            <rbnfrule value="0">zero; one; two; three; four; five; six; seven; eight; nine;</rbnfrule>
+            <rbnfrule value="10">ten; eleven; twelve; thirteen; fourteen; fifteen; sixteen;</rbnfrule>
+            <rbnfrule value="17">seventeen; eighteen; nineteen;</rbnfrule>
+            <rbnfrule value="20">twenty[-→→];</rbnfrule>
+            <rbnfrule value="30">thirty[-→→];</rbnfrule>
+            <rbnfrule value="40">forty[-→→];</rbnfrule>
+            <rbnfrule value="50">fifty[-→→];</rbnfrule>
+            <rbnfrule value="60">sixty[-→→];</rbnfrule>
+            <rbnfrule value="70">seventy[-→→];</rbnfrule>
+            <rbnfrule value="80">eighty[-→→];</rbnfrule>
+            <rbnfrule value="90">ninety[-→→];</rbnfrule>
+            <rbnfrule value="100">←← hundred[ →→];</rbnfrule>
+            <rbnfrule value="1000">←← thousand[ →→];</rbnfrule>
+            <rbnfrule value="1000000">←← million[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000">←← billion[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000000">=#,##0=;</rbnfrule>
+        </ruleset>
+    </rbnf>
+</ldml>

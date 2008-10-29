@@ -1,0 +1,33 @@
+<ldml>
+    <rbnf>
+        <ruleset type="spellout">
+            <rbnfrule value="-x">mīnus →→;</rbnfrule>
+            <rbnfrule value="x.x">←← kablelis →→;</rbnfrule>
+            <rbnfrule value="0">nulis; vienas; du; trys; keturi; penki;</rbnfrule>
+            <rbnfrule value="6">šeši; septyni; aštuoni; devyni;</rbnfrule>
+            <rbnfrule value="10">dešimt; vienuolika; dvylika; trylika; keturiolika; penkiolika;</rbnfrule>
+            <rbnfrule value="16">šešiolika; septyniolika; aštuoniolika; devyniolika;</rbnfrule>
+            <rbnfrule value="20">dvi­dešimt[ →→];</rbnfrule>
+            <rbnfrule value="30">tris­dešimt[ →→];</rbnfrule>
+            <rbnfrule value="40">keturias­dešimt[ →→];</rbnfrule>
+            <rbnfrule value="50">penkias­dešimt[ →→];</rbnfrule>
+            <rbnfrule value="60">šešias­dešimt[ →→];</rbnfrule>
+            <rbnfrule value="70">septynias­dešimt[ →→];</rbnfrule>
+            <rbnfrule value="80">aštuonias­dešimt[ →→];</rbnfrule>
+            <rbnfrule value="90">devynias­dešimt[ →→];</rbnfrule>
+            <rbnfrule value="100">šimtas[ →→];</rbnfrule>
+            <rbnfrule value="200">←← šimtai[ →→];</rbnfrule>
+            <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
+            <rbnfrule value="2000">←← tūkstantų[ →→];</rbnfrule>
+            <rbnfrule value="1000000">←← milijonas[ →→];</rbnfrule>
+            <rbnfrule value="2000000">←← milijonų[ →→];</rbnfrule>
+            <rbnfrule value="1000000000">←← milijardas[ →→];</rbnfrule>
+            <rbnfrule value="2000000000">←← milijardų[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000">←← trilijonas[ →→];</rbnfrule>
+            <rbnfrule value="2000000000000">←← trilijonų[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000000">←← kvadrilijonas[ →→];</rbnfrule>
+            <rbnfrule value="2000000000000000">←← kvadrilijonų[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
+        </ruleset>
+    </rbnf>
+</ldml>

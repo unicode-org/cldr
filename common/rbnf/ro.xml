@@ -1,0 +1,76 @@
+<ldml>
+    <rbnf>
+        <ruleset type="feminine">
+            <rbnfrule value="-x">minus →→;</rbnfrule>
+            <rbnfrule value="x.x">←← virgulă →→;</rbnfrule>
+            <rbnfrule value="0">zero; o; două; trei; patru; cinci; şase; şapte; opt; nouă;</rbnfrule>
+            <rbnfrule value="10">zece;</rbnfrule>
+            <rbnfrule value="11">un­sprezece;</rbnfrule>
+            <rbnfrule value="12">→→­sprezece;</rbnfrule>
+            <rbnfrule value="20">←%feminine←­zeci[ şi →→];</rbnfrule>
+            <rbnfrule value="100">o sută[ →→];</rbnfrule>
+            <rbnfrule value="200">←%feminine← sute[ →→];</rbnfrule>
+            <rbnfrule value="1000">o mie[ →→];</rbnfrule>
+            <rbnfrule value="2000">←%feminine← mii[ →→];</rbnfrule>
+            <rbnfrule value="1000000">←%neuter← milion[ →→];</rbnfrule>
+            <rbnfrule value="2000000">←%neuter← milioane[ →→];</rbnfrule>
+            <rbnfrule value="1000000000">←%neuter← miliard[ →→];</rbnfrule>
+            <rbnfrule value="2000000000">←%neuter← miliarde[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000">←%neuter← bilion[ →→];</rbnfrule>
+            <rbnfrule value="2000000000000">←%neuter← bilioane[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000000">←%neuter← biliard[ →→];</rbnfrule>
+            <rbnfrule value="2000000000000000">←%neuter← biliarde[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
+        </ruleset>
+        <ruleset type="neuter">
+            <rbnfrule value="-x">minus →→;</rbnfrule>
+            <rbnfrule value="x.x">←← virgulă →→;</rbnfrule>
+            <rbnfrule value="0">zero; unu; două; trei; patru; cinci; şase; şapte; opt; nouă;</rbnfrule>
+            <rbnfrule value="10">zece;</rbnfrule>
+            <rbnfrule value="11">un­sprezece;</rbnfrule>
+            <rbnfrule value="12">→→­sprezece;</rbnfrule>
+            <rbnfrule value="20">←%feminine←­zeci[ şi →→];</rbnfrule>
+            <rbnfrule value="100">o sută[ →→];</rbnfrule>
+            <rbnfrule value="200">←%feminine← sute[ →→];</rbnfrule>
+            <rbnfrule value="1000">o mie[ →→];</rbnfrule>
+            <rbnfrule value="2000">←%feminine← mii[ →→];</rbnfrule>
+            <rbnfrule value="1000000">←%neuter← milion[ →→];</rbnfrule>
+            <rbnfrule value="2000000">←%neuter← milioane[ →→];</rbnfrule>
+            <rbnfrule value="1000000000">←%neuter← miliard[ →→];</rbnfrule>
+            <rbnfrule value="2000000000">←%neuter← miliarde[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000">←%neuter← bilion[ →→];</rbnfrule>
+            <rbnfrule value="2000000000000">←%neuter← bilioane[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000000">←%neuter← biliard[ →→];</rbnfrule>
+            <rbnfrule value="2000000000000000">←%neuter← biliarde[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
+        </ruleset>
+        <ruleset type="masculine">
+            <rbnfrule value="-x">minus →→;</rbnfrule>
+            <rbnfrule value="x.x">←← virgulă →→;</rbnfrule>
+            <rbnfrule value="0">zero; unu; doi; trei; patru; cinci; şase; şapte; opt; nouă;</rbnfrule>
+            <rbnfrule value="10">zece;</rbnfrule>
+            <rbnfrule value="11">un­sprezece;</rbnfrule>
+            <rbnfrule value="12">→→­sprezece;</rbnfrule>
+            <rbnfrule value="20">două­zeci[ şi →→];</rbnfrule>
+            <rbnfrule value="30">←%feminine←­zeci[ şi →→];</rbnfrule>
+            <rbnfrule value="60">şai­zeci[ şi →→];</rbnfrule>
+            <rbnfrule value="70">←%feminine←­zeci[ şi →→];</rbnfrule>
+            <rbnfrule value="100">o sută[ →→];</rbnfrule>
+            <rbnfrule value="200">←%feminine← sute[ →→];</rbnfrule>
+            <rbnfrule value="1000">o mie[ →→];</rbnfrule>
+            <rbnfrule value="2000">←%feminine← mii[ →→];</rbnfrule>
+            <rbnfrule value="1000000">←%neuter← milion[ →→];</rbnfrule>
+            <rbnfrule value="2000000">←%neuter← milioane[ →→];</rbnfrule>
+            <rbnfrule value="1000000000">←%neuter← miliard[ →→];</rbnfrule>
+            <rbnfrule value="2000000000">←%neuter← miliarde[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000">←%neuter← bilion[ →→];</rbnfrule>
+            <rbnfrule value="2000000000000">←%neuter← bilioane[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000000">←%neuter← biliard[ →→];</rbnfrule>
+            <rbnfrule value="2000000000000000">←%neuter← biliarde[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
+        </ruleset>
+        <ruleset type="spellout">
+            <rbnfrule value="0">=%masculine=;</rbnfrule>
+        </ruleset>
+    </rbnf>
+</ldml>

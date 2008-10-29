@@ -1,0 +1,192 @@
+<ldml>
+    <rbnf>
+        <ruleset type="spellout_year">
+            <rbnfrule value="-x">minus →→;</rbnfrule>
+            <rbnfrule value="0">noll; ett; två; tre; fyra; fem; sex; sju; åtta; nio;</rbnfrule>
+            <rbnfrule value="10">tio; elva; tolv; tretton; fjorton; femton; sexton; sjutton; arton; nitton;</rbnfrule>
+            <rbnfrule value="20">tjugo[­→→];</rbnfrule>
+            <rbnfrule value="30">trettio[­→→];</rbnfrule>
+            <rbnfrule value="40">fyrtio[­→→];</rbnfrule>
+            <rbnfrule value="50">femtio[­→→];</rbnfrule>
+            <rbnfrule value="60">sextio[­→→];</rbnfrule>
+            <rbnfrule value="70">sjuttio[­→→];</rbnfrule>
+            <rbnfrule value="80">åttio[­→→];</rbnfrule>
+            <rbnfrule value="90">nittio[­→→];</rbnfrule>
+            <rbnfrule value="100">←←­hundra[­→→];</rbnfrule>
+            <rbnfrule value="1000">tusen[­→→];</rbnfrule>
+            <rbnfrule value="1100/100">←←­hundra[­→→];</rbnfrule>
+            <rbnfrule value="10000">=%number=;</rbnfrule>
+        </ruleset>
+        <ruleset type="spellout">
+            <rbnfrule value="-x">minus →→;</rbnfrule>
+            <rbnfrule value="x.x">←← komma →→;</rbnfrule>
+            <rbnfrule value="0">noll; ett; två; tre; fyra; fem; sex; sju; åtta; nio;</rbnfrule>
+            <rbnfrule value="10">tio; elva; tolv; tretton; fjorton; femton; sexton; sjutton; arton; nitton;</rbnfrule>
+            <rbnfrule value="20">tjugo[­→→];</rbnfrule>
+            <rbnfrule value="30">trettio[­→→];</rbnfrule>
+            <rbnfrule value="40">fyrtio[­→→];</rbnfrule>
+            <rbnfrule value="50">femtio[­→→];</rbnfrule>
+            <rbnfrule value="60">sextio[­→→];</rbnfrule>
+            <rbnfrule value="70">sjuttio[­→→];</rbnfrule>
+            <rbnfrule value="80">åttio[­→→];</rbnfrule>
+            <rbnfrule value="90">nittio[­→→];</rbnfrule>
+            <rbnfrule value="100">←←­hundra[­→→];</rbnfrule>
+            <rbnfrule value="1000">ettusen[ →→];</rbnfrule>
+            <rbnfrule value="2000">←←­tusen[ →→];</rbnfrule>
+            <rbnfrule value="20000/1000">←←-tusen[ →→];</rbnfrule>
+            <rbnfrule value="1000000">en miljon[ →→];</rbnfrule>
+            <rbnfrule value="2000000">←%reale← miljoner[ →→];</rbnfrule>
+            <rbnfrule value="1000000000">en miljard[ →→];</rbnfrule>
+            <rbnfrule value="2000000000">←%reale← miljarder[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000">en biljon[ →→];</rbnfrule>
+            <rbnfrule value="2000000000000">←%reale← biljoner[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000000">en biljard[ →→];</rbnfrule>
+            <rbnfrule value="2000000000000000">←%reale← biljarder[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
+        </ruleset>
+        <ruleset type="neuter">
+            <rbnfrule value="-x">minus →→;</rbnfrule>
+            <rbnfrule value="x.x">←← komma →→;</rbnfrule>
+            <rbnfrule value="0">noll; ett; =%reale=;</rbnfrule>
+        </ruleset>
+        <ruleset type="masculine">
+            <rbnfrule value="0">=%reale=;</rbnfrule>
+        </ruleset>
+        <ruleset type="feminine">
+            <rbnfrule value="0">=%reale=;</rbnfrule>
+        </ruleset>
+        <ruleset type="reale">
+            <rbnfrule value="-x">minus →→;</rbnfrule>
+            <rbnfrule value="x.x">←← komma →→;</rbnfrule>
+            <rbnfrule value="0">noll; en; två; tre; fyra; fem; sex; sju; åtta; nio;</rbnfrule>
+            <rbnfrule value="10">tio; elva; tolv; tretton; fjorton; femton; sexton; sjutton; arton; nitton;</rbnfrule>
+            <rbnfrule value="20">tjugo[­→→];</rbnfrule>
+            <rbnfrule value="30">trettio[­→→];</rbnfrule>
+            <rbnfrule value="40">fyrtio[­→→];</rbnfrule>
+            <rbnfrule value="50">femtio[­→→];</rbnfrule>
+            <rbnfrule value="60">sextio[­→→];</rbnfrule>
+            <rbnfrule value="70">sjuttio[­→→];</rbnfrule>
+            <rbnfrule value="80">åttio[­→→];</rbnfrule>
+            <rbnfrule value="90">nittio[­→→];</rbnfrule>
+            <rbnfrule value="100">←%neutrum←­hundra[­→→];</rbnfrule>
+            <rbnfrule value="1000">ettusen[ →→];</rbnfrule>
+            <rbnfrule value="2000">←%reale←­tusen[ →→];</rbnfrule>
+            <rbnfrule value="1000000">en miljon[ →→];</rbnfrule>
+            <rbnfrule value="2000000">←%reale← miljoner[ →→];</rbnfrule>
+            <rbnfrule value="1000000000">en miljard[ →→];</rbnfrule>
+            <rbnfrule value="2000000000">←%reale← miljarder[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000">en biljon[ →→];</rbnfrule>
+            <rbnfrule value="2000000000000">←%reale← biljoner[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000000">en biljard[ →→];</rbnfrule>
+            <rbnfrule value="2000000000000000">←%reale← biljarder[ →→];</rbnfrule>
+            <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ordinal_masculine">
+            <rbnfrule value="0">nollte; fÃ¶rste; andre; tredje; fjÃ¤rde; femte; sjÃ¤tte; sjunde; Ã¥ttonde; nionde;</rbnfrule>
+            <rbnfrule value="10">tionde; elfte; tolfte; =%neutrum=de;</rbnfrule>
+            <rbnfrule value="20">tjugo→%%ord_masc_nde→;</rbnfrule>
+            <rbnfrule value="30">trettio→%%ord_masc_nde→;</rbnfrule>
+            <rbnfrule value="40">fyrtio→%%ord_masc_nde→;</rbnfrule>
+            <rbnfrule value="50">femtio→%%ord_masc_nde→;</rbnfrule>
+            <rbnfrule value="60">sextio→%%ord_masc_nde→;</rbnfrule>
+            <rbnfrule value="70">sjuttio→%%ord_masc_nde→;</rbnfrule>
+            <rbnfrule value="80">Ã¥ttio→%%ord_masc_nde→;</rbnfrule>
+            <rbnfrule value="90">nittio→%%ord_masc_nde→;</rbnfrule>
+            <rbnfrule value="100">←%number←­hundra→%%ord_masc_de→;</rbnfrule>
+            <rbnfrule value="1000">ettusen→%%ord_masc_de→;</rbnfrule>
+            <rbnfrule value="2000">←%number←­tusen→%%ord_masc_de→;</rbnfrule>
+            <rbnfrule value="1000000">en miljon→%%ord_masc_te→;</rbnfrule>
+            <rbnfrule value="2000000">←%reale← miljon→%%ord_masc_teer→;</rbnfrule>
+            <rbnfrule value="1000000000">en miljard→%%ord_masc_te→;</rbnfrule>
+            <rbnfrule value="2000000000">←%reale← miljard→%%ord_masc_teer→;</rbnfrule>
+            <rbnfrule value="1000000000000">en biljon→%%ord_masc_te→;</rbnfrule>
+            <rbnfrule value="2000000000000">←%reale← biljon→%%ord_masc_teer→;</rbnfrule>
+            <rbnfrule value="1000000000000000">en biljard→%%ord_masc_te→;</rbnfrule>
+            <rbnfrule value="2000000000000000">←%reale← biljard→%%ord_masc_teer→;</rbnfrule>
+            <rbnfrule value="1000000000000000000">=%dord_masculine=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ord_masc_nde" access="private">
+            <rbnfrule value="0">nde; ­=%ordinal_masculine=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ord_masc_de" access="private">
+            <rbnfrule value="0">de; ' =%ordinal_masculine=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ord_masc_te" access="private">
+            <rbnfrule value="0">te; ' =%ordinal_masculine=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ord_masc_teer" access="private">
+            <rbnfrule value="0">te; er =%ordinal_masculine=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ordinal_feminine">
+            <rbnfrule value="0">=%ordinal_neuter=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ordinal_reale">
+            <rbnfrule value="0">=%ordinal_neuter=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ordinal_neuter">
+            <rbnfrule value="0">nollte; fÃ¶rsta; andra; tredje; fjÃ¤rde; femte; sjÃ¤tte; sjunde; Ã¥ttonde; nionde;</rbnfrule>
+            <rbnfrule value="10">tionde; elfte; tolfte; =%neutrum=de;</rbnfrule>
+            <rbnfrule value="20">tjugo→%%ord_fem_nde→;</rbnfrule>
+            <rbnfrule value="30">trettio→%%ord_fem_nde→;</rbnfrule>
+            <rbnfrule value="40">fyrtio→%%ord_fem_nde→;</rbnfrule>
+            <rbnfrule value="50">femtio→%%ord_fem_nde→;</rbnfrule>
+            <rbnfrule value="60">sextio→%%ord_fem_nde→;</rbnfrule>
+            <rbnfrule value="70">sjuttio→%%ord_fem_nde→;</rbnfrule>
+            <rbnfrule value="80">Ã¥ttio→%%ord_fem_nde→;</rbnfrule>
+            <rbnfrule value="90">nittio→%%ord_fem_nde→;</rbnfrule>
+            <rbnfrule value="100">←%number←­hundra→%%ord_fem_de→;</rbnfrule>
+            <rbnfrule value="1000">ettusen→%%ord_fem_de→;</rbnfrule>
+            <rbnfrule value="2000">←%number←­tusen→%%ord_fem_de→;</rbnfrule>
+            <rbnfrule value="1000000">en miljon→%%ord_fem_te→;</rbnfrule>
+            <rbnfrule value="2000000">←%reale← miljon→%%ord_fem_teer→;</rbnfrule>
+            <rbnfrule value="1000000000">en miljard→%%ord_fem_te→;</rbnfrule>
+            <rbnfrule value="2000000000">←%reale← miljard→%%ord_fem_teer→;</rbnfrule>
+            <rbnfrule value="1000000000000">en biljon→%%ord_fem_te→;</rbnfrule>
+            <rbnfrule value="2000000000000">←%reale← biljon→%%ord_fem_teer→;</rbnfrule>
+            <rbnfrule value="1000000000000000">en biljard→%%ord_fem_te→;</rbnfrule>
+            <rbnfrule value="2000000000000000">←%reale← biljard→%%ord_fem_teer→;</rbnfrule>
+            <rbnfrule value="1000000000000000000">=%dord_feminine=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ord_fem_nde" access="private">
+            <rbnfrule value="0">nde; ­=%ordinal_feminine=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ord_fem_de" access="private">
+            <rbnfrule value="0">de; ' =%ordinal_feminine=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ord_fem_te" access="private">
+            <rbnfrule value="0">te; ' =%ordinal_feminine=;</rbnfrule>
+        </ruleset>
+        <ruleset type="ord_fem_teer" access="private">
+            <rbnfrule value="0">te; er =%ordinal_feminine=;</rbnfrule>
+        </ruleset>
+        <ruleset type="dord_maskulinum">
+            <rbnfrule value="0">=%dord_masculine=;</rbnfrule>
+        </ruleset>
+        <ruleset type="dord_masculine">
+            <rbnfrule value="0">=#,##0==%%dord_mascabbrev=;</rbnfrule>
+        </ruleset>
+        <ruleset type="dord_mascabbrev" access="private">
+            <rbnfrule value="0"></rbnfrule>
+        </ruleset>
+        <ruleset type="dord_neuter">
+            <rbnfrule value="0">=%dord_feminine=;</rbnfrule>
+        </ruleset>
+        <ruleset type="dord_reale">
+            <rbnfrule value="0">=%dord_feminine=;</rbnfrule>
+        </ruleset>
+        <ruleset type="dord_feminine">
+            <rbnfrule value="0">=#,##0==%%dord_femabbrev=;</rbnfrule>
+        </ruleset>
+        <ruleset type="dord_femabbrev" access="private">
+            <rbnfrule value="0"></rbnfrule>
+            <rbnfrule value="20">→→;</rbnfrule>
+            <rbnfrule value="100">→→;</rbnfrule>
+        </ruleset>
+        <ruleset type="amount">
+            <rbnfrule value="0">=%reale=;</rbnfrule>
+        </ruleset>
+        <ruleset type="default">
+            <rbnfrule value="0">=%amount=;</rbnfrule>
+        </ruleset>
+    </rbnf>
+</ldml>

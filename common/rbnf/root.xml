@@ -1,4 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="root"/>
+	</identity>
     <rbnf>
         <ruleset type="lower-roman">
             <rbnfrule value="-x">→→n;</rbnfrule>
@@ -54,7 +61,42 @@
             <rbnfrule value="4000">MMMM[→→];</rbnfrule>
             <rbnfrule value="5000">=#,##0=;</rbnfrule>
         </ruleset>
-        <ruleset type="spellout">
+        <ruleset type="hebrew">
+            <rbnfrule value="-x">=#,##0=;</rbnfrule>
+            <rbnfrule value="0">אפס</rbnfrule>
+            <rbnfrule value="1">א</rbnfrule>
+            <rbnfrule value="2">ב</rbnfrule>
+            <rbnfrule value="3">ג</rbnfrule>
+            <rbnfrule value="4">ד</rbnfrule>
+            <rbnfrule value="5">ה</rbnfrule>
+            <rbnfrule value="6">ו</rbnfrule>
+            <rbnfrule value="7">ז</rbnfrule>
+            <rbnfrule value="8">ח</rbnfrule>
+            <rbnfrule value="9">ט</rbnfrule>
+            <rbnfrule value="10">י[→→];</rbnfrule>
+            <rbnfrule value="20">כ[→→];</rbnfrule>
+            <rbnfrule value="30">ל[→→];</rbnfrule>
+            <rbnfrule value="40">מ[→→];</rbnfrule>
+            <rbnfrule value="50">נ[→→];</rbnfrule>
+            <rbnfrule value="60">ס[→→];</rbnfrule>
+            <rbnfrule value="70">ע[→→];</rbnfrule>
+            <rbnfrule value="80">פ[→→];</rbnfrule>
+            <rbnfrule value="90">צ[→→];</rbnfrule>
+            <rbnfrule value="100">ק[→→];</rbnfrule>
+            <rbnfrule value="200">ר[→→];</rbnfrule>
+            <rbnfrule value="300">ש[→→];</rbnfrule>
+            <rbnfrule value="400">ת[→→];</rbnfrule>
+            <rbnfrule value="500">תק[→→];</rbnfrule>
+            <rbnfrule value="600">תר[→→];</rbnfrule>
+            <rbnfrule value="700">תש[→→];</rbnfrule>
+            <rbnfrule value="800">תת[→→];</rbnfrule>
+            <rbnfrule value="900">תתק[→→];</rbnfrule>
+            <rbnfrule value="1000">אלפי;←← [→→]</rbnfrule>
+            <rbnfrule value="2000">לפיים←←;←← [→→]</rbnfrule>
+            <rbnfrule value="1000000">אלף אלפים;←← [→→]</rbnfrule>
+            <rbnfrule value="1000000000">=#,##0=;</rbnfrule>
+        </ruleset>
+       <ruleset type="spellout">
             <rbnfrule value="0">=#,##0.#=;</rbnfrule>
         </ruleset>
         <ruleset type="ordinal">

@@ -6,8 +6,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
-$Revision: 1.114 $
-$Date: 2008-10-13 15:07:26 $
+$Revision: 1.115 $
+$Date: 2008-10-29 21:26:11 $
 -->
 
 <!ELEMENT ldml (identity, (alias |(fallback?, localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, units?, collations?, posix?, segmentations?, rbnf?, references?, special*))) >
@@ -1166,7 +1166,7 @@ $Date: 2008-10-13 15:07:26 $
 <!ATTLIST ruleset access ( public | private ) #IMPLIED >
 
 <!ELEMENT rbnfrule ( #PCDATA ) >
-<!ATTLIST rbnfrule value NMTOKEN #REQUIRED >
+<!ATTLIST rbnfrule value CDATA #REQUIRED >
 <!ATTLIST rbnfrule draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED ><!-- true and false are deprecated. -->
 
 <!ELEMENT references ( reference* ) >

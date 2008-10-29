@@ -57,7 +57,7 @@ public class RBNFWriter {
 
         String line = in.readLine();
         boolean firstRuleset = true;
-        long currentRuleValue = 0;
+        BigInteger currentRuleValue = BigInteger.ZERO;
         NumberFormat nf = NumberFormat.getInstance();
         char LARROW = 0x2190;
         char RARROW = 0x2192;
@@ -92,25 +92,31 @@ public class RBNFWriter {
 
                            firstRuleset = false;
                            printRule = false;
-                           currentRuleValue = 0;
+                           currentRuleValue = BigInteger.ZERO;
+                           if ( parts.length > 1 && parts[1].trim().length() > 0 ) {
+                               printRule = true;
+                               ruleString = parts[1].trim();
+                               numberString = currentRuleValue.toString();
+                           }
                        } else {
                            numberString = parts[0];
                            ruleString = parts[1];
-                           if ( numberString.contains("x") ) {
-                                  currentRuleValue = -1;
+                           if ( numberString.contains("x") || numberString.contains("/") || numberString.contains(">")) {
+                                  currentRuleValue = new BigInteger("-1");
+                                  numberString = numberString.replace('>',RARROW).replaceAll(",","");
                            } else {
                                try {
-                                  currentRuleValue = nf.parse(numberString).longValue();
-                               } catch(ParseException ex) {
-                                  currentRuleValue = -1;
+                                  currentRuleValue = new BigInteger(numberString.replaceAll(",",""));
+                               } catch(NumberFormatException ex) {
+                                  currentRuleValue = new BigInteger("-1");
                                }
-                               numberString = String.valueOf(currentRuleValue);
+                               numberString = currentRuleValue.toString();
                            }
                        }
                     }
                     else {
                         ruleString = ruleText;
-                        numberString = String.valueOf(currentRuleValue);
+                        numberString = currentRuleValue.toString();
                     }
                     if ( printRule == true ) {
                        if ( firstRuleset == true ) {
@@ -121,7 +127,7 @@ public class RBNFWriter {
                        int i = ruleString.indexOf(";");
                        while ( i != -1 ) {
                            i = ruleString.indexOf(";",i+1); 
-                           currentRuleValue += 1;
+                           currentRuleValue = currentRuleValue.add(BigInteger.ONE);
                        }
                     }
                 }

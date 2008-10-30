@@ -752,7 +752,7 @@ public class LDMLUtilities {
             xp1.setLength(l1);
         }
         for(int i=0; i<n2.length; i++){
-            xp1.append(((Node)n2[i]).getNodeName());
+            xp2.append(((Node)n2[i]).getNodeName());
             appendXPathAttribute((Node)n2[i], xp2);
             map.put(xp2.toString(), n2[i]);
             xp2.setLength(l2);

@@ -51,6 +51,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
 
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
@@ -8599,6 +8600,7 @@ public class SurveyMain extends HttpServlet {
 //    }
     
     static int db_number_cons=0;
+    static int db_number_pool_cons=0;
 
     public static void closeDBConnection(Connection aconn) {
         if(aconn!=null) {
@@ -8617,6 +8619,13 @@ public class SurveyMain extends HttpServlet {
     {
         try{ 
             db_number_cons++;
+            
+            if(datasource != null) {
+                db_number_pool_cons++;
+                System.err.println("SQL  +conns: " + db_number_cons+" Pconns: " + db_number_pool_cons);
+                return datasource.getConnection();
+            }
+            
             System.err.println("SQL +conns: " + db_number_cons);
 //            if(db_number_cons >= 12) {
 //                throw new InternalError("too many..");
@@ -8653,6 +8662,7 @@ public class SurveyMain extends HttpServlet {
 //    }
 
     File dbDir = null;
+    private DataSource datasource = null;
 //    File dbDir_u = null;
     static String dbInfo = null;
 
@@ -8668,6 +8678,10 @@ public class SurveyMain extends HttpServlet {
     //    logger.info("SurveyTool setting up database.. " + dbDir.getAbsolutePath());
         try
         { 
+            if(false) { // pooling listener disabled by default
+               updateProgress(nn++, "Load pool "+STPoolingListener.ST_ATTRIBUTE); // restore
+               datasource = (DataSource) getServletContext().getAttribute(STPoolingListener.ST_ATTRIBUTE);
+            }
             updateProgress(nn++, "Load "+db_driver); // restore
             Object o = Class.forName(db_driver).newInstance();
             try {

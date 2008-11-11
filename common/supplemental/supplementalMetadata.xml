@@ -616,7 +616,7 @@
             <variable id="$allow" type="regex">(verbatim)</variable>
             <variable id="$alt" type="regex">((variant|list|secondary|email|www|short)(-proposed.*)?|(proposed.*))</variable>
             <variable id="$append" type="choice">Era Year Quarter Month Week Day-Of-Week Day Hour Minute Second Timezone</variable>
-            <variable id="$calendar" type="choice">buddhist coptic ethiopic chinese gregorian hebrew indian islamic islamic-civil japanese arabic civil-arabic thai-buddhist persian roc</variable>
+            <variable id="$calendar" type="choice">buddhist coptic ethiopic ethiopic-amete-alem chinese gregorian hebrew indian islamic islamic-civil japanese arabic civil-arabic thai-buddhist persian roc</variable>
             <variable id="$collationType" type="choice">big5han digits-after direct gb2312han phonebook pinyin reformed standard stroke traditional</variable>
             <variable id="$date" type="regex">200[0-9]-([0-9]|1[0-2])-([12][0-9]|3[01])</variable>
             <variable id="$double" type="regex">[0-9]+(\.[0-9]+)?</variable>
@@ -689,7 +689,7 @@
             <attributeValues elements="territory" attributes="type">$territory</attributeValues>
             <attributeValues elements="territoryAlias" attributes="replacement type">$territory</attributeValues>
             <attributeValues elements="type" attributes="key" type="choice">calendar collation currency</attributeValues>
-            <attributeValues elements="type" attributes="type" type="choice">big5han buddhist chinese direct gb2312han gregorian hebrew indian islamic islamic-civil japanese persian phonebook pinyin roc stroke traditional</attributeValues>
+            <attributeValues elements="type" attributes="type" type="choice">big5han buddhist chinese coptic direct ethiopic ethiopic-amete-alem gb2312han gregorian hebrew indian islamic islamic-civil japanese persian phonebook pinyin roc stroke traditional</attributeValues>
             <attributeValues elements="variable" attributes="id">$variableID</attributeValues>
             <attributeValues elements="variant" attributes="type">$variant</attributeValues>
             <attributeValues elements="variantAlias" attributes="replacement type">$variant</attributeValues>

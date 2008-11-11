@@ -11,7 +11,7 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 
 public class StateMachine<T> {
-  static boolean SHOW_STATE_TRANSITIONS = Utility.getProperty("transitions", false);
+  static boolean SHOW_STATE_TRANSITIONS = false; // Utility.getProperty("transitions", false);
 
   private static final short START = 0;
   static final short EXIT = -1;
@@ -77,6 +77,16 @@ public class StateMachine<T> {
     protected void handle(int position, StateAction action) {
 
     }
+    public String toString() {
+      StringBuilder result = new StringBuilder("[");
+      for (int i = stackSize-1; i >= 0; --i) {
+        if (i != stackSize - 1) {
+          result.append(", ");
+        }
+        result.append(stateMachine.getStateName(stateStack[i]));
+      }
+      return result.append("]").toString();
+    }
   }
 
   public String toString(StateAction action) {
@@ -101,8 +111,8 @@ public class StateMachine<T> {
     return (actionNames == null ? String.valueOf(action) : actionNames[action]);
   }
   
-  public <Collection>String getActionNames() {
-    return Arrays.toString(actionNames);
+  public List<String> getActionNames() {
+    return Arrays.asList(actionNames);
   }
 
   public String toString() {
@@ -142,7 +152,7 @@ public class StateMachine<T> {
       if (action.pushState >= 0) {
         stateObject.push(action.pushState);
         if (SHOW_STATE_TRANSITIONS) {
-          System.out.println("\t@Pushing " + getStateName(action.pushState));
+          System.out.println("\t@Pushed " + stateObject);
         }
       }
       if (action.action >= 0) {
@@ -155,10 +165,10 @@ public class StateMachine<T> {
           }
         break;
         case POP:
-          state = stateObject.pop();
           if (SHOW_STATE_TRANSITIONS) {
-            System.out.println("\t@Popped " + getStateName(state));
+            System.out.println("\t@Popping " + stateObject);
           }
+          state = stateObject.pop();
           break;
         case EXIT:
           parsePosition.setIndex(i);

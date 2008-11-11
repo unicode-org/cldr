@@ -22,25 +22,34 @@ import com.ibm.icu.util.ULocale;
 
 public class GenerateNormalizeForMatch {
 
-  static UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]");
-  static UnicodeSet U51 = new UnicodeSet("[[:age=5.1:]-[:age=5.0:]]");
-  static UnicodeSet ALPHANUM = new UnicodeSet("[[:alphabetic:][:Nd:]]");
+  enum AllowedResults {WHITESPACE_CHECK, ID_STATUS_SAME, ONLY_ID}
 
-  static UnicodeMap nameException = new UnicodeMap();
+  private static final boolean SHOW_AGE = false;
+
+  private static final UnicodeSet SKIP_ID_CHECK = new UnicodeSet("[\u3000[:decomposition_type=wide:]]");
+  
+  private static AllowedResults ALLOWED_RESULTS = AllowedResults.ONLY_ID;
+  private static boolean ONLY_OLD = false;
+  
+  private static UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]");
+  private static UnicodeSet U51 = new UnicodeSet("[[:age=5.1:]-[:age=5.0:]]");
+  private static UnicodeSet ID_CHARACTERS = new UnicodeSet("[[:alphabetic:][:Nd:][:m:]]");
+
+  private static UnicodeMap nameException = new UnicodeMap();
   static {
     nameException.putAll(new UnicodeSet("[:block=CJK Unified Ideographs:]"), "<CJK Ideograph>");
     nameException.putAll(new UnicodeSet("[:block=CJK Unified Ideographs Extension A:]"), "<CJK Ideograph Extension A>");
     nameException.putAll(new UnicodeSet("[:block=CJK Unified Ideographs Extension B:]"), "<CJK Ideograph Extension B>");
   }
-
-  static UnicodeSet noNormalization = new UnicodeSet("[" +
-          "[:decomposition_type=super:]" +
-          "[:decomposition_type=sub:]" +
-          "[:decomposition_type=circle:]" +
-          "[:decomposition_type=Fraction:]" +
-          //"[:decomposition_type=compat:]" +
-          "[:decomposition_type=square:]" +
-  "]");
+//
+//  static UnicodeSet noNormalization = new UnicodeSet("[" +
+//          "[:decomposition_type=super:]" +
+//          "[:decomposition_type=sub:]" +
+//          "[:decomposition_type=circle:]" +
+//          "[:decomposition_type=Fraction:]" +
+//          //"[:decomposition_type=compat:]" +
+//          "[:decomposition_type=square:]" +
+//  "]");
 
   public static void main(String[] args) throws IOException {
     //fixOld("folding_resolved.txt", "folding_resolved_reordered.txt");
@@ -70,32 +79,43 @@ public class GenerateNormalizeForMatch {
   static void fixNew() throws IOException {
     PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY+"/../normalize/", "normalizeForMatch.txt");
     //XEquivalenceClass equivs = new XEquivalenceClass(null);
-    UnicodeSet exclusions = new UnicodeSet("[[:unassigned:][\u00DF\u0130][:Lm:]]");
-    UnicodeSet inclusions = new UnicodeSet(exclusions).complement();
+    UnicodeMap special_mappings = new UnicodeMap();
+    // special mappings
+    getExceptions(special_mappings);
+
+    UnicodeSet assigned = new UnicodeSet("[:assigned:]");
+
     int linecount = 0;
     UnicodeMap mappings = new UnicodeMap();
-    for (UnicodeSetIterator it = new UnicodeSetIterator(inclusions); it.next();) {
+    for (UnicodeSetIterator it = new UnicodeSetIterator(assigned); it.next();) {
+      if (ONLY_OLD && U51.contains(it.codepoint)) {
+        continue;
+      }
       String str = it.getString();
       String other = str;
-      if (noNormalization.contains(it.codepoint)) {
+      String defaultChange = normalizeSpecial(other);
+      defaultChange = UCharacter.foldCase(defaultChange, true);
+      defaultChange = normalizeSpecial(defaultChange);
+
+      String special = (String) special_mappings.getValue(it.codepoint);
+      if (special == null) {
+        other = defaultChange;
+      } else if (special.equalsIgnoreCase("exclude")) {
+        continue;
+      } else if (special.equalsIgnoreCase("caseonly")) {
         other = UCharacter.foldCase(other, true);
       } else {
-        other = normalizeSpecial(other);
-        other = UCharacter.foldCase(other, true);
-        other = normalizeSpecial(other);
+        other = special;
+      }
+      if (special != null && defaultChange.equals(other)) {
+        System.out.println("UNNECESSARY " + codeAndName(str)
+                //+ ";\t\twas " + codeAndName(defaultChange)
+                + ";\t\tnow " + codeAndName(other)
+                );
       }
       if (other.equals(str)) continue;
-      if (other.startsWith(" ")) {
-        if (!WHITESPACE.contains(str)) continue;
-      }
       mappings.put(it.codepoint, other);
     }
-    // special mappings
-    getExceptions(mappings);
-    // 1E9E ; 00DF ; # LATIN CAPITAL LETTER SHARP S => LATIN SMALL LETTER SHARP S 
-
-    // <CJK Ideograph>
-    // 3038 ; 5341 ; # HANGZHOU NUMERAL TEN => <CJK Ideograph> 
 
     // print them
     for (UnicodeSetIterator it = new UnicodeSetIterator(mappings.keySet()); it.next();) {
@@ -107,15 +127,48 @@ public class GenerateNormalizeForMatch {
     }
     out.close();
   }
-  private static String normalizeSpecial(String other) {
-    String result = Normalizer.normalize(other, Normalizer.NFKC, 0);
-    if (ALPHANUM.containsAll(result)) return result;
-    return other;
+  
+  private static String codeAndName(String defaultChange) {
+    return hex(defaultChange," ") + " - " + UCharacter.getName(defaultChange, " ");
+  }
+  
+  private static String normalizeSpecial(String source) {
+    String result = Normalizer.normalize(source, Normalizer.NFKC, 0);
+    if (result.startsWith(" ")) {
+      if (!WHITESPACE.contains(source)) {
+        return source;
+      }
+    }
+    switch (ALLOWED_RESULTS) {
+      default:
+        throw new IllegalArgumentException("Unexpected option");
+      case WHITESPACE_CHECK:
+        break;
+      case ID_STATUS_SAME:
+        if (SKIP_ID_CHECK.containsAll(source)) {
+          return result;
+        }
+        if (!ID_CHARACTERS.containsAll(result)) {
+          if (ID_CHARACTERS.containsAll(source)) {
+            return source;
+          }
+        }
+        break;
+      case ONLY_ID:
+        if (SKIP_ID_CHECK.containsAll(source)) {
+          return result;
+        }
+        if (!ID_CHARACTERS.containsAll(result)) {
+          return source;
+        }
+        break;
+    }
+    return result;
   }
 
   private static void writeMapping(PrintWriter out, String source, String target) {
     String otherName = jimName(target);
-    String age = U51.containsSome(source) || U51.containsSome(target) ? "[U5.1] " : "";
+    String age = SHOW_AGE && (U51.containsSome(source) || U51.containsSome(target)) ? "[U5.1] " : "";
     out.println(hex(source," ")
             + " ; " + hex(target," ").replace(",", " ")
             + " ; # " + age + UCharacter.getName(source, " + ")
@@ -131,9 +184,6 @@ public class GenerateNormalizeForMatch {
   }
 
   private static void getExceptions(UnicodeMap mappings) throws IOException {
-    mappings.putAll(new UnicodeSet("[[:default_ignorable_code_point:]&[:assigned:]]"), "");
-    mappings.put(0x0130, "\u0069");
-    mappings.put(0x1E9E, "\u00DF");
     File foo = new File("normalizeForMatchExceptions.txt");
     System.out.println(foo.getCanonicalPath());
     BufferedReader in = BagFormatter.openUTF8Reader("java/org/unicode/cldr/draft/", "normalizeForMatchExceptions.txt");
@@ -156,27 +206,54 @@ public class GenerateNormalizeForMatch {
     if (commentPos >= 0) {
       line = line.substring(0,commentPos);
     }
+    line = line.trim();
     if (line.length() == 0) return;
+    if (line.startsWith("@")) {
+      if (line.equalsIgnoreCase("@ALL")) {
+        ONLY_OLD = false;
+      } else if (line.equalsIgnoreCase("@ONLY_OLD")) {
+          ONLY_OLD = true;
+      } else {
+        ALLOWED_RESULTS = AllowedResults.valueOf(line.substring(1).toUpperCase());
+      }
+      return;
+    }
 
     String[] pieces = line.split("\\s*;\\s*");
-    String[] starts = pieces[0].split("\\s*-\\s*");
-    int start = Integer.parseInt(starts[0], 16);
-    int end = starts.length == 1 ? start : Integer.parseInt(starts[1], 16);
-    final String target = pieces.length == 1 ? "" : pieces[1];
-    if (target.equalsIgnoreCase("exclude")) {
-      mappings.putAll(start, end, null);
+    if (pieces.length == 1) {
+      throw new IllegalArgumentException("Line without target: " + line);
+    }
+    UnicodeSet source = new UnicodeSet();
+    if (UnicodeSet.resemblesPattern(pieces[0], 0)) {
+      source.applyPattern(pieces[0]);
     } else {
-      for (int i = start; i <= end; ++i) {
-        
-        final String newTarget = fromHex(target);
-        if (skipIfIdentical) {
-          String oldTarget = (String)mappings.getValue(i);
-          if (newTarget.equals(oldTarget)) {
-            System.out.println("UNNEC: " + hex(UTF16.valueOf(i), " ") + "; " + hex(newTarget, " "));
-          }
-        }
-        mappings.put(i, newTarget);
-      }
+      String[] starts = pieces[0].split("\\s*-\\s*");
+      int start = Integer.parseInt(starts[0], 16);
+      int end = starts.length == 1 ? start : Integer.parseInt(starts[1], 16);
+      source.add(start,end);
+    }
+    
+    final String target = pieces[1]; // pieces.length == 1 ? "" : pieces[1];
+    if (target.equalsIgnoreCase("exclude") || target.equalsIgnoreCase("caseonly")) {
+      mappings.putAll(source, target);
+    } else if (target.equalsIgnoreCase("delete")) {
+      mappings.putAll(source, "");
+    } else if (target.equalsIgnoreCase("ok")) {
+      mappings.putAll(source, null); // remove exception
+    } else {
+      final String newTarget = fromHex(target);
+      mappings.putAll(source, newTarget);
+//      for (int i = start; i <= end; ++i) {
+//        
+//        
+//        if (skipIfIdentical) {
+//          String oldTarget = (String)mappings.getValue(i);
+//          if (newTarget.equals(oldTarget)) {
+//            System.out.println("UNNEC: " + hex(UTF16.valueOf(i), " ") + "; " + hex(newTarget, " "));
+//          }
+//        }
+//        mappings.put(i, newTarget);
+//      }
     }
   }
   private static String fromHex(String spaceDelimitedHex) {
@@ -212,3 +289,6 @@ public class GenerateNormalizeForMatch {
     return result.toString();
   }
 }
+/*
+
+*/

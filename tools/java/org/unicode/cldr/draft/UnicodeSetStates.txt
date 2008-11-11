@@ -174,9 +174,10 @@ set-lit-dash-escape:
    'W'                      errorDeath                             doSetOpError
    'd'                      errorDeath                             doSetOpError
    'D'                      errorDeath                             doSetOpError
-   'N'                      set-after-range                        doSetNamedRange
+   'N'                      set-name-start    ^set-after-range          doStartNamedChar
+   'x'                      set-hex-start    ^set-after-range          doStartHex
    default               n  set-after-range                        doSetRange
-
+# TODO fix 'N', 'x'
    
 #
 #  set-escape
@@ -186,7 +187,7 @@ set-escape:
    'p'                   n  set-prop-start    ^set-after-set          doStartSetProp
    'P'                   n  set-prop-start    ^set-after-set          doStartSetProp
    'N'                   n  set-name-start    ^set-after-lit          doStartNamedChar
-   'x'                   n  set-brace-hex-start ^set-after-lit         doStartHex
+   'x'                   n  set-hex-start ^set-after-lit         doStartHex
    's'                   n  set-after-range                         doSetBackslash_s
    'S'                   n  set-after-range                         doSetBackslash_S
    'w'                   n  set-after-range                         doSetBackslash_w
@@ -194,6 +195,7 @@ set-escape:
    'd'                   n  set-after-range                         doSetBackslash_d
    'D'                   n  set-after-range                         doSetBackslash_D
    default               n  set-after-lit                           doSetLiteralEscaped 
+# TODO add \r, \n, etc
 
 set-prop-start:
     '{'                  n  set-prop-cont                                    
@@ -215,16 +217,16 @@ set-name-start:
 
 set-name-cont:
     '}'                  n  pop                                     doName
-    [\ \-0-9A-Za-z]          n  set-name-cont
+    [\ \-0-9A-Za-z]      n  set-name-cont
     default              n  errorDeath
 
-set-brace-hex-start:
-    '{'                  n  set-to-brace-digits                                     
+set-hex-start:
+    '{'                  n  set-hex-cont                                     
     default                 errorDeath
 
-set-to-brace-digits:
+set-hex-cont:
     '}'                  n  pop                                     doHex
-    [0-9A-Fa-f]          n  set-to-brace-digits
+    [0-9A-Fa-f]          n  set-hex-cont
     default              n  errorDeath
     
 #

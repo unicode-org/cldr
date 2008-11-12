@@ -11,7 +11,9 @@
 	<segmentations>
 		<segmentation type="WordBreak">
 			<variables>
-				<variable id="$MidLetter">[$MidLetter-\:-\,]</variable>
+				<variable id="$MidLetter">[[$MidLetter]-[\:]]</variable>
+				<variable id="$MidNumLet">[[$MidNumLet]-[.]]</variable>
+				<variable id="$MidNum">[[$MidNum] [.]]</variable>
 			</variables>
 		</segmentation>
 	</segmentations>

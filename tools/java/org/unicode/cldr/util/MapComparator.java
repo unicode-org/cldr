@@ -79,7 +79,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable {
     return this;
   }
 
-  private static final UnicodeSet numbers = new UnicodeSet("[0-9.]");
+  private static final UnicodeSet numbers = new UnicodeSet("[\\-0-9.]");
 
   public int compare(K a, K b) {
     if (false && (a.equals("lines") || b.equals("lines"))) {
@@ -102,11 +102,26 @@ public class MapComparator<K> implements Comparator<K>, Freezable {
       return -1;
     }
     // do numeric
+    // first we do a quick check, then parse.
+    // for transitivity, we have to check both.
     boolean anumeric = numbers.containsAll((String)a);
+    double an = Double.NaN, bn = Double.NaN;
+    if (anumeric) {
+      try {
+        an = Double.parseDouble((String)a);
+      } catch (NumberFormatException e) {
+        anumeric = false;
+      }
+    }
     boolean bnumeric = numbers.containsAll((String)b);
+    if (bnumeric) {
+      try {
+        bn = Double.parseDouble((String)b);
+      } catch (NumberFormatException e) {
+        bnumeric = false;
+      }
+    }
     if (anumeric && bnumeric) {
-      double an = Double.parseDouble((String)a);
-      double bn = Double.parseDouble((String)b);
       if (an < bn) return -1;
       if (an > bn) return 1;
       return 0;

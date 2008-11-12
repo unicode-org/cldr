@@ -1,54 +1,73 @@
-# The basic mappings contained in NormalizeForMatch are x => toNFKC(caseFold(toNFKC(x)))
-# These are modified in two ways.
+# This file specifies a set of mappings that are based on NFKC normalization plus case foldings.
+# These are all table driven, using a set of rules as listed below.
 #
-# First, the normalization (toNFKC) is omitted if the resulting characters are not all in [[:alphabetic:][:Nd:][:m:]]
-# That is, they must all be alphabetic, decimal digits, or marks. This was done because the target string
-# was to be a "word" if the source was. (The syntax below lets this be changed.)
+# <source> ; <target> ; <targetFilter> # comment
 #
-# Secondly, the following modifications are applied, with the format:
+# source
+#   a UnicodeSet (like [:Lm:]),
+#   a single code point (like 0130), or
+#   a code point range (like 2170-217F)
+# target
+#   a code point, or
+#   exclude     the code point maps to itself
+#   caseonly    no normalization is done, but case folding is
+#   delete      the code point maps to the empty string (is removed)
+#   ok          it is ok to use the basic mapping. (This is done to override a previous statement.)
+# targetFilter
+#   a Unicode set, or
+#   missing     meaning no restriction
 #
-# <source> ; <target> ; # comment
+# Commands (determine the characters listed)
 #
-# where
-# source is a UnicodeSet (like [:Lm:]), a single code point (like 0130), or a code point range (like 2170-217F)
-# target is either a code point, or:
-#  exclude:     the code point maps to itself
-#  caseonly:    no normalization is done, but case folding is
-#  delete:      the code point maps to the empty string (is removed)
-#  ok:          it is ok to use the basic mapping. (This is done to override a previous statement.)
+# @LIST=ALL                - (default) list all characters
+# @LIST=SHOW_AGE           - list all characters, show age of new characters
+# @LIST=ONLY_OLD           - only list Unicode 5.0 characters
 #
-# Commands
-# @ALL              - (default) list all characters
-# @ONLY_OLD         - only list Unicode 5.0 characters
-# @ONLY_ID          - (default) only allow results to be ID characters: [[:alphabetic:][:Nd:][:m:]]
-# @ID_STATUS_SAME   - allow results that are not ID characters only if source has non-ID characters
-# @WHITESPACE_CHECK - just disallow results where stand-alone accent maps to space + combining.
+# Issues:
+#  Currently the code doesn't include a small number of NFC mappings like:
+#       1FEF ; 0060 ; # GREEK VARIA => GRAVE ACCENT
+#  Other items that I think we should also do are marked with **
 # ====================================
 
-#@ONLY_OLD
-@ONLY_ID
+# First, the normalization (toNFKC+case) is only applied if both source and resulting characters are all in [[:alphabetic:][:Nd:][:m:]].
+# That is, they must all be alphabetic, decimal digits, or marks. This was done because the target string
+# was to be a "word" if the source was.
 
-# Big ticket exclusions
+[[:alphabetic:][:Nd:][:m:]-[:Lm:]] ; ok ; [[:alphabetic:][:Nd:][:m:]]
 
-[:Lm:] ; exclude ; # items like little high y character
-[:block=Hangul_Compatibility_Jamo:]; exclude ; # a thorough job would require more processing
-[:decomposition_type=circle:] ; exclude ; # circled items shouldn't merge with other identifiers (might want to change this in the future)
-[:block=Enclosed_Alphanumerics:] ; caseonly; # ditto for these, eg. (1)
-[:block=Enclosed_CJK_Letters_And_Months:] ; exclude ;
+# We **should** probably relax the above, to allow for clients that want to fold other characters.
+# However, if a character is "special" (superscript, squared, etc.) we should bracket the result with "space"
+# to prevent, for example, 2² from matching 22.
+# So we should precede by the following statements. They normalize all whitespace, and normalize
+# everything else to SP + nfkc(case(nfkc(x))) + SP.
+# The special syntax is to remove non-whitespace items that decompose to whitespace, like GRAVE ACCENT
+#
+#[:assigned:] ; caseonly ; #first, make sure that everything is cased (and NFC).
+#[:whitespace:] ; ok ; #then pick up whitespace
+#[:^whitespace:] ; bracket ; [:^whitespace:] # then everything else (that doesn't produce whitespace!)
+
+# In addition, we always normalize wide characters, even if not word characters
+
+[:decomposition_type=wide:] ; ok ;
+
+# We **should** do the same for narrow characters
+
+#[:decomposition_type=narrow:] ; ok ;
 
 # Case-only
+# **should** be bracketed instead of caseonly.
 
+[:decomposition_type=circle:] ; caseonly ; 
 [:decomposition_type=super:] ; caseonly ;
 [:decomposition_type=sub:] ; caseonly ;
-[:decomposition_type=Fraction:] ; caseonly ;
-[:decomposition_type=square:] ; caseonly ;
 
 # Deletions
-# These act like the previous character is a compatibility variant.
+# These are because a variation selector acts like the previous character is a compatibility variant.
 
 [:Variation_Selector:] ; delete ;
 
 # Detailed changes
+# Many of these originally come from the UCA file.
 
 # Sharp S
 
@@ -58,11 +77,9 @@
 05F0 ; 05D5 05D5 ; # HEBREW LIGATURE YIDDISH DOUBLE VAV => HEBREW LETTER VAV + HEBREW LETTER VAV
 05F1 ; 05D5 05D9 ; # HEBREW LIGATURE YIDDISH VAV YOD => HEBREW LETTER VAV + HEBREW LETTER YOD
 05F2 ; 05D9 05D9 ; # HEBREW LIGATURE YIDDISH DOUBLE YOD => HEBREW LETTER YOD + HEBREW LETTER YOD
+FB1F ; 05D9 05D9 05B7 ; # HEBREW LIGATURE YIDDISH YOD YOD PATAH => HEBREW LETTER YOD + HEBREW LETTER YOD + HEBREW POINT PATAH
 
 0E33 ; exclude ; # THAI CHARACTER SARA AM => THAI CHARACTER NIKHAHIT + THAI CHARACTER SARA AA
-0F0C ; exclude ; # TIBETAN MARK DELIMITER TSHEG BSTAR => TIBETAN MARK INTERSYLLABIC TSHEG
-
-FB1F ; 05D9 05D9 05B7 ; # HEBREW LIGATURE YIDDISH YOD YOD PATAH => HEBREW LETTER YOD + HEBREW LETTER YOD + HEBREW POINT PATAH
 
 # Fix isolated forms, tatweel
 
@@ -94,20 +111,11 @@ FE7D ; 0651 ; # ARABIC SHADDA MEDIAL FORM => ARABIC SHADDA
 FE7E ; 0652 ; # ARABIC SUKUN ISOLATED FORM => ARABIC SUKUN
 FE7F ; 0652 ; # ARABIC SUKUN MEDIAL FORM => ARABIC SUKUN
 
-#Fix fullwidth exceptions
-#Note that if we use @ID_STATUS_SAME, these would be produced for free
+#Fix Hangul
 
-FF0B ; 002B ; # FULLWIDTH PLUS SIGN => PLUS SIGN
-FF3F ; 005F ; # FULLWIDTH LOW LINE => LOW LINE
+[:block=Hangul_Compatibility_Jamo:]; exclude ; # a thorough job would require context dependence
 
-# Override above exclusion
-
-FF70 ; ok ; # HALFWIDTH KATAKANA-HIRAGANA PROLONGED SOUND MARK => KATAKANA-HIRAGANA PROLONGED SOUND MARK
-FF9E ; ok ; # HALFWIDTH KATAKANA VOICED SOUND MARK => COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK
-FF9F ; ok ; # HALFWIDTH KATAKANA SEMI-VOICED SOUND MARK => COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK
-
-#Fix Hangul (point to isolated characters, not combining jamo)
-
+#  point to isolated characters, not combining jamo
 FFA0 ; 3164 ; # HALFWIDTH HANGUL FILLER => HANGUL FILLER
 FFA1 ; 3131 ; # HALFWIDTH HANGUL LETTER KIYEOK => HANGUL LETTER KIYEOK
 FFA2 ; 3132 ; # HALFWIDTH HANGUL LETTER SSANGKIYEOK => HANGUL LETTER SSANGKIYEOK
@@ -164,15 +172,17 @@ FFDC ; 3163 ; # HALFWIDTH HANGUL LETTER I => HANGUL LETTER I
 # Special combining cases.
 # Normally NFKC maps these to SPACE + accent. Since we disallow that, we at least
 # pick up the cases where two characters both map to the same value.
+# Some of these are only active if we are doing *all* characters (not just IDs)
 
-#0340 ; 0300 ; # COMBINING GRAVE TONE MARK => COMBINING GRAVE ACCENT
-#0341 ; 0301 ; # COMBINING ACUTE TONE MARK => COMBINING ACUTE ACCENT
-#0343 ; 0313 ; # COMBINING GREEK KORONIS => COMBINING COMMA ABOVE
-#0344 ; 0308 0301 ; # COMBINING GREEK DIALYTIKA TONOS => COMBINING DIAERESIS + COMBINING ACUTE ACCENT
-
+0340 ; 0300 ; # COMBINING GRAVE TONE MARK => COMBINING GRAVE ACCENT
+0341 ; 0301 ; # COMBINING ACUTE TONE MARK => COMBINING ACUTE ACCENT
+0343 ; 0313 ; # COMBINING GREEK KORONIS => COMBINING COMMA ABOVE
+0344 ; 0308 0301 ; # COMBINING GREEK DIALYTIKA TONOS => COMBINING DIAERESIS + COMBINING ACUTE ACCENT
+FFE3 ; 00AF ; # FULLWIDTH MACRON => MACRON
 
 # ==============================
 # IN 2008-05-08 Version
+
 0130 ; 0069 ; # LATIN CAPITAL LETTER I WITH DOT ABOVE => LATIN SMALL LETTER I 
 
 013F ; 006C 00B7 ; # LATIN CAPITAL LETTER L WITH MIDDLE DOT => LATIN SMALL LETTER L + MIDDLE DOT 
@@ -186,30 +196,28 @@ FFDC ; 3163 ; # HALFWIDTH HANGUL LETTER I => HANGUL LETTER I
 202D ; delete ; # LEFT-TO-RIGHT OVERRIDE => 
 202E ; delete ; # RIGHT-TO-LEFT OVERRIDE => 
 
-# Note: we should exclude all default-ignorables -- see below.
-
-# ==============================
-
-
-# =================================
-# OUGHT TO FIX
-# These are here (or commented out) just for compatibility with current results
-# We really ought to enable them, but some require testing to make sure that
-# the change doesn't cause problems.
-# =================================
-
-# Ignorables
-# These should all be deleted
+# Note: we **should** exclude all default-ignorables instead of just the above
 
 # [:default_ignorable_code_point:] ; delete ;
 
-# Special Cases - Turkish
-# This is a bit tricky, involving Turkish casing
+# ==============================
 
-# 0130 ; exclude ; # LATIN CAPITAL LETTER I WITH DOT ABOVE => LATIN SMALL LETTER I
+# Fix the fact that we aren't normalizing all narrow characters
+
+# Note: we **should** also do the first two
+
+#FF61 ; ok ; # HALFWIDTH IDEOGRAPHIC FULL STOP => IDEOGRAPHIC FULL STOP
+#FF65 ; ok ; # HALFWIDTH KATAKANA MIDDLE DOT => KATAKANA MIDDLE DOT
+
+FF70 ; ok ; # HALFWIDTH KATAKANA-HIRAGANA PROLONGED SOUND MARK => KATAKANA-HIRAGANA PROLONGED SOUND MARK
+FF9E ; ok ; # HALFWIDTH KATAKANA VOICED SOUND MARK => COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK
+FF9F ; ok ; # HALFWIDTH KATAKANA SEMI-VOICED SOUND MARK => COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK
+
+# =================================
+
 
 # Multiletter forms
-# No particular reason to exclude these
+# ** We should bracket these, instead of excluding.
 
 20A8 ; exclude ; # RUPEE SIGN => LATIN SMALL LETTER R + LATIN SMALL LETTER S
 2116 ; exclude ; # NUMERO SIGN => LATIN SMALL LETTER N + LATIN SMALL LETTER O
@@ -219,26 +227,25 @@ FDFC ; exclude ; # RIAL SIGN => ARABIC LETTER REH + ARABIC LETTER FARSI YEH + AR
 309F ; exclude ; # HIRAGANA DIGRAPH YORI => HIRAGANA LETTER YO + HIRAGANA LETTER RI
 30FF ; exclude ; # KATAKANA DIGRAPH KOTO => KATAKANA LETTER KO + KATAKANA LETTER TO
 
+# Telegraph
+# ** We should bracket these, instead of excluding.
+32C0-33FE ; exclude ; # IDEOGRAPHIC TELEGRAPH SYMBOL FOR JANUARY => DIGIT ONE + CJK UNIFIED IDEOGRAPH-6708 .. IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY THIRTY-ONE => DIGIT THREE + DIGIT ONE + CJK UNIFIED IDEOGRAPH-65E5
+
 # Radicals
+# ** We should go ahead and map these, instead of excluding. No reason to bracket
 
 2E9F-2FD5 ; exclude ; # CJK RADICAL MOTHER => <CJK Ideograph> .. KANGXI RADICAL FLUTE => <CJK Ideograph>
 
-# Circled
-
-# 24B6-24CF ; exclude ; # CIRCLED LATIN CAPITAL LETTER A => CIRCLED LATIN SMALL LETTER A .. CIRCLED LATIN CAPITAL LETTER Z => CIRCLED LATIN SMALL LETTER Z
-# we should not exclude circled, or at least should case-fold them.
-
 # Roman numerals
-# No particular reason to exclude.
+# ** We should go ahead and map these, instead of caseonly. No reason to bracket
 
 [:Letter_Number:] ; caseonly ;
 
-#2160-217F ; exclude ; # ROMAN NUMERAL ONE => LATIN SMALL LETTER I .. SMALL ROMAN NUMERAL ONE THOUSAND => LATIN SMALL LETTER M
-#2183 ; exclude ; # ROMAN NUMERAL REVERSED ONE HUNDRED => LATIN SMALL LETTER REVERSED C
+# To match 2008-05-08 Version, we have these exceptions.
+3038 ; 5341 ; # HANGZHOU NUMERAL TEN => <CJK Ideograph> 
+3039 ; 5344 ; # HANGZHOU NUMERAL TWENTY => <CJK Ideograph> 
+303A ; 5345 ; # HANGZHOU NUMERAL THIRTY => <CJK Ideograph> 
 
-# Telegraph
-# No particular reason to exclude.
-32C0-33FE ; exclude ; # IDEOGRAPHIC TELEGRAPH SYMBOL FOR JANUARY => DIGIT ONE + CJK UNIFIED IDEOGRAPH-6708 .. IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY THIRTY-ONE => DIGIT THREE + DIGIT ONE + CJK UNIFIED IDEOGRAPH-65E5
 
 
 

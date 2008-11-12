@@ -954,7 +954,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     ? dataSource.iterator() 
         : dataSource.iterator(prefix);
     if (comparator == null) return it;
-    Set orderedSet = new TreeSet(CLDRFile.ldmlComparator);
+    Set orderedSet = new TreeSet(comparator);
     CollectionUtilities.addAll(it, orderedSet);
     return orderedSet.iterator();
   }

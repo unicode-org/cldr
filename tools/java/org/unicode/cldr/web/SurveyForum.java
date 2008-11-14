@@ -858,10 +858,6 @@ public class SurveyForum {
                           " last_time TIMESTAMP NOT NULL "+sm.DB_SQL_WITHDEFAULT+" CURRENT_TIMESTAMP" + 
                         " )";
                 s.execute(sql);
-                sql = "CREATE UNIQUE INDEX " + DB_FORA + "_id_loc ON " + DB_FORA + " (id,"+locindex+") ";
-                s.execute(sql); 
-                sql = "CREATE UNIQUE INDEX " + DB_FORA + "_loc ON " + DB_FORA + " ("+locindex+") ";
-                s.execute(sql); 
                 sql="";
                 s.close();
                 conn.commit();

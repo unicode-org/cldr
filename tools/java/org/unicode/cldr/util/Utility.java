@@ -90,22 +90,22 @@ public class Utility {
   // set the base directory with -Dcldrdata=<value>
   // if the main is different, use -Dcldrmain=<value>
   public static final String BASE_DIRECTORY = Utility.getProperty("CLDR_DIR", null);	// get up to <CLDR>
-  public static final String UTIL_DATA_DIR = 	BASE_DIRECTORY + "tools/java/org/unicode/cldr/util/data/";		// "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
+  public static final String UTIL_DATA_DIR = new File(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/").getPath();        // "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
   public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
-  public static final String COMMON_DIRECTORY = BASE_DIRECTORY + "common/";
-  public static final String MAIN_DIRECTORY = Utility.getProperty("CLDR_MAIN", Utility.COMMON_DIRECTORY + "main");
+  public static final String COMMON_DIRECTORY = new File(BASE_DIRECTORY , "common/").getPath();
+  public static final String MAIN_DIRECTORY = Utility.getProperty("CLDR_MAIN", new File(Utility.COMMON_DIRECTORY,  "main").getPath());
   /**
    * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
    * @see DEFAULT_SUPPLEMENTAL_DIRECTORY
    */
-  public static final String SUPPLEMENTAL_DIRECTORY = COMMON_DIRECTORY + "supplemental/";
+  public static final String SUPPLEMENTAL_DIRECTORY = new File(COMMON_DIRECTORY , "supplemental/").getPath();
   /**
    * Only the default, if no other directory is specified.
    */
-  public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = COMMON_DIRECTORY + "supplemental/";
-  public static final String GEN_DIRECTORY = BASE_DIRECTORY + "dropbox/gen/";
-  public static final String CHART_DIRECTORY = BASE_DIRECTORY + "diff/";
-  public static final String TEST_DIR = Utility.COMMON_DIRECTORY + "test/";
+  public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = new File(COMMON_DIRECTORY , "supplemental/").getPath();
+  public static final String GEN_DIRECTORY = new File(BASE_DIRECTORY , "dropbox/gen/").getPath();
+  public static final String CHART_DIRECTORY = new File(BASE_DIRECTORY ,  "diff/").getPath();
+  public static final String TEST_DIR = new File(Utility.COMMON_DIRECTORY,  "test/").getPath();
 
 
   /** If the generated BAT files are to work, this needs to be set right */

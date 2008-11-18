@@ -87,7 +87,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   public static final String SUPPLEMENTAL_NAME = "supplementalData";
   public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
   public static final String SUPPLEMENTAL_PREFIX = "supplemental";
-  public static final String GEN_VERSION = "1.6";
+  public static final String GEN_VERSION = "1.7";
   
   private boolean locked;
   private XMLSource dataSource;
@@ -106,6 +106,19 @@ public class CLDRFile implements Freezable, Iterable<String> {
     public SimpleXMLSource(Factory factory, String localeID) {
       this.factory = factory;
       this.setLocaleID(localeID);
+    }
+    /** 
+     * Create a shallow, locked copy of another XMLSource. 
+     * @param copyAsLockedFrom
+     */
+    protected SimpleXMLSource(SimpleXMLSource copyAsLockedFrom) {
+        this.xpath_value = copyAsLockedFrom.xpath_value;
+        this.xpath_fullXPath = copyAsLockedFrom.xpath_fullXPath;
+        this.xpath_comments = copyAsLockedFrom.xpath_comments;
+        this.factory = copyAsLockedFrom.factory;
+        this.madeWithMinimalDraftStatus = copyAsLockedFrom.madeWithMinimalDraftStatus;
+        this.setLocaleID(copyAsLockedFrom.getLocaleID());
+        locked=true;
     }
     public String getValueAtDPath(String xpath) {
       return (String)xpath_value.get(xpath);
@@ -207,6 +220,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
     return dataSource.isNonInheriting();
   }
   
+  /**
+   * Construct a new CLDRFile.  
+   * @param dataSource if null, an empty SimpleXMLSource will be used.
+   * @param resolved
+   */
   public CLDRFile(XMLSource dataSource, boolean resolved){
     if (dataSource == null) dataSource = new SimpleXMLSource(null, null);
     if (resolved && !dataSource.isResolving()) {
@@ -221,6 +239,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   
   /**
    * Create a CLDRFile for the given localename. (Normally a Factory is used to create CLDRFiles.)
+   * SimpleXMLSource will be used as the source.
    * @param localeName
    */
   public static CLDRFile make(String localeName) {
@@ -260,7 +279,15 @@ public class CLDRFile implements Freezable, Iterable<String> {
    */
   // TODO make the directory a URL  
   public static CLDRFile makeFromFile(String fullFileName, String localeName, DraftStatus minimalDraftStatus) {
-    File f = new File(fullFileName);
+    return make(localeName).loadFromFile(fullFileName, localeName, minimalDraftStatus);
+  }
+  /**
+   * Produce a CLDRFile from a localeName, given a directory. (Normally a Factory is used to create CLDRFiles.)
+   * @param localeName
+   * @param dir directory 
+   */
+  public CLDRFile loadFromFile(File f, String localeName, DraftStatus minimalDraftStatus) {
+    String fullFileName = f.getAbsolutePath();
     try {
       fullFileName = f.getCanonicalPath();
       if (DEBUG_LOGGING) {
@@ -268,13 +295,16 @@ public class CLDRFile implements Freezable, Iterable<String> {
         Log.logln(LOG_PROGRESS, "Parsing: " + fullFileName);
       }
       FileInputStream fis = new FileInputStream(f);
-      CLDRFile result = make(fullFileName, localeName, fis, minimalDraftStatus);
+      load(fullFileName, localeName, fis, minimalDraftStatus);
       fis.close();
-      return result;
+      return this;
     } catch (Exception e) {
       //e.printStackTrace();
       throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + fullFileName).initCause(e);
     }
+  }
+  public CLDRFile loadFromFile(String fullFileName, String localeName, DraftStatus minimalDraftStatus) {
+      return loadFromFile(new File(fullFileName), localeName, minimalDraftStatus);
   }
   
   /**
@@ -283,11 +313,17 @@ public class CLDRFile implements Freezable, Iterable<String> {
    * @param fis
    */
   public static CLDRFile make(String fileName, String localeName, InputStream fis, DraftStatus minimalDraftStatus) {
-
+      return make(localeName).load(fileName,localeName, fis, minimalDraftStatus);
+  }
+  /**
+   * Load a CLDRFile from a file input stream.
+   * @param localeName
+   * @param fis
+   */
+  public CLDRFile load(String fileName, String localeName, InputStream fis, DraftStatus minimalDraftStatus) {
     try {
       fis = new StripUTF8BOMInputStream(fis);
-      CLDRFile result = make(localeName);
-      MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(result, minimalDraftStatus);
+      MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(this, minimalDraftStatus);
       
       // now fill it.
       
@@ -302,8 +338,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
       if (DEFAULT_DECLHANDLER.isSupplemental < 0) {
         throw new IllegalArgumentException("root of file must be either ldml or supplementalData");
       }
-      result.setNonInheriting(DEFAULT_DECLHANDLER.isSupplemental > 0);
-      return result;
+      this.setNonInheriting(DEFAULT_DECLHANDLER.isSupplemental > 0);
+      return this;
     } catch (SAXParseException e) {
       System.out.println(CLDRFile.showSAX(e));
       throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + localeName).initCause(e);
@@ -1092,61 +1128,61 @@ public class CLDRFile implements Freezable, Iterable<String> {
   
   /**
    * A factory is the normal method to produce a set of CLDRFiles from a directory of XML files.
+   * See SimpleFactory for a concrete subclass.
    */
-  public static class Factory {
-    private String sourceDirectory;
-    private String matchString;
-    private Set<String> localeList = new TreeSet();
-    private Map<String,CLDRFile>[] mainCache = new Map[DraftStatus.values().length];
-    private Map<String,CLDRFile>[] resolvedCache = new Map[DraftStatus.values().length];
-    {
-      for (int i = 0; i < mainCache.length; ++i) {
-        mainCache[i] = new TreeMap();
-        resolvedCache[i] = new TreeMap();
+  public static abstract class Factory {
+
+    public abstract String getSourceDirectory();
+
+    public abstract CLDRFile make(String localeID, boolean b, DraftStatus madeWithMinimalDraftStatus);
+
+    
+    public CLDRFile make(String localeName, boolean resolved, boolean includeDraft) {
+      return make(localeName, resolved, includeDraft ? DraftStatus.unconfirmed : DraftStatus.approved);
+    }
+
+
+    public CLDRFile make(String localeName, boolean resolved) {
+        return make(localeName, resolved, getMinimalDraftStatus());
       }
-    }
-    //private Map mainCacheNoDraft = new TreeMap();
-    //private Map resolvedCacheNoDraft = new TreeMap();  
-    private Map supplementalCache = new TreeMap();
-    private DraftStatus minimalDraftStatus = DraftStatus.unconfirmed;
-    private Factory() {}		
-    
+
+    protected abstract DraftStatus getMinimalDraftStatus();
+
     /**
-     * Create a factory from a source directory, matchingString, and an optional log file.
-     * For the matchString meaning, see {@link getMatchingXMLFiles}
+     * Convenience static
+     * @param path
+     * @param string
+     * @return
      */
-    public static Factory make(String sourceDirectory, String matchString) {
-      return make(sourceDirectory, matchString, DraftStatus.unconfirmed);
+    public static Factory make(String path, String string) {
+        return SimpleFactory.make(path,string);
     }
-    
-    public static Factory make(String sourceDirectory, String matchString, DraftStatus minimalDraftStatus) {
-      Factory result = new Factory();
-      result.sourceDirectory = sourceDirectory;
-      result.matchString = matchString;
-      result.minimalDraftStatus = minimalDraftStatus;
-      Matcher m = Pattern.compile(matchString).matcher("");
-      result.localeList = getMatchingXMLFiles(sourceDirectory, m);
-//      try {
-//        result.localeList.addAll(getMatchingXMLFiles(sourceDirectory + "/../supplemental/", m));
-//      } catch(Throwable t) {
-//        throw new Error("CLDRFile unable to load Supplemental data: couldn't getMatchingXMLFiles("+sourceDirectory + "/../supplemental"+")",t);
-//      }
-      return result;
+
+    /**
+     * Convenience static
+     * @param mainDirectory
+     * @param string
+     * @param approved
+     * @return
+     */
+    public static Factory make(String mainDirectory, String string, DraftStatus approved) {
+        return SimpleFactory.make(mainDirectory, string, approved);
     }
-    
+
     /**
      * Get a set of the available locales for the factory.
      */
     public Set<String> getAvailable() {
-      return Collections.unmodifiableSet(localeList);
+      return Collections.unmodifiableSet(handleGetAvailable());
     }
-    
+    protected abstract Set<String> handleGetAvailable();
+
     /**
      * Get a set of the available language locales (according to isLanguage).
      */
     public Set<String> getAvailableLanguages() {
       Set<String> result = new TreeSet();
-      for (Iterator<String> it = localeList.iterator(); it.hasNext();) {
+      for (Iterator<String> it = handleGetAvailable().iterator(); it.hasNext();) {
         String s = it.next();
         if (XPathParts.isLanguage(s)) result.add(s);
       }
@@ -1160,28 +1196,74 @@ public class CLDRFile implements Freezable, Iterable<String> {
     public Set getAvailableWithParent(String parent, boolean isProper) {
       Set result = new TreeSet();
       
-      for (Iterator it = localeList.iterator(); it.hasNext();) {
+      for (Iterator it = handleGetAvailable().iterator(); it.hasNext();) {
         String s = (String) it.next();
         int relation = XPathParts.isSubLocale(parent, s);
         if (relation >= 0 && !(isProper && relation == 0)) result.add(s);
       }
       return result;
     }
+
+  }
+  
+  public static class SimpleFactory extends Factory {
+    private String sourceDirectory;
+    private String matchString;
+    private Set<String> localeList = new TreeSet<String>();
+    private Map<String,CLDRFile>[] mainCache = new Map[DraftStatus.values().length];
+    private Map<String,CLDRFile>[] resolvedCache = new Map[DraftStatus.values().length];
+    {
+      for (int i = 0; i < mainCache.length; ++i) {
+        mainCache[i] = new TreeMap();
+        resolvedCache[i] = new TreeMap();
+      }
+    }
+    //private Map mainCacheNoDraft = new TreeMap();
+    //private Map resolvedCacheNoDraft = new TreeMap();  
+    private Map supplementalCache = new TreeMap();
+    private DraftStatus minimalDraftStatus = DraftStatus.unconfirmed;
+    private SimpleFactory() {}		
+    
+    protected DraftStatus getMinimalDraftStatus() {
+        return minimalDraftStatus;
+    }
+    
+    /**
+     * Create a factory from a source directory, matchingString, and an optional log file.
+     * For the matchString meaning, see {@link getMatchingXMLFiles}
+     */
+    public static Factory make(String sourceDirectory, String matchString) {
+      return make(sourceDirectory, matchString, DraftStatus.unconfirmed);
+    }
+    
+    public static Factory make(String sourceDirectory, String matchString, DraftStatus minimalDraftStatus) {
+      SimpleFactory result = new SimpleFactory();
+      result.sourceDirectory = sourceDirectory;
+      result.matchString = matchString;
+      result.minimalDraftStatus = minimalDraftStatus;
+      Matcher m = Pattern.compile(matchString).matcher("");
+      result.localeList = getMatchingXMLFiles(sourceDirectory, m);
+//      try {
+//        result.localeList.addAll(getMatchingXMLFiles(sourceDirectory + "/../supplemental/", m));
+//      } catch(Throwable t) {
+//        throw new Error("CLDRFile unable to load Supplemental data: couldn't getMatchingXMLFiles("+sourceDirectory + "/../supplemental"+")",t);
+//      }
+      return result;
+    }
+    
+    
+    protected Set<String> handleGetAvailable() {
+        return localeList;
+    }
+    
     
     private boolean needToReadRoot = true;
     
-    public CLDRFile make(String localeName, boolean resolved) {
-      return make(localeName, resolved, minimalDraftStatus);
-    }
     /**
      * Make a CLDR file. The result is a locked file, so that it can be cached. If you want to modify it,
      * use clone().
      */
     // TODO resolve aliases
-    
-    public CLDRFile make(String localeName, boolean resolved, boolean includeDraft) {
-      return make(localeName, resolved, includeDraft ? DraftStatus.unconfirmed : DraftStatus.approved);
-    }
     
     public CLDRFile make(String localeName, boolean resolved, DraftStatus minimalDraftStatus) {
       // TODO fix hack: 
@@ -1375,7 +1457,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
         if (value.equals("true")) value = "approved";
         else if (value.equals("false")) value = "unconfirmed";
       } else if (attribute.equals("type")) {
-        if (changedTypes.contains(element)) {
+        if (changedTypes.contains(element)&&isSupplemental<1) {  // measurementSystem for example did not change from 'type' to 'choice'.
           attribute = "choice";
         }
       } 
@@ -1398,6 +1480,9 @@ public class CLDRFile implements Freezable, Iterable<String> {
     
     private DateTimePatternGenerator dateGenerator = DateTimePatternGenerator.getEmptyInstance();
     
+    /**
+     * Types which changed from 'type' to 'choice', but not in supplemental data.
+     */
     private static Set changedTypes = new HashSet(Arrays.asList(new String[]{
         "abbreviationFallback",
         "default", "mapping", "measurementSystem", "preferenceOrdering"}));
@@ -2072,7 +2157,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   
   static MapComparator elementOrdering = (MapComparator) new MapComparator()
   .add(
-          "ldml alternate attributeOrder attributes blockingItems calendarSystem character character-fallback codePattern codesByTerritory comment context cp deprecatedItems distinguishingItems elementOrder first_variable fractions identity info languageAlias languageCodes languageCoverage languagePopulation last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing likelySubtag mapTimezones mapZone pluralRule pluralRules reference region scriptAlias scriptCoverage serialElements substitute suppress tRule telephoneCountryCode territoryAlias territoryCodes territoryCoverage currencyCoverage timezone timezoneCoverage transform usesMetazone validity alias appendItem base beforeCurrency afterCurrency currencyMatch dateFormatItem day deprecated distinguishing blocking coverageAdditions era eraNames eraAbbr eraNarrow exemplarCharacters fallback field generic greatestDifference height hourFormat hoursFormat gmtFormat intervalFormatFallback intervalFormatItem key localeDisplayNames layout localeDisplayPattern languages localePattern localeSeparator localizedPatternChars dateRangePattern calendars long mapping measurementSystem measurementSystemName messages minDays firstDay month months monthNames monthAbbr days dayNames dayAbbr orientation inList inText paperSize pattern displayName quarter quarters quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd regionFormat fallbackFormat abbreviationFallback preferenceOrdering relative reset p pc rule s sc scripts segmentation settings short commonlyUsed exemplarCity singleCountries default calendar collation currency currencyFormat currencySpacing currencyFormatLength dateFormat dateFormatLength dateTimeFormat dateTimeFormatLength availableFormats appendItems dayContext dayWidth decimalFormat decimalFormatLength intervalFormats monthContext monthWidth percentFormat percentFormatLength quarterContext quarterWidth scientificFormat scientificFormatLength skipDefaultLocale defaultContent standard daylight suppress_contractions optimize rules surroundingMatch insertBetween symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan currencyDecimal currencyGroup symbols decimalFormats scientificFormats percentFormats currencyFormats currencies t tc q qc i ic extend territories timeFormat timeFormatLength timeZoneNames type unit unitPattern variable attributeValues variables segmentRules variantAlias variants keys types measurementSystemNames codePatterns version generation currencyData language script territory territoryContainment languageData territoryInfo calendarData variant week am pm eras dateFormats timeFormats dateTimeFormats fields weekData measurementData timezoneData characters delimiters measurement dates numbers transforms metadata codeMappings likelySubtags metazoneInfo plurals telephoneCodeData units collations posix segmentations references weekendStart weekendEnd width x yesstr nostr yesexpr noexpr zone metazone special zoneAlias zoneFormatting zoneItem supplementalData"
+          "ldml alternate attributeOrder attributes blockingItems calendarSystem character character-fallback codePattern codesByTerritory comment context cp deprecatedItems distinguishingItems elementOrder first_variable fractions identity info languageAlias languageCodes languageCoverage languagePopulation last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing likelySubtag mapTimezones mapZone pluralRule pluralRules reference region scriptAlias scriptCoverage scriptMapping serialElements substitute suppress tRule telephoneCountryCode territoryAlias territoryCodes territoryCoverage currencyCoverage timezone timezoneCoverage transform usesMetazone validity alias appendItem base beforeCurrency afterCurrency currencyMatch dateFormatItem day deprecated distinguishing blocking coverageAdditions era eraNames eraAbbr eraNarrow exemplarCharacters fallback field generic greatestDifference height hourFormat hoursFormat gmtFormat intervalFormatFallback intervalFormatItem key localeDisplayNames layout localeDisplayPattern languages localePattern localeSeparator localizedPatternChars dateRangePattern calendars long mapping measurementSystem measurementSystemName messages minDays firstDay month months monthNames monthAbbr days dayNames dayAbbr orientation inList inText paperSize pattern displayName quarter quarters quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd rbnfrule regionFormat fallbackFormat abbreviationFallback preferenceOrdering relative reset p pc rule ruleset s sc scripts segmentation settings short commonlyUsed exemplarCity singleCountries default calendar calendarPreference collation currency currencyFormat currencySpacing currencyFormatLength dateFormat dateFormatLength dateTimeFormat dateTimeFormatLength availableFormats appendItems dayContext dayWidth decimalFormat decimalFormatLength intervalFormats monthContext monthWidth percentFormat percentFormatLength quarterContext quarterWidth scientificFormat scientificFormatLength skipDefaultLocale defaultContent standard daylight suppress_contractions optimize rules surroundingMatch insertBetween symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan currencyDecimal currencyGroup symbols decimalFormats scientificFormats percentFormats currencyFormats currencies t tc q qc i ic extend territories timeFormat timeFormatLength timeZoneNames type unit unitPattern variable attributeValues variables segmentRules variantAlias variants keys types measurementSystemNames codePatterns version generation cldrVersion currencyData language script territory territoryContainment languageData scriptMappings territoryInfo calendarData variant week am pm eras dateFormats timeFormats dateTimeFormats fields weekData measurementData timezoneData characters delimiters measurement dates numbers transforms metadata codeMappings likelySubtags metazoneInfo plurals telephoneCodeData units collations posix segmentations rbnf references weekendStart weekendEnd width x yesstr nostr yesexpr noexpr zone metazone special zoneAlias zoneFormatting zoneItem supplementalData"
           .split("\\s+"))
           .setErrorOnMissing(false)
           .freeze();

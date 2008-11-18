@@ -68,6 +68,7 @@ import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.web.UserRegistry.User;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -201,6 +202,7 @@ public class SurveyMain extends HttpServlet {
     
     public static java.util.Properties survprops = null;
     public static String cldrHome = null;
+    public static File homeFile = null;
 
     // Logging
     public static Logger logger = Logger.getLogger("org.unicode.cldr.SurveyMain");
@@ -4968,7 +4970,7 @@ public class SurveyMain extends HttpServlet {
 
     private synchronized CLDRFile.Factory getFactory() {
         if(gFactory == null) {
-            gFactory = CLDRFile.Factory.make(fileBase,".*");
+            gFactory = CLDRFile.SimpleFactory.make(fileBase,".*");
         }
         return gFactory;
     }
@@ -5114,14 +5116,19 @@ public class SurveyMain extends HttpServlet {
             //if(phaseVetting) {
             //    checkCldr = CheckCLDR.getCheckAll("(?!.*(DisplayCollisions|CheckCoverage).*).*" /*  ".*" */);
             //} else {
-            //checkCldr = CheckCLDR.getCheckAll(".*");
+            if(false) {  // show ALL ?
+                checkCldr = CheckCLDR.getCheckAll(".*");
+            } else {
                 checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
-            //}
+            }
 
             checkCldr.setDisplayInformation(getBaselineFile());
             
             return checkCldr;
     }
+
+    public static boolean CACHE_VXML_FOR_TESTS = true;
+    public static boolean CACHE_VXML_FOR_EXAMPLES = true;
 
     /**
      * Any user of this should be within session sync.
@@ -5130,21 +5137,35 @@ public class SurveyMain extends HttpServlet {
      */
     public class UserLocaleStuff extends Registerable {
         public CLDRFile cldrfile = null;
+        private CLDRFile cachedCldrFile = null; /* If not null: use this for tests. Readonly. */
         public CLDRDBSource dbSource = null;
         public Hashtable hash = new Hashtable();
         private ExampleGenerator exampleGenerator = null;
+        private Registerable exampleIsValid = new Registerable(lcr, locale);
         
         public ExampleGenerator getExampleGenerator() {
-            if(exampleGenerator==null) {
-                exampleGenerator = new ExampleGenerator(new CLDRFile(dbSource,true), dbSource.sm.fileBase + "/../supplemental/");
+            if(exampleGenerator==null || !exampleIsValid.isValid() ) {
+                CLDRFile fileForGenerator = null;
+                if(CACHE_VXML_FOR_EXAMPLES) {
+                    fileForGenerator = getCLDRFileCache().getCLDRFile(locale(), true);
+                } else {
+                    fileForGenerator = new CLDRFile(dbSource,true);
+                }
+                exampleGenerator = new ExampleGenerator(fileForGenerator, dbSource.sm.fileBase + "/../supplemental/");
                 exampleGenerator.setVerboseErrors(dbSource.sm.twidBool("ExampleGenerator.setVerboseErrors"));
+                System.err.println("-revalid exgen-"+locale + " - " + exampleIsValid + " in " + this);
+                exampleIsValid.setValid();
+                System.err.println(" >> "+locale + " - " + exampleIsValid + " in " + this);
+                exampleIsValid.register();
+                System.err.println(" >>> "+locale + " - " + exampleIsValid + " in " + this);
             }
             return exampleGenerator;
         }
         
         public UserLocaleStuff(String locale) {
             super(lcr, locale);
-    //System.err.println("Adding ULS:"+locale);
+            exampleIsValid.register();
+    System.err.println("Adding ULS:"+locale);
         }
         
         public void clear() {
@@ -5162,11 +5183,21 @@ public class SurveyMain extends HttpServlet {
                 
                 checkCldr = createCheck();
                 
+                CLDRFile fileForChecks = null;
+                
+                if(cachedCldrFile!=null) {
+                    fileForChecks = cachedCldrFile;
+                } else {
+                    fileForChecks = cldrfile;
+                }
+                
+                //cldrfile.write(new PrintWriter(System.out));
+                
                 if(cldrfile==null) {
                     throw new InternalError("cldrfile was null.");
                 }
                 //long t0 = System.currentTimeMillis();
-                checkCldr.setCldrFileToCheck(cldrfile, ctx.getOptionsMap(basicOptionsMap()), checkCldrResult);
+                checkCldr.setCldrFileToCheck(fileForChecks, ctx.getOptionsMap(basicOptionsMap()), checkCldrResult);
              //   logger.info("fileToCheck set . . . on "+ checkCldr.toString());
                 hash.put(CHECKCLDR+ctx.defaultPtype(), checkCldr);
                 if(!checkCldrResult.isEmpty()) {
@@ -5176,6 +5207,31 @@ public class SurveyMain extends HttpServlet {
                 //logger.info("Time to init tests: " + (t2-t0));
             }
             return checkCldr;
+        }
+        
+        
+        CLDRFile makeCachedCLDRFile(XMLSource dbSource) {
+            if(CACHE_VXML_FOR_TESTS) {
+                return getCLDRFileCache().getCLDRFile(locale());
+            } else {
+                return null;
+            }
+        }
+
+        /**
+         * 
+         * @param ctx
+         * @param user
+         * @param locale
+         */
+        public void complete(WebContext ctx, User user, ULocale locale) {
+            // TODO: refactor.
+            UserLocaleStuff uf = this;
+            if(uf.cldrfile == null) {
+                uf.dbSource = makeDBSource(ctx, user, locale); // use context's connection.
+                uf.cldrfile = makeCLDRFile(uf.dbSource);
+                uf.cachedCldrFile = uf.makeCachedCLDRFile(uf.dbSource);
+            }
         }
     };
 
@@ -5189,6 +5245,19 @@ public class SurveyMain extends HttpServlet {
         return uf;
     }
 
+    private CLDRFileCache cldrFileCache = null; // LOCAL to UserFile.
+    
+    private synchronized CLDRFileCache getCLDRFileCache() {
+        if(cldrFileCache == null) {
+        
+            Connection conn = getDBConnection();
+            CLDRDBSource dbSource = makeDBSource(conn, null, new ULocale("root"), false);
+            CLDRDBSource dbSourceV = makeDBSource(conn, null, new ULocale("root"), true);
+            cldrFileCache = new CLDRFileCache(dbSource, dbSourceV, new File(homeFile, "vxpt"), this);
+        }
+        return cldrFileCache;
+    }
+
     /**
      * Any user of this should be within session sync (ctx.session)
      * @param ctx
@@ -5200,7 +5269,6 @@ public class SurveyMain extends HttpServlet {
         // has this locale been invalidated?
         UserLocaleStuff uf = getOldUserFile(ctx);
         //UserLocaleStuff uf = null;
-        
         if(uf == null) {
             uf = new UserLocaleStuff(locale.toString());
             ctx.putByLocale(USER_FILE_KEY, uf);
@@ -5211,10 +5279,7 @@ public class SurveyMain extends HttpServlet {
             uf.register(); // reregister
         }
         
-        if(uf.cldrfile == null) {
-            uf.dbSource = makeDBSource(ctx, user, locale); // use context's connection.
-            uf.cldrfile = makeCLDRFile(uf.dbSource);
-        }
+        uf.complete(ctx, user, locale);
         return uf;
     }
     CLDRDBSource makeDBSource(WebContext ctx, UserRegistry.User user, ULocale locale) {
@@ -6624,13 +6689,13 @@ public class SurveyMain extends HttpServlet {
 
     boolean doVote(WebContext ctx, String locale, int xpath, int base_xpath, int id) {
         vet.vote( locale,  base_xpath, id, xpath, Vetting.VET_EXPLICIT);
-        lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
+      //  lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
         return true;
     }
 
     boolean doAdminRemoveVote(WebContext ctx, String locale, int base_xpath, int id) {
         vet.vote( locale,  base_xpath, id, -1, Vetting.VET_ADMIN);
-        lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
+     //   lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
         return true;
     }
 
@@ -6640,7 +6705,7 @@ public class SurveyMain extends HttpServlet {
     
     int doUnVote(WebContext ctx, String locale, int base_xpath, int submitter) {
         int rs = vet.unvote( locale,  base_xpath, submitter);
-        lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
+      //  lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
         return rs;
     }
 
@@ -7943,11 +8008,11 @@ public class SurveyMain extends HttpServlet {
                     busted("no $(catalina.home) set - please use it or set a servlet parameter cldr.home");
                     return;
                 } 
-                File homeFile = new File(cldrHome, "cldr");
- 		File propFile = new java.io.File(homeFile, "cldr.properties");
+                homeFile = new File(cldrHome, "cldr");
+                File propFile = new java.io.File(homeFile, "cldr.properties");
     
                 if(!propFile.exists()) {
-			System.err.println("Does not exist: "+propFile.getAbsolutePath());
+                    System.err.println("Does not exist: "+propFile.getAbsolutePath());
                     createBasicCldr(homeFile); // attempt to create
                 }
     
@@ -8089,10 +8154,18 @@ public class SurveyMain extends HttpServlet {
                 return;
             }
             
-            updateProgress(nn++, "Setup baseline..");
+            updateProgress(nn++, "Setup baseline file..");
             
             // load baseline file
             getBaselineFile();
+            
+            updateProgress(nn++, "Setup baseline example..");
+            
+            // and example
+            getBaselineExample();
+
+            updateProgress(nn++, "Wake up the database..");
+            
             
             doStartupDB(); // will take over progress 50-60
         } finally {

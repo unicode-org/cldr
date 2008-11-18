@@ -10,13 +10,13 @@ package org.unicode.cldr.web;
 
 
 /**
- * This class defines an abstract type which can be registered in a LocaleChangeRegistry to
+ * This class defines a type which can be registered in a LocaleChangeRegistry to
  * receive notification of any changes by locale.
  * As locales are inherited, changes in 'en' will be reflected to 'en_US' etc. 
  * a change to 'root' will be reflected in all sub locales.
  */
 
-public abstract class Registerable {
+public class Registerable {
 
     /**
      * Is this object still 'valid'?  Becomes invalid if a change is recotded 
@@ -99,5 +99,9 @@ public abstract class Registerable {
      */
     public String toString () {
         return "{Registerable "+key+" @ "+locale+", valid:"+peekIsValid()+"}";
+    }
+    
+    public String locale() {
+        return locale;
     }
 }

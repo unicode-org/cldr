@@ -1574,7 +1574,7 @@ import com.ibm.icu.util.ULocale;
      */
     public static CLDRDBSource createInstance(String theDir, XPathTable xpt, ULocale localeID,
             Connection conn, UserRegistry.User user, boolean finalData) {
-        CLDRFile.Factory afactory = CLDRFile.Factory.make(theDir,".*");
+        CLDRFile.Factory afactory = CLDRFile.SimpleFactory.make(theDir,".*");
         CLDRDBSource result =  new CLDRDBSource(afactory, xpt);
         result.dir = theDir;
         result.setLocaleID(localeID.toString());
@@ -1731,7 +1731,7 @@ import com.ibm.icu.util.ULocale;
            //     logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
            // }
             String xpath = fullXpathMinusAlt + altTag;
-            String oxpath = xpath+refStr+"[@draft=\"true\"]";
+            String oxpath = xpath+refStr+"[@draft=\"unconfirmed\"]";
             int xpid = xpt.getByXpath(xpath);
             
             // Check to see if this slot is in use.
@@ -1834,13 +1834,13 @@ import com.ibm.icu.util.ULocale;
             String type = "RP"+slot; // proposed-u123-4 
 //            String alt = LDMLUtilities.formatAlt(altType, altProposed);
             //            String rawXpath = fullXpathMinusAlt + "[@type='" + alt + "'][@draft='true']";
-            String rawXpath = "//ldml/references/reference[@type=\""+type+"\"]"+uristr+"[@draft=\"true\"]";
+            String rawXpath = "//ldml/references/reference[@type=\""+type+"\"]"+uristr+"[@draft=\"unconfirmed\"]";
             logger.info("addDataToNextSlot:  rawXpath = " + rawXpath);
             String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);
             if(!xpath.equals(rawXpath)) {
                 logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
             }
-            String oxpath = xpath+uristr+"[@draft=\"true\"]";
+            String oxpath = xpath+uristr+"[@draft=\"unconfirmed\"]";
             int xpid = xpt.getByXpath(xpath);
             
             // Check to see if this slot is in use.
@@ -1919,5 +1919,11 @@ import com.ibm.icu.util.ULocale;
         return null; // couldn't find a slot..
     }
     
-    
+    /**
+     * Close out the connection.
+     */
+    public void closeConnection() {
+        SurveyMain.closeDBConnection(conn);
+        conn = null;
+    }
 }

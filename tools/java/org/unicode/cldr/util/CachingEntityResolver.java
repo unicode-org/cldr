@@ -42,6 +42,7 @@ public class CachingEntityResolver implements EntityResolver {
     private static String gCacheDir = null;
     private static String gOverrideDir = System.getProperty(CLDR_DTD_OVERRIDE);
     private static boolean gCheckedEnv = false;
+    private static boolean gDebug = false;
     
     // TODO: synch?
     
@@ -79,10 +80,27 @@ public class CachingEntityResolver implements EntityResolver {
 
         if((gCacheDir == null) && (!gCheckedEnv)) {
             gCacheDir = System.getProperty(CLDR_DTD_CACHE);
+            
+            if(gCacheDir == null) {
+                if(gDebug) {
+                 System.err.println("CLDR_DTD_CACHE = " + System.getProperty(CLDR_DTD_CACHE));
+                 System.err.println("CLDR_DTD_CACHE_DEBUG = " + System.getProperty("CLDR_DTD_CACHE_DEBUG"));
+                }
+//                String tmpdir = System.getProperty("java.io.tmpdir"));
+//                if(tmpdir != null && tmpdir.length()>0) {
+//                    File f = new File(tmpdir);
+//                    if(f.canWrite()) {
+//                    }
+//                }
+//                for (Object s : System.getProperties().keySet() ) { 
+//                    //System.err.println("tmp was " + System.getProperty("java.tmp"));
+//                    System.err.println(s);
+//                }
+            }
         
-//            if(aDebug) {
-//                System.out.println("CRE:  " + CLDR_DTD_CACHE + " = " + gCacheDir);
-//            }
+            if(gDebug) {
+                System.out.println("CRE:  " + CLDR_DTD_CACHE + " = " + gCacheDir);
+            }
             
             if((gCacheDir==null)||(gCacheDir.length()<=0)) {
                 gCacheDir = null;
@@ -95,7 +113,7 @@ public class CachingEntityResolver implements EntityResolver {
         return gCacheDir;
     }
     public InputSource resolveEntity (String publicId, String systemId) {
-        boolean aDebug = false;
+        boolean aDebug = gDebug;
         if((System.getProperty("CLDR_DTD_CACHE_DEBUG")!=null) || "y".equals(System.getProperty("CLDR_DTD_CACHE_ADEBUG"))) {
             aDebug = true;
         }

@@ -286,11 +286,16 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
       log.println();
     }
 
+    String oldOrder = getJavaList(CLDRFile.elementOrdering.getOrder());
     log.println("Old Element Ordering: "
-        + getJavaList(CLDRFile.elementOrdering.getOrder()));
+        + oldOrder);
     
-    
-    log.println("*** New Element Ordering: " + breakLines(orderingList));// getJavaList(orderingList));
+    String newOrder = '"'+breakLines(orderingList)+'"';
+    if(newOrder.equals(oldOrder)) {
+        log.println(" *** New Element Ordering: <same>");
+    } else {
+        log.println("*** New Element Ordering: " + newOrder);// getJavaList(orderingList));
+    }
     log.println("*** Replace in supplementalMetadata elementOrder and in CLDRFile elementOrdering ***");
 
     log.println("Old Size: " + CLDRFile.elementOrdering.getOrder().size());
@@ -328,7 +333,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     log.flush();
     
     Log.setLogNoBOM(Utility.GEN_DIRECTORY + "/supplemental/supplementalMetadata.xml");
-    BufferedReader oldFile = BagFormatter.openUTF8Reader(Utility.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
+    BufferedReader oldFile = BagFormatter.openUTF8Reader(Utility.SUPPLEMENTAL_DIRECTORY+'/', "supplementalMetadata.xml");
     String sep = Utility.LINE_SEPARATOR + "\t\t\t";
 
     Utility.copyUpTo(oldFile, Pattern.compile("\\s*<attributeOrder>\\s*"), Log.getLog(), true);

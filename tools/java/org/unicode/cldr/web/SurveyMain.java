@@ -1368,9 +1368,59 @@ public class SurveyMain extends HttpServlet {
             ctx.print("<input type='submit' value='set'>");
             ctx.print("</form>");
             // OGM---
+        } else if(action.equals("srl_test0")) {
+            String test0 = ctx.field("test0");
+            
+            ctx.print("<h1>test0 over " + test0 + "</h1>");
+            ctx.print("<i>Note: xpt statistics: " + xpt.statistics() +"</i><hr>");
+            SurveyMain.throwIfBadLocale(test0);
+            ctx.print(new ElapsedTimer("Time to do nothing: {0}").toString()+"<br>");
+            
+            // collect paths
+            ElapsedTimer et = new ElapsedTimer("Time to collect xpaths from " + test0 + ": {0}");
+            Set<Integer> paths = new HashSet<Integer>();
+            String sql = "SELECT xpath from CLDR_DATA where locale=\""+test0+"\"";
+            try {
+                Connection conn = getDBConnection();
+                Statement s = conn.createStatement();
+                ResultSet rs = s.executeQuery(sql);
+                while(rs.next()) {
+                    paths.add(rs.getInt(1));
+                }
+                rs.close();
+                s.close();
+            } catch ( SQLException se ) {
+                String complaint = " Couldn't query xpaths of " + test0 +" - " + SurveyMain.unchainSqlException(se) + " - " + sql;
+                System.err.println(complaint);
+                ctx.println("<hr><font color='red'>ERR: "+complaint+"</font><hr>");
+            }
+            ctx.print("Collected "+paths.size()+" paths, " + et + "<br>");
+            
+            // Load paths
+            et = new ElapsedTimer("load time: {0}");
+            for(int xp : paths) {
+                xpt.getById(xp);
+            }
+            ctx.print("Load "+paths.size()+" paths from " + test0 + " : " + et+"<br>");
+            
+            final int TEST_ITER=100000;
+            et = new ElapsedTimer("Load " + TEST_ITER+"*"+paths.size()+"="+(TEST_ITER*paths.size())+" xpaths: {0}");
+            for(int j=0;j<TEST_ITER;j++) {
+                for(int xp : paths) {
+                    xpt.getById(xp);
+                }
+            }
+            ctx.print("Test: " + et+ "<br>");
+       } else if(action.length()>0) {
+            ctx.print("<h4 class='ferrbox'>Unknown action '"+action+"'.</h4>");
         }
                 
         printFooter(ctx);
+    }
+    private static void throwIfBadLocale(String test0) {
+        if(!SurveyMain.getLocalesSet().contains(test0)) {
+            throw new InternalError("Bad locale: "+test0);
+        }
     }
     private void loadAllLocales(WebContext ctx) {
         File[] inFiles = getInFiles();
@@ -6047,11 +6097,11 @@ public class SurveyMain extends HttpServlet {
                 refCtx.setLocale(new ULocale(ctx.locale.getLanguage())); // ensure it is from the language
                 DataSection refSection = refCtx.getSection("//ldml/references");
                 List refPeas = refSection.getList(PREF_SORTMODE_CODE);
-                int rType[] = new int[1];
+                //int rType[] = new int[1];
                 for(Iterator i = refPeas.iterator();i.hasNext();) {
                     DataSection.DataRow p = (DataSection.DataRow)i.next();
                     // look for winning item
-                    int vetResultId =  vet.queryResult(refSection.locale, p.base_xpath, rType);
+                    int vetResultId =  vet.getWinningXPath(p.base_xpath, refSection.locale);
                     DataSection.DataRow.CandidateItem winner = null;
                     DataSection.DataRow.CandidateItem someItem = null;
                     for(Iterator j = p.items.iterator();j.hasNext();) {

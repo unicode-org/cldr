@@ -70,7 +70,7 @@ public class XPathTable {
                 }
                 String xpathindex = "xpath";
                 String uniqueness = ", " +   "unique(xpath)";
-                if(sm.db_Mysql) {
+                if(SurveyMain.db_Mysql) {
                     uniqueness = "";
                     xpathindex="xpath(1000)";
                 }
@@ -96,8 +96,8 @@ public class XPathTable {
     
     Connection conn = null;
     SurveyMain sm = null;
-    public Hashtable xstringHash = new Hashtable();  // public for statistics only
-    public Hashtable stringToId = new Hashtable();  // public for statistics only
+    public Hashtable<String,String> xstringHash = new Hashtable<String,String>();  // public for statistics only
+    public Hashtable<String,Integer> stringToId = new Hashtable<String,Integer>();  // public for statistics only
 
     java.sql.PreparedStatement insertStmt = null;
     java.sql.PreparedStatement queryStmt = null;
@@ -105,7 +105,7 @@ public class XPathTable {
     
     public String statistics() {
         return "xstringHash has " + xstringHash.size() + " items.  DB: " + stat_dbAdd +"add/" + stat_dbFetch +
-                "fetch/" + stat_allAdds +"total.";
+                "fetch/" + stat_allAdds +"total." + "-"+idStats() /* + " "+strStats()*/;
     }
     
     private static int stat_dbAdd = 0;
@@ -128,39 +128,48 @@ public class XPathTable {
         }
     }
     
-    public Hashtable idToString_ = new Hashtable();  // public for statistics only
-//    String idToString[] = new String[0];
     public final static int CHUNKSIZE = 4096;
+    public final static int INITIAL_SIZE=10240;
+    public final static int MAX_SIZE=384000;
+
+    /**
+     * 
+     *    Map<Integer>  implementation ...
+     *    
+    public Map<Integer,String> idToString_ = new HashMap<Integer,String>(INITIAL_SIZE);  // public for statistics only
     private final String idToString_put(int id, String str) {
     {
-//        try {
-//            idToString[id] = str;
-            idToString_.put(new Integer(id),str);
-//        } catch(java.lang.ArrayIndexOutOfBoundsException aioob) {
-/*            synchronized(this) {
-                if(id<0) {
-                    throw aioob;
-                } else if(id > idToString.length) {
-                    int newchunk = ((id/CHUNKSIZE)+1)*CHUNKSIZE;
-                    System.err.println("xpt resize from " + idToString.length + " to " + newchunk);
-                    idToString = new String[newchunk];
-                    idToString[id] = str;
-                }
-            }
-*/
+        synchronized(this) {
+            idToString_.put(Integer.valueOf(id),str);
         }
         return str;
     }
     
     private final String idToString_get(int id) {
-/*        try {
-            return idToString[id];
-        } catch(java.lang.ArrayIndexOutOfBoundsException aioob) {
-            return null;
+        synchronized(this) {
+            return (String)idToString_.get(Integer.valueOf(id));
         }
-        */
-        return (String)idToString_.get(new Integer(id));
     }
+    private final String idStats() {
+        return " ID: "+idToString_.size();
+    }
+    */
+    
+    /**
+     *  SpecialTable implementation
+     */
+    IntHash<String>  xptHash = new IntHash<String>();
+    String idToString_put(int id, String str) {
+        return xptHash.put(id, str);
+    }
+    String idToString_get(int id) {
+        return xptHash.get(id);
+    }
+    String idStats() {
+        return xptHash.stats();
+    }
+    
+    /** END specialtable implementation */
     
     /**
      * Bottleneck for adding xpaths
@@ -196,7 +205,7 @@ public class XPathTable {
                     }
                                     
                     int id = rs.getInt(1);
-                    nid = new Integer(id);
+                    nid = Integer.valueOf(id);
                     stringToId.put(idToString_put(id,xpath),nid);
     //                logger.info("Mapped " + id + " back to " + xpath);
                     rs.close();
@@ -251,10 +260,12 @@ public class XPathTable {
                     }
                                     
                     String str = rs.getString(1);
-                    Integer nid = new Integer(id);
                     rs.close();
-                    return poolx(str); // adds to idtostring and stringtoid
-                    // TODO optimize
+                    String xpath = poolx(str);
+                    Integer nid = Integer.valueOf(id);
+                    nid = Integer.valueOf(id);
+                    stringToId.put(idToString_put(id,xpath),nid);
+                    return xpath;
             } catch(SQLException sqe) {
                 logger.severe("XPathTable: Failed ingetByID (ID: "+ id+"): " + SurveyMain.unchainSqlException(sqe) );
     //            sm.busted("XPathTable: Failed in addXPath: " + SurveyMain.unchainSqlException(sqe));
@@ -349,7 +360,7 @@ public class XPathTable {
         XPathParts xpp = new XPathParts(null,null);
         xpp.clear();
         xpp.initialize(xpath);
-        Map lastAtts = xpp.getAttributes(-1);
+        Map<String,String> lastAtts = xpp.getAttributes(-1);
         String oldAlt = (String)lastAtts.get(LDMLConstants.ALT);
         if(oldAlt == null) {
             /*

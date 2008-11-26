@@ -1324,6 +1324,10 @@ public class Vetting {
      * @see updateResults
      */
     int queryResult(String locale, int base_xpath, int type[]) {
+        return getCachedLocaleData(locale).getWinningXPath(base_xpath, type);
+    }
+    
+    int queryResultInternal(String locale, int base_xpath, int type[]) {
         // queryResult:    "select CLDR_RESULT.vote_xpath,CLDR_RESULT.type from "+CLDR_RESULT+" where (locale=?) AND (base_xpath=?)");
         synchronized(conn) {
             try {
@@ -1555,6 +1559,14 @@ public class Vetting {
      * @return bitwise OR of good, disputed, etc.
      */
     int status(String locale) {
+        synchronized(conn) {
+            return getCachedLocaleData(locale).getStatus();
+        }
+    }
+    public int getWinningXPath(int xpath, String locale) {
+        return getCachedLocaleData(locale).getWinningXPath(xpath, null);
+    }
+    private int handleStatus(String locale) {
         synchronized(conn) {
             // missing ones 
             int locs=0;
@@ -1986,8 +1998,74 @@ if(true == true)    throw new InternalError("removed from use.");
         }
         return ts;
     }
+    private static class WinType {
+        public int win;
+        public int type;
+    }
+
+    private class CachedVettingData extends Registerable {
+        Integer status = null;
+        public CachedVettingData(String locale) {
+            super(sm.lcr, locale);
+            register();
+        }
+        IntHash<WinType> winningXpathCache = null;
+
+        public int getWinningXPath(int xpath, int[] type) {
+            if(winningXpathCache==null) {
+                winningXpathCache=new IntHash<WinType>();
+            }
+            WinType winning = winningXpathCache.get(xpath);
+            if(winning==null) {
+                if(type==null) type = new int[1];
+                int winner = sm.vet.queryResultInternal(locale, xpath, type);
+                winning = new WinType();
+                winning.win=winner;;
+                winning.type = type[0];
+                winningXpathCache.put(xpath, winning);
+            }
+            return winning.win;
+        }
+
+        public int getStatus() {
+            if(status==null) {
+                status = handleStatus(locale);
+            }
+            return status;
+        }
+
+        private Map<String,Integer> disputeMap = new HashMap<String,Integer>();
+        public int getOrgDisputeCount(String org) {
+            Integer dc = disputeMap.get(org);
+            if(dc == null) {
+                dc = handleGetOrgDisputeCount(org, this.locale);
+                disputeMap.put(org, dc);
+                System.err.println("Fetched Dispute: "+locale+"/"+org+"="+dc.toString());
+            }
+            return dc;
+        }
+        
+    }
     
-    int getOrgDisputeCount(String org, String locale) {
+    Map<String,CachedVettingData> cachedData = new HashMap<String,CachedVettingData>();
+    private CachedVettingData getCachedLocaleData(String locale) {
+        synchronized(this) {
+            CachedVettingData vd = cachedData.get(locale);
+            if(vd == null || !vd.isValid()) {
+                System.err.println(((vd==null)?"":"Re-")+"loading vet cache for " + locale);
+                vd = new CachedVettingData(locale);
+                cachedData.put(locale, vd);
+            }
+            return vd;
+        }
+    }
+    
+    public int getOrgDisputeCount(String org, String locale) {
+        synchronized(conn) {
+            return getCachedLocaleData(locale).getOrgDisputeCount(org);
+        }
+    }
+    private int handleGetOrgDisputeCount(String org, String locale) {
         int count = 0;
         synchronized(conn) {
             try {
@@ -2010,6 +2088,7 @@ if(true == true)    throw new InternalError("removed from use.");
     }
 
     boolean queryOrgDispute(String org, String locale, int base_xpath) {
+        if(getOrgDisputeCount(org,locale)==0) return false; // quick exit: if no disputes.
         boolean result = false;
         synchronized(conn) {
             try {
@@ -2536,4 +2615,5 @@ if(true == true)    throw new InternalError("removed from use.");
             return str;
         }
     }
+
 }

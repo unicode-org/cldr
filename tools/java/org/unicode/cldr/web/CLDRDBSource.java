@@ -959,31 +959,39 @@ import com.ibm.icu.util.ULocale;
 ///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
 //if(showDebug) /*srl*/logger.info(locale + ":" + path);
   public int getWinningPathId(int xpath, String locale) {
-    try {
-        ResultSet rs;
-        if(finalData) {
-            return sm.xpt.xpathToBaseXpathId(xpath);
-            //throw new InternalError("Unsupported: getWinningPath("+xpath+","+locale+") on finalData");
-        } else {
-            stmts.queryVetXpath.setString(1,locale);
-            stmts.queryVetXpath.setInt(2,xpath); 
-            rs = stmts.queryVetXpath.executeQuery();
+      if(finalData) {
+          return sm.xpt.xpathToBaseXpathId(xpath);
+      }
+      
+    if(false) {
+        try {
+            ResultSet rs;
+            if(finalData) {
+                return sm.xpt.xpathToBaseXpathId(xpath);
+                //throw new InternalError("Unsupported: getWinningPath("+xpath+","+locale+") on finalData");
+            } else {
+                stmts.queryVetXpath.setString(1,locale);
+                stmts.queryVetXpath.setInt(2,xpath); 
+                rs = stmts.queryVetXpath.executeQuery();
+            }
+            if(!rs.next()) {
+                return -1;
+            }
+            int rp = rs.getInt(1);
+            rs.close();
+            if(rp != 0) {  // 0  means, fallback xpath
+                return rp;
+            } else {
+                return -1;
+            }
+            //if(showDebug)/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
+        } catch(SQLException se) {
+            se.printStackTrace();
+            logger.severe("CLDRDBSource: Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + SurveyMain.unchainSqlException(se));
+            throw new InternalError("Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+SurveyMain.unchainSqlException(se));
         }
-        if(!rs.next()) {
-            return -1;
-        }
-        int rp = rs.getInt(1);
-        rs.close();
-        if(rp != 0) {  // 0  means, fallback xpath
-            return rp;
-        } else {
-            return -1;
-        }
-        //if(showDebug)/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
-    } catch(SQLException se) {
-        se.printStackTrace();
-        logger.severe("CLDRDBSource: Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + SurveyMain.unchainSqlException(se));
-        throw new InternalError("Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+SurveyMain.unchainSqlException(se));
+    } else {
+        return sm.vet.getWinningXPath(xpath, locale);
     }
   }
 
@@ -1094,50 +1102,65 @@ import com.ibm.icu.util.ULocale;
      * @return the full path
      */
     public String getFullPathAtDPath(String path) {
-        return getOrigXpath(xpt.getByXpath(path));
+        String ret =  getOrigXpathFromCache(xpt.getByXpath(path));
+//        if(ret == null ) {
+//            // Debug / validation
+//            String try2 = getOrigXpathString(xpt.getByXpath(path),finalData);
+//            if(try2 != null) {
+//                System.err.println("Cache failed: was null at " +xpt.getByXpath(path)+":"+ path);
+//                ret = try2;
+//            }
+//        }
+        return ret;
     }
     
+    public void setLocaleID(String localeID) {
+        super.setLocaleID(localeID);
+        reset();
+    }
+    
+    /**
+     * Reset per-locale cache, re-register.
+     */
+    private void reset() {
+        origXpaths.clear();
+        token = new Registerable(sm.lcr, getLocaleID());
+        token.register();
+    }
+    
+    Registerable token = null;
+
     /**
      * get the 'original' xpath from a path-id#
      * @param pathid ID# of a path
      * @return the original xpath string
      * @see XPathTable
      */
-    public String getOrigXpath(int pathid) {
-        return getOrigXpath(pathid, finalData);
+    public String getOrigXpathFromCache(int pathid) {
+        if(!USE_XPATH_CACHE) {
+            return getOrigXpath(pathid, finalData);
+        } else {
+            if(token==null||!token.isValid()) {
+                reset();
+            }
+            Integer orig = origXpaths.get(pathid);
+            if(orig == null) {
+                orig = getOrigXpathId(pathid, finalData);
+                origXpaths.put(pathid, orig);
+                System.err.println("Rescan: locale,"+pathid+","+orig);
+            }
+            if(orig==null || orig==-1) {
+                return null;
+            } else {
+                return sm.xpt.getById(orig);
+            }
+        }
     }
-    
+//    
     public static final boolean USE_XPATH_CACHE=false;
-    public static final int CHUNKSIZE=USE_XPATH_CACHE?75000:0;
-    static int xpMax = CHUNKSIZE;
-    
-    private String origXpaths[] = new String[xpMax];
 
     
-    private final void resizeXpathCache(int size) {
-        xpMax = ((size/CHUNKSIZE)+1)*CHUNKSIZE;
-        
-        origXpaths = new String[xpMax];
-      //  System.err.println("gOXPFC: resize to " + origXpaths.length);
-    }
-    
-    private final String getOrigXPathFromCache(int path) {
-        try {
-            return origXpaths[path];
-        } catch(ArrayIndexOutOfBoundsException aioob) {
-            resizeXpathCache(path);
-            return null;
-        }
-    }
-
-    private void putOrigXpathInCache(int pathid, String result) {
-        try {
-            origXpaths[pathid]= result;
-        } catch (ArrayIndexOutOfBoundsException aioob) {
-            resizeXpathCache(pathid);
-            origXpaths[pathid] = result;
-        }
-    }
+    IntHash<Integer> origXpaths = new IntHash<Integer>();
 
     /**
      * get the 'original' xpath from a path-id#
@@ -1146,23 +1169,7 @@ import com.ibm.icu.util.ULocale;
      * @see XPathTable
      */
     public String getOrigXpath(int pathid, boolean useFinalData) {
-        if(!USE_XPATH_CACHE) {
-            return getOrigXpathString(pathid, useFinalData);
-        } else if(useFinalData!=finalData) {
-            return getOrigXpathString(pathid, useFinalData);
-        } else {
-//            System.err.println(">> N:" + pathid );
-            String result = getOrigXPathFromCache(pathid); // will grow the array if too small.
-            if(result == null) {
-                result = getOrigXpathString(pathid, useFinalData);
-                if(result!=null) {
-                    putOrigXpathInCache(pathid, result);
-                }
-            } else {
-            }
-//            System.err.println("<< N: " + result);
-            return result;
-        }
+        return getOrigXpathString(pathid, useFinalData);
     }
     
 
@@ -1331,7 +1338,7 @@ import com.ibm.icu.util.ULocale;
 //                       System.err.println("Path: " +xpath);
 					if(xpathThatNeedsOrig(xpath)) {
 //                            System.err.println("@@ munging xpath:"+xpath+" ("+xpathid+")");
-						xpath = getOrigXpath(xpathid);
+						xpath = getOrigXpathFromCache(xpathid);
 //                            System.err.println("-> "+xpath);
 					}
 			

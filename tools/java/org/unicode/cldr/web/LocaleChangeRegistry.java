@@ -87,6 +87,7 @@ public class LocaleChangeRegistry {
      */
     public void invalidateLocale(/* other params: tree, etc.. */ String locale)
     {
+System.err.println("#*#LCR invalidate " + locale);
         synchronized(this) {
             internalGetHash(locale).clear();
         }

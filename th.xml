@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -1264,6 +1264,15 @@
 						<dateFormatItem id="yyMM">M/yyyy</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yyMMM" alt="proposed-x1001" draft="unconfirmed">MMM yy</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yMEd">EEEท d/M/yyyy</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEEท d MMM yyyy</dateFormatItem>
+						<dateFormatItem id="MEd">Eท d/M</dateFormatItem>
+						<dateFormatItem id="MMMEd">Eท d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEEEd">EEEท d MMM</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="EEEd">EEEท d</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

@@ -1203,9 +1203,11 @@
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">y/M</dateFormatItem>
 						<dateFormatItem id="yM" alt="proposed-x1001" draft="unconfirmed">yyyy/M</dateFormatItem>
+						<dateFormatItem id="yMd">y/M/d</dateFormatItem>
 						<dateFormatItem id="yMEd">y/M/d(EEE)</dateFormatItem>
 						<dateFormatItem id="yMEd" alt="proposed-x1001" draft="unconfirmed">yyyy/M/d（EEE）</dateFormatItem>
 						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
+						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y年M月d日(EEE)</dateFormatItem>
 						<dateFormatItem id="yMMMEd" alt="proposed-x1001" draft="unconfirmed">yyyyMMMd（E）</dateFormatItem>
 						<dateFormatItem id="yMMMEd" alt="proposed-x1002" draft="unconfirmed">y年M月d日EEE</dateFormatItem>
@@ -1666,12 +1668,16 @@
 					<availableFormats>
 						<dateFormatItem id="Ed">d日(EEE)</dateFormatItem>
 						<dateFormatItem id="Ed" alt="proposed-x1001" draft="unconfirmed">d（E）</dateFormatItem>
+						<dateFormatItem id="Md">M/d</dateFormatItem>
+						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(EEE)</dateFormatItem>
 						<dateFormatItem id="MMMEd" alt="proposed-x1001" draft="unconfirmed">MMMd（E）</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 						<dateFormatItem id="y" alt="proposed-x1001" draft="unconfirmed">GGGy</dateFormatItem>
 						<dateFormatItem id="yyMM">Gyy/MM</dateFormatItem>
 						<dateFormatItem id="yyMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="yMd">Gy/M/d</dateFormatItem>
+						<dateFormatItem id="yMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyQ">Gyy/Q</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
 					</availableFormats>

@@ -7,23 +7,25 @@
 		<language type="et"/>
 	</identity>
     <rbnf>
-        <ruleset type="spellout">
-            <rbnfrule value="-x">miinus →→;</rbnfrule>
-            <rbnfrule value="x.x">←← koma →→;</rbnfrule>
-            <rbnfrule value="0">null; üks; kaks; kolm; neli; viis; kuus; seitse; kaheksa; üheksa;</rbnfrule>
-            <rbnfrule value="10">kümme; →→­teist;</rbnfrule>
-            <rbnfrule value="20">←←­kümmend[ →→];</rbnfrule>
-            <rbnfrule value="100">←←­sada[ →→];</rbnfrule>
-            <rbnfrule value="1000">←← tuhat[ →→];</rbnfrule>
-            <rbnfrule value="1000000">←← miljon[ →→];</rbnfrule>
-            <rbnfrule value="2000000">←← miljonit[ →→];</rbnfrule>
-            <rbnfrule value="1000000000">←← miljard[ →→];</rbnfrule>
-            <rbnfrule value="2000000000">←← miljardit[ →→];</rbnfrule>
-            <rbnfrule value="1000000000000">←← biljon[ →→];</rbnfrule>
-            <rbnfrule value="2000000000000">←← biljonit[ →→];</rbnfrule>
-            <rbnfrule value="1000000000000000">←← biljard[ →→];</rbnfrule>
-            <rbnfrule value="2000000000000000">←← biljardit[ →→];</rbnfrule>
-            <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
-        </ruleset>
+       <rulesetGrouping type="SpelloutRules">
+            <ruleset type="spellout">
+                <rbnfrule value="-x">miinus →→;</rbnfrule>
+                <rbnfrule value="x.x">←← koma →→;</rbnfrule>
+                <rbnfrule value="0">null; üks; kaks; kolm; neli; viis; kuus; seitse; kaheksa; üheksa;</rbnfrule>
+                <rbnfrule value="10">kümme; →→­teist;</rbnfrule>
+                <rbnfrule value="20">←←­kümmend[ →→];</rbnfrule>
+                <rbnfrule value="100">←←­sada[ →→];</rbnfrule>
+                <rbnfrule value="1000">←← tuhat[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←← miljon[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←← miljonit[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←← miljard[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←← miljardit[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←← biljon[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←← biljonit[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←← biljard[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←← biljardit[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
     </rbnf>
 </ldml>

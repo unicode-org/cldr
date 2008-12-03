@@ -7,54 +7,55 @@
 		<language type="en"/>
 	</identity>
     <rbnf>
-        <ruleset type="spellout_year">
-            <rbnfrule value="-x">minus →→;</rbnfrule>
-            <rbnfrule value="0">zero; one; two; three; four; five; six; seven; eigth; nine;</rbnfrule>
-            <rbnfrule value="10">ten; eleven; twelve; thirteen; fourteen; fifteen; sixteen; seventeen; eighteen; nineteen;</rbnfrule>
-            <rbnfrule value="20">twenty[-→→];</rbnfrule>
-            <rbnfrule value="30">thirty[-→→];</rbnfrule>
-            <rbnfrule value="40">forty[-→→];</rbnfrule>
-            <rbnfrule value="50">fifty[-→→];</rbnfrule>
-            <rbnfrule value="60">sixty[-→→];</rbnfrule>
-            <rbnfrule value="70">seventy[-→→];</rbnfrule>
-            <rbnfrule value="80">eighty[-→→];</rbnfrule>
-            <rbnfrule value="90">ninety[-→→];</rbnfrule>
-            <rbnfrule value="100">←← hundred[ and →→];</rbnfrule>
-            <rbnfrule value="1000">thousand[ and →→];</rbnfrule>
-            <rbnfrule value="1100/100">←← hundred[ and →→];</rbnfrule>
-            <rbnfrule value="10000">=%spellout=;</rbnfrule>
-        </ruleset>
-        <ruleset type="spellout">
-            <rbnfrule value="0">=%simplified=;</rbnfrule>
-        </ruleset>
-        <ruleset type="simplified">
-            <rbnfrule value="-x">minus →→;</rbnfrule>
-            <rbnfrule value="x.x">←← point →→;</rbnfrule>
-            <rbnfrule value="0">zero; one; two; three; four; five; six; seven; eight; nine;</rbnfrule>
-            <rbnfrule value="10">ten; eleven; twelve; thirteen; fourteen; fifteen; sixteen; seventeen; eighteen; nineteen;</rbnfrule>
-            <rbnfrule value="20">twenty[-→→];</rbnfrule>
-            <rbnfrule value="30">thirty[-→→];</rbnfrule>
-            <rbnfrule value="40">forty[-→→];</rbnfrule>
-            <rbnfrule value="50">fifty[-→→];</rbnfrule>
-            <rbnfrule value="60">sixty[-→→];</rbnfrule>
-            <rbnfrule value="70">seventy[-→→];</rbnfrule>
-            <rbnfrule value="80">eighty[-→→];</rbnfrule>
-            <rbnfrule value="90">ninety[-→→];</rbnfrule>
-            <rbnfrule value="100">←← hundred[ →→];</rbnfrule>
-            <rbnfrule value="1000">←← thousand[ →→];</rbnfrule>
-            <rbnfrule value="1000000">←← million[ →→];</rbnfrule>
-            <rbnfrule value="1000000000">←← billion[ →→];</rbnfrule>
-            <rbnfrule value="1000000000000">←← trillion[ →→];</rbnfrule>
-            <rbnfrule value="1000000000000000">←← quadrillion[ →→];</rbnfrule>
-            <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-        </ruleset>
-        <ruleset type="ordinal">
-            <rbnfrule value="0">=#,##0==%%ordabbrev=;</rbnfrule>
-        </ruleset>
-        <ruleset type="ordabbrev" access="private">
-            <rbnfrule value="0">th; st; nd; rd; th;</rbnfrule>
-            <rbnfrule value="20">→→;</rbnfrule>
-            <rbnfrule value="100">→→;</rbnfrule>
-        </ruleset>
+        <rulesetGrouping type="SpelloutRules">
+            <ruleset type="year">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="0">zero; one; two; three; four; five; six; seven; eigth; nine;</rbnfrule>
+                <rbnfrule value="10">ten; eleven; twelve; thirteen; fourteen; fifteen; sixteen; seventeen; eighteen; nineteen;</rbnfrule>
+                <rbnfrule value="20">twenty[-→→];</rbnfrule>
+                <rbnfrule value="30">thirty[-→→];</rbnfrule>
+                <rbnfrule value="40">forty[-→→];</rbnfrule>
+                <rbnfrule value="50">fifty[-→→];</rbnfrule>
+                <rbnfrule value="60">sixty[-→→];</rbnfrule>
+                <rbnfrule value="70">seventy[-→→];</rbnfrule>
+                <rbnfrule value="80">eighty[-→→];</rbnfrule>
+                <rbnfrule value="90">ninety[-→→];</rbnfrule>
+                <rbnfrule value="100">←← hundred[ and →→];</rbnfrule>
+                <rbnfrule value="1000">thousand[ and →→];</rbnfrule>
+                <rbnfrule value="1100/100">←← hundred[ and →→];</rbnfrule>
+                <rbnfrule value="10000">=%spellout=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">←← point →→;</rbnfrule>
+                <rbnfrule value="0">zero; one; two; three; four; five; six; seven; eight; nine;</rbnfrule>
+                <rbnfrule value="10">ten; eleven; twelve; thirteen; fourteen; fifteen; sixteen; seventeen; eighteen; nineteen;</rbnfrule>
+                <rbnfrule value="20">twenty[-→→];</rbnfrule>
+                <rbnfrule value="30">thirty[-→→];</rbnfrule>
+                <rbnfrule value="40">forty[-→→];</rbnfrule>
+                <rbnfrule value="50">fifty[-→→];</rbnfrule>
+                <rbnfrule value="60">sixty[-→→];</rbnfrule>
+                <rbnfrule value="70">seventy[-→→];</rbnfrule>
+                <rbnfrule value="80">eighty[-→→];</rbnfrule>
+                <rbnfrule value="90">ninety[-→→];</rbnfrule>
+                <rbnfrule value="100">←← hundred[ →→];</rbnfrule>
+                <rbnfrule value="1000">←← thousand[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←← million[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←← billion[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←← trillion[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←← quadrillion[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
+        <rulesetGrouping type="OrdinalRules">
+            <ruleset type="ordabbrev" access="private">
+                <rbnfrule value="0">th; st; nd; rd; th;</rbnfrule>
+                <rbnfrule value="20">→→;</rbnfrule>
+                <rbnfrule value="100">→→;</rbnfrule>
+            </ruleset>
+            <ruleset type="ordinal">
+                <rbnfrule value="0">=#,##0==%%ordabbrev=;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
     </rbnf>
 </ldml>

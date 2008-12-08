@@ -347,6 +347,19 @@ public class LDMLConstants {
     public static final String UNIT             = "unit";
     public static final String UNIT_PATTERN     = "unitPattern";
     
+    // Rule Based Number Formatting (RBNF)
+    public static final String RBNF             = "rbnf";
+    public static final String RULESET          = "ruleset";
+    public static final String RULESETGROUPING  = "rulesetGrouping";
+    public static final String SPELLOUTRULES    = "SpelloutRules";
+    public static final String ACCESS           = "access";
+    public static final String RBNFRULE         = "rbnfrule";
+    public static final String VALUE            = "value";
+    public static final String RBNFRULES        = "RBNFRules";
+    public static final String RADIX            = "radix";
+    public static final String DECEXP           = "decexp";
+
+
     //PN added - Open and Close tags
     public static final String VERSION_C       = "</" + VERSION + ">";
     public static final String GENERATION_C    = "</" + GENERATION + ">";

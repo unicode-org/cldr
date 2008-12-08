@@ -2518,6 +2518,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 LDMLConstants.POSIX,
                 // LDMLConstants.SEGMENTATIONS,
                 LDMLConstants.REFERENCES,
+                LDMLConstants.RBNF,
                 LDMLConstants.COLLATIONS, LDMLConstants.UNITS};
 
         for (int jj = 0; jj < stuff.length; jj++) {
@@ -2551,6 +2552,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                }
             } else if (name.equals(LDMLConstants.POSIX)) {
                 res = parsePosix(loc, xpath);
+            } else if (name.equals(LDMLConstants.RBNF)) {
+                res = parseRBNF(loc, xpath);
             } else if (name.equals(LDMLConstants.SEGMENTATIONS)) {
                 // TODO: FIX ME with parseSegmentations();
                 if (DEBUG)
@@ -7001,6 +7004,100 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     }
 
+    private ICUResourceWriter.Resource parseRBNF(InputLocale loc, String xpath) {
+
+        char LARROW = 0x2190;
+        char RARROW = 0x2192;
+
+        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
+        table.name = "RBNFRules";
+
+        ICUResourceWriter.Resource current = null;
+        ICUResourceWriter.Resource res = null;
+        ICUResourceWriter.ResourceArray ruleset = new ICUResourceWriter.ResourceArray();
+
+
+        if (loc.isPathNotConvertible(xpath)) {
+            return null;
+        }
+
+        String currentRulesetGrouping = "";
+        String currentRulesetType = "";
+
+        for (Iterator<String> iter = loc.file.iterator(xpath,CLDRFile.ldmlComparator); iter.hasNext();) {
+            String aPath = iter.next();
+            String fullPath = loc.file.getFullXPath(aPath);
+            String name = loc.getXpathName(aPath);
+            if (name.equals(LDMLConstants.RBNFRULE)) {
+                XPathParts xpp = new XPathParts();
+                xpp.set(fullPath);
+
+                String rulesetGrouping = xpp.findAttributeValue(LDMLConstants.RULESETGROUPING, LDMLConstants.TYPE);
+                String rulesetType= xpp.findAttributeValue(LDMLConstants.RULESET, LDMLConstants.TYPE);
+                String rulesetAccess= xpp.findAttributeValue(LDMLConstants.RULESET, LDMLConstants.ACCESS);
+                String ruleValue = xpp.findAttributeValue(LDMLConstants.RBNFRULE, LDMLConstants.VALUE);
+                String ruleRadix = xpp.findAttributeValue(LDMLConstants.RBNFRULE, LDMLConstants.RADIX);
+                String ruleDecExp = xpp.findAttributeValue(LDMLConstants.RBNFRULE, LDMLConstants.DECEXP);
+
+                if ( rulesetGrouping != null && !rulesetGrouping.equals(currentRulesetGrouping)) {
+                    if ( !currentRulesetGrouping.equals("")) {
+                       res = ruleset;
+                       table.appendContents(res);
+                       res = null;
+                    } 
+
+                    ruleset = new ICUResourceWriter.ResourceArray();
+                    ruleset.name = rulesetGrouping;
+                    currentRulesetGrouping = rulesetGrouping;
+                    currentRulesetType = "";
+                }
+
+                if ( !rulesetType.equals(currentRulesetType)) {
+                   ICUResourceWriter.ResourceString rsname = new ICUResourceWriter.ResourceString();
+                   String rsNamePrefix = "%";
+                   if ( rulesetAccess != null && rulesetAccess.equals("private") )
+                      rsNamePrefix = "%%";
+                   rsname.val = rsNamePrefix+rulesetType+":\\n";
+                   ruleset.appendContents(rsname);
+                   currentRulesetType = rulesetType;
+                }
+
+                String radixString = "";
+                if ( ruleRadix != null ) {
+                    radixString = "/" + ruleRadix;
+                }
+
+                String decExpString = "";
+                
+                if ( ruleDecExp != null ) {
+                    int decExp = Integer.valueOf(ruleDecExp).intValue();
+                    while ( decExp > 0 ) {
+                        decExpString = decExpString.concat(">");
+                        decExp--;
+                    }
+                }
+
+                ICUResourceWriter.ResourceString rs = new ICUResourceWriter.ResourceString();
+                rs.val = ruleValue+radixString+decExpString+": "+Utility.escape(loc.file.getStringValue(aPath).replace(LARROW,'<').replace(RARROW,'>'))+"\\n";
+                ruleset.appendContents(rs);
+            } else {
+                System.err.println("Unknown element found: " + xpath + " / "
+                        + name);
+                System.exit(-1);
+            }
+        }
+
+        if (ruleset.first!=null) {
+           table.appendContents(ruleset);
+        }
+
+        if (table.first != null) {
+            return table;
+        }
+
+        return null;
+    }
+
     /*
      * coment this method out since the specials document is now merged with
      * fully resolved document and is not parsed separately
@@ -7701,6 +7798,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         } else if (myTreeName.equals("brkitr")) {
             stub = "BRK_RES"; // BRK_SOURCE, BRK_CTD_SOURCE BRK_RES_SOURCE
             shortstub = "brk"; // brkfiles.mk
+        } else if (myTreeName.equals("rbnf")) {
+            stub = "RBNF"; // RBNF_SOURCE, RBNF_ALIAS_SOURCE
+            shortstub = "rbnf"; // brkfiles.mk
         } else {
             printError("", "Unknown tree name in writeResourceMakefile: "
                     + myTreeName);

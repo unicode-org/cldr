@@ -16,11 +16,11 @@
                 <rbnfrule value="30">trente[-→%%et-un→];</rbnfrule>
                 <rbnfrule value="40">quarante[-→%%et-un→];</rbnfrule>
                 <rbnfrule value="50">cinquante[-→%%et-un→];</rbnfrule>
-                <rbnfrule value="60/20">soixante[-→%%et-un→];</rbnfrule>
+                <rbnfrule value="60" radix="20">soixante[-→%%et-un→];</rbnfrule>
                 <rbnfrule value="71">soixante-et-onze;</rbnfrule>
-                <rbnfrule value="72/20">soixante-→→;</rbnfrule>
+                <rbnfrule value="72" radix="20">soixante-→→;</rbnfrule>
                 <rbnfrule value="80">quatre-vingts;</rbnfrule>
-                <rbnfrule value="81/20">quatre-vingt-→→;</rbnfrule>
+                <rbnfrule value="81" radix="20">quatre-vingt-→→;</rbnfrule>
                 <rbnfrule value="100">cent[-→→];</rbnfrule>
                 <rbnfrule value="200">←←-cent[-→→];</rbnfrule>
                 <rbnfrule value="10000">=%spellout=;</rbnfrule>
@@ -34,11 +34,11 @@
                 <rbnfrule value="30">trente[-→%%et-un→];</rbnfrule>
                 <rbnfrule value="40">quarante[-→%%et-un→];</rbnfrule>
                 <rbnfrule value="50">cinquante[-→%%et-un→];</rbnfrule>
-                <rbnfrule value="60/20">soixante[-→%%et-un→];</rbnfrule>
+                <rbnfrule value="60" radix="20">soixante[-→%%et-un→];</rbnfrule>
                 <rbnfrule value="71">soixante-et-onze;</rbnfrule>
-                <rbnfrule value="72/20">soixante-→→;</rbnfrule>
+                <rbnfrule value="72" radix="20">soixante-→→;</rbnfrule>
                 <rbnfrule value="80">quatre-vingts;</rbnfrule>
-                <rbnfrule value="81/20">quatre-vingt-→→;</rbnfrule>
+                <rbnfrule value="81" radix="20">quatre-vingt-→→;</rbnfrule>
                 <rbnfrule value="100">cent[-→→];</rbnfrule>
                 <rbnfrule value="200">←←-cents; ←←-cent-→→;</rbnfrule>
                 <rbnfrule value="300">←←-cents; ←←-cent-→→;</rbnfrule>
@@ -49,15 +49,15 @@
                 <rbnfrule value="800">←←-cents; ←←-cent-→→;</rbnfrule>
                 <rbnfrule value="900">←←-cents; ←←-cent-→→;</rbnfrule>
                 <rbnfrule value="1000">mille[-→→];</rbnfrule>
-                <rbnfrule value="2000">←%masculine←-mille[-→→];</rbnfrule>
+                <rbnfrule value="2000">←←-mille[-→→];</rbnfrule>
                 <rbnfrule value="1000000">un-million[-→→];</rbnfrule>
-                <rbnfrule value="2000000">←%masculine←-millions[-→→];</rbnfrule>
+                <rbnfrule value="2000000">←←-millions[-→→];</rbnfrule>
                 <rbnfrule value="1000000000">un-milliard[-→→];</rbnfrule>
-                <rbnfrule value="2000000000">←%masculine←-milliards[-→→];</rbnfrule>
+                <rbnfrule value="2000000000">←←-milliards[-→→];</rbnfrule>
                 <rbnfrule value="1000000000000">un-billion[-→→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%masculine←-billions[-→→];</rbnfrule>
+                <rbnfrule value="2000000000000">←←-billions[-→→];</rbnfrule>
                 <rbnfrule value="1000000000000000">un-billiard[-→→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%masculine←-billiards[-→→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←←-billiards[-→→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
             </ruleset>
             <ruleset type="et-un" access="private">

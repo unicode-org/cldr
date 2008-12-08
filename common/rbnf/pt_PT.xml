@@ -22,7 +22,7 @@
                 <rbnfrule value="70">setenta[ e →→];</rbnfrule>
                 <rbnfrule value="80">oitenta[ e →→];</rbnfrule>
                 <rbnfrule value="90">noventa[ e →→];</rbnfrule>
-                <rbnfrule value="100">cem; 101</rbnfrule>
+                <rbnfrule value="100">cem; cento[ e →→];</rbnfrule>
                 <rbnfrule value="200">duz­centos[ e →→];</rbnfrule>
                 <rbnfrule value="300">tre­zentos[ e →→];</rbnfrule>
                 <rbnfrule value="400">quatro­centos[ e →→];</rbnfrule>
@@ -32,11 +32,11 @@
                 <rbnfrule value="800">oito­centos[ e →→];</rbnfrule>
                 <rbnfrule value="900">nove­centos[ e →→];</rbnfrule>
                 <rbnfrule value="1000">mil[ →%%with-e→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout← mil[ →%%with-e→];</rbnfrule>
+                <rbnfrule value="2000">←← mil[ →%%with-e→];</rbnfrule>
                 <rbnfrule value="1000000">um milhão[ →%%with-e→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout← milhões[ →%%with-e→];</rbnfrule>
+                <rbnfrule value="2000000">←← milhões[ →%%with-e→];</rbnfrule>
                 <rbnfrule value="1000000000000">um bilhão[ →%%with-e→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout← bilhões[ →%%with-e→];</rbnfrule>
+                <rbnfrule value="2000000000000">←← bilhões[ →%%with-e→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
             </ruleset>
             <ruleset type="with-e" access="private">
@@ -50,7 +50,7 @@
                 <rbnfrule value="70">e setenta; setenta[ e →%spellout→];</rbnfrule>
                 <rbnfrule value="80">e oitenta; oitenta[ e →%spellout→];</rbnfrule>
                 <rbnfrule value="90">e noventa; noventa[ e →%spellout→];</rbnfrule>
-                <rbnfrule value="100">e cem; 101</rbnfrule>
+                <rbnfrule value="100">e cem; cento [ e →%spellout→];</rbnfrule>
                 <rbnfrule value="200">e duzentos; duzcentos[ e →%spellout→];</rbnfrule>
                 <rbnfrule value="300">e trezentos; trezentos[ e →%spellout→];</rbnfrule>
                 <rbnfrule value="400">e quatrocentos; quatrocentos[ e →%spellout→];</rbnfrule>

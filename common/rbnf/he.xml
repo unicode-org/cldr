@@ -20,7 +20,7 @@
                 <rbnfrule value="8">שמונת;</rbnfrule>
                 <rbnfrule value="9">תשעת;</rbnfrule>
                 <rbnfrule value="10">עשרת;</rbnfrule>
-                <rbnfrule value="11">=%masculine=;</rbnfrule>
+                <rbnfrule value="11">=%%masculine=;</rbnfrule>
             </ruleset>
             <ruleset type="txunits" access="private">
                 <rbnfrule value="0">ואפס;</rbnfrule>
@@ -38,7 +38,7 @@
             </ruleset>
             <ruleset type="masculine" access="private">
                 <rbnfrule value="-x">מינוס →→;</rbnfrule>
-                <rbnfrule value="x.x">←%masculine← נקודה →%%fraction→;</rbnfrule>
+                <rbnfrule value="x.x">←%%masculine← נקודה →%%fraction→;</rbnfrule>
                 <rbnfrule value="0">אפס;</rbnfrule>
                 <rbnfrule value="1">אחד;</rbnfrule>
                 <rbnfrule value="2">שניים;</rbnfrule>
@@ -69,11 +69,11 @@
                 <rbnfrule value="90">תשעים[ ו→→];</rbnfrule>
                 <rbnfrule value="100">מאה[ →%%mxunits→];</rbnfrule>
                 <rbnfrule value="200">מאתיים[ →%%mxunits→];</rbnfrule>
-                <rbnfrule value="300">←%feminine← מאות[ →%%mxunits→];</rbnfrule>
+                <rbnfrule value="300">←%%feminine← מאות[ →%%mxunits→];</rbnfrule>
                 <rbnfrule value="1000">אלף[ →%%mxunits→];</rbnfrule>
                 <rbnfrule value="2000">אלפיים[ →%%mxunits→];</rbnfrule>
                 <rbnfrule value="3000">←%%tunits← אלפים[ →%%mxunits→];</rbnfrule>
-                <rbnfrule value="11000/1000">←← אלף[ →%%mxunits→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←← אלף[ →%%mxunits→];</rbnfrule>
                 <rbnfrule value="1000000">מיליון[ →%%mxunits→];</rbnfrule>
                 <rbnfrule value="2000000">שני מיליון[ →%%mxunits→];</rbnfrule>
                 <rbnfrule value="3000000">←← מיליון[ →%%mxunits→];</rbnfrule>
@@ -86,15 +86,15 @@
                 <rbnfrule value="1000000000000000">=#,###.##=;</rbnfrule>
             </ruleset>
             <ruleset type="fraction" access="private">
-                <rbnfrule value="10">←%feminine←←;</rbnfrule>
-                <rbnfrule value="100">←%feminine←←;</rbnfrule>
-                <rbnfrule value="1000">←%feminine←←;</rbnfrule>
-                <rbnfrule value="10000">←%feminine←←;</rbnfrule>
-                <rbnfrule value="100000">←%feminine←←;</rbnfrule>
-                <rbnfrule value="1000000">←%feminine←←;</rbnfrule>
-                <rbnfrule value="10000000">←%feminine←←;</rbnfrule>
-                <rbnfrule value="100000000">←%feminine←←;</rbnfrule>
-                <rbnfrule value="1000000000">←%feminine←←;</rbnfrule>
+                <rbnfrule value="10">←%%feminine←←;</rbnfrule>
+                <rbnfrule value="100">←%%feminine←←;</rbnfrule>
+                <rbnfrule value="1000">←%%feminine←←;</rbnfrule>
+                <rbnfrule value="10000">←%%feminine←←;</rbnfrule>
+                <rbnfrule value="100000">←%%feminine←←;</rbnfrule>
+                <rbnfrule value="1000000">←%%feminine←←;</rbnfrule>
+                <rbnfrule value="10000000">←%%feminine←←;</rbnfrule>
+                <rbnfrule value="100000000">←%%feminine←←;</rbnfrule>
+                <rbnfrule value="1000000000">←%%feminine←←;</rbnfrule>
                 <rbnfrule value="10000000000">←#,##0←;</rbnfrule>
             </ruleset>
             <ruleset type="mxunits" access="private">
@@ -155,7 +155,7 @@
                 <rbnfrule value="1000">ואלף[ →→];</rbnfrule>
                 <rbnfrule value="2000">ואלפיים[ →→];</rbnfrule>
                 <rbnfrule value="3000">←%%txunits← אלפים[ →→];</rbnfrule>
-                <rbnfrule value="11000/1000">←← אלף[ →→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←← אלף[ →→];</rbnfrule>
                 <rbnfrule value="1000000">ומיליון[ →→];</rbnfrule>
                 <rbnfrule value="2000000">ושני מיליון[ →→];</rbnfrule>
                 <rbnfrule value="3000000">←← מיליון[ →→];</rbnfrule>
@@ -169,7 +169,7 @@
             </ruleset>
             <ruleset type="feminine" access="private">
                 <rbnfrule value="-x">מינוס →→;</rbnfrule>
-                <rbnfrule value="x.x">←%feminine← נקודה →%%fraction→;</rbnfrule>
+                <rbnfrule value="x.x">←← נקודה →%%fraction→;</rbnfrule>
                 <rbnfrule value="0">אפס;</rbnfrule>
                 <rbnfrule value="1">אחת;</rbnfrule>
                 <rbnfrule value="2">שתיים;</rbnfrule>
@@ -204,16 +204,16 @@
                 <rbnfrule value="1000">אלף[ →%%fxunits→];</rbnfrule>
                 <rbnfrule value="2000">אלפיים[ →%%fxunits→];</rbnfrule>
                 <rbnfrule value="3000">←%%tunits← אלפים[ →%%fxunits→];</rbnfrule>
-                <rbnfrule value="11000/1000">←%masculine← אלף[ →%%fxunits→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←%%masculine← אלף[ →%%fxunits→];</rbnfrule>
                 <rbnfrule value="1000000">מיליון[ →%%fxunits→];</rbnfrule>
                 <rbnfrule value="2000000">שני מיליון[ →%%fxunits→];</rbnfrule>
-                <rbnfrule value="3000000">←%masculine← מיליון[ →%%fxunits→];</rbnfrule>
+                <rbnfrule value="3000000">←%%masculine← מיליון[ →%%fxunits→];</rbnfrule>
                 <rbnfrule value="1000000000">מילירד[ →%%fxunits→];</rbnfrule>
                 <rbnfrule value="2000000000">שני מילירד[ →%%fxunits→];</rbnfrule>
-                <rbnfrule value="3000000000">←%masculine← מילירד[ →%%fxunits→];</rbnfrule>
+                <rbnfrule value="3000000000">←%%masculine← מילירד[ →%%fxunits→];</rbnfrule>
                 <rbnfrule value="1000000000000">טריליון[ →%%fxunits→];</rbnfrule>
                 <rbnfrule value="2000000000000">שני טריליון[ →%%fxunits→];</rbnfrule>
-                <rbnfrule value="3000000000000">←%masculine← טריליון[ →%%fxunits→];</rbnfrule>
+                <rbnfrule value="3000000000000">←%%masculine← טריליון[ →%%fxunits→];</rbnfrule>
                 <rbnfrule value="1000000000000000">=#,###.##=;</rbnfrule>
             </ruleset>
             <ruleset type="fxunits" access="private">
@@ -274,7 +274,7 @@
                 <rbnfrule value="1000">ואלף[ →→];</rbnfrule>
                 <rbnfrule value="2000">ואלפיים[ →→];</rbnfrule>
                 <rbnfrule value="3000">←%%txunits← אלפים[ →→];</rbnfrule>
-                <rbnfrule value="11000/1000">←%%mxunits← אלף[ →→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←%%mxunits← אלף[ →→];</rbnfrule>
                 <rbnfrule value="1000000">ומיליון[ →→];</rbnfrule>
                 <rbnfrule value="2000000">ושני מיליון[ →→];</rbnfrule>
                 <rbnfrule value="3000000">←%%mxunits← מיליון[ →→];</rbnfrule>
@@ -287,7 +287,7 @@
                 <rbnfrule value="1000000000000000">=#,###.##=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout">
-                <rbnfrule value="0">=%feminine=;</rbnfrule>
+                <rbnfrule value="0">=%%feminine=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
@@ -304,11 +304,11 @@
                 <rbnfrule value="8">שמיני;</rbnfrule>
                 <rbnfrule value="9">תשיעי;</rbnfrule>
                 <rbnfrule value="10">עשירי;</rbnfrule>
-                <rbnfrule value="11">=%ordinal_masculine=;</rbnfrule>
+                <rbnfrule value="11">=%%ordinal_masculine=;</rbnfrule>
                 <rbnfrule value="1001">=%%unwieldy=;</rbnfrule>
             </ruleset>
             <ruleset type="unwieldy" access="private">
-                <rbnfrule value="0">מספר =%ordinal_feminine=;</rbnfrule>
+                <rbnfrule value="0">מספר =%%ordinal_feminine=;</rbnfrule>
             </ruleset>
             <ruleset type="ordinal_tunits" access="private">
                 <rbnfrule value="0">אפס;</rbnfrule>
@@ -322,7 +322,7 @@
                 <rbnfrule value="8">שמונת;</rbnfrule>
                 <rbnfrule value="9">תשעת;</rbnfrule>
                 <rbnfrule value="10">עשרת;</rbnfrule>
-                <rbnfrule value="11">=%ordinal_masculine=;</rbnfrule>
+                <rbnfrule value="11">=%%ordinal_masculine=;</rbnfrule>
             </ruleset>
             <ruleset type="ordinal_txunits" access="private">
                 <rbnfrule value="0">ואפס;</rbnfrule>
@@ -340,7 +340,7 @@
             </ruleset>
             <ruleset type="ordinal_masculine" access="private">
                 <rbnfrule value="-x">מינוס →→;</rbnfrule>
-                <rbnfrule value="x.x">←%ordinal_masculine← נקודה →%%ordinal_fraction→;</rbnfrule>
+                <rbnfrule value="x.x">←← נקודה →%%ordinal_fraction→;</rbnfrule>
                 <rbnfrule value="0">אפס;</rbnfrule>
                 <rbnfrule value="1">אחד;</rbnfrule>
                 <rbnfrule value="2">שניים;</rbnfrule>
@@ -371,11 +371,11 @@
                 <rbnfrule value="90">תשעים[ ו→→];</rbnfrule>
                 <rbnfrule value="100">מאה[ →%%ordinal_mxunits→];</rbnfrule>
                 <rbnfrule value="200">מאתיים[ →%%ordinal_mxunits→];</rbnfrule>
-                <rbnfrule value="300">←%ordinal_feminine← מאות[ →%%ordinal_mxunits→];</rbnfrule>
+                <rbnfrule value="300">←%%ordinal_feminine← מאות[ →%%ordinal_mxunits→];</rbnfrule>
                 <rbnfrule value="1000">אלף[ →%%ordinal_mxunits→];</rbnfrule>
                 <rbnfrule value="2000">אלפיים[ →%%ordinal_mxunits→];</rbnfrule>
                 <rbnfrule value="3000">←%%ordinal_tunits← אלפים[ →%%ordinal_mxunits→];</rbnfrule>
-                <rbnfrule value="11000/1000">←← אלף[ →%%ordinal_mxunits→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←← אלף[ →%%ordinal_mxunits→];</rbnfrule>
                 <rbnfrule value="1000000">מיליון[ →%%ordinal_mxunits→];</rbnfrule>
                 <rbnfrule value="2000000">שני מיליון[ →%%ordinal_mxunits→];</rbnfrule>
                 <rbnfrule value="3000000">←← מיליון[ →%%ordinal_mxunits→];</rbnfrule>
@@ -388,15 +388,15 @@
                 <rbnfrule value="1000000000000000">=#,###.##=;</rbnfrule>
             </ruleset>
             <ruleset type="ordinal_fraction" access="private">
-                <rbnfrule value="10">←%ordinal_feminine←←;</rbnfrule>
-                <rbnfrule value="100">←%ordinal_feminine←←;</rbnfrule>
-                <rbnfrule value="1000">←%ordinal_feminine←←;</rbnfrule>
-                <rbnfrule value="10000">←%ordinal_feminine←←;</rbnfrule>
-                <rbnfrule value="100000">←%ordinal_feminine←←;</rbnfrule>
-                <rbnfrule value="1000000">←%ordinal_feminine←←;</rbnfrule>
-                <rbnfrule value="10000000">←%ordinal_feminine←←;</rbnfrule>
-                <rbnfrule value="100000000">←%ordinal_feminine←←;</rbnfrule>
-                <rbnfrule value="1000000000">←%ordinal_feminine←←;</rbnfrule>
+                <rbnfrule value="10">←%%ordinal_feminine←←;</rbnfrule>
+                <rbnfrule value="100">←%%ordinal_feminine←←;</rbnfrule>
+                <rbnfrule value="1000">←%%ordinal_feminine←←;</rbnfrule>
+                <rbnfrule value="10000">←%%ordinal_feminine←←;</rbnfrule>
+                <rbnfrule value="100000">←%%ordinal_feminine←←;</rbnfrule>
+                <rbnfrule value="1000000">←%%ordinal_feminine←←;</rbnfrule>
+                <rbnfrule value="10000000">←%%ordinal_feminine←←;</rbnfrule>
+                <rbnfrule value="100000000">←%%ordinal_feminine←←;</rbnfrule>
+                <rbnfrule value="1000000000">←%%ordinal_feminine←←;</rbnfrule>
                 <rbnfrule value="10000000000">←#,##0←;</rbnfrule>
             </ruleset>
             <ruleset type="ordinal_mxunits" access="private">
@@ -457,7 +457,7 @@
                 <rbnfrule value="1000">ואלף[ →→];</rbnfrule>
                 <rbnfrule value="2000">ואלפיים[ →→];</rbnfrule>
                 <rbnfrule value="3000">←%%ordinal_txunits← אלפים[ →→];</rbnfrule>
-                <rbnfrule value="11000/1000">←← אלף[ →→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←← אלף[ →→];</rbnfrule>
                 <rbnfrule value="1000000">ומיליון[ →→];</rbnfrule>
                 <rbnfrule value="2000000">ושני מיליון[ →→];</rbnfrule>
                 <rbnfrule value="3000000">←← מיליון[ →→];</rbnfrule>
@@ -471,7 +471,7 @@
             </ruleset>
             <ruleset type="ordinal_feminine" access="private">
                 <rbnfrule value="-x">מינוס →→;</rbnfrule>
-                <rbnfrule value="x.x">←%ordinal_feminine← נקודה →%%fraction→;</rbnfrule>
+                <rbnfrule value="x.x">←← נקודה →%%fraction→;</rbnfrule>
                 <rbnfrule value="0">אפס;</rbnfrule>
                 <rbnfrule value="1">אחת;</rbnfrule>
                 <rbnfrule value="2">שתיים;</rbnfrule>
@@ -506,7 +506,7 @@
                 <rbnfrule value="1000">אלף[ →%%ordinal_fxunits→];</rbnfrule>
                 <rbnfrule value="2000">אלפיים[ →%%ordinal_fxunits→];</rbnfrule>
                 <rbnfrule value="3000">←%%ordinal_tunits← אלפים[ →%%ordinal_fxunits→];</rbnfrule>
-                <rbnfrule value="11000/1000">←%ordinal_masculine← אלף[ →%%ordinal_fxunits→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←%%ordinal_masculine← אלף[ →%%ordinal_fxunits→];</rbnfrule>
                 <rbnfrule value="1000000">מיליון[ →%%ordinal_fxunits→];</rbnfrule>
                 <rbnfrule value="2000000">שני מיליון[ →%%ordinal_fxunits→];</rbnfrule>
                 <rbnfrule value="3000000">←%ordinal_masculine← מיליון[ →%%ordinal_fxunits→];</rbnfrule>
@@ -576,7 +576,7 @@
                 <rbnfrule value="1000">ואלף[ →→];</rbnfrule>
                 <rbnfrule value="2000">ואלפיים[ →→];</rbnfrule>
                 <rbnfrule value="3000">←%%ordinal_txunits← אלפים[ →→];</rbnfrule>
-                <rbnfrule value="11000/1000">←%%ordinal_mxunits← אלף[ →→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←%%ordinal_mxunits← אלף[ →→];</rbnfrule>
                 <rbnfrule value="1000000">ומיליון[ →→];</rbnfrule>
                 <rbnfrule value="2000000">ושני מיליון[ →→];</rbnfrule>
                 <rbnfrule value="3000000">←%%ordinal_mxunits← מיליון[ →→];</rbnfrule>

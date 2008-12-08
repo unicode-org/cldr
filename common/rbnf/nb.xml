@@ -23,7 +23,7 @@
                 <rbnfrule value="100">ett­hundre[ og →→];</rbnfrule>
                 <rbnfrule value="200">←←­hundre[ og →→];</rbnfrule>
                 <rbnfrule value="1000">tusen[ og →→];</rbnfrule>
-                <rbnfrule value="1100/100">←←­hundre[ og →→];</rbnfrule>
+                <rbnfrule value="1100" radix="100">←←­hundre[ og →→];</rbnfrule>
                 <rbnfrule value="10000">=%spellout=;</rbnfrule>
             </ruleset>
             <ruleset type="neuter" access="private">
@@ -43,8 +43,8 @@
                 <rbnfrule value="80">[→→­og­]åtti;</rbnfrule>
                 <rbnfrule value="90">[→→­og­]nitti;</rbnfrule>
                 <rbnfrule value="100">ett­hundre[ og →→];</rbnfrule>
-                <rbnfrule value="200">←%neuter←­hundre[ og →→];</rbnfrule>
-                <rbnfrule value="1000">←%neuter← tusen[ og →→];</rbnfrule>
+                <rbnfrule value="200">←%%neuter←­hundre[ og →→];</rbnfrule>
+                <rbnfrule value="1000">←%%neuter← tusen[ og →→];</rbnfrule>
                 <rbnfrule value="1000000">én million[ →→];</rbnfrule>
                 <rbnfrule value="2000000">←← millioner[ →→];</rbnfrule>
                 <rbnfrule value="1000000000">én milliard[ →→];</rbnfrule>

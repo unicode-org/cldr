@@ -26,7 +26,7 @@
                 <rbnfrule value="200">←←cento; ←←cent[→%%with-o→];</rbnfrule>
                 <rbnfrule value="1000">mille; mille→→;</rbnfrule>
                 <rbnfrule value="2000">←%%no-final←mila; ←%%no-final←mil→%%with-a→;</rbnfrule>
-                <rbnfrule value="100000→→">←%%no-final←mila[ →→];</rbnfrule>
+                <rbnfrule value="100000" decexp="2">←%%no-final←mila[ →→];</rbnfrule>
                 <rbnfrule value="1000000">un milione; un milione →→;</rbnfrule>
                 <rbnfrule value="2000000">←← milioni[ →→];</rbnfrule>
                 <rbnfrule value="1000000000">un miliardo; un miliardo →→;</rbnfrule>

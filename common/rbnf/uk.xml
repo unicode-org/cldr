@@ -8,9 +8,6 @@
 	</identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="year">
-                <rbnfrule value="0">=%masculine=;</rbnfrule>
-            </ruleset>
             <ruleset type="feminine" access="private">
                 <rbnfrule value="-x">мінус →→;</rbnfrule>
                 <rbnfrule value="x.x">←← кома →→;</rbnfrule>
@@ -51,24 +48,24 @@
                 <rbnfrule value="700">сімсот[ →→];</rbnfrule>
                 <rbnfrule value="800">вісімсот[ →→];</rbnfrule>
                 <rbnfrule value="900">девʼятсот[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%feminine← тисяча[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%feminine← тисячі[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%feminine← тисяч[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%masculine← мільйон[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%masculine← мільйони[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%masculine← мільйонів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%masculine← мільярд[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%masculine← мільярди[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%masculine← мільярдів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%masculine← більйон[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%masculine← більйони[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%masculine← більйонів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%masculine← більярд[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%masculine← більярди[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%masculine← більярдів[ →→];</rbnfrule>
+                <rbnfrule value="1000">←← тисяча[ →→];</rbnfrule>
+                <rbnfrule value="2000">←← тисячі[ →→];</rbnfrule>
+                <rbnfrule value="5000">←← тисяч[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout← мільйон[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout← мільйони[ →→];</rbnfrule>
+                <rbnfrule value="5000000">←%spellout← мільйонів[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout← мільярд[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout← мільярди[ →→];</rbnfrule>
+                <rbnfrule value="5000000000">←%spellout← мільярдів[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout← більйон[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout← більйони[ →→];</rbnfrule>
+                <rbnfrule value="5000000000000">←%spellout← більйонів[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout← більярд[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout← більярди[ →→];</rbnfrule>
+                <rbnfrule value="5000000000000000">←%spellout← більярдів[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
             </ruleset>
-            <ruleset type="masculine" access="private">
+            <ruleset type="spellout">
                 <rbnfrule value="-x">мінус →→;</rbnfrule>
                 <rbnfrule value="x.x">←← кома →→;</rbnfrule>
                 <rbnfrule value="0">нуль;</rbnfrule>
@@ -108,25 +105,22 @@
                 <rbnfrule value="700">сімсот[ →→];</rbnfrule>
                 <rbnfrule value="800">вісімсот[ →→];</rbnfrule>
                 <rbnfrule value="900">девʼятсот[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%feminine← тисяча[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%feminine← тисячі[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%feminine← тисяч[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%masculine← мільйон[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%masculine← мільйони[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%masculine← мільйонів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%masculine← мільярд[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%masculine← мільярди[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%masculine← мільярдів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%masculine← більйон[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%masculine← більйони[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%masculine← більйонів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%masculine← більярд[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%masculine← більярди[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%masculine← більярдів[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%%feminine← тисяча[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%%feminine← тисячі[ →→];</rbnfrule>
+                <rbnfrule value="5000">←%%feminine← тисяч[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←← мільйон[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←← мільйони[ →→];</rbnfrule>
+                <rbnfrule value="5000000">←← мільйонів[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←← мільярд[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←← мільярди[ →→];</rbnfrule>
+                <rbnfrule value="5000000000">←← мільярдів[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←← більйон[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←← більйони[ →→];</rbnfrule>
+                <rbnfrule value="5000000000000">←← більйонів[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←← більярд[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←← більярди[ →→];</rbnfrule>
+                <rbnfrule value="5000000000000000">←← більярдів[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout">
-                <rbnfrule value="0">=%masculine=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

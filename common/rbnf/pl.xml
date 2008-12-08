@@ -36,27 +36,27 @@
                 <rbnfrule value="40">czter­dzieści[ →→];</rbnfrule>
                 <rbnfrule value="50">←←­dziesiąt[ →→];</rbnfrule>
                 <rbnfrule value="100">sto[ →→];</rbnfrule>
-                <rbnfrule value="200">←%feminine←­ście[ →→];</rbnfrule>
-                <rbnfrule value="300">←%feminine←­sta[ →→];</rbnfrule>
-                <rbnfrule value="500">←%feminine←­set[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%masculine← tysiąc[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%masculine← tysiące[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%masculine← tysiący[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%masculine← milion[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%masculine← miliony[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%masculine← milionów[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%masculine← miliard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%masculine← miliardy[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%masculine← miliardów[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%masculine← bilion[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%masculine← biliony[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%masculine← bilionów[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%masculine← biliard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%masculine← biliardy[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%masculine← biliardów[ →→];</rbnfrule>
+                <rbnfrule value="200">←←­ście[ →→];</rbnfrule>
+                <rbnfrule value="300">←←­sta[ →→];</rbnfrule>
+                <rbnfrule value="500">←←­set[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout← tysiąc[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout← tysiące[ →→];</rbnfrule>
+                <rbnfrule value="5000">←%spellout← tysiący[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout← milion[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout← miliony[ →→];</rbnfrule>
+                <rbnfrule value="5000000">←%spellout← milionów[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout← miliard[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout← miliardy[ →→];</rbnfrule>
+                <rbnfrule value="5000000000">←%spellout← miliardów[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout← bilion[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout← biliony[ →→];</rbnfrule>
+                <rbnfrule value="5000000000000">←%spellout← bilionów[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout← biliard[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout← biliardy[ →→];</rbnfrule>
+                <rbnfrule value="5000000000000000">←%spellout← biliardów[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
             </ruleset>
-            <ruleset type="masculine" access="private">
+            <ruleset type="spellout">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">←← przecinek →→;</rbnfrule>
                 <rbnfrule value="0">zero;</rbnfrule>
@@ -84,28 +84,25 @@
                 <rbnfrule value="40">czter­dzieści[ →→];</rbnfrule>
                 <rbnfrule value="50">←←­dziesiąt[ →→];</rbnfrule>
                 <rbnfrule value="100">sto[ →→];</rbnfrule>
-                <rbnfrule value="200">←%feminine←­ście[ →→];</rbnfrule>
-                <rbnfrule value="300">←%feminine←­sta[ →→];</rbnfrule>
-                <rbnfrule value="500">←%feminine←­set[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%masculine← tysiąc[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%masculine← tysiące[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%masculine← tysiący[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%masculine← milion[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%masculine← miliony[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%masculine← milionów[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%masculine← miliard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%masculine← miliardy[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%masculine← miliardów[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%masculine← bilion[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%masculine← biliony[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%masculine← bilionów[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%masculine← biliard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%masculine← biliardy[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%masculine← biliardów[ →→];</rbnfrule>
+                <rbnfrule value="200">←%%feminine←­ście[ →→];</rbnfrule>
+                <rbnfrule value="300">←%%feminine←­sta[ →→];</rbnfrule>
+                <rbnfrule value="500">←%%feminine←­set[ →→];</rbnfrule>
+                <rbnfrule value="1000">←← tysiąc[ →→];</rbnfrule>
+                <rbnfrule value="2000">←← tysiące[ →→];</rbnfrule>
+                <rbnfrule value="5000">←← tysiący[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←← milion[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←← miliony[ →→];</rbnfrule>
+                <rbnfrule value="5000000">←← milionów[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←← miliard[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←← miliardy[ →→];</rbnfrule>
+                <rbnfrule value="5000000000">←← miliardów[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←← bilion[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←← biliony[ →→];</rbnfrule>
+                <rbnfrule value="5000000000000">←← bilionów[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←← biliard[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←← biliardy[ →→];</rbnfrule>
+                <rbnfrule value="5000000000000000">←← biliardów[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout">
-                <rbnfrule value="0">=%masculine=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

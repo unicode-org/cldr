@@ -40,7 +40,7 @@
                 <rbnfrule value="90">[→%%number-en→]negentig;</rbnfrule>
                 <rbnfrule value="100">←←­honderd[­→→];</rbnfrule>
                 <rbnfrule value="1000">duizend[­→→];</rbnfrule>
-                <rbnfrule value="1100/100">←←­honderd[­→→];</rbnfrule>
+                <rbnfrule value="1100" radix="100">←←­honderd[­→→];</rbnfrule>
                 <rbnfrule value="10000">=%spellout=;</rbnfrule>
             </ruleset>
             <ruleset type="number-en" access="private">

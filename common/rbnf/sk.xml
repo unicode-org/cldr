@@ -35,23 +35,23 @@
                 <rbnfrule value="30">trisať[ →→];</rbnfrule>
                 <rbnfrule value="40">štyridsať[ →→];</rbnfrule>
                 <rbnfrule value="50">←←desiat[ →→];</rbnfrule>
-                <rbnfrule value="100">←%feminine← sto[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%masculine← tisíc[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%masculine← milión[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%masculine← milióny[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%masculine← miliónov[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%masculine← miliarda[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%masculine← miliardy[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%masculine← miliardov[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%masculine← bilión[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%masculine← bilióny[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%masculine← biliónov[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%masculine← biliarda[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%masculine← biliardy[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%masculine← biliardov[ →→];</rbnfrule>
+                <rbnfrule value="100">←← sto[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout← tisíc[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout← milión[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout← milióny[ →→];</rbnfrule>
+                <rbnfrule value="5000000">←%spellout← miliónov[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout← miliarda[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout← miliardy[ →→];</rbnfrule>
+                <rbnfrule value="5000000000">←%spellout← miliardov[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout← bilión[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout← bilióny[ →→];</rbnfrule>
+                <rbnfrule value="5000000000000">←%spellout← biliónov[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout← biliarda[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout← biliardy[ →→];</rbnfrule>
+                <rbnfrule value="5000000000000000">←%spellout← biliardov[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
             </ruleset>
-            <ruleset type="masculine" access="private">
+            <ruleset type="spellout">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">←← čárka →→;</rbnfrule>
                 <rbnfrule value="0">nula;</rbnfrule>
@@ -78,24 +78,21 @@
                 <rbnfrule value="30">trisať[ →→];</rbnfrule>
                 <rbnfrule value="40">štyridsať[ →→];</rbnfrule>
                 <rbnfrule value="50">←←desiat[ →→];</rbnfrule>
-                <rbnfrule value="100">←%feminine← sto[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%masculine← tisíc[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%masculine← milión[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%masculine← milióny[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%masculine← miliónov[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%masculine← miliarda[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%masculine← miliardy[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%masculine← miliardov[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%masculine← bilión[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%masculine← bilióny[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%masculine← biliónov[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%masculine← biliarda[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%masculine← biliardy[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%masculine← biliardov[ →→];</rbnfrule>
+                <rbnfrule value="100">←%%feminine← sto[ →→];</rbnfrule>
+                <rbnfrule value="1000">←← tisíc[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←← milión[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←← milióny[ →→];</rbnfrule>
+                <rbnfrule value="5000000">←← miliónov[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←← miliarda[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←← miliardy[ →→];</rbnfrule>
+                <rbnfrule value="5000000000">←← miliardov[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←← bilión[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←← bilióny[ →→];</rbnfrule>
+                <rbnfrule value="5000000000000">←← biliónov[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←← biliarda[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←← biliardy[ →→];</rbnfrule>
+                <rbnfrule value="5000000000000000">←← biliardov[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout">
-                <rbnfrule value="0">=%masculine=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

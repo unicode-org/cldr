@@ -589,9 +589,7 @@ public abstract class XMLSource implements Freezable {
    * and not guaranteed to exist past the lifetime of the XMLSource. The directory
    * should be considered read-only.
    */
-  public File getSupplementalDirectory() {
-      return new File(Utility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
-  }
+  public abstract File getSupplementalDirectory();
 
   /**
    * Internal class for doing resolution

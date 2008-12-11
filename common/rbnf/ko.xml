@@ -41,7 +41,7 @@
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <ruleset type="ordinal">
-                <rbnfrule value="0">제 =%sinonumber=;</rbnfrule>
+                <rbnfrule value="0">제 =%%sinonumber=;</rbnfrule>
             </ruleset>
             <ruleset type="sinonumber" access="private">
                 <rbnfrule value="-x">마이너스 →→;</rbnfrule>

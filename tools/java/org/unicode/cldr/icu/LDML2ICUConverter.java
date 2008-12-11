@@ -7078,7 +7078,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 }
 
                 ICUResourceWriter.ResourceString rs = new ICUResourceWriter.ResourceString();
-                rs.val = ruleValue+radixString+decExpString+": "+Utility.escape(loc.file.getStringValue(aPath).replace(LARROW,'<').replace(RARROW,'>'))+"\\n";
+                if ( rulesetType.equals(LDMLConstants.LENIENT_PARSE)) {
+                   rs.val = Utility.escape(loc.file.getStringValue(aPath).replace(LARROW,'<').replace(RARROW,'>'))+"\\n";
+                } else {
+                    rs.val = ruleValue+radixString+decExpString+": "+Utility.escape(loc.file.getStringValue(aPath).replace(LARROW,'<').replace(RARROW,'>'))+"\\n";
+                }
                 ruleset.appendContents(rs);
             } else {
                 System.err.println("Unknown element found: " + xpath + " / "

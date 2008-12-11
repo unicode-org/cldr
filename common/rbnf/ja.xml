@@ -59,7 +59,7 @@
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <ruleset type="ordinal">
-                <rbnfrule value="0">第=%ord_spellout=;</rbnfrule>
+                <rbnfrule value="0">第=%%ord_spellout=;</rbnfrule>
             </ruleset>
             <ruleset type="ord_spellout" access="private">
                 <rbnfrule value="0">〇;</rbnfrule>

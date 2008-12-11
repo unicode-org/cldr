@@ -358,6 +358,7 @@ public class LDMLConstants {
     public static final String RBNFRULES        = "RBNFRules";
     public static final String RADIX            = "radix";
     public static final String DECEXP           = "decexp";
+    public static final String LENIENT_PARSE    = "lenient-parse";
 
 
     //PN added - Open and Close tags

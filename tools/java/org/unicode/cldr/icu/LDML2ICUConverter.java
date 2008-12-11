@@ -7413,7 +7413,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 }
                 if (fromFiles.containsKey(from + ".xml")) {
                     throw new IllegalArgumentException(
-                            "Can't be both a synthetic alias locale AND XML - consider using <aliasLocale source=\""
+                            "Can't be both a synthetic alias locale and a real xml file - consider using <aliasLocale locale=\""
                                     + from + "\"/> instead. ");
                 }
                 ULocale fromLocale = new ULocale(from);

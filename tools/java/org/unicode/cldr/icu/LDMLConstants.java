@@ -342,11 +342,13 @@ public class LDMLConstants {
     public static final String CURRENCY_GROUP   = "currencyGroup";
     public static final String CURRENCY_UNIT_PATTERNS = "CurrencyUnitPatterns";
     public static final String CURRENCY_PLURALS = "CurrencyPlurals";
-    
+
     public static final String UNITS            = "units";
+    public static final String UNITS_SHORT      = "unitsShort";
     public static final String UNIT             = "unit";
     public static final String UNIT_PATTERN     = "unitPattern";
-    
+    public static final String LANGUAGES_SHORT  = "languagesShort";
+
     // Rule Based Number Formatting (RBNF)
     public static final String RBNF             = "rbnf";
     public static final String RULESET          = "ruleset";

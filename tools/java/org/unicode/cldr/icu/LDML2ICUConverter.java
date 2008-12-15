@@ -1126,6 +1126,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         keyNameMap.put("months", "monthNames");
         keyNameMap.put("territories", "Countries");
         keyNameMap.put("languages", "Languages");
+        keyNameMap.put("languagesShort", "LanguagesShort");
         keyNameMap.put("currencies", "Currencies");
         keyNameMap.put("variants", "Variants");
         keyNameMap.put("scripts", "Scripts");
@@ -2519,7 +2520,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 // LDMLConstants.SEGMENTATIONS,
                 LDMLConstants.REFERENCES,
                 LDMLConstants.RBNF,
-                LDMLConstants.COLLATIONS, LDMLConstants.UNITS};
+                LDMLConstants.COLLATIONS,
+                LDMLConstants.UNITS,
+                // Second time for the alt="short" versions...
+                LDMLConstants.UNITS};
+
+        boolean processedUnits = false;
 
         for (int jj = 0; jj < stuff.length; jj++) {
             res = null;
@@ -2567,7 +2573,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 if (DEBUG)
                     printXPathWarning(loc, xpath);
             } else if (name.equals(LDMLConstants.UNITS)) {
-                res = parseUnits(loc, xpath);
+            	if (processedUnits == false) {
+            		res = parseUnits(loc, xpath, LDMLConstants.UNITS, null);
+            		processedUnits = true;
+            	} else {
+            		res = parseUnits(loc, xpath, LDMLConstants.UNITS_SHORT, LDMLConstants.SHORT);
+            	}
             } else {
                 System.err.println("Encountered unknown <" + "//ldml"
                         + "> subelement: " + name);
@@ -2820,11 +2831,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 LDMLConstants.TYPES, LDMLConstants.ALIAS,
                 //LDMLConstants.MSNS,
                 LDMLConstants.CODE_PATTERNS,
-                LDMLConstants.LOCALEDISPLAYPATTERN };
+                LDMLConstants.LOCALEDISPLAYPATTERN,
+                LDMLConstants.LANGUAGES_SHORT };
 
         for (String name : stuff) {
             if (name.equals(LDMLConstants.LANGUAGES)
-                    || name.equals(LDMLConstants.SCRIPTS)
+            		|| name.equals(LDMLConstants.SCRIPTS)
                     || name.equals(LDMLConstants.TERRITORIES)
                     || name.equals(LDMLConstants.KEYS)
                     || name.equals(LDMLConstants.VARIANTS)
@@ -2838,6 +2850,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             } else if (name.equals(LDMLConstants.ALIAS)) {
                 // res = parseAliasResource(loc, name);
                 // TODO: parseAliasResource - these are different types in ICU, can't just alias them all
+            } else if (name.equals(LDMLConstants.LANGUAGES_SHORT)) {
+                res = parseListAlt(loc, LDMLConstants.LANGUAGES, name, LDMLConstants.SHORT);
             } else {
                 System.err.println("Unknown element found: " + name);
                 System.exit(-1);
@@ -2972,6 +2986,64 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             if (loc.isPathNotConvertible(xpath)) {
                 // System.err.println("PNC: " + xpath);
                 continue;
+            }
+
+            ICUResourceWriter.ResourceString res = new ICUResourceWriter.ResourceString();
+
+            res.name = loc.getBasicAttributeValue(xpath, LDMLConstants.TYPE);
+            if (uc) {
+                res.name = res.name.toUpperCase();
+            }
+            res.val = loc.file.getStringValue(xpath);
+
+            if (res.name == null) {
+                System.err.println(name + " - " + res.name + " = " + res.val);
+            }
+
+            if (prohibit == true && deprecatedTerritories.get(res.name) != null) {
+                res = null;
+            }
+            if (res != null) {
+                if (current == null) {
+                    current = table.first = res;
+                } else {
+                    current.next = res;
+                    current = current.next;
+                }
+            }
+        }
+        // xpath.delete(savedLength, xpath.length());
+        if (table.first != null) {
+            return table;
+        }
+        return null;
+    }
+
+    private ICUResourceWriter.Resource parseListAlt(InputLocale loc, String originalName, String name, String altValue) {
+        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
+        String rootNodeName = name;
+        table.name = (String) keyNameMap.get(rootNodeName);
+        ICUResourceWriter.Resource current = null;
+        boolean uc = rootNodeName.equals(LDMLConstants.VARIANTS);
+        boolean prohibit = rootNodeName.equals(LDMLConstants.TERRITORIES);
+        String origXpath = "//ldml/localeDisplayNames/" + originalName;
+        if ((current = getAliasResource(loc, origXpath)) != null) {
+            current.name = table.name;
+            return current;
+        }
+        for (Iterator<String> iter = loc.file.iterator(origXpath); iter
+                .hasNext();) {
+            String xpath = (String) iter.next();
+            //if (loc.isPathNotConvertible(xpath)) {
+            //    // System.err.println("PNC: " + xpath);
+            //    continue;
+            //}
+
+            // Check for the "alt" attribute, and process it if requested.
+            // Otherwise, skip it.
+            String alt = loc.getBasicAttributeValue(xpath, LDMLConstants.ALT);
+            if (alt == null || !alt.equals(altValue)) {
+            	continue;
             }
 
             ICUResourceWriter.ResourceString res = new ICUResourceWriter.ResourceString();
@@ -5378,10 +5450,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
 
     private ICUResourceWriter.Resource parseUnits(InputLocale loc,
-            String xpath) {
+            String xpath, String tableName, String altValue) {
     	ICUResourceWriter.ResourceTable unitsTable =
     		new ICUResourceWriter.ResourceTable();
-    	unitsTable.name = LDMLConstants.UNITS;
+    	unitsTable.name = tableName;
         ICUResourceWriter.Resource current = null, first = null;
 
         String origXpath = xpath;
@@ -5400,7 +5472,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 res.name = name;
                 return res;
             } else if (name.equals(LDMLConstants.UNIT)) {
-                res = parseUnit(loc, xpath);
+                res = parseUnit(loc, xpath, altValue);
             } else if (name.equals(LDMLConstants.SPECIAL)) {
             	res = parseSpecialElements(loc, xpath);
             } else {
@@ -5426,7 +5498,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
 
     private ICUResourceWriter.Resource parseUnit(InputLocale loc,
-            String xpath) {
+            String xpath, String altValue) {
         Map<String, ICUResourceWriter.ResourceTable> tableMap =
         	new HashMap<String, ICUResourceWriter.ResourceTable>();
 
@@ -5435,7 +5507,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         for (Iterator<String> iter = loc.file.iterator(xpath); iter.hasNext();) {
             String localxpath = iter.next();
-            if(loc.isPathNotConvertible(localxpath)) {
+            if (altValue == null && loc.isPathNotConvertible(localxpath)) {
                 continue;
             }
             String name = loc.getXpathName(localxpath);
@@ -5444,6 +5516,14 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 continue;
             }
             else if (name.equals(LDMLConstants.UNIT_PATTERN)) {
+            	String currentAltValue = loc.getAttributeValue(localxpath, LDMLConstants.ALT);
+            	if (altValue != null) {
+            		if (currentAltValue == null || !altValue.equals(currentAltValue)) {
+            			continue;
+            		}
+            	} else if (altValue == null && currentAltValue != null) {
+            		continue;
+            	}
             	String parentName = loc.getXpathName(localxpath, -2);
             	String tableName = loc.getAttributeValue(localxpath, parentName, LDMLConstants.TYPE);
             	ICUResourceWriter.ResourceTable current = tableMap.get(tableName);

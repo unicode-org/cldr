@@ -34,12 +34,12 @@ public class DataSection extends Registerable {
     /**
      * Trace in detail time taken to populate?
      */
-    private static final boolean TRACE_TIME=false;
+    private static final boolean TRACE_TIME=true;
     
     /**
      * Show time taken to populate?
      */
-    private static final boolean SHOW_TIME= true || TRACE_TIME;
+    private static final boolean SHOW_TIME= false || TRACE_TIME;
 
     /**
      * Warn user why these messages are showing up.
@@ -1599,7 +1599,7 @@ public class DataSection extends Registerable {
                 superP.allVoteType |= p.allVoteType;
                 p.voteType = vtypes[0]; // no mask
             }
-            System.out.println("@@V "+type+"  v: " + value + " - base"+base_xpath+" , win: " + p.voteType);
+//            System.out.println("@@V "+type+"  v: " + value + " - base"+base_xpath+" , win: " + p.voteType);
 
 //            // Is this a toggle pair with another item?
 //            if(isToggleFor != null) {

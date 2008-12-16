@@ -20,12 +20,15 @@ import java.sql.PreparedStatement;
 
 import com.ibm.icu.util.ULocale;
 
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CoverageLevel;
 
@@ -365,14 +368,14 @@ public class Vetting {
     private void initStmts() throws SQLException {
         synchronized(conn) {
             missingImpliedVotes = prepareStatement("missingImpliedVotes", 
-            "select distinct "+CLDRDBSource.CLDR_DATA+".submitter,"+CLDRDBSource.CLDR_DATA+".base_xpath from "+CLDRDBSource.CLDR_DATA+" WHERE "+
-                "("+CLDRDBSource.CLDR_DATA+".submitter is not null)AND(locale=?) AND NOT EXISTS ( SELECT * from "+CLDR_VET+" where "+
-                    "("+CLDRDBSource.CLDR_DATA+".locale="+CLDR_VET+".locale) AND ("+CLDRDBSource.CLDR_DATA+".base_xpath="+CLDR_VET+".base_xpath) AND "+
-                    "("+CLDRDBSource.CLDR_DATA+".submitter="+CLDR_VET+".submitter) )");
+            "select distinct "+CLDRDBSourceFactory.CLDR_DATA+".submitter,"+CLDRDBSourceFactory.CLDR_DATA+".base_xpath from "+CLDRDBSourceFactory.CLDR_DATA+" WHERE "+
+                "("+CLDRDBSourceFactory.CLDR_DATA+".submitter is not null)AND(locale=?) AND NOT EXISTS ( SELECT * from "+CLDR_VET+" where "+
+                    "("+CLDRDBSourceFactory.CLDR_DATA+".locale="+CLDR_VET+".locale) AND ("+CLDRDBSourceFactory.CLDR_DATA+".base_xpath="+CLDR_VET+".base_xpath) AND "+
+                    "("+CLDRDBSourceFactory.CLDR_DATA+".submitter="+CLDR_VET+".submitter) )");
             dataByUserAndBase = prepareStatement("dataByUserAndBase",
-                "select "+CLDRDBSource.CLDR_DATA+".XPATH,"+CLDRDBSource.CLDR_DATA+".ALT_TYPE from "+CLDRDBSource.CLDR_DATA+" where submitter=? AND base_xpath=? AND locale=?");
+                "select "+CLDRDBSourceFactory.CLDR_DATA+".XPATH,"+CLDRDBSourceFactory.CLDR_DATA+".ALT_TYPE from "+CLDRDBSourceFactory.CLDR_DATA+" where submitter=? AND base_xpath=? AND locale=?");
             dataByBase = prepareStatement("dataByBase", /*  1:locale, 2:base_xpath  ->  stuff */
-                "select xpath,origxpath,alt_type,value FROM "+CLDRDBSource.CLDR_DATA+" WHERE " + 
+                "select xpath,origxpath,alt_type,value FROM "+CLDRDBSourceFactory.CLDR_DATA+" WHERE " + 
                     "(locale=?) AND (base_xpath=?)");
             insertVote = prepareStatement("insertVote",
                 "insert into "+CLDR_VET+" (locale,submitter,base_xpath,vote_xpath,type,modtime) values (?,?,?,?,?,CURRENT_TIMESTAMP)");
@@ -389,7 +392,7 @@ public class Vetting {
             queryVoteForBaseXpath = prepareStatement("queryVoteForBaseXpath",
                 "select "+CLDR_VET+".submitter,"+CLDR_VET+".vote_xpath from "+CLDR_VET+" where "+CLDR_VET+".locale=? AND "+CLDR_VET+".base_xpath=?");
             missingResults = prepareStatement("missingResults", /*  1:locale  ->  1: base_xpath */
-                "select distinct "+CLDRDBSource.CLDR_DATA+".base_xpath from "+CLDRDBSource.CLDR_DATA+" WHERE (locale=?) AND NOT EXISTS ( SELECT * from "+CLDR_RESULT+" where ("+CLDRDBSource.CLDR_DATA+".locale="+CLDR_RESULT+".locale) AND ("+CLDRDBSource.CLDR_DATA+".base_xpath="+CLDR_RESULT+".base_xpath)  )");
+                "select distinct "+CLDRDBSourceFactory.CLDR_DATA+".base_xpath from "+CLDRDBSourceFactory.CLDR_DATA+" WHERE (locale=?) AND NOT EXISTS ( SELECT * from "+CLDR_RESULT+" where ("+CLDRDBSourceFactory.CLDR_DATA+".locale="+CLDR_RESULT+".locale) AND ("+CLDRDBSourceFactory.CLDR_DATA+".base_xpath="+CLDR_RESULT+".base_xpath)  )");
             missingResults2 = prepareStatement("missingResults2", /*  1:locale  ->  1: base_xpath */
                 "select distinct "+CLDR_ALLPATHS+".base_xpath from "+CLDR_ALLPATHS+" WHERE NOT EXISTS ( SELECT * from "+CLDR_RESULT+" where ("+CLDR_RESULT+".locale=?) AND ("+CLDR_ALLPATHS+".base_xpath="+CLDR_RESULT+".base_xpath)  )");
             insertResult = prepareStatement("insertResult", 
@@ -429,7 +432,7 @@ public class Vetting {
             intUpdateUpdate = prepareStatement("intUpdateUpdate",
                 "update "+CLDR_INTGROUP+"  set last_sent_update=CURRENT_TIMESTAMP where intgroup=?");
             queryValue = prepareStatement("queryValue",
-                "SELECT value,origxpath FROM " + CLDRDBSource.CLDR_DATA +
+                "SELECT value,origxpath FROM " + CLDRDBSourceFactory.CLDR_DATA +
             " WHERE locale=? AND xpath=?");
             highestVetter = prepareStatement("highestVetter",
                     "select "+UserRegistry.CLDR_USERS+".userlevel from "+CLDR_VET+","+UserRegistry.CLDR_USERS+" where "+UserRegistry.CLDR_USERS+".id="+CLDR_VET+".submitter AND "+CLDR_VET+".locale=? AND "+CLDR_VET+".vote_xpath=? ORDER BY "+UserRegistry.CLDR_USERS+".userlevel");
@@ -458,7 +461,7 @@ public class Vetting {
                 "select * from "+CLDR_ORGDISPUTE+" where org=? AND locale=? and base_xpath=?");
                 
             googData = prepareStatement("googData",
-                "select xpath,origxpath,value from "+CLDRDBSource.CLDR_DATA+" where alt_type='proposed-x650' and locale=? and base_xpath=?");
+                "select xpath,origxpath,value from "+CLDRDBSourceFactory.CLDR_DATA+" where alt_type='proposed-x650' and locale=? and base_xpath=?");
                 
             allpathsAdd = prepareStatement("allpathsAdd",
                 "insert into "+CLDR_ALLPATHS+" (base_xpath) values (?)");
@@ -484,7 +487,7 @@ public class Vetting {
                 System.err.println(localeName + " - "+i+"/"+nrInFiles);
             }
             ElapsedTimer et2 = new ElapsedTimer();
-            int count = updateImpliedVotes(localeName);
+            int count = updateImpliedVotes(CLDRLocale.getInstance(localeName));
             tcount += count;
             if(count>0) {
                 lcount++;
@@ -502,7 +505,7 @@ public class Vetting {
      * @param locale which locale 
      * @return locale count
      */
-    public int updateImpliedVotes(String locale) {
+    public int updateImpliedVotes(CLDRLocale locale) {
         int count = 0;
         int updates = 0;
 
@@ -515,9 +518,9 @@ public class Vetting {
 
         synchronized(conn) {
             try {
-                dataByUserAndBase.setString(3, locale);
-                missingImpliedVotes.setString(1,locale);
-                insertVote.setString(1,locale);
+                dataByUserAndBase.setString(3, locale.toString());
+                missingImpliedVotes.setString(1,locale.toString());
+                insertVote.setString(1,locale.toString());
                 insertVote.setInt(5,VET_IMPLIED);
                 ResultSet rs = missingImpliedVotes.executeQuery();
                 while(rs.next()) {
@@ -604,10 +607,10 @@ public class Vetting {
      * @return result of vetting, RES_NO_VOTES, etc.
      * @see XPathTable
      */
-    public int queryVote(String locale, int submitter, int base_xpath) {
+    public int queryVote(CLDRLocale locale, int submitter, int base_xpath) {
         synchronized(conn) {
             try {
-                queryVote.setString(1, locale);
+                queryVote.setString(1, locale.toString());
                 queryVote.setInt(2, submitter);
                 queryVote.setInt(3, base_xpath);
                 ResultSet rs = queryVote.executeQuery();
@@ -626,16 +629,16 @@ public class Vetting {
 
     /**
      * get a Set consisting of all of the users which voted on a certain path
-     * @param locale which locale
+     * @param locale. which locale
      * @param base_xpath string xpath to gather for
      * @return a Set of UserRegistry.User objects
      */
      
-    public Set<UserRegistry.User> gatherVotes(String locale, String base_xpath) {
+    public Set<UserRegistry.User> gatherVotes(CLDRLocale locale, String base_xpath) {
         int base_xpath_id = sm.xpt.getByXpath(base_xpath);
         synchronized(conn) {
             try {
-                queryVoteForXpath.setString(1, locale);
+                queryVoteForXpath.setString(1, locale.toString());
                 queryVoteForXpath.setInt(2, base_xpath_id);
                 ResultSet rs = queryVoteForXpath.executeQuery();
                // System.err.println("Vf: " + base_xpath_id + " / " + base_xpath);
@@ -689,7 +692,8 @@ public class Vetting {
                 // TODO: need a function for this.
                 String fileName = inFiles[i].getName();
                 int dot = fileName.indexOf('.');
-                String localeName = fileName.substring(0,dot);
+                String localeString= fileName.substring(0,dot);
+                CLDRLocale localeName = CLDRLocale.getInstance(localeString);
                 //System.err.println(localeName + " - "+i+"/"+nrInFiles);
                 ElapsedTimer et2 = new ElapsedTimer();
                 types[0]=0;
@@ -723,7 +727,7 @@ public class Vetting {
      * @param locale which locale
      * @return number of results changed
      */
-    public int updateResults(String locale) {
+    public int updateResults(CLDRLocale locale) {
         ElapsedTimer et2 = new ElapsedTimer();
         int type[] = new int[1];
         int count = updateResults(locale,type);
@@ -768,7 +772,7 @@ public class Vetting {
         }
         return gAllImportantXpaths;
     }
-    public int updateResults(String locale, boolean removeFirst) {
+    public int updateResults(CLDRLocale locale, boolean removeFirst) {
         int tcount=0;
         int lcount = 0;
         int types[] = new int[1];
@@ -787,7 +791,7 @@ public class Vetting {
         return tcount;
     }
     
-    public int updateResults(String locale, int type[]) {
+    public int updateResults(CLDRLocale locale, int type[]) {
         return updateResults(locale, type, false);
     }
     
@@ -798,7 +802,7 @@ public class Vetting {
      * contains the bitwise OR of all types of vetting results which were found.
      * @return number of results changed
      **/
-    public int updateResults(String locale, int type[], boolean removeFirst) {
+    public int updateResults(CLDRLocale locale, int type[], boolean removeFirst) {
 		VET_VERBOSE=sm.twidBool(TWID_VET_VERBOSE); // load user prefs: should we do verbose vetting?
         int ncount = 0; // new count
         int ucount = 0; // update count
@@ -818,23 +822,23 @@ public class Vetting {
             try {
             
                 if(removeFirst) {            
-                    rmResultLoc.setString(1, locale);
+                    rmResultLoc.setString(1, locale.toString());
                     int del = rmResultLoc.executeUpdate();
-                    rmOutputLoc.setString(1, locale);
+                    rmOutputLoc.setString(1, locale.toString());
                     int del2 = rmOutputLoc.executeUpdate();
                     System.err.println("** "+ locale + " - "+del+" results and "+del2+" outputs removed");
                     conn.commit();
                 }            
                 
                 //dataByUserAndBase.setString(3, locale);
-                missingResults.setString(1,locale);
+                missingResults.setString(1,locale.toString());
                 //insertVote.setString(1,locale);
                 //insertVote.setInt(5,VET_IMPLIED);
                 
                 // for updateResults(id, ...)
-                dataByBase.setString(1,locale);
-                queryVoteForBaseXpath.setString(1,locale);
-                insertResult.setString(1,locale);
+                dataByBase.setString(1,locale.toString());
+                queryVoteForBaseXpath.setString(1,locale.toString());
+                insertResult.setString(1,locale.toString());
                 
                 // Missing results...
 //                ElapsedTimer et_m = new ElapsedTimer();
@@ -852,7 +856,7 @@ public class Vetting {
 //                System.err.println("Missing results "+ncount+" for " + locale + " updated in " + et_m.toString());
                 // out of date results..
                 if(false) {  // stale results should not be needed anymore
-                    staleResult.setString(1,locale);
+                    staleResult.setString(1,locale.toString());
                     rs = staleResult.executeQuery();  // id, base_xpath
 //                    System.err.println("Stale results for " + locale + " found in " + et_m.toString());
                     while(rs.next()) {
@@ -942,7 +946,7 @@ public class Vetting {
             //System.err.println(localeName + " - "+i+"/"+nrInFiles);
             ElapsedTimer et2 = new ElapsedTimer();
             types[0]=0;
-            int count = washVotes(localeName/*,types*/);
+            int count = washVotes(CLDRLocale.getInstance(localeName)/*,types*/);
             tcount += count;
             if(count>0) {
                 lcount++;
@@ -985,7 +989,7 @@ public class Vetting {
      * contains the bitwise OR of all types of vetting results which were found.
      * @return number of results changed
      **/
-    public int washVotes(String locale /*, int type[]*/) {
+    public int washVotes(CLDRLocale locale /*, int type[]*/) {
         int type[] = new int[1];
 		VET_VERBOSE=sm.twidBool(TWID_VET_VERBOSE); // load user prefs: should we do verbose vetting?
         int ncount = 0; // new count
@@ -1012,16 +1016,16 @@ public class Vetting {
                 
                 if(lookupByXpath == null) {
                     lookupByXpath = prepareStatement("lookupByXpath", 
-                        "select xpath,value,source,origxpath from "+CLDRDBSource.CLDR_DATA+" where base_xpath=? AND SUBMITTER is NULL AND locale=?");
+                        "select xpath,value,source,origxpath from "+CLDRDBSourceFactory.CLDR_DATA+" where base_xpath=? AND SUBMITTER is NULL AND locale=?");
                 }
                 
-                lookupByXpath.setString(2,locale);
+                lookupByXpath.setString(2,locale.toString());
                 int cachedBase = -1;
                 int vettedValue = -1; // do we have a vetted value?
                 Hashtable cachedProps = new Hashtable();
 
                 try {
-                    ULocale ulocale = new ULocale(locale);
+                    CLDRLocale ulocale = (locale);
                     //                        WebContext xctx = new WebContext(false);
                     //                        xctx.setLocale(locale);
                     sm.makeCLDRFile(sm.makeDBSource(sm.getDBConnection(),  null, ulocale));
@@ -1041,7 +1045,7 @@ public class Vetting {
                 System.err.println(locale + " - cleared "+vetCleared + " from CLDR_VET");
                 System.err.println(locale + " - cleared "+resCleared + " from CLDR_RESULT");
                 
-                ResultSet rs = s.executeQuery("select id,source,value,base_xpath,submitter from "+CLDRDBSource.CLDR_DATA+" where SUBMITTER IS NOT NULL AND LOCALE='"+locale+"' order by base_xpath, source desc");
+                ResultSet rs = s.executeQuery("select id,source,value,base_xpath,submitter from "+CLDRDBSourceFactory.CLDR_DATA+" where SUBMITTER IS NOT NULL AND LOCALE='"+locale+"' order by base_xpath, source desc");
                 System.err.println(" querying..");
                 while(rs.next()) {
                    // ncount++;
@@ -1096,7 +1100,7 @@ public class Vetting {
                     }
                     if((vettedValue != -1) || (cachedProps.size()>0)) {
                         // just, erase it
-                        ncount += s3.executeUpdate("delete from "+CLDRDBSource.CLDR_DATA+" where id="+oldId);
+                        ncount += s3.executeUpdate("delete from "+CLDRDBSourceFactory.CLDR_DATA+" where id="+oldId);
                     }
                     
                     // what to do?
@@ -1267,7 +1271,7 @@ public class Vetting {
         return rbc;
     }
 	
-	public Race getRace(String locale, int base_xpath) throws SQLException {
+	public Race getRace(CLDRLocale locale, int base_xpath) throws SQLException {
 		synchronized(conn) {
 			// Step 0: gather all votes
 			Race r = new Race(this);
@@ -1293,13 +1297,13 @@ public class Vetting {
      * @param base_xpath the base xpath that is being considered
      * @return the type of the vetting result. 
      */     
-    private int updateResults(int id, String locale, int base_xpath, Set<Race> racesToUpdate) throws SQLException {
+    private int updateResults(int id, CLDRLocale locale, int base_xpath, Set<Race> racesToUpdate) throws SQLException {
         int resultXpath = -1;
         int type = -1;
         int fallbackXpath = -1;
 
         boolean disputed = false; 
-        queryValue.setString(1,locale);
+        queryValue.setString(1,locale.toString());
         
         // Step 0: gather all votes
 		Race r = new Race(this);
@@ -1323,15 +1327,15 @@ public class Vetting {
      * @return the winning xpath id
      * @see updateResults
      */
-    int queryResult(String locale, int base_xpath, int type[]) {
+    int queryResult(CLDRLocale locale, int base_xpath, int type[]) {
         return getCachedLocaleData(locale).getWinningXPath(base_xpath, type);
     }
     
-    int queryResultInternal(String locale, int base_xpath, int type[]) {
+    int queryResultInternal(CLDRLocale locale, int base_xpath, int type[]) {
         // queryResult:    "select CLDR_RESULT.vote_xpath,CLDR_RESULT.type from "+CLDR_RESULT+" where (locale=?) AND (base_xpath=?)");
         synchronized(conn) {
             try {
-                queryResult.setString(1, locale);
+                queryResult.setString(1, locale.toString());
                 queryResult.setInt(2, base_xpath);
 
                 ResultSet rs = queryResult.executeQuery();
@@ -1360,11 +1364,11 @@ public class Vetting {
         }
     }
     
-    Status queryResultStatus(String locale, int base_xpath) {
+    Status queryResultStatus(CLDRLocale locale, int base_xpath) {
         // queryResult:    "select CLDR_RESULT.vote_xpath,CLDR_RESULT.type from "+CLDR_RESULT+" where (locale=?) AND (base_xpath=?)");
         synchronized(conn) {
             try {
-                outputQueryStatus.setString(1, locale);
+                outputQueryStatus.setString(1, locale.toString());
                 outputQueryStatus.setInt(2, base_xpath);
 
                 ResultSet rs = outputQueryStatus.executeQuery();
@@ -1427,16 +1431,16 @@ public class Vetting {
      * @param submitter userid of the submitter
      * @return >0 if successful
      */
-    int unvote(String locale, int base_xpath, int submitter) {
+    int unvote(CLDRLocale locale, int base_xpath, int submitter) {
         //rmVote;
         synchronized(conn) {
             try {
-                rmVote.setString(1,locale);
+                rmVote.setString(1,locale.toString());
                 rmVote.setInt(2,submitter);
                 rmVote.setInt(3,base_xpath);
                 
                 int rs = rmVote.executeUpdate();
-                rmResult.setString(1,locale);
+                rmResult.setString(1,locale.toString());
                 rmResult.setInt(2,base_xpath);
                 rs += rmResult.executeUpdate();
                 conn.commit();
@@ -1459,10 +1463,10 @@ public class Vetting {
      * @param type either VET_IMPLICIT or VET_EXPLICIT if this is to be recorded as an implicit or explicit vote.
      */
      
-    void vote(String locale, int base_xpath, int submitter, int vote_xpath, int type) {
+    void vote(CLDRLocale locale, int base_xpath, int submitter, int vote_xpath, int type) {
         synchronized(conn) {
             try {
-                queryVoteId.setString(1,locale);
+                queryVoteId.setString(1,locale.toString());
                 queryVoteId.setInt(2,submitter);
                 queryVoteId.setInt(3,base_xpath);
                 
@@ -1476,14 +1480,14 @@ public class Vetting {
                     updateVote.executeUpdate();
 //                    System.err.println("updated CLDR_VET #"+id);
                 } else {
-                    insertVote.setString(1,locale);
+                    insertVote.setString(1,locale.toString());
                     insertVote.setInt(2,submitter);
                     insertVote.setInt(3,base_xpath);
                     insertVote.setInt(4,vote_xpath);
                     insertVote.setInt(5,type);
                     insertVote.executeUpdate();
                 }
-                rmResult.setString(1,locale);
+                rmResult.setString(1,locale.toString());
                 rmResult.setInt(2,base_xpath);
                 rmResult.executeUpdate();
 
@@ -1505,8 +1509,8 @@ public class Vetting {
      * @param isUpdate true if to do an update, otherwise insert
      * @return number of rows affected, normally 1 if successful.
      */
-    private int updateStatus(String locale, boolean isUpdate) throws SQLException {
-        queryTypes.setString(1, locale);
+    private int updateStatus(CLDRLocale locale, boolean isUpdate) throws SQLException {
+        queryTypes.setString(1, locale.toString());
         ResultSet rs = queryTypes.executeQuery();
         
         int t = 0;
@@ -1516,11 +1520,11 @@ public class Vetting {
 
         if(isUpdate==true) {
             updateStatus.setInt(1,t);
-            updateStatus.setString(2,locale);
+            updateStatus.setString(2,locale.toString());
             return updateStatus.executeUpdate();
         } else {
             insertStatus.setInt(1,t);
-            insertStatus.setString(2,locale);
+            insertStatus.setString(2,locale.toString());
             return insertStatus.executeUpdate();
         }
         
@@ -1537,9 +1541,9 @@ public class Vetting {
             int count=0;
             try {
                 Statement s = conn.createStatement();
-                ResultSet rs = s.executeQuery("select distinct "+CLDRDBSource.CLDR_DATA+".locale from "+CLDRDBSource.CLDR_DATA+" where not exists ( select * from "+CLDR_STATUS+" where "+CLDR_STATUS+".locale="+CLDRDBSource.CLDR_DATA+".locale)");
+                ResultSet rs = s.executeQuery("select distinct "+CLDRDBSourceFactory.CLDR_DATA+".locale from "+CLDRDBSourceFactory.CLDR_DATA+" where not exists ( select * from "+CLDR_STATUS+" where "+CLDR_STATUS+".locale="+CLDRDBSourceFactory.CLDR_DATA+".locale)");
                 while(rs.next()) {
-                    count += updateStatus(rs.getString(1), false);
+                    count += updateStatus(CLDRLocale.getInstance(rs.getString(1)), false);
                     locs++;
                 }
                 conn.commit();
@@ -1558,21 +1562,21 @@ public class Vetting {
      * @param locale the locale
      * @return bitwise OR of good, disputed, etc.
      */
-    int status(String locale) {
+    int status(CLDRLocale locale) {
         synchronized(conn) {
             return getCachedLocaleData(locale).getStatus();
         }
     }
-    public int getWinningXPath(int xpath, String locale) {
+    public int getWinningXPath(int xpath, CLDRLocale locale) {
         return getCachedLocaleData(locale).getWinningXPath(xpath, null);
     }
-    private int handleStatus(String locale) {
+    private int handleStatus(CLDRLocale locale) {
         synchronized(conn) {
             // missing ones 
             int locs=0;
             int count=0;
             try {
-                queryStatus.setString(1,locale);
+                queryStatus.setString(1,locale.toString());
                 ResultSet rs = queryStatus.executeQuery();
                 if(rs.next()) {
                     int i = rs.getInt(1);
@@ -1678,7 +1682,7 @@ public class Vetting {
      * @param group the interest group being processed
      * @param s the list of locales contained in interest group 'group'
      */
-    int doNag(String group, Set s) {
+    int doNag(String group, Set<CLDRLocale> s) {
         // First, are there any problems here?
         String complain = null;
         int mailsent=0;
@@ -1696,8 +1700,8 @@ public class Vetting {
         }
         
         // for each locale in this interest group..
-        for(Iterator li=s.iterator();li.hasNext();) {
-            String loc = (String)li.next();
+        for(Iterator<CLDRLocale> li=s.iterator();li.hasNext();) {
+            CLDRLocale loc = li.next();
             
             int locStatus = status(loc);
             int genCount = sm.externalErrorCount(loc);
@@ -1708,7 +1712,7 @@ public class Vetting {
                 int numDisputed = countResultsByType(loc,RES_DISPUTED);
                 int numErrored = countResultsByType(loc,RES_ERROR);
                 
-                boolean localeIsDefaultContent = (null!=sm.supplemental.defaultContentToParent(loc));
+                boolean localeIsDefaultContent = (null!=sm.supplemental.defaultContentToParent(loc.toString()));
                 
                 if(localeIsDefaultContent) {
                     //System.err.println(loc +" - default content, not sending notice. ");
@@ -1744,7 +1748,7 @@ public class Vetting {
                     problem = problem + " ERROR ITEMS: "+numErrored+"";
                 }
 */
-                complain = complain +  new ULocale(loc).getDisplayName() + "\n    http://www.unicode.org/cldr/apps/survey?_="+loc+"\n\n";
+                complain = complain +  loc.toULocale().getDisplayName() + "\n    http://www.unicode.org/cldr/apps/survey?_="+loc+"\n\n";
             }
         }
         
@@ -1839,7 +1843,7 @@ if(true == true)    throw new InternalError("removed from use.");
         
         boolean didPrint =false;
         for(Iterator li=locales.iterator();li.hasNext();) {
-            String loc = (String)li.next();
+            CLDRLocale loc = CLDRLocale.getInstance(li.next().toString());
             
             int locStatus = status(loc);
             if((locStatus&(RES_DISPUTED|RES_ERROR))>0) {  // RES_BAD_MASK
@@ -1923,15 +1927,15 @@ if(true == true)    throw new InternalError("removed from use.");
     
     /**
      * how many results of this type for this locale? I.e. N disputed .. 
-     * @param locale the locale
+     * @param loc the locale
      * @param type the type to consider (not a bitfield)
      * @return number of results in this locale that are of this type
      */
-    int countResultsByType(String locale, int type) {
+    int countResultsByType(CLDRLocale loc, int type) {
         int rv = 0;
         synchronized(conn) {
             try {
-                countResultByType.setString(1,locale);
+                countResultByType.setString(1,loc.toString());
                 countResultByType.setInt(2, type);
                 
                 ResultSet rs = countResultByType.executeQuery();
@@ -1940,7 +1944,7 @@ if(true == true)    throw new InternalError("removed from use.");
                 }
                 rs.close();
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't  query count - loc=" + locale + ", type="+typeToStr(type)+" - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't  query count - loc=" + loc + ", type="+typeToStr(type)+" - " + SurveyMain.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);
@@ -1951,18 +1955,18 @@ if(true == true)    throw new InternalError("removed from use.");
     
     /**
      * Pull in a ResultSet of the bad (unresolved) results for this locale
-     * @param locale the locale
+     * @param loc the locale
      * @return the ResultSet - caller must close it, etc!
      */
-    ResultSet listBadResults(String locale) {
+    ResultSet listBadResults(CLDRLocale loc) {
         ResultSet rs = null;
         synchronized(conn) {
             try {
-                listBadResults.setString(1,locale);
+                listBadResults.setString(1,loc.toString());
                 
                 rs = listBadResults.executeQuery();
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't  query bad results - loc=" + locale + ", type=BAD - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't  query bad results - loc=" + loc + ", type=BAD - " + SurveyMain.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);
@@ -2005,7 +2009,7 @@ if(true == true)    throw new InternalError("removed from use.");
 
     private class CachedVettingData extends Registerable {
         Integer status = null;
-        public CachedVettingData(String locale) {
+        public CachedVettingData(CLDRLocale locale) {
             super(sm.lcr, locale);
             register();
         }
@@ -2047,12 +2051,13 @@ if(true == true)    throw new InternalError("removed from use.");
         
     }
     
-    Map<String,CachedVettingData> cachedData = new HashMap<String,CachedVettingData>();
-    private CachedVettingData getCachedLocaleData(String locale) {
+    Map<CLDRLocale,CachedVettingData> cachedData = new HashMap<CLDRLocale,CachedVettingData>();
+    private CachedVettingData getCachedLocaleData(CLDRLocale locale) {
         synchronized(this) {
             CachedVettingData vd = cachedData.get(locale);
             if(vd == null || !vd.isValid()) {
-                System.err.println(((vd==null)?"":"Re-")+"loading vet cache for " + locale);
+                if(vd!=null) // reduce noise first time thru
+                      System.err.println(((vd==null)?"":"Re-")+"loading vet cache for " + locale);
                 vd = new CachedVettingData(locale);
                 cachedData.put(locale, vd);
             }
@@ -2060,17 +2065,17 @@ if(true == true)    throw new InternalError("removed from use.");
         }
     }
     
-    public int getOrgDisputeCount(String org, String locale) {
+    public int getOrgDisputeCount(String org, CLDRLocale locale) {
         synchronized(conn) {
             return getCachedLocaleData(locale).getOrgDisputeCount(org);
         }
     }
-    private int handleGetOrgDisputeCount(String org, String locale) {
+    private int handleGetOrgDisputeCount(String org, CLDRLocale locale) {
         int count = 0;
         synchronized(conn) {
             try {
                 orgDisputePathCount.setString(1,org);
-                orgDisputePathCount.setString(2,locale);
+                orgDisputePathCount.setString(2,locale.toString());
                 
                 ResultSet rs = orgDisputePathCount.executeQuery();
                 if(rs.next()) {
@@ -2087,13 +2092,13 @@ if(true == true)    throw new InternalError("removed from use.");
         return count;  
     }
 
-    boolean queryOrgDispute(String org, String locale, int base_xpath) {
+    boolean queryOrgDispute(String org, CLDRLocale locale, int base_xpath) {
         if(getOrgDisputeCount(org,locale)==0) return false; // quick exit: if no disputes.
         boolean result = false;
         synchronized(conn) {
             try {
                 orgDisputeQuery.setString(1,org);
-                orgDisputeQuery.setString(2,locale);
+                orgDisputeQuery.setString(2,locale.toString());
                 orgDisputeQuery.setInt(3,base_xpath);
                 
                 ResultSet rs = orgDisputeQuery.executeQuery();
@@ -2131,8 +2136,8 @@ if(true == true)    throw new InternalError("removed from use.");
                         do {
                             loc = rs.getString(1);
                             int cnt = rs.getInt(2);
-                            
-                            sm.printLocaleLink(ctx,loc,new ULocale(loc).getDisplayName());
+                            CLDRLocale cloc = CLDRLocale.getInstance(loc);
+                            sm.printLocaleLink(ctx,cloc,cloc.getDisplayName(ctx.displayLocale));
                             ctx.println(" "+cnt+" vetting disputes for " + org + "<br>");
                         } while(rs.next());
                     }
@@ -2188,7 +2193,7 @@ if(true == true)    throw new InternalError("removed from use.");
 					locs++;
 					ht = new Hashtable();
 					m.put(aLoc,ht);
-					badLocales.add(sm.getLocaleDisplayName(aLoc));
+					badLocales.add(sm.getLocaleDisplayName(CLDRLocale.getInstance(aLoc)));
 				}
 				Set st = (Set)ht.get(theMenu);
 				if(st==null) {
@@ -2225,7 +2230,7 @@ if(true == true)    throw new InternalError("removed from use.");
         for(Iterator li = lm.keySet().iterator();li.hasNext();) {
             n++;
         */
-        TreeMap lm = sm.getLocaleListMap();
+        LocaleTree lm = sm.getLocaleTree();
         
         Iterator i;
         
@@ -2234,7 +2239,7 @@ if(true == true)    throw new InternalError("removed from use.");
         i = badLocales.iterator();
 		for(;i.hasNext();) {
             String locName = (String)i.next();
-            String loc = (String)sm.getLocaleCode(locName);
+            String loc = sm.getLocaleCode(locName).toString();
             if(loc==null) loc = locName;
 			Hashtable ht;
 			ht = (Hashtable)m.get(loc);
@@ -2258,7 +2263,7 @@ if(true == true)    throw new InternalError("removed from use.");
                     ctx.println("<tr class='row"+(nn++ % 2)+"'>");
                     ctx.print("<th align='left'>"+totalbad+"</th>");
                     ctx.print("<th class='hang' align='left'>");
-                    sm.printLocaleLink(subCtx,loc,new ULocale(loc).getDisplayName().replaceAll("\\(",
+                    sm.printLocaleLink(subCtx,CLDRLocale.getInstance(loc),new ULocale(loc).getDisplayName().replaceAll("\\(",
                             "<br>(")); // subCtx = no 'do' portion, for now.
                     ctx.println("</th>");
                     ctx.println("</tr>");
@@ -2276,7 +2281,7 @@ if(true == true)    throw new InternalError("removed from use.");
         */
             ctx.print("<th align='left'>"+totalbad+"</th>");
             ctx.print("<th class='hang' align='left'>");
-			sm.printLocaleLink(subCtx,loc,new ULocale(loc).getDisplayName().replaceAll("\\(",
+			sm.printLocaleLink(subCtx,CLDRLocale.getInstance(loc),new ULocale(loc).getDisplayName().replaceAll("\\(",
                     "<br>(")); // subCtx = no 'do' portion, for now.
 			ctx.println("</th>");
             if(totalbad > 0) {
@@ -2321,15 +2326,15 @@ if(true == true)    throw new InternalError("removed from use.");
             // first, do submissions.
             DataSection oldSection = ctx.getExistingSection(podBase);
             
-            SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
+            SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.getLocale());
             CLDRFile cf = uf.cldrfile;
             if(cf == null) {
                 throw new InternalError("CLDRFile is null!");
             }
-            CLDRDBSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
+            XMLSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
             
             if(ourSrc == null) {
-                throw new InternalError("oursrc is null! - " + (SurveyMain.USER_FILE + SurveyMain.CLDRDBSRC) + " @ " + ctx.locale );
+                throw new InternalError("oursrc is null! - " + (SurveyMain.USER_FILE + SurveyMain.CLDRDBSRC) + " @ " + ctx.getLocale() );
             }
             synchronized(ourSrc) { 
                 // Set up checks
@@ -2345,18 +2350,18 @@ if(true == true)    throw new InternalError("removed from use.");
         return false;
     }
     
-    Hashtable<String, Reference<DataTester>> hash = new Hashtable<String, Reference<DataTester>>();
+    Hashtable<CLDRLocale, Reference<DataTester>> hash = new Hashtable<CLDRLocale, Reference<DataTester>>();
 
-    public boolean test(String locale, int xpath, int fxpath, String value) {
+    public boolean test(CLDRLocale locale, int xpath, int fxpath, String value) {
         return test(locale, sm.xpt.getById(xpath), sm.xpt.getById(fxpath), value);
     }
     
-    public boolean test(String locale, String xpath, String fxpath, String value) {
+    public boolean test(CLDRLocale locale, String xpath, String fxpath, String value) {
         DataTester tester = get(locale);
         return tester.test(xpath, fxpath, value);
     }
 
-    private DataTester get(String locale) {
+    private DataTester get(CLDRLocale locale) {
         Reference<DataTester> ref = hash.get(locale);
         DataTester d = null;
         if(ref != null) {
@@ -2390,8 +2395,8 @@ if(true == true)    throw new InternalError("removed from use.");
         
         void reset() {
 //            System.err.println("vetting::checker reset " + locale);
-            CLDRDBSource dbSource = sm.makeDBSource(conn, null, new ULocale(locale), false);
-            dbSource.vettingMode(sm.vet);
+            XMLSource dbSource = sm.makeDBSource(conn, null, locale);
+//            CLDRDBSourceFactory.vettingMode(sm.vet);
             //if(resolved == false) {
                 file = sm.makeCLDRFile(dbSource);
             //} else { 
@@ -2407,7 +2412,7 @@ if(true == true)    throw new InternalError("removed from use.");
             register();
         }
         
-        private DataTester(String locale) 
+        private DataTester(CLDRLocale locale) 
         {
             super(sm.lcr, locale);
 
@@ -2474,7 +2479,7 @@ if(true == true)    throw new InternalError("removed from use.");
      * @param ourDate canonical date for generation
      * @throws SQLException 
      */
-    public boolean[] writeVoteFile(PrintWriter out, Connection conn2, CLDRDBSource source, CLDRFile file, String ourDate, boolean xpathSet[]) throws SQLException {
+    public boolean[] writeVoteFile(PrintWriter out, Connection conn2, XMLSource source, CLDRFile file, String ourDate, boolean xpathSet[]) throws SQLException {
         boolean embeddedXpathTable = false;
         
         if(xpathSet == null) {
@@ -2566,7 +2571,7 @@ if(true == true)    throw new InternalError("removed from use.");
                 out.println("\t\t<item xpath=\""+outFull+"\" type=\""+
                         (isBase?"optimal":"proposal")+"\" id=\""+outDataPath+"\" status=\""+iDraft+"\""+">");
                 if(outDataPath==baseXpath) {
-                    String oxpath = source.getOrigXpath(outDataPath, false);
+                    String oxpath = source.getFullPathAtDPath(sm.xpt.getById(outDataPath)); // ,false
                     String eDraft = null;
                     if(oxpath == null) {
                         eDraft = "unknown";

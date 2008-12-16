@@ -90,8 +90,14 @@ public class SurveyForum {
             return NO_FORUM; // all forums
         }
         // make sure it is a valid src!
-        if((forum==null)||(forum.indexOf('_')>=0)||!sm.isValidLocale(forum)) {
-            throw new RuntimeException("Invalid forum: " + forum);
+        if((forum==null)||(forum.indexOf('_')>=0)||!sm.isValidLocale(CLDRLocale.getInstance(forum))) {
+//            // <explain>
+//            StringBuffer why = new StringBuffer();
+//            if(forum==null) why.append("(forum==null) ");
+//            if(forum.indexOf('_')>=0) why.append("forum.indexOf(_)>=0) ");
+//            if(!sm.isValidLocale(CLDRLocale.getInstance(forum))) why.append("!valid ");
+//            // </explain>
+            throw new RuntimeException("Invalid forum: " + forum );
         }
         
         // now with that out of the way..
@@ -189,12 +195,12 @@ public class SurveyForum {
         boolean loggedout = ((ctx.session==null)||(ctx.session.user==null));
         boolean canModify = false;
 
-        if((ctx.locale == null) && (forumNumber >= GOOD_FORUM)) {
-            ctx.setLocale(new ULocale(forum));
+        if((ctx.getLocale() == null) && (forumNumber >= GOOD_FORUM)) {
+            ctx.setLocale(CLDRLocale.getInstance(forum));
         }
         
         if(!loggedout && (forumNumber >= GOOD_FORUM)) {
-            canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
+            canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
         }
         
         // Are they just zooming in?
@@ -250,7 +256,7 @@ public class SurveyForum {
         sm.printFooter(ctx);
     }
     
-    String returnUrl(WebContext ctx, String locale, int base_xpath) {
+    String returnUrl(WebContext ctx, CLDRLocale locale, int base_xpath) {
         String xpath = sm.xpt.getById(base_xpath);
         String theMenu = PathUtilities.xpathToMenu(xpath);
         if(theMenu==null) {
@@ -288,7 +294,7 @@ public class SurveyForum {
         if(nopopups) {
             ctx.println(returnText+"<hr>");
         }
-        showXpath(ctx, xpath, base_xpath, ctx.locale);
+        showXpath(ctx, xpath, base_xpath, ctx.getLocale());
         if(nopopups) {
             ctx.println("<hr>"+returnText+"<br/>");
         }
@@ -321,7 +327,7 @@ public class SurveyForum {
                 subj = "item";
             }
             
-            subj = ctx.locale + ": " +subj;
+            subj = ctx.getLocale() + ": " +subj;
         } else {
             subj = subj.trim();
         }
@@ -341,7 +347,7 @@ public class SurveyForum {
                         pAdd.setString(3, preparePostText(text));
                         pAdd.setInt(4, forumNumber);
                         pAdd.setInt(5, -1); // no parent
-                        pAdd.setString(6,ctx.locale.toString());
+                        pAdd.setString(6,ctx.getLocale().toString());
                         pAdd.setInt(7, base_xpath);
                         
                         int n = pAdd.executeUpdate();
@@ -397,7 +403,7 @@ public class SurveyForum {
                 System.err.println(et.toString()+" - # of users:" + emailCount);
                 
                 
-                ctx.redirect(ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+forum+"&didpost=t");
+                ctx.redirect(ctx.base()+"?_="+ctx.getLocale().toString()+"&"+F_FORUM+"="+forum+"&didpost=t");
                 return;
                 
             } else {
@@ -453,7 +459,7 @@ public class SurveyForum {
         ctx.println("<form method='POST' action='"+ctx.base()+"'>");
         ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+forum+"'>");
         ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
-        ctx.println("<input type='hidden' name='_' value='"+ctx.locale+"'>");
+        ctx.println("<input type='hidden' name='_' value='"+ctx.getLocale()+"'>");
         ctx.println("<input type='hidden' name='replyto' value='"+replyTo+"'>");
 
         if(sm.isPhaseBeta()) {
@@ -492,7 +498,7 @@ public class SurveyForum {
             if(nopopups) {
                 ctx.println(returnText+"<hr>");
             }
-            showXpath(ctx, xpath, base_xpath, ctx.locale);
+            showXpath(ctx, xpath, base_xpath, ctx.getLocale());
             if(nopopups) {
                 ctx.println("<hr>"+returnText+"<br/>");
             }
@@ -501,10 +507,10 @@ public class SurveyForum {
     
     public static void showXpath(WebContext baseCtx, String section_xpath, int item_xpath) {
         String base_xpath = section_xpath;
-        ULocale loc = baseCtx.locale;
+        CLDRLocale loc = baseCtx.getLocale();
         WebContext ctx = new WebContext(baseCtx);
         ctx.setLocale(loc);
-        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
+        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
         String podBase = DataSection.xpathToSectionBase(section_xpath);
         baseCtx.sm.printPathListOpen(ctx);
         if(canModify) {
@@ -534,10 +540,10 @@ public class SurveyForum {
     }
     
     public static void showSubmitButton(WebContext baseCtx) {
-        ULocale loc = baseCtx.locale;
+        CLDRLocale loc = baseCtx.getLocale();
         WebContext ctx = new WebContext(baseCtx);
         ctx.setLocale(loc);
-        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
+        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
         if(canModify) {
             /* hidden fields for that */
 //            ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+ctx.locale.getLanguage()+"'>");
@@ -550,21 +556,21 @@ public class SurveyForum {
     }
     
 
-    public void showXpath(WebContext baseCtx, String xpath, int base_xpath, ULocale loc) {
+    public void showXpath(WebContext baseCtx, String xpath, int base_xpath, CLDRLocale locale) {
         WebContext ctx = new WebContext(baseCtx);
-        ctx.setLocale(loc);
+        ctx.setLocale(locale);
         // Show the Pod in question:
 //        ctx.println("<hr> \n This post Concerns:<p>");
-        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
+        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
         String podBase = DataSection.xpathToSectionBase(xpath);
         
         sm.printPathListOpen(ctx);
 
         if(canModify) {
             /* hidden fields for that */
-            ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+ctx.locale.getLanguage()+"'>");
+            ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+ctx.getLocale().getLanguage()+"'>");
             ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
-            ctx.println("<input type='hidden' name='_' value='"+loc+"'>");
+            ctx.println("<input type='hidden' name='_' value='"+locale+"'>");
 
             ctx.println("<input type='submit' value='" + sm.getSaveButtonText() + "'><br>"); //style='float:right' 
             sm.vet.processPodChanges(ctx, podBase);
@@ -634,7 +640,7 @@ public class SurveyForum {
                     String loc = rs.getString(6);
                     int xpath = rs.getInt(7);
                  
-                    showPost(ctx, forum, poster, subj, text, id, lastDate, loc, xpath);
+                    showPost(ctx, forum, poster, subj, text, id, lastDate, CLDRLocale.getInstance(loc), xpath);
                  
                     count++;
                 }
@@ -693,12 +699,12 @@ public class SurveyForum {
     //                }
                  }
                 
-                 showPost(ctx, forum, poster, subj, text, id, lastDate, loc, xpath);
+                 showPost(ctx, forum, poster, subj, text, id, lastDate, CLDRLocale.getInstance(loc), xpath);
                              
                 if(xpath != -1) {
                     String xpath_string = sm.xpt.getById(xpath);
                     if(xpath_string != null) {
-                        showXpath(ctx, xpath_string, xpath, new ULocale(loc));
+                        showXpath(ctx, xpath_string, xpath, CLDRLocale.getInstance(loc));
                     }
                 }              
                 
@@ -715,13 +721,13 @@ public class SurveyForum {
     /*
      * Show one post, "long" form.
      */
-    void showPost(WebContext ctx, String forum, int poster, String subj, String text, int id, Timestamp time, String loc, int xpath) {
+    void showPost(WebContext ctx, String forum, int poster, String subj, String text, int id, Timestamp time, CLDRLocale loc, int xpath) {
         ctx.println("<div class='respbox'>");
         String name = getNameLinkFromUid(ctx,poster);
         ctx.println("<div class='person'><a href='"+ctx.url()+"?x=list&u="+poster+"'>"+        name+"</a><br>"+time.toString()+"<br>");
         if(loc != null) {
             ctx.println("<span class='reply'>");
-            sm.printLocaleLink(ctx, loc, loc);
+            sm.printLocaleLink(ctx, loc, loc.toString());
             ctx.println("</span> * ");
         }
         if(xpath != -1) {
@@ -927,10 +933,9 @@ public class SurveyForum {
                 PreparedStatement initbl = prepareStatement("initbl", "INSERT INTO " + DB_LOC2FORUM + " (locale,forum) VALUES (?,?)");
                 int updates = 0;
                 int errs = 0;
-                for(Object o : sm.getLocalesSet()) {
-                    String l = (String)o;
-                    initbl.setString(1,l);
-                    String forum = new ULocale(l).getLanguage();
+                for(CLDRLocale l: SurveyMain.getLocalesSet()) {
+                    initbl.setString(1,l.toString());
+                    String forum = l.getLanguage();
                     initbl.setString(2,forum);
                     try {
                         int n = initbl.executeUpdate();
@@ -1023,7 +1028,7 @@ public class SurveyForum {
             title = " (not on your interest list)";
         }*/
 //        title = null /*+ title*/;
-        ctx.println("<a target='"+ctx.atarget("n:"+ctx.locale.toString())+"' class='forumlink' href='"+forumUrl(ctx,section,p,xpath)+"' >" // title='"+title+"'
+        ctx.println("<a target='"+ctx.atarget("n:"+ctx.getLocale())+"' class='forumlink' href='"+forumUrl(ctx,section,p,xpath)+"' >" // title='"+title+"'
             +contents+ "</a>");
     }
     void showForumLink(WebContext ctx, DataSection section, DataSection.DataRow p, int xpath) {
@@ -1031,7 +1036,7 @@ public class SurveyForum {
     }
     // "link" UI
     static public String forumUrl(WebContext ctx, DataSection section, DataSection.DataRow p, int xpath) {
-        return ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+section.intgroup+"&"+F_XPATH+"="+xpath;
+        return ctx.base()+"?_="+ctx.getLocale()+"&"+F_FORUM+"="+section.intgroup+"&"+F_XPATH+"="+xpath;
     }
     static public String localeToForum(String locale) {
         return localeToForum(new ULocale(locale));
@@ -1047,7 +1052,7 @@ public class SurveyForum {
         return (ctx.base()+"?"+F_FORUM+"="+forum);
     }
     String returnText(WebContext ctx, int base_xpath) {
-        return "Zoom out to <a href='"+returnUrl(ctx,ctx.locale.toString(),base_xpath)+"'>"+ctx.iconHtml("zoom","zoom out to " + ctx.locale)+" "+ ctx.locale+"</a>";
+        return "Zoom out to <a href='"+returnUrl(ctx,ctx.getLocale(),base_xpath)+"'>"+ctx.iconHtml("zoom","zoom out to " + ctx.getLocale())+" "+ ctx.getLocale()+"</a>";
     }
     
     // XML/RSS
@@ -1092,7 +1097,7 @@ public boolean doFeed(HttpServletRequest request, HttpServletResponse response)
         String kind = request.getParameter("kind");
         String loc = request.getParameter("_");
         
-        if((loc!=null) && (!UserRegistry.userCanModifyLocale(user, loc))) {
+        if((loc!=null) && (!UserRegistry.userCanModifyLocale(user, CLDRLocale.getInstance(loc)))) {
             sendErr(request, response, "permission denied for locale "+loc);
             return true;
         }
@@ -1258,7 +1263,7 @@ public boolean doFeed(HttpServletRequest request, HttpServletResponse response)
            !UserRegistry.userIsStreet(ctx.session.user)) {
             return "";
         }
-        String feedUrl = ctx.schemeHostPort()+  ctx.base()+("/feed?_="+ctx.locale.getLanguage()+"&amp;email="+ctx.session.user.email+"&amp;pw="+
+        String feedUrl = ctx.schemeHostPort()+  ctx.base()+("/feed?_="+ctx.getLocale().getLanguage()+"&amp;email="+ctx.session.user.email+"&amp;pw="+
             ctx.session.user.password+"&amp;");
         return 
             /* "<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Atom 1.0\" href=\""+feedUrl+"&feed=atom_1.0\">" + */
@@ -1275,7 +1280,7 @@ public boolean doFeed(HttpServletRequest request, HttpServletResponse response)
            !UserRegistry.userIsStreet(ctx.session.user)) {
             return "";
         }
-        String feedUrl = ctx.schemeHostPort()+  ctx.base()+("/feed?_="+ctx.locale.getLanguage()+"&amp;email="+ctx.session.user.email+"&amp;pw="+
+        String feedUrl = ctx.schemeHostPort()+  ctx.base()+("/feed?_="+ctx.getLocale().getLanguage()+"&amp;email="+ctx.session.user.email+"&amp;pw="+
             ctx.session.user.password+"&amp;");
         
         return  " <a href='"+feedUrl+"&feed=rss_2.0"+"'>"+ctx.iconHtml("feed","RSS 2.0")+"rss</a>"; /* | " +

@@ -60,6 +60,7 @@ import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CachingEntityResolver;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PathUtilities;
@@ -68,6 +69,7 @@ import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -129,13 +131,14 @@ public class SurveyMain extends HttpServlet {
     public XPathTable   xpt = null;
     public Vetting      vet = null;
     public SurveyForum  fora = null;
+    public CLDRDBSourceFactory dbsrcfac = null;
     public LocaleChangeRegistry lcr = new LocaleChangeRegistry();
-    ElapsedTimer uptime = new ElapsedTimer("ST uptime: {0}");
+    static ElapsedTimer uptime = new ElapsedTimer("ST uptime: {0}");
     ElapsedTimer startupTime = new ElapsedTimer("{0} until first GET/POST");
     public static String isBusted = null;
-    private String isBustedStack = null;
-    private Throwable isBustedThrowable = null;
-    private ElapsedTimer isBustedTimer = null;
+    private static String isBustedStack = null;
+    private static Throwable isBustedThrowable = null;
+    private static ElapsedTimer isBustedTimer = null;
     ServletConfig config = null;
 
     
@@ -992,14 +995,14 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<h2>1-click vetting update</h2>");
             // 1: update all sources
             ctx.println("<h3>1. update all sources</h3>");
-            Connection conn = this.getDBConnection();
+//            Connection conn = this.getDBConnection();
             try {
-                CLDRDBSource mySrc = makeDBSource(conn, null, new ULocale("root"));
+//                CLDRDBSource mySrc = makeDBSource(conn, null, CLDRLocale.ROOT);
                 resetLocaleCaches();
-                ctx.println("Update count: " + mySrc.manageSourceUpdates(actionCtx, this, true)); // do a quiet 'update all'
+                ctx.println("Update count: " + dbsrcfac.manageSourceUpdates(actionCtx, this, true)); // do a quiet 'update all'
                 ctx.println("<hr>");
             } finally {
-                SurveyMain.closeDBConnection(conn);
+//                SurveyMain.closeDBConnection(conn);
             }
             // 2: load all locales
             loadAllLocales(ctx);
@@ -1014,7 +1017,7 @@ public class SurveyMain extends HttpServlet {
             et = new ElapsedTimer();
             n = vet.updateResults(false); // don't RE update.
             ctx.println("Done updating "+n+" vote results in: " + et + "<br>");
-            lcr.invalidateLocale("root");
+            lcr.invalidateLocale(CLDRLocale.ROOT);
             // 5: update status
             et = new ElapsedTimer();
             n = vet.updateStatus();
@@ -1061,7 +1064,7 @@ public class SurveyMain extends HttpServlet {
                 ElapsedTimer et = new ElapsedTimer();
                 int n = vet.updateResults(reupdate);
                 ctx.println("Done updating "+n+" vote results in: " + et + "<br>");
-                lcr.invalidateLocale("root");
+                lcr.invalidateLocale(CLDRLocale.ROOT);
                 ElapsedTimer zet = new ElapsedTimer();
                 int zn = vet.updateStatus();
                 ctx.println("Done updating "+zn+" statuses [locales] in: " + zet + "<br>");
@@ -1087,9 +1090,9 @@ public class SurveyMain extends HttpServlet {
                     
                     ctx.println("<h4>Update just "+what+"</h4>");
                     ElapsedTimer et = new ElapsedTimer();
-                    int n = vet.updateResults(what);
+                    int n = vet.updateResults(CLDRLocale.getInstance(what));
                     ctx.println("Done updating "+n+" vote results in: " + et + "<br>");
-                    lcr.invalidateLocale(what);
+                    lcr.invalidateLocale(CLDRLocale.getInstance(what));
                     ElapsedTimer zet = new ElapsedTimer();
                     int zn = vet.updateStatus();
                     ctx.println("Done updating "+zn+" statuses [locales] in: " + zet + "<br>");
@@ -1133,7 +1136,7 @@ public class SurveyMain extends HttpServlet {
                 if(what.length()>0) {
                     ctx.println("<h4>Wash "+what+"</h4>");
                     ElapsedTimer et = new ElapsedTimer();
-                    int n = vet.washVotes(what);
+                    int n = vet.washVotes(CLDRLocale.getInstance(what));
                     ctx.println("Done washing "+n+" vote results in: " + et + "<br>");
                     int stup = vet.updateStatus();
                     ctx.println("Updated " + stup + " statuses.<br>");
@@ -1160,14 +1163,14 @@ public class SurveyMain extends HttpServlet {
             WebContext subCtx = (WebContext)ctx.clone();
             actionCtx.addQuery("action",action);
             ctx.println("<br>(locale caches reset..)<br>");
-            Connection conn = this.getDBConnection();
+//            Connection conn = this.getDBConnection();
             try {
-                CLDRDBSource mySrc = makeDBSource(conn, null, new ULocale("root"));
+//                CLDRDBSource mySrc = makeDBSource(conn, null, CLDRLocale.ROOT);
                 resetLocaleCaches();
-                mySrc.manageSourceUpdates(actionCtx, this); // What does this button do?
+                dbsrcfac.manageSourceUpdates(actionCtx, this); // What does this button do?
                 ctx.println("<br>");
             } finally {
-                SurveyMain.closeDBConnection(conn);
+//                SurveyMain.closeDBConnection(conn);
             }
             
         } else if(action.equals("srl_output")) {
@@ -1235,9 +1238,9 @@ public class SurveyMain extends HttpServlet {
             subCtx.addQuery("dump",vap);
             subCtx.addQuery("action","srl_db_update");
             ctx.println("<br>");
-            CLDRDBSource mySrc = makeDBSource(ctx, null, new ULocale("root"));
+//            XMLSource mySrc = makeDBSource(ctx, null, CLDRLocale.ROOT);
             ElapsedTimer aTimer = new ElapsedTimer();
-            mySrc.doDbUpdate(subCtx, this); // What does this button do?
+            dbsrcfac.doDbUpdate(subCtx, this); 
             ctx.println("<br>(dbupdate took " + aTimer+")");
             ctx.println("<br>");
 		} else if(action.equals("srl_vxport")) {
@@ -1253,7 +1256,7 @@ public class SurveyMain extends HttpServlet {
 				int dot = localeName.indexOf('.');
 				theLocale = localeName.substring(0,dot);
 				System.err.println("#vx "+theLocale);
-				CLDRDBSource dbSource = makeDBSource(ctx, null, new ULocale(theLocale), true);
+				XMLSource dbSource = makeDBSource(ctx, null, CLDRLocale.getInstance(theLocale), true);
 				CLDRFile file = makeCLDRFile(dbSource);
 				  OutputStream files = new FileOutputStream(new File(outdir,localeName),false); // Append
 //				  PrintWriter pw = new PrintWriter(files);
@@ -1442,7 +1445,7 @@ public class SurveyMain extends HttpServlet {
                     if(connx == null) {
                         connx = this.getDBConnection();
                     }
-                    ULocale locale = new ULocale(localeName);
+                    CLDRLocale locale = CLDRLocale.getInstance(localeName);
                     //                        WebContext xctx = new WebContext(false);
                     //                        xctx.setLocale(locale);
                     makeCLDRFile(makeDBSource(connx, null, locale));  // orphan result
@@ -1494,15 +1497,15 @@ public class SurveyMain extends HttpServlet {
 
         ctx.println("<link rel='stylesheet' type='text/css' href='"+ ctx.schemeHostPort()  + ctx.context("surveytool.css") + "'>");
         ctx.println("<title>CLDR Vetting | ");
-        if(ctx.locale != null) {
-            ctx.print(ctx.locale.getDisplayName(ctx.displayLocale) + " | ");
+        if(ctx.getLocale() != null) {
+            ctx.print(ctx.getLocale().getDisplayName(ctx.displayLocale) + " | ");
         }
         ctx.println(title + "</title>");
         ctx.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
         
         if(true || isUnofficial || 
                 ctx.prefBool(PREF_GROTTY)) {  // no RSS on the official site- for now
-            if(ctx.locale != null) {
+            if(ctx.getLocale() != null) {
                 ctx.println(fora.forumFeedStuff(ctx));
             } else {
                 if(!ctx.hasField("x")&&!ctx.hasField("do")&&!ctx.hasField("sql")&&!ctx.hasField("dump")) {
@@ -1767,7 +1770,7 @@ public class SurveyMain extends HttpServlet {
             }
         }
         if(locale != null && (locale.length()>0)) {
-            ctx.setLocale(new ULocale(locale));
+            ctx.setLocale(CLDRLocale.getInstance(locale));
         }
     }
     
@@ -2137,6 +2140,8 @@ public class SurveyMain extends HttpServlet {
         }
         
         StandardCodes sc = StandardCodes.make();
+        
+        LocaleTree tree = getLocaleTree();
 
         WebContext subCtx = (WebContext)ctx.clone();
         subCtx.setQuery(QUERY_DO,"coverage");
@@ -2332,11 +2337,11 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<i>Failure: " + unchainSqlException(se) + "</i><br>");
         }
 
-        TreeMap lm = getLocaleListMap();
-        if(lm == null) {
-            busted("Can't load CLDR data files from " + fileBase);
-            throw new RuntimeException("Can't load CLDR data files from " + fileBase);
-        }
+//        Map<String, CLDRLocale> lm = getLocaleListMap();
+//        if(lm == null) {
+//            busted("Can't load CLDR data files from " + fileBase);
+//            throw new RuntimeException("Can't load CLDR data files from " + fileBase);
+//        }
         
         if(!badSet.isEmpty()) {
             ctx.println("<B>Warning: locale designations not matching locales in CLDR:</b> ");
@@ -2364,7 +2369,7 @@ public class SurveyMain extends HttpServlet {
                 (!"basic".equals(group)) && // exclude it for being basic
                 (null==supplemental.defaultContentToParent(group)) ) {
                 //System.err.println("getGroup("+lang+", " + missingLocalesForOrg + ") = " + group);
-                if(!isValidLocale(lang)) {
+                if(!isValidLocale(CLDRLocale.getInstance(lang))) {
                     //System.err.println("-> not in lm: " + lang);
                     languagesNotInCLDR.add(lang);
                 } else {
@@ -2416,10 +2421,9 @@ public class SurveyMain extends HttpServlet {
 
         ctx.println("Locales in <b>bold</b> have assigned vetters.<br><table summary='Locale Coverage' border=1 class='list'>");
         int n=0;
-        for(Iterator li = lm.keySet().iterator();li.hasNext();) {
+        for(String ln:tree.getTopLocales()) {
             n++;
-            String ln = (String)li.next();
-            String aLocale = (String)lm.get(ln);
+            CLDRLocale aLocale = tree.getLocaleCode(ln);
             ctx.print("<tr class='row" + (n%2) + "'>");
             ctx.print(" <td valign='top'>");
             boolean has = (s.contains(aLocale));
@@ -2430,10 +2434,10 @@ public class SurveyMain extends HttpServlet {
             }
 //            ctx.print(aLocale);            
             //ctx.print("<br><font size='-1'>"+new ULocale(aLocale).getDisplayName()+"</font>");
-			printLocaleStatus(ctx, aLocale, ln, aLocale);
+			printLocaleStatus(ctx, aLocale, ln.toString(), aLocale.toString());
             ctx.print("</span>");
             if(languagesMissing.contains(aLocale)) {
-                ctx.println("<br>"+ctx.iconHtml("stop","No " + missingLocalesForOrg + " vetters")+ "<i>(coverage: "+ sc.getGroup(aLocale, missingLocalesForOrg)+")</i>");
+                ctx.println("<br>"+ctx.iconHtml("stop","No " + missingLocalesForOrg + " vetters")+ "<i>(coverage: "+ sc.getGroup(aLocale.toString(), missingLocalesForOrg)+")</i>");
             }
 
             if(showCodes) {
@@ -2449,7 +2453,7 @@ public class SurveyMain extends HttpServlet {
 					ctx.println("</ul>");
 				}
 			}
-            boolean localeIsDefaultContent = (null!=supplemental.defaultContentToParent(aLocale));
+            boolean localeIsDefaultContent = (null!=supplemental.defaultContentToParent(aLocale.toString()));
 			if(localeIsDefaultContent) {
                         ctx.println(" (<i>default content</i>)");
             } else if(participation && nullStatus!=null && !nullStatus.isEmpty()) {
@@ -2467,14 +2471,14 @@ public class SurveyMain extends HttpServlet {
 			}
             ctx.println(" </td>");
             
-            TreeMap sm = (TreeMap)subLocales.get(aLocale);  // sub locales 
+            Map<String,CLDRLocale> sm = tree.getSubLocales(aLocale);  // sub locales 
             
             ctx.println("<td valign='top'>");
             int j = 0;
             for(Iterator si = sm.keySet().iterator();si.hasNext();) {
-                String sn = (String)si.next();
-                String subLocale = (String)sm.get(sn);
-                if(subLocale.length()>0) {
+                String sn = si.next().toString();
+                CLDRLocale subLocale = sm.get(sn);
+               // if(subLocale.length()>0) {
 
 					has = (s.contains(subLocale));
 
@@ -2494,7 +2498,7 @@ public class SurveyMain extends HttpServlet {
                   //  ctx.print(subLocale);           
 //                    ctx.print("&nbsp;<font size='-1'>("+new ULocale(subLocale).getDisplayName()+")</font>");
     
-					printLocaleStatus(ctx, subLocale, sn, subLocale);
+					printLocaleStatus(ctx, CLDRLocale.getInstance(subLocale.toString()), sn, subLocale.toString());
                    // if(has) {
                         ctx.print("</span>");
                    // }
@@ -2504,7 +2508,7 @@ public class SurveyMain extends HttpServlet {
                     if(showCodes) {
                         ctx.println("&nbsp;-&nbsp;<tt>" + subLocale + "</tt>");
                     }
-                    boolean isDc = (null!=supplemental.defaultContentToParent(subLocale));
+                    boolean isDc = (null!=supplemental.defaultContentToParent(subLocale.toString()));
                     
 					if(localeStatus!=null&&!nullStatus.isEmpty()) {
 						Hashtable what = (Hashtable)localeStatus.get(subLocale);
@@ -2531,7 +2535,7 @@ public class SurveyMain extends HttpServlet {
 							ctx.println("</blockquote>");
 						}
 					}
-                }
+                //}
                 j++;
             }
             ctx.println("</td>");
@@ -3362,9 +3366,9 @@ public class SurveyMain extends HttpServlet {
         
         // Redirect references to language locale
         if(ctx.field("x").equals("references")) {
-            if(ctx.locale != null) {
-                String langLocale = ctx.locale.getLanguage();
-                if(!langLocale.equals(ctx.localeString())) {
+            if(ctx.getLocale() != null) {
+                String langLocale = ctx.getLocale().getLanguage();
+                if(!langLocale.equals(ctx.getLocale().toString())) {
                     ctx.redirect(ctx.base()+"?_="+langLocale+"&x=references");
                     return;
                 }
@@ -3436,7 +3440,7 @@ public class SurveyMain extends HttpServlet {
         // print 'shopping cart'
         if(!ctx.hasField(QUERY_EXAMPLE))  {
             
-            if((which.length()==0) && (ctx.locale!=null)) {
+            if((which.length()==0) && (ctx.getLocale()!=null)) {
                 which = xMAIN;
             }
          //   if(false&&(which.length()>0)) {
@@ -3451,14 +3455,14 @@ public class SurveyMain extends HttpServlet {
                 boolean shownHeader = false;
                 for(;e.hasMoreElements();) {
                     String k = e.nextElement().toString();
-                    if((ctx.locale!=null)&&(ctx.localeString().equals(k))) {
+                    if((ctx.getLocale()!=null)&&(ctx.getLocale().toString().equals(k))) {
                         continue;
                     }
                     if(!shownHeader) {
                         ctx.println("<p align='right'><B>Recent locales: </B> ");
                         shownHeader = true;
                     }
-                    boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,k);
+                    boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,CLDRLocale.getInstance(k));
                     ctx.print("<a href=\"" + baseContext.url() + ctx.urlConnector() + QUERY_LOCALE+"=" + k + "\">" + 
                                 new ULocale(k).getDisplayName(ctx.displayLocale));
                     if(canModify) {
@@ -3472,13 +3476,13 @@ public class SurveyMain extends HttpServlet {
             }
         }
         
-        if((ctx.locale != null) && 
+        if((ctx.getLocale() != null) && 
             (!ctx.hasField(QUERY_EXAMPLE)) ) { // don't show these warnings for example pages.
-            String dcParent = supplemental.defaultContentToParent(ctx.localeString());
-            String dcChild = supplemental.defaultContentToChild(ctx.localeString());
+            CLDRLocale dcParent = CLDRLocale.getInstance(supplemental.defaultContentToParent(ctx.getLocale().toString()));
+            String dcChild = supplemental.defaultContentToChild(ctx.getLocale().toString());
             if(dcParent != null) {
                 ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
-                ctx.println("<h1>"+ctx.locale.getDisplayName()+"</h1>");
+                ctx.println("<h1>"+ctx.getLocale().getDisplayName(ctx.displayLocale)+"</h1>");
                 ctx.println("<div class='ferrbox'>This locale is the default content for <b>"+
                     getLocaleLink(ctx,dcParent,null)+
                     "</b>; thus editing and viewing is disabled. Please view and/or propose changes in <b>"+
@@ -3501,10 +3505,10 @@ public class SurveyMain extends HttpServlet {
                 ctx.printHelpLink("/DefaultContent","Help with Default Content");
                 ctx.print("</div>");
             }
-            String aliasTarget = isLocaleAliased(ctx.localeString());
+            CLDRLocale aliasTarget = isLocaleAliased(ctx.getLocale());
             if(aliasTarget != null) {
                 // the alias might be a default content locale. Save some clicks here. 
-                dcParent = supplemental.defaultContentToParent(aliasTarget);
+                dcParent = CLDRLocale.getInstance(supplemental.defaultContentToParent(aliasTarget.toString()));
                 if(dcParent == null) {
                     dcParent = aliasTarget;
                 }
@@ -3529,94 +3533,19 @@ public class SurveyMain extends HttpServlet {
         doLocale(ctx, baseContext, which);
     }
     
-     //TODO: object
-    /**
-    * TreeMap of all locales. 
-     *
-     * localeListMap =  TreeMap
-     *     [  (String  langScriptDisplayName)  ,    (String localecode) ]  
-     *  subLocales = Hashtable
-     *       [ localecode, TreeMap ]
-     *         -->   TreeMap [ langScriptDisplayName,   String localeCode ]
-     *  example
-     *  
-     *   localeListMap
-     *     English  -> en
-     *     Serbian  -> sr
-     *     Serbian (Cyrillic) -> sr_Cyrl
-     *    sublocales
-     *       en ->  
-     *           [  "English (US)" -> en_US ],   [ "English (Australia)" -> en_AU ] ...
-     *      sr ->
-     *           "Serbian (Yugoslavia)" -> sr_YU
-     */
-    
-    TreeMap localeListMap = null;
-    Map<String,String> localeNameToCode = null;
-    Hashtable subLocales = null;
-    
-    private void addLocaleToListMap(String localeName)
-    {
-        ULocale u = new ULocale(localeName);
-        
-        String l = u.getLanguage();
-        if((l!=null)&&(l.length()==0)) {
-            l = null;
-        }
-        String s = u.getScript();
-        if((s!=null)&&(s.length()==0)) {
-            s = null;
-        }
-        String t = u.getCountry();
-        if((t!=null)&&(t.length()==0)) {
-            t = null;
-        }
-        String v = u.getVariant();
-        if((v!=null)&&(v.length()==0)) {
-            v = null;
-        }
-        
-        if(l==null) {
-            return; // no language?? 
-        }
-        
-        String ls = ((s==null)?l:(l+"_"+s)); // language and script
-        
-        ULocale lsl = new ULocale(ls);
-        localeListMap.put(lsl.getDisplayName(BASELINE_LOCALE),ls);
-        
-        TreeMap lm = (TreeMap)subLocales.get(ls);
-        if(lm == null) {
-            lm = new TreeMap();
-            subLocales.put(ls, lm); 
-        }
-        
-        if(t != null) {
-            if(v == null) {
-                lm.put(u.getDisplayCountry(BASELINE_LOCALE), localeName);
-            } else {
-                lm.put(u.getDisplayCountry(BASELINE_LOCALE) + " (" + u.getDisplayVariant(BASELINE_LOCALE) + ")", localeName);
-            }
-        }
+    LocaleTree localeTree = null;
+//    protected Map<String,CLDRLocale> getLocaleListMap()
+//    {
+//        return getLocaleTree().getMap();
+//    }
+
+    public CLDRLocale getLocaleCode(String localeName) {
+        return getLocaleTree().getLocaleCode(localeName);
     }
-    
-    public synchronized String getLocaleCode(String localeName) {
-        if(localeListMap==null) {
-            getLocaleListMap();
-        }
-        return localeNameToCode.get(localeName);
-    }
-    public synchronized String getLocaleDisplayName(String locale) {
-        ULocale lsl = new ULocale(locale);
-        return lsl.getDisplayName(BASELINE_LOCALE);
-    }
-    
-    protected synchronized TreeMap getLocaleListMap()
-    {
-        if(localeListMap == null) {
-            localeListMap = new TreeMap();
-            Map<String,String> nameToCode = new HashMap<String,String>();
-            subLocales = new Hashtable();
+
+    protected synchronized LocaleTree getLocaleTree() {
+        if(localeTree == null) {
+            LocaleTree newLocaleTree = new LocaleTree(BASELINE_LOCALE);
             File inFiles[] = getInFiles();
             if(inFiles == null) {
                 busted("Can't load CLDR data files from " + fileBase);
@@ -3629,22 +3558,25 @@ public class SurveyMain extends HttpServlet {
                 int dot = localeName.indexOf('.');
                 if(dot !=  -1) {
                     localeName = localeName.substring(0,dot);
-                    if(i != 0) {
-                        nameToCode.put(getLocaleDisplayName(localeName), localeName);
-                        addLocaleToListMap(localeName);
-                    }
+                    newLocaleTree.add(CLDRLocale.getInstance(localeName));
                 }
             }
-            localeNameToCode = nameToCode;
+            localeTree = newLocaleTree;
         }
-        return localeListMap;
+        return localeTree;
     }
     
-    void printLocaleStatus(WebContext ctx, String localeName, String str, String explanation) {
+    public  String getLocaleDisplayName(CLDRLocale locale) {
+        return locale.getDisplayName(BASELINE_LOCALE);
+    }
+
+
+    
+    void printLocaleStatus(WebContext ctx, CLDRLocale localeName, String str, String explanation) {
         ctx.print(getLocaleStatus(localeName,str,explanation));
     }
     
-    String getLocaleStatus(String localeName, String str, String explanation) {
+    String getLocaleStatus(CLDRLocale localeName, String str, String explanation) {
         String rv = "";
         int s = vet.status(localeName);
         if(s==-1) {
@@ -3687,23 +3619,23 @@ public class SurveyMain extends HttpServlet {
         return rv;
     }
     
-    String getLocaleLink(WebContext ctx, String localeName, String n) {
+    String getLocaleLink(WebContext ctx, CLDRLocale aliasTarget, String n) {
         if(n == null) {
-            n = new ULocale(localeName).getDisplayName(ctx.displayLocale) ;
+            n = aliasTarget.getDisplayName(ctx.displayLocale) ;
         }
         String connector = ctx.urlConnector();
 //        boolean hasDraft = draftSet.contains(localeName);
 //        ctx.print(hasDraft?"<b>":"") ;
         String rv = 
             ("<a "  /* + (hasDraft?"class='draftl'":"class='nodraft'")  */
-                  +" title='" + localeName + "' href=\"" + ctx.url() 
-                  + connector + QUERY_LOCALE+"=" + localeName + "\">");
-        rv = rv + getLocaleStatus(localeName, n, localeName);
-        boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,localeName);
+                  +" title='" + aliasTarget + "' href=\"" + ctx.url() 
+                  + connector + QUERY_LOCALE+"=" + aliasTarget + "\">");
+        rv = rv + getLocaleStatus(aliasTarget, n, aliasTarget.toString());
+        boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,aliasTarget);
         if(canModify) {
             rv = rv + (modifyThing(ctx));
             int odisp = 0;
-            if((this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT || isPhaseVettingClosed()) && ((odisp=vet.getOrgDisputeCount(ctx.session.user.voterOrg(),localeName))>0)) {
+            if((this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT || isPhaseVettingClosed()) && ((odisp=vet.getOrgDisputeCount(ctx.session.user.voterOrg(),aliasTarget))>0)) {
                 rv = rv + ctx.iconHtml("disp","("+odisp+" org disputes)");
             }
         }
@@ -3713,7 +3645,7 @@ public class SurveyMain extends HttpServlet {
         return rv;
     }
     
-    void printLocaleLink(WebContext ctx, String localeName, String n) {
+    void printLocaleLink(WebContext ctx, CLDRLocale localeName, String n) {
         ctx.print(getLocaleLink(ctx,localeName,n));
     }
 
@@ -3722,28 +3654,28 @@ public class SurveyMain extends HttpServlet {
      * show a list of locales that fall into this interest group.
      */
     void printListFromInterestGroup(WebContext ctx, String intgroup) {
-        TreeMap lm = getLocaleListMap();
+        LocaleTree lm = getLocaleTree();
         if(lm == null) {
             throw new RuntimeException("Can't load CLDR data files");
         }
         ctx.println("<table summary='Locale List' border=1 class='list'>");
         int n=0;
-        for(Iterator li = lm.keySet().iterator();li.hasNext();) {
-            String ln = (String)li.next();
-            String aLocale = (String)lm.get(ln);
+        for(String ln : lm.getTopLocales()) {
+            CLDRLocale aLocale = lm.getLocaleCode(ln);
             
-            ULocale uLocale = new ULocale(aLocale);
-            if(!intgroup.equals(uLocale.getLanguage())) {
+            if(aLocale==null) throw new InternalError("printListFromInterestGroup: can't find intgroup for locale "+ln);
+            ULocale uLocale = aLocale.toULocale();
+            if(!intgroup.equals(aLocale.getLanguage())) {
                 continue;
             }
             
             n++;
             ctx.print("<tr class='row" + (n%2) + "'>");
             ctx.print(" <td valign='top'>");
-            printLocaleLink(ctx, aLocale, ln);
+            printLocaleLink(ctx, (aLocale), ln.toString());
             ctx.println(" </td>");
             
-            TreeMap sm = (TreeMap)subLocales.get(aLocale);
+            Map<String, CLDRLocale> sm = lm.getSubLocales(aLocale);
             
             ctx.println("<td valign='top'>");
             int j = 0;
@@ -3752,10 +3684,10 @@ public class SurveyMain extends HttpServlet {
                     ctx.println(", ");
                 }
                 String sn = (String)si.next();
-                String subLocale = (String)sm.get(sn);
-                if(subLocale.length()>0) {
-                    printLocaleLink(ctx, subLocale, sn);
-                }
+                CLDRLocale subLocale = sm.get(sn);
+//                if(subLocale.length()>0) {
+                    printLocaleLink(ctx, (subLocale), sn);
+//                }
                 j++;
             }
             ctx.println("</td");
@@ -3779,27 +3711,26 @@ public class SurveyMain extends HttpServlet {
         ctx.print(fora.mainFeedIcon(ctx)+"<br>");
 				
         ctx.println(SLOW_PAGE_NOTICE);
-        TreeMap lm = getLocaleListMap();
-        if(lm == null) {
-            busted("Can't load CLDR data files from " + fileBase);
-            throw new RuntimeException("Can't load CLDR data files from " + fileBase);
-        }
+        LocaleTree lm = getLocaleTree();
+//        if(lm == null) {
+//            busted("Can't load CLDR data files from " + fileBase);
+//            throw new RuntimeException("Can't load CLDR data files from " + fileBase);
+//        }
 
         ctx.println("<table summary='Locale List' border=1 class='list'>");
         int n=0;
-        for(Iterator li = lm.keySet().iterator();li.hasNext();) {
+        for(String ln:lm.getTopLocales()) {
             n++;
-            String ln = (String)li.next();
-            String aLocale = (String)lm.get(ln);
+            CLDRLocale aLocale = lm.getLocaleCode(ln);
             ctx.print("<tr class='row" + (n%2) + "'>");
             ctx.print(" <td valign='top'>");
-            printLocaleLink(baseContext, aLocale, ln);
+            printLocaleLink(baseContext, (aLocale), ln);
             if(showCodes) {
                 ctx.println("<br><tt>" + aLocale + "</tt>");
             }
             ctx.println(" </td>");
             
-            TreeMap sm = (TreeMap)subLocales.get(aLocale);
+            Map<String,CLDRLocale> sm = lm.getSubLocales(aLocale);
             
             ctx.println("<td valign='top'>");
             int j = 0;
@@ -3808,13 +3739,13 @@ public class SurveyMain extends HttpServlet {
                     ctx.println(", ");
                 }
                 String sn = (String)si.next();
-                String subLocale = (String)sm.get(sn);
-                if(subLocale.length()>0) {
-                    printLocaleLink(baseContext, subLocale, sn);
+                CLDRLocale subLocale = sm.get(sn);
+//                if(subLocale.length()>0) {
+                    printLocaleLink(baseContext, (subLocale), sn);
                     if(showCodes) {
                         ctx.println("&nbsp;-&nbsp;<tt>" + subLocale + "</tt>");
                     }
-                }
+//                }
                 j++;
             }
             ctx.println("</td");
@@ -3827,8 +3758,8 @@ public class SurveyMain extends HttpServlet {
     
     void doLocale(WebContext ctx, WebContext baseContext, String which) {
         String locale = null;
-        if(ctx.locale != null) {
-            locale = ctx.localeString();
+        if(ctx.getLocale() != null) {
+            locale = ctx.getLocale().toString();
         }
         printPathListOpen(ctx);
         if((locale==null)||(locale.length()<=0)) {
@@ -4018,7 +3949,7 @@ public class SurveyMain extends HttpServlet {
         int n = ctx.docLocale.length;
         int i,j;
         WebContext subCtx = (WebContext)ctx.clone();
-        subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
+        subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
 
         ctx.println("<table summary='locale info' width='95%' border=0><tr><td >"); // width='25%'
         ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
@@ -4029,7 +3960,7 @@ public class SurveyMain extends HttpServlet {
             boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
             ctx.print("\u2517&nbsp;<a title='"+ctx.docLocale[i]+"' class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +QUERY_LOCALE+"=" + ctx.docLocale[i] + 
                 "\">");
-            printLocaleStatus(ctx, ctx.docLocale[i], new ULocale(ctx.docLocale[i]).getDisplayName(ctx.displayLocale), "");
+            printLocaleStatus(ctx, ctx.docLocale[i], ctx.docLocale[i].toULocale().getDisplayName(ctx.displayLocale), "");
             if(canModify) {
                 ctx.print(modifyThing(ctx));
             }
@@ -4039,11 +3970,11 @@ public class SurveyMain extends HttpServlet {
         for(j=0;j<n;j++) {
             ctx.print("&nbsp;&nbsp;");
         }
-        boolean canModifyL = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.localeString());
+        boolean canModifyL = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale());
         ctx.print("\u2517&nbsp;");
-        ctx.print("<span title='"+ctx.locale+"' style='font-size: 120%'>");
+        ctx.print("<span title='"+ctx.getLocale()+"' style='font-size: 120%'>");
         printMenu(subCtx, which, xMAIN, 
-            getLocaleStatus(ctx.localeString(), ctx.locale.getDisplayName(ctx.displayLocale)+(canModifyL?modifyThing(ctx):""), "") );
+            getLocaleStatus(ctx.getLocale(), ctx.getLocale().getDisplayName(ctx.displayLocale)+(canModifyL?modifyThing(ctx):""), "") );
         ctx.print("</span>");
         ctx.println("<br/>");
         ctx.println("</td><td style='padding-left: 1em;'>");
@@ -4079,7 +4010,7 @@ public class SurveyMain extends HttpServlet {
         
         for(n =0 ; n < OTHERROOTS_ITEMS.length; n++) {        
             if(!(OTHERROOTS_ITEMS[n].equals("references")&&  // don't show the 'references' tag if not in a lang locale.
-                 !ctx.locale.getLanguage().equals(ctx.localeString()))) 
+                 !ctx.getLocale().getLanguage().equals(ctx.getLocale().toString()))) 
             {
                 if(n>0) {
                     ctx.print(" | ");
@@ -4089,7 +4020,7 @@ public class SurveyMain extends HttpServlet {
             }
         }
         ctx.println("| <a " + ctx.atarget("st:supplemental") + " class='notselected' href='http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#"+
-            ctx.locale.getLanguage()+"'>supplemental</a>");
+            ctx.getLocale().getLanguage()+"'>supplemental</a>");
         
         ctx.print("</p>");
         
@@ -4097,10 +4028,10 @@ public class SurveyMain extends HttpServlet {
             ctx.includeFragment("report_menu.jsp");
         }
         
-        boolean canModify = UserRegistry.userCanModifyLocale(subCtx.session.user, subCtx.localeString());
+        boolean canModify = UserRegistry.userCanModifyLocale(subCtx.session.user, subCtx.getLocale());
         if(canModify) {
             subCtx.println("<p class='hang'>Forum: ");
-            String forum = ctx.locale.getLanguage();
+            String forum = ctx.getLocale().getLanguage();
             subCtx.println("<strong><a href='"+fora.forumUrl(subCtx, forum)+"'>Forum: "+forum+"</a></strong>");
             subCtx.println(" <br> " + fora.forumFeedIcon(subCtx, forum));
             subCtx.println("</p>");
@@ -4136,14 +4067,14 @@ public class SurveyMain extends HttpServlet {
             return;
         }
         synchronized (ctx.session) { // session sync
-            UserLocaleStuff uf = getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
+            UserLocaleStuff uf = getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.getLocale());
             CLDRFile cf = uf.cldrfile;
             if(cf == null) {
                 throw new InternalError("CLDRFile is null!");
             }
-            CLDRDBSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
+            XMLSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
             if(ourSrc == null) {
-                throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.locale );
+                throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.getLocale() );
             }
             // Set up checks
             CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
@@ -4159,7 +4090,7 @@ public class SurveyMain extends HttpServlet {
             if(!ctx.hasField(QUERY_EXAMPLE)) {
                 printLocaleTreeMenu(ctx, which);
             } else { // end in-locale nav
-                ctx.println("<h3>"+ctx.locale+" "+ctx.locale.getDisplayName(ctx.displayLocale)+" / " + which + " Example</h3>");
+                ctx.println("<h3>"+ctx.getLocale()+" "+ctx.getLocale().getDisplayName(ctx.displayLocale)+" / " + which + " Example</h3>");
             }
             
             // check for errors
@@ -4201,7 +4132,7 @@ public class SurveyMain extends HttpServlet {
             // Find which pod they want, and show it.
             // NB keep these sections in sync with DataPod.xpathToPodBase() 
             WebContext subCtx = (WebContext)ctx.clone();
-            subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
+            subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
             subCtx.addQuery(QUERY_SECTION,which);
             for(int n =0 ; n < PathUtilities.LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
                 if(PathUtilities.LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
@@ -4306,6 +4237,8 @@ public class SurveyMain extends HttpServlet {
     }
 
     public static final String XML_PREFIX="/xml/main";
+    public static final String ZXML_PREFIX="/zxml/main";
+    public static final String ZVXML_PREFIX="/zvxml/main";
     public static final String VXML_PREFIX="/vxml/main";
     public static final String TXML_PREFIX="/txml/main";
     public static final String RXML_PREFIX="/rxml/main";
@@ -4586,7 +4519,7 @@ public class SurveyMain extends HttpServlet {
                     lastfile = fileName;
                     File outFile = new File(outdir, fileName);
                     
-                    CLDRDBSource dbSource = makeDBSource(conn, null, new ULocale(localeName), vetted);
+                    XMLSource dbSource = makeDBSource(conn, null, CLDRLocale.getInstance(localeName), vetted);
                     CLDRFile file;
                     
                     if(resolved == false) {
@@ -4685,7 +4618,7 @@ public class SurveyMain extends HttpServlet {
         throws IOException, ServletException {
         String s = request.getPathInfo();
         
-        if((s==null)||!(s.startsWith(XML_PREFIX)||s.startsWith(VXML_PREFIX)||s.startsWith(RXML_PREFIX)||s.startsWith(TXML_PREFIX)||s.startsWith(FEED_PREFIX))) {
+        if((s==null)||!(s.startsWith(XML_PREFIX)||s.startsWith(ZXML_PREFIX)||s.startsWith(ZVXML_PREFIX)||s.startsWith(VXML_PREFIX)||s.startsWith(RXML_PREFIX)||s.startsWith(TXML_PREFIX)||s.startsWith(FEED_PREFIX))) {
             return false;
         }
         
@@ -4696,6 +4629,7 @@ public class SurveyMain extends HttpServlet {
         boolean finalData = false;
         boolean resolved = false;
         boolean voteData = false;
+        boolean cached = false;
         
         if(s.startsWith(VXML_PREFIX)) {
             finalData = true;
@@ -4727,6 +4661,18 @@ public class SurveyMain extends HttpServlet {
                 return true;
             }
             s = s.substring(TXML_PREFIX.length()+1,s.length()); //   "foo.xml"
+        } else if(s.startsWith(ZXML_PREFIX)) {
+            finalData = false;
+            resolved=false;
+            voteData = false;
+            cached = true;
+            s = s.substring(ZXML_PREFIX.length()+1,s.length()); //   "foo.xml"
+        } else if(s.startsWith(ZVXML_PREFIX)) {
+            finalData = true;
+            resolved=false;
+            voteData = false;
+            cached = true;
+            s = s.substring(ZVXML_PREFIX.length()+1,s.length()); //   "foo.xml"
         } else {
             if(s.equals(XML_PREFIX)) {
                 WebContext ctx = new WebContext(request,response);
@@ -4780,13 +4726,24 @@ public class SurveyMain extends HttpServlet {
                 throw new InternalError("No such locale: " + s);
             } else {
                 response.setContentType("application/xml; charset=utf-8");
-                Connection conn = getDBConnection();
-                CLDRDBSource dbSource = makeDBSource(conn, null, new ULocale(theLocale), finalData);
+                Connection conn = null;
+                CLDRLocale locale = CLDRLocale.getInstance(theLocale);
+                XMLSource dbSource = null; 
                 CLDRFile file;
-                if(resolved == false) {
-                    file= makeCLDRFile(dbSource);
-                } else { 
-                    file = new CLDRFile(dbSource,true);
+                if(cached == true) {
+                    if(finalData) {
+                        file = this.getCLDRFileCache().getVettedCLDRFile(locale);
+                    } else { 
+                        file = this.getCLDRFileCache().getCLDRFile(locale, resolved);
+                    }
+                } else {
+//                    conn = getDBConnection();
+                    dbSource = makeDBSource(locale, finalData);
+                    if(resolved == false) {
+                        file= makeCLDRFile(dbSource);
+                    } else { 
+                        file = new CLDRFile(dbSource,true);
+                    }
                 }
     //            file.write(WebContext.openUTF8Writer(response.getOutputStream()));
                 if(voteData) {
@@ -4800,7 +4757,8 @@ public class SurveyMain extends HttpServlet {
                 } else {
                     file.write(response.getWriter());
                 }
-                SurveyMain.closeDBConnection(conn);
+                if(conn!=null) 
+                    SurveyMain.closeDBConnection(conn);
             }
         }
         return true;
@@ -4810,13 +4768,13 @@ public class SurveyMain extends HttpServlet {
     * Show the 'main info about this locale' (General) panel.
      */
     public void doMain(WebContext ctx) {
-        String diskVer = LDMLUtilities.getCVSVersion(fileBase, ctx.localeString() + ".xml"); // just get ver of the latest file.
-        String dbVer = makeDBSource(ctx, null,ctx.locale).getSourceRevision();
+        String diskVer = LDMLUtilities.getCVSVersion(fileBase, ctx.getLocale().toString() + ".xml"); // just get ver of the latest file.
+        String dbVer = dbsrcfac.getSourceRevision(ctx.getLocale());
         
         // what should users be notified about?
         if(isPhaseSubmit() || isPhaseVetting() || isPhaseVettingClosed()) {
-            String localeName = ctx.localeString();
-            String groupName = ctx.locale.getLanguage();
+            CLDRLocale localeName = ctx.getLocale();
+            String groupName = localeName.getLanguage();
             int vetStatus = vet.status(localeName);
             
             int genCount = externalErrorCount(localeName);
@@ -4837,7 +4795,7 @@ public class SurveyMain extends HttpServlet {
                     synchronized(vet.conn) { 
                         try { // moderately expensive.. since we are tying up vet's connection..
                             vet.orgDisputePaths.setString(1,ctx.session.user.voterOrg());
-                            vet.orgDisputePaths.setString(2,localeName);
+                            vet.orgDisputePaths.setString(2,localeName.toString());
                             ResultSet rs = vet.orgDisputePaths.executeQuery();
                             while(rs.next()) {
                                 int xp = rs.getInt(1);                               
@@ -4852,7 +4810,7 @@ public class SurveyMain extends HttpServlet {
                         }
                     }
                     WebContext subCtx = (WebContext)ctx.clone();
-                    //subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
+                    //subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
                     subCtx.removeQuery(QUERY_SECTION);
                     for(String item : odItems) {
                         printMenu(subCtx, "", item);
@@ -4864,17 +4822,17 @@ public class SurveyMain extends HttpServlet {
             
             
             if((UserRegistry.userIsVetter(ctx.session.user))&&((vetStatus & Vetting.RES_BAD_MASK)>0)) {
-                //int numNoVotes = vet.countResultsByType(ctx.localeString(),Vetting.RES_NO_VOTES);
-                int numInsufficient = vet.countResultsByType(ctx.localeString(),Vetting.RES_INSUFFICIENT);
-                int numDisputed = vet.countResultsByType(ctx.localeString(),Vetting.RES_DISPUTED);
-                int numErrors =  0;//vet.countResultsByType(ctx.localeString(),Vetting.RES_ERROR);
+                //int numNoVotes = vet.countResultsByType(ctx.getLocale().toString(),Vetting.RES_NO_VOTES);
+                int numInsufficient = vet.countResultsByType(ctx.getLocale(),Vetting.RES_INSUFFICIENT);
+                int numDisputed = vet.countResultsByType(ctx.getLocale(),Vetting.RES_DISPUTED);
+                int numErrors =  0;//vet.countResultsByType(ctx.getLocale().toString(),Vetting.RES_ERROR);
              
                 Hashtable<String,Integer> insItems = new Hashtable<String,Integer>();
                 Hashtable<String,Integer> disItems = new Hashtable<String,Integer>();
 
                 synchronized(vet.conn) { 
                     try { // moderately expensive.. since we are tying up vet's connection..
-                        ResultSet rs = vet.listBadResults(ctx.localeString());
+                        ResultSet rs = vet.listBadResults(ctx.getLocale());
                         while(rs.next()) {
                             int xp = rs.getInt(1);
                             int type = rs.getInt(2);
@@ -4909,7 +4867,7 @@ public class SurveyMain extends HttpServlet {
                 }
                 
                 WebContext subCtx = (WebContext)ctx.clone();
-                //subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
+                //subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
                 subCtx.removeQuery(QUERY_SECTION);
 
                if(false && (this.phase()==Phase.VETTING || isPhaseVettingClosed()) == true) {
@@ -4950,7 +4908,7 @@ public class SurveyMain extends HttpServlet {
         // coverage level
         {
             org.unicode.cldr.test.CoverageLevel.Level itsLevel = 
-                    StandardCodes.make().getLocaleCoverageLevel(ctx.getEffectiveLocaleType(ctx.getChosenLocaleType()), ctx.localeString) ;
+                    StandardCodes.make().getLocaleCoverageLevel(ctx.getEffectiveLocaleType(ctx.getChosenLocaleType()), ctx.getLocale().toString()) ;
         
             String def = ctx.pref(SurveyMain.PREF_COVLEV,"default");
             if(def.equals("default")) {
@@ -4978,9 +4936,9 @@ public class SurveyMain extends HttpServlet {
                     "</li> --> </ul>");
         
         if(dbVer != null) {
-            ctx.println( LDMLUtilities.getCVSLink(ctx.localeString(), dbVer) + "CVS version #" + dbVer + "</a>");
+            ctx.println( LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "CVS version #" + dbVer + "</a>");
             if((diskVer != null)&&(!diskVer.equals(dbVer))) {
-                ctx.println( " " + LDMLUtilities.getCVSLink(ctx.localeString(), dbVer) + "(Note: version " + diskVer + " is available to the administrator.)</a>");
+                ctx.println( " " + LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "(Note: version " + diskVer + " is available to the administrator.)</a>");
             }
         }    
         ctx.println(SLOW_PAGE_NOTICE);
@@ -5063,8 +5021,8 @@ public class SurveyMain extends HttpServlet {
         return gBaselineExample;
     }
 
-    public synchronized String getHTMLDirectionFor(ULocale locale) {
-        String dir = getDirectionalityFor(locale.getBaseName());
+    public synchronized String getHTMLDirectionFor(CLDRLocale locale) {
+        String dir = getDirectionalityFor(locale);
         if(dir.equals("left-to-right")) {
             return "ltr";
         } else if(dir.equals("right-to-left")) {
@@ -5090,14 +5048,15 @@ public class SurveyMain extends HttpServlet {
 //        }
     }
     
-    public synchronized String getDirectionalityFor(String id) {
+    public synchronized String getDirectionalityFor(CLDRLocale id) {
         final boolean DDEBUG=false;
         if (DDEBUG) System.err.println("Checking directionality for " + id);
         if(aliasMap==null) {
             checkAllLocales();
         }
         while(id != null) {
-            String aliasTo = isLocaleAliased(id);
+            // TODO use iterator
+            CLDRLocale aliasTo = isLocaleAliased(id);
             if (DDEBUG) System.err.println("Alias -> "+aliasTo);
             if(aliasTo != null 
                     && !aliasTo.equals(id)) { // prevent loops
@@ -5110,7 +5069,7 @@ public class SurveyMain extends HttpServlet {
             if(dir!=null) {
                 return dir;
             }
-            id = LDMLUtilities.getParent(id);
+            id = id.getParent();
             if (DDEBUG) System.err.println(" .. -> :"+id);
         }
         if (DDEBUG) System.err.println("err: could not get directionality of root");
@@ -5140,7 +5099,7 @@ public class SurveyMain extends HttpServlet {
     public CheckCLDR createCheck() {
             CheckCLDR checkCldr;
             
-//                logger.info("Initting tests . . . - "+ctx.locale+"|" + ( CHECKCLDR+":"+ctx.defaultPtype()) + "@"+ctx.session.id);
+//                logger.info("Initting tests . . . - "+ctx.getLocale()+"|" + ( CHECKCLDR+":"+ctx.defaultPtype()) + "@"+ctx.session.id);
 //            long t0 = System.currentTimeMillis();
             
             // make sure CLDR has the latest display information.
@@ -5159,7 +5118,7 @@ public class SurveyMain extends HttpServlet {
     public CheckCLDR createCheckWithoutCollisions() {
             CheckCLDR checkCldr;
             
-//                logger.info("Initting tests . . . - "+ctx.locale+"|" + ( CHECKCLDR+":"+ctx.defaultPtype()) + "@"+ctx.session.id);
+//                logger.info("Initting tests . . . - "+ctx.getLocale()+"|" + ( CHECKCLDR+":"+ctx.defaultPtype()) + "@"+ctx.session.id);
 //            long t0 = System.currentTimeMillis();
             
             // make sure CLDR has the latest display information.
@@ -5177,8 +5136,8 @@ public class SurveyMain extends HttpServlet {
             return checkCldr;
     }
 
-    public static boolean CACHE_VXML_FOR_TESTS = true;
-    public static boolean CACHE_VXML_FOR_EXAMPLES = true;
+    public static boolean CACHE_VXML_FOR_TESTS = false;
+    public static boolean CACHE_VXML_FOR_EXAMPLES = false;
 
     /**
      * Any user of this should be within session sync.
@@ -5188,7 +5147,7 @@ public class SurveyMain extends HttpServlet {
     public class UserLocaleStuff extends Registerable {
         public CLDRFile cldrfile = null;
         private CLDRFile cachedCldrFile = null; /* If not null: use this for tests. Readonly. */
-        public CLDRDBSource dbSource = null;
+        public XMLSource dbSource = null;
         public Hashtable hash = new Hashtable();
         private ExampleGenerator exampleGenerator = null;
         private Registerable exampleIsValid = new Registerable(lcr, locale);
@@ -5197,12 +5156,13 @@ public class SurveyMain extends HttpServlet {
             if(exampleGenerator==null || !exampleIsValid.isValid() ) {
                 CLDRFile fileForGenerator = null;
                 if(CACHE_VXML_FOR_EXAMPLES) {
-                    fileForGenerator = getCLDRFileCache().getCLDRFile(locale(), true);
+                    fileForGenerator = getCLDRFileCache().getCLDRFile(locale, true);
                 } else {
+                    System.err.println("!CACHE_VXML_FOR_EXAMPLES");
                     fileForGenerator = new CLDRFile(dbSource,true);
                 }
-                exampleGenerator = new ExampleGenerator(fileForGenerator, dbSource.sm.fileBase + "/../supplemental/");
-                exampleGenerator.setVerboseErrors(dbSource.sm.twidBool("ExampleGenerator.setVerboseErrors"));
+                exampleGenerator = new ExampleGenerator(fileForGenerator, fileBase + "/../supplemental/");
+                exampleGenerator.setVerboseErrors(twidBool("ExampleGenerator.setVerboseErrors"));
                 System.err.println("-revalid exgen-"+locale + " - " + exampleIsValid + " in " + this);
                 exampleIsValid.setValid();
                 System.err.println(" >> "+locale + " - " + exampleIsValid + " in " + this);
@@ -5212,7 +5172,7 @@ public class SurveyMain extends HttpServlet {
             return exampleGenerator;
         }
         
-        public UserLocaleStuff(String locale) {
+        public UserLocaleStuff(CLDRLocale locale) {
             super(lcr, locale);
             exampleIsValid.register();
     System.err.println("Adding ULS:"+locale);
@@ -5264,6 +5224,7 @@ public class SurveyMain extends HttpServlet {
             if(CACHE_VXML_FOR_TESTS) {
                 return getCLDRFileCache().getCLDRFile(locale());
             } else {
+                System.err.println("@@ !CACHE_VXML_FOR_TESTS");
                 return null;
             }
         }
@@ -5274,7 +5235,7 @@ public class SurveyMain extends HttpServlet {
          * @param user
          * @param locale
          */
-        public void complete(WebContext ctx, User user, ULocale locale) {
+        public void complete(WebContext ctx, User user, CLDRLocale locale) {
             // TODO: refactor.
             UserLocaleStuff uf = this;
             if(uf.cldrfile == null) {
@@ -5295,17 +5256,19 @@ public class SurveyMain extends HttpServlet {
         return uf;
     }
 
-    private CLDRFileCache cldrFileCache = null; // LOCAL to UserFile.
+    //private CLDRFileCache cldrFileCache = null; // LOCAL to UserFile.
     
-    private synchronized CLDRFileCache getCLDRFileCache() {
-        if(cldrFileCache == null) {
-        
-            Connection conn = getDBConnection();
-            CLDRDBSource dbSource = makeDBSource(conn, null, new ULocale("root"), false);
-            CLDRDBSource dbSourceV = makeDBSource(conn, null, new ULocale("root"), true);
-            cldrFileCache = new CLDRFileCache(dbSource, dbSourceV, new File(homeFile, "vxpt"), this);
-        }
-        return cldrFileCache;
+    synchronized CLDRFileCache getCLDRFileCache() {
+//        if(cldrFileCache == null) {
+//        
+//            Connection conn = getDBConnection();
+//            XMLSource dbSource = makeDBSource(conn, null, CLDRLocale.ROOT, false);
+//            XMLSource dbSourceV = makeDBSource(conn, null, CLDRLocale.ROOT, true);
+//            cldrFileCache = new CLDRFileCache(dbSource, dbSourceV, new File(homeFile, "vxpt"), this);
+//        }
+//        return null;
+        throw new InternalError("getCLDRFileCache: not imp");
+//        return dbsrcfac.getCLDRFileCache();
     }
 
     /**
@@ -5315,12 +5278,12 @@ public class SurveyMain extends HttpServlet {
      * @param locale
      * @return
      */
-    public UserLocaleStuff getUserFile(WebContext ctx, UserRegistry.User user, ULocale locale) {
+    public UserLocaleStuff getUserFile(WebContext ctx, UserRegistry.User user, CLDRLocale locale) {
         // has this locale been invalidated?
         UserLocaleStuff uf = getOldUserFile(ctx);
         //UserLocaleStuff uf = null;
         if(uf == null) {
-            uf = new UserLocaleStuff(locale.toString());
+            uf = new UserLocaleStuff(locale);
             ctx.putByLocale(USER_FILE_KEY, uf);
             uf.register(); // register with lcr
         } else if(!uf.isValid()) {
@@ -5332,23 +5295,33 @@ public class SurveyMain extends HttpServlet {
         uf.complete(ctx, user, locale);
         return uf;
     }
-    CLDRDBSource makeDBSource(WebContext ctx, UserRegistry.User user, ULocale locale) {
+    XMLSource makeDBSource(WebContext ctx, UserRegistry.User user, CLDRLocale locale) {
         return makeDBSource(ctx.session.db(this), user, locale);
     }
-    CLDRDBSource makeDBSource(WebContext ctx, UserRegistry.User user, ULocale locale, boolean finalData) {
+    XMLSource makeDBSource(WebContext ctx, UserRegistry.User user, CLDRLocale locale, boolean finalData) {
         return makeDBSource(ctx.session.db(this), user, locale, finalData);
     }
-    CLDRDBSource makeDBSource(Connection conn, UserRegistry.User user, ULocale locale) {
-        CLDRDBSource dbSource = CLDRDBSource.createInstance(fileBase, xpt, locale,
-                                                            conn, user);
+    XMLSource makeDBSource(Connection conn, UserRegistry.User user, CLDRLocale locale) {
+        XMLSource dbSource = dbsrcfac.getInstance(locale);
         return dbSource;
     }
-    CLDRDBSource makeDBSource(Connection conn, UserRegistry.User user, ULocale locale, boolean finalData) {
-        CLDRDBSource dbSource = CLDRDBSource.createInstance(fileBase, xpt, locale,
-                                                            conn, user, finalData);
+    /**
+     * @deprecated  drop the conn/user
+     * @param conn
+     * @param user
+     * @param locale
+     * @param finalData
+     * @return
+     */
+    XMLSource makeDBSource(Connection conn, UserRegistry.User user, CLDRLocale locale, boolean finalData) {
+        XMLSource dbSource = dbsrcfac.getInstance(locale, finalData);
         return dbSource;
     }
-    static CLDRFile makeCLDRFile(CLDRDBSource dbSource) {
+    XMLSource makeDBSource(CLDRLocale locale, boolean finalData) {
+        XMLSource dbSource = dbsrcfac.getInstance(locale, finalData);
+        return dbSource;
+    }
+    static CLDRFile makeCLDRFile(XMLSource dbSource) {
         return new CLDRFile(dbSource,false);
     }
 
@@ -5358,7 +5331,7 @@ public class SurveyMain extends HttpServlet {
      * it will reset things like the locale list map, the metazone map, the interest map, ...
      */
     private synchronized void resetLocaleCaches() {
-        localeListMap = null;
+        localeTree = null;
         allMetazones = null;
         metazoneContinentMap = null;
         localeListSet = null;
@@ -5368,8 +5341,8 @@ public class SurveyMain extends HttpServlet {
     }
     
     
-    private static Hashtable aliasMap = null;
-    private static Hashtable<String,String> directionMap = null;
+    private static Hashtable<CLDRLocale,CLDRLocale> aliasMap = null;
+    private static Hashtable<CLDRLocale,String> directionMap = null;
     
     /**
      * "Hash" a file to a string, including mod time and size
@@ -5386,9 +5359,9 @@ public class SurveyMain extends HttpServlet {
         boolean useCache = isUnofficial; // NB: do NOT use the cache if we are in unofficial mode.  Parsing here doesn't take very long (about 16s), but 
         // we want to save some time during development iterations.
         
-        Hashtable aliasMapNew = new Hashtable();
-        Hashtable directionMapNew = new Hashtable();
-        Set locales  = getLocalesSet();
+        Hashtable<CLDRLocale,CLDRLocale> aliasMapNew = new Hashtable<CLDRLocale,CLDRLocale>();
+        Hashtable<CLDRLocale,String> directionMapNew = new Hashtable<CLDRLocale,String>();
+        Set<CLDRLocale> locales  = getLocalesSet();
         ElapsedTimer et = new ElapsedTimer();
         setProgress("Parse locales from XML", locales.size());
         int nn=0;
@@ -5410,7 +5383,7 @@ public class SurveyMain extends HttpServlet {
         int n=0;
         int cachehit=0;
         System.err.println("Parse " + locales.size() + " locales from XML to look for aliases or errors...");
-        for(Object loc : locales) {
+        for(CLDRLocale loc : locales) {
             String locString = loc.toString();
 //            ULocale uloc = new ULocale(locString);
             updateProgress(n++, loc.toString() /* + " - " + uloc.getDisplayName(uloc) */);
@@ -5458,11 +5431,11 @@ public class SurveyMain extends HttpServlet {
                 // now, set it into the new map
                 xmlCachePropsNew.put(locString, fileHash);
                 if(direction != null) {
-                    directionMapNew.put(loc.toString(), direction);
+                    directionMapNew.put((loc), direction);
                     xmlCachePropsNew.put(locString+".d", direction);
                 }
                 if(aliasTo!=null) {
-                    aliasMapNew.put(loc.toString(),aliasTo);
+                    aliasMapNew.put((loc),CLDRLocale.getInstance(aliasTo));
                     xmlCachePropsNew.put(locString+".a", aliasTo);
                 }
             } catch (Throwable t) {
@@ -5501,21 +5474,21 @@ public class SurveyMain extends HttpServlet {
     /**
      * Is this locale fully aliased? If true, returns what it is aliased to.
      */
-    public synchronized String isLocaleAliased(String id) {
+    public synchronized CLDRLocale isLocaleAliased(CLDRLocale id) {
         if(aliasMap==null) {
             checkAllLocales();
         }
-        return (String)aliasMap.get(id);
+        return aliasMap.get(id);
     }
 
-    public ULocale isLocaleAliased(ULocale id) {
-        String aliasTo = isLocaleAliased(id.getBaseName());
-        if(aliasTo!=null) {
-            return new ULocale(aliasTo);
-        } else {
-            return null;
-        }
-    }
+//    public ULocale isLocaleAliased(ULocale id) {
+//        String aliasTo = isLocaleAliased(id.getBaseName()).toString();
+//        if(aliasTo!=null) {
+//            return new ULocale(aliasTo);
+//        } else {
+//            return null;
+//        }
+//    }
 
     /**
      * Master list of metazones. Don't access this directly.
@@ -5669,7 +5642,7 @@ public class SurveyMain extends HttpServlet {
         String current = null;
         XPathParts parts = new XPathParts(null, null);
         synchronized(ctx.session) { // TODO: redundant sync?
-            SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
+            SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.getLocale());
             //CLDRFile cf = uf.cldrfile;
             CLDRFile resolvedFile = new CLDRFile(uf.dbSource,true);
             //CLDRFile engFile = ctx.sm.getBaselineFile();
@@ -5724,7 +5697,7 @@ public class SurveyMain extends HttpServlet {
             return;
         }
 
-        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.localeString()));
+        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
         
         WebContext subCtx = (WebContext)ctx.clone();
         subCtx.setQuery(QUERY_ZONE, zone);
@@ -5750,7 +5723,7 @@ public class SurveyMain extends HttpServlet {
 
 
         printPathListOpen(ctx);
-        ctx.println("<input type='hidden' name='_' value='"+ctx.localeString()+"'>");
+        ctx.println("<input type='hidden' name='_' value='"+ctx.getLocale().toString()+"'>");
         ctx.println("<input type='hidden' name='x' value='timezones'>");
         ctx.println("<input type='hidden' name='zone' value='"+zone+"'>");
         if(canModify) { 
@@ -5848,7 +5821,7 @@ public class SurveyMain extends HttpServlet {
 
             ctx.println("<h3>"+ displayZone + " Overrides</h3>"); // couldn't find the territory.
             ctx.print("<i>The Metazone <b>"+currentMetaZone+"</b> is active for this zone. <a href=\""+
-                bugReplyUrl(BUG_METAZONE_FOLDER, BUG_METAZONE, ctx.locale+":"+ zone + ":" + currentMetaZone + " incorrect")+
+                bugReplyUrl(BUG_METAZONE_FOLDER, BUG_METAZONE, ctx.getLocale()+":"+ zone + ":" + currentMetaZone + " incorrect")+
                 "\">Click Here to report Metazone problems</a> .</i>");
         } else {
             ctx.println("<h3>Zone Contents</h3>"); // No metazone - this is just the contents.
@@ -5886,8 +5859,8 @@ public class SurveyMain extends HttpServlet {
         simple = true;
         
         synchronized(ctx.session) {
-            UserLocaleStuff uf = getUserFile(ctx, ctx.session.user, ctx.locale);
-            CLDRDBSource ourSrc = uf.dbSource;
+            UserLocaleStuff uf = getUserFile(ctx, ctx.session.user, ctx.getLocale());
+            XMLSource ourSrc = uf.dbSource;
             CLDRFile cf =  uf.cldrfile;
             String fullThing = xpath + "/" + lastElement;
         //    boolean isTz = xpath.equals("timeZoneNames");
@@ -5900,7 +5873,7 @@ public class SurveyMain extends HttpServlet {
                 exemplar_only=true;
             }
                 
-            boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.localeString()));
+            boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
             
             {
                 // TODO: move this into showExample. . .
@@ -5947,7 +5920,8 @@ public class SurveyMain extends HttpServlet {
     static int PODTABLE_WIDTH = 13; /** width, in columns, of the typical data table **/
 
     static void printSectionTableOpen(WebContext ctx, DataSection section, boolean zoomedIn) {
-        ctx.println("<table summary='Data Items for "+ctx.localeString()+" " + section.xpathPrefix + "' class='data' border='0'>");
+        ctx.println("<a name='st_data'></a>");
+        ctx.println("<table summary='Data Items for "+ctx.getLocale().toString()+" " + section.xpathPrefix + "' class='data' border='0'>");
 
         if(/* !zoomedIn */ true) {
             ctx.println("<tr><td colspan='"+PODTABLE_WIDTH+"'>");
@@ -6055,10 +6029,10 @@ public class SurveyMain extends HttpServlet {
         //       total = mySet.count();
         //        boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
         synchronized(ctx.session) {
-            UserLocaleStuff uf = getUserFile(ctx, ctx.session.user, ctx.locale);
+            UserLocaleStuff uf = getUserFile(ctx, ctx.session.user, ctx.getLocale());
             CLDRFile cf = uf.cldrfile;
                 //    CLDRFile engf = getBaselineFile();
-            CLDRDBSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
+            XMLSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
             CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx);
 //            XPathParts pathParts = new XPathParts(null, null);
 //            XPathParts fullPathParts = new XPathParts(null, null);
@@ -6087,14 +6061,14 @@ public class SurveyMain extends HttpServlet {
             Hashtable<String,DataSection.DataRow> refsHash = new Hashtable<String, DataSection.DataRow>();
             Hashtable<String,DataSection.DataRow.CandidateItem> refsItemHash = new Hashtable<String, DataSection.DataRow.CandidateItem>();
             
-            String ourDir = getHTMLDirectionFor(ctx.locale);
+            String ourDir = getHTMLDirectionFor(ctx.getLocale());
     //        boolean showFullXpaths = ctx.prefBool(PREF_XPATHS);
             // calculate references
             if(section.xpathPrefix.indexOf("references")==-1) {
                 Set refsSet = new TreeSet();
                 WebContext refCtx = (WebContext)ctx.clone();
-                refCtx.setQuery("_",ctx.locale.getLanguage());
-                refCtx.setLocale(new ULocale(ctx.locale.getLanguage())); // ensure it is from the language
+                refCtx.setQuery("_",ctx.getLocale().getLanguage());
+                refCtx.setLocale(CLDRLocale.getInstance(ctx.getLocale().getLanguage())); // ensure it is from the language
                 DataSection refSection = refCtx.getSection("//ldml/references");
                 List refPeas = refSection.getList(PREF_SORTMODE_CODE);
                 //int rType[] = new int[1];
@@ -6226,7 +6200,7 @@ public class SurveyMain extends HttpServlet {
                             zone = zone.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)
                         }
                         showDataRow(ctx, section, p, ourDir, uf, cf, ourSrc, canModify,ctx.base()+"?"+
-                                "_="+ctx.locale+"&amp;x=timezones&amp;zone="+zone,refs,checkCldr, zoomedIn);                
+                                "_="+ctx.getLocale()+"&amp;x=timezones&amp;zone="+zone,refs,checkCldr, zoomedIn);                
                     } else {
                         showDataRow(ctx, section, p, ourDir, uf, cf, ourSrc, canModify,null,refs,checkCldr, zoomedIn);
                     }
@@ -6281,8 +6255,8 @@ public class SurveyMain extends HttpServlet {
      * @param ourSrc
      * @return
      */
-    boolean processPeaChanges(WebContext ctx, DataSection oldSection, CLDRFile cf, CLDRDBSource ourSrc) {
-        String ourDir = getHTMLDirectionFor(ctx.locale);
+    boolean processPeaChanges(WebContext ctx, DataSection oldSection, CLDRFile cf, XMLSource ourSrc) {
+        String ourDir = getHTMLDirectionFor(ctx.getLocale());
         boolean someDidChange = false;
         if(oldSection != null) {
             for(Iterator i = oldSection.getAll().iterator();i.hasNext();) {
@@ -6315,7 +6289,7 @@ public class SurveyMain extends HttpServlet {
                     if(dup != null) {
                         ctx.println("Ref already exists, not adding: <tt class='codebox'>"+dup+"</tt> " + newRef + "<br>");
                     } else {
-                        String newType =  ourSrc.addReferenceToNextSlot(cf, ctx.localeString(), ctx.session.user.id, newRef, uri);
+                        String newType =  DataSection.addReferenceToNextSlot(ourSrc, cf, ctx.getLocale().toString(), ctx.session.user.id, newRef, uri);
                         if(newType == null) {
                             ctx.print("<i>Error.</i>");
                         } else {
@@ -6344,7 +6318,7 @@ public class SurveyMain extends HttpServlet {
      * @param ourSrc
      * @return
      */
-    boolean processDataRowChanges(WebContext ctx, DataSection section, DataSection.DataRow p, String ourDir, CLDRFile cf, CLDRDBSource ourSrc) {
+    boolean processDataRowChanges(WebContext ctx, DataSection section, DataSection.DataRow p, String ourDir, CLDRFile cf, XMLSource ourSrc) {
         String fieldHash = section.fieldHash(p);
         String altType = p.altType;
         String choice = ctx.field(fieldHash); // checkmark choice
@@ -6540,7 +6514,7 @@ public class SurveyMain extends HttpServlet {
 						choice = DONTCARE;
 						voteForItem = null;
 					}
-					ourSrc.removeItem(section.locale, item.xpathId, item.submitter);
+					ourSrc.removeValueAtDPath(xpt.getById(item.xpathId));
 					didSomething = true;
 				} else {
 					ctx.println(" <p class='ferrbox'>Warning: You don't have permission to remove this item: " +item.altProposed + ".</p>");
@@ -6553,7 +6527,7 @@ public class SurveyMain extends HttpServlet {
 		        for(UserRegistry.User voter : item.getVotes()) {
 		            if(voter.org.equals(ctx.session.user.org)) {
 		                
-                        boolean did = doAdminRemoveVote(ctx, ctx.locale.getBaseName(), p.base_xpath, voter.id);
+                        boolean did = doAdminRemoveVote(ctx, ctx.getLocale(), p.base_xpath, voter.id);
                         if(did) {
     	                    ctx.print("<tt title='#"+p.base_xpath+"' class='codebox'>"+ p.displayName +"</tt>:  Removing vote for <span title='#"+item.xpathId+"'>"+"\""+item.value+
     	                            "\" ("+item.altProposed+")</span> by " + voter.toHtml(ctx.session.user) +  "<br>");
@@ -6634,7 +6608,7 @@ public class SurveyMain extends HttpServlet {
             {
                 /* cribbed from elsewhere */
                 // The enclosion function already holds session sync
-                UserLocaleStuff uf = getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
+                UserLocaleStuff uf = getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.getLocale());
                 // Set up checks
                 CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
                 List checkCldrResult = new ArrayList();
@@ -6682,7 +6656,7 @@ public class SurveyMain extends HttpServlet {
                 }
             }
             
-            String newProp = ourSrc.addDataToNextSlot(cf, section.locale, fullPathMinusAlt, altType, 
+            String newProp = DataSection.addDataToNextSlot(ourSrc, cf, section.locale, fullPathMinusAlt, altType, 
                 altPrefix, ctx.session.user.id, choice_v, choice_r);
             // update implied vote
 //            ctx.print(" &nbsp;&nbsp; <tt class='proposed'>" + newProp+"</tt>");
@@ -6728,39 +6702,39 @@ public class SurveyMain extends HttpServlet {
         return didSomething;
     }
 
-    boolean doVote(WebContext ctx, String locale, int xpath) {
+    boolean doVote(WebContext ctx, CLDRLocale locale, int xpath) {
         int base_xpath = xpt.xpathToBaseXpathId(xpath);
         return doVote(ctx, locale, xpath, base_xpath);
     }
 
-    boolean doVote(WebContext ctx, String locale, int xpath, int base_xpath) {
+    boolean doVote(WebContext ctx, CLDRLocale locale, int xpath, int base_xpath) {
         return doVote(ctx, locale, xpath, base_xpath, ctx.session.user.id);
     }
 
-    boolean doVote(WebContext ctx, String locale, int xpath, int base_xpath, int id) {
+    boolean doVote(WebContext ctx, CLDRLocale locale, int xpath, int base_xpath, int id) {
         vet.vote( locale,  base_xpath, id, xpath, Vetting.VET_EXPLICIT);
       //  lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
         return true;
     }
 
-    boolean doAdminRemoveVote(WebContext ctx, String locale, int base_xpath, int id) {
+    boolean doAdminRemoveVote(WebContext ctx, CLDRLocale locale, int base_xpath, int id) {
         vet.vote( locale,  base_xpath, id, -1, Vetting.VET_ADMIN);
      //   lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
         return true;
     }
 
-    int doUnVote(WebContext ctx, String locale, int base_xpath) {
+    int doUnVote(WebContext ctx, CLDRLocale locale, int base_xpath) {
         return doUnVote(ctx, locale, base_xpath, ctx.session.user.id);
     }
     
-    int doUnVote(WebContext ctx, String locale, int base_xpath, int submitter) {
+    int doUnVote(WebContext ctx, CLDRLocale locale, int base_xpath, int submitter) {
         int rs = vet.unvote( locale,  base_xpath, submitter);
       //  lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
         return rs;
     }
 
     void showDataRow(WebContext ctx, DataSection section, DataSection.DataRow p, String ourDir, UserLocaleStuff uf, CLDRFile cf, 
-        CLDRDBSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr)  {
+        XMLSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr)  {
         showDataRow(ctx,section,p,ourDir,uf, cf,ourSrc,canModify,specialUrl,refs,checkCldr,false);
     }
 
@@ -6768,7 +6742,7 @@ public class SurveyMain extends HttpServlet {
      * Show a single pea
      */
     void showDataRow(WebContext ctx, DataSection section, DataSection.DataRow p, String ourDir, UserLocaleStuff uf, CLDRFile cf, 
-        CLDRDBSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr, boolean zoomedIn) {
+        XMLSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr, boolean zoomedIn) {
 
         String ourAlign = "left";
         if(ourDir.equals("rtl")) {
@@ -6783,7 +6757,7 @@ public class SurveyMain extends HttpServlet {
         String boxClass = canModify?"actionbox":"disabledbox";
         boolean isAlias = (fullPathFull.indexOf("/alias")!=-1);
         WebContext refCtx = (WebContext)ctx.clone();
-        refCtx.setQuery("_",ctx.locale.getLanguage());
+        refCtx.setQuery("_",ctx.getLocale().getLanguage());
         refCtx.setQuery(QUERY_SECTION,"references");
         //            ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
 
@@ -6964,7 +6938,7 @@ public class SurveyMain extends HttpServlet {
         ctx.print("<th rowspan='"+rowSpan+"' class='"+rclass+"' valign='top'>");
         if(!zoomedIn) {
             if(specialUrl != null) {
-                ctx.print("<a class='notselected' target='"+ctx.atarget("n:"+ctx.locale.toString())+"' href='"+specialUrl+"'>"+statusIcon+"</a>");
+                ctx.print("<a class='notselected' target='"+ctx.atarget("n:"+ctx.getLocale().toString())+"' href='"+specialUrl+"'>"+statusIcon+"</a>");
             } else {
                 fora.showForumLink(ctx,section,p,p.parentRow.base_xpath,statusIcon);
             }
@@ -6992,7 +6966,7 @@ public class SurveyMain extends HttpServlet {
             String typeShown = p.type.replaceAll("/","/\u200b");
             if(!zoomedIn) {
                 if(specialUrl != null) {
-                    ctx.print("<a class='notselected' target='"+ctx.atarget("n:"+ctx.locale.toString())+"' href='"+specialUrl+"'>"+typeShown+disputeIcon+"</a>");
+                    ctx.print("<a class='notselected' target='"+ctx.atarget("n:"+ctx.getLocale().toString())+"' href='"+specialUrl+"'>"+typeShown+disputeIcon+"</a>");
                 } else {
                     fora.showForumLink(ctx,section,p,p.parentRow.base_xpath,typeShown+disputeIcon);
                 }
@@ -7229,7 +7203,7 @@ public class SurveyMain extends HttpServlet {
                     String refHash = fieldHash;
                     Hashtable<String,DataSection.DataRow.CandidateItem> refsItemHash = (Hashtable<String, DataSection.DataRow.CandidateItem>)ctx.temporaryStuff.get("refsItemHash");
                     ctx.print("<label>");
-                    ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Add/Lookup References</a>");
+                    ctx.print("<a "+ctx.atarget("ref_"+ctx.getLocale())+" href='"+refCtx.url()+"'>Add/Lookup References</a>");
                     if(areShowingInputBox) {
                         ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");
                         ctx.print("<option value='' SELECTED>(pick reference)</option>");
@@ -7257,7 +7231,7 @@ public class SurveyMain extends HttpServlet {
                     }
                     ctx.print("</label>");
                 } else {
-                    ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Add Reference</a>");
+                    ctx.print("<a "+ctx.atarget("ref_"+ctx.getLocale())+" href='"+refCtx.url()+"'>Add Reference</a>");
                 }
             }
             ctx.println("</td></tr>");
@@ -7310,7 +7284,7 @@ public class SurveyMain extends HttpServlet {
                             if(theMenu==null) {
                                 theMenu="raw";
                             }
-                            ctx.print("<a "+ctx.atarget("st:Ex:"+ctx.locale)+" href='"+ctx.url()+ctx.urlConnector()+"_="+ctx.locale+"&amp;x="+theMenu+"&amp;"+ QUERY_EXAMPLE+"="+e.hash+"'>");
+                            ctx.print("<a "+ctx.atarget("st:Ex:"+ctx.getLocale())+" href='"+ctx.url()+ctx.urlConnector()+"_="+ctx.getLocale()+"&amp;x="+theMenu+"&amp;"+ QUERY_EXAMPLE+"="+e.hash+"'>");
                             ctx.print(ctx.iconHtml("zoom","Zoom into "+cls)+cls);
                             ctx.print("</a>");
                         }
@@ -7779,7 +7753,7 @@ public class SurveyMain extends HttpServlet {
             displayList = displaySet.displayRows;
         }
         ctx.println("<div class='pager' style='margin: 2px'>");
-        if((ctx.locale != null) && UserRegistry.userCanModifyLocale(ctx.session.user,ctx.localeString())) { // at least street level
+        if((ctx.getLocale() != null) && UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale())) { // at least street level
             if((ctx.field(QUERY_SECTION).length()>0) && !ctx.field(QUERY_SECTION).equals(xMAIN)) {
                 ctx.println("<input  type='submit' value='" + getSaveButtonText() + "'>"); // style='float:left'
             }
@@ -8226,7 +8200,7 @@ public class SurveyMain extends HttpServlet {
          * Cause locale alias to be checked.
          */
 //        if(!SurveyMain.isUnofficial) { // only do this for official
-            isLocaleAliased("mt_MT");
+            isLocaleAliased(CLDRLocale.ROOT);
        // }
         
         logger.info("SurveyTool ready for requests. Memory in use: " + usedK());
@@ -8305,19 +8279,19 @@ public class SurveyMain extends HttpServlet {
         return baseDir.listFiles(myFilter);
     }
 
-    private static Set localeListSet = null;
+    private static Set<CLDRLocale> localeListSet = null;
 
-    static synchronized public Set getLocalesSet() {
+    static synchronized public Set<CLDRLocale> getLocalesSet() {
         if(localeListSet == null ) {
             File inFiles[] = getInFiles();
             int nrInFiles = inFiles.length;
-            Set s = new HashSet();
+            Set<CLDRLocale> s = new HashSet<CLDRLocale>();
             for(int i=0;i<nrInFiles;i++) {
                 String fileName = inFiles[i].getName();
                 int dot = fileName.indexOf('.');
                 if(dot !=  -1) {
                     String locale = fileName.substring(0,dot);
-                    s.add(locale);
+                    s.add(CLDRLocale.getInstance(locale));
                 }
             }
             localeListSet = s;
@@ -8355,7 +8329,7 @@ public class SurveyMain extends HttpServlet {
         return h;
     }
 
-    public boolean isValidLocale(String locale) {
+    public boolean isValidLocale(CLDRLocale locale) {
         return getLocalesSet().contains(locale);
     }
 
@@ -8450,7 +8424,7 @@ public class SurveyMain extends HttpServlet {
     }
 
 
-    protected void busted(String what) {
+    protected static void busted(String what) {
         busted(what, null, null);
     }
     
@@ -8459,11 +8433,11 @@ public class SurveyMain extends HttpServlet {
      * @param what the error
      * @param se the SQL Exception
      */
-    protected void busted(String what, SQLException se) {
+    protected static void busted(String what, SQLException se) {
         busted(what, se, unchainSqlException(se));
     }
     
-    protected void busted(String what, Throwable t) {
+    protected static void busted(String what, Throwable t) {
         if(t instanceof SQLException) {
             busted(what, (SQLException)t);
         } else {
@@ -8471,7 +8445,7 @@ public class SurveyMain extends HttpServlet {
         }
     }
     
-    protected void busted(String what, Throwable t, String stack) {
+    protected static void busted(String what, Throwable t, String stack) {
         System.err.println("SurveyTool busted: " + what + " ( after " +pages +"html+"+xpages+"xml pages served, uptime " + uptime.toString()  + ")");
         try {
             throw new InternalError("broke here");
@@ -8874,7 +8848,7 @@ public class SurveyMain extends HttpServlet {
         // note: make xpt before CLDRDBSource..
         updateProgress(nn++, "Create CLDR_DATA"); // restore
         try {
-            CLDRDBSource.setupDB(logger, getDBConnection(), this);
+            dbsrcfac = new CLDRDBSourceFactory(this, fileBase, logger, new File(homeFile, "vxpt"));
         } catch (SQLException e) {
             busted("On CLDRDBSource startup", e);
             return;
@@ -8885,6 +8859,14 @@ public class SurveyMain extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
             busted("On Vetting startup", e);
+            return;
+        }
+        updateProgress(nn++, "Tell DBFac the Vetter is Ready"); // restore
+        try {
+            dbsrcfac.vetterReady();
+        } catch (Throwable e) {
+            e.printStackTrace();
+            busted("On Tell DBFac the Vetter is Ready startup", e);
             return;
         }
         updateProgress(nn++, "Create fora"); // restore
@@ -9181,13 +9163,13 @@ public class SurveyMain extends HttpServlet {
                     WebContext ctx = xctx;
                     System.out.println("  - loading CLDRFile and stuff");
                     UserLocaleStuff uf = sm.getUserFile(...
-                    CLDRFile cf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
+                    CLDRFile cf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.getLocale());
                     if(cf == null) {
                         throw new InternalError("CLDRFile is null!");
                     }
                     CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
                     if(ourSrc == null) {
-                        throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.locale );
+                        throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.getLocale() );
                     }
                     CheckCLDR checkCldr =  (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR+":"+ctx.defaultPtype());
                     if (checkCldr == null)  {
@@ -9308,7 +9290,7 @@ public class SurveyMain extends HttpServlet {
     /**
      * errors file 
      */
-    private Hashtable<String, Set<Integer>> externalErrorSet = null;
+    private Hashtable<CLDRLocale, Set<Integer>> externalErrorSet = null;
     private long externalErrorLastMod = -1;
     private long externalErrorLastCheck = -1;
     private boolean externalErrorFailed = false;
@@ -9351,7 +9333,7 @@ public class SurveyMain extends HttpServlet {
                = new BufferedReader(new FileReader(extFile));
             String line;
             int lines=0;
-            Hashtable<String, Set<Integer>> newSet = new Hashtable<String, Set<Integer>>();
+            Hashtable<CLDRLocale, Set<Integer>> newSet = new Hashtable<CLDRLocale, Set<Integer>>();
             while ((line = in.readLine())!=null) {
                 lines++;
                 if((line.length()<=0) ||
@@ -9360,7 +9342,7 @@ public class SurveyMain extends HttpServlet {
                 }
                 try {
                     String[] result = line.split("\t");
-                    String loc = result[0].split(";")[0];
+                    CLDRLocale loc = CLDRLocale.getInstance(result[0].split(";")[0]);
                     String what = result[1];
                     String val = result[2];
                     
@@ -9401,10 +9383,10 @@ public class SurveyMain extends HttpServlet {
         }
     }
         
-    public int externalErrorCount(String locale) {
+    public int externalErrorCount(CLDRLocale loc) {
         synchronized(this) {
             if(externalErrorRead()) {
-                Set<Integer> errs =  externalErrorSet.get(locale);
+                Set<Integer> errs =  externalErrorSet.get(loc);
                 if(errs != null) {
                     return errs.size();
                 } else {

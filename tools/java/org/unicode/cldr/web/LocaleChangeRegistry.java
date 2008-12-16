@@ -9,6 +9,8 @@ package org.unicode.cldr.web;
 
 import java.util.*;
 
+import org.unicode.cldr.util.CLDRLocale;
+
 /**
  * This class implements a class that tracks changes to locale-based data. 
  * @see Registerable
@@ -38,7 +40,7 @@ public class LocaleChangeRegistry {
      * @param locale locale to hash for
      * @return the hash table, new if needed
      */
-    private Hashtable internalGetHash(String locale) {
+    private Hashtable internalGetHash(CLDRLocale locale) {
         Hashtable r = (Hashtable)tables.get(locale);
         if(r == null) {
             r = new Hashtable();
@@ -53,11 +55,11 @@ public class LocaleChangeRegistry {
      * @param key key to register under.
      * @param what what is being registered (ignored)
      */
-    public void register(/* other params: tree, etc.., */ String locale, String key, Object /*notused */what) {
+    public void register(/* other params: tree, etc.., */ CLDRLocale locale, String key, Object /*notused */what) {
         synchronized(this) {
             while(locale != null ) {
                 internalGetHash(locale).put(key, "what"); // Register as string
-                locale = WebContext.getParent(locale);
+                locale = locale.getParent();
             }
         }
     }
@@ -68,14 +70,14 @@ public class LocaleChangeRegistry {
      * @param key
      * @return true if valid, false if stale.
      */
-    public boolean isKeyValid(/* other params: tree, etc.. */ String locale, String key) {
+    public boolean isKeyValid(/* other params: tree, etc.. */ CLDRLocale locale, String key) {
        synchronized(this) {
             while(locale != null ) {
                 Object what = internalGetHash(locale).get(key);
                 if(what == null) {
                     return false;
                 }
-                locale = WebContext.getParent(locale);
+                locale = locale.getParent();
             }
         }
         return true;
@@ -85,7 +87,7 @@ public class LocaleChangeRegistry {
      * invalidate a locale - does NOT invalidate parents or children.
      * @param locale locale to invalidate
      */
-    public void invalidateLocale(/* other params: tree, etc.. */ String locale)
+    public void invalidateLocale(/* other params: tree, etc.. */ CLDRLocale locale)
     {
 System.err.println("#*#LCR invalidate " + locale);
         synchronized(this) {

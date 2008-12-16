@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XPathParts;
@@ -205,7 +206,7 @@ public class Race {
 
     // Race variables
     public int base_xpath;
-    public String locale;
+    public CLDRLocale locale;
     public Hashtable<Integer, Chad> chads = new Hashtable<Integer, Chad>();
     public Hashtable<String, Chad> chadsByValue = new Hashtable<String, Chad>();
     public Hashtable<String, Chad> chadsByValue2 = new Hashtable<String, Chad>();
@@ -246,12 +247,12 @@ public class Race {
     }
 
     /* Reset this for a new item */
-    public void clear(int base_xpath, String locale) {
+    public void clear(int base_xpath, CLDRLocale locale) {
         clear(base_xpath, locale, -1);
     }
 
     /* Reset this for a new item */
-    public void clear(int base_xpath, String locale, int id) {
+    public void clear(int base_xpath, CLDRLocale locale, int id) {
         clear();
         this.base_xpath = base_xpath;
         this.locale = locale;
@@ -416,9 +417,9 @@ public class Race {
 
         // set status of 'last release' (base) data
         
-        vet.queryVoteForBaseXpath.setString(1, locale);
+        vet.queryVoteForBaseXpath.setString(1, locale.toString());
         vet.queryVoteForBaseXpath.setInt(2, base_xpath);
-        vet.queryValue.setString(1, locale);
+        vet.queryValue.setString(1, locale.toString());
 
         // Add the base xpath. It may come in as data later, and there may be no other values (and no votes).
         // If the base xpath wins, and there's no matching chad, the winning result will be 'null'.
@@ -495,7 +496,7 @@ public class Race {
 //        }
 
         // Now, add ALL other possible items.
-        vet.dataByBase.setString(1, locale);
+        vet.dataByBase.setString(1, locale.toString());
         vet.dataByBase.setInt(2, base_xpath);
         rs = vet.dataByBase.executeQuery();
         while (rs.next()) {
@@ -541,18 +542,18 @@ public class Race {
         int rowsUpdated = 0;
 
         // zap old CLDR_OUTPUT rows
-        vet.outputDelete.setString(1, locale);
+        vet.outputDelete.setString(1, locale.toString());
         vet.outputDelete.setInt(2, base_xpath);
         rowsUpdated += vet.outputDelete.executeUpdate();
 
         // zap orgdispute
-        vet.orgDisputeDelete.setString(1, locale);
+        vet.orgDisputeDelete.setString(1, locale.toString());
         vet.orgDisputeDelete.setInt(2, base_xpath);
         rowsUpdated += vet.orgDisputeDelete.executeUpdate();
 
-        vet.outputInsert.setString(1, locale);
+        vet.outputInsert.setString(1, locale.toString());
         vet.outputInsert.setInt(2, base_xpath);
-        vet.orgDisputeInsert.setString(2, locale);
+        vet.orgDisputeInsert.setString(2, locale.toString());
         vet.orgDisputeInsert.setInt(3, base_xpath);
         // Now, IF there was a valid result, store it.
         // outputInsert = prepareStatement("outputInsert", // loc, basex, outx,
@@ -709,7 +710,7 @@ public class Race {
             }
             vet.updateResult.setInt(2, type);
             vet.updateResult.setInt(3, base_xpath);
-            vet.updateResult.setString(4, locale);
+            vet.updateResult.setString(4, locale.toString());
             int res = vet.updateResult.executeUpdate();
             if (res != 1) {
                 throw new RuntimeException(locale + ":" + base_xpath + "@" + id + "=" + resultXpath

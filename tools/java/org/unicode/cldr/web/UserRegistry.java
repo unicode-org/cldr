@@ -18,6 +18,7 @@ import java.sql.Statement;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
@@ -137,7 +138,7 @@ public class UserRegistry {
         /**
          * is the user interested in this locale?
          */
-        public boolean interestedIn(String locale) {
+        public boolean interestedIn(CLDRLocale locale) {
             return UserRegistry.localeMatchesLocaleList(intlocs, locale);
         }
         
@@ -162,7 +163,7 @@ public class UserRegistry {
             }
         }
 
-        public final boolean userIsSpecialForCLDR15(String locale) {
+        public final boolean userIsSpecialForCLDR15(CLDRLocale locale) {
             return false;
         }
 //            if(locale.equals("be")||locale.startsWith("be_")) {
@@ -1200,14 +1201,15 @@ public class UserRegistry {
         return((u!=null) && userIsStreet(u));
     }
     
-    static final boolean localeMatchesLocale(String smallLocale, String bigLocale) {
-        if(bigLocale.startsWith(smallLocale)) {
-            int blen = bigLocale.length();
-            int slen = smallLocale.length();
+    // TODO: move to CLDRLocale
+    static final boolean localeMatchesLocale(CLDRLocale smallLocale, CLDRLocale bigLocale) {
+        if(bigLocale.toString().startsWith(smallLocale.toString())) {
+            int blen = bigLocale.toString().length();
+            int slen = smallLocale.toString().length();
             
             if(blen==slen) {
                 return true;  // exact match.   'ro' matches 'ro'
-            } else if(!java.lang.Character.isLetter(bigLocale.charAt(slen))) {
+            } else if(!java.lang.Character.isLetter(bigLocale.toString().charAt(slen))) {
                 return true; // next char is NOT a letter. 'ro' matches 'ro_...'
             } else {
                 return false; // next char IS a letter.  'ro' DOES NOT MATCH 'root'
@@ -1217,12 +1219,15 @@ public class UserRegistry {
         }
     }
     
-    static final boolean userCanModifyLocale(String uLocale, String locale) {
+    static final boolean userCanModifyLocale(CLDRLocale uLocale, CLDRLocale aliasTarget) {
         if(SurveyMain.isPhaseReadonly()) return false;
-        return localeMatchesLocale(uLocale, locale);
+        return localeMatchesLocale(uLocale, aliasTarget);
     }
 
-    static boolean localeMatchesLocaleList(String localeArray[], String locale)
+    static boolean localeMatchesLocaleList(String localeArray[], CLDRLocale locale) {
+        return localeMatchesLocaleList(stringArrayToLocaleArray(localeArray),locale);
+    }
+    static boolean localeMatchesLocaleList(CLDRLocale localeArray[], CLDRLocale locale)
     {
         for(int i=0;i<localeArray.length;i++) {
             if(localeMatchesLocale(localeArray[i],locale)) {
@@ -1232,14 +1237,14 @@ public class UserRegistry {
         return false;
     }
 
-    static boolean localeMatchesLocaleList(String localeList, String locale)
+    static boolean localeMatchesLocaleList(String localeList, CLDRLocale locale)
     {
         String localeArray[] = tokenizeLocale(localeList);
         return localeMatchesLocaleList(localeArray, locale);
     }
         
     
-    static final boolean userCanModifyLocale(String localeArray[], String locale) {
+    static final boolean userCanModifyLocale(CLDRLocale localeArray[], CLDRLocale locale) {
 		if(SurveyMain.isPhaseReadonly()) return false;
         if(localeArray.length == 0) {
             return true; // all 
@@ -1248,13 +1253,13 @@ public class UserRegistry {
         return localeMatchesLocaleList(localeArray, locale);
     }
     
-    static final boolean userCanModifyLocale(User u, String locale) {
+    static final boolean userCanModifyLocale(User u, CLDRLocale locale) {
         if(u==null) return false; // no user, no dice
 
         if(!userIsStreet(u)) return false; // at least street level
         if(SurveyMain.isPhaseReadonly()) return false; // readonly = locked for ALL
         if((sm.isLocaleAliased(locale)!=null) ||
-            sm.supplemental.defaultContentToParent(locale)!=null) return false; // it's a defaultcontent locale or a pure alias.
+            sm.supplemental.defaultContentToParent(locale.toString())!=null) return false; // it's a defaultcontent locale or a pure alias.
 
         if(userIsAdmin(u)) return true; // Admin can modify all
         if(userIsTC(u)) return true; // TC can modify all
@@ -1269,7 +1274,7 @@ public class UserRegistry {
         if(SurveyMain.isPhaseClosed()) return false;
         if(SurveyMain.isPhaseSubmit() && !userIsStreet(u)) return false;
         if(SurveyMain.isPhaseVetting() && !userIsStreet (u)) return false;
-        if(locale.equals("und")||locale.startsWith("und_")) {  // all user accounts can write to und.
+        if(locale.getLanguage().equals("und")) {  // all user accounts can write to und.
             return true;
         }
 //        if(SurveyMain.phaseVetting && !userIsStreet(u)) return false;
@@ -1278,12 +1283,22 @@ public class UserRegistry {
         return userCanModifyLocale(localeArray,locale);
     }
 
-    static final boolean userCanSubmitLocale(User u, String locale) {
+    private static boolean userCanModifyLocale(String[] localeArray, CLDRLocale locale) {
+        return userCanModifyLocale(stringArrayToLocaleArray(localeArray), locale);
+    }
+    private static CLDRLocale[] stringArrayToLocaleArray(String[] localeArray) {
+        CLDRLocale arr[] = new CLDRLocale[localeArray.length];
+        for(int j=0;j<localeArray.length;j++) {
+            arr[j]=CLDRLocale.getInstance(localeArray[j]);
+        }
+        return arr;
+    }
+    static final boolean userCanSubmitLocale(User u, CLDRLocale locale) {
 		return userCanSubmitLocaleWhenDisputed(u, locale, false);
     }
 	
 
-    static final boolean userCanSubmitLocaleWhenDisputed(User u, String locale, boolean disputed) {
+    static final boolean userCanSubmitLocaleWhenDisputed(User u, CLDRLocale locale, boolean disputed) {
 		if(SurveyMain.isPhaseReadonly()) return false;
         if(u==null) return false; // no user, no dice
         if(userIsTC(u)) return true; // TC can modify all
@@ -1313,7 +1328,7 @@ public class UserRegistry {
         return userCanSubmit(u);
     }
 
-    static final boolean userCanVetLocale(User u, String locale) {
+    static final boolean userCanVetLocale(User u, CLDRLocale locale) {
 		if(SurveyMain.isPhaseReadonly()) return false;
         if((SurveyMain.phase() == SurveyMain.Phase.VETTING_CLOSED) && u.userIsSpecialForCLDR15(locale)) {
             return true;

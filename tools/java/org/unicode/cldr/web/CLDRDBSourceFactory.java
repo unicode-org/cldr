@@ -28,47 +28,176 @@ import java.sql.PreparedStatement;
 // CLDR imports
 import org.unicode.cldr.util.*;
 //import org.unicode.cldr.util.XMLSource.Alias;
+import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.icu.LDMLConstants;
 
 // ICU
 import com.ibm.icu.util.ULocale;
 
-/**
- * This class implements an XMLSource which is read out of a database.
- * it is not directly modifiable, but it does have routines for modifying the database again.
- **/
- public class CLDRDBSource extends XMLSource {
-     
+public class CLDRDBSourceFactory {
+    /**
+     * @author srl
+     *
+     */
+    public class MuxedSource extends XMLSource {
+        private CLDRLocale locale;
+        
+        private XMLSource dbSource = null;
+        private XMLSource cachedSource = null;
+        private boolean finalData;
+        /**
+         * 
+         */
+        public MuxedSource(CLDRLocale locale, boolean finalData) {
+            this.setLocaleID(locale.toString());
+            this.locale = locale;
+            this.finalData = finalData;
+            this.dbSource = rootDbSource.make(locale.toString());
+            this.cachedSource = cache.getSource(locale, finalData);
+        }
+
+        /* (non-Javadoc)
+         * @see org.unicode.cldr.util.XMLSource#getAvailableLocales()
+         */
+        @Override
+        public Set getAvailableLocales() {
+            return dbSource.getAvailableLocales();
+        }
+
+        /* (non-Javadoc)
+         * @see org.unicode.cldr.util.XMLSource#getFullPathAtDPath(java.lang.String)
+         */
+        @Override
+        public String getFullPathAtDPath(String path) {
+            if(false) {  System.err.println("NN: F["+path+"] @"+getLocaleID() + " = " + cachedSource.getFullPathAtDPath(path));    }
+            return cachedSource.getFullPathAtDPath(path);
+        }
+
+        /* (non-Javadoc)
+         * @see org.unicode.cldr.util.XMLSource#getSupplementalDirectory()
+         */
+        @Override
+        public File getSupplementalDirectory() {
+            // TODO Auto-generated method stub
+            return dbSource.getSupplementalDirectory();
+        }
+
+        /* (non-Javadoc)
+         * @see org.unicode.cldr.util.XMLSource#getValueAtDPath(java.lang.String)
+         */
+        @Override
+        public String getValueAtDPath(String path) {
+            //if(path.contains("gregorian")) throw new InternalError("Who wants to know?");
+            if(false) {  System.err.println("NN: ["+path+"] @"+getLocaleID() + " = " + cachedSource.getValueAtDPath(path));    }
+            return cachedSource.getValueAtDPath(path);
+        }
+
+        /* (non-Javadoc)
+         * @see org.unicode.cldr.util.XMLSource#getXpathComments()
+         */
+        @Override
+        public Comments getXpathComments() {
+            // TODO Auto-generated method stub
+            return cachedSource.getXpathComments();
+        }
+
+        /* (non-Javadoc)
+         * @see org.unicode.cldr.util.XMLSource#iterator()
+         */
+        @Override
+        public Iterator<String> iterator() {
+            // TODO Auto-generated method stub
+          if(false) {  System.err.println("NN: @"+getLocaleID());
+            for(Iterator i = (Iterator)cachedSource.iterator();i.hasNext();) {
+                System.err.println("// "+i.next().toString());
+            } }
+            return cachedSource.iterator();
+        }
+
+        public Iterator<String> iterator(String str) {
+            if(false) {  System.err.println("NN: ["+str+"] @"+getLocaleID());
+            for(Iterator i = (Iterator)cachedSource.iterator(str);i.hasNext();) {
+                System.err.println("// "+i.next().toString());
+            } }
+            return cachedSource.iterator(str);
+        }
+//
+        /* (non-Javadoc)
+         * @see org.unicode.cldr.util.XMLSource#make(java.lang.String)
+         */
+        @Override
+        public XMLSource make(String localeID) {
+            return getMuxedInstance(CLDRLocale.getInstance(localeID));
+        }
+
+        /* (non-Javadoc)
+         * @see org.unicode.cldr.util.XMLSource#putFullPathAtDPath(java.lang.String, java.lang.String)
+         */
+        @Override
+        public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
+            throw new InternalError("not imp");
+
+        }
+
+        /* (non-Javadoc)
+         * @see org.unicode.cldr.util.XMLSource#putValueAtDPath(java.lang.String, java.lang.String)
+         */
+        @Override
+        public void putValueAtDPath(String distinguishingXPath, String value) {
+            // TODO Auto-generated method stub
+            throw new InternalError("not imp");
+
+        }
+
+        /* (non-Javadoc)
+         * @see org.unicode.cldr.util.XMLSource#removeValueAtDPath(java.lang.String)
+         */
+        @Override
+        public void removeValueAtDPath(String distinguishingXPath) {
+            // TODO Auto-generated method stub
+            throw new InternalError("not imp");
+
+        }
+
+        /* (non-Javadoc)
+         * @see org.unicode.cldr.util.XMLSource#setXpathComments(org.unicode.cldr.util.XPathParts.Comments)
+         */
+        @Override
+        public void setXpathComments(Comments comments) {
+            // TODO Auto-generated method stub
+            throw new InternalError("not imp");
+
+        }
+
+        /* (non-Javadoc)
+         * @see com.ibm.icu.util.Freezable#freeze()
+         */
+        public Object freeze() {
+            // TODO Auto-generated method stub
+//            locked = true;
+//            return this;
+            throw new InternalError("freeze not suported. [clone and lock?]");
+        }
+
+    }
+
     private static final boolean SHOW_TIMES=false;
     private static final boolean SHOW_DEBUG=false;
     private static final boolean TRACE_CONN=false;
     
     /**
-     * show final, vetted data only?
-     */
-    public boolean finalData = false;
-    
-    /**
-     * for vetting? 
-     */
-    private Vetting vetting = null;
-    
-    /**
      * the logger to use, from SurveyMain
      **/
     private static Logger logger;
-    
-    // local things
-    /**
-     * map from paths to comments.  (for now: empty. TODO: make this real)
-     */
-    private Comments xpath_comments = new Comments(); 
+
     /**
      * TODO: 0 make private
      * factory for producing XMLFiles that go with the original source xml data.
      */
     public CLDRFile.Factory  rawXmlFactory = null; 
+    
+    CLDRFileCache cache = null; 
     /**
      * location of LDML data.
      */
@@ -102,14 +231,70 @@ import com.ibm.icu.util.ULocale;
     static SurveyMain sm = null;
     
     /**
-     * User this File belongs to (or null)
-     */
-    protected UserRegistry.User user= null; 
-    
-    /**
      * the SQL database connection.
      */
     protected Connection conn = null;
+    
+    protected XMLSource rootDbSource = null;
+    protected XMLSource rootDbSourceV = null;
+    private List<CLDRLocale> needUpdate = new ArrayList<CLDRLocale>();
+    File cacheDir = null;
+    boolean vetterReady = false;
+    
+    CLDRDBSourceFactory(SurveyMain sm, String theDir, Logger xlogger, File cacheDir) throws SQLException {
+        this.xpt = sm.xpt;
+        this.dir = theDir;
+        CLDRFile.Factory afactory = CLDRFile.SimpleFactory.make(theDir,".*");
+        Connection sconn = sm.getDBConnection();
+        CLDRDBSourceFactory.sm = sm;
+        logger = xlogger; // set static
+        setupDB(sconn);
+        this.initConn(sconn, afactory);
+        this.cacheDir = cacheDir;
+    }
+    
+    public void vetterReady() {
+        System.err.println("DBSRCFAC: processing vetterReady()...");
+        rootDbSourceV = new CLDRDBSource(CLDRLocale.ROOT, true);
+        rootDbSource = new CLDRDBSource(CLDRLocale.ROOT, false);
+        cache= new CLDRFileCache(rootDbSource, rootDbSourceV, cacheDir, sm);
+
+        vetterReady = true;
+        for(CLDRLocale l : needUpdate) {
+            System.err.println("CLDRDBSRCFAC: executing deferred update of " + l);
+            sm.vet.updateResults(l);
+        }
+        needUpdate = null;
+    }
+    
+    XMLSource getInstance(CLDRLocale locale) {
+        return getInstance(locale, false);
+     }
+    
+    /**
+     * The Muxed sources automatically are cached on read, and update on write.
+     */
+    Map<CLDRLocale, XMLSource> mux = new HashMap<CLDRLocale, XMLSource>();
+    
+    public XMLSource  getInstance(CLDRLocale locale, boolean finalData) {
+        if(finalData == true) {
+    //        return cache.getCachedSource(locale,true);
+           return rootDbSourceV.make(locale.toString());
+//            System.err.println("@@ finalData not imp");
+ //           return getMuxedInstance(locale);
+        } else {
+            return getMuxedInstance(locale);
+        }
+     }
+    
+    public XMLSource getMuxedInstance(CLDRLocale locale) {
+        XMLSource src = mux.get(locale);
+        if(src == null) {
+            src = new MuxedSource(locale, false);
+            mux.put(locale, src);
+        }
+        return src;
+    }
     
     /** 
      * called once (at DB setup time) to initialize the database.
@@ -118,10 +303,8 @@ import com.ibm.icu.util.ULocale;
      * @param isNew set to true of this is the first time teh DB is being setup. TODO: replace with 'does table exist' code.
      * @param sm the link back to the SurveyMain
      */
-    public static void setupDB(Logger xlogger, Connection sconn, SurveyMain sm) throws SQLException
+    public void setupDB(Connection sconn) throws SQLException
     {
-        CLDRDBSource.sm = sm;
-        logger = xlogger; // set static
         boolean isNew = !sm.hasTable(sconn, CLDR_DATA);
         if(!isNew) {
             return; // nothing to setup
@@ -182,7 +365,7 @@ import com.ibm.icu.util.ULocale;
         public PreparedStatement keySet = null;
         public PreparedStatement keyASet = null;
         public PreparedStatement keyVettingSet = null;
-		public PreparedStatement oxpathFromVetXpath = null;
+        public PreparedStatement oxpathFromVetXpath = null;
         public PreparedStatement keyUnconfirmedSet = null;
         public PreparedStatement queryVetValue = null;
         public PreparedStatement queryVetXpath = null;
@@ -354,147 +537,15 @@ import com.ibm.icu.util.ULocale;
         }
         rawXmlFactory = theFactory;
         
-        if(!loadAndValidate(getLocaleID(), null)) {
-            throw new InternalError("Couldn't load and validate: " + getLocaleID());
-        }
     }
-    
-    /** 
-     * source ID of this CLDRDBSource. 
-     * @see #getSourceID
-     */
-    public int srcId = -1; 
 
-    /**
-     * load and validate the item, if not already in the DB. Sets srcId and other state.
-     * Note that this is not a fully resolved operation at this level.
-     * @param locale the locale to load. Ex:  "mt_MT"
-     * @param forUser which user are we loading for? TODO: not currently used..
-     **/
-    boolean loadAndValidate(String locale, WebContext forUser) {
-
-        srcId = getSourceId(tree, locale);
-
-        if(srcId != -1) { 
-            return true;  // common case. The locale is already loaded. We're done.
-        }
-
-        synchronized(xpt) {  // Synchronize on the XPT to ensure that no other state is changing under us..
-            // double check..
-            srcId = getSourceId(tree, locale); // double checked lock- noone else loaded the src since then
-            
-            if(srcId != -1) { 
-                return true;  // common case.
-            }            
-            if(conn == null) {
-                throw new InternalError("loadAndValidate: failed, no DB connection"); // very bad, our DB connection went away.
-            }
-            
-            String rev = LDMLUtilities.getCVSVersion(dir, locale+".xml");  // Load the CVS version # as a string
-            srcId = setSourceId(tree, locale, rev); // TODO: we had better fill it in..
-            synchronized(conn) {            
-            //            logger.info("srcid: " + srcId);
-                
-                CLDRFile file = rawXmlFactory.make(locale, false, true); // create the CLDRFile pointing to the raw XML
-                
-                if(file == null) {
-                    logger.severe("Couldn't load CLDRFile for " + locale);
-                    return false ;
-                }
-                
-                logger.info("loading rev: " + rev + " for " + dir + ":" + locale+".xml"); // LOG that a new item is loaded.
-                //sm.fora.updateBaseLoc(locale); // in case this is a new locale.
-                // Now, start loading stuff in
-                XPathParts xpp=new XPathParts(null,null); // for parsing various xpaths
-                
-                for (Iterator it = file.iterator(); it.hasNext();) {  // loop over the contents of the raw XML ..
-                    String rawXpath = (String) it.next();
-                    
-                    // Make it distinguished
-                    String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);
-                    
-                    //if(!xpath.equals(rawXpath)) {
-                    //    logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
-                    //}
-                    
-                    String oxpath = file.getFullXPath(xpath); // orig-xpath.  
-                    
-                    if(!oxpath.equals(file.getFullXPath(rawXpath))) {
-                        // Failed the sanity check.  This should Never Happen(TM)
-                        // What's happened here, is that the full xpath given the raw xpath, ought to be the full xpath given the distinguished xpath.
-                        // SurveyTool depends on this being reversable thus.
-                        throw new InternalError("FATAL: oxpath and file.getFullXPath(raw) are different: " + oxpath + " VS. " + file.getFullXPath(rawXpath));
-                    }
-                    
-                    int xpid = xpt.getByXpath(xpath);       // the numeric ID of the xpath
-                    int oxpid = xpt.getByXpath(oxpath);     // the numeric ID of the orig-xpath
-                    
-                    String value = file.getStringValue(xpath); // data value from XML
-                    
-                    // Now, munge the xpaths around a bit.
-                    xpp.clear();
-                    xpp.initialize(oxpath);
-                    String lelement = xpp.getElement(-1);
-                    /* all of these are always at the end */
-                    String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
-                    String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
-        
-                    /* we call a special function to find the "tiny" xpath.  Which see */
-                    String eType = xpt.typeFromPathToTinyXpath(xpath, xpp);  // etype = the element's type
-                    String tinyXpath = xpp.toString(); // the tiny xpath
-                    
-                    int txpid = xpt.getByXpath(tinyXpath); // the numeric ID of the tiny xpath
-                    
-                    int base_xpid = xpt.xpathToBaseXpathId(xpath);  // the BASE xpath 
-                    
-                    /* Some debugging to print these various things*/ 
-    //                System.out.println(xpath + " l: " + locale);
-    //                System.out.println(" <- " + oxpath);
-    //                System.out.println(" t=" + eType + ", a=" + eAlt + ", d=" + eDraft);
-    //                System.out.println(" => "+txpid+"#" + tinyXpath);
-                      
-                    // insert it into the DB
-                    try {
-                        stmts.insert.setInt(1,xpid); // full
-                        stmts.insert.setString(2,locale);
-                        stmts.insert.setInt(3,srcId);
-                        stmts.insert.setInt(4,oxpid); // Note: assumes XPIX = orig XPID! TODO: fix
-                        SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
-                        stmts.insert.setString(6,eType);
-                        stmts.insert.setString(7,eAlt);
-                        stmts.insert.setInt(8,txpid); // tiny
-                        stmts.insert.setNull(9, java.sql.Types.INTEGER); // Null integer for Submitter. NB: we do NOT ever consider data coming from XML as 'submitter' data.
-                        stmts.insert.setInt(10, base_xpid);
-
-                        stmts.insert.execute();
-                        
-                    } catch(SQLException se) {
-                        String complaint = 
-                            "CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath +
-                                ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
-                        logger.severe(complaint);
-                        throw new InternalError(complaint);
-                    }
-                }
-                
-                try{
-                        conn.commit();
-                } catch(SQLException se) {
-                        String complaint = 
-                            "CLDRDBSource: Couldn't commit " + locale +
-                                ":" + SurveyMain.unchainSqlException(se);
-                        logger.severe(complaint);
-                        throw new InternalError(complaint);
-                }
-                return true;
-            }
-        } // end: synch(xpt)
-    }
     
     /**
      * the hashtable of ("tree_locale") -> Integer(srcId)
      */
-    Hashtable srcHash = new Hashtable(); 
+    Hashtable srcHash = new Hashtable();
+    //    
+    public static final boolean USE_XPATH_CACHE=false; 
     
     /**
      * given a tree and locale, return the source ID.
@@ -542,12 +593,6 @@ import com.ibm.icu.util.ULocale;
         }
     }
     
-    /**
-     * Return the SCM ID of this source.
-     */
-    public String getSourceRevision() {
-        return getSourceRevision(srcId);
-    }
     
     /**
      * given a source ID, return the CVS revision # from the DB
@@ -614,7 +659,7 @@ import com.ibm.icu.util.ULocale;
      * Utility function called by manageSourceUpdates()
      * @see manageSourceUpdates
      */
-    private void manageSourceUpdates_locale(WebContext ctx, SurveyMain sm, int id, String loc, boolean quietUpdateAll)
+    private void manageSourceUpdates_locale(WebContext ctx, SurveyMain sm, int id, CLDRLocale loc, boolean quietUpdateAll)
         throws SQLException
     {
         String mySql = ("DELETE from "+CLDR_DATA+" where source="+id+" AND submitter IS NULL");
@@ -668,7 +713,7 @@ import com.ibm.icu.util.ULocale;
                     }
                     while(rs.next()) {
                         int id = rs.getInt(1);
-                        String loc = rs.getString(2);
+                        CLDRLocale loc = CLDRLocale.getInstance(rs.getString(2));
                         String rev = rs.getString(3);
                         String disk = LDMLUtilities.getCVSVersion(dir, loc+".xml");
                         if(!quietUpdateAll) {
@@ -691,7 +736,7 @@ import com.ibm.icu.util.ULocale;
                             if(!quietUpdateAll) {
                                 ctx.println("<td class='missing'>disk="+disk+ " </td> ");
                             }
-                            subCtx.addQuery("src_update",loc);
+                            subCtx.addQuery("src_update",loc.toString());
                             // ...
                             if(updAll || what.equals(loc)) { // did we request update of this one?
                                 if(!quietUpdateAll) {
@@ -797,6 +842,306 @@ import com.ibm.icu.util.ULocale;
           */
     }
     
+
+
+    public int getSubmitterId(CLDRLocale locale, int xpath) {
+      try {
+          ResultSet rs;
+          stmts.getSubmitterId.setString(1,locale.toString());
+          stmts.getSubmitterId.setInt(2,xpath);
+          rs = stmts.getSubmitterId.executeQuery();
+          if(!rs.next()) {
+  ///*srl*/     System.err.println("GSI[-1]: " + locale+":"+xpath);
+              return -1;
+          }
+          int rp = rs.getInt(1);
+          rs.close();
+  ///*srl*/ System.err.println("GSI["+rp+"]: " + locale+":"+xpath);
+          if(rp > 0) {
+              return rp;
+          } else {
+              return -1;
+          }
+      } catch(SQLException se) {
+          logger.severe("CLDRDBSource: Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + SurveyMain.unchainSqlException(se));
+          throw new InternalError("Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+SurveyMain.unchainSqlException(se));
+      }
+    }
+
+
+
+  ///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
+  //if(showDebug) /*srl*/logger.info(locale + ":" + path);
+    public int getWinningPathId(int xpath, CLDRLocale locale, boolean finalData) {
+        if(finalData) {
+            return sm.xpt.xpathToBaseXpathId(xpath);
+        }
+        
+      if(false) {
+          try {
+              ResultSet rs;
+              if(finalData) {
+                  return sm.xpt.xpathToBaseXpathId(xpath);
+                  //throw new InternalError("Unsupported: getWinningPath("+xpath+","+locale+") on finalData");
+              } else {
+                  stmts.queryVetXpath.setString(1,locale.toString());
+                  stmts.queryVetXpath.setInt(2,xpath); 
+                  rs = stmts.queryVetXpath.executeQuery();
+              }
+              if(!rs.next()) {
+                  return -1;
+              }
+              int rp = rs.getInt(1);
+              rs.close();
+              if(rp != 0) {  // 0  means, fallback xpath
+                  return rp;
+              } else {
+                  return -1;
+              }
+              //if(showDebug)/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
+          } catch(SQLException se) {
+              se.printStackTrace();
+              logger.severe("CLDRDBSource: Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + SurveyMain.unchainSqlException(se));
+              throw new InternalError("Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+SurveyMain.unchainSqlException(se));
+          }
+      } else {
+          return sm.vet.getWinningXPath(xpath, locale);
+      }
+    }
+
+    public String getWinningPath(int xpath, CLDRLocale locale, boolean finalData) {
+      int rp = getWinningPathId(xpath, locale, finalData);
+      if(rp > 0) {
+          return xpt.getById(rp);
+      } else {
+          return null;
+      }
+    }
+    
+    private static int makeHashHitCount = 0;
+    private static int maxMakeHashSize = 0;
+    static final boolean MAKE_CACHE = false;
+
+    /**
+     * Close out the connection.
+     */
+    public void closeConnection() {
+        SurveyMain.closeDBConnection(conn);
+        conn = null;
+    }
+    
+    /**
+     * return a list fo XML input files
+     */
+    private File[] getInFiles() {
+        // 1. get the list of input XML files
+        FileFilter myFilter = new FileFilter() {
+            public boolean accept(File f) {
+                String n = f.getName();
+                return(!f.isDirectory()
+                       &&n.endsWith(".xml")
+                       &&!n.startsWith("supplementalData") // not a locale
+                       /*&&!n.startsWith("root")*/); // root is implied, will be included elsewhere.
+            }
+        };
+        File baseDir = new File(dir);
+        return baseDir.listFiles(myFilter);
+    }
+
+
+    /*
+     * 
+========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= 
+========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= 
+========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= ========= 
+     */
+    /**
+ * This class implements an XMLSource which is read out of a database.
+ * it is not directly modifiable, but it does have routines for modifying the database again.
+ **/
+ public class CLDRDBSource extends XMLSource {
+     
+////    
+////     void setup() {
+////         if(!loadAndValidate(getLocaleID(), null)) {
+////             throw new InternalError("Couldn't load and validate: " + getLocaleID());
+////         }
+//
+//     }
+    /**
+     * show final, vetted data only?
+     */
+    public boolean finalData = false;
+    
+    /**
+     * for vetting? 
+     */
+    //private Vetting vetting = null;
+    
+    
+    // local things
+    private Comments xpath_comments = new Comments(); 
+
+    /**
+     * User this File belongs to (or null)
+     * @deprecated
+     */
+    protected UserRegistry.User user= null; 
+    
+
+    /** 
+     * source ID of this CLDRDBSource. 
+     * @see #getSourceID
+     */
+    public int srcId = -1; 
+
+    /**
+     * load and validate the item, if not already in the DB. Sets srcId and other state.
+     * Note that this is not a fully resolved operation at this level.
+     * @param locale the locale to load. Ex:  "mt_MT"
+     **/
+    boolean setLocaleAndValidate(String locale) {
+        setLocaleID(locale);
+        srcId = getSourceId(tree, locale);
+        System.err.println("@sl&v: "+locale+"/"+srcId);
+
+        if(srcId != -1) { 
+            return true;  // common case. The locale is already loaded. We're done.
+        }
+
+        synchronized(xpt) {  // Synchronize on the XPT to ensure that no other state is changing under us..
+            // double check..
+            srcId = getSourceId(tree, locale); // double checked lock- noone else loaded the src since then
+            
+            if(srcId != -1) { 
+                return true;  // common case.
+            }            
+            if(conn == null) {
+                throw new InternalError("loadAndValidate: failed, no DB connection"); // very bad, our DB connection went away.
+            }
+            
+            String rev = LDMLUtilities.getCVSVersion(dir, locale+".xml");  // Load the CVS version # as a string
+            srcId = setSourceId(tree, locale, rev); // TODO: we had better fill it in..
+            synchronized(conn) {            
+               // logger.info("srcid: " + srcId +"/"+locale);
+               // if(locale.equals("el__POLYTON")) locale="el_POLYTON";
+                CLDRFile file = rawXmlFactory.make(locale, false, true); // create the CLDRFile pointing to the raw XML
+                
+                if(file == null) {
+                    System.err.println("Couldn't load CLDRFile for " + locale);
+                    return false ;
+                }
+                
+                System.err.println("loading rev: " + rev + " for " + dir + ":" + srcId +"/"+locale+".xml"); // LOG that a new item is loaded.
+                int rowCount=0;
+                //sm.fora.updateBaseLoc(locale); // in case this is a new locale.
+                // Now, start loading stuff in
+                XPathParts xpp=new XPathParts(null,null); // for parsing various xpaths
+                
+                for (Iterator it = file.iterator(); it.hasNext();) {  // loop over the contents of the raw XML ..
+                    rowCount++;
+                    String rawXpath = (String) it.next();
+                    
+                    // Make it distinguished
+                    String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);
+                    
+                    //if(!xpath.equals(rawXpath)) {
+                    //    logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
+                    //}
+                    
+                    String oxpath = file.getFullXPath(xpath); // orig-xpath.  
+                    
+                    if(!oxpath.equals(file.getFullXPath(rawXpath))) {
+                        // Failed the sanity check.  This should Never Happen(TM)
+                        // What's happened here, is that the full xpath given the raw xpath, ought to be the full xpath given the distinguished xpath.
+                        // SurveyTool depends on this being reversable thus.
+                        throw new InternalError("FATAL: oxpath and file.getFullXPath(raw) are different: " + oxpath + " VS. " + file.getFullXPath(rawXpath));
+                    }
+                    
+                    int xpid = xpt.getByXpath(xpath);       // the numeric ID of the xpath
+                    int oxpid = xpt.getByXpath(oxpath);     // the numeric ID of the orig-xpath
+                    
+                    String value = file.getStringValue(xpath); // data value from XML
+                    
+                    // Now, munge the xpaths around a bit.
+                    xpp.clear();
+                    xpp.initialize(oxpath);
+                    String lelement = xpp.getElement(-1);
+                    /* all of these are always at the end */
+                    String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
+                    String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
+        
+                    /* we call a special function to find the "tiny" xpath.  Which see */
+                    String eType = xpt.typeFromPathToTinyXpath(xpath, xpp);  // etype = the element's type
+                    String tinyXpath = xpp.toString(); // the tiny xpath
+                    
+                    int txpid = xpt.getByXpath(tinyXpath); // the numeric ID of the tiny xpath
+                    
+                    int base_xpid = xpt.xpathToBaseXpathId(xpath);  // the BASE xpath 
+                    
+                    /* Some debugging to print these various things*/ 
+    //                System.out.println(xpath + " l: " + locale);
+    //                System.out.println(" <- " + oxpath);
+    //                System.out.println(" t=" + eType + ", a=" + eAlt + ", d=" + eDraft);
+    //                System.out.println(" => "+txpid+"#" + tinyXpath);
+                      
+                    // insert it into the DB
+                    try {
+                        stmts.insert.setInt(1,xpid); // full
+                        stmts.insert.setString(2,locale);
+                        stmts.insert.setInt(3,srcId);
+                        stmts.insert.setInt(4,oxpid); // Note: assumes XPIX = orig XPID! TODO: fix
+                        SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
+                        stmts.insert.setString(6,eType);
+                        stmts.insert.setString(7,eAlt);
+                        stmts.insert.setInt(8,txpid); // tiny
+                        stmts.insert.setNull(9, java.sql.Types.INTEGER); // Null integer for Submitter. NB: we do NOT ever consider data coming from XML as 'submitter' data.
+                        stmts.insert.setInt(10, base_xpid);
+
+                        stmts.insert.execute();
+                        
+                    } catch(SQLException se) {
+                        String complaint = 
+                            "CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath +
+                                ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+                        logger.severe(complaint);
+                        throw new InternalError(complaint);
+                    }
+                }
+                
+                try{
+                        conn.commit();
+                } catch(SQLException se) {
+                        String complaint = 
+                            "CLDRDBSource: Couldn't commit " + locale +
+                                ":" + SurveyMain.unchainSqlException(se);
+                        logger.severe(complaint);
+                        throw new InternalError(complaint);
+                }
+                System.err.println("loaded " + rowCount + " rows into  rev: " + rev + " for " + dir + ":" + srcId +"/"+locale+".xml"); // LOG that a new item is loaded.
+                CLDRLocale loc = CLDRLocale.getInstance(locale);
+                if(vetterReady) {
+                    sm.vet.updateResults(loc);
+                } else {
+                    needUpdate.add(loc);
+                    System.err.println("CLDRDBSource " + loc + " - deferring vet update on " + loc + " until vetter ready.");
+                }
+                return true;
+            }
+        } // end: synch(xpt)
+    }
+    
+
+    
+    /**
+     * Return the SCM ID of this source.
+     */
+    public String getSourceRevision() {
+        return CLDRDBSourceFactory.this.getSourceRevision(srcId); // TODO: awkward
+    }
+    
+
+    
     /**
      * Return the path to supplemental data.
      */
@@ -839,7 +1184,7 @@ import com.ibm.icu.util.ULocale;
      * XMLSource API. Unimplemented, read only.
      */
     public void removeValueAtDPath(String distinguishingXPath) {  
-                throw new InternalError("read-only");
+                throw new InternalError("read-only - delete not implemented yet.");
     }  // R/O
 
     /**
@@ -856,12 +1201,12 @@ import com.ibm.icu.util.ULocale;
      * @param xpathId id to remove
      * @param submitter submitter's id - not strictly necessary, but it's a check.
      */
-    public void removeItem(String locale, int xpathId, int submitter) {
+    public void removeItem(CLDRLocale locale, int xpathId, int submitter) {
         if(conn == null) {
             throw new InternalError("No DB connection!");
         }
         try {
-            stmts.removeItem.setString(1, locale);
+            stmts.removeItem.setString(1, locale.toString());
             stmts.removeItem.setInt(2, xpathId);
             stmts.removeItem.setInt(3, submitter);
             int n = stmts.removeItem.executeUpdate();
@@ -923,94 +1268,15 @@ import com.ibm.icu.util.ULocale;
         //}
     }
 
-/*
-  // leave the parent implementation for now. 
-  public boolean isWinningPath(String path) {
-    return getWinningPath(path).equals(path);
-  }
-*/
 
-  public int getSubmitterId(String locale, int xpath) {
-    try {
-        ResultSet rs;
-        stmts.getSubmitterId.setString(1,locale);
-        stmts.getSubmitterId.setInt(2,xpath);
-        rs = stmts.getSubmitterId.executeQuery();
-        if(!rs.next()) {
-///*srl*/     System.err.println("GSI[-1]: " + locale+":"+xpath);
-            return -1;
-        }
-        int rp = rs.getInt(1);
-        rs.close();
-///*srl*/ System.err.println("GSI["+rp+"]: " + locale+":"+xpath);
-        if(rp > 0) {
-            return rp;
-        } else {
-            return -1;
-        }
-    } catch(SQLException se) {
-        logger.severe("CLDRDBSource: Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + SurveyMain.unchainSqlException(se));
-        throw new InternalError("Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+SurveyMain.unchainSqlException(se));
-    }
-  }
-
-
-
-///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
-//if(showDebug) /*srl*/logger.info(locale + ":" + path);
-  public int getWinningPathId(int xpath, String locale) {
-      if(finalData) {
-          return sm.xpt.xpathToBaseXpathId(xpath);
-      }
-      
-    if(false) {
-        try {
-            ResultSet rs;
-            if(finalData) {
-                return sm.xpt.xpathToBaseXpathId(xpath);
-                //throw new InternalError("Unsupported: getWinningPath("+xpath+","+locale+") on finalData");
-            } else {
-                stmts.queryVetXpath.setString(1,locale);
-                stmts.queryVetXpath.setInt(2,xpath); 
-                rs = stmts.queryVetXpath.executeQuery();
-            }
-            if(!rs.next()) {
-                return -1;
-            }
-            int rp = rs.getInt(1);
-            rs.close();
-            if(rp != 0) {  // 0  means, fallback xpath
-                return rp;
-            } else {
-                return -1;
-            }
-            //if(showDebug)/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
-        } catch(SQLException se) {
-            se.printStackTrace();
-            logger.severe("CLDRDBSource: Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + SurveyMain.unchainSqlException(se));
-            throw new InternalError("Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+SurveyMain.unchainSqlException(se));
-        }
-    } else {
-        return sm.vet.getWinningXPath(xpath, locale);
-    }
-  }
-
-  public String getWinningPath(int xpath, String locale) {
-    int rp = getWinningPathId(xpath, locale);
-    if(rp > 0) {
-        return xpt.getById(rp);
-    } else {
-        return null;
-    }
-  }
 
   public String getWinningPath(String path) 
   {
     int xpath=xpt.xpathToBaseXpathId(path);
     
     // look for it in parents
-    for(String locale=getLocaleID();locale!=null;locale=LDMLUtilities.getParent(locale)) {
-        String rv = getWinningPath(xpath, locale);
+    for(CLDRLocale locale : CLDRLocale.getInstance(getLocaleID()).getParentIterator()) {
+        String rv = CLDRDBSourceFactory.this.getWinningPath(xpath, locale, finalData);
         if(rv != null) {
             return rv;
         }
@@ -1124,7 +1390,7 @@ import com.ibm.icu.util.ULocale;
      */
     private void reset() {
         origXpaths.clear();
-        token = new Registerable(sm.lcr, getLocaleID());
+        token = new Registerable(sm.lcr, CLDRLocale.getInstance(getLocaleID()));
         token.register();
     }
     
@@ -1156,10 +1422,7 @@ import com.ibm.icu.util.ULocale;
             }
         }
     }
-//    
-    public static final boolean USE_XPATH_CACHE=false;
 
-    
     IntHash<Integer> origXpaths = new IntHash<Integer>();
 
     /**
@@ -1248,7 +1511,7 @@ import com.ibm.icu.util.ULocale;
     public Set getAvailableLocales() {
         // TODO: optimize
         File inFiles[] = getInFiles();
-        Set s = new HashSet();
+        Set<String> s = new HashSet<String>();
         if(inFiles == null) {
             return null;
 //            throw new RuntimeException("Can't load CLDR data files from " + dir);
@@ -1282,7 +1545,7 @@ import com.ibm.icu.util.ULocale;
         String k = getLocaleID();
         Set s = (Set)keySets.get(k);
         if(s==null) {
-//            System.err.println("CCLCDRDBSource iterator: " + k);
+            System.err.println("CCLCDRDBSource iterator: " + k);
             s = oldKeySet();
             keySets.put(k,s);
         }
@@ -1314,7 +1577,6 @@ import com.ibm.icu.util.ULocale;
      * TODO: rewrite as iterator
      */
     private Set oldKeySet() {
-        
         String locale = getLocaleID();
 		try {
 			ResultSet rs;
@@ -1322,15 +1584,15 @@ import com.ibm.icu.util.ULocale;
 				stmts.keySet.setString(1,locale);
 				rs = stmts.keySet.executeQuery();
 			} else {
+	            System.err.println("@@ begin KS of "+locale);
 				stmts.keyVettingSet.setString(1,locale);
 				rs = stmts.keyVettingSet.executeQuery();
 			}
-			
 			// TODO: is there a better way to map a ResultSet into a Set?
-			Set s = new HashSet();
+			Set<String> s = new HashSet<String>();
 			while(rs.next()) {
 				int xpathid = rs.getInt(1);
-///*srl*/           if(finalData) { System.err.println("v|"+locale+":"+xpathid); }
+           if(finalData) { System.err.println("v|"+locale+":"+xpathid); }
 				
 				String xpath = (xpt.getById(xpathid));
 				if(finalData==true) {
@@ -1348,6 +1610,7 @@ import com.ibm.icu.util.ULocale;
 				//rs.getString(2); // origXpath
 			}
 			rs.close();
+            if(finalData) System.err.println("@@ end KS of "+locale);
 /*
 			// keySet has  prov/unc already.
 			if(finalData) {
@@ -1378,7 +1641,7 @@ import com.ibm.icu.util.ULocale;
 			return Collections.unmodifiableSet(s);
 		} catch(SQLException se) {
 			logger.severe("CLDRDBSource: Failed to query source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
-			return null;
+			throw new InternalError("CLDRDBSource: Failed to query source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
 		}
     }
 
@@ -1417,7 +1680,7 @@ import com.ibm.icu.util.ULocale;
                 ResultSet rs = getPrefixKeySet(prefix);
                 
                 // TODO: is there a better way to map a ResultSet into a Set?
-                Set s = new HashSet();
+                Set<String> s = new HashSet<String>();
 //                System.err.println("@tlh: " + "BEGIN");
                 while(rs.next()) {
                     String xpath = (xpt.getById(rs.getInt(1)));
@@ -1497,13 +1760,20 @@ import com.ibm.icu.util.ULocale;
             return output;
         }
     }
-
-    static final boolean MAKE_CACHE = false;
     
     Hashtable<String, XMLSource> makeHash = new Hashtable<String, XMLSource>();
+
+    /**
+     * @deprecated
+     */
+    public final XPathTable xpt = CLDRDBSourceFactory.this.xpt;
+
+    /**
+     * @deprecated
+     */
+    public final Connection conn = CLDRDBSourceFactory.this.conn;
     
-    private static int makeHashHitCount = 0;
-    private static int maxMakeHashSize = 0;
+    
     
     
     /**
@@ -1525,8 +1795,9 @@ import com.ibm.icu.util.ULocale;
             } else {
                 CLDRDBSource dbresult = (CLDRDBSource)clone();
                 if(!localeID.equals(dbresult.getLocaleID())) {
-                    dbresult.setLocaleID(localeID);
-                    dbresult.initConn(conn, rawXmlFactory); // set up connection & prepared statements. conn/factory may be set twice.
+                    //dbresult.setLocaleID(localeID);
+                    //dbresult.initConn(conn, rawXmlFactory); // set up connection & prepared statements. conn/factory may be set twice.
+                    dbresult.setLocaleAndValidate(localeID);
                 }
                 result = dbresult;
             }
@@ -1550,50 +1821,65 @@ import com.ibm.icu.util.ULocale;
         return result;
     }
     
+//    private void initConn(Connection conn, Factory rawXmlFactory) {
+//        throw new InternalError("not imp: initConn()");
+//    }
+
+
+
     /** 
      * private c'tor.  inherits factory and xpath table.
      * Caller wil fill in other stuff
      */
-    private CLDRDBSource(CLDRFile.Factory nFactory, XPathTable nXpt) {
-            rawXmlFactory = nFactory; 
-            xpt = nXpt; 
-    }
-    /**
-     * Bootstrap Factory function for internal use. 
-     * @param theDir directory for XML data
-     * @param xpt XPathTable to use
-     * @param localeID locale id to use
-     * @param conn the database connection (shared)
-     * @param user the user to create for
-     */
-    public static CLDRDBSource createInstance(String theDir, XPathTable xpt, ULocale localeID, Connection conn,
-        UserRegistry.User user) {
-        return createInstance(theDir, xpt, localeID, conn, user, false);
-    }
-    /**
-     * Factory function for internal use
-     * @param theDir directory for XML data
-     * @param xpt XPathTable to use
-     * @param localeID locale id to use
-     * @param conn the database connection (shared)
-     * @param user the user to create for
-     * @param finalData true if to only return final (vettd) data
-     */
-    public static CLDRDBSource createInstance(String theDir, XPathTable xpt, ULocale localeID,
-            Connection conn, UserRegistry.User user, boolean finalData) {
-        CLDRFile.Factory afactory = CLDRFile.SimpleFactory.make(theDir,".*");
-        CLDRDBSource result =  new CLDRDBSource(afactory, xpt);
-        result.dir = theDir;
-        result.setLocaleID(localeID.toString());
-        result.initConn(conn, afactory);
-        result.user = user;
-        result.finalData = finalData;
-        return result;
-    }
+//    private CLDRDBSource(CLDRFile.Factory nFactory) {
+//            rawXmlFactory = nFactory; 
+////            xpt = nXpt; 
+//    }
+//    /**
+//     * Bootstrap Factory function for internal use. 
+//     * @param theDir directory for XML data
+//     * @param xpt XPathTable to use
+//     * @param localeID locale id to use
+//     * @param conn the database connection (shared)
+//     * @param user the user to create for
+//     */
+//    public static CLDRDBSource createInstance(String theDir, XPathTable xpt, CLDRLocale localeID, Connection conn,
+//        UserRegistry.User user) {
+//        return createInstance(theDir, xpt, localeID, conn, user, false);
+//    }
+//    /**
+//     * Factory function for internal use
+//     * @param theDir directory for XML data
+//     * @param xpt XPathTable to use
+//     * @param locale locale id to use
+//     * @param conn the database connection (shared)
+//     * @param user the user to create for
+//     * @param finalData true if to only return final (vettd) data
+//     */
+//    public static CLDRDBSource createInstance(String theDir, XPathTable xpt, CLDRLocale locale,
+//            Connection conn, UserRegistry.User user, boolean finalData) {
+//        CLDRFile.Factory afactory = CLDRFile.SimpleFactory.make(theDir,".*");
+//        CLDRDBSource result =  new CLDRDBSource(afactory, xpt);
+//        result.dir = theDir;
+//        result.setLocaleID(locale.toString());
+//        result.initConn(conn, afactory);
+//        result.user = user;
+//        result.finalData = finalData;
+//        return result;
+//    }
     
-    public void vettingMode(Vetting v) {
-        vetting = v;
+    
+
+    public CLDRDBSource(CLDRLocale locale, boolean finalData) {
+        this.finalData=finalData;
+        this.setLocaleAndValidate(locale.toString());
     }
+
+
+
+//    public void vettingMode(Vetting v) {
+//        vetting = v;
+//    }
     
     /**
      * Cloner. Shares the DB connection. 
@@ -1604,15 +1890,16 @@ import com.ibm.icu.util.ULocale;
             // copy junk
 //            result.xpath_comments = xpath_comments; // TODO: clone it.
             // Copy SHARED things
-            result.xpt = xpt; 
-            result.dir = dir;
+//            result.xpt = xpt; 
+//            result.dir = dir;
             result.user = user;
-            result.conn = conn;  // gets set twice. but don't call initConn because other fields are still valid if it's just a clone.
-            result.rawXmlFactory = rawXmlFactory;
-            result.stmts = stmts;
-            result.srcHash = srcHash;
+//            result.conn = conn;  // gets set twice. but don't call initConn because other fields are still valid if it's just a clone.
+//            result.rawXmlFactory = rawXmlFactory;
+//            result.stmts = stmts;
+//            result.srcHash = srcHash;
             result.aliasTable = aliasTable;
-            result.vetting = vetting;
+            result.finalData = finalData;
+//            result.vetting = vetting;
             result.makeHash = makeHash;
             // do something here?
             return result;
@@ -1677,23 +1964,6 @@ import com.ibm.icu.util.ULocale;
     }
     */
     
-    /**
-     * return a list fo XML input files
-     */
-    private File[] getInFiles() {
-        // 1. get the list of input XML files
-        FileFilter myFilter = new FileFilter() {
-            public boolean accept(File f) {
-                String n = f.getName();
-                return(!f.isDirectory()
-                       &&n.endsWith(".xml")
-                       &&!n.startsWith("supplementalData") // not a locale
-                       /*&&!n.startsWith("root")*/); // root is implied, will be included elsewhere.
-            }
-        };
-        File baseDir = new File(dir);
-        return baseDir.listFiles(myFilter);
-    }
     
     /**
      * Add new data to the next sequentially available slot. 
@@ -1708,8 +1978,9 @@ import com.ibm.icu.util.ULocale;
      * @param value the value being added
      * @param refs ID of any references being added.
      * @return the entire altProposed which succeeded or NULL/throw for failure.
+     * @deprecated do not use
      */
-    public String addDataToNextSlot(CLDRFile file, String locale, String fullXpathMinusAlt, 
+    public String addDataToNextSlot(CLDRFile file, CLDRLocale locale, String fullXpathMinusAlt, 
                                     String altType, String altProposedPrefix, int submitterId, String value, String refs) {
 //                                    if(1==1) {throw new InternalError("Sorry, adding data is temporarily disabled whilst some xpath bugs are ironed out..<p> please click Back in your browser to continue. ");}
         XPathParts xpp = new XPathParts(null,null);
@@ -1744,7 +2015,7 @@ import com.ibm.icu.util.ULocale;
             // Check to see if this slot is in use.
             synchronized(conn) {
                 try {
-                    stmts.queryValue.setString(1,locale);
+                    stmts.queryValue.setString(1,locale.toString());
                     stmts.queryValue.setInt(2,xpid);
                     ResultSet rs = stmts.queryValue.executeQuery();
                     if(rs.next()) {
@@ -1786,7 +2057,7 @@ import com.ibm.icu.util.ULocale;
             synchronized(conn) {
                 try {
                     stmts.insert.setInt(1,xpid); // full
-                    stmts.insert.setString(2,locale);
+                    stmts.insert.setString(2,locale.toString());
                     stmts.insert.setInt(3,srcId); // assumes homogenous srcId
                     stmts.insert.setInt(4,oxpid);
                     SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
@@ -1829,6 +2100,7 @@ import com.ibm.icu.util.ULocale;
      * @param value value of the reference
      * @param uri optional URI of the reference
      * @return the entire altProposed which succeeded or NULL/throw for failure.
+     * @deprecated do not use
      */
     public String addReferenceToNextSlot(CLDRFile file, String locale, int submitterId, String value, String uri) {
         XPathParts xpp = new XPathParts(null,null);
@@ -1926,11 +2198,14 @@ import com.ibm.icu.util.ULocale;
         return null; // couldn't find a slot..
     }
     
-    /**
-     * Close out the connection.
-     */
-    public void closeConnection() {
-        SurveyMain.closeDBConnection(conn);
-        conn = null;
+}
+
+    public String getSourceRevision(CLDRLocale locale) {
+        int id = getSourceId(tree, locale.toString());
+        if(id != -1) {
+            return getSourceRevision(id);
+        } else {
+            return "[Unknown source:"+locale.toString()+"]";
+        }
     }
 }

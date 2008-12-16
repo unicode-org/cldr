@@ -40,10 +40,10 @@ public class WebContext implements Cloneable {
 // USER fields
     public SurveyMain sm = null;
     public Document doc[]= new Document[0];
-    public ULocale locale = null;
-    public String  localeString = null;
+    private CLDRLocale locale = null;
+//    public String  localeString = null;
     public ULocale displayLocale = SurveyMain.BASELINE_LOCALE;
-    public String docLocale[] = new String[0];
+    public CLDRLocale docLocale[] = new CLDRLocale[0];
     public String localeName = null; 
     public CookieSession session = null;
     public ElapsedTimer reqTimer = null;
@@ -150,9 +150,9 @@ public class WebContext implements Cloneable {
         outQuery = other.outQuery;
         localeName = other.localeName;
         locale = other.locale;
-        if(locale != null) {
-            localeString = locale.getBaseName();
-        }
+//        if(locale != null) {
+//            localeString = locale.getBaseName();
+//        }
         session = other.session;
         outQueryMap = (TreeMap<String, String>)other.outQueryMap.clone();
         dontCloseMe = true;
@@ -548,55 +548,29 @@ public class WebContext implements Cloneable {
     
 // doc api
 
-    // TODO: replace with overloads
-    public static String getParent(Object locale) {
-        String id;
-        if(locale instanceof ULocale) {
-            id = ((ULocale)locale).getBaseName();
-        } else {
-            id = locale.toString();
-        }
-        return LDMLUtilities.getParent(id);
-    }
     
     public DisplayAndInputProcessor processor = null;
     
-    void setLocale(ULocale l) {
+    void setLocale(CLDRLocale l) {
         locale = l;
-        localeString = locale.getBaseName();
-        processor = new DisplayAndInputProcessor(l);
-        String parents = null;
-        Vector<String> localesVector = new Vector<String>();
-        parents = l.toString();
-        if(false) { // TODO: change
-            do {
-                try {
-                    localesVector.add(parents);
-                } catch(Throwable t) {
-                    logger.log(java.util.logging.Level.SEVERE,"Error fetching " + parents + "<br/>",t);
-                    // error is shown elsewhere.
-                }
-                parents = getParent(parents);
-            } while(parents != null);
-            docLocale = localesVector.toArray(docLocale);
-            logger.info("Fetched locale: " + l.toString() + ", count: " + doc.length);
-        } else {
-            // at least set up the docLocale tree
-            do {
+//        localeString = locale.getBaseName();
+        processor = new DisplayAndInputProcessor(l.toULocale());
+        Vector<CLDRLocale> localesVector = new Vector<CLDRLocale>();
+        for(CLDRLocale parents : locale.getParentIterator()) {
                 localesVector.add(parents);
-                parents = getParent(parents);
-            } while(parents != null);
-            docLocale = localesVector.toArray(docLocale);        
-        
-           // logger.info("NOT NOT NOT fetching locale: " + l.toString() + ", count: " + doc.length);
         }
+        docLocale = localesVector.toArray(docLocale);        
+           // logger.info("NOT NOT NOT fetching locale: " + l.toString() + ", count: " + doc.length);
     }
     
+    /**
+     * @deprecated use getLocale().toString()
+     */
     public final String localeString() {
-        if(localeString == null) {
+        if(locale == null) {
             throw new InternalError("localeString is null, locale="+ locale);
         }
-        return localeString;
+        return locale.toString();
     }
 
     // convenience.	
@@ -624,7 +598,7 @@ public class WebContext implements Cloneable {
 	}
     
     // Static data
-    static Hashtable<ULocale, Hashtable<String, Object>> staticStuff = new Hashtable<ULocale, Hashtable<String, Object>>();
+    static Hashtable<CLDRLocale, Hashtable<String, Object>> staticStuff = new Hashtable<CLDRLocale, Hashtable<String, Object>>();
     
     public int staticInfo_Reference(Object o) {
         int s = 0;
@@ -707,14 +681,14 @@ public class WebContext implements Cloneable {
 		return getByLocaleStatic(key, locale);
 	}
     // bottlenecks for static access
-    public static synchronized final Object getByLocaleStatic(String key, ULocale aLocale) {
+    public static synchronized final Object getByLocaleStatic(String key, CLDRLocale aLocale) {
         Hashtable subHash = staticStuff.get(aLocale);
         if(subHash == null) {
             return null;
         }
         return subHash.get(key);
     }
-    public static final synchronized void putByLocaleStatic(String key, ULocale locale, Object value) {
+    public static final synchronized void putByLocaleStatic(String key, CLDRLocale locale, Object value) {
         Hashtable<String, Object> subHash = staticStuff.get(locale);
         if(subHash == null) {
             subHash = new Hashtable<String, Object>();
@@ -829,7 +803,7 @@ public class WebContext implements Cloneable {
     DataSection getSection(String prefix, String ptype) {
         if(hasField("srl_veryslow")&&sm.isUnofficial) {
             for(int q=0;q<50;q++) {
-                DataSection.make(this, locale.toString(), prefix, false);
+                DataSection.make(this, locale, prefix, false);
             }
         }
     
@@ -843,7 +817,7 @@ public class WebContext implements Cloneable {
             if(section == null) {
                 long t0 = System.currentTimeMillis();
                 ElapsedTimer podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
-                section = DataSection.make(this, locale.toString(), prefix, false);
+                section = DataSection.make(this, locale, prefix, false);
                 if((System.currentTimeMillis()-t0) > 10 * 1000) {
                     println("<i><b>" + podTimer + "</b></i><br/>");
                 }
@@ -953,5 +927,13 @@ public class WebContext implements Cloneable {
     }
     public Object get(String string) {
         return temporaryStuff.get(string);
+    }
+
+    /**
+     * Return the CLDRLocale with which this WebCOntext currently pertains.
+     * @return
+     */
+    public CLDRLocale getLocale() {
+        return locale;
     }
 }

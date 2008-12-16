@@ -11,6 +11,7 @@
 
 package org.unicode.cldr.web;
 import org.unicode.cldr.util.*;
+import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.*;
@@ -87,13 +88,13 @@ public class DataSection extends Registerable {
     public boolean hasExamples = false;
     
     public String intgroup; 
-    DataSection(SurveyMain sm, String loc, String prefix) {
+    DataSection(SurveyMain sm, CLDRLocale loc, String prefix) {
         super(sm.lcr,loc); // initialize call to LCR
 
         this.sm = sm;
         xpathPrefix = prefix;
         fieldHash =  CookieSession.cheapEncode(sm.xpt.getByXpath(prefix));
-        intgroup = new ULocale(loc).getLanguage(); // calculate interest group
+        intgroup = loc.getLanguage(); // calculate interest group
     }
     private static int n =0;
     protected static synchronized int getN() { return ++n; } // serial number
@@ -375,7 +376,7 @@ public class DataSection extends Registerable {
             pi.tests = tests;
             items.add(pi);
 ///*srl*/            if(type.indexOf("Chicago")>-1) {
-//                System.out.println(type+"  v: " + pi.value);
+//               System.out.println("@@ "+type+"  v: " + pi.value);
 //            }
             
             return pi;
@@ -487,7 +488,7 @@ public class DataSection extends Registerable {
                     inheritedValue.xpathId = base_xpath;
                     inheritedValue.isFallback = true;                    
                 } else {
-                   // throw new InternalError("could not get inherited value: " + xpath);
+                 //   throw new InternalError("could not get inherited value: " + xpath);
                 }
             }
             
@@ -1097,12 +1098,12 @@ public class DataSection extends Registerable {
 	 * @param prefix XPATH prefix
 	 * @param simple if true, means that data is simply xpath+type. If false, all xpaths under prefix.
 	 */
-	public static DataSection make(WebContext ctx, String locale, String prefix, boolean simple) {
+	public static DataSection make(WebContext ctx, CLDRLocale locale, String prefix, boolean simple) {
 		DataSection section = new DataSection(ctx.sm, locale, prefix);
 //        section.simple = simple;
-        SurveyMain.UserLocaleStuff uf = ctx.sm.getUserFile(ctx, ctx.session.user, ctx.locale);
+        SurveyMain.UserLocaleStuff uf = ctx.sm.getUserFile(ctx, ctx.session.user, ctx.getLocale());
   
-        CLDRDBSource ourSrc = uf.dbSource;
+        XMLSource ourSrc = uf.dbSource;
         
         synchronized(ourSrc) {
             CheckCLDR checkCldr = uf.getCheck(ctx);
@@ -1117,7 +1118,7 @@ public class DataSection extends Registerable {
             com.ibm.icu.dev.test.util.ElapsedTimer cet;
             if(SHOW_TIME) {
                 cet= new com.ibm.icu.dev.test.util.ElapsedTimer();
-                System.err.println("Begin populate of " + locale + " // " + prefix+":"+ctx.defaultPtype());
+                System.err.println("Begin populate of " + locale + " // " + prefix+":"+ctx.defaultPtype() + " - is:" + ourSrc.getClass().getName());
             }
             CLDRFile baselineFile = ctx.sm.getBaselineFile();
             section.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap());
@@ -1239,11 +1240,11 @@ public class DataSection extends Registerable {
     public static final String FAKE_FLEX_SUFFIX = "dateTimes/availableDateFormats/dateFormatItem[@id=\"NEW\"]";
     public static final String FAKE_FLEX_XPATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem";
     
-    private void populateFrom(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile baselineFile, Map options) {
+    private void populateFrom(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map options) {
         init();
         XPathParts xpp = new XPathParts(null,null);
 //        System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
-        CLDRFile aFile = new CLDRFile(src, true);
+        CLDRFile aFile = new CLDRFile(ourSrc, true);
         XPathParts pathParts = new XPathParts(null, null);
         XPathParts fullPathParts = new XPathParts(null, null);
         List examplesResult = new ArrayList();
@@ -1262,9 +1263,9 @@ public class DataSection extends Registerable {
         
         
         CLDRFile vettedParent = null;
-        String parentLoc = WebContext.getParent(locale);
+        CLDRLocale parentLoc = locale.getParent();
         if(parentLoc != null) {
-            CLDRDBSource vettedParentSource = sm.makeDBSource(src.conn, null, new ULocale (parentLoc), true /*finalData*/);
+            XMLSource vettedParentSource = sm.makeDBSource(parentLoc, true /*finalData*/);
             vettedParent = new CLDRFile(vettedParentSource,true);
         }
             
@@ -1380,6 +1381,7 @@ public class DataSection extends Registerable {
 ///*srl*/  if(xpath.indexOf("Adak")!=-1)
 ///*srl*/   {ndebug=true;System.err.println("p] "+xpath + " - xtz = "+excludeTimeZones+"..");}
                 
+            
             if(SHOW_TIME) {
                 count++;
 				nextTime = System.currentTimeMillis();
@@ -1424,8 +1426,8 @@ public class DataSection extends Registerable {
 
             String fullPath = aFile.getFullXPath(xpath);
             //int xpath_id = src.xpt.getByXpath(fullPath);
-            int base_xpath = src.xpt.xpathToBaseXpathId(xpath);
-            String baseXpath = src.xpt.getById(base_xpath);
+            int base_xpath = sm.xpt.xpathToBaseXpathId(xpath);
+            String baseXpath = sm.xpt.getById(base_xpath);
 
             if(fullPath == null) { 
                 if(isExtraPath) {
@@ -1447,7 +1449,7 @@ public class DataSection extends Registerable {
             if(TRACE_TIME)    System.err.println("ns0  "+(System.currentTimeMillis()-nextTime));
             boolean mixedType = false;
             String type;
-            String lastType = src.xpt.typeFromPathToTinyXpath(baseXpath, xpp);  // last type in the list
+            String lastType = sm.xpt.typeFromPathToTinyXpath(baseXpath, xpp);  // last type in the list
             String displaySuffixXpath;
             String peaSuffixXpath = null; // if non null:  write to suffixXpath
             
@@ -1534,7 +1536,7 @@ public class DataSection extends Registerable {
             }
             
             // determine 'alt' param
-            String alt = src.xpt.altFromPathToTinyXpath(xpath, xpp);
+            String alt = sm.xpt.altFromPathToTinyXpath(xpath, xpp);
 
 //    System.err.println("n03  "+(System.currentTimeMillis()-nextTime));
     
@@ -1557,7 +1559,7 @@ public class DataSection extends Registerable {
             // (may be nested in the case of alt types)
             DataRow p = getDataRow(type, altType);
             p.base_xpath = base_xpath;
-            p.winningXpathId = src.getWinningPathId(base_xpath, locale);
+            p.winningXpathId = sm.dbsrcfac.getWinningPathId(base_xpath, locale, false);
 
             DataRow superP = getDataRow(type);  // the 'parent' row (sans alt) - may be the same object
             
@@ -1576,7 +1578,7 @@ public class DataSection extends Registerable {
             if(isExtraPath) {
                 // Set up 'shim' tests, to display coverage
                 p.setShimTests(base_xpath,this.sm.xpt.getById(base_xpath),checkCldr,options);
-//                System.err.println("Shimmed! "+xpath);
+         //       System.err.println("Shimmed! "+xpath);
             } else if(!isReferences) {
                 if(p.inheritedValue == null) {
                     p.updateInheritedValue(vettedParent);
@@ -1597,7 +1599,8 @@ public class DataSection extends Registerable {
                 superP.allVoteType |= p.allVoteType;
                 p.voteType = vtypes[0]; // no mask
             }
-            
+            System.out.println("@@V "+type+"  v: " + value + " - base"+base_xpath+" , win: " + p.voteType);
+
 //            // Is this a toggle pair with another item?
 //            if(isToggleFor != null) {
 //                if(superP.toggleWith == null) {
@@ -1683,9 +1686,14 @@ public class DataSection extends Registerable {
                     p.displayName = superP.displayName; // too: unscramble this a little bit
                 }
             }
+            if(TRACE_TIME) System.err.println("n06a  "+(System.currentTimeMillis()-nextTime));
+
             CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
+            if(TRACE_TIME) System.err.println("n06b  "+(System.currentTimeMillis()-nextTime));
             String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
-            boolean isInherited = !(sourceLocale.equals(locale));
+            if(TRACE_TIME) System.err.println("n06c  "+(System.currentTimeMillis()-nextTime));
+            boolean isInherited = !(sourceLocale.equals(locale.toString()));
+            if(TRACE_TIME) System.err.println("n06d  "+(System.currentTimeMillis()-nextTime));
 
             // with xpath munging, attributeChoice items show up as code fallback. Correct it.
 /*            if(attributeChoice!=null && isInherited) {
@@ -1696,11 +1704,15 @@ public class DataSection extends Registerable {
             }*/
             // ** IF it is inherited, do NOT add any Items.   
             if(isInherited) {
+                if(TRACE_TIME) System.err.println("n06da  [src:"+sourceLocale+" vs " + locale+ ", sttus:"+sourceLocaleStatus+"] "+(System.currentTimeMillis()-nextTime));
                 if(!isReferences) {
+                    if(TRACE_TIME) System.err.println("n06db  "+(System.currentTimeMillis()-nextTime));
                     p.updateInheritedValue(vettedParent, checkCldr, options); // update the tests
+                    if(TRACE_TIME) System.err.println("n06dc  "+(System.currentTimeMillis()-nextTime));
                 }
                 continue;
             }
+            if(TRACE_TIME) System.err.println("n06e  "+(System.currentTimeMillis()-nextTime));
             
             
             if(TRACE_TIME) System.err.println("n07  "+(System.currentTimeMillis()-nextTime));
@@ -1736,6 +1748,7 @@ public class DataSection extends Registerable {
 //                (setInheritFrom.equals(XMLSource.CODE_FALLBACK_ID)); // don't flag errors from code fallback.
             
             if(isExtraPath) { // No real data items if it's an extra path.
+              //  System.err.println("ExtraPath: "+xpath);
                 continue; 
             }
             
@@ -1758,7 +1771,7 @@ public class DataSection extends Registerable {
 //if("gsw".equals(type)) System.err.println(myItem + " - # " + p.items.size());
             
             myItem.xpath = xpath;
-            myItem.xpathId = src.xpt.getByXpath(xpath);
+            myItem.xpathId = sm.xpt.getByXpath(xpath);
             if(myItem.xpathId == base_xpath) {
                 p.previousItem = myItem; // did have a previous item.
             }
@@ -1771,7 +1784,7 @@ public class DataSection extends Registerable {
             /*
                 Was this item submitted via SurveyTool? Let's find out.
             */
-            myItem.submitter = src.getSubmitterId(locale, myItem.xpathId);
+            myItem.submitter = sm.dbsrcfac.getSubmitterId(locale, myItem.xpathId);
             if(myItem.submitter != -1) {
 ///*srl*/                System.err.println("submitter set: " + myItem.submitter + " @ " + locale + ":"+ xpath);
             }
@@ -1836,7 +1849,7 @@ public class DataSection extends Registerable {
     /**
      * Makes sure this pod contains the peas we'd like to see.
      */
-    private void ensureComplete(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile baselineFile, Map options) {
+    private void ensureComplete(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map options) {
         if(xpathPrefix.startsWith("//ldml/"+"dates/timeZoneNames")) {
             // work on zones
             boolean isMetazones = xpathPrefix.startsWith("//ldml/"+"dates/timeZoneNames/metazone");
@@ -1881,7 +1894,7 @@ public class DataSection extends Registerable {
             }        
 
             String podBase = xpathPrefix;
-            CLDRFile resolvedFile = new CLDRFile(src, true);
+            CLDRFile resolvedFile = new CLDRFile(ourSrc, true);
             XPathParts parts = new XPathParts(null,null);
 //            TimezoneFormatter timezoneFormatter = new TimezoneFormatter(resolvedFile, true); // TODO: expensive here.
 
@@ -2018,5 +2031,49 @@ public class DataSection extends Registerable {
         }
         
         return "//ldml"; // the "misc" pile.
+    }
+    /**
+     * 'shim' 
+     * @param ourSrc
+     * @param cf
+     * @param locale
+     * @param fullPathMinusAlt
+     * @param altType
+     * @param altPrefix
+     * @param id
+     * @param choice_v
+     * @param choice_r
+     * @return
+     * @deprecated SHIM- please rewrite caller
+     */
+    public static String addDataToNextSlot(XMLSource ourSrc, CLDRFile cf, CLDRLocale locale,
+            String fullPathMinusAlt, String altType, String altPrefix, int id, String choice_v,
+            String choice_r) {
+        // TODO Auto-generated method stub
+   //     SurveyMain.busted("unimplemented: addDataToNextSlot");
+        System.err.println("@@unimp: addDataToNextSlot");
+        return UserRegistry.makePassword(locale.toString()); // throw it a bone
+     //   throw new InternalError("unimp: addDataToNextSlot");
+     //   return null;
+    }
+    /**
+     * 'shim' 
+     * @param ourSrc
+     * @param cf
+     * @param string
+     * @param id
+     * @param newRef
+     * @param uri
+     * @return
+     * @deprecated SHIM- please rewrite caller
+     */
+    public static String addReferenceToNextSlot(XMLSource ourSrc, CLDRFile cf, String string,
+            int id, String newRef, String uri) {
+        System.err.println("@@unimp: addReferenceToNextSlot");
+        return UserRegistry.makePassword(uri.toString()); // throw it a bone
+        // TODO Auto-generated method stub
+   //     SurveyMain.busted("unimplemented: addReferenceToNextSlot");
+//        throw new InternalError("unimplemented: addReferenceToNextSlot");
+//        return null;
     }
 }

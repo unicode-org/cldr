@@ -8,6 +8,8 @@
 
 package org.unicode.cldr.web;
 
+import org.unicode.cldr.util.CLDRLocale;
+
 
 /**
  * This class defines a type which can be registered in a LocaleChangeRegistry to
@@ -31,7 +33,7 @@ public class Registerable {
     /**
      * the locale of this object
      */
-    public String locale;
+    public CLDRLocale locale;
     
     /**
      * protected constructor. Does not register, call register()
@@ -39,7 +41,7 @@ public class Registerable {
      * @param locale the locale to register as.
      * @see register()
      */
-    protected Registerable(LocaleChangeRegistry lcr, String locale) {
+    protected Registerable(LocaleChangeRegistry lcr, CLDRLocale locale) {
         this.lcr = lcr;
         this.locale = locale;
     }
@@ -98,10 +100,10 @@ public class Registerable {
      * @return this item as a string
      */
     public String toString () {
-        return "{Registerable "+key+" @ "+locale+", valid:"+peekIsValid()+"}";
+        return "{Registerable "+key+" @ "+locale.toString()+", valid:"+peekIsValid()+"}";
     }
     
-    public String locale() {
+    public CLDRLocale locale() {
         return locale;
     }
 }

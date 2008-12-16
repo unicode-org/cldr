@@ -17,12 +17,14 @@ import java.util.Random;
 import java.util.Set;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.SimpleXMLSource;
 import org.unicode.cldr.util.XPathParts.Comments;
+import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
 
 /**
  * @author srl
@@ -58,7 +60,7 @@ public class CLDRFileCache {
 
         @Override
         public CLDRFile make(String localeID, boolean bool, DraftStatus madeWithMinimalDraftStatus) {
-            return getCLDRFile(localeID);
+            return getCLDRFile(CLDRLocale.getInstance(localeID));
         }
 
         @Override
@@ -114,48 +116,12 @@ public class CLDRFileCache {
         }
 
         public final XMLSource getCachedSource() {
-            if(cachedFileSource == null) {
-                File cacheFile = getLocaleFile();
-                try {
-                    XMLSource src = realSource.make(getLocaleID());
-                    CLDRFile aFile = new CLDRFile(src, false);
-                    FileOutputStream fos;
-                    fos = new FileOutputStream(cacheFile);
-                    PrintWriter pw = new PrintWriter(fos);
-                    aFile.write(pw);
-                    pw.close();
-                    fos.close();
-                    if(DEBUG_INSANE) System.err.println("## "+serno+" 1getsrc " + getLocaleID() + "  @ " + cacheFile.getAbsolutePath());
-                    cachedFileSource = new CLDRFile.SimpleXMLSource(factory, getLocaleID());
-
-                    /* Cause load */
-                    CLDRFile f = new CLDRFile(cachedFileSource, false);
-                    f.loadFromFile(this.getLocaleFile(), getLocaleID(), CLDRFile.DraftStatus.unconfirmed);
-                    
-                    CacheableXMLSource wxs = new CacheableXMLSource(factory,getLocaleID());
-                    CLDRFile g = new CLDRFile(wxs, false);
-                    g.loadFromFile(this.getLocaleFile(), getLocaleID(), CLDRFile.DraftStatus.unconfirmed);
-                    wxs.save(new File(cacheFile.getParentFile(),getLocaleID()+".xpt"));
-                    g.freeze();
-                    f.freeze();
-                    if(DEBUG_INSANE) System.err.println("## "+serno+" loadation " + getLocaleID() + "  @ " + cacheFile.getAbsolutePath());
-                    
-                    //cachedFileSource = CLDRFile.makeFromFile(cacheFile.getAbsolutePath(), getLocaleID(),CLDRFile.DraftStatus.unconfirmed).dataSource;
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                    throw new InternalError("While trying to cache "+cacheFile+" - "+ e.toString());
-                }
-            } else {
-//                System.err.println("N: "+ (++nn));
-//                try {
-//                    if((nn%10)==0) throw new InternalError("Because I want to. @ "+nn);
-//                } catch (InternalError ie) {
-//                    ie.printStackTrace();
-//                }
+            if(cachedFileSource==null) {
+                cachedFileSource =  CLDRFileCache.this.getCachedSource(getLocaleID());
             }
             return cachedFileSource;
         }
+
         
         public File getSupplementalDirectory() {
             return realSource.getSupplementalDirectory();
@@ -263,15 +229,15 @@ public class CLDRFileCache {
      */
     private class CacheableXMLSource extends SimpleXMLSource {
         private static final int COOKIE = 9295467; 
-        private Registerable token = new Registerable(sm.lcr, this.getLocaleID()) { };
+        private Registerable token = new Registerable(sm.lcr, CLDRLocale.getInstance(this.getLocaleID())) { };
         protected HashMap<String,String> winningXpaths = new HashMap<String,String>();
         
 //        public CacheableXMLSource createFinalData() {
 //            return new WinningXMLSource(this);
 //        }
         
-        public CacheableXMLSource(Factory factory, String localeID) {
-            super(factory, localeID);
+        public CacheableXMLSource(Factory factory, CLDRLocale locale) {
+            super(factory, locale.toString());
         }
         
         /**
@@ -338,7 +304,7 @@ public class CLDRFileCache {
                 throw new InternalError("Err: "+f.getAbsolutePath()+" exists trying to rename from " + tmp.getAbsolutePath());
             }
             
-            System.err.println("##ren "+f.getAbsolutePath()+" <<  " + tmp.getAbsolutePath());
+            System.err.println("##ren "+f.getAbsolutePath()+" <<  " + tmp.getAbsolutePath() + " - " + n + " rows written");
             tmp.renameTo(f);
         }
 
@@ -393,7 +359,7 @@ public class CLDRFileCache {
             }
             dis.close();
             fis.close();
-            System.err.println("##"+f+" - read " + (n-1) + " records, not counting the mezzanine.");
+            System.err.println("##"+f+" - read " + (n-1) + " records.");
         }
 
         /**
@@ -429,11 +395,11 @@ public class CLDRFileCache {
                 this.putFullPathAtDPath(xpath, fxpath);
                 this.setWinningPath(bxpath, wxpath);
                 
-                if(xpath.contains("singleCountries")) {
-                    System.err.println(getLocaleID()+"\n/// " + xpath + "\n->- " + fxpath + "\n$>- "+wxpath+"\n<<< "+bxpath);
-                }
+//                if(xpath.contains("singleCountries")) {
+//                    System.err.println(getLocaleID()+"\n/// " + xpath + "\n->- " + fxpath + "\n$>- "+wxpath+"\n<<< "+bxpath);
+//                }
             }
-            System.err.println("## WXP load " + this.getLocaleID() + " - loaded "+n);
+            System.err.println("## WXP load " + this.getLocaleID() + " from " + from.getClass().getName()+  "  - loaded "+n);
         }
 
         public void initialize() {
@@ -486,7 +452,7 @@ public class CLDRFileCache {
 //            }
 //        }
 
-        public WinningXMLSource(Factory f, String localeID) {
+        public WinningXMLSource(Factory f, CLDRLocale localeID) {
             super(f, localeID);
         }
 
@@ -578,10 +544,10 @@ public class CLDRFileCache {
     
     public static final String CACHE_SUFFIX=".xpt";
 
-    public CLDRFile getCLDRFile(String locale) {
+    public CLDRFile getCLDRFile(CLDRLocale locale) {
         return getCLDRFile(locale, false);
     }
-    public CLDRFile getCLDRFile(String locale, boolean resolving) {
+    public CLDRFile getCLDRFile(CLDRLocale locale, boolean resolving) {
         XMLSource x = getSource(locale, false); // !vetted
         CLDRFile f = new CLDRFile(x, resolving); // !fallback
         f.freeze();
@@ -594,7 +560,7 @@ public class CLDRFileCache {
 //        return f;
 //    }
 
-    public CLDRFile getVettedCLDRFile(String locale) {
+    public CLDRFile getVettedCLDRFile(CLDRLocale locale) {
         XMLSource x = getSource(locale, true); // vetted
         CLDRFile f = new CLDRFile(x, true); // fallback
         f.freeze();
@@ -629,7 +595,7 @@ public class CLDRFileCache {
 
     private HashMap<String,CacheableXMLSource> sources= new HashMap<String,CacheableXMLSource>();
 
-    private synchronized CacheableXMLSource getSource(String locale, boolean isVetted)  {
+    public synchronized CacheableXMLSource getSource(CLDRLocale locale, boolean isVetted)  {
         String key = (isVetted?"w.":"")+(locale!=null?locale:"null");
         CacheableXMLSource src = sources.get(key);
         if(src!=null && src.invalid()) {
@@ -647,7 +613,7 @@ public class CLDRFileCache {
         return src;
     }
     
-    private synchronized CacheableXMLSource makeXMLSource(String locale, boolean isVetted)  {
+    private synchronized CacheableXMLSource makeXMLSource(CLDRLocale locale, boolean isVetted)  {
         CacheableXMLSource wxs;
         if(!isVetted) {
             wxs = new CacheableXMLSource(factory, locale);
@@ -657,13 +623,53 @@ public class CLDRFileCache {
         wxs.initialize();
         return wxs;
     }
+
+    public XMLSource getCachedSource(String localeID) {
+            File cacheFile = getLocaleFile(localeID);
+            XMLSource cachedFileSource = null;
+            try {
+                XMLSource src = realSource.make(localeID);
+                CLDRFile aFile = new CLDRFile(src, false);
+                FileOutputStream fos;
+                fos = new FileOutputStream(cacheFile);
+                PrintWriter pw = new PrintWriter(fos);
+                aFile.write(pw);
+                pw.close();
+                fos.close();
+                if(DEBUG_INSANE) System.err.println("## "+serno+" 1getsrc " + localeID + "  @ " + cacheFile.getAbsolutePath());
+                cachedFileSource = new CLDRFile.SimpleXMLSource(factory, localeID);
+
+                /* Cause load */
+                CLDRFile f = new CLDRFile(cachedFileSource, false);
+                f.loadFromFile(cacheFile, localeID, CLDRFile.DraftStatus.unconfirmed);
+                
+                CacheableXMLSource wxs = new CacheableXMLSource(factory,CLDRLocale.getInstance(localeID));
+                CLDRFile g = new CLDRFile(wxs, false);
+                g.loadFromFile(cacheFile, localeID, CLDRFile.DraftStatus.unconfirmed);
+                wxs.save(new File(cacheFile.getParentFile(),localeID+".xpt"));
+                g.freeze();
+                f.freeze();
+                if(DEBUG_INSANE) System.err.println("## "+serno+" loadation " + localeID + "  @ " + cacheFile.getAbsolutePath());
+                
+                //cachedFileSource = CLDRFile.makeFromFile(cacheFile.getAbsolutePath(), getLocaleID(),CLDRFile.DraftStatus.unconfirmed).dataSource;
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                throw new InternalError("While trying to cache "+cacheFile+" - "+ e.toString());
+            }
+            return cachedFileSource;
+    }
     
+    private File getLocaleFile(String localeID) {
+        // TODO Auto-generated method stub
+        return new File(cacheDir,getLocaleFileName(localeID));
+    }
     /**
      * Close out the connection
      */
     public void closeConnection() {
         if(realSource instanceof CLDRDBSource) {
-            ((CLDRDBSource)realSource).closeConnection();
+//            ((CLDRDBSource)realSource).closeConnection();
         }
     }
 }

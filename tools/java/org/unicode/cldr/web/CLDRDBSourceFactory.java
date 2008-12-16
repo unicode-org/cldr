@@ -278,7 +278,7 @@ public class CLDRDBSourceFactory {
     
     public XMLSource  getInstance(CLDRLocale locale, boolean finalData) {
         if(finalData == true) {
-    //        return cache.getCachedSource(locale,true);
+          //  return cache.getCachedSource(locale);
            return rootDbSourceV.make(locale.toString());
 //            System.err.println("@@ finalData not imp");
  //           return getMuxedInstance(locale);
@@ -1003,11 +1003,12 @@ public class CLDRDBSourceFactory {
     boolean setLocaleAndValidate(String locale) {
         setLocaleID(locale);
         srcId = getSourceId(tree, locale);
-        System.err.println("@sl&v: "+locale+"/"+srcId);
 
         if(srcId != -1) { 
             return true;  // common case. The locale is already loaded. We're done.
         }
+
+        System.err.println("@sl&v: "+locale+"/"+srcId);
 
         synchronized(xpt) {  // Synchronize on the XPT to ensure that no other state is changing under us..
             // double check..
@@ -1121,7 +1122,9 @@ public class CLDRDBSourceFactory {
                 System.err.println("loaded " + rowCount + " rows into  rev: " + rev + " for " + dir + ":" + srcId +"/"+locale+".xml"); // LOG that a new item is loaded.
                 CLDRLocale loc = CLDRLocale.getInstance(locale);
                 if(vetterReady) {
-                    sm.vet.updateResults(loc);
+                    synchronized(sm.vet) {
+                        sm.vet.updateResults(loc);
+                    }
                 } else {
                     needUpdate.add(loc);
                     System.err.println("CLDRDBSource " + loc + " - deferring vet update on " + loc + " until vetter ready.");

@@ -108,7 +108,7 @@ public class CLDRFileCache {
         }
 
         private String getLocaleFileName() {
-            return CLDRFileCache.getLocaleFileName(getLocaleID());
+            return CLDRFileCache.getLocaleFileName(getLocaleID(), false);
         }
         
         public File getLocaleFile() {
@@ -538,8 +538,8 @@ public class CLDRFileCache {
         }
     }
     
-    private static String getLocaleFileName(String locale) {
-        return locale + ".xml";
+    private static String getLocaleFileName(String locale, boolean isVetted) {
+        return (isVetted?"v--":"")+locale + ".xml";
    }
     
     public static final String CACHE_SUFFIX=".xpt";
@@ -662,7 +662,11 @@ public class CLDRFileCache {
     
     private File getLocaleFile(String localeID) {
         // TODO Auto-generated method stub
-        return new File(cacheDir,getLocaleFileName(localeID));
+        return getLocaleFile(localeID, false);
+    }
+    private File getLocaleFile(String localeID, boolean isVetted) {
+        // TODO Auto-generated method stub
+        return new File(cacheDir,getLocaleFileName(localeID, isVetted));
     }
     /**
      * Close out the connection

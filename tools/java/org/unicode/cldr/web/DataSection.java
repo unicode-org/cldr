@@ -34,7 +34,7 @@ public class DataSection extends Registerable {
     /**
      * Trace in detail time taken to populate?
      */
-    private static final boolean TRACE_TIME=true;
+    private static final boolean TRACE_TIME=false;
     
     /**
      * Show time taken to populate?

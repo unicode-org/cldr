@@ -356,6 +356,11 @@ public class XPathTable {
         return getByXpath(xpathToBaseXpath(getById(xpath)));
     }
     
+    /**
+     * note does not remove draft. expects a dpath.
+     * @param xpath
+     * @return
+     */
     public String xpathToBaseXpath(String xpath) {
         XPathParts xpp = new XPathParts(null,null);
         xpp.clear();

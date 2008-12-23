@@ -180,8 +180,12 @@ public class CLDRFileCache {
          */
         @Override
         public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
-            throw new UnsupportedOperationException("Attempt to modify read-only cache object");
-            //return getsrc().putFullPathAtDPath(distinguishingXPath, fullxpath);
+            zapCache();
+            getCachedSource().putFullPathAtDPath(distinguishingXPath, fullxpath);
+        }
+
+        private void zapCache() {
+            getLocaleFile().delete();
         }
 
         /* (non-Javadoc)
@@ -189,7 +193,8 @@ public class CLDRFileCache {
          */
         @Override
         public void putValueAtDPath(String distinguishingXPath, String value) {
-            throw new UnsupportedOperationException("Attempt to modify read-only cache object");
+            zapCache();
+            getCachedSource().putValueAtDPath(distinguishingXPath, value);
         }
 
         /* (non-Javadoc)
@@ -197,7 +202,8 @@ public class CLDRFileCache {
          */
         @Override
         public void removeValueAtDPath(String distinguishingXPath) {
-            throw new UnsupportedOperationException("Attempt to modify read-only cache object");
+            zapCache();
+            getCachedSource().removeValueAtDPath(distinguishingXPath);
         }
 
         /* (non-Javadoc)
@@ -367,7 +373,7 @@ public class CLDRFileCache {
          */
         public void poke() {
             token.register();
-            this.freeze();
+//            this.freeze();
         }
 
         public boolean invalid() {
@@ -413,7 +419,7 @@ public class CLDRFileCache {
                     load();
                     save(f);
                 }
-                freeze();
+              //  freeze();
                 poke(); // mark as valid.
                 
             } catch (IOException ioe) {
@@ -550,7 +556,7 @@ public class CLDRFileCache {
     public CLDRFile getCLDRFile(CLDRLocale locale, boolean resolving) {
         XMLSource x = getSource(locale, false); // !vetted
         CLDRFile f = new CLDRFile(x, resolving); // !fallback
-        f.freeze();
+        //f.freeze();
         return f;
     }
 //     protected CLDRFile getCLDRFile(String locale, boolean isVetted) {
@@ -563,7 +569,7 @@ public class CLDRFileCache {
     public CLDRFile getVettedCLDRFile(CLDRLocale locale) {
         XMLSource x = getSource(locale, true); // vetted
         CLDRFile f = new CLDRFile(x, true); // fallback
-        f.freeze();
+//        f.freeze();
         return f;
     }
 //    public CLDRFile getVettedCLDRFile(String locale) {
@@ -647,8 +653,8 @@ public class CLDRFileCache {
                 CLDRFile g = new CLDRFile(wxs, false);
                 g.loadFromFile(cacheFile, localeID, CLDRFile.DraftStatus.unconfirmed);
                 wxs.save(new File(cacheFile.getParentFile(),localeID+".xpt"));
-                g.freeze();
-                f.freeze();
+//                g.freeze();
+//                f.freeze();
                 if(DEBUG_INSANE) System.err.println("## "+serno+" loadation " + localeID + "  @ " + cacheFile.getAbsolutePath());
                 
                 //cachedFileSource = CLDRFile.makeFromFile(cacheFile.getAbsolutePath(), getLocaleID(),CLDRFile.DraftStatus.unconfirmed).dataSource;

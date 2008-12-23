@@ -136,8 +136,8 @@ public class CLDRDBSourceFactory {
          */
         @Override
         public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
-            throw new InternalError("not imp");
-
+            cachedSource.putFullPathAtDPath(distinguishingXPath, fullxpath);
+            dbSource.putFullPathAtDPath(distinguishingXPath, fullxpath);
         }
 
         /* (non-Javadoc)
@@ -146,8 +146,13 @@ public class CLDRDBSourceFactory {
         @Override
         public void putValueAtDPath(String distinguishingXPath, String value) {
             // TODO Auto-generated method stub
-            throw new InternalError("not imp");
-
+            cachedSource.putValueAtDPath(distinguishingXPath, value);
+            dbSource.putValueAtDPath(distinguishingXPath, value);
+        }
+        
+        public String putValueAtPath(String x, String v) {
+            cachedSource.putValueAtPath(x, v);
+            return dbSource.putValueAtPath(x, v);
         }
 
         /* (non-Javadoc)
@@ -260,13 +265,22 @@ public class CLDRDBSourceFactory {
         cache= new CLDRFileCache(rootDbSource, rootDbSourceV, cacheDir, sm);
 
         vetterReady = true;
-        for(CLDRLocale l : needUpdate) {
-            System.err.println("CLDRDBSRCFAC: executing deferred update of " + l);
-            sm.vet.updateResults(l);
-        }
-        needUpdate = null;
+        update();
     }
     
+    /**
+     * Execute deferred updates. Call this at a high level when all updates are complete.
+     */
+    public void update() {
+        synchronized(this) {
+            for(CLDRLocale l : needUpdate) {
+                System.err.println("CLDRDBSRCFAC: executing deferred update of " + l);
+                sm.vet.updateResults(l);
+            }
+            needUpdate.clear();
+         }
+    }
+
     XMLSource getInstance(CLDRLocale locale) {
         return getInstance(locale, false);
      }
@@ -1153,35 +1167,111 @@ public class CLDRDBSourceFactory {
         return suppDir;
     }
     
-    /** 
-     * XMLSource API. Unimplemented.
-     */
-    protected void putFullPath(String distinguishingXPath, String fullxpath) {
-        throw new InternalError("read-only");
-        // TODO: 0
-    }
-    
-    /** 
-     * XMLSource API. Unimplemented.
-     */
-    protected void putValue(String distinguishingXPath, String value) {
-        throw new InternalError("read-only");
-        // TODO: 0
-    }
 	
-    /**
-     * XMLSource API. Unimplemented, read only.
-     */
     public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) { 
-        throw new InternalError("read-only");
-    } // read only.
+        complain_about_slower_api();
+        putValueAtPath(fullxpath, this.getValueAtDPath(distinguishingXPath));
+    }
     
-    /**
-     * XMLSource API. Unimplemented, read only.
-     */
     public void putValueAtDPath(String distinguishingXPath, String value) { 
-        throw new InternalError("read-only");
-    } // read only
+        complain_about_slower_api();
+        putValueAtPath(this.getFullPathAtDPath(distinguishingXPath), value);
+    }
+    public String putValueAtPath(String xpath, String value)
+    {
+        // Make it distinguished
+        String dpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
+        String loc = getLocaleID();
+        //if(!xpath.equals(rawXpath)) {
+        //    logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
+        //}
+        
+        //String oxpath = file.getFullXPath(xpath); // orig-xpath.  
+        
+//        if(!oxpath.equals(file.getFullXPath(rawXpath))) {
+//            // Failed the sanity check.  This should Never Happen(TM)
+//            // What's happened here, is that the full xpath given the raw xpath, ought to be the full xpath given the distinguished xpath.
+//            // SurveyTool depends on this being reversable thus.
+//            throw new InternalError("FATAL: oxpath and file.getFullXPath(raw) are different: " + oxpath + " VS. " + file.getFullXPath(rawXpath));
+//        }
+//        
+        int xpid = sm.xpt.getByXpath(dpath);       // the numeric ID of the xpath
+        int oxpid = sm.xpt.getByXpath(xpath);     // the numeric ID of the orig-xpath
+        
+        XPathParts xpp = new XPathParts(null,null);
+        // Now, munge the xpaths around a bit.
+        xpp.clear();
+        xpp.initialize(xpath);
+        String lelement = xpp.getElement(-1);
+        /* all of these are always at the end */
+        String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
+        int submitter = XPathTable.altProposedToUserid(eAlt);
+        String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
+
+        /* we call a special function to find the "tiny" xpath.  Which see */
+        String eType = sm.xpt.typeFromPathToTinyXpath(xpath, xpp);  // etype = the element's type
+        String tinyXpath = xpp.toString(); // the tiny xpath
+        
+        int txpid = sm.xpt.getByXpath(tinyXpath); // the numeric ID of the tiny xpath
+        
+        int base_xpid = sm.xpt.xpathToBaseXpathId(dpath);  // the BASE xpath 
+        
+        /* Some debugging to print these various things*/ 
+//                System.out.println(xpath + " l: " + locale);
+//                System.out.println(" <- " + oxpath);
+//                System.out.println(" t=" + eType + ", a=" + eAlt + ", d=" + eDraft);
+//                System.out.println(" => "+txpid+"#" + tinyXpath);
+          
+        // insert it into the DB
+        try {
+            stmts.insert.setInt(1,xpid);  /// dpath
+            stmts.insert.setString(2,loc);
+            stmts.insert.setInt(3,srcId);
+            stmts.insert.setInt(4,oxpid);  // origxpath = full (original) xpath
+            SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
+            stmts.insert.setString(6,eType);
+            stmts.insert.setString(7,eAlt);
+            stmts.insert.setInt(8,txpid); // tiny xpath
+            if(submitter == -1) {
+                    stmts.insert.setNull(9, java.sql.Types.INTEGER); //  getId(alt...)
+            } else {
+                stmts.insert.setInt(9, submitter);
+            }
+            stmts.insert.setInt(10, base_xpid);
+
+            stmts.insert.execute();
+            
+            System.err.println("Inserted: " + xpath);
+            
+        } catch(SQLException se) {
+            String complaint = 
+                "CLDRDBSource: Couldn't insert " + getLocaleID() + ":" + xpid + "(" + xpath +
+                    ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+            logger.severe(complaint);
+            throw new InternalError(complaint);
+        }
+    
+    try{
+            conn.commit();
+    } catch(SQLException se) {
+            String complaint = 
+                "CLDRDBSource: Couldn't commit " + getLocaleID() +
+                    ":" + SurveyMain.unchainSqlException(se);
+            logger.severe(complaint);
+            throw new InternalError(complaint);
+    }
+//    System.err.println("loaded " + rowCount + " rows into  rev: " + rev + " for " + dir + ":" + srcId +"/"+locale+".xml"); // LOG that a new item is loaded.
+    CLDRLocale locale = CLDRLocale.getInstance(loc);
+//    if(vetterReady) {
+//        synchronized(sm.vet) {
+//            sm.vet.updateResults(loc);
+//        }
+//    } else {
+        needUpdate.add(locale);
+//        System.err.println("CLDRDBSource " + loc + " - deferring vet update on " + loc + " until vetter ready.");
+//    }
+        return dpath;
+    }
 
     /**
      * XMLSource API. Unimplemented, read only.
@@ -1190,12 +1280,6 @@ public class CLDRDBSourceFactory {
                 throw new InternalError("read-only - delete not implemented yet.");
     }  // R/O
 
-    /**
-     * XMLSource API. Unimplemented, read only.
-     */
-    public void remove(String xpath) {
-         throw new InternalError("read-only");
-    }
 
     /**
      * Remove an item from the DB. Only works for items with a 'submitter' id, i.e., which are from
@@ -2211,4 +2295,14 @@ public class CLDRDBSourceFactory {
             return "[Unknown source:"+locale.toString()+"]";
         }
     }
+
+    static boolean complained_about_slower_api= false;
+    static protected void complain_about_slower_api() {
+        if(!complained_about_slower_api) {
+            complained_about_slower_api = true;
+            System.err.println("CLDRDBSourceFactory: Note: instead of CLDRDBSource.putValueAtDPath() and CLDRDBSource.putFullPathAtDPath(), use CLDRDBSource.putValueAtPath().");
+        }
+        return;
+    }
+
 }

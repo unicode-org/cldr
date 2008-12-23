@@ -6302,12 +6302,16 @@ public class SurveyMain extends HttpServlet {
             }
         }
         if(someDidChange) {
-            int n = vet.updateImpliedVotes(oldSection.locale);
-            lcr.invalidateLocale(oldSection.locale);
+            updateLocale(oldSection.locale());
         }
         return someDidChange;
     }
 
+    private void updateLocale(CLDRLocale locale) {
+        lcr.invalidateLocale(locale);
+        this.dbsrcfac.update();
+        int n = vet.updateImpliedVotes(locale);
+    }
     /**
      * Call from within  session lock
      * @param ctx

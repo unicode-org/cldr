@@ -15,6 +15,9 @@ import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.*;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 import java.util.regex.*;
 
@@ -2047,14 +2050,88 @@ public class DataSection extends Registerable {
      * @deprecated SHIM- please rewrite caller
      */
     public static String addDataToNextSlot(XMLSource ourSrc, CLDRFile cf, CLDRLocale locale,
-            String fullPathMinusAlt, String altType, String altPrefix, int id, String choice_v,
-            String choice_r) {
-        // TODO Auto-generated method stub
-   //     SurveyMain.busted("unimplemented: addDataToNextSlot");
-        System.err.println("@@unimp: addDataToNextSlot");
-        return UserRegistry.makePassword(locale.toString()); // throw it a bone
-     //   throw new InternalError("unimp: addDataToNextSlot");
-     //   return null;
+            String fullPathMinusAlt, String altType, String altPrefix, int id, String value,
+            String refs) {
+
+        XPathParts xpp = new XPathParts(null,null);
+        // prepare for slot check
+        for(int slot=1;slot<100;slot++) {
+            String altProposed = null;
+            String alt = null;
+            String altTag = null;
+            if(altPrefix != null) {
+                altProposed = altPrefix+slot; // proposed-u123-4 
+                alt = LDMLUtilities.formatAlt(altType, altProposed);
+                altTag =  "[@alt=\"" + alt + "\"]";
+            } else {
+                // no alt
+                altTag = "";
+            }
+            //            String rawXpath = fullXpathMinusAlt + "[@alt='" + alt + "']";
+            String refStr = "";
+            if(refs.length()!=0) {
+                refStr = "[@references=\""+refs+"\"]";
+            }
+            String rawXpath = fullPathMinusAlt + altTag + refStr; // refstr will get removed
+            System.err.println("addDataToNextSlot:  rawXpath = " + rawXpath);
+           // String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);  // removes  @used=  etc
+           // if(!xpath.equals(rawXpath)) {
+           //     logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
+           // }
+            String xpath = fullPathMinusAlt + altTag;
+            String oxpath = xpath+refStr+"[@draft=\"unconfirmed\"]";
+            //int xpid = xpt.getByXpath(xpath);
+            boolean has = ourSrc.hasValueAtDPath(xpath);
+            System.err.println("Add: survey says " + has + " for " + xpath);
+            if(has) {
+                    continue;
+            }
+//            // Check to see if this slot is in use.
+//            //synchronized(conn) {
+//                try {
+//                    stmts.queryValue.setString(1,locale.toString());
+//                    stmts.queryValue.setInt(2,xpid);
+//                    ResultSet rs = stmts.queryValue.executeQuery();
+//                    if(rs.next()) {
+//                        // already taken..
+//                        //logger.info("Taken: " + altProposed);
+//                        rs.close();
+//                        continue;
+//                    }
+//                    rs.close();
+//                } catch(SQLException se) {
+//                    String complaint = "CLDRDBSource: Couldn't search for empty slot " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+//                    logger.severe(complaint);
+//                    throw new InternalError(complaint);
+//                }
+//            //}
+            
+            
+            
+            //int oxpid = xpt.getByXpath(oxpath);
+            xpp.clear();
+            xpp.initialize(oxpath);
+            String lelement = xpp.getElement(-1);
+            /* all of these are always at the end */
+            String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
+            String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
+            
+            /* special func to find this */
+           // String eType = sm.xpt.typeFromPathToTinyXpath(xpath, xpp);
+            String tinyXpath = xpp.toString();
+            
+           // int txpid = xpt.getByXpath(tinyXpath);
+            
+            /*SRL*/ 
+            //                System.out.println(xpath + " l: " + locale);
+            //                System.out.println(" <- " + oxpath);
+            //                System.out.println(" t=" + eType + ", a=" + eAlt + ", d=" + eDraft);
+            //                System.out.println(" => "+txpid+"#" + tinyXpath);
+            ourSrc.putValueAtPath(oxpath, value);
+            return altProposed;
+        } // end for
+        return null; // couldn't find a slot..
+    
     }
     /**
      * 'shim' 

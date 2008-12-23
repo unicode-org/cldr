@@ -146,10 +146,10 @@ public class SurveyMain extends HttpServlet {
     static final String CURRENT_NAME="Others";
 
     // ===== Special bug numbers.
-    public static final String BUG_METAZONE_FOLDER = "data";
-    public static final int    BUG_METAZONE = 1262;
-    public static final String BUG_ST_FOLDER = "tools";
-    public static final int    BUG_ST = 1263;
+//    public static final String BUG_METAZONE_FOLDER = "data";
+//    public static final int    BUG_METAZONE = 1262;
+    //public static final String BUG_ST_FOLDER = "tools";
+    //public static final int    BUG_ST = xxxx; // was: umbrella bug
     public static final String URL_HOST = "http://www.unicode.org/";
     public static final String URL_CLDR = URL_HOST+"cldr/";
     public static final String BUG_URL_BASE = URL_CLDR+"bugs/locale-bugs";
@@ -157,9 +157,10 @@ public class SurveyMain extends HttpServlet {
     public static final String GENERAL_HELP_NAME = "General&nbsp;Instructions";
     
     // ===== url prefix for help
-    public static final String CLDR_WIKI_BASE = URL_CLDR+"wiki";
-    public static final String CLDR_HELP_LINK = CLDR_WIKI_BASE+"?SurveyToolHelp";
-    public static final String CLDR_HELP_LINK_EDIT = CLDR_HELP_LINK;
+//    public static final String CLDR_WIKI_BASE = URL_CLDR+"wiki";
+//    public static final String CLDR_HELP_LINK = CLDR_WIKI_BASE+"?SurveyToolHelp";
+//    public static final String CLDR_HELP_LINK_EDIT = CLDR_HELP_LINK;
+    public static final String CLDR_HELP_LINK = GENERAL_HELP_URL+"#";
      
     public static final String SLOW_PAGE_NOTICE = ("<i>Note: The first time a page is loaded it may take some time, please be patient.</i>");    
 
@@ -231,6 +232,7 @@ public class SurveyMain extends HttpServlet {
     static final String PREF_SHOWCODES = "p_codes";
     static final String PREF_SORTMODE = "p_sort";
     static final String PREF_SHOWUNVOTE = "p_unvote";
+    static final String PREF_SHOWLOCKED = "p_showlocked";
     static final String PREF_NOPOPUPS = "p_nopopups";
     static final String PREF_CODES_PER_PAGE = "p_pager";
     static final String PREF_XPID = "p_xpid";
@@ -426,10 +428,10 @@ public class SurveyMain extends HttpServlet {
                 
                 
                 out.println("<hr>");
-                if(!isUnofficial) {
-                    out.println("Please try this link for info: <a href='"+CLDR_WIKI_BASE+"?SurveyTool/Status'>"+CLDR_WIKI_BASE+"?SurveyTool/Status</a><br>");
-                    out.println("<hr>");
-                }
+//                if(!isUnofficial) {
+//                    out.println("Please try this link for info: <a href='"+CLDR_WIKI_BASE+"?SurveyTool/Status'>"+CLDR_WIKI_BASE+"?SurveyTool/Status</a><br>");
+//                    out.println("<hr>");
+//                }
                 out.println("An Administrator must intervene to bring the Survey Tool back online. <br> " + 
                             " <i>This message has been viewed " + pages + " time(s), SurveyTool has been down for " + isBustedTimer + "</i>");
 
@@ -534,10 +536,10 @@ public class SurveyMain extends HttpServlet {
 
 
                 out.println("<hr>");
-                if(!isUnofficial) {
-                    out.println("Please try this link for info: <a href='"+CLDR_WIKI_BASE+"?SurveyTool/Status'>"+CLDR_WIKI_BASE+"?SurveyTool/Status</a><br>");
-                    out.println("<hr>");
-                }
+//                if(!isUnofficial) {
+//                    out.println("Please try this link for info: <a href='"+CLDR_WIKI_BASE+"?SurveyTool/Status'>"+CLDR_WIKI_BASE+"?SurveyTool/Status</a><br>");
+//                    out.println("<hr>");
+//                }
                 out.println("An Administrator must intervene to bring the Survey Tool back online. <br> " +
                             " <i>This message has been viewed " + pages + " time(s), SurveyTool has been down for " + isBustedTimer + "</i>");
             } else {
@@ -2652,6 +2654,8 @@ public class SurveyMain extends HttpServlet {
             just = ctx.session.user.email;
             justme = true;
         }
+        WebContext subCtx = new WebContext(ctx);
+        subCtx.setQuery(QUERY_DO, doWhat);
         if(justme) {
             printHeader(ctx, "My Account");
         } else {
@@ -2678,6 +2682,7 @@ public class SurveyMain extends HttpServlet {
         String sendWhat = ctx.field(LIST_MAILUSER_WHAT);
         boolean areSendingMail = false;
 		boolean didConfirmMail = false;
+		boolean showLocked = ctx.prefBool(PREF_SHOWLOCKED);
 		boolean areSendingDisp = (ctx.field(LIST_MAILUSER+"_d").length())>0; // sending a dispute note?
         String mailBody = null;
         String mailSubj = null;
@@ -2718,6 +2723,10 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("<h2>My Account</h2>");
             } else {
                 ctx.println("<h2>Users for " + org + "</h2>");
+                if(UserRegistry.userIsTC(ctx.session.user)) {
+                    showTogglePref(subCtx, PREF_SHOWLOCKED, "Show locked users:");
+                }
+                ctx.println("<br>");
                 if(UserRegistry.userCanModifyUsers(ctx.session.user)) {
                     ctx.println("<div class='fnotebox'>"+ctx.iconHtml("warn","warning")+"Changing user level or locales while a user is active will result in  " +
                                 " destruction of their session. Check if they have been working recently.</div>");
@@ -2797,9 +2806,14 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<table summary='User List' class='userlist' border='2'>");
             ctx.println(" <tr><th></th><th>Organization / Level</th><th>Name/Email</th><th>Action</th><th>Locales</th><th>Seen</th></tr>");
             String oldOrg = null;
+            int locked = 0;
             while(rs.next()) {
                 int theirId = rs.getInt(1);
                 int theirLevel = rs.getInt(2);
+                if(!showLocked && theirLevel >= UserRegistry.LOCKED) {
+                    locked++;
+                    continue;
+                }
                 String theirName = SurveyMain.getStringUTF8(rs, 3);//rs.getString(3);
                 String theirEmail = rs.getString(4);
                 String theirOrg = rs.getString(5);
@@ -3080,6 +3094,9 @@ public class SurveyMain extends HttpServlet {
             }
             if(!justme) {
                 ctx.println("<div style='font-size: 70%'>Number of users shown: " + n +"</div><br>");
+                if(UserRegistry.userIsTC(ctx.session.user) && locked > 0) {
+                    showTogglePref(subCtx, PREF_SHOWLOCKED, "Show "+locked+" locked users:");
+                }
             }
             if(!justme && UserRegistry.userCanModifyUsers(ctx.session.user)) {
                 if((n>0) && UserRegistry.userCanEmailUsers(ctx.session.user)) { // send a mass email to users
@@ -5820,9 +5837,11 @@ public class SurveyMain extends HttpServlet {
             ctx.println("</table>");
 
             ctx.println("<h3>"+ displayZone + " Overrides</h3>"); // couldn't find the territory.
-            ctx.print("<i>The Metazone <b>"+currentMetaZone+"</b> is active for this zone. <a href=\""+
-                bugReplyUrl(BUG_METAZONE_FOLDER, BUG_METAZONE, ctx.getLocale()+":"+ zone + ":" + currentMetaZone + " incorrect")+
-                "\">Click Here to report Metazone problems</a> .</i>");
+            ctx.print("<i>The Metazone <b>"+currentMetaZone+"</b> is active for this zone. " +
+                    //<a href=\""+
+                //bugReplyUrl(BUG_METAZONE_FOLDER, BUG_METAZONE, ctx.getLocale()+":"+ zone + ":" + currentMetaZone + " incorrect")+
+                //"\">Click Here to report Metazone problems</a>"+
+                " Please report any Metazone problems. </i>");
         } else {
             ctx.println("<h3>Zone Contents</h3>"); // No metazone - this is just the contents.
         }
@@ -9285,7 +9304,7 @@ public class SurveyMain extends HttpServlet {
     }
 
     public static String bugFeedbackUrl(String subject) {
-        return BUG_URL_BASE +"?newbug=survey-feedback&amp;subject="+java.net.URLEncoder.encode(subject)+"&amp;locksubj=y";
+        return BUG_URL_BASE +"?newbug=incoming&amp;subject="+java.net.URLEncoder.encode(subject)+"&amp;locksubj=y";
     }
     
     

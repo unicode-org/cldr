@@ -429,6 +429,19 @@ public final class UnicodeMap implements Cloneable, Freezable, Externalizable {
         }
         return this;
     }
+    
+    /**
+     * Add all the (main) values from a Unicode property
+     * @param prop the property to add to the map
+     * @return this (for chaining)
+     */
+    public UnicodeMap putAllFiltered(UnicodeMap prop, UnicodeSet filter) {
+        // TODO optimize
+        for (UnicodeSetIterator it = new UnicodeSetIterator(filter); it.next();) {
+            _put(it.codepoint, prop.getValue(it.codepoint));
+        }
+        return this;
+    }
 
     /**
      * Set the currently unmapped Unicode code points to the given value.

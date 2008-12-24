@@ -233,7 +233,7 @@ public class CLDRFileCache {
      * @author srl
      *
      */
-    private class CacheableXMLSource extends SimpleXMLSource {
+    public class CacheableXMLSource extends SimpleXMLSource {
         private static final int COOKIE = 9295467; 
         private Registerable token = new Registerable(sm.lcr, CLDRLocale.getInstance(this.getLocaleID())) { };
         protected HashMap<String,String> winningXpaths = new HashMap<String,String>();
@@ -407,6 +407,29 @@ public class CLDRFileCache {
             }
             System.err.println("## WXP load " + this.getLocaleID() + " from " + from.getClass().getName()+  "  - loaded "+n);
         }
+        
+        public void reloadWinning(XMLSource from) {
+            Iterator<String> iter = from.iterator();
+            
+//            dos.writeInt(COOKIE);
+            int n = 0;
+            for(;iter.hasNext();) {
+                n++;
+                String xpath = iter.next();
+//                String fxpath = from.getFullPathAtDPath(xpath);
+                String wxpath = from.getWinningPath(xpath);
+//                String val = from.getValueAtDPath(xpath);
+                String bxpath = sm.xpt.xpathToBaseXpath(xpath);
+//                this.putValueAtDPath(xpath, val);
+//                this.putFullPathAtDPath(xpath, fxpath);
+                this.setWinningPath(bxpath, wxpath);
+                
+//                if(xpath.contains("singleCountries")) {
+//                    System.err.println(getLocaleID()+"\n/// " + xpath + "\n->- " + fxpath + "\n$>- "+wxpath+"\n<<< "+bxpath);
+//                }
+            }
+            System.err.println("## WXP reload win" + this.getLocaleID() + " from " + from.getClass().getName()+  "  - loaded "+n);
+        }
 
         public void initialize() {
             try {
@@ -425,6 +448,31 @@ public class CLDRFileCache {
             } catch (IOException ioe) {
                 ioe.printStackTrace();
                 throw new InternalError("Could not load XMLSource on " + getLocaleID() + " - "+ioe.toString());
+            }
+        }
+        
+        /**
+         * Write out current state of the cache.
+         */
+        public void save() {
+            try {
+                File f = getCacheFile();
+                if(f.exists()) {
+                    deleteInvalid();
+//                    System.err.println("## load: " + f.getAbsolutePath());
+//                    load(f);
+                } 
+                {
+                    System.err.println("## re-create: " + f.getAbsolutePath());
+//                    load();
+                    save(f);
+                }
+              //  freeze();
+                poke(); // mark as valid.
+                
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+                throw new InternalError("Could not save XMLSource on " + getLocaleID() + " - "+ioe.toString());
             }
         }
 

@@ -30,6 +30,7 @@ import org.unicode.cldr.util.*;
 //import org.unicode.cldr.util.XMLSource.Alias;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.XPathParts.Comments;
+import org.unicode.cldr.web.CLDRFileCache.CacheableXMLSource;
 import org.unicode.cldr.icu.LDMLConstants;
 
 // ICU
@@ -276,6 +277,11 @@ public class CLDRDBSourceFactory {
             for(CLDRLocale l : needUpdate) {
                 System.err.println("CLDRDBSRCFAC: executing deferred update of " + l);
                 sm.vet.updateResults(l);
+                XMLSource inst = getInstance(l,false);
+                // TODO: fix broken layering
+                XMLSource cached = ((MuxedSource)inst).cachedSource;
+                ((CacheableXMLSource)cached).reloadWinning(((MuxedSource)inst).dbSource);
+                ((CacheableXMLSource)cached).save();
             }
             needUpdate.clear();
          }

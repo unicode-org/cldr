@@ -212,13 +212,13 @@ public class XPathTable {
                     stat_allAdds++;
                     return nid;
             } catch(SQLException sqe) {
+            	System.err.println("xpath ["+xpath+"] len " + xpath.length());
                 logger.severe("XPathTable: Failed in addXPath("+xpath+"): " + SurveyMain.unchainSqlException(sqe));
-    //            sm.busted("XPathTable: Failed in addXPath: " + SurveyMain.unchainSqlException(sqe));
+                sm.busted("XPathTable: Failed in addXPath("+xpath+"): " + SurveyMain.unchainSqlException(sqe));
             }
         }
         return null; // an exception occured.
     }
-    
     /** 
      * needs a new name..
      * This uses the string pool and also adds it to the table

@@ -4,8 +4,12 @@ package org.unicode.cldr.web;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -496,22 +500,49 @@ public class Race {
 //        }
 
         // Now, add ALL other possible items.
-        vet.dataByBase.setString(1, locale.toString());
-        vet.dataByBase.setInt(2, base_xpath);
-        rs = vet.dataByBase.executeQuery();
-        while (rs.next()) {
-            int xpath = rs.getInt(1);
-            int origXpath = rs.getInt(2);
-            // 3 : alt_type
-            String value = SurveyMain.getStringUTF8(rs, 4);
-            Chad c = getChad(xpath, origXpath, value);
-            if(!c.isDisqualified()) {
-                resolver.add(xpath);
-            }
+        
+        Map<Chad,Integer> possibles = new HashMap<Chad,Integer>(); // checking if it is disqualified could load other bundles, leading to contention on dataByBase's RS
+       
+      //  synchronized(vet) {
+          if(dbb>5) {
+        	  vet.sm.busted("dbb isn't 1, it's " + dbb + " !");
+          }
+	        if(++dbb!=1) {
+	        	throw new InternalError("Going in: dbb isn't 1, it's " + dbb);
+	        }
+	        
+	        
+	        vet.dataByBase.setString(1, locale.toString());
+	        vet.dataByBase.setInt(2, base_xpath);
+	        rs = vet.dataByBase.executeQuery();
+	        while (rs.next()) {
+	            int xpath = rs.getInt(1);
+	            int origXpath = rs.getInt(2);
+	            // 3 : alt_type
+	            String value = SurveyMain.getStringUTF8(rs, 4);
+	            Chad c = getChad(xpath, origXpath, value);
+	            possibles.put(c,xpath);
+//	            if(c.xpath != xpath) {
+//	            	throw new InternalError("Chad has xpath " + c.xpath+" but supposed to be + " + xpath);
+//	            }
+	        }
+
+	        if(--dbb!=0) {
+	        	throw new InternalError("Going in: dbb isn't 0, it's " + dbb);
+	        }
+    //    }
+
+        for(Map.Entry<Race.Chad,Integer> e : possibles.entrySet()) {        	
+	        if(!e.getKey().isDisqualified()) {
+	            resolver.add(e.getValue());
+	        }
         }
         
         return count;
     }
+    
+    static int dbb = 0;
+    
 
     
     /**
@@ -689,6 +720,7 @@ public class Race {
                                                                         // fallback.
             }
             vet.insertResult.setInt(4, type);
+//            System.err.println(this.locale.toString()+"-"+base_xpath+"++");
 
             int res = vet.insertResult.executeUpdate();
             // no commit

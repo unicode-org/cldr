@@ -1432,9 +1432,9 @@ public class SurveyMain extends HttpServlet {
         int nrInFiles = inFiles.length;
         com.ibm.icu.dev.test.util.ElapsedTimer allTime = new com.ibm.icu.dev.test.util.ElapsedTimer("Time to load all: {0}");
         logger.info("Loading all..");            
-        Connection connx = null;
+//        Connection connx = null;
         int ti = 0;
-        for(int i=0;i<nrInFiles;i++) {
+        for(int i=0;(null==this.isBusted)&&i<nrInFiles;i++) {
             String localeName = inFiles[i].getName();
             int dot = localeName.indexOf('.');
             if(dot !=  -1) {
@@ -1444,13 +1444,15 @@ public class SurveyMain extends HttpServlet {
                     ctx.println("   "+ i + "/" + nrInFiles + ". " + usedK() + "K mem used<br>");
                 }
                 try {
-                    if(connx == null) {
-                        connx = this.getDBConnection();
-                    }
+//                    if(connx == null) {
+//                        connx = this.getDBConnection();
+//                    }
+        
                     CLDRLocale locale = CLDRLocale.getInstance(localeName);
                     //                        WebContext xctx = new WebContext(false);
                     //                        xctx.setLocale(locale);
-                    makeCLDRFile(makeDBSource(connx, null, locale));  // orphan result
+                    //makeCLDRFile(makeDBSource(connx, null, locale));  // orphan result
+                    dbsrcfac.getInstance(locale);
                 } catch(Throwable t) {
                     t.printStackTrace();
                     String complaint = ("Error loading: " + localeName + " - " + t.toString() + " ...");
@@ -1458,12 +1460,26 @@ public class SurveyMain extends HttpServlet {
                     ctx.println(complaint + "<br>" + "<pre>");
                     ctx.print(t);
                     ctx.println("</pre>");
+//                    try {
+//                    	closeDBConnection(connx);
+//                    } catch(Throwable t2) {
+//                        t2.printStackTrace();
+//                        String complaint2 = ("Error closing down connection: " + localeName + " - " + t2.toString() + " ...");
+//                        logger.severe("closing conn: " + complaint2);
+//                        ctx.println(complaint2 + "<br>" + "<pre>");
+//                        ctx.print(t2);
+//                        ctx.println("</pre>");
+//                    }
+//                    connx=null;
                 }
             }
         }
-        closeDBConnection(connx);
+//        closeDBConnection(connx);
         logger.info("Loaded all. " + allTime);
         ctx.println("Loaded all." + allTime + "<br>");
+        int n = dbsrcfac.update();
+        logger.info("Updated "+n+". " + allTime);
+        ctx.println("Updated "+n+"." + allTime + "<br>");
     }
     
     /* 
@@ -5310,6 +5326,8 @@ public class SurveyMain extends HttpServlet {
         }
         
         uf.complete(ctx, user, locale);
+        int n = dbsrcfac.update();
+        if(n>0) System.err.println("getUserFile() updated " + n + " locales.");
         return uf;
     }
     XMLSource makeDBSource(WebContext ctx, UserRegistry.User user, CLDRLocale locale) {

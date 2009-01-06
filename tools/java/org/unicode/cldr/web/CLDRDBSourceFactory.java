@@ -250,16 +250,20 @@ public class CLDRDBSourceFactory {
     CLDRDBSourceFactory(SurveyMain sm, String theDir, Logger xlogger, File cacheDir) throws SQLException {
         this.xpt = sm.xpt;
         this.dir = theDir;
-        CLDRFile.Factory afactory = CLDRFile.SimpleFactory.make(theDir,".*");
         Connection sconn = sm.getDBConnection();
         CLDRDBSourceFactory.sm = sm;
         logger = xlogger; // set static
         setupDB(sconn);
-        this.initConn(sconn, afactory);
+        // initconn done later, in vetterReady
         this.cacheDir = cacheDir;
+        SurveyMain.closeDBConnection(sconn);
     }
     
     public void vetterReady() {
+        System.err.println("DBSRCFAC: processing vetterReady()... initializing connection");
+        Connection sconn = sm.getDBConnection();
+        CLDRFile.Factory afactory = CLDRFile.SimpleFactory.make(this.dir,".*");
+        this.initConn(sconn, afactory);
         System.err.println("DBSRCFAC: processing vetterReady()...");
         rootDbSourceV = new CLDRDBSource(CLDRLocale.ROOT, true);
         rootDbSource = new CLDRDBSource(CLDRLocale.ROOT, false);
@@ -272,19 +276,24 @@ public class CLDRDBSourceFactory {
     /**
      * Execute deferred updates. Call this at a high level when all updates are complete.
      */
-    public void update() {
-        synchronized(this) {
+    public int update() {
+    	int n = 0;
+        synchronized(sm.vet.conn) {
             for(CLDRLocale l : needUpdate) {
+            	n++;
                 System.err.println("CLDRDBSRCFAC: executing deferred update of " + l);
                 sm.vet.updateResults(l);
-                XMLSource inst = getInstance(l,false);
-                // TODO: fix broken layering
-                XMLSource cached = ((MuxedSource)inst).cachedSource;
-                ((CacheableXMLSource)cached).reloadWinning(((MuxedSource)inst).dbSource);
-                ((CacheableXMLSource)cached).save();
+                synchronized(this) {
+	                XMLSource inst = getInstance(l,false);
+	                // TODO: fix broken layering
+	                XMLSource cached = ((MuxedSource)inst).cachedSource;
+	                ((CacheableXMLSource)cached).reloadWinning(((MuxedSource)inst).dbSource);
+	                ((CacheableXMLSource)cached).save();
+                }
             }
             needUpdate.clear();
          }
+        return n;
     }
 
     XMLSource getInstance(CLDRLocale locale) {
@@ -298,22 +307,29 @@ public class CLDRDBSourceFactory {
     
     public XMLSource  getInstance(CLDRLocale locale, boolean finalData) {
         if(finalData == true) {
-          //  return cache.getCachedSource(locale);
-           return rootDbSourceV.make(locale.toString());
-//            System.err.println("@@ finalData not imp");
- //           return getMuxedInstance(locale);
+            return rootDbSourceV.make(locale.toString());
         } else {
             return getMuxedInstance(locale);
         }
      }
     
     public XMLSource getMuxedInstance(CLDRLocale locale) {
-        XMLSource src = mux.get(locale);
-        if(src == null) {
-            src = new MuxedSource(locale, false);
-            mux.put(locale, src);
-        }
-        return src;
+    	synchronized(sm.vet.conn) {
+	        XMLSource src = mux.get(locale);
+	        if(src == null) {
+	        	CLDRLocale parent = locale.getParent();
+	        	if(parent != null) {
+				XMLSource ignored = mux.get(parent);
+				if(ignored == null) {
+	        		  System.err.println("First loading parent locale "+locale.toString()+"->" + parent.toString());
+	        		  ignored = getMuxedInstance(parent);
+	               }
+	        	}
+	            src = new MuxedSource(locale, false);
+	            mux.put(locale, src);
+	        }
+	        return src;
+    	}
     }
     
     /** 
@@ -722,8 +738,8 @@ public class CLDRDBSourceFactory {
         if(!quietUpdateAll) {
             ctx.println("<h4>Source Update Manager</h4>");
         }
-        synchronized (conn) {
-            synchronized(xpt) {
+        synchronized (sm.vet.conn) {
+           // synchronized(xpt) {
                 try {
                     boolean hadDiffs = false; // were there any differences? (used for 'update all')
                     ResultSet rs = stmts.querySourceActives.executeQuery();
@@ -791,7 +807,7 @@ public class CLDRDBSourceFactory {
                     ctx.println("<hr /><pre>" + complaint + "</pre><br />");
                     return updated;
                 }
-            }
+          //  }
         }
         return updated;
     }
@@ -1030,7 +1046,7 @@ public class CLDRDBSourceFactory {
 
         System.err.println("@sl&v: "+locale+"/"+srcId);
 
-        synchronized(xpt) {  // Synchronize on the XPT to ensure that no other state is changing under us..
+        synchronized(sm.vet.conn) {  // Synchronize on the sm vet conn to ensure that no other state is changing under us..
             // double check..
             srcId = getSourceId(tree, locale); // double checked lock- noone else loaded the src since then
             
@@ -1043,7 +1059,7 @@ public class CLDRDBSourceFactory {
             
             String rev = LDMLUtilities.getCVSVersion(dir, locale+".xml");  // Load the CVS version # as a string
             srcId = setSourceId(tree, locale, rev); // TODO: we had better fill it in..
-            synchronized(conn) {            
+        //    synchronized(conn) {            
                // logger.info("srcid: " + srcId +"/"+locale);
                // if(locale.equals("el__POLYTON")) locale="el_POLYTON";
                 CLDRFile file = rawXmlFactory.make(locale, false, true); // create the CLDRFile pointing to the raw XML
@@ -1141,21 +1157,23 @@ public class CLDRDBSourceFactory {
                 }
                 System.err.println("loaded " + rowCount + " rows into  rev: " + rev + " for " + dir + ":" + srcId +"/"+locale+".xml"); // LOG that a new item is loaded.
                 CLDRLocale loc = CLDRLocale.getInstance(locale);
-                if(vetterReady) {
-                    synchronized(sm.vet) {
-                        sm.vet.updateResults(loc);
-                    }
-                } else {
-                    needUpdate.add(loc);
-                    System.err.println("CLDRDBSource " + loc + " - deferring vet update on " + loc + " until vetter ready.");
-                }
+              	needUpdate(loc);
                 return true;
-            }
+         //   }
         } // end: synch(xpt)
     }
     
-
+    /**
+     * Mark a locale as needing update.
+     * @param loc
+     */
+    public void needUpdate(CLDRLocale loc) {
+    	synchronized(sm.vet.conn) {
+    		needUpdate.add(loc);
+    	}
+    }
     
+
     /**
      * Return the SCM ID of this source.
      */
@@ -1185,6 +1203,7 @@ public class CLDRDBSourceFactory {
     }
     public String putValueAtPath(String xpath, String value)
     {
+    	synchronized(conn) {
         // Make it distinguished
         String dpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
         String loc = getLocaleID();
@@ -1277,6 +1296,7 @@ public class CLDRDBSourceFactory {
 //        System.err.println("CLDRDBSource " + loc + " - deferring vet update on " + loc + " until vetter ready.");
 //    }
         return dpath;
+    	}
     }
 
     /**
@@ -1312,6 +1332,7 @@ public class CLDRDBSourceFactory {
             logger.severe(problem);
             throw new InternalError(problem);
         }
+        
     }
 
    /** 

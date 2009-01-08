@@ -1,6 +1,5 @@
-/**
- * 
- */
+// Copyright (C) 2008-2009 IBM Corporation and Others. All Rights Reserved.
+
 package org.unicode.cldr.util;
 
 import java.util.Hashtable;
@@ -9,32 +8,66 @@ import java.util.Iterator;
 import com.ibm.icu.util.ULocale;
 
 /**
+ * This class implements a CLDR UTS#35 compliant locale.
+ * It differs from ICU and Java locales in that it is singleton based, and that it is Comparable.
+ * It uses LocaleIDParser to do the heavy lifting of parsing.
+ * 
  * @author srl
- *
+ * @see LocaleIDParser
+ * @see ULocale
  */
 public final class CLDRLocale implements Comparable<CLDRLocale> {
+	/**
+	 * Reference to the parent CLDRLocale
+	 */
     private CLDRLocale parent = null;
+    /**
+     * Cached ICU format locale
+     */
     private ULocale ulocale;
+    /**
+     * base name, 'without parameters'. Currently same as fullname.
+     */
     private String basename;
+    /**
+     * Full name
+     */
     private String fullname;
+    /**
+     * The LocaleIDParser interprets the various parts (language, country, script, etc).
+     */
     private LocaleIDParser parts = null;
 
     /**
-     * Construct a CLDRLocale from an ICU ULocale
+     * Construct a CLDRLocale from an ICU ULocale.
+     * Internal, called by the factory function.
      */
     private CLDRLocale(ULocale loc) {
         init(loc);
     }
 
-    private CLDRLocale(String s) {
-        init(s);
+    /**
+     * Construct a CLDRLocale from a string with the full locale ID.
+     * Internal, called by the factory function.
+     * @param str
+     */
+    private CLDRLocale(String str) {
+        init(str);
     }
 
+    /**
+     * Initialize a CLDRLocale from a ULocale
+     * @param loc
+     */
     private void init(ULocale loc) {
         ulocale = loc;
         init(loc.getBaseName());
     }
-        
+     
+    /**
+     * Initialize a CLDRLocale from a string.
+     * @param str
+     */
     private void init(String str) {
 //        if(str.length()==0) {
 //            str = "root";
@@ -119,7 +152,13 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         return loc;
     }
     
+    /**
+     * Public factory function.  Allocate a CLDRLocale (could be a singleton).  If null is passed in, null will be returned.
+     * @param u
+     * @return
+     */
     public static CLDRLocale getInstance(ULocale u) {
+    	if(u==null) return null;
         CLDRLocale loc = ulocToLoc.get(u);
         if(loc == null) {
             loc = new CLDRLocale(u);
@@ -128,6 +167,9 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         return loc;
     }
     
+    /**
+     * Register the singleton instance.
+     */
     private void register() {
         stringToLoc.put(this.toString(), this);
         ulocToLoc.put(this.toULocale(), this);
@@ -136,20 +178,10 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     private static Hashtable<String,CLDRLocale> stringToLoc= new Hashtable<String,CLDRLocale>();
     private static Hashtable<ULocale,CLDRLocale> ulocToLoc = new Hashtable<ULocale,CLDRLocale>();
     
-    
-    /**
-     * Testing.
-     * @param args
+   /**
+     * Return the parent locale of this item. Null if no parent (root has no parent)
+     * @return
      */
-    public static void main(String args[]) {
-        System.out.println("Tests for CLDRLocale:");
-        String tests_str[] = { "", "root", "el__POLYTON", "el_POLYTON", "__UND"};
-        for(String s:tests_str) {
-            CLDRLocale loc = CLDRLocale.getInstance(s);
-            System.out.println(s+":  tostring:"+loc.toString()+", uloc:"+loc.toULocale().toString()+", fromloc:"+new ULocale(s).toString());
-        }
-    }
-
     public CLDRLocale getParent() {
         return parent;
     }
@@ -188,34 +220,59 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     }
    
     public String getDisplayName(ULocale displayLocale) {
-        // TODO Auto-generated method stub
         return toULocale().getDisplayName(displayLocale);
     }
 
     public String getLanguage() {
-        // TODO Auto-generated method stub
         return parts.getLanguage();
     }
 
     public String getScript() {
-        // TODO Auto-generated method stub
         return parts.getScript();
     }
 
+    /**
+     * Return the region
+     * @return
+     */
     public String getCountry() {
-        // TODO Auto-generated method stub
         return parts.getRegion();
     }
 
+    /**
+     * Return "the" variant.
+     * @return
+     */
     public String getVariant() {
         return toULocale().getVariant(); // TODO: replace with parts?
     }
 
+    /**
+     * Most objects should be singletons, and so equality/inequality comparison is done first.
+     */
     public boolean equals(Object o) {
         if(o==this) return true;
         if(!(o instanceof CLDRLocale)) return false;
         return (0==compareTo((CLDRLocale)o));
     }
+    
+    /**
+     * The root locale, a singleton.
+     */
     public static final CLDRLocale ROOT = getInstance("root");
-}
+    
+    /**
+     * Testing.
+     * @param args
+     */
+    public static void main(String args[]) {
+        System.out.println("Tests for CLDRLocale:");
+        String tests_str[] = { "", "root", "el__POLYTON", "el_POLYTON", "__UND"};
+        for(String s:tests_str) {
+            CLDRLocale loc = CLDRLocale.getInstance(s);
+            System.out.println(s+":  tostring:"+loc.toString()+", uloc:"+loc.toULocale().toString()+", fromloc:"+new ULocale(s).toString());
+        }
+    }
+
+ }
 

@@ -165,9 +165,8 @@ public class CLDRDBSourceFactory {
          */
         @Override
         public void removeValueAtDPath(String distinguishingXPath) {
-            // TODO Auto-generated method stub
-            throw new InternalError("not imp");
-
+            cachedSource.removeValueAtDPath(distinguishingXPath);
+            dbSource.removeValueAtDPath(distinguishingXPath);
         }
 
         /* (non-Javadoc)
@@ -539,7 +538,7 @@ public class CLDRDBSourceFactory {
                                             "SELECT submitter from " + CLDR_DATA + " where locale=? AND xpath=? AND ( submitter is not null )"); // don't return anything if the submitter isn't set.
                                             
             removeItem = prepareStatement("removeItem",
-                                        "DELETE FROM " + CLDR_DATA + " where locale=? AND xpath=? AND submitter=?");
+                                        "DELETE FROM " + CLDR_DATA + " where locale=? AND xpath=?");
         }
         
     }
@@ -1212,6 +1211,7 @@ public class CLDRDBSourceFactory {
         // Make it distinguished
         String dpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
         String loc = getLocaleID();
+        CLDRLocale locale = CLDRLocale.getInstance(loc);
         //if(!xpath.equals(rawXpath)) {
         //    logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
         //}
@@ -1291,7 +1291,6 @@ public class CLDRDBSourceFactory {
             throw new InternalError(complaint);
     }
 //    System.err.println("loaded " + rowCount + " rows into  rev: " + rev + " for " + dir + ":" + srcId +"/"+locale+".xml"); // LOG that a new item is loaded.
-    CLDRLocale locale = CLDRLocale.getInstance(loc);
 //    if(vetterReady) {
 //        synchronized(sm.vet) {
 //            sm.vet.updateResults(loc);
@@ -1308,36 +1307,39 @@ public class CLDRDBSourceFactory {
      * XMLSource API. Unimplemented, read only.
      */
     public void removeValueAtDPath(String distinguishingXPath) {  
-                throw new InternalError("read-only - delete not implemented yet.");
-    }  // R/O
+        //String dpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
+        String loc = getLocaleID();
+        CLDRLocale locale = CLDRLocale.getInstance(loc);
+        int xpid = sm.xpt.getByXpath(distinguishingXPath);       // the numeric ID of the xpath
+        removeItem(locale, xpid);
+    }
 
 
     /**
-     * Remove an item from the DB. Only works for items with a 'submitter' id, i.e., which are from
-     * user entry to ST.
+     * Remove an item from the DB. 
      * @param locale locale of item
      * @param xpathId id to remove
-     * @param submitter submitter's id - not strictly necessary, but it's a check.
+     * @return number of rows deleted
      */
-    public void removeItem(CLDRLocale locale, int xpathId, int submitter) {
+    public int removeItem(CLDRLocale locale, int xpathId) {
         if(conn == null) {
             throw new InternalError("No DB connection!");
         }
         try {
             stmts.removeItem.setString(1, locale.toString());
-            stmts.removeItem.setInt(2, xpathId);
-            stmts.removeItem.setInt(3, submitter);
+            stmts.removeItem.setInt(2, xpathId); // base xpath
+ //           stmts.removeItem.setInt(3, submitter);
             int n = stmts.removeItem.executeUpdate();
             if(n != 1) {
-                throw new InternalError("Trying to remove "+locale+":"+xpathId+"@"+submitter + " and the path wasn't found.");
+                throw new InternalError("Trying to remove "+locale+":"+xpathId+"@" + " and the path wasn't found.");
             }
             conn.commit();
+            return n;
         } catch(SQLException se) {
-            String problem = ("CLDRDBSource: "+"Trying to remove "+locale+":"+xpathId+"@"+submitter +" : " + SurveyMain.unchainSqlException(se));
+            String problem = ("CLDRDBSource: "+"Trying to remove "+locale+":"+xpathId+"@" +" : " + SurveyMain.unchainSqlException(se));
             logger.severe(problem);
             throw new InternalError(problem);
         }
-        
     }
 
    /** 

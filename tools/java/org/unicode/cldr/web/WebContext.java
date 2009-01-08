@@ -936,4 +936,8 @@ public class WebContext implements Cloneable {
     public CLDRLocale getLocale() {
         return locale;
     }
+
+	public void setQuery(String k, int v) {
+		setQuery(k, new Integer(v).toString());
+	}
 }

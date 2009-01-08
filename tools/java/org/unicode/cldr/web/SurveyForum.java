@@ -622,6 +622,9 @@ public class SurveyForum {
 
         ctx.println("<a href='"+forumUrl(ctx,forum)+"&amp;replyto='><b>+</b> "+POST_SPIEL+"</a><br>");
         
+        int hidCount = 0;
+        boolean showOld = ctx.prefBool("SHOW_OLD_MSGS");
+        
         synchronized (conn) {
             try {
                 pList.setInt(1, forumNumber);
@@ -640,7 +643,11 @@ public class SurveyForum {
                     String loc = rs.getString(6);
                     int xpath = rs.getInt(7);
                  
-                    showPost(ctx, forum, poster, subj, text, id, lastDate, CLDRLocale.getInstance(loc), xpath);
+                    if(lastDate.before(oldOnOrBefore) && !showOld) {
+                    	hidCount++;
+                    } else {
+                    	showPost(ctx, forum, poster, subj, text, id, lastDate, CLDRLocale.getInstance(loc), xpath);
+                    }
                  
                     count++;
                 }
@@ -652,8 +659,18 @@ public class SurveyForum {
         }
         
         ctx.println("<a href='"+forumUrl(ctx,forum)+"&amp;replyto='><b>+</b> "+POST_SPIEL+"..</a><br>");
-        ctx.println("<hr>"+count+" posts ");
+        ctx.println("<hr>"+count+" posts <br>");
+        String nold = "";
+        if(hidCount>0) {
+        	nold = hidCount+" ";
+        }
+        WebContext subCtx = new WebContext(ctx);
+        subCtx.setQuery("skip", skip);
+        // didpost not important
+        subCtx.setQuery("_", ctx.field("_"));
+        subCtx.setQuery("forum",ctx.field("forum"));
         
+        sm.showTogglePref(subCtx, "SHOW_OLD_MSGS", "Show "+nold+"old messages?");
     }
 
     private void doForumView(WebContext ctx, String forum, int forumNumber) {
@@ -722,7 +739,11 @@ public class SurveyForum {
      * Show one post, "long" form.
      */
     void showPost(WebContext ctx, String forum, int poster, String subj, String text, int id, Timestamp time, CLDRLocale loc, int xpath) {
-        ctx.println("<div class='respbox'>");
+    	boolean old = time.before(oldOnOrBefore);
+        ctx.println("<div "+(old?"style='background-color: #dde;' ":"")+" class='respbox'>");
+        if(old) {
+        	ctx.println("<i style='background-color: white;'>Note: This is an old post, from a previous period of CLDR vetting.</i><br><br>");
+        }
         String name = getNameLinkFromUid(ctx,poster);
         ctx.println("<div class='person'><a href='"+ctx.url()+"?x=list&u="+poster+"'>"+        name+"</a><br>"+time.toString()+"<br>");
         if(loc != null) {
@@ -836,12 +857,27 @@ public class SurveyForum {
             conn = null;
         }
     }
+    
+    Date oldOnOrBefore = null;
 
     /**
      * internal - called to setup db
      */
     private void setupDB() throws SQLException
     {
+    	String onOrBefore = sm.survprops.getProperty("CLDR_OLD_POSTS_BEFORE", "12/31/69");
+		DateFormat sdf = DateFormat.getDateInstance(DateFormat.SHORT, ULocale.US);
+    	try {
+    		oldOnOrBefore = sdf.parse(onOrBefore);
+    	} catch(Throwable t) {
+    		System.err.println("Error in parsing CLDR_OLD_POSTS_BEFORE : " + onOrBefore + " - err " + t.toString());
+    		t.printStackTrace();
+    		oldOnOrBefore = null;
+    	}
+    	if(oldOnOrBefore == null) {
+    		oldOnOrBefore = new Date(0);
+    	}
+    	System.err.println("CLDR_OLD_POSTS_BEFORE: date: " + sdf.format(oldOnOrBefore) + " (format: mm/dd/yy)");
         synchronized(conn) {
             String what="";
             String sql = null;

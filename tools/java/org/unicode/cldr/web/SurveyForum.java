@@ -859,6 +859,62 @@ public class SurveyForum {
     }
     
     Date oldOnOrBefore = null;
+    
+    public void reloadLocales() throws SQLException  {
+        String sql="";
+        String what = "";
+    	synchronized(conn) {
+    		  {
+                  ElapsedTimer et = new ElapsedTimer("setting up DB_LOC2FORUM");
+                      Statement s = conn.createStatement();
+                  if(!sm.hasTable(conn, DB_LOC2FORUM)) { // user attribute
+                      what=DB_LOC2FORUM;
+                      sql="";
+                      
+                     // System.err.println("setting up "+DB_LOC2FORUM);
+                      sql = "CREATE TABLE " + DB_LOC2FORUM +
+                            " ( " + 
+                                " locale VARCHAR(255) NOT NULL, " +
+                                " forum VARCHAR(255) NOT NULL" +
+                              " )";
+                      s.execute(sql);
+                      sql = "CREATE UNIQUE INDEX " + DB_LOC2FORUM + "_loc ON " + DB_LOC2FORUM + " (locale) ";
+                      s.execute(sql); 
+                      sql = "CREATE INDEX " + DB_LOC2FORUM + "_f ON " + DB_LOC2FORUM + " (forum) ";
+                      s.execute(sql); 
+                  } else {
+                      int n = s.executeUpdate("delete from " + DB_LOC2FORUM);
+                      //System.err.println("Deleted " + n + " from " + DB_LOC2FORUM);
+                  }
+                  s.close();
+                  
+                  PreparedStatement initbl = prepareStatement("initbl", "INSERT INTO " + DB_LOC2FORUM + " (locale,forum) VALUES (?,?)");
+                  int updates = 0;
+                  int errs = 0;
+                  for(CLDRLocale l: SurveyMain.getLocalesSet()) {
+                      initbl.setString(1,l.toString());
+                      String forum = l.getLanguage();
+                      initbl.setString(2,forum);
+                      try {
+                          int n = initbl.executeUpdate();
+                          if(n>0) {
+                              updates++;
+                          }
+                      } catch(SQLException se) {
+                          if(errs==0) {
+                              System.err.println("While updating " + DB_LOC2FORUM + " -  " + SurveyMain.unchainSqlException(se) + " - " + l+":"+forum+",  [This and further errors, ignored]");
+                          }
+                          errs++;
+                      }
+                  }
+                  initbl.close();
+                  conn.commit();
+                  //System.err.println("Updated "+DB_LOC2FORUM+": " + et + ", "+updates+" updates, and " + errs + " SQL complaints");
+                  what="?";
+              }
+    		 }
+    	
+    }
 
     /**
      * internal - called to setup db
@@ -942,54 +998,7 @@ public class SurveyForum {
                 what="?";
             }
             
-            {
-                ElapsedTimer et = new ElapsedTimer("setting up DB_LOC2FORUM");
-                    Statement s = conn.createStatement();
-                if(!sm.hasTable(conn, DB_LOC2FORUM)) { // user attribute
-                    what=DB_LOC2FORUM;
-                    sql="";
-                    
-                   // System.err.println("setting up "+DB_LOC2FORUM);
-                    sql = "CREATE TABLE " + DB_LOC2FORUM +
-                          " ( " + 
-                              " locale VARCHAR(255) NOT NULL, " +
-                              " forum VARCHAR(255) NOT NULL" +
-                            " )";
-                    s.execute(sql);
-                    sql = "CREATE UNIQUE INDEX " + DB_LOC2FORUM + "_loc ON " + DB_LOC2FORUM + " (locale) ";
-                    s.execute(sql); 
-                    sql = "CREATE INDEX " + DB_LOC2FORUM + "_f ON " + DB_LOC2FORUM + " (forum) ";
-                    s.execute(sql); 
-                } else {
-                    int n = s.executeUpdate("delete from " + DB_LOC2FORUM);
-                    //System.err.println("Deleted " + n + " from " + DB_LOC2FORUM);
-                }
-                s.close();
-                
-                PreparedStatement initbl = prepareStatement("initbl", "INSERT INTO " + DB_LOC2FORUM + " (locale,forum) VALUES (?,?)");
-                int updates = 0;
-                int errs = 0;
-                for(CLDRLocale l: SurveyMain.getLocalesSet()) {
-                    initbl.setString(1,l.toString());
-                    String forum = l.getLanguage();
-                    initbl.setString(2,forum);
-                    try {
-                        int n = initbl.executeUpdate();
-                        if(n>0) {
-                            updates++;
-                        }
-                    } catch(SQLException se) {
-                        if(errs==0) {
-                            System.err.println("While updating " + DB_LOC2FORUM + " -  " + SurveyMain.unchainSqlException(se) + " - " + l+":"+forum+",  [This and further errors, ignored]");
-                        }
-                        errs++;
-                    }
-                }
-                initbl.close();
-                conn.commit();
-                //System.err.println("Updated "+DB_LOC2FORUM+": " + et + ", "+updates+" updates, and " + errs + " SQL complaints");
-                what="?";
-            }
+          reloadLocales();
         }
     }
     

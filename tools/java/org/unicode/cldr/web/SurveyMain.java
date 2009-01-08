@@ -477,7 +477,7 @@ public class SurveyMain extends HttpServlet {
 
                     
         if(ctx.field("dump").equals(vap)) {
-            doDump(ctx); // admin interface
+            doAdminPanel(ctx); // admin interface
         } else if(ctx.field("sql").equals(vap)) {
             doSql(ctx); // SQL interface
         } else {
@@ -850,7 +850,7 @@ public class SurveyMain extends HttpServlet {
         ctx.println("</div>");
     }
     
-    private void doDump(WebContext ctx)
+    private void doAdminPanel(WebContext ctx)
     {
         String action = ctx.field("action");
         printHeader(ctx, "ST Admin@"+localhost() + " | " + action);
@@ -881,8 +881,10 @@ public class SurveyMain extends HttpServlet {
         printMenu(actionCtx, action, "specialmsg", "Update Special Message", "action");       
         actionCtx.println(" | ");
         printMenu(actionCtx, action, "upd_src", "Manage Sources", "action");       
-            actionCtx.println(" | ");
+        actionCtx.println(" | ");
         printMenu(actionCtx, action, "load_all", "Load all locales", "action");       
+        actionCtx.println(" | ");
+        printMenu(actionCtx, action, "add_locale", "Add a locale", "action");       
             actionCtx.println(" | ");
         printMenu(actionCtx, action, "srl", "EXPERT-ADMIN-use-only", "action");  // Dangerous items
 		
@@ -1272,6 +1274,98 @@ public class SurveyMain extends HttpServlet {
 				} catch(IOException exception){
 				  System.err.println(exception);
 				  // TODO: log this ... 
+				}
+			}
+		} else if(action.equals("add_locale")) {
+			actionCtx.addQuery("action", action);
+			ctx.println("<hr><br><br>");
+			String loc = actionCtx.field("loc");
+
+			ctx.println("This interface lets you create a new locale, and its parents.  Before continuing, please make sure you have done a" +
+					" CVS update to make sure the file doesn't already exist." +
+					" After creating the locale, it should be added to CVS as well.<hr>");
+			
+			ctx.print("<form action='"+actionCtx.base()+"'>");
+            ctx.print("<input type='hidden' name='action' value='"+action+"'>");
+            ctx.print("<input type='hidden' name='dump' value='"+vap+"'>");			
+			ctx.println("<label>Add Locale: <input name='loc' value='"+loc+"'></label>");
+			ctx.println("<input type=submit value='Check'></form>");
+			
+			
+			
+			if(loc.length()>0) {
+				ctx.println("<hr>");
+				CLDRLocale cloc = CLDRLocale.getInstance(loc);
+				Set<CLDRLocale> locs = this.getLocalesSet();
+				
+				int numToAdd=0;
+				String reallyAdd = ctx.field("doAdd");
+				boolean doAdd = reallyAdd.equals(loc);
+				
+				for(CLDRLocale aloc : cloc.getParentIterator()) {
+					ctx.println("<b>"+aloc.toString()+"</b> : " + aloc.getDisplayName(ctx.displayLocale)+"<br>");
+					ctx.print("<blockquote>");
+					try {
+						if(locs.contains(aloc)) { 
+							ctx.println(
+									ctx.iconHtml("squo", "done with this locale")+
+									"... already installed.<br>");
+							continue;
+						}
+				        File baseDir = new File(fileBase);
+				        File xmlFile = new File(baseDir,aloc.getBaseName()+".xml");
+						if(xmlFile.exists()) { 
+							ctx.println(
+									ctx.iconHtml("ques", "done with this locale")+
+									"... file ( " + xmlFile.getAbsolutePath() +" ) exists!. [consider update]<br>");
+							continue;
+						}
+						
+						if(!doAdd) {
+							ctx.println(ctx.iconHtml("star", "ready to add!")+
+									" ready to add " + xmlFile.getName() +"<br>");
+							numToAdd++;
+						} else {
+							CLDRFile emptyFile = CLDRFile.make(aloc.getBaseName());
+		                    try {
+		                        PrintWriter utf8OutStream = new PrintWriter(
+		                            new OutputStreamWriter(
+		                                new FileOutputStream(xmlFile), "UTF8"));
+		                        emptyFile.write(utf8OutStream);
+		                        utf8OutStream.close();
+								ctx.println(ctx.iconHtml("okay", "Added!")+
+										" Added " + xmlFile.getName() +"<br>");
+								numToAdd++;
+						        //            } catch (UnsupportedEncodingException e) {
+						        //                throw new InternalError("UTF8 unsupported?").setCause(e);
+		                    } catch (IOException e) {
+		                    	System.err.println("While adding "+xmlFile.getAbsolutePath());
+		                        e.printStackTrace();
+		                        ctx.println(ctx.iconHtml("stop","err")+" Error While adding "+xmlFile.getAbsolutePath()+" - " + e.toString()+"<br><pre>");
+		                        ctx.print(e);
+		                        ctx.print("</pre><br>");
+		                    }
+
+							
+						}
+						
+					} finally {
+						ctx.print("</blockquote>");
+					}
+				}
+				if(!doAdd && numToAdd>0) {
+					ctx.print("<form action='"+actionCtx.base()+"'>");
+		            ctx.print("<input type='hidden' name='action' value='"+action+"'>");
+		            ctx.print("<input type='hidden' name='dump' value='"+vap+"'>");			
+					ctx.print("<input type='hidden' name='loc' value='"+loc+"'></label>");
+					ctx.print("<input type='hidden' name='doAdd' value='"+loc+"'></label>");
+					ctx.print("<input type=submit value='Add these "+numToAdd+" file(s) for "+loc+"!'></form>");
+				} else if(doAdd) {
+					ctx.print("<br>Added " + numToAdd +" files.<br>");
+					this.resetLocaleCaches();
+					ctx.print("<br>Locale caches reset. Remember to check in the file(s).<br>");
+				} else {
+					ctx.println("(No files would be added.)<br>");
 				}
 			}
         } else if(action.equals("load_all")) {
@@ -5373,6 +5467,12 @@ public class SurveyMain extends HttpServlet {
         aliasMap = null;
         gBaselineFile=null;
         gBaselineHash=null;
+        try {
+         this.fora.reloadLocales();
+        } catch(SQLException se) {
+        	System.err.println("On resetLocaleCaches().reloadLocales: " + this.unchainSqlException(se));
+        	this.busted("trying to reset locale caches @ fora", se);
+        }
     }
     
     
@@ -5923,6 +6023,8 @@ public class SurveyMain extends HttpServlet {
                         DataSection oldSection = ctx.getExistingSection(fullThing);
                         if(processPeaChanges(ctx, oldSection, cf, ourSrc)) {
                             int j = vet.updateResults(oldSection.locale); // bach 'em
+                            int d = this.dbsrcfac.update(); // then the fac so it can update
+                            System.err.println("sm:ppc:dbsrcfac: "+d+" deferred updates done.");
                             ctx.println("<br> You submitted data or vote changes, <!-- and " + j + " results were updated. As a result, --> your items may show up under the 'priority' or 'proposed' categories.<br>");
                         }
                     }
@@ -6339,6 +6441,7 @@ public class SurveyMain extends HttpServlet {
             }
         }
         if(someDidChange) {
+        	System.err.println("SomeDidChange: " + oldSection.locale());
             updateLocale(oldSection.locale());
         }
         return someDidChange;
@@ -6346,8 +6449,8 @@ public class SurveyMain extends HttpServlet {
 
     private void updateLocale(CLDRLocale locale) {
         lcr.invalidateLocale(locale);
-        this.dbsrcfac.update();
-        int n = vet.updateImpliedVotes(locale);
+        int n = vet.updateImpliedVotes(locale); // first implied votes
+        System.err.println("updateLocale:"+locale.toString()+":  vet_imp:"+n);
     }
     /**
      * Call from within  session lock
@@ -9175,7 +9278,7 @@ public class SurveyMain extends HttpServlet {
                 xctx.reqTimer = reqTimer;
                             
                 if(xctx.field("dump").equals(vap)) {
-                    sm.doDump(xctx);
+                    sm.doAdminPanel(xctx);
                 } else if(xctx.field("sql").equals(vap)) {
                     sm.doSql(xctx);
                 } else {

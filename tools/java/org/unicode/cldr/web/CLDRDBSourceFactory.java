@@ -1062,6 +1062,7 @@ public class CLDRDBSourceFactory {
             }
             
             String rev = LDMLUtilities.getCVSVersion(dir, locale+".xml");  // Load the CVS version # as a string
+            if(rev == null) rev = "null";
             srcId = setSourceId(tree, locale, rev); // TODO: we had better fill it in..
         //    synchronized(conn) {            
                // logger.info("srcid: " + srcId +"/"+locale);

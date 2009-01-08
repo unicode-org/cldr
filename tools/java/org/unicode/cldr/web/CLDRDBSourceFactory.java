@@ -129,7 +129,11 @@ public class CLDRDBSourceFactory {
          */
         @Override
         public XMLSource make(String localeID) {
-            return getMuxedInstance(CLDRLocale.getInstance(localeID));
+        	if(localeID.startsWith(CLDRFile.SUPPLEMENTAL_PREFIX)) {
+        		return dbSource.make(localeID); // will fal through to raw files
+        	} else {
+        		return getMuxedInstance(CLDRLocale.getInstance(localeID));
+        	}
         }
 
         /* (non-Javadoc)
@@ -976,7 +980,7 @@ public class CLDRDBSourceFactory {
                 String n = f.getName();
                 return(!f.isDirectory()
                        &&n.endsWith(".xml")
-                       &&!n.startsWith("supplementalData") // not a locale
+                       &&!n.startsWith(CLDRFile.SUPPLEMENTAL_PREFIX) // not a locale
                        /*&&!n.startsWith("root")*/); // root is implied, will be included elsewhere.
             }
         };
@@ -1924,7 +1928,7 @@ public class CLDRDBSourceFactory {
             makeHashHitCount++;
             if((makeHashHitCount%1000) == 0) {
                 System.err.println("make: cache hit "+makeHashHitCount+" times, hash size " + makeHash.size() + " (max " + maxMakeHashSize+"), initConn count " + nn);
-                if(true&& (makeHashHitCount % 1000)==0){
+                if(false&& (makeHashHitCount % 1000)==0){
                     try {
                         throw new Throwable("cache hit make() called here");
                     } catch(Throwable t) {

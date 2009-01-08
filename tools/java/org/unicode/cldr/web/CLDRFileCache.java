@@ -432,6 +432,9 @@ public class CLDRFileCache {
         }
 
         public void initialize() {
+//        	if(this.getLocaleID().startsWith(CLDRFile.SUPPLEMENTAL_PREFIX)) {
+//        		throw new InternalError("sholdn't load supp data.");
+//        	}
             try {
                 File f = getCacheFile();
                 if(f.exists()) {
@@ -679,6 +682,9 @@ public class CLDRFileCache {
     }
 
     public XMLSource getCachedSource(String localeID) {
+    	if ( localeID.startsWith(CLDRFile.SUPPLEMENTAL_PREFIX)) {
+    		return realSource.make(localeID);
+    	}
             File cacheFile = getLocaleFile(localeID);
             XMLSource cachedFileSource = null;
             try {

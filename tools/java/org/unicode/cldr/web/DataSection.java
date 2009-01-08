@@ -1373,6 +1373,9 @@ public class DataSection extends Registerable {
         for(String xpath : allXpaths) {
             boolean confirmOnly = false;
             String isToggleFor= null;
+            if(xpath.equals(null)) {
+            	throw new InternalError("null xpath in allXpaths");
+            }
             if(!xpath.startsWith(workPrefix)) {
 //                if(SurveyMain.isUnofficial) System.err.println("@@ BAD XPATH " + xpath);
                 continue;

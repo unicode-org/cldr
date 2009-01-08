@@ -1471,6 +1471,7 @@ public class CLDRDBSourceFactory {
             if(SHOW_DEBUG) if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
             return rv;
         } catch(SQLException se) {
+            se.printStackTrace();
             logger.severe("CLDRDBSource: Failed to query data ("+tree + "/" + locale + ":" + path + "): " + SurveyMain.unchainSqlException(se));
             return null;
         }
@@ -1698,7 +1699,7 @@ public class CLDRDBSourceFactory {
 				stmts.keySet.setString(1,locale);
 				rs = stmts.keySet.executeQuery();
 			} else {
-	            System.err.println("@@ begin KS of "+locale);
+	           //System.err.println("@@ begin KS of "+locale);
 				stmts.keyVettingSet.setString(1,locale);
 				rs = stmts.keyVettingSet.executeQuery();
 			}
@@ -1706,7 +1707,7 @@ public class CLDRDBSourceFactory {
 			Set<String> s = new HashSet<String>();
 			while(rs.next()) {
 				int xpathid = rs.getInt(1);
-           if(finalData) { System.err.println("v|"+locale+":"+xpathid); }
+          // if(finalData) { System.err.println("v|"+locale+":"+xpathid); }
 				
 				String xpath = (xpt.getById(xpathid));
 				if(finalData==true) {
@@ -1724,7 +1725,7 @@ public class CLDRDBSourceFactory {
 				//rs.getString(2); // origXpath
 			}
 			rs.close();
-            if(finalData) System.err.println("@@ end KS of "+locale);
+           // if(finalData) System.err.println("@@ end KS of "+locale);
 /*
 			// keySet has  prov/unc already.
 			if(finalData) {

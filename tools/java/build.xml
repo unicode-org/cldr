@@ -233,6 +233,7 @@
             <pathelement path="${servlet.jar}"/>
             <pathelement path="${derby.jar}"/> 
             <pathelement path="${mail.jar}"/> 
+        	<pathelement path="${env.XML_APIS_JAR}"/>
         </path>
 
         <echo message="weblib.classpath is set to = ${derby.jar}:${icu.jar}:${utilities.jar}:${servlet.jar}"/>

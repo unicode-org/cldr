@@ -79,6 +79,7 @@ public class LDMLConstants {
     public static final String HOUR_FORMAT           = "hourFormat";
     public static final String HOURS_FORMAT          = "hoursFormat";
     public static final String GMT_FORMAT            = "gmtFormat";
+    public static final String GMT_ZERO_FORMAT       = "gmtZeroFormat";
     public static final String REGION_FORMAT         = "regionFormat";
     public static final String FALLBACK_FORMAT       = "fallbackFormat";
     public static final String ABBREVIATION_FALLBACK = "abbreviationFallback";
@@ -361,7 +362,10 @@ public class LDMLConstants {
     public static final String RADIX            = "radix";
     public static final String DECEXP           = "decexp";
     public static final String LENIENT_PARSE    = "lenient-parse";
-
+    public static final String NUMBERING_SYSTEMS = "numberingSystems";
+    public static final String NUMBERING_SYSTEM  = "numberingSystem";
+    public static final String DESC             = "desc";
+    public static final String COMPLEX          = "complex";
 
     //PN added - Open and Close tags
     public static final String VERSION_C       = "</" + VERSION + ">";

@@ -1,0 +1,32 @@
+.*Category:([^ ]*)[ ](.*) - (.*)>$2:$1 - $3
+.*Category:(.*) - (.*)>$1:$2
+.*Category:([^ ]*)[ ](.*)>$2:$1
+.*Category:(.*)>$1:Miscellaneous
+Symbol:Latin 1 Supplement - Latin-1 punctuation and symbols > Symbol:Latin-1 punctuation and symbols
+Mark:(.*) > General Diacritic:$1
+Symbol:(.*) - (.*(arrows|harpoons).*) > Arrows:$2
+Symbol:Control Pictures.*>Symbol:Control Pictures
+Symbol:(Box Drawing|Block Elements|Geometric Shapes|Miscellaneous Symbols And Arrows).*>Symbol:Geometric Shapes
+Symbol:(.*) Tiles.*>Symbol:Tiles and Dominoes
+Symbol:.*Musical.*>Symbol:Musical Symbols
+Symbol:Tai Xuan Jing Symbols.*>Symbol:Tai Xuan Jing Symbols
+Symbol:Halfwidth And Fullwidth Forms.*>Symbol:Halfwidth And Fullwidth Forms
+Punctuation:(Open|Close|Initial|Final)(.*)>General Punctuation:Paired
+Punctuation:(Dash|Connector) - (.*)>General Punctuation:$1
+Punctuation:Other - (.*)>General Punctuation:$1
+Punctuation:(.*)>General Punctuation:$1
+Symbol:.*yijing.*>Symbol:Yijing
+Symbol:Optical Character Recognition - OCR>Symbol:Miscellaneous Technical - OCR
+Symbol:.*(CJK|Ideographic|Kanbun).*>Symbol:CJK
+Symbol:.*(weather|astrologic).*>Symbol:Weather and astrological symbols
+Symbol:.*(keyboard|\bGUI\b).*>Symbol:Keyboard and UI symbols
+Symbol:Letterlike Symbols.*>Symbol:Letterlike Symbols
+Symbol:Modifier>General Diacritic:Modifier Symbols
+Symbol:Miscellaneous Symbols - (.*)>Symbol:$1
+Symbol:Technical Symbols - (.*)>Symbol:$1
+Symbol:(Currency|Math|Dingbats|Miscellaneous Technical) - (.*)>Symbol:$1
+Symbol:Modifier - (.*)>General Diacritic:Symbol - $1
+General Diacritic:(Spacing|Enclosing) - (.*)>General Diacritic:$1
+Invisibles:(Other) - (.*)>Invisibles:$1
+# Suppress all of the other third-level items after the above merges
+(.*):(.*) - .* > $1:$2

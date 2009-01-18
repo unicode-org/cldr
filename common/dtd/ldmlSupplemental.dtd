@@ -7,8 +7,8 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.62 $
-    $Date: 2008-12-19 22:11:25 $
+    $Revision: 1.63 $
+    $Date: 2009-01-18 14:22:15 $
 -->
 
 <!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, references? ) >
@@ -391,7 +391,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT numberingSystems ( numberingSystem* ) >
 <!ELEMENT numberingSystem EMPTY >
 <!ATTLIST numberingSystem id NMTOKEN #REQUIRED >
-<!ATTLIST numberingSystem type ( simple | complex ) #REQUIRED >
+<!ATTLIST numberingSystem type ( numeric | algorithmic ) #REQUIRED >
 <!ATTLIST numberingSystem radix NMTOKEN #IMPLIED >
 <!ATTLIST numberingSystem digits CDATA #IMPLIED >
 <!ATTLIST numberingSystem rules CDATA #IMPLIED >

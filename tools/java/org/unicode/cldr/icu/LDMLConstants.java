@@ -365,7 +365,8 @@ public class LDMLConstants {
     public static final String NUMBERING_SYSTEMS = "numberingSystems";
     public static final String NUMBERING_SYSTEM  = "numberingSystem";
     public static final String DESC             = "desc";
-    public static final String COMPLEX          = "complex";
+    public static final String ALGORITHMIC      = "algorithmic";
+    public static final String DEFAULT_NUMBERING_SYSTEM = "defaultNumberingSystem";
 
     //PN added - Open and Close tags
     public static final String VERSION_C       = "</" + VERSION + ">";

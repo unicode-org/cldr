@@ -1731,31 +1731,31 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 String type = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
 
                 ICUResourceWriter.ResourceInt radix = new ICUResourceWriter.ResourceInt();
-                ICUResourceWriter.ResourceInt complex = new ICUResourceWriter.ResourceInt();
+                ICUResourceWriter.ResourceInt algorithmic = new ICUResourceWriter.ResourceInt();
                 ICUResourceWriter.ResourceString desc = new ICUResourceWriter.ResourceString();
 
                 radix.name = LDMLConstants.RADIX;
                 desc.name = LDMLConstants.DESC;
-                complex.name = LDMLConstants.COMPLEX;
+                algorithmic.name = LDMLConstants.ALGORITHMIC;
 
-                if ( type.equals("complex")) {
-                    radix.val = "10";
-                    complex.val = "1";
-                    desc.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.RULES);
+                String radixString = LDMLUtilities.getAttributeValue(node, LDMLConstants.RADIX);
+                if ( radixString != null ) {
+                    radix.val = radixString;
                 } else {
-                    String radixString = LDMLUtilities.getAttributeValue(node, LDMLConstants.RADIX);
-                    if ( radixString != null ) {
-                        radix.val = radixString;
-                    } else {
-                        radix.val = "10";
-                    } 
+                    radix.val = "10";
+                } 
+
+                if ( type.equals(LDMLConstants.ALGORITHMIC)) {
+                    desc.val = "%"+ LDMLUtilities.getAttributeValue(node, LDMLConstants.RULES);
+                    algorithmic.val = "1";
+                } else {
                     desc.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.DIGITS);
-                    complex.val = "0";
+                    algorithmic.val = "0";
                 } 
  
                 nsTable.first = radix;
                 radix.next = desc;
-                desc.next = complex;
+                desc.next = algorithmic;
                 
                 if(current == null){
                     ns.first = nsTable;
@@ -5550,7 +5550,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 LDMLConstants.SCIENTIFIC_FORMATS,
                 LDMLConstants.CURRENCY_FORMATS, LDMLConstants.CURRENCIES,
                 // Currencies appears twice so we can handle the plurals.
-                LDMLConstants.CURRENCIES};
+                LDMLConstants.CURRENCIES,LDMLConstants.DEFAULT_NUMBERING_SYSTEM};
         for (String name : names) {
             xpath = origXpath + "/" + name;
             if (loc.isPathNotConvertible(xpath))
@@ -5593,6 +5593,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
                 	writtenCurrencyPlurals = true;
                 }
+            } else if (name.equals(LDMLConstants.DEFAULT_NUMBERING_SYSTEM)) {
+                res = parseDefaultNumberingSystem(loc, xpath);
             } else {
                 System.err.println("Encountered unknown <" + xpath
                         + "> subelement: " + name);
@@ -7248,6 +7250,17 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         return first;
 
+    }
+
+    private ICUResourceWriter.Resource parseDefaultNumberingSystem(InputLocale loc, String xpath) {
+        ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+        str.name = LDMLConstants.DEFAULT_NUMBERING_SYSTEM;
+        str.val = loc.file.getStringValue(xpath);
+        if ( str.val != null ) {
+            return str;
+        } else {
+            return null;
+        }
     }
 
     private ICUResourceWriter.Resource parseRBNF(InputLocale loc, String xpath) {

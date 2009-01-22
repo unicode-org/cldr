@@ -3,6 +3,7 @@ package org.unicode.cldr.draft;
 import java.text.FieldPosition;
 import java.text.Format;
 import java.text.ParsePosition;
+import java.util.BitSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -10,6 +11,8 @@ import org.unicode.cldr.draft.PatternFixer.Target;
 import org.unicode.cldr.util.PrettyPrinter;
 
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
@@ -160,6 +163,66 @@ public class UnicodeSetFormat extends Format {
        */
      public abstract boolean getProperty(String propertyName, String propertyValue, boolean regex, UnicodeSet result);
 
+  }
+  
+
+  public String formatWithProperties(UnicodeSet original, boolean addOthers, UnicodeSet expandBlockIgnorables, int... properties) {
+    UnicodeSet remainder = new UnicodeSet().addAll(original);
+    Set<String> propSet = new TreeSet<String>();
+    BitSet props = new BitSet();
+
+    for (int i = 0; i < properties.length; ++i) {
+      reduceByProperty(original, expandBlockIgnorables, properties[i], remainder, propSet);
+      props.set(i);
+    }
+    if (addOthers) {
+      for (int i = UProperty.INT_START; i < UProperty.INT_LIMIT; ++i) {
+        if (props.get(i)) continue;
+        reduceByProperty(original, expandBlockIgnorables, i, remainder, propSet);
+      }
+    }
+    StringBuffer result = new StringBuffer("[ ");
+    for (String prop : propSet) {
+      result.append(prop).append(" ");
+    }
+    if (expandBlockIgnorables != null) {
+      result.append("- ").append(expandBlockIgnorables.toPattern(true));
+    } 
+    if (remainder.size() > 0) {
+      result.append(" ").append(remainder.toPattern(true));
+    }
+    result.append("]");
+    return result.toString();
+  }
+  
+  static final int blockEnum = UCharacter.getPropertyEnum("block");
+
+  private void reduceByProperty(UnicodeSet original, UnicodeSet expandBlockIgnorables, int property, UnicodeSet remainder, Set<String> result) {
+    String propertyAlias = UCharacter.getPropertyName(property, UProperty.NameChoice.SHORT);
+    UnicodeSet valueChars = new UnicodeSet();
+    for (int i = UCharacter.getIntPropertyMinValue(property); i <= UCharacter.getIntPropertyMaxValue(property); ++i) {
+      String valueAlias = UCharacter.getPropertyValueName(property, i, UProperty.NameChoice.SHORT);
+      if (valueAlias == null) {
+        valueAlias = UCharacter.getPropertyValueName(property, i, UProperty.NameChoice.LONG);
+      }
+      if (valueAlias == null) continue;
+
+      valueChars.clear();
+      valueChars.applyPropertyAlias(propertyAlias, valueAlias);
+      if (remainder.containsSome(valueChars)) {
+        if (original.containsAll(valueChars)) {
+          result.add("[:" + propertyAlias + '=' + valueAlias + ":]");
+          remainder.removeAll(valueChars);
+        } else if (property == blockEnum && expandBlockIgnorables != null) {
+          UnicodeSet hasScript = new UnicodeSet(valueChars).removeAll(expandBlockIgnorables);
+          if (hasScript.size() > 5 && original.containsAll(hasScript)) {
+            System.out.println("Broadening to block: " + valueAlias);
+            result.add("[:" + propertyAlias + '=' + valueAlias + ":]");
+            remainder.removeAll(valueChars);
+          }
+        }
+      }
+    }
   }
   // ===== PRIVATES =====
   private static final long serialVersionUID = 1L;

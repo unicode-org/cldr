@@ -124,7 +124,7 @@ public class GenerateNormalizeForMatch {
       fixOld(sourceFile, targetFile);
     } else {
       frequencies = new UnicodeMap();
-      total_frequency = loadFrequencies(frequencyFile, frequencies);
+      total_frequency = FrequencyData.loadFrequencies(frequencyFile, frequencies);
       generateMappings(sourceFile, targetFile, oldMappingFile, frequencyFile);
     }
     LOG_WRITER.println("# END");
@@ -259,30 +259,6 @@ public class GenerateNormalizeForMatch {
       return 0;
     }
   };
-
-
-  private static long loadFrequencies(String frequencyFile, UnicodeMap result) throws IOException {
-    BufferedReader in = openUTF8Reader(frequencyFile);
-    long total = 0;
-    while (true) {
-      String line = in.readLine();
-      if (line == null) break;
-      int commentPos = line.indexOf("#");
-      if (commentPos >= 0) {
-        line = line.substring(0,commentPos);
-      }
-      line = line.trim();
-      if (line.length() == 0) continue;
-      String[] pieces = line.split("\\s*;\\s*");
-      String code = fromHex(pieces[0]);
-      long count = Long.parseLong(pieces[1]);
-      total += count;
-      result.put(code, count);
-    }
-    in.close();
-    result.freeze();
-    return total;
-  }
 
 
   /**
@@ -694,7 +670,7 @@ public class GenerateNormalizeForMatch {
    * @param spaceDelimitedHex
    * @return
    */
-  private static String fromHex(String spaceDelimitedHex) {
+  static String fromHex(String spaceDelimitedHex) {
     spaceDelimitedHex = spaceDelimitedHex.trim();
     if (spaceDelimitedHex.length() == 0) {
       return "";
@@ -745,7 +721,7 @@ public class GenerateNormalizeForMatch {
     return new PrintWriter(new OutputStreamWriter(new FileOutputStream(file), UTF8));
   }
 
-  private static BufferedReader openUTF8Reader(String filename) throws IOException {
+  static BufferedReader openUTF8Reader(String filename) throws IOException {
     File file = new File(filename);
     System.out.println("Reading:\t" + file.getCanonicalPath());
     return new BufferedReader(new InputStreamReader(new FileInputStream(file), UTF8));

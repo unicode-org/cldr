@@ -98,6 +98,9 @@ public class GeneratePickerData {
           ENGLISH,
           new UTF16.StringComparator()
   );
+  
+  public static final Comparator<String> SORT_ALWAYS = new UTF16.StringComparator(); // null for piecemeal sorting, ENGLISH for UCA
+
 
   static Comparator<String> subCategoryComparator = new Comparator<String>() {
     public int compare(String o1, String o2) {
@@ -630,7 +633,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
 
     private void add2(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, int values) {
       GeneratePickerData.USet oldValue = getValues(category, sortSubcategory, subcategory);
-      oldValue.sorted = sortValues;
+      oldValue.sorted = SORT_ALWAYS != null ? SORT_ALWAYS : sortValues;
       oldValue.set.add(values);
       oldValue.set.removeAll(SKIP);
     }
@@ -704,8 +707,8 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
           }
           String valueCharsString = addResult(result, valueChars, category, subcategory);
 
-          totalChars += valueChars.set.size();
-          totalCompressed += valueCharsString.length();
+          totalChars += utf8Length(valueChars.set);
+          totalCompressed += utf8Length(valueCharsString);
           //          if (valueChars.set.size() > 1000) {
           //            System.out.println("//Big class: " + category + MAIN_SUB_SEPARATOR + subcategory + MAIN_SUBSUB_SEPARATOR + valueChars.set.size());
           //          }
@@ -733,6 +736,35 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       System.out.println("Total Chars:\t" + totalChars);
       System.out.println("Total Compressed Chars:\t" + totalCompressed);
       return result.toString();
+    }
+    
+    private int utf8Length(UnicodeSet set) {
+      int len = 0;
+      for (UnicodeSetIterator it = new UnicodeSetIterator(set); it.next();) {
+        int cp = it.codepoint;
+        if (it.codepoint == UnicodeSetIterator.IS_STRING) {
+          len += utf8Length(it.getString());
+        } else {
+          len += cp < 0x80 ? 1
+                  : cp < 0x800 ? 2
+                          : cp < 0x10000 ? 3
+                                  : 4;
+        }
+      }
+      return len;
+    }
+
+    public int utf8Length(String x) {
+      int cp;
+      int len = 0;
+      for (int i = 0; i < x.length(); i += UTF16.getCharCount(cp)) {
+        cp = UTF16.charAt(x, i);
+        len += cp < 0x80 ? 1
+                : cp < 0x800 ? 2
+                        : cp < 0x10000 ? 3
+                                : 4;
+      }
+      return len;
     }
 
     private String addResult(StringBuilder result, GeneratePickerData.USet valueChars, String category, String subcategory) {

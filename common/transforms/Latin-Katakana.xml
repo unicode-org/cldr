@@ -75,6 +75,7 @@
 			<tRule>$r_start = [ラリルレロらりるれろ] ;</tRule>
 			<tRule>$w_start = [ワヰヱヲわゐゑを] ;</tRule>
 			<tRule>$v_start = [ワヰヱヲ]゙ ;</tRule>
+			<tRule>$voweled_basekana = [ァ-オカキクケコサシスセソタチッツテトナ-ノハヒフヘホマ-ヲヵヶ] ;</tRule>
 			<comment># if ン is followed by $n_quoter, then it needs an</comment>
 			<comment># apostrophe after its romaji form to disambiguate it.</comment>
 			<comment># e.g., ン ア ! =  ナ, so represent as &quot;n'a&quot;, not &quot;na&quot;.</comment>
@@ -319,8 +320,10 @@
 			<tRule>$1 ← ($consonant y* $vowel) {ヽ$voice? ;</tRule>
 			<tRule>$1 ← (.) {ヽ $voice? ; # otherwise repeat last character</tRule>
 			<tRule>← ヽ $voice? ; # delete if no characters found</tRule>
-			<comment># h- rule: lengthens vowel if not followed by a vowel</comment>
-			<tRule>[aeiou] } h → ー ;</tRule>
+			<comment># h- rule: lengthens vowel if not followed by a vowel.</comment>
+			<comment># At the point this is applied, latin [cons]?vowel sequences</comment>
+			<comment># have been converted to katakana in NFD form.</comment>
+			<tRule>$voweled_basekana [\u3099 \u309A]? { h → ー ;</tRule>
 			<comment># one-way latin- → kana rules. these do not occur in</comment>
 			<comment># well-formed romaji representing actual japanese text.</comment>
 			<comment># their purpose is to make all romaji map to kana of</comment>

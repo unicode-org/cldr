@@ -37,6 +37,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -100,7 +101,7 @@ public class GenerateSidewaysView {
     UOption.HELP_H(),
     UOption.HELP_QUESTION_MARK(),
     UOption.SOURCEDIR().setDefault(Utility.MAIN_DIRECTORY),
-    UOption.DESTDIR().setDefault(Utility.CHART_DIRECTORY + "by_type/"), // C:/cvsdata/unicode/cldr/diff/by_type/
+    UOption.DESTDIR().setDefault(Utility.CHART_DIRECTORY + File.separatorChar+  "by_type/"), // C:/cvsdata/unicode/cldr/diff/by_type/
     UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("skip", 'z', UOption.REQUIRES_ARG).setDefault("zh_(C|S|HK|M).*"),
     UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault("C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
@@ -177,7 +178,7 @@ public class GenerateSidewaysView {
       }
     }
     
-    System.out.println("Printing files");
+    System.out.println("Printing files in " + new File(options[DESTDIR].value).getAbsolutePath());
     Transliterator toLatin = Transliterator.getInstance("any-latin");
     toHTML = TransliteratorUtilities.toHTML;
     UnicodeSet BIDI_R = new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]");

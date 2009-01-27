@@ -125,7 +125,7 @@ $element=[a-zA-Z0-9]+;
 '/numbers/currencyFormats/currencySpacing/beforeCurrency/' (.*) > '2-number|currency|match-before-' $1;
 '/numbers/currencyFormats/currencySpacing/afterCurrency/' (.*) > '2-number|currency|match-after-' $1;
 '/numbers/currencyFormats/unitPattern' > '2-number|currency|name-pattern';
-
+'/numbers/defaultNumberingSystem' > '2-number|symbol|defaultSystem';
 '/posix/messages/' (.*) > '1-misc|posix|' $1;
 
 '/units/unit[@type="' ($avalue) '"]/unitPattern' > '0-units|' $1 '|pattern';

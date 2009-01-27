@@ -166,7 +166,7 @@ public class ShowLanguages {
     contents += "</ul>";
     String[] replacements = { "%date%", df.format(new Date()), "%contents%", contents, "%data%", sw.toString() };
     PrintWriter pw2 = BagFormatter.openUTF8Writer(Utility.COMMON_DIRECTORY + "../diff/supplemental/", filename);
-    FileUtilities.appendFile(Utility.BASE_DIRECTORY + "tools/java/org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
+    FileUtilities.appendFile(Utility.BASE_DIRECTORY + java.io.File.separatorChar  + "tools/java/org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
     pw2.close();
   }
   
@@ -740,9 +740,13 @@ public class ShowLanguages {
         }
         if (path.indexOf("/calendarData") >= 0) {
           Map attributes = parts.findAttributes("calendar");
-          String type = (String) attributes.get("type");
-          String territories = (String) attributes.get("territories");
-          addTerritoryInfo(territories, "calendar", type);
+          if(attributes ==null ) {
+        	  System.err.println("Err: on path " + path +" , no attributes on 'calendar'. Probably, this tool is out of date.");
+          } else {
+	          String type = (String) attributes.get("type");
+	          String territories = (String) attributes.get("territories");
+	          addTerritoryInfo(territories, "calendar", type);
+          }
         }
         if (path.indexOf("/weekData") >= 0 || path.indexOf("measurementData") >= 0) {
           String element = parts.getElement(parts.size() - 1);

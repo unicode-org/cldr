@@ -105,7 +105,47 @@
 					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats"/>
+					<dateTimeFormatLength>
+						<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength"/>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MEd">E, M-d</dateFormatItem>
+						<dateFormatItem id="MMMEd">E MMM d</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E MMMM d</dateFormatItem>
+						<dateFormatItem id="Md">M-d</dateFormatItem>
+						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="y">y</dateFormatItem>
+						<dateFormatItem id="yM">M/y</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM, y</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM, y</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, M/d/y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, MMM d, y</dateFormatItem>
+						<dateFormatItem id="yQ">y Q</dateFormatItem>
+						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
+						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+					</availableFormats>
+					<appendItems>
+						<appendItem request="Day">{0} ({2}: {1})</appendItem>
+						<appendItem request="Day-Of-Week">{0} {1}</appendItem>
+						<appendItem request="Era">{0} {1}</appendItem>
+						<appendItem request="Hour">{0} ({2}: {1})</appendItem>
+						<appendItem request="Minute">{0} ({2}: {1})</appendItem>
+						<appendItem request="Month">{0} ({2}: {1})</appendItem>
+						<appendItem request="Quarter">{0} ({2}: {1})</appendItem>
+						<appendItem request="Second">{0} ({2}: {1})</appendItem>
+						<appendItem request="Timezone">{0} {1}</appendItem>
+						<appendItem request="Week">{0} ({2}: {1})</appendItem>
+						<appendItem request="Year">{0} {1}</appendItem>
+					</appendItems>
+					<intervalFormats>
+						<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats/intervalFormats"/>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
@@ -579,25 +619,26 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="MEd">E, M-d</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MEd">E, M-d</dateFormatItem>
 						<dateFormatItem id="MMMEd">E MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="Md">M-d</dateFormatItem>
+						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">y-M</dateFormatItem>
-						<dateFormatItem id="yMEd">EEE, y-M-d</dateFormatItem>
 						<dateFormatItem id="yMMM">y MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd">EEE, y MMM d</dateFormatItem>
 						<dateFormatItem id="yMMMM">y MMMM</dateFormatItem>
-						<dateFormatItem id="yQ">yyyy Q</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, y-M-d</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, y MMM d</dateFormatItem>
+						<dateFormatItem id="yQ">y Q</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
+						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>
@@ -1291,10 +1332,10 @@
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="Md">M-d</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y GGG</dateFormatItem>
-						<dateFormatItem id="yM">GGGGG yy-MM</dateFormatItem>
-						<dateFormatItem id="yMMM">GGGGG yy MMM</dateFormatItem>
-						<dateFormatItem id="yQ">GGGGG yy Q</dateFormatItem>
+						<dateFormatItem id="yyyy">yy GGG</dateFormatItem>
+						<dateFormatItem id="yyyyM">GGGGG yy-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">GGGGG yy MMM</dateFormatItem>
+						<dateFormatItem id="yyyyQ">GGGGG yy Q</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>
@@ -1441,7 +1482,40 @@
 					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats"/>
+					<dateTimeFormatLength>
+						<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength"/>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
+						<dateFormatItem id="Md">M/d</dateFormatItem>
+						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
+						<dateFormatItem id="yyyy">G y</dateFormatItem>
+						<dateFormatItem id="yyyyM">G y/M</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM, G y</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">EEE, G y/M/d</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">EEE, MMM d, G y</dateFormatItem>
+						<dateFormatItem id="yyyyQ">Q G y</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ G y</dateFormatItem>
+						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+					</availableFormats>
+					<appendItems>
+						<appendItem request="Day">{0} ({2}: {1})</appendItem>
+						<appendItem request="Day-Of-Week">{0} {1}</appendItem>
+						<appendItem request="Era">{0} {1}</appendItem>
+						<appendItem request="Hour">{0} ({2}: {1})</appendItem>
+						<appendItem request="Minute">{0} ({2}: {1})</appendItem>
+						<appendItem request="Month">{0} ({2}: {1})</appendItem>
+						<appendItem request="Quarter">{0} ({2}: {1})</appendItem>
+						<appendItem request="Second">{0} ({2}: {1})</appendItem>
+						<appendItem request="Timezone">{0} {1}</appendItem>
+						<appendItem request="Week">{0} ({2}: {1})</appendItem>
+						<appendItem request="Year">{0} {1}</appendItem>
+					</appendItems>
+					<intervalFormats>
+						<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats/intervalFormats"/>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>

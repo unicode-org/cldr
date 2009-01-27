@@ -4666,7 +4666,9 @@ public class SurveyMain extends HttpServlet {
                         PrintWriter utf8OutStream = new PrintWriter(
                             new OutputStreamWriter(
                                 new FileOutputStream(outFile), "UTF8"));
-                        file.write(utf8OutStream);
+                        synchronized(this.vet.conn) {
+                        	file.write(utf8OutStream);
+                        }
                         nrOutFiles++;
                         utf8OutStream.close();
                         lastfile = null;
@@ -4741,7 +4743,7 @@ public class SurveyMain extends HttpServlet {
         return nrOutFiles;
     }
 
-    public boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
+    public synchronized boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
         String s = request.getPathInfo();
         
@@ -4851,7 +4853,7 @@ public class SurveyMain extends HttpServlet {
             }
             if(!found) {
                 throw new InternalError("No such locale: " + s);
-            } else {
+            } else synchronized(this.vet.conn) {
                 response.setContentType("application/xml; charset=utf-8");
                 Connection conn = null;
                 CLDRLocale locale = CLDRLocale.getInstance(theLocale);

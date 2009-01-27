@@ -71,7 +71,7 @@ public class VoteResolver<T> {
    */
   public enum Organization {
     //apple, adobe, google, ibm, gnome, pakistan, india, guest, iran_hci, kotoistus, lisa, openoffice_org, sun, surveytool, utilika
-    adobe, apple, gnome, google, guest, ibm, india, iran_hci, kotoistus, lisa, openoffice_org, pakistan, sun, surveytool, utilika
+    adobe, apple, gnome, google, guest, ibm, india, iran_hci, kotoistus, lisa, openoffice_org, pakistan, sun, surveytool, utilika, yahoo
   };
 
   /**

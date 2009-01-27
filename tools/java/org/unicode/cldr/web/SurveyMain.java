@@ -2137,16 +2137,26 @@ public class SurveyMain extends HttpServlet {
             new_org = ctx.session.user.org; // if not admin, must create user in the same org
         }
         
+        boolean newOrgOk = false;
+        try {
+        	VoteResolver.Organization newOrgEnum = VoteResolver.Organization.fromString(new_org);
+        	newOrgOk = true;
+        } catch(IllegalArgumentException iae) {
+        	newOrgOk = false;
+        }
+        
         if((new_name == null) || (new_name.length()<=0)) {
-            ctx.println("<div class='sterrmsg'>Please fill in a name.. hit the Back button and try again.</div>");
+            ctx.println("<div class='sterrmsg'>"+ctx.iconHtml("stop","Could not add user")+"Please fill in a name.. hit the Back button and try again.</div>");
         } else if((new_email == null) ||
                   (new_email.length()<=0) ||
                   ((-1==new_email.indexOf('@'))||(-1==new_email.indexOf('.')))  ) {
-            ctx.println("<div class='sterrmsg'>Please fill in an <b>email</b>.. hit the Back button and try again.</div>");
+            ctx.println("<div class='sterrmsg'>"+ctx.iconHtml("stop","Could not add user")+"Please fill in an <b>email</b>.. hit the Back button and try again.</div>");
+        } else if(newOrgOk == false) {
+        	ctx.println("<div class='sterrmsg'>"+ctx.iconHtml("stop","Could not add user")+"That Organization (<b>"+new_org+"</b>) is not valid. Either it is not spelled properly, or someone must update VoteResolver.Organization in VoteResolver.java</div>");
         } else if((new_org == null) || (new_org.length()<=0)) { // for ADMIN
-            ctx.println("<div class='sterrmsg'>Please fill in an <b>Organization</b>.. hit the Back button and try again.</div>");
+            ctx.println("<div class='sterrmsg'>"+ctx.iconHtml("stop","Could not add user")+"Please fill in an <b>Organization</b>.. hit the Back button and try again.</div>");
         } else if(new_userlevel<0) {
-            ctx.println("<div class='sterrmsg'>Please fill in a <b>user level</b>.. hit the Back button and try again.</div>");
+            ctx.println("<div class='sterrmsg'>"+ctx.iconHtml("stop","Could not add user")+"Please fill in a <b>user level</b>.. hit the Back button and try again.</div>");
         } else {
             UserRegistry.User u = reg.getEmptyUser();
             
@@ -2157,21 +2167,21 @@ public class SurveyMain extends HttpServlet {
             u.locales = new_locales;
             u.password = UserRegistry.makePassword(u.email+u.org+ctx.session.user.email);
             
-            UserRegistry.User registeredUser = reg.newUser(ctx, u);
+            UserRegistry.User registeredUser = registeredUser = reg.newUser(ctx, u);
             
             if(registeredUser == null) {
                 if(reg.get(new_email) != null) { // already exists..
-                    ctx.println("<div class='sterrmsg'>A user with that email, <tt>" + new_email + "</tt> already exists. Couldn't add user. </div>");                
+                    ctx.println("<div class='sterrmsg'>"+ctx.iconHtml("stop","Could not add user")+"A user with that email, <tt>" + new_email + "</tt> already exists. Couldn't add user. </div>");                
                 } else {
-                    ctx.println("<div class='sterrmsg'>Couldn't add user <tt>" + new_email + "</tt> - an unknown error occured.</div>");
+                    ctx.println("<div class='sterrmsg'>"+ctx.iconHtml("stop","Could not add user")+"Couldn't add user <tt>" + new_email + "</tt> - an unknown error occured.</div>");
                 }
             } else {
-                ctx.println("<i>user added.</i>");
+                ctx.println("<i>"+ctx.iconHtml("okay","added")+"user added.</i>");
                 registeredUser.printPasswordLink(ctx);
                 WebContext nuCtx = (WebContext)ctx.clone();
                 nuCtx.addQuery(QUERY_DO,"list");
                 nuCtx.addQuery(LIST_JUST, changeAtTo40(new_email));
-                ctx.println("<p>The password wasn't emailed to this user. You can do so in the '<b><a href='"+nuCtx.url()+"#u_"+u.email+"'>manage users</a></b>' page.</p>");
+                ctx.println("<p>"+ctx.iconHtml("warn","Note..")+"The password is not sent to the user automatically. You can do so in the '<b><a href='"+nuCtx.url()+"#u_"+u.email+"'>"+ctx.iconHtml("zoom","Zoom in on user")+"manage "+new_name+"</a></b>' page.</p>");
             }
         }
         
@@ -4553,10 +4563,20 @@ public class SurveyMain extends HttpServlet {
                         String theirOrg = rs.getString(5);
                         String theirLocales = rs.getString(6);
                         
+                        String orgMunged = theirOrg;
+                        try {
+                        	orgMunged = VoteResolver.Organization.fromString(theirOrg).name();
+                        } catch(IllegalArgumentException iae) {
+                        	// illegal org
+                        }
+                        if(orgMunged==null || orgMunged.length()<=0) {
+                        	orgMunged = theirOrg;
+                        }
+                        
                         out.println("\t<user id=\""+theirId+"\" email=\""+theirEmail+"\">");
                         out.println("\t\t<level n=\""+theirLevel+"\" type=\""+UserRegistry.levelAsStr(theirLevel)+"\"/>");
                         out.println("\t\t<name>"+theirName+"</name>");
-                        out.println("\t\t<org>"+theirOrg+"</org>");
+                        out.println("\t\t<org>"+theirOrg+"</org> <!-- type=\""+orgMunged+"\" -->");
                         out.println("\t\t<locales type=\"edit\">");
                         String theirLocalesList[] = UserRegistry.tokenizeLocale(theirLocales);
                         for(int i=0;i<theirLocalesList.length;i++) {

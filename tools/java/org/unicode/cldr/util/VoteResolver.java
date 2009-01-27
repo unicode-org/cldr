@@ -71,7 +71,18 @@ public class VoteResolver<T> {
    */
   public enum Organization {
     //apple, adobe, google, ibm, gnome, pakistan, india, guest, iran_hci, kotoistus, lisa, openoffice_org, sun, surveytool, utilika
-    adobe, apple, gnome, google, guest, ibm, india, iran_hci, kotoistus, lisa, openoffice_org, pakistan, sun, surveytool, utilika, yahoo
+    adobe, apple, gnome, google, guest, ibm, india, iran_hci, kotoistus, lisa, openoffice_org, pakistan, sun, surveytool, utilika, yahoo;
+    
+    public static Organization fromString(String name) {
+    	name = name.toLowerCase().replace('-', '_').replace('.', '_');
+        if (name.contains("pakistan")) {
+        	name = "pakistan";
+        } else if (name.contains("utilika foundation")) {
+        	name = "utilika";
+        }
+        Organization org = Organization.valueOf(name);
+        return org;
+    }
   };
 
   /**
@@ -655,13 +666,9 @@ public class VoteResolver<T> {
         }
         final String mainType = Group.mainType.get(matcher);
         if (mainType.equals("org")) {
-          value = value.toLowerCase().replace('-', '_').replace('.', '_');
-          if (value.contains("pakistan")) {
-            value = "pakistan";
-          } else if (value.contains("utilika foundation")) {
-            value = "utilika";
-          }
-          voterInfo.setOrganization(Organization.valueOf(value));
+          Organization org = Organization.fromString(value);
+          voterInfo.setOrganization(org);
+          value = org.name(); // copy name back into value
         } else if (mainType.equals("name")) {
           voterInfo.setName(value);
         } else if (mainType.startsWith("level")) {

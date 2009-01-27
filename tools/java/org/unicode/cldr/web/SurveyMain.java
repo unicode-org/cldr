@@ -153,7 +153,7 @@ public class SurveyMain extends HttpServlet {
     public static final String URL_HOST = "http://www.unicode.org/";
     public static final String URL_CLDR = URL_HOST+"cldr/";
     public static final String BUG_URL_BASE = URL_CLDR+"bugs/locale-bugs";
-    public static final String GENERAL_HELP_URL = URL_CLDR+"data/docs/web/survey_tool.html";
+    public static final String GENERAL_HELP_URL = URL_CLDR+"survey_tool.html";
     public static final String GENERAL_HELP_NAME = "General&nbsp;Instructions";
     
     // ===== url prefix for help

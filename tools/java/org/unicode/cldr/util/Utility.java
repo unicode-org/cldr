@@ -245,7 +245,7 @@ public class Utility {
   }
 
   public static void registerExtraTransliterators() {
-    String tzadir = UTIL_DATA_DIR;
+    String tzadir = UTIL_DATA_DIR + File.pathSeparator; // work around bad pattern (dir+filename)
     // HACK around lack of Armenian, Ethiopic				
     TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Latin-Armenian");
     //TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Latin-Ethiopic");

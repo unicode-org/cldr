@@ -9,6 +9,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.Transliterator;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Collections;
@@ -72,7 +73,7 @@ public class CLDRTransforms {
     }
     
     Factory cldrFactory = CLDRFile.Factory.make(
-        Utility.COMMON_DIRECTORY + "transforms/", ".*");
+        Utility.COMMON_DIRECTORY + File.separatorChar +  "transforms/", ".*");
     
     private CLDRTransforms(PrintWriter showProgress, String filterString)  {        
         // reorder to preload some 

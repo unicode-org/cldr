@@ -37,7 +37,7 @@ import java.io.*;
 
 public class GenerateTransformCharts {
   
-  private static final String TRANSFORM_DIRECTORY = Utility.CHART_DIRECTORY + "transforms/";
+  private static final String TRANSFORM_DIRECTORY = Utility.CHART_DIRECTORY + File.separatorChar + "transforms/";
   private static final UnicodeSet NON_LATIN = new UnicodeSet("[^[:latin:][:common:][:inherited:]]");
   
   static int[] indicScripts = { UScript.LATIN, UScript.COMMON, UScript.DEVANAGARI,

@@ -21,6 +21,9 @@ public  class SimpleEquivalenceClass {
     private Comparator comparator;
     
     public void add(Object a, Object b) {
+    	if(a == b) {
+    		throw new InternalError("Err! a is b!");
+    	}
         Set sa = (Set) itemToSet.get(a);
         Set sb = (Set) itemToSet.get(b);
         if (sa == null && sb == null) { // new set!

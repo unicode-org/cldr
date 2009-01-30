@@ -25,6 +25,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.PatternFixer.Target;
+import org.unicode.cldr.util.UnicodeMap;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -40,6 +41,8 @@ import com.ibm.icu.util.ULocale;
 
 public class GeneratePickerData {
   private static final String ARCHAIC_MARKER = "\uE000";
+  private static final String COMPAT_MARKER = "\uE001";
+
   private static final String MAIN_SUB_SEPARATOR = ":";
   private static final String MAIN_SUBSUB_SEPARATOR = "~";
 
@@ -56,15 +59,19 @@ public class GeneratePickerData {
   private static final String SOUTHEAST_ASIAN = "Southeast Asian Scripts";
 
   private static final String EAST_ASIAN = "Other East Asian Scripts";
-  
-  private static final UnicodeSet COMPATIBILITY = (UnicodeSet) new UnicodeSet("[:nfkcqc=n:]").freeze();
+
+  private static final UnicodeSet COMPATIBILITY = (UnicodeSet) new UnicodeSet("[[:nfkcqc=n:]-[:Lm:]]")
+  .removeAll(ScriptCategories.IPA)
+  .removeAll(ScriptCategories.IPA_EXTENSIONS)
+  .freeze();
 
   static final boolean DEBUG = false;
 
   private static final UnicodeSet SKIP = (UnicodeSet) new UnicodeSet("[[:cn:][:cs:][:co:][:cc:]\uFFFC]").addAll(ScriptCategories.DEPRECATED_NEW).freeze();
   private static final UnicodeSet KNOWN_DUPLICATES = (UnicodeSet) new UnicodeSet("[:Nd:]").freeze();
 
-  public static final UnicodeSet UNCOMMON = (UnicodeSet) new UnicodeSet(ScriptCategories.ARCHAIC).addAll(COMPATIBILITY).freeze();
+  public static final UnicodeSet ARCHAIC = ScriptCategories.ARCHAIC;
+  //public static final UnicodeSet UNCOMMON = (UnicodeSet) new UnicodeSet(ScriptCategories.ARCHAIC).addAll(COMPATIBILITY).freeze();
 
   private static final UnicodeSet NAMED_CHARACTERS = (UnicodeSet) new UnicodeSet(
           "[[:Z:][:default_ignorable_code_point:][:Pd:][:cf:]]"
@@ -98,7 +105,7 @@ public class GeneratePickerData {
           ENGLISH,
           new UTF16.StringComparator()
   );
-  
+
   public static final Comparator<String> SORT_ALWAYS = new UTF16.StringComparator(); // null for piecemeal sorting, ENGLISH for UCA
 
 
@@ -106,6 +113,11 @@ public class GeneratePickerData {
     public int compare(String o1, String o2) {
       boolean a = o1.startsWith(ARCHAIC_MARKER);
       boolean b = o2.startsWith(ARCHAIC_MARKER);
+      if (a != b) {
+        return a ? 1 : -1;
+      }
+      a = o1.startsWith(COMPAT_MARKER);
+      b = o2.startsWith(COMPAT_MARKER);
       if (a != b) {
         return a ? 1 : -1;
       }
@@ -123,7 +135,7 @@ public class GeneratePickerData {
 
   public static void main(String[] args) throws Exception {
     //System.out.println(ScriptCategories.ARCHAIC);
-    
+
     if (args[0].equals("g")) {
       generateHangulDefectives();
       return;
@@ -139,15 +151,15 @@ public class GeneratePickerData {
     }
     unicodeDataDirectory = new File(args[1]).getCanonicalPath() + File.separator;
     System.out.println("Unicode Data Directory: " + unicodeDataDirectory);
-    
+
     if (args.length < 3) {
       throw new IllegalArgumentException("Third argument must be local data directory");
     }
     localDataDirectory = new File(args[2]).getCanonicalPath() + File.separator;
     System.out.println("Local Data Directory: " + localDataDirectory);
-    
+
     renamingLog = getFileWriter("renamingLog.txt");
-    
+
     renamer = new Renamer(localDataDirectory + "GeneratePickerData.txt");
     /*
      * NamesList-5.1.0d8.txt
@@ -163,6 +175,8 @@ public class GeneratePickerData {
 
   private static void buildMainTable(String[] args) throws IOException {
     subheader = new Subheader(unicodeDataDirectory, outputDirectory);
+
+    //addHan();
     CATEGORYTABLE.addMainCategory("Symbol");
     CATEGORYTABLE.addMainCategory("Punctuation");
     CATEGORYTABLE.addMainCategory("Number");
@@ -177,7 +191,7 @@ public class GeneratePickerData {
     CATEGORYTABLE.addMainCategory(SOUTHEAST_ASIAN);
     CATEGORYTABLE.addMainCategory("Hangul");
     CATEGORYTABLE.addMainCategory(EAST_ASIAN);
-    
+
     // for testing
     //addHan(unicodeDataDirectory + "Unihan.txt");
 
@@ -218,17 +232,18 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
   }
 
   static UnicodeSet LATIN = (UnicodeSet) new UnicodeSet("[:script=Latin:]").freeze();
-  static Set<ULocale> SKIP_LOCALES = new HashSet();
+  static Set<String> SKIP_LOCALES = new HashSet();
   static {
-    SKIP_LOCALES.add(new ULocale("kl"));
-    SKIP_LOCALES.add(new ULocale("eo"));
+    SKIP_LOCALES.add("kl");
+    SKIP_LOCALES.add("eo");
   }
 
   private static void addLatin() {
     //CATEGORYTABLE.add("Latin", true, "All, UCA-Order", ENGLISH, LATIN);
     UnicodeSet exemplars = new UnicodeSet();
     for (ULocale loc : ULocale.getAvailableLocales()) {
-      if (SKIP_LOCALES.contains(loc)) {
+      String languageCode = loc.getLanguage();
+      if (SKIP_LOCALES.contains(languageCode)) {
         continue;
       }
       final UnicodeSet exemplarSet = LocaleData.getExemplarSet(loc, UnicodeSet.CASE);
@@ -240,17 +255,44 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       //UnicodeSet collationExemplars = c.getTailoredSet();
       //addAndNoteNew(loc, exemplars, collationExemplars);
     }
+    UnicodeSet closed = new UnicodeSet(exemplars);
+    closeOver(closed).retainAll(new UnicodeSet("[[:L:][:M:]-[:nfkcqc=n:]]"));
+
+    System.out.println("Exemplars: " + closed);
+    final UnicodeSet common = new UnicodeSet("[[aáàăâấầåäãąāảạậ æ b c ćčç dđð eéèêếềểěëėęēệ ə f ƒ gğ h iíìî ïįīị ı j-lľļł m nńňñņ oóòô ốồổöőõøơớờởợọộ œ p-rř s śšş tťţ uúùûůüűųūủưứữ ựụ v-yýÿ zźžż þ]]");
+    closeOver(common).retainAll(new UnicodeSet("[[:L:][:M:]-[:nfkcqc=n:]]"));
+
+    System.out.println("Common: " + common);
+
     exemplars.retainAll(new UnicodeSet("[[:L:][:M:]-[:nfkcqc=n:]]"));
+
     CATEGORYTABLE.add("Latin", true, "Common", buttonComparator, exemplars);
     CATEGORYTABLE.add("Latin", true, "Phonetics (IPA)", buttonComparator, ScriptCategories.IPA);
+    CATEGORYTABLE.add("Latin", true, "Phonetics (X-IPA)", buttonComparator, ScriptCategories.IPA_EXTENSIONS);
     CATEGORYTABLE.add("Latin", true, "Other", null, new UnicodeSet("[:script=Latin:]")
-      .removeAll(ScriptCategories.IPA).removeAll(exemplars));
+    .removeAll(ScriptCategories.IPA)
+    .removeAll(ScriptCategories.IPA_EXTENSIONS)
+    .removeAll(exemplars));
+  }
+
+  private static UnicodeSet closeOver(UnicodeSet closed) {
+    for (int i = 0; i < 0x10FFFF; ++i) {
+      if (closed.contains(i)) continue;
+      final String str = UTF16.valueOf(i);
+      String s = UCharacter.foldCase(str, true);
+      if (s.equals(str)) continue;
+      if (closed.contains(s)) {
+        System.out.println("Adding " + str + " because of " + s);
+        closed.add(i);
+      }
+    }
+    return closed;
   }
 
   private static void addAndNoteNew(ULocale title, UnicodeSet toAddTo, final UnicodeSet toAdd) {
     flatten(toAdd);
     if (toAddTo.containsAll(toAdd)) return;
-    System.out.println("Adding Common\t" + title.getDisplayName() + "\t" + title.toString() + "\t" + new UnicodeSet(toAdd).removeAll(toAddTo));
+    System.out.println("Adding Common\t" + title.getDisplayName() + "\t" + title.toString() + "\t" + new UnicodeSet(toAdd).removeAll(toAddTo).toPattern(false));
     toAddTo.addAll(toAdd);
   }
 
@@ -413,6 +455,35 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
     }
   }
 
+  static class ChronologicalComparator<T> implements Comparator<T> {
+    private Map<T,Integer> items = new LinkedHashMap<T, Integer>();
+    
+    public ChronologicalComparator<T> add(T item) {
+      items.put(item, items.size());
+      return this;
+    }
+
+    public int compare(T o1, T o2) {
+      Integer count1 = items.get(o1);
+      Integer count2 = items.get(o2);
+      // handle missing cases
+      if (count1 == null) {
+        return count2 == null ? 0 : -1;
+      } else if (count2 == null) {
+        return 1;
+      }
+      return count1 - count2;// > 0 if count1 > count2, and so on
+    }
+
+  };
+
+  static public ChronologicalComparator<String> add(ChronologicalComparator<String> target, UnicodeSet items) {
+    for (UnicodeSetIterator it = new UnicodeSetIterator(items); it.next();) {
+      target.add(it.getString());
+    }
+    return target;
+  }
+
   public static String codeAndName(String comp) {
     return toHex(comp, false) + "(" + comp + ")" + UCharacter.getExtendedName(comp.codePointAt(0));
   }
@@ -421,83 +492,109 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
   static Pattern RAD_STROKE = Pattern.compile("U\\+([A-Z0-9]+)\\s+kRSUnicode\\s+(.*)");
   static Pattern RAD_DATA = Pattern.compile("([0-9]{1,3}\\'?)\\.([0-9]{1,2})\\s*");
 
+  static Pattern TOTAL_STROKE = Pattern.compile("U\\+([A-Z0-9]+)\\s+kTotalStrokes\\s+(.*)");
+  static Pattern IICORE = Pattern.compile("U\\+([A-Z0-9]+)\\s+kIICore\\s+(.*)");
+
   private static void addHan() throws IOException {
+    Matcher radStrokeMatcher = RAD_STROKE.matcher("");
+    Matcher radDataMatcher = RAD_DATA.matcher("");
+    Matcher iiCore = IICORE.matcher("");
+    //Matcher totalStrokeMatcher = TOTAL_STROKE.matcher("");
+    //    final boolean test = rad2.reset("U+3433 kRSUnicode  9.3").matches();
+    //    System.out.println("Test match: " + test);
+    Map<Integer,Map<String,Map<Integer,UnicodeSet>>> index = new TreeMap<Integer, Map<String,Map<Integer,UnicodeSet>>>();
+    UnicodeSet remainder = new UnicodeSet("[:script=Han:]").removeAll(SKIP);
+    //index.put("Other", remainder);
+    //    Map<String,String> radicalToChar = new TreeMap<String, String>();
+    //    for (int i = 1; i < 215; ++i) {
+    //      final int cp = 0x2F00 + (i-1);
+    //      final int nfkc = Normalizer.normalize(cp, Normalizer.NFKC).codePointAt(0);
+    //      final String cpString = nfkc;
+    //      final String radical = i;
+    //      radicalToChar.put(radical, cpString);
+    //      mapToUnicodeSetAdd(index, radical, cp);
+    //      mapToUnicodeSetAdd(index, radical, nfkc);
+    //      remainder.remove(cp);
+    //      remainder.remove(nfkc);
+    //    }
+    // special case
+    //mapToUnicodeSetAdd(index, "197'", 0x5364);
+    //remainder.remove(0x5364);
+    //Map<Integer,Integer> totalStrokes = new HashMap<Integer,Integer>();
+
     String unihanFile = unicodeDataDirectory + "Unihan.txt";
     BufferedReader in = new BufferedReader(new FileReader(unihanFile));
-    Matcher rad2 = RAD_STROKE.matcher("");
-    Matcher rad = RAD_DATA.matcher("");
-//    final boolean test = rad2.reset("U+3433 kRSUnicode  9.3").matches();
-//    System.out.println("Test match: " + test);
-    Map<String,UnicodeSet> index = new TreeMap<String, UnicodeSet>(ENGLISH);
-    UnicodeSet remainder = new UnicodeSet("[:script=Han:]").removeAll(SKIP);
-    index.put("Other", remainder);
-    Map<String,String> radicalToChar = new TreeMap<String, String>();
-    for (int i = 1; i < 215; ++i) {
-      final int cp = 0x2F00 + (i-1);
-      final int nfkc = Normalizer.normalize(cp, Normalizer.NFKC).codePointAt(0);
-      final String cpString = String.valueOf((char)nfkc);
-      final String radical = String.valueOf(i);
-      radicalToChar.put(radical, cpString);
-      mapToUnicodeSetAdd(index, radical, cp);
-      mapToUnicodeSetAdd(index, radical, nfkc);
-      remainder.remove(cp);
-      remainder.remove(nfkc);
-    }
-    // special case
-    mapToUnicodeSetAdd(index, "197'", 0x5364);
-    remainder.remove(0x5364);
-
+    
     while (true) {
       String line = in.readLine();
       if (line == null) break;
-      if (rad2.reset(line).matches()) {
-        int cp = Integer.parseInt(rad2.group(1), 16);
-        String[] items = rad2.group(2).split("\\s");
+      if (iiCore.reset(line).matches()) {
+        int cp = Integer.parseInt(iiCore.group(1),16);
+        ARCHAIC_HAN.remove(cp);
+      } else if (radStrokeMatcher.reset(line).matches()) {
+        int cp = Integer.parseInt(radStrokeMatcher.group(1), 16);
+        String[] items = radStrokeMatcher.group(2).split("\\s");
         for (String item : items) {
-          if (!rad.reset(item).matches()) {
+          if (!radDataMatcher.reset(item).matches()) {
             throw new IllegalArgumentException("Bad line: " + line);
           }
-          String radical = rad.group(1);
+          String radical = radDataMatcher.group(1);
+          int radicalChar = ScriptCategories.RADICAL_NUM2CHAR.get(radical);
+          int radicalStrokes = ScriptCategories.RADICAL_CHAR2STROKES.get(radicalChar);
+          int remainingStrokes = Integer.parseInt(radDataMatcher.group(2));
           //          if (radical.startsWith("211")) {
           //            System.out.println(line);
           //          }
-          String baseRadical = radical.endsWith("'") ? radical.substring(0, radical.length()-1) : radical;
-          mapToUnicodeSetAdd(index, baseRadical, cp);
+          //String baseRadical = radical.endsWith("'") ? radical.substring(0, radical.length()-1) : radical;
+          mapToUnicodeSetAdd(index, radicalStrokes, radical, remainingStrokes, cp);
           remainder.remove(cp);
-          if (rad.group(2).equals("0") && radical.endsWith("'")) {
-            String radicalString = Normalizer.normalize(cp, Normalizer.NFKC);
-            String old = radicalToChar.get(radical);
-            if (old == null) {
-              radicalToChar.put(radical, radicalString);
-            } else if (!radicalString.equals(old)) {
-              System.out.println("Duplicate radical: " + line + " with " + radicalString + " and " + old);
-            }
-          }
+          //          if (radDataMatcher.group(2).equals("0") && radical.endsWith("'")) {
+          //            String radicalString = Normalizer.normalize(cp, Normalizer.NFKC);
+          //            String old = radicalToChar.get(radical);
+          //            if (old == null) {
+          //              radicalToChar.put(radical, radicalString);
+          //            } else if (!radicalString.equals(old)) {
+          //              System.out.println("Duplicate radical: " + line + " with " + radicalString + " and " + old);
+          //            }
+          //          }
         }
       }
     }
     in.close();
-    for (String radical : index.keySet()) {
-      String mainCat = null;
-      if (DEBUG) System.out.println(radical + " => " + radicalToChar.get(radical));
-      String radChar = getRadicalName(radicalToChar, radical);
-      String subCat = radChar + " Han";
-      try {
-        String radical2 = radical.endsWith("'") ? radical.substring(0, radical.length() - 1) : radical;
-        int x = Integer.parseInt(radical2);
-        int base = (x / 20) * 20;
-        int top = base + 19;
-        mainCat = "CJK (Han) " + getRadicalName(radicalToChar, Math.max(base,1)) + " - " + getRadicalName(radicalToChar, Math.min(top,214));
-      } catch (Exception e) {}
-      if (mainCat == null) {
-        mainCat = "Symbol";
-        subCat = "CJK";
+
+    // find base values
+
+    for (int radicalStrokes : index.keySet()) {
+      //String mainCat = null;
+      Map<String, Map<Integer, UnicodeSet>> char2RemStrokes2Set = index.get(radicalStrokes);
+      for (String radical : char2RemStrokes2Set.keySet()) {
+        Map<Integer, UnicodeSet> remStrokes2Set = char2RemStrokes2Set.get(radical);
+        ChronologicalComparator<String> chronological = new ChronologicalComparator<String>() ;
+        for (int remStrokes : remStrokes2Set.keySet()) {
+          int radicalChar = ScriptCategories.RADICAL_NUM2CHAR.get(radical);
+          String mainCat = "Han " + radicalStrokes + "-Stroke Radicals";
+          String subCat = UTF16.valueOf(radicalChar);
+          //if (DEBUG) System.out.println(radical + " => " + radicalToChar.get(radical));
+          //      String radChar = getRadicalName(radicalToChar, radical);
+          //      String subCat = radChar + " Han";
+          //      try {
+          //        String radical2 = radical.endsWith("'") ? radical.substring(0, radical.length() - 1) : radical;
+          //        int x = Integer.parseInt(radical2);
+          //        int base = (x / 20) * 20;
+          //        int top = base + 19;
+          //        mainCat = "CJK (Han) " + getRadicalName(radicalToChar, Math.max(base,1)) + " - " + getRadicalName(radicalToChar, Math.min(top,214));
+          //      } catch (Exception e) {}
+          //      if (mainCat == null) {
+          //        mainCat = "Symbol";
+          //        subCat = "CJK";
+          //      }
+          final UnicodeSet values = remStrokes2Set.get(remStrokes);
+          UnicodeSet normal = new UnicodeSet(values).removeAll(ARCHAIC).removeAll(COMPATIBILITY).removeAll(ARCHAIC_HAN);
+          CATEGORYTABLE.add(mainCat, true, subCat, null, normal); // add(chronological, normal)
+          values.removeAll(normal);
+          CATEGORYTABLE.add(mainCat, true, "Other", null, values);
+        }
       }
-      final UnicodeSet values = index.get(radical);
-      UnicodeSet normal = new UnicodeSet(values).removeAll(UNCOMMON);
-      CATEGORYTABLE.add(mainCat, true, subCat, null, normal);
-      values.retainAll(UNCOMMON);
-      CATEGORYTABLE.add(mainCat, true, "Compatibility", null, values);
     }
 
     //    UnicodeSet temp = new UnicodeSet();
@@ -515,23 +612,32 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
     //    }
   }
 
-  private static <T>void mapToUnicodeSetAdd(Map<T, UnicodeSet> map, T key, int cp) {
-    UnicodeSet uset = map.get(key);
-    if (uset == null) {
-      map.put(key, uset = new UnicodeSet());
+  private static <T>void mapToUnicodeSetAdd(Map<Integer, Map<String, Map<Integer, UnicodeSet>>> index,
+          int radicalStrokes, String radicalChar, int remainingStrokes, int cp) {
+    Map<String, Map<Integer, UnicodeSet>> subIndex = index.get(radicalStrokes);
+    if (subIndex == null) {
+      index.put(radicalStrokes, subIndex = new TreeMap<String, Map<Integer, UnicodeSet>>(ENGLISH));
     }
-    uset.add(cp);
+    Map<Integer, UnicodeSet> uset = subIndex.get(radicalChar);
+    if (uset == null) {
+      subIndex.put(radicalChar, uset = new TreeMap<Integer, UnicodeSet>());
+    }
+    UnicodeSet uset2 = uset.get(remainingStrokes);
+    if (uset2 == null) {
+      uset.put(remainingStrokes, uset2 = new UnicodeSet());
+    }
+    uset2.add(cp);
   }
 
-  private static String getRadicalName(Map<String, String> radicalToChar, int max) {
-    // TODO Auto-generated method stub
-    return getRadicalName(radicalToChar, Integer.toString(max));
-  }
+  //  private static String getRadicalName(Map<String, String> radicalToChar, int max) {
+  //    // TODO Auto-generated method stub
+  //    return getRadicalName(radicalToChar, Integer.toString(max));
+  //  }
 
-  private static String getRadicalName(Map<String, String> radicalToChar, String radical) {
-    String simpRadical = RADICALS.get(radical + "'");
-    return RADICALS.get(radical) + (simpRadical != null ? "/" + simpRadical : ""); // + " " + radical;
-  }
+  //  private static String getRadicalName(Map<String, String> radicalToChar, String radical) {
+  //    String simpRadical = RADICAL_NUM2CHAR.get(radical + "'");
+  //    return RADICAL_NUM2CHAR.get(radical) + (simpRadical != null ? "/" + simpRadical : ""); // + " " + radical;
+  //  }
 
   private static void addHangul() {
     for (UnicodeSetIterator it = new UnicodeSetIterator(new UnicodeSet("[:script=Hangul:]").removeAll(SKIP)); it.next();) {
@@ -597,7 +703,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
 
   static class CategoryTable {
 
-    private static final String UNCOMMON_OR_VARIANTS = "- Uncommon or Variants -";
+    private static final String UNCOMMON_OR_VARIANTS = "- Historic or Variants -";
     static Map<String, Map<String, GeneratePickerData.USet>> categoryTable =  //new TreeMap<String, Map<String, USet>>(ENGLISH); // 
       new LinkedHashMap<String, Map<String, GeneratePickerData.USet>>();
 
@@ -624,8 +730,10 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       SimplePair names = renamer.rename(category, subcategory);
       final String mainCategory = names.getFirst();
       final String subCategory = names.getSecond();
-      if (UNCOMMON.contains(codepoint)) {
+      if (ARCHAIC.contains(codepoint) || ARCHAIC_HAN.contains(codepoint)) {
         CATEGORYTABLE.add2(mainCategory, sortSubcategory, ARCHAIC_MARKER + subCategory, null, codepoint);
+      } else if (COMPATIBILITY.contains(codepoint)) {
+        CATEGORYTABLE.add2(mainCategory, sortSubcategory, COMPAT_MARKER + subCategory, null, codepoint);
       } else {
         CATEGORYTABLE.add2(mainCategory, sortSubcategory, subCategory, sortValues, codepoint);
       }
@@ -633,7 +741,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
 
     private void add2(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, int values) {
       GeneratePickerData.USet oldValue = getValues(category, sortSubcategory, subcategory);
-      oldValue.sorted = SORT_ALWAYS != null ? SORT_ALWAYS : sortValues;
+      oldValue.sorted = sortValues != null ? sortValues : SORT_ALWAYS;
       oldValue.set.add(values);
       oldValue.set.removeAll(SKIP);
     }
@@ -675,7 +783,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       }
       return sub;
     }
-    
+
     private GeneratePickerData.USet getValues(String category, boolean sortSubcategory, String subcategory) {
       Map<String,GeneratePickerData.USet> sub = addMainCategory(category);
       GeneratePickerData.USet oldValue = sub.get(subcategory);
@@ -703,7 +811,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
           }
           if (!wasArchaic && subcategory.startsWith(ARCHAIC_MARKER)) {
             wasArchaic = true;
-            addResult(result, USet.EMPTY, category,UNCOMMON_OR_VARIANTS);
+            //addResult(result, USet.EMPTY, category,UNCOMMON_OR_VARIANTS);
           }
           String valueCharsString = addResult(result, valueChars, category, subcategory);
 
@@ -737,7 +845,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       System.out.println("Total Compressed Chars:\t" + totalCompressed);
       return result.toString();
     }
-    
+
     private int utf8Length(UnicodeSet set) {
       int len = 0;
       for (UnicodeSetIterator it = new UnicodeSetIterator(set); it.next();) {
@@ -769,7 +877,14 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
 
     private String addResult(StringBuilder result, GeneratePickerData.USet valueChars, String category, String subcategory) {
       if (subcategory.startsWith(ARCHAIC_MARKER)) {
-        subcategory = subcategory.substring(1);
+        if (ARCHAIC_HAN.containsAll(valueChars.set)) {
+          subcategory = "Less common - " + subcategory.substring(1);
+        } else {
+          subcategory = "Historic - " + subcategory.substring(1);
+        }
+      }
+      if (subcategory.startsWith(COMPAT_MARKER)) {
+        subcategory = "Compatibility - " + subcategory.substring(1);
       }
       final int size = valueChars.set.size();
       String valueCharsString;
@@ -914,6 +1029,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       if (!reversal.equals(set)) {
         UnicodeSet ab = new UnicodeSet(set).removeAll(reversal);
         UnicodeSet ba = new UnicodeSet(reversal).removeAll(set);
+        System.out.println("FAILED!!!!");
         throw new IllegalArgumentException("Failed; in original but not restored: " + ab + "\r\nIn restored but not original: " + ba);
       }
       return result.toString();
@@ -1609,249 +1725,6 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
           "::NFD;"+ MKD_RULES + "::null;" + MKC_RULES + "::NFC;", 
           Transliterator.FORWARD);
 
-  static final Map<String, String> RADICALS = new TreeMap();
-  static {
-    String[][] data = {
-            {"1", "\u4E00"},
-            {"2", "\u4E28"},
-            {"3", "\u4E36"},
-            {"4", "\u4E3F"},
-            {"5", "\u4E59"},
-            {"6", "\u4E85"},
-            {"7", "\u4E8C"},
-            {"8", "\u4EA0"},
-            {"9", "\u4EBA"},
-            {"10", "\u513F"},
-            {"11", "\u5165"},
-            {"12", "\u516B"},
-            {"13", "\u5182"},
-            {"14", "\u5196"},
-            {"15", "\u51AB"},
-            {"16", "\u51E0"},
-            {"17", "\u51F5"},
-            {"18", "\u5200"},
-            {"19", "\u529B"},
-            {"20", "\u52F9"},
-            {"21", "\u5315"},
-            {"22", "\u531A"},
-            {"23", "\u5338"},
-            {"24", "\u5341"},
-            {"25", "\u535C"},
-            {"26", "\u5369"},
-            {"27", "\u5382"},
-            {"28", "\u53B6"},
-            {"29", "\u53C8"},
-            {"30", "\u53E3"},
-            {"31", "\u56D7"},
-            {"32", "\u571F"},
-            {"33", "\u58EB"},
-            {"34", "\u5902"},
-            {"35", "\u590A"},
-            {"36", "\u5915"},
-            {"37", "\u5927"},
-            {"38", "\u5973"},
-            {"39", "\u5B50"},
-            {"40", "\u5B80"},
-            {"41", "\u5BF8"},
-            {"42", "\u5C0F"},
-            {"43", "\u5C22"},
-            {"44", "\u5C38"},
-            {"45", "\u5C6E"},
-            {"46", "\u5C71"},
-            {"47", "\u5DDB"},
-            {"48", "\u5DE5"},
-            {"49", "\u5DF1"},
-            {"50", "\u5DFE"},
-            {"51", "\u5E72"},
-            {"52", "\u5E7A"},
-            {"53", "\u5E7F"},
-            {"54", "\u5EF4"},
-            {"55", "\u5EFE"},
-            {"56", "\u5F0B"},
-            {"57", "\u5F13"},
-            {"58", "\u5F50"},
-            {"59", "\u5F61"},
-            {"60", "\u5F73"},
-            {"61", "\u5FC3"},
-            {"62", "\u6208"},
-            {"63", "\u6236"},
-            {"64", "\u624B"},
-            {"65", "\u652F"},
-            {"66", "\u6534"},
-            {"67", "\u6587"},
-            {"68", "\u6597"},
-            {"69", "\u65A4"},
-            {"70", "\u65B9"},
-            {"71", "\u65E0"},
-            {"72", "\u65E5"},
-            {"73", "\u66F0"},
-            {"74", "\u6708"},
-            {"75", "\u6728"},
-            {"76", "\u6B20"},
-            {"77", "\u6B62"},
-            {"78", "\u6B79"},
-            {"79", "\u6BB3"},
-            {"80", "\u6BCB"},
-            {"81", "\u6BD4"},
-            {"82", "\u6BDB"},
-            {"83", "\u6C0F"},
-            {"84", "\u6C14"},
-            {"85", "\u6C34"},
-            {"86", "\u706B"},
-            {"87", "\u722A"},
-            {"88", "\u7236"},
-            {"89", "\u723B"},
-            {"90", "\u723F"},
-            {"91", "\u7247"},
-            {"92", "\u7259"},
-            {"93", "\u725B"},
-            {"94", "\u72AC"},
-            {"95", "\u7384"},
-            {"96", "\u7389"},
-            {"97", "\u74DC"},
-            {"98", "\u74E6"},
-            {"99", "\u7518"},
-            {"100", "\u751F"},
-            {"101", "\u7528"},
-            {"102", "\u7530"},
-            {"103", "\u758B"},
-            {"104", "\u7592"},
-            {"105", "\u7676"},
-            {"106", "\u767D"},
-            {"107", "\u76AE"},
-            {"108", "\u76BF"},
-            {"109", "\u76EE"},
-            {"110", "\u77DB"},
-            {"111", "\u77E2"},
-            {"112", "\u77F3"},
-            {"113", "\u793A"},
-            {"114", "\u79B8"},
-            {"115", "\u79BE"},
-            {"116", "\u7A74"},
-            {"117", "\u7ACB"},
-            {"118", "\u7AF9"},
-            {"119", "\u7C73"},
-            {"120", "\u7CF8"},
-            {"120'", "\u7E9F"},
-            {"121", "\u7F36"},
-            {"122", "\u7F51"},
-            {"123", "\u7F8A"},
-            {"124", "\u7FBD"},
-            {"125", "\u8001"},
-            {"126", "\u800C"},
-            {"127", "\u8012"},
-            {"128", "\u8033"},
-            {"129", "\u807F"},
-            {"130", "\u8089"},
-            {"131", "\u81E3"},
-            {"132", "\u81EA"},
-            {"133", "\u81F3"},
-            {"134", "\u81FC"},
-            {"135", "\u820C"},
-            {"136", "\u821B"},
-            {"137", "\u821F"},
-            {"138", "\u826E"},
-            {"139", "\u8272"},
-            {"140", "\u8278"},
-            {"141", "\u864D"},
-            {"142", "\u866B"},
-            {"143", "\u8840"},
-            {"144", "\u884C"},
-            {"145", "\u8863"},
-            {"146", "\u897E"},
-            {"147", "\u898B"},
-            {"147'", "\u89C1"},
-            {"148", "\u89D2"},
-            {"149", "\u8A00"},
-            {"149'", "\u8BA0"},
-            {"150", "\u8C37"},
-            {"151", "\u8C46"},
-            {"152", "\u8C55"},
-            {"153", "\u8C78"},
-            {"154", "\u8C9D"},
-            {"154'", "\u8D1D"},
-            {"155", "\u8D64"},
-            {"156", "\u8D70"},
-            {"157", "\u8DB3"},
-            {"158", "\u8EAB"},
-            {"159", "\u8ECA"},
-            {"159'", "\u8F66"},
-            {"160", "\u8F9B"},
-            {"161", "\u8FB0"},
-            {"162", "\u8FB5"},
-            {"163", "\u9091"},
-            {"164", "\u9149"},
-            {"165", "\u91C6"},
-            {"166", "\u91CC"},
-            {"167", "\u91D1"},
-            {"167'", "\u9485"},
-            {"168", "\u9577"},
-            {"168'", "\u957F"},
-            {"169", "\u9580"},
-            {"169'", "\u95E8"},
-            {"170", "\u961C"},
-            {"171", "\u96B6"},
-            {"172", "\u96B9"},
-            {"173", "\u96E8"},
-            {"174", "\u9751"},
-            {"175", "\u975E"},
-            {"176", "\u9762"},
-            {"177", "\u9769"},
-            {"178", "\u97CB"},
-            {"178'", "\u97E6"},
-            {"179", "\u97ED"},
-            {"180", "\u97F3"},
-            {"181", "\u9801"},
-            {"181'", "\u9875"},
-            {"182", "\u98A8"},
-            {"182'", "\u98CE"},
-            {"183", "\u98DB"},
-            {"183'", "\u98DE"},
-            {"184", "\u98DF"},
-            {"184'", "\u9963"},
-            {"185", "\u9996"},
-            {"186", "\u9999"},
-            {"187", "\u99AC"},
-            {"187'", "\u9A6C"},
-            {"188", "\u9AA8"},
-            {"189", "\u9AD8"},
-            {"190", "\u9ADF"},
-            {"191", "\u9B25"},
-            {"192", "\u9B2F"},
-            {"193", "\u9B32"},
-            {"194", "\u9B3C"},
-            {"195", "\u9B5A"},
-            {"195'", "\u9C7C"},
-            {"196", "\u9CE5"},
-            {"196'", "\u9E1F"},
-            {"197", "\u9E75"},
-            {"197'", "\u5364"},
-            {"198", "\u9E7F"},
-            {"199", "\u9EA5"},
-            {"199'", "\u9EA6"},
-            {"200", "\u9EBB"},
-            {"201", "\u9EC3"},
-            {"202", "\u9ECD"},
-            {"203", "\u9ED1"},
-            {"204", "\u9EF9"},
-            {"205", "\u9EFD"},
-            {"205'", "\u9EFE"},
-            {"206", "\u9F0E"},
-            {"207", "\u9F13"},
-            {"208", "\u9F20"},
-            {"209", "\u9F3B"},
-            {"210", "\u9F4A"},
-            {"211", "\u9F52"},
-            {"211'", "\u9F7F"},
-            {"212", "\u9F8D"},
-            {"212'", "\u9F99"},
-            {"213", "\u9F9C"},
-            {"213'", "\u9F9F"},
-            {"214", "\u9FA0"}};
-    for (String[] pair : data) {
-      RADICALS.put(pair[0], pair[1]);
-    }
-  }
 
   //  static final String MKDP_RULES =
   //    MKD_RULES + 
@@ -1874,6 +1747,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
 
   public static final UnicodeSet ADD_SUBHEAD = (UnicodeSet) new UnicodeSet("[[:S:][:P:][:M:]&[[:script=common:][:script=inherited:]]-[:nfkdqc=n:]]")
   .removeAll(ScriptCategories.ARCHAIC).freeze();
+  private static UnicodeSet ARCHAIC_HAN = new UnicodeSet("[[:script=han:]-[:block=CJK Unified Ideographs:]]"); // we'll alter below
 
   static class Renamer {
     Map<Matcher,String> renameTable = new LinkedHashMap();

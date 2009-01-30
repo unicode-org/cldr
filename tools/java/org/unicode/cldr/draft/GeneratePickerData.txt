@@ -28,11 +28,11 @@ Symbol:.*Miscellaneous Technical.* > Symbol:Technical
 Symbol:.*cross.*>Symbol:Religious
 Symbol:.*(Tai Xuan Jing|Yijing).* > Symbol:Yijing / Tai Xuan Jing
 
-Punctuation:Other~(.*)>Punctuation:$1
+#Punctuation:Other~(.*)>Punctuation:$1
 Punctuation:(Open|Close|Initial|Final)(.*)>Punctuation:Paired
 Punctuation:(Dash|Connector)~(.*)>Punctuation:$1
 Punctuation:.*CJK.*>Punctuation:CJK
-Punctuation:.*ASCII.*>Punctuation:ASCII
+Punctuation:.*(ASCII|Latin).*>Punctuation:ASCII
 # rename category
 
 Modifier:(Spacing|Enclosing)~(.*)>Modifier:$1

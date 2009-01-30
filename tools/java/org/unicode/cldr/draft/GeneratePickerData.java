@@ -100,8 +100,9 @@ public class GeneratePickerData {
 
   static Comparator<String> buttonComparator = new MultilevelComparator<String>(
           //new UnicodeSetInclusionFirst(new UnicodeSet("[:ascii:]")),
-          new UnicodeSetInclusionFirst(new UnicodeSet("[[:Letter:]&[:^NFKD_QuickCheck=N:]]")),
-          new UnicodeSetInclusionFirst(new UnicodeSet("[:Letter:]")),
+          //new UnicodeSetInclusionFirst(new UnicodeSet("[[:Letter:]&[:^NFKC_QuickCheck=N:]]")),
+          new UnicodeSetInclusionFirst(new UnicodeSet("[[:Letter:]-[:Lm:]]")),
+          new UnicodeSetInclusionFirst(new UnicodeSet("[:Lm:]")),
           ENGLISH,
           new UTF16.StringComparator()
   );
@@ -158,7 +159,7 @@ public class GeneratePickerData {
     localDataDirectory = new File(args[2]).getCanonicalPath() + File.separator;
     System.out.println("Local Data Directory: " + localDataDirectory);
 
-    renamingLog = getFileWriter("renamingLog.txt");
+    renamingLog = getFileWriter(outputDirectory, "renamingLog.txt");
 
     renamer = new Renamer(localDataDirectory + "GeneratePickerData.txt");
     /*
@@ -169,7 +170,8 @@ public class GeneratePickerData {
     if (DEBUG) System.out.println("Whitespace? " + new UnicodeSet("[:z:]").equals(new UnicodeSet("[:whitespace:]")));
 
     buildMainTable(args);
-    writeMainFile(args);
+    writeMainFile(outputDirectory);
+    writeMainFile(localDataDirectory);
     renamingLog.close();
   }
 
@@ -269,7 +271,9 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
     CATEGORYTABLE.add("Latin", true, "Common", buttonComparator, exemplars);
     CATEGORYTABLE.add("Latin", true, "Phonetics (IPA)", buttonComparator, ScriptCategories.IPA);
     CATEGORYTABLE.add("Latin", true, "Phonetics (X-IPA)", buttonComparator, ScriptCategories.IPA_EXTENSIONS);
-    CATEGORYTABLE.add("Latin", true, "Other", null, new UnicodeSet("[:script=Latin:]")
+    CATEGORYTABLE.add("Latin", true, "Other", buttonComparator, new UnicodeSet("[:script=Latin:]")
+    .removeAll(ScriptCategories.SCRIPT_CHANGED)
+    .addAll(ScriptCategories.SCRIPT_NEW.get("Latin"))
     .removeAll(ScriptCategories.IPA)
     .removeAll(ScriptCategories.IPA_EXTENSIONS)
     .removeAll(exemplars));
@@ -296,8 +300,8 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
     toAddTo.addAll(toAdd);
   }
 
-  private static void writeMainFile(String[] args) throws IOException, FileNotFoundException {
-    PrintWriter out = getFileWriter("CharData.java");
+  private static void writeMainFile(String directory) throws IOException, FileNotFoundException {
+    PrintWriter out = getFileWriter(directory, "CharData.java");
     out.println("package com.macchiato.client;");
     out.println("// " + new Date());
     out.println("public class CharData {");
@@ -313,8 +317,8 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
     System.out.println("DONE");
   }
 
-  static PrintWriter getFileWriter(String filename) throws IOException, FileNotFoundException {
-    File f = new File(outputDirectory + File.separator + filename);
+  static PrintWriter getFileWriter(String directory, String filename) throws IOException, FileNotFoundException {
+    File f = new File(directory + File.separator + filename);
     System.out.println("Writing: " + f.getCanonicalFile());
     PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(f), Charset.forName("UTF-8")));
     return out;

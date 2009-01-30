@@ -87,7 +87,7 @@ class Subheader {
 
   private void writeBlockInfo(String outputDirectory) throws IOException, FileNotFoundException {
     System.out.println("***Block/Subblock start");
-    PrintWriter out = GeneratePickerData.getFileWriter("blocks_subblocks.html");
+    PrintWriter out = GeneratePickerData.getFileWriter(outputDirectory, "blocks_subblocks.html");
 
     htmlHeader(out);
     out.println("<tr><th>" + "Block" + "</th><th>" + "Notes" + "</th><th>" + "Subblock" + "</th></tr>");
@@ -106,7 +106,7 @@ class Subheader {
     out.close();
     System.out.println("***By subblocks");
 
-    out = GeneratePickerData.getFileWriter("subblocks_blocks.html");
+    out = GeneratePickerData.getFileWriter(outputDirectory, "subblocks_blocks.html");
 
 
     htmlHeader(out);

@@ -3,7 +3,9 @@ package org.unicode.cldr.draft;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParsePosition;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.HashSet;
@@ -22,6 +24,8 @@ import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.UnicodeSet;
 
 public class ScriptCategories {
+
+  private static final boolean DEBUG = false;
 
   // From: http://www.phon.ucl.ac.uk/home/wells/ipa-unicode.htm
   public static final UnicodeSet IPA = (UnicodeSet) new UnicodeSet(
@@ -51,7 +55,7 @@ public class ScriptCategories {
           "[:blk=Cypriot_Syllabary:] [:blk=Deseret:] [:blk=Glagolitic:] " +
           "[:blk=Gothic:] [:blk=Hanunoo:] [:blk=Kharoshthi:] [:blk=Linear_B_Ideograms:] " +
           "[:blk=Linear_B_Syllabary:] [:blk=Lycian:] [:blk=Lydian:] [:blk=Ogham:]" +
-          " [:blk=Old_Italic:] [:blk=Old_Persian:] [:blk=Osmanya:] [:blk=Phags_Pa:] " +
+          "[:blk=Old_Italic:] [:blk=Old_Persian:] [:blk=Osmanya:] [:blk=Phags_Pa:] " +
           "[:blk=Phaistos_Disc:] [:blk=Phoenician:] [:blk=Rejang:] [:blk=Runic:] " +
           "[:blk=Shavian:] [:blk=Sundanese:] [:blk=Syloti_Nagri:] [:blk=Syriac:] " +
           "[:blk=Tagalog:] [:blk=Tagbanwa:] [:blk=Ugaritic:] [:sc=Copt:]]"
@@ -116,48 +120,6 @@ public class ScriptCategories {
     }
   }
 
-  public static final UnicodeSet EUROPEAN = (UnicodeSet) new UnicodeSet(
-          "[[:script=Latin:][:script=Greek:][:script=Coptic:][:script=Cyrillic:]" +
-          "[:script=Glag:][:script=Armenian:][:script=Georgian:][:script=Shavian:][:script=braille:]" +
-          "[:script=ogham:][:script=runic:][:script=Gothic:][:script=Cypriot:][:script=Linear b:]" +
-          "[:script=old italic:]]"
-  ).freeze();
-  public static final UnicodeSet MIDDLE_EASTERN = (UnicodeSet) new UnicodeSet(
-          "[[:script=Hebrew:][:script=Arabic:][:script=Syriac:][:script=Thaana:]" +
-          "[:script=Carian:][:script=Lycian:][:script=Lydian:][:script=Phoenician:]" +
-          "[:script=Cuneiform:][:script=old persian:][:ugaritic:]]"
-  ).freeze();
-  public static final UnicodeSet SOUTH_ASIAN = (UnicodeSet) new UnicodeSet(
-          "[[:script=Devanagari:][:script=Bengali:][:script=Gurmukhi:][:script=Gujarati:]" +
-          "[:script=Oriya:][:script=Tamil:][:script=Telugu:][:script=Kannada:][:script=Malayalam:]" +
-          "[:script=Sinhala:][:script=Tibetan:][:script=Phags-Pa:][:script=Limbu:][:script=Sylo:][:script=Kharoshthi:][:script=lepcha:][:saurashtra:][:script=ol chiki:]]"
-  ).freeze();
-  public static final UnicodeSet SOUTHEAST_ASIAN = (UnicodeSet) new UnicodeSet(
-          "[[:script=Thai:][:script=Lao:][:script=Myanmar:][:script=Khmer:]" +
-          "[:script=Tai_Le:][:script=New Tai Lue:][:script=Tagalog:][:script=Hanunoo:][:script=Buhid:]" +
-          "[:script=Tagbanwa:][:script=Buginese:][:script=Balinese:][:script=Cham:][:script=kayah li:][:script=rejang:][:script=sundanese:]]"
-  ).freeze();
-  public static final UnicodeSet EAST_ASIAN = (UnicodeSet) new UnicodeSet(
-          "[[:script=Bopomofo:][:script=Hiragana:][:script=Katakana:][:script=Mongolian:]" +
-          "[:script=Yi:]]"
-  ).freeze();
-  public static final UnicodeSet AFRICAN = (UnicodeSet) new UnicodeSet(
-          "[[:script=Ethiopic:][:script=Osmanya:][:script=Tifinagh:]" +
-          "[:script=Nko:][:script=vai:]]"
-  ).freeze();
-  public static final UnicodeSet AMERICAN = (UnicodeSet) new UnicodeSet(
-          "[[:script=Cherokee:][:script=CANS:][:script=Deseret:]]"
-  ).freeze();
-  public static final UnicodeSet OTHER_SCRIPTS = (UnicodeSet) new UnicodeSet("[^[:script=common:][:script=inherited:]]")
-  .removeAll(EUROPEAN)
-  .removeAll(MIDDLE_EASTERN)
-  .removeAll(SOUTH_ASIAN)
-  .removeAll(SOUTHEAST_ASIAN)
-  .removeAll(EAST_ASIAN)
-  .removeAll(AFRICAN)
-  .removeAll(AMERICAN)
-  .removeAll(new UnicodeSet("[[:script=han:][:script=hangul:]]"))
-  .freeze();
 
   static final Map<String, Integer> RADICAL_NUM2CHAR;
   static final Map<Integer, String> RADICAL_CHAR2NUM;
@@ -464,13 +426,158 @@ public class ScriptCategories {
   }
   public static final UnicodeSet CATEGORY_CHANGED = (UnicodeSet) new UnicodeSet("[\\u2102\\u210A-\\u2113\\u2115\\u2119-\\u211D\\u2124\\u2128\\u2129\\u212C\\u212D\\u212F-\\u2131\\u2133-\\u2138\\u213C-\\u213F\\u2145-\\u2149\\U0001D165\\U0001D166\\U0001D16D-\\U0001D172\\U0001D400-\\U0001D7FF]").freeze();
   public static final Map<String,UnicodeSet> CATEGORY_NEW;
+
   static {
     String[][] data = {
             {"Math_Symbol", "[\\u2102\\u210A-\\u2113\\u2115\\u2119-\\u211D\\u2124\\u2128\\u2129\\u212C\\u212D\\u212F-\\u2131\\u2133-\\u2138\\u213C-\\u213F\\u2145-\\u2149\\U0001D400-\\U0001D7FF]"},
             {"Modifier_Symbol", "[\\U0001D165\\U0001D166\\U0001D16D-\\U0001D172]"},
+            {"Symbol", "[\\u2102\\u210A-\\u2113\\u2115\\u2119-\\u211D\\u2124\\u2128\\u2129\\u212C\\u212D\\u212F-\\u2131\\u2133-\\u2138\\u213C-\\u213F\\u2145-\\u2149\\U0001D165\\U0001D166\\U0001D16D-\\U0001D172\\U0001D400-\\U0001D7FF]"},
+
     };
     CATEGORY_NEW = loadData(data);
   }
+  
+  
+  // UnicodeSet override
+  static UnicodeSet.XSymbolTable myXSymbolTable = new UnicodeSet.XSymbolTable() { 
+    public boolean applyPropertyAlias(String propertyName, String propertyValue, UnicodeSet result) {
+      int propEnum = -1;
+      int valueEnum = -1;
+      if (propertyValue.trim().length() != 0) {
+        propEnum = UCharacter.getPropertyEnum(propertyName);
+      } else {
+        try {
+          propEnum = UProperty.GENERAL_CATEGORY_MASK;
+          valueEnum = UCharacter.getPropertyValueEnum(propEnum, propertyName);
+          propertyValue = UCharacter.getPropertyValueName(propEnum, valueEnum, UProperty.NameChoice.LONG);
+        } catch (IllegalArgumentException e) {
+          try {
+            propEnum = UProperty.SCRIPT;
+            valueEnum = UCharacter.getPropertyValueEnum(propEnum, propertyName);
+            propertyValue = UCharacter.getPropertyValueName(propEnum, valueEnum, UProperty.NameChoice.LONG);
+          } catch (Exception e1) {
+            return false;
+          }
+        }
+      }
+
+      String pvalue;
+      UnicodeSet result2;
+      UnicodeSet additions;
+      boolean general;
+      switch(propEnum) {
+        case UProperty.SCRIPT:
+          pvalue = getFixedPropertyValue(propEnum, propertyValue);
+          result2 = new UnicodeSet().applyIntPropertyValue(propEnum, UCharacter.getPropertyValueEnum(propEnum, pvalue)).removeAll(SCRIPT_CHANGED);
+          additions = SCRIPT_NEW.get(pvalue);
+          if (additions != null) {
+            result2.addAll(additions);
+          }
+          result.set(result2);
+          return true;
+        case UProperty.GENERAL_CATEGORY_MASK: 
+          general=true;
+        case UProperty.GENERAL_CATEGORY: 
+          // TODO: fix Mask
+          pvalue = getFixedPropertyValue(propEnum, propertyValue);
+          result2 = new UnicodeSet().applyIntPropertyValue(propEnum, UCharacter.getPropertyValueEnum(propEnum, pvalue)).removeAll(CATEGORY_CHANGED);
+          additions = CATEGORY_NEW.get(pvalue);
+          if (additions != null) {
+            result2.addAll(additions);
+          }
+          result.set(result2);
+          return true;
+      }
+      return false;
+    }
+  };
+  
+  public static UnicodeSet parseUnicodeSet(String input) {
+      String parseInput = input.trim();
+      ParsePosition parsePosition = new ParsePosition(0);
+      UnicodeSet result = new UnicodeSet(parseInput, parsePosition, myXSymbolTable);
+      int parseEnd = parsePosition.getIndex();
+      if (parseEnd != parseInput.length()) {
+        parseEnd--; // get input offset
+        throw new IllegalArgumentException("Additional characters past the end of the set, at " 
+            + parseEnd + ", ..." 
+            + input.substring(Math.max(0, parseEnd - 10), parseEnd)
+            + "|"
+            + input.substring(parseEnd, Math.min(input.length(), parseEnd + 10))
+            );
+      }
+      if (DEBUG) {
+        checkDifferences(input, result, new UnicodeSet(input));
+      }
+      return result;
+  }
+
+  private static void checkDifferences(String input, UnicodeSet result, UnicodeSet original) {
+    if (!original.equals(result)) {
+      final UnicodeSet removed = new UnicodeSet(original).removeAll(result);
+      final UnicodeSet added = new UnicodeSet(result).removeAll(original);
+      System.out.println(" *Altered UnicodeSet - removed: " + removed.size() + ", added: " + added.size() + ", input: " + input);
+      if (!removed.isEmpty()) System.out.println("\tRemoved: " + removed.toPattern(false));
+      if (!added.isEmpty()) System.out.println("\tAdded: " + added.toPattern(false));
+    }
+  }
+  
+  public static UnicodeSet applyPropertyAlias(String propertyName, String propertyValue, UnicodeSet result) {
+    UnicodeSet original;
+    if (DEBUG) {
+      original = new UnicodeSet(result).applyPropertyAlias(propertyName, propertyValue);
+    }
+    if (!myXSymbolTable.applyPropertyAlias(propertyName, propertyValue, result)) {
+      result.applyPropertyAlias(propertyName, propertyValue);
+    }
+    if (DEBUG) {
+      checkDifferences(propertyName + "=" + propertyValue, result, original);
+    }
+    return result;
+  }
+  
+  // Standard items
+  public static final Set<String> EUROPEAN = loadUnmodifiable(new TreeSet<String>(),
+          "Latin", "Greek", "Coptic", "Cyrillic", 
+ "Glag", "Armenian", "Georgian", "Shavian", "braille", 
+ "ogham", "runic", "Gothic", "Cypriot", "Linear b", 
+ "old italic");
+
+  public static final Set<String> MIDDLE_EASTERN = loadUnmodifiable(new TreeSet<String>(),
+          "Hebrew", "Arabic", "Syriac", "Thaana", "Carian", "Lycian", "Lydian", "Phoenician", 
+ "Cuneiform", "old persian", "ugaritic"
+ );
+  public static final Set<String> SOUTH_ASIAN = loadUnmodifiable(new TreeSet<String>(),
+          "Devanagari", "Bengali", "Gurmukhi", "Gujarati", 
+ "Oriya", "Tamil", "Telugu", "Kannada", "Malayalam", 
+ "Sinhala", "Tibetan", "Phags-Pa", "Limbu", "Sylo", "Kharoshthi", "lepcha", "saurashtra", "ol chiki"
+ );
+  public static final Set<String> SOUTHEAST_ASIAN = loadUnmodifiable(new TreeSet<String>(),
+          "Thai", "Lao", "Myanmar", "Khmer", 
+ "Tai_Le", "New Tai Lue", "Tagalog", "Hanunoo", "Buhid",
+ "Tagbanwa", "Buginese", "Balinese", "Cham", "kayah li", "rejang", "sundanese"
+ );
+  public static final Set<String> EAST_ASIAN = loadUnmodifiable(new TreeSet<String>(),
+          "Bopomofo", "Hiragana", "Katakana", "Mongolian", "Yi", "Han", "Hangul"
+ );
+  public static final Set<String> AFRICAN = loadUnmodifiable(new TreeSet<String>(),
+          "Ethiopic", "Osmanya", "Tifinagh", "Nko", "vai"
+ );
+  public static final Set<String> AMERICAN = loadUnmodifiable(new TreeSet<String>(),
+          "Cherokee", "CANS", "Deseret"
+ );
+  
+//  public static final UnicodeSet OTHER_SCRIPTS = (UnicodeSet) parseUnicodeSet("[^[:script=common:][:script=inherited:]]")
+//  .removeAll(EUROPEAN)
+//  .removeAll(MIDDLE_EASTERN)
+//  .removeAll(SOUTH_ASIAN)
+//  .removeAll(SOUTHEAST_ASIAN)
+//  .removeAll(EAST_ASIAN)
+//  .removeAll(AFRICAN)
+//  .removeAll(AMERICAN)
+//  .removeAll(parseUnicodeSet("[[:script=han:][:script=hangul:]]"))
+//  .freeze();
+  
   // Code to generate lists
 
   private static Map<String, UnicodeSet> loadData(String[][] data) {
@@ -480,6 +587,13 @@ public class ScriptCategories {
     }
     Map<String, UnicodeSet> foo = Collections.unmodifiableMap(script_new);
     return foo;
+  }
+
+  private static <U> Set<U> loadUnmodifiable(Set<U> set, U... items) {
+    for (U item : items) {
+      set.add(item);
+    }
+    return Collections.unmodifiableSet(set);
   }
 
   enum RemapType {NONE, SCRIPT, CATEGORY};
@@ -567,10 +681,14 @@ public class ScriptCategories {
     return data;
   }
 
-  private static String getFixedPropertyValue(int propertyEnum, String valueName) {
+  public static String getFixedPropertyValue(int propertyEnum, String valueName) {
     int valueEnum = UCharacter.getPropertyValueEnum(propertyEnum, valueName);
     String fixed = UCharacter.getPropertyValueName(propertyEnum, valueEnum, UProperty.NameChoice.LONG);
     return fixed;
+  }
+  
+  public static String getFixedPropertyValue(String propertyName, String valueName) {
+    return getFixedPropertyValue(UCharacter.getPropertyEnum(propertyName), valueName);
   }
 
   private static <T> void addToMapToUnicodeSet(Map<T, UnicodeSet> mapToUnicodeSet, T key, UnicodeSet additions) {
@@ -591,6 +709,14 @@ public class ScriptCategories {
   }
 
   public static void main(String[] args) throws IOException {
+    parseUnicodeSet("[[:script=han:]-[:block=CJK Unified Ideographs:]]");
+    parseUnicodeSet("[:Lm:]");
+    parseUnicodeSet("[:s:]");
+    parseUnicodeSet("[:Letter:]");
+    parseUnicodeSet("[:script=Common:]");
+    parseUnicodeSet("[[:Letter:]&[:script=common:]]");
+    parseUnicodeSet("[[:So:]&[[:script=common:][:script=inherited:]][[:Letter:]&[:script=common:]]]");
+
     Map<RemapType, Map<String, UnicodeSet>> data = getRemapData(args[0] + "ScriptData.txt");
     for (RemapType r : data.keySet()) {
       UnicodeSet changed = getChanged(data, r);

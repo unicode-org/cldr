@@ -9,12 +9,14 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
-import java.util.BitSet;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -24,13 +26,9 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.PatternFixer.Target;
-import org.unicode.cldr.util.UnicodeMap;
-
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
@@ -39,7 +37,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.LocaleData;
 import com.ibm.icu.util.ULocale;
 
-public class GeneratePickerData {
+class GeneratePickerData {
   private static final String ARCHAIC_MARKER = "\uE000";
   private static final String COMPAT_MARKER = "\uE001";
 
@@ -60,15 +58,15 @@ public class GeneratePickerData {
 
   private static final String EAST_ASIAN = "Other East Asian Scripts";
 
-  private static final UnicodeSet COMPATIBILITY = (UnicodeSet) new UnicodeSet("[[:nfkcqc=n:]-[:Lm:]]")
+  private static final UnicodeSet COMPATIBILITY = (UnicodeSet) ScriptCategories.parseUnicodeSet("[[:nfkcqc=n:]-[:Lm:]]")
   .removeAll(ScriptCategories.IPA)
   .removeAll(ScriptCategories.IPA_EXTENSIONS)
   .freeze();
 
   static final boolean DEBUG = false;
 
-  private static final UnicodeSet SKIP = (UnicodeSet) new UnicodeSet("[[:cn:][:cs:][:co:][:cc:]\uFFFC]").addAll(ScriptCategories.DEPRECATED_NEW).freeze();
-  private static final UnicodeSet KNOWN_DUPLICATES = (UnicodeSet) new UnicodeSet("[:Nd:]").freeze();
+  private static final UnicodeSet SKIP = (UnicodeSet) ScriptCategories.parseUnicodeSet("[[:cn:][:cs:][:co:][:cc:]\uFFFC]").addAll(ScriptCategories.DEPRECATED_NEW).freeze();
+  private static final UnicodeSet KNOWN_DUPLICATES = (UnicodeSet) ScriptCategories.parseUnicodeSet("[:Nd:]").freeze();
 
   public static final UnicodeSet ARCHAIC = ScriptCategories.ARCHAIC;
   //public static final UnicodeSet UNCOMMON = (UnicodeSet) new UnicodeSet(ScriptCategories.ARCHAIC).addAll(COMPATIBILITY).freeze();
@@ -80,35 +78,45 @@ public class GeneratePickerData {
           "[\u1100-\u1112 \u1161-\u1175 \u11A8-\u11C2]"
   ).removeAll(SKIP).freeze();
 
-  private static final UnicodeSet HST_L = (UnicodeSet) new UnicodeSet("[:HST=L:]").freeze();
-  private static final UnicodeSet single = (UnicodeSet) new UnicodeSet("[[:HST=L:][:HST=V:][:HST=T:]]").freeze();
-  private static final UnicodeSet syllable = (UnicodeSet) new UnicodeSet("[[:HST=LV:][:HST=LVT:]]").freeze();
+  private static final UnicodeSet HST_L = (UnicodeSet) ScriptCategories.parseUnicodeSet("[:HST=L:]").freeze();
+  private static final UnicodeSet single = (UnicodeSet) ScriptCategories.parseUnicodeSet("[[:HST=L:][:HST=V:][:HST=T:]]").freeze();
+  private static final UnicodeSet syllable = (UnicodeSet) ScriptCategories.parseUnicodeSet("[[:HST=LV:][:HST=LVT:]]").freeze();
   private static final UnicodeSet all = (UnicodeSet) new UnicodeSet(single).addAll(syllable).freeze();
-  private static final UnicodeSet REAL_HAN = new UnicodeSet("[々〇〡-〩〸-〻]");
-
-  //private static final UnicodeSet WHITESPACE = (UnicodeSet) new UnicodeSet("[:whitespace:]").freeze();
-
-  static RuleBasedCollator ENGLISH_BASE = (RuleBasedCollator) Collator.getInstance(Locale.ENGLISH);
+  static RuleBasedCollator UCA_BASE = (RuleBasedCollator) Collator.getInstance(Locale.ENGLISH);
+  
   static {
-    ENGLISH_BASE.setNumericCollation(true);
+    UCA_BASE.setNumericCollation(true);
   }
+  
+  public static final Comparator<String> CODE_POINT_ORDER = new UTF16.StringComparator(true, false, 0);
 
-  static Comparator<String> ENGLISH = new MultilevelComparator<String>(
-          ENGLISH_BASE,
-          new UTF16.StringComparator()
+  static Comparator<String> UCA = new MultilevelComparator<String>(
+          UCA_BASE,
+          CODE_POINT_ORDER
   );
 
   static Comparator<String> buttonComparator = new MultilevelComparator<String>(
-          //new UnicodeSetInclusionFirst(new UnicodeSet("[:ascii:]")),
-          //new UnicodeSetInclusionFirst(new UnicodeSet("[[:Letter:]&[:^NFKC_QuickCheck=N:]]")),
-          new UnicodeSetInclusionFirst(new UnicodeSet("[[:Letter:]-[:Lm:]]")),
-          new UnicodeSetInclusionFirst(new UnicodeSet("[:Lm:]")),
-          ENGLISH,
-          new UTF16.StringComparator()
+          //new UnicodeSetInclusionFirst(ScriptCategories.parseUnicodeSet("[:ascii:]")),
+          //new UnicodeSetInclusionFirst(ScriptCategories.parseUnicodeSet("[[:Letter:]&[:^NFKC_QuickCheck=N:]]")),
+          new UnicodeSetInclusionFirst(ScriptCategories.parseUnicodeSet("[[:Letter:]-[:Lm:]]")),
+          new UnicodeSetInclusionFirst(ScriptCategories.parseUnicodeSet("[:Lm:]")),
+          UCA_BASE,
+          CODE_POINT_ORDER
   );
+  
+  static Comparator<String> LinkedHashSetComparator = new Comparator<String>() {
+    public int compare(String arg0, String arg1) {
+      throw new IllegalArgumentException(); // only used to signal usage
+    }
+  };
+  
+  static Comparator<String> ListComparator = new Comparator<String>() {
+    public int compare(String arg0, String arg1) {
+      throw new IllegalArgumentException(); // only used to signal usage
+    }
+  };
 
-  public static final Comparator<String> SORT_ALWAYS = new UTF16.StringComparator(); // null for piecemeal sorting, ENGLISH for UCA
-
+  public static final Comparator<String> SORT_ALWAYS = CODE_POINT_ORDER; // null for piecemeal sorting, ENGLISH for UCA
 
   static Comparator<String> subCategoryComparator = new Comparator<String>() {
     public int compare(String o1, String o2) {
@@ -122,7 +130,7 @@ public class GeneratePickerData {
       if (a != b) {
         return a ? 1 : -1;
       }
-      return ENGLISH.compare(o1, o2);
+      return UCA.compare(o1, o2);
     }
   };
 
@@ -167,15 +175,15 @@ public class GeneratePickerData {
 /Users/markdavis/Documents/workspace/DATA/UCD/5.1.0-Update/Unihan.txt
      */
 
-    if (DEBUG) System.out.println("Whitespace? " + new UnicodeSet("[:z:]").equals(new UnicodeSet("[:whitespace:]")));
+    if (DEBUG) System.out.println("Whitespace? " + ScriptCategories.parseUnicodeSet("[:z:]").equals(ScriptCategories.parseUnicodeSet("[:whitespace:]")));
 
-    buildMainTable(args);
-    writeMainFile(outputDirectory);
-    writeMainFile(localDataDirectory);
+    buildMainTable();
+    writeMainFile(outputDirectory, true);
+    writeMainFile(localDataDirectory, true);
     renamingLog.close();
   }
 
-  private static void buildMainTable(String[] args) throws IOException {
+  private static void buildMainTable() throws IOException {
     subheader = new Subheader(unicodeDataDirectory, outputDirectory);
 
     //addHan();
@@ -199,42 +207,43 @@ public class GeneratePickerData {
 
 
     addSymbols();
-    CATEGORYTABLE.add("Symbol", true, "Superscript", buttonComparator, new UnicodeSet("[:dt=super:]"));
-    CATEGORYTABLE.add("Symbol", true, "Subscript", buttonComparator, new UnicodeSet("[:dt=sub:]"));
+    CATEGORYTABLE.add("Symbol", true, "Superscript", buttonComparator, false, ScriptCategories.parseUnicodeSet("[:dt=super:]"));
+    CATEGORYTABLE.add("Symbol", true, "Subscript", buttonComparator, false, ScriptCategories.parseUnicodeSet("[:dt=sub:]"));
 
     addProperty("General_Category", "Category", buttonComparator, 
-            new UnicodeSet("[[\\u0000-\\U0010FFFF]-[:letter:]-[:default_ignorable_code_point:]-[:cf:]-[:whitespace:]-[:So:]" +
-            "-[[:M:]-[:script=common:]-[:script=inherited:]]]"), true);
+            ScriptCategories.parseUnicodeSet("[[:script=common:][:script=inherited:][:N:]" +
+            		"-[:letter:]" +
+            		"-[:default_ignorable_code_point:]" +
+            		"-[:cf:]" +
+            		"-[:whitespace:]" +
+            		"-[:So:]" +
+            //"-[[:M:]-[:script=common:]-[:script=inherited:]]" +
+            "]"));
 
-    CATEGORYTABLE.add("Invisibles", true, "Whitespace", null, new UnicodeSet("[:whitespace:]"));
-    CATEGORYTABLE.add("Invisibles", true, "Format", null, new UnicodeSet("[:cf:]"));
-    CATEGORYTABLE.add("Invisibles", true, "Other", null, new UnicodeSet("[[:default_ignorable_code_point:]-[:cf:]-[:whitespace:]]"));
+    CATEGORYTABLE.add("Invisibles", true, "Whitespace", buttonComparator, true, ScriptCategories.parseUnicodeSet("[:whitespace:]"));
+    CATEGORYTABLE.add("Invisibles", true, "Format", buttonComparator, true, ScriptCategories.parseUnicodeSet("[:cf:]"));
+    CATEGORYTABLE.add("Invisibles", true, "Other", buttonComparator, true, ScriptCategories.parseUnicodeSet("[[:default_ignorable_code_point:]-[:cf:]-[:whitespace:]]"));
 
     addLatin();
-    addProperty("Script", EUROPEAN, buttonComparator, new UnicodeSet(ScriptCategories.EUROPEAN).removeAll(new UnicodeSet("[:script=latin:]")), true);
-    addProperty("Script", AFRICAN, buttonComparator, ScriptCategories.AFRICAN, true);
-    addProperty("Script", MIDDLE_EASTERN, buttonComparator, ScriptCategories.MIDDLE_EASTERN, true);
-    addProperty("Script", SOUTH_ASIAN, buttonComparator, ScriptCategories.SOUTH_ASIAN, true);
-    addProperty("Script", SOUTHEAST_ASIAN, buttonComparator, ScriptCategories.SOUTHEAST_ASIAN, true);
+    Set<String> EuropeanMinusLatin = new TreeSet<String>(ScriptCategories.EUROPEAN);
+    EuropeanMinusLatin.remove("Latin");
+    Set<String> EastAsianMinusHanAndHangul = new TreeSet<String>(ScriptCategories.EAST_ASIAN);
+    EastAsianMinusHanAndHangul.remove("Han");
+    EastAsianMinusHanAndHangul.remove("Hangul");
+    addProperty("Script", EUROPEAN, buttonComparator, EuropeanMinusLatin);
+    addProperty("Script", AFRICAN, buttonComparator, ScriptCategories.AFRICAN);
+    addProperty("Script", MIDDLE_EASTERN, buttonComparator, ScriptCategories.MIDDLE_EASTERN);
+    addProperty("Script", SOUTH_ASIAN, buttonComparator, ScriptCategories.SOUTH_ASIAN);
+    addProperty("Script", SOUTHEAST_ASIAN, buttonComparator, ScriptCategories.SOUTHEAST_ASIAN);
     addHangul();
     addHan();
-    addProperty("Script", EAST_ASIAN, buttonComparator, ScriptCategories.EAST_ASIAN, true);
-    addProperty("Script", AMERICAN, buttonComparator, ScriptCategories.AMERICAN, true);
-    addProperty("Script", "Other Letters", buttonComparator, ScriptCategories.OTHER_SCRIPTS, true);
-
-    // special overrides
-    CATEGORYTABLE.removeAll(new UnicodeSet("[\u0CF1\u0CF2\uFDFD]"));
-    CATEGORYTABLE.add(SOUTH_ASIAN, true, "Kannada", buttonComparator, new UnicodeSet("[\u0CF1\u0CF2]"));
-    CATEGORYTABLE.add(MIDDLE_EASTERN, true, "Arabic", buttonComparator, new UnicodeSet("[\uFDFD]"));
-    /*
-U+0CF1 ( ೱ ) KANNADA SIGN JIHVAMULIYA
-U+0CF2 ( ೲ ) KANNADA SIGN UPADHMANIYA
-U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
-     */
+    addProperty("Script", EAST_ASIAN, buttonComparator, EastAsianMinusHanAndHangul);
+    addProperty("Script", AMERICAN, buttonComparator, ScriptCategories.AMERICAN);
   }
 
-  static UnicodeSet LATIN = (UnicodeSet) new UnicodeSet("[:script=Latin:]").freeze();
-  static Set<String> SKIP_LOCALES = new HashSet();
+
+  static UnicodeSet LATIN = (UnicodeSet) ScriptCategories.parseUnicodeSet("[:script=Latin:]").freeze();
+  static Set<String> SKIP_LOCALES = new HashSet<String>();
   static {
     SKIP_LOCALES.add("kl");
     SKIP_LOCALES.add("eo");
@@ -253,25 +262,28 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
         continue;
       }
       addAndNoteNew(loc, exemplars, exemplarSet);
-      RuleBasedCollator c = (RuleBasedCollator) Collator.getInstance(loc);
-      //UnicodeSet collationExemplars = c.getTailoredSet();
-      //addAndNoteNew(loc, exemplars, collationExemplars);
     }
     UnicodeSet closed = new UnicodeSet(exemplars);
-    closeOver(closed).retainAll(new UnicodeSet("[[:L:][:M:]-[:nfkcqc=n:]]"));
+    closeOver(closed).retainAll(ScriptCategories.parseUnicodeSet("[[:L:][:M:]-[:nfkcqc=n:]]"));
 
     System.out.println("Exemplars: " + closed);
-    final UnicodeSet common = new UnicodeSet("[[aáàăâấầåäãąāảạậ æ b c ćčç dđð eéèêếềểěëėęēệ ə f ƒ gğ h iíìî ïįīị ı j-lľļł m nńňñņ oóòô ốồổöőõøơớờởợọộ œ p-rř s śšş tťţ uúùûůüűųūủưứữ ựụ v-yýÿ zźžż þ]]");
-    closeOver(common).retainAll(new UnicodeSet("[[:L:][:M:]-[:nfkcqc=n:]]"));
+    final UnicodeSet common = ScriptCategories.parseUnicodeSet("[[aáàăâấầåäãąāảạậ æ b c ćčç dđð eéèêếềểěëėęēệ ə f ƒ gğ h iíìî ïįīị ı j-lľļł m nńňñņ oóòô ốồổöőõøơớờởợọộ œ p-rř s śšş tťţ uúùûůüűųūủưứữ ựụ v-yýÿ zźžż þ]]");
+    closeOver(common).retainAll(ScriptCategories.parseUnicodeSet("[[:L:][:M:]-[:nfkcqc=n:]]"));
 
     System.out.println("Common: " + common);
 
-    exemplars.retainAll(new UnicodeSet("[[:L:][:M:]-[:nfkcqc=n:]]"));
+    exemplars.retainAll(ScriptCategories.parseUnicodeSet("[[:L:][:M:]-[:nfkcqc=n:]]"));
 
-    CATEGORYTABLE.add("Latin", true, "Common", buttonComparator, exemplars);
-    CATEGORYTABLE.add("Latin", true, "Phonetics (IPA)", buttonComparator, ScriptCategories.IPA);
-    CATEGORYTABLE.add("Latin", true, "Phonetics (X-IPA)", buttonComparator, ScriptCategories.IPA_EXTENSIONS);
-    CATEGORYTABLE.add("Latin", true, "Other", buttonComparator, new UnicodeSet("[:script=Latin:]")
+    CATEGORYTABLE.add("Latin", true, "Common", buttonComparator, false, exemplars);
+    CATEGORYTABLE.add("Latin", true, "Phonetics (IPA)", buttonComparator, false, ScriptCategories.IPA);
+    CATEGORYTABLE.add("Latin", true, "Phonetics (X-IPA)", buttonComparator, false, ScriptCategories.IPA_EXTENSIONS);
+    String flipped = 
+      "ɒdɔbɘᎸǫʜiꞁʞlmnoqpɿƨƚuvwxʏƹ؟" +
+      "AᙠƆᗡƎꟻᎮHIႱᐴᏗMИOꟼϘЯƧTUVWXYƸ" +
+      "ɐqɔpǝɟɓɥɪſʞ1ɯuodbɹsʇnʌʍxʎz¿" +
+      "∀ᙠƆᗡƎℲ⅁HIΓᐴ⅂ꟽNOԀÓᴚƧ⊥ȠɅM⅄Z";
+    CATEGORYTABLE.add("Latin", true, "Flipped/Mirrored", ListComparator, false, flipped);
+    CATEGORYTABLE.add("Latin", true, "Other", buttonComparator, true, ScriptCategories.parseUnicodeSet("[:script=Latin:]")
     .removeAll(ScriptCategories.SCRIPT_CHANGED)
     .addAll(ScriptCategories.SCRIPT_NEW.get("Latin"))
     .removeAll(ScriptCategories.IPA)
@@ -300,13 +312,13 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
     toAddTo.addAll(toAdd);
   }
 
-  private static void writeMainFile(String directory) throws IOException, FileNotFoundException {
+  private static void writeMainFile(String directory, boolean showData) throws IOException, FileNotFoundException {
     PrintWriter out = getFileWriter(directory, "CharData.java");
     out.println("package com.macchiato.client;");
     out.println("// " + new Date());
     out.println("public class CharData {");
     out.println("static String[][] CHARACTERS_TO_NAME = {");
-    out.println(buildNames());
+    out.println(buildNames(showData));
     out.println("  };\r\n" +
     "  static String[][][] CATEGORIES = {");
 
@@ -326,7 +338,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
 
   //  private static void getCasedScripts() {
   //    Set<String> set = new TreeSet();
-  //    for (UnicodeSetIterator it = new UnicodeSetIterator(new UnicodeSet("[:^NFKCquickcheck=N:]-[:script=common:]")); it.next();) {
+  //    for (UnicodeSetIterator it = new UnicodeSetIterator(ScriptCategories.parseUnicodeSet("[:^NFKCquickcheck=N:]-[:script=common:]")); it.next();) {
   //      
   //      String script = UCharacter.getStringPropertyValue(UProperty.SCRIPT, it.codepoint, UProperty.NameChoice.LONG).toString();
   //      set.add(script);
@@ -335,15 +347,15 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
   //  }
 
   private static void addSymbols() {
-    for (UnicodeSetIterator it = new UnicodeSetIterator(new UnicodeSet("[[:So:]&[[:script=common:][:script=inherited:]]" +
+    for (UnicodeSetIterator it = new UnicodeSetIterator(ScriptCategories.parseUnicodeSet("[[:So:]&[[:script=common:][:script=inherited:]]" +
     "[[:Letter:]&[:script=common:]]]")); it.next();) {
       if (COMPATIBILITY.contains(it.codepoint)) {
-        CATEGORYTABLE.add("Symbol", true, "Compatibility", buttonComparator, it.codepoint, it.codepoint);
+        CATEGORYTABLE.add("Symbol", true, "Compatibility", buttonComparator, true, it.codepoint, it.codepoint);
         continue;
       }
       String block = UCharacter.getStringPropertyValue(UProperty.BLOCK, it.codepoint, UProperty.NameChoice.LONG).toString();
 
-      CATEGORYTABLE.add("Symbol", true, block, buttonComparator, it.codepoint, it.codepoint);
+      CATEGORYTABLE.add("Symbol", true, block, buttonComparator, true, it.codepoint, it.codepoint);
     }
   }
 
@@ -352,7 +364,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       for (int modern = 0; modern < 2; ++modern) {
         for (char c : new char [] {'L', 'V', 'T'}) {
           UnicodeSet uset = new UnicodeSet();
-          for (UnicodeSetIterator it = new UnicodeSetIterator(new UnicodeSet("[:HST=" + c + ":]")); it.next();) {
+          for (UnicodeSetIterator it = new UnicodeSetIterator(ScriptCategories.parseUnicodeSet("[:HST=" + c + ":]")); it.next();) {
             if (UCharacter.getName(it.codepoint).contains("FILLER")) continue;
             String s = it.getString();
             String d = MKD.transform(s);
@@ -403,7 +415,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
     Map<String,String> decomp2comp = new HashMap<String,String>();
 
     System.out.println("find defectives");
-    for (UnicodeSetIterator it = new UnicodeSetIterator(new UnicodeSet("[:script=Hangul:]")); it.next();) {
+    for (UnicodeSetIterator it = new UnicodeSetIterator(ScriptCategories.parseUnicodeSet("[:script=Hangul:]")); it.next();) {
       final String comp = it.getString();
       String decomp = MKD.transform(comp);
       decomp2comp.put(decomp, comp);
@@ -459,35 +471,6 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
     }
   }
 
-  static class ChronologicalComparator<T> implements Comparator<T> {
-    private Map<T,Integer> items = new LinkedHashMap<T, Integer>();
-    
-    public ChronologicalComparator<T> add(T item) {
-      items.put(item, items.size());
-      return this;
-    }
-
-    public int compare(T o1, T o2) {
-      Integer count1 = items.get(o1);
-      Integer count2 = items.get(o2);
-      // handle missing cases
-      if (count1 == null) {
-        return count2 == null ? 0 : -1;
-      } else if (count2 == null) {
-        return 1;
-      }
-      return count1 - count2;// > 0 if count1 > count2, and so on
-    }
-
-  };
-
-  static public ChronologicalComparator<String> add(ChronologicalComparator<String> target, UnicodeSet items) {
-    for (UnicodeSetIterator it = new UnicodeSetIterator(items); it.next();) {
-      target.add(it.getString());
-    }
-    return target;
-  }
-
   public static String codeAndName(String comp) {
     return toHex(comp, false) + "(" + comp + ")" + UCharacter.getExtendedName(comp.codePointAt(0));
   }
@@ -507,7 +490,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
     //    final boolean test = rad2.reset("U+3433 kRSUnicode  9.3").matches();
     //    System.out.println("Test match: " + test);
     Map<Integer,Map<String,Map<Integer,UnicodeSet>>> index = new TreeMap<Integer, Map<String,Map<Integer,UnicodeSet>>>();
-    UnicodeSet remainder = new UnicodeSet("[:script=Han:]").removeAll(SKIP);
+    UnicodeSet remainder = ScriptCategories.parseUnicodeSet("[:script=Han:]").removeAll(SKIP);
     //index.put("Other", remainder);
     //    Map<String,String> radicalToChar = new TreeMap<String, String>();
     //    for (int i = 1; i < 215; ++i) {
@@ -566,17 +549,16 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
     }
     in.close();
 
+    UnicodeSet others = ScriptCategories.parseUnicodeSet("[:script=Han:]");
     // find base values
-
     for (int radicalStrokes : index.keySet()) {
       //String mainCat = null;
       Map<String, Map<Integer, UnicodeSet>> char2RemStrokes2Set = index.get(radicalStrokes);
       for (String radical : char2RemStrokes2Set.keySet()) {
         Map<Integer, UnicodeSet> remStrokes2Set = char2RemStrokes2Set.get(radical);
-        ChronologicalComparator<String> chronological = new ChronologicalComparator<String>() ;
         for (int remStrokes : remStrokes2Set.keySet()) {
           int radicalChar = ScriptCategories.RADICAL_NUM2CHAR.get(radical);
-          String mainCat = "Han " + radicalStrokes + "-Stroke Radicals";
+          String mainCat = "Han " + (radicalStrokes > 10 ? "- Other" : String.valueOf(radicalStrokes) + "-Stroke Radicals");
           String subCat = UTF16.valueOf(radicalChar);
           //if (DEBUG) System.out.println(radical + " => " + radicalToChar.get(radical));
           //      String radChar = getRadicalName(radicalToChar, radical);
@@ -593,16 +575,19 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
           //        subCat = "CJK";
           //      }
           final UnicodeSet values = remStrokes2Set.get(remStrokes);
+          others.removeAll(values);
           UnicodeSet normal = new UnicodeSet(values).removeAll(ARCHAIC).removeAll(COMPATIBILITY).removeAll(ARCHAIC_HAN);
-          CATEGORYTABLE.add(mainCat, true, subCat, null, normal); // add(chronological, normal)
+          CATEGORYTABLE.add(mainCat, true, subCat, LinkedHashSetComparator, true, normal);
           values.removeAll(normal);
-          CATEGORYTABLE.add(mainCat, true, "Other", null, values);
+          CATEGORYTABLE.add(mainCat, true, "Other", LinkedHashSetComparator, true, values);
         }
       }
     }
+    CATEGORYTABLE.add("Han - Other", true, "Other", LinkedHashSetComparator, true, others);
+
 
     //    UnicodeSet temp = new UnicodeSet();
-    //    for (UnicodeSetIterator it = new UnicodeSetIterator(new UnicodeSet("[:script=Han:]").removeAll(SKIP)); it.next();) {
+    //    for (UnicodeSetIterator it = new UnicodeSetIterator(ScriptCategories.parseUnicodeSet("[:script=Han:]").removeAll(SKIP)); it.next();) {
     //      temp.add(it.codepoint);
     //      if (temp.size() >= 800) {
     //        int code = temp.charAt(0);
@@ -620,7 +605,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
           int radicalStrokes, String radicalChar, int remainingStrokes, int cp) {
     Map<String, Map<Integer, UnicodeSet>> subIndex = index.get(radicalStrokes);
     if (subIndex == null) {
-      index.put(radicalStrokes, subIndex = new TreeMap<String, Map<Integer, UnicodeSet>>(ENGLISH));
+      index.put(radicalStrokes, subIndex = new TreeMap<String, Map<Integer, UnicodeSet>>(UCA));
     }
     Map<Integer, UnicodeSet> uset = subIndex.get(radicalChar);
     if (uset == null) {
@@ -644,10 +629,10 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
   //  }
 
   private static void addHangul() {
-    for (UnicodeSetIterator it = new UnicodeSetIterator(new UnicodeSet("[:script=Hangul:]").removeAll(SKIP)); it.next();) {
+    for (UnicodeSetIterator it = new UnicodeSetIterator(ScriptCategories.parseUnicodeSet("[:script=Hangul:]").removeAll(SKIP)); it.next();) {
       String str = it.getString();
       if (ScriptCategories.ARCHAIC.contains(it.codepoint)) {
-        CATEGORYTABLE.add("Hangul", true, "Archaic Hangul", buttonComparator, it.codepoint, it.codepoint);
+        CATEGORYTABLE.add("Hangul", true, "Archaic Hangul", buttonComparator, true, it.codepoint, it.codepoint);
         continue;
       }
       String s = MKKD.transform(str);
@@ -656,18 +641,19 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
         decompCodePoint1 = s.codePointAt(1);
       }
       if (!HST_L.contains(decompCodePoint1) || it.codepoint == 0x115F || it.codepoint == 0x1160) {
-        CATEGORYTABLE.add("Hangul", true, "\u1161 Vowel/Trailing/Filler", buttonComparator, it.codepoint);
+        CATEGORYTABLE.add("Hangul", true, "Other", buttonComparator, true, it.codepoint);
         continue;
       }
       if (COMPATIBILITY.contains(it.codepoint)) {
-        CATEGORYTABLE.add("Hangul", true, "Compatibility", buttonComparator, it.codepoint);
+        CATEGORYTABLE.add("Hangul", true, "Compatibility", buttonComparator, true, it.codepoint);
         continue;
       }
-      CATEGORYTABLE.add("Hangul", true, UTF16.valueOf(decompCodePoint1) + " " + UCharacter.getExtendedName(decompCodePoint1), buttonComparator, it.codepoint);
+      CATEGORYTABLE.add("Hangul", true, UTF16.valueOf(decompCodePoint1) + " " + UCharacter.getExtendedName(decompCodePoint1), 
+              buttonComparator, true, it.codepoint);
     }
   }
 
-  private static String buildNames() {
+  private static String buildNames(boolean showData) {
     StringBuilder result = new StringBuilder();
     for (UnicodeSetIterator it = new UnicodeSetIterator(NAMED_CHARACTERS); it.next();) {
       result.append("{\"" + it.getString() + "\",\"" + UCharacter.getExtendedName(it.codepoint) + "\"},\r\n");
@@ -711,19 +697,26 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
     static Map<String, Map<String, GeneratePickerData.USet>> categoryTable =  //new TreeMap<String, Map<String, USet>>(ENGLISH); // 
       new LinkedHashMap<String, Map<String, GeneratePickerData.USet>>();
 
-    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, UnicodeSet values) {
+    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, boolean separateOld, UnicodeSet values) {
       for (UnicodeSetIterator it = new UnicodeSetIterator(values); it.next();) {
-        add(category, sortSubcategory, subcategory, sortValues, it.codepoint);
+        add(category, sortSubcategory, subcategory, sortValues, separateOld, it.codepoint);
+      }
+    }
+    
+    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, boolean separateOld, String values) {
+      int cp;
+      for (int i = 0; i < values.length(); i += UTF16.getCharCount(cp)) {
+        add(category, sortSubcategory, subcategory, sortValues, separateOld, cp = values.charAt(i));
       }
     }
 
-    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, int startCodePoint, int endCodePoint) {
+    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, boolean separateOld, int startCodePoint, int endCodePoint) {
       for (int i = startCodePoint; i <= endCodePoint; ++i) {
-        add(category, sortSubcategory, subcategory, sortValues, i);
+        add(category, sortSubcategory, subcategory, sortValues, separateOld, i);
       }
     }
 
-    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, int codepoint) {
+    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, boolean separateOld, int codepoint) {
       //if (ADD_SUBHEAD.contains(codepoint))
       {
         String subhead = subheader.getSubheader(codepoint);
@@ -734,33 +727,37 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       SimplePair names = renamer.rename(category, subcategory);
       final String mainCategory = names.getFirst();
       final String subCategory = names.getSecond();
-      if (ARCHAIC.contains(codepoint) || ARCHAIC_HAN.contains(codepoint)) {
+      if (separateOld && ARCHAIC.contains(codepoint) || ARCHAIC_HAN.contains(codepoint)) {
         CATEGORYTABLE.add2(mainCategory, sortSubcategory, ARCHAIC_MARKER + subCategory, null, codepoint);
-      } else if (COMPATIBILITY.contains(codepoint)) {
+      } else if (separateOld && COMPATIBILITY.contains(codepoint)) {
         CATEGORYTABLE.add2(mainCategory, sortSubcategory, COMPAT_MARKER + subCategory, null, codepoint);
       } else {
         CATEGORYTABLE.add2(mainCategory, sortSubcategory, subCategory, sortValues, codepoint);
       }
     }
 
-    private void add2(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, int values) {
-      GeneratePickerData.USet oldValue = getValues(category, sortSubcategory, subcategory);
-      oldValue.sorted = sortValues != null ? sortValues : SORT_ALWAYS;
-      oldValue.set.add(values);
-      oldValue.set.removeAll(SKIP);
+    private void add2(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, int codePoint) {
+      GeneratePickerData.USet oldValue = getValues(category, sortSubcategory, subcategory, sortValues);
+      if (!SKIP.contains(codePoint)) {
+        oldValue.strings.add(UTF16.valueOf(codePoint));
+      }
     }
 
-    public void remove(String category, String subcategory, UnicodeSet values) {
-      GeneratePickerData.USet oldValue = getValues(category, false, subcategory);
-      oldValue.set.removeAll(values);
+    public void removeAll(String category, String subcategory, UnicodeSet values) {
+      Map<String,GeneratePickerData.USet> sub = addMainCategory(category);
+      GeneratePickerData.USet oldValue = sub.get(subcategory);
+      if (oldValue != null) {
+        oldValue.strings.removeAll(addAllToCollection(values, new HashSet<String>()));
+      }
     }
 
     public void removeAll(UnicodeSet values) {
+      HashSet<String> temp = addAllToCollection(values, new HashSet<String>());
       for (String category : categoryTable.keySet()) {
         Map<String,GeneratePickerData.USet> sub = categoryTable.get(category);
         for (String subcategory : sub.keySet()) {
           GeneratePickerData.USet valueChars = sub.get(subcategory);
-          valueChars.set.removeAll(values);
+          valueChars.strings.removeAll(temp);
         }
       }
     }
@@ -776,24 +773,23 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
     //    }
 
     public void remove(String category, String subcategory, int startCodePoint, int endCodePoint) {
-      GeneratePickerData.USet oldValue = getValues(category, false, subcategory);
-      oldValue.set.remove(startCodePoint, endCodePoint);
+      removeAll(category, subcategory, new UnicodeSet(startCodePoint, endCodePoint));
     }
 
     public Map<String,GeneratePickerData.USet> addMainCategory(String mainCategory) {
       Map<String,GeneratePickerData.USet> sub = categoryTable.get(mainCategory);
       if (sub == null) {
-        categoryTable.put(mainCategory, sub = new TreeMap<String,GeneratePickerData.USet>(ENGLISH));
+        categoryTable.put(mainCategory, sub = new TreeMap<String,GeneratePickerData.USet>(UCA));
       }
       return sub;
     }
 
-    private GeneratePickerData.USet getValues(String category, boolean sortSubcategory, String subcategory) {
+    private GeneratePickerData.USet getValues(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues) {
       Map<String,GeneratePickerData.USet> sub = addMainCategory(category);
       GeneratePickerData.USet oldValue = sub.get(subcategory);
       if (oldValue == null) {
         System.out.println(category + MAIN_SUB_SEPARATOR + subcategory);
-        oldValue = new GeneratePickerData.USet();
+        oldValue = new GeneratePickerData.USet(sortValues);
         sub.put(subcategory, oldValue);
       }
       return oldValue;
@@ -801,8 +797,8 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
 
     public String toString() {
       int totalChars = 0, totalCompressed = 0;
-      GeneratePickerData.USet soFar = new GeneratePickerData.USet();
-      GeneratePickerData.USet duplicates = new GeneratePickerData.USet();
+      UnicodeSet soFar = new UnicodeSet();
+      UnicodeSet duplicates = new UnicodeSet();
       StringBuilder result = new StringBuilder();
       for (String category : categoryTable.keySet()) {
         result.append("{{\""+ category + "\"},\r\n");
@@ -810,7 +806,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
         boolean wasArchaic = false;
         for (String subcategory : sub.keySet()) {
           GeneratePickerData.USet valueChars = sub.get(subcategory);
-          if (valueChars.set.isEmpty()) {
+          if (valueChars.strings.isEmpty()) {
             continue;
           }
           if (!wasArchaic && subcategory.startsWith(ARCHAIC_MARKER)) {
@@ -819,28 +815,33 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
           }
           String valueCharsString = addResult(result, valueChars, category, subcategory);
 
-          totalChars += utf8Length(valueChars.set);
+          totalChars += utf8Length(valueChars.strings);
           totalCompressed += utf8Length(valueCharsString);
           //          if (valueChars.set.size() > 1000) {
           //            System.out.println("//Big class: " + category + MAIN_SUB_SEPARATOR + subcategory + MAIN_SUBSUB_SEPARATOR + valueChars.set.size());
           //          }
-          UnicodeSet dups = new UnicodeSet(soFar.set).retainAll(valueChars.set);
-          duplicates.set.addAll(dups);
-          soFar.set.addAll(valueChars.set);
+          UnicodeSet dups = new UnicodeSet(soFar);
+          dups.retainAll(valueChars.strings);
+          duplicates.addAll(dups);
+          soFar.addAll(valueChars.strings);
         }
         result.append("},\r\n");
       }
       // invert soFar to get missing
-      duplicates.set.removeAll(KNOWN_DUPLICATES);
-      duplicates.set.clear(); // don't show anymore
-      soFar.set.complement().removeAll(SKIP);
-      if (soFar.set.size() > 0 || duplicates.set.size() > 0) {
+      duplicates.removeAll(KNOWN_DUPLICATES).removeAll(SKIP);
+      duplicates.clear(); // don't show anymore
+      soFar.complement().removeAll(SKIP);
+      if (soFar.size() > 0 || duplicates.size() > 0) {
         result.append("{{\""+ "TODO" + "\"},\r\n");
-        if (soFar.set.size() > 0) {
-          addResult(result, soFar, "TODO", "Missing");
+        if (soFar.size() > 0) {
+          USet temp = new USet(UCA);
+          addAllToCollection(soFar, temp.strings);
+          addResult(result, temp, "TODO", "Missing");
         }
-        if (duplicates.set.size() > 0) {
-          addResult(result, duplicates, "TODO", "Duplicates");
+        if (duplicates.size() > 0) {
+          USet temp = new USet(UCA);
+          addAllToCollection(duplicates, temp.strings);
+          addResult(result, temp, "TODO", "Duplicates");
         }
         result.append("},\r\n");
       }
@@ -850,38 +851,11 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       return result.toString();
     }
 
-    private int utf8Length(UnicodeSet set) {
-      int len = 0;
-      for (UnicodeSetIterator it = new UnicodeSetIterator(set); it.next();) {
-        int cp = it.codepoint;
-        if (it.codepoint == UnicodeSetIterator.IS_STRING) {
-          len += utf8Length(it.getString());
-        } else {
-          len += cp < 0x80 ? 1
-                  : cp < 0x800 ? 2
-                          : cp < 0x10000 ? 3
-                                  : 4;
-        }
-      }
-      return len;
-    }
 
-    public int utf8Length(String x) {
-      int cp;
-      int len = 0;
-      for (int i = 0; i < x.length(); i += UTF16.getCharCount(cp)) {
-        cp = UTF16.charAt(x, i);
-        len += cp < 0x80 ? 1
-                : cp < 0x800 ? 2
-                        : cp < 0x10000 ? 3
-                                : 4;
-      }
-      return len;
-    }
 
     private String addResult(StringBuilder result, GeneratePickerData.USet valueChars, String category, String subcategory) {
       if (subcategory.startsWith(ARCHAIC_MARKER)) {
-        if (ARCHAIC_HAN.containsAll(valueChars.set)) {
+        if (ARCHAIC_HAN.containsAll(valueChars.strings)) {
           subcategory = "Less common - " + subcategory.substring(1);
         } else {
           subcategory = "Historic - " + subcategory.substring(1);
@@ -890,13 +864,13 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       if (subcategory.startsWith(COMPAT_MARKER)) {
         subcategory = "Compatibility - " + subcategory.substring(1);
       }
-      final int size = valueChars.set.size();
+      final int size = valueChars.strings.size();
       String valueCharsString;
       try {
         valueCharsString = valueChars.toString();
       } catch (IllegalArgumentException e) {
         System.out.println("/*" + size + "*/" +
-                " "+ category + MAIN_SUB_SEPARATOR + subcategory + "\t" + valueChars.set);
+                " "+ category + MAIN_SUB_SEPARATOR + subcategory + "\t" + valueChars.strings);
         throw e;
       }
       final int length = valueCharsString.length();
@@ -904,7 +878,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       result.append("/*" + size + "," + length + "*/" +
               " {\""+ subcategory + "\",\"" + quoteFixedvalueCharsString + "\"},\r\n");
       System.out.println("/*" + size + "," + length + "*/" +
-              " "+ category + MAIN_SUB_SEPARATOR + subcategory + "\t" + valueChars.set + ", " + toHex(valueCharsString,true));
+              " "+ category + MAIN_SUB_SEPARATOR + subcategory + "\t" + valueChars.strings + ", " + toHex(valueCharsString,true));
       return valueCharsString;
     }
 
@@ -914,7 +888,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
     if (DEBUG) System.out.println("Skip: " + SKIP);
   }
 
-  private static void addProperty(final String propertyAlias, String title, Comparator<String> sort, UnicodeSet retain, boolean addSubheader) {
+  private static void addProperty(String propertyAlias, String title, Comparator<String> sort, UnicodeSet retain) {
     int propEnum = UCharacter.getPropertyEnum(propertyAlias);
 
     // get all the value strings, sorted
@@ -923,7 +897,9 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       String valueAlias = UCharacter.getPropertyValueName(propEnum, i, UProperty.NameChoice.LONG);
 
       valueChars.clear();
-      valueChars.applyPropertyAlias(propertyAlias, valueAlias);
+      //valueChars.applyPropertyAlias(propertyAlias, valueAlias);
+      ScriptCategories.applyPropertyAlias(propertyAlias, valueAlias, valueChars);
+      
       if (DEBUG) System.out.println(valueAlias + ": " + valueChars.size() + ", " + valueChars);
       valueChars.removeAll(SKIP);
       valueChars.retainAll(retain);
@@ -932,11 +908,34 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       if (DEBUG) System.out.println("Filtered " + valueAlias + ": " + valueChars.size() + ", " + valueChars);
 
       for (UnicodeSetIterator it = new UnicodeSetIterator(valueChars); it.next();) {
-        CATEGORYTABLE.add(title, true, valueAlias, sortItems(sort, propertyAlias, valueAlias), it.codepoint);
+        CATEGORYTABLE.add(title, true, valueAlias, sortItems(sort, propertyAlias, valueAlias), true, it.codepoint);
       }
     }
     //result.append("},");
     //System.out.println(result);
+  }
+  
+  private static void addProperty(String propertyAlias, String title, Comparator<String> sort, 
+          Set<String> propertyValues) {
+    // get all the value strings, sorted
+    UnicodeSet valueChars = new UnicodeSet();
+    for (String valueAlias : propertyValues) {
+      valueChars.clear();
+      //valueChars.applyPropertyAlias(propertyAlias, valueAlias);
+      ScriptCategories.applyPropertyAlias(propertyAlias, valueAlias, valueChars);
+      valueAlias = ScriptCategories.getFixedPropertyValue(propertyAlias, valueAlias);
+      
+      if (DEBUG) System.out.println(valueAlias + ": " + valueChars.size() + ", " + valueChars);
+      valueChars.removeAll(SKIP);
+      if (valueChars.size() == 0) continue;
+
+      if (DEBUG) System.out.println("Filtered " + valueAlias + ": " + valueChars.size() + ", " + valueChars);
+
+      for (UnicodeSetIterator it = new UnicodeSetIterator(valueChars); it.next();) {
+        CATEGORYTABLE.add(title, true, valueAlias, sortItems(sort, propertyAlias, valueAlias), true, it.codepoint);
+      }
+    }
+    
   }
 
   private static Comparator<String> sortItems(Comparator<String> sort, String propertyAlias, String valueAlias) {
@@ -944,7 +943,7 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       return null;
     }
     if (valueAlias.equals("Latin")) {
-      return ENGLISH;
+      return UCA;
     }
     return sort;
   }
@@ -1007,39 +1006,57 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
   }
 
   static class USet {
-    public static final USet EMPTY = new USet();
-    Comparator<String> sorted;
-    UnicodeSet set = new UnicodeSet();
+    Collection<String> strings;
+
+    /**
+     * A few choices. As a plain list, as a LinkedHashSet, sorted by code point, or sorted by specific comparator
+     * @param sorted
+     */
+    public USet(Comparator<String> sorted) {
+      if (sorted == null) {
+        strings = new TreeSet<String>(SORT_ALWAYS);
+      } else if (sorted == ListComparator) {
+        strings = new ArrayList<String>();
+      } else if (sorted == LinkedHashSetComparator) {
+        strings = new LinkedHashSet<String>();
+      } else {
+        strings = new TreeSet<String>(sorted);
+      }
+    }
 
     public String toString() {
       StringBuilder result = new StringBuilder();
-      if (sorted != null) {
-        Set<String> set2 = new TreeSet(sorted);
-        for (UnicodeSetIterator it = new UnicodeSetIterator(set); it.next();) {
-          set2.add(it.getString());
-        }
-        //if (DEBUG) System.out.println("Sorted " + value + ": " + valueChars.size() + ", " + valueChars);
-        if (set2.isEmpty()) {
-          return null;
-        }
-        // now produce compacted string from a collection
-        appendCompacted(result, set2);
-      } else {
-        for (UnicodeSetIterator it = new UnicodeSetIterator(set); it.nextRange();) {
-          appendRange(result, it.codepoint, it.codepointEnd);
-        }
-      }
-      UnicodeSet reversal = getFromCompacted(result.toString());
-      if (!reversal.equals(set)) {
-        UnicodeSet ab = new UnicodeSet(set).removeAll(reversal);
-        UnicodeSet ba = new UnicodeSet(reversal).removeAll(set);
+      appendCompacted(result, strings);
+//      if (sorted != null) {
+//        Set<String> set2 = new TreeSet(sorted);
+//        for (String s : set) {
+//          set2.add(s);
+//        }
+//        //if (DEBUG) System.out.println("Sorted " + value + ": " + valueChars.size() + ", " + valueChars);
+//        if (set2.isEmpty()) {
+//          return null;
+//        }
+//        // now produce compacted string from a collection
+//        appendCompacted(result, set2);
+//      } else {
+//        for (UnicodeSetIterator it = new UnicodeSetIterator(set); it.nextRange();) {
+//          appendRange(result, it.codepoint, it.codepointEnd);
+//        }
+//      }
+      Collection<String> reversal = getFromCompacted(result.toString());
+      ArrayList<String> original = new ArrayList<String>(strings);
+      if (!reversal.equals(original)) {
+        Set<String> ab = new LinkedHashSet(original);
+        ab.removeAll(reversal);
+        Set<String> ba = new LinkedHashSet(reversal);
+        ba.removeAll(original);
         System.out.println("FAILED!!!!");
         throw new IllegalArgumentException("Failed; in original but not restored: " + ab + "\r\nIn restored but not original: " + ba);
       }
       return result.toString();
     }
 
-    private void appendCompacted(StringBuilder result, Set<String> set2) {
+    private void appendCompacted(StringBuilder result, Collection<String> set2) {
       int first = -1;
       int last = -1;
       for (String item : set2) {
@@ -1069,16 +1086,18 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       }
     }
 
-    UnicodeSet getFromCompacted(String in) {
-      UnicodeSet result = new UnicodeSet();
+    List<String> getFromCompacted(String in) {
+      List<String> result = new ArrayList<String>();
       int cp;
       int first = 0;
       for (int i = 0; i < in.length(); i += Character.charCount(cp)) {
         cp = in.codePointAt(i);
         if (0xE000 <= cp && cp < 0xF800) {
-          result.add(first+1, first + cp - 0xE000);
+          for (int j = first+1; j <= first + cp - 0xE000; ++j) {
+            result.add(UTF16.valueOf(j));
+          }
         } else {
-          result.add(cp);
+          result.add(UTF16.valueOf(cp));
         }
         first = cp;
       }
@@ -1749,9 +1768,9 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
 
   static Pattern IS_ARCHAIC = Pattern.compile("(Obsolete|Ancient|Archaic|Medieval|New Testament|\\bUPA\\b)", Pattern.CASE_INSENSITIVE);
 
-  public static final UnicodeSet ADD_SUBHEAD = (UnicodeSet) new UnicodeSet("[[:S:][:P:][:M:]&[[:script=common:][:script=inherited:]]-[:nfkdqc=n:]]")
+  public static final UnicodeSet ADD_SUBHEAD = (UnicodeSet) ScriptCategories.parseUnicodeSet("[[:S:][:P:][:M:]&[[:script=common:][:script=inherited:]]-[:nfkdqc=n:]]")
   .removeAll(ScriptCategories.ARCHAIC).freeze();
-  private static UnicodeSet ARCHAIC_HAN = new UnicodeSet("[[:script=han:]-[:block=CJK Unified Ideographs:]]"); // we'll alter below
+  private static UnicodeSet ARCHAIC_HAN = ScriptCategories.parseUnicodeSet("[[:script=han:]-[:block=CJK Unified Ideographs:]-[:script=hiragana:]-[:script=katakana:]]"); // we'll alter below
 
   static class Renamer {
     Map<Matcher,String> renameTable = new LinkedHashMap();
@@ -1878,5 +1897,40 @@ U+FDFD ( ﷽ ) ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
       return newGuys;
     }
 
+  }
+  
+  public static <U extends Collection<String>> U addAllToCollection(UnicodeSet input, U output) {
+    for (UnicodeSetIterator it = new UnicodeSetIterator(input); it.next();) {
+      output.add(it.getString());
+    }
+    return output;
+  }
+  
+  public static <U extends Collection<String>> U removeAllFromCollection(UnicodeSet input, U output) {
+    for (UnicodeSetIterator it = new UnicodeSetIterator(input); it.next();) {
+      output.remove(it.getString());
+    }
+    return output;
+  }
+  
+  private static int utf8Length(Collection<String> set) {
+    int len = 0;
+    for (String s : set) {
+      len += utf8Length(s);
+    }
+    return len;
+  }
+
+  public static int utf8Length(String x) {
+    int cp;
+    int len = 0;
+    for (int i = 0; i < x.length(); i += UTF16.getCharCount(cp)) {
+      cp = UTF16.charAt(x, i);
+      len += cp < 0x80 ? 1
+              : cp < 0x800 ? 2
+                      : cp < 0x10000 ? 3
+                              : 4;
+    }
+    return len;
   }
 }

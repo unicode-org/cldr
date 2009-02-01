@@ -214,6 +214,7 @@ Arabic - Punctuation
 U+060C ( ، ) ARABIC COMMA
 U+061B ( ‎؛‎ ) ARABIC SEMICOLON
 U+061F ( ‎؟‎ ) ARABIC QUESTION MARK
+@Common
 Arabic - Koranic annotation signs
 U+06DD ( ۝ ) ARABIC END OF AYAH
 @Arabic, Syriac
@@ -303,12 +304,15 @@ U+FF65 ( ･ ) HALFWIDTH KATAKANA MIDDLE DOT
 U+FF70 ( ｰ ) HALFWIDTH KATAKANA-HIRAGANA PROLONGED SOUND MARK
 U+FF9E ( ﾞ ) HALFWIDTH KATAKANA VOICED SOUND MARK
 U+FF9F ( ﾟ ) HALFWIDTH KATAKANA SEMI-VOICED SOUND MARK
+
 @Hangul
 CJK Symbols And Punctuation - Diacritics
 U+302E ( 〮 ) HANGUL SINGLE DOT TONE MARK
 U+302F ( 〯 ) HANGUL DOUBLE DOT TONE MARK
 @Han
 Later add Tangut, Jurchen, Khitan, once encoded.
+[:Block=Kanbun:]
+[:Block=Ideographic_Description_Characters:]
 CJK Strokes - CJK strokes
 U+31C0 ( ㇀ ) CJK STROKE T
 U+31C1 ( ㇁ ) CJK STROKE WG
@@ -350,6 +354,9 @@ U+31E3 ( ㇣ ) CJK STROKE Q
 CJK Symbols And Punctuation - CJK symbols and punctuation
 U+3001 ( 、 ) IDEOGRAPHIC COMMA
 U+3002 ( 。 ) IDEOGRAPHIC FULL STOP
+Halfwidth And Fullwidth Forms - Halfwidth CJK punctuation
+U+FF61 ( ｡ ) HALFWIDTH IDEOGRAPHIC FULL STOP
+U+FF64 ( ､ ) HALFWIDTH IDEOGRAPHIC COMMA
 @Hiragana, Katakana
 
 Jpan = Japanese (alias for Han + Hiragana + Katakana)

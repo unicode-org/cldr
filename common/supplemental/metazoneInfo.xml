@@ -125,6 +125,11 @@
 			<usesMetazone to="2004-07-25 04:00" from="2004-05-31 03:00" mzone="Argentina_Western"/>
 			<usesMetazone from="2004-07-25 04:00" mzone="Argentina"/>
 		</timezone>
+		<timezone type="America/Argentina/Salta">
+			<usesMetazone to="1991-03-03 02:00" mzone="Argentina"/>
+			<usesMetazone to="1991-10-20 04:00" from="1991-03-03 02:00" mzone="Argentina_Western"/>
+			<usesMetazone from="1991-10-20 04:00" mzone="Argentina"/>
+		</timezone>
 		<timezone type="Pacific/Pago_Pago">
 			<usesMetazone to="1983-10-30 12:00" mzone="Bering"/>
 			<usesMetazone from="1983-10-30 12:00" mzone="Samoa"/>

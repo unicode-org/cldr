@@ -654,6 +654,7 @@ public class ZoneParser {
         { "Atlantic/Faroe", "Atlantic/Faeroe" },
         { "Asia/Kolkata", "Asia/Calcutta" },
         { "Asia/Ho_Chi_Minh", "Asia/Saigon" },
+        { "Asia/Kathmandu", "Asia/Katmandu" },
     };
     FIX_UNSTABLE_TZIDS = Utility.asMap(FIX_UNSTABLE_TZID_DATA);
     RESTORE_UNSTABLE_TZIDS = Utility.asMap(FIX_UNSTABLE_TZID_DATA,

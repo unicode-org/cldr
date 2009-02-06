@@ -4,20 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParsePosition;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.EnumSet;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.regex.Pattern;
-
-import org.unicode.cldr.util.UnicodeMap;
-import org.unicode.cldr.util.UnicodeMap.Composer;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -26,6 +18,7 @@ import com.ibm.icu.text.UnicodeSet;
 public class ScriptCategories {
 
   private static final boolean DEBUG = false;
+  private static final boolean DEBUG_MAIN = false;
 
   // From: http://www.phon.ucl.ac.uk/home/wells/ipa-unicode.htm
   public static final UnicodeSet IPA = (UnicodeSet) new UnicodeSet(
@@ -382,62 +375,63 @@ public class ScriptCategories {
     RADICAL_CHAR2STROKES  = Collections.unmodifiableMap(char2strokes);
   }
 
-  // Generated Code
+  // START OF GENERATED CODE
 
-  public static final UnicodeSet SCRIPT_CHANGED = (UnicodeSet) new UnicodeSet("[\\^`\\u00A8\\u00AF\\u00B4\\u00B8\\u02B9-\\u02DF\\u02E5-\\u02FF\\u0374\\u0375\\u037E\\u0385\\u0387\\u03F6\\u0589\\u0600-\\u0603\\u060C\\u061B\\u061F\\u0640\\u064B-\\u0655\\u0660-\\u0669\\u0670\\u06DD\\u0951\\u0952\\u0964\\u0965\\u0970\\u0CF1\\u0CF2\\u10FB\\u16EB-\\u16ED\\u1735\\u1736\\u1802\\u1803\\u1805\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF\\u2100\\u2101\\u2103-\\u2109\\u2114\\u2116-\\u2118\\u211E-\\u2123\\u2125\\u2127\\u212E\\u2139-\\u213B\\u214A\\u214C\\u214D\\u3001-\\u3004\\u3006\\u3008-\\u3020\\u302A-\\u3035\\u3037\\u303C-\\u303F\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\u31C0-\\u31E3\\u327F\\uA700-\\uA721\\uA788-\\uA78A\\uFDFD\\uFE45\\uFE46\\uFF65\\uFF70\\uFF9E\\uFF9F]").freeze();
+  public static final UnicodeSet SCRIPT_CHANGED = (UnicodeSet) new UnicodeSet("[\\^`\\u00A8\\u00AF\\u00B4\\u00B8\\u02B9-\\u02DF\\u02E5-\\u02FF\\u0374\\u0375\\u037E\\u0385\\u0387\\u03F6\\u0589\\u0600-\\u0603\\u060C\\u061B\\u061F\\u0640\\u064B-\\u0655\\u0660-\\u0669\\u0670\\u06DD\\u0951\\u0952\\u0964\\u0965\\u0970\\u0CF1\\u0CF2\\u10FB\\u16EB-\\u16ED\\u1735\\u1736\\u1802\\u1803\\u1805\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF\\u2100\\u2101\\u2103-\\u2109\\u2114\\u2116-\\u2118\\u211E-\\u2123\\u2125\\u2127\\u212E\\u2139-\\u213B\\u214A\\u214C\\u214D\\u2FF0-\\u2FFF\\u3001-\\u3004\\u3006\\u3008-\\u3020\\u302A-\\u3037\\u303C-\\u303F\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\u3190-\\u319F\\u31C0-\\u31E3\\u327F\\uA700-\\uA721\\uA788-\\uA78A\\uFDFD\\uFE45\\uFE46\\uFF61\\uFF64\\uFF65\\uFF70\\uFF9E\\uFF9F]").freeze();
   public static final Map<String,UnicodeSet> SCRIPT_NEW;
   static {
-    String[][] data = {
-            {"Arabic", "[\\u0600-\\u0603\\u060C\\u061B\\u061F\\u0640\\u064B-\\u0655\\u0660-\\u0669\\u0670\\u06DD\\uFDFD]"},
-            {"Armenian", "[\\u0589]"},
-            {"Bengali", "[\\u0964\\u0965\\u0CF1\\u0CF2]"},
-            {"Bopomofo", "[\\u02EA\\u02EB\\u3001\\u3002\\u302A-\\u302D]"},
-            {"Buhid", "[\\u1735\\u1736]"},
-            {"Common", "[\\u03F6\\u3008-\\u3011\\u3014-\\u301B]"},
-            {"Coptic", "[\\u10FB]"},
-            {"Cyrillic", "[\\u10FB\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF]"},
-            {"Devanagari", "[\\u0951\\u0952\\u0964\\u0965\\u0970\\u0CF1\\u0CF2]"},
-            {"Georgian", "[\\u0589\\u10FB]"},
-            {"Greek", "[\\u0374\\u0375\\u037E\\u0385\\u0387\\u10FB\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF]"},
-            {"Gujarati", "[\\u0964\\u0965\\u0CF1\\u0CF2]"},
-            {"Gurmukhi", "[\\u0964\\u0965\\u0CF1\\u0CF2]"},
-            {"Han", "[\\u3001\\u3002\\u302A-\\u302D\\u31C0-\\u31E3]"},
-            {"Hangul", "[\\u3001-\\u3004\\u3006\\u3013\\u301C-\\u3020\\u302E-\\u3030\\u3037\\u303C-\\u303F\\u327F\\uFE45\\uFE46]"},
-            {"Hanunoo", "[\\u1735\\u1736]"},
-            {"Hiragana", "[\\u3001\\u3002\\u3012\\u3031-\\u3035\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\uFF65\\uFF70\\uFF9E\\uFF9F]"},
-            {"Kannada", "[\\u0964\\u0965\\u0CF1\\u0CF2]"},
-            {"Katakana", "[\\u3001\\u3002\\u3012\\u3031-\\u3035\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\uFF65\\uFF70\\uFF9E\\uFF9F]"},
-            {"Latin", "[\\^`\\u00A8\\u00AF\\u00B4\\u00B8\\u02B9-\\u02DF\\u02E5-\\u02E9\\u02EC-\\u02FF\\u10FB\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF\\u2100\\u2101\\u2103-\\u2109\\u2114\\u2116-\\u2118\\u211E-\\u2123\\u2125\\u2127\\u212E\\u2139-\\u213B\\u214A\\u214C\\u214D\\uA700-\\uA721\\uA788-\\uA78A]"},
-            {"Malayalam", "[\\u0964\\u0965\\u0CF1\\u0CF2]"},
-            {"Mongolian", "[\\u1802\\u1803\\u1805]"},
-            {"Oriya", "[\\u0964\\u0965\\u0CF1\\u0CF2]"},
-            {"Phags_Pa", "[\\u1802\\u1803\\u1805\\u3001\\u3002]"},
-            {"Runic", "[\\u16EB-\\u16ED]"},
-            {"Syriac", "[\\u060C\\u061B\\u061F\\u0640\\u064B-\\u0655\\u0670\\u06DD]"},
-            {"Tagalog", "[\\u1735\\u1736]"},
-            {"Tagbanwa", "[\\u1735\\u1736]"},
-            {"Tamil", "[\\u0964\\u0965\\u0CF1\\u0CF2]"},
-            {"Telugu", "[\\u0964\\u0965\\u0CF1\\u0CF2]"},
-            {"Thaana", "[\\u060C\\u061B\\u061F\\u0660-\\u0669\\u06DD]"},
-            {"Tibetan", "[\\u3001\\u3002]"},
-            {"Yi", "[\\u3001\\u3002]"},
-    };
-    SCRIPT_NEW = loadData(data);
+  String[][] data = {
+    {"Arabic", "[\\u0600-\\u0603\\u060C\\u061B\\u061F\\u0640\\u064B-\\u0655\\u0660-\\u0669\\u0670\\uFDFD]"},
+    {"Armenian", "[\\u0589]"},
+    {"Bengali", "[\\u0964\\u0965\\u0CF1\\u0CF2]"},
+    {"Bopomofo", "[\\u02EA\\u02EB\\u3001\\u3002\\u302A-\\u302D\\uFF61\\uFF64]"},
+    {"Buhid", "[\\u1735\\u1736]"},
+    {"Common", "[\\u03F6\\u06DD\\u3008-\\u3011\\u3014-\\u301B]"},
+    {"Coptic", "[\\u10FB]"},
+    {"Cyrillic", "[\\u10FB\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF]"},
+    {"Devanagari", "[\\u0951\\u0952\\u0964\\u0965\\u0970\\u0CF1\\u0CF2]"},
+    {"Georgian", "[\\u0589\\u10FB]"},
+    {"Greek", "[\\u0374\\u0375\\u037E\\u0385\\u0387\\u10FB\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF]"},
+    {"Gujarati", "[\\u0CF1\\u0CF2]"},
+    {"Gurmukhi", "[\\u0964\\u0965\\u0CF1\\u0CF2]"},
+    {"Han", "[\\u2FF0-\\u2FFF\\u3001\\u3002\\u302A-\\u302D\\u3190-\\u319F\\u31C0-\\u31E3\\uFF61\\uFF64]"},
+    {"Hangul", "[\\u3001-\\u3004\\u3006\\u3013\\u301C-\\u3020\\u302E-\\u3030\\u3037\\u303C-\\u303F\\u327F\\uFE45\\uFE46\\uFF61\\uFF64]"},
+    {"Hanunoo", "[\\u1735\\u1736]"},
+    {"Hiragana", "[\\u3001\\u3002\\u3012\\u3031-\\u3036\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\uFF61\\uFF64\\uFF65\\uFF70\\uFF9E\\uFF9F]"},
+    {"Kannada", "[\\u0CF1\\u0CF2]"},
+    {"Katakana", "[\\u3001\\u3002\\u3012\\u3031-\\u3036\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\uFF61\\uFF64\\uFF65\\uFF70\\uFF9E\\uFF9F]"},
+    {"Latin", "[\\^`\\u00A8\\u00AF\\u00B4\\u00B8\\u02B9-\\u02DF\\u02E5-\\u02E9\\u02EC-\\u02FF\\u10FB\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF\\u2100\\u2101\\u2103-\\u2109\\u2114\\u2116-\\u2118\\u211E-\\u2123\\u2125\\u2127\\u212E\\u2139-\\u213B\\u214A\\u214C\\u214D\\uA700-\\uA721\\uA788-\\uA78A]"},
+    {"Malayalam", "[\\u0CF1\\u0CF2]"},
+    {"Mongolian", "[\\u1802\\u1803\\u1805]"},
+    {"Oriya", "[\\u0964\\u0965\\u0CF1\\u0CF2]"},
+    {"Phags_Pa", "[\\u1802\\u1803\\u1805\\u3001\\u3002\\uFF61\\uFF64]"},
+    {"Runic", "[\\u16EB-\\u16ED]"},
+    {"Syriac", "[\\u060C\\u061B\\u061F\\u0640\\u064B-\\u0655\\u0670]"},
+    {"Tagalog", "[\\u1735\\u1736]"},
+    {"Tagbanwa", "[\\u1735\\u1736]"},
+    {"Tamil", "[\\u0CF1\\u0CF2]"},
+    {"Telugu", "[\\u0CF1\\u0CF2]"},
+    {"Thaana", "[\\u060C\\u061B\\u061F\\u0660-\\u0669]"},
+    {"Tibetan", "[\\u3001\\u3002\\uFF61\\uFF64]"},
+    {"Yi", "[\\u3001\\u3002\\uFF61\\uFF64]"},
+  };
+  SCRIPT_NEW = loadData(data);
   }
-  public static final UnicodeSet CATEGORY_CHANGED = (UnicodeSet) new UnicodeSet("[\\u2102\\u210A-\\u2113\\u2115\\u2119-\\u211D\\u2124\\u2128\\u2129\\u212C\\u212D\\u212F-\\u2131\\u2133-\\u2138\\u213C-\\u213F\\u2145-\\u2149\\U0001D165\\U0001D166\\U0001D16D-\\U0001D172\\U0001D400-\\U0001D7FF]").freeze();
+  public static final UnicodeSet CATEGORY_CHANGED = (UnicodeSet) new UnicodeSet("[\\u2102\\u210A-\\u2113\\u2115\\u2119-\\u211D\\u2124\\u2128\\u2129\\u212C\\u212D\\u212F-\\u2131\\u2133-\\u2138\\u213C-\\u213F\\u2145-\\u2149\\u3220-\\u3229\\u3280-\\u3289\\U0001D165\\U0001D166\\U0001D16D-\\U0001D172\\U0001D400-\\U0001D7FF]").freeze();
   public static final Map<String,UnicodeSet> CATEGORY_NEW;
-
   static {
-    String[][] data = {
-            {"Math_Symbol", "[\\u2102\\u210A-\\u2113\\u2115\\u2119-\\u211D\\u2124\\u2128\\u2129\\u212C\\u212D\\u212F-\\u2131\\u2133-\\u2138\\u213C-\\u213F\\u2145-\\u2149\\U0001D400-\\U0001D7FF]"},
-            {"Modifier_Symbol", "[\\U0001D165\\U0001D166\\U0001D16D-\\U0001D172]"},
-            {"Symbol", "[\\u2102\\u210A-\\u2113\\u2115\\u2119-\\u211D\\u2124\\u2128\\u2129\\u212C\\u212D\\u212F-\\u2131\\u2133-\\u2138\\u213C-\\u213F\\u2145-\\u2149\\U0001D165\\U0001D166\\U0001D16D-\\U0001D172\\U0001D400-\\U0001D7FF]"},
-
-    };
-    CATEGORY_NEW = loadData(data);
+  String[][] data = {
+    {"Math_Symbol", "[\\u2102\\u210A-\\u2113\\u2115\\u2119-\\u211D\\u2124\\u2128\\u2129\\u212C\\u212D\\u212F-\\u2131\\u2133-\\u2138\\u213C-\\u213F\\u2145-\\u2149\\U0001D400-\\U0001D7FF]"},
+    {"Modifier_Symbol", "[\\U0001D165\\U0001D166\\U0001D16D-\\U0001D172]"},
+    {"Other_Symbol", "[\\u3220-\\u3229\\u3280-\\u3289]"},
+    {"Symbol", "[\\$+<->\\^`|~\\u00A2-\\u00A9\\u00AC\\u00AE-\\u00B1\\u00B4\\u00B6\\u00B8\\u00D7\\u00F7\\u02C2-\\u02C5\\u02D2-\\u02DF\\u02E5-\\u02EB\\u02ED\\u02EF-\\u02FF\\u0375\\u0384\\u0385\\u03F6\\u0482\\u0606-\\u0608\\u060B\\u060E\\u060F\\u06E9\\u06FD\\u06FE\\u07F6\\u09F2\\u09F3\\u09FA\\u0AF1\\u0B70\\u0BF3-\\u0BFA\\u0C7F\\u0CF1\\u0CF2\\u0D79\\u0E3F\\u0F01-\\u0F03\\u0F13-\\u0F17\\u0F1A-\\u0F1F\\u0F34\\u0F36\\u0F38\\u0FBE-\\u0FC5\\u0FC7-\\u0FCC\\u0FCE\\u0FCF\\u109E\\u109F\\u1360\\u1390-\\u1399\\u17DB\\u1940\\u19E0-\\u19FF\\u1B61-\\u1B6A\\u1B74-\\u1B7C\\u1FBD\\u1FBF-\\u1FC1\\u1FCD-\\u1FCF\\u1FDD-\\u1FDF\\u1FED-\\u1FEF\\u1FFD\\u1FFE\\u2044\\u2052\\u207A-\\u207C\\u208A-\\u208C\\u20A0-\\u20B5\\u2100-\\u2106\\u2108-\\u2125\\u2127-\\u2129\\u212C-\\u2131\\u2133-\\u2138\\u213A-\\u214D\\u214F\\u2190-\\u2328\\u232B-\\u23E7\\u2400-\\u2426\\u2440-\\u244A\\u249C-\\u24E9\\u2500-\\u269D\\u26A0-\\u26BC\\u26C0-\\u26C3\\u2701-\\u2704\\u2706-\\u2709\\u270C-\\u2727\\u2729-\\u274B\\u274D\\u274F-\\u2752\\u2756\\u2758-\\u275E\\u2761-\\u2767\\u2794\\u2798-\\u27AF\\u27B1-\\u27BE\\u27C0-\\u27C4\\u27C7-\\u27CA\\u27CC\\u27D0-\\u27E5\\u27F0-\\u2982\\u2999-\\u29D7\\u29DC-\\u29FB\\u29FE-\\u2B4C\\u2B50-\\u2B54\\u2CE5-\\u2CEA\\u2E80-\\u2E99\\u2E9B-\\u2EF3\\u2F00-\\u2FD5\\u2FF0-\\u2FFB\\u3004\\u3012\\u3013\\u3020\\u3036\\u3037\\u303E\\u303F\\u309B\\u309C\\u3190\\u3191\\u3196-\\u319F\\u31C0-\\u31E3\\u3200-\\u321E\\u3220-\\u3243\\u3250\\u3260-\\u32B0\\u32C0-\\u32FE\\u3300-\\u33FF\\u4DC0-\\u4DFF\\uA490-\\uA4C6\\uA700-\\uA716\\uA720\\uA721\\uA789\\uA78A\\uA828-\\uA82B\\uFB29\\uFDFC\\uFDFD\\uFE62\\uFE64-\\uFE66\\uFE69\\uFF04\\uFF0B\\uFF1C-\\uFF1E\\uFF3E\\uFF40\\uFF5C\\uFF5E\\uFFE0-\\uFFE6\\uFFE8-\\uFFEE\\uFFFC\\uFFFD\\U00010102\\U00010137-\\U0001013F\\U00010179-\\U00010189\\U00010190-\\U0001019B\\U000101D0-\\U000101FC\\U0001D000-\\U0001D0F5\\U0001D100-\\U0001D126\\U0001D129-\\U0001D166\\U0001D16A-\\U0001D172\\U0001D183\\U0001D184\\U0001D18C-\\U0001D1A9\\U0001D1AE-\\U0001D1DD\\U0001D200-\\U0001D241\\U0001D245\\U0001D300-\\U0001D356\\U0001D400-\\U0001D7FF\\U0001F000-\\U0001F02B\\U0001F030-\\U0001F093]"},
+  };
+  CATEGORY_NEW = loadData(data);
   }
-  
-  
+
+
+  // END OF GENERATED CODE
+
   // UnicodeSet override
   static UnicodeSet.XSymbolTable myXSymbolTable = new UnicodeSet.XSymbolTable() { 
     public boolean applyPropertyAlias(String propertyName, String propertyValue, UnicodeSet result) {
@@ -491,25 +485,25 @@ public class ScriptCategories {
       return false;
     }
   };
-  
+
   public static UnicodeSet parseUnicodeSet(String input) {
-      String parseInput = input.trim();
-      ParsePosition parsePosition = new ParsePosition(0);
-      UnicodeSet result = new UnicodeSet(parseInput, parsePosition, myXSymbolTable);
-      int parseEnd = parsePosition.getIndex();
-      if (parseEnd != parseInput.length()) {
-        parseEnd--; // get input offset
-        throw new IllegalArgumentException("Additional characters past the end of the set, at " 
-            + parseEnd + ", ..." 
-            + input.substring(Math.max(0, parseEnd - 10), parseEnd)
-            + "|"
-            + input.substring(parseEnd, Math.min(input.length(), parseEnd + 10))
-            );
-      }
-      if (DEBUG) {
-        checkDifferences(input, result, new UnicodeSet(input));
-      }
-      return result;
+    String parseInput = input.trim();
+    ParsePosition parsePosition = new ParsePosition(0);
+    UnicodeSet result = new UnicodeSet(parseInput, parsePosition, myXSymbolTable);
+    int parseEnd = parsePosition.getIndex();
+    if (parseEnd != parseInput.length()) {
+      parseEnd--; // get input offset
+      throw new IllegalArgumentException("Additional characters past the end of the set, at " 
+              + parseEnd + ", ..." 
+              + input.substring(Math.max(0, parseEnd - 10), parseEnd)
+              + "|"
+              + input.substring(parseEnd, Math.min(input.length(), parseEnd + 10))
+      );
+    }
+    if (DEBUG) {
+      checkDifferences(input, result, new UnicodeSet(input));
+    }
+    return result;
   }
 
   private static void checkDifferences(String input, UnicodeSet result, UnicodeSet original) {
@@ -521,7 +515,7 @@ public class ScriptCategories {
       if (!added.isEmpty()) System.out.println("\tAdded: " + added.toPattern(false));
     }
   }
-  
+
   public static UnicodeSet applyPropertyAlias(String propertyName, String propertyValue, UnicodeSet result) {
     UnicodeSet original;
     if (DEBUG) {
@@ -535,49 +529,56 @@ public class ScriptCategories {
     }
     return result;
   }
-  
+
   // Standard items
   public static final Set<String> EUROPEAN = loadUnmodifiable(new TreeSet<String>(),
           "Latin", "Greek", "Coptic", "Cyrillic", 
- "Glag", "Armenian", "Georgian", "Shavian", "braille", 
- "ogham", "runic", "Gothic", "Cypriot", "Linear b", 
- "old italic");
+          "Glag", "Armenian", "Georgian", "Shavian", "braille", 
+          "ogham", "runic", "Gothic", "Cypriot", "Linear b", 
+  "old italic");
 
   public static final Set<String> MIDDLE_EASTERN = loadUnmodifiable(new TreeSet<String>(),
           "Hebrew", "Arabic", "Syriac", "Thaana", "Carian", "Lycian", "Lydian", "Phoenician", 
- "Cuneiform", "old persian", "ugaritic"
- );
+          "Cuneiform", "old persian", "ugaritic"
+  );
   public static final Set<String> SOUTH_ASIAN = loadUnmodifiable(new TreeSet<String>(),
           "Devanagari", "Bengali", "Gurmukhi", "Gujarati", 
- "Oriya", "Tamil", "Telugu", "Kannada", "Malayalam", 
- "Sinhala", "Tibetan", "Phags-Pa", "Limbu", "Sylo", "Kharoshthi", "lepcha", "saurashtra", "ol chiki"
- );
+          "Oriya", "Tamil", "Telugu", "Kannada", "Malayalam", 
+          "Sinhala", "Tibetan", "Phags-Pa", "Limbu", "Sylo", "Kharoshthi", "lepcha", "saurashtra", "ol chiki"
+  );
   public static final Set<String> SOUTHEAST_ASIAN = loadUnmodifiable(new TreeSet<String>(),
           "Thai", "Lao", "Myanmar", "Khmer", 
- "Tai_Le", "New Tai Lue", "Tagalog", "Hanunoo", "Buhid",
- "Tagbanwa", "Buginese", "Balinese", "Cham", "kayah li", "rejang", "sundanese"
- );
+          "Tai_Le", "New Tai Lue", "Tagalog", "Hanunoo", "Buhid",
+          "Tagbanwa", "Buginese", "Balinese", "Cham", "kayah li", "rejang", "sundanese"
+  );
   public static final Set<String> EAST_ASIAN = loadUnmodifiable(new TreeSet<String>(),
           "Bopomofo", "Hiragana", "Katakana", "Mongolian", "Yi", "Han", "Hangul"
- );
+  );
   public static final Set<String> AFRICAN = loadUnmodifiable(new TreeSet<String>(),
           "Ethiopic", "Osmanya", "Tifinagh", "Nko", "vai"
- );
+  );
   public static final Set<String> AMERICAN = loadUnmodifiable(new TreeSet<String>(),
           "Cherokee", "CANS", "Deseret"
- );
+  );
   
-//  public static final UnicodeSet OTHER_SCRIPTS = (UnicodeSet) parseUnicodeSet("[^[:script=common:][:script=inherited:]]")
-//  .removeAll(EUROPEAN)
-//  .removeAll(MIDDLE_EASTERN)
-//  .removeAll(SOUTH_ASIAN)
-//  .removeAll(SOUTHEAST_ASIAN)
-//  .removeAll(EAST_ASIAN)
-//  .removeAll(AFRICAN)
-//  .removeAll(AMERICAN)
-//  .removeAll(parseUnicodeSet("[[:script=han:][:script=hangul:]]"))
-//  .freeze();
-  
+  public static final Set<String> HISTORIC_SCRIPTS = loadUnmodifiable(new TreeSet<String>(),
+          "Buginese", "Buhid", "Carian", "Coptic", "Cypriot", "Deseret", "Glagolitic",
+          "Gothic", "Hanunoo", "Old_Italic", "Kharoshthi", "Linear_B", "Lycian", "Lydian",
+          "Ogham", "Osmanya", "Phags_Pa", "Phoenician", "Rejang", "Runic", "Shavian", "Sundanese",
+          "Syloti_Nagri", "Syriac", "Tagbanwa", "Tagalog", "Ugaritic", "Old_Persian", "Cuneiform"
+  );
+
+  //  public static final UnicodeSet OTHER_SCRIPTS = (UnicodeSet) parseUnicodeSet("[^[:script=common:][:script=inherited:]]")
+  //  .removeAll(EUROPEAN)
+  //  .removeAll(MIDDLE_EASTERN)
+  //  .removeAll(SOUTH_ASIAN)
+  //  .removeAll(SOUTHEAST_ASIAN)
+  //  .removeAll(EAST_ASIAN)
+  //  .removeAll(AFRICAN)
+  //  .removeAll(AMERICAN)
+  //  .removeAll(parseUnicodeSet("[[:script=han:][:script=hangul:]]"))
+  //  .freeze();
+
   // Code to generate lists
 
   private static Map<String, UnicodeSet> loadData(String[][] data) {
@@ -604,19 +605,19 @@ public class ScriptCategories {
     data.put(RemapType.SCRIPT, new TreeMap<String,UnicodeSet>());
     data.put(RemapType.CATEGORY, new TreeMap<String,UnicodeSet>());
 
-    Set<String> currentData = new TreeSet<String>();
-    Composer composer = new Composer() {
-      public Object compose(Object a, Object b) {
-        Set<String> aa = (Set<String>) a;
-        Set<String> bb = (Set<String>) b;
-        if (aa == null) {
-          return new TreeSet<String>(bb);
-        }
-        TreeSet<String> cc = new TreeSet<String>(bb);
-        cc.addAll(aa);
-        return cc;
-      }
-    };
+    Set<String> propertiesToAddTo = new TreeSet<String>();
+    //    Composer composer = new Composer() {
+    //      public Object compose(Object a, Object b) {
+    //        Set<String> aa = (Set<String>) a;
+    //        Set<String> bb = (Set<String>) b;
+    //        if (aa == null) {
+    //          return new TreeSet<String>(bb);
+    //        }
+    //        TreeSet<String> cc = new TreeSet<String>(bb);
+    //        cc.addAll(aa);
+    //        return cc;
+    //      }
+    //    };
     RemapType remapType = RemapType.NONE;
 
     while (true) {
@@ -628,47 +629,49 @@ public class ScriptCategories {
       }
       try {
         if (line.startsWith("@")) { // reassignment
-          currentData.clear();
+          propertiesToAddTo.clear();
           remapType = RemapType.NONE;
           line = line.substring(1);
           if (!line.equalsIgnoreCase("no-change")) {
             String[] parts = line.split("\\s*[,\\s]\\s*");
             for (String part : parts) {
               RemapType newRemapType = RemapType.NONE;
+              String fixed = null;
+              UnicodeSet scriptSet = null;
               // check
               try {
-                //UnicodeSet scriptSet = new UnicodeSet("[:script=" + part + ":]");
-                String fixed = getFixedPropertyValue(UProperty.SCRIPT, part);
+                //scriptSet = new UnicodeSet("[:script=" + part + ":]");
+                fixed = getFixedPropertyValue(UProperty.SCRIPT, part);
                 newRemapType = RemapType.SCRIPT;
-                currentData.add(fixed);
-                //addToMapToUnicodeSet(scriptData, fixed, scriptSet);
+                propertiesToAddTo.add(fixed);
+
               } catch (Exception e) {
-                //UnicodeSet scriptSet = new UnicodeSet("[:gc=" + part + ":]");
-                String fixed = getFixedPropertyValue(UProperty.GENERAL_CATEGORY, part);
+                //scriptSet = new UnicodeSet("[:gc=" + part + ":]");
+                fixed = getFixedPropertyValue(UProperty.GENERAL_CATEGORY, part);
                 newRemapType = RemapType.CATEGORY;
-                currentData.add(fixed);
-                //addToMapToUnicodeSet(categoryData, fixed, scriptSet);
+                propertiesToAddTo.add(fixed);
               }
               if (remapType == RemapType.NONE) {
                 remapType = newRemapType;
               } else if (remapType != newRemapType) {
                 throw new IllegalArgumentException("Mixing Script and Category on one line: " + line);
               }
+              //addToMapToUnicodeSet(data.get(remapType), fixed, scriptSet);
             }
-
+            if (DEBUG_MAIN) System.out.println("Adding to " + propertiesToAddTo);
           }
         } else if (line.startsWith("U+")) { // character
           line = line.substring(2, line.indexOf(' '));
           if (line.length() < 4) {
             throw new IllegalArgumentException();
           }
-          for (String fixed : currentData) {
+          for (String fixed : propertiesToAddTo) {
             addToMapToUnicodeSet(data.get(remapType), fixed, new UnicodeSet().add(Integer.parseInt(line,16)));
           }
           //data.composeWith(new UnicodeSet().add(Integer.parseInt(line,16)), currentData, composer);
         }  else if (line.startsWith("[") && !line.startsWith("[Ed")) { // unicode set
           UnicodeSet set = new UnicodeSet(line);
-          for (String fixed : currentData) {
+          for (String fixed : propertiesToAddTo) {
             addToMapToUnicodeSet(data.get(remapType), fixed, set);
           }
           //data.composeWith(set, currentData, composer);
@@ -686,7 +689,7 @@ public class ScriptCategories {
     String fixed = UCharacter.getPropertyValueName(propertyEnum, valueEnum, UProperty.NameChoice.LONG);
     return fixed;
   }
-  
+
   public static String getFixedPropertyValue(String propertyName, String valueName) {
     return getFixedPropertyValue(UCharacter.getPropertyEnum(propertyName), valueName);
   }
@@ -696,6 +699,7 @@ public class ScriptCategories {
     if (oldSet == null) {
       mapToUnicodeSet.put(key, oldSet = new UnicodeSet());
     }
+    if (DEBUG_MAIN) System.out.println("Adding " + key + ", " + additions);
     oldSet.addAll(additions);
   }
 
@@ -728,6 +732,10 @@ public class ScriptCategories {
       Map<String, UnicodeSet> map = data.get(r);
       for (String key : map.keySet()) {
         System.out.println("  {\"" + key + "\", \"" + map.get(key).toString().replace("\\", "\\\\") + "\"},");
+      }
+      if (r == RemapType.CATEGORY) {
+        System.out.println("  {\"" + "Symbol" + "\", \"" + new UnicodeSet("[:Symbol:]").addAll(changed)
+                .toString().replace("\\", "\\\\") + "\"},");
       }
       System.out.println("};\n" +
               ""+r+"_NEW = loadData(data);\n" +

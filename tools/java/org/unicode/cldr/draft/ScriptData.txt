@@ -1,11 +1,13 @@
 
-L2/09-029 R2
+L2/09-029 R3
 
 Script Edge Cases
-Mark Davis, 2009-01-26 (R2)
+Mark Davis, 2009-02-02 (R3)
 Live doc: https://docs.google.com/Doc?id=dfqr8rd5_371fzqg88g8
 
 In most cases, the assignment of scripts works quite well. There are, however, some edge cases that people may stumble over (as I did). I suggest that we document such cases in a new section of TR24.
+
+In particular, the characters that are associated with multiple scripts may need to be grouped with each of the scripts in particular applications. (See, for example, the mockup at http://macchiato.com/picker/MyApplication.html.)
 
 The following is a suggested list of characters for such a section, with guesses as to how to document them. (I make give some suggested property changes, but even if we don't make any, I think it is important to document the situation in one place.) The characters are all listed here for discussion - for the actual text they could be more compactly represented by ranges.
 
@@ -249,11 +251,13 @@ U+0951 ( ॑ ) DEVANAGARI STRESS SIGN UDATTA
 U+0952 ( ॒ ) DEVANAGARI STRESS SIGN ANUDATTA
 Devanagari - Devanagari-specific additions
 U+0970 ( ॰ ) DEVANAGARI ABBREVIATION SIGN
-@Devanagari, Bengali, Gurmukhi, Gujarati, Oriya, Tamil, Telugu, Kannada, Malayalam
-The annotations say "scripts of India" for the first set, and "The Vedic signs for jihvamuliya and upadhmaniya were encoded in the Kannada block, but are intended for general Vedic use with all scripts", but the former probably doesn't include Arabic (Urdu), and the latter probably also means "with all Indic scripts". Am guessing that "Indic script" means the above.
+@Devanagari, Bengali, Gurmukhi, Oriya
+The annotations say "scripts of India". However, Cibu reports that the dandas are not used with Malayalam, Kannada, Telugu, Tamil and Gujarati, and presumably these are not used with Urdu, etc.
 Devanagari - Generic punctuation for scripts of India
 U+0964 ( । ) DEVANAGARI DANDA
 U+0965 ( ॥ ) DEVANAGARI DOUBLE DANDA
+@Devanagari, Bengali, Gurmukhi, Oriya, Gujarati, Tamil, Telugu, Kannada, Malayalam
+The annotations say "The Vedic signs for jihvamuliya and upadhmaniya were encoded in the Kannada block, but are intended for general Vedic use with all scripts", that probably means "with all Brahmi-based Indic scripts".
 Kannada - Vedic signs
 U+0CF1 ( ೱ ) KANNADA SIGN JIHVAMULIYA
 U+0CF2 ( ೲ ) KANNADA SIGN UPADHMANIYA
@@ -362,6 +366,8 @@ U+FF64 ( ､ ) HALFWIDTH IDEOGRAPHIC COMMA
 Jpan = Japanese (alias for Han + Hiragana + Katakana)
 CJK Symbols And Punctuation - CJK symbols
 U+3012 ( 〒 ) POSTAL MARK
+CJK Symbols And Punctuation - Other CJK symbols
+U+3036 ( 〶 ) CIRCLED POSTAL MARK
 
 @Hangul
 
@@ -606,13 +612,14 @@ U+2148 ( ⅈ ) DOUBLE-STRUCK ITALIC SMALL I
 U+2149 ( ⅉ ) DOUBLE-STRUCK ITALIC SMALL J
 
 
+Circled & Parenthesized
 Note: all circled alphanumerics are So
 ⓐⒶ ⓑⒷ ⓒⒸ ⓓⒹ ⓔⒺ ⓕⒻ ⓖ Ⓖ ⓗⒽ ⓘⒾ ⓙⒿ ⓚⓀ ⓛⓁ ⓜⓂ ⓝ Ⓝ ⓞⓄ ⓟⓅ ⓠⓆ ⓡⓇ ⓢⓈ ⓣⓉ ⓤ Ⓤ ⓥⓋ ⓦⓌ ⓧⓍ ⓨⓎ ⓩⓏ ㉠ ㉮ ㉡ ㉯ ㉢ ㉰ ㉣ ㉱ ㉤ ㉲ ㉥ ㉳ ㉦ ㉴ ㉧ ㉵ ㉾ ㉨ ㉶ ㉽ ㉩ ㉷ ㉼ ㉪ ㉸ ㉫ ㉹ ㉬ ㉺ ㉭㉻ ㋐-㋾ ㊤ ㊦ ㊥ ㊭ ㊡ ㊝ ㊢ ㊘ ㊩ ㊯ ㊞ ㊨ ㊔ ㊏ ㊰ ㊛ ㊫ ㊪ ㊧ ㊐ ㊊ ㊒ ㊍ ㊑ ㊣ ㊌ ㊟ ㊋ ㊕ ㊚ ㊬ ㊓ ㊗㊙ ㊖ ㊮ ㊜ ㊎ ㊠
 except the following:
 ⓪ ① ⑩-⑲ ② ⑳ ㉑-㉙ ③ ㉚-㉟ ㊱-㊴ ④ ㊵-㊾ ⑤ ㊿ ⑥-⑨
  ㊀ ㊆ ㊂ ㊈ ㊁ ㊄ ㊇ ㊅ ㊉ ㊃
 
-The numbers appear principled, but the others?
+The Western numbers are understandable -- the uncircled values are gc=Number, but the uncircled Han characters are not.
 
 Similarly, all parenthesized alphanums are So
 ⒜-⒵ ㈀ ㈎ ㈁ ㈏ ㈂ ㈐ ㈃ ㈑ ㈄ ㈒ ㈅ ㈓ ㈆ ㈔ ㈇ ㈕ ㈝ ㈞ ㈈ ㈖ ㈜ ㈉ ㈗ ㈊ ㈘ ㈋ ㈙ ㈌ ㈚ ㈍ ㈛ ㈹ ㈽ ㉁ ㈸ ㈿ ㈴ ㈺ ㈯ ㈻ ㈰ ㈪ ㈲ ㈭ ㈱ ㈬ ㈫ ㈵ ㈼ ㈳ ㈷ ㉀ ㉂ ㉃ ㈶ ㈾ ㈮
@@ -620,4 +627,28 @@ except the following:
 ⑴ ⑽-⒆ ⑵ ⒇ ⑶-⑼
 ㈠ ㈦ ㈢ ㈨ ㈡ ㈤ ㈧ ㈥ ㈩ ㈣
 
+So should these be treated as So?
+@So
+Enclosed CJK Letters And Months - Circled ideographs
+U+3280 ( ㊀ ) CIRCLED IDEOGRAPH ONE
+U+3281 ( ㊁ ) CIRCLED IDEOGRAPH TWO
+U+3282 ( ㊂ ) CIRCLED IDEOGRAPH THREE
+U+3283 ( ㊃ ) CIRCLED IDEOGRAPH FOUR
+U+3284 ( ㊄ ) CIRCLED IDEOGRAPH FIVE
+U+3285 ( ㊅ ) CIRCLED IDEOGRAPH SIX
+U+3286 ( ㊆ ) CIRCLED IDEOGRAPH SEVEN
+U+3287 ( ㊇ ) CIRCLED IDEOGRAPH EIGHT
+U+3288 ( ㊈ ) CIRCLED IDEOGRAPH NINE
+U+3289 ( ㊉ ) CIRCLED IDEOGRAPH TEN
+Enclosed CJK Letters And Months - Parenthesized ideographs
+U+3220 ( ㈠ ) PARENTHESIZED IDEOGRAPH ONE
+U+3221 ( ㈡ ) PARENTHESIZED IDEOGRAPH TWO
+U+3222 ( ㈢ ) PARENTHESIZED IDEOGRAPH THREE
+U+3223 ( ㈣ ) PARENTHESIZED IDEOGRAPH FOUR
+U+3224 ( ㈤ ) PARENTHESIZED IDEOGRAPH FIVE
+U+3225 ( ㈥ ) PARENTHESIZED IDEOGRAPH SIX
+U+3226 ( ㈦ ) PARENTHESIZED IDEOGRAPH SEVEN
+U+3227 ( ㈧ ) PARENTHESIZED IDEOGRAPH EIGHT
+U+3228 ( ㈨ ) PARENTHESIZED IDEOGRAPH NINE
+U+3229 ( ㈩ ) PARENTHESIZED IDEOGRAPH TEN
 

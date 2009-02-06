@@ -15,6 +15,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -25,6 +26,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.draft.GeneratePickerData.CategoryTable.Separation;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -38,8 +41,11 @@ import com.ibm.icu.util.LocaleData;
 import com.ibm.icu.util.ULocale;
 
 class GeneratePickerData {
-  private static final String ARCHAIC_MARKER = "\uE000";
-  private static final String COMPAT_MARKER = "\uE001";
+  static final boolean DEBUG = true;
+
+  private static final String LESS_COMMON_MARKER = "\uE008Less Common - ";
+  private static final String ARCHAIC_MARKER = "\uE010Historic - ";
+  private static final String COMPAT_MARKER = "\uE011Compatibility - ";
 
   private static final String MAIN_SUB_SEPARATOR = ":";
   private static final String MAIN_SUBSUB_SEPARATOR = "~";
@@ -63,12 +69,12 @@ class GeneratePickerData {
   .removeAll(ScriptCategories.IPA_EXTENSIONS)
   .freeze();
 
-  static final boolean DEBUG = false;
+  private static final UnicodeSet PRIVATE_USE = (UnicodeSet) new UnicodeSet("[:private use:]").freeze();
 
   private static final UnicodeSet SKIP = (UnicodeSet) ScriptCategories.parseUnicodeSet("[[:cn:][:cs:][:co:][:cc:]\uFFFC]").addAll(ScriptCategories.DEPRECATED_NEW).freeze();
   private static final UnicodeSet KNOWN_DUPLICATES = (UnicodeSet) ScriptCategories.parseUnicodeSet("[:Nd:]").freeze();
 
-  public static final UnicodeSet ARCHAIC = ScriptCategories.ARCHAIC;
+  public static final UnicodeSet HISTORIC = ScriptCategories.ARCHAIC;
   //public static final UnicodeSet UNCOMMON = (UnicodeSet) new UnicodeSet(ScriptCategories.ARCHAIC).addAll(COMPATIBILITY).freeze();
 
   private static final UnicodeSet NAMED_CHARACTERS = (UnicodeSet) new UnicodeSet(
@@ -83,11 +89,11 @@ class GeneratePickerData {
   private static final UnicodeSet syllable = (UnicodeSet) ScriptCategories.parseUnicodeSet("[[:HST=LV:][:HST=LVT:]]").freeze();
   private static final UnicodeSet all = (UnicodeSet) new UnicodeSet(single).addAll(syllable).freeze();
   static RuleBasedCollator UCA_BASE = (RuleBasedCollator) Collator.getInstance(Locale.ENGLISH);
-  
+
   static {
     UCA_BASE.setNumericCollation(true);
   }
-  
+
   public static final Comparator<String> CODE_POINT_ORDER = new UTF16.StringComparator(true, false, 0);
 
   static Comparator<String> UCA = new MultilevelComparator<String>(
@@ -103,13 +109,13 @@ class GeneratePickerData {
           UCA_BASE,
           CODE_POINT_ORDER
   );
-  
+
   static Comparator<String> LinkedHashSetComparator = new Comparator<String>() {
     public int compare(String arg0, String arg1) {
       throw new IllegalArgumentException(); // only used to signal usage
     }
   };
-  
+
   static Comparator<String> ListComparator = new Comparator<String>() {
     public int compare(String arg0, String arg1) {
       throw new IllegalArgumentException(); // only used to signal usage
@@ -167,7 +173,7 @@ class GeneratePickerData {
     localDataDirectory = new File(args[2]).getCanonicalPath() + File.separator;
     System.out.println("Local Data Directory: " + localDataDirectory);
 
-    renamingLog = getFileWriter(outputDirectory, "renamingLog.txt");
+    renamingLog = getFileWriter(localDataDirectory, "picker/renamingLog.txt");
 
     renamer = new Renamer(localDataDirectory + "GeneratePickerData.txt");
     /*
@@ -178,8 +184,9 @@ class GeneratePickerData {
     if (DEBUG) System.out.println("Whitespace? " + ScriptCategories.parseUnicodeSet("[:z:]").equals(ScriptCategories.parseUnicodeSet("[:whitespace:]")));
 
     buildMainTable();
-    writeMainFile(outputDirectory, true);
-    writeMainFile(localDataDirectory, true);
+    String categoryData = CATEGORYTABLE.toString(true, localDataDirectory + "picker/");
+    writeMainFile(outputDirectory, categoryData);
+    writeMainFile(localDataDirectory, categoryData);
     renamingLog.close();
   }
 
@@ -207,22 +214,22 @@ class GeneratePickerData {
 
 
     addSymbols();
-    CATEGORYTABLE.add("Symbol", true, "Superscript", buttonComparator, false, ScriptCategories.parseUnicodeSet("[:dt=super:]"));
-    CATEGORYTABLE.add("Symbol", true, "Subscript", buttonComparator, false, ScriptCategories.parseUnicodeSet("[:dt=sub:]"));
+    CATEGORYTABLE.add("Symbol", true, "Superscript", buttonComparator, Separation.ALL_ORDINARY, ScriptCategories.parseUnicodeSet("[[:dt=super:]-[:block=kanbun:]]"));
+    CATEGORYTABLE.add("Symbol", true, "Subscript", buttonComparator, Separation.ALL_ORDINARY, ScriptCategories.parseUnicodeSet("[:dt=sub:]"));
 
     addProperty("General_Category", "Category", buttonComparator, 
             ScriptCategories.parseUnicodeSet("[[:script=common:][:script=inherited:][:N:]" +
-            		"-[:letter:]" +
-            		"-[:default_ignorable_code_point:]" +
-            		"-[:cf:]" +
-            		"-[:whitespace:]" +
-            		"-[:So:]" +
-            //"-[[:M:]-[:script=common:]-[:script=inherited:]]" +
+                    "-[:letter:]" +
+                    "-[:default_ignorable_code_point:]" +
+                    "-[:cf:]" +
+                    "-[:whitespace:]" +
+                    "-[:So:]" +
+                    //"-[[:M:]-[:script=common:]-[:script=inherited:]]" +
             "]"));
 
-    CATEGORYTABLE.add("Invisibles", true, "Whitespace", buttonComparator, true, ScriptCategories.parseUnicodeSet("[:whitespace:]"));
-    CATEGORYTABLE.add("Invisibles", true, "Format", buttonComparator, true, ScriptCategories.parseUnicodeSet("[:cf:]"));
-    CATEGORYTABLE.add("Invisibles", true, "Other", buttonComparator, true, ScriptCategories.parseUnicodeSet("[[:default_ignorable_code_point:]-[:cf:]-[:whitespace:]]"));
+    CATEGORYTABLE.add("Invisibles", true, "Whitespace", buttonComparator, Separation.AUTOMATIC, ScriptCategories.parseUnicodeSet("[:whitespace:]"));
+    CATEGORYTABLE.add("Invisibles", true, "Format", buttonComparator, Separation.AUTOMATIC, ScriptCategories.parseUnicodeSet("[:cf:]"));
+    CATEGORYTABLE.add("Invisibles", true, "Other", buttonComparator, Separation.AUTOMATIC, ScriptCategories.parseUnicodeSet("[[:default_ignorable_code_point:]-[:cf:]-[:whitespace:]]"));
 
     addLatin();
     Set<String> EuropeanMinusLatin = new TreeSet<String>(ScriptCategories.EUROPEAN);
@@ -274,21 +281,21 @@ class GeneratePickerData {
 
     exemplars.retainAll(ScriptCategories.parseUnicodeSet("[[:L:][:M:]-[:nfkcqc=n:]]"));
 
-    CATEGORYTABLE.add("Latin", true, "Common", buttonComparator, false, exemplars);
-    CATEGORYTABLE.add("Latin", true, "Phonetics (IPA)", buttonComparator, false, ScriptCategories.IPA);
-    CATEGORYTABLE.add("Latin", true, "Phonetics (X-IPA)", buttonComparator, false, ScriptCategories.IPA_EXTENSIONS);
+    CATEGORYTABLE.add("Latin", true, "Common", buttonComparator, Separation.ALL_ORDINARY, exemplars);
+    CATEGORYTABLE.add("Latin", true, "Phonetics (IPA)", buttonComparator, Separation.ALL_ORDINARY, ScriptCategories.IPA);
+    CATEGORYTABLE.add("Latin", true, "Phonetics (X-IPA)", buttonComparator, Separation.ALL_ORDINARY, ScriptCategories.IPA_EXTENSIONS);
     String flipped = 
       "ɒdɔbɘᎸǫʜiꞁʞlmnoqpɿƨƚuvwxʏƹ؟" +
       "AᙠƆᗡƎꟻᎮHIႱᐴᏗMИOꟼϘЯƧTUVWXYƸ" +
       "ɐqɔpǝɟɓɥɪſʞ1ɯuodbɹsʇnʌʍxʎz¿" +
       "∀ᙠƆᗡƎℲ⅁HIΓᐴ⅂ꟽNOԀÓᴚƧ⊥ȠɅM⅄Z";
-    CATEGORYTABLE.add("Latin", true, "Flipped/Mirrored", ListComparator, false, flipped);
-    CATEGORYTABLE.add("Latin", true, "Other", buttonComparator, true, ScriptCategories.parseUnicodeSet("[:script=Latin:]")
-    .removeAll(ScriptCategories.SCRIPT_CHANGED)
-    .addAll(ScriptCategories.SCRIPT_NEW.get("Latin"))
-    .removeAll(ScriptCategories.IPA)
-    .removeAll(ScriptCategories.IPA_EXTENSIONS)
-    .removeAll(exemplars));
+    CATEGORYTABLE.add("Latin", true, "Flipped/Mirrored", ListComparator, Separation.ALL_ORDINARY, flipped);
+    CATEGORYTABLE.add("Latin", true, "Other", buttonComparator, Separation.AUTOMATIC, ScriptCategories.parseUnicodeSet("[:script=Latin:]")
+            .removeAll(ScriptCategories.SCRIPT_CHANGED)
+            .addAll(ScriptCategories.SCRIPT_NEW.get("Latin"))
+            .removeAll(ScriptCategories.IPA)
+            .removeAll(ScriptCategories.IPA_EXTENSIONS)
+            .removeAll(exemplars));
   }
 
   private static UnicodeSet closeOver(UnicodeSet closed) {
@@ -312,17 +319,17 @@ class GeneratePickerData {
     toAddTo.addAll(toAdd);
   }
 
-  private static void writeMainFile(String directory, boolean showData) throws IOException, FileNotFoundException {
+  private static void writeMainFile(String directory, String categoryTable) throws IOException, FileNotFoundException {
     PrintWriter out = getFileWriter(directory, "CharData.java");
     out.println("package com.macchiato.client;");
     out.println("// " + new Date());
     out.println("public class CharData {");
     out.println("static String[][] CHARACTERS_TO_NAME = {");
-    out.println(buildNames(showData));
+    out.println(buildNames());
     out.println("  };\r\n" +
     "  static String[][][] CATEGORIES = {");
 
-    out.println(CATEGORYTABLE);
+    out.println(categoryTable);
     out.println("  };\r\n" +
     "}");
     out.close();
@@ -347,15 +354,19 @@ class GeneratePickerData {
   //  }
 
   private static void addSymbols() {
-    for (UnicodeSetIterator it = new UnicodeSetIterator(ScriptCategories.parseUnicodeSet("[[:So:]&[[:script=common:][:script=inherited:]]" +
-    "[[:Letter:]&[:script=common:]]]")); it.next();) {
+    final UnicodeSet symbolsMinusScripts = ScriptCategories.parseUnicodeSet(
+    "[[[:script=common:][:script=inherited:]]&[[:So:][:Letter:]]]");
+    if (true) {
+      System.out.println("***Contains:" + symbolsMinusScripts.contains(0x3192));
+    }
+    for (UnicodeSetIterator it = new UnicodeSetIterator(symbolsMinusScripts); it.next();) {
       if (COMPATIBILITY.contains(it.codepoint)) {
-        CATEGORYTABLE.add("Symbol", true, "Compatibility", buttonComparator, true, it.codepoint, it.codepoint);
+        CATEGORYTABLE.add("Symbol", true, "Compatibility", buttonComparator, Separation.AUTOMATIC, it.codepoint, it.codepoint);
         continue;
       }
       String block = UCharacter.getStringPropertyValue(UProperty.BLOCK, it.codepoint, UProperty.NameChoice.LONG).toString();
 
-      CATEGORYTABLE.add("Symbol", true, block, buttonComparator, true, it.codepoint, it.codepoint);
+      CATEGORYTABLE.add("Symbol", true, block, buttonComparator, Separation.AUTOMATIC, it.codepoint, it.codepoint);
     }
   }
 
@@ -511,13 +522,13 @@ class GeneratePickerData {
 
     String unihanFile = unicodeDataDirectory + "Unihan.txt";
     BufferedReader in = new BufferedReader(new FileReader(unihanFile));
-    
+
     while (true) {
       String line = in.readLine();
       if (line == null) break;
       if (iiCore.reset(line).matches()) {
         int cp = Integer.parseInt(iiCore.group(1),16);
-        ARCHAIC_HAN.remove(cp);
+        UNCOMMON_HAN.remove(cp);
       } else if (radStrokeMatcher.reset(line).matches()) {
         int cp = Integer.parseInt(radStrokeMatcher.group(1), 16);
         String[] items = radStrokeMatcher.group(2).split("\\s");
@@ -576,14 +587,14 @@ class GeneratePickerData {
           //      }
           final UnicodeSet values = remStrokes2Set.get(remStrokes);
           others.removeAll(values);
-          UnicodeSet normal = new UnicodeSet(values).removeAll(ARCHAIC).removeAll(COMPATIBILITY).removeAll(ARCHAIC_HAN);
-          CATEGORYTABLE.add(mainCat, true, subCat, LinkedHashSetComparator, true, normal);
+          UnicodeSet normal = new UnicodeSet(values).removeAll(HISTORIC).removeAll(COMPATIBILITY).removeAll(UNCOMMON_HAN);
+          CATEGORYTABLE.add(mainCat, true, subCat, LinkedHashSetComparator, Separation.AUTOMATIC, normal);
           values.removeAll(normal);
-          CATEGORYTABLE.add(mainCat, true, "Other", LinkedHashSetComparator, true, values);
+          CATEGORYTABLE.add(mainCat, true, "Other", LinkedHashSetComparator, Separation.AUTOMATIC, values);
         }
       }
     }
-    CATEGORYTABLE.add("Han - Other", true, "Other", LinkedHashSetComparator, true, others);
+    CATEGORYTABLE.add("Han - Other", true, "Other", LinkedHashSetComparator, Separation.AUTOMATIC, others);
 
 
     //    UnicodeSet temp = new UnicodeSet();
@@ -632,7 +643,7 @@ class GeneratePickerData {
     for (UnicodeSetIterator it = new UnicodeSetIterator(ScriptCategories.parseUnicodeSet("[:script=Hangul:]").removeAll(SKIP)); it.next();) {
       String str = it.getString();
       if (ScriptCategories.ARCHAIC.contains(it.codepoint)) {
-        CATEGORYTABLE.add("Hangul", true, "Archaic Hangul", buttonComparator, true, it.codepoint, it.codepoint);
+        CATEGORYTABLE.add("Hangul", true, "Archaic Hangul", buttonComparator, Separation.AUTOMATIC, it.codepoint, it.codepoint);
         continue;
       }
       String s = MKKD.transform(str);
@@ -641,19 +652,19 @@ class GeneratePickerData {
         decompCodePoint1 = s.codePointAt(1);
       }
       if (!HST_L.contains(decompCodePoint1) || it.codepoint == 0x115F || it.codepoint == 0x1160) {
-        CATEGORYTABLE.add("Hangul", true, "Other", buttonComparator, true, it.codepoint);
+        CATEGORYTABLE.add("Hangul", true, "Other", buttonComparator, Separation.AUTOMATIC, it.codepoint);
         continue;
       }
       if (COMPATIBILITY.contains(it.codepoint)) {
-        CATEGORYTABLE.add("Hangul", true, "Compatibility", buttonComparator, true, it.codepoint);
+        CATEGORYTABLE.add("Hangul", true, "Compatibility", buttonComparator, Separation.AUTOMATIC, it.codepoint);
         continue;
       }
       CATEGORYTABLE.add("Hangul", true, UTF16.valueOf(decompCodePoint1) + " " + UCharacter.getExtendedName(decompCodePoint1), 
-              buttonComparator, true, it.codepoint);
+              buttonComparator, Separation.AUTOMATIC, it.codepoint);
     }
   }
 
-  private static String buildNames(boolean showData) {
+  private static String buildNames() {
     StringBuilder result = new StringBuilder();
     for (UnicodeSetIterator it = new UnicodeSetIterator(NAMED_CHARACTERS); it.next();) {
       result.append("{\"" + it.getString() + "\",\"" + UCharacter.getExtendedName(it.codepoint) + "\"},\r\n");
@@ -692,48 +703,68 @@ class GeneratePickerData {
   }
 
   static class CategoryTable {
-
-    private static final String UNCOMMON_OR_VARIANTS = "- Historic or Variants -";
+    enum Separation { AUTOMATIC, ALL_UNCOMMON, ALL_HISTORIC, ALL_COMPATIBILITY, ALL_ORDINARY}
     static Map<String, Map<String, GeneratePickerData.USet>> categoryTable =  //new TreeMap<String, Map<String, USet>>(ENGLISH); // 
       new LinkedHashMap<String, Map<String, GeneratePickerData.USet>>();
 
-    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, boolean separateOld, UnicodeSet values) {
+    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, Separation separateOld, UnicodeSet values) {
       for (UnicodeSetIterator it = new UnicodeSetIterator(values); it.next();) {
         add(category, sortSubcategory, subcategory, sortValues, separateOld, it.codepoint);
       }
     }
-    
-    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, boolean separateOld, String values) {
+
+    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, Separation separateOld, String values) {
       int cp;
       for (int i = 0; i < values.length(); i += UTF16.getCharCount(cp)) {
         add(category, sortSubcategory, subcategory, sortValues, separateOld, cp = values.charAt(i));
       }
     }
 
-    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, boolean separateOld, int startCodePoint, int endCodePoint) {
+    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, Separation separateOld, int startCodePoint, int endCodePoint) {
       for (int i = startCodePoint; i <= endCodePoint; ++i) {
         add(category, sortSubcategory, subcategory, sortValues, separateOld, i);
       }
     }
 
-    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, boolean separateOld, int codepoint) {
+    public void add(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, Separation separateOld, int codepoint) {
       //if (ADD_SUBHEAD.contains(codepoint))
-      {
-        String subhead = subheader.getSubheader(codepoint);
-        if (subhead != null && !subhead.equalsIgnoreCase(subcategory)) {
-          subcategory = subcategory + MAIN_SUBSUB_SEPARATOR + subhead;
+
+      String subhead = subheader.getSubheader(codepoint);
+      if (subhead != null && !subhead.equalsIgnoreCase(subcategory)) {
+        subcategory = subcategory + MAIN_SUBSUB_SEPARATOR + subhead;
+      }
+
+      String prefix = "";
+      
+      if (separateOld == Separation.AUTOMATIC) {
+        if (UNCOMMON_HAN.contains(codepoint)) {
+          separateOld = Separation.ALL_UNCOMMON;
+        } else if (HISTORIC.contains(codepoint)) {
+          separateOld = Separation.ALL_HISTORIC;
+        } else if (COMPATIBILITY.contains(codepoint)) {
+          separateOld = Separation.ALL_COMPATIBILITY;
         }
       }
-      SimplePair names = renamer.rename(category, subcategory);
+      switch (separateOld) {
+        case ALL_HISTORIC: 
+          prefix = ARCHAIC_MARKER;
+          break;
+        case ALL_COMPATIBILITY:
+          prefix = COMPAT_MARKER;
+          break;
+        case ALL_UNCOMMON:
+          prefix = LESS_COMMON_MARKER;
+          break;
+      }
+
+      SimplePair names = renamer.rename(category, prefix + subcategory);
       final String mainCategory = names.getFirst();
       final String subCategory = names.getSecond();
-      if (separateOld && ARCHAIC.contains(codepoint) || ARCHAIC_HAN.contains(codepoint)) {
-        CATEGORYTABLE.add2(mainCategory, sortSubcategory, ARCHAIC_MARKER + subCategory, null, codepoint);
-      } else if (separateOld && COMPATIBILITY.contains(codepoint)) {
-        CATEGORYTABLE.add2(mainCategory, sortSubcategory, COMPAT_MARKER + subCategory, null, codepoint);
-      } else {
-        CATEGORYTABLE.add2(mainCategory, sortSubcategory, subCategory, sortValues, codepoint);
+
+      if (subCategory.contains("CJK")) {
+        System.out.println("CJK Case");
       }
+      CATEGORYTABLE.add2(mainCategory, sortSubcategory, subCategory, sortValues, codepoint);
     }
 
     private void add2(String category, boolean sortSubcategory, String subcategory, Comparator<String> sortValues, int codePoint) {
@@ -796,24 +827,41 @@ class GeneratePickerData {
     }
 
     public String toString() {
+      throw new IllegalArgumentException();
+    }
+
+    public String toString(boolean displayData, String localDataDirectory) throws FileNotFoundException, IOException {
+
+      PrintWriter htmlChart = null;
+
       int totalChars = 0, totalCompressed = 0;
       UnicodeSet soFar = new UnicodeSet();
       UnicodeSet duplicates = new UnicodeSet();
       StringBuilder result = new StringBuilder();
       for (String category : categoryTable.keySet()) {
-        result.append("{{\""+ category + "\"},\r\n");
         Map<String,GeneratePickerData.USet> sub = categoryTable.get(category);
-        boolean wasArchaic = false;
-        for (String subcategory : sub.keySet()) {
+        htmlChart = openChart(htmlChart, localDataDirectory, category, categoryTable.keySet());
+
+        result.append("{{\""+ category + "\"},\r\n");
+        // clean up results
+        for (Iterator<String> subcategoryIterator = sub.keySet().iterator(); subcategoryIterator.hasNext();) {
+          String subcategory = subcategoryIterator.next();
           GeneratePickerData.USet valueChars = sub.get(subcategory);
           if (valueChars.strings.isEmpty()) {
-            continue;
+            subcategoryIterator.remove();
           }
-          if (!wasArchaic && subcategory.startsWith(ARCHAIC_MARKER)) {
-            wasArchaic = true;
-            //addResult(result, USet.EMPTY, category,UNCOMMON_OR_VARIANTS);
-          }
-          String valueCharsString = addResult(result, valueChars, category, subcategory);
+        }
+        for (String subcategory : sub.keySet()) {
+          GeneratePickerData.USet valueChars = sub.get(subcategory);
+          htmlChart.println(
+                  "<tr>" +
+                  //"<td>" + category + "</td>" +
+                  "<td>" + fixHtml(fixCategoryName(subcategory)) + "</td>" +
+                  "<td>" + valueChars.strings.size() + "</td>" +
+                  "<td>" + fixHtml(valueChars.strings) + "</td>" +
+                  "</tr>"
+          );
+          String valueCharsString = addResult(result, valueChars, category, subcategory, displayData);
 
           totalChars += utf8Length(valueChars.strings);
           totalCompressed += utf8Length(valueCharsString);
@@ -827,6 +875,7 @@ class GeneratePickerData {
         }
         result.append("},\r\n");
       }
+      htmlChart = openChart(htmlChart, localDataDirectory, null, null);
       // invert soFar to get missing
       duplicates.removeAll(KNOWN_DUPLICATES).removeAll(SKIP);
       duplicates.clear(); // don't show anymore
@@ -836,12 +885,12 @@ class GeneratePickerData {
         if (soFar.size() > 0) {
           USet temp = new USet(UCA);
           addAllToCollection(soFar, temp.strings);
-          addResult(result, temp, "TODO", "Missing");
+          addResult(result, temp, "TODO", "Missing", displayData);
         }
         if (duplicates.size() > 0) {
           USet temp = new USet(UCA);
           addAllToCollection(duplicates, temp.strings);
-          addResult(result, temp, "TODO", "Duplicates");
+          addResult(result, temp, "TODO", "Duplicates", displayData);
         }
         result.append("},\r\n");
       }
@@ -851,19 +900,48 @@ class GeneratePickerData {
       return result.toString();
     }
 
+    private String fixHtml(String subcategory) {
+      return subcategory.replace("<", "&lt;").replace("&", "&amp;");
+    }
 
+    private String fixHtml(Collection<String> strings) {
+      StringBuilder result = new StringBuilder();
+      for (String s : strings) {
+        result.append(fixHtml(s)).append(' ');
+      }
+      return result.toString();
+    }
 
-    private String addResult(StringBuilder result, GeneratePickerData.USet valueChars, String category, String subcategory) {
-      if (subcategory.startsWith(ARCHAIC_MARKER)) {
-        if (ARCHAIC_HAN.containsAll(valueChars.strings)) {
-          subcategory = "Less common - " + subcategory.substring(1);
-        } else {
-          subcategory = "Historic - " + subcategory.substring(1);
+    private PrintWriter openChart(PrintWriter htmlChart, String localDataDirectory, String category, Set<String> set)
+    throws IOException, FileNotFoundException {
+      if (htmlChart != null) {
+        htmlChart.println("</table></body></html>");
+        htmlChart.close();
+        htmlChart = null;
+      }
+      if (category != null) {
+        htmlChart = getFileWriter(localDataDirectory, "PickerData - " + fixCategoryName(category) + ".html");
+        htmlChart.println("<html><head>" +
+                "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +
+                "<title>Picker Data</title>" +
+                "<link rel='stylesheet' type='text/css' href='PickerData.css'>" +
+                "</head>" + "<body>");
+        htmlChart.println("<h1>" + fixCategoryName(category) + " - " + new Date() + "</h1>");
+        for (String s : set) {
+          s = fixCategoryName(s);
+          htmlChart.println("<a href='" + "PickerData - " + fixHtml(s) + ".html" + "'>" 
+                  + fixHtml(s)
+                  + "</a> ");
         }
+        htmlChart.println("<table>");
       }
-      if (subcategory.startsWith(COMPAT_MARKER)) {
-        subcategory = "Compatibility - " + subcategory.substring(1);
-      }
+      return htmlChart;
+    }
+
+    private String addResult(StringBuilder result, GeneratePickerData.USet valueChars, String category, String subcategory, boolean doDisplayData) {
+      subcategory = fixCategoryName(subcategory);
+      category = fixCategoryName(category);
+
       final int size = valueChars.strings.size();
       String valueCharsString;
       try {
@@ -874,14 +952,28 @@ class GeneratePickerData {
         throw e;
       }
       final int length = valueCharsString.length();
+      UnicodeSet valueSet = new UnicodeSet();
+      for (String s : valueChars.strings) {
+        valueSet.add(s);
+      }
       final String quoteFixedvalueCharsString = valueCharsString.replace("\\", "\\\\").replace("\"", "\\\"");
       result.append("/*" + size + "," + length + "*/" +
               " {\""+ subcategory + "\",\"" + quoteFixedvalueCharsString + "\"},\r\n");
-      System.out.println("/*" + size + "," + length + "*/" +
-              " "+ category + MAIN_SUB_SEPARATOR + subcategory + "\t" + valueChars.strings + ", " + toHex(valueCharsString,true));
+      if (doDisplayData) {
+        System.out.println("/*" + size + "," + length + "*/" +
+                " " + category + MAIN_SUB_SEPARATOR + subcategory + "\t" + valueSet.toPattern(false)
+                + ", " + toHex(valueCharsString,true));
+      }
       return valueCharsString;
     }
 
+    private String fixCategoryName(String subcategory) {
+      subcategory = subcategory.replaceAll("\\p{Co}", "");
+      if (PRIVATE_USE.containsSome(subcategory)) {
+        throw new IllegalArgumentException();
+      }
+      return subcategory;
+    }
   }
 
   static {
@@ -899,7 +991,7 @@ class GeneratePickerData {
       valueChars.clear();
       //valueChars.applyPropertyAlias(propertyAlias, valueAlias);
       ScriptCategories.applyPropertyAlias(propertyAlias, valueAlias, valueChars);
-      
+
       if (DEBUG) System.out.println(valueAlias + ": " + valueChars.size() + ", " + valueChars);
       valueChars.removeAll(SKIP);
       valueChars.retainAll(retain);
@@ -908,13 +1000,13 @@ class GeneratePickerData {
       if (DEBUG) System.out.println("Filtered " + valueAlias + ": " + valueChars.size() + ", " + valueChars);
 
       for (UnicodeSetIterator it = new UnicodeSetIterator(valueChars); it.next();) {
-        CATEGORYTABLE.add(title, true, valueAlias, sortItems(sort, propertyAlias, valueAlias), true, it.codepoint);
+        CATEGORYTABLE.add(title, true, valueAlias, sortItems(sort, propertyAlias, valueAlias), Separation.AUTOMATIC, it.codepoint);
       }
     }
     //result.append("},");
     //System.out.println(result);
   }
-  
+
   private static void addProperty(String propertyAlias, String title, Comparator<String> sort, 
           Set<String> propertyValues) {
     // get all the value strings, sorted
@@ -924,7 +1016,7 @@ class GeneratePickerData {
       //valueChars.applyPropertyAlias(propertyAlias, valueAlias);
       ScriptCategories.applyPropertyAlias(propertyAlias, valueAlias, valueChars);
       valueAlias = ScriptCategories.getFixedPropertyValue(propertyAlias, valueAlias);
-      
+
       if (DEBUG) System.out.println(valueAlias + ": " + valueChars.size() + ", " + valueChars);
       valueChars.removeAll(SKIP);
       if (valueChars.size() == 0) continue;
@@ -932,10 +1024,15 @@ class GeneratePickerData {
       if (DEBUG) System.out.println("Filtered " + valueAlias + ": " + valueChars.size() + ", " + valueChars);
 
       for (UnicodeSetIterator it = new UnicodeSetIterator(valueChars); it.next();) {
-        CATEGORYTABLE.add(title, true, valueAlias, sortItems(sort, propertyAlias, valueAlias), true, it.codepoint);
+        Separation separation = Separation.AUTOMATIC;
+        if (ScriptCategories.HISTORIC_SCRIPTS.contains(valueAlias)) {
+          separation = Separation.ALL_HISTORIC;
+        }
+        CATEGORYTABLE.add(title, true, valueAlias, sortItems(sort, propertyAlias, valueAlias), 
+                separation, it.codepoint);
       }
     }
-    
+
   }
 
   private static Comparator<String> sortItems(Comparator<String> sort, String propertyAlias, String valueAlias) {
@@ -1027,28 +1124,28 @@ class GeneratePickerData {
     public String toString() {
       StringBuilder result = new StringBuilder();
       appendCompacted(result, strings);
-//      if (sorted != null) {
-//        Set<String> set2 = new TreeSet(sorted);
-//        for (String s : set) {
-//          set2.add(s);
-//        }
-//        //if (DEBUG) System.out.println("Sorted " + value + ": " + valueChars.size() + ", " + valueChars);
-//        if (set2.isEmpty()) {
-//          return null;
-//        }
-//        // now produce compacted string from a collection
-//        appendCompacted(result, set2);
-//      } else {
-//        for (UnicodeSetIterator it = new UnicodeSetIterator(set); it.nextRange();) {
-//          appendRange(result, it.codepoint, it.codepointEnd);
-//        }
-//      }
+      //      if (sorted != null) {
+      //        Set<String> set2 = new TreeSet(sorted);
+      //        for (String s : set) {
+      //          set2.add(s);
+      //        }
+      //        //if (DEBUG) System.out.println("Sorted " + value + ": " + valueChars.size() + ", " + valueChars);
+      //        if (set2.isEmpty()) {
+      //          return null;
+      //        }
+      //        // now produce compacted string from a collection
+      //        appendCompacted(result, set2);
+      //      } else {
+      //        for (UnicodeSetIterator it = new UnicodeSetIterator(set); it.nextRange();) {
+      //          appendRange(result, it.codepoint, it.codepointEnd);
+      //        }
+      //      }
       Collection<String> reversal = getFromCompacted(result.toString());
       ArrayList<String> original = new ArrayList<String>(strings);
       if (!reversal.equals(original)) {
-        Set<String> ab = new LinkedHashSet(original);
+        Set<String> ab = new LinkedHashSet<String>(original);
         ab.removeAll(reversal);
-        Set<String> ba = new LinkedHashSet(reversal);
+        Set<String> ba = new LinkedHashSet<String>(reversal);
         ba.removeAll(original);
         System.out.println("FAILED!!!!");
         throw new IllegalArgumentException("Failed; in original but not restored: " + ab + "\r\nIn restored but not original: " + ba);
@@ -1770,10 +1867,16 @@ class GeneratePickerData {
 
   public static final UnicodeSet ADD_SUBHEAD = (UnicodeSet) ScriptCategories.parseUnicodeSet("[[:S:][:P:][:M:]&[[:script=common:][:script=inherited:]]-[:nfkdqc=n:]]")
   .removeAll(ScriptCategories.ARCHAIC).freeze();
-  private static UnicodeSet ARCHAIC_HAN = ScriptCategories.parseUnicodeSet("[[:script=han:]-[:block=CJK Unified Ideographs:]-[:script=hiragana:]-[:script=katakana:]]"); // we'll alter below
+  private static UnicodeSet UNCOMMON_HAN = ScriptCategories.parseUnicodeSet("[" +
+  		"[:script=han:]" +
+  		"-[:block=CJK Unified Ideographs:]" +
+  		"-[:script=hiragana:]" +
+  		"-[:script=katakana:]" +
+  		"-[〇]" +
+  		"]"); // we'll alter below to remove iicore
 
   static class Renamer {
-    Map<Matcher,String> renameTable = new LinkedHashMap();
+    Map<Matcher,String> renameTable = new LinkedHashMap<Matcher,String>();
 
     public Renamer(String filename) throws IOException {
       getRenameData(filename);
@@ -1873,14 +1976,18 @@ class GeneratePickerData {
       subcategory = subcategory.replace('_', ' ');
 
       String lookup = maincategory + MAIN_SUB_SEPARATOR + subcategory;
+      if (lookup.contains("Ancient")) {
+        if (true) System.out.println();
+      }
       String indent = "";
       for (Matcher m : renameTable.keySet()) {
         if (m.reset(lookup).matches()) {
           String newName = renameTable.get(m);
+          String originalRename = newName;
           for (int i = 0; i <= m.groupCount(); ++i) {
             newName = newName.replace("$" + i, m.group(i));
           }
-          renamingLog.println(indent + lookup + "\t=>\t" + newName);
+          renamingLog.println(indent + lookup + "\t=>\t" + newName + "// " + m.toString() + " > " + originalRename);
           lookup = newName;
           indent += "\t";
         }
@@ -1898,21 +2005,21 @@ class GeneratePickerData {
     }
 
   }
-  
+
   public static <U extends Collection<String>> U addAllToCollection(UnicodeSet input, U output) {
     for (UnicodeSetIterator it = new UnicodeSetIterator(input); it.next();) {
       output.add(it.getString());
     }
     return output;
   }
-  
+
   public static <U extends Collection<String>> U removeAllFromCollection(UnicodeSet input, U output) {
     for (UnicodeSetIterator it = new UnicodeSetIterator(input); it.next();) {
       output.remove(it.getString());
     }
     return output;
   }
-  
+
   private static int utf8Length(Collection<String> set) {
     int len = 0;
     for (String s : set) {

@@ -1876,7 +1876,7 @@ class GeneratePickerData {
   		"]"); // we'll alter below to remove iicore
 
   static class Renamer {
-    Map<Matcher,String> renameTable = new LinkedHashMap<Matcher,String>();
+    Map<Matcher,SimplePair> renameTable = new LinkedHashMap<Matcher,SimplePair>();
 
     public Renamer(String filename) throws IOException {
       getRenameData(filename);
@@ -1899,7 +1899,7 @@ class GeneratePickerData {
           int breaker = line.indexOf(">");
           String source = line.substring(0,breaker).trim();
           String target = line.substring(breaker+1).trim();
-          renameTable.put(Pattern.compile(source,Pattern.CASE_INSENSITIVE).matcher(""), target);
+          renameTable.put(Pattern.compile(source,Pattern.CASE_INSENSITIVE).matcher(""), new SimplePair(source, target));
         } catch (Exception e) {
           throw (RuntimeException) new IllegalArgumentException("Problem with: " + line).initCause(e);
         }
@@ -1982,12 +1982,12 @@ class GeneratePickerData {
       String indent = "";
       for (Matcher m : renameTable.keySet()) {
         if (m.reset(lookup).matches()) {
-          String newName = renameTable.get(m);
-          String originalRename = newName;
+          SimplePair newNames = renameTable.get(m);
+          String newName = newNames.second, originalRename = newName;
           for (int i = 0; i <= m.groupCount(); ++i) {
             newName = newName.replace("$" + i, m.group(i));
           }
-          renamingLog.println(indent + lookup + "\t=>\t" + newName + "// " + m.toString() + " > " + originalRename);
+          renamingLog.println(indent + lookup + "\t=>\t" + newName + "\t // " + newNames.first + " > " + originalRename);
           lookup = newName;
           indent += "\t";
         }

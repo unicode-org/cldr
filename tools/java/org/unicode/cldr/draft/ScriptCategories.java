@@ -13,7 +13,11 @@ import java.util.TreeSet;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
 
 public class ScriptCategories {
 
@@ -720,7 +724,47 @@ public class ScriptCategories {
     parseUnicodeSet("[:script=Common:]");
     parseUnicodeSet("[[:Letter:]&[:script=common:]]");
     parseUnicodeSet("[[:So:]&[[:script=common:][:script=inherited:]][[:Letter:]&[:script=common:]]]");
+    checkHistoricClosure();
+    generateRemappingCode(args);
+  }
 
+  private static void checkHistoricClosure() {
+    testNormalizationConsistency("Historic", ARCHAIC, Normalizer.NFKD);
+    for (int pValue = UCharacter.getIntPropertyMinValue(UProperty.SCRIPT); 
+      pValue <= UCharacter.getIntPropertyMaxValue(UProperty.SCRIPT); pValue++) {
+      String pValueName = UCharacter.getPropertyValueName(UProperty.SCRIPT, pValue, UProperty.NameChoice.LONG);
+      //System.out.println("Checking " + pValueName);
+      UnicodeSet temp  = new UnicodeSet();
+      boolean t = myXSymbolTable.applyPropertyAlias("script", pValueName, temp);
+      testNormalizationConsistency("Script=" + pValueName, temp, Normalizer.NFKD);
+    }
+  }
+
+  private static void testNormalizationConsistency(String title, UnicodeSet testSet, Normalizer.Mode mode) {
+    UnicodeSet inSet = new UnicodeSet();
+    UnicodeSet inDecompSet = new UnicodeSet();
+    for (UnicodeSetIterator it = new UnicodeSetIterator(new UnicodeSet("[[:nfkdqc=n:]-[:hangulsyllabletype=LV:]" +
+    		"-[:hangulsyllabletype=LVT:]]")); it.next();) {
+      String nfkd = Normalizer.normalize(it.codepoint, mode);
+      boolean isHistoric = testSet.contains(it.codepoint);
+      boolean nfkdContainsHistoric = false;
+      int cp;
+      for (int i = 0; i < nfkd.length(); i += UTF16.getCharCount(cp)) {
+        cp = UTF16.charAt(nfkd, i);
+        nfkdContainsHistoric = nfkdContainsHistoric || testSet.contains(cp);
+      }
+      if (isHistoric != nfkdContainsHistoric) {
+        if (isHistoric) inSet.add(it.codepoint);
+        if (nfkdContainsHistoric) inDecompSet.add(it.codepoint);
+      }
+    }
+    if (inSet.size() != 0) {
+      System.out.println("// Possible Problems in " + title + ": in (but not decomps)" + inSet.toPattern(false));
+      System.out.println("// \t In decomps, but not ordinary: " + inDecompSet.toPattern(false));
+    }
+  }
+
+  private static void generateRemappingCode(String[] args) throws IOException {
     Map<RemapType, Map<String, UnicodeSet>> data = getRemapData(args[0] + "ScriptData.txt");
     for (RemapType r : data.keySet()) {
       UnicodeSet changed = getChanged(data, r);

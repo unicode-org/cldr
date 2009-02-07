@@ -7,8 +7,10 @@
 
 Mark:(.*) > Modifier:$1
 
+Symbol:(.*Compatibility - )Math > Symbol:Math
 Symbol:(.*)symbols?>Symbol:$1
 Symbol:.*(Gender|Genealogic).* > Symbol:Gender and Genealogical
+Symbol:.*Star.* > Symbol:Stars
 Symbol:.*Latin.* > Symbol:Latin
 Symbol:.*(Dice|Chess|Go Markers|Playing|Checkers|Tiles).* > Symbol:Game Pieces
 Symbol:.*Based on ISO 8859-6.* > Modifier:Spacing
@@ -30,17 +32,23 @@ Symbol:.*cross.*>Symbol:Religious
 Symbol:.*(Tai Xuan Jing|Yijing).* > Symbol:Yijing / Tai Xuan Jing
 Symbol:(.*)Historic.* > Symbol:$1Historic
 Symbol:(.*)Letterlike(.*) > Symbol:$1Technical$2
+Symbol:(.*Compatibility - )Currency > Symbol:$1Other
 
 #Punctuation:Other~(.*)>Punctuation:$1
 Punctuation:(Open|Close|Initial|Final)(.*)>Punctuation:Paired
-Punctuation:(Dash|Connector)~(.*)>Punctuation:$1
+Punctuation:(Dash|Connector)~(.*)>Punctuation:Dash/Connector
 #Punctuation:.*CJK.*>Punctuation:CJK
-Punctuation:.*(ASCII|Latin).*>Punctuation:Latin-1 Based
+Punctuation:.*~(ASCII|Latin).*>Punctuation:ASCII Based
 Punctuation:(.*(Compatibility|Historic)).* > Punctuation:$1
 # rename category
 
+Number:.*(circled|parenthesized|Numbers period).* > Number:Enclosed/Dotted
+Number:.*Compatibility.*~.*(latin-1|fraction|scripts).* > Number:Fractions/Related
 Number:(.*(Compatibility|Historic)).* > Number:$1
 Number:.*(Letter|Less Common).* > Number:Other
+
+
+
 
 #Modifier:(Spacing|Enclosing)~(.*)>Modifier:$1
 
@@ -54,10 +62,20 @@ Invisibles:(.*(Historic|Compatibility))(.*) > Invisibles:$1
 (.*)Historic - Ancient(.*) > $1Historic - Other$2
 (.*)Compatibility - Compatibility(.*) > $1Compatibility - Other$2
 
+# remove "Other"
+
+(Symbol|Punctuation|Modifier|Number|Invisibles|Latin|Hangul):(.*(Compatibility|Historic)).* > $1:$2
+
 #Merge obsolete Han
+
 ##(.*CJK.*):(.*) > CJK (Han):Compatibility
-(.*)Less Common(.*)Other > $1Less Common
-(.*Han.*)Compatibility(.*)Other > $1Other
+(.*)Less Common(.*)Other.* > $1Less Common
+(.*Han.*)Compatibility(.*)Other.* > $1Other
+
+#Fix Thai/Lao
+Southeast Asian Scripts:(.*Compatibility - )(.*) > Southeast Asian Scripts:$2
+
+Other European Scripts:Braille.* > Symbol:Braille
 
 # Suppress all of the other third-level items after the above merges
 (.*):(.*)~.* > $1:$2

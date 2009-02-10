@@ -59,7 +59,7 @@ public class CLDRFileCache {
         }
 
         @Override
-        public CLDRFile make(String localeID, boolean bool, DraftStatus madeWithMinimalDraftStatus) {
+        public CLDRFile handleMake(String localeID, boolean bool, DraftStatus madeWithMinimalDraftStatus) {
             return getCLDRFile(CLDRLocale.getInstance(localeID));
         }
 

@@ -270,9 +270,18 @@ public class ConsoleCheckCLDR {
     System.out.println("resolve votes: " + resolveVotesDirectory);
 
     // set up the test
-    Factory cldrFactory = CLDRFile.Factory.make(sourceDirectory, factoryFilter);
+    Factory cldrFactory = CLDRFile.Factory.make(sourceDirectory, factoryFilter)
+      .setAlternateSupplementalDirectory(new File(Utility.SUPPLEMENTAL_DIRECTORY));
     CheckCLDR checkCldr = CheckCLDR.getCheckAll(checkFilter);
-    checkCldr.setDisplayInformation(cldrFactory.make("en", true));
+    CLDRFile english;
+    try {
+      english = cldrFactory.make("en", true);
+    } catch (Exception e1) {
+      Factory backCldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, factoryFilter)
+      .setAlternateSupplementalDirectory(new File(Utility.SUPPLEMENTAL_DIRECTORY));
+      english = backCldrFactory.make("en", true);
+    }
+    checkCldr.setDisplayInformation(english);
     PathShower pathShower = new PathShower();
 
     // call on the files
@@ -1205,7 +1214,7 @@ public class ConsoleCheckCLDR {
 
 
   private static void showHeaderLine() {
-    if (SHOW_LOCALE) System.out.println("Locale\tNo.\tStatus\tPPath\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t«fill-in»\t【Loc.Ex】\tError/Warning Msg\tFull Path\tAliasedSource/Path?");
+    if (SHOW_LOCALE) System.out.println("Locale\tStatus\tPPath\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t«fill-in»\t【Loc.Ex】\tError/Warning Msg\tFull Path\tAliasedSource/Path?");
   }
 
   private static void showValue(CLDRFile cldrFile, String prettyPath, String localeID, String example, 
@@ -1243,7 +1252,7 @@ public class ConsoleCheckCLDR {
                       : "\t" + status.pathWhereFound);
       System.out.println(
               getLocaleAndName(localeID)
-              + "\t" + subtotalCount.getCount(shortStatus)
+              //+ "\t" + subtotalCount.getCount(shortStatus)
               + "\t" + shortStatus
               + "\t" + cleanPrettyPath
               + "\t〈" + englishPathValue + "〉"

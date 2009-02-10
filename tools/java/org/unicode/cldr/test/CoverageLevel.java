@@ -1139,10 +1139,15 @@ public class CoverageLevel {
         // System.out.println(path);
         // System.out.flush();
         // we have element, type, subtype, and values
+        if (type == null) {
+          throw new IllegalArgumentException("calendarData/calendar/ is missing type attribute in:" + path);
+        }
         Set values = new TreeSet(
             Arrays.asList((parts.getAttributeValue(2, "territories")).split("\\s+")));
-        Utility.addTreeMapChain(coverageData, 
-            lastElement, type, values);
+        if (values.contains("")) {
+          throw new IllegalArgumentException("calendarData/calendar/ illegal territories string in:" + path);
+        }
+        Utility.addTreeMapChain(coverageData, lastElement, type, values);
         addAllToCollectionValue(territory_calendar,values,type,TreeSet.class);
       } else if (parts.containsElement("languageData")) {
         // <language type="ab" scripts="Cyrl" territories="GE"

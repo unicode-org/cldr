@@ -93,6 +93,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   private XMLSource dataSource;
   private String dtdVersion;
 
+  private File alternateSupplementalDirectory;
   
   public enum DraftStatus {unconfirmed, provisional, contributed, approved};
   
@@ -1132,19 +1133,24 @@ public class CLDRFile implements Freezable, Iterable<String> {
    * See SimpleFactory for a concrete subclass.
    */
   public static abstract class Factory {
+    
+    private File alternateSupplementalDirectory = null;
 
     public abstract String getSourceDirectory();
 
-    public abstract CLDRFile make(String localeID, boolean b, DraftStatus madeWithMinimalDraftStatus);
-
+    protected abstract CLDRFile handleMake(String localeID, boolean resolved, DraftStatus madeWithMinimalDraftStatus);
     
-    public CLDRFile make(String localeName, boolean resolved, boolean includeDraft) {
-      return make(localeName, resolved, includeDraft ? DraftStatus.unconfirmed : DraftStatus.approved);
+    public CLDRFile make(String localeID, boolean resolved, DraftStatus madeWithMinimalDraftStatus) {
+      return handleMake(localeID, resolved, madeWithMinimalDraftStatus).setAlternateSupplementalDirectory(alternateSupplementalDirectory);
+    }
+
+    public CLDRFile make(String localeID, boolean resolved, boolean includeDraft) {
+      return make(localeID, resolved, includeDraft ? DraftStatus.unconfirmed : DraftStatus.approved);
     }
 
 
-    public CLDRFile make(String localeName, boolean resolved) {
-        return make(localeName, resolved, getMinimalDraftStatus());
+    public CLDRFile make(String localeID, boolean resolved) {
+        return make(localeID, resolved, getMinimalDraftStatus());
       }
 
     protected abstract DraftStatus getMinimalDraftStatus();
@@ -1203,6 +1209,15 @@ public class CLDRFile implements Freezable, Iterable<String> {
         if (relation >= 0 && !(isProper && relation == 0)) result.add(s);
       }
       return result;
+    }
+
+    public File getAlternateSupplementalDirectory() {
+      return alternateSupplementalDirectory;
+    }
+
+    public Factory setAlternateSupplementalDirectory(File alternateSupplementalDirectory) {
+      this.alternateSupplementalDirectory = alternateSupplementalDirectory;
+      return this;
     }
 
   }
@@ -1266,7 +1281,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
      */
     // TODO resolve aliases
     
-    public CLDRFile make(String localeName, boolean resolved, DraftStatus minimalDraftStatus) {
+    public CLDRFile handleMake(String localeName, boolean resolved, DraftStatus minimalDraftStatus) {
       // TODO fix hack: 
       // read root first so that we get the ordering right.
       /*			if (needToReadRoot) {
@@ -1300,7 +1315,16 @@ public class CLDRFile implements Freezable, Iterable<String> {
   }
   
   public File getSupplementalDirectory() {
-      return dataSource.getSupplementalDirectory();
+      return alternateSupplementalDirectory != null ? alternateSupplementalDirectory : dataSource.getSupplementalDirectory();
+  }
+
+  public File getAlternateSupplementalDirectory() {
+    return alternateSupplementalDirectory;
+  }
+
+  public CLDRFile setAlternateSupplementalDirectory(File alternateSupplementalDirectory) {
+    this.alternateSupplementalDirectory = alternateSupplementalDirectory;
+    return this;
   }
 
   /**

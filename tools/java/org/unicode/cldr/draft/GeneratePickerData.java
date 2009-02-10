@@ -32,6 +32,7 @@ import org.unicode.cldr.draft.GeneratePickerData.CategoryTable.Separation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
@@ -43,7 +44,7 @@ import com.ibm.icu.util.ULocale;
 class GeneratePickerData {
   static final boolean DEBUG = true;
 
-  private static final String LESS_COMMON_MARKER = "\uE008Less Common - ";
+  private static final String LESS_COMMON_MARKER = "\uE012Less Common - ";
   private static final String ARCHAIC_MARKER = "\uE010Historic - ";
   private static final String COMPAT_MARKER = "\uE011Compatibility - ";
 
@@ -188,6 +189,8 @@ class GeneratePickerData {
     writeMainFile(outputDirectory, categoryData);
     writeMainFile(localDataDirectory, categoryData);
     renamingLog.close();
+    System.out.println("UNUSED RULES");
+    renamer.showUnusedRules();
   }
 
   private static void buildMainTable() throws IOException {
@@ -197,7 +200,7 @@ class GeneratePickerData {
     CATEGORYTABLE.addMainCategory("Symbol");
     CATEGORYTABLE.addMainCategory("Punctuation");
     CATEGORYTABLE.addMainCategory("Number");
-    CATEGORYTABLE.addMainCategory("Invisibles");
+    CATEGORYTABLE.addMainCategory("Format & Whitespace");
     CATEGORYTABLE.addMainCategory("Modifier");
     CATEGORYTABLE.addMainCategory("Latin");
     CATEGORYTABLE.addMainCategory(EUROPEAN);
@@ -214,8 +217,6 @@ class GeneratePickerData {
 
 
     addSymbols();
-    CATEGORYTABLE.add("Symbol", true, "Superscript", buttonComparator, Separation.ALL_ORDINARY, ScriptCategories.parseUnicodeSet("[[:dt=super:]-[:block=kanbun:]]"));
-    CATEGORYTABLE.add("Symbol", true, "Subscript", buttonComparator, Separation.ALL_ORDINARY, ScriptCategories.parseUnicodeSet("[:dt=sub:]"));
 
     addProperty("General_Category", "Category", buttonComparator, 
             ScriptCategories.parseUnicodeSet("[[:script=common:][:script=inherited:][:N:]" +
@@ -227,9 +228,9 @@ class GeneratePickerData {
                     //"-[[:M:]-[:script=common:]-[:script=inherited:]]" +
             "]"));
 
-    CATEGORYTABLE.add("Invisibles", true, "Whitespace", buttonComparator, Separation.AUTOMATIC, ScriptCategories.parseUnicodeSet("[:whitespace:]"));
-    CATEGORYTABLE.add("Invisibles", true, "Format", buttonComparator, Separation.AUTOMATIC, ScriptCategories.parseUnicodeSet("[:cf:]"));
-    CATEGORYTABLE.add("Invisibles", true, "Other", buttonComparator, Separation.AUTOMATIC, ScriptCategories.parseUnicodeSet("[[:default_ignorable_code_point:]-[:cf:]-[:whitespace:]]"));
+    CATEGORYTABLE.add("Format & Whitespace", true, "Whitespace", buttonComparator, Separation.AUTOMATIC, ScriptCategories.parseUnicodeSet("[:whitespace:]"));
+    CATEGORYTABLE.add("Format & Whitespace", true, "Format", buttonComparator, Separation.AUTOMATIC, ScriptCategories.parseUnicodeSet("[:cf:]"));
+    CATEGORYTABLE.add("Format & Whitespace", true, "Other", buttonComparator, Separation.AUTOMATIC, ScriptCategories.parseUnicodeSet("[[:default_ignorable_code_point:]-[:cf:]-[:whitespace:]]"));
 
     addLatin();
     Set<String> EuropeanMinusLatin = new TreeSet<String>(ScriptCategories.EUROPEAN);
@@ -355,19 +356,32 @@ class GeneratePickerData {
 
   private static void addSymbols() {
     final UnicodeSet symbolsMinusScripts = ScriptCategories.parseUnicodeSet(
-    "[[[:script=common:][:script=inherited:]]&[[:So:][:Letter:]]]");
+    "[[[:script=common:][:script=inherited:]]&[[:S:][:Letter:]]]");
     if (true) {
       System.out.println("***Contains:" + symbolsMinusScripts.contains(0x3192));
     }
-    for (UnicodeSetIterator it = new UnicodeSetIterator(symbolsMinusScripts); it.next();) {
-      if (COMPATIBILITY.contains(it.codepoint)) {
-        CATEGORYTABLE.add("Symbol", true, "Compatibility", buttonComparator, Separation.AUTOMATIC, it.codepoint, it.codepoint);
-        continue;
-      }
-      String block = UCharacter.getStringPropertyValue(UProperty.BLOCK, it.codepoint, UProperty.NameChoice.LONG).toString();
+    final UnicodeSet math = ScriptCategories.parseUnicodeSet("[:math:]");
+    final UnicodeSet superscripts = ScriptCategories.parseUnicodeSet("[[:dt=super:]-[:block=kanbun:]]");
+    final UnicodeSet subscripts = ScriptCategories.parseUnicodeSet("[:dt=sub:]");
+    
+    UnicodeSet skip = new UnicodeSet().addAll(math).addAll(superscripts).addAll(subscripts).retainAll(COMPATIBILITY);
+    
+    for (int i = UCharacter.getIntPropertyMinValue(UProperty.GENERAL_CATEGORY); i <= UCharacter.getIntPropertyMaxValue(UProperty.GENERAL_CATEGORY); ++i) {
+      String valueAlias = UCharacter.getPropertyValueName(UProperty.GENERAL_CATEGORY, i, UProperty.NameChoice.LONG);
 
-      CATEGORYTABLE.add("Symbol", true, block, buttonComparator, Separation.AUTOMATIC, it.codepoint, it.codepoint);
+      UnicodeSet temp = new UnicodeSet();
+      ScriptCategories.applyPropertyAlias("General Category", valueAlias, temp);
+      for (UnicodeSetIterator it = new UnicodeSetIterator(temp.retainAll(symbolsMinusScripts).removeAll(skip)); it.next();) {
+        String block = UCharacter.getStringPropertyValue(UProperty.BLOCK, it.codepoint, UProperty.NameChoice.LONG).toString();
+
+        CATEGORYTABLE.add("Symbol", true, block + "@" + valueAlias, buttonComparator, Separation.AUTOMATIC, it.codepoint, it.codepoint);
+      }
     }
+    
+    CATEGORYTABLE.add("Symbol", true, "Math", CODE_POINT_ORDER, Separation.ALL_ORDINARY, math);
+    CATEGORYTABLE.add("Symbol", true, "Superscript", buttonComparator, Separation.ALL_ORDINARY, superscripts);
+    CATEGORYTABLE.add("Symbol", true, "Subscript", buttonComparator, Separation.ALL_ORDINARY, subscripts);
+    
   }
 
   private static void generateHangulDefectives() {
@@ -559,6 +573,10 @@ class GeneratePickerData {
       }
     }
     in.close();
+    
+    // fix the compat characters that didn't have strokes
+    remainder.retainAll(COMPATIBILITY);
+
 
     UnicodeSet others = ScriptCategories.parseUnicodeSet("[:script=Han:]");
     // find base values
@@ -569,7 +587,7 @@ class GeneratePickerData {
         Map<Integer, UnicodeSet> remStrokes2Set = char2RemStrokes2Set.get(radical);
         for (int remStrokes : remStrokes2Set.keySet()) {
           int radicalChar = ScriptCategories.RADICAL_NUM2CHAR.get(radical);
-          String mainCat = "Han " + (radicalStrokes > 10 ? "- Other" : String.valueOf(radicalStrokes) + "-Stroke Radicals");
+          String mainCat = "Han " + (radicalStrokes > 10 ? "11..17" : String.valueOf(radicalStrokes)) + "-Stroke Radicals";
           String subCat = UTF16.valueOf(radicalChar);
           //if (DEBUG) System.out.println(radical + " => " + radicalToChar.get(radical));
           //      String radChar = getRadicalName(radicalToChar, radical);
@@ -585,7 +603,17 @@ class GeneratePickerData {
           //        mainCat = "Symbol";
           //        subCat = "CJK";
           //      }
+          
           final UnicodeSet values = remStrokes2Set.get(remStrokes);
+          
+          // close over NFKC
+          for (UnicodeSetIterator it = new UnicodeSetIterator(remainder); it.next(); ) {
+            String nfkc = Normalizer.normalize(it.codepoint, Normalizer.NFKC);
+            if (values.contains(nfkc)) {
+              values.add(it.codepoint);
+            }
+          }
+          
           others.removeAll(values);
           UnicodeSet normal = new UnicodeSet(values).removeAll(HISTORIC).removeAll(COMPATIBILITY).removeAll(UNCOMMON_HAN);
           CATEGORYTABLE.add(mainCat, true, subCat, LinkedHashSetComparator, Separation.AUTOMATIC, normal);
@@ -737,23 +765,26 @@ class GeneratePickerData {
       String prefix = "";
       
       if (separateOld == Separation.AUTOMATIC) {
-        if (UNCOMMON_HAN.contains(codepoint)) {
-          separateOld = Separation.ALL_UNCOMMON;
-        } else if (HISTORIC.contains(codepoint)) {
+        if (HISTORIC.contains(codepoint)) {
           separateOld = Separation.ALL_HISTORIC;
         } else if (COMPATIBILITY.contains(codepoint)) {
           separateOld = Separation.ALL_COMPATIBILITY;
+        } else if (UNCOMMON_HAN.contains(codepoint)) {
+          separateOld = Separation.ALL_UNCOMMON;
         }
       }
       switch (separateOld) {
         case ALL_HISTORIC: 
           prefix = ARCHAIC_MARKER;
+          sortValues = CODE_POINT_ORDER;
           break;
         case ALL_COMPATIBILITY:
           prefix = COMPAT_MARKER;
+          sortValues = CODE_POINT_ORDER;
           break;
         case ALL_UNCOMMON:
           prefix = LESS_COMMON_MARKER;
+          sortValues = CODE_POINT_ORDER;
           break;
       }
 
@@ -987,6 +1018,10 @@ class GeneratePickerData {
     UnicodeSet valueChars = new UnicodeSet();
     for (int i = UCharacter.getIntPropertyMinValue(propEnum); i <= UCharacter.getIntPropertyMaxValue(propEnum); ++i) {
       String valueAlias = UCharacter.getPropertyValueName(propEnum, i, UProperty.NameChoice.LONG);
+      if (valueAlias.contains("Symbol")) {
+        System.out.println("Skipping " + valueAlias);
+        continue;
+      }
 
       valueChars.clear();
       //valueChars.applyPropertyAlias(propertyAlias, valueAlias);
@@ -1869,14 +1904,28 @@ class GeneratePickerData {
   .removeAll(ScriptCategories.ARCHAIC).freeze();
   private static UnicodeSet UNCOMMON_HAN = ScriptCategories.parseUnicodeSet("[" +
   		"[:script=han:]" +
-  		"-[:block=CJK Unified Ideographs:]" +
+      "-[:block=CJK Unified Ideographs:]" +
+      "-[:block=CJK Symbols And Punctuation:]" +
+      "-[:block=CJK Radicals Supplement:]" +
+      "-[:block=Ideographic Description Characters:]" +
+      "-[:block=CJK Strokes:]" +
   		"-[:script=hiragana:]" +
   		"-[:script=katakana:]" +
   		"-[〇]" +
   		"]"); // we'll alter below to remove iicore
 
   static class Renamer {
-    Map<Matcher,SimplePair> renameTable = new LinkedHashMap<Matcher,SimplePair>();
+    static class MatchData {
+      private String source;
+      private String target;
+      boolean used;
+
+      public MatchData(String source, String target) {
+        this.source = source;
+        this.target = target;
+      }
+    }
+    Map<Matcher,MatchData> renameTable = new LinkedHashMap<Matcher,MatchData>();
 
     public Renamer(String filename) throws IOException {
       getRenameData(filename);
@@ -1899,7 +1948,7 @@ class GeneratePickerData {
           int breaker = line.indexOf(">");
           String source = line.substring(0,breaker).trim();
           String target = line.substring(breaker+1).trim();
-          renameTable.put(Pattern.compile(source,Pattern.CASE_INSENSITIVE).matcher(""), new SimplePair(source, target));
+          renameTable.put(Pattern.compile(source,Pattern.CASE_INSENSITIVE).matcher(""), new MatchData(source, target));
         } catch (Exception e) {
           throw (RuntimeException) new IllegalArgumentException("Problem with: " + line).initCause(e);
         }
@@ -1938,7 +1987,7 @@ class GeneratePickerData {
     //    "Symbol:(Currency|Math|Dingbats|Miscellaneous Technical) - (.*)>Symbol:$1",
     //    "Symbol:Modifier - (.*)>General Diacritic:Symbol - $1",
     //    "General Diacritic:(Spacing|Enclosing) - (.*)>General Diacritic:$1",
-    //    "Invisibles:(Other) - (.*)>Invisibles:$1",
+    //    "Format & Whitespace:(Other) - (.*)>Format & Whitespace:$1",
     //  };
     //  /*
     //   *     if (maincategory.contains("Category")) {
@@ -1980,16 +2029,30 @@ class GeneratePickerData {
         if (true) System.out.println();
       }
       String indent = "";
-      for (Matcher m : renameTable.keySet()) {
-        if (m.reset(lookup).matches()) {
-          SimplePair newNames = renameTable.get(m);
-          String newName = newNames.second, originalRename = newName;
-          for (int i = 0; i <= m.groupCount(); ++i) {
-            newName = newName.replace("$" + i, m.group(i));
+      for (int count = 0; ; ++count) {
+        boolean didMatch = false;
+        for (Matcher m : renameTable.keySet()) {
+          if (m.reset(lookup).matches()) {
+            MatchData newNames = renameTable.get(m);
+            String newName = newNames.target;
+            for (int i = 0; i <= m.groupCount(); ++i) {
+              newName = newName.replace("$" + i, m.group(i));
+            }
+            if (lookup.equals(newName)) {
+              continue;
+            }
+            renamingLog.println(indent + lookup + "\t=>\t" + newName + "\t // " + newNames.source + " > " + newNames.target);
+            lookup = newName;
+            indent += "\t";
+            newNames.used = true;
+            didMatch = true;
+            break;
           }
-          renamingLog.println(indent + lookup + "\t=>\t" + newName + "\t // " + newNames.first + " > " + originalRename);
-          lookup = newName;
-          indent += "\t";
+        }
+        if (!didMatch) break;
+        if (count > 10) {
+          renamingLog.close();
+          throw new IllegalArgumentException();
         }
       }
       int pos = lookup.indexOf(':');
@@ -2003,7 +2066,13 @@ class GeneratePickerData {
       renameCache.put(originals, newGuys);
       return newGuys;
     }
-
+    public void showUnusedRules() {
+      for (Matcher m : renameTable.keySet()) {
+        MatchData newNames = renameTable.get(m);
+        if (newNames.used) continue;
+        System.out.println(newNames.source + " > " + newNames.target);
+      }
+    }
   }
 
   public static <U extends Collection<String>> U addAllToCollection(UnicodeSet input, U output) {

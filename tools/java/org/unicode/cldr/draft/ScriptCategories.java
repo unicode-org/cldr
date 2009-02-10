@@ -381,34 +381,33 @@ public class ScriptCategories {
 
   // START OF GENERATED CODE
 
-  public static final UnicodeSet SCRIPT_CHANGED = (UnicodeSet) new UnicodeSet("[\\^`\\u00A8\\u00AF\\u00B4\\u00B8\\u02B9-\\u02DF\\u02E5-\\u02FF\\u0374\\u0375\\u037E\\u0385\\u0387\\u03F6\\u0589\\u0600-\\u0603\\u060C\\u061B\\u061F\\u0640\\u064B-\\u0655\\u0660-\\u0669\\u0670\\u06DD\\u0951\\u0952\\u0964\\u0965\\u0970\\u0CF1\\u0CF2\\u10FB\\u16EB-\\u16ED\\u1735\\u1736\\u1802\\u1803\\u1805\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF\\u2100\\u2101\\u2103-\\u2109\\u2114\\u2116-\\u2118\\u211E-\\u2123\\u2125\\u2127\\u212E\\u2139-\\u213B\\u214A\\u214C\\u214D\\u2FF0-\\u2FFF\\u3001-\\u3004\\u3006\\u3008-\\u3020\\u302A-\\u3037\\u303C-\\u303F\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\u3190-\\u319F\\u31C0-\\u31E3\\u327F\\uA700-\\uA721\\uA788-\\uA78A\\uFDFD\\uFE45\\uFE46\\uFF61\\uFF64\\uFF65\\uFF70\\uFF9E\\uFF9F]").freeze();
+  public static final UnicodeSet SCRIPT_CHANGED = (UnicodeSet) new UnicodeSet("[\\^`\\u00A8\\u00AF\\u00B4\\u00B5\\u00B8\\u02B9-\\u02DF\\u02E5-\\u02FF\\u0374\\u0375\\u037E\\u0385\\u0387\\u03F6\\u0589\\u0600-\\u0603\\u060C\\u061B\\u061F\\u0640\\u064B-\\u0655\\u0660-\\u0669\\u0670\\u06DD\\u0951\\u0952\\u0964\\u0965\\u0970\\u0CF1\\u0CF2\\u10FB\\u16EB-\\u16ED\\u1735\\u1736\\u1802\\u1803\\u1805\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF\\u2100-\\u2125\\u2127\\u2128\\u212C-\\u2131\\u2133\\u2134\\u2139-\\u213B\\u2145-\\u214A\\u214C\\u214D\\u249C-\\u24E9\\u2FF0-\\u2FFF\\u3001-\\u3004\\u3006\\u3008-\\u3020\\u302A-\\u3037\\u303C-\\u303F\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\u3190-\\u319F\\u31C0-\\u31E3\\u3220-\\u3243\\u3250\\u327F-\\u32B0\\u32C0-\\u32CF\\u3358-\\u33FF\\uA700-\\uA721\\uA788-\\uA78A\\uFDFD\\uFE45\\uFE46\\uFF61-\\uFF65\\uFF70\\uFF9E\\uFF9F]").freeze();
   public static final Map<String,UnicodeSet> SCRIPT_NEW;
   static {
   String[][] data = {
     {"Arabic", "[\\u0600-\\u0603\\u060C\\u061B\\u061F\\u0640\\u064B-\\u0655\\u0660-\\u0669\\u0670\\uFDFD]"},
     {"Armenian", "[\\u0589]"},
     {"Bengali", "[\\u0964\\u0965\\u0CF1\\u0CF2]"},
-    {"Bopomofo", "[\\u02EA\\u02EB\\u3001\\u3002\\u302A-\\u302D\\uFF61\\uFF64]"},
+    {"Bopomofo", "[\\u02EA\\u02EB\\u3001-\\u3004\\u3006\\u3008-\\u3011\\u3013-\\u3020\\u302A-\\u302D\\u3030\\u3037\\u303C-\\u303F\\uFE45\\uFE46\\uFF61-\\uFF64]"},
     {"Buhid", "[\\u1735\\u1736]"},
-    {"Common", "[\\u03F6\\u06DD\\u3008-\\u3011\\u3014-\\u301B]"},
-    {"Coptic", "[\\u10FB]"},
-    {"Cyrillic", "[\\u10FB\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF]"},
+    {"Common", "[\\u03F6\\u06DD]"},
+    {"Cyrillic", "[\\u02BC]"},
     {"Devanagari", "[\\u0951\\u0952\\u0964\\u0965\\u0970\\u0CF1\\u0CF2]"},
     {"Georgian", "[\\u0589\\u10FB]"},
-    {"Greek", "[\\u0374\\u0375\\u037E\\u0385\\u0387\\u10FB\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF]"},
+    {"Greek", "[\\u00B5\\u0374\\u0375\\u037E\\u0385\\u0387]"},
     {"Gujarati", "[\\u0CF1\\u0CF2]"},
     {"Gurmukhi", "[\\u0964\\u0965\\u0CF1\\u0CF2]"},
-    {"Han", "[\\u2FF0-\\u2FFF\\u3001\\u3002\\u302A-\\u302D\\u3190-\\u319F\\u31C0-\\u31E3\\uFF61\\uFF64]"},
-    {"Hangul", "[\\u3001-\\u3004\\u3006\\u3013\\u301C-\\u3020\\u302E-\\u3030\\u3037\\u303C-\\u303F\\u327F\\uFE45\\uFE46\\uFF61\\uFF64]"},
+    {"Han", "[\\u2FF0-\\u2FFF\\u3001-\\u3004\\u3006\\u3008-\\u3011\\u3013-\\u3020\\u302A-\\u302D\\u3030\\u3037\\u303C-\\u303F\\u31C0-\\u31E3\\u3220-\\u3243\\u3280-\\u32B0\\u32C0-\\u32CB\\u3358-\\u3370\\u337B-\\u337F\\u33E0-\\u33FE\\uFE45\\uFE46\\uFF61-\\uFF64]"},
+    {"Hangul", "[\\u3001-\\u3004\\u3006\\u3008-\\u3011\\u3013-\\u3020\\u302E-\\u3030\\u3037\\u303C-\\u303F\\u327F\\uFE45\\uFE46\\uFF61-\\uFF64]"},
     {"Hanunoo", "[\\u1735\\u1736]"},
-    {"Hiragana", "[\\u3001\\u3002\\u3012\\u3031-\\u3036\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\uFF61\\uFF64\\uFF65\\uFF70\\uFF9E\\uFF9F]"},
+    {"Hiragana", "[\\u3001-\\u3004\\u3006\\u3008-\\u3020\\u3030-\\u3037\\u303C-\\u303F\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\u3190-\\u319F\\uFE45\\uFE46\\uFF61-\\uFF65\\uFF70\\uFF9E\\uFF9F]"},
     {"Kannada", "[\\u0CF1\\u0CF2]"},
-    {"Katakana", "[\\u3001\\u3002\\u3012\\u3031-\\u3036\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\uFF61\\uFF64\\uFF65\\uFF70\\uFF9E\\uFF9F]"},
-    {"Latin", "[\\^`\\u00A8\\u00AF\\u00B4\\u00B8\\u02B9-\\u02DF\\u02E5-\\u02E9\\u02EC-\\u02FF\\u10FB\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF\\u2100\\u2101\\u2103-\\u2109\\u2114\\u2116-\\u2118\\u211E-\\u2123\\u2125\\u2127\\u212E\\u2139-\\u213B\\u214A\\u214C\\u214D\\uA700-\\uA721\\uA788-\\uA78A]"},
+    {"Katakana", "[\\u3001-\\u3004\\u3006\\u3008-\\u3020\\u3030-\\u3037\\u303C-\\u303F\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\u3190-\\u319F\\uFE45\\uFE46\\uFF61-\\uFF65\\uFF70\\uFF9E\\uFF9F]"},
+    {"Latin", "[\\^`\\u00A8\\u00AF\\u00B4\\u00B8\\u02B9-\\u02DF\\u02E5-\\u02E9\\u02EC-\\u02FF\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF\\u2100-\\u2125\\u2127\\u2128\\u212C-\\u2131\\u2133\\u2134\\u2139-\\u213B\\u2145-\\u214A\\u214C\\u214D\\u249C-\\u24E9\\u3250\\u32CC-\\u32CF\\u3371-\\u337A\\u3380-\\u33DF\\u33FF\\uA700-\\uA721\\uA788-\\uA78A]"},
     {"Malayalam", "[\\u0CF1\\u0CF2]"},
     {"Mongolian", "[\\u1802\\u1803\\u1805]"},
     {"Oriya", "[\\u0964\\u0965\\u0CF1\\u0CF2]"},
-    {"Phags_Pa", "[\\u1802\\u1803\\u1805\\u3001\\u3002\\uFF61\\uFF64]"},
+    {"Phags_Pa", "[\\u1802\\u1803\\u1805\\u3001\\u3002\\u3008-\\u3011\\u3014-\\u301B\\uFF61-\\uFF64]"},
     {"Runic", "[\\u16EB-\\u16ED]"},
     {"Syriac", "[\\u060C\\u061B\\u061F\\u0640\\u064B-\\u0655\\u0670]"},
     {"Tagalog", "[\\u1735\\u1736]"},
@@ -416,19 +415,18 @@ public class ScriptCategories {
     {"Tamil", "[\\u0CF1\\u0CF2]"},
     {"Telugu", "[\\u0CF1\\u0CF2]"},
     {"Thaana", "[\\u060C\\u061B\\u061F\\u0660-\\u0669]"},
-    {"Tibetan", "[\\u3001\\u3002\\uFF61\\uFF64]"},
-    {"Yi", "[\\u3001\\u3002\\uFF61\\uFF64]"},
+    {"Tibetan", "[\\u3001\\u3002\\u3008-\\u3011\\u3014-\\u301B\\uFF61-\\uFF64]"},
+    {"Yi", "[\\u3001\\u3002\\u3008-\\u3011\\u3014-\\u301B\\uFF61-\\uFF64]"},
   };
   SCRIPT_NEW = loadData(data);
   }
-  public static final UnicodeSet CATEGORY_CHANGED = (UnicodeSet) new UnicodeSet("[\\u2102\\u210A-\\u2113\\u2115\\u2119-\\u211D\\u2124\\u2128\\u2129\\u212C\\u212D\\u212F-\\u2131\\u2133-\\u2138\\u213C-\\u213F\\u2145-\\u2149\\u3220-\\u3229\\u3280-\\u3289\\U0001D165\\U0001D166\\U0001D16D-\\U0001D172\\U0001D400-\\U0001D7FF]").freeze();
+  public static final UnicodeSet CATEGORY_CHANGED = (UnicodeSet) new UnicodeSet("[\\u2102\\u210A-\\u2113\\u2115\\u2119-\\u211D\\u2124\\u2128\\u2129\\u212C\\u212D\\u212F-\\u2131\\u2133-\\u2138\\u213C-\\u213F\\u2145-\\u2149\\U0001D165\\U0001D166\\U0001D16D-\\U0001D172\\U0001D400-\\U0001D7FF]").freeze();
   public static final Map<String,UnicodeSet> CATEGORY_NEW;
   static {
   String[][] data = {
     {"Math_Symbol", "[\\u2102\\u210A-\\u2113\\u2115\\u2119-\\u211D\\u2124\\u2128\\u2129\\u212C\\u212D\\u212F-\\u2131\\u2133-\\u2138\\u213C-\\u213F\\u2145-\\u2149\\U0001D400-\\U0001D7FF]"},
     {"Modifier_Symbol", "[\\U0001D165\\U0001D166\\U0001D16D-\\U0001D172]"},
-    {"Other_Symbol", "[\\u3220-\\u3229\\u3280-\\u3289]"},
-    {"Symbol", "[\\$+<->\\^`|~\\u00A2-\\u00A9\\u00AC\\u00AE-\\u00B1\\u00B4\\u00B6\\u00B8\\u00D7\\u00F7\\u02C2-\\u02C5\\u02D2-\\u02DF\\u02E5-\\u02EB\\u02ED\\u02EF-\\u02FF\\u0375\\u0384\\u0385\\u03F6\\u0482\\u0606-\\u0608\\u060B\\u060E\\u060F\\u06E9\\u06FD\\u06FE\\u07F6\\u09F2\\u09F3\\u09FA\\u0AF1\\u0B70\\u0BF3-\\u0BFA\\u0C7F\\u0CF1\\u0CF2\\u0D79\\u0E3F\\u0F01-\\u0F03\\u0F13-\\u0F17\\u0F1A-\\u0F1F\\u0F34\\u0F36\\u0F38\\u0FBE-\\u0FC5\\u0FC7-\\u0FCC\\u0FCE\\u0FCF\\u109E\\u109F\\u1360\\u1390-\\u1399\\u17DB\\u1940\\u19E0-\\u19FF\\u1B61-\\u1B6A\\u1B74-\\u1B7C\\u1FBD\\u1FBF-\\u1FC1\\u1FCD-\\u1FCF\\u1FDD-\\u1FDF\\u1FED-\\u1FEF\\u1FFD\\u1FFE\\u2044\\u2052\\u207A-\\u207C\\u208A-\\u208C\\u20A0-\\u20B5\\u2100-\\u2106\\u2108-\\u2125\\u2127-\\u2129\\u212C-\\u2131\\u2133-\\u2138\\u213A-\\u214D\\u214F\\u2190-\\u2328\\u232B-\\u23E7\\u2400-\\u2426\\u2440-\\u244A\\u249C-\\u24E9\\u2500-\\u269D\\u26A0-\\u26BC\\u26C0-\\u26C3\\u2701-\\u2704\\u2706-\\u2709\\u270C-\\u2727\\u2729-\\u274B\\u274D\\u274F-\\u2752\\u2756\\u2758-\\u275E\\u2761-\\u2767\\u2794\\u2798-\\u27AF\\u27B1-\\u27BE\\u27C0-\\u27C4\\u27C7-\\u27CA\\u27CC\\u27D0-\\u27E5\\u27F0-\\u2982\\u2999-\\u29D7\\u29DC-\\u29FB\\u29FE-\\u2B4C\\u2B50-\\u2B54\\u2CE5-\\u2CEA\\u2E80-\\u2E99\\u2E9B-\\u2EF3\\u2F00-\\u2FD5\\u2FF0-\\u2FFB\\u3004\\u3012\\u3013\\u3020\\u3036\\u3037\\u303E\\u303F\\u309B\\u309C\\u3190\\u3191\\u3196-\\u319F\\u31C0-\\u31E3\\u3200-\\u321E\\u3220-\\u3243\\u3250\\u3260-\\u32B0\\u32C0-\\u32FE\\u3300-\\u33FF\\u4DC0-\\u4DFF\\uA490-\\uA4C6\\uA700-\\uA716\\uA720\\uA721\\uA789\\uA78A\\uA828-\\uA82B\\uFB29\\uFDFC\\uFDFD\\uFE62\\uFE64-\\uFE66\\uFE69\\uFF04\\uFF0B\\uFF1C-\\uFF1E\\uFF3E\\uFF40\\uFF5C\\uFF5E\\uFFE0-\\uFFE6\\uFFE8-\\uFFEE\\uFFFC\\uFFFD\\U00010102\\U00010137-\\U0001013F\\U00010179-\\U00010189\\U00010190-\\U0001019B\\U000101D0-\\U000101FC\\U0001D000-\\U0001D0F5\\U0001D100-\\U0001D126\\U0001D129-\\U0001D166\\U0001D16A-\\U0001D172\\U0001D183\\U0001D184\\U0001D18C-\\U0001D1A9\\U0001D1AE-\\U0001D1DD\\U0001D200-\\U0001D241\\U0001D245\\U0001D300-\\U0001D356\\U0001D400-\\U0001D7FF\\U0001F000-\\U0001F02B\\U0001F030-\\U0001F093]"},
+    {"Symbol", "[\\$+<->\\^`|~\\u00A2-\\u00A9\\u00AC\\u00AE-\\u00B1\\u00B4\\u00B6\\u00B8\\u00D7\\u00F7\\u02C2-\\u02C5\\u02D2-\\u02DF\\u02E5-\\u02EB\\u02ED\\u02EF-\\u02FF\\u0375\\u0384\\u0385\\u03F6\\u0482\\u0606-\\u0608\\u060B\\u060E\\u060F\\u06E9\\u06FD\\u06FE\\u07F6\\u09F2\\u09F3\\u09FA\\u0AF1\\u0B70\\u0BF3-\\u0BFA\\u0C7F\\u0CF1\\u0CF2\\u0D79\\u0E3F\\u0F01-\\u0F03\\u0F13-\\u0F17\\u0F1A-\\u0F1F\\u0F34\\u0F36\\u0F38\\u0FBE-\\u0FC5\\u0FC7-\\u0FCC\\u0FCE\\u0FCF\\u109E\\u109F\\u1360\\u1390-\\u1399\\u17DB\\u1940\\u19E0-\\u19FF\\u1B61-\\u1B6A\\u1B74-\\u1B7C\\u1FBD\\u1FBF-\\u1FC1\\u1FCD-\\u1FCF\\u1FDD-\\u1FDF\\u1FED-\\u1FEF\\u1FFD\\u1FFE\\u2044\\u2052\\u207A-\\u207C\\u208A-\\u208C\\u20A0-\\u20B5\\u2100-\\u2106\\u2108-\\u2125\\u2127-\\u2129\\u212C-\\u2131\\u2133-\\u2138\\u213A-\\u214D\\u214F\\u2190-\\u2328\\u232B-\\u23E7\\u2400-\\u2426\\u2440-\\u244A\\u249C-\\u24E9\\u2500-\\u269D\\u26A0-\\u26BC\\u26C0-\\u26C3\\u2701-\\u2704\\u2706-\\u2709\\u270C-\\u2727\\u2729-\\u274B\\u274D\\u274F-\\u2752\\u2756\\u2758-\\u275E\\u2761-\\u2767\\u2794\\u2798-\\u27AF\\u27B1-\\u27BE\\u27C0-\\u27C4\\u27C7-\\u27CA\\u27CC\\u27D0-\\u27E5\\u27F0-\\u2982\\u2999-\\u29D7\\u29DC-\\u29FB\\u29FE-\\u2B4C\\u2B50-\\u2B54\\u2CE5-\\u2CEA\\u2E80-\\u2E99\\u2E9B-\\u2EF3\\u2F00-\\u2FD5\\u2FF0-\\u2FFB\\u3004\\u3012\\u3013\\u3020\\u3036\\u3037\\u303E\\u303F\\u309B\\u309C\\u3190\\u3191\\u3196-\\u319F\\u31C0-\\u31E3\\u3200-\\u321E\\u322A-\\u3243\\u3250\\u3260-\\u327F\\u328A-\\u32B0\\u32C0-\\u32FE\\u3300-\\u33FF\\u4DC0-\\u4DFF\\uA490-\\uA4C6\\uA700-\\uA716\\uA720\\uA721\\uA789\\uA78A\\uA828-\\uA82B\\uFB29\\uFDFC\\uFDFD\\uFE62\\uFE64-\\uFE66\\uFE69\\uFF04\\uFF0B\\uFF1C-\\uFF1E\\uFF3E\\uFF40\\uFF5C\\uFF5E\\uFFE0-\\uFFE6\\uFFE8-\\uFFEE\\uFFFC\\uFFFD\\U00010102\\U00010137-\\U0001013F\\U00010179-\\U00010189\\U00010190-\\U0001019B\\U000101D0-\\U000101FC\\U0001D000-\\U0001D0F5\\U0001D100-\\U0001D126\\U0001D129-\\U0001D166\\U0001D16A-\\U0001D172\\U0001D183\\U0001D184\\U0001D18C-\\U0001D1A9\\U0001D1AE-\\U0001D1DD\\U0001D200-\\U0001D241\\U0001D245\\U0001D300-\\U0001D356\\U0001D400-\\U0001D7FF\\U0001F000-\\U0001F02B\\U0001F030-\\U0001F093]"},
   };
   CATEGORY_NEW = loadData(data);
   }
@@ -743,24 +741,22 @@ public class ScriptCategories {
   private static void testNormalizationConsistency(String title, UnicodeSet testSet, Normalizer.Mode mode) {
     UnicodeSet inSet = new UnicodeSet();
     UnicodeSet inDecompSet = new UnicodeSet();
-    for (UnicodeSetIterator it = new UnicodeSetIterator(new UnicodeSet("[[:nfkdqc=n:]-[:hangulsyllabletype=LV:]" +
-    		"-[:hangulsyllabletype=LVT:]]")); it.next();) {
+    for (UnicodeSetIterator it = new UnicodeSetIterator(new UnicodeSet("[[:nfkdqc=n:]" +
+    		//"-[:hangulsyllabletype=LV:]" +
+    		//"-[:hangulsyllabletype=LVT:]" +
+    		"]")); it.next();) {
       String nfkd = Normalizer.normalize(it.codepoint, mode);
       boolean isHistoric = testSet.contains(it.codepoint);
-      boolean nfkdContainsHistoric = false;
-      int cp;
-      for (int i = 0; i < nfkd.length(); i += UTF16.getCharCount(cp)) {
-        cp = UTF16.charAt(nfkd, i);
-        nfkdContainsHistoric = nfkdContainsHistoric || testSet.contains(cp);
-      }
+      boolean nfkdContainsHistoric = testSet.containsSome(nfkd);
       if (isHistoric != nfkdContainsHistoric) {
         if (isHistoric) inSet.add(it.codepoint);
         if (nfkdContainsHistoric) inDecompSet.add(it.codepoint);
       }
     }
-    if (inSet.size() != 0) {
-      System.out.println("// Possible Problems in " + title + ": in (but not decomps)" + inSet.toPattern(false));
-      System.out.println("// \t In decomps, but not ordinary: " + inDecompSet.toPattern(false));
+    if (inSet.size() != 0 || inDecompSet.size() != 0) {
+      System.out.println("// Possible Problems in " + title + ":");
+      System.out.println("// \t In ordinary, but not in decomps: " + inSet.toPattern(false));
+      System.out.println("// \t In decomps, but not in ordinary: " + inDecompSet.toPattern(false));
     }
   }
 

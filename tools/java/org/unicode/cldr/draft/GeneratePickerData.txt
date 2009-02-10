@@ -7,32 +7,31 @@
 
 Mark:(.*) > Modifier:$1
 
-Symbol:(.*Compatibility - )Math > Symbol:Math
+Symbol:Latin 1 Supplement@Other Symbol~Latin-1 punctuation and symbols > Symbol:Miscellaneous
+
+Symbol:.*@Currency Symbol.* > Symbol:Currency
+Symbol:.*@Math Symbol.* > Symbol:Math
+Symbol:.*Control Pictures.* > Symbol:Control Pictures
+Symbol:.*~.*(arrows|harpoons).* > Symbol:Arrows
+
 Symbol:(.*)symbols?>Symbol:$1
 Symbol:.*(Gender|Genealogic).* > Symbol:Gender and Genealogical
-Symbol:.*Star.* > Symbol:Stars
-Symbol:.*Latin.* > Symbol:Latin
+Symbol:.*Star.* > Symbol:Stars/Asterisks
 Symbol:.*(Dice|Chess|Go Markers|Playing|Checkers|Tiles).* > Symbol:Game Pieces
-Symbol:.*Based on ISO 8859-6.* > Modifier:Spacing
-Symbol:.*~.*(arrows|harpoons).* > Symbol:Arrows
 Symbol:.*(Box Drawing|Block Elements|Geometric Shapes|Miscellaneous Symbols And Arrows).*>Symbol:Geometric Shapes
 Symbol:.*Musical.*>Symbol:Musical
-Symbol:.*Katakana.*>Other East Asian Scripts:Katakana
-Symbol:.*Halfwidth And Fullwidth Forms.*>Symbol:Halfwidth And Fullwidth Forms
-Symbol:.*yijing.*>Symbol:Yijing
+Symbol:.*Halfwidth And Fullwidth Forms.*>Symbol:Geometric Shapes
 Symbol:.*Optical Character Recognition.*>Symbol:Technical
-Symbol:.*(CJK|Ideographic|Kanbun).*>Symbol:CJK
 Symbol:.*(weather|astrologic|zodiac).*>Symbol:Weather and Astrological
 Symbol:.*(keyboard|\bGUI\b).*>Symbol:Keyboard and UI
 Symbol:.*Letterlike Symbols.*>Symbol:Letterlike
 Symbol:.*Modifier.*>Modifier:Spacing
 Symbol:(Specials|Dingbat|Miscellaneous symbol).*>Symbol:Miscellaneous
 Symbol:.*Miscellaneous Technical.* > Symbol:Technical
-Symbol:.*cross.*>Symbol:Religious
 Symbol:.*(Tai Xuan Jing|Yijing).* > Symbol:Yijing / Tai Xuan Jing
 Symbol:(.*)Historic.* > Symbol:$1Historic
 Symbol:(.*)Letterlike(.*) > Symbol:$1Technical$2
-Symbol:(.*Compatibility - )Currency > Symbol:$1Other
+
 
 #Punctuation:Other~(.*)>Punctuation:$1
 Punctuation:(Open|Close|Initial|Final)(.*)>Punctuation:Paired
@@ -52,8 +51,11 @@ Number:.*(Letter|Less Common).* > Number:Other
 
 #Modifier:(Spacing|Enclosing)~(.*)>Modifier:$1
 
-Invisibles:(Other)~(.*)>Invisibles:$1
-Invisibles:(.*(Historic|Compatibility))(.*) > Invisibles:$1
+Format & Whitespace:(Other)~(.*)>Format & Whitespace:$1
+Format & Whitespace:(.*(Historic|Compatibility))(.*) > Format & Whitespace:$1
+Format & Whitespace:.*Grapheme joiner.* > Format & Whitespace:Format
+Format & Whitespace:Other > Format & Whitespace:Variation Selector
+
 
 #(.*[^])Other(.*)>$1Other$2
 #(.*)(.*)>$1$2
@@ -64,13 +66,16 @@ Invisibles:(.*(Historic|Compatibility))(.*) > Invisibles:$1
 
 # remove "Other"
 
-(Symbol|Punctuation|Modifier|Number|Invisibles|Latin|Hangul):(.*(Compatibility|Historic)).* > $1:$2
+(Symbol|Punctuation|Modifier|Number|Format & Whitespace|Latin|Hangul|Han .*):(.*(Compatibility|Historic)).* > $1:$2
 
 #Merge obsolete Han
 
 ##(.*CJK.*):(.*) > CJK (Han):Compatibility
+(Han .*):.*(CJK strokes|CJK radicals supplement) > $1:CJK Strokes
+(Han .*):.*Ideographic description characters > $1:Ideographic Description
 (.*)Less Common(.*)Other.* > $1Less Common
-(.*Han.*)Compatibility(.*)Other.* > $1Other
+##(.*Han.*)Compatibility(.*)Other.* > $1Other
+
 
 #Fix Thai/Lao
 Southeast Asian Scripts:(.*Compatibility - )(.*) > Southeast Asian Scripts:$2

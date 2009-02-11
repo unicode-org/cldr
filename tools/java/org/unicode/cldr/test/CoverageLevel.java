@@ -1116,6 +1116,10 @@ public class CoverageLevel {
     // data.iterator(null, CLDRFile.ldmlComparator)
     for (Iterator it = data.iterator(); it.hasNext();) {
       String path = (String) it.next();
+      if (false) {
+        System.out.println(path);
+        System.out.flush();
+      }
       //String value = metadata.getStringValue(path);
       path = data.getFullXPath(path);
       parts.set(path);
@@ -1135,9 +1139,7 @@ public class CoverageLevel {
         Set territories = (Set) territory_timezone.get(territory);
         if (territories == null) territory_timezone.put(territory, territories = new TreeSet());
         territories.add(type);
-      } else if (parts.containsElement("calendarData")) {
-        // System.out.println(path);
-        // System.out.flush();
+      } else if (lastElement.equals("calendar") && parts.containsElement("calendarData")) {
         // we have element, type, subtype, and values
         if (type == null) {
           throw new IllegalArgumentException("calendarData/calendar/ is missing type attribute in:" + path);

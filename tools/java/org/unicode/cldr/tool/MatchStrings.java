@@ -4,7 +4,6 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Relation;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.sun.org.apache.xml.internal.serializer.ToStream;
 
 import java.io.BufferedReader;
 import java.io.IOException;

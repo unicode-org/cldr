@@ -67,6 +67,7 @@ http://ant.apache.org
         export ICU4J_JAR=<dir>/icu4j.jar
         export UTILITIES_JAR=<dir>/utilities.jar
     o Windows
+        set XML_APIS_JAR=<dir>xalan.jar    
         set ICU4J_JAR=<dir>\icu4j.jar
         set UTILITIES_JAR=<dir>\utilities.jar
     o Eclipse > Preferences > Ant > Runtime > Properties

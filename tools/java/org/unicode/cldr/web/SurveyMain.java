@@ -1051,6 +1051,10 @@ public class SurveyMain extends HttpServlet {
                   acon=this.getDBConnection();
             	  Statement s = acon.createStatement();
             	  ResultSet rs = s.executeQuery("select locale,base_xpath,xpath,alt_type from cldr_data where alt_type like '%-implicit"+aver+"'");
+            	  
+            	  // TODO: find (1) base xpath with same value, or (2) other items with other votes and same value, and vote for those first.
+            	  //PreparedStatement ps = acon.prepareStatement("select cldr_data.xpath from cldr_data where locale=? and base_xpath=)
+            	  
             	  ctx.println("<hr>");
             	  int already = 0;
             	  int different =0;

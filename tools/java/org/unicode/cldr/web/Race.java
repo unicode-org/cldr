@@ -334,7 +334,7 @@ public class Race {
             }
         }
 
-        Chad valueChad = chadsByValue.get(valueForLookup);
+        Chad valueChad = chadsByValue.get(valueForLookup); // merge equivalent values
         if (valueChad != null) {
             return valueChad;
         } else {
@@ -385,11 +385,15 @@ public class Race {
             Organization theirOrg = getOrganization(user.voterOrg()); // we use the VR organization code
             theirOrg.add(c);
             if(!c.isDisqualified()) {
-                resolver.add(vote_xpath, user.id);
+                resolver.add(c.xpath, user.id); /* use chad's xpath- for collision calculation. */
             }
         } else {
             // "existing" vote
             existing = c;
+            
+            /* load values from c = could be a collision. */
+            vote_xpath = c.xpath;
+            full_xpath = c.full_xpath;
 
             if (vote_xpath == full_xpath && vote_xpath == base_xpath) { // shortcut:
                                                                         // base=full

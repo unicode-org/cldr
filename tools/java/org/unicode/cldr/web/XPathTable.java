@@ -397,9 +397,11 @@ public class XPathTable {
         lastAtts.remove(LDMLConstants.TYPE);
         lastAtts.remove(LDMLConstants.DRAFT);
         lastAtts.remove(LDMLConstants.REFERENCES);
+//        System.err.println("Type on " + path + " with -1 is " + type );
         if((type == null) && (path.indexOf(what)>=0)) try {
             // less common case - type isn't the last
-            for(int n=-2;(type==null);n--) {
+            for(int n=-2;(type==null)&&((0-xpp.size())<n);n--) {
+  //              System.err.println("Type on n="+n +", "+path+" with "+n+" is " + type );
                 lastAtts = xpp.getAttributes(n);
                 if(lastAtts != null) {
                     type = (String)lastAtts.remove(what);

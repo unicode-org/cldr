@@ -2064,6 +2064,14 @@ if(true == true)    throw new InternalError("removed from use.");
             return vd;
         }
     }
+    public void deleteCachedLocaleData(CLDRLocale locale) {
+        synchronized(this) {
+            CachedVettingData vd = cachedData.get(locale);
+            if(vd!=null && !vd.isValid()) {
+            	cachedData.remove(vd);
+            }
+        }
+    }
     
     public int getOrgDisputeCount(String org, CLDRLocale locale) {
         synchronized(conn) {

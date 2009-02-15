@@ -277,6 +277,17 @@ public class CLDRDBSourceFactory {
     }
     
     /**
+     * Mark a locale as needing update.
+     * @param loc
+     */
+    public void needUpdate(CLDRLocale loc) {
+    	synchronized(sm.vet.conn) {
+    		needUpdate.add(loc);
+    	}
+    }
+
+    
+    /**
      * Execute deferred updates. Call this at a high level when all updates are complete.
      */
     public int update() {
@@ -1166,17 +1177,7 @@ public class CLDRDBSourceFactory {
          //   }
         } // end: synch(xpt)
     }
-    
-    /**
-     * Mark a locale as needing update.
-     * @param loc
-     */
-    public void needUpdate(CLDRLocale loc) {
-    	synchronized(sm.vet.conn) {
-    		needUpdate.add(loc);
-    	}
-    }
-    
+        
 
     /**
      * Return the SCM ID of this source.

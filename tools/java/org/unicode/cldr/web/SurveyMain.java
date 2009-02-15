@@ -885,6 +885,8 @@ public class SurveyMain extends HttpServlet {
         printMenu(actionCtx, action, "load_all", "Load all locales", "action");       
         actionCtx.println(" | ");
         printMenu(actionCtx, action, "add_locale", "Add a locale", "action");       
+        actionCtx.println(" | ");
+        printMenu(actionCtx, action, "bulk_submit", "Bulk Data Submit", "action");       
             actionCtx.println(" | ");
         printMenu(actionCtx, action, "srl", "EXPERT-ADMIN-use-only", "action");  // Dangerous items
 		
@@ -1027,6 +1029,96 @@ public class SurveyMain extends HttpServlet {
             n = vet.updateStatus();
             ctx.println("Done updating "+n+" statuses [locales] in: " + et + "<br>");
             ctx.println("<hr><h1>Data update done! Restart may be needed if 'root' or '"+this.BASELINE_ID+"' was involved.</h1>");
+        } else if(action.equals("bulk_submit")) {
+            WebContext subCtx = (WebContext)ctx.clone();
+            actionCtx.addQuery("action",action);
+            
+            String aver="1.7";
+            ctx.println("<h2>Bulk Data Submission Updating for "+aver+"</h2><i>Note: before using this panel, you must update data normally, such as with the Easy Data Update.</i><br/>\n");
+            boolean doimpbulk = ctx.hasField("doimpbulk");
+            ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+            actionCtx.printUrlAsHiddenFields();
+            ctx.println("<input type=submit value='Accept all implied votes' name='doimpbulk'></form>");
+            if(!doimpbulk) {
+            	ctx.print("<i>trial run. press the button to accept these votes.</i>");
+            }
+            
+            Set<CLDRLocale> toUpdate = new HashSet<CLDRLocale>();
+            int wouldhit=0;
+            synchronized( vet.conn ) {
+              Connection acon = null;
+              try {
+                  acon=this.getDBConnection();
+            	  Statement s = acon.createStatement();
+            	  ResultSet rs = s.executeQuery("select locale,base_xpath,xpath,alt_type from cldr_data where alt_type like '%-implicit"+aver+"'");
+            	  ctx.println("<hr>");
+            	  int already = 0;
+            	  int different =0;
+            	  while(rs.next()) {
+            		  CLDRLocale loc = CLDRLocale.getInstance(rs.getString(1));
+            		  int base_xpath = rs.getInt(2);
+            		  int xpath = rs.getInt(3);
+            		  String alt = rs.getString(4);
+            		  
+            		  int n = XPathTable.altProposedToUserid(alt);
+            		  User ui = null;
+            		  if(n>=0) ui = reg.getInfo(n);
+            		  ctx.println(loc+":"+xpath+" : " + xpt.getPrettyPath(base_xpath) + " / "+ alt + " (#"+n+" - " + ui +")<br/>");
+            		  
+            		  if(n<0) continue;
+            		  
+            		  int j = vet.queryVote(loc, n, base_xpath);
+                      String xpathStr = CLDRFile.getDistinguishingXPath(xpt.getById(xpath), null, false);
+                      int dpathId = xpt.getByXpath(xpathStr);
+                      if(dpathId == j) {
+                    	  ctx.println(" "+ctx.iconHtml("squo","current")+" ( == current vote ) <br>");
+                    	  already++;
+                      } else if(j>-1) {
+            			  ctx.println(" "+ctx.iconHtml("warn","already")+"Current vote: "+j+"<br>");
+            			  different++;
+            		  } else {
+            			  if(doimpbulk) {
+            				  vet.vote(loc, base_xpath, n, dpathId, Vetting.VET_IMPLIED);
+            				  toUpdate.add(loc);
+            				  ctx.println(" "+ctx.iconHtml("okay","ok voted")+"&mdash;&gt; <b>"+dpathId+"</b><br>");
+            				  wouldhit++;
+            			  } else {
+            				  ctx.println(" "+ctx.iconHtml("okay","ready")+"<i>Ready to update.</i><br>");
+            				  wouldhit++;
+            				  toUpdate.add(loc);
+            			  }
+            		  }
+            		  
+            	  }
+            	  ctx.println("<hr>");
+            	  if(already>0 ) {
+            		  ctx.println(" "+ctx.iconHtml("squo","current")+""+already+" items already had the correct vote.<br>");
+            	  }
+            	  if(different>0) {
+            		  ctx.println(" "+ctx.iconHtml("warn","different")+" " + different + " items had a different vote already cast.<br>");
+            	  }
+            	  if(doimpbulk && !toUpdate.isEmpty()) {
+            		  ctx.println("<h3>"+wouldhit+" Locale Updates in " + toUpdate.size() + " locales ..</h3>");
+            		  for(CLDRLocale l : toUpdate) {
+        				  vet.deleteCachedLocaleData(l);
+            			  dbsrcfac.needUpdate(l);
+            			  ctx.print(l+"...");
+            		  }
+            		  ctx.println("<br>");
+            		  int upd = dbsrcfac.update();
+            		  ctx.println(" Updated. "+upd + " deferred updates done.<br>");
+            	  } else if(wouldhit>0) {
+            		  ctx.println("<h3>Ready to update "+wouldhit+" Locale Updates in " + toUpdate.size() + " locales ..</h3>");
+                      ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+                      actionCtx.printUrlAsHiddenFields();
+                      ctx.println("<input type=submit value='Accept all implied votes' name='doimpbulk'></form>");
+            	  }
+              } catch (SQLException e) {
+				ctx.print(e);
+			} finally {
+                  SurveyMain.closeDBConnection(acon);
+              }
+            }
         } else if(action.equals("srl_vet_imp")) {
             WebContext subCtx = (WebContext)ctx.clone();
             subCtx.addQuery("dump",vap);
@@ -1379,6 +1471,12 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("<b>Really Load "+nrInFiles+" locales?? <a class='ferrbox' href='"+actionCtx.url()+"'>YES</a><br>");
             } else {
                 loadAllLocales(ctx);
+            }
+            
+            {
+                ElapsedTimer et = new ElapsedTimer();
+                int n = vet.updateStatus();
+                ctx.println("Done updating "+n+" statuses [locales] in: " + et + "<br>");
             }
         } else if(action.equals("specialusers")) {
             ctx.println("<hr>Re-reading special users list...<br>");

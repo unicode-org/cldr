@@ -522,7 +522,11 @@ public class WebContext implements Cloneable {
         print("<pre style='border: 2px dashed red; margin: 1em; padding: 1'>" +                        
                 t.toString() + "<br />");
         StringWriter asString = new StringWriter();
-        t.printStackTrace(new PrintWriter(asString));
+        if(t instanceof SQLException) {
+        	println("SQL: "+SurveyMain.unchainSqlException((SQLException)t));
+        } else {
+        	t.printStackTrace(new PrintWriter(asString));
+        }
         print(asString.toString());
         print("</pre>");
     }

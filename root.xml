@@ -613,11 +613,12 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
+                    <default choice="medium"/>
+                    <dateTimeFormatLength type="medium">
+                        <dateTimeFormat>
+                            <pattern>{1} {0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
@@ -1317,11 +1318,12 @@
 					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
+                    <default choice="medium"/>
+                    <dateTimeFormatLength type="medium">
+                        <dateTimeFormat>
+                            <pattern>{1} {0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
 					<availableFormats>
 						<!-- The following are copied from gregorian (previously included via alias) -->
 						<dateFormatItem id="Ed">E d</dateFormatItem>

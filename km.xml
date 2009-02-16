@@ -380,7 +380,8 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength>
+                    <default choice="medium"/>
+                    <dateTimeFormatLength type="medium">
 						<dateTimeFormat>
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
@@ -549,7 +550,8 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength>
+                    <default choice="medium"/>
+                    <dateTimeFormatLength type="medium">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>

@@ -594,7 +594,8 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength>
+                    <default choice="medium"/>
+                    <dateTimeFormatLength type="medium">
 						<dateTimeFormat>
 							<pattern>{0} {1}</pattern>
 						</dateTimeFormat>

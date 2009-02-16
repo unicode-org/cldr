@@ -1172,11 +1172,27 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
+                    <default choice="medium"/>
+                    <dateTimeFormatLength type="full">
+                        <dateTimeFormat>
+                            <pattern>{1}{0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
+                    <dateTimeFormatLength type="long">
+                        <dateTimeFormat>
+                            <pattern>{1}{0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
+                    <dateTimeFormatLength type="medium">
+                        <dateTimeFormat>
+                            <pattern>{1} {0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
+                    <dateTimeFormatLength type="short">
+                        <dateTimeFormat>
+                            <pattern>{1} {0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Ed">d日(EEE)</dateFormatItem>
 						<dateFormatItem id="Ed" alt="proposed-x1001" draft="unconfirmed">d日（E）</dateFormatItem>

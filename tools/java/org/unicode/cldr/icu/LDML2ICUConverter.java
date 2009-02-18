@@ -1493,6 +1493,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 //Ignore this
             }else if(name.equals(LDMLConstants.PLURALS)){
                 //Ignore this
+            }else if(name.equals(LDMLConstants.NUMBERING_SYSTEMS)){
+                //Ignore this
             }else if(name.equals(LDMLConstants.CLDR_VERSION)){
                 res = parseCLDRVersion(node, xpath);
             }else if(name.equals(LDMLConstants.TELEPHONE_CODE_DATA)){
@@ -1859,6 +1861,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             if(name.equals(LDMLConstants.CALENDAR)){
                 String cnt = LDMLUtilities.getAttributeValue(node, LDMLConstants.TERRITORIES);
                 res = getResourceArray(cnt, LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE));
+            } else if(name.equals(LDMLConstants.CALENDAR_PREFERENCE)) {
+            // not yet defined
             }else{
                 System.err.println("Encountered unknown "+xpath.toString());
                 System.exit(-1);
@@ -5354,6 +5358,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         arr.name = DTP;
         ICUResourceWriter.Resource current = null;
         ICUResourceWriter.ResourceString strs[] = new ICUResourceWriter.ResourceString[theArray.length];
+        String nsov[] = new String[theArray.length];
+
         GroupStatus status = parseGroupWithFallback(loc, xpath, theArray, strs);
         if (GroupStatus.EMPTY == status) {
             // System.err.println("failur: "+ xpath + " - " + theArray[0]);
@@ -5379,17 +5385,47 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
         }
         
+        // Now determine if any Numbering System Overrides are present
+        for (int i = 0 ; i < theArray.length ; i++) {
+            XPathParts xpp = new XPathParts();
+            String aPath = xpath+"/"+dtf_paths[i];
+            if (loc.file.isHere(aPath)) {
+                String fullPath = loc.file.getFullXPath(aPath);
+                xpp.set(fullPath);
+                String numbersOverride = xpp.findAttributeValue(LDMLConstants.PATTERN, LDMLConstants.NUMBERS);
+                if ( numbersOverride != null ) {
+                    nsov[i] = numbersOverride;
+                }
+            }
+        }
+
         int n=0;
         for (ICUResourceWriter.ResourceString str : strs) {
             if(str.val == null) {
                 printError(loc.locale,xpath + " - null value at " + n);
                 System.exit(-1);
             }
-            if (current == null) {
-                current = arr.first = str;
-            } else {
-                current.next = str;
-                current = current.next;
+            if ( nsov[n] != null ) { // We have a numbering system override - output an array containing the override
+                ICUResourceWriter.ResourceString nso = new ICUResourceWriter.ResourceString();
+                nso.val = nsov[n];
+
+                ICUResourceWriter.ResourceArray nso_array = new ICUResourceWriter.ResourceArray();
+                nso_array.first = str;
+                str.next = nso;
+
+                if (current == null) {
+                    current = arr.first = nso_array;
+                } else {
+                    current.next = nso_array;
+                    current = current.next;
+                }
+            } else { // Just a normal pattern - output a string
+                if (current == null) {
+                    current = arr.first = str;
+                } else {
+                    current.next = str;
+                    current = current.next;
+                }
             }
             n++;
         }

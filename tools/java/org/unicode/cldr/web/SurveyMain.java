@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2008, International Business Machines Corporation and   *
+ * Copyright (C) 2004-2009, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -28,6 +28,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Enumeration;
@@ -70,6 +71,7 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
+import org.unicode.cldr.web.SurveyThread.SurveyTask;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -87,7 +89,8 @@ import com.ibm.icu.util.ULocale;
  */
 public class SurveyMain extends HttpServlet {
 
-    private static final String ACTION_DEL = "_del";
+    private static final String CLDR_BULK_DIR = "CLDR_BULK_DIR";
+	private static final String ACTION_DEL = "_del";
     private static final String ACTION_UNVOTE = "_unvote";
     private static final String XML_CACHE_PROPERTIES = "xmlCache.properties";
     /**
@@ -314,6 +317,13 @@ public class SurveyMain extends HttpServlet {
         super.init(config);
         cldrHome = config.getInitParameter("cldr.home");
         this.config = config;
+        
+        startupThread.addTask(new SurveyThread.SurveyTask("startup") {
+			public void run() throws Throwable{
+				doStartup();
+			}
+        });
+        
         startupThread.start();
         System.err.println("Startup thread launched");
     }
@@ -544,6 +554,10 @@ public class SurveyMain extends HttpServlet {
                             " <i>This message has been viewed " + pages + " time(s), SurveyTool has been down for " + isBustedTimer + "</i>");
             } else {
             out.print(sysmsg("startup_header"));
+            String threadInfo = startupThread.htmlStatus();
+            if(threadInfo!=null) {
+            	out.println("<b>Processing:"+threadInfo+"</b><br>");
+            }
             if(progressWhat != null) {
                 out.println(getProgress()+"<br><hr><br>");
             }
@@ -872,7 +886,9 @@ public class SurveyMain extends HttpServlet {
         actionCtx.println(" <br> ");
         printMenu(actionCtx, action, "sessions", "Sessions", "action");    
             actionCtx.println(" | ");
-        printMenu(actionCtx, action, "stats", "Stats", "action");       
+            printMenu(actionCtx, action, "stats", "Stats", "action");       
+            actionCtx.println(" | ");
+            printMenu(actionCtx, action, "tasks", "Tasks", "action");       
             actionCtx.println(" | ");
         printMenu(actionCtx, action, "statics", "Statics", "action");       
             actionCtx.println(" | ");
@@ -950,6 +966,68 @@ public class SurveyMain extends HttpServlet {
         } else if(action.equals("statics")) {
             ctx.println("<h1>Statics</h1>");
             ctx.staticInfo();
+        } else if(action.equals("tasks")) {
+            WebContext subCtx = (WebContext)ctx.clone();
+            actionCtx.addQuery("action",action);
+            ctx.println("<h1>Tasks</h1>");
+            ctx.println("Thread: "+startupThread+"<br>");
+            ctx.println("<hr>");
+            
+            ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+            actionCtx.printUrlAsHiddenFields();
+            ctx.println("<input type=submit value='Do Nothing For Ten Seconds' name='10s'></form>");
+
+            SurveyThread.SurveyTask acurrent = startupThread.current;
+
+            if(acurrent!=null) {
+	            ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+	            actionCtx.printUrlAsHiddenFields();
+	            ctx.println("<input type=submit value='Stop Active Task' name='tstop'></form>");
+	            ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+	            actionCtx.printUrlAsHiddenFields();
+	            ctx.println("<input type=submit value='Kill Active Task' name='tkill'></form>");
+            }
+            ctx.println("<hr>");
+            
+            
+            if(ctx.hasField("10s")) {
+            	startupThread.addTask(new SurveyTask("Waste 10 Seconds")
+            	{
+            		public void run() throws Throwable {
+            			Thread.sleep(10000);
+            		}
+            	});
+            	ctx.println("10s task added.\n");
+            } else if(ctx.hasField("tstop")) {
+            	if(acurrent!=null) {
+            		acurrent.stop();
+            		ctx.println(acurrent + " stopped");
+            	}
+            } else if(ctx.hasField("tkill")) {
+            	if(acurrent!=null) {
+            		acurrent.kill();
+            		ctx.println(acurrent + " killed");
+            	}
+            }
+            
+            ctx.println("<hr>");
+            ctx.println("<h2>Threads</h2>");
+            Map<Thread, StackTraceElement[]> s = Thread.getAllStackTraces();
+            ctx.print("<ul>");
+            for(Thread t : s.keySet()) {
+            	ctx.println("<li><a href='#"+t.getId()+"'>"+t.getName()+"</a>  - "+t.getState().toString()+"</li>");
+            }
+            ctx.println("</ul>");
+           	for(Thread t : s.keySet()) {
+            	ctx.println("<a name='"+t.getId()+"'><h3>"+t.getName()+"</h3></a> - "+t.getState().toString());
+            	StackTraceElement[] elem = s.get(t);
+            	ctx.print("<pre>");
+            	for(StackTraceElement el : elem) {
+            		ctx.println(el.toString());
+            	}
+            	ctx.print("</pre>");
+            }
+            
         } else if(action.equals("sessions"))  {
             ctx.println("<h1>Current Sessions</h1>");
             ctx.println("<table summary='User list' border=1><tr><th>age</th><th>user</th><th>what</th><th>action</th></tr>");
@@ -1011,7 +1089,7 @@ public class SurveyMain extends HttpServlet {
 //                SurveyMain.closeDBConnection(conn);
             }
             // 2: load all locales
-            loadAllLocales(ctx);
+            loadAllLocales(ctx, null);
             // 3: update impl votes
             ctx.println("<br>");
             ElapsedTimer et = new ElapsedTimer();
@@ -1033,95 +1111,218 @@ public class SurveyMain extends HttpServlet {
             WebContext subCtx = (WebContext)ctx.clone();
             actionCtx.addQuery("action",action);
             
-            String aver="1.7";
-            ctx.println("<h2>Bulk Data Submission Updating for "+aver+"</h2><i>Note: before using this panel, you must update data normally, such as with the Easy Data Update.</i><br/>\n");
-            boolean doimpbulk = ctx.hasField("doimpbulk");
-            ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
-            actionCtx.printUrlAsHiddenFields();
-            ctx.println("<input type=submit value='Accept all implied votes' name='doimpbulk'></form>");
-            if(!doimpbulk) {
-            	ctx.print("<i>trial run. press the button to accept these votes.</i>");
-            }
+            String aver="1.7"; // TODO: should be from 'new_version'
+            ctx.println("<h2>Bulk Data Submission Updating for "+aver+"</h2><br/>\n");
             
-            Set<CLDRLocale> toUpdate = new HashSet<CLDRLocale>();
-            int wouldhit=0;
-            synchronized( vet.conn ) {
-              Connection acon = null;
-              try {
-                  acon=this.getDBConnection();
-            	  Statement s = acon.createStatement();
-            	  ResultSet rs = s.executeQuery("select locale,base_xpath,xpath,alt_type from cldr_data where alt_type like '%-implicit"+aver+"'");
-            	  
-            	  // TODO: find (1) base xpath with same value, or (2) other items with other votes and same value, and vote for those first.
-            	  //PreparedStatement ps = acon.prepareStatement("select cldr_data.xpath from cldr_data where locale=? and base_xpath=)
-            	  
-            	  ctx.println("<hr>");
-            	  int already = 0;
-            	  int different =0;
-            	  while(rs.next()) {
-            		  CLDRLocale loc = CLDRLocale.getInstance(rs.getString(1));
-            		  int base_xpath = rs.getInt(2);
-            		  int xpath = rs.getInt(3);
-            		  String alt = rs.getString(4);
-            		  
-            		  int n = XPathTable.altProposedToUserid(alt);
-            		  User ui = null;
-            		  if(n>=0) ui = reg.getInfo(n);
-            		  ctx.println(loc+":"+xpath+" : " + xpt.getPrettyPath(base_xpath) + " / "+ alt + " (#"+n+" - " + ui +")<br/>");
-            		  
-            		  if(n<0) continue;
-            		  
-            		  int j = vet.queryVote(loc, n, base_xpath);
-                      String xpathStr = CLDRFile.getDistinguishingXPath(xpt.getById(xpath), null, false);
-                      int dpathId = xpt.getByXpath(xpathStr);
-                      if(dpathId == j) {
-                    	  ctx.println(" "+ctx.iconHtml("squo","current")+" ( == current vote ) <br>");
-                    	  already++;
-                      } else if(j>-1) {
-            			  ctx.println(" "+ctx.iconHtml("warn","already")+"Current vote: "+j+"<br>");
-            			  different++;
-            		  } else {
-            			  if(doimpbulk) {
-            				  vet.vote(loc, base_xpath, n, dpathId, Vetting.VET_IMPLIED);
-            				  toUpdate.add(loc);
-            				  ctx.println(" "+ctx.iconHtml("okay","ok voted")+"&mdash;&gt; <b>"+dpathId+"</b><br>");
-            				  wouldhit++;
-            			  } else {
-            				  ctx.println(" "+ctx.iconHtml("okay","ready")+"<i>Ready to update.</i><br>");
-            				  wouldhit++;
-            				  toUpdate.add(loc);
-            			  }
-            		  }
-            		  
-            	  }
-            	  ctx.println("<hr>");
-            	  if(already>0 ) {
-            		  ctx.println(" "+ctx.iconHtml("squo","current")+""+already+" items already had the correct vote.<br>");
-            	  }
-            	  if(different>0) {
-            		  ctx.println(" "+ctx.iconHtml("warn","different")+" " + different + " items had a different vote already cast.<br>");
-            	  }
-            	  if(doimpbulk && !toUpdate.isEmpty()) {
-            		  ctx.println("<h3>"+wouldhit+" Locale Updates in " + toUpdate.size() + " locales ..</h3>");
-            		  for(CLDRLocale l : toUpdate) {
-        				  vet.deleteCachedLocaleData(l);
-            			  dbsrcfac.needUpdate(l);
-            			  ctx.print(l+"...");
-            		  }
-            		  ctx.println("<br>");
-            		  int upd = dbsrcfac.update();
-            		  ctx.println(" Updated. "+upd + " deferred updates done.<br>");
-            	  } else if(wouldhit>0) {
-            		  ctx.println("<h3>Ready to update "+wouldhit+" Locale Updates in " + toUpdate.size() + " locales ..</h3>");
-                      ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
-                      actionCtx.printUrlAsHiddenFields();
-                      ctx.println("<input type=submit value='Accept all implied votes' name='doimpbulk'></form>");
-            	  }
-              } catch (SQLException e) {
-				ctx.print(e);
-			} finally {
-                  SurveyMain.closeDBConnection(acon);
-              }
+            String bulkStr = survprops.getProperty(CLDR_BULK_DIR);
+            File bulkDir = null;
+            if(bulkStr!=null&&bulkStr.length()>0) {
+            	bulkDir = new File(bulkStr);
+            }
+            if(bulkDir==null||!bulkDir.exists()||!bulkDir.isDirectory()) {
+            	ctx.println(ctx.iconHtml("stop","could not load bulk data")+"The bulk data dir "+CLDR_BULK_DIR+"="+bulkStr+" either doesn't exist or isn't set in cldr.properties. (Server requires reboot for this parameter to take effect)</i>");
+            } else {
+            	ctx.println("<h3>Bulk dir: "+bulkDir.getAbsolutePath()+"</h3>");
+	            boolean doimpbulk = ctx.hasField("doimpbulk");
+	            ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+	            actionCtx.printUrlAsHiddenFields();
+	            ctx.println("<input type=submit value='Accept all implied votes' name='doimpbulk'></form>");
+	            if(!doimpbulk) {
+	            	ctx.print("<i>trial run. press the button to accept these votes.</i>");
+	            }
+	            
+	            Set<File> files = new TreeSet<File>(Arrays.asList(getInFiles(bulkDir)));
+	            
+	            ctx.print("Jump to: ");
+	            for(File file : files) {
+	            	ctx.print("<a href=\"#"+getLocaleOf(file)+"\">"+file.getName()+"</a> ");
+	            }
+	            ctx.println("<br>");
+	            
+	            Set<CLDRLocale> toUpdate = new HashSet<CLDRLocale>();
+            	int wouldhit=0;
+            	
+
+	            for(File file : files ) {
+              	  synchronized(vet.conn) {
+	            	CLDRLocale loc = getLocaleOf(file);
+	            	ctx.println("<a name=\""+loc+"\"><h2>"+file.getName()+" - "+loc.getDisplayName(ctx.displayLocale)+"</h2></a>");
+	            
+	            	CLDRFile c = new CLDRFile(null, false);
+	            	c.loadFromFile(file, loc.getBaseName(), CLDRFile.DraftStatus.unconfirmed);
+	            	XPathParts xpp = new XPathParts(null,null);
+	            	
+	            	int countNoAlt = 0;
+	            	int countNoUser = 0;
+	            	int countBadUser = 0;
+	            	int countAlready = 0;
+	            	int countOther = 0;
+	            	int countReady = 0;
+	            	int countDone = 0;
+	            	int countVoteMain= 0;
+	            	int countAdd = 0;
+	            	
+	            	for(String x : c) {
+	            		String full = c.getFullXPath(x);
+	            		String alt = XPathTable.getAlt(full, xpp);
+	            		String val = c.getStringValue(x);
+	            		if(alt==null||alt.length()==0) {
+	            			countNoAlt = addAndWarnOnce(ctx, countNoAlt, "warn", "Xpath with no 'alt' tag: " + full);
+	            			continue;
+	            		}
+	            		String altPieces[] = LDMLUtilities.parseAlt(alt);
+	            		if(altPieces[1]==null) {
+	            			countNoAlt = addAndWarnOnce(ctx, countNoAlt, "warn", "Xpath with no 'alt-proposed' tag: " + full);
+	            			continue;
+	            		}
+	            		/*
+	            		if(alt.equals("XXXX")) {
+	            			alt = "proposed-u1-implicit1.7";
+	            			x = XPathTable.removeAlt(x, xpp);
+	            		}*/
+	            		int n = XPathTable.altProposedToUserid(altPieces[1]);
+	            		if(n<0) {
+	            			countNoUser = addAndWarnOnce(ctx, countNoUser, "warn", "Xpath with no userid in 'alt' tag: " + full);
+	            			continue;
+	            		}
+	            		User ui = null;
+             		    if(n>=0) ui = reg.getInfo(n);
+	            		if(ui==null) {
+	            			countBadUser = addAndWarnOnce(ctx, countBadUser, "warn", "Bad userid '"+n+"': " + full);
+	            			continue;
+	            		}
+	            		XMLSource stSource = dbsrcfac.getInstance(loc);
+	            		String base_xpath = xpt.xpathToBaseXpath(x);
+	            		int base_xpath_id = xpt.getByXpath(base_xpath);
+	            		int j = vet.queryVote(loc, n, base_xpath_id);
+	                    //int dpathId = xpt.getByXpath(xpathStr);
+	            		// now, find the ID to vote for.
+	            		Set<String> resultPaths = new HashSet<String>();
+	            		stSource.getPathsWithValue(val, base_xpath, resultPaths);
+	            		
+	            		String resultPath = null;
+
+	            		if(resultPaths.isEmpty()) {
+	            			countAdd = addAndWarnOnce(ctx, countAdd, "zoom", "Value must be added under "+base_xpath+": " + val + "");
+	            			if(!doimpbulk) {
+	            				countReady = addAndWarnOnce(ctx, countReady, "okay","<i>Ready to update.</i>");
+	            				continue; // don't try to add.
+	            			}
+	            			/* NOW THE FUN PART */
+	            			if(altPieces[0]!=null) {
+	            				throw new InternalError("alt besides proposed not supported, Go Bug Steven ");
+	            			}
+	            			
+	            			for(int i=0;(resultPath==null)&&i<1000;i++) {
+	            				String proposed = "proposed-u"+n+"-b"+i;
+	            				String newAlt = LDMLUtilities.formatAlt(altPieces[1], proposed);
+	            				String newxpath = base_xpath+"[@alt=\"" + newAlt + "\"]";
+	            				String newoxpath = newxpath+"[@draft=\"unconfirmed\"]";
+
+	            				if(stSource.hasValueAtDPath(newxpath)) continue;
+	            				
+	            				/* Write! */
+	            				stSource.putValueAtPath(newoxpath, val);
+	            				  toUpdate.add(loc);
+	            				
+	            				resultPath = newxpath;
+	            			}
+	            			
+	            			
+	            		} else if(resultPaths.size()>1) {
+	            			/* ok, more than one result. stay cool.. */
+	            			/* #1 - look for the base xpath. */
+	            			for(String path : resultPaths) {
+	            				if(path.equals(base_xpath)) {
+	            					resultPath = path;
+	            					countVoteMain = addAndWarnOnce(ctx, countVoteMain, "squo", "Using base xpath for " + base_xpath);
+	            				}
+	            			}
+	            			/* #2 look for something with a vote */
+	            			if(resultPath==null) {
+	            				String winPath = stSource.getWinningPath(base_xpath);
+	            				String winDpath = CLDRFile.getDistinguishingXPath(winPath, null, true);
+	            				for(String path : resultPaths) {
+		            				String aDPath = CLDRFile.getDistinguishingXPath(path, null, true);	
+		            				if(aDPath.equals(winDpath)) {
+		            					ctx.println("Using winning dpath " + aDPath +"<br>");
+	            						resultPath = aDPath;
+		            				}
+	            				}
+	            			}
+	            			/* #3 just take the first one */
+	            			if(resultPath==null) {
+		            			resultPath = resultPaths.toArray(new String[0])[0];
+		            			ctx.println("Using [0] path " + resultPath);
+	            			}
+	            			if(resultPath==null) {
+	            				ctx.println("More than one result!!<br>");
+	            				if(true) ctx.println(loc+" " + xpt.getPrettyPath(base_xpath) + " / "+ alt + " (#"+n+" - " + ui +")<br/>");
+	            				continue;
+	            			}
+	            		} else{
+	            			resultPath = resultPaths.toArray(new String[0])[0];
+	            		}
+
+	            		/*temp*/if(resultPath == null) {
+	            			continue; 
+	            		}
+	            		
+	                    String xpathStr = CLDRFile.getDistinguishingXPath(resultPath, null, false);
+	            		int dpathId = xpt.getByXpath(base_xpath);
+	            		if(false) ctx.println(loc+" " + xpt.getPrettyPath(base_xpath) + " / "+ alt + " (#"+n+" - " + ui +"/" + dpathId+" <br/>");
+
+	            		
+	                     if(dpathId == j) {
+	                    	countAlready = addAndWarnOnce(ctx, countAlready, "squo", "Vote already correct");
+//	                    	ctx.println(" "+ctx.iconHtml("squo","current")+" ( == current vote ) <br>");
+//	                    	  already++;
+	                      } else if(j>-1) {
+		                    countOther = addAndWarnOnce(ctx, countOther, "warn", "Alternate vote already cast");
+//	            			  ctx.println(" "+ctx.iconHtml("warn","already")+"Current vote: "+j+"<br>");
+//	            			  different++;
+	            		  } else {
+	            			  if(doimpbulk) {
+	            				  vet.vote(loc, base_xpath_id, n, dpathId, Vetting.VET_IMPLIED);
+	            				  toUpdate.add(loc);
+	            				  countReady = addAndWarnOnce(ctx, countReady, "okay","<i>Updating.</i>");
+	            			  } else {
+	            				  countReady = addAndWarnOnce(ctx, countReady, "okay","<i>Ready to update.</i>");
+	            				/*  wouldhit++;
+	            				  toUpdate.add(loc);*/
+	            			  }
+	            		  }
+	            		  
+	            	  } /* end xpath */
+	            	  ctx.println("<hr>");
+	            	  /*if(already>0 ) {
+	            		  ctx.println(" "+ctx.iconHtml("squo","current")+""+already+" items already had the correct vote.<br>");
+	            	  }
+	            	  if(different>0) {
+	            		  ctx.println(" "+ctx.iconHtml("warn","different")+" " + different + " items had a different vote already cast.<br>");
+	            	  }
+	            	  if(doimpbulk && !toUpdate.isEmpty()) {
+	            		  ctx.println("<h3>"+wouldhit+" Locale Updates in " + toUpdate.size() + " locales ..</h3>");
+	            		  for(CLDRLocale l : toUpdate) {
+	        				  vet.deleteCachedLocaleData(l);
+	            			  dbsrcfac.needUpdate(l);
+	            			  ctx.print(l+"...");
+	            		  }
+	            		  ctx.println("<br>");
+	            		  int upd = dbsrcfac.update();
+	            		  ctx.println(" Updated. "+upd + " deferred updates done.<br>");
+	            	  } else if(wouldhit>0) {
+	            		  ctx.println("<h3>Ready to update "+wouldhit+" Locale Updates in " + toUpdate.size() + " locales ..</h3>");
+	                      ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+	                      actionCtx.printUrlAsHiddenFields();
+	                      ctx.println("<input type=submit value='Accept all implied votes' name='doimpbulk'></form>");
+	            	  }*/
+	            	  for(CLDRLocale toul : toUpdate) {
+	            		  this.updateLocale(toul);
+	            	  }
+	            	  toUpdate.clear();
+              	    } /* end sync */
+	              } /* end outer loop */
             }
         } else if(action.equals("srl_vet_imp")) {
             WebContext subCtx = (WebContext)ctx.clone();
@@ -1474,14 +1675,20 @@ public class SurveyMain extends HttpServlet {
                 actionCtx.addQuery("really_load","y");
                 ctx.println("<b>Really Load "+nrInFiles+" locales?? <a class='ferrbox' href='"+actionCtx.url()+"'>YES</a><br>");
             } else {
-                loadAllLocales(ctx);
+            	
+            	startupThread.addTask(new SurveyThread.SurveyTask("load all locales")
+            	{
+	            	public void run() throws Throwable 
+	                {
+	                	loadAllLocales(null,this);
+	                    ElapsedTimer et = new ElapsedTimer();
+	                    int n = vet.updateStatus();
+	                    System.err.println("Done updating "+n+" statuses [locales] in: " + et + "<br>");
+	                }
+            	});
+            	ctx.println("... load all locales task queued<br>");
             }
             
-            {
-                ElapsedTimer et = new ElapsedTimer();
-                int n = vet.updateStatus();
-                ctx.println("Done updating "+n+" statuses [locales] in: " + et + "<br>");
-            }
         } else if(action.equals("specialusers")) {
             ctx.println("<hr>Re-reading special users list...<br>");
             Set<UserRegistry.User> specials = reg.getSpecialUsers(true); // force reload
@@ -1618,26 +1825,35 @@ public class SurveyMain extends HttpServlet {
                 
         printFooter(ctx);
     }
-    private static void throwIfBadLocale(String test0) {
+    
+    /* print a warning the first time. */
+    private int addAndWarnOnce(WebContext ctx, int count, String icon,
+			String desc) {
+    	if(count==0) {
+    		 ctx.println(ctx.iconHtml(icon, "counter")+" "+desc+" (this message will only print once)<br>");
+    	}
+    	return ++count;
+	}
+	private static void throwIfBadLocale(String test0) {
         if(!SurveyMain.getLocalesSet().contains(test0)) {
             throw new InternalError("Bad locale: "+test0);
         }
     }
-    private void loadAllLocales(WebContext ctx) {
+    private void loadAllLocales(WebContext ctx, SurveyTask surveyTask) {
         File[] inFiles = getInFiles();
         int nrInFiles = inFiles.length;
         com.ibm.icu.dev.test.util.ElapsedTimer allTime = new com.ibm.icu.dev.test.util.ElapsedTimer("Time to load all: {0}");
         logger.info("Loading all..");            
 //        Connection connx = null;
         int ti = 0;
-        for(int i=0;(null==this.isBusted)&&i<nrInFiles;i++) {
+        for(int i=0;(null==this.isBusted)&&i<nrInFiles&&(surveyTask==null||surveyTask.running());i++) {
             String localeName = inFiles[i].getName();
             int dot = localeName.indexOf('.');
             if(dot !=  -1) {
                 localeName = localeName.substring(0,dot);
                 if((i>0)&&((i%50)==0)) {
                     logger.info("   "+ i + "/" + nrInFiles + ". " + usedK() + "K mem used");
-                    ctx.println("   "+ i + "/" + nrInFiles + ". " + usedK() + "K mem used<br>");
+                   if(ctx!=null) ctx.println("   "+ i + "/" + nrInFiles + ". " + usedK() + "K mem used<br>");
                 }
                 try {
 //                    if(connx == null) {
@@ -1653,9 +1869,11 @@ public class SurveyMain extends HttpServlet {
                     t.printStackTrace();
                     String complaint = ("Error loading: " + localeName + " - " + t.toString() + " ...");
                     logger.severe("loading all: " + complaint);
-                    ctx.println(complaint + "<br>" + "<pre>");
-                    ctx.print(t);
-                    ctx.println("</pre>");
+                    if(ctx!=null) {
+                    		ctx.println(complaint + "<br>" + "<pre>");
+                    		ctx.print(t);
+                    		ctx.println("</pre>");
+                    }
 //                    try {
 //                    	closeDBConnection(connx);
 //                    } catch(Throwable t2) {
@@ -1670,12 +1888,15 @@ public class SurveyMain extends HttpServlet {
                 }
             }
         }
+        if(surveyTask!=null&&!surveyTask.running()) {
+        	System.err.println("LoadAll: no longer running!\n");
+        }
 //        closeDBConnection(connx);
         logger.info("Loaded all. " + allTime);
-        ctx.println("Loaded all." + allTime + "<br>");
+        if(ctx!=null) ctx.println("Loaded all." + allTime + "<br>");
         int n = dbsrcfac.update();
         logger.info("Updated "+n+". " + allTime);
-        ctx.println("Updated "+n+"." + allTime + "<br>");
+        if(ctx!=null) ctx.println("Updated "+n+"." + allTime + "<br>");
     }
     
     /* 
@@ -1785,11 +2006,19 @@ public class SurveyMain extends HttpServlet {
                 }
             }
             out.print("<br>");
+            String threadInfo = startupThread.htmlStatus();
+            if(threadInfo!=null) {
+            	out.println("<b>Processing:"+threadInfo+"</b><br>");
+            }
             if(ctx != null && progressWhat != null) {
                 showProgress(ctx);
             }
             out.println("</div><br>");
         } else {
+            String threadInfo = startupThread.htmlStatus();
+            if(threadInfo!=null) {
+            	out.println("<b>Processing:"+threadInfo+"</b><br>");
+            }
             if(progressWhat != null) {
                 ctx.print("<div class='specialHeader'>SurveyTool may be busy: <br>");
                 showProgress(ctx);
@@ -5475,7 +5704,7 @@ public class SurveyMain extends HttpServlet {
             if(CACHE_VXML_FOR_TESTS) {
                 return getCLDRFileCache().getCLDRFile(locale());
             } else {
-                System.err.println("@@ !CACHE_VXML_FOR_TESTS");
+                System.err.println(" !CACHE_VXML_FOR_TESTS");
                 return null;
             }
         }
@@ -8260,18 +8489,10 @@ public class SurveyMain extends HttpServlet {
     }
     
     /**
-     * Class to startup ST in background
+     * Class to startup ST in background and perform background operations.
      */
-    Thread startupThread = new Thread() {
-        public void run() {
-            try {
-                doStartup();
-            } catch(Throwable t) {
-                t.printStackTrace();
-                busted("On StartupThread: "+t.toString(), t);
-            }
-        }
-    };
+    SurveyThread startupThread = new SurveyThread(this);
+    
 
     /**
      * Startup function. Called from another thread.
@@ -8359,7 +8580,7 @@ public class SurveyMain extends HttpServlet {
             oldVersion=survprops.getProperty("CLDR_OLDVERSION","CLDR_OLDVERSION");
     
             vetdata = survprops.getProperty("CLDR_VET_DATA", cldrHome+"/vetdata"); // dir for vetted data
-            updateProgress(nn++, "Setup dirs.."); // @@@
+            updateProgress(nn++, "Setup dirs.."); 
             vetdir = new File(vetdata);
             if(!vetdir.isDirectory()) {
                 vetdir.mkdir();
@@ -8477,6 +8698,9 @@ public class SurveyMain extends HttpServlet {
 
     public void destroy() {
         logger.warning("SurveyTool shutting down..");
+        if(startupThread!=null) {
+        	startupThread.attemptCleanShutdown();
+        }
         doShutdownDB();
         if(isBusted!=null) isBusted="servlet destroyed";
         super.destroy();
@@ -8530,10 +8754,9 @@ public class SurveyMain extends HttpServlet {
         }
         return null;
     }
-
-    static protected File[] getInFiles() {
-        // 1. get the list of input XML files
-        FileFilter myFilter = new FileFilter() {
+    
+    static FileFilter getXmlFileFilter() {
+    	return new FileFilter() {
             public boolean accept(File f) {
                 String n = f.getName();
                 return(!f.isDirectory()
@@ -8543,10 +8766,34 @@ public class SurveyMain extends HttpServlet {
                        /*&&!n.startsWith("root")*/); // root is implied, will be included elsewhere.
             }
         };
-        File baseDir = new File(fileBase);
-        return baseDir.listFiles(myFilter);
     }
 
+    static protected File[] getInFiles() {
+    	return getInFiles(fileBase);
+    }
+    
+    static protected File[] getInFiles(String base) {
+        File baseDir = new File(fileBase);
+        return getInFiles(baseDir);
+    }
+    
+    static protected File[] getInFiles(File baseDir) {
+        // 1. get the list of input XML files
+        FileFilter myFilter = getXmlFileFilter();
+        return baseDir.listFiles(myFilter);
+    }
+    
+    static protected CLDRLocale getLocaleOf(File localeFile) {
+		String localeName = localeFile.getName();
+		return getLocaleOf(localeName);
+    }
+    
+    static protected CLDRLocale getLocaleOf(String localeName) {
+		int dot = localeName.indexOf('.');
+		String theLocale = localeName.substring(0,dot);
+		return CLDRLocale.getInstance(theLocale);
+    }
+    
     private static Set<CLDRLocale> localeListSet = null;
 
     static synchronized public Set<CLDRLocale> getLocalesSet() {

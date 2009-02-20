@@ -322,9 +322,18 @@ public class XPathTable {
     public static String removeAlt(String path, XPathParts xpp) {
         xpp.clear();
         xpp.initialize(path);
-        Map lastAtts = xpp.getAttributes(-1);
+        Map<String,String> lastAtts = xpp.getAttributes(-1);
         lastAtts.remove(LDMLConstants.ALT);
         return xpp.toString();
+    }
+    public static String getAlt(String path) {
+        return getAlt(path, new XPathParts(null,null));
+    }
+    public static String getAlt(String path, XPathParts xpp) {
+        xpp.clear();
+        xpp.initialize(path);
+        Map<String,String> lastAtts = xpp.getAttributes(-1);
+        return lastAtts.get(LDMLConstants.ALT);
     }
     public static String removeAltFromStub(String stub) {
         int ix = stub.indexOf("[@alt=\"");

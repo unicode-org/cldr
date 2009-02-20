@@ -282,6 +282,7 @@ public class CLDRDBSourceFactory {
      */
     public void needUpdate(CLDRLocale loc) {
     	synchronized(sm.vet.conn) {
+    		if(needUpdate.contains(loc)) 
     		needUpdate.add(loc);
     	}
     }

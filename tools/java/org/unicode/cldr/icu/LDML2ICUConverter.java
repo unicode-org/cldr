@@ -1748,7 +1748,15 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 } 
 
                 if ( type.equals(LDMLConstants.ALGORITHMIC)) {
-                    desc.val = "%"+ LDMLUtilities.getAttributeValue(node, LDMLConstants.RULES);
+                    String numSysRules = LDMLUtilities.getAttributeValue(node, LDMLConstants.RULES);
+                    int marker = numSysRules.lastIndexOf("/");
+                    if ( marker > 0 ) {
+                       String prefix = numSysRules.substring(0,marker+1);
+                       String suffix = numSysRules.substring(marker+1);
+                       desc.val = prefix + "%" + suffix;
+                    } else {
+                    desc.val = "%"+ numSysRules;
+                    }
                     algorithmic.val = "1";
                 } else {
                     desc.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.DIGITS);

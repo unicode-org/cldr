@@ -281,6 +281,31 @@
                 <rbnfrule value="3000">mmm[→→];</rbnfrule>
                 <rbnfrule value="4000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="tamil">
+                <rbnfrule value="-x">=#,##,##0=;</rbnfrule>
+                <rbnfrule value="0">=#,##,##0=;</rbnfrule>
+                <rbnfrule value="1">௧;</rbnfrule>
+                <rbnfrule value="2">௨;</rbnfrule>
+                <rbnfrule value="3">௩;</rbnfrule>
+                <rbnfrule value="4">௪;</rbnfrule>
+                <rbnfrule value="5">௫;</rbnfrule>
+                <rbnfrule value="6">௬;</rbnfrule>
+                <rbnfrule value="7">௭;</rbnfrule>
+                <rbnfrule value="8">௮;</rbnfrule>
+                <rbnfrule value="9">௯;</rbnfrule>
+                <rbnfrule value="10">௰[→→];</rbnfrule>
+                <rbnfrule value="20">←←௰[→→];</rbnfrule>
+                <rbnfrule value="100">௱[→→];</rbnfrule>
+                <rbnfrule value="200">←←௱[→→];</rbnfrule>
+                <rbnfrule value="1000">௲[→→];</rbnfrule>
+                <rbnfrule value="2000">←←௲[→→];</rbnfrule>
+                <rbnfrule value="1000000" radix="100000">←←௱௲[→%%tamil_thousands→];</rbnfrule>
+                <rbnfrule value="100000000">=#,##,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="tamil_thousands" access="private">
+                <rbnfrule value="0">=%tamil=;</rbnfrule>
+                <rbnfrule value="1000">←←௲[→→];</rbnfrule>
+            </ruleset>
             <ruleset type="upper-roman">
                 <rbnfrule value="-x">→→N;</rbnfrule>
                 <rbnfrule value="0">N; I; II; III; IV; V; VI; VII; VIII; IX;</rbnfrule>

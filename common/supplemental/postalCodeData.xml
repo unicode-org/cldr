@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldmlSupplemental.dtd">
+<supplementalData>
+    <version number="$Revision$"/>
+    <generation date="$Date$"/>
+	<postcode>
+            <territoryCode id="GB" postCodeRegex="GIR[ ]?0AA|((AB|AL|B|BA|BB|BD|BH|BL|BN|BR|BS|BT|CA|CB|CF|CH|CM|CO|CR|CT|CV|CW|DA|DD|DE|DG|DH|DL|DN|DT|DY|E|EC|EH|EN|EX|FK|FY|G|GL|GY|GU|HA|HD|HG|HP|HR|HS|HU|HX|IG|IM|IP|IV|JE|KA|KT|KW|KY|L|LA|LD|LE|LL|LN|LS|LU|M|ME|MK|ML|N|NE|NG|NN|NP|NR|NW|OL|OX|PA|PE|PH|PL|PO|PR|RG|RH|RM|S|SA|SE|SG|SK|SL|SM|SN|SO|SP|SR|SS|ST|SW|SY|TA|TD|TF|TN|TQ|TR|TS|TW|UB|W|WA|WC|WD|WF|WN|WR|WS|WV|YO|ZE)(\d[\dA-Z]?[]?\d[ABD-HJLN-UW-Z]{2}))|BFPO[ ]?\d{1,4}" />
+            <territoryCode id="JE" postCodeRegex="JE\d[\dA-Z]?[ ]?\d[ABD-HJLN-UW-Z]{2}" />
+            <territoryCode id="GG" postCodeRegex="GY\d[\dA-Z]?[ ]?\d[ABD-HJLN-UW-Z]{2}" />
+            <territoryCode id="IM" postCodeRegex="IM\d[\dA-Z]?[ ]?\d[ABD-HJLN-UW-Z]{2}" />
+            <territoryCode id="US" postCodeRegex="\d{5}([ \-]\d{4})?" />
+            <territoryCode id="CA" postCodeRegex="[ABCEGHJKLMNPRSTVXY]\d[A-Z][ ]?\d[A-Z]\d"/>
+            <territoryCode id="DE" postCodeRegex="\d{5}" />
+            <territoryCode id="JP" postCodeRegex="\d{3}-\d{4}" />
+            <territoryCode id="FR" postCodeRegex="\d{2}[ ]?\d{3}" />
+            <territoryCode id="AU" postCodeRegex="\d{4}" />
+            <territoryCode id="IT" postCodeRegex="\d{5}" />
+            <territoryCode id="CH" postCodeRegex="\d{4}" />
+            <territoryCode id="AT" postCodeRegex="\d{4}" />
+            <territoryCode id="ES" postCodeRegex="\d{5}" />
+            <territoryCode id="NL" postCodeRegex="\d{4}[ ]?[A-Z]{2}" />
+            <territoryCode id="BE" postCodeRegex="\d{4}" />
+            <territoryCode id="DK" postCodeRegex="\d{4}" />
+            <territoryCode id="SE" postCodeRegex="\d{3}[ ]?\d{2}" />
+            <territoryCode id="NO" postCodeRegex="\d{4}" />
+            <territoryCode id="BR" postCodeRegex="\d{5}[\-]?\d{3}" />
+            <territoryCode id="PT" postCodeRegex="\d{4}([\-]\d{3})?" />
+            <territoryCode id="FI" postCodeRegex="\d{5}" />
+            <territoryCode id="AX" postCodeRegex="22\d{3}" />
+            <territoryCode id="KR" postCodeRegex="\d{3}[\-]\d{3}" />
+            <territoryCode id="CN" postCodeRegex="\d{6}" />
+            <territoryCode id="TW" postCodeRegex="\d{3}(\d{2})?" />
+            <territoryCode id="SG" postCodeRegex="\d{6}" />
+            <territoryCode id="DZ" postCodeRegex="\d{5}" />
+            <territoryCode id="AD" postCodeRegex="AD\d{3}" />
+            <territoryCode id="AR" postCodeRegex="([A-HJ-NP-Z])?\d{4}([A-Z]{3})?" />
+            <territoryCode id="AM" postCodeRegex="(37)?\d{4}" />
+            <territoryCode id="AZ" postCodeRegex="\d{4}" />
+            <territoryCode id="BH" postCodeRegex="((1[0-2]|[2-9])\d{2})?" />
+            <territoryCode id="BD" postCodeRegex="\d{4}" />
+            <territoryCode id="BB" postCodeRegex="(BB\d{5})?" />
+            <territoryCode id="BY" postCodeRegex="\d{6}" />
+            <territoryCode id="BM" postCodeRegex="[A-Z]{2}[ ]?[A-Z0-9]{2}" />
+            <territoryCode id="BA" postCodeRegex="\d{5}" />
+            <territoryCode id="IO" postCodeRegex="BBND 1ZZ" />
+            <territoryCode id="BN" postCodeRegex="[A-Z]{2}[ ]?\d{4}" />
+            <territoryCode id="BG" postCodeRegex="\d{4}" />
+            <territoryCode id="KH" postCodeRegex="\d{5}" />
+            <territoryCode id="CV" postCodeRegex="\d{4}" />
+            <territoryCode id="CL" postCodeRegex="\d{7}" />
+            <territoryCode id="CR" postCodeRegex="\d{4,5}|\d{3}-\d{4}" />
+            <territoryCode id="HR" postCodeRegex="\d{5}" />
+            <territoryCode id="CY" postCodeRegex="\d{4}" />
+            <territoryCode id="CZ" postCodeRegex="\d{3}[ ]?\d{2}" />
+            <territoryCode id="DO" postCodeRegex="\d{5}" />
+            <territoryCode id="EC" postCodeRegex="([A-Z]\d{4}[A-Z]|(?:[A-Z]{2})?\d{6})?" />
+            <territoryCode id="EG" postCodeRegex="\d{5}" />
+            <territoryCode id="EE" postCodeRegex="\d{5}" />
+            <territoryCode id="FO" postCodeRegex="\d{3}" />
+            <territoryCode id="GE" postCodeRegex="\d{4}" />
+            <territoryCode id="GR" postCodeRegex="\d{3}[ ]?\d{2}" />
+            <territoryCode id="GL" postCodeRegex="39\d{2}" />
+            <territoryCode id="GT" postCodeRegex="\d{5}" />
+            <territoryCode id="HT" postCodeRegex="\d{4}" />
+            <territoryCode id="HN" postCodeRegex="(?:\d{5})?" />
+            <territoryCode id="HU" postCodeRegex="\d{4}" />
+            <territoryCode id="IS" postCodeRegex="\d{3}" />
+            <territoryCode id="IN" postCodeRegex="\d{6}" />
+            <territoryCode id="ID" postCodeRegex="\d{5}" />
+            <territoryCode id="IE" postCodeRegex="((D|DUBLIN)?([1-9]|6[wW]|1[0-8]|2[024]))?"/>
+            <territoryCode id="IL" postCodeRegex="\d{5}" />
+            <territoryCode id="JO" postCodeRegex="\d{5}" />
+            <territoryCode id="KZ" postCodeRegex="\d{6}" />
+            <territoryCode id="KE" postCodeRegex="\d{5}" />
+            <territoryCode id="KW" postCodeRegex="\d{5}" />
+            <territoryCode id="LA" postCodeRegex="\d{5}" />
+            <territoryCode id="LV" postCodeRegex="\d{4}" />
+            <territoryCode id="LB" postCodeRegex="(\d{4}([ ]?\d{4})?)?" />
+            <territoryCode id="LI" postCodeRegex="(948[5-9])|(949[0-7])" />
+            <territoryCode id="LT" postCodeRegex="\d{5}" />
+            <territoryCode id="LU" postCodeRegex="\d{4}" />
+            <territoryCode id="MK" postCodeRegex="\d{4}" />
+            <territoryCode id="MY" postCodeRegex="\d{5}" />
+            <territoryCode id="MV" postCodeRegex="\d{5}" />
+            <territoryCode id="MT" postCodeRegex="[A-Z]{3}[ ]?\d{2,4}" />
+            <territoryCode id="MU" postCodeRegex="(\d{3}[A-Z]{2}\d{3})?" />
+            <territoryCode id="MX" postCodeRegex="\d{5}" />
+            <territoryCode id="MD" postCodeRegex="\d{4}" />
+            <territoryCode id="MC" postCodeRegex="980\d{2}" />
+            <territoryCode id="MA" postCodeRegex="\d{5}" />
+            <territoryCode id="NP" postCodeRegex="\d{5}" />
+            <territoryCode id="NZ" postCodeRegex="\d{4}" />
+            <territoryCode id="NI" postCodeRegex="((\d{4}-)?\d{3}-\d{3}(-\d{1})?)?" />
+            <territoryCode id="NG" postCodeRegex="(\d{6})?" />
+            <territoryCode id="OM" postCodeRegex="(PC )?\d{3}" />
+            <territoryCode id="PK" postCodeRegex="\d{5}" />
+            <territoryCode id="PY" postCodeRegex="\d{4}" />
+            <territoryCode id="PH" postCodeRegex="\d{4}" />
+            <territoryCode id="PL" postCodeRegex="\d{2}-\d{3}" />
+            <territoryCode id="PR" postCodeRegex="00[679]\d{2}([ \-]\d{4})?" />
+            <territoryCode id="RO" postCodeRegex="\d{6}" />
+            <territoryCode id="RU" postCodeRegex="\d{6}" />
+            <territoryCode id="SM" postCodeRegex="4789\d" />
+            <territoryCode id="SA" postCodeRegex="\d{5}" />
+            <territoryCode id="SN" postCodeRegex="\d{5}" />
+            <territoryCode id="SK" postCodeRegex="\d{3}[ ]?\d{2}" />
+            <territoryCode id="SI" postCodeRegex="\d{4}" />
+            <territoryCode id="ZA" postCodeRegex="\d{4}" />
+            <territoryCode id="LK" postCodeRegex="\d{5}" />
+            <territoryCode id="TJ" postCodeRegex="\d{6}" />
+            <territoryCode id="TH" postCodeRegex="\d{5}" />
+            <territoryCode id="TN" postCodeRegex="\d{4}" />
+            <territoryCode id="TR" postCodeRegex="\d{5}" />
+            <territoryCode id="TM" postCodeRegex="\d{6}" />
+            <territoryCode id="UA" postCodeRegex="\d{5}" />
+            <territoryCode id="UY" postCodeRegex="\d{5}" />
+            <territoryCode id="UZ" postCodeRegex="\d{6}" />
+            <territoryCode id="VA" postCodeRegex="00120" />
+            <territoryCode id="VE" postCodeRegex="\d{4}" />
+            <territoryCode id="ZM" postCodeRegex="\d{5}" />
+            <territoryCode id="AS" postCodeRegex="96799" />
+            <territoryCode id="CC" postCodeRegex="6799" />
+            <territoryCode id="CK" postCodeRegex="\d{4}" />
+            <territoryCode id="RS" postCodeRegex="\d{6}" />
+            <territoryCode id="ME" postCodeRegex="8\d{4}" />
+            <territoryCode id="CS" postCodeRegex="\d{5}" />
+            <territoryCode id="YU" postCodeRegex="\d{5}" />
+            <territoryCode id="CX" postCodeRegex="6798" />
+            <territoryCode id="ET" postCodeRegex="\d{4}" />
+            <territoryCode id="FK" postCodeRegex="FIQQ 1ZZ" />
+            <territoryCode id="NF" postCodeRegex="2899" />
+            <territoryCode id="FM" postCodeRegex="(9694[1-4])([ \-]\d{4})?" />
+            <territoryCode id="GF" postCodeRegex="9[78]3\d{2}" />
+            <territoryCode id="GN" postCodeRegex="\d{3}" />
+            <territoryCode id="GP" postCodeRegex="9[78][01]\d{2}" />
+            <territoryCode id="GS" postCodeRegex="SIQQ 1ZZ" />
+            <territoryCode id="GU" postCodeRegex="969[123]\d([ \-]\d{4})?" />
+            <territoryCode id="GW" postCodeRegex="\d{4}" />
+            <territoryCode id="HM" postCodeRegex="\d{4}" />
+            <territoryCode id="IQ" postCodeRegex="\d{5}" />
+            <territoryCode id="KG" postCodeRegex="\d{6}" />
+            <territoryCode id="LR" postCodeRegex="\d{4}" />
+            <territoryCode id="LS" postCodeRegex="\d{3}" />
+            <territoryCode id="MG" postCodeRegex="\d{3}" />
+            <territoryCode id="MH" postCodeRegex="969[67]\d([ \-]\d{4})?" />
+            <territoryCode id="MN" postCodeRegex="\d{6}" />
+            <territoryCode id="MP" postCodeRegex="9695[012]([ \-]\d{4})?" />
+            <territoryCode id="MQ" postCodeRegex="9[78]2\d{2}" />
+            <territoryCode id="NC" postCodeRegex="988\d{2}" />
+            <territoryCode id="NE" postCodeRegex="\d{4}" />
+            <territoryCode id="VI" postCodeRegex="008(([0-4]\d)|(5[01]))([ \-]\d{4})?" />
+            <territoryCode id="PF" postCodeRegex="987\d{2}" />
+            <territoryCode id="PG" postCodeRegex="\d{3}" />
+            <territoryCode id="PM" postCodeRegex="9[78]5\d{2}" />
+            <territoryCode id="PN" postCodeRegex="PCRN 1ZZ" />
+            <territoryCode id="PW" postCodeRegex="96940" />
+            <territoryCode id="RE" postCodeRegex="9[78]4\d{2}" />
+            <territoryCode id="SH" postCodeRegex="STHL 1ZZ" />
+            <territoryCode id="SJ" postCodeRegex="\d{4}" />
+            <territoryCode id="SO" postCodeRegex="\d{5}" />
+            <territoryCode id="SZ" postCodeRegex="[HLMS]\d{3}" />
+            <territoryCode id="TC" postCodeRegex="TKCA 1ZZ" />
+            <territoryCode id="WF" postCodeRegex="986\d{2}" />
+            <territoryCode id="YT" postCodeRegex="976\d{2}" />
+        </postcode>
+</supplementalData>

@@ -7,11 +7,11 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.64 $
-    $Date: 2009-02-24 01:01:31 $
+    $Revision: 1.65 $
+    $Date: 2009-02-24 23:08:06 $
 -->
 
-<!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postcode?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, references? ) >
+<!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, references? ) >
 <!ATTLIST supplementalData version CDATA #FIXED "1.6" >
 
 <!ELEMENT version ( #PCDATA ) >
@@ -82,12 +82,10 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST territory references CDATA #IMPLIED >
 <!ATTLIST territory alt NMTOKENS #IMPLIED >
 
-<!ELEMENT postcode (territoryCode*) >
-
-<!ELEMENT territoryCode EMPTY >
-<!ATTLIST territoryCode id NMTOKEN #REQUIRED>
-<!ATTLIST territoryCode postCodeRegex NMTOKEN #REQUIRED>
-<!ATTLIST territoryCode draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ELEMENT postalCodeData (postCodeRegex*) >
+<!ELEMENT postCodeRegex (#PCDATA) >
+<!ATTLIST postCodeRegex territoryId NMTOKEN #REQUIRED>
+<!ATTLIST postCodeRegex draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT languagePopulation EMPTY >
 <!ATTLIST languagePopulation type NMTOKEN #REQUIRED >

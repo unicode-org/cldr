@@ -282,7 +282,7 @@ public class CLDRDBSourceFactory {
      */
     public void needUpdate(CLDRLocale loc) {
     	synchronized(sm.vet.conn) {
-    		if(needUpdate.contains(loc)) 
+    		if(!needUpdate.contains(loc)) 
     		needUpdate.add(loc);
     	}
     }
@@ -296,7 +296,7 @@ public class CLDRDBSourceFactory {
         synchronized(sm.vet.conn) {
             for(CLDRLocale l : needUpdate) {
             	n++;
-                System.err.println("CLDRDBSRCFAC: executing deferred update of " + l);
+                System.err.println("CLDRDBSRCFAC: executing deferred update of " + l +"("+needUpdate.size()+" on queue)");
                 sm.vet.updateResults(l);
                 synchronized(this) {
 	                XMLSource inst = getInstance(l,false);
@@ -1298,7 +1298,7 @@ public class CLDRDBSourceFactory {
 //            sm.vet.updateResults(loc);
 //        }
 //    } else {
-        needUpdate.add(locale);
+        needUpdate(locale);
 //        System.err.println("CLDRDBSource " + loc + " - deferring vet update on " + loc + " until vetter ready.");
 //    }
         return dpath;

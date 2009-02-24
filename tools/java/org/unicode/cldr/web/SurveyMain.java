@@ -1215,7 +1215,7 @@ public class SurveyMain extends HttpServlet {
 	            			
 	            			for(int i=0;(resultPath==null)&&i<1000;i++) {
 	            				String proposed = "proposed-u"+n+"-b"+i;
-	            				String newAlt = LDMLUtilities.formatAlt(altPieces[1], proposed);
+	            				String newAlt = LDMLUtilities.formatAlt(altPieces[0], proposed);
 	            				String newxpath = base_xpath+"[@alt=\"" + newAlt + "\"]";
 	            				String newoxpath = newxpath+"[@draft=\"unconfirmed\"]";
 
@@ -1269,7 +1269,7 @@ public class SurveyMain extends HttpServlet {
 	            		}
 	            		
 	                    String xpathStr = CLDRFile.getDistinguishingXPath(resultPath, null, false);
-	            		int dpathId = xpt.getByXpath(base_xpath);
+	            		int dpathId = xpt.getByXpath(xpathStr);
 	            		if(false) ctx.println(loc+" " + xpt.getPrettyPath(base_xpath) + " / "+ alt + " (#"+n+" - " + ui +"/" + dpathId+" <br/>");
 
 	            		

@@ -1240,8 +1240,7 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-                    <default choice="medium"/>
-                    <dateTimeFormatLength type="medium">
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1}، ساعت {0}</pattern>
 							<pattern references="R046" alt="proposed-x1001" draft="unconfirmed">{0}، ساعت {1}</pattern>

@@ -1137,6 +1137,11 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="HHmm" draft="contributed">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" draft="contributed">HH:mm:ss</dateFormatItem>

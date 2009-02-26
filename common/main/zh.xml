@@ -1218,27 +1218,11 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-                    <default choice="medium"/>
-                    <dateTimeFormatLength type="full">
-                        <dateTimeFormat>
-                            <pattern>{1}{0}</pattern>
-                        </dateTimeFormat>
-                    </dateTimeFormatLength>
-                    <dateTimeFormatLength type="long">
-                        <dateTimeFormat>
-                            <pattern>{1}{0}</pattern>
-                        </dateTimeFormat>
-                    </dateTimeFormatLength>
-                    <dateTimeFormatLength type="medium">
-                        <dateTimeFormat>
-                            <pattern>{1} {0}</pattern>
-                        </dateTimeFormat>
-                    </dateTimeFormatLength>
-                    <dateTimeFormatLength type="short">
-                        <dateTimeFormat>
-                            <pattern>{1} {0}</pattern>
-                        </dateTimeFormat>
-                    </dateTimeFormatLength>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
 						<dateFormatItem id="H">H时</dateFormatItem>

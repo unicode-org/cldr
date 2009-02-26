@@ -1255,6 +1255,11 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="yyMM">M/yyyy</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM y</dateFormatItem>
@@ -1455,8 +1460,7 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-                    <default choice="medium"/>
-                    <dateTimeFormatLength type="medium">
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">{1} {0}</pattern>

@@ -676,6 +676,11 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+                    <dateTimeFormatLength>
+                        <dateTimeFormat>
+                            <pattern draft="unconfirmed">{1} {0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>                    
 					<availableFormats>
 						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>

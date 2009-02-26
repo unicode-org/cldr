@@ -943,6 +943,11 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Ed" draft="provisional">E d</dateFormatItem>
 						<dateFormatItem id="H" draft="provisional">H</dateFormatItem>

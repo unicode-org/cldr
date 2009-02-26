@@ -225,6 +225,11 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="unconfirmed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="HHmmss" draft="unconfirmed">HH:mm:ss 	13:25:59</dateFormatItem>
 						<dateFormatItem id="Md" draft="unconfirmed">d/M</dateFormatItem>

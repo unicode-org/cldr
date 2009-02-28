@@ -123,8 +123,7 @@ public class GenerateNormalizeForMatch {
     if (fix) {
       fixOld(sourceFile, targetFile);
     } else {
-      frequencies = new UnicodeMap();
-      total_frequency = FrequencyData.loadFrequencies(frequencyFile, frequencies);
+      frequencies = new FrequencyData(frequencyFile);
       generateMappings(sourceFile, targetFile, oldMappingFile, frequencyFile);
     }
     LOG_WRITER.println("# END");
@@ -161,7 +160,7 @@ public class GenerateNormalizeForMatch {
       String oldMapped = getRemapped(it.codepoint, oldMappings);
       String newMapped = getRemapped(it.codepoint, newMappings);
       if (!newMapped.equals(oldMapped)) {
-        Long count = frequencies == null ? null : (Long) frequencies.getValue(it.codepoint);
+        Long count = frequencies == null ? null : frequencies.getCount(it.codepoint);
         ordered.add(new Comparable[]{count == null ? 0L : count, it.codepoint, oldMapped, newMapped});
       }
     }
@@ -229,7 +228,7 @@ public class GenerateNormalizeForMatch {
       final int cp = (Integer)items[1];
       final String oldMapped = (String)items[2];
       final String newMapped = (String)items[3];
-      final String countStr = count == 0 ? "0" : "1/" + FORMAT.format(total_frequency/count);
+      final String countStr = count == 0 ? "0" : "1/" + FORMAT.format(frequencies.getTotal()/count);
       
       String line = com.ibm.icu.impl.Utility.hex(cp) + " ; " 
       + hex(newMapped," ") + " ; "
@@ -266,6 +265,7 @@ public class GenerateNormalizeForMatch {
    * @param specialMappingsFile TODO
    * @param outputFile TODO
    * @param diffSource 
+   * @param frequencyData 
    * @param frequencyFile 
    * @throws IOException
    */
@@ -628,9 +628,8 @@ public class GenerateNormalizeForMatch {
   public static final Transliterator toHTMLControl = Transliterator.createFromRules(
           "any-html", RULES, Transliterator.FORWARD);
 
-  private static double total_frequency;
+  private static FrequencyData frequencies;
 
-  private static UnicodeMap frequencies;
 
   private static String quote(String input) {
     String source = input;
@@ -724,7 +723,7 @@ public class GenerateNormalizeForMatch {
   static BufferedReader openUTF8Reader(String filename) throws IOException {
     File file = new File(filename);
     System.out.println("Reading:\t" + file.getCanonicalPath());
-    return new BufferedReader(new InputStreamReader(new FileInputStream(file), UTF8));
+    return new BufferedReader(new InputStreamReader(new FileInputStream(file), UTF8),1024*64);
   }
 
   /**

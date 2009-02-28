@@ -1188,7 +1188,19 @@ class GeneratePickerData {
       return result.toString();
     }
 
+    static CharacterListCompressor compressor = new CharacterListCompressor();
+    
     private void appendCompacted(StringBuilder result, Collection<String> set2) {
+      if (compressor != null) {
+        StringBuilder temp = new StringBuilder();
+        for (String item : set2) {
+          temp.appendCodePoint(item.codePointAt(0));
+        }
+        List<List<Integer>> pairs = CharacterListCompressor.getValueTypePairsFromStr(temp.toString());
+        String compressed = CharacterListCompressor.encodeValueTypePairs2Base88(pairs);
+        result.append(compressed);
+        return;
+      }
       int first = -1;
       int last = -1;
       for (String item : set2) {
@@ -1219,6 +1231,16 @@ class GeneratePickerData {
     }
 
     List<String> getFromCompacted(String in) {
+      if (compressor != null) {
+        List<List<Integer>> decompairs = CharacterListCompressor.decodeBase88ToValueTypePairs(in);
+        String resultStr = CharacterListCompressor.getStrFromValueTypePairs(decompairs);
+        List<String> result = new ArrayList();
+        int cp = 0;
+        for (int i = 0; i < resultStr.length(); i += UTF16.getCharCount(cp)) {
+          result.add(UTF16.valueOf(cp = resultStr.codePointAt(i)));
+        }
+        return result;
+      }
       List<String> result = new ArrayList<String>();
       int cp;
       int first = 0;

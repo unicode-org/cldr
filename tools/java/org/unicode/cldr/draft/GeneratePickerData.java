@@ -18,7 +18,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -43,7 +42,7 @@ import com.ibm.icu.util.ULocale;
 
 class GeneratePickerData {
   static final boolean DEBUG = true;
-
+  
   private static final String LESS_COMMON_MARKER = "\uE012Less Common - ";
   private static final String ARCHAIC_MARKER = "\uE010Historic - ";
   private static final String COMPAT_MARKER = "\uE011Compatibility - ";
@@ -191,6 +190,12 @@ class GeneratePickerData {
     renamingLog.close();
     System.out.println("UNUSED RULES");
     renamer.showUnusedRules();
+    if (ERROR_COUNT.size() != 0) {
+      for (Exception e : ERROR_COUNT) {
+        e.printStackTrace(System.err);
+      }
+      throw new Exception(ERROR_COUNT.size() + " errors above!");
+    }
   }
 
   private static void buildMainTable() throws IOException {
@@ -1088,7 +1093,7 @@ class GeneratePickerData {
     return result.toString();
   }
 
-  private static String toHex(int j, boolean javaStyle) {
+  static String toHex(int j, boolean javaStyle) {
     if (j == '\"') {
       return "\\\"";
     } else if (j == '\\') { 
@@ -1137,6 +1142,8 @@ class GeneratePickerData {
 
   }
 
+  public static Set<Exception> ERROR_COUNT = new LinkedHashSet<Exception>();
+
   static class USet {
     Collection<String> strings;
 
@@ -1157,8 +1164,7 @@ class GeneratePickerData {
     }
 
     public String toString() {
-      StringBuilder result = new StringBuilder();
-      appendCompacted(result, strings);
+      String result = Compacter.appendCompacted(strings);
       //      if (sorted != null) {
       //        Set<String> set2 = new TreeSet(sorted);
       //        for (String s : set) {
@@ -1175,7 +1181,7 @@ class GeneratePickerData {
       //          appendRange(result, it.codepoint, it.codepointEnd);
       //        }
       //      }
-      Collection<String> reversal = getFromCompacted(result.toString());
+      Collection<String> reversal = Compacter.getFromCompacted(result.toString());
       ArrayList<String> original = new ArrayList<String>(strings);
       if (!reversal.equals(original)) {
         Set<String> ab = new LinkedHashSet<String>(original);
@@ -1183,82 +1189,17 @@ class GeneratePickerData {
         Set<String> ba = new LinkedHashSet<String>(reversal);
         ba.removeAll(original);
         System.out.println("FAILED!!!!");
-        throw new IllegalArgumentException("Failed; in original but not restored: " + ab + "\r\nIn restored but not original: " + ba);
+        IllegalArgumentException e = new IllegalArgumentException("Failed with: " + original + "\r\n" +
+        		"In original but not restored: " + ab + "\r\n" +
+        		"In restored but not original: " + ba);
+        e.printStackTrace(System.err);
+        ERROR_COUNT.add(e);
       }
       return result.toString();
     }
 
-    static CharacterListCompressor compressor = new CharacterListCompressor();
-    
-    private void appendCompacted(StringBuilder result, Collection<String> set2) {
-      if (compressor != null) {
-        StringBuilder temp = new StringBuilder();
-        for (String item : set2) {
-          temp.appendCodePoint(item.codePointAt(0));
-        }
-        List<List<Integer>> pairs = CharacterListCompressor.getValueTypePairsFromStr(temp.toString());
-        String compressed = CharacterListCompressor.encodeValueTypePairs2Base88(pairs);
-        result.append(compressed);
-        return;
-      }
-      int first = -1;
-      int last = -1;
-      for (String item : set2) {
-        int cp = UTF16.charAt(item, 0);
-        if (first == -1) {
-          first = last = cp;
-        } else if (cp == last + 1) {
-          last = cp;
-        } else {
-          appendRange(result, first, last);
-          first = last = cp;
-        }
-      }
-      if (first != -1) {
-        appendRange(result, first, last);
-      }
-    }
-
-    private static void appendRange(StringBuilder result, int first, int last) {
-      result.append(UTF16.valueOf(first));
-      if (first != last) {
-        int delta = 0xE000 + last - first;
-        if (delta >= 0xF800) {
-          throw new IllegalArgumentException("Range too large: " + toHex(first, true) + "-" + toHex(last, true));
-        }
-        result.appendCodePoint(delta);  
-      }
-    }
-
-    List<String> getFromCompacted(String in) {
-      if (compressor != null) {
-        List<List<Integer>> decompairs = CharacterListCompressor.decodeBase88ToValueTypePairs(in);
-        String resultStr = CharacterListCompressor.getStrFromValueTypePairs(decompairs);
-        List<String> result = new ArrayList();
-        int cp = 0;
-        for (int i = 0; i < resultStr.length(); i += UTF16.getCharCount(cp)) {
-          result.add(UTF16.valueOf(cp = resultStr.codePointAt(i)));
-        }
-        return result;
-      }
-      List<String> result = new ArrayList<String>();
-      int cp;
-      int first = 0;
-      for (int i = 0; i < in.length(); i += Character.charCount(cp)) {
-        cp = in.codePointAt(i);
-        if (0xE000 <= cp && cp < 0xF800) {
-          for (int j = first+1; j <= first + cp - 0xE000; ++j) {
-            result.add(UTF16.valueOf(j));
-          }
-        } else {
-          result.add(UTF16.valueOf(cp));
-        }
-        first = cp;
-      }
-      return result;
-    }
   }
-
+  
   /**
    * Modifies Unicode set to flatten the strings. Eg [abc{da}] => [abcd]
    * Returns the set for chaining.

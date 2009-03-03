@@ -76,8 +76,25 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
+
+                    <default choice="medium"/>
+                    <dateTimeFormatLength type="full">
+                        <dateTimeFormat>
+                            <pattern>{1}{0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
+                    <dateTimeFormatLength type="long">
+                        <dateTimeFormat>
+                            <pattern>{1}{0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
+                    <dateTimeFormatLength type="medium">
+                        <dateTimeFormat>
+                            <pattern>{1}{0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
+                    <dateTimeFormatLength type="short">
+ 						<dateTimeFormat>
 							<pattern>{1}{0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>

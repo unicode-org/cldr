@@ -856,7 +856,26 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength>
+                    <default choice="medium"/>
+                    <dateTimeFormatLength type="full">
+                        <dateTimeFormat>
+                            <pattern>{1}, {0}</pattern>
+                            <pattern alt="proposed-x1001" draft="unconfirmed">{1} {0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
+                    <dateTimeFormatLength type="long">
+                        <dateTimeFormat>
+                            <pattern>{1}, {0}</pattern>
+                            <pattern alt="proposed-x1001" draft="unconfirmed">{1} {0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
+                    <dateTimeFormatLength type="medium">
+                        <dateTimeFormat>
+                            <pattern>{1}, {0}</pattern>
+                            <pattern alt="proposed-x1001" draft="unconfirmed">{1} {0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
+                    <dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">{1} {0}</pattern>

@@ -1190,8 +1190,12 @@ class GeneratePickerData {
         ba.removeAll(original);
         System.out.println("FAILED!!!!");
         IllegalArgumentException e = new IllegalArgumentException("Failed with: " + original + "\r\n" +
-        		"In original but not restored: " + ab + "\r\n" +
-        		"In restored but not original: " + ba);
+                "Range String: " + Compacter.getInternalRangeString(strings) + "\r\n" +
+                "In original but not restored: " + ab + "\r\n" +
+                "In restored but not original: " + ba + "\r\n" +
+                "Returned range string: " + CharacterListCompressor.base88Decode(result.toString())
+                // CharacterListCompressor.base88Decode(in);
+                );
         e.printStackTrace(System.err);
         ERROR_COUNT.add(e);
       }

@@ -17,6 +17,12 @@ import com.ibm.icu.text.UCharacterIterator;
  */
 
 public class CharacterListCompressor {
+  
+  static class Interval {
+    int first;
+    int last;
+  }
+  
   public static List<Integer> unicode2Base88(int code) {
 
     List<Integer> list = new ArrayList<Integer>();
@@ -82,10 +88,7 @@ public class CharacterListCompressor {
       }
       
       int value = getCodeFromListAt(list, i, leng)/metawindowsize;
-      List<Integer> pair = new ArrayList<Integer>();
-      pair.add(value);
-      pair.add(type);
-      result.add(pair);
+      addPair(result, value, type);
       i += leng;
     }
     return result;
@@ -100,9 +103,71 @@ public class CharacterListCompressor {
     return result;
   }
   
+  public static String StrList2String(String str) {
+  
+    StringBuilder sbuild = new StringBuilder();
+    final UCharacterIterator it = UCharacterIterator.getInstance(str);
+    int code;
+    int currcode = 0;
+    while((code = it.nextCodePoint())!= UCharacterIterator.DONE) {
+      
+      if (0xe000 <= code && code <= 0xf8ff) {
+        int leng = code - 0xe000 + 1;
+        for (int i = 0; i < leng; i++) {
+          currcode++;
+          sbuild.appendCodePoint(currcode);
+        }
+      }
+      else {
+        sbuild.appendCodePoint(code);
+        currcode = code;
+      }
+    }
+    
+    return sbuild.toString();
+  }
+  
+  public static boolean isEqual(String s1, String s2) {
+  
+    final UCharacterIterator it1 = UCharacterIterator.getInstance(StrList2String(s1));
+    final UCharacterIterator it2 = UCharacterIterator.getInstance(StrList2String(s2));
+    int c1 = 0;
+    int c2 = 0;
+    int count = 0;
+    while(c1 == c2 && c1 != UCharacterIterator.DONE) {
+      count ++;
+      c1 = it1.nextCodePoint();
+      c2 = it2.nextCodePoint();
+      
+      System.out.print("Comparing c1 = c2 = ");
+      System.out.print(c1);
+      System.out.print((char)c1);
+      System.out.print(" ; count = ");
+      System.out.println(count);
+    }
+    System.out.print(count);
+    System.out.println(" characters compared");
+   
+    if (c1 != c2) {
+      System.out.print("Mismatch at c1 = ");
+      System.out.print(c1);
+      System.out.print(" c2 = ");
+      System.out.println(c2);
+      return false;
+    }
+    return true;
+  }
+  
+  public static void addPair(List<List<Integer>> pairs, int value, int type) {
+    List <Integer>pair = new ArrayList<Integer>();
+    pair.add(value);
+    pair.add(type);
+    pairs.add(pair);
+  }
+  
   public static List<List<Integer>> getValueTypePairsFromStr(String str) {
     List<List<Integer>> result = new ArrayList<List<Integer>>();
-    int currCharCode = 0;
+    int lastCode = 0;
     
     final UCharacterIterator it = UCharacterIterator.getInstance(str);
     int code;
@@ -111,42 +176,42 @@ public class CharacterListCompressor {
        int value = 0;
        
        if ((0xe000 <= code) && (code < 0xf8ff)) {
-         type = 2;
          value = code - 0xe000;
          
          // range is big and spit it 
-         while (value >= 968) { // 968 = 88 * 88 / 8
+         int rangesize = 0x3c8; // 968 = 88 * 88 / 8
+         while (value >= rangesize) { 
            
-           List<Integer> pair = new ArrayList<Integer>();
-           pair.add(967); // 968 chars - 0..967
-           pair.add(type);
-           result.add(pair);
-           
-           value -= 968; // 968 chars are already added above
-           currCharCode += 968;
+           addPair(result, rangesize - 1, 2); // rangesize chars - 0..(rangesize - 1)        
+           value -= rangesize; // rangesize chars are already added above
+           lastCode += rangesize;
+
+           // add one more char
+           addPair(result, 1, 0);
+           value--;
+           lastCode ++;
          }
-         currCharCode += value+1; // 0 means 1 char
+         
+         if (value >= 0) {
+           addPair(result, value, 2);
+           lastCode += value+1; // 0 means 1 char        
+         }
        }
-       else if (currCharCode < code) {
-         type = 0;
-         value = code - currCharCode;
-         currCharCode = code;
+       else if (lastCode <= code) {
+         addPair(result, code - lastCode, 0);
+         lastCode = code;         
        }
-       else if (code < currCharCode) {
-         type = 1;
-         value = currCharCode - code;
-         currCharCode = code;
+       else if (lastCode > code) {
+         addPair(result, lastCode - code, 1);
+         lastCode = code;
        }
-       List<Integer> pair = new ArrayList<Integer>();
-       pair.add(value);
-       pair.add(type);
-       result.add(pair);
     }
     return result;
   }
   
   public static String getStrFromValueTypePairs(List<List<Integer>> pairs) {
     StringBuilder strBuild = new StringBuilder();
+    
     int currCode = 0;
     for(int i = 0; i < pairs.size(); i++) {
       List<Integer> pair = pairs.get(i);
@@ -216,6 +281,14 @@ public class CharacterListCompressor {
     
     return decoded;
   }
+  
+  public static String base88EncodeList(List<Interval> intervalList) {
+    return null;
+  }
+  
+  public static List<Interval> base88DecodeList(String base88String) {
+    return null;
+  }
 
   public static void main(String[] args) {
   
@@ -237,10 +310,11 @@ public class CharacterListCompressor {
     }
 
     String str = strBuild.toString();
+    //str = "\\\\&";
     String encodedStr = base88Encode(str);
     String decodedStr = base88Decode(encodedStr);
     
-    System.out.println(str.equals(decodedStr)? "Matched!" : "Did not match!!");
+    isEqual(str, decodedStr);
     
     try {
       BufferedWriter out = new BufferedWriter(new FileWriter("/tmp/compressed.txt"));

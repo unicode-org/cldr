@@ -5351,8 +5351,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             "dateFormats/dateFormatLength[@type=\"long\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
             "dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
             "dateFormats/dateFormatLength[@type=\"short\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            "dateTimeFormats/dateTimeFormatLength/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", };
-
+            "dateTimeFormats/dateTimeFormatLength[@type=\"full\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", 
+            "dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "dateTimeFormats/dateTimeFormatLength[@type=\"medium\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", 
+            "dateTimeFormats/dateTimeFormatLength[@type=\"short\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", 
+    };
+    
     private ICUResourceWriter.Resource parseDTF(InputLocale loc, String xpath) {
         // TODO change the ICU format to reflect LDML format
         /*

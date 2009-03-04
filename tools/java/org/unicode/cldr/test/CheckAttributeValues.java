@@ -36,8 +36,8 @@ public class CheckAttributeValues extends CheckCLDR {
     static LinkedHashSet serialElements = new LinkedHashSet();
     //static Map suppress = new HashMap();
     // TODO change these to HashMap, once this is all debugged.
-    static Map element_attribute_validity = new TreeMap();
-    static Map common_attribute_validity = new TreeMap();
+    static Map<String,Map<String,MatcherPattern>> element_attribute_validity = new TreeMap<String,Map<String,MatcherPattern>>();
+    static Map<String,MatcherPattern> common_attribute_validity = new TreeMap<String,MatcherPattern>();
     static Map variables = new TreeMap();
 //    static VariableReplacer variableReplacer = new VariableReplacer(); // note: this can be coalesced with the above -- to do later.
     static boolean initialized = false;
@@ -49,6 +49,7 @@ public class CheckAttributeValues extends CheckCLDR {
     PluralInfo pluralInfo;
 
     XPathParts parts = new XPathParts(null, null);
+    
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
       if (fullPath == null) return this; // skip paths that we don't have
       if (fullPath.indexOf('[') < 0) return this; // skip paths with no attributes
@@ -58,7 +59,7 @@ public class CheckAttributeValues extends CheckCLDR {
             Map attributes = parts.getAttributes(i);
             String element = parts.getElement(i);
 
-            Map attribute_validity = (Map) element_attribute_validity.get(element);
+            Map<String,MatcherPattern> attribute_validity = element_attribute_validity.get(element);
             for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
                 String attribute = (String) it.next();
                 String attributeValue = (String) attributes.get(attribute);
@@ -80,9 +81,9 @@ public class CheckAttributeValues extends CheckCLDR {
         }
         return this;
     }
-    private void check(Map attribute_validity, String attribute, String attributeValue, List result) {
+    private void check(Map<String,MatcherPattern> attribute_validity, String attribute, String attributeValue, List result) {
         if (attribute_validity == null) return; // no test
-        MatcherPattern matcherPattern = (MatcherPattern) attribute_validity.get(attribute);
+        MatcherPattern matcherPattern = attribute_validity.get(attribute);
         if (matcherPattern == null) return; // no test
         if (matcherPattern.matcher.matches(attributeValue)) return;
         // special check for deprecated codes
@@ -253,6 +254,10 @@ public class CheckAttributeValues extends CheckCLDR {
             } else if (lastElement.endsWith("skipDefaultLocale")) {
               // skip for now 
             } else if (lastElement.endsWith("defaultContent")) {
+              // skip for now 
+            } else if (lastElement.endsWith("distinguishingItems")) {
+              // skip for now 
+            } else if (lastElement.endsWith("blockingItems")) {
               // skip for now 
             } else {
                 System.out.println("Unknown final element: " + path);

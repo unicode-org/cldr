@@ -1304,4 +1304,40 @@ public class Utility {
       }
     }
   }
+
+  public static String hex(CharSequence input) {
+    return hex(input, ",", new StringBuilder()).toString();
+  }
+  
+  public static String hex(CharSequence input, CharSequence separator) {
+    return hex(input, separator, new StringBuilder()).toString();
+  }
+  
+  public static StringBuilder hex(CharSequence input, CharSequence separator, StringBuilder result) {
+    int cp;
+    for (int i = 0; i < input.length(); i += UTF16.getCharCount(cp)) {
+      cp = UTF16.charAt(input, i);
+      if (i != 0) {
+        result.append(separator);
+      }
+      hex(cp, 4, result);
+    }
+    return result;
+  }
+
+  public static String hex(int cp) {
+    return hex(cp, 4, new StringBuilder()).toString();
+  }
+  
+  public static String hex(int cp, int minWidth) {
+    return hex(cp, minWidth, new StringBuilder()).toString();
+  }
+  
+  private static StringBuilder hex(int cp, int minWidth, StringBuilder result) {
+    String hex = Integer.toHexString(cp).toUpperCase(Locale.ENGLISH);
+    for (int i = minWidth - hex.length(); i > 0; --i) {
+      result.append('0');
+    }
+    return result.append(hex);
+  }
 }

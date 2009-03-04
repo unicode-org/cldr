@@ -80,7 +80,8 @@ public class CLDRModify {
 	FIX = 7,
 	JOIN_ARGS = 8,
 	VET_ADD = 9,
-	RESOLVE = 10
+	RESOLVE = 10,
+	PATH = 11
 	;
 	
 	private static final UOption[] options = {
@@ -95,6 +96,7 @@ public class CLDRModify {
 		UOption.create("join-args", 'i', UOption.OPTIONAL_ARG),
 		UOption.create("vet", 'v', UOption.OPTIONAL_ARG).setDefault("C:\\vetweb"),
 		UOption.create("resolve", 'z', UOption.OPTIONAL_ARG),
+    UOption.create("path", 'p', UOption.REQUIRES_ARG),
 	};
 	
 	private static final UnicodeSet allMergeOptions = new UnicodeSet("[rc]");
@@ -115,7 +117,8 @@ public class CLDRModify {
 	+ "\tc\t ignore comments in <merge_dir> files" + XPathParts.NEWLINE
 	+ "-r\t to minimize the results (removing items that inherit from parent)." + XPathParts.NEWLINE
 	+ "-v\t incorporate vetting information, and generate diff files." + XPathParts.NEWLINE
-	+ "-z\t generate resolved files" + XPathParts.NEWLINE
+  + "-z\t generate resolved files" + XPathParts.NEWLINE
+  + "-p\t set path for -fx" + XPathParts.NEWLINE
 	+ "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)" + XPathParts.NEWLINE;
 
 	static final String HELP_TEXT2 =  "Note: A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results." + XPathParts.NEWLINE;
@@ -338,6 +341,7 @@ public class CLDRModify {
   /*
    * Use the coverage to determine what we should keep in the case of a locale just below root.
    */
+
   static class RetainCoveragePredicate implements Predicate<String> {
     private CoverageLevel coverage = new CoverageLevel();
     public RetainCoveragePredicate setFile(CLDRFile file) {
@@ -603,6 +607,20 @@ public class CLDRModify {
 				}
 			}		
 		});
+		
+    fixList.add('x', "retain paths", new CLDRFilter() {
+      Matcher m = null;
+      public void handlePath(String xpath) {
+        if (m == null) {
+          m = Pattern.compile(options[PATH].value).matcher("");
+        }
+        String v = cldrFileToFilter.getStringValue(xpath);
+        String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+        if (!m.reset(fullXPath).matches()) {
+          remove(xpath);
+        }
+      }   
+    });
     
 		fixList.add('_', "remove superfluous compound language translations", new CLDRFilter() {
 		  private CLDRFile resolved;

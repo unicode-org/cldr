@@ -1,4 +1,4 @@
-File-Date: 2008-05-06
+File-Date: 2009-01-13
 %%
 Type: language
 Subtag: aa
@@ -656,7 +656,10 @@ Added: 2005-10-16
 Type: language
 Subtag: mo
 Description: Moldavian
+Description: Moldovan
 Added: 2005-10-16
+Deprecated: 2008-11-22
+Preferred-Value: ro
 Suppress-Script: Latn
 %%
 Type: language
@@ -756,7 +759,6 @@ Suppress-Script: Latn
 Type: language
 Subtag: oc
 Description: Occitan (post 1500)
-Description: Proven&#xE7;al
 Added: 2005-10-16
 %%
 Type: language
@@ -833,6 +835,8 @@ Suppress-Script: Latn
 Type: language
 Subtag: ro
 Description: Romanian
+Description: Moldavian
+Description: Moldovan
 Added: 2005-10-16
 Suppress-Script: Latn
 %%
@@ -1424,7 +1428,6 @@ Type: language
 Subtag: cpe
 Description: Creoles and pidgins, English-based (Other)
 Added: 2005-10-16
-Suppress-Script: Latn
 %%
 Type: language
 Subtag: cpf
@@ -2245,6 +2248,7 @@ Added: 2005-10-16
 Type: language
 Subtag: pro
 Description: Proven&#xE7;al, Old (to 1500)
+Description: Old Occitan (to 1500)
 Added: 2005-10-16
 %%
 Type: language
@@ -2414,7 +2418,6 @@ Type: language
 Subtag: son
 Description: Songhai languages
 Added: 2005-10-16
-Suppress-Script: Latn
 %%
 Type: language
 Subtag: srn
@@ -2589,7 +2592,8 @@ Added: 2005-10-16
 %%
 Type: language
 Subtag: wal
-Description: Walamo
+Description: Wolaytta
+Description: Wolaitta
 Added: 2005-10-16
 %%
 Type: language
@@ -4054,7 +4058,7 @@ Added: 2005-10-16
 %%
 Type: region
 Subtag: MD
-Description: Moldova, Republic of
+Description: Moldova
 Added: 2005-10-16
 %%
 Type: region
@@ -4822,6 +4826,13 @@ Added: 2005-10-16
 Prefix: de
 %%
 Type: variant
+Subtag: 1959acad
+Description: "Academic" ("governmental") variant of Belarusian as
+  codified in 1959
+Added: 2008-09-30
+Prefix: be
+%%
+Type: variant
 Subtag: 1994
 Description: Standardized Resian orthography
 Added: 2007-07-28
@@ -4898,6 +4909,12 @@ Description: Uralic Phonetic Alphabet
 Added: 2006-12-11
 %%
 Type: variant
+Subtag: kkcor
+Description: Common Cornish orthography of Revived Cornish
+Added: 2008-10-14
+Prefix: kw
+%%
+Type: variant
 Subtag: lipaw
 Description: The Lipovaz dialect of Resian
 Description: The Lipovec dialect of Resian
@@ -4936,6 +4953,13 @@ Added: 2007-07-05
 Prefix: sl-rozaj
 Comments: The dialect of Oseacco/Osojane is one of the four major local
   dialects of Resian
+%%
+Type: variant
+Subtag: pinyin
+Description: Pinyin romanization
+Added: 2008-10-14
+Prefix: zh-Latn
+Prefix: bo-Latn
 %%
 Type: variant
 Subtag: polyton
@@ -4984,12 +5008,30 @@ Comments: The subtag represents Branislau Taraskievic's Belarusian
   Miensk 2005).
 %%
 Type: variant
+Subtag: uccor
+Description: Unified Cornish orthography of Revived Cornish
+Added: 2008-10-14
+Prefix: kw
+%%
+Type: variant
+Subtag: ucrcor
+Description: Unified Cornish Revised orthography of Revived Cornish
+Added: 2008-10-14
+Prefix: kw
+%%
+Type: variant
 Subtag: valencia
 Description: Valencian
 Added: 2007-03-06
 Prefix: ca
 Comments: Variety spoken in the "Comunidad Valenciana" region of Spain,
   where it is co-official with Spanish.
+%%
+Type: variant
+Subtag: wadegile
+Description: Wade-Giles romanization
+Added: 2008-10-03
+Prefix: zh-Latn
 %%
 Type: grandfathered
 Tag: art-lojban

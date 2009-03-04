@@ -19,6 +19,10 @@ import com.ibm.icu.text.UCharacterIterator;
 public class CharacterListCompressor {
   
   static class Interval {
+    public Interval(int first2, int last2) {
+      first = first2;
+      last = last2;
+    }
     int first;
     int last;
   }
@@ -283,11 +287,26 @@ public class CharacterListCompressor {
   }
   
   public static String base88EncodeList(List<Interval> intervalList) {
-    return null;
+    // dummy implementation
+    StringBuffer result = new StringBuffer();
+    for (Interval interval : intervalList) {
+      result.appendCodePoint(interval.first);
+      result.appendCodePoint(interval.last);
+    }
+    return result.toString();
   }
   
   public static List<Interval> base88DecodeList(String base88String) {
-    return null;
+    // dummy implementation
+    List<Interval> result = new ArrayList<Interval>();
+    for (int i = 0; i < base88String.length();) {
+      int first = base88String.codePointAt(i);
+      i += Character.charCount(first);
+      int last = base88String.codePointAt(i);
+      i += Character.charCount(last);
+      result.add(new Interval(first,last));
+    }
+    return result;
   }
 
   public static void main(String[] args) {

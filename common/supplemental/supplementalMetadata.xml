@@ -473,7 +473,7 @@
             <attributeValues elements="mapping" attributes="registry" type="choice">iana</attributeValues>
             <attributeValues elements="mapping" attributes="type" type="choice">utf-8</attributeValues>
             <attributeValues elements="numberingSystem" attributes="id">$numberSystem</attributeValues>
-            <attributeValues elements="numberingSystem" attributes="type">simple complex</attributeValues>
+            <attributeValues elements="numberingSystem" attributes="type">algorithmic numeric</attributeValues>
             <attributeValues elements="minDays" attributes="count" type="regex">[0-7]</attributeValues>
             <attributeValues elements="month" attributes="type" type="choice">1 2 3 4 5 6 7 8 9 10 11 12 13</attributeValues>
             <attributeValues elements="monthWidth dayWidth quarterWidth" attributes="type" order="given">abbreviated narrow wide</attributeValues>

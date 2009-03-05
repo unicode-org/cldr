@@ -427,7 +427,7 @@
             <variable id="$fullTzid" type="notDoneYet"/>
             <variable id="$genDate" type="regex">\$.*\$</variable>
             <variable id="$locale" type="locale"/>
-            <variable id="$numberSystem" type="choice">arabic-indic bengali cambodian decimal devanagari gujarati gurmukhi hebrew kannada lao malayalam mongolian myanmar oriya persian telugu thai</variable>
+            <variable id="$numberSystem" type="choice">arabic armenian bengali decimal deva ethiopic georgian gujarati gurmukhi hanjfin hanjstd hansfin hansstd hantfin hantstd hebrew kannada khmer lao lowroman mlym mong myanmar oriya persian roman tamil telugu thai tibetan</variable>
             <variable id="$reference" type="regex">([R|S]|RP)[0-9]+</variable>
             <variable id="$time" type="regex">([01][0-9]|2[0-4]):[0-6][0-9]</variable>
             <variable id="$uri" type="notDoneYet"/>

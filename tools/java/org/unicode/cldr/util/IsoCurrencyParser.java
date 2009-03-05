@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -17,6 +18,7 @@ import org.unicode.cldr.util.SimpleHtmlParser.Type;
 
 public class IsoCurrencyParser {
   static Map<String,String> iso4217CountryToCountryCode = new TreeMap();
+  static Set<String> exceptionList = new LinkedHashSet<String>();
   static {
     StandardCodes sc = StandardCodes.make();
     Set<String> countries = sc.getAvailableCodes("territory");
@@ -42,6 +44,8 @@ public class IsoCurrencyParser {
         {"VIRGIN ISLANDS (BRITISH)", "VG"},
         {"VIRGIN ISLANDS (US)", "VI"},
         {"VIRGIN ISLANDS (U.S.)", "VI"},
+        {"MOLDOVA, REPUBLIC OF", "MD"},
+        {"SAINT-BARTHÉLEMY", "EU"},
         {"ZZ", "ZZ"},
     };
     for (String[] pair : extras) {
@@ -71,7 +75,7 @@ public class IsoCurrencyParser {
       }
       String name = iso4217CountryToCountryCode.get(iso4217Country);
       if (name != null) return name;
-      System.out.format("\t\t{\"%s\", \"XXX\"}," + Utility.LINE_SEPARATOR, iso4217Country);
+      exceptionList.add(String.format("\t\t{\"%s\", \"XXX\"}, // fix XXX and add to extras" + Utility.LINE_SEPARATOR, iso4217Country));
       return "???" + iso4217Country;
     }
 
@@ -123,6 +127,9 @@ public class IsoCurrencyParser {
         String name = sc.getData("currency", code);
         Data data = new Data("ZZ", name, "-1");
         codeList.put(code, data);
+      }
+      if (exceptionList.size() != 0) {
+        throw new IllegalArgumentException(exceptionList.toString());
       }
       codeList.freeze();
       countryToCodes.freeze();

@@ -1,6 +1,7 @@
 package org.unicode.cldr.tool;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -32,9 +33,9 @@ public class ExtractIsoCurrencyData {
                                                 Pattern.DOTALL).matcher("");
 
   public static void main(String[] args) throws IOException {
-    final String inputFile = Utility.getProperty("input", Utility.UTIL_DATA_DIR + "currency_codes_list-1.htm");
+    final String inputFile = Utility.getProperty("input", Utility.UTIL_DATA_DIR + "/currency_codes_list-1.htm");
     BufferedReader in = BagFormatter.openUTF8Reader("", inputFile);
-    final String outputFile = Utility.getProperty("output", Utility.UTIL_DATA_DIR + "currencycodeslist.txt");
+    final String outputFile = Utility.getProperty("output", Utility.UTIL_DATA_DIR + "/currencycodeslist.txt");
     PrintWriter out = BagFormatter.openUTF8Writer("", outputFile);
     try {
       String version = null;

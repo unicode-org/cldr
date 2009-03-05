@@ -444,7 +444,9 @@ public class CountItems {
         "currency");
     Set temp = new TreeSet(codeList.keySet());
     temp.removeAll(isoTextFileCodes);
-    System.out.println("Missing from ISO4217.txt file: " + temp);
+    if (temp.size() != 0) {
+      throw new IllegalArgumentException("Missing from ISO4217.txt file: " + temp);
+    }
   }
 
   public static void genSupplementalZoneData() throws IOException {

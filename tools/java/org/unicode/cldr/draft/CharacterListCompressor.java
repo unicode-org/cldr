@@ -6,26 +6,34 @@ import java.io.*;
 import com.ibm.icu.text.UCharacterIterator;
 
 /**
- * Compresses a String of Unicode characters with ranges denoted by PUA chars
- * into a Base88 string. The range is denoted by adding its (size - 1) to U+E000.
+ * Compresses list of Unicode character ranges given as starting and ending char
+ * into a Base88 string.
  * 
  * Compression usage:
- * String encodedStr = base88Encode("\uDBFF\uDFF0\uE00D\u0001");
+ * String encodedStr = base88EncodeList(List<Interval>);
  * 
  * Decompression usage:
- * String decodedStr = base88Decode(encodedStr);
+ * List<Interval> decodedStrList = base88DecodeList(encodedStr);
+ * 
+ * Interval has two integers - first, last - to represent the range.
  */
 
 public class CharacterListCompressor {
   
   static class Interval {
-    public Interval(int first2, int last2) {
-      first = first2;
-      last = last2;
-    }
     int first;
     int last;
+    
+    public Interval(int first, int last) {
+      this.first = first;
+      this.last = last;
+    }
+    
   }
+  
+  //
+  // Pairs to Base88 methods
+  //
   
   public static List<Integer> unicode2Base88(int code) {
 
@@ -107,139 +115,14 @@ public class CharacterListCompressor {
     return result;
   }
   
-  public static String StrList2String(String str) {
-  
-    StringBuilder sbuild = new StringBuilder();
-    final UCharacterIterator it = UCharacterIterator.getInstance(str);
-    int code;
-    int currcode = 0;
-    while((code = it.nextCodePoint())!= UCharacterIterator.DONE) {
-      
-      if (0xe000 <= code && code <= 0xf8ff) {
-        int leng = code - 0xe000 + 1;
-        for (int i = 0; i < leng; i++) {
-          currcode++;
-          sbuild.appendCodePoint(currcode);
-        }
-      }
-      else {
-        sbuild.appendCodePoint(code);
-        currcode = code;
-      }
-    }
-    
-    return sbuild.toString();
-  }
-  
-  public static boolean isEqual(String s1, String s2) {
-  
-    final UCharacterIterator it1 = UCharacterIterator.getInstance(StrList2String(s1));
-    final UCharacterIterator it2 = UCharacterIterator.getInstance(StrList2String(s2));
-    int c1 = 0;
-    int c2 = 0;
-    int count = 0;
-    while(c1 == c2 && c1 != UCharacterIterator.DONE) {
-      count ++;
-      c1 = it1.nextCodePoint();
-      c2 = it2.nextCodePoint();
-      
-      System.out.print("Comparing c1 = c2 = ");
-      System.out.print(c1);
-      System.out.print((char)c1);
-      System.out.print(" ; count = ");
-      System.out.println(count);
-    }
-    System.out.print(count);
-    System.out.println(" characters compared");
-   
-    if (c1 != c2) {
-      System.out.print("Mismatch at c1 = ");
-      System.out.print(c1);
-      System.out.print(" c2 = ");
-      System.out.println(c2);
-      return false;
-    }
-    return true;
-  }
-  
   public static void addPair(List<List<Integer>> pairs, int value, int type) {
     List <Integer>pair = new ArrayList<Integer>();
     pair.add(value);
     pair.add(type);
     pairs.add(pair);
   }
-  
-  public static List<List<Integer>> getValueTypePairsFromStr(String str) {
-    List<List<Integer>> result = new ArrayList<List<Integer>>();
-    int lastCode = 0;
-    
-    final UCharacterIterator it = UCharacterIterator.getInstance(str);
-    int code;
-    while((code = it.nextCodePoint())!= UCharacterIterator.DONE) {
-       int type = 0;
-       int value = 0;
-       
-       if ((0xe000 <= code) && (code < 0xf8ff)) {
-         value = code - 0xe000;
-         
-         // range is big and spit it 
-         int rangesize = 0x3c8; // 968 = 88 * 88 / 8
-         while (value >= rangesize) { 
-           
-           addPair(result, rangesize - 1, 2); // rangesize chars - 0..(rangesize - 1)        
-           value -= rangesize; // rangesize chars are already added above
-           lastCode += rangesize;
 
-           // add one more char
-           addPair(result, 1, 0);
-           value--;
-           lastCode ++;
-         }
-         
-         if (value >= 0) {
-           addPair(result, value, 2);
-           lastCode += value+1; // 0 means 1 char        
-         }
-       }
-       else if (lastCode <= code) {
-         addPair(result, code - lastCode, 0);
-         lastCode = code;         
-       }
-       else if (lastCode > code) {
-         addPair(result, lastCode - code, 1);
-         lastCode = code;
-       }
-    }
-    return result;
-  }
-  
-  public static String getStrFromValueTypePairs(List<List<Integer>> pairs) {
-    StringBuilder strBuild = new StringBuilder();
-    
-    int currCode = 0;
-    for(int i = 0; i < pairs.size(); i++) {
-      List<Integer> pair = pairs.get(i);
-      
-      int value = pair.get(0);
-      int type = pair.get(1);
-      
-      if (type == 0) {
-        currCode += value;
-        strBuild.appendCodePoint(currCode);
-      }
-      if (type == 1) {
-        currCode -= value;
-        strBuild.appendCodePoint(currCode);
-      }
-      if (type == 2) {
-        int code = 0xe000 + value;
-        strBuild.appendCodePoint(code);
-        currCode += value + 1;
-      }
-    }
-    return strBuild.toString();
-  }
-  
+
   public static String encodeValueTypePairs2Base88(List<List<Integer>> pairs) {
     List<Integer> result = new ArrayList<Integer>();
     for(int i = 0; i < pairs.size(); i++) {
@@ -272,43 +155,184 @@ public class CharacterListCompressor {
     return list;
   }
 
-  public static String base88Encode(String str) {
-    List<List<Integer>> pairs = getValueTypePairsFromStr(str);
+  
+  public static String base88EncodeList(List<Interval> intervalList) {
+    List<List<Integer>> pairs = getValueTypePairsFromStrRangeList(intervalList);
     String encoded = encodeValueTypePairs2Base88(pairs);
     
     return encoded;
   }
   
-  public static String base88Decode(String str) {
-    List<List<Integer>> pairs = decodeBase88ToValueTypePairs(str);
-    String decoded = getStrFromValueTypePairs(pairs);
+  public static List<Interval> base88DecodeList(String base88String) {
+    List<List<Integer>> pairs = decodeBase88ToValueTypePairs(base88String);
+    List<Interval> decoded = getStrRangeListFromValueTypePairs(pairs);
     
     return decoded;
   }
+  // end of compression methods
   
-  public static String base88EncodeList(List<Interval> intervalList) {
-    // dummy implementation
-    StringBuffer result = new StringBuffer();
-    for (Interval interval : intervalList) {
-      result.appendCodePoint(interval.first);
-      result.appendCodePoint(interval.last);
-    }
-    return result.toString();
-  }
-  
-  public static List<Interval> base88DecodeList(String base88String) {
-    // dummy implementation
-    List<Interval> result = new ArrayList<Interval>();
-    for (int i = 0; i < base88String.length();) {
-      int first = base88String.codePointAt(i);
-      i += Character.charCount(first);
-      int last = base88String.codePointAt(i);
-      i += Character.charCount(last);
-      result.add(new Interval(first,last));
+  // Value Type pairs -- Str Range List
+  public static List<List<Integer>> getValueTypePairsFromStrRangeList(List<Interval> ilist) {
+    List<List<Integer>> result = new ArrayList<List<Integer>>();
+    int lastCode = 0;
+    
+    int code;
+    for(int i = 0; i < ilist.size(); i++) {
+       int value = 0;
+       int first = ilist.get(i).first;
+       int last = ilist.get(i).last;
+       
+       if (lastCode < first) {
+         addPair(result, first - lastCode - 1, 0);
+       }
+       else if (lastCode > first) {
+         addPair(result, lastCode - first - 1, 1);
+       }
+       else if (lastCode == first) {
+         System.out.println("I am not expecting two contiguous chars to be the same");
+       }
+       lastCode = first;
+
+       if (first < last) {
+         value = last - first - 1;
+         
+         // range is big and spit it 
+         int rangesize = 0x3c8; // 968 = 88 * 88 / 8
+         while (value >= rangesize) { 
+           
+           addPair(result, rangesize - 1, 2); // rangesize chars - 0..(rangesize - 1)        
+           value -= rangesize; // rangesize chars are already added above
+           lastCode += rangesize;
+         }
+         addPair(result, value, 2);
+         lastCode = last;
+       }
     }
     return result;
   }
+  
+  public static List<Interval> getStrRangeListFromValueTypePairs(List<List<Integer>> pairs) {
+    ArrayList<Interval> result = new ArrayList<Interval>();
+    
+    int lastCode = 0;
+    for(int i = 0; i < pairs.size(); i++) {
+      List<Integer> pair = pairs.get(i);
+      
+      int value = pair.get(0);
+      int type = pair.get(1);
+      
+      if (type == 0) {
+        lastCode += value + 1;
+        addInterval(result, lastCode, lastCode);
+      }
+      else if (type == 1) {
+        lastCode -= value + 1;
+        addInterval(result, lastCode, lastCode);
+      }
+      else if (type == 2) {
+        int first = lastCode + 1;
+        int last = first + value;
+        addInterval(result, first, last);
+        lastCode += value + 1;
+      }
+    }
+    return result;
+  }
+  
+  public static void addInterval(List<Interval> list, int first, int last) {
+    Interval i = new Interval(first, last);
+    list.add(i);
+  }
+  
+  // Str Range List -- Range Str
 
+  public static List<Interval> getStrRangeListFromRangeStr(String str) {
+    ArrayList<Interval> result = new ArrayList<Interval>();
+    final UCharacterIterator it = UCharacterIterator.getInstance(str);
+    
+    int first;
+    while((first = it.nextCodePoint())!= UCharacterIterator.DONE) {
+      int last = it.nextCodePoint();
+      addInterval(result, first, last);
+    }
+    return result;
+  }
+  
+
+  //
+  // To String methods
+  //
+  public static String strRangeList2string(List<Interval> ilist) {
+    
+    StringBuilder sbuild = new StringBuilder();
+    int code;
+    int currcode = 0;
+    for(int i = 0; i< ilist.size(); i++) {
+      int first = ilist.get(i).first;
+      int last = ilist.get(i).last;
+      
+      for (int j = first; j <= last; j++) {
+        sbuild.appendCodePoint(j);
+      }
+    }
+    return sbuild.toString();
+  }
+  
+  public static String rangeString2string(String rstr) {
+    
+    StringBuilder sbuild = new StringBuilder();
+    final UCharacterIterator it = UCharacterIterator.getInstance(rstr);
+    
+    int first;
+    while((first = it.nextCodePoint())!= UCharacterIterator.DONE) {
+      int last = it.nextCodePoint();
+      
+      for (int j = first; j <= last; j++) {
+        sbuild.appendCodePoint(j);
+      }
+    }
+    return sbuild.toString();
+  }
+  
+
+  //
+  // String comparison methods
+  //
+
+  public static boolean isStringsEqual(String s1, String s2) {
+    
+    final UCharacterIterator it1 = UCharacterIterator.getInstance(s1);
+    final UCharacterIterator it2 = UCharacterIterator.getInstance(s2);
+    int c1 = 0;
+    int c2 = 0;
+    int count = 0;
+    while(c1 == c2 && c1 != UCharacterIterator.DONE) {
+      count ++;
+      c1 = it1.nextCodePoint();
+      c2 = it2.nextCodePoint();
+      
+      System.out.print("Comparing c1 = c2 = ");
+      System.out.print(c1);
+      System.out.print((char)c1);
+      System.out.print(" ; count = ");
+      System.out.println(count);
+    }
+    System.out.print(count);
+    System.out.println(" characters compared");
+   
+    if (c1 != c2) {
+      System.out.print("Mismatch at c1 = ");
+      System.out.print(c1);
+      System.out.print(" c2 = ");
+      System.out.println(c2);
+      return false;
+    }
+    return true;
+  }
+  
+  
+  // Main
+  
   public static void main(String[] args) {
   
     StringBuilder strBuild=new StringBuilder();
@@ -317,7 +341,10 @@ public class CharacterListCompressor {
       while (sc.hasNext()) {
         if (sc.findInLine("\\/\\*.*,\"(.*)\"},\\s*") != null) {
           MatchResult match = sc.match();
-          strBuild.append(match.group(1));
+          String str = match.group(1);
+          str = str.replaceAll("\\\\(.)", "$1");
+          System.out.println(str);
+          strBuild.append(str);
         }
         else {
           sc.next();
@@ -329,23 +356,19 @@ public class CharacterListCompressor {
     }
 
     String str = strBuild.toString();
-    //str = "\\\\&";
-    String encodedStr = base88Encode(str);
-    String decodedStr = base88Decode(encodedStr);
+    //str = "\uDBFF\uDC00\uDBFF\uDFFD\u0001\u0001";
+    List<Interval> ilist = getStrRangeListFromRangeStr(str);
+
+    String encodedStr = base88EncodeList(ilist);
+    List<Interval> decodedStrRangeList = base88DecodeList(encodedStr);
     
-    isEqual(str, decodedStr);
+    String str1 = rangeString2string(str);
+    String str2 = strRangeList2string(decodedStrRangeList);
+    isStringsEqual(str1, str2);
     
     try {
       BufferedWriter out = new BufferedWriter(new FileWriter("/tmp/compressed.txt"));
       out.write(encodedStr);
-      out.close();
-    } catch (IOException ex) {
-      ex.printStackTrace();
-    }
-    
-    try {
-      BufferedWriter out = new BufferedWriter(new FileWriter("/tmp/original.txt"));
-      out.write(str);
       out.close();
     } catch (IOException ex) {
       ex.printStackTrace();

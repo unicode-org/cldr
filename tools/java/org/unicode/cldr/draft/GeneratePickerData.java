@@ -1193,7 +1193,7 @@ class GeneratePickerData {
                 "Range String: " + Compacter.getInternalRangeString(strings) + "\r\n" +
                 "In original but not restored: " + ab + "\r\n" +
                 "In restored but not original: " + ba + "\r\n" +
-                "Returned range string: " + CharacterListCompressor.base88Decode(result.toString())
+                "Returned range string: " + CharacterListCompressor.base88DecodeList(result.toString())
                 // CharacterListCompressor.base88Decode(in);
                 );
         e.printStackTrace(System.err);

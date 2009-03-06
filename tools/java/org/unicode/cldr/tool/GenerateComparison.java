@@ -3,7 +3,9 @@ package org.unicode.cldr.tool;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
@@ -17,6 +19,7 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Row.R2;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 
 public class GenerateComparison {
@@ -29,6 +32,15 @@ public class GenerateComparison {
     long totalPaths = 0;
     NumberFormat format = NumberFormat.getNumberInstance();
     format.setGroupingUsed(true);
+    Collator collator = Collator.getInstance();
+    Map<String,String> deleted = new TreeMap(collator);
+    Map<String,String> added = new TreeMap(collator);
+    Map<String,String> changed = new TreeMap(collator);
+    Map<String,String> rejected = new TreeMap(collator);
+    int totalRejected= 0;
+    int totalDeleted = 0;
+    int totalAdded = 0;
+    int totalChanged = 0;
 
     // Get the args
 
@@ -71,12 +83,12 @@ public class GenerateComparison {
 
       CLDRFile oldFile = null;
       try {
-        oldFile = oldFactory.make(locale, true);
+        oldFile = oldFactory.make(locale, true, true);
       } catch (Exception e) {
       }
       CLDRFile newFile = null;
       try {
-        newFile = newFactory.make(locale, true);
+        newFile = newFactory.make(locale, true, true);
       } catch (Exception e) {
       }
 
@@ -97,11 +109,17 @@ public class GenerateComparison {
 
       // Get the union of all the paths
 
-      Set<String> paths = new HashSet<String>();
-      CollectionUtilities.addAll(oldFile.iterator(), paths);
-      paths.addAll(oldFile.getExtraPaths());
-      CollectionUtilities.addAll(newFile.iterator(), paths);
-      paths.addAll(newFile.getExtraPaths());
+      Set<String> paths;
+      try {
+        paths = new HashSet<String>();
+        CollectionUtilities.addAll(oldFile.iterator(), paths);
+        paths.addAll(oldFile.getExtraPaths());
+        CollectionUtilities.addAll(newFile.iterator(), paths);
+        paths.addAll(newFile.getExtraPaths());
+      } catch (Exception e) {
+        System.out.println("Error in Reading Files");
+        continue;
+      }
 
       // We now have the full set of all the paths for old and new files
       // TODO Sort by the pretty form
@@ -109,16 +127,33 @@ public class GenerateComparison {
       // for (String code : unifiedList) {
       // pairs.add(Row.make(code, english.getName(code)));
       // }
+      
+      // Initialize sets
+      deleted.clear();
+      added.clear();
+      changed.clear();
+      rejected.clear();
+      
       for (String path : paths) {
+        if (path.contains("/alias")) {
+          continue;
+        }
         String oldString = oldFile.getStringValue(path);
         String newString = newFile.getStringValue(path);
+
+        // for debugging
+        if (oldString != null && oldString.contains("{1} {0}")) {
+          System.out.print("");
+        }
+
         if (equals(newString, oldString)) {
           continue;
         }
         Status oldStatus = new Status();
         String oldLocale = oldFile.getSourceLocaleID(path, oldStatus);
+        
         Status newStatus = new Status();
-        String newLocale = oldFile.getSourceLocaleID(path, newStatus);
+        String newLocale = newFile.getSourceLocaleID(path, newStatus);
 
         // At this point, we have two unequal values
         // TODO check for non-distinguishing attribute value differences
@@ -142,7 +177,8 @@ public class GenerateComparison {
 
           // Now check aliases
           
-          if (!newStatus.pathWhereFound.equals(path)) { // new is alias
+          final boolean newIsAlias = !newStatus.pathWhereFound.equals(path);
+          if (newIsAlias) { // new is alias
             // filter out cases of a new string that is found via alias
             if (oldString == null) {
               continue;
@@ -158,20 +194,58 @@ public class GenerateComparison {
         }
 
         // We definitely have a difference worth recording, so do so
+        
+        String newFullPath = newFile.getFullXPath(path);
+        final boolean reject = newFullPath != null && newFullPath.contains("@draft") && !newFullPath.contains("@draft=\"contributed\"");
+        final String pretty = prettyPathMaker.getPrettyPath(path, false);
+        final String line = locale + "\t" + (reject ? "X" : "-") +"\t\u200E<" + oldString + ">\u200E\t\u200E<" + newString + ">\u200E\t" + pretty;
+        if (reject) {
+          rejected.put(pretty, line);
+          totalRejected++;
+        } else if (newString == null) {
+          deleted.put(pretty, line);
+          totalDeleted++;
+        } else if (oldString == null) {
+          added.put(pretty, line);
+          totalAdded++;
+        } else {
+          changed.put(pretty, line);
+          totalChanged++;
+        }
 
-        System.out.println(locale + "\t\u200E<" + oldString + ">\u200E\t\u200E<" + newString + ">\u200E\t" + prettyPathMaker.getPrettyPath(path, false));
         totalDifferences++;
         differences++;
-
       }
+      showSet(changed, locale, "Changed");
+      showSet(added, locale, "Added");
+      showSet(deleted, locale, "Deleted");
+      showSet(rejected, locale, "!REJECTED!");
+      
       System.out.println(locale + "\tDifferences:\t" + format.format(differences)
               + "\tPaths:\t" + format.format(paths.size())
               + "\tTime:\t" + timer.getDuration() + "ms");
       totalPaths += paths.size();
     }
+    
+    System.out.println();
+    System.out.println("Total Changed:\t" + format.format(totalChanged));
+    System.out.println("Total Added:\t" + format.format(totalAdded));
+    System.out.println("Total Deleted:\t" + format.format(totalDeleted));
+    System.out.println("Total Rejected:\t" + format.format(totalRejected));
+
     System.out.println("Total Differences:\t" + format.format(totalDifferences) 
             + "\tPaths:\t" + format.format(totalPaths)
             + "\tTotal Time:\t" + format.format(totalTimer.getDuration()) + "ms");
+  }
+
+  private static void showSet(Map<String, String> rejected, final String locale, String title) {
+    if (rejected.size() != 0) {
+      System.out.println();
+      System.out.println(locale + "\t" + title + "\t" + rejected.size());
+      for (String line : rejected.keySet()) {
+        System.out.println(rejected.get(line));
+      }
+    }
   }
 
   private static boolean equals(String newString, String oldString) {

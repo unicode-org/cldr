@@ -1067,8 +1067,11 @@ public class ConsoleCheckCLDR {
               "</head><body>" + Utility.LINE_SEPARATOR +
               "<h1>" + title + "</h1>" + Utility.LINE_SEPARATOR +
               "<p>" +
-              "<a href='index.html" + (notLocaleSpecific ? "" : "#" + localeID) + "'>Index</a> | " +
+              "<a href='index.html" + (notLocaleSpecific ? "" : "#" + localeID) + "'>Index</a>" +
+              " | " +
               "<a href='sections.html" + (notLocaleSpecific ? "" : "#" + localeID) + "'>Index by Section</a>" +
+              " | " +
+              "<a href='http://unicode.org/cldr/data/docs/survey/vetting.html'><b style='background-color: yellow;'><i>Help: How to Vet</i></b></a>" +
               		"</p>" +
               "<p>The following errors have been detected in the locale" +
               (notLocaleSpecific

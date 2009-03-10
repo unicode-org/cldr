@@ -973,10 +973,11 @@ public class SurveyMain extends HttpServlet {
             ctx.println("Thread: "+startupThread+"<br>");
             ctx.println("<hr>");
             
+            /*
             ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
             actionCtx.printUrlAsHiddenFields();
             ctx.println("<input type=submit value='Do Nothing For Ten Seconds' name='10s'></form>");
-
+             	*/
             SurveyThread.SurveyTask acurrent = startupThread.current;
 
             if(acurrent!=null) {
@@ -990,7 +991,7 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<hr>");
             
             
-            if(ctx.hasField("10s")) {
+           /* if(ctx.hasField("10s")) {
             	startupThread.addTask(new SurveyTask("Waste 10 Seconds")
             	{
             		public void run() throws Throwable {
@@ -998,7 +999,7 @@ public class SurveyMain extends HttpServlet {
             		}
             	});
             	ctx.println("10s task added.\n");
-            } else if(ctx.hasField("tstop")) {
+            } else */ if(ctx.hasField("tstop")) {
             	if(acurrent!=null) {
             		acurrent.stop();
             		ctx.println(acurrent + " stopped");
@@ -1113,6 +1114,8 @@ public class SurveyMain extends HttpServlet {
             
             String aver="1.7"; // TODO: should be from 'new_version'
             ctx.println("<h2>Bulk Data Submission Updating for "+aver+"</h2><br/>\n");
+           
+            Set<UserRegistry.User> updUsers = new HashSet<UserRegistry.User>();
             
             String bulkStr = survprops.getProperty(CLDR_BULK_DIR);
             File bulkDir = null;
@@ -1159,6 +1162,7 @@ public class SurveyMain extends HttpServlet {
 	            	int countOther = 0;
 	            	int countReady = 0;
 	            	int countDone = 0;
+	            	int countChange =0;
 	            	int countVoteMain= 0;
 	            	int countAdd = 0;
 	            	
@@ -1191,6 +1195,7 @@ public class SurveyMain extends HttpServlet {
 	            			countBadUser = addAndWarnOnce(ctx, countBadUser, "warn", "Bad userid '"+n+"': " + full);
 	            			continue;
 	            		}
+	            		updUsers.add(ui);
 	            		XMLSource stSource = dbsrcfac.getInstance(loc);
 	            		String base_xpath = xpt.xpathToBaseXpath(x);
 	            		int base_xpath_id = xpt.getByXpath(base_xpath);
@@ -1245,7 +1250,7 @@ public class SurveyMain extends HttpServlet {
 	            				for(String path : resultPaths) {
 		            				String aDPath = CLDRFile.getDistinguishingXPath(path, null, true);	
 		            				if(aDPath.equals(winDpath)) {
-		            					ctx.println("Using winning dpath " + aDPath +"<br>");
+		          if(false)  					ctx.println("Using winning dpath " + aDPath +"<br>");
 	            						resultPath = aDPath;
 		            				}
 	            				}
@@ -1253,10 +1258,10 @@ public class SurveyMain extends HttpServlet {
 	            			/* #3 just take the first one */
 	            			if(resultPath==null) {
 		            			resultPath = resultPaths.toArray(new String[0])[0];
-		            			ctx.println("Using [0] path " + resultPath);
+		            			//ctx.println("Using [0] path " + resultPath);
 	            			}
 	            			if(resultPath==null) {
-	            				ctx.println("More than one result!!<br>");
+	            				ctx.println(ctx.iconHtml("stop", "more than one result!")+"More than one result!<br>");
 	            				if(true) ctx.println(loc+" " + xpt.getPrettyPath(base_xpath) + " / "+ alt + " (#"+n+" - " + ui +")<br/>");
 	            				continue;
 	            			}
@@ -1273,15 +1278,18 @@ public class SurveyMain extends HttpServlet {
 	            		if(false) ctx.println(loc+" " + xpt.getPrettyPath(base_xpath) + " / "+ alt + " (#"+n+" - " + ui +"/" + dpathId+" <br/>");
 
 	            		
+	            		
+	            		
 	                     if(dpathId == j) {
 	                    	countAlready = addAndWarnOnce(ctx, countAlready, "squo", "Vote already correct");
 //	                    	ctx.println(" "+ctx.iconHtml("squo","current")+" ( == current vote ) <br>");
 //	                    	  already++;
-	                      } else if(j>-1) {
-		                    countOther = addAndWarnOnce(ctx, countOther, "warn", "Alternate vote already cast");
+	                      } else {
+	                          if(j>-1) {
+	                        	  countOther = addAndWarnOnce(ctx, countOther, "warn", "Alternate vote already cast!");
 //	            			  ctx.println(" "+ctx.iconHtml("warn","already")+"Current vote: "+j+"<br>");
 //	            			  different++;
-	            		  } else {
+	                          }
 	            			  if(doimpbulk) {
 	            				  vet.vote(loc, base_xpath_id, n, dpathId, Vetting.VET_IMPLIED);
 	            				  toUpdate.add(loc);
@@ -1323,6 +1331,12 @@ public class SurveyMain extends HttpServlet {
 	            	  toUpdate.clear();
               	    } /* end sync */
 	              } /* end outer loop */
+	            ctx.println("<hr>");
+	            ctx.println("<h3>Users involved:</h3>");
+	            for(User auser : updUsers) {
+	            	ctx.println(auser.toString());
+	            	ctx.println("<br>");
+	            }
             }
         } else if(action.equals("srl_vet_imp")) {
             WebContext subCtx = (WebContext)ctx.clone();

@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2008, International Business Machines Corporation and   *
+ * Copyright (C) 2004-2009, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -40,6 +40,7 @@ public class LDMLConstants {
     public static final String LOCALEDISPLAYPATTERN = "localeDisplayPattern";
     public static final String LANGUAGE        = "language";
     public static final String SCRIPT          = "script";
+    public static final String CANONICAL       = "canonical";
     public static final String TERRITORY       = "territory";
     public static final String VARIANT         = "variant";
     public static final String TYPE            = "type";

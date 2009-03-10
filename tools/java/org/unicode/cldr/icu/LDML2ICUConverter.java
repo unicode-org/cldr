@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2008 International Business Machines Corporation and    *
+ * Copyright (C) 2004-2009 International Business Machines Corporation and    *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -2293,11 +2293,19 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
                 ICUResourceWriter.ResourceTable zi = new ICUResourceWriter.ResourceTable();
                 zi.name = "\"" + LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE).replaceAll("/",":") + "\"";
+
+				String canonical = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
+                ICUResourceWriter.ResourceString canon = new ICUResourceWriter.ResourceString();
+                canon.name = LDMLConstants.CANONICAL;
+                canon.val = canonical;
+                zi.first = canon;
+
                 String territory = LDMLUtilities.getAttributeValue(node, LDMLConstants.TERRITORY);
                 ICUResourceWriter.ResourceString ter = new ICUResourceWriter.ResourceString();
                 ter.name = LDMLConstants.TERRITORY;
                 ter.val = territory;
-                zi.first = ter;
+                canon.next = ter;
+
                 String aliases = LDMLUtilities.getAttributeValue(node, LDMLConstants.ALIASES);
                 String icu_aliases = getICUAlias(LDMLUtilities.getAttributeValue(node,LDMLConstants.TYPE));
                 String all_aliases = aliases;

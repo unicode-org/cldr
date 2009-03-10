@@ -248,6 +248,7 @@ public class LDMLConstants {
     public static final String FEW      		 = "few";
     public static final String MANY				 = "many";
     public static final String TELEPHONE_CODE_DATA = "telephoneCodeData";
+    public static final String POSTAL_CODE_DATA = "postalCodeData";
     public static final String CLDR_VERSION      = "cldrVersion";
     
     //PN added

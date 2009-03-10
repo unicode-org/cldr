@@ -1495,6 +1495,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 //Ignore this
             }else if(name.equals(LDMLConstants.NUMBERING_SYSTEMS)){
                 //Ignore this
+            }else if(name.equals(LDMLConstants.POSTAL_CODE_DATA)){
+                //Ignore this
             }else if(name.equals(LDMLConstants.CLDR_VERSION)){
                 res = parseCLDRVersion(node, xpath);
             }else if(name.equals(LDMLConstants.TELEPHONE_CODE_DATA)){
@@ -3475,7 +3477,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     continue;
                 }
                 String terr = LDMLUtilities.getAttributeValue(node,LDMLConstants.TERRITORIES);
-                if(terr!=null && (locName.equals("root")&& terr.equals("001")) || terr.equals(country)){
+                if(terr!=null && ((locName.equals("root")&& terr.equals("001")) || 
+                                  (country.length() > 0 && terr.indexOf(country) >= 0))){
                     ICUResourceWriter.ResourceInt resint = new ICUResourceWriter.ResourceInt();
                     String sys = LDMLUtilities.getAttributeValue(node,LDMLConstants.TYPE);
                     if(sys.equals("US")){
@@ -5028,13 +5031,13 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         if(((minDays != null) || (firstDay != null))||locName.equals("root")) { // only if we have ONE or the other.
             // fetch inherited to complete the resource..
             if(minDays == null) {
-                minDays = getVettedNode(null, root, LDMLConstants.MINDAYS+"[@territories='001']", xpath, true);
+                minDays = getVettedNode(root, LDMLConstants.MINDAYS,LDMLConstants.TERRITORIES, "001", xpath);
                 if(minDays==null){
                     printError("parseDTE", "Could not find minDays resource.");
                 }
             }
             if(firstDay == null) {
-                firstDay = getVettedNode(null, root,LDMLConstants.FIRSTDAY+"[@territories='001']", xpath, true);
+                firstDay = getVettedNode( root,LDMLConstants.FIRSTDAY, LDMLConstants.TERRITORIES, "001", xpath);
                 if(firstDay==null){
                     printError("parseDTE", "Could not find firstDay resource.");
                 }

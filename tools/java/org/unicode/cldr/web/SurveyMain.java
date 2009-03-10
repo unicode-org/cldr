@@ -1159,6 +1159,7 @@ public class SurveyMain extends HttpServlet {
 	            	int countNoUser = 0;
 	            	int countBadUser = 0;
 	            	int countAlready = 0;
+	            	int countExplicit = 0;
 	            	int countOther = 0;
 	            	int countReady = 0;
 	            	int countDone = 0;
@@ -1171,12 +1172,14 @@ public class SurveyMain extends HttpServlet {
 	            		String alt = XPathTable.getAlt(full, xpp);
 	            		String val = c.getStringValue(x);
 	            		if(alt==null||alt.length()==0) {
-	            			countNoAlt = addAndWarnOnce(ctx, countNoAlt, "warn", "Xpath with no 'alt' tag: " + full);
+	            			if(!full.startsWith("//ldml/identity")) {
+	            				countNoAlt = addAndWarnOnce(ctx, countNoAlt, "warn", "Xpath with no 'alt' tag: " + full);
+	            			}
 	            			continue;
 	            		}
 	            		String altPieces[] = LDMLUtilities.parseAlt(alt);
 	            		if(altPieces[1]==null) {
-	            			countNoAlt = addAndWarnOnce(ctx, countNoAlt, "warn", "Xpath with no 'alt-proposed' tag: " + full);
+            				countNoAlt = addAndWarnOnce(ctx, countNoAlt, "warn", "Xpath with no 'alt-proposed' tag: " + full);
 	            			continue;
 	            		}
 	            		/*
@@ -1199,7 +1202,8 @@ public class SurveyMain extends HttpServlet {
 	            		XMLSource stSource = dbsrcfac.getInstance(loc);
 	            		String base_xpath = xpt.xpathToBaseXpath(x);
 	            		int base_xpath_id = xpt.getByXpath(base_xpath);
-	            		int j = vet.queryVote(loc, n, base_xpath_id);
+	            		int vet_type[] = new int[1];
+	            		int j = vet.queryVote(loc, n, base_xpath_id, vet_type);
 	                    //int dpathId = xpt.getByXpath(xpathStr);
 	            		// now, find the ID to vote for.
 	            		Set<String> resultPaths = new HashSet<String>();
@@ -1286,7 +1290,12 @@ public class SurveyMain extends HttpServlet {
 //	                    	  already++;
 	                      } else {
 	                          if(j>-1) {
-	                        	  countOther = addAndWarnOnce(ctx, countOther, "warn", "Alternate vote already cast!");
+	                        	  if(vet_type[0]!=Vetting.VET_IMPLIED) {
+	                        		  countOther = addAndWarnOnce(ctx, countOther, "okay", "Changing existing implied vote");
+	                        	  } else {
+	                        		  countExplicit = addAndWarnOnce(ctx, countOther, "warn", "NOT changing existing different vote");
+	                        		  continue;
+	                        	  }
 //	            			  ctx.println(" "+ctx.iconHtml("warn","already")+"Current vote: "+j+"<br>");
 //	            			  different++;
 	                          }
@@ -2477,6 +2486,7 @@ public class SurveyMain extends HttpServlet {
         String new_locales = ctx.field("new_locales");
         String new_org = ctx.field("new_org");
         int new_userlevel = ctx.fieldInt("new_userlevel",-1);
+
         
         if(!UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
             new_org = ctx.session.user.org; // if not admin, must create user in the same org
@@ -2502,6 +2512,8 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<div class='sterrmsg'>"+ctx.iconHtml("stop","Could not add user")+"Please fill in an <b>Organization</b>.. hit the Back button and try again.</div>");
         } else if(new_userlevel<0) {
             ctx.println("<div class='sterrmsg'>"+ctx.iconHtml("stop","Could not add user")+"Please fill in a <b>user level</b>.. hit the Back button and try again.</div>");
+        } else if(new_userlevel==UserRegistry.EXPERT && ctx.session.user.userlevel!=UserRegistry.ADMIN) {
+            ctx.println("<div class='sterrmsg'>"+ctx.iconHtml("stop","Could not add user")+"Only Admin can create EXPERT users.. hit the Back button and try again.</div>");
         } else {
             UserRegistry.User u = reg.getEmptyUser();
             
@@ -2628,8 +2640,9 @@ public class SurveyMain extends HttpServlet {
         
         File inFiles[] = getInFiles();
         int nrInFiles = inFiles.length;
-        String localeList[] = new String[nrInFiles];
-        Set allLocs = new HashSet();
+        //String localeList[] = new String[nrInFiles];
+        Set<CLDRLocale> allLocs = this.getLocalesSet();
+        /*
         for(int i=0;i<nrInFiles;i++) {
             String localeName = inFiles[i].getName();
             int dot = localeName.indexOf('.');
@@ -2639,31 +2652,31 @@ public class SurveyMain extends HttpServlet {
             localeList[i]=localeName;
 			allLocs.add(localeName);
         }
-
+*/
         int totalUsers = 0;
         int allUsers = 0; // users with all
         
         int totalSubmit=0;
         int totalVet=0;
         
-        Map intGroups = getIntGroups();
+        Map<CLDRLocale,Set<CLDRLocale>> intGroups = getIntGroups();
 		
         Connection conn = null;
-        Map userMap = null;
-        Map nullMap = null;
-        Hashtable localeStatus = null;
-        Hashtable nullStatus = null;
+        Map<String, String> userMap = null;
+        Map<String, String> nullMap = null;
+        Hashtable<CLDRLocale,Hashtable<Integer,String>> localeStatus = null;
+        Hashtable<CLDRLocale,Hashtable<Integer,String>> nullStatus = null;
         
         {
             conn = getDBConnection();
-            userMap = new TreeMap();
-            nullMap = new TreeMap();
-            localeStatus = new Hashtable();
-            nullStatus = new Hashtable();
+            userMap = new TreeMap<String, String>();
+            nullMap = new TreeMap<String, String>();
+            localeStatus = new Hashtable<CLDRLocale,Hashtable<Integer,String>>();
+            nullStatus = new Hashtable<CLDRLocale,Hashtable<Integer,String>>();
         }
         
-        Set s = new TreeSet();
-        Set badSet = new TreeSet();
+        Set<CLDRLocale> s = new TreeSet<CLDRLocale>();
+        Set<CLDRLocale> badSet = new TreeSet<CLDRLocale>();
         try {
 			PreparedStatement psMySubmit = conn.prepareStatement("select COUNT(id) from cldr_data where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
 			PreparedStatement psMyVet = conn.prepareStatement("select COUNT(id) from cldr_vet where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
@@ -2734,27 +2747,26 @@ public class SurveyMain extends HttpServlet {
                     allUsers++;
                 } else {
 //                    int hitList[] = new int[theirLocales.length]; // # of times each is used
-					Set theirSet = new HashSet(); // set of locales this vetter has access to
+					Set<CLDRLocale> theirSet = new HashSet<CLDRLocale>(); // set of locales this vetter has access to
 					for(int j=0;j<theirLocales.length;j++) { 
-						Set subSet = (Set)intGroups.get(theirLocales[j]); // Is it an interest group? (de, fr, ..)
+						Set<CLDRLocale> subSet = intGroups.get(CLDRLocale.getInstance(theirLocales[j])); // Is it an interest group? (de, fr, ..)
 						if(subSet!=null) {
 							theirSet.addAll(subSet); // add all sublocs
 						} else if(allLocs.contains(theirLocales[j])) {
-							theirSet.add(theirLocales[j]);
+							theirSet.add(CLDRLocale.getInstance(theirLocales[j]));
 						} else {
-							badSet.add(theirLocales[j]);
+							badSet.add(CLDRLocale.getInstance(theirLocales[j]));
 						}
 					}
-					for(Iterator i = theirSet.iterator();i.hasNext();) {
-						String theLocale = (String)i.next();
+					for(CLDRLocale theLocale : theirSet) {
 						s.add(theLocale);
                           //      hitList[j]++;
                                // ctx.println("user " + theirEmail + " with " + theirLocales[j] + " covers " + theLocale + "<br>");
-                       Hashtable theHash = localeStatus;
+                       Hashtable<CLDRLocale,Hashtable<Integer,String>> theHash = localeStatus; // to the 'status' field
                        String userInfo = nameLink+" ";
 					   if(participation && conn != null) {
-							psnSubmit.setString(2,theLocale);
-							psnVet.setString(2,theLocale);
+							psnSubmit.setString(2,theLocale.getBaseName());
+							psnVet.setString(2,theLocale.getBaseName());
 							
 							int nSubmit=sqlCount(ctx,conn,psnSubmit);
 							int nVet=sqlCount(ctx,conn,psnVet);
@@ -2776,11 +2788,11 @@ public class SurveyMain extends HttpServlet {
 							}
 //									userInfo = userInfo + ", file: "+theLocale+", th: " + theirLocales[j];
                         }
-                        Hashtable oldStr = (Hashtable)theHash.get(theLocale);
+                        Hashtable<Integer,String> oldStr = theHash.get(theLocale);
                         
                         
                         if(oldStr==null) {
-                            oldStr = new Hashtable();
+                            oldStr = new Hashtable<Integer, String>();
                             theHash.put(theLocale,oldStr);
                         } else {
                         //     // oldStr = oldStr+"<br>\n";
@@ -2811,32 +2823,51 @@ public class SurveyMain extends HttpServlet {
 //        }
         
         if(!badSet.isEmpty()) {
-            ctx.println("<B>Warning: locale designations not matching locales in CLDR:</b> ");
+            ctx.println("<B>Locales not in CLDR but assigned to vetters:</b> <br>");
+            int n=0;
             boolean first=true;
-            for(Iterator li = badSet.iterator();li.hasNext();) {
+            Set<CLDRLocale> subSet = new TreeSet<CLDRLocale>();
+            for(CLDRLocale li : badSet) {
+            	if(li.toString().indexOf('_')>=0) {
+            		n++;
+            		subSet.add(li);
+           			continue;
+            	}
                 if(first==false) {
-                    ctx.print(", ");
+                    ctx.print(" ");
                 } else {
                     first = false;
                 }
-                ctx.print("<tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'>"+li.next().toString()+"</tt>" );
+                ctx.print("<tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'>"+li.toString()+"</tt>" );
             }
             ctx.println("<br>");
+            if(n>0) {
+            	ctx.println("Note: "+n+" locale(s) were specified that were sublocales. This is no longer supported, specify the top level locale (en, not en_US or en_Shaw): <br><font size=-1>");
+            	if(isUnofficial) for(CLDRLocale li:subSet) {
+                    ctx.print(" <tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'><font size=-1>"+li.toString()+"</font></tt>" );
+            	}
+            	ctx.println("</font><br>");
+            }
         }
         
         // Now, calculate coverage of requested locales for this organization
         //sc.getGroup(locale,missingLocalesForOrg);
-        Set languagesNotInCLDR = new TreeSet();
-        Set languagesMissing = new HashSet();
-        Set allLanguages = sc.getAvailableCodes("language");
-        for(Iterator li = allLanguages.iterator();li.hasNext();) {
-            String lang = (String)(li.next());
-            String group = sc.getGroup(lang, missingLocalesForOrg);
+        Set<CLDRLocale> languagesNotInCLDR = new TreeSet<CLDRLocale>();
+        Set<CLDRLocale> languagesMissing = new HashSet<CLDRLocale>();
+        Set<CLDRLocale> allLanguages = new TreeSet<CLDRLocale>();
+        {
+        	for(String code : sc.getAvailableCodes("language")) {
+        		allLanguages.add(CLDRLocale.getInstance(code));
+        	}
+        }
+        for(Iterator<CLDRLocale> li = allLanguages.iterator();li.hasNext();) {
+        	CLDRLocale lang = (CLDRLocale)(li.next());
+            String group = sc.getGroup(lang.getBaseName(), missingLocalesForOrg);
             if((group != null) &&
                 (!"basic".equals(group)) && // exclude it for being basic
                 (null==supplemental.defaultContentToParent(group)) ) {
                 //System.err.println("getGroup("+lang+", " + missingLocalesForOrg + ") = " + group);
-                if(!isValidLocale(CLDRLocale.getInstance(lang))) {
+                if(!isValidLocale(lang)) {
                     //System.err.println("-> not in lm: " + lang);
                     languagesNotInCLDR.add(lang);
                 } else {
@@ -2853,7 +2884,7 @@ public class SurveyMain extends HttpServlet {
         if(!languagesNotInCLDR.isEmpty()) {
             ctx.println("<p class='hang'>"+ctx.iconHtml("stop","locales missing from CLDR")+"<B>Required by " + missingLocalesForOrg + " but not in CLDR: </b>");
             boolean first=true;
-            for(Iterator li = languagesNotInCLDR.iterator();li.hasNext();) {
+            for(Iterator<CLDRLocale> li = languagesNotInCLDR.iterator();li.hasNext();) {
                 if(first==false) {
                     ctx.print(", ");
                 } else {
@@ -2871,7 +2902,7 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<p class='hang'>"+ctx.iconHtml("stop","locales without vetters")+
                 "<B>Required by " + missingLocalesForOrg + " but no vetters: </b>");
             boolean first=true;
-            for(Iterator li = languagesMissing.iterator();li.hasNext();) {
+            for(Iterator<CLDRLocale> li = languagesMissing.iterator();li.hasNext();) {
                 if(first==false) {
                     ctx.print(", ");
                 } else {
@@ -2911,10 +2942,10 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("<br><tt>" + aLocale + "</tt>");
             }
 			if(localeStatus!=null && !localeStatus.isEmpty()) {
-				Hashtable what = (Hashtable)localeStatus.get(aLocale);
+				Hashtable<Integer,String> what = localeStatus.get(aLocale);
 				if(what!=null) {
 					ctx.println("<ul>");
-					for(Iterator i = what.values().iterator();i.hasNext();) {
+					for(Iterator<String> i = what.values().iterator();i.hasNext();) {
 						ctx.println("<li>"+i.next()+"</li>");
 					}
 					ctx.println("</ul>");
@@ -2924,10 +2955,10 @@ public class SurveyMain extends HttpServlet {
 			if(localeIsDefaultContent) {
                         ctx.println(" (<i>default content</i>)");
             } else if(participation && nullStatus!=null && !nullStatus.isEmpty()) {
-				Hashtable what = (Hashtable)nullStatus.get(aLocale);				
+				Hashtable<Integer, String> what = nullStatus.get(aLocale);				
 				if(what!=null) {
 					ctx.println("<br><blockquote> <b>Did not participate:</b> ");
-					for(Iterator i = what.values().iterator();i.hasNext();) {
+					for(Iterator<String> i = what.values().iterator();i.hasNext();) {
 						ctx.println(i.next().toString()	);
 						if(i.hasNext()) {
 							ctx.println(", ");
@@ -2942,7 +2973,7 @@ public class SurveyMain extends HttpServlet {
             
             ctx.println("<td valign='top'>");
             int j = 0;
-            for(Iterator si = sm.keySet().iterator();si.hasNext();) {
+            for(Iterator<String> si = sm.keySet().iterator();si.hasNext();) {
                 String sn = si.next().toString();
                 CLDRLocale subLocale = sm.get(sn);
                // if(subLocale.length()>0) {
@@ -2978,10 +3009,10 @@ public class SurveyMain extends HttpServlet {
                     boolean isDc = (null!=supplemental.defaultContentToParent(subLocale.toString()));
                     
 					if(localeStatus!=null&&!nullStatus.isEmpty()) {
-						Hashtable what = (Hashtable)localeStatus.get(subLocale);
+						Hashtable<Integer, String> what = localeStatus.get(subLocale);
 						if(what!=null) {
 							ctx.println("<ul>");
-							for(Iterator i = what.values().iterator();i.hasNext();) {
+							for(Iterator<String> i = what.values().iterator();i.hasNext();) {
 								ctx.println("<li>"+i.next()+"</li>");
 							}
 							ctx.println("</ul>");
@@ -2990,10 +3021,10 @@ public class SurveyMain extends HttpServlet {
                     if(isDc) {
                         ctx.println(" (<i>default content</i>)");
                     } else if(participation && nullStatus!=null && !nullStatus.isEmpty()) {
-						Hashtable what = (Hashtable)nullStatus.get(subLocale);				
+						Hashtable<Integer, String> what = nullStatus.get(subLocale);				
 						if(what!=null) {
 							ctx.println("<br><blockquote><b>Did not participate:</b> ");
-							for(Iterator i = what.values().iterator();i.hasNext();) {
+							for(Iterator<String> i = what.values().iterator();i.hasNext();) {
 								ctx.println(i.next().toString()	);
 								if(i.hasNext()) {
 									ctx.println(", ");
@@ -3022,12 +3053,12 @@ public class SurveyMain extends HttpServlet {
             if(participation) {
                 ctx.println("<hr>");
                 ctx.println("<h4>Participated: "+userMap.size()+"</h4><table border='1'>");
-                for(Iterator i = userMap.values().iterator();i.hasNext();) {
+                for(Iterator<String> i = userMap.values().iterator();i.hasNext();) {
                     String which = (String)i.next();
                     ctx.println(which);
                 }
                 ctx.println("</table><h4>Did Not Participate at all: "+nullMap.size()+"</h4><table border='1'>");
-                for(Iterator i = nullMap.values().iterator();i.hasNext();) {
+                for(Iterator<String> i = nullMap.values().iterator();i.hasNext();) {
                     String which = (String)i.next();
                     ctx.println(which);
                 }
@@ -8828,8 +8859,8 @@ public class SurveyMain extends HttpServlet {
         return localeListSet;
     }
 
-    static public String[] getLocales() {
-        return (String[])getLocalesSet().toArray(new String[0]);
+    static public CLDRLocale[] getLocales() {
+        return (CLDRLocale[])getLocalesSet().toArray(new CLDRLocale[0]);
     }
 
     /**
@@ -8837,20 +8868,20 @@ public class SurveyMain extends HttpServlet {
      * en -> en, en_US, en_MT, ...
      * fr -> fr, fr_BE, fr_FR, ...
      */
-    static protected Map getIntGroups() {
+    static protected Map<CLDRLocale,Set<CLDRLocale>> getIntGroups() {
         // TODO: rewrite as iterator
-        String[] locales = getLocales();
-        Map h = new HashMap();
+        CLDRLocale[] locales = getLocales();
+        Map<CLDRLocale,Set<CLDRLocale>> h = new HashMap<CLDRLocale,Set<CLDRLocale>>();
         for(int i=0;i<locales.length;i++) {
-            String locale = locales[i];
-            String group = locale;
-            int dash = locale.indexOf('_');
+            CLDRLocale locale = locales[i];
+            CLDRLocale group = locale;
+            int dash = locale.toString().indexOf('_');
             if(dash !=  -1) {
-                group = locale.substring(0,dash);
+                group = CLDRLocale.getInstance(locale.toString().substring(0,dash));
             }
-            Set s = (Set)h.get(group);
+            Set<CLDRLocale> s = h.get(group);
             if(s == null) {
-                s = new HashSet();
+                s = new HashSet<CLDRLocale>();
                 h.put(group,s);
             }
             s.add(locale);

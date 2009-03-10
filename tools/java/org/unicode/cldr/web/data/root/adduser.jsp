@@ -30,7 +30,7 @@
                 </select>
              </label><br>
 <!--             <label>Userlevel: <input name="new_userlevel" value="5" /></label>    (1=TC, 5=Vetter, 10=Street, ...) <br/> -->
-			<label>Locales responsible: <input name="new_locales" value="" /></label>   (Space separated. Examples: "en de fr" or  "de_CH".  )<br/>
+			<label>Languages responsible: <input name="new_locales" value="" /></label>   (Space separated. Examples: "en de fr" ( Don't specify sublocales such as <strike>"zh_Hant"</strike> or <strike>"de_CH"</strike>. )  )<br/>
 			<input type="submit" value="Add" />
 		</form>
 		<hr/>

@@ -380,7 +380,7 @@ public class Vetting {
             insertVote = prepareStatement("insertVote",
                 "insert into "+CLDR_VET+" (locale,submitter,base_xpath,vote_xpath,type,modtime) values (?,?,?,?,?,CURRENT_TIMESTAMP)");
             queryVote = prepareStatement("queryVote",
-                "select "+CLDR_VET+".vote_xpath from "+CLDR_VET+" where "+CLDR_VET+".locale=? AND "+CLDR_VET+".submitter=? AND "+CLDR_VET+".base_xpath=?");
+                "select "+CLDR_VET+".vote_xpath, "+CLDR_VET+".type from "+CLDR_VET+" where "+CLDR_VET+".locale=? AND "+CLDR_VET+".submitter=? AND "+CLDR_VET+".base_xpath=?");
             rmVote = prepareStatement("rmVote",
                 "delete from "+CLDR_VET+" where "+CLDR_VET+".locale=? AND "+CLDR_VET+".submitter=? AND "+CLDR_VET+".base_xpath=?");
             queryVoteId = prepareStatement("queryVoteId",
@@ -598,9 +598,9 @@ public class Vetting {
         //rbc.setNumericCollation(true);
         return rbc;
     }
-    
+
     /**
-     * return the result of a particular contest
+     * return the result of a particular user's vote
      * @param locale which locale
      * @param userid of the submitter
      * @param base_xpath base xpath id to check
@@ -608,6 +608,19 @@ public class Vetting {
      * @see XPathTable
      */
     public int queryVote(CLDRLocale locale, int submitter, int base_xpath) {
+    	return queryVote(locale, submitter, base_xpath, null);
+    }
+
+    /**
+     * return the result of a particular user's vote
+     * @param locale which locale
+     * @param userid of the submitter
+     * @param base_xpath base xpath id to check
+     * @param type if non-null, item [0] receives the voting type
+     * @return result of vetting, RES_NO_VOTES, etc.
+     * @see XPathTable
+     */
+     public int queryVote(CLDRLocale locale, int submitter, int base_xpath, int type[]) {
         synchronized(conn) {
             try {
                 queryVote.setString(1, locale.toString());
@@ -616,6 +629,9 @@ public class Vetting {
                 ResultSet rs = queryVote.executeQuery();
                 while(rs.next()) {
                     int vote_xpath = rs.getInt(1);
+                    if(type != null) {
+                    	type[0] = rs.getInt(2);
+                    }
                     return vote_xpath;
                 }
                 return -1;

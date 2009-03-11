@@ -175,12 +175,26 @@ public class VoteResolver<T> {
       this.locales.add(locale);
     }
   }
+  
+  static class MaxCounter<T> extends Counter<T> {
+    public MaxCounter(boolean b) {
+      super(b);
+    }
+
+    public MaxCounter<T> add(T obj, long countValue) {
+      long value = getCount(obj);
+      if (value < countValue) {
+        super.add(obj, countValue - value);
+      }
+      return this;
+    };
+  }
 
   /**
    * Internal class for getting from an organization to its vote.
    */
   private static class OrganizationToValueAndVote<T> {
-    private Map<Organization, Counter<T>> orgToVotes = new HashMap<Organization, Counter<T>>();
+    private Map<Organization, MaxCounter<T>> orgToVotes = new HashMap<Organization, MaxCounter<T>>();
     private Map<Organization, Integer>    orgToMax   = new HashMap<Organization, Integer>();
     private Counter<T>                    totals     = new Counter<T>(true);
     // map an organization to what it voted for.
@@ -188,7 +202,7 @@ public class VoteResolver<T> {
 
     OrganizationToValueAndVote() {
       for (Organization org : Organization.values()) {
-        orgToVotes.put(org, new Counter<T>(true));
+        orgToVotes.put(org, new MaxCounter<T>(true));
       }
     }
 
@@ -446,10 +460,8 @@ public class VoteResolver<T> {
 
   private Status computeStatus(long weight1, long weight2) {
     int orgCount = organizationToValueAndVote.getOrgCount(winningValue);
-    return weight1 >= 2 * weight2 && weight1 >= 8 ? Status.approved
-            : (weight1 > weight2 && weight1 >= 4
-               || weight1 >= 2 * weight2 && weight1 >= 2 && orgCount >= 2
-              ) ? Status.contributed
+    return weight1 > weight2 && weight1 >= 4 ? Status.approved
+            : weight1 >= 2 * weight2 && weight1 >= 2 && orgCount >= 2 ? Status.contributed
             : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
             : Status.unconfirmed;
   }

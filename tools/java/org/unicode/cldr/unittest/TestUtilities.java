@@ -390,66 +390,89 @@ public class TestUtilities extends TestFmwk {
   }
 
   public void TestVoteResolver() {
+    // to make it easier to debug failures, the first digit is an org, second is the individual in that org, and third is the voting weight.
     Map<Integer, VoterInfo> testdata = (Map<Integer, VoterInfo>) Utility.asMap(new Object[][] {
-      { 888, new VoterInfo(Organization.guest, Level.street, "O. Henry") }, 
-      { 777, new VoterInfo(Organization.gnome, Level.street, "S. Henry") }, 
-      { 666, new VoterInfo(Organization.google, Level.vetter, "J. Smith") },
-      { 555, new VoterInfo(Organization.google, Level.street, "S. Jones") },
-      { 444, new VoterInfo(Organization.google, Level.vetter, "S. Samuels") },
-      { 333, new VoterInfo(Organization.apple, Level.vetter, "A. Mutton") },
-      { 222, new VoterInfo(Organization.adobe, Level.expert, "A. Aldus") },
-      { 111, new VoterInfo(Organization.ibm, Level.street, "J. Henry") },
+      { 801, new VoterInfo(Organization.guest, Level.street, "O. Henry") }, 
+      { 701, new VoterInfo(Organization.gnome, Level.street, "S. Henry") }, 
+      { 404, new VoterInfo(Organization.google, Level.vetter, "J. Smith") },
+      { 411, new VoterInfo(Organization.google, Level.street, "S. Jones") },
+      { 424, new VoterInfo(Organization.google, Level.vetter, "S. Samuels") },
+      { 304, new VoterInfo(Organization.apple, Level.vetter, "A. Mutton") },
+      { 208, new VoterInfo(Organization.adobe, Level.expert, "A. Aldus") },
+      { 101, new VoterInfo(Organization.ibm, Level.street, "J. Henry") },
       });
     VoteResolver.setVoterToInfo(testdata);
     VoteResolver<String> resolver = new VoteResolver<String>();
     String[] tests = {
             "oldValue=old-value",
             "oldStatus=provisional",
-            "comment=Check that identical values get the alphabetically lowest",
-            "666=next",
-            "333=best",
+            "comment=Check that identical values get the alphabetically lowest, and that org is maxed (eg vetter + street = vetter)",
+            "404=next",
+            "411=next",
+            "304=best",
+            // expected values
             "value=best",
             "sameVotes=best,next",
             "conflicts=[]",
             "status=provisional",
             "check",
-            
-            "comment=now give next a slight edge (5 to 4)",
-            "888=next",
+
+            "comment=now give next a slight edge (5 to 4) with a different organization",
+            "404=next",
+            "304=best",
+            "801=next",
+            // expected values
             "value=next",
             "sameVotes=next",
-            "status=contributed",
+            "status=approved",
             "check",
-            
+
             "comment=set up a case of conflict within organization",
-            "clear",
-            "666=next",
-            "444=best",
+            "404=next",
+            "424=best",
+            // expected values
             "value=old-value",
             "sameVotes=old-value",
             "conflicts=[google]",
             "status=provisional",
             "check",
-            
+
             "comment=now cross-organizational conflict, also check for max value in same organization (4, 1) => 4 not 5",
-            "555=best",
-            "conflicts=[]",
-            "333=app",
-            "value=app",
-            "sameVotes=app,best",
+            "404=next",
+            "424=best",
+            "411=best",
+            "304=best",
+            // expected values
+            "conflicts=[google]",
+            "value=best",
+            "sameVotes=best",
+            "status=approved",
             "check",
-            
+
             "comment=now clear winner 8 over 4",
-            "222=primo",
+            "404=next",
+            "424=best",
+            "411=best",
+            "304=best",
+            "208=primo",
+            // expected values
+            "conflicts=[google]",
             "value=primo",
             "sameVotes=primo",
             "status=approved",
             "check",
-            
+
             "comment=now not so clear, throw in a street value. So it is 8 to 5. (used to be provisional)",
-            "111=best",
+            "404=next",
+            "424=best",
+            "411=best",
+            "304=best",
+            "208=primo",
+            "101=best",
+            // expected values
+            "conflicts=[google]",
             "value=primo",
-            "status=contributed",
+            "status=approved",
             "check",
     };
     String expectedValue = null;
@@ -479,8 +502,6 @@ public class TestUtilities extends TestFmwk {
         expectedStatus = Status.valueOf(value);
       } else if (name.equalsIgnoreCase("conflicts")) {
         expectedConflicts = value;
-      } else if (name.equalsIgnoreCase("clear")) {
-        values.clear();
       } else if (DIGITS.containsAll(name)) {
         final int voter = Integer.parseInt(name);
         if (value == null || value.equals("null")) {
@@ -494,13 +515,14 @@ public class TestUtilities extends TestFmwk {
         for (int voter : values.keySet()) {
           resolver.add(values.get(voter), voter);
         }
-        logln(resolver.toString());
+        logln(counter + " " + resolver.toString());
         assertEquals(counter + " value", expectedValue, resolver.getWinningValue());
         assertEquals(counter + " sameVotes", sameVotes.toString(), resolver.getValuesWithSameVotes().toString());
         assertEquals(counter + " status", expectedStatus, resolver.getWinningStatus());
-        assertEquals(counter + " org", expectedConflicts, resolver.getConflictedOrganizations()
+        assertEquals(counter + " conflicts", expectedConflicts, resolver.getConflictedOrganizations()
                 .toString());
         resolver.clear();
+        values.clear();
       } else {
         errln("unknown command:\t" + test);
       }

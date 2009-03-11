@@ -23,7 +23,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-public final class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
+public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
   Map<T,RWLong> map;
   Comparator<T> comparator;
   

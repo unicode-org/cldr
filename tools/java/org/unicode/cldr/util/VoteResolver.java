@@ -176,15 +176,24 @@ public class VoteResolver<T> {
     }
   }
   
+  /**
+   * MaxCounter: make sure that we are always only getting the maximum of the values.
+   * @author markdavis
+   *
+   * @param <T>
+   */
   static class MaxCounter<T> extends Counter<T> {
     public MaxCounter(boolean b) {
       super(b);
     }
 
+    /**
+     * Add, but only to bring up to the maximum value.
+     */
     public MaxCounter<T> add(T obj, long countValue) {
       long value = getCount(obj);
       if (value < countValue) {
-        super.add(obj, countValue - value);
+        super.add(obj, countValue - value); // only add the difference!
       }
       return this;
     };

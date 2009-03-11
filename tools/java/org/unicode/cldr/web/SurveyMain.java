@@ -1411,6 +1411,18 @@ public class SurveyMain extends HttpServlet {
             actionCtx.addQuery("action",action);
             ctx.println("<br>");
             String what = actionCtx.field("srl_vet_res");
+            
+            Set<CLDRLocale> locs = new TreeSet<CLDRLocale>();
+            
+            if(what.length()>0) {
+                String whats[] = UserRegistry.tokenizeLocale(what);
+                
+                for(String l : whats) {
+                	CLDRLocale loc = CLDRLocale.getInstance(l);
+                	locs.add(loc);
+                }
+            }
+            
             boolean reupdate = actionCtx.hasField("reupdate");
 
             if(what.equals("ALL")) {
@@ -1425,32 +1437,40 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("Done updating "+zn+" statuses [locales] in: " + zet + "<br>");
             } else {
                 ctx.println("<h4>Update All</h4>");
+                ctx.println("Locs: ");
+                for(CLDRLocale loc : locs ) {
+                	ctx.println("("+loc+") ");
+                }
+                ctx.println("<br>");
                 ctx.println("* <a href='"+actionCtx.url()+actionCtx.urlConnector()+"srl_vet_res=ALL'>Update all (routine update)</a><p>  ");
                 ctx.println("* <a href='"+actionCtx.url()+actionCtx.urlConnector()+"srl_vet_res=ALL&reupdate=reupdate'><b>REupdate:</b> " +
                         "Delete all old results, and recount everything. Takes a long time.</a><br>");
                 if(what.length()>0) {
-                    if(reupdate) {
-                        try {
-                            synchronized(vet.conn) {
-                                vet.rmResultLoc.setString(1,what);
-                                int del = sqlUpdate(ctx, vet.conn, vet.rmResultLoc);
-                                ctx.println("<em>"+del+" results of "+what+" locale removed</em><br>");
-                                System.err.println("update: "+del+" results of "+what+" locale removed");
-                            }
-                        } catch(SQLException se) {
-                            se.printStackTrace();
-                            ctx.println("<b>Err while trying to delete results:</b> <pre>" + unchainSqlException(se)+"</pre>");
-                        }
-                    }
-                    
-                    ctx.println("<h4>Update just "+what+"</h4>");
-                    ElapsedTimer et = new ElapsedTimer();
-                    int n = vet.updateResults(CLDRLocale.getInstance(what));
-                    ctx.println("Done updating "+n+" vote results in: " + et + "<br>");
-                    lcr.invalidateLocale(CLDRLocale.getInstance(what));
+                	for(CLDRLocale loc : locs) {
+                		ctx.println("<h2>"+loc+"</h2>");
+	                    if(reupdate) {
+	                        try {
+	                            synchronized(vet.conn) {
+	                                vet.rmResultLoc.setString(1,loc.toString());
+	                                int del = sqlUpdate(ctx, vet.conn, vet.rmResultLoc);
+	                                ctx.println("<em>"+del+" results of "+loc+" locale removed</em><br>");
+	                                System.err.println("update: "+del+" results of "+loc+" locale removed");
+	                            }
+	                        } catch(SQLException se) {
+	                            se.printStackTrace();
+	                            ctx.println("<b>Err while trying to delete results for " + loc + ":</b> <pre>" + unchainSqlException(se)+"</pre>");
+	                        }
+	                    }
+	                    
+	                    ctx.println("<h4>Update just "+loc+"</h4>");
+	                    ElapsedTimer et = new ElapsedTimer();
+	                    int n = vet.updateResults(loc);
+	                    ctx.println("Done updating "+n+" vote results for " + loc + " in: " + et + "<br>");
+	                    lcr.invalidateLocale(loc);
+                	}
                     ElapsedTimer zet = new ElapsedTimer();
                     int zn = vet.updateStatus();
-                    ctx.println("Done updating "+zn+" statuses [locales] in: " + zet + "<br>");
+                    ctx.println("Done updating "+zn+" statuses ["+locs.size()+" locales] in: " + zet + "<br>");
                 } else {
                     vet.stopUpdating = true;            
                 }

@@ -586,7 +586,9 @@ public class CLDRDBSourceFactory {
                 }
             }
         }
-        rawXmlFactory = theFactory;
+   	if(rawXmlFactory==null) {
+        	rawXmlFactory = theFactory;
+	}
         
     }
 

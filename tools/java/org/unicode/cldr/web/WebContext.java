@@ -207,6 +207,34 @@ public class WebContext implements Cloneable {
         }
     }
     
+
+    /*
+    * get a field's value, or -1
+    * @param x field name
+    */
+   final long fieldLong(String x) {
+       return fieldLong(x,-1);
+   }
+   
+   /**
+    * get a field's value, or the default
+    * @param x field name
+    * @param def default value
+    */
+   long fieldLong(String x, long def) {
+       String f;
+       if((f=field(x)).length()>0) {
+           try {
+               return new Long(f).longValue();
+           } catch(Throwable t) {
+               return def;
+           }
+       } else {
+           return def;
+       }
+   }
+   
+    
     /**
      * Return true if the field is present
      */

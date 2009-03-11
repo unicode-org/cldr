@@ -484,16 +484,26 @@ public class SurveyMain extends HttpServlet {
             } catch(InterruptedException ie) {
             }
         }*/
-
-                    
-        if(ctx.field("dump").equals(vap)) {
-            doAdminPanel(ctx); // admin interface
-        } else if(ctx.field("sql").equals(vap)) {
-            doSql(ctx); // SQL interface
-        } else {
-            doSession(ctx); // Session-based Survey main
+        
+        String baseThreadName = Thread.currentThread().getName();
+        
+        try {
+	
+	                    
+	        if(ctx.field("dump").equals(vap)) {
+	        	Thread.currentThread().setName(baseThreadName+" ST admin");
+	            doAdminPanel(ctx); // admin interface
+	        } else if(ctx.field("sql").equals(vap)) {
+	        	Thread.currentThread().setName(baseThreadName+" ST sql");
+	            doSql(ctx); // SQL interface
+	        } else {
+	        	Thread.currentThread().setName(baseThreadName+" ST ");
+	            doSession(ctx); // Session-based Survey main
+	        }
+	        ctx.close();
+        } finally {
+        	Thread.currentThread().setName(baseThreadName);
         }
-        ctx.close();
     }
     
     /**
@@ -1021,6 +1031,27 @@ public class SurveyMain extends HttpServlet {
             ctx.println("</ul>");
            	for(Thread t : s.keySet()) {
             	ctx.println("<a name='"+t.getId()+"'><h3>"+t.getName()+"</h3></a> - "+t.getState().toString());
+            	
+            	if(t.getName().indexOf(" ST ")>0) {
+                    ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+                    actionCtx.printUrlAsHiddenFields();
+                    ctx.println("<input type=hidden name=killtid value='"+t.getId()+"'>");
+                    ctx.println("<input type=submit value='Kill Thread #"+t.getId()+"'></form>");
+                    
+                    if(ctx.fieldLong("killtid") == (t.getId())) {
+                    	ctx.println(" <br>(interrupt and stop called..)<br>\n");
+                    	try {
+                    		t.interrupt();
+                    		t.stop(new InternalError("Admin wants you to stop"));
+                    	} catch(Throwable tt) {
+                    		ctx.println("[caught exception " + tt.toString()+"]<br>");
+                    	}
+                    	
+                    }
+                    
+            	}
+            	
+            	
             	StackTraceElement[] elem = s.get(t);
             	ctx.print("<pre>");
             	for(StackTraceElement el : elem) {
@@ -3872,6 +3903,10 @@ public class SurveyMain extends HttpServlet {
             }
         }
         
+        // setup thread name
+        if(ctx.session.user != null) {
+        	Thread.currentThread().setName(Thread.currentThread().getName()+" "+ctx.session.user.id+":"+ctx.session.user.toString());        	
+        }
         if(ctx.hasField(SurveyForum.F_FORUM) || ctx.hasField(SurveyForum.F_XPATH)) {
             fora.doForum(ctx, sessionMessage);
             return;

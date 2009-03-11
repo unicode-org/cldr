@@ -1293,7 +1293,7 @@ public class SurveyMain extends HttpServlet {
 	                        	  if(vet_type[0]!=Vetting.VET_IMPLIED) {
 	                        		  countOther = addAndWarnOnce(ctx, countOther, "okay", "Changing existing implied vote");
 	                        	  } else {
-	                        		  countExplicit = addAndWarnOnce(ctx, countOther, "warn", "NOT changing existing different vote");
+	                        		  countExplicit = addAndWarnOnce(ctx, countExplicit, "warn", "NOT changing existing different vote");
 	                        		  continue;
 	                        	  }
 //	            			  ctx.println(" "+ctx.iconHtml("warn","already")+"Current vote: "+j+"<br>");
@@ -5467,6 +5467,10 @@ public class SurveyMain extends HttpServlet {
             }
         }    
         ctx.println(SLOW_PAGE_NOTICE);
+        if(ctx.session.user!=null) {
+        	ctx.println("<br>");
+        	ctx.println("<a href='"+ctx.jspLink("xpath.jsp")+"&_="+ctx.getLocale().toString()+"'>Go to XPath...</a><br>");
+        }
     }
 
     public static String getAttributeValue(Document doc, String xpath, String attribute) {

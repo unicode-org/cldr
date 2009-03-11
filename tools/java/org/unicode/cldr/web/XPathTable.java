@@ -175,7 +175,7 @@ public class XPathTable {
      * Bottleneck for adding xpaths
      * @return the xpath's id (as an Integer)
      */
-    private synchronized Integer addXpath(String xpath)
+    private synchronized Integer addXpath(String xpath, boolean addIfNotFound)
     {
         Integer nid = (Integer)stringToId.get(xpath); // double check
         if(nid != null) {
@@ -188,22 +188,26 @@ public class XPathTable {
                 // First, try to query it back from the DB.
                     ResultSet rs = queryStmt.executeQuery();                
                     if(!rs.next()) {
-                        // add it
-                        insertStmt.setString(1, xpath);
-                        insertStmt.execute();
-                        conn.commit();
-                        // TODO: Shouldn't there be a way to get the new row's id back??
-    //                    logger.info("xpt: added " + xpath);
-                        rs = queryStmt.executeQuery();
-                        if(!rs.next()) {
-                            logger.severe("Couldn't retrieve newly added xpath " + xpath);
-                        } else {
-                            stat_dbAdd++;
-                        }
+                    	if(!addIfNotFound) {
+                    		return -1;
+                    	} else {
+	                        // add it
+	                        insertStmt.setString(1, xpath);
+	                        insertStmt.execute();
+	                        conn.commit();
+	                        // TODO: Shouldn't there be a way to get the new row's id back??
+	    //                    logger.info("xpt: added " + xpath);
+	                        rs = queryStmt.executeQuery();
+	                        if(!rs.next()) {
+	                            logger.severe("Couldn't retrieve newly added xpath " + xpath);
+	                        } else {
+	                            stat_dbAdd++;
+	                        }
+                    	}
                     } else {
                         stat_dbFetch++;
                     }
-                                    
+                                   
                     int id = rs.getInt(1);
                     nid = Integer.valueOf(id);
                     stringToId.put(idToString_put(id,xpath),nid);
@@ -288,18 +292,34 @@ public class XPathTable {
         return fetchByID(id);
     }
     
-    /**
-     * API for get by string
-     */
+   /**
+    * get an xpath id by value, add it if not found
+    * @param xpath string string to add
+    * @return
+    */
     public final int getByXpath(String xpath) {
         Integer nid = (Integer)stringToId.get(xpath);
         if(nid != null) {
             return nid.intValue();
         } else {
-            return addXpath(xpath).intValue();
+            return addXpath(xpath, true).intValue();
         }
     }
-    
+
+    /**
+     * Look up xpath id by value. Return -1 if not found
+     * @param xpath
+     * @return id, or -1 if not found
+     */
+    public final int peekByXpath(String xpath) {
+        Integer nid = (Integer)stringToId.get(xpath);
+        if(nid != null) {
+            return nid.intValue();
+        } else {
+            return addXpath(xpath, false).intValue();
+        }
+    }
+
     public String pathToTinyXpath(String path) {
         return pathToTinyXpath(path, new XPathParts(null,null));
     }

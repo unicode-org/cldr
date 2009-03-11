@@ -9,6 +9,7 @@
 package org.unicode.cldr.web;
 
 import java.io.*;
+import java.net.URLEncoder;
 import java.util.*;
 
 import java.sql.Connection;
@@ -203,9 +204,47 @@ public class SurveyForum {
             canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
         }
         
+        /* can we accept a string xpath? */
+        if(base_xpath==-1 && ctx.hasField(F_XPATH)&&ctx.field(F_XPATH).length()>0) {
+        	String xstr = ctx.field(F_XPATH);
+        	String msg = null;
+
+        	if(xstr.startsWith("//ldml")) {
+        		base_xpath = sm.xpt.peekByXpath(xstr);
+        		if(base_xpath==-1) {
+            		msg = "XPath lookup failed.";
+        		}
+        	}
+
+        	if(base_xpath==-1 && !xstr.startsWith("//ldml")) {
+        		// try prettypath
+        		String ostr = sm.xpt.getOriginal(xstr);
+        		if(ostr != null) {
+        			base_xpath = sm.xpt.peekByXpath(ostr);
+        			if(base_xpath==-1) {
+        				msg = "PrettyPath lookup resulted in unfound xpath";
+        			}
+        		} else {
+        			msg = "PrettyPath lookup failed.";
+        		}
+        	}
+        	
+        	if(base_xpath==-1) {
+        		String str =  ctx.jspUrl("xpath.jsp") 
+                        + "&_="+URLEncoder.encode(ctx.getLocale().toString())
+                        + "&xpath="+URLEncoder.encode(xstr)
+                        + "&msg="+URLEncoder.encode(msg)
+                        ;
+        		ctx.redirect(str);
+        		return;
+        	}
+        	System.err.println("XP ["+xstr+"] -> " + base_xpath);
+        	// TODO: may need fixup here.
+        }
+        
         // Are they just zooming in?
         if(!canModify && (base_xpath!=-1)) {
-            doZoom(ctx, sessionMessage);
+            doZoom(ctx, base_xpath, sessionMessage);
             return;
         }
         
@@ -258,6 +297,7 @@ public class SurveyForum {
     
     String returnUrl(WebContext ctx, CLDRLocale locale, int base_xpath) {
         String xpath = sm.xpt.getById(base_xpath);
+        if(xpath == null) return ctx.base()+"?"+"_="+locale;
         String theMenu = PathUtilities.xpathToMenu(xpath);
         if(theMenu==null) {
             theMenu="raw";
@@ -266,8 +306,7 @@ public class SurveyForum {
 					"_="+locale+"&amp;x="+theMenu+"&amp;xfind="+base_xpath+"#x"+base_xpath;
     }
     
-    void doZoom(WebContext ctx, String sessionMessage) {
-        int base_xpath = ctx.fieldInt(F_XPATH);
+    void doZoom(WebContext ctx, int base_xpath, String sessionMessage) {
         String xpath = sm.xpt.getById(base_xpath);
         if((xpath == null)&&(base_xpath != -1)) {
             sm.printHeader(ctx, "Missing Item");

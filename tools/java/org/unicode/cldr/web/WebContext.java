@@ -264,6 +264,7 @@ public class WebContext implements Cloneable {
 	 * Decode a single string
 	 */
 	public static String decodeFieldString(String res) {
+		if(res==null) return null;
         byte asBytes[] = new byte[res.length()];
         boolean wasHigh = false;
         int n;
@@ -451,6 +452,12 @@ public class WebContext implements Cloneable {
         return context(s)+"?a=" + base() +
             ((outQuery!=null)?("&amp;" + outQuery):
                 ((session!=null)?("&amp;s="+session.id):"")
+            );
+     }
+    public String jspUrl(String s) {
+        return context(s)+"?a=" + base() +
+            ((outQuery!=null)?("&" + outQuery):
+                ((session!=null)?("&s="+session.id):"")
             );
      }
     

@@ -1321,7 +1321,7 @@ public class SurveyMain extends HttpServlet {
 //	                    	  already++;
 	                      } else {
 	                          if(j>-1) {
-	                        	  if(vet_type[0]!=Vetting.VET_IMPLIED) {
+	                        	  if(vet_type[0]==Vetting.VET_IMPLIED) {
 	                        		  countOther = addAndWarnOnce(ctx, countOther, "okay", "Changing existing implied vote");
 	                        	  } else {
 	                        		  countExplicit = addAndWarnOnce(ctx, countExplicit, "warn", "NOT changing existing different vote");

@@ -7987,7 +7987,7 @@ public class SurveyMain extends HttpServlet {
                 }
 				ctx.print("</table>"); // end of votes-by-organization
 				
-				if(isUnofficial && UserRegistry.userIsTC(ctx.session.user)) {
+				if(isUnofficial || UserRegistry.userIsTC(ctx.session.user)) {
 				    ctx.println("<pre style='border: 1px solid gray; margin: 3px;'>"+r.resolverToString());
 				    ctx.print("</pre>");
 				}

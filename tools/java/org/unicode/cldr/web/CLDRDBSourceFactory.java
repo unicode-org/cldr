@@ -76,6 +76,18 @@ public class CLDRDBSourceFactory {
         }
 
         /* (non-Javadoc)
+         * @see org.unicode.cldr.util.XMLSource#getFullPathAtDPath(java.lang.String)
+         */
+        @Override
+        public String getWinningPath(String path) {
+          //   if(path.indexOf("=\"TR")>0&&path.indexOf("symbol")>0) { /*srl*/
+          //      if(true) {  System.err.println("NN: F["+path+"] @"+getLocaleID() + " WP= " + cachedSource.getWinningPath(path));    }
+          //  } */
+            if(false) {  System.err.println("NN: F["+path+"] @"+getLocaleID() + " = " + cachedSource.getWinningPath(path));    }
+            return cachedSource.getWinningPath(path);
+        }
+
+        /* (non-Javadoc)
          * @see org.unicode.cldr.util.XMLSource#getSupplementalDirectory()
          */
         @Override
@@ -159,7 +171,7 @@ public class CLDRDBSourceFactory {
             cachedSource.putValueAtPath(x, v);
             return dbSource.putValueAtPath(x, v);
         }
-
+        
         /* (non-Javadoc)
          * @see org.unicode.cldr.util.XMLSource#removeValueAtDPath(java.lang.String)
          */
@@ -898,27 +910,29 @@ public class CLDRDBSourceFactory {
 
 
     public int getSubmitterId(CLDRLocale locale, int xpath) {
-      try {
-          ResultSet rs;
-          stmts.getSubmitterId.setString(1,locale.toString());
-          stmts.getSubmitterId.setInt(2,xpath);
-          rs = stmts.getSubmitterId.executeQuery();
-          if(!rs.next()) {
-  ///*srl*/     System.err.println("GSI[-1]: " + locale+":"+xpath);
-              return -1;
-          }
-          int rp = rs.getInt(1);
-          rs.close();
-  ///*srl*/ System.err.println("GSI["+rp+"]: " + locale+":"+xpath);
-          if(rp > 0) {
-              return rp;
-          } else {
-              return -1;
-          }
-      } catch(SQLException se) {
-          logger.severe("CLDRDBSource: Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + SurveyMain.unchainSqlException(se));
-          throw new InternalError("Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+SurveyMain.unchainSqlException(se));
-      }
+    	synchronized(sm.vet.conn) {
+	      try {
+	          ResultSet rs;
+	          stmts.getSubmitterId.setString(1,locale.toString());
+	          stmts.getSubmitterId.setInt(2,xpath);
+	          rs = stmts.getSubmitterId.executeQuery();
+	          if(!rs.next()) {
+	  ///*srl*/     System.err.println("GSI[-1]: " + locale+":"+xpath);
+	              return -1;
+	          }
+	          int rp = rs.getInt(1);
+	          rs.close();
+	  ///*srl*/ System.err.println("GSI["+rp+"]: " + locale+":"+xpath);
+	          if(rp > 0) {
+	              return rp;
+	          } else {
+	              return -1;
+	          }
+	      } catch(SQLException se) {
+	          logger.severe("CLDRDBSource: Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + SurveyMain.unchainSqlException(se));
+	          throw new InternalError("Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+SurveyMain.unchainSqlException(se));
+	      }
+    	}
     }
 
 
@@ -1402,6 +1416,13 @@ public class CLDRDBSourceFactory {
     // look for it in parents
     for(CLDRLocale locale : CLDRLocale.getInstance(getLocaleID()).getParentIterator()) {
         String rv = CLDRDBSourceFactory.this.getWinningPath(xpath, locale, finalData);
+        
+        
+        if(false&&path.indexOf("=\"TR")>0&&path.indexOf("symbol")>0) {
+        	System.err.println("GWP: "+locale+",fd="+finalData+", "+xpath+":"+path+" -> "+rv);
+        }
+        
+        
         if(rv != null) {
             return rv;
         }

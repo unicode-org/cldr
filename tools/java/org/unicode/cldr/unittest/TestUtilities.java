@@ -404,6 +404,17 @@ public class TestUtilities extends TestFmwk {
     VoteResolver.setVoterToInfo(testdata);
     VoteResolver<String> resolver = new VoteResolver<String>();
     String[] tests = {
+            // regression case from John Emmons
+            "oldValue=2802",
+            "oldStatus=approved",
+            "304=208027", // Apple vetter
+            // expected values
+            "value=208027",
+            "status=approved",
+            "sameVotes=208027",
+            "conflicts=[]",
+            "check",
+            // first test
             "oldValue=old-value",
             "oldStatus=provisional",
             "comment=Check that identical values get the alphabetically lowest, and that org is maxed (eg vetter + street = vetter)",

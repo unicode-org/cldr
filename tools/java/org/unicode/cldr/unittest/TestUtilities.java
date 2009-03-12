@@ -522,11 +522,14 @@ public class TestUtilities extends TestFmwk {
         }
       } else if (name.equalsIgnoreCase("check")) {
         counter++;
+        // load the resolver
         resolver.setLastRelease(oldValue, oldStatus);
         for (int voter : values.keySet()) {
           resolver.add(values.get(voter), voter);
         }
+        // print the contents
         logln(counter + " " + resolver.toString());
+        // now print the values
         assertEquals(counter + " value", expectedValue, resolver.getWinningValue());
         assertEquals(counter + " sameVotes", sameVotes.toString(), resolver.getValuesWithSameVotes().toString());
         assertEquals(counter + " status", expectedStatus, resolver.getWinningStatus());

@@ -2578,6 +2578,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 id.name="id";
                 id.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.ISO_4217);
 
+                String tender = LDMLUtilities.getAttributeValue(node, LDMLConstants.TENDER);
+
                 ICUResourceWriter.ResourceIntVector fromRes = getSeconds(LDMLUtilities.getAttributeValue(node, LDMLConstants.FROM));
                 ICUResourceWriter.ResourceIntVector toRes =  getSeconds(LDMLUtilities.getAttributeValue(node, LDMLConstants.TO));
 
@@ -2590,7 +2592,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     toRes.name = LDMLConstants.TO;
                     fromRes.next = toRes;
                 }
-                res = curr;
+                if (tender != null && tender.equals("false")) {
+                    res = null;
+                } else {
+                    res = curr;
+                }
             }else{
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);

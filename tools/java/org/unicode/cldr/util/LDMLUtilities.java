@@ -476,9 +476,14 @@ public class LDMLUtilities {
         }else if(token.indexOf(LDMLConstants.DATE_TIME_FORMATS) > -1){
             // TODO fix this
             return "DateTimePatterns";
+        }else if(token.indexOf(LDMLConstants.INTVL_FMTS) > -1){
+            return "intervalFormats";
+            // TODO fix this
         }else if(token.indexOf(LDMLConstants.DTFL) > -1){
             // TODO fix this
         }else if(token.indexOf(LDMLConstants.DATE_TIME_FORMAT) > -1){
+            // TODO fix this
+        }else if(token.indexOf(LDMLConstants.INTVL_FMTS) > -1){
             // TODO fix this
         }else if(token.indexOf(LDMLConstants.MONTHS) > -1){
             return "monthNames";

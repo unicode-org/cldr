@@ -7911,7 +7911,7 @@ public class SurveyMain extends HttpServlet {
 				Race r =  vet.getRace(section.locale, p.base_xpath);
 				ctx.println("<i>Voting results by organization:</i><br>");
                 ctx.print("<table class='list' border=1 summary='voting results by organization'>");
-                ctx.print("<tr class='heading'><th>Organization</th><th>Organization's Vote</th><th>Conflicting Votes</th></tr>");
+                ctx.print("<tr class='heading'><th>Organization</th><th>Organization's Vote</th><th>Item</th><th>Conflicting Votes</th></tr>");
                 int onn=0;
 				for(Race.Organization org : r.orgVotes.values()) {
 				    Race.Chad orgVote = r.getOrgVote(org.name);				    
@@ -7959,7 +7959,6 @@ public class SurveyMain extends HttpServlet {
                         ctx.print("<span dir='"+ourDir+"'>");
 //						ctx.print(VoteResolver.getOrganizationToMaxVote(section.locale).
 //						            get(VoteResolver.Organization.valueOf(org.name)).toString().replaceAll("street","guest")
-                        ctx.print("<span class='warningReference'>#"+on+"</span> ");
 						ctx.print(ctx.iconHtml("vote","#"+orgVote.xpath)+theValue+"</span>");
                         if(orgVote.disqualified) {
                             ctx.print("</strike>");
@@ -7976,7 +7975,9 @@ public class SurveyMain extends HttpServlet {
                         }
 					}
 					ctx.print("</td>");
-                    
+
+                    ctx.print("<td class='warningReference'>#"+on+"</td> ");
+
                     ctx.print("<td>");
                     if(!org.votes.isEmpty()) for(Race.Chad item : org.votes) {
                         if(item==orgVote) continue;
@@ -8033,32 +8034,29 @@ public class SurveyMain extends HttpServlet {
                 
                 ctx.print("<br><hr><i>Voting results by item:</i>");
                 ctx.print("<table class='list' border=1 summary='voting results by item'>");
-                ctx.print("<tr class='heading'><th>Item</th><th>Value</th><!-- <th>Score</th> --><th>Votes</th></tr>");
+                ctx.print("<tr class='heading'><th>Value</th><th>Item</th><!-- <th>Score</th> --><th>Votes</th><th>O/N</th><th>Status 1.6</th><th>Status 1.7</th></tr>");
                 int nn=0;
                 for(CandidateItem citem : numberedItemsList) {
                     ctx.println("<tr class='row"+(nn++ % 2)+"'>");
-                    ctx.println("<th class='warningReference'>#"+nn+"</th>");
+                    
+                    String theValue = citem.value;
+                    String title="X#"+citem.xpathId;
+                    
                 	// find Chad item that matches citem
                 	
-                	if(citem.inheritFrom != null) {
-                		ctx.println("<td>"+citem.value+"</td><td><i>(inherited)</i></td></tr>");
-                		continue;
-                	}
                 	
                 	Race.Chad item = null;
-                	for(Race.Chad anitem : r.chads.values()) {
-                		if(anitem.xpath==citem.xpathId) {
-                			item = anitem;
-                		}
-                	}
-                	if(item==null) {
-                		ctx.println("<td>"+citem.value+"</td><th><i>not found</i></th></tr>");
-                		continue; // err! item missing.
+                	if(citem.inheritFrom==null) {
+	                	for(Race.Chad anitem : r.chads.values()) {
+	                		if(anitem.xpath==citem.xpathId) {
+	                			item = anitem;
+	                			title="#"+item.xpath;
+	                		}
+	                	}
                 	}
                 	
                 	//for(Race.Chad item : r.chads.values()) {
-                    String theValue = item.value;
-                    if(theValue == null) {  
+                    if(item!=null&&theValue == null) {  
                         if(item.xpath == r.base_xpath) {
                             theValue = "<i>(Old Vote for Status Quo)</i>";
                         } else {
@@ -8067,25 +8065,48 @@ public class SurveyMain extends HttpServlet {
                     }
                     
                     ctx.print("<td>");
-                    if(item == r.winner) {
-                        ctx.print("<b>");
+                    if(item!=null) {
+	                    if(item == r.winner) {
+	                        ctx.print("<b>");
+	                    }
+	                    if(item.disqualified) {
+	                        ctx.print("<strike>");
+	                    }
                     }
-                    if(item.disqualified) {
-                        ctx.print("<strike>");
-                    }
-                    ctx.print("<span dir='"+ourDir+"' title='#"+item.xpath+"'>"+theValue+"</span> ");
-                    if(item.disqualified) {
-                        ctx.print("</strike>");
-                    }
-                    if(item == r.winner) {
-                        ctx.print("</b>");
-                    }
-                    if(item == r.existing) {
-                        ctx.print(ctx.iconHtml("star","existing item"));
+                    ctx.print("<span dir='"+ourDir+"' title='"+title+"'>"+theValue+"</span> ");
+                    if(item!=null) {
+	                    if(item.disqualified) {
+	                        ctx.print("</strike>");
+	                    }
+	                    if(item == r.winner) {
+	                        ctx.print("</b>");
+	                    }
+	                    if(item == r.existing) {
+	                        ctx.print(ctx.iconHtml("star","existing item"));
+	                    }
                     }
                     ctx.print("</td>");
-                    //ctx.print("<td>"+item.score + "</td>");
-                    ctx.print("<td>"+ item.voters.size() +"</td>");
+
+                    ctx.println("<th class='warningReference'>#"+nn+"</th>");
+                    if(item!=null) {
+                    	ctx.print("<td>"+ item.voters.size() +"</td>");
+//                    	ctx.print("<td>"+ item.score +"</td>");
+                    	ctx.print("<td></td>");
+                    	ctx.print("<td></td>");
+                    	if(item == r.winner) {
+                    		ctx.print("<td>"+r.vrstatus+"</td>");
+                    	} else {
+                    		ctx.print("<td></td>");
+                    	}
+                    	
+                    } else {
+                    	/* no item */
+                    	if(citem.inheritFrom!=null) {
+                    		ctx.println("<td colspan=4><i>Inherited from "+citem.inheritFrom+"</i></td>");
+                    	} else {
+                    		ctx.println("<td colspan=4><i>Item not found!</i></td>");
+                    	}
+                    }
                     ctx.print("</tr>");
                 }
                 ctx.print("</table>");
@@ -8103,7 +8124,8 @@ public class SurveyMain extends HttpServlet {
                 	}
                     ctx.print("<b class='selected'>Optimal field</b>: #"+wn+" <span dir='"+ourDir+"' class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.vrstatus + ", <!-- score: "+r.winner.score +" -->");
                 }
-                //}
+                
+                ctx.println("For more information, see <a href='http://cldr.unicode.org/index/process#Voting_Process'>Voting Process</a><br>");
 			} catch (SQLException se) {
 				ctx.println("<div class='ferrbox'>Error fetching vetting results:<br><pre>"+se.toString()+"</pre></div>");
 			}

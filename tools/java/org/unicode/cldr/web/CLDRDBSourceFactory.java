@@ -1440,73 +1440,75 @@ public class CLDRDBSourceFactory {
      
     public String getValueAtDPath(String path) // D path
     {
-        long t0;
-        if(SHOW_TIMES) t0 = System.currentTimeMillis();
-        if(conn == null) {
-            throw new InternalError("No DB connection!");
-        }
-    
-        String locale = getLocaleID();
-        int xpath = xpt.getByXpath(path);
-        if(SHOW_TIMES) System.err.println("hasValueAtDPath:>> "+locale + ":" + xpath + " " + (System.currentTimeMillis()-t0));
-
-        ///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
-//        try {
-//            throw new InternalError("bar");
-//        } catch(InternalError ie) {
-//            ie.printStackTrace();
-//        }
-        if(SHOW_DEBUG) /*srl*/logger.info(locale + ":" + path);
-        try {
-            ResultSet rs;
-            if(finalData) {
-                stmts.queryVetValue.setString(1,locale);
-                stmts.queryVetValue.setInt(2,xpath); 
-                rs = stmts.queryVetValue.executeQuery();
-            } else {
-                stmts.queryValue.setString(1,locale);
-                stmts.queryValue.setInt(2,xpath);
-                rs = stmts.queryValue.executeQuery();
-            }
-            String rv;
-            if(!rs.next()) {
-                if(SHOW_TIMES) System.err.println("hasValueAtDPath:0 "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
-                if(!finalData) {
-                    rs.close();                    
-                    if(SHOW_DEBUG) System.err.println("Nonfinal - no match for "+locale+":"+xpath + "");
-                    return null;
-                } else {
-                    if(SHOW_DEBUG) System.err.println("Couldn't find "+ locale+":"+xpath + " - trying original - @ " + path);
-                    //if(locale.equals("de")) {
-                    //    return "fork";
-                    //} else {
-
-                    if(false && sm.isUnofficial) {
-                        if(oldKeySet().contains(path)) {
-                            System.err.println("Ad but missing: "+ locale+":"+xpath + " - @ " + path);
-                        } else {
-                            if(SHOW_DEBUG) System.err.println("notad: "+ locale+":"+xpath + " - @ " + path);
-                        }
-                    }
-                    rs.close();
-                    return null;
-                }                      
-            }
-            rv = SurveyMain.getStringUTF8(rs, 1); //            rv = rs.getString(1); // unicode
-            if(SHOW_TIMES) System.err.println("hasValueAtDPath:+ "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
-            if(rs.next()) {
-                String complaint = "warning: multi return: " + locale + ":" + path + " #"+xpath;
-                logger.severe(complaint);
-               // throw new InternalError(complaint);                    
-            }
-            rs.close();
-            if(SHOW_DEBUG) if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
-            return rv;
-        } catch(SQLException se) {
-            se.printStackTrace();
-            logger.severe("CLDRDBSource: Failed to query data ("+tree + "/" + locale + ":" + path + "): " + SurveyMain.unchainSqlException(se));
-            return null;
-        }
+    	synchronized(this.conn) {
+	        long t0;
+	        if(SHOW_TIMES) t0 = System.currentTimeMillis();
+	        if(conn == null) {
+	            throw new InternalError("No DB connection!");
+	        }
+	    
+	        String locale = getLocaleID();
+	        int xpath = xpt.getByXpath(path);
+	        if(SHOW_TIMES) System.err.println("hasValueAtDPath:>> "+locale + ":" + xpath + " " + (System.currentTimeMillis()-t0));
+	
+	        ///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
+	//        try {
+	//            throw new InternalError("bar");
+	//        } catch(InternalError ie) {
+	//            ie.printStackTrace();
+	//        }
+	        if(SHOW_DEBUG) /*srl*/logger.info(locale + ":" + path);
+	        try {
+	            ResultSet rs;
+	            if(finalData) {
+	                stmts.queryVetValue.setString(1,locale);
+	                stmts.queryVetValue.setInt(2,xpath); 
+	                rs = stmts.queryVetValue.executeQuery();
+	            } else {
+	                stmts.queryValue.setString(1,locale);
+	                stmts.queryValue.setInt(2,xpath);
+	                rs = stmts.queryValue.executeQuery();
+	            }
+	            String rv;
+	            if(!rs.next()) {
+	                if(SHOW_TIMES) System.err.println("hasValueAtDPath:0 "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
+	                if(!finalData) {
+	                    rs.close();                    
+	                    if(SHOW_DEBUG) System.err.println("Nonfinal - no match for "+locale+":"+xpath + "");
+	                    return null;
+	                } else {
+	                    if(SHOW_DEBUG) System.err.println("Couldn't find "+ locale+":"+xpath + " - trying original - @ " + path);
+	                    //if(locale.equals("de")) {
+	                    //    return "fork";
+	                    //} else {
+	
+	                    if(false && sm.isUnofficial) {
+	                        if(oldKeySet().contains(path)) {
+	                            System.err.println("Ad but missing: "+ locale+":"+xpath + " - @ " + path);
+	                        } else {
+	                            if(SHOW_DEBUG) System.err.println("notad: "+ locale+":"+xpath + " - @ " + path);
+	                        }
+	                    }
+	                    rs.close();
+	                    return null;
+	                }                      
+	            }
+	            rv = SurveyMain.getStringUTF8(rs, 1); //            rv = rs.getString(1); // unicode
+	            if(SHOW_TIMES) System.err.println("hasValueAtDPath:+ "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
+	            if(rs.next()) {
+	                String complaint = "warning: multi return: " + locale + ":" + path + " #"+xpath;
+	                logger.severe(complaint);
+	               // throw new InternalError(complaint);                    
+	            }
+	            rs.close();
+	            if(SHOW_DEBUG) if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
+	            return rv;
+	        } catch(SQLException se) {
+	            se.printStackTrace();
+	            logger.severe("CLDRDBSource: Failed to query data ("+tree + "/" + locale + ":" + path + "): " + SurveyMain.unchainSqlException(se));
+	            return null;
+	        }
+    	}
     }
 
     /*
@@ -1590,7 +1592,7 @@ public class CLDRDBSourceFactory {
     
     public int getOrigXpathId(int pathid, boolean useFinalData) {
         String locale = getLocaleID();
-        //synchronized (conn) { // NB: many of these synchronizeds were removed as unnecessary.
+        synchronized (conn) { // NB: many of these synchronizeds were removed as unnecessary.
             try {
 				ResultSet rs;
 				
@@ -1623,7 +1625,7 @@ public class CLDRDBSourceFactory {
                 logger.severe("CLDRDBSource: Failed to find orig xpath ("+tree + "/" + locale +"/"+xpt.getById(pathid)+"): " + SurveyMain.unchainSqlException(se));
                 return pathid; //? should be null?
             }
-        //}
+        }
     }
     
     /**

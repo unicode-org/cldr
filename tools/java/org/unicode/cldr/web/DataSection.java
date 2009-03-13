@@ -253,8 +253,8 @@ public class DataSection extends Registerable {
             public Vector examples = null; 
             //public List examplesList = null;
             String references = null;
-            String xpath = null;
-            int xpathId = -1;
+            String xpath = null; // xpath of actual item
+            int xpathId = -1; // xpid of actual item
             boolean isFallback = false; // item is from the parent locale - don't consider it a win.
             
             public Set<UserRegistry.User> votes = null; // Set of Users who voted for this.

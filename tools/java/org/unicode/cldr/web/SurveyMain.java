@@ -71,6 +71,7 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
+import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.SurveyThread.SurveyTask;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.w3c.dom.Document;
@@ -5742,16 +5743,16 @@ public class SurveyMain extends HttpServlet {
                 if(CACHE_VXML_FOR_EXAMPLES) {
                     fileForGenerator = getCLDRFileCache().getCLDRFile(locale, true);
                 } else {
-                    System.err.println("!CACHE_VXML_FOR_EXAMPLES");
+                 //   System.err.println("!CACHE_VXML_FOR_EXAMPLES");
                     fileForGenerator = new CLDRFile(dbSource,true);
                 }
                 exampleGenerator = new ExampleGenerator(fileForGenerator, fileBase + "/../supplemental/");
                 exampleGenerator.setVerboseErrors(twidBool("ExampleGenerator.setVerboseErrors"));
-                System.err.println("-revalid exgen-"+locale + " - " + exampleIsValid + " in " + this);
+                //System.err.println("-revalid exgen-"+locale + " - " + exampleIsValid + " in " + this);
                 exampleIsValid.setValid();
-                System.err.println(" >> "+locale + " - " + exampleIsValid + " in " + this);
+                //System.err.println(" >> "+locale + " - " + exampleIsValid + " in " + this);
                 exampleIsValid.register();
-                System.err.println(" >>> "+locale + " - " + exampleIsValid + " in " + this);
+                //System.err.println(" >>> "+locale + " - " + exampleIsValid + " in " + this);
             }
             return exampleGenerator;
         }
@@ -7450,7 +7451,7 @@ public class SurveyMain extends HttpServlet {
         boolean foundError = p.hasErrors;
         boolean foundWarning = p.hasWarnings;
         
-        List<DataSection.DataRow.CandidateItem> warningsList = new ArrayList<DataSection.DataRow.CandidateItem>();
+        List<DataSection.DataRow.CandidateItem> numberedItemsList = new ArrayList<DataSection.DataRow.CandidateItem>();
         List<String> refsList = (List<String>) ctx.temporaryStuff.get("references");
         
         String okayIcon;
@@ -7644,7 +7645,7 @@ public class SurveyMain extends HttpServlet {
         }
         
 //        if(topCurrent != null) {
-            printCells(ctx,section,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
+            printCells(ctx,section,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
 //        } else {
 //            printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
 //        }
@@ -7655,7 +7656,7 @@ public class SurveyMain extends HttpServlet {
             topProposed = proposedItems.get(0);
         }
         if(topProposed != null) {
-            printCells(ctx,section,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
+            printCells(ctx,section,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
         } else {
             printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
         }
@@ -7776,7 +7777,7 @@ public class SurveyMain extends HttpServlet {
                 // current item
                 if(currentItems.size() > row) {
                     item = currentItems.get(row);
-                    printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
+                    printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
                 } else {
                     item = null;
                     printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
@@ -7785,7 +7786,7 @@ public class SurveyMain extends HttpServlet {
                 // #6.1, 6.2 - proposed items
                 if(proposedItems.size() > row) {
                     item = proposedItems.get(row);
-                    printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
+                    printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
                 } else {
                     item = null;
                     printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
@@ -7839,10 +7840,12 @@ public class SurveyMain extends HttpServlet {
         }
         
         // now, if the warnings list isn't empty.. warnings rows
-        if(!warningsList.isEmpty()) {
+        if(!numberedItemsList.isEmpty()) {
             int mySuperscriptNumber =0;
-            for(DataSection.DataRow.CandidateItem item : warningsList) {
+            for(DataSection.DataRow.CandidateItem item : numberedItemsList) {
                 mySuperscriptNumber++;
+                if(item.tests==null && item.examples==null) 
+                	continue; /* skip rows w/o anything */
                 ctx.println("<tr class='warningRow'><td class='botgray'><span class='warningTarget'>#"+mySuperscriptNumber+"</span></td>");
                 if(item.tests != null) {
                     ctx.println("<td colspan='" + (PODTABLE_WIDTH-1) + "' class='warncell'>");
@@ -7911,9 +7914,26 @@ public class SurveyMain extends HttpServlet {
                 ctx.print("<tr class='heading'><th>Organization</th><th>Organization's Vote</th><th>Conflicting Votes</th></tr>");
                 int onn=0;
 				for(Race.Organization org : r.orgVotes.values()) {
-				    Race.Chad orgVote = r.getOrgVote(org.name);
+				    Race.Chad orgVote = r.getOrgVote(org.name);				    
                     ctx.println("<tr class='row"+(onn++ % 2)+"'>");
-					ctx.print("<th>"+org.name+"</th>");
+
+                	CandidateItem oitem = null;
+                	int on = -1;
+                	if(orgVote != null)
+                	{
+	                	int nn=0;
+	                    for(CandidateItem citem : numberedItemsList) {
+	                		nn++;
+	                		if(orgVote.xpath==citem.xpathId) {
+	                			oitem = citem;
+	                			on=nn;
+	                		}
+	                    }
+                	}
+                	
+
+                    
+                    ctx.print("<th>"+org.name+"</th>");
 					ctx.print("<td>");
 					if(orgVote == null) {
 						ctx.print("<i>(No vote.)</i>");
@@ -7939,6 +7959,7 @@ public class SurveyMain extends HttpServlet {
                         ctx.print("<span dir='"+ourDir+"'>");
 //						ctx.print(VoteResolver.getOrganizationToMaxVote(section.locale).
 //						            get(VoteResolver.Organization.valueOf(org.name)).toString().replaceAll("street","guest")
+                        ctx.print("<span class='warningReference'>#"+on+"</span> ");
 						ctx.print(ctx.iconHtml("vote","#"+orgVote.xpath)+theValue+"</span>");
                         if(orgVote.disqualified) {
                             ctx.print("</strike>");
@@ -8012,10 +8033,30 @@ public class SurveyMain extends HttpServlet {
                 
                 ctx.print("<br><hr><i>Voting results by item:</i>");
                 ctx.print("<table class='list' border=1 summary='voting results by item'>");
-                ctx.print("<tr class='heading'><th>Value</th><!-- <th>Score</th> --><th>Votes</th></tr>");
+                ctx.print("<tr class='heading'><th>Item</th><th>Value</th><!-- <th>Score</th> --><th>Votes</th></tr>");
                 int nn=0;
-                for(Race.Chad item : r.chads.values()) {
+                for(CandidateItem citem : numberedItemsList) {
                     ctx.println("<tr class='row"+(nn++ % 2)+"'>");
+                    ctx.println("<th class='warningReference'>#"+nn+"</th>");
+                	// find Chad item that matches citem
+                	
+                	if(citem.inheritFrom != null) {
+                		ctx.println("<td>"+citem.value+"</td><td><i>(inherited)</i></td></tr>");
+                		continue;
+                	}
+                	
+                	Race.Chad item = null;
+                	for(Race.Chad anitem : r.chads.values()) {
+                		if(anitem.xpath==citem.xpathId) {
+                			item = anitem;
+                		}
+                	}
+                	if(item==null) {
+                		ctx.println("<td>"+citem.value+"</td><th><i>not found</i></th></tr>");
+                		continue; // err! item missing.
+                	}
+                	
+                	//for(Race.Chad item : r.chads.values()) {
                     String theValue = item.value;
                     if(theValue == null) {  
                         if(item.xpath == r.base_xpath) {
@@ -8050,7 +8091,17 @@ public class SurveyMain extends HttpServlet {
                 ctx.print("</table>");
                 //if(UserRegistry.userIsTC(ctx.session.user)) {
                 if(r.winner != null ) {
-                    ctx.print("<b class='selected'>Optimal field</b>: <span dir='"+ourDir+"' class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.vrstatus + ", <!-- score: "+r.winner.score +" -->");
+                	CandidateItem witem = null;
+                	int wn = -1;
+                	nn=0;
+                    for(CandidateItem citem : numberedItemsList) {
+                		nn++;
+                		if(r.winner.xpath==citem.xpathId) {
+                			witem = citem;
+                			wn=nn;
+                		}
+                	}
+                    ctx.print("<b class='selected'>Optimal field</b>: #"+wn+" <span dir='"+ourDir+"' class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.vrstatus + ", <!-- score: "+r.winner.score +" -->");
                 }
                 //}
 			} catch (SQLException se) {
@@ -8106,10 +8157,10 @@ public class SurveyMain extends HttpServlet {
      *  print the cells which have to do with the item
      * this may be called with NULL if there isn't a proposed item for this slot.
      * it will be called once in the 'main' row, and once for any extra rows needed for proposed items
-     * @param warningsList if an item has warnings or errors, or demos, add them to this list.
+     * @param numberedItemsList All items are added here.
      */ 
     void printCells(WebContext ctx, DataSection section, DataSection.DataRow p, DataSection.DataRow.CandidateItem item, String fieldHash, String resultXpath, String ourVoteXpath,
-        boolean canModify, String ourAlign, String ourDir, UserLocaleStuff uf, boolean zoomedIn, List<DataSection.DataRow.CandidateItem> warningsList, List<String> refsList,
+        boolean canModify, String ourAlign, String ourDir, UserLocaleStuff uf, boolean zoomedIn, List<DataSection.DataRow.CandidateItem> numberedItemsList, List<String> refsList,
         ExampleContext exampleContext) {
         // ##6.1 proposed - print the TOP item
         
@@ -8136,8 +8187,8 @@ public class SurveyMain extends HttpServlet {
         ctx.println("</td>");    
         // 6.3 - If we are zoomed in, we WILL have an additional column withtests and/or references.
         if(zoomedIn) {
-            if(haveTests || haveReferences) {
-                if(item.tests != null) {
+            if(true || haveTests || haveReferences) {
+                if(true || item.tests != null) {
                     ctx.println("<td nowrap class='warncell'>");
                     ctx.println("<span class='warningReference'>");
                     //ctx.print(ctx.iconHtml("warn","Warning"));
@@ -8145,9 +8196,9 @@ public class SurveyMain extends HttpServlet {
                     ctx.println("<td nowrap class='examplecell'>");
                     ctx.println("<span class='warningReference'>");
                 }
-                if(haveTests) {
-                    warningsList.add(item);
-                    int mySuperscriptNumber = warningsList.size();  // which # is this item?
+                if(true /* always number -- was haveTests*/) {
+                    numberedItemsList.add(item);
+                    int mySuperscriptNumber = numberedItemsList.size();  // which # is this item?
                     ctx.println("#"+mySuperscriptNumber+"</span>");
                     if(haveReferences) {
                         ctx.println("<br>");
@@ -8606,6 +8657,8 @@ public class SurveyMain extends HttpServlet {
         if(isSetup == true) {
             return;
         }
+        
+        ElapsedTimer setupTime = new ElapsedTimer();
 
         try {
             setProgress("Main Startup");
@@ -8796,7 +8849,7 @@ public class SurveyMain extends HttpServlet {
             isLocaleAliased(CLDRLocale.ROOT);
        // }
         
-        logger.info("SurveyTool ready for requests. Memory in use: " + usedK());
+        logger.info("SurveyTool ready for requests after "+setupTime+". Memory in use: " + usedK());
         isSetup = true;
     }
 

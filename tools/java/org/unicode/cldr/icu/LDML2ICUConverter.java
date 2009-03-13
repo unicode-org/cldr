@@ -3939,6 +3939,41 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return str;
     }
 
+	private ICUResourceWriter.ResourceString getDefaultResourceWithFallback(
+            InputLocale loc, String xpath, String name) {
+        ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+        
+        if (loc.isPathNotConvertible(xpath)) {
+        	return null;
+        }
+        
+        // try to get from the specified locale
+        String temp = loc.getBasicAttributeValue(xpath, LDMLConstants.CHOICE);
+        if (temp == null) {
+            temp = loc.getBasicAttributeValue(xpath, LDMLConstants.TYPE);
+        }
+        if (temp == null) {      	
+        	temp =  loc.getBasicAttributeValue(loc.resolved(), xpath, LDMLConstants.CHOICE);
+        }
+        if (temp == null) {        	
+            temp = loc.getBasicAttributeValue(loc.resolved(), xpath, LDMLConstants.TYPE);
+        }
+        
+        // check final results
+        if (temp == null) {
+            if (!loc.file.isHere(xpath)) {
+                return null;
+            }
+            throw new IllegalArgumentException("Node: " + xpath
+                    + "  must have either type or choice attribute");
+        }
+
+        // return data if we get here
+        str.name = name;
+        str.val = temp;
+        return str;
+    } 
+    
     private ICUResourceWriter.Resource parseZone(InputLocale loc, String xpath) {
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
         ICUResourceWriter.ResourceTable uses_mz_table = new ICUResourceWriter.ResourceTable();
@@ -5368,6 +5403,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             "dateFormats/dateFormatLength[@type=\"long\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
             "dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
             "dateFormats/dateFormatLength[@type=\"short\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "dateTimeFormats/dateTimeFormatLength[@type=\"medium\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", 
             "dateTimeFormats/dateTimeFormatLength[@type=\"full\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", 
             "dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
             "dateTimeFormats/dateTimeFormatLength[@type=\"medium\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", 
@@ -5428,6 +5464,18 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
         }
 
+        // Glue pattern default
+        ICUResourceWriter.ResourceString res = getDefaultResourceWithFallback(loc, 
+        		xpath + "/dateTimeFormats/" + LDMLConstants.DEFAULT, 
+        		LDMLConstants.DEFAULT);   
+        int glueIndex = 8;
+        if (res.val.trim().equalsIgnoreCase("full")) glueIndex += 1;
+        if (res.val.trim().equalsIgnoreCase("long")) glueIndex += 2;
+        if (res.val.trim().equalsIgnoreCase("medium")) glueIndex += 3;
+        if (res.val.trim().equalsIgnoreCase("short")) glueIndex += 4;
+        strs[8].val = strs[glueIndex].val;
+        
+        // write out the data
         int n=0;
         for (ICUResourceWriter.ResourceString str : strs) {
             if(str.val == null) {

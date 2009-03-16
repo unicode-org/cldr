@@ -312,7 +312,7 @@ public class VoteResolver<T> {
         }
       }
       EnumSet<Organization> conflicted = EnumSet.noneOf(Organization.class);
-      return "{orgToVotes:" + orgToVotesString + ", totals:" + getTotals(conflicted) + ", conflicted:" + conflicted + "}";
+      return "{orgToVotes: " + orgToVotesString + ", totals: " + getTotals(conflicted) + ", conflicted: " + conflicted + "}";
     }
     
     public T getOrgVote(Organization org) {
@@ -540,7 +540,11 @@ public class VoteResolver<T> {
   }
 
   public String toString() {
-    return "{lastRelease:" + lastReleaseValue + ", " + lastReleaseStatus + ", " + organizationToValueAndVote + ", sameVotes: " + valuesWithSameVotes
+    return "{" +
+    		"lastRelease: {" + lastReleaseValue + ", " + lastReleaseStatus + "}, "
+      + organizationToValueAndVote + ", " +
+      "sameVotes: " + valuesWithSameVotes + ", " +
+      "winning: {" + getWinningValue() + ", " + getWinningStatus() + "}"
             + "}";
   }
 

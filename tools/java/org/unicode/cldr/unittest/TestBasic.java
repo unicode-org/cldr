@@ -69,11 +69,11 @@ public class TestBasic extends TestFmwk {
 
   public void TestDtds() throws IOException {
     checkDtds(mainDirectory);
-    checkDtds(commonDirectory + "supplemental");
-    checkDtds(commonDirectory + "collation");
-    checkDtds(commonDirectory + "segments");
-    checkDtds(commonDirectory + "test");
-    checkDtds(commonDirectory + "transforms");
+    checkDtds(commonDirectory + "/supplemental");
+    checkDtds(commonDirectory + "/collation");
+    checkDtds(commonDirectory + "/segments");
+    checkDtds(commonDirectory + "/test");
+    checkDtds(commonDirectory + "/transforms");
   }
 
   private void checkDtds(String directory) throws IOException {

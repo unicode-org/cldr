@@ -204,8 +204,8 @@ public class SurveyForum {
             canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
         }
         
-        /* can we accept a string xpath? */
-        if(base_xpath==-1 && ctx.hasField(F_XPATH)&&ctx.field(F_XPATH).length()>0) {
+        /* can we accept a string xpath? (ignore if 'forum' is set) */
+        if(!ctx.hasField(F_FORUM)&&base_xpath==-1 && ctx.hasField(F_XPATH)&&ctx.field(F_XPATH).length()>0) {
         	String xstr = ctx.field(F_XPATH);
         	String msg = null;
 

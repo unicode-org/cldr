@@ -23,13 +23,23 @@ public class CheckCurrencies extends CheckCLDR {
         
         // we're simply going to test the length. might do something more complicated later
         if (value.length() > 5) {
-            if (path.indexOf("[@type=\"INR\"]") >= 0) { // skip INR, since it is typically a choice (could do more sophisticated check later)
-                return this;
-            }
+            // The following test no longer applies, choice format is not used for INR
+            //if (path.indexOf("[@type=\"INR\"]") >= 0) { // skip INR, since it is typically a choice (could do more sophisticated check later)
+            //    return this;
+            //}
             if (!getCldrFileToCheck().getSourceLocaleID(path,null).equals(getCldrFileToCheck().getLocaleID())) { // skip if inherited -- we only need parent instance
                 return this;
             }
-            
+            // Don't include Cf format chars in length test
+            int adjustedLength = value.length();
+            for (int idx = 0; idx < value.length(); idx++) {
+                if ( Character.getType(value.charAt(idx)) == Character.FORMAT ) {
+                    if ( --adjustedLength <= 5 ) {
+                         return this;
+                    }
+                }
+            }
+
             // the following is how you signal an error or warning (or add a demo....)
             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.currencySymbolTooWide) // typically warningType or errorType
                     .setMessage("Currency symbol length > 5")); // the message; can be MessageFormat with arguments

@@ -167,9 +167,10 @@ public class CLDRTransforms {
                 // skip
             } else if (path.indexOf("/tRule") >= 0) {
                 // value = replaceUnquoted(value,"\u00A7", "&");
-                value = value.replace('\u2192', '>');
-                value = value.replace('\u2190', '<');
-                value = value.replaceAll("\u2194", "<>");
+                // no longer need to replace arrows, ICU now handles the 2190/2192/2194 arrows
+                //value = value.replace('\u2192', '>');
+                //value = value.replace('\u2190', '<');
+                //value = value.replaceAll("\u2194", "<>");
                 value = fixup.transliterate(value);
                 rules.append(value).append(Utility.LINE_SEPARATOR);
             } else {

@@ -292,9 +292,10 @@ public class ConvertTransforms extends CLDRConverterTool{
 			} 
 			else if (path.indexOf("/tRule") >= 0) 
 			{
-				value = replaceUnquoted(value, "\u2192", ">");
-				value = replaceUnquoted(value, "\u2190", "<");
-				value = replaceUnquoted(value, "\u2194", "<>");
+			    // no longer need to replace arrows, ICU now handles the 2190/2192/2194 arrows
+				//value = replaceUnquoted(value, "\u2192", ">");
+				//value = replaceUnquoted(value, "\u2190", "<");
+				//value = replaceUnquoted(value, "\u2194", "<>");
 				value = fixup.transliterate(value);
 				toilet.println(value);
 			} 
@@ -351,9 +352,10 @@ public class ConvertTransforms extends CLDRConverterTool{
 				}
 			} else if (path.indexOf("/tRule") >= 0) {
 				//value = replaceUnquoted(value,"\u00A7", "&");
-				value = replaceUnquoted(value, "\u2192", ">");
-				value = replaceUnquoted(value, "\u2190", "<");
-				value = replaceUnquoted(value, "\u2194", "<>");
+				// no longer need to replace arrows, ICU now handles the 2190/2192/2194 arrows
+				//value = replaceUnquoted(value, "\u2192", ">");
+				//value = replaceUnquoted(value, "\u2190", "<");
+				//value = replaceUnquoted(value, "\u2194", "<>");
 				value=fixup.transliterate(value);
 				output.println(value);
 			} else {

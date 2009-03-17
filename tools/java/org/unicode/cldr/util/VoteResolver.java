@@ -7,6 +7,8 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -252,7 +254,9 @@ public class VoteResolver<T> {
      * In that case, it is zero and the organization is added to disputed
      */
     public Counter<T> getTotals(EnumSet<Organization> conflictedOrganizations) {
-      conflictedOrganizations.clear();
+      if (conflictedOrganizations != null) {
+        conflictedOrganizations.clear();
+      }
       totals.clear();
       for (Organization org : orgToVotes.keySet()) {
         Counter<T> items = orgToVotes.get(org);
@@ -268,7 +272,9 @@ public class VoteResolver<T> {
           long weight2 = items.getCount(value2);
           // if the votes for #1 are not better than #2, we have a dispute
           if (weight == weight2) {
-            conflictedOrganizations.add(org);
+            if (conflictedOrganizations != null) {
+              conflictedOrganizations.add(org);
+            }
             continue;
           }
         }
@@ -318,6 +324,15 @@ public class VoteResolver<T> {
     public T getOrgVote(Organization org) {
         return orgToAdd.get(org);
     }
+    
+    public Map<T,Long> getOrgToVotes(Organization org) {
+      Map<T,Long> result = new LinkedHashMap();
+      MaxCounter<T> counter = orgToVotes.get(org);
+      for (T item : counter) {
+        result.put(item, counter.getCount(item));
+      }
+      return result;
+    }
   }
 
   /**
@@ -360,6 +375,16 @@ public class VoteResolver<T> {
   public void setLastRelease(T lastReleaseValue, Status lastReleaseStatus) {
     this.lastReleaseValue = lastReleaseValue;
     this.lastReleaseStatus = lastReleaseStatus == null ? Status.missing : lastReleaseStatus;
+  }
+
+
+  public T getLastReleaseValue() {
+    return lastReleaseValue;
+  }
+
+
+  public Status getLastReleaseStatus() {
+    return lastReleaseStatus;
   }
 
 

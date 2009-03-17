@@ -46,6 +46,8 @@ public class GenerateComparison {
   }
 
   static EnglishRowComparator ENG = new EnglishRowComparator();
+  
+  static final String warningMessage = "<p><b>Warning: this chart is still under development. For how to use it, see <a href=\"http://unicode.org/cldr/data/docs/survey/vetting.html\">Help: How to Vet</a>.</b></p>";
 
   public static void main(String[] args) throws IOException {
 
@@ -53,7 +55,7 @@ public class GenerateComparison {
     Timer timer = new Timer();
     Timer totalTimer = new Timer();
     long totalPaths = 0;
-    NumberFormat format = NumberFormat.getNumberInstance();
+    format = NumberFormat.getNumberInstance();
     format.setGroupingUsed(true);
 
     Counter<String> totalCounter = new Counter<String>();
@@ -108,27 +110,31 @@ public class GenerateComparison {
         try {
           oldFile = oldFactory.make(locale, true, true);
         } catch (Exception e) {
-          addToIndex(indexInfo, "ERROR1.6", locale, localeName);
+          addToIndex(indexInfo, "ERROR1.6 ", locale, localeName);
           continue;
         }
+      } else {
+        oldFile = CLDRFile.make(locale); // make empty file
       }
       CLDRFile newFile = null;
       if (newList.contains(locale)) {
         try {
           newFile = newFactory.make(locale, true, true);
         } catch (Exception e) {
-          addToIndex(indexInfo, "ERROR1.7", locale, localeName);
+          addToIndex(indexInfo, "ERROR1.7 ", locale, localeName);
           continue;
         }
+      } else {
+        newFile = CLDRFile.make(locale); // make empty file
       }
 
       // Check for null cases
 
       if (oldFile == null) {
-        addToIndex(indexInfo, "NEW", locale, localeName);
+        addToIndex(indexInfo, "NEW ", locale, localeName);
         continue;
       } else if (newFile == null) {
-        addToIndex(indexInfo, "DELETED", locale, localeName);
+        addToIndex(indexInfo, "DELETED ", locale, localeName);
         continue;
       }
       System.out.println("*** " + localeName + "\t" + locale);
@@ -140,11 +146,15 @@ public class GenerateComparison {
       try {
         paths = new HashSet<String>();
         CollectionUtilities.addAll(oldFile.iterator(), paths);
-        paths.addAll(oldFile.getExtraPaths());
+        if (oldList.contains(locale)) {
+          paths.addAll(oldFile.getExtraPaths());
+        }
         CollectionUtilities.addAll(newFile.iterator(), paths);
-        paths.addAll(newFile.getExtraPaths());
+        if (newList.contains(locale)) {
+          paths.addAll(newFile.getExtraPaths());
+        }
       } catch (Exception e) {
-        addToIndex(indexInfo, "ERROR", locale, localeName);
+        addToIndex(indexInfo, "ERROR ", locale, localeName);
         continue;
       }
 
@@ -177,7 +187,7 @@ public class GenerateComparison {
       Counter<String> fileCounter = new Counter<String>();
 
       for (String path : paths) {
-        if (path.contains("/alias")) {
+        if (path.contains("/alias") || path.contains("/identity")) {
           continue;
         }
         String cleanedPath = CLDRFile.getNondraftNonaltXPath(path);
@@ -208,52 +218,55 @@ public class GenerateComparison {
         // TODO check for non-distinguishing attribute value differences
 
         boolean isAliased = false;
-        if (!SHOW_ALIASED) {
 
-          // Skip deletions of alt-proposed
 
-//          if (newValue == null) {
-//            if (path.contains("@alt=\"proposed")) {
-//              continue;
-//            }
-//          }
+        // Skip deletions of alt-proposed
 
-          // Skip if both inherited from the same locale, since we should catch it
-          // in that locale.
+        //          if (newValue == null) {
+        //            if (path.contains("@alt=\"proposed")) {
+        //              continue;
+        //            }
+        //          }
 
-          // Mark as aliased if new locale or path is different
-          if (!newStatus.pathWhereFound.equals(path)) {
-            isAliased=true;
-            //continue;
-          }         
-          
-          if (!newFoundLocale.equals(locale)) {
-            isAliased=true;
-            //continue;
-          }
-          
-//          // skip if old locale or path is aliased
-//          if (!oldFoundLocale.equals(locale)) {
-//            //isAliased=true;
-//            continue;
-//          }
-//          
-//          // Skip if either found path is are different
-//          if (!oldStatus.pathWhereFound.equals(cleanedPath)) {
-//            //isAliased=true;
-//            continue;
-//          }
+        // Skip if both inherited from the same locale, since we should catch it
+        // in that locale.
 
-          // Now check other aliases
+        // Mark as aliased if new locale or path is different
+        if (!newStatus.pathWhereFound.equals(path)) {
+          isAliased=true;
+          //continue;
+        }         
 
-//          final boolean newIsAlias = !newStatus.pathWhereFound.equals(path);
-//          if (newIsAlias) { // new is alias
-//            // filter out cases of a new string that is found via alias
-//            if (oldValue == null) {
-//              continue;
-//            }
-//
-//          }
+        if (!newFoundLocale.equals(locale)) {
+          isAliased=true;
+          //continue;
+        }
+
+        //          // skip if old locale or path is aliased
+        //          if (!oldFoundLocale.equals(locale)) {
+        //            //isAliased=true;
+        //            continue;
+        //          }
+        //          
+        //          // Skip if either found path is are different
+        //          if (!oldStatus.pathWhereFound.equals(cleanedPath)) {
+        //            //isAliased=true;
+        //            continue;
+        //          }
+
+        // Now check other aliases
+
+        //          final boolean newIsAlias = !newStatus.pathWhereFound.equals(path);
+        //          if (newIsAlias) { // new is alias
+        //            // filter out cases of a new string that is found via alias
+        //            if (oldValue == null) {
+        //              continue;
+        //            }
+        //
+        //          }
+
+        if (isAliased && !SHOW_ALIASED) {
+          continue;
         }
 
         // We definitely have a difference worth recording, so do so
@@ -317,21 +330,18 @@ public class GenerateComparison {
         differences++;
       }
 
-      addToIndex(indexInfo, "", locale, localeName);
+      addToIndex(indexInfo, "", locale, localeName, fileCounter);
       PrintWriter out = BagFormatter.openUTF8Writer(changesDirectory, locale + ".html");
       String title = "Changes in " + localeDisplayName ;
       out.println("<html>" +
               "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" + Utility.LINE_SEPARATOR +
               "<title>" + title + "</title>" + Utility.LINE_SEPARATOR +
               "<link rel='stylesheet' href='index.css' type='text/css'>" + Utility.LINE_SEPARATOR +
-              //"<base target='_blank'>" + Utility.LINE_SEPARATOR +
+              "<base target='_blank'>" + Utility.LINE_SEPARATOR +
               "</head><body>" + Utility.LINE_SEPARATOR +
               "<h1>" + title + "</h1>" + Utility.LINE_SEPARATOR
-              + "<a href='index.html'>Index</a>"
-              + "<p><b>Warning: this is still being developed, and might have problems.</b> " +
-              		"In particular, until the voting code has been changed to match the new rules, " +
-              		"the status will not be correct. Please send feedback to cldr-users@unicode.org as per the email.</p>" +
-              		"<p>The Inh. column indicates when a value is inherited or aliased.</p>"
+              + "<a href='index.html'>Index</a> | <a href=\"http://unicode.org/cldr/data/docs/survey/vetting.html\"><b style=\"background-color: yellow;\"><i>Help: How to Vet</i></b></a>"
+              + warningMessage
               );
 
       TablePrinter table2 = new TablePrinter()
@@ -346,7 +356,7 @@ public class GenerateComparison {
         table2.addRow()
         .addCell(inherited ? "I" : "")
         .addCell(inherited ? key.substring(2) : key)
-        .addCell(fileCounter.getCount(key))
+        .addCell(format.format(fileCounter.getCount(key)))
         .finishRow();
       }
       out.println(table2);
@@ -358,7 +368,9 @@ public class GenerateComparison {
       System.out.println(locale + "\tDifferences:\t" + format.format(differences)
               + "\tPaths:\t" + format.format(paths.size())
               + "\tTime:\t" + timer.getDuration() + "ms");
+
       totalPaths += paths.size();
+      out.println("<p>$Date$</p>");      
       out.println("</body></html>");
       out.close();
     }
@@ -370,17 +382,23 @@ public class GenerateComparison {
             "<base target='_blank'>" + Utility.LINE_SEPARATOR +
             "</head><body>" + Utility.LINE_SEPARATOR +
             "<h1>" + "Change Summary" + "</h1>" + Utility.LINE_SEPARATOR
-            + "<p>");
+            + "<a href=\"http://unicode.org/cldr/data/docs/survey/vetting.html\"><b style=\"background-color: yellow;\"><i>Help: How to Vet</i></b></a>"
+            + warningMessage
+            + "<table><tr>");
 
     String separator = "";
     int last = 0;
     for (R2<String,String> indexPair : indexInfo) {
       int firstChar = indexPair.get0().codePointAt(0);
-      indexFile.append(firstChar != last ? "</p><p>" : separator).append(indexPair.get1());
+      indexFile.append(firstChar == last ? separator
+              : (last == 0 ? "" : "</td></tr><tr>") + "<th>" + String.valueOf((char)firstChar) + "</th><td>")
+                      .append(indexPair.get1());
       separator = " | ";
       last = indexPair.get0().codePointAt(0);
     }
-    indexFile.println("</p></body></html>");
+    indexFile.println("</tr></table>");
+    indexFile.println("<p>$Date$</p>");  
+    indexFile.println("</body></html>");
     indexFile.close();
 
     System.out.println();
@@ -402,17 +420,36 @@ public class GenerateComparison {
           "'\\u00' > '%' ;"
           , Transliterator.FORWARD);
 
+  private static NumberFormat format;
+
   private static String URLEscaper(String path) {
     return urlHex.transform(path);
   }
 
   private static void addToIndex(Set<R2<String,String>> indexInfo, String title, final String locale,
           final String localeName) {
+    addToIndex(indexInfo, title, locale, localeName, null);
+  }
+
+  private static void addToIndex(Set<R2<String,String>> indexInfo, String title, final String locale,
+          final String localeName, Counter<String> fileCounter) {
     if (title.startsWith("ERROR")) {
-      indexInfo.add(R2.make(localeName, title + " " + localeName + " (" + locale + ")"));
+      indexInfo.add(R2.make(localeName, 
+              title + " " + localeName + " (" + locale + ")"));
       return;
     }
-    indexInfo.add(R2.make(localeName, "<a href='" + locale + ".html'>" + title + " " + localeName + " (" + locale + ")</a>"));
+    String counterString = "";
+    if (fileCounter != null) {
+      for (String s : fileCounter) {
+        if (counterString.length() != 0) {
+          counterString += "; ";
+        }
+        counterString += s.charAt(0) + ":" + format.format(fileCounter.getCount(s));
+      }
+    }
+    indexInfo.add(R2.make(localeName, 
+            "<a href='" + locale + ".html'>" + title + localeName + " (" + locale + ")</a>" 
+            + (counterString.length() == 0 ? "" : " [" + counterString + "]")));
   }
 
   //  private static int accumulate(Set<R2<String,String>> rejected, int totalRejected,

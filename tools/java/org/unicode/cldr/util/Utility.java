@@ -86,6 +86,9 @@ public class Utility {
   }
   
   static String getPath(String path, String filename) {
+    if (path == null) {
+      return null;
+    }
     final File file = filename == null ? new File(path) 
     : new File(path, filename);
     try {

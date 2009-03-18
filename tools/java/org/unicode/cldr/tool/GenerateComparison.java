@@ -139,6 +139,11 @@ public class GenerateComparison {
       }
       System.out.println("*** " + localeName + "\t" + locale);
       System.out.println();
+      
+      // exclude aliased locales
+      if (newFile.isAliasedAtTopLevel()) {
+        continue;
+      }
 
       // Get the union of all the paths
 

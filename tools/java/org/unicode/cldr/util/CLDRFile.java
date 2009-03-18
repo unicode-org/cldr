@@ -3045,4 +3045,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
     // TODO Auto-generated method stub
     return new ArrayList(orderedElements);
   }
+  
+  public boolean isAliasedAtTopLevel() {
+    return iterator("//ldml/alias").hasNext();
+  }
 }

@@ -907,6 +907,7 @@ public class ConsoleCheckCLDR {
       //generated_html.println("<table border='1' style='border-collapse: collapse' bordercolor='#CCCCFF'>");
       // Locale Group Error Warning Missing Votes: Contributed  Missing Votes: Provisional  Missing Votes: Unconfirmed  Missing Coverage: Posix Missing Coverage: Minimal Missing Coverage: Basic Missing Coverage: Moderate  Missing Coverage: Modern
       ErrorFile.errorFileWriter.println(ErrorFile.errorFileTable.toTable());
+      ErrorFile.errorFileWriter.println("<p>$Date$</p>");      
       ErrorFile.errorFileWriter.println("</body></html>");
       ErrorFile.errorFileWriter.close();
       ErrorFile.errorFileTable = null;
@@ -979,7 +980,8 @@ public class ConsoleCheckCLDR {
         indexTablePrinter.finishRow();
       }      
       generated_html_index.println(indexTablePrinter.toTable());
-      generated_html_index.println("</html>");
+      generated_html_index.println("<p>$Date$</p>");      
+      generated_html_index.println("</body></html>");
     }
 
     static Relation<String,String> orgToLocales;
@@ -1043,7 +1045,8 @@ public class ConsoleCheckCLDR {
       PrintWriter generated_html_index = BagFormatter.openUTF8Writer(ErrorFile.generated_html_directory, "sections.html");
       ConsoleCheckCLDR.ErrorFile.showIndexHead("Error Report Index by Section", "", generated_html_index);
       generated_html_index.println(indexTablePrinter.toTable());
-      generated_html_index.println("</html>");
+      generated_html_index.println("<p>$Date$</p>");      
+      generated_html_index.println("</body></html>");
       generated_html_index.close();
     }
     

@@ -27,6 +27,7 @@ public class CheckExemplars extends CheckCLDR {
 	public static final UnicodeSet AllowedInExemplars = (UnicodeSet) new UnicodeSet(AlwaysOK).complement()
 		.addAll(new UnicodeSet("[[:Mn:][:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:]]")
     .removeAll(new UnicodeSet("[[:Uppercase:]-[\u0130]]"))
+    .add(0x200E,0x200F) // add RLM, LRM
 		).freeze();
 	public static final UnicodeSet TO_REMOVE_FROM_EXEMPLARS = (UnicodeSet) new UnicodeSet(AllowedInExemplars).complement().freeze();
 

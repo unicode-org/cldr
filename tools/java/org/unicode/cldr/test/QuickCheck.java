@@ -65,7 +65,7 @@ public class QuickCheck {
     //if (commonDirectory == null) commonDirectory = Utility.COMMON_DIRECTORY
     //System.out.println("Main Source Directory: " + commonDirectory + "\t\t(to change, use -DSOURCE=xxx, eg -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
 
-    mainDirectory = Utility.getProperty("main", Utility.COMMON_DIRECTORY + "main");
+    mainDirectory = Utility.getProperty("main", Utility.COMMON_DIRECTORY + "/main");
     //System.out.println("Main Source Directory: " + commonDirectory + "\t\t(to change, use -DSOURCE=xxx, eg -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
 
     showForceZoom = Utility.getProperty("forcezoom","false","true").matches("(?i)T|TRUE");

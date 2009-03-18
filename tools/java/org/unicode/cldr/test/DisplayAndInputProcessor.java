@@ -1,20 +1,19 @@
 package org.unicode.cldr.test;
 
-import org.unicode.cldr.util.CLDRFile;
+import java.util.Comparator;
 
 import org.unicode.cldr.icu.CollectionUtilities;
+import org.unicode.cldr.test.DateTimePatternGenerator.FormatParser;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.PrettyPrinter;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-
-import org.unicode.cldr.test.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.util.ULocale;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * Class for processing the input and output of CLDR data for use in the
@@ -22,11 +21,22 @@ import java.util.Map;
  */
 public class DisplayAndInputProcessor {
   
+  private static final UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]");
+
+  private static final UnicodeSet TO_QUOTE = (UnicodeSet) new UnicodeSet(
+          "[[:Cn:]" +
+          "[:Default_Ignorable_Code_Point:]" +
+          "[:patternwhitespace:]" +
+          "[:Me:][:Mn:]]" // add non-spacing marks
+          ).freeze();
+  
   private Collator col;
 
   private Collator spaceCol;
   
-  static final UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]");
+  private FormatParser formatDateParser = new FormatParser();
+
+  private PrettyPrinter pp;
 
   /**
    * Constructor, taking cldrFile.
@@ -36,6 +46,11 @@ public class DisplayAndInputProcessor {
     String locale = cldrFileToCheck.getLocaleID();
     col = Collator.getInstance(new ULocale(locale));
     spaceCol = Collator.getInstance(new ULocale(locale));
+    pp = new PrettyPrinter()
+    .setCompressRanges(true)
+    .setToQuote(new UnicodeSet(TO_QUOTE))
+    .setOrdering(col)
+    .setSpaceComparator(spaceCol);
   }
 
   /**
@@ -65,7 +80,6 @@ public class DisplayAndInputProcessor {
     return value;
   }
 
-  FormatParser formatDateParser = new FormatParser();
   /**
    * Process the value for input. The result is a cleaned-up value. For example,
    * an exemplar set is modified to be in the normal format, and any missing [ ]
@@ -142,13 +156,14 @@ public class DisplayAndInputProcessor {
         exemplar.addAll(toAdd);
 
         exemplar.removeAll(CheckExemplars.TO_REMOVE_FROM_EXEMPLARS);
-        String fixedExemplar = CollectionUtilities.prettyPrint(exemplar, true,
-            null, null, col, col);
+
+        String fixedExemplar = pp.toPattern(exemplar);
         UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar);
         if (!exemplar.equals(doubleCheck)) {
-          return original;
+          // don't change; something went wrong
+        } else if (!value.equals(fixedExemplar)) { // put in this condition just for debugging
+          value = fixedExemplar;
         }
-        value = fixedExemplar;
       }
       return value;
     } catch (RuntimeException e) {

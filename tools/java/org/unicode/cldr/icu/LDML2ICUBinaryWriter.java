@@ -252,7 +252,7 @@ public class LDML2ICUBinaryWriter
 		try
 		{
 			System.out.println("Creating file: " + directoryPath + fileName);
-			File f = new File(directoryPath + fileName);
+			File f = new File(directoryPath, fileName);
 			out = new FileOutputStream(f);
 			
 			info = new UDataInfo(UDataInfo.getSize(), (short)0, UDataInfo.BIGENDIAN, UDataInfo.ASCII_FAMILY, 

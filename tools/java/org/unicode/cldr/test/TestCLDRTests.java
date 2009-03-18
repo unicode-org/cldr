@@ -106,7 +106,7 @@ public class TestCLDRTests extends TestFmwk {
         uLocale = new ULocale(localeName);
         oLocale = uLocale.toLocale();
         
-        File f = new File(Utility.TEST_DIR + localeName + ".xml");
+        File f = new File(Utility.TEST_DIR, localeName + ".xml");
         SAX.parse(f, DEFAULT_HANDLER);
     }
     

@@ -125,7 +125,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
       return (String)xpath_value.get(xpath);
     }
     public File getSupplementalDirectory() {
-      final File result = new File(factory.getSourceDirectory()+ File.separator + "../supplemental/");
+      final File result = new File(factory.getSourceDirectory(), "../supplemental/");
       if (result.isDirectory()) {
         return result;
       }

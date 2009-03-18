@@ -8034,7 +8034,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             // check to see if the destination file already exists
             // maybe override draft was specified in the run that produced
             // the txt files
-            File f = new File(destDir+"/"+locName+".txt");
+            File f = new File(destDir, locName+".txt");
             return f.exists();
         }
     }

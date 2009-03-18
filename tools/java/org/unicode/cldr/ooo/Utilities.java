@@ -18,7 +18,7 @@ public class Utilities
             return null;
         
         //create the subdir if it doesn't already exist
-        File dir = new File("./" + subDir);
+        File dir = new File(".", subDir);
         if (dir.exists() == false)
             dir.mkdir();
         

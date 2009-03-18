@@ -63,7 +63,7 @@ public class GenerateComparison {
     // Get the args
 
     String oldDirectory = Utility.getProperty("oldDirectory", new File(Utility.BASE_DIRECTORY, "../../common-cldr1.6/main/").getCanonicalPath() + "/");
-    String newDirectory = Utility.getProperty("newDirectory", new File(Utility.BASE_DIRECTORY, "incoming/proposed/main/").getCanonicalPath() + "/");
+    String newDirectory = Utility.getProperty("newDirectory", new File(Utility.BASE_DIRECTORY, "incoming/vetted/main/").getCanonicalPath() + "/");
     String changesDirectory = Utility.getProperty("changesDirectory", new File(Utility.CHART_DIRECTORY + "/changes/").getCanonicalPath() + "/");
 
     String filter = Utility.getProperty("localeFilter", ".*");

@@ -34,7 +34,7 @@ public class CompareFlex
             doComparison = true;
             
             String file = (String) allFiles.elementAt(i);
-            File f1 = new File(m_dir1 + "/" + file); 
+            File f1 = new File(m_dir1, file); 
             if (!f1.exists())
             {
                 try
@@ -49,7 +49,7 @@ public class CompareFlex
                 doComparison = false;
             }
             
-            File f2 = new File(m_dir2 + "/" + file); 
+            File f2 = new File(m_dir2, file); 
             if (!f2.exists())
             {
                 try

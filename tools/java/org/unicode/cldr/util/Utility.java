@@ -84,28 +84,42 @@ public class Utility {
       }
     }
   }
+  
+  static String getPath(String path, String filename) {
+    final File file = filename == null ? new File(path) 
+    : new File(path, filename);
+    try {
+      return file.getCanonicalPath() + File.separatorChar;
+    } catch (IOException e) {
+      return file.getPath() + File.separatorChar;
+    }
+  }
+  
+  static String getPath(String path) {
+    return getPath(path, null);
+  }
 
   static final boolean DEBUG_SHOW_BAT = false;
   /** default working directory for Eclipse is . = ${workspace_loc:cldr}, which is <CLDR>/tools/java/ */
   // set the base directory with -Dcldrdata=<value>
   // if the main is different, use -Dcldrmain=<value>
-  public static final String BASE_DIRECTORY = Utility.getProperty("CLDR_DIR", null);	// get up to <CLDR>
-  public static final String UTIL_DATA_DIR = new File(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/").getPath();        // "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
+  public static final String BASE_DIRECTORY = getPath(Utility.getProperty("CLDR_DIR", null)); // new File(Utility.getProperty("CLDR_DIR", null)).getPath();	// get up to <CLDR>
+  public static final String UTIL_DATA_DIR = getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/");        // "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
   public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
-  public static final String COMMON_DIRECTORY = new File(BASE_DIRECTORY , "common/").getPath();
-  public static final String MAIN_DIRECTORY = Utility.getProperty("CLDR_MAIN", new File(Utility.COMMON_DIRECTORY,  "main").getPath());
+  public static final String COMMON_DIRECTORY = getPath(BASE_DIRECTORY , "common/");
+  public static final String MAIN_DIRECTORY = Utility.getProperty("CLDR_MAIN", getPath(Utility.COMMON_DIRECTORY,  "main"));
   /**
    * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
    * @see DEFAULT_SUPPLEMENTAL_DIRECTORY
    */
-  public static final String SUPPLEMENTAL_DIRECTORY = new File(COMMON_DIRECTORY , "supplemental/").getPath();
+  public static final String SUPPLEMENTAL_DIRECTORY = getPath(COMMON_DIRECTORY , "supplemental/");
   /**
    * Only the default, if no other directory is specified.
    */
-  public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = new File(COMMON_DIRECTORY , "supplemental/").getPath();
-  public static final String GEN_DIRECTORY = new File(BASE_DIRECTORY , "dropbox/gen/").getPath();
-  public static final String CHART_DIRECTORY = new File(BASE_DIRECTORY ,  "diff/").getPath();
-  public static final String TEST_DIR = new File(Utility.COMMON_DIRECTORY,  "test/").getPath();
+  public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = getPath(COMMON_DIRECTORY , "supplemental/");
+  public static final String GEN_DIRECTORY = getPath(BASE_DIRECTORY , "dropbox/gen/");
+  public static final String CHART_DIRECTORY = getPath(BASE_DIRECTORY ,  "diff/");
+  public static final String TEST_DIR = getPath(Utility.COMMON_DIRECTORY,  "test/");
 
 
   /** If the generated BAT files are to work, this needs to be set right */
@@ -325,8 +339,8 @@ public class Utility {
       String fullSource = sourceDir + File.separator + sourceFile;
       String fullTarget = targetDir + File.separator + targetFile;
 
-      if (!new File(sourceDir + File.separator + sourceFile).exists()) {
-        File f = new File(batDir + batName);
+      if (!new File(sourceDir, sourceFile).exists()) {
+        File f = new File(batDir, batName);
         if (f.exists()) {
           if (DEBUG_SHOW_BAT) System.out.println("*Deleting old " + f.getCanonicalPath());
           f.delete();
@@ -341,7 +355,7 @@ public class Utility {
           bat.close();
         }
       } else {
-        File f = new File(batDir + batName);
+        File f = new File(batDir, batName);
         if (f.exists()) {
           if (DEBUG_SHOW_BAT) System.out.println("*Deleting old:\t" + f.getCanonicalPath());
           f.delete();

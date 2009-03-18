@@ -830,11 +830,11 @@ public class CLDRTest extends TestFmwk {
 				missing.write(out);
 				out.close();
 				//String s = getIDAndLocalization(missing);
-				String message = "missing localizations, creating file" + new File(Utility.GEN_DIRECTORY + "missing/" + filename).getCanonicalPath();
+				String message = "missing localizations, creating file" + new File(Utility.GEN_DIRECTORY + "missing/", filename).getCanonicalPath();
 				if (failureCount[0] > 0) warnln(getLocaleAndName(locale) + "\t" + message);
 				else logln(getLocaleAndName(locale) + "\tpossibly " + message);
 			} else {
-				new File(Utility.GEN_DIRECTORY + "missing/" + filename).delete();
+				new File(Utility.GEN_DIRECTORY + "missing/", filename).delete();
 			}
 		}
 	}

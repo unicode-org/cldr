@@ -403,7 +403,7 @@ public class GenerateSidewaysView {
     }
 
     public void readFrom(String dir, String filename) throws SAXException, IOException {
-        File f = new File(dir + filename + ".xml");
+        File f = new File(dir, filename + ".xml");
         System.out.println("Parsing: " + f.getCanonicalPath());
         log.println("Parsing: " + f.getCanonicalPath());
         xmlReader.parse(new InputSource(new FileInputStream(f)));

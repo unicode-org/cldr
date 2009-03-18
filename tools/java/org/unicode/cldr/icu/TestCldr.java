@@ -188,7 +188,7 @@ public class TestCldr extends TestFmwk {
     //uLocale = new ULocale(localeName);
     //oLocale = uLocale.toLocale();
 
-    File f = new File(directory + localeName + ".xml");
+    File f = new File(directory, localeName + ".xml");
     logln("Testing " + f.getCanonicalPath());
     SAX.parse(f, DEFAULT_HANDLER);
   }

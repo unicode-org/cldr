@@ -343,7 +343,7 @@ class GeneratePickerData {
   }
 
   static PrintWriter getFileWriter(String directory, String filename) throws IOException, FileNotFoundException {
-    File f = new File(directory + File.separator + filename);
+    File f = new File(directory, filename);
     System.out.println("Writing: " + f.getCanonicalFile());
     PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(f), Charset.forName("UTF-8")));
     return out;

@@ -521,6 +521,7 @@ public class GenerateSidewaysView {
       String path = prettyPath.getOutputForm(inputPath);
       int pos = path.lastIndexOf('|');
       partial[0] = path.substring(pos+1);
+      if (pos < 0) return path;
       try {
         return path.substring(0,pos).replace('|','.');
       } catch (RuntimeException e) {

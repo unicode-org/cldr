@@ -5655,6 +5655,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         boolean writtenCurrencyFormatPlurals = false;
         boolean writtenCurrencies = false;
         boolean writtenCurrencyPlurals = false;
+        boolean writtenCurrencySpacing = false;
 
         String origXpath = xpath;
         String names[] = { LDMLConstants.ALIAS, LDMLConstants.DEFAULT,
@@ -5694,7 +5695,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     res = parseCurrencyFormatPlurals(loc, origXpath);
 
                     writtenCurrencyFormatPlurals = true;
-                }
+                } else if (writtenCurrencySpacing == false){
+                  res = parseCurrencySpacing(loc, origXpath);
+
+                  writtenCurrencySpacing = true;
+              }
             } else if (name.equals(LDMLConstants.CURRENCIES)) {
                 if (writtenCurrencies == false) {
                 	res = parseCurrencies(loc, xpath);
@@ -6068,6 +6073,67 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
 
         if (table.first != null) {
+            return table;
+        }
+        return null;
+    }
+    
+    private static final String[] CurrencySections = new String[] {
+        LDMLConstants.CURRENCY_SPC_BEFORE,
+        LDMLConstants.CURRENCY_SPC_AFTER
+    };
+    
+    private ICUResourceWriter.Resource parseCurrencySpacing(InputLocale loc,
+        String xpath) {
+      
+        // This table contains formatting patterns for this locale's currency.
+        // Syntax example in XML file:
+        //  <currencyFormats>
+        //    <currencySpacing>
+        //      <beforeCurrency>
+        //          <currencyMatch>[:letter:]</currencyMatch>
+        //          <surroundingMatch>[:digit:]</surroundingMatch>
+        //          <insertBetween> </insertBetween>
+        //      </beforeCurrency>
+        //      <afterCurrency>
+        //          <currencyMatch>[:letter:]</currencyMatch>
+        //          <surroundingMatch>[:digit:]</surroundingMatch>
+        //          <insertBetween> </insertBetween>
+        //      </afterCurrency>
+        //    </currencySpacing>
+        //  </currencyFormats>
+        ICUResourceWriter.ResourceTable table = null, current = null, first = null;
+        for (String section : CurrencySections) {
+            String xpathUnitPattern = xpath + "/" + LDMLConstants.CURRENCY_FORMATS + 
+                "/" + LDMLConstants.CURRENCY_SPACING + "/" + section;
+            int count = 0;
+            for (Iterator<String> iter = loc.file.iterator(xpathUnitPattern); iter.hasNext();) {
+                String localxpath = iter.next();
+                if(loc.isPathNotConvertible(localxpath)) {
+                    continue;
+                }
+                if (table == null) {
+                  table = new ICUResourceWriter.ResourceTable();
+                  table.name = LDMLConstants.CURRENCY_SPACING;
+                } 
+                if (count++ == 0) {
+                    current = new ICUResourceWriter.ResourceTable();
+                    current.name = section;
+                    if (first == null) {
+                       table.first = current;
+                       first = current;
+                    } else {
+                      first.next = current;
+                    }
+                }
+                String name = loc.getXpathName(localxpath);
+                ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                str.name = name;
+                str.val = loc.file.getStringValue(localxpath);
+                current.appendContents(str);
+            } 
+        }  
+        if (table != null) {
             return table;
         }
         return null;

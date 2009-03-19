@@ -262,6 +262,12 @@ public class LDMLConstants {
     public static final String PERCENT_FORMAT  = "percentFormat";
     public static final String CURFL           = "currencyFormatLength";
     public static final String CURRENCY_FORMAT = "currencyFormat";
+    public static final String CURRENCY_SPACING = "currencySpacing";
+    public static final String CURRENCY_SPC_BEFORE = "beforeCurrency";
+    public static final String CURRENCY_SPC_AFTER = "afterCurrency";
+    public static final String CURRENCY_SPC_MATCH = "currencyMatch";
+    public static final String CURRENCY_SPC_SUR_MATCH = "surroundingMatch";
+    public static final String CURRENCY_SPC_INSERT = "insertBetween";
     public static final String LIST            = "list";
     public static final String PERCENT_SIGN    = "percentSign";
     public static final String NATIVE_ZERO_SIGN= "nativeZeroDigit";
@@ -573,5 +579,14 @@ public class LDMLConstants {
     public static final String APPEND_ITEMS_O         = "<" + APPEND_ITEMS + ">";
     public static final String APPEND_ITEMS_C         = "</" + APPEND_ITEMS + ">";
 
-
+    public static final String CURRENCY_SPC_BEFORE_O = "<" + CURRENCY_SPC_BEFORE  + ">";
+    public static final String CURRENCY_SPC_BEFORE_C = "</" + CURRENCY_SPC_BEFORE  + ">";
+    public static final String CURRENCY_SPC_AFTER_O = "<" + CURRENCY_SPC_AFTER  + ">";
+    public static final String CURRENCY_SPC_AFTER_C = "</" + CURRENCY_SPC_AFTER + ">";
+    public static final String CURRENCY_SPC_MATCH_O = "<" + CURRENCY_SPC_MATCH + ">";
+    public static final String CURRENCY_SPC_MATCH_C = "</" + CURRENCY_SPC_MATCH + ">";
+    public static final String CURRENCY_SPC_SUR_MATCH_O = "<" + CURRENCY_SPC_SUR_MATCH + ">";
+    public static final String CURRENCY_SPC_SUR_MATCH_C = "</" + CURRENCY_SPC_SUR_MATCH + ">";
+    public static final String CURRENCY_SPC_INSERT_O = "<" + CURRENCY_SPC_INSERT + ">";
+    public static final String CURRENCY_SPC_INSERT_C = "</" + CURRENCY_SPC_INSERT + ">";
 }

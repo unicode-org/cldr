@@ -11,7 +11,7 @@
 			<variables>
 				<variable id="$Hiragana">\p{Hiragana}</variable>
 				<variable id="$Hiragana">($Hiragana $X)</variable>
-				<variable id="$Ideographic">\p{Ideographic}</variable>
+				<variable id="$Ideographic">[[\p{Ideographic}] [\u3005 \u3007 \u303B]]</variable>
 				<variable id="$Ideographic">($Ideographic $X)</variable>
 			</variables>
 			<segmentRules>

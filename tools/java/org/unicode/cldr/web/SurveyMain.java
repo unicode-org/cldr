@@ -5306,7 +5306,14 @@ public class SurveyMain extends HttpServlet {
             if(!found) {
                 throw new InternalError("No such locale: " + s);
             } else synchronized(this.vet.conn) {
-                response.setContentType("application/xml; charset=utf-8");
+		String doKvp = request.getParameter("kvp");
+		boolean isKvp = (doKvp!=null && doKvp.length()>0);
+
+		if(isKvp)  {
+			response.setContentType("text/plain; charset=utf-8");
+		} else {
+                	response.setContentType("application/xml; charset=utf-8");
+		}
                 Connection conn = null;
                 CLDRLocale locale = CLDRLocale.getInstance(theLocale);
                 XMLSource dbSource = null; 
@@ -5336,7 +5343,22 @@ public class SurveyMain extends HttpServlet {
                         System.err.println("<!-- exception: "+e+" -->");
                     }
                 } else {
-                    file.write(response.getWriter());
+			if(!isKvp) {
+                    		file.write(response.getWriter());
+			} else {
+				// full xpath tab value
+				java.io.Writer w = response.getWriter();
+				//PrintWriter pw = new PrintWriter(w);
+				for(String str : file) {
+					String xo = file.getFullXPath(str);
+					String v = file.getStringValue(str);
+
+					w.write(xo+"\t"+v+"\n");
+
+				}
+						
+			}
+	
                 }
                 if(conn!=null) 
                     SurveyMain.closeDBConnection(conn);
@@ -7844,6 +7866,7 @@ public class SurveyMain extends HttpServlet {
             int mySuperscriptNumber =0;
             for(DataSection.DataRow.CandidateItem item : numberedItemsList) {
                 mySuperscriptNumber++;
+		if(item==null) continue; /* ?! */
                 if(item.tests==null && item.examples==null) 
                 	continue; /* skip rows w/o anything */
                 ctx.println("<tr class='warningRow'><td class='botgray'><span class='warningTarget'>#"+mySuperscriptNumber+"</span></td>");
@@ -7924,6 +7947,7 @@ public class SurveyMain extends HttpServlet {
 	                	int nn=0;
 	                    for(CandidateItem citem : numberedItemsList) {
 	                		nn++;
+					if(citem==null) continue;
 	                		if(orgVote.xpath==citem.xpathId) {
 	                			oitem = citem;
 	                			on=nn;
@@ -8038,7 +8062,7 @@ public class SurveyMain extends HttpServlet {
                 int nn=0;
                 for(CandidateItem citem : numberedItemsList) {
                     ctx.println("<tr class='row"+(nn++ % 2)+"'>");
-                    
+                    if(citem==null) {ctx.println("</tr>"); continue; } 
                     String theValue = citem.value;
                     String title="X#"+citem.xpathId;
                     
@@ -8117,6 +8141,7 @@ public class SurveyMain extends HttpServlet {
                 	nn=0;
                     for(CandidateItem citem : numberedItemsList) {
                 		nn++;
+				if(citem == null) continue;
                 		if(r.winner.xpath==citem.xpathId) {
                 			witem = citem;
                 			wn=nn;

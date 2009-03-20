@@ -7,11 +7,11 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.65 $
-    $Date: 2009-02-24 23:08:06 $
+    $Revision: 1.66 $
+    $Date: 2009-03-20 18:57:21 $
 -->
 
-<!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, references? ) >
+<!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, references? ) >
 <!ATTLIST supplementalData version CDATA #FIXED "1.6" >
 
 <!ELEMENT version ( #PCDATA ) >
@@ -96,10 +96,10 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST languagePopulation references CDATA #IMPLIED >
 <!ATTLIST languagePopulation alt NMTOKENS #IMPLIED >
 
-<!ELEMENT calendarData ( calendar*, calendarPreference* ) >
+<!ELEMENT calendarData ( calendar* ) >
 <!ELEMENT calendar ( calendarSystem?, eras? ) >
 <!ATTLIST calendar type NMTOKENS #REQUIRED >
-<!ATTLIST calendar territories NMTOKENS #IMPLIED >
+<!ATTLIST calendar territories NMTOKENS #IMPLIED > <!-- territories are deprectead.  use ordering attribute in calendarPreference element instead. -->
 <!ATTLIST calendar draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendar references CDATA #IMPLIED >
 <!ATTLIST calendar alt NMTOKENS #IMPLIED >
@@ -116,6 +116,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST era start CDATA #IMPLIED >
 <!ATTLIST era end CDATA #IMPLIED >
 
+<!ELEMENT calendarPreferenceData ( calendarPreference* ) >
 <!ELEMENT calendarPreference EMPTY >
 <!ATTLIST calendarPreference territories NMTOKENS #REQUIRED >
 <!ATTLIST calendarPreference ordering NMTOKENS #REQUIRED >

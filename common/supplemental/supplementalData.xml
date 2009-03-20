@@ -3478,7 +3478,7 @@ XXX	Code for transations where no currency is involved
 	</territoryInfo>
 	<!-- End of Generated Data: see http://unicode.org/cldr/data/tools/java/org/unicode/cldr/tool/package.html -->
    	<calendarData>
-   		<calendar type="gregorian" territories="all">
+   		<calendar type="gregorian">
    		   <calendarSystem type="solar" />
    		   <eras>
    		       <era type="0" end="0" />
@@ -3486,7 +3486,7 @@ XXX	Code for transations where no currency is involved
    		   </eras>
    		</calendar>
 		 		<!-- gregorian territories are assumed, so these are all in addition -->
-		<calendar type="japanese" territories="JP">
+		<calendar type="japanese">
 		  <calendarSystem type="solar" />
 		  <eras>
               <era type="0" start="645-6-19"/>
@@ -3727,58 +3727,72 @@ XXX	Code for transations where no currency is involved
               <era type="235" start="1989-1-8"/>
 		  </eras>
 		</calendar>
-		<calendar type="islamic-civil" territories="AE BH DJ DZ EG EH ER IL IQ JO KM KW LB LY MA MR OM PS QA SA SD SY TD TN YE AF IR">
+		<calendar type="islamic-civil">
 		  <calendarSystem type="lunar" />
 		  <eras>
               <era type="0" start="622-7-15"/>
 		  </eras>
 		</calendar>
-		<calendar type="islamic" territories="AE BH DJ DZ EG EH ER IL IQ JO KM KW LB LY MA MR OM PS QA SA SD SY TD TN YE AF IR">
+		<calendar type="islamic">
 		  <calendarSystem type="lunar" />
 		  <eras>
               <era type="0" start="622-7-15"/>
 		  </eras>
 		</calendar>
-		<calendar type="chinese" territories="CN CX HK MO SG TW">
+		<calendar type="chinese">
 		  <calendarSystem type="lunisolar"/>
 		  <eras>
 		      <era type="0" start="-2636"/> <!-- 'sequential' year -->
 		  </eras>
 		</calendar>
-		<calendar type="hebrew" territories="IL">
+		<calendar type="hebrew">
 		  <calendarSystem type="lunisolar"/>
 		  <eras>
               <era type="0" start="-3760-10-7"/>
 		  </eras>
 		</calendar>
-		<calendar type="buddhist" territories="TH">
+		<calendar type="buddhist">
 		  <calendarSystem type="solar" />
 		  <eras>
 		      <era type="0" start="-542"/>
 		  </eras>
 		</calendar>
-		<calendar type="coptic" territories="EG"/>
-		<calendar type="persian" territories="AF IR">
+		<calendar type="coptic"/>
+		<calendar type="persian">
 		  <calendarSystem type="solar"/>
 		  <eras>
 		      <era type="0" start="622"/>
 		  </eras>
 		</calendar>
-		<calendar type="ethiopic" territories="ET"/>
-		<calendar type="indian" territories="IN">
+		<calendar type="ethiopic"/>
+		<calendar type="indian">
 		  <eras>
 		      <era type="0" start="79"/>
 		  </eras>
 		</calendar>
-		<calendar type="roc" territories="TW">
+		<calendar type="roc">
 		  <eras>
 		      <era type="0" end="1911"/>
 		      <era type="1" start="1912"/>
 		  </eras>
 		</calendar>
-                <calendarPreference territories="001" ordering="gregorian"/>
-                <calendarPreference territories="TH" ordering="buddhist gregorian"/>
+
 	</calendarData>
+
+	<calendarPreferenceData>
+		<calendarPreference territories="001" ordering="gregorian"/>
+		<calendarPreference territories="AE BH DJ DZ EH ER IQ JO KM KW LB LY MA MR OM PS QA SA SD SY TD TN YE" ordering="gregorian islamic islamic-civil"/>
+		<calendarPreference territories="AF IR" ordering="gregorian persian islamic islamic-civil"/>
+		<calendarPreference territories="CN CX HK MO SG" ordering="gregorian chinese"/>
+		<calendarPreference territories="EG" ordering="gregorian coptic islamic islamic-civil"/>
+		<calendarPreference territories="ET" ordering="gregorian ethiopic"/>
+		<calendarPreference territories="IL" ordering="gregorian hebrew islamic islamic-civil"/>
+		<calendarPreference territories="IN" ordering="gregorian indian"/>
+		<calendarPreference territories="JP" ordering="gregorian japanese"/>
+		<calendarPreference territories="TH" ordering="buddhist gregorian"/>
+		<calendarPreference territories="TW" ordering="gregorian roc chinese"/>
+	</calendarPreferenceData>
+
     <weekData>
           <minDays count="4" territories="001" />
           <minDays count="4" territories="CD" draft="unconfirmed" />

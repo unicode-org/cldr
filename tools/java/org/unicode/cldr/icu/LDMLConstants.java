@@ -229,7 +229,9 @@ public class LDMLConstants {
     public static final String SEGMENTATIONS     = "segmentations";
     public static final String TIMEZONE_DATA     = "timezoneData";
     public static final String CALENDAR_DATA     = "calendarData";
+    public static final String CALENDAR_PREFERENCE_DATA = "calendarPreferenceData";
     public static final String CALENDAR_PREFERENCE = "calendarPreference";
+    public static final String ORDERING          = "ordering";
     public static final String WEEK_DATA         = "weekData";
     public static final String MEASUREMENT_DATA  = "measurementData";
     public static final String ZONE_ITEM         = "zoneItem";

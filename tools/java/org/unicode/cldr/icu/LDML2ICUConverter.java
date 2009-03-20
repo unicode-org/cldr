@@ -1479,7 +1479,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 //Ignore this
                 //if(DEBUG)printXPathWarning(node, xpath);
             }else if(name.equals(LDMLConstants.CALENDAR_DATA)){
-                res = parseCalendarData(node, xpath);
+                //Ignore this
+                //res = parseCalendarData(node, xpath);
+            }else if(name.equals(LDMLConstants.CALENDAR_PREFERENCE_DATA)){
+                res = parseCalendarPreferenceData(node, xpath);
             }else if(name.equals(LDMLConstants.TIMEZONE_DATA)){
                 res = parseTimeZoneData(node, xpath);
             }else if(name.equals(LDMLConstants.WEEK_DATA)){
@@ -1843,21 +1846,75 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         return null;
     }
-    private ICUResourceWriter.Resource parseCalendarData(Node root, StringBuffer xpath){
+
+//    private ICUResourceWriter.Resource parseCalendarData(Node root, StringBuffer xpath){
+//        int savedLength = xpath.length();
+//        getXPath(root, xpath);
+//        int oldLength = xpath.length();
+//        ICUResourceWriter.Resource current = null;
+//        ICUResourceWriter.Resource res = null;
+//        
+//        if(isNodeNotConvertible(root, xpath)){
+//            xpath.setLength(savedLength);
+//            return null;
+//        }
+//
+//        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
+//        table.name = LDMLConstants.CALENDAR_DATA;
+//        
+//        for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
+//            if(node.getNodeType()!=Node.ELEMENT_NODE){
+//                continue;
+//            }
+//            String name = node.getNodeName(); 
+//            getXPath(node, xpath);
+//            if(isNodeNotConvertible(node, xpath)){
+//                xpath.setLength(oldLength);
+//                continue;
+//            }
+//            if(name.equals(LDMLConstants.CALENDAR)){
+//                //Note: territories attribute in calendar element was deprecated.
+//                //      use calendarPreferences instead.
+//                //String cnt = LDMLUtilities.getAttributeValue(node, LDMLConstants.TERRITORIES);
+//                //res = getResourceArray(cnt, LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE));
+//            } else {
+//                System.err.println("Encountered unknown "+xpath.toString());
+//                System.exit(-1);
+//            }
+//            if(res!=null){
+//                if(current == null){
+//                    table.first = res;
+//                    current = findLast(res);
+//                }else{
+//                    current.next = res;
+//                    current = findLast(res);
+//                }
+//                res = null;
+//            }
+//            xpath.delete(oldLength, xpath.length());
+//        }
+//        xpath.delete(savedLength, xpath.length());
+//        if(table.first!=null){
+//            return table;
+//        }
+//        return null;
+//    }
+
+    private ICUResourceWriter.Resource parseCalendarPreferenceData(Node root, StringBuffer xpath){
         int savedLength = xpath.length();
         getXPath(root, xpath);
         int oldLength = xpath.length();
         ICUResourceWriter.Resource current = null;
         ICUResourceWriter.Resource res = null;
-        
+
         if(isNodeNotConvertible(root, xpath)){
             xpath.setLength(savedLength);
             return null;
         }
 
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
-        table.name = LDMLConstants.CALENDAR_DATA;
-        
+        table.name = LDMLConstants.CALENDAR_PREFERENCE_DATA;
+
         for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
             if(node.getNodeType()!=Node.ELEMENT_NODE){
                 continue;
@@ -1868,24 +1925,23 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 xpath.setLength(oldLength);
                 continue;
             }
-            if(name.equals(LDMLConstants.CALENDAR)){
-                String cnt = LDMLUtilities.getAttributeValue(node, LDMLConstants.TERRITORIES);
-                res = getResourceArray(cnt, LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE));
-            } else if(name.equals(LDMLConstants.CALENDAR_PREFERENCE)) {
-            // not yet defined
-            }else{
+            if (!name.equals(LDMLConstants.CALENDAR_PREFERENCE)) {
                 System.err.println("Encountered unknown "+xpath.toString());
                 System.exit(-1);
             }
-            if(res!=null){
-                if(current == null){
+            String tmp = LDMLUtilities.getAttributeValue(node, LDMLConstants.TERRITORIES);
+            String order = LDMLUtilities.getAttributeValue(node, LDMLConstants.ORDERING);
+
+            // expand territories and create separated ordering array for each
+            String[] territories = tmp.split("\\s+");
+            for (int i = 0; i < territories.length; i++) {
+                res = getResourceArray(order, territories[i]);
+                if (current == null) {
                     table.first = res;
-                    current = findLast(res);
-                }else{
+                } else {
                     current.next = res;
-                    current = findLast(res);
                 }
-                res = null;
+                current = findLast(res);
             }
             xpath.delete(oldLength, xpath.length());
         }
@@ -1895,6 +1951,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         return null;
     }
+
     private ICUResourceWriter.Resource parseTerritoryData(Node root, StringBuffer xpath){
         int savedLength = xpath.length();
         getXPath(root, xpath);

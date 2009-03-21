@@ -7,11 +7,11 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.66 $
-    $Date: 2009-03-20 18:57:21 $
+    $Revision: 1.67 $
+    $Date: 2009-03-21 06:50:49 $
 -->
 
-<!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, references? ) >
+<!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, references?) >
 <!ATTLIST supplementalData version CDATA #FIXED "1.6" >
 
 <!ELEMENT version ( #PCDATA ) >
@@ -409,3 +409,15 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST reference uri CDATA #IMPLIED >
 <!ATTLIST reference draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST reference alt CDATA #IMPLIED >
+
+<!ELEMENT bcp47KeywordMappings ( mapKeys?, mapTypes* ) >
+<!ELEMENT mapKeys ( keyMap* ) >
+<!ELEMENT keyMap EMPTY >
+<!ATTLIST keyMap type NMTOKEN #REQUIRED >
+<!ATTLIST keyMap bcp47 NMTOKEN #REQUIRED >
+<!ELEMENT mapTypes ( typeMap* ) >
+<!ATTLIST mapTypes type NMTOKEN #REQUIRED >
+<!ELEMENT typeMap EMPTY >
+<!ATTLIST typeMap type CDATA #REQUIRED >
+<!ATTLIST typeMap bcp47 NMTOKEN #REQUIRED >
+

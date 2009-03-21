@@ -1504,6 +1504,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 res = parseCLDRVersion(node, xpath);
             }else if(name.equals(LDMLConstants.TELEPHONE_CODE_DATA)){
                 res = addTelephoneCodeData(); // uses SupplementalDataInfo, doesn't need node, xpath
+            }else if(name.equals(LDMLConstants.BCP47_KEYWORD_MAPPINGS)) {
+                res = parseBCP47MappingData(node, xpath);
             }else{
                 printError(file,"Encountered unknown element "+ getXPath(node, xpath).toString());
                 System.exit(-1);
@@ -7594,6 +7596,158 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             return table;
         }
 
+        return null;
+    }
+
+    private ICUResourceWriter.Resource parseBCP47MappingData(Node root, StringBuffer xpath) {
+        int savedLength = xpath.length();
+        getXPath(root, xpath);
+        int oldLength = xpath.length();
+
+        //if the whole node is marked draft then
+        //dont write anything
+        if(isNodeNotConvertible(root, xpath)){
+            xpath.setLength(savedLength);
+            return null;
+        }
+
+        ICUResourceWriter.ResourceTable bcp47KeywordMappings = new ICUResourceWriter.ResourceTable();
+        bcp47KeywordMappings.name = LDMLConstants.BCP47_KEYWORD_MAPPINGS;
+        ICUResourceWriter.Resource current = null;
+
+        for(Node node = root.getFirstChild(); node != null; node = node.getNextSibling()){
+            if (node.getNodeType() != Node.ELEMENT_NODE){
+                continue;
+            }
+            String name = node.getNodeName();
+            ICUResourceWriter.Resource res = null;
+
+            if (name.equals(LDMLConstants.MAP_KEYS)) {
+                res = parseMapKeys(node, xpath);
+            } else if (name.equals(LDMLConstants.MAP_TYPES)) {
+                res = parseMapTypes(node, xpath);
+            } else {
+                System.err.println("Encountered unknown <" + root.getNodeName() + "> subelement: " + name);
+                System.exit(-1);
+            }
+            if (res != null) {
+                if(current == null){
+                    bcp47KeywordMappings.first = res;
+                }else{
+                    current.next = res;
+                }
+                current = res;
+            }
+            xpath.delete(oldLength, xpath.length());
+        }
+        xpath.delete(savedLength, xpath.length());
+        if (bcp47KeywordMappings.first != null){
+            return bcp47KeywordMappings;
+        }
+        return null;
+    }
+
+    private ICUResourceWriter.Resource parseMapKeys(Node root, StringBuffer xpath) {
+        int savedLength = xpath.length();
+        getXPath(root, xpath);
+        int oldLength = xpath.length();
+
+        //if the whole node is marked draft then
+        //dont write anything
+        if(isNodeNotConvertible(root, xpath)){
+            xpath.setLength(savedLength);
+            return null;
+        }
+
+        ICUResourceWriter.ResourceTable mapKeys = new ICUResourceWriter.ResourceTable();
+        mapKeys.name = "key";
+        ICUResourceWriter.Resource current = null;
+
+        for(Node node = root.getFirstChild(); node != null; node = node.getNextSibling()){
+            if (node.getNodeType() != Node.ELEMENT_NODE){
+                continue;
+            }
+            String name = node.getNodeName();
+            ICUResourceWriter.Resource res = null;
+
+            if (name.equals(LDMLConstants.KEY_MAP)) {
+                ICUResourceWriter.ResourceString keyMap = new ICUResourceWriter.ResourceString();
+                keyMap.name = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
+                keyMap.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.BCP47);
+                res = keyMap;
+            } else {
+                System.err.println("Encountered unknown <" + root.getNodeName() + "> subelement: " + name);
+                System.exit(-1);
+            }
+            if (res != null) {
+                if(current == null){
+                    mapKeys.first = res;
+                }else{
+                    current.next = res;
+                }
+                current = res;
+            }
+            xpath.delete(oldLength, xpath.length());
+        }
+        xpath.delete(savedLength, xpath.length());
+        if (mapKeys.first != null){
+            return mapKeys;
+        }
+        return null;
+    }
+
+    private ICUResourceWriter.Resource parseMapTypes(Node root, StringBuffer xpath) {
+        int savedLength = xpath.length();
+        getXPath(root, xpath);
+        int oldLength = xpath.length();
+
+        //if the whole node is marked draft then
+        //dont write anything
+        if(isNodeNotConvertible(root, xpath)){
+            xpath.setLength(savedLength);
+            return null;
+        }
+
+        ICUResourceWriter.ResourceTable mapTypes = new ICUResourceWriter.ResourceTable();
+        String ldmlKey = LDMLUtilities.getAttributeValue(root, LDMLConstants.TYPE);
+        mapTypes.name = ldmlKey;
+        boolean isTimeZone = ldmlKey.equals("timezone");
+        ICUResourceWriter.Resource current = null;
+
+        for(Node node = root.getFirstChild(); node != null; node = node.getNextSibling()){
+            if (node.getNodeType() != Node.ELEMENT_NODE){
+                continue;
+            }
+            String name = node.getNodeName();
+            ICUResourceWriter.Resource res = null;
+
+            if (name.equals(LDMLConstants.TYPE_MAP)) {
+                ICUResourceWriter.ResourceString typeMap = new ICUResourceWriter.ResourceString();
+                if (isTimeZone) {
+                    typeMap.name = "\"" + LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE).replaceAll("/", ":") + "\"";
+                } else {
+                    typeMap.name = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
+                }
+                typeMap.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.BCP47);
+                res = typeMap;
+            } else {
+                System.err.println("Encountered unknown <" + root.getNodeName() + "> subelement: " + name);
+                System.exit(-1);
+            }
+            if (res != null) {
+                if(current == null){
+                    mapTypes.first = res;
+                }else{
+                    current.next = res;
+                }
+                current = res;
+            }
+            xpath.delete(oldLength, xpath.length());
+        }
+        xpath.delete(savedLength, xpath.length());
+        if (mapTypes.first != null){
+            return mapTypes;
+        }
         return null;
     }
 

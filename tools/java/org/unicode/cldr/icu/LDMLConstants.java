@@ -253,7 +253,13 @@ public class LDMLConstants {
     public static final String TELEPHONE_CODE_DATA = "telephoneCodeData";
     public static final String POSTAL_CODE_DATA = "postalCodeData";
     public static final String CLDR_VERSION      = "cldrVersion";
-    
+    public static final String BCP47_KEYWORD_MAPPINGS = "bcp47KeywordMappings";
+    public static final String MAP_KEYS          = "mapKeys";
+    public static final String KEY_MAP           = "keyMap";
+    public static final String MAP_TYPES         = "mapTypes";
+    public static final String TYPE_MAP          = "typeMap";
+    public static final String BCP47             = "bcp47";
+
     //PN added
     public static final String MEDIUM          = "medium";
     public static final String DECFL           = "decimalFormatLength";

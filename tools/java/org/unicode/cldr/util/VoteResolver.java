@@ -346,6 +346,7 @@ public class VoteResolver<T> {
    * Data built internally
    */
   private T                                                winningValue;
+  private T                                                nValue; // next to winning value
   private List<T>                                          valuesWithSameVotes = new ArrayList<T>();
   private Status                                           winningStatus;
   private EnumSet<Organization>                            conflictedOrganizations    = EnumSet
@@ -456,7 +457,7 @@ public class VoteResolver<T> {
     // get the optimal value, and the penoptimal value
     long weight1 = 0;
     long weight2 = 0;
-
+    T    value2 = null;
     int i = -1;
     for (T value : sortedValues) {
       ++i;
@@ -469,7 +470,7 @@ public class VoteResolver<T> {
         if (i == 1) {
           // get the next item if there is one
           if (iterator.hasNext()) {
-            //value2 = value;
+            value2 = value;
             weight2 = valueWeight;
           }
         }
@@ -480,7 +481,7 @@ public class VoteResolver<T> {
         }
       }
     }
-
+    nValue = value2; // save this
     // here is the meat.
     winningStatus = computeStatus(weight1, weight2);
     // if we are not as good as the last release, use the last release
@@ -534,6 +535,13 @@ public class VoteResolver<T> {
     return winningStatus;
   }
 
+  public T getNextToWinningValue() {
+      if( !resolved) {
+	  resolveVotes();
+      }
+      return nValue;
+  }
+
   public T getWinningValue() {
     if (!resolved) {
       resolveVotes();
@@ -562,6 +570,10 @@ public class VoteResolver<T> {
    */
   public T getOrgVote(Organization org) {
       return organizationToValueAndVote.getOrgVote(org);
+  }
+
+  public Map<T,Long> getOrgToVotes(Organization org) {
+      return organizationToValueAndVote.getOrgToVotes(org);
   }
 
   public String toString() {

@@ -370,6 +370,7 @@ public class SurveyMain extends HttpServlet {
 209.249.11.4		see | be | kick
 13:32	Guest
 */
+		"66.249.67.196",
                  };
     
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -7926,236 +7927,273 @@ public class SurveyMain extends HttpServlet {
 		
 
         if(zoomedIn) {
-			ctx.print("<tr>");
-			ctx.print("<th colspan=2>Votes</th>");
-			ctx.print("<td colspan="+(PODTABLE_WIDTH-2)+">");
+	    
+	    long totals[] = new long[numberedItemsList.size()];
+	    for(int j=0;j<totals.length;j++) {
+		totals[j]=0;
+	    }
+
+	    ctx.print("<tr>");
+	    ctx.print("<th colspan=2>Votes</th>");
+	    ctx.print("<td colspan="+(PODTABLE_WIDTH-2)+">");
 			
-			try {
-				Race r =  vet.getRace(section.locale, p.base_xpath);
-				ctx.println("<i>Voting results by organization:</i><br>");
+	    try {
+		Race r =  vet.getRace(section.locale, p.base_xpath);
+		ctx.println("<i>Voting results by organization:</i><br>");
                 ctx.print("<table class='list' border=1 summary='voting results by organization'>");
-                ctx.print("<tr class='heading'><th>Organization</th><th>Organization's Vote</th><th>Item</th><th>Conflicting Votes</th></tr>");
+                ctx.print("<tr class='heading'><th>Organization</th><th>Organization's Vote</th><th>Item</th><th>Score</th><th>Conflicting Votes</th></tr>");
                 int onn=0;
-				for(Race.Organization org : r.orgVotes.values()) {
-				    Race.Chad orgVote = r.getOrgVote(org.name);				    
+		for(Race.Organization org : r.orgVotes.values()) {
+		    Race.Chad orgVote = r.getOrgVote(org.name);				    
+		    Map<Integer,Long> o2v = r.getOrgToVotes(org.name);
+		    System.err.println("org:"+org.name);
+		    for(int i : o2v.keySet()) {
+			long l = o2v.get(i);
+		    	System.err.println(" "+i+"->"+l);
+		     }
+					
                     ctx.println("<tr class='row"+(onn++ % 2)+"'>");
+		    long score=0;
 
-                	CandidateItem oitem = null;
-                	int on = -1;
-                	if(orgVote != null)
+		    CandidateItem oitem = null;
+		    int on = -1;
+		    if(orgVote != null)
                 	{
-	                	int nn=0;
+			    int nn=0;
 	                    for(CandidateItem citem : numberedItemsList) {
-	                		nn++;
-					if(citem==null) continue;
-	                		if(orgVote.xpath==citem.xpathId) {
-	                			oitem = citem;
-	                			on=nn;
-	                		}
-	                    }
-                	}
-                	
-
-                    
-                    ctx.print("<th>"+org.name+"</th>");
-					ctx.print("<td>");
-					if(orgVote == null) {
-						ctx.print("<i>(No vote.)</i>");
-						if(org.dispute) {
-						    ctx.print("<br>");
-                            if((ctx.session.user != null) && (org.name.equals(ctx.session.user.org))) {
-                                ctx.print(ctx.iconHtml("disp","Vetter Dispute"));
-                            }
-							ctx.print(" (Dispute among "+org.name+" vetters) ");
-						}
-					} else {
-                        String theValue = orgVote.value;
-                        if(theValue == null) {  
-                            if(orgVote.xpath == r.base_xpath) {
-                                theValue = "<i>(Old Vote for Status Quo)</i>";
-                            } else {
-                                theValue = "<strike>(Old Vote for Other Item)</strike>";
-                            }
-                        }
-                        if(orgVote.disqualified) {
-                            ctx.print("<strike>");
-                        }
-                        ctx.print("<span dir='"+ourDir+"'>");
-//						ctx.print(VoteResolver.getOrganizationToMaxVote(section.locale).
-//						            get(VoteResolver.Organization.valueOf(org.name)).toString().replaceAll("street","guest")
-						ctx.print(ctx.iconHtml("vote","#"+orgVote.xpath)+theValue+"</span>");
-                        if(orgVote.disqualified) {
-                            ctx.print("</strike>");
-                        }
-                        if(org.votes.isEmpty()/* && (r.winner.orgsDefaultFor!=null) && (r.winner.orgsDefaultFor.contains(org))*/) {
-                            ctx.print(" (default vote)");
-                        }
-                        if(true||UserRegistry.userIsTC(ctx.session.user)) {
-                            ctx.print("<br>");
-                            for(UserRegistry.User u:orgVote.voters) {
-                                if(!u.voterOrg().equals(org.name)) continue;
-                                ctx.print(u.toHtml(ctx.session.user)+", ");
-                            }
-                        }
-					}
-					ctx.print("</td>");
-
-                    ctx.print("<td class='warningReference'>#"+on+"</td> ");
-
-                    ctx.print("<td>");
-                    if(!org.votes.isEmpty()) for(Race.Chad item : org.votes) {
-                        if(item==orgVote) continue;
-                        
-                        String theValue = item.value;
-                        if(theValue == null) {  
-                            if(item.xpath == r.base_xpath) {
-                                theValue = "<i>(Old Vote for Status Quo)</i>";
-                            } else {
-                                theValue = "<strike>(Old Vote for Other Item"+")</strike>";
-                            }
-                        }
-                        if(item.disqualified) {
-                            ctx.print("<strike>");
-                        }
-                        ctx.print("<span dir='"+ourDir+"' class='notselected' title='#"+item.xpath+"'>"+theValue+"</span>");
-                        if(item.disqualified) {
-                            ctx.print("</strike>");
-                        }
-                        ctx.print("<br>");
-                        for(UserRegistry.User u : item.voters)  { 
-                            if(!u.voterOrg().equals(org.name)) continue;
-                            ctx.print(u.toHtml(ctx.session.user)+", ");
-                        }
-                        ctx.println("<hr>");
-                    }
-                    ctx.println("</td>");
-                    ctx.print("</tr>");
-                }
-				ctx.print("</table>"); // end of votes-by-organization
-				
-				if(isUnofficial || UserRegistry.userIsTC(ctx.session.user)) {
-				    ctx.println("<pre style='border: 1px solid gray; margin: 3px;'>"+r.resolverToString());
-				    ctx.print("</pre>");
+				nn++;
+				if(citem==null) continue;
+				if(orgVote.xpath==citem.xpathId) {
+				    oitem = citem;
+				    on=nn;
 				}
-
-                  
-                if((r.nexthighest > 0) && (r.winner!=null)&&(r.winner.score==0)) {
-                    // This says that the optimal value was NOT the numeric winner.
-                    ctx.print("<i>not enough votes to overturn approved item</i><br>");
-                } else if(!r.disputes.isEmpty()) {
-                    ctx.print(" "+ctx.iconHtml("warn","Warning")+"Disputed with: ");
-                    for(Race.Chad disputor : r.disputes) {
-                        ctx.print("<span title='#"+disputor.xpath+"'>"+disputor.value+"</span> ");
-                    }
-                    ctx.print("");
-                    ctx.print("<br>");
-                } else if(r.hadDisqualifiedWinner) {
-                    ctx.print("<br><b>"+ctx.iconHtml("warn","Warning")+"Original winner of votes was disqualified due to errors.</b><br>");
-                }
-                if(isUnofficial && r.hadOtherError) {
-                    ctx.print("<br><b>"+ctx.iconHtml("warn","Warning")+"Had Other Error.</b><br>");
-                }
-                
-                ctx.print("<br><hr><i>Voting results by item:</i>");
-                ctx.print("<table class='list' border=1 summary='voting results by item'>");
-                ctx.print("<tr class='heading'><th>Value</th><th>Item</th><!-- <th>Score</th> --><th>Votes</th><th>O/N</th><th>Status 1.6</th><th>Status 1.7</th></tr>");
-                int nn=0;
-                for(CandidateItem citem : numberedItemsList) {
-                    ctx.println("<tr class='row"+(nn++ % 2)+"'>");
-                    if(citem==null) {ctx.println("</tr>"); continue; } 
-                    String theValue = citem.value;
-                    String title="X#"+citem.xpathId;
-                    
-                	// find Chad item that matches citem
-                	
-                	
-                	Race.Chad item = null;
-                	if(citem.inheritFrom==null) {
-	                	for(Race.Chad anitem : r.chads.values()) {
-	                		if(anitem.xpath==citem.xpathId) {
-	                			item = anitem;
-	                			title="#"+item.xpath;
-	                		}
-	                	}
-                	}
-                	
-                	//for(Race.Chad item : r.chads.values()) {
-                    if(item!=null&&theValue == null) {  
-                        if(item.xpath == r.base_xpath) {
-                            theValue = "<i>(Old Vote for Status Quo)</i>";
-                        } else {
-                            theValue = "<strike>(Old Vote for Other Item"+")</strike>";
-                        }
-                    }
-                    
-                    ctx.print("<td>");
-                    if(item!=null) {
-	                    if(item == r.winner) {
-	                        ctx.print("<b>");
 	                    }
-	                    if(item.disqualified) {
-	                        ctx.print("<strike>");
-	                    }
-                    }
-                    ctx.print("<span dir='"+ourDir+"' title='"+title+"'>"+theValue+"</span> ");
-                    if(item!=null) {
-	                    if(item.disqualified) {
-	                        ctx.print("</strike>");
-	                    }
-	                    if(item == r.winner) {
-	                        ctx.print("</b>");
-	                    }
-	                    if(item == r.existing) {
-	                        ctx.print(ctx.iconHtml("star","existing item"));
-	                    }
-                    }
-                    ctx.print("</td>");
-
-                    ctx.println("<th class='warningReference'>#"+nn+"</th>");
-                    if(item!=null) {
-                    	ctx.print("<td>"+ item.voters.size() +"</td>");
-//                    	ctx.print("<td>"+ item.score +"</td>");
-                    	ctx.print("<td></td>");
-                    	ctx.print("<td></td>");
-                    	if(item == r.winner) {
-                    		ctx.print("<td>"+r.vrstatus+"</td>");
-                    	} else {
-                    		ctx.print("<td></td>");
-                    	}
-                    	
-                    } else {
-                    	/* no item */
-                    	if(citem.inheritFrom!=null) {
-                    		ctx.println("<td colspan=4><i>Inherited from "+citem.inheritFrom+"</i></td>");
-                    	} else {
-                    		ctx.println("<td colspan=4><i>Item not found!</i></td>");
-                    	}
-                    }
-                    ctx.print("</tr>");
-                }
-                ctx.print("</table>");
-                //if(UserRegistry.userIsTC(ctx.session.user)) {
-                if(r.winner != null ) {
-                	CandidateItem witem = null;
-                	int wn = -1;
-                	nn=0;
-                    for(CandidateItem citem : numberedItemsList) {
-                		nn++;
-				if(citem == null) continue;
-                		if(r.winner.xpath==citem.xpathId) {
-                			witem = citem;
-                			wn=nn;
-                		}
-                	}
-                    ctx.print("<b class='selected'>Optimal field</b>: #"+wn+" <span dir='"+ourDir+"' class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.vrstatus + ", <!-- score: "+r.winner.score +" -->");
-                }
-                
-                ctx.println("For more information, see <a href='http://cldr.unicode.org/index/process#Voting_Process'>Voting Process</a><br>");
-			} catch (SQLException se) {
-				ctx.println("<div class='ferrbox'>Error fetching vetting results:<br><pre>"+se.toString()+"</pre></div>");
+			    if(oitem!=null) {
+				Long l = o2v.get(oitem.xpathId);
+				if(l != null) {
+				    score = l;
+				    System.err.println(org.name+": ox " + oitem.xpathId + " -> l " + l + ", nn="+nn);
+				    if(on>=0) {
+					totals[on-1]+=score;
+				    }
+				}
+			    }
 			}
+                    
+		    ctx.print("<th>"+org.name+"</th>");
+		    ctx.print("<td>");
+		    if(orgVote == null) {
+			ctx.print("<i>(No vote.)</i>");
+			if(org.dispute) {
+			    ctx.print("<br>");
+			    if((ctx.session.user != null) && (org.name.equals(ctx.session.user.org))) {
+				ctx.print(ctx.iconHtml("disp","Vetter Dispute"));
+			    }
+			    ctx.print(" (Dispute among "+org.name+" vetters) ");
+			}
+		    } else {
+			String theValue = orgVote.value;
+			if(theValue == null) {  
+			    if(orgVote.xpath == r.base_xpath) {
+				theValue = "<i>(Old Vote for Status Quo)</i>";
+			    } else {
+				theValue = "<strike>(Old Vote for Other Item)</strike>";
+			    }
+			}
+			if(orgVote.disqualified) {
+			    ctx.print("<strike>");
+			}
+			ctx.print("<span dir='"+ourDir+"'>");
+			//						ctx.print(VoteResolver.getOrganizationToMaxVote(section.locale).
+			//						            get(VoteResolver.Organization.valueOf(org.name)).toString().replaceAll("street","guest")
+			ctx.print(ctx.iconHtml("vote","#"+orgVote.xpath)+theValue+"</span>");
+			if(orgVote.disqualified) {
+			    ctx.print("</strike>");
+			}
+			if(org.votes.isEmpty()/* && (r.winner.orgsDefaultFor!=null) && (r.winner.orgsDefaultFor.contains(org))*/) {
+			    ctx.print(" (default vote)");
+			}
+			if(true||UserRegistry.userIsTC(ctx.session.user)) {
+			    ctx.print("<br>");
+			    for(UserRegistry.User u:orgVote.voters) {
+				if(!u.voterOrg().equals(org.name)) continue;
+				ctx.print(u.toHtml(ctx.session.user)+", ");
+			    }
+			}
+		    }
+		    ctx.print("</td>");
+		    
+		    ctx.print("<td class='warningReference'>#"+on+"</td> ");
+		    
+		    ctx.print("<td>"+score+"</td>");
+		    
+		    ctx.print("<td>");
+		    if(!org.votes.isEmpty()) for(Race.Chad item : org.votes) {
+			    if(item==orgVote) continue;
+			    
+			    String theValue = item.value;
+			    if(theValue == null) {  
+				if(item.xpath == r.base_xpath) {
+				    theValue = "<i>(Old Vote for Status Quo)</i>";
+				} else {
+				    theValue = "<strike>(Old Vote for Other Item"+")</strike>";
+				}
+			    }
+			    if(item.disqualified) {
+				ctx.print("<strike>");
+			    }
+			    ctx.print("<span dir='"+ourDir+"' class='notselected' title='#"+item.xpath+"'>"+theValue+"</span>");
+			    if(item.disqualified) {
+				ctx.print("</strike>");
+			    }
+			    ctx.print("<br>");
+			    for(UserRegistry.User u : item.voters)  { 
+				if(!u.voterOrg().equals(org.name)) continue;
+				ctx.print(u.toHtml(ctx.session.user)+", ");
+			    }
+			    ctx.println("<hr>");
+			}
+		    ctx.println("</td>");
+		    ctx.print("</tr>");
+		}
+		ctx.print("</table>"); // end of votes-by-organization
+		
+		if(isUnofficial || UserRegistry.userIsTC(ctx.session.user)) {
+		    ctx.println("<pre style='border: 1px solid gray; margin: 3px;'>"+r.resolverToString());
+		    ctx.print("</pre>");
+		}
+		
+                  
+		if((r.nexthighest > 0) && (r.winner!=null)&&(r.winner.score==0)) {
+		    // This says that the optimal value was NOT the numeric winner.
+		    ctx.print("<i>not enough votes to overturn approved item</i><br>");
+		} else if(!r.disputes.isEmpty()) {
+		    ctx.print(" "+ctx.iconHtml("warn","Warning")+"Disputed with: ");
+		    for(Race.Chad disputor : r.disputes) {
+			ctx.print("<span title='#"+disputor.xpath+"'>"+disputor.value+"</span> ");
+		    }
+		    ctx.print("");
+		    ctx.print("<br>");
+		} else if(r.hadDisqualifiedWinner) {
+		    ctx.print("<br><b>"+ctx.iconHtml("warn","Warning")+"Original winner of votes was disqualified due to errors.</b><br>");
+		}
+		if(isUnofficial && r.hadOtherError) {
+		    ctx.print("<br><b>"+ctx.iconHtml("warn","Warning")+"Had Other Error.</b><br>");
+		}
+                
+		ctx.print("<br><hr><i>Voting results by item:</i>");
+		ctx.print("<table class='list' border=1 summary='voting results by item'>");
+		ctx.print("<tr class='heading'><th>Value</th><th>Item</th><th>Score</th><th>O/N</th><th>Status 1.6</th><th>Status 1.7</th></tr>");
+		int nn=0;
+
+		int lastReleaseXpath = r.getLastReleaseXpath();
+		String lastReleaseStatus = r.getLastReleaseStatus().toString();
+
+		for(CandidateItem citem : numberedItemsList) {
+		    ctx.println("<tr class='row"+(nn++ % 2)+"'>");
+		    if(citem==null) {ctx.println("</tr>"); continue; } 
+		    String theValue = citem.value;
+		    String title="X#"+citem.xpathId;
+                    
+		    // find Chad item that matches citem
+                	
+                    long score = -1;
+		    Race.Chad item = null;
+		    if(citem.inheritFrom==null) {
+			for(Race.Chad anitem : r.chads.values()) {
+			    if(anitem.xpath==citem.xpathId) {
+				item = anitem;
+				title="#"+item.xpath;
+			    }
+			}
+		    }
+                	
+		    //for(Race.Chad item : r.chads.values()) {
+		    if(item!=null&&theValue == null) {  
+			if(item.xpath == r.base_xpath) {
+			    theValue = "<i>(Old Vote for Status Quo)</i>";
+			} else {
+			    theValue = "<strike>(Old Vote for Other Item"+")</strike>";
+			}
+		    }
+                    
+		    ctx.print("<td>");
+		    if(item!=null) {
+			if(item == r.winner) {
+			    ctx.print("<b>");
+			}
+			if(item.disqualified) {
+			    ctx.print("<strike>");
+			}
+		    }
+		    ctx.print("<span dir='"+ourDir+"' title='"+title+"'>"+theValue+"</span> ");
+		    if(item!=null) {
+			if(item.disqualified) {
+			    ctx.print("</strike>");
+			}
+			if(item == r.winner) {
+			    ctx.print("</b>");
+			}
+			if(item == r.existing) {
+			    ctx.print(ctx.iconHtml("star","existing item"));
+			}
+		    }
+		    ctx.print("</td>");
+
+		    ctx.println("<th class='warningReference'>#"+nn+"</th>");
+		    if(item!=null) {
+                    	ctx.print("<td>"+ totals[nn-1] +"</td>");
+			if(item == r.winner) {
+			    ctx.print("<td>O</td>");
+			} else if(item == r.nextToWinner) {
+			    ctx.print("<td>N</td>");
+			} else {
+			    ctx.print("<td></td>");
+			}
+			if(item.xpath == lastReleaseXpath) {
+			    ctx.print("<td>"+lastReleaseStatus.toString().toLowerCase()+"</td>");
+			} else {
+			    ctx.print("<td></td>");
+			}
+			if(item == r.winner) {
+			    ctx.print("<td>"+r.vrstatus.toString().toLowerCase()+"</td>");
+			} else {
+			    ctx.print("<td></td>");
+			}
+                    	
+		    } else {
+			/* no item */
+			if(citem.inheritFrom!=null) {
+			    ctx.println("<td colspan=4><i>Inherited from "+citem.inheritFrom+"</i></td>");
+			} else {
+			    ctx.println("<td colspan=4><i>Item not found!</i></td>");
+			}
+		    }
+		    ctx.print("</tr>");
+		}
+		ctx.print("</table>");
+		//if(UserRegistry.userIsTC(ctx.session.user)) {
+		if(r.winner != null ) {
+		    CandidateItem witem = null;
+		    int wn = -1;
+		    nn=0;
+		    for(CandidateItem citem : numberedItemsList) {
+			nn++;
+			if(citem == null) continue;
+			if(r.winner.xpath==citem.xpathId) {
+			    witem = citem;
+			    wn=nn;
+			}
+		    }
+		    ctx.print("<b class='selected'>Optimal field</b>: #"+wn+" <span dir='"+ourDir+"' class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.vrstatus + ", <!-- score: "+r.winner.score +" -->");
+		}
+		                
+		ctx.println("For more information, see <a href='http://cldr.unicode.org/index/process#Voting_Process'>Voting Process</a><br>");
+	    } catch (SQLException se) {
+		ctx.println("<div class='ferrbox'>Error fetching vetting results:<br><pre>"+se.toString()+"</pre></div>");
+	    }
             
-			ctx.println("</td></tr>");
+	    ctx.println("</td></tr>");
             
             if(p.aliasFromLocale != null) {
                 ctx.print("<tr class='topgray'>");
@@ -8243,7 +8281,7 @@ public class SurveyMain extends HttpServlet {
                     ctx.println("<td nowrap class='examplecell'>");
                     ctx.println("<span class='warningReference'>");
                 }
-                if(true /* always number -- was haveTests*/) {
+                if(item!=null /* always number -- was haveTests*/) {
                     numberedItemsList.add(item);
                     int mySuperscriptNumber = numberedItemsList.size();  // which # is this item?
                     ctx.println("#"+mySuperscriptNumber+"</span>");

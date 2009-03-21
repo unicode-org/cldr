@@ -219,6 +219,7 @@ public class Race {
 
     // winning info
     public Chad winner = null;
+    public Chad nextToWinner = null;
     public Status status = Status.INDETERMINATE;
     public VoteResolver.Status vrstatus = VoteResolver.Status.missing;
     public Chad existing = null; // existing vote
@@ -363,6 +364,31 @@ public class Race {
             orgVotes.put(org, theirOrg);
         }
         return theirOrg;
+    }
+
+    private org.unicode.cldr.util.VoteResolver.Organization getVROrg(String name) {
+	return org.unicode.cldr.util.VoteResolver.Organization.fromString(name);
+    }
+ 
+    /**
+     * Get a map of xpath to score for this org.
+     */
+    public Map<Integer, Long> getOrgToVotes(String org) {
+	return resolver.getOrgToVotes(getVROrg(org));
+    }
+
+    /**
+     * Get the last release xpath
+     */
+    public int getLastReleaseXpath() {
+	return resolver.getLastReleaseValue();
+    }
+
+    /**
+     * Get the last release status
+     */
+    public Status getLastReleaseStatus() {
+	return Status.toStatus(resolver.getLastReleaseStatus());
     }
 
     private final void existingVote(int vote_xpath, int full_xpath, String value) {
@@ -554,9 +580,14 @@ public class Race {
      */
     private Chad calculateWinner() {
         int winningXpath = resolver.getWinningValue();
+	Integer nextToWinningXpath = resolver.getNextToWinningValue();
+
         vrstatus = resolver.getWinningStatus();
         status = Status.toStatus(vrstatus); // convert from VR status
         winner = chads.get(winningXpath);
+	if(nextToWinningXpath != null) {
+	    nextToWinner = chads.get(nextToWinningXpath);
+	}
 //        System.out.println(resolver.toString() + " \n - resolved, winner: " + winner + " Found:"+(winner!=null));
         return winner;
     }

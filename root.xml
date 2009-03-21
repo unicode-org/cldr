@@ -654,6 +654,7 @@
 						<dateFormatItem id="yQ">y Q</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 					</availableFormats>
 					<appendItems>
@@ -1310,22 +1311,22 @@
 					<default choice="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, MMMM d, y G</pattern>
+							<pattern>EEEE, G y MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>MMMM d, y G</pattern>
+							<pattern>G y MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>MMM d, y G</pattern>
+							<pattern>G y MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>M/d/yy</pattern>
+							<pattern>G yy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1359,7 +1360,9 @@
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="MMMEd">E MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="Md">M-d</dateFormatItem>
@@ -1367,6 +1370,8 @@
 						<dateFormatItem id="yyyy">yy GGG</dateFormatItem>
 						<dateFormatItem id="yyyyM">GGGGG yy-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">GGGGG yy MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMd">GGGGG yy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">GGGGG yy MMM d</dateFormatItem>
 						<dateFormatItem id="yyyyQ">GGGGG yy Q</dateFormatItem>
 					</availableFormats>
 					<appendItems>

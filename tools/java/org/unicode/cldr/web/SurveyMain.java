@@ -8923,6 +8923,8 @@ public class SurveyMain extends HttpServlet {
             
             
             doStartupDB(); // will take over progress 50-60
+	} catch(Throwable t) {
+	    busted("Error on startup: ", t);
         } finally {
             clearProgress(); // at least clear the progress bar.
         }
@@ -9146,8 +9148,10 @@ public class SurveyMain extends HttpServlet {
                 }
             }
         } catch (SQLException se) {
+            busted("SQL error querying users for getIntUsers - " + SurveyMain.unchainSqlException(se));
             throw new RuntimeException("SQL error querying users for getIntUsers - " + SurveyMain.unchainSqlException(se));
-        }
+
+	}
         return m;
     }
 

@@ -128,10 +128,11 @@ public class TestUtilities extends TestFmwk {
     final PrintWriter errorLogPrintWriter = this.getErrorLogPrintWriter();
     final PrintWriter logPrintWriter = this.getLogPrintWriter();
     String userFile = Utility.getProperty("usersxml", Utility.BASE_DIRECTORY + "/incoming/vetted/usersa/usersa.xml");
-    String votesDirectory = Utility.getProperty("votesxml", Utility.BASE_DIRECTORY + "incoming/vetted/votes/");
+    String votesDirectory = Utility.getProperty("votesxml", Utility.BASE_DIRECTORY + "/incoming/vetted/votes/");
+    String vettedDirectory = Utility.getProperty("vetted", Utility.BASE_DIRECTORY + "/incoming/vetted/main/");
     
     PathValueInfo.voteInfo = VoteResolver.getIdToPath(votesDirectory + "xpathTable.xml");
-    Factory factory = CLDRFile.Factory.make(Utility.BASE_DIRECTORY + "incoming/vetted/main/", ".*");
+    Factory factory = CLDRFile.Factory.make(vettedDirectory, ".*");
 
     VoteResolver.setVoterToInfo(userFile);
     Map<String, Map<Organization, Relation<Level, Integer>>> map = VoteResolver
@@ -167,7 +168,8 @@ public class TestUtilities extends TestFmwk {
         try {
           checkLocaleVotes(factory, locale, votesDirectory, errorLogPrintWriter, logPrintWriter);
         } catch (RuntimeException e) {
-          throw (RuntimeException) new IllegalArgumentException("Can't process " + locale).initCause(e);
+          errln("Can't process " + locale + ": " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
+          //throw (RuntimeException) new IllegalArgumentException("Can't process " + locale).initCause(e);
         }
       }
     }

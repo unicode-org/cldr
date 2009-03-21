@@ -608,12 +608,14 @@ public class VoteResolver<T> {
   }
 
   public String toString() {
-    return "{" +
-    		"lastRelease: {" + lastReleaseValue + ", " + lastReleaseStatus + "}, "
-      + organizationToValueAndVote + ", " +
-      "sameVotes: " + valuesWithSameVotes + ", " +
-      "winning: {" + getWinningValue() + ", " + getWinningStatus() + "}"
-            + "}";
+    return "{"
+      + "lastRelease: {" + lastReleaseValue + ", " + lastReleaseStatus + "}, "
+      + organizationToValueAndVote
+      + ", sameVotes: " + valuesWithSameVotes
+      + ", O: " + getOValue() 
+      + ", N: " + getNValue() 
+      + ", winning: {" + getWinningValue() + ", " + getWinningStatus() + "}"
+      + "}";
   }
 
   public static Map<String, Map<Organization, Relation<Level, Integer>>> getLocaleToVetters() {

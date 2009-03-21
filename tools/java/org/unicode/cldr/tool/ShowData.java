@@ -580,7 +580,7 @@ public class ShowData {
     return locale + " [" + name + "]";
   }
 
-  static SimpleDateFormat isoDateFormat = new SimpleDateFormat("yyyy-MM-dd",
+  static SimpleDateFormat isoDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm",
       ULocale.ENGLISH);
 
   static String VERSION = "1.5";
@@ -590,9 +590,11 @@ public class ShowData {
     if (version == null) {
       version = VERSION;
     }
-    VariableReplacer langTag = new VariableReplacer().add("%title%", title)
-        .add("%header%", header).add("%version%", version).add("%date%",
-            isoDateFormat.format(new Date()));
+    VariableReplacer langTag = new VariableReplacer()
+    .add("%title%", title)
+    .add("%header%", header)
+    .add("%version%", version)
+    .add("%date%", isoDateFormat.format(new Date()));
     BufferedReader input = Utility
         .getUTF8Data("../../tool/chart-template.html");
     StringBuffer result = new StringBuffer();

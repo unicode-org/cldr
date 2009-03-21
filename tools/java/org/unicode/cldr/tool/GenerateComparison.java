@@ -128,6 +128,13 @@ public class GenerateComparison {
         newFile = CLDRFile.make(locale); // make empty file
       }
 
+//      for(String str : newFile) {
+//        String xo = newFile.getFullXPath(str);
+//        String v = newFile.getStringValue(str);
+//
+//        System.out.println(xo+"\t"+v+"\n");
+//
+//      }
       // Check for null cases
 
       if (oldFile == null) {
@@ -396,7 +403,7 @@ public class GenerateComparison {
     for (R2<String,String> indexPair : indexInfo) {
       int firstChar = indexPair.get0().codePointAt(0);
       indexFile.append(firstChar == last ? separator
-              : (last == 0 ? "" : "</td></tr><tr>") + "<th>" + String.valueOf((char)firstChar) + "</th><td>")
+              : (last == 0 ? "" : "</td></tr>\r\n<tr>") + "<th>" + String.valueOf((char)firstChar) + "</th><td>")
                       .append(indexPair.get1());
       separator = " | ";
       last = indexPair.get0().codePointAt(0);

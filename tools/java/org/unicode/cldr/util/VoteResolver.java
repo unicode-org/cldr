@@ -346,7 +346,8 @@ public class VoteResolver<T> {
    * Data built internally
    */
   private T                                                winningValue;
-  private T                                                nValue; // next to winning value
+  private T                                                oValue; // optimal value; winning if better approval status than old
+  private T                                                nValue; // next to optimal value
   private List<T>                                          valuesWithSameVotes = new ArrayList<T>();
   private Status                                           winningStatus;
   private EnumSet<Organization>                            conflictedOrganizations    = EnumSet
@@ -481,6 +482,7 @@ public class VoteResolver<T> {
         }
       }
     }
+    oValue = winningValue;
     nValue = value2; // save this
     // here is the meat.
     winningStatus = computeStatus(weight1, weight2);
@@ -535,13 +537,42 @@ public class VoteResolver<T> {
     return winningStatus;
   }
 
+  /**
+   * Returns O Value as described in http://cldr.unicode.org/index/process#TOC-Voting-Process.
+   * Not always the same as the Winning Value.
+   * @return
+   */
+  public T getOValue() {
+    if( !resolved) {
+      resolveVotes();
+    }
+    return oValue;
+  }
+  
+  /**
+   * Returns N Value as described in http://cldr.unicode.org/index/process#TOC-Voting-Process.
+   * Not always the same as the Winning Value.
+   * @return
+   */
+  public T getNValue() {
+    if( !resolved) {
+      resolveVotes();
+    }
+    return nValue;
+  }
+  
+  /**
+   * @deprecated
+   */
   public T getNextToWinningValue() {
-      if( !resolved) {
-	  resolveVotes();
-      }
-      return nValue;
+    return getNValue();
   }
 
+  /**
+   * Returns Winning Value as described in http://cldr.unicode.org/index/process#TOC-Voting-Process.
+   * Not always the same as the O Value.
+   * @return
+   */
   public T getWinningValue() {
     if (!resolved) {
       resolveVotes();

@@ -219,7 +219,7 @@ public class Race {
 
     // winning info
     public Chad winner = null;
-    public Chad nextToWinner = null;
+    public Chad Nchad=null, Ochad = null;
     public Status status = Status.INDETERMINATE;
     public VoteResolver.Status vrstatus = VoteResolver.Status.missing;
     public Chad existing = null; // existing vote
@@ -580,13 +580,17 @@ public class Race {
      */
     private Chad calculateWinner() {
         int winningXpath = resolver.getWinningValue();
-	Integer nextToWinningXpath = resolver.getNextToWinningValue();
+	Integer NXpath = resolver.getNValue();
+	Integer OXpath = resolver.getOValue();
 
         vrstatus = resolver.getWinningStatus();
         status = Status.toStatus(vrstatus); // convert from VR status
         winner = chads.get(winningXpath);
-	if(nextToWinningXpath != null) {
-	    nextToWinner = chads.get(nextToWinningXpath);
+	if(NXpath != null) {
+	    Nchad = chads.get(NXpath);
+	}
+	if(OXpath != null) {
+	    Ochad = chads.get(OXpath);
 	}
 //        System.out.println(resolver.toString() + " \n - resolved, winner: " + winner + " Found:"+(winner!=null));
         return winner;

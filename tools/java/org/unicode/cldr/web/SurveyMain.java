@@ -5783,7 +5783,7 @@ public class SurveyMain extends HttpServlet {
         public UserLocaleStuff(CLDRLocale locale) {
             super(lcr, locale);
             exampleIsValid.register();
-    System.err.println("Adding ULS:"+locale);
+//    System.err.println("Adding ULS:"+locale);
         }
         
         public void clear() {
@@ -5832,7 +5832,7 @@ public class SurveyMain extends HttpServlet {
             if(CACHE_VXML_FOR_TESTS) {
                 return getCLDRFileCache().getCLDRFile(locale());
             } else {
-                System.err.println(" !CACHE_VXML_FOR_TESTS");
+//                System.err.println(" !CACHE_VXML_FOR_TESTS");
                 return null;
             }
         }
@@ -7946,12 +7946,14 @@ public class SurveyMain extends HttpServlet {
 		for(Race.Organization org : r.orgVotes.values()) {
 		    Race.Chad orgVote = r.getOrgVote(org.name);				    
 		    Map<Integer,Long> o2v = r.getOrgToVotes(org.name);
+/*
 		    System.err.println("org:"+org.name);
 		    for(int i : o2v.keySet()) {
 			long l = o2v.get(i);
 		    	System.err.println(" "+i+"->"+l);
 		     }
 					
+*/
                     ctx.println("<tr class='row"+(onn++ % 2)+"'>");
 		    long score=0;
 
@@ -7972,7 +7974,7 @@ public class SurveyMain extends HttpServlet {
 				Long l = o2v.get(oitem.xpathId);
 				if(l != null) {
 				    score = l;
-				    System.err.println(org.name+": ox " + oitem.xpathId + " -> l " + l + ", nn="+nn);
+//				    System.err.println(org.name+": ox " + oitem.xpathId + " -> l " + l + ", nn="+nn);
 				    if(on>=0) {
 					totals[on-1]+=score;
 				    }
@@ -8143,9 +8145,9 @@ public class SurveyMain extends HttpServlet {
 		    ctx.println("<th class='warningReference'>#"+nn+"</th>");
 		    if(item!=null) {
                     	ctx.print("<td>"+ totals[nn-1] +"</td>");
-			if(item == r.winner) {
+			if(item == r.Ochad) {
 			    ctx.print("<td>O</td>");
-			} else if(item == r.nextToWinner) {
+			} else if(item == r.Nchad) {
 			    ctx.print("<td>N</td>");
 			} else {
 			    ctx.print("<td></td>");

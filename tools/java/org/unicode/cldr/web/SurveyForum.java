@@ -238,7 +238,7 @@ public class SurveyForum {
         		ctx.redirect(str);
         		return;
         	}
-        	System.err.println("XP ["+xstr+"] -> " + base_xpath);
+//        	System.err.println("XP ["+xstr+"] -> " + base_xpath);
         	// TODO: may need fixup here.
         }
         

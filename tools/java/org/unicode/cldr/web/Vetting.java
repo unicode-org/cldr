@@ -2040,10 +2040,14 @@ if(true == true)    throw new InternalError("removed from use.");
                 if(type==null) type = new int[1];
                 int winner = sm.vet.queryResultInternal(locale, xpath, type);
                 winning = new WinType();
-                winning.win=winner;;
+                winning.win=winner;
                 winning.type = type[0];
                 winningXpathCache.put(xpath, winning);
-            }
+            } else {
+		if(type!=null) {
+	    		type[0] = winning.type;
+		}
+	    }
             return winning.win;
         }
 

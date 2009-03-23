@@ -1,5 +1,5 @@
-package com.macchiato.client;
-// Wed Mar 04 20:31:48 PST 2009
+package org.unicode.cldr.draft;
+// $Date Mon Mar 23 15:51:50 PDT 2009 $
 public class CharData {
 static String[][] CHARACTERS_TO_NAME = {
 {" ","SPACE"},

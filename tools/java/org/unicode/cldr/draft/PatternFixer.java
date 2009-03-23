@@ -50,7 +50,7 @@ public class PatternFixer {
   public String fix(String regexPattern, int patternOptions) {
     // TODO optimize
     // TODO handle (?#), #, ...
-    UnicodeSetBuilder builder = new UnicodeSetBuilder(target, patternOptions);
+    UnicodeSetBuilder builder = new UnicodeSetBuilder(); // target, patternOptions
     UnicodeSet set;
     ParsePosition parsePosition = new ParsePosition(0);
     StringBuffer result = new StringBuffer();

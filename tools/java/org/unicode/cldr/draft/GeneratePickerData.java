@@ -27,6 +27,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.GeneratePickerData.CategoryTable.Separation;
+import org.unicode.cldr.util.CollectionUtilities;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -327,8 +328,8 @@ class GeneratePickerData {
 
   private static void writeMainFile(String directory, String categoryTable) throws IOException, FileNotFoundException {
     PrintWriter out = getFileWriter(directory, "CharData.java");
-    out.println("package com.macchiato.client;");
-    out.println("// " + new Date());
+    out.println("package org.unicode.cldr.draft;");
+    out.println("// $Date " + new Date() + " $");
     out.println("public class CharData {");
     out.println("static String[][] CHARACTERS_TO_NAME = {");
     out.println(buildNames());
@@ -905,7 +906,7 @@ class GeneratePickerData {
           //            System.out.println("//Big class: " + category + MAIN_SUB_SEPARATOR + subcategory + MAIN_SUBSUB_SEPARATOR + valueChars.set.size());
           //          }
           UnicodeSet dups = new UnicodeSet(soFar);
-          dups.retainAll(valueChars.strings);
+          CollectionUtilities.retainAll(dups, valueChars.strings);
           duplicates.addAll(dups);
           soFar.addAll(valueChars.strings);
         }

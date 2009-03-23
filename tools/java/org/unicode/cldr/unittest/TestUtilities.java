@@ -188,7 +188,7 @@ public class TestUtilities extends TestFmwk {
     Map<Organization, Level> orgToMaxVote = VoteResolver.getOrganizationToMaxVote(locale);
     if (orgToMaxVote.size() == 0) {
       logln("");
-      warnln(locale + ": \tNo organizations with translators");
+      logln(locale + ": \tNo organizations with translators");
     } else if (!locale.contains("_")){
       logln("");
       logln(locale + ": \tOrganizations with translators:\t" + orgToMaxVote);

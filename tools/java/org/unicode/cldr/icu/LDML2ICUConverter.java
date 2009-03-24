@@ -7672,8 +7672,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
             if (name.equals(LDMLConstants.KEY_MAP)) {
                 ICUResourceWriter.ResourceString keyMap = new ICUResourceWriter.ResourceString();
-                keyMap.name = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
-                keyMap.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.BCP47);
+                keyMap.name = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE).toLowerCase(Locale.ENGLISH);
+                keyMap.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.BCP47).toLowerCase(Locale.ENGLISH);
                 res = keyMap;
             } else {
                 System.err.println("Encountered unknown <" + root.getNodeName() + "> subelement: " + name);
@@ -7709,7 +7709,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
 
         ICUResourceWriter.ResourceTable mapTypes = new ICUResourceWriter.ResourceTable();
-        String ldmlKey = LDMLUtilities.getAttributeValue(root, LDMLConstants.TYPE);
+        String ldmlKey = LDMLUtilities.getAttributeValue(root, LDMLConstants.TYPE).toLowerCase(Locale.ENGLISH);
         mapTypes.name = ldmlKey;
         boolean isTimeZone = ldmlKey.equals("timezone");
         ICUResourceWriter.Resource current = null;
@@ -7724,11 +7724,13 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             if (name.equals(LDMLConstants.TYPE_MAP)) {
                 ICUResourceWriter.ResourceString typeMap = new ICUResourceWriter.ResourceString();
                 if (isTimeZone) {
-                    typeMap.name = "\"" + LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE).replaceAll("/", ":") + "\"";
+                    typeMap.name = "\""
+                        + LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE).replaceAll("/", ":").toLowerCase(Locale.ENGLISH)
+                        + "\"";
                 } else {
-                    typeMap.name = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
+                    typeMap.name = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE).toLowerCase(Locale.ENGLISH);
                 }
-                typeMap.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.BCP47);
+                typeMap.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.BCP47).toLowerCase(Locale.ENGLISH);
                 res = typeMap;
             } else {
                 System.err.println("Encountered unknown <" + root.getNodeName() + "> subelement: " + name);

@@ -15,12 +15,15 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.ConvertLanguageData.InverseComparator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DelegatingIterator;
+import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.VoteResolver;
@@ -46,6 +49,28 @@ public class TestUtilities extends TestFmwk {
 
   public static void main(String[] args) {
     new TestUtilities().run(args);
+  }
+  
+  public void TestUrlEscape() {
+    Matcher byte1 = Pattern.compile("%[A-Za-z0-9]{2}").matcher("");
+    Matcher byte2 = Pattern.compile("%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}").matcher("");
+    Matcher byte3 = Pattern.compile("%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}").matcher("");
+    Matcher byte4 = Pattern.compile("%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}").matcher("");
+    for (int i = 1; i <= 0x10FFFF; i = i*3/2 + 1) {
+      String escaped = EscapingUtilities.urlEscape(new StringBuilder().appendCodePoint(i).toString());
+      logln(Integer.toHexString(i) + " => " + escaped);
+      if (EscapingUtilities.OK_TO_NOT_QUOTE.contains(i)) {
+        assertTrue("Should be unquoted", escaped.length() == 1);
+      } else if (i < 0x80) {
+        assertTrue("Should be %xx", byte1.reset(escaped).matches());
+      } else if (i < 0x800) {
+        assertTrue("Should be %xx%xx", byte2.reset(escaped).matches());
+      } else if (i < 0x10000) {
+        assertTrue("Should be %xx%xx%xx", byte3.reset(escaped).matches());
+      } else {
+        assertTrue("Should be %xx%xx%xx%xx", byte4.reset(escaped).matches());
+      }
+    }
   }
 
   public void TestDelegatingIterator() {

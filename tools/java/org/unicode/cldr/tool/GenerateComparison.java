@@ -3,6 +3,7 @@ package org.unicode.cldr.tool;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,6 +11,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.Row;
 import org.unicode.cldr.util.Timer;
@@ -24,6 +26,7 @@ import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 
 public class GenerateComparison {
 
@@ -312,7 +315,7 @@ public class GenerateComparison {
         String prettySort3 = prettyPartsSort[2];
         
         String pretty = prettyPathMaker.getOutputForm(pretty_sort);
-        String escapedPath = "http://unicode.org/cldr/apps/survey?_=" + locale + "&xpath=" + URLEscaper(cleanedPath);
+        String escapedPath = "http://unicode.org/cldr/apps/survey?_=" + locale + "&xpath=" + EscapingUtilities.urlEscape(cleanedPath);
         String[] prettyParts = pretty.split("[|]");
         if (prettyParts.length != 3) {
           System.out.println("Bad pretty path: " + pretty + ", original: " + cleanedPath);
@@ -425,18 +428,13 @@ public class GenerateComparison {
             + "\tTotal Time:\t" + format.format(totalTimer.getDuration()) + "ms");
   }
   
-  static Transliterator urlHex = Transliterator.createFromRules("foo", 
-          "([a-zA-Z0-9]) > $1 ;" +
-          "(.) > &hex($1) ;" +
-          ":: null;" +
-          "'\\u00' > '%' ;"
-          , Transliterator.FORWARD);
+//  static Transliterator urlHex = Transliterator.createFromRules("foo", 
+//          "([^!(-*,-\\:A-Z_a-z~]) > &hex($1) ;" +
+//          ":: null;" +
+//          "'\\u00' > '%' ;"
+//          , Transliterator.FORWARD);
 
   private static NumberFormat format;
-
-  private static String URLEscaper(String path) {
-    return urlHex.transform(path);
-  }
 
   private static void addToIndex(Set<R2<String,String>> indexInfo, String title, final String locale,
           final String localeName) {
@@ -502,4 +500,5 @@ public class GenerateComparison {
     }
     return newString.equals(oldString);
   }
+  
 }

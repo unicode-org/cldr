@@ -199,8 +199,12 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       multipleMetazoneMappings, noMetazoneMapping, noMetazoneMappingAfter1970, noMetazoneMappingBeforeNow, 
       cannotCreateZoneFormatter, insufficientCoverage, missingLanguageTerritoryInfo, missingEuroCountryInfo,
       deprecatedAttributeWithReplacement, missingOrExtraDateField, internalUnicodeSetFormattingError, 
-      auxiliaryExemplarsOverlap, charactersNotInCurrencyExemplars, narrowDateFieldTooWide,
-      illegalCharactersInExemplars, orientationDisagreesWithExemplars, charactersNotInMainOrAuxiliaryExemplars,
+      auxiliaryExemplarsOverlap,
+      
+      charactersNotInCurrencyExemplars, asciiCharactersNotInCurrencyExemplars,
+      charactersNotInMainOrAuxiliaryExemplars, asciiCharactersNotInMainOrAuxiliaryExemplars,
+      
+      narrowDateFieldTooWide, illegalCharactersInExemplars, orientationDisagreesWithExemplars,
       illegalDatePattern, missingMainExemplars, discouragedCharactersInTranslation, mustNotStartOrEndWithSpace,
       illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol,
       percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue;

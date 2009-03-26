@@ -1139,18 +1139,24 @@ public class CoverageLevel {
         Set territories = (Set) territory_timezone.get(territory);
         if (territories == null) territory_timezone.put(territory, territories = new TreeSet());
         territories.add(type);
-      } else if (lastElement.equals("calendar") && parts.containsElement("calendarData")) {
-        // we have element, type, subtype, and values
-        if (type == null) {
-          throw new IllegalArgumentException("calendarData/calendar/ is missing type attribute in:" + path);
-        }
-        Set values = new TreeSet(
-            Arrays.asList((parts.getAttributeValue(2, "territories")).split("\\s+")));
+      } else if (lastElement.equals("calendarPreference") && parts.containsElement("calendarPreferenceData")) {
+        
+        // Samples of XML to handle:
+        //  .../calendarPreferenceData/calendarPreference[@territories="001"][@ordering="gregorian"]
+        // territories="AE BH DJ DZ EH ER IQ JO KM KW LB LY MA MR OM PS QA SA SD SY TD TN YE"
+        
+        Set<String> values = new TreeSet<String>(
+              Arrays.asList((parts.getAttributeValue(-1, "territories").trim()).split("\\s+")));
         if (values.contains("")) {
           throw new IllegalArgumentException("calendarData/calendar/ illegal territories string in:" + path);
         }
-        Utility.addTreeMapChain(coverageData, lastElement, type, values);
-        addAllToCollectionValue(territory_calendar,values,type,TreeSet.class);
+        Set<String> calendars = new TreeSet<String>(
+                Arrays.asList((parts.getAttributeValue(-1, "ordering").trim()).split("\\s+")));
+        
+        for (String calendar : calendars) {
+          Utility.addTreeMapChain(coverageData, "calendar", calendar, values);
+          addAllToCollectionValue(territory_calendar, values, calendar, TreeSet.class);
+        }
       } else if (parts.containsElement("languageData")) {
         // <language type="ab" scripts="Cyrl" territories="GE"
         // alt="secondary"/>

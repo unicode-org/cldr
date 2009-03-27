@@ -573,6 +573,11 @@ public class Vetting {
                             logger.severe(complaint);
                             throw new RuntimeException(complaint);
                         }
+                        
+                        // remove result, so a recount occurs.
+                        rmResult.setString(1,locale.toString());
+                        rmResult.setInt(2,base_xpath);
+                        rmResult.executeUpdate();
                     }
                 }
                 

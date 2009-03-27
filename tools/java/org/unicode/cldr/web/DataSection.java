@@ -1,8 +1,8 @@
 //
-//  DataPod.java
+//  DataSection.java
 //
 //  Created by Steven R. Loomis on 18/11/2005.
-//  Copyright 2005-2008 IBM. All rights reserved.
+//  Copyright 2005-2009 IBM. All rights reserved.
 //
 
 //  TODO: this class now has lots of knowledge about specific data types.. so does SurveyMain
@@ -1320,7 +1320,10 @@ public class DataSection extends Registerable {
             } else if(xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
                 removePrefix = "//ldml/dates/timeZoneNames/metazone";
                 excludeMetaZones = false;
-                continent = xpathPrefix.substring(xpathPrefix.indexOf("_")+1);
+                int continentStart = xpathPrefix.indexOf("_");
+                if(continentStart>0) {
+                	continent = xpathPrefix.substring(xpathPrefix.indexOf("_")+1);
+                }
                 workPrefix = "//ldml/dates/timeZoneNames/metazone";
 //        System.err.println("ZZ1");
             } else {

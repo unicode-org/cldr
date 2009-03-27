@@ -1,0 +1,216 @@
+# IDNA CONTEXT RULES (including BIDI)
+# Mark Davis
+# $Date$
+
+# If any of the following regex expressions is found in the label, then the label is not a valid U-Label.
+# These rules provide a machine-readable way to test that. This is intended for a reference (test) version;
+# implementations would typically use hand-coded versions.
+# The rules are derived from http://tools.ietf.org/html/draft-ietf-idnabis-tables-05#appendix-A
+# However, they do contain quite a number of corrections and proposed changes.
+
+# FILE FORMAT
+
+# Everything at and after # is a comment, and ignored.
+# Blank lines are ignored.
+# Leading and trailing spaces are ignored.
+# There are two kinds of lines: rules and variable definitions
+
+# A variable is defined with a line of the form $X = ...
+# These variables are substituted in the rules before evaluation
+
+# Rules have the following formats:
+# <before>; <at>; <result>
+# <before> ; <result>
+# Key:
+#   <before> and <at> are both regex expressions
+#   <result> is either "fail" or "next"
+# Everything other kind of line is an error
+
+# Logically, a label is processed by iterating through its character positions
+# In each iteration, each rule is checked.
+# If <before> and <at> both match, then the result is applied as follows:
+#   next: go to the next character position in the iteration, skipping the rest of the rules for this position.
+#   fail: stop, the label is invalid
+# If the processing reaches the end of the string, then the label is valid.
+
+# The regex expressions use Java / Perl syntax, with Unicode properties from http://www.unicode.org/reports/tr18/\
+# If the regex does not support Unicode Properties (the latest version!), then explicit ranges can be substituted.
+# For example, for [:bc=nsm:], using the set on http://unicode.org/cldr/utility/list-unicodeset.jsp?a=[:bc=nsm:]
+# Interior spaces are ignored, and may be used for readability.
+
+# The expressions are limited to a basic format which should work in any regex engine (perhaps with some syntax tweeks).
+# In particular, the <before> and <at> split is used to avoid lookbehind, which can vary in results depending on regex engines.
+# <before> is matched before the current position. Logically, it is equivalent to matching label[0,n] against /.*<before>/
+# <at> is matched at the current position. Logically, it is equivalent to matching label[n,end] against /<at>.*/
+
+# Appendix A.1. HYPHEN-MINUS
+# Can't be at start or end; that is, ok only if medial
+
+. ; -. ; next
+- ; fail
+
+# If we want to disallow /..--/ then we'd make the following the first rule
+# ^.. ; -- ; fail
+
+# See comment in http://www.alvestrand.no/pipermail/idna-update/2008-November/003021.html
+
+# ==========================
+
+# ZWNJ and ZWJ is the trickiest section
+# Tables is all messed up. Following UAX 31 instead, from which these are derived
+# http://www.unicode.org/reports/tr31/#Layout_and_Format_Control_Characters
+
+# There are two different kinds of rules that have to be combined.
+# We don't try a script test for Arabic, because it is not needed (and is complicated)
+
+# Variables for Arabic
+
+$T = [:Joining_Type=Transparent:]
+$R = [[:Joining_Type=Dual_Joining:][:Joining_Type=Right_Joining:]]
+$L = [[:Joining_Type=Dual_Joining:][:Joining_Type=Left_Joining:]] 
+
+# Appendix A.2. ZERO WIDTH NON-JOINER
+
+# A1. Allow ZWNJ in the following context: /$L $T* ZWNJ $T* $R/
+
+$L $T* ; \u200C $T* $R ; next
+
+# Variables for Indic
+
+$Lt = [:General_Category=Letter:]
+$V = [:Canonical_Combining_Class=Virama:]
+
+# To do the script test for both ZWNJ and ZWJ, use the following.
+# The first line lists all the acceptable scripts
+
+[^[:sc=deva:][:sc=beng:][:sc=guru:]] ; [\u200C\u200D] ; fail
+
+# The remainder makes sure that each script is paired
+
+[:^sc=deva:][:sc=deva:] ; [\u200C\u200D] ; fail
+[:^sc=beng:][:sc=beng:] ; [\u200C\u200D] ; fail
+[:^sc=guru:][:sc=guru:] ; [\u200C\u200D] ; fail
+
+# Now we do the script-independent rules
+
+# A2. Allow ZWNJ in the following context: /$L $V ZWNJ/
+
+$L $V ; \u200C ; next
+\u200C ; fail
+
+# Appendix A.3. ZERO WIDTH JOINER
+
+# B. Allow ZWJ (U+200D) in the following context:  /$L $V ZWJ/
+
+$L $V ; \u200D ; next
+\u200D ; fail
+
+# ==========================
+
+# Appendix A.4. MIDDLE DOT
+
+l ; \u00B7 l ; next
+\u00B7 ; fail
+
+# Appendix A.5. GREEK LOWER NUMERAL SIGN (KERAIA)
+# Should remove - not worth distinguishing
+# Bogus rule, since doesn't allow with numbers, hyphen, etc.
+
+# Appendix A.6. MODIFIER LETTER PRIME
+# Should remove - not worth distinguishing
+# Bogus rule, since doesn't allow with numbers, hyphen, etc.
+
+# Appendix A.7. COMBINING CYRILLIC TITLO
+# Should remove - not worth distinguishing
+# Bogus rule, since doesn't allow with numbers, hyphen, etc.
+
+# Appendix A.8. HEBREW PUNCTUATION GERESH - \u05F3
+# Should remove - not worth distinguishing
+# Can be final (see http://www.alvestrand.no/pipermail/idna-update/2008-November/002964.html), so changed rules
+
+[:script=hebrew:] ; \u05F3 ; next
+\u05F3 ; fail
+
+# Appendix A.9. HEBREW PUNCTUATION GERSHAYIM - \u05F4
+# Should remove - not worth distinguishing
+# CHECK
+
+[:script=hebrew:] ; \u05F4 [:script=hebrew:] ; next
+\u05F4 ; fail
+
+# Appendix A.5. GREEK LOWER NUMERAL SIGN (KERAIA)
+# Should remove - not worth distinguishing
+# Bogus rule, since doesn't allow with numbers, hyphen, etc.
+
+# Appendix A.10. IDEOGRAPHIC ITERATION MARK
+# Should remove - not worth distinguishing
+# Rules also broken, since used with other scripts
+
+# Appendix A.11. VERTICAL IDEOGRAPHIC ITERATION MARK
+# Should remove - not worth distinguishing
+# Rules also broken, since used with other scripts
+
+# Appendix A.12. KATAKANA MIDDLE DOT
+# Should remove - not worth distinguishing.
+# Rules also broken, since used with other scripts
+
+# Appendix A.13. ARABIC-INDIC DIGITS - 0660..0669
+# Rules broken, since they simply forbid them entirely
+# Rewrite to exclude mixing with western (ASCII) or extended Arabic digits
+
+$WD = [0-9]
+$AD = [\u0660-\u0669]
+$EAD = [\u06F0-\u06F9]
+
+[$WD $EAD].*$AD ; fail
+$AD.*[$WD $EAD] ; fail
+
+# Appendix A.14. EXTENDED ARABIC-INDIC DIGITS
+# Rules broken, since they simply forbid them entirely
+# Rewrite to exclude mixing with western (ASCII) or Arabic digits
+
+$EAD .* [$WD $AD] ; fail
+[$WD $AD] .* $EAD ; fail
+
+# ==========================
+
+# BIDI Rules
+
+# From: http://tools.ietf.org/html/draft-ietf-idnabis-bidi-03
+# WARNING: we use the union of [:bc=NSM] plus nonspacing marks, to get some edge cases
+# See http://unicode.org/cldr/utility/unicodeset.jsp?a=[:bc=nsm:]&b=[[:me:][:mn:]]
+
+$NSM = [[:bc=NSM:][:gc=Me:][:gc=Mn:]]
+
+#    1.  Only characters with the BIDI properties L, R, AL, AN, EN, ES,
+#       BN, ON and NSM are allowed.
+# No rules necessary, since these should be excluded by Tables
+
+#  2.  ES and ON are not allowed in the first position
+
+^ ; [[:bc=ES:][:bc=ON:]] ; fail
+
+#    3.  ES and ON, followed by zero or more NSM, is not allowed in the last position
+
+[[:bc=ES:][:bc=ON:]] $NSM* $ ; fail
+
+#  4.  If an R, AL or AN is present, no L may be present.
+
+[[:bc=R:][:bc=AL:][:bc=AN:]] .* [:bc=L:] ; fail
+[:bc=L:] .* [[:bc=R:][:bc=AL:][:bc=AN:]] ; fail
+
+# 5.  If an EN is present, no AN may be present, and vice versa.
+# Overlaps with A.13/14 above, not necessary to restate
+
+#    6.  The first character may not be an NSM
+
+^ ; $NSM ; fail
+
+#    7.  The first character may not be an EN (European Number) or an AN (Arabic Number).
+
+^ ; [[:bc=EN:][:bc=AN:]] ; fail
+
+# NOTE: all of the "not allowed in first position" rules could be combined together
+
+
+

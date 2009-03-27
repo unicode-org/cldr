@@ -594,7 +594,7 @@ public class ShowData {
     .add("%title%", title)
     .add("%header%", header)
     .add("%version%", version)
-    .add("%date%", isoDateFormat.format(new Date()));
+    .add("%date%", "$Date$"); // isoDateFormat.format(new Date())
     BufferedReader input = Utility
         .getUTF8Data("../../tool/chart-template.html");
     StringBuffer result = new StringBuffer();

@@ -13,9 +13,10 @@
 # Everything at and after # is a comment, and ignored.
 # Blank lines are ignored.
 # Leading and trailing spaces are ignored.
-# There are two kinds of lines: rules and variable definitions
+# There are 3 kinds of lines: titles, rules and variable definitions
 
-# A variable is defined with a line of the form $X = ...
+# A variable is defined with a line of the form $X = <unicodeSet>
+# They are a single unicodeSet (character range) according to http://www.unicode.org/reports/tr18/
 # These variables are substituted in the rules before evaluation
 
 # Rules have the following formats:
@@ -26,6 +27,8 @@
 #   <result> is either "fail" or "next"
 # Everything other kind of line is an error
 
+# A title is of the form "Title: ...". It is just informational
+
 # Logically, a label is processed by iterating through its character positions
 # In each iteration, each rule is checked.
 # If <before> and <at> both match, then the result is applied as follows:
@@ -33,7 +36,7 @@
 #   fail: stop, the label is invalid
 # If the processing reaches the end of the string, then the label is valid.
 
-# The regex expressions use Java / Perl syntax, with Unicode properties from http://www.unicode.org/reports/tr18/\
+# The regex expressions use Java / Perl syntax, with Unicode properties from 
 # If the regex does not support Unicode Properties (the latest version!), then explicit ranges can be substituted.
 # For example, for [:bc=nsm:], using the set on http://unicode.org/cldr/utility/list-unicodeset.jsp?a=[:bc=nsm:]
 # Interior spaces are ignored, and may be used for readability.
@@ -43,8 +46,7 @@
 # <before> is matched before the current position. Logically, it is equivalent to matching label[0,n] against /.*<before>/
 # <at> is matched at the current position. Logically, it is equivalent to matching label[n,end] against /<at>.*/
 
-# Appendix A.1. HYPHEN-MINUS
-# Can't be at start or end; that is, ok only if medial
+Title: Appendix A.1. HYPHEN-MINUS - Can't be at start or end; that is, ok only if medial
 
 . ; -. ; next
 - ; fail
@@ -71,7 +73,7 @@ $L = [[:Joining_Type=Dual_Joining:][:Joining_Type=Left_Joining:]]
 
 # Appendix A.2. ZERO WIDTH NON-JOINER
 
-# A1. Allow ZWNJ in the following context: /$L $T* ZWNJ $T* $R/
+Title: A1. Allow ZWNJ in the following context: /$L $T* ZWNJ $T* $R/
 
 $L $T* ; \u200C $T* $R ; next
 
@@ -80,34 +82,41 @@ $L $T* ; \u200C $T* $R ; next
 $Lt = [:General_Category=Letter:]
 $V = [:Canonical_Combining_Class=Virama:]
 
+$deva = [:sc=deva:]
+$beng = [:sc=beng:]
+$guru = [:sc=guru:]
+$scripts = [^ $deva $beng $guru]
+
 # To do the script test for both ZWNJ and ZWJ, use the following.
 # The first line lists all the acceptable scripts
 
-[^[:sc=deva:][:sc=beng:][:sc=guru:]] ; [\u200C\u200D] ; fail
+Title: ZWJ/ZWNJ apply to letter+virama of same script (and limited scripts)
+
+$scripts ; [\u200C\u200D] ; fail
 
 # The remainder makes sure that each script is paired
 
-[:^sc=deva:][:sc=deva:] ; [\u200C\u200D] ; fail
-[:^sc=beng:][:sc=beng:] ; [\u200C\u200D] ; fail
-[:^sc=guru:][:sc=guru:] ; [\u200C\u200D] ; fail
+[^$deva] $deva; [\u200C\u200D] ; fail
+[^$beng] $beng; [\u200C\u200D] ; fail
+[^$guru] $guru; [\u200C\u200D] ; fail
 
 # Now we do the script-independent rules
 
-# A2. Allow ZWNJ in the following context: /$L $V ZWNJ/
+Title: A2. Allow ZWNJ in the following context: /$L $V ZWNJ/
 
 $L $V ; \u200C ; next
 \u200C ; fail
 
 # Appendix A.3. ZERO WIDTH JOINER
 
-# B. Allow ZWJ (U+200D) in the following context:  /$L $V ZWJ/
+Title: B. Allow ZWJ (U+200D) in the following context:  /$L $V ZWJ/
 
 $L $V ; \u200D ; next
 \u200D ; fail
 
 # ==========================
 
-# Appendix A.4. MIDDLE DOT
+Title: Appendix A.4. MIDDLE DOT
 
 l ; \u00B7 l ; next
 \u00B7 ; fail
@@ -124,18 +133,20 @@ l ; \u00B7 l ; next
 # Should remove - not worth distinguishing
 # Bogus rule, since doesn't allow with numbers, hyphen, etc.
 
-# Appendix A.8. HEBREW PUNCTUATION GERESH - \u05F3
+Title: Appendix A.8. HEBREW PUNCTUATION GERESH - \u05F3
 # Should remove - not worth distinguishing
 # Can be final (see http://www.alvestrand.no/pipermail/idna-update/2008-November/002964.html), so changed rules
 
-[:script=hebrew:] ; \u05F3 ; next
+$hebr = [:script=hebrew:]
+
+$hebr ; \u05F3 ; next
 \u05F3 ; fail
 
-# Appendix A.9. HEBREW PUNCTUATION GERSHAYIM - \u05F4
+Title: Appendix A.9. HEBREW PUNCTUATION GERSHAYIM - \u05F4
 # Should remove - not worth distinguishing
 # CHECK
 
-[:script=hebrew:] ; \u05F4 [:script=hebrew:] ; next
+$hebr ; \u05F4 $hebr ; next
 \u05F4 ; fail
 
 # Appendix A.5. GREEK LOWER NUMERAL SIGN (KERAIA)
@@ -154,7 +165,7 @@ l ; \u00B7 l ; next
 # Should remove - not worth distinguishing.
 # Rules also broken, since used with other scripts
 
-# Appendix A.13. ARABIC-INDIC DIGITS - 0660..0669
+Title: Appendix A.13. ARABIC-INDIC DIGITS - 0660..0669
 # Rules broken, since they simply forbid them entirely
 # Rewrite to exclude mixing with western (ASCII) or extended Arabic digits
 
@@ -165,7 +176,7 @@ $EAD = [\u06F0-\u06F9]
 [$WD $EAD].*$AD ; fail
 $AD.*[$WD $EAD] ; fail
 
-# Appendix A.14. EXTENDED ARABIC-INDIC DIGITS
+Title: Appendix A.14. EXTENDED ARABIC-INDIC DIGITS
 # Rules broken, since they simply forbid them entirely
 # Rewrite to exclude mixing with western (ASCII) or Arabic digits
 
@@ -181,34 +192,37 @@ $EAD .* [$WD $AD] ; fail
 # See http://unicode.org/cldr/utility/unicodeset.jsp?a=[:bc=nsm:]&b=[[:me:][:mn:]]
 
 $NSM = [[:bc=NSM:][:gc=Me:][:gc=Mn:]]
+$ESON = [[:bc=ES:][:bc=ON:]]
+$ENAN = [[:bc=EN:][:bc=AN:]]
+$RALAN = [[:bc=R:][:bc=AL:][:bc=AN:]]
+$BCL = [:bc=L:]
 
-#    1.  Only characters with the BIDI properties L, R, AL, AN, EN, ES,
-#       BN, ON and NSM are allowed.
+Title: 1.  Only characters with the BIDI properties L, R, AL, AN, EN, ES, BN, ON and NSM are allowed.
 # No rules necessary, since these should be excluded by Tables
 
-#  2.  ES and ON are not allowed in the first position
+Title: 2.  ES and ON are not allowed in the first position
 
-^ ; [[:bc=ES:][:bc=ON:]] ; fail
+^ ; $ESON .* $RALAN ; fail
 
-#    3.  ES and ON, followed by zero or more NSM, is not allowed in the last position
+Title: 3.  ES and ON, followed by zero or more NSM, is not allowed in the last position
 
-[[:bc=ES:][:bc=ON:]] $NSM* $ ; fail
+$RALAN .* ; $ESON $NSM* $ ; fail
 
-#  4.  If an R, AL or AN is present, no L may be present.
+Title: 4.  If an R, AL or AN is present, no L may be present.
 
-[[:bc=R:][:bc=AL:][:bc=AN:]] .* [:bc=L:] ; fail
-[:bc=L:] .* [[:bc=R:][:bc=AL:][:bc=AN:]] ; fail
+$RALAN .* $BCL ; fail
+$BCL .* $RALAN ; fail
 
-# 5.  If an EN is present, no AN may be present, and vice versa.
+Title: 5.  If an EN is present, no AN may be present, and vice versa.
 # Overlaps with A.13/14 above, not necessary to restate
 
-#    6.  The first character may not be an NSM
+Title: 6.  The first character may not be an NSM. General rule
 
 ^ ; $NSM ; fail
 
-#    7.  The first character may not be an EN (European Number) or an AN (Arabic Number).
+Title: 7.  The first character may not be an EN (European Number) or an AN (Arabic Number).
 
-^ ; [[:bc=EN:][:bc=AN:]] ; fail
+^ ; $ENAN .* $RALAN ; fail
 
 # NOTE: all of the "not allowed in first position" rules could be combined together
 

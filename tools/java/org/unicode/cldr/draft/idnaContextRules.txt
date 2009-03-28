@@ -90,6 +90,9 @@ $guru = [:sc=guru:]
 $Nguru = [^$guru]
 $noVirama = [^ $deva $beng $guru]
 
+# WARNING: There is a nasty bug in Java regex before 1.6; the work-around is to do the negations
+# above, instead of in the regexes.
+
 # To do the script test for both ZWNJ and ZWJ, use the following.
 # The first line lists all the acceptable scripts
 
@@ -109,14 +112,14 @@ $Nguru $guru; [\u200C\u200D] ; fail
 
 Title: A2. Allow ZWNJ in the following context: /$L $V ZWNJ/
 
-$L $V ; \u200C ; next
+$Lt $V ; \u200C ; next
 \u200C ; fail
 
 # Appendix A.3. ZERO WIDTH JOINER
 
 Title: B. Allow ZWJ (U+200D) in the following context:  /$L $V ZWJ/
 
-$L $V ; \u200D ; next
+$Lt $V ; \u200D ; next
 \u200D ; fail
 
 # ==========================

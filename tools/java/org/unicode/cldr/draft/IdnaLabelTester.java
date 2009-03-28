@@ -15,7 +15,7 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class IdnaLabelTester {
 
-  private static final boolean DEBUG = true;
+  private static final boolean DEBUG = false;
 
   enum Result {none, next, fail};
 
@@ -42,14 +42,14 @@ public class IdnaLabelTester {
 
     public Result match(int position) {
       if (before != null) {
-        //before.region(0, position);
-        before.reset(label.substring(0,position));
+        before.region(0, position);
+        //before.reset(label.substring(0,position));
         if (!before.matches()) {
           return Result.none;
         }
       }
-      //at.region(position, length);
-      at.reset(label.substring(position,length));
+      at.region(position, length);
+      //at.reset(label.substring(position,length));
       if (!at.lookingAt()) {
         return Result.none;
       }
@@ -216,32 +216,41 @@ public class IdnaLabelTester {
       }
 
       TestStatus result = tester.test(line);
-      System.out.print(lineCount + ". \t");
+
+      boolean showLine = false;
       if (result == null) {
         if (expectedSuccess) {
           if (DEBUG) {
-            System.out.print("Success - expected and got Valid:\t");
+            System.out.print(lineCount + ". \tSuccess - expected and got Valid:\t");
+            showLine = true;
           }
           successes++;
         } else {
-          System.out.print("FAILURE - expected Invalid, was valid:\t");
+          System.out.print(lineCount + ". \tFAILURE - expected Invalid, was valid:\t");
           failures++;
+          showLine = true;
         }
-        System.out.println(escaper.transform(line));
+        if (showLine) {
+          System.out.println(escaper.transform(line));
+        }
       } else {
         if (expectedSuccess) {
-          System.out.print("FAILURE - expected Valid, was invalid:\t");
+          System.out.print(lineCount + ". \tFAILURE - expected Valid, was invalid:\t");
           failures++;
+          showLine = true;
         } else {
           if (DEBUG) {
-            System.out.print("Success - expected and got Invalid:\t");
+            System.out.print(lineCount + ". \tSuccess - expected and got Invalid:\t");
+            showLine = true;
           }
           successes++;
         }
-        System.out.println(escaper.transform(line.substring(0, result.position)) 
-                + "\u2639" + escaper.transform(line.substring(result.position)) 
-                + "\t\t" + result.title
-                + "; \tRuleLine: " + result.ruleLine);
+        if (showLine) {
+          System.out.println(escaper.transform(line.substring(0, result.position)) 
+                  + "\u2639" + escaper.transform(line.substring(result.position)) 
+                  + "\t\t" + result.title
+                  + "; \tRuleLine: " + result.ruleLine);
+        }
       }
     }
     System.out.println("Successes:\t" + successes);

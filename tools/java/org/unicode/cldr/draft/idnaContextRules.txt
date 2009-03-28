@@ -83,22 +83,27 @@ $Lt = [:General_Category=Letter:]
 $V = [:Canonical_Combining_Class=Virama:]
 
 $deva = [:sc=deva:]
+$Ndeva = [^$deva]
 $beng = [:sc=beng:]
+$Nbeng = [^$beng]
 $guru = [:sc=guru:]
-$scripts = [^ $deva $beng $guru]
+$Nguru = [^$guru]
+$noVirama = [^ $deva $beng $guru]
 
 # To do the script test for both ZWNJ and ZWJ, use the following.
 # The first line lists all the acceptable scripts
 
 Title: ZWJ/ZWNJ apply to letter+virama of same script (and limited scripts)
+# WARNING: rule must come after Arabic!
 
-$scripts ; [\u200C\u200D] ; fail
+# $noVirama ; [\u200C\u200D] ; fail
 
 # The remainder makes sure that each script is paired
+# Subsequent rules will make sure that there are two characters
 
-[^$deva] $deva; [\u200C\u200D] ; fail
-[^$beng] $beng; [\u200C\u200D] ; fail
-[^$guru] $guru; [\u200C\u200D] ; fail
+$Ndeva $deva; [\u200C\u200D] ; fail
+$Nbeng $beng; [\u200C\u200D] ; fail
+$Nguru $guru; [\u200C\u200D] ; fail
 
 # Now we do the script-independent rules
 

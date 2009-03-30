@@ -123,7 +123,9 @@
 			<usesMetazone to="2000-03-03 03:00" from="1999-10-03 03:00" mzone="Argentina_Western"/>
 			<usesMetazone to="2004-05-31 03:00" from="2000-03-03 03:00" mzone="Argentina"/>
 			<usesMetazone to="2004-07-25 04:00" from="2004-05-31 03:00" mzone="Argentina_Western"/>
-			<usesMetazone from="2004-07-25 04:00" mzone="Argentina"/>
+			<usesMetazone to="2009-03-15 03:00" from="2004-07-25 04:00" mzone="Argentina"/>
+			<!-- Disable the mapping.  See CLDR bug#2125. -->
+			<!-- <usesMetazone from="2009-03-15 03:00" mzone="Argentina_Western"/> -->
 		</timezone>
 		<timezone type="America/Argentina/Salta">
 			<usesMetazone to="1991-03-03 02:00" mzone="Argentina"/>

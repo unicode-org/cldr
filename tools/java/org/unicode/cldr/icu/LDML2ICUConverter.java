@@ -7554,7 +7554,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                    String rsNamePrefix = "%";
                    if ( rulesetAccess != null && rulesetAccess.equals("private") )
                       rsNamePrefix = "%%";
-                   rsname.val = rsNamePrefix+rulesetType+":\\n";
+                   rsname.val = rsNamePrefix+rulesetType+":";
                    ruleset.appendContents(rsname);
                    currentRulesetType = rulesetType;
                 }
@@ -7576,9 +7576,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
                 ICUResourceWriter.ResourceString rs = new ICUResourceWriter.ResourceString();
                 if ( rulesetType.equals(LDMLConstants.LENIENT_PARSE)) {
-                   rs.val = Utility.escape(loc.file.getStringValue(aPath).replace(LARROW,'<').replace(RARROW,'>'))+"\\n";
+                   rs.val = Utility.escape(loc.file.getStringValue(aPath).replace(LARROW,'<').replace(RARROW,'>'));
                 } else {
-                    rs.val = ruleValue+radixString+decExpString+": "+Utility.escape(loc.file.getStringValue(aPath).replace(LARROW,'<').replace(RARROW,'>'))+"\\n";
+                    rs.val = ruleValue+radixString+decExpString+": "+Utility.escape(loc.file.getStringValue(aPath).replace(LARROW,'<').replace(RARROW,'>'));
                 }
                 ruleset.appendContents(rs);
             } else {

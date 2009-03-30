@@ -2,6 +2,8 @@
 # Mark Davis
 # $Date$
 
+VERBOSE:true
+
 # If any of the following regex expressions is found in the label, then the label is not a valid U-Label.
 # These rules provide a machine-readable way to test that. This is intended for a reference (test) version;
 # implementations would typically use hand-coded versions.
@@ -32,7 +34,7 @@
 # Logically, a label is processed by iterating through its character positions
 # In each iteration, each rule is checked.
 # If <before> and <at> both match, then the result is applied as follows:
-#   next: go to the next character position in the iteration, skipping the rest of the rules for this position.
+#   next: skip to the next rule that doesn't have a fail result
 #   fail: stop, the label is invalid
 # If the processing reaches the end of the string, then the label is valid.
 
@@ -46,13 +48,107 @@
 # <before> is matched before the current position. Logically, it is equivalent to matching label[0,n] against /.*<before>/
 # <at> is matched at the current position. Logically, it is equivalent to matching label[n,end] against /<at>.*/
 
+Title: 4.2.2. Rejection of Characters that are not Permitted: fail if DISALLOWED or UNASSIGNED
+
+# Tables
+
+# 2.1. LetterDigits (A)
+
+$LetterDigits = [[:Ll:] [:Lu:] [:Lo:] [:Nd:] [:Lm:] [:Mn:] [:Mc:]]
+
+# 2.2. Unstable (B)
+
+$Unstable = [:^nfkc_casefolded:]
+
+# 2.3. IgnorableProperties (C) // default ignoreable or whitespace or nonchar
+
+$Ignorable = [[:di:] [:WSpace:] [:NChar:]]
+
+# 2.4. IgnorableBlocks (D)
+
+$IgnorableBlocks = [[:block=Combining_Diacritical_Marks_For_Symbols:] [:block=Musical_Symbols:] [:block=Ancient_Greek_Musical_Notation:]]
+
+# 2.5. LDH (E)
+
+$LDH = [\u002D\u0030-\u0039\u0061-\u007A]
+
+# 2.6. Exceptions (F)
+
+$ExceptionDisallowed = [\u302E \u302F]
+$ExceptionPvalid = [\u00DF \u03C2 \u06FD \u06FE \u0F0B \u3007]
+$ExceptionContexto = [\u002D \u00B7 \u02B9 \u0375 \u0483 \u05F3 \u05F4 \u0660 \u0661 \u0662 \u0663 \u0664 \u0665 \u0666 \u0667 \u0668 \u0669 \u06F0 \u06F1 \u06F2 \u06F3 \u06F4 \u06F5 \u06F6 \u06F7 \u06F8 \u06F9 \u3005 \u303B \u30FB]
+   
+# 2.7. BackwardCompatible (G)
+
+$BackwardCompatibleDisallowed = []
+$BackwardCompatiblePvalid = []
+$BackwardCompatibleContexto = []
+
+# 2.8. JoinControl (H)
+
+$JoinControl = [:JoinControl:]
+
+# 2.9. OldHangulJamo (I)
+
+$OldHangulJamo = [[:HST=L:] [:HST=V:] [:HST=T:]]
+
+# 2.10. Unassigned (J)
+
+$Unassigned = [[:unassigned:] - [:nchar:]]
+
+# If .cp. .in.  Exceptions Then Exceptions(cp);
+# Else If .cp. .in.  BackwardCompatible Then BackwardCompatible(cp);
+# Else If .cp. .in.  Unassigned Then UNASSIGNED;
+# Else If .cp. .in.  LDH Then PVALID;
+# Else If .cp. .in.  JoinControl Then CONTEXTJ;
+# Else If .cp. .in.  Unstable Then DISALLOWED;
+# Else If .cp. .in.  IgnorableProperties Then DISALLOWED;
+# Else If .cp. .in.  IgnorableBlocks Then DISALLOWED;
+# Else If .cp. .in.  OldHangulJamo Then DISALLOWED;
+# Else If .cp. .in.  LetterDigits Then PVALID; 
+# Else DISALLOWED;
+
+# We compute when invalid.
+# There is no functional difference between DISALLOWED and UNASSIGNED: we can just call them invalid.
+
+# The above structure obfuscates the true situation, which is that 
+#   A. some characters are always valid
+#   B. otherwise LetterDigits are valid - with some subtractions
+#   C. otherwise everything is invalid
+
+# There is no functional difference between CONTEXTJ and CONTEXTO, and none at this point from PVALID either
+# We record all of them for later
+
+$Context = [$ExceptionContexto $BackwardCompatibleContexto $JoinControl]
+
+$ValidAlways = [$ExceptionPvalid $BackwardCompatiblePvalid $LDH]
+
+$InvalidLetterDigits = [$ExceptionDisallowed $BackwardCompatibleDisallowed $Unassigned $Unstable $IgnorableProperties $IgnorableBlocks $OldHangulJamo]
+
+$Invalid = [^ $ValidAlways $Context [$LetterDigits - $InvalidLetterDigits]]
+
+$Invalid ; fail
+
+
+
+Title: 4.2.3.1. Rejection of Hyphen Sequences in U-labels // just xx--
+
+^.. ; -- ; fail
+
+
+Title: 4.2.3.2. Leading Combining Marks
+
+$M = [:M:]
+
+^ ; $M ; fail
+
+
+# CONTEXT: 4.2.3.3. Contextual Rules
+
 Title: Appendix A.1. HYPHEN-MINUS - Can't be at start or end; that is, ok only if medial
 
 . ; -. ; next
 - ; fail
-
-# If we want to disallow /..--/ then we'd make the following the first rule
-# ^.. ; -- ; fail
 
 # See comment in http://www.alvestrand.no/pipermail/idna-update/2008-November/003021.html
 
@@ -112,14 +208,14 @@ $Nguru $guru; [\u200C\u200D] ; fail
 
 Title: A2. Allow ZWNJ in the following context: /$L $V ZWNJ/
 
-$Lt $V ; \u200C ; next
+$Lt $V ; \u200C ; next2
 \u200C ; fail
 
 # Appendix A.3. ZERO WIDTH JOINER
 
 Title: B. Allow ZWJ (U+200D) in the following context:  /$L $V ZWJ/
 
-$Lt $V ; \u200D ; next
+$Lt $V ; \u200D ; next2
 \u200D ; fail
 
 # ==========================
@@ -193,20 +289,29 @@ $EAD .* [$WD $AD] ; fail
 
 # ==========================
 
-# BIDI Rules
+# BIDI Rules: 4.2.3.4. Labels Containing Characters Written Right to Left
 
 # From: http://tools.ietf.org/html/draft-ietf-idnabis-bidi-03
-# WARNING: we use the union of [:bc=NSM] plus nonspacing marks, to get some edge cases
+# Note that $NSM != Non-spacing Marks in the general sense
 # See http://unicode.org/cldr/utility/unicodeset.jsp?a=[:bc=nsm:]&b=[[:me:][:mn:]]
 
-$NSM = [[:bc=NSM:][:gc=Me:][:gc=Mn:]]
+$NSM = [:bc=NSM:]
 $ESON = [[:bc=ES:][:bc=ON:]]
 $ENAN = [[:bc=EN:][:bc=AN:]]
 $RALAN = [[:bc=R:][:bc=AL:][:bc=AN:]]
 $BCL = [:bc=L:]
+$BDisallowed = [^[:bc=L:][:bc=R:][:bc=AL:][:bc=AN:][:bc=EN:][:bc=ES:][:bc=BN:][:bc=ON:][:bc=NSM:]]
+
+# Note: 
+# The only tables-valid [:bc=ES:] character is: -
+# The only tables-valid [:bc=BN:] characters are: [\u200C \u200D]
+# The only tables-valid [:bc=ON:] characters are: [・ · ʹ ͵ ʺ ˆ-ˏ ˬ ꜗ-ꜟ ꞈ ⸯ ꙿ] 
 
 Title: 1.  Only characters with the BIDI properties L, R, AL, AN, EN, ES, BN, ON and NSM are allowed.
-# No rules necessary, since these should be excluded by Tables
+
+# No rules really necessary, since anything else is excluded by Tables
+
+$BDisallowed ; fail
 
 Title: 2.  ES and ON are not allowed in the first position
 
@@ -222,9 +327,10 @@ $RALAN .* $BCL ; fail
 $BCL .* $RALAN ; fail
 
 Title: 5.  If an EN is present, no AN may be present, and vice versa.
+
 # Overlaps with A.13/14 above, not necessary to restate
 
-Title: 6.  The first character may not be an NSM. General rule
+Title: 6.  The first character may not be an NSM.
 
 ^ ; $NSM ; fail
 
@@ -235,4 +341,4 @@ Title: 7.  The first character may not be an EN (European Number) or an AN (Arab
 # NOTE: all of the "not allowed in first position" rules could be combined together
 
 
-
+# 4.2.4. Registration Validation Summary: if at least one non-ASCII then <= 59 bytes of PunyCode

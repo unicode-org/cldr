@@ -10,31 +10,48 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.VariableReplacer;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 
 public class IdnaLabelTester {
 
-  private static final boolean DEBUG = false;
+  private static boolean DEBUG = false;
 
-  enum Result {none, next, fail};
+  enum Result {none, next, next2, fail};
 
   static class Rule {
     final Matcher before;
+    final String beforeString;
     final Matcher at;
+    final String atString;
     final Result result;
     final String title;
     final int lineNumber;
-    int length;
-    String label;
+    transient int length;
+    transient String label;
+    
+    public String toString() {
+      return "{Rule "
+      + (before == null ? "" : "before: " + beforeString + ", ")
+      + "at: " + atString
+      + ", result: " + result
+      + ", line: " + lineNumber
+      + ", title: " + title + "}";
+    }
 
-    public Rule(String before, String at, String result, String title, int lineNumber) {
+    public Rule(String before, String at, String result, String title, int lineNumber, VariableReplacer variables) {
+      beforeString = before;
       if (before != null) {
-        before = before.trim();
+        before = variables.replace(before.trim());
       }
       this.before = before == null || before == "" ? null 
               : Pattern.compile(".*" + before, Pattern.COMMENTS).matcher(""); // hack, because Java doesn't have lookingBefore
-      this.at = Pattern.compile(at.trim(), Pattern.COMMENTS).matcher("");
+      atString = at;
+      at = variables.replace(at.trim());
+      this.at = Pattern.compile(at, Pattern.COMMENTS).matcher("");
       this.result = Result.valueOf(result.toLowerCase().trim());
       this.title = title;
       this.lineNumber = lineNumber;
@@ -68,6 +85,8 @@ public class IdnaLabelTester {
   }
 
   private List<Rule> rules = new ArrayList<Rule>();
+  
+  private static final UnicodeSet NOT_NFKC_CASE_FOLD = computeNotNfkcCaseFold();
 
   public IdnaLabelTester(String file) throws IOException {
 
@@ -77,52 +96,101 @@ public class IdnaLabelTester {
     String title = "???";
     for (int lineCount = 1; ; ++lineCount) {
       String line = in.readLine();
-      if (line == null) break;
-      int commentPos = line.indexOf("#");
-      if (commentPos >= 0) {
-        line = line.substring(0,commentPos);
-      }
-      line = line.trim();
-      if (line.length() == 0) continue;
-
-      // do title
-
-      if (line.startsWith("Title:")) {
-        title = line.substring(6).trim();
-        continue;
-      }
-
-      // do variables
-
-      if (line.startsWith("$")) {
-        int equals = line.indexOf("=");
-        if (equals >= 0) {
-          final String variable = line.substring(0,equals).trim();
-          UnicodeSet s = new UnicodeSet(variables.replace(line.substring(equals+1).trim())).complement().complement();
-          if (DEBUG) {
-            System.out.println(variable + "\t=\t" + s.toPattern(false));
-          }
-          variables.add(variable, s.toPattern(false));
+      try {
+        if (line == null) break;
+        int commentPos = line.indexOf("#");
+        if (commentPos >= 0) {
+          line = line.substring(0,commentPos);
+        }
+        line = line.trim();
+        if (line.length() == 0) continue;
+        
+        // do debug
+        
+        if (line.startsWith("VERBOSE:")) {
+          DEBUG = line.substring(8).trim().equalsIgnoreCase("true");
           continue;
         }
-      }
 
-      // do rules. This could be much more compact, but is broken out for debugging
+        // do title
 
-      String[] pieces = line.split("\\s*;\\s*");
-      if (DEBUG) {
-        System.out.println(Arrays.asList(pieces));
+        if (line.startsWith("Title:")) {
+          title = line.substring(6).trim();
+          continue;
+        }
+
+        // do variables
+
+        if (line.startsWith("$")) {
+          int equals = line.indexOf("=");
+          if (equals >= 0) {
+            final String variable = line.substring(0,equals).trim();
+            final String value = variables.replace(line.substring(equals+1).trim());
+            if (DEBUG && value.contains("$")) {
+              System.out.println("Warning: contains $ " + variable + "\t=\t" + value);
+            }
+            // small hack, because this property isn't in ICU until 5.2
+            UnicodeSet s = value.equals("[:^nfkc_casefolded:]")
+                    ? NOT_NFKC_CASE_FOLD
+                    : new UnicodeSet(value).complement().complement();
+            if (DEBUG) {
+              System.out.println("{Variable: " + variable + ", value: " + s.toPattern(false) + "}");
+            }
+            variables.add(variable, s.toPattern(false));
+            continue;
+          }
+        }
+
+        // do rules. This could be much more compact, but is broken out for debugging
+
+        String[] pieces = line.split("\\s*;\\s*");
+//        if (DEBUG) {
+//          System.out.println(Arrays.asList(pieces));
+//        }
+        String before, at, result;
+        switch (pieces.length) {
+          case 2: before = null; at = pieces[0]; result= pieces[1]; break;
+          case 3: before = pieces[0]; at = pieces[1]; result= pieces[2]; break;
+          default: throw new IllegalArgumentException(line + " => " + Arrays.asList(pieces));
+        }
+        Rule rule = new Rule(before, at, result, title, lineCount, variables);
+        if (DEBUG) {
+          System.out.println(rule);
+        }
+        rules.add(rule);
+      } catch (Exception e) {
+        throw (RuntimeException) new IllegalArgumentException("Error on line: " + lineCount + ".\t" + line).initCause(e);
       }
-      String before, at, result;
-      switch (pieces.length) {
-        case 2: before = null; at = variables.replace(pieces[0]); result= pieces[1]; break;
-        case 3: before = variables.replace(pieces[0]); at = variables.replace(pieces[1]); result= pieces[2]; break;
-        default: throw new IllegalArgumentException(line + " => " + Arrays.asList(pieces));
-      }
-      Rule rule = new Rule(before, at, result, title, lineCount);
-      rules.add(rule);
     }
     in.close();
+  }
+
+  private static UnicodeSet computeNotNfkcCaseFold() {
+    //    B: toNFKC(toCaseFold(toNFKC(cp))) != cp
+    UnicodeSet result = new UnicodeSet();
+    for (int i = 0; i < 0x10FFFF; ++i) {
+      // quick check to avoid extra processing
+      int type = UCharacter.getType(i);
+      if (type == UCharacter.UNASSIGNED || type == UCharacter.SURROGATE || type == UCharacter.PRIVATE_USE) {
+        result.add(i);
+        continue;
+      }
+      String nfkc = Normalizer.normalize(i, Normalizer.NFKC);
+      String case_nfkc = UCharacter.foldCase(nfkc, true);
+      String nfkc_case_nfkc = Normalizer.normalize(case_nfkc, Normalizer.NFKC);
+      if (!equals(nfkc_case_nfkc, i)) {
+        result.add(i);
+      }
+    }
+    return (UnicodeSet) result.freeze();
+  }
+
+  private static boolean equals(String string, int codePoint) {
+    switch(string.length()) {
+      case 1: return codePoint == string.charAt(0);
+      case 2: return codePoint > 0x10000 && codePoint == string.codePointAt(0);
+      default: return false;
+    }
   }
 
   private static BufferedReader openFile(String file) throws IOException {
@@ -158,17 +226,39 @@ public class IdnaLabelTester {
     for (Rule rule : rules) {
       rule.setLabel(label);
     }
-    charLoop:
+    boolean skipOverFail = false;
+    boolean skipOverFailAndNext2 = false;
       // note: it doesn't matter if we test in the middle of a supplemental character
       for (int i= 0; i < label.length(); ++i) {
         for (Rule rule : rules) {
+          
+          // handle the skipping
+          
+          switch (rule.result) {
+            case fail: if (skipOverFail || skipOverFailAndNext2) continue;
+            break;
+            case next2: if (skipOverFailAndNext2) continue;
+            break;
+          }
+          skipOverFail = false;
+          skipOverFailAndNext2 = false;
+          
+          // check the rule
+          
           Result result = rule.match(i);
           switch (result) {
             case next: 
               if (DEBUG) {
                 rule.match(i);
               }
-              continue charLoop;
+              skipOverFailAndNext2 = true;
+              break;
+            case next2: 
+              if (DEBUG) {
+                rule.match(i);
+              }
+              skipOverFail = true;
+              break;
             case fail: 
               if (DEBUG) {
                 rule.match(i);
@@ -210,8 +300,13 @@ public class IdnaLabelTester {
       if ("valid".equalsIgnoreCase(line)) {
         expectedSuccess = true;
         continue;
-      } else if ("invalid".equalsIgnoreCase(line)) {
+      }
+      if ("invalid".equalsIgnoreCase(line)) {
         expectedSuccess = false;
+        continue;
+      }
+      if (line.startsWith("VERBOSE:")) {
+        DEBUG = line.substring(8).trim().equalsIgnoreCase("true");
         continue;
       }
 

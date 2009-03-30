@@ -1,7 +1,40 @@
-#DEBUGGING
+#DEBUGGING CASES
 
 VALID
 \u0915\u094D\u200C\u0916
+
+VALID
+# $ExceptionPvalid 
+# $BackwardCompatiblePvalid 
+
+ßς་〇
+۽۾
+
+# $LDH
+abcdefghijkl-mnopqrstuvwxyz-0123456789-öø
+
+INVALID
+
+# $ExceptionDisallowed
+# $BackwardCompatibleDisallowed
+a 〮〯
+
+# $Unassigned
+a׵b
+
+# $Unstable
+ÖL
+
+# $IgnorableProperties 
+a︀
+
+# $IgnorableBlocks 
+
+z𝄀a
+
+# $OldHangulJamo
+가ᄀ가
+
 
 # Title: Appendix A.1. HYPHEN-MINUS - Can't be at start or end; that is, ok only if medial
 
@@ -119,20 +152,18 @@ INVALID
 # Title: 2.  ES and ON are not allowed in the first position
 
 VALID 
-\u0645﬩\u0644
-\u0645⺁\u0644
+\u0645-\u0644
+\u0645ʹ\u0644
 
 INVALID
-﬩\u0645
-⺁\u0645
+ʹ\u0645
 
 # Title: 3.  ES and ON, followed by zero or more NSM, is not allowed in the last position
 
 INVALID
-\u0645﬩
-\u0645⺁
-\u0645\u0300﬩
-\u0645\u0300⺁
+\u0645ʹ
+\u0645-\u0300
+\u0645\u0300ʹ
 
 # Title: 4.  If an R, AL or AN is present, no L may be present.
 

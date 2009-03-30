@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
-	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="vi"/>
-	</identity>
+    <identity>
+        <version number="$Revision$"/>
+        <generation date="$Date$"/>
+        <language type="vi"/>
+    </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout">
+            <ruleset type="spellout-numbering-year">
+                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering">
+                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal">
                 <rbnfrule value="-x">trừ →→;</rbnfrule>
                 <rbnfrule value="x.x">←← phẩy →→;</rbnfrule>
                 <rbnfrule value="0">không;</rbnfrule>
@@ -22,12 +29,22 @@
                 <rbnfrule value="8">tám;</rbnfrule>
                 <rbnfrule value="9">chín;</rbnfrule>
                 <rbnfrule value="10">mười[ →→];</rbnfrule>
-                <rbnfrule value="20">←← mươi[ →→];</rbnfrule>
+                <rbnfrule value="20">←← mười[ →→];</rbnfrule>
                 <rbnfrule value="100">←← trăm[ →→];</rbnfrule>
                 <rbnfrule value="1000">←← nghìn[ →→];</rbnfrule>
                 <rbnfrule value="1000000">←← triệu[ →→];</rbnfrule>
                 <rbnfrule value="1000000000">←← tỷ[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal">
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="0">thứ =%spellout-cardinal=;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
+        <rulesetGrouping type="OrdinalRules">
+            <ruleset type="digits-ordinal">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="0">thứ =#,##0=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
-	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="zh"/>
-	</identity>
+    <identity>
+        <version number="$Revision$"/>
+        <generation date="$Date$"/>
+        <language type="zh"/>
+    </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="financial">
+            <ruleset type="spellout-numbering-year">
+                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering">
+                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-financial">
                 <rbnfrule value="-x">负→→;</rbnfrule>
                 <rbnfrule value="x.x">←←点→→→;</rbnfrule>
                 <rbnfrule value="0">零;</rbnfrule>
@@ -23,45 +30,45 @@
                 <rbnfrule value="9">玖;</rbnfrule>
                 <rbnfrule value="10">拾[→→];</rbnfrule>
                 <rbnfrule value="20">←←拾[→→];</rbnfrule>
-                <rbnfrule value="100">←←佰[→%%financial2→];</rbnfrule>
-                <rbnfrule value="1000">=%%financial1=;</rbnfrule>
-           </ruleset>
-            <ruleset type="financial1" access="private">
-                <rbnfrule value="0">=%financial=;</rbnfrule>
+                <rbnfrule value="100">←←佰[→%%financialnumber2→];</rbnfrule>
+                <rbnfrule value="1000">=%%financialnumber=;</rbnfrule>
+            </ruleset>
+            <ruleset type="financialnumber" access="private">
+                <rbnfrule value="0">=%spellout-cardinal-financial=;</rbnfrule>
                 <rbnfrule value="10">←←拾[→→];</rbnfrule>
-                <rbnfrule value="100">←←佰[→%%financial2→];</rbnfrule>
-                <rbnfrule value="1000">←←仟[→%%financial3→];</rbnfrule>
-                <rbnfrule value="10000">←%financial←萬[→%%financial4→];</rbnfrule>
-                <rbnfrule value="100000000">←%financial←億[→%%financial5→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%financial←兆[→%%financial8→];</rbnfrule>
-                <rbnfrule value="10000000000000000">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="100">←←佰[→%%financialnumber2→];</rbnfrule>
+                <rbnfrule value="1000">←←仟[→%%financialnumber3→];</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-financial←萬[→%%financialnumber4→];</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-financial←億[→%%financialnumber5→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-financial←兆[→%%financialnumber8→];</rbnfrule>
+                <rbnfrule value="10000000000000000">←%spellout-cardinal-financial←京[→%%financialnumber13→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
             </ruleset>
-            <ruleset type="financial2" access="private">
-                <rbnfrule value="0">=%%financial1=;</rbnfrule>
-                <rbnfrule value="1">零=%%financial1=;</rbnfrule>
-                <rbnfrule value="10">=%%financial1=;</rbnfrule>
+            <ruleset type="financialnumber2" access="private">
+                <rbnfrule value="1">零=%%financialnumber=;</rbnfrule>
+                <rbnfrule value="10">=%%financialnumber=;</rbnfrule>
             </ruleset>
-            <ruleset type="financial3" access="private">
-                <rbnfrule value="0">=%%financial1=;</rbnfrule>
-                <rbnfrule value="1">零=%%financial1=;</rbnfrule>
-                <rbnfrule value="100">=%%financial1=;</rbnfrule>
+            <ruleset type="financialnumber3" access="private">
+                <rbnfrule value="1">零=%%financialnumber=;</rbnfrule>
+                <rbnfrule value="100">=%%financialnumber=;</rbnfrule>
             </ruleset>
-            <ruleset type="financial4" access="private">
-                <rbnfrule value="0">=%%financial1=;</rbnfrule>
-                <rbnfrule value="1">零=%%financial1=;</rbnfrule>
-                <rbnfrule value="1000">=%%financial1=;</rbnfrule>
+            <ruleset type="financialnumber4" access="private">
+                <rbnfrule value="1">零=%%financialnumber=;</rbnfrule>
+                <rbnfrule value="1000">=%%financialnumber=;</rbnfrule>
             </ruleset>
-            <ruleset type="financial5" access="private">
-                <rbnfrule value="0">=%%financial1=;</rbnfrule>
-                <rbnfrule value="1">零=%%financial1=;</rbnfrule>
-                <rbnfrule value="10000">=%%financial1=;</rbnfrule>
+            <ruleset type="financialnumber5" access="private">
+                <rbnfrule value="1">零=%%financialnumber=;</rbnfrule>
+                <rbnfrule value="10000">=%%financialnumber=;</rbnfrule>
             </ruleset>
-            <ruleset type="financial8" access="private">
-                <rbnfrule value="0">=%%financial1=;</rbnfrule>
-                <rbnfrule value="1">零=%%financial1=;</rbnfrule>
-                <rbnfrule value="10000000">=%%financial1=;</rbnfrule>
+            <ruleset type="financialnumber8" access="private">
+                <rbnfrule value="1">零=%%financialnumber=;</rbnfrule>
+                <rbnfrule value="10000000">=%%financialnumber=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout">
+            <ruleset type="financialnumber13" access="private">
+                <rbnfrule value="1">零=%%financialnumber=;</rbnfrule>
+                <rbnfrule value="1000000000000">=%%financialnumber=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal">
                 <rbnfrule value="-x">负→→;</rbnfrule>
                 <rbnfrule value="x.x">←←点→→→;</rbnfrule>
                 <rbnfrule value="0">〇;</rbnfrule>
@@ -76,43 +83,53 @@
                 <rbnfrule value="9">九;</rbnfrule>
                 <rbnfrule value="10">十[→→];</rbnfrule>
                 <rbnfrule value="20">←←十[→→];</rbnfrule>
-                <rbnfrule value="100">←←百[→%%spellout2→];</rbnfrule>
-                <rbnfrule value="1000">=%%spellout1=;</rbnfrule>
+                <rbnfrule value="100">←←百[→%%number2→];</rbnfrule>
+                <rbnfrule value="1000">=%%number=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout1" access="private">
-                <rbnfrule value="0">=%spellout=;</rbnfrule>
+            <ruleset type="number" access="private">
+                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="10">←←十[→→];</rbnfrule>
-                <rbnfrule value="100">←←百[→%%spellout2→];</rbnfrule>
-                <rbnfrule value="1000">←←千[→%%spellout3→];</rbnfrule>
-                <rbnfrule value="10000">←%spellout←万[→%%spellout4→];</rbnfrule>
-                <rbnfrule value="100000000">←%spellout←亿[→%%spellout5→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout←兆[→%%spellout8→];</rbnfrule>
-                <rbnfrule value="10000000000000000">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="100">←←百[→%%number2→];</rbnfrule>
+                <rbnfrule value="1000">←←千[→%%number3→];</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal←万[→%%number4→];</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal←亿[→%%number5→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal←兆[→%%number8→];</rbnfrule>
+                <rbnfrule value="10000000000000000">←%spellout-cardinal←京[→%%number13→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout2" access="private">
-                <rbnfrule value="0">=%%spellout1=;</rbnfrule>
-                <rbnfrule value="1">〇=%%spellout1=;</rbnfrule>
-                <rbnfrule value="10">=%%spellout1=;</rbnfrule>
+            <ruleset type="number2" access="private">
+                <rbnfrule value="1">〇=%%number=;</rbnfrule>
+                <rbnfrule value="10">=%%number=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout3" access="private">
-                <rbnfrule value="0">=%%spellout1=;</rbnfrule>
-                <rbnfrule value="1">〇=%%spellout1=;</rbnfrule>
-                <rbnfrule value="100">=%%spellout1=;</rbnfrule>
+            <ruleset type="number3" access="private">
+                <rbnfrule value="1">〇=%%number=;</rbnfrule>
+                <rbnfrule value="100">=%%number=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout4" access="private">
-                <rbnfrule value="0">=%%spellout1=;</rbnfrule>
-                <rbnfrule value="1">〇=%%spellout1=;</rbnfrule>
-                <rbnfrule value="1000">=%%spellout1=;</rbnfrule>
+            <ruleset type="number4" access="private">
+                <rbnfrule value="1">〇=%%number=;</rbnfrule>
+                <rbnfrule value="1000">=%%number=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout5" access="private">
-                <rbnfrule value="0">=%%spellout1=;</rbnfrule>
-                <rbnfrule value="1">〇=%%spellout1=;</rbnfrule>
-                <rbnfrule value="10000">=%%spellout1=;</rbnfrule>
+            <ruleset type="number5" access="private">
+                <rbnfrule value="1">〇=%%number=;</rbnfrule>
+                <rbnfrule value="10000">=%%number=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout8" access="private">
-                <rbnfrule value="0">=%%spellout1=;</rbnfrule>
-                <rbnfrule value="1">〇=%%spellout1=;</rbnfrule>
-                <rbnfrule value="10000000">=%%spellout1=;</rbnfrule>
+            <ruleset type="number8" access="private">
+                <rbnfrule value="1">〇=%%number=;</rbnfrule>
+                <rbnfrule value="10000000">=%%number=;</rbnfrule>
+            </ruleset>
+            <ruleset type="number13" access="private">
+                <rbnfrule value="1">〇=%%number=;</rbnfrule>
+                <rbnfrule value="1000000000000">=%%number=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal">
+                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="0">第=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
+        <rulesetGrouping type="OrdinalRules">
+            <ruleset type="digits-ordinal">
+                <rbnfrule value="-x">第−→#,###0→;</rbnfrule>
+                <rbnfrule value="0">第=#,###0=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

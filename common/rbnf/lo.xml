@@ -4,7 +4,7 @@
     <identity>
         <version number="$Revision$"/>
         <generation date="$Date$"/>
-        <language type="th"/>
+        <language type="lo"/>
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
@@ -19,18 +19,18 @@
                 <rbnfrule value="-x">ลบ​→→;</rbnfrule>
                 <rbnfrule value="x.x">←←​จุด​→→→;</rbnfrule>
                 <rbnfrule value="0">ศูนย์;</rbnfrule>
-                <rbnfrule value="1">หนึ่ง;</rbnfrule>
-                <rbnfrule value="2">สอง;</rbnfrule>
-                <rbnfrule value="3">สาม;</rbnfrule>
-                <rbnfrule value="4">สี่;</rbnfrule>
-                <rbnfrule value="5">ห้า;</rbnfrule>
-                <rbnfrule value="6">หก;</rbnfrule>
-                <rbnfrule value="7">เจ็ด;</rbnfrule>
-                <rbnfrule value="8">แปด;</rbnfrule>
-                <rbnfrule value="9">เก้า;</rbnfrule>
-                <rbnfrule value="10">สิบ[​→%%alt-ones→];</rbnfrule>
-                <rbnfrule value="20">ยี่​สิบ[​→%%alt-ones→];</rbnfrule>
-                <rbnfrule value="30">←←​สิบ[​→%%alt-ones→];</rbnfrule>
+                <rbnfrule value="1">ໜຶ່ງ;</rbnfrule>
+                <rbnfrule value="2">ສອງ;</rbnfrule>
+                <rbnfrule value="3">ສາມ;</rbnfrule>
+                <rbnfrule value="4">ສີ່;</rbnfrule>
+                <rbnfrule value="5">ຫ້າ;</rbnfrule>
+                <rbnfrule value="6">ຫົກ;</rbnfrule>
+                <rbnfrule value="7">ເຈັດ;</rbnfrule>
+                <rbnfrule value="8">ແປດ;</rbnfrule>
+                <rbnfrule value="9">ເກົ້າ;</rbnfrule>
+                <rbnfrule value="10">ສິບ[​→%%alt-ones→];</rbnfrule>
+                <rbnfrule value="20">ຊາວ[​→%%alt-ones→];</rbnfrule>
+                <rbnfrule value="30">←←​ສິບ[​→%%alt-ones→];</rbnfrule>
                 <rbnfrule value="100">←←​ร้อย[​→→];</rbnfrule>
                 <rbnfrule value="1000">←←​พัน[​→→];</rbnfrule>
                 <rbnfrule value="10000">←←​หมื่น[​→→];</rbnfrule>
@@ -39,7 +39,7 @@
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="alt-ones" access="private">
-                <rbnfrule value="1">เอ็ด;</rbnfrule>
+                <rbnfrule value="1">ເອັດ;</rbnfrule>
                 <rbnfrule value="2">=%spellout-cardinal=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal">

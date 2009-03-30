@@ -1,38 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
-	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="nn"/>
-	</identity>
+    <identity>
+        <version number="$Revision$"/>
+        <generation date="$Date$"/>
+        <language type="nn"/>
+    </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="year">
+            <ruleset type="spellout-numbering-year">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="0">null; éin; to; tre; fire; fem; seks; sju; åtte; ni;</rbnfrule>
-                <rbnfrule value="10">ti; elleve; tolv; tretten; fjorten; femten; seksten; sytten; atten; nitten;</rbnfrule>
-                <rbnfrule value="20">tjue[­→→];</rbnfrule>
-                <rbnfrule value="30">tretti[­→→];</rbnfrule>
-                <rbnfrule value="40">førti[­→→];</rbnfrule>
-                <rbnfrule value="50">femti[­→→];</rbnfrule>
-                <rbnfrule value="60">seksti[­→→];</rbnfrule>
-                <rbnfrule value="70">søtti[­→→];</rbnfrule>
-                <rbnfrule value="80">åtti[­→→];</rbnfrule>
-                <rbnfrule value="90">nitti[­→→];</rbnfrule>
-                <rbnfrule value="100">←← hundre[ og →→];</rbnfrule>
-                <rbnfrule value="1000">tusen[ og →→];</rbnfrule>
+                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
                 <rbnfrule value="1100" radix="100">←← hundre[ og →→];</rbnfrule>
-                <rbnfrule value="10000">=%spellout=;</rbnfrule>
+                <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
             </ruleset>
-            <ruleset type="neuter" access="private">
-                <rbnfrule value="0">null; eitt; =%spellout=;</rbnfrule>
+            <ruleset type="spellout-numbering">
+                <rbnfrule value="0">=%spellout-cardinal-reale=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout">
+            <ruleset type="spellout-cardinal-neutre">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">←← komma →→;</rbnfrule>
-                <rbnfrule value="0">null; éin; to; tre; fire; fem; seks; sju; åtte; ni;</rbnfrule>
-                <rbnfrule value="10">ti; elleve; tolv; tretten; fjorten; femten; seksten; sytten; atten; nitten;</rbnfrule>
+                <rbnfrule value="0">null;</rbnfrule>
+                <rbnfrule value="1">eitt;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-reale=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-masculine">
+                <rbnfrule value="0">=%spellout-cardinal-reale=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-feminine">
+                <rbnfrule value="0">=%spellout-cardinal-reale=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-reale">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">←← komma →→;</rbnfrule>
+                <rbnfrule value="0">null;</rbnfrule>
+                <rbnfrule value="1">éin;</rbnfrule>
+                <rbnfrule value="2">to;</rbnfrule>
+                <rbnfrule value="3">tre;</rbnfrule>
+                <rbnfrule value="4">fire;</rbnfrule>
+                <rbnfrule value="5">fem;</rbnfrule>
+                <rbnfrule value="6">seks;</rbnfrule>
+                <rbnfrule value="7">sju;</rbnfrule>
+                <rbnfrule value="8">åtte;</rbnfrule>
+                <rbnfrule value="9">ni;</rbnfrule>
+                <rbnfrule value="10">ti;</rbnfrule>
+                <rbnfrule value="11">elleve;</rbnfrule>
+                <rbnfrule value="12">tolv;</rbnfrule>
+                <rbnfrule value="13">tretten;</rbnfrule>
+                <rbnfrule value="14">fjorten;</rbnfrule>
+                <rbnfrule value="15">femten;</rbnfrule>
+                <rbnfrule value="16">seksten;</rbnfrule>
+                <rbnfrule value="17">sytten;</rbnfrule>
+                <rbnfrule value="18">atten;</rbnfrule>
+                <rbnfrule value="19">nitten;</rbnfrule>
                 <rbnfrule value="20">tjue[­→→];</rbnfrule>
                 <rbnfrule value="30">tretti[­→→];</rbnfrule>
                 <rbnfrule value="40">førti[­→→];</rbnfrule>
@@ -41,8 +62,8 @@
                 <rbnfrule value="70">søtti[­→→];</rbnfrule>
                 <rbnfrule value="80">åtti[­→→];</rbnfrule>
                 <rbnfrule value="90">nitti[­→→];</rbnfrule>
-                <rbnfrule value="100">←%%neuter← hundre[ og →→];</rbnfrule>
-                <rbnfrule value="1000">←%%neuter← tusen[ og →→];</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-neutre← hundre[ og →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-neutre← tusen[ og →→];</rbnfrule>
                 <rbnfrule value="1000000">éin miljon[ →→];</rbnfrule>
                 <rbnfrule value="2000000">←← miljoner[ →→];</rbnfrule>
                 <rbnfrule value="1000000000">éin miljard[ →→];</rbnfrule>
@@ -51,15 +72,7 @@
                 <rbnfrule value="2000000000000">←← biljoner[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000">éin biljard[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000000">←← biljarder[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
-            </ruleset>
-        </rulesetGrouping>
-        <rulesetGrouping type="OrdinalRules">
-            <ruleset type="ordinal">
-                <rbnfrule value="0">=#,##0==%%ordabbrev=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ordabbrev" access="private">
-                <rbnfrule value="0">'.;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

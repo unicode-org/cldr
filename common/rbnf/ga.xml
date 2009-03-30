@@ -1,20 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
-	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="ga"/>
-	</identity>
+    <identity>
+        <version number="$Revision$"/>
+        <generation date="$Date$"/>
+        <language type="ga"/>
+    </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout">
+            <ruleset type="2d-year" access="private">
+                <rbnfrule value="0">agus =%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="10">=%%spellout-numbering-no-a=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering-year">
+                <rbnfrule value="-x">míneas →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="1000" radix="100">←%%spellout-numbering-no-a← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering-no-a" access="private">
+                <rbnfrule value="0">náid;</rbnfrule>
+                <rbnfrule value="1">aon;</rbnfrule>
+                <rbnfrule value="2">dó;</rbnfrule>
+                <rbnfrule value="3">trí;</rbnfrule>
+                <rbnfrule value="4">ceathair;</rbnfrule>
+                <rbnfrule value="5">cúig;</rbnfrule>
+                <rbnfrule value="6">sé;</rbnfrule>
+                <rbnfrule value="7">seacht;</rbnfrule>
+                <rbnfrule value="8">ocht;</rbnfrule>
+                <rbnfrule value="9">naoi;</rbnfrule>
+                <rbnfrule value="10">deich;</rbnfrule>
+                <rbnfrule value="11">→→=%spellout-cardinal-postfixpart=;</rbnfrule>
+                <rbnfrule value="12">→→=%spellout-cardinal-postfixparth=;</rbnfrule>
+                <rbnfrule value="13">→→=%spellout-cardinal-postfixpart=;</rbnfrule>
+                <rbnfrule value="20">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering">
                 <rbnfrule value="-x">míneas →→;</rbnfrule>
                 <rbnfrule value="x.x">←← pointe →→;</rbnfrule>
-                <rbnfrule value="0">a náid; a haon; a dó; a trí; a ceathair; a cúig;</rbnfrule>
-                <rbnfrule value="6">a sé; a seacht; a hocht; a naoi; a deich;</rbnfrule>
-                <rbnfrule value="11">a haon déag; a dó dhéag;</rbnfrule>
-                <rbnfrule value="13">→→ déag;</rbnfrule>
+                <rbnfrule value="0">a náid;</rbnfrule>
+                <rbnfrule value="1">a haon;</rbnfrule>
+                <rbnfrule value="2">a dó;</rbnfrule>
+                <rbnfrule value="3">a trí;</rbnfrule>
+                <rbnfrule value="4">a ceathair;</rbnfrule>
+                <rbnfrule value="5">a cúig;</rbnfrule>
+                <rbnfrule value="6">a sé;</rbnfrule>
+                <rbnfrule value="7">a seacht;</rbnfrule>
+                <rbnfrule value="8">a hocht;</rbnfrule>
+                <rbnfrule value="9">a naoi;</rbnfrule>
+                <rbnfrule value="10">a deich;</rbnfrule>
+                <rbnfrule value="11">→→=%spellout-cardinal-postfixpart=;</rbnfrule>
+                <rbnfrule value="12">→→=%spellout-cardinal-postfixparth=;</rbnfrule>
+                <rbnfrule value="13">→→=%spellout-cardinal-postfixpart=;</rbnfrule>
                 <rbnfrule value="20">fiche[ →→];</rbnfrule>
                 <rbnfrule value="30">tríocha[ →→];</rbnfrule>
                 <rbnfrule value="40">daichead[ →→];</rbnfrule>
@@ -23,16 +61,40 @@
                 <rbnfrule value="70">seachtó[ →→];</rbnfrule>
                 <rbnfrule value="80">ochtó[ →→];</rbnfrule>
                 <rbnfrule value="90">nócha[ →→];</rbnfrule>
-                <rbnfrule value="100">←%%hundreds←[ →%%hundreds_is→];</rbnfrule>
-                <rbnfrule value="1000">←%%thousands←[, →→];</rbnfrule>
-                <rbnfrule value="1000000">←%%millions←[, →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%%billions←[, →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%%trillions←[, →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">=#,##0=;</rbnfrule>
+                <rbnfrule value="100">←%%hundreds←[→%%is-number→];</rbnfrule>
+                <rbnfrule value="1000">←%%thousands←[, →%spellout-numbering→];</rbnfrule>
+                <rbnfrule value="1000000">←%%millions←[, →%spellout-numbering→];</rbnfrule>
+                <rbnfrule value="1000000000">←%%billions←[, →%spellout-numbering→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%%trillions←[, →%spellout-numbering→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%%quadrillions←[, →%spellout-numbering→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="cardwithnumber" access="private">
-                <rbnfrule value="0">; aon; dhá; trí; ceithre; cúig; sé; seacht; ocht; naoi; deich;</rbnfrule>
-                <rbnfrule value="11">aon; dhá; trí; ceithre; cúig; sé; seacht; ocht; naoi;</rbnfrule>
+            <ruleset type="is-number" access="private">
+                <rbnfrule value="0">=%%is= =%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="is-numberp" access="private">
+                <rbnfrule value="0">=%%is= =%%numberp=;</rbnfrule>
+            </ruleset>
+            <ruleset type="numberp" access="private">
+                <rbnfrule value="0">=%spellout-cardinal-prefixpart=;</rbnfrule>
+                <rbnfrule value="12">dó=%spellout-cardinal-postfixparth=;</rbnfrule>
+                <rbnfrule value="13">=%spellout-cardinal-prefixpart==%spellout-cardinal-postfixpart=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-prefixpart">
+                <rbnfrule value="-x">míneas →→;</rbnfrule>
+                <rbnfrule value="x.x">←%%numberp← pointe →→;</rbnfrule>
+                <rbnfrule value="0">náid;</rbnfrule>
+                <rbnfrule value="1">aon;</rbnfrule>
+                <rbnfrule value="2">dhá;</rbnfrule>
+                <rbnfrule value="3">trí;</rbnfrule>
+                <rbnfrule value="4">ceithre;</rbnfrule>
+                <rbnfrule value="5">cúig;</rbnfrule>
+                <rbnfrule value="6">sé;</rbnfrule>
+                <rbnfrule value="7">seacht;</rbnfrule>
+                <rbnfrule value="8">ocht;</rbnfrule>
+                <rbnfrule value="9">naoi;</rbnfrule>
+                <rbnfrule value="10">deich;</rbnfrule>
+                <rbnfrule value="11">→→;</rbnfrule>
                 <rbnfrule value="20">fiche[ is →→];</rbnfrule>
                 <rbnfrule value="30">tríocha[ is →→];</rbnfrule>
                 <rbnfrule value="40">daichead[ is →→];</rbnfrule>
@@ -41,205 +103,137 @@
                 <rbnfrule value="70">seachtó[ is →→];</rbnfrule>
                 <rbnfrule value="80">ochtó[ is →→];</rbnfrule>
                 <rbnfrule value="90">nócha[ is →→];</rbnfrule>
-                <rbnfrule value="100">←%%hundreds←[ →%%hundreds_is→];</rbnfrule>
-                <rbnfrule value="1000">←%%thousands←[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%%millions←[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%%billions←[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%%trillions←[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">=#,##0=;</rbnfrule>
+                <rbnfrule value="100">←%%hundreds←[→%%is-numberp→];</rbnfrule>
+                <rbnfrule value="1000">←%%thousands←[, →%%numberp→];</rbnfrule>
+                <rbnfrule value="1000000">←%%millions←[, →%%numberp→];</rbnfrule>
+                <rbnfrule value="1000000000">←%%billions←[, →%%numberp→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%%trillions←[, →%%numberp→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%%quadrillions←[, →%%numberp→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-postfixpart">
+                <rbnfrule value="-x">→→;</rbnfrule>
+                <rbnfrule value="x.x">;</rbnfrule>
+                <rbnfrule value="0">;</rbnfrule>
+                <rbnfrule value="1">' amháin;</rbnfrule>
+                <rbnfrule value="2">;</rbnfrule>
+                <rbnfrule value="11">' déag;</rbnfrule>
+                <rbnfrule value="20">;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-postfixparth">
+                <rbnfrule value="-x">→→;</rbnfrule>
+                <rbnfrule value="x.x">;</rbnfrule>
+                <rbnfrule value="0">;</rbnfrule>
+                <rbnfrule value="1">' amháin;</rbnfrule>
+                <rbnfrule value="2">;</rbnfrule>
+                <rbnfrule value="11">' dhéag;</rbnfrule>
+                <rbnfrule value="20">;</rbnfrule>
+            </ruleset>
+            <ruleset type="is" access="private">
+                <rbnfrule value="0">' is;</rbnfrule>
+                <rbnfrule value="1">;</rbnfrule>
+                <rbnfrule value="10">→→;</rbnfrule>
             </ruleset>
             <ruleset type="hundreds" access="private">
                 <rbnfrule value="1">céad;</rbnfrule>
-                <rbnfrule value="2">←%%cardwithnumber← chéad;</rbnfrule>
-                <rbnfrule value="7">←%%cardwithnumber← gcéad;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-prefixpart= =%%hundredp=;</rbnfrule>
             </ruleset>
-            <ruleset type="hundreds_is" access="private">
-                <rbnfrule value="0">=%spellout=;</rbnfrule>
-                <rbnfrule value="20">is =%spellout=;</rbnfrule>
-                <rbnfrule value="21">=%spellout=;</rbnfrule>
-                <rbnfrule value="30">is =%spellout=;</rbnfrule>
-                <rbnfrule value="31">=%spellout=;</rbnfrule>
-                <rbnfrule value="40">is =%spellout=;</rbnfrule>
-                <rbnfrule value="41">=%spellout=;</rbnfrule>
-                <rbnfrule value="50">is =%spellout=;</rbnfrule>
-                <rbnfrule value="51">=%spellout=;</rbnfrule>
-                <rbnfrule value="60">is =%spellout=;</rbnfrule>
-                <rbnfrule value="61">=%spellout=;</rbnfrule>
-                <rbnfrule value="70">is =%spellout=;</rbnfrule>
-                <rbnfrule value="71">=%spellout=;</rbnfrule>
-                <rbnfrule value="80">is =%spellout=;</rbnfrule>
-                <rbnfrule value="81">=%spellout=;</rbnfrule>
-                <rbnfrule value="90">is =%spellout=;</rbnfrule>
-                <rbnfrule value="91">=%spellout=;</rbnfrule>
+            <ruleset type="hundredp" access="private">
+                <rbnfrule value="2">=%%hundred==%spellout-cardinal-postfixpart=;</rbnfrule>
+            </ruleset>
+            <ruleset type="hundred" access="private">
+                <rbnfrule value="0">gcéad;</rbnfrule>
+                <rbnfrule value="1">chéad;</rbnfrule>
+                <rbnfrule value="7">gcéad;</rbnfrule>
+                <rbnfrule value="11">→→;</rbnfrule>
             </ruleset>
             <ruleset type="thousands" access="private">
-                <rbnfrule value="0">míle;</rbnfrule>
-                <rbnfrule value="2">←%%cardwithnumber← mhíle;</rbnfrule>
-                <rbnfrule value="7">←%%cardwithnumber← míle;</rbnfrule>
-                <rbnfrule value="11" decexp="1">←%%cardwithnumber← mhíle dhéag;</rbnfrule>
-                <rbnfrule value="17" decexp="1">←%%cardwithnumber← míle dhéag;</rbnfrule>
-                <rbnfrule value="20" decexp="1">←%%cardwithnumber← míle;</rbnfrule>
-                <rbnfrule value="21" decexp="1">←%%cardwithnumber← mhíle;</rbnfrule>
-                <rbnfrule value="27" decexp="1">←%%cardwithnumber← míle;</rbnfrule>
-                <rbnfrule value="31" decexp="1">←%%cardwithnumber← mhíle;</rbnfrule>
-                <rbnfrule value="37" decexp="1">←%%cardwithnumber← míle;</rbnfrule>
-                <rbnfrule value="41" decexp="1">←%%cardwithnumber← mhíle;</rbnfrule>
-                <rbnfrule value="47" decexp="1">←%%cardwithnumber← míle;</rbnfrule>
-                <rbnfrule value="51" decexp="1">←%%cardwithnumber← mhíle;</rbnfrule>
-                <rbnfrule value="57" decexp="1">←%%cardwithnumber← míle;</rbnfrule>
-                <rbnfrule value="61" decexp="1">←%%cardwithnumber← mhíle;</rbnfrule>
-                <rbnfrule value="67" decexp="1">←%%cardwithnumber← míle;</rbnfrule>
-                <rbnfrule value="71" decexp="1">←%%cardwithnumber← mhíle;</rbnfrule>
-                <rbnfrule value="77" decexp="1">←%%cardwithnumber← míle;</rbnfrule>
-                <rbnfrule value="81" decexp="1">←%%cardwithnumber← mhíle;</rbnfrule>
-                <rbnfrule value="87" decexp="1">←%%cardwithnumber← míle;</rbnfrule>
-                <rbnfrule value="91" decexp="1">←%%cardwithnumber← mhíle;</rbnfrule>
-                <rbnfrule value="97" decexp="1">←%%cardwithnumber← míle;</rbnfrule>
-                <rbnfrule value="100">←%%hundreds← →%%thousands_is→;</rbnfrule>
+                <rbnfrule value="1">míle;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-prefixpart= =%%thousandp=;</rbnfrule>
+                <rbnfrule value="100">←%%hundreds←→%%is-thousands→;</rbnfrule>
             </ruleset>
-            <ruleset type="thousands_is" access="private">
+            <ruleset type="thousandp" access="private">
+                <rbnfrule value="2">=%%thousand==%spellout-cardinal-postfixparth=;</rbnfrule>
+            </ruleset>
+            <ruleset type="thousand" access="private">
                 <rbnfrule value="0">míle;</rbnfrule>
-                <rbnfrule value="1">is =%%cardwithnumber= mhíle;</rbnfrule>
-                <rbnfrule value="7">is =%%cardwithnumber= míle;</rbnfrule>
-                <rbnfrule value="11" decexp="1">is ←%%thousands←;</rbnfrule>
-                <rbnfrule value="20">is =%%thousands=;</rbnfrule>
-                <rbnfrule value="21">=%%thousands=;</rbnfrule>
-                <rbnfrule value="30">is =%%thousands=;</rbnfrule>
-                <rbnfrule value="31">=%%thousands=;</rbnfrule>
-                <rbnfrule value="40">is =%%thousands=;</rbnfrule>
-                <rbnfrule value="41">=%%thousands=;</rbnfrule>
-                <rbnfrule value="50">is =%%thousands=;</rbnfrule>
-                <rbnfrule value="51">=%%thousands=;</rbnfrule>
-                <rbnfrule value="60">is =%%thousands=;</rbnfrule>
-                <rbnfrule value="61">=%%thousands=;</rbnfrule>
-                <rbnfrule value="70">is =%%thousands=;</rbnfrule>
-                <rbnfrule value="71">=%%thousands=;</rbnfrule>
-                <rbnfrule value="80">is =%%thousands=;</rbnfrule>
-                <rbnfrule value="81">=%%thousands=;</rbnfrule>
-                <rbnfrule value="90">is =%%thousands=;</rbnfrule>
-                <rbnfrule value="91">=%%thousands=;</rbnfrule>
+                <rbnfrule value="1">mhíle;</rbnfrule>
+                <rbnfrule value="7">míle;</rbnfrule>
+                <rbnfrule value="11">→→;</rbnfrule>
+            </ruleset>
+            <ruleset type="is-thousands" access="private">
+                <rbnfrule value="0">' =%%thousand=;</rbnfrule>
+                <rbnfrule value="1">' is =%spellout-cardinal-prefixpart= =%%thousand=;</rbnfrule>
+                <rbnfrule value="11">' is =%%thousands=;</rbnfrule>
+                <rbnfrule value="20">=%%is= =%%thousands=;</rbnfrule>
             </ruleset>
             <ruleset type="millions" access="private">
                 <rbnfrule value="1">milliún;</rbnfrule>
-                <rbnfrule value="2">←%%cardwithnumber← mhilliún;</rbnfrule>
-                <rbnfrule value="7">←%%cardwithnumber← milliún;</rbnfrule>
-                <rbnfrule value="11" decexp="1">←%%cardwithnumber← mhilliún déag;</rbnfrule>
-                <rbnfrule value="17" decexp="1">←%%cardwithnumber← milliún déag;</rbnfrule>
-                <rbnfrule value="20" decexp="1">←%%cardwithnumber← milliún;</rbnfrule>
-                <rbnfrule value="21" decexp="1">←%%cardwithnumber← mhilliún;</rbnfrule>
-                <rbnfrule value="27" decexp="1">←%%cardwithnumber← milliún;</rbnfrule>
-                <rbnfrule value="31" decexp="1">←%%cardwithnumber← mhilliún;</rbnfrule>
-                <rbnfrule value="37" decexp="1">←%%cardwithnumber← milliún;</rbnfrule>
-                <rbnfrule value="41" decexp="1">←%%cardwithnumber← mhilliún;</rbnfrule>
-                <rbnfrule value="47" decexp="1">←%%cardwithnumber← milliún;</rbnfrule>
-                <rbnfrule value="51" decexp="1">←%%cardwithnumber← mhilliún;</rbnfrule>
-                <rbnfrule value="57" decexp="1">←%%cardwithnumber← milliún;</rbnfrule>
-                <rbnfrule value="61" decexp="1">←%%cardwithnumber← mhilliún;</rbnfrule>
-                <rbnfrule value="67" decexp="1">←%%cardwithnumber← milliún;</rbnfrule>
-                <rbnfrule value="71" decexp="1">←%%cardwithnumber← mhilliún;</rbnfrule>
-                <rbnfrule value="77" decexp="1">←%%cardwithnumber← milliún;</rbnfrule>
-                <rbnfrule value="81" decexp="1">←%%cardwithnumber← mhilliún;</rbnfrule>
-                <rbnfrule value="87" decexp="1">←%%cardwithnumber← milliún;</rbnfrule>
-                <rbnfrule value="91" decexp="1">←%%cardwithnumber← mhilliún;</rbnfrule>
-                <rbnfrule value="97" decexp="1">←%%cardwithnumber← milliún;</rbnfrule>
-                <rbnfrule value="100">←%%hundreds← →%%millions_is→;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-prefixpart= =%%millionsp=;</rbnfrule>
+                <rbnfrule value="100">←%%hundreds←→%%is-millions→;</rbnfrule>
             </ruleset>
-            <ruleset type="millions_is" access="private">
+            <ruleset type="millionsp" access="private">
+                <rbnfrule value="2">=%%million==%spellout-cardinal-postfixpart=;</rbnfrule>
+            </ruleset>
+            <ruleset type="million" access="private">
                 <rbnfrule value="0">milliún;</rbnfrule>
-                <rbnfrule value="1">is =%%cardwithnumber= mhilliún;</rbnfrule>
-                <rbnfrule value="7">is =%%cardwithnumber= milliún;</rbnfrule>
-                <rbnfrule value="11" decexp="1">is ←%%millions←;</rbnfrule>
-                <rbnfrule value="20">is =%%millions=;</rbnfrule>
-                <rbnfrule value="21">=%%millions=;</rbnfrule>
-                <rbnfrule value="30">is =%%millions=;</rbnfrule>
-                <rbnfrule value="31">=%%millions=;</rbnfrule>
-                <rbnfrule value="40">is =%%millions=;</rbnfrule>
-                <rbnfrule value="41">=%%millions=;</rbnfrule>
-                <rbnfrule value="50">is =%%millions=;</rbnfrule>
-                <rbnfrule value="51">=%%millions=;</rbnfrule>
-                <rbnfrule value="60">is =%%millions=;</rbnfrule>
-                <rbnfrule value="61">=%%millions=;</rbnfrule>
-                <rbnfrule value="70">is =%%millions=;</rbnfrule>
-                <rbnfrule value="71">=%%millions=;</rbnfrule>
-                <rbnfrule value="80">is =%%millions=;</rbnfrule>
-                <rbnfrule value="81">=%%millions=;</rbnfrule>
-                <rbnfrule value="90">is =%%millions=;</rbnfrule>
-                <rbnfrule value="91">=%%millions=;</rbnfrule>
+                <rbnfrule value="1">mhilliún;</rbnfrule>
+                <rbnfrule value="7">milliún;</rbnfrule>
+                <rbnfrule value="11">→→;</rbnfrule>
+            </ruleset>
+            <ruleset type="is-millions" access="private">
+                <rbnfrule value="0">' =%%million=;</rbnfrule>
+                <rbnfrule value="1">' is =%spellout-cardinal-prefixpart= =%%million=;</rbnfrule>
+                <rbnfrule value="11">' is =%%millions=;</rbnfrule>
+                <rbnfrule value="20">=%%is= =%%millions=;</rbnfrule>
             </ruleset>
             <ruleset type="billions" access="private">
-                <rbnfrule value="1">billiún; ←%%cardwithnumber← billiún;</rbnfrule>
-                <rbnfrule value="11" decexp="1">←%%cardwithnumber← billiún déag;</rbnfrule>
-                <rbnfrule value="20" decexp="1">←%%cardwithnumber← billiún;</rbnfrule>
-                <rbnfrule value="100">←%%hundreds← →%%billions_is→;</rbnfrule>
+                <rbnfrule value="1">billiún;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-prefixpart= billiún=%spellout-cardinal-postfixpart=;</rbnfrule>
+                <rbnfrule value="100">←%%hundreds←→%%is-billions→;</rbnfrule>
             </ruleset>
-            <ruleset type="billions_is" access="private">
-                <rbnfrule value="0">billiún;</rbnfrule>
-                <rbnfrule value="1">is =%%cardwithnumber= billiún;</rbnfrule>
-                <rbnfrule value="7">is =%%cardwithnumber= billiún;</rbnfrule>
-                <rbnfrule value="11" decexp="1">is ←%%billions←;</rbnfrule>
-                <rbnfrule value="20">is =%%billions=;</rbnfrule>
-                <rbnfrule value="21">=%%billions=;</rbnfrule>
-                <rbnfrule value="30">is =%%billions=;</rbnfrule>
-                <rbnfrule value="31">=%%billions=;</rbnfrule>
-                <rbnfrule value="40">is =%%billions=;</rbnfrule>
-                <rbnfrule value="41">=%%billions=;</rbnfrule>
-                <rbnfrule value="50">is =%%billions=;</rbnfrule>
-                <rbnfrule value="51">=%%billions=;</rbnfrule>
-                <rbnfrule value="60">is =%%billions=;</rbnfrule>
-                <rbnfrule value="61">=%%billions=;</rbnfrule>
-                <rbnfrule value="70">is =%%billions=;</rbnfrule>
-                <rbnfrule value="71">=%%billions=;</rbnfrule>
-                <rbnfrule value="80">is =%%billions=;</rbnfrule>
-                <rbnfrule value="81">=%%billions=;</rbnfrule>
-                <rbnfrule value="90">is =%%billions=;</rbnfrule>
-                <rbnfrule value="91">=%%billions=;</rbnfrule>
+            <ruleset type="is-billions" access="private">
+                <rbnfrule value="0">' billiún;</rbnfrule>
+                <rbnfrule value="1">' is =%spellout-cardinal-prefixpart= billiún;</rbnfrule>
+                <rbnfrule value="11">' is =%%billions=;</rbnfrule>
+                <rbnfrule value="20">=%%is= =%%billions=;</rbnfrule>
             </ruleset>
             <ruleset type="trillions" access="private">
-                <rbnfrule value="1">milliún;</rbnfrule>
-                <rbnfrule value="2">←%%cardwithnumber← thrilliún;</rbnfrule>
-                <rbnfrule value="7">←%%cardwithnumber← dtrilliún;</rbnfrule>
-                <rbnfrule value="11" decexp="1">←%%cardwithnumber← thrilliún déag;</rbnfrule>
-                <rbnfrule value="17" decexp="1">←%%cardwithnumber← dtrilliún déag;</rbnfrule>
-                <rbnfrule value="20" decexp="1">←%%cardwithnumber← dtrilliún;</rbnfrule>
-                <rbnfrule value="21" decexp="1">←%%cardwithnumber← thrilliún;</rbnfrule>
-                <rbnfrule value="27" decexp="1">←%%cardwithnumber← dtrilliún;</rbnfrule>
-                <rbnfrule value="31" decexp="1">←%%cardwithnumber← thrilliún;</rbnfrule>
-                <rbnfrule value="37" decexp="1">←%%cardwithnumber← dtrilliún;</rbnfrule>
-                <rbnfrule value="41" decexp="1">←%%cardwithnumber← thrilliún;</rbnfrule>
-                <rbnfrule value="47" decexp="1">←%%cardwithnumber← dtrilliún;</rbnfrule>
-                <rbnfrule value="51" decexp="1">←%%cardwithnumber← thrilliún;</rbnfrule>
-                <rbnfrule value="57" decexp="1">←%%cardwithnumber← dtrilliún;</rbnfrule>
-                <rbnfrule value="61" decexp="1">←%%cardwithnumber← thrilliún;</rbnfrule>
-                <rbnfrule value="67" decexp="1">←%%cardwithnumber← dtrilliún;</rbnfrule>
-                <rbnfrule value="71" decexp="1">←%%cardwithnumber← thrilliún;</rbnfrule>
-                <rbnfrule value="77" decexp="1">←%%cardwithnumber← dtrilliún;</rbnfrule>
-                <rbnfrule value="81" decexp="1">←%%cardwithnumber← thrilliún;</rbnfrule>
-                <rbnfrule value="87" decexp="1">←%%cardwithnumber← dtrilliún;</rbnfrule>
-                <rbnfrule value="91" decexp="1">←%%cardwithnumber← thrilliún;</rbnfrule>
-                <rbnfrule value="97" decexp="1">←%%cardwithnumber← dtrilliún;</rbnfrule>
-                <rbnfrule value="100">←%%hundreds← →%%trillions_is;</rbnfrule>
+                <rbnfrule value="1">thrilliún;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-prefixpart= =%%trillionsp=;</rbnfrule>
+                <rbnfrule value="100">←%%hundreds←→%%is-trillions→;</rbnfrule>
             </ruleset>
-            <ruleset type="trillions_is" access="private">
-                <rbnfrule value="0">trilliún;</rbnfrule>
-                <rbnfrule value="1">is =%%cardwithnumber= thrilliún;</rbnfrule>
-                <rbnfrule value="7">is =%%cardwithnumber= dtrilliún;</rbnfrule>
-                <rbnfrule value="11" decexp="1">is ←%%trillions←;</rbnfrule>
-                <rbnfrule value="20">is =%%trillions=;</rbnfrule>
-                <rbnfrule value="21">=%%trillions=;</rbnfrule>
-                <rbnfrule value="30">is =%%trillions=;</rbnfrule>
-                <rbnfrule value="31">=%%trillions=;</rbnfrule>
-                <rbnfrule value="40">is =%%trillions=;</rbnfrule>
-                <rbnfrule value="41">=%%trillions=;</rbnfrule>
-                <rbnfrule value="50">is =%%trillions=;</rbnfrule>
-                <rbnfrule value="51">=%%trillions=;</rbnfrule>
-                <rbnfrule value="60">is =%%trillions=;</rbnfrule>
-                <rbnfrule value="61">=%%trillions=;</rbnfrule>
-                <rbnfrule value="70">is =%%trillions=;</rbnfrule>
-                <rbnfrule value="71">=%%trillions=;</rbnfrule>
-                <rbnfrule value="80">is =%%trillions=;</rbnfrule>
-                <rbnfrule value="81">=%%trillions=;</rbnfrule>
-                <rbnfrule value="90">is =%%trillions=;</rbnfrule>
-                <rbnfrule value="91">=%%trillions=;</rbnfrule>
+            <ruleset type="trillionsp" access="private">
+                <rbnfrule value="2">=%%trillion==%spellout-cardinal-postfixpart=;</rbnfrule>
+            </ruleset>
+            <ruleset type="trillion" access="private">
+                <rbnfrule value="0">dtrilliún;</rbnfrule>
+                <rbnfrule value="1">thrilliún;</rbnfrule>
+                <rbnfrule value="7">dtrilliún;</rbnfrule>
+                <rbnfrule value="11">→→;</rbnfrule>
+            </ruleset>
+            <ruleset type="is-trillions" access="private">
+                <rbnfrule value="0">' =%%trillion=;</rbnfrule>
+                <rbnfrule value="1">' is =%spellout-cardinal-prefixpart= =%%trillion=;</rbnfrule>
+                <rbnfrule value="11">' is =%%trillions=;</rbnfrule>
+                <rbnfrule value="20">=%%is= =%%trillions=;</rbnfrule>
+            </ruleset>
+            <ruleset type="quadrillions" access="private">
+                <rbnfrule value="1">quadrilliún;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-prefixpart= quadrilliún=%spellout-cardinal-postfixpart=;</rbnfrule>
+                <rbnfrule value="100">←%%hundreds←→%%is-quadrillions→;</rbnfrule>
+            </ruleset>
+            <ruleset type="is-quadrillions" access="private">
+                <rbnfrule value="0">' quadrilliún;</rbnfrule>
+                <rbnfrule value="1">' is =%spellout-cardinal-prefixpart= quadrilliún;</rbnfrule>
+                <rbnfrule value="11">' is =%%quadrillions=;</rbnfrule>
+                <rbnfrule value="20">=%%is= =%%quadrillions=;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
+        <rulesetGrouping type="OrdinalRules">
+            <ruleset type="digits-ordinal">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="0">=#,##0=ú;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

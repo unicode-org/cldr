@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
-	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="kl"/>
-	</identity>
+    <identity>
+        <version number="$Revision$"/>
+        <generation date="$Date$"/>
+        <language type="kl"/>
+    </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
+            <ruleset type="spellout-numbering-year">
+                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering">
+                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
+            </ruleset>
             <ruleset type="numbertimes" access="private">
                 <rbnfrule value="1">ataaseq;</rbnfrule>
                 <rbnfrule value="2">marlunnik;</rbnfrule>
@@ -17,7 +24,7 @@
                 <rbnfrule value="6">arfinilinnik;</rbnfrule>
                 <rbnfrule value="7">arfineq-marlunnik;</rbnfrule>
                 <rbnfrule value="8">arfineq-pingasunik;</rbnfrule>
-                <rbnfrule value="9">qulingiluanik;</rbnfrule>
+                <rbnfrule value="9">arfineq-sisamanik;</rbnfrule>
                 <rbnfrule value="10">qulinik;</rbnfrule>
                 <rbnfrule value="11">aqqanilinik;</rbnfrule>
                 <rbnfrule value="12">aqqaneq-marlunnik;</rbnfrule>
@@ -32,7 +39,7 @@
                 <rbnfrule value="100">uutritit[ →→];</rbnfrule>
                 <rbnfrule value="200">←%%numbertimes← uutritillit[ →→];</rbnfrule>
             </ruleset>
-            <ruleset type="spellout">
+            <ruleset type="spellout-cardinal">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">←← komma →→;</rbnfrule>
                 <rbnfrule value="0">nuulu;</rbnfrule>
@@ -44,7 +51,7 @@
                 <rbnfrule value="6">arfinillit;</rbnfrule>
                 <rbnfrule value="7">arfineq-marluk;</rbnfrule>
                 <rbnfrule value="8">arfineq-pingasut;</rbnfrule>
-                <rbnfrule value="9">qulingiluat;</rbnfrule>
+                <rbnfrule value="9">arfineq-sisamat;</rbnfrule>
                 <rbnfrule value="10">qulit;</rbnfrule>
                 <rbnfrule value="11">aqqanilit;</rbnfrule>
                 <rbnfrule value="12">aqqaneq-marluk;</rbnfrule>
@@ -61,14 +68,14 @@
                 <rbnfrule value="1000">tuusintit[ →→];</rbnfrule>
                 <rbnfrule value="2000">←%%numbertimes← tuusintillit[ →→];</rbnfrule>
                 <rbnfrule value="1000000">millionit[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%%numbertimes← millionit[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%%numbertimes← millionillit[ →→];</rbnfrule>
                 <rbnfrule value="1000000000">milliardit[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%%numbertimes← milliardit[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%%numbertimes← milliardillit[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">billionit[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%%numbertimes← billionit[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%%numbertimes← billioniillit[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000">billiardit[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%%numbertimes← billiardit[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="2000000000000000">←%%numbertimes← billiardillit[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

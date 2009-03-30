@@ -1,21 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
-	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="fi"/>
-	</identity>
+    <identity>
+        <version number="$Revision$"/>
+        <generation date="$Date$"/>
+        <language type="fi"/>
+    </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout">
+            <ruleset type="spellout-numbering-year">
+                <rbnfrule value="-x">miinus →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="1100" radix="100">←←­sataa[­→→];</rbnfrule>
+                <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering">
+                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal">
                 <rbnfrule value="-x">miinus →→;</rbnfrule>
                 <rbnfrule value="x.x">←← pilkku →→;</rbnfrule>
-                <rbnfrule value="0">nolla; yksi; kaksi; kolme; neljä; viisi; kuusi; seitsemän; kahdeksan; yhdeksän;</rbnfrule>
-                <rbnfrule value="10">kymmenen; →→­toista;</rbnfrule>
-                <rbnfrule value="20">←←­kymmentä[­→→];</rbnfrule>
-                <rbnfrule value="100">←←­sata[­→→];</rbnfrule>
-                <rbnfrule value="200">←←­sataa[­→→];</rbnfrule>
+                <rbnfrule value="0">nolla;</rbnfrule>
+                <rbnfrule value="1">yksi;</rbnfrule>
+                <rbnfrule value="2">kaksi;</rbnfrule>
+                <rbnfrule value="3">kolme;</rbnfrule>
+                <rbnfrule value="4">neljä;</rbnfrule>
+                <rbnfrule value="5">viisi;</rbnfrule>
+                <rbnfrule value="6">kuusi;</rbnfrule>
+                <rbnfrule value="7">seitsemän;</rbnfrule>
+                <rbnfrule value="8">kahdeksan;</rbnfrule>
+                <rbnfrule value="9">yhdeksän;</rbnfrule>
+                <rbnfrule value="10">kymmenen;</rbnfrule>
+                <rbnfrule value="11">→→toista;</rbnfrule>
+                <rbnfrule value="20">←←kymmentä[­→→];</rbnfrule>
+                <rbnfrule value="100">←←sata[­→→];</rbnfrule>
+                <rbnfrule value="200">←←sataa[­→→];</rbnfrule>
                 <rbnfrule value="1000">←←­tuhat[ →→];</rbnfrule>
                 <rbnfrule value="2000">←←­tuhatta[ →→];</rbnfrule>
                 <rbnfrule value="1000000">←← miljoona[ →→];</rbnfrule>
@@ -26,7 +46,7 @@
                 <rbnfrule value="2000000000000">←← biljoonan[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000">←← biljardi[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000000">←← biljardin[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

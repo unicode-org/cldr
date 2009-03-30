@@ -1,155 +1,236 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
-	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="it"/>
-	</identity>
+    <identity>
+        <version number="$Revision$"/>
+        <generation date="$Date$"/>
+        <language type="it"/>
+    </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout">
+            <ruleset type="spellout-numbering-year">
+                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering">
+                <rbnfrule value="0">=%spellout-cardinal-masculine-o=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-masculine-o">
                 <rbnfrule value="-x">meno →→;</rbnfrule>
                 <rbnfrule value="x.x">←← virgola →→;</rbnfrule>
-                <rbnfrule value="0">zero; uno; due; tre; quattro; cinque; sei; sette; otto; nove;</rbnfrule>
-                <rbnfrule value="10">dieci; undici; dodici; tredici; quattordici; quindici; sedici;</rbnfrule>
-                <rbnfrule value="17">diciasette; diciotto; diciannove;</rbnfrule>
-                <rbnfrule value="20">venti; vent→%%with-i→;</rbnfrule>
-                <rbnfrule value="30">trenta; trent→%%with-a→;</rbnfrule>
-                <rbnfrule value="40">quaranta; quarant→%%with-a→;</rbnfrule>
-                <rbnfrule value="50">cinquanta; cinquant→%%with-a→;</rbnfrule>
-                <rbnfrule value="60">sessanta; sessant→%%with-a→;</rbnfrule>
-                <rbnfrule value="70">settanta; settant→%%with-a→;</rbnfrule>
-                <rbnfrule value="80">ottanta; ottant→%%with-a→;</rbnfrule>
-                <rbnfrule value="90">novanta; novant→%%with-a→;</rbnfrule>
-                <rbnfrule value="100">cento; cent[→%%with-o→];</rbnfrule>
-                <rbnfrule value="200">←←cento; ←←cent[→%%with-o→];</rbnfrule>
-                <rbnfrule value="1000">mille; mille→→;</rbnfrule>
-                <rbnfrule value="2000">←%%no-final←mila; ←%%no-final←mil→%%with-a→;</rbnfrule>
-                <rbnfrule value="100000" decexp="2">←%%no-final←mila[ →→];</rbnfrule>
-                <rbnfrule value="1000000">un milione; un milione →→;</rbnfrule>
-                <rbnfrule value="2000000">←← milioni[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">un miliardo; un miliardo →→;</rbnfrule>
-                <rbnfrule value="2000000000">←← miliardi[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">=#,##0=;</rbnfrule>
+                <rbnfrule value="0">zero;</rbnfrule>
+                <rbnfrule value="1">uno;</rbnfrule>
+                <rbnfrule value="2">due;</rbnfrule>
+                <rbnfrule value="3">tre;</rbnfrule>
+                <rbnfrule value="4">quattro;</rbnfrule>
+                <rbnfrule value="5">cinque;</rbnfrule>
+                <rbnfrule value="6">sei;</rbnfrule>
+                <rbnfrule value="7">sette;</rbnfrule>
+                <rbnfrule value="8">otto;</rbnfrule>
+                <rbnfrule value="9">nove;</rbnfrule>
+                <rbnfrule value="10">dieci;</rbnfrule>
+                <rbnfrule value="11">undici;</rbnfrule>
+                <rbnfrule value="12">dodici;</rbnfrule>
+                <rbnfrule value="13">tredici;</rbnfrule>
+                <rbnfrule value="14">quattordici;</rbnfrule>
+                <rbnfrule value="15">quindici;</rbnfrule>
+                <rbnfrule value="16">sedici;</rbnfrule>
+                <rbnfrule value="17">diciasette;</rbnfrule>
+                <rbnfrule value="18">diciotto;</rbnfrule>
+                <rbnfrule value="19">diciannove;</rbnfrule>
+                <rbnfrule value="20">vent→%%msco-with-i→;</rbnfrule>
+                <rbnfrule value="30">trent→%%msco-with-a→;</rbnfrule>
+                <rbnfrule value="40">quarant→%%msco-with-a→;</rbnfrule>
+                <rbnfrule value="50">cinquant→%%msco-with-a→;</rbnfrule>
+                <rbnfrule value="60">sessant→%%msco-with-a→;</rbnfrule>
+                <rbnfrule value="70">settant→%%msco-with-a→;</rbnfrule>
+                <rbnfrule value="80">ottant→%%msco-with-a→;</rbnfrule>
+                <rbnfrule value="90">novant→%%msco-with-a→;</rbnfrule>
+                <rbnfrule value="100">cent→%%msco-with-o→;</rbnfrule>
+                <rbnfrule value="200">←←­cent→%%msco-with-o→;</rbnfrule>
+                <rbnfrule value="1000">mille[­→→];</rbnfrule>
+                <rbnfrule value="2000">←%%msc-no-final←­mila[­→→];</rbnfrule>
+                <rbnfrule value="1000000">un milione[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-masculine← milioni[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">un miliardo[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← miliardi[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">un bilione[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← bilioni[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">un biliardo[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← biliardi[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="no-final" access="private">
-                <rbnfrule value="0">zero; uno; due; tre; quattro; cinque; sei; sette; otto; nove;</rbnfrule>
-                <rbnfrule value="10">dieci; undici; dodici; tredici; quattordici; quindici; sedici;</rbnfrule>
-                <rbnfrule value="17">diciasette; diciotto; diciannove;</rbnfrule>
-                <rbnfrule value="20">venti; vent→%%with-i-nofinal→;</rbnfrule>
-                <rbnfrule value="30">trenta; trent→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="40">quaranta; quarant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="50">cinquanta; cinquant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="60">sessanta; sessant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="70">settanta; settant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="80">ottanta; ottant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="90">novanta; novant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="100">cento; cent[→%%with-o-nofinal→];</rbnfrule>
-                <rbnfrule value="200">←←cento; ←←cent[→%%with-o-nofinal→];</rbnfrule>
-                <rbnfrule value="1000">=%spellout=;</rbnfrule>
+            <ruleset type="msco-with-i" access="private">
+                <rbnfrule value="0">i;</rbnfrule>
+                <rbnfrule value="1">­uno;</rbnfrule>
+                <rbnfrule value="2">i­due;</rbnfrule>
+                <rbnfrule value="3">i­tré;</rbnfrule>
+                <rbnfrule value="4">i­=%spellout-cardinal-masculine-o=;</rbnfrule>
+                <rbnfrule value="8">­otto;</rbnfrule>
+                <rbnfrule value="9">i­nove;</rbnfrule>
+                <rbnfrule value="10">ERROR;</rbnfrule>
             </ruleset>
-            <ruleset type="with-a" access="private">
-                <rbnfrule value="0">azero; uno; adue; atré; aquattro; acinque; asei; asette; otto; anove;</rbnfrule>
-                <rbnfrule value="10">adieci; undici; adodici; atredici; aquattordici; aquindici; asedici;</rbnfrule>
-                <rbnfrule value="17">adiciasette; adiciotto; adiciannove;</rbnfrule>
-                <rbnfrule value="20">aventi; avent→%%with-i→;</rbnfrule>
-                <rbnfrule value="30">atrenta; atrent→%%with-a→;</rbnfrule>
-                <rbnfrule value="40">aquaranta; aquarant→%%with-a→;</rbnfrule>
-                <rbnfrule value="50">acinquanta; acinquant→%%with-a→;</rbnfrule>
-                <rbnfrule value="60">asessanta; asessant→%%with-a→;</rbnfrule>
-                <rbnfrule value="70">asettanta; asettant→%%with-a→;</rbnfrule>
-                <rbnfrule value="80">ottanta; ottant→%%with-a→;</rbnfrule>
-                <rbnfrule value="90">anovanta; anovant→%%with-a→;</rbnfrule>
-                <rbnfrule value="100">acento; acent[→%%with-o→];</rbnfrule>
-                <rbnfrule value="200">←%%with-a←cento; ←%%with-a←cent[→%%with-o→];</rbnfrule>
-                <rbnfrule value="1000">amille; amill[→%%with-i→];</rbnfrule>
-                <rbnfrule value="2000">←%%with-a←mila; ←%%with-a←mil[→%%with-a→];</rbnfrule>
-                <rbnfrule value="100000">=%spellout=;</rbnfrule>
+            <ruleset type="msco-with-a" access="private">
+                <rbnfrule value="0">a;</rbnfrule>
+                <rbnfrule value="1">­uno;</rbnfrule>
+                <rbnfrule value="2">a­due;</rbnfrule>
+                <rbnfrule value="3">a­tré;</rbnfrule>
+                <rbnfrule value="4">a­=%spellout-cardinal-masculine-o=;</rbnfrule>
+                <rbnfrule value="8">­otto;</rbnfrule>
+                <rbnfrule value="9">a­nove;</rbnfrule>
+                <rbnfrule value="10">ERROR;</rbnfrule>
             </ruleset>
-            <ruleset type="with-a-nofinal" access="private">
-                <rbnfrule value="0">azero; uno; adue; atre; aquattro; acinque; asei; asette; otto; anove;</rbnfrule>
-                <rbnfrule value="10">adieci; undici; adodici; atredici; aquattordici; aquindici; asedici;</rbnfrule>
-                <rbnfrule value="17">adiciasette; adiciotto; adiciannove;</rbnfrule>
-                <rbnfrule value="20">aventi; avent→%%with-i-nofinal→;</rbnfrule>
-                <rbnfrule value="30">atrenta; atrent→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="40">aquaranta; aquarant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="50">acinquanta; acinquant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="60">asessanta; asessant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="70">asettanta; asettant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="80">ottanta; ottant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="90">anovanta; anovant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="100">acento; acent[→%%with-o-nofinal→];</rbnfrule>
-                <rbnfrule value="200">←%%with-a-nofinal←cento; ←%%with-a-nofinal←cent[→%%with-o-nofinal→];</rbnfrule>
-                <rbnfrule value="1000">=%spellout=;</rbnfrule>
+            <ruleset type="msco-with-o" access="private">
+                <rbnfrule value="0">o;</rbnfrule>
+                <rbnfrule value="1">­uno;</rbnfrule>
+                <rbnfrule value="2">o­due;</rbnfrule>
+                <rbnfrule value="3">o­tré;</rbnfrule>
+                <rbnfrule value="4">o­=%spellout-cardinal-masculine-o=;</rbnfrule>
+                <rbnfrule value="8">­otto;</rbnfrule>
+                <rbnfrule value="9">o­=%spellout-cardinal-masculine-o=;</rbnfrule>
+                <rbnfrule value="80">­=%spellout-cardinal-masculine-o=;</rbnfrule>
+                <rbnfrule value="90">o­=%spellout-cardinal-masculine-o=;</rbnfrule>
             </ruleset>
-            <ruleset type="with-i" access="private">
-                <rbnfrule value="0">izero; uno; idue; itré; iquattro; icinque; isei; isette; otto; inove;</rbnfrule>
-                <rbnfrule value="10">idieci; undici; idodici; itredici; iquattordici; iquindici; isedici;</rbnfrule>
-                <rbnfrule value="17">idiciasette; idiciotto; idiciannove;</rbnfrule>
-                <rbnfrule value="20">iventi; ivent→%%with-i→;</rbnfrule>
-                <rbnfrule value="30">itrenta; itrent→%%with-a→;</rbnfrule>
-                <rbnfrule value="40">iquaranta; iquarant→%%with-a→;</rbnfrule>
-                <rbnfrule value="50">icinquanta; icinquant→%%with-a→;</rbnfrule>
-                <rbnfrule value="60">isessanta; isessant→%%with-a→;</rbnfrule>
-                <rbnfrule value="70">isettanta; isettant→%%with-a→;</rbnfrule>
-                <rbnfrule value="80">ottanta; ottant→%%with-a→;</rbnfrule>
-                <rbnfrule value="90">inovanta; inovant→%%with-a→;</rbnfrule>
-                <rbnfrule value="100">icento; icent[→%%with-o→];</rbnfrule>
-                <rbnfrule value="200">←%%with-i←cento; ←%%with-i←cent[→%%with-o→];</rbnfrule>
-                <rbnfrule value="1000">imille; imill[→%%with-i→];</rbnfrule>
-                <rbnfrule value="2000">←%%with-i←mila; ←%%with-i←mil[→%%with-a→];</rbnfrule>
-                <rbnfrule value="100000">=%spellout=;</rbnfrule>
+            <ruleset type="spellout-cardinal-masculine">
+                <rbnfrule value="-x">meno →→;</rbnfrule>
+                <rbnfrule value="x.x">←← virgola →→;</rbnfrule>
+                <rbnfrule value="0">zero;</rbnfrule>
+                <rbnfrule value="1">un;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-masculine-o=;</rbnfrule>
+                <rbnfrule value="20">vent→%%msc-with-i→;</rbnfrule>
+                <rbnfrule value="30">trent→%%msc-with-a→;</rbnfrule>
+                <rbnfrule value="40">quarant→%%msc-with-a→;</rbnfrule>
+                <rbnfrule value="50">cinquant→%%msc-with-a→;</rbnfrule>
+                <rbnfrule value="60">sessant→%%msc-with-a→;</rbnfrule>
+                <rbnfrule value="70">settant→%%msc-with-a→;</rbnfrule>
+                <rbnfrule value="80">ottant→%%msc-with-a→;</rbnfrule>
+                <rbnfrule value="90">novant→%%msc-with-a→;</rbnfrule>
+                <rbnfrule value="100">cent→%%msc-with-o→;</rbnfrule>
+                <rbnfrule value="200">←←­cent→%%msc-with-o→;</rbnfrule>
+                <rbnfrule value="1000">mille[­→→];</rbnfrule>
+                <rbnfrule value="2000">←%%msc-no-final←­mila[­→→];</rbnfrule>
+                <rbnfrule value="1000000">un milione[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-masculine← milioni[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">un miliardo[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← miliardi[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">un bilione[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← bilioni[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">un biliardo[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← biliardi[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="with-i-nofinal" access="private">
-                <rbnfrule value="0">izero; uno; idue; itre; iquattro; icinque; isei; isette; otto; inove;</rbnfrule>
-                <rbnfrule value="10">idieci; undici; idodici; itredici; iquattordici; iquindici; isedici;</rbnfrule>
-                <rbnfrule value="17">idiciasette; idiciotto; idiciannove;</rbnfrule>
-                <rbnfrule value="20">iventi; ivent→%%with-i-nofinal→;</rbnfrule>
-                <rbnfrule value="30">itrenta; itrent→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="40">iquaranta; iquarant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="50">icinquanta; icinquant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="60">isessanta; isessant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="70">isettanta; isettant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="80">ottanta; ottant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="90">inovanta; inovant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="100">icento; icent[→%%with-o-nofinal→];</rbnfrule>
-                <rbnfrule value="200">←%%with-i-nofinal←cento; ←%%with-i-nofinal←cent[→%%with-o-nofinal→];</rbnfrule>
-                <rbnfrule value="1000">=%spellout=;</rbnfrule>
+            <ruleset type="msc-with-i" access="private">
+                <rbnfrule value="0">i;</rbnfrule>
+                <rbnfrule value="1">­un;</rbnfrule>
+                <rbnfrule value="2">=%%msco-with-i=;</rbnfrule>
             </ruleset>
-            <ruleset type="with-o" access="private">
-                <rbnfrule value="0">ozero; uno; odue; otré; oquattro; ocinque; osei; osette; otto; onove;</rbnfrule>
-                <rbnfrule value="10">odieci; undici; ododici; otredici; oquattordici; oquindici; osedici;</rbnfrule>
-                <rbnfrule value="17">odiciasette; odiciotto; odiciannove;</rbnfrule>
-                <rbnfrule value="20">oventi; ovent→%%with-i→;</rbnfrule>
-                <rbnfrule value="30">otrenta; otrent→%%with-a→;</rbnfrule>
-                <rbnfrule value="40">oquaranta; oquarant→%%with-a→;</rbnfrule>
-                <rbnfrule value="50">ocinquanta; ocinquant→%%with-a→;</rbnfrule>
-                <rbnfrule value="60">osessanta; osessant→%%with-a→;</rbnfrule>
-                <rbnfrule value="70">osettanta; osettant→%%with-a→;</rbnfrule>
-                <rbnfrule value="80">ottanta; ottant→%%with-a→;</rbnfrule>
-                <rbnfrule value="90">onovanta; onovant→%%with-a→;</rbnfrule>
-                <rbnfrule value="100">ocento; ocent[→%%with-o→];</rbnfrule>
-                <rbnfrule value="200">←%%with-o←cento; ←%%with-o←cent[→%%with-o→];</rbnfrule>
-                <rbnfrule value="1000">omille; omill[→%%with-i→];</rbnfrule>
-                <rbnfrule value="2000">←%%with-o←mila; ←%%with-o←mil[→%%with-a→];</rbnfrule>
-                <rbnfrule value="100000">=%spellout=;</rbnfrule>
+            <ruleset type="msc-with-a" access="private">
+                <rbnfrule value="0">a;</rbnfrule>
+                <rbnfrule value="1">­un;</rbnfrule>
+                <rbnfrule value="2">=%%msco-with-a=;</rbnfrule>
             </ruleset>
-            <ruleset type="with-o-nofinal" access="private">
-                <rbnfrule value="0">ozero; uno; odue; otre; oquattro; ocinque; osei; osette; otto; onove;</rbnfrule>
-                <rbnfrule value="10">odieci; undici; ododici; otredici; oquattordici; oquindici; osedici;</rbnfrule>
-                <rbnfrule value="17">odiciasette; odiciotto; odiciannove;</rbnfrule>
-                <rbnfrule value="20">oventi; ovent→%%with-i-nofinal→;</rbnfrule>
-                <rbnfrule value="30">otrenta; otrent→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="40">oquaranta; oquarant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="50">ocinquanta; ocinquant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="60">osessanta; osessant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="70">osettanta; osettant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="80">ottanta; ottant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="90">onovanta; onovant→%%with-a-nofinal→;</rbnfrule>
-                <rbnfrule value="100">ocento; ocent[→%%with-o-nofinal→];</rbnfrule>
-                <rbnfrule value="200">←%%with-o-nofinal←cento; ←%%with-o-nofinal←cent[→%%with-o-nofinal→];</rbnfrule>
-                <rbnfrule value="1000">=%spellout=;</rbnfrule>
+            <ruleset type="msc-with-o" access="private">
+                <rbnfrule value="0">o;</rbnfrule>
+                <rbnfrule value="1">­uno;</rbnfrule>
+                <rbnfrule value="2">o­due;</rbnfrule>
+                <rbnfrule value="3">o­tré;</rbnfrule>
+                <rbnfrule value="4">o­=%spellout-cardinal-masculine-o=;</rbnfrule>
+                <rbnfrule value="8">­otto;</rbnfrule>
+                <rbnfrule value="9">o­=%spellout-cardinal-masculine-o=;</rbnfrule>
+                <rbnfrule value="80">­=%spellout-cardinal-masculine-o=;</rbnfrule>
+                <rbnfrule value="90">o­=%spellout-cardinal-masculine-o=;</rbnfrule>
+            </ruleset>
+            <ruleset type="msc-no-final" access="private">
+                <rbnfrule value="0">ERROR;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-masculine=;</rbnfrule>
+                <rbnfrule value="20">vent→%%msc-with-i-nofinal→;</rbnfrule>
+                <rbnfrule value="30">trent→%%msc-with-a-nofinal→;</rbnfrule>
+                <rbnfrule value="40">quarant→%%msc-with-a-nofinal→;</rbnfrule>
+                <rbnfrule value="50">cinquant→%%msc-with-a-nofinal→;</rbnfrule>
+                <rbnfrule value="60">sessant→%%msc-with-a-nofinal→;</rbnfrule>
+                <rbnfrule value="70">settant→%%msc-with-a-nofinal→;</rbnfrule>
+                <rbnfrule value="80">ottant→%%msc-with-a-nofinal→;</rbnfrule>
+                <rbnfrule value="90">novant→%%msc-with-a-nofinal→;</rbnfrule>
+                <rbnfrule value="100">cent→%%msc-with-o-nofinal→;</rbnfrule>
+                <rbnfrule value="200">←←­cent→%%msc-with-o-nofinal→;</rbnfrule>
+                <rbnfrule value="1000">ERROR;</rbnfrule>
+            </ruleset>
+            <ruleset type="msc-with-i-nofinal" access="private">
+                <rbnfrule value="0">=%%msc-with-i=;</rbnfrule>
+                <rbnfrule value="3">a­tre;</rbnfrule>
+                <rbnfrule value="4">=%%msc-with-i=;</rbnfrule>
+            </ruleset>
+            <ruleset type="msc-with-a-nofinal" access="private">
+                <rbnfrule value="0">=%%msc-with-a=;</rbnfrule>
+                <rbnfrule value="3">a­tre;</rbnfrule>
+                <rbnfrule value="4">=%%msc-with-a=;</rbnfrule>
+            </ruleset>
+            <ruleset type="msc-with-o-nofinal" access="private">
+                <rbnfrule value="0">=%%msc-with-o=;</rbnfrule>
+                <rbnfrule value="3">o­tre;</rbnfrule>
+                <rbnfrule value="4">=%%msc-with-o=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-feminine">
+                <rbnfrule value="-x">meno →→;</rbnfrule>
+                <rbnfrule value="x.x">←← virgola →→;</rbnfrule>
+                <rbnfrule value="0">zero;</rbnfrule>
+                <rbnfrule value="1">una;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-masculine-o=;</rbnfrule>
+                <rbnfrule value="20">vent→%%fem-with-i→;</rbnfrule>
+                <rbnfrule value="30">trent→%%fem-with-a→;</rbnfrule>
+                <rbnfrule value="40">quarant→%%fem-with-a→;</rbnfrule>
+                <rbnfrule value="50">cinquant→%%fem-with-a→;</rbnfrule>
+                <rbnfrule value="60">sessant→%%fem-with-a→;</rbnfrule>
+                <rbnfrule value="70">settant→%%fem-with-a→;</rbnfrule>
+                <rbnfrule value="80">ottant→%%fem-with-a→;</rbnfrule>
+                <rbnfrule value="90">novant→%%fem-with-a→;</rbnfrule>
+                <rbnfrule value="100">cent→%%fem-with-o→;</rbnfrule>
+                <rbnfrule value="200">←←­cent→%%fem-with-o→;</rbnfrule>
+                <rbnfrule value="1000">mille[­→→];</rbnfrule>
+                <rbnfrule value="2000">←%%msc-no-final←­mila[­→→];</rbnfrule>
+                <rbnfrule value="1000000">un milione[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-masculine← milioni[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">un miliardo[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← miliardi[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">un bilione[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← bilioni[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">un biliardo[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← biliardi[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="fem-with-i" access="private">
+                <rbnfrule value="0">i;</rbnfrule>
+                <rbnfrule value="1">­una;</rbnfrule>
+                <rbnfrule value="2">=%%msco-with-i=;</rbnfrule>
+            </ruleset>
+            <ruleset type="fem-with-a" access="private">
+                <rbnfrule value="0">a;</rbnfrule>
+                <rbnfrule value="1">­una;</rbnfrule>
+                <rbnfrule value="2">=%%msco-with-a=;</rbnfrule>
+            </ruleset>
+            <ruleset type="fem-with-o" access="private">
+                <rbnfrule value="0">o;</rbnfrule>
+                <rbnfrule value="1">­una;</rbnfrule>
+                <rbnfrule value="2">=%%msco-with-o=;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
+        <rulesetGrouping type="OrdinalRules">
+            <ruleset type="dord-mascabbrev" access="private">
+                <rbnfrule value="0">ᵒ;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-masculine">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="0">=#,##0==%%dord-mascabbrev=;</rbnfrule>
+            </ruleset>
+            <ruleset type="dord-femabbrev" access="private">
+                <rbnfrule value="0">ᵃ;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-feminine">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="0">=#,##0==%%dord-femabbrev=;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal">
+                <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

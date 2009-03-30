@@ -5,31 +5,34 @@
     <generation date="$Date$"/>
     <numberingSystems>
         <numberingSystem id="arabic" type="numeric" digits="٠١٢٣٤٥٦٧٨٩"/>
-        <numberingSystem id="armenian" type="algorithmic" rules="armenian"/>
+        <numberingSystem id="armenian" type="algorithmic" rules="armenian-upper"/>
+        <numberingSystem id="armenian-lower" type="algorithmic" rules="armenian-lower"/>
         <numberingSystem id="bengali" type="numeric" digits="০১২৩৪৫৬৭৮৯"/>
         <numberingSystem id="decimal" type="numeric" digits="0123456789"/>
         <numberingSystem id="deva" type="numeric" digits="०१२३४५६७८९"/>
         <numberingSystem id="ethiopic" type="algorithmic" rules="ethiopic"/>
         <numberingSystem id="georgian" type="algorithmic" rules="georgian"/>
+        <numberingSystem id="greek" type="algorithmic" rules="greek-upper"/>
+        <numberingSystem id="greek-lower" type="algorithmic" rules="greek-lower"/>
         <numberingSystem id="gujarati" type="numeric" digits="૦૧૨૩૪૫૬૭૮૯"/>
         <numberingSystem id="gurmukhi" type="numeric" digits="੦੧੨੩੪੫੬੭੮੯"/>
         <numberingSystem id="hanjfin" type="algorithmic" rules="ja/SpelloutRules/financial"/>
-        <numberingSystem id="hanjstd" type="algorithmic" rules="ja/SpelloutRules/spellout"/>
+        <numberingSystem id="hanjstd" type="algorithmic" rules="ja/SpelloutRules/spellout-numbering"/>
         <numberingSystem id="hansfin" type="algorithmic" rules="zh/SpelloutRules/financial"/>
-        <numberingSystem id="hansstd" type="algorithmic" rules="zh/SpelloutRules/spellout"/>
+        <numberingSystem id="hansstd" type="algorithmic" rules="zh/SpelloutRules/spellout-numbering"/>
         <numberingSystem id="hantfin" type="algorithmic" rules="zh_Hant/SpelloutRules/financial"/>
-        <numberingSystem id="hantstd" type="algorithmic" rules="zh_Hant/SpelloutRules/spellout"/>
+        <numberingSystem id="hantstd" type="algorithmic" rules="zh_Hant/SpelloutRules/spellout-numbering"/>
         <numberingSystem id="hebrew" type="algorithmic" rules="hebrew"/>
         <numberingSystem id="kannada" type="numeric" digits="೦೧೨೩೪೫೬೭೮೯"/>
         <numberingSystem id="khmer" type="numeric" digits="០១២៣៤៥៦៧៨៩"/>
         <numberingSystem id="lao" type="numeric" digits="໐໑໒໓໔໕໖໗໘໙"/>
-        <numberingSystem id="lowroman" type="algorithmic" rules="lower-roman"/>
+        <numberingSystem id="roman-lower" type="algorithmic" rules="roman-lower"/>
         <numberingSystem id="mlym" type="numeric" digits="൦൧൨൩൪൬൭൮൯"/>
         <numberingSystem id="mong" type="numeric" digits="᠐᠑᠒᠓᠔᠕᠖᠗᠘᠙"/>
         <numberingSystem id="myanmar" type="numeric" digits="၀၁၂၃၄၅၆၇၈၉"/>
         <numberingSystem id="oriya" type="numeric" digits="୦୧୨୩୪୫୬୭୮୯"/>
         <numberingSystem id="persian" type="numeric" digits="۰۱۲۳۴۵۶۷۸۹"/>
-        <numberingSystem id="roman" type="algorithmic" rules="upper-roman"/>
+        <numberingSystem id="roman" type="algorithmic" rules="roman-upper"/>
         <numberingSystem id="tamil" type="algorithmic" rules="tamil"/>
         <numberingSystem id="telugu" type="numeric" digits="౦౧౨౩౪౫౬౭౮౯"/>
         <numberingSystem id="tibetan" type="numeric" digits="༠༡༢༣༤༥༦༧༨༩"/>

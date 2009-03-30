@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
-	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="se"/>
-	</identity>
+    <identity>
+        <version number="$Revision$"/>
+        <generation date="$Date$"/>
+        <language type="se"/>
+    </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout">
+            <ruleset type="spellout-numbering-year">
+                <rbnfrule value="-x">eret →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="1100" radix="100">←←­čuođi[­→→];</rbnfrule>
+                <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering">
+                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal">
                 <rbnfrule value="-x">eret →→;</rbnfrule>
                 <rbnfrule value="x.x">←← pilkku →→;</rbnfrule>
                 <rbnfrule value="0">nolla;</rbnfrule>
@@ -21,7 +31,8 @@
                 <rbnfrule value="7">čieža;</rbnfrule>
                 <rbnfrule value="8">gávcci;</rbnfrule>
                 <rbnfrule value="9">ovcci;</rbnfrule>
-                <rbnfrule value="10">logi; →→­nuppe­lohkái;</rbnfrule>
+                <rbnfrule value="10">logi;</rbnfrule>
+                <rbnfrule value="11">→→­nuppe­lohkái;</rbnfrule>
                 <rbnfrule value="20">←←­logi[­→→];</rbnfrule>
                 <rbnfrule value="100">←←­čuođi[­→→];</rbnfrule>
                 <rbnfrule value="1000">←←­duhát[ →→];</rbnfrule>
@@ -29,7 +40,7 @@
                 <rbnfrule value="1000000000">←← miljard[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">←← biljon[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000">←← biljard[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

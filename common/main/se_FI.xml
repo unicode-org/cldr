@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -8,223 +8,124 @@
 		<territory type="FI"/>
 	</identity>
 	<fallback>fi-FI</fallback>
+	<fallback alt="proposed-x1001" draft="unconfirmed">fi en</fallback>
 	<localeDisplayNames>
 		<languages>
 			<language type="ang">ang</language>
-			<language type="ang" alt="proposed-x1001" draft="unconfirmed">boares eŋgelasgiella</language>
 			<language type="apa">apa</language>
-			<language type="apa" alt="proposed-x1001" draft="unconfirmed">apachegielat</language>
 			<language type="be">be</language>
-			<language type="be" alt="proposed-x1001" draft="unconfirmed">vilgesruoššagiella</language>
 			<language type="cs">cs</language>
-			<language type="cs" alt="proposed-x1001" draft="unconfirmed">čeahkagiella</language>
 			<language type="da">da</language>
-			<language type="da" alt="proposed-x1001" draft="unconfirmed">dánskkagiella</language>
 			<language type="de">de</language>
-			<language type="de" alt="proposed-x1001" draft="unconfirmed">duiskkagiella</language>
 			<language type="el">el</language>
-			<language type="el" alt="proposed-x1001" draft="unconfirmed">greikkagiella</language>
 			<language type="en">en</language>
-			<language type="en" alt="proposed-x1001" draft="unconfirmed">eŋgelasgiella</language>
 			<language type="es">es</language>
-			<language type="es" alt="proposed-x1001" draft="unconfirmed">spánskkagiella</language>
 			<language type="et">et</language>
-			<language type="et" alt="proposed-x1001" draft="unconfirmed">esttegiella</language>
 			<language type="fi">fi</language>
-			<language type="fi" alt="proposed-x1001" draft="unconfirmed">suomagiella</language>
 			<language type="fiu">fiu</language>
-			<language type="fiu" alt="proposed-x1001" draft="unconfirmed">fenno-ugrálaš gielat</language>
 			<language type="fo">fo</language>
-			<language type="fo" alt="proposed-x1001" draft="unconfirmed">fearagiella</language>
 			<language type="fr">fr</language>
-			<language type="fr" alt="proposed-x1001" draft="unconfirmed">fránskkagiella</language>
 			<language type="gem">gem</language>
-			<language type="gem" alt="proposed-x1001" draft="unconfirmed">duiskkagielat</language>
 			<language type="is">is</language>
-			<language type="is" alt="proposed-x1001" draft="unconfirmed">islánddagiella</language>
 			<language type="nb">nb</language>
-			<language type="nb" alt="proposed-x1001" draft="unconfirmed">girjedárogiella</language>
 			<language type="nn">nn</language>
-			<language type="nn" alt="proposed-x1001" draft="unconfirmed">ođđadárogiella</language>
 			<language type="no">no</language>
-			<language type="no" alt="proposed-x1001" draft="unconfirmed">dárogiella</language>
 			<language type="ru">ru</language>
-			<language type="ru" alt="proposed-x1001" draft="unconfirmed">ruoššagiella</language>
 			<language type="se">se</language>
-			<language type="se" alt="proposed-x1001" draft="unconfirmed">dávvisámegiella</language>
 			<language type="sma">sma</language>
-			<language type="sma" alt="proposed-x1001" draft="unconfirmed">lullisámegiella</language>
 			<language type="smi">smi</language>
-			<language type="smi" alt="proposed-x1001" draft="unconfirmed">sámegielat</language>
 			<language type="smj">smj</language>
-			<language type="smj" alt="proposed-x1001" draft="unconfirmed">julevsámegiella</language>
 			<language type="smn">smn</language>
-			<language type="smn" alt="proposed-x1001" draft="unconfirmed">anárašgiella</language>
 			<language type="sms">sms</language>
-			<language type="sms" alt="proposed-x1001" draft="unconfirmed">nuortalašgiella</language>
 			<language type="sv">sv</language>
-			<language type="sv" alt="proposed-x1001" draft="unconfirmed">ruoŧagiella</language>
 		</languages>
 		<territories>
 			<territory type="002" draft="provisional">Afrihká</territory>
-			<territory type="002" alt="proposed-x1001" draft="unconfirmed">Afrihkká</territory>
 			<territory type="005" draft="provisional">Mátta-Amerihká</territory>
-			<territory type="005" alt="proposed-x1001" draft="unconfirmed">mátta-Amerihkká</territory>
 			<territory type="011" draft="provisional">Oarji-Afrihká</territory>
-			<territory type="011" alt="proposed-x1001" draft="unconfirmed">oarji-Afrihkká</territory>
 			<territory type="014">014</territory>
-			<territory type="014" alt="proposed-x1001" draft="unconfirmed">nuorta-Afrihkká</territory>
 			<territory type="015" draft="provisional">Davvi-Afrihká</territory>
-			<territory type="015" alt="proposed-x1001" draft="unconfirmed">dávvi-Afrihkká</territory>
 			<territory type="017" draft="provisional">Gaska-Afrihká</territory>
-			<territory type="017" alt="proposed-x1001" draft="unconfirmed">gaska-Afrihkká</territory>
 			<territory type="021" draft="provisional">Davvi-Amerihká</territory>
-			<territory type="021" alt="proposed-x1001" draft="unconfirmed">dávvi-Amerihkká</territory>
 			<territory type="030" draft="provisional">Nuorta-Ásia</territory>
-			<territory type="030" alt="proposed-x1001" draft="unconfirmed">nuorta-Ásia</territory>
 			<territory type="034" draft="provisional">Mátta-Ásia</territory>
-			<territory type="034" alt="proposed-x1001" draft="unconfirmed">mátta-Ásia</territory>
 			<territory type="039" draft="provisional">Mátta-Eurohpa</territory>
-			<territory type="039" alt="proposed-x1001" draft="unconfirmed">mátta-Eurohpá</territory>
 			<territory type="143" draft="provisional">Gaska-Ásia</territory>
-			<territory type="143" alt="proposed-x1001" draft="unconfirmed">gaska-Ásia</territory>
 			<territory type="145" draft="provisional">Oarji-Ásia</territory>
-			<territory type="145" alt="proposed-x1001" draft="unconfirmed">oarji-Ásia</territory>
 			<territory type="150" draft="provisional">Eurohpa</territory>
-			<territory type="150" alt="proposed-x1001" draft="unconfirmed">Eurohpá</territory>
 			<territory type="151" draft="provisional">Nuorta-Eurohpá</territory>
-			<territory type="151" alt="proposed-x1001" draft="unconfirmed">nuorta-Eurohpá</territory>
 			<territory type="154" draft="provisional">Davvi-Eurohpa</territory>
-			<territory type="154" alt="proposed-x1001" draft="unconfirmed">dávvi-Eurohpá</territory>
 			<territory type="155" draft="provisional">Oarji-Eurohpa</territory>
-			<territory type="155" alt="proposed-x1001" draft="unconfirmed">oarji-Eurohpá</territory>
 			<territory type="AT">AT</territory>
-			<territory type="AT" alt="proposed-x1001" draft="unconfirmed">Nuortariika</territory>
 			<territory type="AU">AU</territory>
-			<territory type="AU" alt="proposed-x1001" draft="unconfirmed">Austrália</territory>
 			<territory type="AX">AX</territory>
-			<territory type="AX" alt="proposed-x1001" draft="unconfirmed">Ålánda</territory>
 			<territory type="BE">BE</territory>
-			<territory type="BE" alt="proposed-x1001" draft="unconfirmed">Belgia</territory>
 			<territory type="BG">BG</territory>
-			<territory type="BG" alt="proposed-x1001" draft="unconfirmed">Bulgária</territory>
 			<territory type="BR">BR</territory>
-			<territory type="BR" alt="proposed-x1001" draft="unconfirmed">Brasil</territory>
 			<territory type="BY">BY</territory>
-			<territory type="BY" alt="proposed-x1001" draft="unconfirmed">Vilges-Ruošša</territory>
 			<territory type="CH">CH</territory>
-			<territory type="CH" alt="proposed-x1001" draft="unconfirmed">Šveica</territory>
 			<territory type="CM">CM</territory>
-			<territory type="CM" alt="proposed-x1001" draft="unconfirmed">Kamerun</territory>
 			<territory type="CN">CN</territory>
-			<territory type="CN" alt="proposed-x1001" draft="unconfirmed">Kiinná</territory>
 			<territory type="CZ">CZ</territory>
-			<territory type="CZ" alt="proposed-x1001" draft="unconfirmed">Čeahkka</territory>
 			<territory type="DE">DE</territory>
-			<territory type="DE" alt="proposed-x1001" draft="unconfirmed">Duiska</territory>
 			<territory type="DK">DK</territory>
-			<territory type="DK" alt="proposed-x1001" draft="unconfirmed">Dánmárku</territory>
 			<territory type="EE">EE</territory>
-			<territory type="EE" alt="proposed-x1001" draft="unconfirmed">Estlánda</territory>
 			<territory type="ES">ES</territory>
-			<territory type="ES" alt="proposed-x1001" draft="unconfirmed">Spánia</territory>
 			<territory type="FI">FI</territory>
-			<territory type="FI" alt="proposed-x1001" draft="unconfirmed">Suopma</territory>
 			<territory type="FO">FO</territory>
-			<territory type="FO" alt="proposed-x1001" draft="unconfirmed">Fearsullot</territory>
 			<territory type="FR">FR</territory>
-			<territory type="FR" alt="proposed-x1001" draft="unconfirmed">Frankriika</territory>
 			<territory type="GL">GL</territory>
-			<territory type="GL" alt="proposed-x1001" draft="unconfirmed">Kalaallit Nunaat</territory>
 			<territory type="GR">GR</territory>
-			<territory type="GR" alt="proposed-x1001" draft="unconfirmed">Greika</territory>
 			<territory type="HR">HR</territory>
-			<territory type="HR" alt="proposed-x1001" draft="unconfirmed">Kroátia</territory>
 			<territory type="HU">HU</territory>
-			<territory type="HU" alt="proposed-x1001" draft="unconfirmed">Ungár</territory>
 			<territory type="IE">IE</territory>
-			<territory type="IE" alt="proposed-x1001" draft="unconfirmed">Irlánda</territory>
 			<territory type="IQ">IQ</territory>
-			<territory type="IQ" alt="proposed-x1001" draft="unconfirmed">Irak</territory>
 			<territory type="IR">IR</territory>
-			<territory type="IR" alt="proposed-x1001" draft="unconfirmed">Iran</territory>
 			<territory type="IS">IS</territory>
-			<territory type="IS" alt="proposed-x1001" draft="unconfirmed">Islánda</territory>
 			<territory type="IT">IT</territory>
-			<territory type="IT" alt="proposed-x1001" draft="unconfirmed">Itália</territory>
 			<territory type="JP">JP</territory>
-			<territory type="JP" alt="proposed-x1001" draft="unconfirmed">Jáhpan</territory>
 			<territory type="KP">KP</territory>
-			<territory type="KP" alt="proposed-x1001" draft="unconfirmed">Dávvi-Korea</territory>
 			<territory type="KR">KR</territory>
-			<territory type="KR" alt="proposed-x1001" draft="unconfirmed">Mátta-Korea</territory>
 			<territory type="LB">LB</territory>
-			<territory type="LB" alt="proposed-x1001" draft="unconfirmed">Libanon</territory>
 			<territory type="LT">LT</territory>
-			<territory type="LT" alt="proposed-x1001" draft="unconfirmed">Lietuva</territory>
 			<territory type="LV">LV</territory>
-			<territory type="LV" alt="proposed-x1001" draft="unconfirmed">Látvia</territory>
 			<territory type="MA">MA</territory>
-			<territory type="MA" alt="proposed-x1001" draft="unconfirmed">Marokko</territory>
 			<territory type="MG">MG</territory>
-			<territory type="MG" alt="proposed-x1001" draft="unconfirmed">Madagaskar</territory>
 			<territory type="MH">MH</territory>
-			<territory type="MH" alt="proposed-x1001" draft="unconfirmed">Marshallsullot</territory>
 			<territory type="MK">MK</territory>
-			<territory type="MK" alt="proposed-x1001" draft="unconfirmed">Makedonia</territory>
 			<territory type="MP">MP</territory>
-			<territory type="MP" alt="proposed-x1001" draft="unconfirmed">Dávvi-Mariánat</territory>
 			<territory type="MR">MR</territory>
-			<territory type="MR" alt="proposed-x1001" draft="unconfirmed">Mauretánia</territory>
 			<territory type="MV">MV</territory>
-			<territory type="MV" alt="proposed-x1001" draft="unconfirmed">Malediivvat</territory>
 			<territory type="MY">MY</territory>
-			<territory type="MY" alt="proposed-x1001" draft="unconfirmed">Malesia</territory>
 			<territory type="NL">NL</territory>
-			<territory type="NL" alt="proposed-x1001" draft="unconfirmed">Vuolleeatnamat</territory>
 			<territory type="NO">NO</territory>
-			<territory type="NO" alt="proposed-x1001" draft="unconfirmed">Norga</territory>
 			<territory type="NZ">NZ</territory>
-			<territory type="NZ" alt="proposed-x1001" draft="unconfirmed">Ođđa-Selánda</territory>
 			<territory type="PH">PH</territory>
-			<territory type="PH" alt="proposed-x1001" draft="unconfirmed">Filippiinnat</territory>
 			<territory type="PL">PL</territory>
-			<territory type="PL" alt="proposed-x1001" draft="unconfirmed">Polen</territory>
 			<territory type="PS">PS</territory>
-			<territory type="PS" alt="proposed-x1001" draft="unconfirmed">Palestina</territory>
 			<territory type="RU">RU</territory>
-			<territory type="RU" alt="proposed-x1001" draft="unconfirmed">Ruošša</territory>
 			<territory type="SE">SE</territory>
-			<territory type="SE" alt="proposed-x1001" draft="unconfirmed">Ruoŧŧa</territory>
 			<territory type="SI">SI</territory>
-			<territory type="SI" alt="proposed-x1001" draft="unconfirmed">Slovenia</territory>
 			<territory type="SJ">SJ</territory>
-			<territory type="SJ" alt="proposed-x1001" draft="unconfirmed">Svalbárda ja Jan Mayen</territory>
 			<territory type="SK">SK</territory>
-			<territory type="SK" alt="proposed-x1001" draft="unconfirmed">Slovákia</territory>
 			<territory type="SR">SR</territory>
-			<territory type="SR" alt="proposed-x1001" draft="unconfirmed">Surinam</territory>
 			<territory type="TD">TD</territory>
-			<territory type="TD" alt="proposed-x1001" draft="unconfirmed">Čhad</territory>
 			<territory type="TL">TL</territory>
-			<territory type="TL" alt="proposed-x1001" draft="unconfirmed">Nuorta-Timor</territory>
 			<territory type="TR">TR</territory>
-			<territory type="TR" alt="proposed-x1001" draft="unconfirmed">Durka</territory>
 			<territory type="US">US</territory>
-			<territory type="US" alt="proposed-x1001" draft="unconfirmed">Amerihká ovttastuvvan stáhtat</territory>
 			<territory type="ZA">ZA</territory>
-			<territory type="ZA" alt="proposed-x1001" draft="unconfirmed">Mátta-Afrihká</territory>
 		</territories>
 		<keys>
 			<key type="calendar">calendar</key>
-			<key type="calendar" alt="proposed-x1001" draft="unconfirmed">kaleandar</key>
 			<key type="currency">currency</key>
-			<key type="currency" alt="proposed-x1001" draft="unconfirmed">valuhtta</key>
 		</keys>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metric</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
+	<layout>
+		<inText type="quarterWidth" draft="unconfirmed">mixed</inText>
+	</layout>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -319,7 +220,8 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<fallbackFormat draft="unconfirmed">{1} ({0})</fallbackFormat>
+			<gmtZeroFormat draft="unconfirmed">GMT</gmtZeroFormat>
+			<fallbackFormat draft="unconfirmed">{0} ({1})</fallbackFormat>
 		</timeZoneNames>
 	</dates>
 	<numbers>
@@ -344,8 +246,9 @@
 	<posix>
 		<messages>
 			<yesstr>yes:y</yesstr>
+			<yesstr alt="proposed-x1001" draft="unconfirmed">jo</yesstr>
 			<nostr>no:n</nostr>
+			<nostr alt="proposed-x1001" draft="unconfirmed">ii</nostr>
 		</messages>
 	</posix>
 </ldml>
-

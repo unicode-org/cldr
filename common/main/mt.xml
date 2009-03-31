@@ -1065,9 +1065,9 @@
 					</field>
 					<field type="day">
 						<displayName>Jum</displayName>
+						<relative type="-1" references="RP1">Lbieraħ</relative>
 						<relative type="0">Illum</relative>
 						<relative type="1">Għada</relative>
-						<relative type="-1" references="RP1">Lbieraħ</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Jum tal-Ġimgħa</displayName>
@@ -1138,14 +1138,14 @@
 	</numbers>
 	<posix>
 		<messages>
-		<!--  * [MSA 200:2003 4.6] YES:  'I' 'i' 'iva' TRUE:  'V' 'v' 'veru' NO:  'L' 'l' 'le' FALSE:  'F' 'f' 'falz'  -->
+			<!-- * [MSA 200:2003 4.6] YES:  'I' 'i' 'iva' TRUE:  'V' 'v' 'veru' NO:  'L' 'l' 'le' FALSE:  'F' 'f' 'falz' -->
 			<yesstr references="R200">iva:i</yesstr>
 			<nostr references="R200">le:l</nostr>
 		</messages>
 	</posix>
 	<references>
-        <reference type="R200" uri="http://www.msa.org.mt/standards/standards.htm">MSA 200:2003</reference>
-        <reference type="R501" uri="http://www.kunsilltalmalti.gov.mt/filebank/documents/decizjonijiet_.pdf">Deċiżjonijiet 1: dwar il-Varjanti Ortografiċi. Il-Kunsill Nazzjonali tal-Ilsien Malti, 2008</reference>
+		<reference type="R200" uri="http://www.msa.org.mt/standards/standards.htm">MSA 200:2003</reference>
+		<reference type="R501" uri="http://www.kunsilltalmalti.gov.mt/filebank/documents/decizjonijiet_.pdf">Deċiżjonijiet 1: dwar il-Varjanti Ortografiċi. Il-Kunsill Nazzjonali tal-Ilsien Malti, 2008</reference>
 		<reference type="RP1" uri="isbn:99932-7-070-9">Concise Maltese-English English-Maltese Dictionary, Joseph Aquilina. Malta: Midsea Books, Ltd, 2006.</reference>
 	</references>
 </ldml>

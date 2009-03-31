@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -33,7 +33,6 @@
 			<language type="bs">ბოსნიური</language>
 			<language type="bua" draft="contributed">ბურიატული</language>
 			<language type="ca" draft="contributed">კატალანური</language>
-			<language type="ca" alt="proposed-x1001" draft="unconfirmed">კატალონიური</language>
 			<language type="cau" draft="contributed">კავკასიური სხვა</language>
 			<language type="ce">ჩეჩნური</language>
 			<language type="cel" draft="contributed">კელტური სხვა</language>
@@ -60,7 +59,6 @@
 			<language type="fa">სპარსული</language>
 			<language type="fi">ფინური</language>
 			<language type="fil">ფილიპინური</language>
-			<language type="fil" alt="proposed-x1001" draft="unconfirmed">ტაგალოგური</language>
 			<language type="fr">ფრანგული</language>
 			<language type="fr_CA">კანადური ფრანგული</language>
 			<language type="fr_CH">შვეიცარიული ფრანგული</language>
@@ -144,7 +142,6 @@
 			<language type="th">ტაილანდური</language>
 			<language type="tk">თურქმენული</language>
 			<language type="tlh" draft="contributed">კლინგონი</language>
-			<language type="tlh" alt="proposed-x1001" draft="unconfirmed">კლინგონური</language>
 			<language type="tn" draft="contributed">ტსვანა</language>
 			<language type="tr">თურქული</language>
 			<language type="tw" draft="contributed">თუი</language>
@@ -169,7 +166,6 @@
 			<script type="Batk" draft="contributed">ბატაკი</script>
 			<script type="Beng">ბენგალური</script>
 			<script type="Brai">ბრაილი</script>
-			<script type="Brai" alt="proposed-x1001" draft="unconfirmed">ბრეილი</script>
 			<script type="Copt" draft="contributed">კოპტური</script>
 			<script type="Cprt" draft="contributed">კვიპროსული</script>
 			<script type="Cyrl">კირილიცა</script>
@@ -220,7 +216,6 @@
 			<territory type="001">მსოფლიო</territory>
 			<territory type="002">აფრიკა</territory>
 			<territory type="003">ჩრდილოეთ ამერიკა</territory>
-			<territory type="003" alt="proposed-x1001" draft="unconfirmed">ჩრდილოეთი ამერიკა</territory>
 			<territory type="005">სამხრეთი ამერიკა</territory>
 			<territory type="009" draft="contributed">ოკეანეთი</territory>
 			<territory type="011">დასავლეთი აფრიკა</territory>
@@ -325,7 +320,6 @@
 			<territory type="FR">საფრანგეთი</territory>
 			<territory type="GA">გაბონი</territory>
 			<territory type="GB">დიდი ბრიტანეთი</territory>
-			<territory type="GB" alt="proposed-x1001" draft="unconfirmed">გაერთიანებული სამეფო</territory>
 			<territory type="GD">გრენადა</territory>
 			<territory type="GE">საქართველო</territory>
 			<territory type="GH">განა</territory>
@@ -489,7 +483,6 @@
 			<territory type="ZM">ზამბია</territory>
 			<territory type="ZW">ზიმბაბვე</territory>
 			<territory type="ZZ">უცნობი ან არასწორი რეგიონი</territory>
-			<territory type="ZZ" alt="proposed-x1001" draft="unconfirmed">უცნობი ან მცდარი რეგიონი</territory>
 		</territories>
 		<keys>
 			<key type="calendar">კალენდარი</key>
@@ -724,13 +717,13 @@
 					</field>
 					<field type="day">
 						<displayName draft="provisional">დღე</displayName>
+						<relative type="-3" draft="provisional">სამი დღის წინ</relative>
+						<relative type="-2" draft="provisional">გუშინწინ</relative>
+						<relative type="-1" draft="provisional">გუშინ</relative>
 						<relative type="0" draft="provisional">დღეს</relative>
 						<relative type="1" draft="provisional">ხვალ</relative>
 						<relative type="2" draft="provisional">ზეგ</relative>
 						<relative type="3" draft="provisional">სამი დღის შემდეგ</relative>
-						<relative type="-1" draft="provisional">გუშინ</relative>
-						<relative type="-2" draft="provisional">გუშინწინ</relative>
-						<relative type="-3" draft="provisional">სამი დღის წინ</relative>
 					</field>
 					<field type="weekday">
 						<displayName draft="provisional">კვირის დღე</displayName>
@@ -2166,4 +2159,3 @@
 		</messages>
 	</posix>
 </ldml>
-

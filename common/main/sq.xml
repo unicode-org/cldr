@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -71,7 +71,7 @@
 			<language type="ms" draft="unconfirmed">Malajzisht</language>
 			<language type="mt" draft="unconfirmed">Maltisht</language>
 			<language type="ne" draft="unconfirmed">Nepalisht</language>
-			<language type="nl" draft="unconfirmed">Hollandisht</language>
+			<language type="nl">Holandisht</language>
 			<language type="nn" draft="unconfirmed">Norvegjisht (Nynorsk)</language>
 			<language type="no" draft="unconfirmed">Norvegjisht</language>
 			<language type="oc" draft="unconfirmed">Oksitanisht</language>
@@ -468,7 +468,7 @@
 						<dateFormatItem id="yMMMM" draft="contributed">MMMM y</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="unconfirmed">yyyy-MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0} - {1}</intervalFormatFallback>
@@ -528,18 +528,18 @@
 							<greatestDifference id="y" draft="unconfirmed">E, yy-MM-dd - E, yy-MM-dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="unconfirmed">MMM-MMM y</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">MMM y - MMM y</greatestDifference>
+							<greatestDifference id="M">yyyy-MM – MM</greatestDifference>
+							<greatestDifference id="y">MMM y - MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="M" draft="unconfirmed">E, dd MMM - E, dd MMM y</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">E, dd - E, dd MMM y</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">E, dd MMM y - E, dd MMM y</greatestDifference>
+							<greatestDifference id="M">E, dd MMM - E, dd MMM y</greatestDifference>
+							<greatestDifference id="d">E, dd - E, dd MMM y</greatestDifference>
+							<greatestDifference id="y">E, dd MMM y - E, dd MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M" draft="unconfirmed">dd MMM - dd MMM y</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">dd-dd MMM y</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">dd MMM y - dd MMM y</greatestDifference>
+							<greatestDifference id="M">dd MMM - dd MMM y</greatestDifference>
+							<greatestDifference id="d">dd-dd MMM y</greatestDifference>
+							<greatestDifference id="y">dd MMM y - dd MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="M" draft="unconfirmed">yy-MM-dd - yy-MM-dd</greatestDifference>
@@ -665,4 +665,3 @@ SR { "Surinam" }
             "CEST", // TODO: Replace with long Albanian name
                 1, // "Minimal Days in First Week" is unknown. Root value used instead
 -->
-

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -23,7 +23,13 @@
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
 						<dateFormatItem id="MMdd" references="RP1">MM-dd</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM-yy</dateFormatItem>
 					</availableFormats>
@@ -93,6 +99,10 @@
 							<greatestDifference id="d">E, MMM d - E, MMM d, y</greatestDifference>
 							<greatestDifference id="y">E, MMM d, y - E, MMM d, y</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">yyyy-MM – MM</greatestDifference>
+							<greatestDifference id="y">yyyy-MM – yyyy-MM</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="M">MMM d - MMM d, y</greatestDifference>
 							<greatestDifference id="d">MMM d-d, y</greatestDifference>
@@ -127,4 +137,3 @@
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/en_CA.txt?only_with_tag=final-update-LDML
 -->
-

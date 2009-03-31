@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -9,11 +9,9 @@
 	<localeDisplayNames>
 		<languages>
 			<language type="si">සිංහල</language>
-			<language type="si" alt="proposed-x1001" draft="unconfirmed">Sinhala</language>
 		</languages>
 		<scripts>
 			<script type="Sinh">සිංහල</script>
-			<script type="Sinh" alt="proposed-x1001" draft="unconfirmed">Sinh</script>
 		</scripts>
 		<territories>
 			<territory type="LK">ශ්‍රී ලංකාව</territory>
@@ -28,7 +26,9 @@
 		</types>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[\u200C \u200D ං ඃ අ-ඖ ක-න ඳ-ර ල ව-ෆ ් ා-ු ූ ෘ-ෟ ෲ ෳ]</exemplarCharacters>
+		<exemplarCharacters>[ං ඃ අ-ඍ එ-ඖ ක-ඥ ට-න ඳ-ර ල ව-ෆ ් ා-ු ූ ෘ-ෟ ෲ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u200B-\u200D ඎ-ඐ ඦ ෳ]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol">[a-z]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -188,9 +188,9 @@
 				</timeFormats>
 				<fields>
 					<field type="day">
+						<relative type="-1">ඊයෙ</relative>
 						<relative type="0">අද</relative>
 						<relative type="1">හෙට</relative>
-						<relative type="-1">ඊයෙ</relative>
 					</field>
 				</fields>
 			</calendar>
@@ -227,8 +227,7 @@
 		</currencyFormats>
 		<currencies>
 			<currency type="LKR">
-				<displayName>ලංකා රුපියල</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">LKR</displayName>
+				<displayName>ලංකා රුපියල්</displayName>
 				<symbol>SL Re</symbol>
 			</currency>
 		</currencies>

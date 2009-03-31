@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -511,55 +511,31 @@
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
 							<month type="1">Xan</month>
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">xan</month>
 							<month type="2">Feb</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">feb</month>
 							<month type="3">Mar</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">mar</month>
 							<month type="4">Abr</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">abr</month>
 							<month type="5">Mai</month>
-							<month type="5" alt="proposed-x1001" draft="unconfirmed">mai</month>
 							<month type="6">Xuñ</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">xuñ</month>
 							<month type="7">Xul</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">xul</month>
 							<month type="8">Ago</month>
-							<month type="8" alt="proposed-x1001" draft="unconfirmed">ago</month>
 							<month type="9">Set</month>
-							<month type="9" alt="proposed-x1001" draft="unconfirmed">set</month>
 							<month type="10">Out</month>
-							<month type="10" alt="proposed-x1001" draft="unconfirmed">out</month>
 							<month type="11">Nov</month>
-							<month type="11" alt="proposed-x1001" draft="unconfirmed">nov</month>
 							<month type="12">Dec</month>
-							<month type="12" alt="proposed-x1001" draft="unconfirmed">dec</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Xaneiro</month>
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">xaneiro</month>
 							<month type="2">Febreiro</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">febreiro</month>
 							<month type="3">Marzo</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">marzo</month>
 							<month type="4">Abril</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">abril</month>
 							<month type="5">Maio</month>
-							<month type="5" alt="proposed-x1001" draft="unconfirmed">maio</month>
 							<month type="6">Xuño</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">xuño</month>
 							<month type="7">Xullo</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">xullo</month>
 							<month type="8">Agosto</month>
-							<month type="8" alt="proposed-x1001" draft="unconfirmed">agosto</month>
 							<month type="9">Setembro</month>
-							<month type="9" alt="proposed-x1001" draft="unconfirmed">setembro</month>
 							<month type="10">Outubro</month>
-							<month type="10" alt="proposed-x1001" draft="unconfirmed">outubro</month>
 							<month type="11">Novembro</month>
-							<month type="11" alt="proposed-x1001" draft="unconfirmed">novembro</month>
 							<month type="12">Decembro</month>
-							<month type="12" alt="proposed-x1001" draft="unconfirmed">decembro</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -583,35 +559,21 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">Dom</day>
-							<day type="sun" alt="proposed-x1001" draft="unconfirmed">dom</day>
 							<day type="mon">Lun</day>
-							<day type="mon" alt="proposed-x1001" draft="unconfirmed">lun</day>
 							<day type="tue">Mar</day>
-							<day type="tue" alt="proposed-x1001" draft="unconfirmed">mar</day>
 							<day type="wed">Mér</day>
-							<day type="wed" alt="proposed-x1001" draft="unconfirmed">mér</day>
 							<day type="thu">Xov</day>
-							<day type="thu" alt="proposed-x1001" draft="unconfirmed">xov</day>
 							<day type="fri">Ven</day>
-							<day type="fri" alt="proposed-x1001" draft="unconfirmed">ven</day>
 							<day type="sat">Sáb</day>
-							<day type="sat" alt="proposed-x1001" draft="unconfirmed">sáb</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Domingo</day>
-							<day type="sun" alt="proposed-x1001" draft="unconfirmed">domingo</day>
 							<day type="mon">Luns</day>
-							<day type="mon" alt="proposed-x1001" draft="unconfirmed">luns</day>
 							<day type="tue">Martes</day>
-							<day type="tue" alt="proposed-x1001" draft="unconfirmed">martes</day>
 							<day type="wed">Mércores</day>
-							<day type="wed" alt="proposed-x1001" draft="unconfirmed">mércores</day>
 							<day type="thu">Xoves</day>
-							<day type="thu" alt="proposed-x1001" draft="unconfirmed">xoves</day>
 							<day type="fri">Venres</day>
-							<day type="fri" alt="proposed-x1001" draft="unconfirmed">venres</day>
 							<day type="sat">Sábado</day>
-							<day type="sat" alt="proposed-x1001" draft="unconfirmed">sábado</day>
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
@@ -749,12 +711,12 @@
 					</field>
 					<field type="day">
 						<displayName draft="contributed">Día</displayName>
+						<relative type="-3" draft="contributed">trasantonte</relative>
+						<relative type="-2" draft="contributed">antonte</relative>
+						<relative type="-1" draft="contributed">onte</relative>
 						<relative type="0" draft="contributed">hoxe</relative>
 						<relative type="1" draft="contributed">mañá</relative>
 						<relative type="2" draft="contributed">pasadomañá</relative>
-						<relative type="-1" draft="contributed">onte</relative>
-						<relative type="-2" draft="contributed">antonte</relative>
-						<relative type="-3" draft="contributed">trasantonte</relative>
 					</field>
 					<field type="weekday">
 						<displayName draft="contributed">Día da semana</displayName>
@@ -1399,4 +1361,3 @@
 		</messages>
 	</posix>
 </ldml>
-

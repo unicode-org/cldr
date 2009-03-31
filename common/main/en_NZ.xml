@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -36,7 +36,6 @@
 					<availableFormats>
 						<dateFormatItem id="MMMMd" draft="contributed">d MMMM</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
-						<dateFormatItem id="Md" alt="proposed-x1001" draft="unconfirmed">M/d</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="contributed">MM/yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="contributed">MMMM y</dateFormatItem>
 					</availableFormats>
@@ -139,9 +138,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<symbols>
-			<perMille alt="proposed-x1001" draft="unconfirmed">This symbol is not used in NZ</perMille>
-		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -164,4 +160,3 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/en_NZ.txt?only_
 
 Currency display names
 -->
-

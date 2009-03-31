@@ -49,7 +49,7 @@ public class GenerateNormalizeForMatch {
   private static final UnicodeSet ASSIGNED = (UnicodeSet) new UnicodeSet("[:ASSIGNED:]").freeze();
   private static final DateFormat ISO_DATE = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss v");
   private static final NumberFormat FORMAT = new DecimalFormat("#,##0");
-  private static final Charset UTF8 = Charset.forName("utf-8");
+  public static final Charset UTF8 = Charset.forName("utf-8");
 
   private static int DEBUG_CODE_POINT = 0x0041; // eg 0xFDFA
 

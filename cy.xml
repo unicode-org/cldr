@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -52,7 +52,6 @@
 			<language type="is" draft="contributed">Islandeg</language>
 			<language type="it">Eidaleg</language>
 			<language type="ja">Siapaneeg</language>
-			<language type="ja" alt="proposed-x1001" draft="unconfirmed">Japanaeg</language>
 			<language type="jv" draft="contributed">Jafanaeg</language>
 			<language type="ka" draft="contributed">Georgeg</language>
 			<language type="km" draft="contributed">Cambodieg</language>
@@ -113,7 +112,6 @@
 			<language type="xh" draft="unconfirmed">Xhosa</language>
 			<language type="yi" draft="unconfirmed">Iddew-Almaeneg</language>
 			<language type="zh">Tseineeg</language>
-			<language type="zh" alt="proposed-x1001" draft="unconfirmed">Tsieinëeg</language>
 			<language type="zu" draft="contributed">Zwlw</language>
 		</languages>
 		<scripts>
@@ -413,19 +411,13 @@
 						<monthWidth type="abbreviated">
 							<month type="1">Ion</month>
 							<month type="2">Chwef</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">Chwe</month>
 							<month type="3">Mawrth</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">Maw</month>
 							<month type="4">Ebrill</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">Ebr</month>
 							<month type="5">Mai</month>
 							<month type="6">Meh</month>
 							<month type="7">Gorff</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">Gor</month>
 							<month type="8">Awst</month>
-							<month type="8" alt="proposed-x1001" draft="unconfirmed">Aws</month>
 							<month type="9">Medi</month>
-							<month type="9" alt="proposed-x1001" draft="unconfirmed">Med</month>
 							<month type="10">Hyd</month>
 							<month type="11">Tach</month>
 							<month type="12">Rhag</month>
@@ -438,7 +430,6 @@
 							<month type="5">Mai</month>
 							<month type="6">Mehefin</month>
 							<month type="7">Gorffenaf</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">Gorffennaf</month>
 							<month type="8">Awst</month>
 							<month type="9">Medi</month>
 							<month type="10">Hydref</month>
@@ -481,7 +472,6 @@
 							<day type="wed">Mer</day>
 							<day type="thu">Iau</day>
 							<day type="fri">Gwen</day>
-							<day type="fri" alt="proposed-x1001" draft="unconfirmed">Gwe</day>
 							<day type="sat">Sad</day>
 						</dayWidth>
 						<dayWidth type="wide">
@@ -708,10 +698,10 @@
 					</field>
 					<field type="day">
 						<displayName draft="contributed">Dydd</displayName>
+						<relative type="-3" draft="contributed">Dridiau yn ôl</relative>
+						<relative type="-2" draft="contributed">Echdoe</relative>
 						<relative type="2" draft="contributed">Drennydd</relative>
 						<relative type="3" draft="contributed">Ymhen tridiau</relative>
-						<relative type="-2" draft="contributed">Echdoe</relative>
-						<relative type="-3" draft="contributed">Dridiau yn ôl</relative>
 					</field>
 					<field type="weekday">
 						<displayName draft="contributed">Dydd o'r Wythnos</displayName>
@@ -792,4 +782,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

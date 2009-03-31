@@ -249,6 +249,7 @@
 			<language type="kj">Kuanyama</language>
 			<language type="kk">Kazakh</language>
 			<language type="kl">Kalaallisut</language>
+			<language type="kl" alt="proposed-x1001" draft="unconfirmed">Greenlandic</language>
 			<language type="km">Khmer</language>
 			<language type="kmb">Kimbundu</language>
 			<language type="kn">Kannada</language>
@@ -278,6 +279,7 @@
 			<language type="li">Limburgish</language>
 			<language type="ln">Lingala</language>
 			<language type="lo">Lao</language>
+			<language type="lo" alt="proposed-x1001" draft="unconfirmed">Laotian</language>
 			<language type="lol">Mongo</language>
 			<language type="loz">Lozi</language>
 			<language type="lt">Lithuanian</language>
@@ -293,7 +295,7 @@
 			<language type="mai">Maithili</language>
 			<language type="mak">Makasar</language>
 			<language type="man">Mandingo</language>
-			<language type="map">Austronesian</language>
+			<language type="map">Austronesian Language</language>
 			<language type="mas">Masai</language>
 			<language type="mdf">Moksha</language>
 			<language type="mdr">Mandar</language>
@@ -472,8 +474,8 @@
 			<language type="tog">Nyasa Tonga</language>
 			<language type="tpi">Tok Pisin</language>
 			<language type="tr">Turkish</language>
-            <language type="ts">Tsonga</language>
-            <language type="trv">Taroko</language>
+			<language type="trv">Taroko</language>
+			<language type="ts">Tsonga</language>
 			<language type="tsi">Tsimshian</language>
 			<language type="tt">Tatar</language>
 			<language type="tum">Tumbuka</language>
@@ -526,6 +528,7 @@
 		</languages>
 		<scripts>
 			<script type="Arab">Arabic</script>
+			<script type="Arab" alt="variant">Perso-Arabic</script>
 			<script type="Armi" references="RP3">Imperial Aramaic</script>
 			<script type="Armn">Armenian</script>
 			<script type="Avst">Avestan</script>
@@ -967,8 +970,8 @@
 			<variant type="1996">German orthography of 1996</variant>
 			<variant type="1606NICT">Late Middle French to 1606</variant>
 			<variant type="1694ACAD">Early Modern French</variant>
-            <variant type="1959ACAD">Academic</variant>
-            <variant type="AREVELA">Eastern Armenian</variant>
+			<variant type="1959ACAD">Academic</variant>
+			<variant type="AREVELA">Eastern Armenian</variant>
 			<variant type="AREVMDA">Western Armenian</variant>
 			<variant type="BAKU1926">Unified Turkic Latin Alphabet</variant>
 			<variant type="BISKE">San Giorgio/Bila dialect</variant>
@@ -977,16 +980,16 @@
 			<variant type="FONUPA">UPA Phonetics</variant>
 			<variant type="GAULISH">Gaulish</variant>
 			<variant type="GUOYU">Mandarin or Standard Chinese</variant>
-            <variant type="HAKKA">Hakka</variant>
-            <variant type="KKCOR">Common Orthography</variant>
+			<variant type="HAKKA">Hakka</variant>
+			<variant type="KKCOR">Common Orthography</variant>
 			<variant type="LIPAW">The Lipovaz dialect of Resian</variant>
 			<variant type="LOJBAN">Lojban</variant>
 			<variant type="MONOTON">Monotonic</variant>
 			<variant type="NEDIS">Natisone dialect</variant>
 			<variant type="NJIVA">Gniva/Njiva dialect</variant>
 			<variant type="OSOJS">Oseacco/Osojane dialect</variant>
-            <variant type="PINYIN">Pinyin Romanization</variant>
-            <variant type="POLYTON">Polytonic</variant>
+			<variant type="PINYIN">Pinyin Romanization</variant>
+			<variant type="POLYTON">Polytonic</variant>
 			<variant type="POSIX">Computer</variant>
 			<variant type="REVISED">Revised Orthography</variant>
 			<variant type="ROZAJ">Resian</variant>
@@ -995,10 +998,10 @@
 			<variant type="SCOUSE">Scouse</variant>
 			<variant type="SOLBA">Stolvizza/Solbica dialect</variant>
 			<variant type="TARASK">Taraskievica orthography</variant>
-            <variant type="UCCOR">Unified Orthography</variant>
-            <variant type="UCRCOR">Unified Revised Orthography</variant>
-            <variant type="VALENCIA">Valencian</variant>
-            <variant type="WADEGILE">Wade-Giles Romanization</variant>
+			<variant type="UCCOR">Unified Orthography</variant>
+			<variant type="UCRCOR">Unified Revised Orthography</variant>
+			<variant type="VALENCIA">Valencian</variant>
+			<variant type="WADEGILE">Wade-Giles Romanization</variant>
 			<variant type="XIANG">Xiang or Hunanese</variant>
 		</variants>
 		<keys>
@@ -1011,9 +1014,9 @@
 			<type type="buddhist" key="calendar">Buddhist Calendar</type>
 			<type type="chinese" key="calendar">Chinese Calendar</type>
 			<type type="coptic" key="calendar">Coptic Calendar</type>
-			<type type="direct" key="collation">Direct Sort Order</type>
 			<type type="decimal" key="numbers">Decimal Numbering System</type>
 			<type type="deva" key="numbers">Devanagari Numbering System</type>
+			<type type="direct" key="collation">Direct Sort Order</type>
 			<type type="ethiopic" key="calendar">Ethiopic Calendar</type>
 			<type type="ethiopic-amete-alem" key="calendar">Ethiopic Amete Alem Calendar</type>
 			<type type="gb2312han" key="collation">Simplified Chinese Sort Order - GB2312</type>
@@ -1039,9 +1042,9 @@
 			<type type="pinyin" key="collation">Simplified Chinese Pinyin Sort Order</type>
 			<type type="roc" key="calendar">Republic of China Calendar</type>
 			<type type="stroke" key="collation">Traditional Chinese Stroke Sort Order</type>
-			<type type="traditional" key="collation">Traditional Sort Order</type>
 			<type type="telugu" key="numbers">Telugu Numbering System</type>
 			<type type="thai" key="numbers">Thai Numbering System</type>
+			<type type="traditional" key="collation">Traditional Sort Order</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="US">US</measurementSystemName>
@@ -1055,7 +1058,7 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a-z]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[á à ă â å ä ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ß ú ù ŭ û ü ū ÿ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[á à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ß ú ù ŭ û ü ū ÿ]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a-c č d-l ł m-z]</exemplarCharacters>
 	</characters>
 	<delimiters>
@@ -1234,10 +1237,34 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>                  
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
+						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
@@ -1327,6 +1354,10 @@
 							<greatestDifference id="d">E, MMM d – E, MMM d, y</greatestDifference>
 							<greatestDifference id="y">E, MMM d, y – E, MMM d, y</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">yyyy-MM – MM</greatestDifference>
+							<greatestDifference id="y">yyyy-MM – yyyy-MM</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="M">MMM d – MMM d, y</greatestDifference>
 							<greatestDifference id="d">MMM d–d, y</greatestDifference>
@@ -1354,9 +1385,9 @@
 					</field>
 					<field type="day">
 						<displayName>Day</displayName>
+						<relative type="-1">Yesterday</relative>
 						<relative type="0">Today</relative>
 						<relative type="1">Tomorrow</relative>
-						<relative type="-1">Yesterday</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Day of the Week</displayName>
@@ -1377,6 +1408,43 @@
 						<displayName>Zone</displayName>
 					</field>
 				</fields>
+			</calendar>
+			<calendar type="persian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1">Farvardin</month>
+							<month type="2">Ordibehesht</month>
+							<month type="3">Khordad</month>
+							<month type="4">Tir</month>
+							<month type="5">Mordad</month>
+							<month type="6">Shahrivar</month>
+							<month type="7">Mehr</month>
+							<month type="8">Aban</month>
+							<month type="9">Azar</month>
+							<month type="10">Dey</month>
+							<month type="11">Bahman</month>
+							<month type="12">Esfand</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="wide">
+							<month type="1">Farvardin</month>
+							<month type="2">Ordibehesht</month>
+							<month type="3">Khordad</month>
+							<month type="4">Tir</month>
+							<month type="5">Mordad</month>
+							<month type="6">Shahrivar</month>
+							<month type="7">Mehr</month>
+							<month type="8">Aban</month>
+							<month type="9">Azar</month>
+							<month type="10">Dey</month>
+							<month type="11">Bahman</month>
+							<month type="12">Esfand</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<am>AM</am>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -2575,6 +2643,7 @@
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>
+			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -3176,6 +3245,7 @@
 				<displayName>Indian Rupee</displayName>
 				<displayName count="one">Indian rupee</displayName>
 				<displayName count="other">Indian rupees</displayName>
+				<symbol>₨</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Iraqi Dinar</displayName>
@@ -3547,6 +3617,8 @@
 				<displayName>Philippine Peso</displayName>
 				<displayName count="one">Philippine peso</displayName>
 				<displayName count="other">Philippine pesos</displayName>
+				<symbol>₱</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">Php</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Pakistani Rupee</displayName>
@@ -4012,59 +4084,59 @@
 				<displayName count="one">Zimbabwean dollar</displayName>
 				<displayName count="other">Zimbabwean dollars</displayName>
 			</currency>
-			<currency type="ZWR">
-				<displayName>Zimbabwean Dollar (2008)</displayName>
-				<displayName count="one">Zimbabwean dollar (2008)</displayName>
-				<displayName count="other">Zimbabwean dollars (2008)</displayName>
-			</currency>
 			<currency type="ZWL">
 				<displayName>Zimbabwean Dollar (2009)</displayName>
 				<displayName count="one">Zimbabwean dollar (2009)</displayName>
 				<displayName count="other">Zimbabwean dollars (2009)</displayName>
+			</currency>
+			<currency type="ZWR">
+				<displayName>Zimbabwean Dollar (2008)</displayName>
+				<displayName count="one">Zimbabwean dollar (2008)</displayName>
+				<displayName count="other">Zimbabwean dollars (2008)</displayName>
 			</currency>
 		</currencies>
 	</numbers>
 	<units>
 		<unit type="day">
 			<unitPattern count="one">{0} day</unitPattern>
-			<unitPattern count="other">{0} days</unitPattern>
 			<unitPattern count="one" alt="short">{0} day</unitPattern>
+			<unitPattern count="other">{0} days</unitPattern>
 			<unitPattern count="other" alt="short">{0} days</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} hour</unitPattern>
-			<unitPattern count="other">{0} hours</unitPattern>
 			<unitPattern count="one" alt="short">{0} hr</unitPattern>
+			<unitPattern count="other">{0} hours</unitPattern>
 			<unitPattern count="other" alt="short">{0} hrs</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minute</unitPattern>
-			<unitPattern count="other">{0} minutes</unitPattern>
 			<unitPattern count="one" alt="short">{0} min</unitPattern>
+			<unitPattern count="other">{0} minutes</unitPattern>
 			<unitPattern count="other" alt="short">{0} mins</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} month</unitPattern>
-			<unitPattern count="other">{0} months</unitPattern>
 			<unitPattern count="one" alt="short">{0} mth</unitPattern>
+			<unitPattern count="other">{0} months</unitPattern>
 			<unitPattern count="other" alt="short">{0} mths</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} second</unitPattern>
-			<unitPattern count="other">{0} seconds</unitPattern>
 			<unitPattern count="one" alt="short">{0} sec</unitPattern>
+			<unitPattern count="other">{0} seconds</unitPattern>
 			<unitPattern count="other" alt="short">{0} secs</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} week</unitPattern>
-			<unitPattern count="other">{0} weeks</unitPattern>
 			<unitPattern count="one" alt="short">{0} wk</unitPattern>
+			<unitPattern count="other">{0} weeks</unitPattern>
 			<unitPattern count="other" alt="short">{0} wks</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} year</unitPattern>
-			<unitPattern count="other">{0} years</unitPattern>
 			<unitPattern count="one" alt="short">{0} yr</unitPattern>
+			<unitPattern count="other">{0} years</unitPattern>
 			<unitPattern count="other" alt="short">{0} yrs</unitPattern>
 		</unit>
 	</units>
@@ -4092,4 +4164,3 @@
 
  See the National Bank of Romania for details http://www.bnro.ro/def_en.htm 	 - was on: //ldml/numbers/currencies/currency[@type="RON"]/displayName[@alt="proposed"] 
 -->
-

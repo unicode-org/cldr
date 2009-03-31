@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -457,11 +457,11 @@
 					</field>
 					<field type="day">
 						<displayName draft="unconfirmed">ʻaho</displayName>
+						<relative type="-2" draft="unconfirmed">ʻaneheafi</relative>
+						<relative type="-1" draft="unconfirmed">ʻaneafi</relative>
 						<relative type="0" draft="unconfirmed">ʻahó ni</relative>
 						<relative type="1" draft="unconfirmed">ʻapongipongi</relative>
 						<relative type="2" draft="unconfirmed">ʻahepongipongi</relative>
-						<relative type="-1" draft="unconfirmed">ʻaneafi</relative>
-						<relative type="-2" draft="unconfirmed">ʻaneheafi</relative>
 					</field>
 					<field type="weekday">
 						<displayName draft="unconfirmed">ʻaho ʻo e uike</displayName>
@@ -610,4 +610,3 @@
 		</messages>
 	</posix>
 </ldml>
-

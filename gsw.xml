@@ -6,7 +6,7 @@
 		<generation date="$Date$"/>
 		<language type="gsw"/>
 	</identity>
-	<fallback>de-CH</fallback>
+	<fallback>de_CH</fallback>
 	<localeDisplayNames>
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
@@ -184,8 +184,6 @@
 			<language type="gor">Mongondou</language>
 			<language type="got">Gotisch</language>
 			<language type="grb">Grebo</language>
-			<language type="grb" alt="proposed-x1001" draft="unconfirmed">grebo</language>
-			<language type="grb" alt="proposed-x1002" draft="unconfirmed">Grebo</language>
 			<language type="grc">Altgriechisch</language>
 			<language type="gsw">Schwiizertüütsch</language>
 			<language type="gu">Gujarati</language>
@@ -1002,14 +1000,12 @@
 		</codePatterns>
 	</localeDisplayNames>
 	<layout>
-		<inText type="currency" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
-		<inText type="keys" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
-		<inText type="languages" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
-		<inText type="measurementSystemNames" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
-		<inText type="scripts" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
-		<inText type="territories" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
-		<inText type="types" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
-		<inText type="variants" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
+		<inText type="currency" draft="unconfirmed">titlecase-words</inText>
+		<inText type="keys" draft="unconfirmed">titlecase-words</inText>
+		<inText type="languages" draft="unconfirmed">titlecase-words</inText>
+		<inText type="scripts" draft="unconfirmed">titlecase-words</inText>
+		<inText type="territories" draft="unconfirmed">titlecase-words</inText>
+		<inText type="types" draft="unconfirmed">titlecase-words</inText>
 	</layout>
 	<characters>
 		<exemplarCharacters>[a ä b-o ö p-u ü v-z]</exemplarCharacters>
@@ -1298,7 +1294,6 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d.-d.</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">d-d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">HH-HH</greatestDifference>
@@ -1370,13 +1365,13 @@
 					</field>
 					<field type="day">
 						<displayName>Tag</displayName>
+						<relative type="-3">vor drü Tääg</relative>
+						<relative type="-2">vorgeschter</relative>
+						<relative type="-1">geschter</relative>
 						<relative type="0">hüt</relative>
 						<relative type="1">moorn</relative>
 						<relative type="2">übermoorn</relative>
 						<relative type="3">i drü Tääg</relative>
-						<relative type="-1">geschter</relative>
-						<relative type="-2">vorgeschter</relative>
-						<relative type="-3">vor drü Tääg</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Wuchetag</displayName>
@@ -1940,7 +1935,6 @@
 				<displayName>Lew (1962-1999)</displayName>
 				<displayName count="other">Lewa (1962-1999)</displayName>
 				<symbol>lev</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">BGL</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>Bulgarische Lew</displayName>
@@ -2042,7 +2036,7 @@
 			<currency type="CHF">
 				<displayName>Schwiizer Franke</displayName>
 				<displayName count="other">Schwiizer Franke</displayName>
-				<symbol>SFr.</symbol>
+				<symbol>Fr.</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR-Franke</displayName>
@@ -2493,7 +2487,6 @@
 				<displayName>Alte Metical</displayName>
 				<displayName count="other">Alti Metical</displayName>
 				<symbol>Mt</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">MZM</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>Metical</displayName>

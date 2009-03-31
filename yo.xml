@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -291,13 +291,13 @@
 				<fields>
 					<field type="day">
 						<displayName references="RP1" draft="contributed">Ọjọ́</displayName>
+						<relative type="-3">íjẹrin</relative>
+						<relative type="-2">íjẹta</relative>
+						<relative type="-1">ànón</relative>
 						<relative type="0">ọ̀ní</relative>
 						<relative type="1">ọ̣̀la</relative>
 						<relative type="2">òtúùnla</relative>
 						<relative type="3">ọjọ́mẹ́rin-òní</relative>
-						<relative type="-1">ànón</relative>
-						<relative type="-2">íjẹta</relative>
-						<relative type="-3">íjẹrin</relative>
 					</field>
 				</fields>
 			</calendar>
@@ -323,11 +323,10 @@
 		<reference type="R243" uri="http://www.learnyoruba.com/orthography_1.htm">Learn Yoruba - orthography</reference>
 		<reference type="R244" uri="http://www.omniglot.com/writing/yoruba.htm">Omniglot on Yoruba</reference>
 		<reference type="R245" uri="http://www.motherlandnigeria.com/languages.html">Nigerian languages - Yoruba</reference>
-		<reference type="RP1" uri="http://books.google.comÃ¢â‚¬â€¹/books?isbn=isbn:0781809789">English-Yoruba, Yoruba-English Modern Practical Dictionary</reference>
+		<reference type="RP1" uri="http://books.google.comÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â¹/books?isbn=isbn:0781809789">English-Yoruba, Yoruba-English Modern Practical Dictionary</reference>
 		<reference type="RP2" uri="http://en.wikipedia.org/wiki/Nigerian_naira">Nigerian Naira - Currency</reference>
 		<reference type="RP3" uri="http://www.cenbank.org/Currency/legaltender.asp">Central Bank of Nigeria - Legal Tender</reference>
 		<reference type="RP4" uri="http://books.google.com/books?hl=en&amp;id=UuUNAAAAYAAJ">Dictionary of the Yoruba Language</reference>
 		<reference type="RP5" uri="http://books.google.com/books?id=X_DXHQAACAAJ&amp;dq=isbn:0340176571" draft="contributed">Dictionary of Modern Yorùbá by Roy Clive Abraham. University of London Press</reference>
 	</references>
 </ldml>
-

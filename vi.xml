@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -27,7 +27,6 @@
 			<language type="bs" draft="contributed">Tiếng Nam Tư</language>
 			<language type="ca">Tiếng Ca-ta-lăng</language>
 			<language type="cs">Tiếng Séc</language>
-			<language type="cs" alt="proposed-x1001" draft="unconfirmed">Tiếng Tiệp Khắc</language>
 			<language type="cy" draft="contributed">Tiếng Xentơ</language>
 			<language type="da">Tiếng Đan Mạch</language>
 			<language type="de">Tiếng Đức</language>
@@ -79,7 +78,6 @@
 			<language type="mn">Tiếng Mông Cổ</language>
 			<language type="mr" draft="contributed">Tiếng Marathi</language>
 			<language type="ms">Tiếng Ma-lay-xi-a</language>
-			<language type="ms" alt="proposed-x1001" draft="unconfirmed">Tiếng Mã Lai</language>
 			<language type="mt" draft="contributed">Tiếng Mantơ</language>
 			<language type="ne">Tiếng Nê-pan</language>
 			<language type="nl">Tiếng Hà Lan</language>
@@ -105,7 +103,6 @@
 			<language type="so">Tiếng Xô-ma-li</language>
 			<language type="sq">Tiếng An-ba-ni</language>
 			<language type="sr">Tiếng Séc-bi</language>
-			<language type="sr" alt="proposed-x1001" draft="unconfirmed">Tiếng Xéc-bi</language>
 			<language type="st" draft="provisional">Tiếng Sesotho</language>
 			<language type="su" draft="contributed">Tiếng Xu đăng</language>
 			<language type="sv">Tiếng Thụy Điển</language>
@@ -140,7 +137,6 @@
 		<territories>
 			<territory type="001" draft="contributed">Thế giới</territory>
 			<territory type="002">Châu Phi</territory>
-			<territory type="002" alt="proposed-x1001" draft="unconfirmed">Phi Châu</territory>
 			<territory type="003" draft="contributed">Bắc Mỹ</territory>
 			<territory type="005" draft="contributed">Nam Mỹ</territory>
 			<territory type="009" draft="contributed">Châu Đại Dương</territory>
@@ -150,7 +146,6 @@
 			<territory type="015" draft="contributed">Bắc Phi</territory>
 			<territory type="017" draft="contributed">Trung Phi</territory>
 			<territory type="018" draft="contributed">Miền Nam Châu Phi</territory>
-			<territory type="018" alt="proposed-x1001" draft="unconfirmed">Nam Phi</territory>
 			<territory type="019" draft="contributed">Châu Mỹ</territory>
 			<territory type="021" draft="contributed">Miền Bắc Châu Mỹ</territory>
 			<territory type="029" draft="contributed">Ca-ri-bê</territory>
@@ -182,7 +177,6 @@
 			<territory type="AQ">Nam Cực</territory>
 			<territory type="AR">Ác-hen-ti-na</territory>
 			<territory type="AS">Đảo Somoa thuộc Mỹ</territory>
-			<territory type="AS" alt="proposed-x1001" draft="unconfirmed">Đảo Xa-mô-a của Mỹ (Samoa)</territory>
 			<territory type="AT">Áo</territory>
 			<territory type="AU">Úc</territory>
 			<territory type="AX">Quần đảo Aland</territory>
@@ -196,7 +190,6 @@
 			<territory type="BH">Ba-ren</territory>
 			<territory type="BI">Bu-run-đi</territory>
 			<territory type="BJ">Bê-nanh</territory>
-			<territory type="BJ" alt="proposed-x1001" draft="unconfirmed">Benin</territory>
 			<territory type="BL" draft="contributed">BL</territory>
 			<territory type="BN">Bru-nây</territory>
 			<territory type="BO">Bô-li-vi-a</territory>
@@ -262,7 +255,6 @@
 			<territory type="GW">Ghi-nê Bít-xao</territory>
 			<territory type="GY">Guy-a-na</territory>
 			<territory type="HK">Đặc khu hành chính Hồng Kông thuộc CHND Trung Hoa</territory>
-			<territory type="HK" alt="proposed-x1001" draft="unconfirmed">Hồng Kông</territory>
 			<territory type="HK" alt="short">Hồng Kông</territory>
 			<territory type="HM" draft="contributed">Đảo Heard và Quần đảo McDonald</territory>
 			<territory type="HN">Hôn-đu-rát</territory>
@@ -315,7 +307,6 @@
 			<territory type="MK">Ma-xê-đô-ni-a</territory>
 			<territory type="ML">Ma-li</territory>
 			<territory type="MM">Mi-an-ma</territory>
-			<territory type="MM" alt="proposed-x1001" draft="unconfirmed">Miến Điện</territory>
 			<territory type="MN">Mông Cổ</territory>
 			<territory type="MO" draft="contributed">Đặc khu hành chính Macao thuộc CHND Trung Hoa</territory>
 			<territory type="MO" alt="short" draft="contributed">Macao</territory>
@@ -349,7 +340,6 @@
 			<territory type="PL">Ba Lan</territory>
 			<territory type="PM" draft="contributed">Saint Pierre và Miquelon</territory>
 			<territory type="PS">Lãnh thổ Palestine</territory>
-			<territory type="PS" alt="proposed-x1001" draft="unconfirmed">Palestine</territory>
 			<territory type="PT">Bồ Đào Nha</territory>
 			<territory type="PY">Pa-ra-goay</territory>
 			<territory type="QA">Ca-ta</territory>
@@ -381,14 +371,12 @@
 			<territory type="SZ">Xoa-di-len</territory>
 			<territory type="TC" draft="contributed">Quần Đảo Turk và Caicos</territory>
 			<territory type="TD">Sát</territory>
-			<territory type="TD" alt="proposed-x1001" draft="unconfirmed">Sát (Chad)</territory>
 			<territory type="TF">Thuộc Địa Nam của Pháp</territory>
 			<territory type="TG">Tô-gô</territory>
 			<territory type="TH">Thái Lan</territory>
 			<territory type="TJ">Tát-gi-ki-xtan</territory>
 			<territory type="TK" draft="contributed">Tokelau</territory>
 			<territory type="TL">Đông Ti-mo</territory>
-			<territory type="TL" alt="proposed-x1001" draft="unconfirmed">Ðông Ti-mo</territory>
 			<territory type="TM">Tuốc-mê-ni-xtan</territory>
 			<territory type="TN">Tuy-ni-di</territory>
 			<territory type="TO">Tông-ga</territory>
@@ -432,8 +420,6 @@
 		<exemplarCharacters>[a à ả ã á ạ ă ằ ẳ ẵ ắ ặ â ầ ẩ ẫ ấ ậ b-d đ e è ẻ ẽ é ẹ ê ề ể ễ ế ệ f-i ì ỉ ĩ í ị j-o ò ỏ õ ó ọ ô ồ ổ ỗ ố ộ ơ ờ ở ỡ ớ ợ p-u ù ủ ũ ú ụ ư ừ ử ữ ứ ự v-y ỳ ỷ ỹ ý ỵ z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[f j w z]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a-d đ e-z]</exemplarCharacters>
-		<exemplarCharacters type="currencySymbol" alt="proposed-x1001" draft="unconfirmed">[a-z]</exemplarCharacters>
-		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[a à ả ã á ạ ă ằ ẳ ẵ ắ ặ â ầ ẩ ẫ ấ ậ b-d đ e è ẻ ẽ é ẹ ê ề ể ễ ế ệ g-i ì ỉ ĩ í ị k-o ò ỏ õ ó ọ ô ồ ổ ỗ ố ộ ơ ờ ở ỡ ớ ợ p-u ù ủ ũ ú ụ ư ừ ử ữ ứ ự v x y ỳ ỷ ỹ ý ỵ]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -443,6 +429,39 @@
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="chinese">
+				<days>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">CN</day>
+							<day type="mon">T2</day>
+							<day type="tue">T3</day>
+							<day type="wed">T4</day>
+							<day type="thu">T5</day>
+							<day type="fri">T6</day>
+							<day type="sat">T7</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="wide">
+							<quarter type="1">Quý 1</quarter>
+							<quarter type="2">Quý 2</quarter>
+							<quarter type="3">Quý 3</quarter>
+							<quarter type="4">Quý 4</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dateTimeFormats>
+					<intervalFormats>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d-d</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -530,14 +549,14 @@
 						<quarterWidth type="abbreviated">
 							<quarter type="1" draft="contributed">Q1</quarter>
 							<quarter type="2" draft="contributed">Q2</quarter>
-							<quarter type="3" draft="contributed">Q3</quarter>
-							<quarter type="4" draft="contributed">Q4</quarter>
+							<quarter type="3">Q3</quarter>
+							<quarter type="4">Q4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="contributed">Q1</quarter>
-							<quarter type="2" draft="contributed">Q2</quarter>
-							<quarter type="3" draft="contributed">Q3</quarter>
-							<quarter type="4" draft="contributed">Q4</quarter>
+							<quarter type="2">Q2</quarter>
+							<quarter type="3">Q3</quarter>
+							<quarter type="4">Q4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -594,23 +613,23 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-                    <default choice="medium"/>
-                    <dateTimeFormatLength type="full">
-                        <dateTimeFormat>
-                            <pattern>{0} {1}</pattern>
-                        </dateTimeFormat>
-                    </dateTimeFormatLength>
-                    <dateTimeFormatLength type="long">
-                        <dateTimeFormat>
-                            <pattern>{0} {1}</pattern>
-                        </dateTimeFormat>
-                    </dateTimeFormatLength>
-                    <dateTimeFormatLength type="medium">
-                        <dateTimeFormat>
-                            <pattern>{0} {1}</pattern>
-                        </dateTimeFormat>
-                    </dateTimeFormatLength>
-                    <dateTimeFormatLength type="short">
+					<default choice="medium"/>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{0} {1}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{0} {1}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{0} {1}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>{0} {1}</pattern>
 						</dateTimeFormat>
@@ -964,7 +983,7 @@
 			</currency>
 			<currency type="INR">
 				<displayName draft="contributed">Rupi Ấn Độ</displayName>
-				<symbol draft="contributed">0≤Rs.|1≤Re.|1&lt;Rs.</symbol>
+				<symbol>₨</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName draft="contributed">Dinar I-rắc</displayName>
@@ -1074,7 +1093,6 @@
 			<currency type="VND">
 				<displayName>đồng</displayName>
 				<symbol>₫</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">đ</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName draft="contributed">Vàng</displayName>
@@ -1146,4 +1164,3 @@ It is difficult to decide whether Ti\u1EBFng should precede the translation, but
         it { "Ti\u1EBFng \u00DD" } // Just \u00DD seems okay because Ti\u1EBFng is used. \u00DD is sometimes used to mean Italy too.
         "Latn",  // ISO 15924 Name
 -->
-

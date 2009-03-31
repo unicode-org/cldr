@@ -10,8 +10,8 @@
 		<languages>
 			<language type="aa" draft="unconfirmed">अफर</language>
 			<language type="ab" draft="provisional">अब्खासियन्</language>
-			<language type="ace" draft="unconfirmed">अचिनीस्</language>
-			<language type="ach" draft="unconfirmed">अचोलि</language>
+			<language type="ace">अचिनीस्</language>
+			<language type="ach">अचोलि</language>
 			<language type="ada" draft="unconfirmed">अडङ्गमे</language>
 			<language type="af" draft="unconfirmed">अफ्रिक्कान्स्</language>
 			<language type="afa" draft="unconfirmed">आफ्रो एष्यन् भाषा</language>
@@ -22,7 +22,7 @@
 			<language type="ale" draft="unconfirmed">अलियुट्</language>
 			<language type="alg" draft="unconfirmed">अल्गोण्क्यन् भाषा</language>
 			<language type="am" draft="unconfirmed">अंहाऱिक्</language>
-			<language type="anp" draft="unconfirmed">अङ्गिक</language>
+			<language type="anp">अङ्गिक</language>
 			<language type="apa" draft="unconfirmed">अपाचे भाषा</language>
 			<language type="ar" draft="unconfirmed">अऱबिक्</language>
 			<language type="egy" draft="unconfirmed">प्राचीन ईजिप्त्यन्</language>
@@ -221,9 +221,9 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-                <defaultNumberingSystem draft="unconfirmed">devanagari</defaultNumberingSystem>
+		<defaultNumberingSystem>deva</defaultNumberingSystem>
 		<symbols>
-			<nativeZeroDigit draft="unconfirmed">०</nativeZeroDigit>
+			<nativeZeroDigit>०</nativeZeroDigit>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -248,7 +248,7 @@
 		</currencyFormats>
 		<currencies>
 			<currency type="INR">
-				<symbol draft="unconfirmed">रु</symbol>
+				<symbol>रु</symbol>
 			</currency>
 		</currencies>
 	</numbers>

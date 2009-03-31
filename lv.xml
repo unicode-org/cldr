@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -7,606 +7,657 @@
 		<language type="lv"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>, </localeSeparator>
+		</localeDisplayPattern>
 		<languages>
-			<language type="aa" draft="unconfirmed">afāru</language>
-			<language type="ab" draft="unconfirmed">abhāzu</language>
-			<language type="ace" draft="unconfirmed">ačinu</language>
-			<language type="ach" draft="unconfirmed">ačolu</language>
-			<language type="ada" draft="unconfirmed">adangmu</language>
-			<language type="ady" draft="unconfirmed">adigu</language>
-			<language type="ae" draft="unconfirmed">avesta</language>
-			<language type="af" draft="provisional">afrikāņu</language>
-			<language type="afa" draft="unconfirmed">afroaziātu valoda</language>
-			<language type="afa" alt="proposed-x1001" draft="unconfirmed">afroaziātu valodas</language>
-			<language type="afh" draft="unconfirmed">afrihili</language>
-			<language type="ain" draft="unconfirmed">ainu</language>
-			<language type="ak" draft="unconfirmed">akanu</language>
-			<language type="akk" draft="unconfirmed">akadiešu</language>
-			<language type="ale" draft="unconfirmed">aleutu</language>
-			<language type="alg" draft="unconfirmed">algonkinu valoda</language>
-			<language type="alg" alt="proposed-x1001" draft="unconfirmed">algonkinu valodas</language>
-			<language type="alt" draft="unconfirmed">dienvidaltajiešu</language>
-			<language type="am" draft="provisional">amharu</language>
-			<language type="an" draft="unconfirmed">aragoniešu</language>
-			<language type="ang" draft="unconfirmed">senangļu</language>
-			<language type="anp" draft="unconfirmed">angika</language>
-			<language type="apa" draft="unconfirmed">apaču valoda</language>
-			<language type="apa" alt="proposed-x1001" draft="unconfirmed">apaču valodas</language>
+			<language type="aa">afāru</language>
+			<language type="ab">abhāzu</language>
+			<language type="ace">ačinu</language>
+			<language type="ach">ačolu</language>
+			<language type="ada">adangmu</language>
+			<language type="ady">adigu</language>
+			<language type="ae">avesta</language>
+			<language type="af">afrikandu</language>
+			<language type="afa">afroaziātu valodas</language>
+			<language type="afa" alt="proposed-x1001" draft="unconfirmed">afroaziātu valoda</language>
+			<language type="afh">afrihili</language>
+			<language type="ain">ainu</language>
+			<language type="ak">akanu</language>
+			<language type="akk">akadiešu</language>
+			<language type="ale">aleutu</language>
+			<language type="alg">algonkinu valodas</language>
+			<language type="alg" alt="proposed-x1001" draft="unconfirmed">algonkinu valoda</language>
+			<language type="alt">dienvidaltajiešu</language>
+			<language type="am">amharu</language>
+			<language type="an">aragoniešu</language>
+			<language type="ang">senangļu</language>
+			<language type="anp">angika</language>
+			<language type="apa">apaču valodas</language>
+			<language type="apa" alt="proposed-x1001" draft="unconfirmed">apaču valoda</language>
 			<language type="ar">arābu</language>
-			<language type="arc" draft="unconfirmed">aramiešu</language>
-			<language type="arn" draft="unconfirmed">araukāņu</language>
-			<language type="arp" draft="unconfirmed">arapahu</language>
-			<language type="art" draft="unconfirmed">mākslīgā valoda</language>
-			<language type="art" alt="proposed-x1001" draft="unconfirmed">mākslīgās valodas</language>
-			<language type="arw" draft="unconfirmed">aravaku</language>
-			<language type="as" draft="provisional">asamiešu</language>
-			<language type="ast" draft="unconfirmed">astūriešu</language>
-			<language type="ath" draft="unconfirmed">atapasku valoda</language>
-			<language type="ath" alt="proposed-x1001" draft="unconfirmed">atapasku valodas</language>
-			<language type="aus" draft="unconfirmed">austrāliešu valoda</language>
-			<language type="aus" alt="proposed-x1001" draft="unconfirmed">austrāliešu valodas</language>
-			<language type="av" draft="unconfirmed">avāru</language>
-			<language type="awa" draft="unconfirmed">avadhu</language>
-			<language type="ay" draft="unconfirmed">aimaru</language>
-			<language type="az" draft="provisional">azerbaidžāņu</language>
-			<language type="ba" draft="unconfirmed">baškīru</language>
-			<language type="bad" draft="unconfirmed">bandu</language>
+			<language type="arc">aramiešu</language>
+			<language type="arn">araukāņu</language>
+			<language type="arp">arapahu</language>
+			<language type="art">mākslīgās valodas</language>
+			<language type="art" alt="proposed-x1001" draft="unconfirmed">mākslīgā valoda</language>
+			<language type="arw">aravaku</language>
+			<language type="as">asamiešu</language>
+			<language type="ast">astūriešu</language>
+			<language type="ath">atapasku valodas</language>
+			<language type="ath" alt="proposed-x1001" draft="unconfirmed">atapasku valoda</language>
+			<language type="aus">austrāliešu valodas</language>
+			<language type="aus" alt="proposed-x1001" draft="unconfirmed">austrāliešu valoda</language>
+			<language type="av">avāru</language>
+			<language type="awa">avadhu</language>
+			<language type="ay">aimaru</language>
+			<language type="az">azerbaidžāņu</language>
+			<language type="ba">baškīru</language>
+			<language type="bad">bandu</language>
 			<language type="bai" draft="unconfirmed">bamileku valoda</language>
-			<language type="bai" alt="proposed-x1001" draft="unconfirmed">bamileku valodas</language>
-			<language type="bal" draft="unconfirmed">beludžu</language>
-			<language type="ban" draft="unconfirmed">baliešu</language>
-			<language type="bas" draft="unconfirmed">basu</language>
-			<language type="bat" draft="unconfirmed">baltu valodas</language>
+			<language type="bal">beludžu</language>
+			<language type="ban">baliešu</language>
+			<language type="bas">basu</language>
+			<language type="bat">baltu valodas</language>
 			<language type="bat" alt="proposed-x1001" draft="unconfirmed">baltu valoda</language>
-			<language type="be" draft="provisional">baltkrievu</language>
-			<language type="bej" draft="unconfirmed">bedžu</language>
-			<language type="bem" draft="unconfirmed">bembu</language>
-			<language type="ber" draft="unconfirmed">berberu</language>
+			<language type="be">baltkrievu</language>
+			<language type="bej">bedžu</language>
+			<language type="bem">bembu</language>
+			<language type="ber">berberu</language>
 			<language type="bg">bulgāru</language>
-			<language type="bh" draft="provisional">biharu</language>
-			<language type="bho" draft="unconfirmed">bhodžpūru</language>
-			<language type="bi" draft="unconfirmed">bišlamā</language>
-			<language type="bik" draft="unconfirmed">bikolu</language>
-			<language type="bin" draft="unconfirmed">binu</language>
-			<language type="bla" draft="unconfirmed">siksiku</language>
-			<language type="bm" draft="unconfirmed">bambaru</language>
+			<language type="bh">biharu</language>
+			<language type="bho">bhodžpūru</language>
+			<language type="bi">bišlamā</language>
+			<language type="bik">bikolu</language>
+			<language type="bin">binu</language>
+			<language type="bla">siksiku</language>
+			<language type="bm">bambaru</language>
 			<language type="bn" draft="contributed">bengāļu</language>
-			<language type="bnt" draft="unconfirmed">bantu</language>
-			<language type="bo" draft="unconfirmed">tibetiešu</language>
-			<language type="br" draft="provisional">bretoņu</language>
-			<language type="bra" draft="unconfirmed">bradžiešu</language>
-			<language type="bs" draft="provisional">bosniešu</language>
-			<language type="btk" draft="unconfirmed">bataku</language>
-			<language type="bua" draft="unconfirmed">burjatu</language>
-			<language type="bug" draft="unconfirmed">bugu</language>
-			<language type="byn" draft="unconfirmed">bilinu</language>
-			<language type="ca" draft="provisional">katalāņu</language>
-			<language type="cad" draft="unconfirmed">kadu</language>
-			<language type="cai" draft="unconfirmed">Centrālamerikas indiāņu valoda</language>
-			<language type="cai" alt="proposed-x1001" draft="unconfirmed">Centrālamerikas indiāņu valodas</language>
-			<language type="car" draft="unconfirmed">karību</language>
-			<language type="cau" draft="unconfirmed">kaukāziešu valoda</language>
-			<language type="cau" alt="proposed-x1002" draft="unconfirmed">kaukāziešu valodas</language>
-			<language type="ce" draft="unconfirmed">čečenu</language>
-			<language type="ceb" draft="unconfirmed">sebuāņu</language>
-			<language type="cel" draft="unconfirmed">ķeltu valoda</language>
-			<language type="cel" alt="proposed-x1001" draft="unconfirmed">ķeltu valodas</language>
-			<language type="ch" draft="unconfirmed">čamorru</language>
-			<language type="chb" draft="unconfirmed">čibču</language>
-			<language type="chg" draft="unconfirmed">džagatajs</language>
-			<language type="chk" draft="unconfirmed">čūku</language>
-			<language type="chm" draft="unconfirmed">mariešu</language>
-			<language type="chn" draft="unconfirmed">činuku žargons</language>
-			<language type="cho" draft="unconfirmed">čoktavu</language>
-			<language type="chp" draft="unconfirmed">čipevaianu</language>
-			<language type="chr" draft="unconfirmed">čiroku</language>
-			<language type="chy" draft="unconfirmed">šejenu</language>
-			<language type="cmc" draft="unconfirmed">čamiešu valoda</language>
-			<language type="cmc" alt="proposed-x1001" draft="unconfirmed">čamiešu valodas</language>
-			<language type="co" draft="unconfirmed">korsikāņu</language>
-			<language type="cop" draft="unconfirmed">koptu</language>
-			<language type="cpe" draft="unconfirmed">angliskās kreoliskās valodas un pidžinvalodas</language>
+			<language type="bnt">bantu</language>
+			<language type="bo">tibetiešu</language>
+			<language type="br">bretoņu</language>
+			<language type="bra">bradžiešu</language>
+			<language type="bs">bosniešu</language>
+			<language type="btk">bataku</language>
+			<language type="bua">burjatu</language>
+			<language type="bug">bugu</language>
+			<language type="byn">bilinu</language>
+			<language type="ca">katalāņu</language>
+			<language type="cad">kadu</language>
+			<language type="cai">Centrālamerikas indiāņu valodas</language>
+			<language type="cai" alt="proposed-x1001" draft="unconfirmed">Centrālamerikas indiāņu valoda</language>
+			<language type="car">karību</language>
+			<language type="cau">kaukāziešu valodas</language>
+			<language type="cau" alt="proposed-x1001" draft="unconfirmed">kaukāziešu valoda</language>
+			<language type="ce">čečenu</language>
+			<language type="ceb">sebuāņu</language>
+			<language type="cel">ķeltu valoda</language>
+			<language type="ch">čamorru</language>
+			<language type="chb">čibču</language>
+			<language type="chg">džagatajs</language>
+			<language type="chk">čūku</language>
+			<language type="chm">mariešu</language>
+			<language type="chn">činuku žargons</language>
+			<language type="cho">čoktavu</language>
+			<language type="chp">čipevaianu</language>
+			<language type="chr">irokēzu</language>
+			<language type="chy">šejenu</language>
+			<language type="cmc">čamiešu valodas</language>
+			<language type="cmc" alt="proposed-x1001" draft="unconfirmed">čamiešu valoda</language>
+			<language type="co">korsikāņu</language>
+			<language type="cop">koptu</language>
+			<language type="cpe">angliskās kreoliskās valodas un pidžinvalodas</language>
 			<language type="cpe" alt="proposed-x1001" draft="unconfirmed">angliskā kreoliskā vai pidžinvaloda</language>
-			<language type="cpf" draft="unconfirmed">franciskā kreoliskā vai pidžinvaloda</language>
-			<language type="cpf" alt="proposed-x1001" draft="unconfirmed">franciskās kreoliskās valodas un pidžinvalodas</language>
-			<language type="cpp" draft="unconfirmed">portugāliskās kreoliskās valodas un pidžinvalodas</language>
-			<language type="cpp" alt="proposed-x1002" draft="unconfirmed">portugāliskās kreoliskās vai pidžinvaloda</language>
-			<language type="cr" draft="unconfirmed">krī</language>
-			<language type="crh" draft="unconfirmed">Krimas tatāru</language>
-			<language type="crp" draft="provisional">kreoliskā vai pidžinvaloda</language>
+			<language type="cpf">franciskās kreoliskās valodas un pidžinvalodas</language>
+			<language type="cpf" alt="proposed-x1001" draft="unconfirmed">franciskā kreoliskā vai pidžinvaloda</language>
+			<language type="cpp">portugāliskās kreoliskās valodas un pidžinvalodas</language>
+			<language type="cpp" alt="proposed-x1001" draft="unconfirmed">portugāliskās kreoliskās vai pidžinvaloda</language>
+			<language type="cr">krī</language>
+			<language type="crh">Krimas tatāru</language>
+			<language type="crp">kreoliskās valodas un pidžinvalodas</language>
+			<language type="crp" alt="proposed-x1001" draft="unconfirmed">kreoliskā vai pidžinvaloda</language>
 			<language type="cs">čehu</language>
-			<language type="csb" draft="unconfirmed">kašubu</language>
-			<language type="cu" draft="unconfirmed">baznīcslāvu</language>
-			<language type="cus" draft="unconfirmed">kušītu valodas</language>
-			<language type="cus" alt="proposed-x1002" draft="unconfirmed">kušītu valoda</language>
-			<language type="cv" draft="unconfirmed">čuvašu</language>
-			<language type="cy" draft="provisional">velsiešu</language>
+			<language type="csb">kašubu</language>
+			<language type="cu">baznīcslāvu</language>
+			<language type="cus">kušītu valodas</language>
+			<language type="cus" alt="proposed-x1001" draft="unconfirmed">kušītu valoda</language>
+			<language type="cv">čuvašu</language>
+			<language type="cy">velsiešu</language>
 			<language type="da">dāņu</language>
-			<language type="dak" draft="unconfirmed">dakotu</language>
-			<language type="dar" draft="unconfirmed">dargu</language>
-			<language type="day" draft="unconfirmed">dajaku</language>
+			<language type="dak">dakotu</language>
+			<language type="dar">dargu</language>
+			<language type="day">dajaku</language>
+			<language type="day" alt="proposed-x1001" draft="unconfirmed">bidayuh valoda</language>
 			<language type="de">vācu</language>
-			<language type="de_AT" draft="unconfirmed">Austrijas vācu</language>
-			<language type="de_CH" draft="unconfirmed">Šveices augšvācu</language>
-			<language type="del" draft="unconfirmed">delavēru</language>
-			<language type="den" draft="unconfirmed">sleivu</language>
-			<language type="dgr" draft="unconfirmed">dogribu</language>
-			<language type="din" draft="unconfirmed">dinku</language>
-			<language type="doi" draft="unconfirmed">dogru</language>
-			<language type="dra" draft="unconfirmed">dravīdu valoda</language>
-			<language type="dra" alt="proposed-x1002" draft="unconfirmed">dravīdu valodas</language>
-			<language type="dsb" draft="unconfirmed">lejassorbu</language>
-			<language type="dua" draft="unconfirmed">dualu</language>
-			<language type="dum" draft="unconfirmed">vidusholandiešu</language>
-			<language type="dv" draft="unconfirmed">maldīviešu</language>
-			<language type="dyu" draft="unconfirmed">diūlu</language>
-			<language type="dz" draft="unconfirmed">dzongke</language>
-			<language type="ee" draft="unconfirmed">evu</language>
-			<language type="efi" draft="unconfirmed">efiku</language>
-			<language type="egy" draft="unconfirmed">ēģiptiešu</language>
-			<language type="eka" draft="unconfirmed">ekadžuku</language>
+			<language type="de_AT">Austrijas vācu</language>
+			<language type="de_CH">Šveices augšvācu</language>
+			<language type="del">delavēru</language>
+			<language type="den">sleivu</language>
+			<language type="dgr">dogribu</language>
+			<language type="din">dinku</language>
+			<language type="doi">dogru</language>
+			<language type="dra">dravīdu valodas</language>
+			<language type="dra" alt="proposed-x1001" draft="unconfirmed">dravīdu valoda</language>
+			<language type="dsb">lejassorbu</language>
+			<language type="dua">dualu</language>
+			<language type="dum">vidusholandiešu</language>
+			<language type="dv">maldīviešu</language>
+			<language type="dyu">diūlu</language>
+			<language type="dz">dzongke</language>
+			<language type="ee">evu</language>
+			<language type="efi">efiku</language>
+			<language type="egy">ēģiptiešu</language>
+			<language type="eka">ekadžuku</language>
 			<language type="el">grieķu</language>
-			<language type="elx" draft="unconfirmed">elamiešu</language>
+			<language type="elx">elamiešu</language>
 			<language type="en">angļu</language>
-			<language type="en_AU" draft="unconfirmed">Austrālijas angļu</language>
-			<language type="en_CA" draft="unconfirmed">Kanādas angļu</language>
-			<language type="en_US" draft="provisional">angļu (ASV)</language>
-			<language type="enm" draft="unconfirmed">vidusangļu</language>
-			<language type="eo" draft="provisional">esperanto</language>
+			<language type="en_AU">Austrālijas angļu</language>
+			<language type="en_CA">Kanādas angļu</language>
+			<language type="en_GB">angļu (Lielbritānija)</language>
+			<language type="en_US">angļu (ASV)</language>
+			<language type="enm">vidusangļu</language>
+			<language type="eo">esperanto</language>
 			<language type="es">spāņu</language>
-			<language type="es_419" draft="provisional">spāņu (Latīņamerika)</language>
-			<language type="es_419" alt="proposed-x1001" draft="unconfirmed">Latīņamerikas spāņu</language>
-			<language type="es_ES" draft="unconfirmed">ibēriešu spāņu</language>
+			<language type="es_419">spāņu (Latīņamerika)</language>
+			<language type="es_ES">ibēriešu spāņu</language>
 			<language type="et">igauņu</language>
-			<language type="eu" draft="provisional">basku</language>
-			<language type="ewo" draft="unconfirmed">evondu</language>
-			<language type="fa" draft="provisional">persiešu</language>
-			<language type="fan" draft="unconfirmed">fangu</language>
-			<language type="fat" draft="unconfirmed">fantu</language>
-			<language type="ff" draft="unconfirmed">fulu</language>
+			<language type="eu">basku</language>
+			<language type="ewo">evondu</language>
+			<language type="fa">persiešu</language>
+			<language type="fan">fangu</language>
+			<language type="fat">fantu</language>
+			<language type="ff">fulu</language>
 			<language type="fi">somu</language>
-			<language type="fil" draft="provisional">tagalu</language>
-			<language type="fiu" draft="unconfirmed">somugru valodas</language>
-			<language type="fiu" alt="proposed-x1002" draft="unconfirmed">somugru valoda</language>
-			<language type="fj" draft="unconfirmed">fidžiešu</language>
-			<language type="fo" draft="provisional">faroisu</language>
-			<language type="fon" draft="unconfirmed">fonu</language>
+			<language type="fil">filipīniešu</language>
+			<language type="fiu">somugru valodas</language>
+			<language type="fiu" alt="proposed-x1001" draft="unconfirmed">somugru valoda</language>
+			<language type="fj">fidžiešu</language>
+			<language type="fo">fēru</language>
+			<language type="fon">fonu</language>
 			<language type="fr">franču</language>
-			<language type="fr_CA" draft="unconfirmed">Kanādas franču</language>
-			<language type="fr_CH" draft="unconfirmed">Šveices franču</language>
-			<language type="frm" draft="unconfirmed">vidusfranču</language>
-			<language type="fro" draft="unconfirmed">senfranču</language>
-			<language type="frr" draft="unconfirmed">ziemeļfrīzu</language>
-			<language type="frs" draft="unconfirmed">austrumfrīzu</language>
-			<language type="fur" draft="unconfirmed">friūlu</language>
-			<language type="fy" draft="provisional">frīzu</language>
+			<language type="fr_CA">Kanādas franču</language>
+			<language type="fr_CH">Šveices franču</language>
+			<language type="frm">vidusfranču</language>
+			<language type="fro">senfranču</language>
+			<language type="frr">ziemeļfrīzu</language>
+			<language type="frs">austrumfrīzu</language>
+			<language type="fur">friūlu</language>
+			<language type="fy">rietumfrīzu</language>
 			<language type="ga" draft="contributed">īru</language>
-			<language type="gaa" draft="unconfirmed">ga</language>
-			<language type="gay" draft="unconfirmed">gajo</language>
-			<language type="gba" draft="unconfirmed">gbaju</language>
-			<language type="gd" draft="provisional">skotu-ķeltu</language>
-			<language type="gem" draft="unconfirmed">ģermāņu valoda</language>
-			<language type="gem" alt="proposed-x1001" draft="unconfirmed">ģermāņu valodas</language>
-			<language type="gez" draft="unconfirmed">gēzu</language>
-			<language type="gil" draft="unconfirmed">kiribatiešu</language>
-			<language type="gl" draft="provisional">galisiešu</language>
-			<language type="gmh" draft="unconfirmed">vidusaugšvācu</language>
-			<language type="gn" draft="provisional">gvaranu</language>
-			<language type="goh" draft="unconfirmed">senaugšvācu</language>
-			<language type="gon" draft="unconfirmed">gondu</language>
-			<language type="gor" draft="unconfirmed">gorontalu</language>
-			<language type="got" draft="unconfirmed">gotu</language>
-			<language type="grb" draft="unconfirmed">grebo</language>
-			<language type="grc" draft="unconfirmed">sengrieķu</language>
-			<language type="gsw" draft="unconfirmed">Šveices vācu</language>
-			<language type="gu" draft="provisional">gudžaratu</language>
-			<language type="gv" draft="unconfirmed">meniešu</language>
-			<language type="gwi" draft="unconfirmed">kučinu</language>
-			<language type="ha" draft="unconfirmed">hausu</language>
-			<language type="hai" draft="unconfirmed">haidu</language>
-			<language type="haw" draft="unconfirmed">havajiešu</language>
+			<language type="gaa">ga</language>
+			<language type="gay">gajo</language>
+			<language type="gba">gbaju</language>
+			<language type="gd">gēlu</language>
+			<language type="gem">ģermāņu valodas</language>
+			<language type="gez">gēzu</language>
+			<language type="gil">kiribatiešu</language>
+			<language type="gl">galisiešu</language>
+			<language type="gmh">vidusaugšvācu</language>
+			<language type="gn">gvaranu</language>
+			<language type="goh">senaugšvācu</language>
+			<language type="gon">gondu valodas</language>
+			<language type="gor">gorontalu</language>
+			<language type="got">gotu</language>
+			<language type="grb">grebo</language>
+			<language type="grc">sengrieķu</language>
+			<language type="gsw">Šveices vācu</language>
+			<language type="gu">gudžaratu</language>
+			<language type="gv">meniešu</language>
+			<language type="gwi">kučinu</language>
+			<language type="ha">hausu</language>
+			<language type="hai">haidu</language>
+			<language type="haw">havajiešu</language>
 			<language type="he">ivrits</language>
-			<language type="hi" draft="contributed">hindi</language>
-			<language type="hil" draft="unconfirmed">hiligainonu</language>
-			<language type="him" draft="unconfirmed">himačali</language>
-			<language type="hit" draft="unconfirmed">hetu</language>
-			<language type="hmn" draft="unconfirmed">hmongu</language>
-			<language type="ho" draft="unconfirmed">hirimotu</language>
+			<language type="hi">hindi</language>
+			<language type="hil">hiligainonu</language>
+			<language type="him">himačali</language>
+			<language type="hit">hetu</language>
+			<language type="hmn">hmongu</language>
+			<language type="ho">hirimotu</language>
 			<language type="hr">horvātu</language>
-			<language type="hsb" draft="unconfirmed">augšsorbu</language>
-			<language type="ht" draft="unconfirmed">haitiešu</language>
+			<language type="hsb">augšsorbu</language>
+			<language type="ht">haitiešu</language>
 			<language type="hu">ungāru</language>
-			<language type="hup" draft="unconfirmed">hupu</language>
-			<language type="hy" draft="provisional">armēņu</language>
-			<language type="hz" draft="unconfirmed">hereru</language>
-			<language type="ia" draft="provisional">interlingva</language>
-			<language type="iba" draft="unconfirmed">ibanu</language>
-			<language type="id" draft="provisional">indonēziešu</language>
-			<language type="ie" draft="provisional">interlingue</language>
-			<language type="ig" draft="unconfirmed">igbo</language>
-			<language type="ii" draft="unconfirmed">sičuaņas ji</language>
-			<language type="ii" alt="proposed-x1001" draft="unconfirmed">Sičuaņas ji</language>
-			<language type="ijo" draft="unconfirmed">idžbu</language>
-			<language type="ik" draft="unconfirmed">inupiaku</language>
-			<language type="ilo" draft="unconfirmed">iloku</language>
-			<language type="inc" draft="unconfirmed">indoāriešu valodas</language>
-			<language type="inc" alt="proposed-x1002" draft="unconfirmed">indoāriešu valoda</language>
-			<language type="ine" draft="unconfirmed">indoeiropiešu valodas</language>
-			<language type="ine" alt="proposed-x1002" draft="unconfirmed">indoeiropiešu valoda</language>
-			<language type="inh" draft="unconfirmed">ingušu</language>
-			<language type="io" draft="unconfirmed">ido</language>
-			<language type="ira" draft="unconfirmed">irāņu valodas</language>
-			<language type="iro" draft="unconfirmed">irokēzu valoda</language>
-			<language type="iro" alt="proposed-x1001" draft="unconfirmed">irokēzu valodas</language>
-			<language type="is" draft="provisional">islandiešu</language>
+			<language type="hup">hupu</language>
+			<language type="hy">armēņu</language>
+			<language type="hz">hereru</language>
+			<language type="ia">interlingva</language>
+			<language type="iba">ibanu</language>
+			<language type="id">indonēziešu</language>
+			<language type="ie">interlingve</language>
+			<language type="ig">igbo</language>
+			<language type="ii">Sičuaņas ji</language>
+			<language type="ijo">idžbu</language>
+			<language type="ik">inupiaku</language>
+			<language type="ilo">iloku</language>
+			<language type="inc">indoāriešu valodas</language>
+			<language type="inc" alt="proposed-x1001" draft="unconfirmed">indoāriešu valoda</language>
+			<language type="ine">indoeiropiešu valodas</language>
+			<language type="ine" alt="proposed-x1001" draft="unconfirmed">indoeiropiešu valoda</language>
+			<language type="inh">ingušu</language>
+			<language type="io">ido</language>
+			<language type="ira">irāņu valodas</language>
+			<language type="iro">irokēzu valodas</language>
+			<language type="iro" alt="proposed-x1001" draft="unconfirmed">irokēzu valoda</language>
+			<language type="is">īslandiešu</language>
 			<language type="it">itāliešu</language>
-			<language type="it" alt="proposed-x1001" draft="unconfirmed">itāļu</language>
-			<language type="iu" draft="unconfirmed">inuītu</language>
+			<language type="iu">inuītu</language>
 			<language type="ja">japāņu</language>
-			<language type="jbo" draft="unconfirmed">ložbans</language>
-			<language type="jpr" draft="unconfirmed">jūdpersiešu</language>
-			<language type="jrb" draft="unconfirmed">jūdarābu</language>
-			<language type="jv" draft="provisional">javiešu</language>
-			<language type="ka" draft="provisional">gruzīnu</language>
-			<language type="kaa" draft="unconfirmed">karakalpaku</language>
-			<language type="kab" draft="unconfirmed">kabilu</language>
-			<language type="kac" draft="unconfirmed">kačinu</language>
-			<language type="kam" draft="unconfirmed">kambu</language>
-			<language type="kar" draft="unconfirmed">karenu</language>
-			<language type="kaw" draft="unconfirmed">kāvi</language>
-			<language type="kbd" draft="unconfirmed">kabardiešu</language>
+			<language type="jbo">ložbans</language>
+			<language type="jpr">jūdpersiešu</language>
+			<language type="jrb">jūdarābu</language>
+			<language type="jv">javiešu</language>
+			<language type="ka">gruzīnu</language>
+			<language type="kaa">karakalpaku</language>
+			<language type="kab">kabilu</language>
+			<language type="kac">kačinu</language>
+			<language type="kam">kambu</language>
+			<language type="kar">karenu</language>
+			<language type="kaw">kāvi</language>
+			<language type="kbd">kabardiešu</language>
 			<language type="kfo" draft="unconfirmed">koru</language>
-			<language type="kg" draft="unconfirmed">kongu</language>
-			<language type="kha" draft="unconfirmed">khasu</language>
-			<language type="khi" draft="unconfirmed">hojsanu</language>
+			<language type="kg">kongu</language>
+			<language type="kha">khasu</language>
+			<language type="khi">hosjanu valodas</language>
 			<language type="khi" alt="proposed-x1001" draft="unconfirmed">hojsanu valoda</language>
-			<language type="khi" alt="proposed-x1002" draft="unconfirmed">hojsanu valodas</language>
-			<language type="kho" draft="unconfirmed">hotaniešu</language>
-			<language type="ki" draft="unconfirmed">kikuju</language>
-			<language type="kj" draft="unconfirmed">kvaņamu</language>
-			<language type="kk" draft="unconfirmed">kazahu</language>
-			<language type="kl" draft="unconfirmed">grenlandiešu</language>
-			<language type="km" draft="provisional">khmeru</language>
-			<language type="kmb" draft="unconfirmed">kimbundu</language>
-			<language type="kn" draft="provisional">kannada</language>
+			<language type="kho">hotaniešu</language>
+			<language type="ki">kikuju</language>
+			<language type="kj">kvaņamu</language>
+			<language type="kk">kazahu</language>
+			<language type="kl">grenlandiešu</language>
+			<language type="km">khmeru</language>
+			<language type="kmb">kimbundu</language>
+			<language type="kn">kannadu</language>
 			<language type="ko">korejiešu</language>
-			<language type="kok" draft="unconfirmed">konkanu</language>
-			<language type="kos" draft="unconfirmed">kosrājiešu</language>
-			<language type="kpe" draft="unconfirmed">kpellu</language>
-			<language type="kr" draft="unconfirmed">kanuru</language>
-			<language type="krc" draft="unconfirmed">karačaju un balkāru</language>
-			<language type="krl" draft="unconfirmed">karēļu</language>
-			<language type="kro" draft="unconfirmed">krū</language>
-			<language type="kru" draft="unconfirmed">kuruhu</language>
-			<language type="ks" draft="unconfirmed">kašmiriešu</language>
-			<language type="ku" draft="provisional">kurdu</language>
-			<language type="kum" draft="unconfirmed">kumiku</language>
-			<language type="kut" draft="unconfirmed">kutenaju</language>
-			<language type="kv" draft="unconfirmed">komiešu</language>
-			<language type="kw" draft="unconfirmed">korniešu</language>
-			<language type="ky" draft="provisional">kirgīzu</language>
-			<language type="la" draft="provisional">latīņu</language>
-			<language type="lad" draft="unconfirmed">ladino</language>
-			<language type="lah" draft="unconfirmed">landu</language>
-			<language type="lam" draft="unconfirmed">lambu</language>
-			<language type="lb" draft="unconfirmed">luksemburgiešu</language>
-			<language type="lez" draft="unconfirmed">lezgīnu</language>
-			<language type="lg" draft="unconfirmed">gandu</language>
-			<language type="li" draft="unconfirmed">limburgiešu</language>
-			<language type="ln" draft="provisional">lingala</language>
-			<language type="lo" draft="provisional">laosiešu</language>
-			<language type="lol" draft="unconfirmed">mongu</language>
-			<language type="loz" draft="unconfirmed">lozu</language>
+			<language type="kok">konkanu</language>
+			<language type="kos">kosrājiešu</language>
+			<language type="kpe">kpellu</language>
+			<language type="kr">kanuru</language>
+			<language type="krc">karačaju un balkāru</language>
+			<language type="krl">karēļu</language>
+			<language type="kro">krū</language>
+			<language type="kru">kuruhu</language>
+			<language type="ks">kašmiriešu</language>
+			<language type="ku">kurdu</language>
+			<language type="kum">kumiku</language>
+			<language type="kut">kutenaju</language>
+			<language type="kv">komiešu</language>
+			<language type="kw">korniešu</language>
+			<language type="ky">kirgīzu</language>
+			<language type="la">latīņu</language>
+			<language type="lad">ladino</language>
+			<language type="lah">landu</language>
+			<language type="lam">lambu</language>
+			<language type="lb">luksemburgiešu</language>
+			<language type="lez">lezgīnu</language>
+			<language type="lg">gandu</language>
+			<language type="li">limburgiešu</language>
+			<language type="ln">lingala</language>
+			<language type="lo">laosiešu</language>
+			<language type="lol">mongu</language>
+			<language type="loz">lozu</language>
 			<language type="lt">lietuviešu</language>
-			<language type="lu" draft="unconfirmed">lubakatanga</language>
-			<language type="lua" draft="unconfirmed">lubalulva</language>
-			<language type="lui" draft="unconfirmed">luisenu</language>
-			<language type="lun" draft="unconfirmed">lundu</language>
-			<language type="luo" draft="unconfirmed">luo</language>
-			<language type="lus" draft="unconfirmed">lušeju</language>
+			<language type="lu">lubakatanga</language>
+			<language type="lua">lubalulva</language>
+			<language type="lui">luisenu</language>
+			<language type="lun">lundu</language>
+			<language type="luo">luo</language>
+			<language type="lus">lušeju</language>
 			<language type="lv">latviešu</language>
-			<language type="mad" draft="unconfirmed">maduriešu</language>
-			<language type="mag" draft="unconfirmed">magahiešu</language>
-			<language type="mai" draft="unconfirmed">maithili</language>
-			<language type="mak" draft="unconfirmed">makasaru</language>
-			<language type="man" draft="unconfirmed">mandingu</language>
-			<language type="map" draft="unconfirmed">austronēziešu valoda</language>
-			<language type="map" alt="proposed-x1001" draft="unconfirmed">austronēziešu</language>
-			<language type="mas" draft="unconfirmed">masaju</language>
-			<language type="mdf" draft="unconfirmed">mokšu</language>
-			<language type="mdr" draft="unconfirmed">mandaru</language>
-			<language type="men" draft="unconfirmed">mendu</language>
-			<language type="mg" draft="unconfirmed">malagasu</language>
-			<language type="mga" draft="unconfirmed">vidusīru</language>
-			<language type="mh" draft="unconfirmed">māršaliešu</language>
-			<language type="mi" draft="unconfirmed">maoru</language>
-			<language type="mic" draft="unconfirmed">mikmaku</language>
-			<language type="min" draft="unconfirmed">minangkabavu</language>
-			<language type="mis" draft="unconfirmed">dažādas valodas</language>
-			<language type="mk" draft="provisional">maķedoniešu</language>
-			<language type="mkh" draft="unconfirmed">monkhmeru valodas</language>
-			<language type="mkh" alt="proposed-x1002" draft="unconfirmed">monkhmeru valoda</language>
-			<language type="ml" draft="provisional">malajalamiešu</language>
-			<language type="mn" draft="provisional">mongoļu</language>
-			<language type="mnc" draft="unconfirmed">mandžūru</language>
-			<language type="mni" draft="unconfirmed">manipūru</language>
-			<language type="mno" draft="unconfirmed">manobu valoda</language>
-			<language type="mno" alt="proposed-x1001" draft="unconfirmed">manobu valodas</language>
-			<language type="mo" draft="unconfirmed">moldāvu</language>
-			<language type="moh" draft="unconfirmed">mohauku</language>
-			<language type="mos" draft="unconfirmed">mosu</language>
-			<language type="mr" draft="provisional">maratu</language>
-			<language type="ms" draft="provisional">malajiešu</language>
+			<language type="mad">maduriešu</language>
+			<language type="mag">magahiešu</language>
+			<language type="mai">maithili</language>
+			<language type="mak">makasaru</language>
+			<language type="man">mandingu</language>
+			<language type="map">austronēziešu valoda</language>
+			<language type="mas">masaju</language>
+			<language type="mdf">mokšu</language>
+			<language type="mdr">mandaru</language>
+			<language type="men">mendu</language>
+			<language type="mg">malagasu</language>
+			<language type="mga">vidusīru</language>
+			<language type="mh">māršaliešu</language>
+			<language type="mi">maoru</language>
+			<language type="mic">mikmaku</language>
+			<language type="min">minangkabavu</language>
+			<language type="mis">dažādas valodas</language>
+			<language type="mk">maķedoniešu</language>
+			<language type="mkh">monkhmeru valodas</language>
+			<language type="mkh" alt="proposed-x1001" draft="unconfirmed">monkhmeru valoda</language>
+			<language type="ml">malajalu</language>
+			<language type="mn">mongoļu</language>
+			<language type="mnc">mandžūru</language>
+			<language type="mni">manipūru</language>
+			<language type="mno">manobu valodas</language>
+			<language type="mno" alt="proposed-x1001" draft="unconfirmed">manobu valoda</language>
+			<language type="mo">moldāvu</language>
+			<language type="moh">mohauku</language>
+			<language type="mos">mosu</language>
+			<language type="mr">maratu</language>
+			<language type="ms">malajiešu</language>
 			<language type="mt" draft="contributed">maltiešu</language>
-			<language type="mul" draft="provisional">vairākas valodas</language>
-			<language type="mun" draft="unconfirmed">mundu valoda</language>
-			<language type="mun" alt="proposed-x1001" draft="unconfirmed">mundu valodas</language>
-			<language type="mus" draft="unconfirmed">krīku</language>
-			<language type="mwl" draft="unconfirmed">mirandiešu</language>
-			<language type="mwr" draft="unconfirmed">marvaru</language>
-			<language type="my" draft="unconfirmed">birmiešu</language>
-			<language type="myn" draft="unconfirmed">maiju valoda</language>
-			<language type="myn" alt="proposed-x1001" draft="unconfirmed">maiju valodas</language>
-			<language type="myv" draft="unconfirmed">erzju</language>
-			<language type="na" draft="unconfirmed">nauruiešu</language>
-			<language type="nah" draft="unconfirmed">navatlu</language>
-			<language type="nai" draft="unconfirmed">Ziemeļamerikas indiāņu valodas</language>
+			<language type="mul">vairākas valodas</language>
+			<language type="mun">mundu valoda</language>
+			<language type="mus">krīku</language>
+			<language type="mwl">mirandiešu</language>
+			<language type="mwr">marvaru</language>
+			<language type="my">birmiešu</language>
+			<language type="myn">maiju valodas</language>
+			<language type="myn" alt="proposed-x1001" draft="unconfirmed">maiju valoda</language>
+			<language type="myv">erzju</language>
+			<language type="na">nauruiešu</language>
+			<language type="nah">navatlu</language>
+			<language type="nai">Ziemeļamerikas indiāņu valodas</language>
 			<language type="nai" alt="proposed-x1001" draft="unconfirmed">Ziemeļamerikas indiāņu valoda</language>
-			<language type="nap" draft="unconfirmed">neapoliešu</language>
-			<language type="nb" draft="provisional">norvēģu bukmols</language>
-			<language type="nd" draft="unconfirmed">ziemeļndebelu</language>
-			<language type="nds" draft="unconfirmed">lejasvācu</language>
-			<language type="ne" draft="provisional">nepāliešu</language>
-			<language type="new" draft="unconfirmed">nevaru</language>
-			<language type="ng" draft="unconfirmed">ndongu</language>
-			<language type="nia" draft="unconfirmed">njasu</language>
-			<language type="nic" draft="unconfirmed">nigēriešu-kordofāņu valoda</language>
-			<language type="nic" alt="proposed-x1002" draft="unconfirmed">nigēriešu-kordofāņu valodas</language>
-			<language type="niu" draft="unconfirmed">niuāņu</language>
+			<language type="nap">neapoliešu</language>
+			<language type="nb">norvēģu bukmols</language>
+			<language type="nd">ziemeļndebelu</language>
+			<language type="nds">lejasvācu</language>
+			<language type="ne">nepāliešu</language>
+			<language type="new">nevaru</language>
+			<language type="ng">ndongu</language>
+			<language type="nia">njasu</language>
+			<language type="nic">nigēriešu-kordofāņu valodas</language>
+			<language type="nic" alt="proposed-x1001" draft="unconfirmed">nigēriešu-kordofāņu valoda</language>
+			<language type="niu">niuāņu</language>
 			<language type="nl">holandiešu</language>
-			<language type="nl_BE" draft="unconfirmed">flāmu</language>
-			<language type="nn" draft="provisional">jaunnorvēģu</language>
+			<language type="nl_BE">flāmu</language>
+			<language type="nn">jaunnorvēģu</language>
 			<language type="no">norvēģu</language>
-			<language type="nog" draft="unconfirmed">nogaju</language>
-			<language type="non" draft="unconfirmed">sennorvēģu</language>
-			<language type="nr" draft="unconfirmed">dienvidndebelu</language>
-			<language type="nso" draft="unconfirmed">ziemeļsotu</language>
-			<language type="nub" draft="unconfirmed">nūbiešu valoda</language>
-			<language type="nub" alt="proposed-x1001" draft="unconfirmed">nūbiešu valodas</language>
-			<language type="nv" draft="unconfirmed">navahu</language>
-			<language type="nwc" draft="unconfirmed">klasiskā nevaru</language>
-			<language type="ny" draft="unconfirmed">čičeva</language>
-			<language type="nym" draft="unconfirmed">ņamvezu</language>
-			<language type="nyn" draft="unconfirmed">ņankolu</language>
-			<language type="nyo" draft="unconfirmed">ņoru</language>
-			<language type="nzi" draft="unconfirmed">nzemu</language>
-			<language type="oc" draft="provisional">provansiešu</language>
-			<language type="oj" draft="unconfirmed">odžibvu</language>
-			<language type="om" draft="unconfirmed">oromu</language>
+			<language type="nog">nogaju</language>
+			<language type="non">sennorvēģu</language>
+			<language type="nqo" draft="unconfirmed">n-ko</language>
+			<language type="nr">dienvidndebelu</language>
+			<language type="nso">ziemeļsotu</language>
+			<language type="nub">nūbiešu valodas</language>
+			<language type="nv">navahu</language>
+			<language type="nwc">klasiskā nevaru</language>
+			<language type="ny">čičeva</language>
+			<language type="nym">ņamvezu</language>
+			<language type="nyn">ņankolu</language>
+			<language type="nyo">ņoru</language>
+			<language type="nzi">nzemu</language>
+			<language type="oc">oksitāņu</language>
+			<language type="oj">odžibvu</language>
+			<language type="om">oromu</language>
 			<language type="or" draft="provisional">orisiešu</language>
-			<language type="os" draft="unconfirmed">osetīnu</language>
-			<language type="osa" draft="unconfirmed">važāžu</language>
-			<language type="ota" draft="unconfirmed">turku osmaņu</language>
-			<language type="oto" draft="unconfirmed">otomu valoda</language>
-			<language type="oto" alt="proposed-x1001" draft="unconfirmed">otomu valodas</language>
-			<language type="pa" draft="provisional">pandžabu</language>
-			<language type="paa" draft="unconfirmed">papuasu valoda</language>
-			<language type="paa" alt="proposed-x1001" draft="unconfirmed">papuasu valodas</language>
-			<language type="pag" draft="unconfirmed">pangasinanu</language>
-			<language type="pal" draft="unconfirmed">pehlevi</language>
-			<language type="pam" draft="unconfirmed">pampanganu</language>
-			<language type="pap" draft="unconfirmed">papjamento</language>
-			<language type="pau" draft="unconfirmed">palaviešu</language>
+			<language type="os">osetīnu</language>
+			<language type="osa">važāžu</language>
+			<language type="ota">turku osmaņu</language>
+			<language type="oto">otomu valoda</language>
+			<language type="pa">pandžabu</language>
+			<language type="paa">papuasu valoda</language>
+			<language type="pag">pangasinanu</language>
+			<language type="pal">pehlevi</language>
+			<language type="pam">pampanganu</language>
+			<language type="pap">papjamento</language>
+			<language type="pau">palaviešu</language>
 			<language type="peo" draft="unconfirmed">senpersu</language>
-			<language type="peo" alt="proposed-x1001" draft="unconfirmed">persu</language>
-			<language type="phi" draft="unconfirmed">filipīniešu valodas</language>
-			<language type="phi" alt="proposed-x1001" draft="unconfirmed">filipīniešu valoda</language>
-			<language type="phn" draft="unconfirmed">feniķiešu</language>
-			<language type="pi" draft="unconfirmed">pāli</language>
+			<language type="phi">filipīniešu valoda</language>
+			<language type="phn">feniķiešu</language>
+			<language type="pi">pāli</language>
 			<language type="pl">poļu</language>
-			<language type="pon" draft="unconfirmed">ponapiešu</language>
-			<language type="pra" draft="unconfirmed">prākrita valoda</language>
-			<language type="pra" alt="proposed-x1001" draft="unconfirmed">prākrita valodas</language>
-			<language type="pro" draft="unconfirmed">senprovansiešu</language>
-			<language type="ps" draft="provisional">puštu</language>
+			<language type="pon">ponapiešu</language>
+			<language type="pra">prākrita valoda</language>
+			<language type="pro">senprovansiešu</language>
+			<language type="ps">puštu</language>
 			<language type="pt">portugāļu</language>
-			<language type="pt_BR" draft="unconfirmed">Brazīlijas portugāļu</language>
-			<language type="pt_PT" draft="unconfirmed">ibēriešu portugāļu</language>
-			<language type="qu" draft="unconfirmed">kečvu</language>
-			<language type="raj" draft="unconfirmed">radžastāņu</language>
-			<language type="rap" draft="unconfirmed">rapanuju</language>
-			<language type="rar" draft="unconfirmed">rarotongiešu</language>
-			<language type="rm" draft="unconfirmed">retoromāņu</language>
-			<language type="rn" draft="unconfirmed">rundu</language>
+			<language type="pt_BR">Brazīlijas portugāļu</language>
+			<language type="pt_PT">ibēriešu portugāļu</language>
+			<language type="qu">kečvu</language>
+			<language type="raj">radžastāņu</language>
+			<language type="rap">rapanuju</language>
+			<language type="rar">rarotongiešu</language>
+			<language type="rm">retoromāņu</language>
+			<language type="rn">rundu</language>
 			<language type="ro">rumāņu</language>
-			<language type="roa" draft="unconfirmed">romāņu valoda</language>
-			<language type="roa" alt="proposed-x1001" draft="unconfirmed">romāņu valodas</language>
-			<language type="rom" draft="unconfirmed">čigānu</language>
-			<language type="root" draft="unconfirmed">sakne</language>
+			<language type="roa">romāņu valoda</language>
+			<language type="rom">čigānu</language>
+			<language type="root">sakne</language>
 			<language type="ru">krievu</language>
-			<language type="rup" draft="unconfirmed">aromūnu</language>
-			<language type="rw" draft="unconfirmed">kiņaruanda</language>
-			<language type="sa" draft="provisional">sanskrita</language>
-			<language type="sad" draft="unconfirmed">sandavu</language>
-			<language type="sah" draft="unconfirmed">jakutu</language>
-			<language type="sai" draft="unconfirmed">Dienvidamerikas indiāņu</language>
-			<language type="sai" alt="proposed-x1002" draft="unconfirmed">Dienvidamerikas indiāņu valoda</language>
-			<language type="sal" draft="unconfirmed">sališu valoda</language>
-			<language type="sal" alt="proposed-x1001" draft="unconfirmed">sališu valodas</language>
-			<language type="sam" draft="unconfirmed">samārijas aramiešu</language>
-			<language type="sam" alt="proposed-x1001" draft="unconfirmed">Samārijas aramiešu</language>
-			<language type="sas" draft="unconfirmed">sasaku</language>
-			<language type="sat" draft="unconfirmed">santalu</language>
-			<language type="sc" draft="unconfirmed">sardīniešu</language>
-			<language type="scn" draft="unconfirmed">sicīliešu</language>
-			<language type="sco" draft="unconfirmed">skotu</language>
-			<language type="sd" draft="provisional">sindžu</language>
-			<language type="se" draft="unconfirmed">ziemeļsāmu</language>
-			<language type="sel" draft="unconfirmed">selkupu</language>
-			<language type="sem" draft="unconfirmed">semītu valoda</language>
-			<language type="sem" alt="proposed-x1002" draft="unconfirmed">semītu valodas</language>
-			<language type="sg" draft="unconfirmed">sangu</language>
-			<language type="sga" draft="unconfirmed">senīru</language>
-			<language type="sgn" draft="unconfirmed">zīmju valodas</language>
-			<language type="sh" draft="provisional">serbu-horvātu</language>
-			<language type="shn" draft="unconfirmed">šanu</language>
-			<language type="si" draft="provisional">sinhalīzu</language>
-			<language type="sid" draft="unconfirmed">sidamu</language>
-			<language type="sio" draft="unconfirmed">siū valodas</language>
-			<language type="sit" draft="unconfirmed">sinotibetiešu valodas</language>
+			<language type="rup">aromūnu</language>
+			<language type="rw">kiņaruanda</language>
+			<language type="sa">sanskrits</language>
+			<language type="sad">sandavu</language>
+			<language type="sah">jakutu</language>
+			<language type="sai">Dienvidamerikas indiāņu</language>
+			<language type="sai" alt="proposed-x1001" draft="unconfirmed">Dienvidamerikas indiāņu valoda</language>
+			<language type="sal">sališu valodas</language>
+			<language type="sal" alt="proposed-x1001" draft="unconfirmed">sališu valoda</language>
+			<language type="sam">Samārijas aramiešu</language>
+			<language type="sam" alt="proposed-x1001" draft="unconfirmed">samārijas aramiešu</language>
+			<language type="sas">sasaku</language>
+			<language type="sat">santalu</language>
+			<language type="sc">sardīniešu</language>
+			<language type="scn">sicīliešu</language>
+			<language type="sco">skotu</language>
+			<language type="sd">sindhu</language>
+			<language type="se">ziemeļsāmu</language>
+			<language type="sel">selkupu</language>
+			<language type="sem">semītu valodas</language>
+			<language type="sem" alt="proposed-x1001" draft="unconfirmed">semītu valoda</language>
+			<language type="sg">sangu</language>
+			<language type="sga">senīru</language>
+			<language type="sgn">zīmju valodas</language>
+			<language type="sh">serbu-horvātu</language>
+			<language type="shn">šanu</language>
+			<language type="si">singāļu</language>
+			<language type="sid">sidamu</language>
+			<language type="sio">siū valodas</language>
+			<language type="sit">sinotibetiešu valodas</language>
 			<language type="sit" alt="proposed-x1001" draft="unconfirmed">sinotibetiešu valoda</language>
 			<language type="sk">slovāku</language>
 			<language type="sl">slovēņu</language>
-			<language type="sla" draft="unconfirmed">slāvu</language>
-			<language type="sm" draft="unconfirmed">samoāņu</language>
-			<language type="sma" draft="unconfirmed">dienvidsāmu</language>
-			<language type="smi" draft="unconfirmed">sāmu valoda</language>
-			<language type="smi" alt="proposed-x1001" draft="unconfirmed">sāmu valodas</language>
-			<language type="smj" draft="unconfirmed">Luleo sāmu</language>
-			<language type="smn" draft="unconfirmed">Inari sāmu</language>
-			<language type="sms" draft="unconfirmed">skoltsāmu</language>
-			<language type="sn" draft="unconfirmed">šonu</language>
-			<language type="snk" draft="unconfirmed">soninku</language>
-			<language type="so" draft="provisional">somāļu</language>
-			<language type="sog" draft="unconfirmed">sogdiešu</language>
-			<language type="son" draft="unconfirmed">songaju</language>
-			<language type="sq" draft="provisional">albāņu</language>
-			<language type="sr" draft="provisional">serbu</language>
-			<language type="srn" draft="unconfirmed">sranantongo</language>
-			<language type="srr" draft="unconfirmed">serēru</language>
-			<language type="ss" draft="unconfirmed">svatu</language>
-			<language type="ssa" draft="unconfirmed">nīlas-sahāras valoda</language>
-			<language type="ssa" alt="proposed-x1001" draft="unconfirmed">Nīlas-Sahāras valodas</language>
+			<language type="sla">slāvu</language>
+			<language type="sm">samoāņu</language>
+			<language type="sma">dienvidsāmu</language>
+			<language type="smi">sāmu valoda</language>
+			<language type="smj">Luleo sāmu</language>
+			<language type="smn">Inari sāmu</language>
+			<language type="sms">skoltsāmu</language>
+			<language type="sn">šonu</language>
+			<language type="snk">soninku</language>
+			<language type="so">somāļu</language>
+			<language type="sog">sogdiešu</language>
+			<language type="son">songaju</language>
+			<language type="sq">albāņu</language>
+			<language type="sr">serbu</language>
+			<language type="srn">sranantogo</language>
+			<language type="srr">serēru</language>
+			<language type="ss">svatu</language>
+			<language type="ssa">Nīlas-Sahāras valodas</language>
+			<language type="ssa" alt="proposed-x1001" draft="unconfirmed">nīlas-sahāras valoda</language>
 			<language type="st" draft="provisional">sesoto</language>
-			<language type="su" draft="provisional">sundaniešu</language>
-			<language type="suk" draft="unconfirmed">sukumu</language>
-			<language type="sus" draft="unconfirmed">susu</language>
-			<language type="sux" draft="unconfirmed">šumeru</language>
+			<language type="su">sundaniešu</language>
+			<language type="suk">sukumu</language>
+			<language type="sus">susu</language>
+			<language type="sux">šumeru</language>
 			<language type="sv">zviedru</language>
-			<language type="sw" draft="provisional">svahilu</language>
-			<language type="syc" draft="unconfirmed">klasiskā sīriešu</language>
-			<language type="syr" draft="unconfirmed">sīriešu</language>
-			<language type="ta" draft="provisional">tamilu</language>
-			<language type="tai" draft="unconfirmed">taju valodas</language>
+			<language type="sw">svahili</language>
+			<language type="syc">klasiskā sīriešu</language>
+			<language type="syr">sīriešu</language>
+			<language type="ta">tamilu</language>
+			<language type="tai">taju valodas</language>
 			<language type="tai" alt="proposed-x1001" draft="unconfirmed">taju valoda</language>
-			<language type="te" draft="provisional">telugu</language>
-			<language type="tem" draft="unconfirmed">temnu</language>
-			<language type="ter" draft="unconfirmed">tereno</language>
-			<language type="tet" draft="unconfirmed">tetumu</language>
-			<language type="tg" draft="unconfirmed">tadžiku</language>
+			<language type="te">telugu</language>
+			<language type="tem">temnu</language>
+			<language type="ter">tereno</language>
+			<language type="tet">tetumu</language>
+			<language type="tg">tadžiku</language>
 			<language type="th" draft="contributed">taju</language>
-			<language type="ti" draft="provisional">tigrinja</language>
-			<language type="tig" draft="unconfirmed">tigru</language>
-			<language type="tiv" draft="unconfirmed">tivu</language>
-			<language type="tk" draft="provisional">turkmēņu</language>
-			<language type="tkl" draft="unconfirmed">tokelaviešu</language>
-			<language type="tl" draft="provisional">tagalogu</language>
-			<language type="tlh" draft="provisional">klingoniešu</language>
-			<language type="tli" draft="unconfirmed">tlinkitu</language>
-			<language type="tmh" draft="unconfirmed">tuaregu</language>
-			<language type="tn" draft="unconfirmed">cvanu</language>
-			<language type="to" draft="unconfirmed">tongu</language>
+			<language type="ti">tigrinja</language>
+			<language type="tig">tigru</language>
+			<language type="tiv">tivu</language>
+			<language type="tk">turkmēņu</language>
+			<language type="tkl">tokelaviešu</language>
+			<language type="tl">tagalu</language>
+			<language type="tlh">klingoņu</language>
+			<language type="tli">tlinkitu</language>
+			<language type="tmh">tuaregu</language>
+			<language type="tn">cvanu</language>
+			<language type="to">tongu</language>
 			<language type="tog" draft="contributed">Njasas tongu valoda</language>
 			<language type="tog" alt="proposed-x1001" draft="unconfirmed">Njasas tongu</language>
-			<language type="tog" alt="proposed-x1002" draft="unconfirmed">tongu valoda (Njasā)</language>
-			<language type="tpi" draft="unconfirmed">tokpisins</language>
+			<language type="tpi">tokpisins</language>
 			<language type="tr">turku</language>
-			<language type="ts" draft="unconfirmed">congu</language>
-			<language type="tsi" draft="unconfirmed">cimšiāņu</language>
-			<language type="tt" draft="unconfirmed">tatāru</language>
-			<language type="tum" draft="unconfirmed">tumbuku</language>
-			<language type="tup" draft="unconfirmed">tupu valoda</language>
-			<language type="tup" alt="proposed-x1001" draft="unconfirmed">tupu</language>
-			<language type="tut" draft="unconfirmed">altajiešu valodas</language>
-			<language type="tut" alt="proposed-x1002" draft="unconfirmed">altajiešu valoda</language>
-			<language type="tvl" draft="unconfirmed">tuvaliešu</language>
-			<language type="tw" draft="provisional">čvī</language>
-			<language type="ty" draft="unconfirmed">taitiešu</language>
-			<language type="tyv" draft="unconfirmed">tuviešu</language>
-			<language type="udm" draft="unconfirmed">udmurtu</language>
-			<language type="ug" draft="provisional">uighuru</language>
-			<language type="uga" draft="unconfirmed">ugaritiešu</language>
-			<language type="uk" draft="provisional">ukraiņu</language>
-			<language type="umb" draft="unconfirmed">umbundu</language>
+			<language type="ts">congu</language>
+			<language type="tsi">cimšiāņu</language>
+			<language type="tt">tatāru</language>
+			<language type="tum">tumbuku</language>
+			<language type="tup">tupu valodas</language>
+			<language type="tut">altajiešu valodas</language>
+			<language type="tut" alt="proposed-x1001" draft="unconfirmed">altajiešu valoda</language>
+			<language type="tvl">tuvaliešu</language>
+			<language type="tw">tvī</language>
+			<language type="ty">taitiešu</language>
+			<language type="tyv">tuviešu</language>
+			<language type="udm">udmurtu</language>
+			<language type="ug">uiguru</language>
+			<language type="uga">ugaritiešu</language>
+			<language type="uk">ukraiņu</language>
+			<language type="umb">umbundu</language>
 			<language type="und" draft="contributed">nezināma vai nederīga valoda</language>
-			<language type="ur" draft="provisional">urdu</language>
-			<language type="uz" draft="provisional">uzbeku</language>
-			<language type="vai" draft="unconfirmed">vaju</language>
-			<language type="ve" draft="unconfirmed">vendu</language>
-			<language type="vi" draft="provisional">vjetnamiešu</language>
-			<language type="vo" draft="unconfirmed">volapiks</language>
-			<language type="vot" draft="unconfirmed">votu</language>
-			<language type="wa" draft="unconfirmed">valoņu</language>
-			<language type="wak" draft="unconfirmed">vakašu valoda</language>
-			<language type="wak" alt="proposed-x1001" draft="unconfirmed">vakašu</language>
-			<language type="wal" draft="unconfirmed">valamu</language>
-			<language type="war" draft="unconfirmed">varaju</language>
-			<language type="was" draft="unconfirmed">vašo</language>
-			<language type="wen" draft="unconfirmed">sorbu</language>
-			<language type="wo" draft="unconfirmed">volofu</language>
-			<language type="xal" draft="unconfirmed">kalmiku</language>
-			<language type="xh" draft="provisional">khosu</language>
-			<language type="yao" draft="unconfirmed">jao</language>
-			<language type="yap" draft="unconfirmed">japiešu</language>
-			<language type="yi" draft="provisional">jidišs</language>
-			<language type="yo" draft="unconfirmed">jorubu</language>
-			<language type="ypk" draft="unconfirmed">jupiku valoda</language>
-			<language type="ypk" alt="proposed-x1001" draft="unconfirmed">jupiku</language>
-			<language type="za" draft="unconfirmed">džuanu</language>
-			<language type="zap" draft="unconfirmed">sapoteku</language>
-			<language type="zen" draft="unconfirmed">zenagu</language>
+			<language type="ur">urdu</language>
+			<language type="uz">uzbeku</language>
+			<language type="vai">vaju</language>
+			<language type="ve">vendu</language>
+			<language type="vi">vjetnamiešu</language>
+			<language type="vo">volapiks</language>
+			<language type="vot">votu</language>
+			<language type="wa">valoņu</language>
+			<language type="wak">vakašu valodas</language>
+			<language type="wak" alt="proposed-x1001" draft="unconfirmed">vakašu valoda</language>
+			<language type="wal">valamu</language>
+			<language type="war">varaju</language>
+			<language type="was">vašo</language>
+			<language type="wen">sorbu</language>
+			<language type="wo">volofu</language>
+			<language type="xal">kalmiku</language>
+			<language type="xh">khosu</language>
+			<language type="yao">jao</language>
+			<language type="yap">japiešu</language>
+			<language type="yi">jidišs</language>
+			<language type="yo">jorubu</language>
+			<language type="ypk">jopiku valodas</language>
+			<language type="ypk" alt="proposed-x1001" draft="unconfirmed">jupiku valoda</language>
+			<language type="za">džuanu</language>
+			<language type="zap">sapoteku</language>
+			<language type="zen">zenagu</language>
 			<language type="zh">ķīniešu</language>
 			<language type="zh_Hans" draft="contributed">ķīniešu vienkāršotā</language>
 			<language type="zh_Hant" draft="contributed">ķīniešu tradicionālā</language>
-			<language type="znd" draft="unconfirmed">zandē</language>
-			<language type="zu" draft="provisional">zulu</language>
-			<language type="zun" draft="unconfirmed">zunju</language>
-			<language type="zxx" draft="unconfirmed">lingvistiska satura nav</language>
+			<language type="znd">zandē</language>
+			<language type="zu">zulu</language>
+			<language type="zun">zunju</language>
+			<language type="zxx">Bez lingvistiska satura</language>
 		</languages>
 		<scripts>
-			<script type="Arab" draft="provisional">arābu</script>
-			<script type="Cyrl" draft="provisional">kirilica</script>
-			<script type="Latn" draft="provisional">latīņu</script>
-			<script type="Zxxx" draft="provisional">Bez rakstības</script>
-			<script type="Zxxx" alt="proposed-x1001" draft="unconfirmed">bez rakstības</script>
-			<script type="Zzzz" draft="provisional">Nezināma vai nederīga rakstība</script>
-			<script type="Zzzz" alt="proposed-x1001" draft="unconfirmed">nezināma vai nederīga rakstība</script>
+			<script type="Arab">arābu</script>
+			<script type="Armi">aramiešu</script>
+			<script type="Armn">armēņu</script>
+			<script type="Bali">baliešu</script>
+			<script type="Beng">bengāļu</script>
+			<script type="Bopo">bopomofo</script>
+			<script type="Brah">brahmi</script>
+			<script type="Brai">Braila raksts</script>
+			<script type="Cher">irokēzu</script>
+			<script type="Copt">koptu</script>
+			<script type="Cyrl">kirilica</script>
+			<script type="Cyrs">senslāvu</script>
+			<script type="Deva">devānagāri</script>
+			<script type="Egyd">demotiskais raksts</script>
+			<script type="Egyh">hierātiskais raksts</script>
+			<script type="Egyp">ēģiptiešu hieroglifi</script>
+			<script type="Ethi">etiopiešu</script>
+			<script type="Geor">gruzīnu</script>
+			<script type="Goth">gotu</script>
+			<script type="Grek">grieķu</script>
+			<script type="Gujr">gudžaratu</script>
+			<script type="Hani">ķīniešu</script>
+			<script type="Hans">ķīniešu vienkāršotā</script>
+			<script type="Hant">ķīniešu tradicionālā</script>
+			<script type="Hebr">ivrits</script>
+			<script type="Hira">hiragana</script>
+			<script type="Hrkt">katakana vai hiragana</script>
+			<script type="Hung">senungāru</script>
+			<script type="Ital">vecitāļu</script>
+			<script type="Java">javiešu</script>
+			<script type="Jpan">japāņu</script>
+			<script type="Kana">katakana</script>
+			<script type="Khmr">khmeru</script>
+			<script type="Knda">kannaru</script>
+			<script type="Kore">korejiešu</script>
+			<script type="Laoo">lao</script>
+			<script type="Latn">latīņu</script>
+			<script type="Lina">lineārā A</script>
+			<script type="Linb">lineārā B</script>
+			<script type="Lydi">līdiešu</script>
+			<script type="Maya">maiju</script>
+			<script type="Mlym">malajalu</script>
+			<script type="Mong">mongoļu</script>
+			<script type="Moon">Mūna raksts</script>
+			<script type="Mymr">birmiešu</script>
+			<script type="Ogam">ogamiskais raksts</script>
+			<script type="Orya">oriju</script>
+			<script type="Osma">osmaņu turku</script>
+			<script type="Phnx">feniķiešu</script>
+			<script type="Qaai">mantotā</script>
+			<script type="Roro">rongorongo</script>
+			<script type="Runr">rūnu raksts</script>
+			<script type="Samr">samariešu</script>
+			<script type="Sinh">sinhalas</script>
+			<script type="Sund">zundu</script>
+			<script type="Syrc">sīriešu</script>
+			<script type="Syrj">rietumsīriešu</script>
+			<script type="Syrn">austrumsīriešu</script>
+			<script type="Taml">tamilu</script>
+			<script type="Telu">telugu</script>
+			<script type="Tglg">tagalu</script>
+			<script type="Thaa">taana</script>
+			<script type="Thai">taju</script>
+			<script type="Tibt">tibetiešu</script>
+			<script type="Xpeo">vecpersiešu</script>
+			<script type="Xsux">šumeru-akadiešu ķīļraksts</script>
+			<script type="Yiii">ji</script>
+			<script type="Zmth">matemātiskais pieraksts</script>
+			<script type="Zxxx">bez rakstības</script>
+			<script type="Zzzz">nezināma vai nederīga rakstība</script>
 		</scripts>
 		<territories>
-			<territory type="001" draft="contributed">Pasaule</territory>
-			<territory type="001" alt="proposed-x1001" draft="unconfirmed">pasaule</territory>
-			<territory type="002" draft="contributed">Āfrika</territory>
-			<territory type="003" draft="contributed">Ziemeļamerika</territory>
-			<territory type="005" draft="contributed">Dienvidamerika</territory>
-			<territory type="009" draft="contributed">Okeānija</territory>
-			<territory type="011" draft="contributed">Rietumāfrika</territory>
-			<territory type="013" draft="contributed">Centrālamerika</territory>
-			<territory type="014" draft="contributed">Austrumāfrika</territory>
-			<territory type="015" draft="contributed">Ziemeļāfrika</territory>
-			<territory type="017" draft="contributed">Vidusāfrika</territory>
-			<territory type="018" draft="contributed">Āfrikas dienvidi</territory>
-			<territory type="019" draft="contributed">Amerikas</territory>
-			<territory type="019" alt="proposed-x1001" draft="unconfirmed">Amērikas</territory>
-			<territory type="021" draft="contributed">Amerikas ziemeļi</territory>
-			<territory type="029" draft="contributed">Karību jūras reģions</territory>
-			<territory type="030" draft="contributed">Austrumāzija</territory>
-			<territory type="034" draft="contributed">Āzijas dienvidi</territory>
-			<territory type="035" draft="contributed">Centrālaustrumāzija</territory>
-			<territory type="039" draft="contributed">Eiropas dienvidi</territory>
-			<territory type="053" draft="contributed">Austrālija un Jaunzēlande</territory>
+			<territory type="001">pasaule</territory>
+			<territory type="002">Āfrika</territory>
+			<territory type="003">Ziemeļamerika</territory>
+			<territory type="005">Dienvidamerika</territory>
+			<territory type="009">Okeānija</territory>
+			<territory type="011">Rietumāfrika</territory>
+			<territory type="013">Centrālamerika</territory>
+			<territory type="014">Austrumāfrika</territory>
+			<territory type="015">Ziemeļāfrika</territory>
+			<territory type="017">Vidusāfrika</territory>
+			<territory type="018">Āfrikas dienvidi</territory>
+			<territory type="018" alt="proposed-x1001" draft="unconfirmed">Dienvidāfrika</territory>
+			<territory type="019">Amerika</territory>
+			<territory type="021">Amerikas ziemeļi</territory>
+			<territory type="029">Karību jūras reģions</territory>
+			<territory type="030">Austrumāzija</territory>
+			<territory type="034">Dienvidāzija</territory>
+			<territory type="035">Centrālaustrumāzija</territory>
+			<territory type="039">Dienvideiropa</territory>
+			<territory type="053">Austrālija un Jaunzēlande</territory>
 			<territory type="054" draft="contributed">Melanēzija</territory>
-			<territory type="057" draft="contributed">Mikronēzijas reģions</territory>
-			<territory type="061" draft="contributed">Polinēzija</territory>
-			<territory type="062" draft="contributed">Centrāldienvidāzija</territory>
-			<territory type="142" draft="contributed">Āzija</territory>
-			<territory type="143" draft="contributed">Centrālāzija</territory>
-			<territory type="145" draft="contributed">Rietumāzija</territory>
-			<territory type="150" draft="contributed">Eiropa</territory>
-			<territory type="151" draft="contributed">Austrumeiropa</territory>
-			<territory type="154" draft="contributed">Eiropas ziemeļi</territory>
-			<territory type="155" draft="contributed">Rietumeiropa</territory>
-			<territory type="172" draft="contributed">Neatkarīgo Valstu Savienība</territory>
-			<territory type="419" draft="contributed">Latīņamerika un Karību jūras reģions</territory>
+			<territory type="057">Mikronēzijas reģions</territory>
+			<territory type="061">Polinēzija</territory>
+			<territory type="062">Centrāldienvidāzija</territory>
+			<territory type="142">Āzija</territory>
+			<territory type="143">Centrālāzija</territory>
+			<territory type="145">Rietumāzija</territory>
+			<territory type="150">Eiropa</territory>
+			<territory type="151">Austrumeiropa</territory>
+			<territory type="154">Ziemeļeiropa</territory>
+			<territory type="155">Rietumeiropa</territory>
+			<territory type="172">Neatkarīgo Valstu Savienība</territory>
+			<territory type="419">Latīņamerika un Karību jūras reģions</territory>
 			<territory type="AD">Andora</territory>
 			<territory type="AE">Apvienotie Arābu Emirāti</territory>
 			<territory type="AF">Afganistāna</territory>
@@ -614,8 +665,7 @@
 			<territory type="AI">Angilja</territory>
 			<territory type="AL">Albānija</territory>
 			<territory type="AM">Armēnija</territory>
-			<territory type="AN">Antiļas</territory>
-			<territory type="AN" alt="proposed-x1001" draft="unconfirmed">Nīderlandes Antiļas</territory>
+			<territory type="AN">Nīderlandes Antiļas</territory>
 			<territory type="AO">Angola</territory>
 			<territory type="AQ">Antarktika</territory>
 			<territory type="AR">Argentīna</territory>
@@ -623,7 +673,7 @@
 			<territory type="AT">Austrija</territory>
 			<territory type="AU">Austrālija</territory>
 			<territory type="AW">Aruba</territory>
-			<territory type="AX" draft="contributed">Olandes salas</territory>
+			<territory type="AX">Olandes salas</territory>
 			<territory type="AX" alt="proposed-x1001" draft="unconfirmed">Ālandi</territory>
 			<territory type="AZ">Azerbaidžāna</territory>
 			<territory type="BA">Bosnija un Hercegovina</territory>
@@ -635,6 +685,8 @@
 			<territory type="BH">Bahreina</territory>
 			<territory type="BI">Burundi</territory>
 			<territory type="BJ">Benina</territory>
+			<territory type="BL">Senbartelmī</territory>
+			<territory type="BL" alt="proposed-x1001" draft="unconfirmed">Saint Barthélemy</territory>
 			<territory type="BM">Bermudu salas</territory>
 			<territory type="BN">Bruneja</territory>
 			<territory type="BO">Bolīvija</territory>
@@ -646,8 +698,7 @@
 			<territory type="BY">Baltkrievija</territory>
 			<territory type="BZ">Beliza</territory>
 			<territory type="CA">Kanāda</territory>
-			<territory type="CC">Kokosu (Kīlinga) salas</territory>
-			<territory type="CC" alt="proposed-x1001" draft="unconfirmed">Kokosu jeb Kīlinga salas</territory>
+			<territory type="CC">Kokosu jeb Kīlinga salas</territory>
 			<territory type="CD">Kongo Demokrātiskā Republika</territory>
 			<territory type="CD" alt="proposed-x1001" draft="unconfirmed">Kongo-Kinshasa</territory>
 			<territory type="CF">Centrālāfrikas Republika</territory>
@@ -691,7 +742,7 @@
 			<territory type="GD">Grenāda</territory>
 			<territory type="GE">Gruzija</territory>
 			<territory type="GF">Franču Gviāna</territory>
-			<territory type="GG" draft="contributed">Gērnsija</territory>
+			<territory type="GG">Gērnsija</territory>
 			<territory type="GH">Gana</territory>
 			<territory type="GI">Gibraltārs</territory>
 			<territory type="GL">Grenlande</territory>
@@ -705,9 +756,9 @@
 			<territory type="GU">Guama</territory>
 			<territory type="GW">Gvineja-Bisava</territory>
 			<territory type="GY">Gajāna</territory>
-			<territory type="HK">Honkonga, Ķīnas īpašās pārvaldes apgabals</territory>
+			<territory type="HK">Ķīnas īpašās pārvaldes apgabals Honkonga</territory>
 			<territory type="HK" alt="proposed-x1001" draft="unconfirmed">Honkonga</territory>
-			<territory type="HK" alt="short" draft="contributed">Honkonga</territory>
+			<territory type="HK" alt="short">Honkonga</territory>
 			<territory type="HM">Hērda un Makdonalda salas</territory>
 			<territory type="HN">Hondurasa</territory>
 			<territory type="HR">Horvātija</territory>
@@ -716,16 +767,14 @@
 			<territory type="ID">Indonēzija</territory>
 			<territory type="IE">Īrija</territory>
 			<territory type="IL">Izraēla</territory>
-			<territory type="IM" draft="contributed">Mena</territory>
-			<territory type="IM" alt="proposed-x1001" draft="unconfirmed">Menas sala</territory>
+			<territory type="IM">Mena</territory>
 			<territory type="IN">Indija</territory>
 			<territory type="IO">Britu Indijas okeāna teritorija</territory>
 			<territory type="IQ">Irāka</territory>
 			<territory type="IR">Irāna</territory>
-			<territory type="IS">Islande</territory>
-			<territory type="IS" alt="proposed-x1001" draft="unconfirmed">Īslande</territory>
+			<territory type="IS">Īslande</territory>
 			<territory type="IT">Itālija</territory>
-			<territory type="JE" draft="contributed">Džērsija</territory>
+			<territory type="JE">Džērsija</territory>
 			<territory type="JM">Jamaika</territory>
 			<territory type="JO">Jordānija</territory>
 			<territory type="JP">Japāna</territory>
@@ -754,18 +803,19 @@
 			<territory type="MA">Maroka</territory>
 			<territory type="MC">Monako</territory>
 			<territory type="MD">Moldova</territory>
-			<territory type="ME" draft="contributed">Melnkalne</territory>
+			<territory type="ME">Melnkalne</territory>
+			<territory type="MF">Senmartēna</territory>
+			<territory type="MF" alt="proposed-x1001" draft="unconfirmed">Saint Martin</territory>
 			<territory type="MG">Madagaskara</territory>
 			<territory type="MH">Māršala salas</territory>
 			<territory type="MK">Maķedonija</territory>
 			<territory type="ML">Mali</territory>
 			<territory type="MM">Mjanma</territory>
 			<territory type="MN">Mongolija</territory>
-			<territory type="MO">Makao, Ķīnas īpašās pārvaldes apgabals</territory>
+			<territory type="MO">Ķīnas īpašās pārvaldes apgabals Makao</territory>
 			<territory type="MO" alt="proposed-x1001" draft="unconfirmed">Makao</territory>
-			<territory type="MO" alt="short" draft="contributed">Makao</territory>
-			<territory type="MP">Ziemeļu Marianas</territory>
-			<territory type="MP" alt="proposed-x1001" draft="unconfirmed">Ziemeļmarianas salas</territory>
+			<territory type="MO" alt="short">Makao</territory>
+			<territory type="MP">Ziemeļu Marianas salas</territory>
 			<territory type="MQ">Martinika</territory>
 			<territory type="MR">Mauritānija</territory>
 			<territory type="MS">Montserrata</territory>
@@ -779,8 +829,7 @@
 			<territory type="NA">Namībija</territory>
 			<territory type="NC">Jaunkaledonija</territory>
 			<territory type="NE">Nigēra</territory>
-			<territory type="NF">Norfolka</territory>
-			<territory type="NF" alt="proposed-x1001" draft="unconfirmed">Norfolkas sala</territory>
+			<territory type="NF">Norfolkas sala</territory>
 			<territory type="NG">Nigērija</territory>
 			<territory type="NI">Nikaragva</territory>
 			<territory type="NL">Nīderlande</territory>
@@ -805,11 +854,11 @@
 			<territory type="PW">Palau</territory>
 			<territory type="PY">Paragvaja</territory>
 			<territory type="QA">Katara</territory>
-			<territory type="QO" draft="contributed">ASV Mazās Aizjūras salas</territory>
-			<territory type="QU" draft="contributed">Eiropas Savienība</territory>
+			<territory type="QO">ASV Mazās Aizjūras salas</territory>
+			<territory type="QU">Eiropas Savienība</territory>
 			<territory type="RE">Reinjona</territory>
 			<territory type="RO">Rumānija</territory>
-			<territory type="RS" draft="contributed">Serbija</territory>
+			<territory type="RS">Serbija</territory>
 			<territory type="RU">Krievija</territory>
 			<territory type="RW">Ruanda</territory>
 			<territory type="SA">Saūda Arābija</territory>
@@ -850,8 +899,7 @@
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">ASV mazās aizjūras teritorijas</territory>
-			<territory type="US">United States</territory>
-			<territory type="US" alt="proposed-x1001" draft="unconfirmed">Amerikas Savienotās Valstis</territory>
+			<territory type="US">Amerikas Savienotās Valstis</territory>
 			<territory type="UY">Urugvaja</territory>
 			<territory type="UZ">Uzbekistāna</territory>
 			<territory type="VA">Vatikāns</territory>
@@ -868,82 +916,101 @@
 			<territory type="ZA">Dienvidāfrika</territory>
 			<territory type="ZM">Zambija</territory>
 			<territory type="ZW">Zimbabve</territory>
-			<territory type="ZZ" draft="contributed">Nezināms vai nederīgs reģions</territory>
-			<territory type="ZZ" alt="proposed-x1001" draft="unconfirmed">nezināms vai nederīgs reģions</territory>
+			<territory type="ZZ">nezināms vai nederīgs reģions</territory>
+			<territory type="ZZ" alt="proposed-x1001" draft="unconfirmed">(nezināms reģion)</territory>
 		</territories>
 		<keys>
-			<key type="calendar" draft="contributed">Kalendārs</key>
-			<key type="calendar" alt="proposed-x1001" draft="unconfirmed">kalendārs</key>
-			<key type="collation" draft="provisional">šķirošana komplektos</key>
-			<key type="currency" draft="contributed">Valūta</key>
-			<key type="currency" alt="proposed-x1001" draft="unconfirmed">valūta</key>
+			<key type="calendar">kalendārs</key>
+			<key type="collation">salīdzināšana</key>
+			<key type="currency">valūta</key>
 		</keys>
 		<types>
-			<type type="big5han" key="collation" draft="contributed">Tradicionālās ķīniešu valodas kārtošanas secība - Big5</type>
-			<type type="big5han" key="collation" alt="proposed-x1001" draft="unconfirmed">tradicionālās ķīniešu valodas kārtošanas secība - Big5</type>
-			<type type="buddhist" key="calendar" draft="contributed">Budistu kalendārs</type>
-			<type type="buddhist" key="calendar" alt="proposed-x1001" draft="unconfirmed">budistu kalendārs</type>
-			<type type="chinese" key="calendar" draft="contributed">Ķīniešu kalendārs</type>
-			<type type="chinese" key="calendar" alt="proposed-x1001" draft="unconfirmed">ķīniešu kalendārs</type>
-			<type type="direct" key="collation" draft="contributed">Tiešā kārtošanas secība</type>
-			<type type="direct" key="collation" alt="proposed-x1001" draft="unconfirmed">tiešā kārtošanas secība</type>
-			<type type="gb2312han" key="collation" draft="contributed">Vienkāršotās ķīniešu valodas kārtošanas secība - GB2312</type>
-			<type type="gb2312han" key="collation" alt="proposed-x1001" draft="unconfirmed">vienkāršotās ķīniešu valodas kārtošanas secība - GB2312</type>
-			<type type="gregorian" key="calendar" draft="contributed">Gregora kalendārs</type>
-			<type type="gregorian" key="calendar" alt="proposed-x1001" draft="unconfirmed">gregora kalendārs</type>
-			<type type="hebrew" key="calendar" draft="contributed">Ebreju kalendārs</type>
-			<type type="hebrew" key="calendar" alt="proposed-x1001" draft="unconfirmed">ebreju kalendārs</type>
-			<type type="indian" key="calendar" draft="contributed">Indijas nacionālais kalendārs</type>
-			<type type="indian" key="calendar" alt="proposed-x1001" draft="unconfirmed">indijas nacionālais kalendārs</type>
-			<type type="islamic" key="calendar" draft="contributed">Islāma kalendārs</type>
-			<type type="islamic" key="calendar" alt="proposed-x1001" draft="unconfirmed">islāma kalendārs</type>
-			<type type="islamic-civil" key="calendar" draft="contributed">Islāma pilsoņu kalendārs</type>
-			<type type="islamic-civil" key="calendar" alt="proposed-x1001" draft="unconfirmed">islāma pilsoņu kalendārs</type>
-			<type type="japanese" key="calendar" draft="contributed">Japāņu kalendārs</type>
-			<type type="japanese" key="calendar" alt="proposed-x1001" draft="unconfirmed">japāņu kalendārs</type>
-			<type type="phonebook" key="collation" draft="contributed">Tālruņu grāmatas kārtošanas secība</type>
-			<type type="phonebook" key="collation" alt="proposed-x1001" draft="unconfirmed">tālruņu grāmatas kārtošanas secība</type>
-			<type type="pinyin" key="collation" draft="contributed">Pinyin kārtošanas secība</type>
-			<type type="pinyin" key="collation" alt="proposed-x1001" draft="unconfirmed">pinyin kārtošanas secība</type>
-			<type type="roc" key="calendar" draft="contributed">Ķīnas Republikas kalendārs</type>
-			<type type="stroke" key="collation" draft="contributed">Stroke kārtošanas secība</type>
-			<type type="stroke" key="collation" alt="proposed-x1001" draft="unconfirmed">stroke kārtošanas secība</type>
-			<type type="traditional" key="collation" draft="contributed">Tradicionālā kārtošanas secība</type>
-			<type type="traditional" key="collation" alt="proposed-x1001" draft="unconfirmed">tradicionālā kārtošanas secība</type>
+			<type type="big5han" key="collation">tradicionālās ķīniešu valodas kārtošanas secība - Big5</type>
+			<type type="buddhist" key="calendar">budistu kalendārs</type>
+			<type type="chinese" key="calendar">ķīniešu kalendārs</type>
+			<type type="direct" key="collation">tiešā kārtošanas secība</type>
+			<type type="gb2312han" key="collation">vienkāršotās ķīniešu valodas kārtošanas secība - GB2312</type>
+			<type type="gregorian" key="calendar">Gregora kalendārs</type>
+			<type type="hebrew" key="calendar">ebreju kalendārs</type>
+			<type type="indian" key="calendar">Indijas nacionālais kalendārs</type>
+			<type type="islamic" key="calendar">islāma kalendārs</type>
+			<type type="islamic-civil" key="calendar">islāma pilsoņu kalendārs</type>
+			<type type="japanese" key="calendar">japāņu kalendārs</type>
+			<type type="phonebook" key="collation">tālruņu grāmatas kārtošanas secība</type>
+			<type type="pinyin" key="collation">Pinyin kārtošanas secība</type>
+			<type type="roc" key="calendar">Ķīnas Republikas kalendārs</type>
+			<type type="stroke" key="collation">Stroke kārtošanas secība</type>
+			<type type="traditional" key="collation">tradicionālā kārtošanas secība</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="US" draft="contributed">britu</measurementSystemName>
-			<measurementSystemName type="metric" draft="contributed">metriskā</measurementSystemName>
+			<measurementSystemName type="US">britu</measurementSystemName>
+			<measurementSystemName type="US" alt="proposed-x1001" draft="unconfirmed">US mērvienības</measurementSystemName>
+			<measurementSystemName type="metric">metriskā</measurementSystemName>
+			<measurementSystemName type="metric" alt="proposed-x1001" draft="unconfirmed">SI mērvienības</measurementSystemName>
 		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">Valoda: {0}</codePattern>
+			<codePattern type="script">Rakstība: {0}</codePattern>
+			<codePattern type="territory">Reģions: {0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
+	<layout>
+		<inList draft="unconfirmed">mixed</inList>
+		<inText type="currency" draft="unconfirmed">mixed</inText>
+		<inText type="fields" draft="unconfirmed">mixed</inText>
+		<inText type="keys" draft="unconfirmed">mixed</inText>
+		<inText type="languages" draft="unconfirmed">mixed</inText>
+		<inText type="long" draft="unconfirmed">mixed</inText>
+		<inText type="measurementSystemNames" draft="unconfirmed">mixed</inText>
+		<inText type="quarterWidth" draft="unconfirmed">mixed</inText>
+		<inText type="scripts" draft="unconfirmed">mixed</inText>
+		<inText type="territories" draft="unconfirmed">mixed</inText>
+		<inText type="types" draft="unconfirmed">mixed</inText>
+		<inText type="variants" draft="unconfirmed">mixed</inText>
+	</layout>
 	<characters>
 		<exemplarCharacters>[a ā b c č d e ē f g ģ h i ī j k ķ l ļ m n ņ o p r s š t u ū v z ž]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[y q w x]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol">[a-i y j-x z]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart draft="contributed">“</quotationStart>
-		<quotationEnd draft="contributed">”</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">‘</alternateQuotationStart>
-		<alternateQuotationEnd draft="unconfirmed">’</alternateQuotationEnd>
+		<quotationStart>“</quotationStart>
+		<quotationEnd>”</quotationEnd>
+		<alternateQuotationStart>‘</alternateQuotationStart>
+		<alternateQuotationEnd>’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
+		<dateRangePattern>{0} − {1}</dateRangePattern>
+		<dateRangePattern alt="proposed-x1001" draft="unconfirmed">{0}−{1}</dateRangePattern>
 		<calendars>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">Jan</month>
-							<month type="2">Feb</month>
-							<month type="3">Mar</month>
-							<month type="4">Apr</month>
-							<month type="5">Mai</month>
-							<month type="6">Jūn</month>
-							<month type="7">Jūl</month>
-							<month type="8">Aug</month>
-							<month type="9">Sep</month>
-							<month type="10">Okt</month>
-							<month type="11">Nov</month>
-							<month type="12">Dec</month>
+							<month type="1">janv.</month>
+							<month type="1" alt="proposed-x1001" draft="unconfirmed">jan</month>
+							<month type="2">febr.</month>
+							<month type="2" alt="proposed-x1001" draft="unconfirmed">feb</month>
+							<month type="3">marts</month>
+							<month type="3" alt="proposed-x1001" draft="unconfirmed">mar</month>
+							<month type="4">apr.</month>
+							<month type="4" alt="proposed-x1001" draft="unconfirmed">apr</month>
+							<month type="5">maijs</month>
+							<month type="5" alt="proposed-x1001" draft="unconfirmed">mai</month>
+							<month type="6">jūn.</month>
+							<month type="6" alt="proposed-x1001" draft="unconfirmed">jūn</month>
+							<month type="7">jūl.</month>
+							<month type="7" alt="proposed-x1001" draft="unconfirmed">jūl</month>
+							<month type="8">aug.</month>
+							<month type="8" alt="proposed-x1001" draft="unconfirmed">aug</month>
+							<month type="9">sept.</month>
+							<month type="9" alt="proposed-x1001" draft="unconfirmed">sep</month>
+							<month type="10">okt.</month>
+							<month type="10" alt="proposed-x1001" draft="unconfirmed">okt</month>
+							<month type="11">nov.</month>
+							<month type="11" alt="proposed-x1001" draft="unconfirmed">nov</month>
+							<month type="12">dec.</month>
+							<month type="12" alt="proposed-x1001" draft="unconfirmed">dec</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">janvāris</month>
@@ -962,18 +1029,18 @@
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="narrow">
-							<month type="1" draft="unconfirmed">J</month>
-							<month type="2" draft="unconfirmed">F</month>
-							<month type="3" draft="unconfirmed">M</month>
-							<month type="4" draft="unconfirmed">A</month>
-							<month type="5" draft="unconfirmed">M</month>
-							<month type="6" draft="unconfirmed">J</month>
-							<month type="7" draft="unconfirmed">J</month>
-							<month type="8" draft="unconfirmed">A</month>
-							<month type="9" draft="unconfirmed">S</month>
-							<month type="10" draft="unconfirmed">O</month>
-							<month type="11" draft="unconfirmed">N</month>
-							<month type="12" draft="unconfirmed">D</month>
+							<month type="1">J</month>
+							<month type="2">F</month>
+							<month type="3">M</month>
+							<month type="4">A</month>
+							<month type="5">M</month>
+							<month type="6">J</month>
+							<month type="7">J</month>
+							<month type="8">A</month>
+							<month type="9">S</month>
+							<month type="10">O</month>
+							<month type="11">N</month>
+							<month type="12">D</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -981,19 +1048,12 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">Sv</day>
-							<day type="sun" alt="proposed-x1001" draft="unconfirmed">sv</day>
-							<day type="mon">P</day>
-							<day type="mon" alt="proposed-x1001" draft="unconfirmed">pr</day>
-							<day type="tue">O</day>
-							<day type="tue" alt="proposed-x1001" draft="unconfirmed">ot</day>
-							<day type="wed">T</day>
-							<day type="wed" alt="proposed-x1001" draft="unconfirmed">tr</day>
-							<day type="thu">C</day>
-							<day type="thu" alt="proposed-x1001" draft="unconfirmed">ce</day>
+							<day type="mon">Pr</day>
+							<day type="tue">Ot</day>
+							<day type="wed">Tr</day>
+							<day type="thu">Ce</day>
 							<day type="fri">Pk</day>
-							<day type="fri" alt="proposed-x1001" draft="unconfirmed">pk</day>
-							<day type="sat">S</day>
-							<day type="sat" alt="proposed-x1001" draft="unconfirmed">se</day>
+							<day type="sat">Se</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">svētdiena</day>
@@ -1007,25 +1067,18 @@
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="mon" draft="provisional">Pr</day>
-							<day type="mon" alt="proposed-x1001" draft="unconfirmed">pr</day>
-							<day type="tue" draft="unconfirmed">ot</day>
-							<day type="wed" draft="provisional">Tr</day>
-							<day type="wed" alt="proposed-x1001" draft="unconfirmed">tr</day>
-							<day type="thu" draft="provisional">Ce</day>
-							<day type="thu" alt="proposed-x1001" draft="unconfirmed">ce</day>
-							<day type="fri" draft="unconfirmed">pk</day>
-							<day type="sat" draft="provisional">Se</day>
-							<day type="sat" alt="proposed-x1001" draft="unconfirmed">se</day>
+							<day type="mon">Pr</day>
+							<day type="fri">Pk</day>
+							<day type="sat">Se</day>
 						</dayWidth>
 						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">S</day>
-							<day type="mon" draft="unconfirmed">P</day>
-							<day type="tue" draft="unconfirmed">O</day>
-							<day type="wed" draft="unconfirmed">T</day>
-							<day type="thu" draft="unconfirmed">C</day>
-							<day type="fri" draft="unconfirmed">P</day>
-							<day type="sat" draft="unconfirmed">S</day>
+							<day type="sun">S</day>
+							<day type="mon">P</day>
+							<day type="tue">O</day>
+							<day type="wed">T</day>
+							<day type="thu">C</day>
+							<day type="fri">P</day>
+							<day type="sat">S</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1038,18 +1091,18 @@
 							<quarter type="4">C4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="provisional">1. ceturksnis</quarter>
-							<quarter type="2" draft="provisional">2. ceturksnis</quarter>
-							<quarter type="3" draft="provisional">3. ceturksnis</quarter>
-							<quarter type="4" draft="provisional">4. ceturksnis</quarter>
+							<quarter type="1">1. ceturksnis</quarter>
+							<quarter type="2">2. ceturksnis</quarter>
+							<quarter type="3">3. ceturksnis</quarter>
+							<quarter type="4">4. ceturksnis</quarter>
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="narrow">
-							<quarter type="1" draft="contributed">1</quarter>
-							<quarter type="2" draft="contributed">2</quarter>
-							<quarter type="3" draft="contributed">3</quarter>
-							<quarter type="4" draft="contributed">4</quarter>
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1057,14 +1110,12 @@
 				<pm draft="unconfirmed">PM</pm>
 				<eras>
 					<eraNames>
-						<era type="0" draft="contributed">pirms mūsu ēras</era>
-						<era type="1" draft="contributed">mūsu ērā</era>
+						<era type="0">pirms mūsu ēras</era>
+						<era type="1">mūsu ērā</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0">pmē</era>
-						<era type="0" alt="proposed-x1001" draft="unconfirmed">p.m.ē.</era>
-						<era type="1">mē</era>
-						<era type="1" alt="proposed-x1001" draft="unconfirmed">m.ē.</era>
+						<era type="0">p.m.ē.</era>
+						<era type="1">m.ē.</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0" draft="contributed">p.m.ē.</era>
@@ -1084,194 +1135,314 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>yyyy.d.M</pattern>
+							<pattern>y. 'gada' d. MMM</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>yy.d.M</pattern>
+							<pattern>dd.MM.yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss v</pattern>
+							<pattern>HH:mm:ss v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
+							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss</pattern>
+							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm</pattern>
+							<pattern>HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="Ed" draft="provisional">E d</dateFormatItem>
-						<dateFormatItem id="H" draft="provisional">H</dateFormatItem>
-						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
-						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
-						<dateFormatItem id="MEd" draft="contributed">E, dd.MM</dateFormatItem>
-						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="contributed">E, d. MMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd" draft="contributed">E, d. MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="provisional">d. MMMM</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">d. MMM</dateFormatItem>
-						<dateFormatItem id="Md" draft="unconfirmed">d.M</dateFormatItem>
-						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
-						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
-						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
-						<dateFormatItem id="y" draft="contributed">y</dateFormatItem>
-						<dateFormatItem id="yM" draft="contributed">mm.yyyy</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">EEE, dd.mm.yyyy</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">y. MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">EEE, dd. MMM, y</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="contributed">y. MMMM</dateFormatItem>
-						<dateFormatItem id="yQ" draft="contributed">Q yyyy</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="contributed">y QQQ</dateFormatItem>
-						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
-						<dateFormatItem id="yyyy" draft="provisional">y. 'g'.</dateFormatItem>
+						<dateFormatItem id="EEEd">EEE, d.</dateFormatItem>
+						<dateFormatItem id="Ed">EEE, d.</dateFormatItem>
+						<dateFormatItem id="H">H</dateFormatItem>
+						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="MEd">E, dd.MM.</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, d. MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
+						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
+						<dateFormatItem id="Md">dd.mm.</dateFormatItem>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">y. 'g'.</dateFormatItem>
+						<dateFormatItem id="yM">mm.yyyy.</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, dd.mm.yyyy.</dateFormatItem>
+						<dateFormatItem id="yMMM">yyyy. 'g'. MMM</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, yyyy. 'g'. dd. MMM</dateFormatItem>
+						<dateFormatItem id="yMMMM">y. 'g'. MMMM</dateFormatItem>
+						<dateFormatItem id="yQ">Q yyyy</dateFormatItem>
+						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
+						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
+						<dateFormatItem id="yyyy">y. 'g'.</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="unconfirmed">{0} - {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
 						<intervalFormatItem id="M">
-							<greatestDifference id="M" draft="unconfirmed">M-M</greatestDifference>
+							<greatestDifference id="M">mm.–mm.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="M" draft="unconfirmed">E, d.M - E, d.M</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">E, d.M - E, d.M</greatestDifference>
+							<greatestDifference id="M">E, dd.MM - E, dd.MM</greatestDifference>
+							<greatestDifference id="d">E, dd.MM – E, dd.MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
-							<greatestDifference id="M" draft="unconfirmed">MMM-MMM</greatestDifference>
+							<greatestDifference id="M">MMM-MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="M" draft="unconfirmed">E, d. MMM - E, d. MMM</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">E, d. - E, d. MMM</greatestDifference>
+							<greatestDifference id="M">E, d. MMM - E, d. MMM</greatestDifference>
+							<greatestDifference id="d">E, d. MMM – E, d. MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMM">
+							<greatestDifference id="M">LLLL–LLLL</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
-							<greatestDifference id="M" draft="unconfirmed">d. MMM - d. MMM</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">d.-d. MMM</greatestDifference>
+							<greatestDifference id="M">d. MMM - d. MMM</greatestDifference>
+							<greatestDifference id="d">d.-d. MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="M" draft="unconfirmed">d.M - d.M</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">d.M - d.M</greatestDifference>
+							<greatestDifference id="M">dd.mm–dd.mm</greatestDifference>
+							<greatestDifference id="d">dd.mm.–dd.mm.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
-							<greatestDifference id="d" draft="unconfirmed">d-d</greatestDifference>
+							<greatestDifference id="d">d.–d.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="h" draft="unconfirmed">HH-HH</greatestDifference>
+							<greatestDifference id="a">HH–HH</greatestDifference>
+							<greatestDifference id="h">HH-HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="h" draft="unconfirmed">HH:mm-HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">HH:mm-HH:mm</greatestDifference>
+							<greatestDifference id="a">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="h">HH:mm-HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm-HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="h" draft="unconfirmed">HH:mm-HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">HH:mm-HH:mm v</greatestDifference>
+							<greatestDifference id="a">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="h">HH:mm-HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm-HH:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="h" draft="unconfirmed">HH-HH v</greatestDifference>
+							<greatestDifference id="a">HH–HH v</greatestDifference>
+							<greatestDifference id="h">HH-HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y" draft="unconfirmed">y-y</greatestDifference>
+							<greatestDifference id="y">y.–y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M" draft="unconfirmed">yy.M - yy.M</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">yy.M - yy.M</greatestDifference>
+							<greatestDifference id="M">mm.yyyy.–mm.yyyy.</greatestDifference>
+							<greatestDifference id="y">mm.yyyy.–mm.yyyy.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="M" draft="unconfirmed">E, yy.d.M - E, yy.d.M</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">E, yy.d.M - E, yy.d.M</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">E, yy.d.M - E, yy.d.M</greatestDifference>
+							<greatestDifference id="M">EEE, dd.mm.yy. – EEE, dd.mm.yy.</greatestDifference>
+							<greatestDifference id="d">EEE, dd.mm.yy. – EEE, dd.mm.yy.</greatestDifference>
+							<greatestDifference id="y">EEE, dd.mm.yy. – EEE, dd.mm.yy.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="unconfirmed">y. 'gada' MMM-MMM</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">y. 'gada' MMM - y. 'gada' MMM</greatestDifference>
+							<greatestDifference id="M">y. 'gada' MMM-MMM</greatestDifference>
+							<greatestDifference id="y">y. 'gada' MMM - y. 'gada' MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="M" draft="unconfirmed">E, y. 'gada' d. MMM - E, y. 'gada' d. MMM</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">E, y. 'gada' d. MMM - E, y. 'gada' d. MMM</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">E, y. 'gada' d. MMM - E, y. 'gada' d. MMM</greatestDifference>
+							<greatestDifference id="M">E, y. 'gada' d. MMM - E, y. 'gada' d. MMM</greatestDifference>
+							<greatestDifference id="d">E, y. 'gada' d. MMM - E, y. 'gada' d. MMM</greatestDifference>
+							<greatestDifference id="y">E, y. 'gada' d. MMM - E, y. 'gada' d. MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">mm.yyyy.–mm.yyyy.</greatestDifference>
+							<greatestDifference id="y">mm.yyyy.–mm.yyyy.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M" draft="unconfirmed">y. 'gada' d. MMM - d. MMM</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">y. 'gada' d.-d. MMM</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">y. 'gada' d. MMM - y. 'gada' d. MMM</greatestDifference>
+							<greatestDifference id="M">y. 'gada' d. MMM - d. MMM</greatestDifference>
+							<greatestDifference id="d">y. 'gada' d.-d. MMM</greatestDifference>
+							<greatestDifference id="y">y. 'gada' d. MMM - y. 'gada' d. MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="M" draft="unconfirmed">yy.d.M - yy.d.M</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">yy.d.M - yy.d.M</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">yy.d.M - yy.d.M</greatestDifference>
+							<greatestDifference id="M">dd.mm.yy.–dd.mm.yy.</greatestDifference>
+							<greatestDifference id="d">dd.mm.yyyy.–dd.mm.yyyy.</greatestDifference>
+							<greatestDifference id="y">dd.mm.yy.–dd.mm.yy.</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
 				<fields>
 					<field type="era">
-						<displayName draft="provisional">Ēra</displayName>
-						<displayName alt="proposed-x1001" draft="unconfirmed">ēra</displayName>
+						<displayName>ēra</displayName>
 					</field>
 					<field type="year">
-						<displayName draft="provisional">Gads</displayName>
+						<displayName>Gads</displayName>
 						<displayName alt="proposed-x1001" draft="unconfirmed">gads</displayName>
 					</field>
 					<field type="month">
-						<displayName draft="provisional">Mēnesis</displayName>
+						<displayName>Mēnesis</displayName>
 						<displayName alt="proposed-x1001" draft="unconfirmed">mēnesis</displayName>
 					</field>
 					<field type="week">
-						<displayName draft="provisional">Nedēļa</displayName>
+						<displayName>Nedēļa</displayName>
 						<displayName alt="proposed-x1001" draft="unconfirmed">nedēļa</displayName>
 					</field>
 					<field type="day">
-						<relative type="0" draft="contributed">šodien</relative>
-						<relative type="1" draft="contributed">rīt</relative>
-						<relative type="2" draft="contributed">parīt</relative>
-						<relative type="3" draft="contributed">aizparīt</relative>
-						<relative type="-1" draft="contributed">vakar</relative>
-						<relative type="-2" draft="contributed">aizvakar</relative>
+						<displayName>diena</displayName>
+						<relative type="-3">aizaizvakar</relative>
+						<relative type="-2">aizvakar</relative>
+						<relative type="-1">vakar</relative>
+						<relative type="0">šodien</relative>
+						<relative type="1">rīt</relative>
+						<relative type="2">parīt</relative>
+						<relative type="3">aizparīt</relative>
 					</field>
 					<field type="weekday">
-						<displayName draft="provisional">Nedēļas diena</displayName>
+						<displayName>Nedēļas diena</displayName>
 						<displayName alt="proposed-x1001" draft="unconfirmed">nedēļas diena</displayName>
 					</field>
+					<field type="dayperiod">
+						<displayName>Dayperiod</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">AM/PM</displayName>
+					</field>
 					<field type="hour">
-						<displayName draft="provisional">Stundas</displayName>
+						<displayName>Stundas</displayName>
 						<displayName alt="proposed-x1001" draft="unconfirmed">stundas</displayName>
 					</field>
 					<field type="minute">
-						<displayName draft="provisional">Minūtes</displayName>
+						<displayName>Minūtes</displayName>
 						<displayName alt="proposed-x1001" draft="unconfirmed">minūtes</displayName>
 					</field>
 					<field type="second">
-						<displayName draft="provisional">Sekundes</displayName>
+						<displayName>Sekundes</displayName>
 						<displayName alt="proposed-x1001" draft="unconfirmed">sekundes</displayName>
 					</field>
 					<field type="zone">
-						<displayName draft="provisional">Josla</displayName>
+						<displayName>Josla</displayName>
 						<displayName alt="proposed-x1001" draft="unconfirmed">josla</displayName>
 					</field>
 				</fields>
 			</calendar>
+			<calendar type="hebrew">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">tišri</month>
+							<month type="2">hešvans</month>
+							<month type="3">kisļevs</month>
+							<month type="4">tevets</month>
+							<month type="5">ševats</month>
+							<month type="7">adars</month>
+							<month type="8">nisans</month>
+							<month type="9">ijars</month>
+							<month type="10">sivans</month>
+							<month type="11">tamuzs</month>
+							<month type="12">avs</month>
+							<month type="13">eluls</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">tišri</month>
+							<month type="2">hešvans</month>
+							<month type="3">kisļevs</month>
+							<month type="4">tevets</month>
+							<month type="5">ševats</month>
+							<month type="7">adars</month>
+							<month type="8">nisans</month>
+							<month type="9">ijars</month>
+							<month type="10">sivans</month>
+							<month type="11">tamuzs</month>
+							<month type="12">avs</month>
+							<month type="13">eluls</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="wide">
+							<month type="1">tišri</month>
+							<month type="2">hešvans</month>
+							<month type="3">kisļevs</month>
+							<month type="4">tevets</month>
+							<month type="5">ševats</month>
+							<month type="7">adars</month>
+							<month type="8">nisans</month>
+							<month type="9">ijars</month>
+							<month type="10">sivans</month>
+							<month type="11">tamuzs</month>
+							<month type="12">avs</month>
+							<month type="13">eluls</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
+			<calendar type="islamic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">muharams</month>
+							<month type="2">safars</month>
+							<month type="3">1. rabī</month>
+							<month type="4">2. rabī</month>
+							<month type="5">1. džumādā</month>
+							<month type="6">2. džumādā</month>
+							<month type="7">radžabs</month>
+							<month type="8">šabans</month>
+							<month type="9">ramadāns</month>
+							<month type="10">šauvals</month>
+							<month type="11">du al-kidā</month>
+							<month type="12">du al-hidžā</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">muharams</month>
+							<month type="2">safars</month>
+							<month type="3">1. rabī</month>
+							<month type="4">2. rabī</month>
+							<month type="5">1. džumādā</month>
+							<month type="6">2. džumādā</month>
+							<month type="7">radžabs</month>
+							<month type="8">šabans</month>
+							<month type="9">ramadāns</month>
+							<month type="10">šauvals</month>
+							<month type="11">du al-kidā</month>
+							<month type="12">du al-hidžā</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="wide">
+							<month type="1">muharams</month>
+							<month type="2">safars</month>
+							<month type="3">1. rabī</month>
+							<month type="4">2. rabī</month>
+							<month type="5">1. džumādā</month>
+							<month type="6">2. džumādā</month>
+							<month type="7">radžabs</month>
+							<month type="8">šabans</month>
+							<month type="9">ramadāns</month>
+							<month type="10">šauvals</month>
+							<month type="11">du al-kidā</month>
+							<month type="12">du al-hidžā</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<regionFormat draft="unconfirmed">{0}</regionFormat>
+			<hourFormat>+HH:mm;−HH:mm</hourFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat>GMT</gmtZeroFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<fallbackFormat alt="proposed-x1001" draft="unconfirmed">{0} ({1})</fallbackFormat>
 			<zone type="Etc/Unknown">
-				<exemplarCity draft="contributed">Nezināma</exemplarCity>
+				<exemplarCity>Nezināma</exemplarCity>
 			</zone>
 			<zone type="Europe/Andorra">
 				<exemplarCity draft="provisional">Andora</exemplarCity>
@@ -1298,67 +1469,70 @@
 				<exemplarCity draft="provisional">Nīderlandes Antiļas</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Rothera">
-				<exemplarCity draft="provisional">Rotera</exemplarCity>
+				<exemplarCity>Rotera</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Palmer">
-				<exemplarCity draft="provisional">Palmera</exemplarCity>
+				<exemplarCity>Palmera</exemplarCity>
 			</zone>
 			<zone type="Antarctica/South_Pole">
-				<exemplarCity draft="provisional">Dienvidpols</exemplarCity>
+				<exemplarCity>Dienvidpols</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Syowa">
-				<exemplarCity draft="provisional">Sjova</exemplarCity>
+				<exemplarCity>Sjova</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Mawson">
-				<exemplarCity draft="provisional">Mavsona</exemplarCity>
+				<exemplarCity>Mavsona</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Davis">
-				<exemplarCity draft="provisional">Deivisa</exemplarCity>
+				<exemplarCity>Deivisa</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Vostok">
-				<exemplarCity draft="provisional">Vostoka</exemplarCity>
+				<exemplarCity>Vostoka</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Casey">
-				<exemplarCity draft="provisional">Kesija</exemplarCity>
+				<exemplarCity>Kesija</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity draft="provisional">Dumont D'Urville</exemplarCity>
+				<exemplarCity>Dumont D'Urville</exemplarCity>
 			</zone>
 			<zone type="Antarctica/McMurdo">
-				<exemplarCity draft="provisional">Makmerdo</exemplarCity>
+				<exemplarCity>Makmerdo</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity draft="contributed">Riogaljegosa</exemplarCity>
+				<exemplarCity>Riogaljegosa</exemplarCity>
 			</zone>
 			<zone type="America/Mendoza">
-				<exemplarCity draft="contributed">Mendosa</exemplarCity>
+				<exemplarCity>Mendosa</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/San_Juan">
-				<exemplarCity draft="contributed">Sanhuana</exemplarCity>
+				<exemplarCity>Sanhuana</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity draft="contributed">Ušuaja</exemplarCity>
+				<exemplarCity>Ušuaja</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity draft="contributed">Larioha</exemplarCity>
+				<exemplarCity>Larioha</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/San_Luis">
-				<exemplarCity draft="contributed">Sanluisa</exemplarCity>
+				<exemplarCity>Sanluisa</exemplarCity>
 			</zone>
 			<zone type="America/Catamarca">
-				<exemplarCity draft="contributed">Katamarka</exemplarCity>
+				<exemplarCity>Katamarka</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Salta">
+				<exemplarCity>Salta</exemplarCity>
 			</zone>
 			<zone type="America/Jujuy">
-				<exemplarCity draft="contributed">Žužuja</exemplarCity>
+				<exemplarCity>Žužuja</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
-				<exemplarCity draft="contributed">Tukumana</exemplarCity>
+				<exemplarCity>Tukumana</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
-				<exemplarCity draft="contributed">Kordoba</exemplarCity>
+				<exemplarCity>Kordoba</exemplarCity>
 			</zone>
 			<zone type="America/Buenos_Aires">
-				<exemplarCity draft="provisional">Buenosairesa</exemplarCity>
+				<exemplarCity>Buenosairesa</exemplarCity>
 			</zone>
 			<zone type="Pacific/Pago_Pago">
 				<exemplarCity draft="provisional">Pagopago</exemplarCity>
@@ -1367,40 +1541,40 @@
 				<exemplarCity draft="provisional">Vīne</exemplarCity>
 			</zone>
 			<zone type="Australia/Perth">
-				<exemplarCity draft="contributed">Pērta</exemplarCity>
+				<exemplarCity>Pērta</exemplarCity>
 			</zone>
 			<zone type="Australia/Eucla">
-				<exemplarCity draft="contributed">Jūkla</exemplarCity>
+				<exemplarCity>Jūkla</exemplarCity>
 			</zone>
 			<zone type="Australia/Darwin">
-				<exemplarCity draft="contributed">Dārvina</exemplarCity>
+				<exemplarCity>Dārvina</exemplarCity>
 			</zone>
 			<zone type="Australia/Adelaide">
-				<exemplarCity draft="contributed">Adelaida</exemplarCity>
+				<exemplarCity>Adelaida</exemplarCity>
 			</zone>
 			<zone type="Australia/Broken_Hill">
-				<exemplarCity draft="contributed">Brokenhila</exemplarCity>
+				<exemplarCity>Brokenhila</exemplarCity>
 			</zone>
 			<zone type="Australia/Currie">
-				<exemplarCity draft="contributed">Kerija</exemplarCity>
+				<exemplarCity>Kerija</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">
-				<exemplarCity draft="contributed">Melburna</exemplarCity>
+				<exemplarCity>Melburna</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
-				<exemplarCity draft="contributed">Hobarta</exemplarCity>
+				<exemplarCity>Hobarta</exemplarCity>
 			</zone>
 			<zone type="Australia/Lindeman">
-				<exemplarCity draft="contributed">Lindemana</exemplarCity>
+				<exemplarCity>Lindemana</exemplarCity>
 			</zone>
 			<zone type="Australia/Sydney">
-				<exemplarCity draft="unconfirmed">Sidneja</exemplarCity>
+				<exemplarCity>Sidneja</exemplarCity>
 			</zone>
 			<zone type="Australia/Brisbane">
-				<exemplarCity draft="contributed">Brisbena</exemplarCity>
+				<exemplarCity>Brisbena</exemplarCity>
 			</zone>
 			<zone type="Australia/Lord_Howe">
-				<exemplarCity draft="contributed">Lordhova</exemplarCity>
+				<exemplarCity>Lordhova</exemplarCity>
 			</zone>
 			<zone type="America/Barbados">
 				<exemplarCity draft="provisional">Barbadosa</exemplarCity>
@@ -1436,46 +1610,52 @@
 				<exemplarCity draft="provisional">Lapasa</exemplarCity>
 			</zone>
 			<zone type="America/Eirunepe">
-				<exemplarCity draft="contributed">Eirenupe</exemplarCity>
+				<exemplarCity>Eirenupe</exemplarCity>
 			</zone>
 			<zone type="America/Rio_Branco">
-				<exemplarCity draft="contributed">Riobranko</exemplarCity>
+				<exemplarCity>Riobranko</exemplarCity>
 			</zone>
 			<zone type="America/Porto_Velho">
-				<exemplarCity draft="provisional">Portuvelju</exemplarCity>
+				<exemplarCity>Portuvelju</exemplarCity>
 			</zone>
 			<zone type="America/Boa_Vista">
-				<exemplarCity draft="provisional">Boavista</exemplarCity>
+				<exemplarCity>Boavista</exemplarCity>
 			</zone>
 			<zone type="America/Manaus">
-				<exemplarCity draft="provisional">Manausa</exemplarCity>
+				<exemplarCity>Manausa</exemplarCity>
 			</zone>
 			<zone type="America/Cuiaba">
-				<exemplarCity draft="provisional">Kujaba</exemplarCity>
+				<exemplarCity>Kujaba</exemplarCity>
+			</zone>
+			<zone type="America/Santarem">
+				<exemplarCity>Santarena</exemplarCity>
 			</zone>
 			<zone type="America/Campo_Grande">
-				<exemplarCity draft="provisional">Kampugrandi</exemplarCity>
+				<exemplarCity>Kampugrandi</exemplarCity>
 			</zone>
 			<zone type="America/Belem">
-				<exemplarCity draft="provisional">Belena</exemplarCity>
+				<exemplarCity>Belena</exemplarCity>
 			</zone>
 			<zone type="America/Araguaina">
-				<exemplarCity draft="provisional">Aragvaina</exemplarCity>
+				<exemplarCity>Aragvaina</exemplarCity>
 			</zone>
 			<zone type="America/Sao_Paulo">
-				<exemplarCity draft="contributed">Sanpaulu</exemplarCity>
+				<exemplarCity>Sanpaulu</exemplarCity>
 			</zone>
 			<zone type="America/Bahia">
-				<exemplarCity draft="provisional">Brazīlija (Salvadora)</exemplarCity>
+				<exemplarCity>Brazīlija (Salvadora)</exemplarCity>
 			</zone>
 			<zone type="America/Fortaleza">
-				<exemplarCity draft="contributed">Fortalesa</exemplarCity>
+				<exemplarCity>Fortalesa</exemplarCity>
 			</zone>
 			<zone type="America/Maceio">
-				<exemplarCity draft="provisional">Maseio</exemplarCity>
+				<exemplarCity>Maseio</exemplarCity>
 			</zone>
 			<zone type="America/Recife">
-				<exemplarCity draft="provisional">Resifi</exemplarCity>
+				<exemplarCity>Resifi</exemplarCity>
+			</zone>
+			<zone type="America/Noronha">
+				<exemplarCity>Noroņa</exemplarCity>
 			</zone>
 			<zone type="America/Nassau">
 				<exemplarCity draft="provisional">Naso</exemplarCity>
@@ -1490,91 +1670,91 @@
 				<exemplarCity draft="provisional">Beliza</exemplarCity>
 			</zone>
 			<zone type="America/Dawson">
-				<exemplarCity draft="contributed">Dausona</exemplarCity>
+				<exemplarCity>Dausona</exemplarCity>
 			</zone>
 			<zone type="America/Whitehorse">
-				<exemplarCity draft="contributed">Vaithorsa</exemplarCity>
+				<exemplarCity>Vaithorsa</exemplarCity>
 			</zone>
 			<zone type="America/Inuvik">
-				<exemplarCity draft="contributed">Inuvika</exemplarCity>
+				<exemplarCity>Inuvika</exemplarCity>
 			</zone>
 			<zone type="America/Vancouver">
-				<exemplarCity draft="contributed">Vankūvera</exemplarCity>
+				<exemplarCity>Vankūvera</exemplarCity>
 			</zone>
 			<zone type="America/Dawson_Creek">
-				<exemplarCity draft="contributed">Dousonkrīka</exemplarCity>
+				<exemplarCity>Dousonkrīka</exemplarCity>
 			</zone>
 			<zone type="America/Yellowknife">
-				<exemplarCity draft="contributed">Jelounaifa</exemplarCity>
+				<exemplarCity>Jelounaifa</exemplarCity>
 			</zone>
 			<zone type="America/Edmonton">
-				<exemplarCity draft="contributed">Edmontona</exemplarCity>
+				<exemplarCity>Edmontona</exemplarCity>
 			</zone>
 			<zone type="America/Swift_Current">
-				<exemplarCity draft="contributed">Sviftkarenta</exemplarCity>
+				<exemplarCity>Sviftkarenta</exemplarCity>
 			</zone>
 			<zone type="America/Cambridge_Bay">
-				<exemplarCity draft="contributed">Kembridžbeja</exemplarCity>
+				<exemplarCity>Kembridžbeja</exemplarCity>
 			</zone>
 			<zone type="America/Regina">
-				<exemplarCity draft="contributed">Regīna</exemplarCity>
+				<exemplarCity>Regīna</exemplarCity>
 			</zone>
 			<zone type="America/Winnipeg">
-				<exemplarCity draft="contributed">Vinipega</exemplarCity>
+				<exemplarCity>Vinipega</exemplarCity>
 			</zone>
 			<zone type="America/Resolute">
-				<exemplarCity draft="contributed">Rezolūta</exemplarCity>
+				<exemplarCity>Rezolūta</exemplarCity>
 			</zone>
 			<zone type="America/Rainy_River">
-				<exemplarCity draft="contributed">Reinirivera</exemplarCity>
+				<exemplarCity>Reinirivera</exemplarCity>
 			</zone>
 			<zone type="America/Rankin_Inlet">
-				<exemplarCity draft="contributed">Rankininleta</exemplarCity>
+				<exemplarCity>Rankininleta</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
-				<exemplarCity draft="contributed">Koralharbora</exemplarCity>
+				<exemplarCity>Koralharbora</exemplarCity>
 			</zone>
 			<zone type="America/Thunder_Bay">
-				<exemplarCity draft="contributed">Tanderbeja</exemplarCity>
+				<exemplarCity>Tanderbeja</exemplarCity>
 			</zone>
 			<zone type="America/Nipigon">
-				<exemplarCity draft="contributed">Nipigona</exemplarCity>
+				<exemplarCity>Nipigona</exemplarCity>
 			</zone>
 			<zone type="America/Montreal">
-				<exemplarCity draft="contributed">Monreāla</exemplarCity>
+				<exemplarCity>Monreāla</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
-				<exemplarCity draft="contributed">Ikaluita</exemplarCity>
+				<exemplarCity>Ikaluita</exemplarCity>
 			</zone>
 			<zone type="America/Pangnirtung">
-				<exemplarCity draft="contributed">Pangnirtanga</exemplarCity>
+				<exemplarCity>Pangnirtanga</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
-				<exemplarCity draft="contributed">Monktona</exemplarCity>
+				<exemplarCity>Monktona</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
-				<exemplarCity draft="contributed">Halifaksa</exemplarCity>
+				<exemplarCity>Halifaksa</exemplarCity>
 			</zone>
 			<zone type="America/Goose_Bay">
-				<exemplarCity draft="contributed">Gūsbeja</exemplarCity>
+				<exemplarCity>Gūsbeja</exemplarCity>
 			</zone>
 			<zone type="America/Glace_Bay">
-				<exemplarCity draft="contributed">Gleisbeja</exemplarCity>
+				<exemplarCity>Gleisbeja</exemplarCity>
 			</zone>
 			<zone type="America/Blanc-Sablon">
-				<exemplarCity draft="contributed">Blanksablona</exemplarCity>
+				<exemplarCity>Blanksablona</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
-				<exemplarCity draft="contributed">Sentdžonsa</exemplarCity>
+				<exemplarCity>Sentdžonsa</exemplarCity>
 			</zone>
 			<zone type="Indian/Cocos">
 				<exemplarCity draft="provisional">Kokosa</exemplarCity>
 			</zone>
 			<zone type="Africa/Kinshasa">
-				<exemplarCity draft="provisional">Kinšasa</exemplarCity>
+				<exemplarCity>Kinšasa</exemplarCity>
 			</zone>
 			<zone type="Africa/Lubumbashi">
-				<exemplarCity draft="provisional">Lubumbaši</exemplarCity>
+				<exemplarCity>Lubumbaši</exemplarCity>
 			</zone>
 			<zone type="Africa/Bangui">
 				<exemplarCity draft="provisional">Bangi</exemplarCity>
@@ -1589,7 +1769,7 @@
 				<exemplarCity draft="provisional">Abidžana</exemplarCity>
 			</zone>
 			<zone type="Pacific/Easter">
-				<exemplarCity draft="provisional">Lieldienu sala</exemplarCity>
+				<exemplarCity>Lieldienu sala</exemplarCity>
 			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity draft="provisional">Santjago</exemplarCity>
@@ -1598,16 +1778,16 @@
 				<exemplarCity draft="provisional">Duala</exemplarCity>
 			</zone>
 			<zone type="Asia/Kashgar">
-				<exemplarCity draft="contributed">Kašgara</exemplarCity>
+				<exemplarCity>Kašgara</exemplarCity>
 			</zone>
 			<zone type="Asia/Urumqi">
-				<exemplarCity draft="contributed">Urumči</exemplarCity>
+				<exemplarCity>Urumči</exemplarCity>
 			</zone>
 			<zone type="Asia/Chongqing">
-				<exemplarCity draft="contributed">Čuncina</exemplarCity>
+				<exemplarCity>Čuncina</exemplarCity>
 			</zone>
 			<zone type="Asia/Harbin">
-				<exemplarCity draft="contributed">Harbina</exemplarCity>
+				<exemplarCity>Harbina</exemplarCity>
 			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity draft="provisional">Kostarika</exemplarCity>
@@ -1643,7 +1823,7 @@
 				<exemplarCity draft="provisional">Alžīra</exemplarCity>
 			</zone>
 			<zone type="Pacific/Galapagos">
-				<exemplarCity draft="provisional">Galapagu salas</exemplarCity>
+				<exemplarCity>Galapagu salas</exemplarCity>
 			</zone>
 			<zone type="America/Guayaquil">
 				<exemplarCity draft="provisional">Gvajakila</exemplarCity>
@@ -1658,10 +1838,10 @@
 				<exemplarCity draft="provisional">Ajūna</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Canary">
-				<exemplarCity draft="provisional">Kanāriju salas</exemplarCity>
+				<exemplarCity>Kanāriju salas</exemplarCity>
 			</zone>
 			<zone type="Africa/Ceuta">
-				<exemplarCity draft="provisional">Seūta</exemplarCity>
+				<exemplarCity>Seūta</exemplarCity>
 			</zone>
 			<zone type="Europe/Madrid">
 				<exemplarCity draft="provisional">Madride</exemplarCity>
@@ -1676,10 +1856,13 @@
 				<exemplarCity draft="provisional">Stenlija</exemplarCity>
 			</zone>
 			<zone type="Pacific/Truk">
-				<exemplarCity draft="provisional">Trūka</exemplarCity>
+				<exemplarCity>Trūka</exemplarCity>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<exemplarCity>Ponpeja</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kosrae">
-				<exemplarCity draft="contributed">Kosraja</exemplarCity>
+				<exemplarCity>Kosraja</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity draft="provisional">Farēru salas</exemplarCity>
@@ -1706,16 +1889,16 @@
 				<exemplarCity draft="provisional">Gibraltārs</exemplarCity>
 			</zone>
 			<zone type="America/Thule">
-				<exemplarCity draft="provisional">Tūle</exemplarCity>
+				<exemplarCity>Tūle</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
 				<exemplarCity draft="provisional">Nūka</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
-				<exemplarCity draft="provisional">Skoresbisunda</exemplarCity>
+				<exemplarCity>Skoresbisunda</exemplarCity>
 			</zone>
 			<zone type="America/Danmarkshavn">
-				<exemplarCity draft="provisional">Denmārkšavna</exemplarCity>
+				<exemplarCity>Denmārkšavna</exemplarCity>
 			</zone>
 			<zone type="Africa/Banjul">
 				<exemplarCity draft="provisional">Bandžula</exemplarCity>
@@ -1754,16 +1937,16 @@
 				<exemplarCity draft="provisional">Budapešta</exemplarCity>
 			</zone>
 			<zone type="Asia/Jakarta">
-				<exemplarCity draft="provisional">Džakarta</exemplarCity>
+				<exemplarCity>Džakarta</exemplarCity>
 			</zone>
 			<zone type="Asia/Pontianak">
-				<exemplarCity draft="contributed">Pontianaka</exemplarCity>
+				<exemplarCity>Pontianaka</exemplarCity>
 			</zone>
 			<zone type="Asia/Makassar">
-				<exemplarCity draft="provisional">Makasara</exemplarCity>
+				<exemplarCity>Makasara</exemplarCity>
 			</zone>
 			<zone type="Asia/Jayapura">
-				<exemplarCity draft="provisional">Džajapūra</exemplarCity>
+				<exemplarCity>Džajapūra</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
 				<exemplarCity draft="provisional">Dublina</exemplarCity>
@@ -1799,10 +1982,13 @@
 				<exemplarCity draft="provisional">Pnompeņa</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity draft="provisional">Enderburija</exemplarCity>
+				<exemplarCity>Enderburija</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity>Kirisimasi</exemplarCity>
 			</zone>
 			<zone type="Pacific/Tarawa">
-				<exemplarCity draft="provisional">Tarava</exemplarCity>
+				<exemplarCity>Tarava</exemplarCity>
 			</zone>
 			<zone type="Indian/Comoro">
 				<exemplarCity draft="provisional">Komoru</exemplarCity>
@@ -1823,19 +2009,19 @@
 				<exemplarCity draft="provisional">Kaimanu Salas</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtau">
-				<exemplarCity draft="provisional">Aktau</exemplarCity>
+				<exemplarCity>Aktau</exemplarCity>
 			</zone>
 			<zone type="Asia/Oral">
-				<exemplarCity draft="contributed">Orāla</exemplarCity>
+				<exemplarCity>Orāla</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
-				<exemplarCity draft="provisional">Aktobe</exemplarCity>
+				<exemplarCity>Aktobe</exemplarCity>
 			</zone>
 			<zone type="Asia/Qyzylorda">
-				<exemplarCity draft="contributed">Kizilorda</exemplarCity>
+				<exemplarCity>Kizilorda</exemplarCity>
 			</zone>
 			<zone type="Asia/Almaty">
-				<exemplarCity draft="contributed">Almati</exemplarCity>
+				<exemplarCity>Almati</exemplarCity>
 			</zone>
 			<zone type="Asia/Vientiane">
 				<exemplarCity draft="provisional">Vjangčana</exemplarCity>
@@ -1880,7 +2066,7 @@
 				<exemplarCity draft="provisional">Antananarivu</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kwajalein">
-				<exemplarCity draft="contributed">Kvadžaleina</exemplarCity>
+				<exemplarCity>Kvadžaleina</exemplarCity>
 			</zone>
 			<zone type="Pacific/Majuro">
 				<exemplarCity draft="provisional">Madžuro</exemplarCity>
@@ -1889,13 +2075,13 @@
 				<exemplarCity draft="provisional">Jangona</exemplarCity>
 			</zone>
 			<zone type="Asia/Hovd">
-				<exemplarCity draft="provisional">Hovda</exemplarCity>
+				<exemplarCity>Hovda</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity draft="provisional">Ulanbatora</exemplarCity>
+				<exemplarCity>Ulanbatora</exemplarCity>
 			</zone>
 			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="provisional">Čoibalsana</exemplarCity>
+				<exemplarCity>Čoibalsana</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity draft="provisional">Makao</exemplarCity>
@@ -1922,31 +2108,34 @@
 				<exemplarCity draft="provisional">Blantaira</exemplarCity>
 			</zone>
 			<zone type="America/Tijuana">
-				<exemplarCity draft="contributed">Tihuāna</exemplarCity>
+				<exemplarCity>Tihuāna</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
-				<exemplarCity draft="contributed">Ermosiljo</exemplarCity>
+				<exemplarCity>Ermosiljo</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
-				<exemplarCity draft="contributed">Masatlāna</exemplarCity>
+				<exemplarCity>Masatlāna</exemplarCity>
 			</zone>
 			<zone type="America/Chihuahua">
-				<exemplarCity draft="contributed">Čihuahua</exemplarCity>
+				<exemplarCity>Čihuahua</exemplarCity>
 			</zone>
 			<zone type="America/Monterrey">
-				<exemplarCity draft="contributed">Montereja</exemplarCity>
+				<exemplarCity>Montereja</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
-				<exemplarCity draft="contributed">Mehiko</exemplarCity>
+				<exemplarCity>Mehiko</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity>Merida</exemplarCity>
 			</zone>
 			<zone type="America/Cancun">
-				<exemplarCity draft="contributed">Kankūna</exemplarCity>
+				<exemplarCity>Kankūna</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuala_Lumpur">
 				<exemplarCity draft="provisional">Kualalumpura</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuching">
-				<exemplarCity draft="contributed">Kučinga</exemplarCity>
+				<exemplarCity>Kučinga</exemplarCity>
 			</zone>
 			<zone type="Africa/Windhoek">
 				<exemplarCity draft="provisional">Vindhuka</exemplarCity>
@@ -1970,7 +2159,7 @@
 				<exemplarCity draft="provisional">Amsterdama</exemplarCity>
 			</zone>
 			<zone type="Pacific/Chatham">
-				<exemplarCity draft="contributed">Četema</exemplarCity>
+				<exemplarCity>Četema</exemplarCity>
 			</zone>
 			<zone type="Pacific/Auckland">
 				<exemplarCity draft="contributed">Oklenda</exemplarCity>
@@ -1982,10 +2171,10 @@
 				<exemplarCity draft="provisional">Taiti</exemplarCity>
 			</zone>
 			<zone type="Pacific/Marquesas">
-				<exemplarCity draft="provisional">Markvesa</exemplarCity>
+				<exemplarCity>Markvesa</exemplarCity>
 			</zone>
 			<zone type="Pacific/Gambier">
-				<exemplarCity draft="provisional">Gambjera</exemplarCity>
+				<exemplarCity>Gambjera</exemplarCity>
 			</zone>
 			<zone type="Pacific/Port_Moresby">
 				<exemplarCity draft="provisional">Portmorsbi</exemplarCity>
@@ -2006,7 +2195,10 @@
 				<exemplarCity draft="provisional">Puertoriko</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Azores">
-				<exemplarCity draft="provisional">Azoru salas</exemplarCity>
+				<exemplarCity>Azoru salas</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity>Madeira</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity draft="provisional">Lisabona</exemplarCity>
@@ -2024,46 +2216,49 @@
 				<exemplarCity draft="provisional">Bukareste</exemplarCity>
 			</zone>
 			<zone type="Europe/Kaliningrad">
-				<exemplarCity draft="contributed">Kaļiņingrada</exemplarCity>
+				<exemplarCity>Kaļiņingrada</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
-				<exemplarCity draft="unconfirmed">Maskava</exemplarCity>
+				<exemplarCity>Maskava</exemplarCity>
 			</zone>
 			<zone type="Europe/Volgograd">
-				<exemplarCity draft="contributed">Volgograda</exemplarCity>
+				<exemplarCity>Volgograda</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity>Samara</exemplarCity>
 			</zone>
 			<zone type="Asia/Yekaterinburg">
-				<exemplarCity draft="contributed">Jekaterinburga</exemplarCity>
+				<exemplarCity>Jekaterinburga</exemplarCity>
 			</zone>
 			<zone type="Asia/Omsk">
-				<exemplarCity draft="contributed">Omska</exemplarCity>
+				<exemplarCity>Omska</exemplarCity>
 			</zone>
 			<zone type="Asia/Novosibirsk">
-				<exemplarCity draft="contributed">Novosibirska</exemplarCity>
+				<exemplarCity>Novosibirska</exemplarCity>
 			</zone>
 			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity draft="contributed">Krasnojarska</exemplarCity>
+				<exemplarCity>Krasnojarska</exemplarCity>
 			</zone>
 			<zone type="Asia/Irkutsk">
-				<exemplarCity draft="contributed">Irkutska</exemplarCity>
+				<exemplarCity>Irkutska</exemplarCity>
 			</zone>
 			<zone type="Asia/Yakutsk">
-				<exemplarCity draft="contributed">Jakutska</exemplarCity>
+				<exemplarCity>Jakutska</exemplarCity>
 			</zone>
 			<zone type="Asia/Vladivostok">
-				<exemplarCity draft="contributed">Vladivostoka</exemplarCity>
+				<exemplarCity>Vladivostoka</exemplarCity>
 			</zone>
 			<zone type="Asia/Sakhalin">
-				<exemplarCity draft="contributed">Sahalīna</exemplarCity>
+				<exemplarCity>Sahalīna</exemplarCity>
 			</zone>
 			<zone type="Asia/Magadan">
-				<exemplarCity draft="contributed">Magadāna</exemplarCity>
+				<exemplarCity>Magadāna</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
-				<exemplarCity draft="contributed">Kamčatka</exemplarCity>
+				<exemplarCity>Kamčatka</exemplarCity>
 			</zone>
 			<zone type="Asia/Anadyr">
-				<exemplarCity draft="contributed">Anadira</exemplarCity>
+				<exemplarCity>Anadira</exemplarCity>
 			</zone>
 			<zone type="Asia/Riyadh">
 				<exemplarCity draft="provisional">Rijāda</exemplarCity>
@@ -2135,100 +2330,106 @@
 				<exemplarCity draft="provisional">Dāresalāma</exemplarCity>
 			</zone>
 			<zone type="Europe/Uzhgorod">
-				<exemplarCity draft="contributed">Užgoroda</exemplarCity>
+				<exemplarCity>Užgoroda</exemplarCity>
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity draft="provisional">Kijeva</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
-				<exemplarCity draft="contributed">Simferopole</exemplarCity>
+				<exemplarCity>Simferopole</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
-				<exemplarCity draft="contributed">Zaporožje</exemplarCity>
+				<exemplarCity>Zaporožje</exemplarCity>
 			</zone>
 			<zone type="Pacific/Midway">
-				<exemplarCity draft="provisional">Midveja</exemplarCity>
+				<exemplarCity>Midveja</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
-				<exemplarCity draft="provisional">Džonstauna</exemplarCity>
+				<exemplarCity>Džonstauna</exemplarCity>
 			</zone>
 			<zone type="Pacific/Wake">
-				<exemplarCity draft="provisional">Veika</exemplarCity>
+				<exemplarCity>Veika</exemplarCity>
 			</zone>
 			<zone type="America/Adak">
-				<exemplarCity draft="contributed">Adaka</exemplarCity>
+				<exemplarCity>Adaka</exemplarCity>
 			</zone>
 			<zone type="America/Nome">
-				<exemplarCity draft="contributed">Noma</exemplarCity>
+				<exemplarCity>Noma</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
-				<exemplarCity draft="provisional">Aļaskas laiks</exemplarCity>
+				<exemplarCity>Ankurāža</exemplarCity>
 			</zone>
 			<zone type="America/Yakutat">
-				<exemplarCity draft="contributed">Jakutata</exemplarCity>
+				<exemplarCity>Jakutata</exemplarCity>
 			</zone>
 			<zone type="America/Juneau">
-				<exemplarCity draft="contributed">Džuno</exemplarCity>
+				<exemplarCity>Džuno</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
-				<exemplarCity draft="contributed">Losandželosa</exemplarCity>
+				<exemplarCity>Losandželosa</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
-				<exemplarCity draft="contributed">Fīniksa</exemplarCity>
+				<exemplarCity>Fīniksa</exemplarCity>
 			</zone>
 			<zone type="America/Shiprock">
-				<exemplarCity draft="contributed">Šiproka</exemplarCity>
+				<exemplarCity>Šiproka</exemplarCity>
 			</zone>
 			<zone type="America/Denver">
-				<exemplarCity draft="contributed">Denvera</exemplarCity>
+				<exemplarCity>Denvera</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
-				<exemplarCity draft="contributed">Ņūsalema</exemplarCity>
+				<exemplarCity>Ņūsalema</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
-				<exemplarCity draft="contributed">Centra Ziemeļdakotā</exemplarCity>
+				<exemplarCity>Centra Ziemeļdakotā</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
-				<exemplarCity draft="contributed">Čikāga</exemplarCity>
+				<exemplarCity>Čikāga</exemplarCity>
 			</zone>
 			<zone type="America/Menominee">
-				<exemplarCity draft="contributed">Menominī</exemplarCity>
+				<exemplarCity>Menominī</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Vincennes">
-				<exemplarCity draft="contributed">Vinsensa</exemplarCity>
+				<exemplarCity>Vinsensa</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Petersburg">
-				<exemplarCity draft="contributed">Pēterburga</exemplarCity>
+				<exemplarCity>Pēterburga</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Tell_City">
-				<exemplarCity draft="contributed">Tellsitija</exemplarCity>
+				<exemplarCity>Tellsitija</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Knox">
-				<exemplarCity draft="contributed">Noksa</exemplarCity>
+				<exemplarCity>Noksa</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Winamac">
-				<exemplarCity draft="contributed">Vinimaka</exemplarCity>
+				<exemplarCity>Vinimaka</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Marengo">
+				<exemplarCity>Marengo</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
-				<exemplarCity draft="contributed">Indianapolisa</exemplarCity>
+				<exemplarCity>Indianapolisa</exemplarCity>
 			</zone>
 			<zone type="America/Louisville">
-				<exemplarCity draft="contributed">Luisvilla</exemplarCity>
+				<exemplarCity>Luisvilla</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Vevay">
-				<exemplarCity draft="contributed">Viveja</exemplarCity>
+				<exemplarCity>Viveja</exemplarCity>
 			</zone>
 			<zone type="America/Kentucky/Monticello">
-				<exemplarCity draft="contributed">Montiselo</exemplarCity>
+				<exemplarCity>Montiselo</exemplarCity>
 			</zone>
 			<zone type="America/Detroit">
-				<exemplarCity draft="contributed">Detroita</exemplarCity>
+				<exemplarCity>Detroita</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
-				<exemplarCity draft="contributed">Ņujorka</exemplarCity>
+				<exemplarCity>Ņujorka</exemplarCity>
 			</zone>
 			<zone type="Asia/Samarkand">
-				<exemplarCity draft="contributed">Samarkanda</exemplarCity>
+				<exemplarCity>Samarkanda</exemplarCity>
 			</zone>
 			<zone type="Asia/Tashkent">
 				<exemplarCity draft="provisional">Taškenta</exemplarCity>
@@ -2257,24 +2458,112 @@
 			<zone type="Africa/Johannesburg">
 				<exemplarCity draft="provisional">Johannesburga</exemplarCity>
 			</zone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>Centrāleiropas laiks</standard>
+					<daylight>Centrāleiropas vasaras laiks</daylight>
+				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard>Austrumeiropas laiks</standard>
+					<daylight>Austrumeiropas vasaras laiks</daylight>
+				</long>
+				<short>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Kuybyshev">
+				<long>
+					<standard>Kuibiševas laiks</standard>
+					<daylight>Kuibiševas vasaras laiks</daylight>
+				</long>
+				<short>
+					<standard>KUYT</standard>
+					<daylight>KUYST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic>Maskavas laiks</generic>
+					<standard>Maskavas standarta laiks</standard>
+					<daylight>Maskavas vasaras laiks</daylight>
+				</long>
+				<short>
+					<standard>MSK</standard>
+					<daylight>MSKS</daylight>
+				</short>
+			</metazone>
+			<metazone type="Samara">
+				<long>
+					<standard>Samaras laiks</standard>
+					<daylight>Samaras vasaras laiks</daylight>
+				</long>
+				<short>
+					<standard>SAMT</standard>
+					<daylight>SAMST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<standard>Turcijas laiks</standard>
+					<daylight>Turcijas vasaras laiks</daylight>
+				</long>
+				<short>
+					<standard>TRT</standard>
+					<daylight>TRST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Volgograd">
+				<long>
+					<standard>Volgogradas laiks</standard>
+					<daylight>Volgogradas vasaras laiks</daylight>
+				</long>
+				<short>
+					<standard>VOLT</standard>
+					<daylight>VOLST</daylight>
+				</short>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<plusSign>+</plusSign>
+			<minusSign>−</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>nav skaitlis</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="contributed">#,##0.###</pattern>
+					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<scientificFormats>
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="contributed">#,##0%</pattern>
+					<pattern>#,##0%</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -2284,263 +2573,628 @@
 					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<unitPattern count="one">{0} {1}</unitPattern>
+			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="zero">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
-				<displayName draft="provisional">Apvienoto Arābu Emirātu dirhēms</displayName>
+				<displayName>Apvienoto Arābu Emirātu dirhēms</displayName>
+			</currency>
+			<currency type="AFN">
+				<displayName>Afganistānas afgāns</displayName>
+			</currency>
+			<currency type="ALL">
+				<displayName>Albānijas leks</displayName>
+			</currency>
+			<currency type="AMD">
+				<displayName>Armēnijas drams</displayName>
+			</currency>
+			<currency type="ANG">
+				<displayName>Nīderlandes Antiļu guldenis</displayName>
+			</currency>
+			<currency type="AOA">
+				<displayName>Angolas jaunā kvanza</displayName>
 			</currency>
 			<currency type="ARS">
-				<displayName draft="provisional">Argentīnas peso</displayName>
+				<displayName>Argentīnas peso</displayName>
+			</currency>
+			<currency type="ATS">
+				<displayName>Austrijas šiliņš</displayName>
 			</currency>
 			<currency type="AUD">
-				<displayName draft="provisional">Austrālijas dolārs</displayName>
+				<displayName>Austrālijas dolārs</displayName>
+			</currency>
+			<currency type="AWG">
+				<displayName>Arubas guldenis</displayName>
+			</currency>
+			<currency type="AZN">
+				<displayName>Azerbaidžānas manats</displayName>
+			</currency>
+			<currency type="BAM">
+				<displayName>Bosnijas konvertējamā marka</displayName>
+			</currency>
+			<currency type="BBD">
+				<displayName>Barbadosas dolārs</displayName>
+			</currency>
+			<currency type="BDT">
+				<displayName>Bangladešas taka</displayName>
+			</currency>
+			<currency type="BEF">
+				<displayName>Beļģijas franks</displayName>
 			</currency>
 			<currency type="BGN">
-				<displayName draft="provisional">Bulgārijas leva</displayName>
+				<displayName>Bulgārijas leva</displayName>
+			</currency>
+			<currency type="BIF">
+				<displayName>Burundi franks</displayName>
+			</currency>
+			<currency type="BMD">
+				<displayName>Bermudu salu dolārs</displayName>
 			</currency>
 			<currency type="BND">
-				<displayName draft="provisional">Brunejas dolārs</displayName>
+				<displayName>Brunejas dolārs</displayName>
 			</currency>
 			<currency type="BOB">
-				<displayName draft="provisional">Bolīvijas boliviano</displayName>
+				<displayName>Bolīvijas boliviano</displayName>
 			</currency>
 			<currency type="BRL">
-				<displayName draft="provisional">Brazīlijas reāls</displayName>
+				<displayName>Brazīlijas reāls</displayName>
+			</currency>
+			<currency type="BSD">
+				<displayName>Bahamu dolārs</displayName>
+			</currency>
+			<currency type="BTN">
+				<displayName>Butānas ngultrums</displayName>
+			</currency>
+			<currency type="BWP">
+				<displayName>Botsvānas pula</displayName>
+			</currency>
+			<currency type="BYR">
+				<displayName>Baltkrievijas rubelis</displayName>
+			</currency>
+			<currency type="BZD">
+				<displayName>Belizas dolārs</displayName>
 			</currency>
 			<currency type="CAD">
-				<displayName draft="provisional">Kanādas dolārs</displayName>
+				<displayName>Kanādas dolārs</displayName>
+			</currency>
+			<currency type="CDF">
+				<displayName>KDR franks</displayName>
 			</currency>
 			<currency type="CHF">
-				<displayName draft="provisional">Šveices franks</displayName>
+				<displayName>Šveices franks</displayName>
 			</currency>
 			<currency type="CLP">
-				<displayName draft="provisional">Čīles peso</displayName>
+				<displayName>Čīles peso</displayName>
 			</currency>
 			<currency type="CNY">
-				<displayName draft="provisional">Ķīnas juana</displayName>
+				<displayName>Ķīnas juana</displayName>
 			</currency>
 			<currency type="COP">
-				<displayName draft="provisional">Kolumbijas peso</displayName>
+				<displayName>Kolumbijas peso</displayName>
+			</currency>
+			<currency type="COU">
+				<displayName>Kolumbijas reāls</displayName>
+			</currency>
+			<currency type="CRC">
+				<displayName>Kostarikas kolons</displayName>
+			</currency>
+			<currency type="CUP">
+				<displayName>Kubas peso</displayName>
+			</currency>
+			<currency type="CVE">
+				<displayName>Kaboverdes eskudo</displayName>
+			</currency>
+			<currency type="CYP">
+				<displayName>Kipras mārciņa</displayName>
 			</currency>
 			<currency type="CZK">
-				<displayName draft="provisional">Čehijas krona</displayName>
+				<displayName>Čehijas krona</displayName>
 			</currency>
 			<currency type="DEM">
-				<displayName draft="provisional">Vācijas marka</displayName>
+				<displayName>Vācijas marka</displayName>
+			</currency>
+			<currency type="DJF">
+				<displayName>Džibutijas franks</displayName>
 			</currency>
 			<currency type="DKK">
-				<displayName draft="provisional">Dānijas krona</displayName>
+				<displayName>Dānijas krona</displayName>
+			</currency>
+			<currency type="DOP">
+				<displayName>Dominikānas peso</displayName>
+			</currency>
+			<currency type="DZD">
+				<displayName>Alžīrijas dinārs</displayName>
 			</currency>
 			<currency type="EEK">
-				<displayName draft="provisional">Igaunijas krona</displayName>
+				<displayName>Igaunijas krona</displayName>
 			</currency>
 			<currency type="EGP">
-				<displayName draft="provisional">Ēģiptes mārciņa</displayName>
+				<displayName>Ēģiptes mārciņa</displayName>
+			</currency>
+			<currency type="ERN">
+				<displayName>Eritrejas nakfa</displayName>
+			</currency>
+			<currency type="ESP">
+				<displayName>Spānijas peseta</displayName>
+			</currency>
+			<currency type="ETB">
+				<displayName>Etiopijas birs</displayName>
 			</currency>
 			<currency type="EUR">
-				<displayName draft="provisional">Eiro</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">eiro</displayName>
+				<displayName>eiro</displayName>
 				<symbol draft="unconfirmed">€</symbol>
 			</currency>
+			<currency type="FIM">
+				<displayName>Somijas marka</displayName>
+			</currency>
 			<currency type="FJD">
-				<displayName draft="provisional">Fidži dolārs</displayName>
+				<displayName>Fidži dolārs</displayName>
+			</currency>
+			<currency type="FKP">
+				<displayName>Folklenda salu mārciņa</displayName>
 			</currency>
 			<currency type="FRF">
-				<displayName draft="provisional">Francijas franks</displayName>
+				<displayName>Francijas franks</displayName>
 			</currency>
 			<currency type="GBP">
-				<displayName draft="provisional">Lielbritānijas sterliņu mārciņa</displayName>
+				<displayName>Lielbritānijas sterliņu mārciņa</displayName>
+			</currency>
+			<currency type="GEL">
+				<displayName>Gruzijas lari</displayName>
+			</currency>
+			<currency type="GHS">
+				<displayName>Ganas sedi</displayName>
+			</currency>
+			<currency type="GIP">
+				<displayName>Gibraltāra mārciņa</displayName>
+			</currency>
+			<currency type="GMD">
+				<displayName>Gambijas dalasi</displayName>
+			</currency>
+			<currency type="GNF">
+				<displayName>Gvinejas franks</displayName>
+			</currency>
+			<currency type="GRD">
+				<displayName>Grieķijas drahma</displayName>
+			</currency>
+			<currency type="GTQ">
+				<displayName>(Gvatemalas) ketsals</displayName>
+			</currency>
+			<currency type="GYD">
+				<displayName>Gajānas dolārs</displayName>
 			</currency>
 			<currency type="HKD">
-				<displayName draft="provisional">Honkongas dolārs</displayName>
+				<displayName>Honkongas dolārs</displayName>
+			</currency>
+			<currency type="HNL">
+				<displayName>Hondurasas lempīra</displayName>
 			</currency>
 			<currency type="HRK">
-				<displayName draft="provisional">Horvātijas kuna</displayName>
+				<displayName>Horvātijas kuna</displayName>
+			</currency>
+			<currency type="HTG">
+				<displayName>Haiti gurds</displayName>
 			</currency>
 			<currency type="HUF">
-				<displayName draft="provisional">Ungārijas forints</displayName>
+				<displayName>Ungārijas forints</displayName>
 			</currency>
 			<currency type="IDR">
-				<displayName draft="provisional">Indonēzijas rūpija</displayName>
+				<displayName>Indonēzijas rūpija</displayName>
+			</currency>
+			<currency type="IEP">
+				<displayName>Īrijas mārciņa</displayName>
 			</currency>
 			<currency type="ILS">
-				<displayName draft="provisional">Izraēlas šekelis</displayName>
+				<displayName>Izraēlas šekelis</displayName>
 			</currency>
 			<currency type="INR">
-				<displayName draft="provisional">Indijas rūpija</displayName>
+				<displayName>Indijas rūpija</displayName>
+			</currency>
+			<currency type="IQD">
+				<displayName>Irākas dinārs</displayName>
+			</currency>
+			<currency type="IRR">
+				<displayName>Irānas riāls</displayName>
+			</currency>
+			<currency type="ISK">
+				<displayName>Īslandes krona</displayName>
+			</currency>
+			<currency type="ITL">
+				<displayName>Itālijas lira</displayName>
+			</currency>
+			<currency type="JMD">
+				<displayName>Jamaikas dolārs</displayName>
+			</currency>
+			<currency type="JOD">
+				<displayName>Jordānas dinārs</displayName>
 			</currency>
 			<currency type="JPY">
-				<displayName draft="provisional">Japānas jena</displayName>
+				<displayName>Japānas jena</displayName>
 			</currency>
 			<currency type="KES">
-				<displayName draft="provisional">Kenijas šiliņš</displayName>
+				<displayName>Kenijas šiliņš</displayName>
+			</currency>
+			<currency type="KGS">
+				<displayName>Kirgizstānas soms</displayName>
+			</currency>
+			<currency type="KPW">
+				<displayName>Ziemeļkorejas vona</displayName>
 			</currency>
 			<currency type="KRW">
-				<displayName draft="provisional">Dienvidkorejas vona</displayName>
+				<displayName>Dienvidkorejas vona</displayName>
+			</currency>
+			<currency type="KWD">
+				<displayName>Kuveitas dinārs</displayName>
 			</currency>
 			<currency type="KZT">
 				<displayName>Kazahstānas tenge</displayName>
-				<displayName count="zero" draft="contributed">Kazahstānas tenge</displayName>
+				<displayName count="zero">Kazahstānas tenge</displayName>
+			</currency>
+			<currency type="LAK">
+				<displayName>Laosas kips</displayName>
+			</currency>
+			<currency type="LBP">
+				<displayName>Libānas mārciņa</displayName>
+			</currency>
+			<currency type="LKR">
+				<displayName>Šrilankas rūpija</displayName>
+			</currency>
+			<currency type="LRD">
+				<displayName>Libērijas dolārs</displayName>
+			</currency>
+			<currency type="LSL">
+				<displayName>Lesoto loti</displayName>
 			</currency>
 			<currency type="LTL">
-				<displayName draft="provisional">Lietuvas lits</displayName>
+				<displayName>Lietuvas lits</displayName>
+			</currency>
+			<currency type="LUF">
+				<displayName>Luksemburgas franks</displayName>
 			</currency>
 			<currency type="LVL">
-				<displayName draft="contributed">Latvijas lats</displayName>
+				<displayName>Latvijas lats</displayName>
 				<symbol>Ls</symbol>
 			</currency>
+			<currency type="LVR">
+				<displayName>Latvijas rublis</displayName>
+			</currency>
+			<currency type="LYD">
+				<displayName>Lībijas dinārs</displayName>
+			</currency>
 			<currency type="MAD">
-				<displayName draft="provisional">Marokas dirhēms</displayName>
+				<displayName>Marokas dirhēms</displayName>
+			</currency>
+			<currency type="MDL">
+				<displayName>Moldovas leja</displayName>
+			</currency>
+			<currency type="MGA">
+				<displayName>ariari</displayName>
+			</currency>
+			<currency type="MKD">
+				<displayName>Maķedonijas denārs</displayName>
+			</currency>
+			<currency type="MLF">
+				<displayName>CFA (Āfrikas) franks</displayName>
+			</currency>
+			<currency type="MMK">
+				<displayName>Mjanmas kjats</displayName>
+			</currency>
+			<currency type="MNT">
+				<displayName>Mongolijas tugriks</displayName>
+			</currency>
+			<currency type="MOP">
+				<displayName>Makao pataka</displayName>
+			</currency>
+			<currency type="MRO">
+				<displayName>Mauritānijas ugija</displayName>
 			</currency>
 			<currency type="MTL">
-				<displayName draft="provisional">Maltas lira</displayName>
+				<displayName>Maltas lira</displayName>
+			</currency>
+			<currency type="MTP">
+				<displayName>Maltas mārciņa</displayName>
+			</currency>
+			<currency type="MUR">
+				<displayName>Maurīcijas rūpija</displayName>
+			</currency>
+			<currency type="MVR">
+				<displayName>Maldīvijas rūfija</displayName>
+			</currency>
+			<currency type="MWK">
+				<displayName>Malāvijas kvača</displayName>
 			</currency>
 			<currency type="MXN">
-				<displayName draft="provisional">Meksikas peso</displayName>
+				<displayName>Meksikas peso</displayName>
 			</currency>
 			<currency type="MYR">
-				<displayName draft="provisional">Malaizijas ringits</displayName>
+				<displayName>Malaizijas ringits</displayName>
+			</currency>
+			<currency type="MZE">
+				<displayName>Mozambikas eskudo</displayName>
+			</currency>
+			<currency type="MZN">
+				<displayName>Mozambikas metikals</displayName>
+			</currency>
+			<currency type="NAD">
+				<displayName>Namībijas dolārs</displayName>
+			</currency>
+			<currency type="NGN">
+				<displayName>Nigērijas naira</displayName>
+			</currency>
+			<currency type="NIO">
+				<displayName>Kordovas oro</displayName>
+			</currency>
+			<currency type="NLG">
+				<displayName>Nīderlandes guldenis</displayName>
 			</currency>
 			<currency type="NOK">
-				<displayName draft="provisional">Norvēģijas krona</displayName>
+				<displayName>Norvēģijas krona</displayName>
+			</currency>
+			<currency type="NPR">
+				<displayName>Nepālas rūpija</displayName>
 			</currency>
 			<currency type="NZD">
-				<displayName draft="provisional">Jaunzēlandes dolārs</displayName>
+				<displayName>Jaunzēlandes dolārs</displayName>
+			</currency>
+			<currency type="OMR">
+				<displayName>Omānas riāls</displayName>
+			</currency>
+			<currency type="PAB">
+				<displayName>Panamas balboa</displayName>
 			</currency>
 			<currency type="PEN">
-				<displayName draft="provisional">Peru jaunais sols</displayName>
+				<displayName>Peru jaunais sols</displayName>
+			</currency>
+			<currency type="PGK">
+				<displayName>Papua-Jaungvinejas kina</displayName>
 			</currency>
 			<currency type="PHP">
-				<displayName draft="provisional">Filipīnu peso</displayName>
+				<displayName>Filipīnu peso</displayName>
 			</currency>
 			<currency type="PKR">
-				<displayName draft="provisional">Pakistānas rūpija</displayName>
+				<displayName>Pakistānas rūpija</displayName>
 			</currency>
 			<currency type="PLN">
-				<displayName draft="provisional">Polijas zlots</displayName>
+				<displayName>Polijas zlots</displayName>
+			</currency>
+			<currency type="PTE">
+				<displayName>Portugāles eskudo</displayName>
+			</currency>
+			<currency type="QAR">
+				<displayName>Kataras riāls</displayName>
 			</currency>
 			<currency type="RON">
-				<displayName draft="provisional">Rumānijas leja</displayName>
+				<displayName>Rumānijas leja</displayName>
 			</currency>
 			<currency type="RSD">
-				<displayName draft="provisional">Serbijas dinārs</displayName>
+				<displayName>Serbijas dinārs</displayName>
 			</currency>
 			<currency type="RUB">
-				<displayName draft="provisional">Krievijas rublis</displayName>
+				<displayName>Krievijas rublis</displayName>
+			</currency>
+			<currency type="RWF">
+				<displayName>Ruandas franks</displayName>
 			</currency>
 			<currency type="SAR">
-				<displayName draft="provisional">Saūda riāls</displayName>
+				<displayName>Saūda riāls</displayName>
+			</currency>
+			<currency type="SBD">
+				<displayName>Zālamana salu dolārs</displayName>
+			</currency>
+			<currency type="SCR">
+				<displayName>Seišelu salu rūpija</displayName>
+			</currency>
+			<currency type="SDG">
+				<displayName>Sudānas mārciņa</displayName>
 			</currency>
 			<currency type="SEK">
-				<displayName draft="provisional">Zviedrijas krona</displayName>
+				<displayName>Zviedrijas krona</displayName>
 			</currency>
 			<currency type="SGD">
-				<displayName draft="provisional">Singapūras dolārs</displayName>
+				<displayName>Singapūras dolārs</displayName>
+			</currency>
+			<currency type="SHP">
+				<displayName>Sv.Helēnas salas mārciņa</displayName>
 			</currency>
 			<currency type="SIT">
-				<displayName draft="provisional">Slovēnijas tolars</displayName>
+				<displayName>Slovēnijas tolars</displayName>
 			</currency>
 			<currency type="SKK">
-				<displayName draft="provisional">Slovakijas krona</displayName>
+				<displayName>Slovakijas krona</displayName>
+			</currency>
+			<currency type="SLL">
+				<displayName>Sjerraleones leone</displayName>
+			</currency>
+			<currency type="SOS">
+				<displayName>Somālijas šiliņš</displayName>
+			</currency>
+			<currency type="SRD">
+				<displayName>Surinamas dolārs</displayName>
+			</currency>
+			<currency type="SRG">
+				<displayName>Surinamas guldenis</displayName>
+			</currency>
+			<currency type="STD">
+				<displayName>Santome un Prinsipi dobra</displayName>
+			</currency>
+			<currency type="SVC">
+				<displayName>Salvadoras kolons</displayName>
+			</currency>
+			<currency type="SZL">
+				<displayName>Svazilendas lilangeni</displayName>
 			</currency>
 			<currency type="THB">
-				<displayName draft="provisional">Taizemes bāts</displayName>
+				<displayName>Taizemes bāts</displayName>
+			</currency>
+			<currency type="TJS">
+				<displayName>Tadžikistānas somons</displayName>
+			</currency>
+			<currency type="TMM">
+				<displayName>Turkmēnijas manats</displayName>
+			</currency>
+			<currency type="TND">
+				<displayName>Tunisijas dinārs</displayName>
+			</currency>
+			<currency type="TOP">
+				<displayName>Tongas paanga</displayName>
 			</currency>
 			<currency type="TRL">
-				<displayName draft="provisional">Turcijas lira</displayName>
+				<displayName>Turcijas lira</displayName>
 			</currency>
 			<currency type="TRY">
-				<displayName draft="provisional">Jaunā Turcijas lira</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">jaunā Turcijas lira</displayName>
+				<displayName>jaunā Turcijas lira</displayName>
+			</currency>
+			<currency type="TTD">
+				<displayName>Trinidādas un Tobāgo dolārs</displayName>
 			</currency>
 			<currency type="TWD">
-				<displayName draft="provisional">Jaunais Taivānas dolārs</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">jaunais Taivānas dolārs</displayName>
+				<displayName>jaunais Taivānas dolārs</displayName>
+			</currency>
+			<currency type="TZS">
+				<displayName>Tanzānijas šiliņš</displayName>
 			</currency>
 			<currency type="UAH">
-				<displayName draft="provisional">Ukrainas grivna</displayName>
+				<displayName>Ukrainas grivna</displayName>
+			</currency>
+			<currency type="UGX">
+				<displayName>Ugandas šiliņš</displayName>
 			</currency>
 			<currency type="USD">
-				<displayName draft="provisional">ASV dolārs</displayName>
+				<displayName>ASV dolārs</displayName>
+			</currency>
+			<currency type="UYU">
+				<displayName>Urugvajas peso</displayName>
+			</currency>
+			<currency type="UZS">
+				<displayName>Uzbekistānas sums</displayName>
 			</currency>
 			<currency type="VEB">
-				<displayName draft="provisional">Venecuēlas bolivārs</displayName>
+				<displayName>Venecuēlas bolivārs</displayName>
+			</currency>
+			<currency type="VEF">
+				<displayName>Venecuēlas stiprais bolivārs</displayName>
 			</currency>
 			<currency type="VND">
-				<displayName draft="provisional">Vjetnamas dongi</displayName>
+				<displayName>Vjetnamas dongi</displayName>
+			</currency>
+			<currency type="VUV">
+				<displayName>Vanuatu vatu</displayName>
+			</currency>
+			<currency type="WST">
+				<displayName>Samoa tala</displayName>
+			</currency>
+			<currency type="XAG">
+				<displayName>sudrabs</displayName>
+			</currency>
+			<currency type="XAU">
+				<displayName>zelts</displayName>
+			</currency>
+			<currency type="XBB">
+				<displayName>Eiropas naudas vienība</displayName>
+			</currency>
+			<currency type="XCD">
+				<displayName>Austrumkarību dolārs</displayName>
+			</currency>
+			<currency type="XDR">
+				<displayName>Speciālās aizņēmuma tiesības</displayName>
+			</currency>
+			<currency type="XEU">
+				<displayName>Eiropas norēķinu vienība</displayName>
+			</currency>
+			<currency type="XFO">
+				<displayName>Francijas zelta franks</displayName>
+			</currency>
+			<currency type="XFU">
+				<displayName>Francijas UIC franks</displayName>
+			</currency>
+			<currency type="XPD">
+				<displayName>pallādijs</displayName>
+			</currency>
+			<currency type="XPT">
+				<displayName>platīns</displayName>
 			</currency>
 			<currency type="XXX">
-				<displayName draft="provisional">Nezināma vai nederīga valūta</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">nezināma vai nederīga valūta</displayName>
+				<displayName>nezināma vai nederīga valūta</displayName>
 				<symbol draft="provisional">XXX</symbol>
 			</currency>
+			<currency type="YER">
+				<displayName>Jemenas riāls</displayName>
+			</currency>
 			<currency type="ZAR">
-				<displayName draft="provisional">Dienvidāfrikas rands</displayName>
+				<displayName>Dienvidāfrikas rands</displayName>
+			</currency>
+			<currency type="ZMK">
+				<displayName>Zambijas kvača</displayName>
+			</currency>
+			<currency type="ZWD">
+				<displayName>Zimbabves dolārs</displayName>
 			</currency>
 		</currencies>
 	</numbers>
 	<units>
 		<unit type="day">
 			<unitPattern count="one">{0} diena</unitPattern>
-			<unitPattern count="other">{0} dienas</unitPattern>
-			<unitPattern count="zero">{0} dienas</unitPattern>
 			<unitPattern count="one" alt="short">{0} d</unitPattern>
+			<unitPattern count="other">{0} dienas</unitPattern>
 			<unitPattern count="other" alt="short">{0} d</unitPattern>
+			<unitPattern count="zero">{0} dienas</unitPattern>
 			<unitPattern count="zero" alt="short">{0} d</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} stunda</unitPattern>
-			<unitPattern count="other">{0} stundas</unitPattern>
-			<unitPattern count="zero">{0} stundas</unitPattern>
 			<unitPattern count="one" alt="short">{0} h</unitPattern>
+			<unitPattern count="other">{0} stundas</unitPattern>
 			<unitPattern count="other" alt="short">{0} h</unitPattern>
+			<unitPattern count="zero">{0} stundas</unitPattern>
 			<unitPattern count="zero" alt="short">{0} h</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minūte</unitPattern>
-			<unitPattern count="other">{0} minūtes</unitPattern>
-			<unitPattern count="zero">{0} minūtes</unitPattern>
 			<unitPattern count="one" alt="short">{0} min</unitPattern>
+			<unitPattern count="other">{0} minūtes</unitPattern>
 			<unitPattern count="other" alt="short">{0} min</unitPattern>
+			<unitPattern count="zero">{0} minūtes</unitPattern>
 			<unitPattern count="zero" alt="short">{0} min</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} mēnesis</unitPattern>
-			<unitPattern count="other">{0} mēneši</unitPattern>
-			<unitPattern count="zero">{0} mēneši</unitPattern>
 			<unitPattern count="one" alt="short">{0} mēn</unitPattern>
+			<unitPattern count="other">{0} mēneši</unitPattern>
 			<unitPattern count="other" alt="short">{0} mēn</unitPattern>
+			<unitPattern count="zero">{0} mēneši</unitPattern>
 			<unitPattern count="zero" alt="short">{0} mēn</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} sekunde</unitPattern>
-			<unitPattern count="other">{0} sekundes</unitPattern>
-			<unitPattern count="zero">{0} sekundes</unitPattern>
 			<unitPattern count="one" alt="short">{0} s</unitPattern>
+			<unitPattern count="other">{0} sekundes</unitPattern>
 			<unitPattern count="other" alt="short">{0} s</unitPattern>
+			<unitPattern count="zero">{0} sekundes</unitPattern>
 			<unitPattern count="zero" alt="short">{0} s</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} nedēļa</unitPattern>
-			<unitPattern count="other">{0} nedēļas</unitPattern>
-			<unitPattern count="zero">{0} nedēļas</unitPattern>
 			<unitPattern count="one" alt="short">{0} ned</unitPattern>
+			<unitPattern count="other">{0} nedēļas</unitPattern>
 			<unitPattern count="other" alt="short">{0} ned</unitPattern>
+			<unitPattern count="zero">{0} nedēļas</unitPattern>
 			<unitPattern count="zero" alt="short">{0} ned</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} gads</unitPattern>
-			<unitPattern count="other">{0} gadi</unitPattern>
-			<unitPattern count="zero">{0} gadi</unitPattern>
 			<unitPattern count="one" alt="short">{0} g</unitPattern>
+			<unitPattern count="other">{0} gadi</unitPattern>
 			<unitPattern count="other" alt="short">{0} g</unitPattern>
+			<unitPattern count="zero">{0} gadi</unitPattern>
 			<unitPattern count="zero" alt="short">{0} g</unitPattern>
 		</unit>
 	</units>
 	<posix>
 		<messages>
-			<yesstr draft="contributed">jā:ja:j</yesstr>
-			<nostr draft="contributed">nē:ne:n</nostr>
+			<yesstr>jā:ja:j</yesstr>
+			<nostr>nē:ne:n</nostr>
 		</messages>
 	</posix>
 	<references>
@@ -2562,4 +3216,3 @@ zh_tw { "\u0137\u012Bnie\u0161u (tradicion\u0101l\u0101)" }
 Currency display names
                 1, // "Minimal Days in First Week" is unknown. Root value used instead
 -->
-

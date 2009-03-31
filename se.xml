@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
 		<language type="se"/>
 	</identity>
+	<fallback draft="unconfirmed">nb sv en</fallback>
 	<localeDisplayNames>
 		<languages>
+			<language type="ace" draft="unconfirmed">acehgiella</language>
 			<language type="af" draft="unconfirmed">afrikánsagiella</language>
 			<language type="an" draft="unconfirmed">aragoniagiella</language>
 			<language type="ang" draft="unconfirmed">boares eaŋgalasgiella</language>
-			<language type="apa" draft="unconfirmed">apachegielat</language>
+			<language type="apa" draft="unconfirmed">apacheš giella</language>
 			<language type="ar" draft="unconfirmed">arábagiella</language>
 			<language type="ast" draft="unconfirmed">asturiagiella</language>
 			<language type="be" draft="unconfirmed">vilges-ruoššagiella</language>
@@ -32,19 +34,20 @@
 			<language type="et" draft="unconfirmed">esttegiella</language>
 			<language type="fa" draft="unconfirmed">persijagiella</language>
 			<language type="fi" draft="unconfirmed">suomagiella</language>
-			<language type="fiu" draft="unconfirmed">fenno-ugrálaš gielat</language>
+			<language type="fiu" draft="unconfirmed">fenno-ugrálaš giella</language>
 			<language type="fo" draft="unconfirmed">fearagiella</language>
 			<language type="fr" draft="unconfirmed">fránskkagiella</language>
-			<language type="fy" draft="unconfirmed">friisagiella</language>
+			<language type="fy" draft="unconfirmed">oarjifriisagiella</language>
 			<language type="ga" draft="unconfirmed">iirragiella</language>
 			<language type="gem" draft="unconfirmed">germánalaš gielat</language>
 			<language type="gu" draft="unconfirmed">gujaratagiella</language>
 			<language type="gv" draft="unconfirmed">manksgiella</language>
 			<language type="hi" draft="unconfirmed">hindigiella</language>
 			<language type="hr" draft="unconfirmed">kroátiagiella</language>
-			<language type="hy" draft="unconfirmed">armeenalaš gielat</language>
+			<language type="hy" draft="unconfirmed">armeenagiella</language>
 			<language type="is" draft="unconfirmed">islánddagiella</language>
 			<language type="it" draft="unconfirmed">itáliagiella</language>
+			<language type="ja" draft="unconfirmed">japánagiella</language>
 			<language type="krl" draft="unconfirmed">gárjilgiella</language>
 			<language type="kv" draft="unconfirmed">komigiella</language>
 			<language type="kw" draft="unconfirmed">kornagiella</language>
@@ -84,8 +87,10 @@
 			<language type="uk" draft="unconfirmed">ukrainagiella</language>
 			<language type="wa" draft="unconfirmed">vallonagiella</language>
 			<language type="wen" draft="unconfirmed">sorbigiella</language>
+			<language type="zh" draft="unconfirmed">kiinnágiella</language>
 		</languages>
 		<scripts>
+			<script type="Arab" draft="unconfirmed">arába</script>
 			<script type="Cyrl" draft="unconfirmed">kyrillalaš</script>
 			<script type="Grek" draft="unconfirmed">greikkalaš</script>
 			<script type="Latn" draft="unconfirmed">láhtenaš</script>
@@ -105,7 +110,7 @@
 			<territory type="018" draft="unconfirmed">mátta-Afrihkká</territory>
 			<territory type="019" draft="unconfirmed">Amerihkká</territory>
 			<territory type="021">dávvi-Amerihkká</territory>
-			<territory type="021" alt="proposed-x1001" draft="unconfirmed">davvi-Amerihkká</territory>
+			<territory type="021" alt="proposed-x1001" draft="unconfirmed">Amerihkká davvi Meksiko</territory>
 			<territory type="029" draft="unconfirmed">Karibia</territory>
 			<territory type="030" draft="unconfirmed">nuorta-Ásia</territory>
 			<territory type="034" draft="unconfirmed">mátta-Ásia</territory>
@@ -148,20 +153,24 @@
 			<territory type="BH" draft="unconfirmed">Bahrain</territory>
 			<territory type="BI" draft="unconfirmed">Burundi</territory>
 			<territory type="BJ" draft="unconfirmed">Benin</territory>
+			<territory type="BL" draft="unconfirmed">Saint Barthélemy</territory>
 			<territory type="BM" draft="unconfirmed">Bermuda</territory>
 			<territory type="BN" draft="unconfirmed">Brunei</territory>
 			<territory type="BO" draft="unconfirmed">Bolivia</territory>
 			<territory type="BR" draft="unconfirmed">Brasil</territory>
 			<territory type="BS" draft="unconfirmed">Bahamas</territory>
 			<territory type="BT" draft="unconfirmed">Bhutan</territory>
+			<territory type="BV" draft="unconfirmed">Bouvet-sullot</territory>
 			<territory type="BW" draft="unconfirmed">Botswana</territory>
 			<territory type="BY" draft="unconfirmed">Vilges-Ruošša</territory>
 			<territory type="BZ" draft="unconfirmed">Belize</territory>
 			<territory type="CA" draft="unconfirmed">Kanáda</territory>
+			<territory type="CC" draft="unconfirmed">Cocos-sullot</territory>
 			<territory type="CD" draft="unconfirmed">Kongo-Kinshasa</territory>
 			<territory type="CG" draft="unconfirmed">Kongo-Brazzaville</territory>
 			<territory type="CH" draft="unconfirmed">Šveica</territory>
-			<territory type="CL" draft="unconfirmed">Chile</territory>
+			<territory type="CK" draft="unconfirmed">Cook-sullot</territory>
+			<territory type="CL" draft="unconfirmed">Čiile</territory>
 			<territory type="CM" draft="unconfirmed">Kamerun</territory>
 			<territory type="CN" draft="unconfirmed">Kiinná</territory>
 			<territory type="CO" draft="unconfirmed">Kolombia</territory>
@@ -207,7 +216,7 @@
 			<territory type="GU" draft="unconfirmed">Guam</territory>
 			<territory type="GW" draft="unconfirmed">Guinea-Bissau</territory>
 			<territory type="GY" draft="unconfirmed">Guyana</territory>
-			<territory type="HK" draft="unconfirmed">Hong Kong</territory>
+			<territory type="HK" draft="unconfirmed">Hongkong</territory>
 			<territory type="HK" alt="short" draft="unconfirmed">Hongkong</territory>
 			<territory type="HN" draft="unconfirmed">Honduras</territory>
 			<territory type="HR" draft="unconfirmed">Kroátia</territory>
@@ -216,6 +225,7 @@
 			<territory type="ID" draft="unconfirmed">Indonesia</territory>
 			<territory type="IE" draft="unconfirmed">Irlánda</territory>
 			<territory type="IL" draft="unconfirmed">Israel</territory>
+			<territory type="IM" draft="unconfirmed">Mann</territory>
 			<territory type="IN" draft="unconfirmed">India</territory>
 			<territory type="IQ" draft="unconfirmed">Irak</territory>
 			<territory type="IR" draft="unconfirmed">Iran</territory>
@@ -227,13 +237,14 @@
 			<territory type="JP" draft="unconfirmed">Japána</territory>
 			<territory type="KE" draft="unconfirmed">Kenia</territory>
 			<territory type="KG" draft="unconfirmed">Kirgisistan</territory>
-			<territory type="KH" draft="unconfirmed">Kampučea</territory>
+			<territory type="KH" draft="unconfirmed">Kambodža</territory>
 			<territory type="KI" draft="unconfirmed">Kiribati</territory>
 			<territory type="KM" draft="unconfirmed">Komorosullot</territory>
 			<territory type="KN" draft="unconfirmed">Saint Kitts ja Nevis</territory>
 			<territory type="KP" draft="unconfirmed">Davvi-Korea</territory>
 			<territory type="KR" draft="unconfirmed">Mátta-Korea</territory>
 			<territory type="KW" draft="unconfirmed">Kuwait</territory>
+			<territory type="KY" draft="unconfirmed">Cayman-sullot</territory>
 			<territory type="KZ" draft="unconfirmed">Kasakstan</territory>
 			<territory type="LA" draft="unconfirmed">Laos</territory>
 			<territory type="LB" draft="unconfirmed">Libanon</territory>
@@ -250,6 +261,7 @@
 			<territory type="MC" draft="unconfirmed">Monaco</territory>
 			<territory type="MD" draft="unconfirmed">Moldávia</territory>
 			<territory type="ME" draft="unconfirmed">Montenegro</territory>
+			<territory type="MF" draft="unconfirmed">Saint Martin</territory>
 			<territory type="MG" draft="unconfirmed">Madagaskar</territory>
 			<territory type="MH" draft="unconfirmed">Marshallsullot</territory>
 			<territory type="MK" draft="unconfirmed">Makedonia</territory>
@@ -272,6 +284,7 @@
 			<territory type="NA" draft="unconfirmed">Namibia</territory>
 			<territory type="NC" draft="unconfirmed">Ođđa-Kaledonia</territory>
 			<territory type="NE" draft="unconfirmed">Niger</territory>
+			<territory type="NF" draft="unconfirmed">Norfolksullot</territory>
 			<territory type="NG" draft="unconfirmed">Nigeria</territory>
 			<territory type="NI" draft="unconfirmed">Nicaragua</territory>
 			<territory type="NL" draft="unconfirmed">Vuolleeatnamat</territory>
@@ -295,13 +308,14 @@
 			<territory type="PW" draft="unconfirmed">Palau</territory>
 			<territory type="PY" draft="unconfirmed">Paraguay</territory>
 			<territory type="QA" draft="unconfirmed">Qatar</territory>
-			<territory type="QU" draft="unconfirmed">EU</territory>
+			<territory type="QU" draft="unconfirmed">Eurohpa Uniovdna</territory>
 			<territory type="RE" draft="unconfirmed">Reunion</territory>
 			<territory type="RO" draft="unconfirmed">Románia</territory>
 			<territory type="RS" draft="unconfirmed">Serbia</territory>
 			<territory type="RU" draft="unconfirmed">Ruošša</territory>
 			<territory type="RW" draft="unconfirmed">Rwanda</territory>
 			<territory type="SA" draft="unconfirmed">Saudi-Arábia</territory>
+			<territory type="SB" draft="unconfirmed">Salomon-sullot</territory>
 			<territory type="SC" draft="unconfirmed">Seychellsullot</territory>
 			<territory type="SD" draft="unconfirmed">Sudan</territory>
 			<territory type="SE" draft="unconfirmed">Ruoŧŧa</territory>
@@ -320,7 +334,7 @@
 			<territory type="SY" draft="unconfirmed">Syria</territory>
 			<territory type="SZ" draft="unconfirmed">Svazieana</territory>
 			<territory type="TC" draft="unconfirmed">Turks ja Caicos-sullot</territory>
-			<territory type="TD" draft="unconfirmed">Chad</territory>
+			<territory type="TD" draft="unconfirmed">Tčad</territory>
 			<territory type="TG" draft="unconfirmed">Togo</territory>
 			<territory type="TH" draft="unconfirmed">Thaieana</territory>
 			<territory type="TJ" draft="unconfirmed">Tažikistan</territory>
@@ -357,6 +371,7 @@
 			<key type="currency" draft="unconfirmed">valuhtta</key>
 		</keys>
 		<measurementSystemNames>
+			<measurementSystemName type="US" draft="unconfirmed">US</measurementSystemName>
 			<measurementSystemName type="metric" draft="unconfirmed">SI</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
@@ -364,19 +379,22 @@
 		</codePatterns>
 	</localeDisplayNames>
 	<layout>
-		<inText type="currency" draft="unconfirmed">lowercase-words</inText>
-		<inText type="fields" draft="unconfirmed">lowercase-words</inText>
-		<inText type="keys" draft="unconfirmed">lowercase-words</inText>
-		<inText type="languages" draft="unconfirmed">lowercase-words</inText>
-		<inText type="long" draft="unconfirmed">lowercase-words</inText>
-		<inText type="scripts" draft="unconfirmed">lowercase-words</inText>
-		<inText type="territories" draft="unconfirmed">titlecase-words</inText>
-		<inText type="types" draft="unconfirmed">lowercase-words</inText>
-		<inText type="variants" draft="unconfirmed">lowercase-words</inText>
+		<inList draft="unconfirmed">mixed</inList>
+		<inText type="currency" draft="unconfirmed">mixed</inText>
+		<inText type="fields" draft="unconfirmed">mixed</inText>
+		<inText type="keys" draft="unconfirmed">mixed</inText>
+		<inText type="languages" draft="unconfirmed">mixed</inText>
+		<inText type="long" draft="unconfirmed">mixed</inText>
+		<inText type="measurementSystemNames" draft="unconfirmed">mixed</inText>
+		<inText type="quarterWidth" draft="unconfirmed">mixed</inText>
+		<inText type="scripts" draft="unconfirmed">mixed</inText>
+		<inText type="territories" draft="unconfirmed">mixed</inText>
+		<inText type="types" draft="unconfirmed">mixed</inText>
+		<inText type="variants" draft="unconfirmed">mixed</inText>
 	</layout>
 	<characters>
 		<exemplarCharacters>[a á b c č d đ e-n ŋ o p r s š t ŧ u v z ž]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="unconfirmed">[à å ä æ ç é è ń ñ ó ò ö ø q ú ü w-y]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="unconfirmed">[à ã å ä æ ç é è í ń ñ ó ò ö ø q ú ü w-y]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol" draft="unconfirmed">[a á à å ä æ b c č d đ e é è f-n ń ŋ o ó ò ö ø p-s š t ŧ u ú v x-z ž]</exemplarCharacters>
 	</characters>
 	<delimiters>
@@ -466,7 +484,7 @@
 							<day type="wed" draft="unconfirmed">g</day>
 							<day type="thu" draft="unconfirmed">d</day>
 							<day type="fri" draft="unconfirmed">b</day>
-							<day type="sat" draft="unconfirmed">l</day>
+							<day type="sat" draft="unconfirmed">L</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -474,7 +492,7 @@
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
 							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
+							<quarter type="2" draft="unconfirmed">K2</quarter>
 							<quarter type="3" draft="unconfirmed">Q3</quarter>
 							<quarter type="4" draft="unconfirmed">Q4</quarter>
 						</quarterWidth>
@@ -490,12 +508,17 @@
 				<pm draft="unconfirmed">PM</pm>
 				<eras>
 					<eraNames>
-						<era type="0" draft="unconfirmed">Ovdal Kristtusa</era>
+						<era type="0" draft="unconfirmed">ovdal Kristtusa</era>
+						<era type="1" draft="unconfirmed">maŋŋel Kristtusa</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0" draft="unconfirmed">OK</era>
-						<era type="1" draft="unconfirmed">CE</era>
+						<era type="0" draft="unconfirmed">o.Kr.</era>
+						<era type="1" draft="unconfirmed">m.Kr.</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="unconfirmed">o.Kr.</era>
+						<era type="1" draft="unconfirmed">m.Kr.</era>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -547,6 +570,9 @@
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
+					<field type="era">
+						<displayName draft="unconfirmed">éra</displayName>
+					</field>
 					<field type="year">
 						<displayName draft="unconfirmed">jáhki</displayName>
 					</field>
@@ -558,12 +584,15 @@
 					</field>
 					<field type="day">
 						<displayName draft="unconfirmed">beaivi</displayName>
+						<relative type="-1" draft="unconfirmed">ikte</relative>
+						<relative type="0" draft="unconfirmed">odne</relative>
+						<relative type="1" draft="unconfirmed">ihttin</relative>
 					</field>
 					<field type="weekday">
 						<displayName draft="unconfirmed">váhkkubeaivi</displayName>
 					</field>
 					<field type="hour">
-						<displayName draft="unconfirmed">tiibmu</displayName>
+						<displayName draft="unconfirmed">diibmu</displayName>
 					</field>
 					<field type="minute">
 						<displayName draft="unconfirmed">minuhtta</displayName>
@@ -572,19 +601,542 @@
 						<displayName draft="unconfirmed">sekunda</displayName>
 					</field>
 					<field type="zone">
-						<displayName draft="unconfirmed">sone</displayName>
+						<displayName draft="unconfirmed">áigeavádat</displayName>
 					</field>
 				</fields>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
+			<gmtFormat draft="unconfirmed">UTC{0}</gmtFormat>
+			<gmtZeroFormat draft="unconfirmed">UTC</gmtZeroFormat>
 			<regionFormat draft="unconfirmed">{0}</regionFormat>
 			<fallbackFormat draft="unconfirmed">{0} ({1})</fallbackFormat>
+			<zone type="Antarctica/Rothera">
+				<exemplarCity draft="unconfirmed">Rothera</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity draft="unconfirmed">Palmer</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity draft="unconfirmed">Syowa</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity draft="unconfirmed">Mawson</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<exemplarCity draft="unconfirmed">Davis</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity draft="unconfirmed">Vostok</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity draft="unconfirmed">Casey</exemplarCity>
+			</zone>
+			<zone type="Antarctica/McMurdo">
+				<exemplarCity draft="unconfirmed">McMurdo</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity draft="unconfirmed">Rio Gallegos</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity draft="unconfirmed">Mendoza</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity draft="unconfirmed">San Juan</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Ushuaia">
+				<exemplarCity draft="unconfirmed">Ushuaia</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/La_Rioja">
+				<exemplarCity draft="unconfirmed">La Rioja</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Luis">
+				<exemplarCity draft="unconfirmed">San Luis</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity draft="unconfirmed">Catamarca</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Salta">
+				<exemplarCity draft="unconfirmed">Salta</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity draft="unconfirmed">Jujuy</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity draft="unconfirmed">Tucuman</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity draft="unconfirmed">Cordoba</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity draft="unconfirmed">Buenos Aires</exemplarCity>
+			</zone>
+			<zone type="Australia/Perth">
+				<exemplarCity draft="unconfirmed">Perth</exemplarCity>
+			</zone>
+			<zone type="Australia/Eucla">
+				<exemplarCity draft="unconfirmed">Eucla</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity draft="unconfirmed">Darwin</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity draft="unconfirmed">Adelaide</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity draft="unconfirmed">Broken Hill</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity draft="unconfirmed">Currie</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity draft="unconfirmed">Melbourne</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity draft="unconfirmed">Hobart</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity draft="unconfirmed">Lindeman</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity draft="unconfirmed">Sydney</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity draft="unconfirmed">Brisbane</exemplarCity>
+			</zone>
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity draft="unconfirmed">Lord Howe</exemplarCity>
+			</zone>
+			<zone type="America/Eirunepe">
+				<exemplarCity draft="unconfirmed">Eirunepe</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity draft="unconfirmed">Rio Branco</exemplarCity>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<exemplarCity draft="unconfirmed">Porto Velho</exemplarCity>
+			</zone>
+			<zone type="America/Boa_Vista">
+				<exemplarCity draft="unconfirmed">Boa Vista</exemplarCity>
+			</zone>
+			<zone type="America/Manaus">
+				<exemplarCity draft="unconfirmed">Manaus</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity draft="unconfirmed">Cuiaba</exemplarCity>
+			</zone>
+			<zone type="America/Santarem">
+				<exemplarCity draft="unconfirmed">Santarem</exemplarCity>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<exemplarCity draft="unconfirmed">Campo Grande</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity draft="unconfirmed">Belem</exemplarCity>
+			</zone>
+			<zone type="America/Araguaina">
+				<exemplarCity draft="unconfirmed">Araguaina</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity draft="unconfirmed">São Paulo</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity draft="unconfirmed">Bahia</exemplarCity>
+			</zone>
+			<zone type="America/Fortaleza">
+				<exemplarCity draft="unconfirmed">Fortaleza</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity draft="unconfirmed">Maceio</exemplarCity>
+			</zone>
+			<zone type="America/Recife">
+				<exemplarCity draft="unconfirmed">Recife</exemplarCity>
+			</zone>
+			<zone type="America/Noronha">
+				<exemplarCity draft="unconfirmed">Noronha</exemplarCity>
+			</zone>
+			<zone type="America/Dawson">
+				<exemplarCity draft="unconfirmed">Dawson</exemplarCity>
+			</zone>
+			<zone type="America/Whitehorse">
+				<exemplarCity draft="unconfirmed">Whitehorse</exemplarCity>
+			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity draft="unconfirmed">Inuvik</exemplarCity>
+			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity draft="unconfirmed">Vancouver</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity draft="unconfirmed">Dawson Creek</exemplarCity>
+			</zone>
+			<zone type="America/Yellowknife">
+				<exemplarCity draft="unconfirmed">Yellowknife</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity draft="unconfirmed">Edmonton</exemplarCity>
+			</zone>
+			<zone type="America/Swift_Current">
+				<exemplarCity draft="unconfirmed">Swift Current</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity draft="unconfirmed">Cambridge Bay</exemplarCity>
+			</zone>
+			<zone type="America/Regina">
+				<exemplarCity draft="unconfirmed">Regina</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity draft="unconfirmed">Winnipeg</exemplarCity>
+			</zone>
+			<zone type="America/Resolute">
+				<exemplarCity draft="unconfirmed">Resolute</exemplarCity>
+			</zone>
+			<zone type="America/Rainy_River">
+				<exemplarCity draft="unconfirmed">Rainy River</exemplarCity>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<exemplarCity draft="unconfirmed">Rankin Inlet</exemplarCity>
+			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity draft="unconfirmed">Coral Harbour</exemplarCity>
+			</zone>
+			<zone type="America/Thunder_Bay">
+				<exemplarCity draft="unconfirmed">Thunder Bay</exemplarCity>
+			</zone>
+			<zone type="America/Nipigon">
+				<exemplarCity draft="unconfirmed">Nipigon</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity draft="unconfirmed">Toronto</exemplarCity>
+			</zone>
+			<zone type="America/Montreal">
+				<exemplarCity draft="unconfirmed">Montreal</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity draft="unconfirmed">Iqaluit</exemplarCity>
+			</zone>
+			<zone type="America/Pangnirtung">
+				<exemplarCity draft="unconfirmed">Pangnirtung</exemplarCity>
+			</zone>
+			<zone type="America/Moncton">
+				<exemplarCity draft="unconfirmed">Moncton</exemplarCity>
+			</zone>
+			<zone type="America/Halifax">
+				<exemplarCity draft="unconfirmed">Halifax</exemplarCity>
+			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity draft="unconfirmed">Goose Bay</exemplarCity>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<exemplarCity draft="unconfirmed">Glace Bay</exemplarCity>
+			</zone>
+			<zone type="America/Blanc-Sablon">
+				<exemplarCity draft="unconfirmed">Blanc-Sablon</exemplarCity>
+			</zone>
+			<zone type="Africa/Kinshasa">
+				<exemplarCity draft="unconfirmed">Kinshasa</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity draft="unconfirmed">Lubumbashi</exemplarCity>
+			</zone>
+			<zone type="Asia/Kashgar">
+				<exemplarCity draft="unconfirmed">Kashgar</exemplarCity>
+			</zone>
+			<zone type="Asia/Urumqi">
+				<exemplarCity draft="unconfirmed">Urumqi</exemplarCity>
+			</zone>
+			<zone type="Asia/Chongqing">
+				<exemplarCity draft="unconfirmed">Chongqing</exemplarCity>
+			</zone>
+			<zone type="Asia/Harbin">
+				<exemplarCity draft="unconfirmed">Harbin</exemplarCity>
+			</zone>
+			<zone type="Pacific/Galapagos">
+				<exemplarCity draft="unconfirmed">Galapagos</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Canary">
+				<exemplarCity draft="unconfirmed">Canary</exemplarCity>
+			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity draft="unconfirmed">Ceuta</exemplarCity>
+			</zone>
+			<zone type="Pacific/Truk">
+				<exemplarCity draft="unconfirmed">Truk</exemplarCity>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<exemplarCity draft="unconfirmed">Ponape</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity draft="unconfirmed">Kosrae</exemplarCity>
+			</zone>
+			<zone type="America/Thule">
+				<exemplarCity draft="unconfirmed">Thule</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity draft="unconfirmed">Scoresbysund</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity draft="unconfirmed">Danmarkshavn</exemplarCity>
+			</zone>
+			<zone type="Asia/Jakarta">
+				<exemplarCity draft="unconfirmed">Jakarta</exemplarCity>
+			</zone>
+			<zone type="Asia/Pontianak">
+				<exemplarCity draft="unconfirmed">Pontianak</exemplarCity>
+			</zone>
+			<zone type="Asia/Makassar">
+				<exemplarCity draft="unconfirmed">Makassar</exemplarCity>
+			</zone>
+			<zone type="Asia/Jayapura">
+				<exemplarCity draft="unconfirmed">Jayapura</exemplarCity>
+			</zone>
+			<zone type="Pacific/Enderbury">
+				<exemplarCity draft="unconfirmed">Enderbury</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity draft="unconfirmed">Kiritimati</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<exemplarCity draft="unconfirmed">Tarawa</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtau">
+				<exemplarCity draft="unconfirmed">Aqtau</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity draft="unconfirmed">Oral</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity draft="unconfirmed">Aqtobe</exemplarCity>
+			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity draft="unconfirmed">Qyzylorda</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity draft="unconfirmed">Almaty</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kwajalein">
+				<exemplarCity draft="unconfirmed">Kwajalein</exemplarCity>
+			</zone>
+			<zone type="Asia/Hovd">
+				<exemplarCity draft="unconfirmed">Hovd</exemplarCity>
+			</zone>
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity draft="unconfirmed">Ulaanbaatar</exemplarCity>
+			</zone>
+			<zone type="Asia/Choibalsan">
+				<exemplarCity draft="unconfirmed">Choibalsan</exemplarCity>
+			</zone>
+			<zone type="America/Tijuana">
+				<exemplarCity draft="unconfirmed">Tijuana</exemplarCity>
+			</zone>
+			<zone type="America/Hermosillo">
+				<exemplarCity draft="unconfirmed">Hermosillo</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity draft="unconfirmed">Mazatlan</exemplarCity>
+			</zone>
+			<zone type="America/Chihuahua">
+				<exemplarCity draft="unconfirmed">Chihuahua</exemplarCity>
+			</zone>
+			<zone type="America/Monterrey">
+				<exemplarCity draft="unconfirmed">Monterrey</exemplarCity>
+			</zone>
+			<zone type="America/Mexico_City">
+				<exemplarCity draft="unconfirmed">Mexico City</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity draft="unconfirmed">Mérida</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity draft="unconfirmed">Cancun</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuching">
+				<exemplarCity draft="unconfirmed">Kuching</exemplarCity>
+			</zone>
+			<zone type="Pacific/Chatham">
+				<exemplarCity draft="unconfirmed">Chatham</exemplarCity>
+			</zone>
+			<zone type="Pacific/Marquesas">
+				<exemplarCity draft="unconfirmed">Marquesas</exemplarCity>
+			</zone>
+			<zone type="Pacific/Gambier">
+				<exemplarCity draft="unconfirmed">Gambier</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Azores">
+				<exemplarCity draft="unconfirmed">Azores</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity draft="unconfirmed">Madeira</exemplarCity>
+			</zone>
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity draft="unconfirmed">Kaliningrad</exemplarCity>
+			</zone>
+			<zone type="Europe/Volgograd">
+				<exemplarCity draft="unconfirmed">Volgograd</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity draft="unconfirmed">Samara</exemplarCity>
+			</zone>
+			<zone type="Asia/Yekaterinburg">
+				<exemplarCity draft="unconfirmed">Yekaterinburg</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity draft="unconfirmed">Omsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity draft="unconfirmed">Novosibirsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity draft="unconfirmed">Krasnoyarsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity draft="unconfirmed">Irkutsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity draft="unconfirmed">Yakutsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity draft="unconfirmed">Vladivostok</exemplarCity>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<exemplarCity draft="unconfirmed">Sakhalin</exemplarCity>
+			</zone>
+			<zone type="Asia/Magadan">
+				<exemplarCity draft="unconfirmed">Magadan</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity draft="unconfirmed">Kamchatka</exemplarCity>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<exemplarCity draft="unconfirmed">Anadyr</exemplarCity>
+			</zone>
+			<zone type="Europe/Uzhgorod">
+				<exemplarCity draft="unconfirmed">Uzhgorod</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity draft="unconfirmed">Simferopol</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity draft="unconfirmed">Zaporozhye</exemplarCity>
+			</zone>
+			<zone type="Pacific/Midway">
+				<exemplarCity draft="unconfirmed">Midway</exemplarCity>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity draft="unconfirmed">Johnston</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity draft="unconfirmed">Wake</exemplarCity>
+			</zone>
+			<zone type="America/Adak">
+				<exemplarCity draft="unconfirmed">Adak</exemplarCity>
+			</zone>
+			<zone type="America/Nome">
+				<exemplarCity draft="unconfirmed">Nome</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity draft="unconfirmed">Honolulu</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity draft="unconfirmed">Anchorage</exemplarCity>
+			</zone>
+			<zone type="America/Yakutat">
+				<exemplarCity draft="unconfirmed">Yakutat</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity draft="unconfirmed">Juneau</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity draft="unconfirmed">Los Angeles</exemplarCity>
+			</zone>
+			<zone type="America/Boise">
+				<exemplarCity draft="unconfirmed">Boise</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity draft="unconfirmed">Phoenix</exemplarCity>
+			</zone>
+			<zone type="America/Shiprock">
+				<exemplarCity draft="unconfirmed">Shiprock</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity draft="unconfirmed">Denver</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/New_Salem">
+				<exemplarCity draft="unconfirmed">New Salem, North Dakota</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity draft="unconfirmed">Chicago</exemplarCity>
+			</zone>
+			<zone type="America/Menominee">
+				<exemplarCity draft="unconfirmed">Menominee</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vincennes">
+				<exemplarCity draft="unconfirmed">Vincennes, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Petersburg">
+				<exemplarCity draft="unconfirmed">Petersburg, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Tell_City">
+				<exemplarCity draft="unconfirmed">Tell City, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Knox">
+				<exemplarCity draft="unconfirmed">Knox, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Winamac">
+				<exemplarCity draft="unconfirmed">Winamac, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Marengo">
+				<exemplarCity draft="unconfirmed">Marengo, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity draft="unconfirmed">Indianapolis</exemplarCity>
+			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity draft="unconfirmed">Louisville</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vevay">
+				<exemplarCity draft="unconfirmed">Vevay, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Kentucky/Monticello">
+				<exemplarCity draft="unconfirmed">Monticello, Kentucky</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity draft="unconfirmed">Detroit</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity draft="unconfirmed">New York</exemplarCity>
+			</zone>
+			<zone type="Asia/Samarkand">
+				<exemplarCity draft="unconfirmed">Samarkand</exemplarCity>
+			</zone>
+			<metazone type="Europe_Central">
+				<short>
+					<standard draft="unconfirmed">CET</standard>
+					<daylight draft="unconfirmed">CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<short>
+					<standard draft="unconfirmed">EET</standard>
+					<daylight draft="unconfirmed">EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Western">
+				<short>
+					<standard draft="unconfirmed">WET</standard>
+					<daylight draft="unconfirmed">WEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<short>
+					<standard draft="unconfirmed">GMT</standard>
+				</short>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="unconfirmed">decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal draft="unconfirmed">,</decimal>
 			<group draft="unconfirmed"> </group>
@@ -626,25 +1178,140 @@
 					<pattern draft="unconfirmed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<unitPattern count="one" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="two" draft="unconfirmed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
+			<currency type="BRL">
+				<symbol draft="unconfirmed">BRL</symbol>
+			</currency>
+			<currency type="CNY">
+				<symbol draft="unconfirmed">CN¥</symbol>
+			</currency>
+			<currency type="EUR">
+				<displayName draft="unconfirmed">euro</displayName>
+				<displayName count="one" draft="unconfirmed">euro</displayName>
+				<displayName count="other" draft="unconfirmed">euro</displayName>
+				<displayName count="two" draft="unconfirmed">euro</displayName>
+				<symbol draft="unconfirmed">€</symbol>
+			</currency>
 			<currency type="FIM">
 				<displayName>suoma márkki</displayName>
 			</currency>
+			<currency type="GBP">
+				<symbol draft="unconfirmed">£</symbol>
+			</currency>
+			<currency type="INR">
+				<symbol draft="unconfirmed">INR</symbol>
+			</currency>
+			<currency type="JPY">
+				<symbol draft="unconfirmed">JP¥</symbol>
+			</currency>
 			<currency type="NOK">
 				<displayName>norgga kruvdno</displayName>
+				<symbol draft="unconfirmed">Nkr</symbol>
+			</currency>
+			<currency type="RUB">
+				<symbol draft="unconfirmed">RUB</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>ruoŧŧa kruvdno</displayName>
 			</currency>
+			<currency type="USD">
+				<symbol draft="unconfirmed">US$</symbol>
+			</currency>
+			<currency type="USN">
+				<symbol draft="unconfirmed">USN</symbol>
+			</currency>
+			<currency type="USS">
+				<symbol draft="unconfirmed">USS</symbol>
+			</currency>
 			<currency type="XAG">
-				<displayName draft="unconfirmed">silba</displayName>
+				<displayName draft="unconfirmed">uns silba</displayName>
+				<symbol draft="unconfirmed">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName draft="unconfirmed">golli</displayName>
+				<symbol draft="unconfirmed">XAU</symbol>
+			</currency>
+			<currency type="XBA">
+				<symbol draft="unconfirmed">XBA</symbol>
+			</currency>
+			<currency type="XBB">
+				<symbol draft="unconfirmed">XBB</symbol>
+			</currency>
+			<currency type="XBC">
+				<symbol draft="unconfirmed">XBC</symbol>
+			</currency>
+			<currency type="XBD">
+				<symbol draft="unconfirmed">XBD</symbol>
+			</currency>
+			<currency type="XDR">
+				<symbol draft="unconfirmed">XDR</symbol>
+			</currency>
+			<currency type="XEU">
+				<symbol draft="unconfirmed">XEU</symbol>
+			</currency>
+			<currency type="XFO">
+				<symbol draft="unconfirmed">XFO</symbol>
+			</currency>
+			<currency type="XFU">
+				<symbol draft="unconfirmed">XFU</symbol>
+			</currency>
+			<currency type="XPD">
+				<symbol draft="unconfirmed">XPD</symbol>
+			</currency>
+			<currency type="XPT">
+				<symbol draft="unconfirmed">XPT</symbol>
+			</currency>
+			<currency type="XRE">
+				<symbol draft="unconfirmed">XRE</symbol>
+			</currency>
+			<currency type="XTS">
+				<symbol draft="unconfirmed">XTS</symbol>
+			</currency>
+			<currency type="XXX">
+				<symbol draft="unconfirmed">XXX</symbol>
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<unit type="day">
+			<unitPattern count="one" draft="unconfirmed">{0} beaivi</unitPattern>
+			<unitPattern count="other" draft="unconfirmed">{0} beaivi</unitPattern>
+			<unitPattern count="two" draft="unconfirmed">{0} beaivi</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="one" draft="unconfirmed">{0} tiibmu</unitPattern>
+			<unitPattern count="two" draft="unconfirmed">{0} tiibmu</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="one" draft="unconfirmed">{0} minuhtta</unitPattern>
+			<unitPattern count="other" draft="unconfirmed">{0} minuhtta</unitPattern>
+			<unitPattern count="two" draft="unconfirmed">{0} minuhtta</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="one" draft="unconfirmed">{0} mánnu</unitPattern>
+			<unitPattern count="other" draft="unconfirmed">{0} mánnu</unitPattern>
+			<unitPattern count="two" draft="unconfirmed">{0} mánnu</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="one" draft="unconfirmed">{0} sekunda</unitPattern>
+			<unitPattern count="other" draft="unconfirmed">{0} sekunda</unitPattern>
+			<unitPattern count="two" draft="unconfirmed">{0} sekunda</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="one" draft="unconfirmed">{0} váhkku</unitPattern>
+			<unitPattern count="other" draft="unconfirmed">{0} váhkku</unitPattern>
+			<unitPattern count="two" draft="unconfirmed">{0} váhkku</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="one" draft="unconfirmed">{0} jáhki</unitPattern>
+			<unitPattern count="other" draft="unconfirmed">{0} jáhki</unitPattern>
+			<unitPattern count="two" draft="unconfirmed">{0} jáhki</unitPattern>
+		</unit>
+	</units>
 	<posix>
 		<messages>
 			<yesstr draft="unconfirmed">jo</yesstr>
@@ -652,4 +1319,3 @@
 		</messages>
 	</posix>
 </ldml>
-

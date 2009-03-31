@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -31,6 +31,7 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
 						<dateFormatItem id="MEd">EEE M-d</dateFormatItem>
 						<dateFormatItem id="MMd">MM-d</dateFormatItem>
 						<dateFormatItem id="MMdd">MM-dd</dateFormatItem>
@@ -78,13 +79,10 @@
 						<intervalFormatItem id="yMEd">
 							<greatestDifference id="M">'du' E yy-MM-dd 'au' E yy-MM-dd</greatestDifference>
 							<greatestDifference id="d">'du' E yy-MM-dd 'au' E yy-MM-dd</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">E yy-MM-dd – E yy-MM-dd</greatestDifference>
 							<greatestDifference id="y">'du' E yy-MM-dd 'au' E yy-MM-dd</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">E yy-MM-dd – E yy-MM-dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="y">'de' MMM y 'à' MMM y</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">'du' MMM y 'au' MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
 							<greatestDifference id="M">'du' E d MMM 'au' E d MMM y</greatestDifference>
@@ -155,4 +153,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

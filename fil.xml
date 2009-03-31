@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -696,9 +696,9 @@
 					</field>
 					<field type="day">
 						<displayName draft="contributed">Araw</displayName>
+						<relative type="-1" draft="contributed">Yesterday</relative>
 						<relative type="0" draft="contributed">Today</relative>
 						<relative type="1" draft="contributed">Tomorrow</relative>
-						<relative type="-1" draft="contributed">Yesterday</relative>
 					</field>
 					<field type="weekday">
 						<displayName draft="contributed">Araw ng Linggo</displayName>
@@ -887,7 +887,7 @@
 			</currency>
 			<currency type="INR">
 				<displayName draft="contributed">Indian Rupee</displayName>
-				<symbol draft="contributed">0≤Rs.|1≤Re.|1&lt;Rs.</symbol>
+				<symbol>₨</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName draft="contributed">Japanese Yen</displayName>
@@ -953,9 +953,6 @@
 			<currency type="THB">
 				<displayName draft="contributed">Thai Baht</displayName>
 			</currency>
-			<currency type="TRL">
-				<displayName alt="proposed-x1001" draft="unconfirmed">Turkish Lira</displayName>
-			</currency>
 			<currency type="TRY">
 				<displayName draft="contributed">Turkish Lira</displayName>
 			</currency>
@@ -976,50 +973,50 @@
 			</currency>
 		</currencies>
 	</numbers>
-        <units>
-                <unit type="day">
-                        <unitPattern count="one">{0} araw</unitPattern>
-                        <unitPattern count="other">{0} araw</unitPattern>
-                        <unitPattern count="one" alt="short">{0} arw</unitPattern>
-                        <unitPattern count="other" alt="short">{0} arw</unitPattern>
-                </unit>
-                <unit type="hour">
-                        <unitPattern count="one">{0} oras</unitPattern>
-                        <unitPattern count="other">{0} oras</unitPattern>
-                        <unitPattern count="one" alt="short">{0} or</unitPattern>
-                        <unitPattern count="other" alt="short">{0} or</unitPattern>
-                </unit>
-                <unit type="minute">
-                        <unitPattern count="one">{0} minuto</unitPattern>
-                        <unitPattern count="other">{0} minuto</unitPattern>
-                        <unitPattern count="one" alt="short">{0} min</unitPattern>
-                        <unitPattern count="other" alt="short">{0} min</unitPattern>
-                </unit>
-                <unit type="month">
-                        <unitPattern count="one">{0} buwan</unitPattern>
-                        <unitPattern count="other">{0} buwan</unitPattern>
-                        <unitPattern count="one" alt="short">{0} buw</unitPattern>
-                        <unitPattern count="other" alt="short">{0} buw</unitPattern>
-                </unit>
-                <unit type="second">
-                        <unitPattern count="one">{0} segundo</unitPattern>
-                        <unitPattern count="other">{0} segundo</unitPattern>
-                        <unitPattern count="one" alt="short">{0} seg</unitPattern>
-                        <unitPattern count="other" alt="short">{0} seg</unitPattern>
-                </unit>
-                <unit type="week">
-                        <unitPattern count="one">{0} linggo</unitPattern>
-                        <unitPattern count="other">{0} linggo</unitPattern>
-                        <unitPattern count="one" alt="short">{0} ling</unitPattern>
-                        <unitPattern count="other" alt="short">{0} ling</unitPattern>
-                </unit>
-                <unit type="year">
-                        <unitPattern count="one">{0} taon</unitPattern>
-                        <unitPattern count="other">{0} taon</unitPattern>
-                        <unitPattern count="one" alt="short">{0} ta</unitPattern>
-                        <unitPattern count="other" alt="short">{0} ta</unitPattern>
-                </unit>
-        </units>
+	<units>
+		<unit type="day">
+			<unitPattern count="one">{0} araw</unitPattern>
+			<unitPattern count="one" alt="short">{0} arw</unitPattern>
+			<unitPattern count="other">{0} araw</unitPattern>
+			<unitPattern count="other" alt="short">{0} arw</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="one">{0} oras</unitPattern>
+			<unitPattern count="one" alt="short">{0} or</unitPattern>
+			<unitPattern count="other">{0} oras</unitPattern>
+			<unitPattern count="other" alt="short">{0} or</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="one">{0} minuto</unitPattern>
+			<unitPattern count="one" alt="short">{0} min</unitPattern>
+			<unitPattern count="other">{0} minuto</unitPattern>
+			<unitPattern count="other" alt="short">{0} min</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="one">{0} buwan</unitPattern>
+			<unitPattern count="one" alt="short">{0} buw</unitPattern>
+			<unitPattern count="other">{0} buwan</unitPattern>
+			<unitPattern count="other" alt="short">{0} buw</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="one">{0} segundo</unitPattern>
+			<unitPattern count="one" alt="short">{0} seg</unitPattern>
+			<unitPattern count="other">{0} segundo</unitPattern>
+			<unitPattern count="other" alt="short">{0} seg</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="one">{0} linggo</unitPattern>
+			<unitPattern count="one" alt="short">{0} ling</unitPattern>
+			<unitPattern count="other">{0} linggo</unitPattern>
+			<unitPattern count="other" alt="short">{0} ling</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="one">{0} taon</unitPattern>
+			<unitPattern count="one" alt="short">{0} ta</unitPattern>
+			<unitPattern count="other">{0} taon</unitPattern>
+			<unitPattern count="other" alt="short">{0} ta</unitPattern>
+		</unit>
+	</units>
 	<posix>
 		<messages>
 			<yesstr draft="contributed">yes:y</yesstr>
@@ -1033,4 +1030,3 @@
 		<reference type="RP4" uri="http://www.omniglot.com/writing/tagalog.htm">Latin alphabet for Tagalog</reference>
 	</references>
 </ldml>
-

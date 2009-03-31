@@ -723,7 +723,7 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>                 
+				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 					</availableFormats>
@@ -743,11 +743,11 @@
 					</field>
 					<field type="day">
 						<displayName draft="contributed">बार</displayName>
+						<relative type="-3" draft="unconfirmed">तीन दिन पछि</relative>
+						<relative type="-2" draft="unconfirmed">अस्ति</relative>
+						<relative type="-1" draft="contributed">हिजो</relative>
 						<relative type="0" draft="contributed">आज</relative>
 						<relative type="1" draft="contributed">भोलि</relative>
-						<relative type="-1" draft="contributed">हिजो</relative>
-						<relative type="-2" draft="unconfirmed">अस्ति</relative>
-						<relative type="-3" draft="unconfirmed">तीन दिन पछि</relative>
 					</field>
 					<field type="weekday">
 						<displayName draft="contributed">हप्ताको बार</displayName>
@@ -1299,7 +1299,7 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-                <defaultNumberingSystem draft="contributed">deva</defaultNumberingSystem>
+		<defaultNumberingSystem draft="contributed">deva</defaultNumberingSystem>
 		<symbols>
 			<decimal draft="contributed">.</decimal>
 			<group draft="contributed">,</group>
@@ -1383,4 +1383,3 @@
 		</unit>
 	</units>
 </ldml>
-

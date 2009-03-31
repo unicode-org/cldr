@@ -6,11 +6,11 @@
 		<generation date="$Date$"/>
 		<language type="fr"/>
 	</identity>
+	<fallback draft="unconfirmed"/>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern draft="contributed">{0} ({1})</localePattern>
-			<localeSeparator draft="contributed">, </localeSeparator>
-			<localeSeparator alt="proposed-x1001" draft="unconfirmed">,</localeSeparator>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>, </localeSeparator>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">afar</language>
@@ -27,13 +27,11 @@
 			<language type="ak">akan</language>
 			<language type="akk">akkadien</language>
 			<language type="ale">aléoute</language>
-			<language type="alg">langue algonquine</language>
-			<language type="alg" alt="proposed-x1001" draft="unconfirmed">langue algonquienne</language>
+			<language type="alg">langue algonquienne</language>
 			<language type="alt">altaï du Sud</language>
 			<language type="am">amharique</language>
 			<language type="an">aragonais</language>
 			<language type="ang">ancien anglais</language>
-			<language type="ang" alt="proposed-x1001" draft="unconfirmed">anglo-saxon</language>
 			<language type="anp">angika</language>
 			<language type="apa">langue apache</language>
 			<language type="ar">arabe</language>
@@ -63,10 +61,9 @@
 			<language type="ber">berbère</language>
 			<language type="bg">bulgare</language>
 			<language type="bh">bihari</language>
+			<language type="bh" alt="proposed-x1001" draft="unconfirmed">langue biharie</language>
 			<language type="bho">bhojpuri</language>
-			<language type="bi">bichelamar ; bislama</language>
-			<language type="bi" alt="proposed-x1001" draft="unconfirmed">bichlamar</language>
-			<language type="bi" alt="proposed-x1002" draft="unconfirmed">bichelamar</language>
+			<language type="bi">bichelamar</language>
 			<language type="bik">bikol</language>
 			<language type="bin">bini</language>
 			<language type="bla">siksika</language>
@@ -93,13 +90,14 @@
 			<language type="ch">chamorro</language>
 			<language type="chb">chibcha</language>
 			<language type="chg">tchaghataï</language>
-			<language type="chg" alt="proposed-x1001" draft="unconfirmed">tchaghataï ; djaghataï</language>
 			<language type="chk">chuuk</language>
+			<language type="chk" alt="proposed-x1001" draft="unconfirmed">chuukais</language>
 			<language type="chm">mari</language>
 			<language type="chn">jargon chinook</language>
 			<language type="cho">choctaw</language>
 			<language type="chp">chipewyan</language>
 			<language type="chr">cherokee</language>
+			<language type="chr" alt="proposed-x1001" draft="unconfirmed">chérokî</language>
 			<language type="chy">cheyenne</language>
 			<language type="cmc">langue chame</language>
 			<language type="co">corse</language>
@@ -120,21 +118,24 @@
 			<language type="dak">dakota</language>
 			<language type="dar">dargwa</language>
 			<language type="day">dayak</language>
+			<language type="day" alt="proposed-x1001" draft="unconfirmed">langue bidayuh</language>
 			<language type="de">allemand</language>
 			<language type="de_AT">allemand autrichien</language>
 			<language type="de_CH">allemand suisse</language>
 			<language type="del">delaware</language>
+			<language type="del" alt="proposed-x1001" draft="unconfirmed">lenape</language>
 			<language type="den">slavey</language>
 			<language type="dgr">dogrib</language>
+			<language type="dgr" alt="proposed-x1001" draft="unconfirmed">flanc-de-chien</language>
 			<language type="din">dinka</language>
 			<language type="doi" references="R063">dogri</language>
+			<language type="doi" alt="proposed-x1001" draft="unconfirmed">kangri</language>
+			<language type="doi" alt="proposed-x1002" draft="unconfirmed">dogri-kangri</language>
 			<language type="dra">langue dravidienne</language>
 			<language type="dsb">bas-sorabe</language>
 			<language type="dua">douala</language>
 			<language type="dum">moyen néerlandais</language>
-			<language type="dum" alt="proposed-x1001" draft="unconfirmed">néerlandais moyen</language>
 			<language type="dv">maldivien</language>
-			<language type="dv" alt="proposed-x1001" draft="unconfirmed">maldivien ; divehi</language>
 			<language type="dyu">dioula</language>
 			<language type="dz">dzongkha</language>
 			<language type="ee">éwé</language>
@@ -149,7 +150,6 @@
 			<language type="en_GB">anglais britannique</language>
 			<language type="en_US">anglais américain</language>
 			<language type="enm">moyen anglais</language>
-			<language type="enm" alt="proposed-x1001" draft="unconfirmed">anglais moyen</language>
 			<language type="eo">espéranto</language>
 			<language type="es">espagnol</language>
 			<language type="es_419">espagnol latino-américain</language>
@@ -166,14 +166,13 @@
 			<language type="fiu">langue finno-ougrienne</language>
 			<language type="fj">fidjien</language>
 			<language type="fo">féroïen</language>
+			<language type="fo" alt="proposed-x1001" draft="unconfirmed">féringien</language>
 			<language type="fon">fon</language>
 			<language type="fr">français</language>
 			<language type="fr_CA">français canadien</language>
 			<language type="fr_CH">français suisse</language>
 			<language type="frm">moyen français</language>
-			<language type="frm" alt="proposed-x1001" draft="unconfirmed">français moyen</language>
 			<language type="fro">ancien français</language>
-			<language type="fro" alt="proposed-x1001" draft="unconfirmed">français ancien</language>
 			<language type="frr">frison du Nord</language>
 			<language type="frs">frison oriental</language>
 			<language type="fur">frioulan</language>
@@ -190,10 +189,9 @@
 			<language type="gil" alt="proposed-x1001" draft="unconfirmed">gilbertin</language>
 			<language type="gl">galicien</language>
 			<language type="gmh">moyen haut-allemand</language>
-			<language type="gmh" alt="proposed-x1001" draft="unconfirmed">allemand moyen</language>
 			<language type="gn">guarani</language>
 			<language type="goh">ancien haut allemand</language>
-			<language type="goh" alt="proposed-x1001" draft="unconfirmed">allemand ancien</language>
+			<language type="goh" alt="proposed-x1001" draft="unconfirmed">ancien haut-allemand</language>
 			<language type="gon">gondi</language>
 			<language type="gor">gorontalo</language>
 			<language type="got">gotique</language>
@@ -201,12 +199,9 @@
 			<language type="grb" references="RP10" alt="proposed-x1001" draft="unconfirmed">grébo</language>
 			<language type="grc">grec ancien</language>
 			<language type="gsw">alémanique</language>
-			<language type="gsw" alt="proposed-x1001" draft="unconfirmed">suisse allemand</language>
 			<language type="gu">goudjarâtî</language>
-			<language type="gu" alt="proposed-x1001" draft="unconfirmed">gujarati</language>
 			<language type="gv">manx</language>
 			<language type="gv" alt="proposed-x1001" draft="unconfirmed">mannois</language>
-			<language type="gv" alt="proposed-x1002" draft="unconfirmed">manx ; mannois</language>
 			<language type="gwi">gwichʼin</language>
 			<language type="ha">haoussa</language>
 			<language type="hai">haida</language>
@@ -226,7 +221,6 @@
 			<language type="hup">hupa</language>
 			<language type="hy">arménien</language>
 			<language type="hz">héréro</language>
-			<language type="hz" references="R057" alt="proposed-x1001" draft="unconfirmed">herero</language>
 			<language type="ia">interlingua</language>
 			<language type="iba">iban</language>
 			<language type="id">indonésien</language>
@@ -257,6 +251,7 @@
 			<language type="kaj">jju</language>
 			<language type="kam">kamba</language>
 			<language type="kar">karen</language>
+			<language type="kar" alt="proposed-x1001" draft="unconfirmed">langue karène</language>
 			<language type="kaw">kawi</language>
 			<language type="kbd">kabardin</language>
 			<language type="kcg">tyap</language>
@@ -264,6 +259,7 @@
 			<language type="kg">kongo</language>
 			<language type="kha">khasi</language>
 			<language type="khi">langue khoïsan</language>
+			<language type="khi" alt="proposed-x1001" draft="unconfirmed">langue khoïsane</language>
 			<language type="kho">khotanais</language>
 			<language type="ki">kikuyu</language>
 			<language type="kj">kuanyama</language>
@@ -271,14 +267,13 @@
 			<language type="kl">groenlandais</language>
 			<language type="km">khmer</language>
 			<language type="kmb">kiMboundou</language>
-			<language type="kmb" alt="proposed-x1001" draft="unconfirmed">kimbundu</language>
-			<language type="kmb" alt="proposed-x1002" draft="unconfirmed">kimboundou</language>
+			<language type="kmb" alt="proposed-x1001" draft="unconfirmed">kimboundou</language>
 			<language type="kn">kannada</language>
 			<language type="kn" alt="proposed-x1001" draft="unconfirmed">kannara</language>
 			<language type="ko">coréen</language>
 			<language type="kok">konkani</language>
 			<language type="kos">kusaien</language>
-			<language type="kos" alt="proposed-x1001" draft="unconfirmed">kosrae</language>
+			<language type="kos" alt="proposed-x1001" draft="unconfirmed">kusaïen</language>
 			<language type="kpe">kpellé</language>
 			<language type="kr">kanouri</language>
 			<language type="krc">karatchaï balkar</language>
@@ -294,7 +289,6 @@
 			<language type="kv">komi</language>
 			<language type="kw">cornique</language>
 			<language type="ky">kirghize</language>
-			<language type="ky" alt="proposed-x1001" draft="unconfirmed">kirghiz</language>
 			<language type="la">latin</language>
 			<language type="lad">ladino</language>
 			<language type="lah">lahnda</language>
@@ -323,6 +317,7 @@
 			<language type="mak">makassar</language>
 			<language type="man" references="R057">mandingue</language>
 			<language type="map">malayo-polynésien</language>
+			<language type="map" alt="proposed-x1001" draft="unconfirmed">langue malayo-polynésienne</language>
 			<language type="mas">masai</language>
 			<language type="mas" references="R057" alt="proposed-x1001" draft="unconfirmed">massaï</language>
 			<language type="mdf">moksa</language>
@@ -331,7 +326,6 @@
 			<language type="men">mendé</language>
 			<language type="mg">malgache</language>
 			<language type="mga">moyen irlandais</language>
-			<language type="mga" alt="proposed-x1001" draft="unconfirmed">irlandais moyen</language>
 			<language type="mh">marshall</language>
 			<language type="mh" alt="proposed-x1001" draft="unconfirmed">marshallais</language>
 			<language type="mi">maori</language>
@@ -344,6 +338,7 @@
 			<language type="mn">mongol</language>
 			<language type="mnc">mandchou</language>
 			<language type="mni">manipuri</language>
+			<language type="mni" alt="proposed-x1001" draft="unconfirmed">manipourî</language>
 			<language type="mno">langue manobo</language>
 			<language type="mo">moldave</language>
 			<language type="moh">mohawk</language>
@@ -366,15 +361,13 @@
 			<language type="nb">norvégien bokmål</language>
 			<language type="nd">ndébélé du Nord</language>
 			<language type="nds">bas-allemand</language>
-			<language type="nds" alt="proposed-x1001" draft="unconfirmed">bas allemand</language>
 			<language type="ne">népalais</language>
 			<language type="new">newari</language>
 			<language type="ng">ndonga</language>
 			<language type="nia">nias</language>
 			<language type="nic">langue nigéro-congolaise</language>
 			<language type="niu">niué</language>
-			<language type="niu" alt="proposed-x1001" draft="unconfirmed">niuéen</language>
-			<language type="niu" references="RP12" alt="proposed-x1002" draft="unconfirmed">niuean</language>
+			<language type="niu" alt="proposed-x1001" draft="unconfirmed">niouéen</language>
 			<language type="nl">néerlandais</language>
 			<language type="nl_BE">néerlandais belge</language>
 			<language type="nn">norvégien nynorsk</language>
@@ -392,9 +385,9 @@
 			<language type="nyn">nyankolé</language>
 			<language type="nyo">nyoro</language>
 			<language type="nzi">nzema</language>
-			<language type="nzi" alt="proposed-x1001" draft="unconfirmed">nzima</language>
 			<language type="oc">occitan</language>
 			<language type="oj">ojibwa</language>
+			<language type="oj" alt="proposed-x1001" draft="unconfirmed">ojibwé</language>
 			<language type="om">oromo</language>
 			<language type="or">oriya</language>
 			<language type="os">ossète</language>
@@ -409,10 +402,8 @@
 			<language type="pap">papiamento</language>
 			<language type="pau">palau</language>
 			<language type="pau" alt="proposed-x1001" draft="unconfirmed">paluan</language>
-			<language type="pau" alt="proposed-x1002" draft="unconfirmed">palauan</language>
 			<language type="peo">persan ancien</language>
-			<language type="peo" alt="proposed-x1001" draft="unconfirmed">vieux perse</language>
-			<language type="peo" alt="proposed-x1002" draft="unconfirmed">vieux persan</language>
+			<language type="peo" alt="proposed-x1001" draft="unconfirmed">ancien persan</language>
 			<language type="phi">langue philippine</language>
 			<language type="phn">phénicien</language>
 			<language type="pi">pali</language>
@@ -423,7 +414,7 @@
 			<language type="pra">langues prâkrit</language>
 			<language type="pra" alt="proposed-x1001" draft="unconfirmed">langue prâkrit</language>
 			<language type="pro">provençal ancien</language>
-			<language type="pro" alt="proposed-x1001" draft="unconfirmed">vieux provençal</language>
+			<language type="pro" alt="proposed-x1001" draft="unconfirmed">ancien provençal</language>
 			<language type="ps">pachto</language>
 			<language type="pt">portugais</language>
 			<language type="pt_BR">portugais brésilien</language>
@@ -438,12 +429,12 @@
 			<language type="ro">roumain</language>
 			<language type="roa">langue romane</language>
 			<language type="rom">tzigane</language>
-			<language type="rom" alt="proposed-x1001" draft="unconfirmed">tsigane ; romani</language>
+			<language type="rom" alt="proposed-x1001" draft="unconfirmed">romani</language>
 			<language type="root">racine</language>
+			<language type="root" alt="proposed-x1001" draft="unconfirmed">(racine)</language>
 			<language type="ru">russe</language>
 			<language type="rup">valaque</language>
 			<language type="rup" alt="proposed-x1001" draft="unconfirmed">aroumain</language>
-			<language type="rup" alt="proposed-x1002" draft="unconfirmed">aroumain ; valaque ; macédo-roumain</language>
 			<language type="rw">rwanda</language>
 			<language type="sa">sanskrit</language>
 			<language type="sad">sandawe</language>
@@ -462,7 +453,6 @@
 			<language type="sem">langue sémitique</language>
 			<language type="sg" references="RP3">sangho</language>
 			<language type="sga">ancien irlandais</language>
-			<language type="sga" alt="proposed-x1001" draft="unconfirmed">irlandais ancien</language>
 			<language type="sgn">langue des signes</language>
 			<language type="sh">serbo-croate</language>
 			<language type="shn">shan</language>
@@ -514,6 +504,7 @@
 			<language type="ti">tigrigna</language>
 			<language type="tig">tigré</language>
 			<language type="tiv">tiv</language>
+			<language type="tiv" alt="proposed-x1001" draft="unconfirmed">tivi</language>
 			<language type="tk">turkmène</language>
 			<language type="tkl" references="R057">tokelau</language>
 			<language type="tkl" alt="proposed-x1001" draft="unconfirmed">tokelauan</language>
@@ -531,8 +522,10 @@
 			<language type="tt">tatar</language>
 			<language type="tum">tumbuka</language>
 			<language type="tup">langue tupi</language>
+			<language type="tup" alt="proposed-x1001" draft="unconfirmed">langue tupie</language>
 			<language type="tut">langue altaïque</language>
 			<language type="tvl" references="R057">tuvalu</language>
+			<language type="tvl" alt="proposed-x1001" draft="unconfirmed">tuvaluan</language>
 			<language type="tw">twi</language>
 			<language type="ty">tahitien</language>
 			<language type="tyv">touva</language>
@@ -541,9 +534,10 @@
 			<language type="uga">ougaritique</language>
 			<language type="uk">ukrainien</language>
 			<language type="umb">umbundu</language>
+			<language type="umb" alt="proposed-x1001" draft="unconfirmed">oumboundou</language>
 			<language type="und">indéterminé</language>
-			<language type="und" alt="proposed-x1001" draft="unconfirmed">langue indéterminée</language>
-			<language type="und" alt="proposed-x1002" draft="unconfirmed">(langue indéterminée)</language>
+			<language type="und" alt="proposed-x1001" draft="unconfirmed">(langue indéterminée)</language>
+			<language type="und" alt="proposed-x1002" draft="unconfirmed">langue indéterminée</language>
 			<language type="ur">ourdou</language>
 			<language type="uz">ouzbek</language>
 			<language type="vai">vaï</language>
@@ -569,6 +563,7 @@
 			<language type="ypk">langues yupik</language>
 			<language type="ypk" alt="proposed-x1001" draft="unconfirmed">langue yupik</language>
 			<language type="za">zhuang</language>
+			<language type="za" alt="proposed-x1001" draft="unconfirmed">zhouang</language>
 			<language type="zap">zapotèque</language>
 			<language type="zbl">symboles Bliss</language>
 			<language type="zen">zenaga</language>
@@ -599,14 +594,13 @@
 			<script type="Buhd">bouhide</script>
 			<script type="Cakm">chakma</script>
 			<script type="Cans" references="R059">syllabaire autochtone canadien unifié</script>
-			<script type="Cans" alt="proposed-x1001" draft="unconfirmed">syllabaire autochthone canadien unifié</script>
 			<script type="Cari">carien</script>
 			<script type="Cham">cham</script>
 			<script type="Cher">tchérokî</script>
-			<script type="Cher" alt="proposed-x1001" draft="unconfirmed">cherokee</script>
 			<script type="Cirt">cirth</script>
 			<script type="Copt">copte</script>
 			<script type="Cprt" references="R059">syllabaire chypriote</script>
+			<script type="Cprt" alt="proposed-x1001" draft="unconfirmed">chypriote</script>
 			<script type="Cyrl">cyrillique</script>
 			<script type="Cyrs" references="R059">cyrillique (variante slavonne)</script>
 			<script type="Cyrs" alt="proposed-x1001" draft="unconfirmed">cyrillique slavon</script>
@@ -625,11 +619,12 @@
 			<script type="Guru">gourmoukhî</script>
 			<script type="Hang">hangûl</script>
 			<script type="Hani" references="R059">idéogrammes han</script>
+			<script type="Hani" alt="proposed-x1001" draft="unconfirmed">sinogrammes</script>
 			<script type="Hano">hanounóo</script>
 			<script type="Hans">idéogrammes han simplifiés</script>
-			<script type="Hans" references="R059" alt="proposed-x1001" draft="unconfirmed">idéogrammes han (variante simplifiée)</script>
+			<script type="Hans" alt="proposed-x1001" draft="unconfirmed">sinogrammes simplifiés</script>
 			<script type="Hant">idéogrammes han traditionnels</script>
-			<script type="Hant" references="R059" alt="proposed-x1001" draft="unconfirmed">idéogrammes han (variante traditionnelle)</script>
+			<script type="Hant" alt="proposed-x1001" draft="unconfirmed">sinogrammes traditionnels</script>
 			<script type="Hebr">hébreu</script>
 			<script type="Hira">hiragana</script>
 			<script type="Hmng">pahawh hmong</script>
@@ -645,7 +640,7 @@
 			<script type="Khmr">khmer</script>
 			<script type="Knda">kannara</script>
 			<script type="Kore">coréen</script>
-			<script type="Kthi" draft="unconfirmed">kaithî</script>
+			<script type="Kthi">kaithî</script>
 			<script type="Lana">lanna</script>
 			<script type="Laoo">lao</script>
 			<script type="Latf" references="R059">latin (variante brisée)</script>
@@ -681,7 +676,7 @@
 			<script type="Phlv">pehlevi des livres</script>
 			<script type="Phnx">phénicien</script>
 			<script type="Plrd">phonétique de Pollard</script>
-			<script type="Prti" draft="unconfirmed">parthe des inscriptions</script>
+			<script type="Prti">parthe des inscriptions</script>
 			<script type="Qaai">hérité</script>
 			<script type="Qaai" alt="proposed-x1001" draft="unconfirmed">(hérité)</script>
 			<script type="Rjng">rejang</script>
@@ -693,20 +688,19 @@
 			<script type="Sgnw">écriture des signes</script>
 			<script type="Shaw">shavien</script>
 			<script type="Sinh">singhalais</script>
+			<script type="Sinh" alt="proposed-x1001" draft="unconfirmed">cinghalais</script>
 			<script type="Sund">sundanais</script>
+			<script type="Sund" alt="proposed-x1001" draft="unconfirmed">soundanais</script>
 			<script type="Sylo" references="R059">sylotî nâgrî</script>
 			<script type="Syrc">syriaque</script>
 			<script type="Syre">syriaque estranghélo</script>
-			<script type="Syre" references="R059" alt="proposed-x1001" draft="unconfirmed">syriaque (variante estranghélo)</script>
 			<script type="Syrj">syriaque occidental</script>
-			<script type="Syrj" alt="proposed-x1001" draft="unconfirmed">syriaque (variante occidentale)</script>
 			<script type="Syrn">syriaque oriental</script>
-			<script type="Syrn" alt="proposed-x1001" draft="unconfirmed">syriaque (variante orientale)</script>
 			<script type="Tagb">tagbanoua</script>
 			<script type="Tale">taï-le</script>
 			<script type="Talu" references="R059">nouveau taï-lue</script>
 			<script type="Taml">tamoul</script>
-			<script type="Tavt" draft="unconfirmed">taï viêt</script>
+			<script type="Tavt">taï viêt</script>
 			<script type="Telu">télougou</script>
 			<script type="Teng">tengwar</script>
 			<script type="Tfng">tifinagh</script>
@@ -723,11 +717,10 @@
 			<script type="Zmth">notation mathématique</script>
 			<script type="Zsym">symboles</script>
 			<script type="Zxxx">non écrit</script>
-			<script type="Zxxx" alt="proposed-x1001" draft="unconfirmed">(langues non écrites)</script>
+			<script type="Zxxx" alt="proposed-x1001" draft="unconfirmed">(non écrit)</script>
 			<script type="Zyyy">commun</script>
-			<script type="Zyyy" alt="proposed-x1001" draft="unconfirmed">(écriture commune)</script>
+			<script type="Zyyy" alt="proposed-x1001" draft="unconfirmed">( commune)</script>
 			<script type="Zzzz">écriture inconnue ou non valide</script>
-			<script type="Zzzz" alt="proposed-x1001" draft="unconfirmed">écriture inconnue ou invalide</script>
 		</scripts>
 		<territories>
 			<territory type="001">Monde</territory>
@@ -751,7 +744,6 @@
 			<territory type="053">Australie et Nouvelle-Zélande</territory>
 			<territory type="054">Mélanésie</territory>
 			<territory type="057">région micronésienne</territory>
-			<territory type="057" alt="proposed-x1001" draft="unconfirmed">Région micronésienne</territory>
 			<territory type="061">Polynésie</territory>
 			<territory type="062">Asie centrale et du Sud</territory>
 			<territory type="142">Asie</territory>
@@ -764,7 +756,6 @@
 			<territory type="172">Communauté des États indépendants</territory>
 			<territory type="419">Amérique latine et Caraïbes</territory>
 			<territory type="830">Îles Anglo-normandes</territory>
-			<territory type="830" alt="proposed-x1001" draft="unconfirmed">Îles Anglo-Normandes</territory>
 			<territory type="AD">Andorre</territory>
 			<territory type="AE">Émirats arabes unis</territory>
 			<territory type="AF">Afghanistan</territory>
@@ -781,8 +772,7 @@
 			<territory type="AU">Australie</territory>
 			<territory type="AW">Aruba</territory>
 			<territory type="AX">Îles Åland</territory>
-			<territory type="AX" alt="proposed-x1001" draft="unconfirmed">Îles d'Åland</territory>
-			<territory type="AX" alt="proposed-x1002" draft="unconfirmed">Åland</territory>
+			<territory type="AX" alt="proposed-x1001" draft="unconfirmed">Åland</territory>
 			<territory type="AZ">Azerbaïdjan</territory>
 			<territory type="BA">Bosnie-Herzégovine</territory>
 			<territory type="BB">Barbade</territory>
@@ -796,7 +786,7 @@
 			<territory type="BL">Saint-Barthélémy</territory>
 			<territory type="BM">Bermudes</territory>
 			<territory type="BN" references="R056">Brunéi Darussalam</territory>
-			<territory type="BN" alt="proposed-x1001" draft="unconfirmed">Brunei</territory>
+			<territory type="BN" alt="proposed-x1001" draft="unconfirmed">Brunéi</territory>
 			<territory type="BO">Bolivie</territory>
 			<territory type="BR">Brésil</territory>
 			<territory type="BS">Bahamas</territory>
@@ -804,16 +794,16 @@
 			<territory type="BV">Île  Bouvet</territory>
 			<territory type="BW">Botswana</territory>
 			<territory type="BY">Bélarus</territory>
-			<territory type="BY" alt="proposed-x1001" draft="unconfirmed">Biélorussie</territory>
-			<territory type="BY" alt="proposed-x1002" draft="unconfirmed">Belarus</territory>
 			<territory type="BZ">Belize</territory>
 			<territory type="CA">Canada</territory>
-			<territory type="CC">Îles des Cocos (Keeling)</territory>
-			<territory type="CC" alt="proposed-x1001" draft="unconfirmed">Îles Cocos</territory>
-			<territory type="CC" alt="proposed-x1002" draft="unconfirmed">Îles Cocos (Keeling)</territory>
+			<territory type="CC">Îles Cocos - Keeling</territory>
 			<territory type="CD">République démocratique du Congo</territory>
+			<territory type="CD" alt="proposed-x1001" draft="unconfirmed">Congo-Kinshasa</territory>
+			<territory type="CD" alt="proposed-x1002" draft="unconfirmed">Congo - Kinshasa</territory>
 			<territory type="CF">République centrafricaine</territory>
 			<territory type="CG">Congo</territory>
+			<territory type="CG" alt="proposed-x1001" draft="unconfirmed">Congo-Brazzaville</territory>
+			<territory type="CG" alt="proposed-x1002" draft="unconfirmed">Congo - Brazzaville</territory>
 			<territory type="CH">Suisse</territory>
 			<territory type="CI">Côte d’Ivoire</territory>
 			<territory type="CK">Îles Cook</territory>
@@ -845,9 +835,7 @@
 			<territory type="FI">Finlande</territory>
 			<territory type="FJ">Fidji</territory>
 			<territory type="FK">Îles Malouines</territory>
-			<territory type="FK" alt="proposed-x1001" draft="unconfirmed">Iles Malouines</territory>
 			<territory type="FM">États fédérés de Micronésie</territory>
-			<territory type="FM" alt="proposed-x1001" draft="unconfirmed">Micronésie</territory>
 			<territory type="FO">Îles Féroé</territory>
 			<territory type="FR">France</territory>
 			<territory type="GA">Gabon</territory>
@@ -870,7 +858,7 @@
 			<territory type="GW">Guinée-Bissau</territory>
 			<territory type="GY">Guyana</territory>
 			<territory type="HK">R.A.S. chinoise de Hong Kong</territory>
-			<territory type="HK" alt="proposed-x1001" draft="unconfirmed">R.A.S. de Hong Kong (Chine)</territory>
+			<territory type="HK" alt="proposed-x1001" draft="unconfirmed">Hongkong</territory>
 			<territory type="HK" alt="short">Hong Kong</territory>
 			<territory type="HM">Îles Heard et MacDonald</territory>
 			<territory type="HN">Honduras</territory>
@@ -911,7 +899,6 @@
 			<territory type="LI">Liechtenstein</territory>
 			<territory type="LK">Sri Lanka</territory>
 			<territory type="LR">Libéria</territory>
-			<territory type="LR" alt="proposed-x1001" draft="unconfirmed">Liberia</territory>
 			<territory type="LS">Lesotho</territory>
 			<territory type="LT" references="R056">Lituanie</territory>
 			<territory type="LU">Luxembourg</territory>
@@ -929,7 +916,7 @@
 			<territory type="MM">Myanmar</territory>
 			<territory type="MN">Mongolie</territory>
 			<territory type="MO">R.A.S. chinoise de Macao</territory>
-			<territory type="MO" alt="proposed-x1001" draft="unconfirmed">R.A.S de Macao (Chine)</territory>
+			<territory type="MO" alt="proposed-x1001" draft="unconfirmed">Macao</territory>
 			<territory type="MO" alt="short">Macao</territory>
 			<territory type="MP">Îles Mariannes du Nord</territory>
 			<territory type="MQ">Martinique</territory>
@@ -947,7 +934,6 @@
 			<territory type="NE">Niger</territory>
 			<territory type="NF">Île Norfolk</territory>
 			<territory type="NG">Nigéria</territory>
-			<territory type="NG" alt="proposed-x1001" draft="unconfirmed">Nigeria</territory>
 			<territory type="NI">Nicaragua</territory>
 			<territory type="NL">Pays-Bas</territory>
 			<territory type="NO">Norvège</territory>
@@ -970,12 +956,9 @@
 			<territory type="PS">Territoire palestinien</territory>
 			<territory type="PT">Portugal</territory>
 			<territory type="PW">Palaos</territory>
-			<territory type="PW" alt="proposed-x1001" draft="unconfirmed">Palaos ; Palau</territory>
-			<territory type="PW" alt="proposed-x1002" draft="unconfirmed">Palau</territory>
 			<territory type="PY">Paraguay</territory>
 			<territory type="QA">Qatar</territory>
 			<territory type="QO">régions éloignées de l’Océanie</territory>
-			<territory type="QO" alt="proposed-x1001" draft="unconfirmed">Régions éloignées de l'Océanie</territory>
 			<territory type="QU">Union européenne</territory>
 			<territory type="RE">Réunion</territory>
 			<territory type="RO">Roumanie</territory>
@@ -997,12 +980,9 @@
 			<territory type="SN">Sénégal</territory>
 			<territory type="SO">Somalie</territory>
 			<territory type="SR">Suriname</territory>
-			<territory type="SR" alt="proposed-x1001" draft="unconfirmed">Surinam</territory>
 			<territory type="ST">Sao Tomé-et-Principe</territory>
-			<territory type="ST" alt="proposed-x1001" draft="unconfirmed">São Tomé et Príncipe</territory>
-			<territory type="ST" alt="proposed-x1002" draft="unconfirmed">São Tomé-et-Príncipe</territory>
+			<territory type="ST" alt="proposed-x1001" draft="unconfirmed">São Tomé-et-Príncipe</territory>
 			<territory type="SV">El Salvador</territory>
-			<territory type="SV" alt="proposed-x1001" draft="unconfirmed">Salvador</territory>
 			<territory type="SY">Syrie</territory>
 			<territory type="SZ">Swaziland</territory>
 			<territory type="TC">Îles Turks et Caïques</territory>
@@ -1020,7 +1000,6 @@
 			<territory type="TT">Trinité-et-Tobago</territory>
 			<territory type="TV">Tuvalu</territory>
 			<territory type="TW">Taïwan</territory>
-			<territory type="TW" alt="proposed-x1001" draft="unconfirmed">Taiwan</territory>
 			<territory type="TZ">Tanzanie</territory>
 			<territory type="UA">Ukraine</territory>
 			<territory type="UG">Ouganda</territory>
@@ -1035,7 +1014,6 @@
 			<territory type="VG">Îles Vierges britanniques</territory>
 			<territory type="VI">Îles Vierges des États-Unis</territory>
 			<territory type="VN">Viêt Nam</territory>
-			<territory type="VN" alt="proposed-x1001" draft="unconfirmed">Vietnam</territory>
 			<territory type="VU">Vanuatu</territory>
 			<territory type="WF">Wallis-et-Futuna</territory>
 			<territory type="WS">Samoa</territory>
@@ -1045,9 +1023,7 @@
 			<territory type="ZM">Zambie</territory>
 			<territory type="ZW">Zimbabwe</territory>
 			<territory type="ZZ">région indéterminée</territory>
-			<territory type="ZZ" alt="proposed-x1001" draft="unconfirmed">région inconnue ou non valide</territory>
-			<territory type="ZZ" alt="proposed-x1002" draft="unconfirmed">Région indéterminée</territory>
-			<territory type="ZZ" alt="proposed-x1003" draft="unconfirmed">(région indéterminée)</territory>
+			<territory type="ZZ" alt="proposed-x1001" draft="unconfirmed">(région indéterminée)</territory>
 		</territories>
 		<variants>
 			<variant type="1901">orthographe allemande traditionnelle</variant>
@@ -1130,12 +1106,24 @@
 			<codePattern type="territory">région : {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
+	<layout>
+		<inList draft="unconfirmed">mixed</inList>
+		<inText type="currency" draft="unconfirmed">mixed</inText>
+		<inText type="fields" draft="unconfirmed">mixed</inText>
+		<inText type="keys" draft="unconfirmed">mixed</inText>
+		<inText type="languages" draft="unconfirmed">mixed</inText>
+		<inText type="long" draft="unconfirmed">mixed</inText>
+		<inText type="measurementSystemNames" draft="unconfirmed">mixed</inText>
+		<inText type="quarterWidth" draft="unconfirmed">mixed</inText>
+		<inText type="scripts" draft="unconfirmed">mixed</inText>
+		<inText type="territories" draft="unconfirmed">mixed</inText>
+		<inText type="types" draft="unconfirmed">mixed</inText>
+		<inText type="variants" draft="unconfirmed">mixed</inText>
+	</layout>
 	<characters>
 		<exemplarCharacters>[a à â æ b c ç d e é è ê ë f-i î ï j-o ô œ p-u ù û ü v-y ÿ z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á å ä ã ā ē í ì ī ñ ó ò ö ø ú ǔ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" alt="proposed-x1001" draft="unconfirmed">[á å ä ã ā č ē í ì ī ñ ó ò ö ø š ú ž]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a-z ұ Ұ]</exemplarCharacters>
-		<exemplarCharacters type="currencySymbol" alt="proposed-x1001" draft="unconfirmed">[a-z ұ Ұ]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>«</quotationStart>
@@ -1144,6 +1132,7 @@
 		<alternateQuotationEnd>”</alternateQuotationEnd>
 	</delimiters>
 	<dates>
+		<dateRangePattern>{0} – {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
 				<am draft="unconfirmed">matin</am>
@@ -1173,7 +1162,6 @@
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>d MMM, y G</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1503,10 +1491,10 @@
 							<quarter type="4">T4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1" alt="proposed-x1001" draft="unconfirmed">T1</quarter>
-							<quarter type="2" alt="proposed-x1001" draft="unconfirmed">T2</quarter>
-							<quarter type="3" draft="unconfirmed">T3</quarter>
-							<quarter type="4" alt="proposed-x1001" draft="unconfirmed">T4</quarter>
+							<quarter type="1">T1</quarter>
+							<quarter type="2">T2</quarter>
+							<quarter type="3">T3</quarter>
+							<quarter type="4">T4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">1er trimestre</quarter>
@@ -1525,7 +1513,9 @@
 					</quarterContext>
 				</quarters>
 				<am>AM</am>
+				<am alt="proposed-x1001" draft="unconfirmed">matin</am>
 				<pm>PM</pm>
+				<pm alt="proposed-x1001" draft="unconfirmed">soir</pm>
 				<eras>
 					<eraNames>
 						<era type="0">avant Jésus-Christ</era>
@@ -1581,22 +1571,44 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern draft="unconfirmed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
 						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="MEd">EEE d/M</dateFormatItem>
+						<dateFormatItem id="MEd" alt="proposed-x1001" draft="unconfirmed">E d/M</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">EEE d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd" alt="proposed-x1001" draft="unconfirmed">E d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMdd">dd MMM</dateFormatItem>
 						<dateFormatItem id="MMd">d/MM</dateFormatItem>
 						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
-						<dateFormatItem id="Md" alt="proposed-x1001" draft="unconfirmed">M-d</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="hhmm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hhmmss">HH:mm:ss</dateFormatItem>
@@ -1609,29 +1621,25 @@
 						<dateFormatItem id="yMMMEd">EEE d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQ">'T'Q y</dateFormatItem>
-						<dateFormatItem id="yQ" alt="proposed-x1001" draft="unconfirmed">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yyMM">MM/yy</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM yy</dateFormatItem>
 						<dateFormatItem id="yyMMMEEEd">EEE d MMM yy</dateFormatItem>
 						<dateFormatItem id="yyMMMd">d MMM yy</dateFormatItem>
 						<dateFormatItem id="yyQ">'T'Q yy</dateFormatItem>
-						<dateFormatItem id="yyQ" alt="proposed-x1001" draft="unconfirmed">QQQ yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
-						<intervalFormatFallback alt="proposed-x1001" draft="unconfirmed">du {0} au {1}</intervalFormatFallback>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M–M</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">M-M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="M">E dd/MM - E dd/MM</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">E d/M – E d/M</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">E dd/MM – E dd/MM</greatestDifference>
 							<greatestDifference id="d">E dd/MM - E dd/MM</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">E d – E d/M</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">E dd – E dd/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M">MMM–MMM</greatestDifference>
@@ -1644,7 +1652,6 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
 							<greatestDifference id="M">LLLL–LLLL</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">LLLL-LLLL</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
 							<greatestDifference id="M">'du' d MMM 'au' d MMM</greatestDifference>
@@ -1653,9 +1660,8 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="M">dd/MM - dd/MM</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">dd/MM – dd/MM</greatestDifference>
 							<greatestDifference id="d">dd/MM - dd/MM</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">dd – dd/MM</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">dd–dd/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d-d</greatestDifference>
@@ -1663,40 +1669,25 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">HH – HH</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">h a – h a</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1002" draft="unconfirmed">HH-HH</greatestDifference>
+							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">HH–HH</greatestDifference>
 							<greatestDifference id="h">HH – HH</greatestDifference>
-							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">h–h a</greatestDifference>
-							<greatestDifference id="h" alt="proposed-x1002" draft="unconfirmed">HH-HH</greatestDifference>
+							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">HH–HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">HH:mm – HH:mm</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">h:mm a – h:mm a v</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1002" draft="unconfirmed">HH:mm-HH:mm</greatestDifference>
 							<greatestDifference id="h">HH:mm-HH:mm</greatestDifference>
-							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">h:mm – h:mm a</greatestDifference>
 							<greatestDifference id="m">HH:mm – HH:mm</greatestDifference>
-							<greatestDifference id="m" alt="proposed-x1001" draft="unconfirmed">HH:mm-HH:mm</greatestDifference>
-							<greatestDifference id="m" alt="proposed-x1002" draft="unconfirmed">h:mm–mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">HH:mm – HH:mm v</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">h:mm a – h:mm a v</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1002" draft="unconfirmed">HH:mm-HH:mm v</greatestDifference>
 							<greatestDifference id="h">HH:mm – HH:mm v</greatestDifference>
-							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">HH:mm-HH:mm v</greatestDifference>
-							<greatestDifference id="h" alt="proposed-x1002" draft="unconfirmed">h:mm – h:mm a v</greatestDifference>
 							<greatestDifference id="m">HH:mm – HH:mm v</greatestDifference>
-							<greatestDifference id="m" alt="proposed-x1001" draft="unconfirmed">h:mm–mm a v</greatestDifference>
-							<greatestDifference id="m" alt="proposed-x1002" draft="unconfirmed">HH:mm-HH:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">HH – HH v</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">HH-HH v</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1002" draft="unconfirmed">h a – h a v</greatestDifference>
+							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">HH–HH v</greatestDifference>
 							<greatestDifference id="h">HH – HH v</greatestDifference>
-							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">HH-HH v</greatestDifference>
-							<greatestDifference id="h" alt="proposed-x1002" draft="unconfirmed">h–h a v</greatestDifference>
+							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">y-y</greatestDifference>
@@ -1704,19 +1695,16 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">MM/yy – MM/yy</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">M–M/yyyy</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1002" draft="unconfirmed">MM/yy - MM/yy</greatestDifference>
 							<greatestDifference id="y">M/yyyy – M/yyyy</greatestDifference>
 							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">MM/yy - MM/yy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
 							<greatestDifference id="M">E dd/MM/yy – E dd/MM/yy</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">E dd/MM/yy - E dd/MM/yy</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1002" draft="unconfirmed">E d/M – E d/M/yyyy</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">E dd/MM – E dd/MM/yy</greatestDifference>
 							<greatestDifference id="d">E dd/MM/yy – E dd/MM/yy</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">E d – E d/M/yyyy</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1002" draft="unconfirmed">E dd/MM/yy - E dd/MM/yy</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">E dd – E dd/MM/yy</greatestDifference>
 							<greatestDifference id="y">E d/M/yyyy – E d/M/yyyy</greatestDifference>
+							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">E dd/MM/yy – E dd/MM/yy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">MMM–MMM y</greatestDifference>
@@ -1726,7 +1714,6 @@
 							<greatestDifference id="M">E d MMM – E d MMM y</greatestDifference>
 							<greatestDifference id="d">E d – E d MMM y</greatestDifference>
 							<greatestDifference id="y">E d MMM y – E d MMM y</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">'du' E d MMM y 'au' E d MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">MMMM–MMMM y</greatestDifference>
@@ -1739,13 +1726,11 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="M">d/M/yy – d/M/yy</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">dd/MM/yy - dd/MM/yy</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1002" draft="unconfirmed">d/M – d/M/yyyy</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">dd/MM – dd/MM/yy</greatestDifference>
 							<greatestDifference id="d">d/M/yy – d/M/yy</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">d–d/M/yyyy</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1002" draft="unconfirmed">dd/MM/yy - dd/MM/yy</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">dd–dd/MM/yy</greatestDifference>
 							<greatestDifference id="y">d/M/yyyy – d/M/yyyy</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">dd/MM/yy - dd/MM/yy</greatestDifference>
+							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">dd/MM/yy – dd/MM/yy</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1764,13 +1749,13 @@
 					</field>
 					<field type="day">
 						<displayName>jour</displayName>
+						<relative type="-3">avant-avant-hier</relative>
+						<relative type="-2">avant-hier</relative>
+						<relative type="-1">hier</relative>
 						<relative type="0">aujourd’hui</relative>
 						<relative type="1">demain</relative>
 						<relative type="2">après-demain</relative>
 						<relative type="3">après-après-demain</relative>
-						<relative type="-1">hier</relative>
-						<relative type="-2">avant-hier</relative>
-						<relative type="-3">avant-avant-hier</relative>
 					</field>
 					<field type="weekday">
 						<displayName>jour de la semaine</displayName>
@@ -1812,28 +1797,18 @@
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tisseri</month>
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">tisseri</month>
 							<month type="2">Hesvan</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">hesvan</month>
 							<month type="3" draft="unconfirmed">kislev</month>
 							<month type="4">Tébeth</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">tébeth</month>
 							<month type="5">Schébat</month>
-							<month type="5" alt="proposed-x1001" draft="unconfirmed">schébat</month>
 							<month type="6">Adar</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">adar I</month>
 							<month type="7">Adar II</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">adar</month>
 							<month type="8">Nissan</month>
-							<month type="8" alt="proposed-x1001" draft="unconfirmed">nissan</month>
 							<month type="9" draft="unconfirmed">iyar</month>
 							<month type="10" draft="unconfirmed">sivan</month>
 							<month type="11">Tamouz</month>
-							<month type="11" alt="proposed-x1001" draft="unconfirmed">tamouz</month>
 							<month type="12">Ab</month>
-							<month type="12" alt="proposed-x1001" draft="unconfirmed">ab</month>
 							<month type="13">Elloul</month>
-							<month type="13" alt="proposed-x1001" draft="unconfirmed">elloul</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -1938,6 +1913,7 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>UTC{0}</gmtFormat>
 			<gmtZeroFormat>UTC</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
@@ -1945,7 +1921,6 @@
 			<fallbackFormat alt="proposed-x1001" draft="unconfirmed">{0} ({1})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>zone inconnue</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">(zone inconnue)</exemplarCity>
 			</zone>
 			<zone type="Europe/Andorra">
 				<exemplarCity draft="provisional">Andorre</exemplarCity>
@@ -1976,28 +1951,24 @@
 			</zone>
 			<zone type="Antarctica/Syowa">
 				<exemplarCity>Showa</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Syowa</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Dumont d’Urville</exemplarCity>
+				<exemplarCity>Dumont d’Urville</exemplarCity>
 			</zone>
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity>Mac Murdo</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">McMurdo</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/San_Juan">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">San Juan, Argentine</exemplarCity>
+				<exemplarCity>San Juan</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Ushuaia">
 				<exemplarCity>Ushuaïa</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Ushuaia</exemplarCity>
 			</zone>
 			<zone type="America/Jujuy">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">San Salvador de Jujuy</exemplarCity>
+				<exemplarCity>Jujuy</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
 				<exemplarCity>Tucumán</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Tucuman</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
 				<exemplarCity>Córdoba</exemplarCity>
@@ -2037,7 +2008,6 @@
 			</zone>
 			<zone type="America/Manaus">
 				<exemplarCity>Manaos</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Manaus</exemplarCity>
 			</zone>
 			<zone type="America/Cuiaba">
 				<exemplarCity>Cuiabá</exemplarCity>
@@ -2054,9 +2024,6 @@
 			<zone type="America/Maceio">
 				<exemplarCity>Maceió</exemplarCity>
 			</zone>
-			<zone type="America/Noronha">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Fernando de Noronha</exemplarCity>
-			</zone>
 			<zone type="Asia/Thimphu">
 				<exemplarCity draft="unconfirmed">Thimphou</exemplarCity>
 			</zone>
@@ -2065,7 +2032,6 @@
 			</zone>
 			<zone type="America/Regina">
 				<exemplarCity>Régina</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Regina</exemplarCity>
 			</zone>
 			<zone type="America/Montreal">
 				<exemplarCity>Montréal</exemplarCity>
@@ -2079,15 +2045,13 @@
 			<!-- Chile -->
 			<zone type="Pacific/Easter">
 				<exemplarCity>Île de Pâques</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Hanga Roa</exemplarCity>
 			</zone>
 			<!-- China -->
 			<zone type="Asia/Kashgar">
 				<exemplarCity>Kachgar</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Kashgar</exemplarCity>
 			</zone>
 			<zone type="Asia/Urumqi">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Ürümqi</exemplarCity>
+				<exemplarCity>Ürümqi</exemplarCity>
 			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity draft="unconfirmed">San José</exemplarCity>
@@ -2134,7 +2098,6 @@
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Îles Canaries</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Las Palmas de Gran Canaria</exemplarCity>
 			</zone>
 			<zone type="Africa/Addis_Ababa">
 				<exemplarCity draft="contributed">Addis-Abeba</exemplarCity>
@@ -2144,15 +2107,6 @@
 			</zone>
 			<zone type="Atlantic/Stanley">
 				<exemplarCity draft="unconfirmed">Port Stanley</exemplarCity>
-			</zone>
-			<zone type="Pacific/Truk">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Weno</exemplarCity>
-			</zone>
-			<zone type="Pacific/Ponape">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Palikir</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kosrae">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Tofol</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity draft="provisional">Féroé</exemplarCity>
@@ -2226,9 +2180,6 @@
 			<zone type="Asia/Bishkek">
 				<exemplarCity draft="contributed">Bichkek</exemplarCity>
 			</zone>
-			<zone type="Pacific/Tarawa">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Tarawa-Sud</exemplarCity>
-			</zone>
 			<zone type="Indian/Comoro">
 				<exemplarCity draft="provisional">Comores (Archipel)</exemplarCity>
 			</zone>
@@ -2247,24 +2198,18 @@
 			<!-- Kazakhstan -->
 			<zone type="Asia/Aqtau">
 				<exemplarCity>Aktaou</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Aqtau</exemplarCity>
 			</zone>
 			<zone type="Asia/Oral">
 				<exemplarCity>Ouralsk</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Oral</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aktioubinsk</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Aqtöbe</exemplarCity>
-				<exemplarCity alt="proposed-x1002" draft="unconfirmed">Aktobe</exemplarCity>
 			</zone>
 			<zone type="Asia/Qyzylorda">
 				<exemplarCity>Kzyl Orda</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Kyzylorda</exemplarCity>
 			</zone>
 			<zone type="Asia/Almaty">
 				<exemplarCity>Alma Ata</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Almaty</exemplarCity>
 			</zone>
 			<zone type="Asia/Beirut">
 				<exemplarCity draft="contributed">Beyrouth</exemplarCity>
@@ -2328,10 +2273,6 @@
 			</zone>
 			<zone type="Pacific/Marquesas">
 				<exemplarCity>Marquises</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Nuku Hiva</exemplarCity>
-			</zone>
-			<zone type="Pacific/Gambier">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Rikitea</exemplarCity>
 			</zone>
 			<zone type="Asia/Manila">
 				<exemplarCity draft="contributed">Manille</exemplarCity>
@@ -2354,11 +2295,9 @@
 			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Açores</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Ponta Delgada</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Madeira">
 				<exemplarCity>Madère</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Funchal</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity>Lisbonne</exemplarCity>
@@ -2383,7 +2322,6 @@
 			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity>Ekaterinbourg</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Iekaterinbourg</exemplarCity>
 			</zone>
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>Novossibirsk</exemplarCity>
@@ -2402,7 +2340,6 @@
 			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>Kamtchatka</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Petropavlovsk-Kamtchatski</exemplarCity>
 			</zone>
 			<zone type="Asia/Riyadh">
 				<exemplarCity draft="contributed">Riyad</exemplarCity>
@@ -2461,37 +2398,30 @@
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporojie</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Zaporijjia</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Alaska</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Anchorage</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
 				<exemplarCity>New Salem, Dakota du Nord</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Central North Dakota</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Center, Dakota du Nord</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Vincennes">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Vincennes</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Tell City</exemplarCity>
+				<exemplarCity>Vincennes, Indiana</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Winamac">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Winamac</exemplarCity>
+				<exemplarCity>Winamac, Indiana</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Vevay">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Vevay</exemplarCity>
+				<exemplarCity>Vevay, Indiana</exemplarCity>
 			</zone>
 			<zone type="America/Detroit">
 				<exemplarCity>Détroit</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Detroit</exemplarCity>
 			</zone>
 			<zone type="Asia/Samarkand">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Samarcande</exemplarCity>
+				<exemplarCity>Samarcande</exemplarCity>
 			</zone>
 			<zone type="Asia/Tashkent">
 				<exemplarCity draft="contributed">Tachkent</exemplarCity>
@@ -2522,9 +2452,8 @@
 			</zone>
 			<metazone type="Acre">
 				<long>
-					<generic draft="unconfirmed">heure de l’Acre</generic>
-					<standard draft="contributed">heure de l’Acre</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de l’Acre</standard>
+					<generic>heure de l’Acre</generic>
+					<standard>heure de l’Acre</standard>
 					<daylight>heure avancée de l’Acre</daylight>
 				</long>
 				<short>
@@ -2536,10 +2465,9 @@
 			</metazone>
 			<metazone type="Afghanistan">
 				<long>
-					<generic draft="unconfirmed">heure d’Afghanistan</generic>
+					<generic>heure d’Afghanistan</generic>
 					<standard>heure d’Afghanistan</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale d’Afghanistan</standard>
-					<daylight draft="unconfirmed">heure avancée d’Afghanistan</daylight>
+					<daylight>heure avancée d’Afghanistan</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HAF</generic>
@@ -2550,10 +2478,9 @@
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
-					<generic draft="unconfirmed">heure d’Afrique centrale</generic>
+					<generic>heure d’Afrique centrale</generic>
 					<standard>heure normale d’Afrique centrale</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Heure normale d’Afrique centrale</standard>
-					<daylight draft="unconfirmed">heure avancée d’Afrique centrale</daylight>
+					<daylight>heure avancée d’Afrique centrale</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HAFC</generic>
@@ -2564,10 +2491,9 @@
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
-					<generic draft="unconfirmed">heure d’Afrique de l’Est</generic>
+					<generic>heure d’Afrique de l’Est</generic>
 					<standard>heure normale d’Afrique de l’Est</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Heure normale d’Afrique orientale</standard>
-					<daylight draft="unconfirmed">heure avancée d’Afrique de l’Est</daylight>
+					<daylight>heure avancée d’Afrique de l’Est</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HAFE</generic>
@@ -2578,9 +2504,9 @@
 			</metazone>
 			<metazone type="Africa_FarWestern">
 				<long>
-					<generic draft="unconfirmed">heure d’Afrique de l’Ouest sahélien</generic>
-					<standard draft="unconfirmed">heure normale d’Afrique de l’Ouest sahélien</standard>
-					<daylight draft="unconfirmed">heure avancée d’Afrique de l’Ouest sahélien</daylight>
+					<generic>heure d’Afrique de l’Ouest sahélien</generic>
+					<standard>heure normale d’Afrique de l’Ouest sahélien</standard>
+					<daylight>heure avancée d’Afrique de l’Ouest sahélien</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HAFOS</generic>
@@ -2592,10 +2518,8 @@
 			<metazone type="Africa_Southern">
 				<long>
 					<generic>heure d’Afrique méridionale</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Heure d’Afrique méridionale</generic>
 					<standard>heure normale d’Afrique méridionale</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Heure normale d’Afrique méridionale</standard>
-					<daylight draft="unconfirmed">heure avancée d’Afrique méridionale</daylight>
+					<daylight>heure avancée d’Afrique méridionale</daylight>
 				</long>
 				<short>
 					<generic draft="contributed">HAFM</generic>
@@ -2606,11 +2530,9 @@
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic draft="unconfirmed">heure d’Afrique de l’Ouest</generic>
+					<generic>heure d’Afrique de l’Ouest</generic>
 					<standard>heure normale d’Afrique de l’Ouest</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Heure normale d’Afrique occidentale</standard>
 					<daylight>heure avancée d’Afrique de l’Ouest</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Heure avancée d’Afrique occidentale</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HAFO</generic>
@@ -2621,9 +2543,9 @@
 			</metazone>
 			<metazone type="Aktyubinsk">
 				<long>
-					<generic draft="unconfirmed">heure d’Aqtöbe</generic>
-					<standard draft="unconfirmed">heure normale d’Aqtöbe</standard>
-					<daylight draft="unconfirmed">heure avancée d’Aqtöbe</daylight>
+					<generic>heure d’Aqtöbe</generic>
+					<standard>heure normale d’Aqtöbe</standard>
+					<daylight>heure avancée d’Aqtöbe</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HAQB</generic>
@@ -2648,7 +2570,6 @@
 			<metazone type="Alaska_Hawaii">
 				<long>
 					<generic>heure d’Alaska - Hawaii</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Heure d’Alaska - Hawaii</generic>
 					<standard>heure normale d’Alaska - Hawaii</standard>
 					<daylight>heure avancée d’Alaska - Hawaii</daylight>
 				</long>
@@ -2661,9 +2582,9 @@
 			</metazone>
 			<metazone type="Almaty">
 				<long>
-					<generic draft="unconfirmed">heure d’Alma Ata</generic>
-					<standard draft="unconfirmed">heure normale d’Alma Ata</standard>
-					<daylight draft="unconfirmed">heure avancée d’Alma Ata</daylight>
+					<generic>heure d’Alma Ata</generic>
+					<standard>heure normale d’Alma Ata</standard>
+					<daylight>heure avancée d’Alma Ata</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HALM</generic>
@@ -2674,9 +2595,8 @@
 			</metazone>
 			<metazone type="Amazon">
 				<long>
-					<generic draft="unconfirmed">heure de l’Amazonie</generic>
-					<standard draft="contributed">heure de l’Amazonie</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de l’Amazonie</standard>
+					<generic>heure de l’Amazonie</generic>
+					<standard>heure de l’Amazonie</standard>
 					<daylight>heure avancée de l’Amazonie</daylight>
 				</long>
 				<short>
@@ -2715,7 +2635,6 @@
 			<metazone type="America_Mountain">
 				<long>
 					<generic>Heure des Rocheuses</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">heure des Rocheuses</generic>
 					<standard>heure normale des Rocheuses</standard>
 					<daylight>heure avancée des Rocheuses</daylight>
 				</long>
@@ -2741,9 +2660,8 @@
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
-					<generic draft="unconfirmed">heure d’Anadyr</generic>
+					<generic>heure d’Anadyr</generic>
 					<standard>heure d’Anadyr</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale d’Anadyr</standard>
 					<daylight>heure avancée d’Anadyr</daylight>
 				</long>
 				<short>
@@ -2755,9 +2673,8 @@
 			</metazone>
 			<metazone type="Aqtau">
 				<long>
-					<generic draft="unconfirmed">heure d’Aktaou</generic>
+					<generic>heure d’Aktaou</generic>
 					<standard>heure d’Aktaou</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale d’Aktaou</standard>
 					<daylight>heure avancée d’Aktaou</daylight>
 				</long>
 				<short>
@@ -2769,9 +2686,8 @@
 			</metazone>
 			<metazone type="Aqtobe">
 				<long>
-					<generic draft="unconfirmed">heure d’Aqtöbe</generic>
+					<generic>heure d’Aqtöbe</generic>
 					<standard>heure d’Aqtöbe</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale d’Aqtöbe</standard>
 					<daylight>heure avancé d’Aqtöbe</daylight>
 				</long>
 				<short>
@@ -2796,9 +2712,8 @@
 			</metazone>
 			<metazone type="Argentina">
 				<long>
-					<generic draft="unconfirmed">heure de l’Est argentin</generic>
+					<generic>heure de l’Est argentin</generic>
 					<standard>heure d’Argentine</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de l’Est argentin</standard>
 					<daylight>heure avancée de l’Est argentin</daylight>
 				</long>
 				<short>
@@ -2810,10 +2725,9 @@
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<generic draft="unconfirmed">heure de l’Ouest argentin</generic>
-					<standard draft="contributed">heure de l’Ouest argentin</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de l’Ouest argentin</standard>
-					<daylight draft="unconfirmed">heure avancée de l’Ouest argentin</daylight>
+					<generic>heure de l’Ouest argentin</generic>
+					<standard>heure de l’Ouest argentin</standard>
+					<daylight>heure avancée de l’Ouest argentin</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HO (AR)</generic>
@@ -2824,9 +2738,8 @@
 			</metazone>
 			<metazone type="Armenia">
 				<long>
-					<generic draft="unconfirmed">heure d’Arménie</generic>
+					<generic>heure d’Arménie</generic>
 					<standard>heure d’Arménie</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale d’Arménie</standard>
 					<daylight>heure avancée d’Arménie</daylight>
 				</long>
 				<short>
@@ -2838,9 +2751,8 @@
 			</metazone>
 			<metazone type="Ashkhabad">
 				<long>
-					<generic draft="unconfirmed">heure d’Achgabat</generic>
+					<generic>heure d’Achgabat</generic>
 					<standard>heure d’Achgabat</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale d’Achgabat</standard>
 					<daylight>heure avancée d’Achgabat</daylight>
 				</long>
 				<short>
@@ -2917,9 +2829,8 @@
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
-					<generic draft="unconfirmed">heure d’Azerbaïdjan</generic>
+					<generic>heure d’Azerbaïdjan</generic>
 					<standard>heure d’Azerbaïdjan</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale d’Azerbaïdjan</standard>
 					<daylight>heure avancée d’Azerbaïdjan</daylight>
 				</long>
 				<short>
@@ -2931,9 +2842,8 @@
 			</metazone>
 			<metazone type="Azores">
 				<long>
-					<generic draft="unconfirmed">heure des Açores</generic>
-					<standard draft="contributed">heure des Açores</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale des Açores</standard>
+					<generic>heure des Açores</generic>
+					<standard>heure des Açores</standard>
 					<daylight>heure avancée des Açores</daylight>
 				</long>
 				<short>
@@ -2945,9 +2855,8 @@
 			</metazone>
 			<metazone type="Baku">
 				<long>
-					<generic draft="unconfirmed">heure de Bakou</generic>
+					<generic>heure de Bakou</generic>
 					<standard>heure de Bakou</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Bakou</standard>
 					<daylight>heure avancée de Bakou</daylight>
 				</long>
 				<short>
@@ -2959,10 +2868,9 @@
 			</metazone>
 			<metazone type="Bangladesh">
 				<long>
-					<generic draft="unconfirmed">heure du Bangladesh</generic>
+					<generic>heure du Bangladesh</generic>
 					<standard draft="contributed">heure du Bangladesh</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale du Bangladesh</standard>
-					<daylight draft="unconfirmed">heure avancée du Bangladesh</daylight>
+					<daylight>heure avancée du Bangladesh</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HBD</generic>
@@ -2986,10 +2894,9 @@
 			</metazone>
 			<metazone type="Bhutan">
 				<long>
-					<generic draft="unconfirmed">heure du Bhoutan</generic>
+					<generic>heure du Bhoutan</generic>
 					<standard draft="contributed">heure du Bhoutan</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale du Bhoutan</standard>
-					<daylight draft="unconfirmed">heure avancée du Bhoutan</daylight>
+					<daylight>heure avancée du Bhoutan</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HBT</generic>
@@ -3000,10 +2907,9 @@
 			</metazone>
 			<metazone type="Bolivia">
 				<long>
-					<generic draft="unconfirmed">heure de Bolivie</generic>
-					<standard draft="contributed">heure de Bolivie</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Bolivie</standard>
-					<daylight draft="unconfirmed">heure avancée de Bolivie</daylight>
+					<generic>heure de Bolivie</generic>
+					<standard>heure de Bolivie</standard>
+					<daylight>heure avancée de Bolivie</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HBO</generic>
@@ -3014,9 +2920,8 @@
 			</metazone>
 			<metazone type="Borneo">
 				<long>
-					<generic draft="unconfirmed">heure de Bornéo</generic>
+					<generic>heure de Bornéo</generic>
 					<standard draft="contributed">heure de Bornéo</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Bornéo</standard>
 					<daylight>heure avancée de Bornéo</daylight>
 				</long>
 				<short>
@@ -3028,9 +2933,8 @@
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
-					<generic draft="unconfirmed">heure de Brasilia</generic>
-					<standard draft="contributed">heure de Brasilia</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Brasilia</standard>
+					<generic>heure de Brasilia</generic>
+					<standard>heure de Brasilia</standard>
 					<daylight>heure avancée de Brasilia</daylight>
 				</long>
 				<short>
@@ -3042,9 +2946,9 @@
 			</metazone>
 			<metazone type="British">
 				<long>
-					<generic draft="contributed">heure du Royaume-Uni</generic>
-					<standard draft="contributed">heure normale du Royaume-Uni</standard>
-					<daylight draft="contributed">heure avancée du Royaume-Uni</daylight>
+					<generic>heure du Royaume-Uni</generic>
+					<standard>heure normale du Royaume-Uni</standard>
+					<daylight>heure avancée du Royaume-Uni</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HGB</generic>
@@ -3055,10 +2959,9 @@
 			</metazone>
 			<metazone type="Brunei">
 				<long>
-					<generic draft="unconfirmed">heure du Brunéi</generic>
+					<generic>heure du Brunéi</generic>
 					<standard draft="contributed">heure du Brunéi</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale du Brunéi</standard>
-					<daylight draft="unconfirmed">heure avancée du Brunéi</daylight>
+					<daylight>heure avancée du Brunéi</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HBN</generic>
@@ -3069,9 +2972,8 @@
 			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
-					<generic draft="unconfirmed">heure du Cap-Vert</generic>
-					<standard draft="contributed">eure du Cap-Vert</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale du Cap-Vert</standard>
+					<generic>heure du Cap-Vert</generic>
+					<standard>heure du Cap-Vert</standard>
 					<daylight>heure avancée du Cap-Vert</daylight>
 				</long>
 				<short>
@@ -3085,7 +2987,7 @@
 				<long>
 					<generic>heure des Chamorro</generic>
 					<standard>heure normale des Chamorro</standard>
-					<daylight draft="unconfirmed">heure avancée des Chamorro</daylight>
+					<daylight>heure avancée des Chamorro</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HCh</generic>
@@ -3096,10 +2998,9 @@
 			</metazone>
 			<metazone type="Changbai">
 				<long>
-					<generic draft="unconfirmed">heure du Changbai</generic>
+					<generic>heure du Changbai</generic>
 					<standard draft="contributed">heure du Changbai</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale du Changbai</standard>
-					<daylight draft="unconfirmed">heure avancée du Changbai</daylight>
+					<daylight>heure avancée du Changbai</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HCHA (CN)</generic>
@@ -3110,7 +3011,7 @@
 			</metazone>
 			<metazone type="Chatham">
 				<long>
-					<generic draft="unconfirmed">heure des îles Chatham</generic>
+					<generic>heure des îles Chatham</generic>
 					<standard>heure des îles Chatham</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">heure normale des îles Chatham</standard>
 					<daylight>heure avancée des îles Chatham</daylight>
@@ -3124,9 +3025,8 @@
 			</metazone>
 			<metazone type="Chile">
 				<long>
-					<generic draft="unconfirmed">heure du Chili</generic>
-					<standard draft="contributed">heure du Chili</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale du Chili</standard>
+					<generic>heure du Chili</generic>
+					<standard>heure du Chili</standard>
 					<daylight>heure avancée du Chili</daylight>
 				</long>
 				<short>
@@ -3145,9 +3045,7 @@
 				<short>
 					<generic draft="contributed">HC (CN)</generic>
 					<standard>HNC (Chine)</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">HNC (CN)</standard>
 					<daylight>HAC (Chine)</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">HAC (CN)</daylight>
 				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
@@ -3156,10 +3054,10 @@
 			</metazone>
 			<metazone type="Christmas">
 				<long>
-					<generic draft="unconfirmed">heure de l’île Christmas</generic>
+					<generic>heure de l’île Christmas</generic>
 					<standard>heure de l’île Christmas</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de l’île Christmas</standard>
-					<daylight draft="unconfirmed">heure avancée de l’île Christmas</daylight>
+					<daylight>heure avancée de l’île Christmas</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HCX</generic>
@@ -3170,10 +3068,10 @@
 			</metazone>
 			<metazone type="Cocos">
 				<long>
-					<generic draft="unconfirmed">heure des îles Cocos - Keeling</generic>
+					<generic>heure des îles Cocos - Keeling</generic>
 					<standard>heure des îles Cocos</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">heure normale des îles Cocos - Keeling</standard>
-					<daylight draft="unconfirmed">heure avancée des îles Cocos - Keeling</daylight>
+					<daylight>heure avancée des îles Cocos - Keeling</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HCC</generic>
@@ -3184,9 +3082,8 @@
 			</metazone>
 			<metazone type="Colombia">
 				<long>
-					<generic draft="unconfirmed">heure de Colombie</generic>
-					<standard draft="contributed">heure de Colombie</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Colombie</standard>
+					<generic>heure de Colombie</generic>
+					<standard>heure de Colombie</standard>
 					<daylight>heure avancée de Colombie</daylight>
 				</long>
 				<short>
@@ -3198,7 +3095,7 @@
 			</metazone>
 			<metazone type="Cook">
 				<long>
-					<generic draft="unconfirmed">heure des îles Cook</generic>
+					<generic>heure des îles Cook</generic>
 					<standard>heure des îles Cook</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">heure normale des îles Cook</standard>
 					<daylight>heure avancée des îles Cook</daylight>
@@ -3225,10 +3122,9 @@
 			</metazone>
 			<metazone type="Dacca">
 				<long>
-					<generic draft="unconfirmed">heure de Dhâkâ</generic>
+					<generic>heure de Dhâkâ</generic>
 					<standard>heure de Dhâkâ</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Dhâkâ</standard>
-					<daylight draft="unconfirmed">heure avancée de Dhâkâ</daylight>
+					<daylight>heure avancée de Dhâkâ</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HDAC</generic>
@@ -3239,10 +3135,9 @@
 			</metazone>
 			<metazone type="Davis">
 				<long>
-					<generic draft="unconfirmed">heure de Davis</generic>
+					<generic>heure de Davis</generic>
 					<standard>heure de Davis</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Davis</standard>
-					<daylight draft="unconfirmed">heure avancée de Davis</daylight>
+					<daylight>heure avancée de Davis</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HDAV</generic>
@@ -3253,9 +3148,9 @@
 			</metazone>
 			<metazone type="Dominican">
 				<long>
-					<generic draft="unconfirmed">heure de République dominicaine</generic>
-					<standard draft="unconfirmed">heure normale de République dominicaine</standard>
-					<daylight draft="unconfirmed">heure avancée de République dominicaine</daylight>
+					<generic>heure de République dominicaine</generic>
+					<standard>heure normale de République dominicaine</standard>
+					<daylight>heure avancée de République dominicaine</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HDO</generic>
@@ -3266,10 +3161,9 @@
 			</metazone>
 			<metazone type="DumontDUrville">
 				<long>
-					<generic draft="unconfirmed">heure de Dumont-d’Urville</generic>
+					<generic>heure de Dumont-d’Urville</generic>
 					<standard>heure de Dumont-d’Urville</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Dumont-d’Urville</standard>
-					<daylight draft="unconfirmed">heure avancée de Dumont-d’Urville</daylight>
+					<daylight>heure avancée de Dumont-d’Urville</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HDDU</generic>
@@ -3280,9 +3174,8 @@
 			</metazone>
 			<metazone type="Dushanbe">
 				<long>
-					<generic draft="unconfirmed">heure de Duchanbé</generic>
+					<generic>heure de Duchanbé</generic>
 					<standard draft="contributed">heure de Duchanbé</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Duchanbé</standard>
 					<daylight>heure avancée de Duchanbé</daylight>
 				</long>
 				<short>
@@ -3294,10 +3187,9 @@
 			</metazone>
 			<metazone type="Dutch_Guiana">
 				<long>
-					<generic draft="unconfirmed">heure de Guyane néerlandaise</generic>
+					<generic>heure de Guyane néerlandaise</generic>
 					<standard>heure de Guyane néerlandaise</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Guyane néerlandaise</standard>
-					<daylight draft="unconfirmed">heure avancée de Guyane néerlandaise</daylight>
+					<daylight>heure avancée de Guyane néerlandaise</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HGNE</generic>
@@ -3308,10 +3200,9 @@
 			</metazone>
 			<metazone type="East_Timor">
 				<long>
-					<generic draft="unconfirmed">heure du Timor oriental</generic>
+					<generic>heure du Timor oriental</generic>
 					<standard draft="contributed">heure du Timor oriental</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale du Timor oriental</standard>
-					<daylight draft="unconfirmed">heure avancée du Timor oriental</daylight>
+					<daylight>heure avancée du Timor oriental</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HTL</generic>
@@ -3322,7 +3213,7 @@
 			</metazone>
 			<metazone type="Easter">
 				<long>
-					<generic draft="unconfirmed">heure de l’île de Pâques</generic>
+					<generic>heure de l’île de Pâques</generic>
 					<standard>heure de l’île de Pâques</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de l’île de Pâques</standard>
 					<daylight>heure avancée de l’île de Pâques</daylight>
@@ -3336,10 +3227,9 @@
 			</metazone>
 			<metazone type="Ecuador">
 				<long>
-					<generic draft="unconfirmed">heure d’Équateur</generic>
+					<generic>heure d’Équateur</generic>
 					<standard>heure d’Équateur</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale d’Équateur</standard>
-					<daylight draft="unconfirmed">heure avancée d’Équateur</daylight>
+					<daylight>heure avancée d’Équateur</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HEQ</generic>
@@ -3351,10 +3241,7 @@
 			<metazone type="Europe_Central">
 				<long>
 					<generic>Heure de l’Europe centrale</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">heure d’Europe centrale</generic>
 					<standard>Heure normale de l’Europe centrale</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure d’Europe centrale</standard>
-					<standard alt="proposed-x1002" draft="unconfirmed">heure normale d’Europe centrale</standard>
 					<daylight>heure avancée d’Europe centrale</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Heure avancée de l’Europe centrale</daylight>
 				</long>
@@ -3364,21 +3251,18 @@
 					<daylight>HAEC</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
-				<commonlyUsed alt="proposed-x1001" draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<generic draft="contributed">heure d’Europe de l’Est</generic>
+					<generic alt="proposed-x1001" draft="unconfirmed">heure de l’Europe de l’Est</generic>
 					<standard>Heure normale de l’Europe de l’Est</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale d’Europe de l’Est</standard>
-					<standard alt="proposed-x1002" draft="unconfirmed">heure d’Europe de l’Est</standard>
 					<daylight>heure avancée d’Europe de l’Est</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Heure avancée de l’Europe de l’Est</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HEE</generic>
 					<standard>HEE</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">HNEE</standard>
 					<daylight>HAEE</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
@@ -3386,9 +3270,8 @@
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<generic draft="unconfirmed">heure d’Europe de l’Ouest</generic>
-					<standard draft="contributed">heure d’Europe de l’Ouest</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale d’Europe de l’Ouest</standard>
+					<generic>heure d’Europe de l’Ouest</generic>
+					<standard>heure d’Europe de l’Ouest</standard>
 					<daylight>heure avancée d’Europe de l’Ouest</daylight>
 				</long>
 				<short>
@@ -3400,9 +3283,8 @@
 			</metazone>
 			<metazone type="Falkland">
 				<long>
-					<generic draft="unconfirmed">heure des îles Malouines</generic>
-					<standard draft="contributed">heure des îles Malouines</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale des îles Malouines</standard>
+					<generic>heure des îles Malouines</generic>
+					<standard>heure des îles Malouines</standard>
 					<daylight>heure avancée des îles Malouines</daylight>
 				</long>
 				<short>
@@ -3414,11 +3296,10 @@
 			</metazone>
 			<metazone type="Fiji">
 				<long>
-					<generic draft="unconfirmed">heure des Îles Fidji</generic>
+					<generic>heure des îles Fidji</generic>
 					<standard>heure des îles Fidji</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale des Îles Fidji</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">heure normale des îles Fidji</standard>
 					<daylight>heure avancée des îles Fidji</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">heure avancée des Îles Fidji</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HFJ</generic>
@@ -3429,10 +3310,9 @@
 			</metazone>
 			<metazone type="French_Guiana">
 				<long>
-					<generic draft="unconfirmed">heure de Guyane française</generic>
+					<generic>heure de Guyane française</generic>
 					<standard>heure de Guyane française</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Guyane française</standard>
-					<daylight draft="unconfirmed">heure avancée de Guyane française</daylight>
+					<daylight>heure avancée de Guyane française</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HGF</generic>
@@ -3443,10 +3323,10 @@
 			</metazone>
 			<metazone type="French_Southern">
 				<long>
-					<generic draft="unconfirmed">heure des Terres australes françaises</generic>
+					<generic>heure des Terres australes françaises</generic>
 					<standard>heure des Terres australes françaises</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">heure normale des Terres australes françaises</standard>
-					<daylight draft="unconfirmed">heure avancée des Terres australes françaises</daylight>
+					<daylight>heure avancée des Terres australes françaises</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HTF</generic>
@@ -3457,9 +3337,8 @@
 			</metazone>
 			<metazone type="Frunze">
 				<long>
-					<generic draft="unconfirmed">heure de Frounzé</generic>
+					<generic>heure de Frounzé</generic>
 					<standard>heure de Frounzé</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Frounzé</standard>
 					<daylight>heure avancée de Frounzé</daylight>
 				</long>
 				<short>
@@ -3473,14 +3352,17 @@
 				<long>
 					<standard>heure moyenne de Greenwich</standard>
 				</long>
+				<short>
+					<standard>GMT</standard>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Galapagos">
 				<long>
-					<generic draft="unconfirmed">heure des îles Galápagos</generic>
+					<generic>heure des îles Galápagos</generic>
 					<standard>heure des îles Galápagos</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">heure normale des îles Galápagos</standard>
-					<daylight draft="unconfirmed">heure avancée des îles Galápagos</daylight>
+					<daylight>heure avancée des îles Galápagos</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HGAL</generic>
@@ -3491,10 +3373,10 @@
 			</metazone>
 			<metazone type="Gambier">
 				<long>
-					<generic draft="unconfirmed">heure des îles Gambier</generic>
+					<generic>heure des îles Gambier</generic>
 					<standard>heure des îles Gambier</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">heure normale des îles Gambier</standard>
-					<daylight draft="unconfirmed">heure avancée des îles Gambier</daylight>
+					<daylight>heure avancée des îles Gambier</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HGAM</generic>
@@ -3505,9 +3387,8 @@
 			</metazone>
 			<metazone type="Georgia">
 				<long>
-					<generic draft="unconfirmed">heure de Géorgie</generic>
+					<generic>heure de Géorgie</generic>
 					<standard draft="contributed">heure de Géorgie</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Géorgie</standard>
 					<daylight>heure avancée de Géorgie</daylight>
 				</long>
 				<short>
@@ -3519,10 +3400,10 @@
 			</metazone>
 			<metazone type="Gilbert_Islands">
 				<long>
-					<generic draft="unconfirmed">heure des îles Gilbert</generic>
+					<generic>heure des îles Gilbert</generic>
 					<standard>heure des îles Gilbert</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">heure normale des îles Gilbert</standard>
-					<daylight draft="unconfirmed">heure avancée des îles Gilbert</daylight>
+					<daylight>heure avancée des îles Gilbert</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HGIL</generic>
@@ -3533,9 +3414,9 @@
 			</metazone>
 			<metazone type="Goose_Bay">
 				<long>
-					<generic draft="unconfirmed">heure de Goose Bay</generic>
-					<standard draft="unconfirmed">heure normale de Goose Bay</standard>
-					<daylight draft="unconfirmed">heure avancée de Goose Bay</daylight>
+					<generic>heure de Goose Bay</generic>
+					<standard>heure normale de Goose Bay</standard>
+					<daylight>heure avancée de Goose Bay</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HGOB</generic>
@@ -3546,9 +3427,8 @@
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>
-					<generic draft="unconfirmed">heure du Centre du Groenland</generic>
+					<generic>heure du Centre du Groenland</generic>
 					<standard>heure du Centre du Groenland</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale du Centre du Groenland</standard>
 					<daylight>heure avancée du Centre du Groenland</daylight>
 				</long>
 				<short>
@@ -3560,9 +3440,8 @@
 			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
-					<generic draft="unconfirmed">heure de l’Est du Groenland</generic>
+					<generic>heure de l’Est du Groenland</generic>
 					<standard>heure de l’Est du Groenland</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de l’Est du Groenland</standard>
 					<daylight>heure avancée de l’Est du Groenland</daylight>
 				</long>
 				<short>
@@ -3574,9 +3453,8 @@
 			</metazone>
 			<metazone type="Greenland_Western">
 				<long>
-					<generic draft="unconfirmed">heure de l’Ouest du Groenland</generic>
+					<generic>heure de l’Ouest du Groenland</generic>
 					<standard>heure de l’Ouest du Groenland</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de l’Ouest du Groenland</standard>
 					<daylight>heure avancée de l’Ouest du Groenland</daylight>
 				</long>
 				<short>
@@ -3588,10 +3466,10 @@
 			</metazone>
 			<metazone type="Guam">
 				<long>
-					<generic draft="unconfirmed">heure de Guam</generic>
+					<generic>heure de Guam</generic>
 					<standard>heure de Guam</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Guam</standard>
-					<daylight draft="unconfirmed">heure avancée de Guam</daylight>
+					<daylight>heure avancée de Guam</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HGU</generic>
@@ -3604,7 +3482,7 @@
 				<long>
 					<generic>heure du Golfe</generic>
 					<standard>heure normale du Golfe</standard>
-					<daylight draft="unconfirmed">heure avancée du Golfe</daylight>
+					<daylight>heure avancée du Golfe</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HG</generic>
@@ -3615,10 +3493,9 @@
 			</metazone>
 			<metazone type="Guyana">
 				<long>
-					<generic draft="unconfirmed">heure du Guyana</generic>
+					<generic>heure du Guyana</generic>
 					<standard>heure du Guyana</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale du Guyana</standard>
-					<daylight draft="unconfirmed">heure avancée du Guyana</daylight>
+					<daylight>heure avancée du Guyana</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HGY</generic>
@@ -3629,9 +3506,9 @@
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
-					<generic draft="unconfirmed">heure d’Hawaii - Aléoutiennes</generic>
+					<generic>heure d’Hawaii - Aléoutiennes</generic>
 					<standard>heure normale d’Hawaii - Aléoutiennes</standard>
-					<daylight draft="unconfirmed">heure avancée d’Hawaii - Aléoutiennes</daylight>
+					<daylight>heure avancée d’Hawaii - Aléoutiennes</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HH</generic>
@@ -3642,9 +3519,8 @@
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
-					<generic draft="unconfirmed">heure de Hong Kong</generic>
+					<generic>heure de Hong Kong</generic>
 					<standard>heure de Hong Kong</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Hong Kong</standard>
 					<daylight>heure avancée de Hong Kong</daylight>
 				</long>
 				<short>
@@ -3656,9 +3532,8 @@
 			</metazone>
 			<metazone type="Hovd">
 				<long>
-					<generic draft="unconfirmed">heure de Hovd</generic>
+					<generic>heure de Hovd</generic>
 					<standard>heure de Hovd</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Hovd</standard>
 					<daylight>heure avancée de Hovd</daylight>
 				</long>
 				<short>
@@ -3670,9 +3545,9 @@
 			</metazone>
 			<metazone type="India">
 				<long>
-					<generic draft="unconfirmed">heure de l’Inde</generic>
+					<generic>heure de l’Inde</generic>
 					<standard>heure normale de l’Inde</standard>
-					<daylight draft="unconfirmed">heure avancée de l’Inde</daylight>
+					<daylight>heure avancée de l’Inde</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HI (IN)</generic>
@@ -3683,10 +3558,10 @@
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
-					<generic draft="unconfirmed">heure du Territoire britannique de l’océan Indien</generic>
+					<generic>heure du Territoire britannique de l’océan Indien</generic>
 					<standard>heure du Territoire britannique de l’océan Indien</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">heure normale du Territoire britannique de l’océan Indien</standard>
-					<daylight draft="unconfirmed">heure avancée du Territoire britannique de l’océan Indien</daylight>
+					<daylight>heure avancée du Territoire britannique de l’océan Indien</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HIO</generic>
@@ -3697,10 +3572,9 @@
 			</metazone>
 			<metazone type="Indochina">
 				<long>
-					<generic draft="unconfirmed">heure d’Indochine</generic>
+					<generic>heure d’Indochine</generic>
 					<standard>heure d’Indochine</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale d’Indochine</standard>
-					<daylight draft="unconfirmed">heure avancée d’Indochine</daylight>
+					<daylight>heure avancée d’Indochine</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HIDC</generic>
@@ -3711,9 +3585,9 @@
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<generic draft="unconfirmed">heure du Centre indonésien</generic>
+					<generic>heure du Centre indonésien</generic>
 					<standard>heure normale du Centre indonésien</standard>
-					<daylight draft="unconfirmed">heure avancée du Centre indonésien</daylight>
+					<daylight>heure avancée du Centre indonésien</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HC (ID)</generic>
@@ -3724,9 +3598,9 @@
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<generic draft="unconfirmed">heure de l’Est indonésien</generic>
+					<generic>heure de l’Est indonésien</generic>
 					<standard>heure normale de l’Est indonésien</standard>
-					<daylight draft="unconfirmed">heure avancée de l’Est indonésien</daylight>
+					<daylight>heure avancée de l’Est indonésien</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HE (ID)</generic>
@@ -3737,9 +3611,9 @@
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<generic draft="unconfirmed">heure de l’Ouest indonésien</generic>
+					<generic>heure de l’Ouest indonésien</generic>
 					<standard>heure normale de l’Ouest indonésien</standard>
-					<daylight draft="unconfirmed">heure avancée de l’Ouest indonésien</daylight>
+					<daylight>heure avancée de l’Ouest indonésien</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HO (ID)</generic>
@@ -3750,7 +3624,7 @@
 			</metazone>
 			<metazone type="Iran">
 				<long>
-					<generic draft="unconfirmed">heure d’Iran</generic>
+					<generic>heure d’Iran</generic>
 					<standard>heure normale d’Iran</standard>
 					<daylight>heure avancée d’Iran</daylight>
 				</long>
@@ -3763,9 +3637,9 @@
 			</metazone>
 			<metazone type="Irish">
 				<long>
-					<generic draft="contributed">heure d’Irlande</generic>
-					<standard draft="contributed">heure normale d’Irlande</standard>
-					<daylight draft="contributed">heure avancée d’Irlande</daylight>
+					<generic>heure d’Irlande</generic>
+					<standard>heure normale d’Irlande</standard>
+					<daylight>heure avancée d’Irlande</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HIE</generic>
@@ -3776,9 +3650,8 @@
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
-					<generic draft="unconfirmed">heure d’Irkoutsk</generic>
+					<generic>heure d’Irkoutsk</generic>
 					<standard>heure d’Irkoutsk</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale d’Irkoutsk</standard>
 					<daylight>heure avancée d’Irkoutsk</daylight>
 				</long>
 				<short>
@@ -3797,9 +3670,7 @@
 				<short>
 					<generic draft="unconfirmed">HI (IL)</generic>
 					<standard>HNI</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">HNI (IL)</standard>
 					<daylight>HAI</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">HAI (IL)</daylight>
 				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
@@ -3818,9 +3689,8 @@
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic draft="unconfirmed">heure de Petropavlovsk-Kamchatski</generic>
+					<generic>heure de Petropavlovsk-Kamchatski</generic>
 					<standard>heure de Petropavlovsk-Kamchatski</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Petropavlovsk-Kamchatski</standard>
 					<daylight>heure avancée de Petropavlovsk-Kamchatski</daylight>
 				</long>
 				<short>
@@ -3832,10 +3702,9 @@
 			</metazone>
 			<metazone type="Karachi">
 				<long>
-					<generic draft="unconfirmed">heure de Karâchi</generic>
+					<generic>heure de Karâchi</generic>
 					<standard>heure de Karâchi</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Karâchi</standard>
-					<daylight draft="unconfirmed">heure avancée de Karâchi</daylight>
+					<daylight>heure avancée de Karâchi</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HKAR</generic>
@@ -3846,10 +3715,9 @@
 			</metazone>
 			<metazone type="Kashgar">
 				<long>
-					<generic draft="unconfirmed">heure de Kachgar</generic>
+					<generic>heure de Kachgar</generic>
 					<standard>heure de Kachgar</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Kachgar</standard>
-					<daylight draft="unconfirmed">heure avancée de Kachgar</daylight>
+					<daylight>heure avancée de Kachgar</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HKAC</generic>
@@ -3862,7 +3730,7 @@
 				<long>
 					<generic>heure de l’Est kazakh</generic>
 					<standard>heure normale de l’Est kazakh</standard>
-					<daylight draft="unconfirmed">heure avancée de l’Est kazakh</daylight>
+					<daylight>heure avancée de l’Est kazakh</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HE (KZ)</generic>
@@ -3875,7 +3743,7 @@
 				<long>
 					<generic>heure de l’Ouest kazakh</generic>
 					<standard>heure normale de l’Ouest kazakh</standard>
-					<daylight draft="unconfirmed">heure avancée de l’Ouest kazakh</daylight>
+					<daylight>heure avancée de l’Ouest kazakh</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HO (KZ)</generic>
@@ -3886,9 +3754,8 @@
 			</metazone>
 			<metazone type="Kizilorda">
 				<long>
-					<generic draft="unconfirmed">heure de Kyzylorda</generic>
+					<generic>heure de Kyzylorda</generic>
 					<standard>heure de Kyzylorda</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Kyzylorda</standard>
 					<daylight>heure avancée de Kyzylorda</daylight>
 				</long>
 				<short>
@@ -3913,10 +3780,10 @@
 			</metazone>
 			<metazone type="Kosrae">
 				<long>
-					<generic draft="unconfirmed">heure de Kosrae</generic>
+					<generic>heure de Kosrae</generic>
 					<standard>heure de Kosrae</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Kosrae</standard>
-					<daylight draft="unconfirmed">heure avancée de Kosrae</daylight>
+					<daylight>heure avancée de Kosrae</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HKOS</generic>
@@ -3927,9 +3794,8 @@
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
-					<generic draft="unconfirmed">heure de Krasnoïarsk</generic>
+					<generic>heure de Krasnoïarsk</generic>
 					<standard>heure de Krasnoïarsk</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Krasnoïarsk</standard>
 					<daylight>heure avancée de Krasnoïarsk</daylight>
 				</long>
 				<short>
@@ -3941,10 +3807,9 @@
 			</metazone>
 			<metazone type="Kuybyshev">
 				<long>
-					<generic draft="unconfirmed">heure de Kouïbychev</generic>
-					<standard draft="contributed">heure de Kouïbychev</standard>
+					<generic>heure de Kouïbychev</generic>
+					<standard>heure de Kouïbychev</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Heure normale de Kouïbychev</standard>
-					<standard alt="proposed-x1002" draft="unconfirmed">heure normale de Kouïbychev</standard>
 					<daylight>heure avancée de Kouïbychev</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Heure avancée de Kouïbychev</daylight>
 				</long>
@@ -3957,10 +3822,10 @@
 			</metazone>
 			<metazone type="Kwajalein">
 				<long>
-					<generic draft="unconfirmed">heure de Kwajalein</generic>
+					<generic>heure de Kwajalein</generic>
 					<standard>heure de Kwajalein</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Kwajalein</standard>
-					<daylight draft="unconfirmed">heure avancée de Kwajalein</daylight>
+					<daylight>heure avancée de Kwajalein</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">HKWA</generic>
@@ -3979,6 +3844,16 @@
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Line_Islands">
+				<long>
+					<generic>heure des îles de la Ligne</generic>
+					<standard draft="unconfirmed">heure normale des îles de la Ligne</standard>
+					<daylight>heure avancée des îles de la Ligne</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HLIGN</generic>
+					<standard draft="unconfirmed">HNLIGN</standard>
+					<daylight draft="unconfirmed">HALIGN</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Long_Shu">
@@ -4000,15 +3875,55 @@
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Maldives">
+				<long>
+					<generic>heure des Maldives</generic>
+					<standard>heure normale des Maldives</standard>
+					<daylight>heure avancée des Maldives</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HMV</generic>
+					<standard draft="unconfirmed">HNMV</standard>
+					<daylight draft="unconfirmed">HAMV</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Marquesas">
+				<long>
+					<generic>heure des îles Marquises</generic>
+					<standard>heure normale des îles Marquises</standard>
+					<daylight>heure avancée des îles Marquises</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HMA (PF)</generic>
+					<standard draft="unconfirmed">HNMA (PF)</standard>
+					<daylight draft="unconfirmed">HAMA (PF)</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Marshall_Islands">
+				<long>
+					<generic>heure des îles Marshall</generic>
+					<standard>heure normale des îles Marshall</standard>
+					<daylight>heure avancée des îles Marshall</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HMH</generic>
+					<standard draft="unconfirmed">HNMH</standard>
+					<daylight draft="unconfirmed">HAMH</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Mauritius">
+				<long>
+					<generic>heure de Maurice</generic>
+					<standard>heure normale de Maurice</standard>
+					<daylight>heure avancée de Maurice</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HMU</generic>
+					<standard draft="unconfirmed">HNMU</standard>
+					<daylight draft="unconfirmed">HAMU</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Mawson">
@@ -4020,15 +3935,17 @@
 			<metazone type="Moscow">
 				<long>
 					<generic>heure de Moscou</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Heure normale de Moscou</generic>
 					<standard>heure normale de Moscou</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Heure normale de Moscou</standard>
 					<daylight>heure avancée de Moscou</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Heure avancée de Moscou</daylight>
 				</long>
 				<short>
+					<generic draft="unconfirmed">HMOS</generic>
 					<standard draft="contributed">HNMO</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">HNMOS</standard>
 					<daylight draft="contributed">HAMO</daylight>
+					<daylight alt="proposed-x1001" draft="unconfirmed">HAMOS</daylight>
 				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
@@ -4036,25 +3953,52 @@
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Nauru">
+				<long>
+					<generic>heure de Nauru</generic>
+					<standard>heure normale de Nauru</standard>
+					<daylight>heure avancée de Nauru</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HNR</generic>
+					<standard draft="unconfirmed">HNNR</standard>
+					<daylight draft="unconfirmed">HANR</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Nepal">
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="New_Caledonia">
+				<long>
+					<generic>heure de Nouvelle-Calédonie</generic>
+					<standard>heure normale de Nouvelle-Calédonie</standard>
+					<daylight>heure avancée de Nouvelle-Calédonie</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HNC</generic>
+					<standard draft="unconfirmed">HNNC</standard>
+					<daylight draft="unconfirmed">HANC</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="New_Zealand">
+				<long>
+					<generic>heure de Nouvelle-Zélande</generic>
+					<standard>heure normale de Nouvelle-Zélande</standard>
+					<daylight>heure avancée de Nouvelle-Zélande</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HNZ</generic>
+					<standard draft="unconfirmed">HNNZ</standard>
+					<daylight draft="unconfirmed">HANZ</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
 					<generic>heure de Terre-Neuve</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Heure de Terre-Neuve</generic>
 					<standard>heure normale de Terre-Neuve</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Heure normale de Terre-Neuve</standard>
 					<daylight>heure avancée de Terre-Neuve</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Heure avancée de Terre-Neuve</daylight>
 				</long>
 				<short>
 					<generic>HT</generic>
@@ -4064,15 +4008,45 @@
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Niue">
+				<long>
+					<generic>heure de Nioué</generic>
+					<standard>heure normale de Nioué</standard>
+					<daylight>heure avancée de Nioué</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HNU</generic>
+					<standard draft="unconfirmed">HNNU</standard>
+					<daylight draft="unconfirmed">HANU</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Norfolk">
+				<long>
+					<generic>heure de Norfolk</generic>
+					<standard>heure normale de Norfolk</standard>
+					<daylight>heure avancée de Norfolk</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HNF</generic>
+					<standard draft="unconfirmed">HNNF</standard>
+					<daylight draft="unconfirmed">HANF</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Noronha">
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="North_Mariana">
+				<long>
+					<generic>heure des îles Mariannes du Nord</generic>
+					<standard>heure normale des îles Mariannes du Nord</standard>
+					<daylight>heure avancée des îles Mariannes du Nord</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HMP</generic>
+					<standard draft="unconfirmed">HNMP</standard>
+					<daylight draft="unconfirmed">HAMP</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Novosibirsk">
@@ -4088,9 +4062,29 @@
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Palau">
+				<long>
+					<generic>heure de Palaos</generic>
+					<standard>heure normale de Palaos</standard>
+					<daylight>heure avancée de Palaos</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HPW</generic>
+					<standard draft="unconfirmed">HNPW</standard>
+					<daylight draft="unconfirmed">HAPW</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Papua_New_Guinea">
+				<long>
+					<generic>heure de Papouasie-Nouvelle-Guinée</generic>
+					<standard>heure normale de Papouasie-Nouvelle-Guinée</standard>
+					<daylight>heure avancée de Papouasie-Nouvelle-Guinée</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HPG</generic>
+					<standard draft="unconfirmed">HNPG</standard>
+					<daylight draft="unconfirmed">HAPG</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Paraguay">
@@ -4103,21 +4097,61 @@
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Phoenix_Islands">
+				<long>
+					<generic>heure des îles Phoenix</generic>
+					<standard>heure normale des îles Phoenix</standard>
+					<daylight>heure avancée des îles Phoenix</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HPHO</generic>
+					<standard draft="unconfirmed">HNPHO</standard>
+					<daylight draft="unconfirmed">HAPHO</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Pierre_Miquelon">
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Pitcairn">
+				<long>
+					<generic>heure de Pitcairn</generic>
+					<standard>heure normale de Pitcairn</standard>
+					<daylight>heure avancée de Pitcairn</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HPN</generic>
+					<standard draft="unconfirmed">HNPN</standard>
+					<daylight draft="unconfirmed">HAPN</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Ponape">
+				<long>
+					<generic>heure de Ponape</generic>
+					<standard>heure normale de Ponape</standard>
+					<daylight>heure avancée de Ponape</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HPON</generic>
+					<standard draft="unconfirmed">HNPON</standard>
+					<daylight draft="unconfirmed">HAPON</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Qyzylorda">
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Reunion">
+				<long>
+					<generic>heure de la Réunion</generic>
+					<standard>heure normale de la Réunion</standard>
+					<daylight>heure avancée de la Réunion</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HRE</generic>
+					<standard draft="unconfirmed">HNRE</standard>
+					<daylight draft="unconfirmed">HARE</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Rothera">
@@ -4128,14 +4162,17 @@
 			</metazone>
 			<metazone type="Samara">
 				<long>
+					<generic>heure de Samara</generic>
 					<standard>heure de Samara</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Heure normale de Samara</standard>
-					<standard alt="proposed-x1002" draft="unconfirmed">heure normale de Samara</standard>
 					<daylight>heure avancée de Samara</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Heure avancée de Samara</daylight>
 				</long>
 				<short>
+					<generic draft="unconfirmed">HSAM</generic>
 					<standard draft="contributed">HNSA</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">HNSAM</standard>
+					<daylight draft="unconfirmed">HASAM</daylight>
 				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
@@ -4143,9 +4180,29 @@
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Samoa">
+				<long>
+					<generic>heure de Samoa</generic>
+					<standard>heure normale de Samoa</standard>
+					<daylight>heure avancée de Samoa</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HS</generic>
+					<standard draft="unconfirmed">HNS</standard>
+					<daylight draft="unconfirmed">HAS</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Seychelles">
+				<long>
+					<generic>heure des Seychelles</generic>
+					<standard>heure normale des Seychelles</standard>
+					<daylight>heure avancée des Seychelles</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HSC</generic>
+					<standard draft="unconfirmed">HNSC</standard>
+					<daylight draft="unconfirmed">HASC</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Shevchenko">
@@ -4155,12 +4212,21 @@
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Solomon">
+				<long>
+					<generic>heure des îles Salomon</generic>
+					<standard>heure normale des îles Salomon</standard>
+					<daylight>heure avancée des îles Salomon</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HSB</generic>
+					<standard draft="unconfirmed">HNSB</standard>
+					<daylight draft="unconfirmed">HASB</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="South_Georgia">
 				<long>
 					<standard>heure de Géorgie du Sud</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Géorgie du Sud</standard>
 				</long>
 				<short>
 					<standard draft="contributed">HNG</standard>
@@ -4177,6 +4243,16 @@
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Tahiti">
+				<long>
+					<generic>heure de Tahiti</generic>
+					<standard>heure normale de Tahiti</standard>
+					<daylight>heure avancée de Tahiti</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HTAH</generic>
+					<standard draft="unconfirmed">HNTAH</standard>
+					<daylight draft="unconfirmed">HATAH</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Tajikistan">
@@ -4189,22 +4265,55 @@
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Tokelau">
+				<long>
+					<generic>heure de Tokelau</generic>
+					<standard>heure normale de Tokelau</standard>
+					<daylight>heure avancée de Tokelau</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HTK</generic>
+					<standard draft="unconfirmed">HNTK</standard>
+					<daylight draft="unconfirmed">HATK</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Tonga">
+				<long>
+					<generic>heure de Tonga</generic>
+					<standard>heure normale de Tonga</standard>
+					<daylight draft="unconfirmed">heure avancée de Tonga</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HTO</generic>
+					<standard draft="unconfirmed">HNTO</standard>
+					<daylight draft="unconfirmed">HATO</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Truk">
+				<long>
+					<generic>heure de Truk</generic>
+					<standard>heure normale de Truk</standard>
+					<daylight>heure avancée de Truk</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HTRU</generic>
+					<standard draft="unconfirmed">HNTRU</standard>
+					<daylight draft="unconfirmed">HATRU</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Turkey">
 				<long>
+					<generic>heure de Turquie</generic>
 					<standard>heure de Turquie</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">heure normale de Turquie</standard>
-					<standard alt="proposed-x1002" draft="unconfirmed">Heure normale de Turquie</standard>
+					<daylight>heure avancée de Turquie</daylight>
 				</long>
 				<short>
+					<generic draft="unconfirmed">HTR</generic>
 					<standard draft="contributed">HNTR</standard>
+					<daylight draft="unconfirmed">HATR</daylight>
 				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
@@ -4212,6 +4321,16 @@
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Tuvalu">
+				<long>
+					<generic>heure des Tuvalu</generic>
+					<standard draft="unconfirmed">heure normale des Tuvalu</standard>
+					<daylight>heure avancée des Tuvalu</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HTV</generic>
+					<standard draft="unconfirmed">HNTV</standard>
+					<daylight draft="unconfirmed">HATV</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Uralsk">
@@ -4227,6 +4346,16 @@
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Vanuatu">
+				<long>
+					<generic>heure de Vanuatu</generic>
+					<standard>heure normale de Vanuatu</standard>
+					<daylight>heure avancée de Vanuatu</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HVU</generic>
+					<standard draft="unconfirmed">HNVU</standard>
+					<daylight draft="unconfirmed">HAVU</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Venezuela">
@@ -4237,14 +4366,17 @@
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
+					<generic>heure de Volgograd</generic>
 					<standard>heure de Volgograd</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Heure normale de Volgograd</standard>
-					<standard alt="proposed-x1002" draft="unconfirmed">heure normale de Volgograd</standard>
 					<daylight>heure avancée de Volgograd</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Heure avancée de Volgograd</daylight>
 				</long>
 				<short>
+					<generic draft="unconfirmed">HVOL</generic>
 					<standard draft="contributed">HNVO</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">HNVOL</standard>
+					<daylight draft="unconfirmed">HAVOL</daylight>
 				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
@@ -4252,9 +4384,29 @@
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Wake">
+				<long>
+					<generic>heure de l’île Wake</generic>
+					<standard draft="unconfirmed">heure normale de l’île Wake</standard>
+					<daylight>heure avancée de l’île Wake</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HWAK</generic>
+					<standard draft="unconfirmed">HNWAK</standard>
+					<daylight draft="unconfirmed">HAWAK</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Wallis">
+				<long>
+					<generic>heure de Wallis-et-Futuna</generic>
+					<standard draft="unconfirmed">heure normale de Wallis-et-Futuna</standard>
+					<daylight>heure avancée de Wallis-et-Futuna</daylight>
+				</long>
+				<short>
+					<generic draft="unconfirmed">HWF</generic>
+					<standard draft="unconfirmed">HNWF</standard>
+					<daylight draft="unconfirmed">HAWF</daylight>
+				</short>
 				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Yakutsk">
@@ -4282,6 +4434,7 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
@@ -4291,10 +4444,13 @@
 			<patternDigit>#</patternDigit>
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
+			<minusSign alt="proposed-x1001" draft="unconfirmed">−</minusSign>
 			<exponential>E</exponential>
+			<exponential alt="proposed-x1001" draft="unconfirmed">×10^</exponential>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<nan alt="proposed-x1001" draft="unconfirmed">¤¤¤</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -4337,11 +4493,13 @@
 				<displayName>dirham des Émirats arabes unis</displayName>
 				<displayName count="one">dirham des Émirats arabes unis</displayName>
 				<displayName count="other">dirhams des Émirats arabes unis</displayName>
+				<symbol draft="unconfirmed">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>afghani (1927–2002)</displayName>
 				<displayName count="one">afghani (1927–2002)</displayName>
 				<displayName count="other">afghanis (1927–2002)</displayName>
+				<symbol draft="unconfirmed">AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>afghani</displayName>
@@ -4350,8 +4508,8 @@
 				<symbol>Af</symbol>
 			</currency>
 			<currency type="ALK">
-				<displayName count="one" draft="unconfirmed">lek albanais (1947–1961)</displayName>
-				<displayName count="other" draft="unconfirmed">leks albanais (1947–1961)</displayName>
+				<displayName count="one">lek albanais (1947–1961)</displayName>
+				<displayName count="other">leks albanais (1947–1961)</displayName>
 			</currency>
 			<currency type="ALL">
 				<displayName>lek albanais</displayName>
@@ -4375,36 +4533,50 @@
 				<displayName>kwanza angolais</displayName>
 				<displayName count="one">kwanza angolais</displayName>
 				<displayName count="other">kwanzas angolais</displayName>
+				<symbol draft="unconfirmed">AOA</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">Kz</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>kwanza angolais (1977-1990)</displayName>
 				<displayName count="one">kwanza angolais (1977–1990)</displayName>
 				<displayName count="other">kwanzas angolais (1977–1990)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">kwanza angolais (1977–1990)</displayName>
+				<symbol draft="unconfirmed">AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>nouveau kwanza angolais (1990-2000)</displayName>
 				<displayName count="one">nouveau kwanza angolais (1990–2000)</displayName>
 				<displayName count="other">nouveaux kwanzas angolais (1990–2000)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">nouveau kwanza angolais (1990–2000)</displayName>
+				<symbol draft="unconfirmed">AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>kwanza angolais réajusté (1995-1999)</displayName>
 				<displayName count="one">kwanza angolais réajusté (1995–1999)</displayName>
 				<displayName count="other">kwanzas angolais réajustés (1995–1999)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">kwanza angolais réajusté (1995–1999)</displayName>
+				<symbol draft="unconfirmed">AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName references="R060">austral argentin</displayName>
 				<displayName count="one">austral argentin</displayName>
 				<displayName count="other">australs argentins</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">austral argentin</displayName>
+				<symbol draft="unconfirmed">ARA</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">₳</symbol>
+			</currency>
+			<currency type="ARL">
+				<symbol alt="proposed-x1001" draft="unconfirmed">$L</symbol>
+				<symbol alt="proposed-x1002" draft="unconfirmed">ARL</symbol>
+			</currency>
+			<currency type="ARM">
+				<symbol draft="unconfirmed">m$n</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>peso argentin (1983-1985)</displayName>
 				<displayName count="one">peso argentin (1983–1985)</displayName>
 				<displayName count="other">pesos argentins (1983–1985)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">peso argentin (1983–1985)</displayName>
+				<symbol draft="unconfirmed">ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>peso argentin</displayName>
@@ -4437,20 +4609,20 @@
 				<displayName count="one">manat azéri (1993–2006)</displayName>
 				<displayName count="other">manats azéris (1993–2006)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">manat azéri (1993–2006)</displayName>
+				<symbol draft="unconfirmed">AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>manat azéri</displayName>
 				<displayName count="one">manat azéri</displayName>
 				<displayName count="other">manats azéris</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">manat azerbaïdjanais</displayName>
-				<displayName alt="proposed-x1002" draft="unconfirmed">manat</displayName>
-				<symbol alt="proposed-x1001" draft="unconfirmed">man.</symbol>
+				<symbol draft="unconfirmed">man.</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>dinar bosniaque</displayName>
 				<displayName count="one">dinar bosniaque</displayName>
 				<displayName count="other">dinars bosniaques</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">dinar de Bosnie-Herzégovine</displayName>
+				<symbol draft="unconfirmed">BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>mark convertible bosniaque</displayName>
@@ -4469,11 +4641,13 @@
 				<displayName count="one">taka bangladeshi</displayName>
 				<displayName count="other">takas bangladeshis</displayName>
 				<symbol draft="unconfirmed">Tk</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">BDT</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>franc belge (convertible)</displayName>
 				<displayName count="one">franc belge (convertible)</displayName>
 				<displayName count="other">francs belges (convertibles)</displayName>
+				<symbol draft="unconfirmed">BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>franc belge</displayName>
@@ -4485,19 +4659,19 @@
 				<displayName>franc belge (financier)</displayName>
 				<displayName count="one">franc belge (financier)</displayName>
 				<displayName count="other">francs belges (financiers)</displayName>
+				<symbol draft="unconfirmed">BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>lev bulgare (1962–1999)</displayName>
-				<displayName count="one" draft="unconfirmed">lev bulgare (1962–1999)</displayName>
-				<displayName count="other" draft="unconfirmed">levs bulgares (1962–1999)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">ancien lev</displayName>
+				<displayName count="one">lev bulgare (1962–1999)</displayName>
+				<displayName count="other">levs bulgares (1962–1999)</displayName>
 				<symbol draft="unconfirmed">lev</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">BGL</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>nouveau lev bulgare</displayName>
 				<displayName count="one">nouveau lev bulgare</displayName>
 				<displayName count="other">nouveaux levs bulgares</displayName>
-				<displayName references="R060" alt="proposed-x1001" draft="unconfirmed">nouveau lev</displayName>
 				<symbol>NB</symbol>
 			</currency>
 			<currency type="BHD">
@@ -4505,26 +4679,24 @@
 				<displayName count="one">dinar bahreïni</displayName>
 				<displayName count="other">dinars bahreïnis</displayName>
 				<symbol draft="unconfirmed">DB</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>franc burundais</displayName>
 				<displayName count="one">franc burundais</displayName>
 				<displayName count="other">francs burundais</displayName>
 				<symbol draft="contributed">FBu</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">Fbu</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>dollar bermudien</displayName>
 				<displayName count="one">dollar bermudien</displayName>
 				<displayName count="other">dollars bermudiens</displayName>
 				<symbol>$Bm</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">$Ber</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>dollar brunéien</displayName>
 				<displayName count="one">dollar brunéien</displayName>
 				<displayName count="other">dollars brunéiens</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">dollar de Brunei</displayName>
 				<symbol draft="contributed">$Bn</symbol>
 			</currency>
 			<currency type="BOB">
@@ -4538,58 +4710,68 @@
 				<displayName count="one">peso bolivien</displayName>
 				<displayName count="other">pesos boliviens</displayName>
 				<symbol draft="unconfirmed">$Bo</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">BOP</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>mvdol bolivien</displayName>
 				<displayName count="one">mvdol bolivien</displayName>
 				<displayName count="other">mvdols boliviens</displayName>
-				<displayName references="R064" alt="proposed-x1001" draft="unconfirmed">mvdol</displayName>
+				<symbol draft="unconfirmed">BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>nouveau cruzeiro brésilien (1967–1986)</displayName>
 				<displayName count="one">nouveau cruzeiro brésilien (1967–1986)</displayName>
 				<displayName count="other">nouveaux cruzeiros brésiliens (1967–1986)</displayName>
 				<symbol draft="unconfirmed">Cr$</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">BRB</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName>cruzado brésilien (1986–1989)</displayName>
 				<displayName count="one">cruzado brésilien (1986–1989)</displayName>
 				<displayName count="other">cruzados brésiliens (1986–1989)</displayName>
 				<symbol draft="unconfirmed">Cz</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">BRC</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName>cruzeiro brésilien (1990–1993)</displayName>
 				<displayName count="one">cruzeiro brésilien (1990–1993)</displayName>
 				<displayName count="other">cruzeiros brésiliens (1990–1993)</displayName>
 				<symbol draft="unconfirmed">Cz$</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">BRE</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>réal brésilien</displayName>
 				<displayName count="one">réal brésilien</displayName>
 				<displayName count="other">réals brésiliens</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">réal</displayName>
+				<symbol alt="proposed-x1001" draft="unconfirmed">R$</symbol>
+				<symbol alt="proposed-x1002" draft="unconfirmed">BRL</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>nouveau cruzado</displayName>
-				<displayName count="one" draft="unconfirmed">nouveau cruzado brésilien (1989–1990)</displayName>
-				<displayName count="other" draft="unconfirmed">nouveaux cruzados brésiliens (1989–1990)</displayName>
+				<displayName count="one">nouveau cruzado brésilien (1989–1990)</displayName>
+				<displayName count="other">nouveaux cruzados brésiliens (1989–1990)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">nouveau cruzado brésilien (1989–1990)</displayName>
 				<symbol draft="unconfirmed">NCz$</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">BRN</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>cruzeiro</displayName>
-				<displayName count="one" draft="unconfirmed">cruzeiro réal brésilien (1993–1994)</displayName>
-				<displayName count="other" draft="unconfirmed">cruzeiros réals brésiliens (1993–1994)</displayName>
+				<displayName count="one">cruzeiro réal brésilien (1993–1994)</displayName>
+				<displayName count="other">cruzeiros réals brésiliens (1993–1994)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">cruzeiro réal brésilien (1993–1994)</displayName>
 				<symbol draft="unconfirmed">CR$</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">BRR</symbol>
+			</currency>
+			<currency type="BRZ">
+				<symbol alt="proposed-x1001" draft="unconfirmed">BRZ</symbol>
+				<symbol alt="proposed-x1002" draft="unconfirmed">₢</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>dollar bahaméen</displayName>
 				<displayName count="one">dollar bahaméen</displayName>
 				<displayName count="other">dollars bahaméens</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">dollar des Bahamas</displayName>
 				<symbol draft="provisional">DBo</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">$Bs</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>ngultrum bouthanais</displayName>
@@ -4601,19 +4783,21 @@
 				<displayName>kyat birman</displayName>
 				<displayName count="one">kyat birman</displayName>
 				<displayName count="other">kyats birmans</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">kyat</displayName>
+				<symbol draft="unconfirmed">BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>pula botswanais</displayName>
 				<displayName count="one">pula botswanais</displayName>
 				<displayName count="other">pulas botswanais</displayName>
 				<symbol draft="unconfirmed">PBw</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>nouveau rouble biélorusse (1994-1999)</displayName>
 				<displayName count="one">nouveau rouble biélorusse (1994–1999)</displayName>
 				<displayName count="other">nouveaux roubles biélorusses (1994–1999)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">nouveau rouble biélorusse (1994–1999)</displayName>
+				<symbol draft="unconfirmed">BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>rouble biélorusse</displayName>
@@ -4643,34 +4827,41 @@
 				<displayName>euro WIR</displayName>
 				<displayName count="one">euro WIR</displayName>
 				<displayName count="other">euros WIR</displayName>
+				<symbol draft="unconfirmed">CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>franc suisse</displayName>
 				<displayName count="one">franc suisse</displayName>
 				<displayName count="other">francs suisses</displayName>
-				<symbol>sFr.</symbol>
+				<symbol>CHF</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">Fr.</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>franc WIR</displayName>
 				<displayName count="one">franc WIR</displayName>
 				<displayName count="other">francs WIR</displayName>
+				<symbol draft="unconfirmed">CHW</symbol>
+			</currency>
+			<currency type="CLE">
+				<symbol draft="unconfirmed">CLE</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>unité d’investissement chilienne</displayName>
 				<displayName count="one">unité d’investissement chilienne</displayName>
 				<displayName count="other">unités d’investissement chiliennes</displayName>
+				<symbol draft="unconfirmed">CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>peso chilien</displayName>
 				<displayName count="one">peso chilien</displayName>
 				<displayName count="other">pesos chiliens</displayName>
 				<symbol>$Ch</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">$Cl</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>yuan renminbi chinois</displayName>
 				<displayName count="one">yuan renminbi chinois</displayName>
 				<displayName count="other">yuans renminbi chinois</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">yuan renminbi</displayName>
 				<symbol draft="contributed">Ұ</symbol>
 			</currency>
 			<currency type="COP">
@@ -4678,20 +4869,19 @@
 				<displayName count="one">peso colombien</displayName>
 				<displayName count="other">peso colombien</displayName>
 				<symbol>PsCo</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">$Col</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>Unité de valeur réelle colombienne</displayName>
 				<displayName count="one">unité de valeur réelle colombienne</displayName>
 				<displayName count="other">unités de valeur réelle colombiennes</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">unité de valeur réelle colombienne</displayName>
+				<symbol draft="unconfirmed">COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>colón costaricain</displayName>
 				<displayName count="one">colón costaricain</displayName>
 				<displayName count="other">colóns costaricains</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">colón du Costa Rica</displayName>
 				<symbol>C</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">₡</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>dinar serbo-monténégrin</displayName>
@@ -4704,14 +4894,15 @@
 				<displayName>couronne forte tchécoslovaque</displayName>
 				<displayName count="one">couronne forte tchécoslovaque</displayName>
 				<displayName count="other">couronnes fortes tchécoslovaques</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">couronne de Tchéquie</displayName>
 				<symbol draft="unconfirmed">KrCs</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>peso cubain</displayName>
 				<displayName count="one">peso cubain</displayName>
 				<displayName count="other">pesos cubains</displayName>
 				<symbol draft="contributed">PsCu</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">$Cu</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>escudo capverdien</displayName>
@@ -4724,18 +4915,19 @@
 				<displayName count="one">livre chypriote</displayName>
 				<displayName count="other">livres chypriotes</displayName>
 				<symbol>£C</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">£Cy</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>couronne tchèque</displayName>
 				<displayName count="one">couronne tchèque</displayName>
 				<displayName count="other">couronnes tchèques</displayName>
 				<symbol draft="contributed">CrCz</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">KrCz</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>mark est-allemand</displayName>
 				<displayName count="one">mark est-allemand</displayName>
 				<displayName count="other">marks est-allemands</displayName>
+				<symbol draft="unconfirmed">DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>mark allemand</displayName>
@@ -4762,6 +4954,7 @@
 				<displayName count="one">peso dominicain</displayName>
 				<displayName count="other">pesos dominicains</displayName>
 				<symbol draft="unconfirmed">$RD</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>dinar algérien</displayName>
@@ -4774,13 +4967,14 @@
 				<displayName count="one">sucre équatorien</displayName>
 				<displayName count="other">sucres équatoriens</displayName>
 				<symbol draft="unconfirmed">SEq</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">ESC</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>unité de valeur constante équatoriale (UVC)</displayName>
 				<displayName count="one">unité de valeur constante équatorienne (UVC)</displayName>
 				<displayName count="other">unités de valeur constante équatoriennes (UVC)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">unité de valeur constante équatorienne (UVC)</displayName>
 				<symbol draft="unconfirmed">UvcÉq</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>couronne estonienne</displayName>
@@ -4799,17 +4993,20 @@
 				<displayName>nafka érythréen</displayName>
 				<displayName count="one">nafka érythréen</displayName>
 				<displayName count="other">nafkas érythréens</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">nakfa d'Érythrée</displayName>
+				<symbol alt="proposed-x1001" draft="unconfirmed">Nfk</symbol>
+				<symbol alt="proposed-x1002" draft="unconfirmed">ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>peseta espagnole (compte A)</displayName>
 				<displayName count="one">peseta espagnole (compte A)</displayName>
 				<displayName count="other">pesetas espagnoles (compte A)</displayName>
+				<symbol draft="unconfirmed">ESA</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName>peseta espagnole (compte convertible)</displayName>
 				<displayName count="one">peseta espagnole (compte convertible)</displayName>
 				<displayName count="other">pesetas espagnoles (compte convertible)</displayName>
+				<symbol draft="unconfirmed">ESB</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>peseta espagnole</displayName>
@@ -4821,25 +5018,27 @@
 				<displayName references="R058">birr éthiopien</displayName>
 				<displayName count="one">birr éthiopien</displayName>
 				<displayName count="other">birrs éthiopiens</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">birr d'Éthiopie</displayName>
 				<symbol>Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>euro</displayName>
 				<displayName count="one">euro</displayName>
 				<displayName count="other">euros</displayName>
+				<symbol draft="unconfirmed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>mark finlandais</displayName>
 				<displayName count="one">mark finlandais</displayName>
 				<displayName count="other">marks finlandais</displayName>
+				<symbol alt="proposed-x1001" draft="unconfirmed">mk</symbol>
+				<symbol alt="proposed-x1002" draft="unconfirmed">FIM</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>dollar fidjien</displayName>
 				<displayName count="one">dollar fidjien</displayName>
 				<displayName count="other">dollars fidjien</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">dollar de Fidji</displayName>
 				<symbol>$F</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">$Fj</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>livre des Falkland</displayName>
@@ -4858,12 +5057,11 @@
 				<displayName count="one">livre sterling</displayName>
 				<displayName count="other">livres sterling</displayName>
 				<symbol>£UK</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">£GB</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Georgian Kupon Larit</displayName>
 				<displayName count="one" draft="unconfirmed">coupon de lari géorgien</displayName>
-				<displayName count="other" draft="unconfirmed">coupons de lari géorgiens</displayName>
+				<displayName count="other">coupons de lari géorgiens</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">coupon de lari géorgien</displayName>
 				<symbol draft="unconfirmed">KlGe</symbol>
 			</currency>
@@ -4872,21 +5070,21 @@
 				<displayName count="one">lari géorgien</displayName>
 				<displayName count="other">laris géorgiens</displayName>
 				<symbol>lari</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>cédi</displayName>
-				<displayName count="one" draft="unconfirmed">cédi ghanéen (1967–2007)</displayName>
-				<displayName count="other" draft="unconfirmed">cédis ghanéens (1967–2007)</displayName>
+				<displayName count="one">cédi ghanéen (1967–2007)</displayName>
+				<displayName count="other">cédis ghanéens (1967–2007)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">cédi ghanéen (1967–2007)</displayName>
 				<symbol draft="provisional">Cd</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">₵</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">GHC</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>cédi ghanéen</displayName>
 				<displayName count="one">cédi ghanéen</displayName>
 				<displayName count="other">cédis ghanéens</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">cedi</displayName>
-				<symbol alt="proposed-x1001" draft="unconfirmed">₵Gh</symbol>
+				<symbol draft="unconfirmed">₵Gh</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>livre de Gibraltar</displayName>
@@ -4911,18 +5109,19 @@
 				<displayName>syli guinéen</displayName>
 				<displayName count="one">syli guinéen</displayName>
 				<displayName count="other">sylis guinéens</displayName>
+				<symbol draft="unconfirmed">GNS</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName>ekwélé équatoguinéen</displayName>
 				<displayName count="one">ekwélé équatoguinéen</displayName>
 				<displayName count="other">ekwélés équatoguinéens</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">ekue de Guinée équatoriale</displayName>
+				<symbol draft="unconfirmed">GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>drachme grecque</displayName>
 				<displayName count="one">drachme grecque</displayName>
 				<displayName count="other">drachmes grecques</displayName>
-				<symbol draft="unconfirmed">Dr</symbol>
+				<symbol draft="unconfirmed">₯</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>quetzal guatémaltèque</displayName>
@@ -4934,7 +5133,6 @@
 				<displayName references="R060">escudo de Guinée portugaise</displayName>
 				<displayName count="one">escudo de Guinée portugaise</displayName>
 				<displayName count="other">escudos de Guinée portugaise</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">escudo de Guinée portugaise</displayName>
 				<symbol draft="unconfirmed">EscGW</symbol>
 			</currency>
 			<currency type="GWP">
@@ -4969,12 +5167,14 @@
 				<displayName>dinar croate</displayName>
 				<displayName count="one">dinar croate</displayName>
 				<displayName count="other">dinars croates</displayName>
+				<symbol draft="unconfirmed">HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>kuna croate</displayName>
 				<displayName count="one">kuna croate</displayName>
 				<displayName count="other">kunas croates</displayName>
 				<symbol draft="contributed">Ku</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">kn</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>gourde haïtienne</displayName>
@@ -5009,19 +5209,15 @@
 			<currency type="ILS">
 				<displayName>nouveau shekel israélien</displayName>
 				<displayName count="one">nouveau shekel israélien</displayName>
-				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">shekel israélien</displayName>
 				<displayName count="other">nouveaux shekels israélien</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">shekels israéliens</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">shekel israélien</displayName>
-				<displayName references="R061" alt="proposed-x1002" draft="unconfirmed">shekel</displayName>
 				<symbol draft="unconfirmed">₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>roupie indienne</displayName>
 				<displayName count="one">roupie indienne</displayName>
 				<displayName count="other">roupies indiennes</displayName>
-				<symbol draft="contributed">INR</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">0≤Rs.|1≤Re.|1&lt;Rs.</symbol>
+				<symbol>₨</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">Rs</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>dinar irakien</displayName>
@@ -5082,7 +5278,6 @@
 				<displayName count="one">riel cambodgien</displayName>
 				<displayName count="other">riels cambodgiens</displayName>
 				<symbol draft="provisional">RpC</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">RC</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>franc comorien</displayName>
@@ -5125,6 +5320,7 @@
 				<displayName count="one">kip loatien</displayName>
 				<displayName count="other">kips loatiens</displayName>
 				<symbol draft="contributed">KL</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">₭</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>livre libanaise</displayName>
@@ -5148,27 +5344,26 @@
 				<displayName>loti lesothan</displayName>
 				<displayName count="one">loti lesothan</displayName>
 				<displayName count="other">maloti lesothans</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">lotis lesothans</displayName>
 				<symbol>M</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">0≤M|1≤L|1&lt;M</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName references="R058">litas lituanien</displayName>
 				<displayName count="one">litas lituanien</displayName>
 				<displayName count="other">litas lituaniens</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">litas lituanien</displayName>
 				<symbol draft="provisional">LL</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">Lts</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">Lt</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>talonas lituanien</displayName>
 				<displayName count="one">talonas lituanien</displayName>
 				<displayName count="other">talonas lituaniens</displayName>
+				<symbol draft="unconfirmed">LTT</symbol>
 			</currency>
 			<currency type="LUC">
 				<displayName>franc convertible luxembourgeois</displayName>
 				<displayName count="one">franc convertible luxembourgeois</displayName>
 				<displayName count="other">francs convertibles luxembourgeois</displayName>
+				<symbol draft="unconfirmed">LUC</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>franc luxembourgeois</displayName>
@@ -5180,6 +5375,7 @@
 				<displayName>franc financier luxembourgeois</displayName>
 				<displayName count="one">franc financier luxembourgeois</displayName>
 				<displayName count="other">francs financiers luxembourgeois</displayName>
+				<symbol draft="unconfirmed">LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>lats letton</displayName>
@@ -5199,7 +5395,6 @@
 				<displayName count="one">dinar lybien</displayName>
 				<displayName count="other">dinars lybien</displayName>
 				<symbol>LD</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">DL</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>dirham marocain</displayName>
@@ -5254,7 +5449,7 @@
 				<displayName>tugrik mongol</displayName>
 				<displayName count="one">tugrik mongol</displayName>
 				<displayName count="other">tugriks mongols</displayName>
-				<symbol draft="unconfirmed">Tug</symbol>
+				<symbol draft="unconfirmed">₮</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>pataca macanaise</displayName>
@@ -5284,8 +5479,7 @@
 				<displayName references="R060">roupie mauricienne</displayName>
 				<displayName count="one">roupie mauricienne</displayName>
 				<displayName count="other">roupies mauriciennes</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">roupie mauricienne</displayName>
-				<symbol draft="unconfirmed">RpMu</symbol>
+				<symbol draft="unconfirmed">RsMu</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>rufiyaa maldivienne</displayName>
@@ -5303,18 +5497,19 @@
 				<displayName references="R058">peso mexicain</displayName>
 				<displayName count="one">peso mexicain</displayName>
 				<displayName count="other">pesos mexicains</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">peso mexicain</displayName>
 				<symbol>$Mex</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>peso d’argent mexicain (1861–1992)</displayName>
 				<displayName count="one">peso d’argent mexicain (1861–1992)</displayName>
 				<displayName count="other">pesos d’argent mexicains (1861–1992)</displayName>
+				<symbol draft="unconfirmed">MXP</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName>unité de conversion mexicaine (UDI)</displayName>
 				<displayName count="one">unité de conversion mexicaine (UDI)</displayName>
 				<displayName count="other">unités de conversion mexicaines (UDI)</displayName>
+				<symbol draft="unconfirmed">MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>ringgit malais</displayName>
@@ -5330,8 +5525,8 @@
 			</currency>
 			<currency type="MZM">
 				<displayName>métical</displayName>
-				<displayName count="one" draft="unconfirmed">metical mozambicain (1980–2006)</displayName>
-				<displayName count="other" draft="unconfirmed">meticais mozambicains (1980–2006)</displayName>
+				<displayName count="one">metical mozambicain (1980–2006)</displayName>
+				<displayName count="other">meticais mozambicains (1980–2006)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">metical mozambicain (1980–2006)</displayName>
 				<symbol draft="unconfirmed">Mt</symbol>
 			</currency>
@@ -5339,14 +5534,12 @@
 				<displayName>metical mozambicain</displayName>
 				<displayName count="one">metical mozambicain</displayName>
 				<displayName count="other">meticais mozambicains</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">metical</displayName>
 				<symbol draft="unconfirmed">MTn</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName references="R058">dollar namibien</displayName>
 				<displayName count="one">dollar namibien</displayName>
 				<displayName count="other">dollars namibiens</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">dollar namibien</displayName>
 				<symbol>N$</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">$Na</symbol>
 			</currency>
@@ -5354,18 +5547,21 @@
 				<displayName>naira nigérian</displayName>
 				<displayName count="one">naira nigérian</displayName>
 				<displayName count="other">nairas nigérians</displayName>
-				<symbol alt="proposed-x1001" draft="unconfirmed">₦</symbol>
+				<symbol draft="unconfirmed">₦</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>cordoba</displayName>
-				<displayName count="one" draft="unconfirmed">córdoba nicaraguayen (1912–1988)</displayName>
-				<displayName count="other" draft="unconfirmed">córdobas nicaraguayens (1912–1988)</displayName>
+				<displayName count="one">córdoba nicaraguayen (1912–1988)</displayName>
+				<displayName count="other">córdobas nicaraguayens (1912–1988)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">córdoba nicaraguayen (1912–1988)</displayName>
+				<symbol draft="unconfirmed">NIC</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>córdoba oro nicaraguayen</displayName>
 				<displayName count="one">córdoba oro nicaraguayen</displayName>
 				<displayName count="other">córdobas oro nicaraguayens</displayName>
+				<symbol alt="proposed-x1001" draft="unconfirmed">C$</symbol>
+				<symbol alt="proposed-x1002" draft="unconfirmed">NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>florin néerlandais</displayName>
@@ -5417,38 +5613,40 @@
 			</currency>
 			<currency type="PES">
 				<displayName>sol péruvien</displayName>
-				<displayName count="one" draft="unconfirmed">sol péruvien (1863–1985)</displayName>
-				<displayName count="other" draft="unconfirmed">sols péruviens (1863–1985)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">sol péruvien (1863–1985)</displayName>
+				<displayName count="one">sol péruvien (1863–1985)</displayName>
+				<displayName count="other">sols péruviens (1863–1985)</displayName>
+				<symbol draft="unconfirmed">PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>kina papouan-néo-guinéen</displayName>
 				<displayName count="one">kina papouan-néo-guinéen</displayName>
 				<displayName count="other">kinas papouan-néo-guinéens</displayName>
+				<symbol draft="unconfirmed">PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>peso philippin</displayName>
 				<displayName count="one">peso philippin</displayName>
 				<displayName count="other">pesos philippins</displayName>
-				<symbol draft="unconfirmed">Php</symbol>
+				<symbol draft="unconfirmed">₱</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>roupie pakistanaise</displayName>
 				<displayName count="one">roupie pakistanaise</displayName>
 				<displayName count="other">roupies pakistanaises</displayName>
-				<symbol draft="unconfirmed">RaP</symbol>
+				<symbol draft="unconfirmed">RsPk</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>zloty polonais</displayName>
 				<displayName count="one">zloty polonais</displayName>
 				<displayName count="other">zlotys polonais</displayName>
-				<symbol draft="unconfirmed">Zl</symbol>
+				<symbol draft="unconfirmed">zł</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>zloty (1950-1995)</displayName>
-				<displayName count="one" draft="unconfirmed">zloty polonais (1950–1995)</displayName>
-				<displayName count="other" draft="unconfirmed">zlotys polonais (1950–1995)</displayName>
+				<displayName count="one">zloty polonais (1950–1995)</displayName>
+				<displayName count="other">zlotys polonais (1950–1995)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">zloty polonais (1950–1995)</displayName>
+				<symbol draft="unconfirmed">PLZ</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>escudo portugais</displayName>
@@ -5460,7 +5658,7 @@
 				<displayName>guaraní paraguayen</displayName>
 				<displayName count="one">guaraní paraguayen</displayName>
 				<displayName count="other">guaranís paraguayens</displayName>
-				<symbol alt="proposed-x1001" draft="unconfirmed">₲</symbol>
+				<symbol draft="unconfirmed">₲</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>rial qatari</displayName>
@@ -5472,26 +5670,26 @@
 				<displayName references="R060">dollar rhodésien</displayName>
 				<displayName count="one">dollar rhodésien</displayName>
 				<displayName count="other">dollars rhodésiens</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">dollar rhodésien</displayName>
 				<symbol draft="unconfirmed">$RH</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName references="R064">ancien leu roumain</displayName>
-				<displayName count="one" draft="unconfirmed">leu roumain (1952–2005)</displayName>
-				<displayName count="other" draft="unconfirmed">lei roumains (1952–2005)</displayName>
+				<displayName count="one">leu roumain (1952–2005)</displayName>
+				<displayName count="other">lei roumains (1952–2005)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">leu roumain (1952–2005)</displayName>
+				<symbol draft="unconfirmed">ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>leu roumain</displayName>
 				<displayName count="one">leu roumain</displayName>
 				<displayName count="other">lei roumains</displayName>
-				<symbol alt="proposed-x1001" draft="unconfirmed">0≤lei|1≤leu|1</symbol>
+				<symbol draft="unconfirmed">RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>dinar serbe</displayName>
 				<displayName count="one">dinar serbe</displayName>
 				<displayName count="other">dinars serbes</displayName>
-				<symbol alt="proposed-x1001" draft="unconfirmed">DS</symbol>
+				<symbol draft="unconfirmed">din.</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>rouble russe</displayName>
@@ -5509,48 +5707,44 @@
 				<displayName references="R064">franc rwandais</displayName>
 				<displayName count="one">franc rwandais</displayName>
 				<displayName count="other">francs rwandais</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">franc rwandais</displayName>
 				<symbol draft="unconfirmed">FRw</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName references="R060">rial saoudien</displayName>
 				<displayName count="one">rial saoudien</displayName>
 				<displayName count="other">rials saoudiens</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">rial saoudien</displayName>
 				<symbol draft="unconfirmed">Rls</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>dollar des îles Salomon</displayName>
 				<displayName count="one">dollar des îles Salomon</displayName>
-				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">dollar des Îles Salomon</displayName>
 				<displayName count="other">dollars des îles Salomon</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">dollars des Îles Salomon</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">dollar des Îles Salomon</displayName>
 				<symbol draft="unconfirmed">$SI</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>roupie des Seychelles</displayName>
 				<displayName count="one">roupie des Seychelles</displayName>
 				<displayName count="other">roupies des Seychelles</displayName>
-				<symbol draft="unconfirmed">RpS</symbol>
+				<symbol draft="unconfirmed">ReS</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>dinar soudanais</displayName>
-				<displayName count="one" draft="unconfirmed">dinar soudanais (1992–2007)</displayName>
-				<displayName count="other" draft="unconfirmed">dinars soudanais (1992–2007)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">livre soudanaise</displayName>
-				<displayName alt="proposed-x1002" draft="unconfirmed">dinar soudanais (1992–2007)</displayName>
+				<displayName count="one">dinar soudanais (1992–2007)</displayName>
+				<displayName count="other">dinars soudanais (1992–2007)</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">dinar soudanais (1992–2007)</displayName>
+				<symbol draft="unconfirmed">DSd</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>livre soudanaise</displayName>
 				<displayName count="one">livre soudanaise</displayName>
 				<displayName count="other">livres soudanaises</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">dinar soudanais</displayName>
+				<symbol draft="unconfirmed">£Sd</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>livre soudanaise (1956–2007)</displayName>
-				<displayName count="one" draft="unconfirmed">livre soudanaise (1956–2007)</displayName>
-				<displayName count="other" draft="unconfirmed">livres soudanaises (1956–2007)</displayName>
+				<displayName count="one">livre soudanaise (1956–2007)</displayName>
+				<displayName count="other">livres soudanaises (1956–2007)</displayName>
+				<symbol draft="unconfirmed">SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>couronne suédoise</displayName>
@@ -5622,13 +5816,14 @@
 				<displayName>colón salvadorien</displayName>
 				<displayName count="one">colón salvadorien</displayName>
 				<displayName count="other">colóns salvadoriens</displayName>
+				<symbol alt="proposed-x1001" draft="unconfirmed">SVC</symbol>
+				<symbol alt="proposed-x1002" draft="unconfirmed">₡SV</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>livre syrienne</displayName>
 				<displayName count="one">livre syrienne</displayName>
 				<displayName count="other">livres syriennes</displayName>
 				<symbol>£SY</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">£Sy</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>lilangeni swazi</displayName>
@@ -5640,22 +5835,25 @@
 				<displayName>baht thaïlandais</displayName>
 				<displayName count="one">baht thaïlandais</displayName>
 				<displayName count="other">baths thaïlandais</displayName>
-				<symbol draft="unconfirmed">B.</symbol>
+				<symbol draft="unconfirmed">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName references="R060">rouble tadjik</displayName>
 				<displayName count="one">rouble tadjik</displayName>
 				<displayName count="other">roubles tadjiks</displayName>
+				<symbol draft="unconfirmed">TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>somoni tadjik</displayName>
 				<displayName count="one">somoni tadjik</displayName>
 				<displayName count="other">somonis tadjiks</displayName>
+				<symbol draft="unconfirmed">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>manat turkmène</displayName>
 				<displayName count="one">manat turkmène</displayName>
 				<displayName count="other">manats turkmènes</displayName>
+				<symbol draft="unconfirmed">TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>dinar tunisien</displayName>
@@ -5673,10 +5871,11 @@
 				<displayName>escudo timorais</displayName>
 				<displayName count="one">escudo timorais</displayName>
 				<displayName count="other">escudos timorais</displayName>
+				<symbol draft="unconfirmed">TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>livre turque</displayName>
-				<displayName count="one" draft="unconfirmed">livre turque (1844–2005)</displayName>
+				<displayName count="one">livre turque (1844–2005)</displayName>
 				<displayName count="other" draft="contributed">livres turques</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">livres turques (1844–2005)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">livre turque (1844–2005)</displayName>
@@ -5684,7 +5883,7 @@
 			</currency>
 			<currency type="TRY">
 				<displayName references="R064">nouvelle livre turque</displayName>
-				<displayName count="one" draft="unconfirmed">nouvelle livre turque</displayName>
+				<displayName count="one">nouvelle livre turque</displayName>
 				<displayName count="other" draft="contributed">nouvelles livres turques</displayName>
 				<symbol draft="unconfirmed">YTL</symbol>
 			</currency>
@@ -5714,15 +5913,17 @@
 			</currency>
 			<currency type="UAK">
 				<displayName>karbovanetz</displayName>
-				<displayName count="one" draft="unconfirmed">karbovanets ukrainien (1992–1996)</displayName>
-				<displayName count="other" draft="unconfirmed">karbovanets ukrainiens (1992–1996)</displayName>
+				<displayName count="one">karbovanets ukrainien (1992–1996)</displayName>
+				<displayName count="other">karbovanets ukrainiens (1992–1996)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">karbovanets ukrainien (1992–1996)</displayName>
+				<symbol draft="unconfirmed">UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>shilling ougandais (1966-1987)</displayName>
-				<displayName count="one" draft="unconfirmed">shilling ougandais (1966–1987)</displayName>
-				<displayName count="other" draft="unconfirmed">shillings ougandais (1966–1987)</displayName>
+				<displayName count="one">shilling ougandais (1966–1987)</displayName>
+				<displayName count="other">shillings ougandais (1966–1987)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">shilling ougandais (1966–1987)</displayName>
+				<symbol draft="unconfirmed">UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>shilling ougandais</displayName>
@@ -5741,23 +5942,25 @@
 				<displayName>dollar des Etats-Unis (jour suivant)</displayName>
 				<displayName count="one">dollar des États-Unis (jour suivant)</displayName>
 				<displayName count="other">dollars des États-Unis (jour suivant)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">dollar des États-Unis (jour suivant)</displayName>
+				<symbol draft="unconfirmed">USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>dollar des Etats-Unis (jour même)</displayName>
 				<displayName count="one">dollar des États-Unis (jour même)</displayName>
 				<displayName count="other">dollars des États-Unis (jour même)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">dollar des États-Unis (jour même)</displayName>
+				<symbol draft="unconfirmed">USS</symbol>
 			</currency>
 			<currency type="UYI">
-				<displayName draft="unconfirmed">peso uruguayen (unités indexées)</displayName>
-				<displayName count="one" draft="unconfirmed">peso uruguayen (unités indexées)</displayName>
-				<displayName count="other" draft="unconfirmed">pesos uruguayen (unités indexées)</displayName>
+				<displayName>peso uruguayen (unités indexées)</displayName>
+				<displayName count="one">peso uruguayen (unités indexées)</displayName>
+				<displayName count="other">pesos uruguayen (unités indexées)</displayName>
+				<symbol draft="unconfirmed">UYI</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>peso uruguayen (1975–1993)</displayName>
 				<displayName count="one">peso uruguayen (1975–1993)</displayName>
-				<displayName count="other" draft="unconfirmed">pesos uruguayens (1975–1993)</displayName>
+				<displayName count="other">pesos uruguayens (1975–1993)</displayName>
+				<symbol draft="unconfirmed">UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>peso uruguayen</displayName>
@@ -5774,20 +5977,20 @@
 			</currency>
 			<currency type="VEB">
 				<displayName>bolivar</displayName>
-				<displayName count="one" draft="unconfirmed">bolívar vénézuélien (1879–2008)</displayName>
-				<displayName count="other" draft="unconfirmed">bolívars vénézuéliens (1879–2008)</displayName>
+				<displayName count="one">bolívar vénézuélien (1879–2008)</displayName>
+				<displayName count="other">bolívars vénézuéliens (1879–2008)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">bolívar vénézuélien (1879–2008)</displayName>
 				<symbol>Be</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">VEB</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>bolivar fuerte vénézuélien</displayName>
 				<displayName count="one">bolivar fuerte vénézuélien</displayName>
 				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">bolívar fort vénézuélien</displayName>
 				<displayName count="other">bolivar fuertes vénézuélien</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">bolívar fort vénézuélien</displayName>
+				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">bolívars forts vénézuéliens</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">bolívar fort vénézuélien</displayName>
-				<displayName alt="proposed-x1002" draft="unconfirmed">bolívar</displayName>
-				<symbol alt="proposed-x1001" draft="unconfirmed">BsF</symbol>
+				<symbol draft="unconfirmed">Bs.F.</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>dông vietnamien</displayName>
@@ -5799,52 +6002,61 @@
 				<displayName>vatu vanuatuan</displayName>
 				<displayName count="one">vatu vanuatuan</displayName>
 				<displayName count="other">vatus vanuatuans</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">vatu</displayName>
-				<symbol alt="proposed-x1001" draft="unconfirmed">VT</symbol>
+				<symbol draft="unconfirmed">VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>tala samoan</displayName>
 				<displayName count="one">tala samoan</displayName>
 				<displayName count="other">talas samoans</displayName>
+				<symbol draft="unconfirmed">WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>franc CFA (BEAC)</displayName>
 				<displayName count="one">franc CFA (BEAC)</displayName>
 				<displayName count="other">francs CFA (BEAC)</displayName>
+				<symbol draft="unconfirmed">FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName references="R058">argent</displayName>
-				<displayName count="one" draft="unconfirmed">once troy d’argent</displayName>
-				<displayName count="other" draft="unconfirmed">onces troy d’argent</displayName>
+				<displayName count="one">once troy d’argent</displayName>
+				<displayName count="other">onces troy d’argent</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">once troy d’argent</displayName>
+				<symbol draft="unconfirmed">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>or</displayName>
-				<displayName count="one" draft="unconfirmed">once troy d’or</displayName>
-				<displayName count="other" draft="unconfirmed">onces troy d’or</displayName>
+				<displayName count="one">once troy d’or</displayName>
+				<displayName count="other">onces troy d’or</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">once troy d’or</displayName>
+				<symbol draft="unconfirmed">XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName references="R058">unité européenne composée</displayName>
 				<displayName count="one" draft="unconfirmed">unité composée européenne (EURCO)</displayName>
 				<displayName count="other" draft="unconfirmed">unités composées européennes (EURCO)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unité composée européenne (EURCO)</displayName>
+				<symbol draft="unconfirmed">XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>unité monétaire européenne</displayName>
 				<displayName count="one" draft="unconfirmed">unité monétaire européenne (UME-6)</displayName>
 				<displayName count="other" draft="unconfirmed">unités monétaires européennes (UME-6)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unité monétaire européenne (UME-6)</displayName>
+				<symbol draft="unconfirmed">XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>unité de compte européenne (XBC)</displayName>
 				<displayName count="one" draft="unconfirmed">unité de compte 9 européenne (UEC-9)</displayName>
 				<displayName count="other" draft="unconfirmed">unités de compte 9 européennes (UEC-9)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unité de compte 9 européenne (UEC-9)</displayName>
+				<symbol draft="unconfirmed">XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>unité de compte européenne (XBD)</displayName>
 				<displayName count="one" draft="unconfirmed">unité de compte 17 européenne (UEC-17)</displayName>
 				<displayName count="other" draft="unconfirmed">unités de compte 17 européennes (UEC-17)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unité de compte 17 européenne (UEC-17)</displayName>
+				<symbol draft="unconfirmed">XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName references="R058">dollar des Caraïbes orientales</displayName>
@@ -5857,32 +6069,38 @@
 				<displayName references="R058">droit de tirage spécial</displayName>
 				<displayName count="one">droit de tirage spécial</displayName>
 				<displayName count="other">droits de tirage spéciaux</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">droit de tirage spécial</displayName>
+				<symbol draft="unconfirmed">XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>unité de compte européenne (ECU)</displayName>
 				<displayName count="one" draft="unconfirmed">unité de compte européenne (ECU)</displayName>
 				<displayName count="other" draft="unconfirmed">unités de compte européennes (ECU)</displayName>
+				<symbol draft="unconfirmed">XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>franc or</displayName>
-				<displayName count="one" draft="unconfirmed">franc or</displayName>
-				<displayName count="other" draft="unconfirmed">francs or</displayName>
+				<displayName count="one">franc or</displayName>
+				<displayName count="other">francs or</displayName>
+				<symbol draft="unconfirmed">XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>franc UIC</displayName>
-				<displayName count="one" draft="unconfirmed">franc UIC</displayName>
-				<displayName count="other" draft="unconfirmed">francs UIC</displayName>
+				<displayName count="one">franc UIC</displayName>
+				<displayName count="other">francs UIC</displayName>
+				<symbol draft="unconfirmed">XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>franc CFA (BCEAO)</displayName>
-				<displayName count="one" draft="unconfirmed">franc CFA (BCEAO)</displayName>
-				<displayName count="other" draft="unconfirmed">francs CFA (BCEAO)</displayName>
+				<displayName count="one">franc CFA (BCEAO)</displayName>
+				<displayName count="other">francs CFA (BCEAO)</displayName>
+				<symbol draft="unconfirmed">CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName references="R058">palladium</displayName>
-				<displayName count="one" draft="unconfirmed">once troy de palladium</displayName>
-				<displayName count="other" draft="unconfirmed">onces troy de palladium</displayName>
+				<displayName count="one">once troy de palladium</displayName>
+				<displayName count="other">onces troy de palladium</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">once troy de palladium</displayName>
+				<symbol draft="unconfirmed">XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>franc CFP</displayName>
@@ -5892,33 +6110,39 @@
 			</currency>
 			<currency type="XPT">
 				<displayName>platine</displayName>
-				<displayName count="one" draft="unconfirmed">once troy de platine</displayName>
-				<displayName count="other" draft="unconfirmed">onces troy de platine</displayName>
+				<displayName count="one">once troy de platine</displayName>
+				<displayName count="other">onces troy de platine</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">once troy de platine</displayName>
+				<symbol draft="unconfirmed">XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName references="R060">type de fonds RINET</displayName>
-				<displayName count="one" draft="unconfirmed">type de fonds RINET</displayName>
-				<displayName count="other" draft="unconfirmed">types de fonds RINET</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">type de fonds RINET</displayName>
+				<displayName count="one">unité de fonds RINET</displayName>
+				<displayName count="other">unités de fonds RINET</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">unité de fonds RINET</displayName>
+				<symbol draft="unconfirmed">XRE</symbol>
 			</currency>
 			<currency type="XTS">
-				<displayName draft="unconfirmed">(devise de test)</displayName>
-				<displayName count="one" draft="unconfirmed">(devise de test)</displayName>
-				<displayName count="other" draft="unconfirmed">(devise de test)</displayName>
+				<displayName>(devise de test)</displayName>
+				<displayName count="one">(devise de test)</displayName>
+				<displayName count="other">(devises de test)</displayName>
+				<symbol draft="unconfirmed">XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>devise inconnue ou non valide</displayName>
 				<displayName count="one">devise inconnue ou non valide</displayName>
-				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">(devise indéterminée)</displayName>
+				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">(devise inconnue ou invalide)</displayName>
 				<displayName count="other">devise inconnue ou non valide</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">(devise indéterminée)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">(devise indéterminée)</displayName>
+				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">(devises inconnues ou invalides)</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">(devise inconnue ou invalide)</displayName>
+				<symbol draft="unconfirmed">XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>dinar du Yémen</displayName>
-				<displayName count="one" draft="unconfirmed">dinar nord-yéménite</displayName>
-				<displayName count="other" draft="unconfirmed">dinars nord-yéménites</displayName>
+				<displayName count="one">dinar nord-yéménite</displayName>
+				<displayName count="other">dinars nord-yéménites</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">dinar nord-yéménite</displayName>
+				<symbol draft="unconfirmed">YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>rial yéménite</displayName>
@@ -5928,26 +6152,30 @@
 			</currency>
 			<currency type="YUD">
 				<displayName>nouveau dinar yougoslave</displayName>
-				<displayName count="one" draft="unconfirmed">dinar fort yougoslave (1966–1989)</displayName>
-				<displayName count="other" draft="unconfirmed">dinars forts yougoslaves (1966–1989)</displayName>
+				<displayName count="one">dinar fort yougoslave (1966–1989)</displayName>
+				<displayName count="other">dinars forts yougoslaves (1966–1989)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">dinar fort yougoslave (1966–1989)</displayName>
+				<symbol draft="unconfirmed">YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>dinar yougoslave Noviy</displayName>
-				<displayName count="one" draft="unconfirmed">nouveau dinar yougoslave (1994–2003)</displayName>
-				<displayName count="other" draft="unconfirmed">nouveaux dinars yougoslaves (1994–2003)</displayName>
+				<displayName count="one">nouveau dinar yougoslave (1994–2003)</displayName>
+				<displayName count="other">nouveaux dinars yougoslaves (1994–2003)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">nouveau dinar yougoslave (1994–2003)</displayName>
+				<symbol draft="unconfirmed">YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>dinar yougoslave convertible</displayName>
-				<displayName count="one" draft="unconfirmed">dinar convertible yougoslave (1990–1992)</displayName>
-				<displayName count="other" draft="unconfirmed">dinars convertibles yougoslaves (1990–1992)</displayName>
+				<displayName count="one">dinar convertible yougoslave (1990–1992)</displayName>
+				<displayName count="other">dinars convertibles yougoslaves (1990–1992)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">dinar convertible yougoslave (1990–1992)</displayName>
+				<symbol draft="unconfirmed">YUN</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>rand sud-africain (financier)</displayName>
 				<displayName count="one">rand sud-africain (financier)</displayName>
 				<displayName count="other">rands sud-africains (financiers)</displayName>
+				<symbol draft="unconfirmed">ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>rand sud-africain</displayName>
@@ -5985,44 +6213,44 @@
 	<units>
 		<unit type="day">
 			<unitPattern count="one">{0} jour</unitPattern>
-			<unitPattern count="other">{0} jours</unitPattern>
 			<unitPattern count="one" alt="short">{0} j</unitPattern>
+			<unitPattern count="other">{0} jours</unitPattern>
 			<unitPattern count="other" alt="short">{0} j</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} heure</unitPattern>
-			<unitPattern count="other">{0} heures</unitPattern>
 			<unitPattern count="one" alt="short">{0} h</unitPattern>
+			<unitPattern count="other">{0} heures</unitPattern>
 			<unitPattern count="other" alt="short">{0} h</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minute</unitPattern>
-			<unitPattern count="other">{0} minutes</unitPattern>
 			<unitPattern count="one" alt="short">{0} mn</unitPattern>
+			<unitPattern count="other">{0} minutes</unitPattern>
 			<unitPattern count="other" alt="short">{0} mn</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} mois</unitPattern>
-			<unitPattern count="other">{0} mois</unitPattern>
 			<unitPattern count="one" alt="short">{0} mois</unitPattern>
+			<unitPattern count="other">{0} mois</unitPattern>
 			<unitPattern count="other" alt="short">{0} mois</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} seconde</unitPattern>
-			<unitPattern count="other">{0} secondes</unitPattern>
 			<unitPattern count="one" alt="short">{0} s</unitPattern>
+			<unitPattern count="other">{0} secondes</unitPattern>
 			<unitPattern count="other" alt="short">{0} s</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} semaine</unitPattern>
-			<unitPattern count="other">{0} semaines</unitPattern>
 			<unitPattern count="one" alt="short">{0} sem.</unitPattern>
+			<unitPattern count="other">{0} semaines</unitPattern>
 			<unitPattern count="other" alt="short">{0} sem.</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} année</unitPattern>
-			<unitPattern count="other">{0} années</unitPattern>
 			<unitPattern count="one" alt="short">{0} an</unitPattern>
+			<unitPattern count="other">{0} années</unitPattern>
 			<unitPattern count="other" alt="short">{0} ans</unitPattern>
 		</unit>
 	</units>
@@ -6104,4 +6332,3 @@ Comments without bases
  Svalbard and Jan Mayen 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Jan_Mayen"]
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
 -->
-

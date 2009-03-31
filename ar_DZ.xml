@@ -12,8 +12,38 @@
 			<script type="Ital">اللأيطالية القديمة</script>
 		</scripts>
 	</localeDisplayNames>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yyyyMMMM">MMMM، y</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M‏-M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d‏-d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d‏-d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y‏-y</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+				<fields>
+					<field type="day">
+						<relative type="1">غدًا</relative>
+					</field>
+				</fields>
+			</calendar>
+		</calendars>
+	</dates>
 	<numbers>
-                <defaultNumberingSystem>decimal</defaultNumberingSystem>
+		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<symbols>
 			<nativeZeroDigit>0</nativeZeroDigit>
 		</symbols>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -103,7 +103,7 @@
 			<language type="nl_BE" draft="contributed">Vlaams</language>
 			<language type="nn" draft="contributed">Noorweegse Nynorsk</language>
 			<language type="no" draft="unconfirmed">Noors</language>
-			<language type="nr" draft="provisional">Suid-Ndebele</language>
+			<language type="nr">Suid-Ndebele</language>
 			<language type="nso" references="R001" draft="unconfirmed">Sepedi</language>
 			<language type="oc" draft="unconfirmed">Occitaans</language>
 			<language type="or" draft="unconfirmed">Oria</language>
@@ -129,8 +129,8 @@
 			<language type="so" draft="unconfirmed">Somalies</language>
 			<language type="sq" draft="unconfirmed">Albanees</language>
 			<language type="sr" draft="unconfirmed">Serwies</language>
-			<language type="ss" references="R001" draft="provisional">Swazi</language>
-			<language type="st" draft="provisional">Suid-Sotho</language>
+			<language type="ss" references="R001">Swazi</language>
+			<language type="st">Suid-Sotho</language>
 			<language type="su" draft="unconfirmed">Soedanees</language>
 			<language type="sv" references="R001" draft="unconfirmed">Sweeds</language>
 			<language type="sw" references="R001" draft="unconfirmed">Swahili</language>
@@ -138,7 +138,7 @@
 			<language type="te" draft="unconfirmed">Telugees</language>
 			<language type="th" draft="unconfirmed">Thais</language>
 			<language type="ti" draft="unconfirmed">Tigrinya</language>
-			<language type="tk" draft="unconfirmed">Turkmeens</language>
+			<language type="tk">Turkmeens</language>
 			<language type="tlh" draft="unconfirmed">Klingon</language>
 			<language type="tn" references="R001" draft="provisional">Tswana</language>
 			<language type="tr" references="R001" draft="unconfirmed">Turks</language>
@@ -149,14 +149,14 @@
 			<language type="und" draft="unconfirmed">Onbepaald</language>
 			<language type="ur" draft="unconfirmed">Oerdoe</language>
 			<language type="uz" draft="unconfirmed">Oesbekies</language>
-			<language type="ve" references="R001" draft="provisional">Venda</language>
+			<language type="ve" references="R001">Venda</language>
 			<language type="vi" references="R000" draft="unconfirmed">Viëtnamees</language>
-			<language type="xh" references="R001" draft="provisional">Xhosa</language>
+			<language type="xh" references="R001">Xhosa</language>
 			<language type="yi" references="R000" draft="unconfirmed">Jiddisj</language>
 			<language type="zh">Sjinees</language>
 			<language type="zh_Hans" draft="unconfirmed">Vereenvoudigde Sjinees</language>
 			<language type="zh_Hant" draft="unconfirmed">Tradisionele Sjinees</language>
-			<language type="zu" references="R001" draft="provisional">Zoeloe</language>
+			<language type="zu" references="R001">Zoeloe</language>
 		</languages>
 		<scripts>
 			<script type="Arab" references="R001" draft="unconfirmed">Arabies</script>
@@ -417,8 +417,8 @@
 			<type type="traditional" key="collation" draft="unconfirmed">Tradisioneel</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="US" draft="unconfirmed">VSA</measurementSystemName>
-			<measurementSystemName type="metric" draft="unconfirmed">Metriek</measurementSystemName>
+			<measurementSystemName type="US">VSA</measurementSystemName>
+			<measurementSystemName type="metric">Metriek</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language" draft="contributed">Taal: {0}</codePattern>
@@ -552,7 +552,7 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern references="R000" draft="unconfirmed">EEEE dd MMMM y</pattern>
+							<pattern references="R000">EEEE dd MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -778,10 +778,10 @@
 				<displayName references="R001" draft="unconfirmed">Joean</displayName>
 			</currency>
 			<currency type="EUR">
-				<displayName draft="contributed">Euro</displayName>
+				<displayName>Euro</displayName>
 			</currency>
 			<currency type="GBP">
-				<displayName draft="contributed">Britse pond</displayName>
+				<displayName>Britse pond</displayName>
 			</currency>
 			<currency type="ITL">
 				<displayName draft="contributed">Italiaanse lier</displayName>
@@ -802,7 +802,7 @@
 				<displayName draft="contributed">Turkse lier</displayName>
 			</currency>
 			<currency type="USD">
-				<displayName draft="contributed">Amerikaanse dollar</displayName>
+				<displayName>Amerikaanse dollar</displayName>
 			</currency>
 			<currency type="XXX">
 				<displayName draft="contributed">Onbekende of ongeldige geldeenheid</displayName>
@@ -835,4 +835,3 @@ af { "Afrikaanse" } // adjective form
         "Latn",  // ISO 15924 Name 
 localPatternChars{}
 -->
-

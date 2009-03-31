@@ -103,18 +103,18 @@
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="narrow">
-							<month type="1" draft="unconfirmed">ਜ</month>
-							<month type="2" draft="unconfirmed">ਫ</month>
-							<month type="3" draft="unconfirmed">ਮਾ</month>
-							<month type="4" draft="unconfirmed">ਅ</month>
-							<month type="5" draft="unconfirmed">ਮ</month>
-							<month type="6" draft="unconfirmed">ਜੂ</month>
-							<month type="7" draft="unconfirmed">ਜੁ</month>
-							<month type="8" draft="unconfirmed">ਅ</month>
-							<month type="9" draft="unconfirmed">ਸ</month>
-							<month type="10" draft="unconfirmed">ਅ</month>
-							<month type="11" draft="unconfirmed">ਨ</month>
-							<month type="12" draft="unconfirmed">ਦ</month>
+							<month type="1">ਜ</month>
+							<month type="2">ਫ</month>
+							<month type="3">ਮਾ</month>
+							<month type="4">ਅ</month>
+							<month type="5">ਮ</month>
+							<month type="6">ਜੂ</month>
+							<month type="7">ਜੁ</month>
+							<month type="8">ਅ</month>
+							<month type="9">ਸ</month>
+							<month type="10">ਅ</month>
+							<month type="11">ਨ</month>
+							<month type="12">ਦ</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -141,13 +141,13 @@
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">ਐ</day>
-							<day type="mon" draft="unconfirmed">ਸੋ</day>
-							<day type="tue" draft="unconfirmed">ਮੰ</day>
-							<day type="wed" draft="unconfirmed">ਬੁੱ</day>
-							<day type="thu" draft="unconfirmed">ਵੀ</day>
-							<day type="fri" draft="unconfirmed">ਸ਼ੁੱ</day>
-							<day type="sat" draft="unconfirmed">ਸ਼</day>
+							<day type="sun">ਐ</day>
+							<day type="mon">ਸੋ</day>
+							<day type="tue">ਮੰ</day>
+							<day type="wed">ਬੁੱ</day>
+							<day type="thu">ਵੀ</day>
+							<day type="fri">ਸ਼ੁੱ</day>
+							<day type="sat">ਸ਼</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -160,10 +160,10 @@
 							<quarter type="4" draft="unconfirmed">Q4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">ਪਹਿਲਾਂ ਚੌਥਾਈ</quarter>
-							<quarter type="2" draft="unconfirmed">ਦੂਜਾ ਚੌਥਾਈ</quarter>
-							<quarter type="3" draft="unconfirmed">ਤੀਜਾ ਚੌਥਾਈ</quarter>
-							<quarter type="4" draft="unconfirmed">ਚੌਥਾ ਚੌਥਾਈ</quarter>
+							<quarter type="1">ਪਹਿਲਾਂ ਚੌਥਾਈ</quarter>
+							<quarter type="2">ਦੂਜਾ ਚੌਥਾਈ</quarter>
+							<quarter type="3">ਤੀਜਾ ਚੌਥਾਈ</quarter>
+							<quarter type="4">ਚੌਥਾ ਚੌਥਾਈ</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -172,8 +172,8 @@
 				<eras>
 					<!-- These era names look like abbreviations and not full names. -->
 					<eraNames>
-						<era type="0" draft="unconfirmed">ਈਸਾਪੂਰਵ</era>
-						<era type="1" draft="unconfirmed">ਸੰਨ</era>
+						<era type="0">ਈਸਾਪੂਰਵ</era>
+						<era type="1">ਸੰਨ</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="unconfirmed">BCE</era>
@@ -183,86 +183,86 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="unconfirmed">EEEE, dd MMMM y</pattern>
+							<pattern>EEEE, dd MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="unconfirmed">y MMMM d</pattern>
+							<pattern>d MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="unconfirmed">y MMM d</pattern>
+							<pattern>d MMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="unconfirmed">dd/MM/yyyy</pattern>
+							<pattern>dd/MM/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss v</pattern>
+							<pattern>h:mm:ss a v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
+							<pattern>h:mm:ss a z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss</pattern>
+							<pattern>h:mm:ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm</pattern>
+							<pattern>h:mm a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmmss" draft="unconfirmed">HH:mm:ss 	13:25:59</dateFormatItem>
-						<dateFormatItem id="Md" draft="unconfirmed">d/M</dateFormatItem>
-						<dateFormatItem id="mmss" draft="unconfirmed">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyMMM" draft="unconfirmed">MMM yy</dateFormatItem>
-						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
+						<dateFormatItem id="HHmmss">HH:mm:ss 	13:25:59</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyMMM">MMM yy</dateFormatItem>
+						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
 					<field type="year">
-						<displayName draft="unconfirmed">ਸਾਲ</displayName>
+						<displayName>ਸਾਲ</displayName>
 					</field>
 					<field type="month">
-						<displayName draft="unconfirmed">ਮਹੀਨਾ</displayName>
+						<displayName>ਮਹੀਨਾ</displayName>
 					</field>
 					<field type="week">
-						<displayName draft="unconfirmed">ਹਫ਼ਤਾ</displayName>
+						<displayName>ਹਫ਼ਤਾ</displayName>
 					</field>
 					<field type="day">
-						<displayName draft="unconfirmed">ਦਿਨ</displayName>
-						<relative type="0" draft="unconfirmed">ਅੱਜ</relative>
-						<relative type="1" draft="unconfirmed">ਭਲਕ</relative>
-						<relative type="2" draft="unconfirmed">ਭਲਕ</relative>
-						<relative type="3" draft="unconfirmed">ਤਿੰਨ ਦਿਨ ਬਾਅਦ</relative>
-						<relative type="-2" draft="unconfirmed">ਪਰਸੋਂ</relative>
-						<relative type="-3" draft="unconfirmed">ਤਿੰਨ ਦਿਨ ਪਹਿਲਾਂ</relative>
+						<displayName>ਦਿਨ</displayName>
+						<relative type="-3">ਤਿੰਨ ਦਿਨ ਪਹਿਲਾਂ</relative>
+						<relative type="-2">ਪਰਸੋਂ</relative>
+						<relative type="0">ਅੱਜ</relative>
+						<relative type="1">ਭਲਕ</relative>
+						<relative type="2">ਭਲਕ</relative>
+						<relative type="3">ਤਿੰਨ ਦਿਨ ਬਾਅਦ</relative>
 					</field>
 					<field type="weekday">
-						<displayName draft="unconfirmed">ਹਫ਼ਤੇ ਦਾ ਦਿਨ</displayName>
+						<displayName>ਹਫ਼ਤੇ ਦਾ ਦਿਨ</displayName>
 					</field>
 					<field type="hour">
-						<displayName draft="unconfirmed">ਘੰਟਾ</displayName>
+						<displayName>ਘੰਟਾ</displayName>
 					</field>
 					<field type="minute">
-						<displayName draft="unconfirmed">ਮਿੰਟ</displayName>
+						<displayName>ਮਿੰਟ</displayName>
 					</field>
 					<field type="zone">
-						<displayName draft="unconfirmed">ਖੇਤਰ</displayName>
+						<displayName>ਖੇਤਰ</displayName>
 					</field>
 				</fields>
 			</calendar>
@@ -274,7 +274,7 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-                <defaultNumberingSystem>gurmukhi</defaultNumberingSystem>
+		<defaultNumberingSystem>gurmukhi</defaultNumberingSystem>
 		<symbols>
 			<nativeZeroDigit>੦</nativeZeroDigit>
 		</symbols>
@@ -326,4 +326,3 @@
 		<reference type="R211" uri="http://tdil.mit.gov.in/newsIndexApr02.htm">Govt of India Vishwabhart Newsletter</reference>
 	</references>
 </ldml>
-

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
 		<language type="nl"/>
 	</identity>
+	<fallback/>
 	<localeDisplayNames>
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
@@ -26,14 +27,16 @@
 			<language type="ak">Akan</language>
 			<language type="akk">Akkadisch</language>
 			<language type="ale">Aleut</language>
-			<language type="alg">Algonkium-talen</language>
+			<language type="alg">Algonkium-taal</language>
 			<language type="alt">Zuid-Altaïsch</language>
 			<language type="am">Amhaars</language>
 			<language type="an">Aragonees</language>
 			<language type="ang">Oudengels</language>
-			<language type="apa">Apache-talen</language>
+			<language type="anp">Angika</language>
+			<language type="apa">Apache-taal</language>
 			<language type="ar">Arabisch</language>
 			<language type="arc">Aramees</language>
+			<language type="arc" alt="proposed-x1001" draft="unconfirmed">klassiek Aramees</language>
 			<language type="arn">Araukaans</language>
 			<language type="arp">Arapaho</language>
 			<language type="art">Kunstmatige taal</language>
@@ -41,15 +44,16 @@
 			<language type="arw">Arawak</language>
 			<language type="as">Assamees</language>
 			<language type="ast">Asturisch</language>
-			<language type="ath">Athapascaanse talen</language>
-			<language type="aus">Australische talen</language>
+			<language type="ath">Athapascaanse taal</language>
+			<language type="aus">Australische taal</language>
 			<language type="av">Avarisch</language>
 			<language type="awa">Awadhi</language>
 			<language type="ay">Aymara</language>
 			<language type="az">Azerbeidzjaans</language>
 			<language type="ba">Basjkiers</language>
 			<language type="bad">Banda</language>
-			<language type="bai">Bamileke-talen</language>
+			<language type="bai">Bamileke-taal</language>
+			<language type="bai" alt="proposed-x1001" draft="unconfirmed">Bamiléké-taal</language>
 			<language type="bal">Baloetsji</language>
 			<language type="ban">Balinees</language>
 			<language type="bas">Basa</language>
@@ -57,9 +61,8 @@
 			<language type="be">Wit-Russisch</language>
 			<language type="bej">Beja</language>
 			<language type="bem">Bemba</language>
-			<language type="ber">Berbers</language>
+			<language type="ber">Berber</language>
 			<language type="ber" alt="proposed-x1001" draft="unconfirmed">Berbertaal</language>
-			<language type="ber" alt="proposed-x1002" draft="unconfirmed">Berber</language>
 			<language type="bg">Bulgaars</language>
 			<language type="bh">Bihari</language>
 			<language type="bho">Bhojpuri</language>
@@ -69,7 +72,6 @@
 			<language type="bla">Siksika</language>
 			<language type="bm">Bambara</language>
 			<language type="bn">Bengalees</language>
-			<language type="bn" alt="proposed-x1001" draft="unconfirmed">Bengaals</language>
 			<language type="bnt">Bantoe</language>
 			<language type="bnt" alt="proposed-x1001" draft="unconfirmed">Bantoetaal</language>
 			<language type="bo">Tibetaans</language>
@@ -99,7 +101,7 @@
 			<language type="chp">Chipewyan</language>
 			<language type="chr">Cherokee</language>
 			<language type="chy">Cheyenne</language>
-			<language type="cmc">Chamische talen</language>
+			<language type="cmc">Chamische taal</language>
 			<language type="co">Corsicaans</language>
 			<language type="cop">Koptisch</language>
 			<language type="cpe">Op Engels gebaseerd Creools of Pidgin</language>
@@ -121,6 +123,7 @@
 			<language type="dak">Dakota</language>
 			<language type="dar">Dargwa</language>
 			<language type="day">Dajak</language>
+			<language type="day" alt="proposed-x1001" draft="unconfirmed">Bidayuh taal</language>
 			<language type="de">Duits</language>
 			<language type="de_AT">Oostenrijks Duits</language>
 			<language type="de_CH">Zwitsers Hoogduits</language>
@@ -134,7 +137,6 @@
 			<language type="dsb">Nedersorbisch</language>
 			<language type="dua">Duala</language>
 			<language type="dum">Middelnederlands</language>
-			<language type="dum" alt="proposed-x1001" draft="unconfirmed">Nederlands, middel- (ca. 1050-1350)</language>
 			<language type="dv">Divehi</language>
 			<language type="dyu">Dyula</language>
 			<language type="dz">Dzongkha</language>
@@ -150,7 +152,6 @@
 			<language type="en_GB">Brits Engels</language>
 			<language type="en_US">Amerikaans Engels</language>
 			<language type="enm">Middelengels</language>
-			<language type="enm" alt="proposed-x1001" draft="unconfirmed">Engels, middel- (1100-1500)</language>
 			<language type="eo">Esperanto</language>
 			<language type="es">Spaans</language>
 			<language type="es_419">Latijns-Amerikaans Spaans</language>
@@ -174,8 +175,9 @@
 			<language type="fr_CA">Canadees Frans</language>
 			<language type="fr_CH">Zwitsers Frans</language>
 			<language type="frm">Middelfrans</language>
-			<language type="frm" alt="proposed-x1001" draft="unconfirmed">Frans, middel- (ca. 1400-1800)</language>
 			<language type="fro">Oudfrans</language>
+			<language type="frr">Noord-Fries</language>
+			<language type="frs">Oost-Fries</language>
 			<language type="fur">Friulisch</language>
 			<language type="fy">Fries</language>
 			<language type="ga">Iers</language>
@@ -189,7 +191,6 @@
 			<language type="gil">Gilbertees</language>
 			<language type="gl">Galicisch</language>
 			<language type="gmh">Middelhoogduits</language>
-			<language type="gmh" alt="proposed-x1001" draft="unconfirmed">Duits, middelhoog- (ca. 1050-1500)</language>
 			<language type="gn">Guarani</language>
 			<language type="goh">Oudhoogduits</language>
 			<language type="gon">Gondi</language>
@@ -232,7 +233,7 @@
 			<language type="inh">Ingoesj</language>
 			<language type="io">Ido</language>
 			<language type="ira">Iraanse taal</language>
-			<language type="iro">Irokese talen</language>
+			<language type="iro">Irokese taal</language>
 			<language type="is">IJslands</language>
 			<language type="it">Italiaans</language>
 			<language type="iu">Inuktitut</language>
@@ -269,6 +270,7 @@
 			<language type="kpe">Kpelle</language>
 			<language type="kr">Kanuri</language>
 			<language type="krc">Karachay-Balkar</language>
+			<language type="krl">Karelisch</language>
 			<language type="kro">Kru</language>
 			<language type="kru">Kurukh</language>
 			<language type="ks">Kashmiri</language>
@@ -315,19 +317,19 @@
 			<language type="mg">Malagasisch</language>
 			<language type="mg" alt="proposed-x1001" draft="unconfirmed">Malagasi</language>
 			<language type="mga">Middeliers</language>
-			<language type="mga" alt="proposed-x1001" draft="unconfirmed">Iers, middel- (900-1200)</language>
 			<language type="mh">Marshallees</language>
 			<language type="mi">Maori</language>
 			<language type="mic">Mi'kmaq</language>
 			<language type="min">Minangkabau</language>
 			<language type="mis">Diverse talen</language>
+			<language type="mis" alt="proposed-x1001" draft="unconfirmed">andere taal</language>
 			<language type="mk">Macedonisch</language>
 			<language type="mkh">Mon-Khmer-taal</language>
 			<language type="ml">Malayalam</language>
 			<language type="mn">Mongools</language>
 			<language type="mnc">Mantsjoe</language>
 			<language type="mni">Manipoeri</language>
-			<language type="mno">Manobo-talen</language>
+			<language type="mno">Manobo-taal</language>
 			<language type="mo">Moldavisch</language>
 			<language type="moh">Mohawk</language>
 			<language type="mos">Mossi</language>
@@ -335,16 +337,17 @@
 			<language type="ms">Maleis</language>
 			<language type="mt">Maltees</language>
 			<language type="mul">Meerdere talen</language>
-			<language type="mun">Munda-talen</language>
+			<language type="mul" alt="proposed-x1001" draft="unconfirmed">meerdere talen</language>
+			<language type="mun">Munda-taal</language>
 			<language type="mus">Creek</language>
 			<language type="mwl">Mirandees</language>
 			<language type="mwr">Marwari</language>
 			<language type="my">Birmees</language>
-			<language type="myn">Mayan-talen</language>
+			<language type="myn">Mayan-taal</language>
 			<language type="myv">Erzya</language>
 			<language type="na">Nauru</language>
 			<language type="nah">Nahuatl</language>
-			<language type="nai">Noord-Amerikaans Indiaans</language>
+			<language type="nai">Noord-Amerikaans Indiaanse taal</language>
 			<language type="nap">Napolitaans</language>
 			<language type="nb">Noors - Bokmål</language>
 			<language type="nd">Noord-Ndbele</language>
@@ -362,9 +365,10 @@
 			<language type="no">Noors</language>
 			<language type="nog">Nogai</language>
 			<language type="non">Oudnoors</language>
+			<language type="nqo">N’ko</language>
 			<language type="nr">Zuid-Ndbele</language>
 			<language type="nso">Noord-Sotho</language>
-			<language type="nub">Nubische talen</language>
+			<language type="nub">Nubische taal</language>
 			<language type="nv">Navajo</language>
 			<language type="nwc">Klassiek Newari</language>
 			<language type="ny">Nyanja</language>
@@ -379,7 +383,7 @@
 			<language type="os">Ossetisch</language>
 			<language type="osa">Osage</language>
 			<language type="ota">Ottomaans-Turks</language>
-			<language type="oto">Otomi-talen</language>
+			<language type="oto">Otomi-taal</language>
 			<language type="pa">Punjabi</language>
 			<language type="paa">Papoeataal</language>
 			<language type="pag">Pangasinan</language>
@@ -393,7 +397,7 @@
 			<language type="pi">Pali</language>
 			<language type="pl">Pools</language>
 			<language type="pon">Pohnpeiaans</language>
-			<language type="pra">Prakrit-talen</language>
+			<language type="pra">Prakrit-taal</language>
 			<language type="pro">Oudprovençaals</language>
 			<language type="ps">Pasjtoe</language>
 			<language type="pt">Portugees</language>
@@ -416,7 +420,7 @@
 			<language type="sad">Sandawe</language>
 			<language type="sah">Yakut</language>
 			<language type="sai">Zuid-Amerikaans Indiaanse taal</language>
-			<language type="sal">Salishan-talen</language>
+			<language type="sal">Salishan-taal</language>
 			<language type="sam">Samaritaans-Aramees</language>
 			<language type="sas">Sasak</language>
 			<language type="sat">Santali</language>
@@ -429,9 +433,8 @@
 			<language type="sem">Semitische taal</language>
 			<language type="sg">Sango</language>
 			<language type="sga">Oudiers</language>
-			<language type="sgn">Gebarentalen</language>
+			<language type="sgn">Gebarentaal</language>
 			<language type="sh">Servokroatisch</language>
-			<language type="sh" alt="proposed-x1001" draft="unconfirmed">Servo-Kroatisch</language>
 			<language type="shn">Shan</language>
 			<language type="si">Singalees</language>
 			<language type="sid">Sidamo</language>
@@ -451,6 +454,7 @@
 			<language type="so">Somalisch</language>
 			<language type="sog">Sogdisch</language>
 			<language type="son">Songhai</language>
+			<language type="son" alt="proposed-x1001" draft="unconfirmed">Songhai-taal</language>
 			<language type="sq">Albanees</language>
 			<language type="sr">Servisch</language>
 			<language type="srn">Sranantongo</language>
@@ -465,6 +469,8 @@
 			<language type="sux">Soemerisch</language>
 			<language type="sv">Zweeds</language>
 			<language type="sw">Swahili</language>
+			<language type="syc">Klassiek Syrisch</language>
+			<language type="syc" alt="proposed-x1001" draft="unconfirmed">klassiek Syrisch</language>
 			<language type="syr">Syriac</language>
 			<language type="ta">Tamil</language>
 			<language type="tai">Tai-taal</language>
@@ -493,7 +499,7 @@
 			<language type="tsi">Tsimshian</language>
 			<language type="tt">Tataars</language>
 			<language type="tum">Toemboeka</language>
-			<language type="tup">Tupi-talen</language>
+			<language type="tup">Tupi-taal</language>
 			<language type="tut">Altaïsche taal</language>
 			<language type="tvl">Tuvalu</language>
 			<language type="tw">Twi</language>
@@ -505,6 +511,7 @@
 			<language type="uk">Oekraïens</language>
 			<language type="umb">Umbundu</language>
 			<language type="und">Onbepaald</language>
+			<language type="und" alt="proposed-x1001" draft="unconfirmed">onbepaalde taal</language>
 			<language type="ur">Urdu</language>
 			<language type="uz">Oezbeeks</language>
 			<language type="vai">Vai</language>
@@ -513,11 +520,11 @@
 			<language type="vo">Volapük</language>
 			<language type="vot">Votisch</language>
 			<language type="wa">Wallonisch</language>
-			<language type="wak">Wakashan-talen</language>
+			<language type="wak">Wakashan-taal</language>
 			<language type="wal">Walamo</language>
 			<language type="war">Waray</language>
 			<language type="was">Washo</language>
-			<language type="wen">Sorbische talen</language>
+			<language type="wen">Sorbische taal</language>
 			<language type="wo">Wolof</language>
 			<language type="xal">Kalmyk</language>
 			<language type="xh">Xhosa</language>
@@ -528,6 +535,7 @@
 			<language type="ypk">Yupik-talen</language>
 			<language type="za">Zhuang</language>
 			<language type="zap">Zapotec</language>
+			<language type="zbl">Blissymbolen</language>
 			<language type="zen">Zenaga</language>
 			<language type="zh">Chinees</language>
 			<language type="zh_Hans">Vereenvoudigd Chinees</language>
@@ -535,10 +543,16 @@
 			<language type="znd">Zande</language>
 			<language type="zu">Zulu</language>
 			<language type="zun">Zuni</language>
+			<language type="zxx">Geen linguïstische inhoud</language>
+			<language type="zxx" alt="proposed-x1001" draft="unconfirmed">geen linguïstische inhoud</language>
+			<language type="zza">Zaza</language>
+			<language type="zza" alt="proposed-x1001" draft="unconfirmed">Zazaki</language>
 		</languages>
 		<scripts>
 			<script type="Arab">Arabisch</script>
+			<script type="Armi">Keizerlijk Aramees</script>
 			<script type="Armn">Armeens</script>
+			<script type="Avst">Avestaans</script>
 			<script type="Bali">Balinees</script>
 			<script type="Batk">Batak</script>
 			<script type="Beng">Bengalees</script>
@@ -548,6 +562,7 @@
 			<script type="Brai">Braille</script>
 			<script type="Bugi">Buginees</script>
 			<script type="Buhd">Buhid</script>
+			<script type="Cakm">Chakma</script>
 			<script type="Cans">Verenigde Canadese Aboriginal-symbolen</script>
 			<script type="Cari">Carisch</script>
 			<script type="Cham">Cham</script>
@@ -557,15 +572,11 @@
 			<script type="Cprt">Cyprisch</script>
 			<script type="Cyrl">Cyrillisch</script>
 			<script type="Cyrs">Oudkerkslavisch Cyrillisch</script>
-			<script type="Cyrs" alt="proposed-x1001" draft="unconfirmed">Cyrillisch (Oudkerkslavische variant)</script>
 			<script type="Deva">Devanagari</script>
 			<script type="Dsrt">Deseret</script>
 			<script type="Egyd">Egyptisch demotisch</script>
-			<script type="Egyd" alt="proposed-x1001" draft="unconfirmed">Egyptisch (demotisch)</script>
 			<script type="Egyh">Egyptisch hiëratisch</script>
-			<script type="Egyh" alt="proposed-x1001" draft="unconfirmed">Egyptisch (hiëratisch)</script>
 			<script type="Egyp">Egyptische hiërogliefen</script>
-			<script type="Egyp" alt="proposed-x1001" draft="unconfirmed">Egyptisch (hiërogliefen)</script>
 			<script type="Ethi">Ethiopisch</script>
 			<script type="Geok">Georgisch Khutsuri</script>
 			<script type="Geor">Georgisch</script>
@@ -593,12 +604,12 @@
 			<script type="Khar">Kharoshthi</script>
 			<script type="Khmr">Khmer</script>
 			<script type="Knda">Kannada</script>
+			<script type="Kore">Koreaans</script>
+			<script type="Kthi">Kaithi</script>
 			<script type="Lana">Lanna</script>
 			<script type="Laoo">Lao</script>
 			<script type="Latf">Gotisch Latijn</script>
-			<script type="Latf" alt="proposed-x1001" draft="unconfirmed">Latijn (Fraktur-variant)</script>
 			<script type="Latg">Gaelisch Latijn</script>
-			<script type="Latg" alt="proposed-x1001" draft="unconfirmed">Latijn (Gaelic-variant)</script>
 			<script type="Latn">Latijn</script>
 			<script type="Lepc">Lepcha</script>
 			<script type="Limb">Limbu</script>
@@ -607,6 +618,7 @@
 			<script type="Lyci">Lycisch</script>
 			<script type="Lydi">Lydisch</script>
 			<script type="Mand">Mandaeans</script>
+			<script type="Mani">Manicheaans</script>
 			<script type="Maya">Mayahiërogliefen</script>
 			<script type="Mero">Meroïtisch</script>
 			<script type="Mlym">Malayalam</script>
@@ -622,27 +634,33 @@
 			<script type="Osma">Osmanya</script>
 			<script type="Perm">Oudpermisch</script>
 			<script type="Phag">Phags-pa</script>
+			<script type="Phli">Inscriptioneel Pahlavi</script>
+			<script type="Phlp">Psalmen Pahlavi</script>
+			<script type="Phlv">Boek Pahlavi</script>
 			<script type="Phnx">Foenicisch</script>
 			<script type="Plrd">Pollard-fonetisch</script>
+			<script type="Prti">Inscriptioneel Parthisch</script>
 			<script type="Qaai">Overgeërfd</script>
+			<script type="Rjng">Rejang</script>
 			<script type="Roro">Rongorongo</script>
 			<script type="Runr">Runic</script>
+			<script type="Samr">Samaritaans</script>
 			<script type="Sara">Sarati</script>
+			<script type="Saur">Saurashtra</script>
+			<script type="Sgnw">SignWriting</script>
 			<script type="Shaw">Shavian</script>
 			<script type="Sinh">Sinhala</script>
+			<script type="Sund">Soendanees</script>
 			<script type="Sylo">Syloti Nagri</script>
 			<script type="Syrc">Syriac</script>
 			<script type="Syre">Estrangelo Aramees</script>
-			<script type="Syre" alt="proposed-x1001" draft="unconfirmed">Aramees (Estrangelo-variant)</script>
 			<script type="Syrj">West-Aramees</script>
-			<script type="Syrj" alt="proposed-x1001" draft="unconfirmed">Aramees (Westelijke variant)</script>
 			<script type="Syrn">Oost-Aramees</script>
-			<script type="Syrn" alt="proposed-x1001" draft="unconfirmed">Aramees (Oostelijke variant)</script>
 			<script type="Tagb">Tagbanwa</script>
 			<script type="Tale">Tai Le</script>
 			<script type="Talu">Nieuw Tai Lue</script>
-			<script type="Talu" alt="proposed-x1001" draft="unconfirmed">Tai Lue (nieuw)</script>
 			<script type="Taml">Tamil</script>
+			<script type="Tavt">Tai Viet</script>
 			<script type="Telu">Telugu</script>
 			<script type="Teng">Tengwar</script>
 			<script type="Tfng">Tifinagh</script>
@@ -656,6 +674,8 @@
 			<script type="Xpeo">Oudperzisch</script>
 			<script type="Xsux">Sumero-Akkadian Cuneiform</script>
 			<script type="Yiii">Yi</script>
+			<script type="Zmth">Wiskundige notatie</script>
+			<script type="Zsym">Symbolen</script>
 			<script type="Zxxx">Code voor ongeschreven talen</script>
 			<script type="Zyyy">Algemeen</script>
 			<script type="Zzzz">Code voor ongecodeerde schriftsystemen</script>
@@ -674,7 +694,6 @@
 			<territory type="018">Zuidelijk Afrika</territory>
 			<territory type="019">Amerika</territory>
 			<territory type="021">Noordelijk Amerika</territory>
-			<territory type="021" alt="proposed-x1001" draft="unconfirmed">Noord-Amerika</territory>
 			<territory type="029">Caribisch gebied</territory>
 			<territory type="030">Oost-Azië</territory>
 			<territory type="034">Zuid-Azië</territory>
@@ -707,12 +726,11 @@
 			<territory type="AQ">Antarctica</territory>
 			<territory type="AR">Argentinië</territory>
 			<territory type="AS">Amerikaans Samoa</territory>
-			<territory type="AS" alt="proposed-x1001" draft="unconfirmed">Amerikaans-Samoa</territory>
 			<territory type="AT">Oostenrijk</territory>
 			<territory type="AU">Australië</territory>
 			<territory type="AW">Aruba</territory>
 			<territory type="AX">Alandeilanden</territory>
-			<territory type="AX" alt="proposed-x1001" draft="unconfirmed">Ålandseilanden</territory>
+			<territory type="AX" alt="proposed-x1001" draft="unconfirmed">Åland</territory>
 			<territory type="AZ">Azerbeidzjan</territory>
 			<territory type="BA">Bosnië en Herzegovina</territory>
 			<territory type="BB">Barbados</territory>
@@ -723,13 +741,13 @@
 			<territory type="BH">Bahrein</territory>
 			<territory type="BI">Burundi</territory>
 			<territory type="BJ">Benin</territory>
-			<territory type="BL" draft="contributed">Saint Barthélemy</territory>
+			<territory type="BL">Saint Barthélemy</territory>
 			<territory type="BM">Bermuda</territory>
 			<territory type="BN">Brunei</territory>
 			<territory type="BO">Bolivia</territory>
 			<territory type="BR">Brazilië</territory>
 			<territory type="BS">Bahama’s</territory>
-			<territory type="BS" alt="proposed-x1001" draft="unconfirmed">Bahama's</territory>
+			<territory type="BS" alt="proposed-x1001" draft="unconfirmed">Bahamas</territory>
 			<territory type="BT">Bhutan</territory>
 			<territory type="BV">Bouveteiland</territory>
 			<territory type="BW">Botswana</territory>
@@ -738,11 +756,9 @@
 			<territory type="CA">Canada</territory>
 			<territory type="CC">Cocoseilanden</territory>
 			<territory type="CD">Congo-Kinshasa</territory>
-			<territory type="CD" alt="proposed-x1001" draft="unconfirmed">Congo, Democratische Republiek</territory>
 			<territory type="CF">Centraal-Afrikaanse Republiek</territory>
 			<territory type="CG">Congo</territory>
 			<territory type="CG" alt="proposed-x1001" draft="unconfirmed">Congo-Brazzaville</territory>
-			<territory type="CG" alt="proposed-x1002" draft="unconfirmed">Congo, Republiek</territory>
 			<territory type="CH">Zwitserland</territory>
 			<territory type="CI">Ivoorkust</territory>
 			<territory type="CK">Cookeilanden</territory>
@@ -774,7 +790,6 @@
 			<territory type="FJ">Fiji</territory>
 			<territory type="FK">Falklandeilanden</territory>
 			<territory type="FM">Micronesië</territory>
-			<territory type="FM" alt="proposed-x1001" draft="unconfirmed">Micronesia</territory>
 			<territory type="FO">Faeröer</territory>
 			<territory type="FR">Frankrijk</territory>
 			<territory type="GA">Gabon</territory>
@@ -787,20 +802,17 @@
 			<territory type="GI">Gibraltar</territory>
 			<territory type="GL">Groenland</territory>
 			<territory type="GM">Gambia</territory>
-			<territory type="GN">Guinea</territory>
-			<territory type="GN" alt="proposed-x1001" draft="unconfirmed">Guinee</territory>
+			<territory type="GN">Guinee</territory>
 			<territory type="GP">Guadeloupe</territory>
 			<territory type="GQ">Equatoriaal-Guinea</territory>
 			<territory type="GR">Griekenland</territory>
 			<territory type="GS">Zuid-Georgië en Zuidelijke Sandwicheilanden</territory>
-			<territory type="GS" alt="proposed-x1001" draft="unconfirmed">Zuid-Georgië en de Zuidelijke Sandwicheilanden</territory>
 			<territory type="GT">Guatemala</territory>
 			<territory type="GU">Guam</territory>
 			<territory type="GW">Guinee-Bissau</territory>
 			<territory type="GY">Guyana</territory>
 			<territory type="HK">Hongkong SAR van China</territory>
-			<territory type="HK" alt="proposed-x1001" draft="unconfirmed">Hongkong, Speciale Administratieve Regio van de Volksrepubliek China</territory>
-			<territory type="HK" alt="proposed-x1002" draft="unconfirmed">Speciale Administratieve Regio Hongkong van de Volksrepubliek China</territory>
+			<territory type="HK" alt="proposed-x1001" draft="unconfirmed">Hongkong</territory>
 			<territory type="HK" alt="short">Hongkong</territory>
 			<territory type="HM">Heard- en McDonaldeilanden</territory>
 			<territory type="HN">Honduras</territory>
@@ -848,7 +860,7 @@
 			<territory type="MC">Monaco</territory>
 			<territory type="MD">Moldavië</territory>
 			<territory type="ME">Montenegro</territory>
-			<territory type="MF" draft="contributed">Sint-Maarten</territory>
+			<territory type="MF">Sint-Maarten</territory>
 			<territory type="MG">Madagaskar</territory>
 			<territory type="MH">Marshalleilanden</territory>
 			<territory type="MK">Macedonië</territory>
@@ -856,11 +868,9 @@
 			<territory type="MM">Myanmar</territory>
 			<territory type="MN">Mongolië</territory>
 			<territory type="MO">Macao SAR van China</territory>
-			<territory type="MO" alt="proposed-x1001" draft="unconfirmed">Macao, Speciale Administratieve Regio van de Volksrepubliek China</territory>
-			<territory type="MO" alt="proposed-x1002" draft="unconfirmed">Speciale Administratieve Regio Macau van de Volksrepubliek China</territory>
+			<territory type="MO" alt="proposed-x1001" draft="unconfirmed">Macao</territory>
 			<territory type="MO" alt="short">Macao</territory>
 			<territory type="MP">Noordelijke Marianeneilanden</territory>
-			<territory type="MP" alt="proposed-x1001" draft="unconfirmed">Noordelijke Marianen</territory>
 			<territory type="MQ">Martinique</territory>
 			<territory type="MR">Mauritanië</territory>
 			<territory type="MS">Montserrat</territory>
@@ -900,7 +910,6 @@
 			<territory type="PY">Paraguay</territory>
 			<territory type="QA">Qatar</territory>
 			<territory type="QO">Oceanië (overige)</territory>
-			<territory type="QO" alt="proposed-x1001" draft="unconfirmed">Overige gebieden van Oceanië</territory>
 			<territory type="QU">Europese Unie</territory>
 			<territory type="RE">Réunion</territory>
 			<territory type="RO">Roemenië</territory>
@@ -908,7 +917,6 @@
 			<territory type="RU">Rusland</territory>
 			<territory type="RW">Rwanda</territory>
 			<territory type="SA">Saoedi-Arabië</territory>
-			<territory type="SA" alt="proposed-x1001" draft="unconfirmed">Saudi-Arabië</territory>
 			<territory type="SB">Salomonseilanden</territory>
 			<territory type="SC">Seychellen</territory>
 			<territory type="SD">Soedan</territory>
@@ -917,7 +925,6 @@
 			<territory type="SH">Sint-Helena</territory>
 			<territory type="SI">Slovenië</territory>
 			<territory type="SJ">Svalbard en Jan Mayen</territory>
-			<territory type="SJ" alt="proposed-x1001" draft="unconfirmed">Spitsbergen en Jan Mayen</territory>
 			<territory type="SK">Slowakije</territory>
 			<territory type="SL">Sierra Leone</territory>
 			<territory type="SM">San Marino</territory>
@@ -947,7 +954,6 @@
 			<territory type="UA">Oekraïne</territory>
 			<territory type="UG">Oeganda</territory>
 			<territory type="UM">Amerikaanse kleinere afgelegen eilanden</territory>
-			<territory type="UM" alt="proposed-x1001" draft="unconfirmed">Amerikaanse ondergeschikte afgelegen eilanden</territory>
 			<territory type="US">Verenigde Staten</territory>
 			<territory type="UY">Uruguay</territory>
 			<territory type="UZ">Oezbekistan</territory>
@@ -969,66 +975,62 @@
 		</territories>
 		<variants>
 			<variant type="1901">Traditionele Duitse spelling</variant>
-			<variant type="1901" alt="proposed-x1001" draft="unconfirmed">traditionele Duitse spelling</variant>
+			<variant type="1994">Gestandaardiseerde Resiaanse spelling</variant>
 			<variant type="1996">Duitse spelling van 1996</variant>
+			<variant type="1606NICT">Laat Middelfrans tot 1606</variant>
+			<variant type="1694ACAD">Vroeg modern Frans</variant>
 			<variant type="AREVELA">Oost-Armeens</variant>
 			<variant type="AREVMDA">West-Armeens</variant>
+			<variant type="BAKU1926">Eenvormig Turkse Latijnse alfabet</variant>
 			<variant type="BISKE">San Giorgio/Bila-dialect</variant>
 			<variant type="BOONT">Boontling</variant>
 			<variant type="FONIPA">Internationaal Fonetisch Alfabet</variant>
 			<variant type="FONUPA">Oeralisch Fonetisch Alfabet</variant>
+			<variant type="LIPAW">Het Lipovaz-dialect van het Resiaans</variant>
 			<variant type="MONOTON">Monotonaal</variant>
-			<variant type="MONOTON" alt="proposed-x1001" draft="unconfirmed">monotonaal</variant>
 			<variant type="NEDIS">Natisone-dialect</variant>
 			<variant type="NJIVA">Gniva/Njiva-dialect</variant>
 			<variant type="OSOJS">Oseacco/Osojane-dialect</variant>
 			<variant type="POLYTON">Polytonaal</variant>
-			<variant type="POLYTON" alt="proposed-x1001" draft="unconfirmed">polytonaal</variant>
 			<variant type="POSIX">Computer</variant>
 			<variant type="REVISED">Gewijzigde spelling</variant>
-			<variant type="REVISED" alt="proposed-x1001" draft="unconfirmed">gewijzigde spelling</variant>
 			<variant type="ROZAJ">Resiaans</variant>
 			<variant type="SAAHO">Saho</variant>
+			<variant type="SCOTLAND">Schots standaard-Engels</variant>
 			<variant type="SCOUSE">Liverpools (Scouse)</variant>
-			<variant type="SCOUSE" alt="proposed-x1001" draft="unconfirmed">Liverpools</variant>
 			<variant type="SOLBA">Stolvizza/Solbica-dialect</variant>
+			<variant type="TARASK">Taraskievica-spelling</variant>
+			<variant type="VALENCIA">Valenciaans</variant>
 		</variants>
 		<keys>
 			<key type="calendar">Kalender</key>
 			<key type="collation">Volgorde</key>
-			<key type="collation" alt="proposed-x1001" draft="unconfirmed">volgorde</key>
 			<key type="currency">Munteenheid</key>
-			<key type="currency" alt="proposed-x1001" draft="unconfirmed">valuta</key>
 		</keys>
 		<types>
 			<type type="big5han" key="collation">Traditioneel Chinees</type>
-			<type type="big5han" key="collation" alt="proposed-x1001" draft="unconfirmed">Traditioneel-Chinese sorteervolgorde</type>
-			<type type="big5han" key="collation" alt="proposed-x1002" draft="unconfirmed">Traditioneel-Chinese sorteervolgorde - Big5</type>
 			<type type="buddhist" key="calendar">Boeddhistische kalender</type>
 			<type type="chinese" key="calendar">Chinese kalender</type>
 			<type type="direct" key="collation">Directe sorteervolgorde</type>
 			<type type="gb2312han" key="collation">Vereenvoudigd Chinees</type>
-			<type type="gb2312han" key="collation" alt="proposed-x1001" draft="unconfirmed">Vereenvoudigd-Chinese sorteervolgorde</type>
-			<type type="gb2312han" key="collation" alt="proposed-x1002" draft="unconfirmed">Vereenvoudigd-Chinese sorteervolgorde - GB2312</type>
 			<type type="gregorian" key="calendar">Gregoriaanse kalender</type>
 			<type type="hebrew" key="calendar">Hebreeuwse kalender</type>
 			<type type="indian" key="calendar">Indiase nationale kalender</type>
 			<type type="islamic" key="calendar">Islamitische kalender</type>
 			<type type="islamic-civil" key="calendar">Islamitische kalender (cyclisch)</type>
-			<type type="islamic-civil" key="calendar" alt="proposed-x1001" draft="unconfirmed">Islamitisch-civiele kalender</type>
-			<type type="islamic-civil" key="calendar" alt="proposed-x1002" draft="unconfirmed">Islamitische kalender (burgerlijk)</type>
+			<type type="islamic-civil" key="calendar" alt="proposed-x1001" draft="unconfirmed">Islamitische kalender (burgerlijk)</type>
 			<type type="japanese" key="calendar">Japanse kalender</type>
 			<type type="phonebook" key="collation">Telefoonboeksorteervolgorde</type>
 			<type type="pinyin" key="collation">Pinyinvolgorde</type>
-			<type type="pinyin" key="collation" alt="proposed-x1001" draft="unconfirmed">Pinyinsorteervolgorde</type>
 			<type type="roc" key="calendar">Kalender van de Chinese Republiek</type>
 			<type type="stroke" key="collation">Streeksorteervolgorde</type>
 			<type type="traditional" key="collation">Traditionele sorteervolgorde</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="US">Amerikaans</measurementSystemName>
+			<measurementSystemName type="US" alt="proposed-x1001" draft="unconfirmed">VS-eenheid</measurementSystemName>
 			<measurementSystemName type="metric">Metriek</measurementSystemName>
-			<measurementSystemName type="metric" alt="proposed-x1001" draft="unconfirmed">Metrisch</measurementSystemName>
+			<measurementSystemName type="metric" alt="proposed-x1001" draft="unconfirmed">SI-eenheid</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language" draft="contributed">Taal: {0}</codePattern>
@@ -1037,8 +1039,23 @@
 		</codePatterns>
 	</localeDisplayNames>
 	<layout>
-		<inText type="currency" draft="contributed">lowercase-words</inText>
-		<inText type="measurementSystemNames" draft="contributed">lowercase-words</inText>
+		<inList>titlecase-firstword</inList>
+		<inList alt="proposed-x1001" draft="unconfirmed">mixed</inList>
+		<inText type="currency">lowercase-words</inText>
+		<inText type="currency" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
+		<inText type="fields">mixed</inText>
+		<inText type="keys">mixed</inText>
+		<inText type="languages">titlecase-firstword</inText>
+		<inText type="languages" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
+		<inText type="long">mixed</inText>
+		<inText type="measurementSystemNames">mixed</inText>
+		<inText type="quarterWidth">mixed</inText>
+		<inText type="scripts">titlecase-firstword</inText>
+		<inText type="scripts" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
+		<inText type="territories">titlecase-firstword</inText>
+		<inText type="territories" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
+		<inText type="types">mixed</inText>
+		<inText type="variants">mixed</inText>
 	</layout>
 	<characters>
 		<exemplarCharacters>[a á ä b-e é ë f-i í ï {ij} j-o ó ö p-u ú ü v-z]</exemplarCharacters>
@@ -1052,23 +1069,25 @@
 		<alternateQuotationEnd>”</alternateQuotationEnd>
 	</delimiters>
 	<dates>
+		<dateRangePattern>{0} - {1}</dateRangePattern>
+		<dateRangePattern alt="proposed-x1001" draft="unconfirmed">{0}−{1}</dateRangePattern>
 		<calendars>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">jan</month>
-							<month type="2">feb</month>
-							<month type="3">mrt</month>
-							<month type="4">apr</month>
+							<month type="1">jan.</month>
+							<month type="2">feb.</month>
+							<month type="3">mrt.</month>
+							<month type="4">apr.</month>
 							<month type="5">mei</month>
-							<month type="6">jun</month>
-							<month type="7">jul</month>
-							<month type="8">aug</month>
-							<month type="9">sep</month>
-							<month type="10">okt</month>
-							<month type="11">nov</month>
-							<month type="12">dec</month>
+							<month type="6">jun.</month>
+							<month type="7">jul.</month>
+							<month type="8">aug.</month>
+							<month type="9">sep.</month>
+							<month type="10">okt.</month>
+							<month type="11">nov.</month>
+							<month type="12">dec.</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januari</month>
@@ -1163,8 +1182,10 @@
 				<pm draft="contributed">PM</pm>
 				<eras>
 					<eraNames>
-						<era type="0" draft="contributed">Voor Christus</era>
+						<era type="0">Voor Christus</era>
+						<era type="0" alt="proposed-x1001" draft="unconfirmed">voor Christus</era>
 						<era type="1" draft="contributed">Anno Domini</era>
+						<era type="1" alt="proposed-x1001" draft="unconfirmed">na Christus</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">v. Chr.</era>
@@ -1219,7 +1240,7 @@
 					<availableFormats>
 						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
 						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
-						<dateFormatItem id="MEd" draft="contributed">E, d-M</dateFormatItem>
+						<dateFormatItem id="MEd">E d-M</dateFormatItem>
 						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="contributed">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd" draft="contributed">E d MMMM</dateFormatItem>
@@ -1233,9 +1254,9 @@
 						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
 						<dateFormatItem id="y" draft="contributed">y</dateFormatItem>
 						<dateFormatItem id="yM" draft="contributed">M-yyyy</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">EEE, d-M-yyyy</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE d-M-yyyy</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="contributed">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">EEE, d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM" draft="contributed">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQ" draft="contributed">Q yyyy</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="contributed">QQQ y</dateFormatItem>
@@ -1315,7 +1336,7 @@
 							<greatestDifference id="y" draft="contributed">E d MMM y - E d MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M" draft="contributed">MM–MM– yyyy</greatestDifference>
+							<greatestDifference id="M">MM–MM – yyyy</greatestDifference>
 							<greatestDifference id="y" draft="contributed">MM-yyyy – MM-yyyy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
@@ -1333,43 +1354,59 @@
 				<fields>
 					<field type="era">
 						<displayName>Tijdperk</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">tijdperk</displayName>
 					</field>
 					<field type="year">
 						<displayName>Jaar</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">jaar</displayName>
 					</field>
 					<field type="month">
 						<displayName>Maand</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">maand</displayName>
 					</field>
 					<field type="week">
 						<displayName draft="contributed">Week</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">week</displayName>
 					</field>
 					<field type="day">
 						<displayName>Dag</displayName>
-						<relative type="0" draft="contributed">Vandaag</relative>
-						<relative type="1" draft="contributed">Morgen</relative>
-						<relative type="2" draft="contributed">Overmorgen</relative>
-						<relative type="3" draft="contributed">Over drie dagen</relative>
-						<relative type="-1" draft="contributed">Gisteren</relative>
+						<relative type="-3">Drie dagen geleden</relative>
+						<relative type="-3" alt="proposed-x1001" draft="unconfirmed">eereergisteren</relative>
 						<relative type="-2" draft="contributed">Eergisteren</relative>
-						<relative type="-3" draft="contributed">Drie dagen geleden</relative>
+						<relative type="-2" alt="proposed-x1001" draft="unconfirmed">eergisteren</relative>
+						<relative type="-1" draft="contributed">Gisteren</relative>
+						<relative type="-1" alt="proposed-x1001" draft="unconfirmed">gisteren</relative>
+						<relative type="0" draft="contributed">Vandaag</relative>
+						<relative type="0" alt="proposed-x1001" draft="unconfirmed">vandaag</relative>
+						<relative type="1" draft="contributed">Morgen</relative>
+						<relative type="1" alt="proposed-x1001" draft="unconfirmed">morgen</relative>
+						<relative type="2" draft="contributed">Overmorgen</relative>
+						<relative type="2" alt="proposed-x1001" draft="unconfirmed">overmorgen</relative>
+						<relative type="3">Over drie dagen</relative>
+						<relative type="3" alt="proposed-x1001" draft="unconfirmed">overovermorgen</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Dag van de week</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">dag van de week</displayName>
 					</field>
 					<field type="dayperiod">
-						<displayName draft="contributed">AM/PM</displayName>
+						<displayName>AM/PM</displayName>
 					</field>
 					<field type="hour">
 						<displayName>Uur</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">uur</displayName>
 					</field>
 					<field type="minute">
 						<displayName>Minuut</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">minuut</displayName>
 					</field>
 					<field type="second">
 						<displayName>Seconde</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">seconde</displayName>
 					</field>
 					<field type="zone">
-						<displayName draft="contributed">Zone</displayName>
+						<displayName>Zone</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">tijdzone</displayName>
 					</field>
 				</fields>
 			</calendar>
@@ -1414,9 +1451,12 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
+			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat draft="contributed">GMT{0}</gmtFormat>
+			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat draft="contributed">{0}-tijd</regionFormat>
 			<fallbackFormat draft="contributed">{1} ({0})</fallbackFormat>
+			<fallbackFormat alt="proposed-x1001" draft="unconfirmed">{0} ({1})</fallbackFormat>
 			<!-- Mali -->
 			<zone type="Etc/Unknown">
 				<exemplarCity>Onbekend</exemplarCity>
@@ -1569,7 +1609,7 @@
 				<exemplarCity>Aqtöbe</exemplarCity>
 			</zone>
 			<zone type="Asia/Almaty">
-				<exemplarCity draft="contributed">Alma-Ata</exemplarCity>
+				<exemplarCity>Alma-Ata</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Almaty</exemplarCity>
 			</zone>
 			<zone type="Asia/Beirut">
@@ -2948,6 +2988,7 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
@@ -2957,7 +2998,9 @@
 			<patternDigit>#</patternDigit>
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
+			<minusSign alt="proposed-x1001" draft="unconfirmed">−</minusSign>
 			<exponential>E</exponential>
+			<exponential alt="proposed-x1001" draft="unconfirmed">×10^</exponential>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
@@ -2987,37 +3030,37 @@
 			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>¤ #,##0.00;¤ #,##0.00-</pattern>
-					<pattern alt="proposed-x1001" draft="unconfirmed">¤ #,##0.00;(¤ #,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
 				<displayName>Andorrese peseta</displayName>
-				<displayName count="one" draft="contributed">Andorrese peseta</displayName>
-				<displayName count="other" draft="contributed">Andorrese peseta</displayName>
+				<displayName count="one">Andorrese peseta</displayName>
+				<displayName count="other">Andorrese peseta</displayName>
 			</currency>
 			<currency type="AED">
 				<displayName>Verenigde Arabische Emiraten-dirham</displayName>
-				<displayName count="one" draft="contributed">Verenigde Arabische Emiraten-dirham</displayName>
-				<displayName count="other" draft="contributed">Verenigde Arabische Emiraten-dirham</displayName>
+				<displayName count="one">Verenigde Arabische Emiraten-dirham</displayName>
+				<displayName count="other">Verenigde Arabische Emiraten-dirham</displayName>
 			</currency>
 			<currency type="AFA">
 				<displayName>Afghani (1927-2002)</displayName>
-				<displayName count="one" draft="contributed">Afghani (AFA)</displayName>
-				<displayName count="other" draft="contributed">Afghani (AFA)</displayName>
+				<displayName count="one">Afghani (AFA)</displayName>
+				<displayName count="other">Afghani (AFA)</displayName>
 			</currency>
 			<currency type="AFN">
 				<displayName>Afghani</displayName>
-				<displayName count="one" draft="contributed">Afghani</displayName>
-				<displayName count="other" draft="contributed">Afghani</displayName>
+				<displayName count="one">Afghani</displayName>
+				<displayName count="other">Afghani</displayName>
 				<symbol>Af</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Albanese lek</displayName>
-				<displayName count="one" draft="contributed">Albanese lek</displayName>
-				<displayName count="other" draft="contributed">Albanese lek</displayName>
+				<displayName count="one">Albanese lek</displayName>
+				<displayName count="other">Albanese lek</displayName>
 				<symbol>lek</symbol>
 			</currency>
 			<currency type="AMD">
@@ -3276,8 +3319,7 @@
 				<symbol>Br</symbol>
 			</currency>
 			<currency type="EUR">
-				<displayName>euro</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Euro</displayName>
+				<displayName>Euro</displayName>
 			</currency>
 			<currency type="FIM">
 				<displayName>Finse markka</displayName>
@@ -3295,7 +3337,6 @@
 			<currency type="GBP">
 				<displayName>Brits pond sterling</displayName>
 				<symbol>GBP</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Georgische kupon larit</displayName>
@@ -3381,7 +3422,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>Indiase rupee</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Indiase roepie</displayName>
 				<symbol>INR</symbol>
 			</currency>
 			<currency type="IQD">
@@ -3397,7 +3437,7 @@
 			</currency>
 			<currency type="ITL">
 				<displayName>Italiaanse lire</displayName>
-				<symbol draft="contributed">₤</symbol>
+				<symbol>IT₤</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>Jamaicaanse dollar</displayName>
@@ -3409,8 +3449,7 @@
 			</currency>
 			<currency type="JPY">
 				<displayName>Japanse yen</displayName>
-				<symbol draft="provisional">JPY</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">¥</symbol>
+				<symbol>¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Keniaanse shilling</displayName>
@@ -3559,13 +3598,12 @@
 				<displayName>Mozambikaanse escudo</displayName>
 			</currency>
 			<currency type="MZM">
-				<displayName draft="contributed">Oude Mozambikaanse metical</displayName>
+				<displayName>Oude Mozambikaanse metical</displayName>
 				<symbol>Mt</symbol>
 			</currency>
 			<currency type="MZN">
-				<displayName draft="contributed">Mozambikaanse metical</displayName>
+				<displayName>Mozambikaanse metical</displayName>
 				<symbol draft="contributed">MTN</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">MTn</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Namibische dollar</displayName>
@@ -3641,19 +3679,18 @@
 				<symbol>QR</symbol>
 			</currency>
 			<currency type="RHD">
-				<displayName draft="contributed">Rhodesische dollar</displayName>
+				<displayName>Rhodesische dollar</displayName>
 			</currency>
 			<currency type="ROL">
-				<displayName draft="contributed">Oude Roemeense leu</displayName>
+				<displayName>Oude Roemeense leu</displayName>
 				<symbol>leu</symbol>
 			</currency>
 			<currency type="RON">
-				<displayName draft="contributed">Roemeense leu</displayName>
+				<displayName>Roemeense leu</displayName>
 				<symbol>lei</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">L</symbol>
 			</currency>
 			<currency type="RSD">
-				<displayName draft="contributed">Servische dinar</displayName>
+				<displayName>Servische dinar</displayName>
 			</currency>
 			<currency type="RUB">
 				<displayName>Russische roebel</displayName>
@@ -3681,7 +3718,7 @@
 				<displayName>Soedanese dinar</displayName>
 			</currency>
 			<currency type="SDG">
-				<displayName draft="contributed">Soedanese pond</displayName>
+				<displayName>Soedanese pond</displayName>
 			</currency>
 			<currency type="SDP">
 				<displayName>Soedanees pond</displayName>
@@ -3762,14 +3799,12 @@
 				<displayName>Turkse lire</displayName>
 				<displayName count="one" draft="contributed">oude Turkse lira</displayName>
 				<displayName count="other" draft="contributed">oude Turkse lira</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Oude Turkse lira</displayName>
-				<symbol>TL</symbol>
+				<symbol>TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>Nieuwe Turkse lire</displayName>
 				<displayName count="one" draft="contributed">Turkse lira</displayName>
 				<displayName count="other" draft="contributed">Turkse lira</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Turkse lira</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad en Tobago-dollar</displayName>
@@ -3785,7 +3820,6 @@
 			</currency>
 			<currency type="UAH">
 				<displayName>Oekraïense hryvnia</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Oekraïense grivna</displayName>
 			</currency>
 			<currency type="UAK">
 				<displayName>Oekraïense karbovanetz</displayName>
@@ -3800,7 +3834,6 @@
 			<currency type="USD">
 				<displayName>Amerikaanse dollar</displayName>
 				<symbol>USD</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>Amerikaanse dollar (volgende dag)</displayName>
@@ -3809,7 +3842,7 @@
 				<displayName>Amerikaanse dollar (zelfde dag)</displayName>
 			</currency>
 			<currency type="UYI">
-				<displayName draft="contributed">Uruguayaanse peso en geïndexeerde eenheden</displayName>
+				<displayName>Uruguayaanse peso en geïndexeerde eenheden</displayName>
 			</currency>
 			<currency type="UYP">
 				<displayName>Uruguayaanse peso (1975-1993)</displayName>
@@ -3826,7 +3859,7 @@
 				<symbol>Be</symbol>
 			</currency>
 			<currency type="VEF">
-				<displayName draft="contributed">Venezolaanse sterke bolivar</displayName>
+				<displayName>Venezolaanse sterke bolivar</displayName>
 				<symbol draft="contributed">BsF</symbol>
 			</currency>
 			<currency type="VND">
@@ -3880,7 +3913,7 @@
 				<displayName>CFA-franc BCEAO</displayName>
 			</currency>
 			<currency type="XPD">
-				<displayName draft="contributed">Palladium</displayName>
+				<displayName>Palladium</displayName>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP-franc</displayName>
@@ -3898,7 +3931,6 @@
 			<currency type="XXX">
 				<displayName>Geen valuta</displayName>
 				<displayName count="one" draft="contributed">onbekende/ongeldige munteenheid</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Onbekende of ongeldige munteenheid</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>Jemenitische dinar</displayName>
@@ -3941,44 +3973,44 @@
 	<units>
 		<unit type="day">
 			<unitPattern count="one">{0} dag</unitPattern>
-			<unitPattern count="other">{0} dagen</unitPattern>
 			<unitPattern count="one" alt="short">{0} dag</unitPattern>
+			<unitPattern count="other">{0} dagen</unitPattern>
 			<unitPattern count="other" alt="short">{0} dagen</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} uur</unitPattern>
-			<unitPattern count="other">{0} uur</unitPattern>
 			<unitPattern count="one" alt="short">{0} u</unitPattern>
+			<unitPattern count="other">{0} uur</unitPattern>
 			<unitPattern count="other" alt="short">{0} u</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minuut</unitPattern>
-			<unitPattern count="other">{0} minuten</unitPattern>
 			<unitPattern count="one" alt="short">{0} min.</unitPattern>
+			<unitPattern count="other">{0} minuten</unitPattern>
 			<unitPattern count="other" alt="short">{0} min.</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} maand</unitPattern>
-			<unitPattern count="other">{0} maanden</unitPattern>
 			<unitPattern count="one" alt="short">{0} mnd</unitPattern>
+			<unitPattern count="other">{0} maanden</unitPattern>
 			<unitPattern count="other" alt="short">{0} mnd</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} seconde</unitPattern>
-			<unitPattern count="other">{0} seconden</unitPattern>
 			<unitPattern count="one" alt="short">{0} sec.</unitPattern>
+			<unitPattern count="other">{0} seconden</unitPattern>
 			<unitPattern count="other" alt="short">{0} sec.</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} week</unitPattern>
-			<unitPattern count="other">{0} weken</unitPattern>
 			<unitPattern count="one" alt="short">{0} wk</unitPattern>
+			<unitPattern count="other">{0} weken</unitPattern>
 			<unitPattern count="other" alt="short">{0} wkn</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} jaar</unitPattern>
-			<unitPattern count="other">{0} jaar</unitPattern>
 			<unitPattern count="one" alt="short">{0} jr</unitPattern>
+			<unitPattern count="other">{0} jaar</unitPattern>
 			<unitPattern count="other" alt="short">{0} jr</unitPattern>
 		</unit>
 	</units>
@@ -4078,4 +4110,3 @@ Comments without bases
 					 </short>
 					 - was on: //ldml/dates/timeZoneNames/zone[@type="Asia/Shanghai"]/exemplarCity[@alt="proposed-u10-1"]
 -->
-

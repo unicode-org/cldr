@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -8,14 +8,19 @@
 		<territory type="CH"/>
 	</identity>
 	<localeDisplayNames>
+		<languages>
+			<language type="be">Weissrussisch</language>
+		</languages>
 		<territories>
 			<territory type="BD">Bangladesh</territory>
 			<territory type="BN">Brunei</territory>
 			<territory type="BW">Botswana</territory>
+			<territory type="BY">Weissrussland</territory>
 			<territory type="CV">Kapverden</territory>
 			<territory type="DJ">Djibouti</territory>
 			<territory type="GB">Grossbritannien</territory>
 			<territory type="MH">Marshall-Inseln</territory>
+			<territory type="QO">Äusseres Ozeanien</territory>
 			<territory type="RW">Rwanda</territory>
 			<territory type="SB">Salomon-Inseln</territory>
 			<territory type="ST">Sao Tomé und Principe</territory>
@@ -23,10 +28,10 @@
 		</territories>
 	</localeDisplayNames>
 	<delimiters>
-		<quotationStart draft="contributed">«</quotationStart>
-		<quotationEnd draft="contributed">»</quotationEnd>
-		<alternateQuotationStart draft="contributed">‹</alternateQuotationStart>
-		<alternateQuotationEnd draft="contributed">›</alternateQuotationEnd>
+		<quotationStart>«</quotationStart>
+		<quotationEnd>»</quotationEnd>
+		<alternateQuotationStart>‹</alternateQuotationStart>
+		<alternateQuotationEnd>›</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -64,4 +69,3 @@ as published at its web site at
 http://www.ifag.de/kartographie/Stagn/Staatennamen.htm
 Date there: 1999-apr-19
 -->
-

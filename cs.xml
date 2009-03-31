@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -10,182 +10,557 @@
 		<languages>
 			<language type="aa">afarština</language>
 			<language type="ab">abcházština</language>
+			<language type="ace" draft="unconfirmed">acehština</language>
+			<language type="ach" draft="unconfirmed">ačoli</language>
+			<language type="ada" draft="unconfirmed">adangme</language>
+			<language type="ady" draft="unconfirmed">adygejština</language>
 			<language type="ae" draft="contributed">avestánština</language>
+			<language type="ae" alt="proposed-x1001" draft="unconfirmed">avestský jazyk</language>
 			<language type="af">afrikánština</language>
+			<language type="afa" draft="unconfirmed">afroasijské jazyky (jiné)</language>
+			<language type="afa" alt="proposed-x1001" draft="unconfirmed">afroasijské jazyky</language>
+			<language type="afh" draft="unconfirmed">afrihili</language>
 			<language type="ain" draft="contributed">ainština</language>
 			<language type="ak" draft="contributed">akanština</language>
+			<language type="ak" alt="proposed-x1001" draft="unconfirmed">akan</language>
 			<language type="akk" draft="contributed">akkadština</language>
+			<language type="ale" draft="unconfirmed">aleutština</language>
+			<language type="alg" draft="unconfirmed">algonkinské jazyky (jiné)</language>
+			<language type="alg" alt="proposed-x1001" draft="unconfirmed">algonkinské jazyky</language>
 			<language type="am">amharština</language>
 			<language type="an" draft="contributed">aragonština</language>
+			<language type="ang" draft="unconfirmed">staroangličtina</language>
 			<language type="anp" draft="contributed">angika</language>
+			<language type="apa" draft="unconfirmed">apačské jazyky</language>
 			<language type="ar">arabština</language>
+			<language type="arc" draft="unconfirmed">aramejština</language>
+			<language type="arn" draft="unconfirmed">araukánština</language>
 			<language type="arp" draft="contributed">arapažština</language>
+			<language type="arp" alt="proposed-x1001" draft="unconfirmed">arapaho</language>
+			<language type="art" draft="unconfirmed">umělé jazyky (jiné)</language>
+			<language type="art" alt="proposed-x1001" draft="unconfirmed">umělé jazyky</language>
+			<language type="arw" draft="unconfirmed">arawacké jazyky</language>
 			<language type="as">assaméština</language>
-			<language type="as" alt="proposed-x1001" draft="unconfirmed">asámština</language>
+			<language type="as" alt="proposed-x1001" draft="unconfirmed">ásámština</language>
+			<language type="ath" draft="unconfirmed">athapaskánské jazyky</language>
+			<language type="aus" draft="unconfirmed">australské jazyky</language>
 			<language type="av" draft="contributed">avarština</language>
+			<language type="awa" draft="unconfirmed">awadhština</language>
 			<language type="ay">aymárština</language>
+			<language type="ay" alt="proposed-x1001" draft="unconfirmed">ajmarština</language>
 			<language type="az">azerbajdžánština</language>
+			<language type="az" alt="proposed-x1001" draft="unconfirmed">ázerbájdžánština</language>
 			<language type="ba">baskirština</language>
+			<language type="bad" draft="unconfirmed">banda</language>
+			<language type="bai" draft="unconfirmed">bamileke (jiné)</language>
+			<language type="bai" alt="proposed-x1001" draft="unconfirmed">bamilek</language>
 			<language type="bal" draft="contributed">balúčština</language>
+			<language type="ban" draft="unconfirmed">balijština</language>
+			<language type="bas" draft="unconfirmed">basa</language>
+			<language type="bat" draft="unconfirmed">baltské jazyky (jiné)</language>
+			<language type="bat" alt="proposed-x1001" draft="unconfirmed">baltské jazyky</language>
 			<language type="be">běloruština</language>
+			<language type="bej" draft="unconfirmed">bedža</language>
+			<language type="bem" draft="unconfirmed">bembštiva</language>
+			<language type="ber" draft="unconfirmed">berberské jazyky (jiné)</language>
+			<language type="ber" alt="proposed-x1001" draft="unconfirmed">berberské jazyky</language>
 			<language type="bg">bulharština</language>
 			<language type="bh">biharština</language>
+			<language type="bh" alt="proposed-x1001" draft="unconfirmed">bihárština</language>
 			<language type="bho" draft="contributed">bhojpurština</language>
+			<language type="bho" alt="proposed-x1001" draft="unconfirmed">bhódžupurí</language>
 			<language type="bi">bislámština</language>
+			<language type="bi" alt="proposed-x1001" draft="unconfirmed">bislama</language>
+			<language type="bik" draft="unconfirmed">bikolština</language>
+			<language type="bin" draft="unconfirmed">bini</language>
+			<language type="bla" draft="unconfirmed">siksika</language>
 			<language type="bm" draft="contributed">bambarština</language>
 			<language type="bn">bengálština</language>
+			<language type="bnt" draft="unconfirmed">bantuské jazyky (jiné)</language>
+			<language type="bnt" alt="proposed-x1001" draft="unconfirmed">bantuské jazyky</language>
 			<language type="bo">tibetština</language>
 			<language type="br">bretaňština</language>
 			<language type="br" alt="proposed-x1001" draft="unconfirmed">bretonština</language>
+			<language type="bra" draft="unconfirmed">bradžština</language>
 			<language type="bs">bosenština</language>
+			<language type="btk" draft="unconfirmed">batačtina</language>
+			<language type="bua" draft="unconfirmed">burjatština</language>
+			<language type="bug" draft="unconfirmed">bugiština</language>
 			<language type="ca">katalánština</language>
+			<language type="cad" draft="unconfirmed">caddo</language>
+			<language type="cai" draft="unconfirmed">středoamerické indiánské jazyky (jiné)</language>
+			<language type="cai" alt="proposed-x1001" draft="unconfirmed">středoamerické indiánské jazyky</language>
+			<language type="car" draft="unconfirmed">karibština</language>
+			<language type="cau" draft="unconfirmed">kavkazské jazyky (jiné)</language>
+			<language type="cau" alt="proposed-x1001" draft="unconfirmed">kavkazské jazyky</language>
+			<language type="ce" draft="unconfirmed">čečenština</language>
+			<language type="ceb" draft="unconfirmed">cebuánština</language>
+			<language type="cel" draft="unconfirmed">keltské jazyky (jiné)</language>
+			<language type="cel" alt="proposed-x1001" draft="unconfirmed">keltské jazyky</language>
+			<language type="ch" draft="unconfirmed">čamoro</language>
+			<language type="chb" draft="unconfirmed">čibča</language>
+			<language type="chg" draft="unconfirmed">čagatajština</language>
+			<language type="chk" draft="unconfirmed">čukština</language>
+			<language type="chm" draft="unconfirmed">marijština</language>
+			<language type="chn" draft="unconfirmed">činuk pidžin</language>
+			<language type="cho" draft="unconfirmed">choctawština</language>
+			<language type="chp" draft="unconfirmed">chipewyan</language>
+			<language type="chr" draft="unconfirmed">cherokee</language>
+			<language type="chy" draft="unconfirmed">čejenština</language>
+			<language type="cmc" draft="unconfirmed">čamština</language>
 			<language type="co">korsičtina</language>
+			<language type="cop" draft="unconfirmed">koptština</language>
+			<language type="cpe" draft="unconfirmed">kreolština a jiné pidginy na základě angličtiny</language>
+			<language type="cpf" draft="unconfirmed">kreolština a jiné pidginy na základě francouzštiny</language>
+			<language type="cpp" draft="unconfirmed">kreolština a jiné pidginy na základě portugalštiny</language>
+			<language type="cr" draft="unconfirmed">krí</language>
+			<language type="crh">krymská turečtina</language>
+			<language type="crh" alt="proposed-x1001" draft="unconfirmed">krymská tatarština</language>
+			<language type="crp" draft="unconfirmed">kreolština a jiné pidginy</language>
 			<language type="cs">čeština</language>
+			<language type="cu" draft="unconfirmed">staroslověnština</language>
+			<language type="cus" draft="unconfirmed">kúšitské jazyky (jiné)</language>
+			<language type="cus" alt="proposed-x1001" draft="unconfirmed">kúšitské jazyky</language>
+			<language type="cv" draft="unconfirmed">čuvašština</language>
 			<language type="cy">velština</language>
 			<language type="da">dánština</language>
+			<language type="dak" draft="unconfirmed">dakotština</language>
+			<language type="day" draft="unconfirmed">dajáčtina</language>
 			<language type="de">němčina</language>
 			<language type="de_AT" draft="contributed">německy (Rakousko)</language>
+			<language type="de_AT" alt="proposed-x1001" draft="unconfirmed">němčina (Rakousko)</language>
+			<language type="del" draft="unconfirmed">delaware</language>
+			<language type="den" draft="unconfirmed">slave</language>
+			<language type="dgr" draft="unconfirmed">dogrib</language>
+			<language type="din" draft="unconfirmed">dinkština</language>
+			<language type="doi" draft="unconfirmed">dórgí</language>
+			<language type="dra" draft="unconfirmed">drávidské jazyky (jiné)</language>
+			<language type="dra" alt="proposed-x1001" draft="unconfirmed">drávidské jazyky</language>
+			<language type="dua" draft="unconfirmed">dualština</language>
+			<language type="dum" draft="unconfirmed">středoholandština</language>
+			<language type="dv" draft="unconfirmed">divehi</language>
+			<language type="dyu" draft="unconfirmed">djula</language>
 			<language type="dz">bhútánština</language>
+			<language type="dz" alt="proposed-x1001" draft="unconfirmed">dzongkä</language>
+			<language type="ee" draft="unconfirmed">eweština</language>
+			<language type="efi" draft="unconfirmed">efik</language>
+			<language type="egy" draft="unconfirmed">egyptština stará</language>
+			<language type="eka" draft="unconfirmed">ekajuk</language>
 			<language type="el">řečtina</language>
+			<language type="elx" draft="unconfirmed">elamitština</language>
 			<language type="en">angličtina</language>
+			<language type="en_AU" alt="proposed-x1001" draft="unconfirmed">angličtina (Austrálie)</language>
 			<language type="en_CA" draft="contributed">anglicky (Kanada)</language>
+			<language type="en_CA" alt="proposed-x1001" draft="unconfirmed">angličtina (Kanada)</language>
+			<language type="en_GB" alt="proposed-x1001" draft="unconfirmed">angličtina (Velká Británie)</language>
 			<language type="en_US">angličtina (USA)</language>
+			<language type="en_US" alt="proposed-x1001" draft="unconfirmed">angličtina (Spojené státy)</language>
+			<language type="enm" draft="unconfirmed">středoangličtina</language>
 			<language type="eo">esperanto</language>
 			<language type="es">španělština</language>
 			<language type="et">estonština</language>
 			<language type="eu">baskičtina</language>
+			<language type="ewo" draft="unconfirmed">ewondo</language>
 			<language type="fa">perština</language>
+			<language type="fan" draft="unconfirmed">fang</language>
+			<language type="fat" draft="unconfirmed">fantština</language>
+			<language type="ff" draft="unconfirmed">fulahština</language>
 			<language type="fi">finština</language>
 			<language type="fil" draft="contributed">tagalogština</language>
+			<language type="fiu" draft="unconfirmed">ugrofinské jazyky (jiné)</language>
+			<language type="fiu" alt="proposed-x1001" draft="unconfirmed">ugrofinské jazyky</language>
 			<language type="fj">fidži</language>
+			<language type="fj" alt="proposed-x1001" draft="unconfirmed">fidžijština</language>
 			<language type="fo">faerština</language>
 			<language type="fr">francouzština</language>
 			<language type="fr_CA" draft="contributed">francouzsky (Kanada)</language>
+			<language type="fr_CA" alt="proposed-x1001" draft="unconfirmed">francouzština (Kanada)</language>
+			<language type="fr_CH" draft="unconfirmed">francouzština (Švýcarsko)</language>
+			<language type="frm" draft="unconfirmed">středofrancouzština</language>
+			<language type="fro" draft="unconfirmed">starofrancouzština</language>
+			<language type="fur" draft="unconfirmed">furlandština</language>
 			<language type="fy">fríština</language>
 			<language type="ga">irština</language>
+			<language type="gaa" draft="unconfirmed">ga</language>
+			<language type="gay" draft="unconfirmed">gayo</language>
+			<language type="gba" draft="unconfirmed">gbaja</language>
 			<language type="gd">skotská galština</language>
+			<language type="gd" alt="proposed-x1001" draft="unconfirmed">skotská gaelština</language>
+			<language type="gem" draft="unconfirmed">germánské jazyky (jiné)</language>
+			<language type="gem" alt="proposed-x1001" draft="unconfirmed">germánské jazyky</language>
+			<language type="gez" alt="proposed-x1001" draft="unconfirmed">geez</language>
+			<language type="gil" draft="unconfirmed">kiribatština</language>
 			<language type="gl">haličština</language>
+			<language type="gmh" draft="unconfirmed">hornoněmčina stará</language>
 			<language type="gn">guaranština</language>
+			<language type="gn" alt="proposed-x1001" draft="unconfirmed">guaraní</language>
+			<language type="goh" draft="unconfirmed">stará hornoněmčina</language>
+			<language type="gon" draft="unconfirmed">góndština</language>
+			<language type="gor" draft="unconfirmed">gorontalo</language>
+			<language type="got" alt="proposed-x1001" draft="unconfirmed">gótština</language>
+			<language type="grb" draft="unconfirmed">grebo</language>
 			<language type="grc" draft="contributed">starořečtina</language>
 			<language type="gu">gujaratština</language>
+			<language type="gu" alt="proposed-x1001" draft="unconfirmed">gudžarátština</language>
 			<language type="gv">manština</language>
+			<language type="gwi" draft="unconfirmed">gwichʼin</language>
 			<language type="ha">hausa</language>
+			<language type="ha" alt="proposed-x1001" draft="unconfirmed">hauština</language>
+			<language type="hai" draft="unconfirmed">haida</language>
 			<language type="haw" draft="contributed">havajský</language>
+			<language type="haw" alt="proposed-x1001" draft="unconfirmed">havajština</language>
 			<language type="he">hebrejština</language>
 			<language type="hi">hindština</language>
+			<language type="hil" draft="unconfirmed">hiligayonština</language>
+			<language type="him" draft="unconfirmed">himáčalština</language>
+			<language type="hit" alt="proposed-x1001" draft="unconfirmed">chetitština</language>
+			<language type="hmn" draft="unconfirmed">hmongština</language>
+			<language type="ho" draft="unconfirmed">hiri motu</language>
 			<language type="hr">chorvatština</language>
 			<language type="hu">maďarština</language>
+			<language type="hup" draft="unconfirmed">hupa</language>
 			<language type="hy">arménština</language>
+			<language type="hz" draft="unconfirmed">herero</language>
 			<language type="ia">interlingua</language>
+			<language type="iba" draft="unconfirmed">iban</language>
 			<language type="id">indonéština</language>
 			<language type="ie">interlingue</language>
+			<language type="ig" draft="unconfirmed">igboština</language>
+			<language type="ijo" draft="unconfirmed">idžo</language>
 			<language type="ik">inupiakština</language>
+			<language type="ik" alt="proposed-x1001" draft="unconfirmed">inupiaq</language>
+			<language type="ilo" draft="unconfirmed">ilokánština</language>
+			<language type="inc" draft="unconfirmed">indické jazyky (jiné)</language>
+			<language type="inc" alt="proposed-x1001" draft="unconfirmed">indické jazyky</language>
+			<language type="ine" draft="unconfirmed">indoevropské jazyky (jiné)</language>
+			<language type="ine" alt="proposed-x1001" draft="unconfirmed">indoevropské jazyky</language>
+			<language type="inh" draft="unconfirmed">inguština</language>
+			<language type="ira" draft="unconfirmed">íránské jazyky (jiné)</language>
+			<language type="ira" alt="proposed-x1001" draft="unconfirmed">íránské jazyky</language>
+			<language type="iro" draft="unconfirmed">irokézské jazyky (jiné)</language>
+			<language type="iro" alt="proposed-x1001" draft="unconfirmed">irokézské jazyky</language>
 			<language type="is">islandština</language>
 			<language type="it">italština</language>
 			<language type="iu">inuktitutština</language>
+			<language type="iu" alt="proposed-x1001" draft="unconfirmed">inuktitut</language>
 			<language type="ja">japonština</language>
 			<language type="jv">javánština</language>
 			<language type="ka">gruzínština</language>
+			<language type="kaa" draft="unconfirmed">karakalpačtina</language>
+			<language type="kab" draft="unconfirmed">kabylština</language>
+			<language type="kac" draft="unconfirmed">kačijština</language>
+			<language type="kam" draft="unconfirmed">kambština</language>
+			<language type="kar" draft="unconfirmed">karenština</language>
+			<language type="kaw" draft="unconfirmed">kawi</language>
+			<language type="kbd" draft="unconfirmed">kabardinština</language>
+			<language type="kg" draft="unconfirmed">konžština</language>
+			<language type="kha" draft="unconfirmed">khásí</language>
+			<language type="khi" draft="unconfirmed">khoisanské jazyky (jiné)</language>
+			<language type="khi" alt="proposed-x1001" draft="unconfirmed">khoisanské jazyky</language>
+			<language type="kho" draft="unconfirmed">chotánština</language>
+			<language type="ki" draft="unconfirmed">kikujština</language>
+			<language type="kj" draft="unconfirmed">kuaňamština</language>
 			<language type="kk">kazachština</language>
+			<language type="kk" alt="proposed-x1001" draft="unconfirmed">kazaština</language>
 			<language type="kl">grónština</language>
+			<language type="kl" alt="proposed-x1001" draft="unconfirmed">kalmyčtina</language>
 			<language type="km">kambodžština</language>
+			<language type="km" alt="proposed-x1001" draft="unconfirmed">khmerština</language>
+			<language type="kmb" draft="unconfirmed">kimbundština</language>
 			<language type="kn">kannadština</language>
 			<language type="ko">korejština</language>
+			<language type="kok" draft="unconfirmed">kónkánština</language>
+			<language type="kos" draft="unconfirmed">kosrajština</language>
+			<language type="kpe" draft="unconfirmed">kpelle</language>
+			<language type="kr" draft="unconfirmed">kanuri</language>
+			<language type="kro" draft="unconfirmed">kru</language>
+			<language type="kru" draft="unconfirmed">krukukhština</language>
 			<language type="ks">kašmírština</language>
 			<language type="ku">kurdština</language>
+			<language type="kum" draft="unconfirmed">kumyčtina</language>
+			<language type="kut" draft="unconfirmed">kutenai</language>
+			<language type="kv" draft="unconfirmed">komijština</language>
+			<language type="kw" draft="unconfirmed">kornština</language>
 			<language type="ky">kirgizština</language>
+			<language type="ky" alt="proposed-x1001" draft="unconfirmed">kyrgyzština</language>
 			<language type="la">latina</language>
+			<language type="lad" draft="unconfirmed">ladinština</language>
+			<language type="lah" draft="unconfirmed">lahndština</language>
+			<language type="lam" draft="unconfirmed">lambština</language>
 			<language type="lb">Lucemburština</language>
+			<language type="lez" draft="unconfirmed">lezginština</language>
+			<language type="lg" draft="unconfirmed">ganda</language>
 			<language type="ln">lingalština</language>
 			<language type="lo">laoština</language>
+			<language type="lol" draft="unconfirmed">mongština</language>
+			<language type="loz" draft="unconfirmed">lozština</language>
 			<language type="lt">litevština</language>
+			<language type="lu" draft="unconfirmed">lubu-katanžština</language>
+			<language type="lua" draft="unconfirmed">luba-luluaština</language>
+			<language type="lui" draft="unconfirmed">luiseňo</language>
+			<language type="lun" draft="unconfirmed">lundština</language>
+			<language type="luo" draft="unconfirmed">luoština</language>
+			<language type="lus" draft="unconfirmed">lišáí</language>
 			<language type="lv">lotyština</language>
+			<language type="mad" draft="unconfirmed">madurština</language>
 			<language type="mag" draft="contributed">magadhiština</language>
+			<language type="mag" alt="proposed-x1001" draft="unconfirmed">magahština</language>
 			<language type="mai" draft="contributed">maithiliština</language>
+			<language type="mai" alt="proposed-x1001" draft="unconfirmed">maithilština</language>
+			<language type="mak" draft="unconfirmed">makasarština</language>
+			<language type="man" draft="unconfirmed">mandingština</language>
+			<language type="map" draft="unconfirmed">austronéské jazyky (jiné)</language>
+			<language type="map" alt="proposed-x1001" draft="unconfirmed">austronéské jazyky</language>
+			<language type="mas" draft="unconfirmed">masajština</language>
+			<language type="mdr" draft="unconfirmed">mandar</language>
+			<language type="men" draft="unconfirmed">mende</language>
 			<language type="mg">malgaština</language>
+			<language type="mga" draft="unconfirmed">středoirština</language>
+			<language type="mh" draft="unconfirmed">maršálština</language>
 			<language type="mi">maorština</language>
+			<language type="mic" draft="unconfirmed">micmac</language>
+			<language type="min" draft="unconfirmed">minangkabau</language>
+			<language type="mis" draft="unconfirmed">různé jazyky</language>
 			<language type="mk">makedonština</language>
+			<language type="mkh" draft="unconfirmed">mon-khmerské jazyky (jiné)</language>
+			<language type="mkh" alt="proposed-x1001" draft="unconfirmed">mon-khmerské jazyky</language>
 			<language type="ml">malabarština</language>
+			<language type="ml" alt="proposed-x1001" draft="unconfirmed">malajálamština</language>
 			<language type="mn">mongolština</language>
+			<language type="mnc" draft="unconfirmed">mandžuština</language>
+			<language type="mni" draft="unconfirmed">manipurština</language>
+			<language type="mno" draft="unconfirmed">manobo jazyky</language>
 			<language type="mo">moldavština</language>
+			<language type="moh" draft="unconfirmed">mohawk</language>
+			<language type="mos" draft="unconfirmed">mosi</language>
 			<language type="mr">marathi</language>
+			<language type="mr" alt="proposed-x1001" draft="unconfirmed">maráthština</language>
 			<language type="ms">malajština</language>
 			<language type="mt">maltština</language>
+			<language type="mul" draft="unconfirmed">více jazyků</language>
+			<language type="mul" alt="proposed-x1001" draft="unconfirmed">složené (víceřádkové) jazyky</language>
+			<language type="mun" draft="unconfirmed">mundské jazyky (jiné)</language>
+			<language type="mun" alt="proposed-x1001" draft="unconfirmed">mundské jazyky</language>
+			<language type="mus" draft="unconfirmed">muskogee (creek)</language>
+			<language type="mwr" draft="unconfirmed">márvárština</language>
 			<language type="my">barmština</language>
+			<language type="myn" draft="unconfirmed">mayské jazyky</language>
 			<language type="na">nauru</language>
+			<language type="na" alt="proposed-x1001" draft="unconfirmed">naurština</language>
+			<language type="nah" draft="unconfirmed">nahuatl</language>
+			<language type="nai" draft="unconfirmed">severoamerické indiánské jazyky (jiné)</language>
+			<language type="nai" alt="proposed-x1001" draft="unconfirmed">severoamerické indiánské jazyky</language>
+			<language type="nap" draft="unconfirmed">neapolština</language>
+			<language type="nb" draft="unconfirmed">norština (Bokmål)</language>
+			<language type="nd" draft="unconfirmed">ndebele (Zimbabwe)</language>
+			<language type="nds" draft="unconfirmed">dolnoněmčina</language>
 			<language type="ne">nepálština</language>
+			<language type="new" draft="unconfirmed">névárština</language>
+			<language type="ng" draft="unconfirmed">ndondština</language>
+			<language type="nia" draft="unconfirmed">nias</language>
+			<language type="nic" draft="unconfirmed">nigero-kordofánské jazyky (jiné)</language>
+			<language type="nic" alt="proposed-x1001" draft="unconfirmed">nigero-kordofánské jazyky</language>
+			<language type="niu" draft="unconfirmed">niue</language>
 			<language type="nl">nizozemština</language>
 			<language type="nn" draft="contributed">norština (nynorsk)</language>
+			<language type="nn" alt="proposed-x1001" draft="unconfirmed">norština (Nynorsk)</language>
 			<language type="no">norština</language>
+			<language type="non" draft="unconfirmed">norština historická</language>
+			<language type="nr" draft="unconfirmed">ndebele (Jižní Afrika)</language>
+			<language type="nso" draft="unconfirmed">severní sotho</language>
+			<language type="nub" draft="unconfirmed">núbijské jazyky</language>
+			<language type="nv" draft="unconfirmed">navažština</language>
+			<language type="ny" draft="unconfirmed">ňandžština</language>
+			<language type="nym" draft="unconfirmed">ňamwežština</language>
+			<language type="nyn" draft="unconfirmed">nyakolština</language>
+			<language type="nyo" draft="unconfirmed">nyorština</language>
+			<language type="nzi" draft="unconfirmed">nzima</language>
 			<language type="oc">occitan</language>
+			<language type="oc" alt="proposed-x1001" draft="unconfirmed">okcitánština</language>
+			<language type="oj" draft="unconfirmed">odžibvejština</language>
 			<language type="om">Oromo (Afan)</language>
 			<language type="om" alt="proposed-x1001" draft="unconfirmed">oromština (Afan)</language>
 			<language type="or">oriya</language>
+			<language type="or" alt="proposed-x1001" draft="unconfirmed">urijština</language>
+			<language type="os" draft="unconfirmed">osetština</language>
+			<language type="osa" draft="unconfirmed">osage</language>
+			<language type="ota" draft="unconfirmed">osmanská turečtina</language>
+			<language type="oto" draft="unconfirmed">otomijské jazyky</language>
 			<language type="pa">paňdžábština</language>
+			<language type="paa" draft="unconfirmed">papuánské jazyky (jiné)</language>
+			<language type="paa" alt="proposed-x1001" draft="unconfirmed">papuánské jazyky</language>
+			<language type="pag" draft="unconfirmed">pangasinan</language>
+			<language type="pal" draft="unconfirmed">pahlaví</language>
+			<language type="pam" draft="unconfirmed">papangau</language>
+			<language type="pap" draft="unconfirmed">papiamento</language>
+			<language type="pau" draft="unconfirmed">palauština</language>
+			<language type="peo" draft="unconfirmed">staroperština</language>
+			<language type="phi" draft="unconfirmed">filipínské jazyky (jiné)</language>
+			<language type="phi" alt="proposed-x1001" draft="unconfirmed">filipínské jazyky</language>
+			<language type="phn" draft="unconfirmed">féničtina</language>
+			<language type="pi" draft="unconfirmed">pálí</language>
 			<language type="pl">polština</language>
+			<language type="pon" draft="unconfirmed">pohnpeiština</language>
+			<language type="pra" draft="unconfirmed">prákritské jazyky</language>
+			<language type="pra" alt="proposed-x1001" draft="unconfirmed">prákrty</language>
+			<language type="pro" draft="unconfirmed">provensálština</language>
 			<language type="ps">Pashto (Pushto)</language>
-			<language type="ps" alt="proposed-x1001" draft="unconfirmed">paštunština</language>
+			<language type="ps" alt="proposed-x1001" draft="unconfirmed">paštština</language>
 			<language type="pt">portugalština</language>
+			<language type="pt_BR" alt="proposed-x1001" draft="unconfirmed">portugalština (Brazílie)</language>
+			<language type="pt_PT" alt="proposed-x1001" draft="unconfirmed">portugalština (Portugalsko)</language>
 			<language type="qu">kečuánština</language>
+			<language type="raj" draft="unconfirmed">rádžastánština</language>
+			<language type="rap" draft="unconfirmed">rapanuiština</language>
+			<language type="rar" draft="unconfirmed">rarotongaština</language>
 			<language type="rm">rétorománština</language>
 			<language type="rn">kirundi</language>
+			<language type="rn" alt="proposed-x1001" draft="unconfirmed">rundština</language>
 			<language type="ro">rumunština</language>
+			<language type="roa" draft="unconfirmed">románské jazyky (jiné)</language>
+			<language type="roa" alt="proposed-x1001" draft="unconfirmed">románské jazyky</language>
+			<language type="rom" draft="unconfirmed">romština</language>
 			<language type="ru">ruština</language>
 			<language type="rw">kinyarwandština</language>
+			<language type="rw" alt="proposed-x1001" draft="unconfirmed">rwandština</language>
 			<language type="sa">sanskrt</language>
+			<language type="sad" draft="unconfirmed">sandawština</language>
+			<language type="sah" draft="unconfirmed">jakutština</language>
+			<language type="sai" draft="unconfirmed">jihoamerické indiánské jazyky (jiné)</language>
+			<language type="sai" alt="proposed-x1001" draft="unconfirmed">jihoamerické indiánské jazyky</language>
+			<language type="sal" draft="unconfirmed">salishské jazyky</language>
+			<language type="sam" draft="unconfirmed">samarština</language>
+			<language type="sas" draft="unconfirmed">sasakština</language>
+			<language type="sat" draft="unconfirmed">santálí</language>
+			<language type="sc" draft="unconfirmed">sardština</language>
+			<language type="sco" draft="unconfirmed">skotština</language>
 			<language type="sd">sindhi</language>
+			<language type="sd" alt="proposed-x1001" draft="unconfirmed">sindhština</language>
+			<language type="sel" draft="unconfirmed">selkupština</language>
+			<language type="sem" draft="unconfirmed">semitské jazyky (jiné)</language>
+			<language type="sem" alt="proposed-x1001" draft="unconfirmed">semitské jazyky</language>
 			<language type="sg">sangho</language>
+			<language type="sga" draft="unconfirmed">staroirština</language>
+			<language type="sgn" alt="proposed-x1001" draft="unconfirmed">znakové jazyky</language>
 			<language type="sh">srbochorvatština</language>
+			<language type="shn" draft="unconfirmed">šanština</language>
 			<language type="si">sinhálština</language>
+			<language type="sid" alt="proposed-x1001" draft="unconfirmed">sidamo</language>
+			<language type="sio" draft="unconfirmed">siouxské jazyky</language>
+			<language type="sit" draft="unconfirmed">tibetočínské jazyky (jiné)</language>
+			<language type="sit" alt="proposed-x1001" draft="unconfirmed">tibetočínské jazyky</language>
 			<language type="sk">slovenština</language>
 			<language type="sl">slovinština</language>
 			<language type="sla" draft="contributed">slovanský jazyk</language>
+			<language type="sla" alt="proposed-x1001" draft="unconfirmed">slovanské jazyky</language>
 			<language type="sm">samoyština</language>
+			<language type="sm" alt="proposed-x1001" draft="unconfirmed">samojština</language>
+			<language type="smi" draft="unconfirmed">sami jazyky</language>
 			<language type="sn">shona</language>
+			<language type="sn" alt="proposed-x1001" draft="unconfirmed">šonština</language>
+			<language type="snk" draft="unconfirmed">sonikština</language>
 			<language type="so">somálština</language>
+			<language type="sog" draft="unconfirmed">sogdština</language>
+			<language type="son" draft="unconfirmed">songhajština</language>
 			<language type="sq">albánština</language>
 			<language type="sr">srbština</language>
+			<language type="srr" draft="unconfirmed">serer</language>
 			<language type="ss">siswatština</language>
+			<language type="ss" alt="proposed-x1001" draft="unconfirmed">swatština</language>
+			<language type="ssa" draft="unconfirmed">nilo-saharské jazyky (jiné)</language>
+			<language type="ssa" alt="proposed-x1001" draft="unconfirmed">nilo-saharské jazyky</language>
 			<language type="st">sesotho</language>
+			<language type="st" alt="proposed-x1001" draft="unconfirmed">sotho jižní</language>
 			<language type="su">sundanština</language>
+			<language type="su" alt="proposed-x1001" draft="unconfirmed">sundština</language>
+			<language type="suk" draft="unconfirmed">sukuma</language>
+			<language type="sus" draft="unconfirmed">susu</language>
 			<language type="sux" draft="contributed">sumerský</language>
+			<language type="sux" alt="proposed-x1001" draft="unconfirmed">sumerština</language>
 			<language type="sv">švédština</language>
 			<language type="sw">svahilština</language>
+			<language type="syr" draft="unconfirmed">syrština</language>
 			<language type="ta">tamilština</language>
+			<language type="tai" draft="unconfirmed">thajské jazyky (jiné)</language>
+			<language type="tai" alt="proposed-x1001" draft="unconfirmed">thajské jazyky</language>
 			<language type="te">telugština</language>
+			<language type="tem" draft="unconfirmed">temne</language>
+			<language type="ter" draft="unconfirmed">tereno</language>
+			<language type="tet" draft="unconfirmed">tetumština</language>
 			<language type="tg">tádžičtina</language>
 			<language type="th">thajština</language>
 			<language type="ti">tigrinijština</language>
+			<language type="ti" alt="proposed-x1001" draft="unconfirmed">tigriňa</language>
+			<language type="tig" alt="proposed-x1001" draft="unconfirmed">tigrejština</language>
+			<language type="tiv" draft="unconfirmed">tivština</language>
 			<language type="tk">turkmenština</language>
+			<language type="tkl" draft="unconfirmed">tokelauština</language>
 			<language type="tl">tagalog</language>
+			<language type="tl" alt="proposed-x1001" draft="unconfirmed">tagalština</language>
 			<language type="tlh" draft="contributed">klingonština</language>
+			<language type="tli" draft="unconfirmed">tlingit</language>
+			<language type="tmh" draft="unconfirmed">tamašek</language>
 			<language type="tn">setswanština</language>
+			<language type="tn" alt="proposed-x1001" draft="unconfirmed">tswandština</language>
 			<language type="to">tonga</language>
+			<language type="to" alt="proposed-x1001" draft="unconfirmed">tongština</language>
 			<language type="tpi" draft="contributed">tok pisin</language>
 			<language type="tr">turečtina</language>
 			<language type="ts">tsonga</language>
+			<language type="ts" alt="proposed-x1001" draft="unconfirmed">tsongština</language>
+			<language type="tsi" draft="unconfirmed">tsimshijské jazyky</language>
 			<language type="tt">tatarština</language>
+			<language type="tum" draft="unconfirmed">tumbukština</language>
+			<language type="tut" draft="unconfirmed">altajské jazyky (jiné)</language>
+			<language type="tut" alt="proposed-x1001" draft="unconfirmed">altajské jazyky</language>
+			<language type="tvl" draft="unconfirmed">tuvalština</language>
 			<language type="tw">twi</language>
 			<language type="ty" draft="contributed">tahitština</language>
+			<language type="tyv" draft="unconfirmed">tuvinština</language>
+			<language type="udm" draft="unconfirmed">udmurtština</language>
 			<language type="ug">uighurština</language>
+			<language type="ug" alt="proposed-x1001" draft="unconfirmed">ujgurština</language>
 			<language type="uga" draft="contributed">ugaritština</language>
 			<language type="uk">ukrajinština</language>
+			<language type="umb" draft="unconfirmed">umbundu</language>
 			<language type="und">neznámý nebo neplatný jazyk</language>
+			<language type="und" alt="proposed-x1001" draft="unconfirmed">nevymezené</language>
 			<language type="ur">urdština</language>
 			<language type="uz">uzbečtina</language>
+			<language type="vai" draft="unconfirmed">vai</language>
+			<language type="ve" draft="unconfirmed">vendština</language>
 			<language type="vi">vietnamština</language>
 			<language type="vo">volapuk</language>
+			<language type="vo" alt="proposed-x1001" draft="unconfirmed">volapük</language>
+			<language type="vot" draft="unconfirmed">votiatština</language>
 			<language type="wa" draft="contributed">valonština</language>
+			<language type="wak" draft="unconfirmed">wakashské jazyky</language>
+			<language type="wal" draft="unconfirmed">walamština</language>
+			<language type="war" draft="unconfirmed">waray</language>
+			<language type="was" draft="unconfirmed">washo</language>
+			<language type="wen" draft="unconfirmed">lužickosrbské jazyky</language>
 			<language type="wo">wolof</language>
+			<language type="wo" alt="proposed-x1001" draft="unconfirmed">wolofština</language>
+			<language type="xal" draft="unconfirmed">kalmyčtina</language>
 			<language type="xh">xhosa</language>
+			<language type="xh" alt="proposed-x1001" draft="unconfirmed">xhosština</language>
+			<language type="yao" draft="unconfirmed">jaoština</language>
+			<language type="yap" draft="unconfirmed">yapese</language>
 			<language type="yi">jidiš</language>
 			<language type="yo">yoruba</language>
+			<language type="yo" alt="proposed-x1001" draft="unconfirmed">jorubština</language>
+			<language type="ypk" draft="unconfirmed">yupik</language>
 			<language type="za">zhuang</language>
+			<language type="za" alt="proposed-x1001" draft="unconfirmed">čuangština</language>
+			<language type="zap" alt="proposed-x1001" draft="unconfirmed">zapotéčtina</language>
+			<language type="zen" draft="unconfirmed">zenaga</language>
 			<language type="zh">čínština</language>
-			<language type="zh" alt="proposed-x1001" draft="unconfirmed">čínsky</language>
 			<language type="zh_Hans">čínština (zjednodušená)</language>
 			<language type="zh_Hant">čínština (tradiční)</language>
+			<language type="znd" draft="unconfirmed">zandština</language>
 			<language type="zu">zulu</language>
+			<language type="zu" alt="proposed-x1001" draft="unconfirmed">zuluština</language>
+			<language type="zun" draft="unconfirmed">zunijština</language>
 		</languages>
 		<scripts>
 			<script type="Arab">Arabský</script>
@@ -285,7 +660,6 @@
 			<territory type="001">Svět</territory>
 			<territory type="002">Afrika</territory>
 			<territory type="003">003</territory>
-			<territory type="003" alt="proposed-x1001" draft="unconfirmed">Severní Amerika</territory>
 			<territory type="005">Jižní Amerika</territory>
 			<territory type="009">Oceánie</territory>
 			<territory type="011">Západní Afrika</territory>
@@ -313,6 +687,7 @@
 			<territory type="151">Východní Evropa</territory>
 			<territory type="154">Severní Evropa</territory>
 			<territory type="155">Západní Evropa</territory>
+			<territory type="172" draft="unconfirmed">Společenství nezávislých států</territory>
 			<territory type="200">Československo</territory>
 			<territory type="419">Latinská Amerika a Karibské moře</territory>
 			<territory type="830">Normanské ostrovy</territory>
@@ -342,6 +717,7 @@
 			<territory type="BH">Bahrajn</territory>
 			<territory type="BI">Burundi</territory>
 			<territory type="BJ">Benin</territory>
+			<territory type="BL" draft="unconfirmed">Svatý Bartoloměj</territory>
 			<territory type="BM">Bermudy</territory>
 			<territory type="BN">Brunej Darussalam</territory>
 			<territory type="BO">Bolívie</territory>
@@ -410,7 +786,6 @@
 			<territory type="GW">Guinea-Bissau</territory>
 			<territory type="GY">Guyana</territory>
 			<territory type="HK">Hongkong, zvláštní administrativní oblast Číny</territory>
-			<territory type="HK" alt="proposed-x1001" draft="unconfirmed">Zvláštní administrativní oblast Číny Hongkong</territory>
 			<territory type="HK" alt="short">Hongkong</territory>
 			<territory type="HM">Ostrovy Heard a McDonald</territory>
 			<territory type="HN">Honduras</territory>
@@ -456,7 +831,6 @@
 			<territory type="MA">Maroko</territory>
 			<territory type="MC">Monako</territory>
 			<territory type="MD">Moldavsko, republika</territory>
-			<territory type="MD" alt="proposed-x1001" draft="unconfirmed">Moldávie</territory>
 			<territory type="ME">Černá Hora</territory>
 			<territory type="MF" draft="contributed">Svatý Martin</territory>
 			<territory type="MG">Madagaskar</territory>
@@ -502,7 +876,6 @@
 			<territory type="PN">Pitcairn</territory>
 			<territory type="PR">Portoriko</territory>
 			<territory type="PS">Palestinian Territory</territory>
-			<territory type="PS" alt="proposed-x1001" draft="unconfirmed">Palestinské území</territory>
 			<territory type="PT">Portugalsko</territory>
 			<territory type="PW">Palau</territory>
 			<territory type="PY">Paraguay</territory>
@@ -581,6 +954,7 @@
 			<type type="chinese" key="calendar">Čínský kalendář</type>
 			<type type="gregorian" key="calendar">Gregoriánský kalendář</type>
 			<type type="hebrew" key="calendar">Hebrejský kalendář</type>
+			<type type="indian" key="calendar" draft="unconfirmed">Indický národní kalendář</type>
 			<type type="islamic" key="calendar">Muslimský kalendář</type>
 			<type type="islamic-civil" key="calendar">Muslimský občanský kalendář</type>
 			<type type="japanese" key="calendar">Japonský kalendář</type>
@@ -591,6 +965,7 @@
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">Jazyk: {0}</codePattern>
+			<codePattern type="script" draft="unconfirmed">Skript: {0}</codePattern>
 			<codePattern type="territory">Region: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
@@ -614,17 +989,29 @@
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
 							<month type="1" draft="provisional">1</month>
+							<month type="1" alt="proposed-x1001" draft="unconfirmed">1.</month>
 							<month type="2" draft="provisional">2</month>
+							<month type="2" alt="proposed-x1001" draft="unconfirmed">2.</month>
 							<month type="3" draft="provisional">3</month>
+							<month type="3" alt="proposed-x1001" draft="unconfirmed">3.</month>
 							<month type="4" draft="provisional">4</month>
+							<month type="4" alt="proposed-x1001" draft="unconfirmed">4.</month>
 							<month type="5" draft="provisional">5</month>
+							<month type="5" alt="proposed-x1001" draft="unconfirmed">5.</month>
 							<month type="6" draft="unconfirmed">6</month>
+							<month type="6" alt="proposed-x1001" draft="unconfirmed">6.</month>
 							<month type="7" draft="unconfirmed">7</month>
+							<month type="7" alt="proposed-x1001" draft="unconfirmed">7.</month>
 							<month type="8" draft="provisional">8</month>
+							<month type="8" alt="proposed-x1001" draft="unconfirmed">8.</month>
 							<month type="9" draft="provisional">9</month>
+							<month type="9" alt="proposed-x1001" draft="unconfirmed">9.</month>
 							<month type="10" draft="provisional">10</month>
+							<month type="10" alt="proposed-x1001" draft="unconfirmed">10.</month>
 							<month type="11" draft="provisional">11</month>
+							<month type="11" alt="proposed-x1001" draft="unconfirmed">11.</month>
 							<month type="12" draft="provisional">12</month>
+							<month type="12" alt="proposed-x1001" draft="unconfirmed">12.</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">ledna</month>
@@ -644,17 +1031,29 @@
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
 							<month type="1">1.</month>
+							<month type="1" alt="proposed-x1001" draft="unconfirmed">1</month>
 							<month type="2">2.</month>
+							<month type="2" alt="proposed-x1001" draft="unconfirmed">2</month>
 							<month type="3">3.</month>
+							<month type="3" alt="proposed-x1001" draft="unconfirmed">3</month>
 							<month type="4">4.</month>
+							<month type="4" alt="proposed-x1001" draft="unconfirmed">4</month>
 							<month type="5">5.</month>
+							<month type="5" alt="proposed-x1001" draft="unconfirmed">5</month>
 							<month type="6">6.</month>
+							<month type="6" alt="proposed-x1001" draft="unconfirmed">6</month>
 							<month type="7">7.</month>
+							<month type="7" alt="proposed-x1001" draft="unconfirmed">7</month>
 							<month type="8">8.</month>
+							<month type="8" alt="proposed-x1001" draft="unconfirmed">8</month>
 							<month type="9">9.</month>
+							<month type="9" alt="proposed-x1001" draft="unconfirmed">9</month>
 							<month type="10">10.</month>
+							<month type="10" alt="proposed-x1001" draft="unconfirmed">10</month>
 							<month type="11">11.</month>
+							<month type="11" alt="proposed-x1001" draft="unconfirmed">11</month>
 							<month type="12">12.</month>
+							<month type="12" alt="proposed-x1001" draft="unconfirmed">12</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">l</month>
@@ -819,6 +1218,7 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M" draft="unconfirmed">MMM-MMM</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">MMM - MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="M" draft="unconfirmed">E, d. MMM - E, d. MMM</greatestDifference>
@@ -904,11 +1304,11 @@
 					</field>
 					<field type="day">
 						<displayName draft="provisional">Den</displayName>
+						<relative type="-2" draft="provisional">Předevčírem</relative>
+						<relative type="-1" draft="provisional">Včera</relative>
 						<relative type="0" draft="provisional">Dnes</relative>
 						<relative type="1" draft="provisional">Zítra</relative>
 						<relative type="2" draft="provisional">Pozítří</relative>
-						<relative type="-1" draft="provisional">Včera</relative>
-						<relative type="-2" draft="provisional">Předevčírem</relative>
 					</field>
 					<field type="weekday">
 						<displayName draft="provisional">Den v týdnu</displayName>
@@ -983,6 +1383,9 @@
 			<zone type="America/Belem">
 				<exemplarCity draft="contributed">Belém</exemplarCity>
 			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Bahía</exemplarCity>
+			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity>St. Johns</exemplarCity>
 			</zone>
@@ -995,8 +1398,17 @@
 			<zone type="Asia/Kashgar">
 				<exemplarCity>Kašghar</exemplarCity>
 			</zone>
+			<zone type="Asia/Urumqi">
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Urumči</exemplarCity>
+			</zone>
+			<zone type="Asia/Chongqing">
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Čchung-čching</exemplarCity>
+			</zone>
 			<zone type="Asia/Shanghai">
 				<exemplarCity>Šanghaj</exemplarCity>
+			</zone>
+			<zone type="Asia/Harbin">
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Charbin</exemplarCity>
 			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity draft="provisional">Kostarika</exemplarCity>
@@ -1103,6 +1515,9 @@
 			<zone type="Africa/Tripoli">
 				<exemplarCity draft="provisional">Tripolis</exemplarCity>
 			</zone>
+			<zone type="Pacific/Kwajalein">
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Kwajalein</exemplarCity>
+			</zone>
 			<zone type="Asia/Rangoon">
 				<exemplarCity draft="provisional">Rangún</exemplarCity>
 			</zone>
@@ -1120,6 +1535,9 @@
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tichuana</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Cancún</exemplarCity>
 			</zone>
 			<zone type="Asia/Karachi">
 				<exemplarCity draft="provisional">Karáčí</exemplarCity>
@@ -1201,6 +1619,7 @@
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity draft="provisional">Aljašský čas</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Anchorage</exemplarCity>
 			</zone>
 			<zone type="Asia/Tashkent">
 				<exemplarCity>Taškent</exemplarCity>
@@ -1409,14 +1828,14 @@
 				<symbol>Tk</symbol>
 			</currency>
 			<currency type="BEC">
-				<displayName>Frank konvertibilní</displayName>
+				<displayName>Frank konvertibilní belgický</displayName>
 			</currency>
 			<currency type="BEF">
 				<displayName>Frank belgický</displayName>
 				<symbol>BF</symbol>
 			</currency>
 			<currency type="BEL">
-				<displayName>Frank finanční</displayName>
+				<displayName>Frank finanční belgický</displayName>
 			</currency>
 			<currency type="BGL">
 				<displayName>Lev</displayName>
@@ -1575,6 +1994,12 @@
 			</currency>
 			<currency type="ERN">
 				<displayName>Nakfa</displayName>
+			</currency>
+			<currency type="ESA">
+				<displayName draft="unconfirmed">Peseta španělská („A“ účet)</displayName>
+			</currency>
+			<currency type="ESB">
+				<displayName draft="unconfirmed">Konvertibilní pesetové účty</displayName>
 			</currency>
 			<currency type="ESP">
 				<displayName>Peseta španělská</displayName>
@@ -1766,8 +2191,14 @@
 			<currency type="LTT">
 				<displayName>Talon</displayName>
 			</currency>
+			<currency type="LUC">
+				<displayName>Frank konvertibilní lucemburský</displayName>
+			</currency>
 			<currency type="LUF">
 				<displayName>Frank lucemburský</displayName>
+			</currency>
+			<currency type="LUL">
+				<displayName>Frank finanční lucemburský</displayName>
 			</currency>
 			<currency type="LVL">
 				<displayName>Lat lotyšský</displayName>
@@ -2031,7 +2462,7 @@
 			</currency>
 			<currency type="TRL">
 				<displayName>Lira turecká</displayName>
-				<symbol>TL</symbol>
+				<symbol>TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>Lira nová turecká</displayName>
@@ -2097,6 +2528,9 @@
 			<currency type="XAF">
 				<displayName>Frank BEAC/CFA</displayName>
 			</currency>
+			<currency type="XAG">
+				<displayName draft="unconfirmed">Stříbro</displayName>
+			</currency>
 			<currency type="XAU">
 				<displayName>Zlato</displayName>
 			</currency>
@@ -2131,9 +2565,21 @@
 			<currency type="XOF">
 				<displayName>Frank BCEAO/CFA</displayName>
 			</currency>
+			<currency type="XPD">
+				<displayName draft="unconfirmed">Paladium</displayName>
+			</currency>
 			<currency type="XPF">
 				<displayName>Frank CFP</displayName>
 				<symbol>CFPF</symbol>
+			</currency>
+			<currency type="XPT">
+				<displayName draft="unconfirmed">Platina</displayName>
+			</currency>
+			<currency type="XRE">
+				<displayName draft="unconfirmed">Kód fondů RINET</displayName>
+			</currency>
+			<currency type="XTS">
+				<displayName draft="unconfirmed">Kódy zvlášť vyhrazené pro testovací účely</displayName>
 			</currency>
 			<currency type="XXX">
 				<displayName>Neznámá nebo neplatná měna</displayName>
@@ -2179,60 +2625,60 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">{0} den</unitPattern>
-			<unitPattern count="other">{0} dní</unitPattern>
 			<unitPattern count="few">{0} dny</unitPattern>
-			<unitPattern count="one" alt="short">{0} den</unitPattern>
-			<unitPattern count="other" alt="short">{0} dní</unitPattern>
 			<unitPattern count="few" alt="short">{0} dny</unitPattern>
+			<unitPattern count="one">{0} den</unitPattern>
+			<unitPattern count="one" alt="short">{0} den</unitPattern>
+			<unitPattern count="other">{0} dní</unitPattern>
+			<unitPattern count="other" alt="short">{0} dní</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">{0} hodina</unitPattern>
-			<unitPattern count="other">{0} hodin</unitPattern>
 			<unitPattern count="few">{0} hodiny</unitPattern>
-			<unitPattern count="one" alt="short">{0} hod.</unitPattern>
-			<unitPattern count="other" alt="short">{0} hod.</unitPattern>
 			<unitPattern count="few" alt="short">{0} hod.</unitPattern>
+			<unitPattern count="one">{0} hodina</unitPattern>
+			<unitPattern count="one" alt="short">{0} hod.</unitPattern>
+			<unitPattern count="other">{0} hodin</unitPattern>
+			<unitPattern count="other" alt="short">{0} hod.</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">{0} minuta</unitPattern>
-			<unitPattern count="other">{0} minut</unitPattern>
 			<unitPattern count="few">{0} minuty</unitPattern>
-			<unitPattern count="one" alt="short">{0} min.</unitPattern>
-			<unitPattern count="other" alt="short">{0} min.</unitPattern>
 			<unitPattern count="few" alt="short">{0} min.</unitPattern>
+			<unitPattern count="one">{0} minuta</unitPattern>
+			<unitPattern count="one" alt="short">{0} min.</unitPattern>
+			<unitPattern count="other">{0} minut</unitPattern>
+			<unitPattern count="other" alt="short">{0} min.</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">{0} měsíc</unitPattern>
-			<unitPattern count="other">{0} měsíců</unitPattern>
 			<unitPattern count="few">{0} měsíce</unitPattern>
-			<unitPattern count="one" alt="short">{0} měs.</unitPattern>
-			<unitPattern count="other" alt="short">{0} měs.</unitPattern>
 			<unitPattern count="few" alt="short">{0} měs.</unitPattern>
+			<unitPattern count="one">{0} měsíc</unitPattern>
+			<unitPattern count="one" alt="short">{0} měs.</unitPattern>
+			<unitPattern count="other">{0} měsíců</unitPattern>
+			<unitPattern count="other" alt="short">{0} měs.</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">{0} sekunda</unitPattern>
-			<unitPattern count="other">{0} sekund</unitPattern>
 			<unitPattern count="few">{0} sekundy</unitPattern>
-			<unitPattern count="one" alt="short">{0} sek.</unitPattern>
-			<unitPattern count="other" alt="short">{0} sek.</unitPattern>
 			<unitPattern count="few" alt="short">{0} sek.</unitPattern>
+			<unitPattern count="one">{0} sekunda</unitPattern>
+			<unitPattern count="one" alt="short">{0} sek.</unitPattern>
+			<unitPattern count="other">{0} sekund</unitPattern>
+			<unitPattern count="other" alt="short">{0} sek.</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">{0} týden</unitPattern>
-			<unitPattern count="other">{0} týdnů</unitPattern>
 			<unitPattern count="few">{0} týdny</unitPattern>
-			<unitPattern count="one" alt="short">{0} týd.</unitPattern>
-			<unitPattern count="other" alt="short">{0} týd.</unitPattern>
 			<unitPattern count="few" alt="short">{0} týd.</unitPattern>
+			<unitPattern count="one">{0} týden</unitPattern>
+			<unitPattern count="one" alt="short">{0} týd.</unitPattern>
+			<unitPattern count="other">{0} týdnů</unitPattern>
+			<unitPattern count="other" alt="short">{0} týd.</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">{0} rok</unitPattern>
-			<unitPattern count="other">{0} let</unitPattern>
 			<unitPattern count="few">{0} roky</unitPattern>
-			<unitPattern count="one" alt="short">{0} rok</unitPattern>
-			<unitPattern count="other" alt="short">{0} let</unitPattern>
 			<unitPattern count="few" alt="short">{0} roky</unitPattern>
+			<unitPattern count="one">{0} rok</unitPattern>
+			<unitPattern count="one" alt="short">{0} rok</unitPattern>
+			<unitPattern count="other">{0} let</unitPattern>
+			<unitPattern count="other" alt="short">{0} let</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -2245,8 +2691,8 @@
 		<reference type="R013">Czech version (ČSN) of the International Standard ISO 4217:2001 (reference for currencies)</reference>
 		<reference type="R014" uri="http://manas.info/staty-sveta/YI.PHP">Státy světa - Serbia and Montenegro</reference>
 		<reference type="R015">Czech version (ČSN) of the European Standard ISO 639-2:1998 (reference for languages)</reference>
-		<reference type="RP1" uri="http://cs.wikipedia.org/wiki/Seznam_pÃƒÂ­sem" draft="provisional">Scripts reference</reference>
-		<reference type="RP2" uri="http://cs.wikipedia.org/wiki/Seznam_stÃƒÂ¡tÃ…Â¯_a_jejich_sprÃƒÂ¡vnÃƒÂ­ch_celkÃ…Â¯" draft="provisional">Territories reference</reference>
+		<reference type="RP1" uri="http://cs.wikipedia.org/wiki/Seznam_pÃƒÆ’Ã‚Â­sem" draft="provisional">Scripts reference</reference>
+		<reference type="RP2" uri="http://cs.wikipedia.org/wiki/Seznam_stÃƒÆ’Ã‚Â¡tÃƒâ€¦Ã‚Â¯_a_jejich_sprÃƒÆ’Ã‚Â¡vnÃƒÆ’Ã‚Â­ch_celkÃƒâ€¦Ã‚Â¯" draft="provisional">Territories reference</reference>
 	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
@@ -2295,4 +2741,3 @@ Comments without bases
 
  Indonesia 	 - was on: //ldml/dates/timeZoneNames/zone[@type="Asia/Jakarta"]
 -->
-

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -686,11 +686,11 @@
 					</field>
 					<field type="day">
 						<displayName draft="unconfirmed">Lá</displayName>
+						<relative type="-2" draft="unconfirmed">Arú inné</relative>
+						<relative type="-1" draft="unconfirmed">Inné</relative>
 						<relative type="0" draft="unconfirmed">Inniu</relative>
 						<relative type="1" draft="unconfirmed">Amárach</relative>
 						<relative type="2" draft="unconfirmed">Arú amárach</relative>
-						<relative type="-1" draft="unconfirmed">Inné</relative>
-						<relative type="-2" draft="unconfirmed">Arú inné</relative>
 					</field>
 					<field type="weekday">
 						<displayName draft="unconfirmed">Lá na seachtaine</displayName>
@@ -1025,6 +1025,8 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>Punt Steirling</displayName>
+				<symbol>GB£</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Kupon Larit na Grúise</displayName>
@@ -1097,6 +1099,7 @@
 			<currency type="IEP">
 				<displayName>Punt Éireannach</displayName>
 				<symbol>£</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>Punt Iosraelach</displayName>
@@ -1449,7 +1452,7 @@
 			</currency>
 			<currency type="TRL">
 				<displayName>Lira Turcach</displayName>
-				<symbol>TL</symbol>
+				<symbol>TRL</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Dollar Oileáin na Tríonóide agus Tobága</displayName>

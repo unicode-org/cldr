@@ -1,11 +1,12 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004, International Business Machines Corporation and        *
+ * Copyright (C) 2004-2009, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
 package org.unicode.cldr.tool;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -741,11 +742,17 @@ public class ShowLanguages {
         if (path.indexOf("/calendarData") >= 0) {
           Map attributes = parts.findAttributes("calendar");
           if(attributes ==null ) {
-        	  System.err.println("Err: on path " + path +" , no attributes on 'calendar'. Probably, this tool is out of date.");
+        	  System.err.println("Err: on path " + fullPath +" , no attributes on 'calendar'. Probably, this tool is out of date.");
           } else {
 	          String type = (String) attributes.get("type");
 	          String territories = (String) attributes.get("territories");
-	          addTerritoryInfo(territories, "calendar", type);
+		  if(territories==null ) {
+			System.err.println("Err: on path " + fullPath + ", missing territories. Probably, this tool is out of date.");
+		  } else if(type==null ) {
+			System.err.println("Err: on path " + fullPath + ", missing type. Probably, this tool is out of date.");
+		  } else {
+	          	addTerritoryInfo(territories, "calendar", type);
+		  }
           }
         }
         if (path.indexOf("/weekData") >= 0 || path.indexOf("measurementData") >= 0) {
@@ -863,7 +870,7 @@ public class ShowLanguages {
           continue;
         System.out.println("Skipped Element: " + path);
       }
-      Log.setLog("characterLog.txt");
+      Log.setLog(new File(Utility.CHART_DIRECTORY + "/supplemental/", "characterLog.txt").getAbsolutePath());
       CLDRFile chars = cldrFactory.make("characters", false);
       int count = 0;
       for (Iterator it = chars.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {

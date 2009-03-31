@@ -1,16 +1,13 @@
 # IDNA CONTEXT RULES (including BIDI)
 # Mark Davis
 # $Date$
-# Provides a table-based mechanism for determining whether a label is a U-Label or not.
-
-# For testing, this turns on a Verbose mode, that displays the resolved sets and rules.
 
 VERBOSE:true
 
 # If any of the following regex expressions is found in the label, then the label is not a valid U-Label.
 # These rules provide a machine-readable way to test that. This is intended for a reference (test) version;
-# implementations would typically use hand-coded versions that would be much more optimized.
-# The context rules are derived from http://tools.ietf.org/html/draft-ietf-idnabis-tables-05#appendix-A
+# implementations would typically use hand-coded versions.
+# The rules are derived from http://tools.ietf.org/html/draft-ietf-idnabis-tables-05#appendix-A
 # However, they do contain quite a number of corrections and proposed changes.
 
 # FILE FORMAT
@@ -32,18 +29,16 @@ VERBOSE:true
 #   <result> is either "fail" or "next"
 # Everything other kind of line is an error
 
-# A title is of the form "Title: ...". It is just informational, but allows the test to show why a character causes a failure.
+# A title is of the form "Title: ...". It is just informational
 
-# Function
 # Logically, a label is processed by iterating through its character positions
 # In each iteration, each rule is checked.
 # If <before> and <at> both match, then the result is applied as follows:
+#   next: skip to the next rule that doesn't have a fail result
 #   fail: stop, the label is invalid
-#   next: skip to the next rule that has a "next" result (skipping any "fail" or "next2" results)
-#   next2: skip to the next rule that has a "next" or "next2" result (skipping any "fail" results)
 # If the processing reaches the end of the string, then the label is valid.
 
-# The regex expressions use Java / Perl syntax, with Unicode properties. 
+# The regex expressions use Java / Perl syntax, with Unicode properties from 
 # If the regex does not support Unicode Properties (the latest version!), then explicit ranges can be substituted.
 # For example, for [:bc=nsm:], using the set on http://unicode.org/cldr/utility/list-unicodeset.jsp?a=[:bc=nsm:]
 # Interior spaces are ignored, and may be used for readability.
@@ -52,10 +47,6 @@ VERBOSE:true
 # In particular, the <before> and <at> split is used to avoid lookbehind, which can vary in results depending on regex engines.
 # <before> is matched before the current position. Logically, it is equivalent to matching label[0,n] against /.*<before>/
 # <at> is matched at the current position. Logically, it is equivalent to matching label[n,end] against /<at>.*/
-
-# ===================================
-# Mapping would be done before this table, and only for Lookup
-# ===================================
 
 Title: 4.2.2. Rejection of Characters that are not Permitted: fail if DISALLOWED or UNASSIGNED
 
@@ -120,7 +111,7 @@ $Unassigned = [[:unassigned:] - [:nchar:]]
 # We compute when invalid.
 # There is no functional difference between DISALLOWED and UNASSIGNED: we can just call them invalid.
 
-# The rules in Tables obfuscates the true situation, which is that:
+# The above structure obfuscates the true situation, which is that 
 #   A. some characters are always valid
 #   B. otherwise LetterDigits are valid - with some subtractions
 #   C. otherwise everything is invalid
@@ -136,19 +127,14 @@ $InvalidLetterDigits = [$ExceptionDisallowed $BackwardCompatibleDisallowed $Unas
 
 $Invalid = [^ $ValidAlways $Context [$LetterDigits - $InvalidLetterDigits]]
 
-# ===================================
-
-# At this point, we have the final list of everything that is invalid, so there is a single test
-
 $Invalid ; fail
 
-# ===================================
+
 
 Title: 4.2.3.1. Rejection of Hyphen Sequences in U-labels // just xx--
 
 ^.. ; -- ; fail
 
-# ===================================
 
 Title: 4.2.3.2. Leading Combining Marks
 
@@ -156,10 +142,8 @@ $M = [:M:]
 
 ^ ; $M ; fail
 
-# ===================================
 
 # CONTEXT: 4.2.3.3. Contextual Rules
-# The details here are all from Tables
 
 Title: Appendix A.1. HYPHEN-MINUS - Can't be at start or end; that is, ok only if medial
 
@@ -264,6 +248,7 @@ $hebr ; \u05F3 ; next
 
 Title: Appendix A.9. HEBREW PUNCTUATION GERSHAYIM - \u05F4
 # Should remove - not worth distinguishing
+# CHECK
 
 $hebr ; \u05F4 $hebr ; next
 \u05F4 ; fail
@@ -305,8 +290,8 @@ $EAD .* [$WD $AD] ; fail
 # ==========================
 
 # BIDI Rules: 4.2.3.4. Labels Containing Characters Written Right to Left
-# The details here are all from http://tools.ietf.org/html/draft-ietf-idnabis-bidi-03
 
+# From: http://tools.ietf.org/html/draft-ietf-idnabis-bidi-03
 # Note that $NSM != Non-spacing Marks in the general sense
 # See http://unicode.org/cldr/utility/unicodeset.jsp?a=[:bc=nsm:]&b=[[:me:][:mn:]]
 
@@ -320,7 +305,7 @@ $BDisallowed = [^[:bc=L:][:bc=R:][:bc=AL:][:bc=AN:][:bc=EN:][:bc=ES:][:bc=BN:][:
 # Note: 
 # The only tables-valid [:bc=ES:] character is: -
 # The only tables-valid [:bc=BN:] characters are: [\u200C \u200D]
-# The only tables-valid [:bc=ON:] characters are: [・ · ʹ ͵ ʺ ˆ-ˏ ˬ ꜗ-ꜟ ꞈ ⸯ ꙿ]
+# The only tables-valid [:bc=ON:] characters are: [・ · ʹ ͵ ʺ ˆ-ˏ ˬ ꜗ-ꜟ ꞈ ⸯ ꙿ] 
 
 Title: 1.  Only characters with the BIDI properties L, R, AL, AN, EN, ES, BN, ON and NSM are allowed.
 
@@ -355,7 +340,5 @@ Title: 7.  The first character may not be an EN (European Number) or an AN (Arab
 
 # NOTE: all of the "not allowed in first position" rules could be combined together
 
-# ===================================
 
 # 4.2.4. Registration Validation Summary: if at least one non-ASCII then <= 59 bytes of PunyCode
-# Needs to be done outside of this table

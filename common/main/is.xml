@@ -1036,19 +1036,8 @@
 		</codePatterns>
 	</localeDisplayNames>
 	<layout>
-		<inList draft="unconfirmed">mixed</inList>
-		<inText type="currency" draft="unconfirmed">mixed</inText>
-		<inText type="fields" draft="unconfirmed">mixed</inText>
-		<inText type="keys" draft="unconfirmed">mixed</inText>
 		<inText type="languages">lowercase-words</inText>
 		<inText type="languages" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
-		<inText type="long" draft="unconfirmed">mixed</inText>
-		<inText type="measurementSystemNames" draft="unconfirmed">mixed</inText>
-		<inText type="quarterWidth" draft="unconfirmed">mixed</inText>
-		<inText type="scripts" draft="unconfirmed">mixed</inText>
-		<inText type="territories" draft="unconfirmed">mixed</inText>
-		<inText type="types" draft="unconfirmed">mixed</inText>
-		<inText type="variants" draft="unconfirmed">mixed</inText>
 	</layout>
 	<characters>
 		<exemplarCharacters>[a á b d ð e é f-i í j-o ó p r-u ú v y ý þ æ ö]</exemplarCharacters>
@@ -1426,7 +1415,6 @@
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat draft="contributed">GMT{0}</gmtFormat>
-			<gmtZeroFormat draft="unconfirmed">GMT</gmtZeroFormat>
 			<regionFormat draft="unconfirmed">{0}</regionFormat>
 			<fallbackFormat draft="unconfirmed">{0} ({1})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -1755,7 +1743,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
@@ -1854,7 +1841,6 @@
 			<currency type="BEF">
 				<displayName>Belgískur franki</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">belgískur franki</displayName>
-				<symbol>BF</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>Lef</displayName>
@@ -1900,7 +1886,6 @@
 			<currency type="BZD">
 				<displayName>Belískur dalur</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">belískur dalur</displayName>
-				<symbol>BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Kanadískur dalur</displayName>
@@ -1973,7 +1958,6 @@
 			<currency type="DOP">
 				<displayName>Dóminískur pesi</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">dóminískur pesi</displayName>
-				<symbol>RD$</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>Ecuador Sucre</displayName>
@@ -2038,7 +2022,6 @@
 			</currency>
 			<currency type="HKD">
 				<displayName>Hong Kong-dalur</displayName>
-				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Hoduras Lempira</displayName>
@@ -2050,16 +2033,13 @@
 			</currency>
 			<currency type="HUF">
 				<displayName>Fórinta</displayName>
-				<symbol>Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Indónesísk rúpía</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">indónesísk rúpía</displayName>
-				<symbol>Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Írskt pund</displayName>
-				<symbol>IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>Ísraelskt pund</displayName>
@@ -2092,7 +2072,6 @@
 			</currency>
 			<currency type="JMD">
 				<displayName>Jamaískur dalur</displayName>
-				<symbol>J$</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Jen</displayName>
@@ -2103,7 +2082,6 @@
 			<currency type="KMF">
 				<displayName>Kómoreyskur franki</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">kómoreyskur franki</displayName>
-				<symbol>CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Norðurkóreskt vonn</displayName>
@@ -2113,7 +2091,6 @@
 			</currency>
 			<currency type="KWD">
 				<displayName>Kúveiskur denari</displayName>
-				<symbol>KD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Caymaneyskur dalur</displayName>
@@ -2156,7 +2133,6 @@
 			</currency>
 			<currency type="LYD">
 				<displayName>Líbískur denari</displayName>
-				<symbol>LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Marokkóskt dírham</displayName>
@@ -2189,11 +2165,9 @@
 			</currency>
 			<currency type="MRO">
 				<displayName>Mauritania Ouguiya</displayName>
-				<symbol>UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Meltnesk líra</displayName>
-				<symbol>Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>Maltneskt pund</displayName>
@@ -2213,14 +2187,12 @@
 			</currency>
 			<currency type="MYR">
 				<displayName>Malaysian Ringgit</displayName>
-				<symbol>RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Mósambískur skúti</displayName>
 			</currency>
 			<currency type="NAD">
 				<displayName>Namibískur dalur</displayName>
-				<symbol>N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Nigerian Naira</displayName>
@@ -2288,7 +2260,6 @@
 			</currency>
 			<currency type="SBD">
 				<displayName>Salómonseyskur dalur</displayName>
-				<symbol>SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Seychelles rúpía</displayName>
@@ -2306,7 +2277,6 @@
 			</currency>
 			<currency type="SGD">
 				<displayName>Singapúrskur dalur</displayName>
-				<symbol>S$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Helenskt pund</displayName>
@@ -2316,15 +2286,12 @@
 			</currency>
 			<currency type="SKK">
 				<displayName>Slóvakísk króna</displayName>
-				<symbol>Sk</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>Suriname Guilder</displayName>
-				<symbol>Sf</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Sao Tome and Principe Dobra</displayName>
-				<symbol>Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Soviet Rouble</displayName>
@@ -2353,18 +2320,15 @@
 			</currency>
 			<currency type="TRL">
 				<displayName>Tyrknesk líra</displayName>
-				<symbol>TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName draft="contributed">Ný tyrknesk líra</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trínidad og Tóbagó-dalur</displayName>
-				<symbol>TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Taívanskur dalur</displayName>
-				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Tanzanian Shilling</displayName>
@@ -2394,7 +2358,6 @@
 			</currency>
 			<currency type="VUV">
 				<displayName>Vanuatu Vatu</displayName>
-				<symbol>VT</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>Miðafrískur franki, BEAC</displayName>
@@ -2408,7 +2371,6 @@
 			<currency type="XCD">
 				<displayName>Austur-Karíbahafsdalur</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">austur-Karíbahafsdalur</displayName>
-				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>Sérstök dráttarréttindi</displayName>
@@ -2431,7 +2393,6 @@
 			<currency type="XPF">
 				<displayName>Pólinesískur franki</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">pólinesískur franki</displayName>
-				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName draft="unconfirmed">unse platína</displayName>
@@ -2462,7 +2423,6 @@
 			</currency>
 			<currency type="ZWD">
 				<displayName>Simbabveskur dalur</displayName>
-				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>
@@ -2524,3 +2484,4 @@ Comments without bases
 
  Argentina 	 - was on: //ldml/dates/timeZoneNames/zone[@type="America/Buenos_Aires"]
 -->
+

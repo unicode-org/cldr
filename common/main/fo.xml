@@ -401,20 +401,6 @@
 			<measurementSystemName type="metric" draft="unconfirmed">SI-einingar</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
-	<layout>
-		<inList draft="unconfirmed">mixed</inList>
-		<inText type="currency" draft="unconfirmed">mixed</inText>
-		<inText type="fields" draft="unconfirmed">mixed</inText>
-		<inText type="keys" draft="unconfirmed">mixed</inText>
-		<inText type="languages" draft="unconfirmed">mixed</inText>
-		<inText type="long" draft="unconfirmed">mixed</inText>
-		<inText type="measurementSystemNames" draft="unconfirmed">mixed</inText>
-		<inText type="quarterWidth" draft="unconfirmed">mixed</inText>
-		<inText type="scripts" draft="unconfirmed">mixed</inText>
-		<inText type="territories" draft="unconfirmed">mixed</inText>
-		<inText type="types" draft="unconfirmed">mixed</inText>
-		<inText type="variants" draft="unconfirmed">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a á b d ð e-i í j-o ó p r-u ú v x y ý æ ø]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[c q w z]</exemplarCharacters>
@@ -717,13 +703,11 @@
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<gmtZeroFormat draft="unconfirmed">GMT</gmtZeroFormat>
 			<regionFormat draft="unconfirmed">{0}</regionFormat>
 			<fallbackFormat draft="unconfirmed">{0} ({1})</fallbackFormat>
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
@@ -819,3 +803,4 @@ Fallback{ "en" }
 CS { "Serbia og Montenegro" } // TODO: if we allow this, then SP must go away
 GB { "St\u00f3ra Bretland" }
 -->
+

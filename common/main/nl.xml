@@ -1043,19 +1043,12 @@
 		<inList alt="proposed-x1001" draft="unconfirmed">mixed</inList>
 		<inText type="currency">lowercase-words</inText>
 		<inText type="currency" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
-		<inText type="fields">mixed</inText>
-		<inText type="keys">mixed</inText>
 		<inText type="languages">titlecase-firstword</inText>
 		<inText type="languages" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
-		<inText type="long">mixed</inText>
-		<inText type="measurementSystemNames">mixed</inText>
-		<inText type="quarterWidth">mixed</inText>
 		<inText type="scripts">titlecase-firstword</inText>
 		<inText type="scripts" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
 		<inText type="territories">titlecase-firstword</inText>
 		<inText type="territories" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
-		<inText type="types">mixed</inText>
-		<inText type="variants">mixed</inText>
 	</layout>
 	<characters>
 		<exemplarCharacters>[a á ä b-e é ë f-i í ï {ij} j-o ó ö p-u ú ü v-z]</exemplarCharacters>
@@ -1069,7 +1062,6 @@
 		<alternateQuotationEnd>”</alternateQuotationEnd>
 	</delimiters>
 	<dates>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<dateRangePattern alt="proposed-x1001" draft="unconfirmed">{0}−{1}</dateRangePattern>
 		<calendars>
 			<calendar type="gregorian">
@@ -1453,7 +1445,6 @@
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
 			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat draft="contributed">GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat draft="contributed">{0}-tijd</regionFormat>
 			<fallbackFormat draft="contributed">{1} ({0})</fallbackFormat>
 			<fallbackFormat alt="proposed-x1001" draft="unconfirmed">{0} ({1})</fallbackFormat>
@@ -2988,7 +2979,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
@@ -3055,7 +3045,6 @@
 				<displayName>Afghani</displayName>
 				<displayName count="one">Afghani</displayName>
 				<displayName count="other">Afghani</displayName>
-				<symbol>Af</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Albanese lek</displayName>
@@ -3114,7 +3103,6 @@
 			</currency>
 			<currency type="BAM">
 				<displayName>Bosnische convertibele mark</displayName>
-				<symbol>KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbadaanse dollar</displayName>
@@ -3122,14 +3110,12 @@
 			</currency>
 			<currency type="BDT">
 				<displayName>Bengalese taka</displayName>
-				<symbol>Tk</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>Belgische frank (convertibel)</displayName>
 			</currency>
 			<currency type="BEF">
 				<displayName>Belgische frank</displayName>
-				<symbol>BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>Belgische frank (financieel)</displayName>
@@ -3143,7 +3129,6 @@
 			</currency>
 			<currency type="BHD">
 				<displayName>Bahreinse dinar</displayName>
-				<symbol>BD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Burundese franc</displayName>
@@ -3158,7 +3143,6 @@
 			</currency>
 			<currency type="BOB">
 				<displayName>Boliviano</displayName>
-				<symbol>Bs</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>Boliviaanse peso</displayName>
@@ -3206,7 +3190,6 @@
 			</currency>
 			<currency type="BZD">
 				<displayName>Belizaanse dollar</displayName>
-				<symbol>BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Canadese dollar</displayName>
@@ -3283,11 +3266,9 @@
 			</currency>
 			<currency type="DOP">
 				<displayName>Dominicaanse peso</displayName>
-				<symbol>RD$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Algerijnse dinar</displayName>
-				<symbol>DA</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>Ecuadoraanse sucre</displayName>
@@ -3316,7 +3297,6 @@
 			</currency>
 			<currency type="ETB">
 				<displayName>Ethiopische birr</displayName>
-				<symbol>Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
@@ -3387,7 +3367,6 @@
 			</currency>
 			<currency type="HKD">
 				<displayName>Hongkongse dollar</displayName>
-				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Hondurese lempira</displayName>
@@ -3404,15 +3383,12 @@
 			</currency>
 			<currency type="HUF">
 				<displayName>Hongaarse forint</displayName>
-				<symbol>Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Indonesische rupiah</displayName>
-				<symbol>Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Iers pond</displayName>
-				<symbol>IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>Israëlisch pond</displayName>
@@ -3437,15 +3413,12 @@
 			</currency>
 			<currency type="ITL">
 				<displayName>Italiaanse lire</displayName>
-				<symbol>IT₤</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>Jamaicaanse dollar</displayName>
-				<symbol>J$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Jordaanse dinar</displayName>
-				<symbol>JD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Japanse yen</displayName>
@@ -3465,7 +3438,6 @@
 			</currency>
 			<currency type="KMF">
 				<displayName>Comorese franc</displayName>
-				<symbol>CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Noord-Koreaanse won</displayName>
@@ -3475,7 +3447,6 @@
 			</currency>
 			<currency type="KWD">
 				<displayName>Koeweitse dinar</displayName>
-				<symbol>KD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Caymaneilandse dollar</displayName>
@@ -3525,7 +3496,6 @@
 			</currency>
 			<currency type="LYD">
 				<displayName>Libische dinar</displayName>
-				<symbol>LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Marokkaanse dirham</displayName>
@@ -3561,11 +3531,9 @@
 			</currency>
 			<currency type="MRO">
 				<displayName>Mauritaanse ouguiya</displayName>
-				<symbol>UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Maltese lire</displayName>
-				<symbol>Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>Maltees pond</displayName>
@@ -3578,7 +3546,6 @@
 			</currency>
 			<currency type="MWK">
 				<displayName>Malawische kwacha</displayName>
-				<symbol>MK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Mexicaanse peso</displayName>
@@ -3592,14 +3559,12 @@
 			</currency>
 			<currency type="MYR">
 				<displayName>Maleisische ringgit</displayName>
-				<symbol>RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Mozambikaanse escudo</displayName>
 			</currency>
 			<currency type="MZM">
 				<displayName>Oude Mozambikaanse metical</displayName>
-				<symbol>Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>Mozambikaanse metical</displayName>
@@ -3607,7 +3572,6 @@
 			</currency>
 			<currency type="NAD">
 				<displayName>Namibische dollar</displayName>
-				<symbol>N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Nigeriaanse naira</displayName>
@@ -3620,7 +3584,6 @@
 			</currency>
 			<currency type="NLG">
 				<displayName>Nederlandse gulden</displayName>
-				<symbol>fl</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Noorse kroon</displayName>
@@ -3676,7 +3639,6 @@
 			</currency>
 			<currency type="QAR">
 				<displayName>Qatarese rial</displayName>
-				<symbol>QR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>Rhodesische dollar</displayName>
@@ -3708,7 +3670,6 @@
 			</currency>
 			<currency type="SBD">
 				<displayName>Salomonseilandse dollar</displayName>
-				<symbol>SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Seychelse rupee</displayName>
@@ -3729,7 +3690,6 @@
 			</currency>
 			<currency type="SGD">
 				<displayName>Singaporese dollar</displayName>
-				<symbol>S$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Sint-Heleense pond</displayName>
@@ -3739,7 +3699,6 @@
 			</currency>
 			<currency type="SKK">
 				<displayName>Slowaakse koruna</displayName>
-				<symbol>Sk</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Sierraleoonse leone</displayName>
@@ -3753,11 +3712,9 @@
 			</currency>
 			<currency type="SRG">
 				<displayName>Surinaamse gulden</displayName>
-				<symbol>Sf</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Santomese dobra</displayName>
-				<symbol>Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Sovjet-roebel</displayName>
@@ -3790,7 +3747,6 @@
 			</currency>
 			<currency type="TOP">
 				<displayName>Tongaanse paʻanga</displayName>
-				<symbol>T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>Timorese escudo</displayName>
@@ -3799,7 +3755,6 @@
 				<displayName>Turkse lire</displayName>
 				<displayName count="one" draft="contributed">oude Turkse lira</displayName>
 				<displayName count="other" draft="contributed">oude Turkse lira</displayName>
-				<symbol>TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>Nieuwe Turkse lire</displayName>
@@ -3808,11 +3763,9 @@
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad en Tobago-dollar</displayName>
-				<symbol>TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Nieuwe Taiwanese dollar</displayName>
-				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Tanzaniaanse shilling</displayName>
@@ -3867,7 +3820,6 @@
 			</currency>
 			<currency type="VUV">
 				<displayName>Vanuatuaanse vatu</displayName>
-				<symbol>VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>West-Samoaanse tala</displayName>
@@ -3895,7 +3847,6 @@
 			</currency>
 			<currency type="XCD">
 				<displayName>Oost-Caribische dollar</displayName>
-				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>Special Drawing Rights</displayName>
@@ -3917,7 +3868,6 @@
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP-franc</displayName>
-				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>Platina</displayName>
@@ -3953,7 +3903,6 @@
 			</currency>
 			<currency type="ZAR">
 				<displayName>Zuid-Afrikaanse rand</displayName>
-				<symbol>R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Zambiaanse kwacha</displayName>
@@ -3966,7 +3915,6 @@
 			</currency>
 			<currency type="ZWD">
 				<displayName>Zimbabwaanse dollar</displayName>
-				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>
@@ -4110,3 +4058,4 @@ Comments without bases
 					 </short>
 					 - was on: //ldml/dates/timeZoneNames/zone[@type="Asia/Shanghai"]/exemplarCity[@alt="proposed-u10-1"]
 -->
+

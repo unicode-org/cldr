@@ -1153,7 +1153,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<default choice="medium"/>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}{0}</pattern>
@@ -1664,7 +1663,6 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}時間</regionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>不明</exemplarCity>
@@ -3013,19 +3011,15 @@
 			</currency>
 			<currency type="AFN">
 				<displayName>アフガニー</displayName>
-				<symbol>Af</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>アルバニア レク</displayName>
-				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>アルメニア ドラム</displayName>
-				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>オランダ領アンティル ギルダー</displayName>
-				<symbol>NAf.</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>クワンザ</displayName>
@@ -3047,14 +3041,12 @@
 			</currency>
 			<currency type="ARS">
 				<displayName>アルゼンチン ペソ</displayName>
-				<symbol>AR$</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>オーストリア シリング</displayName>
 			</currency>
 			<currency type="AUD">
 				<displayName>オーストラリア ドル</displayName>
-				<symbol>AU$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>アルバ ギルダー</displayName>
@@ -3070,51 +3062,42 @@
 			</currency>
 			<currency type="BAM">
 				<displayName>ボスニア マルク (BAM)</displayName>
-				<symbol>KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>バルバドス ドル</displayName>
-				<symbol>Bds$</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>バングラデシュ タカ</displayName>
-				<symbol>Tk</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>ベルギー フラン (BEC)</displayName>
 			</currency>
 			<currency type="BEF">
 				<displayName>ベルギー フラン</displayName>
-				<symbol>BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>ベルギー フラン (BEL)</displayName>
 			</currency>
 			<currency type="BGL">
 				<displayName>ブルガリア レフ</displayName>
-				<symbol>BGL</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>ブルガリア 新レフ</displayName>
 			</currency>
 			<currency type="BHD">
 				<displayName>バーレーン ディナール</displayName>
-				<symbol>BD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>ブルンジ フラン</displayName>
-				<symbol>FBu</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>バミューダ ドル</displayName>
-				<symbol>BD$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>ブルネイ ドル</displayName>
 			</currency>
 			<currency type="BOB">
 				<displayName>ボリビアーノ</displayName>
-				<symbol>Bs</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>ボリビア ペソ</displayName>
@@ -3145,7 +3128,6 @@
 			</currency>
 			<currency type="BTN">
 				<displayName>ブータン ニュルタム</displayName>
-				<symbol>Nu.</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>ビルマ チャット</displayName>
@@ -3158,15 +3140,12 @@
 			</currency>
 			<currency type="BYR">
 				<displayName>ベラルーシ ルーブル</displayName>
-				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>ベリーズ ドル</displayName>
-				<symbol>BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>カナダ ドル</displayName>
-				<symbol>CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>コンゴ フラン</displayName>
@@ -3176,7 +3155,6 @@
 			</currency>
 			<currency type="CHF">
 				<displayName>スイス フラン</displayName>
-				<symbol>Fr.</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR フラン</displayName>
@@ -3194,14 +3172,12 @@
 			</currency>
 			<currency type="COP">
 				<displayName>コロンビア ペソ</displayName>
-				<symbol>CO$</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>レアル (UVR)</displayName>
 			</currency>
 			<currency type="CRC">
 				<displayName>コスタリカ コロン</displayName>
-				<symbol>₡</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>セルビアン ディナール</displayName>
@@ -3214,11 +3190,9 @@
 			</currency>
 			<currency type="CVE">
 				<displayName>カーボベルデ エスクード</displayName>
-				<symbol>CV$</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>キプロス ポンド</displayName>
-				<symbol>CY£</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>チェコ コルナ</displayName>
@@ -3231,23 +3205,18 @@
 			</currency>
 			<currency type="DJF">
 				<displayName>ジブチ フラン</displayName>
-				<symbol>Fdj</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>デンマーク クローネ</displayName>
-				<symbol>Dkr</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>ドミニカ ペソ</displayName>
-				<symbol>RD$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>アルジェリア ディナール</displayName>
-				<symbol>DA</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>エクアドル スクレ</displayName>
-				<symbol>ECS</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>エクアドル UVC</displayName>
@@ -3269,11 +3238,9 @@
 			</currency>
 			<currency type="ESP">
 				<displayName>スペイン ペセタ</displayName>
-				<symbol>Pts</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>エチオピア ブル</displayName>
-				<symbol>Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>ユーロ</displayName>
@@ -3283,7 +3250,6 @@
 			</currency>
 			<currency type="FJD">
 				<displayName>フィジー諸島 ドル</displayName>
-				<symbol>FJ$</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>フォークランド（マルビナス）諸島 ポンド</displayName>
@@ -3293,14 +3259,12 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>英国ポンド</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>グルジア クーポン ラリ</displayName>
 			</currency>
 			<currency type="GEL">
 				<displayName>グルジア ラリ</displayName>
-				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>ガーナ セディ (1979-2007)</displayName>
@@ -3316,7 +3280,6 @@
 			</currency>
 			<currency type="GNF">
 				<displayName>ギニア フラン</displayName>
-				<symbol>FG</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>ギニア シリー</displayName>
@@ -3329,7 +3292,6 @@
 			</currency>
 			<currency type="GTQ">
 				<displayName>グアテマラ ケツァル</displayName>
-				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>ポルトガル領ギニア エスクード</displayName>
@@ -3339,15 +3301,12 @@
 			</currency>
 			<currency type="GYD">
 				<displayName>ガイアナ ドル</displayName>
-				<symbol>GY$</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>香港ドル</displayName>
-				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>ホンジュラス レンピラ</displayName>
-				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>クロアチア ディナール</displayName>
@@ -3360,15 +3319,12 @@
 			</currency>
 			<currency type="HUF">
 				<displayName>ハンガリー フォリント</displayName>
-				<symbol>Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>インドネシア ルピア</displayName>
-				<symbol>Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>アイリッシュ ポンド</displayName>
-				<symbol>IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>イスラエル ポンド</displayName>
@@ -3382,26 +3338,21 @@
 			</currency>
 			<currency type="IQD">
 				<displayName>イラク ディナール</displayName>
-				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>イラン リアル</displayName>
-				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>アイスランド クローナ</displayName>
 			</currency>
 			<currency type="ITL">
 				<displayName>イタリア リラ</displayName>
-				<symbol>IT₤</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>ジャマイカ ドル</displayName>
-				<symbol>J$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>ヨルダン ディナール</displayName>
-				<symbol>JD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>日本円</displayName>
@@ -3409,19 +3360,15 @@
 			</currency>
 			<currency type="KES">
 				<displayName>ケニア シリング</displayName>
-				<symbol>Ksh</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>キルギスタン ソム</displayName>
-				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>カンボジア リエル</displayName>
-				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>コモロ フラン</displayName>
-				<symbol>CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>北朝鮮 ウォン</displayName>
@@ -3432,32 +3379,27 @@
 			</currency>
 			<currency type="KWD">
 				<displayName>クウェート ディナール</displayName>
-				<symbol>KD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>ケイマン諸島 ドル</displayName>
 			</currency>
 			<currency type="KZT">
 				<displayName>カザフスタン テンゲ</displayName>
-				<symbol>KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>ラオス キープ</displayName>
 			</currency>
 			<currency type="LBP">
 				<displayName>レバノン ポンド</displayName>
-				<symbol>LB£</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>スリランカ ルピー</displayName>
-				<symbol>SLRs</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>リベリア ドル</displayName>
 			</currency>
 			<currency type="LSL">
 				<displayName>レソト ロティ</displayName>
-				<symbol>LSL</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>リトアニア リタス</displayName>
@@ -3482,7 +3424,6 @@
 			</currency>
 			<currency type="LYD">
 				<displayName>リビア ディナール</displayName>
-				<symbol>LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>モロッコ ディルハム</displayName>
@@ -3501,7 +3442,6 @@
 			</currency>
 			<currency type="MKD">
 				<displayName>マケドニア デナル</displayName>
-				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>マリ フラン</displayName>
@@ -3511,18 +3451,15 @@
 			</currency>
 			<currency type="MNT">
 				<displayName>モンゴル トグログ</displayName>
-				<symbol>₮</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>マカオ パタカ</displayName>
 			</currency>
 			<currency type="MRO">
 				<displayName>モーリタニア ウギア</displayName>
-				<symbol>UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>マルタ リラ</displayName>
-				<symbol>Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>マルタ ポンド</displayName>
@@ -3535,11 +3472,9 @@
 			</currency>
 			<currency type="MWK">
 				<displayName>マラウィ クワチャ</displayName>
-				<symbol>MK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>メキシコ ペソ</displayName>
-				<symbol>MXN</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>メキシコ ペソ (1861-1992)</displayName>
@@ -3549,22 +3484,18 @@
 			</currency>
 			<currency type="MYR">
 				<displayName>マレーシア リンギット</displayName>
-				<symbol>RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>モザンピーク エスクード</displayName>
 			</currency>
 			<currency type="MZM">
 				<displayName>モザンピーク メティカル</displayName>
-				<symbol>Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>モザンビーク メティカル</displayName>
-				<symbol>MTn</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>ナミビア ドル</displayName>
-				<symbol>N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>ナイジェリア ナイラ</displayName>
@@ -3580,19 +3511,15 @@
 			</currency>
 			<currency type="NOK">
 				<displayName>ノルウェー クローネ</displayName>
-				<symbol>Nkr</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>ネパール ルピー</displayName>
-				<symbol>NPRs</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>ニュージーランド ドル</displayName>
-				<symbol>NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>オマーン リアル</displayName>
-				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>パナマ バルボア</displayName>
@@ -3611,15 +3538,12 @@
 			</currency>
 			<currency type="PHP">
 				<displayName>フィリピン ペソ</displayName>
-				<symbol>₱</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>パキスタン ルピー</displayName>
-				<symbol>PKRs</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>ポーランド ズウォティ</displayName>
-				<symbol>zł</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>ポーランド ズウォティ (1950-1995)</displayName>
@@ -3632,18 +3556,15 @@
 			</currency>
 			<currency type="QAR">
 				<displayName>カタール リアル</displayName>
-				<symbol>QR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>ローデシア ドル</displayName>
 			</currency>
 			<currency type="ROL">
 				<displayName>ルーマニア 旧レイ</displayName>
-				<symbol>ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>ルーマニア レイ</displayName>
-				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>ディナール (セルビア)</displayName>
@@ -3659,15 +3580,12 @@
 			</currency>
 			<currency type="SAR">
 				<displayName>サウジ リヤル</displayName>
-				<symbol>SR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>ソロモン諸島 ドル</displayName>
-				<symbol>SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>セイシェル ルピー</displayName>
-				<symbol>SRe</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>スーダン ディナール</displayName>
@@ -3684,7 +3602,6 @@
 			</currency>
 			<currency type="SGD">
 				<displayName>シンガポール ドル</displayName>
-				<symbol>S$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>セントヘレナ島 ポンド</displayName>
@@ -3694,25 +3611,21 @@
 			</currency>
 			<currency type="SKK">
 				<displayName>スロバキア コルナ</displayName>
-				<symbol>Sk</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>シエラレオネ レオン</displayName>
 			</currency>
 			<currency type="SOS">
 				<displayName>ソマリア シリング</displayName>
-				<symbol>Ssh</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>スリナム ドル</displayName>
 			</currency>
 			<currency type="SRG">
 				<displayName>スリナム ギルダー</displayName>
-				<symbol>Sf</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>サントメ・プリンシペ ドブラ</displayName>
-				<symbol>Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>ソ連 ルーブル</displayName>
@@ -3722,11 +3635,9 @@
 			</currency>
 			<currency type="SYP">
 				<displayName>シリア ポンド</displayName>
-				<symbol>SY£</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>スワジランド リランゲニ</displayName>
-				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>タイ バーツ</displayName>
@@ -3745,14 +3656,12 @@
 			</currency>
 			<currency type="TOP">
 				<displayName>トンガ パ・アンガ</displayName>
-				<symbol>T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>ティモール エスクード</displayName>
 			</currency>
 			<currency type="TRL">
 				<displayName>トルコ リラ</displayName>
-				<symbol>TRL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">TL</symbol>
 			</currency>
 			<currency type="TRY">
@@ -3760,15 +3669,12 @@
 			</currency>
 			<currency type="TTD">
 				<displayName>トリニダードトバゴ ドル</displayName>
-				<symbol>TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>新台湾ドル</displayName>
-				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>タンザニア シリング</displayName>
-				<symbol>TSh</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>ウクライナ グリブナ</displayName>
@@ -3781,7 +3687,6 @@
 			</currency>
 			<currency type="UGX">
 				<displayName>ウガンダ シリング</displayName>
-				<symbol>USh</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>米ドル</displayName>
@@ -3804,7 +3709,6 @@
 			</currency>
 			<currency type="VEB">
 				<displayName>ベネズエラ ボリバル</displayName>
-				<symbol>Bs.</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>ベネズエラ ボリバルフエルテ</displayName>
@@ -3815,7 +3719,6 @@
 			</currency>
 			<currency type="VUV">
 				<displayName>バヌアツ バツ</displayName>
-				<symbol>VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>西サモア タラ</displayName>
@@ -3843,7 +3746,6 @@
 			</currency>
 			<currency type="XCD">
 				<displayName>東カリブ ドル</displayName>
-				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>特別引き出し権</displayName>
@@ -3865,7 +3767,6 @@
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP フラン</displayName>
-				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>プラチナ</displayName>
@@ -3884,7 +3785,6 @@
 			</currency>
 			<currency type="YER">
 				<displayName>イエメン リアル</displayName>
-				<symbol>YR</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>ユーゴスラビア ディナール</displayName>
@@ -3900,7 +3800,6 @@
 			</currency>
 			<currency type="ZAR">
 				<displayName>南アフリカ ランド</displayName>
-				<symbol>R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>ザンビア クワチャ</displayName>
@@ -3913,7 +3812,6 @@
 			</currency>
 			<currency type="ZWD">
 				<displayName>ジンバブエ ドル</displayName>
-				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>

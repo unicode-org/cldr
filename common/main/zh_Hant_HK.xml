@@ -15,12 +15,7 @@
 		</languages>
 		<scripts>
 			<script type="Hang">韓文字母</script>
-			<script type="Kore">韓文</script>
 		</scripts>
-		<territories>
-			<territory type="IT">義大利</territory>
-			<territory type="TW">台灣</territory>
-		</territories>
 		<variants>
 			<variant type="1901" draft="contributed">傳統德國拼字法</variant>
 			<variant type="1996" draft="contributed">1996 德國拼字法</variant>
@@ -80,17 +75,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<default choice="medium"/>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern>{1}{0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern>{1}{0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
 							<pattern>{1}{0}</pattern>
@@ -145,10 +129,6 @@
 		</calendars>
 	</dates>
 	<numbers>
-		<symbols>
-			<group>,</group>
-			<list>;</list>
-		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -204,3 +184,4 @@
 		</messages>
 	</posix>
 </ldml>
+

@@ -352,7 +352,6 @@
 			<language type="sr">塞爾維亞文</language>
 			<language type="srn" draft="contributed">蘇拉南東墎文</language>
 			<language type="srr">塞雷爾文</language>
-			<language type="ss">斯瓦特文</language>
 			<language type="ssa">尼羅撒哈拉諸語言</language>
 			<language type="su">巽他語</language>
 			<language type="suk">蘇庫馬文</language>
@@ -399,7 +398,6 @@
 			<language type="uz">烏茲別克文</language>
 			<language type="vai">越南文 Vai</language>
 			<language type="ve">溫達文</language>
-			<language type="vi">越南文</language>
 			<language type="wak">瓦卡什諸語言</language>
 			<language type="war">瓦瑞文</language>
 			<language type="was">瓦紹文</language>
@@ -463,16 +461,13 @@
 			<script type="Hans">簡體中文</script>
 			<script type="Hant">繁體中文</script>
 			<script type="Hebr">希伯來文</script>
-			<script type="Hira">平假名</script>
 			<script type="Hmng">楊松錄苗文</script>
-			<script type="Hrkt">片假名或平假名</script>
 			<script type="Hung">古匈牙利文</script>
 			<script type="Inds">印度河流域（哈拉帕文）</script>
 			<script type="Ital">古意大利文</script>
 			<script type="Java">爪哇文</script>
 			<script type="Jpan">日文</script>
 			<script type="Kali">克耶李文</script>
-			<script type="Kana">片假名</script>
 			<script type="Khar">卡羅須提文</script>
 			<script type="Khmr">高棉文</script>
 			<script type="Knda">坎那達文</script>
@@ -520,7 +515,6 @@
 			<script type="Syrn">敘利亞文（東方文字變體）</script>
 			<script type="Tagb">南島文</script>
 			<script type="Tale">傣哪文</script>
-			<script type="Talu">新傣文</script>
 			<script type="Taml">坦米爾文</script>
 			<script type="Telu">泰魯古文</script>
 			<script type="Teng">談格瓦文</script>
@@ -809,10 +803,6 @@
 			<type type="stroke" key="collation">筆劃排序</type>
 			<type type="traditional" key="collation">傳統排序</type>
 		</types>
-		<measurementSystemNames>
-			<measurementSystemName type="US">美制</measurementSystemName>
-			<measurementSystemName type="metric">公制</measurementSystemName>
-		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">語言：{0}</codePattern>
 			<codePattern type="script">文字：{0}</codePattern>
@@ -831,13 +821,6 @@
 	</delimiters>
 	<dates>
 		<calendars>
-			<calendar type="buddhist">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yyyyM" draft="provisional">yyyy/M</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="chinese">
 				<am>上午</am>
 				<pm>下午</pm>
@@ -2348,11 +2331,6 @@
 					<daylight draft="contributed">ACST（艾克）</daylight>
 				</short>
 			</metazone>
-			<metazone type="Afghanistan">
-				<short>
-					<standard>AFT</standard>
-				</short>
-			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>中非時間</standard>
@@ -2379,10 +2357,6 @@
 					<standard>阿克秋賓斯克時間</standard>
 					<daylight>阿克秋賓斯克夏令時間</daylight>
 				</long>
-				<short>
-					<standard>AKTT</standard>
-					<daylight>AKTST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
@@ -2407,10 +2381,6 @@
 					<standard draft="contributed">阿拉木圖時間</standard>
 					<daylight draft="contributed">阿拉木圖夏令時間</daylight>
 				</long>
-				<short>
-					<standard>ALMT</standard>
-					<daylight>ALMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
@@ -2445,11 +2415,6 @@
 					<standard>太平洋標準時間</standard>
 					<daylight>太平洋夏令時間</daylight>
 				</long>
-			</metazone>
-			<metazone type="Anadyr">
-				<short>
-					<standard>ANAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Aqtau">
 				<long>
@@ -2511,10 +2476,6 @@
 					<standard>阿什哈巴德時間</standard>
 					<daylight draft="provisional">阿什哈巴德夏令時間</daylight>
 				</long>
-				<short>
-					<standard>ASHT</standard>
-					<daylight>ASHST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Atlantic">
 				<long>
@@ -2549,10 +2510,6 @@
 					<standard>亞塞拜然時間</standard>
 					<daylight>亞塞拜然夏令時間</daylight>
 				</long>
-				<short>
-					<standard>AZT</standard>
-					<daylight>AZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Azores">
 				<long>
@@ -2603,10 +2560,6 @@
 					<standard draft="contributed">婆羅洲時間</standard>
 					<daylight draft="contributed">婆羅洲夏令時間</daylight>
 				</long>
-				<short>
-					<standard>BORT</standard>
-					<daylight>BORST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
@@ -2615,18 +2568,10 @@
 					<daylight draft="provisional">巴西利亞夏令時間</daylight>
 				</long>
 			</metazone>
-			<metazone type="Brunei">
-				<short>
-					<standard>BNT</standard>
-				</short>
-			</metazone>
 			<metazone type="Changbai">
 				<long>
 					<standard draft="contributed">長白山時間</standard>
 				</long>
-				<short>
-					<standard>CHAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Chile">
 				<long>
@@ -2652,10 +2597,6 @@
 					<standard draft="contributed">喬巴山時間</standard>
 					<daylight draft="contributed">喬巴山夏令時間</daylight>
 				</long>
-				<short>
-					<standard>CHOT</standard>
-					<daylight>CHOST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Cuba">
 				<short>
@@ -2667,19 +2608,12 @@
 				<long>
 					<standard draft="contributed">達卡時間</standard>
 				</long>
-				<short>
-					<standard>DACT</standard>
-				</short>
 			</metazone>
 			<metazone type="Dushanbe">
 				<long>
 					<standard draft="contributed">杜尚別時間</standard>
 					<daylight draft="contributed">杜尚別夏令時間</daylight>
 				</long>
-				<short>
-					<standard>DUST</standard>
-					<daylight>DUSST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Dutch_Guiana">
 				<long>
@@ -2692,9 +2626,6 @@
 				<long>
 					<standard>東帝汶時間</standard>
 				</long>
-				<short>
-					<standard>TLT</standard>
-				</short>
 			</metazone>
 			<metazone type="Ecuador">
 				<long>
@@ -2724,10 +2655,6 @@
 					<standard draft="contributed">伏龍芝時間</standard>
 					<daylight draft="contributed">伏龍芝夏令時間</daylight>
 				</long>
-				<short>
-					<standard>FRUT</standard>
-					<daylight>FRUST</daylight>
-				</short>
 			</metazone>
 			<metazone type="GMT">
 				<long>
@@ -2744,10 +2671,6 @@
 					<standard draft="contributed">喬治亞時間</standard>
 					<daylight draft="contributed">喬治亞夏令時間</daylight>
 				</long>
-				<short>
-					<standard>GET</standard>
-					<daylight>GEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>
@@ -2780,7 +2703,6 @@
 			<metazone type="Gulf">
 				<short>
 					<generic>GT</generic>
-					<standard>GST</standard>
 				</short>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -2788,66 +2710,25 @@
 					<standard draft="provisional">夏威夷-阿留申標準時間</standard>
 				</long>
 			</metazone>
-			<metazone type="Hong_Kong">
-				<short>
-					<standard>HKT</standard>
-					<daylight>HKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Hovd">
-				<short>
-					<standard>HOVT</standard>
-					<daylight>HOVST</daylight>
-				</short>
-			</metazone>
 			<metazone type="India">
 				<long>
 					<standard draft="contributed">印度標準時間</standard>
 				</long>
-				<short>
-					<standard>IST</standard>
-				</short>
-			</metazone>
-			<metazone type="Indochina">
-				<short>
-					<standard>ICT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
 					<standard draft="provisional">印尼中部時間</standard>
 				</long>
-				<short>
-					<standard>CIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
 					<standard draft="provisional">印尼東部時間</standard>
 				</long>
-				<short>
-					<standard>EIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
 					<standard draft="provisional">印尼西部時間</standard>
 				</long>
-				<short>
-					<standard>WIT</standard>
-				</short>
-			</metazone>
-			<metazone type="Iran">
-				<short>
-					<standard>IRST</standard>
-					<daylight>IRDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Irkutsk">
-				<short>
-					<standard>IRKT</standard>
-					<daylight>IRKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Israel">
 				<long>
@@ -2857,7 +2738,6 @@
 				</long>
 				<short>
 					<standard>IST（以色列）</standard>
-					<daylight>IDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Japan">
@@ -2867,59 +2747,35 @@
 				</long>
 				<short>
 					<generic>JT</generic>
-					<standard>JST</standard>
-					<daylight>JDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Kamchatka">
-				<short>
-					<standard>PETT</standard>
-					<daylight>PETST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Karachi">
 				<long>
 					<standard draft="contributed">喀拉蚩時間</standard>
 				</long>
-				<short>
-					<standard>KART</standard>
-				</short>
 			</metazone>
 			<metazone type="Kashgar">
 				<long>
 					<standard draft="contributed">喀什時間</standard>
 				</long>
-				<short>
-					<standard>KAST</standard>
-				</short>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<generic draft="contributed">東哈薩克時間</generic>
 					<standard draft="contributed">東哈薩克標準時間</standard>
 				</long>
-				<short>
-					<standard>EKST</standard>
-				</short>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
 					<generic draft="contributed">西哈薩克時間</generic>
 					<standard draft="contributed">西哈薩克標準時間</standard>
 				</long>
-				<short>
-					<standard>WKST</standard>
-				</short>
 			</metazone>
 			<metazone type="Kizilorda">
 				<long>
 					<standard draft="provisional">吉力羅達時間</standard>
 					<daylight draft="provisional">吉力羅達夏令時間</daylight>
 				</long>
-				<short>
-					<standard>KIZT</standard>
-					<daylight>KIZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Korea">
 				<long>
@@ -2929,14 +2785,6 @@
 				</long>
 				<short>
 					<generic>KT</generic>
-					<standard>KST</standard>
-					<daylight>KDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Krasnoyarsk">
-				<short>
-					<standard>KRAT</standard>
-					<daylight>KRAST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Kuybyshev">
@@ -2954,25 +2802,16 @@
 				<long>
 					<standard draft="contributed">吉爾吉斯時間</standard>
 				</long>
-				<short>
-					<standard>KGT</standard>
-				</short>
 			</metazone>
 			<metazone type="Lanka">
 				<long>
 					<standard draft="provisional">蘭卡時間</standard>
 				</long>
-				<short>
-					<standard>LKT</standard>
-				</short>
 			</metazone>
 			<metazone type="Long_Shu">
 				<long>
 					<standard draft="provisional">隴蜀時間</standard>
 				</long>
-				<short>
-					<standard>LONT</standard>
-				</short>
 			</metazone>
 			<metazone type="Lord_Howe">
 				<long>
@@ -2986,32 +2825,16 @@
 					<standard draft="contributed">澳門時間</standard>
 					<daylight draft="contributed">澳門夏令時間</daylight>
 				</long>
-				<short>
-					<standard>MOT</standard>
-					<daylight>MOST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Magadan">
-				<short>
-					<standard>MAGT</standard>
-					<daylight>MAGST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Malaya">
 				<long>
 					<standard draft="contributed">馬來亞時間</standard>
 				</long>
-				<short>
-					<standard>MALT</standard>
-				</short>
 			</metazone>
 			<metazone type="Malaysia">
 				<long>
 					<standard draft="contributed">馬來西亞時間</standard>
 				</long>
-				<short>
-					<standard>MYT</standard>
-				</short>
 			</metazone>
 			<metazone type="Marshall_Islands">
 				<long>
@@ -3023,20 +2846,6 @@
 					<standard draft="contributed">烏蘭巴托時間</standard>
 					<daylight draft="contributed">烏蘭巴托夏令時間</daylight>
 				</long>
-				<short>
-					<standard>ULAT</standard>
-					<daylight>ULAST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Myanmar">
-				<short>
-					<standard>MMT</standard>
-				</short>
-			</metazone>
-			<metazone type="Nepal">
-				<short>
-					<standard>NPT</standard>
-				</short>
 			</metazone>
 			<metazone type="New_Zealand">
 				<long>
@@ -3057,33 +2866,11 @@
 					<standard draft="provisional">北馬里亞納群島時間</standard>
 				</long>
 			</metazone>
-			<metazone type="Novosibirsk">
-				<short>
-					<standard>NOVT</standard>
-					<daylight>NOVST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Omsk">
-				<short>
-					<standard>OMST</standard>
-					<daylight>OMSST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Pakistan">
 				<long>
 					<standard draft="contributed">巴基斯坦時間</standard>
 					<daylight draft="contributed">巴基斯坦夏令時間</daylight>
 				</long>
-				<short>
-					<standard>PKT</standard>
-					<daylight>PKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Philippines">
-				<short>
-					<standard>PHT</standard>
-					<daylight>PHST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Pierre_Miquelon">
 				<long>
@@ -3097,16 +2884,6 @@
 					<standard draft="provisional">克孜勒奧爾達時間</standard>
 					<daylight draft="provisional">克孜勒奧爾達夏令時間</daylight>
 				</long>
-				<short>
-					<standard>QYZT</standard>
-					<daylight>QYZST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Sakhalin">
-				<short>
-					<standard>SAKT</standard>
-					<daylight>SAKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samara">
 				<long>
@@ -3133,15 +2910,6 @@
 				<long>
 					<daylight draft="unconfirmed">舍甫琴科時間</daylight>
 				</long>
-				<short>
-					<standard>SHET</standard>
-					<daylight>SHEST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Singapore">
-				<short>
-					<standard>SGT</standard>
-				</short>
 			</metazone>
 			<metazone type="Suriname">
 				<long>
@@ -3154,38 +2922,23 @@
 					<standard draft="contributed">斯維爾德洛夫斯克時間</standard>
 					<daylight draft="contributed">斯維爾德洛夫斯克夏令時間</daylight>
 				</long>
-				<short>
-					<standard>SVET</standard>
-					<daylight>SVEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Tajikistan">
 				<long>
 					<standard draft="contributed">塔吉克時間</standard>
 				</long>
-				<short>
-					<standard>TJT</standard>
-				</short>
 			</metazone>
 			<metazone type="Tashkent">
 				<long>
 					<standard draft="contributed">塔什干時間</standard>
 					<daylight draft="contributed">塔什干夏令時間</daylight>
 				</long>
-				<short>
-					<standard>TAST</standard>
-					<daylight>TASST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Tbilisi">
 				<long>
 					<standard draft="provisional">第比利斯時間</standard>
 					<daylight draft="provisional">第比利斯夏令時間</daylight>
 				</long>
-				<short>
-					<standard>TBIT</standard>
-					<daylight>TBIST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Turkey">
 				<long>
@@ -3198,70 +2951,35 @@
 					<standard draft="contributed">土庫曼時間</standard>
 					<daylight draft="contributed">土庫曼夏令時間</daylight>
 				</long>
-				<short>
-					<standard>TMT</standard>
-					<daylight>TMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Uralsk">
 				<long>
 					<standard draft="provisional">烏拉斯克時間</standard>
 					<daylight draft="provisional">烏拉斯克夏令時間</daylight>
 				</long>
-				<short>
-					<standard>URAT</standard>
-					<daylight>URAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Urumqi">
 				<long>
 					<standard>烏魯木齊時間</standard>
 				</long>
-				<short>
-					<standard>URUT</standard>
-				</short>
 			</metazone>
 			<metazone type="Uzbekistan">
 				<long>
 					<standard draft="contributed">烏茲別克時間</standard>
 					<daylight draft="contributed">烏茲別克夏令時間</daylight>
 				</long>
-				<short>
-					<standard>UZT</standard>
-					<daylight>UZST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Vladivostok">
-				<short>
-					<standard>VLAT</standard>
-					<daylight>VLAST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Yakutsk">
-				<short>
-					<standard>YAKT</standard>
-					<daylight>YAKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
 					<standard draft="contributed">凱薩琳堡時間</standard>
 					<daylight draft="contributed">凱薩琳堡夏令時間</daylight>
 				</long>
-				<short>
-					<standard>YEKT</standard>
-					<daylight>YEKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Yerevan">
 				<long>
 					<standard draft="contributed">葉里溫時間</standard>
 					<daylight draft="contributed">葉里溫夏令時間</daylight>
 				</long>
-				<short>
-					<standard>YERT</standard>
-					<daylight>YERST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Yukon">
 				<long>
@@ -3280,20 +2998,14 @@
 			<currency type="AED">
 				<displayName>阿拉伯聯合大公國迪爾汗</displayName>
 			</currency>
-			<currency type="AFN">
-				<symbol draft="contributed">Af</symbol>
-			</currency>
 			<currency type="ALL">
 				<displayName>阿爾巴尼亞列克</displayName>
-				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>亞美尼亞德拉姆</displayName>
-				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName draft="contributed">荷屬安地列斯盾</displayName>
-				<symbol>NAf.</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>安哥拉寬扎</displayName>
@@ -3315,14 +3027,12 @@
 			</currency>
 			<currency type="ARS">
 				<displayName>阿根廷披索</displayName>
-				<symbol>AR$</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>奧地利先令</displayName>
 			</currency>
 			<currency type="AUD">
 				<displayName>澳幣</displayName>
-				<symbol>AU$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>阿魯巴盾</displayName>
@@ -3338,52 +3048,42 @@
 			</currency>
 			<currency type="BAM">
 				<displayName>波士尼亞-黑塞哥維那可轉換馬克</displayName>
-				<symbol draft="contributed">KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>巴貝多元</displayName>
-				<symbol>Bds$</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>孟加拉塔卡</displayName>
-				<symbol>Tk</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>比利時法郎（可轉換）</displayName>
 			</currency>
 			<currency type="BEF">
 				<displayName>比利時法郎</displayName>
-				<symbol draft="contributed">BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>比利時法郎（金融）</displayName>
-				<symbol>BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>保加利亞硬列弗</displayName>
-				<symbol>BGL</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>保加利亞新列弗</displayName>
 			</currency>
 			<currency type="BHD">
 				<displayName>巴林第納爾</displayName>
-				<symbol draft="contributed">BD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>蒲隆地法郎</displayName>
-				<symbol>FBu</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>百慕達幣</displayName>
-				<symbol>BD$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>汶萊元</displayName>
 			</currency>
 			<currency type="BOB">
 				<displayName>玻利維亞貨幣單位</displayName>
-				<symbol draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>玻利維亞披索</displayName>
@@ -3431,7 +3131,6 @@
 			</currency>
 			<currency type="BZD">
 				<displayName>貝里斯元</displayName>
-				<symbol draft="contributed">BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>加幣</displayName>
@@ -3458,7 +3157,6 @@
 			</currency>
 			<currency type="CNY">
 				<displayName>人民幣</displayName>
-				<symbol>￥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>哥倫比亞披索</displayName>
@@ -3504,11 +3202,9 @@
 			</currency>
 			<currency type="DOP">
 				<displayName>多明尼加披索</displayName>
-				<symbol draft="contributed">RD$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>阿爾及利亞第納爾</displayName>
-				<symbol draft="contributed">DA</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>厄瓜多蘇克雷</displayName>
@@ -3537,7 +3233,6 @@
 			</currency>
 			<currency type="ETB">
 				<displayName>衣索比亞比爾</displayName>
-				<symbol draft="contributed">Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>歐元</displayName>
@@ -3621,15 +3316,12 @@
 			</currency>
 			<currency type="HUF">
 				<displayName>匈牙利福林</displayName>
-				<symbol draft="contributed">Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>印尼盾</displayName>
-				<symbol>Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>愛爾蘭鎊</displayName>
-				<symbol draft="contributed">IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>以色列鎊</displayName>
@@ -3660,32 +3352,25 @@
 			</currency>
 			<currency type="JMD">
 				<displayName>牙買加元</displayName>
-				<symbol draft="contributed">J$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>約旦第納爾</displayName>
-				<symbol draft="contributed">JD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>日圓</displayName>
-				<symbol>JP¥</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">￥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>肯尼亞先令</displayName>
-				<symbol>Ksh</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>吉爾吉斯索馬</displayName>
-				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>柬埔寨瑞爾</displayName>
-				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>科摩羅法郎</displayName>
-				<symbol draft="contributed">CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>北韓圜</displayName>
@@ -3696,32 +3381,27 @@
 			</currency>
 			<currency type="KWD">
 				<displayName>科威特第納爾</displayName>
-				<symbol draft="contributed">KD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>開曼群島美元</displayName>
 			</currency>
 			<currency type="KZT">
 				<displayName>卡扎克斯坦坦吉</displayName>
-				<symbol>KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName draft="contributed">寮國基普</displayName>
 			</currency>
 			<currency type="LBP">
 				<displayName>黎巴嫩鎊</displayName>
-				<symbol>LB£</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>斯里蘭卡盧布</displayName>
-				<symbol>SLRs</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>賴比瑞亞元</displayName>
 			</currency>
 			<currency type="LSL">
 				<displayName>賴索托羅蒂</displayName>
-				<symbol>LSL</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>立陶宛里塔</displayName>
@@ -3746,7 +3426,6 @@
 			</currency>
 			<currency type="LYD">
 				<displayName>利比亞第納爾</displayName>
-				<symbol draft="contributed">LD</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>摩杜雲列伊</displayName>
@@ -3759,7 +3438,6 @@
 			</currency>
 			<currency type="MKD">
 				<displayName>馬其頓第納爾</displayName>
-				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>馬里法郎</displayName>
@@ -3769,7 +3447,6 @@
 			</currency>
 			<currency type="MNT">
 				<displayName>蒙古圖格里克</displayName>
-				<symbol>₮</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>澳門元</displayName>
@@ -3777,11 +3454,9 @@
 			</currency>
 			<currency type="MRO">
 				<displayName>茅利塔尼亞烏吉亞</displayName>
-				<symbol draft="contributed">UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>馬爾他里拉</displayName>
-				<symbol draft="contributed">Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>馬爾他鎊</displayName>
@@ -3794,11 +3469,9 @@
 			</currency>
 			<currency type="MWK">
 				<displayName>馬拉維克瓦查</displayName>
-				<symbol draft="contributed">MK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>墨西哥披索</displayName>
-				<symbol>MXN</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>墨西哥銀披索 (1861-1992)</displayName>
@@ -3808,81 +3481,63 @@
 			</currency>
 			<currency type="MYR">
 				<displayName>馬來西亞令吉</displayName>
-				<symbol>RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>莫三比克埃斯庫多</displayName>
 			</currency>
 			<currency type="MZM">
 				<displayName>莫三比克梅蒂卡爾</displayName>
-				<symbol draft="contributed">Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>莫三比克美提卡</displayName>
-				<symbol draft="contributed">MTn</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>納米比亞元</displayName>
-				<symbol draft="contributed">N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>奈及利亞奈拉</displayName>
 			</currency>
 			<currency type="NIO">
 				<displayName draft="provisional">尼加拉瓜金科多巴</displayName>
-				<symbol>C$</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>荷蘭盾</displayName>
-				<symbol>fl</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>挪威克羅納</displayName>
-				<symbol>Nkr</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>尼泊爾盧布</displayName>
-				<symbol>NPRs</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>紐西蘭幣</displayName>
-				<symbol>NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>阿曼里奧</displayName>
-				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>巴拿馬巴波亞</displayName>
-				<symbol>B/.</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>祕魯因蒂</displayName>
-				<symbol>I/.</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>秘魯新太陽幣</displayName>
-				<symbol>S/.</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>秘魯太陽幣</displayName>
-				<symbol>PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>巴布亞紐幾內亞基那</displayName>
-				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>菲律賓披索</displayName>
-				<symbol>₱</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>巴基斯坦盧布</displayName>
-				<symbol>PKRs</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>波蘭茲羅提</displayName>
-				<symbol>zł</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>波蘭茲羅提 (1950-1995)</displayName>
@@ -3895,29 +3550,24 @@
 			</currency>
 			<currency type="QAR">
 				<displayName>卡達爾里亞爾</displayName>
-				<symbol draft="contributed">QR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName draft="provisional">羅德西亞元</displayName>
 			</currency>
 			<currency type="ROL">
 				<displayName draft="provisional">舊羅馬尼亞列伊</displayName>
-				<symbol>ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>羅馬尼亞列伊</displayName>
-				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>塞爾維亞戴納</displayName>
 			</currency>
 			<currency type="RUB">
 				<displayName>俄羅斯盧布</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>俄羅斯盧布 (1991-1998)</displayName>
-				<symbol>RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>盧安達法郎</displayName>
@@ -3928,23 +3578,18 @@
 			</currency>
 			<currency type="SBD">
 				<displayName>索羅門群島元</displayName>
-				<symbol>SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>塞席爾盧比</displayName>
-				<symbol>SRe</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>蘇丹第納爾</displayName>
-				<symbol>LSd</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>蘇丹鎊</displayName>
-				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>舊蘇丹鎊</displayName>
-				<symbol>SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>瑞典克羅納</displayName>
@@ -3952,98 +3597,75 @@
 			</currency>
 			<currency type="SGD">
 				<displayName>新加坡幣</displayName>
-				<symbol>S$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName draft="contributed">聖赫勒拿鎊</displayName>
-				<symbol>SH£</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>斯洛維尼亞托勒</displayName>
-				<symbol>SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>斯洛伐克克朗</displayName>
-				<symbol>Sk</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>獅子山利昂</displayName>
 			</currency>
 			<currency type="SOS">
 				<displayName>索馬利亞先令</displayName>
-				<symbol>Ssh</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName draft="contributed">蘇利南元</displayName>
-				<symbol>SR$</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>蘇利南基爾</displayName>
-				<symbol>Sf</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>聖多美島和普林西比島多布拉</displayName>
-				<symbol draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>蘇聯盧布</displayName>
-				<symbol>SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName draft="contributed">薩爾瓦多科郎</displayName>
-				<symbol>SV₡</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>敘利亞鎊</displayName>
-				<symbol>SY£</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName draft="contributed">史瓦濟蘭里朗吉尼</displayName>
-				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>泰銖</displayName>
 			</currency>
 			<currency type="TJR">
 				<displayName>塔吉克盧布</displayName>
-				<symbol>TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName draft="contributed">塔吉克索莫尼</displayName>
-				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>土庫曼馬納特</displayName>
-				<symbol>TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>突尼西亞第納爾</displayName>
 			</currency>
 			<currency type="TOP">
 				<displayName>東加潘加</displayName>
-				<symbol>T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName draft="contributed">帝汶埃斯庫多</displayName>
-				<symbol>TPE</symbol>
 			</currency>
 			<currency type="TRL">
-				<symbol>TRL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">TL</symbol>
-			</currency>
-			<currency type="TRY">
-				<displayName>新土耳其里拉</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName draft="contributed">千里達及托巴哥元</displayName>
-				<symbol>TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>新臺幣</displayName>
 			</currency>
 			<currency type="TZS">
 				<displayName draft="contributed">坦尚尼亞先令</displayName>
-				<symbol>TSh</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>烏克蘭格里夫那</displayName>
@@ -4079,15 +3701,12 @@
 			</currency>
 			<currency type="VEB">
 				<displayName>委內瑞拉玻利瓦</displayName>
-				<symbol>Bs.</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>委內瑞拉強勢玻利瓦</displayName>
-				<symbol>Bs.F.</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>萬那杜萬杜</displayName>
-				<symbol draft="contributed">VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>西薩摩亞塔拉</displayName>
@@ -4115,7 +3734,6 @@
 			</currency>
 			<currency type="XCD">
 				<displayName>格瑞那達元</displayName>
-				<symbol draft="contributed">EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>特殊提款權</displayName>
@@ -4137,7 +3755,6 @@
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP 法郎</displayName>
-				<symbol draft="contributed">CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName draft="contributed">白金</displayName>
@@ -4153,7 +3770,6 @@
 			</currency>
 			<currency type="YER">
 				<displayName>葉門里雅</displayName>
-				<symbol>YR</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>南斯拉夫第納爾硬幣</displayName>
@@ -4169,7 +3785,6 @@
 			</currency>
 			<currency type="ZAR">
 				<displayName>南非蘭特</displayName>
-				<symbol draft="contributed">R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>尚比亞克瓦查</displayName>
@@ -4182,7 +3797,6 @@
 			</currency>
 			<currency type="ZWD">
 				<displayName>辛巴威元</displayName>
-				<symbol draft="contributed">Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>

@@ -1085,20 +1085,6 @@
 			<codePattern type="territory">Region: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList draft="unconfirmed">mixed</inList>
-		<inText type="currency" draft="unconfirmed">mixed</inText>
-		<inText type="fields" draft="unconfirmed">mixed</inText>
-		<inText type="keys" draft="unconfirmed">mixed</inText>
-		<inText type="languages" draft="unconfirmed">mixed</inText>
-		<inText type="long" draft="unconfirmed">mixed</inText>
-		<inText type="measurementSystemNames" draft="unconfirmed">mixed</inText>
-		<inText type="quarterWidth" draft="unconfirmed">mixed</inText>
-		<inText type="scripts" draft="unconfirmed">mixed</inText>
-		<inText type="territories" draft="unconfirmed">mixed</inText>
-		<inText type="types" draft="unconfirmed">mixed</inText>
-		<inText type="variants" draft="unconfirmed">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a ä b-o ö p-s ß t u ü v-z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à ă â å ä ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ß ú ù ŭ û ü ū ÿ]</exemplarCharacters>
@@ -1527,7 +1513,6 @@
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -1553,9 +1538,6 @@
 			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity>Wien</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity>Brisbane</exemplarCity>
 			</zone>
 			<zone type="Europe/Brussels">
 				<exemplarCity>Brüssel</exemplarCity>
@@ -1897,7 +1879,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
@@ -1964,22 +1945,18 @@
 			<currency type="AFN">
 				<displayName>Afghani</displayName>
 				<displayName count="other">Afghani</displayName>
-				<symbol>Af</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Lek</displayName>
 				<displayName count="other">Albanische Lek</displayName>
-				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Dram</displayName>
 				<displayName count="other">Armenische Dram</displayName>
-				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Niederl. Antillen Gulden</displayName>
 				<displayName count="other">Niederländische-Antillen-Gulden</displayName>
-				<symbol>NAf.</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>Kwanza</displayName>
@@ -2039,7 +2016,6 @@
 			<currency type="BAM">
 				<displayName>Konvertierbare Mark</displayName>
 				<displayName count="other">Bosnien und Herzegowina Konvertierbare Mark</displayName>
-				<symbol>KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbados-Dollar</displayName>
@@ -2049,7 +2025,6 @@
 			<currency type="BDT">
 				<displayName>Taka</displayName>
 				<displayName count="other">Taka</displayName>
-				<symbol>Tk</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>Belgischer Franc (konvertibel)</displayName>
@@ -2058,7 +2033,6 @@
 			<currency type="BEF">
 				<displayName>Belgischer Franc</displayName>
 				<displayName count="other">Belgische Franc</displayName>
-				<symbol>BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>Belgischer Finanz-Franc</displayName>
@@ -2076,7 +2050,6 @@
 			<currency type="BHD">
 				<displayName>Bahrain-Dinar</displayName>
 				<displayName count="other">Bahrain-Dinar</displayName>
-				<symbol>BD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Burundi-Franc</displayName>
@@ -2095,7 +2068,6 @@
 			<currency type="BOB">
 				<displayName>Boliviano</displayName>
 				<displayName count="other">Boliviano</displayName>
-				<symbol>Bs</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>Bolivianischer Peso</displayName>
@@ -2158,7 +2130,6 @@
 			<currency type="BZD">
 				<displayName>Belize-Dollar</displayName>
 				<displayName count="other">Belize-Dollar</displayName>
-				<symbol>BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Kanadischer Dollar</displayName>
@@ -2175,7 +2146,6 @@
 			<currency type="CHF">
 				<displayName>Schweizer Franken</displayName>
 				<displayName count="other">Schweizer Franken</displayName>
-				<symbol>Fr.</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR Franken</displayName>
@@ -2242,7 +2212,6 @@
 			<currency type="DEM">
 				<displayName>Deutsche Mark</displayName>
 				<displayName count="other">Deutsche Mark</displayName>
-				<symbol>DM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Dschibuti-Franc</displayName>
@@ -2260,7 +2229,6 @@
 			<currency type="DZD">
 				<displayName>Algerischer Dinar</displayName>
 				<displayName count="other">Algerische Dinar</displayName>
-				<symbol>DA</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>Ecuadorianischer Sucre</displayName>
@@ -2298,7 +2266,6 @@
 			<currency type="ETB">
 				<displayName>Birr</displayName>
 				<displayName count="other">Äthiopische Birr</displayName>
-				<symbol>Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
@@ -2325,7 +2292,6 @@
 			<currency type="GBP">
 				<displayName>Pfund Sterling</displayName>
 				<displayName count="other">Pfund Sterling</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Georgischer Kupon Larit</displayName>
@@ -2342,7 +2308,6 @@
 			</currency>
 			<currency type="GHS">
 				<displayName>Ghanaische Cedi</displayName>
-				<symbol>GH₵</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Gibraltar-Pfund</displayName>
@@ -2410,17 +2375,14 @@
 			<currency type="HUF">
 				<displayName>Forint</displayName>
 				<displayName count="other">Forint</displayName>
-				<symbol>Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Rupiah</displayName>
 				<displayName count="other">Rupiah</displayName>
-				<symbol>Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Irisches Pfund</displayName>
 				<displayName count="other">Irische Pfund</displayName>
-				<symbol>IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>Israelisches Pfund</displayName>
@@ -2433,7 +2395,6 @@
 			<currency type="INR">
 				<displayName>Indische Rupie</displayName>
 				<displayName count="other">Indische Rupien</displayName>
-				<symbol>₨</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Irak Dinar</displayName>
@@ -2457,12 +2418,10 @@
 			<currency type="JMD">
 				<displayName>Jamaika-Dollar</displayName>
 				<displayName count="other">Jamaika Dollar</displayName>
-				<symbol>J$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Jordanischer Dinar</displayName>
 				<displayName count="other">Jordanische Dinar</displayName>
-				<symbol>JD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Yen</displayName>
@@ -2487,7 +2446,6 @@
 			<currency type="KMF">
 				<displayName>Komoren Franc</displayName>
 				<displayName count="other">Komoren-Franc</displayName>
-				<symbol>CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Nordkoreanischer Won</displayName>
@@ -2500,7 +2458,6 @@
 			<currency type="KWD">
 				<displayName>Kuwait Dinar</displayName>
 				<displayName count="other">Kuwait Dinar</displayName>
-				<symbol>KD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Kaiman-Dollar</displayName>
@@ -2565,7 +2522,6 @@
 			<currency type="LYD">
 				<displayName>Libyscher Dinar</displayName>
 				<displayName count="other">Libysche Dinar</displayName>
-				<symbol>LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Marokkanischer Dirham</displayName>
@@ -2614,12 +2570,10 @@
 			<currency type="MRO">
 				<displayName>Ouguiya</displayName>
 				<displayName count="other">Ouguiya</displayName>
-				<symbol>UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Maltesische Lira</displayName>
 				<displayName count="other">Maltesische Lira</displayName>
-				<symbol>Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>Maltesisches Pfund</displayName>
@@ -2636,7 +2590,6 @@
 			<currency type="MWK">
 				<displayName>Malawi Kwacha</displayName>
 				<displayName count="other">Malawi-Kwacha</displayName>
-				<symbol>MK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Mexikanischer Peso</displayName>
@@ -2654,7 +2607,6 @@
 			<currency type="MYR">
 				<displayName>Malaysischer Ringgit</displayName>
 				<displayName count="other">Malaysische Ringgit</displayName>
-				<symbol>RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Mosambikanischer Escudo</displayName>
@@ -2663,17 +2615,14 @@
 			<currency type="MZM">
 				<displayName>Alter Metical</displayName>
 				<displayName count="other">Alte Metical</displayName>
-				<symbol>Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>Metical</displayName>
 				<displayName count="other">Metical</displayName>
-				<symbol>MTn</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Namibia-Dollar</displayName>
 				<displayName count="other">Namibia-Dollar</displayName>
-				<symbol>N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Naira</displayName>
@@ -2761,7 +2710,6 @@
 			<currency type="QAR">
 				<displayName>Katar Riyal</displayName>
 				<displayName count="other">Katar Riyal</displayName>
-				<symbol>QR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>Rhodesischer Dollar</displayName>
@@ -2799,7 +2747,6 @@
 			<currency type="SBD">
 				<displayName>Salomonen-Dollar</displayName>
 				<displayName count="other">Salomonen-Dollar</displayName>
-				<symbol>SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Seychellen-Rupie</displayName>
@@ -2825,7 +2772,6 @@
 			<currency type="SGD">
 				<displayName>Singapur-Dollar</displayName>
 				<displayName count="other">Singapur-Dollar</displayName>
-				<symbol>S$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>St. Helena Pfund</displayName>
@@ -2838,7 +2784,6 @@
 			<currency type="SKK">
 				<displayName>Slowakische Krone</displayName>
 				<displayName count="other">Slowakische Kronen</displayName>
-				<symbol>Sk</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Leone</displayName>
@@ -2847,7 +2792,6 @@
 			<currency type="SOS">
 				<displayName>Somalia-Schilling</displayName>
 				<displayName count="other">Somalia-Schilling</displayName>
-				<symbol>Ssh</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName references="R021">Surinamischer Dollar</displayName>
@@ -2856,12 +2800,10 @@
 			<currency type="SRG">
 				<displayName>Suriname Gulden</displayName>
 				<displayName count="other">Suriname-Gulden</displayName>
-				<symbol>Sf</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Dobra</displayName>
 				<displayName count="other">Dobra</displayName>
-				<symbol>Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Sowjetischer Rubel</displayName>
@@ -2904,7 +2846,6 @@
 			<currency type="TOP">
 				<displayName>Paʻanga</displayName>
 				<displayName count="other">Paʻanga</displayName>
-				<symbol>T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>Timor-Escudo</displayName>
@@ -2914,7 +2855,6 @@
 				<displayName>Alte Türkische Lira</displayName>
 				<displayName count="one">Alte Türkische Lira</displayName>
 				<displayName count="other">Alte Türkische Lire</displayName>
-				<symbol>TRL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">TL</symbol>
 			</currency>
 			<currency type="TRY">
@@ -2925,12 +2865,10 @@
 			<currency type="TTD">
 				<displayName>Trinidad- und Tobago-Dollar</displayName>
 				<displayName count="other">Trinidad und Tobago-Dollar</displayName>
-				<symbol>TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Neuer Taiwan-Dollar</displayName>
 				<displayName count="other">Neuer Taiwan Dollar</displayName>
-				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Tansania-Schilling</displayName>
@@ -2990,7 +2928,6 @@
 			</currency>
 			<currency type="VEF">
 				<displayName>Bolívar Fuerte</displayName>
-				<symbol>Bs.F.</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Dong</displayName>
@@ -3013,14 +2950,12 @@
 				<displayName count="one">Unze Silber</displayName>
 				<displayName count="other">Silber</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Unze Silber</displayName>
-				<symbol>XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>Unze Gold</displayName>
 				<displayName count="one">Unze Gold</displayName>
 				<displayName count="other">Gold</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Unze Gold</displayName>
-				<symbol>XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>Europäische Rechnungseinheit</displayName>
@@ -3041,7 +2976,6 @@
 			<currency type="XCD">
 				<displayName>Ostkaribischer Dollar</displayName>
 				<displayName count="other">Ostkaribische Dollar</displayName>
-				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>Sonderziehungsrechte</displayName>
@@ -3068,7 +3002,6 @@
 				<displayName count="one">Unze Palladium</displayName>
 				<displayName count="other">Palladium</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Unze Palladium</displayName>
-				<symbol>XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP Franc</displayName>
@@ -3079,7 +3012,6 @@
 				<displayName count="one">Unze Platin</displayName>
 				<displayName count="other">Platin</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Unze Platin</displayName>
-				<symbol>XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET Funds</displayName>
@@ -3120,14 +3052,12 @@
 				<displayName count="one">Südafrikanischer Rand (Finanz)</displayName>
 				<displayName count="other">Südafrikanischer Rand (Finanz)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">ZAR</displayName>
-				<symbol>ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Südafrikanischer Rand</displayName>
 				<displayName count="one">Südafrikanischer Rand</displayName>
 				<displayName count="other">Rand</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Südafrikanischer Rand</displayName>
-				<symbol>R</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
@@ -3145,7 +3075,6 @@
 			<currency type="ZWD">
 				<displayName>Simbabwe-Dollar</displayName>
 				<displayName count="other">Simbabwe-Dollar</displayName>
-				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>
@@ -3334,3 +3263,4 @@ Comments without bases
 
  <territory type="057">Mikronesien</territory> 	 - was on: //ldml/localeDisplayNames/territories/territory[@type="057"][@alt="proposed-u212-1"]
 -->
+

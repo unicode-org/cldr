@@ -842,20 +842,6 @@
 			<codePattern type="territory">Регион: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList>mixed</inList>
-		<inText type="currency">mixed</inText>
-		<inText type="fields">mixed</inText>
-		<inText type="keys">mixed</inText>
-		<inText type="languages">mixed</inText>
-		<inText type="long">mixed</inText>
-		<inText type="measurementSystemNames">mixed</inText>
-		<inText type="quarterWidth">mixed</inText>
-		<inText type="scripts">mixed</inText>
-		<inText type="territories">mixed</inText>
-		<inText type="types">mixed</inText>
-		<inText type="variants">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[а-г ѓ д-з ѕ и ј к ќ л љ м н њ о-ч џ ш]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[ѐ ѝ]</exemplarCharacters>
@@ -957,12 +943,6 @@
 							<quarter type="2" draft="unconfirmed">Q2</quarter>
 							<quarter type="3" draft="unconfirmed">Q3</quarter>
 							<quarter type="4" draft="unconfirmed">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="unconfirmed">Q1</quarter>
@@ -1708,10 +1688,6 @@
 					<standard>Кујбишев</standard>
 					<daylight>Летно време во Кујбишев</daylight>
 				</long>
-				<short>
-					<standard>KUYT</standard>
-					<daylight>KUYST</daylight>
-				</short>
 				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Moscow">
@@ -1720,10 +1696,6 @@
 					<standard>Стандардно време во Москва</standard>
 					<daylight>Летно време во Москва</daylight>
 				</long>
-				<short>
-					<standard>MSK</standard>
-					<daylight>MSKS</daylight>
-				</short>
 				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Samara">
@@ -1731,10 +1703,6 @@
 					<standard>Самара</standard>
 					<daylight>Летно време во Самара</daylight>
 				</long>
-				<short>
-					<standard>SAMT</standard>
-					<daylight>SAMST</daylight>
-				</short>
 				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Turkey">
@@ -1742,10 +1710,6 @@
 					<standard>Турција</standard>
 					<daylight>Летно време во Турција</daylight>
 				</long>
-				<short>
-					<standard>TRT</standard>
-					<daylight>TRST</daylight>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Volgograd">
@@ -1753,16 +1717,11 @@
 					<standard>Волгоград</standard>
 					<daylight>Летно време во Волгоград</daylight>
 				</long>
-				<short>
-					<standard>VOLT</standard>
-					<daylight>VOLST</daylight>
-				</short>
 				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<defaultNumberingSystem alt="proposed-x1001" draft="unconfirmed">децимален</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
@@ -1787,7 +1746,6 @@
 			</currency>
 			<currency type="AFN">
 				<displayName>Авгани</displayName>
-				<symbol>Af</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Албански Лек</displayName>
@@ -1825,7 +1783,6 @@
 			</currency>
 			<currency type="BAM">
 				<displayName>Босанско-Херцеговска конвертибилна марка</displayName>
-				<symbol>KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Барбадоски Долар</displayName>
@@ -1836,7 +1793,6 @@
 			</currency>
 			<currency type="BEF">
 				<displayName>Белгиски Франк</displayName>
-				<symbol>BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>Белгиски Франк (финансиски)</displayName>
@@ -1850,7 +1806,6 @@
 			</currency>
 			<currency type="BHD">
 				<displayName>Бахреински Динар</displayName>
-				<symbol>BD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Бурундиски Франк</displayName>
@@ -1878,7 +1833,6 @@
 			</currency>
 			<currency type="BZD">
 				<displayName>Белизиски Долар</displayName>
-				<symbol>BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Канадски Долар</displayName>
@@ -1920,11 +1874,9 @@
 			</currency>
 			<currency type="DOP">
 				<displayName>Доминикански Пезос</displayName>
-				<symbol>RD$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Алжирски Динар</displayName>
-				<symbol>DA</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Египетска Фунта</displayName>
@@ -1934,7 +1886,6 @@
 			</currency>
 			<currency type="ETB">
 				<displayName>Етиописки Бир</displayName>
-				<symbol>Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Евро</displayName>
@@ -1988,7 +1939,6 @@
 			</currency>
 			<currency type="HKD">
 				<displayName>Хонгконшки долар</displayName>
-				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Хондурска лемпира</displayName>
@@ -2005,14 +1955,12 @@
 			</currency>
 			<currency type="HUF">
 				<displayName>Унгарска форинта</displayName>
-				<symbol>Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Индонезиска рупија</displayName>
 			</currency>
 			<currency type="IEP">
 				<displayName>Ирска фунта</displayName>
-				<symbol>IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>Изрелска фунта</displayName>
@@ -2040,11 +1988,9 @@
 			</currency>
 			<currency type="JMD">
 				<displayName>Јамајкански долар</displayName>
-				<symbol>J$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Јордански динар</displayName>
-				<symbol>JD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Јапонски јен</displayName>
@@ -2063,7 +2009,6 @@
 			</currency>
 			<currency type="KMF">
 				<displayName>Коморски долар</displayName>
-				<symbol>CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Северно корејски вон</displayName>
@@ -2073,7 +2018,6 @@
 			</currency>
 			<currency type="KWD">
 				<displayName>Кувајтски динар</displayName>
-				<symbol>KD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Казахстанска тенга</displayName>
@@ -2114,7 +2058,6 @@
 			</currency>
 			<currency type="LYD">
 				<displayName>Либијски динар</displayName>
-				<symbol>LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Марокански Дирхам</displayName>
@@ -2141,7 +2084,6 @@
 			</currency>
 			<currency type="MTL">
 				<displayName>Малтешка лира</displayName>
-				<symbol>Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>Малтешка фунта</displayName>
@@ -2155,18 +2097,15 @@
 			</currency>
 			<currency type="MYR">
 				<displayName>Малазиски рингит</displayName>
-				<symbol>RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Мозамбиско ескудо</displayName>
 			</currency>
 			<currency type="MZM">
 				<displayName>Стар мозамбиски метикал</displayName>
-				<symbol>Mt</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Намибиски долар</displayName>
-				<symbol>N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Нигериска наира</displayName>
@@ -2227,7 +2166,6 @@
 			</currency>
 			<currency type="QAR">
 				<displayName>Катарски риал</displayName>
-				<symbol>QR</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>Романска леа</displayName>
@@ -2252,7 +2190,6 @@
 			</currency>
 			<currency type="SBD">
 				<displayName>Соломонски долар</displayName>
-				<symbol>SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Сејшелска рупија</displayName>
@@ -2270,14 +2207,12 @@
 			</currency>
 			<currency type="SGD">
 				<displayName>Сингапурски долар</displayName>
-				<symbol>S$</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Словенечки толар</displayName>
 			</currency>
 			<currency type="SKK">
 				<displayName>Словачка круна</displayName>
-				<symbol>Sk</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Сиералеонско леоне</displayName>
@@ -2288,7 +2223,6 @@
 			</currency>
 			<currency type="SRG">
 				<displayName>Суринамски гилдер</displayName>
-				<symbol>Sf</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Советска рубља</displayName>
@@ -2324,15 +2258,12 @@
 			</currency>
 			<currency type="TRL">
 				<displayName>Турска лира</displayName>
-				<symbol>TRL</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Тајвански нов долар</displayName>
-				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Танзаниски шилинг</displayName>
-				<symbol>TSh</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>Украинска хривнија</displayName>
@@ -2342,7 +2273,6 @@
 			</currency>
 			<currency type="UGX">
 				<displayName>Угандиски шилинг</displayName>
-				<symbol>USh</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>Американски долар</displayName>
@@ -2371,14 +2301,12 @@
 			</currency>
 			<currency type="VUV">
 				<displayName>Ванатски вату</displayName>
-				<symbol>VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>Самоанска тала</displayName>
 			</currency>
 			<currency type="XCD">
 				<displayName>Источно карибиски долар</displayName>
-				<symbol>EC$</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>Јеменски динар</displayName>
@@ -2398,7 +2326,6 @@
 			</currency>
 			<currency type="ZAR">
 				<displayName>Јужно афрички ранд</displayName>
-				<symbol>R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Замбијска квача</displayName>
@@ -2411,7 +2338,6 @@
 			</currency>
 			<currency type="ZWD">
 				<displayName>Зимбабвиски долар</displayName>
-				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>

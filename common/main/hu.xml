@@ -1376,7 +1376,6 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -1421,9 +1420,6 @@
 			<zone type="America/Rio_Branco">
 				<exemplarCity>Río Branco</exemplarCity>
 			</zone>
-			<zone type="America/Porto_Velho">
-				<exemplarCity>Porto Velho</exemplarCity>
-			</zone>
 			<zone type="America/Cuiaba">
 				<exemplarCity>Cuiabá</exemplarCity>
 			</zone>
@@ -1432,9 +1428,6 @@
 			</zone>
 			<zone type="America/Araguaina">
 				<exemplarCity>Araguaína</exemplarCity>
-			</zone>
-			<zone type="America/Sao_Paulo">
-				<exemplarCity>Sao Paulo</exemplarCity>
 			</zone>
 			<zone type="America/Maceio">
 				<exemplarCity>Maceió</exemplarCity>
@@ -3053,7 +3046,6 @@
 			<currency type="AFN">
 				<displayName>Afghani</displayName>
 				<displayName count="other">Afghani</displayName>
-				<symbol>Af</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Albán lek</displayName>
@@ -3127,7 +3119,6 @@
 			<currency type="BAM">
 				<displayName>Bozsnia-hercegovinai konvertibilis márka</displayName>
 				<displayName count="other">Bosznia-hercegovinai konvertibilis márka</displayName>
-				<symbol>KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbadosi dollár</displayName>
@@ -3137,7 +3128,6 @@
 			<currency type="BDT">
 				<displayName>Bangladesi taka</displayName>
 				<displayName count="other">Bangladesi taka</displayName>
-				<symbol>Tk</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>Belga frank (konvertibilis)</displayName>
@@ -3146,7 +3136,6 @@
 			<currency type="BEF">
 				<displayName>Belga frank</displayName>
 				<displayName count="other">Belga frank</displayName>
-				<symbol>BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>Belga frank (pénzügyi)</displayName>
@@ -3164,7 +3153,6 @@
 			<currency type="BHD">
 				<displayName>Bahreini dinár</displayName>
 				<displayName count="other">Bahreini dinár</displayName>
-				<symbol>BD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Burundi frank</displayName>
@@ -3183,7 +3171,6 @@
 			<currency type="BOB">
 				<displayName>Boliviano</displayName>
 				<displayName count="other">Bolíviai boliviano</displayName>
-				<symbol>Bs</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>Bolíviai peso</displayName>
@@ -3208,7 +3195,6 @@
 			<currency type="BRL">
 				<displayName>Brazil real</displayName>
 				<displayName count="other">Brazil real</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Brazil cruzado novo</displayName>
@@ -3239,7 +3225,6 @@
 			</currency>
 			<currency type="BZD">
 				<displayName>Belizei dollár</displayName>
-				<symbol>BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Kanadai dollár</displayName>
@@ -3316,11 +3301,9 @@
 			</currency>
 			<currency type="DOP">
 				<displayName>Dominikai peso</displayName>
-				<symbol>RD$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Algériai dínár</displayName>
-				<symbol>DA</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>Ecuadori sucre</displayName>
@@ -3349,11 +3332,9 @@
 			</currency>
 			<currency type="ETB">
 				<displayName>Etiópiai birr</displayName>
-				<symbol>Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Finn markka</displayName>
@@ -3370,7 +3351,6 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>Brit font sterling</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Grúz kupon larit</displayName>
@@ -3423,7 +3403,6 @@
 			</currency>
 			<currency type="HKD">
 				<displayName>Hongkongi dollár</displayName>
-				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Hodurasi lempira</displayName>
@@ -3440,15 +3419,12 @@
 			</currency>
 			<currency type="HUF">
 				<displayName>Magyar forint</displayName>
-				<symbol>Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Indonéz rúpia</displayName>
-				<symbol>Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Ír font</displayName>
-				<symbol>IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>Izraeli font</displayName>
@@ -3459,7 +3435,6 @@
 			<currency type="INR">
 				<displayName>indiai rúpia</displayName>
 				<displayName count="other">Indiai rúpia</displayName>
-				<symbol>₨</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Iraki dínár</displayName>
@@ -3474,15 +3449,12 @@
 			</currency>
 			<currency type="ITL">
 				<displayName>Olasz líra</displayName>
-				<symbol>IT₤</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>Jamaikai dollár</displayName>
-				<symbol>J$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Jordániai dínár</displayName>
-				<symbol>JD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Japán jen</displayName>
@@ -3502,7 +3474,6 @@
 			</currency>
 			<currency type="KMF">
 				<displayName>Comorei frank</displayName>
-				<symbol>CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Észak-koreai won</displayName>
@@ -3512,7 +3483,6 @@
 			</currency>
 			<currency type="KWD">
 				<displayName>Kuvaiti dínár</displayName>
-				<symbol>KD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Kajmán-szigeteki dollár</displayName>
@@ -3562,7 +3532,6 @@
 			</currency>
 			<currency type="LYD">
 				<displayName>Líbiai dínár</displayName>
-				<symbol>LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Marokkói dirham</displayName>
@@ -3598,11 +3567,9 @@
 			</currency>
 			<currency type="MRO">
 				<displayName>Mauritániai ouguiya</displayName>
-				<symbol>UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Máltai líra</displayName>
-				<symbol>Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>Máltai font</displayName>
@@ -3615,7 +3582,6 @@
 			</currency>
 			<currency type="MWK">
 				<displayName>Malawi kwacha</displayName>
-				<symbol>MK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Mexikói peso</displayName>
@@ -3629,22 +3595,18 @@
 			</currency>
 			<currency type="MYR">
 				<displayName>Malajziai ringgit</displayName>
-				<symbol>RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Mozambik escudo</displayName>
 			</currency>
 			<currency type="MZM">
 				<displayName>Mozambik metical</displayName>
-				<symbol>Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>Mozambiki metikális</displayName>
-				<symbol>MTn</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Namíbiai dollár</displayName>
-				<symbol>N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Nigériai naira</displayName>
@@ -3691,7 +3653,6 @@
 			</currency>
 			<currency type="PHP">
 				<displayName>Fülöp-szigeteki peso</displayName>
-				<symbol>₱</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Pakisztáni rúpia</displayName>
@@ -3712,7 +3673,6 @@
 			</currency>
 			<currency type="QAR">
 				<displayName>Katari rial</displayName>
-				<symbol>QR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>rhodéziai dollár</displayName>
@@ -3746,7 +3706,6 @@
 			</currency>
 			<currency type="SBD">
 				<displayName>Salamon-szigeteki dollár</displayName>
-				<symbol>SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Seychelle-szigeteki rúpia</displayName>
@@ -3770,7 +3729,6 @@
 			</currency>
 			<currency type="SGD">
 				<displayName>Szingapúri dollár</displayName>
-				<symbol>S$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Saint Helena font</displayName>
@@ -3780,7 +3738,6 @@
 			</currency>
 			<currency type="SKK">
 				<displayName>Szlovák korona</displayName>
-				<symbol>Sk</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Sierra Leonei leone</displayName>
@@ -3795,11 +3752,9 @@
 			</currency>
 			<currency type="SRG">
 				<displayName>Suriname-i gulden</displayName>
-				<symbol>Sf</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Sao tome-i és principe-i dobra</displayName>
-				<symbol>Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Szovjet rubel</displayName>
@@ -3833,7 +3788,6 @@
 			<currency type="TOP">
 				<displayName>tongai paanga</displayName>
 				<displayName count="other">Tongai paanga</displayName>
-				<symbol>T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>Timori escudo</displayName>
@@ -3841,7 +3795,6 @@
 			<currency type="TRL">
 				<displayName>Régi török líra</displayName>
 				<displayName count="other">Régi török líra</displayName>
-				<symbol>TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>új török líra</displayName>
@@ -3849,12 +3802,10 @@
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad és tobagoi dollár</displayName>
-				<symbol>TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Tajvani új dollár</displayName>
 				<displayName count="other">Tajvani dollár</displayName>
-				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Tanzániai shilling</displayName>
@@ -3907,14 +3858,12 @@
 			<currency type="VEF">
 				<displayName>Venezuelai bolivar fuerte</displayName>
 				<displayName count="other">Venezuelai bolivar fuerte</displayName>
-				<symbol>Bs.F.</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Vietnámi dong</displayName>
 			</currency>
 			<currency type="VUV">
 				<displayName>Vanuatui vatu</displayName>
-				<symbol>VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>Nyugat-szamoai tala</displayName>
@@ -3946,7 +3895,6 @@
 			</currency>
 			<currency type="XCD">
 				<displayName>Kelet-karibi dollár</displayName>
-				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>Special Drawing Rights</displayName>
@@ -3970,7 +3918,6 @@
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP frank</displayName>
-				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>platina</displayName>
@@ -4007,7 +3954,6 @@
 			</currency>
 			<currency type="ZAR">
 				<displayName>Dél-afrikai rand</displayName>
-				<symbol>R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Zambiai kwacha</displayName>
@@ -4020,7 +3966,6 @@
 			</currency>
 			<currency type="ZWD">
 				<displayName>Zimbabwei dollár</displayName>
-				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>
@@ -4106,3 +4051,4 @@ Comments without bases
 
  French Polynesia 	 - was on: //ldml/dates/timeZoneNames/zone[@type="Pacific/Tahiti"]
 -->
+

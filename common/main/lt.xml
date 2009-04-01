@@ -978,20 +978,6 @@
 			<codePattern type="territory">Sritis: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList>mixed</inList>
-		<inText type="currency">mixed</inText>
-		<inText type="fields">mixed</inText>
-		<inText type="keys">mixed</inText>
-		<inText type="languages">mixed</inText>
-		<inText type="long">mixed</inText>
-		<inText type="measurementSystemNames">mixed</inText>
-		<inText type="quarterWidth">mixed</inText>
-		<inText type="scripts">mixed</inText>
-		<inText type="territories">mixed</inText>
-		<inText type="types">mixed</inText>
-		<inText type="variants">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a ą b c č d e ę ė f-i į y j-p r s š t u ų ū v z ž]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" references="RP1">[{į\u0307} {i\u0307} {i\u0307\u0301} {i\u0307\u0300} {i\u0307\u0303} {j\u0307} q w x]</exemplarCharacters>
@@ -1344,7 +1330,6 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat draft="unconfirmed">{0}</regionFormat>
 			<fallbackFormat>{0} ({1})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -1365,9 +1350,6 @@
 			<zone type="Asia/Yerevan">
 				<exemplarCity>Jerevanas</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Rothera">
-				<exemplarCity>Rothera</exemplarCity>
-			</zone>
 			<zone type="Antarctica/Palmer">
 				<exemplarCity>Palmeris</exemplarCity>
 			</zone>
@@ -1377,23 +1359,11 @@
 			<zone type="Antarctica/Syowa">
 				<exemplarCity>Syova</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Mawson">
-				<exemplarCity>Mawson</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Davis">
-				<exemplarCity>Davis</exemplarCity>
-			</zone>
 			<zone type="Antarctica/Vostok">
 				<exemplarCity>Vostokas</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Casey">
-				<exemplarCity>Casey</exemplarCity>
-			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>Dumont D'Urville</exemplarCity>
-			</zone>
-			<zone type="Antarctica/McMurdo">
-				<exemplarCity>McMurdo</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Rio_Gallegos">
 				<exemplarCity>Rio Galjegosas</exemplarCity>
@@ -1416,9 +1386,6 @@
 			<zone type="America/Catamarca">
 				<exemplarCity>Katamarka</exemplarCity>
 			</zone>
-			<zone type="America/Argentina/Salta">
-				<exemplarCity>Salta</exemplarCity>
-			</zone>
 			<zone type="America/Jujuy">
 				<exemplarCity>Chuchujus</exemplarCity>
 			</zone>
@@ -1437,29 +1404,17 @@
 			<zone type="Australia/Perth">
 				<exemplarCity>Pertas</exemplarCity>
 			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity>Eucla</exemplarCity>
-			</zone>
 			<zone type="Australia/Darwin">
 				<exemplarCity>Darvinas</exemplarCity>
 			</zone>
 			<zone type="Australia/Adelaide">
 				<exemplarCity>Adelaidė</exemplarCity>
 			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity>Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Currie</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>Melburnas</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>Hobartas</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity>Lindeman</exemplarCity>
 			</zone>
 			<zone type="Australia/Sydney">
 				<exemplarCity>Sidnėjus</exemplarCity>
@@ -1497,17 +1452,8 @@
 			<zone type="America/La_Paz">
 				<exemplarCity>La Pasas</exemplarCity>
 			</zone>
-			<zone type="America/Eirunepe">
-				<exemplarCity>Eirunepe</exemplarCity>
-			</zone>
 			<zone type="America/Rio_Branco">
 				<exemplarCity>Rio Brankas</exemplarCity>
-			</zone>
-			<zone type="America/Porto_Velho">
-				<exemplarCity>Porto Velho</exemplarCity>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity>Boa Vista</exemplarCity>
 			</zone>
 			<zone type="America/Manaus">
 				<exemplarCity>Manausas</exemplarCity>
@@ -1518,32 +1464,14 @@
 			<zone type="America/Santarem">
 				<exemplarCity>Santarenas</exemplarCity>
 			</zone>
-			<zone type="America/Campo_Grande">
-				<exemplarCity>Campo Grande</exemplarCity>
-			</zone>
 			<zone type="America/Belem">
 				<exemplarCity>Belemas</exemplarCity>
-			</zone>
-			<zone type="America/Araguaina">
-				<exemplarCity>Araguaina</exemplarCity>
 			</zone>
 			<zone type="America/Sao_Paulo">
 				<exemplarCity>San Paulas</exemplarCity>
 			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity>Bahia</exemplarCity>
-			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity>Fortaleza</exemplarCity>
-			</zone>
-			<zone type="America/Maceio">
-				<exemplarCity>Maceio</exemplarCity>
-			</zone>
 			<zone type="America/Recife">
 				<exemplarCity>Resifė</exemplarCity>
-			</zone>
-			<zone type="America/Noronha">
-				<exemplarCity>Noronha</exemplarCity>
 			</zone>
 			<zone type="Africa/Gaborone">
 				<exemplarCity>Gaboronas</exemplarCity>
@@ -1560,9 +1488,6 @@
 			<zone type="America/Whitehorse">
 				<exemplarCity>Vaithorsas</exemplarCity>
 			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity>Inuvik</exemplarCity>
-			</zone>
 			<zone type="America/Vancouver">
 				<exemplarCity>Vankuveris</exemplarCity>
 			</zone>
@@ -1575,9 +1500,6 @@
 			<zone type="America/Edmonton">
 				<exemplarCity>Edmontonas</exemplarCity>
 			</zone>
-			<zone type="America/Swift_Current">
-				<exemplarCity>Swift Current</exemplarCity>
-			</zone>
 			<zone type="America/Cambridge_Bay">
 				<exemplarCity>Kembridžo įlanka</exemplarCity>
 			</zone>
@@ -1586,18 +1508,6 @@
 			</zone>
 			<zone type="America/Winnipeg">
 				<exemplarCity>Vinipegas</exemplarCity>
-			</zone>
-			<zone type="America/Resolute">
-				<exemplarCity>Resolute</exemplarCity>
-			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>Rainy River</exemplarCity>
-			</zone>
-			<zone type="America/Rankin_Inlet">
-				<exemplarCity>Rankin Inlet</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity>Coral Harbour</exemplarCity>
 			</zone>
 			<zone type="America/Thunder_Bay">
 				<exemplarCity>Tander Bėjus</exemplarCity>
@@ -1622,18 +1532,6 @@
 			</zone>
 			<zone type="America/Halifax">
 				<exemplarCity>Halifaksas</exemplarCity>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<exemplarCity>Goose Bay</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity>Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity>Blanc-Sablon</exemplarCity>
-			</zone>
-			<zone type="America/St_Johns">
-				<exemplarCity>St. John's</exemplarCity>
 			</zone>
 			<zone type="Africa/Kinshasa">
 				<exemplarCity>Kinšasa</exemplarCity>
@@ -1731,9 +1629,6 @@
 			<zone type="Pacific/Ponape">
 				<exemplarCity>Ponapė</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kosrae">
-				<exemplarCity>Kosrae</exemplarCity>
-			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Farerai</exemplarCity>
 			</zone>
@@ -1760,9 +1655,6 @@
 			</zone>
 			<zone type="America/Godthab">
 				<exemplarCity>Godthabas</exemplarCity>
-			</zone>
-			<zone type="America/Scoresbysund">
-				<exemplarCity>Scoresbysund</exemplarCity>
 			</zone>
 			<zone type="America/Danmarkshavn">
 				<exemplarCity>Danmarkshavn’as</exemplarCity>
@@ -1833,9 +1725,6 @@
 			<zone type="Pacific/Enderbury">
 				<exemplarCity>Enderburis</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kiritimati">
-				<exemplarCity>Kiritimati</exemplarCity>
-			</zone>
 			<zone type="Pacific/Tarawa">
 				<exemplarCity>Tarava</exemplarCity>
 			</zone>
@@ -1905,14 +1794,8 @@
 			<zone type="Indian/Antananarivo">
 				<exemplarCity>Antananarivas</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kwajalein">
-				<exemplarCity>Kwajalein</exemplarCity>
-			</zone>
 			<zone type="Asia/Rangoon">
 				<exemplarCity>Rangūnas</exemplarCity>
-			</zone>
-			<zone type="Asia/Hovd">
-				<exemplarCity>Hovd</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulan-Batoras</exemplarCity>
@@ -1956,9 +1839,6 @@
 			<zone type="America/Mexico_City">
 				<exemplarCity>Meksikas</exemplarCity>
 			</zone>
-			<zone type="America/Merida">
-				<exemplarCity>Merida</exemplarCity>
-			</zone>
 			<zone type="America/Cancun">
 				<exemplarCity>Kankunas</exemplarCity>
 			</zone>
@@ -1977,9 +1857,6 @@
 			<zone type="Europe/Oslo">
 				<exemplarCity>Oslas</exemplarCity>
 			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity>Chatham</exemplarCity>
-			</zone>
 			<zone type="Asia/Muscat">
 				<exemplarCity>Maskatas</exemplarCity>
 			</zone>
@@ -1988,9 +1865,6 @@
 			</zone>
 			<zone type="Pacific/Marquesas">
 				<exemplarCity>Markizo salos</exemplarCity>
-			</zone>
-			<zone type="Pacific/Gambier">
-				<exemplarCity>Gambier</exemplarCity>
 			</zone>
 			<zone type="Europe/Warsaw">
 				<exemplarCity>Varšuva</exemplarCity>
@@ -2006,9 +1880,6 @@
 			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azorai</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Madeira">
-				<exemplarCity>Madeira</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity>Lisabona</exemplarCity>
@@ -2033,9 +1904,6 @@
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgogradas</exemplarCity>
-			</zone>
-			<zone type="Europe/Samara">
-				<exemplarCity>Samara</exemplarCity>
 			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity>Jekaterinburgas</exemplarCity>
@@ -2154,15 +2022,6 @@
 			<zone type="Pacific/Wake">
 				<exemplarCity>Jungtinių Valstijų mažosios aplinkinės salos (Klivateris)</exemplarCity>
 			</zone>
-			<zone type="America/Adak">
-				<exemplarCity>Adak</exemplarCity>
-			</zone>
-			<zone type="America/Nome">
-				<exemplarCity>Nome</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Ankoridžas</exemplarCity>
 			</zone>
@@ -2181,9 +2040,6 @@
 			<zone type="America/Phoenix">
 				<exemplarCity>Fyniksas</exemplarCity>
 			</zone>
-			<zone type="America/Shiprock">
-				<exemplarCity>Shiprock</exemplarCity>
-			</zone>
 			<zone type="America/Denver">
 				<exemplarCity>Denveris</exemplarCity>
 			</zone>
@@ -2196,17 +2052,11 @@
 			<zone type="America/Chicago">
 				<exemplarCity>Čikaga</exemplarCity>
 			</zone>
-			<zone type="America/Menominee">
-				<exemplarCity>Menominee</exemplarCity>
-			</zone>
 			<zone type="America/Indiana/Vincennes">
 				<exemplarCity>Vincenas, Indiana</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Petersburg">
 				<exemplarCity>Peterburgas</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity>Tell City, Indiana</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Knox">
 				<exemplarCity>Noksas, Indiana</exemplarCity>
@@ -2214,17 +2064,8 @@
 			<zone type="America/Indiana/Winamac">
 				<exemplarCity>Vinamakas, Indiana</exemplarCity>
 			</zone>
-			<zone type="America/Indiana/Marengo">
-				<exemplarCity>Marengo, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indianapolis">
-				<exemplarCity>Indianapolis</exemplarCity>
-			</zone>
 			<zone type="America/Louisville">
 				<exemplarCity>Luizvilis</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<exemplarCity>Vevay, Indiana</exemplarCity>
 			</zone>
 			<zone type="America/Kentucky/Monticello">
 				<exemplarCity>Monticelas, Kentukis</exemplarCity>
@@ -2361,36 +2202,6 @@
 					<daylight>Atlanto vasaros laikas</daylight>
 				</long>
 			</metazone>
-			<metazone type="Australia_Central">
-				<short>
-					<standard>ACST</standard>
-					<daylight>ACDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Australia_CentralWestern">
-				<short>
-					<standard>ACWST</standard>
-					<daylight>ACWDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Australia_Eastern">
-				<short>
-					<standard>AEST</standard>
-					<daylight>AEDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Australia_Western">
-				<short>
-					<standard>AWST</standard>
-					<daylight>AWDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Azores">
-				<short>
-					<standard>AZOT</standard>
-					<daylight>AZOST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Bering">
 				<long>
 					<generic>Beringo laikas</generic>
@@ -2409,50 +2220,17 @@
 					<daylight>Brazilijos vasaros laikas</daylight>
 				</long>
 			</metazone>
-			<metazone type="Cape_Verde">
-				<short>
-					<standard>CVT</standard>
-					<daylight>CVST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Chamorro">
-				<short>
-					<standard>ChST</standard>
-				</short>
-			</metazone>
-			<metazone type="Chatham">
-				<short>
-					<standard>CHAST</standard>
-					<daylight>CHADT</daylight>
-				</short>
-			</metazone>
 			<metazone type="Chile">
 				<long>
 					<standard>Čilės laikas</standard>
 					<daylight>Čilės vasaros laikas</daylight>
 				</long>
 			</metazone>
-			<metazone type="Christmas">
-				<short>
-					<standard>CXT</standard>
-				</short>
-			</metazone>
-			<metazone type="Cocos">
-				<short>
-					<standard>CCT</standard>
-				</short>
-			</metazone>
 			<metazone type="Colombia">
 				<long>
 					<standard>Kolumbijos laikas</standard>
 					<daylight>Kolumbijos vasaros laikas</daylight>
 				</long>
-			</metazone>
-			<metazone type="Cook">
-				<short>
-					<standard>CKT</standard>
-					<daylight>CKHST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Cuba">
 				<long>
@@ -2465,12 +2243,6 @@
 				<long>
 					<standard>Olandų Gajanos laikas</standard>
 				</long>
-			</metazone>
-			<metazone type="Easter">
-				<short>
-					<standard>EAST</standard>
-					<daylight>EASST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Ecuador">
 				<long>
@@ -2503,46 +2275,14 @@
 					<daylight>WEST</daylight>
 				</short>
 			</metazone>
-			<metazone type="Falkland">
-				<short>
-					<standard>FKT</standard>
-					<daylight>FKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Fiji">
-				<short>
-					<standard>FJT</standard>
-					<daylight>FJST</daylight>
-				</short>
-			</metazone>
 			<metazone type="French_Guiana">
 				<long>
 					<standard>Prancūzų Gajanos laikas</standard>
 				</long>
 			</metazone>
-			<metazone type="French_Southern">
-				<short>
-					<standard>TFT</standard>
-				</short>
-			</metazone>
 			<metazone type="GMT">
 				<short>
 					<standard>GMT</standard>
-				</short>
-			</metazone>
-			<metazone type="Galapagos">
-				<short>
-					<standard>GALT</standard>
-				</short>
-			</metazone>
-			<metazone type="Gambier">
-				<short>
-					<standard>GAMT</standard>
-				</short>
-			</metazone>
-			<metazone type="Gilbert_Islands">
-				<short>
-					<standard>GILT</standard>
 				</short>
 			</metazone>
 			<metazone type="Greenland_Central">
@@ -2563,77 +2303,16 @@
 					<daylight>Grenlandijos vakarų vasaros laikas</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<short>
-					<standard>GST (GU)</standard>
-				</short>
-			</metazone>
 			<metazone type="Guyana">
 				<long>
 					<standard>Gajanos laikas</standard>
 				</long>
-			</metazone>
-			<metazone type="Hawaii_Aleutian">
-				<short>
-					<standard>HST</standard>
-				</short>
-			</metazone>
-			<metazone type="Indian_Ocean">
-				<short>
-					<standard>IOT</standard>
-				</short>
-			</metazone>
-			<metazone type="Kosrae">
-				<short>
-					<standard>KOST</standard>
-				</short>
 			</metazone>
 			<metazone type="Kuybyshev">
 				<long>
 					<standard>Kuibyševo laikas</standard>
 					<daylight>Kuibyševo vasaros laikas</daylight>
 				</long>
-				<short>
-					<standard>KUYT</standard>
-					<daylight>KUYST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Kwajalein">
-				<short>
-					<standard>KWAT</standard>
-				</short>
-			</metazone>
-			<metazone type="Line_Islands">
-				<short>
-					<standard>LINT</standard>
-				</short>
-			</metazone>
-			<metazone type="Lord_Howe">
-				<short>
-					<standard>LHST</standard>
-					<daylight>LHDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Maldives">
-				<short>
-					<standard>MVT</standard>
-				</short>
-			</metazone>
-			<metazone type="Marquesas">
-				<short>
-					<standard>MART</standard>
-				</short>
-			</metazone>
-			<metazone type="Marshall_Islands">
-				<short>
-					<standard>MHT</standard>
-				</short>
-			</metazone>
-			<metazone type="Mauritius">
-				<short>
-					<standard>MUT</standard>
-					<daylight>MUST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
@@ -2641,27 +2320,6 @@
 					<standard>Maskvos standartinis laikas</standard>
 					<daylight>Maskvos vasaros laikas</daylight>
 				</long>
-				<short>
-					<standard>MSK</standard>
-					<daylight>MSKS</daylight>
-				</short>
-			</metazone>
-			<metazone type="Nauru">
-				<short>
-					<standard>NRT</standard>
-				</short>
-			</metazone>
-			<metazone type="New_Caledonia">
-				<short>
-					<standard>NCT</standard>
-					<daylight>NCST</daylight>
-				</short>
-			</metazone>
-			<metazone type="New_Zealand">
-				<short>
-					<standard>NZST</standard>
-					<daylight>NZDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
@@ -2669,31 +2327,6 @@
 					<standard>Niufaundlendo standartinis laikas</standard>
 					<daylight>Niufaundlendo vasaros laikas</daylight>
 				</long>
-			</metazone>
-			<metazone type="Niue">
-				<short>
-					<standard>NUT</standard>
-				</short>
-			</metazone>
-			<metazone type="Norfolk">
-				<short>
-					<standard>NFT</standard>
-				</short>
-			</metazone>
-			<metazone type="North_Mariana">
-				<short>
-					<standard>MPT</standard>
-				</short>
-			</metazone>
-			<metazone type="Palau">
-				<short>
-					<standard>PWT</standard>
-				</short>
-			</metazone>
-			<metazone type="Papua_New_Guinea">
-				<short>
-					<standard>PGT</standard>
-				</short>
 			</metazone>
 			<metazone type="Paraguay">
 				<long>
@@ -2707,35 +2340,11 @@
 					<daylight>Peru vasaros laikas</daylight>
 				</long>
 			</metazone>
-			<metazone type="Phoenix_Islands">
-				<short>
-					<standard>PHOT</standard>
-				</short>
-			</metazone>
-			<metazone type="Pitcairn">
-				<short>
-					<standard>PNT</standard>
-				</short>
-			</metazone>
-			<metazone type="Ponape">
-				<short>
-					<standard>PONT</standard>
-				</short>
-			</metazone>
-			<metazone type="Reunion">
-				<short>
-					<standard>RET</standard>
-				</short>
-			</metazone>
 			<metazone type="Samara">
 				<long>
 					<standard>Samaros laikas</standard>
 					<daylight>Samaros vasaros laikas</daylight>
 				</long>
-				<short>
-					<standard>SAMT</standard>
-					<daylight>SAMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samarkand">
 				<short>
@@ -2743,73 +2352,17 @@
 					<daylight>SAMST (Samarkandas)</daylight>
 				</short>
 			</metazone>
-			<metazone type="Samoa">
-				<short>
-					<standard>SST</standard>
-				</short>
-			</metazone>
-			<metazone type="Seychelles">
-				<short>
-					<standard>SCT</standard>
-				</short>
-			</metazone>
-			<metazone type="Solomon">
-				<short>
-					<standard>SBT</standard>
-				</short>
-			</metazone>
-			<metazone type="South_Georgia">
-				<short>
-					<standard>GST (GS)</standard>
-				</short>
-			</metazone>
-			<metazone type="Tahiti">
-				<short>
-					<standard>TAHT</standard>
-				</short>
-			</metazone>
-			<metazone type="Tokelau">
-				<short>
-					<standard>TKT</standard>
-				</short>
-			</metazone>
-			<metazone type="Tonga">
-				<short>
-					<standard>TOT</standard>
-					<daylight>TOST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Truk">
-				<short>
-					<standard>TRUT</standard>
-				</short>
-			</metazone>
 			<metazone type="Turkey">
 				<long>
 					<standard>Turkijos laikas</standard>
 					<daylight>Turkijos vasaros laikas</daylight>
 				</long>
-				<short>
-					<standard>TRT</standard>
-					<daylight>TRST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Tuvalu">
-				<short>
-					<standard>TVT</standard>
-				</short>
 			</metazone>
 			<metazone type="Uruguay">
 				<long>
 					<standard>Urugvajaus laikas</standard>
 					<daylight>Urugvajaus vasaros laikas</daylight>
 				</long>
-			</metazone>
-			<metazone type="Vanuatu">
-				<short>
-					<standard>VUT</standard>
-					<daylight>VUST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Venezuela">
 				<long>
@@ -2821,25 +2374,10 @@
 					<standard>Volgogrado laikas</standard>
 					<daylight>Volgogrado vasaros laikas</daylight>
 				</long>
-				<short>
-					<standard>VOLT</standard>
-					<daylight>VOLST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Wake">
-				<short>
-					<standard>WAKT</standard>
-				</short>
-			</metazone>
-			<metazone type="Wallis">
-				<short>
-					<standard>WFT</standard>
-				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<defaultNumberingSystem alt="proposed-x1001" draft="unconfirmed">dešimtainė</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
@@ -3048,7 +2586,6 @@
 				<displayName count="few">Burundžio frankai</displayName>
 				<displayName count="one">Burundžio frankas</displayName>
 				<displayName count="other">Burundžio frankai</displayName>
-				<symbol>FBu</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Bermudos doleris</displayName>

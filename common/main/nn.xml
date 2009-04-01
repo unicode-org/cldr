@@ -1148,20 +1148,6 @@
 			<codePattern type="territory">Område: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList draft="unconfirmed">mixed</inList>
-		<inText type="currency" draft="unconfirmed">mixed</inText>
-		<inText type="fields" draft="unconfirmed">mixed</inText>
-		<inText type="keys" draft="unconfirmed">mixed</inText>
-		<inText type="languages" draft="unconfirmed">mixed</inText>
-		<inText type="long" draft="unconfirmed">mixed</inText>
-		<inText type="measurementSystemNames" draft="unconfirmed">mixed</inText>
-		<inText type="quarterWidth" draft="unconfirmed">mixed</inText>
-		<inText type="scripts" draft="unconfirmed">mixed</inText>
-		<inText type="territories" draft="unconfirmed">mixed</inText>
-		<inText type="types" draft="unconfirmed">mixed</inText>
-		<inText type="variants" draft="unconfirmed">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a à b-e é f-o ó ò ô p-z æ ø å]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á ǎ č ç đ è ê ń ñ ŋ š ŧ ü ž ä ö]</exemplarCharacters>
@@ -1474,7 +1460,6 @@
 			<hourFormat>+HH.mm;-HH.mm</hourFormat>
 			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<fallbackFormat alt="proposed-x1001" draft="unconfirmed">{0} ({1})</fallbackFormat>
@@ -1485,44 +1470,8 @@
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Sørpolen</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Casey">
-				<exemplarCity>Casey</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity>Catamarca</exemplarCity>
-			</zone>
-			<zone type="America/Buenos_Aires">
-				<exemplarCity>Buenos Aires</exemplarCity>
-			</zone>
-			<zone type="Australia/Adelaide">
-				<exemplarCity>Adelaide</exemplarCity>
-			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity>Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity>Brisbane</exemplarCity>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity>Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Campo_Grande">
-				<exemplarCity>Campo Grande</exemplarCity>
-			</zone>
 			<zone type="America/Belem">
 				<exemplarCity>Belém</exemplarCity>
-			</zone>
-			<zone type="America/Araguaina">
-				<exemplarCity>Araguaina</exemplarCity>
-			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity>Bahia</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity>Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity>Blanc-Sablon</exemplarCity>
 			</zone>
 			<!-- Argentina
 				 Australia
@@ -1544,9 +1493,6 @@
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Kanariøyane</exemplarCity>
 			</zone>
-			<zone type="Africa/Ceuta">
-				<exemplarCity>Ceuta</exemplarCity>
-			</zone>
 			<!-- Micronesia
 				 United Kingdom
 				 Greenland
@@ -1556,15 +1502,6 @@
 			</zone>
 			<zone type="Asia/Hong_Kong">
 				<exemplarCity draft="unconfirmed">Hongkong</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtau">
-				<exemplarCity>Aqtau</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtobe">
-				<exemplarCity>Aqtobe</exemplarCity>
-			</zone>
-			<zone type="Asia/Almaty">
-				<exemplarCity>Almaty</exemplarCity>
 			</zone>
 			<zone type="Europe/Luxembourg">
 				<exemplarCity draft="unconfirmed">Luxemburg</exemplarCity>
@@ -1585,18 +1522,12 @@
 			<zone type="Indian/Maldives">
 				<exemplarCity draft="unconfirmed">Maldivane</exemplarCity>
 			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity>Chihuahua</exemplarCity>
-			</zone>
 			<!-- Mexico -->
 			<zone type="America/Mexico_City">
 				<exemplarCity>Mexico by</exemplarCity>
 			</zone>
 			<zone type="America/Cancun">
 				<exemplarCity>Cancún</exemplarCity>
-			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity>Chatham</exemplarCity>
 			</zone>
 			<!-- Malaysia
 				 New Zealand
@@ -1613,23 +1544,8 @@
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskva</exemplarCity>
 			</zone>
-			<zone type="Asia/Anadyr">
-				<exemplarCity>Anadyr</exemplarCity>
-			</zone>
-			<zone type="America/Adak">
-				<exemplarCity>Adak</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<exemplarCity>Anchorage</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity>Boise</exemplarCity>
-			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Center, Nord-Dakota</exemplarCity>
-			</zone>
-			<zone type="America/Chicago">
-				<exemplarCity>Chicago</exemplarCity>
 			</zone>
 			<!-- Svalbard and Jan Mayen
 				 Ukraine
@@ -1740,7 +1656,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
@@ -1790,15 +1705,12 @@
 		<currencies>
 			<currency type="ADP">
 				<displayName>andorransk peseta</displayName>
-				<symbol>ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>UAE dirham</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>afghani (1927-2002)</displayName>
-				<symbol>AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>afghani</displayName>
@@ -1806,11 +1718,9 @@
 			</currency>
 			<currency type="ALL">
 				<displayName>albansk lek</displayName>
-				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>armensk dram</displayName>
-				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>nederlansk antillegylden</displayName>
@@ -1822,15 +1732,12 @@
 			</currency>
 			<currency type="AOK">
 				<displayName>angolsk kwanza (1977-1990)</displayName>
-				<symbol>AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>angolsk ny kwanza (1990-2000)</displayName>
-				<symbol>AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>angolsk kwanza reajustado (1995-1999)</displayName>
-				<symbol>AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName>argentisk austral</displayName>
@@ -1845,7 +1752,6 @@
 			</currency>
 			<currency type="ARP">
 				<displayName>argentinsk peso (1983-1985)</displayName>
-				<symbol>ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>argentinsk peso</displayName>
@@ -1853,7 +1759,6 @@
 			</currency>
 			<currency type="ATS">
 				<displayName>austerriksk schilling</displayName>
-				<symbol>ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>australsk dollar</displayName>
@@ -1865,7 +1770,6 @@
 			</currency>
 			<currency type="AZM">
 				<displayName>aserbaijansk manat</displayName>
-				<symbol>AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>aserbajdsjansk manat</displayName>
@@ -1875,7 +1779,6 @@
 			</currency>
 			<currency type="BAD">
 				<displayName>bosnisk-hercegovinsk dinar</displayName>
-				<symbol>BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>bosnisk-hercegovinsk mark (konvertibel)</displayName>
@@ -1891,7 +1794,6 @@
 			</currency>
 			<currency type="BEC">
 				<displayName>belgisk franc (konvertibel)</displayName>
-				<symbol>BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>belgisk franc</displayName>
@@ -1899,15 +1801,12 @@
 			</currency>
 			<currency type="BEL">
 				<displayName>belgisk franc (finansiell)</displayName>
-				<symbol>BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>bulgarsk hard lev</displayName>
-				<symbol>BGL</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>bulgarsk ny lev</displayName>
-				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>bahrainsk dinar</displayName>
@@ -1935,7 +1834,6 @@
 			</currency>
 			<currency type="BOV">
 				<displayName>bolivisk mvdol</displayName>
-				<symbol>BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>brasiliansk cruzeiro novo (1967-1986)</displayName>
@@ -1974,7 +1872,6 @@
 			</currency>
 			<currency type="BUK">
 				<displayName>burmesisk kyat</displayName>
-				<symbol>BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>botswansk pula</displayName>
@@ -1985,13 +1882,11 @@
 				<displayName>kviterussisk ny rubel (1994-1999)</displayName>
 				<displayName count="one">kviterussisk ny rubel (BYB)</displayName>
 				<displayName count="other">kviterussiske nye rublar (BYB)</displayName>
-				<symbol>BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>kviterussisk rubel</displayName>
 				<displayName count="one">kviterussisk rubel</displayName>
 				<displayName count="other">kviterussiske rublar</displayName>
-				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>belizisk dollar</displayName>
@@ -2014,7 +1909,6 @@
 				<displayName>WIR euro</displayName>
 				<displayName count="one">WIR euro</displayName>
 				<displayName count="other">WIR euro</displayName>
-				<symbol>CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>sveitsisk franc</displayName>
@@ -2026,7 +1920,6 @@
 				<displayName>WIR franc</displayName>
 				<displayName count="one">WIR franc</displayName>
 				<displayName count="other">WIR franc</displayName>
-				<symbol>CHW</symbol>
 			</currency>
 			<currency type="CLE">
 				<symbol>CLE</symbol>
@@ -2035,7 +1928,6 @@
 				<displayName>chilensk unidades de fomento</displayName>
 				<displayName count="one">chilensk unidades de fomento</displayName>
 				<displayName count="other">chilenske unidades de fomento</displayName>
-				<symbol>CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>chilensk peso</displayName>
@@ -2056,7 +1948,6 @@
 				<displayName>unidad de valor real</displayName>
 				<displayName count="one">unidad de valor real</displayName>
 				<displayName count="other">unidad de valor real</displayName>
-				<symbol>COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>costaricansk colon</displayName>
@@ -2068,19 +1959,16 @@
 				<displayName>gammal serbisk dinar</displayName>
 				<displayName count="one">gammal serbisk dinar</displayName>
 				<displayName count="other">gamle serbiske dinarar</displayName>
-				<symbol>CSD</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>tsjekkoslovakisk koruna (hard)</displayName>
 				<displayName count="one">tsjekkoslovakisk koruna (hard)</displayName>
 				<displayName count="other">tsjekkoslovakiske koruna (hard)</displayName>
-				<symbol>CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>kubansk peso</displayName>
 				<displayName count="one">kubansk peso</displayName>
 				<displayName count="other">kubanske peso</displayName>
-				<symbol>CU$</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>kappverdisk escudo</displayName>
@@ -2102,7 +1990,6 @@
 				<displayName>austtysk mark</displayName>
 				<displayName count="one">austtysk mark</displayName>
 				<displayName count="other">austtyske mark</displayName>
-				<symbol>DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>tysk mark</displayName>
@@ -3149,3 +3036,4 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/nn.txt?only_wit
 Currency display names
         "Latn",  // ISO 15924 Name
 -->
+

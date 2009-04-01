@@ -123,9 +123,6 @@
 			<measurementSystemName type="metric">Metric</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
-	<layout>
-		<inText type="quarterWidth" draft="unconfirmed">mixed</inText>
-	</layout>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -176,7 +173,6 @@
 							<day type="wed" draft="unconfirmed">G</day>
 							<day type="thu" draft="unconfirmed">D</day>
 							<day type="fri" draft="unconfirmed">B</day>
-							<day type="sat" draft="unconfirmed">L</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -221,7 +217,6 @@
 		</calendars>
 		<timeZoneNames>
 			<gmtZeroFormat draft="unconfirmed">GMT</gmtZeroFormat>
-			<fallbackFormat draft="unconfirmed">{0} ({1})</fallbackFormat>
 		</timeZoneNames>
 	</dates>
 	<numbers>
@@ -252,3 +247,4 @@
 		</messages>
 	</posix>
 </ldml>
+

@@ -1106,20 +1106,6 @@
 			<codePattern type="territory">région : {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList draft="unconfirmed">mixed</inList>
-		<inText type="currency" draft="unconfirmed">mixed</inText>
-		<inText type="fields" draft="unconfirmed">mixed</inText>
-		<inText type="keys" draft="unconfirmed">mixed</inText>
-		<inText type="languages" draft="unconfirmed">mixed</inText>
-		<inText type="long" draft="unconfirmed">mixed</inText>
-		<inText type="measurementSystemNames" draft="unconfirmed">mixed</inText>
-		<inText type="quarterWidth" draft="unconfirmed">mixed</inText>
-		<inText type="scripts" draft="unconfirmed">mixed</inText>
-		<inText type="territories" draft="unconfirmed">mixed</inText>
-		<inText type="types" draft="unconfirmed">mixed</inText>
-		<inText type="variants" draft="unconfirmed">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a à â æ b c ç d e é è ê ë f-i î ï j-o ô œ p-u ù û ü v-y ÿ z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á å ä ã ā ē í ì ī ñ ó ò ö ø ú ǔ]</exemplarCharacters>
@@ -1958,14 +1944,8 @@
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity>Mac Murdo</exemplarCity>
 			</zone>
-			<zone type="America/Argentina/San_Juan">
-				<exemplarCity>San Juan</exemplarCity>
-			</zone>
 			<zone type="America/Argentina/Ushuaia">
 				<exemplarCity>Ushuaïa</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity>Jujuy</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
 				<exemplarCity>Tucumán</exemplarCity>
@@ -2407,15 +2387,6 @@
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Central North Dakota</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vincennes">
-				<exemplarCity>Vincennes, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Winamac">
-				<exemplarCity>Winamac, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<exemplarCity>Vevay, Indiana</exemplarCity>
 			</zone>
 			<zone type="America/Detroit">
 				<exemplarCity>Détroit</exemplarCity>
@@ -4434,7 +4405,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
@@ -4493,19 +4463,16 @@
 				<displayName>dirham des Émirats arabes unis</displayName>
 				<displayName count="one">dirham des Émirats arabes unis</displayName>
 				<displayName count="other">dirhams des Émirats arabes unis</displayName>
-				<symbol draft="unconfirmed">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>afghani (1927–2002)</displayName>
 				<displayName count="one">afghani (1927–2002)</displayName>
 				<displayName count="other">afghanis (1927–2002)</displayName>
-				<symbol draft="unconfirmed">AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>afghani</displayName>
 				<displayName count="one">afghani</displayName>
 				<displayName count="other">afghanis</displayName>
-				<symbol>Af</symbol>
 			</currency>
 			<currency type="ALK">
 				<displayName count="one">lek albanais (1947–1961)</displayName>
@@ -4541,21 +4508,18 @@
 				<displayName count="one">kwanza angolais (1977–1990)</displayName>
 				<displayName count="other">kwanzas angolais (1977–1990)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">kwanza angolais (1977–1990)</displayName>
-				<symbol draft="unconfirmed">AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>nouveau kwanza angolais (1990-2000)</displayName>
 				<displayName count="one">nouveau kwanza angolais (1990–2000)</displayName>
 				<displayName count="other">nouveaux kwanzas angolais (1990–2000)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">nouveau kwanza angolais (1990–2000)</displayName>
-				<symbol draft="unconfirmed">AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>kwanza angolais réajusté (1995-1999)</displayName>
 				<displayName count="one">kwanza angolais réajusté (1995–1999)</displayName>
 				<displayName count="other">kwanzas angolais réajustés (1995–1999)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">kwanza angolais réajusté (1995–1999)</displayName>
-				<symbol draft="unconfirmed">AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName references="R060">austral argentin</displayName>
@@ -4565,18 +4529,13 @@
 				<symbol alt="proposed-x1001" draft="unconfirmed">₳</symbol>
 			</currency>
 			<currency type="ARL">
-				<symbol draft="unconfirmed">$L</symbol>
 				<symbol alt="proposed-x1002" draft="unconfirmed">ARL</symbol>
-			</currency>
-			<currency type="ARM">
-				<symbol draft="unconfirmed">m$n</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>peso argentin (1983-1985)</displayName>
 				<displayName count="one">peso argentin (1983–1985)</displayName>
 				<displayName count="other">pesos argentins (1983–1985)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">peso argentin (1983–1985)</displayName>
-				<symbol draft="unconfirmed">ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>peso argentin</displayName>
@@ -4609,26 +4568,22 @@
 				<displayName count="one">manat azéri (1993–2006)</displayName>
 				<displayName count="other">manats azéris (1993–2006)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">manat azéri (1993–2006)</displayName>
-				<symbol draft="unconfirmed">AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>manat azéri</displayName>
 				<displayName count="one">manat azéri</displayName>
 				<displayName count="other">manats azéris</displayName>
-				<symbol draft="unconfirmed">man.</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>dinar bosniaque</displayName>
 				<displayName count="one">dinar bosniaque</displayName>
 				<displayName count="other">dinars bosniaques</displayName>
-				<symbol draft="unconfirmed">BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>mark convertible bosniaque</displayName>
 				<displayName count="one">mark convertible bosniaque</displayName>
 				<displayName count="other">marks convertibles bosniaques</displayName>
-				<symbol>KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>dollar barbadien</displayName>
@@ -4640,14 +4595,12 @@
 				<displayName>taka bangladeshi</displayName>
 				<displayName count="one">taka bangladeshi</displayName>
 				<displayName count="other">takas bangladeshis</displayName>
-				<symbol draft="unconfirmed">Tk</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">BDT</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>franc belge (convertible)</displayName>
 				<displayName count="one">franc belge (convertible)</displayName>
 				<displayName count="other">francs belges (convertibles)</displayName>
-				<symbol draft="unconfirmed">BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>franc belge</displayName>
@@ -4659,7 +4612,6 @@
 				<displayName>franc belge (financier)</displayName>
 				<displayName count="one">franc belge (financier)</displayName>
 				<displayName count="other">francs belges (financiers)</displayName>
-				<symbol draft="unconfirmed">BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>lev bulgare (1962–1999)</displayName>
@@ -4685,7 +4637,6 @@
 				<displayName>franc burundais</displayName>
 				<displayName count="one">franc burundais</displayName>
 				<displayName count="other">francs burundais</displayName>
-				<symbol draft="contributed">FBu</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>dollar bermudien</displayName>
@@ -4703,7 +4654,6 @@
 				<displayName>boliviano</displayName>
 				<displayName count="one">boliviano</displayName>
 				<displayName count="other">bolivianos</displayName>
-				<symbol>Bs</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>peso bolivien</displayName>
@@ -4716,7 +4666,6 @@
 				<displayName>mvdol bolivien</displayName>
 				<displayName count="one">mvdol bolivien</displayName>
 				<displayName count="other">mvdols boliviens</displayName>
-				<symbol draft="unconfirmed">BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>nouveau cruzeiro brésilien (1967–1986)</displayName>
@@ -4743,7 +4692,6 @@
 				<displayName>réal brésilien</displayName>
 				<displayName count="one">réal brésilien</displayName>
 				<displayName count="other">réals brésiliens</displayName>
-				<symbol draft="unconfirmed">R$</symbol>
 				<symbol alt="proposed-x1002" draft="unconfirmed">BRL</symbol>
 			</currency>
 			<currency type="BRN">
@@ -4751,7 +4699,6 @@
 				<displayName count="one">nouveau cruzado brésilien (1989–1990)</displayName>
 				<displayName count="other">nouveaux cruzados brésiliens (1989–1990)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">nouveau cruzado brésilien (1989–1990)</displayName>
-				<symbol draft="unconfirmed">NCz$</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">BRN</symbol>
 			</currency>
 			<currency type="BRR">
@@ -4759,7 +4706,6 @@
 				<displayName count="one">cruzeiro réal brésilien (1993–1994)</displayName>
 				<displayName count="other">cruzeiros réals brésiliens (1993–1994)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">cruzeiro réal brésilien (1993–1994)</displayName>
-				<symbol draft="unconfirmed">CR$</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">BRR</symbol>
 			</currency>
 			<currency type="BRZ">
@@ -4783,7 +4729,6 @@
 				<displayName>kyat birman</displayName>
 				<displayName count="one">kyat birman</displayName>
 				<displayName count="other">kyats birmans</displayName>
-				<symbol draft="unconfirmed">BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>pula botswanais</displayName>
@@ -4797,7 +4742,6 @@
 				<displayName count="one">nouveau rouble biélorusse (1994–1999)</displayName>
 				<displayName count="other">nouveaux roubles biélorusses (1994–1999)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">nouveau rouble biélorusse (1994–1999)</displayName>
-				<symbol draft="unconfirmed">BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>rouble biélorusse</displayName>
@@ -4827,7 +4771,6 @@
 				<displayName>euro WIR</displayName>
 				<displayName count="one">euro WIR</displayName>
 				<displayName count="other">euros WIR</displayName>
-				<symbol draft="unconfirmed">CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>franc suisse</displayName>
@@ -4840,7 +4783,6 @@
 				<displayName>franc WIR</displayName>
 				<displayName count="one">franc WIR</displayName>
 				<displayName count="other">francs WIR</displayName>
-				<symbol draft="unconfirmed">CHW</symbol>
 			</currency>
 			<currency type="CLE">
 				<symbol draft="unconfirmed">CLE</symbol>
@@ -4849,7 +4791,6 @@
 				<displayName>unité d’investissement chilienne</displayName>
 				<displayName count="one">unité d’investissement chilienne</displayName>
 				<displayName count="other">unités d’investissement chiliennes</displayName>
-				<symbol draft="unconfirmed">CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>peso chilien</displayName>
@@ -4874,7 +4815,6 @@
 				<displayName>Unité de valeur réelle colombienne</displayName>
 				<displayName count="one">unité de valeur réelle colombienne</displayName>
 				<displayName count="other">unités de valeur réelle colombiennes</displayName>
-				<symbol draft="unconfirmed">COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>colón costaricain</displayName>
@@ -4927,13 +4867,11 @@
 				<displayName>mark est-allemand</displayName>
 				<displayName count="one">mark est-allemand</displayName>
 				<displayName count="other">marks est-allemands</displayName>
-				<symbol draft="unconfirmed">DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>mark allemand</displayName>
 				<displayName count="one">mark allemand</displayName>
 				<displayName count="other">marks allemands</displayName>
-				<symbol draft="contributed">DM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>franc djiboutien</displayName>
@@ -4960,7 +4898,6 @@
 				<displayName>dinar algérien</displayName>
 				<displayName count="one">dinar algérien</displayName>
 				<displayName count="other">dinars algériens</displayName>
-				<symbol draft="contributed">DA</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>sucre équatorien</displayName>
@@ -4993,20 +4930,17 @@
 				<displayName>nafka érythréen</displayName>
 				<displayName count="one">nafka érythréen</displayName>
 				<displayName count="other">nafkas érythréens</displayName>
-				<symbol draft="unconfirmed">Nfk</symbol>
 				<symbol alt="proposed-x1002" draft="unconfirmed">ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>peseta espagnole (compte A)</displayName>
 				<displayName count="one">peseta espagnole (compte A)</displayName>
 				<displayName count="other">pesetas espagnoles (compte A)</displayName>
-				<symbol draft="unconfirmed">ESA</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName>peseta espagnole (compte convertible)</displayName>
 				<displayName count="one">peseta espagnole (compte convertible)</displayName>
 				<displayName count="other">pesetas espagnoles (compte convertible)</displayName>
-				<symbol draft="unconfirmed">ESB</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>peseta espagnole</displayName>
@@ -5018,13 +4952,11 @@
 				<displayName references="R058">birr éthiopien</displayName>
 				<displayName count="one">birr éthiopien</displayName>
 				<displayName count="other">birrs éthiopiens</displayName>
-				<symbol>Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>euro</displayName>
 				<displayName count="one">euro</displayName>
 				<displayName count="other">euros</displayName>
-				<symbol draft="unconfirmed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>mark finlandais</displayName>
@@ -5109,19 +5041,16 @@
 				<displayName>syli guinéen</displayName>
 				<displayName count="one">syli guinéen</displayName>
 				<displayName count="other">sylis guinéens</displayName>
-				<symbol draft="unconfirmed">GNS</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName>ekwélé équatoguinéen</displayName>
 				<displayName count="one">ekwélé équatoguinéen</displayName>
 				<displayName count="other">ekwélés équatoguinéens</displayName>
-				<symbol draft="unconfirmed">GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>drachme grecque</displayName>
 				<displayName count="one">drachme grecque</displayName>
 				<displayName count="other">drachmes grecques</displayName>
-				<symbol draft="unconfirmed">₯</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>quetzal guatémaltèque</displayName>
@@ -5167,7 +5096,6 @@
 				<displayName>dinar croate</displayName>
 				<displayName count="one">dinar croate</displayName>
 				<displayName count="other">dinars croates</displayName>
-				<symbol draft="unconfirmed">HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>kuna croate</displayName>
@@ -5186,13 +5114,11 @@
 				<displayName>forint hongrois</displayName>
 				<displayName count="one">forint hongrois</displayName>
 				<displayName count="other">forints hongrois</displayName>
-				<symbol draft="contributed">Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>roupie indonésienne</displayName>
 				<displayName count="one">roupie indonésienne</displayName>
 				<displayName count="other">roupies indonésiennes</displayName>
-				<symbol draft="unconfirmed">Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>livre irlandaise</displayName>
@@ -5210,13 +5136,11 @@
 				<displayName>nouveau shekel israélien</displayName>
 				<displayName count="one">nouveau shekel israélien</displayName>
 				<displayName count="other">nouveaux shekels israélien</displayName>
-				<symbol draft="unconfirmed">₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>roupie indienne</displayName>
 				<displayName count="one">roupie indienne</displayName>
 				<displayName count="other">roupies indiennes</displayName>
-				<symbol>₨</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Rs</symbol>
 			</currency>
 			<currency type="IQD">
@@ -5357,13 +5281,11 @@
 				<displayName>talonas lituanien</displayName>
 				<displayName count="one">talonas lituanien</displayName>
 				<displayName count="other">talonas lituaniens</displayName>
-				<symbol draft="unconfirmed">LTT</symbol>
 			</currency>
 			<currency type="LUC">
 				<displayName>franc convertible luxembourgeois</displayName>
 				<displayName count="one">franc convertible luxembourgeois</displayName>
 				<displayName count="other">francs convertibles luxembourgeois</displayName>
-				<symbol draft="unconfirmed">LUC</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>franc luxembourgeois</displayName>
@@ -5375,7 +5297,6 @@
 				<displayName>franc financier luxembourgeois</displayName>
 				<displayName count="one">franc financier luxembourgeois</displayName>
 				<displayName count="other">francs financiers luxembourgeois</displayName>
-				<symbol draft="unconfirmed">LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>lats letton</displayName>
@@ -5394,7 +5315,6 @@
 				<displayName references="R058">dinar lybien</displayName>
 				<displayName count="one">dinar lybien</displayName>
 				<displayName count="other">dinars lybien</displayName>
-				<symbol>LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>dirham marocain</displayName>
@@ -5449,7 +5369,6 @@
 				<displayName>tugrik mongol</displayName>
 				<displayName count="one">tugrik mongol</displayName>
 				<displayName count="other">tugriks mongols</displayName>
-				<symbol draft="unconfirmed">₮</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>pataca macanaise</displayName>
@@ -5461,13 +5380,11 @@
 				<displayName>ouguiya mauritanien</displayName>
 				<displayName count="one">ouguiya mauritanien</displayName>
 				<displayName count="other">ouguiyas mauritaniens</displayName>
-				<symbol draft="unconfirmed">UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>lire maltaise</displayName>
 				<displayName count="one">lire maltaise</displayName>
 				<displayName count="other">lires maltaises</displayName>
-				<symbol>Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>livre maltaise</displayName>
@@ -5509,7 +5426,6 @@
 				<displayName>unité de conversion mexicaine (UDI)</displayName>
 				<displayName count="one">unité de conversion mexicaine (UDI)</displayName>
 				<displayName count="other">unités de conversion mexicaines (UDI)</displayName>
-				<symbol draft="unconfirmed">MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>ringgit malais</displayName>
@@ -5528,33 +5444,28 @@
 				<displayName count="one">metical mozambicain (1980–2006)</displayName>
 				<displayName count="other">meticais mozambicains (1980–2006)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">metical mozambicain (1980–2006)</displayName>
-				<symbol draft="unconfirmed">Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>metical mozambicain</displayName>
 				<displayName count="one">metical mozambicain</displayName>
 				<displayName count="other">meticais mozambicains</displayName>
-				<symbol draft="unconfirmed">MTn</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName references="R058">dollar namibien</displayName>
 				<displayName count="one">dollar namibien</displayName>
 				<displayName count="other">dollars namibiens</displayName>
-				<symbol>N$</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">$Na</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>naira nigérian</displayName>
 				<displayName count="one">naira nigérian</displayName>
 				<displayName count="other">nairas nigérians</displayName>
-				<symbol draft="unconfirmed">₦</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>cordoba</displayName>
 				<displayName count="one">córdoba nicaraguayen (1912–1988)</displayName>
 				<displayName count="other">córdobas nicaraguayens (1912–1988)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">córdoba nicaraguayen (1912–1988)</displayName>
-				<symbol draft="unconfirmed">NIC</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>córdoba oro nicaraguayen</displayName>
@@ -5597,13 +5508,11 @@
 				<displayName>balboa panaméen</displayName>
 				<displayName count="one">balboa panaméen</displayName>
 				<displayName count="other">balboas panaméens</displayName>
-				<symbol draft="unconfirmed">B/.</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName references="R060">inti péruvien</displayName>
 				<displayName count="one">inti péruvien</displayName>
 				<displayName count="other">intis péruviens</displayName>
-				<symbol draft="unconfirmed">I/.</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>nouveau sol péruvien</displayName>
@@ -5615,19 +5524,16 @@
 				<displayName>sol péruvien</displayName>
 				<displayName count="one">sol péruvien (1863–1985)</displayName>
 				<displayName count="other">sols péruviens (1863–1985)</displayName>
-				<symbol draft="unconfirmed">PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>kina papouan-néo-guinéen</displayName>
 				<displayName count="one">kina papouan-néo-guinéen</displayName>
 				<displayName count="other">kinas papouan-néo-guinéens</displayName>
-				<symbol draft="unconfirmed">PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>peso philippin</displayName>
 				<displayName count="one">peso philippin</displayName>
 				<displayName count="other">pesos philippins</displayName>
-				<symbol draft="unconfirmed">₱</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>roupie pakistanaise</displayName>
@@ -5639,26 +5545,22 @@
 				<displayName>zloty polonais</displayName>
 				<displayName count="one">zloty polonais</displayName>
 				<displayName count="other">zlotys polonais</displayName>
-				<symbol draft="unconfirmed">zł</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>zloty (1950-1995)</displayName>
 				<displayName count="one">zloty polonais (1950–1995)</displayName>
 				<displayName count="other">zlotys polonais (1950–1995)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">zloty polonais (1950–1995)</displayName>
-				<symbol draft="unconfirmed">PLZ</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>escudo portugais</displayName>
 				<displayName count="one">escudo portugais</displayName>
 				<displayName count="other">escudos portugais</displayName>
-				<symbol draft="unconfirmed">Esc</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>guaraní paraguayen</displayName>
 				<displayName count="one">guaraní paraguayen</displayName>
 				<displayName count="other">guaranís paraguayens</displayName>
-				<symbol draft="unconfirmed">₲</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>rial qatari</displayName>
@@ -5677,19 +5579,16 @@
 				<displayName count="one">leu roumain (1952–2005)</displayName>
 				<displayName count="other">lei roumains (1952–2005)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">leu roumain (1952–2005)</displayName>
-				<symbol draft="unconfirmed">ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>leu roumain</displayName>
 				<displayName count="one">leu roumain</displayName>
 				<displayName count="other">lei roumains</displayName>
-				<symbol draft="unconfirmed">RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>dinar serbe</displayName>
 				<displayName count="one">dinar serbe</displayName>
 				<displayName count="other">dinars serbes</displayName>
-				<symbol draft="unconfirmed">din.</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>rouble russe</displayName>
@@ -5744,7 +5643,6 @@
 				<displayName>livre soudanaise (1956–2007)</displayName>
 				<displayName count="one">livre soudanaise (1956–2007)</displayName>
 				<displayName count="other">livres soudanaises (1956–2007)</displayName>
-				<symbol draft="unconfirmed">SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>couronne suédoise</displayName>
@@ -5804,7 +5702,6 @@
 				<displayName>dobra santoméen</displayName>
 				<displayName count="one">dobra santoméen</displayName>
 				<displayName count="other">dobras santoméens</displayName>
-				<symbol draft="unconfirmed">Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>rouble soviétique</displayName>
@@ -5835,31 +5732,26 @@
 				<displayName>baht thaïlandais</displayName>
 				<displayName count="one">baht thaïlandais</displayName>
 				<displayName count="other">baths thaïlandais</displayName>
-				<symbol draft="unconfirmed">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName references="R060">rouble tadjik</displayName>
 				<displayName count="one">rouble tadjik</displayName>
 				<displayName count="other">roubles tadjiks</displayName>
-				<symbol draft="unconfirmed">TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>somoni tadjik</displayName>
 				<displayName count="one">somoni tadjik</displayName>
 				<displayName count="other">somonis tadjiks</displayName>
-				<symbol draft="unconfirmed">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>manat turkmène</displayName>
 				<displayName count="one">manat turkmène</displayName>
 				<displayName count="other">manats turkmènes</displayName>
-				<symbol draft="unconfirmed">TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>dinar tunisien</displayName>
 				<displayName count="one">dinar tunisien</displayName>
 				<displayName count="other">dinars tunisiens</displayName>
-				<symbol draft="unconfirmed">DT</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>pa’anga tongan</displayName>
@@ -5871,7 +5763,6 @@
 				<displayName>escudo timorais</displayName>
 				<displayName count="one">escudo timorais</displayName>
 				<displayName count="other">escudos timorais</displayName>
-				<symbol draft="unconfirmed">TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>livre turque</displayName>
@@ -5916,14 +5807,12 @@
 				<displayName count="one">karbovanets ukrainien (1992–1996)</displayName>
 				<displayName count="other">karbovanets ukrainiens (1992–1996)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">karbovanets ukrainien (1992–1996)</displayName>
-				<symbol draft="unconfirmed">UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>shilling ougandais (1966-1987)</displayName>
 				<displayName count="one">shilling ougandais (1966–1987)</displayName>
 				<displayName count="other">shillings ougandais (1966–1987)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">shilling ougandais (1966–1987)</displayName>
-				<symbol draft="unconfirmed">UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>shilling ougandais</displayName>
@@ -5942,25 +5831,21 @@
 				<displayName>dollar des Etats-Unis (jour suivant)</displayName>
 				<displayName count="one">dollar des États-Unis (jour suivant)</displayName>
 				<displayName count="other">dollars des États-Unis (jour suivant)</displayName>
-				<symbol draft="unconfirmed">USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>dollar des Etats-Unis (jour même)</displayName>
 				<displayName count="one">dollar des États-Unis (jour même)</displayName>
 				<displayName count="other">dollars des États-Unis (jour même)</displayName>
-				<symbol draft="unconfirmed">USS</symbol>
 			</currency>
 			<currency type="UYI">
 				<displayName>peso uruguayen (unités indexées)</displayName>
 				<displayName count="one">peso uruguayen (unités indexées)</displayName>
 				<displayName count="other">pesos uruguayen (unités indexées)</displayName>
-				<symbol draft="unconfirmed">UYI</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>peso uruguayen (1975–1993)</displayName>
 				<displayName count="one">peso uruguayen (1975–1993)</displayName>
 				<displayName count="other">pesos uruguayens (1975–1993)</displayName>
-				<symbol draft="unconfirmed">UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>peso uruguayen</displayName>
@@ -5990,19 +5875,16 @@
 				<displayName count="other">bolivar fuertes vénézuélien</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">bolívars forts vénézuéliens</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">bolívar fort vénézuélien</displayName>
-				<symbol draft="unconfirmed">Bs.F.</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>dông vietnamien</displayName>
 				<displayName count="one">dông vietnamien</displayName>
 				<displayName count="other">dôngs vietnamiens</displayName>
-				<symbol draft="unconfirmed">₫</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>vatu vanuatuan</displayName>
 				<displayName count="one">vatu vanuatuan</displayName>
 				<displayName count="other">vatus vanuatuans</displayName>
-				<symbol draft="unconfirmed">VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>tala samoan</displayName>
@@ -6014,49 +5896,42 @@
 				<displayName>franc CFA (BEAC)</displayName>
 				<displayName count="one">franc CFA (BEAC)</displayName>
 				<displayName count="other">francs CFA (BEAC)</displayName>
-				<symbol draft="unconfirmed">FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName references="R058">argent</displayName>
 				<displayName count="one">once troy d’argent</displayName>
 				<displayName count="other">onces troy d’argent</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">once troy d’argent</displayName>
-				<symbol draft="unconfirmed">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>or</displayName>
 				<displayName count="one">once troy d’or</displayName>
 				<displayName count="other">onces troy d’or</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">once troy d’or</displayName>
-				<symbol draft="unconfirmed">XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName references="R058">unité européenne composée</displayName>
 				<displayName count="one" draft="unconfirmed">unité composée européenne (EURCO)</displayName>
 				<displayName count="other" draft="unconfirmed">unités composées européennes (EURCO)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unité composée européenne (EURCO)</displayName>
-				<symbol draft="unconfirmed">XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>unité monétaire européenne</displayName>
 				<displayName count="one" draft="unconfirmed">unité monétaire européenne (UME-6)</displayName>
 				<displayName count="other" draft="unconfirmed">unités monétaires européennes (UME-6)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unité monétaire européenne (UME-6)</displayName>
-				<symbol draft="unconfirmed">XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>unité de compte européenne (XBC)</displayName>
 				<displayName count="one" draft="unconfirmed">unité de compte 9 européenne (UEC-9)</displayName>
 				<displayName count="other" draft="unconfirmed">unités de compte 9 européennes (UEC-9)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unité de compte 9 européenne (UEC-9)</displayName>
-				<symbol draft="unconfirmed">XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>unité de compte européenne (XBD)</displayName>
 				<displayName count="one" draft="unconfirmed">unité de compte 17 européenne (UEC-17)</displayName>
 				<displayName count="other" draft="unconfirmed">unités de compte 17 européennes (UEC-17)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unité de compte 17 européenne (UEC-17)</displayName>
-				<symbol draft="unconfirmed">XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName references="R058">dollar des Caraïbes orientales</displayName>
@@ -6069,38 +5944,32 @@
 				<displayName references="R058">droit de tirage spécial</displayName>
 				<displayName count="one">droit de tirage spécial</displayName>
 				<displayName count="other">droits de tirage spéciaux</displayName>
-				<symbol draft="unconfirmed">XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>unité de compte européenne (ECU)</displayName>
 				<displayName count="one" draft="unconfirmed">unité de compte européenne (ECU)</displayName>
 				<displayName count="other" draft="unconfirmed">unités de compte européennes (ECU)</displayName>
-				<symbol draft="unconfirmed">XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>franc or</displayName>
 				<displayName count="one">franc or</displayName>
 				<displayName count="other">francs or</displayName>
-				<symbol draft="unconfirmed">XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>franc UIC</displayName>
 				<displayName count="one">franc UIC</displayName>
 				<displayName count="other">francs UIC</displayName>
-				<symbol draft="unconfirmed">XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>franc CFA (BCEAO)</displayName>
 				<displayName count="one">franc CFA (BCEAO)</displayName>
 				<displayName count="other">francs CFA (BCEAO)</displayName>
-				<symbol draft="unconfirmed">CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName references="R058">palladium</displayName>
 				<displayName count="one">once troy de palladium</displayName>
 				<displayName count="other">onces troy de palladium</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">once troy de palladium</displayName>
-				<symbol draft="unconfirmed">XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>franc CFP</displayName>
@@ -6113,20 +5982,17 @@
 				<displayName count="one">once troy de platine</displayName>
 				<displayName count="other">onces troy de platine</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">once troy de platine</displayName>
-				<symbol draft="unconfirmed">XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName references="R060">type de fonds RINET</displayName>
 				<displayName count="one">unité de fonds RINET</displayName>
 				<displayName count="other">unités de fonds RINET</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unité de fonds RINET</displayName>
-				<symbol draft="unconfirmed">XRE</symbol>
 			</currency>
 			<currency type="XTS">
 				<displayName>(devise de test)</displayName>
 				<displayName count="one">(devise de test)</displayName>
 				<displayName count="other">(devises de test)</displayName>
-				<symbol draft="unconfirmed">XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>devise inconnue ou non valide</displayName>
@@ -6135,14 +6001,12 @@
 				<displayName count="other">devise inconnue ou non valide</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">(devises inconnues ou invalides)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">(devise inconnue ou invalide)</displayName>
-				<symbol draft="unconfirmed">XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>dinar du Yémen</displayName>
 				<displayName count="one">dinar nord-yéménite</displayName>
 				<displayName count="other">dinars nord-yéménites</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">dinar nord-yéménite</displayName>
-				<symbol draft="unconfirmed">YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>rial yéménite</displayName>
@@ -6155,27 +6019,23 @@
 				<displayName count="one">dinar fort yougoslave (1966–1989)</displayName>
 				<displayName count="other">dinars forts yougoslaves (1966–1989)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">dinar fort yougoslave (1966–1989)</displayName>
-				<symbol draft="unconfirmed">YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>dinar yougoslave Noviy</displayName>
 				<displayName count="one">nouveau dinar yougoslave (1994–2003)</displayName>
 				<displayName count="other">nouveaux dinars yougoslaves (1994–2003)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">nouveau dinar yougoslave (1994–2003)</displayName>
-				<symbol draft="unconfirmed">YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>dinar yougoslave convertible</displayName>
 				<displayName count="one">dinar convertible yougoslave (1990–1992)</displayName>
 				<displayName count="other">dinars convertibles yougoslaves (1990–1992)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">dinar convertible yougoslave (1990–1992)</displayName>
-				<symbol draft="unconfirmed">YUN</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>rand sud-africain (financier)</displayName>
 				<displayName count="one">rand sud-africain (financier)</displayName>
 				<displayName count="other">rands sud-africains (financiers)</displayName>
-				<symbol draft="unconfirmed">ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>rand sud-africain</displayName>
@@ -6193,7 +6053,6 @@
 				<displayName>nouveau zaïre zaïrien</displayName>
 				<displayName count="one">nouveau zaïre zaïrien</displayName>
 				<displayName count="other">nouveaux zaïres zaïriens</displayName>
-				<symbol draft="unconfirmed">NZ</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>zaïre zaïrois</displayName>
@@ -6205,7 +6064,6 @@
 				<displayName>dollar zimbabwéen</displayName>
 				<displayName count="one">dollar zimbabwéen</displayName>
 				<displayName count="other">dollars zimbabwéens</displayName>
-				<symbol>Z$</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">$Z</symbol>
 			</currency>
 		</currencies>

@@ -1523,7 +1523,6 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0} Saati</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -1854,9 +1853,6 @@
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Merkez, Kuzey Dakota</exemplarCity>
-			</zone>
-			<zone type="America/Chicago">
-				<exemplarCity>Chicago</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Knox">
 				<exemplarCity>Knox</exemplarCity>
@@ -3010,7 +3006,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
@@ -3066,19 +3061,15 @@
 			</currency>
 			<currency type="AFN">
 				<displayName>Afganistan Afganisi</displayName>
-				<symbol>Af</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Arnavutluk Leki</displayName>
-				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Ermenistan Dramı</displayName>
-				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Hollanda Antilleri Guldeni</displayName>
-				<symbol>NAf.</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>Angola Kvanzası</displayName>
@@ -3100,14 +3091,12 @@
 			</currency>
 			<currency type="ARS">
 				<displayName>Arjantin Pezosu</displayName>
-				<symbol>AR$</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>Avusturya Şilini</displayName>
 			</currency>
 			<currency type="AUD">
 				<displayName>Avustralya Doları</displayName>
-				<symbol>AU$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>Aruba Florini</displayName>
@@ -3123,51 +3112,42 @@
 			</currency>
 			<currency type="BAM">
 				<displayName>Konvertibl Bosna Hersek Markı</displayName>
-				<symbol>KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbados Doları</displayName>
-				<symbol>Bds$</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>Bangladeş Takası</displayName>
-				<symbol>Tk</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>Belçika Frangı (konvertibl)</displayName>
 			</currency>
 			<currency type="BEF">
 				<displayName>Belçika Frangı</displayName>
-				<symbol>BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>Belçika Frangı (finansal)</displayName>
 			</currency>
 			<currency type="BGL">
 				<displayName>Bulgar Levası (Hard)</displayName>
-				<symbol>BGL</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>Yeni Bulgar Levası</displayName>
 			</currency>
 			<currency type="BHD">
 				<displayName>Bahreyn Dinarı</displayName>
-				<symbol>BD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Burundi Frangı</displayName>
-				<symbol>FBu</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Bermuda Doları</displayName>
-				<symbol>BD$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>Brunei Doları</displayName>
 			</currency>
 			<currency type="BOB">
 				<displayName>Bolivya Bolivyanosu</displayName>
-				<symbol>Bs</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>Bolivya Pezosu</displayName>
@@ -3198,7 +3178,6 @@
 			</currency>
 			<currency type="BTN">
 				<displayName>Bhutan Ngultrumu</displayName>
-				<symbol>Nu.</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>Burma Kyatı</displayName>
@@ -3211,15 +3190,12 @@
 			</currency>
 			<currency type="BYR">
 				<displayName>Beyaz Rusya Rublesi</displayName>
-				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>Belize Doları</displayName>
-				<symbol>BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Kanada Doları</displayName>
-				<symbol>CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>Kongo Frangı</displayName>
@@ -3229,7 +3205,6 @@
 			</currency>
 			<currency type="CHF">
 				<displayName>İsviçre Frangı</displayName>
-				<symbol>Fr.</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR Frangı</displayName>
@@ -3239,22 +3214,18 @@
 			</currency>
 			<currency type="CLP">
 				<displayName>Şili Pezosu</displayName>
-				<symbol>CL$</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Çin Yuanı Renminbi</displayName>
-				<symbol>CN¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Kolombiya Pezosu</displayName>
-				<symbol>CO$</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>Unidad de Valor Real</displayName>
 			</currency>
 			<currency type="CRC">
 				<displayName>Kosta Rika Kolonu</displayName>
-				<symbol>₡</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>Eski Sırbistan Dinarı</displayName>
@@ -3267,11 +3238,9 @@
 			</currency>
 			<currency type="CVE">
 				<displayName>Cape Verde Esküdosu</displayName>
-				<symbol>CV$</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>Güney Kıbrıs Lirası</displayName>
-				<symbol>CY£</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>Çek Cumhuriyeti Korunası</displayName>
@@ -3284,19 +3253,15 @@
 			</currency>
 			<currency type="DJF">
 				<displayName>Cibuti Frangı</displayName>
-				<symbol>Fdj</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>Danimarka Kronu</displayName>
-				<symbol>Dkr</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Dominik Pezosu</displayName>
-				<symbol>RD$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Cezayir Dinarı</displayName>
-				<symbol>DA</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>Ekvador Sukresi</displayName>
@@ -3321,11 +3286,9 @@
 			</currency>
 			<currency type="ESP">
 				<displayName>İspanyol Pezetası</displayName>
-				<symbol>Pts</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>Etiyopya Birri</displayName>
-				<symbol>Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
@@ -3335,7 +3298,6 @@
 			</currency>
 			<currency type="FJD">
 				<displayName>Fiji Doları</displayName>
-				<symbol>FJ$</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Falkland Adaları Lirası</displayName>
@@ -3345,14 +3307,12 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>İngiliz Sterlini</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Gürcistan Kupon Larisi</displayName>
 			</currency>
 			<currency type="GEL">
 				<displayName>Gürcistan Larisi</displayName>
-				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>Gana Sedisi (1979-2007)</displayName>
@@ -3368,7 +3328,6 @@
 			</currency>
 			<currency type="GNF">
 				<displayName>Gine Frangı</displayName>
-				<symbol>FG</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>Gine Sylisi</displayName>
@@ -3381,7 +3340,6 @@
 			</currency>
 			<currency type="GTQ">
 				<displayName>Guatemala Ketzali</displayName>
-				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>Portekiz Ginesi Esküdosu</displayName>
@@ -3391,15 +3349,12 @@
 			</currency>
 			<currency type="GYD">
 				<displayName>Guyana Doları</displayName>
-				<symbol>GY$</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>Hong Kong Doları</displayName>
-				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Honduras Lempirası</displayName>
-				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>Hırvatistan Dinarı</displayName>
@@ -3412,15 +3367,12 @@
 			</currency>
 			<currency type="HUF">
 				<displayName>Macar Forinti</displayName>
-				<symbol>Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Endonezya Rupiahı</displayName>
-				<symbol>Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>İrlanda Lirası</displayName>
-				<symbol>IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>İsrail Lirası</displayName>
@@ -3434,26 +3386,21 @@
 			</currency>
 			<currency type="IQD">
 				<displayName>Irak Dinarı</displayName>
-				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>İran Riyali</displayName>
-				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>İzlanda Kronu</displayName>
 			</currency>
 			<currency type="ITL">
 				<displayName>İtalyan Lireti</displayName>
-				<symbol>IT₤</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>Jamaika Doları</displayName>
-				<symbol>J$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Ürdün Dinarı</displayName>
-				<symbol>JD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Japon Yeni</displayName>
@@ -3461,19 +3408,15 @@
 			</currency>
 			<currency type="KES">
 				<displayName>Kenya Şilini</displayName>
-				<symbol>Ksh</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>Kırgız Somu</displayName>
-				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Kamboçya Rieli</displayName>
-				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Komorlar Frangı</displayName>
-				<symbol>CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Kuzey Kore Wonu</displayName>
@@ -3483,32 +3426,27 @@
 			</currency>
 			<currency type="KWD">
 				<displayName>Kuveyt Dinarı</displayName>
-				<symbol>KD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Cayman Adaları Doları</displayName>
 			</currency>
 			<currency type="KZT">
 				<displayName>Kazakistan Tengesi</displayName>
-				<symbol>KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Laos Kipi</displayName>
 			</currency>
 			<currency type="LBP">
 				<displayName>Lübnan Lirası</displayName>
-				<symbol>LB£</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>Sri Lanka Rupisi</displayName>
-				<symbol>SLRs</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>Liberya Doları</displayName>
 			</currency>
 			<currency type="LSL">
 				<displayName>Lesotho Lotisi</displayName>
-				<symbol>LSL</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>Litvanya Litası</displayName>
@@ -3533,7 +3471,6 @@
 			</currency>
 			<currency type="LYD">
 				<displayName>Libya Dinarı</displayName>
-				<symbol>LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Fas Dirhemi</displayName>
@@ -3552,7 +3489,6 @@
 			</currency>
 			<currency type="MKD">
 				<displayName>Makedonya Dinarı</displayName>
-				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>Mali Frangı</displayName>
@@ -3562,18 +3498,15 @@
 			</currency>
 			<currency type="MNT">
 				<displayName>Moğol Tugriki</displayName>
-				<symbol>₮</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>Makao Patacası</displayName>
 			</currency>
 			<currency type="MRO">
 				<displayName>Moritanya Ouguiyası</displayName>
-				<symbol>UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Malta Lirası</displayName>
-				<symbol>Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>Malta Sterlini</displayName>
@@ -3586,11 +3519,9 @@
 			</currency>
 			<currency type="MWK">
 				<displayName>Malavi Kvaçası</displayName>
-				<symbol>MK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Meksika Pezosu</displayName>
-				<symbol>MXN</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>Gümüş Meksika Pezosu (1861-1992)</displayName>
@@ -3600,22 +3531,18 @@
 			</currency>
 			<currency type="MYR">
 				<displayName>Malezya Ringiti</displayName>
-				<symbol>RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Mozambik Esküdosu</displayName>
 			</currency>
 			<currency type="MZM">
 				<displayName>Eski Mozambik Metikali</displayName>
-				<symbol>Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>Mozambik Metikali</displayName>
-				<symbol>MTn</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Namibya Doları</displayName>
-				<symbol>N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Nijerya Nairası</displayName>
@@ -3631,19 +3558,15 @@
 			</currency>
 			<currency type="NOK">
 				<displayName>Norveç Kronu</displayName>
-				<symbol>Nkr</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>Nepal Rupisi</displayName>
-				<symbol>NPRs</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>Yeni Zelanda Doları</displayName>
-				<symbol>NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>Umman Riyali</displayName>
-				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>Panama Balboası</displayName>
@@ -3666,11 +3589,9 @@
 			</currency>
 			<currency type="PKR">
 				<displayName>Pakistan Rupisi</displayName>
-				<symbol>PKRs</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Polonya Zlotisi</displayName>
-				<symbol>zł</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>Polonya Zlotisi (1950-1995)</displayName>
@@ -3683,14 +3604,12 @@
 			</currency>
 			<currency type="QAR">
 				<displayName>Katar Riyali</displayName>
-				<symbol>QR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>Rodezya Doları</displayName>
 			</currency>
 			<currency type="ROL">
 				<displayName>Eski Romen Leyi</displayName>
-				<symbol>ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>Romen Leyi</displayName>
@@ -3709,15 +3628,12 @@
 			</currency>
 			<currency type="SAR">
 				<displayName>Suudi Arabistan Riyali</displayName>
-				<symbol>SR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Solomon Adaları Doları</displayName>
-				<symbol>SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Seyşel Rupisi</displayName>
-				<symbol>SRe</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>Eski Sudan Dinarı</displayName>
@@ -3730,11 +3646,9 @@
 			</currency>
 			<currency type="SEK">
 				<displayName>İsveç Kronu</displayName>
-				<symbol>Skr</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Singapur Doları</displayName>
-				<symbol>S$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Saint Helena Lirası</displayName>
@@ -3744,25 +3658,21 @@
 			</currency>
 			<currency type="SKK">
 				<displayName>Slovak Korunası</displayName>
-				<symbol>Sk</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Sierra Leone Leonesi</displayName>
 			</currency>
 			<currency type="SOS">
 				<displayName>Somali Şilini</displayName>
-				<symbol>Ssh</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>Surinam Doları</displayName>
 			</currency>
 			<currency type="SRG">
 				<displayName>Surinam Guldeni</displayName>
-				<symbol>Sf</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Sao Tome ve Principe Dobrası</displayName>
-				<symbol>Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Sovyet Rublesi</displayName>
@@ -3772,11 +3682,9 @@
 			</currency>
 			<currency type="SYP">
 				<displayName>Suriye Lirası</displayName>
-				<symbol>SY£</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>Svaziland Lilangenisi</displayName>
-				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>Tayland Bahtı</displayName>
@@ -3795,31 +3703,25 @@
 			</currency>
 			<currency type="TOP">
 				<displayName>Tonga Paʻangası</displayName>
-				<symbol>T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>Timor Esküdosu</displayName>
 			</currency>
 			<currency type="TRL">
 				<displayName>Eski Türk Lirası</displayName>
-				<symbol>TRL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">TL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>Türk Lirası</displayName>
-				<symbol>TL</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad ve Tobago Doları</displayName>
-				<symbol>TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Yeni Tayvan Doları</displayName>
-				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Tanzanya Şilini</displayName>
-				<symbol>TSh</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>Ukrayna Grivnası</displayName>
@@ -3832,7 +3734,6 @@
 			</currency>
 			<currency type="UGX">
 				<displayName>Uganda Şilini</displayName>
-				<symbol>USh</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>ABD Doları</displayName>
@@ -3852,25 +3753,21 @@
 			</currency>
 			<currency type="UYU">
 				<displayName>Uruguay Pezosu (Uruguayo)</displayName>
-				<symbol>$U</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>Özbekistan Somu</displayName>
 			</currency>
 			<currency type="VEB">
 				<displayName>Venezuela Bolivarı</displayName>
-				<symbol>Bs.</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>Güçlü Venezuela Bolivarı</displayName>
-				<symbol>Bs.F.</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Vietnam Dongu</displayName>
 			</currency>
 			<currency type="VUV">
 				<displayName>Vanuatu Vatusu</displayName>
-				<symbol>VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>Batı Samoa Talası</displayName>
@@ -3898,7 +3795,6 @@
 			</currency>
 			<currency type="XCD">
 				<displayName>Doğu Karayip Doları</displayName>
-				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>Özel Çekme Hakkı (SDR)</displayName>
@@ -3920,7 +3816,6 @@
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP Frangı</displayName>
-				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>Platin</displayName>
@@ -3939,7 +3834,6 @@
 			</currency>
 			<currency type="YER">
 				<displayName>Yemen Riyali</displayName>
-				<symbol>YR</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>Yugoslav Dinarı (Hard)</displayName>
@@ -3955,7 +3849,6 @@
 			</currency>
 			<currency type="ZAR">
 				<displayName>Güney Afrika Randı</displayName>
-				<symbol>R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Zambiya Kvaçası</displayName>
@@ -3968,7 +3861,6 @@
 			</currency>
 			<currency type="ZWD">
 				<displayName>Zimbabve Doları</displayName>
-				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>

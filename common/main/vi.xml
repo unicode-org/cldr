@@ -456,9 +456,6 @@
 				<dateTimeFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
-						<intervalFormatItem id="d">
-							<greatestDifference id="d">d-d</greatestDifference>
-						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -613,7 +610,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<default choice="medium"/>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{0} {1}</pattern>
@@ -983,7 +979,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName draft="contributed">Rupi Ấn Độ</displayName>
-				<symbol>₨</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName draft="contributed">Dinar I-rắc</displayName>
@@ -1092,7 +1087,6 @@
 			</currency>
 			<currency type="VND">
 				<displayName>đồng</displayName>
-				<symbol>₫</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName draft="contributed">Vàng</displayName>
@@ -1164,3 +1158,4 @@ It is difficult to decide whether Ti\u1EBFng should precede the translation, but
         it { "Ti\u1EBFng \u00DD" } // Just \u00DD seems okay because Ti\u1EBFng is used. \u00DD is sometimes used to mean Italy too.
         "Latn",  // ISO 15924 Name
 -->
+

@@ -997,20 +997,6 @@
 			<codePattern type="territory">ദേശം: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList>mixed</inList>
-		<inText type="currency">mixed</inText>
-		<inText type="fields">mixed</inText>
-		<inText type="keys">mixed</inText>
-		<inText type="languages">mixed</inText>
-		<inText type="long">mixed</inText>
-		<inText type="measurementSystemNames">mixed</inText>
-		<inText type="quarterWidth">mixed</inText>
-		<inText type="scripts">mixed</inText>
-		<inText type="territories">mixed</inText>
-		<inText type="types">mixed</inText>
-		<inText type="variants">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[\u200C \u200D ഃ അ-ഋ ൠ ഌ ൡ എ-ഐ ഒ-ന പ-മ ം യ ര ല വ-ഹ ള ഴ റ ാ-ൃ െ-ൈ ൊ ോ ൗ ൌ \u0D4D]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[a-z]</exemplarCharacters>
@@ -1023,7 +1009,6 @@
 		<alternateQuotationEnd>’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="gregorian">
 				<months>
@@ -1453,7 +1438,6 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0} സമയം</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -3037,7 +3021,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>.</decimal>
 			<group>,</group>
@@ -3147,12 +3130,6 @@
 				<displayName count="one">അര്‍ജന്‍റീന്‍  ഓസ്ട്രല്‍</displayName>
 				<displayName count="other">അര്‍ജന്‍റീന്‍  ഓസ്ട്രല്‍സ്</displayName>
 			</currency>
-			<currency type="ARL">
-				<symbol>$L</symbol>
-			</currency>
-			<currency type="ARM">
-				<symbol>m$n</symbol>
-			</currency>
 			<currency type="ARP">
 				<displayName>അര്‍ജന്‍റീന്‍ പെയ്സോ (1983-1985)</displayName>
 				<displayName count="one">അര്‍ജന്‍റീന്‍ പെയ്സോ (ARP)</displayName>
@@ -3162,7 +3139,6 @@
 				<displayName>അര്‍ജന്‍റീന്‍ പെയ്സോ</displayName>
 				<displayName count="one">അര്‍ജന്‍റീന്‍ പെയ്സോ</displayName>
 				<displayName count="other">അര്‍ജന്‍റീന്‍ പെയ്സോസ്</displayName>
-				<symbol>AR$</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>ഓസ്ട്രേലിയന്‍ ഷില്ലിംഗ്</displayName>
@@ -3199,7 +3175,6 @@
 				<displayName>ബോസ്നിയ-ഹെര്‍സഗോവിന കണ്‍വേര്‍ട്ടിബിള്‍ മാര്‍ക്ക്</displayName>
 				<displayName count="one">ബോസ്നിയ ഹെര്‍സഗോവിന കണ്‍വേര്‍ട്ടിബിള്‍ മാര്‍ക്ക്</displayName>
 				<displayName count="other">ബോസ്നിയ ഹെര്‍സഗോവിന കണ്‍വേര്‍ട്ടിബിള്‍ മാര്‍ക്സ്</displayName>
-				<symbol>KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>ബാര്‍ബഡോസ് ഡോളര്‍</displayName>
@@ -3211,7 +3186,6 @@
 				<displayName>ബംഗ്ലാദേശി ടാക്ക</displayName>
 				<displayName count="one">ബംഗ്ലാദേശ് താക്കാ</displayName>
 				<displayName count="other">ബംഗ്ലാദേശ് താക്കാസ്</displayName>
-				<symbol>Tk</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>ബെല്‍ജിയന്‍ ഫ്രാങ്ക് (കൈമാറ്റം ചെയ്യാവുന്നത്)</displayName>
@@ -3222,7 +3196,6 @@
 				<displayName>ബെല്‍ജിയന്‍ ഫ്രാങ്ക്</displayName>
 				<displayName count="one">ബെല്‍ജിയന്‍ ഫ്രാങ്ക്</displayName>
 				<displayName count="other">ബെല്‍ജിയന്‍ ഫ്രാങ്ക്സ്</displayName>
-				<symbol>BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>ബല്‍ജിയന്‍ ഫ്രാങ്ക്</displayName>
@@ -3244,7 +3217,6 @@
 				<displayName>ബഹറിന്‍ ദിനാര്‍</displayName>
 				<displayName count="one">ബഹ്റൈന്‍ ദിനാര്‍</displayName>
 				<displayName count="other">ബഹ്റൈന്‍ ദിനാര്‍സ്</displayName>
-				<symbol>BD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>ബുറുണ്ടി ഫ്രാങ്ക്</displayName>
@@ -3256,7 +3228,6 @@
 				<displayName>ബെര്‍മുഡന്‍ ഡോളര്‍</displayName>
 				<displayName count="one">ബെര്‍മുഡന്‍ ഡോളര്‍</displayName>
 				<displayName count="other">ബെര്‍മുഡന്‍ ഡോളേഴ്സ്</displayName>
-				<symbol>BD$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>ബ്രൂണെ ഡോളര്‍</displayName>
@@ -3267,7 +3238,6 @@
 				<displayName>ബൊളീവിയാനോ</displayName>
 				<displayName count="one">ബൊളീവിയാനോ</displayName>
 				<displayName count="other">ബൊളീവിയാനോസ്</displayName>
-				<symbol>Bs</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>ബൊളീവിയന്‍  പെയ്സോ</displayName>
@@ -3309,9 +3279,6 @@
 				<displayName count="one">ബ്രസീലിയന്‍ ക്രുസെയ്റോ</displayName>
 				<displayName count="other">ബ്രസീലിയന്‍ ക്രുസെയ്റോസ്</displayName>
 			</currency>
-			<currency type="BRZ">
-				<symbol>₢</symbol>
-			</currency>
 			<currency type="BSD">
 				<displayName>ബഹാമിയന്‍  ഡോളര്‍</displayName>
 				<displayName count="one">ബഹാമിയന്‍ ഡോളര്‍</displayName>
@@ -3348,7 +3315,6 @@
 				<displayName>ബെലീസ് ഡോളര്‍</displayName>
 				<displayName count="one">ബെലീസ് ഡോളര്‍</displayName>
 				<displayName count="other">ബെലീസ് ഡോളേഴ്സ്</displayName>
-				<symbol>BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>കനേഡിയന്‍ ഡോളര്‍</displayName>
@@ -3469,13 +3435,11 @@
 				<displayName>ഡൊമിനിക്കന്‍ പെയ്സോ</displayName>
 				<displayName count="one">ഡൊമിനിക്കന്‍ പെയ്സോ</displayName>
 				<displayName count="other">ഡൊമിനിക്കന്‍ പെയ്സോസ്</displayName>
-				<symbol>RD$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>അള്‍ജീരിയന്‍ ദിനാര്‍</displayName>
 				<displayName count="one">അള്‍ജീരിയന്‍ ദിനാര്‍</displayName>
 				<displayName count="other">അള്‍ജീരിയന്‍ ദിനാര്‍സ്</displayName>
-				<symbol>DA</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>ഇക്വഡോര്‍ സൂക്രേ</displayName>
@@ -3522,7 +3486,6 @@
 				<displayName>എത്യോപ്പിയന്‍ ബിര്‍</displayName>
 				<displayName count="one">എത്യോപ്പിയന്‍ ബിര്‍</displayName>
 				<displayName count="other">എത്യോപ്പിയന്‍ ബിര്‍സ്</displayName>
-				<symbol>Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>യൂറോ</displayName>
@@ -3554,7 +3517,6 @@
 				<displayName>ബ്രിട്ടീഷ് പൌണ്ട് സ്റ്റെര്‍ലിംങ്</displayName>
 				<displayName count="one">ബ്രിട്ടീഷ് പൌണ്ട് സ്റ്റെര്‍ലിംഗ്</displayName>
 				<displayName count="other">ബ്രിട്ടീഷ് പൌണ്ട് സ്റ്റെര്‍ലിംഗ്സ്</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>ജോര്‍‍ജ്ജിയന്‍  ക്യൂപോണ്‍ ലാരിറ്റ്</displayName>
@@ -3635,7 +3597,6 @@
 				<displayName>ഹോങ് കോങ് ഡോളര്‍</displayName>
 				<displayName count="one">ഹോങ് കോങ് ഡോളര്‍</displayName>
 				<displayName count="other">ഹോങ് കോങ് ഡോളേഴ്സ്</displayName>
-				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>ഹോന്‍ഡ്യുറാസ് ലെംപീര</displayName>
@@ -3662,19 +3623,16 @@
 				<displayName>ഹംഗേറിയന്‍ ഫോറിന്‍റ്</displayName>
 				<displayName count="one">ഹംഗേറിയന്‍ ഫോറിന്‍റ്</displayName>
 				<displayName count="other">ഹംഗേറിയന്‍ ഫോറിന്‍റ്സ്</displayName>
-				<symbol>Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>ഇന്തോനേഷ്യന്‍ രൂപ</displayName>
 				<displayName count="one">ഇന്തോനേഷ്യന്‍ രൂപ</displayName>
 				<displayName count="other">ഇന്തോനേഷ്യന്‍ രൂപ</displayName>
-				<symbol>Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>ഐറിഷ് പൌണ്ട്</displayName>
 				<displayName count="one">ഐറിഷ് പൌണ്ട്</displayName>
 				<displayName count="other">ഐറിഷ് പൌണ്ട്സ്</displayName>
-				<symbol>IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>ഇസ്രയേലി പൌണ്ട്</displayName>
@@ -3719,13 +3677,11 @@
 				<displayName>ജമൈക്കന്‍ ഡോളര്‍</displayName>
 				<displayName count="one">ജമൈക്കന്‍ ഡോളര്‍</displayName>
 				<displayName count="other">ജമൈക്കന്‍ ഡോളേഴ്സ്</displayName>
-				<symbol>J$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>ജോര്‍ദ്ദാന്‍ ദിനാര്‍</displayName>
 				<displayName count="one">ജോര്‍ദ്ദാന്‍ ദിനാര്‍</displayName>
 				<displayName count="other">ജോര്‍ദ്ദാന്‍ ദിനാര്‍സ്</displayName>
-				<symbol>JD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>ജപ്പാനീസ് യെന്‍</displayName>
@@ -3755,7 +3711,6 @@
 				<displayName>കൊമോറോ ഫ്രാങ്ക്</displayName>
 				<displayName count="one">കൊമോറോ ഫ്രാങ്ക്</displayName>
 				<displayName count="other">കൊമോറോ ഫ്രാങ്ക്‍സ്</displayName>
-				<symbol>CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>നോര്‍ത്ത് കൊറിയന്‍ വോണ്‍</displayName>
@@ -3771,7 +3726,6 @@
 				<displayName>കുവൈറ്റി ദിനാര്‍</displayName>
 				<displayName count="one">കുവൈറ്റ് ദിനാര്‍</displayName>
 				<displayName count="other">കുവൈറ്റി ദിനാര്‍സ്‌</displayName>
-				<symbol>KD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>കെയ്മന്‍ദ്വീപുകളുടെ ഡോളര്‍‌</displayName>
@@ -3851,7 +3805,6 @@
 				<displayName>ലിബിയന്‍ ദിനാര്‍</displayName>
 				<displayName count="one" draft="contributed">LYD</displayName>
 				<displayName count="other" draft="contributed">LYD</displayName>
-				<symbol draft="contributed">LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>മൊറോക്കന്‍ ദിര്‍ഹം</displayName>
@@ -3882,7 +3835,6 @@
 				<displayName>മാസിഡോണിയന്‍ ദിനാര്‍</displayName>
 				<displayName count="one" draft="contributed">MKD</displayName>
 				<displayName count="other" draft="contributed">MKD</displayName>
-				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>മാലി ഫ്രാങ്ക്</displayName>
@@ -3909,13 +3861,11 @@
 				<displayName>മൌറിറ്റേനിയ ഔഗിയ</displayName>
 				<displayName count="one" draft="contributed">MRO</displayName>
 				<displayName count="other" draft="contributed">MRO</displayName>
-				<symbol draft="contributed">UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>മല്‍ത്തീസ് ലിറ</displayName>
 				<displayName count="one" draft="contributed">MTL</displayName>
 				<displayName count="other" draft="contributed">MTL</displayName>
-				<symbol draft="contributed">Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>മല്‍ത്തീസ് പൌണ്ട്</displayName>
@@ -3936,7 +3886,6 @@
 				<displayName>മലാവി ക്വാച</displayName>
 				<displayName count="one" draft="contributed">MWK</displayName>
 				<displayName count="other" draft="contributed">MWK</displayName>
-				<symbol draft="contributed">MK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>മെക്സിക്കന്‍ പെസോ</displayName>
@@ -3958,7 +3907,6 @@
 				<displayName>മലേഷ്യന്‍ റിംഗിറ്റ്</displayName>
 				<displayName count="one" draft="contributed">MYR</displayName>
 				<displayName count="other" draft="contributed">MYR</displayName>
-				<symbol draft="contributed">RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>മൊസാന്പിക്ക് എസ്ക്യുഡോ</displayName>
@@ -3969,19 +3917,16 @@
 				<displayName>ഓള്‍ഡ് മൊസാന്പിക്ക് മെറ്റിക്കല്‍</displayName>
 				<displayName count="one" draft="contributed">MZM</displayName>
 				<displayName count="other" draft="contributed">MZM</displayName>
-				<symbol draft="contributed">Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>മൊസാന്പിക്ക് മെറ്റിക്കല്‍</displayName>
 				<displayName count="one" draft="contributed">MZN</displayName>
 				<displayName count="other" draft="contributed">MZN</displayName>
-				<symbol draft="contributed">MTn</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>നമീബിയന്‍ ഡോളര്‍</displayName>
 				<displayName count="one" draft="contributed">NAD</displayName>
 				<displayName count="other" draft="contributed">NAD</displayName>
-				<symbol draft="contributed">N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>നൈജീരിയന്‍ നൈറ</displayName>
@@ -4254,7 +4199,6 @@
 				<displayName>റ്റോംഗ പാംഗ</displayName>
 				<displayName count="one">റ്റോംഗ പാംഗ</displayName>
 				<displayName count="other" draft="contributed">റ്റോംഗ പാംഗാസ്</displayName>
-				<symbol draft="contributed">T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>തിമോര്‍ എസ്ക്യൂഡോ</displayName>
@@ -4265,7 +4209,6 @@
 				<displayName>പ്രാചീന തുര്‍ക്കിഷ് ലിറ</displayName>
 				<displayName count="one" draft="contributed">TRL</displayName>
 				<displayName count="other" draft="contributed">പ്രാചീന തുര്‍ക്കിഷ് ലിറാസ്</displayName>
-				<symbol>TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>തുര്‍ക്കിഷ് ലിറ</displayName>
@@ -4276,13 +4219,11 @@
 				<displayName>ട്രിനിഡാഡ് ആന്‍ഡ് റ്റൊബാഗോ ഡോളര്‍</displayName>
 				<displayName count="one" draft="contributed">TTD</displayName>
 				<displayName count="other" draft="contributed">TTD</displayName>
-				<symbol draft="contributed">TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>തായ്‌വാന്‍ ഡോളര്‍</displayName>
 				<displayName count="one">തായ്‌വാന്‍ ഡോളര്‍</displayName>
 				<displayName count="other" draft="contributed">തായ്‌വാന്‍ ഡോളേഴ്സ്</displayName>
-				<symbol draft="contributed">NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>ടാന്‍സാനിയന്‍ ഷില്ലിംഗ്</displayName>
@@ -4369,7 +4310,6 @@
 				<displayName>വനുവാതു വാതു</displayName>
 				<displayName count="one" draft="contributed">വനുവാതു വാതു</displayName>
 				<displayName count="other" draft="contributed">വനുവാതു വാതൂസ്</displayName>
-				<symbol draft="contributed">VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>പശ്ചിമ സമോവ താല</displayName>
@@ -4415,7 +4355,6 @@
 				<displayName>കിഴക്കന്‍  കരീബിയന്‍ ഡോളര്‍</displayName>
 				<displayName count="one">കിഴക്കന്‍ കരീബിയന്‍ ഡോളര്‍</displayName>
 				<displayName count="other">കിഴക്കന്‍ കരീബിയന്‍ ഡോളേഴ്സ്</displayName>
-				<symbol draft="contributed">EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>സ്പെഷ്യല്‍ ഡ്രോയിംഗ് റൈറ്റ്സ്</displayName>
@@ -4436,56 +4375,47 @@
 				<displayName>ഫ്രെഞ്ച് UIC-ഫ്രാങ്ക്</displayName>
 				<displayName count="one">ഫ്രെഞ്ച് UIC-ഫ്രാങ്ക്</displayName>
 				<displayName count="other">ഫ്രെഞ്ച് UIC-ഫ്രാങ്ക്സ്</displayName>
-				<symbol>XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>CFA ഫ്രാങ്ക് BCEAO</displayName>
 				<displayName count="one">CFA ഫ്രാങ്ക് BCEAO</displayName>
 				<displayName count="other">CFA ഫ്രാങ്ക്സ്  BCEAO</displayName>
-				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>പലാഡിയം</displayName>
 				<displayName count="one">പലാഡിയം</displayName>
 				<displayName count="other">പലാഡിയം</displayName>
-				<symbol>XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP  ഫ്രാങ്ക്</displayName>
 				<displayName count="one">CFP ഫ്രാങ്ക്</displayName>
 				<displayName count="other">CFP ഫ്രാങ്ക്സ്</displayName>
-				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>പ്ലാറ്റിനം</displayName>
 				<displayName count="one">പ്ലാറ്റിനം</displayName>
 				<displayName count="other">പ്ലാറ്റിനം</displayName>
-				<symbol>XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET ഫണ്ട്സ്</displayName>
 				<displayName count="one">RINET ഫണ്ട്സ്</displayName>
 				<displayName count="other">RINET ഫണ്ട്സ്</displayName>
-				<symbol>XRE</symbol>
 			</currency>
 			<currency type="XTS">
 				<displayName>ടെസ്റ്റിംഗിനുള്ള കറന്‍സി കോഡ്</displayName>
 				<displayName count="one">റ്റെസ്റ്റിംഗ് കറന്‍സി കോഡ്</displayName>
 				<displayName count="other">റ്റെസ്റ്റിംഗ് കറന്‍സി കോഡ്</displayName>
-				<symbol>XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>അറിയപ്പെടാത്തതോ നിലവിലില്ലാത്തതോ ആയ നാണയം</displayName>
 				<displayName count="one">അറിയപ്പെടാത്തതോ നിലവിലില്ലാത്തതോ ആയ നാണയം</displayName>
 				<displayName count="other">അറിയപ്പെടാത്തതോ നിലവിലില്ലാത്തതോ ആയ നാണയം</displayName>
-				<symbol>XXX</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">[നാണയം അറിവില്ല]</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>യമനി ദിനാര്‍</displayName>
 				<displayName count="one">യമനി ദിനാര്‍</displayName>
 				<displayName count="other">യമനി ദിനാര്‍സ്</displayName>
-				<symbol>YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>യമനി റിയാല്‍</displayName>
@@ -4497,55 +4427,46 @@
 				<displayName>യൂഗോസ്ലേവിയന്‍ ഹാര്‍ഡ് ദിനാര്‍</displayName>
 				<displayName count="one">യൂഗോസ്ലേവിയന്‍ ഹാര്‍ഡ് ദിനാര്‍</displayName>
 				<displayName count="other">യൂഗോസ്ലേവിയന്‍ ഹാര്‍ഡ് ദിനാര്‍സ്</displayName>
-				<symbol>YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>യൂഗോസ്ലേവിയന്‍ നോവി ദിനാര്‍</displayName>
 				<displayName count="one">യൂഗോസ്ലേവിയന്‍ നോവി ദിനാര്‍</displayName>
 				<displayName count="other">യൂഗോസ്ലേവിയന്‍ നോവി ദിനാര്‍സ്</displayName>
-				<symbol>YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>യൂഗോസ്ലേവിയന്‍ കണ്‍വേര്‍ട്ടിബിള്‍ ദിനാര്‍</displayName>
 				<displayName count="one">യൂഗോസ്ലേവിയന്‍ കണ്‍വേര്‍ട്ടിബിള്‍ ദിനാര്‍</displayName>
 				<displayName count="other">യൂഗോസ്ലേവിയന്‍ കണ്‍വേര്‍ട്ടിബിള്‍ ദിനാര്‍സ്</displayName>
-				<symbol>YUN</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>ദക്ഷിണാഫ്രിക്കന്‍ റാന്‍ഡ് (ഫിനാന്‍ഷ്യല്‍)</displayName>
 				<displayName count="one">ദക്ഷിണാഫ്രിക്കന്‍ റാന്‍ഡ് (ഫിനാന്‍ഷ്യല്‍)</displayName>
 				<displayName count="other">ദക്ഷിണാഫ്രിക്കന്‍ റാന്‍ഡ്സ് (ഫിനാന്‍ഷ്യല്‍)</displayName>
-				<symbol>ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>ദക്ഷിണ ആഫ്രിക്കന്‍ റാന്‍ഡ്</displayName>
 				<displayName count="one">ദക്ഷിണാഫ്രിക്കന്‍ റാന്‍ഡ്</displayName>
 				<displayName count="other">ദക്ഷിണാഫ്രിക്കന്‍ റാന്‍ഡ്സ്</displayName>
-				<symbol>R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>സാംബിയന്‍ ക്വാച</displayName>
 				<displayName count="one">സാംബിയന്‍ ക്വാച</displayName>
 				<displayName count="other">സാംബിയന്‍ ക്വാചാസ്</displayName>
-				<symbol>ZK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>സൈറിയന്‍ ന്യൂ സൈര്‍</displayName>
 				<displayName count="one">സൈറിയന്‍ ന്യൂ സൈര്‍</displayName>
 				<displayName count="other">സൈറിയന്‍ ന്യൂ സൈര്‍സ്</displayName>
-				<symbol>NZ</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>സൈറിയന്‍ സൈര്‍</displayName>
 				<displayName count="one">സൈറിയന്‍ സൈര്‍</displayName>
 				<displayName count="other">സൈറിയന്‍ സൈര്‍സ്</displayName>
-				<symbol>ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>സിംബാബ്‌വെ ഡോളര്‍</displayName>
 				<displayName count="one">സിംബാബ്‌വെ ഡോളര്‍</displayName>
 				<displayName count="other">സിംബാബ്‌വെ ഡോളേഴ്സ്</displayName>
-				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>

@@ -1125,7 +1125,6 @@
 		</codePatterns>
 	</localeDisplayNames>
 	<layout>
-		<inList>mixed</inList>
 		<inText type="currency">lowercase-words</inText>
 		<inText type="currency" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
 		<inText type="fields">titlecase-firstword</inText>
@@ -1136,7 +1135,6 @@
 		<inText type="languages" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
 		<inText type="long">lowercase-words</inText>
 		<inText type="long" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
-		<inText type="measurementSystemNames">mixed</inText>
 		<inText type="quarterWidth">titlecase-firstword</inText>
 		<inText type="quarterWidth" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
 		<inText type="scripts">lowercase-words</inText>
@@ -1525,7 +1523,6 @@
 			<hourFormat>+HH.mm;-HH.mm</hourFormat>
 			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<fallbackFormat alt="proposed-x1001" draft="unconfirmed">{0} ({1})</fallbackFormat>
@@ -1547,9 +1544,6 @@
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>Dumont D'Urville</exemplarCity>
 			</zone>
-			<zone type="America/Argentina/Salta">
-				<exemplarCity>Salta</exemplarCity>
-			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity>Wien</exemplarCity>
 			</zone>
@@ -1561,9 +1555,6 @@
 			</zone>
 			<zone type="America/Cuiaba">
 				<exemplarCity>Cuiabá</exemplarCity>
-			</zone>
-			<zone type="America/Santarem">
-				<exemplarCity>Santarem</exemplarCity>
 			</zone>
 			<zone type="America/Belem">
 				<exemplarCity>Belém</exemplarCity>
@@ -1754,54 +1745,33 @@
 					<standard>Acre-tid</standard>
 					<daylight>Acre sommertid</daylight>
 				</long>
-				<short>
-					<standard>ACT (Acre)</standard>
-					<daylight>ACST (Acre)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>sentralafrikansk tid</standard>
 				</long>
-				<short>
-					<standard>CAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>østafrikansk tid</standard>
 				</long>
-				<short>
-					<standard>EAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
 					<standard>sørafrikansk normaltid</standard>
 				</long>
-				<short>
-					<standard>SAST</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
 					<standard>vestafrikansk tid</standard>
 					<daylight>vestafrikansk sommertid</daylight>
 				</long>
-				<short>
-					<standard>WAT</standard>
-					<daylight>WAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<standard>Amazonas-tid</standard>
 					<daylight>Amazonas sommertid</daylight>
 				</long>
-				<short>
-					<standard>AMT</standard>
-					<daylight>AMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Central">
 				<long>
@@ -1855,8 +1825,6 @@
 				</long>
 				<short>
 					<generic>ACT</generic>
-					<standard>ACST</standard>
-					<daylight>ACDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
@@ -1865,10 +1833,6 @@
 					<standard>vest-sentralaustralsk standardtid</standard>
 					<daylight>vest-sentralaustralsk sommertid</daylight>
 				</long>
-				<short>
-					<standard>ACWST</standard>
-					<daylight>ACWDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -1878,8 +1842,6 @@
 				</long>
 				<short>
 					<generic>AET</generic>
-					<standard>AEST</standard>
-					<daylight>AEDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Western">
@@ -1890,8 +1852,6 @@
 				</long>
 				<short>
 					<generic>AWT</generic>
-					<standard>AWST</standard>
-					<daylight>AWDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Brasilia">
@@ -1899,10 +1859,6 @@
 					<standard>Brasilia-tid</standard>
 					<daylight>Brasilia sommertid</daylight>
 				</long>
-				<short>
-					<standard>BRT</standard>
-					<daylight>BRST</daylight>
-				</short>
 			</metazone>
 			<metazone type="China">
 				<long>
@@ -1955,50 +1911,31 @@
 					<standard>Hong Kong-tid</standard>
 					<daylight>Hong Kong-sommertid</daylight>
 				</long>
-				<short>
-					<standard>HKT</standard>
-					<daylight>HKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="India">
 				<long>
 					<standard>indisk standardtid</standard>
 				</long>
-				<short>
-					<standard>IST</standard>
-				</short>
 			</metazone>
 			<metazone type="Indochina">
 				<long>
 					<standard>indokinesisk tid</standard>
 				</long>
-				<short>
-					<standard>ICT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
 					<standard>sentralindonesisk tid</standard>
 				</long>
-				<short>
-					<standard>CIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
 					<standard>østindonesisk tid</standard>
 				</long>
-				<short>
-					<standard>EIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
 					<standard>vestindonesisk tid</standard>
 				</long>
-				<short>
-					<standard>WIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Israel">
 				<long>
@@ -2007,34 +1944,23 @@
 				</long>
 				<short>
 					<standard>IST (Israel)</standard>
-					<daylight>IDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>
 					<standard>japansk standardtid</standard>
 				</long>
-				<short>
-					<standard>JST</standard>
-				</short>
 			</metazone>
 			<metazone type="Korea">
 				<long>
 					<standard>koreansk standardtid</standard>
 				</long>
-				<short>
-					<standard>KST</standard>
-				</short>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
 					<standard>Moskva normaltid</standard>
 					<daylight>Moskva sommertid</daylight>
 				</long>
-				<short>
-					<standard>MSK</standard>
-					<daylight>MSKS</daylight>
-				</short>
 			</metazone>
 			<metazone type="New_Zealand">
 				<long>
@@ -2044,14 +1970,11 @@
 				</long>
 				<short>
 					<generic>NZT</generic>
-					<standard>NZST</standard>
-					<daylight>NZDT</daylight>
 				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<defaultNumberingSystem alt="proposed-x1001" draft="unconfirmed">desimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
@@ -2107,7 +2030,6 @@
 			</currency>
 			<currency type="AED">
 				<displayName>UAE dirham</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>afghani (1927-2002)</displayName>
@@ -2119,12 +2041,10 @@
 			<currency type="ALL">
 				<displayName>albanske lek</displayName>
 				<displayName count="one">albansk lek</displayName>
-				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>armenske dram</displayName>
 				<displayName count="one">armensk dram</displayName>
-				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>nederlandske antillegylden</displayName>
@@ -2213,7 +2133,6 @@
 			<currency type="BEC">
 				<displayName>belgiske franc (konvertible)</displayName>
 				<displayName count="one">belgisk franc (konvertibel)</displayName>
-				<symbol>BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>belgiske franc</displayName>
@@ -2222,17 +2141,14 @@
 			<currency type="BEL">
 				<displayName>belgiske franc (finansielle)</displayName>
 				<displayName count="one">belgisk franc (finansiell)</displayName>
-				<symbol>BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>bulgarske lev (hard)</displayName>
 				<displayName count="one">bulgarsk lev (hard)</displayName>
-				<symbol>BGL</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>bulgarske lev</displayName>
 				<displayName count="one">bulgarsk lev</displayName>
-				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>bahrainske dinarer</displayName>
@@ -2266,7 +2182,6 @@
 			<currency type="BOV">
 				<displayName>bolivianske mvdol</displayName>
 				<displayName count="one">BOV</displayName>
-				<symbol>BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>brasilianske cruzeiro novo (1967-1986)</displayName>
@@ -2316,7 +2231,6 @@
 			<currency type="BWP">
 				<displayName>botswanske pula</displayName>
 				<displayName count="one">botswansk pula</displayName>
-				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>hviterussiske nye rubler (1994-1999)</displayName>
@@ -2325,7 +2239,6 @@
 			<currency type="BYR">
 				<displayName>hviterussiske rubler</displayName>
 				<displayName count="one">hviterussisk rubel</displayName>
-				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>beliziske dollar</displayName>
@@ -2340,11 +2253,9 @@
 			<currency type="CDF">
 				<displayName>kongolesiske franc (congolais)</displayName>
 				<displayName count="one">kongolesisk franc (congolais)</displayName>
-				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>WIR euro</displayName>
-				<symbol>CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>sveitsiske franc</displayName>
@@ -2353,7 +2264,6 @@
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR franc</displayName>
-				<symbol>CHW</symbol>
 			</currency>
 			<currency type="CLE">
 				<symbol>CLE</symbol>
@@ -2361,7 +2271,6 @@
 			<currency type="CLF">
 				<displayName>chilenske unidades de fomento</displayName>
 				<displayName count="one">chilensk unidades de fomento</displayName>
-				<symbol>CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>chilenske pesos</displayName>
@@ -2380,7 +2289,6 @@
 			</currency>
 			<currency type="COU">
 				<displayName>unidad de valor real</displayName>
-				<symbol>COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>costaricanske colon</displayName>
@@ -2458,7 +2366,6 @@
 			<currency type="ECV">
 				<displayName>ecuadorianske unidad de valor constante (UVC)</displayName>
 				<displayName count="one">ecuadoriansk unidad de valor constante (UVC)</displayName>
-				<symbol>ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>estiske kroon</displayName>
@@ -2478,12 +2385,10 @@
 			<currency type="ESA">
 				<displayName>spanske peseta (A-konto)</displayName>
 				<displayName count="one">spansk peseta (A-konto)</displayName>
-				<symbol>ESA</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName>spanske peseta (konvertibel konto)</displayName>
 				<displayName count="one">spansk peseta (konvertibel konto)</displayName>
-				<symbol>ESB</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>spanske peseta</displayName>
@@ -2527,7 +2432,6 @@
 			<currency type="GEL">
 				<displayName>georgiske lari</displayName>
 				<displayName count="one">georgisk lari</displayName>
-				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>ghanesisk cedi (1979-2007)</displayName>
@@ -2551,7 +2455,6 @@
 			<currency type="GMD">
 				<displayName>gambiske dalasi</displayName>
 				<displayName count="one">gambisk dalasi</displayName>
-				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>guineanske franc</displayName>
@@ -2573,7 +2476,6 @@
 			<currency type="GTQ">
 				<displayName>guatemalanske quetzal</displayName>
 				<displayName count="one">guatemalansk quetzal</displayName>
-				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>portugisiske guinea escudo</displayName>
@@ -2581,7 +2483,6 @@
 			</currency>
 			<currency type="GWP">
 				<displayName>Guinea-Bissau-pesos</displayName>
-				<symbol>GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>guyanske dollar</displayName>
@@ -2681,7 +2582,6 @@
 			<currency type="KHR">
 				<displayName>kambodsjanske riel</displayName>
 				<displayName count="one">kambodsjansk riel</displayName>
-				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>komoriske franc</displayName>
@@ -2748,7 +2648,6 @@
 			<currency type="LUL">
 				<displayName>luxemburgske finansielle franc</displayName>
 				<displayName count="one">luxemburgsk finansiell franc</displayName>
-				<symbol>LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>latviske lats</displayName>
@@ -2774,7 +2673,6 @@
 			<currency type="MDL">
 				<displayName>moldovske leu</displayName>
 				<displayName count="one">moldovsk leu</displayName>
-				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>madagassiske ariary</displayName>
@@ -2833,7 +2731,6 @@
 			<currency type="MXN">
 				<displayName>meksikanske pesos</displayName>
 				<displayName count="one">meksikansk pesos</displayName>
-				<symbol>MXN</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>meksikanske sølvpesos (1861-1992)</displayName>
@@ -2844,7 +2741,6 @@
 			<currency type="MXV">
 				<displayName>meksikanske unidad de inversion (UDI)</displayName>
 				<displayName count="one">meksikansk unidad de inversion (UDI)</displayName>
-				<symbol>MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>malaysiske ringgit</displayName>
@@ -2966,7 +2862,6 @@
 			<currency type="RON">
 				<displayName>rumenske leu</displayName>
 				<displayName count="one">rumensk leu</displayName>
-				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>serbiske dinarer</displayName>
@@ -3070,7 +2965,6 @@
 			<currency type="SZL">
 				<displayName>swazilandske lilangeni</displayName>
 				<displayName count="one">swazilandsk lilangeni</displayName>
-				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>thailandske baht</displayName>
@@ -3105,7 +2999,6 @@
 				<displayName>tyrkiske lire</displayName>
 				<displayName count="one">tyrkisk lire</displayName>
 				<displayName count="other">tyrkiske lire</displayName>
-				<symbol>TRL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">TL</symbol>
 			</currency>
 			<currency type="TRY">
@@ -3411,3 +3304,4 @@ Comments without bases
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
  China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
 -->
+

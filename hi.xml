@@ -1310,28 +1310,6 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE, y MMMM dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>y MMMM d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>y MMM d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>yyyy-MM-dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 			</calendar>
 			<calendar type="islamic">
 				<months>
@@ -3154,7 +3132,6 @@
 			</currency>
 			<currency type="CSD">
 				<displayName>सर्बिय का ढीनार</displayName>
-				<symbol>CSD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">सर्बियाई दीनार</symbol>
 			</currency>
 			<currency type="CYP">
@@ -3183,7 +3160,6 @@
 			</currency>
 			<currency type="FJD">
 				<displayName>फ़िजी का डालर</displayName>
-				<symbol>FJ$</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>फ़्रांसीसी फ़्रैंक</displayName>
@@ -3193,7 +3169,6 @@
 			</currency>
 			<currency type="HKD">
 				<displayName draft="contributed">हाँगकाँग डॉलर</displayName>
-				<symbol>HK$</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">हॉंगकॉंग डॉलर</symbol>
 			</currency>
 			<currency type="HRD">
@@ -3374,7 +3349,6 @@
 			</currency>
 			<currency type="XXX">
 				<displayName>अज्ञात या अवैध मुद्रा</displayName>
-				<symbol>XXX</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">१२,३४५.६८ रुपये</symbol>
 			</currency>
 			<currency type="ZAR">

@@ -975,20 +975,6 @@
 			<measurementSystemName type="metric" alt="proposed-x1001" draft="unconfirmed">SI-ühikud</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
-	<layout>
-		<inList draft="unconfirmed">mixed</inList>
-		<inText type="currency" draft="unconfirmed">mixed</inText>
-		<inText type="fields" draft="unconfirmed">mixed</inText>
-		<inText type="keys" draft="unconfirmed">mixed</inText>
-		<inText type="languages" draft="unconfirmed">mixed</inText>
-		<inText type="long" draft="unconfirmed">mixed</inText>
-		<inText type="measurementSystemNames" draft="unconfirmed">mixed</inText>
-		<inText type="quarterWidth" draft="unconfirmed">mixed</inText>
-		<inText type="scripts" draft="unconfirmed">mixed</inText>
-		<inText type="territories" draft="unconfirmed">mixed</inText>
-		<inText type="types" draft="unconfirmed">mixed</inText>
-		<inText type="variants" draft="unconfirmed">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a-s š z ž t-w õ ä ö ü x y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à â å ā æ ç é è ê ë ē í ì î ï ī ñ ó ò ŏ ô ø ō œ ß ú ù û ū]</exemplarCharacters>
@@ -1262,7 +1248,6 @@
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat draft="unconfirmed">{1} ({0})</fallbackFormat>
 			<fallbackFormat alt="proposed-x1002" draft="unconfirmed">{0} ({1})</fallbackFormat>
@@ -1395,7 +1380,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>

@@ -997,7 +997,6 @@
 		<alternateQuotationEnd>’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="gregorian">
 				<months>
@@ -2809,7 +2808,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
@@ -2863,7 +2861,6 @@
 				<displayName>Афганистански афган</displayName>
 				<displayName count="one">афганистански афган</displayName>
 				<displayName count="other">афганистански афгана</displayName>
-				<symbol>Af</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Албански лек</displayName>
@@ -2953,7 +2950,6 @@
 				<displayName>Босненска конвертируема марка</displayName>
 				<displayName count="one">босненска конвертируема марка</displayName>
 				<displayName count="other">босненски конвертируеми марки</displayName>
-				<symbol>KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Барбейдоски долар</displayName>
@@ -2965,7 +2961,6 @@
 				<displayName>Бангладешка така</displayName>
 				<displayName count="one">бангладешка така</displayName>
 				<displayName count="other">бангладешки таки</displayName>
-				<symbol>Tk</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>Белгийски франк (конвертируем)</displayName>
@@ -2976,7 +2971,6 @@
 				<displayName>Белгийски франк</displayName>
 				<displayName count="one">белгийски франк</displayName>
 				<displayName count="other">белгийски франка</displayName>
-				<symbol>BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>Белгийски франк (финансов)</displayName>
@@ -2999,7 +2993,6 @@
 				<displayName>Бахрейнски динар</displayName>
 				<displayName count="one">бахрейнски динар</displayName>
 				<displayName count="other">бахрейнски динара</displayName>
-				<symbol>BD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Бурундийски франк</displayName>
@@ -3022,7 +3015,6 @@
 				<displayName>Боливийско боливиано</displayName>
 				<displayName count="one">боливийско боливиано</displayName>
 				<displayName count="other">боливийски боливиано</displayName>
-				<symbol>Bs</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>Боливийско песо</displayName>
@@ -3086,7 +3078,6 @@
 				<displayName>Белизийски долар</displayName>
 				<displayName count="one">белизийски долар</displayName>
 				<displayName count="other">белизийски долара</displayName>
-				<symbol>BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Канадски долар</displayName>
@@ -3193,13 +3184,11 @@
 				<displayName>Доминиканско песо</displayName>
 				<displayName count="one">доминиканско песо</displayName>
 				<displayName count="other">доминикански песо</displayName>
-				<symbol>RD$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Алжирски динар</displayName>
 				<displayName count="one">алжирски динар</displayName>
 				<displayName count="other">алжирски динара</displayName>
-				<symbol>DA</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>Еквадорско сукре</displayName>
@@ -3232,7 +3221,6 @@
 				<displayName>Етиопски бир</displayName>
 				<displayName count="one">етиопски бир</displayName>
 				<displayName count="other">етиопски бира</displayName>
-				<symbol>Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Евро</displayName>
@@ -3329,7 +3317,6 @@
 				<displayName>Хонгконгски долар</displayName>
 				<displayName count="one">хонгконгски долар</displayName>
 				<displayName count="other">хонгконгски долара</displayName>
-				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Хондураска лемпира</displayName>
@@ -3356,19 +3343,16 @@
 				<displayName>Унгарски форинт</displayName>
 				<displayName count="one">унгарски форинт</displayName>
 				<displayName count="other">унгарски форинта</displayName>
-				<symbol>Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Индонезийска рупия</displayName>
 				<displayName count="one">индонезийска рупия</displayName>
 				<displayName count="other">индонезийски рупии</displayName>
-				<symbol>Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Ирландска лира</displayName>
 				<displayName count="one">ирландска лира</displayName>
 				<displayName count="other">ирландски лири</displayName>
-				<symbol>IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>Израелска лира</displayName>
@@ -3412,13 +3396,11 @@
 				<displayName>Ямайски долар</displayName>
 				<displayName count="one">ямайски долар</displayName>
 				<displayName count="other">ямайски долара</displayName>
-				<symbol>J$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Йордански динар</displayName>
 				<displayName count="one">йордански динар</displayName>
 				<displayName count="other">йордански динара</displayName>
-				<symbol>JD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Японска йена</displayName>
@@ -3447,7 +3429,6 @@
 				<displayName>Коморски франк</displayName>
 				<displayName count="one">коморски франк</displayName>
 				<displayName count="other">коморски франка</displayName>
-				<symbol>CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Севернокорейски вон</displayName>
@@ -3462,7 +3443,6 @@
 				<displayName>Кувейтски динар</displayName>
 				<displayName count="one">кувейтски динар</displayName>
 				<displayName count="other">кувейтски динара</displayName>
-				<symbol>KD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Кайманови острови - долар</displayName>
@@ -3529,7 +3509,6 @@
 				<displayName>Либийски динар</displayName>
 				<displayName count="one">либийски динар</displayName>
 				<displayName count="other">либийски динара</displayName>
-				<symbol>LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Марокански дирхам</displayName>
@@ -3581,13 +3560,11 @@
 				<displayName>Мавританска огия</displayName>
 				<displayName count="one">мавританска огия</displayName>
 				<displayName count="other">мавритански огии</displayName>
-				<symbol>UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Малтийска лира</displayName>
 				<displayName count="one">малтийска лира</displayName>
 				<displayName count="other">малтийски лири</displayName>
-				<symbol>Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>Малтийски лири</displayName>
@@ -3606,7 +3583,6 @@
 				<displayName>Малавийска квача</displayName>
 				<displayName count="one">малавийска квача</displayName>
 				<displayName count="other">малавийски квачи</displayName>
-				<symbol>MK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Мексиканско ново песо</displayName>
@@ -3626,7 +3602,6 @@
 				<displayName>Малайзийски рингит</displayName>
 				<displayName count="one">малайзийски рингит</displayName>
 				<displayName count="other">малайзийски рингити</displayName>
-				<symbol>RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Мозамбикско ескудо</displayName>
@@ -3637,7 +3612,6 @@
 				<displayName>Мозамбикски метикал</displayName>
 				<displayName count="one">мозамбикски метикал</displayName>
 				<displayName count="other">мозамбикски метикала</displayName>
-				<symbol>Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>Мозамбишки метикал</displayName>
@@ -3646,7 +3620,6 @@
 				<displayName>Намибийски долар</displayName>
 				<displayName count="one">намибийски долар</displayName>
 				<displayName count="other">намибийски долара</displayName>
-				<symbol>N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Нигерийска найра</displayName>
@@ -3745,7 +3718,6 @@
 				<displayName>Катарски риал</displayName>
 				<displayName count="one">катарски риал</displayName>
 				<displayName count="other">катарски риала</displayName>
-				<symbol>QR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>Родезийски долар</displayName>
@@ -3791,7 +3763,6 @@
 			<currency type="SBD">
 				<displayName>Соломонови острови - долар</displayName>
 				<displayName count="other">Соломонови острови - долара</displayName>
-				<symbol>SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Сейшелска рупия</displayName>
@@ -3822,7 +3793,6 @@
 				<displayName>Сингапурски долар</displayName>
 				<displayName count="one">сингапурски долар</displayName>
 				<displayName count="other">сингапурски долара</displayName>
-				<symbol>S$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Света Елена лира</displayName>
@@ -3836,7 +3806,6 @@
 				<displayName>Словашка крона</displayName>
 				<displayName count="one">словашка крона</displayName>
 				<displayName count="other">словашки крони</displayName>
-				<symbol>Sk</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Сиералеонско леоне</displayName>
@@ -3856,11 +3825,9 @@
 				<displayName>Суринамски гилдер</displayName>
 				<displayName count="one">суринамски гилдер</displayName>
 				<displayName count="other">суринамски гилдера</displayName>
-				<symbol>Sf</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Сао Томе и Принсипи - добра</displayName>
-				<symbol>Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Съветска рубла</displayName>
@@ -3911,7 +3878,6 @@
 			</currency>
 			<currency type="TOP">
 				<displayName>Тонга - па анга</displayName>
-				<symbol>T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>Тиморско ескудо</displayName>
@@ -3922,7 +3888,6 @@
 				<displayName>Турска лира</displayName>
 				<displayName count="one">турска лира</displayName>
 				<displayName count="other">турски лири</displayName>
-				<symbol>TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>Нова турска лира</displayName>
@@ -3932,13 +3897,11 @@
 			<currency type="TTD">
 				<displayName>Тринидат и Тобаго - долар</displayName>
 				<displayName count="other">Тринидат и Тобаго - долара</displayName>
-				<symbol>TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Тайвански долар</displayName>
 				<displayName count="one">тайвански долар</displayName>
 				<displayName count="other">тайвански долара</displayName>
-				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Танзанийски шилинг</displayName>
@@ -4006,7 +3969,6 @@
 			</currency>
 			<currency type="VUV">
 				<displayName>Вануату - вату</displayName>
-				<symbol>VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>Самоа - тала</displayName>
@@ -4021,7 +3983,6 @@
 				<displayName>Източнокарибски долар - Антигуа</displayName>
 				<displayName count="one">източнокарибски долар</displayName>
 				<displayName count="other">източнокарибски долара</displayName>
-				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>Еку на ЕИО</displayName>
@@ -4038,7 +3999,6 @@
 				<displayName>Френскополинезийски франк</displayName>
 				<displayName count="one">френскополинезийски франк</displayName>
 				<displayName count="other">френскополинезийски франка</displayName>
-				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>Непозната или невалидна валута</displayName>
@@ -4076,7 +4036,6 @@
 				<displayName>Южноафрикански ранд</displayName>
 				<displayName count="one">южноафрикански ранд</displayName>
 				<displayName count="other">южноафрикански ранда</displayName>
-				<symbol>R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Замбийска квача</displayName>
@@ -4097,7 +4056,6 @@
 				<displayName>Зимбабвийски долар</displayName>
 				<displayName count="one">зимбабвийски долар</displayName>
 				<displayName count="other">зимбабвийски долара</displayName>
-				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>

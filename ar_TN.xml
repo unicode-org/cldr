@@ -29,9 +29,6 @@
 					</dayContext>
 				</days>
 				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yyyyMMMM">MMMM، y</dateFormatItem>
-					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M‏-M</greatestDifference>
@@ -50,11 +47,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="day">
-						<relative type="1">غدًا</relative>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
 	</dates>
@@ -80,3 +72,4 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
+

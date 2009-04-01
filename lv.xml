@@ -953,20 +953,6 @@
 			<codePattern type="territory">Reģions: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList draft="unconfirmed">mixed</inList>
-		<inText type="currency" draft="unconfirmed">mixed</inText>
-		<inText type="fields" draft="unconfirmed">mixed</inText>
-		<inText type="keys" draft="unconfirmed">mixed</inText>
-		<inText type="languages" draft="unconfirmed">mixed</inText>
-		<inText type="long" draft="unconfirmed">mixed</inText>
-		<inText type="measurementSystemNames" draft="unconfirmed">mixed</inText>
-		<inText type="quarterWidth" draft="unconfirmed">mixed</inText>
-		<inText type="scripts" draft="unconfirmed">mixed</inText>
-		<inText type="territories" draft="unconfirmed">mixed</inText>
-		<inText type="types" draft="unconfirmed">mixed</inText>
-		<inText type="variants" draft="unconfirmed">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a ā b c č d e ē f g ģ h i ī j k ķ l ļ m n ņ o p r s š t u ū v z ž]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[y q w x]</exemplarCharacters>
@@ -1436,7 +1422,6 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<fallbackFormat alt="proposed-x1001" draft="unconfirmed">{0} ({1})</fallbackFormat>
@@ -1517,9 +1502,6 @@
 			</zone>
 			<zone type="America/Catamarca">
 				<exemplarCity>Katamarka</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Salta">
-				<exemplarCity>Salta</exemplarCity>
 			</zone>
 			<zone type="America/Jujuy">
 				<exemplarCity>Žužuja</exemplarCity>
@@ -2124,9 +2106,6 @@
 			<zone type="America/Mexico_City">
 				<exemplarCity>Mehiko</exemplarCity>
 			</zone>
-			<zone type="America/Merida">
-				<exemplarCity>Merida</exemplarCity>
-			</zone>
 			<zone type="America/Cancun">
 				<exemplarCity>Kankūna</exemplarCity>
 			</zone>
@@ -2196,9 +2175,6 @@
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azoru salas</exemplarCity>
 			</zone>
-			<zone type="Atlantic/Madeira">
-				<exemplarCity>Madeira</exemplarCity>
-			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity draft="provisional">Lisabona</exemplarCity>
 			</zone>
@@ -2222,9 +2198,6 @@
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgograda</exemplarCity>
-			</zone>
-			<zone type="Europe/Samara">
-				<exemplarCity>Samara</exemplarCity>
 			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity>Jekaterinburga</exemplarCity>
@@ -2355,9 +2328,6 @@
 			<zone type="America/Nome">
 				<exemplarCity>Noma</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Ankurāža</exemplarCity>
 			</zone>
@@ -2482,10 +2452,6 @@
 					<standard>Kuibiševas laiks</standard>
 					<daylight>Kuibiševas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>KUYT</standard>
-					<daylight>KUYST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
@@ -2493,40 +2459,24 @@
 					<standard>Maskavas standarta laiks</standard>
 					<daylight>Maskavas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>MSK</standard>
-					<daylight>MSKS</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<standard>Samaras laiks</standard>
 					<daylight>Samaras vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>SAMT</standard>
-					<daylight>SAMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Turkey">
 				<long>
 					<standard>Turcijas laiks</standard>
 					<daylight>Turcijas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>TRT</standard>
-					<daylight>TRST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<standard>Volgogradas laiks</standard>
 					<daylight>Volgogradas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>VOLT</standard>
-					<daylight>VOLST</daylight>
-				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>
@@ -2723,7 +2673,6 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>eiro</displayName>
-				<symbol draft="unconfirmed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Somijas marka</displayName>
@@ -2854,7 +2803,6 @@
 			</currency>
 			<currency type="LVL">
 				<displayName>Latvijas lats</displayName>
-				<symbol>Ls</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Latvijas rublis</displayName>
@@ -3116,7 +3064,6 @@
 			</currency>
 			<currency type="XXX">
 				<displayName>nezināma vai nederīga valūta</displayName>
-				<symbol draft="provisional">XXX</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>Jemenas riāls</displayName>

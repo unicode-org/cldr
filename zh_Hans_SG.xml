@@ -8,11 +8,6 @@
 		<script type="Hans"/>
 		<territory type="SG"/>
 	</identity>
-	<localeDisplayNames>
-		<scripts>
-			<script type="Hang">韩文</script>
-		</scripts>
-	</localeDisplayNames>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -44,14 +39,6 @@
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="M" draft="unconfirmed">dd/MME至dd/MME</greatestDifference>
 							<greatestDifference id="d" draft="unconfirmed">dd/MME至dd/MME</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="M">M月d日E至M月d日E</greatestDifference>
-							<greatestDifference id="d">M月d日E至d日E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMd">
-							<greatestDifference id="M">M月d日至M月d日</greatestDifference>
-							<greatestDifference id="d">M月d日至d日</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="M" draft="unconfirmed">dd/MM至dd/MM</greatestDifference>
@@ -87,15 +74,6 @@
 							<greatestDifference id="d" draft="unconfirmed">dd/MM/yyE至dd/MM/yyE</greatestDifference>
 							<greatestDifference id="y" draft="unconfirmed">dd/MM/yyE至dd/MM/yyE</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">y年M月至M月</greatestDifference>
-							<greatestDifference id="y">y年M月至y年M月</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M">y年M月d日至M月d日</greatestDifference>
-							<greatestDifference id="d">y年M月d日至d日</greatestDifference>
-							<greatestDifference id="y">y年M月d日至y年M月d日</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="M" draft="unconfirmed">dd/MM/yy至dd/MM/yy</greatestDifference>
 							<greatestDifference id="d" draft="unconfirmed">dd/MM/yy至dd/MM/yy</greatestDifference>
@@ -107,3 +85,4 @@
 		</calendars>
 	</dates>
 </ldml>
+

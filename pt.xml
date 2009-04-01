@@ -1000,20 +1000,6 @@
 			<codePattern type="territory" draft="contributed">Região: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList>mixed</inList>
-		<inText type="currency">mixed</inText>
-		<inText type="fields">mixed</inText>
-		<inText type="keys">mixed</inText>
-		<inText type="languages">mixed</inText>
-		<inText type="long">mixed</inText>
-		<inText type="measurementSystemNames">mixed</inText>
-		<inText type="quarterWidth">mixed</inText>
-		<inText type="scripts">mixed</inText>
-		<inText type="territories">mixed</inText>
-		<inText type="types">mixed</inText>
-		<inText type="variants">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a á à â ã b c ç d e é ê f-i í j-o ó ò ô õ p-u ú v-z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[ă å ä ā æ-è ĕ ë ē ì ĭ î ï ī ñ ŏ ö ø ō œ ß ù ŭ û ü ū ÿ]</exemplarCharacters>
@@ -1028,7 +1014,6 @@
 		<alternateQuotationEnd>’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
 				<dateFormats>
@@ -1433,7 +1418,6 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>Horário {0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -1457,62 +1441,8 @@
 			<zone type="America/Curacao">
 				<exemplarCity draft="provisional">Curaçao</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Rothera">
-				<exemplarCity>Rothera</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Palmer">
-				<exemplarCity>Palmer</exemplarCity>
-			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Pólo Sul</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Syowa">
-				<exemplarCity>Syowa</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Mawson">
-				<exemplarCity>Mawson</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Davis">
-				<exemplarCity>Davis</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Vostok">
-				<exemplarCity>Vostok</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Casey">
-				<exemplarCity>Casey</exemplarCity>
-			</zone>
-			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity>Dumont d'Urville</exemplarCity>
-			</zone>
-			<zone type="Antarctica/McMurdo">
-				<exemplarCity>McMurdo</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity>Rio Gallegos</exemplarCity>
-			</zone>
-			<zone type="America/Mendoza">
-				<exemplarCity>Mendoza</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Juan">
-				<exemplarCity>San Juan</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity>Ushuaia</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity>La Rioja</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Luis">
-				<exemplarCity>San Luis</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity>Catamarca</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Salta">
-				<exemplarCity>Salta</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity>Jujuy</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
 				<exemplarCity>Tucumã</exemplarCity>
@@ -1520,47 +1450,8 @@
 			<zone type="America/Cordoba">
 				<exemplarCity>Córdoba</exemplarCity>
 			</zone>
-			<zone type="America/Buenos_Aires">
-				<exemplarCity>Buenos Aires</exemplarCity>
-			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity draft="provisional">Viena</exemplarCity>
-			</zone>
-			<zone type="Australia/Perth">
-				<exemplarCity>Perth</exemplarCity>
-			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity>Eucla</exemplarCity>
-			</zone>
-			<zone type="Australia/Darwin">
-				<exemplarCity>Darwin</exemplarCity>
-			</zone>
-			<zone type="Australia/Adelaide">
-				<exemplarCity>Adelaide</exemplarCity>
-			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity>Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Currie</exemplarCity>
-			</zone>
-			<zone type="Australia/Melbourne">
-				<exemplarCity>Melbourne</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity>Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity>Lindeman</exemplarCity>
-			</zone>
-			<zone type="Australia/Sydney">
-				<exemplarCity>Sydney</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity>Brisbane</exemplarCity>
-			</zone>
-			<zone type="Australia/Lord_Howe">
-				<exemplarCity>Lord Howe</exemplarCity>
 			</zone>
 			<zone type="Asia/Dhaka">
 				<exemplarCity draft="provisional">Dacca</exemplarCity>
@@ -1583,26 +1474,11 @@
 			<zone type="America/Eirunepe">
 				<exemplarCity>Eirunepé</exemplarCity>
 			</zone>
-			<zone type="America/Rio_Branco">
-				<exemplarCity>Rio Branco</exemplarCity>
-			</zone>
-			<zone type="America/Porto_Velho">
-				<exemplarCity>Porto Velho</exemplarCity>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity>Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Manaus">
-				<exemplarCity>Manaus</exemplarCity>
-			</zone>
 			<zone type="America/Cuiaba">
 				<exemplarCity>Cuiabá</exemplarCity>
 			</zone>
 			<zone type="America/Santarem">
 				<exemplarCity>Santarém</exemplarCity>
-			</zone>
-			<zone type="America/Campo_Grande">
-				<exemplarCity>Campo Grande</exemplarCity>
 			</zone>
 			<zone type="America/Belem">
 				<exemplarCity>Belém</exemplarCity>
@@ -1613,107 +1489,14 @@
 			<zone type="America/Sao_Paulo">
 				<exemplarCity>São Paulo</exemplarCity>
 			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity>Bahia</exemplarCity>
-			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity>Fortaleza</exemplarCity>
-			</zone>
 			<zone type="America/Maceio">
 				<exemplarCity>Maceió</exemplarCity>
-			</zone>
-			<zone type="America/Recife">
-				<exemplarCity>Recife</exemplarCity>
 			</zone>
 			<zone type="America/Noronha">
 				<exemplarCity>Fernando de Noronha</exemplarCity>
 			</zone>
-			<zone type="America/Dawson">
-				<exemplarCity>Dawson</exemplarCity>
-			</zone>
-			<zone type="America/Whitehorse">
-				<exemplarCity>Whitehorse</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity>Inuvik</exemplarCity>
-			</zone>
-			<zone type="America/Vancouver">
-				<exemplarCity>Vancouver</exemplarCity>
-			</zone>
-			<zone type="America/Dawson_Creek">
-				<exemplarCity>Dawson Creek</exemplarCity>
-			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>Yellowknife</exemplarCity>
-			</zone>
-			<zone type="America/Edmonton">
-				<exemplarCity>Edmonton</exemplarCity>
-			</zone>
-			<zone type="America/Swift_Current">
-				<exemplarCity>Swift Current</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity>Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Regina">
-				<exemplarCity>Regina</exemplarCity>
-			</zone>
-			<zone type="America/Winnipeg">
-				<exemplarCity>Winnipeg</exemplarCity>
-			</zone>
-			<zone type="America/Resolute">
-				<exemplarCity>Resolute</exemplarCity>
-			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>Rainy River</exemplarCity>
-			</zone>
-			<zone type="America/Rankin_Inlet">
-				<exemplarCity>Rankin Inlet</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity>Coral Harbour</exemplarCity>
-			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>Thunder Bay</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>Nipigon</exemplarCity>
-			</zone>
-			<zone type="America/Toronto">
-				<exemplarCity>Toronto</exemplarCity>
-			</zone>
-			<zone type="America/Montreal">
-				<exemplarCity>Montreal</exemplarCity>
-			</zone>
-			<zone type="America/Iqaluit">
-				<exemplarCity>Iqaluit</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity>Pangnirtung</exemplarCity>
-			</zone>
-			<zone type="America/Moncton">
-				<exemplarCity>Moncton</exemplarCity>
-			</zone>
-			<zone type="America/Halifax">
-				<exemplarCity>Halifax</exemplarCity>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<exemplarCity>Goose Bay</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity>Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity>Blanc-Sablon</exemplarCity>
-			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity>St. Johns</exemplarCity>
-			</zone>
-			<zone type="Africa/Kinshasa">
-				<exemplarCity>Kinshasa</exemplarCity>
-			</zone>
-			<zone type="Africa/Lubumbashi">
-				<exemplarCity>Lubumbashi</exemplarCity>
 			</zone>
 			<zone type="Europe/Zurich">
 				<exemplarCity draft="provisional">Zurique</exemplarCity>
@@ -1724,20 +1507,8 @@
 			<zone type="Pacific/Easter">
 				<exemplarCity>Ilha de Páscoa</exemplarCity>
 			</zone>
-			<zone type="Asia/Kashgar">
-				<exemplarCity>Kashgar</exemplarCity>
-			</zone>
-			<zone type="Asia/Urumqi">
-				<exemplarCity>Urumqi</exemplarCity>
-			</zone>
-			<zone type="Asia/Chongqing">
-				<exemplarCity>Chongqing</exemplarCity>
-			</zone>
 			<zone type="Asia/Shanghai">
 				<exemplarCity>Xangai</exemplarCity>
-			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity>Harbin</exemplarCity>
 			</zone>
 			<zone type="America/Bogota">
 				<exemplarCity draft="provisional">Bogotá</exemplarCity>
@@ -1771,23 +1542,11 @@
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Canárias</exemplarCity>
 			</zone>
-			<zone type="Africa/Ceuta">
-				<exemplarCity>Ceuta</exemplarCity>
-			</zone>
 			<zone type="Europe/Madrid">
 				<exemplarCity>Madri</exemplarCity>
 			</zone>
 			<zone type="Europe/Helsinki">
 				<exemplarCity draft="provisional">Helsinque</exemplarCity>
-			</zone>
-			<zone type="Pacific/Truk">
-				<exemplarCity>Truk</exemplarCity>
-			</zone>
-			<zone type="Pacific/Ponape">
-				<exemplarCity>Ponape</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kosrae">
-				<exemplarCity>Kosrae</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity draft="provisional">Ilhas Faroe</exemplarCity>
@@ -1800,15 +1559,6 @@
 			</zone>
 			<zone type="America/Cayenne">
 				<exemplarCity draft="provisional">Caiena</exemplarCity>
-			</zone>
-			<zone type="America/Thule">
-				<exemplarCity>Thule</exemplarCity>
-			</zone>
-			<zone type="America/Scoresbysund">
-				<exemplarCity>Scoresbysund</exemplarCity>
-			</zone>
-			<zone type="America/Danmarkshavn">
-				<exemplarCity>Danmarkshavn</exemplarCity>
 			</zone>
 			<zone type="America/Guadeloupe">
 				<exemplarCity draft="provisional">Guadalupe</exemplarCity>
@@ -1832,15 +1582,6 @@
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Jacarta</exemplarCity>
 			</zone>
-			<zone type="Asia/Pontianak">
-				<exemplarCity>Pontianak</exemplarCity>
-			</zone>
-			<zone type="Asia/Makassar">
-				<exemplarCity>Makassar</exemplarCity>
-			</zone>
-			<zone type="Asia/Jayapura">
-				<exemplarCity>Jayapura</exemplarCity>
-			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Jerusalém</exemplarCity>
 			</zone>
@@ -1862,15 +1603,6 @@
 			<zone type="Africa/Nairobi">
 				<exemplarCity draft="provisional">Nairóbi</exemplarCity>
 			</zone>
-			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kiritimati">
-				<exemplarCity>Kiritimati</exemplarCity>
-			</zone>
-			<zone type="Pacific/Tarawa">
-				<exemplarCity>Tarawa</exemplarCity>
-			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity draft="provisional">São Cristóvão</exemplarCity>
 			</zone>
@@ -1879,21 +1611,6 @@
 			</zone>
 			<zone type="America/Cayman">
 				<exemplarCity draft="provisional">Caimã</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtau">
-				<exemplarCity>Aqtau</exemplarCity>
-			</zone>
-			<zone type="Asia/Oral">
-				<exemplarCity>Oral</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtobe">
-				<exemplarCity>Aqtobe</exemplarCity>
-			</zone>
-			<zone type="Asia/Qyzylorda">
-				<exemplarCity>Qyzylorda</exemplarCity>
-			</zone>
-			<zone type="Asia/Almaty">
-				<exemplarCity>Almaty</exemplarCity>
 			</zone>
 			<zone type="Asia/Vientiane">
 				<exemplarCity draft="provisional">Vienciana</exemplarCity>
@@ -1916,18 +1633,6 @@
 			<zone type="Europe/Monaco">
 				<exemplarCity draft="provisional">Mônaco</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kwajalein">
-				<exemplarCity>Kwajalein</exemplarCity>
-			</zone>
-			<zone type="Asia/Hovd">
-				<exemplarCity>Hovd</exemplarCity>
-			</zone>
-			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity>Ulaanbaatar</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Choibalsan</exemplarCity>
-			</zone>
 			<zone type="America/Martinique">
 				<exemplarCity draft="provisional">Martinica</exemplarCity>
 			</zone>
@@ -1936,21 +1641,6 @@
 			</zone>
 			<zone type="Indian/Maldives">
 				<exemplarCity draft="provisional">Maldivas</exemplarCity>
-			</zone>
-			<zone type="America/Tijuana">
-				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Hermosillo">
-				<exemplarCity>Hermosillo</exemplarCity>
-			</zone>
-			<zone type="America/Mazatlan">
-				<exemplarCity>Mazatlan</exemplarCity>
-			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity>Chihuahua</exemplarCity>
-			</zone>
-			<zone type="America/Monterrey">
-				<exemplarCity>Monterrey</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>Cidade do México</exemplarCity>
@@ -1961,9 +1651,6 @@
 			<zone type="America/Cancun">
 				<exemplarCity>Cancún</exemplarCity>
 			</zone>
-			<zone type="Asia/Kuching">
-				<exemplarCity>Kuching</exemplarCity>
-			</zone>
 			<zone type="America/Managua">
 				<exemplarCity draft="provisional">Manágua</exemplarCity>
 			</zone>
@@ -1973,21 +1660,12 @@
 			<zone type="Asia/Katmandu">
 				<exemplarCity draft="provisional">Catmandu</exemplarCity>
 			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity>Chatham</exemplarCity>
-			</zone>
 			<zone type="America/Panama">
 				<exemplarCity draft="provisional">Panamá</exemplarCity>
 			</zone>
 			<!-- French Polynesia -->
 			<zone type="Pacific/Tahiti">
 				<exemplarCity>Taiti</exemplarCity>
-			</zone>
-			<zone type="Pacific/Marquesas">
-				<exemplarCity>Marquesas</exemplarCity>
-			</zone>
-			<zone type="Pacific/Gambier">
-				<exemplarCity>Gambier</exemplarCity>
 			</zone>
 			<zone type="Europe/Warsaw">
 				<exemplarCity draft="provisional">Varsóvia</exemplarCity>
@@ -1998,9 +1676,6 @@
 			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Açores</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Madeira">
-				<exemplarCity>Madeira</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity>Lisboa</exemplarCity>
@@ -2017,50 +1692,14 @@
 			<zone type="Europe/Bucharest">
 				<exemplarCity>Bucareste</exemplarCity>
 			</zone>
-			<zone type="Europe/Kaliningrad">
-				<exemplarCity>Kaliningrad</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moscou</exemplarCity>
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgogrado</exemplarCity>
 			</zone>
-			<zone type="Europe/Samara">
-				<exemplarCity>Samara</exemplarCity>
-			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity>Ecaterimburgo</exemplarCity>
-			</zone>
-			<zone type="Asia/Omsk">
-				<exemplarCity>Omsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Novosibirsk">
-				<exemplarCity>Novosibirsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity>Krasnoyarsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Irkutsk">
-				<exemplarCity>Irkutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Yakutsk">
-				<exemplarCity>Yakutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Vladivostok">
-				<exemplarCity>Vladivostok</exemplarCity>
-			</zone>
-			<zone type="Asia/Sakhalin">
-				<exemplarCity>Sakhalin</exemplarCity>
-			</zone>
-			<zone type="Asia/Magadan">
-				<exemplarCity>Magadan</exemplarCity>
-			</zone>
-			<zone type="Asia/Kamchatka">
-				<exemplarCity>Kamchatka</exemplarCity>
-			</zone>
-			<zone type="Asia/Anadyr">
-				<exemplarCity>Anadyr</exemplarCity>
 			</zone>
 			<zone type="Asia/Riyadh">
 				<exemplarCity draft="provisional">Riad</exemplarCity>
@@ -2098,107 +1737,20 @@
 			<zone type="America/Port_of_Spain">
 				<exemplarCity draft="provisional">Porto Espanha</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity>Uzhgorod</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Simferopol</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity>Zaporozhye</exemplarCity>
-			</zone>
-			<zone type="Pacific/Midway">
-				<exemplarCity>Midway</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>Johnston</exemplarCity>
-			</zone>
-			<zone type="Pacific/Wake">
-				<exemplarCity>Wake</exemplarCity>
-			</zone>
-			<zone type="America/Adak">
-				<exemplarCity>Adak</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<exemplarCity>Anchorage</exemplarCity>
-			</zone>
-			<zone type="America/Yakutat">
-				<exemplarCity>Yakutat</exemplarCity>
-			</zone>
-			<zone type="America/Juneau">
-				<exemplarCity>Juneau</exemplarCity>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<exemplarCity>Los Angeles</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity>Boise</exemplarCity>
-			</zone>
-			<zone type="America/Phoenix">
-				<exemplarCity>Phoenix</exemplarCity>
-			</zone>
-			<zone type="America/Shiprock">
-				<exemplarCity>Shiprock</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<exemplarCity>Denver</exemplarCity>
-			</zone>
 			<zone type="America/North_Dakota/New_Salem">
 				<exemplarCity>New Salen, Dakota do Norte</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Central, Dakota do Norte</exemplarCity>
 			</zone>
-			<zone type="America/Chicago">
-				<exemplarCity>Chicago</exemplarCity>
-			</zone>
-			<zone type="America/Menominee">
-				<exemplarCity>Menominee</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vincennes">
-				<exemplarCity>Vincennes, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Petersburg">
-				<exemplarCity>Petersburg, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity>Tell City, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Knox">
-				<exemplarCity>Knox, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Winamac">
-				<exemplarCity>Winamac, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Marengo">
-				<exemplarCity>Marengo, Indiana</exemplarCity>
-			</zone>
 			<zone type="America/Indianapolis">
 				<exemplarCity>Indianápolis</exemplarCity>
-			</zone>
-			<zone type="America/Louisville">
-				<exemplarCity>Louisville</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<exemplarCity>Vevay, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<exemplarCity>Monticello, Kentucky</exemplarCity>
-			</zone>
-			<zone type="America/Detroit">
-				<exemplarCity>Detroit</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
 				<exemplarCity>Nova York</exemplarCity>
 			</zone>
 			<zone type="America/Montevideo">
 				<exemplarCity draft="provisional">Montevidéu</exemplarCity>
-			</zone>
-			<zone type="Asia/Samarkand">
-				<exemplarCity>Samarkand</exemplarCity>
 			</zone>
 			<zone type="America/St_Vincent">
 				<exemplarCity draft="provisional">São Vicente</exemplarCity>
@@ -2227,9 +1779,6 @@
 				<long>
 					<standard>Horário do Afeganistão</standard>
 				</long>
-				<short>
-					<standard>AFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
@@ -2258,10 +1807,6 @@
 					<standard>Horário do Aktyubinsk</standard>
 					<daylight>Horário de Verão do Aktyubinsk</daylight>
 				</long>
-				<short>
-					<standard>AKTT</standard>
-					<daylight>AKTST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
@@ -2271,8 +1816,6 @@
 				</long>
 				<short>
 					<generic>AKT</generic>
-					<standard>AKST</standard>
-					<daylight>AKDT</daylight>
 				</short>
 				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
@@ -2284,8 +1827,6 @@
 				</long>
 				<short>
 					<generic>AHT</generic>
-					<standard>AHST</standard>
-					<daylight>AHDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Almaty">
@@ -2293,20 +1834,12 @@
 					<standard>Horário do Almaty</standard>
 					<daylight>Horário de Verão do Almaty</daylight>
 				</long>
-				<short>
-					<standard>ALMT</standard>
-					<daylight>ALMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<standard>Horário do Amazonas</standard>
 					<daylight>Horário de Verão do Amazonas</daylight>
 				</long>
-				<short>
-					<standard>AMT</standard>
-					<daylight>AMST</daylight>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Central">
@@ -2362,30 +1895,18 @@
 					<standard>Horário do Anadyr</standard>
 					<daylight>Horário de Verão do Anadyr</daylight>
 				</long>
-				<short>
-					<standard>ANAT</standard>
-					<daylight>ANAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Aqtau">
 				<long>
 					<standard>Horário do Aqtau</standard>
 					<daylight>Horário de Verão do Aqtau</daylight>
 				</long>
-				<short>
-					<standard>AQTT (Aqtau)</standard>
-					<daylight>AQTST (Aqtau)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Aqtobe">
 				<long>
 					<standard>Horário do Aqtobe</standard>
 					<daylight>Horário de Verão do Aqtobe</daylight>
 				</long>
-				<short>
-					<standard>AQTT (Aqtobe)</standard>
-					<daylight>AQTST (Aqtobe)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Arabian">
 				<long>
@@ -2404,18 +1925,11 @@
 					<standard>Horário da Argentina</standard>
 					<daylight>Horário de Verão da Argentina</daylight>
 				</long>
-				<short>
-					<standard>ART</standard>
-					<daylight>ARST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<standard>Horário da Argentina Ocidental</standard>
 				</long>
-				<short>
-					<standard>WART</standard>
-				</short>
 			</metazone>
 			<metazone type="Armenia">
 				<long>
@@ -2432,10 +1946,6 @@
 					<standard>Horário de Ashkhabad</standard>
 					<daylight>Horário de Verão de Ashkhabad</daylight>
 				</long>
-				<short>
-					<standard>ASHT</standard>
-					<daylight>ASHST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Atlantic">
 				<long>
@@ -2457,8 +1967,6 @@
 				</long>
 				<short>
 					<generic>ACT</generic>
-					<standard>ACST</standard>
-					<daylight>ACDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
@@ -2469,8 +1977,6 @@
 				</long>
 				<short>
 					<generic>ACWT</generic>
-					<standard>ACWST</standard>
-					<daylight>ACWDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Eastern">
@@ -2481,8 +1987,6 @@
 				</long>
 				<short>
 					<generic>AET</generic>
-					<standard>AEST</standard>
-					<daylight>AEDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Western">
@@ -2493,8 +1997,6 @@
 				</long>
 				<short>
 					<generic>AWT</generic>
-					<standard>AWST</standard>
-					<daylight>AWDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Azerbaijan">
@@ -2502,38 +2004,23 @@
 					<standard>Horário do Arzeibaijão</standard>
 					<daylight>Horário de Verão do Arzeibaijão</daylight>
 				</long>
-				<short>
-					<standard>AZT</standard>
-					<daylight>AZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Azores">
 				<long>
 					<standard>Horário dos Açores</standard>
 					<daylight>Horário de Verão dos Açores</daylight>
 				</long>
-				<short>
-					<standard>AZOT</standard>
-					<daylight>AZOST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Baku">
 				<long>
 					<standard>Horário de Baku</standard>
 					<daylight>Horário de Verão de Baku</daylight>
 				</long>
-				<short>
-					<standard>BAKT</standard>
-					<daylight>BAKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Bangladesh">
 				<long>
 					<standard>Horário de Bangladesh</standard>
 				</long>
-				<short>
-					<standard>BDT</standard>
-				</short>
 			</metazone>
 			<metazone type="Bering">
 				<long>
@@ -2543,64 +2030,41 @@
 				</long>
 				<short>
 					<generic>BT (Bering)</generic>
-					<standard>BST (Bering)</standard>
-					<daylight>BDT (Bering)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Bhutan">
 				<long>
 					<standard>Horário do Butão</standard>
 				</long>
-				<short>
-					<standard>BTT</standard>
-				</short>
 			</metazone>
 			<metazone type="Bolivia">
 				<long>
 					<standard>Horário da Bolívia</standard>
 				</long>
-				<short>
-					<standard>BOT</standard>
-				</short>
 			</metazone>
 			<metazone type="Borneo">
 				<long>
 					<standard>Horário de Bornéu</standard>
 					<daylight>Horário de Verão de Bornéu</daylight>
 				</long>
-				<short>
-					<standard>BORT</standard>
-					<daylight>BORST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
 					<standard>Horário de Brasília</standard>
 					<daylight>Horário de Verão de Brasília</daylight>
 				</long>
-				<short>
-					<standard>BRT</standard>
-					<daylight>BRST</daylight>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Horário de Brunei Darussalam</standard>
 				</long>
-				<short>
-					<standard>BNT</standard>
-				</short>
 			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
 					<standard>Horário do Cabo Verde</standard>
 					<daylight>Horário de Verão do Cabo Verde</daylight>
 				</long>
-				<short>
-					<standard>CVT</standard>
-					<daylight>CVST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Chamorro">
 				<long>
@@ -2609,36 +2073,24 @@
 				</long>
 				<short>
 					<generic>ChT</generic>
-					<standard>ChST</standard>
 				</short>
 			</metazone>
 			<metazone type="Changbai">
 				<long>
 					<standard>Horário de Changbai</standard>
 				</long>
-				<short>
-					<standard>CHAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Chatham">
 				<long>
 					<standard>Horário de Padrão de Chatham</standard>
 					<daylight>Horário de Verão de Chatham</daylight>
 				</long>
-				<short>
-					<standard>CHAST</standard>
-					<daylight>CHADT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Chile">
 				<long>
 					<standard>Horário do Chile</standard>
 					<daylight>Horário de Verão do Chile</daylight>
 				</long>
-				<short>
-					<standard>CLT</standard>
-					<daylight>CLST</daylight>
-				</short>
 			</metazone>
 			<metazone type="China">
 				<long>
@@ -2657,46 +2109,28 @@
 					<standard>Horário de Choibalsan</standard>
 					<daylight>Horário de Verão de Choibalsan</daylight>
 				</long>
-				<short>
-					<standard>CHOT</standard>
-					<daylight>CHOST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard>Horário das Ilhas Christmas</standard>
 				</long>
-				<short>
-					<standard>CXT</standard>
-				</short>
 			</metazone>
 			<metazone type="Cocos">
 				<long>
 					<standard>Horário das Ilhas Coco</standard>
 				</long>
-				<short>
-					<standard>CCT</standard>
-				</short>
 			</metazone>
 			<metazone type="Colombia">
 				<long>
 					<standard>Horário da Colômbia</standard>
 					<daylight>Horário de Verão da Colômbia</daylight>
 				</long>
-				<short>
-					<standard>COT</standard>
-					<daylight>COST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Cook">
 				<long>
 					<standard>Horário das Ilhas Cook</standard>
 					<daylight>Meio Horário de Verão das Ilhas Cook</daylight>
 				</long>
-				<short>
-					<standard>CKT</standard>
-					<daylight>CKHST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Cuba">
 				<long>
@@ -2713,69 +2147,43 @@
 				<long>
 					<standard>Horário de Dacca</standard>
 				</long>
-				<short>
-					<standard>DACT</standard>
-				</short>
 			</metazone>
 			<metazone type="Davis">
 				<long>
 					<standard>Horário de Davis</standard>
 				</long>
-				<short>
-					<standard>DAVT</standard>
-				</short>
 			</metazone>
 			<metazone type="DumontDUrville">
 				<long>
 					<standard>Horário de Dumont-d'Urville</standard>
 				</long>
-				<short>
-					<standard>DDUT</standard>
-				</short>
 			</metazone>
 			<metazone type="Dushanbe">
 				<long>
 					<standard>Horário de Dushanbe</standard>
 					<daylight>Horário de Verão de Dushanbe</daylight>
 				</long>
-				<short>
-					<standard>DUST</standard>
-					<daylight>DUSST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Dutch_Guiana">
 				<long>
 					<standard>Horário da Guiana Holandesa</standard>
 				</long>
-				<short>
-					<standard>NEGT</standard>
-				</short>
 			</metazone>
 			<metazone type="East_Timor">
 				<long>
 					<standard>Horário do Timor-Leste</standard>
 				</long>
-				<short>
-					<standard>TLT</standard>
-				</short>
 			</metazone>
 			<metazone type="Easter">
 				<long>
 					<standard>Horário da Ilha de Páscoa</standard>
 					<daylight>Horário de Verão da Ilha de Páscoa</daylight>
 				</long>
-				<short>
-					<standard>EAST</standard>
-					<daylight>EASST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Ecuador">
 				<long>
 					<standard>Horário do Equador</standard>
 				</long>
-				<short>
-					<standard>ECT</standard>
-				</short>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
@@ -2812,46 +2220,28 @@
 					<standard>Horário das Ilhas Falkland</standard>
 					<daylight>Horário de Verão das Ilhas Falkland</daylight>
 				</long>
-				<short>
-					<standard>FKT</standard>
-					<daylight>FKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Fiji">
 				<long>
 					<standard>Horário de Fiji</standard>
 					<daylight>Horário de Verão de Fiji</daylight>
 				</long>
-				<short>
-					<standard>FJT</standard>
-					<daylight>FJST</daylight>
-				</short>
 			</metazone>
 			<metazone type="French_Guiana">
 				<long>
 					<standard>Horário da Guiana Francesa</standard>
 				</long>
-				<short>
-					<standard>GFT</standard>
-				</short>
 			</metazone>
 			<metazone type="French_Southern">
 				<long>
 					<standard>Horário da Antártida e do Sul da França</standard>
 				</long>
-				<short>
-					<standard>TFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Frunze">
 				<long>
 					<standard>Horário de Frunze</standard>
 					<daylight>Horário de Verão de Frunze</daylight>
 				</long>
-				<short>
-					<standard>FRUT</standard>
-					<daylight>FRUST</daylight>
-				</short>
 			</metazone>
 			<metazone type="GMT">
 				<long>
@@ -2866,65 +2256,40 @@
 				<long>
 					<standard>Horário de Galápagos</standard>
 				</long>
-				<short>
-					<standard>GALT</standard>
-				</short>
 			</metazone>
 			<metazone type="Gambier">
 				<long>
 					<standard>Horário de Gambier</standard>
 				</long>
-				<short>
-					<standard>GAMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Georgia">
 				<long>
 					<standard>Horário da Geórgia</standard>
 					<daylight>Horário de Verão da Geórgia</daylight>
 				</long>
-				<short>
-					<standard>GET</standard>
-					<daylight>GEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Gilbert_Islands">
 				<long>
 					<standard>Horário das Ilhas Gilberto</standard>
 				</long>
-				<short>
-					<standard>GILT</standard>
-				</short>
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>
 					<standard>Horário da Groelândia Central</standard>
 					<daylight>Horário de Verão da Groenlândia Central</daylight>
 				</long>
-				<short>
-					<standard>CGT</standard>
-					<daylight>CGST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
 					<standard>Horário da Groelândia Oriental</standard>
 					<daylight>Horário de Verão da Groelândia Oriental</daylight>
 				</long>
-				<short>
-					<standard>EGT</standard>
-					<daylight>EGST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Greenland_Western">
 				<long>
 					<standard>Horário da Groenlândia Ocidental</standard>
 					<daylight>Horário de Verão da Groenlândia Ocidental</daylight>
 				</long>
-				<short>
-					<standard>WGT</standard>
-					<daylight>WGST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Guam">
 				<long>
@@ -2941,24 +2306,17 @@
 				</long>
 				<short>
 					<generic>GT</generic>
-					<standard>GST</standard>
 				</short>
 			</metazone>
 			<metazone type="Guyana">
 				<long>
 					<standard>Horário da Guiana</standard>
 				</long>
-				<short>
-					<standard>GYT</standard>
-				</short>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<standard>Horário Padrão do Havaí-Aleuta</standard>
 				</long>
-				<short>
-					<standard>HST</standard>
-				</short>
 				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -2966,88 +2324,54 @@
 					<standard>Horário de Hong Kong</standard>
 					<daylight>Horário de Verão de Hong Kong</daylight>
 				</long>
-				<short>
-					<standard>HKT</standard>
-					<daylight>HKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
 					<standard>Horário de Hovd</standard>
 					<daylight>Horário de Verão de Hovd</daylight>
 				</long>
-				<short>
-					<standard>HOVT</standard>
-					<daylight>HOVST</daylight>
-				</short>
 			</metazone>
 			<metazone type="India">
 				<long>
 					<standard>Horário Padrão da Índia</standard>
 				</long>
-				<short>
-					<standard>IST</standard>
-				</short>
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
 					<standard>Horário do Oceano Índico</standard>
 				</long>
-				<short>
-					<standard>IOT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indochina">
 				<long>
 					<standard>Horário da Indochina</standard>
 				</long>
-				<short>
-					<standard>ICT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
 					<standard>Horário da Indonésia Central</standard>
 				</long>
-				<short>
-					<standard>CIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
 					<standard>Horário da Indonésia Oriental</standard>
 				</long>
-				<short>
-					<standard>EIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
 					<standard>Horário da Indonésia Ocidental</standard>
 				</long>
-				<short>
-					<standard>WIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Iran">
 				<long>
 					<standard>Horário Padrão do Irã</standard>
 					<daylight>Horário de Verão do Irã</daylight>
 				</long>
-				<short>
-					<standard>IRST</standard>
-					<daylight>IRDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
 					<standard>Horário de Irkutsk</standard>
 					<daylight>Horário de Verão de Irkutsk</daylight>
 				</long>
-				<short>
-					<standard>IRKT</standard>
-					<daylight>IRKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Israel">
 				<long>
@@ -3057,7 +2381,6 @@
 				</long>
 				<short>
 					<standard>IST (Israel)</standard>
-					<daylight>IDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Japan">
@@ -3068,8 +2391,6 @@
 				</long>
 				<short>
 					<generic>JT</generic>
-					<standard>JST</standard>
-					<daylight>JDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Kamchatka">
@@ -3077,54 +2398,34 @@
 					<standard>Horário de Petropavlovsk-Kamchatski</standard>
 					<daylight>Horário de Verão de Petropavlovsk-Kamchatski</daylight>
 				</long>
-				<short>
-					<standard>PETT</standard>
-					<daylight>PETST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Karachi">
 				<long>
 					<standard>Horário de Karachi</standard>
 				</long>
-				<short>
-					<standard>KART</standard>
-				</short>
 			</metazone>
 			<metazone type="Kashgar">
 				<long>
 					<standard>Horário de Kashgar</standard>
 				</long>
-				<short>
-					<standard>KAST</standard>
-				</short>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<generic>Horário do Casaquistão Oriental</generic>
 					<standard>Horário Padrão do Cazaquistão Oriental</standard>
 				</long>
-				<short>
-					<standard>EKST</standard>
-				</short>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
 					<generic>Horário do Casaquistão Ocidental</generic>
 					<standard>Horário Padrão do Casaquistão Ocidental</standard>
 				</long>
-				<short>
-					<standard>WKST</standard>
-				</short>
 			</metazone>
 			<metazone type="Kizilorda">
 				<long>
 					<standard>Horário de Kizilorda</standard>
 					<daylight>Horário de Verão de Kizilorda</daylight>
 				</long>
-				<short>
-					<standard>KIZT</standard>
-					<daylight>KIZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Korea">
 				<long>
@@ -3132,78 +2433,48 @@
 					<standard>Horário Padrão da Coréia</standard>
 					<daylight>Horário de Verão da Coréia</daylight>
 				</long>
-				<short>
-					<standard>KST</standard>
-					<daylight>KDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Kosrae">
 				<long>
 					<standard>Horário de Kosrae</standard>
 				</long>
-				<short>
-					<standard>KOST</standard>
-				</short>
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<standard>Horário de Krasnoyarsk</standard>
 					<daylight>Horário de Verão de Krasnoyarsk</daylight>
 				</long>
-				<short>
-					<standard>KRAT</standard>
-					<daylight>KRAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Kuybyshev">
 				<long>
 					<standard>Horário de Kuybyshev</standard>
 					<daylight>Horário de Verão de Kuybyshev</daylight>
 				</long>
-				<short>
-					<standard>KUYT</standard>
-					<daylight>KUYST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Kwajalein">
 				<long>
 					<standard>Horário de Kwajalein</standard>
 				</long>
-				<short>
-					<standard>KWAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Kyrgystan">
 				<long>
 					<standard>Horário do Quirguistão</standard>
 				</long>
-				<short>
-					<standard>KGT</standard>
-				</short>
 			</metazone>
 			<metazone type="Lanka">
 				<long>
 					<standard>Horário de Lanka</standard>
 				</long>
-				<short>
-					<standard>LKT</standard>
-				</short>
 			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Horário das Ilhas Line</standard>
 				</long>
-				<short>
-					<standard>LINT</standard>
-				</short>
 			</metazone>
 			<metazone type="Long_Shu">
 				<long>
 					<standard>Horário de Long-Shu</standard>
 				</long>
-				<short>
-					<standard>LONT</standard>
-				</short>
 			</metazone>
 			<metazone type="Lord_Howe">
 				<long>
@@ -3213,8 +2484,6 @@
 				</long>
 				<short>
 					<generic>LHT</generic>
-					<standard>LHST</standard>
-					<daylight>LHDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Macau">
@@ -3222,88 +2491,54 @@
 					<standard>Horário de Macau</standard>
 					<daylight>Horário de Verão de Macau</daylight>
 				</long>
-				<short>
-					<standard>MOT</standard>
-					<daylight>MOST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<standard>Horário de Magadan</standard>
 					<daylight>Horário de Verão de Magadan</daylight>
 				</long>
-				<short>
-					<standard>MAGT</standard>
-					<daylight>MAGST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Malaya">
 				<long>
 					<standard>Horário de Malaia</standard>
 				</long>
-				<short>
-					<standard>MALT</standard>
-				</short>
 			</metazone>
 			<metazone type="Malaysia">
 				<long>
 					<standard>Horário da Malásia</standard>
 				</long>
-				<short>
-					<standard>MYT</standard>
-				</short>
 			</metazone>
 			<metazone type="Maldives">
 				<long>
 					<standard>Horário das Ilhas Maldivas</standard>
 				</long>
-				<short>
-					<standard>MVT</standard>
-				</short>
 			</metazone>
 			<metazone type="Marquesas">
 				<long>
 					<standard>Horário das Marquesas</standard>
 				</long>
-				<short>
-					<standard>MART</standard>
-				</short>
 			</metazone>
 			<metazone type="Marshall_Islands">
 				<long>
 					<standard>Horário das Ilhas Marshall</standard>
 				</long>
-				<short>
-					<standard>MHT</standard>
-				</short>
 			</metazone>
 			<metazone type="Mauritius">
 				<long>
 					<standard>Horário das Ilhas Maurício</standard>
 					<daylight>Horário de Verão das Ilhas Maurício</daylight>
 				</long>
-				<short>
-					<standard>MUT</standard>
-					<daylight>MUST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Mawson">
 				<long>
 					<standard>Horário de Mawson</standard>
 				</long>
-				<short>
-					<standard>MAWT</standard>
-				</short>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
 					<standard>Horário de Ulan Bator</standard>
 					<daylight>Horário de Verão de Ulan Bator</daylight>
 				</long>
-				<short>
-					<standard>ULAT</standard>
-					<daylight>ULAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
@@ -3311,44 +2546,27 @@
 					<standard>Horário Padrão de Moscou</standard>
 					<daylight>Horário de Verão de Moscou</daylight>
 				</long>
-				<short>
-					<standard>MSK</standard>
-					<daylight>MSKS</daylight>
-				</short>
 			</metazone>
 			<metazone type="Myanmar">
 				<long>
 					<standard>Horário de Mianmar</standard>
 				</long>
-				<short>
-					<standard>MMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Nauru">
 				<long>
 					<standard>Horário de Nauru</standard>
 				</long>
-				<short>
-					<standard>NRT</standard>
-				</short>
 			</metazone>
 			<metazone type="Nepal">
 				<long>
 					<standard>Horário do Nepal</standard>
 				</long>
-				<short>
-					<standard>NPT</standard>
-				</short>
 			</metazone>
 			<metazone type="New_Caledonia">
 				<long>
 					<standard>Horário da Nova Caledônia</standard>
 					<daylight>Horário de Verão da Nova Caledônia</daylight>
 				</long>
-				<short>
-					<standard>NCT</standard>
-					<daylight>NCST</daylight>
-				</short>
 			</metazone>
 			<metazone type="New_Zealand">
 				<long>
@@ -3358,8 +2576,6 @@
 				</long>
 				<short>
 					<generic>NZT</generic>
-					<standard>NZST</standard>
-					<daylight>NZDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Newfoundland">
@@ -3370,127 +2586,79 @@
 				</long>
 				<short>
 					<generic>NT</generic>
-					<standard>NST</standard>
-					<daylight>NDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Niue">
 				<long>
 					<standard>Horário de Niue</standard>
 				</long>
-				<short>
-					<standard>NUT</standard>
-				</short>
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
 					<standard>Horário das Ilhas Norfolk</standard>
 				</long>
-				<short>
-					<standard>NFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Noronha">
 				<long>
 					<standard>Horário de Fernando de Noronha</standard>
 					<daylight>Horário de Verão de Fernando de Noronha</daylight>
 				</long>
-				<short>
-					<standard>FNT</standard>
-					<daylight>FNST</daylight>
-				</short>
 			</metazone>
 			<metazone type="North_Mariana">
 				<long>
 					<standard>Horário das Ilhas Mariana do Norte</standard>
 				</long>
-				<short>
-					<standard>MPT</standard>
-				</short>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<standard>Horário de Novosibirsk</standard>
 					<daylight>Horário de Verão de Novosibirsk</daylight>
 				</long>
-				<short>
-					<standard>NOVT</standard>
-					<daylight>NOVST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
 					<standard>Horário de Omsk</standard>
 					<daylight>Horário de Verão de Omsk</daylight>
 				</long>
-				<short>
-					<standard>OMST</standard>
-					<daylight>OMSST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Pakistan">
 				<long>
 					<standard>Horário do Paquistão</standard>
 					<daylight>Horário de Verão do Paquistão</daylight>
 				</long>
-				<short>
-					<standard>PKT</standard>
-					<daylight>PKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Palau">
 				<long>
 					<standard>Horário de Palau</standard>
 				</long>
-				<short>
-					<standard>PWT</standard>
-				</short>
 			</metazone>
 			<metazone type="Papua_New_Guinea">
 				<long>
 					<standard>Horário de Papua Nova Guiné</standard>
 				</long>
-				<short>
-					<standard>PGT</standard>
-				</short>
 			</metazone>
 			<metazone type="Paraguay">
 				<long>
 					<standard>Horário do Paraguai</standard>
 					<daylight>Horário de Verão do Paraguai</daylight>
 				</long>
-				<short>
-					<standard>PYT</standard>
-					<daylight>PYST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Peru">
 				<long>
 					<standard>Horário do Peru</standard>
 					<daylight>Horário de Verão do Peru</daylight>
 				</long>
-				<short>
-					<standard>PET</standard>
-					<daylight>PEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Philippines">
 				<long>
 					<standard>Horário das Filipinas</standard>
 					<daylight>Horário de Verão das Filipinas</daylight>
 				</long>
-				<short>
-					<standard>PHT</standard>
-					<daylight>PHST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Phoenix_Islands">
 				<long>
 					<standard>Horário das Ilhas Fênix</standard>
 				</long>
-				<short>
-					<standard>PHOT</standard>
-				</short>
 			</metazone>
 			<metazone type="Pierre_Miquelon">
 				<long>
@@ -3500,123 +2668,77 @@
 				</long>
 				<short>
 					<generic>PMT</generic>
-					<standard>PMST</standard>
-					<daylight>PMDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Pitcairn">
 				<long>
 					<standard>Horário de Pitcairn</standard>
 				</long>
-				<short>
-					<standard>PNT</standard>
-				</short>
 			</metazone>
 			<metazone type="Ponape">
 				<long>
 					<standard>Horário de Ponape</standard>
 				</long>
-				<short>
-					<standard>PONT</standard>
-				</short>
 			</metazone>
 			<metazone type="Qyzylorda">
 				<long>
 					<standard>Horário de Qyzylorda</standard>
 					<daylight>Horário de Verão de Qyzylorda</daylight>
 				</long>
-				<short>
-					<standard>QYZT</standard>
-					<daylight>QYZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Horário das Ilhas Reunião</standard>
 				</long>
-				<short>
-					<standard>RET</standard>
-				</short>
 			</metazone>
 			<metazone type="Rothera">
 				<long>
 					<standard>Horário de Rothera</standard>
 				</long>
-				<short>
-					<standard>ROTT</standard>
-				</short>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<standard>Horário de Sakhalin</standard>
 					<daylight>Horário de Verão de Sakhalin</daylight>
 				</long>
-				<short>
-					<standard>SAKT</standard>
-					<daylight>SAKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<standard>Horário de Samara</standard>
 					<daylight>Horário de Verão de Samara</daylight>
 				</long>
-				<short>
-					<standard>SAMT</standard>
-					<daylight>SAMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samarkand">
 				<long>
 					<standard>Horário de Samarkand</standard>
 					<daylight>Horário de Verão de Samarkand</daylight>
 				</long>
-				<short>
-					<standard>SAMT (Samarkand)</standard>
-					<daylight>SAMST (Samarkand)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samoa">
 				<long>
 					<standard>Horário Padrão de Samoa</standard>
 				</long>
-				<short>
-					<standard>SST</standard>
-				</short>
 			</metazone>
 			<metazone type="Seychelles">
 				<long>
 					<standard>Horário das Ilhas Seychelles</standard>
 				</long>
-				<short>
-					<standard>SCT</standard>
-				</short>
 			</metazone>
 			<metazone type="Shevchenko">
 				<long>
 					<standard>Horário de Shevchenko</standard>
 					<daylight>Horário de Verão de Shevchenko</daylight>
 				</long>
-				<short>
-					<standard>SHET</standard>
-					<daylight>SHEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Singapore">
 				<long>
 					<standard>Horário Padrão de Cingapura</standard>
 				</long>
-				<short>
-					<standard>SGT</standard>
-				</short>
 			</metazone>
 			<metazone type="Solomon">
 				<long>
 					<standard>Horário das Ilhas Salomão</standard>
 				</long>
-				<short>
-					<standard>SBT</standard>
-				</short>
 			</metazone>
 			<metazone type="South_Georgia">
 				<long>
@@ -3630,247 +2752,151 @@
 				<long>
 					<standard>Horário do Suriname</standard>
 				</long>
-				<short>
-					<standard>SRT</standard>
-				</short>
 			</metazone>
 			<metazone type="Sverdlovsk">
 				<long>
 					<standard>Horário de Sverdlovsk</standard>
 					<daylight>Horário de Verão de Sverdlovsk</daylight>
 				</long>
-				<short>
-					<standard>SVET</standard>
-					<daylight>SVEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Syowa">
 				<long>
 					<standard>Horário de Syowa</standard>
 				</long>
-				<short>
-					<standard>SYOT</standard>
-				</short>
 			</metazone>
 			<metazone type="Tahiti">
 				<long>
 					<standard>Horário do Taiti</standard>
 				</long>
-				<short>
-					<standard>TAHT</standard>
-				</short>
 			</metazone>
 			<metazone type="Tajikistan">
 				<long>
 					<standard>Horário do Tajiquistão</standard>
 				</long>
-				<short>
-					<standard>TJT</standard>
-				</short>
 			</metazone>
 			<metazone type="Tashkent">
 				<long>
 					<standard>Horário de Tashkent</standard>
 					<daylight>Horário de Verão de Tashkent</daylight>
 				</long>
-				<short>
-					<standard>TAST</standard>
-					<daylight>TASST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Tbilisi">
 				<long>
 					<standard>Horário de Tbilisi</standard>
 					<daylight>Horário de Verão de Tbilisi</daylight>
 				</long>
-				<short>
-					<standard>TBIT</standard>
-					<daylight>TBIST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Tokelau">
 				<long>
 					<standard>Horário de Tokelau</standard>
 				</long>
-				<short>
-					<standard>TKT</standard>
-				</short>
 			</metazone>
 			<metazone type="Tonga">
 				<long>
 					<standard>Horário de Tonga</standard>
 					<daylight>Horário de Verão de Tonga</daylight>
 				</long>
-				<short>
-					<standard>TOT</standard>
-					<daylight>TOST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Truk">
 				<long>
 					<standard>Horário de Truk</standard>
 				</long>
-				<short>
-					<standard>TRUT</standard>
-				</short>
 			</metazone>
 			<metazone type="Turkey">
 				<long>
 					<standard>Horário da Turquia</standard>
 					<daylight>Horário de Verão da Turquia</daylight>
 				</long>
-				<short>
-					<standard>TRT</standard>
-					<daylight>TRST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Turkmenistan">
 				<long>
 					<standard>Horário do Turcomenistão</standard>
 					<daylight>Horário de Verão do Turcomenistão</daylight>
 				</long>
-				<short>
-					<standard>TMT</standard>
-					<daylight>TMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Tuvalu">
 				<long>
 					<standard>Horário de Tuvalu</standard>
 				</long>
-				<short>
-					<standard>TVT</standard>
-				</short>
 			</metazone>
 			<metazone type="Uralsk">
 				<long>
 					<standard>Horário de Ural'sk</standard>
 					<daylight>Horário de Verão de Ural'sk</daylight>
 				</long>
-				<short>
-					<standard>URAT</standard>
-					<daylight>URAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Uruguay">
 				<long>
 					<standard>Horário do Uruguai</standard>
 					<daylight>Horário de Verão do Uruguai</daylight>
 				</long>
-				<short>
-					<standard>UYT</standard>
-					<daylight>UYST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Urumqi">
 				<long>
 					<standard>Horário de Urumqi</standard>
 				</long>
-				<short>
-					<standard>URUT</standard>
-				</short>
 			</metazone>
 			<metazone type="Uzbekistan">
 				<long>
 					<standard>Horário do Uzbequistão</standard>
 					<daylight>Horário de Verão do Uzbequistão</daylight>
 				</long>
-				<short>
-					<standard>UZT</standard>
-					<daylight>UZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Vanuatu">
 				<long>
 					<standard>Horário de Vanuatu</standard>
 					<daylight>Horário de Verão de Vanuatu</daylight>
 				</long>
-				<short>
-					<standard>VUT</standard>
-					<daylight>VUST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Venezuela">
 				<long>
 					<standard>Horário da Venezuela</standard>
 				</long>
-				<short>
-					<standard>VET</standard>
-				</short>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<standard>Horário de Vladivostok</standard>
 					<daylight>Horário de Verão de Vladivostok</daylight>
 				</long>
-				<short>
-					<standard>VLAT</standard>
-					<daylight>VLAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<standard>Horário de Volvogrado</standard>
 					<daylight>Horário de Verão de Volvogrado</daylight>
 				</long>
-				<short>
-					<standard>VOLT</standard>
-					<daylight>VOLST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Vostok">
 				<long>
 					<standard>Horário de Vostok</standard>
 				</long>
-				<short>
-					<standard>VOST</standard>
-				</short>
 			</metazone>
 			<metazone type="Wake">
 				<long>
 					<standard>Horário das Ilhas Wake</standard>
 				</long>
-				<short>
-					<standard>WAKT</standard>
-				</short>
 			</metazone>
 			<metazone type="Wallis">
 				<long>
 					<standard>Horário de Wallis e Futuna</standard>
 				</long>
-				<short>
-					<standard>WFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
 					<standard>Horário de Yakutsk</standard>
 					<daylight>Horário de Verão de Yakutsk</daylight>
 				</long>
-				<short>
-					<standard>YAKT</standard>
-					<daylight>YAKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
 					<standard>Horário de Yekaterinburg</standard>
 					<daylight>Horário de Verão de Yekaterinburg</daylight>
 				</long>
-				<short>
-					<standard>YEKT</standard>
-					<daylight>YEKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Yerevan">
 				<long>
 					<standard draft="unconfirmed">Horário de Yerevan</standard>
 					<daylight>Horário de Verão de Yerevan</daylight>
 				</long>
-				<short>
-					<standard>YERT</standard>
-					<daylight>YERST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Yukon">
 				<long>
@@ -3880,14 +2906,11 @@
 				</long>
 				<short>
 					<generic>YT</generic>
-					<standard>YST</standard>
-					<daylight>YDT</daylight>
 				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
@@ -3938,37 +2961,31 @@
 				<displayName>Peseta de Andorra</displayName>
 				<displayName count="one">Peseta de Andorra</displayName>
 				<displayName count="other">Pesetas de Andorra</displayName>
-				<symbol>ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>Dirém dos Emirados Árabes Unidos</displayName>
 				<displayName count="one">Dirrã dos Emirados Árabes Unidos</displayName>
 				<displayName count="other">Dirrãs dos Emirados Árabes Unidos</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Afegane (1927-2002)</displayName>
 				<displayName count="one">Afegane do Afeganistão (AFA)</displayName>
 				<displayName count="other">Afeganes do Afeganistão (AFA)</displayName>
-				<symbol>AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>Afegane</displayName>
 				<displayName count="one">Afegane do Afeganistão</displayName>
 				<displayName count="other">Afeganes do Afeganistão</displayName>
-				<symbol>Af</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Lek Albanês</displayName>
 				<displayName count="one">Lek albanês</displayName>
 				<displayName count="other">Leks albaneses</displayName>
-				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Dram armênio</displayName>
 				<displayName count="one">Dram armênio</displayName>
 				<displayName count="other">Drams armênios</displayName>
-				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Guilder das Antilhas Holandesas</displayName>
@@ -3980,355 +2997,286 @@
 				<displayName>Cuanza angolano</displayName>
 				<displayName count="one">Kwanza angolano</displayName>
 				<displayName count="other">Kwanzas angolanos</displayName>
-				<symbol>Kz</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Cuanza angolano (1977-1990)</displayName>
 				<displayName count="one">Kwanza angolano (AOK)</displayName>
 				<displayName count="other">Kwanzas angolanos (AOK)</displayName>
-				<symbol>AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>Novo cuanza angolano (1990-2000)</displayName>
 				<displayName count="one">Novo kwanza angolano (AON)</displayName>
 				<displayName count="other">Novos kwanzas angolanos (AON)</displayName>
-				<symbol>AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>Cuanza angolano reajustado (1995-1999)</displayName>
 				<displayName count="one">Kwanza angolano reajustado (AOR)</displayName>
 				<displayName count="other">Kwanzas angolanos reajustados (AOR)</displayName>
-				<symbol>AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName>Austral argentino</displayName>
 				<displayName count="one">Austral argentino</displayName>
 				<displayName count="other">Austrais argentinos</displayName>
-				<symbol>₳</symbol>
-			</currency>
-			<currency type="ARL">
-				<symbol>$L</symbol>
-			</currency>
-			<currency type="ARM">
-				<symbol>m$n</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>Peso argentino (1983-1985)</displayName>
 				<displayName count="one">Peso argentino (ARP)</displayName>
 				<displayName count="other">Pesos argentinos (ARP)</displayName>
-				<symbol>ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>Peso argentino</displayName>
 				<displayName count="one">Peso argentino</displayName>
 				<displayName count="other">Pesos argentinos</displayName>
-				<symbol>AR$</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>Xelim austríaco</displayName>
 				<displayName count="one">Schilling australiano</displayName>
 				<displayName count="other">Schillings australianos</displayName>
-				<symbol>ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>Dólar australiano</displayName>
 				<displayName count="one">Dólar australiano</displayName>
 				<displayName count="other">Dólares australianos</displayName>
-				<symbol>AU$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>Guilder de Aruba</displayName>
 				<displayName count="one">Florim de Aruba</displayName>
 				<displayName count="other">Florins de Aruba</displayName>
-				<symbol>Afl.</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>Manat azerbaijano</displayName>
 				<displayName count="one">Manat do Azeibaijão (AZM)</displayName>
 				<displayName count="other">Manats do Azeibaijão (AZM)</displayName>
-				<symbol>AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>Manat do Azerbaijão</displayName>
 				<displayName count="one">Manat do Azeibaijão</displayName>
 				<displayName count="other">Manats do Azeibaijão</displayName>
-				<symbol>man.</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>Dinar da Bósnia-Herzegovina</displayName>
 				<displayName count="one">Dinar da Bósnia Herzegovina</displayName>
 				<displayName count="other">Dinares da Bósnia Herzegovina</displayName>
-				<symbol>BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Marco bósnio-herzegovino conversível</displayName>
 				<displayName count="one">Marca conversível da Bósnia Herzegovina</displayName>
 				<displayName count="other">Marcas conversíveis da Bósnia Herzegovina</displayName>
-				<symbol>KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Dólar de Barbados</displayName>
 				<displayName count="one">Dólar de Barbados</displayName>
 				<displayName count="other">Dólares de Barbados</displayName>
-				<symbol>Bds$</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>Taka de Bangladesh</displayName>
 				<displayName count="one">Taka de Bangladesh</displayName>
 				<displayName count="other">Takas de Bangladesh</displayName>
-				<symbol>Tk</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>Franco belga (conversível)</displayName>
 				<displayName count="one">Franco belga (conversível)</displayName>
 				<displayName count="other">Francos belgas (conversíveis)</displayName>
-				<symbol>BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>Franco belga</displayName>
 				<displayName count="one">Franco belga</displayName>
 				<displayName count="other">Francos belgas</displayName>
-				<symbol>BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>Franco belga (financeiro)</displayName>
 				<displayName count="one">Franco belga (financeiro)</displayName>
 				<displayName count="other">Francos belgas (financeiros)</displayName>
-				<symbol>BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>Lev forte búlgaro</displayName>
 				<displayName count="one">Lev forte búlgaro</displayName>
 				<displayName count="other">Levs fortes búlgaros</displayName>
-				<symbol>BGL</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>Lev novo búlgaro</displayName>
 				<displayName count="one">Lev búlgaro</displayName>
 				<displayName count="other">Levs búlgaros</displayName>
-				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Dinar bareinita</displayName>
 				<displayName count="one">Dinar bareinita</displayName>
 				<displayName count="other">Dinares bareinitas</displayName>
-				<symbol>BD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Franco do Burundi</displayName>
 				<displayName count="one">Franco burundiano</displayName>
 				<displayName count="other">Francos burundianos</displayName>
-				<symbol>FBu</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Dólar das Bermudas</displayName>
 				<displayName count="one">Dólar bermudense</displayName>
 				<displayName count="other">Dólares bermudenses</displayName>
-				<symbol>BD$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>Dólar do Brunei</displayName>
 				<displayName count="one">Dólar bruneano</displayName>
 				<displayName count="other">Dólares bruneanos</displayName>
-				<symbol>BN$</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Boliviano</displayName>
 				<displayName count="one">Boliviano</displayName>
 				<displayName count="other">Bolivianos</displayName>
-				<symbol>Bs</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>Peso boliviano</displayName>
 				<displayName count="one">Peso boliviano</displayName>
 				<displayName count="other">Pesos bolivianos</displayName>
-				<symbol>$b.</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>Mvdol boliviano</displayName>
 				<displayName count="one">Mvdol boliviano</displayName>
 				<displayName count="other">Mvdols bolivianos</displayName>
-				<symbol>BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>Cruzeiro novo brasileiro (1967-1986)</displayName>
 				<displayName count="one">Cruzeiro novo brasileiro (BRB)</displayName>
 				<displayName count="other">Cruzeiros novos brasileiros (BRB)</displayName>
-				<symbol>NCr</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName>Cruzado brasileiro</displayName>
 				<displayName count="one">Cruzado brasileiro</displayName>
 				<displayName count="other">Cruzados brasileiros</displayName>
-				<symbol>Cz$</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName>Cruzeiro brasileiro (1990-1993)</displayName>
 				<displayName count="one">Cruzeiro brasileiro (BRE)</displayName>
 				<displayName count="other">Cruzeiros brasileiros (BRE)</displayName>
-				<symbol>Cr$</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Real brasileiro</displayName>
 				<displayName count="one">Real brasileiro</displayName>
 				<displayName count="other">Reais brasileiros</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Cruzado novo brasileiro</displayName>
 				<displayName count="one">Cruzado novo brasileiro</displayName>
 				<displayName count="other">Cruzados novos brasileiros</displayName>
-				<symbol>NCz$</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>Cruzeiro brasileiro</displayName>
 				<displayName count="one">Cruzeiro brasileiro</displayName>
 				<displayName count="other">Cruzeiros brasileiros</displayName>
-				<symbol>CR$</symbol>
-			</currency>
-			<currency type="BRZ">
-				<symbol>₢</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Dólar das Bahamas</displayName>
 				<displayName count="one">Dólar de Bahamian</displayName>
 				<displayName count="other">Dólares de Bahamian</displayName>
-				<symbol>BS$</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Ngultrum do Butão</displayName>
 				<displayName count="one">Ngultrum butanês</displayName>
 				<displayName count="other">Ngultruns butaneses</displayName>
-				<symbol>Nu.</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>Kyat birmanês</displayName>
 				<displayName count="one">Kyat burmês</displayName>
 				<displayName count="other">Kyats burmeses</displayName>
-				<symbol>BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>Pula botsuanesa</displayName>
 				<displayName count="one">Pula de Botsuana</displayName>
 				<displayName count="other">Pulas de Botsuana</displayName>
-				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Rublo novo bielo-russo (1994-1999)</displayName>
 				<displayName count="one">Novo rublo bielorusso (BYB)</displayName>
 				<displayName count="other">Novos rublos bielorussos (BYB)</displayName>
-				<symbol>BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>Rublo bielo-russo</displayName>
 				<displayName count="one">Rublo bielorusso</displayName>
 				<displayName count="other">Rublos bielorussos</displayName>
-				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>Dólar do Belize</displayName>
 				<displayName count="one">Dólar belizenho</displayName>
 				<displayName count="other">Dólares belizenhos</displayName>
-				<symbol>BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Dólar canadense</displayName>
 				<displayName count="one">Dólar canadense</displayName>
 				<displayName count="other">Dólares canadenses</displayName>
-				<symbol>CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>Franco congolês</displayName>
 				<displayName count="one">Franco congolês</displayName>
 				<displayName count="other">Francos congoleses</displayName>
-				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>Euro WIR</displayName>
 				<displayName count="one">Euro WIR</displayName>
 				<displayName count="other">Euros WIR</displayName>
-				<symbol>CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Franco suíço</displayName>
 				<displayName count="one">Franco suíço</displayName>
 				<displayName count="other">Francos suíços</displayName>
-				<symbol>Fr.</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>Franco WIR</displayName>
 				<displayName count="one">Franco WIR</displayName>
 				<displayName count="other">Francos WIR</displayName>
-				<symbol>CHW</symbol>
-			</currency>
-			<currency type="CLE">
-				<symbol>Eº</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>Unidades de Fomento chilenas</displayName>
 				<displayName count="one">Unidade de fomento chilena</displayName>
 				<displayName count="other">Unidades de fomento chilenas</displayName>
-				<symbol>CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>Peso chileno</displayName>
 				<displayName count="one">Peso chileno</displayName>
 				<displayName count="other">Pesos chilenos</displayName>
-				<symbol>CL$</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Yuan Renminbi chinês</displayName>
 				<displayName count="one">Yuan chinês</displayName>
 				<displayName count="other">Yuans chineses</displayName>
-				<symbol>CN¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Peso colombiano</displayName>
 				<displayName count="one">Peso colombiano</displayName>
 				<displayName count="other">Pesos colombianos</displayName>
-				<symbol>CO$</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>Unidade de Valor Real</displayName>
 				<displayName count="one">Unidade de valor real</displayName>
 				<displayName count="other">Unidades de valor real</displayName>
-				<symbol>COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>Colon da Costa Rica</displayName>
 				<displayName count="one">Colon costa-riquenho</displayName>
 				<displayName count="other">Colons costa-riquenhos</displayName>
-				<symbol>₡</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>Dinar sérvio antigo</displayName>
 				<displayName count="one">Dinar antigo da Sérvia</displayName>
 				<displayName count="other">Dinares antigos da Sérvia</displayName>
-				<symbol>CSD</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>Coroa Forte checoslovaca</displayName>
 				<displayName count="one">Coroa forte tchecoslovaca</displayName>
 				<displayName count="other">Coroas fortes tchecoslovacas</displayName>
-				<symbol>CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Peso cubano</displayName>
 				<displayName count="one">Peso cubano</displayName>
 				<displayName count="other">Pesos cubanos</displayName>
-				<symbol>CU$</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Escudo cabo-verdiano</displayName>
 				<displayName count="one">Escudo cabo-verdiano</displayName>
 				<displayName count="other">Escudos cabo-verdianos</displayName>
-				<symbol>CV$</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>Libra cipriota</displayName>
 				<displayName count="one">Libra cipriota</displayName>
 				<displayName count="other">Libras cipriotas</displayName>
-				<symbol>CY£</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>Coroa checa</displayName>
@@ -4340,61 +3288,51 @@
 				<displayName>Ostmark da Alemanha Oriental</displayName>
 				<displayName count="one">Marco da Alemanha Oriental</displayName>
 				<displayName count="other">Marcos da Alemanha Oriental</displayName>
-				<symbol>DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Marco alemão</displayName>
 				<displayName count="one">Marco alemão</displayName>
 				<displayName count="other">Marcos alemães</displayName>
-				<symbol>DM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Franco do Djibuti</displayName>
 				<displayName count="one">Franco djibutiense</displayName>
 				<displayName count="other">Francos djibutienses</displayName>
-				<symbol>Fdj</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>Coroa dinamarquesa</displayName>
 				<displayName count="one">Coroa dinamarquesa</displayName>
 				<displayName count="other">Coroas dinamarquesas</displayName>
-				<symbol>Dkr</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Peso dominicano</displayName>
 				<displayName count="one">Peso dominicano</displayName>
 				<displayName count="other">Pesos dominicanos</displayName>
-				<symbol>RD$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Dinar argelino</displayName>
 				<displayName count="one">Dinar argelino</displayName>
 				<displayName count="other">Dinares argelinos</displayName>
-				<symbol>DA</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>Sucre equatoriano</displayName>
 				<displayName count="one">Sucre equatoriano</displayName>
 				<displayName count="other">Sucres equatorianos</displayName>
-				<symbol>ECS</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>Unidade de Valor Constante (UVC) do Equador</displayName>
 				<displayName count="one">Unidade de valor constante equatoriana (UVC)</displayName>
 				<displayName count="other">Unidades de valor constante equatorianas (UVC)</displayName>
-				<symbol>ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>Coroa estoniana</displayName>
 				<displayName count="one">Coroa estoniana</displayName>
 				<displayName count="other">Coroas estonianas</displayName>
-				<symbol>Ekr</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Libra egípcia</displayName>
 				<displayName count="one">Libra egípcia</displayName>
 				<displayName count="other">Libras egípcias</displayName>
-				<symbol>EG£</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Nakfa da Eritreia</displayName>
@@ -4402,19 +3340,16 @@
 				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">Nakfa da Eritréia</displayName>
 				<displayName count="other">Nakfas da Eritreia</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Nakfas da Eritréia</displayName>
-				<symbol>Nfk</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>Peseta espanhola (conta A)</displayName>
 				<displayName count="one">Peseta espanhola (conta A)</displayName>
 				<displayName count="other">Pesetas espanholas (conta A)</displayName>
-				<symbol>ESA</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName>Peseta espanhola (conta conversível)</displayName>
 				<displayName count="one">Peseta espanhola (conta conversível)</displayName>
 				<displayName count="other">Pesetas espanholas (conta conversível)</displayName>
-				<symbol>ESB</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>Peseta espanhola</displayName>
@@ -4426,181 +3361,151 @@
 				<displayName>Birr etíope</displayName>
 				<displayName count="one">Birr etíope</displayName>
 				<displayName count="other">Birrs etíopes</displayName>
-				<symbol>Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
 				<displayName count="one">euro</displayName>
 				<displayName count="other">euros</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Marca finlandesa</displayName>
 				<displayName count="one">Marco finlandês</displayName>
 				<displayName count="other">Marcos finlandeses</displayName>
-				<symbol>mk</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>Dólar de Fiji</displayName>
 				<displayName count="one">Dólar de Fiji</displayName>
 				<displayName count="other">Dólares de Fiji</displayName>
-				<symbol>FJ$</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Libra das Malvinas</displayName>
 				<displayName count="one">Libra das Ilhas Falkland</displayName>
 				<displayName count="other">Libras das Ilhas Falkland</displayName>
-				<symbol>FK£</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Franco francês</displayName>
 				<displayName count="one">Franco francês</displayName>
 				<displayName count="other">Francos franceses</displayName>
-				<symbol>₣</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Libra esterlina britânica</displayName>
 				<displayName count="one">Libra esterlina britânica</displayName>
 				<displayName count="other">Libras esterlinas britânicas</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Cupom Lari georgiano</displayName>
 				<displayName count="one">Kupon larit da Geórgia</displayName>
 				<displayName count="other">Kupon larits da Geórgia</displayName>
-				<symbol>GEK</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>Lari georgiano</displayName>
 				<displayName count="one">Lari da Geórgia</displayName>
 				<displayName count="other">Laris da Geórgia</displayName>
-				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>Cedi de Gana (1979-2007)</displayName>
 				<displayName count="one">Cedi de Gana (GHC)</displayName>
 				<displayName count="other">Cedis de Gana (GHC)</displayName>
-				<symbol>₵</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>Cedi ganês</displayName>
 				<displayName count="one">Cedi de Gana</displayName>
 				<displayName count="other">Cedis de Gana</displayName>
-				<symbol>GH₵</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Libra de Gibraltar</displayName>
 				<displayName count="one">Libra de Gibraltar</displayName>
 				<displayName count="other">Libras de Gibraltar</displayName>
-				<symbol>GI£</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Dalasi de Gâmbia</displayName>
 				<displayName count="one">Dalasi da Gâmbia</displayName>
 				<displayName count="other">Dalasis da Gâmbia</displayName>
-				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Franco de Guiné</displayName>
 				<displayName count="one">Franco guineano</displayName>
 				<displayName count="other">Francos guineanos</displayName>
-				<symbol>FG</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>Syli da Guiné</displayName>
 				<displayName count="one">Syli guineano</displayName>
 				<displayName count="other">Sylis guineanos</displayName>
-				<symbol>GNS</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName>Ekwele da Guiné Equatorial</displayName>
 				<displayName count="one">Ekwele da Guiné Equatorial</displayName>
 				<displayName count="other">Ekweles da Guiné Equatorial</displayName>
-				<symbol>GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>Dracma grego</displayName>
 				<displayName count="one">Dracma grego</displayName>
 				<displayName count="other">Dracmas gregos</displayName>
-				<symbol>₯</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Quetçal da Guatemala</displayName>
 				<displayName count="one">Quetzal da Guatemala</displayName>
 				<displayName count="other">Quetzales da Guatemala</displayName>
-				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>Escudo da Guiné Portuguesa</displayName>
 				<displayName count="one">Escudo da Guiné Portuguesa</displayName>
 				<displayName count="other">Escudos da Guinéa Portuguesa</displayName>
-				<symbol>GWE</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName>Peso da Guiné-Bissau</displayName>
 				<displayName count="one" draft="contributed">Peso de Guiné-Bissau</displayName>
 				<displayName count="other">Pesos de Guiné-Bissau</displayName>
-				<symbol>GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Dólar da Guiana</displayName>
 				<displayName count="one">Dólar da Guiana</displayName>
 				<displayName count="other">Dólares da Guiana</displayName>
-				<symbol>GY$</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>Dólar de Hong Kong</displayName>
 				<displayName count="one">Dólar de Hong Kong</displayName>
 				<displayName count="other">Dólares de Hong Kong</displayName>
-				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Lempira de Honduras</displayName>
 				<displayName count="one">Lempira de Honduras</displayName>
 				<displayName count="other">Lempiras de Honduras</displayName>
-				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>Dinar croata</displayName>
 				<displayName count="one">Dinar croata</displayName>
 				<displayName count="other">Dinares croatas</displayName>
-				<symbol>HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>Kuna croata</displayName>
 				<displayName count="one">Kuna croata</displayName>
 				<displayName count="other">Kunas croatas</displayName>
-				<symbol>kn</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Gurde do Haiti</displayName>
 				<displayName count="one">Gourde haitiano</displayName>
 				<displayName count="other">Gourdes haitianos</displayName>
-				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Forinte húngaro</displayName>
 				<displayName count="one">Forint húngaro</displayName>
 				<displayName count="other">Forints húngaros</displayName>
-				<symbol>Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Rupia indonésia</displayName>
 				<displayName count="one">Rúpia da Indonésia</displayName>
 				<displayName count="other">Rúpias da Indonésia</displayName>
-				<symbol>Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Libra irlandesa</displayName>
 				<displayName count="one">Libra irlandesa</displayName>
 				<displayName count="other">Libras irlandesas</displayName>
-				<symbol>IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>Libra israelita</displayName>
 				<displayName count="one">Libra israelita</displayName>
 				<displayName count="other">Libras israelitas</displayName>
-				<symbol>I£</symbol>
 			</currency>
 			<currency type="ILR">
 				<displayName count="one">Sheqel antigo israelita</displayName>
@@ -4610,7 +3515,6 @@
 				<displayName>Sheqel Novo israelita</displayName>
 				<displayName count="one">Sheqel novo israelita</displayName>
 				<displayName count="other">Sheqels novo israelitas</displayName>
-				<symbol>₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Rúpia indiana</displayName>
@@ -4622,13 +3526,11 @@
 				<displayName>Dinar iraquiano</displayName>
 				<displayName count="one">Dinar iraquiano</displayName>
 				<displayName count="other">Dinares iraquianos</displayName>
-				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>Rial iraniano</displayName>
 				<displayName count="one">Rial iraniano</displayName>
 				<displayName count="other">Riales iranianos</displayName>
-				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISJ">
 				<displayName count="one">Coroa antiga islandesa</displayName>
@@ -4638,25 +3540,21 @@
 				<displayName>Coroa islandesa</displayName>
 				<displayName count="one">Coroa islandesa</displayName>
 				<displayName count="other">Coroas islandesas</displayName>
-				<symbol>Ikr</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Lira italiana</displayName>
 				<displayName count="one">Lira italiana</displayName>
 				<displayName count="other">Liras italianas</displayName>
-				<symbol>IT₤</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>Dólar jamaicano</displayName>
 				<displayName count="one">Dólar jamaicano</displayName>
 				<displayName count="other">Dólares jamaicanos</displayName>
-				<symbol>J$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Dinar jordaniano</displayName>
 				<displayName count="one">Dinar jordaniano</displayName>
 				<displayName count="other">Dinares jordanianos</displayName>
-				<symbol>JD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Iene japonês</displayName>
@@ -4668,319 +3566,266 @@
 				<displayName>Xelim queniano</displayName>
 				<displayName count="one" draft="contributed">Shilling queniano</displayName>
 				<displayName count="other" draft="contributed">Shillings quenianos</displayName>
-				<symbol>Ksh</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>Som quirguiz</displayName>
 				<displayName count="one">Som do Quirguistão</displayName>
 				<displayName count="other">Soms do Quirguistão</displayName>
-				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Riel cambojano</displayName>
 				<displayName count="one">Riel cambojano</displayName>
 				<displayName count="other">Rieles cambojanos</displayName>
-				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Franco de Comores</displayName>
 				<displayName count="one">Franco de Comoro</displayName>
 				<displayName count="other">Francos de Comoro</displayName>
-				<symbol>CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Won norte-coreano</displayName>
 				<displayName count="one">Won norte-coreano</displayName>
 				<displayName count="other">Wons norte-coreanos</displayName>
-				<symbol>KP₩</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Won sul-coreano</displayName>
 				<displayName count="one">Won sul-coreano</displayName>
 				<displayName count="other">Wons sul-coreanos</displayName>
-				<symbol>₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Dinar coveitiano</displayName>
 				<displayName count="one">Dinar kuwaitiano</displayName>
 				<displayName count="other">Dinares kuwaitianos</displayName>
-				<symbol>KD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Dólar das Ilhas Caiman</displayName>
 				<displayName count="one">Dólar das Ilhas Cayman</displayName>
 				<displayName count="other">Dólares das Ilhas Caiman</displayName>
-				<symbol>KY$</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Tenge do Cazaquistão</displayName>
 				<displayName count="one">Tenge do Cazaquistão</displayName>
 				<displayName count="other">Tenges do Cazaquistão</displayName>
-				<symbol>KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Kip de Laos</displayName>
 				<displayName count="one">Kip do Laos</displayName>
 				<displayName count="other">Kips do Laos</displayName>
-				<symbol>₭</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Libra libanesa</displayName>
 				<displayName count="one">Libra libanesa</displayName>
 				<displayName count="other">Libras libanesas</displayName>
-				<symbol>LB£</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>Rupia do Sri Lanka</displayName>
 				<displayName count="one">Rúpia do Sri Lanka</displayName>
 				<displayName count="other">Rúpias do Sri Lanka</displayName>
-				<symbol>SLRs</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>Dólar liberiano</displayName>
 				<displayName count="one">Dólar da Libéria</displayName>
 				<displayName count="other">Dólares da Libéria</displayName>
-				<symbol>L$</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Loti do Lesoto</displayName>
 				<displayName count="one">Loti do Lesoto</displayName>
 				<displayName count="other">Lotis do Lesoto</displayName>
-				<symbol>LSL</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>Lita lituano</displayName>
 				<displayName count="one">Litas lituana</displayName>
 				<displayName count="other">Litai lituanas</displayName>
-				<symbol>Lt</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Talonas lituano</displayName>
 				<displayName count="one">Talonas lituanas</displayName>
 				<displayName count="other">Talonases lituanas</displayName>
-				<symbol>LTT</symbol>
 			</currency>
 			<currency type="LUC">
 				<displayName>Franco conversível de Luxemburgo</displayName>
 				<displayName count="one">Franco conversível de Luxemburgo</displayName>
 				<displayName count="other">Francos conversíveis de Luxemburgo</displayName>
-				<symbol>LUC</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>Franco luxemburguês</displayName>
 				<displayName count="one">Franco de Luxemburgo</displayName>
 				<displayName count="other">Francos de Luxemburgo</displayName>
-				<symbol>LUF</symbol>
 			</currency>
 			<currency type="LUL">
 				<displayName>Franco financeiro de Luxemburgo</displayName>
 				<displayName count="one">Franco financeiro de Luxemburgo</displayName>
 				<displayName count="other">Francos financeiros de Luxemburgo</displayName>
-				<symbol>LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>Lats letão</displayName>
 				<displayName count="one">Lats da Letônia</displayName>
 				<displayName count="other">Latses da Letônia</displayName>
-				<symbol>Ls</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Rublo letão</displayName>
 				<displayName count="one">Rublo da Letônia</displayName>
 				<displayName count="other">Rublos da Letônia</displayName>
-				<symbol>LVR</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Dinar líbio</displayName>
 				<displayName count="one">Dinar líbio</displayName>
 				<displayName count="other">Dinares líbios</displayName>
-				<symbol>LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Dirém marroquino</displayName>
 				<displayName count="one">Dirrã marroquino</displayName>
 				<displayName count="other">Dirrãs marroquinos</displayName>
-				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Franco marroquino</displayName>
 				<displayName count="one">Franco marroquino</displayName>
 				<displayName count="other">Francos marroquinos</displayName>
-				<symbol>MAF</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>Leu moldávio</displayName>
 				<displayName count="one">Leu da Moldávia</displayName>
 				<displayName count="other">Leus da Moldávia</displayName>
-				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Ariary de Madagascar</displayName>
 				<displayName count="one">Ariari de Madagascar</displayName>
 				<displayName count="other">Ariaries de Madagascar</displayName>
-				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Franco de Madagascar</displayName>
 				<displayName count="one">Franco de Madagascar</displayName>
 				<displayName count="other">Francos de Madagascar</displayName>
-				<symbol>MGF</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>Dinar macedônio</displayName>
 				<displayName count="one">Dinar da Macedônia</displayName>
 				<displayName count="other">Dinares da Macedônia</displayName>
-				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>Franco de Mali</displayName>
 				<displayName count="one">Franco de Mali</displayName>
 				<displayName count="other">Francos de Mali</displayName>
-				<symbol>MLF</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>Kyat de Mianmar</displayName>
 				<displayName count="one">Kyat de Mianmar</displayName>
 				<displayName count="other">Kyats de Mianmar</displayName>
-				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Tugrik mongol</displayName>
 				<displayName count="one">Tugrik da Mongólia</displayName>
 				<displayName count="other">Tugriks da Mongólia</displayName>
-				<symbol>₮</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>Pataca macaense</displayName>
 				<displayName count="one">Pataca de Macau</displayName>
 				<displayName count="other">Patacas de Macau</displayName>
-				<symbol>MOP$</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Ouguiya da Mauritânia</displayName>
 				<displayName count="one">Ouguiya da Mauritânia</displayName>
 				<displayName count="other">Ouguiyas da Mauritânia</displayName>
-				<symbol>UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Lira maltesa</displayName>
 				<displayName count="one">Lira Maltesa</displayName>
 				<displayName count="other">Liras maltesas</displayName>
-				<symbol>Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>Libra maltesa</displayName>
 				<displayName count="one">Libra maltesa</displayName>
 				<displayName count="other">Libras maltesas</displayName>
-				<symbol>MT£</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Rupia de Maurício</displayName>
 				<displayName count="one">Rúpia mauriciana</displayName>
 				<displayName count="other">Rúpias mauricianas</displayName>
-				<symbol>MURs</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Rupias das Ilhas Maldivas</displayName>
 				<displayName count="one">Rufiyaa das Ilhas Maldivas</displayName>
 				<displayName count="other">Rufiyaas das Ilhas Maldivas</displayName>
-				<symbol>Rf</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Cuacha do Maláui</displayName>
 				<displayName count="one">Kwacha do Malawi</displayName>
 				<displayName count="other">Kwachas do Malawi</displayName>
-				<symbol>MK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Peso mexicano</displayName>
 				<displayName count="one">Peso mexicano</displayName>
 				<displayName count="other">Pesos mexicanos</displayName>
-				<symbol>MXN</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>Peso Prata mexicano (1861-1992)</displayName>
 				<displayName count="one">Peso de prata mexicano (MXP)</displayName>
 				<displayName count="other">Pesos de prata mexicanos (MXP)</displayName>
-				<symbol>MX$</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName>Unidade Mexicana de Investimento (UDI)</displayName>
 				<displayName count="one">Unidade de investimento mexicana (UDI)</displayName>
 				<displayName count="other">Unidades de investimento mexicanas (UDI)</displayName>
-				<symbol>MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>Ringgit malaio</displayName>
 				<displayName count="one">Ringgit malaio</displayName>
 				<displayName count="other">Ringgits malaios</displayName>
-				<symbol>RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Escudo de Moçambique</displayName>
 				<displayName count="one">Escudo de Moçambique</displayName>
 				<displayName count="other">Escudos de Moçambique</displayName>
-				<symbol>MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>Metical antigo de Moçambique</displayName>
 				<displayName count="one">Metical antigo de Moçambique</displayName>
 				<displayName count="other">Meticales antigos de Moçambique</displayName>
-				<symbol>Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>Metical do Moçambique</displayName>
 				<displayName count="one">Metical de Moçambique</displayName>
 				<displayName count="other">Meticales de Moçambique</displayName>
-				<symbol>MTn</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Dólar da Namíbia</displayName>
 				<displayName count="one">Dólar da Namíbia</displayName>
 				<displayName count="other">Dólares da Namíbia</displayName>
-				<symbol>N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Naira nigeriana</displayName>
 				<displayName count="one">Naira da Nigéria</displayName>
 				<displayName count="other">Nairas da Nigéria</displayName>
-				<symbol>₦</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>Córdoba nicaraguense</displayName>
 				<displayName count="one">Córdoba nicaraguense</displayName>
 				<displayName count="other">Córdobas da Nicarágua</displayName>
-				<symbol>NIC</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>Córdoba Ouro nicaraguense</displayName>
 				<displayName count="one">Córdoba de ouro da Nicarágua</displayName>
 				<displayName count="other">Córdobas de ouro da Nicarágua</displayName>
-				<symbol>C$</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Florim holandês</displayName>
 				<displayName count="one">Florim holandês</displayName>
 				<displayName count="other">Florins holandeses</displayName>
-				<symbol>fl</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Coroa norueguesa</displayName>
 				<displayName count="one">Coroa norueguesa</displayName>
 				<displayName count="other">Coroas norueguesas</displayName>
-				<symbol>Nkr</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>Rupia nepalesa</displayName>
 				<displayName count="one">Rúpia nepalesa</displayName>
 				<displayName count="other">Rúpias nepalesas</displayName>
-				<symbol>NPRs</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>Dólar da Nova Zelândia</displayName>
 				<displayName count="one">Dólar da Nova Zelândia</displayName>
 				<displayName count="other">Dólares da Nova Zelândia</displayName>
-				<symbol>NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>Rial de Omã</displayName>
@@ -4992,55 +3837,46 @@
 				<displayName>Balboa panamenho</displayName>
 				<displayName count="one">Balboa do Panamá</displayName>
 				<displayName count="other">Balboas do Panamá</displayName>
-				<symbol>B/.</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>Inti peruano</displayName>
 				<displayName count="one">Inti peruano</displayName>
 				<displayName count="other">Intis peruanos</displayName>
-				<symbol>I/.</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Sol Novo peruano</displayName>
 				<displayName count="one">Novo sol peruano</displayName>
 				<displayName count="other">Novos soles peruanos</displayName>
-				<symbol>S/.</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>Sol peruano</displayName>
 				<displayName count="one">Sol peruano</displayName>
 				<displayName count="other">Soles peruanos</displayName>
-				<symbol>PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>Kina da Papua-Nova Guiné</displayName>
 				<displayName count="one">Kina de Papua Nova Guiné</displayName>
 				<displayName count="other">Kinas de Papua Nova Guiné</displayName>
-				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Peso filipino</displayName>
 				<displayName count="one">Peso filipino</displayName>
 				<displayName count="other">Pesos filipinos</displayName>
-				<symbol>₱</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Rupia paquistanesa</displayName>
 				<displayName count="one">Rúpia paquistanesa</displayName>
 				<displayName count="other">Rúpias paquistanesas</displayName>
-				<symbol>PKRs</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Zloti polonês</displayName>
 				<displayName count="one">Zloti polonês</displayName>
 				<displayName count="other">Zlotis poloneses</displayName>
-				<symbol>zł</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>Zloti polonês (1950-1995)</displayName>
 				<displayName count="one">Zloti polonês (PLZ)</displayName>
 				<displayName count="other">Zlotis poloneses (PLZ)</displayName>
-				<symbol>PLZ</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>Escudo português</displayName>
@@ -5052,217 +3888,181 @@
 				<displayName>Guarani paraguaio</displayName>
 				<displayName count="one">Guarani paraguaio</displayName>
 				<displayName count="other">Guaranis paraguaios</displayName>
-				<symbol>₲</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Rial catariano</displayName>
 				<displayName count="one">Rial do Qatar</displayName>
 				<displayName count="other">Riales do Qatar</displayName>
-				<symbol>QR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>Dólar rodesiano</displayName>
 				<displayName count="one">Dólar da Rodésia</displayName>
 				<displayName count="other">Dólares da Rodésia</displayName>
-				<symbol>RH$</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>Leu romeno antigo</displayName>
 				<displayName count="one">Leu antigo da Romênia</displayName>
 				<displayName count="other" draft="contributed">Leus antigos da Romênia</displayName>
-				<symbol>ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>Leu romeno</displayName>
 				<displayName count="one">Leu da Romênia</displayName>
 				<displayName count="other">Lei da Romênia</displayName>
-				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Dinar sérvio</displayName>
 				<displayName count="one">Dinar sérvio</displayName>
 				<displayName count="other">Dinares sérvios</displayName>
-				<symbol>din.</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Rublo russo</displayName>
 				<displayName count="one">Rublo russo</displayName>
 				<displayName count="other">Rublos russos</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Rublo russo (1991-1998)</displayName>
 				<displayName count="one">Rublo russo (RUR)</displayName>
 				<displayName count="other">Rublos russos (RUR)</displayName>
-				<symbol>RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Franco ruandês</displayName>
 				<displayName count="one">Franco de Ruanda</displayName>
 				<displayName count="other">Francos de Ruanda</displayName>
-				<symbol>RF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Rial saudita</displayName>
 				<displayName count="one">Riyal saudita</displayName>
 				<displayName count="other">Riyales sauditas</displayName>
-				<symbol>SR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Dólar das Ilhas Salomão</displayName>
 				<displayName count="one">Dólar das Ilhas Salomão</displayName>
 				<displayName count="other">Dólares das Ilhas Salomão</displayName>
-				<symbol>SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Rupia das Seychelles</displayName>
 				<displayName count="one">Rúpia das Ilhas Seychelles</displayName>
 				<displayName count="other">Rúpias das Ilhas Seychelles</displayName>
-				<symbol>SRe</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>Dinar sudanês</displayName>
 				<displayName count="one">Dinar antigo do Sudão</displayName>
 				<displayName count="other">Dinares antigos do Sudão</displayName>
-				<symbol>LSd</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>Libra sudanesa</displayName>
 				<displayName count="one">Libra sudanesa</displayName>
 				<displayName count="other">Libras sudanesas</displayName>
-				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Libra sudanesa antiga</displayName>
 				<displayName count="one">Libra antiga sudanesa</displayName>
 				<displayName count="other">Libras antigas sudanesas</displayName>
-				<symbol>SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>Coroa sueca</displayName>
 				<displayName count="one">Coroa sueca</displayName>
 				<displayName count="other">Coroas suecas</displayName>
-				<symbol>Skr</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Dólar de Cingapura</displayName>
 				<displayName count="one">Dólar de Singapura</displayName>
 				<displayName count="other">Dólares de Singapura</displayName>
-				<symbol>S$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Libra de Santa Helena</displayName>
 				<displayName count="one">Libra de Santa Helena</displayName>
 				<displayName count="other">Libras de Santa Helena</displayName>
-				<symbol>SH£</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Tolar Bons esloveno</displayName>
 				<displayName count="one">Tolar da Eslovênia</displayName>
 				<displayName count="other">Tolares da Eslovênia</displayName>
-				<symbol>SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>Coroa eslovaca</displayName>
 				<displayName count="one">Coroa eslovaca</displayName>
 				<displayName count="other">Coroas eslovacas</displayName>
-				<symbol>Sk</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Leone de Serra Leoa</displayName>
 				<displayName count="one">Leone de Serra Leoa</displayName>
 				<displayName count="other">Leones de Serra Leoa</displayName>
-				<symbol>Le</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Xelim somali</displayName>
 				<displayName count="one">Shilling da Somália</displayName>
 				<displayName count="other">Shillings da Somália</displayName>
-				<symbol>Ssh</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>Dólar do Suriname</displayName>
 				<displayName count="one">Dólar do Suriname</displayName>
 				<displayName count="other">Dólares do Suriname</displayName>
-				<symbol>SR$</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>Florim do Suriname</displayName>
 				<displayName count="one">Florim do Suriname</displayName>
 				<displayName count="other">Florins do Suriname</displayName>
-				<symbol>Sf</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Dobra de São Tomé e Príncipe</displayName>
 				<displayName count="one">Dobra de São Tomé e Príncipe</displayName>
 				<displayName count="other">Dobras de São Tomé e Príncipe</displayName>
-				<symbol>Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Rublo soviético</displayName>
 				<displayName count="one">Rublo soviético</displayName>
 				<displayName count="other">Rublos soviéticos</displayName>
-				<symbol>SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName>Colom salvadorenho</displayName>
 				<displayName count="one">Colon de El Salvador</displayName>
 				<displayName count="other">Colons de El Salvador</displayName>
-				<symbol>SV₡</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Libra síria</displayName>
 				<displayName count="one">Libra síria</displayName>
 				<displayName count="other">Libras sírias</displayName>
-				<symbol>SY£</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>Lilangeni da Suazilândia</displayName>
 				<displayName count="one">Lilangeni da Suazilândia</displayName>
 				<displayName count="other">Lilangenis da Suazilândia</displayName>
-				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>Baht tailandês</displayName>
 				<displayName count="one">Baht da Tailândia</displayName>
 				<displayName count="other">Bahts da Tailândia</displayName>
-				<symbol>฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Rublo do Tadjiquistão</displayName>
 				<displayName count="one">Rublo do Tajaquistão</displayName>
 				<displayName count="other">Rublos do Tajaquistão</displayName>
-				<symbol>TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>Somoni tadjique</displayName>
 				<displayName count="one">Somoni do Tajaquistão</displayName>
 				<displayName count="other">Somonis do Tajaquistão</displayName>
-				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>Manat do Turcomenistão</displayName>
 				<displayName count="one">Manat do Turcomenistão</displayName>
 				<displayName count="other">Manats do Turcomenistão</displayName>
-				<symbol>TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Dinar tunisiano</displayName>
 				<displayName count="one">Dinar da Tunísia</displayName>
 				<displayName count="other">Dinares da Tunísia</displayName>
-				<symbol>DT</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Paʻanga de Tonga</displayName>
 				<displayName count="one">Paʻanga de Tonga</displayName>
 				<displayName count="other">Paʻangas de Tonga</displayName>
-				<symbol>T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>Escudo timorense</displayName>
 				<displayName count="one">Escudo do Timor</displayName>
 				<displayName count="other">Escudos do Timor</displayName>
-				<symbol>TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>Lira turca antiga</displayName>
@@ -5280,43 +4080,36 @@
 				<displayName>Dólar de Trinidad e Tobago</displayName>
 				<displayName count="one">Dólar de Trinidad e Tobago</displayName>
 				<displayName count="other">Dólares de Trinidad e Tobago</displayName>
-				<symbol>TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Dólar Novo de Taiwan</displayName>
 				<displayName count="one">Dólar de Taiwan</displayName>
 				<displayName count="other">Dólares de Taiwan</displayName>
-				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Xelim da Tanzânia</displayName>
 				<displayName count="one">Shilling da Tanzânia</displayName>
 				<displayName count="other">Shillings da Tanzânia</displayName>
-				<symbol>TSh</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>Hryvnia ucraniano</displayName>
 				<displayName count="one">Hryvnia da Ucrânia</displayName>
 				<displayName count="other">Hryvnias da Ucrânia</displayName>
-				<symbol>₴</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>Karbovanetz ucraniano</displayName>
 				<displayName count="one">Karbovanetz da Ucrânia</displayName>
 				<displayName count="other">Karbovanetzs da Ucrânia</displayName>
-				<symbol>UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>Xelim ugandense (1966-1987)</displayName>
 				<displayName count="one">Shilling de Uganda (UGS)</displayName>
 				<displayName count="other">Shillings de Uganda (UGS)</displayName>
-				<symbol>UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>Xelim ugandense</displayName>
 				<displayName count="one">Shilling de Uganda</displayName>
 				<displayName count="other">Shillings de Uganda</displayName>
-				<symbol>USh</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>Dólar norte-americano</displayName>
@@ -5328,49 +4121,41 @@
 				<displayName>Dólar norte-americano (Dia seguinte)</displayName>
 				<displayName count="one">Dólar americano (dia seguinte)</displayName>
 				<displayName count="other">Dólares americanos (dia seguinte)</displayName>
-				<symbol>USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>Dólar norte-americano (Mesmo dia)</displayName>
 				<displayName count="one">Dólar americano (mesmo dia)</displayName>
 				<displayName count="other">Dólares americanos (mesmo dia)</displayName>
-				<symbol>USS</symbol>
 			</currency>
 			<currency type="UYI">
 				<displayName>Peso uruguaio en unidades indexadas</displayName>
 				<displayName count="one">Peso uruguaio em unidades indexadas</displayName>
 				<displayName count="other">Pesos uruguaios em unidades indexadas</displayName>
-				<symbol>UYI</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>Peso uruguaio (1975-1993)</displayName>
 				<displayName count="one">Peso uruguaio (UYP)</displayName>
 				<displayName count="other">Pesos uruguaios (UYP)</displayName>
-				<symbol>UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>Peso uruguaio</displayName>
 				<displayName count="one">Peso uruguaio</displayName>
 				<displayName count="other">Pesos uruguaios</displayName>
-				<symbol>$U</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>Sum do Usbequistão</displayName>
 				<displayName count="one">Som do Uzbequistão</displayName>
 				<displayName count="other">Somes do Uzbequistão</displayName>
-				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Bolívar venezuelano</displayName>
 				<displayName count="one">Bolívar venezuelano</displayName>
 				<displayName count="other">Bolívares venezuelanos</displayName>
-				<symbol>Bs.</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>Bolívar v enezuelano forte</displayName>
 				<displayName count="one">Bolívar forte da Venezuela</displayName>
 				<displayName count="other">Bolívares fortes da Venezuela</displayName>
-				<symbol>Bs.F.</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Dong vietnamita</displayName>
@@ -5382,31 +4167,26 @@
 				<displayName>Vatu de Vanuatu</displayName>
 				<displayName count="one">Vatu de Vanuatu</displayName>
 				<displayName count="other">Vatus de Vanuatu</displayName>
-				<symbol>VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>Tala samoano</displayName>
 				<displayName count="one">Tala samoano</displayName>
 				<displayName count="other">Talas samoanos</displayName>
-				<symbol>WS$</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>Franco CFA BEAC</displayName>
 				<displayName count="one">Franco CFA de BEAC</displayName>
 				<displayName count="other">Francos CFA de BEAC</displayName>
-				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName>Prata</displayName>
 				<displayName count="one">Prata</displayName>
 				<displayName count="other">Pratas</displayName>
-				<symbol>XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>Ouro</displayName>
 				<displayName count="one">Ouro</displayName>
 				<displayName count="other">Ouros</displayName>
-				<symbol>XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>Unidade Composta Europeia</displayName>
@@ -5414,7 +4194,6 @@
 				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">Unidade de composição européia</displayName>
 				<displayName count="other">Unidades de composição europeias</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Unidades de composição européias</displayName>
-				<symbol>XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>Unidade Monetária Europeia</displayName>
@@ -5422,7 +4201,6 @@
 				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">Unidade monetária européia</displayName>
 				<displayName count="other">Unidades monetárias europeias</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Unidades monetárias européias</displayName>
-				<symbol>XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>Unidade de Conta Europeia (XBC)</displayName>
@@ -5430,7 +4208,6 @@
 				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">Unidade européia de conta (XBC)</displayName>
 				<displayName count="other">Unidades europeias de conta (XBC)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Unidades européias de conta (XBC)</displayName>
-				<symbol>XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>Unidade de Conta Europeia (XBD)</displayName>
@@ -5438,19 +4215,16 @@
 				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">Unidade européia de conta (XBD)</displayName>
 				<displayName count="other">Unidades europeias de conta (XBD)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Unidades européias de conta (XBD)</displayName>
-				<symbol>XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>Dólar do Caribe Oriental</displayName>
 				<displayName count="one">Dólar do Caribe Oriental</displayName>
 				<displayName count="other">Dólares do Caribe Oriental</displayName>
-				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>Direitos Especiais de Giro</displayName>
 				<displayName count="one">direitos de desenho especiais</displayName>
 				<displayName count="other">direitos de desenho especiais</displayName>
-				<symbol>XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>Unidade de Moeda Europeia</displayName>
@@ -5458,127 +4232,106 @@
 				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">Unidade de moeda européia</displayName>
 				<displayName count="other">Unidades de moedas europeias</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Unidades de moedas européias</displayName>
-				<symbol>XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>Franco-ouro francês</displayName>
 				<displayName count="one">Franco de ouro francês</displayName>
 				<displayName count="other">Francos de ouro franceses</displayName>
-				<symbol>XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>Franco UIC francês</displayName>
 				<displayName count="one">Franco UIC francês</displayName>
 				<displayName count="other">Francos UIC franceses</displayName>
-				<symbol>XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>Franco CFA BCEAO</displayName>
 				<displayName count="one">Franco CFA de BCEAO</displayName>
 				<displayName count="other">Francos CFA de BCEAO</displayName>
-				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>Paládio</displayName>
 				<displayName count="one">Paládio</displayName>
 				<displayName count="other">Paládios</displayName>
-				<symbol>XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>Franco CFP</displayName>
 				<displayName count="one">Franco CFP</displayName>
 				<displayName count="other">Francos CFP</displayName>
-				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>Platina</displayName>
 				<displayName count="one">Platina</displayName>
 				<displayName count="other">Platinas</displayName>
-				<symbol>XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName>Fundos RINET</displayName>
 				<displayName count="one">Fundos RINET</displayName>
 				<displayName count="other">Fundos RINET</displayName>
-				<symbol>XRE</symbol>
 			</currency>
 			<currency type="XTS">
 				<displayName>Código de Moeda de Teste</displayName>
 				<displayName count="one">Código de moeda de teste</displayName>
 				<displayName count="other">Códigos de moeda de teste</displayName>
-				<symbol>XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>Moeda Desconhecida ou Inválida</displayName>
 				<displayName count="one">moeda desconhecida ou inválida</displayName>
 				<displayName count="other">Moedas inválidas ou desconhecidas</displayName>
-				<symbol>XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>Dinar iemenita</displayName>
 				<displayName count="one">Dinar do Iêmen</displayName>
 				<displayName count="other">Dinares do Iêmen</displayName>
-				<symbol>YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>Rial iemenita</displayName>
 				<displayName count="one">Rial do Iêmen</displayName>
 				<displayName count="other">Riales do Iêmen</displayName>
-				<symbol>YR</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>Dinar forte iugoslavo</displayName>
 				<displayName count="one">Dinar forte iugoslavo</displayName>
 				<displayName count="other">Dinares fortes iugoslavos</displayName>
-				<symbol>YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>Dinar noviy iugoslavo</displayName>
 				<displayName count="one">Dinar noviy da Iugoslávia</displayName>
 				<displayName count="other">Dinares noviy da Iugoslávia</displayName>
-				<symbol>YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>Dinar conversível iugoslavo</displayName>
 				<displayName count="one">Dinar conversível da Iugoslávia</displayName>
 				<displayName count="other">Dinares conversíveis da Iugoslávia</displayName>
-				<symbol>YUN</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>Rand sul-africano (financeiro)</displayName>
 				<displayName count="one">Rand da África do Sul (financeiro)</displayName>
 				<displayName count="other">Rands da África do Sul (financeiro)</displayName>
-				<symbol>ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Rand sul-africano</displayName>
 				<displayName count="one">Rand da África do Sul</displayName>
 				<displayName count="other">Rands da África do Sul</displayName>
-				<symbol>R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Cuacha zambiano</displayName>
 				<displayName count="one">Kwacha da Zâmbia</displayName>
 				<displayName count="other">Kwachas da Zâmbia</displayName>
-				<symbol>ZK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Zaire Novo zairense</displayName>
 				<displayName count="one">Novo zaire do Zaire</displayName>
 				<displayName count="other">Novos zaires do Zaire</displayName>
-				<symbol>NZ</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>Zaire zairense</displayName>
 				<displayName count="one">Zaire do Zaire</displayName>
 				<displayName count="other">Zaires do Zaire</displayName>
-				<symbol>ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>Dólar do Zimbábue</displayName>
 				<displayName count="one">Dólar do Zimbábue</displayName>
 				<displayName count="other">Dólares do Zimbábue</displayName>
-				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>

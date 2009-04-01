@@ -1405,7 +1405,6 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -1547,9 +1546,6 @@
 			</zone>
 			<zone type="Europe/Luxembourg">
 				<exemplarCity>Luxemburg</exemplarCity>
-			</zone>
-			<zone type="Africa/Tripoli">
-				<exemplarCity>Tripoli</exemplarCity>
 			</zone>
 			<zone type="Europe/Chisinau">
 				<exemplarCity>Kischinau</exemplarCity>
@@ -1838,7 +1834,6 @@
 			<currency type="AFN">
 				<displayName>Afghani</displayName>
 				<displayName count="other">Afghani</displayName>
-				<symbol>Af</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Lek</displayName>
@@ -1916,7 +1911,6 @@
 			<currency type="BDT">
 				<displayName>Taka</displayName>
 				<displayName count="other">Taka</displayName>
-				<symbol>Tk</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>Belgische Franc (konvertibel)</displayName>
@@ -1925,7 +1919,6 @@
 			<currency type="BEF">
 				<displayName>Belgische Franc</displayName>
 				<displayName count="other">Belgischi Franc</displayName>
-				<symbol>BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>Belgische Finanz-Franc</displayName>
@@ -1961,7 +1954,6 @@
 			<currency type="BOB">
 				<displayName>Boliviano</displayName>
 				<displayName count="other">Boliviano</displayName>
-				<symbol>Bs</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>Bolivianische Peso</displayName>
@@ -2036,7 +2028,6 @@
 			<currency type="CHF">
 				<displayName>Schwiizer Franke</displayName>
 				<displayName count="other">Schwiizer Franke</displayName>
-				<symbol>Fr.</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR-Franke</displayName>
@@ -2096,7 +2087,6 @@
 			<currency type="DEM">
 				<displayName>Tüütschi Mark</displayName>
 				<displayName count="other">Tüütschi Mark</displayName>
-				<symbol>DM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Dschibuti-Franc</displayName>
@@ -2176,7 +2166,6 @@
 			<currency type="GBP">
 				<displayName>Pfund Schtörling</displayName>
 				<displayName count="other">Pfund Schtörling</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Georgische Kupon Larit</displayName>
@@ -2261,12 +2250,10 @@
 			<currency type="IDR">
 				<displayName>Rupie</displayName>
 				<displayName count="other">Rupie</displayName>
-				<symbol>Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Iirischs Pfund</displayName>
 				<displayName count="other">Iirischi Pfund</displayName>
-				<symbol>IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>Israelischs Pfund</displayName>
@@ -2477,7 +2464,6 @@
 			<currency type="MYR">
 				<displayName>Malaysische Ringgit</displayName>
 				<displayName count="other">Malaysischi Ringgit</displayName>
-				<symbol>RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Mosambikanische Escudo</displayName>
@@ -2486,12 +2472,10 @@
 			<currency type="MZM">
 				<displayName>Alte Metical</displayName>
 				<displayName count="other">Alti Metical</displayName>
-				<symbol>Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>Metical</displayName>
 				<displayName count="other">Metical</displayName>
-				<symbol>MTn</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Namibia-Dollar</displayName>
@@ -2900,7 +2884,6 @@
 			<currency type="ZAR">
 				<displayName>Rand</displayName>
 				<displayName count="other">Rand</displayName>
-				<symbol>R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Kwacha</displayName>
@@ -2917,7 +2900,6 @@
 			<currency type="ZWD">
 				<displayName>Simbabwe-Dollar</displayName>
 				<displayName count="other">Simbabwe-Dollar</displayName>
-				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>
@@ -2958,3 +2940,4 @@
 		</messages>
 	</posix>
 </ldml>
+

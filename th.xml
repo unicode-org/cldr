@@ -985,20 +985,6 @@
 			<codePattern type="territory">{0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList>mixed</inList>
-		<inText type="currency">mixed</inText>
-		<inText type="fields">mixed</inText>
-		<inText type="keys">mixed</inText>
-		<inText type="languages">mixed</inText>
-		<inText type="long">mixed</inText>
-		<inText type="measurementSystemNames">mixed</inText>
-		<inText type="quarterWidth">mixed</inText>
-		<inText type="scripts">mixed</inText>
-		<inText type="territories">mixed</inText>
-		<inText type="types">mixed</inText>
-		<inText type="variants">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[ฯ ๆ \u0E4E \u0E47-\u0E4D ก-ฮ ะ-\u0E3A เ-ๅ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200B a e g m n p q t]</exemplarCharacters>
@@ -1105,12 +1091,9 @@
 						<dateFormatItem id="EEEd">EEEท d</dateFormatItem>
 						<dateFormatItem id="EEEd" alt="proposed-x1001" draft="unconfirmed">EEEที่ 14</dateFormatItem>
 						<dateFormatItem id="EEEd" alt="proposed-x1002" draft="unconfirmed">EEE d</dateFormatItem>
-						<dateFormatItem id="Hm">H:mm</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="MEd">Eท d/M</dateFormatItem>
 						<dateFormatItem id="MEd" alt="proposed-x1001" draft="unconfirmed">E d/M</dateFormatItem>
 						<dateFormatItem id="MEd" alt="proposed-x1002" draft="unconfirmed">E ที่ 14/9</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMEEEd">EEEท d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEEEd" alt="proposed-x1001" draft="unconfirmed">EEE d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEEEd" alt="proposed-x1002" draft="unconfirmed">EEE ที่ d MMM</dateFormatItem>
@@ -1121,17 +1104,11 @@
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE d/M/y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM yyyy</dateFormatItem>
 						<dateFormatItem id="yMMM" alt="proposed-x1001" draft="unconfirmed">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
-						<dateFormatItem id="yQ">y Q</dateFormatItem>
-						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM">M/yyyy</dateFormatItem>
 						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">M/yy</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM y</dateFormatItem>
@@ -1318,7 +1295,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<default choice="medium"/>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -1504,21 +1480,6 @@
 							<month type="12">อัฟ</month>
 							<month type="13">เอลอุล</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-							<month type="13">13</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="2">เฮวาน</month>
 							<month type="9">อิยาร์</month>
@@ -1537,21 +1498,6 @@
 							<month type="6">อาดาร์  I</month>
 							<month type="7">อาดาร์</month>
 							<month type="8">นิสซาน</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-							<month type="13">13</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="9">อิยาร์</month>
@@ -1624,20 +1570,6 @@
 							<month type="11">ดฮุุอัลกิดะห์</month>
 							<month type="12">ดฮุอัลฮิจจะห์</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">มุฮะร์รอม</month>
 							<month type="2">ซอฟาร์</month>
@@ -1657,20 +1589,6 @@
 						<monthWidth type="abbreviated">
 							<month type="5">จุมาดา I</month>
 							<month type="6">จุมาดา II</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="2">ซอฟาร์</month>
@@ -1720,7 +1638,6 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
 						<dateFormatItem id="HHmm">H:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="MEd">E d/M</dateFormatItem>
@@ -2258,14 +2175,11 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="Ed">E d</dateFormatItem>
-						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyyy">GGG yy</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/GGGGG yy</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM GGGGG yy</dateFormatItem>
@@ -2281,7 +2195,6 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<!-- <zone type="America/Indiana/Indianapolis">
@@ -3873,7 +3786,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>decimal</defaultNumberingSystem>
 		<symbols>
 			<decimal>.</decimal>
 			<group>,</group>
@@ -3920,403 +3832,297 @@
 		<currencies>
 			<currency type="ADP">
 				<displayName>เปเซตาอันดอร์รา</displayName>
-				<symbol>ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>เดอร์แฮมสหรัฐอาหรับเอมิเรตส์</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>อัฟกานีอัฟกานิสถาน (1927-2002)</displayName>
-				<symbol>AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>อัฟกานีอัฟกานิสถาน</displayName>
-				<symbol>Af</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>เลกแอลเบเนีย</displayName>
-				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>แดรมอาร์เมเนีย</displayName>
-				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>กิลเดอร์เนเธอร์แลนด์แอนทิลลิส</displayName>
-				<symbol>NAf.</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>กวานซาแองโกลา</displayName>
-				<symbol>Kz</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>กวานซาแองโกลา (1977-1990)</displayName>
-				<symbol>AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>นิวกวานซาแองโกลา (1990-2000)</displayName>
-				<symbol>AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>กวานซารีจัสทาโดแองโกลา (1995-1999)</displayName>
-				<symbol>AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName>ออสตรัลอาร์เจนตินา</displayName>
-				<symbol>₳</symbol>
-			</currency>
-			<currency type="ARL">
-				<symbol>$L</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>เปโซอาร์เจนตินา (1983-1985)</displayName>
-				<symbol>ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>เปโซอาร์เจนตินา</displayName>
-				<symbol>AR$</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>ชิลลิงออสเตรีย</displayName>
-				<symbol>ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>ดอลลาร์ออสเตรเลีย</displayName>
-				<symbol>AU$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>ฟลอรินอารูบา</displayName>
 			</currency>
 			<currency type="AZM">
 				<displayName>มานัตอาเซอร์ไบจาน (1993-2006)</displayName>
-				<symbol>AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>มานัตอาเซอร์ไบจาน</displayName>
-				<symbol>man.</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>ดีนาร์บอสเนีย-เฮอร์เซโกวีนา</displayName>
-				<symbol>BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>มาร​์กบอสเนีย-เฮอร์เซโกวีนา</displayName>
-				<symbol>KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>ดอลลาร์บาร์เบโดส</displayName>
-				<symbol>Bds$</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>ตากาบังกลาเทศ</displayName>
-				<symbol>Tk</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>ฟรังก์เบลเยียม (เปลี่ยนแปลงได้)</displayName>
-				<symbol>BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>ฟรังก์เบลเยียม</displayName>
-				<symbol>BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>ฟรังก์เบลเยียม (การเงิน)</displayName>
-				<symbol>BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>ฮาร์ดเลฟบัลแกเรีย</displayName>
-				<symbol>BGL</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>เลฟบัลแกเรีย</displayName>
-				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>ดีนาร์บาห์เรน</displayName>
-				<symbol>BD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>ฟรังก์บุรุนดี</displayName>
-				<symbol>FBu</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>ดอลลาร์เบอร์มิวดา</displayName>
-				<symbol>BD$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>ดอลลาร์บรูไน</displayName>
-				<symbol>BN$</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>โบลิเวียโนโบลิเวีย</displayName>
-				<symbol>Bs</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>เปโซโบลิเวีย</displayName>
-				<symbol>$b.</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>มฟดอลโบลิเวีย</displayName>
-				<symbol>BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>ครูเซโรโนโวบราซิล (1967-1986)</displayName>
-				<symbol>NCr</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName>ครูซาโดบราซิล</displayName>
-				<symbol>Cz$</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName>ครูเซโรบราซิล (1990-1993)</displayName>
-				<symbol>Cr$</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>เรียลบราซิล</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>ครูซาโดโนโวบราซิล</displayName>
-				<symbol>NCz$</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>ครูเซโรบราซิล</displayName>
-				<symbol>CR$</symbol>
-			</currency>
-			<currency type="BRZ">
-				<symbol>₢</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>ดอลลาร์บาฮามาส</displayName>
-				<symbol>BS$</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>เอ็งกุลตรัมภูฏาน</displayName>
-				<symbol>Nu.</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>จ๊าดพม่า</displayName>
-				<symbol>BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>ปูลาบอตสวานา</displayName>
-				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>นิวรูเบิลเบลารุส (1994-1999)</displayName>
-				<symbol>BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>รูเบิลเบลารุส</displayName>
-				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>ดอลลาร์เบลีซ</displayName>
-				<symbol>BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>ดอลลาร์แคนาดา</displayName>
-				<symbol>CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>ฟรังก์คองโก</displayName>
-				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>ยูโรดับเบิลยูไออาร์</displayName>
-				<symbol>CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>ฟรังก์สวิส</displayName>
-				<symbol>Fr.</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>ฟรังก์ดับเบิลยูไออาร์</displayName>
-				<symbol>CHW</symbol>
-			</currency>
-			<currency type="CLE">
-				<symbol>Eº</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>ฟูเมนโตชิลี</displayName>
-				<symbol>CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>เปโซชิลี</displayName>
-				<symbol>CL$</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>หยวนเหรินหมินปี้ (สาธารณรัฐประชาชนจีน)</displayName>
-				<symbol>CN¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>เปโซโคลอมเบีย</displayName>
-				<symbol>CO$</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>วาเลอร์เรียลโคลอมเบีย</displayName>
-				<symbol>COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>โกลองคอสตาริกา</displayName>
-				<symbol>₡</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>ดีนาร์เซอร์เบียเก่า</displayName>
-				<symbol>CSD</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>ฮาร์ดโครูนาเช็กโกสโลวัก</displayName>
-				<symbol>CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>เปโซคิวบา</displayName>
-				<symbol>CU$</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>เอสคูโดเคปเวิร์ด</displayName>
-				<symbol>CV$</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>ปอนด์ไซปรัส</displayName>
-				<symbol>CY£</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>โครูนาสาธารณรัฐเช็ก</displayName>
-				<symbol>Kč</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>มาร์กเยอรมันตะวันออก</displayName>
-				<symbol>DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>มาร์กเยอรมัน</displayName>
-				<symbol>DM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>ฟรังก์จิบูตี</displayName>
-				<symbol>Fdj</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>โครนเดนมาร์ก</displayName>
-				<symbol>Dkr</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>เปโซโดมินิกัน</displayName>
-				<symbol>RD$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>ดีนาร์แอลจีเรีย</displayName>
-				<symbol>DA</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>ซูเกรเอกวาดอร์</displayName>
-				<symbol>ECS</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>วาเลอร์คอนสแตนต์เอกวาดอร์</displayName>
-				<symbol>ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>ครูนเอสโตเนีย</displayName>
-				<symbol>Ekr</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>ปอนด์อียิปต์</displayName>
-				<symbol>EG£</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>แนกฟาเอริเทรีย</displayName>
-				<symbol>Nfk</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>เปเซตาสเปน (บัญชีเอ)</displayName>
-				<symbol>ESA</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName>เปเซตาสเปน (บัญชีที่เปลี่ยนแปลงได้)</displayName>
-				<symbol>ESB</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>เปเซตาสเปน</displayName>
-				<symbol>Pts</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>เบอรร์เอธิโอเปีย</displayName>
-				<symbol>Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>ยูโร</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>มาร์กกาฟินแลนด์</displayName>
-				<symbol>mk</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>ดอลลาร์ฟิจิ</displayName>
-				<symbol>FJ$</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>ปอนด์หมู่เกาะฟอล์กแลนด์</displayName>
-				<symbol>FK£</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>ฟรังก์ฝรั่งเศส</displayName>
-				<symbol>₣</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>ปอนด์สเตอร์ลิง (สหราชอาณาจักร)</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>คูปอนลาริตจอร์เจีย</displayName>
-				<symbol>GEK</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>ลารีจอร์เจีย</displayName>
-				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>เซดีกานา (1979-2007)</displayName>
-				<symbol>₵</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>เซดีกานา</displayName>
-				<symbol>GH₵</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>ปอนด์ยิบรอลตาร์</displayName>
-				<symbol>GI£</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>ดาลาซีแกมเบีย</displayName>
-				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>ฟรังก์กินี</displayName>
-				<symbol>FG</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>ไซลีกินี</displayName>
-				<symbol>GNS</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName>เอ็กเวเลอิเควทอเรียลกินี</displayName>
-				<symbol>GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>ดรัชมากรีก</displayName>
-				<symbol>₯</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>เควตซัลกัวเตมาลา</displayName>
-				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>เอสคูโดกินีโปรตุเกส</displayName>
-				<symbol>GWE</symbol>
 			</currency>
 			<!-- <currency type="GWE">
 				 <displayName>เอสคูโดโปรตุเกส</displayName>
@@ -4324,80 +4130,61 @@
 			-->
 			<currency type="GWP">
 				<displayName>เปโซกินี-บิสเซา</displayName>
-				<symbol>GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>ดอลลาร์กายอานา</displayName>
-				<symbol>GY$</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>ดอลลาร์ฮ่องกง</displayName>
-				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>เลมปิราฮอดูรัส</displayName>
-				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>ดีนาร์โครเอเชีย</displayName>
-				<symbol>HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>คูนาโครเอเชีย</displayName>
-				<symbol>kn</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>กูร์ดเฮติ</displayName>
-				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>ฟอรินต์ฮังการี</displayName>
-				<symbol>Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>รูเปียห์อินโดนีเซีย</displayName>
-				<symbol>Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>ปอนด์ไอริช</displayName>
-				<symbol>IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>ปอนด์อิสราเอล</displayName>
-				<symbol>I£</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>นิวเชเกลอิสราเอล</displayName>
-				<symbol>₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>รูปีอินเดีย</displayName>
-				<symbol>₨</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Rs</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>ดีนาร์อิรัก</displayName>
-				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>เรียลอิหร่าน</displayName>
-				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>โครนาไอซ์แลนด์</displayName>
-				<symbol>Ikr</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>ลีราอิตาลี</displayName>
-				<symbol>IT₤</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>ดอลลาร์จาเมกา</displayName>
-				<symbol>J$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>ดีนาร์จอร์แดน</displayName>
-				<symbol>JD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>เยนญี่ปุ่น</displayName>
@@ -4406,607 +4193,459 @@
 			</currency>
 			<currency type="KES">
 				<displayName>ชิลลิ่งเคนยา</displayName>
-				<symbol>Ksh</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>ซอมคีร์กีซสถาน</displayName>
-				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>เรียลกัมพูชา</displayName>
-				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>ฟรังก์คอโมโรส</displayName>
-				<symbol>CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>วอนเกาหลีเหนือ</displayName>
-				<symbol>KP₩</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>วอนเกาหลีใต้</displayName>
-				<symbol>₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>ดีนาร์คูเวต</displayName>
-				<symbol>KD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>ดอลลาร์หมู่เกาะเคย์แมน</displayName>
-				<symbol>KY$</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>เทงเจคาซัคสถาน</displayName>
-				<symbol>KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>กีบลาว</displayName>
-				<symbol>₭</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>ปอนด์เลบานอน</displayName>
-				<symbol>LB£</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>รูปีศรีลังกา</displayName>
-				<symbol>SLRs</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>ดอลลาร์ไลบีเรีย</displayName>
-				<symbol>L$</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>โลตีเลโซโท</displayName>
-				<symbol>LSL</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>ลีตัสลิทัวเนีย</displayName>
-				<symbol>Lt</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>ทาโลนัสลิทัวเนีย</displayName>
-				<symbol>LTT</symbol>
 			</currency>
 			<currency type="LUC">
 				<displayName>คอนเวอร์ทิเบิลฟรังก์ลักเซมเบิร์ก</displayName>
-				<symbol>LUC</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>ฟรังก์ลักเซมเบิร์ก</displayName>
-				<symbol>LUF</symbol>
 			</currency>
 			<currency type="LUL">
 				<displayName>ไฟแนลเชียลฟรังก์ลักเซมเบิร์ก</displayName>
-				<symbol>LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>ลัตส์ลัตเวีย</displayName>
-				<symbol>Ls</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>รูเบิลลัตเวีย</displayName>
-				<symbol>LVR</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>ดีนาร์ลิเบีย</displayName>
-				<symbol>LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>ดีแรห์มโมร็อกโก</displayName>
-				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>ฟรังก์โมร็อกโก</displayName>
-				<symbol>MAF</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>ลิวมอลโดวา</displayName>
-				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>อาเรียรีมาดากัสการ์</displayName>
-				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>ฟรังก์มาดากัสการ์</displayName>
-				<symbol>MGF</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>ดีนาร์มาซิโดเนีย</displayName>
-				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>ฟรังก์มาลี</displayName>
-				<symbol>MLF</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>จัคพม่า</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">จ๊าดพม่า</displayName>
-				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>ทูกริกมองโกเลีย</displayName>
-				<symbol>₮</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>ปาตากามาเก๊า</displayName>
-				<symbol>MOP$</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>ออกิวยามอริเตเนีย</displayName>
-				<symbol>UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>ลีรามอลตา</displayName>
-				<symbol>Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>ปอนด์มอลตา</displayName>
-				<symbol>MT£</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>รูปีมอริเชียส</displayName>
-				<symbol>MURs</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>รูฟิยามัลดีฟส์</displayName>
-				<symbol>Rf</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>ควาชามาลาวี</displayName>
-				<symbol>MK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>เปโซเม็กซิโก</displayName>
-				<symbol>MXN</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>เงินเปโซเม็กซิโก (1861-1992)</displayName>
-				<symbol>MX$</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName>ยูนิแดด ดี อินเวอร์ชั่น เม็กซิโก</displayName>
-				<symbol>MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>ริงกิตมาเลเซีย</displayName>
-				<symbol>RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>เอสคูโดโมซัมบิก</displayName>
-				<symbol>MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>เมติคัลโมซัมบิกเก่า</displayName>
-				<symbol>Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>เมติคัลโมซัมบิก</displayName>
-				<symbol>MTn</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>ดอลลาร์นามิเบีย</displayName>
-				<symbol>N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>ไนราไนจีเรีย</displayName>
-				<symbol>₦</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>คอร์โดบานิการากัว</displayName>
-				<symbol>NIC</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>คอร์โดบาโอโรนิการากัว</displayName>
 			</currency>
 			<currency type="NLG">
 				<displayName>กิลเดอร์เนเธอร์แลนด์</displayName>
-				<symbol>fl</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>โครนนอร์เวย์</displayName>
-				<symbol>Nkr</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>รูปีเนปาล</displayName>
-				<symbol>NPRs</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>ดอลลาร์นิวซีแลนด์</displayName>
-				<symbol>NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>เรียลโอมาน</displayName>
-				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>บัลบัวปานามา</displayName>
-				<symbol>B/.</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>อินตีเปรู</displayName>
-				<symbol>I/.</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>นูโวซอลเปรู</displayName>
-				<symbol>S/.</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>ซอลเปรู</displayName>
-				<symbol>PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>กีนาปาปัวนิวกีนี</displayName>
-				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>เปโซฟิลิปปินส์</displayName>
-				<symbol>₱</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>รูปีปากีสถาน</displayName>
-				<symbol>PKRs</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>ซลอตีโปแลนด์</displayName>
 			</currency>
 			<currency type="PLZ">
 				<displayName>ซลอตีโปแลนด์ (1950-1995)</displayName>
-				<symbol>PLZ</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>เอสคูโดโปรตุเกส</displayName>
-				<symbol>Esc</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>กวารานีปารากวัย</displayName>
-				<symbol>₲</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>เรียลกาตาร์</displayName>
-				<symbol>QR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>ดอลลาร์โรดีเซีย</displayName>
-				<symbol>RH$</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>ลิวโรมาเนียเก่า</displayName>
-				<symbol>ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>ลิวโรมาเนีย</displayName>
-				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>ดีนาร์เซอร์เบีย</displayName>
-				<symbol>din.</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>รูเบิลรัสเซีย</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>รูเบิลรัสเซีย (1991-1998)</displayName>
-				<symbol>RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>ฟรังก์รวันดา</displayName>
-				<symbol>RF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>ริยัลซาอุดีอาระเบีย</displayName>
-				<symbol>SR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>ดอลลาร์หมู่เกาะโซโลมอน</displayName>
-				<symbol>SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>รูปีเซเชลส์</displayName>
-				<symbol>SRe</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>ดีนาร์ซูดานเก่า</displayName>
-				<symbol>LSd</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>ปอนด์ซูดาน</displayName>
-				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>ปอนด์ซูดานเก่า</displayName>
-				<symbol>SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>โครนาสวีเดน</displayName>
-				<symbol>Skr</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>ดอลลาร์สิงคโปร์</displayName>
-				<symbol>S$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>ปอนด์เซนต์เฮเลนา</displayName>
-				<symbol>SH£</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>ทอลาร์สโลวีเนีย</displayName>
-				<symbol>SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>โครูนาสโลวัก</displayName>
-				<symbol>Sk</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>ลีโอนเซียร์ราลีโอน</displayName>
-				<symbol>Le</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>ชิลลิงโซมาเลีย</displayName>
-				<symbol>Ssh</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>ดอลลาร์ซูรินาเม</displayName>
-				<symbol>SR$</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>กิลเดอร์ซูรินาเม</displayName>
-				<symbol>Sf</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>ดอบราเซาตูเมและปรินซิปี</displayName>
-				<symbol>Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>รูเบิลโซเวียต</displayName>
-				<symbol>SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName>โคลอนเอลซัลวาดอร์</displayName>
-				<symbol>SV₡</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>ปอนด์ซีเรีย</displayName>
-				<symbol>SY£</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>ลิลันกีนีสวาซิแลนด์</displayName>
-				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>บาทไทย</displayName>
-				<symbol>฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>รูเบิลทาจิกิสถาน</displayName>
-				<symbol>TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>โซโมนีทาจิกิสถาน</displayName>
-				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>มานัตเติร์กเมนิสถาน</displayName>
-				<symbol>TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>ดีนาร์ตูนิเซีย</displayName>
-				<symbol>DT</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>พาแองกาตองกา</displayName>
-				<symbol>T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>เอสคูโดติมอร์</displayName>
-				<symbol>TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>ลีราตุรกีเก่า</displayName>
-				<symbol>TRL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">TL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>ลีราตุรกี</displayName>
-				<symbol>TL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">YTL</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>ดอลลาร์ตรินิแดดและโตเบโก</displayName>
-				<symbol>TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>ดอลลาร์ไต้หวันใหม่</displayName>
-				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>ชิลลิงแทนซาเนีย</displayName>
 			</currency>
 			<currency type="UAH">
 				<displayName>ฮรีฟเนียยูเครน</displayName>
-				<symbol>₴</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>คาร์โบวาเนตซ์ยูเครน</displayName>
-				<symbol>UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>ชิลลิงยูกันดา (1966-1987)</displayName>
-				<symbol>UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>ชิลลิงยูกันดา</displayName>
-				<symbol>USh</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>ดอลลาร์สหรัฐ</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>ดอลลาร์สหรัฐ (วันถัดไป)</displayName>
-				<symbol>USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>ดอลลาร์สหรัฐ (วันเดียวกัน)</displayName>
-				<symbol>USS</symbol>
 			</currency>
 			<currency type="UYI">
 				<displayName>เปโซเอนยูนิแดดเซสอินเด็กซาแดสอุรุกวัย</displayName>
-				<symbol>UYI</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>เปโซอุรุกวัย (1975-1993)</displayName>
-				<symbol>UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>เปโซอุรุกวัย</displayName>
-				<symbol>$U</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>ซอมอุซเบกิสถาน</displayName>
-				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>โบลิวาร์เวเนซุเอลา</displayName>
-				<symbol>Bs.</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>โบลิวาร์ฟูร์เตเวเนซุเอลา</displayName>
-				<symbol>Bs.F.</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>ดองเวียดนาม</displayName>
-				<symbol>₫</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>วาตูวานูอาตู</displayName>
-				<symbol>VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>ทาลาซามัว</displayName>
-				<symbol>WS$</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>ฟรังก์เซฟาธนาคารรัฐแอฟริกากลาง</displayName>
-				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName>เงิน</displayName>
-				<symbol>XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>ทอง</displayName>
-				<symbol>XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>หน่วยคอมโพสิตยุโรป</displayName>
-				<symbol>XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>หน่วยโมเนทารียุโรป</displayName>
-				<symbol>XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>หน่วยบัญชียุโรป [XBC]</displayName>
-				<symbol>XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>หน่วยบัญชียุโรป [XBD]</displayName>
-				<symbol>XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>ดอลลาร์แคริบเบียนตะวันออก</displayName>
-				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>สิทธิถอนเงินพิเศษ</displayName>
-				<symbol>XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>หน่วยสกุลเงินยุโรป</displayName>
-				<symbol>XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>ฟรังก์ทองฝรั่งเศส</displayName>
-				<symbol>XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>ฟรังก์ยูไอซีฝรั่งเศส</displayName>
-				<symbol>XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>ฟรังก์เซฟาธนาคารกลางรัฐแอฟริกาตะวันตก</displayName>
-				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>พัลเลเดียม</displayName>
-				<symbol>XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>ฟรังก์ซีเอฟพี</displayName>
-				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>แพลตินัม</displayName>
-				<symbol>XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName>กองทุนไรเน็ต</displayName>
-				<symbol>XRE</symbol>
 			</currency>
 			<currency type="XTS">
 				<displayName>รหัสทดสอบสกุลเงิน</displayName>
-				<symbol>XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>ไม่มีหน่วยสกุลเงิน</displayName>
-				<symbol>XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>ดีนาร์เยเมน</displayName>
-				<symbol>YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>เรียลเยเมน</displayName>
-				<symbol>YR</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>ฮาร์ดดีนาร์ยูโกสลาเวีย</displayName>
-				<symbol>YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>โนวิย์ดีนาร์ยูโกสลาเวีย</displayName>
-				<symbol>YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>คอนเวอร์ทิเบิลดีนาร์ยูโกสลาเวีย</displayName>
-				<symbol>YUN</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>แรนด์แอฟริกาใต้ (การเงิน)</displayName>
-				<symbol>ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>แรนด์แอฟริกาใต้</displayName>
-				<symbol>R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>ควาชาแซมเบีย</displayName>
-				<symbol>ZK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>นิวแซร์คองโก</displayName>
-				<symbol>NZ</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>แซร์คองโก</displayName>
-				<symbol>ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>ดอลลาร์ซิมบับเว</displayName>
-				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>

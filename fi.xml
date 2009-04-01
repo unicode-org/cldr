@@ -1095,10 +1095,6 @@
 							<month type="11">M</month>
 							<month type="12">J</month>
 						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">standalone months can't have the ending &quot;ta&quot;</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">standalone month can't have &quot;ta&quot;-ending</month>
-						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -1131,9 +1127,6 @@
 							<day type="thu">T</day>
 							<day type="fri">P</day>
 							<day type="sat">L</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" alt="proposed-x1001" draft="unconfirmed">standalone must not have the ending &quot;na&quot;</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -4588,3 +4581,4 @@ Comments without bases
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
  China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
 -->
+

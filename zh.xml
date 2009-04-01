@@ -1010,8 +1010,8 @@
 							<month type="12">12月</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">1</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">2</month>
+							<month type="1" draft="unconfirmed">1</month>
+							<month type="2" draft="unconfirmed">2</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">1月</month>
@@ -1416,7 +1416,7 @@
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss z</pattern>
+							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -4953,3 +4953,4 @@ Zyyy { "\u672A\u786E\u5B9A\u8BED\u7CFB" } // This may need to become "undetermin
 EURO    { "\u6b27\u5143" }
 PREEURO { "\u65e7\u5e01" }
 -->
+

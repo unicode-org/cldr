@@ -124,7 +124,7 @@
 		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a á à b d e é è ẹ {ẹ́} {ẹ̀} f g {gb} h i í ì j-o ó ò ọ {ọ́} {ọ̀} p r s ṣ t u ú ù w y]</exemplarCharacters>
+		<exemplarCharacters>[a á à b d e é è ẹ {ẹ\u0301} {ẹ\u0300} f g {gb} h i í ì j-o ó ò ọ {ọ\u0301} {ọ\u0300} p r s ṣ t u ú ù w y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[c q v x z]</exemplarCharacters>
 	</characters>
 	<dates>
@@ -330,3 +330,4 @@
 		<reference type="RP5" uri="http://books.google.com/books?id=X_DXHQAACAAJ&amp;dq=isbn:0340176571" draft="contributed">Dictionary of Modern Yorùbá by Roy Clive Abraham. University of London Press</reference>
 	</references>
 </ldml>
+

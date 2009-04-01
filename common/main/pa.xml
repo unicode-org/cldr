@@ -58,8 +58,8 @@
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[਼ ੰ ੱ ੦-੯ ੴ ੳ ਉ ਊ ਓ ਅ ਆ ਐ ਔ ੲ ਇ ਈ ਏ ਸ {ਸ਼} ਹ ਕ ਖ {ਖ਼} ਗ {ਗ਼} ਘ-ਜ {ਜ਼} ਝ-ਨ ਪ ਫ {ਫ਼} ਬ-ਰ ਲ ਵ ੜ ਾ-ੂ ੇ ੈ ੋ-੍]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[\u200C \u200D ਁ-ਃ {ਲ਼}]</exemplarCharacters>
+		<exemplarCharacters>[਼ ੰ ੱ ੦-੯ ੴ ੳ ਉ ਊ ਓ ਅ ਆ ਐ ਔ ੲ ਇ ਈ ਏ ਸ {ਸ\u0A3C} ਹ ਕ ਖ {ਖ\u0A3C} ਗ {ਗ\u0A3C} ਘ-ਜ {ਜ\u0A3C} ਝ-ਨ ਪ ਫ {ਫ\u0A3C} ਬ-ਰ ਲ ਵ ੜ ਾ-ੂ ੇ ੈ ੋ-੍]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u200C \u200D \u0A01-\u0A03 {ਲ\u0A3C}]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="unconfirmed">'</quotationStart>
@@ -326,3 +326,4 @@
 		<reference type="R211" uri="http://tdil.mit.gov.in/newsIndexApr02.htm">Govt of India Vishwabhart Newsletter</reference>
 	</references>
 </ldml>
+

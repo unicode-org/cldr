@@ -985,6 +985,13 @@
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="buddhist">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yyyyM" draft="provisional">yyyy/M</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="chinese">
 				<dateTimeFormats>
 					<availableFormats>
@@ -1420,6 +1427,33 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yM">Gy/M</dateFormatItem>
+						<dateFormatItem id="yMEd">Gy/M/d（EEE）</dateFormatItem>
+						<dateFormatItem id="yyMM">Gy/MM</dateFormatItem>
+						<dateFormatItem id="yyMMM">Gy年MMM</dateFormatItem>
+						<dateFormatItem id="yyQ">Gy年第Q季度</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">y/M至y/M</greatestDifference>
+							<greatestDifference id="y">y/M至y/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="M">y/M/dE至y/M/dE</greatestDifference>
+							<greatestDifference id="d">y/M/dE至y/M/dE</greatestDifference>
+							<greatestDifference id="y">y/M/dE至y/M/dE</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="M">y/M/d至y/M/d</greatestDifference>
+							<greatestDifference id="d">y/M/d至y/M/d</greatestDifference>
+							<greatestDifference id="y">y/M/d至y/M/d</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

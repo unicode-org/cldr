@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldmlSupplemental.dtd">
+<!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldmlSupplemental.dtd">
 <supplementalData>
     <version number="$Revision$"/>
     <generation date="$Date$"/>
     <plurals>
         <!-- if locale is known to have no plurals, there are no rules -->
-        <pluralRules locales="az fa hu ja ko my to tr vi yo zh
-        bo dz id jv ka km kn ms th"/> 
+        <pluralRules locales="az fa hu ja ko my to tr vi yo zh bo dz id jv ka km kn ms th"/> 
         <!-- 2nd line from Tamplin's data -->
         <pluralRules locales="ar">
             <pluralRule count="zero">n is 0</pluralRule>
@@ -15,13 +14,10 @@
             <pluralRule count="few">n mod 100 in 3..10</pluralRule>
             <pluralRule count="many">n mod 100 in 11..99</pluralRule>
         </pluralRules>
-        <pluralRules locales="da de el en eo es et fi fo gl he iw it nb nl nn no pt_PT sv
-        af bg bn ca eu fur fy gu ha is ku lb ml mr nah ne om or pa pap ps so sq sw ta te tk ur zu
-        mn"> <!-- 2nd two lines from Tamplin's data, deleting az fa -->
+        <pluralRules locales="da de el en eo es et fi fo gl he iw it nb nl nn no pt_PT sv af bg bn ca eu fur fy gu ha is ku lb ml mr nah ne om or pa pap ps so sq sw ta te tk ur zu mn gsw"> <!-- 2nd two lines from Tamplin's data, deleting az fa -->
             <pluralRule count="one">n is 1</pluralRule>
         </pluralRules>
-        <pluralRules locales="pt
-        am bh fil tl guw hi ln mg nso ti wa"> <!-- last line from Tamplin's data -->
+        <pluralRules locales="pt am bh fil tl guw hi ln mg nso ti wa"> <!-- last line from Tamplin's data -->
             <pluralRule count="one">n in 0..1</pluralRule>
         </pluralRules>
         <pluralRules locales="fr">

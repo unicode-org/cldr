@@ -423,7 +423,7 @@
             <variable id="$fullTzid" type="notDoneYet"/>
             <variable id="$genDate" type="regex">\$.*\$</variable>
             <variable id="$locale" type="locale"/>
-            <variable id="$numberSystem" type="choice">arabic armenian bengali decimal deva ethiopic georgian gujarati gurmukhi hanjfin hanjstd hansfin hansstd hantfin hantstd hebrew kannada khmer lao lowroman mlym mong myanmar oriya persian roman tamil telugu thai tibetan</variable>
+            <variable id="$numberSystem" type="choice">arab arabext armn armnlow beng deva ethi fullwide geor grek greklow gujr guru hans hansfin hant hantfin hebr kanji kanjifin knda khmr laoo latn mlym mong mymr orya roman romanlow taml telu thai tibt</variable>
             <variable id="$reference" type="regex">([R|S]|RP)[0-9]+</variable>
             <variable id="$time" type="regex">([01][0-9]|2[0-4]):[0-6][0-9]</variable>
             <variable id="$uri" type="notDoneYet"/>
@@ -491,7 +491,7 @@
             <attributeValues elements="territory" attributes="type">$territory</attributeValues>
             <attributeValues elements="territoryAlias" attributes="replacement type">$territory</attributeValues>
             <attributeValues elements="type" attributes="key" type="choice">calendar collation currency numbers</attributeValues>
-            <attributeValues elements="type" attributes="type" type="choice">arabic armenian bengali big5han buddhist chinese coptic decimal deva direct ethiopic ethiopic-amete-alem gb2312han georgian gregorian gujarati gurmukhi hanjfin hanjstd hansfin hansstd hebrew indian islamic islamic-civil japanese kannada khmer lao lowroman mlym mong myanmar oriya persian phonebook pinyin roc roman stroke tamil telugu thai tibetan traditional</attributeValues>
+            <attributeValues elements="type" attributes="type" type="choice">arab arabext arabic armn armnlow beng big5han buddhist chinese coptic deva direct ethi ethiopic ethiopic-amete-alem fullwide gb2312han geor gregorian grek greklow gujr guru hans hansfin hant hantfin hebr hebrew indian islamic islamic-civil japanese kanji kanjifin knda khmr laoo latn mlym mong mymr orya persian phonebook pinyin roc roman romanlow stroke taml telu thai tibt traditional</attributeValues>
             <attributeValues elements="variable" attributes="id">$variableID</attributeValues>
             <attributeValues elements="variant" attributes="type">$variant</attributeValues>
             <attributeValues elements="variantAlias" attributes="replacement type">$variant</attributeValues>

@@ -82,8 +82,9 @@ $IgnorableBlocks = [[:block=Combining_Diacritical_Marks_For_Symbols:] [:block=Mu
 $LDH = [\u002D\u0030-\u0039\u0061-\u007A]
 
 # 2.6. Exceptions (F)
+# Note: added Tatweel to these, since that seems to be the current consensus.
 
-$ExceptionDisallowed = [\u302E \u302F]
+$ExceptionDisallowed = [\u302E \u302F \u0640]
 $ExceptionPvalid = [\u00DF \u03C2 \u06FD \u06FE \u0F0B \u3007]
 $ExceptionContexto = [\u002D \u00B7 \u02B9 \u0375 \u0483 \u05F3 \u05F4 \u0660 \u0661 \u0662 \u0663 \u0664 \u0665 \u0666 \u0667 \u0668 \u0669 \u06F0 \u06F1 \u06F2 \u06F3 \u06F4 \u06F5 \u06F6 \u06F7 \u06F8 \u06F9 \u3005 \u303B \u30FB]
    
@@ -134,7 +135,9 @@ $ValidAlways = [$ExceptionPvalid $BackwardCompatiblePvalid $LDH]
 
 $InvalidLetterDigits = [$ExceptionDisallowed $BackwardCompatibleDisallowed $Unassigned $Unstable $IgnorableProperties $IgnorableBlocks $OldHangulJamo]
 
-$Invalid = [^ $ValidAlways $Context [$LetterDigits - $InvalidLetterDigits]]
+$Valid = [$ValidAlways $Context [$LetterDigits - $InvalidLetterDigits]]
+
+$Invalid = [^ $Valid]
 
 # ===================================
 

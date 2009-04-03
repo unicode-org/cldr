@@ -299,12 +299,14 @@ class CheckLangTagBNF {
     }
   }
 
-  private static <T> void checkStrings(String message, T object1, T object2) {
+  private static <T> void checkStrings(String message, T obj1, T obj2) {
+    String object1 = obj1.toString().replace('_', '-');
+    String object2 = obj2.toString().replace('_', '-');
     if (!object1.equals(object2)) {
-      if (object1.toString().equalsIgnoreCase(object2.toString())) {
-        System.out.println("$$$Case Difference at " + message + "<" + object1 + "> != <" + object2 + ">");
+      if (object1.equalsIgnoreCase(object2)) {
+        System.out.println("$$$Case Difference at " + message + "<" + obj1 + "> != <" + obj2 + ">");
       } else {
-        System.out.println("###Difference at " + message + "<" + object1 + "> != <" + object2 + ">");
+        System.out.println("###Difference at " + message + "<" + obj1 + "> != <" + obj2 + ">");
       }
     }
   }

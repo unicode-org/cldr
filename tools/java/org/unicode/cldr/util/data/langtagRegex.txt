@@ -1,5 +1,6 @@
 # Regex for recognizing RFC 4646 well-formed tags
 # http://www.rfc-editor.org/rfc/rfc4646.txt
+# http://tools.ietf.org/html/draft-ietf-ltru-4646bis-21
 
 # The structure requires no forward references, so it reverses the order.
 # It uses Java/Perl syntax instead of the old ABNF
@@ -17,7 +18,12 @@ $s  = [-_] ; # separator -- lenient parsers will use [-_] -- strict will use [-]
 # Now do the components. The structure is slightly different to allow for capturing the right components.
 # The notation (?:....) is a non-capturing version of (...): so the "?:" can be deleted if someone doesn't care about capturing.
 
-$language   = $alpha{2,8} ;   # ABNF (2*3ALPHA) / 4ALPHA / 5*8ALPHA  --- note: because of how | works in regex, don't use $alpha{2,3} | $alpha{4,8} 
+$language   = $alpha{2,8} | $alpha{2,3} $s $alpha{3};
+            
+   # ABNF (2*3ALPHA) / 4ALPHA / 5*8ALPHA  --- note: because of how | works in regex, don't use $alpha{2,3} | $alpha{4,8} 
+   # We don't have to have the general case of extlang, because there can be only one extlang (except for zh-min-nan).
+
+# Note: extlang invalid in Unicode language tags
 
 $script = $alpha{4} ;   # 4ALPHA 
 
@@ -37,11 +43,12 @@ $privateUse = $x (?: $s $alphanum{1,8} )+ ; # "x" 1*("-" (1*8alphanum))
 # Note that these have to be compared case insensitively, requiring (?i) below.
 
 $grandfathered  = en $s GB $s oed
-        | i $s (?: ami | bnn | default | enochian | hak | klingon | lux | mingo | navajo | pwn | tao | tay | tsu )
-        | no $s (?: bok | nyn )
-        | sgn $s (?: BE $s (?: fr | nl) | CH $s de )
-        | zh $s (?: cmn (?: $s Hans | $s Hant )? | gan | min (?: $s nan)? | wuu | yue );
+      | i $s (?: ami | bnn | default | enochian | hak | klingon | lux | mingo | navajo | pwn | tao | tay | tsu )
+      | no $s (?: bok | nyn )
+      | sgn $s (?: BE $s (?: fr | nl) | CH $s de )
+      | zh $s min $s nan;
 
+# old:         | zh $s (?: cmn (?: $s Hans | $s Hant )? | gan | min (?: $s nan)? | wuu | yue );
 # For well-formedness, we don't need the ones that would otherwise pass.
 # For validity, they need to be checked.
 
@@ -51,26 +58,29 @@ $grandfathered  = en $s GB $s oed
 #     | zh $s (?: guoyu | hakka | xiang )
 # );
 
-$keyvalue = (?: $alphanum+ \= $alphanum+);
-$keywords = ($keyvalue (?: \; $keyvalue)*);
+# Unicode locales: but we are shifting to a compatible form
+# $keyvalue = (?: $alphanum+ \= $alphanum+);
+# $keywords = ($keyvalue (?: \; $keyvalue)*);
 
 # We separate items that we want to capture as a single group
 
 $variantList   = $variant (?: $s $variant )* ; # special for multiples
 $extensionList = $extension (?: $s $extension )* ;   # special for multiples
 
+$langtag = (?: ( $language )
+      (?: $s ( $script ) )? 40%
+      (?: $s ( $region ) )? 40%
+      (?: $s ( $variantList ) )? 10%
+      (?: $s ( $extensionList ) )? 5%
+      (?: $s ( $privateUse ) )? 5%);
+
 # Here is the final breakdown, with capturing groups for each of these components
 # The variants, extensions, grandfathered, and private-use may have interior '-'
  
 $root = (?i) # case-insensitive
   (?:
-    (?: ( $language )
-        (?: $s ( $script ) )? 40%
-        (?: $s ( $region ) )? 40%
-        (?: $s ( $variantList ) )? 10%
-        (?: $s ( $extensionList ) )? 5%
-        (?: $s ( $privateUse ) )? 5%) 90%
+      $langtag 90%
     | ( $privateUse ) 5%
-#    | ( $grandfatheredWellFormed ) 5%
     | ( $grandfathered ) 5%)
-    (?: \@ $keywords )? 5%;
+#    (?: \@ $keywords )? 5%
+    ;

@@ -8,18 +8,28 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.PrettyPrinter;
 
+import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.dev.test.util.VariableReplacer;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.IDNA;
 import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.StringPrepParseException;
 import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.Normalizer.Mode;
+import com.ibm.icu.util.ULocale;
 
 public class IdnaLabelTester {
 
@@ -92,10 +102,10 @@ public class IdnaLabelTester {
   private List<Rule> rules = new ArrayList<Rule>();
 
   private static final UnicodeSet NOT_NFKC_CASE_FOLD = computeNotNfkcCaseFold();
+  VariableReplacer variables = new VariableReplacer();
 
   public IdnaLabelTester(String file) throws IOException {
 
-    VariableReplacer variables = new VariableReplacer();
     BufferedReader in = openFile(file);
 
     String title = "???";
@@ -189,6 +199,17 @@ public class IdnaLabelTester {
       }
     }
     return (UnicodeSet) result.freeze();
+  }
+  
+  static String removals = new UnicodeSet("[\u1806[:di:]-[:cn:]]").complement().complement().toPattern(false);
+  static Matcher rem = Pattern.compile(removals).matcher("");
+
+  private static String NFKC_CaseFold(int i, Normalizer.Mode mode, boolean onlyLower, boolean keepDI) {
+    String nfkc = Normalizer.normalize(i, mode);
+    String case_nfkc = onlyLower ? UCharacter.toLowerCase(ULocale.ROOT, nfkc) : UCharacter.foldCase(nfkc, true);
+    String nfkc_case_nfkc = Normalizer.normalize(case_nfkc, mode);
+    if (keepDI) return nfkc_case_nfkc;
+    return rem.reset(nfkc_case_nfkc).replaceAll("");
   }
 
   private static boolean equals(String string, int codePoint) {
@@ -346,6 +367,11 @@ public class IdnaLabelTester {
         System.out.println("Verbose = " + VERBOSE);
         continue;
       }
+      
+      if ("showmapping".equalsIgnoreCase(line)) {
+        showMapping(tester);
+        continue;
+      }
 
       if (firstTestLine) {
         if (VERBOSE) {
@@ -395,5 +421,126 @@ public class IdnaLabelTester {
     System.out.println("Successes:\t" + successes);
     System.out.println("Failures:\t" + failures);
     in.close();
+  }
+
+  private static void showMapping(IdnaLabelTester tester) {
+    UnicodeSet valid = new UnicodeSet(tester.variables.replace("$Valid"));
+    System.out.println("PValid or Context: " + valid.size());
+    //Transliterator unicode = Transliterator.getInstance("hex/unicode");
+
+
+    for (int type = 0; type < 8; ++type) {
+
+      boolean keepDI = (type & 2) != 0;
+      boolean casing = (type & 1) != 0;
+      Mode mode = (type & 4) == 0 ? Normalizer.NFKC : Normalizer.NFC;
+      
+      UnicodeSet remapped = new UnicodeSet();
+      UnicodeSet remapped2003 = new UnicodeSet();
+      UnicodeSet divergent = new UnicodeSet();
+      
+      for (int i = 0; i < 0x110000; ++i) {
+        String mapped = NFKC_CaseFold(i, mode, casing, keepDI);
+        String mapped2003 = getIDNAValue(i);
+
+        if (valid.containsAll(mapped)) {
+          String s = UTF16.valueOf(i);
+          if (!s.equals(mapped)) {
+            remapped.add(i);
+          }
+//          if (valid.contains(i)) {
+//            System.out.println("DIVERGES: " + unicode.transform(s) + "\t;\t" + s + "\t;\t" + mapped);
+//            diverges++;
+//          } else {
+//            System.out.println("MAPPED: " + unicode.transform(s) + "\t;\t" + s + "\t;\t" + mapped);
+//            otherMapped++;
+//          }
+        }
+        if (mapped2003 != null && valid.containsAll(mapped2003)) {
+          String s = UTF16.valueOf(i);
+          if (!s.equals(mapped2003)) {
+            remapped2003.add(i);
+          }
+          if (!mapped2003.equals(mapped)) {
+            divergent.add(i);
+          }
+        }
+      }
+      if (type == 0) {
+        System.out.println("IDNA2003" + ",\tRemapped:\t" + remapped2003.size());
+      }
+      System.out.println(
+              (mode == Normalizer.NFKC ? "NFKC" : "NFC")
+              + (casing ? "-LC" : "-CF")
+              + (keepDI ? "" : "-RDI")
+              + ",\tRemapped:\t" + remapped.size()
+              + ",\tDiverging:\t" + divergent.size() 
+              // + ": " + divergent
+              );
+    }
+
+    PrettyPrinter pretty = new PrettyPrinter().setSpaceComparator(new Comparator() {
+      public int compare(Object o1, Object o2) {
+        return 1;
+      }
+    });
+
+    Map<String,UnicodeSet> mapNFKC_CF_RDI = new TreeMap(pretty.getOrdering());
+    Map<String,UnicodeSet> mapNFC_LC = new HashMap();
+    for (int i = 0; i < 0x110000; ++i) {
+      final String mapped = NFKC_CaseFold(i, Normalizer.NFKC, false, false);
+      if (valid.containsAll(mapped)) {
+        addMapping(mapNFKC_CF_RDI, i, mapped);
+        addMapping(mapNFC_LC, i, NFKC_CaseFold(i, Normalizer.NFC, true, true));
+      }
+    }
+
+    
+    for (String key : mapNFKC_CF_RDI.keySet()) {
+      UnicodeSet mapped = mapNFKC_CF_RDI.get(key);
+      UnicodeSet nfcMapped = mapNFC_LC.get(key);
+      if (nfcMapped != null) {
+        mapped = new UnicodeSet(mapped).removeAll(nfcMapped);
+      }
+      if (mapped.size() != 0) {
+        System.out.println(key + "\t<=\t" + pretty.toPattern(mapped));
+      }
+    }
+  }
+
+  private static void addMapping(Map<String, UnicodeSet> mapping, int i, String mapped) {
+    String s = UTF16.valueOf(i);
+    if (!s.equals(mapped)) {
+      UnicodeSet x = mapping.get(mapped);
+      if (x == null) mapping.put(mapped, x= new UnicodeSet());
+      x.add(i);
+    }
+  }
+  
+  static StringBuffer inbuffer = new StringBuffer();
+  static StringBuffer intermediate = new StringBuffer();
+  static StringBuffer outbuffer = new StringBuffer();
+  
+  static public String getIDNAValue(int cp) {
+    if (cp == '-')
+      return "-";
+    inbuffer.setLength(0);
+    UTF16.append(inbuffer, cp);
+    try {
+      StringBuffer intermediate = IDNA.convertToASCII(inbuffer, IDNA.USE_STD3_RULES); // USE_STD3_RULES,
+      // DEFAULT
+      if (intermediate.length() == 0)
+        return "";
+      outbuffer = IDNA.convertToUnicode(intermediate, IDNA.USE_STD3_RULES);
+    } catch (StringPrepParseException e) {
+      if (e.getMessage().startsWith("Found zero length")) {
+        return "";
+      }
+      return null;
+    } catch (Exception e) {
+      System.out.println("Failure at: " + Integer.toString(cp, 16));
+      return null;
+    }
+    return outbuffer.toString();
   }
 }

@@ -309,7 +309,7 @@ public class CheckDates extends CheckCLDR {
       Pattern.compile("(h|hh|H|HH)(m|mm)"), // time-short
       Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)"), // time-medium
       Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)(z+)"), // time-long
-      Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)(v+)"), // time-full
+      Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)(z+)"), // time-full
       Pattern.compile("y{2,4}M{1,2}(d|dd)"), // date-short
       Pattern.compile("y(yyy)?M{1,3}(d|dd)"), // date-medium
       Pattern.compile("y(yyy)?M{1,4}(d|dd)"), // date-long
@@ -319,7 +319,7 @@ public class CheckDates extends CheckCLDR {
       "hours (H, HH, h, or hh), and minutes (m or mm)", // time-short
       "hours (H, HH, h, or hh), minutes (m or mm), and seconds (s or ss)", // time-medium
       "hours (H, HH, h, or hh), minutes (m or mm), and seconds (s or ss); optionally timezone (z or zzzz)", // time-long
-      "hours (H, HH, h, or hh), minutes (m or mm), seconds (s or ss), and timezone (v or vvvv)", // time-full
+      "hours (H, HH, h, or hh), minutes (m or mm), seconds (s or ss), and timezone (z or zzzz)", // time-full
       "year (yy or yyyy), month (M or MM), and day (d or dd)", // date-short
       "year (yyyy), month (M, MM, or MMM), and day (d or dd)", // date-medium
       "year (yyyy), month (M, ... MMMM), and day (d or dd)", // date-long

@@ -1476,15 +1476,10 @@
 				<am>π.μ.</am>
 				<pm>μ.μ.</pm>
 				<eras>
-					<eraNames>
-						<era type="0">Πριν R.O.C.</era>
-					</eraNames>
 					<eraAbbr>
 						<era type="0">Πριν R.O.C.</era>
+						<era type="1">R.O.C.</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0">Πριν R.O.C.</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -3429,9 +3424,9 @@
 				<displayName count="other">πέσο Κολομβίας</displayName>
 			</currency>
 			<currency type="COU">
+				<displayName>unidad de valor real</displayName>
 				<displayName count="one">unidad de valor real</displayName>
 				<displayName count="other">unidad de valor reals</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">unidad de valor real</displayName>
 			</currency>
 			<currency type="CRC">
 				<displayName>Κολόν Κόστα Ρίκα</displayName>
@@ -3525,10 +3520,12 @@
 				<displayName count="other">νάκφα Ερυθραίας</displayName>
 			</currency>
 			<currency type="ESA">
+				<displayName>πεσέτα Ισπανίας (λογαριασμός Α)</displayName>
 				<displayName count="one">πεσέτα Ισπανίας (λογαριασμός Α)</displayName>
 				<displayName count="other">πεσέτες Ισπανίας (λογαριασμός Α)</displayName>
 			</currency>
 			<currency type="ESB">
+				<displayName>πεσέτα Ισπανίας (μετατρέψιμος λογαριασμός)</displayName>
 				<displayName count="one">πεσέτα Ισπανίας (μετατρέψιμος λογαριασμός)</displayName>
 				<displayName count="other">πεσέτες Ισπανίας (μετατρέψιμες)</displayName>
 			</currency>
@@ -3693,6 +3690,7 @@
 				<displayName count="other">λίρες Ισραήλ</displayName>
 			</currency>
 			<currency type="ILR">
+				<displayName>παλιό σεκέλ Ισραήλ</displayName>
 				<displayName count="one">παλιό σεκέλ Ισραήλ</displayName>
 				<displayName count="other">παλιά σεκέλ Ισραήλ</displayName>
 			</currency>
@@ -3717,6 +3715,7 @@
 				<displayName count="other">ριάλ Ιράν</displayName>
 			</currency>
 			<currency type="ISJ">
+				<displayName>Παλιά κορόνα Ισλανδίας</displayName>
 				<displayName count="one">Παλιά κορόνα Ισλανδίας</displayName>
 				<displayName count="other">παλιές κορόνες Ισλανδίας</displayName>
 			</currency>
@@ -4364,11 +4363,6 @@
 				<displayName count="one">φράγκο BEAC CFA</displayName>
 				<displayName count="other">φράγκα BEAC CFA</displayName>
 			</currency>
-			<currency type="XAG">
-				<displayName>XAG</displayName>
-				<displayName count="one">XAG</displayName>
-				<displayName count="other">XAG</displayName>
-			</currency>
 			<currency type="XAU">
 				<displayName>Χρυσός</displayName>
 				<displayName count="one">XAU</displayName>
@@ -4424,29 +4418,10 @@
 				<displayName count="one">φράγκο BCEAO CFA</displayName>
 				<displayName count="other">φράγκα BCEAO CFA</displayName>
 			</currency>
-			<currency type="XPD">
-				<displayName>XPD</displayName>
-				<displayName count="one">XPD</displayName>
-				<displayName count="other">XPD</displayName>
-			</currency>
 			<currency type="XPF">
 				<displayName>Φράγκο CFP</displayName>
 				<displayName count="one">φράγκο CFP</displayName>
 				<displayName count="other">φράγκα CFP</displayName>
-			</currency>
-			<currency type="XPT">
-				<displayName>XPT</displayName>
-				<displayName count="one">XPT</displayName>
-				<displayName count="other">XPT</displayName>
-			</currency>
-			<currency type="XRE">
-				<displayName>XRE</displayName>
-				<displayName count="one">XRE</displayName>
-				<displayName count="other">XRE</displayName>
-			</currency>
-			<currency type="XTS">
-				<displayName count="one">XTS</displayName>
-				<displayName count="other">XTS</displayName>
 			</currency>
 			<currency type="XXX">
 				<displayName>Άγνωστο ή μη έγκυρο νόμισμα</displayName>

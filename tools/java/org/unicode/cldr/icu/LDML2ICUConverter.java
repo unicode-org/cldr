@@ -5528,10 +5528,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         		xpath + "/dateTimeFormats/" + LDMLConstants.DEFAULT, 
         		LDMLConstants.DEFAULT);   
         int glueIndex = 8;
-        if (res.val.trim().equalsIgnoreCase("full")) glueIndex += 1;
-        if (res.val.trim().equalsIgnoreCase("long")) glueIndex += 2;
-        if (res.val.trim().equalsIgnoreCase("medium")) glueIndex += 3;
-        if (res.val.trim().equalsIgnoreCase("short")) glueIndex += 4;
+        if (res != null && res.val.trim().equalsIgnoreCase("full")) glueIndex += 1;
+        if (res != null && res.val.trim().equalsIgnoreCase("long")) glueIndex += 2;
+        if (res != null && res.val.trim().equalsIgnoreCase("medium")) glueIndex += 3;
+        if (res != null && res.val.trim().equalsIgnoreCase("short")) glueIndex += 4;
         strs[8].val = strs[glueIndex].val;
         
         // write out the data

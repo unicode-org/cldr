@@ -6971,6 +6971,8 @@ public class SurveyMain extends HttpServlet {
             choice_v = ctx.processor.processInput(xpt.getById(p.base_xpath),choice_v, null);
         }
         
+//        System.err.println("choice="+choice+", v="+choice_v);
+        
         /* handle inherited value */
         if(choice.equals(INHERITED_VALUE)) {
             if(p.inheritedValue == null) {
@@ -6980,6 +6982,7 @@ public class SurveyMain extends HttpServlet {
             // remap. Will cause the 2nd if branch to be followed, below.se
             choice = CHANGETO;
             choice_v = p.inheritedValue.value;
+         //   System.err.println("inherit -> CHANGETO");
         }
         
         // . . .
@@ -7007,10 +7010,13 @@ public class SurveyMain extends HttpServlet {
 		    }
 		}
         
+		/* find the item.  Could fail if the HTML is stale. */
         for(Iterator j = p.items.iterator();j.hasNext();) {
             DataSection.DataRow.CandidateItem item = (DataSection.DataRow.CandidateItem)j.next();
             if(choice.equals(item.altProposed)) {
                 voteForItem = item;
+			} else if(choice.equals(CONFIRM)&&item.altProposed==null) {
+				voteForItem = item; // default item.
 			}
 			
 			if((item.altProposed != null) && 
@@ -7023,6 +7029,18 @@ public class SurveyMain extends HttpServlet {
 			        (unvoteAltsSet.contains(item.altProposed))) {
 			    unvoteItems.add(item);
 			}
+			
+        }
+        
+        if(voteForItem!=null) {
+        	if(voteForItem.inheritFrom!=null || voteForItem.isFallback || voteForItem.isParentFallback || (voteForItem.pathWhereFound!=null&&voteForItem.pathWhereFound.length()>0)) {
+                // remap as a NEW ITEM.
+                choice = CHANGETO;
+//                System.err.println("v4i"+choice+" -> CHANGETO "+voteForItem.value);
+                choice_v = voteForItem.value;
+                choice_r = voteForItem.references;
+                if(choice_r==null) choice_r="";
+        	}
         }
         
         // OBSOLETE
@@ -7184,6 +7202,7 @@ public class SurveyMain extends HttpServlet {
             for(Iterator j = p.items.iterator();j.hasNext();) {
                 DataSection.DataRow.CandidateItem item = (DataSection.DataRow.CandidateItem)j.next();
                 if(choice_v.equals(item.value)  && 
+                		(item.pathWhereFound==null) &&
                     !((item.altProposed==null) && (item.inheritFrom!=null) &&  XMLSource.CODE_FALLBACK_ID.equals(item.inheritFrom))) { // OK to override code fallbacks
                     String theirReferences = item.references;
                     if(theirReferences == null) {
@@ -8320,7 +8339,7 @@ public class SurveyMain extends HttpServlet {
 
     void printDataRowItem(WebContext ctx, DataSection.DataRow p, DataSection.DataRow.CandidateItem item, String fieldHash, 
             String resultXpath, String ourVoteXpath, boolean canModify, boolean zoomedIn, ExampleContext exampleContext) {
-    //ctx.println("<div style='border: 2px dashed red'>altProposed="+item.altProposed+", inheritFrom="+item.inheritFrom+", confirmOnly="+new Boolean(p.confirmOnly)+"</div><br>");
+    if(false)ctx.println("<div style='border: 2px dashed red'>altProposed="+item.altProposed+", inheritFrom="+item.inheritFrom+", pathWhereFound="+item.pathWhereFound+", confirmOnly="+new Boolean(p.confirmOnly)+"</div><br>");
         boolean winner = 
             ((resultXpath!=null)&&
             (item.xpath!=null)&&

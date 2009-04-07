@@ -1518,14 +1518,18 @@ public class CLDRDBSourceFactory {
      */
     public String getFullPathAtDPath(String path) {
         String ret =  getOrigXpathFromCache(xpt.getByXpath(path));
-//        if(ret == null ) {
+        if(ret == null ) {
+        	return path;
+        	/*
 //            // Debug / validation
-//            String try2 = getOrigXpathString(xpt.getByXpath(path),finalData);
-//            if(try2 != null) {
-//                System.err.println("Cache failed: was null at " +xpt.getByXpath(path)+":"+ path);
-//                ret = try2;
-//            }
-//        }
+            String try2 = getOrigXpathString(xpt.getByXpath(path),finalData);
+            if(try2 != null) {
+                System.err.println("Cache failed: was null at " +xpt.getByXpath(path)+":"+ path);
+                ret = try2;
+            } else {
+            	System.err.println("Null gfx:"+xpt.getByXpath(path));
+            }*/
+        }
         return ret;
     }
     
@@ -1608,6 +1612,7 @@ public class CLDRDBSourceFactory {
 				
                 if(!rs.next()) {
                     rs.close();
+                    //System.err.println("getOrigXpath["+finalData+"/"+useFinalData+"] not found, falling back: " + locale + ":"+pathid+" " + xpt.getById(pathid));
                     return -1;
 //                    throw new InternalError  /* logger.severe */ ("getOrigXpath["+finalData+"] not found, falling back: " + locale + ":"+pathid+" " + xpt.getById(pathid));
                     //return xpt.getById(pathid); // not found - should be null?

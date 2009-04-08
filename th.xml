@@ -1000,14 +1000,6 @@
 		<calendars>
 			<default choice="buddhist"/>
 			<calendar type="buddhist">
-				<days>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">อา</day>
-							<day type="thu" draft="unconfirmed">พฤ</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<am>ก่อนเที่ยง</am>
 				<am alt="proposed-x1001" draft="unconfirmed">AM</am>
 				<pm>หลังเที่ยง</pm>
@@ -1183,10 +1175,6 @@
 							<day type="thu">พฤ.</day>
 							<day type="fri">ศ.</day>
 							<day type="sat">ส.</day>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">อา</day>
-							<day type="thu">พ</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">วันอาทิตย์</day>
@@ -1507,13 +1495,6 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<days>
-					<dayContext type="format">
-						<dayWidth type="narrow">
-							<day type="sun">อ</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<am>ก่อนเที่ยง</am>
 				<pm>หลังเที่ยง</pm>
 				<eras>
@@ -1585,32 +1566,7 @@
 							<month type="12">ดฮุอัลฮิจจะห์</month>
 						</monthWidth>
 					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="5">จุมาดา I</month>
-							<month type="6">จุมาดา II</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="2">ซอฟาร์</month>
-							<month type="3">รอบี I</month>
-							<month type="4">รอบี II</month>
-							<month type="5">จุมาดา I</month>
-							<month type="6">จุมาดา II</month>
-							<month type="7">รอจับ</month>
-							<month type="8">ชะอะบาน</month>
-							<month type="9">รอมะดอน</month>
-							<month type="11">ดฮุุอัลกิดะห์</month>
-							<month type="12">ดฮุอัลฮิจจะห์</month>
-						</monthWidth>
-					</monthContext>
 				</months>
-				<days>
-					<dayContext type="format">
-						<dayWidth type="narrow">
-							<day type="sun">อ</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<am>ก่อนเที่ยง</am>
 				<pm>หลังเที่ยง</pm>
 				<eras>
@@ -1653,29 +1609,7 @@
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
-			<calendar type="islamic-civil">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="5">จุมาดา I</month>
-							<month type="6">จุมาดา II</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="wide">
-							<month type="1">มุฮะร์รอม</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-			</calendar>
 			<calendar type="japanese">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="narrow">
-							<day type="sun">อ</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<am>ก่อนเที่ยง</am>
 				<pm>หลังเที่ยง</pm>
 				<eras>

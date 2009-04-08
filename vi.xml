@@ -429,36 +429,6 @@
 	</delimiters>
 	<dates>
 		<calendars>
-			<calendar type="chinese">
-				<days>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">CN</day>
-							<day type="mon">T2</day>
-							<day type="tue">T3</day>
-							<day type="wed">T4</day>
-							<day type="thu">T5</day>
-							<day type="fri">T6</day>
-							<day type="sat">T7</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="wide">
-							<quarter type="1">Quý 1</quarter>
-							<quarter type="2">Quý 2</quarter>
-							<quarter type="3">Quý 3</quarter>
-							<quarter type="4">Quý 4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

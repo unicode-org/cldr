@@ -506,11 +506,10 @@ public class Race {
             if (crs.next()) {
                 itemValue = SurveyMain.getStringUTF8(crs, 1);
                 orig_xpath = crs.getInt(2);
-            
-
-                UserRegistry.User u = vet.sm.reg.getInfo(submitter);
-            	vote(u, vote_xpath, orig_xpath, itemValue);
             }
+
+            UserRegistry.User u = vet.sm.reg.getInfo(submitter);
+            vote(u, vote_xpath, orig_xpath, itemValue);
         }
 
 

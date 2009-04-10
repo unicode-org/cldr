@@ -4422,44 +4422,21 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     // handle flexi formats
                     ICUResourceWriter.Resource temp;
                     
-                    temp = parseAliasResource(loc,xpath+"/"+LDMLConstants.ALIAS);
+                    temp = parseTable(loc,xpath+"/"+LDMLConstants.AVAIL_FMTS, LDMLConstants.DATE_FMT_ITEM, LDMLConstants.ID);
                     if(temp != null) {
-                        String dtpPath = ((ICUResourceWriter.ResourceAlias)temp).val;
-                        // need to replace "/DateTimePatterns" = DTP at end with desired type
-
-                        ICUResourceWriter.ResourceAlias afAlias = new ICUResourceWriter.ResourceAlias();
-                        afAlias.name = LDMLConstants.AVAIL_FMTS;
-                        afAlias.val = dtpPath.replace(DTP, LDMLConstants.AVAIL_FMTS);
-                        res = ICUResourceWriter.Resource.addAfter(res, afAlias); 
-
-                        ICUResourceWriter.ResourceAlias aaAlias = new ICUResourceWriter.ResourceAlias();
-                        aaAlias.name = LDMLConstants.APPEND_ITEMS;
-                        aaAlias.val = dtpPath.replace(DTP, LDMLConstants.APPEND_ITEMS);
-                        res = ICUResourceWriter.Resource.addAfter(res, aaAlias); 
-
-                        ICUResourceWriter.ResourceAlias ifAlias = new ICUResourceWriter.ResourceAlias();
-                        ifAlias.name = LDMLConstants.INTVL_FMTS;
-                        ifAlias.val = dtpPath.replace(DTP, LDMLConstants.INTVL_FMTS);
-                        res = ICUResourceWriter.Resource.addAfter(res, ifAlias); 
-
-                    } else {
-                        temp = parseTable(loc,xpath+"/"+LDMLConstants.AVAIL_FMTS, LDMLConstants.DATE_FMT_ITEM, LDMLConstants.ID);
-                        if(temp != null) {
-                            temp.name = LDMLConstants.AVAIL_FMTS;
-                            res = ICUResourceWriter.Resource.addAfter(res, temp);    
-                        }
-                        
-                        temp = parseTable(loc,xpath+"/"+LDMLConstants.APPEND_ITEMS, LDMLConstants.APPEND_ITEM, LDMLConstants.REQUEST);
-                        if(temp != null) {
-                            temp.name = LDMLConstants.APPEND_ITEMS;
-                            res = ICUResourceWriter.Resource.addAfter(res, temp);    
-                        }
-    
-                        temp = parseIntervalFormats(loc, xpath);
-                        if(temp != null) {
-                            res = ICUResourceWriter.Resource.addAfter(res, temp);    
-                        }
-
+                        temp.name = LDMLConstants.AVAIL_FMTS;
+                        res = ICUResourceWriter.Resource.addAfter(res, temp);    
+                    }
+                    
+                    temp = parseTable(loc,xpath+"/"+LDMLConstants.APPEND_ITEMS, LDMLConstants.APPEND_ITEM, LDMLConstants.REQUEST);
+                    if(temp != null) {
+                        temp.name = LDMLConstants.APPEND_ITEMS;
+                        res = ICUResourceWriter.Resource.addAfter(res, temp);    
+                    }
+                    
+                    temp = parseIntervalFormats(loc, xpath);
+                    if(temp != null) {
+                        res = ICUResourceWriter.Resource.addAfter(res, temp);    
                     }
                 }
             } else if (name.equals(LDMLConstants.SPECIAL)) {
@@ -5551,10 +5528,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         		xpath + "/dateTimeFormats/" + LDMLConstants.DEFAULT, 
         		LDMLConstants.DEFAULT);   
         int glueIndex = 8;
-        if (res != null && res.val.trim().equalsIgnoreCase("full")) glueIndex += 1;
-        if (res != null && res.val.trim().equalsIgnoreCase("long")) glueIndex += 2;
-        if (res != null && res.val.trim().equalsIgnoreCase("medium")) glueIndex += 3;
-        if (res != null && res.val.trim().equalsIgnoreCase("short")) glueIndex += 4;
+        if (res.val.trim().equalsIgnoreCase("full")) glueIndex += 1;
+        if (res.val.trim().equalsIgnoreCase("long")) glueIndex += 2;
+        if (res.val.trim().equalsIgnoreCase("medium")) glueIndex += 3;
+        if (res.val.trim().equalsIgnoreCase("short")) glueIndex += 4;
         strs[8].val = strs[glueIndex].val;
         
         // write out the data

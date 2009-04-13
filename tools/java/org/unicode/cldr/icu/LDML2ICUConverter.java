@@ -4278,11 +4278,21 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     private ICUResourceWriter.Resource parseIntervalFormats(InputLocale loc,
             String parentxpath) {
-        ICUResourceWriter.ResourceTable formats = new ICUResourceWriter.ResourceTable();
+        String xpath = parentxpath + "/" + LDMLConstants.INTVL_FMTS;
+        ICUResourceWriter.Resource formats;
+        
+        formats = parseAliasResource(loc, xpath+"/"+LDMLConstants.ALIAS);
+        if (formats != null) {
+        	formats.name = LDMLConstants.INTVL_FMTS;
+        	String val = ((ICUResourceWriter.ResourceAlias)formats).val;
+        	((ICUResourceWriter.ResourceAlias)formats).val = val.replace(DTP + "/", "");
+        	return formats;
+        }
+
+        formats = new ICUResourceWriter.ResourceTable();
         formats.name = LDMLConstants.INTVL_FMTS;
         Map<String, ICUResourceWriter.ResourceTable> tableMap =
         	new HashMap<String, ICUResourceWriter.ResourceTable>();
-        String xpath = parentxpath + "/" + LDMLConstants.INTVL_FMTS;
 
         for (Iterator<String> iter = loc.file.iterator(xpath); iter.hasNext();) {
         	ICUResourceWriter.Resource newres = null;
@@ -4291,10 +4301,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 continue;
             }
             String name = loc.getXpathName(localxpath);
-            if (name.equals(LDMLConstants.ALIAS)) {
-            	newres = parseAliasResource(loc, localxpath);
-            }
-            else if (name.equals(LDMLConstants.SPECIAL)) {
+            if (name.equals(LDMLConstants.SPECIAL)) {
             	newres = parseSpecialElements(loc, xpath);
             }
             else if (name.equals(LDMLConstants.INTVL_FMT_FALL)) {
@@ -4336,7 +4343,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
         }
 
-        if (formats.first != null) {
+       if (formats.first != null) {
             return formats;
         }
         return null;

@@ -106,7 +106,7 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength>
-						<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength"/>
+						<alias source="locale" path="../../../calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength"/>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
@@ -144,7 +144,7 @@
 						<appendItem request="Year">{0} {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats/intervalFormats"/>
+						<alias source="locale" path="../../../calendar[@type='gregorian']/dateTimeFormats/intervalFormats"/>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1519,7 +1519,7 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength>
-						<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength"/>
+						<alias source="locale" path="../../../calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength"/>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
@@ -1550,7 +1550,7 @@
 						<appendItem request="Year">{0} {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats/intervalFormats"/>
+						<alias source="locale" path="../../../calendar[@type='gregorian']/dateTimeFormats/intervalFormats"/>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>

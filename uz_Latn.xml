@@ -63,20 +63,6 @@
 							<month type="11" draft="unconfirmed">Noya</month>
 							<month type="12" draft="unconfirmed">Dek</month>
 						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="unconfirmed">Muharram</month>
-							<month type="2" draft="unconfirmed">Safar</month>
-							<month type="3" draft="unconfirmed">Rabiul-avval</month>
-							<month type="4" draft="unconfirmed">Rabiul-oxir</month>
-							<month type="5" draft="unconfirmed">Jumodiul-ulo</month>
-							<month type="6" draft="unconfirmed">Jumodiul-uxro</month>
-							<month type="7" draft="unconfirmed">Rajab</month>
-							<month type="8" draft="unconfirmed">Shaʿbon</month>
-							<month type="9" draft="unconfirmed">Ramazon</month>
-							<month type="10" draft="unconfirmed">Shavvol</month>
-							<month type="11" draft="unconfirmed">Zil-qaʿda</month>
-							<month type="12" draft="unconfirmed">Zil-hijja</month>
-						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="narrow">
@@ -92,9 +78,6 @@
 							<month type="10" draft="unconfirmed">O</month>
 							<month type="11" draft="unconfirmed">N</month>
 							<month type="12" draft="unconfirmed">D</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Yanvar</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -127,10 +110,30 @@
 							<day type="wed" draft="unconfirmed">C</day>
 							<day type="thu" draft="unconfirmed">P</day>
 							<day type="fri" draft="unconfirmed">J</day>
-							<day type="sat">S</day>
+							<day type="sat" draft="unconfirmed">S</day>
 						</dayWidth>
 					</dayContext>
 				</days>
+			</calendar>
+			<calendar type="islamic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">Muharram</month>
+							<month type="2" draft="unconfirmed">Safar</month>
+							<month type="3" draft="unconfirmed">Rabiul-avval</month>
+							<month type="4" draft="unconfirmed">Rabiul-oxir</month>
+							<month type="5" draft="unconfirmed">Jumodiul-ulo</month>
+							<month type="6" draft="unconfirmed">Jumodiul-uxro</month>
+							<month type="7" draft="unconfirmed">Rajab</month>
+							<month type="8" draft="unconfirmed">Shaʿbon</month>
+							<month type="9" draft="unconfirmed">Ramazon</month>
+							<month type="10" draft="unconfirmed">Shavvol</month>
+							<month type="11" draft="unconfirmed">Zil-qaʿda</month>
+							<month type="12" draft="unconfirmed">Zil-hijja</month>
+						</monthWidth>
+					</monthContext>
+				</months>
 			</calendar>
 		</calendars>
 	</dates>

@@ -1370,35 +1370,6 @@
 			<calendar type="hebrew">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">تشری</month>
-							<month type="2">حشوان</month>
-							<month type="3">کسلو</month>
-							<month type="4">طوت</month>
-							<month type="5">شباط</month>
-							<month type="6">آذار</month>
-							<month type="7">واذار</month>
-							<month type="8">نیسان</month>
-							<month type="9">ایار</month>
-							<month type="10">سیوان</month>
-							<month type="11">تموز</month>
-							<month type="12">آب</month>
-							<month type="13">ایلول</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">ت</month>
-							<month type="2">ح</month>
-							<month type="3">ک</month>
-							<month type="4">ط</month>
-							<month type="5">ش</month>
-							<month type="7">و</month>
-							<month type="8">ن</month>
-							<month type="9">ا</month>
-							<month type="10">س</month>
-							<month type="11">ت</month>
-							<month type="12">آ</month>
-							<month type="13">ا</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">تشری</month>
 							<month type="2">حشوان</month>
@@ -1416,9 +1387,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="6">آ</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">ت</month>
 							<month type="2">ح</month>
@@ -1433,21 +1401,6 @@
 							<month type="11">ت</month>
 							<month type="12">آ</month>
 							<month type="13">ا</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">تشری</month>
-							<month type="2">حشوان</month>
-							<month type="3">کسلو</month>
-							<month type="4">طوت</month>
-							<month type="5">شباط</month>
-							<month type="6">آذار</month>
-							<month type="7">واذار</month>
-							<month type="8">نیسان</month>
-							<month type="9">ایار</month>
-							<month type="10">سیوان</month>
-							<month type="11">تموز</month>
-							<month type="12">آب</month>
-							<month type="13">ایلول</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1471,9 +1424,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1" references="R046">م</month>
 							<month type="2" references="R046">ص</month>
@@ -1488,23 +1438,10 @@
 							<month type="11" references="R046">ذ</month>
 							<month type="12" references="R046">ذ</month>
 						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" references="R046">محرم</month>
-							<month type="2" references="R046">صفر</month>
-							<month type="3" references="R046">ربیع الاول</month>
-							<month type="4" references="R046">ربیع الثانی</month>
-							<month type="5" references="R046">جمادی الاول</month>
-							<month type="6" references="R046">جمادی الثانی</month>
-							<month type="7" references="R046">رجب</month>
-							<month type="8" references="R046">شعبان</month>
-							<month type="9" references="R046">رمضان</month>
-							<month type="10" references="R046">شوال</month>
-							<month type="11" references="R046">ذیقعده</month>
-							<month type="12" references="R046">ذیحجه</month>
-						</monthWidth>
 					</monthContext>
 				</months>
 				<am>قبل از ظهر</am>
+				<pm>بعد از ظهر</pm>
 				<eras>
 					<eraNames>
 						<era type="0" references="R046">هجری قمری</era>
@@ -1526,9 +1463,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-			</calendar>
-			<calendar type="islamic-civil">
-				<pm>بعد از ظهر</pm>
 			</calendar>
 			<calendar type="persian">
 				<months>
@@ -1562,20 +1496,6 @@
 							<month type="10">د</month>
 							<month type="11">ب</month>
 							<month type="12">ا</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">فروردین</month>
-							<month type="2">اردیبهشت</month>
-							<month type="3">خرداد</month>
-							<month type="4">تیر</month>
-							<month type="5">مرداد</month>
-							<month type="6">شهریور</month>
-							<month type="7">مهر</month>
-							<month type="8">آبان</month>
-							<month type="9">آذر</month>
-							<month type="10">دی</month>
-							<month type="11">بهمن</month>
-							<month type="12">اسفند</month>
 						</monthWidth>
 					</monthContext>
 				</months>

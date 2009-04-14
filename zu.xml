@@ -227,29 +227,7 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
-							<quarter type="3" draft="unconfirmed">Q3</quarter>
-							<quarter type="4" draft="unconfirmed">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
-							<quarter type="3" draft="unconfirmed">Q3</quarter>
-							<quarter type="4" draft="unconfirmed">Q4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<am draft="unconfirmed">AM</am>
-				<pm draft="unconfirmed">PM</pm>
 				<eras>
-					<eraNames>
-						<era type="0" draft="unconfirmed">BC</era>
-						<era type="1" draft="unconfirmed">AD</era>
-					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="unconfirmed">BC</era>
 						<era type="1" draft="unconfirmed">AD</era>
@@ -299,11 +277,6 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

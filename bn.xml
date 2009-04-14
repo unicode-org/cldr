@@ -1753,18 +1753,10 @@
 				<pm draft="contributed">অপরাহ্ন</pm>
 				<pm alt="proposed-x1001" draft="unconfirmed">pm</pm>
 				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">সাল</era>
-						<era type="0" alt="proposed-x1001" draft="unconfirmed">সাকা</era>
-					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="contributed">সাল</era>
 						<era type="0" alt="proposed-x1001" draft="unconfirmed">সাকা</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">সাল</era>
-						<era type="0" alt="proposed-x1001" draft="unconfirmed">সাকা</era>
-					</eraNarrow>
 				</eras>
 			</calendar>
 			<calendar type="islamic">
@@ -1815,9 +1807,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="4">রবিউস সানি</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">১</month>
 							<month type="2">২</month>
@@ -1851,58 +1840,15 @@
 				<am>পূর্বাহ্ন</am>
 				<pm>অপরাহ্ন</pm>
 				<eras>
-					<eraNames>
-						<era type="0">যুগ</era>
-					</eraNames>
 					<eraAbbr>
 						<era type="0">যুগ</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0">যুগ</era>
-					</eraNarrow>
 				</eras>
 				<dateTimeFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 					</intervalFormats>
 				</dateTimeFormats>
-			</calendar>
-			<calendar type="islamic-civil">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="wide">
-							<month type="2">সফর</month>
-							<month type="4">রবিউস সানি</month>
-							<month type="5">জমাদিউল আউয়াল</month>
-							<month type="7">রজব</month>
-							<month type="9">রমজান</month>
-							<month type="10">শাওয়াল</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1">১</month>
-							<month type="2">২</month>
-							<month type="3">৩</month>
-							<month type="4">৪</month>
-							<month type="5">৫</month>
-							<month type="6">৬</month>
-							<month type="7">৭</month>
-							<month type="8">৮</month>
-							<month type="9">৯</month>
-							<month type="10">১০</month>
-							<month type="11">১১</month>
-							<month type="12">১২</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<am>অপরাহ্ন</am>
-				<pm>অপরাহ্ন</pm>
-				<eras>
-					<eraAbbr>
-						<era type="0">যুগ</era>
-					</eraAbbr>
-				</eras>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

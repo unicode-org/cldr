@@ -520,58 +520,25 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="unconfirmed">EEEE, d MMMM y G</pattern>
+							<pattern>EEEE, d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="unconfirmed">d MMMM y G</pattern>
+							<pattern>d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="unconfirmed">d MMM y G</pattern>
+							<pattern>d MMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="unconfirmed">dd.MM.yyyy</pattern>
+							<pattern>d.M.yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Md" draft="unconfirmed">dd.MM</dateFormatItem>
-						<dateFormatItem id="yyyyM" draft="unconfirmed">MM.yyyy</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="chinese">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Md" draft="unconfirmed">dd.MM</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="unconfirmed">MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyM" draft="unconfirmed">MM.yyyy</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="coptic">
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">1-шы кв.</quarter>
-							<quarter type="2" draft="unconfirmed">2-гі кв.</quarter>
-							<quarter type="3" draft="unconfirmed">3-ці кв.</quarter>
-							<quarter type="4" draft="unconfirmed">4-ты кв.</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">1-шы квартал</quarter>
-							<quarter type="2" draft="unconfirmed">2-гі квартал</quarter>
-							<quarter type="3" draft="unconfirmed">3-ці квартал</quarter>
-							<quarter type="4" draft="unconfirmed">4-ты квартал</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 			</calendar>
 			<calendar type="gregorian">
 				<months>

@@ -1166,16 +1166,6 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun">أحد</day>
-							<day type="mon">إثنين</day>
-							<day type="mon" alt="proposed-x1001" draft="unconfirmed">اثنين</day>
-							<day type="tue">ثلاثاء</day>
-							<day type="wed">أربعاء</day>
-							<day type="thu">خميس</day>
-							<day type="fri">جمعة</day>
-							<day type="sat">سبت</day>
-						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">ح</day>
 							<day type="mon">ن</day>
@@ -1456,9 +1446,6 @@
 			<calendar type="islamic">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="narrow">
-							<month type="4">ر</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">محرم</month>
 							<month type="2">صفر</month>
@@ -1479,6 +1466,7 @@
 							<month type="1">م</month>
 							<month type="2">ص</month>
 							<month type="3">ر</month>
+							<month type="4">ر</month>
 							<month type="5">ج</month>
 							<month type="6">ج</month>
 							<month type="7">ر</month>
@@ -1503,14 +1491,6 @@
 						<dateFormatItem id="yM">M‏/yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-			</calendar>
-			<calendar type="islamic-civil">
-				<months>
-					<alias source="locale" path="../../calendar[@type='islamic']/months"/>
-				</months>
-				<eras>
-					<alias source="locale" path="../../calendar[@type='islamic']/eras"/>
-				</eras>
 			</calendar>
 			<calendar type="japanese">
 				<eras>

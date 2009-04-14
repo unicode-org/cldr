@@ -78,22 +78,6 @@
 							<month type="12" draft="unconfirmed">N'wendzamhala</month>
 						</monthWidth>
 					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1" draft="unconfirmed">1</month>
-							<month type="2" draft="unconfirmed">2</month>
-							<month type="3" draft="unconfirmed">3</month>
-							<month type="4" draft="unconfirmed">4</month>
-							<month type="5" draft="unconfirmed">5</month>
-							<month type="6" draft="unconfirmed">6</month>
-							<month type="7" draft="unconfirmed">7</month>
-							<month type="8" draft="unconfirmed">8</month>
-							<month type="9" draft="unconfirmed">9</month>
-							<month type="10" draft="unconfirmed">10</month>
-							<month type="11" draft="unconfirmed">11</month>
-							<month type="12" draft="unconfirmed">12</month>
-						</monthWidth>
-					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
@@ -116,17 +100,6 @@
 							<day type="sat" draft="unconfirmed">Mugqivela</day>
 						</dayWidth>
 					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">1</day>
-							<day type="mon" draft="unconfirmed">2</day>
-							<day type="tue" draft="unconfirmed">3</day>
-							<day type="wed" draft="unconfirmed">4</day>
-							<day type="thu" draft="unconfirmed">5</day>
-							<day type="fri" draft="unconfirmed">6</day>
-							<day type="sat" draft="unconfirmed">7</day>
-						</dayWidth>
-					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
@@ -144,62 +117,12 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am draft="unconfirmed">AM</am>
-				<pm draft="unconfirmed">PM</pm>
 				<eras>
-					<eraNames>
-						<era type="0" draft="unconfirmed">BC</era>
-						<era type="1" draft="unconfirmed">AD</era>
-					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="unconfirmed">BC</era>
 						<era type="1" draft="unconfirmed">AD</era>
 					</eraAbbr>
 				</eras>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern draft="unconfirmed">EEEE, y MMMM dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern draft="unconfirmed">y MMMM d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern draft="unconfirmed">y MMM d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="unconfirmed">yy/MM/dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>

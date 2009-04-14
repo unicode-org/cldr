@@ -3822,21 +3822,21 @@ XXX	Code for transations where no currency is involved
     </measurementData>
 	<timezoneData>
 		<mapTimezones type="windows">
+			<mapZone other="AUS Central Standard Time" type="Australia/Darwin"/> <!-- S (GMT+09:30) Darwin -->
+			<mapZone other="AUS Eastern Standard Time" type="Australia/Sydney"/> <!-- D (GMT+10:00) Canberra, Melbourne, Sydney -->
 			<mapZone other="Afghanistan Standard Time" type="Asia/Kabul"/> <!-- S (GMT+04:30) Kabul -->
 			<mapZone other="Alaskan Standard Time" type="America/Anchorage"/> <!-- D (GMT-09:00) Alaska -->
 			<mapZone other="Arab Standard Time" type="Asia/Riyadh"/> <!-- S (GMT+03:00) Kuwait, Riyadh -->
 			<mapZone other="Arabian Standard Time" type="Asia/Dubai"/> <!-- S (GMT+04:00) Abu Dhabi, Muscat -->
 			<mapZone other="Arabic Standard Time" type="Asia/Baghdad"/> <!-- D (GMT+03:00) Baghdad -->
-			<mapZone other="Argentina Standard Time" type="America/Buenos_Aires"/> <!-- D [KB927279] (GMT-03:00) Buenos Aires -->
+			<mapZone other="Argentina Standard Time" type="America/Buenos_Aires"/> <!-- D (GMT-03:00) Buenos Aires -->
 			<mapZone other="Armenian Standard Time" type="Asia/Yerevan"/> <!-- D [XP] (GMT+04:00) Yerevan -->
 			<mapZone other="Atlantic Standard Time" type="America/Halifax"/> <!-- D (GMT-04:00) Atlantic Time (Canada) -->
-			<mapZone other="AUS Central Standard Time" type="Australia/Darwin"/> <!-- S (GMT+09:30) Darwin -->
-			<mapZone other="AUS Eastern Standard Time" type="Australia/Sydney"/> <!-- D (GMT+10:00) Canberra, Melbourne, Sydney -->
 			<mapZone other="Azerbaijan Standard Time" type="Asia/Baku"/> <!-- D (GMT+04:00) Baku -->
 			<mapZone other="Azores Standard Time" type="Atlantic/Azores"/> <!-- D (GMT-01:00) Azores -->
 			<mapZone other="Canada Central Standard Time" type="America/Regina"/> <!-- S (GMT-06:00) Saskatchewan -->
 			<mapZone other="Cape Verde Standard Time" type="Atlantic/Cape_Verde"/> <!-- S (GMT-01:00) Cape Verde Is. -->
-			<mapZone other="Caucasus Standard Time" type="Asia/Tbilisi"/> <!-- S [XP] (GMT+04:00) Caucasus Standard Time -->
+			<mapZone other="Caucasus Standard Time" type="Asia/Yerevan"/> <!-- D (GMT+04:00) Yerevan -->
 			<mapZone other="Cen. Australia Standard Time" type="Australia/Adelaide"/> <!-- D (GMT+09:30) Adelaide -->
 			<mapZone other="Central America Standard Time" type="America/Guatemala"/> <!-- S (GMT-06:00) Central America -->
 			<mapZone other="Central Asia Standard Time" type="Asia/Dhaka"/> <!-- S (GMT+06:00) Astana, Dhaka -->
@@ -3855,24 +3855,26 @@ XXX	Code for transations where no currency is involved
 			<mapZone other="Eastern Standard Time" type="America/New_York"/> <!-- D (GMT-05:00) Eastern Time (US & Canada) -->
 			<mapZone other="Egypt Standard Time" type="Africa/Cairo"/> <!-- D (GMT+02:00) Cairo -->
 			<mapZone other="Ekaterinburg Standard Time" type="Asia/Yekaterinburg"/> <!-- D (GMT+05:00) Ekaterinburg -->
-			<mapZone other="Fiji Standard Time" type="Pacific/Fiji"/> <!-- S (GMT+12:00) Fiji, Kamchatka, Marshall Is. -->
 			<mapZone other="FLE Standard Time" type="Europe/Kiev"/> <!-- D (GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius -->
-			<mapZone other="Georgian Standard Time" type="Etc/GMT-3"/> <!-- S (GMT+03:00) Tbilisi -->
+			<mapZone other="Fiji Standard Time" type="Pacific/Fiji"/> <!-- S (GMT+12:00) Fiji, Kamchatka, Marshall Is. -->
 			<mapZone other="GMT Standard Time" type="Europe/London"/> <!-- D (GMT) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London -->
-			<mapZone other="Greenland Standard Time" type="America/Godthab"/> <!-- D (GMT-03:00) Greenland -->
-			<mapZone other="Greenwich Standard Time" type="Africa/Casablanca"/> <!-- S (GMT) Casablanca, Monrovia, Reykjavik -->
 			<mapZone other="GTB Standard Time" type="Europe/Istanbul"/> <!-- D (GMT+02:00) Athens, Bucharest, Istanbul -->
+			<mapZone other="Georgian Standard Time" type="Etc/GMT-3"/> <!-- S (GMT+03:00) Tbilisi -->
+			<mapZone other="Greenland Standard Time" type="America/Godthab"/> <!-- D (GMT-03:00) Greenland -->
+			<mapZone other="Greenwich Standard Time" type="Africa/Reykjavik"/> <!-- S (GMT) Monrovia, Reykjavik -->
 			<mapZone other="Hawaiian Standard Time" type="Pacific/Honolulu"/> <!-- S (GMT-10:00) Hawaii -->
 			<mapZone other="India Standard Time" type="Asia/Calcutta"/> <!-- S (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi -->
 			<mapZone other="Iran Standard Time" type="Asia/Tehran"/> <!-- D (GMT+03:30) Tehran -->
 			<mapZone other="Israel Standard Time" type="Asia/Jerusalem"/> <!-- D (GMT+02:00) Jerusalem -->
 			<mapZone other="Jordan Standard Time" type="Asia/Amman"/> <!-- D (GMT+02:00) Amman -->
 			<mapZone other="Korea Standard Time" type="Asia/Seoul"/> <!-- S (GMT+09:00) Seoul -->
+			<mapZone other="Mauritius Standard Time" type="Indian/Mauritius"/> <!-- D (GMT+04:00) Port Louis -->
 			<mapZone other="Mexico Standard Time" type="America/Mexico_City"/> <!-- D [XP] (GMT-06:00) Guadalajara, Mexico City, Monterrey - Old -->
 			<mapZone other="Mexico Standard Time 2" type="America/Chihuahua"/> <!-- D [XP] (GMT-07:00) Chihuahua, La Paz, Mazatlan - Old -->
 			<mapZone other="Mid-Atlantic Standard Time" type="Atlantic/South_Georgia"/> <!-- D (GMT-02:00) Mid-Atlantic -->
 			<mapZone other="Middle East Standard Time" type="Asia/Beirut"/> <!-- D (GMT+02:00) Beirut -->
 			<mapZone other="Montevideo Standard Time" type="America/Montevideo"/> <!-- D (GMT-03:00) Montevideo -->
+			<mapZone other="Morocco Standard Time" type="Africa/Casablanca"/> <!-- D (GMT) Casablanca -->
 			<mapZone other="Mountain Standard Time" type="America/Denver"/> <!-- D (GMT-07:00) Mountain Time (US & Canada) -->
 			<mapZone other="Mountain Standard Time (Mexico)" type="America/Chihuahua"/> <!-- (GMT-07:00) Chihuahua, La Paz, Mazatlan -->
 			<mapZone other="Myanmar Standard Time" type="Asia/Rangoon"/> <!-- S (GMT+06:30) Yangon (Rangoon) -->
@@ -3886,13 +3888,14 @@ XXX	Code for transations where no currency is involved
 			<mapZone other="Pacific SA Standard Time" type="America/Santiago"/> <!-- D (GMT-04:00) Santiago -->
 			<mapZone other="Pacific Standard Time" type="America/Los_Angeles"/> <!-- D (GMT-08:00) Pacific Time (US & Canada) -->
 			<mapZone other="Pacific Standard Time (Mexico)" type="America/Tijuana"/> <!-- D (GMT-08:00) Tijuana, Baja California -->
+			<mapZone other="Pakistan Standard Time" type="Asia/Karachi"/> <!-- D (GMT+05:00) Islamabad, Karachi -->
 			<mapZone other="Romance Standard Time" type="Europe/Paris"/> <!-- D (GMT+01:00) Brussels, Copenhagen, Madrid, Paris -->
 			<mapZone other="Russian Standard Time" type="Europe/Moscow"/> <!-- D (GMT+03:00) Moscow, St. Petersburg, Volgograd -->
 			<mapZone other="SA Eastern Standard Time" type="Etc/GMT+3"/> <!-- S (GMT-03:00) Georgetown -->
 			<mapZone other="SA Pacific Standard Time" type="America/Bogota"/> <!-- S (GMT-05:00) Bogota, Lima, Quito, Rio Branco -->
 			<mapZone other="SA Western Standard Time" type="America/La_Paz"/> <!-- S (GMT-04:00) La Paz -->
-			<mapZone other="Samoa Standard Time" type="Pacific/Apia"/> <!-- S (GMT-11:00) Midway Island, Samoa -->
 			<mapZone other="SE Asia Standard Time" type="Asia/Bangkok"/> <!-- S (GMT+07:00) Bangkok, Hanoi, Jakarta -->
+			<mapZone other="Samoa Standard Time" type="Pacific/Apia"/> <!-- S (GMT-11:00) Midway Island, Samoa -->
 			<mapZone other="Singapore Standard Time" type="Asia/Singapore"/> <!-- S (GMT+08:00) Kuala Lumpur, Singapore -->
 			<mapZone other="South Africa Standard Time" type="Africa/Johannesburg"/> <!-- S (GMT+02:00) Harare, Pretoria -->
 			<mapZone other="Sri Lanka Standard Time" type="Asia/Colombo"/> <!-- S (GMT+05:30) Sri Jayawardenepura -->
@@ -3907,7 +3910,7 @@ XXX	Code for transations where no currency is involved
 			<mapZone other="W. Australia Standard Time" type="Australia/Perth"/> <!-- D (GMT+08:00) Perth -->
 			<mapZone other="W. Central Africa Standard Time" type="Africa/Lagos"/> <!-- S (GMT+01:00) West Central Africa -->
 			<mapZone other="W. Europe Standard Time" type="Europe/Berlin"/> <!-- D (GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna -->
-			<mapZone other="West Asia Standard Time" type="Asia/Karachi"/> <!-- S (GMT+05:00) Islamabad, Karachi, Tashkent -->
+			<mapZone other="West Asia Standard Time" type="Asia/Tashkent"/> <!-- S (GMT+05:00) Tashkent -->
 			<mapZone other="West Pacific Standard Time" type="Pacific/Port_Moresby"/> <!-- S (GMT+10:00) Guam, Port Moresby -->
 			<mapZone other="Yakutsk Standard Time" type="Asia/Yakutsk"/> <!-- D (GMT+09:00) Yakutsk -->
 		</mapTimezones>

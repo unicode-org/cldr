@@ -863,7 +863,7 @@ public class CLDRModify {
 			}
 		});
 		
-		fixList.add('q', "fix exemplars", new CLDRFilter() {
+		if (false) fixList.add('q', "fix exemplars", new CLDRFilter() {
 			Collator col;
 			Collator spaceCol;
 			UnicodeSet uppercase = new UnicodeSet("[[:Uppercase:]-[\u0130]]");

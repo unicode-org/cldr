@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -13,15 +15,19 @@ import org.unicode.cldr.util.UnicodeMap;
 import org.unicode.cldr.util.Utility;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.ICUPropertyFactory;
+import com.ibm.icu.dev.test.util.UnicodeProperty;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.text.Normalizer.Mode;
 import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.VersionInfo;
 
 public class FrequencyData {
 
@@ -32,6 +38,9 @@ public class FrequencyData {
   private static final UnicodeSet PRIVATE_USE = new UnicodeSet("[:Co:]");
   static final UnicodeSet NfcNo = (UnicodeSet) new UnicodeSet("[:nfcqc=no:]").freeze();
   static final UnicodeSet NfcMaybe = (UnicodeSet) new UnicodeSet("[:nfcqc=maybe:]").freeze();
+  static final Transliterator fixOutput = Transliterator.createFromRules("fix", "" +
+  		"([[:di:][:whitespace:][:co:]\"'']) > &any-hex/unicode($1) ;" +
+  		"", Transliterator.FORWARD);
   
   private int total;
 //  private Counter<String> langNfcNo = new Counter<String>();
@@ -209,6 +218,9 @@ navboost, pagerank, language, encoding, url
     public int getCodePointAtRank(int rankLevel) {
       return rank2codepoint[rankLevel];
     }
+    public double getFractionOfWhole() {
+      return totalRelative/frequencies.getTotal();
+    }
   }
 
   private RelativeFrequency getRelativeFrequency(UnicodeSet withinSet, Mode compose) {
@@ -220,7 +232,7 @@ navboost, pagerank, language, encoding, url
     nf.setGroupingUsed(true);
   }
 
-  private void showData(int propEnum, UnicodeSet exclusions) {
+  private void showData(String category, int propEnum, UnicodeSet exclusions) {
     for (int i = UCharacter.getIntPropertyMinValue(propEnum); i <= UCharacter.getIntPropertyMaxValue(propEnum); ++i) {
       String valueAlias = UCharacter.getPropertyValueName(propEnum, i, UProperty.NameChoice.LONG);
       String shortValueAlias = UCharacter.getPropertyValueName(propEnum, i, UProperty.NameChoice.SHORT);
@@ -230,14 +242,31 @@ navboost, pagerank, language, encoding, url
       valueChars.applyPropertyAlias(UCharacter.getPropertyName(propEnum, UProperty.NameChoice.SHORT), shortValueAlias);
       valueChars.removeAll(exclusions);
       if (valueChars.size() == 0) continue;
-      showData(shortValueAlias + " - " + valueAlias, valueChars);
+      showData(category, shortValueAlias + " - " + valueAlias, valueChars);
+    }
+  }
+  
+  private void showData2(String category, UnicodeProperty prop, UnicodeSet exclusions, boolean differences) {
+    UnicodeSet last = new UnicodeSet();
+    for (Object value : prop.getAvailableValues()) {
+      String valueAlias = (String) value;
+      //if (valueAlias.equalsIgnoreCase("common") || valueAlias.equalsIgnoreCase("inherited")) continue;
+      UnicodeSet valueChars = new UnicodeSet();
+
+      valueChars.applyPropertyAlias(prop.getName(), valueAlias);
+      valueChars.removeAll(exclusions);
+      if (differences) {
+        valueChars.removeAll(last);
+        last.addAll(valueChars);
+      }
+      if (valueChars.size() == 0) continue;
+      showData(category, valueAlias, valueChars);
     }
   }
 
 
-  private void showData(String title, UnicodeSet valueChars) {
-    RelativeFrequency relative;
-    relative = getRelativeFrequency(valueChars, Normalizer.NFKC);
+  private void showData(String category, String title, UnicodeSet valueChars) {
+    RelativeFrequency relative = getRelativeFrequency(valueChars, null); // Normalizer.NFKC
     UnicodeMap sds = new UnicodeMap();
     for (int rank = 0; rank < relative.getRankCount(); ++rank) {
       int cp = relative.getCodePointAtRank(rank);
@@ -254,7 +283,8 @@ navboost, pagerank, language, encoding, url
     int total = 0;
     UnicodeSet totalSet = new UnicodeSet();
 
-    System.out.print(title + ": " + nf.format(nfkcSize) + "\t");
+    System.out.print(category + "\t" + title + "\t" + nf.format(nfkcSize) + "\t");
+    System.out.print(relative.getFractionOfWhole() + "\t");
     System.out.print(0.0d + "\t");
 
     for (double item = 0.005; item < 1.0; item += item) {
@@ -269,7 +299,23 @@ navboost, pagerank, language, encoding, url
     }
     System.out.print(1.0d + "\t");
 
-    System.out.println(relative.getTotalRelative());
+    System.out.print(relative.getTotalRelative());
+    long maxCount = relative.getRankCount();
+    if (maxCount > 10) {
+      maxCount = 10;
+    }
+    System.out.print('\t');
+    for (int i = 0; i < maxCount; ++i) {
+      if (i != 0) {
+        System.out.print(", ");
+      }
+      final int codePointAtRank = relative.getCodePointAtRank(i);
+      System.out.print(fixOutput.transform(UTF16.valueOf(codePointAtRank)));
+    }
+    if (relative.getRankCount() > maxCount) {
+      System.out.print(", ...");
+    }
+    System.out.println();
   }
 
   public static void main(String[] args) throws IOException {
@@ -277,8 +323,8 @@ navboost, pagerank, language, encoding, url
 
     FrequencyData data = new FrequencyData(frequencyFile);
     writeSummary(data);
-
-    System.out.print("Script" + "\t");
+    
+    System.out.print("Category" + "\t");
     System.out.print(0.0d + "\t");
     for (double item = 0.005; item < 1.0; item += item) {
       System.out.print(item + "\t");
@@ -286,8 +332,9 @@ navboost, pagerank, language, encoding, url
     System.out.print(1.0d + "\t");
     System.out.println("Total");
 
-    data.showData(UCharacter.getPropertyEnum("script"), NO_SCRIPT);
-    data.showData(UCharacter.getPropertyEnum("gc"), new UnicodeSet(NO_SCRIPT).complement());
+    data.showData2("Age", ICUPropertyFactory.make().getProperty("age"), new UnicodeSet("[[:cn:][:co:]]"), true);
+    data.showData("Script/Cat", UCharacter.getPropertyEnum("script"), NO_SCRIPT);
+    data.showData("Script/Cat", UCharacter.getPropertyEnum("gc"), new UnicodeSet(NO_SCRIPT).complement());
 
 
 //    data.showData("Private Use", PRIVATE_USE);

@@ -109,7 +109,6 @@ public class ScriptCategories {
   .removeAll(IPA_EXTENSIONS)
   .freeze();
   static {
-    //System.out.println("Archaic: " + ARCHAIC.size() + ", " + ARCHAIC);
     UnicodeSet knownOk = new UnicodeSet("[\u0392\u0398\u03A0\u03A6\u03B2\u03B8\u03C0\u03C6]");
     final UnicodeSet caseProblems = new UnicodeSet(ARCHAIC).closeOver(UnicodeSet.CASE).removeAll(ARCHAIC).removeAll(knownOk);
     if (caseProblems.size() != 0) {
@@ -715,6 +714,8 @@ public class ScriptCategories {
   }
 
   public static void main(String[] args) throws IOException {
+    System.out.println("Archaic: " + ARCHAIC.size() + ", " + ARCHAIC);
+
     parseUnicodeSet("[[:script=han:]-[:block=CJK Unified Ideographs:]]");
     parseUnicodeSet("[:Lm:]");
     parseUnicodeSet("[:s:]");

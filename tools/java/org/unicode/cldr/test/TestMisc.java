@@ -68,6 +68,15 @@ public class TestMisc {
 
   public static void main(String[] args) {
     
+    Transliterator en_ru = Transliterator.getInstance("en-ru");
+    System.out.println("Mark + " + en_ru.transform("Mark"));
+ 
+    Transliterator latn_cyrl = Transliterator.getInstance("Latn-Cyrl");
+    System.out.println("Mark + " + latn_cyrl.transform("Mark"));
+
+    Transliterator ulatn_ucyrl = Transliterator.getInstance("und_Latn-und_Cyrl");
+    System.out.println("Mark + " + latn_cyrl.transform("Mark"));
+
     Locale locale = new Locale("abc-d αγζθ ?ef_g%hi","abc-d αγζθ ?ef_g%hi","abc-d αγζθ ?ef_g%hi");
 
     System.out.println("Locale locale = new Locale(\"abc-d αγζθ ?ef_g%hi\",\"abc-d αγζθ ?ef_g%hi\",\"abc-d αγζθ ?ef_g%hi\");");

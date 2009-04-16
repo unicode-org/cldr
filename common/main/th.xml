@@ -1001,9 +1001,7 @@
 			<default choice="buddhist"/>
 			<calendar type="buddhist">
 				<am>ก่อนเที่ยง</am>
-				<am alt="proposed-x1001" draft="unconfirmed">AM</am>
 				<pm>หลังเที่ยง</pm>
-				<pm alt="proposed-x1001" draft="unconfirmed">PM</pm>
 				<eras>
 					<eraNames>
 						<era type="0">พุทธศักราช</era>
@@ -1109,12 +1107,12 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
-				<am draft="provisional">ก่อนเที่ยง</am>
-				<pm draft="provisional">หลังเที่ยง</pm>
+				<am>ก่อนเที่ยง</am>
+				<pm>หลังเที่ยง</pm>
 			</calendar>
 			<calendar type="coptic">
-				<am draft="provisional">ก่อนเที่ยง</am>
-				<pm draft="provisional">หลังเที่ยง</pm>
+				<am>ก่อนเที่ยง</am>
+				<pm>หลังเที่ยง</pm>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1462,33 +1460,16 @@
 			<calendar type="hebrew">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="10">สีวัน</month>
-							<month type="11">ตามูซ</month>
-							<month type="12">อัฟ</month>
-							<month type="13">เอลอุล</month>
-						</monthWidth>
 						<monthWidth type="wide">
-							<month type="2">เฮวาน</month>
-							<month type="9">อิยาร์</month>
-							<month type="10">สีวัน</month>
-							<month type="11">ตามูซ</month>
-							<month type="12">อัฟ</month>
-							<month type="13">เอลอุล</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
 							<month type="2">เฮวาน</month>
 							<month type="3">กีสเลฟ</month>
 							<month type="4">เตเวต</month>
 							<month type="5">เชวัต</month>
-							<month type="6">อาดาร์ I</month>
+							<month type="6">อาดาร์  I</month>
 							<month type="7">อาดาร์</month>
 							<month type="8">นิสซาน</month>
-						</monthWidth>
-						<monthWidth type="wide">
 							<month type="9">อิยาร์</month>
+							<month type="10">สีวัน</month>
 							<month type="11">ตามูซ</month>
 							<month type="12">อัฟ</month>
 							<month type="13">เอลอุล</month>
@@ -1502,55 +1483,10 @@
 						<era type="0">ย.ศ.</era>
 					</eraAbbr>
 				</eras>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEEที่ d MMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>d/M/yy</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="HHmm">H:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="MEd">E d/M</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM yyyy</dateFormatItem>
-					</availableFormats>
-					<intervalFormats>
-						<intervalFormatItem id="MMM">
-							<greatestDifference id="M">MMM–MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Md">
-							<greatestDifference id="d">d-d/M</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">M/yyyy - M/yyyy</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">มุฮะร์รอม</month>
-							<month type="2">ซอฟาร์</month>
-							<month type="3">รอบี I</month>
-							<month type="4">รอบี II</month>
-							<month type="5">จุมาดา I</month>
-							<month type="6">จุมาดา II</month>
-							<month type="7">รอจับ</month>
-							<month type="8">ชะอะบาน</month>
-							<month type="9">รอมะดอน</month>
-							<month type="10">เชาวัล</month>
-							<month type="11">ดฮุุอัลกิดะห์</month>
-							<month type="12">ดฮุอัลฮิจจะห์</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">มุฮะร์รอม</month>
 							<month type="2">ซอฟาร์</month>
@@ -1576,38 +1512,7 @@
 					<eraAbbr>
 						<era type="0">ฮ.ศ.</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0">ฮ.ศ.</era>
-					</eraNarrow>
 				</eras>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEEที่ d MMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>d/M/yy</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="HHmm">H:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="MEd">E d/M</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM yyyy</dateFormatItem>
-					</availableFormats>
-					<intervalFormats>
-						<intervalFormatItem id="Md">
-							<greatestDifference id="d">d-d/M</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">M/yyyy - M/yyyy</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
 				<am>ก่อนเที่ยง</am>
@@ -1616,17 +1521,22 @@
 					<eraNames>
 						<era type="0">ทะอิกะ</era>
 						<era type="1">ฮะกุชิ</era>
+						<era type="2">ฮากุโฮ</era>
 						<era type="3">ชุโช</era>
 						<era type="4">ทะอิโฮ</era>
 						<era type="5">เคอุง</era>
 						<era type="6">วะโด</era>
+						<era type="7">เรกิ</era>
 						<era type="8">โยโร</era>
 						<era type="9">จิงกิ</era>
 						<era type="10">เท็มเพียว</era>
 						<era type="11">เท็มเพียว-คัมโป</era>
 						<era type="12">เท็มเพียว-โชโฮ</era>
+						<era type="13">เท็มเพียว-โฮจิ</era>
+						<era type="14">เท็มเพียว-จิงโงะ</era>
 						<era type="15">จิงโงะ-เคอุง</era>
 						<era type="16">โฮกิ</era>
+						<era type="17">เท็นโอ</era>
 						<era type="18">เอ็นเรียะกุ</era>
 						<era type="19">ดะอิโด</era>
 						<era type="20">โคนิง</era>
@@ -1644,6 +1554,7 @@
 						<era type="32">เอ็งงิ</era>
 						<era type="33">เอ็นโช</era>
 						<era type="34">โชเฮ</era>
+						<era type="35">เท็งเงียว</era>
 						<era type="36">เท็นเรียะกุ</era>
 						<era type="37">เท็นโตะกุ</era>
 						<era type="38">โอวะ</era>
@@ -1665,6 +1576,7 @@
 						<era type="54">คันนิง</era>
 						<era type="55">จิอัง</era>
 						<era type="56">มันจุ</era>
+						<era type="57">โชเง็ง</era>
 						<era type="58">โชเรียะกุ</era>
 						<era type="59">โชคีว</era>
 						<era type="60">คันโตะกุ</era>
@@ -1704,6 +1616,7 @@
 						<era type="94">เฮจิ</era>
 						<era type="95">เอเรียะกุ</era>
 						<era type="96">โอโฮ</era>
+						<era type="97">โชกัง</era>
 						<era type="98">เอมัง</era>
 						<era type="99">นินอัง</era>
 						<era type="100">คะโอ</era>
@@ -1743,6 +1656,7 @@
 						<era type="134">โชเง็ง</era>
 						<era type="135">บุนโอ</era>
 						<era type="136">โคโช</era>
+						<era type="137">บุนเอ</era>
 						<era type="138">เค็นจิ</era>
 						<era type="139">โคอัง</era>
 						<era type="140">โชโอ</era>
@@ -1782,6 +1696,7 @@
 						<era type="174">บุนอัง</era>
 						<era type="175">โฮโตะกุ</era>
 						<era type="176">เคียวโตะกุ</era>
+						<era type="177">โคโช</era>
 						<era type="178">โชโระกุ</era>
 						<era type="179">คันโช</era>
 						<era type="180">บุนโช</era>
@@ -1821,6 +1736,7 @@
 						<era type="214">เอ็งเกียว</era>
 						<era type="215">คันเอ็ง</era>
 						<era type="216">โฮเรียะกุ</era>
+						<era type="217">เมวะ</era>
 						<era type="218">อันเอ</era>
 						<era type="219">เท็มเม</era>
 						<era type="220">คันเซ</era>
@@ -2109,11 +2025,6 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="Hm">H:mm</dateFormatItem>
-						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="yyyy">GGG yy</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/GGGGG yy</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM GGGGG yy</dateFormatItem>
@@ -2122,8 +2033,8 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="persian">
-				<am draft="provisional">ก่อนเที่ยง</am>
-				<pm draft="provisional">หลังเที่ยง</pm>
+				<am>ก่อนเที่ยง</am>
+				<pm>หลังเที่ยง</pm>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

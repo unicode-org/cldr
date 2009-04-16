@@ -7,55 +7,6 @@
 		<language type="el"/>
 		<territory type="CY"/>
 	</identity>
-	<localeDisplayNames>
-		<languages>
-			<language type="chb" draft="unconfirmed">Τσίμτσα</language>
-			<language type="cus" draft="unconfirmed">Κουσιτίκ</language>
-			<language type="fy" draft="unconfirmed">Φριζιανά</language>
-			<language type="gn" draft="unconfirmed">Γκουαράνι</language>
-			<language type="ig" draft="unconfirmed">Ιγκό</language>
-			<language type="sma" draft="unconfirmed">Βορρά Σάμι</language>
-			<language type="ssa" draft="unconfirmed">Νιλο-Σαχαρά</language>
-			<language type="zbl" draft="unconfirmed">Blissymbols</language>
-		</languages>
-		<scripts>
-			<script type="Blis" draft="unconfirmed">Blissymbols</script>
-			<script type="Egyd" draft="unconfirmed">Αιγυπτιακό Λαϊκό</script>
-			<script type="Egyh" draft="unconfirmed">Αιγυπτιακό Ιερατικό</script>
-			<script type="Java" draft="unconfirmed">Ιαβανέζικο</script>
-			<script type="Syrn" draft="unconfirmed">Συριακό Ανατολικό</script>
-		</scripts>
-		<territories>
-			<territory type="830" draft="unconfirmed">Νήσοι Καναλιού</territory>
-			<territory type="BJ" draft="unconfirmed">Μπένιν</territory>
-			<territory type="BN" draft="unconfirmed">Μπρουνέι Νταρουσαλάμ</territory>
-			<territory type="CG" draft="unconfirmed">Κονγκό</territory>
-			<territory type="PG" draft="unconfirmed">Παπούα - Νέα Γουινέα</territory>
-			<territory type="SZ">Σουαζηλάνδη</territory>
-		</territories>
-		<types>
-			<type type="roc" key="calendar" draft="unconfirmed">Ημερολόγιο της Δημ. Κίνας</type>
-			<type type="traditional" key="collation" draft="unconfirmed">Παραδοσιακό σειρά ταξινόμησης</type>
-		</types>
-	</localeDisplayNames>
-	<dates>
-		<calendars>
-			<calendar type="gregorian">
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatItem id="yM">
-							<greatestDifference id="M" draft="unconfirmed">MM/MM yyyy</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMd">
-							<greatestDifference id="M" draft="unconfirmed">dd/MM/yy - dd/MM/yy</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">dd/MM/yy - dd/MM/yy</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">dd/MM/yy - dd/MM/yy</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
-		</calendars>
-	</dates>
 	<numbers>
 		<currencyFormats>
 			<currencyFormatLength>
@@ -64,14 +15,6 @@
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
-		<currencies>
-			<currency type="CYP">
-				<symbol>£</symbol>
-			</currency>
-			<currency type="GBP">
-				<symbol>GB£</symbol>
-			</currency>
-		</currencies>
 	</numbers>
 </ldml>
 

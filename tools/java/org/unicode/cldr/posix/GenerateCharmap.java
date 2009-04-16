@@ -85,7 +85,7 @@ public class GenerateCharmap {
     
     public GenerateCharmap(UnicodeSet chars, Charset cs , String codeset) {
         this.cs = cs;
-        if (cs != null) {
+        if (cs != null && ! cs.name().equals("UTF-8")) {
             UnicodeSet csset = new SimpleConverter(cs).getCharset();
         	chars = new UnicodeSet(chars).retainAll(csset);
         }

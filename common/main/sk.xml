@@ -699,6 +699,20 @@
 							<month type="11">n</month>
 							<month type="12">d</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">január</month>
+							<month type="2">február</month>
+							<month type="3">marec</month>
+							<month type="4">apríl</month>
+							<month type="5">máj</month>
+							<month type="6">jún</month>
+							<month type="7">júl</month>
+							<month type="8">august</month>
+							<month type="9">september</month>
+							<month type="10">október</month>
+							<month type="11">november</month>
+							<month type="12">december</month>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -789,7 +803,7 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
+							<pattern>H:mm:ss zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">

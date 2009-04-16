@@ -1046,28 +1046,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="EEEd">EEE, d.</dateFormatItem>
-						<dateFormatItem id="M">L.</dateFormatItem>
-						<dateFormatItem id="MEd">E, d.M.</dateFormatItem>
-						<dateFormatItem id="MMM">LLL.</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d.MMM.</dateFormatItem>
-						<dateFormatItem id="MMMMEd">E, d. MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
-						<dateFormatItem id="MMMd">d.MMM.</dateFormatItem>
-						<dateFormatItem id="Md">d.M.</dateFormatItem>
-						<dateFormatItem id="d">d.</dateFormatItem>
-						<dateFormatItem id="y">y.</dateFormatItem>
-						<dateFormatItem id="yM">M.y.</dateFormatItem>
-						<dateFormatItem id="yMEd">EEE, d.M.y.</dateFormatItem>
-						<dateFormatItem id="yMMM">MMM.y.</dateFormatItem>
-						<dateFormatItem id="yMMMEd">EEE, d.MMM.y.</dateFormatItem>
-						<dateFormatItem id="yMMMM">MMMM, y.</dateFormatItem>
-						<dateFormatItem id="yQ">Q. y.</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ y.</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
 				<dateFormats>
@@ -1092,13 +1070,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMdd">dd.MMMM.</dateFormatItem>
-						<dateFormatItem id="yyQ">Q. yy.</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM.y.</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1113,20 +1084,6 @@
 							<month type="7">07.</month>
 							<month type="8">08.</month>
 							<month type="9">09.</month>
-							<month type="10">10.</month>
-							<month type="11">11.</month>
-							<month type="12">12.</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1.</month>
-							<month type="2">2.</month>
-							<month type="3">3.</month>
-							<month type="4">4.</month>
-							<month type="5">5.</month>
-							<month type="6">6.</month>
-							<month type="7">7.</month>
-							<month type="8">8.</month>
-							<month type="9">9.</month>
 							<month type="10">10.</month>
 							<month type="11">11.</month>
 							<month type="12">12.</month>
@@ -1147,21 +1104,8 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="2">02.</month>
-							<month type="3">03.</month>
-							<month type="4">04.</month>
-							<month type="5">05.</month>
-							<month type="6">06.</month>
-							<month type="7">07.</month>
-							<month type="8">08.</month>
-							<month type="9">09.</month>
-							<month type="10">10.</month>
-							<month type="11">11.</month>
-							<month type="12">12.</month>
-						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1">s</month>
+							<month type="1">1.</month>
 							<month type="2">2.</month>
 							<month type="3">3.</month>
 							<month type="4">4.</month>
@@ -1238,18 +1182,7 @@
 							<quarter type="4">4. kvartal</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="3">3.kv</quarter>
-							<quarter type="4">4.kv</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
-				<am>AM</am>
-				<pm>PM</pm>
 				<eras>
 					<eraNames>
 						<era type="0">Prije Krista</era>
@@ -1487,7 +1420,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d.M.yy.</pattern>
+							<pattern>d.M.yy. G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1535,10 +1468,6 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MEd">E, d.M.</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d.MMM.</dateFormatItem>
-						<dateFormatItem id="MMMd">d.MMM.</dateFormatItem>
-						<dateFormatItem id="Md">d.M.</dateFormatItem>
 						<dateFormatItem id="yyyy">y. G</dateFormatItem>
 						<dateFormatItem id="yyyyM">M.y. G</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">EEE, d.M.y. G</dateFormatItem>

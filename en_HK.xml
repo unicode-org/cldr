@@ -8,73 +8,39 @@
 		<territory type="HK"/>
 	</identity>
 	<localeDisplayNames>
-		<languages>
-			<language type="map">Austronesian</language>
-			<language type="ps">Pashto</language>
-		</languages>
-		<scripts>
-			<script type="Armi">Imperial Aramaic</script>
-			<script type="Cakm">Chakma</script>
-			<script type="Cham">Cham</script>
-			<script type="Thai">Thai</script>
-		</scripts>
-		<types>
-			<type type="pinyin" key="collation">Pinyin Sort Order</type>
-			<type type="stroke" key="collation">Stroke Sort Order</type>
-		</types>
-	</localeDisplayNames>
-	<characters>
-		<exemplarCharacters type="auxiliary" draft="unconfirmed">[á à ă â å ä ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ß ú ù ŭ û ü ū ÿ]</exemplarCharacters>
-	</characters>
 	<dates>
 		<calendars>
-			<calendar type="gregorian">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMdd" draft="unconfirmed">dd/MM</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="unconfirmed">MM/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM y</dateFormatItem>
-					</availableFormats>
-					<intervalFormats>
-						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
-						<intervalFormatItem id="M">
-							<greatestDifference id="M">M-M</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMM">
-							<greatestDifference id="M">MMM-MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="d">
-							<greatestDifference id="d">d-d</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a">h a - h a</greatestDifference>
-							<greatestDifference id="h">h-h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h:mm a - h:mm a</greatestDifference>
-							<greatestDifference id="h">h:mm-h:mm a</greatestDifference>
-							<greatestDifference id="m">h:mm-h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h:mm a - h:mm a v</greatestDifference>
-							<greatestDifference id="h">h:mm-h:mm a v</greatestDifference>
-							<greatestDifference id="m">h:mm-h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a - h a v</greatestDifference>
-							<greatestDifference id="h">h-h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="y">
-							<greatestDifference id="y">y-y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">MMM-MMM y</greatestDifference>
-							<greatestDifference id="y">MMM y - MMM y</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
+			<calendar type="japanese">
+				<eras>
+					<eraAbbr>
+						<era type="161">Bunchū</era>
+						<era type="161" alt="proposed-x1001" draft="unconfirmed">Bunchũ</era>
+						<era type="165">Genchū</era>
+						<era type="165" alt="proposed-x1001" draft="unconfirmed">Genchũ</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, MMMM d, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>MMMM d, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>MMM d, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>G M/d/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -84,7 +50,6 @@
 				<symbol>$</symbol>
 			</currency>
 			<currency type="USD">
-				<displayName>USD</displayName>
 				<symbol>US$</symbol>
 			</currency>
 		</currencies>

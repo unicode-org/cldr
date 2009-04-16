@@ -3236,7 +3236,9 @@
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minut</unitPattern>
+			<unitPattern count="one" alt="short">{0} m</unitPattern>
 			<unitPattern count="other">{0} minuts</unitPattern>
+			<unitPattern count="other" alt="short">{0} m</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} mes</unitPattern>

@@ -146,6 +146,9 @@ public class POSIX_LCMonetary {
    int rightparen_position = monetary_formats[POSITIVE].indexOf(')',decimal_symbol_position);
    int space_position = monetary_formats[POSITIVE].indexOf(' ');
 
+   if (space_position == -1)
+      space_position = monetary_formats[POSITIVE].indexOf('\u00a0');
+
    if ( currency_symbol_position >= 0) 
       if ( currency_symbol_position > decimal_symbol_position )
          p_cs_precedes = "0";
@@ -216,6 +219,9 @@ public class POSIX_LCMonetary {
    leftparen_position = monetary_formats[NEGATIVE].lastIndexOf('(',decimal_symbol_position);
    rightparen_position = monetary_formats[NEGATIVE].indexOf(')',decimal_symbol_position);
    space_position = monetary_formats[NEGATIVE].indexOf(' ');
+
+   if (space_position == -1)
+      space_position = monetary_formats[NEGATIVE].indexOf('\u00a0');
 
    if ( currency_symbol_position >= 0) 
       if ( currency_symbol_position > decimal_symbol_position )

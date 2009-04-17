@@ -1482,21 +1482,12 @@
 			<zone type="Europe/Zurich">
 				<exemplarCity draft="provisional">Zürih</exemplarCity>
 			</zone>
-			<!-- China -->
 			<zone type="Asia/Kashgar">
 				<exemplarCity>Kaşgar</exemplarCity>
 			</zone>
 			<zone type="Asia/Urumqi">
 				<exemplarCity>Urumçi</exemplarCity>
 			</zone>
-			<!-- Antarctica
-				 Argentina
-				 Australia
-				 Brazil
-				 Canada
-				 Chile
-				 China
-			-->
 			<zone type="Asia/Chongqing">
 				<exemplarCity>Çunking</exemplarCity>
 			</zone>
@@ -1530,13 +1521,9 @@
 			<zone type="Africa/El_Aaiun">
 				<exemplarCity draft="provisional">El Ayun</exemplarCity>
 			</zone>
-			<!-- Spain -->
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Kanarya Adaları</exemplarCity>
 			</zone>
-			<!-- Ecuador
-				 Spain
-			-->
 			<zone type="Africa/Ceuta">
 				<exemplarCity>Septe</exemplarCity>
 			</zone>
@@ -1558,11 +1545,6 @@
 			<zone type="Europe/Budapest">
 				<exemplarCity draft="provisional">Budapeşte</exemplarCity>
 			</zone>
-			<!-- Micronesia
-				 United Kingdom
-				 Greenland
-				 Indonesia
-			-->
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Cakarta</exemplarCity>
 			</zone>
@@ -1596,9 +1578,6 @@
 			<zone type="America/Cayman">
 				<exemplarCity draft="provisional">Kayman</exemplarCity>
 			</zone>
-			<!-- Kiribati
-				 Kazakhstan
-			-->
 			<zone type="Asia/Aqtau">
 				<exemplarCity>Aktav</exemplarCity>
 			</zone>
@@ -1635,10 +1614,6 @@
 			<zone type="Europe/Monaco">
 				<exemplarCity draft="provisional">Monako</exemplarCity>
 			</zone>
-			<!-- Marshall Islands
-				 Mali
-				 Mongolia
-			-->
 			<zone type="Asia/Hovd">
 				<exemplarCity>Kobdo</exemplarCity>
 			</zone>
@@ -1663,18 +1638,12 @@
 			<zone type="America/Mexico_City">
 				<exemplarCity>Meksiko City</exemplarCity>
 			</zone>
-			<!-- Mexico
-				 Malaysia
-			-->
 			<zone type="Asia/Kuching">
 				<exemplarCity>Kuçing</exemplarCity>
 			</zone>
 			<zone type="Pacific/Nauru">
 				<exemplarCity draft="provisional">Nauru Adası</exemplarCity>
 			</zone>
-			<!-- New Zealand
-				 French Polynesia
-			-->
 			<zone type="Pacific/Marquesas">
 				<exemplarCity>Markiz Adaları</exemplarCity>
 			</zone>
@@ -1693,7 +1662,6 @@
 			<zone type="Asia/Gaza">
 				<exemplarCity draft="provisional">Gazze</exemplarCity>
 			</zone>
-			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azor Adaları</exemplarCity>
 			</zone>
@@ -1778,7 +1746,6 @@
 			<zone type="America/Indiana/Marengo">
 				<exemplarCity>Marengo</exemplarCity>
 			</zone>
-			<!-- Uzbekistan -->
 			<zone type="Asia/Samarkand">
 				<exemplarCity>Semerkand</exemplarCity>
 			</zone>
@@ -3816,58 +3783,4 @@
 		</messages>
 	</posix>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/tr.txt?only_with_tag=final-update-LDML
-
-BN { "Brunei Dar\u00FCsselam" }
-        FK { "Falkland Adalar\u0131 (Malvinalar)" }    // alternate name { "Falkland Adalar\u0131" }
-        KP { "Kore, Kuzey" }    // alternate name { "Kore Demokratik Halk Cumhuriyeti" }
-        KR { "Kore, G\u00FCney" }    // alternate name { "Kore Cumhuriyeti" }
-LY { "Libya Arap Cemahiriyesi" }
-        TW { "Tayvan, \u00C7in B\u00F6lgesi" }    // alternate name { "Tayvan" }
-zh_cn { "\u00C7ince (Basitle\u015Ftirilmi\u015F)" }
-zh_tw { "\u00C7ince (Geleneksel)" }
-
-Comments without bases
-
- Kiribati 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Enderbury"]
- Marshall Islands 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Kwajalein"]
- Mali 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Bamako"]
- Ecuador 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Galapagos"]
- Indonesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Jakarta"]
- Russia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Kaliningrad"]
- United States 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Adak"]
- Kazakhstan 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Aqtau"]
- Ukraine 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Uzhgorod"]
- Brazil 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Eirunepe"]
- Antarctica 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Antarctica/Rothera"]
- Malaysia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kuala_Lumpur"]
- Canada 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Dawson"]
- Micronesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Yap"]
- Argentina 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Argentina/Rio_Gallegos"]
- United States Minor Outlying Islands 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Midway"]
- Mexico 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Tijuana"]
- United Kingdom 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Belfast"]
- French Polynesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Tahiti"]
- Chile 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Easter"]
- New Zealand 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Chatham"]
- Greenland 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Thule"]
- Mongolia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Hovd"]
- Svalbard and Jan Mayen 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Jan_Mayen"]
- Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
-
-Comments without bases
-
- Portugal
-					 Russia
-					 Svalbard and Jan Mayen
-					 Ukraine
-					 United States Minor Outlying Islands
-					 United States
-					 - was on: //ldml/dates/timeZoneNames/zone[@type="Pacific/Marquesas"]/exemplarCity[@alt="proposed-x650"]
-
-Comments without bases
-
- Democratic Republic of the Congo 	 - was on: //ldml/dates/timeZoneNames/zone[@type="Africa/Kinshasa"]
--->
 

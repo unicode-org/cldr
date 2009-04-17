@@ -1448,7 +1448,6 @@
 			<regionFormat draft="contributed">{0}-tijd</regionFormat>
 			<fallbackFormat draft="contributed">{1} ({0})</fallbackFormat>
 			<fallbackFormat alt="proposed-x1001" draft="unconfirmed">{0} ({1})</fallbackFormat>
-			<!-- Mali -->
 			<zone type="Etc/Unknown">
 				<exemplarCity>Onbekend</exemplarCity>
 			</zone>
@@ -1464,9 +1463,6 @@
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Zuidpool</exemplarCity>
 			</zone>
-			<!-- Antarctica
-				 Argentina
-			-->
 			<zone type="America/Argentina/Rio_Gallegos">
 				<exemplarCity>Río Gallegos</exemplarCity>
 			</zone>
@@ -1485,9 +1481,6 @@
 			<zone type="Asia/Bahrain">
 				<exemplarCity>Bahrein</exemplarCity>
 			</zone>
-			<!-- Australia
-				 Brazil
-			-->
 			<zone type="America/Porto_Velho">
 				<exemplarCity>Pôrto Velho</exemplarCity>
 			</zone>
@@ -1503,7 +1496,6 @@
 			<zone type="America/Maceio">
 				<exemplarCity>Maceió</exemplarCity>
 			</zone>
-			<!-- Canada -->
 			<zone type="America/Montreal">
 				<exemplarCity>Montréal</exemplarCity>
 			</zone>
@@ -1516,7 +1508,6 @@
 			<zone type="Europe/Zurich">
 				<exemplarCity>Zürich</exemplarCity>
 			</zone>
-			<!-- Chile -->
 			<zone type="Pacific/Easter">
 				<exemplarCity>Paaseiland</exemplarCity>
 			</zone>
@@ -1544,7 +1535,6 @@
 			<zone type="Africa/Asmera">
 				<exemplarCity>Asmara</exemplarCity>
 			</zone>
-			<!-- Spain -->
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Canarische Eilanden</exemplarCity>
 			</zone>
@@ -1612,14 +1602,12 @@
 			<zone type="Europe/Luxembourg">
 				<exemplarCity>Luxemburg</exemplarCity>
 			</zone>
-			<!-- Mongolia -->
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulaanbaator</exemplarCity>
 			</zone>
 			<zone type="Indian/Maldives">
 				<exemplarCity>Maldiven</exemplarCity>
 			</zone>
-			<!-- Mexico -->
 			<zone type="America/Mazatlan">
 				<exemplarCity>Mazatlán</exemplarCity>
 			</zone>
@@ -1631,17 +1619,6 @@
 			</zone>
 			<zone type="America/Cancun">
 				<exemplarCity>Cancún</exemplarCity>
-				<!-- Malaysia
-					 New Zealand
-					 French Polynesia
-					 Portugal
-					 Russia
-					 Svalbard and Jan Mayen
-					 Ukraine
-					 United States Minor Outlying Islands
-					 United States
-					 Uzbekistan
-				-->
 			</zone>
 			<zone type="Pacific/Noumea">
 				<exemplarCity>Nouméa</exemplarCity>
@@ -1661,7 +1638,6 @@
 			<zone type="Europe/Warsaw">
 				<exemplarCity>Warschau</exemplarCity>
 			</zone>
-			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azoren</exemplarCity>
 			</zone>
@@ -3910,85 +3886,4 @@
 		<reference type="RP3" uri="URN:ISBN:90-6648-996-0" draft="unconfirmed">Stijlboek NRC Handelsblad</reference>
 	</references>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/nl.txt?only_with_tag=final-update-LDML
-
-Islamic calendar
-                        "Moeharram",            // Muharram
-                        "Safar",                // Safar
-                        "Rabi\u02bba al awal",      // Rabi' al-awwal
-                        "Rabi\u02bba al thani",      // Rabi' al-thani
-                        "Joemad\u02bbal awal",       // Jumada al-awwal
-                        "Joemad\u02bbal thani",      // Jumada al-thani
-                        "Rajab",                // Rajab
-                        "Sja\u02bbaban",             // Sha'ban
-                        "Ramadan",              // Ramadan
-                        "Sjawal",               // Shawwal
-                        "Doe al ka\u02bbaba",        // Dhu al-Qi'dah
-                        "Doe al hizja",         // Dhu al-Hijjah
-                "v. Chr.",  // voor Christus
-                "n. Chr.",  // na Christus
-                        "Tisjrie",      // Tishri
-                        "Chesjwan",     // Heshvan
-                        "Kislev",       // Kislev
-                        "Tevet",        // Tevet
-                        "Sjevat",       // Shevat
-                        "Adar",         // Adar I
-                        "Adar B",       // Adar
-                        "Nisan",        // Nisan
-                        "Ijar",         // Iyar
-                        "Sivan",        // Sivan
-                        "Tammoez",      // Tamuz
-                        "Av",           // Av
-                        "Elloel",       // Elul
-IR { "Iran, Islamitische Republiek" }
-RE { "R\u00E9union" }
-Currency display names
-        vo  { "Volap\u00fck" }   // Yes the iso-639 standard uses the umlaut in the English name
-zh_cn { "Chinees (Vereenvoudigd)" }
-zh_tw { "Chinees (Traditioneel)" }
-        Hans { "Vereenvoudigd Han" } // Not a formal part of ISO-15924 yet
-        Hant { "Traditioneel Han" } // Not a formal part of ISO-15924 yet
-Qaai { "Inherited" } // PUA
-Thai { "Thai" } // Just happens to be a duplicate
-        Zyyy { "Algemeen" } // This may need to become "undetermined script"
-
-Comments without bases
-
- Kiribati 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Enderbury"]
- Marshall Islands 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Kwajalein"]
- Mali 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Bamako"]
- Ecuador 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Galapagos"]
- Indonesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Jakarta"]
- Russia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Kaliningrad"]
- United States 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Adak"]
- Kazakhstan 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Aqtau"]
- Ukraine 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Uzhgorod"]
- Brazil 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Eirunepe"]
- Antarctica 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Antarctica/Rothera"]
- Malaysia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kuala_Lumpur"]
- Canada 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Dawson"]
- Micronesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Yap"]
- Argentina 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Argentina/Rio_Gallegos"]
- United States Minor Outlying Islands 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Midway"]
- Mexico 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Tijuana"]
- Democratic Republic of the Congo 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Kinshasa"]
- United Kingdom 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Belfast"]
- French Polynesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Tahiti"]
- New Zealand 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Chatham"]
- Greenland 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Thule"]
- Mongolia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Hovd"]
- Uzbekistan 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Samarkand"]
- Svalbard and Jan Mayen 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Jan_Mayen"]
- Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
- China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
-
-Comments without bases
-
- <short>
-					 <standard>CTT</standard>
-					 <daylight>CDT</daylight>
-					 </short>
-					 - was on: //ldml/dates/timeZoneNames/zone[@type="Asia/Shanghai"]/exemplarCity[@alt="proposed-u10-1"]
--->
 

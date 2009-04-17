@@ -895,13 +895,6 @@
 						<era type="0">לפני הספירה</era>
 						<era type="1">לספירה</era>
 					</eraNames>
-					<!-- The following data is probably bad. It should probably use \u05F4 instead of &quot;
-						 and it's probably duplicate data.
-						 eraNames>
-						 <era type="0" draft="unconfirmed">לפנה&quot;ס</era>
-						 <era type="1" draft="unconfirmed">לסה&quot;נ</era>
-						 </eraNames
-					-->
 					<eraAbbr>
 						<era type="0">לפנה״ס</era>
 						<era type="1">לסה״נ</era>
@@ -1282,7 +1275,6 @@
 			<zone type="Antarctica/Rothera">
 				<exemplarCity draft="contributed">רות'רה</exemplarCity>
 			</zone>
-			<!-- Antarctica -->
 			<zone type="Antarctica/Palmer">
 				<exemplarCity>אמריקה/פאלמר</exemplarCity>
 			</zone>
@@ -1310,7 +1302,6 @@
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity draft="contributed">מקמרדו</exemplarCity>
 			</zone>
-			<!-- Argentina -->
 			<zone type="America/Mendoza">
 				<exemplarCity>אמריקה/מנדוזה</exemplarCity>
 			</zone>
@@ -1329,7 +1320,6 @@
 			<zone type="Europe/Vienna">
 				<exemplarCity draft="provisional">וינה</exemplarCity>
 			</zone>
-			<!-- Australia -->
 			<zone type="Australia/Perth">
 				<exemplarCity>אוסטרליה/פרת'</exemplarCity>
 			</zone>
@@ -1417,7 +1407,6 @@
 			<zone type="America/Araguaina">
 				<exemplarCity draft="contributed">אראגואינה</exemplarCity>
 			</zone>
-			<!-- Brazil -->
 			<zone type="America/Sao_Paulo">
 				<exemplarCity>אמריקה/סאן-פאולו</exemplarCity>
 			</zone>
@@ -1451,7 +1440,6 @@
 			<zone type="America/Belize">
 				<exemplarCity draft="provisional">בליז</exemplarCity>
 			</zone>
-			<!-- Canada -->
 			<zone type="America/Vancouver">
 				<exemplarCity>אמריקה/ונקובר</exemplarCity>
 			</zone>
@@ -1500,16 +1488,12 @@
 			<zone type="Pacific/Easter">
 				<exemplarCity draft="contributed">איי הפסחא</exemplarCity>
 			</zone>
-			<!-- Democratic Republic of the Congo
-				 Chile
-			-->
 			<zone type="America/Santiago">
 				<exemplarCity>אמריקה/סנטיאגו</exemplarCity>
 			</zone>
 			<zone type="Africa/Douala">
 				<exemplarCity draft="provisional">דואלה</exemplarCity>
 			</zone>
-			<!-- China -->
 			<zone type="Asia/Shanghai">
 				<exemplarCity>אסיה/שנחאי</exemplarCity>
 			</zone>
@@ -1549,7 +1533,6 @@
 			<zone type="Africa/Algiers">
 				<exemplarCity draft="provisional">אלג'יר</exemplarCity>
 			</zone>
-			<!-- Ecuador -->
 			<zone type="Pacific/Galapagos">
 				<exemplarCity>פסיפי/גלאפגוס</exemplarCity>
 			</zone>
@@ -1568,7 +1551,6 @@
 			<zone type="Africa/Asmera">
 				<exemplarCity draft="provisional">אסמרה</exemplarCity>
 			</zone>
-			<!-- Spain -->
 			<zone type="Atlantic/Canary">
 				<exemplarCity>אטלנטי/קנרי</exemplarCity>
 			</zone>
@@ -1677,9 +1659,6 @@
 			<zone type="Europe/Budapest">
 				<exemplarCity draft="provisional">בודפשט</exemplarCity>
 			</zone>
-			<!-- Greenland
-				 Indonesia
-			-->
 			<zone type="Asia/Jakarta">
 				<exemplarCity>אסיה/ג'קרטה</exemplarCity>
 			</zone>
@@ -1758,9 +1737,6 @@
 			<zone type="Asia/Aqtau">
 				<exemplarCity draft="contributed">אקטאו</exemplarCity>
 			</zone>
-			<!-- Kiribati
-				 Kazakhstan
-			-->
 			<zone type="Asia/Oral">
 				<exemplarCity>אסיה/אורל</exemplarCity>
 			</zone>
@@ -1860,9 +1836,6 @@
 			<zone type="Africa/Blantyre">
 				<exemplarCity draft="provisional">בלנטיר</exemplarCity>
 			</zone>
-			<!-- Mongolia
-				 Mexico
-			-->
 			<zone type="America/Mazatlan">
 				<exemplarCity>אמריקה/מזטלן</exemplarCity>
 			</zone>
@@ -1875,7 +1848,6 @@
 			<zone type="America/Cancun">
 				<exemplarCity>אמריקה/קנקון</exemplarCity>
 			</zone>
-			<!-- Malaysia -->
 			<zone type="Asia/Kuala_Lumpur">
 				<exemplarCity>קואלה לומפור</exemplarCity>
 			</zone>
@@ -1915,7 +1887,6 @@
 			<zone type="Pacific/Niue">
 				<exemplarCity draft="provisional">ניווה</exemplarCity>
 			</zone>
-			<!-- New Zealand -->
 			<zone type="Pacific/Auckland">
 				<exemplarCity>פסיפי/אוקלנד</exemplarCity>
 			</zone>
@@ -1928,7 +1899,6 @@
 			<zone type="America/Lima">
 				<exemplarCity draft="provisional">לימה</exemplarCity>
 			</zone>
-			<!-- French Polynesia -->
 			<zone type="Pacific/Tahiti">
 				<exemplarCity>פסיפי/טהיטי</exemplarCity>
 			</zone>
@@ -1965,7 +1935,6 @@
 			<zone type="Atlantic/Azores">
 				<exemplarCity draft="contributed">האיים האזורים</exemplarCity>
 			</zone>
-			<!-- Portugal -->
 			<zone type="Europe/Lisbon">
 				<exemplarCity>אירופה/ליסבון</exemplarCity>
 			</zone>
@@ -1984,7 +1953,6 @@
 			<zone type="Europe/Bucharest">
 				<exemplarCity draft="provisional">בוקרשט</exemplarCity>
 			</zone>
-			<!-- Russia -->
 			<zone type="Europe/Moscow">
 				<exemplarCity>אירופה/מוסקבה</exemplarCity>
 			</zone>
@@ -2093,9 +2061,6 @@
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity draft="provisional">דאר א-סאלם</exemplarCity>
 			</zone>
-			<!-- Svalbard and Jan Mayen
-				 Ukraine
-			-->
 			<zone type="Europe/Kiev">
 				<exemplarCity>אירופה/קייב</exemplarCity>
 			</zone>
@@ -2111,9 +2076,6 @@
 			<zone type="Pacific/Wake">
 				<exemplarCity draft="contributed">וואק</exemplarCity>
 			</zone>
-			<!-- United States Minor Outlying Islands
-				 United States
-			-->
 			<zone type="Pacific/Honolulu">
 				<exemplarCity>פסיפי/הונולולו</exemplarCity>
 			</zone>
@@ -2153,7 +2115,6 @@
 			<zone type="America/Montevideo">
 				<exemplarCity draft="provisional">מונטווידאו</exemplarCity>
 			</zone>
-			<!-- Uzbekistan -->
 			<zone type="Asia/Samarkand">
 				<exemplarCity>אסיה/סמרקנד</exemplarCity>
 			</zone>
@@ -2950,13 +2911,4 @@
 		<reference type="RP2" draft="contributed">Even-Shoshan dictionary</reference>
 	</references>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/he.txt?only_with_tag=final-update-LDML
-
-        KP { "\u05E7\u05D5\u05E8\u05D9\u05D0\u05D4, \u05E6\u05E4\u05D5\u05DF" }    // alternate name { "\u05E7\u05D5\u05E8\u05D9\u05D0\u05D4, \u05D4\u05E8\u05E4\u05D5\u05D1\u05DC\u05D9\u05E7\u05D4 \u05D4\u05D3\u05DE\u05D5\u05E7\u05E8\u05D8\u05D9\u05EA \u05D4\u05E2\u05DE\u05DE\u05D9\u05EA" }
-        KR { "\u05E7\u05D5\u05E8\u05D9\u05D0\u05D4, \u05D3\u05E8\u05D5\u05DD" }    // alternate name { "\u05E7\u05D5\u05E8\u05D9\u05D0\u05D4, \u05D4\u05E8\u05E4\u05D5\u05D1\u05DC\u05D9\u05E7\u05D4" }
-        SY { "\u05D4\u05E8\u05E4\u05D5\u05D1\u05DC\u05D9\u05E7\u05D4 \u05D4\u05E2\u05E8\u05D1\u05D9\u05EA \u05D4\u05E1\u05D5\u05E8\u05D9\u05EA" }    // alternate name { "\u05E1\u05D5\u05E8\u05D9\u05D4" }
-zh_cn { "\u05E1\u05D9\u05E0\u05D9\u05EA (\u05DE\u05E4\u05D5\u05E9\u05D8\u05EA)" }
-zh_tw { "\u05E1\u05D9\u05E0\u05D9\u05EA (\u05DE\u05E1\u05D5\u05E8\u05EA\u05D9\u05EA)" }
--->
 

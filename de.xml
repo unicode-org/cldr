@@ -1549,7 +1549,6 @@
 			<zone type="Europe/Zurich">
 				<exemplarCity>Zürich</exemplarCity>
 			</zone>
-			<!-- Chile -->
 			<zone type="Pacific/Easter">
 				<exemplarCity>Osterinsel</exemplarCity>
 			</zone>
@@ -1580,7 +1579,6 @@
 			<zone type="Africa/El_Aaiun">
 				<exemplarCity>El Aaiún</exemplarCity>
 			</zone>
-			<!-- Spain -->
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Kanaren</exemplarCity>
 			</zone>
@@ -1752,7 +1750,6 @@
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>Daressalam</exemplarCity>
 			</zone>
-			<!-- Ukraine -->
 			<zone type="Europe/Uzhgorod">
 				<exemplarCity>Uschgorod</exemplarCity>
 			</zone>
@@ -3094,118 +3091,4 @@
 		<reference type="RP7" uri="http://waldkauz.bibliothek.uni-augsburg.de/kfe/kkb_mab_037.html">Sprachencode nach ISO 639.2</reference>
 	</references>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/de.txt?only_with_tag=final-update-LDML
-
-Country names in de, de_AT, and de_CH are short names from the
-list of names maintained by the German
-Federal Permanent Committee for Geographic Names,
-Sta"ndiger Ausschuss fu"r Geographische Namen (StAGN),
-as published at its web site at
-http://www.ifag.de/kartographie/Stagn/Staatennamen.htm
-Date there: 1999-apr-19
-Note 2003-sep-19: The site seems to have moved to
-http://www.bkg.bund.de/kartographie/stagn/Staatennamen.htm
-This shouldn't be used, but valid data should be here.
-vorm. -> vormittags -> in the morning
-nachm. -> nachmittags -> in the afternoon
-Currency display names
-See for example "W\u00e4hrungscodes" at
-http://www-cik.uni-paderborn.de/vddk/Dokumentationen/Dokumentation_IDM_1_3/ISO-Tabellen/Wahrungscodes/body_wahrungscodes.html
-(On the page it says "Quelle: gem\u00e4\u00df ISO 4217 3-alpha-code (Stand: Juli 2000)"
-and "Verzeichnis der ISO-Codes f\u00FCr W\u00e4hrung mit Land".)
-See also http://umrechnen.de/
-        BOV { "BOV", "Mvdol" } // financial instrument
-BY { "Belarus" }  // AKA Wei\u00DFrussland
-CI { "C\u00F4te d\u0092Ivoire" }
-RE { "R\u00E9union" }
-some entries that are not in the official list:
-For the languages, I am trying to use the adjective list in the
-official list of country names.
-Sometimes I am guessing.
-Markus Scherer, 2000jun01
-I just found http://suchfix.uni-muenster.de/vifanie/NedGuideDt/help/languagecode.html
-(which is not entirely reliable, contains some English names).
-Generally cross-checking with google.de (search for the language name + "Sprache")
-and with other CLDR data.
-Markus 2003-dec-12
-Fallback{ "en" } // commented out because it's too unreliable
-in  { "Indonesisch" }  // Use "id" instead
-iw { "Hebr\u00e4isch" }// Use he instead
-ji  { "Jiddisch" }  // Use "yi" instead
-jw  { "Javanisch" } // Use jv instead
-        jv  { "Javanisch" } // more google.de hits than Javanesisch
-        la  { "Latein" } // Lateinisch doesn't seem correct
-        ml  { "Malayalam" } // do not confuse with ms Malaiisch
-        ms  { "Malaiisch" } // less often: Malaysisch, Malayisch
-        nl  { "Niederl\u00e4ndisch" } // "Holl\u00e4ndisch" is not correct
-        om  { "Oromo" } // also mentioned: Afan, Oromiffa
-        rw  { "Rwanda-Sprache" } // Kinyarwanda?
-        sd  { "Sindhi" } // less often Zinti
-        sn  { "Shona" } // looks like Shona is a language in Zimbabwe while Schonisch is a Danish dialect
-        so  { "Somali" } // "Somalisch" is the adjectiv in the country list but less frequent on google.de
-        tk  { "Turkmenisch" } // "T\u00fcrkmenisch" is a typo
-        tn  { "Tswana-Sprache" } // language of Botswana, also Tswana, very rarely Tsuana; Sezuan is in China
-        tw  { "Twi" } // spoken in Ghana
-        wo  { "Wolof" } // in Senegal
-        xh  { "Xhosa" } // in South Africa
-        za  { "Zhuang" } // in China
-        zap { "Zapotekisch" } // in Mexico
-        "Latn",  // ISO 15924 Name 
-I "verified" each of these by searching www.google.de for
-"Bopomofo Schrift", "Koptische Schrift", etc.
-Ones that are commented out and have no further comment I don't know
-and could not find.
-Note: The script names in German that are used directly as English or
-native transliterated names are often used with a dash between them and
-"Schrift", e.g., "Kannada-Schrift".
-Other script names are used as in "Arabische Schrift".
-Sometimes I included "Schrift" in the display name here because it
-would not make any sense without it, even with "Schrift" in a higher-level
-menu or similar.
-markus 2003-nov-20
-Buhd { "Buhid" }
-Cans { "Unified Canadian Aboriginal Symbols" }
-Dsrt { "Deseret" }
-Hano { "Hanunoo" }
-Shaw { "Shavian" }
-Tagb { "Tagbanwa" }
-Tale { "Tai Le" }
-Thaa { "Thaana" }
-Thai { "Thai" } // Just happens to be a duplicate - in German, too
-
-Comments without bases
-
- Kiribati 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Enderbury"]
- Marshall Islands 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Kwajalein"]
- Mali 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Bamako"]
- Ecuador 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Galapagos"]
- Indonesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Jakarta"]
- Russia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Kaliningrad"]
- United States 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Adak"]
- Kazakhstan 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Aqtau"]
- Portugal 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Madeira"]
- Brazil 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Eirunepe"]
- Antarctica 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Antarctica/Rothera"]
- Malaysia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kuala_Lumpur"]
- Canada 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Dawson"]
- Micronesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Yap"]
- Argentina 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Argentina/Rio_Gallegos"]
- United States Minor Outlying Islands 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Midway"]
- Mexico 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Tijuana"]
- Democratic Republic of the Congo 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Kinshasa"]
- United Kingdom 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Belfast"]
- French Polynesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Tahiti"]
- New Zealand 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Chatham"]
- Greenland 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Thule"]
- Mongolia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Hovd"]
- Uzbekistan 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Samarkand"]
- Svalbard and Jan Mayen 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Jan_Mayen"]
- Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
- China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
-
-Comments without bases
-
- <territory type="057">Mikronesien</territory> 	 - was on: //ldml/localeDisplayNames/territories/territory[@type="057"][@alt="proposed-u212-1"]
--->
 

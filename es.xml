@@ -1437,7 +1437,6 @@
 			<zone type="Europe/Zurich">
 				<exemplarCity>Zúrich</exemplarCity>
 			</zone>
-			<!-- Chile -->
 			<zone type="Pacific/Easter">
 				<exemplarCity>Isla de Pascua</exemplarCity>
 			</zone>
@@ -1477,7 +1476,6 @@
 			<zone type="Africa/Cairo">
 				<exemplarCity>El Cairo</exemplarCity>
 			</zone>
-			<!-- Spain -->
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Islas Canarias</exemplarCity>
 			</zone>
@@ -1619,7 +1617,6 @@
 			<zone type="America/Panama">
 				<exemplarCity>Panamá</exemplarCity>
 			</zone>
-			<!-- French Polynesia -->
 			<zone type="Pacific/Tahiti">
 				<exemplarCity>Tahití</exemplarCity>
 			</zone>
@@ -1647,7 +1644,6 @@
 			<zone type="Europe/Bucharest">
 				<exemplarCity>Bucarest</exemplarCity>
 			</zone>
-			<!-- Russia -->
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Kaliningrado</exemplarCity>
 			</zone>
@@ -3748,74 +3744,4 @@
 		<reference type="RP3" uri="http://es.encarta.msn.com/artcenter_/browse.html">Enciclopedia Encarta</reference>
 	</references>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/es.txt?only_with_tag=final-update-LDML
-
-                "a.C.",  // Said to be a.C. for antes de Cristo
-                "d.C.",  // Said to be d.C. for despu\u00E9s de Cristo
-CZ { "Chequia" } // Old value
-        FK { "Islas Falkland (Malvinas)" }    // alternate name { "Islas Malvinas" }
-FM { "Micronesia, Estados Federados de" }
-        KP { "Corea del Norte" }    // alternate name { "Corea, Rep\u00FAblica Popular Democr\u00E1tica de" }
-        KR { "Corea del Sur" }    // alternate name { "Corea, Rep\u00FAblica de " }
-LA { "Rep\u00FAblica Democr\u00E1tica Popular Lao" } // From translation center
-LC { "Santa Lucia" }
-MD { "Moldavia, Rep\u00FAblica de" }
-MK { "Macedonia, Antigua Rep\u00FAblica Yugoslava de" }    // alternate name { "Macedonia, Rep\u00FAblica de" }
-PH { "Islas Filipinas" }  // Original value
-RE { "Reuni\u00F3n" }
-RU { "Federaci\u00F3n Rusa" } // From translation center
-        SH { "Santa Elena" } // From translation center
-SR { "Surinam" }
-UM { "Islas Perif\u00E9ricas Menores de los Estados Unidos" } // Old value
-VA { "Santa Sede (Ciudad del Vaticano)" }
-Currency display names
-You may find this source useful too: http://publications.eu.int/code/es/es-5000500.htm
-XPS { "XPS", "libra esterlina" }
-XSS { "XSS", "chel\u00EDn esterlino" }
-Spanish does not capitalize the language names like English
-        root{"ra\u00EDz" }    // The only exception to ISO-639
-        gu  { "gujarati" } // If this changes, then change Gujr in Scripts too.
-        km  { "jemer" } // If this changes, then change Khmr in Scripts too.
-        kn  { "canar\u00e9s" } // If this changes, then change Knda in Scripts too.
-lv { "let\u00F3n" } // Old value
-        "Latn",  // ISO 15924 Name 
-u umlaut \u00fc is a rare character.
-It can be found in words like multilig\u00fce, ag\u00fcita and Itag\u00fc\u00ed
-        Cprt { "chipriota" } // grecochipriota?
-        Hans { "han simplificado" } // Not a formal part of ISO-15924 yet
-        Hant { "han tradicional" } // Not a formal part of ISO-15924 yet
-? Qaai { "inherited" } // PUA  Difficult to translate
-        Zyyy { "com\u00FAn" } // This may need to become "undetermined script"
-The following should probably be all lowercase.
-
-Comments without bases
-
- Kiribati 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Enderbury"]
- Marshall Islands 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Kwajalein"]
- Mali 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Bamako"]
- Ecuador 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Galapagos"]
- Indonesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Jakarta"]
- United States 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Adak"]
- Kazakhstan 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Aqtau"]
- Ukraine 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Uzhgorod"]
- Portugal 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Azores"]
- Brazil 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Eirunepe"]
- Antarctica 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Antarctica/Rothera"]
- Malaysia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kuala_Lumpur"]
- Canada 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Dawson"]
- Micronesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Yap"]
- Argentina 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Argentina/Rio_Gallegos"]
- United States Minor Outlying Islands 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Midway"]
- Mexico 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Tijuana"]
- Democratic Republic of the Congo 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Kinshasa"]
- United Kingdom 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Belfast"]
- New Zealand 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Chatham"]
- Greenland 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Thule"]
- Mongolia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Hovd"]
- Uzbekistan 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Samarkand"]
- Svalbard and Jan Mayen 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Jan_Mayen"]
- Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
- China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
--->
 

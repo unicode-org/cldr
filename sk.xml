@@ -767,12 +767,6 @@
 				<am>dopoludnia</am>
 				<pm>popoludní</pm>
 				<eras>
-					<!-- These era names look like abbreviations and not full names.
-						 eraNames>
-						 <era type="0" draft="unconfirmed">pred nl.</era>
-						 <era type="1" draft="unconfirmed">nl.</era>
-						 </eraNames
-					-->
 					<eraAbbr>
 						<era type="0">pred n.l.</era>
 						<era type="1">n.l.</era>
@@ -1927,19 +1921,4 @@
 		</messages>
 	</posix>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/sk.txt?only_with_tag=final-update-LDML
-
-AQ { "Antarkt\u00EDda" }
-        KP { "K\u00F3rea, Severn\u00E1" }    // alternate name { "K\u00F3rea, \u013Eudovodemokratick\u00E1 republika" }
-        KR { "K\u00F3rea, Ju\u017En\u00E1" }    // alternate name { "K\u00F3rea, republika" }
-SK { "Slovensko" } // From translation center
-        SY { "S\u00FDrska arabsk\u00E1 republika" }    // alternate name { "S\u00FDria" }
-sk { "Sloven\u010Dina" } // Old value
-zh_cn { "\u010D\u00EDnsky (zjednodu\u0161en\u00FD)" }
-zh_tw { "\u010D\u00EDnsky (tradi\u010Dn\u00FD)" }
-        "Latn",  // ISO 15924 Name 
-Currency display names
-                        "Nede\u013Ea", // Is this Nede\u013Ea or Nede\u013Ee?
--->
 

@@ -1531,14 +1531,12 @@
 			<zone type="Africa/Algiers">
 				<exemplarCity draft="provisional">Argel</exemplarCity>
 			</zone>
-			<!-- Ecuador -->
 			<zone type="Pacific/Galapagos">
 				<exemplarCity>Galápagos</exemplarCity>
 			</zone>
 			<zone type="America/Guayaquil">
 				<exemplarCity>Guaiaquil</exemplarCity>
 			</zone>
-			<!-- Spain -->
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Canárias</exemplarCity>
 			</zone>
@@ -1578,7 +1576,6 @@
 			<zone type="Europe/Budapest">
 				<exemplarCity draft="provisional">Budapeste</exemplarCity>
 			</zone>
-			<!-- Indonesia -->
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Jacarta</exemplarCity>
 			</zone>
@@ -1663,7 +1660,6 @@
 			<zone type="America/Panama">
 				<exemplarCity draft="provisional">Panamá</exemplarCity>
 			</zone>
-			<!-- French Polynesia -->
 			<zone type="Pacific/Tahiti">
 				<exemplarCity>Taiti</exemplarCity>
 			</zone>
@@ -1673,7 +1669,6 @@
 			<zone type="America/Puerto_Rico">
 				<exemplarCity draft="provisional">Porto Rico</exemplarCity>
 			</zone>
-			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Açores</exemplarCity>
 			</zone>
@@ -4383,57 +4378,4 @@
 		<reference type="RP1" uri="http://pt.wikipedia.org">Wikipedia_PT</reference>
 	</references>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/pt.txt?only_with_tag=final-update-LDML
-
-The vast majority of this data is based on the pt_BR locale.
-The pt_PT locale should be used when Portugal Portuguese is needed.
-                "a.C.", // antes de Cristo 
-                "d.C.", // depois de Cristo
-BN { "Brunei Darussalam" }
-CN { "China (PRC)" }
-        KP { "Cor\u00E9ia, Norte" }    // alternate name { "Cor\u00E9ia, Rep\u00FAblica Popular Democr\u00E1tica da " }
-        KR { "Cor\u00E9ia, Sul" }    // alternate name { "Cor\u00E9ia, Rep\u00FAblica da" }
-Currency display names
-        AFA { "AFA", "Afegane (1927-2002)" } // 1927- 
-        bla { "siksika" }   // Blackfoot
-ijo { "ijo" }
-luo { "luo" }
-tiv { "tiv" }
-vai { "vai" }
-        Hans { "han simplificado" } // Not a formal part of ISO-15924 yet
-        Hant { "han tradicional" } // Not a formal part of ISO-15924 yet
-        Qaai { "herdado" } // PUA
-        Thai { "tailand\u00eas" } // Just happens to be a duplicate
-        Zyyy { "comum" } // This may need to become "undetermined script"
-PREEURO { "Pr\u00e9-Euro" }
-
-Comments without bases
-
- Kiribati 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Enderbury"]
- Marshall Islands 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Kwajalein"]
- Mali 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Bamako"]
- Russia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Kaliningrad"]
- United States 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Adak"]
- Kazakhstan 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Aqtau"]
- Ukraine 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Uzhgorod"]
- Brazil 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Eirunepe"]
- Antarctica 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Antarctica/Rothera"]
- Malaysia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kuala_Lumpur"]
- Canada 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Dawson"]
- Micronesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Yap"]
- Argentina 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Argentina/Rio_Gallegos"]
- United States Minor Outlying Islands 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Midway"]
- Mexico 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Tijuana"]
- Democratic Republic of the Congo 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Kinshasa"]
- United Kingdom 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Belfast"]
- Chile 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Easter"]
- New Zealand 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Chatham"]
- Greenland 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Thule"]
- Mongolia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Hovd"]
- Uzbekistan 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Samarkand"]
- Svalbard and Jan Mayen 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Jan_Mayen"]
- Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
- China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
--->
 

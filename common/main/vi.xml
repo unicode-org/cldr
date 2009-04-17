@@ -1063,26 +1063,4 @@
 		</messages>
 	</posix>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/vi.txt?only_with_tag=final-update-LDML
-
-Note many of the country names have dashes in the name. This seems to be correct.
-Translations that are done poorly seem to remove them. This doesn't mean that all the dashes are correct,
-but care should be taken before removing them.
-        AT { "\u00c1o" } // \u00c1o Qu\u1ed1c ?
-        AU { "\u00dac" } // \u00dac \u0110\u1ea1i L\u1ee3i?
-HK { "H\u1ED3ng K\u00F4ng SAR Trung Qu\u1ed1c" }  // "H\u1ED3ng K\u00F4ng" is original form. SAR needs translation.
-        ID { "Nam D\u01b0\u01a1ng" } // or maybe also In-\u0111\u00f4-n\u00ea-xi-a
-        IT { "\u00DD" } // The less frequent form of this country is "I-ta-li-a"
-        KP { "B\u1eafc Tri\u1ec1u Ti\u00ean" } // Alt name?: C\u1ed9ng h\u00f2a D\u00e2n ch\u1ee7 Nh\u00e2n d\u00e2n Tri\u1ec1u Ti\u00ean
-        US { "Hoa K\u1ef3" } // M\u1ef9 = slang abbreviated form of US; Hoa K\u1ef3 = US; H\u1ee3p ch\u00fang qu\u1ed1c Hoa k\u1ef3 = USA 
-        VND { "\u0111", "\u0111\u1ED3ng" } // Vietnamese Dong. More people use \u0111 rather than \u20AB
-The case of the letters may be wrong for languages because Ti\u1EBFng is used.
-Ti\u1EBFng is used in order to clarify some of the names, and ti\u1EBFng means "language".
-Ti\u1EBFng is used to differentiate similar words like English from England and German from Germany,
-which are frequently the same in Vietnamese.
-It is difficult to decide whether Ti\u1EBFng should precede the translation, but it doesn't hurt to keep it there.
-        it { "Ti\u1EBFng \u00DD" } // Just \u00DD seems okay because Ti\u1EBFng is used. \u00DD is sometimes used to mean Italy too.
-        "Latn",  // ISO 15924 Name
--->
 

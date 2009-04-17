@@ -1426,7 +1426,6 @@
 			<zone type="America/Anguilla">
 				<exemplarCity draft="unconfirmed">Angúilla</exemplarCity>
 			</zone>
-			<!-- Antarctica -->
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity draft="contributed">Suðurpóllinn</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">suðurpóllinn</exemplarCity>
@@ -1465,10 +1464,6 @@
 			<zone type="America/Belize">
 				<exemplarCity draft="unconfirmed">Belís</exemplarCity>
 			</zone>
-			<!-- Australia
-				 Brazil
-				 Canada
-			-->
 			<zone type="America/Regina">
 				<exemplarCity draft="contributed">Regína</exemplarCity>
 			</zone>
@@ -1502,10 +1497,6 @@
 			<zone type="Africa/Cairo">
 				<exemplarCity draft="unconfirmed">Kaíró</exemplarCity>
 			</zone>
-			<!-- China
-				 Ecuador
-				 Spain
-			-->
 			<zone type="Atlantic/Canary">
 				<exemplarCity draft="contributed">Kanaríeyjar</exemplarCity>
 			</zone>
@@ -1617,17 +1608,6 @@
 			<zone type="Indian/Maldives">
 				<exemplarCity draft="unconfirmed">Maldíveyjar</exemplarCity>
 			</zone>
-			<!-- Micronesia
-				 United Kingdom
-				 Greenland
-				 Indonesia
-				 Kiribati
-				 Kazakhstan
-				 Marshall Islands
-				 Mali
-				 Mongolia
-				 Mexico
-			-->
 			<zone type="America/Mexico_City">
 				<exemplarCity draft="contributed">Mexíkóborg</exemplarCity>
 			</zone>
@@ -1652,7 +1632,6 @@
 			<zone type="America/Puerto_Rico">
 				<exemplarCity draft="unconfirmed">Púertó Ríkó</exemplarCity>
 			</zone>
-			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
 				<exemplarCity draft="contributed">Azoreyjar</exemplarCity>
 			</zone>
@@ -1668,15 +1647,8 @@
 			<zone type="Europe/Bucharest">
 				<exemplarCity draft="unconfirmed">Búkarest</exemplarCity>
 			</zone>
-			<!-- Russia -->
 			<zone type="Europe/Moscow">
 				<exemplarCity draft="contributed">Moskva</exemplarCity>
-				<!-- Svalbard and Jan Mayen
-					 Ukraine
-					 United States Minor Outlying Islands
-					 United States
-					 Uzbekistan
-				-->
 			</zone>
 			<zone type="Europe/Stockholm">
 				<exemplarCity draft="unconfirmed">Stokkhólmur</exemplarCity>
@@ -2419,25 +2391,4 @@
 		</messages>
 	</posix>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/is.txt?only_with_tag=final-update-LDML
-
-CS { "Serb\u00eda og Svartfjallaland" } // TODO: if we allow this, then SP must go away
-MM { "B\u00farma" } // Burma? Should be Myanmar?
-        "Latn",  // ISO 15924 Name
-
-Comments without bases
-
- New Zealand
-				 French Polynesia
-				 - was on: //ldml/dates/timeZoneNames/zone[@type="Pacific/Tahiti"]
- Malaysia 	 - was on: //ldml/dates/timeZoneNames/zone[@type="Asia/Kuala_Lumpur"]
- Democratic Republic of the Congo
-				 Chile
-				 - was on: //ldml/dates/timeZoneNames/zone[@type="America/Santiago"]
-
-Comments without bases
-
- Argentina 	 - was on: //ldml/dates/timeZoneNames/zone[@type="America/Buenos_Aires"]
--->
 

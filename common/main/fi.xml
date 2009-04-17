@@ -1492,7 +1492,6 @@
 			<zone type="Europe/Zurich">
 				<exemplarCity>Zürich</exemplarCity>
 			</zone>
-			<!-- Chile -->
 			<zone type="Pacific/Easter">
 				<exemplarCity>Pääsiäissaari</exemplarCity>
 			</zone>
@@ -1523,7 +1522,6 @@
 			<zone type="Africa/Cairo">
 				<exemplarCity>Kairo</exemplarCity>
 			</zone>
-			<!-- Spain -->
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Kanariansaaret</exemplarCity>
 			</zone>
@@ -1613,7 +1611,6 @@
 			<zone type="Europe/Warsaw">
 				<exemplarCity>Varsova</exemplarCity>
 			</zone>
-			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azorit</exemplarCity>
 			</zone>
@@ -4266,60 +4263,4 @@
 		<reference type="R055" uri="http://kontu.merri.net/wiki/Etusivu">KontuWiki</reference>
 	</references>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/fi.txt?only_with_tag=final-update-LDML
-
-eras {
-islamic
- "AH"   // Anno Hid\u017Era (in root)
-AE { "Yhdistyneet Arabiemiraatit" } // Old value
-HK { "Hongknog, erit.hall.alue" } // Old value
-        KP { "Pohjois-Korea" }    // alternate name { "Korean demokraattinen kansantasavalta" }
-        KR { "Korean tasavalta" }    // alternate name { "Etel\u00E4-Korea" }
-MK { "Makedonia (FYR)" } // Old value
-MO { "Macao, erit.hall.alue" } // Old value
-NZ { "Uusi-Seelanti" } // From translation center
-TL { "Timor-Leste" }
-TW { "Kiinan maakunta Taiwan" }
-        ba  { "ba\u0161kiiri" }  // This is not baski
-        bla { "mustajalka" }   // Blackfoot
-ijo { "ijo" }
-luo { "luo" }
-tiv { "tiv" }
-vai { "vai" }
-        vo  { "volap\u00fck" }   // Yes the iso-639 standard uses the umlaut in the English name
-        Hans { "Yksinkertainen han" } // Not a formal part of ISO-15924 yet
-        Hant { "Perinteinen han" } // Not a formal part of ISO-15924 yet
-        Zyyy { "Yleinen" } // This may need to become "undetermined script"
-
-Comments without bases
-
- Kiribati 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Enderbury"]
- Marshall Islands 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Kwajalein"]
- Mali 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Bamako"]
- Ecuador 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Galapagos"]
- Indonesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Jakarta"]
- Russia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Kaliningrad"]
- United States 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Adak"]
- Kazakhstan 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Aqtau"]
- Ukraine 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Uzhgorod"]
- Brazil 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Eirunepe"]
- Antarctica 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Antarctica/Rothera"]
- Malaysia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kuala_Lumpur"]
- Canada 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Dawson"]
- Micronesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Yap"]
- Argentina 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Argentina/Rio_Gallegos"]
- United States Minor Outlying Islands 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Midway"]
- Mexico 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Tijuana"]
- Democratic Republic of the Congo 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Kinshasa"]
- United Kingdom 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Belfast"]
- French Polynesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Tahiti"]
- New Zealand 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Chatham"]
- Greenland 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Thule"]
- Mongolia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Hovd"]
- Uzbekistan 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Samarkand"]
- Svalbard and Jan Mayen 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Jan_Mayen"]
- Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
- China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
--->
 

@@ -384,7 +384,6 @@
 			<zone type="America/Cancun">
 				<exemplarCity>Cancun</exemplarCity>
 			</zone>
-			<!-- Russia -->
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Kaliningrado</exemplarCity>
 			</zone>
@@ -1865,49 +1864,4 @@
 		</currencies>
 	</numbers>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/pt_PT.txt?only_with_tag=final-update-LDML
-
-Only contains differences from pt.
-TODO Verify that the commented out translations are correct for pt and pt_PT.
-        KP { "Coreia do Norte" }    // alternate name { "Coreia, Rep\u00FAblica Popular Democr\u00E1tica da" }
-        KR { "Coreia do Sul" }    // alternate name { "Coreia, Rep\u00FAblica da" }
-Fallback to pt
-"\u2030",
-"\u221E",
-"\uFFFD",
-}
-
-Comments without bases
-
- Spain 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Canary"]
- Kiribati 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Enderbury"]
- Marshall Islands 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Kwajalein"]
- Mali 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Bamako"]
- Ecuador 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Galapagos"]
- Indonesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Jakarta"]
- United States 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Adak"]
- Kazakhstan 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Aqtau"]
- Ukraine 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Uzhgorod"]
- Portugal 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Azores"]
- Brazil 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Eirunepe"]
- Antarctica 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Antarctica/Rothera"]
- Malaysia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kuala_Lumpur"]
- Canada 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Dawson"]
- Micronesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Yap"]
- Argentina 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Argentina/Rio_Gallegos"]
- United States Minor Outlying Islands 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Midway"]
- Mexico 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Tijuana"]
- Democratic Republic of the Congo 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Kinshasa"]
- United Kingdom 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Belfast"]
- French Polynesia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Tahiti"]
- Chile 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Easter"]
- New Zealand 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Chatham"]
- Greenland 	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Thule"]
- Mongolia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Hovd"]
- Uzbekistan 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Samarkand"]
- Svalbard and Jan Mayen 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Jan_Mayen"]
- Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
- China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
--->
 

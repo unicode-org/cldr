@@ -303,7 +303,6 @@
 			<territory type="GY">An Ghuáin</territory>
 			<territory type="HK">R.R.S. na Síne Hong Cong</territory>
 			<territory type="HK" alt="short">Hong Cong</territory>
-			<!-- Hong Cong, Reigiún Riaracháin Speisialta na Síne -->
 			<territory type="HM">Oileán Heard agus Oileáin McDonald</territory>
 			<territory type="HN">Hondúras</territory>
 			<territory type="HR">An Chróit</territory>
@@ -357,7 +356,6 @@
 			<territory type="MN">An Mhongóil</territory>
 			<territory type="MO">R.R.S. na Síne Macáó</territory>
 			<territory type="MO" alt="short">Macáó</territory>
-			<!-- Macáó, Reigiún Riaracháin Speisialta na Síne -->
 			<territory type="MP">Oileáin Mariana Thuaidh</territory>
 			<territory type="MQ">Martainíc</territory>
 			<territory type="MR">An Mharatáin</territory>
@@ -1505,87 +1503,4 @@
 		</messages>
 	</posix>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ga.txt?only_with_tag=final-update-LDML
-
-A lot of data contributed from Séamus Ó Ciardhuáin, seoc [at] cnds.ucd.ie
-        AQ { "An Antartaice" } // An tAntartach
-CS { "Seirbia agus Montainéagró" } // new July 2003 in ISO 3166-1
-        GE { "An tSeoirsia" } // Everson: An Ghrúis
-        SP { "An tSeirbia" } // No longer used according to ISO3166
-        YU { "An Iúgslaiv" } // No longer used according to ISO3166
-Currency display names
-ones needing work are marked //??
-from the May 2003 list in en.txt (v 2.0)
-shilling = scilling
-pound = punt
-dinar, diner = dínear
-ruble = rúbal
-rupee = rúipí; nó rúpaí?
-afghani = afgainí
-NumberElements { 
-"‰",
-"∞",
-"�",
-}
-        "Latn",  // ISO 15924 Name 
-ones needing work are marked //??
-root{"fréamh"}
-        ab  { "Abcáisis" } // acmhainn Abcáis
-        ae  { "Aivéistis" } // acmhainn
-        as  { "Asaimis" } // acmhainn
-        ba  { "Baiscíris" } // acmhainn An Bhaiscír
-        bn  { "Beangálais" } //??
-        bo  { "Tibéadais" } //??
-        ce  { "Sisinis" } //??
-        co  { "Corsaicis" } // acmhainn
-        cr  { "Craíais" } //?? acmhainn
-        cu  { "Slavais na hEaglaise" } //??
-        cv  { "Suvaisis" } // acmhainn An tSuvais
-        el  { "Gréigis" } //  Nua (1453-)
-        fj  { "Fidsis" } // acmhainn
-        fo  { "Faróis" } // acmhainn
-        gu  { "Gúisearáitis" } //acmhainn
-        haw { "Haváíais" } //??
-        ia  { "Interlingua" } //??
-        ie  { "Interlingue" } //??
-        iu  { "Ionúitis" } // acmhainn
-iw  { "Eabhrais" }  // Use he instead
-        jv  { "Iávais" } //??
-        ka  { "Seoirsis" } //?? Grúisis
-        kk  { "Casachais" } //?? f Casachstáin
-        kn  { "Cannadais" } // acmhainn
-        ks  { "Caismíris" } //??
-        ky  { "Cirgeasais" } // acmhainn Cirgeasach
-        lb  { "Leitseabuirgis" } // acmhainn
-        lo  { "Laosais" } //?? FTP Laosach
-        lv  { "Laitvis" } // acmhainn
-        mg  { "Malagásais" } //??
-        ml  { "Mailéalaimis" } // acmhainn
-        mr  { "Maraitis" } // acmhainn
-        my  { "Burmais" } //??
-        na  { "Nárúis" } //??
-        ne  { "Neipealais" } //??
-        nv  { "Navachóis"} // acmhainn na Navachóigh
-        os  { "Óiséitis" } // acmhainn An Óiséit
-        pa  { "Puinseaibis" } //??
-        qu  { "Ceatsuais" } // acmhainn
-The range qaa-qtz is reserved for local use.
-        ro  { "Romáinis" } // de B. => Rúmáinis?
-        sc  { "Sairdínis" } // acmhainn
-        sd  { "Sindis" } //acmhainn
-        se  { "Sáimis Thuaidh" } //acmhainn
-        sh  { "Seirbea-Chróitis" } // acmhainn
-        sm  { "Samóis" } //??
-        so  { "Somálais" } //??
-        sw  { "Svahaílis" } // acmhainn
-        ta  { "Tamailis" } //acmhainn
-        tl  { "Tagálaigis" } // acmhainn
-        tt  { "Tatarais" } // acmhainn
-        ty  { "Taihítis" } //??
-        ur  { "Urdais" } // acmhainn
-        uz  { "Úisbéicis" } //??
-        zu  { "Súlúis" } //??
-many others could go in here if desired
--->
 

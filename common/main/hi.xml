@@ -1124,12 +1124,6 @@
 				<am>AM</am>
 				<pm>PM</pm>
 				<eras>
-					<!-- These era names look like abbreviations and not full names.
-						 eraNames>
-						 <era type="0" draft="unconfirmed">ईसापूर्व.</era>
-						 <era type="1" draft="unconfirmed">सन.</era>
-						 </eraNames
-					-->
 					<eraAbbr>
 						<era type="0">ईसापूर्व</era>
 						<era type="1">सन</era>
@@ -3378,34 +3372,4 @@
 		</messages>
 	</posix>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/hi.txt?only_with_tag=final-update-LDML
-
-Thanks to:
--  Shehnaz Nagpurwala and Anwar Nagpurwala [first version]
--  IBM NLTC:  http://w3.torolab.ibm.com/gcoc/documents/india/hi-nlsgg.htm
--  Arundhati Bhowmick [IBM Cupertino]
-Haryanvi    \u0939\u0930\u093F\u092F\u093E\u0928\u0935\u0940 // ???
-				hi { "\u0939\u093f\u0902\u0926\u0940" } // HINDI
-in { "\u0907\u0928\u094D\u0921\u094B\u0928\u0947\u0936\u093F\u092F\u0928\u094D" }  // Use "id" instead
-iw { "\u0939\u093F\u092C\u094D\u0930\u0940\u090A" } //Use he instead
-ji { "\u092F\u0947\u0939\u0941\u0926\u0940" }  // Use "yi" instead
-jw { "\u091C\u093E\u0935\u093E\u0928\u0940\u0938" } // Use jv instead
-				AT { "\u0911\u0938\u094D\u091F\u094D\u0930\u093F\u092F\u093E" } // The first letter could be \u0906 instead
-				AU { "\u0911\u0938\u094D\u091F\u094D\u0930\u0947\u0932\u093F\u092F\u093E" } // The first letter could be \u0906 instead
-				CH { "\u0938\u094d\u0935\u093f\u0938" } // Could be \u0938\u094d\u0935\u093f\u091f\u094d\u091c\u0930\u0932\u0948\u0902\u0921 
-CS { "\u0938\u0930\u094d\u092c\u093f\u092f\u093e \u0914\u0930 \u092e\u094b\u0902\u091f\u0947\u0928\u0940\u0917\u0930\u094b" } // Does ICU support this name?
-				EC { "\u0907\u0915\u094d\u0935\u093e\u0921\u094b\u0930" } // The first character could be \u090f instead
-HK { "\u0939\u094b\u0902\u0917 \u0915\u094b\u0902\u0917" }
-HN { "\u0939\u093e\u0945\u0928\u0921\u0941\u0930\u093e\u0938" }
-HR { "\u0915\u094d\u0930\u094b\u0936\u0940\u092f\u093e" }
-HT { "\u0939\u093e\u0908\u091f\u0940" }
-HU { "\u0939\u0902\u0917\u0947\u0930\u0940" }
-				IN { "\u092d\u093e\u0930\u0924" } // bharat
-TL { "\u0908\u0938\u094d\u091f \u091f\u093f\u092e\u094b\u0930" } // Is this right?
-TM { "\u0924\u0941\u0915\u094d\u0930\u092e\u0947\u0928\u093f\u0938\u094d\u0924\u093e\u0928" }
-UY { "\u0909\u0930\u0942\u0917\u0941\u090F" }
-VA { "\u0935\u093e\u0945\u091f\u093f\u0915\u0928" }
-VU { "\u0938\u093e\u0928\u0941\u0905\u0924\u0941" }  // CHECK - #12
--->
 

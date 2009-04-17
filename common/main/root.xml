@@ -72,7 +72,7 @@
 					</eraNames>
 					<eraAbbr>
 						<era type="0">BE</era>
-						<!-- = 544 BC gregorian. See: http://dev.icu-project.org/cgi-bin/viewcvs.cgi/*checkout*/icu/source/i18n/buddhcal.cpp -->
+						<!-- = 544 BC gregorian. -->
 					</eraAbbr>
 					<eraNarrow>
 						<alias source="locale" path="../eraAbbr"/>
@@ -249,7 +249,6 @@
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tout</month>
-							<!-- from ICU data -->
 							<month type="2">Baba</month>
 							<month type="3">Hator</month>
 							<month type="4">Kiahk</month>
@@ -302,7 +301,6 @@
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ERA0</era>
-						<!-- to be replaced -->
 						<era type="1">ERA1</era>
 					</eraAbbr>
 					<eraNarrow>
@@ -332,7 +330,6 @@
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Meskerem</month>
-							<!-- from ICU data -->
 							<month type="2">Tekemt</month>
 							<month type="3">Hedar</month>
 							<month type="4">Tahsas</month>
@@ -385,7 +382,6 @@
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ERA0</era>
-						<!-- to be replaced -->
 						<era type="1">ERA1</era>
 					</eraAbbr>
 					<eraNarrow>
@@ -861,7 +857,6 @@
 						<era type="0">AM</era>
 						<!-- HY = Anno Mundi
 							 = -180799862400000 milliseconds since 1/1/1970 AD
-							 See: http://dev.icu-project.org/cgi-bin/viewcvs.cgi/*checkout*/icu/source/i18n/hebrwcal.cpp
 						-->
 					</eraAbbr>
 					<eraNarrow>
@@ -1021,7 +1016,6 @@
 						<era type="0">AH</era>
 						<!-- Anno Hijri,  =  7/16/622 AD
 							 = -42521587200000.0 millis since 1/1/1970
-							 See: http://dev.icu-project.org/cgi-bin/viewcvs.cgi/*checkout*/icu/source/i18n/islamcal.cpp
 						-->
 					</eraAbbr>
 					<eraNarrow>
@@ -1060,7 +1054,6 @@
 					<eraAbbr>
 						<!-- These eras are numbered according to the data used
 							 by the ICU Japanese Calendar.
-							 http://dev.icu-project.org/cgi-bin/viewcvs.cgi/*checkout*/icu/source/i18n/japancal.cpp
 							 search for 'ERAS ='
 						-->
 						<era type="0">Taika</era>
@@ -3218,94 +3211,4 @@
 		</messages>
 	</posix>
 </ldml>
-<!-- **********************
-  * ABOUT THE OLD COMMENTS
- 
-The following comment block, and similar 'Old Comments' blocks in other files, have been extracted from ICU 3.0 prior to about 20-August-2004. At this time CLDR data was extracted, without comments, from the ICU data.
- The oss.software.ibm.com URL, below, provides access to the original source file in ICU format, via the '(download)' link on that page.
-
- If you are updating these files, please feel free to restructure or remove comments after you have read and understood the original meaning, especially as the information is encoded in proper LDML form (source URL, alternate translation, etc).  
-
- Please do not remove this comment in root.xml until all other 'Old Comments' are gone.
-
- Thank you.
-Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/root.txt?only_with_tag=final-update-LDML
-
-Date        Name        Description
-01/15/2002  grhoten     Synchronized the language and contry codes with ISO standards
-***  Note: do NOT translate or modify (customize) this root locale.
-Instead, put translations in sub locales.
-International Calendars Data.
-NOTE (ICU 3.0) - the format of this data WILL CHANGE in future releases.
-Islamic calendar  - the Religious (Astronomical) variant first
-                "AH" // Anno Hijri
-Civil is identical other than in calculations
-Buddhist calendar data
-                "BE"                             // Buddhist Era  = 543 BC Gregorian
-            DateTimePatterns{ // shorten year, use Era
-                "yy/MM/dd", // Changing this will break binary compatibility.
-                "BCE", // BC
-                "CE"   // AD
-                        "Adar I",       // Leap years only
-            "AM" // Anno Mundi
-                "h:mm:ss a z", // full time pattern
-                "h:mm:ss a z", // long time pattern
-                "h:mm:ss a", // medium time pattern
-                "h:mm a", // short time pattern
-                "EEEE, MMMM d, y G", // full date pattern
-                "MMMM d, y G", // long date pattern
-                "MMM d, y G", // medium date pattern
-                "M/d/yy", // short date pattern
-                "{1} {0}" // date-time pattern
-Japanese calendar data - Eras - see ICU's japancal.cpp for the format
-                "h:mm:ss a z", // full time pattern
-                "h:mm:ss a z", // long time pattern
-                "h:mm:ss a", // medium time pattern
-                "h:mm a", // short time pattern
-TODO Fix the following
-                "EEEE y'x'G-Ml-d", // full date pattern
-                "y'x'G-Ml-d", // long date pattern
-                "y'x'G-Ml-d", // medium date pattern
-                "y'x'G-Ml-d", // short date pattern
-                "{1} {0}" // date-time pattern
-The official list list of ISO-3166 country codes are located at:
-http://www.din.de/gremien/nas/nabd/iso3166ma/codlstp1/en_listp1.html
-        Fallback{""} // this is just to make cloctst not complain and not break the fallback chain..if multilevel fallback is implemented
-CS { "CS" } // TODO: if we allow this, then SP must go away
-Localized display names of currencies, analogous to Countries
-and Languages.  "Common usage" display names are listed here in
-for example, is used to indicate not only USD, but also ARS,
-AUD, BND, CAD, CLP, COP, JDF, ETB, MXN, NZD, and SOS.  Hoever,
-its default meaning in many locales is USD, so we list it here
-and override it in sublocales that use "$" for something else.
-@since ICU 2.2
-        EUR { "\u20AC", "EUR" } // Euro
-        GBP { "\u00A3", "GBP" } // British Pound Sterling
-        INR { "=0#Rs.|1#Re.|1<Rs.", "INR" } // Indian Rupee
-        ITL { "\u20A4", "ITL" } // Italian Lira
-        JPY { "\u00A5", "JPY" } // Japanese Yen
-        USD { "US$",    "USD" } // US Dollar
-If there is a two letter abbreviation (ISO-639-1) for a three letter
-abbreviation (ISO-639-2), the two letter abbreviation must be used.
-Source: http://lcweb.loc.gov/standards/iso639-2/englangn.html
-iw  { "iw"  }
-qaa-qtz is reserved for locale use
-        sh  { "sh"  } // This is deprecated. This will be removed once we can use scripts in locale IDs.
-    MeasurementSystem:int{ 0 } // ISO/Metric system
-the PaperSize units are in mm
-        297, // height
-        210  // width
-        Hans { "Hans" } // Not a formal part of ISO-15924 yet
-        Hant { "Hant" } // Not a formal part of ISO-15924 yet
-keys for collation (traditional may also be used for traditional chinese)
-The values in root must always be capitalized because the signify the values are
-codes not translations
-NY      { "NY" }        // No longer valid variant. Here for backwards compatibility.
-EURO    { "EURO" }      // EURO variant display name
-
-Comments without bases
-
- The following are altered since era should be included with year    - was on: //ldml/dates/calendars/calendar[@type="japanese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyMM"]
--->
 

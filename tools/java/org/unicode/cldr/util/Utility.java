@@ -1066,8 +1066,7 @@ public class Utility {
         System.out.println("Registered new Transliterator: " + rid);
       }
     } catch (IOException e) {
-      e.printStackTrace();
-      throw new IllegalArgumentException("Can't open " + dir + ", " + id);
+      throw (IllegalArgumentException) new IllegalArgumentException("Can't open " + dir + ", " + id).initCause(e);
     }
   }
 

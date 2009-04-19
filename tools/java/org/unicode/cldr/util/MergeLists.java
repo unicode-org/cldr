@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -31,6 +32,10 @@ public class MergeLists<T> {
     }
     source.add(linkedHashSet);
     return this;
+  }
+  
+  public MergeLists<T> add(T...stuff) {
+    return add(Arrays.asList(stuff));
   }
   
   public MergeLists<T> addAll(Collection<Collection<T>> collectionsOfOrderedItems) {

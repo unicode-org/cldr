@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -16,17 +18,14 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.MergeLists;
 import org.unicode.cldr.util.Utility;
-import org.unicode.cldr.util.CLDRFile.Factory;
 
-//import com.ibm.icu.dev.test.translit.TestAll;
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.RuleBasedTransliterator;
 import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
 
 public class TestTransforms {
 	static String target = Utility.BASE_DIRECTORY + "dropbox/gen/icu-transforms/";
@@ -43,9 +42,41 @@ public class TestTransforms {
 		String lastFilename = null;
 		Map aliasMap = new LinkedHashMap();
 		
-		// do first
+		// Remove all of the current registrations
+		// first load into array, so we don't get sync problems.
+		List<String> rawAvailable = new ArrayList<String>();
+		for (Enumeration en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
+		  rawAvailable.add((String)en.nextElement());
+		}
+		
+		List<String> available = getDependentOrder(rawAvailable);
+		available.retainAll(rawAvailable); // remove the items we won't touch anyway
+    rawAvailable.removeAll(available); // now the ones whose order doesn't matter
+    removeTransliterators(rawAvailable);
+    removeTransliterators(available);
+
+    for (Enumeration en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
+      String oldId = (String)en.nextElement();
+		  System.out.println("Retaining: " + oldId);
+		}
+		
+		// do first, since others depend on these
+    /**
+     * Special aliases. 
+     * Tone-Digit {
+            alias {"Pinyin-NumericPinyin"}
+        }
+        Digit-Tone {
+            alias {"NumericPinyin-Pinyin"}
+        }
+     */
 		Utility.registerTransliteratorFromFile("Latin-ConjoiningJamo", target, null);
 		Utility.registerTransliteratorFromFile("Pinyin-NumericPinyin", target, null);
+    Transliterator.registerAlias("Tone-Digit", "Pinyin-NumericPinyin");
+    Transliterator.registerAlias("Digit-Tone", "NumericPinyin-Pinyin");
+    Utility.registerTransliteratorFromFile("Fullwidth-Halfwidth", target, null);
+    Utility.registerTransliteratorFromFile("Hiragana_Katakana", target, null);
+    Utility.registerTransliteratorFromFile("Latin-Katakana", target, null);
     
     String fileMatcherString = Utility.getProperty("file", ".*");
     Matcher fileMatcher = Pattern.compile(fileMatcherString).matcher("");
@@ -55,10 +86,10 @@ public class TestTransforms {
 			if (line == null) break;
 			line = line.trim();
 			if (line.startsWith("TransliteratorNamePattern")) break; // done
-			if (line.indexOf("Ethiopic") >= 0) {
-				System.out.println("Skipping Ethiopic");
-				continue;
-			}
+//			if (line.indexOf("Ethiopic") >= 0) {
+//				System.out.println("Skipping Ethiopic");
+//				continue;
+//			}
 			if (getId.reset(line).matches()) {
 				String temp = getId.group(1);
 				if (!temp.equals("file") && !temp.equals("internal")) id = temp;
@@ -97,7 +128,7 @@ public class TestTransforms {
 						throw (RuntimeException) new IllegalArgumentException("Failed with " + filename + ", " + source).initCause(e);
 					}
 				} else {
-					System.out.println("Unhandled:" + line);
+					System.out.println(dir + "root.txt unhandled line:" + line);
 				}
 				continue;
 			}
@@ -134,6 +165,7 @@ public class TestTransforms {
 		checkScript("Katakana", "Hiragana", "\u30A1\u30F7\u30CE\u30F5\u30F6", 20);
 		//if (true) return;
 		
+    Transliterator.registerAny(); // do this last!
 		
 		//String[] files = dir.list();
 //		List tryList = new ArrayList();
@@ -179,6 +211,76 @@ public class TestTransforms {
             System.err.println("Could not load TestAll. Encountered exception: " + ex.toString());
         }
 	}
+	
+	/*
+	 *     
+	 *     MergeLists<String> mergeLists = new MergeLists<String>(new TreeSet(new UTF16.StringComparator(true, false, 0)))
+    .add(Arrays.asList("ldml"))
+    .addAll(elementOrderings); // 
+    List<String> result = mergeLists.merge();
+    Collection badOrder = MergeLists.hasConsistentOrderWithEachOf(result, elementOrderings);
+    if (badOrder != null) {
+      throw new IllegalArgumentException("Failed to find good order: " + badOrder);
+    }
+	 */
+  private static List<String> getDependentOrder(Collection<String> available) {
+    MergeLists<String> mergeLists = new MergeLists<String>(new TreeSet(new UTF16.StringComparator(true, false, 0)));
+    // We can't determine these from looking at the dependency lists, since they are used in the rules.
+    mergeLists.add("Latin-NumericPinyin", "Tone-Digit", "Pinyin-NumericPinyin");
+    mergeLists.add("NumericPinyin-Latin", "Digit-Tone", "NumericPinyin-Pinyin");
+    mergeLists.add("Han-Latin", "Fullwidth-Halfwidth");
+    mergeLists.add("Hiragana-Latin", "Halfwidth-Fullwidth", "Fullwidth-Halfwidth");
+    mergeLists.add("Katakana-Latin", "Halfwidth-Fullwidth", "Fullwidth-Halfwidth");
+    mergeLists.add("Latin-Hiragana", "Halfwidth-Fullwidth", "Fullwidth-Halfwidth");
+    mergeLists.add("Latin-Katakana", "Halfwidth-Fullwidth", "Fullwidth-Halfwidth");
+    for (String oldId : available) {
+      Transliterator t = Transliterator.getInstance(oldId);
+      addDependingOn(mergeLists, oldId, t);
+    }
+    return mergeLists.merge();
+  }
+
+  private static Set<String> SKIP_DEPENDENCIES = new HashSet<String>();
+  static {
+    SKIP_DEPENDENCIES.add("%Pass1");
+    SKIP_DEPENDENCIES.add("NFC(NFD)");
+    SKIP_DEPENDENCIES.add("NFD(NFC)");
+    SKIP_DEPENDENCIES.add("NFD");
+    SKIP_DEPENDENCIES.add("NFC");
+  }
+  private static void addDependingOn(MergeLists<String> mergeLists, String oldId, Transliterator t) {
+    Transliterator[] elements = t.getElements();
+    for (Transliterator s : elements) {
+      final String id = s.getID();
+      if (id.equals(oldId) || SKIP_DEPENDENCIES.contains(id)) {
+        continue;
+      }
+      mergeLists.add(oldId, id);
+      addDependingOn(mergeLists, id, s);
+    }
+  }
+
+  private static void removeTransliterators(Collection<String> available) {
+    for (String oldId : available) {
+		  Transliterator t;
+      try {
+        t = Transliterator.getInstance(oldId);
+      } catch (Exception e) {
+        System.out.println("Skipping: " + oldId);
+        t = Transliterator.getInstance(oldId);
+        continue;
+      }
+		  String className = t.getClass().getName();
+		  if (className.endsWith(".CompoundTransliterator")
+		          || className.endsWith(".RuleBasedTransliterator")
+		          || className.endsWith(".AnyTransliterator")) {
+        System.out.println("REMOVING: " + oldId);
+        Transliterator.unregister(oldId);
+		  } else {
+	      System.out.println("Retaining: " + oldId + "\t\t" + className);
+		  }
+		}
+  }
 	static Matcher translitID = Pattern.compile("([^-]+)-([^/]+)+(?:[/](.+))?").matcher("");
 	static Map fixedIDs = new TreeMap();
 	static Set oddIDs = new TreeSet();

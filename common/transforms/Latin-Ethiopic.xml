@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<!-- <?xml version="1.0" encoding="UTF-8" ?> -->
 <!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldmlSupplemental.dtd">
 <supplementalData>
 	<transforms>
@@ -7,13 +7,13 @@
 			<comment>#comments appreciated</comment>
 			<comment>#syllabary</comment>
 			<tRule>ha↔ሀ;</tRule>
-			<tRule>ha ← ሃ;</tRule>
+			<tRule>ha←ሃ;</tRule>
 			<tRule>he↔ሄ;</tRule>
 			<tRule>hi↔ሂ;</tRule>
 			<tRule>hī↔ህ;</tRule>
-			<tRule>hu↔?;</tRule>
+<!-- 			<tRule>hu↔?;</tRule> -->
 			<tRule>ho↔ሆ;</tRule>
-			<tRule>hha↔?;</tRule>
+<!-- 			<tRule>hha↔'?';</tRule> -->
 			<tRule>hha ← ሓ;</tRule>
 			<tRule>hhe↔ሔ;</tRule>
 			<tRule>hhi↔ሒ;</tRule>
@@ -30,14 +30,14 @@
 			<tRule>ʿo↔ኦ;</tRule>
 			<tRule>ʿwa↔ኧ;</tRule>
 			<tRule>ʾa↔ዓ;</tRule>
-			<tRule>ʾē↔?;</tRule>
+<!-- 			<tRule>ʾē↔'?';</tRule> -->
 			<tRule>ʾe↔ዔ;</tRule>
 			<tRule>ʾi↔ዒ;</tRule>
 			<tRule>ʾī↔ዕ;</tRule>
 			<tRule>ʾu↔ዑ;</tRule>
 			<tRule>ʾo↔ዖ;</tRule>
 			<tRule>qha↔ቓ;</tRule>
-			<tRule>qhē↔?;</tRule>
+<!-- 			<tRule>qhē↔'?';</tRule> -->
 			<tRule>qhe↔ቔ;</tRule>
 			<tRule>qhi↔ቒ;</tRule>
 			<tRule>qhī↔ቕ;</tRule>
@@ -47,19 +47,19 @@
 			<tRule>qhwē↔ቘ;</tRule>
 			<tRule>qhwe↔ቜ;</tRule>
 			<tRule>qhwi↔ቚ;</tRule>
-			<tRule>qhwī↔?;</tRule>
+<!-- 			<tRule>qhwī↔'?';</tRule> -->
 			<tRule>q a↔ቃ;</tRule>
 			<tRule>qē↔ቀ;</tRule>
 			<tRule>qe↔ቄ;</tRule>
 			<tRule>qi↔ቂ;</tRule>
 			<tRule>qī↔ቅ;</tRule>
-			<tRule>qu↔?;</tRule>
+<!-- 			<tRule>qu↔'?';</tRule> -->
 			<tRule>qo↔ቆ;</tRule>
 			<tRule>qwa↔ቋ;</tRule>
 			<tRule>qwē↔ቈ;</tRule>
 			<tRule>qwe↔ቌ;</tRule>
 			<tRule>qwi↔ቊ;</tRule>
-			<tRule>qwī↔?;</tRule>
+<!-- 			<tRule>qwī↔'?';</tRule> -->
 			<tRule>ka↔ካ;</tRule>
 			<tRule>kē↔ከ;</tRule>
 			<tRule>ke↔ኬ;</tRule>
@@ -88,29 +88,29 @@
 			<tRule>xe↔ኄ;</tRule>
 			<tRule>xi↔ኂ;</tRule>
 			<tRule>xī↔ኅ;</tRule>
-			<tRule>xu↔?;</tRule>
+<!-- 			<tRule>xu↔'?';</tRule> -->
 			<tRule>xo↔ኆ;</tRule>
 			<tRule>xwa↔ኋ;</tRule>
 			<tRule>xwē↔ኈ;</tRule>
 			<tRule>xwe↔ኌ;</tRule>
 			<tRule>xwi↔ኊ;</tRule>
-			<tRule>xwī↔?;</tRule>
+<!-- 			<tRule>xwī↔'?';</tRule> -->
 			<tRule>gga↔ጛ;</tRule>
 			<tRule>ggē↔ጘ;</tRule>
 			<tRule>gge↔ጜ;</tRule>
 			<tRule>ggi↔ጚ;</tRule>
-			<tRule>ggī↔?;</tRule>
+<!-- 			<tRule>ggī↔'?';</tRule> -->
 			<tRule>ggu↔ጙ;</tRule>
 			<tRule>ggo↔ጞ;</tRule>
 			<tRule>ga↔ጋ;</tRule>
 			<tRule>gē↔ገ;</tRule>
 			<tRule>ge↔ጌ;</tRule>
 			<tRule>gi↔ጊ;</tRule>
-			<tRule>gī↔?;</tRule>
+<!-- 			<tRule>gī↔'?';</tRule> -->
 			<tRule>gu↔ጉ;</tRule>
 			<tRule>go↔ጎ;</tRule>
 			<tRule>gwa↔ጓ;</tRule>
-			<tRule>gwē↔?;</tRule>
+<!-- 			<tRule>gwē↔'?';</tRule> -->
 			<tRule>gwe↔ጔ;</tRule>
 			<tRule>gwi↔ጒ;</tRule>
 			<tRule>gwī↔ጕ;</tRule>
@@ -135,14 +135,14 @@
 			<tRule>je↔ጄ;</tRule>
 			<tRule>ji↔ጂ;</tRule>
 			<tRule>jī↔ጅ;</tRule>
-			<tRule>ju↔?;</tRule>
+<!-- 			<tRule>ju↔'?';</tRule> -->
 			<tRule>jo↔ጆ;</tRule>
 			<tRule>jwa↔ጇ;</tRule>
 			<tRule>za↔ዛ;</tRule>
 			<tRule>zē↔ዘ;</tRule>
 			<tRule>ze↔ዜ;</tRule>
 			<tRule>zi↔ዚ;</tRule>
-			<tRule>zī↔?;</tRule>
+<!-- 			<tRule>zī↔'?';</tRule> -->
 			<tRule>zu↔ዙ;</tRule>
 			<tRule>zo↔ዞ;</tRule>
 			<tRule>zwa↔ዟ;</tRule>
@@ -186,13 +186,13 @@
 			<tRule>tsu↔ጹ;</tRule>
 			<tRule>tso↔ጾ;</tRule>
 			<tRule>tswa↔ጿ;</tRule>
-			<tRule>tza↔?;</tRule>
-			<tRule>tzē↔?;</tRule>
-			<tRule>tze↔?;</tRule>
-			<tRule>tzi↔?;</tRule>
-			<tRule>tzī↔?;</tRule>
-			<tRule>tzu↔??;</tRule>
-			<tRule>tzo↔?;</tRule>
+<!-- 			<tRule>tza↔'?';</tRule> -->
+<!-- 			<tRule>tzē↔'?';</tRule> -->
+<!-- 			<tRule>tze↔'?';</tRule> -->
+<!-- 			<tRule>tzi↔'?';</tRule> -->
+<!-- 			<tRule>tzī↔'?';</tRule> -->
+<!-- 			<tRule>tzu↔'?''?';</tRule> -->
+<!-- 			<tRule>tzo↔'?';</tRule> -->
 			<tRule>tha↔ጣ;</tRule>
 			<tRule>thē↔ጠ;</tRule>
 			<tRule>the↔ጤ;</tRule>
@@ -226,7 +226,7 @@
 			<tRule>do↔ዶ;</tRule>
 			<tRule>dwa↔ዷ;</tRule>
 			<tRule>na↔ና;</tRule>
-			<tRule>nē↔?;</tRule>
+<!-- 			<tRule>nē↔'?';</tRule> -->
 			<tRule>ne↔ኔ;</tRule>
 			<tRule>ni↔ኒ;</tRule>
 			<tRule>nī↔ን;</tRule>
@@ -237,7 +237,7 @@
 			<tRule>nyē↔ኘ;</tRule>
 			<tRule>nye↔ኜ;</tRule>
 			<tRule>nyi↔ኚ;</tRule>
-			<tRule>nyī↔?;</tRule>
+<!-- 			<tRule>nyī↔'?';</tRule> -->
 			<tRule>nyu↔ኙ;</tRule>
 			<tRule>nyo↔ኞ;</tRule>
 			<tRule>nywa↔ኟ;</tRule>
@@ -256,24 +256,24 @@
 			<tRule>ru↔ሩ;</tRule>
 			<tRule>ro↔ሮ;</tRule>
 			<tRule>rwa↔ሯ;</tRule>
-			<tRule>rya↔?;</tRule>
+<!-- 			<tRule>rya↔'?';</tRule> -->
 			<tRule>la↔ላ;</tRule>
 			<tRule>lē↔ለ;</tRule>
 			<tRule>le↔ሌ;</tRule>
 			<tRule>li↔ሊ;</tRule>
-			<tRule>lī↔?;</tRule>
+<!-- 			<tRule>lī↔'?';</tRule> -->
 			<tRule>lu↔ሉ;</tRule>
 			<tRule>lo↔ሎ;</tRule>
-			<tRule>lwa↔?;</tRule>
+<!-- 			<tRule>lwa↔'?';</tRule> -->
 			<tRule>ma↔ማ;</tRule>
 			<tRule>mē↔መ;</tRule>
 			<tRule>me↔ሜ;</tRule>
 			<tRule>mi↔ሚ;</tRule>
-			<tRule>mī↔?;</tRule>
+<!-- 			<tRule>mī↔'?';</tRule> -->
 			<tRule>mu↔ሙ;</tRule>
 			<tRule>mo↔ሞ;</tRule>
 			<tRule>mwa↔ሟ;</tRule>
-			<tRule>mya↔?;</tRule>
+<!-- 			<tRule>mya↔'?';</tRule> -->
 			<tRule>ba↔ባ;</tRule>
 			<tRule>bē↔በ;</tRule>
 			<tRule>be↔ቤ;</tRule>
@@ -282,14 +282,14 @@
 			<tRule>bu↔ቡ;</tRule>
 			<tRule>bo↔ቦ;</tRule>
 			<tRule>bwa↔ቧ;</tRule>
-			<tRule>pa↔?;</tRule>
-			<tRule>pē↔??;</tRule>
-			<tRule>pe↔?;</tRule>
-			<tRule>pi↔?;</tRule>
-			<tRule>pī↔?;</tRule>
-			<tRule>pu↔?;</tRule>
-			<tRule>po↔?;</tRule>
-			<tRule>pwa↔?;</tRule>
+<!-- 			<tRule>pa↔'?';</tRule> -->
+<!-- 			<tRule>pē↔'?''?';</tRule> -->
+<!-- 			<tRule>pe↔'?';</tRule> -->
+<!-- 			<tRule>pi↔'?';</tRule> -->
+<!-- 			<tRule>pī↔'?';</tRule> -->
+<!-- 			<tRule>pu↔'?';</tRule> -->
+<!-- 			<tRule>po↔'?';</tRule> -->
+<!-- 			<tRule>pwa↔'?';</tRule> -->
 			<tRule>pha↔ጳ;</tRule>
 			<tRule>phē↔ጰ;</tRule>
 			<tRule>phe↔ጴ;</tRule>
@@ -298,15 +298,15 @@
 			<tRule>phu↔ጱ;</tRule>
 			<tRule>pho↔ጶ;</tRule>
 			<tRule>phwa↔ጷ;</tRule>
-			<tRule>fa↔?;</tRule>
-			<tRule>fē↔?;</tRule>
-			<tRule>fe↔?;</tRule>
-			<tRule>fi↔?;</tRule>
-			<tRule>fī↔??;</tRule>
-			<tRule>fu↔?;</tRule>
-			<tRule>fo↔?;</tRule>
-			<tRule>fwa↔??;</tRule>
-			<tRule>fya↔?;</tRule>
+<!-- 			<tRule>fa↔'?';</tRule> -->
+<!-- 			<tRule>fē↔'?';</tRule> -->
+<!-- 			<tRule>fe↔'?';</tRule> -->
+<!-- 			<tRule>fi↔'?';</tRule> -->
+<!-- 			<tRule>fī↔'?''?';</tRule> -->
+<!-- 			<tRule>fu↔'?';</tRule> -->
+<!-- 			<tRule>fo↔'?';</tRule> -->
+<!-- 			<tRule>fwa↔'?''?';</tRule> -->
+<!-- 			<tRule>fya↔'?';</tRule> -->
 			<tRule>va↔ቫ;</tRule>
 			<tRule>vē↔ቨ;</tRule>
 			<tRule>ve↔ቬ;</tRule>
@@ -319,39 +319,39 @@
 			<tRule>wē↔ወ;</tRule>
 			<tRule>we↔ዌ;</tRule>
 			<tRule>wi↔ዊ;</tRule>
-			<tRule>wī↔?;</tRule>
+<!-- 			<tRule>wī↔'?';</tRule> -->
 			<tRule>wu↔ዉ;</tRule>
 			<tRule>wo↔ዎ;</tRule>
 			<comment>#punctuation</comment>
-			<tRule>'.'↔?;</tRule>
-			<tRule>','↔?;</tRule>
-			<tRule>';'↔?;</tRule>
-			<tRule>':'↔?;</tRule>
-			<tRule>':-' ← ?;</tRule>
-			<tRule>'?'↔?;</tRule>
-			<tRule>'¶'↔?;</tRule>
+<!-- 			<tRule>'.'↔'?';</tRule> -->
+<!-- 			<tRule>','↔'?';</tRule> -->
+<!-- 			<tRule>';'↔'?';</tRule> -->
+<!-- 			<tRule>':'↔'?';</tRule> -->
+<!-- 			<tRule>':-' ← '?';</tRule> -->
+<!-- 			<tRule>''?''↔'?';</tRule> -->
+<!-- 			<tRule>'¶'↔'?';</tRule> -->
 			<comment>#numerals</comment>
-			<tRule>1↔?;</tRule>
-			<tRule>2↔?;</tRule>
-			<tRule>3↔?;</tRule>
-			<tRule>4↔?;</tRule>
-			<tRule>5↔?;</tRule>
-			<tRule>6↔?;</tRule>
-			<tRule>7↔?;</tRule>
-			<tRule>8↔?;</tRule>
-			<tRule>9↔?;</tRule>
-			<tRule>⑩↔?;</tRule>
-			<tRule>⑳↔?;</tRule>
-			<tRule>(30)↔?;</tRule>
-			<tRule>(40)↔?;</tRule>
-			<tRule>(50)↔?;</tRule>
-			<tRule>(60)↔?;</tRule>
-			<tRule>(70)↔?;</tRule>
-			<tRule>(80)↔?;</tRule>
-			<tRule>(90)↔?;</tRule>
-			<tRule>(100)↔?;</tRule>
-			<tRule>(10000)↔?;</tRule>
-			<tRule>' ' ↔ ? ;</tRule>
+<!-- 			<tRule>1↔'?';</tRule> -->
+<!-- 			<tRule>2↔'?';</tRule> -->
+<!-- 			<tRule>3↔'?';</tRule> -->
+<!-- 			<tRule>4↔'?';</tRule> -->
+<!-- 			<tRule>5↔'?';</tRule> -->
+<!-- 			<tRule>6↔'?';</tRule> -->
+<!-- 			<tRule>7↔'?';</tRule> -->
+<!-- 			<tRule>8↔'?';</tRule> -->
+<!-- 			<tRule>9↔'?';</tRule> -->
+<!-- 			<tRule>⑩↔'?';</tRule> -->
+<!-- 			<tRule>⑳↔'?';</tRule> -->
+<!-- 			<tRule>(30)↔'?';</tRule> -->
+<!-- 			<tRule>(40)↔'?';</tRule> -->
+<!-- 			<tRule>(50)↔'?';</tRule> -->
+<!-- 			<tRule>(60)↔'?';</tRule> -->
+<!-- 			<tRule>(70)↔'?';</tRule> -->
+<!-- 			<tRule>(80)↔'?';</tRule> -->
+<!-- 			<tRule>(90)↔'?';</tRule> -->
+<!-- 			<tRule>(100)↔'?';</tRule> -->
+<!-- 			<tRule>(10000)↔'?';</tRule> -->
+<!-- 			<tRule>' ' ↔ '?' ;</tRule> -->
 		</transform>
 	</transforms>
 </supplementalData>

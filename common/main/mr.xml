@@ -1080,7 +1080,7 @@
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>h-mm-ss</pattern>
+							<pattern>h-mm-ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
@@ -1091,6 +1091,8 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="Hm">H-mm</dateFormatItem>
+						<dateFormatItem id="Hms">H-mm-ss</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy</dateFormatItem>

@@ -47,8 +47,10 @@
             #
             ########################################################################
             </comment>
-            <tRule>٫ ↔ [:Nd:]{'.'}[:Nd:] $disambig ; # ARABIC DECIMAL SEPARATOR</tRule>
-            <tRule>٬ ↔ [:Nd:]{','}[:Nd:] $disambig ; # ARABIC THOUSANDS SEPARATOR</tRule>
+            <tRule>[:Nd:]{٫}[:Nd:] ↔ [:Nd:]{','}[:Nd:] ; # ARABIC DECIMAL SEPARATOR</tRule>
+            <tRule>[:Nd:]{٬}[:Nd:] ↔ [:Nd:]{'.'}[:Nd:] ; # ARABIC THOUSANDS SEPARATOR</tRule>
+            <tRule>٫ ↔ ',' $disambig ; # ARABIC DECIMAL SEPARATOR</tRule>
+            <tRule>٬ ↔ '.' $disambig ; # ARABIC THOUSANDS SEPARATOR</tRule>
             <comment>#  ٭ ↔ ; # ARABIC FIVE POINTED STAR // no need to transliterate</comment>
             <tRule>، ↔ ',' ; # ARABIC COMMA</tRule>
             <tRule>؛ ↔ ';' ; # ARABIC SEMICOLON</tRule>

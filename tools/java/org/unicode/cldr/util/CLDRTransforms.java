@@ -92,7 +92,7 @@ public class CLDRTransforms {
     //ordered.addAll(Arrays.asList(doFirst));
     for (String item : cldrFactory.getAvailable()) {
       if (filter != null && !filter.reset(item).matches()) {
-        System.out.println("Skipping " + item);
+        append("Skipping " + item + "\n");
         continue;
       }
       // add dependencies first
@@ -224,6 +224,9 @@ public class CLDRTransforms {
 
   private void append(String string) {
     try {
+      if (showProgress == null) {
+        return;
+      }
       showProgress.append(string);
     } catch (IOException e) {
       throw (RuntimeException) new IllegalArgumentException().initCause(e);

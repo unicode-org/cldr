@@ -135,7 +135,7 @@ public class TestTransforms {
 		}
 
    */
-  private static void testString(String id) {
+  private static void checkString(String id) {
     int dir1 = Transliterator.FORWARD;
     int dir2 = Transliterator.REVERSE;
     if (id.startsWith("Latin")) {

@@ -3,33 +3,102 @@ package org.unicode.cldr.test;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.Utility;
 
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.translit.TransliteratorTest;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TestTransformsSimple {
+public class TestTransformsSimple extends TestFmwk {
+
+    public static void main(String[] args) throws Exception {
+        new TestTransformsSimple().run(args);
+    }
   
   private static final boolean verbose = Utility.getProperty("verbose", false);
   static CLDRTransforms transforms;
   
-  public static void main(String[] args) throws IOException {
+  public void TestSimple() throws IOException {
     String filter = System.getProperty("filter");
 //  Matcher matcher1 = CLDRTransforms.TRANSFORM_ID_PATTERN.matcher("abc-def/ghi");
 //  boolean foo = matcher1.matches();
 //  Matcher matcher2 = CLDRTransforms.TRANSFORM_ID_PATTERN.matcher("abc-def");
 //  foo = matcher2.matches();
-    transforms = CLDRTransforms.getinstance(null, ".*(Tamil|Jamo).*");
+    CLDRTransforms.getinstance(null, ".*(Tamil|Jamo).*");
     System.out.println("Start");
     checkTamil(filter);
     checkJamo(filter);
   }
+  
+  public void TestHangul() {
+    CLDRTransforms.getinstance(null, ".*(Hangul|Jamo).*");
+
+    Transliterator lh = Transliterator.getInstance("Latin-Hangul");
+    Transliterator hl = lh.getInverse();
+
+    assertTransform("Transform", "츠", lh, "ch");
+   
+    assertTransform("Transform", "아따", lh, hl, "atta", "a-tta");
+    assertTransform("Transform", "아빠", lh, hl, "appa", "a-ppa");
+    assertTransform("Transform", "아짜", lh, hl, "ajja", "a-jja");
+    assertTransform("Transform", "아까", lh, hl, "akka", "a-kka");
+    assertTransform("Transform", "아싸", lh, hl, "assa", "a-ssa");
+    assertTransform("Transform", "아차", lh, hl, "acha", "a-cha");
+    assertTransform("Transform", "악사", lh, hl, "agsa", "ag-sa");
+    assertTransform("Transform", "안자", lh, hl, "anja", "an-ja");
+    assertTransform("Transform", "안하", lh, hl, "anha", "an-ha");
+    assertTransform("Transform", "알가", lh, hl, "alga", "al-ga");
+    assertTransform("Transform", "알마", lh, hl, "alma", "al-ma");
+    assertTransform("Transform", "알바", lh, hl, "alba", "al-ba");
+    assertTransform("Transform", "알사", lh, hl, "alsa", "al-sa");
+    assertTransform("Transform", "알타", lh, hl, "alta", "al-ta");
+    assertTransform("Transform", "알파", lh, hl, "alpa", "al-pa");
+    assertTransform("Transform", "알하", lh, hl, "alha", "al-ha");
+    assertTransform("Transform", "압사", lh, hl, "absa", "ab-sa");
+    assertTransform("Transform", "안가", lh, hl, "anga", "an-ga");
+    assertTransform("Transform", "악싸", lh, hl, "agssa", "ag-ssa");
+    assertTransform("Transform", "안짜", lh, hl, "anjja", "an-jja");
+    assertTransform("Transform", "알싸", lh, hl, "alssa", "al-ssa");
+    assertTransform("Transform", "알따", lh, hl, "altta", "al-tta");
+    assertTransform("Transform", "알빠", lh, hl, "alppa", "al-ppa");
+    assertTransform("Transform", "압싸", lh, hl, "abssa", "ab-ssa");
+    assertTransform("Transform", "앆카", lh, hl, "akkka", "akk-ka");
+    assertTransform("Transform", "았사", lh, hl, "asssa", "ass-sa");
+
+//    1. Latin->Hangul transliterator maps 'ch' to '킇' (splitting the sequence
+//            into
+//            'c' and 'h' and inserting an implicit vowel 'ㅡ'). It'd be better to map a
+//            *stand-alone* 'ch' to '츠'  
+//
+//            2.  As mentioned in http://www.unicode.org/cldr/transliteration_guidelines.html
+//            (Korean section),  
+//
+//            - altta = alt-ta  앑타   should be ' al-tta 알따'
+//
+//            - alppa = alp-pa  앒파   : should be 'al-ppa  알빠'
+
+  }
+
+  private void assertTransform(String message, String expected, StringTransform t, String source) {
+    assertEquals(message + " " + source, expected, t.transform(source));
+  }
+  
+
+  private void assertTransform(String message, String expected, StringTransform t, StringTransform back, String... source) {
+    for (String s : source) {
+      assertEquals(message + " " + s, expected, t.transform(s));
+    }
+    assertEquals(message + " " + expected, source[0], back.transform(expected));
+}
   
   private static void checkTamil(String filter) throws IOException {
     {

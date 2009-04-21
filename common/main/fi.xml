@@ -6,8 +6,6 @@
 		<generation date="$Date$"/>
 		<language type="fi"/>
 	</identity>
-	<fallback/>
-	<fallback alt="proposed-x1001" draft="unconfirmed">fi_FI</fallback>
 	<localeDisplayNames>
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
@@ -1677,63 +1675,39 @@
 			<zone type="America/St_Thomas">
 				<exemplarCity draft="provisional">Saint Thomas</exemplarCity>
 			</zone>
-			<metazone type="Acre">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Afghanistan">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>Keski-Afrikan aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>Itä-Afrikan aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Africa_FarWestern">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
 					<generic>Etelä-Afrikan aika</generic>
 					<standard>Etelä-Afrikan normaaliaika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
 					<standard>Länsi-Afrikan aika</standard>
 					<daylight>Länsi-Afrikan kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Aktyubinsk">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
 					<standard>Alaskan normaaliaika</standard>
 					<daylight>Alaskan kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Alaska_Hawaii">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Almaty">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<standard draft="unconfirmed">Amazonin aika</standard>
 					<daylight draft="unconfirmed">Amazonin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="America_Central">
 				<long>
@@ -1746,7 +1720,6 @@
 					<standard draft="unconfirmed">CST</standard>
 					<daylight draft="unconfirmed">CDT</daylight>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
@@ -1759,7 +1732,6 @@
 					<standard draft="unconfirmed">EST</standard>
 					<daylight draft="unconfirmed">EDT</daylight>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
@@ -1772,7 +1744,6 @@
 					<standard draft="unconfirmed">MST</standard>
 					<daylight draft="unconfirmed">MDT</daylight>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -1785,16 +1756,6 @@
 					<standard draft="unconfirmed">PST</standard>
 					<daylight draft="unconfirmed">PDT</daylight>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Anadyr">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Aqtau">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Aqtobe">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Arabian">
 				<long>
@@ -1805,26 +1766,17 @@
 				<short>
 					<generic draft="unconfirmed">AT (SA)</generic>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Argentina">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Argentina_Western">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Armenia">
 				<long>
 					<standard draft="unconfirmed">Armenian aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Ashkhabad">
 				<long>
 					<standard draft="unconfirmed">Ašgabatin aika</standard>
 					<daylight draft="unconfirmed">Ašgabatin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Atlantic">
 				<long>
@@ -1837,7 +1789,6 @@
 					<standard draft="unconfirmed">AST</standard>
 					<daylight draft="unconfirmed">ADT</daylight>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -1847,7 +1798,6 @@
 				<short>
 					<generic draft="unconfirmed">ACT</generic>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -1858,7 +1808,6 @@
 				<short>
 					<generic draft="unconfirmed">ACWT</generic>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -1866,7 +1815,6 @@
 					<standard draft="unconfirmed">Itä-Australian normaaliaika</standard>
 					<daylight draft="unconfirmed">Itä-Australian kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -1876,87 +1824,50 @@
 				<short>
 					<generic draft="unconfirmed">AWT</generic>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
 					<standard draft="unconfirmed">Azerbaidžanin aika</standard>
 					<daylight draft="unconfirmed">Azerbaidžanin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Azores">
 				<long>
 					<standard draft="unconfirmed">Azorien aika</standard>
 					<daylight draft="unconfirmed">Azorien kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Baku">
 				<long>
 					<daylight draft="unconfirmed">Bakun kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Bangladesh">
 				<long>
 					<standard draft="unconfirmed">Bangladeshin aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Bering">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Bhutan">
 				<long>
 					<standard draft="unconfirmed">Bhutanin aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Bolivia">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Borneo">
 				<long>
 					<standard draft="unconfirmed">Borneon aika</standard>
 					<daylight draft="unconfirmed">Borneon kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Brasilia">
-				<long>
-					<standard draft="unconfirmed">13.25 Brasilia</standard>
-					<daylight draft="unconfirmed">13.25 Brasilia (kesäaika)</daylight>
-				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="British">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard draft="unconfirmed">Brunein aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
 					<standard draft="unconfirmed">Kap Verden aika</standard>
 					<daylight draft="unconfirmed">Kap Verden kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Chamorro">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Changbai">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Chatham">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Chile">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="China">
 				<long>
@@ -1969,61 +1880,21 @@
 					<standard>CST (Kiina)</standard>
 					<daylight>CDT (Kiina)</daylight>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
 					<daylight draft="unconfirmed">Tšoibalsan kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard draft="unconfirmed">Joulusaaren aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Cocos">
 				<long>
 					<standard draft="unconfirmed">Kookossaarten aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Colombia">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Cook">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Cuba">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Dacca">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Davis">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Dominican">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="DumontDUrville">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Dushanbe">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Dutch_Guiana">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="East_Timor">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Easter">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Ecuador">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
@@ -2034,7 +1905,6 @@
 					<standard draft="unconfirmed">CET</standard>
 					<daylight draft="unconfirmed">CEST</daylight>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
@@ -2045,7 +1915,6 @@
 					<standard draft="unconfirmed">EET</standard>
 					<daylight draft="unconfirmed">EEST</daylight>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
@@ -2056,32 +1925,22 @@
 					<standard draft="unconfirmed">WET</standard>
 					<daylight draft="unconfirmed">WEST</daylight>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
 					<daylight draft="unconfirmed">Falklandinsaarten kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Fiji">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="French_Guiana">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="French_Southern">
 				<long>
 					<standard draft="unconfirmed">Ranskan eteläisten ja antarktisten alueiden aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Frunze">
 				<long>
 					<standard draft="unconfirmed">Biškekin aika</standard>
 					<daylight draft="unconfirmed">Biškekin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="GMT">
 				<long>
@@ -2090,38 +1949,12 @@
 				<short>
 					<standard draft="unconfirmed">GMT</standard>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Galapagos">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Gambier">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Georgia">
 				<long>
 					<standard draft="unconfirmed">Georgian aika</standard>
 					<daylight draft="unconfirmed">Georgian kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Gilbert_Islands">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Goose_Bay">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Greenland_Central">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Greenland_Eastern">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Greenland_Western">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Guam">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Gulf">
 				<long>
@@ -2130,68 +1963,42 @@
 				<short>
 					<generic draft="unconfirmed">GT</generic>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Guyana">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Hawaii_Aleutian">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
 					<standard draft="unconfirmed">Hongkongin aika</standard>
 					<daylight draft="unconfirmed">Hongkongin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
 					<daylight draft="unconfirmed">Hovdin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="India">
 				<long>
 					<standard draft="unconfirmed">Intian normaaliaika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Indian_Ocean">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Indochina">
 				<long>
 					<standard draft="unconfirmed">In</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
 					<standard draft="unconfirmed">Keski-Indonesian aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
 					<standard draft="unconfirmed">Itä-Indonesian aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
 					<standard draft="unconfirmed">Länsi-Indonesian aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Iran">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Irish">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Irkutsk">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Israel">
 				<long>
@@ -2201,35 +2008,17 @@
 				<short>
 					<standard>IST (Israel)</standard>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Japan">
 				<long>
 					<standard>Japanin normaaliaika</standard>
 					<daylight>Japanin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Kamchatka">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Karachi">
 				<long>
 					<standard draft="unconfirmed">Karachin aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Kashgar">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Kazakhstan_Eastern">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Kazakhstan_Western">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Kizilorda">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Korea">
 				<long>
@@ -2239,45 +2028,23 @@
 				<short>
 					<generic draft="unconfirmed">KT</generic>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Kosrae">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<standard draft="unconfirmed">Krasnojarskin aika</standard>
 					<daylight draft="unconfirmed">Krasnojarskin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Kuybyshev">
 				<long>
 					<standard draft="unconfirmed">Kuybyshevin aika</standard>
 					<daylight draft="unconfirmed">Kuybyshevin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Kwajalein">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Kyrgystan">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Lanka">
 				<long>
 					<standard draft="unconfirmed">Sri Lankan aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Liberia">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Line_Islands">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Long_Shu">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Lord_Howe">
 				<long>
@@ -2288,52 +2055,31 @@
 				<short>
 					<generic draft="unconfirmed">LHT</generic>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Macau">
 				<long>
 					<daylight draft="unconfirmed">Macaon kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Magadan">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Malaya">
 				<long>
 					<standard draft="unconfirmed">Malaijan aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Malaysia">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Maldives">
 				<long>
 					<standard draft="unconfirmed">Malediivien aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Marquesas">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Marshall_Islands">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Mauritius">
 				<long>
 					<standard draft="unconfirmed">Mauritiuksen aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Mawson">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
 					<daylight draft="unconfirmed">Ulan Batorin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
@@ -2341,25 +2087,16 @@
 					<standard draft="unconfirmed">Moskovan normaaliaika</standard>
 					<daylight draft="unconfirmed">Moskovan kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Myanmar">
 				<long>
 					<standard draft="unconfirmed">Myanmarin aikaMa</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Nauru">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Nepal">
 				<long>
 					<standard draft="unconfirmed">Nepalin aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="New_Caledonia">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="New_Zealand">
 				<long>
@@ -2368,258 +2105,125 @@
 				<short>
 					<generic draft="unconfirmed">NZT</generic>
 				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
 					<standard>Newfoundlandin normaaliaika</standard>
 					<daylight>Newfoundlandin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Niue">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Norfolk">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Noronha">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="North_Mariana">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<standard draft="unconfirmed">Novosibirskin aika</standard>
 					<daylight draft="unconfirmed">Novosibirskin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
 					<standard draft="unconfirmed">Omskin aika</standard>
 					<daylight draft="unconfirmed">Omskin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Oral">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Pakistan">
 				<long>
 					<standard draft="unconfirmed">Pakistanin aika</standard>
 					<daylight draft="unconfirmed">Pakistanin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Palau">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Papua_New_Guinea">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Paraguay">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Peru">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Philippines">
 				<long>
 					<standard draft="unconfirmed">Filippiinien aika</standard>
 					<daylight draft="unconfirmed">Filippiinien kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Phoenix_Islands">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Pierre_Miquelon">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Pitcairn">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Ponape">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Qyzylorda">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Reunion">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Rothera">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<standard draft="unconfirmed">Sahalinin aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<standard draft="unconfirmed">Samaran aika</standard>
 					<daylight draft="unconfirmed">Samaran kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Samarkand">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Samoa">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Seychelles">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Shevchenko">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Singapore">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Solomon">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="South_Georgia">
 				<long>
 					<standard draft="unconfirmed">Etelä-Georgian aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Suriname">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Sverdlovsk">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Syowa">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Tahiti">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Tajikistan">
 				<long>
 					<standard draft="unconfirmed">Tadžikistanin aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Tashkent">
 				<long>
 					<standard draft="unconfirmed">Taškentin aika</standard>
 					<daylight draft="unconfirmed">Taškentin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Tbilisi">
 				<long>
 					<standard draft="unconfirmed">Tbilisin aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Tokelau">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Tonga">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Truk">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Turkey">
 				<long>
 					<daylight draft="unconfirmed">Turkin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Turkmenistan">
 				<long>
 					<standard draft="unconfirmed">Turkmenistanin aika</standard>
 					<daylight draft="unconfirmed">Turkmenistanin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Tuvalu">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Uralsk">
 				<long>
 					<standard draft="unconfirmed">Oralin aika</standard>
 					<daylight draft="unconfirmed">Oralin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Uruguay">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Urumqi">
 				<long>
 					<standard draft="unconfirmed">Ürümqin aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Uzbekistan">
 				<long>
 					<standard draft="unconfirmed">Uzbekistanin aika</standard>
 					<daylight draft="unconfirmed">Uzbekistanin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Vanuatu">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Venezuela">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<standard draft="unconfirmed">Vladivostokin aika</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<standard draft="unconfirmed">Volgogradin aika</standard>
 					<daylight draft="unconfirmed">Volgogradin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Vostok">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Wake">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Wallis">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
 					<standard draft="unconfirmed">Jakutskin aika</standard>
 					<daylight draft="unconfirmed">Jakutskin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
 					<standard draft="unconfirmed">Jekaterinburgin aika</standard>
 					<daylight draft="unconfirmed">Jekaterinburgin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Yerevan">
 				<long>
 					<standard draft="unconfirmed">Jerevanin aika</standard>
 					<daylight draft="unconfirmed">Jerevanin kesäaika</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Yukon">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 		</timeZoneNames>
 	</dates>

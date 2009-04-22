@@ -1,13 +1,11 @@
 package org.unicode.cldr.unittest;
 
-import org.unicode.cldr.util.CLDRFile;
+import java.util.Locale;
+
 import org.unicode.cldr.util.CLDRTransforms;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.util.ULocale;
-
-import java.util.Locale;
 
 public class TestTransforms extends TestFmwk {
 
@@ -18,7 +16,7 @@ public class TestTransforms extends TestFmwk {
   enum Options {transliterator, roundtrip};
   
   public void test1461() {
-    CLDRTransforms transforms = null;
+    CLDRTransforms.registerCldrTransforms(TRANSFORM_DIR, null, isVerbose() ? getLogPrintWriter() : null);
     System.out.println("hi");
 
     String[][] tests = {
@@ -40,12 +38,9 @@ public class TestTransforms extends TestFmwk {
       if (source.endsWith("=")) {
         switch (Options.valueOf(source.substring(0,source.length()-1).toLowerCase(Locale.ENGLISH))) {
           case transliterator:
-            if (transforms == null) {
-              transforms = CLDRTransforms.getinstance(isVerbose() ? getLogPrintWriter() : null, null);
-            }
             id = target;
-            transform = transforms.getInstance(id);
-            inverse = transforms.getReverseInstance(target);
+            transform = Transliterator.getInstance(id);
+            inverse = Transliterator.getInstance(id, Transliterator.REVERSE);
             break;
           case roundtrip:
             roundtrip = target.toLowerCase(Locale.ENGLISH).charAt(0) == 't';

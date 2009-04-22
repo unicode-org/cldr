@@ -25,6 +25,7 @@ public class TestTransformsSimple extends TestFmwk {
     }
   
   private static final boolean verbose = Utility.getProperty("verbose", false);
+  private static PrintWriter out = verbose ? new PrintWriter(System.out, true) : null;
   static CLDRTransforms transforms;
   
   public void TestSimple() throws IOException {
@@ -33,17 +34,27 @@ public class TestTransformsSimple extends TestFmwk {
 //  boolean foo = matcher1.matches();
 //  Matcher matcher2 = CLDRTransforms.TRANSFORM_ID_PATTERN.matcher("abc-def");
 //  foo = matcher2.matches();
-    CLDRTransforms.getinstance(null, ".*(Tamil|Jamo).*");
+    CLDRTransforms.registerCldrTransforms(null, ".*(Tamil|Jamo).*", out);
     System.out.println("Start");
     checkTamil(filter);
     checkJamo(filter);
   }
   
+  public void TestChinese() {
+    CLDRTransforms.registerCldrTransforms(null, ".*(Han|Pinyin).*", out);
+    Transliterator hanLatin = Transliterator.getInstance("Han-Latin");
+    assertTransform("Transform", "zào Unicode", hanLatin, "造Unicode");
+    assertTransform("Transform", "zài chuàng zào Unicode zhī qián", hanLatin, "在創造Unicode之前");
+  }
+  
   public void TestHangul() {
-    CLDRTransforms.getinstance(null, ".*(Hangul|Jamo).*");
+    CLDRTransforms.registerCldrTransforms(null, ".*(Hangul|Jamo).*", out);
 
     Transliterator lh = Transliterator.getInstance("Latin-Hangul");
     Transliterator hl = lh.getInverse();
+    
+    assertTransform("Transform", "알따", lh, hl, "altta", "al-tta");
+    assertTransform("Transform", "알빠", lh, hl, "alppa", "al-ppa");
 
     assertTransform("Transform", "츠", lh, "ch");
    
@@ -91,14 +102,14 @@ public class TestTransformsSimple extends TestFmwk {
   private void assertTransform(String message, String expected, StringTransform t, String source) {
     assertEquals(message + " " + source, expected, t.transform(source));
   }
-  
+
 
   private void assertTransform(String message, String expected, StringTransform t, StringTransform back, String... source) {
     for (String s : source) {
       assertEquals(message + " " + s, expected, t.transform(s));
     }
     assertEquals(message + " " + expected, source[0], back.transform(expected));
-}
+  }
   
   private static void checkTamil(String filter) throws IOException {
     {

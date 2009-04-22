@@ -84,7 +84,7 @@ public class Utility {
       }
     }
   }
-  
+
   static String getPath(String path, String filename) {
     if (path == null) {
       return null;
@@ -97,7 +97,7 @@ public class Utility {
       return file.getPath() + File.separatorChar;
     }
   }
-  
+
   static String getPath(String path) {
     return getPath(path, null);
   }
@@ -197,8 +197,8 @@ public class Utility {
       return LINES_DIFFERENT;
     }
 
-//  private Matcher dtdMatcher = Pattern.compile(
-//  "\\Q<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/\\E.*\\Q/ldml.dtd\">\\E").matcher("");
+    //  private Matcher dtdMatcher = Pattern.compile(
+    //  "\\Q<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/\\E.*\\Q/ldml.dtd\">\\E").matcher("");
 
     private String[] CVS_TAGS = {"Revision", "Date"};
 
@@ -653,7 +653,7 @@ public class Utility {
   private static final  Transliterator DEFAULT_REGEX_ESCAPER = Transliterator.createFromRules(
           "foo", 
           "([ \\- \\\\ \\[ \\] ]) > '\\' $1 ;"
-//        + " ([:c:]) > &hex($1);"
+          //        + " ([:c:]) > &hex($1);"
           + " ([[:control:][[:z:]&[:ascii:]]]) > &hex($1);",
           Transliterator.FORWARD);
 
@@ -977,7 +977,7 @@ public class Utility {
     } catch (ClassNotFoundException cnf) { 
 
       throw new FileNotFoundException("Couldn't load " + Utility.UTIL_CLASS_DIR + "." + name + " - ClassNotFoundException." + cnf.toString());
-//    .initCause(cnf);
+      //    .initCause(cnf);
     } catch (java.util.MissingResourceException mre) {
       // try file
       return BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR + File.separator, name);
@@ -1018,12 +1018,46 @@ public class Utility {
   }
 
   public static void registerTransliteratorFromFile(String id, String dir, String filename, int direction, boolean reverseID) {
+    if (filename == null) {
+      filename = id.replace('-', '_');
+      filename = filename.replace('/', '_');
+      filename += ".txt";
+    }
+    String rules = getText(dir, filename);
+    Transliterator t;
+    int pos = id.indexOf('-');
+    String rid;
+    if (pos < 0) {
+      rid = id + "-Any";
+      id = "Any-" + id;
+    } else {
+      rid = id.substring(pos+1) + "-" + id.substring(0, pos);
+    }
+    if (!reverseID) rid = id;
+
+    if (direction == Transliterator.FORWARD) {
+      Transliterator.unregister(id);
+      t = Transliterator.createFromRules(id, rules, Transliterator.FORWARD);
+      Transliterator.registerInstance(t);
+      System.out.println("Registered new Transliterator: " + id);
+    }
+
+    /*String test = "\u049A\u0430\u0437\u0430\u049B";
+			System.out.println(t.transliterate(test));
+			t = Transliterator.getInstance(id);
+			System.out.println(t.transliterate(test));
+     */
+
+    if (direction == Transliterator.REVERSE) {
+      Transliterator.unregister(rid);
+      t = Transliterator.createFromRules(rid, rules, Transliterator.REVERSE);
+      Transliterator.registerInstance(t);
+      System.out.println("Registered new Transliterator: " + rid);
+    }
+  }
+
+  public static String getText(String dir, String filename) {
     try {
-      if (filename == null) {
-        filename = id.replace('-', '_');
-        filename = filename.replace('/', '_');
-        filename += ".txt";
-      }
       BufferedReader br = BagFormatter.openUTF8Reader(dir, filename);
       StringBuffer buffer = new StringBuffer();
       while (true) {
@@ -1035,38 +1069,9 @@ public class Utility {
       }
       br.close();
       String rules = buffer.toString();
-      Transliterator t;
-      int pos = id.indexOf('-');
-      String rid;
-      if (pos < 0) {
-        rid = id + "-Any";
-        id = "Any-" + id;
-      } else {
-        rid = id.substring(pos+1) + "-" + id.substring(0, pos);
-      }
-      if (!reverseID) rid = id;
-
-      if (direction == Transliterator.FORWARD) {
-        Transliterator.unregister(id);
-        t = Transliterator.createFromRules(id, rules, Transliterator.FORWARD);
-        Transliterator.registerInstance(t);
-        System.out.println("Registered new Transliterator: " + id);
-      }
-
-      /*String test = "\u049A\u0430\u0437\u0430\u049B";
-			System.out.println(t.transliterate(test));
-			t = Transliterator.getInstance(id);
-			System.out.println(t.transliterate(test));
-       */
-
-      if (direction == Transliterator.REVERSE) {
-        Transliterator.unregister(rid);
-        t = Transliterator.createFromRules(rid, rules, Transliterator.REVERSE);
-        Transliterator.registerInstance(t);
-        System.out.println("Registered new Transliterator: " + rid);
-      }
+      return rules;
     } catch (IOException e) {
-      throw (IllegalArgumentException) new IllegalArgumentException("Can't open " + dir + ", " + id).initCause(e);
+      throw (IllegalArgumentException) new IllegalArgumentException("Can't open " + dir + ", " + filename).initCause(e);
     }
   }
 
@@ -1324,11 +1329,11 @@ public class Utility {
   public static String hex(CharSequence input) {
     return hex(input, ",", new StringBuilder()).toString();
   }
-  
+
   public static String hex(CharSequence input, CharSequence separator) {
     return hex(input, separator, new StringBuilder()).toString();
   }
-  
+
   public static StringBuilder hex(CharSequence input, CharSequence separator, StringBuilder result) {
     int cp;
     for (int i = 0; i < input.length(); i += UTF16.getCharCount(cp)) {
@@ -1344,11 +1349,11 @@ public class Utility {
   public static String hex(int cp) {
     return hex(cp, 4, new StringBuilder()).toString();
   }
-  
+
   public static String hex(int cp, int minWidth) {
     return hex(cp, minWidth, new StringBuilder()).toString();
   }
-  
+
   private static StringBuilder hex(int cp, int minWidth, StringBuilder result) {
     String hex = Integer.toHexString(cp).toUpperCase(Locale.ENGLISH);
     for (int i = minWidth - hex.length(); i > 0; --i) {

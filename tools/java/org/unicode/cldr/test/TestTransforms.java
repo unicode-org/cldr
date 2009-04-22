@@ -18,14 +18,14 @@ public class TestTransforms {
     //checkRegistry();
     String source = Utility.getProperty("files", null, Utility.BASE_DIRECTORY + "dropbox/gen/icu-transforms/");
     boolean verbose = Utility.getProperty("verbose", false);
-    PrintWriter out = verbose ? new PrintWriter(System.out) : null;
+    PrintWriter out = verbose ? new PrintWriter(System.out, true) : null;
 
     CLDRTransforms.verifyNullFilter("halfwidth-fullwidth");
 
     if (source == null) {
-      CLDRTransforms transforms = CLDRTransforms.getinstance(out, ".*");
+      CLDRTransforms.registerCldrTransforms(null, ".*", out);
     } else {
-      CLDRTransforms.registerFromIcuFormatFiles(source);
+      CLDRTransforms.getInstance().setShowProgress(out).registerFromIcuFormatFiles(source);
     }
     if (out != null) {
       out.flush();

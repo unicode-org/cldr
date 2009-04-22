@@ -1183,7 +1183,6 @@
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
-						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="MEd">M/d, E</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
@@ -1194,6 +1193,7 @@
 						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M-y</dateFormatItem>
@@ -1336,40 +1336,40 @@
 				</fields>
 			</calendar>
 			<calendar type="indian">
-				<months> 
-					<monthContext type="format"> 
-						<monthWidth type="wide"> 
-							<month type="1">ചൈത്രം</month> 
-							<month type="2">വൈശാഖം</month> 
-							<month type="3">ജ്യേഷ്ഠം</month> 
-							<month type="4">ആഷാഢം</month> 
-							<month type="5">ശ്രാവണം</month> 
-							<month type="6">ഭാദ്രപാദം</month> 
-							<month type="7">ആശ്വിനം</month> 
-							<month type="8">കാര്‍ത്തികം</month> 
-							<month type="9">മാര്‍ഗശീര്‍ഷം</month> 
-							<month type="10">പൗഷം</month> 
-							<month type="11">മാഘം</month> 
-							<month type="12">ഫല്‍ഗുനം</month> 
-						</monthWidth> 
-					</monthContext> 
-					<monthContext type="stand-alone"> 
-						<monthWidth type="narrow"> 
-							<month type="1">ചൈ</month> 
-							<month type="2">വൈ</month> 
-							<month type="3">ജ്യേ</month> 
-							<month type="4">ആ</month> 
-							<month type="5">ശ്രാ</month> 
-							<month type="6">ഭാ</month> 
-							<month type="7">ആ</month> 
-							<month type="8">കാ</month> 
-							<month type="9">മാ</month> 
-							<month type="10">പൗ</month> 
-							<month type="11">മാ</month> 
-							<month type="12">ഫ</month> 
-						</monthWidth> 
-					</monthContext> 
-				</months> 
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1">ചൈത്രം</month>
+							<month type="2">വൈശാഖം</month>
+							<month type="3">ജ്യേഷ്ഠം</month>
+							<month type="4">ആഷാഢം</month>
+							<month type="5">ശ്രാവണം</month>
+							<month type="6">ഭാദ്രപാദം</month>
+							<month type="7">ആശ്വിനം</month>
+							<month type="8">കാര്‍ത്തികം</month>
+							<month type="9">മാര്‍ഗശീര്‍ഷം</month>
+							<month type="10">പൗഷം</month>
+							<month type="11">മാഘം</month>
+							<month type="12">ഫല്‍ഗുനം</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1">ചൈ</month>
+							<month type="2">വൈ</month>
+							<month type="3">ജ്യേ</month>
+							<month type="4">ആ</month>
+							<month type="5">ശ്രാ</month>
+							<month type="6">ഭാ</month>
+							<month type="7">ആ</month>
+							<month type="8">കാ</month>
+							<month type="9">മാ</month>
+							<month type="10">പൗ</month>
+							<month type="11">മാ</month>
+							<month type="12">ഫ</month>
+						</monthWidth>
+					</monthContext>
+				</months>
 				<eras>
 					<eraAbbr>
 						<era type="0">ശക</era>

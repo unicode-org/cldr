@@ -890,15 +890,6 @@
 							<day type="fri">週五</day>
 							<day type="sat">週六</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">日</day>
-							<day type="mon">一</day>
-							<day type="tue">二</day>
-							<day type="wed">三</day>
-							<day type="thu">四</day>
-							<day type="fri">五</day>
-							<day type="sat">六</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">星期日</day>
 							<day type="mon">星期一</day>
@@ -918,15 +909,6 @@
 							<day type="thu">四</day>
 							<day type="fri">五</day>
 							<day type="sat">六</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">星期日</day>
-							<day type="mon">星期一</day>
-							<day type="tue">星期二</day>
-							<day type="wed">星期三</day>
-							<day type="thu">星期四</day>
-							<day type="fri">星期五</day>
-							<day type="sat">星期六</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -987,7 +969,6 @@
 						<dateFormatItem id="MMMMEd" draft="unconfirmed">MMMMd日(E)</dateFormatItem>
 						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
-						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="yM">yyyy/M</dateFormatItem>
 						<dateFormatItem id="yMEd">yyyy/M/d（EEE）</dateFormatItem>
 						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
@@ -1014,11 +995,6 @@
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">ah時至ah時</greatestDifference>
 							<greatestDifference id="h">ah時至h時</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">vah:mm至ah:mm</greatestDifference>
-							<greatestDifference id="h">vah:mm至h:mm</greatestDifference>
-							<greatestDifference id="m">vah:mm至h:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">vah時至ah時</greatestDifference>
@@ -1105,40 +1081,17 @@
 					<availableFormats>
 						<dateFormatItem id="MMMEd">M月d日EEE</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
-						<dateFormatItem id="Md">M/d</dateFormatItem>
-						<dateFormatItem id="yyyyM">Gy/M</dateFormatItem>
+						<dateFormatItem id="yyyy">Gy</dateFormatItem>
 						<dateFormatItem id="yyyyM" alt="proposed-x1001" draft="unconfirmed">y/M</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">Gy/M/d（EEE）</dateFormatItem>
 						<dateFormatItem id="yyyyMEd" alt="proposed-x1001" draft="unconfirmed">y/M/d（EEE）</dateFormatItem>
-						<dateFormatItem id="yyyyMM">Gy/MM</dateFormatItem>
 						<dateFormatItem id="yyyyMM" alt="proposed-x1001" draft="unconfirmed">y/MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMM" alt="proposed-x1001" draft="unconfirmed">y年MMM</dateFormatItem>
-						<dateFormatItem id="yyyyQ">Gy年第Q季度</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">Gy年M月d日EEE</dateFormatItem>
 						<dateFormatItem id="yyyyQ" alt="proposed-x1001" draft="unconfirmed">y年第Q季度</dateFormatItem>
 						<dateFormatItem id="yyyyQ" alt="proposed-x1002" draft="unconfirmed">Gy Q</dateFormatItem>
-						<dateFormatItem id="yyyy">Gy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">Gy年M月d日EEE</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
-						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">Gy QQQ</dateFormatItem>
 					</availableFormats>
-					<intervalFormats>
-						<intervalFormatItem id="yM">
-							<greatestDifference id="M">y/M至y/M</greatestDifference>
-							<greatestDifference id="y">y/M至y/M</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMEd">
-							<greatestDifference id="M">y/M/dE至y/M/dE</greatestDifference>
-							<greatestDifference id="d">y/M/dE至y/M/dE</greatestDifference>
-							<greatestDifference id="y">y/M/dE至y/M/dE</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMd">
-							<greatestDifference id="M">y/M/d至y/M/d</greatestDifference>
-							<greatestDifference id="d">y/M/d至y/M/d</greatestDifference>
-							<greatestDifference id="y">y/M/d至y/M/d</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>

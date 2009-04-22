@@ -26,19 +26,6 @@ public class TestTransformsSimple extends TestFmwk {
   
   private static final boolean verbose = Utility.getProperty("verbose", false);
   private static PrintWriter out = verbose ? new PrintWriter(System.out, true) : null;
-  static CLDRTransforms transforms;
-  
-  public void TestSimple() throws IOException {
-    String filter = System.getProperty("filter");
-//  Matcher matcher1 = CLDRTransforms.TRANSFORM_ID_PATTERN.matcher("abc-def/ghi");
-//  boolean foo = matcher1.matches();
-//  Matcher matcher2 = CLDRTransforms.TRANSFORM_ID_PATTERN.matcher("abc-def");
-//  foo = matcher2.matches();
-    CLDRTransforms.registerCldrTransforms(null, ".*(Tamil|Jamo).*", out);
-    System.out.println("Start");
-    checkTamil(filter);
-    checkJamo(filter);
-  }
   
   public void TestChinese() {
     CLDRTransforms.registerCldrTransforms(null, ".*(Han|Pinyin).*", out);
@@ -111,22 +98,24 @@ public class TestTransformsSimple extends TestFmwk {
     assertEquals(message + " " + expected, source[0], back.transform(expected));
   }
   
-  private static void checkTamil(String filter) throws IOException {
+  public void xTestTamil() throws IOException {
     {
+      CLDRTransforms.registerCldrTransforms(null, ".*(Tamil).*", out);
       String name = "Tamil-Devanagari";
-      Transliterator tamil_devanagari = transforms.getInstance(name);
-      Transliterator devanagari_tamil = transforms.getReverseInstance(name);
+      Transliterator tamil_devanagari = Transliterator.getInstance(name);
+      Transliterator devanagari_tamil = Transliterator.getInstance(name, Transliterator.REVERSE);
       writeFile(name, new UnicodeSet("[[:block=tamil:]-[ௗ]]"), null, tamil_devanagari, devanagari_tamil, false, null, null);
     }
   }
   
-  private static void checkJamo(String filter) throws IOException {
+  public void xTestJamo() throws IOException {
     {
+      CLDRTransforms.registerCldrTransforms(null, ".*(Jamo).*", out);
       String name = "Latin-ConjoiningJamo";
-      Transliterator fromLatin = transforms.getInstance(name);
-      Transliterator toLatin = transforms.getReverseInstance(name);
+      Transliterator fromLatin = Transliterator.getInstance(name);
+      Transliterator toLatin = Transliterator.getInstance(name, Transliterator.REVERSE);
       UnicodeSet sourceSet = getRepresentativeHangul();
-      System.out.println(sourceSet.size() + "\t" + sourceSet.toPattern(false));
+      logln(sourceSet.size() + "\t" + sourceSet.toPattern(false));
       
       UnicodeSet multiply = new UnicodeSet();
       for (UnicodeSetIterator it = new UnicodeSetIterator(sourceSet); it.next();) {
@@ -150,7 +139,7 @@ public class TestTransformsSimple extends TestFmwk {
     }
   }
 
-  private static void writeFile(String title, UnicodeSet sourceSet, Transliterator nfd, Transliterator toLatin, 
+  private int writeFile(String title, UnicodeSet sourceSet, Transliterator nfd, Transliterator toLatin, 
           Transliterator fromLatin, boolean doLatin, UnicodeSet nativeSpecials, UnicodeSet latinSpecials) throws IOException {
     int errorCount = 0;
     PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.Utility.GEN_DIRECTORY + "transTest/", title + ".html");
@@ -164,8 +153,11 @@ public class TestTransformsSimple extends TestFmwk {
         errorCount = checkString(out, item, nfd, fromLatin, toLatin, errorCount, null);
         errorCount = checkString(out, item, nfd, fromLatin, toLatin, errorCount, "-");
       }
-      System.out.println("Special failures:\t" + errorCount);
       out.println("</table><p>Special failures:\t" + errorCount + "</p>");
+      if (errorCount != 0) {
+        errln("Special failures:\t" + errorCount);
+        errorCount = 0;
+      }
     }
     
     if (latinSpecials != null) {
@@ -176,30 +168,45 @@ public class TestTransformsSimple extends TestFmwk {
         errorCount = checkString(out, item, nfd, toLatin, fromLatin, errorCount, null);
         //errorCount = checkString(out, item, nfd, fromLatin, toLatin, errorCount, "-");
       }
-      System.out.println("Special failures:\t" + errorCount);
       out.println("</table><p>Special failures:\t" + errorCount + "</p>");
+      if (errorCount != 0) {
+        errln("Special failures:\t" + errorCount);
+        errorCount = 0;
+      }
     }
     
     if (doLatin) {
       out.println("<h1>Latin failures</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
       showItems(out, true, "Latin", "Target", "BackToLatin", "BackToTarget");
       errorCount = checkLatin(out, fromLatin, toLatin);
-      System.out.println("Latin failures:\t" + errorCount);
       out.println("</table><p>Latin failures:\t" + errorCount + "</p>");
+      if (errorCount != 0) {
+        errln("Latin failures:\t" + errorCount);
+        errorCount = 0;
+      }
+
     }
     
     out.println("<h1>Not Reversible</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
     errorCount = showMappings(out, sourceSet, null, nfd, fromLatin, toLatin);
-    System.out.println("Reversible failures:\t" + errorCount);
     out.println("</table><p>Reversible failures:\t" + errorCount + "</p>");
+    if (errorCount != 0) {
+      errln("Reversible failures:\t" + errorCount);
+      errorCount = 0;
+    }
+
     
     out.println("<h1>Has Unneeded Separator</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
     int separators = showMappings(out, sourceSet, "-", nfd, fromLatin, toLatin);
-    System.out.println("Separator failures:\t" + separators);
     out.println("</table><p>Separator failures:\t" + errorCount + "</p>");
+    if (errorCount != 0) {
+      errln("Separator failures:\t" + errorCount);
+      errorCount = 0;
+    }
     
     out.print("</body></html>");
     out.close();
+    return errorCount;
   }
   
   static UnicodeSet latin = new UnicodeSet("[a-z]");
@@ -263,10 +270,10 @@ public class TestTransformsSimple extends TestFmwk {
     out.println("<tr>");
     for (String source : sourceList) {
       if (source == null) continue;
-      System.out.print("<" + source + ">\t");
+      //System.out.print("<" + source + ">\t");
       out.println((th ? "<th>" : "<td>") + pretty(source) + (th ? "</th>" : "</td>"));
     }
-    System.out.println();
+    //System.out.println();
     out.println("</tr>");
     out.flush();
     return 1;
@@ -289,7 +296,9 @@ public class TestTransformsSimple extends TestFmwk {
   }
   
   public static UnicodeSet getRepresentativeHangul() {
-    UnicodeSet sourceSet = new UnicodeSet();
+    UnicodeSet sourceSet = new UnicodeSet("[{가가}{각아}{갂아}{갘카}{가까}{물엿}{굳이}{없었습}{무렷}{구디}{업섯씁}" +
+    "{아따}{아빠}{아짜}{아까}{아싸}{아차}{악사}{안자}{안하}{알가}{알마}{알바}{알사}{알타}{알파}{알하}{압사}{안가}{악싸}{안짜}{알싸}{압싸}{앆카}{았사}{알따}{알빠}" +
+    "{츠} {아따} {아빠} {아짜} {아까} {아싸} {아차} {악사} {안자} {안하} {알가} {알마} {알바} {알사} {알타} {알파} {알하} {압사} {안가} {악싸} {안짜} {알싸} {알따} {알빠} {압싸} {앆카} {았사}]");
     getRepresentativeHangul(2, sourceSet, false);
     getRepresentativeHangul(3, sourceSet, false);
     getRepresentativeHangul(2, sourceSet, true);

@@ -149,7 +149,6 @@ public class CLDRTransforms {
         addDependenciesRecursively(cldrFileName, ordered, hasXmlSuffix);
       }
       append("Adding: " + ordered + "\n");
-      System.out.println(ordered);
       return ordered;
     }
 
@@ -274,6 +273,10 @@ public class CLDRTransforms {
       throw (RuntimeException) new IllegalArgumentException().initCause(e);
     }
   }
+  
+  private void appendln(String s) {
+    append(s + "\n");
+  }
 
   // ===================================
 
@@ -326,7 +329,7 @@ public class CLDRTransforms {
       }
       if (line.startsWith("TransliteratorNamePattern")) break; // done
       //			if (line.indexOf("Ethiopic") >= 0) {
-      //				System.out.println("Skipping Ethiopic");
+      //				appendln("Skipping Ethiopic");
       //				continue;
       //			}
       if (getId.reset(line).matches()) {
@@ -346,11 +349,11 @@ public class CLDRTransforms {
         } else if (operation.equals("direction")) {
           try {
             if (id == null || filename == null) {
-              System.out.println("skipping: " + line);
+              //appendln("skipping: " + line);
               continue;
             }
             if (filename.indexOf("InterIndic") >= 0 && filename.indexOf("Latin") >= 0) {
-              System.out.print("**" + id);
+              //append("**" + id);
             }
             checkIdFix(id, fixedIDs, oddIDs, translitID);
 
@@ -365,7 +368,7 @@ public class CLDRTransforms {
             throw (RuntimeException) new IllegalArgumentException("Failed with " + filename + ", " + source).initCause(e);
           }
         } else {
-          System.out.println(dir + "root.txt unhandled line:" + line);
+          append(dir + "root.txt unhandled line:" + line);
         }
         continue;
       }
@@ -373,7 +376,7 @@ public class CLDRTransforms {
       if (trimmed.equals("")) continue;
       if (trimmed.equals("}")) continue;
       if (trimmed.startsWith("//")) continue;
-      System.out.println("Unhandled:" + line);
+      throw new IllegalArgumentException("Unhandled:" + line);
     }
 
     final Set<String> rawIds = idToRules.keySet();
@@ -393,18 +396,18 @@ public class CLDRTransforms {
       Transliterator t = Transliterator.createFromRules(id, "::" + source + ";", Transliterator.FORWARD);
       Transliterator.registerInstance(t);
       //verifyNullFilter("halfwidth-fullwidth");
-      System.out.println("Registered new Transliterator Alias: " + id);
+      appendln("Registered new Transliterator Alias: " + id);
 
     }
-    System.out.println("Fixed IDs");
+    appendln("Fixed IDs");
     for (Iterator<String> it = fixedIDs.keySet().iterator(); it.hasNext();) {
       String id2 = (String) it.next();
-      System.out.println("\t" + id2 + "\t" + fixedIDs.get(id2));
+      appendln("\t" + id2 + "\t" + fixedIDs.get(id2));
     }
-    System.out.println("Odd IDs");
+    appendln("Odd IDs");
     for (Iterator<String> it = oddIDs.iterator(); it.hasNext();) {
       String id2 = (String) it.next();
-      System.out.println("\t" + id2);
+      appendln("\t" + id2);
     }
     Transliterator.registerAny(); // do this last!
   }
@@ -434,10 +437,10 @@ public class CLDRTransforms {
   //    registerFromIcuFile(id, dir, filename, Transliterator.REVERSE);
   //  }
 
-  public static void checkIdFix(String id, Map<String,String> fixedIDs, Set<String> oddIDs, Matcher translitID) {
+  public void checkIdFix(String id, Map<String,String> fixedIDs, Set<String> oddIDs, Matcher translitID) {
     if (fixedIDs.containsKey(id)) return;
     if (!translitID.reset(id).matches()) {
-      System.out.println("Can't fix: " + id);
+      appendln("Can't fix: " + id);
       fixedIDs.put(id, "?"+id);
       return;
     }
@@ -487,28 +490,28 @@ public class CLDRTransforms {
 
     for (Enumeration en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
       String oldId = (String)en.nextElement();
-      System.out.println("Retaining: " + oldId);
+      append("Retaining: " + oldId);
     }
   }
 
-  public static void deregisterIcuTransliterators(Collection<String> available) {
+  public void deregisterIcuTransliterators(Collection<String> available) {
     for (String oldId : available) {
       Transliterator t;
       try {
         t = Transliterator.getInstance(oldId);
-      } catch (Exception e) {
-        System.out.println("Skipping: " + oldId);
+      } catch (RuntimeException e) {
+        append("Failure with: " + oldId);
         t = Transliterator.getInstance(oldId);
-        continue;
+        throw e;
       }
       String className = t.getClass().getName();
       if (className.endsWith(".CompoundTransliterator")
               || className.endsWith(".RuleBasedTransliterator")
               || className.endsWith(".AnyTransliterator")) {
-        System.out.println("REMOVING: " + oldId);
+        appendln("REMOVING: " + oldId);
         Transliterator.unregister(oldId);
       } else {
-        System.out.println("Retaining: " + oldId + "\t\t" + className);
+        appendln("Retaining: " + oldId + "\t\t" + className);
       }
     }
   }

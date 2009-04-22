@@ -66,9 +66,7 @@ public class GenerateTransformCharts {
   static Map<String,UnicodeSet> scriptExtras = new HashMap<String,UnicodeSet>();
   static {
     scriptExtras.put("Arab", new UnicodeSet("[\u0660-\u0669]"));
-    scriptExtras.put("Hang", new UnicodeSet("[{가가}{각아}{갂아}{갘카}{가까}{물엿}{굳이}{없었습}{무렷}{구디}{업섯씁}" +
-    "{아따}{아빠}{아짜}{아까}{아싸}{아차}{악사}{안자}{안하}{알가}{알마}{알바}{알사}{알타}{알파}{알하}{압사}{안가}{악싸}{안짜}{알싸}{압싸}{앆카}{았사}{알따}{알빠}]")
-    .addAll(TestTransformsSimple.getRepresentativeHangul()));
+    scriptExtras.put("Hang", TestTransformsSimple.getRepresentativeHangul());
   }
 
   public static void main(String[] args) throws IOException {
@@ -76,7 +74,7 @@ public class GenerateTransformCharts {
     String filter = Utility.getProperty("filter", null);
     System.out.println("Start");
     //PrintWriter out = new PrintWriter(System.out);
-    CLDRTransforms.registerCldrTransforms(TRANSFORM_DIR, filter, verbose ? new PrintWriter(System.out) : null);
+    CLDRTransforms.registerCldrTransforms(null, filter, verbose ? new PrintWriter(System.out) : null);
     try {
       showAllLatin();
       //doIndic();
@@ -671,7 +669,7 @@ public class GenerateTransformCharts {
     // add extras
     extras = (UnicodeSet) scriptExtras.get(scriptName);
     if (extras != null) {
-      System.out.println(script + "\tAdding1: " + extras);
+      System.out.println(script + "\tAdding1: " + extras + "\n" + extras.toPattern(false));
       nonLatinUnicodeSet.addAll(extras);
     }
 

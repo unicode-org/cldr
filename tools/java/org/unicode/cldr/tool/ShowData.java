@@ -582,13 +582,11 @@ public class ShowData {
 
   static SimpleDateFormat isoDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm",
       ULocale.ENGLISH);
-
-  static String VERSION = "1.5";
   
   static public void getChartTemplate(String title, String version,
       String header, String[] headerAndFooter) throws IOException {
     if (version == null) {
-      version = VERSION;
+      version = ShowLanguages.CHART_DISPLAY_VERSION;
     }
     VariableReplacer langTag = new VariableReplacer()
     .add("%title%", title)

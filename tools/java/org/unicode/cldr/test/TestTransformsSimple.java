@@ -38,7 +38,7 @@ public class TestTransformsSimple extends TestFmwk {
     assertTransform("Transform", "zài chuàng zào Unicode zhī qián", hanLatin, "在創造Unicode之前");
   }
 
-  public void TestHangul() {
+  public void TestHangul2() {
     //CLDRTransforms.registerCldrTransforms(null, ".*(Hangul|Jamo).*", out);
 
     Transliterator lh = Transliterator.getInstance("Latin-Hangul");
@@ -48,7 +48,6 @@ public class TestTransformsSimple extends TestFmwk {
     //assertRoundTripTransform("Transform", "\uAC0D\uB530", lh, hl);
 
     final UnicodeSet representativeHangul = getRepresentativeHangul();
-    final boolean ok = representativeHangul.contains("갍따");
     for (UnicodeSetIterator it = new UnicodeSetIterator(representativeHangul); it.next();) {
       assertRoundTripTransform("Transform", it.getString(), lh, hl);
     }
@@ -138,12 +137,12 @@ public class TestTransformsSimple extends TestFmwk {
       Transliterator nfd = Transliterator.getInstance("nfd");
 
       UnicodeSet multiply = new UnicodeSet(sourceSet);
-      for (UnicodeSetIterator it = new UnicodeSetIterator(sourceSet); it.next();) {
-        for (UnicodeSetIterator it2 = new UnicodeSetIterator(sourceSet); it2.next();) {
-          String source1 = it.getString() + it2.getString(); // try all combinations.
-          multiply.add(source1);
-        }
-      }
+//      for (UnicodeSetIterator it = new UnicodeSetIterator(sourceSet); it.next();) {
+//        for (UnicodeSetIterator it2 = new UnicodeSetIterator(sourceSet); it2.next();) {
+//          String source1 = it.getString() + it2.getString(); // try all combinations.
+//          multiply.add(source1);
+//        }
+//      }
 
       //    latin.addAll(toTarget.getSourceSet())
       //    .addAll(toTarget.getTargetSet())
@@ -219,7 +218,7 @@ public class TestTransformsSimple extends TestFmwk {
     errorCount = showMappings(out, sourceSet, "-", nfd, fromLatin, toLatin);
     out.println("</table><p>Separator failures:\t" + errorCount + "</p>");
     if (errorCount != 0) {
-      errln("Separator failures:\t" + errorCount);
+      warnln("Unneeded Separators:\t" + errorCount);
       errorCount = 0;
     }
 
@@ -316,20 +315,6 @@ public class TestTransformsSimple extends TestFmwk {
     return result.toString();
   }
 
-  public static UnicodeSet getRepresentativeHangul() {
-    UnicodeSet sourceSet = new UnicodeSet("[{가가}{각아}{갂아}{갘카}{가까}{물엿}{굳이}{없었습}{무렷}{구디}{업섯씁}" +
-            "{아따}{아빠}{아짜}{아까}{아싸}{아차}{악사}{안자}{안하}{알가}{알마}{알바}{알사}{알타}{알파}{알하}{압사}{안가}{악싸}{안짜}{알싸}{압싸}{앆카}{았사}{알따}{알빠}" +
-    "{츠} {아따} {아빠} {아짜} {아까} {아싸} {아차} {악사} {안자} {안하} {알가} {알마} {알바} {알사} {알타} {알파} {알하} {압사} {안가} {악싸} {안짜} {알싸} {알따} {알빠} {압싸} {앆카} {았사}]");
-    addRepresentativeHangul(sourceSet, 2, false);
-    addRepresentativeHangul(sourceSet, 3, false);
-    addRepresentativeHangul(sourceSet, 2, true);
-    addRepresentativeHangul(sourceSet, 3, true);
-    // add the boundary cases; we want an example of each case of V + L and one example of each case of T+L
-
-    UnicodeSet more = getRepresentativeBoundaryHangul();
-    sourceSet.addAll(more);
-    return sourceSet;
-  }
 
   //  public static UnicodeSet concatenate(UnicodeSet a, UnicodeSet b) {
   //    UnicodeSet c = new UnicodeSet();
@@ -378,6 +363,21 @@ public class TestTransformsSimple extends TestFmwk {
   //    }
   //    return process.getResults();
   //  }
+
+  public static UnicodeSet getRepresentativeHangul() {
+    UnicodeSet extraSamples = new UnicodeSet("[\uCE20{\uAD6C\uB514}{\uAD73\uC774}{\uBB34\uB837}{\uBB3C\uC5FF}{\uC544\uAE4C}{\uC544\uB530}{\uC544\uBE60}{\uC544\uC2F8}{\uC544\uC9DC}{\uC544\uCC28}{\uC545\uC0AC}{\uC545\uC2F8}{\uC546\uCE74}{\uC548\uAC00}{\uC548\uC790}{\uC548\uC9DC}{\uC548\uD558}{\uC54C\uAC00}{\uC54C\uB530}{\uC54C\uB9C8}{\uC54C\uBC14}{\uC54C\uBE60}{\uC54C\uC0AC}{\uC54C\uC2F8}{\uC54C\uD0C0}{\uC54C\uD30C}{\uC54C\uD558}{\uC555\uC0AC}{\uC555\uC2F8}{\uC558\uC0AC}{\uC5C5\uC12F\uC501}{\uC5C6\uC5C8\uC2B5}]");
+    UnicodeSet sourceSet = new UnicodeSet();
+    addRepresentativeHangul(sourceSet, 2, false);
+    addRepresentativeHangul(sourceSet, 3, false);
+    addRepresentativeHangul(sourceSet, 2, true);
+    addRepresentativeHangul(sourceSet, 3, true);
+    // add the boundary cases; we want an example of each case of V + L and one example of each case of T+L
+
+    UnicodeSet more = getRepresentativeBoundaryHangul();
+    sourceSet.addAll(more);
+    sourceSet.addAll(extraSamples);
+    return sourceSet;
+  }
 
   private static UnicodeSet getRepresentativeBoundaryHangul() {
     UnicodeSet resultToAddTo = new UnicodeSet();

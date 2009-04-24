@@ -18,17 +18,17 @@
 			<tRule>::NFD (NFC);</tRule>
 			<tRule>$tone = [̄́̌̀̆] ;</tRule>
 			<comment># Move the tone to the end of a syllable, and convert to number</comment>
-			<tRule>e {($tone) r} → r &amp;tone-digit($1);</tRule>
-			<tRule>($tone) ( [i o n u {o n} {n g}]) → $2 &amp;tone-digit($1);</tRule>
-			<tRule>($tone) → &amp;tone-digit($1);</tRule>
+			<tRule>e {($tone) r} → r &amp;Pinyin-NumericPinyin($1);</tRule>
+			<tRule>($tone) ( [i o n u {o n} {n g}]) → $2 &amp;Pinyin-NumericPinyin($1);</tRule>
+			<tRule>($tone) → &amp;Pinyin-NumericPinyin($1);</tRule>
 			<comment># The following backs up until it finds the right vowel, then deposits the tone</comment>
 			<tRule>$vowel = [aAeEiIoOuUüÜ {ü} {Ü} ];</tRule>
 			<tRule>$consonant = [[a-z A-Z] - [$vowel]];</tRule>
 			<tRule>$digit = [1-5];</tRule>
-			<tRule>$1 &amp;digit-tone($3) $2 ← ([aAeE]) ($vowel* $consonant*) ($digit);</tRule>
-			<tRule>$1 &amp;digit-tone($3) $2 ← ([oO]) ([$vowel-[aeAE]]* $consonant*) ($digit);</tRule>
-			<tRule>$1 &amp;digit-tone($3) $2 ← ($vowel) ($consonant*) ($digit);</tRule>
-			<tRule>&amp;digit-tone($1) ← [:letter:] {($digit)};</tRule>
+			<tRule>$1 &amp;NumericPinyin-Pinyin($3) $2 ← ([aAeE]) ($vowel* $consonant*) ($digit);</tRule>
+			<tRule>$1 &amp;NumericPinyin-Pinyin($3) $2 ← ([oO]) ([$vowel-[aeAE]]* $consonant*) ($digit);</tRule>
+			<tRule>$1 &amp;NumericPinyin-Pinyin($3) $2 ← ($vowel) ($consonant*) ($digit);</tRule>
+			<tRule>&amp;NumericPinyin-Pinyin($1) ← [:letter:] {($digit)};</tRule>
 			<tRule>::NFC (NFD);</tRule>
 		</transform>
 	</transforms>

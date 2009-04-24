@@ -281,14 +281,9 @@ public class ConvertTransforms extends CLDRConverterTool{
 			}
 			if (path.indexOf("/comment") >= 0) 
 			{
-				if (!skipComments) 
-				{
-					if (!value.trim().startsWith("#"))
-					{
-						value = value + "# ";
-					}
-					toilet.println(value);
-				}
+			  if (!skipComments) {
+			    showComments(toilet, value);
+			  }
 			} 
 			else if (path.indexOf("/tRule") >= 0) 
 			{
@@ -324,6 +319,16 @@ public class ConvertTransforms extends CLDRConverterTool{
 		
 	}
 
+  private void showComments(PrintWriter toilet, String value) {
+    String[] lines = value.trim().split("\\r\\n?|\\n");
+    for (String line : lines) {
+      if (!line.startsWith("#")) {
+        line = "# " + line;
+      }
+      toilet.println(line);
+    }
+  }
+
 	private void convertFile(Factory cldrFactory, String id, String outputDirectory, PrintWriter index) throws IOException {
 		PrintWriter output = null;
 		String filename = null;
@@ -347,8 +352,9 @@ public class ConvertTransforms extends CLDRConverterTool{
 			}
 			if (path.indexOf("/comment") >= 0) {
 				if (!skipComments) {
-					if (!value.trim().startsWith("#")) value = value + "# ";
-					output.println(value);
+          showComments(output, value);
+//					if (!value.trim().startsWith("#")) value = value + "# ";
+//					output.println(value);
 				}
 			} else if (path.indexOf("/tRule") >= 0) {
 				//value = replaceUnquoted(value,"\u00A7", "&");

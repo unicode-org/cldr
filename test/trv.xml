@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.5' base='trv'>
- <!-- trv [trv] -->
+ <!-- Taroko [Taroko] -->
   <number 
-locales='trv'>
-<!-- trv [trv] -->
+locales='trv trv_TW'>
+<!-- Taroko [Taroko]; Taroko (Taiwan) [Taroko (Taiwan)] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,514 +56,292 @@ locales='trv'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='trv'>
-<!-- trv [trv] -->
+locales='trv trv_TW'>
+<!-- Taroko [Taroko]; Taroko (Taiwan) [Taroko (Taiwan)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
-   <result timeType='full'>00:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none'>1900-01-31</result>
    <result timeType='short'>1900-01-31 00:00</result>
    <result timeType='medium'>1900-01-31 00:00:00</result>
-   <result timeType='full'>1900-01-31 00:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1900 Kii 31</result>
    <result draft='approved'>1900 1 31</result>
    <result timeType='short' draft='unconfirmed'>1900 Kii 31 00:00</result>
    <result draft='approved'>1900 1 31 00:00</result>
    <result timeType='medium' draft='unconfirmed'>1900 Kii 31 00:00:00</result>
    <result draft='approved'>1900 1 31 00:00:00</result>
-   <result timeType='full' draft='unconfirmed'>1900 Kii 31 00:00:00 GMT+00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1900 Kingal idas 31</result>
    <result draft='approved'>1900 1 31</result>
    <result timeType='short' draft='unconfirmed'>1900 Kingal idas 31 00:00</result>
    <result draft='approved'>1900 1 31 00:00</result>
    <result timeType='medium' draft='unconfirmed'>1900 Kingal idas 31 00:00:00</result>
    <result draft='approved'>1900 1 31 00:00:00</result>
-   <result timeType='full' draft='unconfirmed'>1900 Kingal idas 31 00:00:00 GMT+00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>tgTru jiyax iyax sngayan, 1900 Kingal idas 31</result>
    <result draft='approved'>4, 1900 1 31</result>
    <result timeType='short' draft='unconfirmed'>tgTru jiyax iyax sngayan, 1900 Kingal idas 31 00:00</result>
    <result draft='approved'>4, 1900 1 31 00:00</result>
    <result timeType='medium' draft='unconfirmed'>tgTru jiyax iyax sngayan, 1900 Kingal idas 31 00:00:00</result>
    <result draft='approved'>4, 1900 1 31 00:00:00</result>
-   <result timeType='full' draft='unconfirmed'>tgTru jiyax iyax sngayan, 1900 Kingal idas 31 00:00:00 GMT+00:00</result>
-   <result draft='approved'>4, 1900 1 31 00:00:00 GMT+00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:01</result>
-   <result timeType='full'>00:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none'>1909-02-28</result>
    <result timeType='short'>1909-02-28 00:00</result>
    <result timeType='medium'>1909-02-28 00:00:01</result>
-   <result timeType='full'>1909-02-28 00:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1909 Dhi 28</result>
    <result draft='approved'>1909 2 28</result>
    <result timeType='short' draft='unconfirmed'>1909 Dhi 28 00:00</result>
    <result draft='approved'>1909 2 28 00:00</result>
    <result timeType='medium' draft='unconfirmed'>1909 Dhi 28 00:00:01</result>
    <result draft='approved'>1909 2 28 00:00:01</result>
-   <result timeType='full' draft='unconfirmed'>1909 Dhi 28 00:00:01 GMT+00:00</result>
-   <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1909 Dha idas 28</result>
    <result draft='approved'>1909 2 28</result>
    <result timeType='short' draft='unconfirmed'>1909 Dha idas 28 00:00</result>
    <result draft='approved'>1909 2 28 00:00</result>
    <result timeType='medium' draft='unconfirmed'>1909 Dha idas 28 00:00:01</result>
    <result draft='approved'>1909 2 28 00:00:01</result>
-   <result timeType='full' draft='unconfirmed'>1909 Dha idas 28 00:00:01 GMT+00:00</result>
-   <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>Jiyax sngayan, 1909 Dha idas 28</result>
    <result draft='approved'>1, 1909 2 28</result>
    <result timeType='short' draft='unconfirmed'>Jiyax sngayan, 1909 Dha idas 28 00:00</result>
    <result draft='approved'>1, 1909 2 28 00:00</result>
    <result timeType='medium' draft='unconfirmed'>Jiyax sngayan, 1909 Dha idas 28 00:00:01</result>
    <result draft='approved'>1, 1909 2 28 00:00:01</result>
-   <result timeType='full' draft='unconfirmed'>Jiyax sngayan, 1909 Dha idas 28 00:00:01 GMT+00:00</result>
-   <result draft='approved'>1, 1909 2 28 00:00:01 GMT+00:00</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:59</result>
    <result timeType='medium'>00:59:59</result>
-   <result timeType='full'>00:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none'>1918-03-26</result>
    <result timeType='short'>1918-03-26 00:59</result>
    <result timeType='medium'>1918-03-26 00:59:59</result>
-   <result timeType='full'>1918-03-26 00:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1918 Tri 26</result>
    <result draft='approved'>1918 3 26</result>
    <result timeType='short' draft='unconfirmed'>1918 Tri 26 00:59</result>
    <result draft='approved'>1918 3 26 00:59</result>
    <result timeType='medium' draft='unconfirmed'>1918 Tri 26 00:59:59</result>
    <result draft='approved'>1918 3 26 00:59:59</result>
-   <result timeType='full' draft='unconfirmed'>1918 Tri 26 00:59:59 GMT+00:00</result>
-   <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1918 Tru idas 26</result>
    <result draft='approved'>1918 3 26</result>
    <result timeType='short' draft='unconfirmed'>1918 Tru idas 26 00:59</result>
    <result draft='approved'>1918 3 26 00:59</result>
    <result timeType='medium' draft='unconfirmed'>1918 Tru idas 26 00:59:59</result>
    <result draft='approved'>1918 3 26 00:59:59</result>
-   <result timeType='full' draft='unconfirmed'>1918 Tru idas 26 00:59:59 GMT+00:00</result>
-   <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>tgDha jiyax iyax sngayan, 1918 Tru idas 26</result>
    <result draft='approved'>3, 1918 3 26</result>
    <result timeType='short' draft='unconfirmed'>tgDha jiyax iyax sngayan, 1918 Tru idas 26 00:59</result>
    <result draft='approved'>3, 1918 3 26 00:59</result>
    <result timeType='medium' draft='unconfirmed'>tgDha jiyax iyax sngayan, 1918 Tru idas 26 00:59:59</result>
    <result draft='approved'>3, 1918 3 26 00:59:59</result>
-   <result timeType='full' draft='unconfirmed'>tgDha jiyax iyax sngayan, 1918 Tru idas 26 00:59:59 GMT+00:00</result>
-   <result draft='approved'>3, 1918 3 26 00:59:59 GMT+00:00</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:00</result>
-   <result timeType='full'>01:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none'>1932-04-24</result>
    <result timeType='short'>1932-04-24 01:00</result>
    <result timeType='medium'>1932-04-24 01:00:00</result>
-   <result timeType='full'>1932-04-24 01:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1932 Spi 24</result>
    <result draft='approved'>1932 4 24</result>
    <result timeType='short' draft='unconfirmed'>1932 Spi 24 01:00</result>
    <result draft='approved'>1932 4 24 01:00</result>
    <result timeType='medium' draft='unconfirmed'>1932 Spi 24 01:00:00</result>
    <result draft='approved'>1932 4 24 01:00:00</result>
-   <result timeType='full' draft='unconfirmed'>1932 Spi 24 01:00:00 GMT+00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1932 Spat idas 24</result>
    <result draft='approved'>1932 4 24</result>
    <result timeType='short' draft='unconfirmed'>1932 Spat idas 24 01:00</result>
    <result draft='approved'>1932 4 24 01:00</result>
    <result timeType='medium' draft='unconfirmed'>1932 Spat idas 24 01:00:00</result>
    <result draft='approved'>1932 4 24 01:00:00</result>
-   <result timeType='full' draft='unconfirmed'>1932 Spat idas 24 01:00:00 GMT+00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>Jiyax sngayan, 1932 Spat idas 24</result>
    <result draft='approved'>1, 1932 4 24</result>
    <result timeType='short' draft='unconfirmed'>Jiyax sngayan, 1932 Spat idas 24 01:00</result>
    <result draft='approved'>1, 1932 4 24 01:00</result>
    <result timeType='medium' draft='unconfirmed'>Jiyax sngayan, 1932 Spat idas 24 01:00:00</result>
    <result draft='approved'>1, 1932 4 24 01:00:00</result>
-   <result timeType='full' draft='unconfirmed'>Jiyax sngayan, 1932 Spat idas 24 01:00:00 GMT+00:00</result>
-   <result draft='approved'>1, 1932 4 24 01:00:00 GMT+00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:01</result>
-   <result timeType='full'>01:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none'>1945-05-20</result>
    <result timeType='short'>1945-05-20 01:00</result>
    <result timeType='medium'>1945-05-20 01:00:01</result>
-   <result timeType='full'>1945-05-20 01:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1945 Rii 20</result>
    <result draft='approved'>1945 5 20</result>
    <result timeType='short' draft='unconfirmed'>1945 Rii 20 01:00</result>
    <result draft='approved'>1945 5 20 01:00</result>
    <result timeType='medium' draft='unconfirmed'>1945 Rii 20 01:00:01</result>
    <result draft='approved'>1945 5 20 01:00:01</result>
-   <result timeType='full' draft='unconfirmed'>1945 Rii 20 01:00:01 GMT+00:00</result>
-   <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1945 Rima idas 20</result>
    <result draft='approved'>1945 5 20</result>
    <result timeType='short' draft='unconfirmed'>1945 Rima idas 20 01:00</result>
    <result draft='approved'>1945 5 20 01:00</result>
    <result timeType='medium' draft='unconfirmed'>1945 Rima idas 20 01:00:01</result>
    <result draft='approved'>1945 5 20 01:00:01</result>
-   <result timeType='full' draft='unconfirmed'>1945 Rima idas 20 01:00:01 GMT+00:00</result>
-   <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>Jiyax sngayan, 1945 Rima idas 20</result>
    <result draft='approved'>1, 1945 5 20</result>
    <result timeType='short' draft='unconfirmed'>Jiyax sngayan, 1945 Rima idas 20 01:00</result>
    <result draft='approved'>1, 1945 5 20 01:00</result>
    <result timeType='medium' draft='unconfirmed'>Jiyax sngayan, 1945 Rima idas 20 01:00:01</result>
    <result draft='approved'>1, 1945 5 20 01:00:01</result>
-   <result timeType='full' draft='unconfirmed'>Jiyax sngayan, 1945 Rima idas 20 01:00:01 GMT+00:00</result>
-   <result draft='approved'>1, 1945 5 20 01:00:01 GMT+00:00</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>11:59</result>
    <result timeType='medium'>11:59:59</result>
-   <result timeType='full'>11:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none'>1952-06-18</result>
    <result timeType='short'>1952-06-18 11:59</result>
    <result timeType='medium'>1952-06-18 11:59:59</result>
-   <result timeType='full'>1952-06-18 11:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1952 Mti 18</result>
    <result draft='approved'>1952 6 18</result>
    <result timeType='short' draft='unconfirmed'>1952 Mti 18 11:59</result>
    <result draft='approved'>1952 6 18 11:59</result>
    <result timeType='medium' draft='unconfirmed'>1952 Mti 18 11:59:59</result>
    <result draft='approved'>1952 6 18 11:59:59</result>
-   <result timeType='full' draft='unconfirmed'>1952 Mti 18 11:59:59 GMT+00:00</result>
-   <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1952 Mataru idas 18</result>
    <result draft='approved'>1952 6 18</result>
    <result timeType='short' draft='unconfirmed'>1952 Mataru idas 18 11:59</result>
    <result draft='approved'>1952 6 18 11:59</result>
    <result timeType='medium' draft='unconfirmed'>1952 Mataru idas 18 11:59:59</result>
    <result draft='approved'>1952 6 18 11:59:59</result>
-   <result timeType='full' draft='unconfirmed'>1952 Mataru idas 18 11:59:59 GMT+00:00</result>
-   <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>tgTru jiyax iyax sngayan, 1952 Mataru idas 18</result>
    <result draft='approved'>4, 1952 6 18</result>
    <result timeType='short' draft='unconfirmed'>tgTru jiyax iyax sngayan, 1952 Mataru idas 18 11:59</result>
    <result draft='approved'>4, 1952 6 18 11:59</result>
    <result timeType='medium' draft='unconfirmed'>tgTru jiyax iyax sngayan, 1952 Mataru idas 18 11:59:59</result>
    <result draft='approved'>4, 1952 6 18 11:59:59</result>
-   <result timeType='full' draft='unconfirmed'>tgTru jiyax iyax sngayan, 1952 Mataru idas 18 11:59:59 GMT+00:00</result>
-   <result draft='approved'>4, 1952 6 18 11:59:59 GMT+00:00</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:00</result>
-   <result timeType='full'>12:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none'>1973-07-16</result>
    <result timeType='short'>1973-07-16 12:00</result>
    <result timeType='medium'>1973-07-16 12:00:00</result>
-   <result timeType='full'>1973-07-16 12:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1973 Emi 16</result>
    <result draft='approved'>1973 7 16</result>
    <result timeType='short' draft='unconfirmed'>1973 Emi 16 12:00</result>
    <result draft='approved'>1973 7 16 12:00</result>
    <result timeType='medium' draft='unconfirmed'>1973 Emi 16 12:00:00</result>
    <result draft='approved'>1973 7 16 12:00:00</result>
-   <result timeType='full' draft='unconfirmed'>1973 Emi 16 12:00:00 GMT+00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1973 Empitu idas 16</result>
    <result draft='approved'>1973 7 16</result>
    <result timeType='short' draft='unconfirmed'>1973 Empitu idas 16 12:00</result>
    <result draft='approved'>1973 7 16 12:00</result>
    <result timeType='medium' draft='unconfirmed'>1973 Empitu idas 16 12:00:00</result>
    <result draft='approved'>1973 7 16 12:00:00</result>
-   <result timeType='full' draft='unconfirmed'>1973 Empitu idas 16 12:00:00 GMT+00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>tgKingal jiyax iyax sngayan, 1973 Empitu idas 16</result>
    <result draft='approved'>2, 1973 7 16</result>
    <result timeType='short' draft='unconfirmed'>tgKingal jiyax iyax sngayan, 1973 Empitu idas 16 12:00</result>
    <result draft='approved'>2, 1973 7 16 12:00</result>
    <result timeType='medium' draft='unconfirmed'>tgKingal jiyax iyax sngayan, 1973 Empitu idas 16 12:00:00</result>
    <result draft='approved'>2, 1973 7 16 12:00:00</result>
-   <result timeType='full' draft='unconfirmed'>tgKingal jiyax iyax sngayan, 1973 Empitu idas 16 12:00:00 GMT+00:00</result>
-   <result draft='approved'>2, 1973 7 16 12:00:00 GMT+00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:01</result>
-   <result timeType='full'>12:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none'>1999-08-14</result>
    <result timeType='short'>1999-08-14 12:00</result>
    <result timeType='medium'>1999-08-14 12:00:01</result>
-   <result timeType='full'>1999-08-14 12:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1999 Mai 14</result>
    <result draft='approved'>1999 8 14</result>
    <result timeType='short' draft='unconfirmed'>1999 Mai 14 12:00</result>
    <result draft='approved'>1999 8 14 12:00</result>
    <result timeType='medium' draft='unconfirmed'>1999 Mai 14 12:00:01</result>
    <result draft='approved'>1999 8 14 12:00:01</result>
-   <result timeType='full' draft='unconfirmed'>1999 Mai 14 12:00:01 GMT+00:00</result>
-   <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1999 Maspat idas 14</result>
    <result draft='approved'>1999 8 14</result>
    <result timeType='short' draft='unconfirmed'>1999 Maspat idas 14 12:00</result>
    <result draft='approved'>1999 8 14 12:00</result>
    <result timeType='medium' draft='unconfirmed'>1999 Maspat idas 14 12:00:01</result>
    <result draft='approved'>1999 8 14 12:00:01</result>
-   <result timeType='full' draft='unconfirmed'>1999 Maspat idas 14 12:00:01 GMT+00:00</result>
-   <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>tgMataru jiyax iyax sngayan, 1999 Maspat idas 14</result>
    <result draft='approved'>7, 1999 8 14</result>
    <result timeType='short' draft='unconfirmed'>tgMataru jiyax iyax sngayan, 1999 Maspat idas 14 12:00</result>
    <result draft='approved'>7, 1999 8 14 12:00</result>
    <result timeType='medium' draft='unconfirmed'>tgMataru jiyax iyax sngayan, 1999 Maspat idas 14 12:00:01</result>
    <result draft='approved'>7, 1999 8 14 12:00:01</result>
-   <result timeType='full' draft='unconfirmed'>tgMataru jiyax iyax sngayan, 1999 Maspat idas 14 12:00:01 GMT+00:00</result>
-   <result draft='approved'>7, 1999 8 14 12:00:01 GMT+00:00</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>22:59</result>
    <result timeType='medium'>22:59:59</result>
-   <result timeType='full'>22:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none'>2000-09-12</result>
    <result timeType='short'>2000-09-12 22:59</result>
    <result timeType='medium'>2000-09-12 22:59:59</result>
-   <result timeType='full'>2000-09-12 22:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>2000 Mni 12</result>
    <result draft='approved'>2000 9 12</result>
    <result timeType='short' draft='unconfirmed'>2000 Mni 12 22:59</result>
    <result draft='approved'>2000 9 12 22:59</result>
    <result timeType='medium' draft='unconfirmed'>2000 Mni 12 22:59:59</result>
    <result draft='approved'>2000 9 12 22:59:59</result>
-   <result timeType='full' draft='unconfirmed'>2000 Mni 12 22:59:59 GMT+00:00</result>
-   <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>2000 Mngari idas 12</result>
    <result draft='approved'>2000 9 12</result>
    <result timeType='short' draft='unconfirmed'>2000 Mngari idas 12 22:59</result>
    <result draft='approved'>2000 9 12 22:59</result>
    <result timeType='medium' draft='unconfirmed'>2000 Mngari idas 12 22:59:59</result>
    <result draft='approved'>2000 9 12 22:59:59</result>
-   <result timeType='full' draft='unconfirmed'>2000 Mngari idas 12 22:59:59 GMT+00:00</result>
-   <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>tgDha jiyax iyax sngayan, 2000 Mngari idas 12</result>
    <result draft='approved'>3, 2000 9 12</result>
    <result timeType='short' draft='unconfirmed'>tgDha jiyax iyax sngayan, 2000 Mngari idas 12 22:59</result>
    <result draft='approved'>3, 2000 9 12 22:59</result>
    <result timeType='medium' draft='unconfirmed'>tgDha jiyax iyax sngayan, 2000 Mngari idas 12 22:59:59</result>
    <result draft='approved'>3, 2000 9 12 22:59:59</result>
-   <result timeType='full' draft='unconfirmed'>tgDha jiyax iyax sngayan, 2000 Mngari idas 12 22:59:59 GMT+00:00</result>
-   <result draft='approved'>3, 2000 9 12 22:59:59 GMT+00:00</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:00</result>
-   <result timeType='full'>23:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none'>2001-10-08</result>
    <result timeType='short'>2001-10-08 23:00</result>
    <result timeType='medium'>2001-10-08 23:00:00</result>
-   <result timeType='full'>2001-10-08 23:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>2001 Mxi 8</result>
    <result draft='approved'>2001 10 8</result>
    <result timeType='short' draft='unconfirmed'>2001 Mxi 8 23:00</result>
    <result draft='approved'>2001 10 8 23:00</result>
    <result timeType='medium' draft='unconfirmed'>2001 Mxi 8 23:00:00</result>
    <result draft='approved'>2001 10 8 23:00:00</result>
-   <result timeType='full' draft='unconfirmed'>2001 Mxi 8 23:00:00 GMT+00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>2001 Maxal idas 8</result>
    <result draft='approved'>2001 10 8</result>
    <result timeType='short' draft='unconfirmed'>2001 Maxal idas 8 23:00</result>
    <result draft='approved'>2001 10 8 23:00</result>
    <result timeType='medium' draft='unconfirmed'>2001 Maxal idas 8 23:00:00</result>
    <result draft='approved'>2001 10 8 23:00:00</result>
-   <result timeType='full' draft='unconfirmed'>2001 Maxal idas 8 23:00:00 GMT+00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>tgKingal jiyax iyax sngayan, 2001 Maxal idas 08</result>
    <result draft='approved'>2, 2001 10 08</result>
    <result timeType='short' draft='unconfirmed'>tgKingal jiyax iyax sngayan, 2001 Maxal idas 08 23:00</result>
    <result draft='approved'>2, 2001 10 08 23:00</result>
    <result timeType='medium' draft='unconfirmed'>tgKingal jiyax iyax sngayan, 2001 Maxal idas 08 23:00:00</result>
    <result draft='approved'>2, 2001 10 08 23:00:00</result>
-   <result timeType='full' draft='unconfirmed'>tgKingal jiyax iyax sngayan, 2001 Maxal idas 08 23:00:00 GMT+00:00</result>
-   <result draft='approved'>2, 2001 10 08 23:00:00 GMT+00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:01</result>
-   <result timeType='full'>23:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none'>2004-11-04</result>
    <result timeType='short'>2004-11-04 23:00</result>
    <result timeType='medium'>2004-11-04 23:00:01</result>
-   <result timeType='full'>2004-11-04 23:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>2004 Mxk 4</result>
    <result draft='approved'>2004 11 4</result>
    <result timeType='short' draft='unconfirmed'>2004 Mxk 4 23:00</result>
    <result draft='approved'>2004 11 4 23:00</result>
    <result timeType='medium' draft='unconfirmed'>2004 Mxk 4 23:00:01</result>
    <result draft='approved'>2004 11 4 23:00:01</result>
-   <result timeType='full' draft='unconfirmed'>2004 Mxk 4 23:00:01 GMT+00:00</result>
-   <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>2004 Maxal kingal idas 4</result>
    <result draft='approved'>2004 11 4</result>
    <result timeType='short' draft='unconfirmed'>2004 Maxal kingal idas 4 23:00</result>
    <result draft='approved'>2004 11 4 23:00</result>
    <result timeType='medium' draft='unconfirmed'>2004 Maxal kingal idas 4 23:00:01</result>
    <result draft='approved'>2004 11 4 23:00:01</result>
-   <result timeType='full' draft='unconfirmed'>2004 Maxal kingal idas 4 23:00:01 GMT+00:00</result>
-   <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>tgSpac jiyax iyax sngayan, 2004 Maxal kingal idas 04</result>
    <result draft='approved'>5, 2004 11 04</result>
    <result timeType='short' draft='unconfirmed'>tgSpac jiyax iyax sngayan, 2004 Maxal kingal idas 04 23:00</result>
    <result draft='approved'>5, 2004 11 04 23:00</result>
    <result timeType='medium' draft='unconfirmed'>tgSpac jiyax iyax sngayan, 2004 Maxal kingal idas 04 23:00:01</result>
    <result draft='approved'>5, 2004 11 04 23:00:01</result>
-   <result timeType='full' draft='unconfirmed'>tgSpac jiyax iyax sngayan, 2004 Maxal kingal idas 04 23:00:01 GMT+00:00</result>
-   <result draft='approved'>5, 2004 11 04 23:00:01 GMT+00:00</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:59</result>
    <result timeType='medium'>23:59:59</result>
-   <result timeType='full'>23:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none'>2010-12-01</result>
    <result timeType='short'>2010-12-01 23:59</result>
    <result timeType='medium'>2010-12-01 23:59:59</result>
-   <result timeType='full'>2010-12-01 23:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>2010 Mxd 1</result>
    <result draft='approved'>2010 12 1</result>
    <result timeType='short' draft='unconfirmed'>2010 Mxd 1 23:59</result>
    <result draft='approved'>2010 12 1 23:59</result>
    <result timeType='medium' draft='unconfirmed'>2010 Mxd 1 23:59:59</result>
    <result draft='approved'>2010 12 1 23:59:59</result>
-   <result timeType='full' draft='unconfirmed'>2010 Mxd 1 23:59:59 GMT+00:00</result>
-   <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>2010 Maxal dha idas 1</result>
    <result draft='approved'>2010 12 1</result>
    <result timeType='short' draft='unconfirmed'>2010 Maxal dha idas 1 23:59</result>
    <result draft='approved'>2010 12 1 23:59</result>
    <result timeType='medium' draft='unconfirmed'>2010 Maxal dha idas 1 23:59:59</result>
    <result draft='approved'>2010 12 1 23:59:59</result>
-   <result timeType='full' draft='unconfirmed'>2010 Maxal dha idas 1 23:59:59 GMT+00:00</result>
-   <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>tgTru jiyax iyax sngayan, 2010 Maxal dha idas 01</result>
    <result draft='approved'>4, 2010 12 01</result>
    <result timeType='short' draft='unconfirmed'>tgTru jiyax iyax sngayan, 2010 Maxal dha idas 01 23:59</result>
    <result draft='approved'>4, 2010 12 01 23:59</result>
    <result timeType='medium' draft='unconfirmed'>tgTru jiyax iyax sngayan, 2010 Maxal dha idas 01 23:59:59</result>
    <result draft='approved'>4, 2010 12 01 23:59:59</result>
-   <result timeType='full' draft='unconfirmed'>tgTru jiyax iyax sngayan, 2010 Maxal dha idas 01 23:59:59 GMT+00:00</result>
-   <result draft='approved'>4, 2010 12 01 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
-locales='trv'>
-<!-- trv [trv] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG-08:00</result>
-   <result draft='approved'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Jikan alang Amarika (Jikan alang Rosanci)</result>
-   <result draft='approved'>US (Los Angeles)</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan alang Amarika (Jikan alang Rosanci)</result>
-   <result draft='approved'>US (Los Angeles)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='unconfirmed approved'>-0700</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG-07:00</result>
-   <result draft='approved'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Jikan alang Amarika (Jikan alang Rosanci)</result>
-   <result draft='approved'>US (Los Angeles)</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan alang Amarika (Jikan alang Rosanci)</result>
-   <result draft='approved'>US (Los Angeles)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG-03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Jikan AR (Buenos Aires)</result>
-   <result draft='approved'>AR (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan AR (Buenos Aires)</result>
-   <result draft='approved'>AR (Buenos Aires)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG-03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Jikan AR (Buenos Aires)</result>
-   <result draft='approved'>AR (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan AR (Buenos Aires)</result>
-   <result draft='approved'>AR (Buenos Aires)</result>
-   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG-03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Jikan AR (Buenos Aires)</result>
-   <result draft='approved'>AR (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan AR (Buenos Aires)</result>
-   <result draft='approved'>AR (Buenos Aires)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG-03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Jikan AR (Buenos Aires)</result>
-   <result draft='approved'>AR (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan AR (Buenos Aires)</result>
-   <result draft='approved'>AR (Buenos Aires)</result>
-   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5' draft='unconfirmed approved'>-0500</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG-05:00</result>
-   <result draft='approved'>GMT-05:00</result>
-   <result field='v' parse='America/Havana' draft='unconfirmed'>Jikan CU</result>
-   <result draft='approved'>CU</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan CU</result>
-   <result draft='approved'>CU</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4' draft='unconfirmed approved'>-0400</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG-04:00</result>
-   <result draft='approved'>GMT-04:00</result>
-   <result field='v' parse='America/Havana' draft='unconfirmed'>Jikan CU</result>
-   <result draft='approved'>CU</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan CU</result>
-   <result draft='approved'>CU</result>
-   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='unconfirmed approved'>+1100</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG+11:00</result>
-   <result draft='approved'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Jikan AU (Sydney)</result>
-   <result draft='approved'>AU (Sydney)</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan AU (Sydney)</result>
-   <result draft='approved'>AU (Sydney)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='unconfirmed approved'>+1000</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG+10:00</result>
-   <result draft='approved'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Jikan AU (Sydney)</result>
-   <result draft='approved'>AU (Sydney)</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan AU (Sydney)</result>
-   <result draft='approved'>AU (Sydney)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='unconfirmed approved'>+1100</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG+11:00</result>
-   <result draft='approved'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Jikan AU (Sydney)</result>
-   <result draft='approved'>AU (Sydney)</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan AU (Sydney)</result>
-   <result draft='approved'>AU (Sydney)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='unconfirmed approved'>+1000</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG+10:00</result>
-   <result draft='approved'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Jikan AU (Sydney)</result>
-   <result draft='approved'>AU (Sydney)</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan AU (Sydney)</result>
-   <result draft='approved'>AU (Sydney)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='unconfirmed approved'>+0000</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG+00:00</result>
-   <result draft='approved'>GMT+00:00</result>
-   <result field='v' parse='Europe/London' draft='unconfirmed'>Jikan alang Inglis</result>
-   <result draft='approved'>GB</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan alang Inglis</result>
-   <result draft='approved'>GB</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1' draft='unconfirmed approved'>+0100</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG+01:00</result>
-   <result draft='approved'>GMT+01:00</result>
-   <result field='v' parse='Europe/London' draft='unconfirmed'>Jikan alang Inglis</result>
-   <result draft='approved'>GB</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan alang Inglis</result>
-   <result draft='approved'>GB</result>
-   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='unconfirmed approved'>+0300</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG+03:00</result>
-   <result draft='approved'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Jikan alang Ruski (Moscow)</result>
-   <result draft='approved'>RU (Moscow)</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan alang Ruski (Moscow)</result>
-   <result draft='approved'>RU (Moscow)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='unconfirmed approved'>+0400</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG+04:00</result>
-   <result draft='approved'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Jikan alang Ruski (Moscow)</result>
-   <result draft='approved'>RU (Moscow)</result>
-   <result field='vvvv' draft='unconfirmed'>Jikan alang Ruski (Moscow)</result>
-   <result draft='approved'>RU (Moscow)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG-03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='v' draft='unconfirmed'>JQG-03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='vvvv' draft='unconfirmed'>JQG-03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' draft='unconfirmed approved'>-0300</result>
-   <result field='ZZZZ' draft='unconfirmed'>JQG-03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='v' draft='unconfirmed'>JQG-03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='vvvv' draft='unconfirmed'>JQG-03:00</result>
-   <result draft='approved'>GMT-03:00</result>
+locales='trv trv_TW'>
+<!-- Taroko [Taroko]; Taroko (Taiwan) [Taroko (Taiwan)] -->
   </zoneFields>
   <collation 
-locales='trv'>
-<!-- trv [trv] -->
+locales='trv trv_TW'>
+<!-- Taroko [Taroko]; Taroko (Taiwan) [Taroko (Taiwan)] -->
    <result draft='unconfirmed'>
 x 
 X 

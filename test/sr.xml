@@ -9,49 +9,40 @@ locales='sr sr_BA sr_CS sr_Cyrl sr_Cyrl_BA sr_Cyrl_CS sr_Cyrl_ME sr_Cyrl_RS sr_C
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
-   <result numberType='scientific' draft='unconfirmed'>0е0</result>
-   <result draft='approved'>0E0</result>
-   <result input='0.01' numberType='integer' draft='unconfirmed approved'>0</result>
-   <result numberType='decimal'>0,01</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal'>0.01</result>
    <result numberType='percent'>1%</result>
-   <result numberType='scientific' draft='unconfirmed'>1е-2</result>
-   <result draft='approved'>1E-2</result>
-   <result input='-0.01' numberType='integer' draft='unconfirmed approved'>-0</result>
-   <result numberType='decimal'>-0,01</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='decimal'>-0.01</result>
    <result numberType='percent'>-1%</result>
-   <result numberType='scientific' draft='unconfirmed'>-1е-2</result>
-   <result draft='approved'>-1E-2</result>
-   <result input='1.0' numberType='integer' draft='unconfirmed approved'>1</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
    <result numberType='decimal'>1</result>
    <result numberType='percent'>100%</result>
-   <result numberType='scientific' draft='unconfirmed'>1е0</result>
-   <result draft='approved'>1E0</result>
-   <result input='-1.0' numberType='integer' draft='unconfirmed approved'>-1</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
    <result numberType='decimal'>-1</result>
    <result numberType='percent'>-100%</result>
-   <result numberType='scientific' draft='unconfirmed'>-1е0</result>
-   <result draft='approved'>-1E0</result>
-   <result input='123.456' numberType='integer' draft='unconfirmed approved'>123</result>
-   <result numberType='decimal'>123,456</result>
-   <result numberType='percent'>12.346%</result>
-   <result numberType='scientific' draft='unconfirmed'>1,23456е2</result>
-   <result draft='approved'>1,23456E2</result>
-   <result input='-123.456' numberType='integer' draft='unconfirmed approved'>-123</result>
-   <result numberType='decimal'>-123,456</result>
-   <result numberType='percent'>-12.346%</result>
-   <result numberType='scientific' draft='unconfirmed'>-1,23456е2</result>
-   <result draft='approved'>-1,23456E2</result>
-   <result input='123456.78' numberType='integer' draft='unconfirmed approved'>123.457</result>
-   <result numberType='decimal'>123.456,78</result>
-   <result numberType='percent'>12.345.678%</result>
-   <result numberType='scientific' draft='unconfirmed'>1,2345678е5</result>
-   <result draft='approved'>1,2345678E5</result>
-   <result input='-123456.78' numberType='integer' draft='unconfirmed approved'>-123.457</result>
-   <result numberType='decimal'>-123.456,78</result>
-   <result numberType='percent'>-12.345.678%</result>
-   <result numberType='scientific' draft='unconfirmed'>-1,2345678е5</result>
-   <result draft='approved'>-1,2345678E5</result>
-   <result input='Infinity' numberType='integer' draft='unconfirmed approved'>∞</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal'>123.456</result>
+   <result numberType='percent'>12,346%</result>
+   <result numberType='scientific'>1.23456E2</result>
+   <result input='-123.456' numberType='integer'>-123</result>
+   <result numberType='decimal'>-123.456</result>
+   <result numberType='percent'>-12,346%</result>
+   <result numberType='scientific'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer'>123,457</result>
+   <result numberType='decimal'>123,456.78</result>
+   <result numberType='percent'>12,345,678%</result>
+   <result numberType='scientific'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-123,457</result>
+   <result numberType='decimal'>-123,456.78</result>
+   <result numberType='percent'>-12,345,678%</result>
+   <result numberType='scientific'>-1.2345678E5</result>
+   <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
@@ -69,1080 +60,692 @@ locales='sr sr_CS sr_Cyrl sr_Cyrl_CS sr_Cyrl_ME sr_Cyrl_RS sr_Cyrl_YU sr_ME sr_R
 <!-- Serbian [Српски]; Serbian (Serbia and Montenegro) [Српски (Србија и Црна Гора)]; Serbian (Cyrillic) [Српски (Ћирилица)]; Serbian (Cyrillic, Serbia and Montenegro) [Српски (Ћирилица, Србија и Црна Гора)]; Serbian (Cyrillic, Montenegro) [Српски (Ћирилица, Црна Гора)]; Serbian (Cyrillic, Serbia) [Српски (Ћирилица, Србија)]; Serbian (Cyrillic, Serbia) [Српски (Ћирилица, Србија)]; Serbian (Montenegro) [Српски (Црна Гора)]; Serbian (Serbia) [Српски (Србија)]; Serbian (Serbia) [Српски (Србија)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00.00</result>
    <result timeType='medium'>00.00.00</result>
-   <result timeType='full'>00.00.00 GMT+00:00</result>
    <result dateType='short' timeType='none'>31.1.00.</result>
    <result timeType='short'>31.1.00. 00.00</result>
    <result timeType='medium'>31.1.00. 00.00.00</result>
-   <result timeType='full'>31.1.00. 00.00.00 GMT+00:00</result>
    <result dateType='medium' timeType='none'>31.01.1900.</result>
    <result timeType='short'>31.01.1900. 00.00</result>
    <result timeType='medium'>31.01.1900. 00.00.00</result>
-   <result timeType='full'>31.01.1900. 00.00.00 GMT+00:00</result>
    <result dateType='long' timeType='none'>31. јануар 1900.</result>
    <result timeType='short'>31. јануар 1900. 00.00</result>
    <result timeType='medium'>31. јануар 1900. 00.00.00</result>
-   <result timeType='full'>31. јануар 1900. 00.00.00 GMT+00:00</result>
    <result dateType='full' timeType='none'>среда, 31. јануар 1900.</result>
    <result timeType='short'>среда, 31. јануар 1900. 00.00</result>
    <result timeType='medium'>среда, 31. јануар 1900. 00.00.00</result>
-   <result timeType='full'>среда, 31. јануар 1900. 00.00.00 GMT+00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00.00</result>
    <result timeType='medium'>00.00.01</result>
-   <result timeType='full'>00.00.01 GMT+00:00</result>
    <result dateType='short' timeType='none'>28.2.09.</result>
    <result timeType='short'>28.2.09. 00.00</result>
    <result timeType='medium'>28.2.09. 00.00.01</result>
-   <result timeType='full'>28.2.09. 00.00.01 GMT+00:00</result>
    <result dateType='medium' timeType='none'>28.02.1909.</result>
    <result timeType='short'>28.02.1909. 00.00</result>
    <result timeType='medium'>28.02.1909. 00.00.01</result>
-   <result timeType='full'>28.02.1909. 00.00.01 GMT+00:00</result>
    <result dateType='long' timeType='none'>28. фебруар 1909.</result>
    <result timeType='short'>28. фебруар 1909. 00.00</result>
    <result timeType='medium'>28. фебруар 1909. 00.00.01</result>
-   <result timeType='full'>28. фебруар 1909. 00.00.01 GMT+00:00</result>
    <result dateType='full' timeType='none'>недеља, 28. фебруар 1909.</result>
    <result timeType='short'>недеља, 28. фебруар 1909. 00.00</result>
    <result timeType='medium'>недеља, 28. фебруар 1909. 00.00.01</result>
-   <result timeType='full'>недеља, 28. фебруар 1909. 00.00.01 GMT+00:00</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00.59</result>
    <result timeType='medium'>00.59.59</result>
-   <result timeType='full'>00.59.59 GMT+00:00</result>
    <result dateType='short' timeType='none'>26.3.18.</result>
    <result timeType='short'>26.3.18. 00.59</result>
    <result timeType='medium'>26.3.18. 00.59.59</result>
-   <result timeType='full'>26.3.18. 00.59.59 GMT+00:00</result>
    <result dateType='medium' timeType='none'>26.03.1918.</result>
    <result timeType='short'>26.03.1918. 00.59</result>
    <result timeType='medium'>26.03.1918. 00.59.59</result>
-   <result timeType='full'>26.03.1918. 00.59.59 GMT+00:00</result>
    <result dateType='long' timeType='none'>26. март 1918.</result>
    <result timeType='short'>26. март 1918. 00.59</result>
    <result timeType='medium'>26. март 1918. 00.59.59</result>
-   <result timeType='full'>26. март 1918. 00.59.59 GMT+00:00</result>
    <result dateType='full' timeType='none'>уторак, 26. март 1918.</result>
    <result timeType='short'>уторак, 26. март 1918. 00.59</result>
    <result timeType='medium'>уторак, 26. март 1918. 00.59.59</result>
-   <result timeType='full'>уторак, 26. март 1918. 00.59.59 GMT+00:00</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01.00</result>
    <result timeType='medium'>01.00.00</result>
-   <result timeType='full'>01.00.00 GMT+00:00</result>
    <result dateType='short' timeType='none'>24.4.32.</result>
    <result timeType='short'>24.4.32. 01.00</result>
    <result timeType='medium'>24.4.32. 01.00.00</result>
-   <result timeType='full'>24.4.32. 01.00.00 GMT+00:00</result>
    <result dateType='medium' timeType='none'>24.04.1932.</result>
    <result timeType='short'>24.04.1932. 01.00</result>
    <result timeType='medium'>24.04.1932. 01.00.00</result>
-   <result timeType='full'>24.04.1932. 01.00.00 GMT+00:00</result>
    <result dateType='long' timeType='none'>24. април 1932.</result>
    <result timeType='short'>24. април 1932. 01.00</result>
    <result timeType='medium'>24. април 1932. 01.00.00</result>
-   <result timeType='full'>24. април 1932. 01.00.00 GMT+00:00</result>
    <result dateType='full' timeType='none'>недеља, 24. април 1932.</result>
    <result timeType='short'>недеља, 24. април 1932. 01.00</result>
    <result timeType='medium'>недеља, 24. април 1932. 01.00.00</result>
-   <result timeType='full'>недеља, 24. април 1932. 01.00.00 GMT+00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01.00</result>
    <result timeType='medium'>01.00.01</result>
-   <result timeType='full'>01.00.01 GMT+00:00</result>
    <result dateType='short' timeType='none'>20.5.45.</result>
    <result timeType='short'>20.5.45. 01.00</result>
    <result timeType='medium'>20.5.45. 01.00.01</result>
-   <result timeType='full'>20.5.45. 01.00.01 GMT+00:00</result>
    <result dateType='medium' timeType='none'>20.05.1945.</result>
    <result timeType='short'>20.05.1945. 01.00</result>
    <result timeType='medium'>20.05.1945. 01.00.01</result>
-   <result timeType='full'>20.05.1945. 01.00.01 GMT+00:00</result>
    <result dateType='long' timeType='none'>20. мај 1945.</result>
    <result timeType='short'>20. мај 1945. 01.00</result>
    <result timeType='medium'>20. мај 1945. 01.00.01</result>
-   <result timeType='full'>20. мај 1945. 01.00.01 GMT+00:00</result>
    <result dateType='full' timeType='none'>недеља, 20. мај 1945.</result>
    <result timeType='short'>недеља, 20. мај 1945. 01.00</result>
    <result timeType='medium'>недеља, 20. мај 1945. 01.00.01</result>
-   <result timeType='full'>недеља, 20. мај 1945. 01.00.01 GMT+00:00</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11.59</result>
    <result timeType='medium'>11.59.59</result>
-   <result timeType='full'>11.59.59 GMT+00:00</result>
    <result dateType='short' timeType='none'>18.6.52.</result>
    <result timeType='short'>18.6.52. 11.59</result>
    <result timeType='medium'>18.6.52. 11.59.59</result>
-   <result timeType='full'>18.6.52. 11.59.59 GMT+00:00</result>
    <result dateType='medium' timeType='none'>18.06.1952.</result>
    <result timeType='short'>18.06.1952. 11.59</result>
    <result timeType='medium'>18.06.1952. 11.59.59</result>
-   <result timeType='full'>18.06.1952. 11.59.59 GMT+00:00</result>
    <result dateType='long' timeType='none'>18. јун 1952.</result>
    <result timeType='short'>18. јун 1952. 11.59</result>
    <result timeType='medium'>18. јун 1952. 11.59.59</result>
-   <result timeType='full'>18. јун 1952. 11.59.59 GMT+00:00</result>
    <result dateType='full' timeType='none'>среда, 18. јун 1952.</result>
    <result timeType='short'>среда, 18. јун 1952. 11.59</result>
    <result timeType='medium'>среда, 18. јун 1952. 11.59.59</result>
-   <result timeType='full'>среда, 18. јун 1952. 11.59.59 GMT+00:00</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12.00</result>
    <result timeType='medium'>12.00.00</result>
-   <result timeType='full'>12.00.00 GMT+00:00</result>
    <result dateType='short' timeType='none'>16.7.73.</result>
    <result timeType='short'>16.7.73. 12.00</result>
    <result timeType='medium'>16.7.73. 12.00.00</result>
-   <result timeType='full'>16.7.73. 12.00.00 GMT+00:00</result>
    <result dateType='medium' timeType='none'>16.07.1973.</result>
    <result timeType='short'>16.07.1973. 12.00</result>
    <result timeType='medium'>16.07.1973. 12.00.00</result>
-   <result timeType='full'>16.07.1973. 12.00.00 GMT+00:00</result>
    <result dateType='long' timeType='none'>16. јул 1973.</result>
    <result timeType='short'>16. јул 1973. 12.00</result>
    <result timeType='medium'>16. јул 1973. 12.00.00</result>
-   <result timeType='full'>16. јул 1973. 12.00.00 GMT+00:00</result>
    <result dateType='full' timeType='none'>понедељак, 16. јул 1973.</result>
    <result timeType='short'>понедељак, 16. јул 1973. 12.00</result>
    <result timeType='medium'>понедељак, 16. јул 1973. 12.00.00</result>
-   <result timeType='full'>понедељак, 16. јул 1973. 12.00.00 GMT+00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12.00</result>
    <result timeType='medium'>12.00.01</result>
-   <result timeType='full'>12.00.01 GMT+00:00</result>
    <result dateType='short' timeType='none'>14.8.99.</result>
    <result timeType='short'>14.8.99. 12.00</result>
    <result timeType='medium'>14.8.99. 12.00.01</result>
-   <result timeType='full'>14.8.99. 12.00.01 GMT+00:00</result>
    <result dateType='medium' timeType='none'>14.08.1999.</result>
    <result timeType='short'>14.08.1999. 12.00</result>
    <result timeType='medium'>14.08.1999. 12.00.01</result>
-   <result timeType='full'>14.08.1999. 12.00.01 GMT+00:00</result>
    <result dateType='long' timeType='none'>14. август 1999.</result>
    <result timeType='short'>14. август 1999. 12.00</result>
    <result timeType='medium'>14. август 1999. 12.00.01</result>
-   <result timeType='full'>14. август 1999. 12.00.01 GMT+00:00</result>
    <result dateType='full' timeType='none'>субота, 14. август 1999.</result>
    <result timeType='short'>субота, 14. август 1999. 12.00</result>
    <result timeType='medium'>субота, 14. август 1999. 12.00.01</result>
-   <result timeType='full'>субота, 14. август 1999. 12.00.01 GMT+00:00</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22.59</result>
    <result timeType='medium'>22.59.59</result>
-   <result timeType='full'>22.59.59 GMT+00:00</result>
    <result dateType='short' timeType='none'>12.9.00.</result>
    <result timeType='short'>12.9.00. 22.59</result>
    <result timeType='medium'>12.9.00. 22.59.59</result>
-   <result timeType='full'>12.9.00. 22.59.59 GMT+00:00</result>
    <result dateType='medium' timeType='none'>12.09.2000.</result>
    <result timeType='short'>12.09.2000. 22.59</result>
    <result timeType='medium'>12.09.2000. 22.59.59</result>
-   <result timeType='full'>12.09.2000. 22.59.59 GMT+00:00</result>
    <result dateType='long' timeType='none'>12. септембар 2000.</result>
    <result timeType='short'>12. септембар 2000. 22.59</result>
    <result timeType='medium'>12. септембар 2000. 22.59.59</result>
-   <result timeType='full'>12. септембар 2000. 22.59.59 GMT+00:00</result>
    <result dateType='full' timeType='none'>уторак, 12. септембар 2000.</result>
    <result timeType='short'>уторак, 12. септембар 2000. 22.59</result>
    <result timeType='medium'>уторак, 12. септембар 2000. 22.59.59</result>
-   <result timeType='full'>уторак, 12. септембар 2000. 22.59.59 GMT+00:00</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23.00</result>
    <result timeType='medium'>23.00.00</result>
-   <result timeType='full'>23.00.00 GMT+00:00</result>
    <result dateType='short' timeType='none'>8.10.01.</result>
    <result timeType='short'>8.10.01. 23.00</result>
    <result timeType='medium'>8.10.01. 23.00.00</result>
-   <result timeType='full'>8.10.01. 23.00.00 GMT+00:00</result>
    <result dateType='medium' timeType='none'>08.10.2001.</result>
    <result timeType='short'>08.10.2001. 23.00</result>
    <result timeType='medium'>08.10.2001. 23.00.00</result>
-   <result timeType='full'>08.10.2001. 23.00.00 GMT+00:00</result>
    <result dateType='long' timeType='none'>08. октобар 2001.</result>
    <result timeType='short'>08. октобар 2001. 23.00</result>
    <result timeType='medium'>08. октобар 2001. 23.00.00</result>
-   <result timeType='full'>08. октобар 2001. 23.00.00 GMT+00:00</result>
    <result dateType='full' timeType='none'>понедељак, 08. октобар 2001.</result>
    <result timeType='short'>понедељак, 08. октобар 2001. 23.00</result>
    <result timeType='medium'>понедељак, 08. октобар 2001. 23.00.00</result>
-   <result timeType='full'>понедељак, 08. октобар 2001. 23.00.00 GMT+00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23.00</result>
    <result timeType='medium'>23.00.01</result>
-   <result timeType='full'>23.00.01 GMT+00:00</result>
    <result dateType='short' timeType='none'>4.11.04.</result>
    <result timeType='short'>4.11.04. 23.00</result>
    <result timeType='medium'>4.11.04. 23.00.01</result>
-   <result timeType='full'>4.11.04. 23.00.01 GMT+00:00</result>
    <result dateType='medium' timeType='none'>04.11.2004.</result>
    <result timeType='short'>04.11.2004. 23.00</result>
    <result timeType='medium'>04.11.2004. 23.00.01</result>
-   <result timeType='full'>04.11.2004. 23.00.01 GMT+00:00</result>
    <result dateType='long' timeType='none'>04. новембар 2004.</result>
    <result timeType='short'>04. новембар 2004. 23.00</result>
    <result timeType='medium'>04. новембар 2004. 23.00.01</result>
-   <result timeType='full'>04. новембар 2004. 23.00.01 GMT+00:00</result>
    <result dateType='full' timeType='none'>четвртак, 04. новембар 2004.</result>
    <result timeType='short'>четвртак, 04. новембар 2004. 23.00</result>
    <result timeType='medium'>четвртак, 04. новембар 2004. 23.00.01</result>
-   <result timeType='full'>четвртак, 04. новембар 2004. 23.00.01 GMT+00:00</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23.59</result>
    <result timeType='medium'>23.59.59</result>
-   <result timeType='full'>23.59.59 GMT+00:00</result>
    <result dateType='short' timeType='none'>1.12.10.</result>
    <result timeType='short'>1.12.10. 23.59</result>
    <result timeType='medium'>1.12.10. 23.59.59</result>
-   <result timeType='full'>1.12.10. 23.59.59 GMT+00:00</result>
    <result dateType='medium' timeType='none'>01.12.2010.</result>
    <result timeType='short'>01.12.2010. 23.59</result>
    <result timeType='medium'>01.12.2010. 23.59.59</result>
-   <result timeType='full'>01.12.2010. 23.59.59 GMT+00:00</result>
    <result dateType='long' timeType='none'>01. децембар 2010.</result>
    <result timeType='short'>01. децембар 2010. 23.59</result>
    <result timeType='medium'>01. децембар 2010. 23.59.59</result>
-   <result timeType='full'>01. децембар 2010. 23.59.59 GMT+00:00</result>
    <result dateType='full' timeType='none'>среда, 01. децембар 2010.</result>
    <result timeType='short'>среда, 01. децембар 2010. 23.59</result>
    <result timeType='medium'>среда, 01. децембар 2010. 23.59.59</result>
-   <result timeType='full'>среда, 01. децембар 2010. 23.59.59 GMT+00:00</result>
   </date>
   <date 
 locales='sr_BA sr_Cyrl_BA'>
 <!-- Serbian (Bosnia and Herzegovina) [Српски (Босна и Херцеговина)]; Serbian (Cyrillic, Bosnia and Herzegovina) [Српски (Ћирилица, Босна и Херцеговина)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
-   <result timeType='full'>00 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='short' timeType='none'>00-01-31</result>
    <result timeType='short'>00-01-31 00:00</result>
    <result timeType='medium'>00-01-31 00:00:00</result>
-   <result timeType='full'>00-01-31 00 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='medium' timeType='none'>1900-01-31</result>
    <result timeType='short'>1900-01-31 00:00</result>
    <result timeType='medium'>1900-01-31 00:00:00</result>
-   <result timeType='full'>1900-01-31 00 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='long' timeType='none'>31. јануар 1900.</result>
    <result timeType='short'>31. јануар 1900. 00:00</result>
    <result timeType='medium'>31. јануар 1900. 00:00:00</result>
-   <result timeType='full'>31. јануар 1900. 00 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='full' timeType='none'>сриједа, 31. јануар 1900.</result>
    <result timeType='short'>сриједа, 31. јануар 1900. 00:00</result>
    <result timeType='medium'>сриједа, 31. јануар 1900. 00:00:00</result>
-   <result timeType='full'>сриједа, 31. јануар 1900. 00 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
-   <result timeType='full'>00 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='short' timeType='none'>09-02-28</result>
    <result timeType='short'>09-02-28 00:00</result>
    <result timeType='medium'>09-02-28 00:00:01</result>
-   <result timeType='full'>09-02-28 00 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='medium' timeType='none'>1909-02-28</result>
    <result timeType='short'>1909-02-28 00:00</result>
    <result timeType='medium'>1909-02-28 00:00:01</result>
-   <result timeType='full'>1909-02-28 00 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='long' timeType='none'>28. фебруар 1909.</result>
    <result timeType='short'>28. фебруар 1909. 00:00</result>
    <result timeType='medium'>28. фебруар 1909. 00:00:01</result>
-   <result timeType='full'>28. фебруар 1909. 00 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='full' timeType='none'>недеља, 28. фебруар 1909.</result>
    <result timeType='short'>недеља, 28. фебруар 1909. 00:00</result>
    <result timeType='medium'>недеља, 28. фебруар 1909. 00:00:01</result>
-   <result timeType='full'>недеља, 28. фебруар 1909. 00 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
-   <result timeType='full'>00 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='short' timeType='none'>18-03-26</result>
    <result timeType='short'>18-03-26 00:59</result>
    <result timeType='medium'>18-03-26 00:59:59</result>
-   <result timeType='full'>18-03-26 00 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='medium' timeType='none'>1918-03-26</result>
    <result timeType='short'>1918-03-26 00:59</result>
    <result timeType='medium'>1918-03-26 00:59:59</result>
-   <result timeType='full'>1918-03-26 00 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='long' timeType='none'>26. март 1918.</result>
    <result timeType='short'>26. март 1918. 00:59</result>
    <result timeType='medium'>26. март 1918. 00:59:59</result>
-   <result timeType='full'>26. март 1918. 00 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='full' timeType='none'>уторак, 26. март 1918.</result>
    <result timeType='short'>уторак, 26. март 1918. 00:59</result>
    <result timeType='medium'>уторак, 26. март 1918. 00:59:59</result>
-   <result timeType='full'>уторак, 26. март 1918. 00 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
-   <result timeType='full'>01 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='short' timeType='none'>32-04-24</result>
    <result timeType='short'>32-04-24 01:00</result>
    <result timeType='medium'>32-04-24 01:00:00</result>
-   <result timeType='full'>32-04-24 01 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='medium' timeType='none'>1932-04-24</result>
    <result timeType='short'>1932-04-24 01:00</result>
    <result timeType='medium'>1932-04-24 01:00:00</result>
-   <result timeType='full'>1932-04-24 01 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='long' timeType='none'>24. април 1932.</result>
    <result timeType='short'>24. април 1932. 01:00</result>
    <result timeType='medium'>24. април 1932. 01:00:00</result>
-   <result timeType='full'>24. април 1932. 01 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='full' timeType='none'>недеља, 24. април 1932.</result>
    <result timeType='short'>недеља, 24. април 1932. 01:00</result>
    <result timeType='medium'>недеља, 24. април 1932. 01:00:00</result>
-   <result timeType='full'>недеља, 24. април 1932. 01 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
-   <result timeType='full'>01 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='short' timeType='none'>45-05-20</result>
    <result timeType='short'>45-05-20 01:00</result>
    <result timeType='medium'>45-05-20 01:00:01</result>
-   <result timeType='full'>45-05-20 01 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='medium' timeType='none'>1945-05-20</result>
    <result timeType='short'>1945-05-20 01:00</result>
    <result timeType='medium'>1945-05-20 01:00:01</result>
-   <result timeType='full'>1945-05-20 01 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='long' timeType='none'>20. мај 1945.</result>
    <result timeType='short'>20. мај 1945. 01:00</result>
    <result timeType='medium'>20. мај 1945. 01:00:01</result>
-   <result timeType='full'>20. мај 1945. 01 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='full' timeType='none'>недеља, 20. мај 1945.</result>
    <result timeType='short'>недеља, 20. мај 1945. 01:00</result>
    <result timeType='medium'>недеља, 20. мај 1945. 01:00:01</result>
-   <result timeType='full'>недеља, 20. мај 1945. 01 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
-   <result timeType='full'>11 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='short' timeType='none'>52-06-18</result>
    <result timeType='short'>52-06-18 11:59</result>
    <result timeType='medium'>52-06-18 11:59:59</result>
-   <result timeType='full'>52-06-18 11 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='medium' timeType='none'>1952-06-18</result>
    <result timeType='short'>1952-06-18 11:59</result>
    <result timeType='medium'>1952-06-18 11:59:59</result>
-   <result timeType='full'>1952-06-18 11 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='long' timeType='none'>18. јуни 1952.</result>
    <result timeType='short'>18. јуни 1952. 11:59</result>
    <result timeType='medium'>18. јуни 1952. 11:59:59</result>
-   <result timeType='full'>18. јуни 1952. 11 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='full' timeType='none'>сриједа, 18. јуни 1952.</result>
    <result timeType='short'>сриједа, 18. јуни 1952. 11:59</result>
    <result timeType='medium'>сриједа, 18. јуни 1952. 11:59:59</result>
-   <result timeType='full'>сриједа, 18. јуни 1952. 11 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
-   <result timeType='full'>12 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='short' timeType='none'>73-07-16</result>
    <result timeType='short'>73-07-16 12:00</result>
    <result timeType='medium'>73-07-16 12:00:00</result>
-   <result timeType='full'>73-07-16 12 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='medium' timeType='none'>1973-07-16</result>
    <result timeType='short'>1973-07-16 12:00</result>
    <result timeType='medium'>1973-07-16 12:00:00</result>
-   <result timeType='full'>1973-07-16 12 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='long' timeType='none'>16. јули 1973.</result>
    <result timeType='short'>16. јули 1973. 12:00</result>
    <result timeType='medium'>16. јули 1973. 12:00:00</result>
-   <result timeType='full'>16. јули 1973. 12 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='full' timeType='none'>понедељак, 16. јули 1973.</result>
    <result timeType='short'>понедељак, 16. јули 1973. 12:00</result>
    <result timeType='medium'>понедељак, 16. јули 1973. 12:00:00</result>
-   <result timeType='full'>понедељак, 16. јули 1973. 12 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
-   <result timeType='full'>12 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='short' timeType='none'>99-08-14</result>
    <result timeType='short'>99-08-14 12:00</result>
    <result timeType='medium'>99-08-14 12:00:01</result>
-   <result timeType='full'>99-08-14 12 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='medium' timeType='none'>1999-08-14</result>
    <result timeType='short'>1999-08-14 12:00</result>
    <result timeType='medium'>1999-08-14 12:00:01</result>
-   <result timeType='full'>1999-08-14 12 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='long' timeType='none'>14. август 1999.</result>
    <result timeType='short'>14. август 1999. 12:00</result>
    <result timeType='medium'>14. август 1999. 12:00:01</result>
-   <result timeType='full'>14. август 1999. 12 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='full' timeType='none'>субота, 14. август 1999.</result>
    <result timeType='short'>субота, 14. август 1999. 12:00</result>
    <result timeType='medium'>субота, 14. август 1999. 12:00:01</result>
-   <result timeType='full'>субота, 14. август 1999. 12 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
-   <result timeType='full'>22 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='short' timeType='none'>00-09-12</result>
    <result timeType='short'>00-09-12 22:59</result>
    <result timeType='medium'>00-09-12 22:59:59</result>
-   <result timeType='full'>00-09-12 22 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='medium' timeType='none'>2000-09-12</result>
    <result timeType='short'>2000-09-12 22:59</result>
    <result timeType='medium'>2000-09-12 22:59:59</result>
-   <result timeType='full'>2000-09-12 22 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='long' timeType='none'>12. септембар 2000.</result>
    <result timeType='short'>12. септембар 2000. 22:59</result>
    <result timeType='medium'>12. септембар 2000. 22:59:59</result>
-   <result timeType='full'>12. септембар 2000. 22 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='full' timeType='none'>уторак, 12. септембар 2000.</result>
    <result timeType='short'>уторак, 12. септембар 2000. 22:59</result>
    <result timeType='medium'>уторак, 12. септембар 2000. 22:59:59</result>
-   <result timeType='full'>уторак, 12. септембар 2000. 22 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
-   <result timeType='full'>23 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='short' timeType='none'>01-10-08</result>
    <result timeType='short'>01-10-08 23:00</result>
    <result timeType='medium'>01-10-08 23:00:00</result>
-   <result timeType='full'>01-10-08 23 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='medium' timeType='none'>2001-10-08</result>
    <result timeType='short'>2001-10-08 23:00</result>
    <result timeType='medium'>2001-10-08 23:00:00</result>
-   <result timeType='full'>2001-10-08 23 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='long' timeType='none'>08. октобар 2001.</result>
    <result timeType='short'>08. октобар 2001. 23:00</result>
    <result timeType='medium'>08. октобар 2001. 23:00:00</result>
-   <result timeType='full'>08. октобар 2001. 23 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result dateType='full' timeType='none'>понедељак, 08. октобар 2001.</result>
    <result timeType='short'>понедељак, 08. октобар 2001. 23:00</result>
    <result timeType='medium'>понедељак, 08. октобар 2001. 23:00:00</result>
-   <result timeType='full'>понедељак, 08. октобар 2001. 23 часова, 00 минута, 00 секунди GMT+00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
-   <result timeType='full'>23 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='short' timeType='none'>04-11-04</result>
    <result timeType='short'>04-11-04 23:00</result>
    <result timeType='medium'>04-11-04 23:00:01</result>
-   <result timeType='full'>04-11-04 23 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='medium' timeType='none'>2004-11-04</result>
    <result timeType='short'>2004-11-04 23:00</result>
    <result timeType='medium'>2004-11-04 23:00:01</result>
-   <result timeType='full'>2004-11-04 23 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='long' timeType='none'>04. новембар 2004.</result>
    <result timeType='short'>04. новембар 2004. 23:00</result>
    <result timeType='medium'>04. новембар 2004. 23:00:01</result>
-   <result timeType='full'>04. новембар 2004. 23 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result dateType='full' timeType='none'>четвртак, 04. новембар 2004.</result>
    <result timeType='short'>четвртак, 04. новембар 2004. 23:00</result>
    <result timeType='medium'>четвртак, 04. новембар 2004. 23:00:01</result>
-   <result timeType='full'>четвртак, 04. новембар 2004. 23 часова, 00 минута, 01 секунди GMT+00:00</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
-   <result timeType='full'>23 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='short' timeType='none'>10-12-01</result>
    <result timeType='short'>10-12-01 23:59</result>
    <result timeType='medium'>10-12-01 23:59:59</result>
-   <result timeType='full'>10-12-01 23 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='medium' timeType='none'>2010-12-01</result>
    <result timeType='short'>2010-12-01 23:59</result>
    <result timeType='medium'>2010-12-01 23:59:59</result>
-   <result timeType='full'>2010-12-01 23 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='long' timeType='none'>01. децембар 2010.</result>
    <result timeType='short'>01. децембар 2010. 23:59</result>
    <result timeType='medium'>01. децембар 2010. 23:59:59</result>
-   <result timeType='full'>01. децембар 2010. 23 часова, 59 минута, 59 секунди GMT+00:00</result>
    <result dateType='full' timeType='none'>сриједа, 01. децембар 2010.</result>
    <result timeType='short'>сриједа, 01. децембар 2010. 23:59</result>
    <result timeType='medium'>сриједа, 01. децембар 2010. 23:59:59</result>
-   <result timeType='full'>сриједа, 01. децембар 2010. 23 часова, 59 минута, 59 секунди GMT+00:00</result>
   </date>
   <date 
 locales='sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_RS sr_Latn_YU'>
 <!-- Serbian (Latin) [Srpski (Latinica)]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)]; Serbian (Latin, Serbia and Montenegro) [Srpski (Latinica, Srbija i Crna Gora)]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00.00</result>
    <result timeType='medium'>00.00.00</result>
-   <result timeType='full'>00.00.00 GMT+00:00</result>
    <result dateType='short' timeType='none'>31.1.00.</result>
    <result timeType='short'>31.1.00. 00.00</result>
    <result timeType='medium'>31.1.00. 00.00.00</result>
-   <result timeType='full'>31.1.00. 00.00.00 GMT+00:00</result>
    <result dateType='medium' timeType='none'>31.01.1900.</result>
    <result timeType='short'>31.01.1900. 00.00</result>
    <result timeType='medium'>31.01.1900. 00.00.00</result>
-   <result timeType='full'>31.01.1900. 00.00.00 GMT+00:00</result>
    <result dateType='long' timeType='none'>31. januar 1900.</result>
    <result timeType='short'>31. januar 1900. 00.00</result>
    <result timeType='medium'>31. januar 1900. 00.00.00</result>
-   <result timeType='full'>31. januar 1900. 00.00.00 GMT+00:00</result>
    <result dateType='full' timeType='none'>sreda, 31. januar 1900.</result>
    <result timeType='short'>sreda, 31. januar 1900. 00.00</result>
    <result timeType='medium'>sreda, 31. januar 1900. 00.00.00</result>
-   <result timeType='full'>sreda, 31. januar 1900. 00.00.00 GMT+00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00.00</result>
    <result timeType='medium'>00.00.01</result>
-   <result timeType='full'>00.00.01 GMT+00:00</result>
    <result dateType='short' timeType='none'>28.2.09.</result>
    <result timeType='short'>28.2.09. 00.00</result>
    <result timeType='medium'>28.2.09. 00.00.01</result>
-   <result timeType='full'>28.2.09. 00.00.01 GMT+00:00</result>
    <result dateType='medium' timeType='none'>28.02.1909.</result>
    <result timeType='short'>28.02.1909. 00.00</result>
    <result timeType='medium'>28.02.1909. 00.00.01</result>
-   <result timeType='full'>28.02.1909. 00.00.01 GMT+00:00</result>
    <result dateType='long' timeType='none'>28. februar 1909.</result>
    <result timeType='short'>28. februar 1909. 00.00</result>
    <result timeType='medium'>28. februar 1909. 00.00.01</result>
-   <result timeType='full'>28. februar 1909. 00.00.01 GMT+00:00</result>
    <result dateType='full' timeType='none'>nedelja, 28. februar 1909.</result>
    <result timeType='short'>nedelja, 28. februar 1909. 00.00</result>
    <result timeType='medium'>nedelja, 28. februar 1909. 00.00.01</result>
-   <result timeType='full'>nedelja, 28. februar 1909. 00.00.01 GMT+00:00</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00.59</result>
    <result timeType='medium'>00.59.59</result>
-   <result timeType='full'>00.59.59 GMT+00:00</result>
    <result dateType='short' timeType='none'>26.3.18.</result>
    <result timeType='short'>26.3.18. 00.59</result>
    <result timeType='medium'>26.3.18. 00.59.59</result>
-   <result timeType='full'>26.3.18. 00.59.59 GMT+00:00</result>
    <result dateType='medium' timeType='none'>26.03.1918.</result>
    <result timeType='short'>26.03.1918. 00.59</result>
    <result timeType='medium'>26.03.1918. 00.59.59</result>
-   <result timeType='full'>26.03.1918. 00.59.59 GMT+00:00</result>
    <result dateType='long' timeType='none'>26. mart 1918.</result>
    <result timeType='short'>26. mart 1918. 00.59</result>
    <result timeType='medium'>26. mart 1918. 00.59.59</result>
-   <result timeType='full'>26. mart 1918. 00.59.59 GMT+00:00</result>
    <result dateType='full' timeType='none'>utorak, 26. mart 1918.</result>
    <result timeType='short'>utorak, 26. mart 1918. 00.59</result>
    <result timeType='medium'>utorak, 26. mart 1918. 00.59.59</result>
-   <result timeType='full'>utorak, 26. mart 1918. 00.59.59 GMT+00:00</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01.00</result>
    <result timeType='medium'>01.00.00</result>
-   <result timeType='full'>01.00.00 GMT+00:00</result>
    <result dateType='short' timeType='none'>24.4.32.</result>
    <result timeType='short'>24.4.32. 01.00</result>
    <result timeType='medium'>24.4.32. 01.00.00</result>
-   <result timeType='full'>24.4.32. 01.00.00 GMT+00:00</result>
    <result dateType='medium' timeType='none'>24.04.1932.</result>
    <result timeType='short'>24.04.1932. 01.00</result>
    <result timeType='medium'>24.04.1932. 01.00.00</result>
-   <result timeType='full'>24.04.1932. 01.00.00 GMT+00:00</result>
    <result dateType='long' timeType='none'>24. april 1932.</result>
    <result timeType='short'>24. april 1932. 01.00</result>
    <result timeType='medium'>24. april 1932. 01.00.00</result>
-   <result timeType='full'>24. april 1932. 01.00.00 GMT+00:00</result>
    <result dateType='full' timeType='none'>nedelja, 24. april 1932.</result>
    <result timeType='short'>nedelja, 24. april 1932. 01.00</result>
    <result timeType='medium'>nedelja, 24. april 1932. 01.00.00</result>
-   <result timeType='full'>nedelja, 24. april 1932. 01.00.00 GMT+00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01.00</result>
    <result timeType='medium'>01.00.01</result>
-   <result timeType='full'>01.00.01 GMT+00:00</result>
    <result dateType='short' timeType='none'>20.5.45.</result>
    <result timeType='short'>20.5.45. 01.00</result>
    <result timeType='medium'>20.5.45. 01.00.01</result>
-   <result timeType='full'>20.5.45. 01.00.01 GMT+00:00</result>
    <result dateType='medium' timeType='none'>20.05.1945.</result>
    <result timeType='short'>20.05.1945. 01.00</result>
    <result timeType='medium'>20.05.1945. 01.00.01</result>
-   <result timeType='full'>20.05.1945. 01.00.01 GMT+00:00</result>
    <result dateType='long' timeType='none'>20. maj 1945.</result>
    <result timeType='short'>20. maj 1945. 01.00</result>
    <result timeType='medium'>20. maj 1945. 01.00.01</result>
-   <result timeType='full'>20. maj 1945. 01.00.01 GMT+00:00</result>
    <result dateType='full' timeType='none'>nedelja, 20. maj 1945.</result>
    <result timeType='short'>nedelja, 20. maj 1945. 01.00</result>
    <result timeType='medium'>nedelja, 20. maj 1945. 01.00.01</result>
-   <result timeType='full'>nedelja, 20. maj 1945. 01.00.01 GMT+00:00</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11.59</result>
    <result timeType='medium'>11.59.59</result>
-   <result timeType='full'>11.59.59 GMT+00:00</result>
    <result dateType='short' timeType='none'>18.6.52.</result>
    <result timeType='short'>18.6.52. 11.59</result>
    <result timeType='medium'>18.6.52. 11.59.59</result>
-   <result timeType='full'>18.6.52. 11.59.59 GMT+00:00</result>
    <result dateType='medium' timeType='none'>18.06.1952.</result>
    <result timeType='short'>18.06.1952. 11.59</result>
    <result timeType='medium'>18.06.1952. 11.59.59</result>
-   <result timeType='full'>18.06.1952. 11.59.59 GMT+00:00</result>
    <result dateType='long' timeType='none'>18. jun 1952.</result>
    <result timeType='short'>18. jun 1952. 11.59</result>
    <result timeType='medium'>18. jun 1952. 11.59.59</result>
-   <result timeType='full'>18. jun 1952. 11.59.59 GMT+00:00</result>
    <result dateType='full' timeType='none'>sreda, 18. jun 1952.</result>
    <result timeType='short'>sreda, 18. jun 1952. 11.59</result>
    <result timeType='medium'>sreda, 18. jun 1952. 11.59.59</result>
-   <result timeType='full'>sreda, 18. jun 1952. 11.59.59 GMT+00:00</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12.00</result>
    <result timeType='medium'>12.00.00</result>
-   <result timeType='full'>12.00.00 GMT+00:00</result>
    <result dateType='short' timeType='none'>16.7.73.</result>
    <result timeType='short'>16.7.73. 12.00</result>
    <result timeType='medium'>16.7.73. 12.00.00</result>
-   <result timeType='full'>16.7.73. 12.00.00 GMT+00:00</result>
    <result dateType='medium' timeType='none'>16.07.1973.</result>
    <result timeType='short'>16.07.1973. 12.00</result>
    <result timeType='medium'>16.07.1973. 12.00.00</result>
-   <result timeType='full'>16.07.1973. 12.00.00 GMT+00:00</result>
    <result dateType='long' timeType='none'>16. jul 1973.</result>
    <result timeType='short'>16. jul 1973. 12.00</result>
    <result timeType='medium'>16. jul 1973. 12.00.00</result>
-   <result timeType='full'>16. jul 1973. 12.00.00 GMT+00:00</result>
    <result dateType='full' timeType='none'>ponedeljak, 16. jul 1973.</result>
    <result timeType='short'>ponedeljak, 16. jul 1973. 12.00</result>
    <result timeType='medium'>ponedeljak, 16. jul 1973. 12.00.00</result>
-   <result timeType='full'>ponedeljak, 16. jul 1973. 12.00.00 GMT+00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12.00</result>
    <result timeType='medium'>12.00.01</result>
-   <result timeType='full'>12.00.01 GMT+00:00</result>
    <result dateType='short' timeType='none'>14.8.99.</result>
    <result timeType='short'>14.8.99. 12.00</result>
    <result timeType='medium'>14.8.99. 12.00.01</result>
-   <result timeType='full'>14.8.99. 12.00.01 GMT+00:00</result>
    <result dateType='medium' timeType='none'>14.08.1999.</result>
    <result timeType='short'>14.08.1999. 12.00</result>
    <result timeType='medium'>14.08.1999. 12.00.01</result>
-   <result timeType='full'>14.08.1999. 12.00.01 GMT+00:00</result>
    <result dateType='long' timeType='none'>14. avgust 1999.</result>
    <result timeType='short'>14. avgust 1999. 12.00</result>
    <result timeType='medium'>14. avgust 1999. 12.00.01</result>
-   <result timeType='full'>14. avgust 1999. 12.00.01 GMT+00:00</result>
    <result dateType='full' timeType='none'>subota, 14. avgust 1999.</result>
    <result timeType='short'>subota, 14. avgust 1999. 12.00</result>
    <result timeType='medium'>subota, 14. avgust 1999. 12.00.01</result>
-   <result timeType='full'>subota, 14. avgust 1999. 12.00.01 GMT+00:00</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22.59</result>
    <result timeType='medium'>22.59.59</result>
-   <result timeType='full'>22.59.59 GMT+00:00</result>
    <result dateType='short' timeType='none'>12.9.00.</result>
    <result timeType='short'>12.9.00. 22.59</result>
    <result timeType='medium'>12.9.00. 22.59.59</result>
-   <result timeType='full'>12.9.00. 22.59.59 GMT+00:00</result>
    <result dateType='medium' timeType='none'>12.09.2000.</result>
    <result timeType='short'>12.09.2000. 22.59</result>
    <result timeType='medium'>12.09.2000. 22.59.59</result>
-   <result timeType='full'>12.09.2000. 22.59.59 GMT+00:00</result>
    <result dateType='long' timeType='none'>12. septembar 2000.</result>
    <result timeType='short'>12. septembar 2000. 22.59</result>
    <result timeType='medium'>12. septembar 2000. 22.59.59</result>
-   <result timeType='full'>12. septembar 2000. 22.59.59 GMT+00:00</result>
    <result dateType='full' timeType='none'>utorak, 12. septembar 2000.</result>
    <result timeType='short'>utorak, 12. septembar 2000. 22.59</result>
    <result timeType='medium'>utorak, 12. septembar 2000. 22.59.59</result>
-   <result timeType='full'>utorak, 12. septembar 2000. 22.59.59 GMT+00:00</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23.00</result>
    <result timeType='medium'>23.00.00</result>
-   <result timeType='full'>23.00.00 GMT+00:00</result>
    <result dateType='short' timeType='none'>8.10.01.</result>
    <result timeType='short'>8.10.01. 23.00</result>
    <result timeType='medium'>8.10.01. 23.00.00</result>
-   <result timeType='full'>8.10.01. 23.00.00 GMT+00:00</result>
    <result dateType='medium' timeType='none'>08.10.2001.</result>
    <result timeType='short'>08.10.2001. 23.00</result>
    <result timeType='medium'>08.10.2001. 23.00.00</result>
-   <result timeType='full'>08.10.2001. 23.00.00 GMT+00:00</result>
    <result dateType='long' timeType='none'>08. oktobar 2001.</result>
    <result timeType='short'>08. oktobar 2001. 23.00</result>
    <result timeType='medium'>08. oktobar 2001. 23.00.00</result>
-   <result timeType='full'>08. oktobar 2001. 23.00.00 GMT+00:00</result>
    <result dateType='full' timeType='none'>ponedeljak, 08. oktobar 2001.</result>
    <result timeType='short'>ponedeljak, 08. oktobar 2001. 23.00</result>
    <result timeType='medium'>ponedeljak, 08. oktobar 2001. 23.00.00</result>
-   <result timeType='full'>ponedeljak, 08. oktobar 2001. 23.00.00 GMT+00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23.00</result>
    <result timeType='medium'>23.00.01</result>
-   <result timeType='full'>23.00.01 GMT+00:00</result>
    <result dateType='short' timeType='none'>4.11.04.</result>
    <result timeType='short'>4.11.04. 23.00</result>
    <result timeType='medium'>4.11.04. 23.00.01</result>
-   <result timeType='full'>4.11.04. 23.00.01 GMT+00:00</result>
    <result dateType='medium' timeType='none'>04.11.2004.</result>
    <result timeType='short'>04.11.2004. 23.00</result>
    <result timeType='medium'>04.11.2004. 23.00.01</result>
-   <result timeType='full'>04.11.2004. 23.00.01 GMT+00:00</result>
    <result dateType='long' timeType='none'>04. novembar 2004.</result>
    <result timeType='short'>04. novembar 2004. 23.00</result>
    <result timeType='medium'>04. novembar 2004. 23.00.01</result>
-   <result timeType='full'>04. novembar 2004. 23.00.01 GMT+00:00</result>
    <result dateType='full' timeType='none'>četvrtak, 04. novembar 2004.</result>
    <result timeType='short'>četvrtak, 04. novembar 2004. 23.00</result>
    <result timeType='medium'>četvrtak, 04. novembar 2004. 23.00.01</result>
-   <result timeType='full'>četvrtak, 04. novembar 2004. 23.00.01 GMT+00:00</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23.59</result>
    <result timeType='medium'>23.59.59</result>
-   <result timeType='full'>23.59.59 GMT+00:00</result>
    <result dateType='short' timeType='none'>1.12.10.</result>
    <result timeType='short'>1.12.10. 23.59</result>
    <result timeType='medium'>1.12.10. 23.59.59</result>
-   <result timeType='full'>1.12.10. 23.59.59 GMT+00:00</result>
    <result dateType='medium' timeType='none'>01.12.2010.</result>
    <result timeType='short'>01.12.2010. 23.59</result>
    <result timeType='medium'>01.12.2010. 23.59.59</result>
-   <result timeType='full'>01.12.2010. 23.59.59 GMT+00:00</result>
    <result dateType='long' timeType='none'>01. decembar 2010.</result>
    <result timeType='short'>01. decembar 2010. 23.59</result>
    <result timeType='medium'>01. decembar 2010. 23.59.59</result>
-   <result timeType='full'>01. decembar 2010. 23.59.59 GMT+00:00</result>
    <result dateType='full' timeType='none'>sreda, 01. decembar 2010.</result>
    <result timeType='short'>sreda, 01. decembar 2010. 23.59</result>
    <result timeType='medium'>sreda, 01. decembar 2010. 23.59.59</result>
-   <result timeType='full'>sreda, 01. decembar 2010. 23.59.59 GMT+00:00</result>
   </date>
   <date 
 locales='sr_Latn_ME'>
 <!-- Serbian (Latin, Montenegro) [Srpski (Latinica, Crna Gora)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00.00</result>
    <result timeType='medium'>00.00.00</result>
-   <result timeType='full'>00.00.00 GMT+00:00</result>
    <result dateType='short' timeType='none'>31.1.00.</result>
    <result timeType='short'>31.1.00. 00.00</result>
    <result timeType='medium'>31.1.00. 00.00.00</result>
-   <result timeType='full'>31.1.00. 00.00.00 GMT+00:00</result>
    <result dateType='medium' timeType='none'>31.01.1900.</result>
    <result timeType='short'>31.01.1900. 00.00</result>
    <result timeType='medium'>31.01.1900. 00.00.00</result>
-   <result timeType='full'>31.01.1900. 00.00.00 GMT+00:00</result>
    <result dateType='long' timeType='none'>31.01.1900.</result>
    <result timeType='short'>31.01.1900. 00.00</result>
    <result timeType='medium'>31.01.1900. 00.00.00</result>
-   <result timeType='full'>31.01.1900. 00.00.00 GMT+00:00</result>
    <result dateType='full' timeType='none'>sreda, 31. januar 1900.</result>
    <result timeType='short'>sreda, 31. januar 1900. 00.00</result>
    <result timeType='medium'>sreda, 31. januar 1900. 00.00.00</result>
-   <result timeType='full'>sreda, 31. januar 1900. 00.00.00 GMT+00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00.00</result>
    <result timeType='medium'>00.00.01</result>
-   <result timeType='full'>00.00.01 GMT+00:00</result>
    <result dateType='short' timeType='none'>28.2.09.</result>
    <result timeType='short'>28.2.09. 00.00</result>
    <result timeType='medium'>28.2.09. 00.00.01</result>
-   <result timeType='full'>28.2.09. 00.00.01 GMT+00:00</result>
    <result dateType='medium' timeType='none'>28.02.1909.</result>
    <result timeType='short'>28.02.1909. 00.00</result>
    <result timeType='medium'>28.02.1909. 00.00.01</result>
-   <result timeType='full'>28.02.1909. 00.00.01 GMT+00:00</result>
    <result dateType='long' timeType='none'>28.02.1909.</result>
    <result timeType='short'>28.02.1909. 00.00</result>
    <result timeType='medium'>28.02.1909. 00.00.01</result>
-   <result timeType='full'>28.02.1909. 00.00.01 GMT+00:00</result>
    <result dateType='full' timeType='none'>nedelja, 28. februar 1909.</result>
    <result timeType='short'>nedelja, 28. februar 1909. 00.00</result>
    <result timeType='medium'>nedelja, 28. februar 1909. 00.00.01</result>
-   <result timeType='full'>nedelja, 28. februar 1909. 00.00.01 GMT+00:00</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00.59</result>
    <result timeType='medium'>00.59.59</result>
-   <result timeType='full'>00.59.59 GMT+00:00</result>
    <result dateType='short' timeType='none'>26.3.18.</result>
    <result timeType='short'>26.3.18. 00.59</result>
    <result timeType='medium'>26.3.18. 00.59.59</result>
-   <result timeType='full'>26.3.18. 00.59.59 GMT+00:00</result>
    <result dateType='medium' timeType='none'>26.03.1918.</result>
    <result timeType='short'>26.03.1918. 00.59</result>
    <result timeType='medium'>26.03.1918. 00.59.59</result>
-   <result timeType='full'>26.03.1918. 00.59.59 GMT+00:00</result>
    <result dateType='long' timeType='none'>26.03.1918.</result>
    <result timeType='short'>26.03.1918. 00.59</result>
    <result timeType='medium'>26.03.1918. 00.59.59</result>
-   <result timeType='full'>26.03.1918. 00.59.59 GMT+00:00</result>
    <result dateType='full' timeType='none'>utorak, 26. mart 1918.</result>
    <result timeType='short'>utorak, 26. mart 1918. 00.59</result>
    <result timeType='medium'>utorak, 26. mart 1918. 00.59.59</result>
-   <result timeType='full'>utorak, 26. mart 1918. 00.59.59 GMT+00:00</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01.00</result>
    <result timeType='medium'>01.00.00</result>
-   <result timeType='full'>01.00.00 GMT+00:00</result>
    <result dateType='short' timeType='none'>24.4.32.</result>
    <result timeType='short'>24.4.32. 01.00</result>
    <result timeType='medium'>24.4.32. 01.00.00</result>
-   <result timeType='full'>24.4.32. 01.00.00 GMT+00:00</result>
    <result dateType='medium' timeType='none'>24.04.1932.</result>
    <result timeType='short'>24.04.1932. 01.00</result>
    <result timeType='medium'>24.04.1932. 01.00.00</result>
-   <result timeType='full'>24.04.1932. 01.00.00 GMT+00:00</result>
    <result dateType='long' timeType='none'>24.04.1932.</result>
    <result timeType='short'>24.04.1932. 01.00</result>
    <result timeType='medium'>24.04.1932. 01.00.00</result>
-   <result timeType='full'>24.04.1932. 01.00.00 GMT+00:00</result>
    <result dateType='full' timeType='none'>nedelja, 24. april 1932.</result>
    <result timeType='short'>nedelja, 24. april 1932. 01.00</result>
    <result timeType='medium'>nedelja, 24. april 1932. 01.00.00</result>
-   <result timeType='full'>nedelja, 24. april 1932. 01.00.00 GMT+00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01.00</result>
    <result timeType='medium'>01.00.01</result>
-   <result timeType='full'>01.00.01 GMT+00:00</result>
    <result dateType='short' timeType='none'>20.5.45.</result>
    <result timeType='short'>20.5.45. 01.00</result>
    <result timeType='medium'>20.5.45. 01.00.01</result>
-   <result timeType='full'>20.5.45. 01.00.01 GMT+00:00</result>
    <result dateType='medium' timeType='none'>20.05.1945.</result>
    <result timeType='short'>20.05.1945. 01.00</result>
    <result timeType='medium'>20.05.1945. 01.00.01</result>
-   <result timeType='full'>20.05.1945. 01.00.01 GMT+00:00</result>
    <result dateType='long' timeType='none'>20.05.1945.</result>
    <result timeType='short'>20.05.1945. 01.00</result>
    <result timeType='medium'>20.05.1945. 01.00.01</result>
-   <result timeType='full'>20.05.1945. 01.00.01 GMT+00:00</result>
    <result dateType='full' timeType='none'>nedelja, 20. maj 1945.</result>
    <result timeType='short'>nedelja, 20. maj 1945. 01.00</result>
    <result timeType='medium'>nedelja, 20. maj 1945. 01.00.01</result>
-   <result timeType='full'>nedelja, 20. maj 1945. 01.00.01 GMT+00:00</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11.59</result>
    <result timeType='medium'>11.59.59</result>
-   <result timeType='full'>11.59.59 GMT+00:00</result>
    <result dateType='short' timeType='none'>18.6.52.</result>
    <result timeType='short'>18.6.52. 11.59</result>
    <result timeType='medium'>18.6.52. 11.59.59</result>
-   <result timeType='full'>18.6.52. 11.59.59 GMT+00:00</result>
    <result dateType='medium' timeType='none'>18.06.1952.</result>
    <result timeType='short'>18.06.1952. 11.59</result>
    <result timeType='medium'>18.06.1952. 11.59.59</result>
-   <result timeType='full'>18.06.1952. 11.59.59 GMT+00:00</result>
    <result dateType='long' timeType='none'>18.06.1952.</result>
    <result timeType='short'>18.06.1952. 11.59</result>
    <result timeType='medium'>18.06.1952. 11.59.59</result>
-   <result timeType='full'>18.06.1952. 11.59.59 GMT+00:00</result>
    <result dateType='full' timeType='none'>sreda, 18. jun 1952.</result>
    <result timeType='short'>sreda, 18. jun 1952. 11.59</result>
    <result timeType='medium'>sreda, 18. jun 1952. 11.59.59</result>
-   <result timeType='full'>sreda, 18. jun 1952. 11.59.59 GMT+00:00</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12.00</result>
    <result timeType='medium'>12.00.00</result>
-   <result timeType='full'>12.00.00 GMT+00:00</result>
    <result dateType='short' timeType='none'>16.7.73.</result>
    <result timeType='short'>16.7.73. 12.00</result>
    <result timeType='medium'>16.7.73. 12.00.00</result>
-   <result timeType='full'>16.7.73. 12.00.00 GMT+00:00</result>
    <result dateType='medium' timeType='none'>16.07.1973.</result>
    <result timeType='short'>16.07.1973. 12.00</result>
    <result timeType='medium'>16.07.1973. 12.00.00</result>
-   <result timeType='full'>16.07.1973. 12.00.00 GMT+00:00</result>
    <result dateType='long' timeType='none'>16.07.1973.</result>
    <result timeType='short'>16.07.1973. 12.00</result>
    <result timeType='medium'>16.07.1973. 12.00.00</result>
-   <result timeType='full'>16.07.1973. 12.00.00 GMT+00:00</result>
    <result dateType='full' timeType='none'>ponedeljak, 16. jul 1973.</result>
    <result timeType='short'>ponedeljak, 16. jul 1973. 12.00</result>
    <result timeType='medium'>ponedeljak, 16. jul 1973. 12.00.00</result>
-   <result timeType='full'>ponedeljak, 16. jul 1973. 12.00.00 GMT+00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12.00</result>
    <result timeType='medium'>12.00.01</result>
-   <result timeType='full'>12.00.01 GMT+00:00</result>
    <result dateType='short' timeType='none'>14.8.99.</result>
    <result timeType='short'>14.8.99. 12.00</result>
    <result timeType='medium'>14.8.99. 12.00.01</result>
-   <result timeType='full'>14.8.99. 12.00.01 GMT+00:00</result>
    <result dateType='medium' timeType='none'>14.08.1999.</result>
    <result timeType='short'>14.08.1999. 12.00</result>
    <result timeType='medium'>14.08.1999. 12.00.01</result>
-   <result timeType='full'>14.08.1999. 12.00.01 GMT+00:00</result>
    <result dateType='long' timeType='none'>14.08.1999.</result>
    <result timeType='short'>14.08.1999. 12.00</result>
    <result timeType='medium'>14.08.1999. 12.00.01</result>
-   <result timeType='full'>14.08.1999. 12.00.01 GMT+00:00</result>
    <result dateType='full' timeType='none'>subota, 14. avgust 1999.</result>
    <result timeType='short'>subota, 14. avgust 1999. 12.00</result>
    <result timeType='medium'>subota, 14. avgust 1999. 12.00.01</result>
-   <result timeType='full'>subota, 14. avgust 1999. 12.00.01 GMT+00:00</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22.59</result>
    <result timeType='medium'>22.59.59</result>
-   <result timeType='full'>22.59.59 GMT+00:00</result>
    <result dateType='short' timeType='none'>12.9.00.</result>
    <result timeType='short'>12.9.00. 22.59</result>
    <result timeType='medium'>12.9.00. 22.59.59</result>
-   <result timeType='full'>12.9.00. 22.59.59 GMT+00:00</result>
    <result dateType='medium' timeType='none'>12.09.2000.</result>
    <result timeType='short'>12.09.2000. 22.59</result>
    <result timeType='medium'>12.09.2000. 22.59.59</result>
-   <result timeType='full'>12.09.2000. 22.59.59 GMT+00:00</result>
    <result dateType='long' timeType='none'>12.09.2000.</result>
    <result timeType='short'>12.09.2000. 22.59</result>
    <result timeType='medium'>12.09.2000. 22.59.59</result>
-   <result timeType='full'>12.09.2000. 22.59.59 GMT+00:00</result>
    <result dateType='full' timeType='none'>utorak, 12. septembar 2000.</result>
    <result timeType='short'>utorak, 12. septembar 2000. 22.59</result>
    <result timeType='medium'>utorak, 12. septembar 2000. 22.59.59</result>
-   <result timeType='full'>utorak, 12. septembar 2000. 22.59.59 GMT+00:00</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23.00</result>
    <result timeType='medium'>23.00.00</result>
-   <result timeType='full'>23.00.00 GMT+00:00</result>
    <result dateType='short' timeType='none'>8.10.01.</result>
    <result timeType='short'>8.10.01. 23.00</result>
    <result timeType='medium'>8.10.01. 23.00.00</result>
-   <result timeType='full'>8.10.01. 23.00.00 GMT+00:00</result>
    <result dateType='medium' timeType='none'>08.10.2001.</result>
    <result timeType='short'>08.10.2001. 23.00</result>
    <result timeType='medium'>08.10.2001. 23.00.00</result>
-   <result timeType='full'>08.10.2001. 23.00.00 GMT+00:00</result>
    <result dateType='long' timeType='none'>8.10.2001.</result>
    <result timeType='short'>8.10.2001. 23.00</result>
    <result timeType='medium'>8.10.2001. 23.00.00</result>
-   <result timeType='full'>8.10.2001. 23.00.00 GMT+00:00</result>
    <result dateType='full' timeType='none'>ponedeljak, 08. oktobar 2001.</result>
    <result timeType='short'>ponedeljak, 08. oktobar 2001. 23.00</result>
    <result timeType='medium'>ponedeljak, 08. oktobar 2001. 23.00.00</result>
-   <result timeType='full'>ponedeljak, 08. oktobar 2001. 23.00.00 GMT+00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23.00</result>
    <result timeType='medium'>23.00.01</result>
-   <result timeType='full'>23.00.01 GMT+00:00</result>
    <result dateType='short' timeType='none'>4.11.04.</result>
    <result timeType='short'>4.11.04. 23.00</result>
    <result timeType='medium'>4.11.04. 23.00.01</result>
-   <result timeType='full'>4.11.04. 23.00.01 GMT+00:00</result>
    <result dateType='medium' timeType='none'>04.11.2004.</result>
    <result timeType='short'>04.11.2004. 23.00</result>
    <result timeType='medium'>04.11.2004. 23.00.01</result>
-   <result timeType='full'>04.11.2004. 23.00.01 GMT+00:00</result>
    <result dateType='long' timeType='none'>4.11.2004.</result>
    <result timeType='short'>4.11.2004. 23.00</result>
    <result timeType='medium'>4.11.2004. 23.00.01</result>
-   <result timeType='full'>4.11.2004. 23.00.01 GMT+00:00</result>
    <result dateType='full' timeType='none'>četvrtak, 04. novembar 2004.</result>
    <result timeType='short'>četvrtak, 04. novembar 2004. 23.00</result>
    <result timeType='medium'>četvrtak, 04. novembar 2004. 23.00.01</result>
-   <result timeType='full'>četvrtak, 04. novembar 2004. 23.00.01 GMT+00:00</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23.59</result>
    <result timeType='medium'>23.59.59</result>
-   <result timeType='full'>23.59.59 GMT+00:00</result>
    <result dateType='short' timeType='none'>1.12.10.</result>
    <result timeType='short'>1.12.10. 23.59</result>
    <result timeType='medium'>1.12.10. 23.59.59</result>
-   <result timeType='full'>1.12.10. 23.59.59 GMT+00:00</result>
    <result dateType='medium' timeType='none'>01.12.2010.</result>
    <result timeType='short'>01.12.2010. 23.59</result>
    <result timeType='medium'>01.12.2010. 23.59.59</result>
-   <result timeType='full'>01.12.2010. 23.59.59 GMT+00:00</result>
    <result dateType='long' timeType='none'>1.12.2010.</result>
    <result timeType='short'>1.12.2010. 23.59</result>
    <result timeType='medium'>1.12.2010. 23.59.59</result>
-   <result timeType='full'>1.12.2010. 23.59.59 GMT+00:00</result>
    <result dateType='full' timeType='none'>sreda, 01. decembar 2010.</result>
    <result timeType='short'>sreda, 01. decembar 2010. 23.59</result>
    <result timeType='medium'>sreda, 01. decembar 2010. 23.59.59</result>
-   <result timeType='full'>sreda, 01. decembar 2010. 23.59.59 GMT+00:00</result>
   </date>
   <zoneFields 
-locales='sr sr_BA sr_CS sr_Cyrl sr_Cyrl_BA sr_Cyrl_CS sr_Cyrl_ME sr_Cyrl_RS sr_Cyrl_YU sr_ME sr_RS sr_YU'>
-<!-- Serbian [Српски]; Serbian (Bosnia and Herzegovina) [Српски (Босна и Херцеговина)]; Serbian (Serbia and Montenegro) [Српски (Србија и Црна Гора)]; Serbian (Cyrillic) [Српски (Ћирилица)]; Serbian (Cyrillic, Bosnia and Herzegovina) [Српски (Ћирилица, Босна и Херцеговина)]; Serbian (Cyrillic, Serbia and Montenegro) [Српски (Ћирилица, Србија и Црна Гора)]; Serbian (Cyrillic, Montenegro) [Српски (Ћирилица, Црна Гора)]; Serbian (Cyrillic, Serbia) [Српски (Ћирилица, Србија)]; Serbian (Cyrillic, Serbia) [Српски (Ћирилица, Србија)]; Serbian (Montenegro) [Српски (Црна Гора)]; Serbian (Serbia) [Српски (Србија)]; Serbian (Serbia) [Српски (Србија)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
-   <result field='ZZZZ'>GMT-0800</result>
-   <result field='v' parse='America/Los_Angeles'>Сједињене Америчке Државе (Лос Анђелес)</result>
-   <result field='vvvv'>Сједињене Америчке Државе (Лос Анђелес)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
-   <result field='ZZZZ'>GMT-0700</result>
-   <result field='v' parse='America/Los_Angeles'>Сједињене Америчке Државе (Лос Анђелес)</result>
-   <result field='vvvv'>Сједињене Америчке Државе (Лос Анђелес)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>Аргентина (Буенос Аирес)</result>
-   <result field='vvvv'>Аргентина (Буенос Аирес)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>Аргентина (Буенос Аирес)</result>
-   <result field='vvvv'>Аргентина (Буенос Аирес)</result>
-   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>Аргентина (Буенос Аирес)</result>
-   <result field='vvvv'>Аргентина (Буенос Аирес)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>Аргентина (Буенос Аирес)</result>
-   <result field='vvvv'>Аргентина (Буенос Аирес)</result>
-   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
-   <result field='ZZZZ'>GMT-0500</result>
-   <result field='v' parse='America/Havana'>Куба</result>
-   <result field='vvvv'>Куба</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
-   <result field='ZZZZ'>GMT-0400</result>
-   <result field='v' parse='America/Havana'>Куба</result>
-   <result field='vvvv'>Куба</result>
-   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
-   <result field='ZZZZ'>GMT+1100</result>
-   <result field='v' parse='Australia/Sydney'>Аустралија (Сиднеј)</result>
-   <result field='vvvv'>Аустралија (Сиднеј)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
-   <result field='ZZZZ'>GMT+1000</result>
-   <result field='v' parse='Australia/Sydney'>Аустралија (Сиднеј)</result>
-   <result field='vvvv'>Аустралија (Сиднеј)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
-   <result field='ZZZZ'>GMT+1100</result>
-   <result field='v' parse='Australia/Sydney'>Аустралија (Сиднеј)</result>
-   <result field='vvvv'>Аустралија (Сиднеј)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
-   <result field='ZZZZ'>GMT+1000</result>
-   <result field='v' parse='Australia/Sydney'>Аустралија (Сиднеј)</result>
-   <result field='vvvv'>Аустралија (Сиднеј)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
-   <result field='ZZZZ'>GMT+0000</result>
-   <result field='v' parse='Europe/London'>Велика Британија</result>
-   <result field='vvvv'>Велика Британија</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
-   <result field='ZZZZ'>GMT+0100</result>
-   <result field='v' parse='Europe/London'>Велика Британија</result>
-   <result field='vvvv'>Велика Британија</result>
-   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
-   <result field='ZZZZ'>GMT+0300</result>
-   <result field='v' parse='Europe/Moscow'>Русија (Москва)</result>
-   <result field='vvvv'>Русија (Москва)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
-   <result field='ZZZZ'>GMT+0400</result>
-   <result field='v' parse='Europe/Moscow'>Русија (Москва)</result>
-   <result field='vvvv'>Русија (Москва)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-0300</result>
-   <result field='v'>GMT-0300</result>
-   <result field='vvvv'>GMT-0300</result>
-   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
-   <result field='ZZZZ'>GMT-0300</result>
-   <result field='v'>GMT-0300</result>
-   <result field='vvvv'>GMT-0300</result>
-  </zoneFields>
-  <zoneFields 
-locales='sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_ME sr_Latn_RS sr_Latn_YU'>
-<!-- Serbian (Latin) [Srpski (Latinica)]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)]; Serbian (Latin, Serbia and Montenegro) [Srpski (Latinica, Srbija i Crna Gora)]; Serbian (Latin, Montenegro) [Srpski (Latinica, Crna Gora)]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
-   <result field='ZZZZ'>GMT-0800</result>
-   <result field='v' parse='America/Los_Angeles'>Sjedinjene Američke Države (Лос Анђелес)</result>
-   <result field='vvvv'>Sjedinjene Američke Države (Лос Анђелес)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
-   <result field='ZZZZ'>GMT-0700</result>
-   <result field='v' parse='America/Los_Angeles'>Sjedinjene Američke Države (Лос Анђелес)</result>
-   <result field='vvvv'>Sjedinjene Američke Države (Лос Анђелес)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>Argentina (Buenos Aires)</result>
-   <result field='vvvv'>Argentina (Buenos Aires)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>Argentina (Buenos Aires)</result>
-   <result field='vvvv'>Argentina (Buenos Aires)</result>
-   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>Argentina (Buenos Aires)</result>
-   <result field='vvvv'>Argentina (Buenos Aires)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>Argentina (Buenos Aires)</result>
-   <result field='vvvv'>Argentina (Buenos Aires)</result>
-   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
-   <result field='ZZZZ'>GMT-0500</result>
-   <result field='v' parse='America/Havana'>Kuba</result>
-   <result field='vvvv'>Kuba</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
-   <result field='ZZZZ'>GMT-0400</result>
-   <result field='v' parse='America/Havana'>Kuba</result>
-   <result field='vvvv'>Kuba</result>
-   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
-   <result field='ZZZZ'>GMT+1100</result>
-   <result field='v' parse='Australia/Sydney'>Australija (Сиднеј)</result>
-   <result field='vvvv'>Australija (Сиднеј)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
-   <result field='ZZZZ'>GMT+1000</result>
-   <result field='v' parse='Australia/Sydney'>Australija (Сиднеј)</result>
-   <result field='vvvv'>Australija (Сиднеј)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
-   <result field='ZZZZ'>GMT+1100</result>
-   <result field='v' parse='Australia/Sydney'>Australija (Сиднеј)</result>
-   <result field='vvvv'>Australija (Сиднеј)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
-   <result field='ZZZZ'>GMT+1000</result>
-   <result field='v' parse='Australia/Sydney'>Australija (Сиднеј)</result>
-   <result field='vvvv'>Australija (Сиднеј)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
-   <result field='ZZZZ'>GMT+0000</result>
-   <result field='v' parse='Europe/London'>Velika Britanija</result>
-   <result field='vvvv'>Velika Britanija</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
-   <result field='ZZZZ'>GMT+0100</result>
-   <result field='v' parse='Europe/London'>Velika Britanija</result>
-   <result field='vvvv'>Velika Britanija</result>
-   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
-   <result field='ZZZZ'>GMT+0300</result>
-   <result field='v' parse='Europe/Moscow'>Rusija (Moskva)</result>
-   <result field='vvvv'>Rusija (Moskva)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
-   <result field='ZZZZ'>GMT+0400</result>
-   <result field='v' parse='Europe/Moscow'>Rusija (Moskva)</result>
-   <result field='vvvv'>Rusija (Moskva)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-0300</result>
-   <result field='v'>GMT-0300</result>
-   <result field='vvvv'>GMT-0300</result>
-   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
-   <result field='ZZZZ'>GMT-0300</result>
-   <result field='v'>GMT-0300</result>
-   <result field='vvvv'>GMT-0300</result>
+locales='sr sr_BA sr_CS sr_Cyrl sr_Cyrl_BA sr_Cyrl_CS sr_Cyrl_ME sr_Cyrl_RS sr_Cyrl_YU sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_ME sr_Latn_RS sr_Latn_YU sr_ME sr_RS sr_YU'>
+<!-- Serbian [Српски]; Serbian (Bosnia and Herzegovina) [Српски (Босна и Херцеговина)]; Serbian (Serbia and Montenegro) [Српски (Србија и Црна Гора)]; Serbian (Cyrillic) [Српски (Ћирилица)]; Serbian (Cyrillic, Bosnia and Herzegovina) [Српски (Ћирилица, Босна и Херцеговина)]; Serbian (Cyrillic, Serbia and Montenegro) [Српски (Ћирилица, Србија и Црна Гора)]; Serbian (Cyrillic, Montenegro) [Српски (Ћирилица, Црна Гора)]; Serbian (Cyrillic, Serbia) [Српски (Ћирилица, Србија)]; Serbian (Cyrillic, Serbia) [Српски (Ћирилица, Србија)]; Serbian (Latin) [Srpski (Latinica)]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)]; Serbian (Latin, Serbia and Montenegro) [Srpski (Latinica, Srbija i Crna Gora)]; Serbian (Latin, Montenegro) [Srpski (Latinica, Crna Gora)]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)]; Serbian (Montenegro) [Српски (Црна Гора)]; Serbian (Serbia) [Српски (Србија)]; Serbian (Serbia) [Српски (Србија)] -->
   </zoneFields>
   <collation 
 locales='sr sr_BA sr_CS sr_Cyrl sr_Cyrl_BA sr_Cyrl_CS sr_Cyrl_ME sr_Cyrl_RS sr_Cyrl_YU sr_ME sr_RS sr_YU'>

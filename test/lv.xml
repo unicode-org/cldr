@@ -13,393 +13,223 @@ locales='lv lv_LV'>
    <result input='0.01' numberType='integer'>0</result>
    <result numberType='decimal'>0,01</result>
    <result numberType='percent'>1%</result>
-   <result numberType='scientific'>1E-2</result>
-   <result input='-0.01' numberType='integer'>-0</result>
-   <result numberType='decimal'>-0,01</result>
-   <result numberType='percent'>-1%</result>
-   <result numberType='scientific'>-1E-2</result>
+   <result numberType='scientific'>1E−2</result>
+   <result input='-0.01' numberType='integer'>−0</result>
+   <result numberType='decimal'>−0,01</result>
+   <result numberType='percent'>−1%</result>
+   <result numberType='scientific'>−1E−2</result>
    <result input='1.0' numberType='integer'>1</result>
    <result numberType='decimal'>1</result>
    <result numberType='percent'>100%</result>
    <result numberType='scientific'>1E0</result>
-   <result input='-1.0' numberType='integer'>-1</result>
-   <result numberType='decimal'>-1</result>
-   <result numberType='percent'>-100%</result>
-   <result numberType='scientific'>-1E0</result>
+   <result input='-1.0' numberType='integer'>−1</result>
+   <result numberType='decimal'>−1</result>
+   <result numberType='percent'>−100%</result>
+   <result numberType='scientific'>−1E0</result>
    <result input='123.456' numberType='integer'>123</result>
    <result numberType='decimal'>123,456</result>
    <result numberType='percent'>12 346%</result>
    <result numberType='scientific'>1,23456E2</result>
-   <result input='-123.456' numberType='integer'>-123</result>
-   <result numberType='decimal'>-123,456</result>
-   <result numberType='percent'>-12 346%</result>
-   <result numberType='scientific'>-1,23456E2</result>
+   <result input='-123.456' numberType='integer'>−123</result>
+   <result numberType='decimal'>−123,456</result>
+   <result numberType='percent'>−12 346%</result>
+   <result numberType='scientific'>−1,23456E2</result>
    <result input='123456.78' numberType='integer'>123 457</result>
    <result numberType='decimal'>123 456,78</result>
    <result numberType='percent'>12 345 678%</result>
    <result numberType='scientific'>1,2345678E5</result>
-   <result input='-123456.78' numberType='integer'>-123 457</result>
-   <result numberType='decimal'>-123 456,78</result>
-   <result numberType='percent'>-12 345 678%</result>
-   <result numberType='scientific'>-1,2345678E5</result>
+   <result input='-123456.78' numberType='integer'>−123 457</result>
+   <result numberType='decimal'>−123 456,78</result>
+   <result numberType='percent'>−12 345 678%</result>
+   <result numberType='scientific'>−1,2345678E5</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
-   <result input='-Infinity' numberType='integer'>-∞</result>
-   <result numberType='decimal'>-∞</result>
-   <result numberType='percent'>-∞%</result>
-   <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>NaN</result>
-   <result numberType='decimal'>NaN</result>
-   <result numberType='percent'>NaN</result>
-   <result numberType='scientific'>NaN</result>
+   <result input='-Infinity' numberType='integer'>−∞</result>
+   <result numberType='decimal'>−∞</result>
+   <result numberType='percent'>−∞%</result>
+   <result numberType='scientific'>−∞</result>
+   <result input='NaN' numberType='integer'>nav skaitlis</result>
+   <result numberType='decimal'>nav skaitlis</result>
+   <result numberType='percent'>nav skaitlis</result>
+   <result numberType='scientific'>nav skaitlis</result>
   </number>
   <date 
 locales='lv lv_LV'>
 <!-- Latvian [latviešu]; Latvian (Latvia) [latviešu (Latvija)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
-   <result timeType='full'>00:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>00.31.1</result>
-   <result timeType='short'>00.31.1 00:00</result>
-   <result timeType='medium'>00.31.1 00:00:00</result>
-   <result timeType='full'>00.31.1 00:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1900.31.1</result>
-   <result timeType='short'>1900.31.1 00:00</result>
-   <result timeType='medium'>1900.31.1 00:00:00</result>
-   <result timeType='full'>1900.31.1 00:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>31.01.00</result>
+   <result timeType='short'>31.01.00 00:00</result>
+   <result timeType='medium'>31.01.00 00:00:00</result>
+   <result dateType='medium' timeType='none'>1900. gada 31. janv.</result>
+   <result timeType='short'>1900. gada 31. janv. 00:00</result>
+   <result timeType='medium'>1900. gada 31. janv. 00:00:00</result>
    <result dateType='long' timeType='none'>1900. gada 31. janvāris</result>
    <result timeType='short'>1900. gada 31. janvāris 00:00</result>
    <result timeType='medium'>1900. gada 31. janvāris 00:00:00</result>
-   <result timeType='full'>1900. gada 31. janvāris 00:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none'>trešdiena, 1900. gada 31. janvāris</result>
    <result timeType='short'>trešdiena, 1900. gada 31. janvāris 00:00</result>
    <result timeType='medium'>trešdiena, 1900. gada 31. janvāris 00:00:00</result>
-   <result timeType='full'>trešdiena, 1900. gada 31. janvāris 00:00:00 GMT+00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
-   <result timeType='full'>00:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>09.28.2</result>
-   <result timeType='short'>09.28.2 00:00</result>
-   <result timeType='medium'>09.28.2 00:00:01</result>
-   <result timeType='full'>09.28.2 00:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1909.28.2</result>
-   <result timeType='short'>1909.28.2 00:00</result>
-   <result timeType='medium'>1909.28.2 00:00:01</result>
-   <result timeType='full'>1909.28.2 00:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>28.02.09</result>
+   <result timeType='short'>28.02.09 00:00</result>
+   <result timeType='medium'>28.02.09 00:00:01</result>
+   <result dateType='medium' timeType='none'>1909. gada 28. febr.</result>
+   <result timeType='short'>1909. gada 28. febr. 00:00</result>
+   <result timeType='medium'>1909. gada 28. febr. 00:00:01</result>
    <result dateType='long' timeType='none'>1909. gada 28. februāris</result>
    <result timeType='short'>1909. gada 28. februāris 00:00</result>
    <result timeType='medium'>1909. gada 28. februāris 00:00:01</result>
-   <result timeType='full'>1909. gada 28. februāris 00:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none'>svētdiena, 1909. gada 28. februāris</result>
    <result timeType='short'>svētdiena, 1909. gada 28. februāris 00:00</result>
    <result timeType='medium'>svētdiena, 1909. gada 28. februāris 00:00:01</result>
-   <result timeType='full'>svētdiena, 1909. gada 28. februāris 00:00:01 GMT+00:00</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
-   <result timeType='full'>00:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>18.26.3</result>
-   <result timeType='short'>18.26.3 00:59</result>
-   <result timeType='medium'>18.26.3 00:59:59</result>
-   <result timeType='full'>18.26.3 00:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1918.26.3</result>
-   <result timeType='short'>1918.26.3 00:59</result>
-   <result timeType='medium'>1918.26.3 00:59:59</result>
-   <result timeType='full'>1918.26.3 00:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>26.03.18</result>
+   <result timeType='short'>26.03.18 00:59</result>
+   <result timeType='medium'>26.03.18 00:59:59</result>
+   <result dateType='medium' timeType='none'>1918. gada 26. marts</result>
+   <result timeType='short'>1918. gada 26. marts 00:59</result>
+   <result timeType='medium'>1918. gada 26. marts 00:59:59</result>
    <result dateType='long' timeType='none'>1918. gada 26. marts</result>
    <result timeType='short'>1918. gada 26. marts 00:59</result>
    <result timeType='medium'>1918. gada 26. marts 00:59:59</result>
-   <result timeType='full'>1918. gada 26. marts 00:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none'>otrdiena, 1918. gada 26. marts</result>
    <result timeType='short'>otrdiena, 1918. gada 26. marts 00:59</result>
    <result timeType='medium'>otrdiena, 1918. gada 26. marts 00:59:59</result>
-   <result timeType='full'>otrdiena, 1918. gada 26. marts 00:59:59 GMT+00:00</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
-   <result timeType='full'>01:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>32.24.4</result>
-   <result timeType='short'>32.24.4 01:00</result>
-   <result timeType='medium'>32.24.4 01:00:00</result>
-   <result timeType='full'>32.24.4 01:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1932.24.4</result>
-   <result timeType='short'>1932.24.4 01:00</result>
-   <result timeType='medium'>1932.24.4 01:00:00</result>
-   <result timeType='full'>1932.24.4 01:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>24.04.32</result>
+   <result timeType='short'>24.04.32 01:00</result>
+   <result timeType='medium'>24.04.32 01:00:00</result>
+   <result dateType='medium' timeType='none'>1932. gada 24. apr.</result>
+   <result timeType='short'>1932. gada 24. apr. 01:00</result>
+   <result timeType='medium'>1932. gada 24. apr. 01:00:00</result>
    <result dateType='long' timeType='none'>1932. gada 24. aprīlis</result>
    <result timeType='short'>1932. gada 24. aprīlis 01:00</result>
    <result timeType='medium'>1932. gada 24. aprīlis 01:00:00</result>
-   <result timeType='full'>1932. gada 24. aprīlis 01:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none'>svētdiena, 1932. gada 24. aprīlis</result>
    <result timeType='short'>svētdiena, 1932. gada 24. aprīlis 01:00</result>
    <result timeType='medium'>svētdiena, 1932. gada 24. aprīlis 01:00:00</result>
-   <result timeType='full'>svētdiena, 1932. gada 24. aprīlis 01:00:00 GMT+00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
-   <result timeType='full'>01:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>45.20.5</result>
-   <result timeType='short'>45.20.5 01:00</result>
-   <result timeType='medium'>45.20.5 01:00:01</result>
-   <result timeType='full'>45.20.5 01:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1945.20.5</result>
-   <result timeType='short'>1945.20.5 01:00</result>
-   <result timeType='medium'>1945.20.5 01:00:01</result>
-   <result timeType='full'>1945.20.5 01:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>20.05.45</result>
+   <result timeType='short'>20.05.45 01:00</result>
+   <result timeType='medium'>20.05.45 01:00:01</result>
+   <result dateType='medium' timeType='none'>1945. gada 20. maijs</result>
+   <result timeType='short'>1945. gada 20. maijs 01:00</result>
+   <result timeType='medium'>1945. gada 20. maijs 01:00:01</result>
    <result dateType='long' timeType='none'>1945. gada 20. maijs</result>
    <result timeType='short'>1945. gada 20. maijs 01:00</result>
    <result timeType='medium'>1945. gada 20. maijs 01:00:01</result>
-   <result timeType='full'>1945. gada 20. maijs 01:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none'>svētdiena, 1945. gada 20. maijs</result>
    <result timeType='short'>svētdiena, 1945. gada 20. maijs 01:00</result>
    <result timeType='medium'>svētdiena, 1945. gada 20. maijs 01:00:01</result>
-   <result timeType='full'>svētdiena, 1945. gada 20. maijs 01:00:01 GMT+00:00</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
-   <result timeType='full'>11:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>52.18.6</result>
-   <result timeType='short'>52.18.6 11:59</result>
-   <result timeType='medium'>52.18.6 11:59:59</result>
-   <result timeType='full'>52.18.6 11:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1952.18.6</result>
-   <result timeType='short'>1952.18.6 11:59</result>
-   <result timeType='medium'>1952.18.6 11:59:59</result>
-   <result timeType='full'>1952.18.6 11:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>18.06.52</result>
+   <result timeType='short'>18.06.52 11:59</result>
+   <result timeType='medium'>18.06.52 11:59:59</result>
+   <result dateType='medium' timeType='none'>1952. gada 18. jūn.</result>
+   <result timeType='short'>1952. gada 18. jūn. 11:59</result>
+   <result timeType='medium'>1952. gada 18. jūn. 11:59:59</result>
    <result dateType='long' timeType='none'>1952. gada 18. jūnijs</result>
    <result timeType='short'>1952. gada 18. jūnijs 11:59</result>
    <result timeType='medium'>1952. gada 18. jūnijs 11:59:59</result>
-   <result timeType='full'>1952. gada 18. jūnijs 11:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none'>trešdiena, 1952. gada 18. jūnijs</result>
    <result timeType='short'>trešdiena, 1952. gada 18. jūnijs 11:59</result>
    <result timeType='medium'>trešdiena, 1952. gada 18. jūnijs 11:59:59</result>
-   <result timeType='full'>trešdiena, 1952. gada 18. jūnijs 11:59:59 GMT+00:00</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
-   <result timeType='full'>12:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>73.16.7</result>
-   <result timeType='short'>73.16.7 12:00</result>
-   <result timeType='medium'>73.16.7 12:00:00</result>
-   <result timeType='full'>73.16.7 12:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1973.16.7</result>
-   <result timeType='short'>1973.16.7 12:00</result>
-   <result timeType='medium'>1973.16.7 12:00:00</result>
-   <result timeType='full'>1973.16.7 12:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>16.07.73</result>
+   <result timeType='short'>16.07.73 12:00</result>
+   <result timeType='medium'>16.07.73 12:00:00</result>
+   <result dateType='medium' timeType='none'>1973. gada 16. jūl.</result>
+   <result timeType='short'>1973. gada 16. jūl. 12:00</result>
+   <result timeType='medium'>1973. gada 16. jūl. 12:00:00</result>
    <result dateType='long' timeType='none'>1973. gada 16. jūlijs</result>
    <result timeType='short'>1973. gada 16. jūlijs 12:00</result>
    <result timeType='medium'>1973. gada 16. jūlijs 12:00:00</result>
-   <result timeType='full'>1973. gada 16. jūlijs 12:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none'>pirmdiena, 1973. gada 16. jūlijs</result>
    <result timeType='short'>pirmdiena, 1973. gada 16. jūlijs 12:00</result>
    <result timeType='medium'>pirmdiena, 1973. gada 16. jūlijs 12:00:00</result>
-   <result timeType='full'>pirmdiena, 1973. gada 16. jūlijs 12:00:00 GMT+00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
-   <result timeType='full'>12:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>99.14.8</result>
-   <result timeType='short'>99.14.8 12:00</result>
-   <result timeType='medium'>99.14.8 12:00:01</result>
-   <result timeType='full'>99.14.8 12:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1999.14.8</result>
-   <result timeType='short'>1999.14.8 12:00</result>
-   <result timeType='medium'>1999.14.8 12:00:01</result>
-   <result timeType='full'>1999.14.8 12:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>14.08.99</result>
+   <result timeType='short'>14.08.99 12:00</result>
+   <result timeType='medium'>14.08.99 12:00:01</result>
+   <result dateType='medium' timeType='none'>1999. gada 14. aug.</result>
+   <result timeType='short'>1999. gada 14. aug. 12:00</result>
+   <result timeType='medium'>1999. gada 14. aug. 12:00:01</result>
    <result dateType='long' timeType='none'>1999. gada 14. augusts</result>
    <result timeType='short'>1999. gada 14. augusts 12:00</result>
    <result timeType='medium'>1999. gada 14. augusts 12:00:01</result>
-   <result timeType='full'>1999. gada 14. augusts 12:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none'>sestdiena, 1999. gada 14. augusts</result>
    <result timeType='short'>sestdiena, 1999. gada 14. augusts 12:00</result>
    <result timeType='medium'>sestdiena, 1999. gada 14. augusts 12:00:01</result>
-   <result timeType='full'>sestdiena, 1999. gada 14. augusts 12:00:01 GMT+00:00</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
-   <result timeType='full'>22:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>00.12.9</result>
-   <result timeType='short'>00.12.9 22:59</result>
-   <result timeType='medium'>00.12.9 22:59:59</result>
-   <result timeType='full'>00.12.9 22:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2000.12.9</result>
-   <result timeType='short'>2000.12.9 22:59</result>
-   <result timeType='medium'>2000.12.9 22:59:59</result>
-   <result timeType='full'>2000.12.9 22:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>12.09.00</result>
+   <result timeType='short'>12.09.00 22:59</result>
+   <result timeType='medium'>12.09.00 22:59:59</result>
+   <result dateType='medium' timeType='none'>2000. gada 12. sept.</result>
+   <result timeType='short'>2000. gada 12. sept. 22:59</result>
+   <result timeType='medium'>2000. gada 12. sept. 22:59:59</result>
    <result dateType='long' timeType='none'>2000. gada 12. septembris</result>
    <result timeType='short'>2000. gada 12. septembris 22:59</result>
    <result timeType='medium'>2000. gada 12. septembris 22:59:59</result>
-   <result timeType='full'>2000. gada 12. septembris 22:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none'>otrdiena, 2000. gada 12. septembris</result>
    <result timeType='short'>otrdiena, 2000. gada 12. septembris 22:59</result>
    <result timeType='medium'>otrdiena, 2000. gada 12. septembris 22:59:59</result>
-   <result timeType='full'>otrdiena, 2000. gada 12. septembris 22:59:59 GMT+00:00</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
-   <result timeType='full'>23:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>01.8.10</result>
-   <result timeType='short'>01.8.10 23:00</result>
-   <result timeType='medium'>01.8.10 23:00:00</result>
-   <result timeType='full'>01.8.10 23:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2001.8.10</result>
-   <result timeType='short'>2001.8.10 23:00</result>
-   <result timeType='medium'>2001.8.10 23:00:00</result>
-   <result timeType='full'>2001.8.10 23:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>08.10.01</result>
+   <result timeType='short'>08.10.01 23:00</result>
+   <result timeType='medium'>08.10.01 23:00:00</result>
+   <result dateType='medium' timeType='none'>2001. gada 8. okt.</result>
+   <result timeType='short'>2001. gada 8. okt. 23:00</result>
+   <result timeType='medium'>2001. gada 8. okt. 23:00:00</result>
    <result dateType='long' timeType='none'>2001. gada 8. oktobris</result>
    <result timeType='short'>2001. gada 8. oktobris 23:00</result>
    <result timeType='medium'>2001. gada 8. oktobris 23:00:00</result>
-   <result timeType='full'>2001. gada 8. oktobris 23:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none'>pirmdiena, 2001. gada 8. oktobris</result>
    <result timeType='short'>pirmdiena, 2001. gada 8. oktobris 23:00</result>
    <result timeType='medium'>pirmdiena, 2001. gada 8. oktobris 23:00:00</result>
-   <result timeType='full'>pirmdiena, 2001. gada 8. oktobris 23:00:00 GMT+00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
-   <result timeType='full'>23:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>04.4.11</result>
-   <result timeType='short'>04.4.11 23:00</result>
-   <result timeType='medium'>04.4.11 23:00:01</result>
-   <result timeType='full'>04.4.11 23:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2004.4.11</result>
-   <result timeType='short'>2004.4.11 23:00</result>
-   <result timeType='medium'>2004.4.11 23:00:01</result>
-   <result timeType='full'>2004.4.11 23:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>04.11.04</result>
+   <result timeType='short'>04.11.04 23:00</result>
+   <result timeType='medium'>04.11.04 23:00:01</result>
+   <result dateType='medium' timeType='none'>2004. gada 4. nov.</result>
+   <result timeType='short'>2004. gada 4. nov. 23:00</result>
+   <result timeType='medium'>2004. gada 4. nov. 23:00:01</result>
    <result dateType='long' timeType='none'>2004. gada 4. novembris</result>
    <result timeType='short'>2004. gada 4. novembris 23:00</result>
    <result timeType='medium'>2004. gada 4. novembris 23:00:01</result>
-   <result timeType='full'>2004. gada 4. novembris 23:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none'>ceturtdiena, 2004. gada 4. novembris</result>
    <result timeType='short'>ceturtdiena, 2004. gada 4. novembris 23:00</result>
    <result timeType='medium'>ceturtdiena, 2004. gada 4. novembris 23:00:01</result>
-   <result timeType='full'>ceturtdiena, 2004. gada 4. novembris 23:00:01 GMT+00:00</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
-   <result timeType='full'>23:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>10.1.12</result>
-   <result timeType='short'>10.1.12 23:59</result>
-   <result timeType='medium'>10.1.12 23:59:59</result>
-   <result timeType='full'>10.1.12 23:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2010.1.12</result>
-   <result timeType='short'>2010.1.12 23:59</result>
-   <result timeType='medium'>2010.1.12 23:59:59</result>
-   <result timeType='full'>2010.1.12 23:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>01.12.10</result>
+   <result timeType='short'>01.12.10 23:59</result>
+   <result timeType='medium'>01.12.10 23:59:59</result>
+   <result dateType='medium' timeType='none'>2010. gada 1. dec.</result>
+   <result timeType='short'>2010. gada 1. dec. 23:59</result>
+   <result timeType='medium'>2010. gada 1. dec. 23:59:59</result>
    <result dateType='long' timeType='none'>2010. gada 1. decembris</result>
    <result timeType='short'>2010. gada 1. decembris 23:59</result>
    <result timeType='medium'>2010. gada 1. decembris 23:59:59</result>
-   <result timeType='full'>2010. gada 1. decembris 23:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none'>trešdiena, 2010. gada 1. decembris</result>
    <result timeType='short'>trešdiena, 2010. gada 1. decembris 23:59</result>
    <result timeType='medium'>trešdiena, 2010. gada 1. decembris 23:59:59</result>
-   <result timeType='full'>trešdiena, 2010. gada 1. decembris 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
 locales='lv lv_LV'>
 <!-- Latvian [latviešu]; Latvian (Latvia) [latviešu (Latvija)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
-   <result field='ZZZZ' draft='unconfirmed'>GMT−08:00</result>
-   <result draft='approved'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>United States (Losandželosa)</result>
-   <result draft='approved'>United States (Los Angeles)</result>
-   <result field='vvvv' draft='unconfirmed'>United States (Losandželosa)</result>
-   <result draft='approved'>United States (Los Angeles)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='unconfirmed approved'>-0700</result>
-   <result field='ZZZZ' draft='unconfirmed'>GMT−07:00</result>
-   <result draft='approved'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>United States (Losandželosa)</result>
-   <result draft='approved'>United States (Los Angeles)</result>
-   <result field='vvvv' draft='unconfirmed'>United States (Losandželosa)</result>
-   <result draft='approved'>United States (Los Angeles)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
-   <result field='ZZZZ' draft='unconfirmed'>GMT−03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Argentīna (Buenosairesa)</result>
-   <result draft='approved'>Argentīna (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>Argentīna (Buenosairesa)</result>
-   <result draft='approved'>Argentīna (Buenos Aires)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
-   <result field='ZZZZ' draft='unconfirmed'>GMT−03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Argentīna (Buenosairesa)</result>
-   <result draft='approved'>Argentīna (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>Argentīna (Buenosairesa)</result>
-   <result draft='approved'>Argentīna (Buenos Aires)</result>
-   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
-   <result field='ZZZZ' draft='unconfirmed'>GMT−03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Argentīna (Buenosairesa)</result>
-   <result draft='approved'>Argentīna (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>Argentīna (Buenosairesa)</result>
-   <result draft='approved'>Argentīna (Buenos Aires)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
-   <result field='ZZZZ' draft='unconfirmed'>GMT−03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Argentīna (Buenosairesa)</result>
-   <result draft='approved'>Argentīna (Buenos Aires)</result>
-   <result field='vvvv' draft='unconfirmed'>Argentīna (Buenosairesa)</result>
-   <result draft='approved'>Argentīna (Buenos Aires)</result>
-   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5' draft='unconfirmed approved'>-0500</result>
-   <result field='ZZZZ' draft='unconfirmed'>GMT−05:00</result>
-   <result draft='approved'>GMT-05:00</result>
-   <result field='v' parse='America/Havana' draft='unconfirmed approved'>Kuba</result>
-   <result field='vvvv'>Kuba</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
-   <result field='ZZZZ' draft='unconfirmed'>GMT−04:00</result>
-   <result draft='approved'>GMT-04:00</result>
-   <result field='v' parse='America/Havana' draft='unconfirmed approved'>Kuba</result>
-   <result field='vvvv'>Kuba</result>
-   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
-   <result field='ZZZZ'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Austrālija (Sidneja)</result>
-   <result draft='approved'>Austrālija (Sydney)</result>
-   <result field='vvvv' draft='unconfirmed'>Austrālija (Sidneja)</result>
-   <result draft='approved'>Austrālija (Sydney)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='unconfirmed approved'>+1000</result>
-   <result field='ZZZZ'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Austrālija (Sidneja)</result>
-   <result draft='approved'>Austrālija (Sydney)</result>
-   <result field='vvvv' draft='unconfirmed'>Austrālija (Sidneja)</result>
-   <result draft='approved'>Austrālija (Sydney)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='unconfirmed approved'>+1100</result>
-   <result field='ZZZZ'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Austrālija (Sidneja)</result>
-   <result draft='approved'>Austrālija (Sydney)</result>
-   <result field='vvvv' draft='unconfirmed'>Austrālija (Sidneja)</result>
-   <result draft='approved'>Austrālija (Sydney)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='unconfirmed approved'>+1000</result>
-   <result field='ZZZZ'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Austrālija (Sidneja)</result>
-   <result draft='approved'>Austrālija (Sydney)</result>
-   <result field='vvvv' draft='unconfirmed'>Austrālija (Sidneja)</result>
-   <result draft='approved'>Austrālija (Sydney)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='unconfirmed approved'>+0000</result>
-   <result field='ZZZZ'>GMT+00:00</result>
-   <result field='v' parse='Europe/London'>Lielbritānija</result>
-   <result field='vvvv'>Lielbritānija</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
-   <result field='ZZZZ'>GMT+01:00</result>
-   <result field='v' parse='Europe/London'>Lielbritānija</result>
-   <result field='vvvv'>Lielbritānija</result>
-   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
-   <result field='ZZZZ'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Krievija (Maskava)</result>
-   <result draft='approved'>Krievija (Moscow)</result>
-   <result field='vvvv' draft='unconfirmed'>Krievija (Maskava)</result>
-   <result draft='approved'>Krievija (Moscow)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='unconfirmed approved'>+0400</result>
-   <result field='ZZZZ'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Krievija (Maskava)</result>
-   <result draft='approved'>Krievija (Moscow)</result>
-   <result field='vvvv' draft='unconfirmed'>Krievija (Maskava)</result>
-   <result draft='approved'>Krievija (Moscow)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
-   <result field='ZZZZ' draft='unconfirmed'>GMT−03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='v' draft='unconfirmed'>GMT−03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='vvvv' draft='unconfirmed'>GMT−03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' draft='unconfirmed approved'>-0300</result>
-   <result field='ZZZZ' draft='unconfirmed'>GMT−03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='v' draft='unconfirmed'>GMT−03:00</result>
-   <result draft='approved'>GMT-03:00</result>
-   <result field='vvvv' draft='unconfirmed'>GMT−03:00</result>
-   <result draft='approved'>GMT-03:00</result>
   </zoneFields>
   <collation 
 locales='lv lv_LV'>

@@ -1,88 +1,92 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.5' base='ky'>
- <!-- Kirghiz [Kirghiz] -->
+ <cldrTest version='1.5' base='nds'>
+ <!-- Low German [Low German] -->
   <number 
-locales='ky ky_KG'>
-<!-- Kirghiz [Kirghiz]; Kirghiz (Kyrgyzstan) [Kirghiz (Kyrgyzstan)] -->
+locales='nds nds_DE'>
+<!-- Low German [Low German]; Low German (Germany) [Low German (Germany)] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
-   <result numberType='percent'>0%</result>
-   <result numberType='scientific'>0E0</result>
+   <result numberType='percent' draft='unconfirmed'>0 %</result>
+   <result draft='approved'>0%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>0E0</result>
    <result input='0.01' numberType='integer'>0</result>
    <result numberType='decimal' draft='unconfirmed'>0,01</result>
    <result draft='approved'>0.01</result>
-   <result numberType='percent' draft='unconfirmed approved'>1%</result>
-   <result numberType='scientific'>1E-2</result>
+   <result numberType='percent' draft='unconfirmed'>1 %</result>
+   <result draft='approved'>1%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>1E-2</result>
    <result input='-0.01' numberType='integer'>-0</result>
    <result numberType='decimal' draft='unconfirmed'>-0,01</result>
    <result draft='approved'>-0.01</result>
-   <result numberType='percent' draft='unconfirmed approved'>-1%</result>
-   <result numberType='scientific'>-1E-2</result>
+   <result numberType='percent' draft='unconfirmed'>-1 %</result>
+   <result draft='approved'>-1%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>-1E-2</result>
    <result input='1.0' numberType='integer'>1</result>
    <result numberType='decimal'>1</result>
-   <result numberType='percent'>100%</result>
-   <result numberType='scientific'>1E0</result>
+   <result numberType='percent' draft='unconfirmed'>100 %</result>
+   <result draft='approved'>100%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>1E0</result>
    <result input='-1.0' numberType='integer'>-1</result>
    <result numberType='decimal'>-1</result>
-   <result numberType='percent'>-100%</result>
-   <result numberType='scientific'>-1E0</result>
+   <result numberType='percent' draft='unconfirmed'>-100 %</result>
+   <result draft='approved'>-100%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>-1E0</result>
    <result input='123.456' numberType='integer'>123</result>
    <result numberType='decimal' draft='unconfirmed'>123,456</result>
    <result draft='approved'>123.456</result>
-   <result numberType='percent' draft='unconfirmed'>12 346%</result>
+   <result numberType='percent' draft='unconfirmed'>12.346 %</result>
    <result draft='approved'>12,346%</result>
    <result numberType='scientific' draft='unconfirmed'>1,23456E2</result>
    <result draft='approved'>1.23456E2</result>
    <result input='-123.456' numberType='integer' draft='unconfirmed approved'>-123</result>
    <result numberType='decimal' draft='unconfirmed'>-123,456</result>
    <result draft='approved'>-123.456</result>
-   <result numberType='percent' draft='unconfirmed'>-12 346%</result>
+   <result numberType='percent' draft='unconfirmed'>-12.346 %</result>
    <result draft='approved'>-12,346%</result>
    <result numberType='scientific' draft='unconfirmed'>-1,23456E2</result>
    <result draft='approved'>-1.23456E2</result>
-   <result input='123456.78' numberType='integer' draft='unconfirmed'>123 457</result>
+   <result input='123456.78' numberType='integer' draft='unconfirmed'>123.457</result>
    <result draft='approved'>123,457</result>
-   <result numberType='decimal' draft='unconfirmed'>123 456,78</result>
+   <result numberType='decimal' draft='unconfirmed'>123.456,78</result>
    <result draft='approved'>123,456.78</result>
-   <result numberType='percent' draft='unconfirmed'>12 345 678%</result>
+   <result numberType='percent' draft='unconfirmed'>12.345.678 %</result>
    <result draft='approved'>12,345,678%</result>
    <result numberType='scientific' draft='unconfirmed'>1,2345678E5</result>
    <result draft='approved'>1.2345678E5</result>
-   <result input='-123456.78' numberType='integer' draft='unconfirmed'>-123 457</result>
+   <result input='-123456.78' numberType='integer' draft='unconfirmed'>-123.457</result>
    <result draft='approved'>-123,457</result>
-   <result numberType='decimal' draft='unconfirmed'>-123 456,78</result>
+   <result numberType='decimal' draft='unconfirmed'>-123.456,78</result>
    <result draft='approved'>-123,456.78</result>
-   <result numberType='percent' draft='unconfirmed'>-12 345 678%</result>
+   <result numberType='percent' draft='unconfirmed'>-12.345.678 %</result>
    <result draft='approved'>-12,345,678%</result>
    <result numberType='scientific' draft='unconfirmed'>-1,2345678E5</result>
    <result draft='approved'>-1.2345678E5</result>
    <result input='Infinity' numberType='integer' draft='unconfirmed approved'>∞</result>
    <result numberType='decimal'>∞</result>
-   <result numberType='percent'>∞%</result>
-   <result numberType='scientific'>∞</result>
+   <result numberType='percent' draft='unconfirmed'>∞ %</result>
+   <result draft='approved'>∞%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>∞</result>
    <result input='-Infinity' numberType='integer'>-∞</result>
    <result numberType='decimal'>-∞</result>
-   <result numberType='percent'>-∞%</result>
-   <result numberType='scientific'>-∞</result>
+   <result numberType='percent' draft='unconfirmed'>-∞ %</result>
+   <result draft='approved'>-∞%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>-∞</result>
    <result input='NaN' numberType='integer'>NaN</result>
    <result numberType='decimal'>NaN</result>
    <result numberType='percent'>NaN</result>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='ky ky_KG'>
-<!-- Kirghiz [Kirghiz]; Kirghiz (Kyrgyzstan) [Kirghiz (Kyrgyzstan)] -->
+locales='nds nds_DE'>
+<!-- Low German [Low German]; Low German (Germany) [Low German (Germany)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>00/01/31</result>
-   <result draft='approved'>1900-01-31</result>
-   <result timeType='short' draft='unconfirmed'>00/01/31 00:00</result>
-   <result draft='approved'>1900-01-31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>00/01/31 00:00:00</result>
-   <result draft='approved'>1900-01-31 00:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1900 1 31</result>
+   <result dateType='short' timeType='none'>1900-01-31</result>
+   <result timeType='short'>1900-01-31 00:00</result>
+   <result timeType='medium'>1900-01-31 00:00:00</result>
+   <result dateType='medium' timeType='none'>1900 1 31</result>
    <result timeType='short'>1900 1 31 00:00</result>
    <result timeType='medium'>1900 1 31 00:00:00</result>
    <result dateType='long' timeType='none'>1900 1 31</result>
@@ -93,13 +97,10 @@ locales='ky ky_KG'>
    <result timeType='medium'>4, 1900 1 31 00:00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>09/02/28</result>
-   <result draft='approved'>1909-02-28</result>
-   <result timeType='short' draft='unconfirmed'>09/02/28 00:00</result>
-   <result draft='approved'>1909-02-28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>09/02/28 00:00:01</result>
-   <result draft='approved'>1909-02-28 00:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1909 2 28</result>
+   <result dateType='short' timeType='none'>1909-02-28</result>
+   <result timeType='short'>1909-02-28 00:00</result>
+   <result timeType='medium'>1909-02-28 00:00:01</result>
+   <result dateType='medium' timeType='none'>1909 2 28</result>
    <result timeType='short'>1909 2 28 00:00</result>
    <result timeType='medium'>1909 2 28 00:00:01</result>
    <result dateType='long' timeType='none'>1909 2 28</result>
@@ -110,13 +111,10 @@ locales='ky ky_KG'>
    <result timeType='medium'>1, 1909 2 28 00:00:01</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>18/03/26</result>
-   <result draft='approved'>1918-03-26</result>
-   <result timeType='short' draft='unconfirmed'>18/03/26 00:59</result>
-   <result draft='approved'>1918-03-26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>18/03/26 00:59:59</result>
-   <result draft='approved'>1918-03-26 00:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1918 3 26</result>
+   <result dateType='short' timeType='none'>1918-03-26</result>
+   <result timeType='short'>1918-03-26 00:59</result>
+   <result timeType='medium'>1918-03-26 00:59:59</result>
+   <result dateType='medium' timeType='none'>1918 3 26</result>
    <result timeType='short'>1918 3 26 00:59</result>
    <result timeType='medium'>1918 3 26 00:59:59</result>
    <result dateType='long' timeType='none'>1918 3 26</result>
@@ -127,13 +125,10 @@ locales='ky ky_KG'>
    <result timeType='medium'>3, 1918 3 26 00:59:59</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>32/04/24</result>
-   <result draft='approved'>1932-04-24</result>
-   <result timeType='short' draft='unconfirmed'>32/04/24 01:00</result>
-   <result draft='approved'>1932-04-24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>32/04/24 01:00:00</result>
-   <result draft='approved'>1932-04-24 01:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1932 4 24</result>
+   <result dateType='short' timeType='none'>1932-04-24</result>
+   <result timeType='short'>1932-04-24 01:00</result>
+   <result timeType='medium'>1932-04-24 01:00:00</result>
+   <result dateType='medium' timeType='none'>1932 4 24</result>
    <result timeType='short'>1932 4 24 01:00</result>
    <result timeType='medium'>1932 4 24 01:00:00</result>
    <result dateType='long' timeType='none'>1932 4 24</result>
@@ -144,13 +139,10 @@ locales='ky ky_KG'>
    <result timeType='medium'>1, 1932 4 24 01:00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>45/05/20</result>
-   <result draft='approved'>1945-05-20</result>
-   <result timeType='short' draft='unconfirmed'>45/05/20 01:00</result>
-   <result draft='approved'>1945-05-20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>45/05/20 01:00:01</result>
-   <result draft='approved'>1945-05-20 01:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1945 5 20</result>
+   <result dateType='short' timeType='none'>1945-05-20</result>
+   <result timeType='short'>1945-05-20 01:00</result>
+   <result timeType='medium'>1945-05-20 01:00:01</result>
+   <result dateType='medium' timeType='none'>1945 5 20</result>
    <result timeType='short'>1945 5 20 01:00</result>
    <result timeType='medium'>1945 5 20 01:00:01</result>
    <result dateType='long' timeType='none'>1945 5 20</result>
@@ -161,13 +153,10 @@ locales='ky ky_KG'>
    <result timeType='medium'>1, 1945 5 20 01:00:01</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>52/06/18</result>
-   <result draft='approved'>1952-06-18</result>
-   <result timeType='short' draft='unconfirmed'>52/06/18 11:59</result>
-   <result draft='approved'>1952-06-18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>52/06/18 11:59:59</result>
-   <result draft='approved'>1952-06-18 11:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1952 6 18</result>
+   <result dateType='short' timeType='none'>1952-06-18</result>
+   <result timeType='short'>1952-06-18 11:59</result>
+   <result timeType='medium'>1952-06-18 11:59:59</result>
+   <result dateType='medium' timeType='none'>1952 6 18</result>
    <result timeType='short'>1952 6 18 11:59</result>
    <result timeType='medium'>1952 6 18 11:59:59</result>
    <result dateType='long' timeType='none'>1952 6 18</result>
@@ -178,13 +167,10 @@ locales='ky ky_KG'>
    <result timeType='medium'>4, 1952 6 18 11:59:59</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>73/07/16</result>
-   <result draft='approved'>1973-07-16</result>
-   <result timeType='short' draft='unconfirmed'>73/07/16 12:00</result>
-   <result draft='approved'>1973-07-16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>73/07/16 12:00:00</result>
-   <result draft='approved'>1973-07-16 12:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1973 7 16</result>
+   <result dateType='short' timeType='none'>1973-07-16</result>
+   <result timeType='short'>1973-07-16 12:00</result>
+   <result timeType='medium'>1973-07-16 12:00:00</result>
+   <result dateType='medium' timeType='none'>1973 7 16</result>
    <result timeType='short'>1973 7 16 12:00</result>
    <result timeType='medium'>1973 7 16 12:00:00</result>
    <result dateType='long' timeType='none'>1973 7 16</result>
@@ -195,13 +181,10 @@ locales='ky ky_KG'>
    <result timeType='medium'>2, 1973 7 16 12:00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>99/08/14</result>
-   <result draft='approved'>1999-08-14</result>
-   <result timeType='short' draft='unconfirmed'>99/08/14 12:00</result>
-   <result draft='approved'>1999-08-14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>99/08/14 12:00:01</result>
-   <result draft='approved'>1999-08-14 12:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1999 8 14</result>
+   <result dateType='short' timeType='none'>1999-08-14</result>
+   <result timeType='short'>1999-08-14 12:00</result>
+   <result timeType='medium'>1999-08-14 12:00:01</result>
+   <result dateType='medium' timeType='none'>1999 8 14</result>
    <result timeType='short'>1999 8 14 12:00</result>
    <result timeType='medium'>1999 8 14 12:00:01</result>
    <result dateType='long' timeType='none'>1999 8 14</result>
@@ -212,13 +195,10 @@ locales='ky ky_KG'>
    <result timeType='medium'>7, 1999 8 14 12:00:01</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>00/09/12</result>
-   <result draft='approved'>2000-09-12</result>
-   <result timeType='short' draft='unconfirmed'>00/09/12 22:59</result>
-   <result draft='approved'>2000-09-12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>00/09/12 22:59:59</result>
-   <result draft='approved'>2000-09-12 22:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2000 9 12</result>
+   <result dateType='short' timeType='none'>2000-09-12</result>
+   <result timeType='short'>2000-09-12 22:59</result>
+   <result timeType='medium'>2000-09-12 22:59:59</result>
+   <result dateType='medium' timeType='none'>2000 9 12</result>
    <result timeType='short'>2000 9 12 22:59</result>
    <result timeType='medium'>2000 9 12 22:59:59</result>
    <result dateType='long' timeType='none'>2000 9 12</result>
@@ -229,13 +209,10 @@ locales='ky ky_KG'>
    <result timeType='medium'>3, 2000 9 12 22:59:59</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>01/10/08</result>
-   <result draft='approved'>2001-10-08</result>
-   <result timeType='short' draft='unconfirmed'>01/10/08 23:00</result>
-   <result draft='approved'>2001-10-08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>01/10/08 23:00:00</result>
-   <result draft='approved'>2001-10-08 23:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2001 10 8</result>
+   <result dateType='short' timeType='none'>2001-10-08</result>
+   <result timeType='short'>2001-10-08 23:00</result>
+   <result timeType='medium'>2001-10-08 23:00:00</result>
+   <result dateType='medium' timeType='none'>2001 10 8</result>
    <result timeType='short'>2001 10 8 23:00</result>
    <result timeType='medium'>2001 10 8 23:00:00</result>
    <result dateType='long' timeType='none'>2001 10 8</result>
@@ -246,13 +223,10 @@ locales='ky ky_KG'>
    <result timeType='medium'>2, 2001 10 08 23:00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>04/11/04</result>
-   <result draft='approved'>2004-11-04</result>
-   <result timeType='short' draft='unconfirmed'>04/11/04 23:00</result>
-   <result draft='approved'>2004-11-04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>04/11/04 23:00:01</result>
-   <result draft='approved'>2004-11-04 23:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2004 11 4</result>
+   <result dateType='short' timeType='none'>2004-11-04</result>
+   <result timeType='short'>2004-11-04 23:00</result>
+   <result timeType='medium'>2004-11-04 23:00:01</result>
+   <result dateType='medium' timeType='none'>2004 11 4</result>
    <result timeType='short'>2004 11 4 23:00</result>
    <result timeType='medium'>2004 11 4 23:00:01</result>
    <result dateType='long' timeType='none'>2004 11 4</result>
@@ -263,13 +237,10 @@ locales='ky ky_KG'>
    <result timeType='medium'>5, 2004 11 04 23:00:01</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>10/12/01</result>
-   <result draft='approved'>2010-12-01</result>
-   <result timeType='short' draft='unconfirmed'>10/12/01 23:59</result>
-   <result draft='approved'>2010-12-01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>10/12/01 23:59:59</result>
-   <result draft='approved'>2010-12-01 23:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2010 12 1</result>
+   <result dateType='short' timeType='none'>2010-12-01</result>
+   <result timeType='short'>2010-12-01 23:59</result>
+   <result timeType='medium'>2010-12-01 23:59:59</result>
+   <result dateType='medium' timeType='none'>2010 12 1</result>
    <result timeType='short'>2010 12 1 23:59</result>
    <result timeType='medium'>2010 12 1 23:59:59</result>
    <result dateType='long' timeType='none'>2010 12 1</result>
@@ -280,13 +251,13 @@ locales='ky ky_KG'>
    <result timeType='medium'>4, 2010 12 01 23:59:59</result>
   </date>
   <zoneFields 
-locales='ky ky_KG'>
-<!-- Kirghiz [Kirghiz]; Kirghiz (Kyrgyzstan) [Kirghiz (Kyrgyzstan)] -->
+locales='nds nds_DE'>
+<!-- Low German [Low German]; Low German (Germany) [Low German (Germany)] -->
   </zoneFields>
   <collation 
-locales='ky ky_KG'>
-<!-- Kirghiz [Kirghiz]; Kirghiz (Kyrgyzstan) [Kirghiz (Kyrgyzstan)] -->
-   <result draft='unconfirmed approved'>
+locales='nds nds_DE'>
+<!-- Low German [Low German]; Low German (Germany) [Low German (Germany)] -->
+   <result draft='unconfirmed'>
 x 
 X 
 x x
@@ -302,222 +273,422 @@ x12x
 x2
 X2
 x2x
-xа
-xА
-Xа
-XА
-xаx
-xАx
-xб
-xБ
-Xб
-XБ
-xбx
-xБx
-xв
-xВ
-Xв
-XВ
-xвx
-xВx
-xг
-xГ
-Xг
-XГ
-xгx
-xГx
-xд
-xД
-Xд
-XД
-xдx
-xДx
-xе
-xЕ
-Xе
-XЕ
-xё
-xЁ
-Xё
-XЁ
-xеx
-xЕx
-xёx
-xЁx
-xж
-xЖ
-Xж
-XЖ
-xжx
-xЖx
-xз
-xЗ
-Xз
-XЗ
-xзx
-xЗx
-xи
-xИ
-Xи
-XИ
-xиx
-xИx
-xй
-xЙ
-Xй
-XЙ
-xйx
-xЙx
-xк
-xК
-Xк
-XК
-xкx
-xКx
-xл
-xЛ
-Xл
-XЛ
-xлx
-xЛx
-xм
-xМ
-Xм
-XМ
-xмx
-xМx
-xн
-xН
-Xн
-XН
-xнx
-xНx
-xӊ
-xӉ
-Xӊ
-XӉ
-xӊx
-xӉx
-xо
-xО
-Xо
-XО
-xоx
-xОx
-xө
-xӨ
-Xө
-XӨ
-xөx
-xӨx
-xп
-xП
-Xп
-XП
-xпx
-xПx
-xр
-xР
-Xр
-XР
-xрx
-xРx
-xс
-xС
-Xс
-XС
-xсx
-xСx
-xт
-xТ
-Xт
-XТ
-xтx
-xТx
-xу
-xУ
-Xу
-XУ
-xуx
-xУx
-xү
-xҮ
-Xү
-XҮ
-xүx
-xҮx
-xф
-xФ
-Xф
-XФ
-xфx
-xФx
-xх
-xХ
-Xх
-XХ
-xхx
-xХx
-xц
-xЦ
-Xц
-XЦ
-xцx
-xЦx
-xч
-xЧ
-Xч
-XЧ
-xчx
-xЧx
-xш
-xШ
-Xш
-XШ
-xшx
-xШx
-xщ
-xЩ
-Xщ
-XЩ
-xщx
-xЩx
-xъ
-xЪ
-Xъ
-XЪ
-xъx
-xЪx
-xы
-xЫ
-Xы
-XЫ
-xыx
-xЫx
-xь
-xЬ
-Xь
-XЬ
-xьx
-xЬx
-xэ
-xЭ
-Xэ
-XЭ
-xэx
-xЭx
-xю
-xЮ
-Xю
-XЮ
-xюx
-xЮx
-xя
-xЯ
-Xя
-XЯ
-xяx
-xЯx
+xa
+xA
+Xa
+XA
+xá
+xÁ
+Xá
+XÁ
+xà
+xÀ
+Xà
+XÀ
+xă
+xĂ
+Xă
+XĂ
+xâ
+xÂ
+Xâ
+XÂ
+xå
+xÅ
+Xå
+XÅ
+xä
+xÄ
+Xä
+XÄ
+xā
+xĀ
+Xā
+XĀ
+xæ
+xÆ
+Xæ
+XÆ
+xæx
+xÆx
+xax
+xAx
+xáx
+xÁx
+xàx
+xÀx
+xăx
+xĂx
+xâx
+xÂx
+xåx
+xÅx
+xäx
+xÄx
+xāx
+xĀx
+xb
+xB
+Xb
+XB
+xbx
+xBx
+xc
+xC
+Xc
+XC
+xç
+xÇ
+Xç
+XÇ
+xcx
+xCx
+xçx
+xÇx
+xd
+xD
+Xd
+XD
+xdx
+xDx
+xe
+xE
+Xe
+XE
+xé
+xÉ
+Xé
+XÉ
+xè
+xÈ
+Xè
+XÈ
+xĕ
+xĔ
+Xĕ
+XĔ
+xê
+xÊ
+Xê
+XÊ
+xë
+xË
+Xë
+XË
+xę
+xĘ
+Xę
+XĘ
+xē
+xĒ
+Xē
+XĒ
+xex
+xEx
+xéx
+xÉx
+xèx
+xÈx
+xĕx
+xĔx
+xêx
+xÊx
+xëx
+xËx
+xęx
+xĘx
+xēx
+xĒx
+xf
+xF
+Xf
+XF
+xfx
+xFx
+xg
+xG
+Xg
+XG
+xgx
+xGx
+xh
+xH
+Xh
+XH
+xhx
+xHx
+xi
+xI
+Xi
+XI
+xí
+xÍ
+Xí
+XÍ
+xì
+xÌ
+Xì
+XÌ
+xĭ
+xĬ
+Xĭ
+XĬ
+xî
+xÎ
+Xî
+XÎ
+xï
+xÏ
+Xï
+XÏ
+xī
+xĪ
+Xī
+XĪ
+xix
+xIx
+xíx
+xÍx
+xìx
+xÌx
+xĭx
+xĬx
+xîx
+xÎx
+xïx
+xÏx
+xīx
+xĪx
+xj
+xJ
+Xj
+XJ
+xjx
+xJx
+xk
+xK
+Xk
+XK
+xkx
+xKx
+xl
+xL
+Xl
+XL
+xlx
+xLx
+xm
+xM
+Xm
+XM
+xmx
+xMx
+xn
+xN
+Xn
+XN
+xñ
+xÑ
+Xñ
+XÑ
+xnx
+xNx
+xñx
+xÑx
+xo
+xO
+Xo
+XO
+xó
+xÓ
+Xó
+XÓ
+xò
+xÒ
+Xò
+XÒ
+xŏ
+xŎ
+Xŏ
+XŎ
+xô
+xÔ
+Xô
+XÔ
+xö
+xÖ
+Xö
+XÖ
+xø
+xØ
+Xø
+XØ
+xō
+xŌ
+Xō
+XŌ
+xœ
+xŒ
+Xœ
+XŒ
+xœx
+xŒx
+xox
+xOx
+xóx
+xÓx
+xòx
+xÒx
+xŏx
+xŎx
+xôx
+xÔx
+xöx
+xÖx
+xøx
+xØx
+xōx
+xŌx
+xp
+xP
+Xp
+XP
+xpx
+xPx
+xq
+xQ
+Xq
+XQ
+xqx
+xQx
+xr
+xR
+Xr
+XR
+xrx
+xRx
+xs
+xS
+Xs
+XS
+xss
+xsS
+xSs
+xSS
+Xss
+XsS
+XSs
+XSS
+xß
+Xß
+xssx
+xsSx
+xSsx
+xSSx
+xßx
+xsx
+xSx
+xt
+xT
+Xt
+XT
+xtx
+xTx
+xu
+xU
+Xu
+XU
+xú
+xÚ
+Xú
+XÚ
+xù
+xÙ
+Xù
+XÙ
+xŭ
+xŬ
+Xŭ
+XŬ
+xû
+xÛ
+Xû
+XÛ
+xü
+xÜ
+Xü
+XÜ
+xū
+xŪ
+Xū
+XŪ
+xux
+xUx
+xúx
+xÚx
+xùx
+xÙx
+xŭx
+xŬx
+xûx
+xÛx
+xüx
+xÜx
+xūx
+xŪx
+xv
+xV
+Xv
+XV
+xvx
+xVx
+xw
+xW
+Xw
+XW
+xwx
+xWx
+xx
+xX
+Xx
+XX
+xxx
+xXx
+xy
+xY
+Xy
+XY
+xÿ
+xŸ
+Xÿ
+XŸ
+xyx
+xYx
+xÿx
+xŸx
+xz
+xZ
+Xz
+XZ
+xzx
+xZx
+</result>
+   <result draft='approved'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
 </result>
   </collation>
  </cldrTest>

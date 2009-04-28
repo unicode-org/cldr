@@ -368,7 +368,9 @@ public class Misc {
                 out.println("</tr>");
             }
         }
-        out.println("</table></body></html>");
+        out.println("</table>");
+        out.println(ShowData.ANALYTICS);
+        out.println("</body></html>");
         out.close();
     }
 	/**
@@ -420,7 +422,9 @@ public class Misc {
 			log.println("<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse: collapse\">");
 			printCurrentTimezoneLocalizations(log, language);
 			//printSupplementalData(group1[i]);
-			log.println("</table></body></html>");
+      log.println("</table>");
+      log.println(ShowData.ANALYTICS);
+			log.println("</body></html>");
 			log.close();
 		}
 		System.out.println("RTL languages: " + rtlLanguages);

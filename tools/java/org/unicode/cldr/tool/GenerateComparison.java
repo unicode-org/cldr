@@ -386,6 +386,7 @@ public class GenerateComparison {
 
       totalPaths += paths.size();
       out.println("<p>$Date$</p>");      
+      out.println(ShowData.ANALYTICS);
       out.println("</body></html>");
       out.close();
     }
@@ -413,6 +414,7 @@ public class GenerateComparison {
     }
     indexFile.println("</tr></table>");
     indexFile.println("<p>$Date$</p>");  
+    indexFile.println(ShowData.ANALYTICS);
     indexFile.println("</body></html>");
     indexFile.close();
 

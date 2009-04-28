@@ -30,6 +30,7 @@ import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.ExampleGenerator.Zoomed;
+import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.tool.TablePrinter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
@@ -908,6 +909,7 @@ public class ConsoleCheckCLDR {
       // Locale Group Error Warning Missing Votes: Contributed  Missing Votes: Provisional  Missing Votes: Unconfirmed  Missing Coverage: Posix Missing Coverage: Minimal Missing Coverage: Basic Missing Coverage: Moderate  Missing Coverage: Modern
       ErrorFile.errorFileWriter.println(ErrorFile.errorFileTable.toTable());
       ErrorFile.errorFileWriter.println("<p>$Date$</p>");      
+      ErrorFile.errorFileWriter.println(ShowData.ANALYTICS);
       ErrorFile.errorFileWriter.println("</body></html>");
       ErrorFile.errorFileWriter.close();
       ErrorFile.errorFileTable = null;
@@ -981,6 +983,7 @@ public class ConsoleCheckCLDR {
       }      
       generated_html_index.println(indexTablePrinter.toTable());
       generated_html_index.println("<p>$Date$</p>");      
+      generated_html_index.println(ShowData.ANALYTICS);
       generated_html_index.println("</body></html>");
     }
 
@@ -1046,6 +1049,7 @@ public class ConsoleCheckCLDR {
       ConsoleCheckCLDR.ErrorFile.showIndexHead("Error Report Index by Section", "", generated_html_index);
       generated_html_index.println(indexTablePrinter.toTable());
       generated_html_index.println("<p>$Date$</p>");      
+      generated_html_index.println(ShowData.ANALYTICS);
       generated_html_index.println("</body></html>");
       generated_html_index.close();
     }

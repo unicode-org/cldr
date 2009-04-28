@@ -564,8 +564,8 @@ public class ShowLanguages {
       out.write("</div>");
       PrintWriter pw2 = BagFormatter.openUTF8Writer(Utility.CHART_DIRECTORY + "/supplemental/", filename);
       String[] replacements = { "%header%", "", "%title%", title, "%version%", CHART_DISPLAY_VERSION, "%date%", df.format(new Date()), "%body%", out.toString() };
-      final String templateFileName = Utility.BASE_DIRECTORY + "tools/java/org/unicode/cldr/tool/chart-template.html";
-      FileUtilities.appendFile(templateFileName, "utf-8", pw2, replacements);
+      final String templateFileName = "../../tool/chart-template.html";
+      FileUtilities.appendBufferedReader(Utility.getUTF8Data(templateFileName), pw2, replacements);
       pw2.close();
     }
     

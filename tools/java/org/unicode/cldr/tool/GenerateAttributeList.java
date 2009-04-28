@@ -230,7 +230,9 @@ public class GenerateAttributeList {
 				pw.println("</td></tr>");
 			}
 		}
-		pw.println("</table></body></html>");
+		pw.println("</table>");
+		pw.println(ShowData.ANALYTICS);
+		pw.println("</body></html>");
 	}
 	/**
 	 * 

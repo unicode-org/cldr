@@ -304,7 +304,9 @@ public class CountItems {
       lastZip = zip;
     }
     subheader(out, tabber3);
-    out.println("</table></body></html>");
+    out.println("</table>");
+    out.println(ShowData.ANALYTICS);
+    out.println("</body></html>");
     out.close();
   }
 

@@ -11,6 +11,7 @@ package org.unicode.cldr.util;
 
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.GenerateAttributeList;
+import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -155,6 +156,7 @@ public class TestUtilities {
       out.println(message);
       out.println("</blockquote>");
     }
+    out.println(ShowData.ANALYTICS);
     out.println("</body></html>");
     out.close();
   }

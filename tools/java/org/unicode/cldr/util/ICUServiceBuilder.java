@@ -234,7 +234,7 @@ public class ICUServiceBuilder {
     else {
       String p0 = getDateTimePattern(calendar, "time", DateFormatNames[timeIndex]);
       String p1 = getDateTimePattern(calendar, "date", DateFormatNames[dateIndex]);
-      String datetimePat = getDateTimePattern(calendar, "dateTime", "");
+      String datetimePat = getDateTimePattern(calendar, "dateTime", DateFormatNames[dateIndex]);
       pattern = MessageFormat.format(datetimePat, new String[]{p0, p1});
     }
     return pattern;
@@ -245,11 +245,12 @@ public class ICUServiceBuilder {
    * 
    */
   private String getDateTimePattern(String calendar, String dateOrTime, String type) {
-    if (type.length() > 0) type = "[@type=\"" + type + "\"]";
+    type = "[@type=\"" + type + "\"]";
     String key = "//ldml/dates/calendars/calendar[@type=\"" + calendar + "\"]/"
     + dateOrTime + "Formats/" 
     + dateOrTime + "FormatLength"
     + type + "/" + dateOrTime + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]";
+    // change standard to a choice
     
     String value = cldrFile.getWinningValue(key);
     if (value == null) throw new IllegalArgumentException("locale: " + cldrFile.getLocaleID() + "\tpath: " + key + Utility.LINE_SEPARATOR + "value: " + value);

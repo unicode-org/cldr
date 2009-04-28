@@ -60,6 +60,7 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
+import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CachingEntityResolver;
@@ -583,6 +584,7 @@ public class SurveyMain extends HttpServlet {
                 out.println("We will <a href='"+base+"'>reload this page in "+sec+" seconds, or you may click here.</a>");
             }
             out.print(sysmsg("startup_footer"));
+            out.println(ShowData.ANALYTICS);
             out.print("</body></html>");
             return false;
         } else {
@@ -2252,6 +2254,7 @@ public class SurveyMain extends HttpServlet {
             System.err.println(t.toString());
             t.printStackTrace();
         }
+        ctx.println(ShowData.ANALYTICS);
         ctx.println("</body>");
         ctx.println("</html>");
     }

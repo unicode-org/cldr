@@ -615,7 +615,7 @@ public class ConvertLanguageData {
           }
           showDiff(languagePopulation1/countryPopulation1, languagePopulation/countryPopulation, 0.01, true);
         }
-      String stringLanguageLiteracy = row.get(LANGUAGE_LITERACY);
+      String stringLanguageLiteracy = row.size() <= LANGUAGE_LITERACY ? "" : row.get(LANGUAGE_LITERACY);
       languageLiteracy = stringLanguageLiteracy.length() == 0 
       ? countryLiteracy 
           : parsePercent(stringLanguageLiteracy);
@@ -1055,6 +1055,8 @@ public class ConvertLanguageData {
         sortedInput.add(x);
       } catch (ParseException e) {
         failures.add(join(row,"\t") + "\t" + e.getMessage() + "\t" + join(Arrays.asList(e.getStackTrace()),";\t"));
+      } catch (RuntimeException e) {
+        throw (RuntimeException) new IllegalArgumentException("Failure on line " + count + ")\t" + row).initCause(e);
       }
     }
     System.out.println("Status found: " + Utility.join(statusFound, " | "));

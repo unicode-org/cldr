@@ -71,7 +71,9 @@ public class DiffWithParent {
           out
               .println("<table  border='1' style='border-collapse: collapse' bordercolor='blue'>");
           out.println(table.toString());
-          out.println("</table></body></html>");
+          out.println("</table>");
+          out.println(ShowData.ANALYTICS);
+          out.println("</body></html>");
           out.close();
         }
       }

@@ -5516,8 +5516,23 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         GroupStatus status = parseGroupWithFallback(loc, xpath, theArray, strs);
         if (GroupStatus.EMPTY == status) {
-            // System.err.println("failur: "+ xpath + " - " + theArray[0]);
-            return null; // NO items were found - don't even bother.
+            // TODO: cldrbug #2188: What follows is a hack because of mismatch between CLDR & ICU format, need to do
+            // something better for next versions of CLDR (> 1.7) & ICU (> 4.2).
+            // If any dateFormats/dateFormatLength, timeFormats/timeFormatLength, or dateTimeFormats/dateTimeFormatLength
+            // items are present, status != GroupStatus.EMPTY and we don't get here. If we do get here, then dateFormats
+            // and timeFormats elements are empty or aliased, and dateTimeFormats has at least no dateTimeFormats items,
+            // and is probably aliased (currently in this case it is always aliased, and this only happens in root). We
+            // need to get an alias from one of these elements (for ICU format we need to create a single alias covering
+            // all three of these elements). However, parseAliasResource doesn't know how to make an alias from the
+            // dateFormats or timeFormats elements (since there is no direct match in ICU to either of these alone). It
+            // does know how from the dateTimeFormats, so we will try that. This would fail if dateTimeFormats were not
+            // aliased when dateFormats and timeFormats both were, but that does not happen currently.
+            //
+            ICUResourceWriter.Resource alias = parseAliasResource(loc,xpath+"/"+LDMLConstants.DATE_TIME_FORMATS+"/"+LDMLConstants.ALIAS);
+            if (alias != null) {
+                alias.name = DTP;
+            }
+            return alias;
         }
         
         if(GroupStatus.SPARSE == status) {

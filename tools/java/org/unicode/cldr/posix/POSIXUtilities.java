@@ -195,6 +195,7 @@ public class POSIXUtilities {
            { "v",    "%Z" , "%Z" , "%Z" },
            { "yyyy", "%Y" , "%Oy" , "%Y" },
            { "yy",   "%y" , "%Oy" , "%y" },
+           { "y",    "%Y" , "%Oy" , "%Y" },
            { "zzzz", "%Z" , "%Z" , "%Z" },
            { "zzz",  "%Z" , "%Z" , "%Z" },
            { "zz",   "%Z" , "%Z" , "%Z" },

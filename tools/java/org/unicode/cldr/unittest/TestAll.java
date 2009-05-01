@@ -31,13 +31,13 @@ public class TestAll extends TestGroup {
                     "org.unicode.cldr.unittest.TestExternalCodeAPIs",
                     "org.unicode.cldr.unittest.TestMetadata",
                     "org.unicode.cldr.unittest.TestUtilities",
-                    
+                    "org.unicode.cldr.unittest.NumeringSystemsTest",
             },
     "All tests in CLDR");
   }
 
   public static final String CLASS_TARGET_NAME  = "CLDR";
-  
+
   public static class TestInfo {
     private static TestInfo INSTANCE = null;
     private SupplementalDataInfo supplementalDataInfo;
@@ -56,9 +56,9 @@ public class TestAll extends TestGroup {
       }
       return INSTANCE;
     }
-    
+
     private TestInfo() {}
-    
+
     public SupplementalDataInfo getSupplementalDataInfo() {
       synchronized(this) {
         if (supplementalDataInfo == null) {

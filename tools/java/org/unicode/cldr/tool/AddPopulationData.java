@@ -29,7 +29,7 @@ public class AddPopulationData {
   static boolean SHOW_ALTERNATE_NAMES = Utility.getProperty("SHOW_ALTERNATE_NAMES", false);
   
   enum WBLine {
-    Country_Name, Country_Code, Series_Name, Series_Code, YR2000, YR2001, YR2002, YR2003, YR2004, YR2005, YR2006, YR2007;
+    Country_Name, Country_Code, Series_Name, Series_Code, YR2000, YR2001, YR2002, YR2003, YR2004, YR2005, YR2006, YR2007, YR2008;
     String get(String[] pieces) {
       return pieces[ordinal()];
     }
@@ -449,7 +449,7 @@ public class AddPopulationData {
         final String percentString = m.group(1);
         final double percent = number.parse(percentString).doubleValue();
         if (factbook_literacy.getCount(code) != 0) {
-          System.out.println("Duplicate literacy: " + code);
+          System.out.println("Duplicate literacy in FactBook: " + code);
           return false;
         }
         factbook_literacy.add(code, percent);

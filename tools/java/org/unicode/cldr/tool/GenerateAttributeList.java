@@ -37,6 +37,8 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+
 public class GenerateAttributeList {
 	XPathParts parts = new XPathParts(null, null);
 	Map element_attribute_valueSet = new TreeMap();
@@ -49,7 +51,10 @@ public class GenerateAttributeList {
 		addFromDTD(Utility.COMMON_DIRECTORY + "supplemental/characters.xml");
 		addFromDirectory(Utility.COMMON_DIRECTORY + "collation/");
 		addFromDirectory(Utility.COMMON_DIRECTORY + "main/");
-		addFromDirectory(Utility.COMMON_DIRECTORY  + "supplemental/");
+    addFromDirectory(Utility.COMMON_DIRECTORY  + "rbnf/");
+    addFromDirectory(Utility.COMMON_DIRECTORY  + "segments/");
+    addFromDirectory(Utility.COMMON_DIRECTORY  + "supplemental/");
+    addFromDirectory(Utility.COMMON_DIRECTORY  + "transforms/");
 		/*
 		Set seenAlready = new HashSet();
 		for (Iterator it = cldrFactory.getAvailable().iterator(); it.hasNext();) {
@@ -192,7 +197,10 @@ public class GenerateAttributeList {
 	void show(PrintWriter pw) {
 		pw.println("<html><head>");
 		pw.println("<style>td,th { border-style: solid; border-width: 1; vertical-align: top }</style>");
-		pw.println("</head><body>");
+    pw.println("</head><body>");
+    pw.println("<p>Date: $" +
+    		"Date$</p>");
+    pw.println("<p>Version: " + ShowLanguages.CHART_DISPLAY_VERSION + "</p>");
 		pw.println("<table>");
 		pw.println("<tr><th>Element</th><th>Attribute</th><th>Actual Attribute Values</th><th>Other DTD Attribute Values</th></tr>");
 		
@@ -244,11 +252,14 @@ public class GenerateAttributeList {
 			String value = (String) it.next();
 			if (first) first = false;
 			else result.append(", ");
-			if (value.equals(defaults.get(defaultKey))) {
-				result.append("<b>").append(value).append("</b>");
-			} else {
-				result.append(value);				
+			final boolean isDefault = value.equals(defaults.get(defaultKey));
+      if (isDefault) {
+				result.append("<b>");
 			}
+		  result.append(TransliteratorUtilities.toHTML.transform(value));				
+      if (isDefault) {
+        result.append("</b>");
+      }
 		}
 		return result.toString();
 	}

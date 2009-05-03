@@ -680,10 +680,13 @@ public class GenerateCldrTests {
 
     public ResultsPrinter show(ULocale first, DraftStatus minimalDraftStatus)
         throws Exception {
-      // TODO Auto-generated method stub
       TimezoneFormatter tzf = new TimezoneFormatter(mainCldrFactory, first
-          .toString(), minimalDraftStatus);
-      ResultsPrinter rp = new ResultsPrinter();
+              .toString(), minimalDraftStatus);
+          ResultsPrinter rp = new ResultsPrinter();
+      if (!METAZONES_WORK) {
+        return rp;
+      }
+      // TODO Auto-generated method stub
       ParsePosition parsePosition = new ParsePosition(0);
       for (Iterator it = zones.iterator(); it.hasNext();) {
         String tzid = (String) it.next();
@@ -699,12 +702,13 @@ public class GenerateCldrTests {
                 continue;
               }
               rp.set("field", pattern);
-              String formatted = tzf.getFormattedZone(tzid, pattern, datetime
-                  .getTime(), false);
+              String formatted = tzf.getFormattedZone(tzid, pattern, datetime.getTime(), false);
               parsePosition.setIndex(0);
               String parsed = tzf.parse(formatted, parsePosition);
               if (parsed == null) {
                 // for debugging
+                formatted = tzf.getFormattedZone(tzid, pattern, datetime.getTime(), false);
+                parsePosition.setIndex(0);
                 parsed = tzf.parse(formatted, parsePosition);
               }
               rp.set("parse", parsed);

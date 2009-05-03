@@ -62,6 +62,8 @@ public class ConvertLanguageData {
   // change this if you need to override what is generated for the default contents.
   private static final List<String> defaultOverrides = Arrays.asList("es_ES".split("\\s+")); //  und_ZZ
 
+  public static final boolean SHOW_DIFF = false;
+
   private static final boolean ALLOW_SMALL_NUMBERS = true;
 
   static final Comparator GENERAL_COLLATOR = new GeneralCollator();
@@ -188,7 +190,7 @@ public class ConvertLanguageData {
     for (String oldDefault : oldDefaultContent) {
       if (!defaultLocaleContent.contains(oldDefault)) {
         String replacement = getReplacement(oldDefault, defaultLocaleContent);
-        System.out.println("Changed default content: examine carefully: " 
+        System.out.println("*WARNING* Changed default content: examine carefully: " 
                 + getLanguageCodeAndName(oldDefault)
                 + "\t=>\t" + getLanguageCodeAndName(replacement)
         );
@@ -608,23 +610,32 @@ public class ConvertLanguageData {
       if (doneCountries.contains(countryCode) == false) {
         //showDiff(countryGdp1, countryGdp);
         //showDiff(countryLiteracy1, countryLiteracy);
-        showDiff(countryPopulation1, countryPopulation, 0.1, false);
+        if (SHOW_DIFF) showDiff(countryPopulation1, countryPopulation, 0.1, false);
         doneCountries.add(countryCode);
       }
       
       double languagePopulation1 = parsePercent(row.get(LANGUAGE_POPULATION), countryPopulation1) * countryPopulation1;
+      if ((officialStatus == OfficialStatus.de_facto_official || officialStatus == OfficialStatus.official) 
+              && languagePopulation1*100 < countryPopulation && languagePopulation1 < 1000000) {
+        System.out.println("*ERROR* Official language has population < 1% of country and < 1,000,000: " + row);
+      }
       if (languagePopulation1 <= 1) {
-        System.out.println("Bogus language population: " + row);
+        System.out.println("*WARNING* Suspect language population: " + row);
       }
       if (languagePopulation1 > 10000 ) {
         relativeLanguagePopulation = true;
-        languagePopulation = languagePopulation1 * countryPopulation / countryPopulation1; // correct the values
+        languagePopulation1 = languagePopulation1 * countryPopulation / countryPopulation1; // correct the values
       } else {
         relativeLanguagePopulation = false;
-        languagePopulation = languagePopulation1;
       }
-      showDiff(languagePopulation1/countryPopulation1, languagePopulation/countryPopulation, 0.01, true);
+      if (isApproximatelyGreater(languagePopulation1, countryPopulation, 0.0001)) {
+        System.out.println("*ERROR* : language population= " + languagePopulation1 
+                + " > country population=" + countryPopulation + "; " + row);
+      }
+      languagePopulation = languagePopulation1 < countryPopulation ? languagePopulation1 : countryPopulation;
 
+      if (SHOW_DIFF) showDiff(languagePopulation1/countryPopulation1, languagePopulation/countryPopulation, 0.01, true);
+      
       String stringLanguageLiteracy = row.size() <= LANGUAGE_LITERACY ? "" : row.get(LANGUAGE_LITERACY);
       double languageLiteracy1 = stringLanguageLiteracy.length() == 0 ? countryLiteracy 
               : parsePercent(stringLanguageLiteracy, languagePopulation);
@@ -671,6 +682,10 @@ public class ConvertLanguageData {
 
     private static boolean isApproximatelyEqual(double a, double b, double epsilon) {
       return a == b || Math.abs(a-b) < epsilon;
+    }
+    
+    private static boolean isApproximatelyGreater(double a, double b, double epsilon) {
+      return a > b + epsilon;
     }
 
     double parseDecimal(String numericRepresentation) throws ParseException {
@@ -1073,7 +1088,7 @@ public class ConvertLanguageData {
         }
         String locale = x.languageCode + "_" + x.countryCode;
         if (localeToRowData.get(locale) != null) {
-          System.out.println("# Warning: duplicate data for: " + x.languageCode + " with " + x.countryCode);
+          System.out.println("*WARNING* duplicate data for: " + x.languageCode + " with " + x.countryCode);
         }
         localeToRowData.put(locale, x);
         sortedInput.add(x);
@@ -1308,7 +1323,7 @@ public class ConvertLanguageData {
           Set<String> defaultLocaleContent) {
 
     System.out.println();
-    System.out.println("Defaults???");
+    System.out.println("Computing Defaults Contents");
     System.out.println();
 
     Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
@@ -1464,8 +1479,12 @@ public class ConvertLanguageData {
       }
     }
 
-    System.out.format("Skipping Singletons %s" + Utility.LINE_SEPARATOR, skippingSingletons);
-    System.out.format("Missing Data %s" + Utility.LINE_SEPARATOR, missingData);
+    if (skippingSingletons.size() != 0) {
+      System.out.format("*WARNING* Skipping Singletons %s" + Utility.LINE_SEPARATOR, skippingSingletons);
+    }
+    if (missingData.size() != 0) {
+      System.out.format("*WARNING* Missing Data %s" + Utility.LINE_SEPARATOR, missingData);
+    }
 
     //  LanguageTagParser ltp = new LanguageTagParser();
     //  Set<String> warnings = new LinkedHashSet();
@@ -1686,12 +1705,12 @@ public class ConvertLanguageData {
           if (!checkCode("script", script, row)) continue;
           // if the script is not modern, demote
           if (status == BasicLanguageData.Type.primary && !StandardCodes.isScriptModern(script)) {
-            System.out.println("# Warning: Should be secondary, script is not modern: " + script + "\t" + ULocale.getDisplayScript("und-" + script, ULocale.ENGLISH));
+            System.out.println("*WARNING* Should be secondary, script is not modern: " + script + "\t" + ULocale.getDisplayScript("und-" + script, ULocale.ENGLISH));
             status = BasicLanguageData.Type.secondary;
           }
           // if the language is not modern, demote
           if (status == BasicLanguageData.Type.primary && !sc.isModernLanguage(language)) {
-            System.out.println("# Warning: Should be secondary, language is not modern: " + language + "\t" + getLanguageName(language));
+            System.out.println("*WARNING* Should be secondary, language is not modern: " + language + "\t" + getLanguageName(language));
             status = BasicLanguageData.Type.secondary;
           }
 
@@ -1742,7 +1761,7 @@ public class ConvertLanguageData {
         //        status_scripts.putAll(BasicLanguageData.Type.primary, secondaryScripts);
         //        status_scripts.removeAll(BasicLanguageData.Type.secondary);
         if (sc.isModernLanguage(language)) {
-          System.out.println("# Warning: modern language without primary script: " + language + "\t" + getLanguageName(language));
+          System.out.println("*WARNING* modern language without primary script: " + language + "\t" + getLanguageName(language));
         }
       } else {
         status_scripts.removeAll(BasicLanguageData.Type.secondary, primaryScripts);
@@ -1765,7 +1784,7 @@ public class ConvertLanguageData {
           continue;
         }
       }
-      System.out.println("# Warning: ISO 639-1/2 language in language-territory list without primary script: " + language + "\t" + getLanguageName(language));
+      System.out.println("*WARNING* ISO 639-1/2 language in language-territory list without primary script: " + language + "\t" + getLanguageName(language));
     }
 
     // System.out.println("Language 2 scripts: " + language_status_scripts); 
@@ -1834,7 +1853,7 @@ public class ConvertLanguageData {
         if (langRegistryCodes.contains(alpha3)) {
           languageSubtag = alpha3;
         } else {
-          System.out.println("Language subtag <" + alpha3 + "> not found, on line:\t" + line);
+          System.out.println("*WARNING* Language subtag <" + alpha3 + "> not found, on line:\t" + line);
           continue;
         }
       }

@@ -893,7 +893,7 @@ public class ConvertLanguageData {
       }
 
       if (languageCode.length() != 0 && languagePopulationPercent > 0.0000
-              && (ALLOW_SMALL_NUMBERS || languagePopulationPercent >= 1 || languagePopulationRaw > 100000 || languageCode.equals("haw"))
+              && (ALLOW_SMALL_NUMBERS || languagePopulationPercent >= 1 || languagePopulationRaw > 100000 || languageCode.equals("haw") || row.officialStatus != OfficialStatus.unknown)
       ) {
         // add best case
         addBestRegion(languageCode, countryCode, languagePopulationRaw);

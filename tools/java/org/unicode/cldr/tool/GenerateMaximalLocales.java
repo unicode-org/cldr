@@ -310,7 +310,7 @@ public class GenerateMaximalLocales {
   private static final Map<String,String> LANGUAGE_OVERRIDES = Utility.asMap(new String[][]{
           {"es", "es_Latn_ES"},
           {"es_Latn", "es_Latn_ES"},
-          {"az", "az_Cyrl_AZ"},
+          {"az", "az_Latn_AZ"},
           {"az_Cyrl", "az_Cyrl_AZ"},
           {"mn", "mn_Cyrl_MN"},
           {"mn_Cyrl", "mn_Cyrl_MN"},
@@ -329,11 +329,11 @@ public class GenerateMaximalLocales {
   });
   
 //  private static final Map<String,String> LANGUAGE_SEGMENT_OVERRIDES = Utility.asMap(new String[][]{
-//          {"es_Latn_ES", "1e10"}
-//          {"en_Latn_US", "1e10"}
-//          "trv_Latn_TW",
+//          {"es_Latn_ES", "1e10"},
+//          {"en_Latn_US", "1e10"},
+//          {"trv_Latn_TW", "1e10"},
 //          //"pa_Arab_PK"
-//  ));
+//  });
 
 
   static NumberFormat percent = NumberFormat.getPercentInstance();
@@ -363,7 +363,7 @@ public class GenerateMaximalLocales {
       for (String writtenLanguage : supplementalData.getLanguagesForTerritoryWithPopulationData(region)) {
         PopulationData data = supplementalData.getLanguageAndTerritoryPopulationData(writtenLanguage, region);
         final double literatePopulation = data.getLiteratePopulation();
-        double order = -literatePopulation;
+        double order = -literatePopulation; // negative so we get the inverse order
         
         if (data.getOfficialStatus() == OfficialStatus.unknown) {
           final String locale = writtenLanguage + "_" + region;

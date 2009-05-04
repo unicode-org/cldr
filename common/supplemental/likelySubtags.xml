@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.5.1/ldmlSupplemental.dtd">
+<!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.7/ldmlSupplemental.dtd">
 <supplementalData>
     <version number="$Revision$"/>
     <generation date="$Date$"/>
@@ -222,12 +222,13 @@
       <likelySubtag from="und_AW" to="nl_Latn_AW"/> <!--{ ?; ?; Aruba } => { Dutch; Latin; Aruba }-->
       <likelySubtag from="und_AX" to="sv_Latn_AX"/> <!--{ ?; ?; Åland Islands } => { Swedish; Latin; Åland Islands }-->
       <likelySubtag from="und_AZ" to="az_Latn_AZ"/> <!--{ ?; ?; Azerbaijan } => { Azerbaijani; Latin; Azerbaijan }-->
-      <likelySubtag from="und_Arab" to="ur_Arab_PK"/> <!--{ ?; Arabic; ? } => { Urdu; Arabic; Pakistan }-->
+      <likelySubtag from="und_Arab" to="ar_Arab_EG"/> <!--{ ?; Arabic; ? } => { Arabic; Arabic; Egypt }-->
       <likelySubtag from="und_Arab_CN" to="ug_Arab_CN"/> <!--{ ?; Arabic; China } => { Uighur; Arabic; China }-->
       <likelySubtag from="und_Arab_DJ" to="ar_Arab_DJ"/> <!--{ ?; Arabic; Djibouti } => { Arabic; Arabic; Djibouti }-->
       <likelySubtag from="und_Arab_ER" to="ar_Arab_ER"/> <!--{ ?; Arabic; Eritrea } => { Arabic; Arabic; Eritrea }-->
       <likelySubtag from="und_Arab_IL" to="ar_Arab_IL"/> <!--{ ?; Arabic; Israel } => { Arabic; Arabic; Israel }-->
-      <likelySubtag from="und_Arab_TD" to="ar_Arab_TD"/> <!--{ ?; Arabic; Chad } => { Arabic; Arabic; Chad }-->
+      <likelySubtag from="und_Arab_IN" to="ur_Arab_IN"/> <!--{ ?; Arabic; India } => { Urdu; Arabic; India }-->
+      <likelySubtag from="und_Arab_PK" to="ur_Arab_PK"/> <!--{ ?; Arabic; Pakistan } => { Urdu; Arabic; Pakistan }-->
       <likelySubtag from="und_Armn" to="hy_Armn_AM"/> <!--{ ?; Armenian; ? } => { Armenian; Armenian; Armenia }-->
       <likelySubtag from="und_BA" to="bs_Latn_BA"/> <!--{ ?; ?; Bosnia and Herzegovina } => { Bosnian; Latin; Bosnia and Herzegovina }-->
       <likelySubtag from="und_BD" to="bn_Beng_BD"/> <!--{ ?; ?; Bangladesh } => { Bengali; Bengali; Bangladesh }-->

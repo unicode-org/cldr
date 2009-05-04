@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.BitSet;
-import java.util.Comparator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -40,6 +38,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
  * @author markdavis
  *
  */
+@SuppressWarnings("unchecked")
 public class GenerateMaximalLocales {
 
   private static final boolean SHOW_ADD = Utility.getProperty("GenerateMaximalLocalesDebug", false);
@@ -50,14 +49,14 @@ public class GenerateMaximalLocales {
   // set based on above
   private static final String SEPARATOR = OUTPUT_STYLE == OutputStyle.C  || OUTPUT_STYLE == OutputStyle.C_ALT ? Utility.LINE_SEPARATOR : "\t";
   private static final String TAG_SEPARATOR = OUTPUT_STYLE == OutputStyle.C_ALT ? "-" : "_";
-  private static final boolean FAVOR_REGION = true; // OUTPUT_STYLE == OutputStyle.C_ALT;
+//  private static final boolean FAVOR_REGION = true; // OUTPUT_STYLE == OutputStyle.C_ALT;
 
   private static final boolean tryDifferent = true;
 
-  static Factory factory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
-  static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
-  static StandardCodes standardCodes = StandardCodes.make();
-  static CLDRFile english = factory.make("en", false);
+  private static Factory factory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+  private static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+  private static StandardCodes standardCodes = StandardCodes.make();
+  private static CLDRFile english = factory.make("en", false);
 
   private static int errorCount;
 
@@ -68,7 +67,8 @@ public class GenerateMaximalLocales {
       tryDifferentAlgorithm(toMaximized);
 
     } else {
-      oldAlgorithm(toMaximized);
+      throw new IllegalArgumentException();
+      //oldAlgorithm(toMaximized);
     }
 
     minimize(toMaximized);
@@ -120,7 +120,7 @@ public class GenerateMaximalLocales {
 
   }
   
-  static void printDefaultContent(Map<String, String> toMaximized) throws IOException {
+  private static void printDefaultContent(Map<String, String> toMaximized) throws IOException {
     
     Set<String> defaultLocaleContent = new TreeSet<String>();
     
@@ -216,48 +216,48 @@ public class GenerateMaximalLocales {
     oldFile.close();
   }
 
-  private static void oldAlgorithm(Map<String,String> toMaximized) {
-    Set<String> defaultContentLocales = supplementalData.getDefaultContentLocales();
-    LanguageTagParser parser = new LanguageTagParser();
-    for (String locale : defaultContentLocales) {
-      String parent = parser.getParent(locale);
-      toMaximized.put(parent, locale);
-      if (SHOW_ADD) System.out.println("Adding:\t" + parent + "\t=>\t" + locale + "\t\tDefaultContent");
-    }
+//  private static void oldAlgorithm(Map<String,String> toMaximized) {
+//    Set<String> defaultContentLocales = supplementalData.getDefaultContentLocales();
+//    LanguageTagParser parser = new LanguageTagParser();
+//    for (String locale : defaultContentLocales) {
+//      String parent = parser.getParent(locale);
+//      toMaximized.put(parent, locale);
+//      if (SHOW_ADD) System.out.println("Adding:\t" + parent + "\t=>\t" + locale + "\t\tDefaultContent");
+//    }
+//
+//    for (String[] specialCase : SpecialCases) {
+//      toMaximized.put(specialCase[0], specialCase[1]);
+//      if (SHOW_ADD) System.out.println("Adding:\t" + specialCase[0] + "\t=>\t" + specialCase[1] + "\t\tSpecial");
+//    }
+//
+//    // recurse and close
+//    closeMapping(toMaximized);
+//
+//    addScript(toMaximized, parser);
+//
+//    closeMapping(toMaximized);
+//
+//    addLanguageScript(toMaximized, parser);
+//
+//    closeMapping(toMaximized);
+//
+//    addLanguageCountry(toMaximized, parser);
+//
+//    closeMapping(toMaximized);
+//
+//    addCountries(toMaximized);
+//    addScript(toMaximized, parser);   
+//    closeMapping(toMaximized);
+//    closeUnd(toMaximized);
+//    
+//    addDeprecated(toMaximized);
+//
+//    closeMapping(toMaximized);
+//
+//    checkConsistency(toMaximized);
+//  }
 
-    for (String[] specialCase : SpecialCases) {
-      toMaximized.put(specialCase[0], specialCase[1]);
-      if (SHOW_ADD) System.out.println("Adding:\t" + specialCase[0] + "\t=>\t" + specialCase[1] + "\t\tSpecial");
-    }
-
-    // recurse and close
-    closeMapping(toMaximized);
-
-    addScript(toMaximized, parser);
-
-    closeMapping(toMaximized);
-
-    addLanguageScript(toMaximized, parser);
-
-    closeMapping(toMaximized);
-
-    addLanguageCountry(toMaximized, parser);
-
-    closeMapping(toMaximized);
-
-    addCountries(toMaximized);
-    addScript(toMaximized, parser);   
-    closeMapping(toMaximized);
-    closeUnd(toMaximized);
-    
-    addDeprecated(toMaximized);
-
-    closeMapping(toMaximized);
-
-    checkConsistency(toMaximized);
-  }
-
-  static class MaxData {
+  private static class MaxData {
     Relation<String,Row.R3<Double,String,String>> languages = new Relation(new TreeMap(), TreeSet.class);
     Map<String,Counter<String>> languagesToScripts = new TreeMap();
     Map<String,Counter<String>> languagesToRegions = new TreeMap();
@@ -293,19 +293,19 @@ public class GenerateMaximalLocales {
       
       if (SHOW_ADD) System.out.println("Data:\t" + language + "\t" + script + "\t" + region + "\t" + order);
     }
-    private void addCounter(Map<String, Counter<String>> map, String key, String key2, Double count) {
-      Counter<String> counter = map.get(key);
-      if (counter == null) {
-        map.put(key, counter = new Counter<String>());
-      }
-      counter.add(key2, count.longValue());
-    }
+//    private void addCounter(Map<String, Counter<String>> map, String key, String key2, Double count) {
+//      Counter<String> counter = map.get(key);
+//      if (counter == null) {
+//        map.put(key, counter = new Counter<String>());
+//      }
+//      counter.add(key2, count.longValue());
+//    }
   }
  
   private static final double MIN_UNOFFICIAL_LANGUAGE_SIZE = 10000000;
   private static final double MIN_UNOFFICIAL_LANGUAGE_PROPORTION = 0.20;
   private static final double MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE = 100000;
-  static final double UNOFFICIAL_SCALE_DOWN = 1.0;
+  private static final double UNOFFICIAL_SCALE_DOWN = 1.0;
 
   private static final Map<String,String> LANGUAGE_OVERRIDES = Utility.asMap(new String[][]{
           {"es", "es_Latn_ES"},
@@ -336,8 +336,8 @@ public class GenerateMaximalLocales {
 //  });
 
 
-  static NumberFormat percent = NumberFormat.getPercentInstance();
-  static NumberFormat number = NumberFormat.getIntegerInstance();
+  private static NumberFormat percent = NumberFormat.getPercentInstance();
+  private static NumberFormat number = NumberFormat.getIntegerInstance();
 
   private static void tryDifferentAlgorithm(Map<String, String> toMaximized) {
     // we are going to try a different approach.
@@ -498,7 +498,7 @@ public class GenerateMaximalLocales {
     toMaximized.putAll(temp);
   }
 
-  static String maximize(String languageTag, Map<String, String> toMaximized) {
+  private static String maximize(String languageTag, Map<String, String> toMaximized) {
     LanguageTagParser ltp = new LanguageTagParser();
 
     // clean up the input by removing Zzzz, ZZ, and changing "" into und.
@@ -578,49 +578,49 @@ public class GenerateMaximalLocales {
     return maximized;
   }
 
-  /**
-   * Verify that we can map from each language, script, and country to something.
-   * @param toMaximized
-   */
-  private static void checkConsistency(Map<String, String> toMaximized) {
-    Map<String,String> needMappings = new TreeMap();
-    LanguageTagParser parser = new LanguageTagParser();
-    for (String maximized : new TreeSet<String>(toMaximized.values())) {
-      parser.set(maximized);
-      final String language = parser.getLanguage();
-      final String script = parser.getScript();
-      final String region = parser.getRegion();
-      if (language.length() == 0 || script.length() == 0 || region.length() == 0) {
-        failure("   { \"" + maximized + "\", \"" + maximized + "\" },   //     " + english.getName(maximized) + "\t\tFailed-Consistency");
-        continue;
-      }
-      addIfNotIn(language, maximized, needMappings, toMaximized, "Consistency");
-      addIfNotIn(language + "_" + script, maximized, needMappings, toMaximized, "Consistency");
-      addIfNotIn(language + "_" + region, maximized, needMappings, toMaximized, "Consistency");
-      addIfNotIn("und_" + script, maximized, needMappings, toMaximized, "Consistency");
-      addIfNotIn("und_" + script + "_" + region, maximized, needMappings, toMaximized, "Consistency");
-      addIfNotIn("und_" + region, maximized, needMappings, toMaximized, "Consistency");
-    }
-    toMaximized.putAll(needMappings);
-  }
+//  /**
+//   * Verify that we can map from each language, script, and country to something.
+//   * @param toMaximized
+//   */
+//  private static void checkConsistency(Map<String, String> toMaximized) {
+//    Map<String,String> needMappings = new TreeMap();
+//    LanguageTagParser parser = new LanguageTagParser();
+//    for (String maximized : new TreeSet<String>(toMaximized.values())) {
+//      parser.set(maximized);
+//      final String language = parser.getLanguage();
+//      final String script = parser.getScript();
+//      final String region = parser.getRegion();
+//      if (language.length() == 0 || script.length() == 0 || region.length() == 0) {
+//        failure("   { \"" + maximized + "\", \"" + maximized + "\" },   //     " + english.getName(maximized) + "\t\tFailed-Consistency");
+//        continue;
+//      }
+//      addIfNotIn(language, maximized, needMappings, toMaximized, "Consistency");
+//      addIfNotIn(language + "_" + script, maximized, needMappings, toMaximized, "Consistency");
+//      addIfNotIn(language + "_" + region, maximized, needMappings, toMaximized, "Consistency");
+//      addIfNotIn("und_" + script, maximized, needMappings, toMaximized, "Consistency");
+//      addIfNotIn("und_" + script + "_" + region, maximized, needMappings, toMaximized, "Consistency");
+//      addIfNotIn("und_" + region, maximized, needMappings, toMaximized, "Consistency");
+//    }
+//    toMaximized.putAll(needMappings);
+//  }
 
-  private static void failure(String string) {
-    System.out.println(string);
-    errorCount++;
-  }
+//  private static void failure(String string) {
+//    System.out.println(string);
+//    errorCount++;
+//  }
 
-  private static void addIfNotIn(String key, String value, Map<String, String> toAdd, Map<String, String> otherToCheck, String kind) {
-    addIfNotIn(key, value, toAdd, otherToCheck == null ? null : otherToCheck.keySet(), null, kind);
-  }
+//  private static void addIfNotIn(String key, String value, Map<String, String> toAdd, Map<String, String> otherToCheck, String kind) {
+//    addIfNotIn(key, value, toAdd, otherToCheck == null ? null : otherToCheck.keySet(), null, kind);
+//  }
 
-  private static void addIfNotIn(String key, String value, Map<String, String> toAdd, Set<String> skipKey, Set<String> skipValue, String kind) {
-    if (!key.equals(value)
-            && !toAdd.containsKey(key) 
-            && (skipKey == null || !skipKey.contains(key)) 
-            && (skipValue == null || !skipValue.contains(value))) {
-      add(key, value, toAdd, kind);
-    }
-  }
+//  private static void addIfNotIn(String key, String value, Map<String, String> toAdd, Set<String> skipKey, Set<String> skipValue, String kind) {
+//    if (!key.equals(value)
+//            && !toAdd.containsKey(key) 
+//            && (skipKey == null || !skipKey.contains(key)) 
+//            && (skipValue == null || !skipValue.contains(value))) {
+//      add(key, value, toAdd, kind);
+//    }
+//  }
 
   private static void add(String key, String value, Map<String, String> toAdd, String kind) {
     if (key.equals("und_Latn_ZA")) {
@@ -634,177 +634,177 @@ public class GenerateMaximalLocales {
     if (SHOW_ADD) System.out.println("Adding:\t" + key + "\t=>\t" + value + "\t\t" + kind);
   }
 
-  private static void addCountries(Map<String, String> toMaximized) {
-    Map <String, Map<String, Double>> scriptToLanguageToSize = new TreeMap();
+//  private static void addCountries(Map<String, String> toMaximized) {
+//    Map <String, Map<String, Double>> scriptToLanguageToSize = new TreeMap();
+//
+//    for (String territory : supplementalData.getTerritoriesWithPopulationData()) {
+//      Set<String> languages = supplementalData.getLanguagesForTerritoryWithPopulationData(territory);
+//      String biggestOfficial = null;
+//      double biggest = -1;
+//      for (String language : languages) {
+//        PopulationData info = supplementalData.getLanguageAndTerritoryPopulationData(language, territory);
+//        // add to info about script
+//
+//        String script = getScriptForLocale(language);
+//        if (script != null) {
+//          Map<String, Double> languageInfo = scriptToLanguageToSize.get(script);
+//          if (languageInfo == null) scriptToLanguageToSize.put(script, languageInfo = new TreeMap());
+//          String baseLanguage = language;
+//          int pos = baseLanguage.indexOf('_');
+//          if (pos >= 0) {
+//            baseLanguage = baseLanguage.substring(0,pos);
+//          }
+//          Double size = languageInfo.get(baseLanguage);
+//          languageInfo.put(baseLanguage, (size == null ? 0 : size) + info.getLiteratePopulation());
+//        }
+//
+//
+//        final OfficialStatus officialStatus = info.getOfficialStatus();
+//        if (officialStatus == OfficialStatus.de_facto_official || officialStatus == OfficialStatus.official) {
+//          double size2 = info.getLiteratePopulation();
+//          if (biggest < size2) {
+//            biggest = size2;
+//            biggestOfficial = language;
+//          }
+//        }
+//      }
+//      if (biggestOfficial != null) {
+//        final String replacementTag = "und_" + territory;
+//        String maximized = biggestOfficial + "_" + territory;
+//        toMaximized.put(replacementTag, maximized);
+//        if (SHOW_ADD) System.out.println("Adding:\t" + replacementTag + "\t=>\t" + maximized + "\t\tLanguage-Territory");
+//      }
+//    }
+//
+//    for  (String script : scriptToLanguageToSize.keySet()) {
+//      String biggestOfficial = null;
+//      double biggest = -1;
+//
+//      final Map<String, Double> languageToSize = scriptToLanguageToSize.get(script);
+//      for (String language : languageToSize.keySet()) {
+//        double size = languageToSize.get(language);
+//        if (biggest < size) {
+//          biggest = size;
+//          biggestOfficial = language;
+//        }
+//      }
+//      if (biggestOfficial != null) {
+//        final String replacementTag = "und_" + script;
+//        String maximized = biggestOfficial + "_" + script;
+//        toMaximized.put(replacementTag, maximized);
+//        if (SHOW_ADD) System.out.println("Adding:\t" + replacementTag + "\t=>\t" + maximized + "\t\tUnd-Script");
+//      }
+//    }
+//  }
 
-    for (String territory : supplementalData.getTerritoriesWithPopulationData()) {
-      Set<String> languages = supplementalData.getLanguagesForTerritoryWithPopulationData(territory);
-      String biggestOfficial = null;
-      double biggest = -1;
-      for (String language : languages) {
-        PopulationData info = supplementalData.getLanguageAndTerritoryPopulationData(language, territory);
-        // add to info about script
-
-        String script = getScriptForLocale(language);
-        if (script != null) {
-          Map<String, Double> languageInfo = scriptToLanguageToSize.get(script);
-          if (languageInfo == null) scriptToLanguageToSize.put(script, languageInfo = new TreeMap());
-          String baseLanguage = language;
-          int pos = baseLanguage.indexOf('_');
-          if (pos >= 0) {
-            baseLanguage = baseLanguage.substring(0,pos);
-          }
-          Double size = languageInfo.get(baseLanguage);
-          languageInfo.put(baseLanguage, (size == null ? 0 : size) + info.getLiteratePopulation());
-        }
-
-
-        final OfficialStatus officialStatus = info.getOfficialStatus();
-        if (officialStatus == OfficialStatus.de_facto_official || officialStatus == OfficialStatus.official) {
-          double size2 = info.getLiteratePopulation();
-          if (biggest < size2) {
-            biggest = size2;
-            biggestOfficial = language;
-          }
-        }
-      }
-      if (biggestOfficial != null) {
-        final String replacementTag = "und_" + territory;
-        String maximized = biggestOfficial + "_" + territory;
-        toMaximized.put(replacementTag, maximized);
-        if (SHOW_ADD) System.out.println("Adding:\t" + replacementTag + "\t=>\t" + maximized + "\t\tLanguage-Territory");
-      }
-    }
-
-    for  (String script : scriptToLanguageToSize.keySet()) {
-      String biggestOfficial = null;
-      double biggest = -1;
-
-      final Map<String, Double> languageToSize = scriptToLanguageToSize.get(script);
-      for (String language : languageToSize.keySet()) {
-        double size = languageToSize.get(language);
-        if (biggest < size) {
-          biggest = size;
-          biggestOfficial = language;
-        }
-      }
-      if (biggestOfficial != null) {
-        final String replacementTag = "und_" + script;
-        String maximized = biggestOfficial + "_" + script;
-        toMaximized.put(replacementTag, maximized);
-        if (SHOW_ADD) System.out.println("Adding:\t" + replacementTag + "\t=>\t" + maximized + "\t\tUnd-Script");
-      }
-    }
-  }
-
-  private static void closeUnd(Map<String, String> toMaximized) {
-    Map<String,String> toAdd = new TreeMap<String,String>();
-    for (String oldSource : toMaximized.keySet()) {
-      String maximized = toMaximized.get(oldSource);
-      if (!maximized.startsWith("und")) {
-        int pos = maximized.indexOf("_");
-        if (pos >= 0) {
-          addIfNotIn( "und" + maximized.substring(pos), maximized, toAdd, toMaximized, "CloseUnd");
-        }
-      }
-    }
-    toMaximized.putAll(toAdd);
-  }
+//  private static void closeUnd(Map<String, String> toMaximized) {
+//    Map<String,String> toAdd = new TreeMap<String,String>();
+//    for (String oldSource : toMaximized.keySet()) {
+//      String maximized = toMaximized.get(oldSource);
+//      if (!maximized.startsWith("und")) {
+//        int pos = maximized.indexOf("_");
+//        if (pos >= 0) {
+//          addIfNotIn( "und" + maximized.substring(pos), maximized, toAdd, toMaximized, "CloseUnd");
+//        }
+//      }
+//    }
+//    toMaximized.putAll(toAdd);
+//  }
 
   /**
    * Generate tags where the deprecated values map to the expanded values
    * @param toMaximized
    */
-  private static void addDeprecated(Map<String, String> toMaximized) {
-    Map<String, Map<String, List<String>>> typeToTagToReplacement = supplementalData.getLocaleAliasInfo();
-    LanguageTagParser temp = new LanguageTagParser();
-    LanguageTagParser tagParsed = new LanguageTagParser();
-    LanguageTagParser replacementParsed = new LanguageTagParser();
-    Map<String,String> toAdd = new TreeMap<String,String>();
-    while (true) {
-      toAdd.clear();
-      for (String type : typeToTagToReplacement.keySet()) {
-        if (type.equals("variant") || type.equals("zone")) continue;
-        boolean addUnd = !type.equals("language");
+//  private static void addDeprecated(Map<String, String> toMaximized) {
+//    Map<String, Map<String, List<String>>> typeToTagToReplacement = supplementalData.getLocaleAliasInfo();
+//    LanguageTagParser temp = new LanguageTagParser();
+//    LanguageTagParser tagParsed = new LanguageTagParser();
+//    LanguageTagParser replacementParsed = new LanguageTagParser();
+//    Map<String,String> toAdd = new TreeMap<String,String>();
+//    while (true) {
+//      toAdd.clear();
+//      for (String type : typeToTagToReplacement.keySet()) {
+//        if (type.equals("variant") || type.equals("zone")) continue;
+//        boolean addUnd = !type.equals("language");
+//
+//        Map<String, List<String>> tagToReplacement = typeToTagToReplacement.get(type);
+//        System.out.println("*" + type + " = " + tagToReplacement);
+//
+//        for (String tag: tagToReplacement.keySet()) {
+//
+//          final List<String> list = tagToReplacement.get(tag);
+//          if (list == null) continue; // we don't have any information
+//          String replacement = list.get(0);
+//
+//          // only do multiples
+//          if (tag.contains("_") || !replacement.contains("_")) {
+//            continue;
+//          }
+//
+//          // we now have a tag and a replacement value
+//          // make parsers that we can use
+//          try {
+//            tagParsed.set(addUnd ? "und-" + tag : tag);
+//            replacementParsed.set(addUnd ? "und-" + replacement : replacement);
+//          } catch (RuntimeException e) {
+//            continue;
+//          }
+//          addIfNotIn(tag, replacement, toAdd, toMaximized,"Deprecated");
+//
+//          for (String locale : toMaximized.keySet()) {
+//            String maximized = toMaximized.get(locale);
+//            addIfMatches(temp.set(locale), maximized, replacementParsed,  tagParsed, toAdd, toMaximized);
+//            addIfMatches(temp.set(maximized), maximized, replacementParsed,  tagParsed, toAdd, toMaximized);
+//          }
+//        }
+//      }
+//      if (toAdd.size() == 0) {
+//        break;
+//      }
+//      toMaximized.putAll(toAdd);
+//    }
+//  }
 
-        Map<String, List<String>> tagToReplacement = typeToTagToReplacement.get(type);
-        System.out.println("*" + type + " = " + tagToReplacement);
+//  private static void addIfMatches(LanguageTagParser locale, String maximized, LanguageTagParser tagParsed, LanguageTagParser replacementParsed, Map<String, String> toAdd, Map<String, String> toMaximized) {
+//    if (!tagParsed.getLanguage().equals(locale.getLanguage()) && !tagParsed.getLanguage().equals("und")) {
+//      return;
+//    }
+//    if (!tagParsed.getScript().equals(locale.getScript()) && !tagParsed.getScript().equals("")) {
+//      return;
+//    }
+//    if (!tagParsed.getRegion().equals(locale.getRegion()) && !tagParsed.getRegion().equals("")) {
+//      return;
+//    }
+//    if (!replacementParsed.getLanguage().equals("und")) {
+//      locale.setLanguage(replacementParsed.getLanguage());
+//    }
+//    if (!replacementParsed.getScript().equals("")) {
+//      locale.setScript(replacementParsed.getScript());
+//    }
+//    if (!replacementParsed.getRegion().equals("")) {
+//      locale.setRegion(replacementParsed.getRegion());
+//    }
+//    addIfNotIn(locale.toString(), maximized, toAdd, toMaximized,"Deprecated");
+//  }
 
-        for (String tag: tagToReplacement.keySet()) {
-
-          final List<String> list = tagToReplacement.get(tag);
-          if (list == null) continue; // we don't have any information
-          String replacement = list.get(0);
-
-          // only do multiples
-          if (tag.contains("_") || !replacement.contains("_")) {
-            continue;
-          }
-
-          // we now have a tag and a replacement value
-          // make parsers that we can use
-          try {
-            tagParsed.set(addUnd ? "und-" + tag : tag);
-            replacementParsed.set(addUnd ? "und-" + replacement : replacement);
-          } catch (RuntimeException e) {
-            continue;
-          }
-          addIfNotIn(tag, replacement, toAdd, toMaximized,"Deprecated");
-
-          for (String locale : toMaximized.keySet()) {
-            String maximized = toMaximized.get(locale);
-            addIfMatches(temp.set(locale), maximized, replacementParsed,  tagParsed, toAdd, toMaximized);
-            addIfMatches(temp.set(maximized), maximized, replacementParsed,  tagParsed, toAdd, toMaximized);
-          }
-        }
-      }
-      if (toAdd.size() == 0) {
-        break;
-      }
-      toMaximized.putAll(toAdd);
-    }
-  }
-
-  private static void addIfMatches(LanguageTagParser locale, String maximized, LanguageTagParser tagParsed, LanguageTagParser replacementParsed, Map<String, String> toAdd, Map<String, String> toMaximized) {
-    if (!tagParsed.getLanguage().equals(locale.getLanguage()) && !tagParsed.getLanguage().equals("und")) {
-      return;
-    }
-    if (!tagParsed.getScript().equals(locale.getScript()) && !tagParsed.getScript().equals("")) {
-      return;
-    }
-    if (!tagParsed.getRegion().equals(locale.getRegion()) && !tagParsed.getRegion().equals("")) {
-      return;
-    }
-    if (!replacementParsed.getLanguage().equals("und")) {
-      locale.setLanguage(replacementParsed.getLanguage());
-    }
-    if (!replacementParsed.getScript().equals("")) {
-      locale.setScript(replacementParsed.getScript());
-    }
-    if (!replacementParsed.getRegion().equals("")) {
-      locale.setRegion(replacementParsed.getRegion());
-    }
-    addIfNotIn(locale.toString(), maximized, toAdd, toMaximized,"Deprecated");
-  }
-
-  private static int getSubtagPosition(String locale, String subtags) {
-    int pos = -1;
-    while (true) {
-      pos = locale.indexOf(subtags, pos + 1);
-      if (pos < 0) return -1;
-      // make sure boundaries are ok
-      if (pos != 0) {
-        char charBefore = locale.charAt(pos-1);
-        if (charBefore != '_' && charBefore != '_') return -1;
-      }
-      int limit = pos + subtags.length();
-      if (limit != locale.length()) {
-        char charAfter = locale.charAt(limit);
-        if (charAfter != '_' && charAfter != '_') return -1;
-      }
-      return pos;
-    }
-  }
+//  private static int getSubtagPosition(String locale, String subtags) {
+//    int pos = -1;
+//    while (true) {
+//      pos = locale.indexOf(subtags, pos + 1);
+//      if (pos < 0) return -1;
+//      // make sure boundaries are ok
+//      if (pos != 0) {
+//        char charBefore = locale.charAt(pos-1);
+//        if (charBefore != '_' && charBefore != '_') return -1;
+//      }
+//      int limit = pos + subtags.length();
+//      if (limit != locale.length()) {
+//        char charAfter = locale.charAt(limit);
+//        if (charAfter != '_' && charAfter != '_') return -1;
+//      }
+//      return pos;
+//    }
+//  }
 
   /* Format
   const DefaultSubtags default_subtags[] = {
@@ -825,7 +825,7 @@ public class GenerateMaximalLocales {
     String spacing = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t" : " ";
     String header = OUTPUT_STYLE != OutputStyle.XML ? "const MapToMaximalSubtags default_subtags[] = {"
             : "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" + Utility.LINE_SEPARATOR
-              + "<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/dtd/1.5.1/ldmlSupplemental.dtd\">" + Utility.LINE_SEPARATOR
+              + "<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/dtd/1.7/ldmlSupplemental.dtd\">" + Utility.LINE_SEPARATOR
               + "<supplementalData>" + Utility.LINE_SEPARATOR
               + "    <version number=\"$Revision$\"/>" + Utility.LINE_SEPARATOR
               + "    <generation date=\"$Date$\"/>" + Utility.LINE_SEPARATOR
@@ -879,7 +879,7 @@ public class GenerateMaximalLocales {
     (region == null || region.equals("") ? "?" : english.getName(CLDRFile.TERRITORY_NAME, region)) + spacing + "}";
   }
 
-  static final String[][] ALT_REVERSAL = {
+  private static final String[][] ALT_REVERSAL = {
     {"nb", "no"},
     {"no", "nb"},
     {"he", "iw"},
@@ -901,70 +901,70 @@ public class GenerateMaximalLocales {
     return locale;
   }
 
-  static String getFirstTag(String locale) {
+  private static String getFirstTag(String locale) {
     int pos = locale.indexOf('_');
     return pos < 0 ? locale : locale.substring(0,pos);
   }
 
-  private static Map<String, String> getBackMapping(Map<String, String> fluffup) {
-    Relation<String,String> backMap = new Relation(new TreeMap(), TreeSet.class, BEST_LANGUAGE_COMPARATOR);
-    for (String source : fluffup.keySet()) {
-      if (source.startsWith("und")) {
-        continue;
-      }
-      String maximized = fluffup.get(source);
-      backMap.put(maximized, source); // put in right order
-    }
-    Map<String,String> returnBackMap = new TreeMap();
-    for (String maximized : backMap.keySet()) {
-      final Set<String> all = backMap.getAll(maximized);
-      final String minimized = all.iterator().next();
-      returnBackMap.put(maximized, minimized);
-    }
-    return returnBackMap;
-  }
+//  private static Map<String, String> getBackMapping(Map<String, String> fluffup) {
+//    Relation<String,String> backMap = new Relation(new TreeMap(), TreeSet.class, BEST_LANGUAGE_COMPARATOR);
+//    for (String source : fluffup.keySet()) {
+//      if (source.startsWith("und")) {
+//        continue;
+//      }
+//      String maximized = fluffup.get(source);
+//      backMap.put(maximized, source); // put in right order
+//    }
+//    Map<String,String> returnBackMap = new TreeMap();
+//    for (String maximized : backMap.keySet()) {
+//      final Set<String> all = backMap.getAll(maximized);
+//      final String minimized = all.iterator().next();
+//      returnBackMap.put(maximized, minimized);
+//    }
+//    return returnBackMap;
+//  }
 
   /**
    * Language tags are presumed to share the first language, except possibly "und". Best is least
    */
-  static Comparator BEST_LANGUAGE_COMPARATOR = new Comparator<String>() {
-    LanguageTagParser p1 = new LanguageTagParser();
-    LanguageTagParser p2 = new LanguageTagParser();
-    public int compare(String o1, String o2) {
-      if (o1.equals(o2)) return 0;
-      p1.set(o1);
-      p2.set(o2);
-      String lang1 = p1.getLanguage();
-      String lang2 = p2.getLanguage();
-
-      // compare languages first
-      // put und at the end
-      int result = lang1.compareTo(lang2);
-      if (result != 0) {
-        if (lang1.equals("und")) return 1;
-        if (lang2.equals("und")) return -1;
-        return result;
-      }
-
-      // now scripts and regions.
-      // if they have different numbers of fields, the shorter wins.
-      // If there are two fields, region is lowest.
-      // The simplest way is to just compare scripts first
-      // so zh-TW < zh-Hant, because we first compare "" to Hant
-      String script1 = p1.getScript();
-      String script2 = p2.getScript();
-      int scriptOrder = script1.compareTo(script2);
-      if (scriptOrder != 0) return scriptOrder;
-
-      String region1 = p1.getRegion();
-      String region2 = p2.getRegion();
-      int regionOrder = region1.compareTo(region2);
-      if (regionOrder != 0) return regionOrder;
-
-      return o1.compareTo(o2);
-    }
-
-  };
+//  private static Comparator BEST_LANGUAGE_COMPARATOR = new Comparator<String>() {
+//    LanguageTagParser p1 = new LanguageTagParser();
+//    LanguageTagParser p2 = new LanguageTagParser();
+//    public int compare(String o1, String o2) {
+//      if (o1.equals(o2)) return 0;
+//      p1.set(o1);
+//      p2.set(o2);
+//      String lang1 = p1.getLanguage();
+//      String lang2 = p2.getLanguage();
+//
+//      // compare languages first
+//      // put und at the end
+//      int result = lang1.compareTo(lang2);
+//      if (result != 0) {
+//        if (lang1.equals("und")) return 1;
+//        if (lang2.equals("und")) return -1;
+//        return result;
+//      }
+//
+//      // now scripts and regions.
+//      // if they have different numbers of fields, the shorter wins.
+//      // If there are two fields, region is lowest.
+//      // The simplest way is to just compare scripts first
+//      // so zh-TW < zh-Hant, because we first compare "" to Hant
+//      String script1 = p1.getScript();
+//      String script2 = p2.getScript();
+//      int scriptOrder = script1.compareTo(script2);
+//      if (scriptOrder != 0) return scriptOrder;
+//
+//      String region1 = p1.getRegion();
+//      String region2 = p2.getRegion();
+//      int regionOrder = region1.compareTo(region2);
+//      if (regionOrder != 0) return regionOrder;
+//
+//      return o1.compareTo(o2);
+//    }
+//
+//  };
 
   private static void minimize(Map<String, String> fluffup) {
     LanguageTagParser parser = new LanguageTagParser();
@@ -1036,120 +1036,120 @@ public class GenerateMaximalLocales {
     }
   }
 
-  private static void addLanguageScript(Map<String, String> fluffup, LanguageTagParser parser) {
-    // add script
-    Map<String, String> temp = new TreeMap<String, String>();
-    while (true) {
-      temp.clear();
-      for (String target : new TreeSet<String>(fluffup.values())) {
-        parser.set(target);
-        final String territory = parser.getRegion();
-        if (territory.length() == 0) {
-          continue;
-        }
-        parser.setRegion("");
-        String possibleSource = parser.toString();
-        if (fluffup.containsKey(possibleSource)) {
-          continue;
-        }
-        String other = temp.get(possibleSource);
-        if (other != null) {
-          if (!target.equals(other)) {
-            System.out.println("**Failure with multiple sources in addLanguageScript: "
-                    + possibleSource + "\t=>\t" + target + ", " + other);
-          }
-          continue;
-        }
-        temp.put(possibleSource, target);
-        if (SHOW_ADD) System.out.println("Adding:\t" + possibleSource + "\t=>\t" + target + "\t\tLanguage-Script");
-      }
-      if (temp.size() == 0) {
-        break;
-      }
-      fluffup.putAll(temp);
-    }
+//  private static void addLanguageScript(Map<String, String> fluffup, LanguageTagParser parser) {
+//    // add script
+//    Map<String, String> temp = new TreeMap<String, String>();
+//    while (true) {
+//      temp.clear();
+//      for (String target : new TreeSet<String>(fluffup.values())) {
+//        parser.set(target);
+//        final String territory = parser.getRegion();
+//        if (territory.length() == 0) {
+//          continue;
+//        }
+//        parser.setRegion("");
+//        String possibleSource = parser.toString();
+//        if (fluffup.containsKey(possibleSource)) {
+//          continue;
+//        }
+//        String other = temp.get(possibleSource);
+//        if (other != null) {
+//          if (!target.equals(other)) {
+//            System.out.println("**Failure with multiple sources in addLanguageScript: "
+//                    + possibleSource + "\t=>\t" + target + ", " + other);
+//          }
+//          continue;
+//        }
+//        temp.put(possibleSource, target);
+//        if (SHOW_ADD) System.out.println("Adding:\t" + possibleSource + "\t=>\t" + target + "\t\tLanguage-Script");
+//      }
+//      if (temp.size() == 0) {
+//        break;
+//      }
+//      fluffup.putAll(temp);
+//    }
+//
+//  }
 
-  }
+//  private static void addLanguageCountry(Map<String, String> fluffup, LanguageTagParser parser) {
+//    // add script
+//    Map<String, String> temp = new TreeMap<String, String>();
+//    while (true) {
+//      temp.clear();
+//      for (String target : new TreeSet<String>(fluffup.values())) {
+//        parser.set(target);
+//        String script = parser.getScript();
+//        if (script.length() == 0) {
+//          continue;
+//        }
+//        parser.setScript("");
+//        String possibleSource = parser.toString();
+//        if (fluffup.containsKey(possibleSource)) {
+//          continue;
+//        }
+//        String other = temp.get(possibleSource);
+//
+//        if (other != null) {
+//          if (!target.equals(other)) {
+//            script = getScriptForLocale(possibleSource);
+//            if (script == null) {
+//              System.out.println("**Failure with multiple sources in addLanguageCountry: "
+//                      + possibleSource + "\t=>\t" + target + ", " + other);
+//              continue; // error message in routine
+//            }
+//            parser.setScript(script);
+//            target = parser.toString();
+//          }
+//        }
+//
+//        temp.put(possibleSource, target);
+//        if (SHOW_ADD) System.out.println("Adding:\t" + possibleSource + "\t=>\t" + target + "\t\tLanguageCountry");
+//      }
+//      if (temp.size() == 0) {
+//        break;
+//      }
+//      fluffup.putAll(temp);
+//    }
+//
+//  }
 
-  private static void addLanguageCountry(Map<String, String> fluffup, LanguageTagParser parser) {
-    // add script
-    Map<String, String> temp = new TreeMap<String, String>();
-    while (true) {
-      temp.clear();
-      for (String target : new TreeSet<String>(fluffup.values())) {
-        parser.set(target);
-        String script = parser.getScript();
-        if (script.length() == 0) {
-          continue;
-        }
-        parser.setScript("");
-        String possibleSource = parser.toString();
-        if (fluffup.containsKey(possibleSource)) {
-          continue;
-        }
-        String other = temp.get(possibleSource);
+//  private static void  addScript(Map<String, String> fluffup, LanguageTagParser parser) {
+//    // add script
+//    Map<String, String> temp = new TreeMap<String, String>();
+//    while (true) {
+//      temp.clear();
+//      Set skipTarget = fluffup.keySet();
+//      for (String locale : fluffup.keySet()) {
+//        String target = fluffup.get(locale);
+//        parser.set(target);
+//        if (parser.getScript().length() != 0) {
+//          continue;
+//        }
+//        String script = getScriptForLocale(target);
+//
+//        if (script == null) {
+//          continue; // error message in routine
+//        }
+//        parser.setScript(script);
+//        String furtherTarget = parser.toString();
+//        addIfNotIn(target, furtherTarget, temp, fluffup, "Script");
+//      }
+//      if (temp.size() == 0) {
+//        break;
+//      }
+//      fluffup.putAll(temp);
+//    }
+//  }
 
-        if (other != null) {
-          if (!target.equals(other)) {
-            script = getScriptForLocale(possibleSource);
-            if (script == null) {
-              System.out.println("**Failure with multiple sources in addLanguageCountry: "
-                      + possibleSource + "\t=>\t" + target + ", " + other);
-              continue; // error message in routine
-            }
-            parser.setScript(script);
-            target = parser.toString();
-          }
-        }
-
-        temp.put(possibleSource, target);
-        if (SHOW_ADD) System.out.println("Adding:\t" + possibleSource + "\t=>\t" + target + "\t\tLanguageCountry");
-      }
-      if (temp.size() == 0) {
-        break;
-      }
-      fluffup.putAll(temp);
-    }
-
-  }
-
-  private static void  addScript(Map<String, String> fluffup, LanguageTagParser parser) {
-    // add script
-    Map<String, String> temp = new TreeMap<String, String>();
-    while (true) {
-      temp.clear();
-      Set skipTarget = fluffup.keySet();
-      for (String locale : fluffup.keySet()) {
-        String target = fluffup.get(locale);
-        parser.set(target);
-        if (parser.getScript().length() != 0) {
-          continue;
-        }
-        String script = getScriptForLocale(target);
-
-        if (script == null) {
-          continue; // error message in routine
-        }
-        parser.setScript(script);
-        String furtherTarget = parser.toString();
-        addIfNotIn(target, furtherTarget, temp, fluffup, "Script");
-      }
-      if (temp.size() == 0) {
-        break;
-      }
-      fluffup.putAll(temp);
-    }
-  }
-
-  private static String getScriptForLocale(String locale) {
-    String result = getScriptForLocale2(locale);
-    if (result != null) return result;
-    int pos = locale.indexOf('_');
-    if (pos >= 0) {
-      result = getScriptForLocale2(locale.substring(0,pos));
-    }
-    return result;
-  }
+//  private static String getScriptForLocale(String locale) {
+//    String result = getScriptForLocale2(locale);
+//    if (result != null) return result;
+//    int pos = locale.indexOf('_');
+//    if (pos >= 0) {
+//      result = getScriptForLocale2(locale.substring(0,pos));
+//    }
+//    return result;
+//  }
 
   private static String UNKNOWN_SCRIPT = "Zzzz";
   private static String UNKNOWN_REGION = "ZZ";
@@ -1198,34 +1198,34 @@ public class GenerateMaximalLocales {
       }
     } finally {
       localeToScriptCache.put(locale, result);
-      if (SHOW_ADD) System.out.println("Script:\t" + locale + "\t" + english.getName(locale) + "\t=>\t" + result + "\t" + english.getName(english.SCRIPT_NAME, result));
+      if (SHOW_ADD) System.out.println("Script:\t" + locale + "\t" + english.getName(locale) + "\t=>\t" + result + "\t" + english.getName(CLDRFile.SCRIPT_NAME, result));
     }
   }
 
-  private static Map<String, String> closeMapping(Map<String, String> fluffup) {
-    if (SHOW_ADD) System.out.flush();
-    Map<String,String> temp = new TreeMap<String,String>();
-    while (true) {
-      temp.clear();
-      for (String locale : fluffup.keySet()) {
-        String target = fluffup.get(locale);
-        if (target.equals("si_Sinh") || target.equals("zh-Hani")) {
-          System.out.println("????");
-        }
-        String furtherTarget = fluffup.get(target);
-        if (furtherTarget == null) {
-          continue;
-        }
-        addIfNotIn(locale, furtherTarget, temp, null, "Close");
-      }
-      if (temp.size() == 0) {
-        break;
-      }
-      fluffup.putAll(temp);
-    }
-    if (SHOW_ADD) System.out.flush();
-    return temp;
-  }
+//  private static Map<String, String> closeMapping(Map<String, String> fluffup) {
+//    if (SHOW_ADD) System.out.flush();
+//    Map<String,String> temp = new TreeMap<String,String>();
+//    while (true) {
+//      temp.clear();
+//      for (String locale : fluffup.keySet()) {
+//        String target = fluffup.get(locale);
+//        if (target.equals("si_Sinh") || target.equals("zh-Hani")) {
+//          System.out.println("????");
+//        }
+//        String furtherTarget = fluffup.get(target);
+//        if (furtherTarget == null) {
+//          continue;
+//        }
+//        addIfNotIn(locale, furtherTarget, temp, null, "Close");
+//      }
+//      if (temp.size() == 0) {
+//        break;
+//      }
+//      fluffup.putAll(temp);
+//    }
+//    if (SHOW_ADD) System.out.flush();
+//    return temp;
+//  }
 
   public static Set<String> getScriptsFromUnicodeSet(UnicodeSet exemplars) {
     // use bits first, since that's faster
@@ -1234,7 +1234,7 @@ public class GenerateMaximalLocales {
     for (UnicodeSetIterator it = new UnicodeSetIterator(exemplars); it.next();) {
       if (show)
         System.out.println(Integer.toHexString(it.codepoint));
-      if (it.codepoint != it.IS_STRING) {
+      if (it.codepoint != UnicodeSetIterator.IS_STRING) {
         scriptBits.set(UScript.getScript(it.codepoint));
       } else {
         int cp;
@@ -1264,15 +1264,15 @@ public class GenerateMaximalLocales {
     return new UnicodeSet(v);
   }
 
-  static String[][] SpecialCases = {
-    { "zh_Hani", "zh_Hans_CN"},
-    { "si_Sinh", "si_Sinh_LK"},
-    { "ii", "ii_CN"}, // Sichuan Yi (Yi)
-    { "iu", "iu_CA"}, //    Inuktitut (Unified Canadian Aboriginal Syllabics)
-    { "und", "en"}, //    English default
-  };
+//  private static String[][] SpecialCases = {
+//    { "zh_Hani", "zh_Hans_CN"},
+//    { "si_Sinh", "si_Sinh_LK"},
+//    { "ii", "ii_CN"}, // Sichuan Yi (Yi)
+//    { "iu", "iu_CA"}, //    Inuktitut (Unified Canadian Aboriginal Syllabics)
+//    { "und", "en"}, //    English default
+//  };
 
-  static String[][] SpecialScripts = {
+  private static String[][] SpecialScripts = {
     { "chk", "Latn"},   //     Chuukese (Micronesia)
     { "fil", "Latn"},        //    Filipino (Philippines)"
     { "ko", "Kore"}, //    Korean (North Korea)
@@ -1286,7 +1286,7 @@ public class GenerateMaximalLocales {
     { "ja", "Jpan"}, //    Tahitian (French Polynesia)
     { "und", "Latn"}, //    Tahitian (French Polynesia)
   };
-  static Map<String,String> localeToScriptCache = new TreeMap();
+  private static Map<String,String> localeToScriptCache = new TreeMap();
   static {
     for (String[] pair : SpecialScripts) {
       localeToScriptCache.put(pair[0], pair[1]);

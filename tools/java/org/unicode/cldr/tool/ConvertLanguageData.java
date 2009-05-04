@@ -8,6 +8,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Relation;
+import org.unicode.cldr.util.Row;
 import org.unicode.cldr.util.SpreadSheet;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -18,6 +19,7 @@ import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Iso639Data.Source;
 import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.LocaleIDParser.Level;
+import org.unicode.cldr.util.Row.R2;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
@@ -102,7 +104,7 @@ public class ConvertLanguageData {
       Utility.copyUpTo(oldFile, Pattern.compile("\\s*<languageData>\\s*"), Log.getLog(), false);
 
       cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
-      Set available = cldrFactory.getAvailable();
+      Set<String> available = cldrFactory.getAvailable();
       english = cldrFactory.make("en",true);
 
       Set<String> cldrParents = getCldrParents(available);
@@ -111,6 +113,38 @@ public class ConvertLanguageData {
       Map<String,RowData> localeToRowData = new TreeMap<String,RowData>();
 
       Set<RowData> sortedInput = getExcelData(failures, localeToRowData);
+      
+      // get the locales (including parents)
+      Set<String> localesWithData = new TreeSet<String>(localeToRowData.keySet());
+      for (String locale : localeToRowData.keySet()) {
+        while (true) {
+          String parent = LanguageTagParser.getParent(locale);
+          if (parent == null) break;
+          localesWithData.add(parent);
+          locale = parent;
+        }
+      }
+      
+      final LanguageTagParser languageTagParser = new LanguageTagParser();
+
+      for (String locale : available) {
+        if (!localesWithData.contains(locale)) {
+          CLDRFile locFile = cldrFactory.make(locale, false);
+          if (locFile.isAliasedAtTopLevel()) {
+            continue;
+          }
+          languageTagParser.set(locale);
+          if (languageTagParser.getVariants().size() != 0) {
+            continue;
+          }
+          String withoutScript = languageTagParser.setScript("").toString();
+          if (!localesWithData.contains(withoutScript)) {
+            System.out.println("*ERROR* Missing language/population data for CLDR locale: " + getLanguageCodeAndName(locale));
+          } else {
+            System.out.println("*WARNING* Missing language/population data for CLDR locale: " + getLanguageCodeAndName(locale) + " but have data for " + getLanguageCodeAndName(withoutScript));
+          }
+        }
+      }
 
       // TODO sort by country code, then functionalPopulation, then language code
       // and keep the top country for each language code (even if < 1%)
@@ -761,6 +795,18 @@ public class ConvertLanguageData {
       + "\t" + languageLiteracy
       ;
     }
+    
+    public String toString(boolean b) {
+      return 
+        "region:\t" + getCountryCodeAndName(countryCode)
+      + "\tpop:\t" + countryPopulation
+      + "\tgdp:\t" + countryGdp
+      + "\tlit:\t" + countryLiteracy
+      + "\tlang:\t" + getLanguageCodeAndName(languageCode) 
+      + "\tpop:\t" + languagePopulation
+      + "\tlit:\t" + languageLiteracy
+      ;
+    }
 
     static boolean MARK_OUTPUT = false;
 
@@ -832,6 +878,11 @@ public class ConvertLanguageData {
             : comment.contains(",") ?  '"' + comment + '"'
                     : comment.contains("\"") ?  '"' + comment.replace("\"", "\"\"") + '"'
                             : comment;
+  }
+
+  public static String getCountryCodeAndName(String code) {
+    if (code == null) return null;
+    return english.getName(english.TERRITORY_NAME, code) + " [" + code + "]";
   }
 
   static class RickComparator implements Comparator<RowData> {
@@ -1062,6 +1113,8 @@ public class ConvertLanguageData {
     Set<String> countriesWithoutOfficial = new TreeSet(territories);
     countriesWithoutOfficial.remove("ZZ");
 
+    Map<String,Row.R2<String,Double>> countryToLargestOfficialLanguage = new HashMap<String,Row.R2<String,Double>>();
+
     Set<String> languagesNotFound = new TreeSet(languages);
     Set<RowData> sortedInput = new TreeSet();
     int count = 0;
@@ -1073,6 +1126,15 @@ public class ConvertLanguageData {
       }
       try {
         RowData x = new RowData(row);
+        if (x.officialStatus != OfficialStatus.unknown) {
+          R2<String, Double> largestOffical = countryToLargestOfficialLanguage.get(x.countryCode);
+          if (largestOffical == null) {
+            countryToLargestOfficialLanguage.put(x.countryCode, Row.make(x.languageCode, x.languagePopulation));
+          } else if (largestOffical.get1() < x.languagePopulation) {
+            largestOffical.set0(x.languageCode);
+            largestOffical.set1(x.languagePopulation);
+          }
+        }
         if (x.officialStatus == OfficialStatus.de_facto_official || x.officialStatus == OfficialStatus.official || x.countryPopulation < 1000) {
           countriesWithoutOfficial.remove(x.countryCode);
         }
@@ -1099,6 +1161,8 @@ public class ConvertLanguageData {
       }
     }
     System.out.println("Status found: " + Utility.join(statusFound, " | "));
+    
+    // make sure we have something
     for (String country : countriesNotFound) {
       RowData x = new RowData(country, "und");
       sortedInput.add(x);
@@ -1107,10 +1171,22 @@ public class ConvertLanguageData {
       RowData x = new RowData("ZZ", language);
       sortedInput.add(x);
     }
-    // see which countries are missing an official language
+    
     for (RowData row : sortedInput) {
+      // see which countries have languages that are larger than any offical language
+
+      if (row.officialStatus == OfficialStatus.unknown) {
+        String country = row.countryCode;
+        R2<String, Double> largestOffical = countryToLargestOfficialLanguage.get(row.countryCode);
+        if (largestOffical != null && largestOffical.get1() < row.languagePopulation) {
+          System.out.println("*WARNING* language population greater than any official language: "
+                  + getLanguageCodeAndName(largestOffical.get0()) + "; " + row.toString(true));
+        }
+      }
+
+      // see which countries are missing an official language
       if (!countriesWithoutOfficial.contains(row.countryCode)) continue;   
-      System.out.println("Error: missing official language for " + 
+      System.out.println("*ERROR* missing official language for " + 
               row.getCountryName()
               + "\t" + row.countryCode);
       countriesWithoutOfficial.remove(row.countryCode);

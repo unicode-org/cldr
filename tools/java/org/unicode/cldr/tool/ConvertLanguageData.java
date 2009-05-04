@@ -82,6 +82,8 @@ public class ConvertLanguageData {
 
   private static final double NON_OFFICIAL_WEIGHT = 0.40;
 
+  private static final boolean SHOW_OLD_DEFAULT_CONTENTS = false;
+
   static Map<String,String> defaultContent = new TreeMap<String,String>();
 
   static CLDRFile english;
@@ -113,7 +115,7 @@ public class ConvertLanguageData {
       Map<String,RowData> localeToRowData = new TreeMap<String,RowData>();
 
       Set<RowData> sortedInput = getExcelData(failures, localeToRowData);
-      
+
       // get the locales (including parents)
       Set<String> localesWithData = new TreeSet<String>(localeToRowData.keySet());
       for (String locale : localeToRowData.keySet()) {
@@ -124,7 +126,7 @@ public class ConvertLanguageData {
           locale = parent;
         }
       }
-      
+
       final LanguageTagParser languageTagParser = new LanguageTagParser();
 
       for (String locale : available) {
@@ -224,7 +226,7 @@ public class ConvertLanguageData {
     for (String oldDefault : oldDefaultContent) {
       if (!defaultLocaleContent.contains(oldDefault)) {
         String replacement = getReplacement(oldDefault, defaultLocaleContent);
-        System.out.println("*WARNING* Changed default content: examine carefully: " 
+        System.out.println("*WARNING* Might later change default content: examine carefully: " 
                 + getLanguageCodeAndName(oldDefault)
                 + "\t=>\t" + getLanguageCodeAndName(replacement)
         );
@@ -612,7 +614,7 @@ public class ConvertLanguageData {
       if (!countryCodes.contains(countryCode)) {
         System.err.println("WRONG COUNTRY CODE: " + row);
       }
-      
+
       double countryPopulation1 = parseDecimal(row.get(COUNTRY_POPULATION));
       double countryGdp1 = parseDecimal(row.get(COUNTRY_GDP));
       double countryLiteracy1 = parsePercent(row.get(COUNTRY_LITERACY), countryPopulation1);
@@ -634,20 +636,20 @@ public class ConvertLanguageData {
       } catch (RuntimeException e) {
         throw new IllegalArgumentException("Can't interpret offical-status: " + officialStatusString);
       }
-      
+
       String languageCode1 = row.get(LANGUAGE_CODE);
       if (languageCode1.startsWith("*") || languageCode1.startsWith("\u00A7")) {
         languageCode1 = languageCode1.substring(1);
       }
       languageCode = languageCode1;
-      
+
       if (doneCountries.contains(countryCode) == false) {
         //showDiff(countryGdp1, countryGdp);
         //showDiff(countryLiteracy1, countryLiteracy);
         if (SHOW_DIFF) showDiff(countryPopulation1, countryPopulation, 0.1, false);
         doneCountries.add(countryCode);
       }
-      
+
       double languagePopulation1 = parsePercent(row.get(LANGUAGE_POPULATION), countryPopulation1) * countryPopulation1;
       if ((officialStatus == OfficialStatus.de_facto_official || officialStatus == OfficialStatus.official) 
               && languagePopulation1*100 < countryPopulation && languagePopulation1 < 1000000) {
@@ -669,7 +671,7 @@ public class ConvertLanguageData {
       languagePopulation = languagePopulation1 < countryPopulation ? languagePopulation1 : countryPopulation;
 
       if (SHOW_DIFF) showDiff(languagePopulation1/countryPopulation1, languagePopulation/countryPopulation, 0.01, true);
-      
+
       String stringLanguageLiteracy = row.size() <= LANGUAGE_LITERACY ? "" : row.get(LANGUAGE_LITERACY);
       double languageLiteracy1 = stringLanguageLiteracy.length() == 0 ? countryLiteracy 
               : parsePercent(stringLanguageLiteracy, languagePopulation);
@@ -717,7 +719,7 @@ public class ConvertLanguageData {
     private static boolean isApproximatelyEqual(double a, double b, double epsilon) {
       return a == b || Math.abs(a-b) < epsilon;
     }
-    
+
     private static boolean isApproximatelyGreater(double a, double b, double epsilon) {
       return a > b + epsilon;
     }
@@ -795,10 +797,10 @@ public class ConvertLanguageData {
       + "\t" + languageLiteracy
       ;
     }
-    
+
     public String toString(boolean b) {
       return 
-        "region:\t" + getCountryCodeAndName(countryCode)
+      "region:\t" + getCountryCodeAndName(countryCode)
       + "\tpop:\t" + countryPopulation
       + "\tgdp:\t" + countryGdp
       + "\tlit:\t" + countryLiteracy
@@ -965,8 +967,8 @@ public class ConvertLanguageData {
                 + references.addReference(row.comment)
                 + "/>");
         Log.println("\t<!--" + getLanguageName(languageCode) + "-->");
-      } else {
-        failures.add(row + "\tToo few speakers: suspect line.");
+      } else if (!row.countryCode.equals("ZZ")){
+        failures.add("*ERROR* Too few speakers: suspect line." + row.toString(true));
       }
       //if (first) {
       if (false) System.out.print(
@@ -1161,7 +1163,7 @@ public class ConvertLanguageData {
       }
     }
     System.out.println("Status found: " + Utility.join(statusFound, " | "));
-    
+
     // make sure we have something
     for (String country : countriesNotFound) {
       RowData x = new RowData(country, "und");
@@ -1171,7 +1173,7 @@ public class ConvertLanguageData {
       RowData x = new RowData("ZZ", language);
       sortedInput.add(x);
     }
-    
+
     for (RowData row : sortedInput) {
       // see which countries have languages that are larger than any offical language
 
@@ -1398,9 +1400,11 @@ public class ConvertLanguageData {
   private static void showDefaults(Set<String> cldrParents, NumberFormat nf, Map<String,String> defaultContent, Map<String, RowData> localeToRowData,
           Set<String> defaultLocaleContent) {
 
-    System.out.println();
-    System.out.println("Computing Defaults Contents");
-    System.out.println();
+    if (SHOW_OLD_DEFAULT_CONTENTS) {
+      System.out.println();
+      System.out.println("Computing Defaults Contents");
+      System.out.println();
+    }
 
     Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
     Set<String> locales = new TreeSet(cldrFactory.getAvailable());
@@ -1411,7 +1415,7 @@ public class ConvertLanguageData {
       String baseLanguage = lidp.set(locale).getLanguage();
       if (locales.contains(baseLanguage) && !locales.contains(locale)) {
         locales.add(locale);
-        System.out.println("\tadding: " + locale);
+        if (SHOW_OLD_DEFAULT_CONTENTS) System.out.println("\tadding: " + locale);
       }
     }
 
@@ -1422,7 +1426,7 @@ public class ConvertLanguageData {
         String newguy = lidp.set(locale).getParent();
         if (newguy != null && !locales.contains(newguy) && !toAdd.contains(newguy)) {
           toAdd.add(newguy);
-          System.out.println("\tadding parent: " + newguy);
+          if (SHOW_OLD_DEFAULT_CONTENTS) System.out.println("\tadding parent: " + newguy);
         }
       }
       if (toAdd.size() == 0) {
@@ -1462,7 +1466,7 @@ public class ConvertLanguageData {
         // skip language-only locales, and ones with variants
         needsADoin.remove(locale);
         skippingItems.add(locale);
-        System.out.println("\tremoving: " + locale);
+        if (SHOW_OLD_DEFAULT_CONTENTS) System.out.println("\tremoving: " + locale);
         continue;
       }
     }
@@ -1502,9 +1506,9 @@ public class ConvertLanguageData {
       }
       needsADoin.removeAll(siblingSet);
     }
-    System.out.println("Skipping: " + skippingItems);
+    if (SHOW_OLD_DEFAULT_CONTENTS) System.out.println("Skipping: " + skippingItems);
     if (needsADoin.size() != 0) {
-      System.out.println("Missing: " + needsADoin);
+      if (SHOW_OLD_DEFAULT_CONTENTS) System.out.println("Missing: " + needsADoin);
     }
 
     // walk through the data
@@ -1512,7 +1516,7 @@ public class ConvertLanguageData {
 
     Set<String> missingData = new TreeSet();
     for (Set<String> siblingSet : siblingSets) {
-      System.out.println("** From siblings: " + siblingSet);
+      if (SHOW_OLD_DEFAULT_CONTENTS) System.out.println("** From siblings: " + siblingSet);
 
       if (false & siblingSet.size() == 1) {
         skippingSingletons.add(siblingSet.iterator().next());
@@ -1543,7 +1547,7 @@ public class ConvertLanguageData {
       }
       // show it
       for (Pair<Double,String> datum : data) {
-        System.out.format("\tContenders: %s %f (based on literate population)" + Utility.LINE_SEPARATOR, datum.getSecond(), datum.getFirst());
+        if (SHOW_OLD_DEFAULT_CONTENTS) System.out.format("\tContenders: %s %f (based on literate population)" + Utility.LINE_SEPARATOR, datum.getSecond(), datum.getFirst());
       }
       //System.out.format("\tPicking default content: %s %f (based on literate population)" + Utility.LINE_SEPARATOR, bestLocale, best);
       // Hack to fix English

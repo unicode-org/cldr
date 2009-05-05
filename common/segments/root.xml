@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.6/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -8,313 +8,622 @@
 	</identity>
 	<segmentations>
 		<segmentation type="GraphemeClusterBreak">
+
 			<variables>
+
 				<variable id="$CR">\p{Grapheme_Cluster_Break=CR}</variable>
+
 				<variable id="$LF">\p{Grapheme_Cluster_Break=LF}</variable>
+
 				<variable id="$Control">\p{Grapheme_Cluster_Break=Control}</variable>
+
 				<variable id="$Extend">\p{Grapheme_Cluster_Break=Extend}</variable>
+
 				<variable id="$Prepend">\p{Grapheme_Cluster_Break=Prepend}</variable>
+
 				<variable id="$SpacingMark">\p{Grapheme_Cluster_Break=SpacingMark}</variable>
+
 				<variable id="$L">\p{Grapheme_Cluster_Break=L}</variable>
+
 				<variable id="$V">\p{Grapheme_Cluster_Break=V}</variable>
+
 				<variable id="$T">\p{Grapheme_Cluster_Break=T}</variable>
+
 				<variable id="$LV">\p{Grapheme_Cluster_Break=LV}</variable>
+
 				<variable id="$LVT">\p{Grapheme_Cluster_Break=LVT}</variable>
+
 			</variables>
+
 			<segmentRules>
+
 				<rule id="3"> $CR × $LF </rule>
+
 				<rule id="4"> ( $Control | $CR | $LF ) ÷ </rule>
+
 				<rule id="5"> ÷ ( $Control | $CR | $LF ) </rule>
+
 				<rule id="6"> $L × ( $L | $V | $LV | $LVT ) </rule>
+
 				<rule id="7"> ( $LV | $V ) × ( $V | $T ) </rule>
+
 				<rule id="8"> ( $LVT | $T) × $T </rule>
+
 				<rule id="9"> × $Extend </rule>
+
 				<rule id="9.1"> × $SpacingMark </rule>
+
 				<rule id="9.2"> $Prepend × </rule>
+
 			</segmentRules>
+
 		</segmentation>
+
 		<segmentation type="LineBreak">
+
 			<variables>
+
 				<!-- Variables -->
+
 				<variable id="$AI">\p{Line_Break=Ambiguous}</variable>
+
 				<variable id="$AL">\p{Line_Break=Alphabetic}</variable>
+
 				<variable id="$B2">\p{Line_Break=Break_Both}</variable>
+
 				<variable id="$BA">\p{Line_Break=Break_After}</variable>
+
 				<variable id="$BB">\p{Line_Break=Break_Before}</variable>
+
 				<variable id="$BK">\p{Line_Break=Mandatory_Break}</variable>
+
 				<variable id="$CB">\p{Line_Break=Contingent_Break}</variable>
+
 				<variable id="$CL">\p{Line_Break=Close_Punctuation}</variable>
+
 				<variable id="$CM">\p{Line_Break=Combining_Mark}</variable>
+
 				<variable id="$CR">\p{Line_Break=Carriage_Return}</variable>
+
 				<variable id="$EX">\p{Line_Break=Exclamation}</variable>
+
 				<variable id="$GL">\p{Line_Break=Glue}</variable>
+
 				<variable id="$H2">\p{Line_Break=H2}</variable>
+
 				<variable id="$H3">\p{Line_Break=H3}</variable>
+
 				<variable id="$HY">\p{Line_Break=Hyphen}</variable>
+
 				<variable id="$ID">\p{Line_Break=Ideographic}</variable>
+
 				<variable id="$IN">\p{Line_Break=Inseparable}</variable>
+
 				<variable id="$IS">\p{Line_Break=Infix_Numeric}</variable>
+
 				<variable id="$JL">\p{Line_Break=JL}</variable>
+
 				<variable id="$JT">\p{Line_Break=JT}</variable>
+
 				<variable id="$JV">\p{Line_Break=JV}</variable>
+
 				<variable id="$LF">\p{Line_Break=Line_Feed}</variable>
+
 				<variable id="$NL">\p{Line_Break=Next_Line}</variable>
+
 				<variable id="$NS">\p{Line_Break=Nonstarter}</variable>
+
 				<variable id="$NU">\p{Line_Break=Numeric}</variable>
+
 				<variable id="$OP">\p{Line_Break=Open_Punctuation}</variable>
+
 				<variable id="$PO">\p{Line_Break=Postfix_Numeric}</variable>
+
 				<variable id="$PR">\p{Line_Break=Prefix_Numeric}</variable>
+
 				<variable id="$QU">\p{Line_Break=Quotation}</variable>
+
 				<variable id="$SA">\p{Line_Break=Complex_Context}</variable>
+
 				<variable id="$SG">\p{Line_Break=Surrogate}</variable>
+
 				<variable id="$SP">\p{Line_Break=Space}</variable>
+
 				<variable id="$SY">\p{Line_Break=Break_Symbols}</variable>
+
 				<variable id="$WJ">\p{Line_Break=Word_Joiner}</variable>
+
 				<variable id="$XX">\p{Line_Break=Unknown}</variable>
+
 				<variable id="$ZW">\p{Line_Break=ZWSpace}</variable>
+
 				<!-- LB 1  Assign a line breaking class to each code point of the input. -->
+
 				<!-- Resolve AI, CB, SA, SG, and XX into other line breaking classes depending on criteria outside the scope of this algorithm. -->
+
 				<!-- NOTE: CB is ok to fall through, but must handle others here. -->
+
 				<variable id="$AL">[$AI $AL $XX $SA $SG]</variable>
+
 				<!-- WARNING: Fixes for Rule 9 -->
+
 				<!-- Treat X CM* as if it were X. -->
+
 				<!-- Where X is any line break class except SP, BK, CR, LF, NL or ZW. -->
+
 				<variable id="$X">$CM*</variable>
+
 				<variable id="$Spec1_">[$SP $BK $CR $LF $NL $ZW]</variable>
+
 				<variable id="$Spec2_">[^ $SP $BK $CR $LF $NL $ZW]</variable>
+
 				<variable id="$Spec3a_">[^ $SP $BA $HY $CM]</variable>
+
 				<variable id="$Spec3b_">[^ $BA $HY $CM]</variable>
+
 				<variable id="$Spec4_">[^ $NU $CM]</variable>
+
 				<variable id="$AI">($AI $X)</variable>
+
 				<variable id="$AL">($AL $X)</variable>
+
 				<variable id="$B2">($B2 $X)</variable>
+
 				<variable id="$BA">($BA $X)</variable>
+
 				<variable id="$BB">($BB $X)</variable>
+
 				<variable id="$CB">($CB $X)</variable>
+
 				<variable id="$CL">($CL $X)</variable>
+
 				<variable id="$CM">($CM $X)</variable>
+
 				<variable id="$CM">($CM $X)</variable>
+
 				<variable id="$GL">($GL $X)</variable>
+
 				<variable id="$H2">($H2 $X)</variable>
+
 				<variable id="$H3">($H3 $X)</variable>
+
 				<variable id="$HY">($HY $X)</variable>
+
 				<variable id="$ID">($ID $X)</variable>
+
 				<variable id="$IN">($IN $X)</variable>
+
 				<variable id="$IS">($IS $X)</variable>
+
 				<variable id="$JL">($JL $X)</variable>
+
 				<variable id="$JT">($JT $X)</variable>
+
 				<variable id="$JV">($JV $X)</variable>
+
 				<variable id="$NS">($NS $X)</variable>
+
 				<variable id="$NU">($NU $X)</variable>
+
 				<variable id="$OP">($OP $X)</variable>
+
 				<variable id="$PO">($PO $X)</variable>
+
 				<variable id="$PR">($PR $X)</variable>
+
 				<variable id="$QU">($QU $X)</variable>
+
 				<variable id="$SA">($SA $X)</variable>
+
 				<variable id="$SG">($SG $X)</variable>
+
 				<variable id="$SY">($SY $X)</variable>
+
 				<variable id="$WJ">($WJ $X)</variable>
+
 				<variable id="$XX">($XX $X)</variable>
+
 				<!-- OUT OF ORDER ON PURPOSE -->
+
 				<!-- LB 10  Treat any remaining combining mark as AL. -->
+
 				<variable id="$AL">($AL | ^ $CM | (?&lt;=$Spec1_) $CM)</variable>
+
 			</variables>
+
 			<segmentRules>
+
 				<!-- LB 4  Always break after hard line breaks (but never between CR and LF). -->
+
 				<rule id="4"> $BK ÷ </rule>
+
 				<!-- LB 5  Treat CR followed by LF, as well as CR, LF and NL as hard line breaks. -->
+
 				<rule id="5.01"> $CR × $LF </rule>
+
 				<rule id="5.02"> $CR ÷ </rule>
+
 				<rule id="5.03"> $LF ÷ </rule>
+
 				<rule id="5.04"> $NL ÷ </rule>
+
 				<!-- LB 6  Do not break before hard line breaks. -->
+
 				<rule id="6"> × ( $BK | $CR | $LF | $NL ) </rule>
+
 				<!-- LB 7  Do not break before spaces or zero-width space. -->
+
 				<rule id="7.01"> × $SP </rule>
+
 				<rule id="7.02"> × $ZW </rule>
+
 				<!-- LB 8  Break after zero-width space. -->
+
 				<rule id="8"> $ZW ÷ </rule>
+
 				<!-- LB 9  Do not break a combining character sequence; treat it as if it has the LB class of the base character -->
+
 				<!-- in all of the following rules. (Where X is any line break class except SP, BK, CR, LF, NL or ZW.) -->
+
 				<rule id="9"> $Spec2_ × $CM </rule>
+
 				<!-- WARNING: this is done by modifying the variable values for all but SP.... That is, $AL is really ($AI $CM*)! -->
+
 				<!-- LB 11  Do not break before or after WORD JOINER and related characters. -->
+
 				<rule id="11.01"> × $WJ </rule>
+
 				<rule id="11.02"> $WJ × </rule>
+
 				<!-- LB 12  Do not break after NBSP and related characters. -->
+
 				<rule id="12"> $GL × </rule>
+
 				<rule id="12.1"> $Spec3a_ × $GL </rule>
+
 				<rule id="12.2"> $Spec3b_ $CM+ × $GL </rule>
+
 				<rule id="12.3"> ^ $CM+ × $GL </rule>
+
 				<!-- LB 13  Do not break before ‘]’ or ‘!’ or ‘;’ or ‘/’, even after spaces. -->
+
 				<!-- Using customization 7. -->
+
 				<rule id="13.01"> × $EX </rule>
+
 				<rule id="13.02"> $Spec4_ × ($CL | $IS | $SY) </rule>
+
 				<rule id="13.03"> $Spec4_ $CM+ × ($CL | $IS | $SY) </rule>
+
 				<rule id="13.04"> ^ $CM+ × ($CL | $IS | $SY) </rule>
+
 				<!-- LB 14  Do not break after ‘[’, even after spaces. -->
+
 				<rule id="14"> $OP $SP* × </rule>
+
 				<!-- LB 15  Do not break within ‘"[’, even with intervening spaces. -->
+
 				<rule id="15"> $QU $SP* × $OP </rule>
+
 				<!-- LB 16  Do not break between closing punctuation and a nonstarter (lb=NS), even with intervening spaces. -->
+
 				<rule id="16"> $CL $SP* × $NS </rule>
+
 				<!-- LB 17  Do not break within ‘——’, even with intervening spaces. -->
+
 				<rule id="17"> $B2 $SP* × $B2 </rule>
+
 				<!-- LB 18  Break after spaces. -->
+
 				<rule id="18"> $SP ÷ </rule>
+
 				<!-- LB 19  Do not break before or after ‘"’. -->
+
 				<rule id="19.01"> × $QU </rule>
+
 				<rule id="19.02"> $QU × </rule>
+
 				<!-- LB 20  Break before and after unresolved CB. -->
+
 				<rule id="20.01"> ÷ $CB </rule>
+
 				<rule id="20.02"> $CB ÷ </rule>
+
 				<!-- LB 21  Do not break before hyphen-minus, other hyphens, fixed-width spaces, small kana and other non-starters, or after acute accents. -->
+
 				<rule id="21.01"> × $BA </rule>
+
 				<rule id="21.02"> × $HY </rule>
+
 				<rule id="21.03"> × $NS </rule>
+
 				<rule id="21.04"> $BB × </rule>
+
 				<!-- LB 22  Do not break between two ellipses, or between letters or numbers and ellipsis. -->
+
 				<rule id="22.01"> $AL × $IN </rule>
+
 				<rule id="22.02"> $ID × $IN </rule>
+
 				<rule id="22.03"> $IN × $IN </rule>
+
 				<rule id="22.04"> $NU × $IN </rule>
+
 				<!-- LB 23  Do not break within ‘a9’, ‘3a’, or ‘H%’. -->
+
 				<rule id="23.01"> $ID × $PO </rule>
+
 				<rule id="23.02"> $AL × $NU </rule>
+
 				<rule id="23.03"> $NU × $AL </rule>
+
 				<!-- LB 24  Do not break between prefix and letters or ideographs. -->
+
 				<rule id="24.01"> $PR × $ID </rule>
+
 				<rule id="24.02"> $PR × $AL </rule>
+
 				<rule id="24.03"> $PO × $AL </rule>
+
 				<!-- Using customization 7 -->
+
 				<!-- LB 18  Do not break between the following pairs of classes. -->
+
 				<!-- LB 18-alternative: $PR? ( $OP | $HY )? $NU ($NU | $SY | $IS)* $CL? $PO? -->
+
 				<!-- Insert × every place it could go. However, make sure that at least one thing is concrete, otherwise would cause $NU to not break before or after -->
+
 				<rule id="25.01"> ($PR | $PO) × ( $OP | $HY )? $NU </rule>
+
 				<rule id="25.02"> ( $OP | $HY ) × $NU </rule>
+
 				<rule id="25.03"> $NU × ($NU | $SY | $IS) </rule>
+
 				<rule id="25.04"> $NU ($NU | $SY | $IS)* × ($NU | $SY | $IS | $CL) </rule>
+
 				<rule id="25.05"> $NU ($NU | $SY | $IS)* $CL? × ($PO | $PR) </rule>
+
 				<!-- LB 26 Do not break a Korean syllable. -->
+
 				<rule id="26.01"> $JL × $JL | $JV | $H2 | $H3 </rule>
+
 				<rule id="26.02"> $JV | $H2 × $JV | $JT </rule>
+
 				<rule id="26.03"> $JT | $H3 × $JT </rule>
+
 				<!-- LB 27 Treat a Korean Syllable Block the same as ID. -->
+
 				<rule id="27.01"> $JL | $JV | $JT | $H2 | $H3 × $IN </rule>
+
 				<rule id="27.02"> $JL | $JV | $JT | $H2 | $H3 × $PO </rule>
+
 				<rule id="27.03"> $PR × $JL | $JV | $JT | $H2 | $H3 </rule>
+
 				<!-- LB 28  Do not break between alphabetics ("at"). -->
+
 				<rule id="28"> $AL × $AL </rule>
+
 				<!-- LB 29  Do not break between numeric punctuation and alphabetics ("e.g."). -->
+
 				<rule id="29"> $IS × $AL </rule>
+
 			</segmentRules>
+
 		</segmentation>
+
 		<segmentation type="SentenceBreak">
+
 			<variables>
+
 				<variable id="$CR">\p{Sentence_Break=CR}</variable>
+
 				<variable id="$LF">\p{Sentence_Break=LF}</variable>
+
 				<variable id="$Extend">\p{Sentence_Break=Extend}</variable>
+
 				<variable id="$Format">\p{Sentence_Break=Format}</variable>
+
 				<variable id="$Sep">\p{Sentence_Break=Sep}</variable>
+
 				<variable id="$Sp">\p{Sentence_Break=Sp}</variable>
+
 				<variable id="$Lower">\p{Sentence_Break=Lower}</variable>
+
 				<variable id="$Upper">\p{Sentence_Break=Upper}</variable>
+
 				<variable id="$OLetter">\p{Sentence_Break=OLetter}</variable>
+
 				<variable id="$Numeric">\p{Sentence_Break=Numeric}</variable>
+
 				<variable id="$ATerm">\p{Sentence_Break=ATerm}</variable>
+
 				<variable id="$STerm">\p{Sentence_Break=STerm}</variable>
+
 				<variable id="$Close">\p{Sentence_Break=Close}</variable>
+
 				<variable id="$SContinue">\p{Sentence_Break=SContinue}</variable>
+
 				<variable id="$Any">.</variable>
+
 				<!-- Expresses the negation in rule 8; can't do this with normal regex, but works with UnicodeSet, which is all we need. -->
+
 				<!-- WARNING: For Rule 5, now add format and extend to everything but Sep -->
+
 				<variable id="$FE">[$Format $Extend]</variable>
+
 				<variable id="$NotPreLower_">[^ $OLetter $Upper $Lower $Sep $CR $LF $STerm $ATerm]</variable>
+
 				<variable id="$Sp">($Sp $FE*)</variable>
+
 				<variable id="$Lower">($Lower $FE*)</variable>
+
 				<variable id="$Upper">($Upper $FE*)</variable>
+
 				<variable id="$OLetter">($OLetter $FE*)</variable>
+
 				<variable id="$Numeric">($Numeric $FE*)</variable>
+
 				<variable id="$ATerm">($ATerm $FE*)</variable>
+
 				<variable id="$STerm">($STerm $FE*)</variable>
+
 				<variable id="$Close">($Close $FE*)</variable>
+
 				<variable id="$SContinue">($SContinue $FE*)</variable>
+
 			</variables>
+
 			<segmentRules>
+
 				<!-- Do not break within CRLF -->
+
 				<rule id="3"> $CR × $LF </rule>
+
 				<!-- Break after paragraph separators. -->
+
 				<rule id="4"> ($Sep | $CR | $LF) ÷ </rule>
+
 				<!-- Ignore Format and Extend characters, except when they appear at the beginning of a region of text. -->
+
 				<!-- (See Section 6.2 Grapheme Cluster and Format Rules.) -->
+
 				<!-- WARNING: Implemented as don't break before format (except after linebreaks), -->
+
 				<!-- AND add format and extend in all variables definitions that appear after this point! -->
+
 				<rule id="5"> × [$Format $Extend] </rule>
+
 				<!-- Do not break after ambiguous terminators like period, if immediately followed by a number or lowercase letter, -->
+
 				<!-- is between uppercase letters, or if the first following letter (optionally after certain punctuation) is lowercase. -->
+
 				<!-- For example, a period may be an abbreviation or numeric period, and not mark the end of a sentence. -->
+
 				<rule id="6"> $ATerm × $Numeric </rule>
+
 				<rule id="7"> $Upper $ATerm × $Upper </rule>
+
 				<rule id="8"> $ATerm $Close* $Sp* × $NotPreLower_* $Lower </rule>
+
 				<rule id="8.1"> ($STerm | $ATerm) $Close* $Sp* × ($SContinue | $STerm | $ATerm) </rule>
+
 				<!-- Break after sentence terminators, but include closing punctuation, trailing spaces, and (optionally) a paragraph separator. -->
+
 				<rule id="9"> ( $STerm | $ATerm ) $Close* × ( $Close | $Sp | $Sep | $CR | $LF ) </rule>
+
 				<!-- Note the fix to $Sp*, $Sep? -->
+
 				<rule id="10"> ( $STerm | $ATerm ) $Close* $Sp* × ( $Sp | $Sep | $CR | $LF ) </rule>
+
 				<rule id="11"> ( $STerm | $ATerm ) $Close* $Sp* ($Sep | $CR | $LF)? ÷ </rule>
+
 				<!-- Otherwise, do not break -->
+
 				<rule id="12"> × $Any </rule>
+
 			</segmentRules>
+
 		</segmentation>
+
 		<segmentation type="WordBreak">
+
 			<variables>
+
 				<variable id="$CR">\p{Word_Break=CR}</variable>
+
 				<variable id="$LF">\p{Word_Break=LF}</variable>
+
 				<variable id="$Newline">\p{Word_Break=Newline}</variable>
+
 				<variable id="$Extend">\p{Word_Break=Extend}</variable>
+
 				<!-- Now normal variables -->
+
 				<variable id="$Format">\p{Word_Break=Format}</variable>
+
 				<variable id="$Katakana">\p{Word_Break=Katakana}</variable>
+
 				<variable id="$ALetter">\p{Word_Break=ALetter}</variable>
+
 				<variable id="$MidLetter">\p{Word_Break=MidLetter}</variable>
+
 				<variable id="$MidNum">\p{Word_Break=MidNum}</variable>
+
 				<variable id="$MidNumLet">\p{Word_Break=MidNumLet}</variable>
+
 				<variable id="$Numeric">\p{Word_Break=Numeric}</variable>
+
 				<variable id="$ExtendNumLet">\p{Word_Break=ExtendNumLet}</variable>
+
 				<!-- WARNING: For Rule 4: Fixes for GC, Format -->
+
 				<!-- Add format and extend to everything -->
+
 				<variable id="$FE">[$Format $Extend]</variable>
+
 				<variable id="$NotBreak_">[^ $Newline $CR $LF ]</variable>
+
 				<variable id="$Katakana">($Katakana $FE*)</variable>
+
 				<variable id="$ALetter">($ALetter $FE*)</variable>
+
 				<variable id="$MidLetter">($MidLetter $FE*)</variable>
+
 				<variable id="$MidNum">($MidNum $FE*)</variable>
+
 				<variable id="$MidNumLet">($MidNumLet $FE*)</variable>
+
 				<variable id="$Numeric">($Numeric $FE*)</variable>
+
 				<variable id="$ExtendNumLet">($ExtendNumLet $FE*)</variable>
+
 			</variables>
+
 			<segmentRules>
+
 				<rule id="3"> $CR × $LF </rule>
+
 				<rule id="3.1"> ($Newline | $CR | $LF) ÷ </rule>
+
 				<rule id="3.11"> ÷ ($Newline | $CR | $LF) </rule>
+
 				<!-- Ignore Format and Extend characters, except when they appear at the beginning of a region of text. -->
+
 				<!-- (See Section 6.2 Grapheme Cluster and Format Rules.) -->
+
 				<!-- WARNING: Implemented as don't break before format (except after linebreaks), -->
+
 				<!-- AND add format and extend in all variables definitions that appear after this point! -->
+
 				<rule id="4"> $NotBreak_ × [$Format $Extend] </rule>
+
 				<!-- Vanilla rules -->
+
 				<rule id="5"> $ALetter × $ALetter </rule>
+
 				<rule id="6"> $ALetter × ($MidLetter | $MidNumLet) $ALetter </rule>
+
 				<rule id="7"> $ALetter ($MidLetter | $MidNumLet) × $ALetter </rule>
+
 				<rule id="8"> $Numeric × $Numeric </rule>
+
 				<rule id="9"> $ALetter × $Numeric </rule>
+
 				<rule id="10"> $Numeric × $ALetter </rule>
+
 				<rule id="11"> $Numeric ($MidNum | $MidNumLet) × $Numeric </rule>
+
 				<rule id="12"> $Numeric × ($MidNum | $MidNumLet) $Numeric </rule>
+
 				<rule id="13"> $Katakana × $Katakana </rule>
+
 				<rule id="13.1"> ($ALetter | $Numeric | $Katakana | $ExtendNumLet) × $ExtendNumLet </rule>
+
 				<rule id="13.2"> $ExtendNumLet × ($ALetter | $Numeric | $Katakana) </rule>
+
 			</segmentRules>
+
 		</segmentation>
+
 	</segmentations>
 </ldml>

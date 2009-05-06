@@ -188,8 +188,8 @@ public class Utility {
           line1 = stripTags(line1);
           line2 = stripTags(line2);
           if (line1.equals(line2)) return LINES_SAME;
-        } else if (line1.startsWith("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/")
-                && line2.startsWith("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/")) {
+        } else if (line1.startsWith("<!DOCTYPE ldml SYSTEM \"../../common/dtd/")
+                && line2.startsWith("<!DOCTYPE ldml SYSTEM \"../../common/dtd/")) {
           return LINES_SAME;
         }
       }

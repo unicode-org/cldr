@@ -1139,7 +1139,7 @@ public class Misc {
 		PrintWriter log2 = BagFormatter.openUTF8Writer(options[DESTDIR].value + "", 
 				localization.getLocaleID() + "_to_localize.xml");
 		log2.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-		log2.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/" + CLDRFile.GEN_VERSION + "//ldml.dtd\">");
+		log2.println("<!DOCTYPE ldml SYSTEM \"../../common/dtd/ldml.dtd\">");
 		log2.println("<ldml><identity><version number=\"" + CLDRFile.GEN_VERSION + "\"/><generation date=\"2005-01-01\"/><language type=\""
 				+ TransliteratorUtilities.toXML.transliterate(localization.getLocaleID())+"\"/></identity>");
 		log2.println("<!-- The following are strings that are not found in the locale (currently), " +

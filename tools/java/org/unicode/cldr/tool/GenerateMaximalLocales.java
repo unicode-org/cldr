@@ -825,7 +825,7 @@ public class GenerateMaximalLocales {
     String spacing = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t" : " ";
     String header = OUTPUT_STYLE != OutputStyle.XML ? "const MapToMaximalSubtags default_subtags[] = {"
             : "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" + Utility.LINE_SEPARATOR
-              + "<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/dtd/1.7/ldmlSupplemental.dtd\">" + Utility.LINE_SEPARATOR
+              + "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">" + Utility.LINE_SEPARATOR
               + "<supplementalData>" + Utility.LINE_SEPARATOR
               + "    <version number=\"$Revision$\"/>" + Utility.LINE_SEPARATOR
               + "    <generation date=\"$Date$\"/>" + Utility.LINE_SEPARATOR

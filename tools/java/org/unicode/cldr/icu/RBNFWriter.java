@@ -90,7 +90,7 @@ public class RBNFWriter {
             sdf.applyPattern("yyyy/MM/dd HH:mm:ss");
 
         }
-        out.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.7/ldml.dtd\">");
+        out.println("<!DOCTYPE ldml SYSTEM \"../../common/dtd/ldml.dtd\">");
         out.println("<ldml>");
         out.println("    <identity>");
         out.println("        <version number=\"$Revision$\"/>");

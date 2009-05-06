@@ -388,7 +388,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
     pw.println("<!DOCTYPE " 
         + (isNonInheriting() ? "supplementalData" : "ldml")  
-        + " SYSTEM \"http://www.unicode.org/cldr/dtd/" + GEN_VERSION + "/ldml" 
+        + " SYSTEM \"../../common/dtd/ldml" 
         + (isNonInheriting() ? "Supplemental" : "")
         + ".dtd\">");
     /*

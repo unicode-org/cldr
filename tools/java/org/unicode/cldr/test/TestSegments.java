@@ -59,7 +59,7 @@ public class TestSegments {
 	public static void main(String[] args) throws IOException {
     Log.setLogNoBOM(Utility.GEN_DIRECTORY + "/segments/root.xml");
     Log.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-    Log.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.6/ldml.dtd\">");
+    Log.println("<!DOCTYPE ldml SYSTEM \"../../common/dtd/ldml.dtd"\">");
     Log.println("<ldml>");
     Log.println("\t<identity>");
     Log.println("\t\t<version number=\"$Revision$\"/>");

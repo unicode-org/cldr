@@ -1144,7 +1144,6 @@ public class ICU2LDMLWriter extends CLDRConverterTool
 		String key = bund.getKey();
 		if(key.equals(LDMLConstants.FALLBACK))
 		{
-			//<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 			curXPath += SEP + LDMLConstants.INTVL_FMT_FALL;  
 			xfile.add(curXPath, bund.getString(key));
 		}

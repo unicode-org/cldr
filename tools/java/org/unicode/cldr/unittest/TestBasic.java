@@ -68,12 +68,13 @@ public class TestBasic extends TestFmwk {
   private boolean pretty = Utility.getProperty("pretty", true);
 
   public void TestDtds() throws IOException {
-    checkDtds(mainDirectory);
-    checkDtds(commonDirectory + "/supplemental");
     checkDtds(commonDirectory + "/collation");
+    checkDtds(commonDirectory + "/main");
+    checkDtds(commonDirectory + "/rbnf");
     checkDtds(commonDirectory + "/segments");
-    checkDtds(commonDirectory + "/test");
+    checkDtds(commonDirectory + "/supplemental");
     checkDtds(commonDirectory + "/transforms");
+    checkDtds(commonDirectory + "/../test");
   }
 
   private void checkDtds(String directory) throws IOException {

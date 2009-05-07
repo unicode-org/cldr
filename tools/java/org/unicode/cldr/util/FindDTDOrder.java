@@ -67,15 +67,21 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
           FileInputStream fis;
           InputSource is;
           me.recordingAttributeElements = true;
-          fis = new FileInputStream(Utility.MAIN_DIRECTORY + "/root.xml");
+          String filename = Utility.MAIN_DIRECTORY + "/root.xml";
+          fis = new FileInputStream(filename);
           is = new InputSource(fis);
+          is.setSystemId(filename);
           xmlReader.parse(is);
+          fis.close();
   
           me.recordingAttributeElements = false;
-          fis = new FileInputStream(Utility.SUPPLEMENTAL_DIRECTORY
-              + "/supplementalData.xml");
+          filename = Utility.SUPPLEMENTAL_DIRECTORY
+              + "/supplementalData.xml";
+          fis = new FileInputStream(filename);
           is = new InputSource(fis);
+          is.setSystemId(filename);
           xmlReader.parse(is);
+          fis.close();
           me.attributeList = Collections.unmodifiableList(new ArrayList(me.attributeSet));
           me.checkData();
           me.orderingList = Collections.unmodifiableList(me.orderingList);

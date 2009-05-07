@@ -406,7 +406,11 @@ public class GenerateSidewaysView {
         File f = new File(dir, filename + ".xml");
         System.out.println("Parsing: " + f.getCanonicalPath());
         log.println("Parsing: " + f.getCanonicalPath());
-        xmlReader.parse(new InputSource(new FileInputStream(f)));
+        final FileInputStream fileInputStream = new FileInputStream(f);
+        final InputSource is = new InputSource(fileInputStream);
+        is.setSystemId(f.getCanonicalPath());
+        xmlReader.parse(is);
+        fileInputStream.close();
         //SAX.parse(f, DEFAULT_HANDLER);
     }
 

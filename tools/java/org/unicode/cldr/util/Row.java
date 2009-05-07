@@ -60,13 +60,13 @@ public class Row<C0 extends Comparable, C1 extends Comparable, C2 extends Compar
     return (C0) items[0];
   }
   public Row set1(C1 item) {
-    return (Row) set(0, item);
+    return (Row) set(1, item);
   }
   public C1 get1() {
     return (C1) items[1];
   }
   public Row set2(C2 item) {
-    return (Row) set(1, item);
+    return (Row) set(2, item);
   }
   public C2 get2() {
     return (C2) items[2];
@@ -78,7 +78,7 @@ public class Row<C0 extends Comparable, C1 extends Comparable, C2 extends Compar
     return (C3) items[3];
   }
   public Row set4(C4 item) {
-    return (Row) set(3, item);
+    return (Row) set(4, item);
   }
   public C4 get4() {
     return (C4) items[4];

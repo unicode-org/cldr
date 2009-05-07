@@ -215,7 +215,7 @@ public class CLDRModify {
 				//System.out.println("C:\\ICU4C\\locale\\common\\main\\fr.xml");
 				
 				CLDRFile k = (CLDRFile) cldrFactory.make(test, makeResolved).cloneAsThawed();
-				if (k.isNonInheriting()) continue; // for now, skip supplementals
+				//if (k.isNonInheriting()) continue; // for now, skip supplementals
 				if (DEBUG_PATHS != null) {
 					System.out.println("Debug1 (" + test + "):\t" + k.toString(DEBUG_PATHS));
 				}

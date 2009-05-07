@@ -91,11 +91,12 @@ public class QuickCheck {
   }
   
   private static void checkDtds() throws IOException {
-    checkDtds(mainDirectory);
     checkDtds(commonDirectory + "supplemental");
     checkDtds(commonDirectory + "collation");
+    checkDtds(commonDirectory + "main");
+    checkDtds(commonDirectory + "rbnf");
     checkDtds(commonDirectory + "segments");
-    checkDtds(commonDirectory + "test");
+    checkDtds(commonDirectory + "../test");
     checkDtds(commonDirectory + "transforms");
   }
   

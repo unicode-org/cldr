@@ -97,9 +97,8 @@ public class GenerateCldrTests {
       UOption.HELP_H(),
       UOption.HELP_QUESTION_MARK(),
       UOption.SOURCEDIR().setDefault(Utility.COMMON_DIRECTORY),
-      UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "test/"),
-      UOption.create("log", 'l', UOption.REQUIRES_ARG).setDefault(
-          Utility.GEN_DIRECTORY + "test/"),
+      UOption.DESTDIR().setDefault(Utility.BASE_DIRECTORY + "test/"),
+      UOption.create("log", 'l', UOption.REQUIRES_ARG).setDefault(Utility.GEN_DIRECTORY),
       UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
       UOption.create("notresolved", 'n', UOption.NO_ARG),
       UOption.create("languages", 'g', UOption.NO_ARG),
@@ -107,6 +106,8 @@ public class GenerateCldrTests {
           Utility.UTIL_DATA_DIR),
       // "C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
       UOption.create("show", 's', UOption.NO_ARG), };
+
+  private static final String VERSION = CLDRFile.GEN_VERSION;
 
   GenerateCldrCollationTests cldrCollations;
 
@@ -354,10 +355,12 @@ public class GenerateCldrTests {
   private void generate(ULocale locale) throws Exception {
     out = BagFormatter.openUTF8Writer(options[DESTDIR].value, locale + ".xml");
     out.println("<?xml version='1.0' encoding='UTF-8' ?>");
-    out
-        .println("<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>");
+    out.println(
+                //"<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>" +
+        		"<!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>");
     out.println("<!-- For information, see readme.html -->");
-    out.println(" <cldrTest version='1.5' base='" + locale + "'>");
+    out.println(" <cldrTest version='" + VERSION + 
+    		"' base='" + locale + "'>");
     out.println(" <!-- "
         + TransliteratorUtilities.toXML.transliterate(locale
             .getDisplayName(ULocale.ENGLISH)

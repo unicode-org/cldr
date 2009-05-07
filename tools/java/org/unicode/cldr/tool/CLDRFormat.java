@@ -28,7 +28,11 @@ public class CLDRFormat {
     String filter = Utility.getProperty("filter", ".*");
     Matcher matcher = Pattern.compile(filter).matcher("");
     File src = new File(Utility.COMMON_DIRECTORY);
-    File dest = new File(Utility.GEN_DIRECTORY + "common/");
+    File dest = new File(Utility.BASE_DIRECTORY + "/common-test/");
+    File dtd = new File(dest + "/main/" + "../../common/dtd/ldmlSupplemental.dtd");
+    if (!dtd.exists()) {
+      throw new IllegalArgumentException("Can't access DTD\nas is: " + dtd + "\ncanonical: " + dtd.getCanonicalPath());
+    }
     //Log.setLog(Utility.GEN_DIRECTORY + "logCldr.txt");
     for (String subDir : src.list()) {
       if (subDir.equals("CVS") || subDir.equals("posix") || subDir.equals("test")) continue;
@@ -44,22 +48,25 @@ public class CLDRFormat {
           continue;
         }
         CLDRFile cldrFile = cldrFactory.make(key, false);
-        StringWriter stringWriter = new StringWriter();
-        PrintWriter pw = new PrintWriter(stringWriter);
-        cldrFile.write(pw);
-        pw.flush();
-        final String results = stringWriter.toString();
-        pw.close();
         
         // write
         PrintWriter out = BagFormatter.openUTF8Writer(destSubdir, key + ".xml");
-        out.write(results);
+        cldrFile.write(out);
         out.close();
+        
+//        StringWriter stringWriter = new StringWriter();
+//        PrintWriter pw = new PrintWriter(stringWriter);
+//        cldrFile.write(pw);
+//        pw.flush();
+//        final String results = stringWriter.toString();
+//        pw.close();
+
         
         // check
         try {
-          byte[] utf8 = results.getBytes("utf-8");
-          CLDRFile regenFile = CLDRFile.make(key, key, new ByteArrayInputStream(utf8), DraftStatus.unconfirmed);
+          //byte[] utf8 = results.getBytes("utf-8");
+          //CLDRFile regenFile = CLDRFile.make(destSubdir + key, key, new ByteArrayInputStream(utf8), DraftStatus.unconfirmed);
+          CLDRFile regenFile = CLDRFile.make(key, destSubdir + key, DraftStatus.unconfirmed);
           String diff = findFirstDifference(cldrFile, regenFile);
           if (diff != null) {
             System.out.println("\tERROR: difference introduced in reformatting " + srcSubdir + "/" + key + ".xml" + "\n" + diff);

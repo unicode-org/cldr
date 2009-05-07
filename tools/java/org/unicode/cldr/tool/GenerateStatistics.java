@@ -53,7 +53,7 @@ class GenerateStatistics {
 		
 		PrintWriter logHtml = BagFormatter.openUTF8Writer(
 				logDir,
-				"log.html");
+				"test_generation_log.html");
 		String dir = logDir + "main" + File.separator;
 		//DraftChecker dc = new DraftChecker(dir);
 		english = factory.make("en", true);

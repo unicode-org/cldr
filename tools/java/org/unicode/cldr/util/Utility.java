@@ -122,7 +122,7 @@ public class Utility {
   public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = getPath(COMMON_DIRECTORY , "supplemental/");
   public static final String GEN_DIRECTORY = getPath(BASE_DIRECTORY , "dropbox/gen/");
   public static final String CHART_DIRECTORY = getPath(BASE_DIRECTORY ,  "diff/");
-  public static final String TEST_DIR = getPath(Utility.COMMON_DIRECTORY,  "test/");
+  public static final String TEST_DIR = getPath(Utility.BASE_DIRECTORY,  "test/");
 
 
   /** If the generated BAT files are to work, this needs to be set right */
@@ -1360,5 +1360,11 @@ public class Utility {
       result.append('0');
     }
     return result.append(hex);
+  }
+
+  public static <T> boolean equals(T value, T oldValue) {
+    return value == null ? 
+            oldValue == null ? true : false : 
+              oldValue == null ? false : value.equals(oldValue);
   }
 }

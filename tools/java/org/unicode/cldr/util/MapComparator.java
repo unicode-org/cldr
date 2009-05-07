@@ -18,10 +18,17 @@ import java.util.TreeMap;
 import java.util.Collection;
 
 
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.ULocale;
 
 public class MapComparator<K> implements Comparator<K>, Freezable {
+  private RuleBasedCollator uca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+  {
+    uca.setNumericCollation(true);
+  }
   private Map<K,Integer> ordering = new TreeMap<K,Integer>(); // maps from name to rank
   private List<K> rankToName = new ArrayList<K>();
   private boolean errorOnMissing = true;
@@ -129,10 +136,24 @@ public class MapComparator<K> implements Comparator<K>, Freezable {
     // must handle halfway case, otherwise we are not transitive!!!
     if (!anumeric && bnumeric) return 1;
     if (anumeric && !bnumeric) return -1;
+    
+    if (a instanceof String) {
+      if (b instanceof String) {
+        int result = uca.compare(a, b);
+        if (result != 0) {
+          return result;
+        }
+      } else {
+        return 1; // handle for transitivity
+      }
+    } else {
+      return -1; // handle for transitivity
+    }
 
     // do fallback
     return ((Comparable)a).compareTo(b);
   }
+  
   public String toString() {
     StringBuffer buffer = new StringBuffer();
     boolean isFirst = true;

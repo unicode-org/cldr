@@ -178,14 +178,14 @@
                 <rbnfrule value="11000000000000000" radix="1,000">←%%spellout-cardinal-masculine← kvadriljun[→%%and-typeA-masculine→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-masculine-prefixpart">
+            <ruleset type="spellout-cardinal-masculine-prefixpart" allowsParsing="false">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">←%%spellout-cardinal-masculine← punt →%%zz-fraction-masculine→ ;</rbnfrule>
                 <rbnfrule value="0">żero ;</rbnfrule>
                 <rbnfrule value="1">;</rbnfrule>
                 <rbnfrule value="2">=%%spellout-cardinal-masculine-prefx= ;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-masculine-postfixpart">
+            <ruleset type="spellout-cardinal-masculine-postfixpart" allowsParsing="false">
                 <rbnfrule value="-x">→→;</rbnfrule>
                 <rbnfrule value="x.x">;</rbnfrule>
                 <rbnfrule value="0">;</rbnfrule>
@@ -303,14 +303,14 @@
                 <rbnfrule value="11000000000000000" radix="1,000">←%%spellout-cardinal-masculine← kvadriljun[→%%and-typeA-feminine→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-feminine-prefixpart">
+            <ruleset type="spellout-cardinal-feminine-prefixpart" allowsParsing="false">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">←%%spellout-cardinal-feminine← punt →%%zz-fraction-feminine→ ;</rbnfrule>
                 <rbnfrule value="0">żero ;</rbnfrule>
                 <rbnfrule value="1">;</rbnfrule>
                 <rbnfrule value="2">=%%spellout-cardinal-feminine-prefx= ;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-feminine-postfixpart">
+            <ruleset type="spellout-cardinal-feminine-postfixpart" allowsParsing="false">
                 <rbnfrule value="-x">→→;</rbnfrule>
                 <rbnfrule value="x.x">;</rbnfrule>
                 <rbnfrule value="0">;</rbnfrule>

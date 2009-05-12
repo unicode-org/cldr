@@ -54,14 +54,14 @@
                 <rbnfrule value="2000000000000000">←%%spellout-numbering-m← بليار[ →%spellout-numbering→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-feminine-prefixpart">
+            <ruleset type="spellout-cardinal-feminine-prefixpart" allowsParsing="false">
                 <rbnfrule value="-x">ناقص →→;</rbnfrule>
                 <rbnfrule value="x.x">←%spellout-numbering← فاصلة →%%zz-fraction-feminine→ ;</rbnfrule>
                 <rbnfrule value="0">صفر ;</rbnfrule>
                 <rbnfrule value="1">;</rbnfrule>
                 <rbnfrule value="3">=%%spellout-cardinal-feminine-prefx= ;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-feminine-postfixpart">
+            <ruleset type="spellout-cardinal-feminine-postfixpart" allowsParsing="false">
                 <rbnfrule value="-x">→→;</rbnfrule>
                 <rbnfrule value="x.x">;</rbnfrule>
                 <rbnfrule value="0">;</rbnfrule>
@@ -153,14 +153,14 @@
                 <rbnfrule value="2000000000000000">←%%spellout-numbering-m← بليار[ →%%spellout-numbering-m→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-masculine-prefixpart">
+            <ruleset type="spellout-cardinal-masculine-prefixpart" allowsParsing="false">
                 <rbnfrule value="-x">ناقص →→;</rbnfrule>
                 <rbnfrule value="x.x">←%%spellout-numbering-m← فاصلة →%%zz-fraction-masculine→ ;</rbnfrule>
                 <rbnfrule value="0">صفر ;</rbnfrule>
                 <rbnfrule value="1">;</rbnfrule>
                 <rbnfrule value="3">=%%spellout-cardinal-masculine-prefx= ;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-masculine-postfixpart">
+            <ruleset type="spellout-cardinal-masculine-postfixpart" allowsParsing="false">
                 <rbnfrule value="-x">→→;</rbnfrule>
                 <rbnfrule value="x.x">;</rbnfrule>
                 <rbnfrule value="0">;</rbnfrule>

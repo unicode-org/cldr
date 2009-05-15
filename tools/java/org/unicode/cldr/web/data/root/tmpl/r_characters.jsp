@@ -12,6 +12,6 @@
 subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
 
 // Display a limited range of data
-SurveyForum.showXpath(subCtx, "//ldml/characters/exemplarCharacters", "//ldml/characters/exemplarCharacters");
+SurveyForum.showXpathShort(subCtx, "//ldml/characters/exemplarCharacters", "//ldml/characters/exemplarCharacters");
 
 %>

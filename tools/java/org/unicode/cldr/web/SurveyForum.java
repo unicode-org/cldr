@@ -574,6 +574,31 @@ public class SurveyForum {
 //        ctx.printHelpHtml(section, item_xpath);
     }
 
+    public static void showXpathShort(WebContext baseCtx, String section_xpath, int item_xpath) {
+        String base_xpath = section_xpath;
+        CLDRLocale loc = baseCtx.getLocale();
+        WebContext ctx = new WebContext(baseCtx);
+        ctx.setLocale(loc);
+        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
+        String podBase = DataSection.xpathToSectionBase(section_xpath);
+        baseCtx.sm.printPathListOpen(ctx);
+        
+        DataSection section = ctx.getSection(podBase);
+        
+        baseCtx.sm.printSectionTableOpenShort(ctx, section);
+
+ // TODO:  We need a different function here that only shows what we need.
+        baseCtx.sm.showPeas(ctx, section, canModify, item_xpath, true);
+
+        baseCtx.sm.printSectionTableClose(ctx, section);
+        baseCtx.sm.printPathListClose(ctx);
+        
+    }
+
+    public static void showXpathShort(WebContext baseCtx, String section_xpath, String item_xpath) {
+        showXpathShort(baseCtx, section_xpath, baseCtx.sm.xpt.getByXpath(item_xpath));
+    }
+
     public static void showXpath(WebContext baseCtx, String section_xpath, String item_xpath) {
         showXpath(baseCtx, section_xpath, baseCtx.sm.xpt.getByXpath(item_xpath));
     }

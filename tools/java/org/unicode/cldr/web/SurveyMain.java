@@ -6583,6 +6583,16 @@ public class SurveyMain extends HttpServlet {
         }
     }
 
+    static void printSectionTableOpenShort(WebContext ctx, DataSection section) {
+        ctx.println("<a name='st_data'></a>");
+        ctx.println("<table summary='Data Items for "+ctx.getLocale().toString()+" " + section.xpathPrefix + "' class='data' border='0'>");
+            ctx.println("<tr class='headingb'>\n"+
+                        " <th colspan='1' width='50%'>"+BASELINE_NAME+"</th>\n"+              // 3
+                        " <th colspan='2' width='50%'>Your Language</th>\n");  // 8
+
+        ctx.println("</tr>");
+    }
+
     void printSectionTableClose(WebContext ctx, DataSection section) {
         List<String> refsList = (List<String>) ctx.temporaryStuff.get("references");
         if((refsList != null) && (!refsList.isEmpty())) {

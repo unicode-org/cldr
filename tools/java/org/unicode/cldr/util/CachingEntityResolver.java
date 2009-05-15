@@ -26,6 +26,7 @@ import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 
 
 // SAX2 imports
@@ -127,10 +128,31 @@ public class CachingEntityResolver implements EntityResolver {
         if(theCache!=null) {
             int i;
 
-            StringBuffer systemNew = new StringBuffer(systemId);
-            if(systemId.startsWith("file:")) {
-                return null;
+            if(systemId.startsWith("/")) {
+                File xFile = new File(systemId);
+                if(xFile.canRead()) {
+                	String newUrl;
+					try {
+						newUrl = xFile.toURL().toString();
+	                	if(gDebug) System.err.println("CRE: redir to " + newUrl);
+	                	
+	                	InputSource is =  new InputSource(newUrl);
+	                	is.setEncoding("UTF8");
+	                	return is;
+					} catch (MalformedURLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+                }
             }
+            if(systemId.startsWith("file:") || !systemId.startsWith("http://")) {
+                File xFile = new File(systemId);
+//                if(xFile.canRead()) {
+                	return new InputSource(systemId);
+  //              }
+    //            return null;
+            }
+            StringBuffer systemNew = new StringBuffer(systemId);
 //          char c = systemNew.charAt(0);
 //          if((c=='.')||(c=='/')) {
 //              return null;
@@ -176,7 +198,7 @@ public class CachingEntityResolver implements EntityResolver {
                         }
                     }
                 }
-
+                
                 if(aDebug) {
                     System.out.println(t.getPath() + " doesn't exist. fetching.");
                 }

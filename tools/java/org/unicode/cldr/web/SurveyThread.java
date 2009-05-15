@@ -16,7 +16,7 @@ public class SurveyThread extends Thread {
 	/**
 	 * Are we still running?
 	 */
-	boolean doRunRun = true;
+	boolean surveyThreadIsRunning = true;
 	
 	/**
 	 * @author srl
@@ -61,7 +61,7 @@ public class SurveyThread extends Thread {
 		 * @return
 		 */
 		public boolean running() {
-			return taskRunning && theThread.doRunRun;
+			return taskRunning && theThread.surveyThreadIsRunning;
 		}
 		
 		/**
@@ -101,7 +101,7 @@ public class SurveyThread extends Thread {
 	 * The current state of the thread.
 	 */
 	public String toString() {
-		return "{ST Threads: Tasks waiting:"+tasksRemaining()+", Current:"+current+", Running:"+doRunRun+"}";
+		return "{ST Threads: Tasks waiting:"+tasksRemaining()+", Current:"+current+", Running:"+surveyThreadIsRunning+"}";
 	}
 	
 	/**
@@ -131,31 +131,31 @@ public class SurveyThread extends Thread {
 	 * The main run loop.  Perform tasks or wait.
 	 */
 	public void run() {
-		if(DEBUG) System.err.println("SrTh: Bootation.");
+		if(DEBUG) System.err.println("SurveyThread: Bootation.");
 		setName();
-		while(this.doRunRun) {
+		while(this.surveyThreadIsRunning) {
 			try {
-				if(DEBUG) System.err.println("SrTh: Abt to take (count:"+tasksRemaining()+"):");
+				if(DEBUG) System.err.println("SurveyThread: About to take from queue (count:"+tasksRemaining()+"):");
 				current = tasks.take();
 				setName();
-				if(DEBUG) System.err.println("SrTh: Got: " + current);
+				if(DEBUG) System.err.println("SurveyThread: Got: " + current);
 				current.theThread=this; // set the back pointer
 			} catch (InterruptedException e) {
-				if(DEBUG) System.err.println("SrTh: Interrupted- running="+doRunRun);
+				if(DEBUG) System.err.println("SurveyThread: Interrupted- running="+surveyThreadIsRunning);
 			}
 		    if(current!=null) try {
-				if(DEBUG) System.err.println("SrTh(count:"+tasksRemaining()+"): Abt to run: "+current);
+				if(DEBUG) System.err.println("SurveyThread(count:"+tasksRemaining()+"): About to run: "+current);
 		    	current.run();
-				if(DEBUG) System.err.println("SrTh(count:"+tasksRemaining()+"): Done running : "+current);
+				if(DEBUG) System.err.println("SurveyThread(count:"+tasksRemaining()+"): Done running : "+current);
 		    } catch(Throwable t) {
-				if(DEBUG) System.err.println("SrTh(count:"+tasksRemaining()+"): Got exception on: "+current + " - "+t.toString());
+				if(DEBUG) System.err.println("SurveyThread(count:"+tasksRemaining()+"): Got exception on: "+current + " - "+t.toString());
 		        t.printStackTrace();
 //		        SurveyMain.busted("While working on task " + current + " - "+t.toString(), t);
 		    }
 			current = null; /* done. */
 			setName();
 		}
-		if(DEBUG) System.err.println("SrTh(count:"+tasksRemaining()+"): bye-bye!");
+		if(DEBUG) System.err.println("SurveyThread(count:"+tasksRemaining()+"): exitting!");
 	}
 	
 	/**
@@ -183,10 +183,11 @@ public class SurveyThread extends Thread {
      * Request the ST to stop at its next available opportunity.
      */
     public void requestStop() {
-		doRunRun = false;  // shutdown the next time through
+		surveyThreadIsRunning = false;  // shutdown the next time through
     	addTask(new SurveyTask("shutdown") {
     		public void run() throws Throwable {
-    			System.err.println("Shutdown task: bye!");
+    			System.err.println("Shutdown task: stop requested!");
+    			// add other items here.
     		}
     	});
     }
@@ -195,7 +196,7 @@ public class SurveyThread extends Thread {
      * 
      */
     public void interruptStop() {
-    	doRunRun = false;
+    	surveyThreadIsRunning = false;
     	this.interrupt();
     }	
 	

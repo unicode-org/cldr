@@ -2098,9 +2098,9 @@ public class SurveyMain extends HttpServlet {
             	out.println("<b>Processing:"+threadInfo+"</b><br>");
             }
             if(progressWhat != null) {
-                ctx.print("<div class='specialHeader'>SurveyTool may be busy: <br>");
-                showProgress(ctx);
-                ctx.print("</div><br>");
+                out.print("<div class='specialHeader'>SurveyTool may be busy: <br>");
+                out.println(getProgress());
+                out.print("</div><br>");
             }
         }
     }
@@ -8909,7 +8909,7 @@ public class SurveyMain extends HttpServlet {
             updateProgress(nn++, "Setup cache..");
     
             File cacheDir = new File(cldrHome, "cache");
-        //    logger.info("Cache Dir: " + cacheDir.getAbsolutePath() + " - creating and emptying..");
+       //     logger.info("Cache Dir: " + cacheDir.getAbsolutePath() + " - creating and emptying..");
             CachingEntityResolver.setCacheDir(cacheDir.getAbsolutePath());
             CachingEntityResolver.createAndEmptyCacheDir();
 
@@ -9236,7 +9236,7 @@ public class SurveyMain extends HttpServlet {
         if(t instanceof SQLException) {
             busted(what, (SQLException)t);
         } else {
-            busted(what, t, t.toString());
+            busted(what, t, getThrowableStack(t));
         }
     }
     
@@ -9673,6 +9673,17 @@ public class SurveyMain extends HttpServlet {
         }
         updateProgress(nn++, " DB setup complete."); // restore
     }    
+    
+    public static final String getThrowableStack(Throwable t) {
+        try {
+            StringWriter asString = new StringWriter();
+            t.printStackTrace(new PrintWriter(asString));
+            return asString.toString();
+        } catch ( Throwable tt ) {
+        	tt.printStackTrace();
+            return("[[unable to get stack: "+tt.toString()+"]]");
+        }
+    }
 
     public static final String unchainSqlException(SQLException e) {
         String echain = "SQL exception: \n ";
@@ -9906,7 +9917,7 @@ public class SurveyMain extends HttpServlet {
             sm.doStartupDB();
             System.out.println("DB started.");
             if(isBusted != null)  {
-                System.err.println("Bustification: " + isBusted);
+                System.err.println("Survey Tool is down: " + isBusted);
                 return;
             }
             

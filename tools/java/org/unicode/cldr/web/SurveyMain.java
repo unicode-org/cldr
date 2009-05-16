@@ -7958,11 +7958,11 @@ public class SurveyMain extends HttpServlet {
         
 		
 
-        if(zoomedIn) {
+		if (zoomedIn && (phase()!=Phase.SUBMIT) && (phase()!=Phase.BETA)) {
 	    
 	    long totals[] = new long[numberedItemsList.size()];
 	    for(int j=0;j<totals.length;j++) {
-		totals[j]=0;
+	    	totals[j]=0;
 	    }
 
 	    ctx.print("<tr>");

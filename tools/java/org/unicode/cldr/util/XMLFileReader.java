@@ -282,8 +282,7 @@ public class XMLFileReader {
     // removed "org.apache.crimson.parser.XMLReaderImpl" as this one gets
     // confused regarding UTF-8 encoding name.
     String[] testList = {
-            "org.apache.xerces.parsers.SAXParser",
-            "",
+    		System.getProperty("CLDR_DEFAULT_SAX_PARSER", ""),  // defaults to "", system default.
             "org.apache.xerces.parsers.SAXParser",
             "gnu.xml.aelfred2.XmlReader",
             "com.bluecast.xml.Piccolo",
@@ -297,9 +296,7 @@ public class XMLFileReader {
                 : XMLReaderFactory.createXMLReader();
         result.setFeature("http://xml.org/sax/features/validation", validating);
         break;
-      } catch (SAXException e1) {
-    	  if(true) System.err.println("Not using parser " + testList[i]+ " - " + e1.toString());
-      }
+      } catch (SAXException e1) { }
     }
     if (result == null) throw new NoClassDefFoundError("No SAX parser is available, or unable to set validation correctly");
     try {

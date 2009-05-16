@@ -23,6 +23,7 @@ import com.ibm.icu.util.ULocale;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 
 import org.unicode.cldr.util.*;
+import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.test.CheckCLDR;
 
 import com.sun.syndication.feed.synd.*;
@@ -587,8 +588,9 @@ public class SurveyForum {
         
         baseCtx.sm.printSectionTableOpenShort(ctx, section);
 
- // TODO:  We need a different function here that only shows what we need.
-        baseCtx.sm.showPeas(ctx, section, canModify, item_xpath, true);
+        ctx.put(WebContext.CAN_MODIFY, canModify);
+        ctx.put(WebContext.ZOOMED_IN, true);
+        baseCtx.sm.showPeasShort(ctx, section, item_xpath);
 
         baseCtx.sm.printSectionTableClose(ctx, section);
         baseCtx.sm.printPathListClose(ctx);
@@ -1128,7 +1130,18 @@ public class SurveyForum {
     } 
     
        
+    /**
+     * @deprecated section is not needed.
+     * @param ctx
+     * @param section
+     * @param p
+     * @param xpath
+     * @param contents
+     */
     void showForumLink(WebContext ctx, DataSection section, DataSection.DataRow p, int xpath, String contents) {
+    	showForumLink(ctx, p, xpath, contents);
+    }
+    void showForumLink(WebContext ctx, DataSection.DataRow p, int xpath, String contents) {
         //if(ctx.session.user == null) {     
         //    return; // no user?
         //}
@@ -1137,15 +1150,15 @@ public class SurveyForum {
             title = " (not on your interest list)";
         }*/
 //        title = null /*+ title*/;
-        ctx.println("<a target='"+ctx.atarget("n:"+ctx.getLocale())+"' class='forumlink' href='"+forumUrl(ctx,section,p,xpath)+"' >" // title='"+title+"'
+        ctx.println("<a target='"+ctx.atarget("n:"+ctx.getLocale())+"' class='forumlink' href='"+forumUrl(ctx,p,xpath)+"' >" // title='"+title+"'
             +contents+ "</a>");
     }
     void showForumLink(WebContext ctx, DataSection section, DataSection.DataRow p, int xpath) {
             showForumLink(ctx,section,p,xpath,ctx.iconHtml("zoom","zoom"));
     }
     // "link" UI
-    static public String forumUrl(WebContext ctx, DataSection section, DataSection.DataRow p, int xpath) {
-        return ctx.base()+"?_="+ctx.getLocale()+"&"+F_FORUM+"="+section.intgroup+"&"+F_XPATH+"="+xpath;
+    static public String forumUrl(WebContext ctx, DataSection.DataRow p, int xpath) {
+        return ctx.base()+"?_="+ctx.getLocale()+"&"+F_FORUM+"="+p.getIntgroup()+"&"+F_XPATH+"="+xpath;
     }
     static public String localeToForum(String locale) {
         return localeToForum(new ULocale(locale));
@@ -1427,7 +1440,6 @@ public boolean doFeed(HttpServletRequest request, HttpServletResponse response)
         return  "<a href='"+feedUrl+"&feed=rss_2.0"+"'>"+ctx.iconHtml("feed","RSS 2.0")+"RSS 2.0</a>"; /* | " +
                 "<a href='"+feedUrl+"&feed=rss_2.0"+"'>"+ctx.iconHtml("feed","RSS 1.0")+"RSS 1.0</a>"; */
             
-    }
-    
+    }    
 }
 

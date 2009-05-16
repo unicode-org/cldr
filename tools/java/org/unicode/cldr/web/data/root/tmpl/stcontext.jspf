@@ -6,6 +6,8 @@
      WebContext ctx = WebContext.fromRequest(request,response,out);
 
 // may not be set
-    DataSection dataSection = (DataSection)ctx.get("DataSection");
-    Boolean zoomedIn = (Boolean)ctx.get("zoomedIn");
+    DataSection dataSection = (DataSection)ctx.get(WebContext.DATA_SECTION);
+    DataSection.DataRow dataRow = (DataSection.DataRow)ctx.get(WebContext.DATA_ROW);
+    Boolean zoomedIn = (Boolean)ctx.get(WebContext.ZOOMED_IN);
+    Boolean canModify = (Boolean)ctx.get(WebContext.CAN_MODIFY);
 %>

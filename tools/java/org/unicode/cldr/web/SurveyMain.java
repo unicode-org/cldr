@@ -72,6 +72,7 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
+import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.SurveyThread.SurveyTask;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -6550,8 +6551,8 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<tr><td colspan='"+PODTABLE_WIDTH+"'>");
             // dataitems_header.jspf
             // some context
-            ctx.put("DataSection", section);
-            ctx.put("zoomedIn", new Boolean(zoomedIn));
+            ctx.put(WebContext.DATA_SECTION, section);
+            ctx.put(WebContext.ZOOMED_IN, new Boolean(zoomedIn));
             ctx.includeFragment("dataitems_header.jsp");
             ctx.println("</td></tr>");
         }
@@ -6646,6 +6647,18 @@ public class SurveyMain extends HttpServlet {
     void showPeas(WebContext ctx, DataSection section, boolean canModify, String only_prefix_xpath, boolean zoomedIn) {
         showPeas(ctx, section, canModify, -1, only_prefix_xpath, zoomedIn);
     }
+
+    /**
+     * Show a single item, in a very limited view.
+     * @param ctx
+     * @param section 
+     * @param item_xpath xpath of the one item to show
+     */
+	public void showPeasShort(WebContext ctx, DataSection section,
+			int item_xpath) {
+		DataRow row = section.getDataRow(item_xpath);
+		showDataRowShort(ctx, row);
+	}
 
     /**
      * Caller must hold session sync
@@ -7396,6 +7409,23 @@ public class SurveyMain extends HttpServlet {
     }
 
     /**
+     * Show a row of limited data.
+     * @param ctx
+     * @param row
+     */
+    void showDataRowShort(WebContext ctx, DataRow row) {
+        ctx.put(WebContext.DATA_ROW, row);
+        
+        ExampleContext exampleContext = new ExampleContext();
+        String baseExample = getBaselineExample().getExampleHtml(row.xpath(), row.displayName, ((Boolean)ctx.get(WebContext.ZOOMED_IN))?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT,
+                exampleContext, ExampleType.ENGLISH);
+        
+        ctx.put(WebContext.BASE_EXAMPLE, baseExample);
+        
+        ctx.includeFragment("datarow_short.jsp");
+    }
+
+    /**
      * Show a single pea
      */
     void showDataRow(WebContext ctx, DataSection section, DataSection.DataRow p, String ourDir, UserLocaleStuff uf, CLDRFile cf, 
@@ -7611,27 +7641,9 @@ public class SurveyMain extends HttpServlet {
         if(xfind==base_xpath) {
             ctx.print("<a name='x"+xfind+"'>");
         }
+        
+        printItemTypeName(ctx, p, canModify, zoomedIn, specialUrl);
 
-        {
-            String disputeIcon = "";
-            if(canModify) {
-                if(vet.queryOrgDispute(ctx.session.user.voterOrg(), section.locale, p.base_xpath)) {
-                    disputeIcon = ctx.iconHtml("disp","Vetter Dispute");
-                }
-            }
-            ctx.print("<tt title='"+xpt.getPrettyPath(base_xpath)+"' >");
-            String typeShown = p.type.replaceAll("/","/\u200b");
-            if(!zoomedIn) {
-                if(specialUrl != null) {
-                    ctx.print("<a class='notselected' target='"+ctx.atarget("n:"+ctx.getLocale().toString())+"' href='"+specialUrl+"'>"+typeShown+disputeIcon+"</a>");
-                } else {
-                    fora.showForumLink(ctx,section,p,p.parentRow.base_xpath,typeShown+disputeIcon);
-                }
-            } else {
-                ctx.print(typeShown+disputeIcon);
-            }
-            ctx.print("</tt>");
-        }
         
         if(p.altType != null) {
             ctx.print("<br> ("+p.altType+" alternative)");
@@ -8347,6 +8359,32 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<td></td>");
         }
     }
+    
+    void printItemTypeName(WebContext ctx, DataRow p, boolean canModify, boolean zoomedIn)  {
+    	printItemTypeName(ctx, p, canModify, zoomedIn, null);
+    }
+    void printItemTypeName(WebContext ctx, DataRow p, boolean canModify, boolean zoomedIn, String specialUrl)  {
+        String disputeIcon = "";
+        if(canModify) {
+            if(vet.queryOrgDispute(ctx.session.user.voterOrg(), p.getLocale(), p.base_xpath)) {
+                disputeIcon = ctx.iconHtml("disp","Vetter Dispute");
+            }
+        }
+        ctx.print("<tt title='"+xpt.getPrettyPath(p.base_xpath)+"' >");
+        String typeShown = p.type.replaceAll("/","/\u200b");
+        if(!zoomedIn) {
+            if(specialUrl != null) {
+                ctx.print("<a class='notselected' target='"+ctx.atarget("n:"+ctx.getLocale().toString())+"' href='"+specialUrl+"'>"+typeShown+disputeIcon+"</a>");
+            } else {
+                fora.showForumLink(ctx,p,p.parentRow.base_xpath,typeShown+disputeIcon);
+            }
+        } else {
+            ctx.print(typeShown+disputeIcon);
+        }
+        ctx.print("</tt>");
+    }
+
+    
 
     static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
 

@@ -889,6 +889,11 @@ public class WebContext implements Cloneable {
     }
     
     static final HelpMessages surveyToolHelpMessages = new HelpMessages("test_help_messages.html");
+	public static final String CAN_MODIFY = "canModify";
+	public static final String DATA_SECTION = "DataSection";
+	public static final String ZOOMED_IN = "zoomedIn";
+	public static final String DATA_ROW = "DataRow";
+	public static final String BASE_EXAMPLE = "baseExample";
 
     public void printHelpHtml(String xpath) {
         /*
@@ -978,5 +983,33 @@ public class WebContext implements Cloneable {
 
 	public void setQuery(String k, int v) {
 		setQuery(k, new Integer(v).toString());
+	}
+	
+	// Display Context Data
+	private Boolean canModify = null;
+	private Boolean zoomedIn = null;
+
+	public void setCanModify(boolean canModify) {
+		this.canModify = canModify;
+	}
+	
+	public Boolean canModify() {
+		if(canModify==null) throw new InternalError("canModify()- not set.");
+		return canModify;
+	}
+
+	/**
+	 * @param zoomedIn the zoomedIn to set
+	 */
+	public void setZoomedIn(Boolean zoomedIn) {
+		this.zoomedIn = zoomedIn;
+	}
+
+	/**
+	 * @return the zoomedIn
+	 */
+	public Boolean zoomedIn() {
+		if(canModify==null) throw new InternalError("zoomedIn()- not set.");
+		return zoomedIn;
 	}
 }

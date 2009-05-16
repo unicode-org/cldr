@@ -12,6 +12,7 @@
 package org.unicode.cldr.web;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
+import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.*;
@@ -150,27 +151,13 @@ public class DataSection extends Registerable {
         return fieldHash + p.fieldHash();
     }
 
+    /**
+     * @deprecated use p.xpath()
+     * @param p
+     * @return
+     */
     public String xpath(DataRow p) {
-        String path = xpathPrefix;
-        if(path == null) {
-            throw new InternalError("Can't handle mixed rows with no prefix");
-        }
-        if(p.xpathSuffix == null) {
-            if(p.type != null) {
-                path = path + "[@type='" + p.type +"']";
-            }
-            if(p.altType != null) {
-                path = path + "[@alt='" + p.altType +"']";
-            }
-        } else {
-//            if(p.xpathSuffix.startsWith("[")) {
-                return xpathPrefix +  p.xpathSuffix;
-//            } else {
-//                return xpathPrefix+"/"+p.xpathSuffix;
-//            }
-        }
-        
-        return path;
+    	return p.xpath();
     }
         
     static Collator getOurCollator() {
@@ -359,8 +346,8 @@ public class DataSection extends Registerable {
             return "{DataRow t='"+type+"', n='"+displayName+"', x='"+xpathSuffix+"', item#='"+items.size()+"'}";
         }
         
-        public Set items = new TreeSet(new Comparator() {
-                    public int compare(Object o1, Object o2){
+        public Set<CandidateItem> items = new TreeSet<CandidateItem>(new Comparator<CandidateItem>() {
+                    public int compare(CandidateItem o1, CandidateItem o2){
                         CandidateItem p1 = (CandidateItem) o1;
                         CandidateItem p2 = (CandidateItem) o2;
                         if(p1==p2) { 
@@ -607,15 +594,46 @@ public class DataSection extends Registerable {
         public boolean isName() {
           return NAME_TYPE_PATTERN.matcher(type).matches();
         }
+
+		public CLDRLocale getLocale() {
+			return locale;
+		}
+
+		public String getIntgroup() {
+			return intgroup;
+		}
+
+		public String xpath() {
+	        String path = xpathPrefix;
+	        if(path == null) {
+	            throw new InternalError("Can't handle mixed rows with no prefix");
+	        }
+	        if(xpathSuffix == null) {
+	            if(type != null) {
+	                path = path + "[@type='" + type +"']";
+	            }
+	            if(altType != null) {
+	                path = path + "[@alt='" + altType +"']";
+	            }
+	        } else {
+//		            if(p.xpathSuffix.startsWith("[")) {
+	                return xpathPrefix +  xpathSuffix;
+//		            } else {
+//		                return xpathPrefix+"/"+p.xpathSuffix;
+//		            }
+	        }
+	        
+	        return path;
+		}
         
     }
 
-    Hashtable rowsHash = new Hashtable(); // hashtable of type->Row
+    Hashtable<String, DataRow> rowsHash = new Hashtable<String, DataRow>(); // hashtable of type->Row
  
     /**
      * get all rows.. unsorted.
      */
-    public Collection getAll() {
+    public Collection<DataRow> getAll() {
         return rowsHash.values();
     }
     
@@ -658,8 +676,8 @@ public class DataSection extends Registerable {
         }
         String sortMode = null;
         public boolean canName = true; // can use the 'name' view?
-        public List rows; // list of peas in sorted order
-        public List displayRows; // list of Strings suitable for display
+        public List<DataRow> rows; // list of peas in sorted order
+        public List<DataRow> displayRows; // list of Strings suitable for display
         /**
          * Partitions divide up the peas into sets, such as 'proposed', 'normal', etc.
          * The 'limit' is one more than the index number of the last item.
@@ -668,7 +686,7 @@ public class DataSection extends Registerable {
         
         public Partition partitions[];  // display group partitions.  Might only contain one entry:  {null, 0, <end>}.  Otherwise, contains a list of entries to be named separately
 
-        public DisplaySet(List myRows, List myDisplayRows, String sortMode) {
+        public DisplaySet(List<DataRow> myRows, List<DataRow> myDisplayRows, String sortMode) {
             this.sortMode = sortMode;
             
             rows = myRows;
@@ -698,7 +716,7 @@ public class DataSection extends Registerable {
             */
             
             // fetch partitions..
-            Vector v = new Vector();
+            Vector<Partition> v = new Vector<Partition>();
             if(sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) { // priority
                 Partition testPartitions[] = (SurveyMain.isPhaseSubmit()||SurveyMain.isPhaseVetting())?createSubmitPartitions():
                                                                            createVettingPartitions();
@@ -852,13 +870,13 @@ public class DataSection extends Registerable {
         return aDisplaySet;
     }
     
-    private Hashtable listHash = new Hashtable();  // hash of sortMode->pea
+    private Hashtable<String, List<DataRow>> listHash = new Hashtable<String, List<DataRow>>();  // hash of sortMode->pea
     
     /**
      * get a List of peas, in sorted order 
      */
-    public List getList(String sortMode) {
-        List aList = (List)listHash.get(sortMode);
+    public List<DataRow> getList(String sortMode) {
+        List<DataRow> aList = (List<DataRow>)listHash.get(sortMode);
         if(aList == null) {
             aList = getList(sortMode, null);
         }
@@ -868,7 +886,7 @@ public class DataSection extends Registerable {
         
     public List getList(String sortMode, Pattern matcher) {
     //        final boolean canName = canName;
-        Set newSet;
+        Set<DataRow> newSet;
         
     //                final com.ibm.icu.text.RuleBasedCollator rbc = 
     //                    ((com.ibm.icu.text.RuleBasedCollator)com.ibm.icu.text.Collator.getInstance());
@@ -876,11 +894,11 @@ public class DataSection extends Registerable {
 
         
         if(sortMode.equals(SurveyMain.PREF_SORTMODE_CODE)) {
-            newSet = new TreeSet(COMPARE_CODE);
+            newSet = new TreeSet<DataRow>(COMPARE_CODE);
         } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
-            newSet = new TreeSet(COMPARE_PRIORITY);
+            newSet = new TreeSet<DataRow>(COMPARE_PRIORITY);
         } else if(sortMode.equals(SurveyMain.PREF_SORTMODE_NAME)) {
-            newSet = new TreeSet(COMPARE_NAME);
+            newSet = new TreeSet<DataRow>(COMPARE_NAME);
         } else {
             throw new InternalError("Unknown or unsupported sort mode: " + sortMode);
         }
@@ -1983,6 +2001,21 @@ public class DataSection extends Registerable {
             DataRow superDataRow = getDataRow(type);
             return superDataRow.getSubDataRow(altType);
         }
+    }
+    
+    /**
+     * Linear search for matching item.
+     * @param xpath
+     * @return
+     */
+    public DataRow getDataRow(int xpath) {
+    	// TODO: replace with better sort.
+    	for(DataRow dr : rowsHash.values()) {
+    		if(dr.base_xpath == xpath) {
+    			return dr;
+    		}
+    	}
+    	return null;
     }
     
     void addDataRow(DataRow p) {

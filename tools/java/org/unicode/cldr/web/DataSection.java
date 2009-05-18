@@ -346,6 +346,10 @@ public class DataSection extends Registerable {
             return "{DataRow t='"+type+"', n='"+displayName+"', x='"+xpathSuffix+"', item#='"+items.size()+"'}";
         }
         
+        public String getDisplayName() {
+            return displayName;
+        }
+
         public Set<CandidateItem> items = new TreeSet<CandidateItem>(new Comparator<CandidateItem>() {
                     public int compare(CandidateItem o1, CandidateItem o2){
                         CandidateItem p1 = (CandidateItem) o1;

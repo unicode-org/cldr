@@ -1,7 +1,7 @@
 <%@ include file="stcontext.jspf" %><%-- setup 'ctx' --%>
 
 <tr>
-  <th><%= ctx.get(WebContext.BASE_EXAMPLE) %></th>
+  <th><%= dataRow.getDisplayName() %></th>
   <td><input name="<%= dataRow.fieldHash() %>" value="someNewValue"></td>
  </tr>
  

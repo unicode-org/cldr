@@ -6657,7 +6657,9 @@ public class SurveyMain extends HttpServlet {
 	public void showPeasShort(WebContext ctx, DataSection section,
 			int item_xpath) {
 		DataRow row = section.getDataRow(item_xpath);
-		showDataRowShort(ctx, row);
+                if (row != null) {
+		    showDataRowShort(ctx, row);
+                }
 	}
 
     /**
@@ -7416,12 +7418,6 @@ public class SurveyMain extends HttpServlet {
     void showDataRowShort(WebContext ctx, DataRow row) {
         ctx.put(WebContext.DATA_ROW, row);
         
-        ExampleContext exampleContext = new ExampleContext();
-        String baseExample = getBaselineExample().getExampleHtml(row.xpath(), row.displayName, ((Boolean)ctx.get(WebContext.ZOOMED_IN))?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT,
-                exampleContext, ExampleType.ENGLISH);
-        
-        ctx.put(WebContext.BASE_EXAMPLE, baseExample);
-        
         ctx.includeFragment("datarow_short.jsp");
     }
 
@@ -7970,8 +7966,7 @@ public class SurveyMain extends HttpServlet {
         
 		
 
-		if (zoomedIn && (phase()!=Phase.SUBMIT) && (phase()!=Phase.BETA)) {
-	    
+        if(zoomedIn && !isPhaseSubmit() && !isPhaseBeta()) {
 	    long totals[] = new long[numberedItemsList.size()];
 	    for(int j=0;j<totals.length;j++) {
 	    	totals[j]=0;

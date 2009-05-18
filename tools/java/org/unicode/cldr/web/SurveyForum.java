@@ -601,6 +601,11 @@ public class SurveyForum {
         showXpathShort(baseCtx, section_xpath, baseCtx.sm.xpt.getByXpath(item_xpath));
     }
 
+    public static void showXpathShort(WebContext baseCtx, String item_xpath) {
+        String section_xpath = DataSection.xpathToSectionBase(item_xpath);
+        showXpathShort(baseCtx, section_xpath, baseCtx.sm.xpt.getByXpath(item_xpath));
+    }
+
     public static void showXpath(WebContext baseCtx, String section_xpath, String item_xpath) {
         showXpath(baseCtx, section_xpath, baseCtx.sm.xpt.getByXpath(item_xpath));
     }

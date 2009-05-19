@@ -29,8 +29,12 @@ import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
+import org.unicode.cldr.web.DataSection.DataRow;
+import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
+import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CoverageLevel;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 
@@ -2349,15 +2353,78 @@ if(true == true)    throw new InternalError("removed from use.");
 	}
     
     /**
+     * Abstract interface for handling the results of pod changes.
+     * @author srl
+     *
+     */
+    public interface DataSubmissionResultHandler {
+
+    	/**
+    	 * If nonzero, some results were updated. 
+    	 * @param j
+    	 */
+		void handleResultCount(int j);
+
+		void handleRemoveItem(DataRow p, CandidateItem item, boolean b);
+
+		void handleNoPermission(DataRow p, CandidateItem optionalItem, String string);
+
+		void handleRemoveVote(DataRow p, UserRegistry.User voter, CandidateItem item);
+
+		void handleEmptyChangeto(DataRow p);
+
+		void warnAlreadyVotingFor(DataRow p, CandidateItem item);
+
+		void warnAcceptedAsVoteFor(DataRow p, CandidateItem item);
+
+		void handleNewValue(DataRow p, String choice_v, boolean hadFailures);
+
+		/**
+		 * Error when adding/changing value.
+		 * @param p
+		 * @param status
+		 * @param choice_v
+		 */
+		void handleError(DataRow p, CheckStatus status, String choice_v);
+
+		void handleRemoved(DataRow p);
+
+		void handleVote(DataRow p, int oldVote, int base_xpath);
+
+		void handleUnknownChoice(DataRow p, String choice);
+
+		/**
+		 * Return true if this errored item should NOT be added to the data.
+		 * @param p
+		 * @return
+		 */
+		boolean rejectErrorItem(DataRow p);
+    	
+    };
+    
+    /**
+     * Process all changes with the default result handler.
+     * @param ctx
+     * @param podBase
+     * @return true if any changes were processed.
+     */
+    public boolean processPodChanges(WebContext inputContext, String podBase) {
+    	final WebContext ctx = inputContext;
+    	return processPodChanges(ctx, podBase, new DefaultDataSubmissionResultHandler(ctx));
+    }
+    /**
      * process all changes to this pod
      * @param podBase the XPATH base of a pod, see DataPod.xpathToPodBase
      * @param ctx WebContext of user
+     * @param dsrh result handler
      * @return true if any changes were processed
      */
-    public boolean processPodChanges(WebContext ctx, String podBase) {
+    public boolean processPodChanges(WebContext ctx, String podBase, DataSubmissionResultHandler dsrh) {
         synchronized (ctx.session) {
             // first, do submissions.
             DataSection oldSection = ctx.getExistingSection(podBase);
+            
+//            System.err.println("PPC["+podBase+"] - ges-> " + oldSection);
             
             SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.getLocale());
             CLDRFile cf = uf.cldrfile;
@@ -2373,9 +2440,9 @@ if(true == true)    throw new InternalError("removed from use.");
                 // Set up checks
                 CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make tests happen
             
-                if(sm.processPeaChanges(ctx, oldSection, cf, ourSrc)) {
+                if(sm.processPeaChanges(ctx, oldSection, cf, ourSrc,dsrh)) {
                     int j = sm.vet.updateResults(oldSection.locale); // bach 'em
-                    ctx.println("<br> You submitted data or vote changes, and " + j + " results were updated. As a result, your items may show up under the 'priority' or 'proposed' categories.<br>");
+                    dsrh.handleResultCount(j);
                     return true;
                 }
             }

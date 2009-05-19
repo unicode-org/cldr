@@ -274,6 +274,18 @@ public class DataSection extends Registerable {
 				}
 				return rv;
 			}
+			
+			/**
+			 * Is this a winning (non fallback) item?
+			 * @return
+			 */
+			public boolean isWinner() {
+				String resultXpath = getResultXpath();
+				return ((resultXpath!=null)&&
+			            (this.xpath!=null)&&
+			            (this.xpath.equals(resultXpath))&& // todo: replace string.equals with comparison to item.xpathId . .
+			            !this.isFallback);			
+			}
           
             /* return true if any valid tests were found */
             public boolean setTests(List testList) {
@@ -397,6 +409,10 @@ public class DataSection extends Registerable {
                 myFieldHash = ret;
             }
             return myFieldHash;
+        }
+        
+        public String fullFieldHash() {
+        	return /*section.*/fieldHash + fieldHash();
         }
         
         Hashtable subRows = null;
@@ -628,6 +644,126 @@ public class DataSection extends Registerable {
 	        }
 	        
 	        return path;
+		}
+
+		private String resultXpath = null;
+		private int resultType[] = new int[1];
+		private int resultXpath_id = -1;
+		private boolean errorNoOutcome  = false;
+		
+		public String getResultXpath() {
+			if(resultXpath == null) {
+				int resultType[] = new int[1];
+				int resultXpath_id =  sm.vet.queryResult(locale, base_xpath, resultType);
+				if(resultXpath_id != -1) {
+					resultXpath = sm.xpt.getById(resultXpath_id); 
+				} else {
+					// noWinner = true;
+				}
+				errorNoOutcome = (resultType[0]==Vetting.RES_ERROR)&&(resultXpath_id==-1); // error item - NO result.
+			}
+			return resultXpath;
+		}
+		
+		public int getResultType() {
+			getResultXpath();
+			return resultType[0];
+		}
+		
+		public int getResultXpathId() {
+			getResultXpath();
+			return resultXpath_id;
+		}
+		
+		public boolean getErrorNoOutcome() {
+			getResultXpath();
+			return errorNoOutcome;
+		}
+		
+		public String getWinningValue() {
+			for(CandidateItem i : items) {
+				if(i.isWinner()) {
+					return i.value;
+				}
+			}
+
+			List<CandidateItem> topItems = getCurrentItems();
+			if(topItems==null || topItems.size()<1) {
+				return null;
+			}
+			return topItems.get(0).value;
+		}
+		
+		
+		/**
+		 * Get a list of current CandidateItems for this Row.
+		 * The top item will be the winning value, if any. 
+		 * @return
+		 */
+		public synchronized List<CandidateItem> getCurrentItems() {
+			if(this.currentItems==null) {
+
+				String resultXpath = getResultXpath();
+
+				List<DataSection.DataRow.CandidateItem> currentItems = new ArrayList<DataSection.DataRow.CandidateItem>();
+				List<DataSection.DataRow.CandidateItem> proposedItems = new ArrayList<DataSection.DataRow.CandidateItem>();
+
+				for(Iterator j = items.iterator();j.hasNext();) {
+					DataSection.DataRow.CandidateItem item = (DataSection.DataRow.CandidateItem)j.next();
+					if(
+							(  (item.xpathId == resultXpath_id) ||
+									(resultXpath_id==-1 && item.xpathId==this.base_xpath
+											&& !errorNoOutcome)  ) &&  // do NOT add as current, if vetting said 'no' to current item.
+											!(item.isFallback || (item.inheritFrom != null))) { 
+						currentItems.add(item); 
+					} else {
+						//		    System.err.println("MM: " + p.base_xpath+ "- v:"+item.value+", xp:"+item.xpathId+", result:"+resultXpath_id);
+						proposedItems.add(item);
+					}
+				}
+				// if there is an inherited value available - see if we need to show it.
+				if((inheritedValue != null) &&
+						(inheritedValue.value != null)  // and it isn't a shim
+						/* && p.inheritedValue.pathWhereFound == null */ 
+				/* && !p.inheritedValue.isParentFallback */ ) { // or an alias
+					if(currentItems.isEmpty()) {  // no other current items.. 
+						currentItems.add(inheritedValue); 
+					} else {
+						boolean found = false;
+						for( DataSection.DataRow.CandidateItem i : proposedItems ) {
+							if(inheritedValue.value.equals(i.value)) {
+								found = true;
+							}
+						}
+						if (!found) for( DataSection.DataRow.CandidateItem i : currentItems ) {
+							if(inheritedValue.value.equals(i.value)) {
+								found = true;
+							}
+						}
+						if(!found) {
+							proposedItems.add(inheritedValue);
+						}
+					}
+				}
+				this.currentItems=currentItems;
+				this.proposedItems=proposedItems;
+			}
+			return this.currentItems;
+		}
+		
+		
+		
+		List<CandidateItem> currentItems = null, proposedItems=null;
+
+		/**
+		 * Get a list of proposed items, if any.
+		 */
+		public List<CandidateItem> getProposedItems() {
+			// TODO Auto-generated method stub
+			if(currentItems==null) {
+				getCurrentItems();
+			}
+			return proposedItems;
 		}
         
     }

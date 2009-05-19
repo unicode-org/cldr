@@ -76,6 +76,7 @@ import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.SurveyThread.SurveyTask;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -585,7 +586,9 @@ public class SurveyMain extends HttpServlet {
                 out.println("We will <a href='"+base+"'>reload this page in "+sec+" seconds, or you may click here.</a>");
             }
             out.print(sysmsg("startup_footer"));
-            out.println(ShowData.ANALYTICS);
+            if(!SurveyMain.isUnofficial) {
+            	out.println(ShowData.ANALYTICS);
+            }
             out.print("</body></html>");
             return false;
         } else {
@@ -2255,7 +2258,9 @@ public class SurveyMain extends HttpServlet {
             System.err.println(t.toString());
             t.printStackTrace();
         }
-        ctx.println(ShowData.ANALYTICS);
+        if(!SurveyMain.isUnofficial) {
+        	ctx.println(ShowData.ANALYTICS);
+        }
         ctx.println("</body>");
         ctx.println("</html>");
     }
@@ -6506,7 +6511,7 @@ public class SurveyMain extends HttpServlet {
                     // first, do submissions.
                     if(canModify) {
                         DataSection oldSection = ctx.getExistingSection(fullThing);
-                        if(processPeaChanges(ctx, oldSection, cf, ourSrc)) {
+                        if(processPeaChanges(ctx, oldSection, cf, ourSrc, new DefaultDataSubmissionResultHandler(ctx))) {
                             int j = vet.updateResults(oldSection.locale); // bach 'em
                             int d = this.dbsrcfac.update(); // then the fac so it can update
                             System.err.println("sm:ppc:dbsrcfac: "+d+" deferred updates done.");
@@ -6657,9 +6662,9 @@ public class SurveyMain extends HttpServlet {
 	public void showPeasShort(WebContext ctx, DataSection section,
 			int item_xpath) {
 		DataRow row = section.getDataRow(item_xpath);
-                if (row != null) {
-		    showDataRowShort(ctx, row);
-                }
+		if(row!=null) {
+			showDataRowShort(ctx, row);
+		}
 	}
 
     /**
@@ -6901,19 +6906,20 @@ public class SurveyMain extends HttpServlet {
      * @param oldSection
      * @param cf
      * @param ourSrc
+     * @param dsrh 
      * @return
      */
-    boolean processPeaChanges(WebContext ctx, DataSection oldSection, CLDRFile cf, XMLSource ourSrc) {
+    boolean processPeaChanges(WebContext ctx, DataSection oldSection, CLDRFile cf, XMLSource ourSrc, DataSubmissionResultHandler dsrh) {
         String ourDir = getHTMLDirectionFor(ctx.getLocale());
         boolean someDidChange = false;
         if(oldSection != null) {
             for(Iterator i = oldSection.getAll().iterator();i.hasNext();) {
                 DataSection.DataRow p = (DataSection.DataRow)i.next();
-                someDidChange = processDataRowChanges(ctx, oldSection, p, ourDir, cf, ourSrc) || someDidChange;
+                someDidChange = processDataRowChanges(ctx, oldSection, p, ourDir, cf, ourSrc, dsrh) || someDidChange;
                 if(p.subRows != null) {
                     for(Iterator e = p.subRows.values().iterator();e.hasNext();) {
                         DataSection.DataRow subDataRow = (DataSection.DataRow)e.next();
-                        someDidChange = processDataRowChanges(ctx, oldSection, subDataRow, ourDir, cf, ourSrc) || someDidChange;
+                        someDidChange = processDataRowChanges(ctx, oldSection, subDataRow, ourDir, cf, ourSrc, dsrh) || someDidChange;
                     }
                 }
             }            
@@ -6969,12 +6975,16 @@ public class SurveyMain extends HttpServlet {
      * @param ourDir
      * @param cf
      * @param ourSrc
+     * @param dsrh 
      * @return
      */
-    boolean processDataRowChanges(WebContext ctx, DataSection section, DataSection.DataRow p, String ourDir, CLDRFile cf, XMLSource ourSrc) {
+    boolean processDataRowChanges(WebContext ctx, DataSection section, DataSection.DataRow p, String ourDir, CLDRFile cf, XMLSource ourSrc, DataSubmissionResultHandler dsrh) {
         String fieldHash = section.fieldHash(p);
         String altType = p.altType;
         String choice = ctx.field(fieldHash); // checkmark choice
+        
+//        System.err.println("CH["+fieldHash+"] -> " + choice);
+        
         if(choice.length()==0) {
             return false; // nothing to see..
         }
@@ -7178,17 +7188,15 @@ public class SurveyMain extends HttpServlet {
 							((item.getVotes().size()==1)&& item.getVotes().contains(ctx.session.user) )) && // only user voted for it
 						( (item.submitter>0&&UserRegistry.userIsTC(ctx.session.user)) || (item.submitter == ctx.session.user.id) ) ) // user is TC or user is submitter
 				{
-					ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>:  Removing alternate \""+item.value+
-							"\" ("+item.altProposed+")<br>");
+					dsrh.handleRemoveItem(p, item, (voteForItem==item));
 					if(voteForItem == item) {
-						ctx.println(" <i>Also, removing your vote for it</i><br>");
 						choice = DONTCARE;
 						voteForItem = null;
 					}
 					ourSrc.removeValueAtDPath(xpt.getById(item.xpathId));
 					didSomething = true;
 				} else {
-					ctx.println(" <p class='ferrbox'>Warning: You don't have permission to remove this item: " +item.altProposed + ".</p>");
+					dsrh.handleNoPermission(p, item, "remove");
 				}
 			}
 		}
@@ -7200,8 +7208,7 @@ public class SurveyMain extends HttpServlet {
 		                
                         boolean did = doAdminRemoveVote(ctx, ctx.getLocale(), p.base_xpath, voter.id);
                         if(did) {
-    	                    ctx.print("<tt title='#"+p.base_xpath+"' class='codebox'>"+ p.displayName +"</tt>:  Removing vote for <span title='#"+item.xpathId+"'>"+"\""+item.value+
-    	                            "\" ("+item.altProposed+")</span> by " + voter.toHtml(ctx.session.user) +  "<br>");
+                        	dsrh.handleRemoveVote(p, voter, item);
     	                    didSomething = true;
                         }
 		            }
@@ -7211,20 +7218,21 @@ public class SurveyMain extends HttpServlet {
 		
         
         if(choice.equals(CHANGETO)&& !choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull)) {
-            ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
-            ctx.println(ctx.iconHtml("stop","empty value")+ " value was left empty. <!-- Use 'remove' to request removal. --><br>");
-            ctx.temporaryStuff.put(fieldHash+"_v", choice_v);  // mark it 
+        	dsrh.handleEmptyChangeto(p);
+            ctx.temporaryStuff.put(fieldHash+"_v", choice_v);  // mark it for "this item not accepted"
         } else if( (choice.equals(CHANGETO) && choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull)) ||
              (HAVE_REMOVE&&choice.equals(REMOVE)) ) {
             if(!canSubmit) {
-                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
-                ctx.println(ctx.iconHtml("stop","empty value")+" You are not allowed to submit data at this time.<br>");
+            	dsrh.handleNoPermission(p, null, "submit");
+//                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
+//                ctx.println(ctx.iconHtml("stop","empty value")+" You are not allowed to submit data at this time.<br>");
                 return didSomething;
             }
             String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
             if(fullPathMinusAlt.indexOf("/alias")!=-1) {
-                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
-                ctx.println(ctx.iconHtml("stop","alias")+" You are not allowed to submit data against this alias item. Contact your CLDR-TC representative.<br>");
+            	dsrh.handleNoPermission(p, null, "modify an alias");
+//                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
+//                ctx.println(ctx.iconHtml("stop","alias")+" You are not allowed to submit data against this alias item. Contact your CLDR-TC representative.<br>");
                 return didSomething;
             }
             for(Iterator j = p.items.iterator();j.hasNext();) {
@@ -7238,14 +7246,10 @@ public class SurveyMain extends HttpServlet {
                     }
                     if(theirReferences.equals(choice_r)) {
                         if(oldVote != item.xpathId) {
-                            ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
-                            ctx.println(ctx.iconHtml("warn","duplicate")+" This value was already entered, accepting your vote for " + 
-                                ((item.altProposed==null)?" the current item. <br>":(" the proposal <tt>"+item.altProposed+"</tt>.<br>")));
+                        	dsrh.warnAcceptedAsVoteFor(p, item);
                             return doVote(ctx, section.locale, item.xpathId) || didSomething;
                         } else {
-                            ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
-                            ctx.println(ctx.iconHtml("warn","duplicate")+" Your current vote is already for " + 
-                                ((item.altProposed==null)?" the current item ":(" the proposal <tt>"+item.altProposed+"</tt> "))+" which has the same value.<br>");
+                        	dsrh.warnAlreadyVotingFor(p, item);
 							return didSomething;
                         }
                     } else {
@@ -7271,8 +7275,8 @@ public class SurveyMain extends HttpServlet {
                 ((aDisplayName == null) || "null".equals(aDisplayName))) {
                 aDisplayName = "standard";
             }
-            ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
-            ctx.print("&nbsp;&nbsp; New value: <b>" + choice_v +"</b>  ");
+//            dsrh.handleNewValue(p, choice_v);
+            // don't print 'new value' here until it is successful.
 
             boolean doFail = false;
 
@@ -7288,7 +7292,7 @@ public class SurveyMain extends HttpServlet {
                 checkCldr.check(fullPathMinusAlt, fullPathMinusAlt, choice_v, ctx.getOptionsMap(basicOptionsMap()), checkCldrResult);  // they get the full course
                 
                 if(!checkCldrResult.isEmpty()) {
-                    boolean hadWarnings = false;
+//                    boolean hadWarnings = false;
                     for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                         CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
                         if(status.getType().equals(status.errorType)) {
@@ -7301,24 +7305,20 @@ public class SurveyMain extends HttpServlet {
                         try{ 
                             if (!(status.getCause() instanceof org.unicode.cldr.test.CheckCoverage) &&
                                     !status.getType().equals(status.exampleType)) {
-                                if(!hadWarnings) {
-                                    hadWarnings = true;
-                                    ctx.print("<br>");
-                                }
-                                String cls = shortClassName(status.getCause());
-                                ctx.printHelpLink("/"+cls,"<!-- help with -->"+cls, true);
-                                if(status.getType().equals(status.errorType)) {
-                                    ctx.print(ctx.iconHtml("stop",cls));
-                                } else {
-                                    ctx.print(ctx.iconHtml("warn",cls));
-                                }
-                                ctx.println(" "+ status.toString() + "<br>" );
+//                                if(!hadWarnings) {
+//                                    hadWarnings = true;
+//                                    ctx.print("<br>");
+//                                }
+                            	dsrh.handleError(p, status, choice_v);
                             }
                         } catch(Throwable t) {
                             ctx.println("Error reading status item: <br><font size='-1'>"+status.toString()+"<br> - <br>" + t.toString()+"<hr><br>");
                         }
                     }
                     if(doFail) {
+                    	if(dsrh.rejectErrorItem(p)) {
+                    		return false;
+                    	}
                         // reject the value
                         //if(!(HAVE_REMOVE&&choice.equals(REMOVE))) {
                         //    ctx.temporaryStuff.put(fieldHash+"_v", choice_v);  // mark it 
@@ -7333,43 +7333,33 @@ public class SurveyMain extends HttpServlet {
             // update implied vote
 //            ctx.print(" &nbsp;&nbsp; <tt class='proposed'>" + newProp+"</tt>");
             if(HAVE_REMOVE&&choice.equals(REMOVE)) {
-                ctx.print(" <i>(removal)</i>");
+            	dsrh.handleRemoved(p);
+            } else {
+            	dsrh.handleNewValue(p, choice_v, doFail);
             }
             doUnVote(ctx, section.locale, base_xpath);
             //ctx.println("updated " + n + " implied votes due to new data submission.");
-            if(!doFail) {
-                ctx.println(" "+ctx.iconHtml("okay","new")+" <br>");
-            } else {
-                ctx.println("<br><b>This item had test failures, but was added.</b><br>");
-            }
             return true;
         } else if(choice.equals(CONFIRM)) {
             if(oldVote != base_xpath) {
-                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
-                ctx.println("<!-- Registering vote for "+base_xpath+" - "+section.locale+":" + base_xpath+" (base_xpath) replacing " + oldVote + " --> " + 
-                        ctx.iconHtml("okay","voted")+" Vote accepted. <br>");
+            	dsrh.handleVote(p, oldVote, base_xpath);
                 return doVote(ctx, section.locale, base_xpath) || didSomething; // vote with xpath
             }
         } else if (choice.equals(DONTCARE)) {
             if(oldVote != -1) {
-                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
-                ctx.println("<!-- Registering vote for "+base_xpath+" - "+section.locale+":-1 replacing " + oldVote + " -->" + 
-                    ctx.iconHtml("okay","voted")+" Removing vote. <br>");
+            	dsrh.handleVote(p, oldVote, -1);
                 return doVote(ctx, section.locale, -1, base_xpath) || didSomething;
             }
         } else if(voteForItem != null)  {
             DataSection.DataRow.CandidateItem item = voteForItem;
             if(oldVote != item.xpathId) {
-                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
-                ctx.println("<!-- Registering vote for "+base_xpath+" - "+section.locale+":" + item.xpathId + " replacing " + oldVote + " --> " + 
-                        ctx.iconHtml("okay","voted")+" Vote accepted. <br>");
+            	dsrh.handleVote(p, oldVote, item.xpathId);
                 return doVote(ctx, section.locale, item.xpathId) || didSomething;
             } else {
                 return didSomething; // existing vote.
             }
 		} else {
-            ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
-            ctx.println(ctx.iconHtml("stop","unknown")+"<tt title='"+section.locale+":"+base_xpath+"' class='codebox'>" + p.displayName + "</tt> Note: <i>" + choice + "</i> not supported yet or item not found. <br>");
+			dsrh.handleUnknownChoice(p, choice);
         }
         return didSomething;
     }
@@ -7451,15 +7441,16 @@ public class SurveyMain extends HttpServlet {
         String ourVoteXpath = null;
         boolean somethingChecked = false; // have we presented a 'vote' yet?
         int base_xpath = xpt.xpathToBaseXpathId(fullPathFull);
-        int resultType[] = new int[1];
-        int resultXpath_id =  vet.queryResult(section.locale, base_xpath, resultType);
-        String resultXpath = null;
-        boolean noWinner = false;
+//        String resultXpath = null;
+//        boolean noWinner = false;
+ /*
+  *        int resultXpath_id =  vet.queryResult(section.locale, base_xpath, resultType);
         if(resultXpath_id != -1) {
             resultXpath = xpt.getById(resultXpath_id); 
         } else {
-            noWinner = true;
+  //          noWinner = true;
         }
+ */
         if(ctx.session.user != null) {
             ourVote = vet.queryVote(section.locale, ctx.session.user.id, 
                 base_xpath);
@@ -7470,52 +7461,14 @@ public class SurveyMain extends HttpServlet {
             }
         }
         
-        // let's see what's inside.
-        // TODO: move this into the DataPod itself?
-        List<DataSection.DataRow.CandidateItem> currentItems = new ArrayList<DataSection.DataRow.CandidateItem>();
-        List<DataSection.DataRow.CandidateItem> proposedItems = new ArrayList<DataSection.DataRow.CandidateItem>();
-        
         boolean inheritedValueHasTestForCurrent = false; // if (no current items) && (inheritedValue.hastests) 
 
-        boolean errorNoOutcome = (resultType[0]==Vetting.RES_ERROR)&&(resultXpath_id==-1); // error item - NO result.
         
-        for(Iterator j = p.items.iterator();j.hasNext();) {
-            DataSection.DataRow.CandidateItem item = (DataSection.DataRow.CandidateItem)j.next();
-            if(
-                (  (item.xpathId == resultXpath_id) ||
-                  (resultXpath_id==-1 && item.xpathId==p.base_xpath
-                        && !errorNoOutcome)  ) &&  // do NOT add as current, if vetting said 'no' to current item.
-                !(item.isFallback || (item.inheritFrom != null))) { 
-                currentItems.add(item); 
-            } else {
-//    System.err.println("MM: " + p.base_xpath+ "- v:"+item.value+", xp:"+item.xpathId+", result:"+resultXpath_id);
-                proposedItems.add(item);
-            }
-        }
-        // if there is an inherited value available - see if we need to show it.
-        if((p.inheritedValue != null) &&
-            (p.inheritedValue.value != null)  // and it isn't a shim
-              /* && p.inheritedValue.pathWhereFound == null */ 
-             /* && !p.inheritedValue.isParentFallback */ ) { // or an alias
-            if(currentItems.isEmpty()) {  // no other current items.. 
-                currentItems.add(p.inheritedValue); 
-            } else {
-                boolean found = false;
-                for( DataSection.DataRow.CandidateItem i : proposedItems ) {
-                    if(p.inheritedValue.value.equals(i.value)) {
-                        found = true;
-                    }
-                }
-                if (!found) for( DataSection.DataRow.CandidateItem i : currentItems ) {
-                    if(p.inheritedValue.value.equals(i.value)) {
-                        found = true;
-                    }
-                }
-                if(!found) {
-                    proposedItems.add(p.inheritedValue);
-                }
-            }
-        }
+        // let's see what's inside.
+        // TODO: move this into the DataPod itself?
+        List<DataSection.DataRow.CandidateItem> currentItems = p.getCurrentItems();
+        List<DataSection.DataRow.CandidateItem> proposedItems = p.getProposedItems();
+        
         
         // Does the inheritedValue contain a test that we need to display?
         if(proposedItems.isEmpty() && p.inheritedValue!=null && p.inheritedValue.value==null && p.inheritedValue.tests!=null) {
@@ -7535,6 +7488,7 @@ public class SurveyMain extends HttpServlet {
         List<DataSection.DataRow.CandidateItem> numberedItemsList = new ArrayList<DataSection.DataRow.CandidateItem>();
         List<String> refsList = (List<String>) ctx.temporaryStuff.get("references");
         
+        // todo: move into DataRow
         String okayIcon;
         if(p.confirmStatus == Vetting.Status.APPROVED) {
             okayIcon = ctx.iconHtml("okay", "Approved Item");
@@ -7545,7 +7499,7 @@ public class SurveyMain extends HttpServlet {
         // calculate the class of data items
         String statusIcon="";
         {
-            int s = resultType[0];
+            int s = p.getResultType();
             
             if(foundError) {
     //            rclass = "warning";
@@ -7615,7 +7569,7 @@ public class SurveyMain extends HttpServlet {
         }
         
         ctx.println("<tr class='topbar'>");
-        String baseInfo = "#"+base_xpath+", w["+Vetting.typeToStr(resultType[0])+"]:" + resultXpath_id;
+      //  String baseInfo = "#"+base_xpath+", w["+Vetting.typeToStr(resultType[0])+"]:" + resultXpath_id;
         
          
         ctx.print("<th rowspan='"+rowSpan+"' class='"+rclass+"' valign='top'>");
@@ -7708,7 +7662,7 @@ public class SurveyMain extends HttpServlet {
         }
         
 //        if(topCurrent != null) {
-            printCells(ctx,section,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
+            printCells(ctx,section,p,topCurrent,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
 //        } else {
 //            printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
 //        }
@@ -7719,7 +7673,7 @@ public class SurveyMain extends HttpServlet {
             topProposed = proposedItems.get(0);
         }
         if(topProposed != null) {
-            printCells(ctx,section,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
+            printCells(ctx,section,p,topProposed,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
         } else {
             printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
         }
@@ -7731,7 +7685,7 @@ public class SurveyMain extends HttpServlet {
 			|| UserRegistry.userIsTC(ctx.session.user)
 			|| ( UserRegistry.userIsVetter(ctx.session.user) && ctx.session.user.userIsSpecialForCLDR15(section.locale))
             || ((isPhaseVetting() || isPhaseVettingClosed()) && ( p.hasErrors  ||
-                                  p.hasProps ||  (resultType[0]== Vetting.RES_DISPUTED) ))) {
+                                  p.hasProps ||  (p.getResultType()== Vetting.RES_DISPUTED) ))) {
             String changetoBox = "<td width='1%' class='noborder' rowspan='"+rowSpan+"' valign='top'>";
             // ##7 Change
             if(canModify && canSubmit && (zoomedIn||!p.zoomOnly)) {
@@ -7840,7 +7794,7 @@ public class SurveyMain extends HttpServlet {
                 // current item
                 if(currentItems.size() > row) {
                     item = currentItems.get(row);
-                    printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
+                    printCells(ctx,section, p,item,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
                 } else {
                     item = null;
                     printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
@@ -7849,7 +7803,7 @@ public class SurveyMain extends HttpServlet {
                 // #6.1, 6.2 - proposed items
                 if(proposedItems.size() > row) {
                     item = proposedItems.get(row);
-                    printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
+                    printCells(ctx,section, p,item,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
                 } else {
                     item = null;
                     printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
@@ -7967,6 +7921,7 @@ public class SurveyMain extends HttpServlet {
 		
 
         if(zoomedIn && !isPhaseSubmit() && !isPhaseBeta()) {
+	    
 	    long totals[] = new long[numberedItemsList.size()];
 	    for(int j=0;j<totals.length;j++) {
 	    	totals[j]=0;

@@ -194,7 +194,7 @@ public class WebContext implements Cloneable {
      * @param x field name
      * @param def default value
      */
-    int fieldInt(String x, int def) {
+    public int fieldInt(String x, int def) {
         String f;
         if((f=field(x)).length()>0) {
             try {
@@ -894,6 +894,7 @@ public class WebContext implements Cloneable {
 	public static final String ZOOMED_IN = "zoomedIn";
 	public static final String DATA_ROW = "DataRow";
 	public static final String BASE_EXAMPLE = "baseExample";
+	public static final String BASE_VALUE = "baseValue";
 
     public void printHelpHtml(String xpath) {
         /*

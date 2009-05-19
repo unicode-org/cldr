@@ -24,6 +24,7 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
 
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.DataSection.DataRow;
+import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
 import org.unicode.cldr.test.CheckCLDR;
 
 import com.sun.syndication.feed.synd.*;
@@ -575,26 +576,64 @@ public class SurveyForum {
 //        ctx.printHelpHtml(section, item_xpath);
     }
 
+    /**
+     * 
+     * @param ctx
+     * @param baseXpath
+     * @return true if no errors were detected, otherwise false.
+     */
+    public static SummarizingSubmissionResultHandler processDataSubmission(WebContext ctx, String baseXpath) {
+    	SummarizingSubmissionResultHandler ssrh = new SummarizingSubmissionResultHandler();
+        ctx.sm.vet.processPodChanges(ctx, DataSection.xpathToSectionBase(baseXpath), ssrh);
+        return ssrh;
+    }
+    
+    /**
+     * Output the beginning of a data submission form.
+     * @param baseCtx
+     * @param section_xpath
+     */
+    public static void beginSurveyToolForm(WebContext ctx, String section_xpath) {
+        CLDRLocale loc = ctx.getLocale();
+        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
+        String podBase = DataSection.xpathToSectionBase(section_xpath);
+        ctx.put(WebContext.CAN_MODIFY, canModify);
+        //ctx.sm.printPathListOpen(ctx);
+        if(canModify) {
+            /* hidden fields for that */
+            ctx.println("<input type='hidden' name='_' value='"+ctx.getLocale().toString()+"'>");
+            ctx.println("<input type='submit' value='" + SurveyMain.getSaveButtonText() + "'><br>"); //style='float:right' 
+        }
+    }
+    
+    public static void endSurveyToolForm(WebContext ctx) {
+        ctx.sm.printPathListClose(ctx);    	
+    }
+    
+    public static void printSectionTableOpenShort(WebContext ctx, String base_xpath) {
+        String podBase = DataSection.xpathToSectionBase(base_xpath);
+        DataSection section = ctx.getSection(podBase);   
+        SurveyMain.printSectionTableOpenShort(ctx, section);
+    }
+    
+    public static void printSectionTableCloseShort(WebContext ctx,String base_xpath) {
+        String podBase = DataSection.xpathToSectionBase(base_xpath);        
+        DataSection section = ctx.getSection(podBase);
+        ctx.sm.printSectionTableClose(ctx, section);
+    }
+    
     public static void showXpathShort(WebContext baseCtx, String section_xpath, int item_xpath) {
         String base_xpath = section_xpath;
         CLDRLocale loc = baseCtx.getLocale();
         WebContext ctx = new WebContext(baseCtx);
         ctx.setLocale(loc);
         boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
-        String podBase = DataSection.xpathToSectionBase(section_xpath);
-        baseCtx.sm.printPathListOpen(ctx);
-        
-        DataSection section = ctx.getSection(podBase);
-        
-        baseCtx.sm.printSectionTableOpenShort(ctx, section);
 
         ctx.put(WebContext.CAN_MODIFY, canModify);
         ctx.put(WebContext.ZOOMED_IN, true);
+        String podBase = DataSection.xpathToSectionBase(base_xpath);        
+        DataSection section = ctx.getSection(podBase);
         baseCtx.sm.showPeasShort(ctx, section, item_xpath);
-
-        baseCtx.sm.printSectionTableClose(ctx, section);
-        baseCtx.sm.printPathListClose(ctx);
-        
     }
 
     public static void showXpathShort(WebContext baseCtx, String section_xpath, String item_xpath) {
@@ -644,7 +683,7 @@ public class SurveyForum {
             ctx.println("<input type='hidden' name='_' value='"+locale+"'>");
 
             ctx.println("<input type='submit' value='" + sm.getSaveButtonText() + "'><br>"); //style='float:right' 
-            sm.vet.processPodChanges(ctx, podBase);
+            sm.vet.processPodChanges(ctx, podBase, new DefaultDataSubmissionResultHandler(ctx));
         } else {
 //            ctx.println("<br>cant modify " + ctx.locale + "<br>");
         }

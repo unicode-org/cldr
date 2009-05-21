@@ -3,9 +3,11 @@ package org.unicode.cldr.unittest;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -16,6 +18,7 @@ import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CharacterFallbacks;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.Utility;
@@ -23,6 +26,7 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -30,6 +34,11 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
 
 public class TestBasic extends TestFmwk {
   static TestInfo testInfo = TestInfo.getInstance();
@@ -135,6 +144,11 @@ public class TestBasic extends TestFmwk {
     XPathParts parts = new XPathParts();
     Factory cldrFactory = Factory.make(mainDirectory, localeRegex);
     CLDRFile english = cldrFactory.make("en", true);
+    
+    final UnicodeSet CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS = (UnicodeSet) new UnicodeSet("[[:sc:]-[\\u0000-\\u00FF]]").freeze();
+
+    CharacterFallbacks fallbacks = CharacterFallbacks.make();
+
 
     Relation<String, String> pathToLocale = new Relation(new TreeMap(CLDRFile.ldmlComparator),
             TreeSet.class, null);
@@ -145,8 +159,17 @@ public class TestBasic extends TestFmwk {
       if (file.isNonInheriting())
         continue;
       DisplayAndInputProcessor displayAndInputProcessor = new DisplayAndInputProcessor(file);
+      
+      final UnicodeSet OK_CURRENCY_FALLBACK = (UnicodeSet) new UnicodeSet("[\\u0000-\\u00FF]")
+        .addAll(safeExemplars(file, ""))
+        .addAll(safeExemplars(file, "auxiliary"))
+        .addAll(safeExemplars(file, "currencySymbol"))
+        .freeze();
+
 
       logln(locale + "\t-\t" + english.getName(locale));
+      
+      UnicodeSet badSoFar = new UnicodeSet();
 
       for (Iterator<String> it = file.iterator(); it.hasNext();) {
         String path = it.next();
@@ -157,6 +180,45 @@ public class TestBasic extends TestFmwk {
         if (value == null) {
           throw new IllegalArgumentException(locale + "\tError: in null value at " + path);
         }
+        
+        // check for special characters
+        if (locale.equals(file.getSourceLocaleID(path, null))) {
+          if (CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS.containsSome(value)) {
+            UnicodeSet fishy = new UnicodeSet().addAll(value).retainAll(CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS).removeAll(badSoFar);
+            for (UnicodeSetIterator it2 = new UnicodeSetIterator(fishy); it2.next();) {
+              final int fishyCodepoint = it2.codepoint;
+              List<String> fallbackList = fallbacks.getSubstitutes(fishyCodepoint);
+
+              String nfkc = Normalizer.normalize(fishyCodepoint, Normalizer.NFKC);
+              if (!nfkc.equals(UTF16.valueOf(fishyCodepoint))) {
+                if (fallbackList == null) {
+                  fallbackList = new ArrayList<String>();
+                } else {
+                  fallbackList = new ArrayList<String>(fallbackList); // writable
+                }
+                fallbackList.add(nfkc);
+              }
+              // later test for all Latin-1
+              if (fallbackList == null) {
+                errln("Locale:\t" + locale + ";\tCharacter with no fallback:\t" + it2.getString() + " " + UCharacter.getName(fishyCodepoint));
+                badSoFar.add(fishyCodepoint);
+              } else {
+                boolean ok = false;
+                for (String fb : fallbackList) {
+                  if (OK_CURRENCY_FALLBACK.containsAll(fb)) {
+                    ok = true;
+                    break;
+                  }
+                }
+                if (!ok) {
+                  errln("Locale:\t" + locale + ";\tCharacter with no good fallback (exemplars+Latin1):\t" + it2.getString() + " " + UCharacter.getName(fishyCodepoint));
+                  badSoFar.add(fishyCodepoint);
+                }
+              }
+            }
+          }
+        }
+
         String displayValue = displayAndInputProcessor.processForDisplay(path, value);
         if (!displayValue.equals(value)) {
           logln("\t" + locale + "\tdisplayAndInputProcessor changes display value <" + value
@@ -273,6 +335,11 @@ public class TestBasic extends TestFmwk {
                 + " Paths were not prettied: use -DSHOW and look for ones with %% in them.");
       }
     }
+  }
+
+  private UnicodeSet safeExemplars(CLDRFile file, String string) {
+    final UnicodeSet result = file.getExemplarSet(string, WinningChoice.NORMAL);
+    return result != null ? result : new UnicodeSet();
   }
 
   public void TestAPath() {

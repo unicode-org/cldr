@@ -11,7 +11,9 @@
 //  Copy "x=___"  from input to output URL
 subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
 
+SurveyForum.printSectionTableOpenShort(subCtx, "//ldml/characters/exemplarCharacters");
 // Display a limited range of data
 SurveyForum.showXpathShort(subCtx, "//ldml/characters/exemplarCharacters");
 
+SurveyForum.printSectionTableCloseShort(subCtx, "//ldml/characters/exemplarCharacters");
 %>

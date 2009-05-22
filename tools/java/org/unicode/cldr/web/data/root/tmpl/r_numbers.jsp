@@ -11,7 +11,10 @@
 //  Copy "x=___"  from input to output URL
 subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
 
-// Display a limited range of data
+SurveyForum.printSectionTableOpenShort(subCtx, "//ldml/numbers/symbols/decimal");
+
 SurveyForum.showXpathShort(subCtx, "//ldml/numbers/symbols/decimal");
+
+SurveyForum.printSectionTableCloseShort(subCtx, "//ldml/numbers/symbols/decimal");
 
 %>

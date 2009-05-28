@@ -1,11 +1,19 @@
 <%-- Common file for 'reports' --%>
-<%
+<%!
 // list of the 'report' templates
-String reports[] = { 
+static final String reports[] = { 
     "r_characters",
     "r_numbers",
     "r_months"
 };
+
+static final String base_xpaths[] = {
+		"//ldml/characters/exemplarCharacters", // an example xpath is fine
+		"//ldml/numbers/symbols/decimal",       // an example xpath is fine
+		"//ldml/dates/calendars"				// an example xpath is fine
+};
+%>
+<% 
 
 // names?
 String section = ctx.field(SurveyMain.QUERY_SECTION);
@@ -21,8 +29,5 @@ for(int i=0;i<reports.length;i++) {
         whichFile = i;
     }
 }
-
-
-
 
 %>

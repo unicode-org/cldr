@@ -1,9 +1,4 @@
-<%@ include file="stcontext.jspf" %><%-- setup 'ctx' --%>
-<%@ include file="report.jspf" %>
-
-<%--
-    <%@ include file="report_top.jspf" %>
---%>
+<%@ include file="report_top.jspf" %>
 
 <p> Enter the character used as the decimal separator.</p>
 

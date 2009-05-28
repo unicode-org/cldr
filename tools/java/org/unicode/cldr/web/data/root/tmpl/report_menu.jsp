@@ -1,5 +1,6 @@
 <%@ include file="stcontext.jspf" %><%-- setup 'ctx' --%>
-<%@ include file="report.jspf" %>
+<!-- <%@ include file="report.jspf" %>
+
 
 <p class='hang'>Reports: 
 
@@ -13,3 +14,4 @@
 %>
 
 </p>
+-->

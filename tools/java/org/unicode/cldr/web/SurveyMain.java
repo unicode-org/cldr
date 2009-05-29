@@ -7310,6 +7310,9 @@ public class SurveyMain extends HttpServlet {
 //                                    ctx.print("<br>");
 //                                }
                             	dsrh.handleError(p, status, choice_v);
+                            	if(dsrh.rejectErrorItem(p)) {
+                            		return false;
+                            	}
                             }
                         } catch(Throwable t) {
                             ctx.println("Error reading status item: <br><font size='-1'>"+status.toString()+"<br> - <br>" + t.toString()+"<hr><br>");

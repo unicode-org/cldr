@@ -15,6 +15,11 @@ import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
 public class SummarizingSubmissionResultHandler implements
 		DataSubmissionResultHandler {
 	
+	/**
+	 * Print a log of each item's status change.
+	 */
+	static final boolean DEBUG = false;
+	
 	boolean hadErrors = false;
 	public enum ItemStatus { ITEM_UNKNOWN, ITEM_GOOD, ITEM_BAD };
 	public class ItemInfo {
@@ -39,6 +44,7 @@ public class SummarizingSubmissionResultHandler implements
 			this.status = ItemStatus.ITEM_UNKNOWN;
 		}
 		void setError(CheckStatus status) {
+			if(DEBUG) System.out.println(this + " - setError(status:"+status.getMessage()+")");
 			setStatus(ItemStatus.ITEM_BAD);
 			hadErrors = true;
 			if(errors==null) { 
@@ -47,6 +53,7 @@ public class SummarizingSubmissionResultHandler implements
 			errors.add(status);
 		}
 		void setError() {
+			if(DEBUG) System.out.println(this + " - setError()");
 			setStatus(ItemStatus.ITEM_BAD);
 			hadErrors = true;
 		}
@@ -55,6 +62,7 @@ public class SummarizingSubmissionResultHandler implements
 			append(what);
 		}
 		void setOK() {
+			if(DEBUG) System.out.println(this + " - setOK()");
 			setStatus(ItemStatus.ITEM_GOOD);
 		}
 		void setOK(String what) {
@@ -74,6 +82,7 @@ public class SummarizingSubmissionResultHandler implements
 			}
 		}
 		void append(String what) {
+			if(DEBUG) System.out.println(this + " - append("+what+")");
 			if(what==null) return;
 			if(description == null) {
 				description=what;

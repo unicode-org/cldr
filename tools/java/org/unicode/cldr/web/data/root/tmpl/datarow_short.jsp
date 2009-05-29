@@ -26,3 +26,13 @@ if(itemInfo != null) {
 %>
 
 </tr>
+
+<% if(itemInfo!=null && itemInfo.getErrors() !=null && !itemInfo.getErrors().isEmpty()) { %>
+ <tr>
+ 	<td colspan="3">
+ 		<% for(org.unicode.cldr.test.CheckCLDR.CheckStatus status : itemInfo.getErrors()) { %>
+ 			<%= status.toString() %><br>
+ 		<% } %>
+ 	</td>
+ </tr>
+<% } %>

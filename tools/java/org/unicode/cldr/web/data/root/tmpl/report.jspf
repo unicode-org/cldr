@@ -7,10 +7,12 @@ static final String reports[] = {
     "r_months"
 };
 
+static final String report_name[] = reports;  // TODO: replace with human readable name?
+
 static final String base_xpaths[] = {
 		"//ldml/characters/exemplarCharacters", // an example xpath is fine
 		"//ldml/numbers/symbols/decimal",       // an example xpath is fine
-		"//ldml/dates/calendars"				// an example xpath is fine
+		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]"				// an example xpath is fine
 };
 %>
 <% 

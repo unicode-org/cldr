@@ -62,6 +62,10 @@ public class WebContext implements Cloneable {
         return pw;
     }
     
+    public void flush() {
+    	pw.flush();
+    }
+    
     HttpServletRequest request;
     HttpServletResponse response;
     

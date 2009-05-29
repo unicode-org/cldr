@@ -4,6 +4,7 @@
 <%
 
 subCtx.setQuery(SurveyMain.QUERY_LOCALE,ctx.localeString());
+subCtx.flush();
 %>
 
 <%--
@@ -73,9 +74,36 @@ subCtx.setQuery(SurveyMain.QUERY_LOCALE,ctx.localeString());
 <% 
 	int nextStage = myStage;
 
+	// correct stage #'s
 	if(myStage<1) myStage=1;
 	if(myStage>(reports.length))  {
 		myStage=reports.length+1;
+	}
+	
+	ctx.put("thisStep",(Integer)myStage);
+	
+	
+	%>
+
+<b>Easy Steps: </b>
+<% for(int i=1;i<reports.length+1;i++) { %>
+
+	<%= subCtx.sm.getMenu(subCtx,Integer.toString(myStage),	Integer.toString(i), report_name[i-1],"step") %>
+
+	| &nbsp;	
+	
+<% } %>
+	<%= /* Thanks page */
+		subCtx.sm.getMenu(subCtx,Integer.toString(myStage),	Integer.toString(reports.length+2),
+					"Thanks.","step")
+	%>
+
+	<br>
+	
+
+	<%
+	
+	if(myStage>(reports.length))  {
 		%>
 		<h2> congratulations </h2>
 		<p> Great, thanks for your work on the <%= ctx.localeName %> locale.</p>
@@ -83,7 +111,9 @@ subCtx.setQuery(SurveyMain.QUERY_LOCALE,ctx.localeString());
 	} else {
 		ctx.put("thisBaseXpath",baseXpathForNextStage);
 		ctx.put("thisStep",(Integer)myStage);
+		ctx.flush();
 		ctx.includeFragment(reports[myStage-1]+".jsp");
+		ctx.flush();
 		nextStage = myStage+1;
 	}
 	
@@ -97,6 +127,9 @@ subCtx.setQuery(SurveyMain.QUERY_LOCALE,ctx.localeString());
 		<input type='submit' value='Submit'>
 <%
 	}
+	
+	subCtx.flush();
+
 %>
 
 

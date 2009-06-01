@@ -731,3 +731,44 @@ div.topnotices p.beta {
 	background-color: yellow;
 }
 
+form.adduser table {
+	border-collapse: collapse;
+	background-color: #cdd;
+}
+
+form.adduser td {
+	color: #555;
+}
+
+form.adduser th {
+	text-align: right;
+	vertical-align: top;
+}
+
+form.adduser label {
+	font: large "Lucida Grande", Lucida, Verdana, sans-serif;
+	white-space: nowrap;
+}
+
+form.adduser input {
+	font: large Georgia, "Times New Roman", Times, serif;
+}
+
+ form.adduser th {
+	border-bottom: 1px solid gray;
+	padding-bottom: .5em;
+	padding-top: .5em;
+}
+
+form.adduser input, form.adduser select {
+	margin-top:  .5em;
+	margin-bottom:  .5em;
+}
+
+form.adduser tr.submit td {
+	border: none;
+	text-align: right;
+}
+form.adduser tr.submit input {	
+	font-size: x-large;
+}

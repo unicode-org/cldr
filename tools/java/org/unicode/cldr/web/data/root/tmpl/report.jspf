@@ -20,11 +20,11 @@ static final String report_name[] = reports;  // TODO: replace with human readab
 
 static final String base_xpaths[] = {
 		"//ldml/characters/exemplarCharacters", // an example xpath is fine
-		"//ldml/numbers/defaultNumberingSystem",
-		"//ldml/numbers/symbols/decimal",
-		"//ldml/numbers/symbols/group",
-		"//ldml/numbers/decimalFormats/decimalFormatLength",
-		"//ldml/numbers/currencyFormats/currencyFormatLength",
+		"//ldml/numbers", //ldml/numbers/defaultNumberingSystem",
+		"//ldml/numbers", //ldml/numbers/symbols/decimal",
+		"//ldml/numbers", //ldml/numbers/symbols/group",
+		"//ldml/numbers", //ldml/numbers/decimalFormats/decimalFormatLength",
+		"//ldml/numbers", //ldml/numbers/currencyFormats/currencyFormatLength",
 		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
 		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
 		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",

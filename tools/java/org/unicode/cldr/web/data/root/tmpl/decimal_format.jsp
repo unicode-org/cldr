@@ -8,7 +8,7 @@ subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION))
 
 SurveyForum.printSectionTableOpenShort(subCtx, "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat/pattern");
 
-SurveyForum.showXpathShort(subCtx, "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat/pattern");
+SurveyForum.showXpathShort(subCtx, "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
 
 SurveyForum.printSectionTableCloseShort(subCtx, "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat/pattern");
 

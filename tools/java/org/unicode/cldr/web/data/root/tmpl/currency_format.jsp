@@ -8,7 +8,7 @@ subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION))
 
 SurveyForum.printSectionTableOpenShort(subCtx, "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat/pattern");
 
-SurveyForum.showXpathShort(subCtx, "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat/pattern");
+SurveyForum.showXpathShort(subCtx, "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
 
 SurveyForum.printSectionTableCloseShort(subCtx, "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat/pattern");
 

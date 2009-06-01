@@ -7275,6 +7275,8 @@ public class SurveyMain extends HttpServlet {
                 ((aDisplayName == null) || "null".equals(aDisplayName))) {
                 aDisplayName = "standard";
             }
+            
+            dsrh.handleProposedValue(p, choice_v);
 //            dsrh.handleNewValue(p, choice_v);
             // don't print 'new value' here until it is successful.
 

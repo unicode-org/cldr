@@ -2399,6 +2399,13 @@ if(true == true)    throw new InternalError("removed from use.");
 		 * @return
 		 */
 		boolean rejectErrorItem(DataRow p);
+
+		/**
+		 * Note that an item was proposed as an option. Used for UI, to get back the user's previous request.
+		 * @param p
+		 * @param choice_v
+		 */
+		void handleProposedValue(DataRow p, String choice_v);
     	
     };
     

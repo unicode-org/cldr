@@ -24,6 +24,7 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
 
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.DataSection.DataRow;
+import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
 import org.unicode.cldr.test.CheckCLDR;
 
@@ -647,6 +648,17 @@ public class SurveyForum {
 
     public static void showXpath(WebContext baseCtx, String section_xpath, String item_xpath) {
         showXpath(baseCtx, section_xpath, baseCtx.sm.xpt.getByXpath(item_xpath));
+    }
+    
+    /**
+     * Get CLDR File
+     */
+    public static CLDRFile getCLDRFile(WebContext ctx) {
+        synchronized (ctx.session) { // session sync
+            UserLocaleStuff uf = ctx.sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.getLocale());
+            CLDRFile cf = uf.cldrfile;
+            return cf;
+        }
     }
     
     public static void showSubmitButton(WebContext baseCtx) {

@@ -106,7 +106,7 @@ subCtx.flush();
 	if(myStage>(reports.length))  {
 		%>
 		<h2> congratulations </h2>
-		<p> Great, thanks for your work on the <%= ctx.localeName %> locale.</p>
+		<p> Great, thanks for your work on the <%= ctx.sm.getLocaleDisplayName(ctx.getLocale()) %> locale.</p>
 		<%
 	} else {
 		ctx.put("thisBaseXpath",baseXpathForNextStage);

@@ -1,15 +1,25 @@
 <%@ include file="stcontext.jspf" %><%-- setup 'ctx' --%>
-
-<tr>
-  <th><%= dataRow.getDisplayName() %></th>
-  <td> <input name="<%= dataRow.fullFieldHash() %>" value="<%= SurveyMain.CHANGETO %>" type='hidden'>
-  <input class="inputbox" name="<%= dataRow.fullFieldHash() %>_v" value="<%= dataRow.getWinningValue() %>"></td>
-
 <%
 SummarizingSubmissionResultHandler ssrh = (SummarizingSubmissionResultHandler)ctx.get("ssrh");
 SummarizingSubmissionResultHandler.ItemInfo itemInfo = null;
 if(ssrh != null) itemInfo = ssrh.infoFor(dataRow);
+String vToShow = dataRow.getWinningValue() ;
+if(itemInfo!=null && itemInfo.getProposedValue()!=null) {
+	vToShow = itemInfo.getProposedValue();
+}
+if(false){ // debug
+%><tr>
+ <td colspan=3>
+ 	ssrh=<%= ssrh %>, itemInfo=<%= itemInfo %>, vToShow=<%= vToShow %>
+ </td>
+</tr>
+<% } %><tr>
+  <th><%=
+	  dataRow.getDisplayName() %></th>
+  <td> <input name="<%= dataRow.fullFieldHash() %>" value="<%= SurveyMain.CHANGETO %>" type='hidden'>
+  <input class="inputbox" name="<%= dataRow.fullFieldHash() %>_v" value="<%= vToShow %>"></td>
 
+<%
 if(itemInfo != null) {
 	String iconHtml;
 	if(itemInfo.getStatus()==SummarizingSubmissionResultHandler.ItemStatus.ITEM_GOOD) {

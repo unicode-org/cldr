@@ -27,6 +27,7 @@ public class SummarizingSubmissionResultHandler implements
 		String description = null;
 		Set<CheckStatus> errors = null;
 		String d = null;
+		private String proposedValue;
 		public ItemStatus getStatus() {
 			return status;
 		}
@@ -99,6 +100,20 @@ public class SummarizingSubmissionResultHandler implements
 			}
 			sb.append(getStatus() + ", " + getDescription() + "}");
 			return sb.toString();
+		}
+		/**
+		 * Record a proposed value.
+		 * @param v
+		 */
+		public void setProposed(String v) {
+			if(DEBUG) System.out.println(this + " - spv("+v+")");
+			this.proposedValue = v;
+		}
+		/**
+		 * @return the proposedValue
+		 */
+		public String getProposedValue() {
+			return proposedValue;
 		}
 	}
 
@@ -195,4 +210,8 @@ public class SummarizingSubmissionResultHandler implements
 	public boolean rejectErrorItem(DataRow p) {
 		return true;
 	}
+	
+	public void handleProposedValue(DataRow p, String choice_v) {
+		getInfo(p).setProposed(choice_v);
+	}	
 }

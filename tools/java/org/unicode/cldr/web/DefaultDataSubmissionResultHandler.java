@@ -122,5 +122,9 @@ public class DefaultDataSubmissionResultHandler implements
 
 	public boolean rejectErrorItem(DataRow p) {
 		return false; // don't reject normally.
+	}
+
+	public void handleProposedValue(DataRow p, String choice_v) {
+		// no-op
 	}	
 }

@@ -3,16 +3,34 @@
 // list of the 'report' templates
 static final String reports[] = { 
     "r_characters",
-    "r_numbers",
-    "r_months"
+    "numbering_system",
+    "decimal_separator",
+    "group_separator",
+    "decimal_format",
+    "currency_format",
+    "wide_months",
+    "abbreviated_months",
+    "narrow_months",
+    "wide_days",
+    "abbreviated_days",
+    "narrow_days"
 };
 
 static final String report_name[] = reports;  // TODO: replace with human readable name?
 
 static final String base_xpaths[] = {
 		"//ldml/characters/exemplarCharacters", // an example xpath is fine
-		"//ldml/numbers/symbols/decimal",       // an example xpath is fine
-		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]"				// an example xpath is fine
+		"//ldml/numbers/defaultNumberingSystem",
+		"//ldml/numbers/symbols/decimal",
+		"//ldml/numbers/symbols/group",
+		"//ldml/numbers/decimalFormats/decimalFormatLength",
+		"//ldml/numbers/currencyFormats/currencyFormatLength",
+		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
+		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
+		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
+		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
+		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
+		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]"
 };
 %>
 <% 

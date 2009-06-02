@@ -13,7 +13,11 @@ static final String reports[] = {
     "narrow_months",
     "wide_days",
     "abbreviated_days",
-    "narrow_days"
+    "narrow_days",
+    "am_pm",
+    "eras",
+    "date_formats",
+    "time_formats"
 };
 
 static final String report_name[] = reports;  // TODO: replace with human readable name?
@@ -25,6 +29,10 @@ static final String base_xpaths[] = {
 		"//ldml/numbers", //ldml/numbers/symbols/group",
 		"//ldml/numbers", //ldml/numbers/decimalFormats/decimalFormatLength",
 		"//ldml/numbers", //ldml/numbers/currencyFormats/currencyFormatLength",
+		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
+		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
+		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
+		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
 		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
 		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
 		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",

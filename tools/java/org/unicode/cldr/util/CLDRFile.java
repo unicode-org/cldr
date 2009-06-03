@@ -2305,7 +2305,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
                   // rbnf
                   // supplemental
                   "character-fallback", "character", "substitute",
-                  "rulesetGrouping", "rbnfrule", "ruleset",
+                  "rbnfrule", "ruleset",
                   "timezone", 
                   "numberingSystem",
                   "pluralRule",

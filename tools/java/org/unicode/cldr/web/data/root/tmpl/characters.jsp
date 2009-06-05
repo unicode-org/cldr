@@ -1,6 +1,6 @@
     <%@ include file="report_top.jspf" %>
 
-<p> First, we need to get the characters used to write your language </p>
+<h2> First, we need to get the characters used to write your language </h2>
 
 <%
 //  Copy "x=___"  from input to output URL

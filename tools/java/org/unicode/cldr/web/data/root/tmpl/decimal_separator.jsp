@@ -1,6 +1,6 @@
 <%@ include file="report_top.jspf" %>
 
-<p> Enter the character used as the decimal separator.</p>
+<h2> Enter the character used as the decimal separator.</h2>
 
 <%
 //  Copy "x=___"  from input to output URL

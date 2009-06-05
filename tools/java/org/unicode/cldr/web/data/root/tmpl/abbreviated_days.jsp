@@ -1,6 +1,8 @@
     <%@ include file="report_top.jspf" %>
 
-<p> Enter the abbreviated forms for days of the week.  If your language does not use abbreviations for weekday names, then enter the same values that you did for the wide forms.</p>
+<h2> Enter the abbreviated forms for days of the week.  </h2>
+
+<p>If your language does not use abbreviations for weekday names, then enter the same values that you did for the wide forms.</p>
 
 <%
 //  Copy "x=___"  from input to output URL

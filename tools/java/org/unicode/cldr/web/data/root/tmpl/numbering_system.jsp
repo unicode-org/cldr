@@ -1,7 +1,8 @@
 <%@ include file="report_top.jspf" %>
 
-<p> Select the default numbering system for your locale.  Most locales use the "Latn" system,
-which uses the ASCII digits 0 through 9 to represent numbers.</p>
+<h2> Select the default numbering system for your locale.  </h2>
+
+<p>Most locales use the "Latn" system, which uses the ASCII digits 0 through 9 to represent numbers.</p>
 
 <%
 //  Copy "x=___"  from input to output URL

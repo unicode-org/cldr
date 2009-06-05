@@ -1,6 +1,6 @@
     <%@ include file="report_top.jspf" %>
 
-<p> Enter the months of Gregorian calendar.</p>
+<h2> Enter the months of Gregorian calendar.</h2>
 
 <%
 //  Copy "x=___"  from input to output URL

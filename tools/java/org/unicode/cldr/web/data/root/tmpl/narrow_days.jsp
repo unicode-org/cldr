@@ -1,6 +1,8 @@
     <%@ include file="report_top.jspf" %>
 
-<p> Enter the narrow abbreviations for the names of the days of the week. Narrow abbreviations are often used in making small versions of calendars.  The abbreviations used are usually a single character and need not be unique.</p>
+<h2> Enter the narrow abbreviations for the names of the days of the week. </h2>
+
+<p>Narrow abbreviations are often used in making small versions of calendars.  The abbreviations used are usually a single character and need not be unique.</p>
 
 <%
 //  Copy "x=___"  from input to output URL

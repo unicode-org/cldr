@@ -1,6 +1,6 @@
 <%@ include file="report_top.jspf" %>
 
-<p> Enter the pattern to be used for formatting regular numbers.</p>
+<h2> Enter the pattern to be used for formatting regular numbers.</h2>
 
 <%
 //  Copy "x=___"  from input to output URL

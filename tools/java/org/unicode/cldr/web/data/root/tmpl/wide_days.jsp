@@ -1,6 +1,6 @@
     <%@ include file="report_top.jspf" %>
 
-<p> Enter the names of the days of the week. </p>
+<h2> Enter the names of the days of the week. </h2>
 
 <%
 //  Copy "x=___"  from input to output URL

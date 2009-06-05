@@ -2,7 +2,7 @@
 <%!
 // list of the 'report' templates
 static final String reports[] = { 
-    "r_characters",
+    "characters",
     "numbering_system",
     "decimal_separator",
     "group_separator",
@@ -19,7 +19,8 @@ static final String reports[] = {
     "date_formats",
     "time_formats",
     "GMT_format",
-    "local_currency"
+    "local_currency",
+    "language_country"
 };
 
 static final String report_name[] = reports;  // TODO: replace with human readable name?
@@ -42,7 +43,8 @@ static final String base_xpaths[] = {
 		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
 		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
 		"//ldml/dates/timeZoneNames",
-		"//ldml/numbers" //ldml/numbers/currencies/currency[@type="USD"]/displayName
+		"//ldml/numbers", //ldml/numbers/currencies/currency[@type="USD"]/displayName
+		"//ldml/localeDisplayNames"
 };
 %>
 <% 

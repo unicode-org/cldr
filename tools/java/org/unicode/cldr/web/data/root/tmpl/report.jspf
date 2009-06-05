@@ -17,7 +17,9 @@ static final String reports[] = {
     "am_pm",
     "eras",
     "date_formats",
-    "time_formats"
+    "time_formats",
+    "GMT_format",
+    "local_currency"
 };
 
 static final String report_name[] = reports;  // TODO: replace with human readable name?
@@ -38,7 +40,9 @@ static final String base_xpaths[] = {
 		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
 		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
 		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
-		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]"
+		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
+		"//ldml/dates/timeZoneNames",
+		"//ldml/numbers" //ldml/numbers/currencies/currency[@type="USD"]/displayName
 };
 %>
 <% 

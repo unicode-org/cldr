@@ -21,7 +21,9 @@ public class SearchCLDR {
   SOURCEDIR = 2,
   MATCH_FILE = 3,
   MATCH_PATH = 4,
-  MATCH_VALUE = 5
+  MATCH_VALUE = 5,
+  SHOW_PATH = 6,
+  SHOW_PARENT_VALUE = 7
   ;
   private static final UOption[] options = {
     UOption.HELP_H(),
@@ -30,6 +32,8 @@ public class SearchCLDR {
     UOption.create("localematch", 'l', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("pathmatch", 'p', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("valuematch", 'v', UOption.REQUIRES_ARG).setDefault(".*"),
+    UOption.create("showPath", 's', UOption.NO_ARG),
+    UOption.create("showParentValue", 'q', UOption.NO_ARG),
   };
   static final String HELP_TEXT1 = "Use the following options" + XPathParts.NEWLINE
   + "-h or -?\t for this message" + XPathParts.NEWLINE
@@ -39,6 +43,8 @@ public class SearchCLDR {
     + "-p<regex>\t to restrict the paths to what matches <regex>" + XPathParts.NEWLINE
     + "-v<regex>\t to restrict the values to what matches <regex>" + XPathParts.NEWLINE
     + "\t Remember to put .* on the front and back of any regex if you want to find any occurence."
+    + "-s\t show path"
+    + "-s\t show parent value"
 ;
   
   public static void main(String[] args) {
@@ -65,6 +71,9 @@ public class SearchCLDR {
       System.out.println("Value Matching: " + options[MATCH_VALUE].value);
       valueMatch = Pattern.compile(options[MATCH_VALUE].value).matcher("");
     }
+    boolean showPath = options[SHOW_PATH].doesOccur;
+    boolean showParent = options[SHOW_PARENT_VALUE].doesOccur;
+    
     System.out.println("Searching...");
     System.out.println();
     System.out.flush();
@@ -72,6 +81,9 @@ public class SearchCLDR {
     
     for (String locale : locales) {
       CLDRFile file = (CLDRFile) cldrFactory.make(locale, false);
+      CLDRFile parent = null;
+      boolean headerShown = false;
+      
       //System.out.println("*Checking " + locale);
       int count = 0;
       for (Iterator<String> it = file.iterator("",CLDRFile.ldmlComparator); it.hasNext();) {
@@ -80,8 +92,19 @@ public class SearchCLDR {
         String value = file.getStringValue(path);
         if (pathMatch != null && !pathMatch.reset(fullPath).matches()) continue;
         if (valueMatch != null && !valueMatch.reset(value).matches()) continue;
+        
+        // made it through the sieve
+        if (!headerShown) {
+          showLine(showPath, showParent, locale, parent, "Path", "Full-Path", "Value", "ShortPath", "Parent-Value");
+          headerShown = true;
+        }
+        if (showParent && parent == null) {
+          String parentLocale = CLDRFile.getParent(locale);
+          parent = cldrFactory.make(parentLocale, true);
+        }
         String shortPath = pretty.getPrettyPath(path);
-        System.out.println(locale + "\t" + shortPath + "\t{" + value + "}"  + "\t" + fullPath);
+        String cleanShort = pretty.getOutputForm(shortPath);
+        showLine(showPath, showParent, locale, parent, path, fullPath, value, cleanShort, parent.getStringValue(path));
         count++;
       }
       if (count != 0) {
@@ -91,5 +114,14 @@ public class SearchCLDR {
       }
     }
     System.out.println("Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime)/60000.0) + " minutes");
+  }
+
+  private static void showLine(boolean showPath, boolean showParent, String locale,
+          CLDRFile parent, String path, String fullPath, String value, String shortPath, String parentValue) {
+    System.out.println(locale + "\t{" + value + "}" 
+            + (showParent ? "\t{" + parentValue + "}" : "")
+            + "\t" + shortPath
+            + (showPath ?"\t" + fullPath : "")
+    );
   }
 }

@@ -8,6 +8,8 @@ import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.XEquivalenceMap;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.util.TimeZone;
 
 import java.sql.ResultSet;
@@ -190,7 +192,8 @@ public class CheckDisplayCollisions extends CheckCLDR {
       if (itemType == CLDRFile.CURRENCY_NAME) itemType = CLDRFile.CURRENCY_SYMBOL;
       else if (itemType >= CLDRFile.TZ_START && itemType < CLDRFile.TZ_LIMIT) itemType = CLDRFile.TZ_START;
       String value = cldrFileToCheck.getStringValue(xpath);
-      collisions.add(xpath, value);
+      String skeleton = getSkeleton(value);
+      collisions.add(xpath, skeleton);
     }
     
     // now get just the types, and store them in sets
@@ -235,6 +238,17 @@ public class CheckDisplayCollisions extends CheckCLDR {
     }
   }
   
+  private String getSkeleton(String value) {
+    value = Normalizer.normalize(value, Normalizer.NFKC);
+    value = UCharacter.foldCase(value, true);
+    value = Normalizer.normalize(value, Normalizer.NFKC);
+    value = value.replace(".", "");
+    value = value.replace("₤","£");
+    value = value.replace("₨","Rs");
+    // TODO Remove other punctuation: etc.
+    return value;
+  }
+
   transient static final int[] pathOffsets = new int[2];
   transient static final int[] otherOffsets = new int[2];
   private boolean isEquivalent(int itemType, String path, String otherPath) {

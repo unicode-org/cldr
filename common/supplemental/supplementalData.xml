@@ -3803,14 +3803,13 @@ XXX	Code for transations where no currency is involved
 
     <weekData>
           <minDays count="4" territories="001" />
-          <minDays count="4" territories="CD" draft="unconfirmed" />
+          <minDays count="4" territories="CD"/>
         
           <firstDay day="mon"  territories="001" />
           <firstDay day="fri"  territories="MV" />
           <firstDay day="sat"  territories="AF BH DJ DZ EG ER ET IQ IR JO KE KW LY MA OM QA SA SD SO TN YE" />
           <firstDay day="sun"  territories="AS AZ BW CA CN FO GE GL GU HK IE IL IN IS JM JP KG KR LA MH MN MO MP MT NZ PH PK SG SY TH TT TW UM US UZ VI ZW" />
-          <firstDay day="sun"  territories="ET MW NG TJ" draft="unconfirmed" />
-		  <firstDay day="sun"  territories="GB" draft="unconfirmed"  alt="variant" references="Shorter Oxford Dictionary (5th edition, 2002)"/>
+		  <firstDay day="sun"  territories="GB" alt="variant" references="Shorter Oxford Dictionary (5th edition, 2002)"/>
         
           <weekendStart day="thu"  territories="DZ KW OM SA SD YE AF IR"/>
           <weekendStart day="fri"  territories="AE BH EG IL IQ JO LY MA QA SY TN"/>

@@ -64,8 +64,8 @@
 			<type type="gregorian" key="calendar" draft="provisional">Jiyax Yisu Thulang</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="US" draft="provisional">Snyunaydi</measurementSystemName>
 			<measurementSystemName type="metric" draft="provisional">Snamrika</measurementSystemName>
+			<measurementSystemName type="US" draft="provisional">Snyunaydi</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language" draft="provisional">Kari: {0}</codePattern>
@@ -250,16 +250,16 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
 						<dateFormatItem id="Hm" draft="provisional">H:mm</dateFormatItem>
 						<dateFormatItem id="M" draft="provisional">L</dateFormatItem>
+						<dateFormatItem id="Md" draft="provisional">M-d</dateFormatItem>
 						<dateFormatItem id="MEd" draft="provisional">E, M-d</dateFormatItem>
 						<dateFormatItem id="MMM" draft="provisional">LLL</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="provisional">E MMM d</dateFormatItem>
-						<dateFormatItem id="MMMMEd" draft="provisional">E MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="provisional">MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="provisional">MMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="provisional">M-d</dateFormatItem>
-						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="provisional">E MMM d</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="provisional">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMEd" draft="provisional">E MMMM d</dateFormatItem>
 						<dateFormatItem id="ms" draft="provisional">mm:ss</dateFormatItem>
 						<dateFormatItem id="y" draft="provisional">y</dateFormatItem>
 						<dateFormatItem id="yM" draft="provisional">yyyy-M</dateFormatItem>
@@ -559,3 +559,4 @@
 		</messages>
 	</posix>
 </ldml>
+

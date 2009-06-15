@@ -462,8 +462,8 @@
 			<territory type="ZZ" draft="contributed">Hindi kilala o Hindi wastong Rehiyon</territory>
 		</territories>
 		<measurementSystemNames>
-			<measurementSystemName type="US" draft="contributed">US</measurementSystemName>
 			<measurementSystemName type="metric" draft="contributed">Metric</measurementSystemName>
+			<measurementSystemName type="US" draft="contributed">US</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language" draft="contributed">{0}</codePattern>
@@ -662,13 +662,13 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">E, M-d</dateFormatItem>
 						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="contributed">E MMM d</dateFormatItem>
-						<dateFormatItem id="MMMMEd" draft="contributed">E MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="contributed">MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="contributed">E MMM d</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="contributed">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMEd" draft="contributed">E MMMM d</dateFormatItem>
 						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
 						<dateFormatItem id="y" draft="contributed">y</dateFormatItem>
 						<dateFormatItem id="yM" draft="contributed">yyyy-M</dateFormatItem>

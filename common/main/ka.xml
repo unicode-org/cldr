@@ -505,8 +505,8 @@
 			<type type="traditional" key="collation">ტრადიციული</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="US" draft="contributed">US</measurementSystemName>
 			<measurementSystemName type="metric" draft="contributed">Metric</measurementSystemName>
+			<measurementSystemName type="US" draft="contributed">US</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
@@ -688,16 +688,16 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" draft="unconfirmed">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" draft="unconfirmed">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMdd" draft="unconfirmed">dd MMM</dateFormatItem>
-						<dateFormatItem id="MMdd" draft="contributed">dd/MM</dateFormatItem>
 						<dateFormatItem id="hhmm" draft="unconfirmed">hh:mm a</dateFormatItem>
+						<dateFormatItem id="HHmm" draft="unconfirmed">HH:mm</dateFormatItem>
 						<dateFormatItem id="hhmmss" draft="unconfirmed">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="HHmmss" draft="unconfirmed">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="contributed">dd/MM</dateFormatItem>
+						<dateFormatItem id="MMMdd" draft="unconfirmed">dd MMM</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="unconfirmed">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" draft="unconfirmed">EEE, d MMM, yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" draft="unconfirmed">d MMM, yy</dateFormatItem>
 						<dateFormatItem id="yyMMdd" draft="unconfirmed">dd/MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd" draft="unconfirmed">d MMM, yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" draft="unconfirmed">EEE, d MMM, yy</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="unconfirmed">QQQQ yy</dateFormatItem>
 					</availableFormats>
@@ -2157,3 +2157,4 @@
 		</messages>
 	</posix>
 </ldml>
+

@@ -1365,7 +1365,7 @@ public class CLDRModify {
         switch(firstChar) {
           case '0': system = "????"; break;
           case '٠': system = "arab"; break;
-          case '۰': system = "extarab"; break;
+          case '۰': system = "arabext"; break;
           default:
             int script = UScript.getScript(zero.codePointAt(0));
           if (script != UScript.UNKNOWN) {

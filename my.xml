@@ -438,8 +438,8 @@
 			<type type="phonebook" key="collation" draft="provisional">ဖုန်းစာအုပ် အစီအစဉ်</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="US" draft="provisional">အမေရိကန်စနစ်</measurementSystemName>
 			<measurementSystemName type="metric" draft="provisional">မက်ထရစ်စနစ်</measurementSystemName>
+			<measurementSystemName type="US" draft="provisional">အမေရိကန်စနစ်</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language" draft="provisional">ဘာသာစကား - {0}</codePattern>
@@ -636,16 +636,16 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
 						<dateFormatItem id="Hm" draft="provisional">H:mm</dateFormatItem>
 						<dateFormatItem id="M" draft="provisional">L</dateFormatItem>
+						<dateFormatItem id="Md" draft="provisional">M-d</dateFormatItem>
 						<dateFormatItem id="MEd" draft="unconfirmed">E, M-d</dateFormatItem>
 						<dateFormatItem id="MMM" draft="unconfirmed">LLL</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="unconfirmed">E MMM d</dateFormatItem>
-						<dateFormatItem id="MMMMEd" draft="unconfirmed">E MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="provisional">MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="provisional">MMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="provisional">M-d</dateFormatItem>
-						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="unconfirmed">E MMM d</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="provisional">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMEd" draft="unconfirmed">E MMMM d</dateFormatItem>
 						<dateFormatItem id="ms" draft="unconfirmed">mm:ss</dateFormatItem>
 						<dateFormatItem id="y" draft="provisional">y</dateFormatItem>
 						<dateFormatItem id="yM" draft="provisional">yyyy-M</dateFormatItem>
@@ -659,21 +659,6 @@
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0} – {1}</intervalFormatFallback>
-						<intervalFormatItem id="M">
-							<greatestDifference id="M" draft="unconfirmed">M-M</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MEd">
-							<greatestDifference id="M" draft="unconfirmed">EEEE၊ d/M – EEEE၊ d/M</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">EEEE၊ d/M – EEEE၊ d/M</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="M" draft="unconfirmed">MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Md">
-							<greatestDifference id="M" draft="unconfirmed">d/M – d/M</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">d/M – d/M</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="unconfirmed">d-d</greatestDifference>
 						</intervalFormatItem>
@@ -695,27 +680,42 @@
 							<greatestDifference id="a" draft="unconfirmed">HH-HH v</greatestDifference>
 							<greatestDifference id="h" draft="unconfirmed">HH-HH v</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M" draft="unconfirmed">M-M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d" draft="unconfirmed">d/M – d/M</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">d/M – d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d" draft="unconfirmed">EEEE၊ d/M – EEEE၊ d/M</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">EEEE၊ d/M – EEEE၊ d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d" draft="unconfirmed">MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y" draft="unconfirmed">y-y</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="yMEd">
-							<greatestDifference id="M" draft="unconfirmed">EEEE၊ d/M/yy – EEEE၊ d/M/yy</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">EEEE၊ d/M/yy – EEEE၊ d/M/yy</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">EEEE၊ d-M-yyyy – EEEE၊ d-M-yyyy</greatestDifference>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d" draft="unconfirmed">d/M/yy – d/M/yy</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">d/M/yy – d/M/yy</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">d/M/yy – d/M/yy</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="M" draft="unconfirmed">y၊ MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">y၊ MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">y၊ MMM d၊ EEEE – y၊ MMM d၊ EEEE</greatestDifference>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d" draft="unconfirmed">EEEE၊ d/M/yy – EEEE၊ d/M/yy</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">EEEE၊ d/M/yy – EEEE၊ d/M/yy</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">EEEE၊ d-M-yyyy – EEEE၊ d-M-yyyy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="M" draft="unconfirmed">y၊ MMM d – MMM d</greatestDifference>
 							<greatestDifference id="y" draft="unconfirmed">y MMM d – y MMM d</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="yMd">
-							<greatestDifference id="M" draft="unconfirmed">d/M/yy – d/M/yy</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">d/M/yy – d/M/yy</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">d/M/yy – d/M/yy</greatestDifference>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d" draft="unconfirmed">y၊ MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">y၊ MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">y၊ MMM d၊ EEEE – y၊ MMM d၊ EEEE</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1025,15 +1025,15 @@
 					<standard draft="unconfirmed">ပြင်သစ် ဂီယာနာ အချိန်</standard>
 				</long>
 			</metazone>
-			<metazone type="GMT">
-				<long>
-					<standard draft="unconfirmed">ဂရင်းနစ် စံတော်ချိန်</standard>
-				</long>
-			</metazone>
 			<metazone type="Georgia">
 				<long>
 					<standard draft="unconfirmed">ဂျော်ဂျီယာ အချိန်</standard>
 					<daylight draft="unconfirmed">ဂျော်ဂျီယာ နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard draft="unconfirmed">ဂရင်းနစ် စံတော်ချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Central">

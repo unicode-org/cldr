@@ -248,8 +248,8 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="provisional">d de MMMM</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">d-M</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="provisional">d de MMMM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -312,11 +312,11 @@
 						<dateFormatItem id="yyQ">QQQ 'de' yy</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatItem id="MMM">
-							<greatestDifference id="M">MMM-MMM</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="h">H'h' - H'h'</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">MMM-MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">y-y</greatestDifference>
@@ -923,11 +923,6 @@
 				</short>
 				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
-			<metazone type="GMT">
-				<long>
-					<standard draft="contributed">Hora do Meridiano de Greenwich</standard>
-				</long>
-			</metazone>
 			<metazone type="Galapagos">
 				<long>
 					<standard draft="contributed">Hora de Galápagos</standard>
@@ -952,6 +947,11 @@
 			<metazone type="Gilbert_Islands">
 				<long>
 					<standard draft="contributed">Hora das Ilhas Gilbert</standard>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard draft="contributed">Hora do Meridiano de Greenwich</standard>
 				</long>
 			</metazone>
 			<metazone type="Goose_Bay">

@@ -291,16 +291,16 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">M-d</dateFormatItem>
 						<dateFormatItem id="MEd" references="RP2">E, d-M</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd" references="RP2">E d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMd" references="RP2">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="Md">M-d</dateFormatItem>
-						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd" references="RP2">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd" references="RP2">E d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yMEd" references="RP2">EEE, d/M/yyyy</dateFormatItem>

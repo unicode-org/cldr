@@ -227,8 +227,8 @@
 			<type type="japanese" key="calendar" draft="unconfirmed">fakasiapani</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="US" draft="unconfirmed">fakaʻamelika</measurementSystemName>
 			<measurementSystemName type="metric" draft="unconfirmed">fakamita</measurementSystemName>
+			<measurementSystemName type="US" draft="unconfirmed">fakaʻamelika</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
@@ -418,16 +418,16 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="d" draft="unconfirmed">d</dateFormatItem>
 						<dateFormatItem id="Hm" draft="unconfirmed">H:mm</dateFormatItem>
 						<dateFormatItem id="M" draft="unconfirmed">L</dateFormatItem>
+						<dateFormatItem id="Md" draft="unconfirmed">d-M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="unconfirmed">E d-M</dateFormatItem>
 						<dateFormatItem id="MMM" draft="unconfirmed">LLL</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="unconfirmed">E d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd" draft="unconfirmed">E d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="unconfirmed">d MMM</dateFormatItem>
-						<dateFormatItem id="Md" draft="unconfirmed">d-M</dateFormatItem>
-						<dateFormatItem id="d" draft="unconfirmed">d</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="unconfirmed">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd" draft="unconfirmed">E d MMMM</dateFormatItem>
 						<dateFormatItem id="ms" draft="unconfirmed">mm:ss</dateFormatItem>
 						<dateFormatItem id="y" draft="unconfirmed">y</dateFormatItem>
 						<dateFormatItem id="yM" draft="unconfirmed">M-yyyy</dateFormatItem>
@@ -610,3 +610,4 @@
 		</messages>
 	</posix>
 </ldml>
+

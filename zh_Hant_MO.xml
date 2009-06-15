@@ -52,22 +52,6 @@
 						<dateFormatItem id="yyyyM" draft="provisional">yyyy/M</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatItem id="MEd">
-							<greatestDifference id="M" draft="unconfirmed">M月d日E至M月d日E</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">M月d日E至d日E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="M" draft="unconfirmed">MM月d日E至MM月d日E</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">MM月d日E至d日E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMd">
-							<greatestDifference id="M" draft="unconfirmed">MM月d日至MM月d日</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">MM月d日至d日</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Md">
-							<greatestDifference id="M" draft="unconfirmed">M月d日至M月d日</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">M月d日至d日</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="h" draft="unconfirmed">ah至h時</greatestDifference>
 						</intervalFormatItem>
@@ -80,33 +64,49 @@
 							<greatestDifference id="a" draft="unconfirmed">ah時至ah時v</greatestDifference>
 							<greatestDifference id="h" draft="unconfirmed">ah至h時v</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d" draft="unconfirmed">M月d日至d日</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">M月d日至M月d日</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d" draft="unconfirmed">M月d日E至d日E</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">M月d日E至M月d日E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d" draft="unconfirmed">MM月d日至d日</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">MM月d日至MM月d日</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d" draft="unconfirmed">MM月d日E至d日E</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">MM月d日E至MM月d日E</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M" draft="unconfirmed">yy年M月至M月</greatestDifference>
 							<greatestDifference id="y" draft="unconfirmed">yy年M月至yy年M月</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d" draft="unconfirmed">yy年M月d日至d日</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">yy年M月d日至M月d日</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">yy年M月d日至yy年M月d日</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="M" draft="unconfirmed">yy年M月d日E至M月d日E</greatestDifference>
 							<greatestDifference id="d" draft="unconfirmed">yy年M月d日E至d日E</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">yy年M月d日E至M月d日E</greatestDifference>
 							<greatestDifference id="y" draft="unconfirmed">yy年M月d日E至yy年M月d日E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M" draft="unconfirmed">y年MM月至MM月</greatestDifference>
 							<greatestDifference id="y" draft="unconfirmed">y年MM月至y年MM月</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="M" draft="unconfirmed">y年MM月d日E至MM月d日E</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">y年MM月d日E至d日E</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">y年MM月d日E至y年MM月d日E</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M" draft="unconfirmed">y年MM月d日至MM月d日</greatestDifference>
 							<greatestDifference id="d" draft="unconfirmed">y年MM月d日至d日</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">y年MM月d日至MM月d日</greatestDifference>
 							<greatestDifference id="y" draft="unconfirmed">y年MM月d日至y年MM月d日</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="yMd">
-							<greatestDifference id="M" draft="unconfirmed">yy年M月d日至M月d日</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">yy年M月d日至d日</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">yy年M月d日至yy年M月d日</greatestDifference>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d" draft="unconfirmed">y年MM月d日E至d日E</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">y年MM月d日E至MM月d日E</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">y年MM月d日E至y年MM月d日E</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>

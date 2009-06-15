@@ -863,20 +863,6 @@
 							<month type="11">11</month>
 							<month type="12">12</month>
 						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">一月</month>
-							<month type="2">二月</month>
-							<month type="3">三月</month>
-							<month type="4">四月</month>
-							<month type="5">五月</month>
-							<month type="6">六月</month>
-							<month type="7">七月</month>
-							<month type="8">八月</month>
-							<month type="9">九月</month>
-							<month type="10">十月</month>
-							<month type="11">十一月</month>
-							<month type="12">十二月</month>
-						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -889,26 +875,6 @@
 							<day type="thu">週四</day>
 							<day type="fri">週五</day>
 							<day type="sat">週六</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">星期日</day>
-							<day type="mon">星期一</day>
-							<day type="tue">星期二</day>
-							<day type="wed">星期三</day>
-							<day type="thu">星期四</day>
-							<day type="fri">星期五</day>
-							<day type="sat">星期六</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">日</day>
-							<day type="mon">一</day>
-							<day type="tue">二</day>
-							<day type="wed">三</day>
-							<day type="thu">四</day>
-							<day type="fri">五</day>
-							<day type="sat">六</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -963,12 +929,12 @@
 						<dateFormatItem id="H">H時</dateFormatItem>
 						<dateFormatItem id="HHmm">H:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">M-d（E）</dateFormatItem>
 						<dateFormatItem id="MEd" alt="proposed-x1001" draft="unconfirmed">M/d（E）</dateFormatItem>
 						<dateFormatItem id="MEd" alt="proposed-x1002" draft="unconfirmed">M-dE</dateFormatItem>
-						<dateFormatItem id="MMMMEd" draft="unconfirmed">MMMMd日(E)</dateFormatItem>
 						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
-						<dateFormatItem id="Md">M/d</dateFormatItem>
+						<dateFormatItem id="MMMMEd" draft="unconfirmed">MMMMd日(E)</dateFormatItem>
 						<dateFormatItem id="yM">yyyy/M</dateFormatItem>
 						<dateFormatItem id="yMEd">yyyy/M/d（EEE）</dateFormatItem>
 						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
@@ -978,20 +944,6 @@
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0}至{1}</intervalFormatFallback>
-						<intervalFormatItem id="M">
-							<greatestDifference id="M">M月至M月</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MEd">
-							<greatestDifference id="M">M/dE至M/dE</greatestDifference>
-							<greatestDifference id="d">M/dE至M/dE</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M">LLLL至LLLL</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Md">
-							<greatestDifference id="M">M/d至M/d</greatestDifference>
-							<greatestDifference id="d">M/d至M/d</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">ah時至ah時</greatestDifference>
 							<greatestDifference id="h">ah時至h時</greatestDifference>
@@ -1000,23 +952,37 @@
 							<greatestDifference id="a">vah時至ah時</greatestDifference>
 							<greatestDifference id="h">vah時至h時</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M月至M月</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">M/d至M/d</greatestDifference>
+							<greatestDifference id="M">M/d至M/d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">M/dE至M/dE</greatestDifference>
+							<greatestDifference id="M">M/dE至M/dE</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMM">
+							<greatestDifference id="M">LLLL至LLLL</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">yyyy/M至yyyy/M</greatestDifference>
 							<greatestDifference id="y">yyyy/M至yyyy/M</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">yyyy/M/d至yyyy/M/d</greatestDifference>
+							<greatestDifference id="M">yyyy/M/d至yyyy/M/d</greatestDifference>
+							<greatestDifference id="y">yyyy/M/d至yyyy/M/d</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="M">yyyy/M/dE至yyyy/M/dE</greatestDifference>
 							<greatestDifference id="d">yyyy/M/dE至yyyy/M/dE</greatestDifference>
+							<greatestDifference id="M">yyyy/M/dE至yyyy/M/dE</greatestDifference>
 							<greatestDifference id="y">yyyy/M/dE至yyyy/M/dE</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">y年M月至M月</greatestDifference>
 							<greatestDifference id="y">y/M至y/M</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMd">
-							<greatestDifference id="M">yyyy/M/d至yyyy/M/d</greatestDifference>
-							<greatestDifference id="d">yyyy/M/d至yyyy/M/d</greatestDifference>
-							<greatestDifference id="y">yyyy/M/d至yyyy/M/d</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1029,18 +995,11 @@
 					</field>
 					<field type="day">
 						<relative type="-3">大前天</relative>
-						<relative type="-2">前天</relative>
-						<relative type="-1">昨天</relative>
-						<relative type="0">今天</relative>
-						<relative type="1">明天</relative>
 						<relative type="2">後天</relative>
 						<relative type="3">大後天</relative>
 					</field>
 					<field type="weekday">
 						<displayName>週天</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>上午/下午</displayName>
 					</field>
 					<field type="hour">
 						<displayName>小時</displayName>
@@ -1079,8 +1038,8 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMEd">M月d日EEE</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMEd">M月d日EEE</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy</dateFormatItem>
 						<dateFormatItem id="yyyyM" alt="proposed-x1001" draft="unconfirmed">y/M</dateFormatItem>
 						<dateFormatItem id="yyyyMEd" alt="proposed-x1001" draft="unconfirmed">y/M/d（EEE）</dateFormatItem>
@@ -2549,11 +2508,6 @@
 					<daylight draft="contributed">伏龍芝夏令時間</daylight>
 				</long>
 			</metazone>
-			<metazone type="GMT">
-				<long>
-					<standard>格林威治標準時間</standard>
-				</long>
-			</metazone>
 			<metazone type="Galapagos">
 				<long>
 					<standard draft="provisional">加拉帕戈群島時間</standard>
@@ -2563,6 +2517,11 @@
 				<long>
 					<standard draft="contributed">喬治亞時間</standard>
 					<daylight draft="contributed">喬治亞夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>格林威治標準時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Central">

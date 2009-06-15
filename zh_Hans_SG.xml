@@ -36,14 +36,6 @@
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0}至{1}</intervalFormatFallback>
-						<intervalFormatItem id="MEd">
-							<greatestDifference id="M" draft="unconfirmed">dd/MME至dd/MME</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">dd/MME至dd/MME</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Md">
-							<greatestDifference id="M" draft="unconfirmed">dd/MM至dd/MM</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">dd/MM至dd/MM</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="unconfirmed">ahh至ahh</greatestDifference>
 							<greatestDifference id="h" draft="unconfirmed">ahh至hh</greatestDifference>
@@ -62,6 +54,14 @@
 							<greatestDifference id="a" draft="unconfirmed">ahh至ahhv</greatestDifference>
 							<greatestDifference id="h" draft="unconfirmed">ahh至hhv</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d" draft="unconfirmed">dd/MM至dd/MM</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">dd/MM至dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d" draft="unconfirmed">dd/MME至dd/MME</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">dd/MME至dd/MME</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y" draft="unconfirmed">y-y</greatestDifference>
 						</intervalFormatItem>
@@ -69,15 +69,15 @@
 							<greatestDifference id="M" draft="unconfirmed">MM/yy至MM/yy</greatestDifference>
 							<greatestDifference id="y" draft="unconfirmed">MM/yy至MM/yy</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="yMEd">
-							<greatestDifference id="M" draft="unconfirmed">dd/MM/yyE至dd/MM/yyE</greatestDifference>
-							<greatestDifference id="d" draft="unconfirmed">dd/MM/yyE至dd/MM/yyE</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">dd/MM/yyE至dd/MM/yyE</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="M" draft="unconfirmed">dd/MM/yy至dd/MM/yy</greatestDifference>
 							<greatestDifference id="d" draft="unconfirmed">dd/MM/yy至dd/MM/yy</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">dd/MM/yy至dd/MM/yy</greatestDifference>
 							<greatestDifference id="y" draft="unconfirmed">dd/MM/yy至dd/MM/yy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d" draft="unconfirmed">dd/MM/yyE至dd/MM/yyE</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">dd/MM/yyE至dd/MM/yyE</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">dd/MM/yyE至dd/MM/yyE</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>

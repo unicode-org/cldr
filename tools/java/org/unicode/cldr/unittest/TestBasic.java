@@ -5,9 +5,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -21,12 +24,15 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CharacterFallbacks;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.Relation;
+import org.unicode.cldr.util.Row;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.Row.R2;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -35,10 +41,16 @@ import org.xml.sax.XMLReader;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.Currency;
+import com.ibm.icu.util.LocaleData;
+import com.ibm.icu.util.ULocale;
 
 public class TestBasic extends TestFmwk {
   static TestInfo testInfo = TestInfo.getInstance();
@@ -55,7 +67,7 @@ public class TestBasic extends TestFmwk {
   }
 
   private static final Set<String> skipAttributes    = new HashSet<String>(Arrays.asList("alt", "draft",
-                                                     "references"));
+  "references"));
   private static final Matcher  skipPaths = Pattern.compile("/identity" + "|/alias" + "|\\[@alt=\"proposed")
   .matcher("");
 
@@ -73,7 +85,7 @@ public class TestBasic extends TestFmwk {
   private final boolean          resolved = Utility.getProperty("resolved", false);
 
   private final Exception[]      internalException = new Exception[1];
-  
+
   private boolean pretty = Utility.getProperty("pretty", true);
 
   public void TestDtds() throws IOException {
@@ -137,6 +149,93 @@ public class TestBasic extends TestFmwk {
     }
   }
 
+  public void TestCurrencyFallback() {
+    XPathParts parts = new XPathParts();
+    Factory cldrFactory = Factory.make(mainDirectory, localeRegex);
+    CLDRFile english = cldrFactory.make("en", true);
+    Set<String> currencies = StandardCodes.make().getAvailableCodes("currency");
+
+    final UnicodeSet CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS = (UnicodeSet) new UnicodeSet("[[:sc:]-[\\u0000-\\u00FF]]").freeze();
+
+    CharacterFallbacks fallbacks = CharacterFallbacks.make();
+
+    for (String locale : cldrFactory.getAvailable()) {
+      CLDRFile file = cldrFactory.make(locale, false);
+      if (file.isNonInheriting())
+        continue;
+
+      final UnicodeSet OK_CURRENCY_FALLBACK = (UnicodeSet) new UnicodeSet("[\\u0000-\\u00FF]")
+      .addAll(safeExemplars(file, ""))
+      .addAll(safeExemplars(file, "auxiliary"))
+      .addAll(safeExemplars(file, "currencySymbol"))
+      .freeze();
+      UnicodeSet badSoFar = new UnicodeSet();
+
+
+      for (Iterator<String> it = file.iterator(); it.hasNext();) {
+        String path = it.next();
+        if (path.endsWith("/alias")) {
+          continue;
+        }
+        String value = file.getStringValue(path);
+
+        // check for special characters
+        
+        if (CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS.containsSome(value)) {
+
+          parts.set(path);
+          if (!parts.getElement(-1).equals("symbol")) {
+            continue;
+          }
+          String currencyType = parts.getAttributeValue(-2, "type");
+
+          UnicodeSet fishy = new UnicodeSet().addAll(value).retainAll(CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS).removeAll(badSoFar);
+          for (UnicodeSetIterator it2 = new UnicodeSetIterator(fishy); it2.next();) {
+            final int fishyCodepoint = it2.codepoint;
+            List<String> fallbackList = fallbacks.getSubstitutes(fishyCodepoint);
+
+            String nfkc = Normalizer.normalize(fishyCodepoint, Normalizer.NFKC);
+            if (!nfkc.equals(UTF16.valueOf(fishyCodepoint))) {
+              if (fallbackList == null) {
+                fallbackList = new ArrayList<String>();
+              } else {
+                fallbackList = new ArrayList<String>(fallbackList); // writable
+              }
+              fallbackList.add(nfkc);
+            }
+            // later test for all Latin-1
+            if (fallbackList == null) {
+              errln("Locale:\t" + locale + ";\tCharacter with no fallback:\t" + it2.getString() + "\t" + UCharacter.getName(fishyCodepoint));
+              badSoFar.add(fishyCodepoint);
+            } else {
+              String fallback = null;
+              for (String fb : fallbackList) {
+                if (OK_CURRENCY_FALLBACK.containsAll(fb)) {
+                  if (!fb.equals(currencyType) && currencies.contains(fb)) {
+                    errln("Locale:\t" + locale +  ";\tCurrency:\t" + currencyType + ";\tFallback converts to different code!:\t" + fb
+                            + "\t" + it2.getString() + "\t" + UCharacter.getName(fishyCodepoint));
+                  }
+                  if (fallback == null) {
+                    fallback = fb;
+                  }
+                }
+              }
+              if (fallback == null) {
+                errln("Locale:\t" + locale + ";\tCharacter with no good fallback (exemplars+Latin1):\t" + it2.getString() + "\t" + UCharacter.getName(fishyCodepoint));
+                badSoFar.add(fishyCodepoint);
+              } else {
+                errln("Locale:\t" + locale + ";\tCharacter with good fallback:\t"
+                        + it2.getString() + " " + UCharacter.getName(fishyCodepoint)
+                        + " => " + fallback);
+                badSoFar.add(fishyCodepoint);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
 
   public void TestPaths() {
     Relation<String, String> distinguishing = new Relation(new TreeMap(), TreeSet.class, null);
@@ -144,10 +243,6 @@ public class TestBasic extends TestFmwk {
     XPathParts parts = new XPathParts();
     Factory cldrFactory = Factory.make(mainDirectory, localeRegex);
     CLDRFile english = cldrFactory.make("en", true);
-    
-    final UnicodeSet CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS = (UnicodeSet) new UnicodeSet("[[:sc:]-[\\u0000-\\u00FF]]").freeze();
-
-    CharacterFallbacks fallbacks = CharacterFallbacks.make();
 
 
     Relation<String, String> pathToLocale = new Relation(new TreeMap(CLDRFile.ldmlComparator),
@@ -159,17 +254,10 @@ public class TestBasic extends TestFmwk {
       if (file.isNonInheriting())
         continue;
       DisplayAndInputProcessor displayAndInputProcessor = new DisplayAndInputProcessor(file);
-      
-      final UnicodeSet OK_CURRENCY_FALLBACK = (UnicodeSet) new UnicodeSet("[\\u0000-\\u00FF]")
-        .addAll(safeExemplars(file, ""))
-        .addAll(safeExemplars(file, "auxiliary"))
-        .addAll(safeExemplars(file, "currencySymbol"))
-        .freeze();
 
 
       logln(locale + "\t-\t" + english.getName(locale));
-      
-      UnicodeSet badSoFar = new UnicodeSet();
+
 
       for (Iterator<String> it = file.iterator(); it.hasNext();) {
         String path = it.next();
@@ -180,44 +268,7 @@ public class TestBasic extends TestFmwk {
         if (value == null) {
           throw new IllegalArgumentException(locale + "\tError: in null value at " + path);
         }
-        
-        // check for special characters
-        if (locale.equals(file.getSourceLocaleID(path, null))) {
-          if (CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS.containsSome(value)) {
-            UnicodeSet fishy = new UnicodeSet().addAll(value).retainAll(CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS).removeAll(badSoFar);
-            for (UnicodeSetIterator it2 = new UnicodeSetIterator(fishy); it2.next();) {
-              final int fishyCodepoint = it2.codepoint;
-              List<String> fallbackList = fallbacks.getSubstitutes(fishyCodepoint);
 
-              String nfkc = Normalizer.normalize(fishyCodepoint, Normalizer.NFKC);
-              if (!nfkc.equals(UTF16.valueOf(fishyCodepoint))) {
-                if (fallbackList == null) {
-                  fallbackList = new ArrayList<String>();
-                } else {
-                  fallbackList = new ArrayList<String>(fallbackList); // writable
-                }
-                fallbackList.add(nfkc);
-              }
-              // later test for all Latin-1
-              if (fallbackList == null) {
-                errln("Locale:\t" + locale + ";\tCharacter with no fallback:\t" + it2.getString() + " " + UCharacter.getName(fishyCodepoint));
-                badSoFar.add(fishyCodepoint);
-              } else {
-                boolean ok = false;
-                for (String fb : fallbackList) {
-                  if (OK_CURRENCY_FALLBACK.containsAll(fb)) {
-                    ok = true;
-                    break;
-                  }
-                }
-                if (!ok) {
-                  errln("Locale:\t" + locale + ";\tCharacter with no good fallback (exemplars+Latin1):\t" + it2.getString() + " " + UCharacter.getName(fishyCodepoint));
-                  badSoFar.add(fishyCodepoint);
-                }
-              }
-            }
-          }
-        }
 
         String displayValue = displayAndInputProcessor.processForDisplay(path, value);
         if (!displayValue.equals(value)) {
@@ -232,7 +283,7 @@ public class TestBasic extends TestFmwk {
         }
         if (isVerbose() && !inputValue.equals(value)) {
           displayAndInputProcessor.processInput(path, value, internalException); // for
-                                                                                  // debugging
+          // debugging
           logln("\t" + locale + "\tdisplayAndInputProcessor changes input value <" + value
                   + ">\t=>\t<" + inputValue + ">\t\t" + path);
         }
@@ -337,6 +388,110 @@ public class TestBasic extends TestFmwk {
     }
   }
 
+  private String doFormat(ULocale locale, Currency currency, double number) {
+    //    ULocale myLocale = null;
+    //    Currency myCurrency = null;
+    //    double someNumber = 12345.678;
+    // old
+    NumberFormat format = NumberFormat.getCurrencyInstance(locale);
+    format.setCurrency(currency);
+
+    // if ICU 4.2 / CLDR 1.7, use ugly hack
+    fixFormatIfCantDisplay(format, locale, currency);
+
+    String result = format.format(number);
+    return result;
+  }
+
+  final static boolean DO_JOHNS = false;
+
+  private void fixFormatIfCantDisplay(NumberFormat format, ULocale locale, Currency currency) {
+    // Ugly code, unoptimized; just presented here for illustration
+
+    // John's suggestion; use currency if not for locale
+    if (DO_JOHNS) {
+      String[] codes = Currency.getAvailableCurrencyCodes(locale, new Date());
+
+      // this is only an approximation, since the currency may have been used previously in the locale,
+      // but ICU doesn't make that CLDR information accessible.
+
+      for (String code : codes) {
+        if (code.equals(currency.toString())) {
+          return; // skip
+        }
+      }
+    } else {
+      // This also means that perfectly reasonable, well-established symbols like "Rp" for "INR"
+      // will be unavailable for all locales but "IN".
+
+      // Alternative, use hack to figure out if the user of the locale is likely to have the fonts
+      // If we are using plural formatting, we have to take a different code path, so this would need enhancement!
+
+      boolean[] isChoiceFormat = new boolean[1];
+      String name = currency.getName(locale, Currency.SYMBOL_NAME, isChoiceFormat);
+
+      // We actually would like to get the currencySymbol Exemplars, but those aren't available in ICU - another hole!
+      // So we just assume Latin1.
+      // LocaleData.getExemplarSet(locale, 0);
+
+      final UnicodeSet OK_CURRENCY = (UnicodeSet) new UnicodeSet("[\\u0000-\\u00FF]").freeze();
+      if (OK_CURRENCY.containsAll(name)) {
+        return;
+      }
+    }
+
+    // use bad hack to just use Intl Currency symbol. That means instead of getting "Rp", the user gets "INR".
+    // If ICU exposed the characters.xml file, then we could use the fallbacks there instead
+
+    DecimalFormat format2 = (DecimalFormat) format;
+    String pattern = format2.toPattern();
+    pattern = pattern.replace("\u00a4", "\u00a4\u00a4");
+    format2.applyPattern(pattern);
+
+    // Even if we wanted to use the fallbacks, we'd have to define our own CurrencyCode override,
+    // because the ICU API is not rich enough to let us create a Currency instance that changes the right information.
+    // That is what ICUServiceBuilder in CLDR has to do, which is a royal pain.
+  }
+
+  public void TestCurrency() {
+    Map<String,Set<R2>> results = new TreeMap<String,Set<R2>>(Collator.getInstance(ULocale.ENGLISH));
+    for (ULocale locale : ULocale.getAvailableLocales()) {
+      if (locale.getCountry().length() != 0) {
+        continue;
+      }
+      for (int i = 1; i < 4; ++i) {
+        NumberFormat format = getCurrencyInstance(locale, i);
+        for (Currency c : new Currency[] {Currency.getInstance("USD"), Currency.getInstance("EUR"), Currency.getInstance("INR")}) {
+          format.setCurrency(c);
+          final String formatted = format.format(12345.67);
+          Set<R2> set = results.get(formatted);
+          if (set == null) {
+            results.put(formatted, set = new TreeSet<R2>());
+          }
+          set.add(Row.make(locale.toString(), i));
+        }
+      }
+    }
+    for (String formatted : results.keySet()) {
+      System.out.println(formatted + "\t" + results.get(formatted)); 
+    }
+  }
+
+  private static NumberFormat getCurrencyInstance(ULocale locale, int type) {
+    NumberFormat format = NumberFormat.getCurrencyInstance(locale);
+    if (type > 1) {
+      DecimalFormat format2 = (DecimalFormat) format;
+      String pattern = format2.toPattern();
+      String replacement = "\u00a4\u00a4";
+      for (int i = 2; i < type; ++i) {
+        replacement += "\u00a4";
+      }
+      pattern = pattern.replace("\u00a4", replacement);
+      format2.applyPattern(pattern);
+    }
+    return format;
+  }
+
   private UnicodeSet safeExemplars(CLDRFile file, String string) {
     final UnicodeSet result = file.getExemplarSet(string, WinningChoice.NORMAL);
     return result != null ? result : new UnicodeSet();
@@ -356,7 +511,7 @@ public class TestBasic extends TestFmwk {
     logln("locale: " + source);
     logln("status: " + status);
   }
-  
+
   public void TestDefaultContents() {
     Set<String> defaultContents = testInfo.getSupplementalDataInfo().getDefaultContentLocales();
     for (String locale : defaultContents) {
@@ -400,7 +555,7 @@ public class TestBasic extends TestFmwk {
       logln("\t\t" + localeParent + " value:\t<" + parentFile.getStringValue(path) + ">");
       logln("\t\t" + locale + " fullpath:\t" + fullXPath);
       logln("\t\t" + localeParent + " fullpath:\t" + parentFullPath);
-        }
+    }
     logln("\tCount of non-approved:\t" + funnyCount);
   }
 }

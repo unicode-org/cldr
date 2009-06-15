@@ -137,8 +137,8 @@ public class MapComparator<K> implements Comparator<K>, Freezable {
     if (!anumeric && bnumeric) return 1;
     if (anumeric && !bnumeric) return -1;
     
-    if (a instanceof String) {
-      if (b instanceof String) {
+    if (a instanceof CharSequence) {
+      if (b instanceof CharSequence) {
         int result = uca.compare(a, b);
         if (result != 0) {
           return result;

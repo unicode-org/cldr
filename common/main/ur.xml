@@ -817,10 +817,12 @@
 			<patternDigit draft="unconfirmed">#</patternDigit>
 			<plusSign draft="unconfirmed">+</plusSign>
 			<minusSign draft="unconfirmed">-</minusSign>
-			<exponential draft="unconfirmed">ق</exponential>
+			<exponential draft="unconfirmed">E</exponential>
+			<exponential alt="arab" draft="unconfirmed">ق</exponential>
 			<perMille draft="unconfirmed">‰</perMille>
 			<infinity draft="unconfirmed">∞</infinity>
-			<nan draft="unconfirmed">یہ عدد نہیں</nan>
+			<nan draft="unconfirmed">NaN</nan>
+			<nan alt="arab" draft="unconfirmed">یہ عدد نہیں</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>

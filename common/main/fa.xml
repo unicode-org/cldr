@@ -2794,16 +2794,23 @@
 	<numbers>
 		<defaultNumberingSystem>arabext</defaultNumberingSystem>
 		<symbols>
-			<decimal references="R048">٫</decimal>
-			<group references="R048">٬</group>
-			<list>؛</list>
-			<percentSign references="R048">٪</percentSign>
-			<nativeZeroDigit references="R048">۰</nativeZeroDigit>
+			<decimal>,</decimal>
+			<decimal references="R048" alt="extarab">٫</decimal>
+			<group>.</group>
+			<group references="R048" alt="extarab">٬</group>
+			<list>;</list>
+			<list alt="extarab">؛</list>
+			<percentSign>%</percentSign>
+			<percentSign references="R048" alt="extarab">٪</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<nativeZeroDigit references="R048" alt="extarab">۰</nativeZeroDigit>
 			<patternDigit>#</patternDigit>
 			<plusSign>+</plusSign>
 			<minusSign references="R048">−</minusSign>
-			<exponential>×۱۰^</exponential>
-			<perMille>؉</perMille>
+			<exponential>E</exponential>
+			<exponential alt="extarab">×۱۰^</exponential>
+			<perMille>‰</perMille>
+			<perMille alt="extarab">؉</perMille>
 			<infinity>∞</infinity>
 			<nan draft="contributed">NaN</nan>
 		</symbols>

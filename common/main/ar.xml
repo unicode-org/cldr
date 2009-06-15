@@ -2340,18 +2340,26 @@
 	<numbers>
 		<defaultNumberingSystem>arab</defaultNumberingSystem>
 		<symbols>
-			<decimal>٫</decimal>
-			<group>٬</group>
-			<list>؛</list>
-			<percentSign>٪</percentSign>
-			<nativeZeroDigit>٠</nativeZeroDigit>
+			<decimal>,</decimal>
+			<decimal alt="arab">٫</decimal>
+			<group>.</group>
+			<group alt="arab">٬</group>
+			<list>;</list>
+			<list alt="arab">؛</list>
+			<percentSign>%</percentSign>
+			<percentSign alt="arab">٪</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<nativeZeroDigit alt="arab">٠</nativeZeroDigit>
 			<patternDigit>#</patternDigit>
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
-			<exponential>اس</exponential>
-			<perMille>؉</perMille>
+			<exponential>E</exponential>
+			<exponential alt="arab">اس</exponential>
+			<perMille>‰</perMille>
+			<perMille alt="arab">؉</perMille>
 			<infinity>∞</infinity>
-			<nan>ليس رقم</nan>
+			<nan>NaN</nan>
+			<nan alt="arab">ليس رقم</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>

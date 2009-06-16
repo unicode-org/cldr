@@ -92,6 +92,7 @@ abstract public class CheckCLDR {
     .add(new CheckAlt())
    .add(new CheckCurrencies())
     .add(new CheckCasing())
+    .add(new CheckConsistentCasing())
     .add(new CheckNew()) // this is at the end; it will check for other certain other errors and warnings and not add a message if there are any.
     ;
   }

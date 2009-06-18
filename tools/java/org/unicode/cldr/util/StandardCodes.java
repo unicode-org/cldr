@@ -762,6 +762,7 @@ public class StandardCodes {
     { "language", "kaj", "Description", "Jju", "CLDR", "True" },
     { "language", "kcg", "Description", "Tyap", "CLDR", "True" },
     { "language", "kfo", "Description", "Koro", "CLDR", "True" },
+    { "language", "mfe", "Description", "Morisyen", "CLDR", "True" },
     { "region", "172", "Description", "Commonwealth of Independent States", "CLDR", "True" },
     { "region", "062", "Description", "South-Central Asia", "CLDR", "True" },
     { "region", "003", "Description", "North America", "CLDR", "True" },

@@ -2825,6 +2825,28 @@ public class CLDRFile implements Freezable, Iterable<String> {
     }
     return result;
   }
+  
+  /**
+   * Return the distinguished paths that match the pathPrefix and pathMatcher
+   * The pathMatcher can be null (equals .*).
+   * @param valueToMatch
+   * @param pathPrefix
+   * @return
+   */
+  public Set<String> getPaths(String pathPrefix, Matcher pathMatcher, Set<String> result) {
+    if (result == null) {
+      result = new HashSet();
+    }
+    for (Iterator<String> it = dataSource.iterator(pathPrefix); it.hasNext();) {
+      String path = it.next();
+      if (pathMatcher != null && !pathMatcher.reset(path).matches()) {
+        continue;
+      }
+      result.add(path);
+    }
+    return result;
+  }
+
 
   public enum WinningChoice {NORMAL, WINNING};
 

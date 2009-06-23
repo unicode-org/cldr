@@ -59,8 +59,6 @@ import com.ibm.icu.util.ULocale;
 
 import org.unicode.cldr.util.Utility.*;
 
-import sun.text.normalizer.UTF16;
-
 /**
  * Tool for applying modifications to the CLDR files. Use -h to see the options.
  * <p>There are some environment variables that can be used with the program

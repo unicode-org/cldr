@@ -8,29 +8,6 @@
 		<territory type="IN"/>
 	</identity>
 	<collations>
-		<collation type="standard" draft="unconfirmed" references="Biswas: Samsad Bengali-English Dictionary ISBN:8186806865 http://www.eki.ee/wgrs/rom1_bn.pdf">
-			<settings normalization="on"/>
-			<rules>
-			<!--
-			The following tailoring is an adjustment of the
-			DUCET collation order for ANUSVARA, CANDRABINDU,
-			and VISARGA. Instead of being sorted with secondary
-			weights, they are collated on primary level between
-			the independent vowels and the consonants.
-			-->
-				<reset>ঔ</reset>
-				<p>ং</p>
-				<p>ঁ</p>
-				<p>ঃ</p>
-
-			<!--
-			KHANDA-TA is sorted before TA.
-			-->
-				<reset before="primary">ত</reset>
-				<p>ত্‍</p>
-
-			</rules>
-		</collation>
 		<collation type="traditional" draft="unconfirmed" references="Biswas: Samsad Bengali-English Dictionary ISBN:8186806865">
 			<settings normalization="on"/>
 			<rules>

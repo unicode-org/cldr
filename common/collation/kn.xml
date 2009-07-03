@@ -7,32 +7,15 @@
 		<language type="kn" /> 
 	</identity>
 		<collations  validSubLocales="kn_IN">
-			<collation type="standard" >
-				<settings normalization="on"  />
-			</collation  >
 <collation type="standard"
-references="Kittel: Kannada-English Dictionary ISBN:8120600495 http://www.eki.ee/wgrs/rom1_kn.pdf"
-draft="unconfirmed" alt="proposed">
+references="Kittel: Kannada-English Dictionary ISBN:8120600495 http://www.eki.ee/wgrs/rom1_kn.pdf">
 <settings normalization="on"/>
 <rules>
-
-<!--
-The following tailoring is an adjustment of the
-DUCET collation order for ANUSVARA and VISARGA.
-Instead of being sorted with secondary weights,
-they are collated on primary level between the
-independent vowels and the consonants.
--->
 <reset>ಔ</reset>
 <p>ಂ</p>
 <p>ಃ</p>
-
-<!--
-L2/04-102 Bug fix.
--->
 <reset>ೞ</reset>
 <p>ಽ</p>
-
 </rules>
 </collation>
 <collation type="traditional"

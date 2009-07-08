@@ -242,7 +242,7 @@ public class TablePrinter {
       int result;
       for (int curr : sortPriorities) {
         result = o1[curr] instanceof String ? 
-            englishCollator.compare(o1[curr],o2[curr])
+            englishCollator.compare((String)o1[curr],(String)o2[curr])
             : o1[curr].compareTo(o2[curr]);
             if (0 != result) {
               if (ascending.get(curr)) {

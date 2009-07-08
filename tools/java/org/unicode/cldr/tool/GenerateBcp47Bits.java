@@ -333,7 +333,7 @@ public class GenerateBcp47Bits {
 
         }
       }
-      if (type == Type.REGION) return result.toString().toUpperCase(Locale.ROOT);
+      if (type == Type.REGION) return result.toString().toUpperCase(Locale.ENGLISH);
       return result.toString();
     }
   }

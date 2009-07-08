@@ -36,7 +36,7 @@ import com.ibm.icu.text.UnicodeFilter;
 
 public class CLDRTransforms {
 
-  private static final String TRANSFORM_DIR = (Utility.COMMON_DIRECTORY + "transforms/");
+  public static final String TRANSFORM_DIR = (Utility.COMMON_DIRECTORY + "transforms/");
 
   static final CLDRTransforms SINGLETON = new CLDRTransforms();
 

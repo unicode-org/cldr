@@ -43,7 +43,8 @@ class CheckLangTagBNF {
   private BNF bnf;
 
   private static final String[] groupNames = {"whole", "lang", "script", "region", "variants", "extensions", 
-    "privateuse", "grandfathered", "privateuse", "localeExtensions"
+    "privateuse", 
+    "grandfathered", "privateuse", "localeExtensions"
   };
 
   /**
@@ -100,7 +101,7 @@ class CheckLangTagBNF {
       }
     }
     if (variable != null) {
-      throw new IllegalArgumentException("Missing ';' at end");
+    	throw new IllegalArgumentException("Missing ';' at end");
     }
     String resolved = result.replace("$root").replaceAll("[0-9]+%", "");
     System.out.println("Regex: " + resolved);

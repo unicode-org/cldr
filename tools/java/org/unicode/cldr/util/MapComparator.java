@@ -139,7 +139,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable {
     
     if (a instanceof CharSequence) {
       if (b instanceof CharSequence) {
-        int result = uca.compare(a, b);
+        int result = uca.compare(a.toString(), b.toString());
         if (result != 0) {
           return result;
         }

@@ -618,7 +618,7 @@ public class MakeTransliterator {
         return -1;
       if (as.length() > bs.length())
         return 1;
-      int result = col.compare(a, b);
+      int result = col.compare(as, bs);
       if (result != 0) {
         return result;
       }

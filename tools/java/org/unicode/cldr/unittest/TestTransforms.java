@@ -16,7 +16,7 @@ public class TestTransforms extends TestFmwk {
   enum Options {transliterator, roundtrip};
   
   public void test1461() {
-    CLDRTransforms.registerCldrTransforms(TRANSFORM_DIR, null, isVerbose() ? getLogPrintWriter() : null);
+    CLDRTransforms.registerCldrTransforms(CLDRTransforms.TRANSFORM_DIR, null, isVerbose() ? getLogPrintWriter() : null);
     System.out.println("hi");
 
     String[][] tests = {

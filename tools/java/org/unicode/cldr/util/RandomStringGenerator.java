@@ -67,7 +67,7 @@ public class RandomStringGenerator {
 		}
 	}
 	static UnicodeMap.Composer MyComposer = new UnicodeMap.Composer(){
-		public Object compose(int codePoint, Object a, Object b) {
+		public Object compose(int codePoint, String string, Object a, Object b) {
 			if (a == null) return b;
 			if (b == null) return a;
 			return a + "_" + b;

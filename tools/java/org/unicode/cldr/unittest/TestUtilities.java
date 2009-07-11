@@ -105,7 +105,12 @@ public class TestUtilities extends TestFmwk {
 
   public void TestCounter() {
     Counter<String> counter = new Counter<String>(true);
-    Comparator<String> uca = Collator.getInstance(ULocale.ENGLISH);
+    Comparator<String> uca = new Comparator<String>() {
+        Collator col = Collator.getInstance(ULocale.ENGLISH);
+        public int compare(String o1, String o2) {
+            return col.compare(o1, o2);
+        }
+    };
     InverseComparator ucaDown = new InverseComparator(uca);
     
     counter.add("c", 95);

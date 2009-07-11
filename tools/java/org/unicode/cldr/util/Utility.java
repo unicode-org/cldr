@@ -111,6 +111,7 @@ public class Utility {
   public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
   public static final String COMMON_DIRECTORY = getPath(BASE_DIRECTORY , "common/");
   public static final String MAIN_DIRECTORY = Utility.getProperty("CLDR_MAIN", getPath(Utility.COMMON_DIRECTORY,  "main"));
+
   /**
    * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
    * @see DEFAULT_SUPPLEMENTAL_DIRECTORY

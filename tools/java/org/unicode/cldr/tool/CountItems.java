@@ -46,6 +46,7 @@ import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.ICUPropertyFactory;
 import com.ibm.icu.dev.test.util.Tabber;
 import com.ibm.icu.dev.test.util.UnicodeMap;
+import com.ibm.icu.dev.test.util.UnicodeMapIterator;
 import com.ibm.icu.dev.test.util.UnicodeMap.Composer;
 import org.unicode.cldr.icu.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
@@ -337,7 +338,7 @@ public class CountItems {
     //                    }
     //                    return a.toString() + " " + b.toString();
     //                }});
-    for (UnicodeMap.MapIterator it = new UnicodeMap.MapIterator(blocks); it
+    for (UnicodeMapIterator it = new UnicodeMapIterator(blocks); it
         .nextRange();) {
       UnicodeSet range = new UnicodeSet(it.codepoint, it.codepointEnd);
       boolean hasPat = range.containsSome(patterns);

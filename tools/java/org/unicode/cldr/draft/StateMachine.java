@@ -4,7 +4,7 @@ import java.text.ParsePosition;
 import java.util.Arrays;
 import java.util.List;
 
-import org.unicode.cldr.util.UnicodeMap;
+import com.ibm.icu.dev.test.util.UnicodeMap;
 import org.unicode.cldr.util.Utility;
 
 import com.ibm.icu.text.UTF16;

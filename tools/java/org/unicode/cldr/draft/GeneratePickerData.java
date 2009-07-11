@@ -95,14 +95,14 @@ class GeneratePickerData {
     UCA_BASE.setNumericCollation(true);
   }
 
-  public static final Comparator<String> CODE_POINT_ORDER = new UTF16.StringComparator(true, false, 0);
+  public static final Comparator CODE_POINT_ORDER = new UTF16.StringComparator(true, false, 0);
 
-  static Comparator<String> UCA = new MultilevelComparator<String>(
+  static Comparator UCA = new MultilevelComparator(
           UCA_BASE,
           CODE_POINT_ORDER
   );
 
-  static Comparator<String> buttonComparator = new MultilevelComparator<String>(
+  static Comparator<String> buttonComparator = new MultilevelComparator(
           //new UnicodeSetInclusionFirst(ScriptCategories.parseUnicodeSet("[:ascii:]")),
           //new UnicodeSetInclusionFirst(ScriptCategories.parseUnicodeSet("[[:Letter:]&[:^NFKC_QuickCheck=N:]]")),
           new UnicodeSetInclusionFirst(ScriptCategories.parseUnicodeSet("[[:Letter:]-[:Lm:]]")),
@@ -1130,15 +1130,15 @@ class GeneratePickerData {
 
   }
 
-  static class UnicodeSetInclusionFirst implements Comparator<String> {
+  static class UnicodeSetInclusionFirst<T extends Comparable<T>> implements Comparator<T> {
     private UnicodeSet included;
     public UnicodeSetInclusionFirst(UnicodeSet included) {
       this.included = included;
     }
-    public int compare(String arg0, String arg1) {
-      boolean a0 = included.containsAll(arg0);
-      boolean a1 = included.containsAll(arg1);
-      return a0 == a1 ? 0 : a0 ? -1 : 1;
+    public int compare(T arg0, T arg1) {
+      boolean a0 = included.containsAll(arg0.toString());
+      boolean a1 = included.containsAll(arg1.toString());
+      return a0 == a1 ? arg0.compareTo(arg1) : a0 ? -1 : 1;
     }
 
   }

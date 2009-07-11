@@ -41,7 +41,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Predicate;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.UnicodeMap;
+import com.ibm.icu.dev.test.util.UnicodeMap;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;

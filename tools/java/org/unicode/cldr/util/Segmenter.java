@@ -387,8 +387,8 @@ public class Segmenter {
 		 */
 		static boolean SHOW_SAMPLES = false;
 		
-		static class MyComposer implements UnicodeMap.Composer {
-			public Object compose(int codePoint, Object a, Object b) {
+		static class MyComposer extends UnicodeMap.Composer {
+			public Object compose(int codePoint, String string, Object a, Object b) {
 				if (a == null) return b;
 				if (b == null) return a;
 				if (a.equals(b)) return a;
@@ -450,7 +450,7 @@ public class Segmenter {
 	    	for (UnicodeSetIterator it = new UnicodeSetIterator(set); it.next();) {
 	    		int i = it.codepoint;
 	    		Object v1 = target.getValue(i);
-	    		Object v3 = composer.compose(i, v1, value);
+	    		Object v3 = composer.compose(i, null, v1, value);
 	    		if (v1 != v3 && (v1 == null || !v1.equals(v3))) target.put(i, v3);
 	    	}
 	    	return target;

@@ -12,8 +12,8 @@ import org.unicode.cldr.icu.CollectionUtilities;
 import org.unicode.cldr.tool.ShowData.DataShower;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.UnicodeMap;
-import org.unicode.cldr.util.UnicodeMapIterator;
+import com.ibm.icu.dev.test.util.UnicodeMap;
+import com.ibm.icu.dev.test.util.UnicodeMapIterator;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -391,7 +391,7 @@ public class GenerateSidewaysView {
 //  }
 
   static UnicodeMap.Composer setComposer = new UnicodeMap.Composer() {
-    public Object compose(Object a, Object b) {
+    public Object compose(int codepoint, String string, Object a, Object b) {
       if (a == null) {
         return b;
       } else if (b == null) {

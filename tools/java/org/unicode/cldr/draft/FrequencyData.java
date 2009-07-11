@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.Counter;
-import org.unicode.cldr.util.UnicodeMap;
+import com.ibm.icu.dev.test.util.UnicodeMap;
 import org.unicode.cldr.util.Utility;
 
 import com.ibm.icu.dev.test.util.BagFormatter;

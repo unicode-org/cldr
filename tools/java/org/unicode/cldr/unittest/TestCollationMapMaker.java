@@ -1,13 +1,13 @@
 package org.unicode.cldr.unittest;
 
 import org.unicode.cldr.tool.GenerateTransformCharts;
-import org.unicode.cldr.util.CaseIterator;
 import org.unicode.cldr.util.CollationMapMaker;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.PrettyPrinter;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.Utility;
 
+import com.ibm.icu.dev.test.util.CaseIterator;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;

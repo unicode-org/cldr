@@ -44,7 +44,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
     }
   }
   
-  static public final class RWLong implements Comparable<RWLong> {
+  static private final class RWLong implements Comparable<RWLong> {
     // the uniqueCount ensures that two different RWIntegers will always be different
     static int uniqueCount;
     public long value;
@@ -77,9 +77,13 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
   }
 
   public long getCount(T obj) {
-    RWLong count = map.get(obj);
-    return count == null ? 0 : count.value;
-  }
+      return get(obj);
+    }
+
+  public long get(T obj) {
+      RWLong count = map.get(obj);
+      return count == null ? 0 : count.value;
+    }
 
   public Counter<T> clear() {
     map.clear();
@@ -95,7 +99,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
   }
 
   public int getItemCount() {
-    return map.size();
+    return size();
   }
   
   private static class Entry<T> {
@@ -218,5 +222,42 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
   public Counter<T> increment(T key) {
     return add(key, 1);
   }
+
+public boolean containsKey(T key) {
+    return map.containsKey(key);
+}
+
+public boolean equals(Object o) {
+    return map.equals(o);
+}
+
+public int hashCode() {
+    return map.hashCode();
+}
+
+public boolean isEmpty() {
+    return map.isEmpty();
+}
+
+public Counter<T> remove(T key) {
+    map.remove(key);
+    return this;
+}
+
+//public RWLong put(T key, RWLong value) {
+//    return map.put(key, value);
+//}
+//
+//public void putAll(Map<? extends T, ? extends RWLong> t) {
+//    map.putAll(t);
+//}
+//
+//public Set<java.util.Map.Entry<T, Long>> entrySet() {
+//    return map.entrySet();
+//}
+//
+//public Collection<RWLong> values() {
+//    return map.values();
+//}
 
 }

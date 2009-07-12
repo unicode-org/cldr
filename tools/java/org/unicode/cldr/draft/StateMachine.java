@@ -125,7 +125,7 @@ public class StateMachine<T> {
         output.append("\tnull\r\n");
       } else {
         for (Object action : unicodeMap.getAvailableValues()) {
-          UnicodeSet sources = unicodeMap.getSet(action);
+          UnicodeSet sources = unicodeMap.keySet(action);
           output.append("\t" + sources.toPattern(false) + "\t" + toString((StateAction)action) + "\r\n");
         }
       }

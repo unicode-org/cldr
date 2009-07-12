@@ -1399,7 +1399,7 @@ public class CLDRModify {
       }
 
       String getLatinSeparator(String value, String last) {
-        String newValue = map.fold(value);
+        String newValue = map.transform(value);
         if (ALLOWED_IN_NUMBER_SYMBOLS.containsAll(newValue)) {
           return newValue;
         }

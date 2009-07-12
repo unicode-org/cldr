@@ -126,7 +126,7 @@ public class CollationMapMaker {
       for (UnicodeSetIterator i = new UnicodeSetIterator(m.keySet()); i.next();) {
         String s = (String)m.getValue(i.codepoint);
         newMap.put(i.codepoint, null);
-        String t = newMap.fold(newMap.fold(i.getString()));
+        String t = newMap.transform(newMap.transform(i.getString()));
         if (!t.equals(s)) { // restore
           newMap.put(i.codepoint, s);
         }
@@ -159,7 +159,7 @@ public class CollationMapMaker {
     }
     
     public String fold(String s) {
-      return m.fold(s);
+      return m.transform(s);
     }
     
     /**

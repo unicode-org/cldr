@@ -32,10 +32,10 @@ public class RandomStringGenerator {
 	void init(UnicodeProperty.Factory factory) {
 		extendedMap = new UnicodeMap();
 		UnicodeMap tempMap = factory.getProperty("GraphemeClusterBreak").getUnicodeMap();
-		extendedMap.putAll(tempMap.getSet("CR"), "CR");
-		extendedMap.putAll(tempMap.getSet("LF"), "LF");
-		extendedMap.putAll(tempMap.getSet("Extend"), "GCExtend");
-		extendedMap.putAll(tempMap.getSet("Control"), "GCControl");
+		extendedMap.putAll(tempMap.keySet("CR"), "CR");
+		extendedMap.putAll(tempMap.keySet("LF"), "LF");
+		extendedMap.putAll(tempMap.keySet("Extend"), "GCExtend");
+		extendedMap.putAll(tempMap.keySet("Control"), "GCControl");
 	}
 
 	public RandomStringGenerator(UnicodeProperty.Factory factory, String propertyName) {
@@ -57,7 +57,7 @@ public class RandomStringGenerator {
 		List values = new ArrayList(map.getAvailableValues());
 		sets = new UnicodeSet[values.size()];
 		for (int i = 0; i < sets.length; ++i) {
-			sets[i] = map.getSet(values.get(i));
+			sets[i] = map.keySet(values.get(i));
 			sets[i].removeAll(SUPPLEMENTARIES);
 			if (Segmenter.DEBUG_REDUCE_SET_SIZE != null) {
 				int first = sets[i].charAt(0);

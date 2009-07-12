@@ -282,7 +282,7 @@ public class GenerateSidewaysView {
     Set<String> allChars = new TreeSet(UCA);
     for (Object locales : mapping.getAvailableValues()) {
       allLocales.addAll((Collection) locales);
-      UnicodeSet unicodeSet = mapping.getSet(locales);
+      UnicodeSet unicodeSet = mapping.keySet(locales);
       for (UnicodeSetIterator it = new UnicodeSetIterator(unicodeSet); it.next();) {
         allChars.add(it.getString());
       }

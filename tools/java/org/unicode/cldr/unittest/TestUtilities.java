@@ -124,7 +124,7 @@ public class TestUtilities extends TestFmwk {
     assertEquals("getCount(a)", counter.getTotal(), 338);
     assertEquals("getItemCount", counter.getItemCount(), 4);
 
-    assertEquals("getMap", "{a=95, b=151, c=95, d=-3}",counter.getMap().toString());
+    assertEquals("getMap", "{a=95, b=151, c=95, d=-3}",counter.toString());
 
     assertEquals("getKeysetSortedByKey", Arrays.asList("a", "b", "c", "d"), new ArrayList(counter
             .getKeysetSortedByKey()));

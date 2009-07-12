@@ -207,7 +207,7 @@ start:
     if (defaultAction == null) {
       throw new IllegalArgumentException("Missing default action for: " + numberToState.get(currentState));
     } else {
-      currentMap.putAll(currentMap.getSet(null), defaultAction);
+      currentMap.putAll(currentMap.keySet(null), defaultAction);
       defaultAction = null;
     }
   }

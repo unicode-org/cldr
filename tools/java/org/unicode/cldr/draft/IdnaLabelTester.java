@@ -17,9 +17,7 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.util.PrettyPrinter;
-
-import com.ibm.icu.dev.test.util.UnicodeMap;
+import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.dev.test.util.VariableReplacer;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.IDNA;

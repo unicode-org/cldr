@@ -7,8 +7,7 @@
  */
 package org.unicode.cldr.icu;
 
-import org.unicode.cldr.util.PrettyPrinter;
-
+import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;

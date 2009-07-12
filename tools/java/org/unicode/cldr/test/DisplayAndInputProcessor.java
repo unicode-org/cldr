@@ -1,16 +1,12 @@
 package org.unicode.cldr.test;
 
-import java.util.Comparator;
-
-import org.unicode.cldr.icu.CollectionUtilities;
 import org.unicode.cldr.test.DateTimePatternGenerator.FormatParser;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.PrettyPrinter;
 
+import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;

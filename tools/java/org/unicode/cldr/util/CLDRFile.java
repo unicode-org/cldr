@@ -353,7 +353,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
   }
 
   /**
-   * Clone the object. Produces unlocked version (see Lockable).
+   * Clone the object. Produces unlocked version
+   * @see com.ibm.icu.dev.test.util.Freezeble
    */
   public Object cloneAsThawed() {
     try {

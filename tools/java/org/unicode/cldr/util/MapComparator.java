@@ -166,20 +166,20 @@ public class MapComparator<K> implements Comparator<K>, Freezable {
     return buffer.toString();
   }
   /* (non-Javadoc)
-   * @see org.unicode.cldr.util.Lockable#isLocked()
+   * @see com.ibm.icu.dev.test.util.Freezeble
    */
   public boolean isFrozen() {
     return locked;
   }
   /* (non-Javadoc)
-   * @see org.unicode.cldr.util.Lockable#lock()
+   * @see com.ibm.icu.dev.test.util.Freezeble
    */
   public Object freeze() {
     locked = true;	
     return this;
   }
   /* (non-Javadoc)
-   * @see org.unicode.cldr.util.Lockable#clone()
+   * @see com.ibm.icu.dev.test.util.Freezeble
    */
   @SuppressWarnings("unchecked")
   public Object cloneAsThawed() {

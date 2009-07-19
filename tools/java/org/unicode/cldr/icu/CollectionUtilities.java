@@ -8,10 +8,12 @@
 package org.unicode.cldr.icu;
 
 import com.ibm.icu.dev.test.util.PrettyPrinter;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.ULocale;
 
 import java.util.Collection;
 import java.util.Comparator;
@@ -379,7 +381,7 @@ public final class CollectionUtilities {
 
     public static String prettyPrint(UnicodeSet uset, boolean compressRanges, UnicodeSet toQuote, StringTransform quoter, 
             Comparator ordering, Comparator spaceComparator) {
-        PrettyPrinter pp = new PrettyPrinter().setCompressRanges(compressRanges);
+        PrettyPrinter pp = new PrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT)).setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY)).setCompressRanges(compressRanges);
         if (toQuote != null) pp.setToQuote(toQuote);
         if (quoter != null) pp.setQuoter(quoter);
         if (ordering != null) pp.setOrdering(ordering);

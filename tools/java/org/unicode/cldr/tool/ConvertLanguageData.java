@@ -1131,7 +1131,7 @@ public class ConvertLanguageData {
         if (x.officialStatus != OfficialStatus.unknown) {
           R2<String, Double> largestOffical = countryToLargestOfficialLanguage.get(x.countryCode);
           if (largestOffical == null) {
-            countryToLargestOfficialLanguage.put(x.countryCode, Row.make(x.languageCode, x.languagePopulation));
+            countryToLargestOfficialLanguage.put(x.countryCode, Row.of(x.languageCode, x.languagePopulation));
           } else if (largestOffical.get1() < x.languagePopulation) {
             largestOffical.set0(x.languageCode);
             largestOffical.set1(x.languagePopulation);

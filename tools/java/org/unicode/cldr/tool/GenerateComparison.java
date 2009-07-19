@@ -88,7 +88,7 @@ public class GenerateComparison {
     unifiedList.addAll(newList);
     Set<R2<String, String>> pairs = new TreeSet<R2<String, String>>();
     for (String code : unifiedList) {
-      pairs.add(Row.make(english.getName(code), code));
+      pairs.add(Row.of(english.getName(code), code));
     }
 
     prettyPathMaker = new PrettyPath();
@@ -446,7 +446,7 @@ public class GenerateComparison {
   private static void addToIndex(Set<R2<String,String>> indexInfo, String title, final String locale,
           final String localeName, Counter<String> fileCounter) {
     if (title.startsWith("ERROR")) {
-      indexInfo.add(R2.make(localeName, 
+      indexInfo.add(R2.of(localeName, 
               title + " " + localeName + " (" + locale + ")"));
       return;
     }
@@ -459,7 +459,7 @@ public class GenerateComparison {
         counterString += s.charAt(0) + ":" + format.format(fileCounter.getCount(s));
       }
     }
-    indexInfo.add(R2.make(localeName, 
+    indexInfo.add(R2.of(localeName, 
             "<a href='" + locale + ".html'>" + title + localeName + " (" + locale + ")</a>" 
             + (counterString.length() == 0 ? "" : " [" + counterString + "]")));
   }

@@ -123,7 +123,7 @@ public class GenerateNormalizeForMatch {
     if (fix) {
       fixOld(sourceFile, targetFile);
     } else {
-      frequencies = new FrequencyData(frequencyFile);
+      frequencies = new FrequencyData(frequencyFile, true);
       generateMappings(sourceFile, targetFile, oldMappingFile, frequencyFile);
     }
     LOG_WRITER.println("# END");

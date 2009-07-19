@@ -22,7 +22,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.Iso639Data.Scope;
-import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.Row.R2;
 import org.unicode.cldr.util.Row.R3;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
@@ -269,7 +268,7 @@ public class GenerateMaximalLocales {
     if (set == null) {
       languageToReason.put(language, set = new TreeSet<R3<OfficialStatus, String, Long>>());
     }
-    set.add(Row.make(status, territory, population));
+    set.add(Row.of(status, territory, population));
   }
 
   private static void printDefaultContent(Map<String, String> toMaximized) throws IOException {
@@ -427,21 +426,21 @@ public class GenerateMaximalLocales {
     Relation<Row.R2<String, String>,Row.R2<Double,String>> languageRegions = new Relation(new TreeMap(), TreeSet.class);
 
     void add(String language, String script, String region, Double order) {
-      languages.put(language, Row.make(order, script, region));
+      languages.put(language, Row.of(order, script, region));
       //addCounter(languagesToScripts, language, script, order);
       //addCounter(languagesToRegions, language, region, order);
 
-      scripts.put(script, Row.make(order, language, region));
+      scripts.put(script, Row.of(order, language, region));
       //addCounter(scriptsToLanguages, script, language, order);
       //addCounter(scriptsToRegions, script, region, order);
 
-      regions.put(region, Row.make(order, language, script));
+      regions.put(region, Row.of(order, language, script));
       //addCounter(regionsToLanguages, region, language, order);
       //addCounter(regionsToScripts, region, script, order);
 
-      languageScripts.put(Row.make(language,script), Row.make(order, region));
-      scriptRegions.put(Row.make(script,region), Row.make(order, language));
-      languageRegions.put(Row.make(language,region), Row.make(order, script));
+      languageScripts.put(Row.of(language,script), Row.of(order, region));
+      scriptRegions.put(Row.of(script,region), Row.of(order, language));
+      languageRegions.put(Row.of(language,region), Row.of(order, script));
 
       if (SHOW_ADD) System.out.println("Data:\t" + language + "\t" + script + "\t" + region + "\t" + order);
     }
@@ -564,7 +563,7 @@ public class GenerateMaximalLocales {
 
     // now, get the best for each one
     for (String language : maxData.languages.keySet()) {
-      final Row.R3 value = maxData.languages.getAll(language).iterator().next();
+      R3<Double, String, String> value = maxData.languages.getAll(language).iterator().next();
       final Comparable script = value.get1();
       final Comparable region = value.get2();
       add(language, language + "_" + script + "_" + region, toMaximized, "L->SR");
@@ -579,7 +578,7 @@ public class GenerateMaximalLocales {
     }
 
     for (String script : maxData.scripts.keySet()) {
-      final Row.R3 value = maxData.scripts.getAll(script).iterator().next();
+       R3<Double, String, String> value = maxData.scripts.getAll(script).iterator().next();
       final Comparable language = value.get1();
       final Comparable region = value.get2();
       add("und_" + script, language + "_" + script + "_" + region, toMaximized, "S->LR");
@@ -594,7 +593,7 @@ public class GenerateMaximalLocales {
     }
 
     for (String region : maxData.regions.keySet()) {
-      final Row.R3 value = maxData.regions.getAll(region).iterator().next();
+       R3<Double, String, String> value = maxData.regions.getAll(region).iterator().next();
       final Comparable language = value.get1();
       final Comparable script = value.get2();
       add("und_" + region, language + "_" + script + "_" + region, toMaximized, "R->LS");
@@ -608,24 +607,24 @@ public class GenerateMaximalLocales {
       add("und_" + region, "und_" + script + "_" + region, toMaximized, "R->S");
     }
 
-    for (Row.R2 languageScript : maxData.languageScripts.keySet()) {
-      final Row.R2 value = maxData.languageScripts.getAll(languageScript).iterator().next();
+    for (R2<String, String> languageScript : maxData.languageScripts.keySet()) {
+      R2<Double, String> value = maxData.languageScripts.getAll(languageScript).iterator().next();
       final Comparable language = languageScript.get0();
       final Comparable script = languageScript.get1();
       final Comparable region = value.get1();
       add(language + "_" + script, language + "_" + script + "_" + region, toMaximized, "LS->R");
     }
 
-    for (Row.R2 scriptRegion : maxData.scriptRegions.keySet()) {
-      final Row.R2 value = maxData.scriptRegions.getAll(scriptRegion).iterator().next();
+    for (R2<String, String> scriptRegion : maxData.scriptRegions.keySet()) {
+      R2<Double, String> value = maxData.scriptRegions.getAll(scriptRegion).iterator().next();
       final Comparable script = scriptRegion.get0();
       final Comparable region = scriptRegion.get1();
       final Comparable language = value.get1();
       add("und_" + script + "_" + region, language + "_" + script + "_" + region, toMaximized, "SR->L");
     }
 
-    for (Row.R2 languageRegion : maxData.languageRegions.keySet()) {
-      final Row.R2 value = maxData.languageRegions.getAll(languageRegion).iterator().next();
+    for (R2<String, String> languageRegion : maxData.languageRegions.keySet()) {
+      R2<Double, String> value = maxData.languageRegions.getAll(languageRegion).iterator().next();
       final Comparable language = languageRegion.get0();
       final Comparable region = languageRegion.get1();
       final Comparable script = value.get1();

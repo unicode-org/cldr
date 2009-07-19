@@ -42,7 +42,7 @@ public class DisplayAndInputProcessor {
     String locale = cldrFileToCheck.getLocaleID();
     col = Collator.getInstance(new ULocale(locale));
     spaceCol = Collator.getInstance(new ULocale(locale));
-    pp = new PrettyPrinter()
+    pp = new PrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT)).setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
     .setCompressRanges(true)
     .setToQuote(new UnicodeSet(TO_QUOTE))
     .setOrdering(col)

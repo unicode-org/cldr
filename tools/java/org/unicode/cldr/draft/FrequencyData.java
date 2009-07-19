@@ -77,7 +77,7 @@ navboost, pagerank, language, encoding, url
   static final int postFrequencyIndex = 2 + 4 + 1;
   static final int preFrequencyIndex = 2 + 4 + 0;
 
-  public FrequencyData(String frequencyFile) throws IOException {
+  public FrequencyData(String frequencyFile, boolean showProgress) throws IOException {
     BufferedReader in = GenerateNormalizeForMatch.openUTF8Reader(frequencyFile);
     for (int lineCount = 0; ; ++lineCount) {
       String line = in.readLine();
@@ -91,7 +91,7 @@ navboost, pagerank, language, encoding, url
       String[] pieces = line.split("\\s+");
       int code = Integer.parseInt(pieces[0], 16);
       
-      if (lineCount < 100 || (lineCount % 100000) == 0 || code == 0x03C2) {
+      if (showProgress && lineCount < 100 || (lineCount % 1000000) == 0 || code == 0x03C2) {
         System.out.println(lineCount + "\t" + line);
       }
 
@@ -321,7 +321,7 @@ navboost, pagerank, language, encoding, url
   public static void main(String[] args) throws IOException {
     String frequencyFile = args[0];
 
-    FrequencyData data = new FrequencyData(frequencyFile);
+    FrequencyData data = new FrequencyData(frequencyFile, true);
     writeSummary(data);
     
     System.out.print("Category" + "\t");

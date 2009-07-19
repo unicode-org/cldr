@@ -12,44 +12,44 @@ import com.ibm.icu.util.Freezable;
 
 
 @SuppressWarnings("unchecked")
-public class Row<C0 extends Comparable, C1 extends Comparable, C2 extends Comparable, C3 extends Comparable, C4 extends Comparable> implements java.lang.Comparable, Cloneable, Freezable{
-  protected Comparable[] items;
+public class Row<C0, C1, C2, C3, C4> implements java.lang.Comparable, Cloneable, Freezable{
+  protected Object[] items;
   protected boolean frozen;
   
   /**
    * Convenience Methods
    */
-  public static <C0 extends Comparable, C1 extends Comparable> R2<C0,C1> make(C0 p0, C1 p1) {
+  public static <C0, C1> R2<C0,C1> of(C0 p0, C1 p1) {
     return new R2<C0,C1>(p0,p1);
   }
-  public static <C0 extends Comparable, C1 extends Comparable, C2 extends Comparable> R3<C0,C1,C2> make(C0 p0, C1 p1, C2 p2) {
+  public static <C0, C1, C2> R3<C0,C1,C2> of(C0 p0, C1 p1, C2 p2) {
     return new R3<C0,C1,C2>(p0,p1,p2);
   }
-  public static <C0 extends Comparable, C1 extends Comparable, C2 extends Comparable, C3 extends Comparable> R4<C0,C1,C2,C3> make(C0 p0, C1 p1, C2 p2, C3 p3) {
+  public static <C0, C1, C2, C3> R4<C0,C1,C2,C3> of(C0 p0, C1 p1, C2 p2, C3 p3) {
     return new R4<C0,C1,C2,C3>(p0,p1,p2,p3);
   }
-  public static <C0 extends Comparable, C1 extends Comparable, C2 extends Comparable, C3 extends Comparable, C4 extends Comparable> R5<C0,C1,C2,C3,C4> make(C0 p0, C1 p1, C2 p2, C3 p3, C4 p4) {
+  public static <C0, C1, C2, C3, C4> R5<C0,C1,C2,C3,C4> of(C0 p0, C1 p1, C2 p2, C3 p3, C4 p4) {
     return new R5<C0,C1,C2,C3,C4>(p0,p1,p2,p3,p4);
   }
   
-  public static class R2<C0 extends Comparable, C1 extends Comparable> extends Row<C0, C1, C1, C1, C1> {
+  public static class R2<C0, C1> extends Row<C0, C1, C1, C1, C1> {
     public R2(C0 a, C1 b)  {
-      items = new Comparable[] {a, b};
+      items = new Object[] {a, b};
     }
   }
-  public static class R3<C0 extends Comparable, C1 extends Comparable, C2 extends Comparable> extends Row<C0, C1, C2, C2, C2> {
+  public static class R3<C0, C1, C2> extends Row<C0, C1, C2, C2, C2> {
     public R3(C0 a, C1 b, C2 c)  {
-      items = new Comparable[] {a, b, c};
+      items = new Object[] {a, b, c};
     }
   }
-  public static class R4<C0 extends Comparable, C1 extends Comparable, C2 extends Comparable, C3 extends Comparable> extends Row<C0, C1, C2, C3, C3> {
+  public static class R4<C0, C1, C2, C3> extends Row<C0, C1, C2, C3, C3> {
     public R4(C0 a, C1 b, C2 c, C3 d)  {
-      items = new Comparable[] {a, b, c, d};
+      items = new Object[] {a, b, c, d};
     }
   }
-  public static class R5<C0 extends Comparable, C1 extends Comparable, C2 extends Comparable, C3 extends Comparable, C4 extends Comparable> extends Row<C0, C1, C2, C3, C4> {
+  public static class R5<C0, C1, C2, C3, C4> extends Row<C0, C1, C2, C3, C4> {
     public R5(C0 a, C1 b, C2 c, C3 d, C4 e)  {
-      items = new Comparable[] {a, b, c, d, e};
+      items = new Object[] {a, b, c, d, e};
     }
   }
 
@@ -84,7 +84,7 @@ public class Row<C0 extends Comparable, C1 extends Comparable, C2 extends Compar
     return (C4) items[4];
   }
 
-  protected Row set(int i, Comparable item) {
+  protected Row set(int i, Object item) {
     if (frozen) {
       throw new UnsupportedOperationException("Attempt to modify frozen object");
     }
@@ -94,7 +94,7 @@ public class Row<C0 extends Comparable, C1 extends Comparable, C2 extends Compar
 
   public int hashCode() {
     int sum = items.length;
-    for (Comparable item : items) {
+    for (Object item : items) {
       sum = sum*37 + Utility.checkHash(item);
     }
     return sum;
@@ -107,7 +107,7 @@ public class Row<C0 extends Comparable, C1 extends Comparable, C2 extends Compar
         return false;
       }
       int i = 0;
-      for (Comparable item : items) {
+      for (Object item : items) {
         if (!Utility.checkEquals(item, that.items[i++])) {
           return false;
         }
@@ -126,8 +126,8 @@ public class Row<C0 extends Comparable, C1 extends Comparable, C2 extends Compar
       return result;
     }
     int i = 0;
-    for (Comparable item : items) {
-      result = Utility.checkCompare(item, that.items[i++]);
+    for (Object item : items) {
+      result = Utility.checkCompare((Comparable)item, (Comparable)that.items[i++]);
       if (result != 0) {
         return result;
       }
@@ -138,7 +138,7 @@ public class Row<C0 extends Comparable, C1 extends Comparable, C2 extends Compar
   public String toString() {
     StringBuilder result = new StringBuilder("[");
     boolean first = true;
-    for (Comparable item : items) {
+    for (Object item : items) {
       if (first) {
         first = false;
       } else {

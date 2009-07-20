@@ -34,9 +34,9 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.Differ;
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
 import com.ibm.icu.dev.test.util.XEquivalenceMap;
+import com.ibm.icu.impl.Differ;
 import com.ibm.icu.text.UTF16;
 
 public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {

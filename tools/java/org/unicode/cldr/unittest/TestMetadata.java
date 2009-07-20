@@ -16,7 +16,7 @@ import org.unicode.cldr.util.FindDTDOrder;
 import org.unicode.cldr.util.Utility;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.test.util.Differ;
+import com.ibm.icu.impl.Differ;
 
 public class TestMetadata extends TestFmwk {
   static TestInfo testInfo = TestInfo.getInstance();

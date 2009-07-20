@@ -17,8 +17,8 @@ import org.unicode.cldr.util.StandardCodes;
 
 
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.Differ;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.impl.Differ;
 
 public class TestMetadata {
 	public static void main(String[] args) {

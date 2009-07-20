@@ -1,28 +1,5 @@
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.unittest.TestMetazoneTransitions;
-import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
-import org.unicode.cldr.util.Dictionary.Matcher;
-import org.unicode.cldr.util.Dictionary.Matcher.Filter;
-import org.unicode.cldr.util.Dictionary.Matcher.Status;
-import org.unicode.cldr.util.LenientDateParser.Token.Type;
-
-import com.ibm.icu.dev.test.util.CollectionUtilities;
-import com.ibm.icu.impl.OlsonTimeZone;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.DateFormatSymbols;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.UnicodeSet;
-import org.unicode.cldr.test.DateTimePatternGenerator.FormatParser;
-import com.ibm.icu.util.Calendar;
-import com.ibm.icu.util.SimpleTimeZone;
-import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.TimeZoneTransition;
-import com.ibm.icu.util.ULocale;
-
 import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -40,6 +17,28 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
+import org.unicode.cldr.util.Dictionary.Matcher;
+import org.unicode.cldr.util.Dictionary.Matcher.Filter;
+import org.unicode.cldr.util.Dictionary.Matcher.Status;
+import org.unicode.cldr.util.LenientDateParser.Token.Type;
+
+import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.impl.OlsonTimeZone;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DateFormatSymbols;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
+import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.SimpleTimeZone;
+import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.TimeZoneTransition;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Immutable class that will parse dates and times for a particular ULocale.

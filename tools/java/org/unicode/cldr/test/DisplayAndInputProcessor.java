@@ -1,6 +1,5 @@
 package org.unicode.cldr.test;
 
-import org.unicode.cldr.test.DateTimePatternGenerator.FormatParser;
 import org.unicode.cldr.util.CLDRFile;
 
 import com.ibm.icu.dev.test.util.PrettyPrinter;
@@ -9,6 +8,7 @@ import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.util.ULocale;
 
 /**

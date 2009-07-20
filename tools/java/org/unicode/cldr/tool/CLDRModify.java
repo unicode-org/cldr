@@ -9,8 +9,6 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -23,41 +21,33 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.lang.UScript;
-
 import org.unicode.cldr.icu.CollectionUtilities;
-
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.CoverageLevel;
-import org.unicode.cldr.test.DateTimePatternGenerator;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.CoverageLevel.Level;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Predicate;
 import org.unicode.cldr.util.StandardCodes;
-import com.ibm.icu.dev.test.util.UnicodeMap;
 import org.unicode.cldr.util.Utility;
-import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.Utility.SimpleLineComparator;
 
+import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.UnicodeMap;
+import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-import org.unicode.cldr.test.DateTimePatternGenerator.FormatParser;
-import org.unicode.cldr.test.DateTimePatternGenerator.VariableField;
+import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.util.ULocale;
-
-import org.unicode.cldr.util.Utility.*;
 
 /**
  * Tool for applying modifications to the CLDR files. Use -h to see the options.

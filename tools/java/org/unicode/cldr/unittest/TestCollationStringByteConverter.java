@@ -7,50 +7,32 @@
  */
 package org.unicode.cldr.unittest;
 
-import org.unicode.cldr.ooo.supplementalData;
-import org.unicode.cldr.util.CollationMapMaker;
-import org.unicode.cldr.util.CompactStringByteConverter;
-import org.unicode.cldr.util.CharSource;
+import java.text.ParsePosition;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.TreeMap;
+
 import org.unicode.cldr.util.CollationStringByteConverter;
 import org.unicode.cldr.util.Dictionary;
 import org.unicode.cldr.util.LenientDateParser;
 import org.unicode.cldr.util.StateDictionaryBuilder;
-import org.unicode.cldr.util.Utf8StringByteConverter;
 import org.unicode.cldr.util.TestStateDictionaryBuilder;
-import org.unicode.cldr.util.CharUtilities.CharSourceWrapper;
+import org.unicode.cldr.util.Utf8StringByteConverter;
 import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
 import org.unicode.cldr.util.Dictionary.DictionaryCharList;
 import org.unicode.cldr.util.Dictionary.Matcher;
 import org.unicode.cldr.util.Dictionary.Matcher.Filter;
-import org.unicode.cldr.util.Dictionary.Matcher.Status;
 import org.unicode.cldr.util.LenientDateParser.Parser;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.DateFormatSymbols;
-import org.unicode.cldr.test.DateTimePatternGenerator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.UCharacterIterator;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.SimpleTimeZone;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
-
-import java.text.ParsePosition;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.Map.Entry;
 
 public class TestCollationStringByteConverter {
   

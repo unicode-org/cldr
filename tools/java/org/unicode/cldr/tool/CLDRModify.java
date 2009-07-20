@@ -21,7 +21,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.icu.CollectionUtilities;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
@@ -37,6 +37,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.Utility.SimpleLineComparator;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.lang.UScript;
@@ -885,7 +886,12 @@ public class CLDRModify {
             s.add(Normalizer.compose(usi.getString(), false));
           }
 
-          String fixedExemplar1 = CollectionUtilities.prettyPrint(s, true, null, null, col, col);
+          String fixedExemplar1 = new PrettyPrinter()
+        .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
+        .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
+                .setStrength2(Collator.PRIMARY))
+                .setCompressRanges(true)
+                .toPattern(s);
 
           if (!value.equals(fixedExemplar1)) {
             String fullXPath = cldrFileToFilter.getFullXPath(xpath);

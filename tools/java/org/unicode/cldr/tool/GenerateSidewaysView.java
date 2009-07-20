@@ -8,40 +8,10 @@
  */
 package org.unicode.cldr.tool;
 
-import org.unicode.cldr.icu.CollectionUtilities;
-import org.unicode.cldr.tool.ShowData.DataShower;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.LanguageTagParser;
-import com.ibm.icu.dev.test.util.UnicodeMap;
-import com.ibm.icu.dev.test.util.UnicodeMapIterator;
-import org.unicode.cldr.util.Utility;
-import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.LanguageTagParser.Fields;
-import org.xml.sax.SAXException;
-
-import com.ibm.icu.dev.test.util.ArrayComparator;
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.RuleBasedNumberFormat;
-import com.ibm.icu.text.StringTransform;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.ULocale;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
-import java.util.BitSet;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -55,6 +25,35 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.tool.ShowData.DataShower;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.LanguageTagParser.Fields;
+import org.xml.sax.SAXException;
+
+import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.dev.test.util.PrettyPrinter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.dev.test.util.UnicodeMap;
+import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.impl.MultiComparator;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.RuleBasedNumberFormat;
+import com.ibm.icu.text.StringTransform;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.ULocale;
 
 /**
  * This is a simple class that walks through the CLDR hierarchy.
@@ -132,7 +131,7 @@ public class GenerateSidewaysView {
     RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
     UCA2.setNumericCollation(true);
     UCA2.setStrength(UCA2.IDENTICAL);
-    UCA = new CollectionUtilities.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0) );
+    UCA = new com.ibm.icu.impl.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0) );
   }
   
   private static String timeZoneAliasDir = null;
@@ -377,7 +376,14 @@ public class GenerateSidewaysView {
   };
 
   private static String displayExemplars(UnicodeSet lastChars) {
-    String exemplarsWithoutBrackets = CollectionUtilities.prettyPrint(lastChars,true,ALL_CHARS, MyTransform,UCA,UCA);
+    String exemplarsWithoutBrackets = new PrettyPrinter()
+    .setOrdering(UCA != null ? UCA : Collator.getInstance(ULocale.ROOT))
+    .setSpaceComparator(UCA != null ? UCA : Collator.getInstance(ULocale.ROOT)
+            .setStrength2(Collator.PRIMARY))
+            .setCompressRanges(true)
+            .setToQuote(ALL_CHARS)
+            .setQuoter(MyTransform)
+            .toPattern(lastChars);
     exemplarsWithoutBrackets = exemplarsWithoutBrackets.substring(1, exemplarsWithoutBrackets.length() - 1);
     return exemplarsWithoutBrackets;
   }

@@ -19,13 +19,12 @@ import org.unicode.cldr.test.CheckCoverage;
 import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Node;
 
 import com.ibm.icu.dev.tool.UOption;
-import org.unicode.cldr.icu.CollectionUtilities;
 import com.ibm.icu.text.Transliterator;
 
 public class CheckIBMCoverage  extends CLDRConverterTool {
@@ -315,7 +314,7 @@ public class CheckIBMCoverage  extends CLDRConverterTool {
         covLevel.setFile(file, options, null, result );
         CLDRFile resolved = coverage.getResolvedCldrFileToCheck();
         Set paths = new TreeSet(CLDRFile.ldmlComparator);
-        CollectionUtilities.addAll(resolved.iterator(), paths);
+        com.ibm.icu.dev.test.util.CollectionUtilities.addAll(resolved.iterator(), paths);
         int ret = 0;
         if(level!=null){
             coverage.setRequiredLevel(level);

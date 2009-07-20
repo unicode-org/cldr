@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
-import org.unicode.cldr.icu.CollectionUtilities;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 
 /**

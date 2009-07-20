@@ -18,7 +18,7 @@ import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-import org.unicode.cldr.icu.CollectionUtilities;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.TimeZone;

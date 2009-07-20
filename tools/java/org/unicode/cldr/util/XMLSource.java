@@ -501,12 +501,12 @@ public abstract class XMLSource implements Freezable {
    */
   public Iterator<String> iterator(String prefix) {
     if (prefix == null || prefix.length() ==0) return iterator();
-    return new org.unicode.cldr.icu.CollectionUtilities.PrefixIterator().set(iterator(), prefix);
+    return new com.ibm.icu.dev.test.util.CollectionUtilities.PrefixIterator().set(iterator(), prefix);
   }
   
   public Iterator<String> iterator(Matcher pathFilter) {
     if (pathFilter == null) return iterator();
-    return new org.unicode.cldr.icu.CollectionUtilities.RegexIterator().set(iterator(), pathFilter);
+    return new com.ibm.icu.dev.test.util.CollectionUtilities.RegexIterator().set(iterator(), pathFilter);
   }
   
   /**

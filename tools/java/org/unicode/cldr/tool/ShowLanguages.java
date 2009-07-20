@@ -57,7 +57,8 @@ import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.FileUtilities;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import org.unicode.cldr.icu.CollectionUtilities;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.impl.MultiComparator;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
@@ -78,7 +79,7 @@ public class ShowLanguages {
   
   static CLDRFile english;
   
-  static Comparator col = new CollectionUtilities.MultiComparator(new Comparator[] { Collator.getInstance(new ULocale("en")), new UTF16.StringComparator(true, false, 0) });
+  static Comparator col = new com.ibm.icu.impl.MultiComparator(new Comparator[] { Collator.getInstance(new ULocale("en")), new UTF16.StringComparator(true, false, 0) });
   
   static StandardCodes sc = StandardCodes.make();
   

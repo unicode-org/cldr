@@ -13,7 +13,6 @@ import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
@@ -23,7 +22,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -39,23 +37,19 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.ZoneInflections;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.IsoCurrencyParser.Data;
-import org.unicode.cldr.util.ZoneInflections.OutputLong;
 
 import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.ICUPropertyFactory;
+import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.dev.test.util.Tabber;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.dev.test.util.UnicodeMapIterator;
-import com.ibm.icu.dev.test.util.UnicodeMap.Composer;
-import org.unicode.cldr.icu.CollectionUtilities;
-import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
@@ -385,8 +379,12 @@ public class CountItems {
         //                String fixedFull = CollectionUtilities.prettyPrint(exemplars, col, false);
         //                System.out.println(" =>\t" + fixedFull);
         //                verifyEquality(exemplars, new UnicodeSet(fixedFull));
-        String fixed = CollectionUtilities.prettyPrint(exemplars, true, null,
-            null, col, spaceCol);
+        String fixed = new PrettyPrinter()
+        .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
+        .setSpaceComparator(spaceCol != null ? spaceCol : Collator.getInstance(ULocale.ROOT)
+                .setStrength2(Collator.PRIMARY))
+                .setCompressRanges(true)
+                .toPattern(exemplars);
         out.println(" =>\t\u200E" + fixed + '\u200E');
 
         verifyEquality(exemplars, new UnicodeSet(fixed));

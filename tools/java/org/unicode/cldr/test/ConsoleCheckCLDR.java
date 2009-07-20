@@ -20,7 +20,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.icu.CollectionUtilities;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.FormatDemo;
 import org.unicode.cldr.test.CheckCLDR.Phase;
@@ -37,7 +36,6 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.Row;
@@ -48,13 +46,13 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.CollectionUtilities.ComparableCollection;
 import org.unicode.cldr.util.VoteResolver.CandidateInfo;
 import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.VoteResolver.UnknownVoterException;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.lang.UCharacter;
@@ -554,11 +552,21 @@ public class ConsoleCheckCLDR {
       showSummary(checkCldr, localeID, level, "Items (including inherited):\t" + pathCount);
       if (missingExemplars.size() != 0) {
         Collator col = Collator.getInstance(new ULocale(localeID));
-        showSummary(checkCldr, localeID, level, "Total missing from general exemplars:\t" + CollectionUtilities.prettyPrint(missingExemplars, true, null, null, col, col));
+        showSummary(checkCldr, localeID, level, "Total missing from general exemplars:\t" + new PrettyPrinter()
+        .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
+        .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
+                .setStrength2(Collator.PRIMARY))
+                .setCompressRanges(true)
+                .toPattern(missingExemplars));
       }
       if (missingCurrencyExemplars.size() != 0) {
         Collator col = Collator.getInstance(new ULocale(localeID));
-        showSummary(checkCldr, localeID, level, "Total missing from currency exemplars:\t" + CollectionUtilities.prettyPrint(missingCurrencyExemplars, true, null, null, col, col));
+        showSummary(checkCldr, localeID, level, "Total missing from currency exemplars:\t" + new PrettyPrinter()
+        .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
+        .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
+                .setStrength2(Collator.PRIMARY))
+                .setCompressRanges(true)
+                .toPattern(missingCurrencyExemplars));
       }
       for (ErrorType type : subtotalCount.keySet()) {
         showSummary(checkCldr, localeID, level, "Subtotal " + type + ":\t" + subtotalCount.getCount(type));

@@ -1,18 +1,17 @@
 package org.unicode.cldr.unittest;
 
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Utility;
-import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRFile.Factory;
-
-import org.unicode.cldr.icu.CollectionUtilities;
-import com.ibm.icu.text.UTF16;
-
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRFile.Factory;
+
+import com.ibm.icu.text.UTF16;
 
 public class TestCLDRFile {
   public static void main(String[] args) {

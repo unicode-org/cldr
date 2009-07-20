@@ -15,6 +15,7 @@ import org.unicode.cldr.util.Utility;
 import com.ibm.icu.dev.test.util.CaseIterator;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.PrettyPrinter;
+import com.ibm.icu.impl.MultiComparator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transliterator;
@@ -38,7 +39,7 @@ public class TestCollationMapMaker {
     col.setStrength(Collator.SECONDARY);
     col.setAlternateHandlingShifted(true);
     
-    Comparator c = new CollectionUtilities.MultiComparator(new Comparator[]{col, new com.ibm.icu.text.UTF16.StringComparator(true,false,0)});
+    Comparator c = new com.ibm.icu.impl.MultiComparator(new Comparator[]{col, new com.ibm.icu.text.UTF16.StringComparator(true,false,0)});
     Map mapping = new CollationMapMaker().generateCollatorFolding(col, new TreeMap<CharSequence,String>());
     Relation<String,String> inverse = new Relation(new TreeMap(c), TreeSet.class);
     inverse.addAllInverted(mapping);

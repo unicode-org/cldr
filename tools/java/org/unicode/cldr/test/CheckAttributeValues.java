@@ -15,20 +15,16 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-//import com.ibm.icu.dev.test.util.VariableReplacer;
 
-import org.unicode.cldr.icu.CollectionUtilities;
-import org.unicode.cldr.icu.CollectionUtilities.ObjectMatcher;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.dev.test.util.CollectionUtilities.ObjectMatcher;
 
 public class CheckAttributeValues extends CheckCLDR {
     static LinkedHashSet elementOrder = new LinkedHashSet();

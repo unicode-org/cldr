@@ -6,13 +6,14 @@
  */
 package org.unicode.cldr.tool;
 
-import org.unicode.cldr.icu.CollectionUtilities;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import org.unicode.cldr.test.TestTransformsSimple;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.SimpleEquivalenceClass;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
 
+import com.ibm.icu.impl.MultiComparator;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.lang.UCharacter;
@@ -422,7 +423,7 @@ public class GenerateTransformCharts {
     RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
     UCA2.setNumericCollation(true);
     UCA2.setStrength(UCA2.IDENTICAL);
-    UCA = new CollectionUtilities.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0) );
+    UCA = new com.ibm.icu.impl.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0) );
   }
 
   private static void showLatin(String scriptChoice, Set<String> targetVariant) throws IOException {

@@ -17,7 +17,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.icu.CollectionUtilities;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.dev.test.util.PrettyPrinter;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.SimpleHtmlParser;
@@ -706,7 +708,12 @@ public class ExampleGenerator {
       if (zoomed == Zoomed.IN) {
         UnicodeSet unicodeSet = new UnicodeSet(value);
         if (unicodeSet.size() < 500) {
-          result = CollectionUtilities.prettyPrint(unicodeSet, false, null, null, col, col);
+          result = new PrettyPrinter()
+        .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
+        .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
+                .setStrength2(Collator.PRIMARY))
+                .setCompressRanges(false)
+                .toPattern(unicodeSet);
         }
       }
     }

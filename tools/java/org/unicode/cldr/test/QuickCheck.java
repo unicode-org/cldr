@@ -4,7 +4,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.PrettyPath;
 import com.ibm.icu.dev.test.util.Relation;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -56,25 +56,25 @@ public class QuickCheck {
   private static boolean verbose;
   
   public static void main(String[] args) throws IOException {
-    verbose = Utility.getProperty("verbose","false","true").matches("(?i)T|TRUE");
-    localeRegex = Utility.getProperty("locale", ".*");
+    verbose = CldrUtility.getProperty("verbose","false","true").matches("(?i)T|TRUE");
+    localeRegex = CldrUtility.getProperty("locale", ".*");
     
-    showInfo = Utility.getProperty("showinfo","false","true").matches("(?i)T|TRUE");
+    showInfo = CldrUtility.getProperty("showinfo","false","true").matches("(?i)T|TRUE");
     
-    commonDirectory = Utility.COMMON_DIRECTORY; // Utility.getProperty("common", Utility.COMMON_DIRECTORY);
+    commonDirectory = CldrUtility.COMMON_DIRECTORY; // Utility.getProperty("common", Utility.COMMON_DIRECTORY);
     //if (commonDirectory == null) commonDirectory = Utility.COMMON_DIRECTORY
     //System.out.println("Main Source Directory: " + commonDirectory + "\t\t(to change, use -DSOURCE=xxx, eg -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
 
-    mainDirectory = Utility.getProperty("main", Utility.COMMON_DIRECTORY + "/main");
+    mainDirectory = CldrUtility.getProperty("main", CldrUtility.COMMON_DIRECTORY + "/main");
     //System.out.println("Main Source Directory: " + commonDirectory + "\t\t(to change, use -DSOURCE=xxx, eg -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
 
-    showForceZoom = Utility.getProperty("forcezoom","false","true").matches("(?i)T|TRUE");
+    showForceZoom = CldrUtility.getProperty("forcezoom","false","true").matches("(?i)T|TRUE");
     
-    resolved = Utility.getProperty("resolved","false","true").matches("(?i)T|TRUE");
+    resolved = CldrUtility.getProperty("resolved","false","true").matches("(?i)T|TRUE");
     
-    boolean paths = Utility.getProperty("paths", "true").matches("(?i)T|TRUE");
+    boolean paths = CldrUtility.getProperty("paths", "true").matches("(?i)T|TRUE");
     
-    pretty = Utility.getProperty("pretty", "true").matches("(?i)T|TRUE");
+    pretty = CldrUtility.getProperty("pretty", "true").matches("(?i)T|TRUE");
     
     double startTime = System.currentTimeMillis();
     checkDtds();
@@ -241,19 +241,19 @@ public class QuickCheck {
     }
     System.out.println();
     
-    System.out.format("Distinguishing Elements: %s" + Utility.LINE_SEPARATOR, distinguishing);
-    System.out.format("Nondistinguishing Elements: %s" + Utility.LINE_SEPARATOR, nonDistinguishing);
-    System.out.format("Skipped %s" + Utility.LINE_SEPARATOR, skipAttributes);
+    System.out.format("Distinguishing Elements: %s" + CldrUtility.LINE_SEPARATOR, distinguishing);
+    System.out.format("Nondistinguishing Elements: %s" + CldrUtility.LINE_SEPARATOR, nonDistinguishing);
+    System.out.format("Skipped %s" + CldrUtility.LINE_SEPARATOR, skipAttributes);
     
     if (verbose) {
-      System.out.println(Utility.LINE_SEPARATOR + "Paths to skip in Survey Tool");
+      System.out.println(CldrUtility.LINE_SEPARATOR + "Paths to skip in Survey Tool");
       for (String path : pathToLocale.keySet()) {
         if (CheckCLDR.skipShowingInSurvey.matcher(path).matches()) {
           System.out.println("Skipping: " + path);
         }
       }
       
-      System.out.println(Utility.LINE_SEPARATOR + "Paths to force zoom in Survey Tool");
+      System.out.println(CldrUtility.LINE_SEPARATOR + "Paths to force zoom in Survey Tool");
       for (String path : pathToLocale.keySet()) {
         if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(path).matches()) {
           System.out.println("Forced Zoom Edit: " + path);
@@ -263,7 +263,7 @@ public class QuickCheck {
     
     if (pretty) {
       if (showInfo) {
-        System.out.println(Utility.LINE_SEPARATOR + "Showing Path to PrettyPath mapping" + Utility.LINE_SEPARATOR);
+        System.out.println(CldrUtility.LINE_SEPARATOR + "Showing Path to PrettyPath mapping" + CldrUtility.LINE_SEPARATOR);
       }
       PrettyPath prettyPath = new PrettyPath().setShowErrors(true);
       Set<String> badPaths = new TreeSet();
@@ -277,7 +277,7 @@ public class QuickCheck {
       // now remove root
       
       if (showInfo) {
-        System.out.println(Utility.LINE_SEPARATOR + "Showing Paths not in root" + Utility.LINE_SEPARATOR);
+        System.out.println(CldrUtility.LINE_SEPARATOR + "Showing Paths not in root" + CldrUtility.LINE_SEPARATOR);
       }
       
       CLDRFile root = cldrFactory.make("root", true);

@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.FindDTDOrder;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Differ;
@@ -73,11 +73,11 @@ public class TestMetadata extends TestFmwk {
 
   private void checkEquals(String title, String firstTitle, Collection<String> cldrFileOrder, String secondTitle, Collection<String> dtdAttributeOrder) {
     if (!cldrFileOrder.equals(dtdAttributeOrder)) {
-      errln(title + " differ:" + Utility.LINE_SEPARATOR 
-              + firstTitle + ": " + cldrFileOrder + Utility.LINE_SEPARATOR 
-              + secondTitle + ": " + dtdAttributeOrder + Utility.LINE_SEPARATOR 
-              + "to fix, replace in " + firstTitle + ":" + Utility.LINE_SEPARATOR + "\t"
-              + Utility.join(dtdAttributeOrder, " ")
+      errln(title + " differ:" + CldrUtility.LINE_SEPARATOR 
+              + firstTitle + ": " + cldrFileOrder + CldrUtility.LINE_SEPARATOR 
+              + secondTitle + ": " + dtdAttributeOrder + CldrUtility.LINE_SEPARATOR 
+              + "to fix, replace in " + firstTitle + ":" + CldrUtility.LINE_SEPARATOR + "\t"
+              + CldrUtility.join(dtdAttributeOrder, " ")
               );
       Differ differ = new Differ(200, 1);
       Iterator<String> oldIt = cldrFileOrder.iterator();
@@ -92,7 +92,7 @@ public class TestMetadata extends TestFmwk {
         if (differ.getACount() != 0 || differ.getBCount() != 0) {
           final Object start = differ.getA(-1);
           if (start.toString().length() != 0) {
-            logln("..." + Utility.LINE_SEPARATOR + "\tSame: " + start);
+            logln("..." + CldrUtility.LINE_SEPARATOR + "\tSame: " + start);
           }
           for (int i = 0; i < differ.getACount(); ++i) {
             logln("\t"+firstTitle+": " + differ.getA(i));
@@ -102,7 +102,7 @@ public class TestMetadata extends TestFmwk {
           }
           final Object end = differ.getA(differ.getACount());
           if (end.toString().length() != 0) {
-            logln("Same: " + end + Utility.LINE_SEPARATOR + "\t...");
+            logln("Same: " + end + CldrUtility.LINE_SEPARATOR + "\t...");
           }
         }
       }

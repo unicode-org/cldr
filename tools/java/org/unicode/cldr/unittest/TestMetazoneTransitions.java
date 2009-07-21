@@ -3,7 +3,7 @@ package org.unicode.cldr.unittest;
 import org.unicode.cldr.util.Pair;
 import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.impl.OlsonTimeZone;
 import com.ibm.icu.text.DecimalFormat;
@@ -185,11 +185,11 @@ public class TestMetazoneTransitions {
     public String toString(String separator, int abbreviateToSize) {
       if (abbreviateToSize > 0 && chronologicalList.size() > abbreviateToSize) {
         int limit = abbreviateToSize/2;
-        return Utility.join(slice(chronologicalList, 0, limit), separator)
+        return CldrUtility.join(slice(chronologicalList, 0, limit), separator)
         + separator + "..." + separator
-        + Utility.join(slice(chronologicalList, chronologicalList.size() - limit, chronologicalList.size()), separator);
+        + CldrUtility.join(slice(chronologicalList, chronologicalList.size() - limit, chronologicalList.size()), separator);
       }
-      return Utility.join(chronologicalList, separator);
+      return CldrUtility.join(chronologicalList, separator);
     }
 
     public String toString() {
@@ -295,26 +295,26 @@ public class TestMetazoneTransitions {
             );
       }
       if (metaCount == 0) {
-        noMeta.add(nonDaylightPartitionName + "{" + Utility.join(partition.getAll(transitions),", ") + "}");
+        noMeta.add(nonDaylightPartitionName + "{" + CldrUtility.join(partition.getAll(transitions),", ") + "}");
       } else if (metaCount > 1) {
-        multiMeta.add(nonDaylightPartitionName + "{" + Utility.join(metas,", ") + "}");
+        multiMeta.add(nonDaylightPartitionName + "{" + CldrUtility.join(metas,", ") + "}");
       }
       if (transitions.size() == 1) {
         final int offset = transitions.get(0).offset;
         allOffsets.remove(offset);
-        stableZones.add(nonDaylightPartitionName + ", " + offset/(double)HOUR + "hrs " + "{" + Utility.join(partition.getAll(transitions),", ") + "}");
+        stableZones.add(nonDaylightPartitionName + ", " + offset/(double)HOUR + "hrs " + "{" + CldrUtility.join(partition.getAll(transitions),", ") + "}");
       }
-      System.out.println("\t\t" + transitions.toString(Utility.LINE_SEPARATOR + "\t\t", -1));
+      System.out.println("\t\t" + transitions.toString(CldrUtility.LINE_SEPARATOR + "\t\t", -1));
     }
     System.out.println();
     System.out.println("*** Non-Daylight Partitions with no canonical meta");
-    System.out.println("\t" + Utility.join(noMeta, Utility.LINE_SEPARATOR + "\t"));
+    System.out.println("\t" + CldrUtility.join(noMeta, CldrUtility.LINE_SEPARATOR + "\t"));
     System.out.println();
     System.out.println("*** Non-Daylight Partitions with more than one canonical meta");
-    System.out.println("\t" + Utility.join(multiMeta, Utility.LINE_SEPARATOR + "\t"));
+    System.out.println("\t" + CldrUtility.join(multiMeta, CldrUtility.LINE_SEPARATOR + "\t"));
     System.out.println();
     System.out.println("*** Stable Non-Daylight Partitions");
-    System.out.println("\t" + Utility.join(stableZones, Utility.LINE_SEPARATOR + "\t"));
+    System.out.println("\t" + CldrUtility.join(stableZones, CldrUtility.LINE_SEPARATOR + "\t"));
     System.out.println();
     System.out.println("*** Offsets with no stable partition");
     for (int offset : allOffsets) {
@@ -337,7 +337,7 @@ public class TestMetazoneTransitions {
       for (String zone : daylightPartition.getAll(transitions)) {
         System.out.println("\t" + zone);
       }
-      System.out.println("\t\t" + transitions.toString(Utility.LINE_SEPARATOR + "\t\t", printDaylightTransitions));
+      System.out.println("\t\t" + transitions.toString(CldrUtility.LINE_SEPARATOR + "\t\t", printDaylightTransitions));
       if (lastTransitions != null ) {
         Pair<ZoneTransitions, ZoneTransitions> diff = transitions.getDifferenceFrom(lastTransitions);
         System.out.println("\t\tTransition Difference from " + lastName + ":\t"+ diff);

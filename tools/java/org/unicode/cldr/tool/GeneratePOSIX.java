@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.SortedBag;
@@ -57,8 +57,8 @@ public class GeneratePOSIX {
     private static final UOption[] options = {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
-        UOption.SOURCEDIR().setDefault(Utility.COMMON_DIRECTORY),
-        UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY),
+        UOption.SOURCEDIR().setDefault(CldrUtility.COMMON_DIRECTORY),
+        UOption.DESTDIR().setDefault(CldrUtility.GEN_DIRECTORY),
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault("hu"),
         UOption.create("unicodeset", 'u', UOption.REQUIRES_ARG).setDefault("[\\u0000-\\U0010FFFF]"),
         UOption.create("charset", 'c', UOption.REQUIRES_ARG).setDefault("iso8859-2"),

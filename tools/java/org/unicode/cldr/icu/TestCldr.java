@@ -12,7 +12,7 @@ import java.io.File;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 
 import java.io.IOException;
@@ -91,7 +91,7 @@ public class TestCldr extends TestFmwk {
 
   public void TestScripts() {
     CLDRFile.Factory cldrFactory = CLDRFile.Factory.make(
-        Utility.MAIN_DIRECTORY, MATCH, DraftStatus.contributed);
+        CldrUtility.MAIN_DIRECTORY, MATCH, DraftStatus.contributed);
     ULocale locales[] = ULocale.getAvailableLocales();
     for (int i = 0; i < locales.length; ++i) {
       ULocale locale = locales[i];
@@ -153,7 +153,7 @@ public class TestCldr extends TestFmwk {
   }
 
   public void TestFiles() throws SAXException, IOException {
-    directory = Utility.TEST_DIR;
+    directory = CldrUtility.TEST_DIR;
     /*
      Set s = GenerateCldrTests.getMatchingXMLFiles(directory, ".*");
      for (Iterator it = s.iterator(); it.hasNext();) {
@@ -243,7 +243,7 @@ public class TestCldr extends TestFmwk {
         PrintWriter pw = new PrintWriter(sw);
         e.printStackTrace(pw);
         pw.flush();
-        errln("Exception: Locale: " + ul + ",\tValue: <" + value + ">" + Utility.LINE_SEPARATOR
+        errln("Exception: Locale: " + ul + ",\tValue: <" + value + ">" + CldrUtility.LINE_SEPARATOR
             + sw.toString());
       }
     }

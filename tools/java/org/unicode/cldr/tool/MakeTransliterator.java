@@ -15,7 +15,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.Pair;
 import com.ibm.icu.dev.test.util.Relation;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.lang.UCharacter;
@@ -236,9 +236,9 @@ public class MakeTransliterator {
     System.out.println("skipped frequency-weighted: " + nf.format(skippedFrequency));
     
     if (false) {
-      System.out.println(Utility.LINE_SEPARATOR + "Source Characters ");
+      System.out.println(CldrUtility.LINE_SEPARATOR + "Source Characters ");
       showSet(sourceCharacters);
-      System.out.println(Utility.LINE_SEPARATOR + "Target Characters ");
+      System.out.println(CldrUtility.LINE_SEPARATOR + "Target Characters ");
       showSet(targetCharacters);
     }
     
@@ -334,7 +334,7 @@ public class MakeTransliterator {
           }
           // strange hack
           String hackSource = source.startsWith("use") ? "'" + source + "'" : source;
-          newRules.add(hackSource + " → " + bestTarget + " ; # " + targetUsingCore + (targetUsingBaseCore.equals(targetUsingCore) ? "" : "\t\t" + targetUsingBaseCore) + Utility.LINE_SEPARATOR);
+          newRules.add(hackSource + " → " + bestTarget + " ; # " + targetUsingCore + (targetUsingBaseCore.equals(targetUsingCore) ? "" : "\t\t" + targetUsingBaseCore) + CldrUtility.LINE_SEPARATOR);
           skippedOut.println("# couldn't replace  " + source + " → " + bestTarget + " ; # " + targetUsingCore );
           count_failures.put(-frequency, source + " → " + bestTarget + " ; # " + targetUsingCore);
           countAdded++;
@@ -458,12 +458,12 @@ public class MakeTransliterator {
     // build backwards!!
     buffer.setLength(0);
     buffer.append(
-        "# Author: M Davis" + Utility.LINE_SEPARATOR +
-        "# Email: mark.davis@icu-project.org" + Utility.LINE_SEPARATOR +
-        "# Description: English to IPA" + Utility.LINE_SEPARATOR +
+        "# Author: M Davis" + CldrUtility.LINE_SEPARATOR +
+        "# Email: mark.davis@icu-project.org" + CldrUtility.LINE_SEPARATOR +
+        "# Description: English to IPA" + CldrUtility.LINE_SEPARATOR +
         //"$nletter {([A-Z]+)} $nletter > &en-IPA/spellout($1) ; " + Utility.LINE_SEPARATOR +
-        ":: lower(); " + Utility.LINE_SEPARATOR +
-    "$x = [:^letter:] ;" + Utility.LINE_SEPARATOR);
+        ":: lower(); " + CldrUtility.LINE_SEPARATOR +
+    "$x = [:^letter:] ;" + CldrUtility.LINE_SEPARATOR);
     for (int i = newRules.size() - 1; i >= 0; --i) {
       buffer.append(newRules.get(i));
     }
@@ -665,7 +665,7 @@ public class MakeTransliterator {
       }
       
       buffer.append(line);
-      buffer.append(Utility.LINE_SEPARATOR); // separate with whitespace
+      buffer.append(CldrUtility.LINE_SEPARATOR); // separate with whitespace
     }
     fli.close();
     return buffer.toString();

@@ -7,20 +7,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 
 public class CLDRCompare {
   public static void main(String[] args) throws Exception {
-    String filter = Utility.getProperty("filter", ".*");
+    String filter = CldrUtility.getProperty("filter", ".*");
     Matcher matcher = Pattern.compile(filter).matcher("");
-    File oldVersion = new File(Utility.getProperty("old", new File(Utility.COMMON_DIRECTORY + "../../../common-cldr1.6").getCanonicalPath()));
+    File oldVersion = new File(CldrUtility.getProperty("old", new File(CldrUtility.COMMON_DIRECTORY + "../../../common-cldr1.6").getCanonicalPath()));
     if (!oldVersion.exists()) {
       throw new IllegalArgumentException("Directory not found");
     }
-    File newVersion = new File(Utility.getProperty("new", Utility.COMMON_DIRECTORY));
+    File newVersion = new File(CldrUtility.getProperty("new", CldrUtility.COMMON_DIRECTORY));
     if (!newVersion.exists()) {
       throw new IllegalArgumentException("Directory not found");
     }

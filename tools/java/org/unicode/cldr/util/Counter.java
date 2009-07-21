@@ -32,7 +32,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
   }
   
   public Counter(boolean naturalOrdering) {
-    this(naturalOrdering ? new Utility.ComparableComparator<T>() : null);
+    this(naturalOrdering ? new CldrUtility.ComparableComparator<T>() : null);
   }
 
   public Counter(Comparator<T> comparator) {

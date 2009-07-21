@@ -9,7 +9,7 @@ import org.unicode.cldr.util.StateDictionary;
 import org.unicode.cldr.util.StateDictionaryBuilder;
 import org.unicode.cldr.util.Utf8StringByteConverter;
 import org.unicode.cldr.util.Timer;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Dictionary.DictionaryCharList;
 import org.unicode.cldr.util.Dictionary.Matcher;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
@@ -99,7 +99,7 @@ public class TestReferenceStringSearch {
     Timer directTimer = new Timer();
     
     for (int count = 1; count <= maxCount; count *= 2) {
-      String bigText = Utility.repeat("The quick brown fox jumped over the L\u00E3zy dog. ", count);
+      String bigText = CldrUtility.repeat("The quick brown fox jumped over the L\u00E3zy dog. ", count);
       int[] icuPos = new int[count*2];
       int[] newPos = new int[count*2];
       int[] directPos = new int[count*2];

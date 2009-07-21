@@ -5,7 +5,7 @@ import org.unicode.cldr.util.Pair;
 import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
@@ -35,10 +35,10 @@ public class TestSupplementalData {
   public static void main(String[] args) throws IOException {
 //    genData();
 //    if (true) return;
-    Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     english = cldrFactory.make("en", true);
     root = cldrFactory.make("root", true);
-    supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+    supplementalData = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
     sc = StandardCodes.make();
     
     showMultiZones();
@@ -192,7 +192,7 @@ public class TestSupplementalData {
       Set<String> languages = supplementalData.getTerritoryToLanguages(territory);
       Set<String> otherLanguages = otherTerritoryToLanguages.getAll(territory);
       if (otherLanguages == null) otherLanguages = Collections.EMPTY_SET;
-      if (!Utility.checkEquals(languages, otherLanguages)) {
+      if (!CldrUtility.checkEquals(languages, otherLanguages)) {
         Set<String> languagesLeftover = new TreeSet<String>(languages);
         languagesLeftover.removeAll(otherLanguages);
         Set<String> otherLanguagesLeftover = new TreeSet<String>(otherLanguages);
@@ -212,7 +212,7 @@ public class TestSupplementalData {
    * @throws IOException
    */
   public static void genData() throws IOException {
-    BufferedReader codes = Utility.getUTF8Data("territory_codes.txt");
+    BufferedReader codes = CldrUtility.getUTF8Data("territory_codes.txt");
     Set<Pair> sorted = new TreeSet();
     while (true) {
       String line = codes.readLine();

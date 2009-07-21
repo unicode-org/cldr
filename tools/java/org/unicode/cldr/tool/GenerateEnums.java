@@ -6,7 +6,7 @@ import org.unicode.cldr.util.Log;
 import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.Iso639Data.Scope;
@@ -50,10 +50,10 @@ public class GenerateEnums {
 
   private StandardCodes sc = StandardCodes.make();
 
-  private Factory factory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+  private Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 
   private Factory supplementalFactory = Factory.make(
-      Utility.SUPPLEMENTAL_DIRECTORY, ".*");
+      CldrUtility.SUPPLEMENTAL_DIRECTORY, ".*");
 
   private Set cldrCodes = new TreeSet();
 
@@ -92,16 +92,16 @@ public class GenerateEnums {
   }
 
   private void showCounts() {
-    System.out.format("Language Subtags: %s" + Utility.LINE_SEPARATOR, sc.getGoodAvailableCodes(
+    System.out.format("Language Subtags: %s" + CldrUtility.LINE_SEPARATOR, sc.getGoodAvailableCodes(
         "language").size());
-    System.out.format("Script Subtags: %s" + Utility.LINE_SEPARATOR, sc.getGoodAvailableCodes(
+    System.out.format("Script Subtags: %s" + CldrUtility.LINE_SEPARATOR, sc.getGoodAvailableCodes(
         "script").size());
-    System.out.format("Territory Subtags: %s" + Utility.LINE_SEPARATOR, sc.getGoodAvailableCodes(
+    System.out.format("Territory Subtags: %s" + CldrUtility.LINE_SEPARATOR, sc.getGoodAvailableCodes(
         "territory").size());
   }
 
   private void showCurrencies() throws IOException {
-    Log.setLog(Utility.GEN_DIRECTORY + "/enum/currency_enum.txt");
+    Log.setLog(CldrUtility.GEN_DIRECTORY + "/enum/currency_enum.txt");
     Log.println();
     Log.println("Currency Data");
     Log.println();
@@ -159,7 +159,7 @@ public class GenerateEnums {
   }
 
   private void showScripts() throws IOException {
-    Log.setLog(Utility.GEN_DIRECTORY + "/enum/script_enum.txt");
+    Log.setLog(CldrUtility.GEN_DIRECTORY + "/enum/script_enum.txt");
     Log.println();
     Log.println("Script Data");
     Log.println();
@@ -181,7 +181,7 @@ public class GenerateEnums {
   }
 
   private void showLanguageInfo() throws IOException {
-    Log.setLog(Utility.GEN_DIRECTORY + "/enum/language_info.txt");
+    Log.setLog(CldrUtility.GEN_DIRECTORY + "/enum/language_info.txt");
     System.out.println();
     System.out.println("Language Converter");
     System.out.println();
@@ -212,7 +212,7 @@ public class GenerateEnums {
   }
 
   private void showLanguages() throws IOException {
-    Log.setLog(Utility.GEN_DIRECTORY + "/enum/language_enum.txt");
+    Log.setLog(CldrUtility.GEN_DIRECTORY + "/enum/language_enum.txt");
     System.out.println();
     System.out.println("Language Data");
     System.out.println();
@@ -321,7 +321,7 @@ public class GenerateEnums {
       enum_alpha3.put(value, supplementalDataInfo.getAlpha3TerritoryMapping().getAll(value).iterator().next());
     }
 
-    BufferedReader codes = Utility.getUTF8Data("UnMacroRegions.txt");
+    BufferedReader codes = CldrUtility.getUTF8Data("UnMacroRegions.txt");
     Map macro_name = new TreeMap();
     while (true) {
       String line = codes.readLine();
@@ -517,7 +517,7 @@ public class GenerateEnums {
       Collection plain = (Collection) containment.get(region);
       // Collection recursive = (Collection)recursiveContainment.get(region);
 
-      String setAsString = Utility.join(plain, " ");
+      String setAsString = CldrUtility.join(plain, " ");
       // String setAsString2 = recursive.equals(plain) ? "" : ", " +
       // Utility.join(recursive," ");
       Log.println("\t\tadd(\"" + region + "\", \"" + setAsString + "\");");
@@ -582,7 +582,7 @@ public class GenerateEnums {
   private Set<String> validCurrencyCodes;
 
   static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
-      .getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+      .getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
 
   /**
    * Get the RegionCode Enum
@@ -590,7 +590,7 @@ public class GenerateEnums {
    * @throws IOException
    */
   private void showRegionCodeInfo() throws IOException {
-    Log.setLog(Utility.GEN_DIRECTORY + "/enum/region_enum.txt");
+    Log.setLog(CldrUtility.GEN_DIRECTORY + "/enum/region_enum.txt");
     System.out.println();
     System.out.println("Data for RegionCode");
     System.out.println();
@@ -608,7 +608,7 @@ public class GenerateEnums {
     showGeneratedCommentEnd(CODE_INDENT);
     Log.close();
 
-    Log.setLog(Utility.GEN_DIRECTORY + "/enum/region_info.txt");
+    Log.setLog(CldrUtility.GEN_DIRECTORY + "/enum/region_info.txt");
     Log.println();
     Log.println("Data for ISO Region Codes");
     Log.println();
@@ -656,7 +656,7 @@ public class GenerateEnums {
     }
     Log.close();
 
-    Log.setLog(Utility.GEN_DIRECTORY + "/enum/region_converters.txt");
+    Log.setLog(CldrUtility.GEN_DIRECTORY + "/enum/region_converters.txt");
     Log.println();
     Log.println("Data for ISO Region Codes");
     Log.println();
@@ -736,7 +736,7 @@ public class GenerateEnums {
   }
 
   private String format(double value) {
-    double newValue = Utility.roundToDecimals(value, 3);
+    double newValue = CldrUtility.roundToDecimals(value, 3);
     String option1 = nf.format(newValue);
     String option2 = sf.format(value);
     return option1.length() <= option2.length() ? option1 : option2;
@@ -870,7 +870,7 @@ public class GenerateEnums {
       prefix = CODE_INDENT + " *" + prefix.substring(lastFit);
     }
     out.print(prefix);
-    out.print(Utility.repeat(" ", lineLength
+    out.print(CldrUtility.repeat(" ", lineLength
         - (prefix.length() + printedCodeName.length() + 1)));
     out.println(printedCodeName + ",");
   }

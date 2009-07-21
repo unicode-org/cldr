@@ -372,7 +372,7 @@ public class IdnaLabelTester {
         String dir = "tools/java/org/unicode/cldr/draft/";
         IdnaLabelTester tester = new IdnaLabelTester(dir + "idnaContextRules.txt");
         BufferedReader in = openFile(dir + "idnaTestCases.txt");
-        frequencyFile = org.unicode.cldr.util.Utility.getProperty("frequency");
+        frequencyFile = org.unicode.cldr.util.CldrUtility.getProperty("frequency");
 
         boolean expectedSuccess = true;
         int failures = 0;
@@ -614,9 +614,9 @@ public class IdnaLabelTester {
         //003A..0040;DISALLOWED;;DISALLOWED;; Po Sm;COLON..COMMERCIAL AT
         //0041;REMAP; 0061;  REMAP; 0061;    Lu;  LATIN CAPITAL LETTER A
 
-        PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.Utility.getProperty("out"), "idna-info.txt");
-        PrintWriter out2 = BagFormatter.openUTF8Writer(org.unicode.cldr.util.Utility.getProperty("out"), "idna-info-tab.txt");
-        PrintWriter out3 = BagFormatter.openUTF8Writer(org.unicode.cldr.util.Utility.getProperty("out"), "idna-info.html");
+        PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"), "idna-info.txt");
+        PrintWriter out2 = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"), "idna-info-tab.txt");
+        PrintWriter out3 = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"), "idna-info.html");
         out3.println("<html>\n" +
                 "<head>\n" +
                 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n" +

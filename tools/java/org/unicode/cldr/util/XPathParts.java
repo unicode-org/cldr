@@ -74,20 +74,20 @@ public class XPathParts {
     int limit = findFirstDifference(lastFullXPath);
     // write the end of the last one
     for (int i = lastFullXPath.size()-2; i >= limit; --i) {
-      Utility.indent(pw, i);
+      CldrUtility.indent(pw, i);
       pw.println(lastFullXPath.elements.get(i).toString(XML_CLOSE));
     }
     if (v == null) return this; // end
     // now write the start of the current
     for (int i = limit; i < size()-1; ++i) {
       filteredXPath.writeComment(pw, xpath_comments, i+1, Comments.PREBLOCK);
-      Utility.indent(pw, i);
+      CldrUtility.indent(pw, i);
       pw.println(elements.get(i).toString(XML_OPEN));
     }
     filteredXPath.writeComment(pw, xpath_comments, size(), Comments.PREBLOCK);
 
     // now write element itself
-    Utility.indent(pw, size()-1);
+    CldrUtility.indent(pw, size()-1);
     Element e = elements.get(size()-1);
     String eValue = v;
     if (eValue.length() == 0) {
@@ -109,7 +109,7 @@ public class XPathParts {
     if (!result.contains("\n")) {
       return result;
     }
-    String spacer = "\n" + Utility.repeat("\t", count);
+    String spacer = "\n" + CldrUtility.repeat("\t", count);
     result = result.replace("\n", spacer);
     return result;
   }
@@ -166,9 +166,9 @@ public class XPathParts {
      * @param other
      */
     public Comments joinAll(Comments other) {
-      Utility.joinWithSeparation(comments[LINE], XPathParts.NEWLINE, other.comments[LINE]);
-      Utility.joinWithSeparation(comments[PREBLOCK], XPathParts.NEWLINE, other.comments[PREBLOCK]);
-      Utility.joinWithSeparation(comments[POSTBLOCK], XPathParts.NEWLINE, other.comments[POSTBLOCK]);
+      CldrUtility.joinWithSeparation(comments[LINE], XPathParts.NEWLINE, other.comments[LINE]);
+      CldrUtility.joinWithSeparation(comments[PREBLOCK], XPathParts.NEWLINE, other.comments[PREBLOCK]);
+      CldrUtility.joinWithSeparation(comments[POSTBLOCK], XPathParts.NEWLINE, other.comments[POSTBLOCK]);
       return this;
     }
     /**
@@ -832,7 +832,7 @@ public class XPathParts {
     // now write the comment
     if (comment.length() == 0) return;
     if (blockComment) {
-      Utility.indent(pw, indent);
+      CldrUtility.indent(pw, indent);
     } else {
       pw.print(" ");
     }
@@ -841,7 +841,7 @@ public class XPathParts {
       boolean first = true;
       int countEmptyLines = 0;
       // trim the line iff the indent != 0.
-      for (Iterator it = Utility.splitList(comment, '\n', indent != 0, null).iterator(); it.hasNext();) {
+      for (Iterator it = CldrUtility.splitList(comment, '\n', indent != 0, null).iterator(); it.hasNext();) {
         String line = (String) it.next();
         if (line.length() == 0) {
           ++countEmptyLines;
@@ -856,12 +856,12 @@ public class XPathParts {
           line = line.trim();
           pw.print(" ");
         } else if (indent != 0) {
-          Utility.indent(pw, indent+1);
+          CldrUtility.indent(pw, indent+1);
           pw.print(" ");
         }
         pw.println(line);
       }
-      Utility.indent(pw, indent);
+      CldrUtility.indent(pw, indent);
     } else {
       pw.print(" ");
       pw.print(comment.trim());

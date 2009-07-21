@@ -275,9 +275,9 @@ public class SupplementalDataInfo {
       + languageSubtag
       + "\""
       + (scripts.size() == 0 ? "" : " scripts=\""
-        + Utility.join(scripts, " ") + "\"")
+        + CldrUtility.join(scripts, " ") + "\"")
         + (territories.size() == 0 ? "" : " territories=\""
-          + Utility.join(territories, " ") + "\"")
+          + CldrUtility.join(territories, " ") + "\"")
           + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
     }
 
@@ -285,9 +285,9 @@ public class SupplementalDataInfo {
       int result;
       if (0 != (result = type.compareTo(o.type)))
         return result;
-      if (0 != (result = Utility.compare(scripts, o.scripts)))
+      if (0 != (result = CldrUtility.compare(scripts, o.scripts)))
         return result;
-      if (0 != (result = Utility.compare(territories, o.territories)))
+      if (0 != (result = CldrUtility.compare(territories, o.territories)))
         return result;
       return 0;
     }
@@ -696,8 +696,8 @@ public class SupplementalDataInfo {
     //territoryToTelephoneCodeInfo.freeze();
     territoryToTelephoneCodeInfo = Collections.unmodifiableMap(territoryToTelephoneCodeInfo);
 
-    metazoneToRegionToZone = Utility.protectCollection(metazoneToRegionToZone);
-    typeToTagToReplacement = Utility.protectCollection(typeToTagToReplacement);
+    metazoneToRegionToZone = CldrUtility.protectCollection(metazoneToRegionToZone);
+    typeToTagToReplacement = CldrUtility.protectCollection(typeToTagToReplacement);
 
     containment.freeze();
     languageToBasicLanguageData.freeze();

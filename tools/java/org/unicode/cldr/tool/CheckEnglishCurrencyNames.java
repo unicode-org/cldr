@@ -9,14 +9,14 @@ import org.unicode.cldr.util.CLDRFile;
 import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 
 public class CheckEnglishCurrencyNames {
-  static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+  static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
   static StandardCodes sc = StandardCodes.make();
-  static Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+  static Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
   static CLDRFile english = cldrFactory.make("en", true);
 
   public static void main(String[] args) {

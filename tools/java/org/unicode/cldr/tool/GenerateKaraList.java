@@ -12,7 +12,7 @@ import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 /**
@@ -23,9 +23,9 @@ public class GenerateKaraList {
 	 * Generates information used for some internal formats. Internal Use.
 	 */
 	public static void main(String[] args) throws IOException {
-		cldrFactory = CLDRFile.Factory.make(Utility.COMMON_DIRECTORY, ".*");
+		cldrFactory = CLDRFile.Factory.make(CldrUtility.COMMON_DIRECTORY, ".*");
 		english = cldrFactory.make("en", true);
-		PrintWriter log = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "main/", "karaList.xml");
+		PrintWriter log = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "main/", "karaList.xml");
 		Set locales = LanguageTagParser.getLanguageScript(cldrFactory.getAvailable());
 		// hack for now
 		locales.remove("sr");

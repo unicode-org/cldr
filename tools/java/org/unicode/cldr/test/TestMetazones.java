@@ -4,7 +4,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Pair;
 import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
@@ -50,7 +50,7 @@ public class TestMetazones {
 
   // WARNING: right now, the only metazone rules are in root, so that's all we're testing.
   // if there were rules in other files, we'd have to check them to, by changing this line.
-  Factory factory = Factory.make(Utility.MAIN_DIRECTORY, "root");
+  Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, "root");
 
   XPathParts parts = new XPathParts();
 
@@ -74,17 +74,17 @@ public class TestMetazones {
   
   void testAll() throws IOException {
     try {
-      noDaylight = Utility.getProperty("nodaylight", null) != null;
-      skipPartialDays = Utility.getProperty("skippartialdays", null, "") != null;
-      skipConsistency = Utility.getProperty("skipconsistency", null, "") != null;
+      noDaylight = CldrUtility.getProperty("nodaylight", null) != null;
+      skipPartialDays = CldrUtility.getProperty("skippartialdays", null, "") != null;
+      skipConsistency = CldrUtility.getProperty("skipconsistency", null, "") != null;
 
-      String exemplarOutFile = Utility.getProperty("log", null,
-          Utility.GEN_DIRECTORY + "metazoneLog.txt");
+      String exemplarOutFile = CldrUtility.getProperty("log", null,
+          CldrUtility.GEN_DIRECTORY + "metazoneLog.txt");
       if (exemplarOutFile != null) {
         log = BagFormatter.openUTF8Writer("", exemplarOutFile);
       }
-      String errorOutFile = Utility.getProperty("errors", null,
-          Utility.GEN_DIRECTORY + "metazoneErrors" + 
+      String errorOutFile = CldrUtility.getProperty("errors", null,
+          CldrUtility.GEN_DIRECTORY + "metazoneErrors" + 
           (noDaylight ? "-noDaylight" : "") +
           (skipPartialDays ? "-skipPartialDays" : "")
               +".txt");
@@ -205,7 +205,7 @@ public class TestMetazones {
           if (list.size() != 0) {
             errln("Zones " + showZone(value.zone) + " and " + showZone(value2.zone)
                 + " shouldn't be in the same metazone <" + mzone + "> during the period "
-                + overlap + ". " + "Sample dates:" + Utility.LINE_SEPARATOR + "\t"
+                + overlap + ". " + "Sample dates:" + CldrUtility.LINE_SEPARATOR + "\t"
                 + showDifferences(timezone1, timezone2, list));
           }
         }
@@ -240,7 +240,7 @@ public class TestMetazones {
       totalErrorPeriod += errorPeriod;
       if (abbreviating) {
         if (count == 4)
-          buffer.append("..." + Utility.LINE_SEPARATOR + "\t");
+          buffer.append("..." + CldrUtility.LINE_SEPARATOR + "\t");
         if (count >= 4 && count < list.size() - 2)
           continue;
       }
@@ -248,7 +248,7 @@ public class TestMetazones {
       buffer.append("delta=\t"
           + hours.format(startDelta / (double)HOUR) + " hours:\t" + DateRange.format(start) + "\tto\t" +
           DateRange.format(end) + ";\ttotal:\t" + days.format((errorPeriod)/(double)DAY) + " days"
-          + Utility.LINE_SEPARATOR + "\t"
+          + CldrUtility.LINE_SEPARATOR + "\t"
           );
     }
     buffer.append("\tTotal Period in Error:\t" + days.format((totalErrorPeriod)/(double)DAY) + " days");

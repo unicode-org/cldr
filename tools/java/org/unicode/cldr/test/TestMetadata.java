@@ -10,7 +10,7 @@ import java.util.TreeSet;
 import java.util.Iterator;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.StandardCodes;
@@ -22,7 +22,7 @@ import com.ibm.icu.impl.Differ;
 
 public class TestMetadata {
 	public static void main(String[] args) {
-		Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+		Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile metadata = cldrFactory.make("supplementalMetadata", false);
 //        Set allKeys = new TreeSet();
 //        CollectionUtilities.addAll(metadata.iterator(), allKeys);
@@ -33,11 +33,11 @@ public class TestMetadata {
         Set attributes = new TreeSet();
         Set elementOrderingLists = new LinkedHashSet();
         
-        getElementsAndAttributes(Utility.MAIN_DIRECTORY + "root.xml", elements, attributes, elementOrderingLists);
+        getElementsAndAttributes(CldrUtility.MAIN_DIRECTORY + "root.xml", elements, attributes, elementOrderingLists);
         Set suppElements = new TreeSet();
         Set suppAttributes = new TreeSet();
         Set suppElementOrderingLists = new LinkedHashSet();
-        getElementsAndAttributes(Utility.COMMON_DIRECTORY + "supplemental/characters.xml", suppElements, suppAttributes, suppElementOrderingLists);
+        getElementsAndAttributes(CldrUtility.COMMON_DIRECTORY + "supplemental/characters.xml", suppElements, suppAttributes, suppElementOrderingLists);
         
         Set allElements = new TreeSet();
         allElements.addAll(elements);

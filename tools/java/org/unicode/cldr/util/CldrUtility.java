@@ -41,7 +41,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.Freezable;
 
-public class Utility {
+public class CldrUtility {
 
   public static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
@@ -106,11 +106,11 @@ public class Utility {
   /** default working directory for Eclipse is . = ${workspace_loc:cldr}, which is <CLDR>/tools/java/ */
   // set the base directory with -Dcldrdata=<value>
   // if the main is different, use -Dcldrmain=<value>
-  public static final String BASE_DIRECTORY = getPath(Utility.getProperty("CLDR_DIR", null)); // new File(Utility.getProperty("CLDR_DIR", null)).getPath();	// get up to <CLDR>
+  public static final String BASE_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_DIR", null)); // new File(Utility.getProperty("CLDR_DIR", null)).getPath();	// get up to <CLDR>
   public static final String UTIL_DATA_DIR = getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/");        // "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
   public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
   public static final String COMMON_DIRECTORY = getPath(BASE_DIRECTORY , "common/");
-  public static final String MAIN_DIRECTORY = Utility.getProperty("CLDR_MAIN", getPath(Utility.COMMON_DIRECTORY,  "main"));
+  public static final String MAIN_DIRECTORY = CldrUtility.getProperty("CLDR_MAIN", getPath(CldrUtility.COMMON_DIRECTORY,  "main"));
 
   /**
    * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
@@ -123,7 +123,7 @@ public class Utility {
   public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = getPath(COMMON_DIRECTORY , "supplemental/");
   public static final String GEN_DIRECTORY = getPath(BASE_DIRECTORY , "dropbox/gen/");
   public static final String CHART_DIRECTORY = getPath(BASE_DIRECTORY ,  "diff/");
-  public static final String TEST_DIR = getPath(Utility.BASE_DIRECTORY,  "test/");
+  public static final String TEST_DIR = getPath(CldrUtility.BASE_DIRECTORY,  "test/");
 
 
   /** If the generated BAT files are to work, this needs to be set right */
@@ -331,7 +331,7 @@ public class Utility {
   }
 
   static public void generateBat(String sourceDir, String sourceFile, String targetDir, String targetFile) {
-    generateBat( sourceDir,  sourceFile,  targetDir,  targetFile, new Utility.SimpleLineComparator(0)); 
+    generateBat( sourceDir,  sourceFile,  targetDir,  targetFile, new CldrUtility.SimpleLineComparator(0)); 
   }
 
   static public void generateBat(String sourceDir, String sourceFile, String targetDir, String targetFile, LineComparer lineComparer) {
@@ -974,14 +974,14 @@ public class Utility {
     java.io.InputStream is = null;
     try {
       is = 
-        com.ibm.icu.impl.ICUData.getRequiredStream(Class.forName(Utility.UTIL_CLASS_DIR+".Utility"), "data/" + name);
+        com.ibm.icu.impl.ICUData.getRequiredStream(Class.forName(CldrUtility.UTIL_CLASS_DIR+".Utility"), "data/" + name);
     } catch (ClassNotFoundException cnf) { 
 
-      throw new FileNotFoundException("Couldn't load " + Utility.UTIL_CLASS_DIR + "." + name + " - ClassNotFoundException." + cnf.toString());
+      throw new FileNotFoundException("Couldn't load " + CldrUtility.UTIL_CLASS_DIR + "." + name + " - ClassNotFoundException." + cnf.toString());
       //    .initCause(cnf);
     } catch (java.util.MissingResourceException mre) {
       // try file
-      return BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR + File.separator, name);
+      return BagFormatter.openUTF8Reader(CldrUtility.UTIL_DATA_DIR + File.separator, name);
     }
     return new java.io.BufferedReader(   new java.io.InputStreamReader(is,"UTF-8") );
   }
@@ -1066,7 +1066,7 @@ public class Utility {
         if (line == null) break;
         if (line.length() > 0 && line.charAt(0) == '\uFEFF') line = line.substring(1);
         if (line.startsWith("//")) continue;
-        buffer.append(line).append(Utility.LINE_SEPARATOR);
+        buffer.append(line).append(CldrUtility.LINE_SEPARATOR);
       }
       br.close();
       String rules = buffer.toString();
@@ -1161,7 +1161,7 @@ public class Utility {
     return a.equals(b);
   }
 
-  public static int checkCompare(Comparable<Comparable> a, Comparable b) {
+  public static <T> int checkCompare(Comparable a, Comparable b) {
     if (a == null) {
       return b == null ? 0 : -1;
     }
@@ -1178,7 +1178,7 @@ public class Utility {
   public class IterableComparator<T extends Iterable<Comparable>> implements Comparator<T> {
     public int compare(T o1, T o2) {
       // TODO Auto-generated method stub
-      return Utility.compare(o1, o2);
+      return CldrUtility.compare(o1, o2);
     }
   }
 
@@ -1292,7 +1292,7 @@ public class Utility {
     }
     if (file == null || canonicalPath == null || checkForDirectory && !file.isDirectory()) {
       throw new RuntimeException("Directory not found: " + sourceDirectory + (canonicalPath == null ? "" : " => " + canonicalPath) 
-              + (correction == null ? "" : Utility.LINE_SEPARATOR + correction));
+              + (correction == null ? "" : CldrUtility.LINE_SEPARATOR + correction));
     }
     return canonicalPath;
   }

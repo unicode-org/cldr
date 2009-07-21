@@ -26,7 +26,7 @@ import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TimezoneFormatter;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -304,7 +304,7 @@ public class ExampleGenerator {
   }
 
   static Date FIRST_INTERVAL = getDate(2008,1,13,5,7,9, GMT_ZONE_SAMPLE);
-  static Map<String,Date> SECOND_INTERVAL = Utility.asMap(new Object[][]{
+  static Map<String,Date> SECOND_INTERVAL = CldrUtility.asMap(new Object[][]{
           {"y", getDate(2009,2,14,17,8,10, GMT_ZONE_SAMPLE)},
           {"M", getDate(2008,2,14,17,8,10, GMT_ZONE_SAMPLE)},
           {"d", getDate(2008,1,14,17,8,10, GMT_ZONE_SAMPLE)},
@@ -854,7 +854,7 @@ public class ExampleGenerator {
   public static class HelpMessages {
     private static final Matcher CLEANUP_BOOKMARK = Pattern.compile("[^a-zA-Z0-9]").matcher("");
 
-    private static final MessageFormat DEFAULT_HEADER_PATTERN = new MessageFormat("<p>{0}</p>" + Utility.LINE_SEPARATOR);
+    private static final MessageFormat DEFAULT_HEADER_PATTERN = new MessageFormat("<p>{0}</p>" + CldrUtility.LINE_SEPARATOR);
 
     private static final Matcher HEADER_HTML = Pattern.compile("<h[0-9]>(.*)</h[0-9]>").matcher("");
 
@@ -885,7 +885,7 @@ public class ExampleGenerator {
       currentColumn[1] = new StringBuilder();
       BufferedReader in;
       try {
-        in = Utility.getUTF8Data(filename);
+        in = CldrUtility.getUTF8Data(filename);
         Status status = Status.BASE;
         int count = 0;
         int tableCount = 0;
@@ -981,7 +981,7 @@ public class ExampleGenerator {
       for (int i = 0; i < keys.size(); ++i) {
         if (keys.get(i).reset(key).matches()) {
           if (result.length() != 0) {
-            result.append(Utility.LINE_SEPARATOR);
+            result.append(CldrUtility.LINE_SEPARATOR);
           }
           String value = values.get(i);
           if (headerPattern != null) {

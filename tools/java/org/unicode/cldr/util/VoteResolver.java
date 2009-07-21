@@ -705,7 +705,7 @@ public class VoteResolver<T> {
         }
       }
     }
-    Utility.protectCollection(localeToOrganizationToMaxVote);
+    CldrUtility.protectCollection(localeToOrganizationToMaxVote);
   }
 
   /**

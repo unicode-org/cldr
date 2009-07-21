@@ -5,7 +5,7 @@ package org.unicode.cldr.unittest;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
@@ -50,7 +50,7 @@ public class TestAll extends TestGroup {
     public static TestInfo getInstance() {
       synchronized (TestInfo.class) {
         if (INSTANCE == null) {
-          Utility.checkValidDirectory(Utility.BASE_DIRECTORY, "You have to set -Dcheckdata=<validdirectory>");
+          CldrUtility.checkValidDirectory(CldrUtility.BASE_DIRECTORY, "You have to set -Dcheckdata=<validdirectory>");
           INSTANCE = new TestInfo();
         }
       }
@@ -62,7 +62,7 @@ public class TestAll extends TestGroup {
     public SupplementalDataInfo getSupplementalDataInfo() {
       synchronized(this) {
         if (supplementalDataInfo == null) {
-          supplementalDataInfo = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+          supplementalDataInfo = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
         }
       }
       return supplementalDataInfo;
@@ -78,7 +78,7 @@ public class TestAll extends TestGroup {
     public Factory getCldrFactory() {
       synchronized(this) {
         if (cldrFactory == null) {
-          cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+          cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         }
       }
       return cldrFactory;

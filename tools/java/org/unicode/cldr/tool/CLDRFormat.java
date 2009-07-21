@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Log;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.XPathParts.Comments;
@@ -25,10 +25,10 @@ import com.ibm.icu.dev.tool.UOption;
 public class CLDRFormat {
   public static void main(String[] args) throws Exception {
     // TODO - make these parameters
-    String filter = Utility.getProperty("filter", ".*");
+    String filter = CldrUtility.getProperty("filter", ".*");
     Matcher matcher = Pattern.compile(filter).matcher("");
-    File src = new File(Utility.COMMON_DIRECTORY);
-    File dest = new File(Utility.BASE_DIRECTORY + "/common-test/");
+    File src = new File(CldrUtility.COMMON_DIRECTORY);
+    File dest = new File(CldrUtility.BASE_DIRECTORY + "/common-test/");
     File dtd = new File(dest + "/main/" + "../../common/dtd/ldmlSupplemental.dtd");
     if (!dtd.exists()) {
       throw new IllegalArgumentException("Can't access DTD\nas is: " + dtd + "\ncanonical: " + dtd.getCanonicalPath());

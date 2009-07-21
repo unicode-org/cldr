@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.ibm.icu.dev.test.util.UnicodeMap;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -143,7 +143,7 @@ public class StateMachine<T> {
     short state = START;
     StateObjectBuilder<T> stateObject = factory.getInstance();
     stateObject.init(string, this, i);
-    cp = UTF16.charAt(string, 0);
+    cp = Character.codePointAt(string, 0);
     if (SHOW_STATE_TRANSITIONS) {
       System.out.println("@Fetched: " + UTF16.valueOf(cp));
     }
@@ -179,7 +179,7 @@ public class StateMachine<T> {
       }
       if (action.advanceToNextCodePoint) {
         i += UTF16.getCharCount(cp);
-        cp = i < string.length() ? UTF16.charAt(string, i) : 0xFFFF;
+        cp = i < string.length() ? Character.codePointAt(string, i) : 0xFFFF;
         if (SHOW_STATE_TRANSITIONS) {
           System.out.println("@Fetched: " + UTF16.valueOf(cp));
         }

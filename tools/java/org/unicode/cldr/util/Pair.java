@@ -64,13 +64,13 @@ public final class Pair<T extends Comparable, U extends Comparable> implements j
   }
   
   public int hashCode() {
-    return Utility.checkHash(first) * 37 + Utility.checkHash(second);
+    return CldrUtility.checkHash(first) * 37 + CldrUtility.checkHash(second);
   }
   
   public boolean equals(Object other) {
     try {
       Pair that = (Pair)other;
-      return Utility.checkEquals(first, that.first) && Utility.checkEquals(second, that.second);
+      return CldrUtility.checkEquals(first, that.first) && CldrUtility.checkEquals(second, that.second);
     } catch (Exception e) {
       return false;
     }
@@ -78,9 +78,9 @@ public final class Pair<T extends Comparable, U extends Comparable> implements j
   
   public int compareTo(Object other) {
     Pair that = (Pair)other;
-    int trial = Utility.checkCompare(first, that.first);
+    int trial = CldrUtility.checkCompare(first, that.first);
     if (trial != 0) return trial;
-    return Utility.checkCompare(second, that.second);
+    return CldrUtility.checkCompare(second, that.second);
   }
   
   public Object clone() {

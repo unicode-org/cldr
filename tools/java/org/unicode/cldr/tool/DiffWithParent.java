@@ -3,7 +3,7 @@ package org.unicode.cldr.tool;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PrettyPath;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
@@ -23,9 +23,9 @@ public class DiffWithParent {
 
   public static void main(String[] args) throws IOException {
     try {
-      fileMatcher = Pattern.compile(Utility.getProperty("FILE", ".*")).matcher(
+      fileMatcher = Pattern.compile(CldrUtility.getProperty("FILE", ".*")).matcher(
           "");
-      Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+      Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
       CLDRFile english = cldrFactory.make("en", true);
       TablePrinter table = new TablePrinter().addColumn("Path").setSpanRows(
           true).addColumn("Locale").addColumn("Value").addColumn("FullPath");
@@ -60,7 +60,7 @@ public class DiffWithParent {
                   pvalue).addCell(pfullPath).finishRow();
             }
           }
-          PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY,
+          PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
               locale + "_diff.html");
           String title = locale + " " + english.getName(locale)
               + " Diff with Parent";

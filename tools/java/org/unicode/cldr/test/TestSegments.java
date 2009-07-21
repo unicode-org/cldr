@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.RandomStringGenerator;
 import org.unicode.cldr.util.Segmenter;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Segmenter.Rule.Breaks;
 
 import com.ibm.icu.dev.test.util.ICUPropertyFactory;
@@ -57,7 +57,7 @@ public class TestSegments {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-    Log.setLogNoBOM(Utility.GEN_DIRECTORY + "/segments/root.xml");
+    Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/segments/root.xml");
     Log.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
     Log.println("<!DOCTYPE ldml SYSTEM \"../../common/dtd/ldml.dtd\">");
     Log.println("<ldml>");
@@ -218,11 +218,11 @@ public class TestSegments {
 		StringBuffer results = new StringBuffer();
 		int cp;
 		for (int i = 0; i < test.length(); i += UTF16.getCharCount(cp)) {
-			if (i == j) results.append(icuBreakResults ? "<" + Utility.LINE_SEPARATOR + "$ >" : "<" + Utility.LINE_SEPARATOR + "@ >");
+			if (i == j) results.append(icuBreakResults ? "<" + CldrUtility.LINE_SEPARATOR + "$ >" : "<" + CldrUtility.LINE_SEPARATOR + "@ >");
 			cp = UTF16.charAt(test, i);
 			results.append("[" + rsg.getValue(cp) + ":" + com.ibm.icu.impl.Utility.escape(UTF16.valueOf(cp)) + "]");
 		}
-		if (test.length() == j) results.append(icuBreakResults ? "<" + Utility.LINE_SEPARATOR + "$ >" : "<" + Utility.LINE_SEPARATOR + "@ >");
+		if (test.length() == j) results.append(icuBreakResults ? "<" + CldrUtility.LINE_SEPARATOR + "$ >" : "<" + CldrUtility.LINE_SEPARATOR + "@ >");
 		return results.toString();
 	}
 	
@@ -271,17 +271,17 @@ public class TestSegments {
 		"test",
 		"\uCD40\u1185",
 		"http://www.cs.tut.fi/%7Ejkorpela/html/nobr.html?abcd=high&hijk=low#anchor",
-		"T\u0300he qui\u0300ck 100.1 brown" + Utility.LINE_SEPARATOR + "\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
+		"T\u0300he qui\u0300ck 100.1 brown" + CldrUtility.LINE_SEPARATOR + "\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
 		"compareLine"
 	},{
 		"SentenceBreak",
 		"test",
-		"T\u0300he qui\u0300ck 100.1 brown" + Utility.LINE_SEPARATOR + "\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
+		"T\u0300he qui\u0300ck 100.1 brown" + CldrUtility.LINE_SEPARATOR + "\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
 		"compareSentence"
 	},{
 		"WordBreak",
 		"test",
-		"T\u0300he qui\u0300ck 100.1 brown" + Utility.LINE_SEPARATOR + "\u0300foxes.",
+		"T\u0300he qui\u0300ck 100.1 brown" + CldrUtility.LINE_SEPARATOR + "\u0300foxes.",
 		"compareWord"
 	}};
 }

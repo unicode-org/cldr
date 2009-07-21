@@ -58,7 +58,7 @@ public class PrettyPath {
 			if (prettyString.indexOf("%%") >= 0) {
 				if (showErrors) System.out.println("Warning:\tIncomplete translit:\t" + prettyString + "\t " + path);
 
-			} else if (Utility.countInstances(prettyString, "|") != 2) {
+			} else if (CldrUtility.countInstances(prettyString, "|") != 2) {
         if (showErrors) System.out.println("Warning:\tpath length != 3: " + prettyString);
 			}
 			// add to caches

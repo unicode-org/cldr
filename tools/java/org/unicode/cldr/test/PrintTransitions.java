@@ -4,7 +4,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Pair;
 import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 

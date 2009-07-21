@@ -42,8 +42,8 @@ import com.ibm.icu.text.UTF16;
 
 public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
   private static final Pattern FIRST_LETTER_CHANGE = Pattern.compile("(\\S)\\S*");
-  static final boolean SHOW_PROGRESS = Utility.getProperty("verbose",false);
-  static final boolean SHOW_ALL = Utility.getProperty("show_all", false);
+  static final boolean SHOW_PROGRESS = CldrUtility.getProperty("verbose",false);
+  static final boolean SHOW_ALL = CldrUtility.getProperty("show_all", false);
 
   private static FindDTDOrder INSTANCE;
 
@@ -68,7 +68,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
           FileInputStream fis;
           InputSource is;
           me.recordingAttributeElements = true;
-          String filename = Utility.MAIN_DIRECTORY + "/root.xml";
+          String filename = CldrUtility.MAIN_DIRECTORY + "/root.xml";
           fis = new FileInputStream(filename);
           is = new InputSource(fis);
           is.setSystemId(filename);
@@ -76,7 +76,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
           fis.close();
   
           me.recordingAttributeElements = false;
-          filename = Utility.SUPPLEMENTAL_DIRECTORY
+          filename = CldrUtility.SUPPLEMENTAL_DIRECTORY
               + "/supplementalData.xml";
           fis = new FileInputStream(filename);
           is = new InputSource(fis);
@@ -98,7 +98,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
   }
 
   public void writeAttributeElements() {
-    System.out.println(Utility.LINE_SEPARATOR + "======== Start Attributes to Elements (unblocked) " + Utility.LINE_SEPARATOR);
+    System.out.println(CldrUtility.LINE_SEPARATOR + "======== Start Attributes to Elements (unblocked) " + CldrUtility.LINE_SEPARATOR);
     for (String attribute : attributeToElements.keySet()) {
       Set<String> filtered = new TreeSet();
       for (String element : attributeToElements.getAll(attribute)) {
@@ -106,12 +106,12 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
           filtered.add(element);
         }
       }
-      System.out.println(attribute + "\t" + Utility.join(filtered, " "));
+      System.out.println(attribute + "\t" + CldrUtility.join(filtered, " "));
     }
-    System.out.println(Utility.LINE_SEPARATOR + "======== End Attributes to Elements" + Utility.LINE_SEPARATOR);
-    System.out.println(Utility.LINE_SEPARATOR + "======== Start Elements to Children (skipping alias, special)" + Utility.LINE_SEPARATOR);
+    System.out.println(CldrUtility.LINE_SEPARATOR + "======== End Attributes to Elements" + CldrUtility.LINE_SEPARATOR);
+    System.out.println(CldrUtility.LINE_SEPARATOR + "======== Start Elements to Children (skipping alias, special)" + CldrUtility.LINE_SEPARATOR);
     showElementTree("ldml", "", new HashSet<String>());
-    System.out.println(Utility.LINE_SEPARATOR + "======== End Elements to Children" + Utility.LINE_SEPARATOR);
+    System.out.println(CldrUtility.LINE_SEPARATOR + "======== End Elements to Children" + CldrUtility.LINE_SEPARATOR);
   }
 
   private void showElementTree(String element, String indent, HashSet<String> seenSoFar) {
@@ -245,7 +245,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     }
     System.out.println("New code: " + result);
     System.out.println("Old code: " + orderingList);
-    System.out.println("New code2: " + Utility.breakLines(Utility.join(result, " "), sep, FIRST_LETTER_CHANGE.matcher(""), 80));
+    System.out.println("New code2: " + CldrUtility.breakLines(CldrUtility.join(result, " "), sep, FIRST_LETTER_CHANGE.matcher(""), 80));
     
     Set missing = new TreeSet(allDefinedElements);
     missing.removeAll(orderingList);
@@ -264,7 +264,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     
   }
   
-  String sep = Utility.LINE_SEPARATOR + "\t\t\t";
+  String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t";
 
   private void showData() throws IOException {
     // finish up
@@ -339,26 +339,26 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     log.flush();
     
-    Log.setLogNoBOM(Utility.GEN_DIRECTORY + "/supplemental/supplementalMetadata.xml");
-    BufferedReader oldFile = BagFormatter.openUTF8Reader(Utility.SUPPLEMENTAL_DIRECTORY+'/', "supplementalMetadata.xml");
-    String sep = Utility.LINE_SEPARATOR + "\t\t\t";
+    Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/supplemental/supplementalMetadata.xml");
+    BufferedReader oldFile = BagFormatter.openUTF8Reader(CldrUtility.SUPPLEMENTAL_DIRECTORY+'/', "supplementalMetadata.xml");
+    String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t";
 
-    Utility.copyUpTo(oldFile, Pattern.compile("\\s*<attributeOrder>\\s*"), Log.getLog(), true);
+    CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*<attributeOrder>\\s*"), Log.getLog(), true);
     Log.println(sep + breakLines(attributeSet) + sep + "</attributeOrder>");
-    Utility.copyUpTo(oldFile, Pattern.compile("\\s*</attributeOrder>\\s*"), null, true);
+    CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*</attributeOrder>\\s*"), null, true);
     
-    Utility.copyUpTo(oldFile, Pattern.compile("\\s*<elementOrder>\\s*"), Log.getLog(), true);
+    CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*<elementOrder>\\s*"), Log.getLog(), true);
     Log.println(sep + breakLines(orderingList) + sep + "</elementOrder>");
-    Utility.copyUpTo(oldFile, Pattern.compile("\\s*</elementOrder>\\s*"), null, true);
+    CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*</elementOrder>\\s*"), null, true);
 
-    Utility.copyUpTo(oldFile, null, Log.getLog(), false);
+    CldrUtility.copyUpTo(oldFile, null, Log.getLog(), false);
 
     Log.close();
     oldFile.close();
   }
 
   private String breakLines(Collection orderingList) {
-    final String joined = Utility.join(orderingList," ");
+    final String joined = CldrUtility.join(orderingList," ");
     return joined; // return Utility.breakLines(joined, sep, FIRST_LETTER_CHANGE.matcher(""), 80);
   }
 

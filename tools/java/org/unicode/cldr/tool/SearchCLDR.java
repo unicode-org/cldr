@@ -2,7 +2,7 @@ package org.unicode.cldr.tool;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.PrettyPath;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
@@ -28,7 +28,7 @@ public class SearchCLDR {
   private static final UOption[] options = {
     UOption.HELP_H(),
     UOption.HELP_QUESTION_MARK(),
-    UOption.SOURCEDIR().setDefault(Utility.MAIN_DIRECTORY),
+    UOption.SOURCEDIR().setDefault(CldrUtility.MAIN_DIRECTORY),
     UOption.create("localematch", 'l', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("pathmatch", 'p', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("valuematch", 'v', UOption.REQUIRES_ARG).setDefault(".*"),
@@ -37,7 +37,7 @@ public class SearchCLDR {
   };
   static final String HELP_TEXT1 = "Use the following options" + XPathParts.NEWLINE
   + "-h or -?\t for this message" + XPathParts.NEWLINE
-  + "-"+options[SOURCEDIR].shortName + "\t source directory. Default = -s" + Utility.getCanonicalName(Utility.MAIN_DIRECTORY) + XPathParts.NEWLINE
+  + "-"+options[SOURCEDIR].shortName + "\t source directory. Default = -s" + CldrUtility.getCanonicalName(CldrUtility.MAIN_DIRECTORY) + XPathParts.NEWLINE
     + "\tExample:-sC:\\Unicode-CVS2\\cldr\\common\\gen\\source\\" + XPathParts.NEWLINE
     + "-l<regex>\t to restrict the locales to what matches <regex>" + XPathParts.NEWLINE
     + "-p<regex>\t to restrict the paths to what matches <regex>" + XPathParts.NEWLINE
@@ -61,7 +61,7 @@ public class SearchCLDR {
     Matcher valueMatch = null;
     if (!options[MATCH_FILE].value.equals(".*")) {
       System.out.println("File Matching: " + options[MATCH_FILE].value);
-      new Utility.MatcherFilter(options[MATCH_FILE].value).retainAll(locales);
+      new CldrUtility.MatcherFilter(options[MATCH_FILE].value).retainAll(locales);
     }
     if (!options[MATCH_PATH].value.equals(".*")) {
       System.out.println("Path Matching: " + options[MATCH_PATH].value);

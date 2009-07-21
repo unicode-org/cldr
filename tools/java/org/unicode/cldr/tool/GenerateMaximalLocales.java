@@ -19,7 +19,7 @@ import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.Row;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Row.R2;
@@ -47,20 +47,20 @@ import com.ibm.icu.util.ULocale;
 @SuppressWarnings("unchecked")
 public class GenerateMaximalLocales {
 
-  private static final boolean SHOW_ADD = Utility.getProperty("GenerateMaximalLocalesDebug", false);
+  private static final boolean SHOW_ADD = CldrUtility.getProperty("GenerateMaximalLocalesDebug", false);
   enum OutputStyle {PLAINTEXT, C, C_ALT, XML};
 
-  private static OutputStyle OUTPUT_STYLE = OutputStyle.valueOf(Utility.getProperty("OutputStyle", "XML", "XML").toUpperCase());
+  private static OutputStyle OUTPUT_STYLE = OutputStyle.valueOf(CldrUtility.getProperty("OutputStyle", "XML", "XML").toUpperCase());
 
   // set based on above
-  private static final String SEPARATOR = OUTPUT_STYLE == OutputStyle.C  || OUTPUT_STYLE == OutputStyle.C_ALT ? Utility.LINE_SEPARATOR : "\t";
+  private static final String SEPARATOR = OUTPUT_STYLE == OutputStyle.C  || OUTPUT_STYLE == OutputStyle.C_ALT ? CldrUtility.LINE_SEPARATOR : "\t";
   private static final String TAG_SEPARATOR = OUTPUT_STYLE == OutputStyle.C_ALT ? "-" : "_";
   //  private static final boolean FAVOR_REGION = true; // OUTPUT_STYLE == OutputStyle.C_ALT;
 
   private static final boolean tryDifferent = true;
 
-  private static Factory factory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
-  private static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+  private static Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+  private static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
   private static StandardCodes standardCodes = StandardCodes.make();
   private static CLDRFile english = factory.make("en", false);
 
@@ -86,33 +86,33 @@ public class GenerateMaximalLocales {
       doAlt(toMaximized);
     }
 
-    if (SHOW_ADD) System.out.println("/*" + Utility.LINE_SEPARATOR + " To Maximize:" +
-            Utility.LINE_SEPARATOR + " If using raw strings, make sure the input language/locale uses the right separator, and has the right casing." +
-            Utility.LINE_SEPARATOR + " Remove the script Zzzz and the region ZZ if they occur; change an empty language subtag to 'und'." +
-            Utility.LINE_SEPARATOR + " Get the language, region, and script from the cleaned-up tag, plus any variants/extensions" +
-            Utility.LINE_SEPARATOR + " Try each of the following in order (where the field exists)" +
-            Utility.LINE_SEPARATOR + "   Lookup language-script-region. If in the table, return the result + variants" +
-            Utility.LINE_SEPARATOR + "   Lookup language-script. If in the table, return the result (substituting the original region if it exists) + variants" +
-            Utility.LINE_SEPARATOR + "   Lookup language-region. If in the table, return the result (substituting the original script if it exists) + variants" +
-            Utility.LINE_SEPARATOR + "   Lookup language. If in the table, return the result (substituting the original region and script if either or both exist) + variants" +
-            Utility.LINE_SEPARATOR +
-            Utility.LINE_SEPARATOR + " Example: Input is zh-ZZZZ-SG." +
-            Utility.LINE_SEPARATOR + " Normalize to zh-SG. Lookup in table. No match." +
-            Utility.LINE_SEPARATOR + " Remove SG, but remember it. Lookup zh, and get the match (zh-Hans-CN). Substitute SG, and return zh-Hans-SG." +
-            Utility.LINE_SEPARATOR +
-            Utility.LINE_SEPARATOR + " To Minimize:" +
-            Utility.LINE_SEPARATOR + " First get max = maximize(input)." +
-            Utility.LINE_SEPARATOR + " Then for trial in {language, language-region, language-script}" +
-            Utility.LINE_SEPARATOR + "     If maximize(trial) == max, then return trial." +
-            Utility.LINE_SEPARATOR + " If you don't get a match, return max." +
-            Utility.LINE_SEPARATOR +
-            Utility.LINE_SEPARATOR + " Example: Input is zh-Hant. Maximize to get zh-Hant-TW." +
-            Utility.LINE_SEPARATOR + " zh => zh-Hans-CN. No match, so continue." +
-            Utility.LINE_SEPARATOR + " zh-TW => zh-Hans-TW. Match, so return zh-TW." +
-            Utility.LINE_SEPARATOR +
-            Utility.LINE_SEPARATOR + " (A variant of this uses {language, language-script, language-region}): that is, tries script before language." +
-            Utility.LINE_SEPARATOR + " toMaximal size:\t" + toMaximized.size() + 
-            Utility.LINE_SEPARATOR + "*/"
+    if (SHOW_ADD) System.out.println("/*" + CldrUtility.LINE_SEPARATOR + " To Maximize:" +
+            CldrUtility.LINE_SEPARATOR + " If using raw strings, make sure the input language/locale uses the right separator, and has the right casing." +
+            CldrUtility.LINE_SEPARATOR + " Remove the script Zzzz and the region ZZ if they occur; change an empty language subtag to 'und'." +
+            CldrUtility.LINE_SEPARATOR + " Get the language, region, and script from the cleaned-up tag, plus any variants/extensions" +
+            CldrUtility.LINE_SEPARATOR + " Try each of the following in order (where the field exists)" +
+            CldrUtility.LINE_SEPARATOR + "   Lookup language-script-region. If in the table, return the result + variants" +
+            CldrUtility.LINE_SEPARATOR + "   Lookup language-script. If in the table, return the result (substituting the original region if it exists) + variants" +
+            CldrUtility.LINE_SEPARATOR + "   Lookup language-region. If in the table, return the result (substituting the original script if it exists) + variants" +
+            CldrUtility.LINE_SEPARATOR + "   Lookup language. If in the table, return the result (substituting the original region and script if either or both exist) + variants" +
+            CldrUtility.LINE_SEPARATOR +
+            CldrUtility.LINE_SEPARATOR + " Example: Input is zh-ZZZZ-SG." +
+            CldrUtility.LINE_SEPARATOR + " Normalize to zh-SG. Lookup in table. No match." +
+            CldrUtility.LINE_SEPARATOR + " Remove SG, but remember it. Lookup zh, and get the match (zh-Hans-CN). Substitute SG, and return zh-Hans-SG." +
+            CldrUtility.LINE_SEPARATOR +
+            CldrUtility.LINE_SEPARATOR + " To Minimize:" +
+            CldrUtility.LINE_SEPARATOR + " First get max = maximize(input)." +
+            CldrUtility.LINE_SEPARATOR + " Then for trial in {language, language-region, language-script}" +
+            CldrUtility.LINE_SEPARATOR + "     If maximize(trial) == max, then return trial." +
+            CldrUtility.LINE_SEPARATOR + " If you don't get a match, return max." +
+            CldrUtility.LINE_SEPARATOR +
+            CldrUtility.LINE_SEPARATOR + " Example: Input is zh-Hant. Maximize to get zh-Hant-TW." +
+            CldrUtility.LINE_SEPARATOR + " zh => zh-Hans-CN. No match, so continue." +
+            CldrUtility.LINE_SEPARATOR + " zh-TW => zh-Hans-TW. Match, so return zh-TW." +
+            CldrUtility.LINE_SEPARATOR +
+            CldrUtility.LINE_SEPARATOR + " (A variant of this uses {language, language-script, language-region}): that is, tries script before language." +
+            CldrUtility.LINE_SEPARATOR + " toMaximal size:\t" + toMaximized.size() + 
+            CldrUtility.LINE_SEPARATOR + "*/"
     );
 
     printMap(toMaximized);
@@ -123,7 +123,7 @@ public class GenerateMaximalLocales {
 
     printDefaultContent(toMaximized);
 
-    System.out.println(Utility.LINE_SEPARATOR + "ERRORS:\t" + errorCount + Utility.LINE_SEPARATOR);
+    System.out.println(CldrUtility.LINE_SEPARATOR + "ERRORS:\t" + errorCount + CldrUtility.LINE_SEPARATOR);
 
 
   }
@@ -347,21 +347,21 @@ public class GenerateMaximalLocales {
       }
 
 
-    Log.setLogNoBOM(Utility.GEN_DIRECTORY + "/supplemental/supplementalMetadata.xml");
-    BufferedReader oldFile = BagFormatter.openUTF8Reader(Utility.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
-    Utility.copyUpTo(oldFile, Pattern.compile("\\s*<defaultContent locales=\"\\s*"), Log.getLog(), false);
+    Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/supplemental/supplementalMetadata.xml");
+    BufferedReader oldFile = BagFormatter.openUTF8Reader(CldrUtility.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
+    CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*<defaultContent locales=\"\\s*"), Log.getLog(), false);
 
 
 
-    String sep = Utility.LINE_SEPARATOR + "\t\t\t";
-    String broken = Utility.breakLines(Utility.join(defaultLocaleContent," "), sep, Pattern.compile("(\\S)\\S*").matcher(""), 80);
+    String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t";
+    String broken = CldrUtility.breakLines(CldrUtility.join(defaultLocaleContent," "), sep, Pattern.compile("(\\S)\\S*").matcher(""), 80);
 
     Log.println("\t\t<defaultContent locales=\"" + broken + "\"");
     Log.println("\t\t/>");
 
     //  Log.println("</supplementalData>");
-    Utility.copyUpTo(oldFile, Pattern.compile("\\s*/>\\s*"), null, false);
-    Utility.copyUpTo(oldFile, null, Log.getLog(), false);
+    CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*/>\\s*"), null, false);
+    CldrUtility.copyUpTo(oldFile, null, Log.getLog(), false);
 
     Log.close();
     oldFile.close();
@@ -458,7 +458,7 @@ public class GenerateMaximalLocales {
   private static final double MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE = 100000;
   private static final double UNOFFICIAL_SCALE_DOWN = 1.0;
 
-  private static final Map<String,String> LANGUAGE_OVERRIDES = Utility.asMap(new String[][]{
+  private static final Map<String,String> LANGUAGE_OVERRIDES = CldrUtility.asMap(new String[][]{
           {"es", "es_Latn_ES"},
           {"es_Latn", "es_Latn_ES"},
           {"az", "az_Latn_AZ"},
@@ -971,20 +971,20 @@ public class GenerateMaximalLocales {
    */
 
   private static void printMap(Map<String, String> fluffup) throws IOException {
-    PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, 
+    PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, 
             "/supplemental/likelySubtags" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
     String spacing = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t" : " ";
     String header = OUTPUT_STYLE != OutputStyle.XML ? "const MapToMaximalSubtags default_subtags[] = {"
-            : "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" + Utility.LINE_SEPARATOR
-            + "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">" + Utility.LINE_SEPARATOR
-            + "<supplementalData>" + Utility.LINE_SEPARATOR
+            : "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" + CldrUtility.LINE_SEPARATOR
+            + "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">" + CldrUtility.LINE_SEPARATOR
+            + "<supplementalData>" + CldrUtility.LINE_SEPARATOR
             + "    <version number=\"$" +
-            "Revision$\"/>" + Utility.LINE_SEPARATOR
+            "Revision$\"/>" + CldrUtility.LINE_SEPARATOR
             + "    <generation date=\"$" +  // separate
-            "Date$\"/>" + Utility.LINE_SEPARATOR
+            "Date$\"/>" + CldrUtility.LINE_SEPARATOR
             + "    <likelySubtags>";
     String footer = OUTPUT_STYLE  != OutputStyle.XML ? SEPARATOR + "};" 
-            : "    </likelySubtags>" + Utility.LINE_SEPARATOR
+            : "    </likelySubtags>" + CldrUtility.LINE_SEPARATOR
             + "</supplementalData>";
     out.println(header);
     boolean first = true;
@@ -1002,7 +1002,7 @@ public class GenerateMaximalLocales {
         } else {
           out.print(",");
         }
-        if (comment.length() > 70 && SEPARATOR.equals(Utility.LINE_SEPARATOR)) {
+        if (comment.length() > 70 && SEPARATOR.equals(CldrUtility.LINE_SEPARATOR)) {
           comment = printingName(printingLocale, spacing) +SEPARATOR + "    // " + spacing + "=>" + spacing + printingName(printingTarget, spacing);
         }
         out.print(
@@ -1010,7 +1010,7 @@ public class GenerateMaximalLocales {
                 + SEPARATOR + "    // " + comment
                 + SEPARATOR + "    \"" + printingLocale + "\","
                 + SEPARATOR + "    \"" + printingTarget + "\""
-                + Utility.LINE_SEPARATOR + "  }"
+                + CldrUtility.LINE_SEPARATOR + "  }"
         );
       }
     }

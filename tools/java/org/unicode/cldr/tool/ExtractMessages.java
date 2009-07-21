@@ -4,7 +4,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Pair;
 import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
@@ -39,7 +39,7 @@ class ExtractMessages {
   
   public static boolean SKIPEQUALS = true;
   public static boolean SKIPIFCLDR = true;
-  public static String DIR = Utility.GEN_DIRECTORY + "/../additions/";
+  public static String DIR = CldrUtility.GEN_DIRECTORY + "/../additions/";
   
   public static void main(String[] args) throws IOException {
     double startTime = System.currentTimeMillis();
@@ -161,7 +161,7 @@ class ExtractMessages {
   
   private static Map<String,Pair<String,DataHandler>> numericId_Id = new TreeMap();
   private static Matcher numericIdMatcher = Pattern.compile("\\[@id=\"([^\"]+)\"\\]").matcher("");
-  private static Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+  private static Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
   private static CLDRFile english = cldrFactory.make("en", true);
   
   private static class EnglishHandler extends XMLFileReader.SimpleHandler {
@@ -262,7 +262,7 @@ class ExtractMessages {
     }
   }
   
-  static Map<String,String> fixLocaleMap = Utility.asMap(new String[][]{
+  static Map<String,String> fixLocaleMap = CldrUtility.asMap(new String[][]{
       {"zh_CN", "zh"},
       {"zh_TW", "zh_Hans"},
       {"pt_BR", "pt"},

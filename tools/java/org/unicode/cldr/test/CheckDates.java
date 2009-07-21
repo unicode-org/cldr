@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.UnicodeProperty.PatternMatcher;
@@ -364,7 +364,7 @@ public class CheckDates extends CheckCLDR {
     if (value.length() <= 1) return value.length();
     int current = 0;
     // skip any leading digits, for CJK
-    current = Utility.scan(DIGIT, value, current);
+    current = CldrUtility.scan(DIGIT, value, current);
     
     bi.setText(value);
     if (current != 0) bi.preceding(current+1); // get safe spot, possibly before
@@ -377,7 +377,7 @@ public class CheckDates extends CheckCLDR {
       return value.length();
     }
     // continue collecting any additional characters that are M or grapheme extend
-    current = Utility.scan(XGRAPHEME, value, current);
+    current = CldrUtility.scan(XGRAPHEME, value, current);
     // special case: allow 11 or 12
     //current = Utility.scan(DIGIT, value, current);		
 //  if (current != value.length() && DIGIT.containsAll(value) && value.length() == 2) {

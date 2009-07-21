@@ -7,7 +7,7 @@ import java.util.Map;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 public class FallbackIteratorDataGenerator {
   static TestInfo testInfo = TestInfo.getInstance();
@@ -79,7 +79,7 @@ public class FallbackIteratorDataGenerator {
     }
   }
   
-  static Map<String,String> specialCanonicalValue = Utility.asMap(new Object[][]{
+  static Map<String,String> specialCanonicalValue = CldrUtility.asMap(new Object[][]{
           {"cel-gaulish", "xcg"},
           {"en-GB-oed", "en-GB-x-oed"},
           {"i-default", "und"},

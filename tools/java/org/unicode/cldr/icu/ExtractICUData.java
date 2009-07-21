@@ -26,7 +26,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.impl.ICUResourceBundle;
@@ -49,9 +49,9 @@ import com.ibm.icu.util.UResourceBundle;
  */
 public class ExtractICUData {
 	public static void main(String[] args) throws Exception {
-    String file = Utility.getProperty("file", null);
+    String file = CldrUtility.getProperty("file", null);
     if (file != null) {
-      String targetDirectory = Utility.getProperty("target", Utility.GEN_DIRECTORY + "/translit/gen/");
+      String targetDirectory = CldrUtility.getProperty("target", CldrUtility.GEN_DIRECTORY + "/translit/gen/");
       convertFile(file, targetDirectory);
     } else {
       generateTransliterators();
@@ -123,7 +123,7 @@ public class ExtractICUData {
 				//if (true) continue;
 				input = BagFormatter.openUTF8Reader(((File)file).getParent() + File.separator, fileName);
 			} else {
-				input = Utility.getUTF8Data(fileName);
+				input = CldrUtility.getUTF8Data(fileName);
 			}
 			CLDRFile outFile = CLDRFile.makeSupplemental(fileName);
 			int count = 0;
@@ -147,12 +147,12 @@ public class ExtractICUData {
 				addInTwo(outFile, accumulatedItems, prefix + (++count) + "\"]", fixedLine);
 			}
 			
-			PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
+			PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
 			outFile.write(pw);
 			pw.close();
 			
 		}
-		PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/translit/gen/", "All" + ".xml");
+		PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "/translit/gen/", "All" + ".xml");
 		accumulatedItems.write(pw);
 		pw.close();
 	}
@@ -300,7 +300,7 @@ public class ExtractICUData {
 						accumulatedItems.add(prefix + (++count) + "\"]", "::" + piece + ";");
 					}
 				}
-				PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
+				PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
 				outFile.write(pw);
 				pw.close();				
 			} else {

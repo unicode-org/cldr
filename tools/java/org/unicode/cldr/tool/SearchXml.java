@@ -1,6 +1,6 @@
 package org.unicode.cldr.tool;
 
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLFileReader;
 
 import java.io.File;
@@ -21,18 +21,18 @@ public class SearchXml {
   private static int count = 0;
 
   public static void main(String[] args) throws IOException {
-    String sourceDirectory = Utility.getProperty("SOURCE", Utility.MAIN_DIRECTORY);
+    String sourceDirectory = CldrUtility.getProperty("SOURCE", CldrUtility.MAIN_DIRECTORY);
     if (sourceDirectory == null) {
       System.out.println("Need Source Directory! ");
       return;
     }
-    fileMatcher = Pattern.compile(Utility.getProperty("FILE", ".*\\.xml")).matcher("");
-    pathMatcher = Pattern.compile(Utility.getProperty("XMLPATH", ".*")).matcher("");
-    valueMatcher = Pattern.compile(Utility.getProperty("VALUE", ".*"), Pattern.DOTALL)
+    fileMatcher = Pattern.compile(CldrUtility.getProperty("FILE", ".*\\.xml")).matcher("");
+    pathMatcher = Pattern.compile(CldrUtility.getProperty("XMLPATH", ".*")).matcher("");
+    valueMatcher = Pattern.compile(CldrUtility.getProperty("VALUE", ".*"), Pattern.DOTALL)
         .matcher("");
 
-    showFiles = Utility.getProperty("SHOWFILES", false);
-    showValues = Utility.getProperty("SHOWVALUES", false);
+    showFiles = CldrUtility.getProperty("SHOWFILES", false);
+    showValues = CldrUtility.getProperty("SHOWVALUES", false);
 
     double startTime = System.currentTimeMillis();
     File src = new File(sourceDirectory);

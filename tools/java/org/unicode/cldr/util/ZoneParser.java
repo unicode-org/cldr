@@ -99,7 +99,7 @@ public class ZoneParser {
      */
     // protect
     zone_to_country = Collections.unmodifiableMap(zone_to_country);
-    country_to_zoneSet = (Map) Utility.protectCollection(country_to_zoneSet);
+    country_to_zoneSet = (Map) CldrUtility.protectCollection(country_to_zoneSet);
   }
 
   /**
@@ -656,8 +656,8 @@ public class ZoneParser {
         { "Asia/Ho_Chi_Minh", "Asia/Saigon" },
         { "Asia/Kathmandu", "Asia/Katmandu" },
     };
-    FIX_UNSTABLE_TZIDS = Utility.asMap(FIX_UNSTABLE_TZID_DATA);
-    RESTORE_UNSTABLE_TZIDS = Utility.asMap(FIX_UNSTABLE_TZID_DATA,
+    FIX_UNSTABLE_TZIDS = CldrUtility.asMap(FIX_UNSTABLE_TZID_DATA);
+    RESTORE_UNSTABLE_TZIDS = CldrUtility.asMap(FIX_UNSTABLE_TZID_DATA,
         new HashMap(), true);
   }
 
@@ -667,7 +667,7 @@ public class ZoneParser {
   private void makeZoneData() {
     try {
       // get version
-      BufferedReader versionIn = Utility.getUTF8Data("tzdb-version.txt");
+      BufferedReader versionIn = CldrUtility.getUTF8Data("tzdb-version.txt");
       version = versionIn.readLine();
       if (!version.matches("[0-9]{4}[a-z]")) {
         throw new IllegalArgumentException("Bad Version number: %s, should be of the form 2007x".format(version));
@@ -678,7 +678,7 @@ public class ZoneParser {
       String deg = "([+-])([0-9][0-9][0-9]?)([0-9][0-9])([0-9][0-9])?";//
       Matcher m = Pattern.compile(deg + deg).matcher("");
       zoneData = new TreeMap();
-      BufferedReader in = Utility.getUTF8Data("zone.tab");
+      BufferedReader in = CldrUtility.getUTF8Data("zone.tab");
       while (true) {
         String line = in.readLine();
         if (line == null)
@@ -691,7 +691,7 @@ public class ZoneParser {
         }
         if (line.length() == 0)
           continue;
-        List pieces = Utility.splitList(line, '\t', true);
+        List pieces = CldrUtility.splitList(line, '\t', true);
         String country = (String) pieces.get(0);
         String latLong = (String) pieces.get(1);
         String tzid = (String) pieces.get(2);
@@ -738,13 +738,13 @@ public class ZoneParser {
       pieces.add(StandardCodes.NO_COUNTRY); // country
       zoneData.put("Etc/Unknown", pieces);
 
-      zoneData = (Map) Utility.protectCollection(zoneData); // protect for later
+      zoneData = (Map) CldrUtility.protectCollection(zoneData); // protect for later
 
       // now get links
       Pattern whitespace = Pattern.compile("\\s+");
       XEquivalenceClass linkedItems = new XEquivalenceClass("None");
       for (int i = 0; i < TZFiles.length; ++i) {
-        in = Utility.getUTF8Data(TZFiles[i]);
+        in = CldrUtility.getUTF8Data(TZFiles[i]);
         String zoneID = null;
         while (true) {
           String line = in.readLine();
@@ -948,10 +948,10 @@ public class ZoneParser {
       }
 
       // PROTECT EVERYTHING
-      linkNew_oldSet = (Map) Utility.protectCollection(linkNew_oldSet);
-      linkold_new = (Map) Utility.protectCollection(linkold_new);
-      ruleID_rules = (Map) Utility.protectCollection(ruleID_rules);
-      zone_rules = (Map) Utility.protectCollection(zone_rules);
+      linkNew_oldSet = (Map) CldrUtility.protectCollection(linkNew_oldSet);
+      linkold_new = (Map) CldrUtility.protectCollection(linkold_new);
+      ruleID_rules = (Map) CldrUtility.protectCollection(ruleID_rules);
+      zone_rules = (Map) CldrUtility.protectCollection(zone_rules);
       // TODO protect zone info later
     } catch (IOException e) {
       throw (IllegalArgumentException) new IllegalArgumentException(

@@ -92,7 +92,7 @@ public class TestStringByteConverter {
 
   private static void testWithLocale(String locale, Type type) throws IOException {
     totalUtf8Bytes = totalBytes = 0;
-    Factory cldrFactory = Factory.make(org.unicode.cldr.util.Utility.MAIN_DIRECTORY, ".*");
+    Factory cldrFactory = Factory.make(org.unicode.cldr.util.CldrUtility.MAIN_DIRECTORY, ".*");
     CLDRFile file = cldrFactory.make(locale, false);
     for (String path : file) {
       if (path.contains("exemplarCh")) {

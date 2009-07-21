@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 import java.lang.reflect.Method;
 
 import org.unicode.cldr.util.CLDRTransforms;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.text.RuleBasedTransliterator;
 import com.ibm.icu.text.Transliterator;
@@ -16,8 +16,8 @@ public class TestTransforms {
 
   public static void main(String[] args) throws IOException {
     //checkRegistry();
-    String source = Utility.getProperty("files", null, Utility.BASE_DIRECTORY + "dropbox/gen/icu-transforms/");
-    boolean verbose = Utility.getProperty("verbose", false);
+    String source = CldrUtility.getProperty("files", null, CldrUtility.BASE_DIRECTORY + "dropbox/gen/icu-transforms/");
+    boolean verbose = CldrUtility.getProperty("verbose", false);
     PrintWriter out = verbose ? new PrintWriter(System.out, true) : null;
 
     CLDRTransforms.verifyNullFilter("halfwidth-fullwidth");

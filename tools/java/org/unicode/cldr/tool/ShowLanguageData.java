@@ -7,15 +7,15 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 public class ShowLanguageData {
   
-  static SupplementalDataInfo data = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
-  static CLDRFile english = CLDRFile.make("en", Utility.MAIN_DIRECTORY, true);
+  static SupplementalDataInfo data = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+  static CLDRFile english = CLDRFile.make("en", CldrUtility.MAIN_DIRECTORY, true);
   
   public static void main(String[] args) {
     

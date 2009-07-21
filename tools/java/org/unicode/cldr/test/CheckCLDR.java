@@ -10,7 +10,7 @@ package org.unicode.cldr.test;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.InternalCldrException;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
@@ -574,7 +574,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
   
   public static Transliterator getTransliteratorFromFile(String ID, String file) {
     try {
-      BufferedReader br = Utility.getUTF8Data(file);
+      BufferedReader br = CldrUtility.getUTF8Data(file);
       StringBuffer input = new StringBuffer();
       while (true) {
         String line = br.readLine();

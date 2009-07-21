@@ -41,7 +41,7 @@ import org.unicode.cldr.util.Pair;
 import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
@@ -86,7 +86,7 @@ public class ShowLanguages {
   static Factory cldrFactory;
   
   public static void main(String[] args) throws IOException {
-    cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     english = cldrFactory.make("en", true);
     printLanguageData(cldrFactory, "index.html");
     //cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");
@@ -99,7 +99,7 @@ public class ShowLanguages {
    */
   private static List anchors = new ArrayList();
   
-  static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+  static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
   
   private static void printLanguageData(Factory cldrFactory, String filename) throws IOException {
     LanguageInfo linfo = new LanguageInfo(cldrFactory);
@@ -167,8 +167,8 @@ public class ShowLanguages {
     }
     contents += "</ul>";
     String[] replacements = { "%date%", df.format(new Date()), "%contents%", contents, "%data%", sw.toString() };
-    PrintWriter pw2 = BagFormatter.openUTF8Writer(Utility.COMMON_DIRECTORY + "../diff/supplemental/", filename);
-    FileUtilities.appendFile(Utility.BASE_DIRECTORY + java.io.File.separatorChar  + "tools/java/org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
+    PrintWriter pw2 = BagFormatter.openUTF8Writer(CldrUtility.COMMON_DIRECTORY + "../diff/supplemental/", filename);
+    FileUtilities.appendFile(CldrUtility.BASE_DIRECTORY + java.io.File.separatorChar  + "tools/java/org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
     pw2.close();
   }
   
@@ -563,10 +563,10 @@ public class ShowLanguages {
     
     public void close() throws IOException {
       out.write("</div>");
-      PrintWriter pw2 = BagFormatter.openUTF8Writer(Utility.CHART_DIRECTORY + "/supplemental/", filename);
+      PrintWriter pw2 = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "/supplemental/", filename);
       String[] replacements = { "%header%", "", "%title%", title, "%version%", CHART_DISPLAY_VERSION, "%date%", df.format(new Date()), "%body%", out.toString() };
       final String templateFileName = "../../tool/chart-template.html";
-      FileUtilities.appendBufferedReader(Utility.getUTF8Data(templateFileName), pw2, replacements);
+      FileUtilities.appendBufferedReader(CldrUtility.getUTF8Data(templateFileName), pw2, replacements);
       pw2.close();
     }
     
@@ -871,7 +871,7 @@ public class ShowLanguages {
           continue;
         System.out.println("Skipped Element: " + path);
       }
-      Log.setLog(new File(Utility.CHART_DIRECTORY + "/supplemental/", "characterLog.txt").getAbsolutePath());
+      Log.setLog(new File(CldrUtility.CHART_DIRECTORY + "/supplemental/", "characterLog.txt").getAbsolutePath());
       CLDRFile chars = cldrFactory.make("characters", false);
       int count = 0;
       for (Iterator it = chars.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
@@ -2136,7 +2136,7 @@ public class ShowLanguages {
         for (int i = 0; i < result.length; ++i) {
           result[i] = getName(type, result[i], codeFirst);
         }
-        return Utility.join(Arrays.asList(result), ", ");
+        return CldrUtility.join(Arrays.asList(result), ", ");
       } else {
         int pos = oldcode.indexOf('*');
         String code = pos < 0 ? oldcode : oldcode.substring(0, pos);

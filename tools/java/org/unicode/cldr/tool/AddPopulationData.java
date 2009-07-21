@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
@@ -25,8 +25,8 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class AddPopulationData {
-  static boolean SHOW_SKIP = Utility.getProperty("SHOW_SKIP", false);
-  static boolean SHOW_ALTERNATE_NAMES = Utility.getProperty("SHOW_ALTERNATE_NAMES", false);
+  static boolean SHOW_SKIP = CldrUtility.getProperty("SHOW_SKIP", false);
+  static boolean SHOW_ALTERNATE_NAMES = CldrUtility.getProperty("SHOW_ALTERNATE_NAMES", false);
   
   enum WBLine {
     Country_Name, Country_Code, Series_Name, Series_Code, YR2000, YR2001, YR2002, YR2003, YR2004, YR2005, YR2006, YR2007, YR2008;
@@ -156,7 +156,7 @@ public class AddPopulationData {
   }
 
   private static void handleFile(String filename, LineHandler handler) throws IOException {
-    BufferedReader in = Utility.getUTF8Data(filename);
+    BufferedReader in = CldrUtility.getUTF8Data(filename);
     while (true) {
       String line = in.readLine();
       if (line == null) {

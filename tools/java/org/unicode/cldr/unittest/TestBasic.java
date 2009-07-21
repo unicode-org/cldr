@@ -26,7 +26,7 @@ import org.unicode.cldr.util.PrettyPath;
 import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.Row;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -72,21 +72,21 @@ public class TestBasic extends TestFmwk {
   .matcher("");
 
 
-  private final String           localeRegex = Utility.getProperty("locale", ".*");
+  private final String           localeRegex = CldrUtility.getProperty("locale", ".*");
 
-  private final boolean          showInfo          = Utility.getProperty("showinfo", false);
+  private final boolean          showInfo          = CldrUtility.getProperty("showinfo", false);
 
-  private final String           commonDirectory  = Utility.COMMON_DIRECTORY;
+  private final String           commonDirectory  = CldrUtility.COMMON_DIRECTORY;
 
-  private final String           mainDirectory = Utility.MAIN_DIRECTORY;
+  private final String           mainDirectory = CldrUtility.MAIN_DIRECTORY;
 
   //private final boolean          showForceZoom = Utility.getProperty("forcezoom", false);
 
-  private final boolean          resolved = Utility.getProperty("resolved", false);
+  private final boolean          resolved = CldrUtility.getProperty("resolved", false);
 
   private final Exception[]      internalException = new Exception[1];
 
-  private boolean pretty = Utility.getProperty("pretty", true);
+  private boolean pretty = CldrUtility.getProperty("pretty", true);
 
   public void TestDtds() throws IOException {
     checkDtds(commonDirectory + "/collation");
@@ -330,18 +330,18 @@ public class TestBasic extends TestFmwk {
 
     if (isVerbose()) {
 
-      System.out.format("Distinguishing Elements: %s" + Utility.LINE_SEPARATOR, distinguishing);
-      System.out.format("Nondistinguishing Elements: %s" + Utility.LINE_SEPARATOR, nonDistinguishing);
-      System.out.format("Skipped %s" + Utility.LINE_SEPARATOR, skipAttributes);
+      System.out.format("Distinguishing Elements: %s" + CldrUtility.LINE_SEPARATOR, distinguishing);
+      System.out.format("Nondistinguishing Elements: %s" + CldrUtility.LINE_SEPARATOR, nonDistinguishing);
+      System.out.format("Skipped %s" + CldrUtility.LINE_SEPARATOR, skipAttributes);
 
-      logln(Utility.LINE_SEPARATOR + "Paths to skip in Survey Tool");
+      logln(CldrUtility.LINE_SEPARATOR + "Paths to skip in Survey Tool");
       for (String path : pathToLocale.keySet()) {
         if (CheckCLDR.skipShowingInSurvey.matcher(path).matches()) {
           logln("Skipping: " + path);
         }
       }
 
-      logln(Utility.LINE_SEPARATOR + "Paths to force zoom in Survey Tool");
+      logln(CldrUtility.LINE_SEPARATOR + "Paths to force zoom in Survey Tool");
       for (String path : pathToLocale.keySet()) {
         if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(path).matches()) {
           logln("Forced Zoom Edit: " + path);
@@ -351,7 +351,7 @@ public class TestBasic extends TestFmwk {
 
     if (pretty) {
       if (showInfo) {
-        logln(Utility.LINE_SEPARATOR + "Showing Path to PrettyPath mapping" + Utility.LINE_SEPARATOR);
+        logln(CldrUtility.LINE_SEPARATOR + "Showing Path to PrettyPath mapping" + CldrUtility.LINE_SEPARATOR);
       }
       PrettyPath prettyPath = new PrettyPath().setShowErrors(true);
       Set<String> badPaths = new TreeSet();
@@ -366,7 +366,7 @@ public class TestBasic extends TestFmwk {
       // now remove root
 
       if (showInfo) {
-        logln(Utility.LINE_SEPARATOR + "Showing Paths not in root" + Utility.LINE_SEPARATOR);
+        logln(CldrUtility.LINE_SEPARATOR + "Showing Paths not in root" + CldrUtility.LINE_SEPARATOR);
       }
 
       CLDRFile root = cldrFactory.make("root", true);

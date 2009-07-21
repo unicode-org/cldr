@@ -26,7 +26,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.xml.sax.Attributes;
@@ -47,14 +47,14 @@ public class GenerateAttributeList {
 
   public GenerateAttributeList(Factory cldrFactory) throws IOException {
     addFromStandardCodes();
-    addFromDTD(Utility.COMMON_DIRECTORY + "main/en.xml");
-    addFromDTD(Utility.COMMON_DIRECTORY + "supplemental/characters.xml");
-    addFromDirectory(Utility.COMMON_DIRECTORY + "collation/");
-    addFromDirectory(Utility.COMMON_DIRECTORY + "main/");
-    addFromDirectory(Utility.COMMON_DIRECTORY  + "rbnf/");
-    addFromDirectory(Utility.COMMON_DIRECTORY  + "segments/");
-    addFromDirectory(Utility.COMMON_DIRECTORY  + "supplemental/");
-    addFromDirectory(Utility.COMMON_DIRECTORY  + "transforms/");
+    addFromDTD(CldrUtility.COMMON_DIRECTORY + "main/en.xml");
+    addFromDTD(CldrUtility.COMMON_DIRECTORY + "supplemental/characters.xml");
+    addFromDirectory(CldrUtility.COMMON_DIRECTORY + "collation/");
+    addFromDirectory(CldrUtility.COMMON_DIRECTORY + "main/");
+    addFromDirectory(CldrUtility.COMMON_DIRECTORY  + "rbnf/");
+    addFromDirectory(CldrUtility.COMMON_DIRECTORY  + "segments/");
+    addFromDirectory(CldrUtility.COMMON_DIRECTORY  + "supplemental/");
+    addFromDirectory(CldrUtility.COMMON_DIRECTORY  + "transforms/");
     /*
 		Set seenAlready = new HashSet();
 		for (Iterator it = cldrFactory.getAvailable().iterator(); it.hasNext();) {

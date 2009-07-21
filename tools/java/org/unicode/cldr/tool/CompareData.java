@@ -12,7 +12,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PrettyPath;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.tool.UOption;
@@ -33,8 +33,8 @@ public class CompareData {
 	private static final UOption[] options = {
 		UOption.HELP_H(),
 		UOption.HELP_QUESTION_MARK(),
-		UOption.SOURCEDIR().setDefault(Utility.BASE_DIRECTORY ),
-		UOption.DESTDIR().setDefault(Utility.BASE_DIRECTORY + "../cldr-last/"),
+		UOption.SOURCEDIR().setDefault(CldrUtility.BASE_DIRECTORY ),
+		UOption.DESTDIR().setDefault(CldrUtility.BASE_DIRECTORY + "../cldr-last/"),
 		UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
 	};
 	
@@ -63,7 +63,7 @@ public class CompareData {
 			Factory oldFactory =  Factory.make(compareDir, options[MATCH].value);
 			
 			locales = new TreeSet(cldrFactory.getAvailable());
-			new Utility.MatcherFilter(options[MATCH].value).retainAll(locales);
+			new CldrUtility.MatcherFilter(options[MATCH].value).retainAll(locales);
 			Set pathsSeen = new HashSet();
 			int newItemsTotal = 0;
 			int replacementItemsTotal = 0;

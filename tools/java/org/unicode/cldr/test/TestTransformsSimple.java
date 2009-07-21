@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import org.unicode.cldr.util.CLDRTransforms;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -21,7 +21,7 @@ public class TestTransformsSimple extends TestFmwk {
     new TestTransformsSimple().run(args);
   }
 
-  private static final boolean verbose = Utility.getProperty("verbose", false);
+  private static final boolean verbose = CldrUtility.getProperty("verbose", false);
   private static PrintWriter out = verbose ? new PrintWriter(System.out, true) : null;
 
   public void TestChinese() {
@@ -153,7 +153,7 @@ public class TestTransformsSimple extends TestFmwk {
   private int writeFile(String title, UnicodeSet sourceSet, Transliterator nfd, Transliterator toLatin, 
           Transliterator fromLatin, boolean doLatin, UnicodeSet nativeSpecials, UnicodeSet latinSpecials) throws IOException {
     int errorCount = 0;
-    PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.Utility.GEN_DIRECTORY + "transTest/", title + ".html");
+    PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.GEN_DIRECTORY + "transTest/", title + ".html");
     out.println("<html><head>");
     out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><body>");
     if (nativeSpecials != null) {

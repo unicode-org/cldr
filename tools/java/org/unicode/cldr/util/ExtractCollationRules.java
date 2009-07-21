@@ -91,13 +91,13 @@ public class ExtractCollationRules {
             int cp;
             for (int i = 0; i < valueAfter.length(); i += UTF16.getCharCount(cp)) {
                 cp = UTF16.charAt(valueAfter, i);
-                if (lineBreakBefore) rules.append(Utility.LINE_SEPARATOR); else rules.append(' '); 
+                if (lineBreakBefore) rules.append(CldrUtility.LINE_SEPARATOR); else rules.append(' '); 
                 rules.append(relation);
                 if (context != null) rules.append(' ').append(quote(context));
                 rules.append(' ').append(quote(UTF16.valueOf(cp)));
             }
         } else {
-            if (lineBreakBefore) rules.append(Utility.LINE_SEPARATOR); else rules.append(' '); 
+            if (lineBreakBefore) rules.append(CldrUtility.LINE_SEPARATOR); else rules.append(' '); 
             rules.append(relation);
             if (context != null) rules.append(' ').append(quote(context));
             rules.append(' ').append(quote(valueAfter));
@@ -109,7 +109,7 @@ public class ExtractCollationRules {
            String attribute = (String) it.next();
            String value = (String) attributes.get(attribute);
            // TODO fix different cases
-          results.append("[" + attribute + " " + value + "]" + Utility.LINE_SEPARATOR);
+          results.append("[" + attribute + " " + value + "]" + CldrUtility.LINE_SEPARATOR);
 //           if (attribute.equals("normalization")) {
 //               
 //           }

@@ -21,7 +21,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.Log;
 
@@ -49,7 +49,7 @@ class GenerateStatistics {
 	
 	public static void generateSize(String sourceDir, String logDir, String tzadir, String match, boolean transliterate) throws IOException {
 		factory = CLDRFile.Factory.make(sourceDir, match);
-		Utility.registerExtraTransliterators();
+		CldrUtility.registerExtraTransliterators();
 		
 		PrintWriter logHtml = BagFormatter.openUTF8Writer(
 				logDir,
@@ -70,7 +70,7 @@ class GenerateStatistics {
 			if (CLDRFile.isSupplementalName(localeID)) continue;
 			if (localeID.equals("root"))
 				continue; // skip root
-			System.out.println("Collecting info for:\t" + Utility.replace(localeID,"_","\t"));
+			System.out.println("Collecting info for:\t" + CldrUtility.replace(localeID,"_","\t"));
 			boolean draft = false; // dc.isDraft(localeName);
 			if (draft) {
 				draftLocaleCount++;

@@ -8,16 +8,16 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 public class GetLanguageData {
   SupplementalDataInfo                      sdata       = SupplementalDataInfo
-                                                                .getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+                                                                .getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
   Factory                                   cldrFactory = Factory
-                                                                .make(Utility.MAIN_DIRECTORY, ".*");
+                                                                .make(CldrUtility.MAIN_DIRECTORY, ".*");
   CLDRFile                                  english     = cldrFactory.make("en", true);
   Set<String>                               euCountries = sdata.getContained("QU");
   private Map<Pair<String, String>, Double> override    = new TreeMap();

@@ -4,7 +4,7 @@ import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import com.ibm.icu.dev.test.util.Relation;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
@@ -30,11 +30,11 @@ public class TestCoverageLevel {
 
   public static void main(String[] args) throws IOException {
 
-    fileMatcher = Utility.getProperty("FILE", ".*");
+    fileMatcher = CldrUtility.getProperty("FILE", ".*");
     //pathMatcher = Pattern.compile(getProperty("XMLPATH", ".*")).matcher("");
 
     double startTime = System.currentTimeMillis();
-    Factory factory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, fileMatcher);
+    Factory factory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, fileMatcher);
     Map options = new TreeMap();
     List possibleErrors = new ArrayList();
     Relation<Level, String> values = new Relation(new TreeMap(), TreeSet.class);

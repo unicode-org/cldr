@@ -31,7 +31,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TimezoneFormatter;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
@@ -87,7 +87,7 @@ public class CLDRTest extends TestFmwk {
         if (MATCH == null) MATCH = ".*";
         else System.out.println("Resetting MATCH:" + MATCH);
         MAIN_DIR = System.getProperty("XML_MAIN_DIR");
-        if (MAIN_DIR == null) MAIN_DIR = Utility.MAIN_DIRECTORY;
+        if (MAIN_DIR == null) MAIN_DIR = CldrUtility.MAIN_DIRECTORY;
         else System.out.println("Resetting MAIN_DIR:" + MAIN_DIR);
         SKIP_DRAFT = System.getProperty("XML_SKIP_DRAFT") != null;
         if (SKIP_DRAFT) System.out.println("Skipping Draft locales");
@@ -101,7 +101,7 @@ public class CLDRTest extends TestFmwk {
 	
 	public void TestZZZZHack() throws IOException {
 		// hack to get file written at the end of run.
-        PrintWriter surveyFile = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, "surveyInfo.txt");
+        PrintWriter surveyFile = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, "surveyInfo.txt");
         for (Iterator it = surveyInfo.iterator(); it.hasNext();) {
         	surveyFile.println(it.next());
         }
@@ -671,7 +671,7 @@ public class CLDRTest extends TestFmwk {
 	}
 	
 	// TODO, expand to other languages
-	Map completionExceptions = Utility.asMap(new Object[][]{
+	Map completionExceptions = CldrUtility.asMap(new Object[][]{
 			{"script", new HashSet(Arrays.asList(new String[]{"Cham", "Thai"}))},
 			});
 
@@ -681,7 +681,7 @@ public class CLDRTest extends TestFmwk {
 	void getSupplementalData(Map language_scripts, Map language_territories, Map group_territory, 
 			Map territory_currencies, Map aliases) {
 		boolean SHOW = false;
-		Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+		Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 		CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
 		XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
 		for (Iterator it = supp.iterator(); it.hasNext();) {
@@ -723,7 +723,7 @@ public class CLDRTest extends TestFmwk {
 					if (group_territory == null) continue;
 					type = (String) m.get("type");
 					String contains = (String) m.get("contains");
-					group_territory.put(type, new TreeSet(Utility.splitList(contains,' ', true)));
+					group_territory.put(type, new TreeSet(CldrUtility.splitList(contains,' ', true)));
 					continue;
 				}
 				m = parts.findAttributes("language");
@@ -732,13 +732,13 @@ public class CLDRTest extends TestFmwk {
 				String scripts = (String) m.get("scripts");
 				if (scripts == null) language_scripts.put(language, new TreeSet());
 				else {
-					language_scripts.put(language, new TreeSet(Utility.splitList(scripts,' ', true)));
+					language_scripts.put(language, new TreeSet(CldrUtility.splitList(scripts,' ', true)));
 					if (SHOW) System.out.println(getIDAndLocalization(language) + "\t\t" + getIDAndLocalization((Set)language_scripts.get(language)));
 				}
 				String territories = (String) m.get("territories");
 				if (territories == null)  language_territories.put(language, new TreeSet());
 				else {
-					language_territories.put(language, new TreeSet(Utility.splitList(territories,' ', true)));
+					language_territories.put(language, new TreeSet(CldrUtility.splitList(territories,' ', true)));
 					if (SHOW) System.out.println(getIDAndLocalization(language) + "\t\t" + getIDAndLocalization((Set)language_territories.get(language)));
 				}
 			} catch (RuntimeException e) {
@@ -779,7 +779,7 @@ public class CLDRTest extends TestFmwk {
 			String language = localIDParser.getLanguage();
 			logln("Testing: " + locale);
 			// languages
-			Set languages = new TreeSet(Utility.MINIMUM_LANGUAGES);
+			Set languages = new TreeSet(CldrUtility.MINIMUM_LANGUAGES);
 			languages.add(language);
 			// LANGUAGE_NAME = 0, SCRIPT_NAME = 1, TERRITORY_NAME = 2, VARIANT_NAME = 3,
 			// CURRENCY_NAME = 4, CURRENCY_SYMBOL = 5, TZID = 6
@@ -797,7 +797,7 @@ public class CLDRTest extends TestFmwk {
 			if (others != null) scripts.addAll(others);
 			checkForItems(item, scripts, CLDRFile.SCRIPT_NAME, missing, failureCount, null);
 
-			Set countries = new TreeSet(Utility.MINIMUM_TERRITORIES);
+			Set countries = new TreeSet(CldrUtility.MINIMUM_TERRITORIES);
 			others = (Set) language_territories.get(language);
 			if (others != null) countries.addAll(others);
 			checkForItems(item, countries, CLDRFile.TERRITORY_NAME, missing, failureCount, null);
@@ -826,15 +826,15 @@ public class CLDRTest extends TestFmwk {
 			
 			String filename = "missing_" + locale + ".xml";
 			if (failureCount[0] > 0 || warningCount[0] > 0) {
-				PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "missing/", filename);
+				PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "missing/", filename);
 				missing.write(out);
 				out.close();
 				//String s = getIDAndLocalization(missing);
-				String message = "missing localizations, creating file" + new File(Utility.GEN_DIRECTORY + "missing/", filename).getCanonicalPath();
+				String message = "missing localizations, creating file" + new File(CldrUtility.GEN_DIRECTORY + "missing/", filename).getCanonicalPath();
 				if (failureCount[0] > 0) warnln(getLocaleAndName(locale) + "\t" + message);
 				else logln(getLocaleAndName(locale) + "\tpossibly " + message);
 			} else {
-				new File(Utility.GEN_DIRECTORY + "missing/", filename).delete();
+				new File(CldrUtility.GEN_DIRECTORY + "missing/", filename).delete();
 			}
 		}
 	}
@@ -906,14 +906,14 @@ public class CLDRTest extends TestFmwk {
 	static String teststr = "en?AG, en?AI, en?AS, en?AU, en?IN, en?BB, en?BE, en?BM, en?BN, en?BS, en?BW, en?BZ, en?CA, en?CK, en?CM, en?DM, en?ER, en?ET, en?FJ, en?FK, en?FM, en?GB, en?GD, en?GH, en?GI, en?GM, en?GU, en?GY, en?HK, en?IE, en?IL, en?IO, en?JM, en?KE, en?KI, en?KN, en?KY, en?LC, en?LR, en?LS, en?MH, en?MP, en?MS, en?MT, en?MU, en?MW, en?NA, en?NF, en?NG, en?NR, en?NU, en?NZ, en?PG, en?PH, en?PK, en?PN, en?PR, en?PW, en?RW, en?SB, en?SC, en?SG, en?SH, en?SL, en?SO, en?SZ, en?TC, en?TK, en?TO, en?TT, en?UG, en?UM, en?US, en?VC, en?VG, en?VI, en?VU, en?WS, en?ZA, en?ZM, en?ZW";
 	*/
 	
-	Utility.Transform EnglishName = new Utility.Transform() {
+	CldrUtility.Transform EnglishName = new CldrUtility.Transform() {
 		public Object transform(Object source) {
 			// TODO Auto-generated method stub
 			return getLocalization(source.toString()) + " (" + source + ")";
 		}		
 	};
 	
-	Utility.Transform EnglishCurrencyName = new Utility.Transform() {
+	CldrUtility.Transform EnglishCurrencyName = new CldrUtility.Transform() {
 		public Object transform(Object source) {
 			if (english == null) english = cldrFactory.make("en", true);
 			return english.getName("currency", source.toString()) + " (" + source + ")";
@@ -1206,10 +1206,10 @@ public class CLDRTest extends TestFmwk {
 		int cp = 0;
 		// link any digits
 		if (DIGIT.contains(UTF16.charAt(value, current-1))) {
-			current = Utility.scan(DIGIT, value, current);		
+			current = CldrUtility.scan(DIGIT, value, current);		
 		}
 		// continue collecting any additional characters that are M or grapheme extend
-		return Utility.scan(XGRAPHEME, value, current);
+		return CldrUtility.scan(XGRAPHEME, value, current);
 	}
 }
 

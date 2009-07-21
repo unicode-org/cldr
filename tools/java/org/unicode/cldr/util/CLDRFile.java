@@ -127,7 +127,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
       if (result.isDirectory()) {
         return result;
       }
-      return new File(Utility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+      return new File(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
     }
     public String getFullPathAtDPath(String xpath) {
       String result = (String) xpath_fullXPath.get(xpath);
@@ -591,7 +591,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     Log.logln(LOG_PROGRESS, "ADDING Comment: \t" + type + "\t" + xpath + " \t" + comment);
     if (xpath == null || xpath.length() == 0) {
       dataSource.getXpathComments().setFinalComment(
-              Utility.joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
+              CldrUtility.joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
     } else {
       xpath = getDistinguishingXPath(xpath, null, false);
       dataSource.getXpathComments().addComment(type, xpath, comment);
@@ -649,8 +649,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
           if (cpath.startsWith("//ldml/identity/")) continue; // skip, since the error msg is not needed.
           String myVersion = getStringValue(cpath);
           if (myVersion == null || !newValue.equals(myVersion)) {
-            Log.logln(getLocaleID() + "\tDenied attempt to replace non-draft" + Utility.LINE_SEPARATOR + "\tcurr: [" + cpath + ",\t"
-                    + myVersion + "]" + Utility.LINE_SEPARATOR + "\twith: [" + newValue + "]");
+            Log.logln(getLocaleID() + "\tDenied attempt to replace non-draft" + CldrUtility.LINE_SEPARATOR + "\tcurr: [" + cpath + ",\t"
+                    + myVersion + "]" + CldrUtility.LINE_SEPARATOR + "\twith: [" + newValue + "]");
             continue;
           }
         }
@@ -680,11 +680,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
     } else throw new IllegalArgumentException("Illegal operand: " + conflict_resolution);
 
     dataSource.getXpathComments().setInitialComment(
-            Utility.joinWithSeparation(dataSource.getXpathComments().getInitialComment(),
+            CldrUtility.joinWithSeparation(dataSource.getXpathComments().getInitialComment(),
                     XPathParts.NEWLINE, 
                     other.dataSource.getXpathComments().getInitialComment()));
     dataSource.getXpathComments().setFinalComment(
-            Utility.joinWithSeparation(dataSource.getXpathComments().getFinalComment(), 
+            CldrUtility.joinWithSeparation(dataSource.getXpathComments().getFinalComment(), 
                     XPathParts.NEWLINE, 
                     other.dataSource.getXpathComments().getFinalComment()));
     dataSource.getXpathComments().joinAll(other.dataSource.getXpathComments());
@@ -935,7 +935,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
    */
   public CLDRFile appendFinalComment(String comment) {
     if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-    dataSource.getXpathComments().setFinalComment(Utility.joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
+    dataSource.getXpathComments().setFinalComment(CldrUtility.joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
     return this;
   }
 
@@ -1593,7 +1593,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
 
     private void warnOnOverride(String former, String formerPath) {
       System.out.println("\tWARNING: overriding " + target.getLocaleID() + "\t<" + former + ">\t\t" + formerPath + 
-              Utility.LINE_SEPARATOR + "\twith " + target.getLocaleID() + "\t<" + lastChars + ">\t" + (currentFullXPath.equals(formerPath) ? "" : currentFullXPath));
+              CldrUtility.LINE_SEPARATOR + "\twith " + target.getLocaleID() + "\t<" + lastChars + ">\t" + (currentFullXPath.equals(formerPath) ? "" : currentFullXPath));
     }
 
     private static String stripAfter(String input, String qName) {
@@ -1707,7 +1707,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     }
 
     public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
-      if (LOG_PROGRESS) Log.logln(LOG_PROGRESS, "ignorableWhitespace length: " + length + ": " + Utility.hex(new String(ch, start,length)));
+      if (LOG_PROGRESS) Log.logln(LOG_PROGRESS, "ignorableWhitespace length: " + length + ": " + CldrUtility.hex(new String(ch, start,length)));
       //if (lastActiveLeafNode != null) {
       for (int i = start; i < start + length; ++i) {
         if (ch[i] == '\n') {
@@ -1913,7 +1913,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
         String newPath = fullTemp.toString();
         String value = dataSource.getValueAtPath(path);
         //value = value.changePath(fullTemp.toString());
-        if (SHOW_ALIAS_FIXES) System.out.println("Adding*: " + path + ";" + Utility.LINE_SEPARATOR + "\t" + newPath + ";" + Utility.LINE_SEPARATOR + "\t" 
+        if (SHOW_ALIAS_FIXES) System.out.println("Adding*: " + path + ";" + CldrUtility.LINE_SEPARATOR + "\t" + newPath + ";" + CldrUtility.LINE_SEPARATOR + "\t" 
                 + dataSource.getValueAtPath(path));
         stuffToAdd.put(newPath, value);
         // to do, fix path

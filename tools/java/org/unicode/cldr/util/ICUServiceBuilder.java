@@ -253,7 +253,7 @@ public class ICUServiceBuilder {
     // change standard to a choice
     
     String value = cldrFile.getWinningValue(key);
-    if (value == null) throw new IllegalArgumentException("locale: " + cldrFile.getLocaleID() + "\tpath: " + key + Utility.LINE_SEPARATOR + "value: " + value);
+    if (value == null) throw new IllegalArgumentException("locale: " + cldrFile.getLocaleID() + "\tpath: " + key + CldrUtility.LINE_SEPARATOR + "value: " + value);
     return value;
   }
   
@@ -447,7 +447,7 @@ public class ICUServiceBuilder {
         for (int i = 0; i < pieces.length; ++i) {
           pieces[i] = fixCurrencySpacing(pieces[i], currencySymbol);
         }
-        pattern = org.unicode.cldr.util.Utility.join(pieces, ";");
+        pattern = org.unicode.cldr.util.CldrUtility.join(pieces, ";");
       } else {
         pattern = fixCurrencySpacing(pattern, currencySymbol);
       }

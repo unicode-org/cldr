@@ -22,7 +22,7 @@ import com.ibm.icu.impl.*;
 
 import com.ibm.icu.impl.UCharacterProperty;
 import org.unicode.cldr.util.LDMLUtilities;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -38,7 +38,7 @@ public class FilterCharacterFallbacks {
 
         Document fb;
         Node n;
-        fb = LDMLUtilities.parse(Utility.DEFAULT_SUPPLEMENTAL_DIRECTORY+File.separator+"characters.xml", true );
+        fb = LDMLUtilities.parse(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY+File.separator+"characters.xml", true );
         if ( fb != null ) {
             PrintWriter out = BagFormatter.openUTF8Writer("","report");
             n = LDMLUtilities.getNode(fb,"//supplementalData/characters/character-fallback");

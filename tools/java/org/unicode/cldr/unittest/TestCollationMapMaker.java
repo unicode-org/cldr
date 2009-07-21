@@ -10,7 +10,7 @@ import org.unicode.cldr.tool.GenerateTransformCharts;
 import org.unicode.cldr.util.CollationMapMaker;
 import org.unicode.cldr.util.Log;
 import com.ibm.icu.dev.test.util.Relation;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.util.CaseIterator;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
@@ -27,7 +27,7 @@ public class TestCollationMapMaker {
   
   public static void main(String[] args) throws IOException {
     testTranslit();
-    Log.setLog(Utility.GEN_DIRECTORY + "CollationMapLog.txt");
+    Log.setLog(CldrUtility.GEN_DIRECTORY + "CollationMapLog.txt");
     CaseIterator caseIterator = new CaseIterator();
     caseIterator.reset("aa");
     while(true) {
@@ -58,6 +58,6 @@ public class TestCollationMapMaker {
   }
 
   private static void testTranslit() {
-     System.out.println(javaEscape.transform("\u0001\u001F" + Utility.LINE_SEPARATOR + "\u0061\u00A5\uFFFF\uD800\uDC00"));
+     System.out.println(javaEscape.transform("\u0001\u001F" + CldrUtility.LINE_SEPARATOR + "\u0061\u00A5\uFFFF\uD800\uDC00"));
   }
 }

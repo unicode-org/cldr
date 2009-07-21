@@ -4,7 +4,7 @@ import org.unicode.cldr.util.Iso639Data;
 import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Iso639Data.Source;
 import org.unicode.cldr.util.Iso639Data.Type;
@@ -15,7 +15,7 @@ import java.util.TreeSet;
 
 public class GenerateLanguageData {
   //static StandardCodes sc = StandardCodes.make();
-  static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+  static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
   static Iso639Data iso639Data = new Iso639Data();
 
   public static void main(String[] args) {
@@ -71,7 +71,7 @@ public class GenerateLanguageData {
           + "\t" + source
           + "\t" + scopeString
           + "\t" + type
-          + "\t" + prefixName + Utility.join(names,"\t")
+          + "\t" + prefixName + CldrUtility.join(names,"\t")
           );
       type_codes.put(source + "\t" + scopeString + "\t" + type, fullCode);
     }

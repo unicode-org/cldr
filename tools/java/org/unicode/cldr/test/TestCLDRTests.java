@@ -25,7 +25,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -67,7 +67,7 @@ public class TestCLDRTests extends TestFmwk {
 	}
 
 	TestCLDRTests () throws IOException {
-    	log = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY,"collationTestLog.txt");
+    	log = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,"collationTestLog.txt");
     	log.write(0xFEFF);
     }
     
@@ -77,7 +77,7 @@ public class TestCLDRTests extends TestFmwk {
     	Map platform_locale_status = StandardCodes.make().getLocaleTypes();
     	Map onlyLocales = (Map) platform_locale_status.get("IBM");
     	Set locales = onlyLocales.keySet();
-    	languagesToTest = (Set)new Utility.Transform() {
+    	languagesToTest = (Set)new CldrUtility.Transform() {
     		LocaleIDParser lip = new LocaleIDParser();
     		public Object transform(Object source) {
 				return lip.set(source.toString()).getLanguageScript();    			
@@ -85,7 +85,7 @@ public class TestCLDRTests extends TestFmwk {
     	}.transform(locales, new TreeSet());
     	languagesToTest.remove("th"); // JDK endless loop in collation
 
-        File[] list = new File(Utility.TEST_DIR).listFiles();
+        File[] list = new File(CldrUtility.TEST_DIR).listFiles();
         for (int i = 0; i < list.length; ++i) {
         	String name = list[i].getName();
             if (!name.endsWith(".xml")) continue;
@@ -106,7 +106,7 @@ public class TestCLDRTests extends TestFmwk {
         uLocale = new ULocale(localeName);
         oLocale = uLocale.toLocale();
         
-        File f = new File(Utility.TEST_DIR, localeName + ".xml");
+        File f = new File(CldrUtility.TEST_DIR, localeName + ".xml");
         SAX.parse(f, DEFAULT_HANDLER);
     }
     

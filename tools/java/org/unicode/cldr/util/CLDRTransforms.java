@@ -37,7 +37,7 @@ import com.ibm.icu.text.UnicodeFilter;
 
 public class CLDRTransforms {
 
-  public static final String TRANSFORM_DIR = (Utility.COMMON_DIRECTORY + "transforms/");
+  public static final String TRANSFORM_DIR = (CldrUtility.COMMON_DIRECTORY + "transforms/");
 
   static final CLDRTransforms SINGLETON = new CLDRTransforms();
 
@@ -429,7 +429,7 @@ public class CLDRTransforms {
     if (filename == null) {
       filename = id.replace("-", "_").replace("/", "_") + ".txt";
     }
-    String ruleString = Utility.getText(directory, filename);
+    String ruleString = CldrUtility.getText(directory, filename);
     idToRules.put(id, new RuleDirection(ruleString, direction));
   }
 
@@ -671,7 +671,7 @@ public class CLDRTransforms {
         // skip
       } else if (path.indexOf("/tRule") >= 0) {
         value = fixup.transliterate(value);
-        rules.append(value).append(Utility.LINE_SEPARATOR);
+        rules.append(value).append(CldrUtility.LINE_SEPARATOR);
       } else {
         throw new IllegalArgumentException("Unknown element: " + path + "\t " + value);
       }

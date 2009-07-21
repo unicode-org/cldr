@@ -1,7 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import org.unicode.cldr.util.SimpleHtmlParser;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -12,10 +12,10 @@ import java.io.PrintWriter;
 
 public class SimpleHtmlParserTest {
   public static void main(String[] args) throws IOException {
-    PrintWriter writer = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY,
+    PrintWriter writer = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
         "chart_messages2.html");
     try {
-      BufferedReader reader = Utility.getUTF8Data("chart_messages.html");
+      BufferedReader reader = CldrUtility.getUTF8Data("chart_messages.html");
       try {
         SimpleHtmlParser simple = new SimpleHtmlParser().setReader(reader);
         StringBuilder result = new StringBuilder();

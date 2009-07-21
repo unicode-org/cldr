@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.IsoCurrencyParser;
 import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.SimpleHtmlParser;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.IsoCurrencyParser.Data;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 
@@ -33,9 +33,9 @@ public class ExtractIsoCurrencyData {
                                                 Pattern.DOTALL).matcher("");
 
   public static void main(String[] args) throws IOException {
-    final String inputFile = Utility.getProperty("input", Utility.UTIL_DATA_DIR + "/currency_codes_list-1.htm");
+    final String inputFile = CldrUtility.getProperty("input", CldrUtility.UTIL_DATA_DIR + "/currency_codes_list-1.htm");
     BufferedReader in = BagFormatter.openUTF8Reader("", inputFile);
-    final String outputFile = Utility.getProperty("output", Utility.UTIL_DATA_DIR + "/currencycodeslist.txt");
+    final String outputFile = CldrUtility.getProperty("output", CldrUtility.UTIL_DATA_DIR + "/currencycodeslist.txt");
     PrintWriter out = BagFormatter.openUTF8Writer("", outputFile);
     try {
       String version = null;
@@ -86,7 +86,7 @@ public class ExtractIsoCurrencyData {
                     System.out.println("\tDATA: " + Arrays.asList(parts[i]));
                   int num = parts[i][3].equals("Nil") ? -1 : Integer.parseInt(parts[i][3]);
                   parts[i][3] = String.valueOf(num);
-                  out.println(Utility.join(parts[i], "\t").trim());
+                  out.println(CldrUtility.join(parts[i], "\t").trim());
                   count++;
                   //Data data = new Data(country, parts[i][1], parts[i][3]);
                   //codeList.put(parts[i][2], data);

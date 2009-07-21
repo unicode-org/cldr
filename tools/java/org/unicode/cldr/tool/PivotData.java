@@ -2,11 +2,11 @@ package org.unicode.cldr.tool;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.Utility.SimpleLineComparator;
+import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 
@@ -26,11 +26,11 @@ public class PivotData {
   private static Matcher fileMatcher;
   
   public static void main(String[] args) throws IOException {
-    System.out.println("WARNING: Must be done in 3 phases. -DPhase=1, then -DPhase=2, then -DPhase=3" + Utility.LINE_SEPARATOR +
-        "These are Lang+Script+Region, then Lang+Region, then Lang+Script" + Utility.LINE_SEPARATOR +
+    System.out.println("WARNING: Must be done in 3 phases. -DPhase=1, then -DPhase=2, then -DPhase=3" + CldrUtility.LINE_SEPARATOR +
+        "These are Lang+Script+Region, then Lang+Region, then Lang+Script" + CldrUtility.LINE_SEPARATOR +
     "Inspect and check-in after each phase");
-    fileMatcher = Pattern.compile(Utility.getProperty("FILE", ".*")).matcher("");
-    int phase = Integer.parseInt(Utility.getProperty("phase", null));
+    fileMatcher = Pattern.compile(CldrUtility.getProperty("FILE", ".*")).matcher("");
+    int phase = Integer.parseInt(CldrUtility.getProperty("phase", null));
     Set<LocaleIDParser.Level> conditions = null;
     switch(phase) {
       case 1: conditions = EnumSet.of(LocaleIDParser.Level.Language, 
@@ -49,8 +49,8 @@ public class PivotData {
     }
 
     try {
-      Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
-      PivotData pd = new PivotData(cldrFactory, Utility.MAIN_DIRECTORY, Utility.GEN_DIRECTORY + "pivot/");
+      Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+      PivotData pd = new PivotData(cldrFactory, CldrUtility.MAIN_DIRECTORY, CldrUtility.GEN_DIRECTORY + "pivot/");
       pd.pivotGroup(cldrFactory, conditions);
     } finally {
       System.out.println("DONE");
@@ -110,7 +110,7 @@ public class PivotData {
     }
     String parentID = CLDRFile.getParent(localeID);
     
-    if (DEBUG) System.out.format("LocaleID: %s, %s" + Utility.LINE_SEPARATOR, localeID, parentID);
+    if (DEBUG) System.out.format("LocaleID: %s, %s" + CldrUtility.LINE_SEPARATOR, localeID, parentID);
     
     // find all the unique paths that I have, where the value or fullpath is different from the parent.
     // AND the parent has the path
@@ -137,7 +137,7 @@ public class PivotData {
         if (fullPath.contains("[@casing") != oldFullXPath.contains("[@casing")) {
           // only do if parent's value is "real"
           if (resolvedParent.getSourceLocaleID(path,status).equals(parentID)) {
-            throw new IllegalArgumentException("Mismatched casing: " + localeID + ", " + parentID + " For:" + Utility.LINE_SEPARATOR + fullPath + Utility.LINE_SEPARATOR + oldFullXPath);
+            throw new IllegalArgumentException("Mismatched casing: " + localeID + ", " + parentID + " For:" + CldrUtility.LINE_SEPARATOR + fullPath + CldrUtility.LINE_SEPARATOR + oldFullXPath);
           }
         }
         uniquePaths.add(path);
@@ -146,7 +146,7 @@ public class PivotData {
     
     // if there are no unique paths our work here is done
     if (uniquePaths.size() == 0) {
-      if (DEBUG) System.out.format("LocaleID: %s is EMPTY, no changes necessary" + Utility.LINE_SEPARATOR, localeID);
+      if (DEBUG) System.out.format("LocaleID: %s is EMPTY, no changes necessary" + CldrUtility.LINE_SEPARATOR, localeID);
       return countChanges;
     }
     
@@ -154,14 +154,14 @@ public class PivotData {
     Set<String> siblings = lidp.set(localeID).getSiblings(factory.getAvailable());
     siblings.remove(localeID); // remove myself
     
-    if (DEBUG) System.out.format("Siblings: %s" + Utility.LINE_SEPARATOR, siblings);
+    if (DEBUG) System.out.format("Siblings: %s" + CldrUtility.LINE_SEPARATOR, siblings);
     
     // we now have a list of siblings. 
     // Create and write a new CLDRFile that is an empty me
     
     CLDRFile newFile = CLDRFile.make(localeID);
     writeFile(newFile);
-    if (DEBUG) System.out.format("%s changes in: %s" + Utility.LINE_SEPARATOR, uniquePaths.size(), localeID);
+    if (DEBUG) System.out.format("%s changes in: %s" + CldrUtility.LINE_SEPARATOR, uniquePaths.size(), localeID);
     
     // now add the different paths to the copy of the parent, and write out
     
@@ -170,7 +170,7 @@ public class PivotData {
     //System.out.println("clone " + size(newFile.iterator()));
     int deltaChangeCount = addPathsAndValuesFrom(newFile, uniquePaths, me, true);
     countChanges += deltaChangeCount;
-    if (DEBUG) System.out.format("%s changes in: %s" + Utility.LINE_SEPARATOR, deltaChangeCount, parentID);
+    if (DEBUG) System.out.format("%s changes in: %s" + CldrUtility.LINE_SEPARATOR, deltaChangeCount, parentID);
     writeFile(newFile);
     
     //  now add the parent's values for the paths to the siblings, and write out
@@ -182,7 +182,7 @@ public class PivotData {
       }
       deltaChangeCount = addPathsAndValuesFrom(newFile, uniquePaths, resolvedParent, false);
       countChanges += deltaChangeCount;
-      if (DEBUG) System.out.format("%s changes in: %s" + Utility.LINE_SEPARATOR, deltaChangeCount, id);
+      if (DEBUG) System.out.format("%s changes in: %s" + CldrUtility.LINE_SEPARATOR, deltaChangeCount, id);
       writeFile(newFile);
     }
     
@@ -252,7 +252,7 @@ public class PivotData {
     newFile.write(out);
     out.println();
     out.close();
-    Utility.generateBat(sourceDirectory, id + ".xml", outputDirectory, id + ".xml", lineComparer);
+    CldrUtility.generateBat(sourceDirectory, id + ".xml", outputDirectory, id + ".xml", lineComparer);
   }
 
 }

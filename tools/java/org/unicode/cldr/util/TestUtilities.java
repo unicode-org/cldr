@@ -112,7 +112,7 @@ public class TestUtilities {
   }
 
   private static void testNames() {
-    Factory mainCldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "main" + File.separator, ".*");
+    Factory mainCldrFactory = Factory.make(CldrUtility.COMMON_DIRECTORY + "main" + File.separator, ".*");
     CLDRFile english = mainCldrFactory.make("en", true);
     CLDRFile french = mainCldrFactory.make("fr", true);
     String[] tests = {"en", "en_AU", "de_CH", "de_Arab_CH", "gsw", "gsw_Arab", "zh_Hans", "zh_Hans_US", "zh_Hans_US_SAAHO"};
@@ -123,10 +123,10 @@ public class TestUtilities {
 
   private static void testExampleGenerator() throws IOException {
     System.out.println("Creating English CLDRFile");
-    Factory mainCldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "main" + File.separator, ".*");
+    Factory mainCldrFactory = Factory.make(CldrUtility.COMMON_DIRECTORY + "main" + File.separator, ".*");
     CLDRFile english = mainCldrFactory.make("en", true);
     System.out.println("Creating Example Generator");
-    ExampleGenerator englishExampleGenerator = new ExampleGenerator(english, Utility.SUPPLEMENTAL_DIRECTORY);
+    ExampleGenerator englishExampleGenerator = new ExampleGenerator(english, CldrUtility.SUPPLEMENTAL_DIRECTORY);
     // invoke once
     String foo = englishExampleGenerator.getHelpHtml("", null);
     System.out.println("Processing paths");
@@ -147,12 +147,12 @@ public class TestUtilities {
         message_paths.put("\uFFFD<b>NO MESSAGE</b><hr>", path + "\t:\t" + value);
       }
     }
-    PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "test/", "test_examples.html");
+    PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "test/", "test_examples.html");
     out.println("<html><body><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
     for (String message : message_paths.keySet()) {
       Set<String> paths = message_paths.getAll(message);
       out.println("<p>");
-      out.println(Utility.join(paths, "<br>" + Utility.LINE_SEPARATOR));
+      out.println(CldrUtility.join(paths, "<br>" + CldrUtility.LINE_SEPARATOR));
       out.println("</p><blockquote>");
       out.println(message);
       out.println("</blockquote>");
@@ -167,7 +167,7 @@ public class TestUtilities {
     StandardCodes sc = StandardCodes.make();
     Set timezones = new TreeSet(sc.getGoodAvailableCodes("tzid"));
     Map map_timezone_integer = new java.util.TreeMap();
-    BufferedReader input = Utility.getUTF8Data("timezone_numeric.txt");
+    BufferedReader input = CldrUtility.getUTF8Data("timezone_numeric.txt");
     int maxNumeric = -1;
     Map fixOld = sc.getZoneLinkold_new();
     while (true) {
@@ -333,7 +333,7 @@ public class TestUtilities {
      * 
      * else if (element.equals("zone")) comp = zoneOrder;
      */
-    Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     GenerateAttributeList attributes = new GenerateAttributeList(cldrFactory);
     Map element_attribute_valueSet = attributes.getElement_attribute_valueSet();
     for (Iterator it = element_attribute_valueSet.keySet().iterator(); it.hasNext();) {
@@ -375,16 +375,16 @@ public class TestUtilities {
       meta.add(prefix + "suppress/attributes" + "[@element=\"" + suppressData[i][0] + "\"][@attribute=\"" + suppressData[i][1] + "\"][@attributeValue=\"" + suppressData[i][2] + "\"]", "");
     }
     // write out and look at
-    PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "meta/", "metaData.xml");
+    PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "meta/", "metaData.xml");
     meta.write(out);
     out.close();
     XMLFileReader xfr = new XMLFileReader().setHandler(new MyHandler());
-    xfr.read(Utility.GEN_DIRECTORY + "meta/metaData.xml", XMLFileReader.CONTENT_HANDLER | XMLFileReader.ERROR_HANDLER, false);
+    xfr.read(CldrUtility.GEN_DIRECTORY + "meta/metaData.xml", XMLFileReader.CONTENT_HANDLER | XMLFileReader.ERROR_HANDLER, false);
   }
 
   private static void testXMLFileReader() {
     XMLFileReader xfr = new XMLFileReader().setHandler(new MyHandler());
-    xfr.read(Utility.MAIN_DIRECTORY + "root.xml", -1, true);
+    xfr.read(CldrUtility.MAIN_DIRECTORY + "root.xml", -1, true);
   }
 
   static class MyHandler extends XMLFileReader.SimpleHandler {
@@ -570,7 +570,7 @@ public class TestUtilities {
   private static void checkLanguages() {
     // TODO Auto-generated method stub
 
-    Factory mainCldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "main" + File.separator, ".*");
+    Factory mainCldrFactory = Factory.make(CldrUtility.COMMON_DIRECTORY + "main" + File.separator, ".*");
     Set availableLocales = mainCldrFactory.getAvailable();
     Set available = new TreeSet();
     LocaleIDParser lip = new LocaleIDParser();
@@ -598,9 +598,9 @@ public class TestUtilities {
    * 
    */
   private static void printCountries() throws IOException {
-    Factory mainCldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "main" + File.separator, ".*");
+    Factory mainCldrFactory = Factory.make(CldrUtility.COMMON_DIRECTORY + "main" + File.separator, ".*");
     CLDRFile english = mainCldrFactory.make("en", true);
-    PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, "country_language_names.txt");
+    PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, "country_language_names.txt");
     StandardCodes sc = StandardCodes.make();
     for (Iterator it = sc.getGoodAvailableCodes("language").iterator(); it.hasNext();) {
       String code = (String) it.next();
@@ -650,8 +650,8 @@ public class TestUtilities {
     String[] zones = { "America/Los_Angeles", "America/Argentina/Buenos_Aires", "America/Buenos_Aires", "America/Havana", "Australia/ACT", "Australia/Sydney", "Europe/London", "Europe/Moscow",
         "Etc/GMT+3" };
     String[][] fields = { { "2004-01-15T00:00:00Z", "Z", "ZZZZ", "z", "zzzz" }, { "2004-07-15T00:00:00Z", "Z", "ZZZZ", "z", "zzzz", "v", "vvvv" } };
-    Factory mainCldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "main" + File.separator, ".*");
-    PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, "timezone_samples.txt");
+    Factory mainCldrFactory = Factory.make(CldrUtility.COMMON_DIRECTORY + "main" + File.separator, ".*");
+    PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, "timezone_samples.txt");
     long[] offsetMillis = new long[1];
     ParsePosition parsePosition = new ParsePosition(0);
 

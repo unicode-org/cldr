@@ -11,7 +11,7 @@ import org.unicode.cldr.tool.GenerateBcp47Bits.Bcp47StringBitTransform.Type;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;

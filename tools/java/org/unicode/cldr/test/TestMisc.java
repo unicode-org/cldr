@@ -7,7 +7,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.VariantFolder;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -113,9 +113,9 @@ public class TestMisc {
       ParsePosition p = new ParsePosition(0);
       UnicodeSet set = new UnicodeSet(test,  p, sym);
       UnicodeSet codes = set.complement().complement();
-      System.out.println(test + Utility.LINE_SEPARATOR + 
-          codes.toPattern(true) + Utility.LINE_SEPARATOR + 
-          bf.showSetNames(set.complement().complement()) + Utility.LINE_SEPARATOR);
+      System.out.println(test + CldrUtility.LINE_SEPARATOR + 
+          codes.toPattern(true) + CldrUtility.LINE_SEPARATOR + 
+          bf.showSetNames(set.complement().complement()) + CldrUtility.LINE_SEPARATOR);
     }
     if (true) return;
       
@@ -166,7 +166,7 @@ public class TestMisc {
 
 
       
-      ExampleGenerator eg = new ExampleGenerator(CLDRFile.Factory.make(Utility.MAIN_DIRECTORY,".*").make("en",false), Utility.SUPPLEMENTAL_DIRECTORY);
+      ExampleGenerator eg = new ExampleGenerator(CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY,".*").make("en",false), CldrUtility.SUPPLEMENTAL_DIRECTORY);
       System.out.println(eg.getHelpHtml("//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",""));
       System.out.println(eg.getHelpHtml("/exemplarCharacters",""));
       System.out.println(eg.getHelpHtml("/calendar/pattern",""));
@@ -197,7 +197,7 @@ public class TestMisc {
     }
     
     private static void testWeights() {
-      Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+      Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
       CLDRFile english = cldrFactory.make("en", true);
       Set<Pair<Integer,String>> rel = new TreeSet();
       for (String desiredLocale : cldrFactory.getAvailable()) {
@@ -271,7 +271,7 @@ public class TestMisc {
       System.out.println("functionalExceptCase: " + functionalExceptCase);
       System.out.println("archaic: " + archaic);
       
-      System.out.println("SimpleCaseFolded & !CaseFolded & Functional & !Archaic:" + Utility.LINE_SEPARATOR 
+      System.out.println("SimpleCaseFolded & !CaseFolded & Functional & !Archaic:" + CldrUtility.LINE_SEPARATOR 
           +  bf.showSetNames(new UnicodeSet(simpleCaseFolded)
               .removeAll(caseFolded)
               .retainAll(functionalExceptCase)
@@ -288,14 +288,14 @@ public class TestMisc {
       //System.out.println(bf.showSetNames("Case Folded", caseFolded,"Simple Case Folded", simpleCaseFolded));
 
       UnicodeSet functionalCommon = new UnicodeSet("[:script=common:]").retainAll(functional).removeAll(archaic).removeAll(asciiIdn);
-      System.out.println("Common & Functional & !Archaic:" + Utility.LINE_SEPARATOR + bf.showSetNames(functionalCommon));
+      System.out.println("Common & Functional & !Archaic:" + CldrUtility.LINE_SEPARATOR + bf.showSetNames(functionalCommon));
  
       UnicodeSet functionalInherited = new UnicodeSet("[:script=inherited:]").retainAll(functional).removeAll(archaic).removeAll(asciiIdn);
-      System.out.println("Inherited & Functional & !Archaic:" + Utility.LINE_SEPARATOR + bf.showSetNames(functionalInherited));
+      System.out.println("Inherited & Functional & !Archaic:" + CldrUtility.LINE_SEPARATOR + bf.showSetNames(functionalInherited));
       
       UnicodeSet nl =new UnicodeSet("[:Nl:]").retainAll(functional).removeAll(archaic);
-      System.out.println("Nl:" + Utility.LINE_SEPARATOR + bf.showSetNames(new UnicodeSet("[:Nl:]")));
-      System.out.println("Nl & Functional & !Archaic:" + Utility.LINE_SEPARATOR + bf.showSetNames(nl));
+      System.out.println("Nl:" + CldrUtility.LINE_SEPARATOR + bf.showSetNames(new UnicodeSet("[:Nl:]")));
+      System.out.println("Nl & Functional & !Archaic:" + CldrUtility.LINE_SEPARATOR + bf.showSetNames(nl));
       
       UnicodeSet restrictedXidContinue = new UnicodeSet(
           "[[:xid_continue:]" +
@@ -339,17 +339,17 @@ public class TestMisc {
 
     private static void checkCollections() {
       System.out.println("Collections");
-      new org.unicode.cldr.util.Utility.Apply<String>() {
+      new org.unicode.cldr.util.CldrUtility.Apply<String>() {
         public void apply(String item) {
           if (Iso639Data.getScope(item.toString()) != Scope.Collection) return;
-          System.out.println(item + "\t" + Utility.join(Iso639Data.getNames(item), ", "));
+          System.out.println(item + "\t" + CldrUtility.join(Iso639Data.getNames(item), ", "));
         }
       }.applyTo(Iso639Data.getAvailable());
-      System.out.println(Utility.LINE_SEPARATOR + "Macrolanguages");
-      new org.unicode.cldr.util.Utility.Apply<String>() {
+      System.out.println(CldrUtility.LINE_SEPARATOR + "Macrolanguages");
+      new org.unicode.cldr.util.CldrUtility.Apply<String>() {
         public void apply(String item) {
           if (Iso639Data.getScope(item.toString()) != Scope.Macrolanguage) return;
-          System.out.println(item + "\t" + Utility.join(Iso639Data.getNames(item), ", "));
+          System.out.println(item + "\t" + CldrUtility.join(Iso639Data.getNames(item), ", "));
         }
       }.applyTo(Iso639Data.getAvailable());
     }
@@ -369,7 +369,7 @@ public class TestMisc {
     }
 
     private static void testToRegex(UnicodeSet test) {
-      String formatted = Utility.toRegex(test);
+      String formatted = CldrUtility.toRegex(test);
       System.out.println(test + "\t->\t" + formatted);
       Matcher newTest = Pattern.compile(formatted).matcher("");
       UnicodeSet failures = new UnicodeSet();
@@ -412,15 +412,15 @@ public class TestMisc {
 
     private static void showSpans(String title, UnicodeSet sourceSet, UnicodeSet dontCares) {
       System.out.println(title);
-      System.out.format("\tSource Set: %s" + Utility.LINE_SEPARATOR, sourceSet);
-      System.out.format("\tDon't Cares: %s" + Utility.LINE_SEPARATOR, dontCares);
-      UnicodeSet spanned = Utility.addDontCareSpans(new UnicodeSet(sourceSet), dontCares);
+      System.out.format("\tSource Set: %s" + CldrUtility.LINE_SEPARATOR, sourceSet);
+      System.out.format("\tDon't Cares: %s" + CldrUtility.LINE_SEPARATOR, dontCares);
+      UnicodeSet spanned = CldrUtility.addDontCareSpans(new UnicodeSet(sourceSet), dontCares);
       spanned = spanned.complement().complement();
       String spannedString = spanned.toString();
       String unescapedString = spanned.toPattern(false);
-      System.out.format("\tRanges: %d" + Utility.LINE_SEPARATOR, spanned.getRangeCount());
-      System.out.format("\tStrlen(\\u): %d" + Utility.LINE_SEPARATOR, spannedString.length());
-      System.out.format("\tStrlen(!\\u): %d" + Utility.LINE_SEPARATOR, unescapedString.length());
+      System.out.format("\tRanges: %d" + CldrUtility.LINE_SEPARATOR, spanned.getRangeCount());
+      System.out.format("\tStrlen(\\u): %d" + CldrUtility.LINE_SEPARATOR, spannedString.length());
+      System.out.format("\tStrlen(!\\u): %d" + CldrUtility.LINE_SEPARATOR, unescapedString.length());
       String title2 = "Result";
       String sample = spannedString;
       if (false) {
@@ -429,7 +429,7 @@ public class TestMisc {
           sample = sample.substring(0,60) + " ...";
         }
       }
-      System.out.format("\t%s: %s" + Utility.LINE_SEPARATOR, title2, sample);
+      System.out.format("\t%s: %s" + CldrUtility.LINE_SEPARATOR, title2, sample);
       System.out.println();
      }
     
@@ -465,7 +465,7 @@ public class TestMisc {
     }
     
     private static void checkDistinguishing() {
-    	Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    	Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     	Set cldrFiles = cldrFactory.getAvailableLanguages();
     	Set distinguishing = new TreeSet();
     	Set nondistinguishing = new TreeSet();
@@ -507,7 +507,7 @@ public class TestMisc {
 
 
 	private static void showEnglish() {
-    	Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    	Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     	String requestedLocale = "en";
 		CLDRFile cldrFile = cldrFactory.make(requestedLocale, true);
 		CLDRFile.Status status = new CLDRFile.Status();
@@ -525,7 +525,7 @@ public class TestMisc {
 		}
 	}
     private static void checkPrivateUse() {
-    	Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    	Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     	String requestedLocale = "en";
 		CLDRFile cldrFile = cldrFactory.make(requestedLocale, true);
 		CLDRFile.Status status = new CLDRFile.Status();
@@ -586,7 +586,7 @@ public class TestMisc {
     }
     
 	static void testPopulous() {
-        Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile supp = cldrFactory.make("supplementalData", false);
         CLDRFile temp = CLDRFile.make("supplemental");
         temp.setNonInheriting(true);

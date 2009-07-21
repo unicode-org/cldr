@@ -319,7 +319,7 @@ public class StandardCodes {
     platform_locale_level = new TreeMap(caseless);
     String line;
     try {
-      BufferedReader lstreg = Utility.getUTF8Data("Locales.txt");
+      BufferedReader lstreg = CldrUtility.getUTF8Data("Locales.txt");
       while (true) {
         line = lstreg.readLine();
         if (line == null)
@@ -329,7 +329,7 @@ public class StandardCodes {
           line = line.substring(0, commentPos);
         if (line.length() == 0)
           continue;
-        List stuff = Utility.splitList(line, ';', true);
+        List stuff = CldrUtility.splitList(line, ';', true);
         String organization = (String) stuff.get(0);
         String locale = (String) stuff.get(1);
         Level status = Level.get((String) stuff.get(2));
@@ -392,8 +392,8 @@ public class StandardCodes {
         locale_levelString.put(locale, locale_level.get(locale).toString());
       }
     }
-    platform_locale_level = Utility.protectCollection(platform_locale_level);
-    platform_locale_levelString = Utility.protectCollection(platform_locale_levelString);
+    platform_locale_level = CldrUtility.protectCollection(platform_locale_level);
+    platform_locale_levelString = CldrUtility.protectCollection(platform_locale_levelString);
   }
   
   private String validate(LocaleIDParser parser) {
@@ -449,7 +449,7 @@ public class StandardCodes {
     String originalLine = null;
     for (int fileIndex = 0; fileIndex < files.length; ++fileIndex) {
       try {
-        BufferedReader lstreg = Utility.getUTF8Data(files[fileIndex]);
+        BufferedReader lstreg = CldrUtility.getUTF8Data(files[fileIndex]);
         while (true) {
           String line = originalLine = lstreg.readLine();
           if (line == null)
@@ -466,7 +466,7 @@ public class StandardCodes {
           }
           if (line.length() == 0)
             continue;
-          List pieces = (List) Utility.splitList(line, '|', true,
+          List pieces = (List) CldrUtility.splitList(line, '|', true,
               new ArrayList());
           String type = (String) pieces.get(0);
           pieces.remove(0);
@@ -547,7 +547,7 @@ public class StandardCodes {
             "Can't read " + files[fileIndex] + "\t" + originalLine)
             .initCause(e);
       }
-      country_modernCurrency = Utility.protectCollection(country_modernCurrency);
+      country_modernCurrency = CldrUtility.protectCollection(country_modernCurrency);
     }
     
     // data is: description | date | canonical_value | recommended_prefix #
@@ -555,7 +555,7 @@ public class StandardCodes {
     // HACK, just rework
     
     languageRegistry = getLStreg();
-    languageRegistry = Utility.protectCollection(languageRegistry);
+    languageRegistry = CldrUtility.protectCollection(languageRegistry);
     
     for (Iterator it = languageRegistry.keySet().iterator(); it.hasNext();) {
       String type = (String) it.next();
@@ -688,16 +688,16 @@ public class StandardCodes {
   
   public Map getWorldBankInfo() {
     if (WorldBankInfo == null) {
-      List temp = fillFromCommaFile(Utility.UTIL_DATA_DIR, "WorldBankInfo.txt", false);
+      List temp = fillFromCommaFile(CldrUtility.UTIL_DATA_DIR, "WorldBankInfo.txt", false);
       WorldBankInfo = new HashMap();
       for (Iterator it = temp.iterator(); it.hasNext();) {
         String line = (String) it.next();
-        List row = Utility.splitList(line, ';', true);
+        List row = CldrUtility.splitList(line, ';', true);
         String key = (String) row.get(0);
         row.remove(0);
         WorldBankInfo.put(key, row);
       }
-      WorldBankInfo = Utility.protectCollection(WorldBankInfo);
+      WorldBankInfo = CldrUtility.protectCollection(WorldBankInfo);
     }
     return WorldBankInfo;
   }
@@ -706,10 +706,10 @@ public class StandardCodes {
   
   public Set getMainTimeZones() {
     if (MainTimeZones == null) {
-      List temp = fillFromCommaFile(Utility.UTIL_DATA_DIR, "MainTimeZones.txt", false);
+      List temp = fillFromCommaFile(CldrUtility.UTIL_DATA_DIR, "MainTimeZones.txt", false);
       MainTimeZones = new TreeSet();
       MainTimeZones.addAll(temp);
-      MainTimeZones = Utility.protectCollection(MainTimeZones);
+      MainTimeZones = CldrUtility.protectCollection(MainTimeZones);
     }
     return MainTimeZones;
   }
@@ -718,10 +718,10 @@ public class StandardCodes {
 
   public Set<String> getMoribundLanguages() {
     if (moribundLanguages == null) {
-      List temp = fillFromCommaFile(Utility.UTIL_DATA_DIR, "moribund_languages.txt", true);
+      List temp = fillFromCommaFile(CldrUtility.UTIL_DATA_DIR, "moribund_languages.txt", true);
       moribundLanguages = new TreeSet<String>();
       moribundLanguages.addAll(temp);
-      moribundLanguages = Utility.protectCollection(moribundLanguages);
+      moribundLanguages = CldrUtility.protectCollection(moribundLanguages);
     }
     return moribundLanguages;
   }
@@ -820,9 +820,9 @@ public class StandardCodes {
     
     Set funnyTags = new TreeSet();
     String line;
-    String registryName = Utility.getProperty("registry", "language-subtag-registry", "lstreg-4646bis-draft-04.txt");
+    String registryName = CldrUtility.getProperty("registry", "language-subtag-registry", "lstreg-4646bis-draft-04.txt");
     try {
-      BufferedReader lstreg = Utility.getUTF8Data(registryName);
+      BufferedReader lstreg = CldrUtility.getUTF8Data(registryName);
       boolean started = false;
       String lastType = null;
       String lastTag = null;
@@ -917,7 +917,7 @@ public class StandardCodes {
       }
     } catch (Exception e) {
       throw (RuntimeException) new IllegalArgumentException(
-          "Can't process file: " + Utility.UTIL_DATA_DIR
+          "Can't process file: " + CldrUtility.UTIL_DATA_DIR
           + registryName + ";\t at line " + lineNumber).initCause(e);
     } finally {
       if (!funnyTags.isEmpty()) {

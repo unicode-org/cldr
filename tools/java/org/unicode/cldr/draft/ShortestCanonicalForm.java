@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -65,7 +65,7 @@ public class ShortestCanonicalForm {
     for (int first : leadToTrail.keySet()) {
       if (leading3.contains(first)) {
         for (String trail : leadToTrail.get(first)) {
-          System.out.println(Utility.hex(first) + "," + Utility.hex(trail, ",") + "\t" + UTF16.valueOf(first) + trail);
+          System.out.println(CldrUtility.hex(first) + "," + CldrUtility.hex(trail, ",") + "\t" + UTF16.valueOf(first) + trail);
         }
       }
     }
@@ -94,9 +94,9 @@ public class ShortestCanonicalForm {
               final int blocker = nfc.codePointAt(0);
               if (!blockers.contains(blocker)) {
                 blockers.add(blocker);
-                System.out.println("Adding blocker: " + Utility.hex(blocker) + "\t" + UTF16.valueOf(blocker));
-                System.out.println("\tNFC: " + Utility.hex(nfc) + "\t" + nfc);
-                System.out.println("\tShort: " + Utility.hex(shortest) + "\t" + shortest);
+                System.out.println("Adding blocker: " + CldrUtility.hex(blocker) + "\t" + UTF16.valueOf(blocker));
+                System.out.println("\tNFC: " + CldrUtility.hex(nfc) + "\t" + nfc);
+                System.out.println("\tShort: " + CldrUtility.hex(shortest) + "\t" + shortest);
               }
             }
           }

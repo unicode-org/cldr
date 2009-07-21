@@ -32,7 +32,7 @@ import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TimezoneFormatter;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.ZoneInflections;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -108,7 +108,7 @@ public class CountItems {
     double deltaTime = System.currentTimeMillis();
     try {
       String methodName = System.getProperty("method");
-      Utility.callMethod(methodName, CountItems.class);
+      CldrUtility.callMethod(methodName, CountItems.class);
       //countItems();
 
       //getZoneEquivalences();
@@ -168,7 +168,7 @@ public class CountItems {
     Map zone_countries = sc.getZoneToCounty();
 
     TreeSet country_inflection_names = new TreeSet(ac);
-    PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY,
+    PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
         "inflections.txt");
 
     TreeMap<Integer, TreeSet<String>> minOffsetMap = new TreeMap<Integer, TreeSet<String>>();
@@ -197,7 +197,7 @@ public class CountItems {
     System.out.println("Maximum Offset: " + maxOffsetMap);
     out.close();
 
-    out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY,
+    out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
         "modernTimezoneEquivalents.html");
     out.println("<html>" + "<head>"
         + "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
@@ -239,7 +239,7 @@ public class CountItems {
     String lastCountry = "";
     ZoneInflections lastZip = null;
     ZoneInflections.OutputLong diff = new ZoneInflections.OutputLong(0);
-    Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     TimezoneFormatter tzf = new TimezoneFormatter(cldrFactory, "en", true);
     Map country_zoneSet = sc.getCountryToZoneSet();
     boolean shortList = true;
@@ -358,9 +358,9 @@ public class CountItems {
    * 
    */
   private static void showExemplars() throws IOException {
-    PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY,
+    PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
         "fixed_exemplars.txt");
-    Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     Set locales = cldrFactory.getAvailable();
     for (Iterator it = locales.iterator(); it.hasNext();) {
       System.out.print('.');
@@ -432,15 +432,15 @@ public class CountItems {
 
     }
     System.out.println();
-    String sep = Utility.LINE_SEPARATOR + "\t\t\t\t";
+    String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t\t";
     // "((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*"
-    String broken = Utility.breakLines(list.toString(), sep, Pattern.compile(
+    String broken = CldrUtility.breakLines(list.toString(), sep, Pattern.compile(
         "([A-Z])[A-Z][A-Z]").matcher(""), 80);
     assert (list.toString().equals(broken.replace(sep, " ")));
     System.out.println("\t\t\t<!-- currency version "
         + isoCurrencyParser.getVersion() + " -->");
     System.out.println("\t\t\t<variable id=\"$currency\" type=\"choice\">"
-        + broken + Utility.LINE_SEPARATOR + "\t\t\t</variable>");
+        + broken + CldrUtility.LINE_SEPARATOR + "\t\t\t</variable>");
     Set<String> isoTextFileCodes = StandardCodes.make().getAvailableCodes(
         "currency");
     Set temp = new TreeSet(codeList.keySet());
@@ -461,7 +461,7 @@ public class CountItems {
     StandardCodes sc = StandardCodes.make();
     Map<String, String> zone_country = sc.getZoneToCounty();
     Map country_zone = sc.getCountryToZoneSet();
-    Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     CLDRFile english = cldrFactory.make("en", true);
 
     writeZonePrettyPath(col, zone_country, english);
@@ -550,14 +550,14 @@ public class CountItems {
     System.out.println("\t</timezoneData>");
     System.out.println("</supplementalData>");
     System.out.println();
-    String sep = Utility.LINE_SEPARATOR + "\t\t\t\t";
+    String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t\t";
     // "((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*"
-    String broken = Utility.breakLines(tzid, sep, Pattern.compile(
+    String broken = CldrUtility.breakLines(tzid, sep, Pattern.compile(
         "((?:[-+_A-Za-z0-9]+[/])+[-+_A-Za-z0-9])[-+_A-Za-z0-9]*").matcher(""),
         80);
     assert (tzid.toString().equals(broken.replace(sep, " ")));
     System.out.println("\t\t\t<variable id=\"$tzid\" type=\"choice\">" + broken
-        + Utility.LINE_SEPARATOR + "\t\t\t</variable>");
+        + CldrUtility.LINE_SEPARATOR + "\t\t\t</variable>");
   }
 
   public static void writeMetazonePrettyPath() {
@@ -627,10 +627,10 @@ public class CountItems {
         if (parts.length == 3 && parts[1].equals("Argentina")) {
           newName = parts[0] + "/" + parts[1];
         } else {
-          newName = Utility.join(parts, "/");
+          newName = CldrUtility.join(parts, "/");
         }
       } else {
-        newName = Utility.join(parts, "/");
+        newName = CldrUtility.join(parts, "/");
       }
       zoneNew_Old.put(newName, zone);
       if (zone.startsWith(lastZone)) {
@@ -640,7 +640,7 @@ public class CountItems {
       }
     }
 
-    Log.setLog(Utility.GEN_DIRECTORY + "/supplemental/prettyPathZone.txt");
+    Log.setLog(CldrUtility.GEN_DIRECTORY + "/supplemental/prettyPathZone.txt");
     String lastCountry = "";
     for (int i = 0; i < 2; ++i) {
       Set<String> orderedList = zoneNew_Old.keySet();
@@ -695,7 +695,7 @@ public class CountItems {
   public static void getSubtagVariables() {
     System.out.println("</supplementalData>");
     System.out.println();
-    String sep = Utility.LINE_SEPARATOR + "\t\t\t\t";
+    String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t\t";
     StandardCodes sc = StandardCodes.make();
     for (String type : new String[] { "grandfathered", "language", "territory",
         "script", "variant", "currency", "currency2" }) {
@@ -713,17 +713,17 @@ public class CountItems {
         b.append(code);
       }
       // "((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*"
-      String broken = Utility.breakLines(b, sep, Pattern.compile(
+      String broken = CldrUtility.breakLines(b, sep, Pattern.compile(
           "([-_A-Za-z0-9])[-_A-Za-z0-9]*").matcher(""), 80);
       assert (b.toString().equals(broken.replace(sep, " ")));
       System.out.println("\t\t\t<variable id=\"$" + type
-          + "\" type=\"choice\">" + broken + Utility.LINE_SEPARATOR + "\t\t\t</variable>");
+          + "\" type=\"choice\">" + broken + CldrUtility.LINE_SEPARATOR + "\t\t\t</variable>");
     }
 
   }
 
   private static Set getSupplementalCurrency() {
-    Factory cldrFactory = CLDRFile.Factory.make(Utility.SUPPLEMENTAL_DIRECTORY,
+    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.SUPPLEMENTAL_DIRECTORY,
         ".*");
     CLDRFile supp = cldrFactory.make("supplementalData", false);
     XPathParts p = new XPathParts();
@@ -803,14 +803,14 @@ public class CountItems {
     }
     System.out.println("/* Total: " + i + " */");
 
-    Factory mainCldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "main"
+    Factory mainCldrFactory = Factory.make(CldrUtility.COMMON_DIRECTORY + "main"
         + File.separator, ".*");
     CLDRFile desiredLocaleFile = mainCldrFactory.make("root", true);
     String temp = desiredLocaleFile
         .getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
     String singleCountriesList = (String) new XPathParts(null, null).set(temp)
         .findAttributes("singleCountries").get("list");
-    Set singleCountriesSet = new TreeSet(Utility.splitList(singleCountriesList,
+    Set singleCountriesSet = new TreeSet(CldrUtility.splitList(singleCountriesList,
         ' '));
 
     Map zone_countries = StandardCodes.make().getZoneToCounty();
@@ -833,7 +833,7 @@ public class CountItems {
     if (true)
       return;
 
-    Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     Map platform_locale_status = StandardCodes.make().getLocaleTypes();
     Map onlyLocales = (Map) platform_locale_status.get("IBM");
     Set locales = onlyLocales.keySet();
@@ -852,7 +852,7 @@ public class CountItems {
 
   public static void countItems() {
     //CLDRKey.main(new String[]{"-mde.*"});
-    String dir = Utility.getProperty("source", Utility.MAIN_DIRECTORY);
+    String dir = CldrUtility.getProperty("source", CldrUtility.MAIN_DIRECTORY);
     Factory cldrFactory = CLDRFile.Factory.make(dir, ".*");
     countItems(cldrFactory, false);
   }

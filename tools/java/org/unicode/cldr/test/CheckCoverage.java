@@ -19,7 +19,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 

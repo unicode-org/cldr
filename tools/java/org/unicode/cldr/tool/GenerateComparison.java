@@ -15,7 +15,7 @@ import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.Row;
 import org.unicode.cldr.util.Timer;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Row.R2;
@@ -65,12 +65,12 @@ public class GenerateComparison {
 
     // Get the args
 
-    String oldDirectory = Utility.getProperty("oldDirectory", new File(Utility.BASE_DIRECTORY, "../../common-cldr1.6/main/").getCanonicalPath() + "/");
-    String newDirectory = Utility.getProperty("newDirectory", new File(Utility.BASE_DIRECTORY, "incoming/vetted/main/").getCanonicalPath() + "/");
-    String changesDirectory = Utility.getProperty("changesDirectory", new File(Utility.CHART_DIRECTORY + "/changes/").getCanonicalPath() + "/");
+    String oldDirectory = CldrUtility.getProperty("oldDirectory", new File(CldrUtility.BASE_DIRECTORY, "../../common-cldr1.6/main/").getCanonicalPath() + "/");
+    String newDirectory = CldrUtility.getProperty("newDirectory", new File(CldrUtility.BASE_DIRECTORY, "incoming/vetted/main/").getCanonicalPath() + "/");
+    String changesDirectory = CldrUtility.getProperty("changesDirectory", new File(CldrUtility.CHART_DIRECTORY + "/changes/").getCanonicalPath() + "/");
 
-    String filter = Utility.getProperty("localeFilter", ".*");
-    boolean SHOW_ALIASED = Utility.getProperty("showAliased", "false").toLowerCase().startsWith("t");
+    String filter = CldrUtility.getProperty("localeFilter", ".*");
+    boolean SHOW_ALIASED = CldrUtility.getProperty("showAliased", "false").toLowerCase().startsWith("t");
 
     // Create the factories
 
@@ -349,12 +349,12 @@ public class GenerateComparison {
       PrintWriter out = BagFormatter.openUTF8Writer(changesDirectory, locale + ".html");
       String title = "Changes in " + localeDisplayName ;
       out.println("<html>" +
-              "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" + Utility.LINE_SEPARATOR +
-              "<title>" + title + "</title>" + Utility.LINE_SEPARATOR +
-              "<link rel='stylesheet' href='index.css' type='text/css'>" + Utility.LINE_SEPARATOR +
-              "<base target='_blank'>" + Utility.LINE_SEPARATOR +
-              "</head><body>" + Utility.LINE_SEPARATOR +
-              "<h1>" + title + "</h1>" + Utility.LINE_SEPARATOR
+              "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" + CldrUtility.LINE_SEPARATOR +
+              "<title>" + title + "</title>" + CldrUtility.LINE_SEPARATOR +
+              "<link rel='stylesheet' href='index.css' type='text/css'>" + CldrUtility.LINE_SEPARATOR +
+              "<base target='_blank'>" + CldrUtility.LINE_SEPARATOR +
+              "</head><body>" + CldrUtility.LINE_SEPARATOR +
+              "<h1>" + title + "</h1>" + CldrUtility.LINE_SEPARATOR
               + "<a href='index.html'>Index</a> | <a href=\"http://unicode.org/cldr/data/docs/survey/vetting.html\"><b style=\"background-color: yellow;\"><i>Help: How to Vet</i></b></a>"
               + warningMessage
               );
@@ -392,12 +392,12 @@ public class GenerateComparison {
     }
     PrintWriter indexFile = BagFormatter.openUTF8Writer(changesDirectory, "index.html");
     indexFile.println("<html>" +
-            "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" + Utility.LINE_SEPARATOR +
-            "<title>" + "Change Summary" + "</title>" + Utility.LINE_SEPARATOR +
-            "<link rel='stylesheet' href='index.css' type='text/css'>" + Utility.LINE_SEPARATOR +
-            "<base target='_blank'>" + Utility.LINE_SEPARATOR +
-            "</head><body>" + Utility.LINE_SEPARATOR +
-            "<h1>" + "Change Summary" + "</h1>" + Utility.LINE_SEPARATOR
+            "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" + CldrUtility.LINE_SEPARATOR +
+            "<title>" + "Change Summary" + "</title>" + CldrUtility.LINE_SEPARATOR +
+            "<link rel='stylesheet' href='index.css' type='text/css'>" + CldrUtility.LINE_SEPARATOR +
+            "<base target='_blank'>" + CldrUtility.LINE_SEPARATOR +
+            "</head><body>" + CldrUtility.LINE_SEPARATOR +
+            "<h1>" + "Change Summary" + "</h1>" + CldrUtility.LINE_SEPARATOR
             + "<a href=\"http://unicode.org/cldr/data/docs/survey/vetting.html\"><b style=\"background-color: yellow;\"><i>Help: How to Vet</i></b></a>"
             + warningMessage
             + "<table><tr>");

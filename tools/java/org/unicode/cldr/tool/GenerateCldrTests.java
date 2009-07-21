@@ -36,7 +36,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TimezoneFormatter;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.w3c.dom.NamedNodeMap;
@@ -82,14 +82,14 @@ public class GenerateCldrTests {
     private static final UOption[] options = {
             UOption.HELP_H(),
             UOption.HELP_QUESTION_MARK(),
-            UOption.SOURCEDIR().setDefault(Utility.COMMON_DIRECTORY),
-            UOption.DESTDIR().setDefault(Utility.BASE_DIRECTORY + "test/"),
-            UOption.create("log", 'l', UOption.REQUIRES_ARG).setDefault(Utility.GEN_DIRECTORY),
+            UOption.SOURCEDIR().setDefault(CldrUtility.COMMON_DIRECTORY),
+            UOption.DESTDIR().setDefault(CldrUtility.BASE_DIRECTORY + "test/"),
+            UOption.create("log", 'l', UOption.REQUIRES_ARG).setDefault(CldrUtility.GEN_DIRECTORY),
             UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
             UOption.create("notresolved", 'n', UOption.NO_ARG),
             UOption.create("languages", 'g', UOption.NO_ARG),
             UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault(
-            Utility.UTIL_DATA_DIR),
+            CldrUtility.UTIL_DATA_DIR),
                 // "C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
             UOption.create("show", 's', UOption.NO_ARG), };
 
@@ -336,9 +336,9 @@ public class GenerateCldrTests {
         generateItems(locale, collationLocales, CollationShower);
         out.println(" </cldrTest>");
         out.close();
-        Utility.generateBat(options[SOURCEDIR].value + "test" + File.separator,
+        CldrUtility.generateBat(options[SOURCEDIR].value + "test" + File.separator,
                 locale + ".xml", options[DESTDIR].value, locale + ".xml",
-                new Utility.SimpleLineComparator(0));
+                new CldrUtility.SimpleLineComparator(0));
     }
 
     /*
@@ -903,19 +903,19 @@ public class GenerateCldrTests {
          */
         String last = "";
         boolean needEquals = false;
-        StringBuffer tempResult = new StringBuffer(Utility.LINE_SEPARATOR);
+        StringBuffer tempResult = new StringBuffer(CldrUtility.LINE_SEPARATOR);
         for (Iterator it = bag.iterator(); it.hasNext();) {
             String s = (String) it.next();
             if (col.compare(s, last) != 0) {
                 if (needEquals)
-                    tempResult.append(last).append(Utility.LINE_SEPARATOR);
+                    tempResult.append(last).append(CldrUtility.LINE_SEPARATOR);
                 needEquals = false;
                 last = s;
             } else {
                 needEquals = true;
             }
             tempResult.append(TransliteratorUtilities.toXML.transliterate(s)).append(
-                    Utility.LINE_SEPARATOR);
+                    CldrUtility.LINE_SEPARATOR);
         }
         ResultsPrinter result = new ResultsPrinter();
         result.setResult(tempResult.toString());

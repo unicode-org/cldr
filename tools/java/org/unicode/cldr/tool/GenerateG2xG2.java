@@ -17,7 +17,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
@@ -41,7 +41,7 @@ public class GenerateG2xG2 {
 
 		String sourceLanguage = "G5";
 		String targetLanguage = "G5";
-		Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+		Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 		english = cldrFactory.make("en", true);
 		root = cldrFactory.make("root", true);
 		StandardCodes sc = StandardCodes.make();
@@ -191,7 +191,7 @@ public class GenerateG2xG2 {
 		StandardCodes sc = StandardCodes.make();		
 		{
 			Collection countries = sc.getGoodAvailableCodes("territory");
-			Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+			Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 			english = cldrFactory.make("en", true);
 			for (Iterator it = countries.iterator(); it.hasNext();) {
 				String territory = (String) it.next();
@@ -205,7 +205,7 @@ public class GenerateG2xG2 {
 		if (choice == -1) {
 
 			testSet.addAll(sc.getGoodAvailableCodes("currency"));
-			Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+			Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 			english = cldrFactory.make("en", false);
 			for (Iterator it = testSet.iterator(); it.hasNext();) {
 				String country = (String)it.next();
@@ -351,7 +351,7 @@ private static void showExample(RuleBasedCollator col) {
 	private static Collection getCurrency(String territory) {
 		if (territory_currency == null) {
 			territory_currency = new TreeMap();
-			Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+			Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 			CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
 			XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
 			for (Iterator it = supp.iterator(); it.hasNext();) {

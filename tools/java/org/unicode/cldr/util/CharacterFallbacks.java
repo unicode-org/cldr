@@ -18,7 +18,7 @@ public class CharacterFallbacks {
     return data.get(cp);
   }
   private CharacterFallbacks() {
-    Factory cldrFactory = Factory.make(Utility.SUPPLEMENTAL_DIRECTORY, ".*");
+    Factory cldrFactory = Factory.make(CldrUtility.SUPPLEMENTAL_DIRECTORY, ".*");
     CLDRFile characterFallbacks = cldrFactory.make("characters", false);
     XPathParts parts = new XPathParts();
     
@@ -43,6 +43,6 @@ public class CharacterFallbacks {
       }
       substitutes.add(substitute);
     }
-    Utility.protectCollection(data);
+    CldrUtility.protectCollection(data);
   }
 }

@@ -31,7 +31,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ExtractCollationRules;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PrettyPath;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -48,7 +48,7 @@ import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
-import org.unicode.cldr.util.Utility.VariableReplacer;
+import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 
 public class ShowData {
   private static final int HELP1 = 0, HELP2 = 1, SOURCEDIR = 2, DESTDIR = 3,
@@ -56,8 +56,8 @@ public class ShowData {
 
   private static final UOption[] options = { UOption.HELP_H(),
     UOption.HELP_QUESTION_MARK(),
-    UOption.SOURCEDIR().setDefault(Utility.MAIN_DIRECTORY), // C:\cvsdata/unicode\cldr\diff\summary
-    UOption.DESTDIR().setDefault(Utility.CHART_DIRECTORY + "summary/"),
+    UOption.SOURCEDIR().setDefault(CldrUtility.MAIN_DIRECTORY), // C:\cvsdata/unicode\cldr\diff\summary
+    UOption.DESTDIR().setDefault(CldrUtility.CHART_DIRECTORY + "summary/"),
     UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("getscript", 'g', UOption.NO_ARG), };
 
@@ -107,14 +107,14 @@ public class ShowData {
         return;
       }
 
-      Utility.registerExtraTransliterators();
+      CldrUtility.registerExtraTransliterators();
 
       //      Factory collationFactory = Factory
       //          .make(sourceDir.replace("incoming/vetted/","common/") + "../collation/", ".*");
       //      ExtractCollationRules collationRules = new ExtractCollationRules();
 
       locales = new TreeSet(cldrFactory.getAvailable());
-      new Utility.MatcherFilter(options[MATCH].value).retainAll(locales);
+      new CldrUtility.MatcherFilter(options[MATCH].value).retainAll(locales);
       // Set paths = new TreeSet();
       Set prettySet = new TreeSet(uca);
       Set skipList = new HashSet(Arrays.asList(new String[] { "id" }));
@@ -197,11 +197,11 @@ public class ShowData {
                 // ".n {color: #999999}" + Utility.LINE_SEPARATOR +
                 // ".g {background-color: #99FF99}" + Utility.LINE_SEPARATOR +
                 // "</style>" + Utility.LINE_SEPARATOR +
-                "<script>" + Utility.LINE_SEPARATOR
-                + "if (location.href.split('?')[1].split(',')[0]=='hide') {" + Utility.LINE_SEPARATOR
-                + "document.write('<style>');" + Utility.LINE_SEPARATOR
-                + "document.write('.xx {display:none}');" + Utility.LINE_SEPARATOR
-                + "document.write('</style>');" + Utility.LINE_SEPARATOR + "}" + Utility.LINE_SEPARATOR + "</script>",
+                "<script>" + CldrUtility.LINE_SEPARATOR
+                + "if (location.href.split('?')[1].split(',')[0]=='hide') {" + CldrUtility.LINE_SEPARATOR
+                + "document.write('<style>');" + CldrUtility.LINE_SEPARATOR
+                + "document.write('.xx {display:none}');" + CldrUtility.LINE_SEPARATOR
+                + "document.write('</style>');" + CldrUtility.LINE_SEPARATOR + "}" + CldrUtility.LINE_SEPARATOR + "</script>",
                 headerAndFooter);
         pw.println(headerAndFooter[0]);
         // pw.println("<html><head>");
@@ -384,7 +384,7 @@ public class ShowData {
     Set scripts = new TreeSet();
     XPathParts parts = new XPathParts();
     Map script_name_locales = new TreeMap();
-    PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY,
+    PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
     "scriptNames.txt");
     for (Iterator it = locales.iterator(); it.hasNext();) {
       String locale = (String) it.next();
@@ -607,7 +607,7 @@ public class ShowData {
             + "Date" //
             + "$") // odd style to keep CVS from substituting
             ; // isoDateFormat.format(new Date())
-    BufferedReader input = Utility
+    BufferedReader input = CldrUtility
     .getUTF8Data("../../tool/chart-template.html");
     StringBuffer result = new StringBuffer();
     while (true) {
@@ -620,7 +620,7 @@ public class ShowData {
         result.setLength(0);
         continue;
       }
-      result.append(langTagPattern).append(Utility.LINE_SEPARATOR);
+      result.append(langTagPattern).append(CldrUtility.LINE_SEPARATOR);
     }
     headerAndFooter[1] = result.toString();
   }

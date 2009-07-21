@@ -22,7 +22,7 @@ import java.util.Set;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
@@ -45,7 +45,7 @@ public class FlexibleDateTime {
     static final boolean SHOW_MATCHING = false;
     static final boolean SHOW2 = false;
     static final boolean SHOW_OO = false;
-    static final String SEPARATOR = Utility.LINE_SEPARATOR + "\t";
+    static final String SEPARATOR = CldrUtility.LINE_SEPARATOR + "\t";
     
     /**
      * Test different ways of doing flexible date/times.
@@ -221,7 +221,7 @@ public class FlexibleDateTime {
 	    Map languageAlias = new HashMap();
 	    Map territoryAlias = new HashMap();
 	    {
-	    	Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+	    	Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 	    	CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
 	    	XPathParts parts = new XPathParts(null, null);
 	    	for (Iterator it = supp.iterator("//supplementalData/metadata/alias/"); it.hasNext();) {
@@ -276,7 +276,7 @@ public class FlexibleDateTime {
         if (args.length > 0)
             filter = args[0];
         
-        Factory cldrFactory = Factory.make(Utility.BASE_DIRECTORY
+        Factory cldrFactory = Factory.make(CldrUtility.BASE_DIRECTORY
                 + "open_office/main/", filter);
         for (Iterator it = cldrFactory.getAvailable().iterator(); it.hasNext();) {
             String locale = (String) it.next();

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SpreadSheet {
-  static boolean DEBUG = Utility.getProperty("SpreadSheetDebug", false);
+  static boolean DEBUG = CldrUtility.getProperty("SpreadSheetDebug", false);
   
   public static List<List<String>> convert(String filename) throws IOException {
     return convert(BagFormatter.openUTF8Reader("", filename));

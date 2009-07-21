@@ -10,7 +10,7 @@ import com.ibm.icu.dev.test.util.CollectionUtilities;
 import org.unicode.cldr.test.TestTransformsSimple;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.SimpleEquivalenceClass;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
 
 import com.ibm.icu.impl.MultiComparator;
@@ -38,9 +38,9 @@ import java.io.*;
 
 public class GenerateTransformCharts {
 
-  private static final String TRANSFORM_DIRECTORY = Utility.CHART_DIRECTORY + File.separatorChar + "transforms/";
+  private static final String TRANSFORM_DIRECTORY = CldrUtility.CHART_DIRECTORY + File.separatorChar + "transforms/";
   private static final UnicodeSet NON_LATIN = new UnicodeSet("[^[:latin:][:common:][:inherited:]]");
-  private static final boolean verbose = Utility.getProperty("verbose", false);
+  private static final boolean verbose = CldrUtility.getProperty("verbose", false);
 
   static int[] indicScripts = { UScript.LATIN, UScript.COMMON, UScript.DEVANAGARI,
     UScript.BENGALI, UScript.GURMUKHI, UScript.GUJARATI,
@@ -71,8 +71,8 @@ public class GenerateTransformCharts {
   }
 
   public static void main(String[] args) throws IOException {
-    useICU = Utility.getProperty("USEICU", false);
-    String filter = Utility.getProperty("filter", null);
+    useICU = CldrUtility.getProperty("USEICU", false);
+    String filter = CldrUtility.getProperty("filter", null);
     System.out.println("Start");
     //PrintWriter out = new PrintWriter(System.out);
     CLDRTransforms.registerCldrTransforms(null, filter, verbose ? new PrintWriter(System.out) : null);
@@ -518,10 +518,10 @@ public class GenerateTransformCharts {
           totalLatin.add(latin);
         }
 
-        Utility.addTreeMapChain(nonLatinToLatinTagged, nonLatin, nonLatinId, latin, areSame(nonLatin, backToNonLatin));
+        CldrUtility.addTreeMapChain(nonLatinToLatinTagged, nonLatin, nonLatinId, latin, areSame(nonLatin, backToNonLatin));
         if (convertsLatin) {
           String backToLatin = nonLatin_latin.transliterate(backToNonLatin);
-          Utility.addTreeMapChain(latinToTaggedNonLatin, latin, nonLatinId, backToNonLatin, areSame(latin, backToLatin));
+          CldrUtility.addTreeMapChain(latinToTaggedNonLatin, latin, nonLatinId, backToNonLatin, areSame(latin, backToLatin));
         }
       }
       for (int c = 'a'; c <= 'z'; ++c) {
@@ -641,9 +641,9 @@ public class GenerateTransformCharts {
     String nonLatin = latin_nonLatin.transliterate(latin);
     if (!nonLatin.equals(latin)) {
       String backLatin = nonLatin_latin.transliterate(nonLatin);
-      Utility.addTreeMapChain(latinToTaggedNonLatin, latin, nonLatinId, nonLatin, areSame(latin, backLatin));
+      CldrUtility.addTreeMapChain(latinToTaggedNonLatin, latin, nonLatinId, nonLatin, areSame(latin, backLatin));
       String backNonLatin = latin_nonLatin.transliterate(backLatin);
-      Utility.addTreeMapChain(nonLatinToLatinTagged, nonLatin, nonLatinId, backLatin, areSame(nonLatin, backNonLatin));
+      CldrUtility.addTreeMapChain(nonLatinToLatinTagged, nonLatin, nonLatinId, backLatin, areSame(nonLatin, backNonLatin));
     }
   }
 
@@ -677,7 +677,7 @@ public class GenerateTransformCharts {
     return nonLatinUnicodeSet;
   }
 
-  static Map<String,String> language_to_script = Utility.asMap(new String[][]{
+  static Map<String,String> language_to_script = CldrUtility.asMap(new String[][]{
           {"Jamo", "Hangul"},
           {"Amharic", "Ethiopic"},
           {"Azerbaijani", "Cyrillic"},

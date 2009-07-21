@@ -17,7 +17,7 @@ import org.unicode.cldr.icu.ConvertTransforms;
 import org.unicode.cldr.tool.SearchXml.MyHandler;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.Row.R2;
@@ -39,7 +39,7 @@ import com.ibm.icu.util.ULocale;
  */
 // TODO handle casing
 public class GenerateTransform {
-  private static final String             TRANSFORM_DIRECTORY = Utility.COMMON_DIRECTORY
+  private static final String             TRANSFORM_DIRECTORY = CldrUtility.COMMON_DIRECTORY
                                                                       + "transforms"
                                                                       + File.separator;
 
@@ -108,7 +108,7 @@ public class GenerateTransform {
     StringBuilder result = new StringBuilder();
 
     if (sourceCased && !targetCased) {
-      result.append("::lowerCase ;" + Utility.LINE_SEPARATOR);
+      result.append("::lowerCase ;" + CldrUtility.LINE_SEPARATOR);
     }
     UnicodeSet missingSource = decomposeAndRemoveMarks(sourceSet);
     UnicodeSet missingTarget = decomposeAndRemoveMarks(targetSet);
@@ -138,53 +138,53 @@ public class GenerateTransform {
 
     Set<UnicodeSet[]> items = addDotBetween.get();
     if (items.size() != 0) {
-      result.append("# Sequences requiring insertion of hyphenation point for disambiguation" + Utility.LINE_SEPARATOR);
+      result.append("# Sequences requiring insertion of hyphenation point for disambiguation" + CldrUtility.LINE_SEPARATOR);
       for (UnicodeSet[] pair : items) {
         // X {} y → · ;
-        result.append(show(pair[0]) + " {} " + show(pair[1]) + " → ‧ ;" + Utility.LINE_SEPARATOR);
+        result.append(show(pair[0]) + " {} " + show(pair[1]) + " → ‧ ;" + CldrUtility.LINE_SEPARATOR);
       }
     }
 
-    result.append("# Main rules" + Utility.LINE_SEPARATOR);
+    result.append("# Main rules" + CldrUtility.LINE_SEPARATOR);
     for (Pair<String, String> pair : pairs) {
       if (pair.getFirst().length() == 0) {
         continue;
       }
-      result.append(pair.getFirst() + " ↔ " + pair.getSecond() + " ;" + Utility.LINE_SEPARATOR);
+      result.append(pair.getFirst() + " ↔ " + pair.getSecond() + " ;" + CldrUtility.LINE_SEPARATOR);
     }
     
     items = removeDot.get();
     if (items.size() != 0) {
-      result.append("# Removal of hyphenation point for disambiguation" + Utility.LINE_SEPARATOR);
+      result.append("# Removal of hyphenation point for disambiguation" + CldrUtility.LINE_SEPARATOR);
       for (UnicodeSet[] pair : items) {
         // ← x {·} Y ;
         result
         .append(" ← " + show(pair[0]) + " {‧} " + show(pair[1]) + " ;"
-                + Utility.LINE_SEPARATOR);
+                + CldrUtility.LINE_SEPARATOR);
       }
     }
 
     if (target_retarget.size() != 0) {
-      result.append("# Retargetting items for completeness" + Utility.LINE_SEPARATOR);
+      result.append("# Retargetting items for completeness" + CldrUtility.LINE_SEPARATOR);
       for (String target : target_retarget.keySet()) {
         // ← x {·} Y ;
         result.append("|" + target_retarget.get(target) + " ← " + target + " ;"
-                + Utility.LINE_SEPARATOR);
+                + CldrUtility.LINE_SEPARATOR);
         missingTarget.remove(target);
       }
     }
 
     if (missingSource.size() != 0) {
       result.append("# Missing Source: " + missingSource.size() + " - "
-              + missingSource.toPattern(false) + Utility.LINE_SEPARATOR);
+              + missingSource.toPattern(false) + CldrUtility.LINE_SEPARATOR);
     }
     if (missingTarget.size() != 0) {
       result.append("# Missing Target: " + missingTarget.size() + " - "
-              + missingTarget.toPattern(false) + Utility.LINE_SEPARATOR);
+              + missingTarget.toPattern(false) + CldrUtility.LINE_SEPARATOR);
     }
     
     if (!sourceCased && targetCased) {
-      result.append("::(lowerCase) ;" + Utility.LINE_SEPARATOR);
+      result.append("::(lowerCase) ;" + CldrUtility.LINE_SEPARATOR);
     }
 
     String rules = result.toString();
@@ -313,14 +313,14 @@ public class GenerateTransform {
       if (path.indexOf("/comment") >= 0) {
         if (!value.trim().startsWith("#"))
           value = value + "# ";
-        output.append(value).append(Utility.LINE_SEPARATOR);
+        output.append(value).append(CldrUtility.LINE_SEPARATOR);
       } else if (path.indexOf("/tRule") >= 0) {
         // value = replaceUnquoted(value,"\u00A7", "&");
         // value = ConvertTransforms.replaceUnquoted(value, "\u2192", ">");
         //value = ConvertTransforms.replaceUnquoted(value, "\u2190", "<");
         //value = ConvertTransforms.replaceUnquoted(value, "\u2194", "<>");
         value = fixup.transliterate(value);
-        output.append(value).append(Utility.LINE_SEPARATOR);
+        output.append(value).append(CldrUtility.LINE_SEPARATOR);
       } else {
         throw new IllegalArgumentException("Unknown element: " + path + "\t " + value);
       }

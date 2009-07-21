@@ -31,10 +31,10 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Predicate;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.Utility.SimpleLineComparator;
+import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.PrettyPrinter;
@@ -82,8 +82,8 @@ public class CLDRModify {
   private static final UOption[] options = {
     UOption.HELP_H(),
     UOption.HELP_QUESTION_MARK(),
-    UOption.SOURCEDIR().setDefault(Utility.MAIN_DIRECTORY),
-    UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "main/"),
+    UOption.SOURCEDIR().setDefault(CldrUtility.MAIN_DIRECTORY),
+    UOption.DESTDIR().setDefault(CldrUtility.GEN_DIRECTORY + "main/"),
     UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("join", 'j', UOption.OPTIONAL_ARG),
     UOption.create("minimize", 'r', UOption.NO_ARG),
@@ -99,10 +99,10 @@ public class CLDRModify {
   static final String HELP_TEXT1 = "Use the following options" + XPathParts.NEWLINE
   + "-h or -?\t for this message" + XPathParts.NEWLINE
   + "-"+options[SOURCEDIR].shortName + "\t source directory. Default = -s" 
-  + Utility.getCanonicalName(Utility.MAIN_DIRECTORY) + XPathParts.NEWLINE
+  + CldrUtility.getCanonicalName(CldrUtility.MAIN_DIRECTORY) + XPathParts.NEWLINE
   + "\tExample:-sC:\\Unicode-CVS2\\cldr\\common\\gen\\source\\" + XPathParts.NEWLINE
   + "-"+options[DESTDIR].shortName + "\t destination directory. Default = -d"
-  + Utility.getCanonicalName(Utility.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
+  + CldrUtility.getCanonicalName(CldrUtility.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
   + "-m<regex>\t to restrict the locales to what matches <regex>" + XPathParts.NEWLINE
   + "-j<merge_dir>/X'\t to merge two sets of files together (from <source_dir>/X and <merge_dir>/X', " + XPathParts.NEWLINE
   + "\twhere * in X' is replaced by X)." + XPathParts.NEWLINE
@@ -133,8 +133,8 @@ public class CLDRModify {
 
     //String sourceDir = "C:\\ICU4C\\locale\\common\\main\\";
 
-    String sourceDir = Utility.checkValidDirectory(options[SOURCEDIR].value);	// Utility.COMMON_DIRECTORY + "main/";
-    String targetDir = Utility.checkValidDirectory(options[DESTDIR].value);	// Utility.GEN_DIRECTORY + "main/";
+    String sourceDir = CldrUtility.checkValidDirectory(options[SOURCEDIR].value);	// Utility.COMMON_DIRECTORY + "main/";
+    String targetDir = CldrUtility.checkValidDirectory(options[DESTDIR].value);	// Utility.GEN_DIRECTORY + "main/";
     boolean makeResolved = options[RESOLVE].doesOccur;	// Utility.COMMON_DIRECTORY + "main/";
 
     Log.setLog(targetDir + "diff/log.txt");
@@ -163,7 +163,7 @@ public class CLDRModify {
       if (options[JOIN].doesOccur) {
         String mergeDir = options[JOIN].value;
         File temp = new File(mergeDir);
-        mergeDir = Utility.checkValidDirectory(temp.getParent() + File.separator);  // Utility.COMMON_DIRECTORY + "main/";
+        mergeDir = CldrUtility.checkValidDirectory(temp.getParent() + File.separator);  // Utility.COMMON_DIRECTORY + "main/";
         String filename = temp.getName();
         join_prefix = join_postfix = "";
         int pos = filename.indexOf("*");
@@ -197,7 +197,7 @@ public class CLDRModify {
         locales.retainAll(locales3);
         System.out.println("Merging: " + locales3);
       }
-      new Utility.MatcherFilter(options[MATCH].value).retainAll(locales);
+      new CldrUtility.MatcherFilter(options[MATCH].value).retainAll(locales);
 
       RetainCoveragePredicate minimalCoverage = null;
 
@@ -312,7 +312,7 @@ public class CLDRModify {
         k.write(pw);
         pw.println();
         pw.close();
-        Utility.generateBat(sourceDir, test + ".xml", targetDir, test + ".xml", lineComparer);
+        CldrUtility.generateBat(sourceDir, test + ".xml", targetDir, test + ".xml", lineComparer);
 
         /*
 				 boolean ok = Utility.areFileIdentical(sourceDir + test + ".xml", 
@@ -358,7 +358,7 @@ public class CLDRModify {
               + givenOptions.shortName 
               + ": "
               + new UnicodeSet().addAll(givenOptions.value).removeAll(allowedOptions) 
-              + Utility.LINE_SEPARATOR + "Use -? for help.");
+              + CldrUtility.LINE_SEPARATOR + "Use -? for help.");
     }
   }
 
@@ -1185,7 +1185,7 @@ public class CLDRModify {
             if (item instanceof DateTimePatternGenerator.VariableField) {
               String itemString = item.toString();
               if (itemString.charAt(0) == 'z') {
-                list.set(i, new VariableField(Utility.repeat("v", itemString.length())));
+                list.set(i, new VariableField(CldrUtility.repeat("v", itemString.length())));
                 gotChange = true;
               }
             }
@@ -1307,7 +1307,7 @@ public class CLDRModify {
         String newRef = oldref_newref.get(ref);
         if (newRef == null) {
           newRef = String.valueOf(currentRef++);
-          newRef = "R" + Utility.repeat("0", 3 - newRef.length()) + newRef;
+          newRef = "R" + CldrUtility.repeat("0", 3 - newRef.length()) + newRef;
           oldref_newref.put(ref, newRef);
         }
         return newRef;
@@ -1608,7 +1608,7 @@ public class CLDRModify {
       x = lineComparer.compare("", "");
       x = lineComparer.compare("ab", "a b");
 
-      Utility.generateBat(sourceDir, "ar_AE.xml", targetDir, "ar.xml", lineComparer);
+      CldrUtility.generateBat(sourceDir, "ar_AE.xml", targetDir, "ar.xml", lineComparer);
     }
     return lineComparer;
   }

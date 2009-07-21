@@ -103,7 +103,7 @@ public class TimezoneFormatter extends UFormat  {
 		desiredLocaleFile = resolvedLocaleFile;
 		inputLocaleID = desiredLocaleFile.getLocaleID();
 		String hourFormatString = getStringValue("//ldml/dates/timeZoneNames/hourFormat");
-		String[] hourFormatStrings = Utility.splitArray(hourFormatString,';');
+		String[] hourFormatStrings = CldrUtility.splitArray(hourFormatString,';');
 		ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder().setCldrFile(desiredLocaleFile);
 		hourFormatPlus = icuServiceBuilder.getDateFormat("gregorian",0, 1);
 		hourFormatPlus.applyPattern(hourFormatStrings[0]);
@@ -122,7 +122,7 @@ public class TimezoneFormatter extends UFormat  {
 			singleCountriesList = (String) new XPathParts(null, null).set(temp)
 					.findAttributeValue("singleCountries", "list");
 		}
-        singleCountriesSet = new TreeSet(Utility.splitList(singleCountriesList, ' '));
+        singleCountriesSet = new TreeSet(CldrUtility.splitList(singleCountriesList, ' '));
 
 		/* not needed
 		hoursFormat = new MessageFormat(desiredLocaleFile.getStringValue(

@@ -12,7 +12,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.Counter;
 import com.ibm.icu.dev.test.util.UnicodeMap;
-import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.ICUPropertyFactory;
@@ -388,7 +388,7 @@ navboost, pagerank, language, encoding, url
       long runningTotal = 0;
       double threshold = standardDeviation[4] * total;
       
-      PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, "/char_frequencies/" + lang + (MARKUP ? "_markup" : "") + ".txt");
+      PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, "/char_frequencies/" + lang + (MARKUP ? "_markup" : "") + ".txt");
       out.println("lang\trank\tcount\tlangPPB\tNFC\tcat\tscript\tcodepoint\tchar\tname");
 
       writeLine(out, lang, 0, total, total, 0, null);

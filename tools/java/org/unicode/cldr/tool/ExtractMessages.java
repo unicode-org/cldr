@@ -2,7 +2,7 @@ package org.unicode.cldr.tool;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.Relation;
+import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLFileReader;

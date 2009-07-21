@@ -12,7 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.IsoCurrencyParser;
-import org.unicode.cldr.util.Relation;
+import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.IsoCurrencyParser.Data;

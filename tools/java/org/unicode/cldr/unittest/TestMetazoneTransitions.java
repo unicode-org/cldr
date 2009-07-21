@@ -1,7 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.Relation;
+import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 

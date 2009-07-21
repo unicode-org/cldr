@@ -9,7 +9,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.tool.GenerateTransformCharts;
 import org.unicode.cldr.util.CollationMapMaker;
 import org.unicode.cldr.util.Log;
-import org.unicode.cldr.util.Relation;
+import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.Utility;
 
 import com.ibm.icu.dev.test.util.CaseIterator;

@@ -1,7 +1,7 @@
 package org.unicode.cldr.tool;
 
 import org.unicode.cldr.util.Iso639Data;
-import org.unicode.cldr.util.Relation;
+import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;

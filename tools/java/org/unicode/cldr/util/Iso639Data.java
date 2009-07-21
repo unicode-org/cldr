@@ -3,15 +3,15 @@ package org.unicode.cldr.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
+
+import com.ibm.icu.dev.test.util.Relation;
 
 public class Iso639Data {
 

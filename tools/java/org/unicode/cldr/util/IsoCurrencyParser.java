@@ -16,6 +16,8 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 
+import com.ibm.icu.dev.test.util.Relation;
+
 public class IsoCurrencyParser {
   static Map<String,String> iso4217CountryToCountryCode = new TreeMap();
   static Set<String> exceptionList = new LinkedHashSet<String>();

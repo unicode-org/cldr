@@ -24,7 +24,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DelegatingIterator;
 import org.unicode.cldr.util.EscapingUtilities;
-import org.unicode.cldr.util.Relation;
+import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.CLDRFile.Factory;

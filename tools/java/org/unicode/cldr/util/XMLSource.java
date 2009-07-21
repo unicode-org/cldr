@@ -7,14 +7,7 @@
 
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.util.CLDRFile.SimpleXMLSource;
-import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.XPathParts.Comments;
-
-import com.ibm.icu.util.Freezable;
-
 import java.io.File;
-import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -26,6 +19,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.util.CLDRFile.SimpleXMLSource;
+import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.XPathParts.Comments;
+
+import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.util.Freezable;
 
 public abstract class XMLSource implements Freezable {
   public static final String CODE_FALLBACK_ID = "code-fallback";

@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import org.omg.CORBA.TRANSIENT;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
+import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.PluralRules;

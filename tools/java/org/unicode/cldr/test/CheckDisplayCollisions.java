@@ -1,20 +1,6 @@
 package org.unicode.cldr.test;
 
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CheckCLDR.Phase;
-import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Relation;
-import org.unicode.cldr.util.XPathParts;
-
-import com.ibm.icu.dev.test.util.XEquivalenceMap;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.util.TimeZone;
-
-import java.sql.ResultSet;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -24,6 +10,16 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.XPathParts;
+
+import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.test.util.XEquivalenceMap;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.util.TimeZone;
 
 public class CheckDisplayCollisions extends CheckCLDR {
   String[] typesICareAbout = {

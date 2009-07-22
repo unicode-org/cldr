@@ -3,6 +3,8 @@ package org.unicode.cldr.test;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Pair;
 import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.impl.Utility;
+
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.CldrUtility;
@@ -192,7 +194,7 @@ public class TestSupplementalData {
       Set<String> languages = supplementalData.getTerritoryToLanguages(territory);
       Set<String> otherLanguages = otherTerritoryToLanguages.getAll(territory);
       if (otherLanguages == null) otherLanguages = Collections.EMPTY_SET;
-      if (!CldrUtility.checkEquals(languages, otherLanguages)) {
+      if (!Utility.objectEquals(languages, otherLanguages)) {
         Set<String> languagesLeftover = new TreeSet<String>(languages);
         languagesLeftover.removeAll(otherLanguages);
         Set<String> otherLanguagesLeftover = new TreeSet<String>(otherLanguages);

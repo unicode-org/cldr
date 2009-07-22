@@ -8,6 +8,7 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 
 
@@ -95,7 +96,7 @@ public class Row<C0, C1, C2, C3, C4> implements java.lang.Comparable, Cloneable,
   public int hashCode() {
     int sum = items.length;
     for (Object item : items) {
-      sum = sum*37 + CldrUtility.checkHash(item);
+      sum = sum*37 + Utility.checkHash(item);
     }
     return sum;
   }
@@ -108,7 +109,7 @@ public class Row<C0, C1, C2, C3, C4> implements java.lang.Comparable, Cloneable,
       }
       int i = 0;
       for (Object item : items) {
-        if (!CldrUtility.checkEquals(item, that.items[i++])) {
+        if (!Utility.objectEquals(item, that.items[i++])) {
           return false;
         }
       }
@@ -127,7 +128,7 @@ public class Row<C0, C1, C2, C3, C4> implements java.lang.Comparable, Cloneable,
     }
     int i = 0;
     for (Object item : items) {
-      result = CldrUtility.checkCompare((Comparable)item, (Comparable)that.items[i++]);
+      result = Utility.checkCompare(((Comparable)item), ((Comparable)that.items[i++]));
       if (result != 0) {
         return result;
       }

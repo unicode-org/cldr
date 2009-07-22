@@ -35,6 +35,7 @@ import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -1151,30 +1152,6 @@ public class CldrUtility {
     System.out.println("Arguments: " + join(args," ")); //  + (props == null ? "" : " " + props));
   }
 
-  public static boolean checkEquals(Object a, Object b) {
-    if (a == null) {
-      return b == null;
-    }
-    if (b == null) {
-      return false;
-    }
-    return a.equals(b);
-  }
-
-  public static <T> int checkCompare(Comparable a, Comparable b) {
-    if (a == null) {
-      return b == null ? 0 : -1;
-    }
-    if (b == null) {
-      return 1;
-    }
-    return a.compareTo(b);
-  }
-
-  public static int checkHash(Object a) {
-    return a == null ? 0 : a.hashCode();
-  }
-
   public class IterableComparator<T extends Iterable<Comparable>> implements Comparator<T> {
     public int compare(T o1, T o2) {
       // TODO Auto-generated method stub
@@ -1265,7 +1242,7 @@ public class CldrUtility {
       if (result.length() != 0) {
         result.append(separator);
       }
-      result.append(com.ibm.icu.impl.Utility.hex(bytes[i]&0xFF,2));
+      result.append(Utility.hex(bytes[i]&0xFF,2));
     }
     return result.toString();
   }
@@ -1325,47 +1302,5 @@ public class CldrUtility {
         output.println(line);
       }
     }
-  }
-
-  public static String hex(CharSequence input) {
-    return hex(input, ",", new StringBuilder()).toString();
-  }
-
-  public static String hex(CharSequence input, CharSequence separator) {
-    return hex(input, separator, new StringBuilder()).toString();
-  }
-
-  public static StringBuilder hex(CharSequence input, CharSequence separator, StringBuilder result) {
-    int cp;
-    for (int i = 0; i < input.length(); i += UTF16.getCharCount(cp)) {
-      cp = UTF16.charAt(input, i);
-      if (i != 0) {
-        result.append(separator);
-      }
-      hex(cp, 4, result);
-    }
-    return result;
-  }
-
-  public static String hex(int cp) {
-    return hex(cp, 4, new StringBuilder()).toString();
-  }
-
-  public static String hex(int cp, int minWidth) {
-    return hex(cp, minWidth, new StringBuilder()).toString();
-  }
-
-  private static StringBuilder hex(int cp, int minWidth, StringBuilder result) {
-    String hex = Integer.toHexString(cp).toUpperCase(Locale.ENGLISH);
-    for (int i = minWidth - hex.length(); i > 0; --i) {
-      result.append('0');
-    }
-    return result.append(hex);
-  }
-
-  public static <T> boolean equals(T value, T oldValue) {
-    return value == null ? 
-            oldValue == null ? true : false : 
-              oldValue == null ? false : value.equals(oldValue);
   }
 }

@@ -9,6 +9,7 @@
 
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 
 public final class Pair<T extends Comparable, U extends Comparable> implements java.lang.Comparable, Cloneable, Freezable {
@@ -64,13 +65,13 @@ public final class Pair<T extends Comparable, U extends Comparable> implements j
   }
   
   public int hashCode() {
-    return CldrUtility.checkHash(first) * 37 + CldrUtility.checkHash(second);
+    return Utility.checkHash(first) * 37 + Utility.checkHash(second);
   }
   
   public boolean equals(Object other) {
     try {
       Pair that = (Pair)other;
-      return CldrUtility.checkEquals(first, that.first) && CldrUtility.checkEquals(second, that.second);
+      return Utility.objectEquals(first, that.first) && Utility.objectEquals(second, that.second);
     } catch (Exception e) {
       return false;
     }
@@ -78,9 +79,9 @@ public final class Pair<T extends Comparable, U extends Comparable> implements j
   
   public int compareTo(Object other) {
     Pair that = (Pair)other;
-    int trial = CldrUtility.checkCompare(first, that.first);
+    int trial = Utility.checkCompare(first, that.first);
     if (trial != 0) return trial;
-    return CldrUtility.checkCompare(second, that.second);
+    return Utility.checkCompare(second, that.second);
   }
   
   public Object clone() {

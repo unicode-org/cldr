@@ -33,6 +33,7 @@ import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.impl.Utility;
 
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.XPathParts.Comments;
@@ -1707,7 +1708,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     }
 
     public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
-      if (LOG_PROGRESS) Log.logln(LOG_PROGRESS, "ignorableWhitespace length: " + length + ": " + CldrUtility.hex(new String(ch, start,length)));
+      if (LOG_PROGRESS) Log.logln(LOG_PROGRESS, "ignorableWhitespace length: " + length + ": " + Utility.hex(new String(ch, start,length)));
       //if (lastActiveLeafNode != null) {
       for (int i = start; i < start + length; ++i) {
         if (ch[i] == '\n') {

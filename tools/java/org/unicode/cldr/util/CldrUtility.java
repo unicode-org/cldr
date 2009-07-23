@@ -975,7 +975,7 @@ public class CldrUtility {
     java.io.InputStream is = null;
     try {
       is = 
-        com.ibm.icu.impl.ICUData.getRequiredStream(Class.forName(CldrUtility.UTIL_CLASS_DIR+".Utility"), "data/" + name);
+        com.ibm.icu.impl.ICUData.getRequiredStream(Class.forName(CldrUtility.UTIL_CLASS_DIR+".CldrUtility"), "data/" + name);
     } catch (ClassNotFoundException cnf) { 
 
       throw new FileNotFoundException("Couldn't load " + CldrUtility.UTIL_CLASS_DIR + "." + name + " - ClassNotFoundException." + cnf.toString());

@@ -136,6 +136,7 @@ $ValidAlways = [$ExceptionPvalid $BackwardCompatiblePvalid $LDH]
 $InvalidLetterDigits = [$ExceptionDisallowed $BackwardCompatibleDisallowed $Unassigned $Unstable $IgnorableProperties $IgnorableBlocks $OldHangulJamo]
 
 $Valid = [$ValidAlways $Context [$LetterDigits - $InvalidLetterDigits]]
+$Valid2 = [[:nfkc_casefolded:]-[:c:]-[:z:]-[:s:]-[:p:]-[:nl:]-[:no:]-[:me:]-[:di:]-[:HST=L:]-[:HST=V:]-[:HST=V:]-[:block=Combining_Diacritical_Marks_For_Symbols:]-[:block=Musical_Symbols:]-[:block=Ancient_Greek_Musical_Notation:]-[\u0640\u07FA\u302E\u302F\u3031-\u3035\u303B][:JoinControl:][\u00DF\u03C2\u06FD\u06FE\u0F0B\u3007][\u002D\u00B7\u0375\u05F3\u05F4\u30FB]]
 
 $Invalid = [^ $Valid]
 
@@ -197,13 +198,13 @@ $L $T* ; \u200C $T* $R ; next
 $Lt = [:General_Category=Letter:]
 $V = [:Canonical_Combining_Class=Virama:]
 
-$deva = [:sc=deva:]
-$Ndeva = [^$deva]
-$beng = [:sc=beng:]
-$Nbeng = [^$beng]
-$guru = [:sc=guru:]
-$Nguru = [^$guru]
-$noVirama = [^ $deva $beng $guru]
+# $deva = [:sc=deva:]
+# $Ndeva = [^$deva]
+# $beng = [:sc=beng:]
+# $Nbeng = [^$beng]
+# $guru = [:sc=guru:]
+# $Nguru = [^$guru]
+# $noVirama = [^ $deva $beng $guru]
 
 # WARNING: There is a nasty bug in Java regex before 1.6; the work-around is to do the negations
 # above, instead of in the regexes.
@@ -211,7 +212,7 @@ $noVirama = [^ $deva $beng $guru]
 # To do the script test for both ZWNJ and ZWJ, use the following.
 # The first line lists all the acceptable scripts
 
-Title: ZWJ/ZWNJ apply to letter+virama of same script (and limited scripts)
+Title: ZWJ/ZWNJ apply to letter+virama
 # WARNING: rule must come after Arabic!
 
 # $noVirama ; [\u200C\u200D] ; fail
@@ -219,9 +220,9 @@ Title: ZWJ/ZWNJ apply to letter+virama of same script (and limited scripts)
 # The remainder makes sure that each script is paired
 # Subsequent rules will make sure that there are two characters
 
-$Ndeva $deva; [\u200C\u200D] ; fail
-$Nbeng $beng; [\u200C\u200D] ; fail
-$Nguru $guru; [\u200C\u200D] ; fail
+# $Ndeva $deva; [\u200C\u200D] ; fail
+# $Nbeng $beng; [\u200C\u200D] ; fail
+# $Nguru $guru; [\u200C\u200D] ; fail
 
 # Now we do the script-independent rules
 
@@ -245,47 +246,26 @@ l ; \u00B7 l ; next
 \u00B7 ; fail
 
 # Appendix A.5. GREEK LOWER NUMERAL SIGN (KERAIA)
-# Should remove - not worth distinguishing
-# Bogus rule, since doesn't allow with numbers, hyphen, etc.
+Title: The script of the following character MUST be Greek.
+$grek = [:script=greek:]
+\u0375 ; $grek ; next
+\u0375 ; fail
 
-# Appendix A.6. MODIFIER LETTER PRIME
-# Should remove - not worth distinguishing
-# Bogus rule, since doesn't allow with numbers, hyphen, etc.
-
-# Appendix A.7. COMBINING CYRILLIC TITLO
-# Should remove - not worth distinguishing
-# Bogus rule, since doesn't allow with numbers, hyphen, etc.
-
-Title: Appendix A.8. HEBREW PUNCTUATION GERESH - \u05F3
-# Should remove - not worth distinguishing
-# Can be final (see http://www.alvestrand.no/pipermail/idna-update/2008-November/002964.html), so changed rules
+Title: Appendix A.6. HEBREW PUNCTUATION GERESH - \u05F3 - The script of the preceding character MUST be Hebrew.
 
 $hebr = [:script=hebrew:]
-
 $hebr ; \u05F3 ; next
 \u05F3 ; fail
 
-Title: Appendix A.9. HEBREW PUNCTUATION GERSHAYIM - \u05F4
-# Should remove - not worth distinguishing
+Title: Appendix A.7. HEBREW PUNCTUATION GERSHAYIM - \u05F4 - The script of the preceding character MUST be Hebrew.
 
-$hebr ; \u05F4 $hebr ; next
+$hebr ; \u05F4 ; next
 \u05F4 ; fail
 
-# Appendix A.5. GREEK LOWER NUMERAL SIGN (KERAIA)
-# Should remove - not worth distinguishing
-# Bogus rule, since doesn't allow with numbers, hyphen, etc.
-
-# Appendix A.10. IDEOGRAPHIC ITERATION MARK
-# Should remove - not worth distinguishing
-# Rules also broken, since used with other scripts
-
-# Appendix A.11. VERTICAL IDEOGRAPHIC ITERATION MARK
-# Should remove - not worth distinguishing
-# Rules also broken, since used with other scripts
-
-# Appendix A.12. KATAKANA MIDDLE DOT
-# Should remove - not worth distinguishing.
-# Rules also broken, since used with other scripts
+Title: Appendix A.12. KATAKANA MIDDLE DOT - \u30FB - Adjacent characters MUST be Hiragana, Katakana, or Han.
+$han = [[:script=Hiragana:][:script=Katakana:][:script=Han:]]
+$han ; \u30FB $han; next
+\u30FB ; fail
 
 Title: Appendix A.13. ARABIC-INDIC DIGITS - 0660..0669
 # Rules broken, since they simply forbid them entirely

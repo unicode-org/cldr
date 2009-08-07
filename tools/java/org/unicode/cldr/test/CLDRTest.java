@@ -1206,10 +1206,10 @@ public class CLDRTest extends TestFmwk {
 		int cp = 0;
 		// link any digits
 		if (DIGIT.contains(UTF16.charAt(value, current-1))) {
-			current = CldrUtility.scan(DIGIT, value, current);		
+			current = DIGIT.findIn(value, current, true);		
 		}
 		// continue collecting any additional characters that are M or grapheme extend
-		return CldrUtility.scan(XGRAPHEME, value, current);
+		return XGRAPHEME.findIn(value, current, true);
 	}
 }
 

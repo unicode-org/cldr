@@ -414,7 +414,7 @@ public class TestMisc {
       System.out.println(title);
       System.out.format("\tSource Set: %s" + CldrUtility.LINE_SEPARATOR, sourceSet);
       System.out.format("\tDon't Cares: %s" + CldrUtility.LINE_SEPARATOR, dontCares);
-      UnicodeSet spanned = CldrUtility.addDontCareSpans(new UnicodeSet(sourceSet), dontCares);
+      UnicodeSet spanned = new UnicodeSet(sourceSet).addBridges(dontCares);
       spanned = spanned.complement().complement();
       String spannedString = spanned.toString();
       String unescapedString = spanned.toPattern(false);

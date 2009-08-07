@@ -70,7 +70,7 @@ class GenerateStatistics {
 			if (CLDRFile.isSupplementalName(localeID)) continue;
 			if (localeID.equals("root"))
 				continue; // skip root
-			System.out.println("Collecting info for:\t" + CldrUtility.replace(localeID,"_","\t"));
+			System.out.println("Collecting info for:\t" + localeID.replace("_", "\t"));
 			boolean draft = false; // dc.isDraft(localeName);
 			if (draft) {
 				draftLocaleCount++;

@@ -14,6 +14,7 @@ import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DecimalFormat;
@@ -870,8 +871,8 @@ public class GenerateEnums {
       prefix = CODE_INDENT + " *" + prefix.substring(lastFit);
     }
     out.print(prefix);
-    out.print(CldrUtility.repeat(" ", lineLength
-        - (prefix.length() + printedCodeName.length() + 1)));
+    out.print(Utility.repeat(" ", (lineLength
+    - (prefix.length() + printedCodeName.length() + 1))));
     out.println(printedCodeName + ",");
   }
 

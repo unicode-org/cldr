@@ -50,9 +50,8 @@ public class TestUCharacterIterator {
     }
 
     @Override
-    public void setIndex(int index) {
-      // TODO Auto-generated method stub
-      
+    public Utf8Iterator setIndex(int index) {
+      return this;
     }
 
     @Override

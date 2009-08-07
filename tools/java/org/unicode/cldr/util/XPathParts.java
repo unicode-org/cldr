@@ -7,6 +7,7 @@
 package org.unicode.cldr.util;
 
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.impl.Utility;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -74,20 +75,20 @@ public class XPathParts {
     int limit = findFirstDifference(lastFullXPath);
     // write the end of the last one
     for (int i = lastFullXPath.size()-2; i >= limit; --i) {
-      CldrUtility.indent(pw, i);
+      pw.print(Utility.repeat("\t", i));
       pw.println(lastFullXPath.elements.get(i).toString(XML_CLOSE));
     }
     if (v == null) return this; // end
     // now write the start of the current
     for (int i = limit; i < size()-1; ++i) {
       filteredXPath.writeComment(pw, xpath_comments, i+1, Comments.PREBLOCK);
-      CldrUtility.indent(pw, i);
+      pw.print(Utility.repeat("\t", i));
       pw.println(elements.get(i).toString(XML_OPEN));
     }
     filteredXPath.writeComment(pw, xpath_comments, size(), Comments.PREBLOCK);
 
     // now write element itself
-    CldrUtility.indent(pw, size()-1);
+    pw.print(Utility.repeat("\t", (size()-1)));
     Element e = elements.get(size()-1);
     String eValue = v;
     if (eValue.length() == 0) {
@@ -109,7 +110,7 @@ public class XPathParts {
     if (!result.contains("\n")) {
       return result;
     }
-    String spacer = "\n" + CldrUtility.repeat("\t", count);
+    String spacer = "\n" + Utility.repeat("\t", count);
     result = result.replace("\n", spacer);
     return result;
   }
@@ -832,7 +833,7 @@ public class XPathParts {
     // now write the comment
     if (comment.length() == 0) return;
     if (blockComment) {
-      CldrUtility.indent(pw, indent);
+      pw.print(Utility.repeat("\t", indent));
     } else {
       pw.print(" ");
     }
@@ -856,12 +857,12 @@ public class XPathParts {
           line = line.trim();
           pw.print(" ");
         } else if (indent != 0) {
-          CldrUtility.indent(pw, indent+1);
+          pw.print(Utility.repeat("\t", (indent+1)));
           pw.print(" ");
         }
         pw.println(line);
       }
-      CldrUtility.indent(pw, indent);
+      pw.print(Utility.repeat("\t", indent));
     } else {
       pw.print(" ");
       pw.print(comment.trim());

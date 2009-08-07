@@ -31,7 +31,7 @@ public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
   }
   
   public Counter2(boolean naturalOrdering) {
-    this(naturalOrdering ? new CldrUtility.ComparableComparator<T>() : null);
+    this(naturalOrdering ? new CldrUtility.ComparableComparator() : null);
   }
 
   public Counter2(Comparator<T> comparator) {

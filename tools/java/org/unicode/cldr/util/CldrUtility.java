@@ -35,6 +35,7 @@ import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.impl.UnicodeRegex;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
@@ -59,7 +60,6 @@ public class CldrUtility {
    */
   public static class VariableReplacer {
     // simple implementation for now
-    Comparator c;
     private Map<String, String> m = new TreeMap<String, String>(Collections.reverseOrder());
     public VariableReplacer add(String variable, String value) {
       m.put(variable, value);
@@ -410,30 +410,6 @@ public class CldrUtility {
   }
 
   /**
-   * Utility to indent by a certain number of tabs.
-   * @param out
-   * @param count
-   */
-  static void indent(PrintWriter out, int count) {
-    out.print(repeat("\t", count));
-  }
-
-  /**
-   * Utility to indent by a certain number of tabs.
-   * @param s
-   * @param count
-   */
-  public static String repeat(String s, int count) {
-    if (count == 0) return "";
-    if (count == 1) return s;
-    StringBuffer result = new StringBuffer();
-    for (int i = 0; i < count; ++i) {
-      result.append(s);
-    }
-    return result.toString();
-  }
-
-  /**
    * Protect a collection (as much as Java lets us!) from modification.
    * Really, really ugly code, since Java doesn't let us do better.
    */
@@ -585,64 +561,6 @@ public class CldrUtility {
   }
 
   /**
-   * Scan the string value from index forward. Stop at any point where the character
-   * at index is not in the UnicodeSet.
-   */
-  public static int scan(UnicodeSet uset, String value, int index) {
-    int cp;
-    for (; index < value.length(); index += UTF16.getCharCount(cp)) {
-      cp = UTF16.charAt(value, index);
-      if (!uset.contains(cp)) break;
-    }
-    return index;
-  }
-
-  /**
-   * Scan the string value from index forward. Stop at any point where the character
-   * BEFORE index is not in the UnicodeSet.
-   */
-  public static int scanBack(UnicodeSet uset, String value, int index) {
-    int cp;
-    for (; index >= 0; index -= UTF16.getCharCount(cp)) {
-      cp = UTF16.charAt(value, index - 1);
-      if (!uset.contains(cp)) {
-        break;
-      }
-    }
-    return index;
-  }
-
-  /**
-   * Scan the string value from index forward. Stop at any point where the character
-   * at index is in the UnicodeSet.
-   */
-  public static int scanNot(UnicodeSet uset, String value, int index) {
-    int cp;
-    for (; index < value.length(); index += UTF16.getCharCount(cp)) {
-      cp = UTF16.charAt(value, index);
-      if (uset.contains(cp)) break;
-    }
-    return index;
-  }
-
-  /**
-   * Simplify the ranges in a Unicode set by merging any ranges that are only separated by characters in the dontCare set. 
-   * For example, the ranges: \\u2E80-\\u2E99\\u2E9B-\\u2EF3\\u2F00-\\u2FD5\\u2FF0-\\u2FFB\\u3000-\\u303E change to \\u2E80-\\u303E if the dontCare set includes unassigned characters.
-   * @param input Set to be modified
-   * @param dontCare Set with the don't-care characters for spanning
-   * @return the input set, modified
-   */
-  public static UnicodeSet addDontCareSpans(UnicodeSet input, UnicodeSet dontCare) {
-    UnicodeSet notInInput = new UnicodeSet(input).complement();
-    for (UnicodeSetIterator it = new UnicodeSetIterator(notInInput); it.nextRange();) {
-      if (it.codepoint != 0 && it.codepointEnd != 0x10FFFF && dontCare.contains(it.codepoint,it.codepointEnd)) {
-        input.add(it.codepoint,it.codepointEnd);
-      }
-    }
-    return input;
-  }
-
-  /**
    * Convert a UnicodeSet into a string that can be embedded into a Regex. Handles strings that are in the UnicodeSet, Supplementary ranges, and escaping
    * @param source  The source set
    * @param escaper A transliterator that is used to escape the characters according to the requirements of the regex.
@@ -786,91 +704,21 @@ public class CldrUtility {
     }
   }
 
-  public static class UnicodeSetComparator implements Comparator {
-    UnicodeSetIterator ait = new UnicodeSetIterator();
-    UnicodeSetIterator bit = new UnicodeSetIterator();
-    public int compare(Object o1, Object o2) {
-      if (o1 == o2) return 0;
-      if (o1 == null) return -1;
-      if (o2 == null) return 1;
-      UnicodeSet a = (UnicodeSet)o1;
-      UnicodeSet b = (UnicodeSet)o2;
-      if (a.size() != b.size()) {
-        return a.size() < b.size() ? -1 : 1;
-      }
-      ait.reset(a);
-      bit.reset(b);
-      while (ait.nextRange()) {
-        bit.nextRange();
-        if (ait.codepoint != bit.codepoint) {
-          return ait.codepoint < bit.codepoint ? -1 : 1;
-        }
-        if (ait.codepoint == UnicodeSetIterator.IS_STRING) {
-          int result = ait.string.compareTo(bit.string);
-          if (result != 0) return result;
-        } else if (ait.codepointEnd != bit.codepointEnd) {
-          return ait.codepointEnd < bit.codepointEnd ? -1 : 1;
-        }
-      }
-      return 0;
+  public static class UnicodeSetComparator implements Comparator<UnicodeSet> {
+    public int compare(UnicodeSet o1, UnicodeSet o2) {
+        return o1.compareTo(o2);
     }
   }
 
-  public static class CollectionComparator implements Comparator {
-    boolean sizeFirst = true;
-    Comparator<Object> comparator = null;
-    public int compare(Object o1, Object o2) {
-      if (o1 == o2) return 0;
-      if (o1 == null) return -1;
-      if (o2 == null) return 1;
-      Collection c1 = ((Collection)o1);
-      Collection c2 = ((Collection)o2);
-      Iterator it1 = c1.iterator();
-      Iterator it2 = c2.iterator();
-      if (sizeFirst) {
-        if (c1.size() != c2.size()) {
-          return c1.size() < c2.size() ? -1 : 1;
-        }
-      }
-      while (true) {
-        if (!it1.hasNext()) {
-          return it2.hasNext() ? 0 : -1;
-        }
-        if (!it2.hasNext()) {
-          return 1;
-        }
-        Object obj1 = it1.next();
-        Object obj2 = it2.next();
-        int result = comparator != null ? comparator.compare(obj1, obj2) : ((Comparable<Object>)obj1).compareTo(obj2);
-        if (result != 0) {
-          return result;
-        }
-      }
+  public static class CollectionComparator<T extends Comparable<T>> implements Comparator<Collection<T>> {
+    public int compare(Collection<T> o1, Collection<T> o2) {
+        return UnicodeSet.compare(o1, o2, UnicodeSet.ComparisonStyle.SHORTER_FIRST);
     }
-
   }
 
-  public static class ComparableComparator<T> implements Comparator<T> {
-    @SuppressWarnings("unchecked")
+  public static class ComparableComparator<T extends Comparable<T>> implements Comparator<T> {
     public int compare(T arg0, T arg1) {
-      return arg0 == null ? (arg1 == null ? 0 : -1) 
-              : arg1 == null ? 1 
-                      : ((Comparable<T>) arg0).compareTo(arg1);
-    }
-  }
-
-  /**
-   * Replaces all occurances of piece with replacement, and returns new String
-   * Dumb implementation for now.
-   */
-  public static String replace(String source, String piece, String replacement) {
-    if (source == null || source.length() < piece.length()) return source;
-    int pos = 0;
-    while (true) {
-      pos = source.indexOf(piece, pos);
-      if (pos < 0) return source;
-      source = source.substring(0,pos) + replacement + source.substring(pos + piece.length());
-      pos += replacement.length();
+        return Utility.checkCompare(arg0, arg1);
     }
   }
 

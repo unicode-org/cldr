@@ -40,6 +40,7 @@ import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;
@@ -1185,7 +1186,7 @@ public class CLDRModify {
             if (item instanceof DateTimePatternGenerator.VariableField) {
               String itemString = item.toString();
               if (itemString.charAt(0) == 'z') {
-                list.set(i, new VariableField(CldrUtility.repeat("v", itemString.length())));
+                list.set(i, new VariableField(Utility.repeat("v", itemString.length())));
                 gotChange = true;
               }
             }
@@ -1307,7 +1308,7 @@ public class CLDRModify {
         String newRef = oldref_newref.get(ref);
         if (newRef == null) {
           newRef = String.valueOf(currentRef++);
-          newRef = "R" + CldrUtility.repeat("0", 3 - newRef.length()) + newRef;
+          newRef = "R" + Utility.repeat("0", (3 - newRef.length())) + newRef;
           oldref_newref.put(ref, newRef);
         }
         return newRef;

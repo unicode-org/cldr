@@ -364,7 +364,7 @@ public class CheckDates extends CheckCLDR {
     if (value.length() <= 1) return value.length();
     int current = 0;
     // skip any leading digits, for CJK
-    current = CldrUtility.scan(DIGIT, value, current);
+    current = DIGIT.findIn(value, current, true);
     
     bi.setText(value);
     if (current != 0) bi.preceding(current+1); // get safe spot, possibly before
@@ -377,7 +377,7 @@ public class CheckDates extends CheckCLDR {
       return value.length();
     }
     // continue collecting any additional characters that are M or grapheme extend
-    current = CldrUtility.scan(XGRAPHEME, value, current);
+    current = XGRAPHEME.findIn(value, current, true);
     // special case: allow 11 or 12
     //current = Utility.scan(DIGIT, value, current);		
 //  if (current != value.length() && DIGIT.containsAll(value) && value.length() == 2) {

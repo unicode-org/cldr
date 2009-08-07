@@ -42,6 +42,7 @@ import org.unicode.cldr.util.ZoneParser.ZoneLine;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
@@ -1192,7 +1193,7 @@ public class Misc {
 		Collection s = (Collection) groups.get(key);		
 		String element = levelNames[indent];
 		
-		if (log != null) log.print(CldrUtility.repeat("\t", indent) + "<" + element + " n=\"" + name + (showCode ? " (" + key + ")" : "") + "\"");
+		if (log != null) log.print(Utility.repeat("\t", indent) + "<" + element + " n=\"" + name + (showCode ? " (" + key + ")" : "") + "\"");
 		boolean gotZones = true;
 		if (s == null) {
 			s = (Collection) zone_countrySet.get(key);
@@ -1220,7 +1221,7 @@ public class Misc {
 			String value = (String) reorder.get(key);
 			printWorldTimezoneCategorization(log, localization, groups, value, indent + 1, seen, col, showCode, zone_countrySet, missing);
 		}
-		if (log != null) log.println(CldrUtility.repeat("\t", indent) + "</" + element + ">");
+		if (log != null) log.println(Utility.repeat("\t", indent) + "</" + element + ">");
 	}
 	
 	/**

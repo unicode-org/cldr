@@ -25,6 +25,7 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 
 public abstract class XMLSource implements Freezable {
@@ -907,17 +908,17 @@ public abstract class XMLSource implements Freezable {
     private void fillKeys(int level, XMLSource currentSource, Alias alias, List<Alias> excludedAliases, Set<String> resultKeySet) {
       if (TRACE_FILL) {
         if (level > MAX_LEVEL) throw new IllegalArgumentException("Stack overflow");
-        System.out.println(CldrUtility.repeat(TRACE_INDENT,level) + "mySource.getLocaleID(): " + currentSource.getLocaleID());
-        System.out.println(CldrUtility.repeat(TRACE_INDENT,level) + "currentSource.getClass().getName(): " + currentSource.getClass().getName());
-        System.out.println(CldrUtility.repeat(TRACE_INDENT,level) + "alias: " + alias);
-        System.out.println(CldrUtility.repeat(TRACE_INDENT,level) + "cachedKeySet.size(): " + resultKeySet.size());
-        System.out.println(CldrUtility.repeat(TRACE_INDENT,level) + "excludedAliases: " + excludedAliases);
+        System.out.println(Utility.repeat(TRACE_INDENT, level) + "mySource.getLocaleID(): " + currentSource.getLocaleID());
+        System.out.println(Utility.repeat(TRACE_INDENT, level) + "currentSource.getClass().getName(): " + currentSource.getClass().getName());
+        System.out.println(Utility.repeat(TRACE_INDENT, level) + "alias: " + alias);
+        System.out.println(Utility.repeat(TRACE_INDENT, level) + "cachedKeySet.size(): " + resultKeySet.size());
+        System.out.println(Utility.repeat(TRACE_INDENT, level) + "excludedAliases: " + excludedAliases);
       } else if(level > MAX_LEVEL) {
-          System.out.println(CldrUtility.repeat(TRACE_INDENT,level) + "mySource.getLocaleID(): " + currentSource.getLocaleID());
-          System.out.println(CldrUtility.repeat(TRACE_INDENT,level) + "currentSource.getClass().getName(): " + currentSource.getClass().getName());
-          System.out.println(CldrUtility.repeat(TRACE_INDENT,level) + "alias: " + alias);
-          System.out.println(CldrUtility.repeat(TRACE_INDENT,level) + "cachedKeySet.size(): " + resultKeySet.size());
-          System.out.println(CldrUtility.repeat(TRACE_INDENT,level) + "excludedAliases: " + excludedAliases);
+          System.out.println(Utility.repeat(TRACE_INDENT, level) + "mySource.getLocaleID(): " + currentSource.getLocaleID());
+          System.out.println(Utility.repeat(TRACE_INDENT, level) + "currentSource.getClass().getName(): " + currentSource.getClass().getName());
+          System.out.println(Utility.repeat(TRACE_INDENT, level) + "alias: " + alias);
+          System.out.println(Utility.repeat(TRACE_INDENT, level) + "cachedKeySet.size(): " + resultKeySet.size());
+          System.out.println(Utility.repeat(TRACE_INDENT, level) + "excludedAliases: " + excludedAliases);
           try {
               throw new Throwable("XMLSource recursion too deep: " + level);
           } catch(Throwable t) {
@@ -956,7 +957,7 @@ public abstract class XMLSource implements Freezable {
       // recurse on the parent, unless at the end of the line (constructedItems
       if (currentSource != constructedItems) { // end of the line?
         if (TRACE_FILL) {
-          System.out.println(CldrUtility.repeat(TRACE_INDENT,level) + "Recursing [#"+level+"] on Parent: ");
+          System.out.println(Utility.repeat(TRACE_INDENT, level) + "Recursing [#"+level+"] on Parent: ");
         }
         XMLSource parentSource = constructedItems; // default
         String parentID = LocaleIDParser.getParent(currentSource.getLocaleID());
@@ -971,7 +972,7 @@ public abstract class XMLSource implements Freezable {
       // now recurse on the aliases we found
       if (collectedAliases != null) for (Iterator<Alias> it = collectedAliases.iterator(); it.hasNext();) {
         if (TRACE_FILL) {
-          System.out.println(CldrUtility.repeat(TRACE_INDENT,level) + "Recursing [#"+level+"] on Alias: ");
+          System.out.println(Utility.repeat(TRACE_INDENT, level) + "Recursing [#"+level+"] on Alias: ");
         }
         Alias foundAlias = it.next();
         // this is important. If the new source is null, use *this* (the desired locale)
@@ -982,7 +983,7 @@ public abstract class XMLSource implements Freezable {
         fillKeys(level+1, aliasSource, foundAlias, null, resultKeySet);
       }
       if (TRACE_FILL) {
-        System.out.println(CldrUtility.repeat(TRACE_INDENT,level) + "=> cachedKeySet.size():  [#"+level+"] " + resultKeySet.size());
+        System.out.println(Utility.repeat(TRACE_INDENT, level) + "=> cachedKeySet.size():  [#"+level+"] " + resultKeySet.size());
       }
     }
     

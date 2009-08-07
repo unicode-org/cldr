@@ -16,6 +16,7 @@ import org.unicode.cldr.util.Dictionary.Matcher.Status;
 import org.unicode.cldr.util.ReferenceStringSearch.ExtendedRange;
 import org.unicode.cldr.util.ReferenceStringSearch.Range;
 
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
@@ -99,7 +100,7 @@ public class TestReferenceStringSearch {
     Timer directTimer = new Timer();
     
     for (int count = 1; count <= maxCount; count *= 2) {
-      String bigText = CldrUtility.repeat("The quick brown fox jumped over the L\u00E3zy dog. ", count);
+      String bigText = Utility.repeat("The quick brown fox jumped over the L\u00E3zy dog. ", count);
       int[] icuPos = new int[count*2];
       int[] newPos = new int[count*2];
       int[] directPos = new int[count*2];

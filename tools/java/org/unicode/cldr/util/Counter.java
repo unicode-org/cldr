@@ -32,7 +32,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
   }
   
   public Counter(boolean naturalOrdering) {
-    this(naturalOrdering ? new CldrUtility.ComparableComparator<T>() : null);
+    this(naturalOrdering ? new CldrUtility.ComparableComparator() : null);
   }
 
   public Counter(Comparator<T> comparator) {
@@ -209,7 +209,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
       }
       T ii = i.next();
       T jj = i.next();
-      int result = ((Comparable)ii).compareTo(jj);
+      int result = ((Comparable<T>)ii).compareTo(jj);
       if (result != 0) {
         return result;
       }

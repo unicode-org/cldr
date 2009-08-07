@@ -33,6 +33,7 @@ import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.dev.test.util.UnicodeMapIterator;
 import com.ibm.icu.dev.test.util.VariableReplacer;
+import com.ibm.icu.dev.test.util.XEquivalenceClass;
 import com.ibm.icu.dev.test.util.Tabber.HTMLTabber;
 import com.ibm.icu.impl.Punycode;
 import com.ibm.icu.impl.Utility;
@@ -120,6 +121,7 @@ public class IdnaLabelTester {
 
     private List<Rule> rules = new ArrayList<Rule>();
 
+    private static final UnicodeSet GRAPHIC = new UnicodeSet("[^[:cn:][:co:][:cs:][:cc:]]").freeze();
     private static final UnicodeSet NOT_NFKC_CASE_FOLD = computeNotNfkcCaseFold();
     VariableReplacer variables = new VariableReplacer();
 
@@ -200,6 +202,40 @@ public class IdnaLabelTester {
         }
         in.close();
     }
+    // 248C ;   0035 002E ; MA  #* ( ⒌ → 5. ) DIGIT FIVE FULL STOP → DIGIT FIVE, FULL STOP  # {nfkc:9357}
+
+    public static XEquivalenceClass<String,String> getConfusables() throws IOException {
+        XEquivalenceClass<String,String> result = new XEquivalenceClass<String,String>();
+        BufferedReader in = openFile("/Users/markdavis/Documents/workspace35/draft/reports/tr39/data/confusables.txt");
+        String original = null;
+        try {
+            while (true) {
+                String line = in.readLine();
+                original = line;
+                if (line == null) break;
+                if (line.startsWith("\uFEFF")) {
+                    line = line.substring(1);
+                }
+                int pos = line.indexOf('#');
+                if (pos >= 0) line = line.substring(0,pos);
+                line = line.trim();
+                if (line.length() == 0) continue;
+                String[] parts = line.split("\\s*;\\s*");
+                if (parts[2].equals("MA")) continue;
+
+                String cp = Utility.fromHex(parts[0], 4, SPACES);
+                String s = Utility.fromHex(parts[1], 4, SPACES);
+                result.add(cp, s);
+            } 
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Line:\t" + original, e);
+        } finally {
+            in.close();
+        }
+        return result;
+    }
+
+    static Pattern SPACES = Pattern.compile("\\s+");
 
     private static UnicodeSet computeNotNfkcCaseFold() {
         //    B: toNFKC(toCaseFold(toNFKC(cp))) != cp
@@ -469,7 +505,7 @@ public class IdnaLabelTester {
 
     private static void showPunycode(String string) throws StringPrepParseException {
         System.out.println(string +
-        		"\t" + Punycode.encode(new StringBuffer(string), null));
+                "\t" + Punycode.encode(new StringBuffer(string), null));
     }
 
     private static void checkMapIterator() {
@@ -487,11 +523,21 @@ public class IdnaLabelTester {
     }
 
     private void checkPatrik() throws IOException {
+
         UnicodeMap<IdnaStatus> mine = new UnicodeMap<IdnaStatus>();
         UnicodeSet contextj = new UnicodeSet(variables.replace("$JoinControl")).freeze();
         UnicodeSet contexto = new UnicodeSet(variables.replace("$Context")).removeAll(contextj).freeze();
         UnicodeSet unassigned = new UnicodeSet(variables.replace("$Unassigned")).removeAll(contextj).freeze();
         UnicodeSet valid = new UnicodeSet(variables.replace("$Valid")).freeze();
+        UnicodeSet valid2 = new UnicodeSet(variables.replace("$Valid2")).freeze();
+        boolean valid2ok = valid.equals(valid2);
+        System.out.println("Valid=valid2? " + valid2ok);
+        if (!valid2ok) {
+            System.out.println("valid-valid2:" + new UnicodeSet(valid).removeAll(valid2));
+            System.out.println("valid2-valid:" + new UnicodeSet(valid2).removeAll(valid));
+        }
+        UnicodeSet pvalid = new UnicodeSet(valid).removeAll(contexto).removeAll(contextj);
+        UnicodeSet pvalidWithContexto = new UnicodeSet(valid).removeAll(contextj);
         UnicodeMap<R5<IdnaStatus, String, IdnaStatus, String, Integer>> myLines = new UnicodeMap<R5<IdnaStatus, String, IdnaStatus, String, Integer>>();
 
         mine.putAll(contextj, IdnaStatus.CONTEXTJ);
@@ -504,6 +550,8 @@ public class IdnaLabelTester {
         // $ValidAlways = [$ExceptionPvalid $BackwardCompatiblePvalid $LDH]
         // $InvalidLetterDigits = [$ExceptionDisallowed $BackwardCompatibleDisallowed $Unassigned $Unstable $IgnorableProperties $IgnorableBlocks $OldHangulJamo]
         // $Valid = [$ValidAlways $Context [$LetterDigits - $InvalidLetterDigits]]
+        
+        countConfusables(pvalid, contexto);
 
         BufferedReader in = openFile("../DATA/IDN/idna-calculation.txt");
         /*
@@ -529,9 +577,9 @@ public class IdnaLabelTester {
                 if (gc == UCharacter.UNASSIGNED) {
                     continue; // skip for now
                 }
-                if (cp == 0x10000) {
-                    System.out.println("debug?");
-                }
+//                if (cp == 0x10000) {
+//                    System.out.println("debug?");
+//                }
 
                 String s = UTF16.valueOf(cp);
 
@@ -562,9 +610,9 @@ public class IdnaLabelTester {
                 }
 
                 IdnaStatus myIdna2003 = getIdnaStatus(s);
-//                if ((myIdna2003a == IdnaStatus.PVALID) != idna2003out.equals("OK")) {
-//                    //diff += "idna2003; ";
-//                }
+                //                if ((myIdna2003a == IdnaStatus.PVALID) != idna2003out.equals("OK")) {
+                //                    //diff += "idna2003; ";
+                //                }
 
                 String idna2008map = getIDNA2008Value(s, true);
                 if (idna2008map.equals("")) {
@@ -581,14 +629,14 @@ public class IdnaLabelTester {
                     idna2003map = "\uE000";
                 }
 
-//                String predicate = ";\t" + my2008 + ";\t" + idna2008map + ";\t" + myIdna2003  + ";\t" + idna2003map;
-//                String myLine = hex4 + predicate + ";\t" + myGc + ";\t" + myName;
+                //                String predicate = ";\t" + my2008 + ";\t" + idna2008map + ";\t" + myIdna2003  + ";\t" + idna2003map;
+                //                String myLine = hex4 + predicate + ";\t" + myGc + ";\t" + myName;
                 R5<IdnaStatus, String, IdnaStatus, String, Integer> row = Row.of(my2008, idna2008map, myIdna2003, idna2003map, UScript.getScript(cp));
                 myLines.put(cp, row);
 
-//                if (diff.length() != 0) {
-//                    System.out.println(line + "\n≠\t" + myLine + "\n#\tdiff:\t" + diff);
-//                }
+                //                if (diff.length() != 0) {
+                //                    System.out.println(line + "\n≠\t" + myLine + "\n#\tdiff:\t" + diff);
+                //                }
             } catch (Exception e) {
                 throw (RuntimeException) new IllegalArgumentException("EXCEPTION with:\t" + line).initCause(e);
             }
@@ -597,6 +645,116 @@ public class IdnaLabelTester {
         printFullComparison(myLines);
     }
     
+    static class ConfusableData {
+        long count;
+        long countWeighted;
+        long countWeightedIdna;
+        UnicodeSet samples = new UnicodeSet();
+        public void add(int codePoint, long weight, long weightIdna) {
+            count++;
+            countWeighted += weight;
+            countWeightedIdna += weightIdna;
+            samples.add(codePoint);
+        }
+        public String toString() {
+            return count + "\t" + countWeighted + "\t" + countWeightedIdna + "\t" + samples;
+        }
+        /**
+         * Creates new
+         */
+        ConfusableData minus(ConfusableData other) {
+            ConfusableData result = new ConfusableData();
+            result.count = count - other.count;
+            result.countWeighted = countWeighted - other.countWeighted;
+            result.countWeightedIdna = countWeightedIdna - other.countWeightedIdna;
+            result.samples = new UnicodeSet(samples).removeAll(other.samples);
+            return result;
+        }
+    }
+    
+    private void countConfusables(UnicodeSet pvalid, UnicodeSet contexto) throws IOException {
+        Counter<Integer> idnaWeights = IdnaFrequency.getData(false);
+        loadFrequencies();
+        UnicodeSet idna2003Valid = new UnicodeSet();
+        for (String s : GRAPHIC) {
+            if (getIdnaStatus(s) == IdnaStatus.PVALID) {
+                idna2003Valid.add(s);
+            }
+        }
+        idna2003Valid.freeze();
+        XEquivalenceClass<String, String> equivs = getConfusables();
+//        int i = 0;
+//        for (String sample : equivs) {
+//            System.out.println((i++) + "\t" + Utility.hex(sample) + "\t" + equivs.getEquivalences(sample));
+//        }
+        
+        ConfusableData valid = new ConfusableData();
+        ConfusableData pvalid_pvalid = new ConfusableData();
+        ConfusableData cvalid_cvalid = new ConfusableData();
+        ConfusableData pvalid3_pvalid3 = new ConfusableData();
+        ConfusableData pvalid_pvalid3 = new ConfusableData();
+
+        UnicodeSet syntax = new UnicodeSet("[\\.\\/\\#\\?\\:\\-]");
+        // fix to add syntax to pvalid
+        pvalid = new UnicodeSet(pvalid).addAll(syntax).freeze();
+        contexto = new UnicodeSet(contexto).removeAll(syntax).freeze();
+        UnicodeSet pvalidWithContexto = new UnicodeSet(pvalid).addAll(contexto);
+        UnicodeSet allTest = new UnicodeSet(pvalid).addAll(contexto).addAll(idna2003Valid).addAll(syntax).removeAll(new UnicodeSet("[:ideographic:]")).freeze();
+        for (String item : allTest) {
+            int codePoint = item.codePointAt(0);
+            long weight = frequencies.getCount(codePoint);
+            if (weight == 0) weight = 1;
+            long weightIdna = idnaWeights.getCount(codePoint);
+            if (weightIdna == 0) weightIdna = 1;
+
+            valid.add(codePoint, weight, weightIdna);
+
+            if (!equivs.hasEquivalences(item)) continue;
+            boolean inSyntax = syntax.containsAll(item);
+
+            Set<String> equivalentItems = equivs.getEquivalences(item);
+            
+            boolean has_pvalid_pvalid = false;
+            boolean has_cvalid_cvalid = false;
+            boolean has_pvalid3_pvalid3 = false;
+            boolean has_pvalid_pvalid3 = false;
+            
+            for (String item2 : equivalentItems) {
+                if ((pvalid.containsAll(item) || inSyntax) && pvalid.containsAll(item2)) {
+                    has_pvalid_pvalid = true;
+                }
+                if ((pvalidWithContexto.containsAll(item) || inSyntax) && pvalidWithContexto.containsAll(item2)) {
+                    has_cvalid_cvalid = true;
+                }
+                if ((idna2003Valid.containsAll(item) || inSyntax) && idna2003Valid.containsAll(item2)) {
+                    has_pvalid3_pvalid3 = true;
+                }
+                if ((pvalid.containsAll(item) || inSyntax) && idna2003Valid.containsAll(item2)) {
+                    has_pvalid_pvalid3 = true;
+                }
+            }
+            if (has_pvalid_pvalid) {
+                pvalid_pvalid.add(codePoint, weight, weightIdna);
+            }
+            if (has_cvalid_cvalid && !has_pvalid_pvalid) {
+                cvalid_cvalid.add(codePoint, weight, weightIdna);
+            }
+            if (has_pvalid3_pvalid3 && !has_cvalid_cvalid && !has_pvalid_pvalid) {
+                pvalid3_pvalid3.add(codePoint, weight, weightIdna);
+            }
+            if (has_pvalid_pvalid3 && !has_pvalid_pvalid) {
+                pvalid_pvalid3.add(codePoint, weight, weightIdna);
+            }
+        }
+        System.out.println("valid.count (non-Han):\t" + valid);
+        System.out.println("pvalid_pvalid.count:\t" + pvalid_pvalid);
+        System.out.println("cvalid_cvalid.count:\t" + cvalid_cvalid);
+        System.out.println("pvalid3_pvalid3.count:\t" + pvalid3_pvalid3);
+        System.out.println("pvalid_pvalid3.count:\t" + pvalid_pvalid3);
+        //System.out.println('\u03C2' + "\t" + frequencies.getCount('\u03C2') + "\t" + idnaWeights.getCount((int)'\u03C2'));
+        //System.out.println('\u00DF' + "\t" + frequencies.getCount('\u00DF') + "\t" + idnaWeights.getCount((int)'\u00DF'));
+    }
+
     enum Diff {same, warn, bad};
 
     private void printFullComparison(UnicodeMap<R5<IdnaStatus, String, IdnaStatus, String, Integer>> myLines) throws IOException {
@@ -719,13 +877,13 @@ public class IdnaLabelTester {
         String m8 = value.get1();
         IdnaStatus v3 = value.get2();
         String m3 = value.get3();
-        
+
         String sep = ";\t";  
         if (fixHex) {
             codepointsHex = "U+"+codepointsHex.replace("..", "..U+");
             sep = "\t";
         }
-        
+
         String m8a = v8 != IdnaStatus.REMAP ? "n/a" : 
             m8.length() == 0 ? "delete" : 
                 hex(m8, fixHex);
@@ -762,13 +920,7 @@ public class IdnaLabelTester {
         Counter<String> counter = new Counter<String>();
         Map<String,R2<Long, Set<R2<Long, String>>>> examples = new HashMap<String,R2<Long, Set<R2<Long, String>>>>();
         double totalFrequency = 0;
-        if (frequencies == null && frequencyFile != null) {
-            try {
-                frequencies = new FrequencyData(frequencyFile, false);
-            } catch (IOException e) {
-                throw new IllegalArgumentException(e);
-            }
-        }
+        loadFrequencies();
 
         for (String s : graphic) {
             String idna2003 = getIDNAValue(s, StringPrep.ALLOW_UNASSIGNED, null); // StringPrep.ALLOW_UNASSIGNED
@@ -821,6 +973,15 @@ public class IdnaLabelTester {
             }
         }
 
+    }
+    private void loadFrequencies() {
+        if (frequencies == null && frequencyFile != null) {
+            try {
+                frequencies = new FrequencyData(frequencyFile, false);
+            } catch (IOException e) {
+                throw new IllegalArgumentException(e);
+            }
+        }
     }
 
     private static String getExample(String s, String idna2003, String idna2008, String eq, String sourceStatus, String status3, String status8, String idna2008c, String status8c) {

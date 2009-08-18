@@ -50,8 +50,7 @@ public class TestUCharacterIterator {
     }
 
     @Override
-    public Utf8Iterator setIndex(int index) {
-      return this;
+    public void setIndex(int index) {
     }
 
     @Override

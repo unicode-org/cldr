@@ -384,7 +384,7 @@ public class CountItems {
         .setSpaceComparator(spaceCol != null ? spaceCol : Collator.getInstance(ULocale.ROOT)
                 .setStrength2(Collator.PRIMARY))
                 .setCompressRanges(true)
-                .toPattern(exemplars);
+                .format(exemplars);
         out.println(" =>\t\u200E" + fixed + '\u200E');
 
         verifyEquality(exemplars, new UnicodeSet(fixed));

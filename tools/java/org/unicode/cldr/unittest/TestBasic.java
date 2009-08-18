@@ -24,7 +24,9 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CharacterFallbacks;
 import org.unicode.cldr.util.PrettyPath;
 import com.ibm.icu.dev.test.util.Relation;
-import org.unicode.cldr.util.Row;
+import com.ibm.icu.dev.test.util.Row;
+import com.ibm.icu.dev.test.util.Row.R2;
+
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLFileReader;
@@ -32,7 +34,6 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
-import org.unicode.cldr.util.Row.R2;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;

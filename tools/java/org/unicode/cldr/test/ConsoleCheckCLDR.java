@@ -38,7 +38,6 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PrettyPath;
 import com.ibm.icu.dev.test.util.Relation;
-import org.unicode.cldr.util.Row;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.CldrUtility;
@@ -53,6 +52,7 @@ import org.unicode.cldr.util.VoteResolver.UnknownVoterException;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.test.util.PrettyPrinter;
+import com.ibm.icu.dev.test.util.Row;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.lang.UCharacter;
@@ -557,7 +557,7 @@ public class ConsoleCheckCLDR {
         .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
                 .setStrength2(Collator.PRIMARY))
                 .setCompressRanges(true)
-                .toPattern(missingExemplars));
+                .format(missingExemplars));
       }
       if (missingCurrencyExemplars.size() != 0) {
         Collator col = Collator.getInstance(new ULocale(localeID));
@@ -566,7 +566,7 @@ public class ConsoleCheckCLDR {
         .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
                 .setStrength2(Collator.PRIMARY))
                 .setCompressRanges(true)
-                .toPattern(missingCurrencyExemplars));
+                .format(missingCurrencyExemplars));
       }
       for (ErrorType type : subtotalCount.keySet()) {
         showSummary(checkCldr, localeID, level, "Subtotal " + type + ":\t" + subtotalCount.getCount(type));

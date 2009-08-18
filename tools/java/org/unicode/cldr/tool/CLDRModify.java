@@ -892,7 +892,7 @@ public class CLDRModify {
         .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
                 .setStrength2(Collator.PRIMARY))
                 .setCompressRanges(true)
-                .toPattern(s);
+                .format(s);
 
           if (!value.equals(fixedExemplar1)) {
             String fullXPath = cldrFileToFilter.getFullXPath(xpath);

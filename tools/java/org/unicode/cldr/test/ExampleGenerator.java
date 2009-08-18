@@ -713,7 +713,7 @@ public class ExampleGenerator {
         .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
                 .setStrength2(Collator.PRIMARY))
                 .setCompressRanges(false)
-                .toPattern(unicodeSet);
+                .format(unicodeSet);
         }
       }
     }

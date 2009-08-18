@@ -383,7 +383,7 @@ public class GenerateSidewaysView {
             .setCompressRanges(true)
             .setToQuote(ALL_CHARS)
             .setQuoter(MyTransform)
-            .toPattern(lastChars);
+            .format(lastChars);
     exemplarsWithoutBrackets = exemplarsWithoutBrackets.substring(1, exemplarsWithoutBrackets.length() - 1);
     return exemplarsWithoutBrackets;
   }

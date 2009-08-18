@@ -51,7 +51,7 @@ public class TestCollationMapMaker {
       if (target.length() > 0) {
         unicodeSet.add(target);
       }
-      String unicodeSetName = pretty.toPattern(unicodeSet);
+      String unicodeSetName = pretty.format(unicodeSet);
       String name = GenerateTransformCharts.getName(target, ", ");
       Log.logln(com.ibm.icu.impl.Utility.hex(target) + " ( " + target + " ) " + name +  "\t" + unicodeSetName);
     }

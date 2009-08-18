@@ -153,7 +153,7 @@ public class DisplayAndInputProcessor {
 
         exemplar.removeAll(CheckExemplars.TO_REMOVE_FROM_EXEMPLARS);
 
-        String fixedExemplar = pp.toPattern(exemplar);
+        String fixedExemplar = pp.format(exemplar);
         UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar);
         if (!exemplar.equals(doubleCheck)) {
           // don't change; something went wrong

@@ -192,7 +192,7 @@ public class CheckForExemplars extends CheckCLDR {
         .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
                 .setStrength2(Collator.PRIMARY))
                 .setCompressRanges(true)
-                .toPattern(missing);
+                .format(missing);
         String ascii = "";
         Subtype subtype = Subtype.charactersNotInCurrencyExemplars;
         if (ASCII.containsAll(missing)) {
@@ -209,7 +209,7 @@ public class CheckForExemplars extends CheckCLDR {
     .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
     .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
             .setStrength2(Collator.PRIMARY))
-            .setCompressRanges(true).toPattern(missing);
+            .setCompressRanges(true).format(missing);
       String ascii = "";
       Subtype subtype = Subtype.charactersNotInMainOrAuxiliaryExemplars;
       if (ASCII.containsAll(missing)) {
@@ -230,7 +230,7 @@ public class CheckForExemplars extends CheckCLDR {
                 .setStrength2(Collator.PRIMARY))
                 .setCompressRanges(true)
                 .setToQuote(null)
-                .setQuoter(null).toPattern(missing);
+                .setQuoter(null).format(missing);
         result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.discouragedCharactersInTranslation)
                 .setMessage("The characters \u200E{1}\u200E are discouraged in display names. Please choose the best single name.", new Object[]{null,fixedMissing}));
         // note: we are using {1} so that we don't include these in the console summary of bad characters.

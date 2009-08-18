@@ -75,7 +75,7 @@ public class CheckExemplars extends CheckCLDR {
             .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
                     .setStrength2(Collator.PRIMARY))
                     .setCompressRanges(true)
-                    .toPattern(overlap);
+                    .format(overlap);
 	          result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.auxiliaryExemplarsOverlap)
 	                  .setMessage("Auxiliary overlaps with main \u200E{0}\u200E", new Object[]{fixedExemplar1}));   			
 	        }
@@ -122,7 +122,7 @@ public class CheckExemplars extends CheckCLDR {
         .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
                 .setStrength2(Collator.PRIMARY))
                 .setCompressRanges(true)
-                .toPattern(exemplar1);
+                .format(exemplar1);
     	UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar1);
     	if (!doubleCheck.equals(exemplar1)) {
 	    	result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.internalUnicodeSetFormattingError)
@@ -141,7 +141,7 @@ public class CheckExemplars extends CheckCLDR {
             .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
                     .setStrength2(Collator.PRIMARY))
                     .setCompressRanges(true)
-                    .toPattern(exemplar1);
+                    .format(exemplar1);
 	    	result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.illegalCharactersInExemplars)
 	    	.setMessage("Should be limited to (specific-script - uppercase - invisibles + \u0130); thus not contain: \u200E{0}\u200E",
 	    			new Object[]{fixedExemplar1}));

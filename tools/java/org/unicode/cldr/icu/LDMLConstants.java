@@ -121,6 +121,7 @@ public class LDMLConstants {
     public static final String DAY_WIDTH       = "dayWidth";
 
     public static final String MONTH           = "month";
+    public static final String YEARTYPE        = "yeartype";
     public static final String DAY             = "day";
     public static final String COUNT           = "count";
     public static final String MINDAYS         = "minDays";

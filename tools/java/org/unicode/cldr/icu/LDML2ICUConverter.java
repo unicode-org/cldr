@@ -4966,12 +4966,16 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       }
       String name = loc.getXpathName(xpath);
       String val = whichFile.getStringValue(xpath);
-      String type = loc
-      .getAttributeValue(xpath, name, LDMLConstants.TYPE);
+      String caltype = loc.getAttributeValue(xpath, LDMLConstants.CALENDAR, LDMLConstants.TYPE);
+      String type = loc.getAttributeValue(xpath, name, LDMLConstants.TYPE);
+      String yeartype = loc.getAttributeValue(xpath, name, LDMLConstants.YEARTYPE);
 
       if (name.equals(LDMLConstants.DAY)) {
         map.put(LDMLUtilities.getDayIndexAsString(type), val);
       } else if (name.equals(LDMLConstants.MONTH)) {
+        if ( caltype.equals("hebrew") && type.equals("7") && yeartype != null && yeartype.equals("leap")) {
+            type = "14"; // Extra month name for hebrew Adar II in leap years
+        }
         map.put(LDMLUtilities.getMonthIndexAsString(type), val);
       } else if (name.equals(LDMLConstants.ERA)) {
         map.put(type, val);

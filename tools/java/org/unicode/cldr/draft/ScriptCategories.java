@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParsePosition;
+import java.util.Arrays;
+import java.util.BitSet;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -15,9 +18,9 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.VersionInfo;
 
 public class ScriptCategories {
 
@@ -714,6 +717,36 @@ public class ScriptCategories {
   }
 
   public static void main(String[] args) throws IOException {
+      BitSet scripts = new BitSet();
+
+      for (String item : Arrays.asList("EUROPEAN", "MIDDLE_EASTERN", "AFRICAN", "SOUTH_ASIAN", "EAST_ASIAN", "AMERICAN", "SOUTHEAST_ASIAN")) {
+          Collection c =
+              item.equals("EUROPEAN") ? EUROPEAN :
+                  item.equals("MIDDLE_EASTERN") ? MIDDLE_EASTERN :
+                      item.equals("AFRICAN") ? AFRICAN :
+                          item.equals("SOUTH_ASIAN") ? SOUTH_ASIAN :
+                              item.equals("EAST_ASIAN") ? EAST_ASIAN :
+                                  item.equals("AMERICAN") ? AMERICAN :
+                                      item.equals("SOUTHEAST_ASIAN") ? SOUTHEAST_ASIAN :
+                  null;
+          for (String scriptName : (Collection<String>) c) {
+              int sc = UScript.getCodeFromName(scriptName);
+              String shortName = "[:script=" + UScript.getShortName(sc) + ":]";
+              scripts.set(sc);
+              String age = getAge(new UnicodeSet(shortName));
+              System.out.println(shortName + "\t" + item + "\t" + age);
+          }
+      }
+      for (int sc = 0; sc < UScript.CODE_LIMIT; ++sc) {
+          if (scripts.get(sc)) continue;
+          String shortName = "[:script=" + UScript.getShortName(sc) + ":]";
+          String age = getAge(new UnicodeSet(shortName));
+          if (age != null) {
+              System.out.println(shortName + "\t" + "???" + "\t" + age);
+          }
+      }
+
+      if (true) return;
     System.out.println("Archaic: " + ARCHAIC.size() + ", " + ARCHAIC);
 
     parseUnicodeSet("[[:script=han:]-[:block=CJK Unified Ideographs:]]");
@@ -727,7 +760,21 @@ public class ScriptCategories {
     generateRemappingCode(args);
   }
 
-  private static void checkHistoricClosure() {
+  private static String getAge(UnicodeSet unicodeSet) {
+      VersionInfo oldest = null;
+    for (String s : unicodeSet) {
+        VersionInfo age = UCharacter.getAge(s.codePointAt(0));
+        if (oldest == null || age.compareTo(oldest) < 0) {
+            oldest = age;
+        }
+    }
+    if (oldest != null) {
+        return oldest.getMajor() + "." + oldest.getMinor();
+    }
+    return null;
+}
+
+private static void checkHistoricClosure() {
     testNormalizationConsistency("Historic", ARCHAIC, Normalizer.NFKD);
     for (int pValue = UCharacter.getIntPropertyMinValue(UProperty.SCRIPT); 
       pValue <= UCharacter.getIntPropertyMaxValue(UProperty.SCRIPT); pValue++) {

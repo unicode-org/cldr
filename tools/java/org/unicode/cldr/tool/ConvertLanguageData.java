@@ -24,9 +24,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.Row;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.dev.test.util.Row.R2;
+import com.ibm.icu.impl.Row;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -1129,7 +1128,7 @@ public class ConvertLanguageData {
       try {
         RowData x = new RowData(row);
         if (x.officialStatus != OfficialStatus.unknown) {
-          R2<String, Double> largestOffical = countryToLargestOfficialLanguage.get(x.countryCode);
+          Row.R2<String, Double> largestOffical = countryToLargestOfficialLanguage.get(x.countryCode);
           if (largestOffical == null) {
             countryToLargestOfficialLanguage.put(x.countryCode, Row.of(x.languageCode, x.languagePopulation));
           } else if (largestOffical.get1() < x.languagePopulation) {
@@ -1179,7 +1178,7 @@ public class ConvertLanguageData {
 
       if (row.officialStatus == OfficialStatus.unknown) {
         String country = row.countryCode;
-        R2<String, Double> largestOffical = countryToLargestOfficialLanguage.get(row.countryCode);
+        Row.R2<String, Double> largestOffical = countryToLargestOfficialLanguage.get(row.countryCode);
         if (largestOffical != null && largestOffical.get1() < row.languagePopulation) {
           System.out.println("*WARNING* language population greater than any official language: "
                   + getLanguageCodeAndName(largestOffical.get0()) + "; " + row.toString(true));

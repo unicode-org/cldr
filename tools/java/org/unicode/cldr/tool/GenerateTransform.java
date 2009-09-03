@@ -22,7 +22,7 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.Row.R2;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer;

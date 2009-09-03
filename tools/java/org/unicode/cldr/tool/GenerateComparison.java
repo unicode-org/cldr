@@ -20,8 +20,8 @@ import org.unicode.cldr.util.CLDRFile.Status;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
-import com.ibm.icu.dev.test.util.Row;
-import com.ibm.icu.dev.test.util.Row.R2;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.Transliterator;

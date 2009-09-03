@@ -24,8 +24,8 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CharacterFallbacks;
 import org.unicode.cldr.util.PrettyPath;
 import com.ibm.icu.dev.test.util.Relation;
-import com.ibm.icu.dev.test.util.Row;
-import com.ibm.icu.dev.test.util.Row.R2;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.CldrUtility;

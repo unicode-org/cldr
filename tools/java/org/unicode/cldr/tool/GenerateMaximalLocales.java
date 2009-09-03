@@ -16,7 +16,7 @@ import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import com.ibm.icu.dev.test.util.Relation;
-import com.ibm.icu.dev.test.util.Row;
+import com.ibm.icu.impl.Row;
 
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -28,8 +28,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.Row.R2;
-import com.ibm.icu.dev.test.util.Row.R3;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;

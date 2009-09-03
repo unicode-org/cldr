@@ -24,19 +24,18 @@ import org.unicode.cldr.util.Dictionary;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.PrettyPrinter;
-import com.ibm.icu.dev.test.util.Row;
 import com.ibm.icu.dev.test.util.Tabber;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.dev.test.util.UnicodeMapIterator;
 import com.ibm.icu.dev.test.util.VariableReplacer;
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
-import com.ibm.icu.dev.test.util.Row.R2;
-import com.ibm.icu.dev.test.util.Row.R4;
-import com.ibm.icu.dev.test.util.Row.R5;
 import com.ibm.icu.dev.test.util.Tabber.HTMLTabber;
 import com.ibm.icu.impl.Punycode;
+import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R5;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
@@ -538,7 +537,7 @@ public class IdnaLabelTester {
         }
         UnicodeSet pvalid = new UnicodeSet(valid).removeAll(contexto).removeAll(contextj);
         UnicodeSet pvalidWithContexto = new UnicodeSet(valid).removeAll(contextj);
-        UnicodeMap<R5<IdnaStatus, String, IdnaStatus, String, Integer>> myLines = new UnicodeMap<R5<IdnaStatus, String, IdnaStatus, String, Integer>>();
+        UnicodeMap<Row.R5<IdnaStatus, String, IdnaStatus, String, Integer>> myLines = new UnicodeMap<Row.R5<IdnaStatus, String, IdnaStatus, String, Integer>>();
 
         mine.putAll(contextj, IdnaStatus.CONTEXTJ);
         mine.putAll(contexto, IdnaStatus.CONTEXTO);

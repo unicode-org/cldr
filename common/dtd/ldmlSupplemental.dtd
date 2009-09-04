@@ -11,7 +11,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Date: 2009-05-05 23:24:30 $
 -->
 
-<!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, references?) >
+<!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, references?, languageMatching?) >
 <!ATTLIST supplementalData version CDATA #FIXED "1.7" >
 
 <!ELEMENT version ( #PCDATA ) >
@@ -420,4 +420,13 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT typeMap EMPTY >
 <!ATTLIST typeMap type CDATA #REQUIRED >
 <!ATTLIST typeMap bcp47 NMTOKEN #REQUIRED >
+
+<!ELEMENT languageMatching ( languageMatches* ) >
+<!ELEMENT languageMatches ( languageMatch* ) >
+<!ATTLIST languageMatches type NMTOKEN #REQUIRED >
+<!ELEMENT languageMatch EMPTY >
+<!ATTLIST languageMatch desired NMTOKEN #REQUIRED >
+<!ATTLIST languageMatch supported NMTOKEN #REQUIRED >
+<!ATTLIST languageMatch percent NMTOKEN #REQUIRED >
+<!ATTLIST languageMatch oneway ( true | false ) #IMPLIED >
 

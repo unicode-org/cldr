@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
+		<version number="$Revision: 1.142 $"/>
+		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="bg"/>
 	</identity>
 	<localeDisplayNames>
@@ -989,6 +989,7 @@
 	<characters>
 		<exemplarCharacters>[а-ъ ь ю я]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[i v x {а\u0300} ѐ ѝ {о\u0300} {у\u0300} {ъ\u0300} ѣ {ю\u0300} {я\u0300} ѫ]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[А Б В Г Д Е Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ь Ю Я]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>„</quotationStart>

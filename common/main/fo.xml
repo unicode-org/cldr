@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
+		<version number="$Revision: 1.142 $"/>
+		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="fo"/>
 	</identity>
 	<fallback draft="unconfirmed">is da sv en</fallback>
@@ -404,6 +404,7 @@
 	<characters>
 		<exemplarCharacters>[a á b d ð e-i í j-o ó p r-u ú v x y ý æ ø]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[c q w z]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Æ Ø]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="unconfirmed">”</quotationStart>

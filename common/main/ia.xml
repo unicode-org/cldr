@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
+		<version number="$Revision: 1.142 $"/>
+		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="ia"/>
 	</identity>
 	<localeDisplayNames>
@@ -297,6 +297,7 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a-c {ch} d-p {ph} q-z]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="unconfirmed">‘</quotationStart>
@@ -551,3 +552,4 @@
 		</currencies>
 	</numbers>
 </ldml>
+

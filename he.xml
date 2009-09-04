@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
+		<version number="$Revision: 1.142 $"/>
+		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="he"/>
 	</identity>
 	<fallback draft="contributed">en</fallback>
@@ -671,6 +671,7 @@
 		<exemplarCharacters>[א-י כ ך ל מ ם נ ן ס ע פ ף צ ץ ק-ת]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u05BD \u05C4\u200E \u200F \u05B0-\u05B9 \u05BB \u05C2 \u05C1 \u05BC \u05BF ־ ׳ ״ a-z]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol" draft="contributed">[a-z]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[א ב ג ד ה ו ז ח ט י כ ל מ נ ס ע פ צ ק ר ש ת]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="contributed">“</quotationStart>

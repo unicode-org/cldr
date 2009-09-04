@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
+		<version number="$Revision: 1.142 $"/>
+		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="be"/>
 	</identity>
 	<localeDisplayNames>
@@ -507,6 +507,7 @@
 		<exemplarCharacters>[а-д {дж} {дз} е ё ж з і й-у ў ф-ш ы-я]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a-z]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[А Б В Г Д Е Ж З І Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Ы Ь Э Ю Я]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="contributed">„</quotationStart>

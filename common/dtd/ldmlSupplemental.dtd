@@ -425,8 +425,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT languageMatches ( languageMatch* ) >
 <!ATTLIST languageMatches type NMTOKEN #REQUIRED >
 <!ELEMENT languageMatch EMPTY >
-<!ATTLIST languageMatch desired NMTOKEN #REQUIRED >
-<!ATTLIST languageMatch supported NMTOKEN #REQUIRED >
+<!ATTLIST languageMatch desired CDATA #REQUIRED >
+<!ATTLIST languageMatch supported CDATA #REQUIRED >
 <!ATTLIST languageMatch percent NMTOKEN #REQUIRED >
 <!ATTLIST languageMatch oneway ( true | false ) #IMPLIED >
 

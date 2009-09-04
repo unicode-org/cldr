@@ -24,9 +24,9 @@
 			    <languageMatch desired="en-*-*" supported="en-*-*" percent="99"/>
 			    <languageMatch desired="es-*-ES" supported="es-*-ES" percent="100"/>    <!-- Latin American Spanishes are closer to each other. Approximate by having es-ES be further from everything else.-->
 			    <languageMatch desired="es-*-ES" supported="es-*-*" percent="93"/>
-			    <languageMatch desired="*" supported="*" percent="1"/>  <!-- [Default value -- must be at end!] Normally there is no comprehension of different languages.-->
-			    <languageMatch desired="*-*" supported="*-*" percent="20"/> <!-- [Default value -- must be at end!] Normally there is little comprehension of different scripts.-->
-			    <languageMatch desired="*-*-*" supported="*-*-*" percent="96"/> <!-- [Default value -- must be at end!] Normally there are small differences across regions.-->
+			    <languageMatch desired="*" supported="*" percent="1"/>  <!-- [Default value - must be at end!] Normally there is no comprehension of different languages.-->
+			    <languageMatch desired="*-*" supported="*-*" percent="20"/> <!-- [Default value - must be at end!] Normally there is little comprehension of different scripts.-->
+			    <languageMatch desired="*-*-*" supported="*-*-*" percent="96"/> <!-- [Default value - must be at end!] Normally there are small differences across regions.-->
 	    </languageMatches>
     </languageMatching>
  </supplementalData>

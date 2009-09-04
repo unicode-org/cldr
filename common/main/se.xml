@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
+		<version number="$Revision: 1.142 $"/>
+		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="se"/>
 	</identity>
 	<fallback draft="unconfirmed">nb sv en</fallback>
@@ -382,6 +382,7 @@
 		<exemplarCharacters>[a á b c č d đ e-n ŋ o p r s š t ŧ u v z ž]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="unconfirmed">[à å ä ã æ ç é è í ń ñ ó ò ö ø q ú ü w-y]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol" draft="unconfirmed">[a á à å ä æ b c č d đ e é è f-n ń ŋ o ó ò ö ø p-s š t ŧ u ú v x-z ž]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N Ŋ O P Q R S T Ŧ U V W X Y Z]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="unconfirmed">”</quotationStart>

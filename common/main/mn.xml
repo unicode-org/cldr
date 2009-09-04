@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
+		<version number="$Revision: 1.142 $"/>
+		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="mn"/>
 	</identity>
 	<localeDisplayNames>
@@ -131,6 +131,7 @@
 	<characters>
 		<exemplarCharacters references="R197">[а-е ё ж-о ө п-у ү ф-я]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" references="R197">[ә җ ӊ һ]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[А Б В Г Д Е Ж З И Й К Л М Н О Ө П Р С Т У Ү Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="unconfirmed">‘</quotationStart>
@@ -318,3 +319,4 @@
 		<reference type="R198" uri="http://www.omniglot.com/writing/mongolian.htm">Omniglot on Mongolian</reference>
 	</references>
 </ldml>
+

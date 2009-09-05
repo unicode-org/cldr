@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
@@ -146,21 +148,20 @@ class GeneratePickerData {
     static Subheader subheader;
     static String outputDirectory;
     static String unicodeDataDirectory;
-    static String localDataDirectory;
     static Renamer renamer;
     static PrintWriter renamingLog;
 
     public static void main(String[] args) throws Exception {
         //System.out.println(ScriptCategories.ARCHAIC);
 
+        if (args.length < 1) {
+            throw new IllegalArgumentException("First argument must be output directory, or 'g' for Hangul defectives");
+        }
         if (args[0].equals("g")) {
             generateHangulDefectives();
             return;
         }
-        if (args.length < 1) {
-            throw new IllegalArgumentException("First argument must be output directory");
-        }
-        outputDirectory = new File(args[0]).getCanonicalPath() + File.separator;
+        outputDirectory = new File(args[0]).getCanonicalPath() + File.separator + "picker" + File.separator;
         System.out.println("Output Directory: " + outputDirectory);
 
         if (args.length < 2) {
@@ -169,15 +170,9 @@ class GeneratePickerData {
         unicodeDataDirectory = new File(args[1]).getCanonicalPath() + File.separator;
         System.out.println("Unicode Data Directory: " + unicodeDataDirectory);
 
-        if (args.length < 3) {
-            throw new IllegalArgumentException("Third argument must be local data directory");
-        }
-        localDataDirectory = new File(args[2]).getCanonicalPath() + File.separator;
-        System.out.println("Local Data Directory: " + localDataDirectory);
-
         renamingLog = getFileWriter(outputDirectory, "renamingLog.txt");
 
-        renamer = new Renamer(localDataDirectory + "GeneratePickerData.txt");
+        renamer = new Renamer("GeneratePickerData.txt");
         /*
          * NamesList-5.1.0d8.txt
 /Users/markdavis/Documents/workspace/DATA/UCD/5.1.0-Update/Unihan.txt
@@ -186,9 +181,9 @@ class GeneratePickerData {
         if (DEBUG) System.out.println("Whitespace? " + ScriptCategories.parseUnicodeSet("[:z:]").equals(ScriptCategories.parseUnicodeSet("[:whitespace:]")));
 
         buildMainTable();
-        String categoryData = CATEGORYTABLE.toString(true, localDataDirectory + "picker/");
+        String categoryData = CATEGORYTABLE.toString(true, outputDirectory);
         writeMainFile(outputDirectory, categoryData);
-        writeMainFile(localDataDirectory, categoryData);
+        //writeMainFile(outputDirectory, categoryData);
 
         PrintWriter out = getFileWriter(outputDirectory, "CharData-localizations.txt");
         for (String item : CATEGORYTABLE.getLocalizations()) {
@@ -1955,7 +1950,8 @@ class GeneratePickerData {
         }
 
         void getRenameData(String filename) throws IOException {
-            BufferedReader in = new BufferedReader(new FileReader(filename));
+            InputStream stream = GeneratePickerData.class.getResourceAsStream(filename);
+            BufferedReader in = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
             while (true) {
                 String line = in.readLine();
                 if (line == null) break;

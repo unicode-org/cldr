@@ -504,15 +504,28 @@
             <attributeValues elements="zoneItem" attributes="type">$tzid</attributeValues>
         </validity>
         <alias>
-            <!-- grandfathered 3066 codes -->
-            <languageAlias type="art_lojban" replacement="jbo"/> <!-- Lojban -->
-            <languageAlias type="i_hak" replacement="hak"/> <!-- Hakka -->
-            <languageAlias type="i_klingon" replacement="tlh"/> <!-- Klingon -->
-            <languageAlias type="i_lux" replacement="lb"/> <!-- Luxembourgish -->
-            <languageAlias type="i_navajo" replacement="nv"/> <!-- Navajo -->
-            <languageAlias type="no_bok" replacement="nb"/> <!-- Norwegian Bokmal -->
-            <languageAlias type="no_nyn" replacement="nn"/> <!-- Norwegian Nynorsk -->
-            <languageAlias type="zh_guoyu" replacement="zh"/> <!-- Mandarin or Standard Chinese. We use zh for that -->
+            <!-- grandfathered BCP47 codes -->
+            <languageAlias type="art-lojban" replacement="jbo"/> <!-- Lojban -->
+            <languageAlias type="i-ami" replacement="ami"/> <!-- Amis -->
+            <languageAlias type="i-bnn" replacement="bnn"/> <!-- Bunun -->
+            <languageAlias type="i-hak" replacement="hak"/> <!-- Hakka -->
+            <languageAlias type="i-klingon" replacement="tlh"/> <!-- Klingon -->
+            <languageAlias type="i-lux" replacement="lb"/> <!-- Luxembourgish -->
+            <languageAlias type="i-navajo" replacement="nv"/> <!-- Navajo -->
+            <languageAlias type="i-pwn" replacement="pwn"/> <!-- Paiwan -->
+            <languageAlias type="i-tao" replacement="tao"/> <!-- Tao -->
+            <languageAlias type="i-tay" replacement="tay"/> <!-- Tayal -->
+            <languageAlias type="i-tsu" replacement="tsu"/> <!-- Tsou -->
+            <languageAlias type="no-bok" replacement="nb"/> <!-- Norwegian Bokmal -->
+            <languageAlias type="no-nyn" replacement="nn"/> <!-- Norwegian Nynorsk -->
+            <languageAlias type="sgn-BE-FR" replacement="sfb"/> <!-- Belgian-French Sign Language -->
+            <languageAlias type="sgn-BE-NL" replacement="vgt"/> <!-- Belgian-Flemish Sign Language -->
+            <languageAlias type="sgn-CH-DE" replacement="sgg"/> <!-- Swiss German Sign Language -->
+            <languageAlias type="zh-guoyu" replacement="cmn"/> <!-- Mandarin or Standard Chinese -->
+            <languageAlias type="zh-hakka" replacement="hak"/> <!-- Hakka -->
+            <languageAlias type="zh-min"/> <!-- Min, Fuzhou, Hokkien, Amoy, or Taiwanese -->
+            <languageAlias type="zh-min-nan" replacement="nan"/> <!-- Minnan, Hokkien, Amoy, Taiwanese, Southern Min, Southern Fujian, Hoklo, Southern Fukien, Ho-lo -->
+            <languageAlias type="zh-xiang" replacement="hsn"/> <!-- Xiang or Hunanese -->
             <!-- deprecated iso codes -->
             <languageAlias type="in" replacement="id"/> <!-- Indonesian -->
             <languageAlias type="iw" replacement="he"/> <!-- Hebrew -->

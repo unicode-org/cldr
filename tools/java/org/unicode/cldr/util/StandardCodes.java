@@ -1040,30 +1040,46 @@ public class StandardCodes {
 
     static final Pattern whitespace = Pattern.compile("\\s+");
     
-    static Set<String> filteredLanguages = Collections
+    static final Set<String> filteredLanguages = Collections
             .unmodifiableSet(new TreeSet(
-                    Arrays
-                            .asList(whitespace.split("ab ady af ak sq am ar hy as ast av awa ay az bm ba eu be bn bho bi bs bg my ca " +
-                            		"ceb ch ce zh chk hr cs da dv nl dz efi en myv et ee fo fj fil fi fr gaa gag gl " +
-                            		"ka de gil el gn gu ht ha haw he hil hi ho hu is ig ilo id inh iu ga it ja jv " +
-                            		"kbd kl kn krc ks kk kha km rw ky koi kpv kok ko kos kri kum ku lah lbe lo la " +
-                            		"lv lez ln lt lb mk mad mdh mai mg ms ml mt swb mi mr mh mdf mn mos na ne niu " +
-                            		"tts se nso nb nn ny or om os pau pag pap ps fa crk pon pl pt pa qu rm ro rn ru " +
-                            		"sm sg sa sat gd sr sn sd si sk sl so st es su sw ss sv gsw tl ty tg ta tt tsg " +
-                            		"te tet th bo ti tpi tkl to ts tn tr tk tvl tyv tw udm ug uk uli und ur uz ve " +
-                            		"vi war cy fy wo cwd xh sah yap yo za zu"))));
-    static Set<String> filteredScripts = Collections
+            Arrays
+            .asList(whitespace.split("ab ady af ak sq am ar hy as ast av awa ay az bm ba eu be bn bho bi bs bg my ca " +
+            "ceb ch ce zh chk hr cs da dv nl dz efi en myv et ee fo fj fil fi fr gaa gag gl " +
+            "ka de gil el gn gu ht ha haw he hil hi ho hu is ig ilo id inh iu ga it ja jv " +
+            "kbd kl kn krc ks kk kha km rw ky koi kpv kok ko kos kri kum ku lah lbe lo la " +
+            "lv lez ln lt lb mk mad mdh mai mg ms ml mt swb mi mr mh mdf mn mos na ne niu " +
+            "tts se nso nb nn ny or om os pau pag pap ps fa crk pon pl pt pa qu rm ro rn ru " +
+            "sm sg sa sat gd sr sn sd si sk sl so st es su sw ss sv gsw tl ty tg ta tt tsg " +
+            "te tet th bo ti tpi tkl to ts tn tr tk tvl tyv tw udm ug uk uli und ur uz ve " +
+            "vi war cy fy wo cwd xh sah yap yo za zu"))));
+    static final Set<String> filteredScripts = Collections
             .unmodifiableSet(new TreeSet(
-                    Arrays
-                            .asList(whitespace.split("Arab Armn Beng Cyrl Deva Ethi Geor Grek Gujr Guru Hebr Hani Hans Hant Bopo " +
-                            		"Jpan Hira Kana Knda Khmr Kore Hang Laoo Latn Mlym Mong Mymr Orya Sinh Taml " +
-                            		"Telu Thaa Thai Tibt Zyyy Zsym Zxxx Zzzz Brai"))));
+            Arrays
+            .asList(whitespace.split("Arab Armn Beng Cyrl Deva Ethi Geor Grek Gujr Guru Hebr Hani Hans Hant Bopo " +
+            "Jpan Hira Kana Knda Khmr Kore Hang Laoo Latn Mlym Mong Mymr Orya Sinh Taml " +
+            "Telu Thaa Thai Tibt Zyyy Zsym Zxxx Zzzz Brai"))));
+    static Set<String> filteredCurrencies = null;
     
     public Set<String> getSurveyToolDisplayCodes(String type) {
         // TODO return filtered list of codes
         // TODO fix QU => EU
         if (type.equals("language")) return filteredLanguages;
         if (type.equals("script")) return filteredScripts;
+        if (type.equals("currency")) {
+            synchronized (StandardCodes.class) {
+                if (filteredCurrencies == null) {
+                    filteredCurrencies = new TreeSet();
+                    for (String country : make().getGoodAvailableCodes("territory")) {
+                        Set mainCurrencies = getMainCurrencies(country);
+                        if (mainCurrencies != null) {
+                            filteredCurrencies.addAll(mainCurrencies);
+                        }
+                    }
+                    filteredCurrencies = Collections.unmodifiableSet(filteredCurrencies);
+                }
+            }
+            return filteredCurrencies;
+        }
         return getGoodAvailableCodes(type);
     }
 }

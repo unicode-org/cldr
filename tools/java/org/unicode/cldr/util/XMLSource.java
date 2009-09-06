@@ -1086,7 +1086,7 @@ public abstract class XMLSource implements Freezable {
         String type2 = (typeNo == CLDRFile.CURRENCY_SYMBOL) ? CLDRFile.getNameName(CLDRFile.CURRENCY_NAME)
             : (typeNo >= CLDRFile.TZ_START) ? "tzid"
                 : type;				
-        Set<String> codes = sc.getGoodAvailableCodes(type2);
+        Set<String> codes = sc.getSurveyToolDisplayCodes(type2);
         //String prefix = CLDRFile.NameTable[typeNo][0];
         //String postfix = CLDRFile.NameTable[typeNo][1];
         //String prefix2 = "//ldml" + prefix.substring(6); // [@version=\"" + GEN_VERSION + "\"]

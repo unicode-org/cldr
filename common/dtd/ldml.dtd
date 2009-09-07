@@ -220,7 +220,7 @@ $Date: 2009-08-20 03:33:56 $
 <!ATTLIST characters draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
-<!ATTLIST exemplarCharacters type ( auxiliary | standard | currencySymbol ) #IMPLIED >
+<!ATTLIST exemplarCharacters type ( auxiliary | standard | currencySymbol | index ) #IMPLIED >
 <!ATTLIST exemplarCharacters draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST exemplarCharacters standard CDATA #IMPLIED >
 <!ATTLIST exemplarCharacters references CDATA #IMPLIED >

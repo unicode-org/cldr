@@ -1793,6 +1793,13 @@ public class DataSection extends Registerable {
             if(p.type.startsWith("layout/inText")) {
                 p.valuesList = LAYOUT_INTEXT_VALUES;
                 superP.valuesList = p.valuesList;
+            } else if(p.type.startsWith("defaultNumberingSystem")) { 
+                // Not all available numbering systems are good candidates for default numbering system.
+                // Things like "roman" shouldn't really be an option.  So, in the interest of simplicity,
+                // we are hard-coding the choices here.
+                String [] values = { "latn", "arab", "arabext", "armn", "beng", "deva", "ethi", "geor", "gujr", "guru", "hans", "hant", "hebr", "jpan", "khmr", "knda", "laoo", "mlym", "mong", "orya", "taml", "telu", "thai", "tibt" };
+                p.valuesList = values;
+                superP.valuesList = p.valuesList;
             } else if(p.type.indexOf("commonlyUsed")!=-1) { 
                 p.valuesList = METAZONE_COMMONLYUSED_VALUES;
                 superP.valuesList = p.valuesList;

@@ -89,6 +89,7 @@ abstract public class CheckCLDR {
     .add(new CheckForExemplars())
     .add(new CheckNumbers())
     // .add(new CheckZones()) this doesn't work; many spurious errors that user can't correct
+    .add(new CheckMetazones())
     .add(new CheckAlt())
    .add(new CheckCurrencies())
     .add(new CheckCasing())
@@ -208,7 +209,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       narrowDateFieldTooWide, illegalCharactersInExemplars, orientationDisagreesWithExemplars,
       illegalDatePattern, missingMainExemplars, discouragedCharactersInTranslation, mustNotStartOrEndWithSpace,
       illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol,
-      percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue;
+      percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit;
         public String toString() {
           return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
         }

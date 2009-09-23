@@ -4138,6 +4138,14 @@
 			<unitPattern count="other" alt="short">{0} yrs</unitPattern>
 		</unit>
 	</units>
+	<listPatterns>
+	   <listPattern>
+		  <listPatternPart type="2">{0} and {1}</listPatternPart>
+          <listPatternPart type="end">{0}, and {1}</listPatternPart>
+		  <listPatternPart type="middle">{0}, {1}</listPatternPart>
+          <listPatternPart type="start">{0}, {1}</listPatternPart>
+	   </listPattern>
+    </listPatterns>
 	<posix>
 		<messages>
 			<yesstr>yes:y</yesstr>

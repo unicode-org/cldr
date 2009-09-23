@@ -10,7 +10,7 @@ $Revision: 1.126 $
 $Date: 2009-08-20 03:33:56 $
 -->
 
-<!ELEMENT ldml (identity, (alias |(fallback*, localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, units?, collations?, posix?, segmentations?, rbnf?, references?, special*))) >
+<!ELEMENT ldml (identity, (alias |(fallback*, localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, references?, special*))) >
 <!ATTLIST ldml
    version          CDATA              #FIXED "1.7"
 >
@@ -1030,6 +1030,26 @@ $Date: 2009-08-20 03:33:56 $
 <!ATTLIST unitPattern references CDATA #IMPLIED >
 <!ATTLIST unitPattern alt CDATA #IMPLIED >
 <!ATTLIST unitPattern validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT listPatterns (alias | (listPattern*, special*)) >
+<!ATTLIST listPatterns draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST listPatterns references CDATA #IMPLIED >
+<!ATTLIST listPatterns alt CDATA #IMPLIED >
+<!ATTLIST listPatterns validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT listPattern (alias | (listPatternPart*, special*)) >
+<!ATTLIST listPattern type (NMTOKEN) #IMPLIED >
+<!ATTLIST listPattern draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST listPattern references CDATA #IMPLIED >
+<!ATTLIST listPattern alt CDATA #IMPLIED >
+<!ATTLIST listPattern validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT listPatternPart ( #PCDATA ) >
+<!ATTLIST listPatternPart type (start | middle | end | 2 | 3) #REQUIRED >
+<!ATTLIST listPatternPart draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST listPatternPart references CDATA #IMPLIED >
+<!ATTLIST listPatternPart alt CDATA #IMPLIED >
+<!ATTLIST listPatternPart validSubLocales CDATA #IMPLIED >
 
 <!-- ######################################################### -->
 

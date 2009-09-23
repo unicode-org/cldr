@@ -941,7 +941,13 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     File myDir = new File(supplementalDir);
     String[] files = myDir.list(filter);
     if (files == null) {
-      printError(fileName,"Supplemental files are missing");
+      String canonicalPath;
+      try {
+        canonicalPath = myDir.getCanonicalPath();
+      } catch (IOException e) {
+        canonicalPath = e.getMessage();
+      }
+      printError(fileName,"Supplemental files are missing " + canonicalPath);
       System.exit(-1);
     }
     Document doc = null;

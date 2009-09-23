@@ -1165,7 +1165,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
      * @return
      */
     public static Factory make(String path, String string) {
-      return SimpleFactory.make(path,string);
+      try {
+        return SimpleFactory.make(path,string);
+      } catch (Exception e) {
+        throw new IllegalArgumentException("path: " + path + "; string: " + string, e);
+      }
     }
 
     /**

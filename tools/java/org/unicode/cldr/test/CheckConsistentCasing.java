@@ -77,10 +77,10 @@ public class CheckConsistentCasing extends CheckCLDR {
       cp = s.codePointAt(i);
       int type = UCharacter.getType(cp);
       switch(type) {
-        case UCharacter.LOWERCASE_LETTER: return lower;
-        case UCharacter.UPPERCASE_LETTER:
-        case UCharacter.TITLECASE_LETTER: return upper;
-        case UCharacter.OTHER_LETTER: return other;
+      case UCharacter.LOWERCASE_LETTER: return lower;
+      case UCharacter.UPPERCASE_LETTER:
+      case UCharacter.TITLECASE_LETTER: return upper;
+      case UCharacter.OTHER_LETTER: return other;
       }
     }
     return null;
@@ -96,7 +96,7 @@ public class CheckConsistentCasing extends CheckCLDR {
           {"//ldml/localeDisplayNames/scripts/script"},
           {"//ldml/localeDisplayNames/territories/territory"},
           {"//ldml/localeDisplayNames/variants/variant"},
-          
+
           {"//ldml/dates/calendars/calendar", "/months", "narrow"},
           {"//ldml/dates/calendars/calendar", "/months", "format"},
           {"//ldml/dates/calendars/calendar", "/months"},
@@ -113,7 +113,7 @@ public class CheckConsistentCasing extends CheckCLDR {
           {"//ldml/dates/calendars/calendar", "/quarters", "abbreviated"},
           {"//ldml/dates/calendars/calendar", "/quarters", "format"},
           {"//ldml/dates/calendars/calendar", "/quarters"},
-          
+
           {"//ldml/dates/calendars/calendar", "/fields"},
           {"//ldml/dates/timeZoneNames/zone", "/exemplarCity"},
           {"//ldml/dates/timeZoneNames/zone", "/short"},
@@ -157,20 +157,24 @@ public class CheckConsistentCasing extends CheckCLDR {
     Iterator<String> it = unresolved.iterator();
     CollectionUtilities.addAll(it, items);
     unresolved.getExtraPaths(items);
+    boolean isRoot = "root".equals(unresolved.getLocaleID());
 
     int count = typesICareAbout.length;
     for (String path : items) {
       //      if (path.contains("displayName") && path.contains("count")) {
       //        System.out.println("count");
       //      }
-      String locale2 = getCldrFileToCheck().getSourceLocaleID(path, null);
-      if (locale2.equals("root") || locale2.equals("code-fallback")) {
-        continue;
+      if (!isRoot) {
+        String locale2 = getCldrFileToCheck().getSourceLocaleID(path, null);
+        if (locale2.equals("root") || locale2.equals("code-fallback")) {
+          continue;
+        }
       }
       // System.out.println(locale2 + "\t\t" + path);
       int i = getIndex(path);
       if (i >= 0 && types[i] == null) {
         String value = unresolved.getStringValue(path);
+        if (value == null || value.length() == 0) continue;
         FirstLetterType ft = FirstLetterType.from(value);
         if (ft == null) continue;
         sample[i] = value;

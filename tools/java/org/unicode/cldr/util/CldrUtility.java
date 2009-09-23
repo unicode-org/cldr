@@ -1000,34 +1000,6 @@ public class CldrUtility {
     System.out.println("Arguments: " + join(args," ")); //  + (props == null ? "" : " " + props));
   }
 
-  public class IterableComparator<T extends Iterable<Comparable>> implements Comparator<T> {
-    public int compare(T o1, T o2) {
-      // TODO Auto-generated method stub
-      return CldrUtility.compare(o1, o2);
-    }
-  }
-
-  public static <T extends Comparable> int compare(Iterable<T> a, Iterable<T> b) {
-    if (a == null) {
-      return b == null ? 0 : -1;
-    } else if (b == null) {
-      return 1;
-    }
-    Iterator<T> ai = a.iterator();
-    Iterator<T> bi = b.iterator();
-    while (true) {
-      T aItem, bItem;
-      if (!ai.hasNext()) {
-        return bi.hasNext() ? -1 : 0;
-      }
-      if (!bi.hasNext()) {
-        return 1;
-      }
-      int result = ai.next().compareTo(bi.next());
-      if (result != 0) return result;
-    }
-  }
-
   public static double roundToDecimals(double input, int places) {
     double log10 = Math.log10(input); // 15000 => 4.xxx
     double intLog10 = Math.floor(log10);

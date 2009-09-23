@@ -22,6 +22,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.impl.IterableComparator;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.DateFormat;
@@ -285,9 +286,9 @@ public class SupplementalDataInfo {
             int result;
             if (0 != (result = type.compareTo(o.type)))
                 return result;
-            if (0 != (result = CldrUtility.compare(scripts, o.scripts)))
+            if (0 != (result = IterableComparator.compareIterables(scripts, o.scripts)))
                 return result;
-            if (0 != (result = CldrUtility.compare(territories, o.territories)))
+            if (0 != (result = IterableComparator.compareIterables(territories, o.territories)))
                 return result;
             return 0;
         }

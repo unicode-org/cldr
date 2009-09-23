@@ -3173,6 +3173,14 @@
 			<unitPattern count="other">{0} y</unitPattern>
 		</unit>
 	</units>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="2">{0}, {0}</listPatternPart>
+            <listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+            <listPatternPart type="start">{0}, {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
 	<posix>
 		<messages>
 			<yesstr>yes:y</yesstr>

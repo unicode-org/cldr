@@ -117,7 +117,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
   private Document likelySubtagsDoc;
   private Document pluralsDoc;
   private Document numberingSystemsDoc;
-  private static final boolean DEBUG;
+  private static final boolean DEBUG = false;
 
   // TODO: hard-coded file names for now
   private static final String supplementalDataFile = "supplementalData.xml";
@@ -151,7 +151,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         "-d or --destdir            destination directory, followed by the path, "+
                                    "default is current directory.\n" +
         "-p or --specialsdir        source directory for files containing special data " +
-                                   "followed by the path. None if not spcified\n" +
+                                   "followed by the path. None if not specified\n" +
         "-f or --write-draft        write data for LDML nodes marked draft.\n" +
         "-m or --suplementaldir     source directory for finding the supplemental data.\n" +
         "-l or --supplemental-only  read " + supplementalDataFile + " file from the given " +
@@ -814,7 +814,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     if (xpath == null) {
       xpath = new StringBuffer("/");
     }
-    for(Node child = node.getFirstChild(); child != null; child = child.getNextSibling()) {
+    for (Node child = node.getFirstChild(); child != null; child = child.getNextSibling()) {
       if (child.getNodeType() != Node.ELEMENT_NODE) {
         continue;
       }

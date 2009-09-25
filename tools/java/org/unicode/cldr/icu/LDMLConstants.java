@@ -369,6 +369,8 @@ public class LDMLConstants {
     public static final String UNIT_PATTERN     = "unitPattern";
     public static final String LANGUAGES_SHORT  = "languagesShort";
 
+    public static final String LANGUAGE_MATCHING  = "languageMatching";
+
     // Rule Based Number Formatting (RBNF)
     public static final String RBNF             = "rbnf";
     public static final String RULESET          = "ruleset";

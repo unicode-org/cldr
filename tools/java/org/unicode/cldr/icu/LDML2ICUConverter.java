@@ -1550,6 +1550,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         res = addTelephoneCodeData(); // uses SupplementalDataInfo, doesn't need node, xpath
       } else if (name.equals(LDMLConstants.BCP47_KEYWORD_MAPPINGS)) {
         res = parseBCP47MappingData(node, xpath);
+      } else if (name.equals(LDMLConstants.LANGUAGE_MATCHING)) {
+        //Ignore this
       } else{
         printError(file,"Encountered unknown element " + getXPath(node, xpath).toString());
         System.exit(-1);

@@ -5049,7 +5049,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         completion_era_j = createNumericStringArray(235);
       }
       String type = loc.getAttributeValue(xpath, LDMLConstants.CALENDAR, LDMLConstants.TYPE);
-      if (type.equals("japanese")) {
+      if (type != null && type.equals("japanese")) {
         return completion_era_j;
       } else {
         return completion_era;

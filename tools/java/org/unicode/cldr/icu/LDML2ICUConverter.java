@@ -168,7 +168,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                                    "directory\n" +
         "-w [dir] or --write-deprecated [dir]   write data for deprecated locales. 'dir' is a " +
                                    "directory of source xml files.\n" +
-        "-b or --write-binary       write data in binary (.res) files rather than .txt" +
+        "-b or --write-binary       write data in binary (.res) files rather than .txt\n" +
         "-h or -? or --help         this usage text.\n" +
         "-v or --verbose            print out verbose output.\n" +
         "-a or --ascii-numbers      do ASCII-only numbers.\n" +

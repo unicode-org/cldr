@@ -3898,9 +3898,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       if (name.equals(LDMLConstants.DEFAULT)) {
         res = getDefaultResource(loc, xpath, name);
       } else if (name.equals(LDMLConstants.CALENDAR)) {
-        Set <String > cals = loc.getByType(xpath, LDMLConstants.CALENDAR);
+        Set<String> cals = loc.getByType(xpath, LDMLConstants.CALENDAR);
         for (String cal : cals) {
-          res = parseCalendar(loc, xpath + "[@type =\"" + cal + "\"]");
+          res = parseCalendar(loc, xpath + "[@type=\"" + cal + "\"]");
           if (res != null) {
             table.appendContents(res);
             res = null;
@@ -4783,7 +4783,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
               || name.equals(LDMLConstants.QUARTER_CONTEXT)) {
         Set<String> ctxs = loc.getByType(xpath, name);
         for (String ctx : ctxs) {
-          res = parseContext(loc, xpath + "[@type =\"" + ctx + "\"]");
+          res = parseContext(loc, xpath + "[@type=\"" + ctx + "\"]");
           if (res != null) {
             table.appendContents(res);
             res = null;
@@ -5155,7 +5155,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     Set<String> completion = getSetCompletion(loc, element, xpath);
     if (completion != null) {
       for (String type : completion) {
-        xpath = origXpath + "/" + element + "[@type =\"" + type + "\"]";
+        xpath = origXpath + "/" + element + "[@type=\"" + type + "\"]";
         if (loc.isPathNotConvertible(whichFile, xpath)) {
           continue;
         }

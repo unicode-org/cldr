@@ -3543,6 +3543,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
           res.name = (String) keyNameMap.get(LDMLConstants.AUXILIARY);
         } else if (type != null && type.equals(LDMLConstants.CURRENCY_SYMBOL)) {
           res = null;
+        } else if (type != null && type.equals(LDMLConstants.INDEX)) {
+          res = null;
         } else {
           res.name = (String) keyNameMap.get(name);
         }

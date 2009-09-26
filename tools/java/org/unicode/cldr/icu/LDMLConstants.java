@@ -46,6 +46,7 @@ public class LDMLConstants {
     public static final String TYPE            = "type";
     public static final String AUXILIARY       = "auxiliary";
     public static final String CURRENCY_SYMBOL = "currencySymbol";
+    public static final String INDEX           = "index";
     public static final String NUMBER          = "number";
     public static final String GENERATION      = "generation";
     public static final String LANGUAGES       = "languages";

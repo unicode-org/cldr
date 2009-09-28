@@ -2,6 +2,7 @@ package org.unicode.cldr.ant;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeMap;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -492,7 +493,7 @@ public class CLDRBuild extends Task{
         public String locales;
         public String draft;
         
-        private Vector pathList = new Vector();
+        private List<Task> pathList = new ArrayList<Task>();
         
         public void addConfiguredInclude(Include inc){
             pathList.add(inc);

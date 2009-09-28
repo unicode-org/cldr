@@ -278,7 +278,15 @@ public class LDMLUtilities {
             throw new RuntimeException(ex.getMessage());
         }
     }
+    
+    @Deprecated
     public static String convertXPath2ICU(Node alias, Node namespaceNode, StringBuffer fullPath)
+      throws TransformerException {
+      StringBuilder sb = new StringBuilder(fullPath.toString());
+      return convertXPath2ICU(alias, namespaceNode, sb);
+    }
+    
+    public static String convertXPath2ICU(Node alias, Node namespaceNode, StringBuilder fullPath)
         throws TransformerException{
         Node context = alias.getParentNode();
         StringBuffer icu = new StringBuffer();
@@ -304,12 +312,12 @@ public class LDMLUtilities {
             icu.append(source);
         }
         if(xpath!=null){
-            StringBuffer resolved = XPathTokenizer.relativeToAbsolute(xpath, fullPath);
+            StringBuilder resolved = XPathTokenizer.relativeToAbsolute(xpath, fullPath);
             // make sure that fullPath is not corrupted!
             XPathAPI.eval(context, fullPath.toString());
             
             //TODO .. do the conversion
-            XPathTokenizer tokenizer = new XPathTokenizer(resolved);
+            XPathTokenizer tokenizer = new XPathTokenizer(resolved.toString());
             
             String token = tokenizer.nextToken();
             while(token!=null){
@@ -557,6 +565,15 @@ public class LDMLUtilities {
         }
         return value;
     }
+    
+    @Deprecated
+    public static Node mergeLDMLDocuments(Document source, Node override, StringBuffer xpath, 
+        String thisName, String sourceDir, boolean ignoreDraft,
+        boolean ignoreVersion){
+      StringBuilder sb = new StringBuilder(xpath.toString());
+      return mergeLDMLDocuments(source, override, sb, thisName, sourceDir, ignoreDraft, ignoreVersion);
+    }
+    
     /**
      *   Resolved Data File
      *   <p>To produce fully resolved locale data file from CLDR for a locale ID L, you start with root, and 
@@ -582,7 +599,7 @@ public class LDMLUtilities {
      * @param override
      * @return the merged document
      */
-    public static Node mergeLDMLDocuments(Document source, Node override, StringBuffer xpath, 
+    public static Node mergeLDMLDocuments(Document source, Node override, StringBuilder xpath, 
                                           String thisName, String sourceDir, boolean ignoreDraft,
                                           boolean ignoreVersion){
         if(source==null){
@@ -1076,11 +1093,26 @@ public class LDMLUtilities {
      * in LDML
      * @param node
      * @param xpath
+     * @deprecated - use version that takes StringBuilder instead
      */
+    @Deprecated
     public static final void appendXPathAttribute(Node node, StringBuffer xpath){
+      appendXPathAttribute(node,xpath,false,false);
+    }
+    /**
+     * @deprecated
+     */
+    @Deprecated
+    public static void appendXPathAttribute(Node node, StringBuffer xpath, boolean ignoreAlt, boolean ignoreDraft){
+      StringBuilder sb = new StringBuilder(xpath.toString());
+      appendXPathAttribute(node, sb, ignoreAlt, ignoreDraft);
+    }
+    
+    public static final void appendXPathAttribute(Node node, StringBuilder xpath){
         appendXPathAttribute(node,xpath,false,false);
     }
-    public static void appendXPathAttribute(Node node, StringBuffer xpath, boolean ignoreAlt, boolean ignoreDraft){
+    
+    public static void appendXPathAttribute(Node node, StringBuilder xpath, boolean ignoreAlt, boolean ignoreDraft){
         boolean terminate = false;
         String val = getAttributeValue(node, LDMLConstants.TYPE);
         String and =  "][";//" and ";

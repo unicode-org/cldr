@@ -1083,6 +1083,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
       || attribute.equals("to")
       || attribute.equals("value")
       || attribute.equals("yeartype")
+      || attribute.equals("numberSystem")
       || (attribute.equals("type") 
               && !elementName.equals("default") 
               && !elementName.equals("measurementSystem") 

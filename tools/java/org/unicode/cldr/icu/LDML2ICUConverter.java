@@ -5717,10 +5717,13 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     "dateTimeFormats/dateTimeFormatLength[@type=\"medium\"]/dateTimeFormat" + STD_SUFFIX,
     "dateTimeFormats/dateTimeFormatLength[@type=\"short\"]/dateTimeFormat" + STD_SUFFIX,
   };
-  private static final Set<String> NUMBER_SYSTEMS = new HashSet<String>(Arrays.asList(
-      "arab arabext armn armnlow beng deva ethi fullwide geor grek greklow gujr guru hans " +
+
+  private static final String[] ValidNumberingSystems = 
+      ("arab arabext armn armnlow beng deva ethi fullwide geor grek greklow gujr guru hans " +
       "hansfin hant hantfin hebr jpan jpanfin knda khmr laoo latn mlym mong mymr orya roman " +
-      "romanlow taml telu thai tibt".split("\\s+")));
+      "romanlow taml telu thai tibt").split("\\s+");
+
+  private static final Set<String> NUMBER_SYSTEMS = new HashSet<String>(Arrays.asList(ValidNumberingSystems));
   // TODO: update to get from supplemental data: <variable id="$numberSystem" type="choice">
   // "arab arabext armn armnlow beng deva ethi fullwide geor grek greklow gujr guru hans " +
   // "hansfin hant hantfin hebr jpan jpanfin knda khmr laoo latn mlym mong mymr orya roman " +
@@ -6245,7 +6248,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     for (int i = 0; i < xpaths.length; i++) {
       String aPath = xpathBase + "/" + xpaths[i];
       if (preferNativeNumberSymbols) {
+        System.out.println("Revising path "+aPath);
         aPath = reviseAPath(loc, xpp, aPath);
+        System.out.println("Revised path is"+aPath);
       }
       if (loc.file.isHere(aPath)) {
         anyExtant = true;
@@ -6307,16 +6312,23 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     // We have all the paths that match, now. We prefer ones that have an
     // alt value that is a valid number system
     for (String path : paths) {
+      System.out.println("Entering with path = "+path); 
       String distinguishing = loc.file.getDistinguishingXPath(path, null, false);
-      if (distinguishing.contains("@alt")) {
-        String alt = xpp.set(distinguishing).getAttributeValue(-1, "alt");
+      if (distinguishing.contains("@numberSystem")) {
+        System.out.println("Trying "+distinguishing);
+        String alt = xpp.set(distinguishing).getAttributeValue(-1, "numberSystem");
+        System.out.println("Alt is <"+alt+">");
         if (NUMBER_SYSTEMS.contains(alt)) {
+          System.out.println("setting aPath to "+distinguishing);
           aPath = distinguishing;
           break;
+        } else {
+          System.out.println("I think that <"+alt+"> is not a numbering system.");
         }
       }
     }
 
+    System.out.println("Returning "+aPath);
     return aPath;
   }
 

@@ -3145,6 +3145,23 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     } else {
       version = version.replaceAll(".*?Revision: (.*?) .*", "$1");
 
+      int intversion;
+      try {
+         intversion = Integer.valueOf(version).intValue();
+      } catch (NumberFormatException ex) {
+         intversion = 1;
+      }
+
+      if ( intversion > 1 ) { // This is a SVN changeset number
+          int x = intversion / 10000;
+          int y = ( intversion - 10000 * x ) / 100;
+          int z = ( intversion - 10000 * x ) % 100;
+          version = "2." + 
+                   Integer.toString(x) + "." + 
+                   Integer.toString(y) + "." + 
+                   Integer.toString(z);
+      }
+
       Resource res = ICUResourceWriter.createString(
               keyNameMap.get(LDMLConstants.VERSION), version);
       // write the version string

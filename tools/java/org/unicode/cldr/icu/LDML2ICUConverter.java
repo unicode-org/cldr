@@ -106,7 +106,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
   private boolean verbose;
   private boolean asciiNumbers;
 
-  private String factoryDir;
   /**
    * Add comments on the item to indicate where fallbacks came from. Good for
    * information, bad for diffs.
@@ -231,7 +230,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     // Class classDefinition = Class.forName(className);
     // object = classDefinition.newInstance();
     // is done then the options are not reset!!
-    for (int i = 0; i <options.length; i++) {
+    for (int i = 0; i < options.length; i++) {
       options[i].doesOccur = false;
     }
     try {
@@ -305,6 +304,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       printError("", "No files specified for processing. Please check the arguments and try again");
       usage();
     }
+    
     if (supplementalDir != null) {
       // supplementalFileName = LDMLUtilities.getFullPath(LDMLUtilities.XML, "supplementalData",
       // supplementalDir);
@@ -315,6 +315,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       pluralsDoc = createPluralsDoc();
       numberingSystemsDoc = createNumberingSystemsDoc();
     }
+    
     if (writeSupplemental == true) {
       makeXPathList(supplementalDoc);
       // Create the Resource linked list which will hold the
@@ -378,9 +379,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         writeResource(res, numberingSystemsFile);
       }
     } else {
+      spinUpFactories(sourceDir, specialsDir);
+      
       if (getLocalesMap() != null && getLocalesMap().size() > 0) {
-        factoryDir = sourceDir;
-        for(Iterator<String> iter = getLocalesMap().keySet().iterator(); iter.hasNext();) {
+        for (Iterator<String> iter = getLocalesMap().keySet().iterator(); iter.hasNext();) {
           String fileName = iter.next();
           String draft = getLocalesMap().get(fileName);
           if (draft != null && !draft.equals("false")) {
@@ -392,10 +394,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
           processFile(fileName);
         }
       } else if (remainingArgc > 0) {
-        factoryDir = sourceDir;
         for (int i = 0; i < remainingArgc; i++) {
           if (args[i].equals("*")) {
-            for (String file : new File(factoryDir).list()) {
+            for (String file : new File(sourceDir).list()) {
               if (!file.endsWith(".xml")) {
                 continue;
               }
@@ -564,7 +565,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       String rv = file.getStringValue(xpath);
       if (rv == null) {
         rv = resolved().getStringValue(xpath);
-        // System.err.println("Fallin back:" + xpath + " -> " + rv);
+        // System.err.println("Falling back:" + xpath + " -> " + rv);
       }
       return rv;
     }
@@ -697,7 +698,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       }
 
       if (doc == null) {
-        String xmlfileName = LDMLUtilities.getFullPath(LDMLUtilities.XML,locale + ".xml",sourceDir);
+        String xmlfileName = LDMLUtilities.getFullPath(LDMLUtilities.XML,locale + ".xml", sourceDir);
         String fileName = locale + ".xml";
         //printInfo("Parsing: " + xmlfileName);
         String icuSpecialFile ="";
@@ -768,15 +769,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       locName = locName.substring(0, index);
     }
 
-    if (cldrFactory == null) {
-      printInfo("* Spinning up CLDRFactory on " + sourceDir);
-      cldrFactory = CLDRFile.Factory.make(factoryDir, ".*");
-      if (specialsDir != null) {
-        printInfo("* Spinning up specials CLDRFactory on " + specialsDir);
-        specialsFactory = CLDRFile.Factory.make(specialsDir, ".*");
-      }
-    }
-
     // if (CLDRFile.isSupplementalName(localeID)) continue;
     // if
     // (supplementalDataInfo.getDefaultContentLocales().contains(localeID))
@@ -812,6 +804,17 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     // System.out.println("Creating the resource bundle.");
     createResourceBundle(loc);
     printInfo("Elapsed time: " + timer + "s");
+  }
+
+  private void spinUpFactories(String factoryDir, String specialsDir) {
+    if (cldrFactory == null) {
+      printInfo("* Spinning up CLDRFactory on " + factoryDir);
+      cldrFactory = CLDRFile.Factory.make(factoryDir, ".*");
+      if (specialsDir != null) {
+        printInfo("* Spinning up specials CLDRFactory on " + specialsDir);
+        specialsFactory = CLDRFile.Factory.make(specialsDir, ".*");
+      }
+    }
   }
 
   private void makeXPathList(Node node, StringBuilder xpath) {
@@ -8399,7 +8402,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     // parse for draft status?
     boolean parseDraft = !writeDraft;
 
-    boolean parseSubLocale = sourceDir.indexOf("collation")> -1;
+    boolean parseSubLocale = sourceDir.indexOf("collation") > -1;
 
     // parse a bunch of locales?
     boolean parseThem = (parseDraft||parseSubLocale);

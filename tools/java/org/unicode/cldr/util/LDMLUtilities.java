@@ -1961,16 +1961,18 @@ public class LDMLUtilities {
     }
     
     // Utility functions, HTML and such.
+	public static String CVSBASE="http://www.unicode.org/cldr/trac/browser/trunk";
     
     public static final String getCVSLink(String locale)
     {
-        return "<a href=\"http://www.unicode.org/repository/cldr/common/main/" + locale + ".xml\">";
+        return "<a href=\""+CVSBASE+"/common/main/" + locale + ".xml\">";
     }
     
     public static final String getCVSLink(String locale, String version)
     {
-        return "<a href=\"http://www.unicode.org/repository/cldr/common/main/" + locale + ".xml?rev=" +
-            version + "&amp;content-type=text/x-cvsweb-markup\">";
+        return "<a href=\""+CVSBASE+"/common/main/" + locale + ".xml?rev=" +
+            version +"\">";
+
     }
     static public String getCVSVersion(String fileName)
     {
@@ -1985,7 +1987,7 @@ public class LDMLUtilities {
        String aVersion = null;
        File entriesFile = new File(sourceDir + File.separatorChar + "CVS","Entries");
        if(!entriesFile.exists() || !entriesFile.canRead()) {
-        System.out.println("Can't read, won't try to get CVS " + entriesFile.toString());
+        //System.out.println("Can't read, won't try to get CVS " + entriesFile.toString());
         return null;
        }
       try{

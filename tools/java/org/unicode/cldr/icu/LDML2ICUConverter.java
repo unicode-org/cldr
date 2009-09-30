@@ -392,6 +392,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             writeDraft = false;
           }
           this.fileName = fileName; // Scoping.
+          spinUpFactories(sourceDir, specialsDir);
           processFile(fileName);
         }
       } else if (remainingArgc > 0) {
@@ -401,9 +402,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
               if (!file.endsWith(".xml")) {
                 continue;
               }
+              spinUpFactories(sourceDir, specialsDir);
               processFile(file);
             }
           } else {
+            spinUpFactories(sourceDir, specialsDir);
             processFile(args[i]);
           }
         }

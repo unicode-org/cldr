@@ -21,6 +21,7 @@ import com.ibm.icu.util.TimeZone;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.ant.CLDRConverterTool;
@@ -412,14 +413,183 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
   }
 
-  private class InputLocale {
-    boolean notOnDisk;
-    String locale;
-    CLDRFile rawFile;
-    CLDRFile file;
-    CLDRFile specialsFile;
-    private CLDRFile fResolved;
+  /**
+   * Serves to narrow the interface to InputLocale so that it can be
+   * separated from LDML2ICUConverter.
+   */
+  static interface LDMLServices {
+    /** Returns the cldr factory, or null */
+    CLDRFile.Factory cldrFactory();
+    /** Returns the document for the locale */
+    Document getDocument(String locale);
+    /** Return a specials file for the locale */
+    CLDRFile getSpecialsFile(String locale);
+    /** Returns true if xpathlist contains the xpath */
+    boolean xpathListContains(String xpath);
+    /** Sets the ldml version */
+    void setLdmlVersion(String version);
+  }
+  
+  private Document getSpecialsDoc() {
+    if (specialsDoc == null) {
+      if (specialsDir != null) {
+        String icuSpecialFile = specialsDir + "/" + fileName;
+        if (new File(icuSpecialFile).exists()) {
+          specialsDoc = LDMLUtilities.parseAndResolveAliases(fileName, specialsDir, false, false);
+          /*
+          try {
+              OutputStreamWriter writer = new
+              OutputStreamWriter(
+                  new FileOutputStream("./" + File.separator + fileName + "_debug.xml"), "UTF-8");
+              LDMLUtilities.printDOMTree(fullyResolvedSpecials,new PrintWriter(writer));
+              writer.flush();
+          } catch(IOException e) {
+                //throw the exceptionaway .. this is for debugging
+          }
+           */
+        } else {
+          if (ULocale.getCountry(locName).length() == 0) {
+            printWarning(
+                icuSpecialFile, "ICU special not found for language-locale \"" + locName + "\"");
+            //System.exit(-1);
+          } else {
+            System.err.println("ICU special " + icuSpecialFile + " not found, continuing.");
+          }
+          specialsDoc = null;
+        }
+      }
+    }
 
+    return specialsDoc;
+  }
+
+  private Document getDocument(String locale) {
+    String xmlfileName = LDMLUtilities.getFullPath(LDMLUtilities.XML, locale + ".xml", sourceDir);
+    String fileName = locale + ".xml";
+    //printInfo("Parsing: " + xmlfileName);
+    // TODO(dougfelt): this looks like a bug to me.  Nothing modifies icuSpecialFile, it's 
+    // local, but it is passed in the call to mergeLDMLDocuments below as though the code were
+    // expecting it to be modified by getSpecialsDoc().
+    String icuSpecialFile = "";
+    getSpecialsDoc();
+
+    Document doc = LDMLUtilities.parse(xmlfileName, false);
+    if (specialsDoc != null) {
+      StringBuilder xpath = new StringBuilder();
+      doc = (Document) LDMLUtilities.mergeLDMLDocuments(
+          doc, specialsDoc, xpath, icuSpecialFile, specialsDir, false, true);
+      /*
+        try {
+            OutputStreamWriter writer = new
+            OutputStreamWriter(
+                new FileOutputStream("./" + File.separator + fileName + "_debug.xml"), "UTF-8");
+            LDMLUtilities.printDOMTree(fullyResolvedDoc,new PrintWriter(writer), "", "");
+            writer.flush();
+        } catch (IOException e) {
+              //throw the exception away .. this is for debugging
+        }
+       */
+    }
+
+    /*
+     * debugging code
+     *
+     * try {
+     *      Document doc = LDMLUtilities.getFullyResolvedLDML(sourceDir,
+     *      fileName, false);
+     *      OutputStreamWriter writer = new
+     *      OutputStreamWriter(new FileOutputStream(
+     *          "./" + File.separator + fileName + "_debug.xml"), "UTF-8");
+     *      LDMLUtilities.printDOMTree(doc,new PrintWriter(writer));
+     *      writer.flush();
+     * } catch(IOException e) {
+     *      //throw the exception away .. this is for debugging
+     * }
+     */
+    if (!LDMLUtilities.isLocaleAlias(doc)) {
+      fullyResolvedDoc = LDMLUtilities.getFullyResolvedLDML(
+          sourceDir, fileName, false, false, false, false);
+    } else {
+      fullyResolvedDoc = null;
+    }
+    
+    if ((writeDraft == false) && (isDraftStatusOverridable(locale))) {
+      printInfo("Overriding draft status, and including: " + locale);
+      writeDraft = true;
+      // TODO: save/restore writeDraft
+    }
+    makeXPathList(doc);
+    
+    return doc;
+  }
+  
+  private CLDRFile getSpecialsFile(String locale) {
+    if (specialsFactory != null) {
+      String icuSpecialFile = specialsDir + "/" + locale + ".xml";
+      if (new File(icuSpecialFile).exists()) {
+        printInfo("Parsing ICU specials from: " + icuSpecialFile);
+        return specialsFactory.make(locale, false);
+      }
+    }
+    return null;
+  }
+
+  private final LDMLServices serviceAdapter = new LDMLServices() {
+    @Override
+    public Factory cldrFactory() {
+      return LDML2ICUConverter.this.cldrFactory;
+    }
+
+    @Override
+    public Document getDocument(String locale) {
+      return LDML2ICUConverter.this.getDocument(locale);
+    }
+
+    @Override
+    public CLDRFile getSpecialsFile(String locale) {
+      return LDML2ICUConverter.this.getSpecialsFile(locale);
+    }
+
+    @Override
+    public void setLdmlVersion(String version) {
+      LDML2ICUConverter.this.setLdmlVersion(version);
+    }
+
+    @Override
+    public boolean xpathListContains(String xpath) {
+      return LDML2ICUConverter.this.xpathList.contains(xpath);
+    }
+  };
+  
+  private static class InputLocale {
+    private final LDMLServices services;
+    private boolean notOnDisk;
+    private String locale;
+    private CLDRFile rawFile;
+    private CLDRFile file;
+    private CLDRFile specialsFile;
+    private CLDRFile resolved;
+
+    private CLDRFile.Factory cldrFactory() {
+      return services.cldrFactory();
+    }
+    
+    private Document getDocument(String locale) {
+      return services.getDocument(locale);
+    }
+
+    private CLDRFile getSpecialsFile(String locale) {
+      return services.getSpecialsFile(locale);
+    }
+    
+    private boolean xpathListContains(String xpath) {
+      return services.xpathListContains(xpath);
+    }
+    
+    private void setLdmlVersion(String version) {
+      services.setLdmlVersion(version);
+    }
+    
     @Override
     public String toString() {
       return "{"
@@ -428,7 +598,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         + " rawFile=" + abbreviated(rawFile)
         + " file=" + abbreviated(file)
         + " specialsFile=" + abbreviated(specialsFile)
-        + " fResolved=" + abbreviated(fResolved)
+        + " resolved=" + abbreviated(resolved)
         + "}";
     }
 
@@ -444,40 +614,34 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
 
     public CLDRFile resolved() {
-      if (fResolved == null) {
+      if (resolved == null) {
         // System.err.println("** spinning up resolved for " + locale);
-        if (cldrFactory != null) {
-          fResolved = cldrFactory.make(locale, true, DraftStatus.contributed);
+        if (cldrFactory() != null) {
+          resolved = cldrFactory().make(locale, true, DraftStatus.contributed);
         } else {
           System.err.println("Error: cldrFactory is null in \"resolved()\"");
           System.err.flush();
           System.exit(1);
         }
       }
-      return fResolved;
+      return resolved;
     }
 
-    InputLocale(CLDRFile fromFile) {
-      specialsDoc = null; // reset
+    InputLocale(CLDRFile fromFile, LDMLServices services) {
+      this.services = services;
       notOnDisk = true;
-      rawFile = file = fResolved = fromFile;
+      rawFile = file = resolved = fromFile;
       locale = file.getLocaleID();
     }
 
-    InputLocale(String locale) {
-      specialsDoc = null; // reset
+    InputLocale(String locale, LDMLServices services) {
+      this.services = services;
       this.locale = locale;
-      rawFile = cldrFactory.make(locale, false);
-      if (specialsFactory != null) {
-        String icuSpecialFile = specialsDir + "/" + locale + ".xml";
-        if (new File(icuSpecialFile).exists()) {
-          printInfo("Parsing ICU specials from: " + icuSpecialFile);
-          specialsFile = specialsFactory.make(locale, false);
-          file = (CLDRFile) rawFile.cloneAsThawed();
-          file.putAll(specialsFile, CLDRFile.MERGE_REPLACE_MINE);
-        } else {
-          file = rawFile;
-        }
+      rawFile = cldrFactory().make(locale, false);
+      specialsFile = getSpecialsFile(locale);
+      if (specialsFile != null) {
+        file = (CLDRFile) rawFile.cloneAsThawed();
+        file.putAll(specialsFile, CLDRFile.MERGE_REPLACE_MINE);
       } else {
         file = rawFile; // frozen
       }
@@ -598,7 +762,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       if (alt != null) {
         return true;
       }
-      return !(xpathList.contains(f.getFullXPath(xpath)) || !f.isHere(xpath));
+      return !xpathListContains(f.getFullXPath(xpath)) && f.isHere(xpath);
     }
 
     // ====== DOM compatibility
@@ -626,7 +790,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         String name = ldml.getNodeName();
         if (name.equals(LDMLConstants.LDML)) {
-          ldmlVersion = LDMLUtilities.getAttributeValue(ldml, LDMLConstants.VERSION);
+          setLdmlVersion(LDMLUtilities.getAttributeValue(ldml, LDMLConstants.VERSION));
           // if (LDMLUtilities.isLocaleDraft(ldml) && !isDraftStatusOverridable(locName) &&
           // writeDraft == false) {
           //     System.err.println("WARNING: The LDML file " + sourceDir+ "/" + locName +
@@ -639,11 +803,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       }
 
       if (ldml == null) {
-        throw new RuntimeException("ERROR: no <ldml > node found in parseBundle()");
+        throw new RuntimeException("ERROR: no <ldml> node found in parseBundle()");
       }
 
       for (Node node = ldml.getFirstChild(); node != null; node = node.getNextSibling()) {
-        if (node.getNodeType()!= Node.ELEMENT_NODE) {
+        if (node.getNodeType() != Node.ELEMENT_NODE) {
           continue;
         }
         String name = node.getNodeName();
@@ -653,39 +817,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       }
 
       return null;
-    }
-
-    Document getSpecialsDoc() {
-      if (specialsDoc == null) {
-        if (specialsDir != null) {
-          String icuSpecialFile = specialsDir + "/" + fileName;
-          if (new File(icuSpecialFile).exists()) {
-            specialsDoc = LDMLUtilities.parseAndResolveAliases(fileName, specialsDir, false, false);
-            /*
-            try {
-                OutputStreamWriter writer = new
-                OutputStreamWriter(
-                    new FileOutputStream("./" + File.separator + fileName + "_debug.xml"), "UTF-8");
-                LDMLUtilities.printDOMTree(fullyResolvedSpecials,new PrintWriter(writer));
-                writer.flush();
-            } catch(IOException e) {
-                  //throw the exceptionaway .. this is for debugging
-            }
-             */
-          } else {
-            if (ULocale.getCountry(locName).length()== 0) {
-              printWarning(
-                  icuSpecialFile, "ICU special not found for language-locale \"" + locName + "\"");
-              //System.exit(-1);
-            } else {
-              System.err.println("ICU special " + icuSpecialFile + " not found, continuing.");
-            }
-            specialsDoc = null;
-          }
-        }
-      }
-
-      return specialsDoc;
     }
 
     /**
@@ -698,57 +829,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       }
 
       if (doc == null) {
-        String xmlfileName = LDMLUtilities.getFullPath(LDMLUtilities.XML,locale + ".xml", sourceDir);
-        String fileName = locale + ".xml";
-        //printInfo("Parsing: " + xmlfileName);
-        String icuSpecialFile ="";
-        getSpecialsDoc();
-
-        doc = LDMLUtilities.parse(xmlfileName, false);
-        if (specialsDoc != null) {
-          StringBuilder xpath = new StringBuilder();
-          doc = (Document) LDMLUtilities.mergeLDMLDocuments(
-              doc, specialsDoc, xpath, icuSpecialFile, specialsDir, false, true);
-          /*
-            try {
-                OutputStreamWriter writer = new
-                OutputStreamWriter(
-                    new FileOutputStream("./" + File.separator + fileName + "_debug.xml"), "UTF-8");
-                LDMLUtilities.printDOMTree(fullyResolvedDoc,new PrintWriter(writer), "", "");
-                writer.flush();
-            } catch (IOException e) {
-                  //throw the exceptionaway .. this is for debugging
-            }
-           */
-        }
-
-        /*
-         * debugging code
-         *
-         * try {
-         *      Document doc = LDMLUtilities.getFullyResolvedLDML(sourceDir,
-         *      fileName, false);
-         *      OutputStreamWriter writer = new
-         *      OutputStreamWriter(new FileOutputStream(
-         *          "./" + File.separator + fileName + "_debug.xml"), "UTF-8");
-         *      LDMLUtilities.printDOMTree(doc,new PrintWriter(writer));
-         *      writer.flush();
-         * } catch(IOException e) {
-         *      //throw the exception away .. this is for debugging
-         * }
-         */
-        if (!LDMLUtilities.isLocaleAlias(doc)) {
-          fullyResolvedDoc = LDMLUtilities.getFullyResolvedLDML(
-              sourceDir, fileName, false, false, false, false);
-        } else {
-          fullyResolvedDoc = null;
-        }
-        if ((writeDraft == false) && (isDraftStatusOverridable(locale))) {
-          printInfo("Overriding draft status, and including: " + locale);
-          writeDraft = true;
-          // TODO: save/restore writeDraft
-        }
-        makeXPathList(doc);
+        doc = getDocument(locale);
       }
       return doc;
     }
@@ -778,12 +859,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     System.out.println("Processing: " + xmlfileName);
     ElapsedTimer timer = new ElapsedTimer();
-    InputLocale loc = new InputLocale(locName);
+    
+    specialsDoc = null;
+    InputLocale loc = new InputLocale(locName, serviceAdapter);
 
-    // printInfo("Parsing: " + xmlfileName);
-    String icuSpecialFile = "";
     if (specialsDir != null) {
-      icuSpecialFile = specialsDir + "/" + fileName;
+      String icuSpecialFile = specialsDir + "/" + fileName;
       if (!new File(icuSpecialFile).exists()) {
         if (ULocale.getCountry(locName).length() == 0) {
           printWarning(icuSpecialFile, "ICU special not found for language-locale \""
@@ -2830,12 +2911,18 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     return currencyMeta;
   }
 
-  private String ldmlVersion = null;
+  private String ldmlVersion_ = null;
+  private String getLdmlVersion() {
+    return ldmlVersion_;
+  }
+  private void setLdmlVersion(String version) {
+    ldmlVersion_ = version;
+  }
 
   private Resource parseBundle(InputLocale loc) {
     ResourceTable table = new ResourceTable();
 
-    ldmlVersion = "0.0";
+    setLdmlVersion("0.0");
 
     // OK. This is no longer a reactive, but a proactive program.
     Resource res = null;
@@ -7095,7 +7182,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       }
       str = new ResourceString();
       str.name = "Version";
-      str.val = ldmlVersion; //"1.0";
+      str.val = getLdmlVersion(); // "1.0"
       /*
        * Not needed anymore
         if (specialsDoc != null) {
@@ -8850,7 +8937,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       fakeFile.add(xpath, "");
       fakeFile.freeze();
       // fakeFile.write(new PrintWriter(System.out));
-      InputLocale fakeLocale = new InputLocale(fakeFile);
+      
+      specialsDoc = null;
+      InputLocale fakeLocale = new InputLocale(fakeFile, serviceAdapter);
 
       locName = fromLocale.toString(); // Global!
 

@@ -2949,7 +2949,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     if (ULocale.getScript(localeID).length() > 0
         && ULocale.getCountry(localeID).length() == 0
-        && !supplementalDataInfo.getDefaultContentLocales().contains(localeID)) {
+        && !supplementalDataInfo.getDefaultContentLocales().contains(localeID) 
+        && sourceDir.indexOf("coll") < 0) {
 
       ResourceInt pr = new ResourceInt();
       pr.name = "%%ParentIsRoot";

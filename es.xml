@@ -1203,23 +1203,41 @@
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="h">
+						<intervalFormatItem id="H">
 							<greatestDifference id="a">H–H</greatestDifference>
-							<greatestDifference id="h">H–H</greatestDifference>
+							<greatestDifference id="H">H–H</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="hm">
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">h a – h a</greatestDifference>
+							<greatestDifference id="h">h–h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
 							<greatestDifference id="a">H:mm – H:mm</greatestDifference>
-							<greatestDifference id="h">H:mm – H:mm</greatestDifference>
+							<greatestDifference id="H">H:mm – H:mm</greatestDifference>
 							<greatestDifference id="m">H:mm – H:mm</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
 							<greatestDifference id="a">H:mm – H:mm v</greatestDifference>
-							<greatestDifference id="h">H:mm – H:mm v</greatestDifference>
+							<greatestDifference id="H">H:mm – H:mm v</greatestDifference>
 							<greatestDifference id="m">H:mm – H:mm v</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="hv">
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mm a v</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mm a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
 							<greatestDifference id="a">H–H v</greatestDifference>
-							<greatestDifference id="h">H–H v</greatestDifference>
+							<greatestDifference id="H">H–H v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a">h a – h a v</greatestDifference>
+							<greatestDifference id="h">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M–M</greatestDifference>

@@ -58,11 +58,17 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<intervalFormats>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H" draft="unconfirmed">HH-HH 'ч.'</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="h" draft="unconfirmed">HH-HH 'ч.'</greatestDifference>
+							<greatestDifference id="h" draft="unconfirmed">h-h 'ч.' a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H" draft="unconfirmed">HH-HH 'ч.', v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="h" draft="unconfirmed">HH-HH 'ч.', v</greatestDifference>
+							<greatestDifference id="h" draft="unconfirmed">h-h 'ч.' a, v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d" draft="unconfirmed">E, dd.MM - E, dd.MM</greatestDifference>

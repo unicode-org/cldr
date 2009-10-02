@@ -65,8 +65,9 @@
 				<quarters>
 					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
-				<am>AM</am>
-				<pm>PM</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 				<eras>
 					<eraNames>
 						<alias source="locale" path="../eraAbbr"/>
@@ -207,8 +208,9 @@
 				<quarters>
 					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
-				<am>AM</am>
-				<pm>PM</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 				<!-- chinese eras are computed, and don't fall back to gregorian -->
 				<dateFormats>
 					<default choice="medium"/>
@@ -297,8 +299,9 @@
 				<quarters>
 					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
-				<am>AM</am>
-				<pm>PM</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 				<eras>
 					<eraNames>
 						<alias source="locale" path="../eraAbbr"/>
@@ -378,8 +381,9 @@
 				<quarters>
 					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
-				<am>AM</am>
-				<pm>PM</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 				<eras>
 					<eraNames>
 						<alias source="locale" path="../eraAbbr"/>
@@ -412,8 +416,9 @@
 				<quarters>
 					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
-				<am>AM</am>
-				<pm>PM</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 				<eras>
 					<eraNames>
 						<alias source="locale" path="../eraAbbr"/>
@@ -552,8 +557,16 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>AM</am>
-				<pm>PM</pm>
+                                <dayPeriods>
+                                    <dayPeriodContext type="format">
+                                        <dayPeriodWidth type="wide">
+                                            <dayPeriod type ="am">AM</dayPeriod>
+                                            <dayPeriod type = "am" alt="variant">a.m.</dayPeriod>
+                                            <dayPeriod type ="pm">PM</dayPeriod>
+                                            <dayPeriod type = "pm" alt="variant">p.m.</dayPeriod>
+                                        </dayPeriodWidth>
+                                    </dayPeriodContext>
+                                </dayPeriods>
 				<eras>
 					<eraNames>
 						<alias source="locale" path="../eraAbbr"/>
@@ -860,8 +873,9 @@
 				<quarters>
 					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
-				<am>AM</am>
-				<pm>PM</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 				<eras>
 					<eraNames>
 						<alias source="locale" path="../eraAbbr"/>
@@ -941,8 +955,9 @@
 				<quarters>
 					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
-				<am>AM</am>
-				<pm>PM</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 				<eras>
 					<eraNames>
 						<alias source="locale" path="../eraAbbr"/>
@@ -1019,8 +1034,9 @@
 				<quarters>
 					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
-				<am>AM</am>
-				<pm>PM</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 				<eras>
 					<eraNames>
 						<alias source="locale" path="../eraAbbr"/>
@@ -1058,8 +1074,9 @@
 				<quarters>
 					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
-				<am>AM</am>
-				<pm>PM</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 				<eras>
 					<eraNames>
 						<alias source="locale" path="../eraAbbr"/>
@@ -1449,8 +1466,9 @@
 				<quarters>
 					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
-				<am>AM</am>
-				<pm>PM</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 				<eras>
 					<eraNames>
 						<alias source="locale" path="../eraAbbr"/>
@@ -1482,8 +1500,9 @@
 				<quarters>
 					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
-				<am>AM</am>
-				<pm>PM</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 				<eras>
 					<eraNames>
 						<alias source="locale" path="../eraAbbr"/>

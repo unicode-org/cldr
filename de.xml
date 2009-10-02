@@ -1100,8 +1100,9 @@
 		<dateRangePattern draft="unconfirmed">{0}−{1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
-				<am>vorm.</am>
-				<pm>nachm.</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1126,12 +1127,14 @@
 				</dateFormats>
 			</calendar>
 			<calendar type="chinese">
-				<am>vorm.</am>
-				<pm>nachm.</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 			</calendar>
 			<calendar type="coptic">
-				<am>vorm.</am>
-				<pm>nachm.</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1248,8 +1251,18 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>vorm.</am>
-				<pm>nachm.</pm>
+                                <dayPeriods>
+                                    <dayPeriodContext type="format">
+                                        <dayPeriodWidth type="wide">
+                                            <dayPeriod type = "earlyMorning"> morgens</dayPeriod>
+                                            <dayPeriod type = "morning">vormittags</dayPeriod>
+                                            <dayPeriod type = "noon"> Mittag</dayPeriod>
+                                            <dayPeriod type = "afternoon">nachmittags</dayPeriod>
+                                            <dayPeriod type = "evening">abends</dayPeriod>
+                                            <dayPeriod type = "night"> nachts</dayPeriod>
+                                        </dayPeriodWidth>
+                                    </dayPeriodContext>
+                                </dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">v. Chr.</era>
@@ -1517,12 +1530,14 @@
 				</fields>
 			</calendar>
 			<calendar type="hebrew">
-				<am>vorm.</am>
-				<pm>nachm.</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 			</calendar>
 			<calendar type="islamic">
-				<am>vorm.</am>
-				<pm>nachm.</pm>
+                                <dayPeriods>
+                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+                                </dayPeriods>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

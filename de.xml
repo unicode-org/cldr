@@ -1100,9 +1100,6 @@
 		<dateRangePattern draft="unconfirmed">{0}−{1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
-                                <dayPeriods>
-                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
-                                </dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1125,16 +1122,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-			</calendar>
-			<calendar type="chinese">
-                                <dayPeriods>
-                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
-                                </dayPeriods>
-			</calendar>
-			<calendar type="coptic">
-                                <dayPeriods>
-                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
-                                </dayPeriods>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1254,12 +1241,12 @@
                                 <dayPeriods>
                                     <dayPeriodContext type="format">
                                         <dayPeriodWidth type="wide">
-                                            <dayPeriod type = "earlyMorning"> morgens</dayPeriod>
+                                            <dayPeriod type = "earlyMorning">morgens</dayPeriod>
                                             <dayPeriod type = "morning">vormittags</dayPeriod>
-                                            <dayPeriod type = "noon"> Mittag</dayPeriod>
+                                            <dayPeriod type = "noon">Mittag</dayPeriod>
                                             <dayPeriod type = "afternoon">nachmittags</dayPeriod>
                                             <dayPeriod type = "evening">abends</dayPeriod>
-                                            <dayPeriod type = "night"> nachts</dayPeriod>
+                                            <dayPeriod type = "night">nachts</dayPeriod>
                                         </dayPeriodWidth>
                                     </dayPeriodContext>
                                 </dayPeriods>
@@ -1528,16 +1515,6 @@
 						<displayName alt="proposed-x1001" draft="unconfirmed">Zeitzone</displayName>
 					</field>
 				</fields>
-			</calendar>
-			<calendar type="hebrew">
-                                <dayPeriods>
-                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
-                                </dayPeriods>
-			</calendar>
-			<calendar type="islamic">
-                                <dayPeriods>
-                                    <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
-                                </dayPeriods>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

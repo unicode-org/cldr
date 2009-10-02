@@ -1070,6 +1070,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   public static boolean isDistinguishing(String elementName, String attribute) {
     boolean result =
       attribute.equals("key") 
+      || attribute.equals("indexSource") 
       || attribute.equals("request") 
       || attribute.equals("count") 
       || attribute.equals("id") 
@@ -2425,6 +2426,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     {"*", "alt"},
     {"*", "iso4217"},
     {"*", "iso3166"},
+    {"*", "indexSource"},
     {"default", "type"},
     {"measurementSystem", "type"},
     {"mapping", "type"},

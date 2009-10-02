@@ -4603,9 +4603,7 @@ public class SurveyMain extends HttpServlet {
         
         ctx.print("</p>");
         
-        if(this.isUnofficial) {
-            ctx.includeFragment("report_menu.jsp");
-        }
+        ctx.includeFragment("report_menu.jsp");
         
         boolean canModify = UserRegistry.userCanModifyLocale(subCtx.session.user, subCtx.getLocale());
         if(canModify) {
@@ -5381,7 +5379,7 @@ public class SurveyMain extends HttpServlet {
     * Show the 'main info about this locale' (General) panel.
      */
     public void doMain(WebContext ctx) {
-        String diskVer = LDMLUtilities.getCVSVersion(fileBase, ctx.getLocale().toString() + ".xml"); // just get ver of the latest file.
+        //SLOW: String diskVer = LDMLUtilities.loadFileRevision(fileBase, ctx.getLocale().toString() + ".xml"); // just get ver of the latest file.
         String dbVer = dbsrcfac.getSourceRevision(ctx.getLocale());
         
         // what should users be notified about?
@@ -5550,9 +5548,9 @@ public class SurveyMain extends HttpServlet {
         
         if(dbVer != null) {
             ctx.println( LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "CVS version #" + dbVer + "</a>");
-            if((diskVer != null)&&(!diskVer.equals(dbVer))) {
-                ctx.println( " " + LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "(Note: version " + diskVer + " is available to the administrator.)</a>");
-            }
+//            if((diskVer != null)&&(!diskVer.equals(dbVer))) {
+//                ctx.println( " " + LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "(Note: version " + diskVer + " is available to the administrator.)</a>");
+//            }
         }    
         ctx.println(SLOW_PAGE_NOTICE);
         if(ctx.session.user!=null) {

@@ -538,27 +538,22 @@ public class LDML2ICUConverter extends CLDRConverterTool {
   }
 
   private final LDMLServices serviceAdapter = new LDMLServices() {
-    @Override
     public Factory cldrFactory() {
       return LDML2ICUConverter.this.cldrFactory;
     }
 
-    @Override
     public Document getDocument(String locale) {
       return LDML2ICUConverter.this.getDocument(locale);
     }
 
-    @Override
     public CLDRFile getSpecialsFile(String locale) {
       return LDML2ICUConverter.this.getSpecialsFile(locale);
     }
 
-    @Override
     public void setLdmlVersion(String version) {
       LDML2ICUConverter.this.setLdmlVersion(version);
     }
 
-    @Override
     public boolean xpathListContains(String xpath) {
       return LDML2ICUConverter.this.xpathList.contains(xpath);
     }

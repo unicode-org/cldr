@@ -216,7 +216,7 @@ $Date: 2009-08-20 03:33:56 $
 
 <!-- ######################################################### -->
 
-<!ELEMENT characters (alias | (exemplarCharacters*, mapping*, special*))  >
+<!ELEMENT characters (alias | (exemplarCharacters*, indexLabels*, mapping*, special*))  >
 <!ATTLIST characters draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
@@ -226,6 +226,40 @@ $Date: 2009-08-20 03:33:56 $
 <!ATTLIST exemplarCharacters references CDATA #IMPLIED >
 <!ATTLIST exemplarCharacters alt CDATA #IMPLIED >
 <!ATTLIST exemplarCharacters validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT indexLabels (indexSeparator*, compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*, indexLabelAfter*, indexLabel*) >
+
+<!ELEMENT indexSeparator ( #PCDATA ) >
+<!ATTLIST indexSeparator draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST indexSeparator references CDATA #IMPLIED >
+<!ATTLIST indexSeparator alt CDATA #IMPLIED >
+
+<!ELEMENT compressedIndexSeparator ( #PCDATA ) >
+<!ATTLIST compressedIndexSeparator draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST compressedIndexSeparator references CDATA #IMPLIED >
+<!ATTLIST compressedIndexSeparator alt CDATA #IMPLIED >
+
+<!ELEMENT indexRangePattern ( #PCDATA ) >
+<!ATTLIST indexRangePattern draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST indexRangePattern references CDATA #IMPLIED >
+<!ATTLIST indexRangePattern alt CDATA #IMPLIED >
+
+<!ELEMENT indexLabelBefore ( #PCDATA ) >
+<!ATTLIST indexLabelBefore draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST indexLabelBefore references CDATA #IMPLIED >
+<!ATTLIST indexLabelBefore alt CDATA #IMPLIED >
+
+<!ELEMENT indexLabelAfter ( #PCDATA ) >
+<!ATTLIST indexLabelAfter draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST indexLabelAfter references CDATA #IMPLIED >
+<!ATTLIST indexLabelAfter alt CDATA #IMPLIED >
+
+<!ELEMENT indexLabel ( #PCDATA ) >
+<!ATTLIST indexLabel indexSource CDATA #IMPLIED >
+<!ATTLIST indexLabel priority ( 1 | 2 | 3 ) #IMPLIED >
+<!ATTLIST indexLabel draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST indexLabel references CDATA #IMPLIED >
+<!ATTLIST indexLabel alt CDATA #IMPLIED >
 
 <!ELEMENT mapping (special*) >
 <!ATTLIST mapping registry NMTOKEN #REQUIRED >

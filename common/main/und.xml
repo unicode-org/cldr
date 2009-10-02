@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision: 4282 $" />
+		<generation date="$Date: 2009/03/27 00:39:03 $" />
+		<language type="und" />
+	</identity>
+	<characters>
+		<indexLabels>
+			<indexSeparator> </indexSeparator>
+			<compressedIndexSeparator> • </compressedIndexSeparator>
+			<indexRangePattern>{0}-{1}</indexRangePattern>
+			<indexLabelBefore>&lt;1劃</indexLabelBefore>
+			<indexLabelAfter>&gt;24劃</indexLabelAfter>
+			<indexLabel indexSource="一" priority="1">1劃</indexLabel>
+			<indexLabel indexSource="二">2劃</indexLabel>
+			<indexLabel indexSource="口">3劃</indexLabel>
+		</indexLabels>
+	</characters>
+</ldml>
+    

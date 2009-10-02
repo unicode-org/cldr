@@ -1016,20 +1016,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">1月</month>
-							<month type="2">2月</month>
-							<month type="3">3月</month>
-							<month type="4">4月</month>
-							<month type="5">5月</month>
-							<month type="6">6月</month>
-							<month type="7">7月</month>
-							<month type="8">8月</month>
-							<month type="9">9月</month>
-							<month type="10">10月</month>
-							<month type="11">11月</month>
-							<month type="12">12月</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
 							<month type="2">2</month>
@@ -1072,13 +1058,13 @@
 							<day type="sat">週六</day>
 						</dayWidth>
 						<dayWidth type="wide">
- 							<day type="sun">週日</day>
-							<day type="mon">週一</day>
-							<day type="tue">週二</day>
-							<day type="wed">週三</day>
-							<day type="thu">週四</day>
-							<day type="fri">週五</day>
-							<day type="sat">週六</day>
+							<day type="sun">星期日</day>
+							<day type="mon">星期一</day>
+							<day type="tue">星期二</day>
+							<day type="wed">星期三</day>
+							<day type="thu">星期四</day>
+							<day type="fri">星期五</day>
+							<day type="sat">星期六</day>
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
@@ -1130,6 +1116,16 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>y年M月d日EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>y年M月d日</pattern>
+						</dateFormat>
+					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>yyyy/M/d</pattern>
@@ -1155,10 +1151,35 @@
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern>ah:mm:ss</pattern>
+	  						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>ah:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1}{0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1}{0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日(E)</dateFormatItem>
@@ -1197,7 +1218,6 @@
 						<dateFormatItem id="yyyy">y年</dateFormatItem>
 						<dateFormatItem id="yyyyM">y年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">y年MMMM</dateFormatItem>
-
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0}至{1}</intervalFormatFallback>  

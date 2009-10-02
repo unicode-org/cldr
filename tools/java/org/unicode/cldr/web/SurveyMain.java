@@ -2213,6 +2213,7 @@ public class SurveyMain extends HttpServlet {
     {
         ctx.println("<hr>");
         ctx.print("<div style='float: right; font-size: 60%;'>");
+        ctx.print("<span style='color: #ddd'> $Revision$ \u00b7 </span>");
         ctx.print("<span class='notselected'>validate <a href='http://jigsaw.w3.org/css-validator/check/referer'>css</a>, "+
             "<a href='http://validator.w3.org/check?uri=referer'>html</a></span>");
         ctx.print(" \u00b7 ");

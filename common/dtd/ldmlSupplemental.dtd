@@ -11,7 +11,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Date: 2009-05-05 23:24:30 $
 -->
 
-<!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, references?, languageMatching?) >
+<!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, references?, languageMatching?, dayPeriodRuleSet?) >
 <!ATTLIST supplementalData version CDATA #FIXED "1.7" >
 
 <!ELEMENT version ( #PCDATA ) >
@@ -429,4 +429,25 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST languageMatch supported CDATA #REQUIRED >
 <!ATTLIST languageMatch percent NMTOKEN #REQUIRED >
 <!ATTLIST languageMatch oneway ( true | false ) #IMPLIED >
+
+<!-- Day Periods -->
+<!ELEMENT dayPeriodRuleSet ( dayPeriodRules* ) >
+<!ATTLIST dayPeriodRuleSet draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
+<!ATTLIST dayPeriodRuleSet references CDATA #IMPLIED >
+
+<!ELEMENT dayPeriodRules (dayPeriodRule*) >
+<!ATTLIST dayPeriodRules locales NMTOKENS #REQUIRED >
+<!ATTLIST dayPeriodRules draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
+<!ATTLIST dayPeriodRules references CDATA #IMPLIED >
+
+<!ELEMENT dayPeriodRule EMPTY >
+<!ATTLIST dayPeriodRule type NMTOKEN #REQUIRED >
+<!ATTLIST dayPeriodRule at NMTOKEN #IMPLIED >
+<!ATTLIST dayPeriodRule after NMTOKEN #IMPLIED >
+<!ATTLIST dayPeriodRule from NMTOKEN #IMPLIED >
+<!ATTLIST dayPeriodRule before NMTOKEN #IMPLIED >
+<!ATTLIST dayPeriodRule to NMTOKEN #IMPLIED >
+<!ATTLIST dayPeriodRule draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST dayPeriodRule references CDATA #IMPLIED > 
+
 

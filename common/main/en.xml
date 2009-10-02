@@ -1189,10 +1189,16 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>AM</am>
-				<am alt="variant">a.m.</am>
-				<pm>PM</pm>
-				<pm alt="variant">p.m.</pm>
+                                <dayPeriods>
+                                    <dayPeriodContext type="format">
+                                        <dayPeriodWidth type="wide">
+                                            <dayPeriod type ="am">AM</dayPeriod>
+                                            <dayPeriod type = "am" alt="variant">a.m.</dayPeriod>
+                                            <dayPeriod type ="pm">PM</dayPeriod>
+                                            <dayPeriod type = "pm" alt="variant">p.m.</dayPeriod>
+                                        </dayPeriodWidth>
+                                    </dayPeriodContext>
+                                </dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">Before Christ</era>

@@ -337,7 +337,7 @@ $Date: 2009-08-20 03:33:56 $
 <!ATTLIST calendars draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendars validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*, eras?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special*))>
+<!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*, dayPeriods?, eras?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special*))>
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
 <!ATTLIST calendar draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendar standard CDATA #IMPLIED >
@@ -485,6 +485,25 @@ $Date: 2009-08-20 03:33:56 $
 
 <!-- END_DEPRECATED-->
 
+<!ELEMENT dayPeriods ( alias | (dayPeriodContext*) ) >
+<!ATTLIST dayPeriods draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
+<!ATTLIST dayPeriods references CDATA #IMPLIED >
+
+<!ELEMENT dayPeriodContext (dayPeriodWidth*) >
+<!ATTLIST dayPeriodContext type NMTOKEN #REQUIRED >
+<!ATTLIST dayPeriodContext draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
+<!ATTLIST dayPeriodContext references CDATA #IMPLIED >
+
+<!ELEMENT dayPeriodWidth (dayPeriod)* >
+<!ATTLIST dayPeriodWidth type NMTOKEN #REQUIRED >
+<!ATTLIST dayPeriodWidth draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
+<!ATTLIST dayPeriodWidth references CDATA #IMPLIED >
+
+<!ELEMENT dayPeriod ( #PCDATA ) >
+<!ATTLIST dayPeriod type NMTOKEN #REQUIRED >
+<!ATTLIST dayPeriod alt ( variant| standard | reference ) #IMPLIED >
+<!ATTLIST dayPeriod draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST dayPeriod references CDATA #IMPLIED > 
 
 <!ELEMENT am ( #PCDATA ) >
 <!ATTLIST am draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->

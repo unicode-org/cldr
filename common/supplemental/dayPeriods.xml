@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+    <version number="$Revision: $"/>
+    <generation date="$Date: $"/>
+    <dayPeriodRuleSet>
+        <dayPeriodRules locales = "en">  <!--  default for any locales not listed under other dayPeriods -->
+           <dayPeriodRule type = "am" from = "0:00" before="12:00"/>
+           <dayPeriodRule type = "pm" from = "12:00" to="24:00"/>
+        </dayPeriodRules> 
+        <dayPeriodRules locales = "de">
+           <dayPeriodRule type = "earlyMorning" from="0:00" before="9:00"/>
+           <dayPeriodRule type = "morning" from="9:00" before="12:00"/>
+           <dayPeriodRule type = "noon" at = "12:00"/>
+           <dayPeriodRule type = "afternoon" after="12:00" before="17:00"/>
+           <dayPeriodRule type = "evening" from="17:00" before="21:00"/>
+           <dayPeriodRule type = "night" from="21:00" before="24:00"/>
+      </dayPeriodRules>
+      <dayPeriodRules locales = "zh">
+           <dayPeriodRule type = "weeHours" from="00:00" before="4:00"/>
+           <dayPeriodRule type = "earlyMorning" from="4:00" before="6:00"/>
+           <dayPeriodRule type = "morning" from="6:00" before="12:00"/>
+           <dayPeriodRule type = "midMay" from="12:00" before="13:00" />
+           <dayPeriodRule type = "afternoon" from="13:00" before="18:00"/>
+           <dayPeriodRule type = "night" from="18:00" before="24:00" />
+       </dayPeriodRules>
+    </dayPeriodRuleSet>
+</supplementalData>

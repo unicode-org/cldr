@@ -92,6 +92,7 @@ import com.ibm.icu.util.ULocale;
  * The main servlet class of Survey Tool
  */
 public class SurveyMain extends HttpServlet {
+	public static final String SURVEYMAIN_REVISION = "$Revision$";
 
     private static final String CLDR_BULK_DIR = "CLDR_BULK_DIR";
 	private static final String ACTION_DEL = "_del";
@@ -2213,7 +2214,7 @@ public class SurveyMain extends HttpServlet {
     {
         ctx.println("<hr>");
         ctx.print("<div style='float: right; font-size: 60%;'>");
-        ctx.print("<span style='color: #ddd'> $Revision$ \u00b7 </span>");
+        ctx.print("<span style='color: #ddd'> "+SURVEYMAIN_REVISION+" \u00b7 </span>");
         ctx.print("<span class='notselected'>validate <a href='http://jigsaw.w3.org/css-validator/check/referer'>css</a>, "+
             "<a href='http://validator.w3.org/check?uri=referer'>html</a></span>");
         ctx.print(" \u00b7 ");
@@ -5548,7 +5549,7 @@ public class SurveyMain extends HttpServlet {
                     "</li> --> </ul>");
         
         if(dbVer != null) {
-            ctx.println( LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "CVS version #" + dbVer + "</a>");
+            ctx.println( LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "version #" + dbVer + "</a>");
 //            if((diskVer != null)&&(!diskVer.equals(dbVer))) {
 //                ctx.println( " " + LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "(Note: version " + diskVer + " is available to the administrator.)</a>");
 //            }

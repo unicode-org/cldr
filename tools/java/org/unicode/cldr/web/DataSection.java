@@ -1582,7 +1582,7 @@ public class DataSection extends Registerable {
             } else if(!excludeCalendars && excludeGrego && (xpath.startsWith(SurveyMain.GREGO_XPATH))) {
 //if(ndebug)     System.err.println("ns1 7 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
-            } else if( continent != null && !sm.getMetazoneContinent(xpath).equals(continent)) {
+            } else if( continent != null && !continent.equals(sm.getMetazoneContinent(xpath))) {
                 continue;
             }
             

@@ -380,13 +380,13 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     BufferedReader oldFile = BagFormatter.openUTF8Reader(dir, filename);
     Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/DTDOrder/" + filename);
 
-    CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*" +
-    		startAttributeTag +
-    		"\\s*"), Log.getLog(), true);
-    Log.println(startSep + breakLines(attributeSet) + endSep + endAttributeTag);
-    CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*" +
-    		endAttributeTag +
-    		"\\s*"), null, true);
+//    CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*" +
+//    		startAttributeTag +
+//    		"\\s*"), Log.getLog(), true);
+//    Log.println(startSep + breakLines(attributeSet) + endSep + endAttributeTag);
+//    CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*" +
+//    		endAttributeTag +
+//    		"\\s*"), null, true);
 
     CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*" +
     		startElementTag +

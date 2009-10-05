@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="en"/>
 	</identity>
@@ -1190,16 +1190,16 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-                                <dayPeriods>
-                                    <dayPeriodContext type="format">
-                                        <dayPeriodWidth type="wide">
-                                            <dayPeriod type ="am">AM</dayPeriod>
-                                            <dayPeriod type = "am" alt="variant">a.m.</dayPeriod>
-                                            <dayPeriod type ="pm">PM</dayPeriod>
-                                            <dayPeriod type = "pm" alt="variant">p.m.</dayPeriod>
-                                        </dayPeriodWidth>
-                                    </dayPeriodContext>
-                                </dayPeriods>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="am" alt="variant">a.m.</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="pm" alt="variant">p.m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">Before Christ</era>
@@ -4146,13 +4146,11 @@
 		</unit>
 	</units>
 	<listPatterns>
-	   <listPattern>
-		  <listPatternPart type="2">{0} and {1}</listPatternPart>
-          <listPatternPart type="end">{0}, and {1}</listPatternPart>
-		  <listPatternPart type="middle">{0}, {1}</listPatternPart>
-          <listPatternPart type="start">{0}, {1}</listPatternPart>
-	   </listPattern>
-    </listPatterns>
+		<listPattern>
+			<listPatternPart type="2">{0} and {1}</listPatternPart>
+			<listPatternPart type="end">{0}, and {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
 	<posix>
 		<messages>
 			<yesstr>yes:y</yesstr>

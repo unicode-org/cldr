@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="bo"/>
 	</identity>
@@ -397,7 +397,7 @@
 			<decimal draft="provisional">.</decimal>
 			<group draft="contributed">,</group>
 			<nativeZeroDigit draft="unconfirmed">0</nativeZeroDigit>
-			<nativeZeroDigit numberSystem="tibt" draft="unconfirmed">༠</nativeZeroDigit>
+			<nativeZeroDigit draft="unconfirmed" numberSystem="tibt">༠</nativeZeroDigit>
 			<nan>NaN</nan>
 			<nan numberSystem="tibt">ཨང་མེན་</nan>
 		</symbols>

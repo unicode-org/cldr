@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="ne"/>
 	</identity>
@@ -559,8 +559,14 @@
 	<dates>
 		<calendars>
 			<calendar type="buddhist">
-				<am draft="contributed">पूर्व मध्यान्ह</am>
-				<pm draft="contributed">पूर्व अपरान्ह</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="contributed">पूर्व मध्यान्ह</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">पूर्व अपरान्ह</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -668,8 +674,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am draft="contributed">पूर्व मध्यान्ह</am>
-				<pm draft="contributed">उत्तर मध्यान्ह</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="contributed">पूर्व मध्यान्ह</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">उत्तर मध्यान्ह</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="contributed">ईसा पूर्व</era>

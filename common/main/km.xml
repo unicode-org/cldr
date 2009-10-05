@@ -476,8 +476,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>ព្រឹក</am>
-				<pm>ល្ងាច</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">ព្រឹក</dayPeriod>
+							<dayPeriod type="pm">ល្ងាច</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">មុន​គ្រិស្តសករាជ</era>

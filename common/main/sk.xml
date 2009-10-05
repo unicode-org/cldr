@@ -764,8 +764,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>dopoludnia</am>
-				<pm>popoludní</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">dopoludnia</dayPeriod>
+							<dayPeriod type="pm">popoludní</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">pred n.l.</era>

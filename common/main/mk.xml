@@ -962,8 +962,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>претпладне</am>
-				<pm>попладне</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">претпладне</dayPeriod>
+							<dayPeriod type="pm">попладне</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">пр.н.е.</era>

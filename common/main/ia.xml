@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="ia"/>
 	</identity>
@@ -405,8 +405,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am draft="unconfirmed">a.m.</am>
-				<pm draft="unconfirmed">p.m.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">a.m.</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">p.m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">ante Christo</era>

@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="bn"/>
 	</identity>
@@ -1437,10 +1437,16 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>পূর্বাহ্ণ</am>
-				<am alt="proposed-x1001" draft="unconfirmed">am</am>
-				<pm>অপরাহ্ণ</pm>
-				<pm alt="proposed-x1001" draft="unconfirmed">pm</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">পূর্বাহ্ণ</dayPeriod>
+							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">am</dayPeriod>
+							<dayPeriod type="pm">অপরাহ্ণ</dayPeriod>
+							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">pm</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">খৃষ্টপূর্ব</era>
@@ -1696,10 +1702,16 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<am draft="contributed">পূর্বাহ্ন</am>
-				<am alt="proposed-x1001" draft="unconfirmed">AM</am>
-				<pm draft="contributed">অপরাহ্ন</pm>
-				<pm alt="proposed-x1001" draft="unconfirmed">pm</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="contributed">পূর্বাহ্ন</dayPeriod>
+							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">AM</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">অপরাহ্ন</dayPeriod>
+							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">pm</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0" draft="contributed">সাল</era>
@@ -1757,8 +1769,14 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<am>পূর্বাহ্ন</am>
-				<pm>অপরাহ্ন</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">পূর্বাহ্ন</dayPeriod>
+							<dayPeriod type="pm">অপরাহ্ন</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">যুগ</era>

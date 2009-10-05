@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="kok"/>
 	</identity>
@@ -258,8 +258,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>म.पू.</am>
-				<pm>म.नं.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">म.पू.</dayPeriod>
+							<dayPeriod type="pm">म.नं.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">क्रिस्तपूर्व</era>

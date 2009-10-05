@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="om"/>
 	</identity>
@@ -218,8 +218,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am draft="unconfirmed">WD</am>
-				<pm draft="unconfirmed">WB</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">WD</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">WB</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">KD</era>

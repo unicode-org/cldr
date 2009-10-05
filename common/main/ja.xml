@@ -1096,8 +1096,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>午前</am>
-				<pm>午後</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">午前</dayPeriod>
+							<dayPeriod type="pm">午後</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">紀元前</era>
@@ -1351,8 +1357,14 @@
 				</fields>
 			</calendar>
 			<calendar type="japanese">
-				<am>午前</am>
-				<pm>午後</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">午前</dayPeriod>
+							<dayPeriod type="pm">午後</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">大化</era>

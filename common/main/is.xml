@@ -1173,8 +1173,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am draft="contributed">f.h.</am>
-				<pm draft="contributed">e.h.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="contributed">f.h.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">e.h.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0" draft="contributed">fyrir Krist</era>

@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="gez"/>
 	</identity>
@@ -391,8 +391,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am draft="unconfirmed">ጽባሕ</am>
-				<pm draft="unconfirmed">ምሴት</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">ጽባሕ</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">ምሴት</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0" draft="unconfirmed">ዓ/ዓ</era>

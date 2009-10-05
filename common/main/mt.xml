@@ -911,8 +911,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>QN</am>
-				<pm>WN</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">QN</dayPeriod>
+							<dayPeriod type="pm">WN</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">Qabel Kristu</era>

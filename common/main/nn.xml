@@ -1265,10 +1265,16 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>formiddag</am>
-				<am alt="proposed-x1001" draft="unconfirmed">f.m.</am>
-				<pm>ettermiddag</pm>
-				<pm alt="proposed-x1001" draft="unconfirmed">e.m.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">formiddag</dayPeriod>
+							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">f.m.</dayPeriod>
+							<dayPeriod type="pm">ettermiddag</dayPeriod>
+							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">e.m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">f.Kr.</era>

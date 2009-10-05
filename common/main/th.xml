@@ -1000,8 +1000,14 @@
 		<calendars>
 			<default choice="buddhist"/>
 			<calendar type="buddhist">
-				<am>ก่อนเที่ยง</am>
-				<pm>หลังเที่ยง</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">ก่อนเที่ยง</dayPeriod>
+							<dayPeriod type="pm">หลังเที่ยง</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">พุทธศักราช</era>
@@ -1085,12 +1091,24 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
-				<am>ก่อนเที่ยง</am>
-				<pm>หลังเที่ยง</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">ก่อนเที่ยง</dayPeriod>
+							<dayPeriod type="pm">หลังเที่ยง</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="coptic">
-				<am>ก่อนเที่ยง</am>
-				<pm>หลังเที่ยง</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">ก่อนเที่ยง</dayPeriod>
+							<dayPeriod type="pm">หลังเที่ยง</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1198,8 +1216,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>ก่อนเที่ยง</am>
-				<pm>หลังเที่ยง</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">ก่อนเที่ยง</dayPeriod>
+							<dayPeriod type="pm">หลังเที่ยง</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">ปีก่อนคริสต์ศักราช</era>
@@ -1472,8 +1496,14 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<am>ก่อนเที่ยง</am>
-				<pm>หลังเที่ยง</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">ก่อนเที่ยง</dayPeriod>
+							<dayPeriod type="pm">หลังเที่ยง</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">ย.ศ.</era>
@@ -1499,8 +1529,14 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<am>ก่อนเที่ยง</am>
-				<pm>หลังเที่ยง</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">ก่อนเที่ยง</dayPeriod>
+							<dayPeriod type="pm">หลังเที่ยง</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">ฮิจเราะห์ศักราช</era>
@@ -1511,8 +1547,14 @@
 				</eras>
 			</calendar>
 			<calendar type="japanese">
-				<am>ก่อนเที่ยง</am>
-				<pm>หลังเที่ยง</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">ก่อนเที่ยง</dayPeriod>
+							<dayPeriod type="pm">หลังเที่ยง</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">ทะอิกะ</era>
@@ -2029,8 +2071,14 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="persian">
-				<am>ก่อนเที่ยง</am>
-				<pm>หลังเที่ยง</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">ก่อนเที่ยง</dayPeriod>
+							<dayPeriod type="pm">หลังเที่ยง</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

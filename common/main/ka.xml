@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="ka"/>
 	</identity>
@@ -627,8 +627,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am draft="provisional">დილის</am>
-				<pm draft="provisional">საღამოს</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="provisional">დილის</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">საღამოს</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="provisional">ჩვენს წელთაღრიცხვამდე</era>

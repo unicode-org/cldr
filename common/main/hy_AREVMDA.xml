@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
+		<version number="$Revision: 1.142 $"/>
+		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="hy"/>
 		<variant type="AREVMDA"/>
 	</identity>
@@ -26,7 +26,13 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<pm>Եր․</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="pm">Եր․</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">Ք․Ա․</era>
@@ -37,3 +43,4 @@
 		</calendars>
 	</dates>
 </ldml>
+

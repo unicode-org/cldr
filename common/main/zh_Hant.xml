@@ -822,8 +822,14 @@
 	<dates>
 		<calendars>
 			<calendar type="chinese">
-				<am>上午</am>
-				<pm>下午</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">上午</dayPeriod>
+							<dayPeriod type="pm">下午</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -874,8 +880,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>上午</am>
-				<pm>下午</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">上午</dayPeriod>
+							<dayPeriod type="pm">下午</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">西元前</era>
@@ -1006,8 +1018,14 @@
 				</fields>
 			</calendar>
 			<calendar type="roc">
-				<am>上午</am>
-				<pm>下午</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">上午</dayPeriod>
+							<dayPeriod type="pm">下午</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">民國前</era>

@@ -1176,10 +1176,16 @@
 		<dateRangePattern>{0} till {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
-				<am draft="provisional">fm</am>
-				<am alt="proposed-x1001" draft="unconfirmed">f.m.</am>
-				<pm draft="provisional">em</pm>
-				<pm alt="proposed-x1001" draft="unconfirmed">e.m.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="provisional">fm</dayPeriod>
+							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">f.m.</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">em</dayPeriod>
+							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">e.m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1359,10 +1365,16 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>fm</am>
-				<am alt="proposed-x1001" draft="unconfirmed">f.m.</am>
-				<pm>em</pm>
-				<pm alt="proposed-x1001" draft="unconfirmed">e.m.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">fm</dayPeriod>
+							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">f.m.</dayPeriod>
+							<dayPeriod type="pm">em</dayPeriod>
+							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">e.m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">före Kristus</era>

@@ -538,8 +538,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>vm.</am>
-				<pm>nm.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">vm.</dayPeriod>
+							<dayPeriod type="pm">nm.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" references="R000" draft="provisional">voor Christus</era>

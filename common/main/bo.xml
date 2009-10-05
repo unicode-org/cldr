@@ -323,8 +323,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>སྔ་དྲོ་</am>
-				<pm>ཕྱི་དྲོ་</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">སྔ་དྲོ་</dayPeriod>
+							<dayPeriod type="pm">ཕྱི་དྲོ་</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0" draft="contributed">སྤྱི་ལོ་སྔོན།</era>

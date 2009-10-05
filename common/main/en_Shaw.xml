@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="en"/>
 		<script type="Shaw"/>
@@ -113,10 +113,16 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>𐑨𐑥</am>
-				<am alt="variant">𐑨.𐑥.</am>
-				<pm>𐑐𐑥</pm>
-				<pm alt="variant">𐑐.𐑥.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">𐑨𐑥</dayPeriod>
+							<dayPeriod type="am" alt="variant">𐑨.𐑥.</dayPeriod>
+							<dayPeriod type="pm">𐑐𐑥</dayPeriod>
+							<dayPeriod type="pm" alt="variant">𐑐.𐑥.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">𐑚𐑰𐑓𐑪𐑮 ·𐑒𐑮𐑲𐑕𐑑</era>

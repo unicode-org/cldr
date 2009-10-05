@@ -1022,8 +1022,14 @@
 	<dates>
 		<calendars>
 			<calendar type="buddhist">
-				<am>vorm.</am>
-				<pm>nam.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">vorm.</dayPeriod>
+							<dayPeriod type="pm">nam.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1048,12 +1054,24 @@
 				</dateFormats>
 			</calendar>
 			<calendar type="chinese">
-				<am>vorm.</am>
-				<pm>nam.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">vorm.</dayPeriod>
+							<dayPeriod type="pm">nam.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="coptic">
-				<am>vorm.</am>
-				<pm>nam.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">vorm.</dayPeriod>
+							<dayPeriod type="pm">nam.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1170,8 +1188,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>vorm.</am>
-				<pm>nam.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">vorm.</dayPeriod>
+							<dayPeriod type="pm">nam.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">v. Chr.</era>
@@ -1410,12 +1434,24 @@
 				</fields>
 			</calendar>
 			<calendar type="hebrew">
-				<am>vorm.</am>
-				<pm>nam.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">vorm.</dayPeriod>
+							<dayPeriod type="pm">nam.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="islamic">
-				<am>vorm.</am>
-				<pm>nam.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">vorm.</dayPeriod>
+							<dayPeriod type="pm">nam.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

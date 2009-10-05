@@ -23,8 +23,14 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<am draft="contributed">a.m.</am>
-				<pm draft="contributed">p.m.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="contributed">a.m.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">p.m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>

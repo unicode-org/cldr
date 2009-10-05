@@ -1097,8 +1097,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>пр. об.</am>
-				<pm>сл. об.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">пр. об.</dayPeriod>
+							<dayPeriod type="pm">сл. об.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="contributed">пр.Хр.</era>

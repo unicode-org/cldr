@@ -486,8 +486,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>atm</am>
-				<pm>ptm</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">atm</dayPeriod>
+							<dayPeriod type="pm">ptm</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">aK</era>

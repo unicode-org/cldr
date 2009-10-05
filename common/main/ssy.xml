@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
+		<version number="$Revision: 1.142 $"/>
+		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="ssy"/>
 	</identity>
 	<localeDisplayNames>
@@ -144,8 +144,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am draft="unconfirmed">saaku</am>
-				<pm draft="unconfirmed">carra</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">saaku</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">carra</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0" draft="unconfirmed">Yaasuusuk Duma</era>

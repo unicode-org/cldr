@@ -419,8 +419,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>Առ․</am>
-				<pm>Կե․</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">Առ․</dayPeriod>
+							<dayPeriod type="pm">Կե․</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">Մ․Թ․Ա․</era>

@@ -1134,8 +1134,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>dop.</am>
-				<pm>odp.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">dop.</dayPeriod>
+							<dayPeriod type="pm">odp.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">př.Kr.</era>

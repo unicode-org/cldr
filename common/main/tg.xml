@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="tg"/>
 	</identity>
@@ -142,8 +142,14 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<am draft="unconfirmed">пе. чо.</am>
-				<pm draft="unconfirmed">па. чо.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">пе. чо.</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">па. чо.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">Пеш аз милод</era>

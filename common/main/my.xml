@@ -579,8 +579,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am draft="provisional">နံနက်</am>
-				<pm draft="provisional">ညနေ</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="provisional">နံနက်</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">ညနေ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="provisional">ခရစ်တော် မပေါ်မီကာလ</era>

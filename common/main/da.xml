@@ -1328,8 +1328,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>f.m.</am>
-				<pm>e.m.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">f.m.</dayPeriod>
+							<dayPeriod type="pm">e.m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">f.Kr.</era>

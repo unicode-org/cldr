@@ -668,8 +668,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am draft="unconfirmed">ጡዋት</am>
-				<pm draft="unconfirmed">ከሳዓት</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">ጡዋት</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">ከሳዓት</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">ዓ/ዓ</era>

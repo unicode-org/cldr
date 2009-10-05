@@ -3,7 +3,7 @@
 <!-- Data donated by Mr.Raymond Doctor, CDAC, Pune, India ! -->
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="ur"/>
 	</identity>
@@ -441,8 +441,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am draft="unconfirmed">قبل دوپہر</am>
-				<pm draft="unconfirmed">بعد دوپہر</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">قبل دوپہر</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">بعد دوپہر</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">قبل مسيح</era>

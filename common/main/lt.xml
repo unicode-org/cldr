@@ -993,7 +993,13 @@
 		<dateRangePattern>{0}−{1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
-				<am>ryte</am>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">ryte</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1134,8 +1140,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>priešpiet</am>
-				<pm>popiet</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">priešpiet</dayPeriod>
+							<dayPeriod type="pm">popiet</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">prieš Kristų</era>

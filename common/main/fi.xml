@@ -1179,8 +1179,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>ap.</am>
-				<pm>ip.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">ap.</dayPeriod>
+							<dayPeriod type="pm">ip.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">ennen Kristuksen syntymää</era>

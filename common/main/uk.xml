@@ -1174,8 +1174,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>дп</am>
-				<pm>пп</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">дп</dayPeriod>
+							<dayPeriod type="pm">пп</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">до нашої ери</era>

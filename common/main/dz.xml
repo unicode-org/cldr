@@ -282,8 +282,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am draft="unconfirmed">སྔ་ཆ་</am>
-				<pm draft="unconfirmed">ཕྱི་ཆ་</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">སྔ་ཆ་</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">ཕྱི་ཆ་</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0" draft="unconfirmed">BCE</era>

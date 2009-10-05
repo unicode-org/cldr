@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="sr"/>
 		<script type="Latn"/>
@@ -1005,20 +1005,44 @@
 	<dates>
 		<calendars>
 			<calendar type="buddhist">
-				<am>pre podne</am>
-				<pm>popodne</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">pre podne</dayPeriod>
+							<dayPeriod type="pm">popodne</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="chinese">
-				<am>pre podne</am>
-				<pm>popodne</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">pre podne</dayPeriod>
+							<dayPeriod type="pm">popodne</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="coptic">
-				<am>pre podne</am>
-				<pm>popodne</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">pre podne</dayPeriod>
+							<dayPeriod type="pm">popodne</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="ethiopic">
-				<am>pre podne</am>
-				<pm>popodne</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">pre podne</dayPeriod>
+							<dayPeriod type="pm">popodne</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1118,8 +1142,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>pre podne</am>
-				<pm>popodne</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">pre podne</dayPeriod>
+							<dayPeriod type="pm">popodne</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">Pre nove ere</era>
@@ -1188,28 +1218,64 @@
 				</fields>
 			</calendar>
 			<calendar type="hebrew">
-				<am>pre podne</am>
-				<pm>popodne</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">pre podne</dayPeriod>
+							<dayPeriod type="pm">popodne</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="indian">
-				<am>pre podne</am>
-				<pm>popodne</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">pre podne</dayPeriod>
+							<dayPeriod type="pm">popodne</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="islamic">
-				<am>pre podne</am>
-				<pm>popodne</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">pre podne</dayPeriod>
+							<dayPeriod type="pm">popodne</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="japanese">
-				<am>pre podne</am>
-				<pm>popodne</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">pre podne</dayPeriod>
+							<dayPeriod type="pm">popodne</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="persian">
-				<am>pre podne</am>
-				<pm>popodne</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">pre podne</dayPeriod>
+							<dayPeriod type="pm">popodne</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="roc">
-				<am>pre podne</am>
-				<pm>popodne</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">pre podne</dayPeriod>
+							<dayPeriod type="pm">popodne</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">Pre RK</era>

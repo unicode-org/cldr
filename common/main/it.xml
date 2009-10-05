@@ -1110,8 +1110,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>m.</am>
-				<pm>p.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">m.</dayPeriod>
+							<dayPeriod type="pm">p.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="contributed">a.C.</era>

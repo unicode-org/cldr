@@ -656,8 +656,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>да палудня</am>
-				<pm>пасля палудня</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">да палудня</dayPeriod>
+							<dayPeriod type="pm">пасля палудня</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">да н.э.</era>

@@ -1106,8 +1106,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am references="R039">a.m.</am>
-				<pm references="R039">p.m.</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" references="R039">a.m.</dayPeriod>
+							<dayPeriod type="pm" references="R039">p.m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">antes de Cristo</era>

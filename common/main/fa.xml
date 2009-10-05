@@ -1070,8 +1070,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>قبل از ظهر</am>
-				<pm>بعد از ظهر</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">قبل از ظهر</dayPeriod>
+							<dayPeriod type="pm">بعد از ظهر</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">قبل از میلاد</era>
@@ -1405,8 +1411,14 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<am>قبل از ظهر</am>
-				<pm>بعد از ظهر</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">قبل از ظهر</dayPeriod>
+							<dayPeriod type="pm">بعد از ظهر</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" references="R046">هجری قمری</era>
@@ -1474,8 +1486,14 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<am>قبل از ظهر</am>
-				<pm>بعد از ظهر</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">قبل از ظهر</dayPeriod>
+							<dayPeriod type="pm">بعد از ظهر</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" references="R046">هجری شمسی</era>

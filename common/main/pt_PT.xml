@@ -296,8 +296,14 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>Antes do meio-dia</am>
-				<pm>Depois do meio-dia</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">Antes do meio-dia</dayPeriod>
+							<dayPeriod type="pm">Depois do meio-dia</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="medium">
 						<dateFormat>

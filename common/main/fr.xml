@@ -1121,8 +1121,14 @@
 		<dateRangePattern>{0} – {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
-				<am draft="unconfirmed">matin</am>
-				<pm draft="unconfirmed">soir</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">matin</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">soir</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">ère bouddhiste</era>
@@ -1195,8 +1201,14 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<am draft="unconfirmed">matin</am>
-				<pm draft="unconfirmed">soir</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">matin</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">soir</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1301,8 +1313,14 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<am draft="unconfirmed">matin</am>
-				<pm draft="unconfirmed">soir</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">matin</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">soir</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">avant Dioclétien</era>
@@ -1366,8 +1384,14 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<am draft="unconfirmed">matin</am>
-				<pm draft="unconfirmed">soir</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">matin</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">soir</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">avant l’Incarnation</era>
@@ -1491,10 +1515,16 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am>AM</am>
-				<am alt="proposed-x1001" draft="unconfirmed">matin</am>
-				<pm>PM</pm>
-				<pm alt="proposed-x1001" draft="unconfirmed">soir</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">matin</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">soir</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">avant Jésus-Christ</era>
@@ -1826,8 +1856,14 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<am draft="unconfirmed">matin</am>
-				<pm draft="unconfirmed">soir</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">matin</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">soir</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">Anno Mundi</era>
@@ -1886,8 +1922,14 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<am draft="unconfirmed">matin</am>
-				<pm draft="unconfirmed">soir</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">matin</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">soir</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 			<calendar type="islamic">
 				<months>

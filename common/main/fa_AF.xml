@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
+		<version number="$Revision: 1.142 $"/>
+		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="fa"/>
 		<territory type="AF"/>
 	</identity>
@@ -240,13 +240,9 @@
 	</dates>
 	<numbers>
 		<symbols>
-			<decimal>,</decimal>
 			<decimal numberSystem="arabext">٫</decimal>
-			<group>.</group>
 			<group numberSystem="arabext">٬</group>
-			<percentSign>%</percentSign>
 			<percentSign numberSystem="arabext">٪</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
 			<nativeZeroDigit numberSystem="arabext">۰</nativeZeroDigit>
 			<minusSign>−</minusSign>
 		</symbols>

@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="dz"/>
 	</identity>
@@ -365,15 +365,15 @@
 	<numbers>
 		<symbols>
 			<list draft="unconfirmed">;</list>
-			<list numberSystem="tibt" draft="unconfirmed">དང་</list>
+			<list draft="unconfirmed" numberSystem="tibt">དང་</list>
 			<percentSign draft="unconfirmed">%</percentSign>
-			<percentSign numberSystem="tibt" draft="unconfirmed">བརྒ་ཆཱ</percentSign>
+			<percentSign draft="unconfirmed" numberSystem="tibt">བརྒ་ཆཱ</percentSign>
 			<nativeZeroDigit draft="unconfirmed">0</nativeZeroDigit>
-			<nativeZeroDigit numberSystem="tibt" draft="unconfirmed">༠</nativeZeroDigit>
+			<nativeZeroDigit draft="unconfirmed" numberSystem="tibt">༠</nativeZeroDigit>
 			<infinity draft="unconfirmed">∞</infinity>
-			<infinity numberSystem="tibt" draft="unconfirmed">གྲངས་མེད</infinity>
+			<infinity draft="unconfirmed" numberSystem="tibt">གྲངས་མེད</infinity>
 			<nan draft="unconfirmed">NaN</nan>
-			<nan numberSystem="tibt" draft="unconfirmed">ཨང་མད</nan>
+			<nan draft="unconfirmed" numberSystem="tibt">ཨང་མད</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>

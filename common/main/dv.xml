@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 1.142 $"/>
 		<generation date="$Date: 2009/03/27 00:39:03 $"/>
 		<language type="dv"/>
 	</identity>
@@ -194,9 +194,9 @@
 	<numbers>
 		<symbols>
 			<list draft="unconfirmed">,</list>
-			<list numberSystem="arab" draft="unconfirmed">،</list>
+			<list draft="unconfirmed" numberSystem="arab">،</list>
 			<nativeZeroDigit draft="unconfirmed">0</nativeZeroDigit>
-			<nativeZeroDigit numberSystem="arab" draft="unconfirmed">٠</nativeZeroDigit>
+			<nativeZeroDigit draft="unconfirmed" numberSystem="arab">٠</nativeZeroDigit>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>

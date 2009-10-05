@@ -171,6 +171,7 @@ public class GenerateMaximalLocales {
   }
 
   private static void printDefaultLanguagesAndScripts() {
+    
     final int minTotalPopulation = 10000000;
     final int minTerritoryPopulation = 1000000;
     final double minTerritoryPercent = 1.0/3;
@@ -190,6 +191,17 @@ public class GenerateMaximalLocales {
      * language coverage‡ in CLDR itself.
      */
     OfficialStatus minimalStatus = OfficialStatus.official_regional; // OfficialStatus.de_facto_official;
+    Map<String,String> languages = new TreeMap<String,String>(); 
+    for (String language : standardCodes.getAvailableCodes("language")) {
+      String path = CLDRFile.getKey(english.LANGUAGE_NAME, language);
+      String result = english.getStringValue(path);
+      if (result != null) {
+        languages.put(language,result);
+      }
+    }
+    for (String language : languages.keySet()) {
+      System.out.println(language + "\t" + languages.get(language));
+    }
 
     for (String territory : supplementalData.getTerritoriesWithPopulationData()) {
       PopulationData territoryPop = supplementalData.getPopulationDataForTerritory(territory);

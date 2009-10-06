@@ -18,6 +18,8 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.TimeZone;
 
+import static org.unicode.cldr.icu.ICUID.*;
+
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -95,7 +97,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
   private String destDir;
   private String specialsDir;
   private String supplementalDir;
-  private boolean writeDeprecated;
   private boolean writeDraft;
   private boolean writeSupplemental;
   private boolean writeMetazone;
@@ -111,11 +112,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
    * information, bad for diffs.
    */
   private static boolean verboseFallbackComments;
-
-  private static final String LINESEP = System.getProperty("line.separator");
-  private static final String BOM = "\uFEFF";
-  private static final String CHARSET = "UTF-8";
-  private static final String DEPRECATED_LIST = "icu-config.xml & build.xml";
 
   private Document fullyResolvedDoc;
   private Document specialsDoc;
@@ -136,11 +132,53 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
   private List<String> xpathList = new ArrayList<String>();
 
+  private ICULog log;
+  private ICUWriter writer;
   private CLDRFile.Factory cldrFactory;
   private CLDRFile.Factory specialsFactory;
   private SupplementalDataInfo supplementalDataInfo;
   // TreeMap overrideMap = new TreeMap(); // list of locales to take regardless of draft status.
   // Written by writeDeprecated
+
+  private final LDMLServices serviceAdapter = new LDMLServices() {
+    public Factory cldrFactory() {
+      return LDML2ICUConverter.this.cldrFactory;
+    }
+    
+    public Document getDocument(String locale) {
+      return LDML2ICUConverter.this.getDocument(locale);
+    }
+
+    public CLDRFile getSpecialsFile(String locale) {
+      return LDML2ICUConverter.this.getSpecialsFile(locale);
+    }
+
+    public void setLdmlVersion(String version) {
+      LDML2ICUConverter.this.setLdmlVersion(version);
+    }
+
+    public boolean xpathListContains(String xpath) {
+      return LDML2ICUConverter.this.xpathList.contains(xpath);
+    }
+
+    @Override
+    public boolean isDraftStatusOverridable(String locName) {
+      return LDML2ICUConverter.this.isDraftStatusOverridable(locName);
+    }
+
+    @Override
+    public Resource parseBundle(CLDRFile file, String status) {
+      return LDML2ICUConverter.this.parseBundle(file, status);
+    }
+  };
+  
+  private Resource parseBundle(CLDRFile file, String status) {
+    specialsDoc = null;
+    LDML2ICUInputLocale fakeLocale = new LDML2ICUInputLocale(file, serviceAdapter);
+
+    locName = status; // Global!
+    return parseBundle(fakeLocale);
+  }
 
   public static void main(String[] args) {
     LDML2ICUConverter cnv = new LDML2ICUConverter();
@@ -184,12 +222,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     System.exit(-1);
   }
 
-  private void printInfo(String message) {
-    if (verbose) {
-      System.out.println("INFO : " + message);
-    }
-  }
-
   private void printXPathWarning(LDML2ICUInputLocale loc, String xpath) {
     // int len = xpath.length();
     // getXPath(node, xpath);
@@ -209,12 +241,18 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     xpath.setLength(len);
   }
 
+  private void printInfo(String message) {
+    log.info(message);
+  }
+
   private void printWarning(String fileName, String message) {
-    System.err.println(fileName + ": WARNING : " + message);
+    log.setStatus(fileName);
+    log.warning(message);
   }
 
   private void printError(String fileName, String message) {
-    System.err.println(fileName + ": ERROR : " + message);
+    log.setStatus(fileName);
+    log.error(message);
   }
 
   /*
@@ -236,7 +274,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     try {
       remainingArgc = UOption.parseArgs(args, options);
     } catch (Exception e) {
-      printError("", "(parsing args): " + e.toString());
+      // log is not set up yet, so do this manually
+      System.out.println("ERROR: parsing args '" + e.getMessage() + "'");
       e.printStackTrace();
       usage();
     }
@@ -286,22 +325,42 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     if (destDir == null) {
       destDir = ".";
     }
+    
+    // Set up logging so we can use it here on out
+    ICULog.Level level = 
+      DEBUG ? ICULog.Level.DEBUG : verbose ? ICULog.Level.INFO : ICULog.Level.LOG;
+    log = new ICULogImpl(level);
+    
+    // Set up writer
+    writer = new ICUWriter(serviceAdapter, destDir, log);
+    
     if (options[WRITE_DEPRECATED].doesOccur) {
-      writeDeprecated = true;
       if (remainingArgc > 0) {
-        printError("", "-w takes one argument, the directory, and no other XML files.\n");
+        log.error("-w takes one argument, the directory, and no other XML files.\n");
         usage();
         return; // NOTREACHED
       }
-      writeDeprecated();
+      String depDirName = options[WRITE_DEPRECATED].value;
+      File depDir = new File(depDirName);
+      if (!depDir.isDirectory()) {
+        log.error(depDirName + " isn't a directory.");
+        usage();
+        return; // NOTREACHED
+      }
+      // parse for draft status?
+      File dstDir = new File(destDir);
+      boolean parseDraft = !writeDraft;
+      boolean parseSubLocale = sourceDir.indexOf("collation") > -1;
+      writer.writeDeprecated(
+          depDir, dstDir, emptyLocaleList, aliasMap, aliasLocaleList, parseDraft, parseSubLocale);
       return;
     }
     //if ((writeDraft == false) && (specialsDir != null)) {
     // printInfo("Reading alias table searching for draft overrides");
     // writeDeprecated(); // actually just reads the alias
     //}
-    if (remainingArgc == 0 && (getLocalesMap()== null || getLocalesMap().size()== 0)) {
-      printError("", "No files specified for processing. Please check the arguments and try again");
+    if (remainingArgc == 0 && (getLocalesMap()== null || getLocalesMap().size() == 0)) {
+      log.error("No files specified for processing. Please check the arguments and try again");
       usage();
     }
 
@@ -375,12 +434,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       Resource res = parseNumberingSystemsFile(numberingSystemsDoc, numberingSystemsFile);
 
       if (res != null && ((ResourceTable)res).first != null) {
-        // write out the bundle
         writeResource(res, numberingSystemsFile);
       }
     } else {
-      spinUpFactories(sourceDir, specialsDir);
-
       if (getLocalesMap() != null && getLocalesMap().size() > 0) {
         for (Iterator<String> iter = getLocalesMap().keySet().iterator(); iter.hasNext();) {
           String fileName = iter.next();
@@ -415,6 +471,14 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
   }
 
+  void writeResource(Resource res, String sourceFileName) {
+    writer.writeResource(res, sourceFileName);
+  }
+  
+  void writeResource(Resource res, String sourceFileName, String outputFileName) {
+    writer.writeResource(res, sourceFileName, outputFileName);
+  }
+  
   /**
    * Serves to narrow the interface to InputLocale so that it can be
    * separated from LDML2ICUConverter.
@@ -430,6 +494,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     boolean xpathListContains(String xpath);
     /** Sets the ldml version */
     void setLdmlVersion(String version);
+    
+    // for writer
+    /** Returns true if draft status is overridable. */
+    boolean isDraftStatusOverridable(String locName);
+    /** Parses the CLDRFile, with the given status string */
+    Resource parseBundle(CLDRFile file, String status);
   }
 
   private Document getSpecialsDoc() {
@@ -438,17 +508,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         String icuSpecialFile = specialsDir + "/" + fileName;
         if (new File(icuSpecialFile).exists()) {
           specialsDoc = LDMLUtilities.parseAndResolveAliases(fileName, specialsDir, false, false);
-          /*
-          try {
-              OutputStreamWriter writer = new
-              OutputStreamWriter(
-                  new FileOutputStream("./" + File.separator + fileName + "_debug.xml"), "UTF-8");
-              LDMLUtilities.printDOMTree(fullyResolvedSpecials,new PrintWriter(writer));
-              writer.flush();
-          } catch(IOException e) {
-                //throw the exceptionaway .. this is for debugging
-          }
-           */
         } else {
           if (ULocale.getCountry(locName).length() == 0) {
             printWarning(
@@ -509,28 +568,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
     return null;
   }
-
-  private final LDMLServices serviceAdapter = new LDMLServices() {
-    public Factory cldrFactory() {
-      return LDML2ICUConverter.this.cldrFactory;
-    }
-
-    public Document getDocument(String locale) {
-      return LDML2ICUConverter.this.getDocument(locale);
-    }
-
-    public CLDRFile getSpecialsFile(String locale) {
-      return LDML2ICUConverter.this.getSpecialsFile(locale);
-    }
-
-    public void setLdmlVersion(String version) {
-      LDML2ICUConverter.this.setLdmlVersion(version);
-    }
-
-    public boolean xpathListContains(String xpath) {
-      return LDML2ICUConverter.this.xpathList.contains(xpath);
-    }
-  };
 
   /*
    * Sets some stuff up and calls createResourceBundle
@@ -2884,12 +2921,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     for (String name : stuff) {
       if (name.equals(LDMLConstants.LANGUAGES)
-              || name.equals(LDMLConstants.SCRIPTS)
-              || name.equals(LDMLConstants.TERRITORIES)
-              || name.equals(LDMLConstants.KEYS)
-              || name.equals(LDMLConstants.VARIANTS)
-              || name.equals(LDMLConstants.MSNS)
-              || name.equals(LDMLConstants.CODE_PATTERNS)) {
+          || name.equals(LDMLConstants.SCRIPTS)
+          || name.equals(LDMLConstants.TERRITORIES)
+          || name.equals(LDMLConstants.KEYS)
+          || name.equals(LDMLConstants.VARIANTS)
+          || name.equals(LDMLConstants.MSNS)
+          || name.equals(LDMLConstants.CODE_PATTERNS)) {
         res = parseList(loc, name);
       } else if (name.equals(LDMLConstants.TYPES)) {
         res = parseDisplayTypes(loc, name);
@@ -3292,7 +3329,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     return null;
   }
 
-
   private Resource parseMeasurement() {
     String country = ULocale.getCountry(locName);
     Resource ret = null;
@@ -3375,6 +3411,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         System.err.println("Unknown element found: " + name);
         System.exit(-1);
       }
+      
       if (res != null) {
         if (current == null) {
           current = first = res;
@@ -6858,23 +6895,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     return rules;
   }
 
-  private static final String ICU_BRKITR_DATA = "icu:breakIteratorData";
-  private static final String ICU_DICTIONARIES = "icu:dictionaries";
-  private static final String ICU_BOUNDARIES = "icu:boundaries";
-  private static final String ICU_GRAPHEME = "icu:grapheme";
-  private static final String ICU_WORD = "icu:word";
-  private static final String ICU_SENTENCE = "icu:sentence";
-  private static final String ICU_LINE = "icu:line";
-  private static final String ICU_XGC          = "icu:xgc";
-  private static final String ICU_TITLE = "icu:title";
-  private static final String ICU_DICTIONARY = "icu:dictionary";
-  //private static final String ICU_CLASS        = "icu:class";
-  //private static final String ICU_IMPORT       = "icu:import";
-  //private static final String ICU_APPEND       = "icu:append";
-  private static final String ICU_UCARULES = "icu:UCARules";
-  private static final String ICU_UCA_RULES = "icu:uca_rules";
-  private static final String ICU_DEPENDS = "icu:depends";
-  private static final String ICU_DEPENDENCY = "icu:dependency";
 
   private Resource parseBoundaries(Node root, StringBuilder xpath) {
     ResourceTable table = new ResourceTable();
@@ -7389,542 +7409,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     return null;
   }
 
-  private void writeResource(Resource set, String sourceFileName) {
-    String outputFileName = null;
-    outputFileName = destDir + "/" + set.name + ".txt";
-    try {
-      System.out.println("Writing " + outputFileName);
-      FileOutputStream file = new FileOutputStream(outputFileName);
-      BufferedOutputStream writer = new BufferedOutputStream(file);
-      printInfo("Writing ICU: " + outputFileName);
-      // TODO: fix me
-      writeHeader(writer, sourceFileName);
-
-      Resource current = set;
-      while (current != null) {
-        current.sort();
-        current = current.next;
-      }
-
-      // Now start writing the resource.
-      // Resourcek
-      current = set;
-      while (current != null) {
-        current.write(writer, 0, false);
-        current = current.next;
-      }
-      writer.flush();
-      writer.close();
-    } catch (Resource.MalformedResourceError mre) {
-      String where = set.findResourcePath(mre.offendingResource);
-      System.err.println(
-          sourceFileName + ": ERROR (writing resource " + where + ") :" + mre.toString());
-      mre.printStackTrace();
-      if (new File(outputFileName).delete()) {
-        System.err.println("## Deleted partial file: " + outputFileName);
-      }
-      System.exit(1);
-      return; // NOTREACHED
-    } catch (Exception ie) {
-      System.err.println(sourceFileName + ": ERROR (writing resource) :" + ie.toString());
-      ie.printStackTrace();
-      if (new File(outputFileName).delete()) {
-        System.err.println("## Deleted partial file: " + outputFileName);
-      }
-      System.exit(1);
-      return; // NOTREACHED
-    }
-  }
-
-  private void writeLine(OutputStream writer, String line) {
-    try {
-      byte[] bytes = line.getBytes(CHARSET);
-      writer.write(bytes, 0, bytes.length);
-    } catch (Exception e) {
-      System.err.println(e);
-      System.exit(1);
-    }
-  }
-
-  private void writeHeader(OutputStream writer, String fileName) {
-    writeBOM(writer);
-    Calendar c = Calendar.getInstance();
-    StringBuilder buffer = new StringBuilder();
-    buffer.append("// ***************************************************************************")
-        .append(LINESEP)
-        .append("// *")
-        .append(LINESEP)
-        .append("// * Copyright (C) ")
-        .append(c.get(Calendar.YEAR))
-        .append(" International Business Machines")
-        .append(LINESEP)
-        .append("// * Corporation and others.  All Rights Reserved.")
-        .append(LINESEP)
-        .append("// * Tool: com.ibm.icu.dev.tool.cldr.LDML2ICUConverter.java")
-        .append(LINESEP);
-    // buffer.append("// * Date & Time: ")
-    // .append(c.get(Calendar.YEAR))
-    // .append("/")
-    // .append(c.get(Calendar.MONTH) + 1)
-    // .append("/")
-    // .append(c.get(Calendar.DAY_OF_MONTH))
-    // .append(" ")
-    // .append(c.get(Calendar.HOUR_OF_DAY))
-    // .append(COLON)
-    // .append(c.get(Calendar.MINUTE))
-    // .append(LINESEP);
-    //         String ver = LDMLUtilities.getCVSVersion(fileName);
-    //         if (ver == null) {
-    //             ver = "";
-    //         } else {
-    //             ver = " v" + ver;
-    //         }
-
-    String tempdir = fileName.replace('\\','/');
-    //System.out.println(tempdir);
-    int index = tempdir.indexOf("/common");
-    if (index > -1) {
-      tempdir = "<path>" + tempdir.substring(index, tempdir.length());
-    } else {
-      index = tempdir.indexOf("/xml");
-      if (index > -1) {
-        tempdir = "<path>" + tempdir.substring(index, tempdir.length());
-      } else {
-        tempdir = "<path>/" + tempdir;
-      }
-    }
-    buffer.append("// * Source File:" + tempdir)
-        .append(LINESEP)
-        .append("// *")
-        .append(LINESEP)
-        .append("// ***************************************************************************")
-        .append(LINESEP);
-    writeLine(writer, buffer.toString());
-  }
-
-  private void writeBOM(OutputStream buffer) {
-    try {
-      byte[] bytes = BOM.getBytes(CHARSET);
-      buffer.write(bytes, 0, bytes.length);
-    } catch(Exception e) {
-      System.err.println(e);
-      System.exit(1);
-    }
-  }
-
-  private void writeDeprecated() {
-    String myTreeName = null;
-    File depF = null;
-    File destD = new File(destDir);
-    final File[] destFiles = destD.listFiles();
-    if (writeDeprecated == true) {
-      depF = new File(options[WRITE_DEPRECATED].value);
-      if (!depF.isDirectory()) {
-        printError("LDML2ICUConverter",  options[WRITE_DEPRECATED].value + " isn't a directory.");
-        usage();
-        return; // NOTREACHED
-      }
-      myTreeName = depF.getName();
-    }
-
-    // parse for draft status?
-    boolean parseDraft = !writeDraft;
-
-    boolean parseSubLocale = sourceDir.indexOf("collation") > -1;
-
-    // parse a bunch of locales?
-    boolean parseThem = (parseDraft||parseSubLocale);
-
-    // ex: "ji" -> "yi"
-    TreeMap<String, String> fromToMap = new TreeMap<String, String>();
-
-    // ex:  "th_TH_TRADITIONAL" -> "@some xpath.."
-    TreeMap<String, String> fromXpathMap = new TreeMap<String, String>();
-
-    // ex:  "mt.xml" -> File .  Ordinary XML source files
-    Map<String, File> fromFiles = new TreeMap<String, File>();
-
-    // ex:  "en_US.xml" -> File .  empty files generated by validSubLocales
-    Map<String, File> emptyFromFiles = new TreeMap<String, File>();
-
-    // ex:  th_TH_TRADITIONAL.xml -> File  Files generated directly from the alias list
-    // (no XML actually exists).
-    Map<String, File> generatedAliasFiles = new TreeMap<String, File>();
-
-    // ex: zh_MO.xml -> File  Files which actually exist in LDML and contain aliases
-    Map<String, File> aliasFromFiles = new TreeMap<String, File>();
-
-    // en -> "en_US en_GB ..."
-    TreeMap<String, String> validSubMap = new TreeMap<String, String>();
-
-    // for in -> id where id is a synthetic alias
-    TreeMap<String, String> maybeValidAlias = new TreeMap<String, String>();
-
-    // 1. get the list of input XML files
-    FileFilter myFilter = new FileFilter() {
-      public boolean accept(File f) {
-        String n = f.getName();
-        return !f.isDirectory()
-            && n.endsWith(".xml")
-            && !n.startsWith("supplementalData") // not a locale
-            /* &&!n.startsWith("root") */
-            && isInDest(n); // root is implied, will be included elsewhere.
-      }
-
-      public boolean isInDest(String n) {
-        String name = n.substring(0, n.indexOf('.') + 1);
-        for (int i = 0; i < destFiles.length; i++) {
-          String dest = destFiles[i].getName();
-          if (dest.indexOf(name)== 0) {
-            return true;
-          }
-        }
-
-        return false;
-      }
-    };
-
-    // File destFiles[] =
-    File inFiles[] = depF.listFiles(myFilter);
-
-    int nrInFiles = inFiles.length;
-    if (parseThem) {
-      System.out.println(
-          "Parsing: " + nrInFiles + " LDML locale files to check " + (parseDraft ? "draft, " : "")
-          + (parseSubLocale ? "valid-sub-locales, " : ""));
-    }
-
-    for (int i = 0; i < nrInFiles; i++) {
-      if (i > 0 && (i % 60 == 0)) {
-        System.out.println(" " + i);
-        System.out.flush();
-      }
-      boolean thisOK = true;
-      String localeName = inFiles[i].getName();
-      localeName = localeName.substring(0, localeName.indexOf('.'));
-      if (parseThem) {
-        // System.out.print(" " + inFiles[i].getName() + ":");
-        try {
-          Document doc2 = LDMLUtilities.parse(inFiles[i].toString(), false);
-          // TODO: figure out if this is really required
-          if (parseDraft && LDMLUtilities.isLocaleDraft(doc2)) {
-            thisOK = false;
-          }
-          if (thisOK && parseSubLocale) {
-            Node collations = LDMLUtilities.getNode(doc2, "//ldml/collations");
-            if (collations != null) {
-              String vsl = LDMLUtilities.getAttributeValue(collations, "validSubLocales");
-              if (vsl != null && vsl.length() > 0) {
-                validSubMap.put(localeName, vsl);
-                printInfo(localeName + " <- " + vsl);
-              }
-            }
-          }
-        } catch (Throwable t) {
-          System.err.println("While parsing " + inFiles[i].toString() + " - ");
-          System.err.println(t.toString());
-          t.printStackTrace(System.err);
-          System.exit(-1); // TODO: should be full 'parser error'stuff.
-        }
-      }
-
-      if (!localeName.equals("root")) {
-        // System.out.println("FN put " + inFiles[i].getName());
-        if (thisOK) {
-          System.out.print("."); // regular file
-          fromFiles.put(inFiles[i].getName(), inFiles[i]); // add to hash
-        } else {
-          if (isDraftStatusOverridable(localeName)) {
-            fromFiles.put(inFiles[i].getName(), inFiles[i]); // add to hash
-            System.out.print("o"); // override
-            // System.out.print("[o:" + localeName + "]");
-          } else {
-            System.out.print("d"); // draft
-            // System.out.print("[d:" + localeName + "]");
-          }
-        }
-      } else {
-        System.out.print("_");
-      }
-    }
-
-    if (parseThem == true) {
-      // end the debugging line
-      System.out.println("");
-    }
-    // End of parsing all XML files.
-
-    if (emptyLocaleList != null && emptyLocaleList.size() > 0) {
-      for (int i = 0; i < emptyLocaleList.size(); i++) {
-        String loc = emptyLocaleList.get(i);
-        writeSimpleLocale(
-            loc + ".txt", loc, null, null, "empty locale file for dependency checking");
-        // we do not want these files to show up in installed locales list!
-        generatedAliasFiles.put(loc + ".xml", new File(depF, loc + ".xml"));
-      }
-    }
-
-    // interpret the deprecated locales list
-    if (aliasMap != null && aliasMap.size() > 0) {
-      for (Iterator<String> i = aliasMap.keySet().iterator(); i.hasNext();) {
-        String from = i.next();
-        Alias value = aliasMap.get(from);
-        String to = value.to;
-        String xpath = value.xpath;
-        if (to.indexOf('@') != -1 && xpath == null) {
-          System.err.println(
-              "Malformed alias - '@' but no xpath: from=\"" + from + "\" to=\"" + to + "\"");
-          System.exit(-1);
-          return; // NOTREACHED
-        }
-
-        if (from == null || to == null) {
-          System.err.println(
-              "Malformed alias - no 'from' or no 'to':from=\"" + from + "\" to=\"" + to + "\"");
-          System.exit(-1);
-          return; // NOTREACHED
-        }
-
-        String toFileName = to;
-        if (xpath != null) {
-          toFileName = to.substring(0, to.indexOf('@'));
-        }
-        if (fromFiles.containsKey(from + ".xml")) {
-          throw new IllegalArgumentException(
-              "Can't be both a synthetic alias locale and a real xml file - "
-              + "consider using <aliasLocale locale=\"" + from + "\"/> instead. ");
-        }
-        ULocale fromLocale = new ULocale(from);
-        if (!fromFiles.containsKey(toFileName + ".xml")) {
-          maybeValidAlias.put(toFileName, from);
-          // System.err.println("WARNING: Alias from \"" + from + "\"
-          // not generated, because it would point to a nonexistent
-          // LDML file " + toFileName + ".xml");
-          // writeSimpleLocale(from + ".txt", fromLocale, new
-          // ULocale(to), xpath,null);
-        } else {
-          // System.out.println("Had file " + toFileName + ".xml");
-          generatedAliasFiles.put(from, new File(depF, from + ".xml"));
-          fromToMap.put(fromLocale.toString(), to);
-          if (xpath != null) {
-            fromXpathMap.put(fromLocale.toString(), xpath);
-          }
-
-          // write an individual file
-          writeSimpleLocale(from + ".txt", fromLocale, new ULocale(to), xpath, null);
-        }
-      }
-    }
-
-    if (aliasLocaleList != null && aliasLocaleList.size() > 0) {
-      for (int i = 0; i < aliasLocaleList.size(); i++) {
-        String source = aliasLocaleList.get(i);
-        if (!fromFiles.containsKey(source + ".xml")) {
-          System.err.println(
-              "WARNING: Alias file " + source
-              + ".xml named in deprecates list but not present. Ignoring alias entry.");
-        } else {
-          aliasFromFiles.put(source + ".xml", new File(depF, source + ".xml"));
-          fromFiles.remove(source + ".xml");
-        }
-      }
-    }
-
-    // Post process: calculate any 'valid sub locales' (empty locales
-    // generated due to validSubLocales attribute)
-    if (!validSubMap.isEmpty() && sourceDir.indexOf("collation") > -1) {
-      printInfo("Writing valid sub locs for : " + validSubMap.toString());
-
-      for (Iterator<String> e = validSubMap.keySet().iterator(); e.hasNext();) {
-        String actualLocale = e.next();
-        String list = validSubMap.get(actualLocale);
-        String validSubs[] = list.split(" ");
-        // printInfo(actualLocale + " .. ");
-        for (int i = 0; i < validSubs.length; i++) {
-          String aSub = validSubs[i];
-          String testSub;
-          // printInfo(" " + aSub);
-
-          for (testSub = aSub;
-               testSub != null && !testSub.equals("root") && !testSub.equals(actualLocale);
-               testSub = LDMLUtilities.getParent(testSub)) {
-
-            // printInfo(" trying " + testSub);
-            if (fromFiles.containsKey(testSub + ".xml")) {
-              printWarning(
-                  actualLocale + ".xml",
-                  " validSubLocale=" + aSub + " overridden because  " + testSub + ".xml  exists.");
-              testSub = null;
-              break;
-            }
-
-            if (generatedAliasFiles.containsKey(testSub)) {
-              printWarning(
-                  actualLocale + ".xml",
-                  " validSubLocale=" + aSub + " overridden because  an alias locale " + testSub
-                  + ".xml  exists.");
-              testSub = null;
-              break;
-            }
-          }
-
-          if (testSub != null) {
-            emptyFromFiles.put(aSub + ".xml", new File(depF, aSub + ".xml"));
-            // ULocale aSubL = new ULocale(aSub);
-            if (maybeValidAlias.containsKey(aSub)) {
-              String from = maybeValidAlias.get(aSub);
-              // writeSimpleLocale(from + ".txt", fromLocale, new
-              // ULocale(to), xpath,null);
-              writeSimpleLocale(from + ".txt", from, aSub, null, null);
-              maybeValidAlias.remove(aSub);
-              generatedAliasFiles.put(from, new File(depF, from + ".xml"));
-            }
-            writeSimpleLocale(
-                aSub + ".txt", aSub, null, null, "validSubLocale of \"" + actualLocale + "\"");
-          }
-        }
-      }
-    }
-
-    if (!maybeValidAlias.isEmpty()) {
-      Set<String> keys = maybeValidAlias.keySet();
-      Iterator<String> iter = keys.iterator();
-      while (iter.hasNext()) {
-        String to = iter.next();
-        String from = maybeValidAlias.get(to);
-        System.err.println(
-            "WARNING: Alias from \"" + from
-            + "\" not generated, because it would point to a nonexistent LDML file " + to + ".xml");
-      }
-    }
-
-    // System.out.println("In Files: " + inFileText);
-    String inFileText = fileMapToList(fromFiles);
-    String emptyFileText = null;
-    if (!emptyFromFiles.isEmpty()) {
-      emptyFileText = fileMapToList(emptyFromFiles);
-    }
-    String aliasFilesList = fileMapToList(aliasFromFiles);
-    String generatedAliasList = fileMapToList(generatedAliasFiles);
-
-    // Now- write the actual items (resfiles.mk, etc)
-    String[] brkArray = new String[2];
-    if (myTreeName.equals("brkitr")) {
-      getBrkCtdFilesList(options[WRITE_DEPRECATED].value, brkArray);
-    }
-    writeResourceMakefile(myTreeName, generatedAliasList, aliasFilesList,
-            inFileText, emptyFileText, brkArray[0], brkArray[1]);
-    if (writeDeprecated == false) {
-      return; // just looking for overrideDraft
-    }
-
-    System.out.println("done.");
-  }
-
-  public String[] getBrkCtdFilesList(String dir, String[] brkArray) {
-    // read all xml files in the directory and create ctd file list and brk file list
-    FilenameFilter myFilter = new FilenameFilter() {
-      public boolean accept(File f, String name) {
-        return !f.isFile()
-            && name.endsWith(".xml")
-            && !name.startsWith("supplementalData"); // not a locale
-        // root is implied, will be included elsewhere.
-      }
-    };
-
-    File directory = new File(dir);
-    String[] files = directory.list(myFilter);
-    StringBuilder brkList = new StringBuilder();
-    StringBuilder ctdList = new StringBuilder();
-
-    // open each file and create the list of files for brk and ctd
-    for (int i = 0; i <files.length; i++) {
-      Document doc = LDMLUtilities.parse(dir + "/" + files[i], false);
-      for(Node node = doc.getFirstChild(); node != null; node = node.getNextSibling()) {
-        if (node.getNodeType() != Node.ELEMENT_NODE) {
-          continue;
-        }
-
-        String name = node.getNodeName();
-        if (name.equals(LDMLConstants.LDML)) {
-          node = node.getFirstChild();
-          continue;
-        }
-
-        if (name.equals(LDMLConstants.IDENTITY)) {
-          continue;
-        }
-
-        if (name.equals(LDMLConstants.SPECIAL)) {
-          node = node.getFirstChild();
-          continue;
-        }
-
-        if (name.equals(ICU_BRKITR_DATA)) {
-          node = node.getFirstChild();
-          continue;
-        }
-
-        if (name.equals(ICU_BOUNDARIES)) {
-          for (Node cn = node.getFirstChild(); cn != null; cn = cn.getNextSibling()) {
-            if (cn.getNodeType() != Node.ELEMENT_NODE) {
-              continue;
-            }
-            String cnName = cn.getNodeName();
-
-            if (cnName.equals(ICU_GRAPHEME)
-                || cnName.equals(ICU_WORD)
-                || cnName.equals(ICU_TITLE)
-                || cnName.equals(ICU_SENTENCE)
-                || cnName.equals(ICU_XGC)
-                || cnName.equals(ICU_LINE)) {
-
-              String val = LDMLUtilities.getAttributeValue(cn,ICU_DEPENDENCY);
-              if (val != null) {
-                brkList.append(val.substring(0, val.indexOf('.')));
-                brkList.append(".txt ");
-              }
-            } else {
-              System.err.println("Encountered unknown <" + name + "> subelement: " + cnName);
-              System.exit(-1);
-            }
-          }
-        } else if (name.equals(ICU_DICTIONARIES)) {
-          for (Node cn = node.getFirstChild(); cn != null; cn = cn.getNextSibling()) {
-            if (cn.getNodeType() != Node.ELEMENT_NODE) {
-              continue;
-            }
-            String cnName = cn.getNodeName();
-
-            if (cnName.equals(ICU_DICTIONARY)) {
-              String val = LDMLUtilities.getAttributeValue(cn, ICU_DEPENDENCY);
-              if (val != null) {
-                ctdList.append(val.substring(0, val.indexOf('.')));
-                ctdList.append(".txt ");
-              }
-            } else {
-              System.err.println("Encountered unknown <" + name + "> subelement: " + cnName);
-              System.exit(-1);
-            }
-          }
-        } else {
-          System.err.println("Encountered unknown <" + doc.getNodeName() + "> subelement: " + name);
-          System.exit(-1);
-        }
-      }
-    }
-
-    if (brkList.length() > 0) {
-      brkArray[0] = brkList.toString();
-    }
-
-    if (ctdList.length() > 0) {
-      brkArray[1] = ctdList.toString();
-    }
-
-    return brkArray;
-  }
-
   public boolean isDraftStatusOverridable(String locName) {
     if (getLocalesMap() != null && getLocalesMap().size() > 0) {
       String draft = getLocalesMap().get(locName + ".xml");
@@ -7939,236 +7423,5 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     // the txt files
     File f = new File(destDir, locName + ".txt");
     return f.exists();
-  }
-
-  private static String fileIteratorToList(Iterator<File> files) {
-    String out = "";
-    int i = 0;
-    while (files.hasNext()) {
-      File f = files.next();
-      if ((++i % 5) == 0) {
-        out = out + "\\" + LINESEP;
-      }
-      out = out + (i == 0 ? "" : " ") + f.getName().substring(0, f.getName().indexOf('.')) + ".txt";
-    }
-    return out;
-  }
-
-  private static String fileMapToList(Map<String, File> files) {
-    return fileIteratorToList(files.values().iterator());
-  }
-
-  private void writeSimpleLocale(
-      String fileName, ULocale fromLocale, ULocale toLocale, String xpath, String comment) {
-
-    writeSimpleLocale(
-        fileName, fromLocale == null ? "" : fromLocale.toString(),
-        toLocale == null ? "" : toLocale.toString(), xpath, comment);
-  }
-
-  private void writeSimpleLocale(
-      String fileName, String fromLocale, String toLocale, String xpath, String comment) {
-
-    if (xpath != null) {
-      // with CLDRFile this is a piece of cake
-      CLDRFile fakeFile = CLDRFile.make(fromLocale);
-      fakeFile.add(xpath, "");
-      fakeFile.freeze();
-      // fakeFile.write(new PrintWriter(System.out));
-
-      specialsDoc = null;
-      LDML2ICUInputLocale fakeLocale = new LDML2ICUInputLocale(fakeFile, serviceAdapter);
-
-      locName = fromLocale.toString(); // Global!
-
-      // Feed the bundle into our parser..
-      Resource res = parseBundle(fakeLocale);
-
-      res.name = fromLocale.toString();
-      if (res != null && ((ResourceTable) res).first != null) {
-        // write out the bundle
-        writeResource(res, DEPRECATED_LIST);
-      } else {
-        // parse error?
-        System.err.println(
-            "Failed to write out alias bundle " + fromLocale.toString() + " from " + xpath
-            + " - XML list follows:");
-        fakeFile.write(new PrintWriter(System.out));
-      }
-    } else {
-      // no xpath - simple locale-level alias.
-      String outputFileName = destDir + "/" + fileName;
-      Resource set = null;
-      try {
-        ResourceTable table = new ResourceTable();
-        table.name = fromLocale.toString();
-        if (toLocale != null && xpath == null) {
-          ResourceString str = new ResourceString();
-          str.name = "\"%%ALIAS\"";
-          str.val = toLocale.toString();
-          table.first = str;
-        } else {
-          ResourceString str = new ResourceString();
-          str.name = "___";
-          str.val = "";
-          str.comment = "so genrb doesn't issue warnings";
-          table.first = str;
-        }
-        set = table;
-        if (comment != null) {
-          set.comment = comment;
-        }
-      } catch (Throwable e) {
-        printError(
-            "", "building synthetic locale tree for " + outputFileName + ": " + e.toString());
-        e.printStackTrace();
-        System.exit(1);
-      }
-
-      try {
-        String info;
-        if (toLocale != null) {
-          info = "(alias to " + toLocale.toString() + ")";
-        } else {
-          info = comment;
-        }
-        printInfo("Writing synthetic: " + outputFileName + " " + info);
-        FileOutputStream file = new FileOutputStream(outputFileName);
-        BufferedOutputStream writer = new BufferedOutputStream(file);
-        writeHeader(writer, DEPRECATED_LIST);
-
-        Resource current = set;
-        while (current != null) {
-          current.sort();
-          current = current.next;
-        }
-
-        // Now start writing the resource;
-        /* Resource */ current = set;
-        while (current != null) {
-          current.write(writer, 0, false);
-          current = current.next;
-        }
-        writer.flush();
-        writer.close();
-      } catch (IOException e) {
-        System.err.println(
-            "ERROR: While writing synthetic locale " + outputFileName + ": " + e.toString());
-        e.printStackTrace();
-        System.exit(1);
-      }
-    }
-  }
-
-  private void writeResourceMakefile(
-      String myTreeName, String generatedAliasList, String aliasFilesList, String inFileText,
-      String emptyFileText, String brkFilesList, String ctdFilesList) {
-
-    // Write resfiles.mk
-    String stub = "UNKNOWN";
-    String shortstub = "unk";
-
-    if (myTreeName.equals("main")) {
-      stub = "GENRB"; // GENRB_SOURCE, GENRB_ALIAS_SOURCE
-      shortstub = "res"; // resfiles.mk
-    } else if (myTreeName.equals("collation")) {
-      stub = "COLLATION"; // COLLATION_ALIAS_SOURCE, COLLATION_SOURCE
-      shortstub = "col"; // colfiles.mk
-    } else if (myTreeName.equals("brkitr")) {
-      stub = "BRK_RES"; // BRK_SOURCE, BRK_CTD_SOURCE BRK_RES_SOURCE
-      shortstub = "brk"; // brkfiles.mk
-    } else if (myTreeName.equals("rbnf")) {
-      stub = "RBNF"; // RBNF_SOURCE, RBNF_ALIAS_SOURCE
-      shortstub = "rbnf"; // brkfiles.mk
-    } else {
-      printError("", "Unknown tree name in writeResourceMakefile: " + myTreeName);
-      System.exit(-1);
-    }
-
-    String resfiles_mk_name = destDir + "/" + shortstub + "files.mk";
-    try {
-      printInfo("Writing ICU build file: " + resfiles_mk_name);
-      PrintStream resfiles_mk = new PrintStream(new FileOutputStream(resfiles_mk_name));
-      Calendar c = Calendar.getInstance();
-      resfiles_mk.println(
-          "# *   Copyright (C) 1998-" + c.get(Calendar.YEAR) + ", International Business Machines");
-      resfiles_mk.println("# *   Corporation and others.  All Rights Reserved.");
-      resfiles_mk.println(stub + "_CLDR_VERSION = " + CLDRFile.GEN_VERSION);
-      resfiles_mk.println("# A list of txt's to build");
-      resfiles_mk.println("# Note: ");
-      resfiles_mk.println("#");
-      resfiles_mk.println("#   If you are thinking of modifying this file, READ THIS.");
-      resfiles_mk.println("#");
-      resfiles_mk.println("# Instead of changing this file [unless you want to check it back in],");
-      resfiles_mk.println(
-          "# you should consider creating a '" + shortstub
-          + "local.mk' file in this same directory.");
-      resfiles_mk.println("# Then, you can have your local changes remain even if you upgrade or");
-      resfiles_mk.println("# reconfigure ICU.");
-      resfiles_mk.println("#");
-      resfiles_mk.println("# Example '" + shortstub + "local.mk' files:");
-      resfiles_mk.println("#");
-      resfiles_mk .println("#  * To add an additional locale to the list: ");
-      resfiles_mk .println("#    _____________________________________________________");
-      resfiles_mk.println("#    |  " + stub + "_SOURCE_LOCAL =   myLocale.txt ...");
-      resfiles_mk.println("#");
-      resfiles_mk.println("#  * To REPLACE the default list and only build with a few");
-      resfiles_mk.println("#     locale:");
-      resfiles_mk.println("#    _____________________________________________________");
-      resfiles_mk.println("#    |  " + stub + "_SOURCE = ar.txt ar_AE.txt en.txt de.txt zh.txt");
-      resfiles_mk.println("#");
-      resfiles_mk.println("#");
-      resfiles_mk .println("# Generated by LDML2ICUConverter, from LDML source files. ");
-      resfiles_mk.println("");
-      resfiles_mk .println(
-          "# Aliases which do not have a corresponding xx.xml file (see " + DEPRECATED_LIST + ")");
-      resfiles_mk.println(
-          stub + "_SYNTHETIC_ALIAS =" + generatedAliasList); // note: lists start with a space.
-      resfiles_mk.println("");
-      resfiles_mk.println("");
-      resfiles_mk.println(
-          "# All aliases (to not be included under 'installed'), but not including root.");
-      resfiles_mk.println(stub + "_ALIAS_SOURCE = $(" + stub
-              + "_SYNTHETIC_ALIAS)" + aliasFilesList);
-      resfiles_mk.println("");
-      resfiles_mk.println("");
-
-      if (ctdFilesList != null) {
-        resfiles_mk.println("# List of compact trie dictionary files (ctd).");
-        resfiles_mk.println("BRK_CTD_SOURCE = " + ctdFilesList);
-        resfiles_mk.println("");
-        resfiles_mk.println("");
-      }
-
-      if (brkFilesList != null) {
-        resfiles_mk.println("# List of break iterator files (brk).");
-        resfiles_mk.println("BRK_SOURCE = " + brkFilesList);
-        resfiles_mk.println("");
-        resfiles_mk.println("");
-      }
-
-      if (emptyFileText != null) {
-        resfiles_mk.println("# Empty locales, used for validSubLocale fallback.");
-        // note: lists start with a space.
-        resfiles_mk.println(stub + "_EMPTY_SOURCE =" + emptyFileText);
-        resfiles_mk.println("");
-        resfiles_mk.println("");
-      }
-
-      resfiles_mk.println("# Ordinary resources");
-      if (emptyFileText == null) {
-        resfiles_mk.print(stub + "_SOURCE =" + inFileText);
-      } else {
-        resfiles_mk.print(stub + "_SOURCE = $(" + stub + "_EMPTY_SOURCE)" + inFileText);
-      }
-      resfiles_mk.println("");
-      resfiles_mk.println("");
-
-      resfiles_mk.close();
-    } catch(IOException e) {
-      System.err.println("While writing " + resfiles_mk_name);
-      e.printStackTrace();
-      System.exit(1);
-    }
   }
 }

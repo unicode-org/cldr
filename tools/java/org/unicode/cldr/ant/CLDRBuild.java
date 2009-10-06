@@ -253,11 +253,17 @@ public class CLDRBuild extends Task{
             Class classDefinition = Class.forName(className);
             object = classDefinition.newInstance();
         } catch (InstantiationException e) {
+          e.printStackTrace();
             errln(e.getMessage(), true);
         } catch (IllegalAccessException e) {
+          e.printStackTrace();
             errln(e.getMessage(), true);
         } catch (ClassNotFoundException e) {
+          e.printStackTrace();
             errln(e.getMessage(), true);
+        } catch (Throwable t) {
+          t.printStackTrace();
+          errln(t.getMessage(), true);
         }
         return object;
      }

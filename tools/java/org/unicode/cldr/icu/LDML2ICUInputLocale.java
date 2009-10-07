@@ -275,7 +275,7 @@ class LDML2ICUInputLocale {
     }
     return doc;
   }
-  
+
   private CLDRFile.Factory cldrFactory() {
     return services.cldrFactory();
   }

@@ -36,7 +36,7 @@ class ICUWriter {
   private static final String LINESEP = System.getProperty("line.separator");
   private static final String BOM = "\uFEFF";
   private static final String CHARSET = "UTF-8";
-  
+
   private static final String DEPRECATED_LIST = "icu-config.xml & build.xml";
 
   private final LDMLServices services;
@@ -56,7 +56,7 @@ class ICUWriter {
 
   public void writeResource(Resource set, String sourceFileName, String outputFileName) {
     try {
-      System.out.println("Writing " + outputFileName);
+      log.log("Writing: " + outputFileName);
       FileOutputStream file = new FileOutputStream(outputFileName);
       BufferedOutputStream writer = new BufferedOutputStream(file);
       writeHeader(writer, sourceFileName);
@@ -76,19 +76,16 @@ class ICUWriter {
       writer.close();
     } catch (Resource.MalformedResourceError mre) {
       String where = set.findResourcePath(mre.offendingResource);
-      System.err.println(
-          sourceFileName + ": ERROR (writing resource " + where + ") :" + mre.toString());
-      mre.printStackTrace();
-      if (new File(outputFileName).delete()) {
-        System.err.println("## Deleted partial file: " + outputFileName);
+      log.error("Could not write resource " + where + ". " + mre.toString(), mre);
+      if (!new File(outputFileName).delete()) {
+        log.error("Failed to delete file");
       }
       System.exit(1);
       return; // NOTREACHED
     } catch (Exception ie) {
-      System.err.println(sourceFileName + ": ERROR (writing resource) :" + ie.toString());
-      ie.printStackTrace();
-      if (new File(outputFileName).delete()) {
-        System.err.println("## Deleted partial file: " + outputFileName);
+      log.error("Could not write resource." + ie.toString(), ie);
+      if (!new File(outputFileName).delete()) {
+        log.error("Failed to delete file");
       }
       System.exit(1);
       return; // NOTREACHED
@@ -100,7 +97,7 @@ class ICUWriter {
       byte[] bytes = line.getBytes(CHARSET);
       writer.write(bytes, 0, bytes.length);
     } catch (Exception e) {
-      System.err.println(e);
+      log.error(e.getMessage(), e);
       System.exit(1);
     }
   }
@@ -165,12 +162,11 @@ class ICUWriter {
       byte[] bytes = BOM.getBytes(CHARSET);
       buffer.write(bytes, 0, bytes.length);
     } catch(Exception e) {
-      System.err.println(e);
-      System.exit(1);
+      log.error(e.getMessage(), e);
     }
   }
 
-  public void writeDeprecated(File depDir, File dstDir, List<String> emptyLocaleList, 
+  public void writeDeprecated(File depDir, File dstDir, List<String> emptyLocaleList,
       Map<String, Alias> aliasMap, List<String> aliasLocaleList, boolean parseDraft,
       boolean parseSubLocale) {
     String myTreeName = depDir.getName();
@@ -232,8 +228,9 @@ class ICUWriter {
 
     int nrInFiles = inFiles.length;
     if (parseThem) {
-      System.out.println(
-          "Parsing: " + nrInFiles + " LDML locale files to check " + (parseDraft ? "draft, " : "")
+      log.setStatus(null);
+      log.log("Parsing: " + nrInFiles + " LDML locale files to check "
+          + (parseDraft ? "draft, " : "")
           + (parseSubLocale ? "valid-sub-locales, " : ""));
     }
 
@@ -245,6 +242,7 @@ class ICUWriter {
       boolean thisOK = true;
       String localeName = inFiles[i].getName();
       localeName = localeName.substring(0, localeName.indexOf('.'));
+      log.setStatus(localeName);
       if (parseThem) {
         try {
           Document doc2 = LDMLUtilities.parse(inFiles[i].toString(), false);
@@ -263,15 +261,12 @@ class ICUWriter {
             }
           }
         } catch (Throwable t) {
-          System.err.println("While parsing " + inFiles[i].toString() + " - ");
-          System.err.println(t.toString());
-          t.printStackTrace(System.err);
+          log.error(t.getMessage(), t);
           System.exit(-1); // TODO: should be full 'parser error'stuff.
         }
       }
 
       if (!localeName.equals("root")) {
-        // System.out.println("FN put " + inFiles[i].getName());
         if (thisOK) {
           System.out.print("."); // regular file
           fromFiles.put(inFiles[i].getName(), inFiles[i]); // add to hash
@@ -288,11 +283,12 @@ class ICUWriter {
       } else {
         System.out.print("_");
       }
+      log.setStatus(null);
     }
 
     if (parseThem == true) {
       // end the debugging line
-      System.out.println("");
+      System.out.println();
     }
     // End of parsing all XML files.
 
@@ -310,19 +306,18 @@ class ICUWriter {
     if (aliasMap != null && aliasMap.size() > 0) {
       for (Iterator<String> i = aliasMap.keySet().iterator(); i.hasNext();) {
         String from = i.next();
+        log.setStatus(String.valueOf(from));
         Alias value = aliasMap.get(from);
         String to = value.to;
         String xpath = value.xpath;
         if (to.indexOf('@') != -1 && xpath == null) {
-          System.err.println(
-              "Malformed alias - '@' but no xpath: from=\"" + from + "\" to=\"" + to + "\"");
+          log.error("Malformed alias - '@' but no xpath: from=\"" + from + "\" to=\"" + to + "\"");
           System.exit(-1);
           return; // NOTREACHED
         }
 
         if (from == null || to == null) {
-          System.err.println(
-              "Malformed alias - no 'from' or no 'to':from=\"" + from + "\" to=\"" + to + "\"");
+          log.error("Malformed alias - no 'from' or 'to': from=\"" + from + "\" to=\"" + to + "\"");
           System.exit(-1);
           return; // NOTREACHED
         }
@@ -336,64 +331,55 @@ class ICUWriter {
               "Can't be both a synthetic alias locale and a real xml file - "
               + "consider using <aliasLocale locale=\"" + from + "\"/> instead. ");
         }
+
         ULocale fromLocale = new ULocale(from);
         if (!fromFiles.containsKey(toFileName + ".xml")) {
           maybeValidAlias.put(toFileName, from);
-          // System.err.println("WARNING: Alias from \"" + from + "\"
-          // not generated, because it would point to a nonexistent
-          // LDML file " + toFileName + ".xml");
-          // writeSimpleLocale(from + ".txt", fromLocale, new
-          // ULocale(to), xpath,null);
         } else {
-          // System.out.println("Had file " + toFileName + ".xml");
           generatedAliasFiles.put(from, new File(depDir, from + ".xml"));
           fromToMap.put(fromLocale.toString(), to);
           if (xpath != null) {
             fromXpathMap.put(fromLocale.toString(), xpath);
           }
-
-          // write an individual file
           writeSimpleLocale(from + ".txt", fromLocale, new ULocale(to), xpath, null);
         }
       }
+      log.setStatus(null);
     }
 
     if (aliasLocaleList != null && aliasLocaleList.size() > 0) {
       for (int i = 0; i < aliasLocaleList.size(); i++) {
-        String source = aliasLocaleList.get(i);
-        if (!fromFiles.containsKey(source + ".xml")) {
-          System.err.println(
-              "WARNING: Alias file " + source
-              + ".xml named in deprecates list but not present. Ignoring alias entry.");
+        String source = aliasLocaleList.get(i) + ".xml";
+        log.setStatus(source);
+        if (!fromFiles.containsKey(source)) {
+          log.warning("Alias file named in deprecates list but not present. Ignoring alias entry.");
         } else {
-          aliasFromFiles.put(source + ".xml", new File(depDir, source + ".xml"));
-          fromFiles.remove(source + ".xml");
+          aliasFromFiles.put(source, new File(depDir, source));
+          fromFiles.remove(source);
         }
       }
+      log.setStatus(null);
     }
 
     // Post process: calculate any 'valid sub locales' (empty locales
     // generated due to validSubLocales attribute)
     if (!validSubMap.isEmpty() && parseSubLocale) {
-      log.info("Writing valid sub locs for : " + validSubMap.toString());
+      log.info("Writing valid sub locs for: " + validSubMap.toString());
 
       for (Iterator<String> e = validSubMap.keySet().iterator(); e.hasNext();) {
         String actualLocale = e.next();
+        log.setStatus(actualLocale + ".xml");
         String list = validSubMap.get(actualLocale);
         String validSubs[] = list.split(" ");
-        // printInfo(actualLocale + " .. ");
         for (int i = 0; i < validSubs.length; i++) {
           String aSub = validSubs[i];
           String testSub;
-          // printInfo(" " + aSub);
 
           for (testSub = aSub;
                testSub != null && !testSub.equals("root") && !testSub.equals(actualLocale);
                testSub = LDMLUtilities.getParent(testSub)) {
 
-            // printInfo(" trying " + testSub);
             if (fromFiles.containsKey(testSub + ".xml")) {
-              log.setStatus(actualLocale + ".xml");
               log.warning(
                   "validSubLocale=" + aSub + " overridden because  " + testSub + ".xml  exists.");
               testSub = null;
@@ -401,10 +387,8 @@ class ICUWriter {
             }
 
             if (generatedAliasFiles.containsKey(testSub)) {
-              log.setStatus(actualLocale + ".xml");
               log.warning(
-                  "validSubLocale=" + aSub + 
-                  " overridden because an alias locale " + testSub
+                  "validSubLocale=" + aSub + " overridden because an alias locale " + testSub
                   + ".xml  exists.");
               testSub = null;
               break;
@@ -413,11 +397,8 @@ class ICUWriter {
 
           if (testSub != null) {
             emptyFromFiles.put(aSub + ".xml", new File(depDir, aSub + ".xml"));
-            // ULocale aSubL = new ULocale(aSub);
             if (maybeValidAlias.containsKey(aSub)) {
               String from = maybeValidAlias.get(aSub);
-              // writeSimpleLocale(from + ".txt", fromLocale, new
-              // ULocale(to), xpath,null);
               writeSimpleLocale(from + ".txt", from, aSub, null, null);
               maybeValidAlias.remove(aSub);
               generatedAliasFiles.put(from, new File(depDir, from + ".xml"));
@@ -427,6 +408,7 @@ class ICUWriter {
           }
         }
       }
+      log.setStatus(null);
     }
 
     if (!maybeValidAlias.isEmpty()) {
@@ -456,7 +438,7 @@ class ICUWriter {
     writeResourceMakefile(myTreeName, generatedAliasList, aliasFilesList,
             inFileText, emptyFileText, brkArray[0], brkArray[1]);
 
-    log.log("done.");
+    log.log("WriteDeprecated done.");
   }
 
   private String fileMapToList(Map<String, File> files) {
@@ -480,8 +462,9 @@ class ICUWriter {
     StringBuilder ctdList = new StringBuilder();
 
     // open each file and create the list of files for brk and ctd
-    for (int i = 0; i <files.length; i++) {
+    for (int i = 0; i < files.length; i++) {
       Document doc = LDMLUtilities.parse(dirName + "/" + files[i], false);
+      log.setStatus(files[i]);
       for(Node node = doc.getFirstChild(); node != null; node = node.getNextSibling()) {
         if (node.getNodeType() != Node.ELEMENT_NODE) {
           continue;
@@ -527,7 +510,7 @@ class ICUWriter {
                 brkList.append(".txt ");
               }
             } else {
-              System.err.println("Encountered unknown <" + name + "> subelement: " + cnName);
+              log.error("Encountered unknown <" + name + "> subelement: " + cnName);
               System.exit(-1);
             }
           }
@@ -545,12 +528,12 @@ class ICUWriter {
                 ctdList.append(".txt ");
               }
             } else {
-              System.err.println("Encountered unknown <" + name + "> subelement: " + cnName);
+              log.error("Encountered unknown <" + name + "> subelement: " + cnName);
               System.exit(-1);
             }
           }
         } else {
-          System.err.println("Encountered unknown <" + doc.getNodeName() + "> subelement: " + name);
+          log.error("Encountered unknown <" + doc.getNodeName() + "> subelement: " + name);
           System.exit(-1);
         }
       }
@@ -566,7 +549,7 @@ class ICUWriter {
 
     return brkArray;
   }
-  
+
   private void writeSimpleLocale(
       String fileName, ULocale fromLocale, ULocale toLocale, String xpath, String comment) {
 
@@ -629,15 +612,14 @@ class ICUWriter {
     fakeFile.add(xpath, "");
     fakeFile.freeze();
 
-    Resource res = services.parseBundle(fakeFile, fromLocale.toString());
-
-    res.name = fromLocale.toString();
+    String localeName = fromLocale.toString();
+    Resource res = services.parseBundle(fakeFile, localeName);
     if (res != null && ((ResourceTable) res).first != null) {
+      res.name = localeName;
       writeResource(res, DEPRECATED_LIST);
     } else {
       // parse error?
-      System.err.println(
-          "Failed to write out alias bundle " + fromLocale.toString() + " from " + xpath
+      log.error("Failed to write out alias bundle " + localeName + " from " + xpath
           + " - XML list follows:");
       fakeFile.write(new PrintWriter(System.out));
     }
@@ -748,8 +730,7 @@ class ICUWriter {
 
       resfiles_mk.close();
     } catch(IOException e) {
-      System.err.println("While writing " + resfiles_mk_name);
-      e.printStackTrace();
+      log.error("While writing " + resfiles_mk_name, e);
       System.exit(1);
     }
   }

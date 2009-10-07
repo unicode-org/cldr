@@ -6,12 +6,12 @@ public class ICULogImpl implements ICULog {
   private final Level level;
   private final PrintWriter out;
   private String status;
-  
+
   public ICULogImpl(Level level) {
     this.level = level;
     this.out= new PrintWriter(System.out);
   }
-  
+
   @Override
   public void debug(String msg) {
     out(Level.DEBUG, msg);
@@ -51,7 +51,7 @@ public class ICULogImpl implements ICULog {
   public void warning(String msg) {
     out(Level.WARNING, msg);
   }
-  
+
   protected void out(Level level, String msg) {
     if (level.ordinal() >= this.level.ordinal()) {
       if (status != null) {
@@ -59,6 +59,7 @@ public class ICULogImpl implements ICULog {
       } else {
         out.format("%s: %s%n", level, msg);
       }
+      out.flush();
     }
   }
 }

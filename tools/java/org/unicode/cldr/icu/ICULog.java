@@ -4,9 +4,9 @@ public interface ICULog {
   public enum Level {
     DEBUG, INFO, LOG, WARNING, ERROR;
   }
-  
+
   void setStatus(String status);
-  
+
   void debug(String msg);
   void info(String msg);
   void log(String msg);

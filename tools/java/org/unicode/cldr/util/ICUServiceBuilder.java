@@ -159,9 +159,11 @@ public class ICUServiceBuilder {
     DateFormatSymbols formatData = calendar.equals("chinese") ? new ChineseDateFormatSymbols() : new DateFormatSymbols();
     
     String prefix = "//ldml/dates/calendars/calendar[@type=\""+ calendar + "\"]/";
+
+    
     formatData.setAmPmStrings(last = new String[] {
-        cldrFile.getWinningValue(prefix + "am"),
-        cldrFile.getWinningValue(prefix + "pm")});
+        cldrFile.getWinningValue(getDayPeriods(prefix, "format", "wide", "am")),
+        cldrFile.getWinningValue(getDayPeriods(prefix, "format", "wide", "pm"))});
     checkFound(last);
 //    if (last[0] == null && notGregorian) {
 //      if (gregorianBackup == null) gregorianBackup = _getDateFormatSymbols("gregorian");
@@ -220,6 +222,24 @@ public class ICUServiceBuilder {
 
     cacheDateFormatSymbols.put(key, formatData);
     return formatData;
+  }
+
+  /**
+    * Example from en.xml 
+    * <dayPeriods>
+    *     <dayPeriodContext type="format">
+    *         <dayPeriodWidth type="wide">
+    *             <dayPeriod type="am">AM</dayPeriod>
+    *             <dayPeriod type="am" alt="variant">a.m.</dayPeriod>
+    *             <dayPeriod type="pm">PM</dayPeriod>
+    *             <dayPeriod type="pm" alt="variant">p.m.</dayPeriod>
+    *         </dayPeriodWidth>
+    *     </dayPeriodContext>
+    * </dayPeriods>
+    */
+  private String getDayPeriods(String prefix, String context, String width, String type) {
+    return "dayPeriods/dayPeriodContext[@type=\"" + context + "\"]/dayPeriodWidth[@type=\"" +
+         width + "\"]/dayperiod[@type=\"" + type + "\"]";
   }
   
   private void checkFound(String[] last) {

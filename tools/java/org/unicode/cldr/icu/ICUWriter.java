@@ -291,7 +291,6 @@ class ICUWriter {
       System.out.println();
     }
     // End of parsing all XML files.
-
     if (emptyLocaleList != null && emptyLocaleList.size() > 0) {
       for (int i = 0; i < emptyLocaleList.size(); i++) {
         String loc = emptyLocaleList.get(i);
@@ -421,7 +420,7 @@ class ICUWriter {
             + "\" not generated, because it would point to a nonexistent LDML file " + to + ".xml");
       }
     }
-
+    
     String inFileText = fileMapToList(fromFiles);
     String emptyFileText = null;
     if (!emptyFromFiles.isEmpty()) {
@@ -435,9 +434,11 @@ class ICUWriter {
     if (myTreeName.equals("brkitr")) {
       getBrkCtdFilesList(depDir, brkArray);
     }
+    
     writeResourceMakefile(myTreeName, generatedAliasList, aliasFilesList,
             inFileText, emptyFileText, brkArray[0], brkArray[1]);
 
+    log.setStatus(null);
     log.log("WriteDeprecated done.");
   }
 
@@ -456,15 +457,16 @@ class ICUWriter {
       }
     };
 
-    String dirName = directory.getName();
-    String[] files = directory.list(myFilter);
+    File[] files = directory.listFiles(myFilter);
     StringBuilder brkList = new StringBuilder();
     StringBuilder ctdList = new StringBuilder();
 
     // open each file and create the list of files for brk and ctd
-    for (int i = 0; i < files.length; i++) {
-      Document doc = LDMLUtilities.parse(dirName + "/" + files[i], false);
-      log.setStatus(files[i]);
+    for (File file : files) {
+      String fileName = file.getName();
+      String filePath = file.getAbsolutePath();
+      Document doc = LDMLUtilities.parse(filePath, false);
+      log.setStatus(fileName);
       for(Node node = doc.getFirstChild(); node != null; node = node.getNextSibling()) {
         if (node.getNodeType() != Node.ELEMENT_NODE) {
           continue;
@@ -612,14 +614,13 @@ class ICUWriter {
     fakeFile.add(xpath, "");
     fakeFile.freeze();
 
-    String localeName = fromLocale.toString();
-    Resource res = services.parseBundle(fakeFile, localeName);
+    Resource res = services.parseBundle(fakeFile);
     if (res != null && ((ResourceTable) res).first != null) {
-      res.name = localeName;
+      res.name = fromLocale;
       writeResource(res, DEPRECATED_LIST);
     } else {
       // parse error?
-      log.error("Failed to write out alias bundle " + localeName + " from " + xpath
+      log.error("Failed to write out alias bundle " + fromLocale + " from " + xpath
           + " - XML list follows:");
       fakeFile.write(new PrintWriter(System.out));
     }

@@ -1839,6 +1839,7 @@ public class LDMLUtilities {
         {
             // ... if we couldn't parse as XML, attempt parse as HTML...
             System.err.println(filename + ": ERROR :" + se.getMessage());
+            se.printStackTrace();
             if(!ignoreError){
                 throw new RuntimeException(se);
             }

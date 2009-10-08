@@ -983,7 +983,18 @@
 					<monthContext type="format">
 						<default choice="wide"/>
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
+							<month type="1">Muh.</month>
+							<month type="2">Saf.</month>
+							<month type="3">Rab. I</month>
+							<month type="4">Rab. II</month>
+							<month type="5">Jum. I</month>
+							<month type="6">Jum. II</month>
+							<month type="7">Raj.</month>
+							<month type="8">Sha.</month>
+							<month type="9">Ram.</month>
+							<month type="10">Shaw.</month>
+							<month type="11">Dhuʻl-Q.</month>
+							<month type="12">Dhuʻl-H.</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>

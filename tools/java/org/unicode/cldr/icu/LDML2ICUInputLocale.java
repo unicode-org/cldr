@@ -5,7 +5,6 @@ package org.unicode.cldr.icu;
 import org.unicode.cldr.icu.LDML2ICUConverter.LDMLServices;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LDMLUtilities;
-import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -22,9 +21,6 @@ class LDML2ICUInputLocale {
   private final CLDRFile file;
   private final CLDRFile specialsFile;
   private CLDRFile resolved;
-
-  // shared utility
-  private final XPathParts xpp = new XPathParts(null, null);
 
   /** Cache results of beenHere. See {@link #beenHere}. */
   private final Set<String> alreadyDone = new HashSet<String>();
@@ -72,8 +68,8 @@ class LDML2ICUInputLocale {
   public CLDRFile resolved() {
     if (resolved == null) {
       // System.err.println("** spinning up resolved for " + locale);
-      if (cldrFactory() != null) {
-        resolved = cldrFactory().make(locale, true, DraftStatus.contributed);
+      if (services.cldrFactory() != null) {
+        resolved = services.cldrFactory().make(locale, true, DraftStatus.contributed);
       } else {
         System.err.println("Error: cldrFactory is null in \"resolved()\"");
         System.err.flush();
@@ -113,7 +109,7 @@ class LDML2ICUInputLocale {
     Set<String> typeList = new HashSet<String >();
     for (Iterator<String> iter = file.iterator(baseXpath); iter.hasNext();) {
       String somePath = iter.next();
-      String type = getAttributeValue(somePath, element, attribute);
+      String type = XPPUtil.getAttributeValue(somePath, element, attribute);
       if (type == null) {
         continue;
       } else {
@@ -123,59 +119,18 @@ class LDML2ICUInputLocale {
     return typeList;
   }
 
-  // convenience functions
-  String getXpathName(String xpath) {
-    xpp.set(xpath);
-    return xpp.getElement(-1);
-  }
-
-  String getXpathName(String xpath, int pos) {
-    xpp.set(xpath);
-    return xpp.getElement(pos);
-  }
-
-  String getAttributeValue(String xpath, String element, String attribute) {
-    xpp.set(xpath);
-    int el = xpp.findElement(element);
-    if (el == -1) {
-      return null;
-    }
-    return xpp.getAttributeValue(el, attribute);
-  }
-
-  String getAttributeValue(String xpath, String attribute) {
-    xpp.set(xpath);
-    return xpp.getAttributeValue(-1, attribute);
-  }
-
-  String getBasicAttributeValue(CLDRFile whichFile, String xpath, String attribute) {
-    String fullPath = whichFile.getFullXPath(xpath);
-    if (fullPath == null) {
-      return null;
-    }
-    return getAttributeValue(fullPath, attribute);
-  }
-
   public String getBasicAttributeValue(String xpath, String attribute) {
-    return getBasicAttributeValue(file, xpath, attribute);
+    return XPPUtil.getBasicAttributeValue(file, xpath, attribute);
   }
-
+  
   public String findAttributeValue(String xpath, String attribute) {
-    String fullPath = file.getFullXPath(xpath);
-    xpp.set(fullPath);
-    for (int j = 1; j <= xpp.size(); j++) {
-      String v = xpp.getAttributeValue(0 - j, attribute);
-      if (v != null)
-        return v;
-    }
-    return null;
+    return XPPUtil.findAttributeValue(file, xpath, attribute);
   }
 
   public String getResolvedString(String xpath) {
     String rv = file.getStringValue(xpath);
     if (rv == null) {
       rv = resolved().getStringValue(xpath);
-      // System.err.println("Falling back:" + xpath + " -> " + rv);
     }
     return rv;
   }
@@ -202,7 +157,7 @@ class LDML2ICUInputLocale {
   }
 
   public boolean isPathNotConvertible(CLDRFile f, String xpath) {
-    String alt = getBasicAttributeValue(f, xpath, "alt");
+    String alt = XPPUtil.getBasicAttributeValue(f, xpath, "alt");
     if (alt != null) {
       return true;
     }
@@ -262,9 +217,5 @@ class LDML2ICUInputLocale {
       doc = services.getDocument(locale);
     }
     return doc;
-  }
-
-  private CLDRFile.Factory cldrFactory() {
-    return services.cldrFactory();
   }
 }

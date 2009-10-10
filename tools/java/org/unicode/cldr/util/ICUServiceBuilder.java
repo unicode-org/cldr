@@ -161,9 +161,9 @@ public class ICUServiceBuilder {
     String prefix = "//ldml/dates/calendars/calendar[@type=\""+ calendar + "\"]/";
 
     
-    formatData.setAmPmStrings(last = new String[] {
-        cldrFile.getWinningValue(getDayPeriods(prefix, "format", "wide", "am")),
-        cldrFile.getWinningValue(getDayPeriods(prefix, "format", "wide", "pm"))});
+    formatData.setAmPmStrings(last = getArrayOfWinningValues(new String[] {
+        getDayPeriods(prefix, "format", "wide", "am"),
+        getDayPeriods(prefix, "format", "wide", "pm")}));
     checkFound(last);
 //    if (last[0] == null && notGregorian) {
 //      if (gregorianBackup == null) gregorianBackup = _getDateFormatSymbols("gregorian");
@@ -223,8 +223,7 @@ public class ICUServiceBuilder {
     cacheDateFormatSymbols.put(key, formatData);
     return formatData;
   }
-
-  /**
+/**
     * Example from en.xml 
     * <dayPeriods>
     *     <dayPeriodContext type="format">
@@ -238,13 +237,28 @@ public class ICUServiceBuilder {
     * </dayPeriods>
     */
   private String getDayPeriods(String prefix, String context, String width, String type) {
-    return "dayPeriods/dayPeriodContext[@type=\"" + context + "\"]/dayPeriodWidth[@type=\"" +
-         width + "\"]/dayperiod[@type=\"" + type + "\"]";
+    return prefix+"dayPeriods/dayPeriodContext[@type=\"" + context + "\"]/dayPeriodWidth[@type=\"" +
+         width + "\"]/dayPeriod[@type=\"" + type + "\"]";
   }
   
+
+  private String[] getArrayOfWinningValues(String[] xpaths) {
+	String result[] = new String[xpaths.length];
+	for(int i=0;i<xpaths.length;i++) {
+		result[i] = cldrFile.getWinningValue(xpaths[i]);
+	}
+	checkFound(result, xpaths);
+	return result;
+  }
+
   private void checkFound(String[] last) {
     if (last == null || last.length == 0 || last[0] == null) {
       throw new IllegalArgumentException("Failed to load array");
+    }
+  }
+  private void checkFound(String[] last, String[] xpaths) {
+    if (last == null || last.length == 0 || last[0] == null) {
+      throw new IllegalArgumentException("Failed to load array {"+xpaths[0]+",...}");
     }
   }
   private String getPattern(String calendar, int dateIndex, int timeIndex) {

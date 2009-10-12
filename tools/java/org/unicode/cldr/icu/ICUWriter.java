@@ -39,12 +39,10 @@ class ICUWriter {
 
   private static final String DEPRECATED_LIST = "icu-config.xml & build.xml";
 
-  private final LDMLServices services;
   private final String dstDirName;
   private final ICULog log;
 
-  ICUWriter(LDMLServices services, String dstDirName, ICULog log) {
-    this.services = services;
+  ICUWriter(String dstDirName, ICULog log) {
     this.dstDirName = dstDirName;
     this.log = log;
   }
@@ -166,9 +164,66 @@ class ICUWriter {
     }
   }
 
-  public void writeDeprecated(File depDir, File dstDir, List<String> emptyLocaleList,
+  private void writeSimpleLocaleAlias(
+      String fileName, String fromLocale, String toLocale, String comment) {
+    String dstFilePath = dstDirName + "/" + fileName;
+    Resource set = null;
+    try {
+      ResourceTable table = new ResourceTable();
+      table.name = fromLocale;
+      if (toLocale != null) {
+        ResourceString str = new ResourceString();
+        str.name = "\"%%ALIAS\"";
+        str.val = toLocale;
+        table.first = str;
+      } else {
+        ResourceString str = new ResourceString();
+        str.name = "___";
+        str.val = "";
+        str.comment = "so genrb doesn't issue warnings";
+        table.first = str;
+      }
+      set = table;
+      if (comment != null) {
+        set.comment = comment;
+      }
+    } catch (Throwable e) {
+      log.error("building synthetic locale tree for " + dstFilePath, e);
+      System.exit(1);
+    }
+
+    String info;
+    if (toLocale != null) {
+      info = "(alias to " + toLocale.toString() + ")";
+    } else {
+      info = comment;
+    }
+    log.info("Writing synthetic: " + dstFilePath + " " + info);
+    
+    writeResource(set, DEPRECATED_LIST, dstFilePath);
+  }
+
+  public void writeDeprecated(LDMLServices services, File depDir, File dstDir, List<String> emptyLocaleList,
       Map<String, Alias> aliasMap, List<String> aliasLocaleList, boolean parseDraft,
       boolean parseSubLocale) {
+    new DeprecatedConverter(log, services, depDir, dstDir).write(this, emptyLocaleList, aliasMap, aliasLocaleList, parseDraft, parseSubLocale);
+  }
+
+  public static class DeprecatedConverter {
+    private final ICULog log;
+    private final LDMLServices services;
+    private final File depDir;
+    private final File dstDir;
+    
+    public DeprecatedConverter(ICULog log, LDMLServices services, File depDir, File dstDir) {
+      this.log = log;
+      this.services = services;
+      this.depDir = depDir;
+      this.dstDir = dstDir;
+    }
+    
+    public void write(ICUWriter writer, List<String> emptyLocaleList, Map<String, Alias> aliasMap,
+        List<String> aliasLocaleList, boolean parseDraft, boolean parseSubLocale) {
     String myTreeName = depDir.getName();
     final File[] destFiles = dstDir.listFiles();
 
@@ -290,12 +345,13 @@ class ICUWriter {
       // end the debugging line
       System.out.println();
     }
+    
     // End of parsing all XML files.
     if (emptyLocaleList != null && emptyLocaleList.size() > 0) {
       for (int i = 0; i < emptyLocaleList.size(); i++) {
         String loc = emptyLocaleList.get(i);
-        writeSimpleLocale(
-            loc + ".txt", loc, null, null, "empty locale file for dependency checking");
+        writer.writeSimpleLocaleAlias(
+            loc + ".txt", loc, null, "empty locale file for dependency checking");
         // we do not want these files to show up in installed locales list!
         generatedAliasFiles.put(loc + ".xml", new File(depDir, loc + ".xml"));
       }
@@ -332,6 +388,7 @@ class ICUWriter {
         }
 
         ULocale fromLocale = new ULocale(from);
+        String fromLocaleName = fromLocale.toString();
         if (!fromFiles.containsKey(toFileName + ".xml")) {
           maybeValidAlias.put(toFileName, from);
         } else {
@@ -339,8 +396,26 @@ class ICUWriter {
           fromToMap.put(fromLocale.toString(), to);
           if (xpath != null) {
             fromXpathMap.put(fromLocale.toString(), xpath);
+            
+            CLDRFile fakeFile = CLDRFile.make(fromLocaleName);
+            fakeFile.add(xpath, "");
+            fakeFile.freeze();
+            Resource res = services.parseBundle(fakeFile);
+            
+            if (res != null && ((ResourceTable) res).first != null) {
+              res.name = fromLocaleName;
+              writer.writeResource(res, DEPRECATED_LIST);
+            } else {
+              // parse error?
+              log.error("Failed to write out alias bundle " + fromLocaleName + " from " + xpath
+                  + " - XML list follows:");
+              fakeFile.write(new PrintWriter(System.out));
+            }
+
+          } else {
+            String toLocaleName = new ULocale(to).toString();
+            writer.writeSimpleLocaleAlias(from + ".txt", fromLocaleName, toLocaleName, null);
           }
-          writeSimpleLocale(from + ".txt", fromLocale, new ULocale(to), xpath, null);
         }
       }
       log.setStatus(null);
@@ -398,12 +473,12 @@ class ICUWriter {
             emptyFromFiles.put(aSub + ".xml", new File(depDir, aSub + ".xml"));
             if (maybeValidAlias.containsKey(aSub)) {
               String from = maybeValidAlias.get(aSub);
-              writeSimpleLocale(from + ".txt", from, aSub, null, null);
+              writer.writeSimpleLocaleAlias(from + ".txt", from, aSub, null);
               maybeValidAlias.remove(aSub);
               generatedAliasFiles.put(from, new File(depDir, from + ".xml"));
             }
-            writeSimpleLocale(
-                aSub + ".txt", aSub, null, null, "validSubLocale of \"" + actualLocale + "\"");
+            writer.writeSimpleLocaleAlias(
+                aSub + ".txt", aSub, null, "validSubLocale of \"" + actualLocale + "\"");
           }
         }
       }
@@ -552,80 +627,6 @@ class ICUWriter {
     return brkArray;
   }
 
-  private void writeSimpleLocale(
-      String fileName, ULocale fromLocale, ULocale toLocale, String xpath, String comment) {
-
-    writeSimpleLocale(
-        fileName, fromLocale == null ? "" : fromLocale.toString(),
-        toLocale == null ? "" : toLocale.toString(), xpath, comment);
-  }
-
-  private void writeSimpleLocale(
-      String fileName, String fromLocale, String toLocale, String xpath, String comment) {
-
-    if (xpath != null) {
-      writeSimpleLocaleXPath(fromLocale, xpath);
-    } else {
-      // no xpath - simple locale-level alias.
-      String dstFileName = dstDirName + "/" + fileName;
-      writeSimpleLocaleAlias(dstFileName, fromLocale, toLocale, comment);
-    }
-  }
-
-  private void writeSimpleLocaleAlias(
-      String dstFileName, String fromLocale, String toLocale, String comment) {
-    Resource set = null;
-    try {
-      ResourceTable table = new ResourceTable();
-      table.name = fromLocale.toString();
-      if (toLocale != null) {
-        ResourceString str = new ResourceString();
-        str.name = "\"%%ALIAS\"";
-        str.val = toLocale.toString();
-        table.first = str;
-      } else {
-        ResourceString str = new ResourceString();
-        str.name = "___";
-        str.val = "";
-        str.comment = "so genrb doesn't issue warnings";
-        table.first = str;
-      }
-      set = table;
-      if (comment != null) {
-        set.comment = comment;
-      }
-    } catch (Throwable e) {
-      log.error("building synthetic locale tree for " + dstFileName, e);
-      System.exit(1);
-    }
-
-    String info;
-    if (toLocale != null) {
-      info = "(alias to " + toLocale.toString() + ")";
-    } else {
-      info = comment;
-    }
-    log.info("Writing synthetic: " + dstFileName + " " + info);
-    writeResource(set, DEPRECATED_LIST, dstFileName);
-  }
-
-  private void writeSimpleLocaleXPath(String fromLocale, String xpath) {
-    CLDRFile fakeFile = CLDRFile.make(fromLocale);
-    fakeFile.add(xpath, "");
-    fakeFile.freeze();
-
-    Resource res = services.parseBundle(fakeFile);
-    if (res != null && ((ResourceTable) res).first != null) {
-      res.name = fromLocale;
-      writeResource(res, DEPRECATED_LIST);
-    } else {
-      // parse error?
-      log.error("Failed to write out alias bundle " + fromLocale + " from " + xpath
-          + " - XML list follows:");
-      fakeFile.write(new PrintWriter(System.out));
-    }
-  }
-
   private void writeResourceMakefile(
       String myTreeName, String generatedAliasList, String aliasFilesList, String inFileText,
       String emptyFileText, String brkFilesList, String ctdFilesList) {
@@ -650,7 +651,7 @@ class ICUWriter {
       System.exit(-1);
     }
 
-    String resfiles_mk_name = dstDirName + "/" + shortstub + "files.mk";
+    String resfiles_mk_name = dstDir + "/" + shortstub + "files.mk";
     try {
       log.info("Writing ICU build file: " + resfiles_mk_name);
       PrintStream resfiles_mk = new PrintStream(new FileOutputStream(resfiles_mk_name));
@@ -747,5 +748,6 @@ class ICUWriter {
       out = out + (i == 0 ? " " : " ") + f.getName().substring(0, f.getName().indexOf('.')) + ".txt";
     }
     return out;
+  }
   }
 }

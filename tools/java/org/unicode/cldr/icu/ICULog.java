@@ -5,6 +5,7 @@ public interface ICULog {
     DEBUG, INFO, LOG, WARNING, ERROR;
   }
 
+  boolean willOutput(Level level);
   void setStatus(String status);
 
   void debug(String msg);

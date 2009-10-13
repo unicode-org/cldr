@@ -53,7 +53,7 @@ public class ICULogImpl implements ICULog {
   }
 
   protected void out(Level level, String msg) {
-    if (level.ordinal() >= this.level.ordinal()) {
+    if (willOutput(level)) {
       if (status != null) {
         out.format("%s (%s): %s%n", level, status, msg);
       } else {
@@ -61,5 +61,10 @@ public class ICULogImpl implements ICULog {
       }
       out.flush();
     }
+  }
+
+  @Override
+  public boolean willOutput(Level level) {
+    return level.ordinal() >= this.level.ordinal();
   }
 }

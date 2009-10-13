@@ -341,7 +341,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       // data after parsing
       // The assumption here is that the top
       // level resource is always a table in ICU
-      log.log("Processing: " + supplementalDataFile);
+      log.log("Processing " + supplementalDataFile);
       Resource res = new SupplementalDataParser(log, serviceAdapter)
         .parse(supplementalDoc, supplementalDataFile);
       // Resource res = parseSupplemental(supplementalDoc, supplementalDataFile);
@@ -358,6 +358,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     } else if (writeNumberingSystems == true) {
       new NumberingSystemsConverter(log, numberingSystemsFile, supplementalDir).convert(writer);
     } else {
+      spinUpFactories(sourceDir, specialsDir);
       if (getLocalesMap() != null && getLocalesMap().size() > 0) {
         for (Iterator<String> iter = getLocalesMap().keySet().iterator(); iter.hasNext();) {
           String fileName = iter.next();
@@ -367,7 +368,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
           } else {
             writeDraft = false;
           }
-          spinUpFactories(sourceDir, specialsDir);
           processFile(fileName);
         }
       } else if (remainingArgc > 0) {
@@ -377,11 +377,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
               if (!file.endsWith(".xml")) {
                 continue;
               }
-              spinUpFactories(sourceDir, specialsDir);
               processFile(file);
             }
           } else {
-            spinUpFactories(sourceDir, specialsDir);
             processFile(args[i]);
           }
         }
@@ -493,7 +491,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
 
     log.setStatus(locName);
-    log.log("Processing: " + xmlfileName);
+    log.log("Processing " + xmlfileName);
     ElapsedTimer timer = new ElapsedTimer();
 
     LDML2ICUInputLocale loc = new LDML2ICUInputLocale(locName, serviceAdapter);
@@ -741,15 +739,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         // write out the bundle depending on if writing Binary or txt
         if (writeBinary) {
-          specialsFactory = null;
-          cldrFactory = null;
           LDML2ICUBinaryWriter.writeBinaryFile(res, destDir, loc.getLocale());
         } else {
-          // allLocales = null;
-          // specialsFactory = null;
-          cldrFactory = null;
-          String theFileName = sourceDir.replace('\\','/') + "/" + loc.getLocale() + ".xml";
-          writer.writeResource(res, theFileName);
+          String sourceInfo = sourceDir.replace('\\','/') + "/" + loc.getLocale() + ".xml";
+          writer.writeResource(res, sourceInfo);
         }
       }
       // writeAliasedResource();

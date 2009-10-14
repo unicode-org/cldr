@@ -1,560 +1,591 @@
 package org.unicode.cldr.ant;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Vector;
+import java.util.regex.Pattern;
 
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
 
 import com.ibm.icu.dev.tool.UOption;
 
-public class CLDRBuild extends Task{
-    private String toolName;
-    private String srcFile;
-    private String destFile;
-    private boolean noArgs = false;
-    private Vector runs= new Vector();
+public class CLDRBuild extends Task {
+  private String toolName;
+  private String srcFile;
+  private String destFile;
+  private boolean noArgs;
+  private List<Run> runs = new ArrayList<Run>();
 
-    private UOption srcDir = UOption.SOURCEDIR();
-    private UOption destDir = UOption.DESTDIR();
+  private UOption srcDir = UOption.SOURCEDIR();
+  private UOption destDir = UOption.DESTDIR();
+
+  private static final char FILE_EXT_SEPARATOR = '.';
+
+  private static class PatternFilter implements FileFilter {
+    private final Pattern pat;
+
+    public PatternFilter(String filePattern) {
+      this.pat = Pattern.compile(filePattern);
+    }
+
+    public boolean accept(File pathname) {
+      return pat.matcher(pathname.getName()).matches();
+    }
+  }
+
+  static boolean matchesLocale(List<String> locales, String localePattern) {
+    for (String locale : locales) {
+      if (localePattern.equals(locale) || localePattern.matches(locale)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public Map<String, String> getLocalesList(Config config, String src, String dest) {
+    File srcdir = new File(src);
+    File[] srcFiles = srcdir.listFiles(new PatternFilter(srcFile));
+    File destdir = new File(dest);
+    File[] destFiles = destdir.listFiles(new PatternFilter(destFile));
     
-    private static final String ALL  = ".*";
-    private static final char FILE_EXT_SEPARATOR = '.';
-    public class Filter implements FileFilter{
-        private String filePattern;
-        public Filter(String fp){
-            filePattern = fp;
-        }
-        public Filter(){         
-        }
-        public boolean accept(File pathname){
-            if(filePattern != null && pathname.getName().matches(filePattern)){
-                return true;
+    Map<String, String> ret = new TreeMap<String, String>();
+
+    if (config != null) {
+      List<InExclude> localesList = config.locales.localesList;
+      for (InExclude inex : localesList) {
+        for (File file : srcFiles) {
+          String fileName = file.getName();
+          if (inex.matchesFileName(fileName)) {
+            if (inex.include) {
+              ret.put(fileName, inex.draft);
+            } else {
+              ret.remove(fileName);
             }
-            return false;
+          }
         }
+      }
+    } else {
+      for (File file : srcFiles) {
+        ret.put(file.getName(), ".*");
+      }
     }
-    public static boolean matchesFileName(String locales, String fileName){
-        String locale = fileName.substring(0,fileName.indexOf(".xml"));
-        return matchesLocale(locales, locale);
-    }
-    public static boolean matchesLocale(String locales, String locale){
-        String[] arr = locales.split("\\s+");
-        for(int i=0; i<arr.length; i++){
-            if(locale.matches(arr[i]) || locale.equals(arr[i])){
-                return true;
+    
+    // only build the files that need to be built
+    for (File file : destFiles) {
+      String destName = file.getName();
+      long destMod = file.lastModified();
+      destName = destName.substring(0, destName.indexOf(FILE_EXT_SEPARATOR) + 1);
+      
+      if (srcFile != null) {
+        destName = destName + getFileExtension(srcFile);
+        // the  arrays are sorted so we save the 
+        // index from last run to find the next match
+        // we assume that we are running on an ASCII machine
+        int save=0;
+        for(int j=save; j<srcFiles.length; j++){
+          String srcName = srcFiles[j].getName();
+          if(srcName.matches(destName)){
+            save=j; 
+            if(destMod > srcFiles[j].lastModified()){
+              ret.remove(srcName);
             }
+          }
+        } 
+      } else {
+        if (file.exists()) {
+          ret.remove(destFile);
         }
+      }
+    }
+    
+    if (ret.size() == 0 && destFiles.length == 1) {
+      return null;
+    }
+    
+    return ret;
+  }
+  
+  private static String getFileExtension(String name) {
+    // a regular expression
+    int i = name.indexOf('*');
+    if (i == -1) {
+      i = name.indexOf('.');
+      if (i != -1) {
+        return name.substring(i+1);
+      }
+    }
+    return name;
+  }
+  
+  static void exitWithException(Throwable t) {
+    errln(t.getMessage());
+    t.printStackTrace(System.err);
+    System.exit(-1);
+  }
+  
+  static void exitWithError(String msg) {
+    errln(msg);
+    System.exit(-1);
+  }
+  
+  static void errln(String msg) {
+    System.err.println("ERROR: " + msg);
+  }
+  
+  static void warnln(String msg) {
+    System.out.println("WARNING: " + msg);
+  }
+  
+  static void infoln(String msg){
+    System.out.println("INFO: " + msg);
+  }
+
+  private String getDirString(Args runArgs, UOption key) {
+    String value = runArgs.map.get("--" + key.longName);
+    if (value == null) {
+      value = runArgs.map.get("-" + key.shortName);
+    }
+    return value;
+  }
+
+  // The method executing the task
+  @Override
+  public void execute() throws BuildException {
+    if (toolName == null) {
+      throw new BuildException("Tool name not set");
+    }
+
+    for (Run run : runs) {
+      Config config = run.config;
+
+      Args runArgs = run.args;
+
+      Map<String, String> localesMap = getLocalesList(
+          run.config, getDirString(runArgs, srcDir), getDirString(runArgs, destDir));
+
+      if (localesMap == null || (localesMap.size() == 0 && !noArgs)) {
+        continue;
+      }
+      
+      List<String> argList = new ArrayList<String>();
+      StringBuilder printArgs = new StringBuilder();
+      for (Map.Entry<String, String> e : runArgs.map.entrySet()) {
+        String key = e.getKey();
+        String value = e.getValue();
+        printArgs.append(key).append(' ');
+        argList.add(key);
+        if (value != null && value.length() > 0) {
+          printArgs.append(value).append(' ');
+          argList.add(value);
+        }
+      }
+      
+      Object obj = createObject(toolName);
+      if (!(obj instanceof CLDRConverterTool)) {
+        exitWithError(toolName + " not a subclass of CLDRConverterTool!");
+      }
+      
+      CLDRConverterTool tool = (CLDRConverterTool) obj;
+      tool.setLocalesMap(localesMap);
+      
+      if (run.deprecates != null) {
+        tool.setAliasLocaleList(run.deprecates.aliasLocaleList);
+        tool.setAliasMap(run.deprecates.aliasMap);
+        tool.setEmptyLocaleList(run.deprecates.emptyLocaleList);
+      }
+      
+      if (run.config != null) {
+        if (run.config.paths != null){
+          tool.setPathList(run.config.paths.pathList);
+        }
+        
+        if(run.config.ofb != null){
+          tool.setOverrideFallbackList(run.config.ofb.pathsList);
+        }
+      }
+
+      tool.processArgs(argList.toArray(new String[argList.size()]));
+    }
+  }
+
+  private static Object createObject(String className) {
+    Object object = null;
+    try {
+      Class<?> classDefinition = Class.forName(className);
+      object = classDefinition.newInstance();
+    } catch (InstantiationException e) {
+      exitWithException(e);
+    } catch (IllegalAccessException e) {
+      exitWithException(e);
+    } catch (ClassNotFoundException e) {
+      exitWithException(e);
+    } catch (Throwable t) {
+      exitWithException(t);
+    }
+    return object;
+  }
+  
+  public void addConfiguredRun(Run run){
+    runs.add(run);
+  }    
+
+  public void setToolName(String name) {
+    toolName = name;
+  }
+  
+  public void setSrcFile(String sf) {
+    srcFile = sf;
+  }
+  
+  public void setDestFile(String df) {
+    destFile = df;
+  }
+  
+  public void setNoArgs(String bool) {
+    noArgs = bool.equals("true");
+  }
+  
+  public static class Run extends Task {
+    String type;
+    Args args;
+    Config config; 
+    Deprecates deprecates;
+    
+    public void setType(String type) {
+      this.type = type;
+    }
+    
+    public void addConfiguredArgs(Args args) {
+      this.args = args;
+    }
+    
+    public void addConfiguredConfig(Config config) {
+      this.config = config;
+    }
+    
+    public void addConfiguredDeprecates(Deprecates deprecates) {
+      this.deprecates = deprecates;
+    }
+  }
+
+  public static class Args extends Task {
+    Map<String, String> map = new HashMap<String, String>();
+
+    public void addConfiguredArg(Arg arg) {
+      if (arg.name == null) {
+        throw new IllegalArgumentException("argument missing name");
+      }
+      map.put(arg.name, arg.value);
+    }
+  }
+
+  public static class Arg extends Task {
+    String name;
+    String value;
+
+    public void setName (String name) {
+      this.name = name;
+    }
+
+    public void setValue (String value){
+      this.value = value;
+    }
+  }
+
+  public static class Config extends Task {
+    Locales locales;
+    Paths paths;
+    OverrideFallback ofb;
+    String type;
+    
+    public void addConfiguredLocales(Locales loc){
+      if (locales != null) {
+        exitWithError("Multiple <locales> elements not supported");
+      }
+      locales = loc;
+    }
+    
+    public void addConfiguredPaths(Paths ps){
+      if (paths != null) {
+        exitWithError("Multiple <paths> elements not supported");
+      }
+      paths = ps;
+    }
+    
+    public void addConfiguredOverrideFallback(OverrideFallback ofb){
+      if (this.ofb != null) {
+        exitWithError("Multiple <overrideFallback> elements not allowed!");
+      }
+      this.ofb = ofb;
+    }
+    
+    public void setType(String type){
+      this.type = type;
+    }
+  }
+  
+  public static class Locales extends Task {
+    List<InExclude> localesList = new ArrayList<InExclude>();
+    
+    public void addConfiguredInclude(Include include) {
+      addInEx(include);
+    }
+    
+    public void addConfiguredExclude(Exclude exclude) {
+      addInEx(exclude);
+    }
+    
+    private void addInEx(InExclude inex) {
+      inex.validate();
+      localesList.add(inex);
+    }
+  }
+
+  public static class InExclude extends Task {
+    static final List<String> ANY = Collections.emptyList();
+    
+    final boolean include;
+    List<String> locales;
+    String draft;
+    String xpath;
+    String alt;
+
+    protected InExclude(boolean include) {
+      this.include = include;
+    }
+    
+    public void setDraft(String draft) {
+      this.draft = draft;
+    }
+    
+    public void setLocales(String locales) {
+      if (".*".equals(locales)) {
+        this.locales = ANY;
+      } else {
+        this.locales = Arrays.asList(locales.split("\\s+"));
+      }
+    }
+    
+    public void setXpath(String xpath) {
+      this.xpath = xpath;
+    }
+    
+    public void setAlt(String alt) {
+      this.alt = alt;
+    }
+    
+    void validate() {
+      if (locales == null) {
+        exitWithError("locales attribute not set for include/exclude element!");
+      }
+    }
+    
+    boolean matchesFileName(String fileName) {
+      if (locales == ANY) {
+        return true;
+      }
+      String localePattern = fileName.substring(0, fileName.indexOf(".xml"));
+      return matchesLocale(locales, localePattern);
+    }
+    
+    @Override
+    public boolean equals(Object o){
+      if (!(o instanceof InExclude)) {
         return false;
+      }
+      
+      if (o == this) {
+        return true;
+      }
+     
+      InExclude rhs = (InExclude) o;
+      return 
+        include == rhs.include &&
+        equalLists(locales, rhs.locales) &&
+        equalStrings(draft, rhs.draft) &&
+        equalStrings(xpath, rhs.xpath) &&
+        equalStrings(alt, rhs.alt);
     }
-    public TreeMap getLocalesList(Config config, String src, String dest){
-        File srcdir = new File(src);
-        File[] srcFiles = srcdir.listFiles(new Filter(srcFile));
-        File destdir = new File(dest);
-        File[] destFiles = destdir.listFiles(new Filter(destFile));
-        TreeMap ret = new TreeMap();
-        
-        if(config !=null){
-            Locales locs = config.getLocales();
-            Vector locsList = locs.getList();
-            // walk down the include list and 
-            // add the stuff to return list 
-            for(int i=0; i<locsList.size(); i++){
-                Object obj = locsList.get(i);
-                if(obj instanceof Exclude){
-                    Exclude exc = (Exclude) obj;
-                    if(exc.locales == null){
-                        errln("locales attribute not set for exclude element!", true);
-                    }
-                    // fast path for .*
-                    if(exc.locales.equals(ALL)){
-                        for(int j=0; j<srcFiles.length;j++){
-                            ret.remove(srcFiles[j].getName());
-                        }
-                        continue;
-                    }
-                    for(int j=0; j<srcFiles.length; j++){
-                        String fileName = srcFiles[j].getName(); 
-                        if(matchesFileName(exc.locales, fileName)){
-                            ret.remove(fileName);
-                            break;
-                        }
-                    }
-                }else if(obj instanceof Include){
-                    Include inc = (Include) obj;
-                    if(inc.locales == null){
-                        errln("locales attribute not set for include element!", true);
-                    }
-                    //fast path for .*
-                    if(inc.locales.equals(ALL)){
-                        for(int j=0; j<srcFiles.length;j++){
-                            ret.put(srcFiles[j].getName(), inc.draft);
-                        }
-                        continue;
-                    }
-                    
-                    for(int j=0; j<srcFiles.length; j++){
-                        String fileName = srcFiles[j].getName(); 
-                        if(matchesFileName(inc.locales, fileName)){
-                            ret.put(fileName, inc.draft);
-                            break;
-                        }
-                    }
-                }
-            }
-          
-        }else{
-            for(int i=0; i<srcFiles.length;i++){
-                ret.put(srcFiles[i].getName(),".*");
-            }
-        }
-        // only build the files that need to be built
-        for(int i=0; i<destFiles.length; i++){
-            String destName = destFiles[i].getName();
-            long destMod = destFiles[i].lastModified();
-            destName = destName.substring(0, destName.indexOf(FILE_EXT_SEPARATOR)+1);
-            if(srcFile!=null){
-                destName = destName + getFileExtension(srcFile);
-                // the  arrays are sorted so we save the 
-                // index from last run to find the next match
-                // we assume that we are running on an ASCII machine
-                int save=0;
-                for(int j=save; j<srcFiles.length; j++){
-                    String srcName = srcFiles[j].getName();
-                    if(srcName.matches(destName)){
-                        save=j; 
-                        if(destMod > srcFiles[j].lastModified()){
-                            ret.remove(srcName);
-                        }
-                    }
-                } 
-            }else{
-                if(destFiles[i].exists()){
-                    ret.remove(destFile);
-                }
-            }
-           
-        }
-        if(ret.size()==0 && destFiles.length == 1){
-            return null;
-        }
-        return ret;
+    
+    @Override
+    public int hashCode() {
+      return hash(locales, hash(draft, hash(xpath, hash(alt, 0))));
+    }
+    
+    private boolean equalStrings(String lhs, String rhs) {
+      return lhs == rhs || (lhs != null && lhs.equals(rhs));
+    }
+    
+    private <T> boolean equalLists(List<? extends T> lhs, List<? extends T> rhs) {
+      return lhs == rhs || (lhs != null && lhs.equals(rhs));
+    }
+    
+    private int hash(Object rhs, int hash) {
+      return rhs == null ? hash : (hash * 31) ^ rhs.hashCode();
+    }
+  }
+  
+  public static class Include extends InExclude {
+    public Include() {
+      super(true);
+    }
+  }
+  
+  public static class Exclude extends InExclude {
+    public Exclude() {
+      super(false);
+    }
+  }
 
-    }
-    private String getFileExtension(String name){
-        // a regular expression
-        int i = name.indexOf('*');
-        if(i>-1){
-            return name.substring(i+1,name.length());
-        }
-        i = name.indexOf('.');
-        if(i>-1){
-            return name.substring(i+1,name.length());
-        }
-        return name;
-    }
-    public static void errln( String msg, boolean exit){
-        System.err.println("ERROR: " + msg);
-        if(exit){
-            System.exit(-1);
-        }
-    }
-    public static void warnln(String msg){
-        System.out.println("WARNING: " + msg);
-    }
-    public static void infoln(String msg){
-        System.out.println("INFO: " + msg);
+  public static class Deprecates extends Task {
+    List<String> aliasLocaleList;
+    List<String> emptyLocaleList;
+    Map<String, CLDRConverterTool.Alias> aliasMap;
+    
+    public void addConfiguredAlias(Alias alias){
+      if (aliasMap == null){
+        aliasMap= new TreeMap<String, CLDRConverterTool.Alias>();
+      }
+      aliasMap.put(alias.from, new CLDRConverterTool.Alias(alias.to, alias.xpath));
     }
     
-    private String getDirString(Hashtable runArgs, UOption key){
-        String value = (String)runArgs.get("--" + key.longName);
-        if(value==null){
-            value = (String)runArgs.get("-" + String.valueOf(key.shortName));
-        }
-        return value;
+    public void addConfiguredEmptyLocale(EmptyLocale alias){
+      if (emptyLocaleList == null) {
+        emptyLocaleList = new ArrayList<String>();
+      }
+      emptyLocaleList.add(alias.locale);
     }
-    //The method executing the task
-    public void execute() throws BuildException {
-        if (toolName==null) {
-            throw new BuildException("Tool name not set");
-        }
-        //System.out.println("Ok loaded CLDRBuild! ToolName: "+ toolName);
-        
-        for(Iterator iter = runs.iterator(); iter.hasNext(); ){
-            Run run = (Run)iter.next();
-            Config config = run.getConfig();
-            Hashtable runArgs = run.getArgs(null);
-            
-            TreeMap localesMap = getLocalesList(config, getDirString(runArgs, srcDir), getDirString(runArgs, destDir));
-            
-            if(localesMap==null){
-                continue;
-            }
-            if(localesMap.size()==0 && noArgs==false){
-                continue;
-            }
-            String[] args = new String[runArgs.size()*2];
-            
-            // create the args list
-            int i=0;
-            StringBuffer printArgs = new StringBuffer();
-            for(Iterator iter1 = runArgs.keySet().iterator(); iter1.hasNext();){
-                String key = (String) iter1.next();
-                String value = (String) runArgs.get(key);
-                args[i++] = key;
-                if(value.length()>0){
-                    args[i++] = value;
-                }
-                printArgs.append(key);
-                printArgs.append(" ");
-                printArgs.append(value);
-                printArgs.append(" ");
-            }
-            for(;i<args.length;i++){
-                args[i]="";
-            }
-            Object obj = createObject(toolName);
-            if(obj instanceof CLDRConverterTool){
-                CLDRConverterTool tool = (CLDRConverterTool) obj;
-                tool.setLocalesMap(localesMap);
-                if(run.deprecates!=null){
-                    tool.setAliasLocaleList(run.deprecates.aliasLocaleList);
-                    tool.setAliasMap(run.deprecates.aliasMap);
-                    tool.setEmptyLocaleList(run.deprecates.emptyLocaleList);
-                }
-                if(run.config!=null){
-                    if(run.config.paths!=null){
-                        tool.setPathList(run.config.paths.pathList);
-                    }
-                    if(run.config.ofb!=null){
-                        tool.setOverrideFallbackList(run.config.ofb.list);
-                    }
-                }
-                
-                tool.processArgs(args);
-            }else{
-                errln(toolName+" not a subclass of CLDRConverterTool! Cannot execute. Exiting", true);
-            }
-            // Method method = getMethod(tool, methodName, new Class[]{String[].class});
-            // invoke(tool, method, new Object[]{args});
-            System.out.println("");
-        }
-        
+    
+    public void addConfiguredAliasLocale(AliasLocale alias){
+      if (aliasLocaleList == null) {
+        aliasLocaleList = new ArrayList<String>();
+      }
+      aliasLocaleList.add(alias.locale);            
     }
+  }
+  
+  public static class Alias extends Task {
+    String from;
+    String to;
+    String xpath;
+    
+    public void setFrom(String from) {
+      this.from = from;
+    }
+    
+    public void setTo(String to) {
+      this.to = to;
+    }
+    
+    public void setXpath(String xpath) {
+      this.xpath = xpath;
+    }
+  }
+  
+  public static class AliasLocale extends Task {
+    String locale;
+    
+    public void setLocale(String locale) {
+      this.locale = locale;
+    }
+  }
 
-    private static Object createObject(String className) {
-        Object object = null;
-        try {
-            Class classDefinition = Class.forName(className);
-            object = classDefinition.newInstance();
-        } catch (InstantiationException e) {
-          e.printStackTrace();
-            errln(e.getMessage(), true);
-        } catch (IllegalAccessException e) {
-          e.printStackTrace();
-            errln(e.getMessage(), true);
-        } catch (ClassNotFoundException e) {
-          e.printStackTrace();
-            errln(e.getMessage(), true);
-        } catch (Throwable t) {
-          t.printStackTrace();
-          errln(t.getMessage(), true);
-        }
-        return object;
-     }
-    //for run nested element
-    public void addConfiguredRun(Run run){
-        runs.add(run);
-    }    
+  public static class EmptyLocale extends Task {
+    String locale;
+    String list;
     
-    //setter for toolName attribute
-    public void setToolName(String name){
-        toolName = name;
-    }
-    public void setSrcFile(String sf){
-        srcFile = sf;
-    }
-    public void setDestFile(String df){
-        destFile = df;
-    }
-    public void setNoArgs(String bool){
-        noArgs = bool.equals("true")? true : false;
-    }
-    public static class Run extends Task{
-        private String type;
-        private Args args;
-        private Config config; 
-        private Deprecates deprecates;
-        public void setType(String type){
-            this.type = type;
-        }
-        public void addConfiguredArgs(Args args){
-            this.args = args;
-        }
-        public void addConfiguredConfig(Config conf){
-            config = conf;
-        }
-        public void addConfiguredDeprecates(Deprecates dep){
-            this.deprecates = dep;
-        }
-        public Hashtable getArgs(Hashtable hash){
-            if(hash==null){
-                hash = new Hashtable();
-            }
-            args.getArgs(hash);
-            
-            return hash;
-        }
-        public Config getConfig(){
-            return config;
-        }
-        public String getType(){
-            return type;
-        }
+    public void setLocale(String locale) {
+      this.locale = locale;
     }
     
-    public static class Args extends Task{
-        Vector args = new Vector();
-        public void addConfiguredArg(Arg arg){
-            args.add(arg);
-        }
-        public Hashtable getArgs(Hashtable hash){
-            if(args.size()==0){
-                return hash;
-            }
-            for(Iterator iter = args.iterator(); iter.hasNext();){
-                Arg arg = (Arg)iter.next();
-                hash.put(arg.name, arg.value);
-            }
-           return hash;
-        }
+    public void setList(String list){
+      this.list = list;
+    }
+  }
+
+  public static class Paths extends Task {
+    public String fallback;
+    public String locales;
+    public String draft;
+
+    private List<Task> pathList = new ArrayList<Task>();
+
+    public void addConfiguredInclude(Include include) {
+      pathList.add(include);
     }
     
-    public static class Arg extends Task{
-        String name, value="";
-        public void setName (String name){
-            this.name = name;
-        }
-        public void setValue (String value){
-            this.value = value;
-        }
+    public void addConfiguredExclude(Exclude exclude) {
+      pathList.add(exclude);
     }
     
-    public static class Config extends Task{
-        protected Locales locales;
-        protected Paths paths;
-        private OverrideFallback ofb =null;
-        private String type;
-        public void addConfiguredLocales(Locales loc){
-            if(locales!=null){
-                throw new BuildException("Multiple <locales> elements not supported");
-            }
-            locales = loc;
-        }
-        public void addConfiguredPaths(Paths ps){
-            if(paths!=null){
-                throw new BuildException("Multiple <paths> elements not supported");
-            }
-            paths = ps;
-        }
-        public void addConfiguredOverrideFallback(OverrideFallback ofb){
-            if(this.ofb!=null){
-                errln("Multiple <overrideFallback> elements not allowed!", true);
-            }
-            this.ofb = ofb;
-        }
-        public void setType(String type){
-            this.type = type;
-        }
-        public Locales getLocales(){
-           return locales;
-        }
-        public String getType(){
-            return type;
-        }
-    }
-    public static class Locales extends Task{
-        private Vector localesList = new Vector();
-        public void addConfiguredInclude(Include inc){
-            localesList.add(inc);
-        }
-        public void addConfiguredExclude(Exclude ex){
-            localesList.add(ex);
-        }
-        public Vector getList(){
-            return localesList;
-        }
+    public void setFallback(String fallback) {
+      this.fallback = fallback;
     }
     
-    public static class Include extends Task{
-        public String draft;
-        public String locales;
-        public String xpath;
-        public String alt;
-        
-        public void setDraft(String ds){
-            draft = ds;
-        }
-        public void setLocales(String locs){
-            locales = locs;
-        }
-        public void setXpath(String xp){
-            xpath = xp;
-        }
-        public void setAlt(String pa){
-            alt = pa;
-        }
-        
-        public boolean equals(Object o){
-            if(!(o instanceof Include)){
-                return false;
-            }
-            Include other = (Include) o;
-            if(o==this){
-                return true;
-            }
-            if(locales.equals(other.locales)&&
-                (draft==other.draft || (draft!=null && other.draft!=null && draft.equals(other.draft))) &&
-                (xpath==other.xpath || (xpath!=null && other.xpath!=null && xpath.equals(other.xpath))) &&
-                (alt==other.alt || (alt!=null && other.alt!=null && alt.equals(other.alt)))
-               ){
-                return true;
-            }
-            return false;
-        }
-        public int hashCode(){
-            return locales.hashCode() + 
-                   draft!=null? draft.hashCode():0+
-                   xpath!=null? xpath.hashCode():0+
-                   alt!=null? alt.hashCode():0;
-        }
-    }
-    public static class Exclude extends Include{
-        // all data & methods are identical to Include class 
+    public void setLocales(String locales) {
+      this.locales = locales;
     }
     
-    public static class Deprecates extends Task{
-        protected ArrayList aliasLocaleList    = null;
-        protected ArrayList emptyLocaleList    = null;
-        protected TreeMap   aliasMap           = null;
-        public void addConfiguredAlias(Alias alias){
-            if(aliasMap==null){
-                aliasMap= new TreeMap();
-            }
-            aliasMap.put(alias.from, new CLDRConverterTool.Alias(alias.to, alias.xpath));
-        }
-        public void addConfiguredEmptyLocale(EmptyLocale alias){
-            if(emptyLocaleList==null){
-                emptyLocaleList = new ArrayList();
-            }
-            emptyLocaleList.add(alias.locale);
-        }
-        public void addConfiguredAliasLocale(AliasLocale alias){
-            if(aliasLocaleList==null){
-                aliasLocaleList = new ArrayList();
-            }
-            aliasLocaleList.add(alias.locale);            
-        }
+    public void setDraft(String draft) {
+      this.draft = draft;
+    } 
+
+    public void addConfiguredCoverageLevel(CoverageLevel level){
+      level.validate();
+      pathList.add(level);
     }
-    public static class Alias extends Task{
-        String from;
-        String to;
-        String xpath;
-        public void setFrom(String from){
-            this.from = from;
-        }
-        public void setTo(String to){
-            this.to = to;
-        }
-        public void setXpath(String xp){
-            xpath = xp;
-        }
-        
-    }
-    public static class AliasLocale extends Task{
-        String locale;
-        public void setLocale(String loc){
-            locale = loc;
-        }
+  }
+  
+  public static class CoverageLevel extends Task {
+    public String group;
+    public String level;
+    public String locales;
+    public String draft;
+    public String org;
+
+    public void setDraft(String draft) {
+      this.draft = draft;
+    } 
+    
+    public void setLevel(String level) {
+      this.level = level;
+    } 
+    
+    public void setLocales(String locales) {
+      this.locales = locales;
+    } 
+    
+    public void setOrg(String org) {
+      this.org = org;
     }
     
-    public static class EmptyLocale extends Task{
-        String locale;
-        String list;
-        public void setLocale(String loc){
-            locale = loc;
-        }
-        public void setList(String list){
-            this.list = list;
-        }
-    }
+    public void setGroup(String group) {
+      this.group = group;
+    } 
     
-    public static class Paths extends Task{
-        public String fallback;
-        public String locales;
-        public String draft;
-        
-        private List<Task> pathList = new ArrayList<Task>();
-        
-        public void addConfiguredInclude(Include inc){
-            pathList.add(inc);
-        }
-        public void addConfiguredExclude(Exclude ex){
-            pathList.add(ex);
-        }
-        public void setFallback(String fb){
-            fallback = fb;
-        }
-        public void setLocales(String locs){
-            locales = locs;
-        }
-        public void setDraft(String dft){
-            draft =dft;
-        } 
-        
-        public void addConfiguredCoverageLevel(CoverageLevel level){
-            //make sure all fields are set
-            if((level.group!=null && level.org==null)|| (level.org!=null && level.group==null)){
-                errln("Invalid specification of coverageLevel element. org && group not set!", true);
-            }
-            if(level.level==null){
-                errln("Invalid specification of coverageLevel element. level not set!", true);
-            }
-            pathList.add(level);
-        }
+    void validate() {
+      if ((group == null) != (org == null)){
+        exitWithError("Invalid specification of coverageLevel element; org && group not set!");
+      }
+
+      if (level == null) {
+        exitWithError("Invalid specification of coverageLevel element; level not set!");
+      }
     }
-    public static class CoverageLevel extends Task{
-        public String group;
-        public String level;
-        public String locales;
-        public String draft;
-        public String org;
-        
-        public void setDraft(String dft){
-            draft = dft;
-        } 
-        public void setLevel(String lvl){
-            level = lvl;
-        } 
-        public void setLocales(String locs){
-            locales = locs;
-        } 
-        public void setOrg(String o){
-            org = o;
-        } 
-        public void setGroup(String g){
-            group = g;
-        } 
+  }
+  
+  public static class OverrideFallback extends Task {
+    List<Paths> pathsList = new ArrayList<Paths>();
+    
+    public void addConfiguredPaths(Paths paths) {
+      pathsList.add(paths);
     }
-    public static class OverrideFallback extends Task{
-        private ArrayList list = new ArrayList();
-        public void addConfiguredPaths(Paths paths){
-            list.add(paths);
-        }
-    }
+  }
 }

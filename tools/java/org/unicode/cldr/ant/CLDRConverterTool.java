@@ -34,26 +34,26 @@ public abstract class CLDRConverterTool {
      * List of locales that are aliases to other locales
      * support of %%Alias
      */
-    protected ArrayList<String> aliasLocaleList;
+    protected List<String> aliasLocaleList;
 
     /**
      * Empty locales list for deprecated locales list.
      */
-    protected ArrayList<String> emptyLocaleList;
+    protected List<String> emptyLocaleList;
 
     /**
      * Map of alias locales
      * Key: from locale
      * Value: to locale
      */
-    protected TreeMap<String, Alias> aliasMap;
+    protected Map<String, Alias> aliasMap;
 
     /**
      * Map of locales that need to processed.
      * Key : locale name
      * Value: draft attribute
      */
-    private TreeMap<String, String> localesMap;
+    private Map<String, String> localesMap;
 
     /**
      * List of xpaths to include or exclude
@@ -63,7 +63,7 @@ public abstract class CLDRConverterTool {
     /**
      * Override fallbacks list
      */
-    protected List<CLDRBuild.Paths> ofbList;
+    protected List<CLDRBuild.Paths> overrideFallbackList;
 
     /**
      * Object that holds information about aliases on the
@@ -94,7 +94,7 @@ public abstract class CLDRConverterTool {
      *          <alias from="en_RH" to="en_ZW" />
      *      </deprecates>
      */
-    public void setAliasMap(TreeMap<String, Alias> map){
+    public void setAliasMap(Map<String, Alias> map){
         aliasMap = map;
     }
 
@@ -106,7 +106,7 @@ public abstract class CLDRConverterTool {
      *      </deprecates>
      * @param list The list of locales for which the alias locales need to be written.
      */
-    public void setAliasLocaleList(ArrayList<String> list){
+    public void setAliasLocaleList(List<String> list){
         aliasLocaleList = list;
     }
 
@@ -118,7 +118,7 @@ public abstract class CLDRConverterTool {
      *      </deprecates>
      * @param list The list of locales for which the empty locales need to be written.
      */
-    public void setEmptyLocaleList(ArrayList<String> list){
+    public void setEmptyLocaleList(List<String> list){
         emptyLocaleList = list;
     }
 
@@ -126,7 +126,7 @@ public abstract class CLDRConverterTool {
      *
      * @param map
      */
-    public void setLocalesMap(TreeMap<String, String> map){
+    public void setLocalesMap(Map<String, String> map){
         localesMap = map;
     }
 
@@ -146,12 +146,12 @@ public abstract class CLDRConverterTool {
      * Set the fallback override list
      */
     public void setOverrideFallbackList(List<Paths> list){
-        ofbList = list;
+        overrideFallbackList = list;
     }
 
     protected Node mergeOverrideFallbackNodes(Node main, String locale){
-        for (int i = 0; i < ofbList.size(); i++) {
-            CLDRBuild.Paths path = ofbList.get(i);
+        for (int i = 0; i < overrideFallbackList.size(); i++) {
+            CLDRBuild.Paths path = overrideFallbackList.get(i);
             if (CLDRBuild.matchesLocale(path.locales, locale)){
                 //TODO write the merging algorithm
             }
@@ -441,7 +441,7 @@ public abstract class CLDRConverterTool {
         return myXPathList;
     }
 
-    protected TreeMap<String, String> getLocalesMap() {
+    protected Map<String, String> getLocalesMap() {
       return localesMap;
     }
 }

@@ -33,7 +33,7 @@ class ICUWriter {
 
   public void writeResource(Resource set, String sourceInfo, String outputFileName) {
     try {
-      log.log("Writing: " + outputFileName);
+      log.log("Writing " + outputFileName);
       FileOutputStream file = new FileOutputStream(outputFileName);
       BufferedOutputStream writer = new BufferedOutputStream(file);
       writeHeader(writer, sourceInfo);

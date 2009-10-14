@@ -2,6 +2,7 @@
 
 package org.unicode.cldr.icu;
 
+import org.unicode.cldr.icu.LDML2ICUConverter.DocumentPair;
 import org.unicode.cldr.icu.LDML2ICUConverter.LDMLServices;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LDMLUtilities;
@@ -67,7 +68,6 @@ class LDML2ICUInputLocale {
 
   public CLDRFile resolved() {
     if (resolved == null) {
-      // System.err.println("** spinning up resolved for " + locale);
       if (services.cldrFactory() != null) {
         resolved = services.cldrFactory().make(locale, true, DraftStatus.contributed);
       } else {
@@ -106,7 +106,7 @@ class LDML2ICUInputLocale {
   }
 
   public Set<String> getByType(String baseXpath, String element, String attribute) {
-    Set<String> typeList = new HashSet<String >();
+    Set<String> typeList = new HashSet<String>();
     for (Iterator<String> iter = file.iterator(baseXpath); iter.hasNext();) {
       String somePath = iter.next();
       String type = XPPUtil.getAttributeValue(somePath, element, attribute);
@@ -165,57 +165,15 @@ class LDML2ICUInputLocale {
   }
 
   // ====== DOM compatibility
-  private Document doc = null;
+  // This cache is set/retrieved by LDML2ICUConverter.getDocumentPair(LDML2ICUInputLocale)
+  
+  private DocumentPair docPair = null;
 
-  /**
-   * Get the node of the 'top' item named. Similar to DOM-based parseBundle()
-   */
-  public Node getTopNode(String topName) {
-    StringBuilder xpath = new StringBuilder();
-    xpath.append("//ldml");
-
-    Node ldml = null;
-
-    for (ldml = getDocument().getFirstChild(); ldml != null; ldml = ldml.getNextSibling()) {
-      if (ldml.getNodeType() != Node.ELEMENT_NODE) {
-        continue;
-      }
-      String name = ldml.getNodeName();
-      if (name.equals(LDMLConstants.LDML)) {
-        services.setLdmlVersion(LDMLUtilities.getAttributeValue(ldml, LDMLConstants.VERSION));
-        break;
-      }
-    }
-
-    if (ldml == null) {
-      throw new RuntimeException("ERROR: no <ldml> node found in parseBundle()");
-    }
-
-    for (Node node = ldml.getFirstChild(); node != null; node = node.getNextSibling()) {
-      if (node.getNodeType() != Node.ELEMENT_NODE) {
-        continue;
-      }
-      String name = node.getNodeName();
-      if (topName.equals(name)) {
-        return node;
-      }
-    }
-
-    return null;
+  public DocumentPair getDocumentPair() {
+    return docPair;
   }
 
-  /**
-   * Parse the current locale for DOM.
-   */
-  private Document getDocument() {
-    if (notOnDisk) {
-      throw new InternalError(
-          "Error: this locale (" + locale + ") isn't on disk, can't parse with DOM.");
-    }
-
-    if (doc == null) {
-      doc = services.getDocument(locale);
-    }
-    return doc;
+  public void setDocumentPair(DocumentPair docPair) {
+    this.docPair = docPair;
   }
 }

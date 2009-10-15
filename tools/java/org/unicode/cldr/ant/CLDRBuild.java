@@ -26,23 +26,21 @@ public class CLDRBuild extends Task {
   private UOption srcDir = UOption.SOURCEDIR();
   private UOption destDir = UOption.DESTDIR();
 
-  private static final char FILE_EXT_SEPARATOR = '.';
-
   private static class PatternFilter implements FileFilter {
-    private final String filePattern;
+    private final Pattern filePattern;
 
     public PatternFilter(String filePattern) {
-      this.filePattern = filePattern;
+      this.filePattern = filePattern == null ? null : Pattern.compile(filePattern);
     }
 
     public boolean accept(File pathname) {
-      return filePattern != null && pathname.getName().matches(filePattern);
+      return filePattern != null && filePattern.matcher(pathname.getName()).matches();
     }
   }
 
-  public static boolean matchesLocale(List<String> locales, String localePattern) {
-    for (String locale : locales) {
-      if (localePattern.equals(locale) || localePattern.matches(locale)) {
+  public static boolean matchesLocale(List<String> locales, String locale) {
+    for (String localePattern : locales) {
+      if (localePattern.equals(locale) || locale.matches(localePattern)) {
         return true;
       }
     }
@@ -77,30 +75,28 @@ public class CLDRBuild extends Task {
       }
     }
 
-    // only build the files that need to be built
-    for (File file : destFiles) {
-      String destName = file.getName();
-      long destMod = file.lastModified();
-      destName = destName.substring(0, destName.indexOf(FILE_EXT_SEPARATOR) + 1);
-
-      if (srcFile != null) {
-        destName = destName + getFileExtension(srcFile);
-        // the  arrays are sorted so we save the
-        // index from last run to find the next match
-        // we assume that we are running on an ASCII machine
-        int save=0;
-        for(int j=save; j<srcFiles.length; j++){
-          String srcName = srcFiles[j].getName();
-          if(srcName.matches(destName)){
-            save=j;
-            if(destMod > srcFiles[j].lastModified()){
-              ret.remove(srcName);
-            }
-          }
-        }
-      } else {
+    // Only build the files that need to be built
+    if (srcFile == null) {
+      // Don't rebuild dstFiles that already exist
+      for (File file : destFiles) {
         if (file.exists()) {
-          ret.remove(destFile);
+          ret.remove(file.getName());
+        }
+      }
+    } else if (srcFiles.length > 0) {
+      // Don't rebuild files that are newer than the corresponding source file
+      
+      // In the grand scheme of things, the number of files is relatively
+      // small and n * m operations isn't noticeable, so don't optimize.
+      // The previous code tried to optimize but the optimization was broken
+      // so this performs about the same as before.
+      for (File dstFile : destFiles) {
+        String destName = stripExtension(dstFile.getName());
+        for (File srcFile : srcFiles) {
+          String srcName = stripExtension(srcFile.getName());
+          if (srcName.equals(destName) && dstFile.lastModified() > srcFile.lastModified()) {
+            ret.remove(srcFile.getName());
+          }
         }
       }
     }
@@ -112,18 +108,11 @@ public class CLDRBuild extends Task {
     return ret;
   }
 
-  private static String getFileExtension(String name) {
-    // a regular expression
-    int i = name.indexOf('*');
-    if (i == -1) {
-      i = name.indexOf('.');
-      if (i != -1) {
-        return name.substring(i+1);
-      }
-    }
-    return name;
+  private static String stripExtension(String fileName) {
+    int index = fileName.lastIndexOf('.');
+    return index == -1 ? fileName : fileName.substring(0, index);
   }
-
+  
   static void exitWithException(Throwable t) {
     errln(t.getMessage());
     t.printStackTrace(System.err);

@@ -280,18 +280,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       return;
     }
     
-    //if ((writeDraft == false) && (specialsDir != null)) {
-    // printInfo("Reading alias table searching for draft overrides");
-    // writeDeprecated(); // actually just reads the alias
-    //}
-    if (remainingArgc == 0 && (getLocalesMap() == null || getLocalesMap().size() == 0)) {
-      log.error("No files specified for processing. Please check the arguments and try again");
-      usage();
-    }
-
     if (supplementalDir != null) {
-      // supplementalFileName = LDMLUtilities.getFullPath(LDMLUtilities.XML, "supplementalData",
-      // supplementalDir);
       supplementalDoc = createSupplementalDoc();
       supplementalDataInfo = SupplementalDataInfo.getInstance(supplementalDir);
     }

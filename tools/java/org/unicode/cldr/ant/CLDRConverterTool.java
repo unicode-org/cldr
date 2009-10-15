@@ -1,6 +1,7 @@
 package org.unicode.cldr.ant;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -146,16 +147,16 @@ public abstract class CLDRConverterTool {
      * Set the fallback override list
      */
     public void setOverrideFallbackList(List<Paths> list){
-        overrideFallbackList = list;
+//        overrideFallbackList = list;
     }
 
     protected Node mergeOverrideFallbackNodes(Node main, String locale){
-        for (int i = 0; i < overrideFallbackList.size(); i++) {
-            CLDRBuild.Paths path = overrideFallbackList.get(i);
-            if (CLDRBuild.matchesLocale(path.locales, locale)){
-                //TODO write the merging algorithm
-            }
-        }
+//        for (int i = 0; i < overrideFallbackList.size(); i++) {
+//            CLDRBuild.Paths path = overrideFallbackList.get(i);
+//            if (CLDRBuild.matchesLocale(path.locales, locale)){
+//                //TODO write the merging algorithm
+//            }
+//        }
         return main;
     }
 
@@ -229,37 +230,41 @@ public abstract class CLDRConverterTool {
             for (int j = 0; j < pathList.size(); j++){
                 Object obj = pathList.get(j);
                 if (obj instanceof CLDRBuild.CoverageLevel) {
-                    initCoverageLevel(localeName, exemplarsContainA_Z, supplementalDir);
-                    CLDRBuild.CoverageLevel level = (CLDRBuild.CoverageLevel) obj;
-                    if (level.locales != null
-                        && CLDRBuild.matchesLocale(level.locales, localeName) == false) {
-                        continue;
+                  initCoverageLevel(localeName, exemplarsContainA_Z, supplementalDir);
+                  CLDRBuild.CoverageLevel level = (CLDRBuild.CoverageLevel) obj;
+                  if (level.locales != null) {
+                    List<String> localeList = Arrays.asList(level.locales.split("\\s+"));
+                    if (CLDRBuild.matchesLocale(localeList, localeName) == false) {
+                      continue;
                     }
-                    //process further only if the current locale is part of the given group and org
-                    if (level.group != null
-                        && !sc.isLocaleInGroup(localeName, level.group, level.org)) {
-                        continue;
+                  }
+
+                  //process further only if the current locale is part of the given group and org
+                  if (level.group != null
+                      && !sc.isLocaleInGroup(localeName, level.group, level.org)) {
+                    continue;
+                  }
+
+                  CoverageLevel.Level cv = CoverageLevel.Level.get(level.level);
+                  // only include the xpaths that have the coverage level at least the coverage
+                  // level specified by the locale
+                  if (coverageLevel.getCoverageLevel(xpath).compareTo(cv) <= 0) {
+                    String draftVal = attr.get(LDMLConstants.DRAFT);
+                    if (level.draft != null) {
+                      if (draftVal == null
+                          && (level.draft.equals("false") || level.draft.equals(".*"))) {
+                        include = true;
+                      } else if (draftVal != null && draftVal.matches(level.draft)) {
+                        include = true;
+                      } else {
+                        include = false;
+                      }
+                    } else {
+                      if (draftVal == null) {
+                        include = true;
+                      }
                     }
-                    CoverageLevel.Level cv = CoverageLevel.Level.get(level.level);
-                    // only include the xpaths that have the coverage level at least the coverage
-                    // level specified by the locale
-                    if (coverageLevel.getCoverageLevel(xpath).compareTo(cv) <= 0) {
-                        String draftVal = attr.get(LDMLConstants.DRAFT);
-                        if (level.draft != null) {
-                            if (draftVal == null
-                                && (level.draft.equals("false") || level.draft.equals(".*"))) {
-                              include = true;
-                           } else if (draftVal != null && draftVal.matches(level.draft)) {
-                             include = true;
-                           } else {
-                             include = false;
-                           }
-                        } else {
-                            if (draftVal == null) {
-                                include = true;
-                            }
-                        }
-                    }
+                  }
                 } else if (obj instanceof CLDRBuild.Exclude) {
                     CLDRBuild.Exclude exc = (CLDRBuild.Exclude) obj;
                     //fast path if locale attribute is set

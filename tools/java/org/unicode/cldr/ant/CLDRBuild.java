@@ -102,10 +102,6 @@ public class CLDRBuild extends Task {
       }
     }
 
-    warnln("CLDRBuild.getLocalesList destFile: " + destFile + 
-        " destFiles.length: " + destFiles.length +
-        " result: " + ret);
-    
     if (ret.size() == 0 && destFiles.length == 1) {
       return null;
     }

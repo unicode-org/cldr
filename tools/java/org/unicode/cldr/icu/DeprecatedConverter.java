@@ -65,10 +65,6 @@ public class DeprecatedConverter {
     // ex: "en_US.xml" -> File 
     Map<String, File> emptyFromFiles = new TreeMap<String, File>();
     
-    List<String> ctdFiles = new ArrayList<String>();
-    
-    List<String> brkFiles = new ArrayList<String>();
-    
     // Files that actually exist in LDML and contain aliases
     // ex: zh_MO.xml -> File  
     Map<String, File> aliasFromFiles = new TreeMap<String, File>();
@@ -76,6 +72,10 @@ public class DeprecatedConverter {
     // Files generated directly from the alias list (no XML actually exists).
     // ex: th_TH_TRADITIONAL.xml -> File  
     Map<String, File> generatedAliasFiles = new TreeMap<String, File>();
+    
+    List<String> ctdFiles = new ArrayList<String>();
+    
+    List<String> brkFiles = new ArrayList<String>();
   }
   
   static class PostProcessResult {
@@ -87,13 +87,10 @@ public class DeprecatedConverter {
       boolean parseSubLocale) {
     
     MakefileInfo mfi = new MakefileInfo();
+    List<Resource> generated = new ArrayList<Resource>();
     
-    // ex: "ji" -> "yi"
-    Map<String, String> fromToMap = new TreeMap<String, String>();
-
-    // ex: "th_TH_TRADITIONAL" -> "@some xpath.."
-    Map<String, String> fromXpathMap = new TreeMap<String, String>();
-
+    log.setStatus(null);
+    log.log("Postprocess start");
     // en -> "en_US en_GB ..."
     Map<String, String> validSubMap = new TreeMap<String, String>();
 
@@ -109,17 +106,17 @@ public class DeprecatedConverter {
 
     // (2) Iterate through the files.
     // Information is collected for each file.
-    updateSubmapAndFromFiles(depXmlFiles, parseDraft, parseSubLocale, mfi.fromFiles, validSubMap);
+    updateSubmapAndFromFiles(depXmlFiles, parseDraft, parseSubLocale, validSubMap, mfi.fromFiles);
 
     if (alias != null) {
       // (3) Generate empty locale .xml files.
       // - Write a .txt alias file for each
       // - Record the file in generatedAliasFiles
-      generateEmptyLocales(writer, alias.emptyLocaleList, mfi.generatedAliasFiles);
+      generateEmptyLocales(alias.emptyLocaleList, generated, mfi.generatedAliasFiles);
 
       // (4) Generate alias files
-      generateAliases(writer, alias.aliasList, fromToMap, fromXpathMap, mfi.fromFiles, 
-          mfi.generatedAliasFiles, maybeValidAlias);
+      generateAliases(alias.aliasList, maybeValidAlias, generated, mfi.fromFiles, 
+          mfi.generatedAliasFiles);
 
       // (5) Move aliased locales from fromFiles to aliasFromfiles
       updateAliasFromFiles(alias.aliasLocaleList, mfi.fromFiles, mfi.aliasFromFiles);
@@ -127,7 +124,7 @@ public class DeprecatedConverter {
     
     // (6) Calculate 'valid sub locales' 
     // These are empty locales generated due to a validSubLocales attribute.
-    processValidSubmap(writer, validSubMap, mfi.fromFiles, maybeValidAlias, mfi.emptyFromFiles,
+    processValidSubmap(validSubMap, maybeValidAlias, generated, mfi.fromFiles, mfi.emptyFromFiles,
         mfi.generatedAliasFiles);
 
     // (7) Warn about any files still in maybeValidAlias
@@ -136,13 +133,15 @@ public class DeprecatedConverter {
     // (8) get brkIterator brk and compact trie files
     getBrkCtdFiles(mfi.brkFiles, mfi.ctdFiles);
     
-    // (9) Finally, write the makefile
+    // (9) Write the generated resources
+    writeResources(writer, generated);
+    
+    // (10) Finally, write the makefile
     writeMakefile(mfi);
 
     log.setStatus(null);
-    log.log("WriteDeprecated done.");
+    log.log("Postprocess done.");
   }
-
 
   private void warnUnusedAliases(Map<String, String> maybeValidAlias) {
     if (!maybeValidAlias.isEmpty()) {
@@ -157,11 +156,11 @@ public class DeprecatedConverter {
     }
   }
   
-  private void processValidSubmap(ICUWriter writer, Map<String, String> validSubMap,
-      Map<String, File> fromFiles, Map<String, String> maybeValidAlias,
+  private void processValidSubmap(Map<String, String> validSubMap, Map<String, 
+      String> maybeValidAlias, List<Resource> generated, Map<String, File> fromFiles,
       Map<String, File> emptyFromFiles, Map<String, File> generatedAliasFiles) {
     if (!validSubMap.isEmpty()) {
-      log.info("Writing valid sub locs for: " + validSubMap.toString());
+      log.info("Writing valid sublocales for: " + validSubMap.toString());
 
       for (Iterator<String> e = validSubMap.keySet().iterator(); e.hasNext();) {
         String actualLocale = e.next();
@@ -193,17 +192,20 @@ public class DeprecatedConverter {
           }
 
           if (testSub != null) {
+            log.setStatus(aSub);
+            
             emptyFromFiles.put(aSub + ".xml", new File(depDir, aSub + ".xml"));
             
             if (maybeValidAlias.containsKey(aSub)) {
               String from = maybeValidAlias.get(aSub);
-              writeSimpleLocaleAlias(writer, from, from, aSub, null);
+              generated.add(generateSimpleLocaleAlias(from, aSub, null));
+              
               maybeValidAlias.remove(aSub);
               generatedAliasFiles.put(from, new File(depDir, from + ".xml"));
             }
             
-            writeSimpleLocaleAlias(writer, aSub, aSub, null, "validSubLocale of \"" + actualLocale 
-                + "\"");
+            generated.add(generateSimpleLocaleAlias(aSub, null, "validSubLocale of \"" + 
+                actualLocale + "\""));
           }
         }
       }
@@ -227,12 +229,19 @@ public class DeprecatedConverter {
     }
   }
 
-  private void generateAliases(ICUWriter writer, List<Alias> aliasList,
-      Map<String, String> fromToMap, Map<String, String> fromXpathMap,
-      Map<String, File> fromFiles, Map<String, File> generatedAliasFiles,
-      Map<String, String> maybeValidAlias) {
+  private void generateAliases(List<Alias> aliasList, Map<String, String> maybeValidAlias,
+      List<Resource> generated, Map<String, File> fromFiles,
+      Map<String, File> generatedAliasFiles) {
     
     if (aliasList != null && aliasList.size() > 0) {
+      // These don't appear to be used, so comment them out.
+      
+      // ex: "ji" -> "yi"
+      // Map<String, String> fromToMap = new TreeMap<String, String>();
+
+      // ex: "th_TH_TRADITIONAL" -> "@some xpath.."
+      // Map<String, String> fromXpathMap = new TreeMap<String, String>();
+
       for (Alias alias : aliasList) {
         String from = alias.from;
         String to = alias.to;
@@ -265,9 +274,9 @@ public class DeprecatedConverter {
           maybeValidAlias.put(toFileName, from);
         } else {
           generatedAliasFiles.put(from, new File(depDir, from + ".xml"));
-          fromToMap.put(fromLocaleName, to);
+          // fromToMap.put(fromLocaleName, to);
           if (xpath != null) {
-            fromXpathMap.put(fromLocaleName, xpath);
+            // fromXpathMap.put(fromLocaleName, xpath);
 
             CLDRFile fakeFile = CLDRFile.make(fromLocaleName);
             fakeFile.add(xpath, "");
@@ -281,7 +290,7 @@ public class DeprecatedConverter {
                 } else {
                   res.name = fromLocaleName;
                 }
-                writer.writeResource(res, SOURCE_INFO);
+                generated.add(res);
               } else {
                 // parse error?
                 log.error("Failed to write out alias bundle " + fromLocaleName + " from " + xpath
@@ -291,19 +300,21 @@ public class DeprecatedConverter {
             }
           } else {
             String toLocaleName = new ULocale(to).toString();
-            writeSimpleLocaleAlias(writer, from, fromLocaleName, toLocaleName, null);
+            generated.add(generateSimpleLocaleAlias(from, toLocaleName, null));
           }
         }
       }
     }
   }
 
-  private void generateEmptyLocales(ICUWriter writer, List<String> emptyLocaleList,
+  private void generateEmptyLocales(List<String> emptyLocaleList, List<Resource> generated,
       Map<String, File> generatedAliasFiles) {
     if (emptyLocaleList != null && emptyLocaleList.size() > 0) {
       for (String loc : emptyLocaleList) {
         // Write a '.txt' file for this empty locale
-        writeSimpleLocaleAlias(writer, loc, loc, null, "empty locale file for dependency checking");
+        log.setStatus(loc);
+        generated.add(generateSimpleLocaleAlias(loc, null, 
+            "(empty locale file for dependency checking)"));
         
         // We do not want these files to show up in installed locales list
         String locXml = loc + ".xml";
@@ -313,7 +324,7 @@ public class DeprecatedConverter {
   }
 
   private void updateSubmapAndFromFiles(File[] depXmlFiles, boolean parseDraft,
-      boolean parseSubLocale, Map<String, File> fromFiles, Map<String, String> validSubMap) {
+      boolean parseSubLocale, Map<String, String> validSubMap, Map<String, File> fromFiles) {
     
     int numXmlFiles = depXmlFiles.length;
     boolean parseThem = parseDraft || parseSubLocale;
@@ -533,28 +544,35 @@ public class DeprecatedConverter {
     mfw.write(mft, info, dstDir);
   }
   
-  private void writeSimpleLocaleAlias(
-      ICUWriter writer, String fileName, String fromLocale, String toLocale, String comment) {
-    String dstFilePath = new File(dstDir, fileName + ".txt").getPath();
-    Resource set = null;
+  private void writeResources(ICUWriter writer, List<Resource> generated) {
+    log.setStatus(null);
+    log.log("Writing generated resources");
+    for (Resource res : generated) {
+      log.setStatus(res.name);
+      writer.writeResource(res, SOURCE_INFO);
+    }
+  }
+  
+  private Resource generateSimpleLocaleAlias(String fromLocale, 
+      String toLocale, String comment) {
+    String dstFilePath = new File(dstDir, fromLocale + ".txt").getPath();
+    ResourceTable res = new ResourceTable();
     try {
-      ResourceTable table = new ResourceTable();
-      table.name = fromLocale;
+      res.name = fromLocale;
       if (toLocale != null) {
         ResourceString str = new ResourceString();
         str.name = "\"%%ALIAS\"";
         str.val = toLocale;
-        table.first = str;
-      } else {
+        res.first = str;
+      } else { 
         ResourceString str = new ResourceString();
         str.name = "___";
         str.val = "";
         str.comment = "so genrb doesn't issue warnings";
-        table.first = str;
+        res.first = str;
       }
-      set = table;
       if (comment != null) {
-        set.comment = comment;
+        res.comment = comment;
       }
     } catch (Throwable e) {
       log.error("building synthetic locale tree for " + dstFilePath, e);
@@ -563,12 +581,12 @@ public class DeprecatedConverter {
 
     String info;
     if (toLocale != null) {
-      info = "(alias to " + toLocale.toString() + ")";
+      info = "alias to " + toLocale;
     } else {
       info = comment;
     }
-    log.info("Writing synthetic: " + dstFilePath + " " + info);
+    log.log("Generating " + dstFilePath + " (" + info + ")");
     
-    writer.writeResource(set, SOURCE_INFO, dstFilePath);
+    return res;
   }
 }

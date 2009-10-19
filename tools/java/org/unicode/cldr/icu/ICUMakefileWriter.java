@@ -58,7 +58,7 @@ class ICUMakefileWriter {
     String inFilesText = fileMapToList(info.fromFiles);
 
     try {
-      log.info("Writing ICU build file: " + resfiles_mk_name);
+      log.log("Writing ICU build file: " + resfiles_mk_name);
 
       Calendar c = Calendar.getInstance();
       int year = c.get(Calendar.YEAR);

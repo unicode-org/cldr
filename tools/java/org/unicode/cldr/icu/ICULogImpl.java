@@ -67,4 +67,33 @@ public class ICULogImpl implements ICULog {
   public boolean willOutput(Level level) {
     return level.ordinal() >= this.level.ordinal();
   }
+
+  @Override
+  public Emitter emitter(Level level) {
+    return willOutput(level) ? logEmitter : nullEmitter;
+  }
+  
+  // This buffers because ant replaces System.out with an implementation
+  // that prepends the name of the running task and appends a newline
+  // whenever we flush.
+  private final Emitter logEmitter = new Emitter() {
+    private final StringBuilder buf = new StringBuilder();
+    
+    @Override
+    public void emit(String text) {
+      buf.append(text);
+    }
+    
+    @Override
+    public void nl() {
+      out.println(buf.toString());
+      out.flush();
+      buf.setLength(0);
+    }
+  };
+  
+  private static final Emitter nullEmitter = new Emitter() {
+    @Override public void emit(String text) { }
+    @Override public void nl() { }
+  };
 }

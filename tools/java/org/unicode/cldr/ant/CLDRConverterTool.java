@@ -32,22 +32,9 @@ import org.w3c.dom.Node;
  */
 public abstract class CLDRConverterTool {
     /**
-     * List of locales that are aliases to other locales
-     * support of %%Alias
+     * Information from the deprecates build rules.
      */
-    protected List<String> aliasLocaleList;
-
-    /**
-     * Empty locales list for deprecated locales list.
-     */
-    protected List<String> emptyLocaleList;
-
-    /**
-     * Map of alias locales
-     * Key: from locale
-     * Value: to locale
-     */
-    protected Map<String, Alias> aliasMap;
+    protected AliasDeprecates aliasDeprecates;
 
     /**
      * Map of locales that need to processed.
@@ -73,13 +60,28 @@ public abstract class CLDRConverterTool {
      *
      */
     public static class Alias {
+        public final String from;
         public final String to;
         public final String xpath;
 
-        public Alias(String to, String xpath){
+        public Alias(String from, String to, String xpath) {
+            this.from = from;
             this.to = to;
             this.xpath = xpath;
         }
+    }
+    
+    public static class AliasDeprecates {
+      public final List<Alias> aliasList;
+      public final List<String> aliasLocaleList;
+      public final List<String> emptyLocaleList;
+      
+      public AliasDeprecates(List<Alias> aliasList, List<String> aliasLocaleList,
+          List<String> emptyLocaleList) {
+        this.aliasList = aliasList;
+        this.aliasLocaleList = aliasLocaleList;
+        this.emptyLocaleList = emptyLocaleList;
+      }
     }
 
     /**
@@ -93,34 +95,14 @@ public abstract class CLDRConverterTool {
      *      <deprecates>
      *          <alias from="no_NO_NY" to="nn_NO" />
      *          <alias from="en_RH" to="en_ZW" />
-     *      </deprecates>
-     */
-    public void setAliasMap(Map<String, Alias> map){
-        aliasMap = map;
-    }
-
-    /**
-     * For support and interpretation of
-     *      <deprecates>
      *          <aliasLocale locale="zh_SG" />
      *          <aliasLocale locale="zh_TW" />
-     *      </deprecates>
-     * @param list The list of locales for which the alias locales need to be written.
-     */
-    public void setAliasLocaleList(List<String> list){
-        aliasLocaleList = list;
-    }
-
-    /**
-     * For support and interpretation of
-     *      <deprecates>
      *          <emptyLocale locale="hi_" />
      *          <emptyLocale locale="zh_" />
      *      </deprecates>
-     * @param list The list of locales for which the empty locales need to be written.
      */
-    public void setEmptyLocaleList(List<String> list){
-        emptyLocaleList = list;
+    public void setAliasDeprecates(AliasDeprecates aliasDeprecates) {
+        this.aliasDeprecates = aliasDeprecates;
     }
 
     /**

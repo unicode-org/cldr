@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.Calendar;
-import java.util.Iterator;
 
 class ICUWriter {
   private static final String LINESEP = System.getProperty("line.separator");
@@ -136,57 +135,5 @@ class ICUWriter {
     } catch(Exception e) {
       log.error(e.getMessage(), e);
     }
-  }
-
-  public void writeSimpleLocaleAlias(
-      String fileName, String fromLocale, String toLocale, String sourceInfo, String comment) {
-    String dstFilePath = dstDirName + "/" + fileName;
-    Resource set = null;
-    try {
-      ResourceTable table = new ResourceTable();
-      table.name = fromLocale;
-      if (toLocale != null) {
-        ResourceString str = new ResourceString();
-        str.name = "\"%%ALIAS\"";
-        str.val = toLocale;
-        table.first = str;
-      } else {
-        ResourceString str = new ResourceString();
-        str.name = "___";
-        str.val = "";
-        str.comment = "so genrb doesn't issue warnings";
-        table.first = str;
-      }
-      set = table;
-      if (comment != null) {
-        set.comment = comment;
-      }
-    } catch (Throwable e) {
-      log.error("building synthetic locale tree for " + dstFilePath, e);
-      System.exit(1);
-    }
-
-    String info;
-    if (toLocale != null) {
-      info = "(alias to " + toLocale.toString() + ")";
-    } else {
-      info = comment;
-    }
-    log.info("Writing synthetic: " + dstFilePath + " " + info);
-    
-    writeResource(set, sourceInfo, dstFilePath);
-  }
-
-  public static String fileIteratorToList(Iterator<File> files) {
-    String out = "";
-    int i = 0;
-    while (files.hasNext()) {
-      File f = files.next();
-      if ((++i % 5) == 0) {
-        out = out + "\\" + LINESEP;
-      }
-      out = out + (i == 0 ? " " : " ") + f.getName().substring(0, f.getName().indexOf('.')) + ".txt";
-    }
-    return out;
   }
 }

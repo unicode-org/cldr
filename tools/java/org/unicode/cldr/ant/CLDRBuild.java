@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
+import org.unicode.cldr.ant.CLDRConverterTool.AliasDeprecates;
 
 import com.ibm.icu.dev.tool.UOption;
 
@@ -101,6 +102,10 @@ public class CLDRBuild extends Task {
       }
     }
 
+    warnln("CLDRBuild.getLocalesList destFile: " + destFile + 
+        " destFiles.length: " + destFiles.length +
+        " result: " + ret);
+    
     if (ret.size() == 0 && destFiles.length == 1) {
       return null;
     }
@@ -186,9 +191,11 @@ public class CLDRBuild extends Task {
         tool.setLocalesMap(localesMap);
 
         if (run.deprecates != null) {
-          tool.setAliasLocaleList(run.deprecates.aliasLocaleList);
-          tool.setAliasMap(run.deprecates.aliasMap);
-          tool.setEmptyLocaleList(run.deprecates.emptyLocaleList);
+          AliasDeprecates aliasDeprecates = new AliasDeprecates(
+              run.deprecates.aliasList,
+              run.deprecates.aliasLocaleList,
+              run.deprecates.emptyLocaleList);
+          tool.setAliasDeprecates(aliasDeprecates);
         }
 
         if (run.config != null) {
@@ -441,13 +448,13 @@ public class CLDRBuild extends Task {
   public static class Deprecates extends Task {
     List<String> aliasLocaleList;
     List<String> emptyLocaleList;
-    Map<String, CLDRConverterTool.Alias> aliasMap;
+    List<CLDRConverterTool.Alias> aliasList;
 
     public void addConfiguredAlias(Alias alias){
-      if (aliasMap == null){
-        aliasMap= new TreeMap<String, CLDRConverterTool.Alias>();
+      if (aliasList == null){
+        aliasList = new ArrayList<CLDRConverterTool.Alias>();
       }
-      aliasMap.put(alias.from, new CLDRConverterTool.Alias(alias.to, alias.xpath));
+      aliasList.add(new CLDRConverterTool.Alias(alias.from, alias.to, alias.xpath));
     }
 
     public void addConfiguredEmptyLocale(EmptyLocale alias){

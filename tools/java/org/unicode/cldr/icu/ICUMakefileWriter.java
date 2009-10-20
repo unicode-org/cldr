@@ -12,6 +12,7 @@ import java.io.PrintStream;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 class ICUMakefileWriter {
   private final ICULog log;
@@ -51,13 +52,14 @@ class ICUMakefileWriter {
     String resfiles_mk_name = dstDir + "/" + mt.shortstub + "files.mk";
     
     String generatedAliasText = fileMapToList(info.generatedAliasFiles);
-    String aliasFilesText = fileMapToList(info.aliasFromFiles);
+    String aliasFilesText = nameSetToList(info.aliasFromFiles);
     String ctdFilesText = createFileList(info.ctdFiles);
     String brkFilesText = createFileList(info.brkFiles);
-    String emptyFilesText = info.emptyFromFiles.isEmpty() ? null : fileMapToList(info.emptyFromFiles);
-    String inFilesText = fileMapToList(info.fromFiles);
+    String emptyFilesText = info.emptyFromFiles.isEmpty() ? null : nameSetToList(info.emptyFromFiles);
+    String inFilesText = nameSetToList(info.fromFiles);
 
     try {
+      log.setStatus(null);
       log.log("Writing ICU build file: " + resfiles_mk_name);
 
       Calendar c = Calendar.getInstance();
@@ -164,4 +166,18 @@ class ICUMakefileWriter {
     }
     return out.toString();
   }
+  
+
+  private static String nameSetToList(Set<String> names) {
+    StringBuilder out = new StringBuilder();
+    int i = 0;
+    for (String name : names) {
+      if ((++i % 5) == 0) {
+        out.append("\\").append(LINESEP);
+      }
+      out.append(" ").append(name).append(".txt");
+    }
+    return out.toString();
+  }
+
 }

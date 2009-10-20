@@ -341,7 +341,7 @@ public class CLDRDBSourceFactory {
      }
     
     public XMLSource getMuxedInstance(CLDRLocale locale) {
-    	synchronized(sm.vet.conn) {
+    	//synchronized(mux) {
 	        XMLSource src = mux.get(locale);
 	        if(src == null) {
 	        	CLDRLocale parent = locale.getParent();
@@ -356,7 +356,7 @@ public class CLDRDBSourceFactory {
 	            mux.put(locale, src);
 	        }
 	        return src;
-    	}
+    	//}
     }
     
     /** 
@@ -1077,7 +1077,7 @@ public class CLDRDBSourceFactory {
 
         System.err.println("@sl&v: "+locale+"/"+srcId);
 
-        synchronized(sm.vet.conn) {  // Synchronize on the sm vet conn to ensure that no other state is changing under us..
+        synchronized(conn) {  // Synchronize on the conn to ensure that no other state is changing under us..
             // double check..
             srcId = getSourceId(tree, locale); // double checked lock- noone else loaded the src since then
             

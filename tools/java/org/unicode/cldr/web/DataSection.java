@@ -415,17 +415,17 @@ public class DataSection extends Registerable {
         	return /*section.*/fieldHash + fieldHash();
         }
         
-        Hashtable subRows = null;
+        Hashtable<String,DataRow> subRows = null;
 
         public DataRow getSubDataRow(String altType) {
             if(altType == null) {
                 return this;
             }
             if(subRows == null) {
-                subRows = new Hashtable();
+                subRows = new Hashtable<String,DataRow>();
             }
 
-            DataRow p = (DataRow)subRows.get(altType);
+            DataRow p = subRows.get(altType);
             if(p==null) {
                 p = new DataRow();
                 p.type = type;
@@ -2161,7 +2161,17 @@ public class DataSection extends Registerable {
     		if(dr.base_xpath == xpath) {
     			return dr;
     		}
+    		// search subrows
+    		if(dr.subRows!=null) {
+    			for(DataRow subRow : dr.subRows.values()) {
+    				if(subRow.base_xpath == xpath) {
+    					return subRow;
+    				}
+    			}
+    		}
     	}
+    	// look for sub-row
+    	
     	return null;
     }
     

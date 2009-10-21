@@ -66,4 +66,45 @@ for(int i=0;i<reports.length;i++) {
     }
 }
 
+%><%!
+	/**
+	 * convert a stage to a base xpath
+	 */
+		String stageToBaseXpath(int step) {
+			try {
+				return base_xpaths[step-1];
+			} catch(Throwable t) {
+				return null;
+			}
+		}
+
+	public static String COMPLETE="_complete";
+
+	/**
+	 * Lookup a step by name. Defaults to returning -1 if error
+	 */
+	int stepNameToNumber(String name) {
+		if(COMPLETE.equals(name)) {
+			return reports.length+2;
+		}
+		for(int i=0;i<reports.length;i++) {
+			if(reports[i].equals(name)) {
+				return i+1; /* 0 based */
+			}
+		}
+		return -1;
+	}
+	
+	/**
+	 * Convert a step number to name.
+	 */
+	String stepNumberToName(int step) {
+		if(step==reports.length+2) {
+			return COMPLETE;
+		} else if(step<1 || step>reports.length) {
+			return "(invalid)";
+		} else {
+			return reports[step-1];
+		}
+	}
 %>

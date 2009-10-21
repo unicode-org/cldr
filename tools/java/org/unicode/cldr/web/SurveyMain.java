@@ -6664,6 +6664,11 @@ public class SurveyMain extends HttpServlet {
 		DataRow row = section.getDataRow(item_xpath);
 		if(row!=null) {
 			showDataRowShort(ctx, row);
+		} else {
+			//if(this.isUnofficial) {
+				ctx.println("<tr><td colspan='2'>"+ctx.iconHtml("stop", "internal error")+"<i>internal error: nothing to show for xpath "+item_xpath+"," +
+						" "+xpt.getById(item_xpath)+"</i></td></tr>");
+			//}
 		}
 	}
 

@@ -12,6 +12,7 @@ import java.io.*;
 import java.util.*;
 
 import org.unicode.cldr.util.*;
+import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
 import org.unicode.cldr.test.*;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 

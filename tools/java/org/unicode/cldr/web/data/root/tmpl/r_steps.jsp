@@ -2,8 +2,9 @@
 <%@ include file="report.jspf"  %>
 
 <%
-
+/* set the '_' parameter, to the current locale */
 subCtx.setQuery(SurveyMain.QUERY_LOCALE,ctx.localeString());
+/* flush output (sync between subCtx' stream and JSP stream ) */
 subCtx.flush();
 %>
 
@@ -11,49 +12,44 @@ subCtx.flush();
     <%@ include file="report_top.jspf" %>
 --%>
 
-<%!
-	/**
-	 * convert a stage to a base xpath
-	 */
-		String stageToBaseXpath(int step) {
-			try {
-				return base_xpaths[step-1];
-			} catch(Throwable t) {
-				return null;
-			}
-		}
-%>
-
 <%
+	// set up the 'x' parameter to the current secrtion (r_steps, etc)
 	subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
-	// step parameter determines which 'stage' we are at. Stage 1: characters, stage 2: two currencies, stage 3: congratulations.
+
+    // step parameter determines which 'stage' we are at. Stage 1: characters, stage 2: two currencies, stage 3: congratulations.
 
 	// get the stage
-	int myStage = ctx.fieldInt("step", 1);         // requested 'new' stage
-	int oldStage = ctx.fieldInt("old_step", -1);   // outgoing 'old' stage (where we came from). 
+	String myStageString = ctx.field("step");
+	int myStage = stepNameToNumber(myStageString);         // requested 'new' stage
+	if(myStage<1) myStage=1;
+	String oldStageString = ctx.field("old_step");
+	int oldStage = stepNameToNumber(oldStageString);   // outgoing 'old' stage (where we came from). 
 	
 	// what's the base xpath for the previous stage (for data submission)?
 	String baseXpathForOldStage = stageToBaseXpath(oldStage);
 	
+	// True if we are going on to the next stage ('step'), false if we are remaining at 'old_step'
 	boolean moveForward = true;
+	
+	// This handler will report back any items which couldn't be added.
 	SummarizingSubmissionResultHandler ssrh = null;
 	
 	if(baseXpathForOldStage!=null) {  // handle submit of old data?
 			%>  <h2>Processing data for xpath <%= baseXpathForOldStage %>  </h2>   <%
+			
+		// process the submission. ssrh contains detailed results.
 		ssrh = SurveyForum.processDataSubmission(ctx, baseXpathForOldStage);
-		ctx.put("ssrh",ssrh);
-		moveForward = !ssrh.hadErrors();
+		ctx.put("ssrh",ssrh); // TODO: move to constant or API
+		moveForward = !ssrh.hadErrors(); // move forward if no errors.
 		if(moveForward == false) {
 			%><b>Please correct the errs first</b><br><%
 			myStage = oldStage; // stuck here, until no errs.
 		} else {
-			%><i>No errors - OK to move forward.</i><%
+			%><i>Data added.</i><%
 		}
-	} else{
-		%><i>no base xpath, so nothing to process.</i><br><%
+	} else {
+		/* No base xpath - nothing to process. */
 	}
-	
-
 	
 	// What is the base xpath for the next stage?
 	String baseXpathForNextStage = stageToBaseXpath(myStage);
@@ -64,13 +60,13 @@ subCtx.flush();
 		
 		// print hidden fields, as needed
 		out.println("<input type='hidden' value='"+ctx.field(SurveyMain.QUERY_SECTION)+"' name='"+SurveyMain.QUERY_SECTION+"'>");
-		out.println("<input type='hidden' name='old_step' value='"+myStage+"'>");
+		out.println("<input type='hidden' name='old_step' value='"+stepNumberToName(myStage)+"'>");
 	}
 %>
 
-	Old stage: <%= oldStage %>, Current stage: <%= myStage %><br>
-	<hr>
-
+	<!--  Old stage: <%= oldStage %>, Current stage: <%= myStage %>
+	
+	-->
 <% 
 	int nextStage = myStage;
 
@@ -88,14 +84,14 @@ subCtx.flush();
 <b>Easy Steps: </b>
 <% for(int i=1;i<reports.length+1;i++) { %>
 
-	<%= subCtx.sm.getMenu(subCtx,Integer.toString(myStage),	Integer.toString(i), report_name[i-1],"step") %>
+	<%= subCtx.sm.getMenu(subCtx,stepNumberToName(myStage),	stepNumberToName(i), report_name[i-1],"step") %>
 
 	| &nbsp;	
 	
 <% } %>
 	<%= /* Thanks page */
-		subCtx.sm.getMenu(subCtx,Integer.toString(myStage),	Integer.toString(reports.length+2),
-					"Thanks.","step")
+		subCtx.sm.getMenu(subCtx,stepNumberToName(myStage),	stepNumberToName(reports.length+1),
+					"Easy Step Complete.","step")
 	%>
 
 	<br>
@@ -105,8 +101,8 @@ subCtx.flush();
 	
 	if(myStage>(reports.length))  {
 		%>
-		<h2> congratulations </h2>
-		<p> Great, thanks for your work on the <%= ctx.sm.getLocaleDisplayName(ctx.getLocale()) %> locale.</p>
+		<%@ include file="r_steps_complete.jspf" %>
+		
 		<%
 	} else {
 		ctx.put("thisBaseXpath",baseXpathForNextStage);
@@ -123,7 +119,7 @@ subCtx.flush();
 	if(baseXpathForNextStage != null) {  // if we have a form open..
 		// send them to the next section
 %>      
-		<input type='hidden' name='step' value='<%= nextStage %>'>
+		<input type='hidden' name='step' value='<%= stepNumberToName(nextStage) %>'>
 		<input type='submit' value='Submit'>
 <%
 	}

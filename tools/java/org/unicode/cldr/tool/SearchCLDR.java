@@ -32,7 +32,7 @@ public class SearchCLDR {
     UOption.create("localematch", 'l', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("pathmatch", 'p', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("valuematch", 'v', UOption.REQUIRES_ARG).setDefault(".*"),
-    UOption.create("showPath", 's', UOption.NO_ARG),
+    UOption.create("showPath", 'z', UOption.NO_ARG),
     UOption.create("showParentValue", 'q', UOption.NO_ARG),
   };
   static final String HELP_TEXT1 = "Use the following options" + XPathParts.NEWLINE
@@ -81,7 +81,7 @@ public class SearchCLDR {
     
     for (String locale : locales) {
       CLDRFile file = (CLDRFile) cldrFactory.make(locale, false);
-      CLDRFile parent = null;
+      CLDRFile parent = cldrFactory.make(file.getParent(locale), false);
       boolean headerShown = false;
       
       //System.out.println("*Checking " + locale);
@@ -90,8 +90,8 @@ public class SearchCLDR {
         String path = it.next();
         String fullPath = file.getFullXPath(path);
         String value = file.getStringValue(path);
-        if (pathMatch != null && !pathMatch.reset(fullPath).matches()) continue;
-        if (valueMatch != null && !valueMatch.reset(value).matches()) continue;
+        if (pathMatch != null && !pathMatch.reset(fullPath).find()) continue;
+        if (valueMatch != null && !valueMatch.reset(value).find()) continue;
         
         // made it through the sieve
         if (!headerShown) {

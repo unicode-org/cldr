@@ -19,23 +19,23 @@ SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territ
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"IC\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"TA\"]");
 
-SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"CC\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"CD\"]");
-
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"MM\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"PS\"]");
 
-SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"][@alt=\"short\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"MO\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"MO\"][@alt=\"short\"]");
-
+SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"CD\"]");
+SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"CD\"][@alt=\"variant\"]");
+SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"CG\"]");
+SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"CG\"][@alt=\"variant\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"CI\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"CI\"][@alt=\"variant\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"FK\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"FK\"][@alt=\"variant\"]");
+SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"]");
+SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"][@alt=\"short\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"MK\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"MK\"][@alt=\"variant\"]");
+SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"MO\"]");
+SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"MO\"][@alt=\"short\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"TL\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"TL\"][@alt=\"variant\"]");
 

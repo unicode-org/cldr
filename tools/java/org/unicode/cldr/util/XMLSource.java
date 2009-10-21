@@ -1124,6 +1124,13 @@ public abstract class XMLSource implements Freezable {
       addFallbackCode(CLDRFile.TERRITORY_NAME, "HK", "HK", "short");
       addFallbackCode(CLDRFile.TERRITORY_NAME, "MO", "MO", "short");
       
+      addFallbackCode(CLDRFile.TERRITORY_NAME, "CD", "CD", "variant"); // add other geopolitical items
+      addFallbackCode(CLDRFile.TERRITORY_NAME, "CG", "CG", "variant");
+      addFallbackCode(CLDRFile.TERRITORY_NAME, "CI", "CI", "variant");
+      addFallbackCode(CLDRFile.TERRITORY_NAME, "FK", "FK", "variant");
+      addFallbackCode(CLDRFile.TERRITORY_NAME, "MK", "MK", "variant");
+      addFallbackCode(CLDRFile.TERRITORY_NAME, "TL", "TL", "variant");
+      
       for (int i = 0; i < keyDisplayNames.length; ++i) {
         constructedItems.putValueAtPath(
             "//ldml/localeDisplayNames/keys/key" +

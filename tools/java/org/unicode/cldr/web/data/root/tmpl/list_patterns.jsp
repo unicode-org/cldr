@@ -4,14 +4,13 @@
 <%@ page import="com.ibm.icu.util.ULocale" %>
 
 <h2>List Patterns are also new in 1.8</h2>
-<p>
-These are used to represent lists. The <em>2</em> form is for a list of two items, like '<em>A</em> and <em>B</em>'.
-The <em>start</em>, <em>middle</em>, and <em>end</em> forms are used for 3 or more items, such as '<em>A</em>, <em>B</em>, and <em>C</em>'.
-The <em>start</em> form connects the first two items; the <em>end</em> connects the last two, and the <em>middle</em> connects the middle ones
-(for lists of four or more items).</p>
-<p><i>If your language needs special forms for 3, 4, or other cases, 
-<a href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to add them.</i>.
-</p>
+<p>These are used to represent lists. The <em>2</em> form is for a list of two items, like '<em>A</em> and <em>B</em>'.
+The <em style="background-color: #F99">start</em>, <em style="background-color: #9F9">middle</em>, and <em style="background-color: #99F">end</em>
+forms are used for 3 or more items, such as
+'<em>A</em><span style="background-color: #F99">, </span><em>B</em><span style="background-color: #9F9">, </span><em>C</em><span style="background-color: #99F">, and </span><em>D</em>'.
+The <em>start</em> form connects the first two items; the <em>end</em> connects the last two, and the <em>middle</em> connects successive middle ones
+(for lists of four or more items). <i>If your language needs special forms for 3, 4, or other cases, please
+<a href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to add them.</i></p>
 <%
 //  Copy "x=___"  from input to output URL
 

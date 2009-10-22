@@ -86,7 +86,7 @@ subCtx.flush();
 
 	<%= subCtx.sm.getMenu(subCtx,stepNumberToName(myStage),	stepNumberToName(i), report_name[i-1],"step") %>
 
-	| &nbsp;	
+	|	
 	
 <% } %>
 	<%= /* Thanks page */

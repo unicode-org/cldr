@@ -81,7 +81,7 @@ public class SearchCLDR {
     
     for (String locale : locales) {
       CLDRFile file = (CLDRFile) cldrFactory.make(locale, false);
-      CLDRFile parent = cldrFactory.make(file.getParent(locale), false);
+      CLDRFile parent = null;
       boolean headerShown = false;
       
       //System.out.println("*Checking " + locale);
@@ -104,7 +104,7 @@ public class SearchCLDR {
         }
         String shortPath = pretty.getPrettyPath(path);
         String cleanShort = pretty.getOutputForm(shortPath);
-        showLine(showPath, showParent, locale, parent, path, fullPath, value, cleanShort, parent.getStringValue(path));
+        showLine(showPath, showParent, locale, parent, path, fullPath, value, cleanShort, parent == null ? null : parent.getStringValue(path));
         count++;
       }
       if (count != 0) {

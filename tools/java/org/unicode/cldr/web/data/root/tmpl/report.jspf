@@ -3,6 +3,7 @@
 // list of the 'report' templates
 static final String reports[] = { 
     "new",
+    "list_patterns",
     "characters",
     "numbering_system",
     "decimal_separator",
@@ -28,6 +29,7 @@ static final String report_name[] = reports;  // TODO: replace with human readab
 
 static final String base_xpaths[] = {
         "//ldml/localeDisplayNames",
+        "//ldml/listPatterns/listPattern",
 		"//ldml/characters/exemplarCharacters", // an example xpath is fine
 		"//ldml/numbers", //ldml/numbers/defaultNumberingSystem",
 		"//ldml/numbers", //ldml/numbers/symbols/decimal",

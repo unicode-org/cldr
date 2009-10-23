@@ -33,8 +33,8 @@ In your ticket, make sure that the periods need to cover the entire day, from 0:
 <li>... earlyMorning ≤ 09:00 &lt; morning ...</li>
 <li>... earlyMorning &lt; 09:00 ≤ morning ...</li>
 </ol>
-<p>but not:</p>
+<p>but <b>not</b> two &lt; signs around the same category:</p>
 <ol>
-<li>... earlyMorning < 09:00 < morning ... </li>
+<li>... earlyMorning &lt; 09:00 &lt; morning ... </li>
 </ol>
 <p>It is easiest to take rules like the German ones, edit them, and include in the ticket</p>

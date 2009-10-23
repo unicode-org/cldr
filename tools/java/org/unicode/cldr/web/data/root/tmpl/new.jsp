@@ -7,7 +7,6 @@
 <%
 
 //  Copy "x=___"  from input to output URL
-subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
 
 %><p>The first set are new territories. All of these should be translated.</p><%
 

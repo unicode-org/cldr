@@ -264,7 +264,7 @@
     <target name="war" depends="web" description="Build war">        
         <war destfile="${warfile}" webxml="${wardata}/cldr-apps.xml">
             <!-- classes (for now, may want to take cldr utils as a jar later) --> 
-            <classes dir="${build.dir}"/>
+            <classes dir="${build.dir}" excludes="org/unicode/cldr/posix/**,org/unicode/cldr/ooo/**,org/unicode/cldr/ant/**" />
 
             <!-- all other files in /root --> 
             <zipfileset dir="${wardata}/root" excludes="**/CVS/**/*"/>

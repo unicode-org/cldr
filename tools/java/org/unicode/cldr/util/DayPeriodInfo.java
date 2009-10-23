@@ -140,7 +140,7 @@ public class DayPeriodInfo {
       .append(!included ? " < " : " \u2264 ")
       .append(period.get2());
     }
-    result.append(" < 24:00");
+    result.append("\n< 24:00");
     return result.toString();
   }
 }

@@ -6,7 +6,7 @@
 <h2>Enter the name of the currency and the currency symbol used in this locale.</h2>
 <p>Afterwards go to the each of following to fill out the priority items (marked with an alert icon):</p>
 <ol>
-<li><a href="<%= ctx.base(request)+"?_="+ctx.getLocale()+"&x=currencies" %>">currencies</a></li>
+<li><a target="_blank" href="<%= ctx.base(request)+"?_="+ctx.getLocale()+"&x=currencies" %>">currencies</a></li>
 </ol>
 
 <%

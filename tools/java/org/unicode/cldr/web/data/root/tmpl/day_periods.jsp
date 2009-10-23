@@ -2,8 +2,8 @@
 
 <h2>Day periods are used with 12 hour time formats: please provide them here.</h2>
 <p>If your language can use 12 hour time formats, but doesn't normally use AM/PM, please
-<a href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to get the categories you need.</i>. 
-For comparison see the <a href="<%= ctx.base(request)+"?_="+ctx.getLocale()+"&x=r_steps&step=day_periods" %>">German day periods</a>. 
+<a target="_blank" href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to get the categories you need.</i> 
+For comparison see the <a target="_blank" href="<%= ctx.base(request)+"?_=de&x=r_steps&step=day_periods" %>">German day periods</a>. 
 Each period needs to have an associate time span (such as 9:00 to 12:00).</p>
 <%
 //  Copy "x=___"  from input to output URL
@@ -24,5 +24,3 @@ for (DayPeriodInfo.DayPeriod dayPeriod : items) {
 
 SurveyForum.printSectionTableCloseShort(subCtx, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods");
 %>
-<p>The main exemplar characters are the ones most people would recognize as being the ones "in your language".
-The Index characters are the ones that you would see as the index in a contact list, for example. For more information, see <a href='http://kwanyin.unicode.org:8080/cldr-apps/survey?_=hi&xpath=//ldml/characters/exemplarCharacters[@type=%22index%22]'>Exemplar Details</a></p>

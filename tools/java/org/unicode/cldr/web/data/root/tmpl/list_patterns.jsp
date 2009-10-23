@@ -10,7 +10,7 @@ forms are used for 3 or more items, such as
 '<em>A</em><span style="background-color: #F99">, </span><em>B</em><span style="background-color: #9F9">, </span><em>C</em><span style="background-color: #99F">, and </span><em>D</em>'.
 The <em>start</em> form connects the first two items; the <em>end</em> connects the last two, and the <em>middle</em> connects successive middle ones
 (for lists of four or more items). <i>If your language needs special forms for 3, 4, or other cases, please
-<a href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to add them.</i></p>
+<a target="_blank" href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to add them.</i></p>
 <%
 //  Copy "x=___"  from input to output URL
 

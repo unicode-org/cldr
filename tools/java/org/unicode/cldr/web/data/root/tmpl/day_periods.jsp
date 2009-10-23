@@ -20,21 +20,21 @@ for (DayPeriodInfo.DayPeriod dayPeriod : items) {
 }
 
 SurveyForum.printSectionTableCloseShort(subCtx, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods");
-String rules = dayPeriods.toString().replace("<","&lt;");
+String rules = dayPeriods.toString().replace("<","&lt;").replace("\n","<br>);
 %>
 <p>The day period categories for this locale are currently:</p>
-<blockquote><%=rules%></blockquote>
+<blockquote><b><%=rules%></b></blockquote>
 <p>If these are incorrect, please <a target="_blank" href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to get the categories you need.
 For comparison, see the <a target="_blank" href="<%= ctx.base(request)+"?_=de&x=r_steps&step=day_periods" %>">German day periods</a>
 or <a target="_blank" href="<%= ctx.base(request)+"?_=zh&x=r_steps&step=day_periods" %>">Chinese day periods</a>.
-In your ticket, make sure that the periods need to cover the entire day, from 0:00 to 23:40, and do not overlap. That means that you can have:
-<ol>
-<li>... earlyMorning ≤ 09:00 ≤ morning ...</li>
-<li>... earlyMorning ≤ 09:00 &lt; morning ...</li>
-<li>... earlyMorning &lt; 09:00 ≤ morning ...</li>
-</ol>
-<p>but <b>not</b> two &lt; signs around the same category:</p>
-<ol>
+In your ticket, make sure that the periods need to cover the entire day, from 0:00 to 24:00, and do not overlap. That means that you can have cases like:
+<ul>
+<li>... earlyMorning &#x2264; 09:00 &#x2264; morning ...</li>
+<li>... earlyMorning &#x2264; 09:00 &lt; morning ...</li>
+<li>... earlyMorning &lt; 09:00 &#x2264; morning ...</li>
+</ul>
+<p>but <b>not</b> two &lt; signs around the same category as in:</p>
+<ul>
 <li>... earlyMorning &lt; 09:00 &lt; morning ... </li>
-</ol>
+</ul>
 <p>It is easiest to take rules like the German ones, edit them, and include in the ticket</p>

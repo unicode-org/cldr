@@ -134,7 +134,7 @@ public class DayPeriodInfo {
       minutes -= hours*60;
 
       if (i != 0) {
-        result.append(included ? " < " : " \u2264 ");
+        result.append('\n').append(included ? " < " : " \u2264 ");
       }
       result.append(String.format("%02d:%02d", hours, minutes))
       .append(!included ? " < " : " \u2264 ")

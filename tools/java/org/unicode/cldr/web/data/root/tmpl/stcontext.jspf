@@ -5,7 +5,7 @@
 <%@ page import="java.util.*" %>
 
 <% 
-     WebContext ctx = WebContext.fromRequest(request,response,out);
+	JspWebContext ctx = WebContext.fromRequest(request,response,out);
 
 // may not be set
     DataSection dataSection = (DataSection)ctx.get(WebContext.DATA_SECTION);

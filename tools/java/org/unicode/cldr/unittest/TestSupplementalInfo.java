@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -20,6 +21,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.IsoCurrencyParser.Data;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 
@@ -193,11 +195,16 @@ public class TestSupplementalInfo extends TestFmwk {
       count += dayPeriod.getPeriodCount();
     }
     assertTrue("At least some day periods exist", count > 5);
-    SupplementalDataInfo supplementalDataInfo = testInfo.getSupplementalDataInfo();
     CLDRFile file = testInfo.getCldrFactory().make("de", true);
-    DayPeriodInfo dayPeriods = supplementalDataInfo.getDayPeriods(file.getLocaleID());
 
-    file.getExtraPaths();
+    SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(file.getSupplementalDirectory());
+    DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(file.getLocaleID());
+    LinkedHashSet<DayPeriod> items = new LinkedHashSet(dayPeriods.getPeriods());
+    String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"";
+
+    for (DayPeriod dayPeriod : items) {
+      logln(prefix + dayPeriod + "\"]");
+    }
   }
 
 }

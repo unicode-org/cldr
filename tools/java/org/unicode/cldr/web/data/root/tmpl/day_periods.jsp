@@ -12,10 +12,10 @@ CLDRFile file = SurveyForum.getCLDRFile(subCtx);
 
 SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(file.getSupplementalDirectory());
 DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(file.getLocaleID());
-LinkedHashSet<DayPeriod> items = new LinkedHashSet(dayPeriods.getPeriods());
+LinkedHashSet<DayPeriodInfo.DayPeriod> items = new LinkedHashSet(dayPeriods.getPeriods());
 String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"";
 
-for (DayPeriod dayPeriod : items) {
+for (DayPeriodInfo.DayPeriod dayPeriod : items) {
     SurveyForum.showXpathShort(subCtx, "//ldml/characters/exemplarCharacters");
 }
 

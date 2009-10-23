@@ -10,22 +10,17 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.ooo.supplementalData;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.IsoCurrencyParser;
 import org.unicode.cldr.util.Pair;
-import com.ibm.icu.dev.test.util.Relation;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
-import org.unicode.cldr.util.IsoCurrencyParser.Data;
+import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.util.Relation;
 
 public class TestSupplementalInfo extends TestFmwk {
   static TestInfo testInfo = TestInfo.getInstance();
@@ -199,10 +194,10 @@ public class TestSupplementalInfo extends TestFmwk {
 
     SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(file.getSupplementalDirectory());
     DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(file.getLocaleID());
-    LinkedHashSet<DayPeriod> items = new LinkedHashSet(dayPeriods.getPeriods());
+    LinkedHashSet<DayPeriodInfo.DayPeriod> items = new LinkedHashSet(dayPeriods.getPeriods());
     String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"";
 
-    for (DayPeriod dayPeriod : items) {
+    for (DayPeriodInfo.DayPeriod dayPeriod : items) {
       logln(prefix + dayPeriod + "\"]");
     }
   }

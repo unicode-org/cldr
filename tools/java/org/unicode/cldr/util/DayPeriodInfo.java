@@ -10,6 +10,7 @@ import java.util.TreeMap;
 
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
 
 public class DayPeriodInfo {
   public static int DAY_LIMIT = 24*60*60*1000;
@@ -126,11 +127,20 @@ public class DayPeriodInfo {
   public String toString() {
     StringBuilder result = new StringBuilder();
     for (int i = 0; i < starts.length; ++i) {
+      R3<Integer, Boolean, DayPeriod> period = getPeriod(i);
+      Boolean included = period.get1();
+      int minutes = period.get0()/(60*1000);
+      int hours = minutes/60;
+      minutes -= hours*60;
+
       if (i != 0) {
-        result.append("; ");
+        result.append(included ? " < " : " \u2264 ");
       }
-      result.append(getPeriod(i));
+      result.append(String.format("%02d:%02d", hours, minutes))
+      .append(!included ? " < " : " \u2264 ")
+      .append(period.get2());
     }
+    result.append(" < 24:00");
     return result.toString();
   }
 }

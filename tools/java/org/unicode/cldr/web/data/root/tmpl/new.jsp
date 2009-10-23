@@ -7,9 +7,9 @@
 <p>The first set are territories. All of these should be translated. They are followed by two language names and two Chinese transliteration names. These are optional.
 <%
 //  Copy "x=___"  from input to output URL
-ULocale myLoc = ULocale.addLikelySubtags(ctx.getLocale().toULocale());
-
 subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
+
+%><p>The first set are new territories. All of these should be translated.</p><%
 SurveyForum.printSectionTableOpenShort(subCtx, thisBaseXpath);
 
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"AC\"]");
@@ -18,6 +18,10 @@ SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territ
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"EA\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"IC\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"TA\"]");
+
+SurveyForum.printSectionTableCloseShort(subCtx, thisBaseXpath);
+%><p>Some of these have alternative values for geopoliticly sensitive cases. All of these should be translated.</p><%
+SurveyForum.printSectionTableOpenShort(subCtx, thisBaseXpath);
 
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"MM\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"PS\"]");
@@ -38,6 +42,10 @@ SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territ
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"MO\"][@alt=\"short\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"TL\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/territories/territory[@type=\"TL\"][@alt=\"variant\"]");
+
+SurveyForum.printSectionTableCloseShort(subCtx, thisBaseXpath);
+%><p>The following are new cases of language or language variants. These are optional but recommended.</p><%
+SurveyForum.printSectionTableOpenShort(subCtx, thisBaseXpath);
 
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/languages/language[@type=\"yue\"]");
 SurveyForum.showXpathShort(subCtx, "//ldml/localeDisplayNames/languages/language[@type=\"swb\"]");

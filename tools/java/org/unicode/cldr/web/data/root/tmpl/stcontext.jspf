@@ -1,6 +1,7 @@
  <%--  Don't include this more than once per actual JSP.  --%>
 
 <%@ page import="org.unicode.cldr.web.*" %>
+<%@ page import="org.unicode.cldr.util.*" %>
 
 <% 
      WebContext ctx = WebContext.fromRequest(request,response,out);

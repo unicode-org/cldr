@@ -2092,6 +2092,15 @@ public class DataSection extends Registerable {
 //                       if(SurveyMain.isUnofficial) System.err.println("@@ synthesized+excluded:" + base_xpath_string);
                        continue;
                     }
+
+                    // Only display metazone data for which an English value exists
+                    if (isMetazones && suff != "/commonlyUsed") {
+                        String engValue = baselineFile.getStringValue(base_xpath_string);
+                        if ( engValue == null || engValue.length() == 0 ) {
+                            continue;
+                        }
+                    }
+
                     DataSection.DataRow myp = getDataRow(rowXpath);
                     
                     // set it up..

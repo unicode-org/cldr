@@ -2,14 +2,15 @@ package org.unicode.cldr.ant;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 import org.apache.tools.ant.Task;
 
 import org.unicode.cldr.ant.CLDRBuild.Paths;
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
@@ -53,6 +54,11 @@ public abstract class CLDRConverterTool {
      */
     protected List<CLDRBuild.Paths> overrideFallbackList;
 
+    /**
+     * Information used by ResourceSplitter, if not null.
+     */
+    protected List<SplitInfo> splitInfos;
+    
     /**
      * Object that holds information about aliases on the
      * <alias from="in" to="id" />  elements.
@@ -130,6 +136,10 @@ public abstract class CLDRConverterTool {
      */
     public void setOverrideFallbackList(List<Paths> list){
 //        overrideFallbackList = list;
+    }
+
+    public void setSplitInfos(List<SplitInfo> infos) {
+      this.splitInfos = Collections.unmodifiableList(infos);
     }
 
     protected Node mergeOverrideFallbackNodes(Node main, String locale){

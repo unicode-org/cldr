@@ -3,14 +3,17 @@
 package org.unicode.cldr.icu;
 
 import org.unicode.cldr.icu.ICUResourceWriter.Resource;
-import org.unicode.cldr.icu.ICUResourceWriter.ResourceString;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
+import org.unicode.cldr.icu.ResourceSplitter.ResultInfo;
+import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 class ICUWriter {
   private static final String LINESEP = System.getProperty("line.separator");
@@ -19,18 +22,49 @@ class ICUWriter {
 
   private final String dstDirName;
   private final ICULog log;
+  private final ResourceSplitter splitter;
 
-  ICUWriter(String dstDirName, ICULog log) {
+  ICUWriter(String dstDirName, ICULog log, ResourceSplitter splitter) {
     this.dstDirName = dstDirName;
     this.log = log;
+    this.splitter = splitter;
   }
 
+//  private static final ResourceSplitter debugSplitter;
+//  static {
+//    List<SplitInfo> splitInfos = new ArrayList<SplitInfo>();
+//    splitInfos.add(new SplitInfo("/Languages", "lang"));
+//    splitInfos.add(new SplitInfo("/LanguagesShort", "lang"));
+//    splitInfos.add(new SplitInfo("/Scripts", "lang"));
+//    splitInfos.add(new SplitInfo("/Types", "lang"));
+//    splitInfos.add(new SplitInfo("/Variants", "lang"));
+//    splitInfos.add(new SplitInfo("/codePatterns", "lang"));
+//    splitInfos.add(new SplitInfo("/Countries", "terr", "/Territories"));
+//    splitInfos.add(new SplitInfo("/Currencies", "curr"));
+//    splitInfos.add(new SplitInfo("/CurrencyPlurals", "curr"));
+//    splitInfos.add(new SplitInfo("/CurrencyUnitPatterns", "curr"));
+//    splitInfos.add(new SplitInfo("/zoneStrings", "zone"));
+//   
+//    debugSplitter = new ResourceSplitter("/tmp/ldml", splitInfos);
+//  }
+  
   public void writeResource(Resource res, String sourceInfo) {
-    String outputFileName = dstDirName + "/" + res.name + ".txt";
-    writeResource(res, sourceInfo, outputFileName);
+    if (splitter == null) {
+      String outputFileName = dstDirName + "/" + res.name + ".txt";
+      writeResource(res, sourceInfo, outputFileName);
+    } else {
+      File rootDir = new File(dstDirName);
+      List<ResultInfo> result = splitter.split(rootDir, (ResourceTable) res);
+
+      for (ResultInfo info : result) {
+        res = info.root;
+        String outputFileName = info.directory.getAbsolutePath() + "/" + res.name + ".txt";
+        writeResource(res, sourceInfo, outputFileName);
+      }
+    }
   }
 
-  public void writeResource(Resource set, String sourceInfo, String outputFileName) {
+  private void writeResource(Resource set, String sourceInfo, String outputFileName) {
     try {
       log.log("Writing " + outputFileName);
       FileOutputStream file = new FileOutputStream(outputFileName);

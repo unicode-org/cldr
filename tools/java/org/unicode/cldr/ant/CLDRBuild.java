@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
 import org.unicode.cldr.ant.CLDRConverterTool.AliasDeprecates;
+import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
 
 import com.ibm.icu.dev.tool.UOption;
 
@@ -203,6 +204,14 @@ public class CLDRBuild extends Task {
             tool.setOverrideFallbackList(run.config.ofb.pathsList);
           }
         }
+        
+        if (run.remapper != null) {
+          List<SplitInfo> infos = new ArrayList<SplitInfo>();
+          for (Remap remap : run.remapper.remaps) {
+            infos.add(new SplitInfo(remap.sourcePath, remap.targetDir, remap.targetPath));
+          }
+          tool.setSplitInfos(infos);
+        }
 
         tool.processArgs(argList.toArray(new String[argList.size()]));
       }
@@ -254,6 +263,7 @@ public class CLDRBuild extends Task {
     Args args;
     Config config;
     Deprecates deprecates;
+    Remapper remapper;
 
     public void setType(String type) {
       this.type = type;
@@ -269,6 +279,13 @@ public class CLDRBuild extends Task {
 
     public void addConfiguredDeprecates(Deprecates deprecates) {
       this.deprecates = deprecates;
+    }
+    
+    public void addConfiguredRemapper(Remapper remapper) {
+      if (remapper.remaps.isEmpty()) {
+        exitWithError("remaps must not be empty");
+      }
+      this.remapper = remapper;
     }
   }
 
@@ -583,6 +600,50 @@ public class CLDRBuild extends Task {
 
     public void addConfiguredPaths(Paths paths) {
       pathsList.add(paths);
+    }
+  }
+  
+  public static class Remap extends Task {
+    public String sourcePath;
+    public String targetPath;
+    public String targetDir;
+    
+    public void setSourcePath(String sourcePath) {
+      this.sourcePath = sourcePath;
+    }
+    
+    public void setTargetPath(String targetPath) {
+      this.targetPath = targetPath;
+    }
+    
+    public void setTargetDir(String targetDir) {
+      this.targetDir = targetDir;
+    }
+  }
+  
+  public static class Remapper extends Task {
+    public String baseDir;
+    List<Remap> remaps = new ArrayList<Remap>();
+    
+    public void setBaseDir(String baseDir) {
+      this.baseDir = baseDir;
+    }
+    
+    public void addConfiguredRemap(Remap remap) {
+      if (remap.sourcePath == null || remap.sourcePath.trim().isEmpty()) {
+        exitWithError("remap source path must not be empty");
+      }
+      remap.sourcePath = remap.sourcePath.trim();
+      
+      if (remap.targetPath != null && remap.targetPath.trim().isEmpty()) {
+        remap.targetPath = null;
+      }
+      
+      if (remap.targetDir != null && remap.targetDir.trim().isEmpty()) {
+        remap.targetDir = null;
+      }
+      
+      remaps.add(remap);
     }
   }
 }

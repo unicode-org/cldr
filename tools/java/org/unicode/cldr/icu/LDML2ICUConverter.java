@@ -141,8 +141,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
 
     @Override
-    public List<Resource> parseBundles(CLDRFile file) {
-      return LDML2ICUConverter.this.parseBundles(file);
+    public Resource parseBundle(CLDRFile file) {
+      return LDML2ICUConverter.this.parseBundle(file);
     }
 
     @Override
@@ -151,10 +151,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
   };
 
-  private List<Resource> parseBundles(CLDRFile file) {
+  private Resource parseBundle(CLDRFile file) {
     LDML2ICUInputLocale fakeLocale = new LDML2ICUInputLocale(file, serviceAdapter);
 
-    return parseBundles(fakeLocale);
+    return parseBundle(fakeLocale);
   }
 
   public static void main(String[] args) {
@@ -249,6 +249,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       asciiNumbers = true;
     }
 
+    // Set up resource splitting, if we have it
+    ResourceSplitter splitter = null;
+    if (splitInfos != null) {
+      splitter = new ResourceSplitter(destDir + "/..", splitInfos);
+    }
+    
     // Set up logging so we can use it here on out
     ICULog.Level level =
       DEBUG ? ICULog.Level.DEBUG : 
@@ -256,7 +262,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     log = new ICULogImpl(level);
 
     // Set up writer
-    writer = new ICUWriter(destDir, log);
+    writer = new ICUWriter(destDir, log, splitter);
 
     if (options[WRITE_DEPRECATED].doesOccur) {
       if (remainingArgc > 0) {
@@ -357,12 +363,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     /** Returns true if draft status is overridable. */
     boolean isDraftStatusOverridable(String locName);
     /** Parses the CLDRFile, with the given status string */
-    List<Resource> parseBundles(CLDRFile file);
+    Resource parseBundle(CLDRFile file);
     
     // for SupplementalDataParser
     SupplementalDataInfo getSupplementalDataInfo();
   }
-
+  
   private Document getSpecialsDoc(String locName) {
     if (specialsDir != null) {
       String locNameXml = locName + ".xml";
@@ -648,25 +654,24 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       // data after parsing
       // The assumption here is that the top
       // level resource is always a table in ICU
-      for (Resource res : parseBundles(loc)) {
-        if (res != null && ((ResourceTable) res).first != null) {
-          if (loc.getSpecialsFile() != null) {
-            String dir = specialsDir.replace('\\', '/');
-            dir = "<path>" + dir.substring(dir.indexOf("/xml"), dir.length());
-            String locName = loc.getLocale();
-            if (res.comment == null) {
-              res.comment = " ICU <specials> source: " + dir + "/" + locName + ".xml";
-            } else {
-              res.comment = res.comment + " ICU <specials> source: " + dir + "/" + locName + ".xml";
-            }
-          }
-          // write out the bundle depending on if writing Binary or txt
-          if (writeBinary) {
-            LDML2ICUBinaryWriter.writeBinaryFile(res, destDir, loc.getLocale());
+      Resource res = parseBundle(loc);
+      if (res != null && ((ResourceTable) res).first != null) {
+        if (loc.getSpecialsFile() != null) {
+          String dir = specialsDir.replace('\\', '/');
+          dir = "<path>" + dir.substring(dir.indexOf("/xml"), dir.length());
+          String locName = loc.getLocale();
+          if (res.comment == null) {
+            res.comment = " ICU <specials> source: " + dir + "/" + locName + ".xml";
           } else {
-            String sourceInfo = sourceDir.replace('\\','/') + "/" + loc.getLocale() + ".xml";
-            writer.writeResource(res, sourceInfo);
+            res.comment = res.comment + " ICU <specials> source: " + dir + "/" + locName + ".xml";
           }
+        }
+        // write out the bundle depending on if writing Binary or txt
+        if (writeBinary) {
+          LDML2ICUBinaryWriter.writeBinaryFile(res, destDir, loc.getLocale());
+        } else {
+          String sourceInfo = sourceDir.replace('\\','/') + "/" + loc.getLocale() + ".xml";
+          writer.writeResource(res, sourceInfo);
         }
       }
       // writeAliasedResource();
@@ -799,9 +804,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     ldmlVersion_ = version;
   }
 
-  private List<Resource> parseBundles(LDML2ICUInputLocale loc) {
-    List<Resource> result = new ArrayList<Resource>();
-    
+  private Resource parseBundle(LDML2ICUInputLocale loc) {
     final boolean SEPARATE_LDN = false;
     
     setLdmlVersion("0.0");
@@ -811,17 +814,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     ResourceTable mainTable = new ResourceTable();
     mainTable.name = localeID;
     
-    ResourceTable ldnTable = new ResourceTable();
-    ldnTable.name = "ldn_" + localeID;
-    
     // handle identity
     Resource version = parseIdentity(loc);
     if (version != null) {
       mainTable.appendContents(version);
-      
-      // just parse again.
-      version = parseIdentity(loc);
-      ldnTable.appendContents(version);
     }
 
     // handle alias, early exit
@@ -829,8 +825,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       Resource res = ICUResourceWriter.createString("\"%%ALIAS\"", 
           loc.getBasicAttributeValue("//ldml/alias", LDMLConstants.SOURCE));
       mainTable.appendContents(res);
-      result.add(mainTable);
-      return result;
+      return mainTable;
     }
 
     // If this is a language + script locale and the script is not default content,
@@ -845,33 +840,16 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       pr.name = "%%ParentIsRoot";
       pr.val = "1";
       mainTable.appendContents(pr);
-      
-      // 'clone' to keep chains separate
-      pr = new ResourceInt();
-      pr.name = "%%ParentIsRoot";
-      pr.val = "1";
-      ldnTable.appendContents(pr);
-    }
-    
-    // Handle localeDisplayNames
-    if (SEPARATE_LDN) {
-      log.info(LDMLConstants.LDN);
-      Resource ldn = parseLocaleDisplayNames(loc);
-      // Only return the ldn table if we generate data for it
-      if (ldn != null) {
-        ldnTable.appendContents(ldn);
-        result.add(ldnTable);
-      }
     }
     
     // Now, loop over other stuff.
     String stuff[] = {
-        // Following three resources are all handled above
+        // Following two resources are handled above
         // LDMLConstants.ALIAS,
         // LDMLConstants.IDENTITY,
-        LDMLConstants.LDN,
 
         LDMLConstants.SPECIAL,
+        LDMLConstants.LDN,
         LDMLConstants.LAYOUT,
         // LDMLConstants.FALLBACK
         LDMLConstants.CHARACTERS,
@@ -993,8 +971,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
        */
     }
 
-    result.add(mainTable);
-    return result;
+    return mainTable;
   }
 
   private static Resource findResource(Resource res, String type) {
@@ -1214,7 +1191,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     for (int i = 0; i < registeredKeys.length; i++) {
       ResourceTable subTable = new ResourceTable();
       subTable.name = registeredKeys[i];
-      for (Iterator <String > iter = loc.getFile().iterator(myXpath.toString()); iter.hasNext();) {
+      for (Iterator<String> iter = loc.getFile().iterator(myXpath.toString()); iter.hasNext();) {
         String xpath = iter.next();
         String name2 = XPPUtil.getXpathName(xpath);
         if (!LDMLConstants.TYPE.equals(name2)) {
@@ -4329,7 +4306,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     return null;
   }
 
-  static final String curr_syms[] = {
+  private static final String curr_syms[] = {
     LDMLConstants.SYMBOL, // 0
     LDMLConstants.DISPLAY_NAME, // 1
     LDMLConstants.PATTERN, // 2

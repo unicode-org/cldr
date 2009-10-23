@@ -80,10 +80,17 @@ $element=[a-zA-Z0-9]+;
 
 '$%%/' ([ap]) 'm' > '|day-period|' $1 'm';
 
+# //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
+
+'$%%/dayPeriods/dayPeriodContext[@type="' ($avalue) '"]/dayPeriodWidth[@type="' ($avalue) '"]/dayPeriod[@type="' ($avalue) '"]' > '|dayPeriod|[' $3 ']-' $1 '-' $2;
+'$%%/dayPeriods/dayPeriodContext[@type="' ($avalue) '"]/dayPeriodWidth[@type="' ($avalue) '"]/alias' > '|dayPeriod|' $1 '-' $2 '-alias';
+'$%%/dayPeriods/dayPeriodContext[@type="' ($avalue) '"]/alias' > '|dayPeriod|' $1 '-alias';
+'$%%/dayPeriods/alias' > '|dayPeriod|-alias';
+
 '$%%/fields/field[@type="' ($avalue) '"]/displayName' > '|field-label|' $1;
 
-'$%%/dateTimeFormats/availableFormats/dateFormatItem[@id="' ($avalue) '"]' > '|pattern|other-' $1;
-'$%%/dateTimeFormats/appendItems/appendItem[@request="' ($avalue) '"]' > '|pattern|others-append-' $1;
+'$%%/dateTimeFormats/availableFormats/dateFormatItem[@id="' ($avalue) '"]' > '|pattern|' $1;
+'$%%/dateTimeFormats/appendItems/appendItem[@request="' ($avalue) '"]' > '|pattern|append-' $1;
 
 '$%%/dateTimeFormats/intervalFormats/intervalFormatItem[@id="' ($avalue) '"]/greatestDifference[@id="' ($avalue) '"]'     > '|pattern|interval-' $1 '-' $2;
 '$%%/dateTimeFormats/intervalFormats/intervalFormatFallback'     > '|pattern|interval-fallback';

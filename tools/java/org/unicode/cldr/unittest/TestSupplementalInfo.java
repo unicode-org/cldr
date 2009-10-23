@@ -9,8 +9,10 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.ooo.supplementalData;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.IsoCurrencyParser;
 import org.unicode.cldr.util.Pair;
 import com.ibm.icu.dev.test.util.Relation;
@@ -29,26 +31,26 @@ public class TestSupplementalInfo extends TestFmwk {
   public static void main(String[] args) {
     new TestSupplementalInfo().run(args);
   }
-  
+
   public void TestCompleteness() {
     assertEquals("API doesn't support: " + testInfo.getSupplementalDataInfo().getSkippedElements(), 0, testInfo.getSupplementalDataInfo().getSkippedElements().size());
   }
 
   // these are settings for exceptional cases we want to allow
   private static final Set<String> EXCEPTION_CURRENCIES_WITH_NEW = new TreeSet<String>(Arrays.asList("NZD", "PGK"));
-  
+
   // ok since there is no problem with confusion
   private static final Set<String> OK_TO_NOT_HAVE_OLD = new TreeSet<String>(Arrays.asList(
           "ADP", "ATS", "BEF", "CYP", "DEM", "ESP", "FIM", "FRF", "GRD", "IEP", "ITL", "LUF", "MTL", "MTP",
           "NLG", "PTE", "YUM", "ARA", "BAD", "BGL", "BOP", "BRC", "BRN", "BRR", "BUK", "CSK", "ECS", "GEK", "GNS",
           "GQE", "HRD", "ILP", "LTT", "LVR", "MGF", "MLF", "MZE", "NIC", "PEI", "PES", "SIT", "SRG", "SUR",
           "TJR", "TPE", "UAK", "YUD", "YUN", "ZRZ", "GWE"));
-  
+
   private static final Date LIMIT_FOR_NEW_CURRENCY = new Date(new Date().getYear() - 5, 1, 1);
   private static final Date NOW = new Date();
   private Matcher oldMatcher = Pattern.compile("\\bold\\b|\\([0-9]{4}-[0-9]{4}\\)",Pattern.CASE_INSENSITIVE).matcher("");
   private Matcher newMatcher = Pattern.compile("\\bnew\\b",Pattern.CASE_INSENSITIVE).matcher("");
-  
+
   /**
    * Test that access to currency info in supplemental data is ok. At this point just a simple test.
    * @param args
@@ -62,7 +64,7 @@ public class TestSupplementalInfo extends TestFmwk {
     Map<String,Date> currencyFirstValid = new TreeMap();
     Map<String,Date> currencyLastValid = new TreeMap();
     territoriesWithoutModernCurrencies.remove("ZZ");
-    
+
     for (String territory : testInfo.getStandardCodes().getGoodAvailableCodes("territory")) {
       if (testInfo.getSupplementalDataInfo().getContained(territory) != null) {
         territoriesWithoutModernCurrencies.remove(territory);
@@ -99,7 +101,7 @@ public class TestSupplementalInfo extends TestFmwk {
     // fix up 
     nonModernCurrencyCodes.removeAll(modernCurrencyCodes.keySet());
     Relation<String, String> isoCurrenciesToCountries = new Relation(new TreeMap(), TreeSet.class)
-            .addAllInverted(isoCodes.getCountryToCodes());
+    .addAllInverted(isoCodes.getCountryToCodes());
 
     // now print error messages
     logln("Modern Codes: " + modernCurrencyCodes.size() + "\t" + modernCurrencyCodes);
@@ -108,11 +110,11 @@ public class TestSupplementalInfo extends TestFmwk {
     if (missing.size() != 0) {
       errln("Missing codes compared to ISO: " + missing);
     }
-    
+
     for (String currency : modernCurrencyCodes.keySet()) {
       Set<Pair<String, CurrencyDateInfo>> data = modernCurrencyCodes.getAll(currency);
       final String name = testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency);
-      
+
       Set<String> isoCountries = isoCurrenciesToCountries.getAll(currency);
       if (isoCountries == null) {
         isoCountries = new TreeSet<String>();
@@ -157,10 +159,10 @@ public class TestSupplementalInfo extends TestFmwk {
             }
             logln("\tCurrencies used instead: " + territory + "\t" + dateInfo
                     + "\t" + testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, dateInfo.getCurrency()));
-           
+
           }
         }
-        
+
       }
     }
     Set remainder = new TreeSet();
@@ -181,6 +183,21 @@ public class TestSupplementalInfo extends TestFmwk {
     for (String country : missing) {
       warnln("\t\tExtra in " + title + "\t" + country + " - " + testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME, country));
     }
+  }
+
+  public void TestDayPeriods() {
+    int count = 0;
+    for (String locale : testInfo.getSupplementalDataInfo().getDayPeriodLocales()) {
+      DayPeriodInfo dayPeriod = testInfo.getSupplementalDataInfo().getDayPeriods(locale);
+      logln(locale + "\t" + testInfo.getEnglish().getName(locale) + "\t" + dayPeriod);
+      count += dayPeriod.getPeriodCount();
+    }
+    assertTrue("At least some day periods exist", count > 5);
+    SupplementalDataInfo supplementalDataInfo = testInfo.getSupplementalDataInfo();
+    CLDRFile file = testInfo.getCldrFactory().make("de", true);
+    DayPeriodInfo dayPeriods = supplementalDataInfo.getDayPeriods(file.getLocaleID());
+
+    file.getExtraPaths();
   }
 
 }

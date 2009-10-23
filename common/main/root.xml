@@ -559,11 +559,16 @@
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
-						</dayPeriodWidth>
+                        <dayPeriodWidth type="narrow">
+                            <alias source="locale" path="../dayPeriodWidth[@type='abbreviated']"/>
+                        </dayPeriodWidth>
+                        <dayPeriodWidth type="abbreviated">
+                            <alias source="locale" path="../dayPeriodWidth[@type='wide']"/>
+                        </dayPeriodWidth>
 					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+                        <alias source="locale" path="../dayPeriodContext[@type='format']"/>
+					</dayPeriodContext>					
 				</dayPeriods>
 				<eras>
 					<eraNames>

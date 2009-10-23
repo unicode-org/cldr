@@ -124,7 +124,7 @@ public class CheckDates extends CheckCLDR {
           result.add(item);
       	}
       }
-      if (path.indexOf("[@type=\"narrow\"]") >= 0) {
+      if (path.indexOf("[@type=\"narrow\"]") >= 0 && !path.contains("dayPeriod")) {
         int end = isNarrowEnough(value, bi);
         String locale = getCldrFileToCheck().getLocaleID();
         // Per cldrbug 1456, skip the following test for Thai (or should we instead just change errorType to warningType in this case?)

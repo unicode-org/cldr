@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -35,6 +36,7 @@ import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Utility;
 
+import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.xml.sax.Attributes;
@@ -2986,6 +2988,22 @@ public class CLDRFile implements Freezable, Iterable<String> {
         toAddTo.add(currencyPattern);
         for (String unit : codes) {
           toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + unit + "\"]/displayName[@count=\"" + count + "\"]");
+        }
+      }
+    }
+    // dayPeriods
+    String locale = getLocaleID();
+    DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(locale);
+
+    for (String context : new String[] {"format", "stand-alone"}) {
+      for (String width : new String[] {"narrow", "abbreviated", "wide"}) {
+        LinkedHashSet<DayPeriod> items = new LinkedHashSet(dayPeriods.getPeriods());
+        for (DayPeriod dayPeriod : items) {
+          //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
+          toAddTo.add("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/" +
+                  "dayPeriodContext[@type=\""  + context 
+                  + "\"]/dayPeriodWidth[@type=\"" + width
+                  + "\"]/dayPeriod[@type=\"" + dayPeriod + "\"]");
         }
       }
     }

@@ -4,9 +4,9 @@
     <version number="$Revision$"/>
     <generation date="$Date$"/>
     <dayPeriodRuleSet>
-        <dayPeriodRules locales = "en">  <!--  default for any locales not listed under other dayPeriods -->
+        <dayPeriodRules locales = "root">  <!--  default for any locales not listed under other dayPeriods -->
            <dayPeriodRule type = "am" from = "0:00" before="12:00"/>
-           <dayPeriodRule type = "pm" from = "12:00" to="24:00"/>
+           <dayPeriodRule type = "pm" from = "12:00" before="24:00"/>
         </dayPeriodRules> 
         <dayPeriodRules locales = "de">
            <dayPeriodRule type = "earlyMorning" from="0:00" before="9:00"/>
@@ -20,7 +20,7 @@
            <dayPeriodRule type = "weeHours" from="00:00" before="4:00"/>
            <dayPeriodRule type = "earlyMorning" from="4:00" before="6:00"/>
            <dayPeriodRule type = "morning" from="6:00" before="12:00"/>
-           <dayPeriodRule type = "midMay" from="12:00" before="13:00" />
+           <dayPeriodRule type = "midDay" from="12:00" before="13:00" />
            <dayPeriodRule type = "afternoon" from="13:00" before="18:00"/>
            <dayPeriodRule type = "night" from="18:00" before="24:00" />
        </dayPeriodRules>

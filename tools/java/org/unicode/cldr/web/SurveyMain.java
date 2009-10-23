@@ -257,6 +257,7 @@ public class SurveyMain extends HttpServlet {
     static final String PREF_JAVASCRIPT = PREF_NOJAVASCRIPT;
     static final String PREF_ADV = "p_adv"; // show advanced prefs?
     static final String PREF_XPATHS = "p_xpaths"; // show xpaths?
+    public static final String PREF_DEBUGJSP = "p_debugjsp"; // debug JSPs?
     public static final String PREF_COVLEV = "p_covlev"; // covlev
     public static final String PREF_COVTYP = "p_covtyp"; // covtyp
     //    static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
@@ -3778,7 +3779,14 @@ public class SurveyMain extends HttpServlet {
         }
     }
 
-    boolean showTogglePref(WebContext ctx, String pref, String what) {
+    /** 
+     * Show a toggleable preference
+     * @param ctx
+     * @param pref which preference
+     * @param what description of preference
+     * @return
+     */
+    public boolean showTogglePref(WebContext ctx, String pref, String what) {
         boolean val = ctx.prefBool(pref);
         WebContext nuCtx = (WebContext)ctx.clone();
         nuCtx.addQuery(pref, !val);
@@ -3792,6 +3800,7 @@ public class SurveyMain extends HttpServlet {
 //        nuCtx.println("</div>");
         return val;
     }
+    
     String showListPref(WebContext ctx, String pref, String what, String[] list) {
         return showListPref(ctx,pref,what,list,false);
     }
@@ -6589,9 +6598,18 @@ public class SurveyMain extends HttpServlet {
         }
     }
 
+    /**
+     * section may be null.
+     * @param ctx
+     * @param section
+     */
     static void printSectionTableOpenShort(WebContext ctx, DataSection section) {
         ctx.println("<a name='st_data'></a>");
-        ctx.println("<table summary='Data Items for "+ctx.getLocale().toString()+" " + section.xpathPrefix + "' class='data' border='1'>");
+        ctx.print("<table ");
+        if(section != null) {
+        	ctx.print(" summary='Data Items for "+ctx.getLocale().toString()+" " + section.xpathPrefix + "' ");
+        }
+        ctx.println("class='data' border='1'>");
             ctx.println("<tr class='headingb'>\n"+
                         " <th colspan='1' width='50%'>"+BASELINE_NAME+"</th>\n"+              // 3
                         " <th colspan='2' width='50%'>Your Language</th>\n");  // 8
@@ -6599,9 +6617,14 @@ public class SurveyMain extends HttpServlet {
         ctx.println("</tr>");
     }
 
+    /**
+     * Section may be null.
+     * @param ctx
+     * @param section
+     */
     void printSectionTableClose(WebContext ctx, DataSection section) {
         List<String> refsList = (List<String>) ctx.temporaryStuff.get("references");
-        if((refsList != null) && (!refsList.isEmpty())) {
+        if(section!=null && (refsList != null) && (!refsList.isEmpty())) {
             ctx.println("<tr></tr>");
             ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='"+PODTABLE_WIDTH+"'>References</th></tr>");
             int n = 0;

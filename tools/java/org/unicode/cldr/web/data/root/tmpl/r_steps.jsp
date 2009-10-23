@@ -35,11 +35,12 @@ subCtx.flush();
 	SummarizingSubmissionResultHandler ssrh = null;
 	
 	if(baseXpathForOldStage!=null) {  // handle submit of old data?
+		if(ctx.debugJsp()) {
 			%>  <h2>Processing data for xpath <%= baseXpathForOldStage %>  </h2>   <%
-			
+		}
+
 		// process the submission. ssrh contains detailed results.
-		ssrh = SurveyForum.processDataSubmission(ctx, baseXpathForOldStage);
-		ctx.put("ssrh",ssrh); // TODO: move to constant or API
+		ssrh = ctx.processDataSubmission(baseXpathForOldStage);
 		moveForward = !ssrh.hadErrors(); // move forward if no errors.
 		if(moveForward == false) {
 			%><b>Please correct the errs first</b><br><%

@@ -1,7 +1,7 @@
 <!--  simple for now. -->
 <%@ include file="stcontext.jspf" %>
 <%
-WebContext subCtx = ctx;
+JspWebContext subCtx = ctx;
 String thisBaseXpath = (String)ctx.get("thisBaseXpath");
 Integer thisStep = (Integer)ctx.get("thisStep");
 %>

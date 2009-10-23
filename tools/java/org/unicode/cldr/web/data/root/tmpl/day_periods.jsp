@@ -20,7 +20,7 @@ for (DayPeriodInfo.DayPeriod dayPeriod : items) {
 }
 
 SurveyForum.printSectionTableCloseShort(subCtx, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods");
-String rules = dayPeriods.toString().replace("<","&lt;").replace("\n","<br>);
+String rules = dayPeriods.toString().replace("<","&lt;").replace("\n","<br>");
 %>
 <p>The day period categories for this locale are currently:</p>
 <blockquote><b><%=rules%></b></blockquote>

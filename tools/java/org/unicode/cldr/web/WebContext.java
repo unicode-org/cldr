@@ -992,11 +992,12 @@ public class WebContext implements Cloneable {
 	}
 	
 	// Display Context Data
-	private Boolean canModify = null;
+	protected Boolean canModify = null;
 	private Boolean zoomedIn = null;
 
-	public void setCanModify(boolean canModify) {
+	public boolean setCanModify(boolean canModify) {
 		this.canModify = canModify;
+		return canModify;
 	}
 	
 	public Boolean canModify() {

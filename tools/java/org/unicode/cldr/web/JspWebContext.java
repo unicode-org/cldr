@@ -165,4 +165,18 @@ public class JspWebContext extends WebContext {
 		}
 		this.println("<input name='pod_bases' type='hidden' value='"+sb+"'>");
 	}
+	
+	/**
+	 * Check based on user permissions.
+	 */
+	public Boolean canModify() {
+		if(canModify == null) {
+			if(session==null||session.user==null) {
+				return setCanModify(false);
+			}
+			return setCanModify(UserRegistry.userCanModifyLocale(session.user, this.getLocale()));
+		} else {
+			return super.canModify();
+		}
+	}
 }

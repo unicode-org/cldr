@@ -121,8 +121,15 @@ subCtx.flush();
 		// send them to the next section
 %>      
 		<input type='hidden' name='step' value='<%= stepNumberToName(nextStage) %>'>
+		
+<%   if (ctx.canModify()) { %>
 		<input type='submit' value='Submit'>
 <%
+	  } else {
+%>
+		<i>Must be logged in to submit data.</i>
+<%
+	  }
 	}
 	
 	subCtx.flush();

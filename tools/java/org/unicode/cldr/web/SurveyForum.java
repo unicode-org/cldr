@@ -333,13 +333,13 @@ public class SurveyForum {
         }
         boolean nopopups = ctx.prefBool(SurveyMain.PREF_NOPOPUPS);
         String returnText = returnText(ctx, base_xpath);
-        if(nopopups) {
+        //if(nopopups) {
             ctx.println(returnText+"<hr>");
-        }
+        //}
         showXpath(ctx, xpath, base_xpath, ctx.getLocale());
-        if(nopopups) {
+        //if(nopopups) {
             ctx.println("<hr>"+returnText+"<br/>");
-        }
+        //}
         sm.printFooter(ctx);
     }
     

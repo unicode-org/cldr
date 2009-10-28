@@ -85,9 +85,9 @@ subCtx.flush();
 <b>Easy Steps: </b>
 <% for(int i=1;i<reports.length+1;i++) { %>
 
-	<%= subCtx.sm.getMenu(subCtx,stepNumberToName(myStage),	stepNumberToName(i), report_name[i-1],"step") %>
+		<%= subCtx.sm.getMenu(subCtx,stepNumberToName(myStage),	stepNumberToName(i), report_name[i-1],"step") %>
 
-	|	
+	|	<% if(subCtx.debugJsp()) { %>#<%= i  %><% } %>
 	
 <% } %>
 	<%= /* Thanks page */

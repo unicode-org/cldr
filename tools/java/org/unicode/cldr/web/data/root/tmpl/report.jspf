@@ -103,7 +103,7 @@ for(int i=0;i<reports.length;i++) {
 	 * Convert a step number to name.
 	 */
 	String stepNumberToName(int step) {
-		if(step==reports.length+2) {
+		if(step==reports.length+1) {
 			return COMPLETE;
 		} else if(step<1 || step>reports.length) {
 			return "(invalid)";

@@ -1,58 +1,37 @@
 <?xml version="1.0" encoding="US-ASCII"?>
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
-<!-- One method to get references from the online citation libraries.
-     There has to be one entity for each item to be referenced. 
-     An alternate method (rfc include) is described in the references. -->
 <!ENTITY RFC4646 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4646.xml">
+<!ENTITY rfc5646 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5646.xml">
 ]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
-<!-- used by XSLT processors -->
-<!-- For a complete list and description of processing instructions (PIs), 
-     please see http://xml.resource.org/authoring/README.html. -->
-<!-- Below are generally applicable Processing Instructions (PIs) that most I-Ds might want to use.
-     (Here they are set differently than their defaults in xml2rfc v1.32) -->
-<?rfc strict="yes" ?>
-<!-- give errors regarding ID-nits and DTD validation -->
-<!-- control the table of contents (ToC) -->
-<?rfc toc="yes"?>
-<!-- generate a ToC -->
-<?rfc tocdepth="4"?>
-<!-- the number of levels of subsections in ToC. default: 3 -->
-<!-- control references -->
-<?rfc symrefs="yes"?>
-<!-- use symbolic references tags, i.e, [RFC2119] instead of [1] -->
-<?rfc sortrefs="yes" ?>
-<!-- sort the reference entries alphabetically -->
-<!-- control vertical white space 
-     (using these PIs as follows is recommended by the RFC Editor) -->
-<?rfc compact="yes" ?>
-<!-- do not start each main section on a new page -->
-<?rfc subcompact="no" ?>
-<!-- keep one blank line between list items -->
-<!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="bcp47-extension-u" ipr="full3667">
-  <!-- category values: std, bcp, info, exp, and historic
-     ipr values: full3667, noModification3667, noDerivatives3667
-     you can add the attributes updates="NNNN" and obsoletes="NNNN" 
-     they will automatically be output with "(if approved)" -->
 
-  <!-- ***** FRONT MATTER ***** -->
+<?rfc strict="yes" ?>
+<?rfc toc="yes"?>
+<?rfc tocdepth="4"?>
+<?rfc symrefs="yes"?>
+<?rfc sortrefs="yes" ?>
+<?rfc compact="yes" ?>
+<?rfc subcompact="no" ?>
+
+
+<rfc category="bcp" docName="draft-davis-u-langtag-ext-00" ipr="full3667" submissionType="independent">
+  
+
+  
 
   <front>
-    <!-- The abbreviated title is used in the page header - it is only necessary if the 
-         full title is longer than 39 characters -->
+    
 
-    <title abbrev="Abbreviated Title">BCP 47 Extension U</title>
+    <title abbrev="BCP 47 Unicode Locale Extension">BCP 47 Extension U</title>
 
-    <author fullname="Mark Davis" initials="M.E.D." role="editor"
-            surname="Davis">
+    <author fullname="Mark Davis" initials="M.E.D." surname="Davis">
       <organization>Google</organization>
 
       <address>
         <postal>
           <street>2509 Alpine Road</street>
 
-          <!-- Reorder these if your country does things differently -->
+          
 
           <city>Menlo Park</city>
 
@@ -60,32 +39,26 @@
 
           <code>94025</code>
 
-          <country>UU</country>
+          <country>USA</country>
         </postal>
 
         <phone>+1 650-854-4895</phone>
 
         <email>mark@macchiato.com</email>
 
-        <!-- uri and facsimile elements may also be added -->
+        
       </address>
     </author>
 
-    <author fullname="Addison Phillips" initials="AP" role="editor"
-            surname="Phillips">
-      <organization>Amazon</organization>
+    <author fullname="Addison Phillips" initials="AP" surname="Phillips">
+      <organization>Lab126</organization>
 
-      <address></address>
+      <address><email>addison@inter-locale.com</email></address>
     </author>
 
-    <date month="November" year="2009" />
+    <author initials="YU" surname="Umaoka" fullname="Yoshito Umaoka"><organization abbrev="IBM">IBM</organization><address><email>yoshito_umaoka@us.ibm.com</email></address></author><date month="November" year="2009" day="1"/>
 
-    <!-- If the month and year are both specified and are the current ones, xml2rfc will fill 
-         in the current day for you. If only the current year is specified, xml2rfc will fill 
-	 in the current day and month for you. If the year is not the current one, it is 
-	 necessary to specify at least a month (xml2rfc assumes day="1" if not specified for the 
-	 purpose of calculating the expiry date).  With drafts it is normally sufficient to 
-	 specify just the year. -->
+    
 
     <!-- Meta-data Declarations -->
 
@@ -93,12 +66,9 @@
 
     <workgroup>Internet Engineering Task Force</workgroup>
 
-    <!-- WG name at the upperleft corner of the doc,
-         IETF is fine for individual submissions.  
-	 If this element is not present, the default is "Network Working Group",
-         which is used by the RFC Editor as a nod to the history of the IETF. -->
+    
 
-    <keyword>bcp 47</keyword>
+    <keyword>locale</keyword><keyword>bcp 47</keyword>
 
     <!-- Keywords will be incorporated into HTML output
          files in a meta tag but they have no effect on text or nroff
@@ -106,21 +76,19 @@
          keywords will be used for the search engine. -->
 
     <abstract>
-      <t>This document specifies the 'u' extension to BCP 47
-      which provides for subtags to specify more particular
-      behavior or refinements that are language and/or locale based according
+      <t>This document specifies an Extension to BCP 47
+      which provides subtags that specify language and/or locale-based behavior or refinements to language tags, according
       to work done by the Unicode Consortium.</t>
     </abstract>
   </front>
 
   <middle>
     <section title="Introduction">
-      <t>BCP 47 explicitly provides for the ability to define single-letter
-      extension subtags to provide for "the generation of identifiers that
+      <t><xref target="BCP47"></xref> provides extensions identified by a single-character
+      subtag for "the generation of identifiers that
       contain a language component and are compatible with applications that
-      understand language tags". This extension provides such an extension,
-      using the letter 'u', to specify Unicode language/locale identifiers.
-      See RFC 4646.</t>
+      understand language tags". This document defines such an extension,
+      using the letter 'u', to specify Unicode language/locale identifiers.</t>
 
       <section title="Requirements Language">
         <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -129,13 +97,13 @@
       </section>
     </section>
 
-    <!-- This PI places the pagebreak correctly (before the section title) in the text output. -->
+    
 
     <?rfc needLines="8" ?>
 
     <section title="BCP47 Required Information">
-      <t>The maintaining authority for this registry is the Unicode
-      Consortium.</t>
+      <t>Language tags, as defined by <xref target="BCP47"></xref>, are useful for identifying the language of content. They are also used as locale identifiers (or can be mapped to locales) in many operating environments and APIs. However, most such locale identifiers also provide additional "tailorings" or options for specific values within a language, culture, or other regional variation. This extension provides a mechanism for using these additional tailorings within language tags for general interchange.</t><t> The maintaining authority for this extension's registry is the Unicode
+      Consortium. Unicode defines common locale data and identifiers for this data:</t>
 
       <texttable>
         <ttcol>Item</ttcol>
@@ -168,116 +136,85 @@
         <c>Section 3.2 BCP 47 Tag Conversion</c>
       </texttable>
 
-      <t>The specification of extension subtags is provided by "Unicode
-      Technical Standard #35 Unicode Locale Data Markup Language (LDML),
-      Section 3.2 BCP 47 Tag Conversion" is hereafter known as "LDML". LDML
-      and all subtags defined by LDML follow the BCP 47 language tag ABNF and
-      other rules for the formation of tags and subtags as defined in BCP 47.
-      In particular, it specifies that case is not significant and no subtags
-      exceed eight characters in length.</t>
-      <t>LDML specifies a canonical
+      <t>The specification of extension subtags is provided by <xref target="LDML">Unicode
+      Technical Standard #35 Unicode Locale Data Markup Language,
+      Section 3.2 BCP 47 Tag Conversion</xref>. <xref target="LDML"></xref>
+      defines the formation of subtags which follow the language tag ABNF and
+      other rules for the formation of language tags and subtags as defined in <xref target="BCP47"></xref>.
+      In particular, it specifies that subtags are restricted to the ASCII letters and digits, that case is not significant, and that subtags
+      MUST NOT exceed eight characters in length.</t>
+      <t><xref target="LDML"></xref> specifies a canonical
       representation. LDML is available over the Internet and at no cost, and
       is available via a royalty-free license at
-      http://unicode.org/copyright.html. The LDML is versioned, and each
+      http://unicode.org/copyright.html. LDML is versioned, and each
       version of LDML is numbered, dated, and stable. Extension subtags, once
-      defined by LDML, are never retracted or change in meaning in any
-      substantial way. The specification will include in a separate section
-      the registration form reproduced in this section (below) to be used in
-      registering the extension upon publication as an RFC.</t>
+      defined by LDML, are never retracted or change in meaning in a
+      substantial way. LDML will include in a separate section
+      the registration form in <xref target="regform"></xref>.</t>
 
       <section title="Summary">
-        <t>LDML defines the subtags within the 'u' extension as a series of
-        key-value pairs. Each key is of length 2, and each value is of length
-        3 or more. Each key is followed by zero or one value. Case is not
+        <t><xref target="LDML"></xref> defines the subtags within the 'u' extension as a series of
+        key-value pairs. Each key has a length of two characters, and each value has a length of three or more characters. Each key is followed by zero or one value. Case is not
         significant. The canonical case is lowercase; the canonical order of
         the keys is alphabetical.</t>
 
         <t>The exact keys and values available, and their meanings, are
-        defined in LDML, or in referenced data tables.</t>
+        defined in <xref target="ldml-registry">TODO ldml-registry TODO</xref>.</t>
       </section>
 
-      <section title="Registration Form">
-        <t>%%</t>
+      <section title="Registration Form" anchor="regform"><t>Per <xref target="RFC5646"></xref>, Section 3.7:</t>
+        <figure><artwork>%%
+Identifier: u
+Description: Unicode Locale
+Comments: Subtags for the identification of language and cultural 
+    variations. Used to set behavior in locale APIs.
+Added: 2009-mm-dd
+RFC: [TBD]
+Authority: Unicode Consortium
+Contact_Email: cldr@unicode.org
+Mailing_List: cldr-users@unicode.org
+URL: http://cldr.unicode.org
+%%</artwork></figure>
 
-        <texttable>
-          <ttcol>Field</ttcol>
-
-          <ttcol>Value</ttcol>
-
-          <c>Identifier:</c>
-
-          <c>u</c>
-
-          <c>Description:</c>
-
-          <c>Unicode language/locale extension</c>
-
-          <c>Comments:</c>
-
-          <c></c>
-
-          <c>Added:</c>
-
-          <c>[TBD]</c>
-
-          <c>RFC:</c>
-
-          <c>[TBD]</c>
-
-          <c>Authority:</c>
-
-          <c>The Unicode Consortium</c>
-
-          <c>Contact_Email:</c>
-
-          <c>cldr@unicode.org</c>
-
-          <c>Mailing_List:</c>
-
-          <c>cldr-users@unicode.org</c>
-
-          <c>URL:</c>
-
-          <c>cldr.unicode.org</c>
-        </texttable>
-
-        <t>%%</t>
+        
       </section>
     </section>
 
     <section anchor="Acknowledgements" title="Acknowledgements">
-      <t>Thanks to Yoshito Umaoka, John Emmons, and the rest of the Unicode
+      <t>Thanks to John Emmons and the rest of the Unicode
       CLDR Technical Committee for their work in developing the BCP 47 subtags
       for LDML.</t>
     </section>
 
     <section anchor="IANA" title="IANA Considerations">
-      <t>This document will indirectly result in actions by IANA, according to
+      <t>This document will require IANA to insert the record in <xref target="regform"></xref> into the Language Extensions Registry, according to
       Section 3.7. Extensions and the Extensions Registry of "Tags for
-      Identifying Languages" in BCP 47.</t>
+      Identifying Languages" in BCP 47. There might be occasional maintenance of this record. This document does not require IANA to create or maintain a new registry or otherwise impact IANA.</t>
     </section>
 
     <section anchor="Security" title="Security Considerations">
       <t>The security considerations for this extension are the same as those
-      for RFC 4646 (or its successors). See Section 6. Security Considerations
-      of RFC 4646.</t>
+      for <xref target="RFC5646"></xref> (or its successors). See Section 6. Security Considerations
+      of <xref target="RFC5646"></xref>.</t>
     </section>
   </middle>
 
-  <!--  *****BACK MATTER ***** -->
+  
 
   <back>
-    <!-- References split into informative and normative -->
+    <references title="Normative References">&rfc5646;
+<reference anchor="LDML" target="http://www.unicode.org/reports/tr35/">
+<front>
+<title abbrev="LDML">
+Unicode Technical Standard #35: Locale Data Markup Language (LDML)
+</title>
+<author initials="M" surname="Davis" fullname="Mark Davis">
+<organization>Unicode Consortium</organization>
+</author>
+<date day="21" month="December" year="2007"/>
+</front>
+</reference>	 <reference anchor="BCP47"><front><title abbrev="BCP47">Tags for the Identification of Language (BCP47)</title><author initials="M.E." surname="Davis" fullname="Mark Davis" role="editor"><organization><?xm-replace_text {organization}?></organization></author><date month="September" year="2009"/></front></reference></references><references title="Informative References"><reference anchor="ldml-registry"><front><title>Registry for Common Locale Data Repository tag elements</title><author fullname="Unicode Consortium"><organization><?xm-replace_text {organization}?></organization></author><date year="2009" month="September"/></front></reference></references>
 
-    <!-- There are 2 ways to insert reference entries from the citation libraries:
-     1. define an ENTITY at the top, and use "ampersand character"RFC2629; here (as shown)
-     2. simply use a PI "less than character"?rfc include="reference.RFC.2119.xml"?> here
-        (for I-Ds: include="reference.I-D.narten-iana-considerations-rfc2434bis.xml")
-
-     Both are cited textually in the same manner: by using xref elements.
-     If you use the PI option, xml2rfc will, by default, try to find included files in the same
-     directory as the including file. You can also define the XML_LIBRARY environment variable
-     with a value containing a set of directories to search.  These can be either in the local
-     filing system or remote ones accessed by http (http://domain/dir/... ).-->
+    
   </back>
 </rfc>

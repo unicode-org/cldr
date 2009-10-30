@@ -1,0 +1,460 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head><title>BCP 47 Extension U</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="BCP 47 Extension U">
+<meta name="keywords" content="locale, bcp 47">
+<meta name="generator" content="xml2rfc v1.34pre5 (http://xml.resource.org/)">
+<style type='text/css'><!--
+        body {
+                font-family: verdana, charcoal, helvetica, arial, sans-serif;
+                font-size: small; color: #000; background-color: #FFF;
+                margin: 2em;
+        }
+        h1, h2, h3, h4, h5, h6 {
+                font-family: helvetica, monaco, "MS Sans Serif", arial, sans-serif;
+                font-weight: bold; font-style: normal;
+        }
+        h1 { color: #900; background-color: transparent; text-align: right; }
+        h3 { color: #333; background-color: transparent; }
+
+        td.RFCbug {
+                font-size: x-small; text-decoration: none;
+                width: 30px; height: 30px; padding-top: 2px;
+                text-align: justify; vertical-align: middle;
+                background-color: #000;
+        }
+        td.RFCbug span.RFC {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: bold; color: #666;
+        }
+        td.RFCbug span.hotText {
+                font-family: charcoal, monaco, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: normal; text-align: center; color: #FFF;
+        }
+
+        table.TOCbug { width: 30px; height: 15px; }
+        td.TOCbug {
+                text-align: center; width: 30px; height: 15px;
+                color: #FFF; background-color: #900;
+        }
+        td.TOCbug a {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, sans-serif;
+                font-weight: bold; font-size: x-small; text-decoration: none;
+                color: #FFF; background-color: transparent;
+        }
+
+        td.header {
+                font-family: arial, helvetica, sans-serif; font-size: x-small;
+                vertical-align: top; width: 33%;
+                color: #FFF; background-color: #666;
+        }
+        td.author { font-weight: bold; font-size: x-small; margin-left: 4em; }
+        td.author-text { font-size: x-small; }
+
+        /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+        a.info {
+                /* This is the key. */
+                position: relative;
+                z-index: 24;
+                text-decoration: none;
+        }
+        a.info:hover {
+                z-index: 25;
+                color: #FFF; background-color: #900;
+        }
+        a.info span { display: none; }
+        a.info:hover span.info {
+                /* The span will display just on :hover state. */
+                display: block;
+                position: absolute;
+                font-size: smaller;
+                top: 2em; left: -5em; width: 15em;
+                padding: 2px; border: 1px solid #333;
+                color: #900; background-color: #EEE;
+                text-align: left;
+        }
+
+        a { font-weight: bold; }
+        a:link    { color: #900; background-color: transparent; }
+        a:visited { color: #633; background-color: transparent; }
+        a:active  { color: #633; background-color: transparent; }
+
+        p { margin-left: 2em; margin-right: 2em; }
+        p.copyright { font-size: x-small; }
+        p.toc { font-size: small; font-weight: bold; margin-left: 3em; }
+        table.toc { margin: 0 0 0 3em; padding: 0; border: 0; vertical-align: text-top; }
+        td.toc { font-size: small; font-weight: bold; vertical-align: text-top; }
+
+        ol.text { margin-left: 2em; margin-right: 2em; }
+        ul.text { margin-left: 2em; margin-right: 2em; }
+        li      { margin-left: 3em; }
+
+        /* RFC-2629 <spanx>s and <artwork>s. */
+        em     { font-style: italic; }
+        strong { font-weight: bold; }
+        dfn    { font-weight: bold; font-style: normal; }
+        cite   { font-weight: normal; font-style: normal; }
+        tt     { color: #036; }
+        tt, pre, pre dfn, pre em, pre cite, pre span {
+                font-family: "Courier New", Courier, monospace; font-size: small;
+        }
+        pre {
+                text-align: left; padding: 4px;
+                color: #000; background-color: #CCC;
+        }
+        pre dfn  { color: #900; }
+        pre em   { color: #66F; background-color: #FFC; font-weight: normal; }
+        pre .key { color: #33C; font-weight: bold; }
+        pre .id  { color: #900; }
+        pre .str { color: #000; background-color: #CFF; }
+        pre .val { color: #066; }
+        pre .rep { color: #909; }
+        pre .oth { color: #000; background-color: #FCF; }
+        pre .err { background-color: #FCC; }
+
+        /* RFC-2629 <texttable>s. */
+        table.all, table.full, table.headers, table.none {
+                font-size: small; text-align: center; border-width: 2px;
+                vertical-align: top; border-collapse: collapse;
+        }
+        table.all, table.full { border-style: solid; border-color: black; }
+        table.headers, table.none { border-style: none; }
+        th {
+                font-weight: bold; border-color: black;
+                border-width: 2px 2px 3px 2px;
+        }
+        table.all th, table.full th { border-style: solid; }
+        table.headers th { border-style: none none solid none; }
+        table.none th { border-style: none; }
+        table.all td {
+                border-style: solid; border-color: #333;
+                border-width: 1px 2px;
+        }
+        table.full td, table.headers td, table.none td { border-style: none; }
+
+        hr { height: 1px; }
+        hr.insert {
+                width: 80%; border-style: none; border-width: 0;
+                color: #CCC; background-color: #CCC;
+        }
+--></style>
+</head>
+<body>
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<table summary="layout" width="66%" border="0" cellpadding="0" cellspacing="0"><tr><td><table summary="layout" width="100%" border="0" cellpadding="2" cellspacing="1">
+<tr><td class="header">Internet Engineering Task Force</td><td class="header">M. Davis</td></tr>
+<tr><td class="header">Internet-Draft</td><td class="header">Google</td></tr>
+<tr><td class="header">Intended status: BCP</td><td class="header">AP. Phillips</td></tr>
+<tr><td class="header">Expires: May 5, 2010</td><td class="header">Lab126</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">YU. Umaoka</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">IBM</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">November 1, 2009</td></tr>
+</table></td></tr></table>
+<h1><br />BCP 47 Extension U<br />draft-davis-u-langtag-ext-00</h1>
+
+<h3>Abstract</h3>
+
+<p>This document specifies an Extension to BCP 47
+      which provides subtags that specify language and/or locale-based behavior or refinements to language tags, according
+      to work done by the Unicode Consortium.
+</p>
+<h3>Status of this Memo</h3>
+<p>
+This document is an Internet-Draft and is subject to all provisions
+of Section&nbsp;3 of RFC&nbsp;3667.
+By submitting this Internet-Draft,
+each author represents that any applicable patent or other IPR claims of which
+he or she is aware have been or will be disclosed,
+and any of which he or she become aware will be disclosed,
+in accordance with RFC&nbsp;3668.</p>
+<p>
+Internet-Drafts are working documents of the Internet Engineering
+Task Force (IETF), its areas, and its working groups.
+Note that other groups may also distribute working documents as
+Internet-Drafts.</p>
+<p>
+Internet-Drafts are draft documents valid for a maximum of six months
+and may be updated, replaced, or obsoleted by other documents at any time.
+It is inappropriate to use Internet-Drafts as reference material or to cite
+them other than as &ldquo;work in progress.&rdquo;</p>
+<p>
+The list of current Internet-Drafts can be accessed at
+<a href='http://www.ietf.org/ietf/1id-abstracts.txt'>http://www.ietf.org/ietf/1id-abstracts.txt</a>.</p>
+<p>
+The list of Internet-Draft Shadow Directories can be accessed at
+<a href='http://www.ietf.org/shadow.html'>http://www.ietf.org/shadow.html</a>.</p>
+<p>
+This Internet-Draft will expire on May 5, 2010.</p>
+<a name="toc"></a><br /><hr />
+<h3>Table of Contents</h3>
+<p class="toc">
+<a href="#anchor1">1.</a>&nbsp;
+Introduction<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor2">1.1.</a>&nbsp;
+Requirements Language<br />
+<a href="#anchor3">2.</a>&nbsp;
+BCP47 Required Information<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor4">2.1.</a>&nbsp;
+Summary<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#regform">2.2.</a>&nbsp;
+Registration Form<br />
+<a href="#Acknowledgements">3.</a>&nbsp;
+Acknowledgements<br />
+<a href="#IANA">4.</a>&nbsp;
+IANA Considerations<br />
+<a href="#Security">5.</a>&nbsp;
+Security Considerations<br />
+<a href="#rfc.references1">6.</a>&nbsp;
+References<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rfc.references1">6.1.</a>&nbsp;
+Normative References<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rfc.references2">6.2.</a>&nbsp;
+Informative References<br />
+<a href="#rfc.authors">&#167;</a>&nbsp;
+Authors' Addresses<br />
+<a href="#rfc.copyright">&#167;</a>&nbsp;
+Intellectual Property and Copyright Statements<br />
+</p>
+<br clear="all" />
+
+<a name="anchor1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1"></a><h3>1.&nbsp;
+Introduction</h3>
+
+<p><a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a> provides extensions identified by a single-character
+      subtag for "the generation of identifiers that
+      contain a language component and are compatible with applications that
+      understand language tags". This document defines such an extension,
+      using the letter 'u', to specify Unicode language/locale identifiers.
+</p>
+<a name="anchor2"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1.1"></a><h3>1.1.&nbsp;
+Requirements Language</h3>
+
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+        "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+        document are to be interpreted as described in RFC 2119.
+</p>
+<a name="anchor3"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2"></a><h3>2.&nbsp;
+BCP47 Required Information</h3>
+
+<p>Language tags, as defined by <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, are useful for identifying the language of content. They are also used as locale identifiers (or can be mapped to locales) in many operating environments and APIs. However, most such locale identifiers also provide additional "tailorings" or options for specific values within a language, culture, or other regional variation. This extension provides a mechanism for using these additional tailorings within language tags for general interchange.
+</p>
+<p> The maintaining authority for this extension's registry is the Unicode
+      Consortium. Unicode defines common locale data and identifiers for this data:
+</p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
+<col align="left"><col align="left">
+<tr><th align="left">Item</th><th align="left">Value</th></tr>
+<tr>
+<td align="left">Name</td>
+<td align="left">Unicode Consortium</td>
+</tr>
+<tr>
+<td align="left">Contact Email</td>
+<td align="left">cldr@unicode.org</td>
+</tr>
+<tr>
+<td align="left">Discussion List Email</td>
+<td align="left">cldr-users@unicode.org</td>
+</tr>
+<tr>
+<td align="left">URL Location</td>
+<td align="left">cldr.unicode.org</td>
+</tr>
+<tr>
+<td align="left">Specification</td>
+<td align="left">Unicode Technical Standard #35 Unicode Locale Data Markup Language
+        (LDML), http://unicode.org/reports/tr35/</td>
+</tr>
+<tr>
+<td align="left">Section</td>
+<td align="left">Section 3.2 BCP 47 Tag Conversion</td>
+</tr>
+</table>
+<br clear="all" />
+
+<p>The specification of extension subtags is provided by <a class='info' href='#LDML'>Unicode
+      Technical Standard #35 Unicode Locale Data Markup Language,
+      Section 3.2 BCP 47 Tag Conversion<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> [LDML]. <a class='info' href='#LDML'>[LDML]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>
+      defines the formation of subtags which follow the language tag ABNF and
+      other rules for the formation of language tags and subtags as defined in <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>.
+      In particular, it specifies that subtags are restricted to the ASCII letters and digits, that case is not significant, and that subtags
+      MUST NOT exceed eight characters in length.
+</p>
+<p><a class='info' href='#LDML'>[LDML]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> specifies a canonical
+      representation. LDML is available over the Internet and at no cost, and
+      is available via a royalty-free license at
+      http://unicode.org/copyright.html. LDML is versioned, and each
+      version of LDML is numbered, dated, and stable. Extension subtags, once
+      defined by LDML, are never retracted or change in meaning in a
+      substantial way. LDML will include in a separate section
+      the registration form in <a class='info' href='#regform'>Section&nbsp;2.2<span> (</span><span class='info'>Registration Form</span><span>)</span></a>.
+</p>
+<a name="anchor4"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1"></a><h3>2.1.&nbsp;
+Summary</h3>
+
+<p><a class='info' href='#LDML'>[LDML]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> defines the subtags within the 'u' extension as a series of
+        key-value pairs. Each key has a length of two characters, and each value has a length of three or more characters. Each key is followed by zero or one value. Case is not
+        significant. The canonical case is lowercase; the canonical order of
+        the keys is alphabetical.
+</p>
+<p>The exact keys and values available, and their meanings, are
+        defined in <a class='info' href='#ldml-registry'>TODO ldml-registry TODO<span> (</span><span class='info'>, &ldquo;Registry for Common Locale Data Repository tag elements,&rdquo; September&nbsp;2009.</span><span>)</span></a> [ldml&#8209;registry].
+</p>
+<a name="regform"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.2"></a><h3>2.2.&nbsp;
+Registration Form</h3>
+
+<p>Per <a class='info' href='#RFC5646'>[RFC5646]<span> (</span><span class='info'>Phillips, A. and M. Davis, &ldquo;Tags for Identifying Languages,&rdquo; September&nbsp;2009.</span><span>)</span></a>, Section 3.7:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>%%
+Identifier: u
+Description: Unicode Locale
+Comments: Subtags for the identification of language and cultural
+    variations. Used to set behavior in locale APIs.
+Added: 2009-mm-dd
+RFC: [TBD]
+Authority: Unicode Consortium
+Contact_Email: cldr@unicode.org
+Mailing_List: cldr-users@unicode.org
+URL: http://cldr.unicode.org
+%%</pre></div>
+<a name="Acknowledgements"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3"></a><h3>3.&nbsp;
+Acknowledgements</h3>
+
+<p>Thanks to John Emmons and the rest of the Unicode
+      CLDR Technical Committee for their work in developing the BCP 47 subtags
+      for LDML.
+</p>
+<a name="IANA"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4"></a><h3>4.&nbsp;
+IANA Considerations</h3>
+
+<p>This document will require IANA to insert the record in <a class='info' href='#regform'>Section&nbsp;2.2<span> (</span><span class='info'>Registration Form</span><span>)</span></a> into the Language Extensions Registry, according to
+      Section 3.7. Extensions and the Extensions Registry of "Tags for
+      Identifying Languages" in BCP 47. There might be occasional maintenance of this record. This document does not require IANA to create or maintain a new registry or otherwise impact IANA.
+</p>
+<a name="Security"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5"></a><h3>5.&nbsp;
+Security Considerations</h3>
+
+<p>The security considerations for this extension are the same as those
+      for <a class='info' href='#RFC5646'>[RFC5646]<span> (</span><span class='info'>Phillips, A. and M. Davis, &ldquo;Tags for Identifying Languages,&rdquo; September&nbsp;2009.</span><span>)</span></a> (or its successors). See Section 6. Security Considerations
+      of <a class='info' href='#RFC5646'>[RFC5646]<span> (</span><span class='info'>Phillips, A. and M. Davis, &ldquo;Tags for Identifying Languages,&rdquo; September&nbsp;2009.</span><span>)</span></a>.
+</p>
+<a name="rfc.references"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.6"></a><h3>6.&nbsp;
+References</h3>
+
+<a name="rfc.references1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>6.1.&nbsp;Normative References</h3>
+<table width="99%" border="0">
+<tr><td class="author-text" valign="top"><a name="BCP47">[BCP47]</a></td>
+<td class="author-text">Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</td></tr>
+<tr><td class="author-text" valign="top"><a name="LDML">[LDML]</a></td>
+<td class="author-text">Davis, M., &ldquo;<a href="http://www.unicode.org/reports/tr35/">Unicode Technical Standard #35: Locale Data Markup Language (LDML)</a>,&rdquo; December&nbsp;2007.</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC5646">[RFC5646]</a></td>
+<td class="author-text">Phillips, A. and M. Davis, &ldquo;<a href="http://tools.ietf.org/html/rfc5646">Tags for Identifying Languages</a>,&rdquo; BCP&nbsp;47, RFC&nbsp;5646, September&nbsp;2009 (<a href="ftp://ftp.isi.edu/in-notes/rfc5646.txt">TXT</a>).</td></tr>
+</table>
+
+<a name="rfc.references2"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>6.2.&nbsp;Informative References</h3>
+<table width="99%" border="0">
+<tr><td class="author-text" valign="top"><a name="ldml-registry">[ldml-registry]</a></td>
+<td class="author-text">&ldquo;Registry for Common Locale Data Repository tag elements,&rdquo; September&nbsp;2009.</td></tr>
+</table>
+
+<a name="rfc.authors"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>Authors' Addresses</h3>
+<table width="99%" border="0" cellpadding="0" cellspacing="0">
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Mark Davis</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Google</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">2509 Alpine Road</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Menlo Park, California  94025</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">USA</td></tr>
+<tr><td class="author" align="right">Phone:&nbsp;</td>
+<td class="author-text">+1 650-854-4895</td></tr>
+<tr><td class="author" align="right">Email:&nbsp;</td>
+<td class="author-text"><a href="mailto:mark@macchiato.com">mark@macchiato.com</a></td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Addison Phillips</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Lab126</td></tr>
+<tr><td class="author" align="right">Email:&nbsp;</td>
+<td class="author-text"><a href="mailto:addison@inter-locale.com">addison@inter-locale.com</a></td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Yoshito Umaoka</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">IBM</td></tr>
+<tr><td class="author" align="right">Email:&nbsp;</td>
+<td class="author-text"><a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a></td></tr>
+</table>
+<a name="rfc.copyright"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>Full Copyright Statement</h3>
+<p class='copyright'>
+Copyright &copy; The IETF Trust (2009).</p>
+<p class='copyright'>
+This document is subject to the rights,
+licenses and restrictions contained in BCP&nbsp;78
+and at <a href='http://www.rfc-editor.org/copyright.html'>http://www.rfc-editor.org/copyright.html</a>, and except as set forth therein,
+the authors retain all their rights.</p>
+<p class='copyright'>
+This document and the information contained herein are provided
+on an &ldquo;AS IS&rdquo; basis and THE CONTRIBUTOR,
+THE ORGANIZATION HE/SHE REPRESENTS
+OR IS SPONSORED BY (IF ANY), THE INTERNET SOCIETY, THE IETF TRUST
+AND THE INTERNET ENGINEERING TASK FORCE DISCLAIM ALL WARRANTIES,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT
+THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY
+IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR
+PURPOSE.</p>
+<h3>Intellectual Property</h3>
+<p class='copyright'>
+The IETF takes no position regarding the validity or scope of any
+Intellectual Property Rights or other rights that might be claimed
+to pertain to the implementation or use of the technology
+described in this document or the extent to which any license
+under such rights might or might not be available; nor does it
+represent that it has made any independent effort to identify any
+such rights.
+Information on the procedures with respect to
+rights in RFC documents can be found in BCP&nbsp;78 and BCP&nbsp;79.</p>
+<p class='copyright'>
+Copies of IPR disclosures made to the IETF Secretariat and any
+assurances of licenses to be made available,
+or the result of an attempt made to obtain a general license or
+permission for the use of such proprietary rights by implementers or
+users of this specification can be obtained from the IETF on-line IPR
+repository at <a href='http://www.ietf.org/ipr'>http://www.ietf.org/ipr</a>.</p>
+<p class='copyright'>
+The IETF invites any interested party to bring to its attention
+any copyrights,
+patents or patent applications,
+or other
+proprietary rights that may cover technology that may be required
+to implement this standard.
+Please address the information to the IETF at <a href='mailto:ietf-ipr@ietf.org'>ietf-ipr@ietf.org</a>.</p>
+</body></html>
+

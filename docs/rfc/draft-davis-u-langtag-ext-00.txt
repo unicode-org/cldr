@@ -1,15 +1,23 @@
 
 
 
-Internet Engineering Task Force                            M. Davis, Ed.
+Internet Engineering Task Force                                 M. Davis
 Internet-Draft                                                    Google
-Intended status: Standards Track                       AP. Phillips, Ed.
-Expires: May 5, 2010                                              Amazon
-                                                           November 2009
+Intended status: BCP                                        AP. Phillips
+Expires: May 5, 2010                                              Lab126
+                                                              YU. Umaoka
+                                                                     IBM
+                                                        November 1, 2009
 
 
                            BCP 47 Extension U
-                           bcp47-extension-u
+                      draft-davis-u-langtag-ext-00
+
+Abstract
+
+   This document specifies an Extension to BCP 47 which provides subtags
+   that specify language and/or locale-based behavior or refinements to
+   language tags, according to work done by the Unicode Consortium.
 
 Status of this Memo
 
@@ -38,23 +46,15 @@ Status of this Memo
 
    This Internet-Draft will expire on May 5, 2010.
 
-Abstract
-
-   This document specifies the 'u' extension to BCP 47 which provides
-   for subtags to specify more particular behavior or refinements that
-   are language and/or locale based according to work done by the
-   Unicode Consortium.
 
 
 
 
 
 
-
-
-Davis & Phillips           Expires May 5, 2010                  [Page 1]
+Davis, et al.              Expires May 5, 2010                  [Page 1]
 
-Internet-Draft              Abbreviated Title              November 2009
+Internet-Draft       BCP 47 Unicode Locale Extension       November 2009
 
 
 Table of Contents
@@ -65,10 +65,13 @@ Table of Contents
      2.1.  Summary . . . . . . . . . . . . . . . . . . . . . . . . . . 4
      2.2.  Registration Form . . . . . . . . . . . . . . . . . . . . . 4
    3.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . 4
-   4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . . . 4
+   4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . . . 5
    5.  Security Considerations . . . . . . . . . . . . . . . . . . . . 5
+   6.  References  . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+     6.1.  Normative References  . . . . . . . . . . . . . . . . . . . 5
+     6.2.  Informative References  . . . . . . . . . . . . . . . . . . 5
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . . . 5
-   Intellectual Property and Copyright Statements  . . . . . . . . . . 6
+   Intellectual Property and Copyright Statements  . . . . . . . . . . 7
 
 
 
@@ -105,22 +108,18 @@ Table of Contents
 
 
 
-
-
-
-Davis & Phillips           Expires May 5, 2010                  [Page 2]
+Davis, et al.              Expires May 5, 2010                  [Page 2]
 
-Internet-Draft              Abbreviated Title              November 2009
+Internet-Draft       BCP 47 Unicode Locale Extension       November 2009
 
 
 1.  Introduction
 
-   BCP 47 explicitly provides for the ability to define single-letter
-   extension subtags to provide for "the generation of identifiers that
-   contain a language component and are compatible with applications
-   that understand language tags".  This extension provides such an
-   extension, using the letter 'u', to specify Unicode language/locale
-   identifiers.  See RFC 4646.
+   [BCP47] provides extensions identified by a single-character subtag
+   for "the generation of identifiers that contain a language component
+   and are compatible with applications that understand language tags".
+   This document defines such an extension, using the letter 'u', to
+   specify Unicode language/locale identifiers.
 
 1.1.  Requirements Language
 
@@ -131,8 +130,18 @@ Internet-Draft              Abbreviated Title              November 2009
 
 2.  BCP47 Required Information
 
-   The maintaining authority for this registry is the Unicode
-   Consortium.
+   Language tags, as defined by [BCP47], are useful for identifying the
+   language of content.  They are also used as locale identifiers (or
+   can be mapped to locales) in many operating environments and APIs.
+   However, most such locale identifiers also provide additional
+   "tailorings" or options for specific values within a language,
+   culture, or other regional variation.  This extension provides a
+   mechanism for using these additional tailorings within language tags
+   for general interchange.
+
+   The maintaining authority for this extension's registry is the
+   Unicode Consortium.  Unicode defines common locale data and
+   identifiers for this data:
 
    +---------------+---------------------------------------------------+
    | Item          | Value                                             |
@@ -148,107 +157,152 @@ Internet-Draft              Abbreviated Title              November 2009
    | Section       | Section 3.2 BCP 47 Tag Conversion                 |
    +---------------+---------------------------------------------------+
 
-   The specification of extension subtags is provided by "Unicode
-   Technical Standard #35 Unicode Locale Data Markup Language (LDML),
-   Section 3.2 BCP 47 Tag Conversion" is hereafter known as "LDML".
-   LDML and all subtags defined by LDML follow the BCP 47 language tag
-   ABNF and other rules for the formation of tags and subtags as defined
-   in BCP 47.  In particular, it specifies that case is not significant
-   and no subtags exceed eight characters in length.
-
-   LDML specifies a canonical representation.  LDML is available over
-   the Internet and at no cost, and is available via a royalty-free
-   license at http://unicode.org/copyright.html.  The LDML is versioned,
-   and each version of LDML is numbered, dated, and stable.  Extension
-   subtags, once defined by LDML, are never retracted or change in
+   The specification of extension subtags is provided by Unicode
+   Technical Standard #35 Unicode Locale Data Markup Language, Section
+   3.2 BCP 47 Tag Conversion [LDML].  [LDML] defines the formation of
+   subtags which follow the language tag ABNF and other rules for the
 
 
 
-Davis & Phillips           Expires May 5, 2010                  [Page 3]
+Davis, et al.              Expires May 5, 2010                  [Page 3]
 
-Internet-Draft              Abbreviated Title              November 2009
+Internet-Draft       BCP 47 Unicode Locale Extension       November 2009
 
 
-   meaning in any substantial way.  The specification will include in a
-   separate section the registration form reproduced in this section
-   (below) to be used in registering the extension upon publication as
-   an RFC.
+   formation of language tags and subtags as defined in [BCP47].  In
+   particular, it specifies that subtags are restricted to the ASCII
+   letters and digits, that case is not significant, and that subtags
+   MUST NOT exceed eight characters in length.
+
+   [LDML] specifies a canonical representation.  LDML is available over
+   the Internet and at no cost, and is available via a royalty-free
+   license at http://unicode.org/copyright.html.  LDML is versioned, and
+   each version of LDML is numbered, dated, and stable.  Extension
+   subtags, once defined by LDML, are never retracted or change in
+   meaning in a substantial way.  LDML will include in a separate
+   section the registration form in Section 2.2.
 
 2.1.  Summary
 
-   LDML defines the subtags within the 'u' extension as a series of key-
-   value pairs.  Each key is of length 2, and each value is of length 3
-   or more.  Each key is followed by zero or one value.  Case is not
-   significant.  The canonical case is lowercase; the canonical order of
-   the keys is alphabetical.
+   [LDML] defines the subtags within the 'u' extension as a series of
+   key-value pairs.  Each key has a length of two characters, and each
+   value has a length of three or more characters.  Each key is followed
+   by zero or one value.  Case is not significant.  The canonical case
+   is lowercase; the canonical order of the keys is alphabetical.
 
    The exact keys and values available, and their meanings, are defined
-   in LDML, or in referenced data tables.
+   in TODO ldml-registry TODO [ldml-registry].
 
 2.2.  Registration Form
 
+   Per [RFC5646], Section 3.7:
    %%
-
-          +----------------+-----------------------------------+
-          | Field          | Value                             |
-          +----------------+-----------------------------------+
-          | Identifier:    | u                                 |
-          | Description:   | Unicode language/locale extension |
-          | Comments:      |                                   |
-          | Added:         | [TBD]                             |
-          | RFC:           | [TBD]                             |
-          | Authority:     | The Unicode Consortium            |
-          | Contact_Email: | cldr@unicode.org                  |
-          | Mailing_List:  | cldr-users@unicode.org            |
-          | URL:           | cldr.unicode.org                  |
-          +----------------+-----------------------------------+
-
+   Identifier: u
+   Description: Unicode Locale
+   Comments: Subtags for the identification of language and cultural
+       variations. Used to set behavior in locale APIs.
+   Added: 2009-mm-dd
+   RFC: [TBD]
+   Authority: Unicode Consortium
+   Contact_Email: cldr@unicode.org
+   Mailing_List: cldr-users@unicode.org
+   URL: http://cldr.unicode.org
    %%
 
 
 3.  Acknowledgements
 
-   Thanks to Yoshito Umaoka, John Emmons, and the rest of the Unicode
-   CLDR Technical Committee for their work in developing the BCP 47
-   subtags for LDML.
+   Thanks to John Emmons and the rest of the Unicode CLDR Technical
+   Committee for their work in developing the BCP 47 subtags for LDML.
+
+
+
+
+
+
+Davis, et al.              Expires May 5, 2010                  [Page 4]
+
+Internet-Draft       BCP 47 Unicode Locale Extension       November 2009
 
 
 4.  IANA Considerations
 
-   This document will indirectly result in actions by IANA, according to
-   Section 3.7.  Extensions and the Extensions Registry of "Tags for
-
-
-
-Davis & Phillips           Expires May 5, 2010                  [Page 4]
-
-Internet-Draft              Abbreviated Title              November 2009
-
-
-   Identifying Languages" in BCP 47.
+   This document will require IANA to insert the record in Section 2.2
+   into the Language Extensions Registry, according to Section 3.7.
+   Extensions and the Extensions Registry of "Tags for Identifying
+   Languages" in BCP 47.  There might be occasional maintenance of this
+   record.  This document does not require IANA to create or maintain a
+   new registry or otherwise impact IANA.
 
 
 5.  Security Considerations
 
    The security considerations for this extension are the same as those
-   for RFC 4646 (or its successors).  See Section 6.  Security
-   Considerations of RFC 4646.
+   for [RFC5646] (or its successors).  See Section 6.  Security
+   Considerations of [RFC5646].
+
+
+6.  References
+
+6.1.  Normative References
+
+   [BCP47]    Davis, M., Ed., "Tags for the Identification of Language
+              (BCP47)", September 2009.
+
+   [LDML]     Davis, M., "Unicode Technical Standard #35: Locale Data
+              Markup Language (LDML)", December 2007,
+              <http://www.unicode.org/reports/tr35/>.
+
+   [RFC5646]  Phillips, A. and M. Davis, "Tags for Identifying
+              Languages", BCP 47, RFC 5646, September 2009.
+
+6.2.  Informative References
+
+   [ldml-registry]
+              "Registry for Common Locale Data Repository tag elements",
+              September 2009.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Davis, et al.              Expires May 5, 2010                  [Page 5]
+
+Internet-Draft       BCP 47 Unicode Locale Extension       November 2009
 
 
 Authors' Addresses
 
-   Mark Davis (editor)
+   Mark Davis
    Google
    2509 Alpine Road
    Menlo Park, California  94025
-   UU
+   USA
 
    Phone: +1 650-854-4895
    Email: mark@macchiato.com
 
 
-   Addison Phillips (editor)
-   Amazon
+   Addison Phillips
+   Lab126
+
+   Email: addison@inter-locale.com
+
+
+   Yoshito Umaoka
+   IBM
+
+   Email: yoshito_umaoka@us.ibm.com
 
 
 
@@ -276,9 +330,11 @@ Authors' Addresses
 
 
 
-Davis & Phillips           Expires May 5, 2010                  [Page 5]
+
+
+Davis, et al.              Expires May 5, 2010                  [Page 6]
 
-Internet-Draft              Abbreviated Title              November 2009
+Internet-Draft       BCP 47 Unicode Locale Extension       November 2009
 
 
 Full Copyright Statement
@@ -286,8 +342,8 @@ Full Copyright Statement
    Copyright (C) The IETF Trust (2009).
 
    This document is subject to the rights, licenses and restrictions
-   contained in BCP 78, and except as set forth therein, the authors
-   retain all their rights.
+   contained in BCP 78 and at http://www.rfc-editor.org/copyright.html,
+   and except as set forth therein, the authors retain all their rights.
 
    This document and the information contained herein are provided on an
    "AS IS" basis and THE CONTRIBUTOR, THE ORGANIZATION HE/SHE REPRESENTS
@@ -332,5 +388,6 @@ Intellectual Property
 
 
 
-Davis & Phillips           Expires May 5, 2010                  [Page 6]
+Davis, et al.              Expires May 5, 2010                  [Page 7]
 
+

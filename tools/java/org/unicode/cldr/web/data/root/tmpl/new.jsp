@@ -28,7 +28,9 @@ subCtx.closeTable();
              
 %><p>The following have alternative values or newly modified English. All of these should be translated.</p><%
 
-SurveyForum.printSectionTableOpenShort(subCtx, thisBaseXpath);
+out.flush();
+
+subCtx.openTable(); 
 
 subCtx.showXpath("//ldml/localeDisplayNames/territories/territory[@type=\"MM\"]");
 subCtx.showXpath("//ldml/localeDisplayNames/territories/territory[@type=\"PS\"]");

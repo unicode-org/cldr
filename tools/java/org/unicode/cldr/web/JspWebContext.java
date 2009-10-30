@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 /**
@@ -19,6 +20,8 @@ import org.unicode.cldr.util.SupplementalDataInfo;
  *
  */
 public class JspWebContext extends WebContext {
+
+	private static final Object DATAROW_JSP_CODE = "datarow_short_code.jsp";
 
 	/**
 	 * For creating a JspContext from a raw input/output stream.
@@ -120,7 +123,18 @@ public class JspWebContext extends WebContext {
 //		}
 	}
 	
+	/**
+	 * Open a table with a 'code' column.
+	 */
 	public void openTable() {
+		this.put(SurveyMain.DATAROW_JSP,DATAROW_JSP_CODE);
+		SurveyMain.printSectionTableOpenCode(this);
+	}
+	/**
+	 *  Also, sets the 'datarow' type to not include code.
+	 */
+	public void openTableNoCode() {
+		this.put(SurveyMain.DATAROW_JSP, SurveyMain.DATAROW_JSP_DEFAULT);
 		SurveyForum.printSectionTableOpenShort(this, null);
 	}
 	/**
@@ -144,6 +158,10 @@ public class JspWebContext extends WebContext {
 	 * End of the table.
 	 */
 	public void closeTable() {
+		SurveyMain.printSectionTableCloseCode(this);
+	}
+	
+	public void closeTableNoCode() {
 		SurveyForum.printSectionTableCloseShort(this, null);
 	}
 	/**
@@ -178,5 +196,42 @@ public class JspWebContext extends WebContext {
 		} else {
 			return super.canModify();
 		}
+	}
+	
+	
+	/**
+	 * URL to the 'top' of a survey tool locale.
+	 * @return
+	 */
+	public String urlToLocale() {
+		return urlToLocale(getLocale());
+	}
+
+	/**
+	 * URL to the top of a survey tool locale.
+	 * @param locale
+	 * @return
+	 */
+	public String urlToLocale(CLDRLocale locale) {
+		return base()+"?_="+locale.getBaseName();
+	}
+	
+	/**
+	 * URL to a particular section in the current locale
+	 * @param sectionName
+	 * @return
+	 */
+	public String urlToSection(String sectionName) {
+		return urlToLocale()+"&x="+sectionName;
+	}
+
+	/**
+	 * URL to a particular section in a particular locale
+	 * @param locale
+	 * @param sectionName
+	 * @return
+	 */
+	public String urlToSection(CLDRLocale locale, String sectionName) {
+		return urlToLocale(locale)+"&x="+sectionName;
 	}
 }

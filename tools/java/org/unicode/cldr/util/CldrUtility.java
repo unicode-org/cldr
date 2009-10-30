@@ -1048,6 +1048,9 @@ public class CldrUtility {
       result = System.getProperty(key.toLowerCase(Locale.ENGLISH));
     }
     if (result == null) {
+      result = System.getenv(key);
+    }
+    if (result == null) {
       result = valueIfNull;
     } else if (result.length() == 0) {
       result = valueIfEmpty;

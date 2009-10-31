@@ -6,7 +6,9 @@ If your language may use 12 hour clocks, please translate the following, or see 
 <%
 //  Copy "x=___"  from input to output URL
 
-subCtx.openTable(); // open table without codes
+subCtx.openTable(); 
+// uncomment the next line to use prettypath instead. 
+// subCtx.put(SurveyMain.DATAROW_JSP, "datarow_short_prettypath.jsp");
 
 CLDRFile file = subCtx.cldrFile();
 
@@ -19,7 +21,7 @@ for (DayPeriodInfo.DayPeriod dayPeriod : items) {
     subCtx.showXpath(prefix + dayPeriod + "\"]");
 }
 
-subCtx.closeTable(); // close table, no codes.
+subCtx.closeTable();
 
 subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. 
 

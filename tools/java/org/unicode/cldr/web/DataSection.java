@@ -193,6 +193,16 @@ public class DataSection extends Registerable {
         public String displayName = null;
         public String altType = null; // alt type (NOT to be confused with -proposedn)
         int base_xpath = -1;
+
+	public String getXpath() {
+		return sm.xpt.getById(base_xpath);
+	}
+	public int getXpathId() {
+		return base_xpath;
+	}
+	public String getPrettyPath() {
+		return sm.xpt.getPrettyPath(base_xpath);
+	}
         
         // true even if only the non-winning subitems have tests.
         boolean hasTests = false;

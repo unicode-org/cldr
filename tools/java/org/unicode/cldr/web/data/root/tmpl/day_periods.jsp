@@ -15,7 +15,7 @@ LinkedHashSet<DayPeriodInfo.DayPeriod> items = new LinkedHashSet(dayPeriods.getP
 String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"";
 
 for (DayPeriodInfo.DayPeriod dayPeriod : items) {
-    subCtx.showXpath(subCtx, prefix + dayPeriod + "\"]");
+    subCtx.showXpath(prefix + dayPeriod + "\"]");
 }
 
 subCtx.closeTable();

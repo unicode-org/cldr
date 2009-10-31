@@ -16,10 +16,10 @@ The <em>start</em> form connects the first two items; the <em>end</em> connects 
 
 subCtx.openTable(); 
 
-subCtx.showXpath(subCtx, "//ldml/listPatterns/listPattern/listPatternPart[@type=\"2\"]");
-subCtx.showXpath(subCtx, "//ldml/listPatterns/listPattern/listPatternPart[@type=\"start\"]");
-subCtx.showXpath(subCtx, "//ldml/listPatterns/listPattern/listPatternPart[@type=\"middle\"]");
-subCtx.showXpath(subCtx, "//ldml/listPatterns/listPattern/listPatternPart[@type=\"end\"]");
+subCtx.showXpath("//ldml/listPatterns/listPattern/listPatternPart[@type=\"2\"]");
+subCtx.showXpath("//ldml/listPatterns/listPattern/listPatternPart[@type=\"start\"]");
+subCtx.showXpath("//ldml/listPatterns/listPattern/listPatternPart[@type=\"middle\"]");
+subCtx.showXpath("//ldml/listPatterns/listPattern/listPatternPart[@type=\"end\"]");
 
 subCtx.closeTable();
 subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. 

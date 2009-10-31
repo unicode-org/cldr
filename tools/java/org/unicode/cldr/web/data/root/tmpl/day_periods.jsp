@@ -4,11 +4,10 @@
 <p>CLDR now has flexible day periods, and is not limited to just AM/PM. If your language does sometimes use 12 hour clocks, please translate the following, or see below for how to change the categories.</i></p>
 <%
 //  Copy "x=___"  from input to output URL
-subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
 
-SurveyForum.printSectionTableOpenShort(subCtx, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods");
+subCtx.openTable(); 
 
-CLDRFile file = SurveyForum.getCLDRFile(subCtx);
+CLDRFile file = subCtx.cldrFile();
 
 SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(file.getSupplementalDirectory());
 DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(file.getLocaleID());
@@ -16,10 +15,13 @@ LinkedHashSet<DayPeriodInfo.DayPeriod> items = new LinkedHashSet(dayPeriods.getP
 String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"";
 
 for (DayPeriodInfo.DayPeriod dayPeriod : items) {
-    SurveyForum.showXpathShort(subCtx, prefix + dayPeriod + "\"]");
+    subCtx.showXpath(subCtx, prefix + dayPeriod + "\"]");
 }
 
-SurveyForum.printSectionTableCloseShort(subCtx, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods");
+subCtx.closeTable();
+
+subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. 
+
 String rules = dayPeriods.toString().replace("<","&lt;").replace("\n","<br>");
 %>
 <p>The day period categories for this locale are:</p>

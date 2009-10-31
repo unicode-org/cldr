@@ -14,13 +14,14 @@ The <em>start</em> form connects the first two items; the <em>end</em> connects 
 <%
 //  Copy "x=___"  from input to output URL
 
-subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
-SurveyForum.printSectionTableOpenShort(subCtx, thisBaseXpath);
+subCtx.openTable(); 
 
-SurveyForum.showXpathShort(subCtx, "//ldml/listPatterns/listPattern/listPatternPart[@type=\"2\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/listPatterns/listPattern/listPatternPart[@type=\"start\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/listPatterns/listPattern/listPatternPart[@type=\"middle\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/listPatterns/listPattern/listPatternPart[@type=\"end\"]");
+subCtx.showXpath(subCtx, "//ldml/listPatterns/listPattern/listPatternPart[@type=\"2\"]");
+subCtx.showXpath(subCtx, "//ldml/listPatterns/listPattern/listPatternPart[@type=\"start\"]");
+subCtx.showXpath(subCtx, "//ldml/listPatterns/listPattern/listPatternPart[@type=\"middle\"]");
+subCtx.showXpath(subCtx, "//ldml/listPatterns/listPattern/listPatternPart[@type=\"end\"]");
 
-SurveyForum.printSectionTableCloseShort(subCtx, thisBaseXpath);
+subCtx.closeTable();
+subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. 
+
 %>

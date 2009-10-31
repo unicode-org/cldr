@@ -64,7 +64,6 @@ subCtx.showXpath("//ldml/localeDisplayNames/variants/variant[@type=\"PINYIN\"]")
 subCtx.showXpath("//ldml/localeDisplayNames/variants/variant[@type=\"WADEGILE\"]");
 
 subCtx.closeTable();
-
 subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. 
 
 %>

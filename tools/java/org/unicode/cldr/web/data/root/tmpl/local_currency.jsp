@@ -18,11 +18,11 @@ if (myCurr == null)
 else
    currencyCode = myCurr.getCurrencyCode();
 
-subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
-SurveyForum.printSectionTableOpenShort(subCtx, thisBaseXpath);
+subCtx.openTable(); 
 
-SurveyForum.showXpathShort(subCtx, "//ldml/numbers/currencies/currency[@type=\""+currencyCode+"\"]/displayName");
-SurveyForum.showXpathShort(subCtx, "//ldml/numbers/currencies/currency[@type=\""+currencyCode+"\"]/symbol");
+subCtx.showXpath( "//ldml/numbers/currencies/currency[@type=\""+currencyCode+"\"]/displayName");
+subCtx.showXpath( "//ldml/numbers/currencies/currency[@type=\""+currencyCode+"\"]/symbol");
 
-SurveyForum.printSectionTableCloseShort(subCtx, thisBaseXpath);
+subCtx.closeTable(); subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. 
+
 %>

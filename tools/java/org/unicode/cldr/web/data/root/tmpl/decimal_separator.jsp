@@ -4,12 +4,11 @@
 
 <%
 //  Copy "x=___"  from input to output URL
-subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
+subCtx.openTable(); 
 
-SurveyForum.printSectionTableOpenShort(subCtx, "//ldml/numbers/symbols/decimal");
+subCtx.showXpath( "//ldml/numbers/symbols/decimal");
 
-SurveyForum.showXpathShort(subCtx, "//ldml/numbers/symbols/decimal");
-
-SurveyForum.printSectionTableCloseShort(subCtx, "//ldml/numbers/symbols/decimal");
+subCtx.closeTable();
+subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. 
 
 %>

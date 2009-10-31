@@ -1,7 +1,8 @@
     <%@ include file="report_top.jspf" %>
 
 <h2>Day periods are used with 12 hour time formats: please provide them here.</h2>
-<p>CLDR now has flexible day periods, and is not limited to just AM/PM. If your language does sometimes use 12 hour clocks, please translate the following, or see below for how to change the categories.</i></p>
+<p>CLDR now has flexible day periods, and is not limited to just AM/PM. Note that if the categories are not AM/PM, the English will not be applicable ("null").
+If your language may use 12 hour clocks, please translate the following, or see below for how to change the categories.</i></p>
 <%
 //  Copy "x=___"  from input to output URL
 
@@ -19,7 +20,6 @@ for (DayPeriodInfo.DayPeriod dayPeriod : items) {
 }
 
 subCtx.closeTable();
-
 subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. 
 
 String rules = dayPeriods.toString().replace("<","&lt;").replace("\n","<br>");

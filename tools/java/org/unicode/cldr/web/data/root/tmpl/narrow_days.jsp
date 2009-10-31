@@ -5,17 +5,16 @@
 <p>Narrow abbreviations are often used in making small versions of calendars.  The abbreviations used are usually a single character and need not be unique.</p>
 
 <%
-//  Copy "x=___"  from input to output URL
-subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
-SurveyForum.printSectionTableOpenShort(subCtx, thisBaseXpath);
+subCtx.openTable(); 
 
-SurveyForum.showXpathShort(subCtx, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day[@type=\"sun\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day[@type=\"mon\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day[@type=\"tue\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day[@type=\"wed\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day[@type=\"thu\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day[@type=\"fri\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day[@type=\"sat\"]");
+subCtx.showXpath( "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day[@type=\"sun\"]");
+subCtx.showXpath( "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day[@type=\"mon\"]");
+subCtx.showXpath( "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day[@type=\"tue\"]");
+subCtx.showXpath( "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day[@type=\"wed\"]");
+subCtx.showXpath( "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day[@type=\"thu\"]");
+subCtx.showXpath( "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day[@type=\"fri\"]");
+subCtx.showXpath( "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day[@type=\"sat\"]");
 
-SurveyForum.printSectionTableCloseShort(subCtx, thisBaseXpath);
+subCtx.closeTable(); subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. 
+
 %>

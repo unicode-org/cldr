@@ -4,15 +4,16 @@
 
 <%
 //  Copy "x=___"  from input to output URL
-subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
+subCtx.openTable(); 
 
-SurveyForum.printSectionTableOpenShort(subCtx, "//ldml/characters/exemplarCharacters");
 // Display a limited range of data
-SurveyForum.showXpathShort(subCtx, "//ldml/characters/exemplarCharacters");
-SurveyForum.showXpathShort(subCtx, "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/characters/exemplarCharacters[@type=\"index\"]");
+subCtx.showXpath( "//ldml/characters/exemplarCharacters");
+subCtx.showXpath( "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]");
+subCtx.showXpath( "//ldml/characters/exemplarCharacters[@type=\"index\"]");
 
-SurveyForum.printSectionTableCloseShort(subCtx, "//ldml/characters/exemplarCharacters");
+subCtx.closeTable();
+subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. 
+
 %>
 <p>The main exemplar characters are the ones most people would recognize as being the ones "in your language".
 The Index characters are the ones that you would see as the index in a contact list, for example. 

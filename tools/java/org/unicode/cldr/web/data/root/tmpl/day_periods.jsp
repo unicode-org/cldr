@@ -6,7 +6,7 @@ If your language may use 12 hour clocks, please translate the following, or see 
 <%
 //  Copy "x=___"  from input to output URL
 
-subCtx.openTableNoCode(); // open table without codes
+subCtx.openTable(); // open table without codes
 
 CLDRFile file = subCtx.cldrFile();
 
@@ -19,7 +19,7 @@ for (DayPeriodInfo.DayPeriod dayPeriod : items) {
     subCtx.showXpath(prefix + dayPeriod + "\"]");
 }
 
-subCtx.closeTableNoCode(); // close table, no codes.
+subCtx.closeTable(); // close table, no codes.
 
 subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. 
 

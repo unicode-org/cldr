@@ -5,13 +5,11 @@ package org.unicode.cldr.icu;
 import org.unicode.cldr.icu.ICUResourceWriter.Resource;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
 import org.unicode.cldr.icu.ResourceSplitter.ResultInfo;
-import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -44,10 +42,10 @@ class ICUWriter {
 //    splitInfos.add(new SplitInfo("/CurrencyPlurals", "curr"));
 //    splitInfos.add(new SplitInfo("/CurrencyUnitPatterns", "curr"));
 //    splitInfos.add(new SplitInfo("/zoneStrings", "zone"));
-//   
+//
 //    debugSplitter = new ResourceSplitter("/tmp/ldml", splitInfos);
 //  }
-  
+
   public void writeResource(Resource res, String sourceInfo) {
     if (splitter == null) {
       String outputFileName = dstDirName + "/" + res.name + ".txt";

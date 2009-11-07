@@ -24,5 +24,11 @@
            <dayPeriodRule type = "afternoon" from="13:00" before="18:00"/>
            <dayPeriodRule type = "night" from="18:00" before="24:00" />
        </dayPeriodRules>
+      <dayPeriodRules locales = "pt">
+           <dayPeriodRule type = "morning" from="00:00" before="12:00"/>
+           <dayPeriodRule type = "noon" at = "12:00"/>
+           <dayPeriodRule type = "afternoon" after="12:00" before="19:00"/>
+           <dayPeriodRule type = "night" from="19:00" before="24:00"/>
+       </dayPeriodRules>
     </dayPeriodRuleSet>
 </supplementalData>

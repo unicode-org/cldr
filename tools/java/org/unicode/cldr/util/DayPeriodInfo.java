@@ -41,6 +41,9 @@ public class DayPeriodInfo {
     public DayPeriodInfo finish() {
       DayPeriodInfo result = new DayPeriodInfo();
       int len = info.size();
+      if (len == 0) {
+        return result;
+      }
       result.starts = new int[len];
       result.includesStart = new boolean[len];
       result.periods = new DayPeriodInfo.DayPeriod[len];

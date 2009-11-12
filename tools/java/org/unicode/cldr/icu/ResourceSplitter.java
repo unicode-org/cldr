@@ -161,7 +161,12 @@ public class ResourceSplitter {
       // If the locale string does not contain an underscore, we assume that it's
       // either the 'root' locale or a language-only locale, so we always generate
       // the resource.
-      if (source.root.name.indexOf('_') == -1) {
+      //
+      // Arrgh.  The icu package tool wants all internal nodes in the tree to be
+      // present.  Currently, the missing nodes are all lang_Script locales.
+      // Maybe change the package tool to fix this.
+      int x = source.root.name.indexOf('_');
+      if (x == -1 || source.root.name.length() - x == 5) {
         for (String targetDirPath : targetDirs.keySet()) {
           ResourceTable root = resultMap.get(targetDirPath);
           if (root == null) {

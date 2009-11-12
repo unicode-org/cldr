@@ -73,8 +73,8 @@ public class VoteResolver<T> {
    * so that we know when new ones show up.
    */
   public enum Organization {
-    //apple, adobe, breton, google, ibm, gnome, pakistan, india, guest, iran_hci, kotoistus, lisa, openoffice_org, sil, sun, surveytool, utilika
-    adobe, apple, breton, gnome, google, guest, ibm, india, iran_hci, kotoistus, lisa, openoffice_org, pakistan, sil, sun, surveytool, utilika, yahoo;
+    // adobe, afrigen, apple, breton, gnome, google, guest, ibm, india, iran_hci, kotoistus, lisa, openoffice_org, pakistan, sil, sun, surveytool, utilika, yahoo;
+    adobe, afrigen, apple, breton, gnome, google, guest, ibm, india, iran_hci, kotoistus, lisa, openoffice_org, pakistan, sil, sun, surveytool, utilika, yahoo;
     
     public static Organization fromString(String name) {
     	name = name.toLowerCase().replace('-', '_').replace('.', '_');

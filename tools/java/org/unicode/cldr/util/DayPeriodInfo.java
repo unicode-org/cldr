@@ -14,7 +14,7 @@ import com.ibm.icu.impl.Row.R3;
 
 public class DayPeriodInfo {
   public static int DAY_LIMIT = 24*60*60*1000;
-  public enum DayPeriod {am, pm, weeHours, earlyMorning, morning, noon, midDay, afternoon, evening, night};
+  public enum DayPeriod {am, pm, weeHours, earlyMorning, morning, lateMorning, noon, midDay, afternoon, evening, night};
   
   // the starts must be in sorted order. First must be zero. Last must be < DAY_LIMIT
   // each of these will have the same length, and correspond.
@@ -38,7 +38,7 @@ public class DayPeriodInfo {
       return this;
     }
     
-    public DayPeriodInfo finish() {
+    public DayPeriodInfo finish(String[] locales) {
       DayPeriodInfo result = new DayPeriodInfo();
       int len = info.size();
       if (len == 0) {
@@ -54,7 +54,9 @@ public class DayPeriodInfo {
         result.starts[i] = start.get0();
         result.includesStart[i] = start.get1() == 0;
         if (lastFinish != result.starts[i] || lastFinishIncluded == result.includesStart[i]) {
-          throw new IllegalArgumentException("Gap or overlapping times");
+          throw new IllegalArgumentException("Gap or overlapping times: " 
+                  + start + "\t" + lastFinish + "\t" + lastFinishIncluded
+                  + "\t" + Arrays.asList(locales));
         }
         Row.R3<Integer, Boolean, DayPeriodInfo.DayPeriod> row = info.get(start);
         lastFinish = row.get0();

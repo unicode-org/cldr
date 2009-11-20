@@ -1432,8 +1432,8 @@ public class SupplementalDataInfo {
   }
 
   private void addDayPeriodInfo() {
-    DayPeriodInfo temp = dayPeriodBuilder.finish();
     String[] locales = lastDayPeriodLocales.split("\\s+");
+    DayPeriodInfo temp = dayPeriodBuilder.finish(locales);
     for (String locale : locales) {
       localeToDayPeriodInfo.put(locale, temp);
     }

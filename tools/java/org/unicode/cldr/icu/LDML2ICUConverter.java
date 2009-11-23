@@ -709,7 +709,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     keyNameMap.put("exemplarCharacters", "ExemplarCharacters");
     keyNameMap.put("auxiliary", "AuxExemplarCharacters");
     keyNameMap.put("timeZoneNames", "zoneStrings");
-    keyNameMap.put("localizedPatternChars", "localPatternChars");
+    //keyNameMap.put("localizedPatternChars", "localPatternChars");
     keyNameMap.put("paperSize", "PaperSize");
     keyNameMap.put("measurementSystem", "MeasurementSystem");
     keyNameMap.put("measurementSystemNames", "measurementSystemNames");
@@ -1881,7 +1881,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         metazones.add(mzname);
       } else if (
           name.equals(LDMLConstants.HOUR_FORMAT)
-          || name.equals(LDMLConstants.HOURS_FORMAT)
           || name.equals(LDMLConstants.GMT_FORMAT)
           || name.equals(LDMLConstants.GMT_ZERO_FORMAT)
           || name.equals(LDMLConstants.REGION_FORMAT)
@@ -1892,16 +1891,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         if (str.val != null) {
           res = str;
         }
-      } else if (name.equals(LDMLConstants.ABBREVIATION_FALLBACK)) {
-        ResourceString str = new ResourceString();
-        str.name = name;
-        str.val = loc.getBasicAttributeValue(apath, LDMLConstants.TYPE);
-        if (str.val != null) {
-          res = str;
-        }
       } else if (
-          name.equals(LDMLConstants.PREFERENCE_ORDERING)
-          || name.equals(LDMLConstants.SINGLE_COUNTRIES)) {
+         name.equals(LDMLConstants.ABBREVIATION_FALLBACK)
+         || name.equals(LDMLConstants.HOURS_FORMAT)
+         || name.equals(LDMLConstants.PREFERENCE_ORDERING)) {
+        // deprecated, skip
+      } else if (name.equals(LDMLConstants.SINGLE_COUNTRIES)) {
         ResourceArray arr = new ResourceArray();
         arr.name = name;
         Resource c = null;

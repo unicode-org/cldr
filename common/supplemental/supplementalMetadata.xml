@@ -672,7 +672,7 @@
         </alias>
         <deprecated>
             <!-- items deprecated in ldml.dtd -->
-            <deprecatedItems elements="monthNames monthAbbr localizedPatternChars week minDays firstDay weekendStart weekendEnd yesexpr noexpr localizedPatternChars"/>
+            <deprecatedItems elements="monthNames monthAbbr localizedPatternChars week minDays firstDay weekendStart weekendEnd yesexpr noexpr measurement hoursFormat abbreviationFallback preferenceOrdering dateRangePattern"/>
             <deprecatedItems attributes="standard count time"/>
             <deprecatedItems elements="variant" attributes="type" values="BOKMAL NYNORSK AALAND POLYTONI"/>
             <deprecatedItems elements="abbreviationFallback default hoursFormat localizedPatternChars mapping measurementSystem preferenceOrdering" attributes="type"/>

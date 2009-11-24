@@ -59,5 +59,29 @@
 			afternoon మధ్యాహ్నం 3-6 evening సాయంకాలం 6-12 night రాత్రి 12-3
 			mid-night అర్ధరాత్రి
 		-->
+        <dayPeriodRules locales="bg">
+            <dayPeriodRule type="weeHours" from="00:00" before="5:00" />
+            <dayPeriodRule type="earlyMorning" from="5:00" before="6:00" />
+            <dayPeriodRule type="morning" from="6:00" before="10:00" />
+            <dayPeriodRule type="lateMorning" from="10:00" before="12:00" />
+            <dayPeriodRule type="noon" at="12:00" />
+            <dayPeriodRule type="midDay" after="12:00" before="15:00" />
+            <dayPeriodRule type="afternoon" from="15:00" before="18:00" />
+            <dayPeriodRule type="evening" from="18:00" before="20:00" />
+            <dayPeriodRule type="lateEvening" from="20:00" before="22:00" />
+            <dayPeriodRule type="night" from="22:00" before="24:00" />
+        </dayPeriodRules>
+		<!-- #2482
+00:00 = полунощ
+< 05:00 ≤ нощ
+< 06:00 ≤ разсъмване
+< 10:00 ≤ утро
+< 12:00 ≤ ден
+= 12:00 = обяд
+< 15:00 ≤ ранен следобяд
+< 18:00 ≤ късен следобяд
+< 20:00 ≤ вечер
+< 22:00 ≤ късна вечер
+< 24:00 ≤ нощ -->
 	</dayPeriodRuleSet>
 </supplementalData>

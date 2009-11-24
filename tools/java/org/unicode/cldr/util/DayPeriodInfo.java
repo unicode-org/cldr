@@ -14,7 +14,7 @@ import com.ibm.icu.impl.Row.R3;
 
 public class DayPeriodInfo {
   public static int DAY_LIMIT = 24*60*60*1000;
-  public enum DayPeriod {am, pm, weeHours, earlyMorning, morning, lateMorning, noon, midDay, afternoon, evening, night};
+  public enum DayPeriod {am, pm, weeHours, earlyMorning, morning, lateMorning, noon, midDay, afternoon, lateAfternoon, earlyEvening, evening, lateEvening, earlyNight, night};
   
   // the starts must be in sorted order. First must be zero. Last must be < DAY_LIMIT
   // each of these will have the same length, and correspond.
@@ -55,7 +55,7 @@ public class DayPeriodInfo {
         result.includesStart[i] = start.get1() == 0;
         if (lastFinish != result.starts[i] || lastFinishIncluded == result.includesStart[i]) {
           throw new IllegalArgumentException("Gap or overlapping times: " 
-                  + start + "\t" + lastFinish + "\t" + lastFinishIncluded
+                  + formatTime(start.get0()) + "\t..\t" + formatTime(start.get1()) + "\t" + formatTime(lastFinish) + "\t" + lastFinishIncluded
                   + "\t" + Arrays.asList(locales));
         }
         Row.R3<Integer, Boolean, DayPeriodInfo.DayPeriod> row = info.get(start);
@@ -134,18 +134,23 @@ public class DayPeriodInfo {
     for (int i = 0; i < starts.length; ++i) {
       R3<Integer, Boolean, DayPeriod> period = getPeriod(i);
       Boolean included = period.get1();
-      int minutes = period.get0()/(60*1000);
-      int hours = minutes/60;
-      minutes -= hours*60;
+      int time = period.get0();
 
       if (i != 0) {
         result.append('\n').append(included ? " < " : " \u2264 ");
       }
-      result.append(String.format("%02d:%02d", hours, minutes))
+      result.append(formatTime(time))
       .append(!included ? " < " : " \u2264 ")
       .append(period.get2());
     }
     result.append("\n< 24:00");
     return result.toString();
+  }
+  
+  static String formatTime(int time) {
+    int minutes = time/(60*1000);
+    int hours = minutes/60;
+    minutes -= hours*60;
+    return String.format("%02d:%02d", hours, minutes);
   }
 }

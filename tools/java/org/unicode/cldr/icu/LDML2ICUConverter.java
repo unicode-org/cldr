@@ -708,6 +708,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     keyNameMap.put("version", "Version");
     keyNameMap.put("exemplarCharacters", "ExemplarCharacters");
     keyNameMap.put("auxiliary", "AuxExemplarCharacters");
+    keyNameMap.put("currencySymbol", "ExemplarCharactersCurrency");
     keyNameMap.put("timeZoneNames", "zoneStrings");
     //keyNameMap.put("localizedPatternChars", "localPatternChars");
     keyNameMap.put("paperSize", "PaperSize");
@@ -1469,7 +1470,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         if (type != null && type.equals(LDMLConstants.AUXILIARY)) {
           res.name = keyNameMap.get(LDMLConstants.AUXILIARY);
         } else if (type != null && type.equals(LDMLConstants.CURRENCY_SYMBOL)) {
-          res = null;
+          res.name = keyNameMap.get(LDMLConstants.CURRENCY_SYMBOL);
         } else if (type != null && type.equals(LDMLConstants.INDEX)) {
           res = null;
         } else {

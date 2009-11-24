@@ -8,6 +8,11 @@
 			<dayPeriodRule type="am" from="0:00" before="12:00" />
 			<dayPeriodRule type="pm" from="12:00" before="24:00" />
 		</dayPeriodRules>
+        <dayPeriodRules locales="en">
+            <dayPeriodRule type="am" from="0:00" before="12:00" />
+            <dayPeriodRule type="noon" at="12:00" />
+            <dayPeriodRule type="pm" after="12:00" before="24:00" />
+        </dayPeriodRules>
 		<dayPeriodRules locales="de nl">
 			<dayPeriodRule type="earlyMorning" from="0:00" before="9:00" />
 			<dayPeriodRule type="morning" from="9:00" before="12:00" />

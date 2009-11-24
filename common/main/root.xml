@@ -52,7 +52,6 @@
 		<alternateQuotationEnd>’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<default choice="gregorian"/>
 			<calendar type="buddhist">
@@ -1599,13 +1598,10 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
-			<hoursFormat>{0}/{1}</hoursFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
-			<abbreviationFallback choice="standard"/>
-			<preferenceOrdering choice=""/>
 			<singleCountries list="Europe/Kiev Pacific/Majuro Africa/Bamako America/Godthab America/Santiago America/Guayaquil Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon Europe/London Pacific/Auckland Pacific/Tahiti"/>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Unknown</exemplarCity>

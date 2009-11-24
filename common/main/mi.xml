@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="mi"/>
+	</identity>
+	<characters>
+		<exemplarCharacters>[a ā e ē h i ī k m n {ng} o ō p r t u ū w {wh}]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[b-d f g j l q s v x-z]</exemplarCharacters>
+	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1" draft="provisional">Hānuere</month>
+							<month type="2" draft="provisional">Pēpuere</month>
+							<month type="3" draft="provisional">Māehe</month>
+							<month type="4" draft="provisional">Āperira</month>
+							<month type="5" draft="provisional">Mei</month>
+							<month type="6" draft="provisional">Hune</month>
+							<month type="7" draft="provisional">Hūrae</month>
+							<month type="8" draft="provisional">Ākuhata</month>
+							<month type="9" draft="provisional">Hepetema</month>
+							<month type="10" draft="provisional">Oketopa</month>
+							<month type="11" draft="provisional">Noema</month>
+							<month type="12" draft="provisional">Tīhema</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="wide">
+							<day type="sun" draft="provisional">Rātapu</day>
+							<day type="mon" draft="provisional">Mane</day>
+							<day type="tue" draft="provisional">Tūrei</day>
+							<day type="wed" draft="provisional">Wenerei</day>
+							<day type="thu" draft="provisional">Tāite</day>
+							<day type="fri" draft="provisional">Paraire</day>
+							<day type="sat" draft="provisional">Hātarei</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+			</calendar>
+		</calendars>
+	</dates>
+</ldml>

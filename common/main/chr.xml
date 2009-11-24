@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="chr"/>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="chr">ᏣᎳᎩ</language>
+			<language type="en">ᎩᎵᏏ</language>
+		</languages>
+		<territories>
+			<territory type="US">ᎠᎺᎵᎨ</territory>
+		</territories>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[Ꭰ-Ᏼ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[a-z]</exemplarCharacters>
+	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1">ᎤᏃᎸᏔᏅ</month>
+							<month type="2">ᎧᎦᎵ</month>
+							<month type="3">ᎠᏅᏱ</month>
+							<month type="4">ᎧᏬᏂ</month>
+							<month type="5">ᎠᏂᏍᎬᏘ</month>
+							<month type="6">ᏕᎭᎷᏱ</month>
+							<month type="7">ᎫᏰᏉᏂ</month>
+							<month type="8">ᎦᎶᏂ</month>
+							<month type="9">ᏚᎵᏍᏗ</month>
+							<month type="10">ᏚᏂᏅᏗ</month>
+							<month type="11">ᏅᏓᏕᏆ</month>
+							<month type="12">ᎤᏍᎩᏱ</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="wide">
+							<day type="sun">ᎤᎾᏙᏓᏆᏍᎬ</day>
+							<day type="mon">ᎤᎾᏙᏓᏉᏅᎯ</day>
+							<day type="tue">ᏔᎵᏁᎢᎦ</day>
+							<day type="wed">ᏦᎢᏁᎢᎦ</day>
+							<day type="thu">ᏅᎩᏁᎢᎦ</day>
+							<day type="fri">ᏧᎾᎩᎶᏍᏗ</day>
+							<day type="sat">ᎤᎾᏙᏓᏈᏕᎾ</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+			</calendar>
+		</calendars>
+	</dates>
+	<references>
+		<reference type="RP1" uri="http://www.cherokee.org/Culture/Language/Default.aspx">Cherokee Nation Cultural Resource Center - Language Services</reference>
+	</references>
+</ldml>

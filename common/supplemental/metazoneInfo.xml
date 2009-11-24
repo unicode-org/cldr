@@ -50,7 +50,7 @@
 			<usesMetazone mzone="Vostok"/>
 		</timezone>
 		<timezone type="Antarctica/Casey">
-			<usesMetazone mzone="Australia_Western"/>
+			<usesMetazone to="2009-10-17 18:00" mzone="Australia_Western"/>
 		</timezone>
 		<timezone type="Antarctica/DumontDUrville">
 			<usesMetazone mzone="DumontDUrville"/>
@@ -65,9 +65,9 @@
 		</timezone>
 		<timezone type="America/Mendoza">
 			<usesMetazone to="1990-03-04 02:00" mzone="Argentina"/>
-			<usesMetazone to="1992-10-18 04:00" from="1990-03-04 02:00" mzone="Argentina_Western"/>
+			<!-- <usesMetazone to="1992-10-18 04:00" from="1990-03-04 02:00" mzone="Argentina_Western"/> -->
 			<usesMetazone to="2004-05-23 03:00" from="1992-10-18 04:00" mzone="Argentina"/>
-			<usesMetazone to="2004-09-26 04:00" from="2004-05-23 03:00" mzone="Argentina_Western"/>
+			<!-- <usesMetazone to="2004-09-26 04:00" from="2004-05-23 03:00" mzone="Argentina_Western"/> -->
 			<usesMetazone from="2004-09-26 04:00" mzone="Argentina"/>
 		</timezone>
 		<timezone type="America/Argentina/San_Juan">
@@ -79,7 +79,7 @@
 		</timezone>
 		<timezone type="America/Argentina/Ushuaia">
 			<usesMetazone to="2004-05-30 03:00" mzone="Argentina"/>
-			<usesMetazone to="2004-06-20 04:00" from="2004-05-30 03:00" mzone="Argentina_Western"/>
+			<!-- <usesMetazone to="2004-06-20 04:00" from="2004-05-30 03:00" mzone="Argentina_Western"/> -->
 			<usesMetazone from="2004-06-20 04:00" mzone="Argentina"/>
 		</timezone>
 		<timezone type="America/Argentina/La_Rioja">
@@ -91,26 +91,26 @@
 		</timezone>
 		<timezone type="America/Catamarca">
 			<usesMetazone to="1991-03-03 02:00" mzone="Argentina"/>
-			<usesMetazone to="1991-10-20 04:00" from="1991-03-03 02:00" mzone="Argentina_Western"/>
+			<!-- <usesMetazone to="1991-10-20 04:00" from="1991-03-03 02:00" mzone="Argentina_Western"/> -->
 			<usesMetazone to="2004-06-01 03:00" from="1991-10-20 04:00" mzone="Argentina"/>
 			<usesMetazone to="2004-06-20 04:00" from="2004-06-01 03:00" mzone="Argentina_Western"/>
 			<usesMetazone from="2004-06-20 04:00" mzone="Argentina"/>
 		</timezone>
 		<timezone type="America/Jujuy">
 			<usesMetazone to="1990-03-04 02:00" mzone="Argentina"/>
-			<usesMetazone to="1991-10-06 04:00" from="1990-03-04 02:00" mzone="Argentina_Western"/>
+			<!-- <usesMetazone to="1991-10-06 04:00" from="1990-03-04 02:00" mzone="Argentina_Western"/> -->
 			<usesMetazone from="1991-10-06 04:00" mzone="Argentina"/>
 		</timezone>
 		<timezone type="America/Argentina/Tucuman">
 			<usesMetazone to="1991-03-03 02:00" mzone="Argentina"/>
-			<usesMetazone to="1991-10-20 04:00" from="1991-03-03 02:00" mzone="Argentina_Western"/>
+			<!-- <usesMetazone to="1991-10-20 04:00" from="1991-03-03 02:00" mzone="Argentina_Western"/> -->
 			<usesMetazone to="2004-06-01 03:00" from="1991-10-20 04:00" mzone="Argentina"/>
 			<usesMetazone to="2004-06-13 04:00" from="2004-06-01 03:00" mzone="Argentina_Western"/>
 			<usesMetazone from="2004-06-13 04:00" mzone="Argentina"/>
 		</timezone>
 		<timezone type="America/Cordoba">
 			<usesMetazone to="1991-03-03 02:00" mzone="Argentina"/>
-			<usesMetazone to="1991-10-20 04:00" from="1991-03-03 02:00" mzone="Argentina_Western"/>
+			<!-- <usesMetazone to="1991-10-20 04:00" from="1991-03-03 02:00" mzone="Argentina_Western"/> -->
 			<usesMetazone from="1991-10-20 04:00" mzone="Argentina"/>
 		</timezone>
 		<timezone type="America/Buenos_Aires">
@@ -123,13 +123,12 @@
 			<usesMetazone to="2000-03-03 03:00" from="1999-10-03 03:00" mzone="Argentina_Western"/>
 			<usesMetazone to="2004-05-31 03:00" from="2000-03-03 03:00" mzone="Argentina"/>
 			<usesMetazone to="2004-07-25 04:00" from="2004-05-31 03:00" mzone="Argentina_Western"/>
-			<usesMetazone to="2009-03-15 03:00" from="2004-07-25 04:00" mzone="Argentina"/>
-			<!-- Disable the mapping.  See CLDR bug#2125. -->
-			<!-- <usesMetazone from="2009-03-15 03:00" mzone="Argentina_Western"/> -->
+			<usesMetazone to="2008-01-21 02:00" from="2004-07-25 04:00" mzone="Argentina"/>
+			<usesMetazone from="2008-01-21 02:00" mzone="Argentina_Western"/>
 		</timezone>
 		<timezone type="America/Argentina/Salta">
 			<usesMetazone to="1991-03-03 02:00" mzone="Argentina"/>
-			<usesMetazone to="1991-10-20 04:00" from="1991-03-03 02:00" mzone="Argentina_Western"/>
+			<!-- <usesMetazone to="1991-10-20 04:00" from="1991-03-03 02:00" mzone="Argentina_Western"/> -->
 			<usesMetazone from="1991-10-20 04:00" mzone="Argentina"/>
 		</timezone>
 		<timezone type="Pacific/Pago_Pago">

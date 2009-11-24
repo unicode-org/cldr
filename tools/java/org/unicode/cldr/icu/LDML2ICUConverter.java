@@ -1118,7 +1118,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
   }
 
   private static final String[] registeredKeys = new String[] {
-    "collation", "calendar", "currency"
+    "collation", "calendar", "currency", "numbers"
   };
 
   private Resource parseLocaleDisplayNames(LDML2ICUInputLocale loc) {

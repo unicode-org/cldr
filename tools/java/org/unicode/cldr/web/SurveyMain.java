@@ -160,7 +160,7 @@ public class SurveyMain extends HttpServlet {
     //public static final int    BUG_ST = xxxx; // was: umbrella bug
     public static final String URL_HOST = "http://www.unicode.org/";
     public static final String URL_CLDR = URL_HOST+"cldr/";
-    public static final String BUG_URL_BASE = URL_CLDR+"bugs/locale-bugs";
+    public static final String BUG_URL_BASE = URL_CLDR+"trac";
     public static final String GENERAL_HELP_URL = URL_CLDR+"survey_tool.html";
     public static final String GENERAL_HELP_NAME = "General&nbsp;Instructions";
     
@@ -10130,13 +10130,13 @@ public class SurveyMain extends HttpServlet {
             return "UNKNOWN";
         }
     }
-    
+   /* 
     public static String bugReplyUrl(String folder, int number, String subject) {
-        return BUG_URL_BASE + "/"+folder+"?compose="+number+"&amp;subject="+java.net.URLEncoder.encode(subject)+"&amp;locksubj=y";
+	return bugFeedbackUrl(subject);
     }
-
+*/
     public static String bugFeedbackUrl(String subject) {
-        return BUG_URL_BASE +"?newbug=incoming&amp;subject="+java.net.URLEncoder.encode(subject)+"&amp;locksubj=y";
+        return BUG_URL_BASE + "/newticket?component=survey&amp;summary="+java.net.URLEncoder.encode(subject);
     }
     
     

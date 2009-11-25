@@ -3,6 +3,7 @@ package org.unicode.cldr.tool;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.Map;
 import java.util.Set;
@@ -128,12 +129,53 @@ public class GenerateMaximalLocales {
 
 
   }
+  
+  static class RowData implements Comparable<RowData>{
+    OfficialStatus os; String name; Long pop;
+
+    public RowData(OfficialStatus os, String name, Long pop) {
+      this.os = os;
+      this.name = name;
+      this.pop = pop;
+    }
+
+    public OfficialStatus getStatus() {
+      // TODO Auto-generated method stub
+      return os;
+    }
+
+    public CharSequence getName() {
+      // TODO Auto-generated method stub
+      return name;
+    }
+
+    public Long getLiteratePopulation() {
+      // TODO Auto-generated method stub
+      return pop;
+    }
+
+    public int compareTo(RowData o) {
+      // TODO Auto-generated method stub
+      int result = os.compareTo(o.os);
+      if (result != 0) return -result;
+      long result2 = pop - o.pop;
+      if (result2 != 0) return result2 < 0 ? 1 : -1;
+      return name.compareTo(o.name);
+    }
+    public boolean equals(Object o) {
+      return 0 == compareTo((RowData)o);
+    }
+    public int hashCode() {
+      throw new UnsupportedOperationException();
+    }
+  }
 
   private static void printDefaultLanguagesAndScripts() {
+    
     final int minTotalPopulation = 10000000;
     final int minTerritoryPopulation = 1000000;
     final double minTerritoryPercent = 1.0/3;
-    Map<String,Set<R3<OfficialStatus, String, Long>>> languageToReason = new TreeMap();
+    Map<String,Set<RowData>> languageToReason = new TreeMap();
     Counter<String> languageToLiteratePopulation = new Counter<String>();
     NumberFormat nf = NumberFormat.getIntegerInstance(ULocale.ENGLISH);
     nf.setGroupingUsed(true);
@@ -148,6 +190,19 @@ public class GenerateMaximalLocales {
      * B. X is an exception explicitly approved by the committee or X has minimal
      * language coverage‡ in CLDR itself.
      */
+    OfficialStatus minimalStatus = OfficialStatus.official_regional; // OfficialStatus.de_facto_official;
+    Map<String,String> languages = new TreeMap<String,String>(); 
+    for (String language : standardCodes.getAvailableCodes("language")) {
+      String path = CLDRFile.getKey(english.LANGUAGE_NAME, language);
+      String result = english.getStringValue(path);
+      if (result != null) {
+        languages.put(language,result);
+      }
+    }
+    for (String language : languages.keySet()) {
+      System.out.println(language + "\t" + languages.get(language));
+    }
+
     for (String territory : supplementalData.getTerritoriesWithPopulationData()) {
       PopulationData territoryPop = supplementalData.getPopulationDataForTerritory(territory);
       double territoryPopulation = territoryPop.getLiteratePopulation();
@@ -157,7 +212,7 @@ public class GenerateMaximalLocales {
         boolean add = false;
         // #1
         OfficialStatus status = popData.getOfficialStatus();
-        if (status != OfficialStatus.unknown) {
+        if (status.compareTo(minimalStatus) >= 0) {
           add = true;
         }
         final long literatePopulation = (long) popData.getLiteratePopulation();
@@ -192,21 +247,29 @@ public class GenerateMaximalLocales {
 //    }
     // print them
     
-    System.out.println("Detailed Including:\t" + languageToReason.size());
+    System.out.println("Detailed - Including:\t" + languageToReason.size());
 
     for (String language : languageToReason.keySet()) {
-      Set<R3<OfficialStatus, String, Long>> reasons = languageToReason.get(language);
-      System.out.append(getLanguageName(language, languageToReason))
+      Set<RowData> reasons = languageToReason.get(language);
+
+      RowData lastReason = reasons.iterator().next();
+      
+      System.out.append(language)
         .append("\t")
-        .append(nf.format(languageToLiteratePopulation.getCount(language)));
-      for (R3<OfficialStatus, String, Long> reason : reasons) {
-        String status = reason.get0().toShortString();
+        .append(english.getName(language))
+        .append("\t")
+        .append(lastReason.getStatus().toShortString())
+        .append("\t")
+        .append(nf.format(languageToLiteratePopulation.getCount(language)))
+        ;
+      for (RowData reason : reasons) {
+        String status = reason.getStatus().toShortString();
         System.out.append("\t")
         .append(status)
         .append("-")
-        .append(reason.get1())
+        .append(reason.getName())
         .append("-")
-        .append(nf.format(reason.get2()));
+        .append(nf.format(reason.getLiteratePopulation()));
       }
       System.out.append("\n");
     }
@@ -222,7 +285,7 @@ public class GenerateMaximalLocales {
     showLanguages(others, languageToReason);
   }
 
-  private static void showLanguages(Set<String> others, Map<String, Set<R3<OfficialStatus, String, Long>>> languageToReason) {
+  private static void showLanguages(Set<String> others, Map<String, Set<RowData>> languageToReason) {
     Set<String> sorted = new TreeSet(Collator.getInstance(ULocale.ENGLISH));
     for (String language : others) {
       sorted.add(getLanguageName(language, languageToReason));
@@ -242,12 +305,12 @@ public class GenerateMaximalLocales {
   }
 
   private static String getLanguageName(String language,
-          Map<String, Set<R3<OfficialStatus, String, Long>>> languageToReason) {
+          Map<String, Set<RowData>> languageToReason) {
     OfficialStatus best = OfficialStatus.unknown;
-    Set<R3<OfficialStatus, String, Long>> reasons = languageToReason.get(language);
+    Set<RowData> reasons = languageToReason.get(language);
     if (reasons != null) {
-      for (R3<OfficialStatus, String, Long> reason : reasons) {
-        final OfficialStatus currentStatus = reason.get0();
+      for (RowData reason : reasons) {
+        final OfficialStatus currentStatus = reason.getStatus();
         if (best.compareTo(currentStatus) < 0) {
           best = currentStatus;
         }
@@ -262,14 +325,14 @@ public class GenerateMaximalLocales {
     return languageFormatted;
   }
 
-  private static void add(Map<String, Set<R3<OfficialStatus, String, Long>>> languageToReason, String language, 
+  private static void add(Map<String, Set<RowData>> languageToReason, String language, 
           String territoryRaw, OfficialStatus status, long population) {
     String territory = english.getName("territory", territoryRaw) + " [" + territoryRaw + "]";
-    Set<R3<OfficialStatus, String, Long>> set = languageToReason.get(language);
+    Set<RowData> set = languageToReason.get(language);
     if (set == null) {
-      languageToReason.put(language, set = new TreeSet<R3<OfficialStatus, String, Long>>());
+      languageToReason.put(language, set = new TreeSet<RowData>());
     }
-    set.add(Row.of(status, territory, population));
+    set.add(new RowData(status, territory, population));
   }
 
   private static void printDefaultContent(Map<String, String> toMaximized) throws IOException {

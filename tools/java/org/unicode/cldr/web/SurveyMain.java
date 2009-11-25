@@ -92,6 +92,7 @@ import com.ibm.icu.util.ULocale;
  * The main servlet class of Survey Tool
  */
 public class SurveyMain extends HttpServlet {
+	public static final String SURVEYMAIN_REVISION = "$Revision$";
 
     private static final String CLDR_BULK_DIR = "CLDR_BULK_DIR";
 	private static final String ACTION_DEL = "_del";
@@ -256,12 +257,13 @@ public class SurveyMain extends HttpServlet {
     static final String PREF_JAVASCRIPT = PREF_NOJAVASCRIPT;
     static final String PREF_ADV = "p_adv"; // show advanced prefs?
     static final String PREF_XPATHS = "p_xpaths"; // show xpaths?
+    public static final String PREF_DEBUGJSP = "p_debugjsp"; // debug JSPs?
     public static final String PREF_COVLEV = "p_covlev"; // covlev
     public static final String PREF_COVTYP = "p_covtyp"; // covtyp
     //    static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
     static final String  BASELINE_ID = "en";
     static final ULocale BASELINE_LOCALE = new ULocale(BASELINE_ID);
-    static final String  BASELINE_NAME = BASELINE_LOCALE.getDisplayName(BASELINE_LOCALE);
+    public static final String  BASELINE_NAME = BASELINE_LOCALE.getDisplayName(BASELINE_LOCALE);
     public static final String METAZONE_EPOCH = "1970-01-01";
   
     // ========== lengths
@@ -2213,6 +2215,7 @@ public class SurveyMain extends HttpServlet {
     {
         ctx.println("<hr>");
         ctx.print("<div style='float: right; font-size: 60%;'>");
+        ctx.print("<span style='color: #ddd'> "+SURVEYMAIN_REVISION+" \u00b7 </span>");
         ctx.print("<span class='notselected'>validate <a href='http://jigsaw.w3.org/css-validator/check/referer'>css</a>, "+
             "<a href='http://validator.w3.org/check?uri=referer'>html</a></span>");
         ctx.print(" \u00b7 ");
@@ -3776,7 +3779,14 @@ public class SurveyMain extends HttpServlet {
         }
     }
 
-    boolean showTogglePref(WebContext ctx, String pref, String what) {
+    /** 
+     * Show a toggleable preference
+     * @param ctx
+     * @param pref which preference
+     * @param what description of preference
+     * @return
+     */
+    public boolean showTogglePref(WebContext ctx, String pref, String what) {
         boolean val = ctx.prefBool(pref);
         WebContext nuCtx = (WebContext)ctx.clone();
         nuCtx.addQuery(pref, !val);
@@ -3790,6 +3800,7 @@ public class SurveyMain extends HttpServlet {
 //        nuCtx.println("</div>");
         return val;
     }
+    
     String showListPref(WebContext ctx, String pref, String what, String[] list) {
         return showListPref(ctx,pref,what,list,false);
     }
@@ -4603,9 +4614,7 @@ public class SurveyMain extends HttpServlet {
         
         ctx.print("</p>");
         
-        if(this.isUnofficial) {
-            ctx.includeFragment("report_menu.jsp");
-        }
+        ctx.includeFragment("report_menu.jsp");
         
         boolean canModify = UserRegistry.userCanModifyLocale(subCtx.session.user, subCtx.getLocale());
         if(canModify) {
@@ -5381,7 +5390,7 @@ public class SurveyMain extends HttpServlet {
     * Show the 'main info about this locale' (General) panel.
      */
     public void doMain(WebContext ctx) {
-        String diskVer = LDMLUtilities.getCVSVersion(fileBase, ctx.getLocale().toString() + ".xml"); // just get ver of the latest file.
+        //SLOW: String diskVer = LDMLUtilities.loadFileRevision(fileBase, ctx.getLocale().toString() + ".xml"); // just get ver of the latest file.
         String dbVer = dbsrcfac.getSourceRevision(ctx.getLocale());
         
         // what should users be notified about?
@@ -5549,10 +5558,10 @@ public class SurveyMain extends HttpServlet {
                     "</li> --> </ul>");
         
         if(dbVer != null) {
-            ctx.println( LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "CVS version #" + dbVer + "</a>");
-            if((diskVer != null)&&(!diskVer.equals(dbVer))) {
-                ctx.println( " " + LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "(Note: version " + diskVer + " is available to the administrator.)</a>");
-            }
+            ctx.println( LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "version #" + dbVer + "</a>");
+//            if((diskVer != null)&&(!diskVer.equals(dbVer))) {
+//                ctx.println( " " + LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "(Note: version " + diskVer + " is available to the administrator.)</a>");
+//            }
         }    
         ctx.println(SLOW_PAGE_NOTICE);
         if(ctx.session.user!=null) {
@@ -5613,6 +5622,10 @@ public class SurveyMain extends HttpServlet {
 
     /* Sentinel value indicating that there was no baseline string available. */
     private static final String NULL_STRING = "";
+
+	public static final String DATAROW_JSP = "datarow_jsp";  // context tag for which datarow jsp to use
+
+	public static final String DATAROW_JSP_DEFAULT = "datarow_short.jsp";
 
     public synchronized String baselineFileGetStringValue(String xpath) {
         String res = gBaselineHash.get(xpath);
@@ -6589,19 +6602,54 @@ public class SurveyMain extends HttpServlet {
         }
     }
 
+    /**
+     * section may be null.
+     * @param ctx
+     * @param section
+     */
     static void printSectionTableOpenShort(WebContext ctx, DataSection section) {
         ctx.println("<a name='st_data'></a>");
-        ctx.println("<table summary='Data Items for "+ctx.getLocale().toString()+" " + section.xpathPrefix + "' class='data' border='1'>");
+        ctx.print("<table ");
+        if(section != null) {
+        	ctx.print(" summary='Data Items for "+ctx.getLocale().toString()+" " + section.xpathPrefix + "' ");
+        }
+        ctx.println("class='data' border='1'>");
             ctx.println("<tr class='headingb'>\n"+
                         " <th colspan='1' width='50%'>"+BASELINE_NAME+"</th>\n"+              // 3
                         " <th colspan='2' width='50%'>Your Language</th>\n");  // 8
 
         ctx.println("</tr>");
+    
+    }
+    
+    /**
+     * section may be null.
+     * @param ctx
+     * @param section
+     */
+    static void printSectionTableOpenCode(WebContext ctx) {
+        ctx.includeFragment("datarow_open_table_code.jsp");
+    	ctx.flush();
+    }
+    
+
+    /**
+     * Print closing table
+     * @param ctx
+     */
+    static void printSectionTableCloseCode(WebContext ctx) {
+        ctx.includeFragment("datarow_close_table_code.jsp");
+    	ctx.flush();
     }
 
+    /**
+     * Section may be null.
+     * @param ctx
+     * @param section
+     */
     void printSectionTableClose(WebContext ctx, DataSection section) {
         List<String> refsList = (List<String>) ctx.temporaryStuff.get("references");
-        if((refsList != null) && (!refsList.isEmpty())) {
+        if(section!=null && (refsList != null) && (!refsList.isEmpty())) {
             ctx.println("<tr></tr>");
             ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='"+PODTABLE_WIDTH+"'>References</th></tr>");
             int n = 0;
@@ -6664,6 +6712,11 @@ public class SurveyMain extends HttpServlet {
 		DataRow row = section.getDataRow(item_xpath);
 		if(row!=null) {
 			showDataRowShort(ctx, row);
+		} else {
+			//if(this.isUnofficial) {
+				ctx.println("<tr><td colspan='2'>"+ctx.iconHtml("stop", "internal error")+"<i>internal error: nothing to show for xpath "+item_xpath+"," +
+						" "+xpt.getById(item_xpath)+"</i></td></tr>");
+			//}
 		}
 	}
 
@@ -7412,8 +7465,11 @@ public class SurveyMain extends HttpServlet {
      */
     void showDataRowShort(WebContext ctx, DataRow row) {
         ctx.put(WebContext.DATA_ROW, row);
-        
-        ctx.includeFragment("datarow_short.jsp");
+        String whichFragment = (String)ctx.get(SurveyMain.DATAROW_JSP);
+        if(whichFragment == null) {
+        	whichFragment = SurveyMain.DATAROW_JSP_DEFAULT;
+        }
+        ctx.includeFragment(whichFragment);
     }
 
     /**

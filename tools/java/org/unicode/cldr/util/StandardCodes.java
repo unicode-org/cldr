@@ -1043,15 +1043,13 @@ public class StandardCodes {
     static final Set<String> filteredLanguages = Collections
             .unmodifiableSet(new TreeSet(
             Arrays
-            .asList(whitespace.split("ab ady af ak sq am ar hy as ast av awa ay az bm ba eu be bn bho bi bs bg my ca " +
-            "ceb ch ce zh chk hr cs da dv nl dz efi en myv et ee fo fj fil fi fr gaa gag gl " +
-            "ka de gil el gn gu ht ha haw he hil hi ho hu is ig ilo id inh iu ga it ja jv " +
-            "kbd kl kn krc ks kk kha km rw ky koi kpv kok ko kos kri kum ku lah lbe lo la " +
-            "lv lez ln lt lb mk mad mdh mai mg ms ml mt swb mi mr mh mdf mn mos na ne niu " +
-            "tts se nso nb nn ny or om os pau pag pap ps fa crk pon pl pt pa qu rm ro rn ru " +
-            "sm sg sa sat gd sr sn sd si sk sl so st es su sw ss sv gsw tl ty tg ta tt tsg " +
-            "te tet th bo ti tpi tkl to ts tn tr tk tvl tyv tw udm ug uk uli und ur uz ve " +
-            "vi war cy fy wo cwd xh sah yap yo za zu"))));
+            .asList(whitespace.split("ab af am ar as ay az be bg bn bo bs ca " +
+            		"cs cy da de dv dz efi el en eo es et eu fa fi fil fj fr " +
+            		"ga gl gn gsw gu ha haw he hi hr ht hu hy id ig is it ja jv " +
+            		"ka kk km kn ko ks ku ky la lah lb ln lo lt lv " +
+            		"mg mi mk ml mn mr ms mt mul my nb nd ne nl nn no nso ny or os " +
+            		"pa pl ps pt qu rm rn ro ru rw sa sd se sg sh si sk sl sm sn so sq sr ss st su sv sw swb " +
+            		"ta te tet tg th ti tk tl tn to tpi tr ts ty ug uk und ur uz ve vi wo xh yo yue zh zu zxx"))));
     static final Set<String> filteredScripts = Collections
             .unmodifiableSet(new TreeSet(
             Arrays

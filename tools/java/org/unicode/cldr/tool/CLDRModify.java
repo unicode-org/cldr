@@ -947,20 +947,20 @@ public class CLDRModify {
             }
         });
 
-        fixList.add('z', "GenerateIndex", new CLDRFilter() {
-            @Override
-            public void handleStart() {
-                // TODO Auto-generated method stub
-                super.handleStart();
-                if (cldrFileToFilter.getExemplarSet("", WinningChoice.WINNING) != null) {
-                    String indexPattern = GenerateIndexCharacters.getConstructedIndexSet(cldrFileToFilter.getLocaleID(), cldrFileToFilter);
-                    replace("//ldml/characters/exemplarCharacters[@type=\"index\"][@draft=\"unconfirmed\"]", "//ldml/characters/exemplarCharacters[@type=\"index\"][@draft=\"unconfirmed\"]", indexPattern);
-                }
-            }
-            public void handlePath(String xpath) {
-                return;
-            }
-        });
+//        fixList.add('z', "GenerateIndex", new CLDRFilter() {
+//            @Override
+//            public void handleStart() {
+//                // TODO Auto-generated method stub
+//                super.handleStart();
+//                if (cldrFileToFilter.getExemplarSet("", WinningChoice.WINNING) != null) {
+//                    String indexPattern = GenerateIndexCharacters.getConstructedIndexSet(cldrFileToFilter.getLocaleID(), cldrFileToFilter);
+//                    replace("//ldml/characters/exemplarCharacters[@type=\"index\"][@draft=\"unconfirmed\"]", "//ldml/characters/exemplarCharacters[@type=\"index\"][@draft=\"unconfirmed\"]", indexPattern);
+//                }
+//            }
+//            public void handlePath(String xpath) {
+//                return;
+//            }
+//        });
 
         //		fixList.add('k', "fix kk/KK", new CLDRFilter() {
         //			DateTimePatternGenerator dtpg;
@@ -1331,116 +1331,149 @@ public class CLDRModify {
                 return newRef;
             }
         });
+        
+        fixList.add('q', "fix am/pm", new CLDRFilter() {
 
-        fixList.add('q', "fix numbering system", new CLDRFilter() {
-            private  final UnicodeSet dotEquivalents =(UnicodeSet) new UnicodeSet("[.．․﹒ 。｡︒۔٬]").freeze();
-            private  final UnicodeSet commaEquivalents = (UnicodeSet) new UnicodeSet("[,，﹐ ، ٫ 、﹑､،]").freeze();
-            private  final UnicodeSet apostropheEquivalent = (UnicodeSet) new UnicodeSet("[︐︑ '＇ ‘ ’ ]").freeze();
-            private  final UnicodeSet spaces = (UnicodeSet) new UnicodeSet("[:whitespace:]").freeze();
+          @Override
+          public void handlePath(String xpath) {
+            if (!xpath.contains("/calendar")) return;
+            if (!xpath.contains("/am") && !xpath.contains("/pm")) return;
+            String fullpath = cldrFileToFilter.getFullXPath(xpath);
+            parts.set(fullpath);
+            String lastElement = parts.getElement(-1);
+            if (!lastElement.equals("am") && !lastElement.equals("pm")) {
+              return;
+            }
+            String value = cldrFileToFilter.getStringValue(xpath);
+            
 
-            private  final UnicodeSet ALLOWED_IN_NUMBER_SYMBOLS = (UnicodeSet) new UnicodeSet("[\\u0000-\\u00FF ’ ‰ ∞ −]").freeze();
-
-            private final UnicodeMap map = new UnicodeMap();
-            {
-                map.putAll(dotEquivalents, ".");
-                map.putAll(commaEquivalents, ",");
-                map.putAll(apostropheEquivalent, "’");
-                map.putAll(spaces, "\u00a0");
-                map.put('٪', "%");
-                map.put('؛', ";");
-                map.put('؉', "‰");
-                map.putAll(new UnicodeSet("\\p{dash}"), "-");
+            Map<String, String> oldAttributes = parts.getAttributes(-1);
+            parts.trimLast();
+            parts.addElement("dayPeriods");
+            parts.addElement("dayPeriodContext");
+            parts.addAttribute("type", "format");
+            parts.addElement("dayPeriodWidth");
+            parts.addAttribute("type", "wide");
+            parts.addElement("dayPeriod");
+            parts.addAttribute("type", lastElement);
+            for (String attribute : oldAttributes.keySet()) {
+              parts.addAttribute(attribute, oldAttributes.get(attribute));
             }
 
-            private String system;
-            private CLDRFile resolved;
-
-            /*
-      <decimal>.</decimal>
-      <group>,</group>
-      <list>;</list>
-      <percentSign>%</percentSign>
-      <nativeZeroDigit>0</nativeZeroDigit>
-      <patternDigit>#</patternDigit>
-      <plusSign>+</plusSign>
-      <minusSign>-</minusSign>
-      <exponential>E</exponential>
-      <perMille>‰</perMille>
-      <infinity>∞</infinity>
-      <nan>NaN</nan>
-             */
-            public void handleStart() {
-                resolved = cldrFileToFilter.make(cldrFileToFilter.getLocaleID(), true);
-                system = "????";
-                String zero = resolved.getStringValue("//ldml/numbers/symbols/nativeZeroDigit");
-                int firstChar = zero.codePointAt(0);
-                switch(firstChar) {
-                case '0': system = "????"; break;
-                case '٠': system = "arab"; break;
-                case '۰': system = "arabext"; break;
-                default:
-                    int script = UScript.getScript(zero.codePointAt(0));
-                    if (script != UScript.UNKNOWN) {
-                        system = UScript.getShortName(script).toLowerCase(Locale.ENGLISH);
-                    }
-                    break;
-                }
-            }
-            public void handlePath(String xpath) {
-                String fullpath = cldrFileToFilter.getFullXPath(xpath);
-                if (!fullpath.startsWith("//ldml/numbers/symbols/")) return;
-                String value = cldrFileToFilter.getStringValue(xpath);
-                if (ALLOWED_IN_NUMBER_SYMBOLS.contains(value)) return;
-                parts.set(xpath);
-                String alt = parts.getAttributeValue(-1, "alt");
-                if (alt != null) {
-                    show("*** Non-empty alt on " + xpath + "\t\t" + value,"???");
-                    return;
-                }
-                String last = parts.getElement(-1);
-                String newValue = getLatinSeparator(value, last);
-                if (newValue == null) {
-                    throw new IllegalArgumentException("Can't handle " + xpath + "\t\t" + value);
-                }
-                if (newValue.equals(value)) {
-                    return;
-                }
-                replace(fullpath, fullpath, newValue);
-                parts.set(fullpath);
-                parts.addAttribute("alt", system);
-                String newPath = parts.toString();
-                replace(newPath, newPath, value);
-            }
-
-            String getLatinSeparator(String value, String last) {
-                String newValue = map.transform(value);
-                if (ALLOWED_IN_NUMBER_SYMBOLS.containsAll(newValue)) {
-                    return newValue;
-                }
-                if (last.equals("nativeZeroDigit")) {
-                    return "0";
-                }
-                if (last.equals("exponential")) {
-                    return "E";
-                }
-                if (last.equals("nan")) {
-                    return "NaN";
-                }
-                if (last.equals("infinity")) {
-                    return "∞";
-                }
-                if (last.equals("list")) {
-                    return ";";
-                }
-                if (last.equals("percentSign")) {
-                    return "%";
-                }
-                if (last.equals("group")) {
-                    return "’";
-                }
-                return null;
-            }
+            String newPath = parts.toString();
+            replace(fullpath, newPath, value);
+          }
         });
+
+//        fixList.add('q', "fix numbering system", new CLDRFilter() {
+//            private  final UnicodeSet dotEquivalents =(UnicodeSet) new UnicodeSet("[.．․﹒ 。｡︒۔٬]").freeze();
+//            private  final UnicodeSet commaEquivalents = (UnicodeSet) new UnicodeSet("[,，﹐ ، ٫ 、﹑､،]").freeze();
+//            private  final UnicodeSet apostropheEquivalent = (UnicodeSet) new UnicodeSet("[︐︑ '＇ ‘ ’ ]").freeze();
+//            private  final UnicodeSet spaces = (UnicodeSet) new UnicodeSet("[:whitespace:]").freeze();
+//
+//            private  final UnicodeSet ALLOWED_IN_NUMBER_SYMBOLS = (UnicodeSet) new UnicodeSet("[\\u0000-\\u00FF ’ ‰ ∞ −]").freeze();
+//
+//            private final UnicodeMap map = new UnicodeMap();
+//            {
+//                map.putAll(dotEquivalents, ".");
+//                map.putAll(commaEquivalents, ",");
+//                map.putAll(apostropheEquivalent, "’");
+//                map.putAll(spaces, "\u00a0");
+//                map.put('٪', "%");
+//                map.put('؛', ";");
+//                map.put('؉', "‰");
+//                map.putAll(new UnicodeSet("\\p{dash}"), "-");
+//            }
+//
+//            private String system;
+//            private CLDRFile resolved;
+//
+//            /*
+//      <decimal>.</decimal>
+//      <group>,</group>
+//      <list>;</list>
+//      <percentSign>%</percentSign>
+//      <nativeZeroDigit>0</nativeZeroDigit>
+//      <patternDigit>#</patternDigit>
+//      <plusSign>+</plusSign>
+//      <minusSign>-</minusSign>
+//      <exponential>E</exponential>
+//      <perMille>‰</perMille>
+//      <infinity>∞</infinity>
+//      <nan>NaN</nan>
+//             */
+//            public void handleStart() {
+//                resolved = cldrFileToFilter.make(cldrFileToFilter.getLocaleID(), true);
+//                system = "????";
+//                String zero = resolved.getStringValue("//ldml/numbers/symbols/nativeZeroDigit");
+//                int firstChar = zero.codePointAt(0);
+//                switch(firstChar) {
+//                case '0': system = "????"; break;
+//                case '٠': system = "arab"; break;
+//                case '۰': system = "arabext"; break;
+//                default:
+//                    int script = UScript.getScript(zero.codePointAt(0));
+//                    if (script != UScript.UNKNOWN) {
+//                        system = UScript.getShortName(script).toLowerCase(Locale.ENGLISH);
+//                    }
+//                    break;
+//                }
+//            }
+//            public void handlePath(String xpath) {
+//                String fullpath = cldrFileToFilter.getFullXPath(xpath);
+//                if (!fullpath.startsWith("//ldml/numbers/symbols/")) return;
+//                String value = cldrFileToFilter.getStringValue(xpath);
+//                if (ALLOWED_IN_NUMBER_SYMBOLS.contains(value)) return;
+//                parts.set(xpath);
+//                String alt = parts.getAttributeValue(-1, "alt");
+//                if (alt != null) {
+//                    show("*** Non-empty alt on " + xpath + "\t\t" + value,"???");
+//                    return;
+//                }
+//                String last = parts.getElement(-1);
+//                String newValue = getLatinSeparator(value, last);
+//                if (newValue == null) {
+//                    throw new IllegalArgumentException("Can't handle " + xpath + "\t\t" + value);
+//                }
+//                if (newValue.equals(value)) {
+//                    return;
+//                }
+//                replace(fullpath, fullpath, newValue);
+//                parts.set(fullpath);
+//                parts.addAttribute("alt", system);
+//                String newPath = parts.toString();
+//                replace(newPath, newPath, value);
+//            }
+//
+//            String getLatinSeparator(String value, String last) {
+//                String newValue = map.transform(value);
+//                if (ALLOWED_IN_NUMBER_SYMBOLS.containsAll(newValue)) {
+//                    return newValue;
+//                }
+//                if (last.equals("nativeZeroDigit")) {
+//                    return "0";
+//                }
+//                if (last.equals("exponential")) {
+//                    return "E";
+//                }
+//                if (last.equals("nan")) {
+//                    return "NaN";
+//                }
+//                if (last.equals("infinity")) {
+//                    return "∞";
+//                }
+//                if (last.equals("list")) {
+//                    return ";";
+//                }
+//                if (last.equals("percentSign")) {
+//                    return "%";
+//                }
+//                if (last.equals("group")) {
+//                    return "’";
+//                }
+//                return null;
+//            }
+//        });
 
 
         fixList.add('i', "fix Identical Children");

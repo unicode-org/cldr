@@ -25,7 +25,6 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.text.UTF16.StringComparator;
-import com.sun.xml.internal.txw2.IllegalAnnotationException;
 
 class Subheader {
     Matcher isArchaic = GeneratePickerData.IS_ARCHAIC.matcher("");

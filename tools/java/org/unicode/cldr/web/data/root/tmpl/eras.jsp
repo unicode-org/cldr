@@ -4,11 +4,11 @@
 
 <%
 //  Copy "x=___"  from input to output URL
-subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
-SurveyForum.printSectionTableOpenShort(subCtx, thisBaseXpath);
+subCtx.openTable(); 
 
-SurveyForum.showXpathShort(subCtx, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraAbbr/era[@type=\"0\"]");
-SurveyForum.showXpathShort(subCtx, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraAbbr/era[@type=\"1\"]");
+subCtx.showXpath( "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraAbbr/era[@type=\"0\"]");
+subCtx.showXpath( "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraAbbr/era[@type=\"1\"]");
 
-SurveyForum.printSectionTableCloseShort(subCtx, thisBaseXpath);
+subCtx.closeTable();
+subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. 
 %>

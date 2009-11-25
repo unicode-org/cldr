@@ -1,14 +1,16 @@
 package org.unicode.cldr.ant;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 import org.apache.tools.ant.Task;
 
 import org.unicode.cldr.ant.CLDRBuild.Paths;
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
@@ -31,29 +33,16 @@ import org.w3c.dom.Node;
  */
 public abstract class CLDRConverterTool {
     /**
-     * List of locales that are aliases to other locales
-     * support of %%Alias
+     * Information from the deprecates build rules.
      */
-    protected ArrayList<String> aliasLocaleList;
-
-    /**
-     * Empty locales list for deprecated locales list.
-     */
-    protected ArrayList<String> emptyLocaleList;
-
-    /**
-     * Map of alias locales
-     * Key: from locale
-     * Value: to locale
-     */
-    protected TreeMap<String, Alias> aliasMap;
+    protected AliasDeprecates aliasDeprecates;
 
     /**
      * Map of locales that need to processed.
      * Key : locale name
      * Value: draft attribute
      */
-    private TreeMap<String, String> localesMap;
+    private Map<String, String> localesMap;
 
     /**
      * List of xpaths to include or exclude
@@ -63,8 +52,13 @@ public abstract class CLDRConverterTool {
     /**
      * Override fallbacks list
      */
-    protected List<CLDRBuild.Paths> ofbList;
+    protected List<CLDRBuild.Paths> overrideFallbackList;
 
+    /**
+     * Information used by ResourceSplitter, if not null.
+     */
+    protected List<SplitInfo> splitInfos;
+    
     /**
      * Object that holds information about aliases on the
      * <alias from="in" to="id" />  elements.
@@ -72,13 +66,28 @@ public abstract class CLDRConverterTool {
      *
      */
     public static class Alias {
+        public final String from;
         public final String to;
         public final String xpath;
 
-        public Alias(String to, String xpath){
+        public Alias(String from, String to, String xpath) {
+            this.from = from;
             this.to = to;
             this.xpath = xpath;
         }
+    }
+    
+    public static class AliasDeprecates {
+      public final List<Alias> aliasList;
+      public final List<String> aliasLocaleList;
+      public final List<String> emptyLocaleList;
+      
+      public AliasDeprecates(List<Alias> aliasList, List<String> aliasLocaleList,
+          List<String> emptyLocaleList) {
+        this.aliasList = aliasList;
+        this.aliasLocaleList = aliasLocaleList;
+        this.emptyLocaleList = emptyLocaleList;
+      }
     }
 
     /**
@@ -92,41 +101,21 @@ public abstract class CLDRConverterTool {
      *      <deprecates>
      *          <alias from="no_NO_NY" to="nn_NO" />
      *          <alias from="en_RH" to="en_ZW" />
-     *      </deprecates>
-     */
-    public void setAliasMap(TreeMap<String, Alias> map){
-        aliasMap = map;
-    }
-
-    /**
-     * For support and interpretation of
-     *      <deprecates>
      *          <aliasLocale locale="zh_SG" />
      *          <aliasLocale locale="zh_TW" />
-     *      </deprecates>
-     * @param list The list of locales for which the alias locales need to be written.
-     */
-    public void setAliasLocaleList(ArrayList<String> list){
-        aliasLocaleList = list;
-    }
-
-    /**
-     * For support and interpretation of
-     *      <deprecates>
      *          <emptyLocale locale="hi_" />
      *          <emptyLocale locale="zh_" />
      *      </deprecates>
-     * @param list The list of locales for which the empty locales need to be written.
      */
-    public void setEmptyLocaleList(ArrayList<String> list){
-        emptyLocaleList = list;
+    public void setAliasDeprecates(AliasDeprecates aliasDeprecates) {
+        this.aliasDeprecates = aliasDeprecates;
     }
 
     /**
      *
      * @param map
      */
-    public void setLocalesMap(TreeMap<String, String> map){
+    public void setLocalesMap(Map<String, String> map){
         localesMap = map;
     }
 
@@ -146,16 +135,20 @@ public abstract class CLDRConverterTool {
      * Set the fallback override list
      */
     public void setOverrideFallbackList(List<Paths> list){
-        ofbList = list;
+//        overrideFallbackList = list;
+    }
+
+    public void setSplitInfos(List<SplitInfo> infos) {
+      this.splitInfos = Collections.unmodifiableList(infos);
     }
 
     protected Node mergeOverrideFallbackNodes(Node main, String locale){
-        for (int i = 0; i < ofbList.size(); i++) {
-            CLDRBuild.Paths path = ofbList.get(i);
-            if (CLDRBuild.matchesLocale(path.locales, locale)){
-                //TODO write the merging algorithm
-            }
-        }
+//        for (int i = 0; i < overrideFallbackList.size(); i++) {
+//            CLDRBuild.Paths path = overrideFallbackList.get(i);
+//            if (CLDRBuild.matchesLocale(path.locales, locale)){
+//                //TODO write the merging algorithm
+//            }
+//        }
         return main;
     }
 
@@ -229,37 +222,41 @@ public abstract class CLDRConverterTool {
             for (int j = 0; j < pathList.size(); j++){
                 Object obj = pathList.get(j);
                 if (obj instanceof CLDRBuild.CoverageLevel) {
-                    initCoverageLevel(localeName, exemplarsContainA_Z, supplementalDir);
-                    CLDRBuild.CoverageLevel level = (CLDRBuild.CoverageLevel) obj;
-                    if (level.locales != null
-                        && CLDRBuild.matchesLocale(level.locales, localeName) == false) {
-                        continue;
+                  initCoverageLevel(localeName, exemplarsContainA_Z, supplementalDir);
+                  CLDRBuild.CoverageLevel level = (CLDRBuild.CoverageLevel) obj;
+                  if (level.locales != null) {
+                    List<String> localeList = Arrays.asList(level.locales.split("\\s+"));
+                    if (CLDRBuild.matchesLocale(localeList, localeName) == false) {
+                      continue;
                     }
-                    //process further only if the current locale is part of the given group and org
-                    if (level.group != null
-                        && !sc.isLocaleInGroup(localeName, level.group, level.org)) {
-                        continue;
+                  }
+
+                  //process further only if the current locale is part of the given group and org
+                  if (level.group != null
+                      && !sc.isLocaleInGroup(localeName, level.group, level.org)) {
+                    continue;
+                  }
+
+                  CoverageLevel.Level cv = CoverageLevel.Level.get(level.level);
+                  // only include the xpaths that have the coverage level at least the coverage
+                  // level specified by the locale
+                  if (coverageLevel.getCoverageLevel(xpath).compareTo(cv) <= 0) {
+                    String draftVal = attr.get(LDMLConstants.DRAFT);
+                    if (level.draft != null) {
+                      if (draftVal == null
+                          && (level.draft.equals("false") || level.draft.equals(".*"))) {
+                        include = true;
+                      } else if (draftVal != null && draftVal.matches(level.draft)) {
+                        include = true;
+                      } else {
+                        include = false;
+                      }
+                    } else {
+                      if (draftVal == null) {
+                        include = true;
+                      }
                     }
-                    CoverageLevel.Level cv = CoverageLevel.Level.get(level.level);
-                    // only include the xpaths that have the coverage level at least the coverage
-                    // level specified by the locale
-                    if (coverageLevel.getCoverageLevel(xpath).compareTo(cv) <= 0) {
-                        String draftVal = attr.get(LDMLConstants.DRAFT);
-                        if (level.draft != null) {
-                            if (draftVal == null
-                                && (level.draft.equals("false") || level.draft.equals(".*"))) {
-                              include = true;
-                           } else if (draftVal != null && draftVal.matches(level.draft)) {
-                             include = true;
-                           } else {
-                             include = false;
-                           }
-                        } else {
-                            if (draftVal == null) {
-                                include = true;
-                            }
-                        }
-                    }
+                  }
                 } else if (obj instanceof CLDRBuild.Exclude) {
                     CLDRBuild.Exclude exc = (CLDRBuild.Exclude) obj;
                     //fast path if locale attribute is set
@@ -441,7 +438,7 @@ public abstract class CLDRConverterTool {
         return myXPathList;
     }
 
-    protected TreeMap<String, String> getLocalesMap() {
+    protected Map<String, String> getLocalesMap() {
       return localesMap;
     }
 }

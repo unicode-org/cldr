@@ -118,7 +118,7 @@ public class GenerateCldrCollationTests {
         Node node = LDMLUtilities.getNode(doc, "//ldml/collations");
         LDML2ICUConverter cnv = new LDML2ICUConverter();
         StringBuilder stringBuilder = new StringBuilder();
-        ICUResourceWriter.ResourceTable resource = (ICUResourceWriter.ResourceTable) cnv.parseCollations(node, stringBuilder, false);
+        ICUResourceWriter.ResourceTable resource = (ICUResourceWriter.ResourceTable) cnv.parseCollations(node, null, stringBuilder, false);
         Map types_rules = new TreeMap();
         locale_types_rules.put(locale, types_rules);
         for (Resource current = resource.first; current != null; current = current.next) {

@@ -193,6 +193,16 @@ public class DataSection extends Registerable {
         public String displayName = null;
         public String altType = null; // alt type (NOT to be confused with -proposedn)
         int base_xpath = -1;
+
+	public String getXpath() {
+		return sm.xpt.getById(base_xpath);
+	}
+	public int getXpathId() {
+		return base_xpath;
+	}
+	public String getPrettyPath() {
+		return sm.xpt.getPrettyPath(base_xpath);
+	}
         
         // true even if only the non-winning subitems have tests.
         boolean hasTests = false;
@@ -415,17 +425,17 @@ public class DataSection extends Registerable {
         	return /*section.*/fieldHash + fieldHash();
         }
         
-        Hashtable subRows = null;
+        Hashtable<String,DataRow> subRows = null;
 
         public DataRow getSubDataRow(String altType) {
             if(altType == null) {
                 return this;
             }
             if(subRows == null) {
-                subRows = new Hashtable();
+                subRows = new Hashtable<String,DataRow>();
             }
 
-            DataRow p = (DataRow)subRows.get(altType);
+            DataRow p = subRows.get(altType);
             if(p==null) {
                 p = new DataRow();
                 p.type = type;
@@ -1582,7 +1592,7 @@ public class DataSection extends Registerable {
             } else if(!excludeCalendars && excludeGrego && (xpath.startsWith(SurveyMain.GREGO_XPATH))) {
 //if(ndebug)     System.err.println("ns1 7 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
-            } else if( continent != null && !sm.getMetazoneContinent(xpath).equals(continent)) {
+            } else if( continent != null && !continent.equals(sm.getMetazoneContinent(xpath))) {
                 continue;
             }
             
@@ -2092,6 +2102,15 @@ public class DataSection extends Registerable {
 //                       if(SurveyMain.isUnofficial) System.err.println("@@ synthesized+excluded:" + base_xpath_string);
                        continue;
                     }
+
+                    // Only display metazone data for which an English value exists
+                    if (isMetazones && suff != "/commonlyUsed") {
+                        String engValue = baselineFile.getStringValue(base_xpath_string);
+                        if ( engValue == null || engValue.length() == 0 ) {
+                            continue;
+                        }
+                    }
+
                     DataSection.DataRow myp = getDataRow(rowXpath);
                     
                     // set it up..
@@ -2161,7 +2180,17 @@ public class DataSection extends Registerable {
     		if(dr.base_xpath == xpath) {
     			return dr;
     		}
+    		// search subrows
+    		if(dr.subRows!=null) {
+    			for(DataRow subRow : dr.subRows.values()) {
+    				if(subRow.base_xpath == xpath) {
+    					return subRow;
+    				}
+    			}
+    		}
     	}
+    	// look for sub-row
+    	
     	return null;
     }
     

@@ -20,8 +20,15 @@ $element=[a-zA-Z0-9]+;
 '/localeDisplayNames/territories/alias' > '0-names|territory|alias';
 
 '/layout/orientation' > '1-misc|layout|orientation';
+
 '/characters/exemplarCharacters[@type="' ($avalue) '"]' > '1-misc|exemplarCharacters|2-' $1;
-'/characters/exemplarCharacters' > '1-misc|exemplarCharacters|1-standard';
+'/characters/exemplarCharacters' > '1-misc|exemplarCharacters|2-main';
+
+'/characters/indexLabels/indexLabel[@indexSource="' ($avalue) '"]' > '1-misc|indexLabels|label-' $1;
+'/characters/indexLabels/' ($element) > '1-misc|indexLabels|' $1;
+
+'/listPatterns/listPattern/listPatternPart[@type="' ($avalue) '"]' > '1-misc|listPattern|' $1;
+
 '/delimiters/'(.*) > '1-misc|delimiters|' $1;
 '/fallback' > '1-misc|fallback|locales' ;
 
@@ -54,6 +61,9 @@ $element=[a-zA-Z0-9]+;
 '$%%/timeFormats/timeFormatLength[@type="' ($avalue) '"]/timeFormat[@type="standard"]/pattern[@type="standard"]' > '|pattern|time-' $1;
 '$%%/dateTimeFormats/dateTimeFormatLength[@type="' ($avalue) '"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]' > '|pattern|datetime-' $1;
 
+'$%%/months/monthContext[@type="' ($avalue) '"]/monthWidth[@type="' ($avalue) '"]/month[@type="' ([0-9]) '"][@yeartype="leap"]' > '|month|[0' $3 ']-' $1 '-' $2 '-leap';
+'$%%/months/monthContext[@type="' ($avalue) '"]/monthWidth[@type="' ($avalue) '"]/month[@type="' ($avalue) '"][@yeartype="leap"]' > '|month|[' $3 ']-' $1 '-' $2 '-leap';
+
 '$%%/months/monthContext[@type="' ($avalue) '"]/monthWidth[@type="' ($avalue) '"]/month[@type="' ([0-9]) '"]' > '|month|[0' $3 ']-' $1 '-' $2;
 '$%%/months/monthContext[@type="' ($avalue) '"]/monthWidth[@type="' ($avalue) '"]/month[@type="' ($avalue) '"]' > '|month|[' $3 ']-' $1 '-' $2;
 '$%%/months/monthContext[@type="' ($avalue) '"]/monthWidth[@type="' ($avalue) '"]/alias' > '|month|' $1 '-' $2 '-alias';
@@ -80,10 +90,17 @@ $element=[a-zA-Z0-9]+;
 
 '$%%/' ([ap]) 'm' > '|day-period|' $1 'm';
 
+# //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
+
+'$%%/dayPeriods/dayPeriodContext[@type="' ($avalue) '"]/dayPeriodWidth[@type="' ($avalue) '"]/dayPeriod[@type="' ($avalue) '"]' > '|dayPeriod|[' $3 ']-' $1 '-' $2;
+'$%%/dayPeriods/dayPeriodContext[@type="' ($avalue) '"]/dayPeriodWidth[@type="' ($avalue) '"]/alias' > '|dayPeriod|' $1 '-' $2 '-alias';
+'$%%/dayPeriods/dayPeriodContext[@type="' ($avalue) '"]/alias' > '|dayPeriod|' $1 '-alias';
+'$%%/dayPeriods/alias' > '|dayPeriod|-alias';
+
 '$%%/fields/field[@type="' ($avalue) '"]/displayName' > '|field-label|' $1;
 
-'$%%/dateTimeFormats/availableFormats/dateFormatItem[@id="' ($avalue) '"]' > '|pattern|other-' $1;
-'$%%/dateTimeFormats/appendItems/appendItem[@request="' ($avalue) '"]' > '|pattern|others-append-' $1;
+'$%%/dateTimeFormats/availableFormats/dateFormatItem[@id="' ($avalue) '"]' > '|pattern|' $1;
+'$%%/dateTimeFormats/appendItems/appendItem[@request="' ($avalue) '"]' > '|pattern|append-' $1;
 
 '$%%/dateTimeFormats/intervalFormats/intervalFormatItem[@id="' ($avalue) '"]/greatestDifference[@id="' ($avalue) '"]'     > '|pattern|interval-' $1 '-' $2;
 '$%%/dateTimeFormats/intervalFormats/intervalFormatFallback'     > '|pattern|interval-fallback';

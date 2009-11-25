@@ -17,6 +17,7 @@ public class CheckMetazones extends CheckCLDR {
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
         // it helps performance to have a quick reject of most paths
       if (fullPath == null) return this; // skip paths that we don't have
+      if (value == null) return this; // skip empty values
       if (path.indexOf("/metazone") < 0) return this;
         
       // we're simply going to test to make sure that metazone values don't contain any digits

@@ -245,12 +245,12 @@ public class CoverageLevel {
         throw new InternalCldrException("'"+file.getLocaleID()+"'.getExemplarSet() returned null.");
     }
     
-    UnicodeSet auxexemplars = file.getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
+    UnicodeSet auxexemplars = file.getResolved().getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
     if (auxexemplars != null) exemplars.addAll(auxexemplars);
     exemplarsContainA_Z = exemplars.contains('A','Z');
     
     boolean currencyExemplarsContainA_Z = false;
-    auxexemplars = file.getExemplarSet("currencySymbol", CLDRFile.WinningChoice.WINNING);
+    auxexemplars = file.getResolved().getExemplarSet("currencySymbol", CLDRFile.WinningChoice.WINNING);
     if (auxexemplars != null) currencyExemplarsContainA_Z = auxexemplars.contains('A','Z');
 
     setFile(file.getLocaleID(), exemplarsContainA_Z, currencyExemplarsContainA_Z, options, cause, possibleErrors);

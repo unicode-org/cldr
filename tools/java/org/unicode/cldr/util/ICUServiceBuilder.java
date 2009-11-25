@@ -159,9 +159,11 @@ public class ICUServiceBuilder {
     DateFormatSymbols formatData = calendar.equals("chinese") ? new ChineseDateFormatSymbols() : new DateFormatSymbols();
     
     String prefix = "//ldml/dates/calendars/calendar[@type=\""+ calendar + "\"]/";
-    formatData.setAmPmStrings(last = new String[] {
-        cldrFile.getWinningValue(prefix + "am"),
-        cldrFile.getWinningValue(prefix + "pm")});
+
+    
+    formatData.setAmPmStrings(last = getArrayOfWinningValues(new String[] {
+        getDayPeriods(prefix, "format", "wide", "am"),
+        getDayPeriods(prefix, "format", "wide", "pm")}));
     checkFound(last);
 //    if (last[0] == null && notGregorian) {
 //      if (gregorianBackup == null) gregorianBackup = _getDateFormatSymbols("gregorian");
@@ -221,10 +223,42 @@ public class ICUServiceBuilder {
     cacheDateFormatSymbols.put(key, formatData);
     return formatData;
   }
+/**
+    * Example from en.xml 
+    * <dayPeriods>
+    *     <dayPeriodContext type="format">
+    *         <dayPeriodWidth type="wide">
+    *             <dayPeriod type="am">AM</dayPeriod>
+    *             <dayPeriod type="am" alt="variant">a.m.</dayPeriod>
+    *             <dayPeriod type="pm">PM</dayPeriod>
+    *             <dayPeriod type="pm" alt="variant">p.m.</dayPeriod>
+    *         </dayPeriodWidth>
+    *     </dayPeriodContext>
+    * </dayPeriods>
+    */
+  private String getDayPeriods(String prefix, String context, String width, String type) {
+    return prefix+"dayPeriods/dayPeriodContext[@type=\"" + context + "\"]/dayPeriodWidth[@type=\"" +
+         width + "\"]/dayPeriod[@type=\"" + type + "\"]";
+  }
   
+
+  private String[] getArrayOfWinningValues(String[] xpaths) {
+	String result[] = new String[xpaths.length];
+	for(int i=0;i<xpaths.length;i++) {
+		result[i] = cldrFile.getWinningValue(xpaths[i]);
+	}
+	checkFound(result, xpaths);
+	return result;
+  }
+
   private void checkFound(String[] last) {
     if (last == null || last.length == 0 || last[0] == null) {
       throw new IllegalArgumentException("Failed to load array");
+    }
+  }
+  private void checkFound(String[] last, String[] xpaths) {
+    if (last == null || last.length == 0 || last[0] == null) {
+      throw new IllegalArgumentException("Failed to load array {"+xpaths[0]+",...}");
     }
   }
   private String getPattern(String calendar, int dateIndex, int timeIndex) {

@@ -341,7 +341,7 @@ public class CLDRDBSourceFactory {
      }
     
     public XMLSource getMuxedInstance(CLDRLocale locale) {
-    	synchronized(sm.vet.conn) {
+    	//synchronized(mux) {
 	        XMLSource src = mux.get(locale);
 	        if(src == null) {
 	        	CLDRLocale parent = locale.getParent();
@@ -356,7 +356,7 @@ public class CLDRDBSourceFactory {
 	            mux.put(locale, src);
 	        }
 	        return src;
-    	}
+    	//}
     }
     
     /** 
@@ -780,7 +780,7 @@ public class CLDRDBSourceFactory {
                         int id = rs.getInt(1);
                         CLDRLocale loc = CLDRLocale.getInstance(rs.getString(2));
                         String rev = rs.getString(3);
-                        String disk = LDMLUtilities.getCVSVersion(dir, loc+".xml");
+                        String disk = LDMLUtilities.loadFileRevision(dir, loc+".xml");
                         if(!quietUpdateAll) {
                             ctx.println("<tr><th><a name='"+id+"'><tt>"+id+"</tt></a></th><td>" +loc + "</td>");
                             ctx.println("<td>db="+rev+"</td>");
@@ -1077,7 +1077,7 @@ public class CLDRDBSourceFactory {
 
         System.err.println("@sl&v: "+locale+"/"+srcId);
 
-        synchronized(sm.vet.conn) {  // Synchronize on the sm vet conn to ensure that no other state is changing under us..
+        synchronized(conn) {  // Synchronize on the conn to ensure that no other state is changing under us..
             // double check..
             srcId = getSourceId(tree, locale); // double checked lock- noone else loaded the src since then
             
@@ -1088,7 +1088,7 @@ public class CLDRDBSourceFactory {
                 throw new InternalError("loadAndValidate: failed, no DB connection"); // very bad, our DB connection went away.
             }
             
-            String rev = LDMLUtilities.getCVSVersion(dir, locale+".xml");  // Load the CVS version # as a string
+            String rev = LDMLUtilities.loadFileRevision(dir, locale+".xml");  // Load the CVS version # as a string
             if(rev == null) rev = "null";
             srcId = setSourceId(tree, locale, rev); // TODO: we had better fill it in..
         //    synchronized(conn) {            

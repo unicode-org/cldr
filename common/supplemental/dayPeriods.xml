@@ -64,6 +64,23 @@
 			afternoon మధ్యాహ్నం 3-6 evening సాయంకాలం 6-12 night రాత్రి 12-3
 			mid-night అర్ధరాత్రి
 		-->
+        <dayPeriodRules locales="ta">
+            <dayPeriodRule type="night" from="00:00" before="2:00" />
+            <dayPeriodRule type="earlyMorning" from="2:00" before="6:00" />
+            <dayPeriodRule type="morning" from="6:00" before="10:00" />
+            <dayPeriodRule type="lateMorning" from="10:00" before="14:00" />
+            <dayPeriodRule type="afternoon" from="14:00" before="18:00" />
+            <dayPeriodRule type="evening" from="18:00" before="22:00" />
+            <dayPeriodRule type="night" from="22:00" before="24:00" />
+        </dayPeriodRules>
+		<!-- ta #2485
+(2 am to 6 am) - அதிகாலை
+Morning (6 am to 10 am) - காலை
+Noon (10 am to 2 pm) - நண்பகல்
+Evening (2 pm to 6 pm) - மாலை
+Night (6 pm to 10 pm) - இரவு
+Midnight(10 pm to 2 am) - நள்ளிரவு 
+		-->
         <dayPeriodRules locales="bg">
             <dayPeriodRule type="weeHours" from="00:00" before="5:00" />
             <dayPeriodRule type="earlyMorning" from="5:00" before="6:00" />

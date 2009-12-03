@@ -13,7 +13,7 @@
             <dayPeriodRule type="noon" at="12:00" />
             <dayPeriodRule type="pm" after="12:00" before="24:00" />
         </dayPeriodRules>
-		<dayPeriodRules locales="de nl hr"> <!-- hr #2489 -->
+		<dayPeriodRules locales="de nl hr da"> <!-- hr #2489, da #2474 -->
 			<dayPeriodRule type="earlyMorning" from="0:00" before="9:00" />
 			<dayPeriodRule type="morning" from="9:00" before="12:00" />
 			<dayPeriodRule type="noon" at="12:00" />

@@ -108,5 +108,17 @@
 			03:00 ≤ earlyMorning < 05:00 ≤ morning < 10:00 ≤ earlyafternoon ≤
 			15:00 < lateAfternoon < 18:00 ≤ night < 03:00
 		-->
+        <dayPeriodRules locales="uk">
+            <dayPeriodRule type="night" from="00:00" before="3:00" />
+            <dayPeriodRule type="morning" from="3:00" before="12:00" />
+            <dayPeriodRule type="afternoon" from="12:00" before="17:00" />
+            <dayPeriodRule type="evening" from="17:00" before="24:00" />
+        </dayPeriodRules>
+        		<!-- uk # 2479
+		    00:00 ≤ night
+			< 3:00 ≤ morning
+			< 12:00 ≤ afternoon
+			< 17:00 ≤ evening
+			< 24:00 -->
 	</dayPeriodRuleSet>
 </supplementalData>

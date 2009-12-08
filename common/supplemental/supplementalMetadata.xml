@@ -102,7 +102,7 @@
                 raj rap rar rm rn ro roa rom root ru rup rw
                 sa sad sah sai sal sam sas sat sc scn sco sd se sel sem sg sga sgn sh shn si
                 sid sio sit sk sl sla sm sma smi smj smn sms sn snk so sog son sq sr srn srr ss
-                ssa st su suk sus sux sv sw syc syr
+                ssa ssy st su suk sus sux sv sw syc syr
                 ta tai te tem ter tet tg th ti tig tiv tk tkl tl tlh tli tmh tn to tog tpi tr trv
                 ts tsi tt tum tup tut tvl tw ty tyv
                 udm ug uga uk umb und ur uz
@@ -504,30 +504,98 @@
             <attributeValues elements="zoneItem" attributes="type">$tzid</attributeValues>
         </validity>
         <alias>
-            <!-- grandfathered 3066 codes -->
-            <languageAlias type="art_lojban" replacement="jbo"/> <!-- Lojban -->
-            <languageAlias type="i_hak" replacement="zh_hakka"/> <!-- Hakka -->
-            <languageAlias type="i_klingon" replacement="tlh"/> <!-- Klingon -->
-            <languageAlias type="i_lux" replacement="lb"/> <!-- Luxembourgish -->
-            <languageAlias type="i_navajo" replacement="nv"/> <!-- Navajo -->
-            <languageAlias type="no_bok" replacement="nb"/> <!-- Norwegian Bokmal -->
-            <languageAlias type="no_nyn" replacement="nn"/> <!-- Norwegian Nynorsk -->
-            <languageAlias type="zh_guoyu" replacement="zh"/> <!-- Mandarin or Standard Chinese. We use zh for that -->
+            <!-- grandfathered BCP47 codes -->
+            <languageAlias type="art-lojban" replacement="jbo"/> <!-- Lojban -->
+            <languageAlias type="i-ami" replacement="ami"/> <!-- Amis -->
+            <languageAlias type="i-bnn" replacement="bnn"/> <!-- Bunun -->
+            <languageAlias type="i-hak" replacement="hak"/> <!-- Hakka -->
+            <languageAlias type="i-klingon" replacement="tlh"/> <!-- Klingon -->
+            <languageAlias type="i-lux" replacement="lb"/> <!-- Luxembourgish -->
+            <languageAlias type="i-navajo" replacement="nv"/> <!-- Navajo -->
+            <languageAlias type="i-pwn" replacement="pwn"/> <!-- Paiwan -->
+            <languageAlias type="i-tao" replacement="tao"/> <!-- Tao -->
+            <languageAlias type="i-tay" replacement="tay"/> <!-- Tayal -->
+            <languageAlias type="i-tsu" replacement="tsu"/> <!-- Tsou -->
+            <languageAlias type="no-bok" replacement="nb"/> <!-- Norwegian Bokmal -->
+            <languageAlias type="no-nyn" replacement="nn"/> <!-- Norwegian Nynorsk -->
+            <languageAlias type="sgn-BE-FR" replacement="sfb"/> <!-- Belgian-French Sign Language -->
+            <languageAlias type="sgn-BE-NL" replacement="vgt"/> <!-- Belgian-Flemish Sign Language -->
+            <languageAlias type="sgn-CH-DE" replacement="sgg"/> <!-- Swiss German Sign Language -->
+            <languageAlias type="zh-guoyu" replacement="cmn"/> <!-- Mandarin or Standard Chinese -->
+            <languageAlias type="zh-hakka" replacement="hak"/> <!-- Hakka -->
+            <languageAlias type="zh-min"/> <!-- Min, Fuzhou, Hokkien, Amoy, or Taiwanese -->
+            <languageAlias type="zh-min-nan" replacement="nan"/> <!-- Minnan, Hokkien, Amoy, Taiwanese, Southern Min, Southern Fujian, Hoklo, Southern Fukien, Ho-lo -->
+            <languageAlias type="zh-xiang" replacement="hsn"/> <!-- Xiang or Hunanese -->
             <!-- deprecated iso codes -->
             <languageAlias type="in" replacement="id"/> <!-- Indonesian -->
             <languageAlias type="iw" replacement="he"/> <!-- Hebrew -->
             <languageAlias type="ji" replacement="yi"/> <!-- Yiddish -->
             <languageAlias type="jw" replacement="jv"/> <!-- Javanese -->
+            <languageAlias type="mo" replacement="ro"/> <!-- Moldovan -->
             <!-- legacy use -->
             <languageAlias type="sh" replacement="sr_Latn"/> <!-- Serbo-Croatian -->
-            <languageAlias type="mo" replacement="ro_MD"/> <!-- Moldovan -->
-            <!-- default scripts -->
-            <languageAlias type="sr_CS" replacement="sr_Cyrl_CS"/>
-            <languageAlias type="zh_CN" replacement="zh_Hans_CN"/>
-            <languageAlias type="zh_HK" replacement="zh_Hant_HK"/>
-            <languageAlias type="zh_MO" replacement="zh_Hant_MO"/>
-            <languageAlias type="zh_SG" replacement="zh_Hans_SG"/>
-            <languageAlias type="zh_TW" replacement="zh_Hant_TW"/>
+            <!-- macrolanguages -->
+			<languageAlias type="aju" replacement="jrb"/> <!-- Moroccan Judeo-Arabic ⇒ Judeo-Arabic -->
+			<languageAlias type="als" replacement="sqi"/> <!-- Albanian, Tosk ⇒ Albanian -->
+			<languageAlias type="arb" replacement="ar"/> <!-- Standard Arabic ⇒ Arabic -->
+			<languageAlias type="ayr" replacement="aym"/> <!-- Aymara, Central ⇒ Aymara -->
+			<languageAlias type="azj" replacement="aze"/> <!-- Azerbaijani, North ⇒ Azerbaijani -->
+			<languageAlias type="bcc" replacement="bal"/> <!-- Balochi, Southern ⇒ Baluchi -->
+			<languageAlias type="bcl" replacement="bik"/> <!-- Bicolano, Central ⇒ Bikol -->
+			<languageAlias type="bxk" replacement="luy"/> <!-- Lubukusu ⇒ Luyia -->
+			<languageAlias type="bxr" replacement="bua"/> <!-- Buriat, Russia ⇒ Buriat -->
+			<languageAlias type="cld" replacement="syr"/> <!-- Chaldean Neo-Aramaic ⇒ Syriac -->
+			<languageAlias type="cmn" replacement="zh"/> <!-- Mandarin Chinese ⇒ Chinese -->
+			<languageAlias type="cwd" replacement="cre"/> <!-- Cree, Woods ⇒ Cree -->
+			<languageAlias type="dgo" replacement="doi"/> <!-- Dogri ⇒ Dogri (macrolanguage) -->
+			<languageAlias type="dhd" replacement="mwr"/> <!-- Dhundari ⇒ Marwari -->
+			<languageAlias type="dik" replacement="din"/> <!-- Southwestern Dinka ⇒ Dinka -->
+			<languageAlias type="diq" replacement="zza"/> <!-- Dimli ⇒ Zaza -->
+			<languageAlias type="ekk" replacement="est"/> <!-- Standard Estonian ⇒ Estonian -->
+			<languageAlias type="emk" replacement="man"/> <!-- Maninkakan, Eastern ⇒ Mandingo -->
+			<languageAlias type="esk" replacement="ipk"/> <!-- Northwest Alaska Inupiatun ⇒ Inupiaq -->
+			<languageAlias type="fat" replacement="ak"/> <!-- Fanti ⇒ Akan -->
+			<languageAlias type="fuc" replacement="ful"/> <!-- Pular ⇒ Fulah -->
+			<languageAlias type="gaz" replacement="orm"/> <!-- Oromo, West Central ⇒ Oromo -->
+			<languageAlias type="gbo" replacement="grb"/> <!-- Northern Grebo ⇒ Grebo -->
+			<languageAlias type="gno" replacement="gon"/> <!-- Northern Gondi ⇒ Gondi -->
+			<languageAlias type="gug" replacement="grn"/> <!-- Paraguayan Guarani ⇒ Guarani -->
+			<languageAlias type="gya" replacement="gba"/> <!-- Northwest Gbaya ⇒ Gbaya (Central African Republic) -->
+			<languageAlias type="hdn" replacement="hai"/> <!-- Northern Haida ⇒ Haida -->
+			<languageAlias type="hea" replacement="hmn"/> <!-- Northern Qiandong Miao ⇒ Hmong -->
+			<languageAlias type="ike" replacement="iku"/> <!-- Eastern Canadian Inuktitut ⇒ Inuktitut -->
+			<languageAlias type="kmr" replacement="ku"/> <!-- Northern Kurdish ⇒ Kurdish -->
+			<languageAlias type="kmr" replacement="kur"/> <!-- Northern Kurdish ⇒ Kurdish -->
+			<languageAlias type="knc" replacement="kau"/> <!-- Central Kanuri ⇒ Kanuri -->
+			<languageAlias type="kng" replacement="kon"/> <!-- Koongo ⇒ Kongo -->
+			<languageAlias type="knn" replacement="kok"/> <!-- Konkani (individual language) ⇒ Konkani -->
+			<languageAlias type="kpv" replacement="kom"/> <!-- Komi-Zyrian ⇒ Komi -->
+			<languageAlias type="mhr" replacement="chm"/> <!-- Mari, Meadow ⇒ Mari (Russia) -->
+			<languageAlias type="mup" replacement="raj"/> <!-- Malvi ⇒ Rajasthani -->
+			<languageAlias type="mvf" replacement="mon"/> <!-- Mongolian, Peripheral ⇒ Mongolian -->
+			<languageAlias type="nob" replacement="no"/> <!-- Norwegian Bokmal ⇒ Norwegian -->
+			<languageAlias type="ojg" replacement="oji"/> <!-- Ojibwa, Eastern ⇒ Ojibwa -->
+			<languageAlias type="pbu" replacement="pus"/> <!-- Pashto, Northern ⇒ Pushto -->
+			<languageAlias type="pes" replacement="fa"/> <!-- Western Farsi ⇒ Persian -->
+			<languageAlias type="plt" replacement="mlg"/> <!-- Malagasy, Plateau ⇒ Malagasy -->
+			<languageAlias type="pnb" replacement="lah"/> <!-- Western Panjabi ⇒ Lahnda -->
+			<languageAlias type="prs" replacement="fa"/> <!-- Dari ⇒ Persian -->
+			<languageAlias type="qxp" replacement="que"/> <!-- Quechua, Puno ⇒ Quechua -->
+			<languageAlias type="rmy" replacement="rom"/> <!-- Romani, Vlax ⇒ Romany -->
+			<languageAlias type="spy" replacement="kln"/> <!-- Sabaot ⇒ Kalenjin -->
+			<languageAlias type="src" replacement="srd"/> <!-- Sardinian, Logudorese ⇒ Sardinian -->
+			<languageAlias type="srp" replacement="hbs"/> <!-- Serbian ⇒ Serbo-Croatian -->
+			<languageAlias type="swh" replacement="sw"/> <!-- Swahili (individual language) ⇒ Swahili -->
+			<languageAlias type="ttq" replacement="tmh"/> <!-- Tamajaq, Tawallammat ⇒ Tamashek -->
+			<languageAlias type="tw" replacement="ak"/> <!-- Twi ⇒ Akan -->
+			<languageAlias type="umu" replacement="del"/> <!-- Munsee ⇒ Delaware -->
+			<languageAlias type="uzn" replacement="uz"/> <!-- Northern Uzbek ⇒ Uzbek -->
+			<languageAlias type="xpe" replacement="kpe"/> <!-- Kpelle, Liberia ⇒ Kpelle -->
+			<languageAlias type="xsl" replacement="den"/> <!-- Slavey, South ⇒ Slave (Athapascan) -->
+			<languageAlias type="ydd" replacement="yid"/> <!-- Yiddish, Eastern ⇒ Yiddish -->
+			<languageAlias type="zai" replacement="zap"/> <!-- Zapotec, Isthmus ⇒ Zapotec -->
+			<languageAlias type="zsm" replacement="ms"/> <!-- Standard Malay ⇒ Malay -->
+			<languageAlias type="zyb" replacement="zha"/> <!-- Yongbei Zhuang ⇒ Zhuang -->
             <!-- deprecated ISO territories in 3066 + CLDR ones (older deprecated ISO codes -->
             <territoryAlias type="BQ" replacement="AQ"/> <!-- CLDR: British Antarctic Territory -->
             <territoryAlias type="BU" replacement="MM"/> <!-- Burma -->
@@ -576,6 +644,8 @@
             <variantAlias type="SCOUSE"/>
             <variantAlias type="XIANG"/>
             <variantAlias type="POLYTONI" replacement="POLYTON"/>
+            <variantAlias type="SAAHO"/>
+            <variantAlias type="aa_SAAHO" replacement="ssy"/>
             <zoneAlias type="Africa/Timbuktu" replacement="Africa/Bamako"/>          
             <zoneAlias type="Pacific/Yap" replacement="Pacific/Truk"/>          
             <zoneAlias type="Europe/Belfast" replacement="Europe/London"/>
@@ -665,7 +735,7 @@
 			pa_Arab_PK pa_Guru pa_Guru_IN pl_PL ps_AF pt_BR
 			ro_RO ru_RU rw_RW
 			sa_IN se_NO si_LK sid_ET sk_SK sl_SI so_SO sq_AL sr_Cyrl sr_Cyrl_RS sr_Latn_RS
-			ss_ZA st_ZA sv_SE sw_TZ
+			ss_ZA ssy_ER st_ZA sv_SE sw_TZ
 			ta_IN te_IN tg_Cyrl tg_Cyrl_TJ th_TH ti_ET tig_ER tn_ZA to_TO tr_TR trv_TW ts_ZA tt_RU
 			ug_Arab ug_Arab_CN uk_UA ur_PK uz_Arab_AF uz_Cyrl uz_Cyrl_UZ uz_Latn_UZ
 			ve_ZA vi_VN

@@ -9,18 +9,18 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 $Revision: 0.000 $
 $Date: 2009-12-07 00:00:00 $
 -->
-<!ELEMENT ldmlBCP47 ( version?, generation?, cldrVersion?, keyword* ) >
+<!ELEMENT ldmlBCP47 ( version?, generation?, cldrVersion?, keyword*, attribute* )>
 
-<!ELEMENT keyword ( key* ) >
+<!ELEMENT version ( #PCDATA )>
+<!ATTLIST version number CDATA #REQUIRED>
 
-<!ELEMENT version ( #PCDATA ) >
-<!ATTLIST version number CDATA #REQUIRED >
+<!ELEMENT generation EMPTY>
+<!ATTLIST generation date CDATA #REQUIRED>
 
-<!ELEMENT generation EMPTY >
-<!ATTLIST generation date CDATA #REQUIRED >
+<!ELEMENT cldrVersion EMPTY>
+<!ATTLIST cldrVersion version CDATA #REQUIRED>
 
-<!ELEMENT cldrVersion EMPTY >
-<!ATTLIST cldrVersion version CDATA #REQUIRED >
+<!ELEMENT keyword ( key* )>
 
 <!ELEMENT key ( type* )>
 <!ATTLIST key name NMTOKEN #REQUIRED>
@@ -31,3 +31,6 @@ $Date: 2009-12-07 00:00:00 $
 <!ATTLIST type name NMTOKEN #REQUIRED>
 <!ATTLIST type alias CDATA #IMPLIED>
 <!ATTLIST type since CDATA #IMPLIED>
+
+<!ELEMENT attribute EMPTY>
+<!ATTLIST attribute name NMTOKEN #REQUIRED>

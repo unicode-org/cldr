@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldmlBCP47 SYSTEM "../../common/dtd/ldmlBCP47.dtd">
+
+<ldmlBCP47>
+    <version number="$Revision$"/>
+    <generation date="$Date$"/>
+    <cldrVersion version="1.7.2"/>
+
+    <keyword>
+        <key name="co" alias="collation">
+            <type name="big5han"/>
+            <type name="direct"/>
+            <type name="gb2312" alias="gb2312han"/>
+            <type name="phonebk" alias="phonebook"/>
+            <type name="pinyin"/>
+            <type name="reformed"/>
+            <type name="standard"/>
+            <type name="stroke"/>
+            <type name="trad" alias="traditional"/>
+            <type name="unihan"/>
+        </key>
+
+        <key name="ka" alias="colAlternate">
+            <type name="noignore" alias="non-ignorable"/>
+            <type name="shifted"/>
+        </key>
+
+        <key name="kb" alias="colBackwards">
+            <type name="true" alias="yes"/>
+            <type name="false" alias="no"/>
+        </key>
+
+        <key name="kc" alias="colCaseLevel">
+            <type name="true" alias="yes"/>
+            <type name="false" alias="no"/>
+        </key>
+
+        <key name="kf" alias="colCaseFirst">
+            <type name="upper"/>
+            <type name="lower"/>
+            <type name="false" alias="no"/>
+        </key>
+
+        <key name="kh" alias="colHiraganaQuaternary">
+            <type name="true" alias="yes"/>
+            <type name="false" alias="no"/>
+        </key>
+
+        <key name="kk" alias="colNormalization">
+            <type name="true" alias="yes"/>
+            <type name="false" alias="no"/>
+        </key>
+
+        <key name="kn" alias="colNumeric">
+            <type name="true" alias="yes"/>
+            <type name="false" alias="no"/>
+        </key>
+
+        <key name="ks" alias="colStrength">
+            <type name="level1" alias="primary"/>
+            <type name="level2" alias="secondary"/>
+            <type name="level3" alias="tertiary"/>
+            <type name="level4" alias="quarternary"/>
+            <type name="identic" alias="identical"/>
+        </key>
+
+        <key name="vt" alias="variableTop">
+            <type name="CODEPOINTS"/>
+        </key>
+    </keyword>
+</ldmlBCP47>

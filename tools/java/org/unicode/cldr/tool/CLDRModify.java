@@ -78,7 +78,8 @@ public class CLDRModify {
     JOIN_ARGS = 8,
     VET_ADD = 9,
     RESOLVE = 10,
-    PATH = 11
+    PATH = 11,
+    USER = 12
     ;
 
     private static final UOption[] options = {
@@ -94,6 +95,7 @@ public class CLDRModify {
         UOption.create("vet", 'v', UOption.OPTIONAL_ARG).setDefault("C:\\vetweb"),
         UOption.create("resolve", 'z', UOption.OPTIONAL_ARG),
         UOption.create("path", 'p', UOption.REQUIRES_ARG),
+        UOption.create("user", 'u', UOption.REQUIRES_ARG),
     };
 
     private static final UnicodeSet allMergeOptions = new UnicodeSet("[rc]");
@@ -116,7 +118,8 @@ public class CLDRModify {
     + "-v\t incorporate vetting information, and generate diff files." + XPathParts.NEWLINE
     + "-z\t generate resolved files" + XPathParts.NEWLINE
     + "-p\t set path for -fx" + XPathParts.NEWLINE
-    + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)" + XPathParts.NEWLINE;
+    + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)" + XPathParts.NEWLINE
+    + "-u\t set user for -fb" + XPathParts.NEWLINE;
 
     static final String HELP_TEXT2 =  "Note: A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results." + XPathParts.NEWLINE;
 
@@ -139,7 +142,7 @@ public class CLDRModify {
         String targetDir = CldrUtility.checkValidDirectory(options[DESTDIR].value);	// Utility.GEN_DIRECTORY + "main/";
         boolean makeResolved = options[RESOLVE].doesOccur;	// Utility.COMMON_DIRECTORY + "main/";
 
-        Log.setLog(targetDir + "diff/log.txt");
+        Log.setLog(CldrUtility.GEN_DIRECTORY + "diff" , "log.txt");
         try {		//String[] failureLines = new String[2];
             SimpleLineComparator lineComparer = new SimpleLineComparator(
                     //SimpleLineComparator.SKIP_SPACES + 
@@ -765,6 +768,21 @@ public class CLDRModify {
             }
         });
 
+        fixList.add('b', "Prep for bulk import", new CLDRFilter() {
+
+          public void handlePath(String xpath) {
+           
+            if (!options[USER].doesOccur) return;
+            String userID = options[USER].value;
+            String fullpath = cldrFileToFilter.getFullXPath(xpath);
+            String value = cldrFileToFilter.getStringValue(xpath);
+            parts.set(fullpath);
+            parts.addAttribute("draft", "unconfirmed");
+            parts.addAttribute("alt", "proposed-u" + userID + "-implicit1.8");
+            String newPath = parts.toString();
+            replace(fullpath, newPath, value);
+          }
+        });
 
         fixList.add('n', "fix numbers", new CLDRFilter() {
             public void handlePath(String xpath) {

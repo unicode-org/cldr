@@ -1165,7 +1165,7 @@ public class SurveyMain extends HttpServlet {
             }
             if(bulkDir==null||!bulkDir.exists()||!bulkDir.isDirectory()) {
             	ctx.println(ctx.iconHtml("stop","could not load bulk data")+"The bulk data dir "+CLDR_BULK_DIR+"="+bulkStr+" either doesn't exist or isn't set in cldr.properties. (Server requires reboot for this parameter to take effect)</i>");
-            } else {
+            } else try {
             	ctx.println("<h3>Bulk dir: "+bulkDir.getAbsolutePath()+"</h3>");
 	            boolean doimpbulk = ctx.hasField("doimpbulk");
 	            ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
@@ -1251,6 +1251,10 @@ public class SurveyMain extends HttpServlet {
 	            		stSource.getPathsWithValue(val, base_xpath, resultPaths);
 	            		
 	            		String resultPath = null;
+				
+				if(countAdd==0) {	
+					ctx.println("base "+ base_xpath_id +", uvote " + j+", val["+val+"] - rp "+resultPaths.size()+"<br>");
+				}
 
 	            		if(resultPaths.isEmpty()) {
 	            			countAdd = addAndWarnOnce(ctx, countAdd, "zoom", "Value must be added under "+base_xpath+": " + val + "");
@@ -1276,6 +1280,23 @@ public class SurveyMain extends HttpServlet {
 	            				  toUpdate.add(loc);
 	            				
 	            				resultPath = newxpath;
+						if(countAdd<2) {
+	            					Set<String> nresultPaths = new HashSet<String>();
+	            					stSource.getPathsWithValue(val, base_xpath, nresultPaths);
+							ctx.println(">> now have " + nresultPaths.size() + " paths with value: <tt>"+base_xpath+"</tt> <ol>");
+							for(String res : nresultPaths) { 
+								ctx.println(" <li>"+res+"</li>\n");
+							}
+							ctx.println("</ol>\n");
+							String nr = stSource.getValueAtDPath(newxpath);
+							if(nr==null) {
+								ctx.println("Couldn't get valueatdpath "+ newxpath+"<br>\n");
+							} else if(nr.equals(val)) {
+								ctx.println("RTT ok with " + newxpath + " !<br>\n");
+							} else {
+								ctx.println("RTT not ok!!!!<br>\n");
+							}
+						}
 	            			}
 	            			
 	            			
@@ -1375,9 +1396,16 @@ public class SurveyMain extends HttpServlet {
 	                      actionCtx.printUrlAsHiddenFields();
 	                      ctx.println("<input type=submit value='Accept all implied votes' name='doimpbulk'></form>");
 	            	  }*/
+			if(!toUpdate.isEmpty()) {
+			   ctx.println("Updating: ");
 	            	  for(CLDRLocale toul : toUpdate) {
 	            		  this.updateLocale(toul);
+				dbsrcfac.needUpdate(toul);
+				ctx.println(toul+" ");
 	            	  }
+			  ctx.println("<br>");
+			  ctx.println("Clearing cache: #"+dbsrcfac.update()+"<br>");
+			}
 	            	  toUpdate.clear();
               	    } /* end sync */
 	              } /* end outer loop */
@@ -1387,7 +1415,15 @@ public class SurveyMain extends HttpServlet {
 	            	ctx.println(auser.toString());
 	            	ctx.println("<br>");
 	            }
-            }
+/*
+            } catch (SQLException t) {
+                 t.printStackTrace();
+                 ctx.println("<b>Err in bulk import </b> <pre>" + unchainSqlException(t)+"</pre>");
+*/
+            } catch (Throwable t) {
+		t.printStackTrace();
+		ctx.println("Err : " + t.toString() );
+	    }
         } else if(action.equals("srl_vet_imp")) {
             WebContext subCtx = (WebContext)ctx.clone();
             subCtx.addQuery("dump",vap);

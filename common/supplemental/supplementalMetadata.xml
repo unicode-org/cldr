@@ -323,7 +323,7 @@
 				Asia/Kabul Asia/Kamchatka Asia/Karachi Asia/Kashgar Asia/Katmandu
 				Asia/Krasnoyarsk Asia/Kuala_Lumpur Asia/Kuching Asia/Kuwait
 				Asia/Macau Asia/Magadan Asia/Makassar Asia/Manila Asia/Muscat
-				Asia/Nicosia Asia/Novosibirsk
+				Asia/Nicosia Asia/Novokuznetsk Asia/Novosibirsk
 				Asia/Omsk Asia/Oral
 				Asia/Phnom_Penh Asia/Pontianak Asia/Pyongyang
 				Asia/Qatar Asia/Qyzylorda
@@ -416,7 +416,7 @@
             <variable id="$alt" type="regex">((variant|list|secondary|email|www|short|arab|arabext|armn|armnlow|beng|deva|ethi|fullwide|geor|grek|greklow|gujr|guru|hans|hansfin|hant|hantfin|hebr|jpan|jpanfin|knda|khmr|laoo|latn|mlym|mong|mymr|orya|roman|romanlow|taml|telu|thai|tibt)(-proposed.*)?|(proposed.*))</variable>
             <variable id="$append" type="choice">Era Year Quarter Month Week Day-Of-Week Day Hour Minute Second Timezone</variable>
             <variable id="$calendar" type="choice">buddhist coptic ethiopic ethiopic-amete-alem chinese gregorian hebrew indian islamic islamic-civil japanese arabic civil-arabic thai-buddhist persian roc</variable>
-            <variable id="$collationType" type="choice">big5han digits-after direct gb2312han phonebook pinyin reformed standard stroke traditional</variable>
+            <variable id="$collationType" type="choice">big5han dictionary digits-after direct gb2312han phonebook pinyin reformed standard stroke traditional</variable>
             <variable id="$date" type="regex">200[0-9]-([0-9]|1[0-2])-([12][0-9]|3[01])</variable>
             <variable id="$double" type="regex">[0-9]+(\.[0-9]+)?</variable>
             <variable id="$format" type="choice">standard</variable>

@@ -2041,6 +2041,10 @@ public class CLDRFile implements Freezable, Iterable<String> {
   //"tz-exemplar",
   //"tz-generic-long", "tz-generic-short"};
 
+  public Iterator<String> getAvailableIterator(int type) {
+    return iterator(NameTable[type][0]);
+  }
+
   /**
    * @return the key used to access  data of a given type
    */

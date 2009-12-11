@@ -79,7 +79,10 @@ public class ShowLanguages {
   
   static CLDRFile english;
   
-  static Comparator col = new com.ibm.icu.impl.MultiComparator(new Comparator[] { Collator.getInstance(new ULocale("en")), new UTF16.StringComparator(true, false, 0) });
+  static Comparator col = new com.ibm.icu.impl.MultiComparator(
+          Collator.getInstance(new ULocale("en")),
+          new UTF16.StringComparator(true, false, 0)
+  );
   
   static StandardCodes sc = StandardCodes.make();
   
@@ -193,9 +196,9 @@ public class ShowLanguages {
     .addColumn("P", "class='target' title='primary'", null, "class='target'", true).setSortPriority(3);
     
     // get the codes so we can show the remainder
-    Set<String> remainingScripts = new TreeSet(sc.getGoodAvailableCodes("script")); // StandardCodes.MODERN_SCRIPTS);
+    Set<String> remainingScripts = new TreeSet(getScriptsToShow()); // StandardCodes.MODERN_SCRIPTS);
     UnicodeSet temp = new UnicodeSet();
-    for (String script : sc.getGoodAvailableCodes("script")) {
+    for (String script : getScriptsToShow()) {
       temp.clear();
       try {
         temp.applyPropertyAlias("script", script);
@@ -215,8 +218,8 @@ public class ShowLanguages {
     remainingScripts.remove("Zyyy");
     
     
-    Set<String> remainingLanguages = new TreeSet(sc.getGoodAvailableCodes("language"));
-    for (String language : sc.getGoodAvailableCodes("language")) {
+    Set<String> remainingLanguages = new TreeSet(getLanguagesToShow());
+    for (String language : getLanguagesToShow()) {
       Scope s = Iso639Data.getScope(language);
       Type t = Iso639Data.getType(language);
       if (s != Scope.Individual && s != Scope.Macrolanguage || t != Type.Living) {
@@ -252,6 +255,27 @@ public class ShowLanguages {
     pw1.close();
     
   }
+
+  private static Set<String> getLanguagesToShow() {
+    return getEnglishTypes("language", CLDRFile.LANGUAGE_NAME);
+  }
+
+  private static Set<String> getEnglishTypes(String type, int code) {
+    Set<String> result = new HashSet<String>(sc.getSurveyToolDisplayCodes(type));
+    XPathParts parts = new XPathParts();
+    for (Iterator<String> it = english.getAvailableIterator(code); it.hasNext();) {
+      parts.set(it.next());
+      String newType = parts.getAttributeValue(-1, "type");
+      if (!result.contains(newType)) {
+        result.add(newType);
+      }
+    }
+    return result;
+  }
+
+  private static Set<String> getScriptsToShow() {
+    return getEnglishTypes("script", CLDRFile.SCRIPT_NAME);
+  }
   
   private static void printScriptLanguageTerritory(LanguageInfo linfo, PrintWriter pw) throws IOException {
     PrintWriter pw1;
@@ -270,10 +294,10 @@ public class ShowLanguages {
     ;
     
     // get the codes so we can show the remainder
-    Set<String> remainingScripts = new TreeSet(sc.getGoodAvailableCodes("script")); 
+    Set<String> remainingScripts = new TreeSet(getScriptsToShow()); 
     Set<String> remainingTerritories = new TreeSet(sc.getGoodAvailableCodes("territory"));
     UnicodeSet temp = new UnicodeSet();
-    for (String script : sc.getGoodAvailableCodes("script")) {
+    for (String script : getScriptsToShow()) {
       temp.clear();
       try {
         temp.applyPropertyAlias("script", script);
@@ -293,8 +317,8 @@ public class ShowLanguages {
     remainingScripts.remove("Zyyy");
     
     
-    Set<String> remainingLanguages = new TreeSet(sc.getGoodAvailableCodes("language"));
-    for (String language : sc.getGoodAvailableCodes("language")) {
+    Set<String> remainingLanguages = new TreeSet(getLanguagesToShow());
+    for (String language : getLanguagesToShow()) {
       Scope s = Iso639Data.getScope(language);
       Type t = Iso639Data.getType(language);
       if (s != Scope.Individual && s != Scope.Macrolanguage || t != Type.Living) {
@@ -491,38 +515,49 @@ public class ShowLanguages {
   private static Set<Type> oldLanguage = Collections.unmodifiableSet(EnumSet.of(Type.Ancient,Type.Extinct,Type.Historical,Type.Constructed));
   
   private static void addLanguageScriptCells(TablePrinter tablePrinter, TablePrinter tablePrinter2, String language, String script, String secondary) {
-    String languageName = english.getName(CLDRFile.LANGUAGE_NAME,language);
-    if (languageName == null) languageName = "???";
-    String scriptName = english.getName(CLDRFile.SCRIPT_NAME,script);
-    String scriptModern = StandardCodes.isScriptModern(script) ? "" : script.equals("Zzzz")  ? "?" : "N";
-    Scope s = Iso639Data.getScope(language);
-    Type t = Iso639Data.getType(language);
+    try {
+      String languageName = english.getName(CLDRFile.LANGUAGE_NAME, language);
+      if (languageName == null) {
+        languageName = "¿"+language+"?";
+        System.err.println("No English Language Name for:" + language);
+      }
+      String scriptName = english.getName(CLDRFile.SCRIPT_NAME, script);
+      if (scriptName == null) {
+        scriptName = "¿"+script+"?";
+        System.err.println("No English Language Name for:" + script);
+      }
+      String scriptModern = StandardCodes.isScriptModern(script) ? "" : script.equals("Zzzz")  ? "?" : "N";
+      Scope s = Iso639Data.getScope(language);
+      Type t = Iso639Data.getType(language);
 //  if ((s == Scope.Individual || s == Scope.Macrolanguage || s == Scope.Collection) && t == Type.Living) {
 //  // ok
 //  } else if (!language.equals("und")){
 //  scriptModern = "N";
 //  }
-    String languageModern = oldLanguage.contains(t) ? "O" : language.equals("und") ? "?" : "";
-    
-    tablePrinter.addRow()
-    .addCell(languageName)
-    .addCell(language)
-    .addCell(languageModern)
-    .addCell(secondary)
-    .addCell(scriptName)
-    .addCell(script)
-    .addCell(scriptModern)
-    .finishRow();
-    
-    tablePrinter2.addRow()
-    .addCell(scriptName)
-    .addCell(script)
-    .addCell(scriptModern)
-    .addCell(languageName)
-    .addCell(language)
-    .addCell(languageModern)
-    .addCell(secondary)
-    .finishRow();
+      String languageModern = oldLanguage.contains(t) ? "O" : language.equals("und") ? "?" : "";
+      
+      tablePrinter.addRow()
+      .addCell(languageName)
+      .addCell(language)
+      .addCell(languageModern)
+      .addCell(secondary)
+      .addCell(scriptName)
+      .addCell(script)
+      .addCell(scriptModern)
+      .finishRow();
+      
+      tablePrinter2.addRow()
+      .addCell(scriptName)
+      .addCell(script)
+      .addCell(scriptModern)
+      .addCell(languageName)
+      .addCell(language)
+      .addCell(languageModern)
+      .addCell(secondary)
+      .finishRow();
+    } catch (RuntimeException e) {
+      throw e;
+    }
   }
   
   static DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm 'GMT'");

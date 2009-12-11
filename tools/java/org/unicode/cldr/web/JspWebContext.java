@@ -169,6 +169,10 @@ public class JspWebContext extends WebContext {
 	 */
 	public void doneWithXpaths() {
 		StringBuffer sb = null;
+		if(ourPodBases==null) {
+			this.println("<!-- no items included. No hidden field needed -->");
+			return; 
+		}
 		for(String base : ourPodBases) {
 			int xpath = sm.xpt.getByXpath(base);
 			if(sb==null) {

@@ -663,6 +663,7 @@ public class DataSection extends Registerable {
 		
 		public String getResultXpath() {
 			if(resultXpath == null) {
+				if(base_xpath==-1) return xpath(); /* pseudo element. no real path */
 				int resultType[] = new int[1];
 				int resultXpath_id =  sm.vet.queryResult(locale, base_xpath, resultType);
 				if(resultXpath_id != -1) {

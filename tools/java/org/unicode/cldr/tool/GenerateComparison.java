@@ -169,6 +169,8 @@ public class GenerateComparison {
           paths.addAll(newFile.getExtraPaths());
         }
       } catch (Exception e) {
+	System.err.println("Locale: " + locale + ", "+localeName);
+	e.printStackTrace();
         addToIndex(indexInfo, "ERROR ", locale, localeName);
         continue;
       }

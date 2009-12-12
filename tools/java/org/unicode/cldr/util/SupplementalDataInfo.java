@@ -745,7 +745,9 @@ public class SupplementalDataInfo {
     addPluralInfo();
     localeToPluralInfo = Collections.unmodifiableMap(localeToPluralInfo);
 
-    addDayPeriodInfo();
+    if (lastDayPeriodLocales != null) {
+      addDayPeriodInfo();
+    }
     localeToDayPeriodInfo = Collections.unmodifiableMap(localeToDayPeriodInfo);
     languageMatch = CldrUtility.protectCollection(languageMatch);
   }
@@ -1435,7 +1437,7 @@ public class SupplementalDataInfo {
     String[] locales = lastDayPeriodLocales.split("\\s+");
     DayPeriodInfo temp = dayPeriodBuilder.finish(locales);
     for (String locale : locales) {
-      localeToDayPeriodInfo.put(locale, temp);
+     localeToDayPeriodInfo.put(locale, temp);
     }
   }
 

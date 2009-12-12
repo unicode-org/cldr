@@ -3001,6 +3001,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
 
     for (String context : new String[] {"format", "stand-alone"}) {
       for (String width : new String[] {"narrow", "abbreviated", "wide"}) {
+       if(dayPeriods!=null) {
         LinkedHashSet<DayPeriod> items = new LinkedHashSet(dayPeriods.getPeriods());
         for (DayPeriod dayPeriod : items) {
           //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
@@ -3009,6 +3010,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
                   + "\"]/dayPeriodWidth[@type=\"" + width
                   + "\"]/dayPeriod[@type=\"" + dayPeriod + "\"]");
         }
+       }
       }
     }
     return toAddTo;

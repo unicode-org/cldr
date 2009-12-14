@@ -665,7 +665,7 @@ public class DataSection extends Registerable {
 			if(resultXpath == null) {
 				if(base_xpath==-1) return xpath(); /* pseudo element. no real path */
 				int resultType[] = new int[1];
-				int resultXpath_id =  sm.vet.queryResult(locale, base_xpath, resultType);
+				resultXpath_id =  sm.vet.queryResult(locale, base_xpath, resultType);
 				if(resultXpath_id != -1) {
 					resultXpath = sm.xpt.getById(resultXpath_id); 
 				} else {
@@ -728,7 +728,6 @@ public class DataSection extends Registerable {
 											!(item.isFallback || (item.inheritFrom != null))) { 
 						currentItems.add(item); 
 					} else {
-						//		    System.err.println("MM: " + p.base_xpath+ "- v:"+item.value+", xp:"+item.xpathId+", result:"+resultXpath_id);
 						proposedItems.add(item);
 					}
 				}

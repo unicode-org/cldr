@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import com.ibm.icu.text.RuleBasedCollator;
+
 import org.unicode.cldr.util.CLDRLocale;
 
 import com.ibm.icu.util.ULocale;
@@ -43,7 +45,7 @@ public class LocaleTree {
      *           "Serbian (Yugoslavia)" -> sr_YU
      */
     
-    Map<String,CLDRLocale> localeListMap = new TreeMap<String,CLDRLocale>();
+    Map<String,CLDRLocale> localeListMap = new TreeMap<String,CLDRLocale>(RuleBasedCollator.getInstance());
     Map<String,CLDRLocale> localeNameToCode = new HashMap<String,CLDRLocale>();
     Map<CLDRLocale, Map<String,CLDRLocale>> subLocales = new HashMap<CLDRLocale,Map<String,CLDRLocale>>();
     

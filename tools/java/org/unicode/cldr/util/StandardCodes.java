@@ -1043,10 +1043,10 @@ public class StandardCodes {
     static final Set<String> filteredLanguages = Collections
             .unmodifiableSet(new TreeSet(
             Arrays
-            .asList(whitespace.split("ab af am ar as asa ay az be bg bn bo bs ca " +
+            .asList(whitespace.split("ab af am ar as asa ay az be bem bez bg bm bn bo bs ca " +
             		"cs cy da de dv dz efi el en eo es et eu fa fi fil fj fr " +
             		"ga gl gn gsw gu ha haw he hi hr ht hu hy id ig is it ja jv " +
-            		"ka kk km kn ko ks ku ky la lah lb ln lo lt lv " +
+            		"ka kea kk km kn ko ks ku ky la lah lb ln lo lt luy lv " +
             		"mg mi mk ml mn mr ms mt mul my nb nd ne nl nn no nso ny or os " +
             		"pa pl ps pt qu rm rn ro ru rw sa sd se sg sh si sk sl sm sn so sq sr ss st su sv sw swb " +
             		"ta te tet tg th ti tk tl tn to tpi tr ts ty ug uk und ur uz ve vi wo xh yo yue zh zu zxx"))));

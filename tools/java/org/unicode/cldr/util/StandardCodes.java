@@ -1044,7 +1044,7 @@ public class StandardCodes {
             .unmodifiableSet(new TreeSet(
             Arrays
             .asList(whitespace.split("ab af am ar as asa ay az be bem bez bg bm bn bo bs ca " +
-            		"cs cy da de dv dz efi el en eo es et eu fa fi fil fj fr " +
+            		"cs cy da de dv dz ebu efi el en eo es et eu fa fi fil fj fr " +
             		"ga gl gn gsw gu ha haw he hi hr ht hu hy id ig is it ja jv " +
             		"ka kea kk km kn ko ks ku ky la lah lb ln lo lt luy lv " +
             		"mg mi mk ml mn mr ms mt mul my nb nd ne nl nn no nso ny or os " +

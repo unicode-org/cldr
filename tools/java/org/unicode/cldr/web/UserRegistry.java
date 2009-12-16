@@ -228,6 +228,7 @@ public class UserRegistry {
                 String arg = this.org
                                 .replaceAll("Utilika Foundation", "utilika")
                                 .replaceAll("Government of Pakistan - National Language Authority", "pakistan")
+				.replaceAll("ICT Agency of Sri Lanka", "srilanka")
                                 .toLowerCase().replaceAll("[.-]", "_");
                 o = VoteResolver.Organization.valueOf(arg);
             } catch(IllegalArgumentException iae) {

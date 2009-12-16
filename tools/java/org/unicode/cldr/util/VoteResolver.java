@@ -73,8 +73,8 @@ public class VoteResolver<T> {
    * so that we know when new ones show up.
    */
   public enum Organization {
-    // adobe, afrigen, apple, breton, gnome, google, guest, ibm, india, iran_hci, kotoistus, lisa, openoffice_org, pakistan, sil, sun, surveytool, utilika, yahoo;
-    adobe, afrigen, apple, breton, gnome, google, guest, ibm, india, iran_hci, kotoistus, lisa, openoffice_org, pakistan, sil, sun, surveytool, utilika, yahoo;
+    // adobe, afrigen, apple, breton, gnome, google, guest, ibm, india, iran_hci, kotoistus, lisa, openoffice_org, pakistan, sil, srilanka, sun, surveytool, utilika, yahoo;
+    adobe, afrigen, apple, breton, gnome, google, guest, ibm, india, iran_hci, kotoistus, lisa, openoffice_org, pakistan, sil, srilanka, sun, surveytool, utilika, yahoo;
     
     public static Organization fromString(String name) {
     	name = name.toLowerCase().replace('-', '_').replace('.', '_');
@@ -82,7 +82,9 @@ public class VoteResolver<T> {
         	name = "pakistan";
         } else if (name.contains("utilika foundation")) {
         	name = "utilika";
-        }
+        } else if (name.contains("sri lanka")) {
+		name = "srilanka";
+	}
         Organization org = Organization.valueOf(name);
         return org;
     }

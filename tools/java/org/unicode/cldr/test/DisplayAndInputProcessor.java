@@ -1,3 +1,6 @@
+/* Copyright (C) 2007-2010 Google and others.  All Rights Reserved. */
+/* Copyright (C) 2007-2010 IBM Corp. and others. All Rights Reserved. */
+
 package org.unicode.cldr.test;
 
 import org.unicode.cldr.util.CLDRFile;
@@ -32,7 +35,7 @@ public class DisplayAndInputProcessor {
 
     private FormatParser formatDateParser = new FormatParser();
 
-    private static PrettyPrinter pp;
+    private PrettyPrinter pp;
 
     /**
      * Constructor, taking cldrFile.
@@ -40,8 +43,12 @@ public class DisplayAndInputProcessor {
      */
     public DisplayAndInputProcessor(CLDRFile cldrFileToCheck) {
         String locale = cldrFileToCheck.getLocaleID();
+	init(locale);
+    }
+     void init(String locale) {
         col = Collator.getInstance(new ULocale(locale));
         spaceCol = Collator.getInstance(new ULocale(locale));
+
         pp = new PrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT)).setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
         .setCompressRanges(true)
         .setToQuote(new UnicodeSet(TO_QUOTE))
@@ -54,8 +61,7 @@ public class DisplayAndInputProcessor {
      * @param locale
      */
     public DisplayAndInputProcessor(ULocale locale) {
-        col = Collator.getInstance(locale);
-        spaceCol = Collator.getInstance(locale);
+	init(locale.toString());
     }
 
     /**

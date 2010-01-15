@@ -60,6 +60,7 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -1166,6 +1167,7 @@ public class SurveyMain extends HttpServlet {
             if(bulkDir==null||!bulkDir.exists()||!bulkDir.isDirectory()) {
             	ctx.println(ctx.iconHtml("stop","could not load bulk data")+"The bulk data dir "+CLDR_BULK_DIR+"="+bulkStr+" either doesn't exist or isn't set in cldr.properties. (Server requires reboot for this parameter to take effect)</i>");
             } else try {
+
             	ctx.println("<h3>Bulk dir: "+bulkDir.getAbsolutePath()+"</h3>");
 	            boolean doimpbulk = ctx.hasField("doimpbulk");
 	            ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
@@ -1190,10 +1192,11 @@ public class SurveyMain extends HttpServlet {
 	            for(File file : files ) {
               	  synchronized(vet.conn) {
 	            	CLDRLocale loc = getLocaleOf(file);
+		DisplayAndInputProcessor processor = new DisplayAndInputProcessor(loc.toULocale());
 	            	ctx.println("<a name=\""+loc+"\"><h2>"+file.getName()+" - "+loc.getDisplayName(ctx.displayLocale)+"</h2></a>");
 	            
 	            	CLDRFile c = new CLDRFile(null, false);
-	            	c.loadFromFile(file, loc.getBaseName(), CLDRFile.DraftStatus.unconfirmed);
+	            	c.loadFromFile(file.getPath(), loc.getBaseName(), CLDRFile.DraftStatus.unconfirmed);
 	            	XPathParts xpp = new XPathParts(null,null);
 	            	
 	            	int countNoAlt = 0;
@@ -1207,11 +1210,16 @@ public class SurveyMain extends HttpServlet {
 	            	int countChange =0;
 	            	int countVoteMain= 0;
 	            	int countAdd = 0;
+
+			ctx.println("<table border=1>");
+			ctx.println("<tr><th>XPath</th><th>cur</th><th>val</th><th>Msg</th></tr>");
 	            	
 	            	for(String x : c) {
 	            		String full = c.getFullXPath(x);
 	            		String alt = XPathTable.getAlt(full, xpp);
-	            		String val = c.getStringValue(x);
+	            		String val0 = c.getStringValue(x);
+				Exception exc[] = new Exception[1];
+				String val = processor.processInput(x, val0, exc);
 	            		if(alt==null||alt.length()==0) {
 	            			if(!full.startsWith("//ldml/identity")) {
 	            				countNoAlt = addAndWarnOnce(ctx, countNoAlt, "warn", "Xpath with no 'alt' tag: " + full);
@@ -1251,15 +1259,28 @@ public class SurveyMain extends HttpServlet {
 	            		stSource.getPathsWithValue(val, base_xpath, resultPaths);
 	            		
 	            		String resultPath = null;
-				
-				if(countAdd==0) {	
-					ctx.println("base "+ base_xpath_id +", uvote " + j+", val["+val+"] - rp "+resultPaths.size()+"<br>");
+
+				ctx.println("<tr><th>");				
+					ctx.println("<a href='"+ctx.base()+"?_="+loc+"&xpath="+base_xpath_id+"'>");
+					ctx.println(base_xpath_id+"</a></th>");
+				ctx.println("<td>" + j+"</td><td>"+val+"</td>");
+				ctx.println("<td>");
+	
+				if(exc[0]!=null) {
+					ctx.println("Exceptions on DAIP: ");
+					for(Exception ex : exc) { 
+						ctx.print(ex.toString()+" ");
+						ex.printStackTrace();
+					}
+					ctx.println("<br>");
 				}
 
+
 	            		if(resultPaths.isEmpty()) {
-	            			countAdd = addAndWarnOnce(ctx, countAdd, "zoom", "Value must be added under "+base_xpath+": " + val + "");
+	            			/*countAdd = */addAndWarnOnce(ctx, countAdd, "zoom", "Value must be added under "+base_xpath+": " + val + "");
 	            			if(!doimpbulk) {
 	            				countReady = addAndWarnOnce(ctx, countReady, "okay","<i>Ready to update.</i>");
+						ctx.println("</td></tr>");
 	            				continue; // don't try to add.
 	            			}
 	            			/* NOW THE FUN PART */
@@ -1292,7 +1313,7 @@ public class SurveyMain extends HttpServlet {
 							if(nr==null) {
 								ctx.println("Couldn't get valueatdpath "+ newxpath+"<br>\n");
 							} else if(nr.equals(val)) {
-								ctx.println("RTT ok with " + newxpath + " !<br>\n");
+							//	ctx.println("RTT ok with " + newxpath + " !<br>\n");
 							} else {
 								ctx.println("RTT not ok!!!!<br>\n");
 							}
@@ -1329,6 +1350,7 @@ public class SurveyMain extends HttpServlet {
 	            			if(resultPath==null) {
 	            				ctx.println(ctx.iconHtml("stop", "more than one result!")+"More than one result!<br>");
 	            				if(true) ctx.println(loc+" " + xpt.getPrettyPath(base_xpath) + " / "+ alt + " (#"+n+" - " + ui +")<br/>");
+					ctx.println("</td></tr>");
 	            				continue;
 	            			}
 	            		} else{
@@ -1336,6 +1358,7 @@ public class SurveyMain extends HttpServlet {
 	            		}
 
 	            		/*temp*/if(resultPath == null) {
+					ctx.println("</td></tr>");
 	            			continue; 
 	            		}
 	            		
@@ -1347,15 +1370,16 @@ public class SurveyMain extends HttpServlet {
 	            		
 	            		
 	                     if(dpathId == j) {
-	                    	countAlready = addAndWarnOnce(ctx, countAlready, "squo", "Vote already correct");
+	                    	/*countAlready =*/ addAndWarnOnce(ctx, countAlready, "squo", "Vote already correct");
 //	                    	ctx.println(" "+ctx.iconHtml("squo","current")+" ( == current vote ) <br>");
 //	                    	  already++;
 	                      } else {
 	                          if(j>-1) {
 	                        	  if(vet_type[0]==Vetting.VET_IMPLIED) {
-	                        		  countOther = addAndWarnOnce(ctx, countOther, "okay", "Changing existing implied vote");
+	                        		  /*countOther = */addAndWarnOnce(ctx, countOther, "okay", "Changing existing implied vote");
 	                        	  } else {
-	                        		  countExplicit = addAndWarnOnce(ctx, countExplicit, "warn", "NOT changing existing different vote");
+	                        		 /* countExplicit = */ addAndWarnOnce(ctx, countExplicit, "warn", "NOT changing existing different vote");
+					ctx.println("</td></tr>");
 	                        		  continue;
 	                        	  }
 //	            			  ctx.println(" "+ctx.iconHtml("warn","already")+"Current vote: "+j+"<br>");
@@ -1371,8 +1395,10 @@ public class SurveyMain extends HttpServlet {
 	            				  toUpdate.add(loc);*/
 	            			  }
 	            		  }
+				ctx.println("</td></tr>");
 	            		  
 	            	  } /* end xpath */
+			ctx.println("</table>");
 	            	  ctx.println("<hr>");
 	            	  /*if(already>0 ) {
 	            		  ctx.println(" "+ctx.iconHtml("squo","current")+""+already+" items already had the correct vote.<br>");

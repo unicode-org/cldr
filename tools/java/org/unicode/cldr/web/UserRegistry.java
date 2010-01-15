@@ -45,6 +45,7 @@ public class UserRegistry {
 	public static final int NO_LEVEL  = -1;  /** min level **/
     
     public static final String FOR_ADDING= "(for adding)"; /** special "IP" value referring to a user being added **/ 
+private static final String INTERNAL = "INTERNAL";
     
 
     /**
@@ -673,7 +674,7 @@ public class UserRegistry {
                     logger.severe("Duplicate user for " + email + " - ids " + u.id + " and " + rs.getInt(1));
                     return null;
                 }
-                if(!ip.startsWith("RSS@") && !ip.equals("INTERNAL")) {
+                if(!ip.startsWith("RSS@") && !ip.equals(INTERNAL)) {
                     logger.info("Login: " + email + " @ " + ip);
                     if(!FOR_ADDING.equals(ip)) {
                         touchStmt.setInt(1, u.id);
@@ -703,7 +704,7 @@ public class UserRegistry {
     } // end get
 
     public UserRegistry.User get(String email) {
-        return get(null,email,"(lookup)");
+        return get(null,email,INTERNAL);
     }
     public UserRegistry.User getEmptyUser() {
         User u = new User();

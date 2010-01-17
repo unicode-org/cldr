@@ -4,7 +4,7 @@
 <ldmlBCP47>
     <version number="$Revision$"/>
     <generation date="$Date$"/>
-    <cldrVersion version="1.7.2"/>
+    <cldrVersion version="1.8"/>
 
     <keyword>
         <key name="tz" alias="timezone">
@@ -27,37 +27,37 @@
             <type name="aqrot" alias="Antarctica/Rothera"/>
             <type name="aqsyw" alias="Antarctica/Syowa"/>
             <type name="aqvos" alias="Antarctica/Vostok"/>
-            <type name="arbue" alias="America/Buenos_Aires"/>
-            <type name="arcor" alias="America/Cordoba"/>
-            <type name="arctc" alias="America/Catamarca"/>
+            <type name="arbue" alias="America/Buenos_Aires America/Argentina/Buenos_Aires"/>
+            <type name="arcor" alias="America/Cordoba America/Argentina/Cordoba America/Rosario"/>
+            <type name="arctc" alias="America/Catamarca America/Argentina/Catamarca America/Argentina/ComodRivadavia"/>
             <type name="arirj" alias="America/Argentina/La_Rioja"/>
-            <type name="arjuj" alias="America/Jujuy"/>
+            <type name="arjuj" alias="America/Jujuy America/Argentina/Jujuy"/>
             <type name="arluq" alias="America/Argentina/San_Luis"/>
-            <type name="armdz" alias="America/Mendoza"/>
+            <type name="armdz" alias="America/Mendoza America/Argentina/Mendoza"/>
             <type name="arrgl" alias="America/Argentina/Rio_Gallegos"/>
             <type name="arsla" alias="America/Argentina/Salta"/>
             <type name="artuc" alias="America/Argentina/Tucuman"/>
             <type name="aruaq" alias="America/Argentina/San_Juan"/>
             <type name="arush" alias="America/Argentina/Ushuaia"/>
-            <type name="asppg" alias="Pacific/Pago_Pago"/>
+            <type name="asppg" alias="Pacific/Pago_Pago Pacific/Samoa US/Samoa"/>
             <type name="atvie" alias="Europe/Vienna"/>
-            <type name="auadl" alias="Australia/Adelaide"/>
-            <type name="aubhq" alias="Australia/Broken_Hill"/>
-            <type name="aubne" alias="Australia/Brisbane"/>
-            <type name="audrw" alias="Australia/Darwin"/>
+            <type name="auadl" alias="Australia/Adelaide Australia/South"/>
+            <type name="aubhq" alias="Australia/Broken_Hill Australia/Yancowinna"/>
+            <type name="aubne" alias="Australia/Brisbane Australia/Queensland"/>
+            <type name="audrw" alias="Australia/Darwin Australia/North"/>
             <type name="aueuc" alias="Australia/Eucla"/>
-            <type name="auhba" alias="Australia/Hobart"/>
+            <type name="auhba" alias="Australia/Hobart Australia/Tasmania"/>
             <type name="aukns" alias="Australia/Currie"/>
             <type name="auldc" alias="Australia/Lindeman"/>
-            <type name="auldh" alias="Australia/Lord_Howe"/>
-            <type name="aumel" alias="Australia/Melbourne"/>
-            <type name="auper" alias="Australia/Perth"/>
-            <type name="ausyd" alias="Australia/Sydney"/>
+            <type name="auldh" alias="Australia/Lord_Howe Australia/LHI"/>
+            <type name="aumel" alias="Australia/Melbourne Australia/Victoria"/>
+            <type name="auper" alias="Australia/Perth Australia/West"/>
+            <type name="ausyd" alias="Australia/Sydney Australia/ACT Australia/Canberra Australia/NSW"/>
             <type name="awaua" alias="America/Aruba"/>
             <type name="azbak" alias="Asia/Baku"/>
             <type name="basjj" alias="Europe/Sarajevo"/>
             <type name="bbbgi" alias="America/Barbados"/>
-            <type name="bddac" alias="Asia/Dhaka"/>
+            <type name="bddac" alias="Asia/Dhaka Asia/Dacca"/>
             <type name="bebru" alias="Europe/Brussels"/>
             <type name="bfoua" alias="Africa/Ouagadougou"/>
             <type name="bgsof" alias="Europe/Sofia"/>
@@ -73,48 +73,48 @@
             <type name="brcgb" alias="America/Cuiaba"/>
             <type name="brcgr" alias="America/Campo_Grande"/>
             <type name="brern" alias="America/Eirunepe"/>
-            <type name="brfen" alias="America/Noronha"/>
+            <type name="brfen" alias="America/Noronha Brazil/DeNoronha"/>
             <type name="brfor" alias="America/Fortaleza"/>
-            <type name="brmao" alias="America/Manaus"/>
+            <type name="brmao" alias="America/Manaus Brazil/West"/>
             <type name="brmcz" alias="America/Maceio"/>
             <type name="brpvh" alias="America/Porto_Velho"/>
-            <type name="brrbr" alias="America/Rio_Branco"/>
+            <type name="brrbr" alias="America/Rio_Branco America/Porto_Acre Brazil/Acre"/>
             <type name="brrec" alias="America/Recife"/>
-            <type name="brsao" alias="America/Sao_Paulo"/>
+            <type name="brsao" alias="America/Sao_Paulo Brazil/East"/>
             <type name="brssa" alias="America/Bahia"/>
             <type name="brstm" alias="America/Santarem"/>
             <type name="bsnas" alias="America/Nassau"/>
-            <type name="btthi" alias="Asia/Thimphu"/>
+            <type name="btthi" alias="Asia/Thimphu Asia/Thimbu"/>
             <type name="bwgbe" alias="Africa/Gaborone"/>
             <type name="bymsq" alias="Europe/Minsk"/>
             <type name="bzbze" alias="America/Belize"/>
-            <type name="caedm" alias="America/Edmonton"/>
+            <type name="caedm" alias="America/Edmonton Canada/Mountain"/>
             <type name="caffs" alias="America/Rainy_River"/>
             <type name="caglb" alias="America/Glace_Bay"/>
             <type name="cagoo" alias="America/Goose_Bay"/>
-            <type name="cahal" alias="America/Halifax"/>
+            <type name="cahal" alias="America/Halifax Canada/Atlantic SystemV/AST4ADT"/>
             <type name="caiql" alias="America/Iqaluit"/>
             <type name="camon" alias="America/Moncton"/>
             <type name="camtr" alias="America/Montreal"/>
             <type name="capnt" alias="America/Pangnirtung"/>
             <type name="careb" alias="America/Resolute"/>
-            <type name="careg" alias="America/Regina"/>
-            <type name="casjf" alias="America/St_Johns"/>
+            <type name="careg" alias="America/Regina Canada/East-Saskatchewan Canada/Saskatchewan"/>
+            <type name="casjf" alias="America/St_Johns Canada/Newfoundland"/>
             <type name="cathu" alias="America/Nipigon"/>
             <type name="cathu" alias="America/Thunder_Bay"/>
-            <type name="cator" alias="America/Toronto"/>
-            <type name="cavan" alias="America/Vancouver"/>
-            <type name="cawnp" alias="America/Winnipeg"/>
+            <type name="cator" alias="America/Toronto Canada/Eastern"/>
+            <type name="cavan" alias="America/Vancouver Canada/Pacific"/>
+            <type name="cawnp" alias="America/Winnipeg Canada/Central"/>
             <type name="caybx" alias="America/Blanc-Sablon"/>
             <type name="caycb" alias="America/Cambridge_Bay"/>
             <type name="cayda" alias="America/Dawson"/>
             <type name="caydq" alias="America/Dawson_Creek"/>
             <type name="cayek" alias="America/Rankin_Inlet"/>
             <type name="cayev" alias="America/Inuvik"/>
-            <type name="cayxy" alias="America/Whitehorse"/>
+            <type name="cayxy" alias="America/Whitehorse Canada/Yukon"/>
             <type name="cayyn" alias="America/Swift_Current"/>
             <type name="cayzf" alias="America/Yellowknife"/>
-            <type name="cayzs" alias="America/Coral_Harbour"/>
+            <type name="cayzs" alias="America/Coral_Harbour America/Atikokan"/>
             <type name="cccck" alias="Indian/Cocos"/>
             <type name="cdfbm" alias="Africa/Lubumbashi"/>
             <type name="cdfih" alias="Africa/Kinshasa"/>
@@ -123,20 +123,20 @@
             <type name="chzrh" alias="Europe/Zurich"/>
             <type name="ciabj" alias="Africa/Abidjan"/>
             <type name="ckrar" alias="Pacific/Rarotonga"/>
-            <type name="clipc" alias="Pacific/Easter"/>
-            <type name="clscl" alias="America/Santiago"/>
+            <type name="clipc" alias="Pacific/Easter Chile/EasterIsland"/>
+            <type name="clscl" alias="America/Santiago Chile/Continental"/>
             <type name="cmdla" alias="Africa/Douala"/>
-            <type name="cnckg" alias="Asia/Chongqing"/>
+            <type name="cnckg" alias="Asia/Chongqing Asia/Chungking"/>
             <type name="cnhrb" alias="Asia/Harbin"/>
             <type name="cnkhg" alias="Asia/Kashgar"/>
-            <type name="cnsha" alias="Asia/Shanghai"/>
+            <type name="cnsha" alias="Asia/Shanghai PRC"/>
             <type name="cnurc" alias="Asia/Urumqi"/>
             <type name="cobog" alias="America/Bogota"/>
             <type name="crsjo" alias="America/Costa_Rica"/>
-            <type name="cuhav" alias="America/Havana"/>
+            <type name="cuhav" alias="America/Havana Cuba"/>
             <type name="cvrai" alias="Atlantic/Cape_Verde"/>
             <type name="cxxch" alias="Indian/Christmas"/>
-            <type name="cynic" alias="Asia/Nicosia"/>
+            <type name="cynic" alias="Asia/Nicosia Europe/Nicosia"/>
             <type name="czprg" alias="Europe/Prague"/>
             <type name="deber" alias="Europe/Berlin"/>
             <type name="djjib" alias="Africa/Djibouti"/>
@@ -147,9 +147,9 @@
             <type name="ecgps" alias="Pacific/Galapagos"/>
             <type name="ecgye" alias="America/Guayaquil"/>
             <type name="eetll" alias="Europe/Tallinn"/>
-            <type name="egcai" alias="Africa/Cairo"/>
+            <type name="egcai" alias="Africa/Cairo Egypt"/>
             <type name="eheai" alias="Africa/El_Aaiun"/>
-            <type name="erasm" alias="Africa/Asmera"/>
+            <type name="erasm" alias="Africa/Asmera Africa/Asmara"/>
             <type name="esceu" alias="Africa/Ceuta"/>
             <type name="eslpa" alias="Atlantic/Canary"/>
             <type name="esmad" alias="Europe/Madrid"/>
@@ -160,12 +160,12 @@
             <type name="fkpsy" alias="Atlantic/Stanley"/>
             <type name="fmksa" alias="Pacific/Kosrae"/>
             <type name="fmpni" alias="Pacific/Ponape"/>
-            <type name="fmtkk" alias="Pacific/Truk"/>
-            <type name="fotho" alias="Atlantic/Faeroe"/>
+            <type name="fmtkk" alias="Pacific/Truk Pacific/Yap"/>
+            <type name="fotho" alias="Atlantic/Faeroe Atlantic/Faroe"/>
             <type name="frpar" alias="Europe/Paris"/>
             <type name="galbv" alias="Africa/Libreville"/>
             <type name="gaza" alias="Asia/Gaza"/>
-            <type name="gblon" alias="Europe/London"/>
+            <type name="gblon" alias="Europe/London Europe/Belfast GB GB-Eire"/>
             <type name="gdgnd" alias="America/Grenada"/>
             <type name="getbs" alias="Asia/Tbilisi"/>
             <type name="gfcay" alias="America/Cayenne"/>
@@ -188,28 +188,28 @@
             <type name="gugum" alias="Pacific/Guam"/>
             <type name="gwoxb" alias="Africa/Bissau"/>
             <type name="gygeo" alias="America/Guyana"/>
-            <type name="hkhkg" alias="Asia/Hong_Kong"/>
+            <type name="hkhkg" alias="Asia/Hong_Kong Hongkong"/>
             <type name="hntgu" alias="America/Tegucigalpa"/>
             <type name="hrzag" alias="Europe/Zagreb"/>
             <type name="htpap" alias="America/Port-au-Prince"/>
             <type name="hubud" alias="Europe/Budapest"/>
             <type name="iddjj" alias="Asia/Jayapura"/>
             <type name="idjkt" alias="Asia/Jakarta"/>
-            <type name="idmak" alias="Asia/Makassar"/>
+            <type name="idmak" alias="Asia/Makassar Asia/Ujung_Pandang"/>
             <type name="idpnk" alias="Asia/Pontianak"/>
-            <type name="iedub" alias="Europe/Dublin"/>
+            <type name="iedub" alias="Europe/Dublin Eire"/>
             <type name="imdgs" alias="Europe/Isle_of_Man"/>
-            <type name="inccu" alias="Asia/Calcutta"/>
+            <type name="inccu" alias="Asia/Calcutta Asia/Kolkata"/>
             <type name="iodga" alias="Indian/Chagos"/>
             <type name="iqbgw" alias="Asia/Baghdad"/>
-            <type name="irthr" alias="Asia/Tehran"/>
-            <type name="isrey" alias="Atlantic/Reykjavik"/>
+            <type name="irthr" alias="Asia/Tehran Iran"/>
+            <type name="isrey" alias="Atlantic/Reykjavik Iceland"/>
             <type name="itrom" alias="Europe/Rome"/>
-            <type name="jeruslm" alias="Asia/Jerusalem"/>
+            <type name="jeruslm" alias="Asia/Jerusalem Asia/Tel_Aviv Israel"/>
             <type name="jesth" alias="Europe/Jersey"/>
-            <type name="jmkin" alias="America/Jamaica"/>
+            <type name="jmkin" alias="America/Jamaica Jamaica"/>
             <type name="joamm" alias="Asia/Amman"/>
-            <type name="jptyo" alias="Asia/Tokyo"/>
+            <type name="jptyo" alias="Asia/Tokyo Japan"/>
             <type name="kenbo" alias="Africa/Nairobi"/>
             <type name="kgfru" alias="Asia/Bishkek"/>
             <type name="khpnh" alias="Asia/Phnom_Penh"/>
@@ -219,7 +219,7 @@
             <type name="kmyva" alias="Indian/Comoro"/>
             <type name="knbas" alias="America/St_Kitts"/>
             <type name="kpfnj" alias="Asia/Pyongyang"/>
-            <type name="krsel" alias="Asia/Seoul"/>
+            <type name="krsel" alias="Asia/Seoul ROK"/>
             <type name="kwkwi" alias="Asia/Kuwait"/>
             <type name="kygec" alias="America/Cayman"/>
             <type name="kzaau" alias="Asia/Aqtau"/>
@@ -237,21 +237,21 @@
             <type name="ltvno" alias="Europe/Vilnius"/>
             <type name="lulux" alias="Europe/Luxembourg"/>
             <type name="lvrix" alias="Europe/Riga"/>
-            <type name="lytip" alias="Africa/Tripoli"/>
+            <type name="lytip" alias="Africa/Tripoli Libya"/>
             <type name="macas" alias="Africa/Casablanca"/>
             <type name="mcmon" alias="Europe/Monaco"/>
-            <type name="mdkiv" alias="Europe/Chisinau"/>
+            <type name="mdkiv" alias="Europe/Chisinau Europe/Tiraspol"/>
             <type name="metgd" alias="Europe/Podgorica"/>
             <type name="mgtnr" alias="Indian/Antananarivo"/>
-            <type name="mhkwa" alias="Pacific/Kwajalein"/>
+            <type name="mhkwa" alias="Pacific/Kwajalein Kwajalein"/>
             <type name="mhmaj" alias="Pacific/Majuro"/>
             <type name="mkskp" alias="Europe/Skopje"/>
-            <type name="mlbko" alias="Africa/Bamako"/>
+            <type name="mlbko" alias="Africa/Bamako Africa/Timbuktu"/>
             <type name="mmrgn" alias="Asia/Rangoon"/>
             <type name="mncoq" alias="Asia/Choibalsan"/>
             <type name="mnhvd" alias="Asia/Hovd"/>
-            <type name="mnuln" alias="Asia/Ulaanbaatar"/>
-            <type name="momfm" alias="Asia/Macau"/>
+            <type name="mnuln" alias="Asia/Ulaanbaatar Asia/Ulan_Bator"/>
+            <type name="momfm" alias="Asia/Macau Asia/Macao"/>
             <type name="mpspn" alias="Pacific/Saipan"/>
             <type name="mqfdf" alias="America/Martinique"/>
             <type name="mrnkc" alias="Africa/Nouakchott"/>
@@ -263,11 +263,11 @@
             <type name="mxchi" alias="America/Chihuahua"/>
             <type name="mxcun" alias="America/Cancun"/>
             <type name="mxhmo" alias="America/Hermosillo"/>
-            <type name="mxmex" alias="America/Mexico_City"/>
+            <type name="mxmex" alias="America/Mexico_City Mexico/General"/>
             <type name="mxmid" alias="America/Merida"/>
             <type name="mxmty" alias="America/Monterrey"/>
-            <type name="mxmzt" alias="America/Mazatlan"/>
-            <type name="mxtij" alias="America/Tijuana"/>
+            <type name="mxmzt" alias="America/Mazatlan Mexico/BajaSur"/>
+            <type name="mxtij" alias="America/Tijuana America/Ensenada Mexico/BajaNorte"/>
             <type name="mykch" alias="Asia/Kuching"/>
             <type name="mykul" alias="Asia/Kuala_Lumpur"/>
             <type name="mzmpm" alias="Africa/Maputo"/>
@@ -279,11 +279,11 @@
             <type name="nimga" alias="America/Managua"/>
             <type name="nlams" alias="Europe/Amsterdam"/>
             <type name="noosl" alias="Europe/Oslo"/>
-            <type name="npktm" alias="Asia/Katmandu"/>
+            <type name="npktm" alias="Asia/Katmandu Asia/Kathmandu"/>
             <type name="nrinu" alias="Pacific/Nauru"/>
             <type name="nuiue" alias="Pacific/Niue"/>
-            <type name="nzakl" alias="Pacific/Auckland"/>
-            <type name="nzcht" alias="Pacific/Chatham"/>
+            <type name="nzakl" alias="Pacific/Auckland NZ"/>
+            <type name="nzcht" alias="Pacific/Chatham NZ-CHAT"/>
             <type name="ommct" alias="Asia/Muscat"/>
             <type name="papty" alias="America/Panama"/>
             <type name="pelim" alias="America/Lima"/>
@@ -293,12 +293,12 @@
             <type name="pgpom" alias="Pacific/Port_Moresby"/>
             <type name="phmnl" alias="Asia/Manila"/>
             <type name="pkkhi" alias="Asia/Karachi"/>
-            <type name="plwaw" alias="Europe/Warsaw"/>
+            <type name="plwaw" alias="Europe/Warsaw Poland"/>
             <type name="pmmqc" alias="America/Miquelon"/>
             <type name="pnpcn" alias="Pacific/Pitcairn"/>
             <type name="prsju" alias="America/Puerto_Rico"/>
             <type name="ptfnc" alias="Atlantic/Madeira"/>
-            <type name="ptlis" alias="Europe/Lisbon"/>
+            <type name="ptlis" alias="Europe/Lisbon Portugal"/>
             <type name="ptpdl" alias="Atlantic/Azores"/>
             <type name="pwror" alias="Pacific/Palau"/>
             <type name="pyasu" alias="America/Asuncion"/>
@@ -312,7 +312,7 @@
             <type name="rukgd" alias="Europe/Kaliningrad"/>
             <type name="rukra" alias="Asia/Krasnoyarsk"/>
             <type name="rukuf" alias="Europe/Samara"/>
-            <type name="rumow" alias="Europe/Moscow"/>
+            <type name="rumow" alias="Europe/Moscow W-SU"/>
             <type name="runoz" alias="Asia/Novokuznetsk"/>
             <type name="ruoms" alias="Asia/Omsk"/>
             <type name="ruovb" alias="Asia/Novosibirsk"/>
@@ -328,10 +328,10 @@
             <type name="scmaw" alias="Indian/Mahe"/>
             <type name="sdkrt" alias="Africa/Khartoum"/>
             <type name="sesto" alias="Europe/Stockholm"/>
-            <type name="sgsin" alias="Asia/Singapore"/>
+            <type name="sgsin" alias="Asia/Singapore Singapore"/>
             <type name="shshn" alias="Atlantic/St_Helena"/>
             <type name="silju" alias="Europe/Ljubljana"/>
-            <type name="sjlyr" alias="Arctic/Longyearbyen"/>
+            <type name="sjlyr" alias="Arctic/Longyearbyen Atlantic/Jan_Mayen"/>
             <type name="skbts" alias="Europe/Bratislava"/>
             <type name="slfna" alias="Africa/Freetown"/>
             <type name="smsai" alias="Europe/San_Marino"/>
@@ -350,13 +350,13 @@
             <type name="tjdyu" alias="Asia/Dushanbe"/>
             <type name="tkfko" alias="Pacific/Fakaofo"/>
             <type name="tldil" alias="Asia/Dili"/>
-            <type name="tmasb" alias="Asia/Ashgabat"/>
+            <type name="tmasb" alias="Asia/Ashgabat Asia/Ashkhabad"/>
             <type name="tntun" alias="Africa/Tunis"/>
             <type name="totbu" alias="Pacific/Tongatapu"/>
-            <type name="trist" alias="Europe/Istanbul"/>
+            <type name="trist" alias="Europe/Istanbul Asia/Istanbul Turkey"/>
             <type name="ttpos" alias="America/Port_of_Spain"/>
             <type name="tvfun" alias="Pacific/Funafuti"/>
-            <type name="twtpe" alias="Asia/Taipei"/>
+            <type name="twtpe" alias="Asia/Taipei ROC"/>
             <type name="tzdar" alias="Africa/Dar_es_Salaam"/>
             <type name="uaiev" alias="Europe/Kiev"/>
             <type name="uaozh" alias="Europe/Zaporozhye"/>
@@ -367,34 +367,34 @@
             <type name="umjon" alias="Pacific/Johnston"/>
             <type name="ummdy" alias="Pacific/Midway"/>
             <type name="unk" alias="Etc/Unknown"/>
-            <type name="usadk" alias="America/Adak"/>
+            <type name="usadk" alias="America/Adak America/Atka US/Aleutian"/>
             <type name="usaeg" alias="America/Indiana/Marengo"/>
-            <type name="usanc" alias="America/Anchorage"/>
+            <type name="usanc" alias="America/Anchorage SystemV/YST9YDT US/Alaska"/>
             <type name="usboi" alias="America/Boise"/>
-            <type name="uschi" alias="America/Chicago"/>
-            <type name="usden" alias="America/Denver"/>
-            <type name="usdet" alias="America/Detroit"/>
-            <type name="ushnl" alias="Pacific/Honolulu"/>
-            <type name="usind" alias="America/Indianapolis"/>
+            <type name="uschi" alias="America/Chicago CST6CDT SystemV/CST6CDT US/Central"/>
+            <type name="usden" alias="America/Denver MST7MDT SystemV/MST7MDT US/Mountain"/>
+            <type name="usdet" alias="America/Detroit US/Michigan"/>
+            <type name="ushnl" alias="Pacific/Honolulu US/Hawaii"/>
+            <type name="usind" alias="America/Indianapolis America/Fort_Wayne America/Indiana/Indianapolis US/East-Indiana"/>
             <type name="usinvev" alias="America/Indiana/Vevay"/>
             <type name="usjnu" alias="America/Juneau"/>
-            <type name="usknx" alias="America/Indiana/Knox"/>
-            <type name="uslax" alias="America/Los_Angeles"/>
-            <type name="uslui" alias="America/Louisville"/>
+            <type name="usknx" alias="America/Indiana/Knox America/Knox_IN US/Indiana-Starke"/>
+            <type name="uslax" alias="America/Los_Angeles PST8PDT SystemV/PST8PDT US/Pacific US/Pacific-New"/>
+            <type name="uslui" alias="America/Louisville America/Kentucky/Louisville"/>
             <type name="usmnm" alias="America/Menominee"/>
             <type name="usmoc" alias="America/Kentucky/Monticello"/>
-            <type name="usnavajo" alias="America/Shiprock"/>
+            <type name="usnavajo" alias="America/Shiprock Navajo"/>
             <type name="usndcnt" alias="America/North_Dakota/Center"/>
             <type name="usndnsl" alias="America/North_Dakota/New_Salem"/>
-            <type name="usnyc" alias="America/New_York"/>
+            <type name="usnyc" alias="America/New_York EST5EDT SystemV/EST5EDT US/Eastern"/>
             <type name="usoea" alias="America/Indiana/Vincennes"/>
             <type name="usome" alias="America/Nome"/>
-            <type name="usphx" alias="America/Phoenix"/>
+            <type name="usphx" alias="America/Phoenix US/Arizona"/>
             <type name="ustel" alias="America/Indiana/Tell_City"/>
             <type name="uswlz" alias="America/Indiana/Winamac"/>
             <type name="uswsq" alias="America/Indiana/Petersburg"/>
             <type name="usyak" alias="America/Yakutat"/>
-            <type name="utc" alias="Etc/GMT"/>
+            <type name="utc" alias="Etc/GMT Etc/GMT+0 Etc/GMT-0 Etc/GMT0 Etc/Greenwich Etc/UCT Etc/UTC Etc/Universal Etc/Zulu GMT GMT+0 GMT-0 GMT0 Greenwich UCT UTC Universal Zulu"/>
             <type name="utce01" alias="Etc/GMT-1"/>
             <type name="utce02" alias="Etc/GMT-2"/>
             <type name="utce03" alias="Etc/GMT-3"/>
@@ -412,13 +412,13 @@
             <type name="utcw01" alias="Etc/GMT+1"/>
             <type name="utcw02" alias="Etc/GMT+2"/>
             <type name="utcw03" alias="Etc/GMT+3"/>
-            <type name="utcw04" alias="Etc/GMT+4"/>
-            <type name="utcw05" alias="Etc/GMT+5"/>
-            <type name="utcw06" alias="Etc/GMT+6"/>
-            <type name="utcw07" alias="Etc/GMT+7"/>
-            <type name="utcw08" alias="Etc/GMT+8"/>
-            <type name="utcw09" alias="Etc/GMT+9"/>
-            <type name="utcw10" alias="Etc/GMT+10"/>
+            <type name="utcw04" alias="Etc/GMT+4 SystemV/AST4"/>
+            <type name="utcw05" alias="Etc/GMT+5 EST SystemV/EST5"/>
+            <type name="utcw06" alias="Etc/GMT+6 SystemV/CST6"/>
+            <type name="utcw07" alias="Etc/GMT+7 MST SystemV/MST7"/>
+            <type name="utcw08" alias="Etc/GMT+8 SystemV/PST8"/>
+            <type name="utcw09" alias="Etc/GMT+9 SystemV/YST9"/>
+            <type name="utcw10" alias="Etc/GMT+10 HST SystemV/HST10"/>
             <type name="utcw11" alias="Etc/GMT+11"/>
             <type name="utcw12" alias="Etc/GMT+12"/>
             <type name="uymvd" alias="America/Montevideo"/>
@@ -428,8 +428,8 @@
             <type name="vcsvd" alias="America/St_Vincent"/>
             <type name="veccs" alias="America/Caracas"/>
             <type name="vgtov" alias="America/Tortola"/>
-            <type name="vistt" alias="America/St_Thomas"/>
-            <type name="vnsgn" alias="Asia/Saigon"/>
+            <type name="vistt" alias="America/St_Thomas America/Virgin"/>
+            <type name="vnsgn" alias="Asia/Saigon Asia/Ho_Chi_Minh"/>
             <type name="vuvli" alias="Pacific/Efate"/>
             <type name="wfmau" alias="Pacific/Wallis"/>
             <type name="wsapw" alias="Pacific/Apia"/>

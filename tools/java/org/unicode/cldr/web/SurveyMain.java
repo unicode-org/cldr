@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2009, International Business Machines Corporation and   *
+ * Copyright (C) 2004-2010, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -96,6 +96,7 @@ public class SurveyMain extends HttpServlet {
 	public static final String SURVEYMAIN_REVISION = "$Revision$";
 
     private static final String CLDR_BULK_DIR = "CLDR_BULK_DIR";
+	private static String bulkStr = null;
 	private static final String ACTION_DEL = "_del";
     private static final String ACTION_UNVOTE = "_unvote";
     private static final String XML_CACHE_PROPERTIES = "xmlCache.properties";
@@ -817,7 +818,7 @@ public class SurveyMain extends HttpServlet {
     /** Hash of twiddlable (toggleable) parameters
      * 
      */
-	Hashtable twidHash = new Hashtable();
+    Hashtable twidHash = new Hashtable();
 
     boolean showToggleTwid(WebContext ctx, String pref, String what) {
 		String qKey = "twidb_"+pref;
@@ -1158,12 +1159,27 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<h2>Bulk Data Submission Updating for "+aver+"</h2><br/>\n");
            
             Set<UserRegistry.User> updUsers = new HashSet<UserRegistry.User>();
-            
-            String bulkStr = survprops.getProperty(CLDR_BULK_DIR);
+           
+	    // from config 
+            String bulkStrOrig = survprops.getProperty(CLDR_BULK_DIR,"");
+ 	    // from query if there, else config
+	    if(ctx.hasField(CLDR_BULK_DIR)) {
+		bulkStr = ctx.field(CLDR_BULK_DIR);
+	    }
+	    if(bulkStr == null || bulkStr.length()==0) {
+		bulkStr = bulkStrOrig;
+	    }
             File bulkDir = null;
             if(bulkStr!=null&&bulkStr.length()>0) {
             	bulkDir = new File(bulkStr);
-            }
+	    }
+	    // dir change form
+	    ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+	    actionCtx.printUrlAsHiddenFields();
+	    ctx.println("<label>Bulk Dir: " +
+		        "<input name='"+CLDR_BULK_DIR+"' value='"+bulkStr+"' size='60'>" +
+			"</label> <input type=submit value='Set'><br>" +
+			"</form><hr/>");
             if(bulkDir==null||!bulkDir.exists()||!bulkDir.isDirectory()) {
             	ctx.println(ctx.iconHtml("stop","could not load bulk data")+"The bulk data dir "+CLDR_BULK_DIR+"="+bulkStr+" either doesn't exist or isn't set in cldr.properties. (Server requires reboot for this parameter to take effect)</i>");
             } else try {

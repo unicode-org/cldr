@@ -233,7 +233,7 @@ public class CountItems {
         .getTime();
     out
         .println("<h1>Modern Equivalent Timezones: <a target='_blank' href='instructions.html'>Instructions</a></h1>");
-    out.println("<p>$Date$, $Revision$, MED</p>");
+    out.println(ShowData.dateFooter());
     out.println("<p>Zones identical after: "
         + ICUServiceBuilder.isoDateFormat(minimumDate) + "</p>");
     String lastCountry = "";

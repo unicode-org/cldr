@@ -387,7 +387,7 @@ public class GenerateComparison {
               + "\tTime:\t" + timer.getDuration() + "ms");
 
       totalPaths += paths.size();
-      out.println("<p>$Date$</p>");      
+      out.println(ShowData.dateFooter());
       out.println(ShowData.ANALYTICS);
       out.println("</body></html>");
       out.close();
@@ -415,7 +415,7 @@ public class GenerateComparison {
       last = indexPair.get0().codePointAt(0);
     }
     indexFile.println("</tr></table>");
-    indexFile.println("<p>$Date$</p>");  
+    indexFile.println(ShowData.dateFooter());
     indexFile.println(ShowData.ANALYTICS);
     indexFile.println("</body></html>");
     indexFile.close();

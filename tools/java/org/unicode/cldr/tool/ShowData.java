@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2005, International Business Machines Corporation and        *
+ * Copyright (C) 2005-2010, International Business Machines Corporation and        *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -60,6 +60,11 @@ public class ShowData {
     UOption.DESTDIR().setDefault(CldrUtility.CHART_DIRECTORY + "summary/"),
     UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("getscript", 'g', UOption.NO_ARG), };
+
+  public static String dateFooter() {
+	return "<p>SVN: $Date$, $Revision$</p>\n" + 
+	       "<p>Generation: "+new java.util.Date().toString()+"</p>\n";
+  }
 
   public static String ANALYTICS = "<script type=\"text/javascript\">\n"
     + "var gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n"

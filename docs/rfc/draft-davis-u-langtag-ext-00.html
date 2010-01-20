@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="description" content="BCP 47 Extension U">
 <meta name="keywords" content="locale, bcp 47">
-<meta name="generator" content="xml2rfc v1.34pre5 (http://xml.resource.org/)">
+<meta name="generator" content="xml2rfc v1.35pre1 (http://xml.resource.org/)">
 <style type='text/css'><!--
         body {
                 font-family: verdana, charcoal, helvetica, arial, sans-serif;
@@ -144,11 +144,11 @@
 <table summary="layout" width="66%" border="0" cellpadding="0" cellspacing="0"><tr><td><table summary="layout" width="100%" border="0" cellpadding="2" cellspacing="1">
 <tr><td class="header">Internet Engineering Task Force</td><td class="header">M. Davis</td></tr>
 <tr><td class="header">Internet-Draft</td><td class="header">Google</td></tr>
-<tr><td class="header">Intended status: BCP</td><td class="header">AP. Phillips</td></tr>
-<tr><td class="header">Expires: May 5, 2010</td><td class="header">Lab126</td></tr>
-<tr><td class="header">&nbsp;</td><td class="header">YU. Umaoka</td></tr>
+<tr><td class="header">Intended status: BCP</td><td class="header">A. Phillips</td></tr>
+<tr><td class="header">Expires: July 17, 2010</td><td class="header">Lab126</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">Y. Umaoka</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">IBM</td></tr>
-<tr><td class="header">&nbsp;</td><td class="header">November 1, 2009</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">January 13, 2010</td></tr>
 </table></td></tr></table>
 <h1><br />BCP 47 Extension U<br />draft-davis-u-langtag-ext-00</h1>
 
@@ -160,13 +160,8 @@
 </p>
 <h3>Status of this Memo</h3>
 <p>
-This document is an Internet-Draft and is subject to all provisions
-of Section&nbsp;3 of RFC&nbsp;3667.
-By submitting this Internet-Draft,
-each author represents that any applicable patent or other IPR claims of which
-he or she is aware have been or will be disclosed,
-and any of which he or she become aware will be disclosed,
-in accordance with RFC&nbsp;3668.</p>
+This Internet-Draft is submitted to IETF in full
+conformance with the provisions of BCP&nbsp;78 and BCP&nbsp;79.</p>
 <p>
 Internet-Drafts are working documents of the Internet Engineering
 Task Force (IETF), its areas, and its working groups.
@@ -184,7 +179,22 @@ The list of current Internet-Drafts can be accessed at
 The list of Internet-Draft Shadow Directories can be accessed at
 <a href='http://www.ietf.org/shadow.html'>http://www.ietf.org/shadow.html</a>.</p>
 <p>
-This Internet-Draft will expire on May 5, 2010.</p>
+This Internet-Draft will expire on July 17, 2010.</p>
+
+<h3>Copyright Notice</h3>
+<p>
+Copyright (c) 2010 IETF Trust and the persons identified as the
+document authors.  All rights reserved.</p>
+<p>
+This document is subject to BCP 78 and the IETF Trust's Legal
+Provisions Relating to IETF Documents
+(http://trustee.ietf.org/license-info) in effect on the date of
+publication of this document.  Please review these documents
+carefully, as they describe your rights and restrictions with respect
+to this document. Code Components extracted from this document must
+include Simplified BSD License text as described in Section 4.e of
+the Trust Legal Provisions and are provided without warranty as
+described in the BSD License.</p>
 <a name="toc"></a><br /><hr />
 <h3>Table of Contents</h3>
 <p class="toc">
@@ -196,6 +206,8 @@ Requirements Language<br />
 BCP47 Required Information<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor4">2.1.</a>&nbsp;
 Summary<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#canonicalization">2.1.1.</a>&nbsp;
+Canonicalization<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#regform">2.2.</a>&nbsp;
 Registration Form<br />
 <a href="#Acknowledgements">3.</a>&nbsp;
@@ -212,8 +224,6 @@ Normative References<br />
 Informative References<br />
 <a href="#rfc.authors">&#167;</a>&nbsp;
 Authors' Addresses<br />
-<a href="#rfc.copyright">&#167;</a>&nbsp;
-Intellectual Property and Copyright Statements<br />
 </p>
 <br clear="all" />
 
@@ -222,11 +232,9 @@ Intellectual Property and Copyright Statements<br />
 <a name="rfc.section.1"></a><h3>1.&nbsp;
 Introduction</h3>
 
-<p><a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a> provides extensions identified by a single-character
-      subtag for "the generation of identifiers that
+<p>  <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a> permits the definition and registration of language tag extensions "that
       contain a language component and are compatible with applications that
-      understand language tags". This document defines such an extension,
-      using the letter 'u', to specify Unicode language/locale identifiers.
+      understand language tags". This document defines an extension for identifying Unicode locale-based variations using language tags. The "singleton" identifier for this extension is 'u'.
 </p>
 <a name="anchor2"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
@@ -242,7 +250,7 @@ Requirements Language</h3>
 <a name="rfc.section.2"></a><h3>2.&nbsp;
 BCP47 Required Information</h3>
 
-<p>Language tags, as defined by <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, are useful for identifying the language of content. They are also used as locale identifiers (or can be mapped to locales) in many operating environments and APIs. However, most such locale identifiers also provide additional "tailorings" or options for specific values within a language, culture, or other regional variation. This extension provides a mechanism for using these additional tailorings within language tags for general interchange.
+<p>Language tags, as defined by <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, are useful for identifying the language of content. They are also used as locale identifiers (or can be mapped to locales) in many operating environments and APIs. However, most such locale identifiers also provide additional "tailorings" or options for specific values within a language, culture, region, or other variation. This extension provides a mechanism for using these additional tailorings within language tags for general interchange.
 </p>
 <p> The maintaining authority for this extension's registry is the Unicode
       Consortium. Unicode defines common locale data and identifiers for this data:
@@ -277,13 +285,9 @@ BCP47 Required Information</h3>
 </table>
 <br clear="all" />
 
-<p>The specification of extension subtags is provided by <a class='info' href='#LDML'>Unicode
-      Technical Standard #35 Unicode Locale Data Markup Language,
-      Section 3.2 BCP 47 Tag Conversion<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> [LDML]. <a class='info' href='#LDML'>[LDML]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>
-      defines the formation of subtags which follow the language tag ABNF and
-      other rules for the formation of language tags and subtags as defined in <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>.
-      In particular, it specifies that subtags are restricted to the ASCII letters and digits, that case is not significant, and that subtags
-      MUST NOT exceed eight characters in length.
+<p>The specification of extension subtags is provided by Section 3 of <a class='info' href='#LDML'>Unicode
+      Technical Standard #35 Unicode Locale Data Markup Language<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> [LDML]. As required by BCP 47, subtags follow the language tag ABNF and
+      other rules for the formation of language tags and subtags, are restricted to the ASCII letters and digits, are not case sensitive, and do not exceed eight characters in length.
 </p>
 <p><a class='info' href='#LDML'>[LDML]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> specifies a canonical
       representation. LDML is available over the Internet and at no cost, and
@@ -291,21 +295,49 @@ BCP47 Required Information</h3>
       http://unicode.org/copyright.html. LDML is versioned, and each
       version of LDML is numbered, dated, and stable. Extension subtags, once
       defined by LDML, are never retracted or change in meaning in a
-      substantial way. LDML will include in a separate section
-      the registration form in <a class='info' href='#regform'>Section&nbsp;2.2<span> (</span><span class='info'>Registration Form</span><span>)</span></a>.
+      substantial way. 
 </p>
 <a name="anchor4"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.2.1"></a><h3>2.1.&nbsp;
 Summary</h3>
 
-<p><a class='info' href='#LDML'>[LDML]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> defines the subtags within the 'u' extension as a series of
-        key-value pairs. Each key has a length of two characters, and each value has a length of three or more characters. Each key is followed by zero or one value. Case is not
-        significant. The canonical case is lowercase; the canonical order of
-        the keys is alphabetical.
+<p>The subtags available for use in the 'u' extension consist of a set of attributes, keys, and types. Attributes, keys, types, and their respective meanings are defined in Section 3 (Unicode Language and Locale Identifiers) of <a class='info' href='#LDML'>[LDML]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>. The following is a summary of that definition (for details see Section 3):</p>
+<ul class="text">
+<li>An 'attribute' is a subtag with a length of three or more characters following the singleton and preceding any 'keyword' sequences. No attributes were defined at the time of this document's publication.
+</li>
+<li>A 'keyword' is a sequence of subtags consisting of a 'key' subtag, followed by zero or more 'type' subtags. Each 'key' MUST be unique within the extension. The order of the 'type' subtags within a 'keyword' is sometimes significant to their interpretation. Note that 'keys' can appear without a subsequent 'type' subtag.
+<blockquote class="text"><dl>
+<dt>A.</dt>
+<dd>A 'key' is a subtag with a length of exactly two characters. Each 'key' is followed by zero or more 'type' subtags.  
+</dd>
+<dt>B.</dt>
+<dd>A 'type' is a subtag with a length of three or more characters following a key. 'Type' subtags are specific to a particular 'key' and the order of the 'type' subtags MAY be significant to the interpretation of the 'keyword'.
+</dd>
+</dl></blockquote>
+</li>
+</ul>
+
+<p>For example, the language tag "de-DE-u-attr-co-phonebk" consists of:</p>
+<ul class="text">
+<li>The base language tag "de-DE" (German as used in Germany), exactly as defined by <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a> using subtags from the IANA Language Subtag Registry.
+</li>
+<li>The singleton 'u', identifying this extension.
+</li>
+<li>The attribute 'attr', which is an example for illustration (no attributes were defined at the time this document was published).
+</li>
+<li>The keyword 'co-phonebk', consisting to the key 'co' (Collation) and the type 'phonebk' (Phonebook collation order).
+</li>
+</ul>
+
+<p>With successive versions of <a class='info' href='#LDML'>[LDML]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>, additional attributes, keys, and types MAY be defined. Once defined, attributes, keys, and types will never be removed. Machine-readable files listing the valid attributes, keys, and types are available in the CLDR repository for each version. For example, for version 1.7.2, the files are located at <a href='http://unicode.org/repos/cldr/tags/release-1-7-2/common/bcp47/'>http://unicode.org/repos/cldr/tags/release-1-7-2/common/bcp47/</a>. These also can contain aliases which were used in previous versions of <a class='info' href='#LDML'>[LDML]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>.
 </p>
-<p>The exact keys and values available, and their meanings, are
-        defined in <a class='info' href='#ldml-registry'>TODO ldml-registry TODO<span> (</span><span class='info'>, &ldquo;Registry for Common Locale Data Repository tag elements,&rdquo; September&nbsp;2009.</span><span>)</span></a> [ldml&#8209;registry].
+<a name="canonicalization"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1.1"></a><h3>2.1.1.&nbsp;
+Canonicalization</h3>
+
+<p>As required by <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, case is not significant. The canonical form for all subtags in the extension is lowercase. The canonical order of attributes is in <a class='info' href='#US-ASCII'>[US&#8209;ASCII]<span> (</span><span class='info'>International Organization for Standardization, &ldquo;ISO/IEC 646:1991, Information technology -- ISO 7-bit coded character set for information interchange.,&rdquo; 1991.</span><span>)</span></a> order (that is, numbers before letters, with letters sorted as lowercase US-ASCII code points). The canonical order of keywords is in <a class='info' href='#US-ASCII'>[US&#8209;ASCII]<span> (</span><span class='info'>International Organization for Standardization, &ldquo;ISO/IEC 646:1991, Information technology -- ISO 7-bit coded character set for information interchange.,&rdquo; 1991.</span><span>)</span></a> order by key. The order of subtags within a keyword is significant; the meaning of this extension is altered if those subtags are rearranged. Thus, the canonical form of the extension never reorders the subtags within a keyword.
 </p>
 <a name="regform"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
@@ -341,7 +373,7 @@ IANA Considerations</h3>
 
 <p>This document will require IANA to insert the record in <a class='info' href='#regform'>Section&nbsp;2.2<span> (</span><span class='info'>Registration Form</span><span>)</span></a> into the Language Extensions Registry, according to
       Section 3.7. Extensions and the Extensions Registry of "Tags for
-      Identifying Languages" in BCP 47. There might be occasional maintenance of this record. This document does not require IANA to create or maintain a new registry or otherwise impact IANA.
+      Identifying Languages" in <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>. There might be occasional maintenance of this record. This document does not require IANA to create or maintain a new registry or otherwise impact IANA.
 </p>
 <a name="Security"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
@@ -367,6 +399,8 @@ References</h3>
 <td class="author-text">Davis, M., &ldquo;<a href="http://www.unicode.org/reports/tr35/">Unicode Technical Standard #35: Locale Data Markup Language (LDML)</a>,&rdquo; December&nbsp;2007.</td></tr>
 <tr><td class="author-text" valign="top"><a name="RFC5646">[RFC5646]</a></td>
 <td class="author-text">Phillips, A. and M. Davis, &ldquo;<a href="http://tools.ietf.org/html/rfc5646">Tags for Identifying Languages</a>,&rdquo; BCP&nbsp;47, RFC&nbsp;5646, September&nbsp;2009 (<a href="ftp://ftp.isi.edu/in-notes/rfc5646.txt">TXT</a>).</td></tr>
+<tr><td class="author-text" valign="top"><a name="US-ASCII">[US-ASCII]</a></td>
+<td class="author-text">International Organization for Standardization, &ldquo;ISO/IEC 646:1991, Information technology -- ISO 7-bit coded character set for information interchange.,&rdquo; 1991.</td></tr>
 </table>
 
 <a name="rfc.references2"></a><br /><hr />
@@ -385,14 +419,6 @@ References</h3>
 <td class="author-text">Mark Davis</td></tr>
 <tr><td class="author-text">&nbsp;</td>
 <td class="author-text">Google</td></tr>
-<tr><td class="author-text">&nbsp;</td>
-<td class="author-text">2509 Alpine Road</td></tr>
-<tr><td class="author-text">&nbsp;</td>
-<td class="author-text">Menlo Park, California  94025</td></tr>
-<tr><td class="author-text">&nbsp;</td>
-<td class="author-text">USA</td></tr>
-<tr><td class="author" align="right">Phone:&nbsp;</td>
-<td class="author-text">+1 650-854-4895</td></tr>
 <tr><td class="author" align="right">Email:&nbsp;</td>
 <td class="author-text"><a href="mailto:mark@macchiato.com">mark@macchiato.com</a></td></tr>
 <tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
@@ -410,51 +436,5 @@ References</h3>
 <tr><td class="author" align="right">Email:&nbsp;</td>
 <td class="author-text"><a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a></td></tr>
 </table>
-<a name="rfc.copyright"></a><br /><hr />
-<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
-<h3>Full Copyright Statement</h3>
-<p class='copyright'>
-Copyright &copy; The IETF Trust (2009).</p>
-<p class='copyright'>
-This document is subject to the rights,
-licenses and restrictions contained in BCP&nbsp;78
-and at <a href='http://www.rfc-editor.org/copyright.html'>http://www.rfc-editor.org/copyright.html</a>, and except as set forth therein,
-the authors retain all their rights.</p>
-<p class='copyright'>
-This document and the information contained herein are provided
-on an &ldquo;AS IS&rdquo; basis and THE CONTRIBUTOR,
-THE ORGANIZATION HE/SHE REPRESENTS
-OR IS SPONSORED BY (IF ANY), THE INTERNET SOCIETY, THE IETF TRUST
-AND THE INTERNET ENGINEERING TASK FORCE DISCLAIM ALL WARRANTIES,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT
-THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY
-IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR
-PURPOSE.</p>
-<h3>Intellectual Property</h3>
-<p class='copyright'>
-The IETF takes no position regarding the validity or scope of any
-Intellectual Property Rights or other rights that might be claimed
-to pertain to the implementation or use of the technology
-described in this document or the extent to which any license
-under such rights might or might not be available; nor does it
-represent that it has made any independent effort to identify any
-such rights.
-Information on the procedures with respect to
-rights in RFC documents can be found in BCP&nbsp;78 and BCP&nbsp;79.</p>
-<p class='copyright'>
-Copies of IPR disclosures made to the IETF Secretariat and any
-assurances of licenses to be made available,
-or the result of an attempt made to obtain a general license or
-permission for the use of such proprietary rights by implementers or
-users of this specification can be obtained from the IETF on-line IPR
-repository at <a href='http://www.ietf.org/ipr'>http://www.ietf.org/ipr</a>.</p>
-<p class='copyright'>
-The IETF invites any interested party to bring to its attention
-any copyrights,
-patents or patent applications,
-or other
-proprietary rights that may cover technology that may be required
-to implement this standard.
-Please address the information to the IETF at <a href='mailto:ietf-ipr@ietf.org'>ietf-ipr@ietf.org</a>.</p>
 </body></html>
 

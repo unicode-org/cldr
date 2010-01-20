@@ -1225,11 +1225,12 @@ public class CLDRDBSourceFactory {
     }
     public String putValueAtPath(String xpath, String value)
     {
-    	synchronized(conn) {
-        // Make it distinguished
-        String dpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
         String loc = getLocaleID();
+        String dpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
         CLDRLocale locale = CLDRLocale.getInstance(loc);
+        int xpid = sm.xpt.getByXpath(dpath);       // the numeric ID of the xpath
+        int oxpid = sm.xpt.getByXpath(xpath);     // the numeric ID of the orig-xpath
+        // Make it distinguished
         //if(!xpath.equals(rawXpath)) {
         //    logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
         //}
@@ -1243,8 +1244,6 @@ public class CLDRDBSourceFactory {
 //            throw new InternalError("FATAL: oxpath and file.getFullXPath(raw) are different: " + oxpath + " VS. " + file.getFullXPath(rawXpath));
 //        }
 //        
-        int xpid = sm.xpt.getByXpath(dpath);       // the numeric ID of the xpath
-        int oxpid = sm.xpt.getByXpath(xpath);     // the numeric ID of the orig-xpath
         
         XPathParts xpp = new XPathParts(null,null);
         // Now, munge the xpaths around a bit.
@@ -1271,6 +1270,7 @@ public class CLDRDBSourceFactory {
 //                System.out.println(" => "+txpid+"#" + tinyXpath);
           
         // insert it into the DB
+    	synchronized(conn) {
         try {
             stmts.insert.setInt(1,xpid);  /// dpath
             stmts.insert.setString(2,loc);
@@ -1314,11 +1314,11 @@ public class CLDRDBSourceFactory {
 //            sm.vet.updateResults(loc);
 //        }
 //    } else {
-        needUpdate(locale);
 //        System.err.println("CLDRDBSource " + loc + " - deferring vet update on " + loc + " until vetter ready.");
 //    }
+    	} /* release the outer conn connection */
+        needUpdate(locale);
         return dpath;
-    	}
     }
 
     /**

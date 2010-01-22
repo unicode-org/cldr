@@ -763,7 +763,7 @@ public class WebContext implements Cloneable {
         }
     }
     
-    static synchronized String getEffectiveLocaleType(String org) {
+    static String getEffectiveLocaleType(String org) {
         try {
             return  getSC().getEffectiveLocaleType(org);
         } catch (java.io.IOException ioe) {
@@ -771,7 +771,7 @@ public class WebContext implements Cloneable {
         }
     }
     
-   static synchronized String[] getLocaleTypes() {
+   static String[] getLocaleTypes() {
        return getSC().getLocaleCoverageOrganizations().toArray(new String[0]);
    }
     
@@ -852,8 +852,9 @@ public class WebContext implements Cloneable {
         }
     
         String loadString = "data was loaded.";
+	DataSection section = null;
         synchronized(this) {
-            DataSection section = getExistingSection(prefix, ptype);
+            section = getExistingSection(prefix, ptype);
             if((section != null) && (!section.isValid())) {
                 section = null;
                 loadString = "data was re-loaded due to a new user submission.";
@@ -865,16 +866,14 @@ public class WebContext implements Cloneable {
                 if((System.currentTimeMillis()-t0) > 10 * 1000) {
                     println("<i><b>" + podTimer + "</b></i><br/>");
                 }
-                synchronized (staticStuff) {
+            }
                     section.register();
 //                    SoftReference sr = (SoftReference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
-                      putByLocaleStatic(DATA_POD+prefix+":"+ptype, new SoftReference<DataSection>(section)); // PUT******
-                      putByLocale("__keeper:"+prefix+":"+ptype, section); // put into user's hash so it wont go out of scope
-                }
-            }
+	}
+            putByLocaleStatic(DATA_POD+prefix+":"+ptype, new SoftReference<DataSection>(section)); // PUT******
+            putByLocale("__keeper:"+prefix+":"+ptype, section); // put into user's hash so it wont go out of scope
             section.touch();
             return section;
-        }
     }
 
 // Internal Utils

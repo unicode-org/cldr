@@ -2021,12 +2021,14 @@ public class SurveyMain extends HttpServlet {
 //                    if(connx == null) {
 //                        connx = this.getDBConnection();
 //                    }
-        
-                    CLDRLocale locale = CLDRLocale.getInstance(localeName);
+       
+                    	CLDRLocale locale = CLDRLocale.getInstance(localeName);
+			synchronized( this.vet.conn) {  /* make sure no-one else is in a locale. */
+                    		dbsrcfac.getInstance(locale);
+			}
                     //                        WebContext xctx = new WebContext(false);
                     //                        xctx.setLocale(locale);
                     //makeCLDRFile(makeDBSource(connx, null, locale));  // orphan result
-                    dbsrcfac.getInstance(locale);
                 } catch(Throwable t) {
                     t.printStackTrace();
                     String complaint = ("Error loading: " + localeName + " - " + t.toString() + " ...");

@@ -293,10 +293,8 @@ public class CLDRDBSourceFactory {
      * @param loc
      */
     public void needUpdate(CLDRLocale loc) {
-    	synchronized(sm.vet.conn) {
-    		if(!needUpdate.contains(loc)) 
-    		needUpdate.add(loc);
-    	}
+    	if(!needUpdate.contains(loc)) 
+    	needUpdate.add(loc);
     }
 
     

@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.UnicodeMap;
-import com.ibm.icu.text.Parser;
 import com.ibm.icu.text.UnicodeSet;
 
 public class UnicodeMapBuilder<T> {

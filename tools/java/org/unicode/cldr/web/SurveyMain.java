@@ -395,7 +395,7 @@ public class SurveyMain extends HttpServlet {
                 startupTime = null;
             }
             
-            String remoteIP = request.getRemoteAddr();
+            String remoteIP = WebContext.userIP(request);
             
             for( String badIP : BAD_IPS ) {  // no spiders, please.
                 if(badIP.equals(remoteIP)) {

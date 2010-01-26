@@ -1,9 +1,8 @@
 //
 //  SurveyForum.java
-//  fivejay
 //
 //  Created by Steven R. Loomis on 27/10/2006.
-//  Copyright 2006-2008 IBM. All rights reserved.
+//  Copyright 2006-2010 IBM. All rights reserved.
 //
 
 package org.unicode.cldr.web;
@@ -1290,7 +1289,7 @@ public boolean doFeed(HttpServletRequest request, HttpServletResponse response)
         }
         
         UserRegistry.User user;
-        user = sm.reg.get(pw,email,"RSS@"+request.getRemoteAddr());
+        user = sm.reg.get(pw,email,"RSS@"+WebContext.userIP(request));
         
         if(user == null) {
             sendErr(request, response, "authentication err");

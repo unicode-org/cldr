@@ -506,7 +506,18 @@ public class WebContext implements Cloneable {
      * return the IP of the remote user.
      */
     String userIP() {
-        return request.getRemoteAddr();
+	return userIP(request);
+    }
+	
+    /**
+     * return the IP of the remote user, who might be behind a proxy
+     */
+    public static String userIP(HttpServletRequest request) {
+	String ip = request.getHeader("x-forwarded-for");
+	if(ip==null || ip.length()==0) {
+		ip = request.getRemoteAddr();
+	}
+	return ip;
     }
 
     /**
@@ -516,10 +527,6 @@ public class WebContext implements Cloneable {
         return request.getServerName();
     }
     
-    static String userIP(HttpServletRequest request) {
-        return request.getRemoteAddr();
-    }
-
     /**
      * return the hostname of the web server
      */

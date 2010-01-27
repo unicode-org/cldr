@@ -45,6 +45,7 @@ import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.MultiComparator;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.RuleBasedNumberFormat;
@@ -246,12 +247,23 @@ public class GenerateSidewaysView {
 //  }
 
   private static PrintWriter showExemplars(PrintWriter out, Set types) throws IOException {
+    showExemplars2(out, types, "misc.exemplarCharacters", "");
+    showExemplars2(out, types, "misc.exemplarCharacters-index", "[@type=\"index\"]");
+    //showExemplars2(out, types, "misc.exemplarCharacters-auxiliary", "[@type=\"auxiliary\"]");
+    //showExemplars2(out, types, "misc.exemplarCharacters-currencySymbol", "[@type=\"currencySymbol\"]");
+    return out;
+  }
+  
+  private static PrintWriter showExemplars2(PrintWriter out, Set types, String filename, String variant) throws IOException {
     finish(out);
-    out = start(out,"misc.exemplarCharacters", types);
+    out = start(out,filename, types);
     out.println("<table>");
-    String cleanPath = prettyPath.getPrettyPath("//ldml/characters/exemplarCharacters");
+    String cleanPath = prettyPath.getPrettyPath("//ldml/characters/exemplarCharacters" + variant);
     Map<String, Set<String>> value_locales = path_value_locales.get(cleanPath);
-    Map<String,UnicodeMap> script_UnicodeMap = new TreeMap();
+    
+    // TODO change logic so that aux characters and currencySymbol characters work well.
+    
+    Map<String,UnicodeMap<Set<String>>> script_UnicodeMap = new TreeMap<String,UnicodeMap<Set<String>>>();
     //UnicodeMap mapping = new UnicodeMap();
     UnicodeSet stuffToSkip = new UnicodeSet("[:Han:]");
     
@@ -261,58 +273,86 @@ public class GenerateSidewaysView {
       exemplars.removeAll(stuffToSkip);
       Set<String> locales = value_locales.get(value);
       String script = UScript.getName(getFirstScript(exemplars));
-      UnicodeMap mapping = script_UnicodeMap.get(script);
+      UnicodeMap<Set<String>> mapping = script_UnicodeMap.get(script);
       if (mapping == null) script_UnicodeMap.put(script, mapping = new UnicodeMap());
       mapping.composeWith(exemplars, locales, setComposer);
     }
     for (String script : script_UnicodeMap.keySet()) {
-      UnicodeMap mapping = script_UnicodeMap.get(script);
+      UnicodeMap<Set<String>> mapping = script_UnicodeMap.get(script);
       writeCharToLocaleMapping(out, script, mapping);
     }
     return out;
   }
 
-  private static void writeCharToLocaleMapping(PrintWriter out, String script, UnicodeMap mapping) {
+  private static void writeCharToLocaleMapping(PrintWriter out, String script, UnicodeMap<Set<String>> mapping) {
+    BreakIterator charBreaks = BreakIterator.getCharacterInstance(ULocale.ROOT); // TODO, make default language for script
+    System.out.println("@@Exemplars for\t" + script + "\t" + mapping.keySet());
     if (script.equals("Hangul") || script.equals("Common")) {
       return; // skip these
     }
     // find out all the locales and all the characters
-    Set<String> allLocales = new TreeSet(UCA);
-    Set<String> allChars = new TreeSet(UCA);
-    for (Object locales : mapping.getAvailableValues()) {
-      allLocales.addAll((Collection) locales);
+    Set<String> allLocales = new TreeSet<String>(UCA);
+    Set<String> allChars = new TreeSet<String>(UCA);
+    Set<String> allStrings = new TreeSet<String>(UCA);
+    for (Set<String> locales : mapping.getAvailableValues()) {
+      allLocales.addAll(locales);
       UnicodeSet unicodeSet = mapping.keySet(locales);
-      for (UnicodeSetIterator it = new UnicodeSetIterator(unicodeSet); it.next();) {
-        allChars.add(it.getString());
+      for (String item : unicodeSet) {
+        charBreaks.setText(item);
+        int endFirst = charBreaks.next();
+        if (endFirst == item.length()) {
+          allChars.add(item);
+        } else {
+          allStrings.add(item);
+        }
       }
     }
     // get the columns, and show them
     out.println("</table>");
     out.println("<table class='table'  style='width:1%'>");
     out.println("<caption>" + script + "</caption>");
-    out.println("<tr><td class='path'>Characters</td>");
-    Map itemToColumn = new HashMap();
-    int i = 1;
-    for (String item : allLocales) {
-      out.println("<th class='path'>" + cleanLocale(item, true) + "</th>");
+    out.println("<tr><th class='path' colSpan='2'>Locale \\\u00a0Chars</td>");
+    for (String item : allChars) {
+      out.println("<th class='path'>" + displayCharacter(item) + "</th>");
     }
-    out.println("</tr>");
+    out.println("<th class='path'>Clusters</td></tr>");
 
-    // now do the rows. Map from char to the set of locales
-    Set<String> lastSet = Collections.EMPTY_SET;
-    UnicodeSet lastChars= new UnicodeSet();
-    for (String string : allChars) {
-      Set locales = (Set) mapping.getValue(string);
-      if (!locales.equals(lastSet)) {
-        if (lastSet.size() != 0) {
-          showExemplarRow(out, allLocales, lastChars, lastSet);
+    for (String locale : allLocales) {
+      out.println("<tr><th class='path'>" + cleanLocale(locale, false) + "</th><th class='path'>" + cleanLocale(locale, true) + "</th>");
+      for (String item : allChars) {
+        //String exemplarsWithoutBrackets = displayExemplars(item);
+        if (mapping.get(item).contains(locale)) {
+          out.println("<td class='path'>" + displayCharacter(item) + "</td>");
+        } else {
+          out.println("<td class='value'>\u00a0</td>");
         }
-        lastSet = locales;
-        lastChars.clear();
       }
-      lastChars.add(string);
+      // now strings, if any
+      out.println("<td class='path'>");
+      StringBuilder strings = new StringBuilder();
+      for (String item : allStrings) {
+        //String exemplarsWithoutBrackets = displayExemplars(item);
+        if (mapping.get(item).contains(locale)) {
+          if (strings.length() != 0) strings.append(' ');
+          strings.append(displayCharacter(item));
+        }
+      }
+      out.println(displayCharacter(strings.toString()) + "</td>");
+
+      out.println("</tr>");
     }
-    showExemplarRow(out, allLocales, lastChars, lastSet);
+  }
+  
+  static final UnicodeSet NONSPACING = new UnicodeSet("[[:Mn:][:Me:]]").freeze();
+  
+  public static String displayCharacter(String item) {
+    if (item.length() == 0) return "<i>none</i>";
+    int ch = item.codePointAt(0);
+    if (NONSPACING.contains(ch)) {
+      item = "\u00a0" + item + "\u00a0";
+    }
+    String result = toHTML.transform(item);
+    return result;
   }
 
   static LanguageTagParser cleanLocaleParser = new LanguageTagParser();
@@ -321,7 +361,10 @@ public class GenerateSidewaysView {
     allButScripts.remove(Fields.SCRIPT);
   }
   
-  private static String cleanLocale(String item, boolean header) {
+  private static String cleanLocale(String item, boolean name) {
+    if (item == null) {
+      return "<i>null</i>";
+    }
     boolean draft = item.endsWith("*");
     if (draft) {
       item = item.substring(0,item.length()-1);
@@ -329,11 +372,13 @@ public class GenerateSidewaysView {
     cleanLocaleParser.set(item);
     item = cleanLocaleParser.toString(allButScripts);
     String core = item;
+    item = toHTML.transform(item);
+    if (name) {
+      item = english.getName(core);
+      item = item == null ? "<i>null</i>" : toHTML.transform(item);
+    }
     if (draft) {
       item = "<i>" + item + "</i>";
-    }
-    if (true) {
-      item = "<span title='" + english.getName(english.LANGUAGE_NAME, core) + "'>" + item + "</span>";
     }
     return item;
   }
@@ -342,11 +387,13 @@ public class GenerateSidewaysView {
     String exemplarsWithoutBrackets = displayExemplars(lastChars);
     out.println("<tr><th class='path'>" + exemplarsWithoutBrackets + "</th>");
     for (String item : allLocales) {
+      String cleanItem;
       if (locales.contains(item)) {
-        out.println("<th class='value'>" + cleanLocale(item, false) + "</th>");
+        cleanItem = "<th class='value'>" + cleanLocale(item, false) + "</th>";
       } else {
-        out.println("<td class='value'>\u00a0</td>");
+        cleanItem = "<td class='value'>\u00a0</td>";
       }
+      out.println(cleanItem);
     }
     out.println("</tr>");
   }
@@ -529,7 +576,11 @@ public class GenerateSidewaysView {
       partial[0] = path.substring(pos+1);
       if (pos < 0) return path;
       try {
-        return path.substring(0,pos).replace('|','.');
+        String onset = path.substring(0,pos).replace('|','.');
+        if (path.contains("exemplarCharacters") && path.contains("|index")) {
+          return onset + "-index";
+        }
+        return onset;
       } catch (RuntimeException e) {
         throw (IllegalArgumentException) new IllegalArgumentException("input path: " + inputPath + "\tpretty: " + path).initCause(e);
       }

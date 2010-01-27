@@ -123,7 +123,7 @@ public class CldrUtility {
    */
   public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = getPath(COMMON_DIRECTORY , "supplemental/");
   public static final String GEN_DIRECTORY = getPath(BASE_DIRECTORY , "../Generated/cldr/");
-  public static final String CHART_DIRECTORY = getPath(BASE_DIRECTORY ,  "diff/");
+  public static final String CHART_DIRECTORY = getPath(BASE_DIRECTORY ,  "../Generated/cldr/diff/");
   public static final String TEST_DIR = getPath(CldrUtility.BASE_DIRECTORY,  "test/");
 
 

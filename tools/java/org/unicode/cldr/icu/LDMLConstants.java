@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2009, International Business Machines Corporation and   *
+ * Copyright (C) 2004-2010, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -261,6 +261,7 @@ public class LDMLConstants {
     public static final String MAP_TYPES         = "mapTypes";
     public static final String TYPE_MAP          = "typeMap";
     public static final String BCP47             = "bcp47";
+    public static final String WINTZ             = "wintz";
 
     //PN added
     public static final String MEDIUM          = "medium";

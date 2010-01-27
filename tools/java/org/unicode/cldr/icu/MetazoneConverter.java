@@ -1,4 +1,9 @@
-// Copyright 2009 Google Inc. All Rights Reserved.
+/*
+ *************************************************************************************
+ * Copyright (C) 2009-2010, Google Inc., International Business Machines Corporation,*
+ * and others. All Rights Reserved.                                                  *
+ *************************************************************************************
+ */
 
 package org.unicode.cldr.icu;
 
@@ -11,12 +16,20 @@ import org.w3c.dom.Node;
 
 
 public class MetazoneConverter extends SimpleLDMLConverter {
+  private static final String []METAZONE_INFO_TABLES = {
+      LDMLConstants.METAZONE_INFO,
+      LDMLConstants.TIMEZONE_DATA
+  };
+  
   public MetazoneConverter(ICULog log, String fileName, String supplementalDir) {
-    super(log, fileName, supplementalDir, LDMLConstants.METAZONE_INFO);
+    super(log, fileName, supplementalDir, METAZONE_INFO_TABLES);
   }
   
   @Override
   protected Resource parseInfo(Node root, StringBuilder xpath) {
+    if (root.getNodeName().equals(LDMLConstants.TIMEZONE_DATA)) {
+        return TimeZoneDataParser.parseTimeZoneData(root, xpath, log);
+    }
     Resource current = null;
     ResourceTable mzInfo = new ResourceTable();
     mzInfo.name = LDMLConstants.METAZONE_MAPPINGS;

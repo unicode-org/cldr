@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2009 International Business Machines Corporation and    *
+ * Copyright (C) 2004-2010 International Business Machines Corporation and    *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -69,6 +69,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
   private static final int WRITE_BINARY = 13;
   private static final int VERBOSE = 14;
   private static final int ASCII_NUMBERS = 15;
+  private static final int WINTZ_ONLY = 16;
 
   private static final UOption[] options = new UOption[] {
     UOption.HELP_H(),
@@ -87,6 +88,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     UOption.create("write-binary", 'b', UOption.NO_ARG),
     UOption.VERBOSE(),
     UOption.create("ascii-numbers", 'a', UOption.NO_ARG),
+    UOption.create("wintz-only", 'i', UOption.NO_ARG),
   };
 
   private String sourceDir;
@@ -114,6 +116,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
   private static final String likelySubtagsFile = "likelySubtags.xml";
   private static final String pluralsFile = "plurals.xml";
   private static final String numberingSystemsFile = "numberingSystems.xml";
+  private static final String wintzFile = "wintz.xml";
 
   private List<String> _xpathList = new ArrayList<String>();
 
@@ -185,6 +188,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         "-r or --plurals-only       read " + pluralsFile + " file from the given directory and " +
                                    "write appropriate files to destination directory\n" +
         "-z or --metazone-only      read " + metazoneInfoFile + " file from the given directory " +
+                                   "and write appropriate files to destination directory\n" +
+        "-i or --wintz-only         read " + wintzFile + " file from the given directory " +
                                    "and write appropriate files to destination directory\n" +
         "-n or --numbers-only       read " + numberingSystemsFile + " file from the given " +
                                    "directory and write appropriate files to destination " +
@@ -309,7 +314,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       }
     } else if (options[METAZONE_ONLY].doesOccur) {
       new MetazoneConverter(log, metazoneInfoFile, supplementalDir).convert(writer);
-    } else if (options[LIKELYSUBTAGS_ONLY].doesOccur) {
+    } else if (options[WINTZ_ONLY].doesOccur) {
+      new WinTZConverter(log, wintzFile, supplementalDir).convert(writer);
+    }else if (options[LIKELYSUBTAGS_ONLY].doesOccur) {
       new LikelySubtagsConverter(log, likelySubtagsFile, supplementalDir).convert(writer);
     } else if (options[PLURALS_ONLY].doesOccur) {
       new PluralsConverter(log, pluralsFile, supplementalDir).convert(writer);

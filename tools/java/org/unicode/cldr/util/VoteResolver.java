@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumSet;
@@ -67,6 +68,10 @@ public class VoteResolver<T> {
       return source == null ? missing : Status.valueOf(source);
     }
   }
+  
+  private final static Set<String> ESTABLISHED_LOCALES = Collections.unmodifiableSet(new HashSet(Arrays.asList(
+          "ar bg cs da de el es fi fr he hr hu it ja ko nb nl pl pt ro ru sk sl sv th tu zh"
+          .split(" "))));
 
   /**
    * This list needs updating as a new organizations are added; that's by design
@@ -359,6 +364,7 @@ public class VoteResolver<T> {
   private T                                                lastReleaseValue;
   private Status                                           lastReleaseStatus;
   private boolean                                          resolved;
+  private boolean                                          isEstablished;
   
   private final Comparator<T> ucaCollator = new Comparator<T>() {
     Collator col = Collator.getInstance(ULocale.ENGLISH);
@@ -391,7 +397,20 @@ public class VoteResolver<T> {
   public Status getLastReleaseStatus() {
     return lastReleaseStatus;
   }
-
+  
+  /**
+   * You must call this locale whenever you are using a VoteResolver with a new locale.
+   * @param locale
+   * @return
+   */
+  public VoteResolver<T> setEstablishedFromLocale(String locale) {
+    isEstablished = ESTABLISHED_LOCALES.contains(new LanguageTagParser().set(locale).getLanguage());
+    return this;
+  }
+  
+  public boolean isEstablished() {
+    return isEstablished;
+  }
 
   /**
    * Call this method first, for a new base path. You'll then call add for each value
@@ -500,12 +519,12 @@ public class VoteResolver<T> {
 
   private Status computeStatus(long weight1, long weight2) {
     int orgCount = organizationToValueAndVote.getOrgCount(winningValue);
-    return weight1 > weight2 && weight1 >= 4 ? Status.approved
-            : weight1 >= 2 * weight2 && weight1 >= 2 && orgCount >= 2 ? Status.contributed
-            : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
-            : Status.unconfirmed;
+    return weight1 > weight2 && (weight1 >= 8 || (weight1 >= 4 && !isEstablished)) ? Status.approved
+         : weight1 >= 2 * weight2 && weight1 >= 2 && orgCount >= 2 ? Status.contributed
+         : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
+         : Status.unconfirmed;
   }
-  
+
   public Status getPossibleWinningStatus() {
     if (!resolved) {
       resolveVotes();

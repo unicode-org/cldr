@@ -30,7 +30,7 @@ import org.unicode.cldr.web.Vetting.Status;
  */
 public class Race {
     
-    private VoteResolver<Integer> resolver = new VoteResolver<Integer>();
+    private VoteResolver<Integer> resolver; // allocate new with locale = new VoteResolver<Integer>();
 
     /**
      * 
@@ -40,8 +40,10 @@ public class Race {
     /**
      * @param vetting
      */
-    Race(Vetting vetting) {
+    Race(Vetting vetting, CLDRLocale locale) {
         vet = vetting;
+        resolver = new VoteResolver<Integer>();
+        resolver.setEstablishedFromLocale(locale.getBaseName());
     }
 
     // The vote of a particular organization for this item.

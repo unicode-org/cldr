@@ -70,7 +70,7 @@ public class VoteResolver<T> {
   }
   
   private final static Set<String> ESTABLISHED_LOCALES = Collections.unmodifiableSet(new HashSet(Arrays.asList(
-          "ar bg cs da de el es fi fr he hr hu it ja ko nb nl pl pt ro ru sk sl sv th tu zh"
+          "ar bg bn ca cs da de el es fi fr he hi hr hu it ja ko ml nb nl pl pt pt_PT ro ru sk sl sr sv th tu uk vi zh zh_Hant"
           .split(" "))));
 
   /**

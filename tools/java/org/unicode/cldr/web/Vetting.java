@@ -1299,7 +1299,7 @@ public class Vetting {
 	public Race getRace(CLDRLocale locale, int base_xpath) throws SQLException {
 		synchronized(conn) {
 			// Step 0: gather all votes
-			Race r = new Race(this);
+			Race r = new Race(this, locale);
 			r.clear(base_xpath, locale);
 			r.optimal();
 			return r;
@@ -1331,7 +1331,7 @@ public class Vetting {
         queryValue.setString(1,locale.toString());
         
         // Step 0: gather all votes
-		Race r = new Race(this);
+		Race r = new Race(this, locale);
 		r.clear(base_xpath, locale, id);
 		resultXpath = r.optimal();
 		

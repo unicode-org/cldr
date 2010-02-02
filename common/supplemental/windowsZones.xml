@@ -2,12 +2,12 @@
 <!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
 
 <supplementalData>
-	<version number="$Revision$"/>
-	<generation date="$Date$"/>
+	<version number="$Revision: 4533 $"/>
+	<generation date="$Date: 2010-01-18 16:55:30 -0500 (Mon, 18 Jan 2010) $"/>
 	<cldrVersion version="1.8"/>
 
-	<timezoneData>
-		<mapTimezones type="windows">
+	<windowsZones>
+		<mapTimezones>
 			<mapZone other="AUS Central Standard Time" type="Australia/Darwin"/> <!-- S (GMT+09:30) Darwin -->
 			<mapZone other="AUS Eastern Standard Time" type="Australia/Sydney"/> <!-- D (GMT+10:00) Canberra, Melbourne, Sydney -->
 			<mapZone other="Afghanistan Standard Time" type="Asia/Kabul"/> <!-- S (GMT+04:30) Kabul -->
@@ -100,5 +100,5 @@
 			<mapZone other="West Pacific Standard Time" type="Pacific/Port_Moresby"/> <!-- S (GMT+10:00) Guam, Port Moresby -->
 			<mapZone other="Yakutsk Standard Time" type="Asia/Yakutsk"/> <!-- D (GMT+09:00) Yakutsk -->
 		</mapTimezones>
-	</timezoneData>
+	</windowsZones>
 </supplementalData>

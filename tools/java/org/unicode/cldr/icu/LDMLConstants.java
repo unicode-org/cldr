@@ -261,7 +261,8 @@ public class LDMLConstants {
     public static final String MAP_TYPES         = "mapTypes";
     public static final String TYPE_MAP          = "typeMap";
     public static final String BCP47             = "bcp47";
-    public static final String WINTZ             = "wintz";
+    public static final String META_ZONES        = "metaZones";
+    public static final String WINDOWS_ZONES     = "windowsZones";
 
     //PN added
     public static final String MEDIUM          = "medium";

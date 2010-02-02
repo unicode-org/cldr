@@ -21,23 +21,14 @@ public abstract class SimpleLDMLConverter {
   protected final ICULog log;
   protected final String fileName;
   protected final String supplementalDir;
-  protected final String tableNames[];
+  protected final String tableName;
 
   public SimpleLDMLConverter(ICULog log, String fileName, String supplementalDir,
       String tableName) {
     this.log = log;
     this.fileName = fileName;
     this.supplementalDir = supplementalDir;
-    this.tableNames = new String[1];
-    this.tableNames[0] = tableName;
-  }
-  
-  public SimpleLDMLConverter(ICULog log, String fileName, String supplementalDir,
-      String [] tableNames) {
-    this.log = log;
-    this.fileName = fileName;
-    this.supplementalDir = supplementalDir;
-    this.tableNames = tableNames;
+    this.tableName = tableName;
   }
 
   public void convert(ICUWriter writer) {
@@ -108,7 +99,7 @@ public abstract class SimpleLDMLConverter {
     StringBuilder xpath = new StringBuilder();
     xpath.append("//");
     xpath.append(LDMLConstants.SUPPLEMENTAL_DATA);
-    table.name = tableNames[0];
+    table.name = tableName;
     table.annotation = ResourceTable.NO_FALLBACK;
     int savedLength = xpath.length();
     for (Node node = root.getFirstChild(); node != null; node = node.getNextSibling()) {
@@ -144,15 +135,8 @@ public abstract class SimpleLDMLConverter {
   protected Resource parseElement(Node node, StringBuilder xpath) {
     String name = node.getNodeName();
     Resource res = null;
-    boolean match = false;
-    
-    for (int i = 0; i < tableNames.length; i++) {
-        if (match = name.equals(tableNames[i])) {
-            break;
-        }
-    }
-    
-    if (match) {
+
+    if (name.equals(tableName)) {
       res = parseInfo(node, xpath);
     } else if (name.equals(LDMLConstants.VERSION) || name.equals(LDMLConstants.GENERATION) || name.equals(LDMLConstants.CLDR_VERSION)) {
       // ignore

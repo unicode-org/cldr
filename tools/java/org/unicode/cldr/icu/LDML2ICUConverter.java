@@ -62,14 +62,14 @@ public class LDML2ICUConverter extends CLDRConverterTool {
   private static final int WRITE_DRAFT = 6;
   private static final int SUPPLEMENTALDIR = 7;
   private static final int SUPPLEMENTALONLY = 8;
-  private static final int METAZONE_ONLY = 9;
+  private static final int METAZONES_ONLY = 9;
   private static final int LIKELYSUBTAGS_ONLY = 10;
   private static final int PLURALS_ONLY = 11;
   private static final int NUMBERS_ONLY = 12;
   private static final int WRITE_BINARY = 13;
   private static final int VERBOSE = 14;
   private static final int ASCII_NUMBERS = 15;
-  private static final int WINTZ_ONLY = 16;
+  private static final int WINDOWSZONES_ONLY = 16;
 
   private static final UOption[] options = new UOption[] {
     UOption.HELP_H(),
@@ -81,14 +81,14 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     UOption.create("write-draft", 'f', UOption.NO_ARG),
     UOption.create("supplementaldir", 'm', UOption.REQUIRES_ARG),
     UOption.create("supplemental-only", 'l', UOption.NO_ARG),
-    UOption.create("metazone-only", 'z', UOption.NO_ARG),
+    UOption.create("metazones-only", 'z', UOption.NO_ARG),
     UOption.create("likely-only", 't', UOption.NO_ARG),
     UOption.create("plurals-only", 'r', UOption.NO_ARG),
     UOption.create("numbers-only", 'n', UOption.NO_ARG),
     UOption.create("write-binary", 'b', UOption.NO_ARG),
     UOption.VERBOSE(),
     UOption.create("ascii-numbers", 'a', UOption.NO_ARG),
-    UOption.create("wintz-only", 'i', UOption.NO_ARG),
+    UOption.create("windowszones-only", 'i', UOption.NO_ARG),
   };
 
   private String sourceDir;
@@ -112,11 +112,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
   // TODO: hard-coded file names for now
   private static final String supplementalDataFile = "supplementalData.xml";
-  private static final String metazoneInfoFile = "metazoneInfo.xml";
+  private static final String metaZonesFile = "metaZones.xml";
   private static final String likelySubtagsFile = "likelySubtags.xml";
   private static final String pluralsFile = "plurals.xml";
   private static final String numberingSystemsFile = "numberingSystems.xml";
-  private static final String wintzFile = "wintz.xml";
+  private static final String windowsZonesFile = "windowsZones.xml";
 
   private List<String> _xpathList = new ArrayList<String>();
 
@@ -187,9 +187,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                                    "and write appropriate files to destination directory\n" +
         "-r or --plurals-only       read " + pluralsFile + " file from the given directory and " +
                                    "write appropriate files to destination directory\n" +
-        "-z or --metazone-only      read " + metazoneInfoFile + " file from the given directory " +
+        "-z or --metazones-only     read " + metaZonesFile + " file from the given directory " +
                                    "and write appropriate files to destination directory\n" +
-        "-i or --wintz-only         read " + wintzFile + " file from the given directory " +
+        "-i or --windowszones-only  read " + windowsZonesFile + " file from the given directory " +
                                    "and write appropriate files to destination directory\n" +
         "-n or --numbers-only       read " + numberingSystemsFile + " file from the given " +
                                    "directory and write appropriate files to destination " +
@@ -312,10 +312,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
       if (res != null && ((ResourceTable)res).first != null) {
         writer.writeResource(res, supplementalDataFile);
       }
-    } else if (options[METAZONE_ONLY].doesOccur) {
-      new MetazoneConverter(log, metazoneInfoFile, supplementalDir).convert(writer);
-    } else if (options[WINTZ_ONLY].doesOccur) {
-      new WinTZConverter(log, wintzFile, supplementalDir).convert(writer);
+    } else if (options[METAZONES_ONLY].doesOccur) {
+      new MetaZonesConverter(log, metaZonesFile, supplementalDir).convert(writer);
+    } else if (options[WINDOWSZONES_ONLY].doesOccur) {
+      new WindowsZonesConverter(log, windowsZonesFile, supplementalDir).convert(writer);
     }else if (options[LIKELYSUBTAGS_ONLY].doesOccur) {
       new LikelySubtagsConverter(log, likelySubtagsFile, supplementalDir).convert(writer);
     } else if (options[PLURALS_ONLY].doesOccur) {
@@ -602,7 +602,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     FilenameFilter filter = new FilenameFilter() {
       public boolean accept(File dir, String name) {
         if (name.matches(".*\\.xml") && !name.equals("characters.xml") &&
-                !name.equals(metazoneInfoFile) && !name.equals(likelySubtagsFile)) {
+                !name.equals(metaZonesFile) && !name.equals(likelySubtagsFile) &&
+                !name.equals(windowsZonesFile)) {
           return true;
         }
         return false;

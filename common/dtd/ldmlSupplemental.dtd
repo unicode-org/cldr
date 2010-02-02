@@ -11,7 +11,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Date: 2009-05-05 23:24:30 $
 -->
 
-<!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, references?, languageMatching?, dayPeriodRuleSet?) >
+<!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, references?, languageMatching?, dayPeriodRuleSet?, metaZones?, windowsZones?) >
 <!ATTLIST supplementalData version CDATA #FIXED "1.7" >
 
 <!ELEMENT version ( #PCDATA ) >
@@ -166,28 +166,6 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST paperSize draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST paperSize references CDATA #IMPLIED >
 <!ATTLIST paperSize alt NMTOKENS #IMPLIED >
-
-<!ELEMENT timezoneData ( mapTimezones*, zoneFormatting* ) >
-<!ELEMENT mapTimezones ( mapZone* ) >
-<!ATTLIST mapTimezones type NMTOKEN #REQUIRED >
-<!ATTLIST mapTimezones references CDATA #IMPLIED >
-
-<!ELEMENT mapZone EMPTY >
-<!ATTLIST mapZone type CDATA #REQUIRED >
-<!ATTLIST mapZone other CDATA #REQUIRED >
-<!ATTLIST mapZone territory CDATA #IMPLIED >
-<!ATTLIST mapZone references CDATA #IMPLIED >
-
-<!ELEMENT zoneFormatting ( zoneItem* ) >
-<!ATTLIST zoneFormatting multizone NMTOKENS #REQUIRED >
-<!ATTLIST zoneFormatting tzidVersion CDATA #IMPLIED >
-<!ATTLIST zoneFormatting references CDATA #IMPLIED >
-
-<!ELEMENT zoneItem EMPTY >
-<!ATTLIST zoneItem type CDATA #REQUIRED >
-<!ATTLIST zoneItem territory NMTOKEN #REQUIRED >
-<!ATTLIST zoneItem aliases CDATA #IMPLIED >
-<!ATTLIST zoneItem references CDATA #IMPLIED >
 
 <!ELEMENT characters ( character-fallback*) >
 <!ATTLIST characters draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -355,16 +333,6 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST likelySubtag from NMTOKEN #REQUIRED>
 <!ATTLIST likelySubtag to NMTOKEN #REQUIRED>
 
-<!ELEMENT metazoneInfo (timezone*) >
-
-<!ELEMENT timezone (usesMetazone*) >
-<!ATTLIST timezone type CDATA #REQUIRED >
-
-<!ELEMENT usesMetazone EMPTY >
-<!ATTLIST usesMetazone mzone NMTOKEN #REQUIRED >
-<!ATTLIST usesMetazone from CDATA #IMPLIED >
-<!ATTLIST usesMetazone to CDATA #IMPLIED >
-
 <!ELEMENT plurals (pluralRules*) >
 <!ATTLIST plurals draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
 <!ATTLIST plurals references CDATA #IMPLIED >
@@ -450,4 +418,41 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST dayPeriodRule draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST dayPeriodRule references CDATA #IMPLIED > 
 
+<!-- Time Zones -->
 
+<!ELEMENT windowsZones (mapTimezones?) >
+<!ELEMENT metaZones (metazoneInfo?, mapTimezones?) >
+
+<!ELEMENT metazoneInfo (timezone*) >
+
+<!ELEMENT timezone (usesMetazone*) >
+<!ATTLIST timezone type CDATA #REQUIRED >
+
+<!ELEMENT usesMetazone EMPTY >
+<!ATTLIST usesMetazone mzone NMTOKEN #REQUIRED >
+<!ATTLIST usesMetazone from CDATA #IMPLIED >
+<!ATTLIST usesMetazone to CDATA #IMPLIED >
+
+<!ELEMENT mapTimezones ( mapZone* ) >
+<!ATTLIST mapTimezones type NMTOKEN #IMPLIED >
+<!ATTLIST mapTimezones references CDATA #IMPLIED >
+
+<!ELEMENT mapZone EMPTY >
+<!ATTLIST mapZone type CDATA #REQUIRED >
+<!ATTLIST mapZone other CDATA #REQUIRED >
+<!ATTLIST mapZone territory CDATA #IMPLIED >
+<!ATTLIST mapZone references CDATA #IMPLIED >
+
+
+<!ELEMENT timezoneData ( mapTimezones*, zoneFormatting* ) >
+
+<!ELEMENT zoneFormatting ( zoneItem* ) >
+<!ATTLIST zoneFormatting multizone NMTOKENS #REQUIRED >
+<!ATTLIST zoneFormatting tzidVersion CDATA #IMPLIED >
+<!ATTLIST zoneFormatting references CDATA #IMPLIED >
+
+<!ELEMENT zoneItem EMPTY >
+<!ATTLIST zoneItem type CDATA #REQUIRED >
+<!ATTLIST zoneItem territory NMTOKEN #REQUIRED >
+<!ATTLIST zoneItem aliases CDATA #IMPLIED >
+<!ATTLIST zoneItem references CDATA #IMPLIED >

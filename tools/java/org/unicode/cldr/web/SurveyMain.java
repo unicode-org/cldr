@@ -1511,18 +1511,26 @@ public class SurveyMain extends HttpServlet {
                 }
             }
             
-            boolean reupdate = actionCtx.hasField("reupdate");
+            final boolean reupdate = actionCtx.hasField("reupdate");
 
             if(what.equals("ALL")) {
                 ctx.println("<h4>Update All (delete first: "+reupdate+")</h4>");
                 
-                ElapsedTimer et = new ElapsedTimer();
-                int n = vet.updateResults(reupdate);
-                ctx.println("Done updating "+n+" vote results in: " + et + "<br>");
-                lcr.invalidateLocale(CLDRLocale.ROOT);
-                ElapsedTimer zet = new ElapsedTimer();
-                int zn = vet.updateStatus();
-                ctx.println("Done updating "+zn+" statuses [locales] in: " + zet + "<br>");
+		startupThread.addTask(new SurveyThread.SurveyTask("UpdateAll, Delete:"+reupdate) {
+		    public void run() throws Throwable {
+			ElapsedTimer et = new ElapsedTimer();
+			int n = vet.updateResults(reupdate);
+			System.err.println("Done updating "+n+" vote results in: " + et + "<br>");
+			lcr.invalidateLocale(CLDRLocale.ROOT);
+			ElapsedTimer zet = new ElapsedTimer();
+			int zn = vet.updateStatus();
+			System.err.println("Done updating "+zn+" statuses [locales] in: " + zet + "<br>");
+			
+		    }
+		    });
+		       
+	    ctx.println("... task queued.<br>");
+		
             } else {
                 ctx.println("<h4>Update All</h4>");
                 ctx.println("Locs: ");

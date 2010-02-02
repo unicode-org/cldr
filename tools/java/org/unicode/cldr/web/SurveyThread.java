@@ -1,5 +1,5 @@
 /**
- * 
+ * -2010
  */
 package org.unicode.cldr.web;
 
@@ -13,6 +13,36 @@ import java.util.concurrent.LinkedBlockingQueue;
  * A worker thread that performs various SurveyTool tasks, starting with booting.
  */
 public class SurveyThread extends Thread {
+
+    public static boolean shouldStop() {
+	SurveyTask ct = currentTask();
+	if(ct==null) {
+	    return false; /* don't know. */
+	} else {
+	    return !ct.running();
+	}
+    }
+
+    public static boolean inTask() {
+	Thread th = Thread.currentThread();
+	if(th instanceof SurveyThread) { 
+	    return true;
+	} else {
+	    return false;
+	}
+    }
+
+    public static SurveyTask currentTask() {
+	Thread th = Thread.currentThread();
+	if(th instanceof SurveyThread) { 
+	    SurveyThread st = (SurveyThread)th;
+	    
+	    return st.current;
+ 	} else {
+	    return null;
+	}
+    }
+
 	/**
 	 * Are we still running?
 	 */
@@ -61,7 +91,8 @@ public class SurveyThread extends Thread {
 		 * @return
 		 */
 		public boolean running() {
-			return taskRunning && theThread.surveyThreadIsRunning;
+		    if(theThread!=null && !theThread.surveyThreadIsRunning) return false;
+		    return taskRunning;
 		}
 		
 		/**
@@ -75,7 +106,7 @@ public class SurveyThread extends Thread {
 		 * Get some info about the task.
 		 */
 		public String toString() {
-			return "Task: "+name;
+		    return "{Task: "+name +", Running:"+running()+"}";
 		}
 		/**
 		 * Do the work.

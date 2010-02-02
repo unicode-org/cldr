@@ -3,7 +3,7 @@
 //  fivejay
 //
 //  Created by Steven R. Loomis on 04/04/2006.
-//  Copyright 2006-2008 IBM. All rights reserved.
+//  Copyright 2006-2010 IBM. All rights reserved.
 //
 
 package org.unicode.cldr.web;
@@ -714,6 +714,7 @@ public class Vetting {
             sm.progressMax = nrInFiles;
             for(int i=0;i<nrInFiles;i++) {
                 sm.progressCount = i;
+
                 // TODO: need a function for this.
                 String fileName = inFiles[i].getName();
                 int dot = fileName.indexOf('.');
@@ -731,8 +732,8 @@ public class Vetting {
                 } else {
                     // no reason to print it.
                 }
-                
-                if(stopUpdating) {
+
+                if(stopUpdating ||SurveyThread.shouldStop()) {
                     stopUpdating = false;
                     System.err.println("**** Update aborted after ("+count+" updated, "+typeToStr(types[0])+") - "+i+"/"+nrInFiles);
                     break;
@@ -1560,6 +1561,7 @@ public class Vetting {
      * @return number of locales updated
      */
     public int updateStatus() { // updates MISSING status
+	if(SurveyThread.shouldStop()) return 0;
         synchronized(conn) {
             // missing ones 
             int locs=0;
@@ -1567,7 +1569,7 @@ public class Vetting {
             try {
                 Statement s = conn.createStatement();
                 ResultSet rs = s.executeQuery("select distinct "+CLDRDBSourceFactory.CLDR_DATA+".locale from "+CLDRDBSourceFactory.CLDR_DATA+" where not exists ( select * from "+CLDR_STATUS+" where "+CLDR_STATUS+".locale="+CLDRDBSourceFactory.CLDR_DATA+".locale)");
-                while(rs.next()) {
+                while(rs.next()&&!SurveyThread.shouldStop()) {
                     count += updateStatus(CLDRLocale.getInstance(rs.getString(1)), false);
                     locs++;
                 }

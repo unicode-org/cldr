@@ -37,6 +37,7 @@ public class IntHash<T> {
             return bucket[id%HASH_SIZE] = str;
         } catch(ArrayIndexOutOfBoundsException aioob) {
             if(id>MAX_SIZE) throw new InternalError("Exceeded max " + MAX_SIZE + " @ " + id);
+	    System.err.println("aioob: id"+id+", buckid"+idToBucket(id)+", hashedIdsLen"+hashedIds.length);
             throw aioob;
         }
     }

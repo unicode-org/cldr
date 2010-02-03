@@ -308,11 +308,10 @@ public class ConvertLanguageData {
       String languageCode = ltp.getLanguage();
       BasicLanguageData.Type type;
       Relation<String, String> oldLanguageData;
-      if (rowData.officialStatus == OfficialStatus.official 
-              || rowData.officialStatus == OfficialStatus.de_facto_official) {
+      if (rowData.officialStatus.isMajor()) {
         type = BasicLanguageData.Type.primary;
         oldLanguageData = languageToDefaultScript;
-      } else if (rowData.officialStatus != OfficialStatus.unknown 
+      } else if (rowData.officialStatus.isOfficial() 
               || rowData.getLanguagePopulation() >= cutoff * rowData.countryPopulation
               || rowData.getLanguagePopulation() >= 1000000
       ) {
@@ -382,10 +381,9 @@ public class ConvertLanguageData {
       if (status_territories == null) {
         language_status_territories.put(languageCode, status_territories = new Relation(new TreeMap(), TreeSet.class));
       }
-      if (rowData.officialStatus == OfficialStatus.official 
-              || rowData.officialStatus == OfficialStatus.de_facto_official) {
+      if (rowData.officialStatus.isMajor()) {
         status_territories.put(BasicLanguageData.Type.primary, rowData.countryCode);
-      } else if (rowData.officialStatus != OfficialStatus.unknown 
+      } else if (rowData.officialStatus.isOfficial() 
               || rowData.getLanguagePopulation() >= cutoff * rowData.countryPopulation
               || rowData.getLanguagePopulation() >= 1000000
       ) {
@@ -468,7 +466,7 @@ public class ConvertLanguageData {
         populationOver20.add(locale);
       } else {
         PopulationData popData = supplementalData.getLanguageAndTerritoryPopulationData(ltp.getLanguageScript(), ltp.getRegion());
-        if (popData != null && popData.getOfficialStatus() != OfficialStatus.unknown) {
+        if (popData != null && popData.getOfficialStatus().isOfficial()) {
           populationOver20.add(locale);
         }
       }
@@ -650,7 +648,7 @@ public class ConvertLanguageData {
       }
 
       double languagePopulation1 = parsePercent(row.get(LANGUAGE_POPULATION), countryPopulation1) * countryPopulation1;
-      if ((officialStatus == OfficialStatus.de_facto_official || officialStatus == OfficialStatus.official) 
+      if ((officialStatus.isMajor()) 
               && languagePopulation1*100 < countryPopulation && languagePopulation1 < 1000000) {
         System.out.println("*ERROR* Official language has population < 1% of country and < 1,000,000: " + row);
       }
@@ -945,7 +943,7 @@ public class ConvertLanguageData {
       }
 
       if (languageCode.length() != 0 && languagePopulationPercent > 0.0000
-              && (ALLOW_SMALL_NUMBERS || languagePopulationPercent >= 1 || languagePopulationRaw > 100000 || languageCode.equals("haw") || row.officialStatus != OfficialStatus.unknown)
+              && (ALLOW_SMALL_NUMBERS || languagePopulationPercent >= 1 || languagePopulationRaw > 100000 || languageCode.equals("haw") || row.officialStatus.isOfficial())
       ) {
         // add best case
         addBestRegion(languageCode, countryCode, languagePopulationRaw);
@@ -962,7 +960,7 @@ public class ConvertLanguageData {
         Log.print("\t\t\t<languagePopulation type=\"" + languageCode + "\""
                 + (languageLiteracy != countryLiteracy ? " writingPercent=\"" + formatPercent(languageLiteracy, 2, true) + "\"" : "")
                 + " populationPercent=\"" + formatPercent(languagePopulationPercent, 2, true) + "\""
-                + (row.officialStatus != OfficialStatus.unknown ? " officialStatus=\"" + row.officialStatus + "\"" : "")
+                + (row.officialStatus.isOfficial() ? " officialStatus=\"" + row.officialStatus + "\"" : "")
                 + references.addReference(row.comment)
                 + "/>");
         Log.println("\t<!--" + getLanguageName(languageCode) + "-->");
@@ -1127,7 +1125,7 @@ public class ConvertLanguageData {
       }
       try {
         RowData x = new RowData(row);
-        if (x.officialStatus != OfficialStatus.unknown) {
+        if (x.officialStatus.isOfficial()) {
           Row.R2<String, Double> largestOffical = countryToLargestOfficialLanguage.get(x.countryCode);
           if (largestOffical == null) {
             countryToLargestOfficialLanguage.put(x.countryCode, Row.of(x.languageCode, x.languagePopulation));
@@ -1136,7 +1134,7 @@ public class ConvertLanguageData {
             largestOffical.set1(x.languagePopulation);
           }
         }
-        if (x.officialStatus == OfficialStatus.de_facto_official || x.officialStatus == OfficialStatus.official || x.countryPopulation < 1000) {
+        if (x.officialStatus.isMajor() || x.countryPopulation < 1000) {
           countriesWithoutOfficial.remove(x.countryCode);
         }
         if (!checkCode("territory", x.countryCode, null)) continue;
@@ -1176,7 +1174,7 @@ public class ConvertLanguageData {
     for (RowData row : sortedInput) {
       // see which countries have languages that are larger than any offical language
 
-      if (row.officialStatus == OfficialStatus.unknown) {
+      if (!row.officialStatus.isOfficial()) {
         String country = row.countryCode;
         Row.R2<String, Double> largestOffical = countryToLargestOfficialLanguage.get(row.countryCode);
         if (largestOffical != null && largestOffical.get1() < row.languagePopulation) {

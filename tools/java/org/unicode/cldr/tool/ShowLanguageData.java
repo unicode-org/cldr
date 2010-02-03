@@ -32,7 +32,7 @@ public class ShowLanguageData {
         }
         PopulationData popData = data.getLanguageAndTerritoryPopulationData(language, territory);
         OfficialStatus status = popData.getOfficialStatus();
-        if (status != OfficialStatus.de_facto_official && status != OfficialStatus.official) {
+        if (!status.isMajor()) {
           continue;
         }
         long litPop = (long) popData.getLiteratePopulation();

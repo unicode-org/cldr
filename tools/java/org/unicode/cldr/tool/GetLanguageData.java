@@ -38,7 +38,7 @@ public class GetLanguageData {
         Pair<OfficialStatus, String> status = isOfficialLanguageOfEUCountry(language);
         System.out.print("\t" + pop // 
                 + "\t" + languageToGdp.getCount(language) //
-                + "\t" + (status.getFirst() != OfficialStatus.unknown ? status.getFirst() : "") //
+                + "\t" + (status.getFirst().isOfficial() ? status.getFirst() : "") //
                 + "\t" + status.getSecond() //
         );
       }
@@ -61,7 +61,7 @@ public class GetLanguageData {
         if (language.equals("tl")) continue;
         PopulationData pop2 = sdata.getLanguageAndTerritoryPopulationData(language, territory);
         langPop += pop2.getPopulation();
-        if (pop2.getOfficialStatus() != OfficialStatus.unknown) {
+        if (pop2.getOfficialStatus().isOfficial()) {
           officialLangPop += pop2.getPopulation();
         }
       }
@@ -84,7 +84,7 @@ public class GetLanguageData {
         if (language.equals("tl")) continue;
         PopulationData pop2 = sdata.getLanguageAndTerritoryPopulationData(language, territory);
         double langPop2 = pop2.getPopulation();
-        if (pop2.getOfficialStatus() != OfficialStatus.unknown) {
+        if (pop2.getOfficialStatus().isOfficial()) {
           langPop2 *= scale;
         }
         languageToGdp.add(language,(long)(gdp*langPop2/territoryPop));

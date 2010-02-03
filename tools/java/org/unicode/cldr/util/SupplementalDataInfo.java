@@ -65,12 +65,13 @@ public class SupplementalDataInfo {
    * Official status of languages
    */
   public enum OfficialStatus {
-    unknown, official_regional, official_minority, de_facto_official, official;
+    unknown, recognized, official_regional, official_minority, de_facto_official, official;
 
     public String toShortString() {
       switch (this) {
       case unknown: return "U";
       case de_facto_official: return "DO";
+      case recognized: return "R";
       case official: return "O";
       case official_regional: return "OR";
       case official_minority: return "OM";
@@ -79,11 +80,11 @@ public class SupplementalDataInfo {
     }
 
     public boolean isMajor() {
-      switch (this) {
-      case de_facto_official:
-      case official: return true;
-      default: return false;
-      }
+      return compareTo(OfficialStatus.de_facto_official) >= 0;
+    }
+    
+    public boolean isOfficial() {
+      return compareTo(OfficialStatus.official_regional) >= 0;
     }
   };
 

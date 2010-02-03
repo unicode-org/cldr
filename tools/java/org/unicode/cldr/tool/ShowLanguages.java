@@ -406,7 +406,7 @@ public class ShowLanguages {
     for (String territory : territories) {
       PopulationData data = supplementalDataInfo.getLanguageAndTerritoryPopulationData(language, territory);
       OfficialStatus status = data.getOfficialStatus();
-      if (status == OfficialStatus.official || status == OfficialStatus.de_facto_official) {
+      if (status.isMajor()) {
         territoryFix.put(baseLanguage, territory);
         System.out.println("\tAdding\t" + baseLanguage + "\t" + territory + "\t" + language);
       }

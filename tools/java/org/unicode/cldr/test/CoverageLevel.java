@@ -1075,7 +1075,7 @@ public class CoverageLevel {
       for (String language : info.getLanguagesForTerritoryWithPopulationData(territory)) {
         PopulationData languageInfo = info.getLanguageAndTerritoryPopulationData(language, territory);
         OfficialStatus officialStatus = languageInfo.getOfficialStatus();
-        if (officialStatus != OfficialStatus.unknown) {
+        if (officialStatus.isOfficial()) {
           officialModernLanguages.add(language);
           officialModernTerritories.add(territory);
           

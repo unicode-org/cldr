@@ -130,7 +130,7 @@ public class XPathTable {
     
     public final static int CHUNKSIZE = 4096;
     public final static int INITIAL_SIZE=10240;
-    public final static int MAX_SIZE=384000;
+    public final static int MAX_SIZE=385024;
 
     /**
      * 

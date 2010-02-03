@@ -47,6 +47,10 @@ public class SurveyThread extends Thread {
 	 * Are we still running?
 	 */
 	boolean surveyThreadIsRunning = true;
+
+    boolean mainThreadRunning() { 
+	return surveyThreadIsRunning;
+    }
 	
 	/**
 	 * @author srl
@@ -102,11 +106,28 @@ public class SurveyThread extends Thread {
 		SurveyTask(String taskName) {
 			name = taskName;
 		}
+
+	        void setName(String taskName) {
+		    name = taskName;
+
+		    // if possible, update current thread name.
+		    Thread th = Thread.currentThread();
+		    if(th instanceof SurveyThread) { 
+			SurveyThread st = (SurveyThread)th;
+			st.setName();
+		    }
+		}
+
 		/**
 		 * Get some info about the task.
 		 */
 		public String toString() {
-		    return "{Task: "+name +", Running:"+running()+"}";
+		    StringBuilder sb = new StringBuilder(name);
+		    if(!running()) {
+			sb.append(" (not running)");
+		    }
+
+		    return sb.toString();
 		}
 		/**
 		 * Do the work.
@@ -298,6 +319,6 @@ public class SurveyThread extends Thread {
         	if(clean == true) {
         		System.err.println("SurveyThread: clean shutdown.");
         	}
-        }
+	}
 	}
 }

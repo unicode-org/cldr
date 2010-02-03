@@ -991,29 +991,47 @@ public class SurveyMain extends HttpServlet {
         } else if(action.equals("tasks")) {
             WebContext subCtx = (WebContext)ctx.clone();
             actionCtx.addQuery("action",action);
-            ctx.println("<h1>Tasks</h1>");
-            ctx.println("Thread: "+startupThread+"<br>");
-            ctx.println("<hr>");
-            
-            /*
-            ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
-            actionCtx.printUrlAsHiddenFields();
-            ctx.println("<input type=submit value='Do Nothing For Ten Seconds' name='10s'></form>");
-             	*/
+
+
+	    if(isUnofficial) {
+		ctx.println("<form style='float: right;' method='POST' action='"+actionCtx.url()+"'>");
+		actionCtx.printUrlAsHiddenFields();
+		ctx.println("<input type=submit value='Do Nothing For Ten Seconds' name='10s'></form>");
+	    }
+
+
+	    String fullInfo = startupThread.toString();
+
+            ctx.println("<h1 title='"+fullInfo+"'>Tasks</h1>");
+	    
+	    if(!startupThread.mainThreadRunning()) {	    
+		ctx.println("<i>Main thread is not running.</i><br>");
+	    }
+
             SurveyThread.SurveyTask acurrent = startupThread.current;
 
             if(acurrent!=null) {
-	            ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
-	            actionCtx.printUrlAsHiddenFields();
-	            ctx.println("<input type=submit value='Stop Active Task' name='tstop'></form>");
-	            ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
-	            actionCtx.printUrlAsHiddenFields();
-	            ctx.println("<input type=submit value='Kill Active Task' name='tkill'></form>");
+		ctx.println("<hr>");
+		ctx.println("<table border=0><tr><th>Active Task:</th>");
+		ctx.println("<td>"+acurrent.toString()+"</td>");
+		
+		ctx.println("<td><a href='#currentTask'>"+ctx.iconHtml("zoom","Zoom in on task..")+"</a></td>");
+
+		ctx.println("<td>");
+		ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+		actionCtx.printUrlAsHiddenFields();
+		ctx.println("<input type=submit value='Stop Active Task' name='tstop'></form>");
+		ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+		actionCtx.printUrlAsHiddenFields();
+		ctx.println("<input type=submit value='Kill Active Task' name='tkill'></form>");
+		ctx.println("</td></tr></table>");
             }
-            ctx.println("<hr>");
+	    if(startupThread.tasksRemaining()>1) {
+		ctx.println("<i>"+startupThread.tasksRemaining()+" total tasks remaining.</i><br>");
+	    }
             
-            
-           /* if(ctx.hasField("10s")) {
+           
+	    if(ctx.hasField("10s")) {
             	startupThread.addTask(new SurveyTask("Waste 10 Seconds")
             	{
             		public void run() throws Throwable {
@@ -1021,15 +1039,15 @@ public class SurveyMain extends HttpServlet {
             		}
             	});
             	ctx.println("10s task added.\n");
-            } else */ if(ctx.hasField("tstop")) {
+            } else  if(ctx.hasField("tstop")) {
             	if(acurrent!=null) {
-            		acurrent.stop();
-            		ctx.println(acurrent + " stopped");
+		    acurrent.stop();
+		    ctx.println(acurrent + " stopped");
             	}
             } else if(ctx.hasField("tkill")) {
             	if(acurrent!=null) {
-            		acurrent.kill();
-            		ctx.println(acurrent + " killed");
+		    acurrent.kill();
+		    ctx.println(acurrent + " killed");
             	}
             }
             
@@ -1042,7 +1060,10 @@ public class SurveyMain extends HttpServlet {
             }
             ctx.println("</ul>");
            	for(Thread t : s.keySet()) {
-            	ctx.println("<a name='"+t.getId()+"'><h3>"+t.getName()+"</h3></a> - "+t.getState().toString());
+		    if(t == startupThread) { 
+			ctx.println("<a name='currentTask'></a>");
+		    }
+		    ctx.println("<a name='"+t.getId()+"'><h3>"+t.getName()+"</h3></a> - "+t.getState().toString());
             	
             	if(t.getName().indexOf(" ST ")>0) {
                     ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
@@ -1529,7 +1550,7 @@ public class SurveyMain extends HttpServlet {
 		    }
 		    });
 		       
-	    ctx.println("... task queued.<br>");
+		ctx.println("<h2>Task Queued.</h2>");
 		
             } else {
                 ctx.println("<h4>Update All</h4>");
@@ -1650,6 +1671,8 @@ public class SurveyMain extends HttpServlet {
             subCtx.addQuery("action",action);
             
             String output = actionCtx.field("output");
+
+	    boolean isImmediate = actionCtx.hasField("immediate");
             
             ctx.println("<br>");
             ctx.print("<b>Output:</b> ");
@@ -1674,35 +1697,65 @@ public class SurveyMain extends HttpServlet {
             if(output.equals("daily")) {
                 daily = true;
             }
-            
-            if(daily || output.equals("xml")) {
-                files += doOutput("xml");
-                ctx.println("xml" + "<br>");
-            }
-            if(daily || output.equals("vxml")) {
-                files += doOutput("vxml");
-                ctx.println("vxml" + "<br>");
-            }
-            if(output.equals("rxml")) {
-                files += doOutput("rxml");
-                ctx.println("rxml" + "<br>");
-            }
-            if(output.equals("sql")) {
-                files += doOutput("sql");
-                ctx.println("sql" + "<br>");
-            }
-            if(daily || output.equals("misc")) {
-                files += doOutput("users");
-                ctx.println("users" + "<br>");
-                files += doOutput("usersa");
-                ctx.println("usersa" + "<br>");
-                files += doOutput("translators");
-                ctx.println("translators" + "<br>");
-            }
+
+	    if(daily && !isImmediate) {
+            	startupThread.addTask(new SurveyThread.SurveyTask("daily xml output")
+            	{
+	            	public void run() throws Throwable 
+	                {
+			    try {
+				String dailyList[] = {
+				    "xml",
+				    "vxml",
+				    "rxml",
+				    "users",
+				    "usersa",
+				    "translators"
+				};			
+				
+				for(int i=0;running()&&(i<dailyList.length);i++) {
+				    String origName = name;
+				    String what = dailyList[i];
+				    setName(origName+"["+(i+1)+"/"+(dailyList.length)+"]:"+what);
+				    
+				    doOutput(what);
+				}
+			    } finally {
+				clearProgress();
+			    }
+			}
+		    });
+		ctx.println("<h2>Task Queued.</h2>");
+	    } else {
+		if(daily || output.equals("xml")) {
+		    files += doOutput("xml");
+		    ctx.println("xml" + "<br>");
+		}
+		if(daily || output.equals("vxml")) {
+		    files += doOutput("vxml");
+		    ctx.println("vxml" + "<br>");
+		}
+		if(output.equals("rxml")) {
+		    files += doOutput("rxml");
+		    ctx.println("rxml" + "<br>");
+		}
+		if(output.equals("sql")) {
+		    files += doOutput("sql");
+		    ctx.println("sql" + "<br>");
+		}
+		if(daily || output.equals("misc")) {
+		    files += doOutput("users");
+		    ctx.println("users" + "<br>");
+		    files += doOutput("usersa");
+		    ctx.println("usersa" + "<br>");
+		    files += doOutput("translators");
+		    ctx.println("translators" + "<br>");
+		}
                 
-            if(output.length()>0) {
-                ctx.println("<hr>"+output+" completed with " + files + " files in "+aTimer+"<br>");
-            }
+		if(output.length()>0) {
+		    ctx.println("<hr>"+output+" completed with " + files + " files in "+aTimer+"<br>");
+		}
+	    }
             
         } else if(action.equals("srl_db_update")) {
             WebContext subCtx = (WebContext)ctx.clone();
@@ -1856,7 +1909,7 @@ public class SurveyMain extends HttpServlet {
 	                    System.err.println("Done updating "+n+" statuses [locales] in: " + et + "<br>");
 	                }
             	});
-            	ctx.println("... load all locales task queued<br>");
+		ctx.println("<h2>Task Queued.</h2>");
             }
             
         } else if(action.equals("specialusers")) {
@@ -5197,7 +5250,7 @@ public class SurveyMain extends HttpServlet {
                 //Set<Integer> xpathSet = new TreeSet<Integer>();
                 boolean xpathSet[] = new boolean[0];
                 Connection conn = getDBConnection();
-                for(int i=0;i<nrInFiles;i++) {
+                for(int i=0;(i<nrInFiles) && !SurveyThread.shouldStop();i++) {
                     progressCount = i;
                     String fileName = inFiles[i].getName();
                     int dot = fileName.indexOf('.');

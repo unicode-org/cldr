@@ -9,7 +9,7 @@ public class IntHash<T> {
         for(int i=0;i<hashedIds.length;i++) {
             hashedIds[i]=null;
         }
-//        hashedIds = new Object[BUCKET_COUNT][];
+	//        hashedIds = new Object[BUCKET_COUNT][];
     }
     private final int idToBucket(int id) {
         return id/HASH_SIZE;
@@ -37,7 +37,7 @@ public class IntHash<T> {
             return bucket[id%HASH_SIZE] = str;
         } catch(ArrayIndexOutOfBoundsException aioob) {
             if(id>MAX_SIZE) throw new InternalError("Exceeded max " + MAX_SIZE + " @ " + id);
-	    System.err.println("aioob: id"+id+", buckid"+idToBucket(id)+", hashedIdsLen"+hashedIds.length);
+	    System.err.println("IntHash: aioob: id"+id+", buckid"+idToBucket(id)+", hashedIdsLen"+hashedIds.length);
             throw aioob;
         }
     }

@@ -169,7 +169,7 @@ public class ShowLanguages {
       contents += "<li>" + item + "</li>";
     }
     contents += "</ul>";
-    String[] replacements = { "%date%", df.format(new Date()), "%contents%", contents, "%data%", sw.toString() };
+    String[] replacements = { "%date%", CldrUtility.isoFormat(new Date()), "%contents%", contents, "%data%", sw.toString() };
     PrintWriter pw2 = BagFormatter.openUTF8Writer(CldrUtility.COMMON_DIRECTORY + "../diff/supplemental/", filename);
     FileUtilities.appendFile(CldrUtility.BASE_DIRECTORY + java.io.File.separatorChar  + "tools/java/org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
     pw2.close();
@@ -560,11 +560,6 @@ public class ShowLanguages {
     }
   }
   
-  static DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm 'GMT'");
-  static {
-    df.setTimeZone(TimeZone.getTimeZone("GMT"));
-  }
-  
   static class FormattedFileWriter extends java.io.Writer {
     
     private StringWriter out = new StringWriter();
@@ -599,7 +594,7 @@ public class ShowLanguages {
     public void close() throws IOException {
       out.write("</div>");
       PrintWriter pw2 = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "/supplemental/", filename);
-      String[] replacements = { "%header%", "", "%title%", title, "%version%", CHART_DISPLAY_VERSION, "%date%", df.format(new Date()), "%body%", out.toString() };
+      String[] replacements = { "%header%", "", "%title%", title, "%version%", CHART_DISPLAY_VERSION, "%date%", CldrUtility.isoFormat(new Date()), "%body%", out.toString() };
       final String templateFileName = "../../tool/chart-template.html";
       FileUtilities.appendBufferedReader(CldrUtility.getUTF8Data(templateFileName), pw2, replacements);
       pw2.close();

@@ -62,8 +62,10 @@ public class ShowData {
     UOption.create("getscript", 'g', UOption.NO_ARG), };
 
   public static String dateFooter() {
-	return "<p>SVN: $Date$, $Revision$</p>\n" + 
-	       "<p>Generation: "+new java.util.Date().toString()+"</p>\n";
+	return "<!-- SVN: $" + // break these apart to prevent SVN replacement in code
+			"Date$, $" + // break these apart to prevent SVN replacement in code
+			"Revision: 4538 $ -->\n" + 
+	       "<p>Generation: "+ CldrUtility.isoFormat(new java.util.Date()) +"</p>\n";
   }
 
   public static String ANALYTICS = "<script type=\"text/javascript\">\n"
@@ -596,8 +598,8 @@ public class ShowData {
     return locale + " [" + name + "]";
   }
 
-  static SimpleDateFormat isoDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm",
-          ULocale.ENGLISH);
+//  public static SimpleDateFormat isoDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm",
+//          ULocale.ENGLISH);
 
   static public void getChartTemplate(String title, String version,
           String header, String[] headerAndFooter) throws IOException {
@@ -608,9 +610,10 @@ public class ShowData {
     .add("%title%", title)
     .add("%header%", header)
     .add("%version%", version)
-    .add("%date%", "$"  //
-            + "Date" //
-            + "$") // odd style to keep CVS from substituting
+    .add("%date%", CldrUtility.isoFormat(new Date()));
+            //"$"  //
+            //+ "Date" //
+            //+ "$") // odd style to keep CVS from substituting
             ; // isoDateFormat.format(new Date())
     BufferedReader input = CldrUtility
     .getUTF8Data("../../tool/chart-template.html");

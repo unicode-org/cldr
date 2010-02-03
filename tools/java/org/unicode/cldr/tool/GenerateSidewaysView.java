@@ -43,10 +43,12 @@ import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.MultiComparator;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.RuleBasedNumberFormat;
 import com.ibm.icu.text.StringTransform;
@@ -268,15 +270,25 @@ public class GenerateSidewaysView {
     UnicodeSet stuffToSkip = new UnicodeSet("[:Han:]");
     
     // get the locale information
+    UnicodeSet totalExemplars = new UnicodeSet();
     for (String value : value_locales.keySet()) {
+      // flatten out UnicodeSet
       UnicodeSet exemplars = new UnicodeSet(value);
+      UnicodeSet extras = new UnicodeSet();
+      for (String item : exemplars) {
+        extras.addAll(Normalizer.normalize(item, Normalizer.NFD));
+      }
+      exemplars.addAll(extras);
+      totalExemplars.addAll(exemplars);
       exemplars.removeAll(stuffToSkip);
+      
       Set<String> locales = value_locales.get(value);
       String script = UScript.getName(getFirstScript(exemplars));
       UnicodeMap<Set<String>> mapping = script_UnicodeMap.get(script);
-      if (mapping == null) script_UnicodeMap.put(script, mapping = new UnicodeMap());
+      if (mapping == null) script_UnicodeMap.put(script, mapping = new UnicodeMap<Set<String>>());
       mapping.composeWith(exemplars, locales, setComposer);
     }
+    System.out.println("@@@TOTAL:\t" + variant + "\t" + totalExemplars.toPattern(false));
     for (String script : script_UnicodeMap.keySet()) {
       UnicodeMap<Set<String>> mapping = script_UnicodeMap.get(script);
       writeCharToLocaleMapping(out, script, mapping);
@@ -311,39 +323,71 @@ public class GenerateSidewaysView {
     out.println("</table>");
     out.println("<table class='table'  style='width:1%'>");
     out.println("<caption>" + script + "</caption>");
-    out.println("<tr><th class='path' colSpan='2'>Locale \\\u00a0Chars</td>");
-    for (String item : allChars) {
-      out.println("<th class='path'>" + displayCharacter(item) + "</th>");
-    }
-    out.println("<th class='path'>Clusters</td></tr>");
+    exemplarHeader(out, allChars);
 
     for (String locale : allLocales) {
-      out.println("<tr><th class='path'>" + cleanLocale(locale, false) + "</th><th class='path'>" + cleanLocale(locale, true) + "</th>");
+      out.println("<tr>");
+      out.println("<th class='head'>" + cleanLocale(locale, false) + "</th><td class='head nowrap left'>" + cleanLocale(locale, true) + "</td>");
       for (String item : allChars) {
         //String exemplarsWithoutBrackets = displayExemplars(item);
         if (mapping.get(item).contains(locale)) {
-          out.println("<td class='path'>" + displayCharacter(item) + "</td>");
+          out.println("<td class='cell'" +
+          		 ">" + displayCharacter(item) + "</td>");
         } else {
-          out.println("<td class='value'>\u00a0</td>");
+          out.println("<td class='empty'>\u00a0</td>");
         }
       }
       // now strings, if any
-      out.println("<td class='path'>");
       StringBuilder strings = new StringBuilder();
+      int lastLineStart = 0;
       for (String item : allStrings) {
         //String exemplarsWithoutBrackets = displayExemplars(item);
         if (mapping.get(item).contains(locale)) {
-          if (strings.length() != 0) strings.append(' ');
+          int str_len = strings.length();
+          if (str_len != 0) {
+            if (str_len - lastLineStart > 20) {
+              strings.append('\n');
+              lastLineStart = str_len;
+            } else {
+              strings.append(' ');
+            }
+          }
           strings.append(displayCharacter(item));
         }
       }
-      out.println(displayCharacter(strings.toString()) + "</td>");
+      if (strings.length() == 0) {
+        out.println("<td class='empty'>\u00a0</td>");
+      } else {
+        out.println("<td class='cell nowrap'>" + displayCharacter(strings.toString()).replace("\n", "<br>") + "</td>");
+      }
+      out.println("<th class='head'>" + cleanLocale(locale, false) + "</th><td class='head nowrap left'>" + cleanLocale(locale, true) + "</td>");
 
       out.println("</tr>");
     }
+    exemplarHeader(out, allChars);
+    out.flush();
+  }
+
+  private static String characterTitle(String item) {
+    return ("title='U+" + 
+        toHTML.transform(
+                Utility.hex(item, 4, ", U+", true, new StringBuilder())
+        + " " + UCharacter.getName(item, ", ")) +
+    "'");
+  }
+
+  private static void exemplarHeader(PrintWriter out, Set<String> allChars) {
+    out.println("<tr>");
+    out.println("<th class='head nowrap' colSpan='2'>Locale \\\u00a0Chars</td>");
+    for (String item : allChars) {
+      out.println("<th class='head' " + characterTitle(item) + ">" + displayCharacter(item) + "</th>");
+    }
+    out.println("<th class='head'>Clusters</td>");
+    out.println("<th class='head nowrap' colSpan='2'>Locale \\\u00a0Chars</td>");
+    out.println("</tr>");
   }
   
-  static final UnicodeSet NONSPACING = new UnicodeSet("[[:Mn:][:Me:]]").freeze();
+  static final UnicodeSet NONSPACING = new UnicodeSet("[[:Mn:][:Me:][:default_ignorable_code_point:]]").freeze();
   
   public static String displayCharacter(String item) {
     if (item.length() == 0) return "<i>none</i>";
@@ -385,7 +429,7 @@ public class GenerateSidewaysView {
 
   private static void showExemplarRow(PrintWriter out, Set<String> allLocales, UnicodeSet lastChars, Set locales) {
     String exemplarsWithoutBrackets = displayExemplars(lastChars);
-    out.println("<tr><th class='path'>" + exemplarsWithoutBrackets + "</th>");
+    out.println("<tr><th class='head'>" + exemplarsWithoutBrackets + "</th>");
     for (String item : allLocales) {
       String cleanItem;
       if (locales.contains(item)) {

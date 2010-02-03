@@ -115,6 +115,7 @@ public class CldrUtility {
   public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
   public static final String COMMON_DIRECTORY = getPath(BASE_DIRECTORY , "common/");
   public static final String MAIN_DIRECTORY = CldrUtility.getProperty("CLDR_MAIN", getPath(CldrUtility.COMMON_DIRECTORY,  "main"));
+  public static final String GEN_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_GEN_DIR", getPath(BASE_DIRECTORY , "../Generated/cldr/"))); 
 
   /**
    * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
@@ -125,8 +126,7 @@ public class CldrUtility {
    * Only the default, if no other directory is specified.
    */
   public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = getPath(COMMON_DIRECTORY , "supplemental/");
-  public static final String GEN_DIRECTORY = getPath(BASE_DIRECTORY , "../Generated/cldr/");
-  public static final String CHART_DIRECTORY = getPath(BASE_DIRECTORY ,  "../Generated/cldr/diff/");
+  public static final String CHART_DIRECTORY = getPath(GEN_DIRECTORY ,  "diff/");
   public static final String TEST_DIR = getPath(CldrUtility.BASE_DIRECTORY,  "test/");
 
 

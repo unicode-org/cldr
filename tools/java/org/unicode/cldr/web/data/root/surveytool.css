@@ -6,6 +6,7 @@
 	http://tintin.priv:8080/cldr-apps/surveytool.css
 	http://nestor.local:8080/cldr-apps/surveytool.css
 	http://unicode.org/cldr/apps/surveytool.css
+	http://kwanyin.unicode.org/cldr-apps/surveytool.css
 */
 
 td {
@@ -13,14 +14,14 @@ td {
 }
 
 body {
-	background-color:  white;
+	background-color: white;
 }
 
 hr {
 	border: 1px dashed #ccd
 }
 
-tr.row0 {	
+tr.row0 {
 	background-color: #fff
 }
 
@@ -75,26 +76,31 @@ A.nodraft:visited {
 }
 
 .alias {
+
+
 /*	font-size: smaller; */
+
 /*	font-color: #F22;*/
  background-color: #ddf;
 }
 
 .fallback {
+
+
 /*	background-color: #3da; 
 	border: 1px dotted #9b7dff; */
 	border: 1px solid #0cc;
-	background-color:  #0ff;
+	background-color: #0ff;
 }
 
 .fallback_root {
-   border:1px dotted #f00; 
-   background-color: #FFDDDD;
+	border: 1px dotted #f00;
+	background-color: #FFDDDD;
 }
 
 .fallback_code {
-   border:1px dotted #f00; 
-   background-color: #FFDDDD;
+	border: 1px dotted #f00;
+	background-color: #FFDDDD;
 }
 
 .draft {
@@ -106,8 +112,8 @@ A.nodraft:visited {
 }
 
 .selected {
-	font-size:  120%;
-	font-weight:  bold;
+	font-size: 120%;
+	font-weight: bold;
 	color: #313998;
 }
 
@@ -120,7 +126,6 @@ A.nodraft:visited {
 	text-decoration: none;
 	border: 1px solid black */
 
-
 a.selected :link {
 	color: #fff
 }
@@ -128,11 +133,13 @@ a.selected :link {
 .notselected {
 	margin: 2px;
 	padding: 1px;
+
+
 /*	text-decoration: none; */
 }
 
 a.notselected {
-	color : #358cc3;
+	color: #358cc3;
 	text-decoration: underline;
 }
 
@@ -148,6 +155,8 @@ a.notselected {
 
 .warning {
 	font-size: smaller;
+
+
 /*	font-color: #F22;*/
 	color: #F22;
 	background-color: #fee;
@@ -156,30 +165,34 @@ a.notselected {
 
 .warningReference {
 	font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
-	color:  teal;	
+	color: teal;
 }
 
 .warningTarget {
 	font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
-	color:  teal;	
+	color: teal;
 }
 
 td.warncell {
-    border-left: 1px solid #ddd;
+	border-left: 1px solid #ddd;
 }
 
 tr.warnrow {
+
+
 /*    font-color: #f22;*/
     color: #f22;
-    background-color: #fee;
+	background-color: #fee;
 }
 
 .pager {
 	border: 1px solid gray;
 	background-color: #FFEECC;
 	padding: 0.2em 0.2em 0.2em 0.2em;
+
+
 /*	padding: 1em 1em 1em 1em; */
-	margin-top:  2px; 
+	margin-top: 2px;
 	font-size: smaller;
 }
 
@@ -189,7 +202,8 @@ tr.warnrow {
 }
 
 .pagerl_active {
-/*	text-decoration: none; */
+
+
 }
 
 .pagerl_inactive {
@@ -200,6 +214,8 @@ tr.warnrow {
 	border: 1px solid gray;
 	background-color: #fff;
 	margin: 5px;
+
+
 /*	align: left;*/
 }
 
@@ -208,7 +224,7 @@ tr.warnrow {
 }
 
 .badinputbox {
-    border: 2px dashed red;
+	border: 2px dashed red;
 	width: 100%;
 	height: 100%;
 }
@@ -222,11 +238,13 @@ tr.warnrow {
 
 .hangsml {
 	text-indent: -1em;
+
+
 /*	margin-left: 2em; */
 }
 
 table.data {
-	width:  100%;
+	width: 100%;
 }
 
 .data {
@@ -234,21 +252,21 @@ table.data {
 }
 
 table.data {
-	border-left:  2px solid #252;
-	border-right:  2px solid #252;
-	border-bottom:  3px solid #252;
+	border-left: 2px solid #252;
+	border-right: 2px solid #252;
+	border-bottom: 3px solid #252;
 }
 
 table.data td, table.data th {
 	padding-top: 1px;
 	padding-bottom: 1px;
-	border-left:  1px solid gray;
+	border-left: 1px solid gray;
 	border-right: 1px solid gray;
 }
 
 table.data td.noborder, table.data th.noborder {
-	border-left:  none;
-	border-right:  none;
+	border-left: none;
+	border-right: none;
 }
 
 .list {
@@ -270,7 +288,7 @@ table.data td.noborder, table.data th.noborder {
 	padding-bottom: 4px;
 }
 
-table.list tr.row0 {	
+table.list tr.row0 {
 	background-color: #fff
 }
 
@@ -284,8 +302,6 @@ table.list tr.heading {
 	border-bottom-style: solid;
 	border-bottom-color: #c9c9c9;
 }
-
-
 
 table.userlist th {
 	color: navy;
@@ -335,40 +351,41 @@ table.userlist {
 }
 
 .topbar {
-    border-top: 3px solid #040;
+	border-top: 3px solid #040;
 }
 
 .botbar {
-    border-bottom: 3px solid #040;
+	border-bottom: 3px solid #040;
 }
 
 th.botgray {
-    border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 }
 
 td.botgray {
-    border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 }
 
 th.topgray {
-    border-top: 1px solid #ddd;
+	border-top: 1px solid #ddd;
 }
 
 td.topgray {
-    border-top: 1px solid #ddd;
+	border-top: 1px solid #ddd;
 }
 
 tr.warningRow td {
-	border-top:  1px solid #222;
-	border-bottom:  1px solid #222;
+	border-top: 1px solid #222;
+	border-bottom: 1px solid #222;
 }
+
 tr.referenceRow td {
-	border-top:  1px solid #222;
-	border-bottom:  1px solid #222;
+	border-top: 1px solid #222;
+	border-bottom: 1px solid #222;
 }
 
 tr.heading {
-    background: #ddd; 
+	background: #ddd;
 }
 
 tr.heading th.partsection {
@@ -383,25 +400,29 @@ th.partsection, th.partsection a {
 	font-size: 1.1em;
 }
 
-tr.headingb { /* heading with a border */
-    background: #ddd; 
+tr.headingb {
+
+
+/* heading with a border */
+    background: #ddd;
 }
 
 tr.headingb th {
-	border-right: 1px solid black;	
+	border-right: 1px solid black;
 }
 
-
 tt.codebox {
- border: 1px solid gray; 
-/* padding: 1px; 
+	border: 1px solid gray;
+/
+
+* padding: 1px; 
   margin-top:0px;
   */
 }
 
 .respbox {
-	border:  1px solid gray;
-	padding:  0.5em;
+	border: 1px solid gray;
+	padding: 0.5em;
 }
 
 .respbox h3 {
@@ -416,7 +437,7 @@ tt.codebox {
 	text-align: right;
 }
 
-div.person a  {
+div.person a {
 	float: none;
 }
 
@@ -429,21 +450,28 @@ div.person a  {
 	margin-bottom: 1em;
 }
 
-
 .odashbox {
-border: 3px dashed olive; margin: 1em; padding: 1em;
+	border: 3px dashed olive;
+	margin: 1em;
+	padding: 1em;
 }
 
 .dashbox {
-    color: #000;
-    background: #ddd;
-    font-size: 80%; border: 1px dashed gray; padding: 1px; margin-top:0px;
+	color: #000;
+	background: #ddd;
+	font-size: 80%;
+	border: 1px dashed gray;
+	padding: 1px;
+	margin-top: 0px;
 }
 
 .actionbox {
+
+
 /*    color: #000;
     background: #ddd; */
     font-size: 80%;
+
 /*    border: 1px
     dashed gray;
     padding: 1px;
@@ -451,21 +479,17 @@ border: 3px dashed olive; margin: 1em; padding: 1em;
 }
 
 a.forumlink {
-	/*
-	text-decoration: none;
-	font-size: small;
-	font-variant: small-caps;
-	font-weight: bold;
-	background-color: white;*/
+	
+
 }
 
 .disabledbox {
-    font-size: 80%;
-    color: #555;
+	font-size: 80%;
+	color: #555;
 }
 
 .deactivated {
-    color: #555;
+	color: #555;
 }
 
 td.framecell {
@@ -484,59 +508,52 @@ td.framecell {
 }
 
 .disputed {
-/*
-	border:  2px;
-	border-color: red;
-	border-style: dotted;
-	margin: 1px;
-	padding: 1px;
-*/
+
+
 }
 
 .insufficient {
-    /* 
-    border: 2px;
-	border-color: #f0961b;
-	border-style: dashed;
-	margin: 1px;
-	padding: 1px;
-	*/
+	
 }
 
+
 /* but, an insufficient table.. */
+
 td.insufficient {
-	border:  none;
+	border: none;
 }
 
 td.insufficient span.loser {
-    border: 2px;
+	border: 2px;
 	border-color: #f0961b;
 	border-style: dashed;
 	margin: 1px;
 	padding: 1px;
 }
 
-	
 /* @end */
 
 /* @group tzbox */
+
 table.tzbox {
+
+
 /*	border: 1px solid gray; */
 	border-collapse: collapse;
 }
 
 table.tzbox th {
-	border-right:  1px solid gray;
-	border-left:  1px solid gray;
-	border-bottom:  2px solid gray;
-	color:  black;
+	border-right: 1px solid gray;
+	border-left: 1px solid gray;
+	border-bottom: 2px solid gray;
+	color: black;
 }
 
 table.tzbox td {
-	padding-right:  0.2em;
-	padding-left:  0.2em;
-	border-right:  1px solid gray;
-	border-left:  1px solid gray;
+	padding-right: 0.2em;
+	padding-left: 0.2em;
+	border-right: 1px solid gray;
+	border-left: 1px solid gray;
 }
 
 table.tzbox tr.r0 td {
@@ -544,86 +561,93 @@ table.tzbox tr.r0 td {
 }
 
 table.tzbox tr.r1 td {
-	color:  #555;
+	color: #555;
 	background-color: #fe9;
 }
 
 table.tzbox tr.r0currentZone td {
-	color:  black;
+	color: black;
 	background-color: white;
 }
 
 table.tzbox tr.r1currentZone td {
-	color:  black;
+	color: black;
 	background-color: #fe9;
 }
 
 table.tzbox tt.codebox {
-	background-color:  white;
+	background-color: white;
 }
 
 /* @end */
+
 /* @group sqlbox */
+
 table.sqlbox {
-	border: 1px solid gray; 
+	border: 1px solid gray;
 	border-collapse: collapse;
 }
 
 table.sqlbox th {
-	border-right:  1px solid gray;
-	border-left:  1px solid gray;
-	border-bottom:  2px solid gray;
+	border-right: 1px solid gray;
+	border-left: 1px solid gray;
+	border-bottom: 2px solid gray;
 	color: navy;
 	font-size: 50%;
 	background-color: #dde;
 }
 
 table.sqlbox td {
-	padding-right:  0.2em;
-	padding-left:  0.2em;
-	border-right:  1px solid gray;
-	border-left:  1px solid gray;
+	padding-right: 0.2em;
+	padding-left: 0.2em;
+	border-right: 1px solid gray;
+	border-left: 1px solid gray;
 }
 
 table.sqlbox tr.r0 td {
-	color:  black;
+	color: black;
 }
 
 table.sqlbox tr.r1 td {
-	color:  black;
-	background-color:  #fe9;
+	color: black;
+	background-color: #fe9;
 }
 
 /* forms here don't need a margin */
+
 table.sqlbox input {
-	margin:  0;
+	margin: 0;
 }
 
 table.sqlbox form {
-	margin:  0;
+	margin: 0;
 }
 
 /* @end */
 
-
-
 .ferrbox {
-	background-color:  #ddd;
-	border: 1px solid red; margin: 1em; padding: 1em;	
+	background-color: #ddd;
+	border: 1px solid red;
+	margin: 1em;
+	padding: 1em;
 }
 
 .sterrmsg {
-	background-color:  #ddd;
-	border: 1px solid red; margin: 1em; padding: 1em;	
+	background-color: #ddd;
+	border: 1px solid red;
+	margin: 1em;
+	padding: 1em;
 }
 
 .deletebox {
 	font-size: small;
 	margin-left: 1px;
 	margin-right: 1px;
-	color:  #d00;
+	color: #d00;
 	font-weight: bold;
-	/* border: 1px solid red; margin: 1em; padding: 1em;	 */
+	/
+
+* border: 1px solid red; margin: 1em; padding: 1em;	 */
     white-space: nowrap;
 }
 
@@ -631,92 +655,103 @@ table.sqlbox form {
 	font-size: small;
 	margin-left: 1px;
 	margin-right: 1px;
-	margin-bottom:  2px;
-	color: #00989e;	
+	margin-bottom: 2px;
+	color: #00989e;
 	font-weight: bold;
-	/* border: 1px solid red; margin: 1em; padding: 1em;	 */
+	/*
+
+border: 1px solid red; margin: 1em; padding: 1em;	 */
     white-space: nowrap;
 }
 
-
 .fnotebox {
-	background-color:  #ddd;
-	border: 1px solid green; margin: 0.5em; padding: 0.2em;	
+	background-color: #ddd;
+	border: 1px solid green;
+	margin: 0.5em;
+	padding: 0.2em;
 }
 
 .specialHeader {
-	border: 2px solid gray; margin: 0.5em; padding: 0.5em;
+	border: 2px solid gray;
+	margin: 0.5em;
+	padding: 0.5em;
+	font: small "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }
 
 .winner {
+
+
 /*	border: 4px groove #0f0;*/
-   border:1px solid #0f0; 
-   background-color:#DDFFDD;
+   border: 1px solid #0f0;
+	background-color: #DDFFDD;
 }
 
 .substituted {
-   border:1px solid #BBBBBB; 
-   background-color:#DDDDDD;
+	border: 1px solid #BBBBBB;
+	background-color: #DDDDDD;
 }
 
 .loser {
-/*	border: 4px solid rgba(255,255,255,0);*/
-	/*color:  #333;*/
+
+
 }
 
 td.generatedexample {
-	border-left:  1px solid silver;
+	border-left: 1px 
+
+solid silver;
 	border-right: 2px solid gray;
 }
 
 th.rowinfo {
-	font-size:  small;
+	font-size: small;
 	border-right: 1px solid gray;
-	background-color:  #eee;
+	background-color: #eee;
 }
 
 a.refuri {
-	color:  #000;
+	color: #000;
 	font-size: smaller;
 }
 
 ul.orgvotes {
-	margin:  0px;	
+	margin: 0px;
 }
 
 ul.orgvotes li {
-	margin:  0px;	
-	font-size:  small;
+	margin: 0px;
+	font-size: small;
 	list-style-type: circle;
 	list-style-position: outside;
 }
 
 span.marks {
-	font-size:  smaller;
+	font-size: smaller;
 	background-color: #fff4c9;
 }
 
 span.marks b {
-	font-size:  x-small;
+	font-size: x-small;
 	background-color: #30f;
 	color: #ffe4ca;
-	margin:  1px;
+	margin: 1px;
 	padding: 1px;
-	border:  1px solid green;
+	border: 1px solid green;
 }
 
 div.topnotices {
-	/* A border may not be a good idea here, becasue this box may not be present. */
+	
+
 }
 
 div.topnotices a {
-	color:  black;
+	color: black;
 }
 
 div.topnotices p {
 	text-align: center;
-	margin: 0; 
-	padding:  4px;
+	margin: 0;
+	padding: 4px;
 }
 
 div.topnotices p.admin {
@@ -754,21 +789,45 @@ form.adduser input {
 	font: large Georgia, "Times New Roman", Times, serif;
 }
 
- form.adduser th {
+form.adduser th {
 	border-bottom: 1px solid gray;
 	padding-bottom: .5em;
 	padding-top: .5em;
 }
 
 form.adduser input, form.adduser select {
-	margin-top:  .5em;
-	margin-bottom:  .5em;
+	margin-top: .5em;
+	margin-bottom: .5em;
 }
 
 form.adduser tr.submit td {
 	border: none;
 	text-align: right;
 }
-form.adduser tr.submit input {	
+
+form.adduser tr.submit input {
 	font-size: x-large;
+}
+
+table.stprogress {
+	margin: 5px;
+	padding: 0;
+	border-collapse: collapse;
+	border: 2px solid black;
+}
+
+table.stprogress td.bar {
+	padding: 0;
+	margin: 0;
+	border-left: 2px solid black;
+	border-right: 1px solid silver;
+	background: #6c31fe url(bar0.png) repeat scroll left;
+}
+
+table.stprogress td.remain {
+	padding: 0;
+	margin: 0;
+	border-left: none;
+	border-right: 2px solid black;
+	background: #ddd url(bar1.png) repeat;
 }

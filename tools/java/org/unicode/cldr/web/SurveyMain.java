@@ -1707,14 +1707,13 @@ public class SurveyMain extends HttpServlet {
 				String dailyList[] = {
 				    "xml",
 				    "vxml",
-				    "rxml",
 				    "users",
 				    "usersa",
 				    "translators"
 				};			
 				
+				String origName = name;
 				for(int i=0;running()&&(i<dailyList.length);i++) {
-				    String origName = name;
 				    String what = dailyList[i];
 				    setName(origName+"["+(i+1)+"/"+(dailyList.length)+"]:"+what);
 				    
@@ -2331,13 +2330,13 @@ public class SurveyMain extends HttpServlet {
         int barX = (int)barWid;
         int remainX = PROGRESS_WID-barX;
         
-        buf.append("<table border=0 style='margin: 5px; padding: 0; border-collapse: collapse; border: 2px solid black;'><tr height='12'>");
+        buf.append("<table class='stprogress' border=0 ><tr height='12'>");
         if(barX > 0) {
-            buf.append("<td width='"+barX+"' style='padding: 0; margin: 0; border-left: 2px solid black; border-right: none; background-color: #6c31fe;'>");
+            buf.append("<td class='bar' width='"+barX+"' >");
             buf.append("</td>");
         }
         if(remainX >0) {
-            buf.append("<td width='"+remainX+"' style='padding: 0; margin: 0; border-left: none; border-right: 2px solid black; background-color: #ddd;'>");
+            buf.append("<td class='remain' width='"+remainX+"'>");
             buf.append("</td>");
         }
         buf.append("</table>");

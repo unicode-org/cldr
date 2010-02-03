@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -35,13 +36,15 @@ import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.impl.UnicodeRegex;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.TimeZone;
 
 public class CldrUtility {
 
@@ -706,19 +709,19 @@ public class CldrUtility {
 
   public static class UnicodeSetComparator implements Comparator<UnicodeSet> {
     public int compare(UnicodeSet o1, UnicodeSet o2) {
-        return o1.compareTo(o2);
+      return o1.compareTo(o2);
     }
   }
 
   public static class CollectionComparator<T extends Comparable<T>> implements Comparator<Collection<T>> {
     public int compare(Collection<T> o1, Collection<T> o2) {
-        return UnicodeSet.compare(o1, o2, UnicodeSet.ComparisonStyle.SHORTER_FIRST);
+      return UnicodeSet.compare(o1, o2, UnicodeSet.ComparisonStyle.SHORTER_FIRST);
     }
   }
 
   public static class ComparableComparator<T extends Comparable<T>> implements Comparator<T> {
     public int compare(T arg0, T arg1) {
-        return Utility.checkCompare(arg0, arg1);
+      return Utility.checkCompare(arg0, arg1);
     }
   }
 
@@ -1124,6 +1127,17 @@ public class CldrUtility {
       if (output != null) {
         output.println(line);
       }
+    }
+  }
+
+  private static DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss 'GMT'");
+  static {
+    df.setTimeZone(TimeZone.getTimeZone("GMT"));
+  }
+
+  public static String isoFormat(Date date) {
+    synchronized(df) {
+      return df.format(date);
     }
   }
 }

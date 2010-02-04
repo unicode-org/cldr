@@ -69,6 +69,7 @@ import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalData;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -4728,7 +4729,7 @@ public class SurveyMain extends HttpServlet {
 
         subCtx.println("<p class='hang'> Metazones: ");
         if ( METAZONES_ITEMS == null )
-           METAZONES_ITEMS = getMetazonesItems();
+	    METAZONES_ITEMS = getMetazonesItems(); // idempotent
         for(n =0 ; n < METAZONES_ITEMS.length; n++) {        
             if(n>0) {
                 ctx.print(" | ");
@@ -4775,13 +4776,12 @@ public class SurveyMain extends HttpServlet {
     
     public String[] getMetazonesItems()
     {
-
         String defaultMetazonesItems= "Africa America Antarctica Asia Australia Europe Atlantic Indian Pacific";
         return ( defaultMetazonesItems.split(" ") );
-
     }
+
     /**
-        * show the actual locale data..
+     * show the actual locale data..
      * @param ctx context
      * @param which value of 'x' parameter.
      */
@@ -6104,8 +6104,6 @@ public class SurveyMain extends HttpServlet {
      */
     private synchronized void resetLocaleCaches() {
         localeTree = null;
-        allMetazones = null;
-        metazoneContinentMap = null;
         localeListSet = null;
         aliasMap = null;
         gBaselineFile=null;
@@ -6269,74 +6267,30 @@ public class SurveyMain extends HttpServlet {
 //    }
 
     /**
-     * Master list of metazones. Don't access this directly.
-     */
-    private static Set allMetazones = null;
-    public static Map<String,String> metazoneContinentMap = null;
-
-    /**
      * Maintain a master list of metazones, culled from root.
      */
-    public synchronized Set getMetazones() {
-        if(allMetazones == null) {
-            ElapsedTimer et = new ElapsedTimer();    
-            XPathParts parts = new XPathParts(null,null);
-            Set aset = new TreeSet();
-            CLDRFile mySupp = getFactory().make("supplementalData",false);
-            for(Iterator i = mySupp.iterator("//supplementalData/timezoneData/mapTimezones[@type=\"metazones\"]/mapZone");i.hasNext();) {
-                String xpath = i.next().toString();
-                parts.set(xpath);
-                String mzone = parts.getAttributeValue(-1,"other");
-                if(mzone != null) {
-                    aset.add(mzone);
-                }
-            }
-            allMetazones = aset;
-            System.err.println("sm.getMetazones:" + allMetazones.size()+" metazones found in " + et.toString());
-        }
-        return allMetazones;
+    public final Set<String> getMetazones() {
+	return supplementalDataInfo.getAllMetazones();
     }
 
-    public Set getMetazones(String subclass) {
-        ElapsedTimer et = new ElapsedTimer();    
-        XPathParts parts = new XPathParts(null,null);
-        Set aset = new TreeSet();
-        CLDRFile mySupp = getFactory().make("supplementalData",false);
-        for(Iterator i = mySupp.iterator("//supplementalData/timezoneData/mapTimezones[@type=\"metazones\"]/mapZone");i.hasNext();) {
-            String xpath = i.next().toString();
-            parts.set(xpath);
-            String mzone = parts.getAttributeValue(-1,"other");
-            String type = parts.getAttributeValue(-1,"type");
-            String territory = parts.getAttributeValue(-1,"territory");
-            if(mzone != null && territory.equals("001") && type.startsWith(subclass)) {
-                aset.add(mzone);
-            }
-        }
-        return aset;
+    public Set<String> getMetazones(String subclass) {
+	Set<String> subSet = new TreeSet<String>();
+	for(String zone : supplementalDataInfo.getAllMetazones()) {
+	    if(zone.startsWith(subclass)) {
+		subSet.add(zone);
+	    }
+	}
+	return subSet;
     }
 
     public String getMetazoneContinent(String xpath) {
-       XPathParts parts = new XPathParts(null,null);
-       // Build the metazone -> continent map from supplemental & cache it.
-       if ( metazoneContinentMap == null ) {
-           metazoneContinentMap = new HashMap<String,String>();
-           CLDRFile mySupp = getFactory().make("supplementalData",false);
-           for(Iterator i = mySupp.iterator("//supplementalData/timezoneData/mapTimezones[@type=\"metazones\"]/mapZone");i.hasNext();) {
-               String suppxpath = i.next().toString();
-               parts.set(suppxpath);
-               String mzone = parts.getAttributeValue(-1,"other");
-               String type = parts.getAttributeValue(-1,"type");
-               String territory = parts.getAttributeValue(-1,"territory");
-               if(mzone != null && territory.equals("001")) {
-                  metazoneContinentMap.put(mzone,type.substring(0,type.indexOf("/")));
-               }
-           }
-        }
-
+       XPathParts parts = new XPathParts(null, null);
+       SupplementalDataInfo mySupp = getSupplementalDataInfo();
        parts.set(xpath);
        String thisMetazone = parts.getAttributeValue(3,"type");
-       return metazoneContinentMap.get(thisMetazone);
+       return mySupp.getMetazoneToContinentMap().get(thisMetazone);
     }
+
     /**
     * show the webpage for one of the 'locale codes' items.. 
      * @param ctx the web context
@@ -6397,8 +6351,19 @@ public class SurveyMain extends HttpServlet {
         }
     }
 
+    /**
+     * @deprecated  -better to use SupplementalDataInfo if possible
+     */
     public SupplementalData supplemental = null;
 
+    SupplementalDataInfo supplementalDataInfo = null;
+
+    public final SupplementalDataInfo getSupplementalDataInfo() { 
+	//if(supplementalDataInfo==null ) {
+	//	    supplementalDataInfo = SupplementalDataInfo.getInstance(getFactory().getSupplementalDirectory());
+	//	}
+	return supplementalDataInfo;
+    }
 
     public void showMetazones(WebContext ctx, String continent) {
         showPathList(ctx, "//ldml/dates/timeZoneNames/metazone_"+continent,null);
@@ -9105,7 +9070,7 @@ public class SurveyMain extends HttpServlet {
             updateProgress(nn++, "Setup supplemental..");
 
             supplemental = new SupplementalData(fileBase + "/../supplemental/");
-    
+	    supplementalDataInfo = SupplementalDataInfo.getInstance(fileBase + "/../supplemental/");
     
     
     

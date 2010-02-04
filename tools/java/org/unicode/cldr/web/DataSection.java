@@ -1490,8 +1490,9 @@ public class DataSection extends Registerable {
                 excludeMetaZones = false;
                 int continentStart = xpathPrefix.indexOf("_");
                 if(continentStart>0) {
-                	continent = xpathPrefix.substring(xpathPrefix.indexOf("_")+1);
+		    continent = xpathPrefix.substring(xpathPrefix.indexOf("_")+1);
                 }
+		if(false) System.err.println(xpathPrefix+": -> continent " + continent);
                 workPrefix = "//ldml/dates/timeZoneNames/metazone";
 //        System.err.println("ZZ1");
             } else {
@@ -1527,6 +1528,7 @@ public class DataSection extends Registerable {
         Set<String> baseXpaths = new HashSet<String>();
         for(Iterator it = aFile.iterator(workPrefix);it.hasNext();) {
             String xpath = (String)it.next();
+	    if(false) System.err.println("basePath: " + xpath);
             baseXpaths.add(xpath);
         }
         Set<String> allXpaths = new HashSet<String>();
@@ -1548,12 +1550,15 @@ public class DataSection extends Registerable {
             	throw new InternalError("null xpath in allXpaths");
             }
             if(!xpath.startsWith(workPrefix)) {
-//                if(SurveyMain.isUnofficial) System.err.println("@@ BAD XPATH " + xpath);
+                if(false && SurveyMain.isUnofficial) System.err.println("@@ BAD XPATH " + xpath);
                 continue;
             } else if(aFile.isPathExcludedForSurvey(xpath)) {
-//                if(SurveyMain.isUnofficial) System.err.println("@@ excluded:" + xpath);
+                if(false && SurveyMain.isUnofficial) System.err.println("@@ excluded:" + xpath);
                 continue;
-            }
+            } else if(false) {
+		System.err.println("allPath: " + xpath);
+	    }
+
             boolean isExtraPath = extraXpaths.contains(xpath); // 'extra' paths get shim treatment
 ///*srl*/  if(xpath.indexOf("Adak")!=-1)
 ///*srl*/   {ndebug=true;System.err.println("p] "+xpath + " - xtz = "+excludeTimeZones+"..");}
@@ -1593,11 +1598,15 @@ public class DataSection extends Registerable {
 //if(ndebug)     System.err.println("ns1 7 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if( continent != null && !continent.equals(sm.getMetazoneContinent(xpath))) {
+		if(false) System.err.println("Wanted " + continent +" but got " + sm.getMetazoneContinent(xpath) +" for " + xpath);
                 continue;
-            }
+            } else if(false && continent != null) {
+		System.err.println("Got " + continent +" for " + xpath);
+	    }
             
             if(CheckCLDR.skipShowingInSurvey.matcher(xpath).matches()) {
 //if(TRACE_TIME)                System.err.println("ns1 8 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+		if(false) System.err.println("CheckCLDR.skipShowingInSurvey match for "+xpath);
                 continue;
             }
 

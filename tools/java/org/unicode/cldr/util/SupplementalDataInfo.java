@@ -599,6 +599,9 @@ public class SupplementalDataInfo {
 
   private  Map<String, Map<String,String>> metazoneToRegionToZone = new HashMap<String, Map<String,String>>();
 
+  private Map<String, String> metazoneContinentMap = new HashMap<String,String>();
+  private Set<String> allMetazones = new TreeSet<String>();
+
   private Map<String, String> alias_zone = new TreeMap();
 
   public Relation<String, Integer> numericTerritoryMapping = new Relation(new HashMap(), HashSet.class);
@@ -776,6 +779,8 @@ public class SupplementalDataInfo {
         parts.set(path);
         String level1 = parts.getElement(1);
         String level2 = parts.size() < 3 ? null : parts.getElement(2);
+        String level3 = parts.size() < 4 ? null : parts.getElement(3);
+        //String level4 = parts.size() < 5 ? null : parts.getElement(4);
         if (level1.equals("generation") || level1.equals("version")) {
           // skip
           return;
@@ -786,66 +791,50 @@ public class SupplementalDataInfo {
           if (handleTerritoryInfo()) {
             return;
           }
-        }
-        if (level1.equals("languageData")) {
+        } else if (level1.equals("languageData")) {
           handleLanguageData();
           return;
-        }
-        if (level1.equals("territoryContainment")) {
+        } else if (level1.equals("territoryContainment")) {
           handleTerritoryContainment();
           return;
-        }
-        if (level1.equals("currencyData")) {
+        } else if (level1.equals("currencyData")) {
           if (handleCurrencyData(level2)) {
             return;
           }
-        }
-        if (level1.equals("timezoneData")) {
+        } else if (level1.equals("timezoneData")) {
           if (handleTimezoneData(level2)) {
             return;
           }
-        }
-
-        if (level1.equals("plurals")) {
+        } else if (level1.equals("metaZones")) {
+	    if (handleMetazoneData(level2,level3)) {
+	     return;
+	    }
+	} else if (level1.equals("plurals")) {
           addPluralPath(parts, value);
           return;
-        }
-        
-        if (level1.equals("dayPeriodRuleSet")) {
+        } else if (level1.equals("dayPeriodRuleSet")) {
           addDayPeriodPath(parts, value);
           return;
-        }
-
-        if (level1.equals("telephoneCodeData")) {
+        } else if (level1.equals("telephoneCodeData")) {
           handleTelephoneCodeData(parts);
           return;
-        }
-
-        if (level1.equals("references")) {
+        } else if (level1.equals("references")) {
           String type = parts.getAttributeValue(-1, "type");
           String uri = parts.getAttributeValue(-1, "uri");
           references.put(type, (Pair)new Pair(uri, value).freeze());
           return;
-        }
-
-        if (level1.equals("likelySubtags")) {
+        } else if (level1.equals("likelySubtags")) {
           handleLikelySubtags();
           return;
-        }
-
-        if (level1.equals("metadata")) {
+        } else if (level1.equals("metadata")) {
           if (handleMetadata(level2, value)) {
             return;
           }
-        }
-
-        if (level1.equals("codeMappings")) {
+        } else if (level1.equals("codeMappings")) {
           if (handleCodeMappings(level2)) {
             return;
           }
-        }
-
-        if (level1.equals("languageMatching")) {
+        } else if (level1.equals("languageMatching")) {
           if (handleLanguageMatcher(level2)) {
             return;
           }
@@ -901,6 +890,8 @@ public class SupplementalDataInfo {
         return true;
       }
 
+      /* Note, the following is for obsolete (pre 1.8) format data. */
+
       /*
        * <mapTimezones type="metazones">
        *  <mapZone other="Acre"  territory="001" type="America/Rio_Branco"/>
@@ -920,6 +911,29 @@ public class SupplementalDataInfo {
       // West-->
       return false;
     }
+
+      private boolean handleMetazoneData(String level2, String level3) {
+	  if (level2.equals("mapTimezones") && ("metazones".equals(parts.getAttributeValue(2,"type"))) && level3.equals("mapZone")) {
+	      String mzone = parts.getAttributeValue(3,"other");
+	      String region = parts.getAttributeValue(3,"territory");
+	      String zone = parts.getAttributeValue(3,"type");
+	      Map<String, String> regionToZone = metazoneToRegionToZone.get(mzone);
+	      if (regionToZone == null) metazoneToRegionToZone.put(mzone, regionToZone = new HashMap<String,String>());
+	      regionToZone.put(region, zone);
+	      
+	      if(mzone != null && region.equals("001")) {
+                  metazoneContinentMap.put(mzone,zone.substring(0,zone.indexOf("/")));
+	      }
+	      allMetazones.add(mzone);
+
+	      return true;
+	  } else if (level2.equals("metazoneInfo") ) {
+	      return false; // not yet.
+	  }
+	  
+	  return false;
+    }
+      
 
     private boolean handleMetadata(String level2, String value) {
       if (parts.contains("defaultContent")) {
@@ -1372,6 +1386,14 @@ public class SupplementalDataInfo {
   public Map<String,Map<String,String>> getMetazoneToRegionToZone() {
     return metazoneToRegionToZone;
   }
+
+  public Map<String,String> getMetazoneToContinentMap() {
+      return metazoneContinentMap;
+  }
+
+    public Set<String> getAllMetazones() {
+	return allMetazones;
+    }
 
   public Map<String, String> getLikelySubtags() {
     return likelySubtags;

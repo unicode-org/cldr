@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="sa"/>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="aa" draft="unconfirmed">अफर</language>
+			<language type="ab" draft="provisional">अब्खासियन्</language>
+			<language type="ace">अचिनीस्</language>
+			<language type="ach">अचोलि</language>
+			<language type="ada" draft="unconfirmed">अडङ्गमे</language>
+			<language type="af" draft="unconfirmed">अफ्रिक्कान्स्</language>
+			<language type="afa" draft="unconfirmed">आफ्रो एष्यन् भाषा</language>
+			<language type="afh" draft="unconfirmed">अफ्रिहिलि</language>
+			<language type="ain" draft="unconfirmed">अयिनु</language>
+			<language type="ak" draft="unconfirmed">अकन्</language>
+			<language type="akk" draft="unconfirmed">अक्काटियान्</language>
+			<language type="ale" draft="unconfirmed">अलियुट्</language>
+			<language type="alg" draft="unconfirmed">अल्गोण्क्यन् भाषा</language>
+			<language type="am" draft="unconfirmed">अंहाऱिक्</language>
+			<language type="anp">अङ्गिक</language>
+			<language type="apa" draft="unconfirmed">अपाचे भाषा</language>
+			<language type="ar" draft="unconfirmed">अऱबिक्</language>
+			<language type="egy" draft="unconfirmed">प्राचीन ईजिप्त्यन्</language>
+			<language type="grc" draft="unconfirmed">पुरातन यवन भाषा</language>
+			<language type="nb" draft="unconfirmed">नोर्वीजियन् बॊकामल्</language>
+			<language type="sa" draft="contributed">संस्कृत भाषा</language>
+			<language type="sq" draft="unconfirmed">अल्बेनियन्</language>
+			<language type="tut" draft="unconfirmed">आळटिक् भाषा</language>
+			<language type="und" draft="provisional">अज्ञात भाषा</language>
+		</languages>
+		<scripts>
+			<script type="Arab" draft="unconfirmed">अरबिक्</script>
+			<script type="Armi" draft="unconfirmed">अर्मि</script>
+			<script type="Armn" draft="unconfirmed">अर्मेनियन्</script>
+			<script type="Avst" draft="unconfirmed">अवेस्थन्</script>
+			<script type="Bali" draft="unconfirmed">बालिनीस्</script>
+			<script type="Batk" draft="unconfirmed">बट्टक्</script>
+			<script type="Beng" draft="unconfirmed">बंगालि</script>
+		</scripts>
+		<territories>
+			<territory type="IN" draft="unconfirmed">भारतम्</territory>
+		</territories>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[़ ँ-ः ॑-॔ ॐ अ-ऋ ॠ ऌ ॡ ए ऐ ओ-न र ल ळ व-ह ऽ-ॄ ॢ ॣ े ै ो-्]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u200C \u200D ०-९ ऍ ऑ ॅ ॉ]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol" draft="unconfirmed">[a-z]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[ॐ अ आ इ ई उ ऊ ऋ ॠ ऌ ॡ ए ऐ ओ औ क ख ग घ ङ च छ ज झ ञ ट ठ ड ढ ण त थ द ध न र ल ळ व श ष स ह ऽ]</exemplarCharacters>
+	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">EEEE d MMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">d MMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">dd-MM-yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="unconfirmed">d-MM-yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="unconfirmed">hh:mm:ss a zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="unconfirmed">hh:mm:ss a z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="unconfirmed">hh:mm:ss a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="unconfirmed">hh:mm a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMdd" draft="unconfirmed">dd-MM</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="unconfirmed">MM-yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM y</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
+			<regionFormat draft="unconfirmed">{0}</regionFormat>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<defaultNumberingSystem>deva</defaultNumberingSystem>
+		<symbols>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<nativeZeroDigit numberSystem="deva">०</nativeZeroDigit>
+		</symbols>
+		<decimalFormats>
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="unconfirmed">#,##,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<percentFormats>
+			<percentFormatLength>
+				<percentFormat>
+					<pattern draft="unconfirmed">#,##,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern draft="unconfirmed">¤#,##,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencies>
+			<currency type="INR">
+				<symbol>रु</symbol>
+			</currency>
+		</currencies>
+	</numbers>
+</ldml>

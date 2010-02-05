@@ -622,6 +622,7 @@
 			<territory type="GW">Ginea-Bissaw</territory>
 			<territory type="GY">Gujana</territory>
 			<territory type="HK">Ħong Kong S.A.R., Ċina</territory>
+			<territory type="HK" alt="short" draft="unconfirmed">Ħong Kong</territory>
 			<territory type="HM">Heard Island and McDonald Islands</territory>
 			<territory type="HN">Ħonduras</territory>
 			<territory type="HR">Kroazja</territory>
@@ -672,6 +673,7 @@
 			<territory type="MM">Mjanmar</territory>
 			<territory type="MN">Mongolja</territory>
 			<territory type="MO">Macao S.A.R., China</territory>
+			<territory type="MO" alt="short" draft="unconfirmed">Macao</territory>
 			<territory type="MP">Gżejjer Marjana ta’ Fuq</territory>
 			<territory type="MQ">Martinik</territory>
 			<territory type="MR">Mawritanja</territory>
@@ -799,6 +801,7 @@
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metriku</measurementSystemName>
+			<measurementSystemName type="US" draft="unconfirmed">US</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">Lingwa: {0}</codePattern>
@@ -811,6 +814,12 @@
 		<exemplarCharacters type="auxiliary">[c y]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[A B C Ċ D E F Ġ G {GĦ} H Ħ I J K L M N O P Q R S T U V W X Y Ż Z]</exemplarCharacters>
 	</characters>
+	<delimiters>
+		<quotationStart draft="unconfirmed">“</quotationStart>
+		<quotationEnd draft="unconfirmed">”</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">‘</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">’</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -1164,4 +1173,3 @@
 		<reference type="RP1" uri="isbn:99932-7-070-9">Concise Maltese-English English-Maltese Dictionary, Joseph Aquilina. Malta: Midsea Books, Ltd, 2006.</reference>
 	</references>
 </ldml>
-

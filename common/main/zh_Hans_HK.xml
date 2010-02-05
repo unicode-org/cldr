@@ -8,6 +8,317 @@
 		<script type="Hans"/>
 		<territory type="HK"/>
 	</identity>
+	<localeDisplayNames>
+		<types>
+			<type type="big5han" key="collation" draft="provisional">繁体中文笔划顺序</type>
+			<type type="gb2312han" key="collation" draft="provisional">简体中文拼音顺序</type>
+		</types>
+	</localeDisplayNames>
+	<dates>
+		<calendars>
+			<calendar type="buddhist">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMMEd" draft="provisional">M月d日E</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="provisional">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMMEd" draft="provisional">M月d日E</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="provisional">y年M月</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="provisional">y年M月d日EEE</dateFormatItem>
+						<dateFormatItem id="yMMMM" draft="provisional">y年M月</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d" draft="provisional">M月d日至d日</greatestDifference>
+							<greatestDifference id="M" draft="provisional">M月d日至M月d日</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d" draft="provisional">M月d日E至M月d日E</greatestDifference>
+							<greatestDifference id="M" draft="provisional">M月d日E至M月d日E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M" draft="provisional">y年M月至M月</greatestDifference>
+							<greatestDifference id="y" draft="provisional">y年M月至y年M月</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d" draft="provisional">y年M月d日至d日</greatestDifference>
+							<greatestDifference id="M" draft="provisional">y年M月d日至M月d日</greatestDifference>
+							<greatestDifference id="y" draft="provisional">y年M月d日至y年M月d日</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="y" draft="provisional">y年M月d日E至y年M月d日E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M" draft="provisional">y年M月至M月</greatestDifference>
+							<greatestDifference id="y" draft="provisional">y年M月至y年M月</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="chinese">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MEd" draft="provisional">M-dE</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="ethiopic">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yyyyMMMM" draft="provisional">yyyy年M月</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M" draft="provisional">M月至M月</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="gregorian">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="unconfirmed">yyyy-M-dEEE</dateFormatItem>
+						<dateFormatItem id="yyyyM" draft="provisional">yyyy年M月</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="a" draft="provisional">vHH:mm至HH:mm</greatestDifference>
+							<greatestDifference id="H" draft="provisional">vHH:mm至HH:mm</greatestDifference>
+							<greatestDifference id="m" draft="provisional">vHH:mm至HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H" draft="provisional">vHH至HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M" draft="provisional">M–M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y" draft="provisional">y–y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d" draft="provisional">y年M月d日E至M月d日E</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="hebrew">
+				<dateTimeFormats>
+					<intervalFormats>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M" draft="provisional">M月至M月</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="islamic">
+				<dateTimeFormats>
+					<intervalFormats>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d" draft="provisional">M月d日E至M月d日E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d" draft="provisional">y年M月d日E至M月d日E</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<fallbackFormat draft="provisional">{1}（{0}）</fallbackFormat>
+			<metazone type="Acre">
+				<long>
+					<standard draft="provisional">阿克里时间</standard>
+				</long>
+				<short>
+					<standard draft="provisional">ACT（阿克里）</standard>
+					<daylight draft="provisional">ACST（阿克里）</daylight>
+				</short>
+			</metazone>
+			<metazone type="Aktyubinsk">
+				<long>
+					<standard draft="provisional">阿尔卑斯时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Almaty">
+				<long>
+					<standard draft="provisional">阿拉木图时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Amazon">
+				<long>
+					<standard draft="provisional">亚马逊时间</standard>
+				</long>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<generic draft="provisional">中部时间</generic>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<generic draft="provisional">东部时间</generic>
+				</long>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<generic draft="provisional">山区时间</generic>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<generic draft="provisional">太平洋时间</generic>
+				</long>
+			</metazone>
+			<metazone type="Anadyr">
+				<long>
+					<standard draft="provisional">阿纳德尔时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Aqtau">
+				<long>
+					<standard draft="provisional">阿克图时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Aqtobe">
+				<long>
+					<standard draft="provisional">阿克托别时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Argentina">
+				<long>
+					<standard draft="provisional">阿根廷时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Argentina_Western">
+				<long>
+					<standard draft="provisional">阿根廷西部时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Armenia">
+				<long>
+					<standard draft="provisional">亚美尼亚时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Ashkhabad">
+				<long>
+					<standard draft="provisional">阿什哈巴德时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Azerbaijan">
+				<long>
+					<standard draft="provisional">阿塞拜疆时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Baku">
+				<long>
+					<standard draft="provisional">巴库时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Bangladesh">
+				<long>
+					<standard draft="provisional">孟加拉时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Bhutan">
+				<long>
+					<standard draft="provisional">不丹时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Borneo">
+				<long>
+					<standard draft="provisional">婆罗洲时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Brasilia">
+				<long>
+					<standard draft="provisional">巴西利亚时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Brunei">
+				<long>
+					<standard draft="provisional">文莱达鲁萨兰时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<standard draft="provisional">智利时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Choibalsan">
+				<long>
+					<standard draft="provisional">乔巴山时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Dacca">
+				<long>
+					<standard draft="provisional">达卡时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Dushanbe">
+				<long>
+					<standard draft="provisional">杜尚别时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Dutch_Guiana">
+				<long>
+					<standard draft="provisional">荷属圭亚那时间</standard>
+				</long>
+			</metazone>
+			<metazone type="East_Timor">
+				<long>
+					<standard draft="provisional">东帝汶时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Ecuador">
+				<long>
+					<standard draft="provisional">厄瓜多尔时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Frunze">
+				<long>
+					<standard draft="provisional">伏龙芝时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Georgia">
+				<long>
+					<standard draft="provisional">格鲁吉亚时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Central">
+				<long>
+					<standard draft="provisional">格陵兰中部时间</standard>
+					<daylight draft="provisional">格陵兰中部夏令时间</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<standard draft="provisional">格林兰东部时间</standard>
+					<daylight draft="provisional">格陵兰东部时间</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<standard draft="provisional">格林兰西部时间</standard>
+					<daylight draft="provisional">格陵兰西部时间</daylight>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<long>
+					<standard draft="provisional">印度尼西亚中部时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<long>
+					<standard draft="provisional">印度尼西亚东部时间</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<long>
+					<standard draft="provisional">印度尼西亚西部时间</standard>
+				</long>
+			</metazone>
+		</timeZoneNames>
+	</dates>
 	<numbers>
 		<currencies>
 			<currency type="HKD">

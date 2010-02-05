@@ -57,9 +57,13 @@
 			<type type="stroke" key="collation" draft="contributed">স্ট্ৰোক শৃঙ্খলাবদ্ধ কৰাৰ ক্ৰম</type>
 			<type type="traditional" key="collation" draft="contributed">পৰম্পৰাগতভাবে শৃঙ্খলাবদ্ধ কৰাৰ ক্ৰম</type>
 		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">মেট্রিক</measurementSystemName>
+			<measurementSystemName type="US">ইউ.এছ.</measurementSystemName>
+		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[় অ-ঋ ৠ ঌ ৡ এ ঐ ও ঔ ং ঁ ঃ ক-ড {ড়} ঢ {ঢ়} ণ ত ৎ থ-ন প-য {য়} ৰ ল ৱ শ-হ ঽ-ৄ ৢ ৣ ে ৈ ো-্ ৗ]</exemplarCharacters>
+		<exemplarCharacters>[অ আ ই ঈ উ ঊ ঋ এ ঐ ও ঔ ক খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড  ঢ ণ  ত থ দ ধ ন প ফ ব ভ ম য ৰ  ল ৱ শ ষ স হ ক্ষ  ড় ঢ় য় ত্ ং ঃ ঁ ্ া  ি ী ু ূ ৃ ে ৈ  ো  ৌ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200C \u200D ৲]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[অ আ ই ঈ উ ঊ ঋ ৠ ঌ ৡ এ ঐ ও ঔ ক খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড ঢ ণ ত ৎ থ দ ধ ন প ফ ব ভ ম য ৰ ল ৱ শ ষ স হ ঽ]</exemplarCharacters>
 	</characters>
@@ -73,7 +77,7 @@
 							<month type="2">ফেব্ৰু</month>
 							<month type="3">মাৰ্চ</month>
 							<month type="4">এপ্ৰিল</month>
-							<month type="5">মে</month>
+							<month type="5">মে’</month>
 							<month type="6">জুন</month>
 							<month type="7">জুলাই</month>
 							<month type="8">আগ</month>
@@ -83,21 +87,25 @@
 							<month type="12">ডিসে</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">জানুয়াৰী</month>
-							<month type="2">ফেব্ৰুয়াৰী</month>
-							<month type="3">মাৰ্চ</month>
-							<month type="4">এপ্ৰিল</month>
-							<month type="5">মে</month>
+							<month type="1">জানুৱাৰী</month>
+							<month type="2">ফেব্রুৱাৰী</month>
+							<month type="3">মার্চ</month>
+							<month type="4">এপ্রিল</month>
+							<month type="5">মে’</month>
 							<month type="6">জুন</month>
 							<month type="7">জুলাই</month>
 							<month type="8">আগষ্ট</month>
-							<month type="9">সেপ্টেম্বৰ</month>
+							<month type="9">ছেপ্তেম্বৰ</month>
 							<month type="10">অক্টোবৰ</month>
-							<month type="11">নভেম্বৰ</month>
-							<month type="12">ডিসেম্বৰ</month>
+							<month type="11">নৱেম্বৰ</month>
+							<month type="12">ডিচেম্বৰ</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="5">মে’</month>
+							<month type="7">জুলাই</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1" draft="unconfirmed">1</month>
 							<month type="2" draft="unconfirmed">2</month>
@@ -111,6 +119,14 @@
 							<month type="10" draft="unconfirmed">10</month>
 							<month type="11" draft="unconfirmed">11</month>
 							<month type="12" draft="unconfirmed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">জানুৱাৰী</month>
+							<month type="2">ফেব্রুৱাৰী</month>
+							<month type="3">মার্চ</month>
+							<month type="4">এপ্রিল</month>
+							<month type="5">মে’</month>
+							<month type="7">জুলাই</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -150,24 +166,30 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
-							<quarter type="3" draft="unconfirmed">Q3</quarter>
-							<quarter type="4" draft="unconfirmed">Q4</quarter>
+							<quarter type="1">প্রথম প্রহৰ</quarter>
+							<quarter type="2">দ্বিতীয় প্রহৰ</quarter>
+							<quarter type="3">তৃতীয় প্রহৰ</quarter>
+							<quarter type="4">চতুর্থ প্রহৰ</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
-							<quarter type="3" draft="unconfirmed">Q3</quarter>
-							<quarter type="4" draft="unconfirmed">Q4</quarter>
+							<quarter type="1">প্রথম প্রহৰ</quarter>
+							<quarter type="2">দ্বিতীয় প্রহৰ</quarter>
+							<quarter type="3">তৃতীয় প্রহৰ</quarter>
+							<quarter type="4">চতুর্থ প্রহৰ</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">পূৰ্বা</dayPeriod>
-							<dayPeriod type="pm">অপ</dayPeriod>
+							<dayPeriod type="am">পূর্বাহ্ণ</dayPeriod>
+							<dayPeriod type="pm">অপৰাহ্ণ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">পূর্বাহ্ণ</dayPeriod>
+							<dayPeriod type="pm">অপৰাহ্ণ</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -230,6 +252,56 @@
 						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM, y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
+				<fields>
+					<field type="era">
+						<displayName>যুগ</displayName>
+					</field>
+					<field type="year">
+						<displayName>বছৰ</displayName>
+					</field>
+					<field type="month">
+						<displayName>মাহ</displayName>
+					</field>
+					<field type="week">
+						<displayName>সপ্তাহ</displayName>
+					</field>
+					<field type="day">
+						<displayName>দিন</displayName>
+						<relative type="-3" draft="unconfirmed">চ’ঠাদিনা</relative>
+						<relative type="-2" draft="unconfirmed">পৰহি</relative>
+						<relative type="-1">কালি</relative>
+						<relative type="1">কাইলৈ</relative>
+						<relative type="2">পৰহিলৈ</relative>
+						<relative type="3">চ’ঠা দিনালৈ</relative>
+					</field>
+					<field type="hour">
+						<displayName>ঘণ্টা</displayName>
+					</field>
+					<field type="minute">
+						<displayName>মিনিট</displayName>
+					</field>
+					<field type="second">
+						<displayName>ছেকেণ্ড</displayName>
+					</field>
+					<field type="zone">
+						<displayName>ক্ষেত্র</displayName>
+					</field>
+				</fields>
+			</calendar>
+			<calendar type="indian">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="wide">
+							<day type="sun">দেওবাৰ</day>
+							<day type="mon">সোমবাৰ</day>
+							<day type="tue">মঙ্গলবাৰ</day>
+							<day type="wed">বুধবাৰ</day>
+							<day type="thu">বৃহস্পতিবাৰ</day>
+							<day type="fri">শুক্রবাৰ</day>
+							<day type="sat">শনিবাৰ</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -282,4 +354,3 @@
 		<reference type="R006" uri="http://www.iitg.ernet.in/rcilts/newassamesedesign.pdf">Assamese Design Guide, IIT Guwahati</reference>
 	</references>
 </ldml>
-

@@ -54,7 +54,6 @@
 			<language type="de_AT">нямецкая (аўстр.)</language>
 			<language type="de_CH">нямецкая (швейц.)</language>
 			<language type="egy" draft="contributed">стараэгіпецкая</language>
-			<language type="egy" alt="proposed-x1001" draft="unconfirmed">старажытна-егіпецкая</language>
 			<language type="el">грэцкая</language>
 			<language type="en">англійская</language>
 			<language type="en_AU">англійская (аўстрал.)</language>
@@ -80,7 +79,6 @@
 			<language type="gl">галісійская</language>
 			<language type="gn">гуарані</language>
 			<language type="grc" draft="contributed">старагрэцкая</language>
-			<language type="grc" alt="proposed-x1001" draft="unconfirmed">старагрэчаская</language>
 			<language type="gu">гуяраці</language>
 			<language type="he">іўрыт</language>
 			<language type="hi">хіндзі</language>
@@ -121,7 +119,6 @@
 			<language type="mt">мальтыйская</language>
 			<language type="nai" draft="unconfirmed">мова індзейцаў Паўночнай Амерыкі</language>
 			<language type="nb" draft="contributed">нарвэская букмал</language>
-			<language type="nb" alt="proposed-x1001" draft="unconfirmed">нарвежская (букмал)</language>
 			<language type="ne">непальская</language>
 			<language type="nl">галандская</language>
 			<language type="nl_BE">фламандская</language>
@@ -663,6 +660,12 @@
 							<dayPeriod type="pm">пасля палудня</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">раніцы</dayPeriod>
+							<dayPeriod type="pm">вечара</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
 					<eraNames>
@@ -882,7 +885,7 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="contributed">GMT{0}</gmtFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat draft="contributed">Час: {0}</regionFormat>
 			<fallbackFormat draft="contributed">{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -1114,4 +1117,3 @@
 		</messages>
 	</posix>
 </ldml>
-

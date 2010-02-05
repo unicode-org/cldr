@@ -6,6 +6,7 @@
 		<generation date="$Date$"/>
 		<language type="eu"/>
 	</identity>
+	<fallback/>
 	<localeDisplayNames>
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
@@ -27,7 +28,7 @@
 			<language type="cs">txekiera</language>
 			<language type="cy">galesera</language>
 			<language type="da">daniera</language>
-			<language type="de">alemanera</language>
+			<language type="de">alemana</language>
 			<language type="el">greziera</language>
 			<language type="en">ingelera</language>
 			<language type="en_AU">ingelesa (Australia)</language>
@@ -41,7 +42,7 @@
 			<language type="fi">finlandiera</language>
 			<language type="fil">tagalo</language>
 			<language type="fo">faroera</language>
-			<language type="fr">frantsesera</language>
+			<language type="fr">frantsesa</language>
 			<language type="fy">frisiarra</language>
 			<language type="ga">gaelikoa</language>
 			<language type="gd">eskoziar gaelikoa</language>
@@ -104,6 +105,7 @@
 			<language type="su">sundanera</language>
 			<language type="sv">suediera</language>
 			<language type="sw">swahili</language>
+			<language type="swb">swb</language>
 			<language type="ta">tamilera</language>
 			<language type="te">telugua</language>
 			<language type="th">thailandiera</language>
@@ -120,6 +122,7 @@
 			<language type="vi">vietnamera</language>
 			<language type="xh">xhosa</language>
 			<language type="yi">yiddishera</language>
+			<language type="yue">yue</language>
 			<language type="zh">txinera</language>
 			<language type="zh_Hans">txinera (soildua)</language>
 			<language type="zh_Hant">txinera (tradizionala)</language>
@@ -157,12 +160,14 @@
 			<script type="Geor">Geor</script>
 			<script type="Glag">Glag</script>
 			<script type="Goth">Goth</script>
-			<script type="Grek">Grez</script>
+			<script type="Grek">Grek</script>
 			<script type="Gujr">Gujr</script>
 			<script type="Guru">Guru</script>
 			<script type="Hang">Hang</script>
 			<script type="Hani">Hani</script>
 			<script type="Hano">Hano</script>
+			<script type="Hans">Hans</script>
+			<script type="Hant">Hant</script>
 			<script type="Hebr">Hebr</script>
 			<script type="Hira">Hira</script>
 			<script type="Hrkt">Hrkt</script>
@@ -205,9 +210,12 @@
 			<script type="Syrn">Syrn</script>
 			<script type="Talu">Talu</script>
 			<script type="Zmth">Zmth</script>
+			<script type="Zxxx">Zxxx</script>
 			<script type="Zyyy">Zyyy</script>
+			<script type="Zzzz">Zzzz</script>
 		</scripts>
 		<territories>
+			<territory type="AC">AC</territory>
 			<territory type="AE">Arabiar Emirrerri Batuak</territory>
 			<territory type="AF">Afganistan</territory>
 			<territory type="AG">Antigua eta Barbuda</territory>
@@ -239,15 +247,19 @@
 			<territory type="CA">Kanada</territory>
 			<territory type="CC">Cocos uharteak</territory>
 			<territory type="CD">Kongoko Errepublika Demokratikoa</territory>
+			<territory type="CD" alt="variant">Kongo [KED]</territory>
 			<territory type="CF">Afrika Erdiko Errepublika</territory>
 			<territory type="CG">Kongo</territory>
+			<territory type="CG" alt="variant">Kongo [errepublika]</territory>
 			<territory type="CH">Suitza</territory>
 			<territory type="CI">Boli Kosta</territory>
+			<territory type="CI" alt="variant">BK</territory>
 			<territory type="CK">Cook uharteak</territory>
 			<territory type="CL">Txile</territory>
 			<territory type="CM">Kamerun</territory>
 			<territory type="CN">Txina</territory>
 			<territory type="CO">Kolonbia</territory>
+			<territory type="CP">CP</territory>
 			<territory type="CS">Serbia eta Montenegro</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Cabo Verde</territory>
@@ -255,11 +267,13 @@
 			<territory type="CY">Zipre</territory>
 			<territory type="CZ">Txekiar errepublika</territory>
 			<territory type="DE">Alemania</territory>
+			<territory type="DG">DG</territory>
 			<territory type="DJ">Djibuti</territory>
 			<territory type="DK">Danimarka</territory>
 			<territory type="DM">Dominika</territory>
 			<territory type="DO">Dominikar Errepublika</territory>
 			<territory type="DZ">Aljeria</territory>
+			<territory type="EA">EA</territory>
 			<territory type="EC">Ekuador</territory>
 			<territory type="EE">Estonia</territory>
 			<territory type="EG">Egipto</territory>
@@ -269,11 +283,12 @@
 			<territory type="ET">Etiopia</territory>
 			<territory type="FI">Finlandia</territory>
 			<territory type="FK">Malvinak</territory>
+			<territory type="FK" alt="variant">FK</territory>
 			<territory type="FM">Mikronesia</territory>
 			<territory type="FO">Faroe Uharteak</territory>
 			<territory type="FR">Frantzia</territory>
 			<territory type="GA">Gabon</territory>
-			<territory type="GB" draft="unconfirmed">Erresuma Batua</territory>
+			<territory type="GB">Erresuma Batua</territory>
 			<territory type="GE">Georgia</territory>
 			<territory type="GF">Guyana Frantsesa</territory>
 			<territory type="GG">Guernsey</territory>
@@ -283,13 +298,15 @@
 			<territory type="GN">Ginea</territory>
 			<territory type="GQ">Ekuatore Ginea</territory>
 			<territory type="GR">Grezia</territory>
-			<territory type="GS" draft="unconfirmed">Hegoaldeko Georgia eta Hegoaldeko Sandwich uharteak</territory>
+			<territory type="GS">Hegoaldeko Georgia eta Hegoaldeko Sandwich uharteak</territory>
 			<territory type="GW">Ginea-Bissau</territory>
+			<territory type="HK">HK</territory>
 			<territory type="HM">Heard eta McDonald Uharteak</territory>
 			<territory type="HN">Honduras</territory>
 			<territory type="HR">Kroazia</territory>
 			<territory type="HT">Haiti</territory>
 			<territory type="HU">Hungaria</territory>
+			<territory type="IC">IC</territory>
 			<territory type="ID">Indonesia</territory>
 			<territory type="IE">Irlanda</territory>
 			<territory type="IL">Israel</territory>
@@ -318,7 +335,7 @@
 			<territory type="LB">Libano</territory>
 			<territory type="LC">Santa Luzia</territory>
 			<territory type="LI">Liechtenstein</territory>
-			<territory type="LK" draft="unconfirmed">Sri Lanka</territory>
+			<territory type="LK">Sri Lanka</territory>
 			<territory type="LR">Liberia</territory>
 			<territory type="LS">Lesotho</territory>
 			<territory type="LT">Lituania</territory>
@@ -373,63 +390,93 @@
 			<territory type="SA">Saudi Arabia</territory>
 			<territory type="SB">Salomon uharteak</territory>
 			<territory type="SC">Seychelleak</territory>
-			<territory type="SD" draft="unconfirmed">Sudan</territory>
+			<territory type="SD">Sudan</territory>
 			<territory type="SE">Suedia</territory>
 			<territory type="SG">Singapur</territory>
 			<territory type="SH">Saint Helena</territory>
 			<territory type="SI">Eslovenia</territory>
-			<territory type="SJ" draft="unconfirmed">Svalbard eta Jan Mayen uharteak</territory>
+			<territory type="SJ">Svalbard eta Jan Mayen uharteak</territory>
 			<territory type="SK">Eslovakia</territory>
 			<territory type="SL">Sierra Leona</territory>
 			<territory type="SM">San Marino</territory>
 			<territory type="SN">Senegal</territory>
-			<territory type="SO" draft="unconfirmed">Somalia</territory>
+			<territory type="SO">Somalia</territory>
 			<territory type="SR">Surinam</territory>
 			<territory type="ST">Sao Tomé eta Principe</territory>
 			<territory type="SY">Siria</territory>
 			<territory type="SZ">Swazilandia</territory>
-			<territory type="TC" draft="unconfirmed">Turk eta Caico uharteak</territory>
+			<territory type="TA">TA</territory>
+			<territory type="TC">Turk eta Caicos uharteak</territory>
 			<territory type="TD">Txad</territory>
 			<territory type="TF">Frantziaren Lurralde Australak</territory>
-			<territory type="TG" draft="unconfirmed">Togo</territory>
+			<territory type="TG">Togo</territory>
 			<territory type="TH">Tailandia</territory>
 			<territory type="TJ">Tadjikistan</territory>
-			<territory type="TK" draft="unconfirmed">Tokelau</territory>
+			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Ekialdeko Timor</territory>
-			<territory type="TM" draft="unconfirmed">Turkmenistan</territory>
-			<territory type="TN" draft="unconfirmed">Tunisia</territory>
-			<territory type="TO" draft="unconfirmed">Tonga</territory>
+			<territory type="TM">Turkmenistan</territory>
+			<territory type="TN">Tunisia</territory>
+			<territory type="TO">Tonga</territory>
 			<territory type="TR">Turkia</territory>
 			<territory type="TT">Trinidad eta Tobago</territory>
-			<territory type="TV" draft="unconfirmed">Tuvalu</territory>
-			<territory type="TW" draft="unconfirmed">Taiwan</territory>
-			<territory type="TZ" draft="unconfirmed">Tanzania</territory>
+			<territory type="TV">Tuvalu</territory>
+			<territory type="TW">Taiwan</territory>
+			<territory type="TZ">Tanzania</territory>
 			<territory type="UA">Ukraina</territory>
-			<territory type="UG" draft="unconfirmed">Uganda</territory>
-			<territory type="UM" draft="unconfirmed">Estatu Batuetatik urruti dauden uharte txikiak</territory>
+			<territory type="UG">Uganda</territory>
+			<territory type="UM">Estatu Batuetatik urruti dauden uharte txikiak</territory>
 			<territory type="US">Ameriketako Estatu Batuak</territory>
 			<territory type="UY">Uruguai</territory>
-			<territory type="UZ" draft="unconfirmed">Uzbekistan</territory>
+			<territory type="UZ">Uzbekistan</territory>
 			<territory type="VA">Vatikano</territory>
 			<territory type="VC">Saint Vincent eta Grenadinak</territory>
-			<territory type="VE" draft="unconfirmed">Venezuela</territory>
+			<territory type="VE">Venezuela</territory>
 			<territory type="VG">Birjina uharte britainiarrak</territory>
 			<territory type="VI">Birjina uharte amerikarrak</territory>
-			<territory type="VN" draft="unconfirmed">Vietnam</territory>
-			<territory type="VU" draft="unconfirmed">Vanuatu</territory>
-			<territory type="WF" draft="unconfirmed">Wallis eta Futuna</territory>
+			<territory type="VN">Vietnam</territory>
+			<territory type="VU">Vanuatu</territory>
+			<territory type="WF">Wallis eta Futuna</territory>
 			<territory type="WS">Samoa</territory>
-			<territory type="YE" draft="unconfirmed">Yemen</territory>
+			<territory type="YE">Yemen</territory>
 			<territory type="ZA">Hegoafrika</territory>
-			<territory type="ZM" draft="unconfirmed">Zambia</territory>
-			<territory type="ZW" draft="unconfirmed">Zimbabwe</territory>
+			<territory type="ZM">Zambia</territory>
+			<territory type="ZW">Zimbabwe</territory>
+			<territory type="ZZ">ZZ</territory>
 		</territories>
 		<variants>
+			<variant type="1901">1901</variant>
+			<variant type="1994">1994</variant>
+			<variant type="1996">1996</variant>
+			<variant type="1606NICT">1606NICT</variant>
+			<variant type="1694ACAD">1694ACAD</variant>
+			<variant type="1959ACAD">1959ACAD</variant>
+			<variant type="AREVELA">AREVELA</variant>
+			<variant type="AREVMDA">AREVMDA</variant>
+			<variant type="BAKU1926">BAKU1926</variant>
+			<variant type="BISKE">BISKE</variant>
+			<variant type="BOONT">BOONT</variant>
+			<variant type="FONIPA">FONIPA</variant>
+			<variant type="FONUPA">FONUPA</variant>
+			<variant type="KKCOR">KKCOR</variant>
+			<variant type="LIPAW">LIPAW</variant>
+			<variant type="MONOTON">MONOTON</variant>
+			<variant type="NEDIS">NEDIS</variant>
+			<variant type="NJIVA">NJIVA</variant>
+			<variant type="OSOJS">OSOJS</variant>
+			<variant type="PINYIN">PINYIN</variant>
 			<variant type="POLYTON">POLITON</variant>
+			<variant type="POSIX">POSIX</variant>
 			<variant type="REVISED">BERRIKUSIA</variant>
+			<variant type="ROZAJ">ROZAJ</variant>
 			<variant type="SAAHO">SAHO</variant>
 			<variant type="SCOTLAND">ESKOZIAR INGELESA</variant>
+			<variant type="SCOUSE">SCOUSE</variant>
+			<variant type="SOLBA">SOLBA</variant>
+			<variant type="TARASK">TARASK</variant>
+			<variant type="UCCOR">UCCOR</variant>
+			<variant type="UCRCOR">UCRCOR</variant>
 			<variant type="VALENCIA">VALENTZIERA</variant>
+			<variant type="WADEGILE">WADEGILE</variant>
 		</variants>
 		<keys>
 			<key type="calendar">egutegia</key>
@@ -449,7 +496,9 @@
 			<type type="islamic-civil" key="calendar">islamiar egutegi zibila</type>
 			<type type="japanese" key="calendar">japoniar egutegia</type>
 			<type type="phonebook" key="collation">Telefonoen zerrenda</type>
+			<type type="pinyin" key="collation">pinyin</type>
 			<type type="roc" key="calendar">Txinako Errepublikako egutegia</type>
+			<type type="stroke" key="collation">stroke</type>
 			<type type="traditional" key="collation">Tradizionala</type>
 		</types>
 		<measurementSystemNames>
@@ -462,11 +511,25 @@
 			<codePattern type="territory">{0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
+	<layout>
+		<inList>mixed</inList>
+		<inText type="currency">mixed</inText>
+		<inText type="dayWidth">mixed</inText>
+		<inText type="fields">mixed</inText>
+		<inText type="keys">mixed</inText>
+		<inText type="languages">mixed</inText>
+		<inText type="long">mixed</inText>
+		<inText type="measurementSystemNames">mixed</inText>
+		<inText type="scripts">mixed</inText>
+		<inText type="territories">mixed</inText>
+		<inText type="types">mixed</inText>
+		<inText type="variants">mixed</inText>
+	</layout>
 	<characters>
 		<exemplarCharacters>[a-c ç d-n ñ o-z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a-z]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
+		<exemplarCharacters type="index">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -645,6 +708,13 @@
 						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
+				<fields>
+					<field type="day">
+						<relative type="-1" draft="unconfirmed">Atzo</relative>
+						<relative type="0">Gaur</relative>
+						<relative type="1">Bihar</relative>
+					</field>
+				</fields>
 			</calendar>
 			<calendar type="roc">
 				<eras>
@@ -657,16 +727,137 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Ezezaguna</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<exemplarCity>Davis</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity>Casey</exemplarCity>
+			</zone>
+			<zone type="Antarctica/DumontDUrville">
+				<exemplarCity>Dumont d'Urville</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/La_Rioja">
+				<exemplarCity>La Rioja</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity>Catamarca</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity>Jujuy</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity>Cordoba</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity>Buenos Aires</exemplarCity>
+			</zone>
+			<zone type="Australia/Eucla">
+				<exemplarCity>Eucla</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity>Darwin</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity>Adelaide</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity>Broken Hill</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>Currie</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity>Hobart</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity>Lindeman</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity>Brisbane</exemplarCity>
 			</zone>
 			<zone type="Asia/Bahrain">
 				<exemplarCity draft="unconfirmed">Bahrein</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Bermuda">
 				<exemplarCity draft="unconfirmed">Bermudak</exemplarCity>
+			</zone>
+			<zone type="America/Eirunepe">
+				<exemplarCity>Eirunepe</exemplarCity>
+			</zone>
+			<zone type="America/Boa_Vista">
+				<exemplarCity>Boa Vista</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity>Cuiaba</exemplarCity>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<exemplarCity>Campo Grande</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity>Belem</exemplarCity>
+			</zone>
+			<zone type="America/Araguaina">
+				<exemplarCity>Araguaina</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity>Bahia</exemplarCity>
+			</zone>
+			<zone type="America/Fortaleza">
+				<exemplarCity>Fortaleza</exemplarCity>
+			</zone>
+			<zone type="America/Dawson">
+				<exemplarCity>Dawson</exemplarCity>
+			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity>Inuvik</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity>Dawson Creek</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity>Edmonton</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity>Cambridge Bay</exemplarCity>
+			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity>Coral Harbour</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity>Iqaluit</exemplarCity>
+			</zone>
+			<zone type="America/Halifax">
+				<exemplarCity>Halifax</exemplarCity>
+			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity>Goose Bay</exemplarCity>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<exemplarCity>Glace Bay</exemplarCity>
+			</zone>
+			<zone type="America/Blanc-Sablon">
+				<exemplarCity>Blanc-Sablon</exemplarCity>
+			</zone>
+			<zone type="Africa/Kinshasa">
+				<exemplarCity>Kinshasa</exemplarCity>
+			</zone>
+			<zone type="Pacific/Easter">
+				<exemplarCity>Easter</exemplarCity>
+			</zone>
+			<zone type="Asia/Kashgar">
+				<exemplarCity>Kashgar</exemplarCity>
+			</zone>
+			<zone type="Asia/Chongqing">
+				<exemplarCity>Chongqing</exemplarCity>
+			</zone>
+			<zone type="Asia/Harbin">
+				<exemplarCity>Harbin</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Cape_Verde">
 				<exemplarCity draft="unconfirmed">Cabo Verde</exemplarCity>
@@ -677,23 +868,65 @@
 			<zone type="America/Dominica">
 				<exemplarCity draft="unconfirmed">Dominika</exemplarCity>
 			</zone>
+			<zone type="Pacific/Galapagos">
+				<exemplarCity>Galapagos</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Espainia (Kanariak)</exemplarCity>
+			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity>Ceuta</exemplarCity>
 			</zone>
 			<zone type="Europe/Madrid">
 				<exemplarCity draft="unconfirmed">Madril</exemplarCity>
 			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity>Kosrae</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity>Danmarkshavn</exemplarCity>
+			</zone>
 			<zone type="America/Guadeloupe">
 				<exemplarCity draft="unconfirmed">Guadalupe</exemplarCity>
 			</zone>
+			<zone type="Asia/Jakarta">
+				<exemplarCity>Jakarta</exemplarCity>
+			</zone>
+			<zone type="Asia/Jayapura">
+				<exemplarCity>Jayapura</exemplarCity>
+			</zone>
 			<zone type="America/Jamaica">
 				<exemplarCity draft="unconfirmed">Jamaika</exemplarCity>
+			</zone>
+			<zone type="Pacific/Enderbury">
+				<exemplarCity>Enderbury</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity>Kiritimati</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtau">
+				<exemplarCity>Aqtau</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity>Aqtobe</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity>Almaty</exemplarCity>
 			</zone>
 			<zone type="Europe/Luxembourg">
 				<exemplarCity draft="unconfirmed">Luxenburgo</exemplarCity>
 			</zone>
 			<zone type="Europe/Monaco">
 				<exemplarCity draft="unconfirmed">Monako</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kwajalein">
+				<exemplarCity>Kwajalein</exemplarCity>
+			</zone>
+			<zone type="Asia/Hovd">
+				<exemplarCity>Hovd</exemplarCity>
+			</zone>
+			<zone type="Asia/Choibalsan">
+				<exemplarCity>Choibalsan</exemplarCity>
 			</zone>
 			<zone type="America/Martinique">
 				<exemplarCity draft="unconfirmed">Martinika</exemplarCity>
@@ -704,11 +937,80 @@
 			<zone type="Indian/Maldives">
 				<exemplarCity draft="unconfirmed">Maldivak</exemplarCity>
 			</zone>
+			<zone type="America/Hermosillo">
+				<exemplarCity>Hermosillo</exemplarCity>
+			</zone>
+			<zone type="America/Chihuahua">
+				<exemplarCity>Chihuahua</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity>Cancun</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuching">
+				<exemplarCity>Kuching</exemplarCity>
+			</zone>
+			<zone type="Pacific/Chatham">
+				<exemplarCity>Chatham</exemplarCity>
+			</zone>
+			<zone type="Pacific/Gambier">
+				<exemplarCity>Gambier</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Azores">
+				<exemplarCity>Azores</exemplarCity>
+			</zone>
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity>Kaliningrad</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity>Krasnoyarsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity>Irkutsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity>Kamchatka</exemplarCity>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<exemplarCity>Anadyr</exemplarCity>
+			</zone>
 			<zone type="Asia/Singapore">
 				<exemplarCity draft="unconfirmed">Singapur</exemplarCity>
 			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>Johnston</exemplarCity>
+			</zone>
+			<zone type="America/Adak">
+				<exemplarCity>Adak</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity>Anchorage</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity>Juneau</exemplarCity>
+			</zone>
+			<zone type="America/Boise">
+				<exemplarCity>Boise</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity>Denver</exemplarCity>
+			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Ameriketako Estatu Batuak (Erdialdea, Ipar Dakota)</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity>Chicago</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Knox">
+				<exemplarCity>Knox, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity>Indianapolis</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity>Detroit</exemplarCity>
 			</zone>
 			<metazone type="Australia_Central">
 				<commonlyUsed>true</commonlyUsed>
@@ -889,29 +1191,170 @@
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
+			<currency type="AFN">
+				<displayName>AFN</displayName>
+			</currency>
+			<currency type="ALL">
+				<displayName>ALL</displayName>
+			</currency>
+			<currency type="AMD">
+				<displayName>AMD</displayName>
+			</currency>
+			<currency type="AOA">
+				<displayName>AOA</displayName>
+			</currency>
+			<currency type="ARS">
+				<displayName>ARS</displayName>
+			</currency>
+			<currency type="AUD">
+				<displayName>AUD</displayName>
+			</currency>
+			<currency type="AWG">
+				<displayName>AWG</displayName>
+			</currency>
+			<currency type="AZM">
+				<displayName>AZM</displayName>
+			</currency>
+			<currency type="AZN">
+				<displayName>AZN</displayName>
+			</currency>
+			<currency type="BAM">
+				<displayName>BAM</displayName>
+			</currency>
+			<currency type="BBD">
+				<displayName>BBD</displayName>
+			</currency>
+			<currency type="BDT">
+				<displayName>BDT</displayName>
+			</currency>
+			<currency type="BGN">
+				<displayName>BGN</displayName>
+			</currency>
+			<currency type="BHD">
+				<displayName>BHD</displayName>
+			</currency>
+			<currency type="BIF">
+				<displayName>BIF</displayName>
+			</currency>
+			<currency type="BMD">
+				<displayName>BMD</displayName>
+			</currency>
+			<currency type="BND">
+				<displayName>BND</displayName>
+			</currency>
+			<currency type="BOB">
+				<displayName>BOB</displayName>
+			</currency>
 			<currency type="BRL">
 				<displayName>BRL</displayName>
+			</currency>
+			<currency type="BSD">
+				<displayName>BSD</displayName>
+			</currency>
+			<currency type="BTN">
+				<displayName>BTN</displayName>
+			</currency>
+			<currency type="BWP">
+				<displayName>BWP</displayName>
+			</currency>
+			<currency type="BYR">
+				<displayName>BYR</displayName>
+			</currency>
+			<currency type="BZD">
+				<displayName>BZD</displayName>
+			</currency>
+			<currency type="CAD">
+				<displayName>CAD</displayName>
+			</currency>
+			<currency type="CDF">
+				<displayName>CDF</displayName>
+			</currency>
+			<currency type="CLP">
+				<displayName>CLP</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>CNY</displayName>
 			</currency>
+			<currency type="COP">
+				<displayName>COP</displayName>
+			</currency>
+			<currency type="CRC">
+				<displayName>CRC</displayName>
+			</currency>
+			<currency type="CUC">
+				<displayName>CUC</displayName>
+			</currency>
+			<currency type="CUP">
+				<displayName>CUP</displayName>
+			</currency>
+			<currency type="CVE">
+				<displayName>CVE</displayName>
+			</currency>
+			<currency type="CZK">
+				<displayName>CZK</displayName>
+			</currency>
+			<currency type="DJF">
+				<displayName>DJF</displayName>
+			</currency>
+			<currency type="DKK">
+				<displayName>DKK</displayName>
+			</currency>
+			<currency type="DOP">
+				<displayName>DOP</displayName>
+			</currency>
+			<currency type="DZD">
+				<displayName>DZD</displayName>
+			</currency>
+			<currency type="EEK">
+				<displayName>EEK</displayName>
+			</currency>
+			<currency type="EGP">
+				<displayName>EGP</displayName>
+			</currency>
+			<currency type="ERN">
+				<displayName>ERN</displayName>
+			</currency>
 			<currency type="ESP">
 				<pattern>¤ #,##0;-¤ #,##0</pattern>
-				<symbol>₧</symbol>
+				<symbol>pzta</symbol>
 				<decimal>,</decimal>
 				<group>.</group>
+			</currency>
+			<currency type="ETB">
+				<displayName>ETB</displayName>
 			</currency>
 			<currency type="EUR">
 				<displayName>EUR</displayName>
 			</currency>
+			<currency type="FJD">
+				<displayName>FJD</displayName>
+			</currency>
+			<currency type="FKP">
+				<displayName>FKP</displayName>
+			</currency>
 			<currency type="GBP">
 				<displayName>GBP</displayName>
+			</currency>
+			<currency type="GMD">
+				<displayName>GMD</displayName>
+			</currency>
+			<currency type="HRK">
+				<displayName>HRK</displayName>
 			</currency>
 			<currency type="INR">
 				<displayName>INR</displayName>
 			</currency>
 			<currency type="JPY">
 				<displayName>JPY</displayName>
+			</currency>
+			<currency type="KHR">
+				<displayName>KHR</displayName>
+			</currency>
+			<currency type="KMF">
+				<displayName>KMF</displayName>
+			</currency>
+			<currency type="KYD">
+				<displayName>KYD</displayName>
 			</currency>
 			<currency type="RUB">
 				<displayName>RUB</displayName>
@@ -924,6 +1367,9 @@
 			</currency>
 			<currency type="USS">
 				<displayName>USS</displayName>
+			</currency>
+			<currency type="XAF">
+				<displayName>XAF</displayName>
 			</currency>
 			<currency type="XAG">
 				<displayName>XAG</displayName>
@@ -943,6 +1389,9 @@
 			<currency type="XBD">
 				<displayName>XBD</displayName>
 			</currency>
+			<currency type="XCD">
+				<displayName>XCD</displayName>
+			</currency>
 			<currency type="XDR">
 				<displayName>XDR</displayName>
 			</currency>
@@ -955,8 +1404,14 @@
 			<currency type="XFU">
 				<displayName>XFU</displayName>
 			</currency>
+			<currency type="XOF">
+				<displayName>XOF</displayName>
+			</currency>
 			<currency type="XPD">
 				<displayName>XPD</displayName>
+			</currency>
+			<currency type="XPF">
+				<displayName>XPF</displayName>
 			</currency>
 			<currency type="XPT">
 				<displayName>XPT</displayName>
@@ -998,9 +1453,17 @@
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} urtea</unitPattern>
-			<unitPattern count="other">{0} y</unitPattern>
+			<unitPattern count="other">{0} urte</unitPattern>
 		</unit>
 	</units>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="2">{0}, {0}</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
 	<posix>
 		<messages>
 			<yesstr>bai:b</yesstr>
@@ -1008,4 +1471,3 @@
 		</messages>
 	</posix>
 </ldml>
-

@@ -6,6 +6,7 @@
 		<generation date="$Date$"/>
 		<language type="en"/>
 	</identity>
+	<fallback/>
 	<localeDisplayNames>
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
@@ -247,8 +248,8 @@
 			<language type="kaw">Kawi</language>
 			<language type="kbd">Kabardian</language>
 			<language type="kcg">Tyap</language>
-			<language type="kea">Kabuverdianu</language>
 			<language type="kde">Makonde</language>
+			<language type="kea">Kabuverdianu</language>
 			<language type="kfo">Koro</language>
 			<language type="kg">Kongo</language>
 			<language type="kha">Khasi</language>
@@ -473,7 +474,7 @@
 			<language type="sux">Sumerian</language>
 			<language type="sv">Swedish</language>
 			<language type="sw">Swahili</language>
-			<language type="swb" draft="unconfirmed">Comorian</language>
+			<language type="swb">Comorian</language>
 			<language type="syc">Classical Syriac</language>
 			<language type="syr">Syriac</language>
 			<language type="ta">Tamil</language>
@@ -732,8 +733,8 @@
 			<territory type="200">Czechoslovakia</territory>
 			<territory type="419">Latin America and the Caribbean</territory>
 			<territory type="830">Channel Islands</territory>
-            <territory type="AD">Andorra</territory>
-            <territory type="AC">Ascension Island</territory>
+			<territory type="AC">Ascension Island</territory>
+			<territory type="AD">Andorra</territory>
 			<territory type="AE">United Arab Emirates</territory>
 			<territory type="AF">Afghanistan</territory>
 			<territory type="AG">Antigua and Barbuda</territory>
@@ -1034,9 +1035,9 @@
 			<variant type="KKCOR">Common Orthography</variant>
 			<variant type="LIPAW">The Lipovaz dialect of Resian</variant>
 			<variant type="MONOTON">Monotonic</variant>
+			<variant type="NDYUKA">Ndyuka dialect</variant>
 			<variant type="NEDIS">Natisone dialect</variant>
 			<variant type="NJIVA">Gniva/Njiva dialect</variant>
-			<variant type="NDYUKA">Ndyuka dialect</variant>
 			<variant type="OSOJS">Oseacco/Osojane dialect</variant>
 			<variant type="PAMAKA">Pamaka dialect</variant>
 			<variant type="PINYIN">Pinyin Romanization</variant>
@@ -1123,8 +1124,8 @@
 	<characters>
 		<exemplarCharacters>[a-z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ß ú ù ŭ û ü ū ÿ]</exemplarCharacters>
-		<exemplarCharacters type="currencySymbol">[a-c č d-l ł m-z]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol">[a-c č d-l ł m-o º p-z]</exemplarCharacters>
+		<exemplarCharacters type="index">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -1243,9 +1244,10 @@
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="am">am</dayPeriod>
 							<dayPeriod type="am" alt="variant">a.m.</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="noon">noon</dayPeriod>
+							<dayPeriod type="pm">pm</dayPeriod>
 							<dayPeriod type="pm" alt="variant">p.m.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
@@ -1334,6 +1336,7 @@
 						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
@@ -1588,6 +1591,8 @@
 				</long>
 				<short>
 					<generic>CT</generic>
+					<standard>CST</standard>
+					<daylight>CDT</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -1599,6 +1604,8 @@
 				</long>
 				<short>
 					<generic>ET</generic>
+					<standard>EST</standard>
+					<daylight>EDT</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -1610,6 +1617,8 @@
 				</long>
 				<short>
 					<generic>MT</generic>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -1621,6 +1630,8 @@
 				</long>
 				<short>
 					<generic>PT</generic>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -1689,6 +1700,8 @@
 				</long>
 				<short>
 					<generic>AT</generic>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -1923,18 +1936,30 @@
 					<standard>Central European Time</standard>
 					<daylight>Central European Summer Time</daylight>
 				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Eastern European Time</standard>
 					<daylight>Eastern European Summer Time</daylight>
 				</long>
+				<short>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>Western European Time</standard>
 					<daylight>Western European Summer Time</daylight>
 				</long>
+				<short>
+					<standard>WET</standard>
+					<daylight>WEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -1989,6 +2014,9 @@
 				<long>
 					<standard>Greenwich Mean Time</standard>
 				</long>
+				<short>
+					<standard>GMT</standard>
+				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Greenland_Central">
@@ -3172,7 +3200,7 @@
 			<currency type="GBP">
 				<displayName>British Pound Sterling</displayName>
 				<displayName count="one">British pound sterling</displayName>
-				<displayName count="other">British pound sterlings</displayName>
+				<displayName count="other">British pounds sterling</displayName>
 			</currency>
 			<currency type="GEK">
 				<displayName>Georgian Kupon Larit</displayName>
@@ -4221,4 +4249,3 @@
 		<reference type="RP4" uri="http://fx.sauder.ubc.ca/currency_table.html">University of British Columbia - Currency Table</reference>
 	</references>
 </ldml>
-

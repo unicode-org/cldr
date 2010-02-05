@@ -32,5 +32,266 @@
 			<language type="tut" draft="contributed">আলটাইক</language>
 			<language type="zbl" draft="contributed">ব্লিসসিম্বলস</language>
 		</languages>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">মেট্রিক</measurementSystemName>
+		</measurementSystemNames>
 	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[় ঁ ং ঃ ৺ অ আ ই ঈ উ ঊ ঋ ৠ ঌ ৡ এ ঐ ও ঔ ক খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড {ড়} ঢ {ঢ়} ণ ত ৎ থ দ ধ ন প ফ ব ভ ম য {য়} র ল শ ষ স হ ঽ া ি ী ু ূ ৃ ৄ ৢ ৣ ে ৈ ো ৌ ্ ৗ]</exemplarCharacters>
+	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="2">ফেব্রুয়ারী</month>
+							<month type="3">মার্চ</month>
+							<month type="4">এপ্রিল</month>
+							<month type="5">মে</month>
+							<month type="6">জুন</month>
+							<month type="8">আগস্ট</month>
+							<month type="9">সেপ্টেম্বর</month>
+							<month type="10">অক্টোবর</month>
+							<month type="11">নভেম্বর</month>
+							<month type="12">ডিসেম্বর</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">জানুয়ারী</month>
+							<month type="2">ফেব্রুয়ারী</month>
+							<month type="3">মার্চ</month>
+							<month type="4">এপ্রিল</month>
+							<month type="5">মে</month>
+							<month type="6">জুন</month>
+							<month type="7">জুলাই</month>
+							<month type="8">আগস্ট</month>
+							<month type="9">সেপ্টেম্বর</month>
+							<month type="10">অক্টোবর</month>
+							<month type="11">নভেম্বর</month>
+							<month type="12">ডিসেম্বর</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">জানুয়ারী</month>
+							<month type="3">মার্চ</month>
+							<month type="4">এপ্রিল</month>
+							<month type="5">মে</month>
+							<month type="6">জুন</month>
+							<month type="7">জুলাই</month>
+							<month type="9">সেপ্টেম্বর</month>
+							<month type="10">অক্টোবর</month>
+							<month type="11">নভেম্বর</month>
+							<month type="12">ডিসেম্বর</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">জানুয়ারি</month>
+							<month type="2">ফেব্রুয়ারি</month>
+							<month type="3">মার্চ</month>
+							<month type="4">এপ্রিল</month>
+							<month type="5">মে</month>
+							<month type="6">জুন</month>
+							<month type="7">জুলাই</month>
+							<month type="8">আগস্ট</month>
+							<month type="9">সেপ্টেম্বর</month>
+							<month type="10">অক্টোবর</month>
+							<month type="11">নভেম্বর</month>
+							<month type="12">ডিসেম্বর</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">রবি</day>
+							<day type="tue">মঙ্গল</day>
+							<day type="wed">বুধ</day>
+							<day type="thu">বৃহস্পতি</day>
+							<day type="fri">শুক্র</day>
+							<day type="sat">শনি</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">রবিবার</day>
+							<day type="mon">সোমবার</day>
+							<day type="tue">মঙ্গলবার</day>
+							<day type="wed">বুধবার</day>
+							<day type="thu">বৃহস্পতিবার</day>
+							<day type="fri">শুক্রবার</day>
+							<day type="sat">শনিবার</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">রবি</day>
+							<day type="mon">সোম</day>
+							<day type="tue">মঙ্গল</day>
+							<day type="wed">বুধ</day>
+							<day type="thu">বৃহস্পতি</day>
+							<day type="fri">শুক্র</day>
+							<day type="sat">শনি</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">রবিবার</day>
+							<day type="mon">সোমবার</day>
+							<day type="tue">মঙ্গলবার</day>
+							<day type="wed">বুধবার</day>
+							<day type="thu">বৃহস্পতিবার</day>
+							<day type="fri">শুক্রবার</day>
+							<day type="sat">শনিবার</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">ত্রৈমাসিক</quarter>
+							<quarter type="2">ষাণ্মাসিক</quarter>
+							<quarter type="4">বার্ষিক</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">ত্রৈমাসিক</quarter>
+							<quarter type="2">ষাণ্মাসিক</quarter>
+							<quarter type="4">বার্ষিক</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="wide">
+							<quarter type="1">ত্রৈমাসিক</quarter>
+							<quarter type="2">ষাণ্মাসিক</quarter>
+							<quarter type="4">বার্ষিক</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">পূর্বাহ্ণ</dayPeriod>
+							<dayPeriod type="pm">অপরাহ্ণ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">পূর্বাহ্ণ</dayPeriod>
+							<dayPeriod type="pm">অপরাহ্ণ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraAbbr>
+						<era type="0">খৃষ্টপূর্ব</era>
+						<era type="1">খৃষ্টাব্দ</era>
+					</eraAbbr>
+				</eras>
+				<fields>
+					<field type="era">
+						<displayName>যুগ</displayName>
+					</field>
+					<field type="year">
+						<displayName>বছর</displayName>
+					</field>
+					<field type="month">
+						<displayName>মাস</displayName>
+					</field>
+					<field type="week">
+						<displayName>সপ্তাহ</displayName>
+					</field>
+					<field type="day">
+						<displayName>দিন</displayName>
+						<relative type="-3">গততরশু</relative>
+						<relative type="-2">গতপরশু</relative>
+						<relative type="-1">গতকাল</relative>
+						<relative type="0">আজ</relative>
+						<relative type="1">আগামীকাল</relative>
+						<relative type="2">আগামী পরশু</relative>
+						<relative type="3">আগামী তরশু</relative>
+					</field>
+					<field type="weekday">
+						<displayName>সপ্তাহের দিন</displayName>
+					</field>
+					<field type="hour">
+						<displayName>ঘণ্টা</displayName>
+					</field>
+					<field type="minute">
+						<displayName>মিনিট</displayName>
+					</field>
+					<field type="second">
+						<displayName>সেকেণ্ড</displayName>
+					</field>
+					<field type="zone">
+						<displayName>এলাকা</displayName>
+					</field>
+				</fields>
+			</calendar>
+			<calendar type="indian">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">রবি</day>
+							<day type="mon">সোম</day>
+							<day type="tue">মঙ্গল</day>
+							<day type="wed">বুধ</day>
+							<day type="thu">বৃহস্পতি</day>
+							<day type="fri">শুক্র</day>
+							<day type="sat">শনি</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">রবিবার</day>
+							<day type="mon">সোমবার</day>
+							<day type="tue">মঙ্গলবার</day>
+							<day type="wed">বুধবার</day>
+							<day type="thu">বৃহস্পতিবার</day>
+							<day type="fri">শুক্রবার</day>
+							<day type="sat">শনিবার</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">রবি</day>
+							<day type="mon">সোম</day>
+							<day type="tue">মঙ্গল</day>
+							<day type="wed">বুধ</day>
+							<day type="thu">বৃহস্পতি</day>
+							<day type="fri">শুক্র</day>
+							<day type="sat">শনি</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">রবিবার</day>
+							<day type="mon">সোমবার</day>
+							<day type="tue">মঙ্গলবার</day>
+							<day type="wed">বুধবার</day>
+							<day type="thu">বৃহস্পতিবার</day>
+							<day type="fri">শুক্রবার</day>
+							<day type="sat">শনিবার</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="wide">
+							<quarter type="1">ত্রৈমাসিক</quarter>
+							<quarter type="2">ষাণ্মাসিক</quarter>
+							<quarter type="4">বার্ষিক</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="wide">
+							<quarter type="1">ত্রৈমাসিক</quarter>
+							<quarter type="2">ষাণ্মাসিক</quarter>
+							<quarter type="4">বার্ষিক</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">পূর্বাহ্ণ</dayPeriod>
+							<dayPeriod type="pm">অপরাহ্ণ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">পূর্বাহ্ণ</dayPeriod>
+							<dayPeriod type="pm">অপরাহ্ণ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+			</calendar>
+		</calendars>
+	</dates>
 </ldml>

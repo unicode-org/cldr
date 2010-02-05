@@ -54,6 +54,7 @@
 			<language type="he">hebrea</language>
 			<language type="hi">hinda</language>
 			<language type="hr">kroata</language>
+			<language type="ht" draft="unconfirmed">haita</language>
 			<language type="hu">hungara</language>
 			<language type="hy">armena</language>
 			<language type="ia">interlingvao</language>
@@ -75,6 +76,7 @@
 			<language type="ku">kurda</language>
 			<language type="ky">kirgiza</language>
 			<language type="la">latino</language>
+			<language type="lb" draft="unconfirmed">luksemburga</language>
 			<language type="ln">lingala</language>
 			<language type="lo">laŭa</language>
 			<language type="lt">litova</language>
@@ -87,6 +89,7 @@
 			<language type="mr">marata</language>
 			<language type="ms">malaja</language>
 			<language type="mt">malta</language>
+			<language type="mul" draft="unconfirmed">pluraj lingvoj</language>
 			<language type="my">birma</language>
 			<language type="na">naura</language>
 			<language type="ne">nepala</language>
@@ -141,6 +144,7 @@
 			<language type="tw">akana</language>
 			<language type="ug">ujgura</language>
 			<language type="uk">ukraina</language>
+			<language type="und" draft="unconfirmed">nekonata aŭ nevalida lingvo</language>
 			<language type="ur">urduo</language>
 			<language type="uz">uzbeka</language>
 			<language type="vi">vjetnama</language>
@@ -151,6 +155,8 @@
 			<language type="yo">joruba</language>
 			<language type="za">ĝuanga</language>
 			<language type="zh">ĉina</language>
+			<language type="zh_Hans" draft="unconfirmed">ĉina simpligita</language>
+			<language type="zh_Hant" draft="unconfirmed">ĉina tradicia</language>
 			<language type="zu">zulua</language>
 		</languages>
 		<territories>
@@ -384,7 +390,7 @@
 	<characters>
 		<exemplarCharacters>[a-c ĉ d-g ĝ h ĥ i j ĵ k-p r s ŝ t u ŭ v z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[q w-y]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="unconfirmed">[A B C Ĉ D E F G Ĝ H Ĥ I J Ĵ K L M N O P Q R S Ŝ T U Ŭ V W X Y Z]</exemplarCharacters>
+		<exemplarCharacters type="index">[A B C Ĉ D E F G Ĝ H Ĥ I J Ĵ K L M N O P R S Ŝ T U Ŭ V Z]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -491,6 +497,12 @@
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">atm</dayPeriod>
 							<dayPeriod type="pm">ptm</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">atm</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">ptm</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -649,9 +661,58 @@
 			<decimal>,</decimal>
 			<group> </group>
 		</symbols>
+		<currencies>
+			<currency type="AUD">
+				<displayName draft="unconfirmed">aŭstrala dolaro</displayName>
+			</currency>
+			<currency type="BRL">
+				<displayName draft="unconfirmed">brazila realo</displayName>
+			</currency>
+			<currency type="CNY">
+				<displayName draft="unconfirmed">ĉina juano</displayName>
+			</currency>
+			<currency type="EUR">
+				<displayName draft="unconfirmed">eŭro</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName draft="unconfirmed">brita sterlinga funto</displayName>
+			</currency>
+			<currency type="INR">
+				<displayName draft="unconfirmed">hinda rupio</displayName>
+			</currency>
+			<currency type="JPY">
+				<displayName draft="unconfirmed">japana eno</displayName>
+			</currency>
+			<currency type="NOK">
+				<displayName draft="unconfirmed">norvega krono</displayName>
+			</currency>
+			<currency type="RUB">
+				<displayName draft="unconfirmed">rusa rublo</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName draft="unconfirmed">usona dolaro</displayName>
+			</currency>
+			<currency type="XAG">
+				<displayName draft="unconfirmed">arĝento</displayName>
+			</currency>
+			<currency type="XAU">
+				<displayName draft="unconfirmed">oro</displayName>
+			</currency>
+			<currency type="XBB">
+				<displayName draft="unconfirmed">eŭropa monunuo</displayName>
+			</currency>
+			<currency type="XFO">
+				<displayName draft="unconfirmed">franca ora franko</displayName>
+			</currency>
+			<currency type="XPD">
+				<displayName draft="unconfirmed">paladio</displayName>
+			</currency>
+			<currency type="XPT">
+				<displayName draft="unconfirmed">plateno</displayName>
+			</currency>
+		</currencies>
 	</numbers>
 	<references>
 		<reference type="RP1" uri="http://eo.wikipedia.org/wiki/Bosna_lingvo" draft="contributed">Vikipedio</reference>
 	</references>
 </ldml>
-

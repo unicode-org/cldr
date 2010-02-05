@@ -11,9 +11,31 @@
 			<language type="si">සිංහල</language>
 		</languages>
 		<scripts>
+			<script type="Arab">අරාබි</script>
+			<script type="Armn">ආර්මේනියානු</script>
+			<script type="Deva">දේවනාගරී</script>
+			<script type="Grek">ග්‍රීක</script>
+			<script type="Gujr">ගුජරාටි</script>
+			<script type="Hebr">හීබෲ</script>
+			<script type="Hira">හිරඟනා</script>
+			<script type="Jpan">ජපන්</script>
+			<script type="Knda">කණ්ණඩ</script>
+			<script type="Kore">කොරියානු</script>
+			<script type="Latn">ලතින්</script>
+			<script type="Mlym">මලයාලම්</script>
+			<script type="Mong">මොන්ගෝලියානු</script>
 			<script type="Sinh">සිංහල</script>
+			<script type="Taml">දෙමල</script>
+			<script type="Telu">තෙළිඟු</script>
+			<script type="Thai">තායි</script>
+			<script type="Tibt">ටි‍බෙට්</script>
 		</scripts>
 		<territories>
+			<territory type="BT">භූතානය</territory>
+			<territory type="CA">කැනඩාව</territory>
+			<territory type="EA">EA</territory>
+			<territory type="FK">FK</territory>
+			<territory type="FK" alt="variant">FK</territory>
 			<territory type="LK">ශ්‍රී ලංකාව</territory>
 		</territories>
 		<keys>
@@ -29,10 +51,28 @@
 		<exemplarCharacters>[අ-ඍ එ-ඖ ං ඃ ක-ඣ ඥ ඤ ට-න ඳ-ර ල ව-ෆ ා-\u0DD4 \u0DD6 ෘ ෲ ෟ ෙ-ෞ \u0DCA]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200B-\u200D ඎ-ඐ ඦ ෳ]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a-z]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="unconfirmed">[අ ආ ඇ ඈ ඉ ඊ උ ඌ ඍ එ ඒ ඓ ඔ ඕ ඖ ක ඛ ග ඝ ඞ ඟ ච ඡ ජ ඣ ඥ ඤ ට ඨ ඩ ඪ ණ ඬ ත ථ ද ධ න ඳ ප ඵ බ භ ම ඹ ය ර ල ව ශ ෂ ස හ ළ ෆ]</exemplarCharacters>
+		<exemplarCharacters type="index">[අ ආ ඇ ඈ ඉ ඊ උ ඌ ඍ එ ඒ ඓ ඔ ඕ ඖ ක ඛ ග ඝ ඞ ඟ ච ඡ ජ ඣ ඥ ඤ ට ඨ ඩ ඪ ණ ඬ ත ථ ද ධ න ඳ ප ඵ බ භ ම ඹ ය ර ල ව ශ ෂ ස හ ළ ෆ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
+			<calendar type="buddhist">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="3">මැදින්</month>
+							<month type="5">වෙසක්</month>
+							<month type="6">පොසොන්</month>
+							<month type="7">ඇසල</month>
+							<month type="9">බිනර</month>
+							<month type="10">වප්</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="3">මැදින්</month>
+							<month type="6">පොසොන්</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -246,4 +286,3 @@
 		</messages>
 	</posix>
 </ldml>
-

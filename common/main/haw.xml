@@ -8,7 +8,43 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="ar">ʻAlapia</language>
+			<language type="cy">Wale</language>
+			<language type="da">Kenemaka</language>
+			<language type="de">Kelemānia</language>
+			<language type="el">Helene</language>
+			<language type="en">Pelekānia</language>
+			<language type="en_AU">Pelekāne Nū Hōlani</language>
+			<language type="en_CA">Pelekāne Kanakā</language>
+			<language type="en_GB">Pelekānia Pekekāne</language>
+			<language type="en_US">Pelekānia ʻAmelika</language>
+			<language type="es">Paniolo</language>
+			<language type="fj">Pīkī</language>
+			<language type="fr">Palani</language>
+			<language type="fr_CA">Palani Kanakā</language>
+			<language type="fr_CH">Kuikilani</language>
+			<language type="ga">ʻAiliki</language>
+			<language type="gsw">Kuikilani Kelemānia</language>
 			<language type="haw">ʻōlelo Hawaiʻi</language>
+			<language type="he">Hebera</language>
+			<language type="it">ʻĪkālia</language>
+			<language type="ja">Kepanī</language>
+			<language type="ko">Kōlea</language>
+			<language type="la">Lākina</language>
+			<language type="mi">Māori</language>
+			<language type="nl">Hōlani</language>
+			<language type="pt">Pukikī</language>
+			<language type="pt_BR">Pukikī Palakila</language>
+			<language type="ru">Lūkia</language>
+			<language type="sm">Kāmoa</language>
+			<language type="sv">Kuekene</language>
+			<language type="to">Tonga</language>
+			<language type="ty">Polapola</language>
+			<language type="und">ʻIke ʻole ‘ia a kūpono ʻole paha ka ʻōlelo</language>
+			<language type="vi">Wiekanama</language>
+			<language type="zh">Pākē</language>
+			<language type="zh_Hans">Pākē Hoʻomaʻalahi ʻia</language>
+			<language type="zh_Hant">Pākē Kuʻuna</language>
 		</languages>
 		<territories>
 			<territory type="AU">Nūhōlani</territory>
@@ -32,6 +68,10 @@
 			<territory type="RU">Lūkia</territory>
 			<territory type="US">ʻAmelika Hui Pū ʻIa</territory>
 		</territories>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">Mekalika</measurementSystemName>
+			<measurementSystemName type="US">ʻAmelika Hui Pū ʻIa</measurementSystemName>
+		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a ā e ē i ī o ō u ū h k-n p w ʻ]</exemplarCharacters>
@@ -222,5 +262,27 @@
 			</currencyFormatLength>
 		</currencyFormats>
 	</numbers>
+	<units>
+		<unit type="day">
+			<unitPattern count="other">{0} lā</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="other">{0} hola</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="other">{0} minuke</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="other">{0} mahina</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="other">{0} kekona</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="other">{0} pule</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="other">{0} makahiki</unitPattern>
+		</unit>
+	</units>
 </ldml>
-

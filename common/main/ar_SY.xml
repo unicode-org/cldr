@@ -11,6 +11,15 @@
 		<scripts>
 			<script type="Ital">اللأيطالية القديمة</script>
 		</scripts>
+		<territories>
+			<territory type="CI" draft="provisional">ساحل العاج</territory>
+			<territory type="CI" alt="variant" draft="provisional">ساحل العاج</territory>
+		</territories>
+		<keys>
+			<key type="calendar" draft="provisional">التقويم</key>
+			<key type="collation" draft="provisional">الترتيب</key>
+			<key type="currency" draft="provisional">العملات</key>
+		</keys>
 	</localeDisplayNames>
 	<dates>
 		<calendars>
@@ -23,6 +32,7 @@
 							<month type="3">آذار</month>
 							<month type="4">نيسان</month>
 							<month type="5">نوار</month>
+							<month type="5" alt="proposed-x1001" draft="unconfirmed">أيار</month>
 							<month type="6">حزيران</month>
 							<month type="7">تموز</month>
 							<month type="8">آب</month>
@@ -37,6 +47,7 @@
 							<month type="3">آذار</month>
 							<month type="4">نيسان</month>
 							<month type="5">نوار</month>
+							<month type="5" alt="proposed-x1001" draft="unconfirmed">أيار</month>
 							<month type="6">حزيران</month>
 							<month type="7">تموز</month>
 							<month type="8">آب</month>
@@ -60,6 +71,13 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<dayPeriods>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="pm" draft="provisional">مساءًا</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 		</calendars>
 	</dates>

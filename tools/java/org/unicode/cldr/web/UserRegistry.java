@@ -1,9 +1,7 @@
-//
 //  UserRegistry.java
-//  fourjay
 //
 //  Created by Steven R. Loomis on 14/10/2005.
-//  Copyright 2005-2008 IBM. All rights reserved.
+//  Copyright 2005-2010 IBM. All rights reserved.
 //
 
 package org.unicode.cldr.web;
@@ -485,7 +483,7 @@ private static final String INTERNAL = "INTERNAL";
                     ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
             queryIdStmt = conn.prepareStatement("SELECT name,org,email,userlevel,intlocs,locales,lastlogin,password from " + CLDR_USERS +" where id=?",
                     ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-            queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs,lastlogin from " + CLDR_USERS +" where email=?",
+            queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs,lastlogin,password from " + CLDR_USERS +" where email=?",
                     ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
             touchStmt = conn.prepareStatement("UPDATE "+CLDR_USERS+" set lastlogin=CURRENT_TIMESTAMP where id=?");
 
@@ -606,10 +604,12 @@ private static final String INTERNAL = "INTERNAL";
                     }
                 } catch (SQLException se) {
                     logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to get #" + id + " - " + SurveyMain.unchainSqlException(se),se);
-                    return ret;
+		    throw new InternalError("UserRegistry: SQL error trying to get #" + id + " - " + SurveyMain.unchainSqlException(se));
+                    //return ret;
                 } catch (Throwable t) {
                     logger.log(java.util.logging.Level.SEVERE, "UserRegistry: some error trying to get #" + id,t);
-                    return ret;
+                    throw new InternalError("UserRegistry: some error trying to get #" + id+" - "+t.toString());
+                    //return ret;
                 } finally {
                     // close out the RS
                     try {
@@ -625,19 +625,26 @@ private static final String INTERNAL = "INTERNAL";
             return ret;
         } // end synch array
     }
-    
-    public  UserRegistry.User get(String pass, String email, String ip) {
+
+    public final UserRegistry.User get(String pass, String email, String ip) {
+	return get(pass, email, ip, false);
+    }
+
+    /**
+     * @param letmein The VAP was given - allow the user in regardless 
+     */
+    public  UserRegistry.User get(String pass, String email, String ip, boolean letmein) {
         if((email == null)||(email.length()<=0)) {
             return null; // nothing to do
         }
-        if((pass == null)||(pass.length()<=0)) {
+        if(((pass == null)||(pass.length()<=0)) && !letmein ) {
             return null; // nothing to do
         }
         ResultSet rs = null;
         synchronized(conn) {
             try{ 
                 PreparedStatement pstmt = null;
-                if(pass != null) {
+                if((pass != null) && !letmein) {
 //                    logger.info("Looking up " + email + " : " + pass);
                     pstmt = queryStmt;
                     pstmt.setString(1,email);
@@ -657,6 +664,10 @@ private static final String INTERNAL = "INTERNAL";
                 
                 // from params:
                 u.password = pass;
+		if(letmein) {
+		    u.password = rs.getString(8);
+		    System.err.println(">> pass: " + u.password);
+		}
                 u.email = email;
                 // from db:   (id,name,userlevel,org,locales)
                 u.id = rs.getInt(1);
@@ -686,10 +697,12 @@ private static final String INTERNAL = "INTERNAL";
                 return u;
             } catch (SQLException se) {
                 logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to get " + email + " - " + SurveyMain.unchainSqlException(se),se);
-                return null;
+                throw new InternalError("UserRegistry: SQL error trying to get " + email + " - " + SurveyMain.unchainSqlException(se));
+                //return null;
             } catch (Throwable t) {
                 logger.log(java.util.logging.Level.SEVERE, "UserRegistry: some error trying to get " + email,t);
-                return null;
+                throw new InternalError( "UserRegistry: some error trying to get " + email + " - "+t.toString());
+                //return null;
             } finally {
                 // close out the RS
                 try {

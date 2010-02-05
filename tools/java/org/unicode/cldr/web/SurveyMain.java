@@ -879,6 +879,7 @@ public class SurveyMain extends HttpServlet {
         boolean isSql = ctx.hasField("sql");
     
         ctx.print("<div style='float: right'><a class='notselected' href='" + ctx.base() + "'><b>[SurveyTool main]</b></a> | ");
+        ctx.print("<a class='notselected' href='" + ctx.base() + "?letmein="+vap+"&amp;email=admin@'><b>Login as admin@</b></a> | ");
         ctx.print("<a class='"+(isDump?"":"not")+"selected' href='" + ctx.base() + "?dump="+vap+"'>Admin</a>");
         ctx.print(" | ");
         ctx.print("<a class='"+(isSql?"":"not")+"selected' href='" + ctx.base() + "?sql="+vap+"'>SQL</a>");
@@ -2459,10 +2460,19 @@ public class SurveyMain extends HttpServlet {
         if(password.length()==0) {
             password = ctx.field(QUERY_PASSWORD_ALT);
         }
+	boolean letmein = vap.equals(ctx.field("letmein"));
+	if(letmein) {
+	    password = null;
+	}
         String email = ctx.field(QUERY_EMAIL);
         UserRegistry.User user;
 //        /*srl*/ System.err.println("isBusted: " + isBusted + ", reg: " + reg);
-        user = reg.get(password,email,ctx.userIP());
+	
+	System.err.println("reg.get  pw="+password+", email="+email+", lmi="+ctx.field("letmein")+", lmigood="+vap.equals(ctx.field("letmein")));
+
+        user = reg.get(password,email,ctx.userIP(), letmein);
+
+	System.err.println("user= "+user);
 
         if(ctx.request == null && ctx.session != null) {
             return "using canned session"; // already set - for testing

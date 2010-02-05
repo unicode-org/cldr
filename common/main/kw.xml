@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="kw"/>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="ar" draft="unconfirmed">Arabek</language>
+			<language type="cy" draft="unconfirmed">Kembrek</language>
+			<language type="da" draft="unconfirmed">Danek</language>
+			<language type="de" draft="unconfirmed">Almaynek</language>
+			<language type="en" draft="unconfirmed">Sowsnek</language>
+			<language type="es" draft="unconfirmed">Spaynek</language>
+			<language type="eu" draft="unconfirmed">Baskek</language>
+			<language type="fr" draft="unconfirmed">Frenkek</language>
+			<language type="ga" draft="unconfirmed">Wordhonek</language>
+			<language type="it" draft="unconfirmed">Italek</language>
+			<language type="ja" draft="unconfirmed">Japanek</language>
+			<language type="kw">kernewek</language>
+			<language type="kw" alt="proposed-x1001" draft="unconfirmed">Kernowek</language>
+			<language type="nl" draft="unconfirmed">Iseldiryek</language>
+			<language type="pt" draft="unconfirmed">Portyngalek</language>
+			<language type="pt_BR" draft="unconfirmed">Portyngalek Brasil</language>
+			<language type="ru" draft="unconfirmed">Russek</language>
+			<language type="yue" draft="unconfirmed">Kantonek</language>
+			<language type="zh" draft="unconfirmed">Chinek</language>
+			<language type="zh_Hans" draft="unconfirmed">Chinek sempel</language>
+			<language type="zh_Hant" draft="unconfirmed">Chinek hengovek</language>
+		</languages>
+		<scripts>
+			<script type="Arab" draft="unconfirmed">Arabek</script>
+		</scripts>
+		<territories>
+			<territory type="BR" draft="unconfirmed">Brasil</territory>
+			<territory type="CN" draft="unconfirmed">China</territory>
+			<territory type="DE" draft="unconfirmed">Almayn</territory>
+			<territory type="FR" draft="unconfirmed">Pow Frenk</territory>
+			<territory type="GB">Rywvaneth Unys</territory>
+			<territory type="GB" alt="proposed-x1001" draft="unconfirmed">Ruwvaneth Unys</territory>
+			<territory type="IN" draft="unconfirmed">Eynda</territory>
+			<territory type="IT" draft="unconfirmed">Itali</territory>
+			<territory type="JP" draft="unconfirmed">Japan</territory>
+			<territory type="RU" draft="unconfirmed">Russi</territory>
+			<territory type="US" draft="unconfirmed">Statys Unys</territory>
+		</territories>
+		<keys>
+			<key type="calendar" draft="unconfirmed">kalans</key>
+		</keys>
+		<types>
+			<type type="gregorian" key="calendar" draft="unconfirmed">Kalans gregorek</type>
+		</types>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[a-z]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
+	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Gen</month>
+							<month type="2">Whe</month>
+							<month type="2" alt="proposed-x1001" draft="unconfirmed">Hwe</month>
+							<month type="3">Mer</month>
+							<month type="3" alt="proposed-x1001" draft="unconfirmed">Meu</month>
+							<month type="4">Ebr</month>
+							<month type="5">Me</month>
+							<month type="6">Efn</month>
+							<month type="6" alt="proposed-x1001" draft="unconfirmed">Efe</month>
+							<month type="7">Gor</month>
+							<month type="8">Est</month>
+							<month type="9">Gwn</month>
+							<month type="9" alt="proposed-x1001" draft="unconfirmed">Gwy</month>
+							<month type="10">Hed</month>
+							<month type="11">Du</month>
+							<month type="12">Kev</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Mys Genver</month>
+							<month type="1" alt="proposed-x1001" draft="unconfirmed">Mis Genver</month>
+							<month type="2">Mys Whevrel</month>
+							<month type="2" alt="proposed-x1001" draft="unconfirmed">Mis Hwevrel</month>
+							<month type="3">Mys Merth</month>
+							<month type="3" alt="proposed-x1001" draft="unconfirmed">Mis Meurth</month>
+							<month type="4">Mys Ebrel</month>
+							<month type="4" alt="proposed-x1001" draft="unconfirmed">Mis Ebrel</month>
+							<month type="5">Mys Me</month>
+							<month type="5" alt="proposed-x1001" draft="unconfirmed">Mis Me</month>
+							<month type="6">Mys Efan</month>
+							<month type="6" alt="proposed-x1001" draft="unconfirmed">Mis Efen</month>
+							<month type="7">Mys Gortheren</month>
+							<month type="7" alt="proposed-x1001" draft="unconfirmed">Mis Gortheren</month>
+							<month type="8">Mye Est</month>
+							<month type="8" alt="proposed-x1001" draft="unconfirmed">Mis Est</month>
+							<month type="9">Mys Gwyngala</month>
+							<month type="9" alt="proposed-x1001" draft="unconfirmed">Mis Gwynngala</month>
+							<month type="10">Mys Hedra</month>
+							<month type="10" alt="proposed-x1001" draft="unconfirmed">Mis Hedra</month>
+							<month type="11">Mys Du</month>
+							<month type="11" alt="proposed-x1001" draft="unconfirmed">Mis Du</month>
+							<month type="12">Mys Kevardhu</month>
+							<month type="12" alt="proposed-x1001" draft="unconfirmed">Mis Kevardhu</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1" draft="unconfirmed">1</month>
+							<month type="2" draft="unconfirmed">2</month>
+							<month type="3" draft="unconfirmed">3</month>
+							<month type="4" draft="unconfirmed">4</month>
+							<month type="5" draft="unconfirmed">5</month>
+							<month type="6" draft="unconfirmed">6</month>
+							<month type="7" draft="unconfirmed">7</month>
+							<month type="8" draft="unconfirmed">8</month>
+							<month type="9" draft="unconfirmed">9</month>
+							<month type="10" draft="unconfirmed">10</month>
+							<month type="11" draft="unconfirmed">11</month>
+							<month type="12" draft="unconfirmed">12</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Sul</day>
+							<day type="mon">Lun</day>
+							<day type="tue">Mth</day>
+							<day type="tue" alt="proposed-x1001" draft="unconfirmed">Meu</day>
+							<day type="wed">Mhr</day>
+							<day type="wed" alt="proposed-x1001" draft="unconfirmed">Mer</day>
+							<day type="thu">Yow</day>
+							<day type="fri">Gwe</day>
+							<day type="sat">Sad</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">De Sul</day>
+							<day type="mon">De Lun</day>
+							<day type="tue">De Merth</day>
+							<day type="tue" alt="proposed-x1001" draft="unconfirmed">De Meurth</day>
+							<day type="wed">De Merher</day>
+							<day type="thu">De Yow</day>
+							<day type="fri">De Gwener</day>
+							<day type="sat">De Sadorn</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" draft="unconfirmed">1</day>
+							<day type="mon" draft="unconfirmed">2</day>
+							<day type="tue" draft="unconfirmed">3</day>
+							<day type="wed" draft="unconfirmed">4</day>
+							<day type="thu" draft="unconfirmed">5</day>
+							<day type="fri" draft="unconfirmed">6</day>
+							<day type="sat" draft="unconfirmed">7</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="unconfirmed">Q1</quarter>
+							<quarter type="2" draft="unconfirmed">Q2</quarter>
+							<quarter type="3" draft="unconfirmed">Q3</quarter>
+							<quarter type="4" draft="unconfirmed">Q4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="unconfirmed">Q1</quarter>
+							<quarter type="2" draft="unconfirmed">Q2</quarter>
+							<quarter type="3" draft="unconfirmed">Q3</quarter>
+							<quarter type="4" draft="unconfirmed">Q4</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="pm">p.m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">AM</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">PM</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraAbbr>
+						<era type="0">RC</era>
+						<era type="1">AD</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">EEEE d MMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">d MMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">d MMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="unconfirmed">dd/MM/yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="HHmm" draft="unconfirmed">HH:mm</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="unconfirmed">dd/MM</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
+						<dateFormatItem id="mmss" draft="unconfirmed">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="unconfirmed">MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM y</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+				<fields>
+					<field type="year">
+						<displayName draft="unconfirmed">Bledhen</displayName>
+					</field>
+					<field type="month">
+						<displayName draft="unconfirmed">Mis</displayName>
+					</field>
+					<field type="week">
+						<displayName draft="unconfirmed">Seythun</displayName>
+					</field>
+					<field type="day">
+						<displayName draft="unconfirmed">Dedh</displayName>
+					</field>
+					<field type="weekday">
+						<displayName draft="unconfirmed">Dedh an seythun</displayName>
+					</field>
+					<field type="dayperiod">
+						<displayName draft="unconfirmed">AM/PM</displayName>
+					</field>
+					<field type="hour">
+						<displayName draft="unconfirmed">Eur</displayName>
+					</field>
+				</fields>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
+			<regionFormat draft="unconfirmed">{0}</regionFormat>
+			<zone type="Etc/Unknown">
+				<exemplarCity draft="unconfirmed">Ankoth</exemplarCity>
+			</zone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencies>
+			<currency type="EUR">
+				<displayName draft="unconfirmed">Euro</displayName>
+			</currency>
+		</currencies>
+	</numbers>
+</ldml>

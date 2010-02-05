@@ -1,0 +1,3057 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="vi"/>
+	</identity>
+	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>, </localeSeparator>
+		</localeDisplayPattern>
+		<languages>
+			<language type="af" draft="contributed">Tiếng Nam Phi</language>
+			<language type="am" draft="contributed">Tiếng Amharic</language>
+			<language type="ar">Tiếng A-rập</language>
+			<language type="as" draft="contributed">Tiếng Assam</language>
+			<language type="ay" draft="contributed">Tiếng Aymara</language>
+			<language type="az">Tiếng Ai-déc-bai-gian</language>
+			<language type="be">Tiếng Bê-la-rút</language>
+			<language type="bg">Tiếng Bun-ga-ri</language>
+			<language type="bh" draft="contributed">Tiếng Bihari</language>
+			<language type="bn" draft="contributed">Tiếng Bengali (Ấn Độ)</language>
+			<language type="bn" alt="proposed-x1001" draft="unconfirmed">Tiếng Bengali</language>
+			<language type="bo">Tiếng Tây Tạng</language>
+			<language type="br" draft="contributed">Tiếng Breton</language>
+			<language type="bs" draft="contributed">Tiếng Nam Tư</language>
+			<language type="ca">Tiếng Ca-ta-lăng</language>
+			<language type="cs">Tiếng Séc</language>
+			<language type="cy" draft="contributed">Tiếng Xentơ</language>
+			<language type="da">Tiếng Đan Mạch</language>
+			<language type="de">Tiếng Đức</language>
+			<language type="el">Tiếng Hy Lạp</language>
+			<language type="en">Tiếng Anh</language>
+			<language type="en_GB" draft="contributed">Tiếng Anh (Anh)</language>
+			<language type="en_US" draft="contributed">Tiếng Anh (Mỹ)</language>
+			<language type="eo">Tiếng Quốc Tế Ngữ</language>
+			<language type="es">Tiếng Tây Ban Nha</language>
+			<language type="et">Tiếng E-xtô-ni-a</language>
+			<language type="eu" draft="contributed">Tiếng Basque</language>
+			<language type="fa">Tiếng Ba Tư</language>
+			<language type="fi">Tiếng Phần Lan</language>
+			<language type="fil" draft="contributed">Tiếng Philipin</language>
+			<language type="fo" draft="contributed">Tiếng Faore</language>
+			<language type="fr">Tiếng Pháp</language>
+			<language type="fy" draft="contributed">Tiếng Frisian</language>
+			<language type="ga">Tiếng Ai-len</language>
+			<language type="gd" draft="contributed">Tiếng Xentơ (Xcốt len)</language>
+			<language type="gl" draft="contributed">Tiếng Galician</language>
+			<language type="gn" draft="contributed">Tiếng Guarani</language>
+			<language type="gu" draft="contributed">Tiếng Gujarati</language>
+			<language type="he">Tiếng Hê-brơ</language>
+			<language type="hi">Tiếng Hin-đi</language>
+			<language type="hr">Tiếng Crô-a-ti-a</language>
+			<language type="hu">Tiếng Hung-ga-ri</language>
+			<language type="hy">Tiếng Ác-mê-ni</language>
+			<language type="ia">Tiếng Khoa Học Quốc Tế</language>
+			<language type="id">Tiếng In-đô-nê-xia</language>
+			<language type="is">Tiếng Ai-xơ-len</language>
+			<language type="it">Tiếng Ý</language>
+			<language type="ja">Tiếng Nhật</language>
+			<language type="jv">Tiếng Gia-va</language>
+			<language type="ka" draft="contributed">Tiếng Georgian</language>
+			<language type="km">Tiếng Campuchia</language>
+			<language type="kn">Tiếng Kan-na-đa</language>
+			<language type="ko">Tiếng Hàn Quốc</language>
+			<language type="ks" draft="contributed">Tiếng Kashmiri</language>
+			<language type="ku" draft="contributed">Tiếng Kurd (Iran)</language>
+			<language type="ku" alt="proposed-x1001" draft="unconfirmed">Tiếng Kurd</language>
+			<language type="ky" draft="contributed">Tiếng Kyrgyz</language>
+			<language type="la">Tiếng La-tinh</language>
+			<language type="ln" draft="contributed">Tiếng Lingala</language>
+			<language type="lo">Tiếng Lào</language>
+			<language type="lt">Tiếng Lít-va</language>
+			<language type="lv">Tiếng Lát-vi-a</language>
+			<language type="mk">Tiếng Ma-xê-đô-ni-a</language>
+			<language type="ml" draft="contributed">Tiếng Malayalam</language>
+			<language type="mn">Tiếng Mông Cổ</language>
+			<language type="mr" draft="contributed">Tiếng Marathi</language>
+			<language type="ms">Tiếng Ma-lay-xi-a</language>
+			<language type="mt" draft="contributed">Tiếng Mantơ</language>
+			<language type="ne">Tiếng Nê-pan</language>
+			<language type="nl">Tiếng Hà Lan</language>
+			<language type="nn" draft="contributed">Tiếng Na Uy (Nynorsk)</language>
+			<language type="no">Tiếng Na Uy</language>
+			<language type="oc" draft="contributed">Tiếng Occitan</language>
+			<language type="or" draft="contributed">Tiếng Ô-ri-a</language>
+			<language type="pa" draft="contributed">Tiếng Punjabi</language>
+			<language type="pl">Tiếng Ba Lan</language>
+			<language type="ps" draft="contributed">Tiếng Pa-tô</language>
+			<language type="pt">Tiếng Bồ Đào Nha</language>
+			<language type="pt_BR" draft="contributed">Tiếng Bồ Đào Nha (Braxin)</language>
+			<language type="pt_PT" draft="contributed">Tiếng Bồ Đào Nha (I-bê-ri)</language>
+			<language type="rm" draft="contributed">Tiếng Rhaeto-Romance</language>
+			<language type="ro">Tiếng Ru-ma-ni</language>
+			<language type="ru">Tiếng Nga</language>
+			<language type="sa">Tiếng Phạn</language>
+			<language type="sd" draft="contributed">Tiếng Sin-hi</language>
+			<language type="sh" draft="contributed">Tiếng Xéc bi - Croatia</language>
+			<language type="si" draft="contributed">Tiếng Sinhala</language>
+			<language type="sk">Tiếng Xlô-vác</language>
+			<language type="sl">Tiếng Xlô-ven</language>
+			<language type="so">Tiếng Xô-ma-li</language>
+			<language type="sq">Tiếng An-ba-ni</language>
+			<language type="sr">Tiếng Séc-bi</language>
+			<language type="st" draft="provisional">Tiếng Sesotho</language>
+			<language type="su" draft="contributed">Tiếng Xu đăng</language>
+			<language type="sv">Tiếng Thụy Điển</language>
+			<language type="sw" draft="contributed">Tiếng Bantu (Đông Phi)</language>
+			<language type="sw" alt="proposed-x1001" draft="unconfirmed">Tiếng Swahili</language>
+			<language type="swb" draft="provisional">Tiếng Cômo</language>
+			<language type="ta" draft="contributed">Tiếng Tamil</language>
+			<language type="te" draft="contributed">Tiếng Telugu</language>
+			<language type="th">Tiếng Thái</language>
+			<language type="ti" draft="contributed">Tiếng Tigrigya</language>
+			<language type="tk" draft="contributed">Tiếng Tuôc-men</language>
+			<language type="tl" draft="provisional">Tiếng Tagalog</language>
+			<language type="tlh" draft="contributed">Tiếng Klingon</language>
+			<language type="tr">Tiếng Thổ Nhĩ Kỳ</language>
+			<language type="tw" draft="contributed">Tiếng Twi</language>
+			<language type="ug" draft="contributed">Tiếng Uighur</language>
+			<language type="uk">Tiếng U-crai-na</language>
+			<language type="und" draft="provisional">Tiếng không rõ</language>
+			<language type="ur" draft="contributed">Tiếng Uđu</language>
+			<language type="uz">Tiếng U-dơ-bếch</language>
+			<language type="vi">Tiếng Việt</language>
+			<language type="wo" draft="contributed">Tiếng Wolof</language>
+			<language type="xh" draft="contributed">Tiếng Bantu</language>
+			<language type="yi">Tiếng Y-đit</language>
+			<language type="yue" draft="provisional">Tiếng Quảng Đông</language>
+			<language type="zh">Tiếng Trung Quốc</language>
+			<language type="zh_Hans" draft="contributed">Tiếng Trung Quốc (Giản thể)</language>
+			<language type="zh_Hant" draft="contributed">Tiếng Trung Quốc (Phồn thể)</language>
+			<language type="zu" draft="contributed">Tiếng Zulu</language>
+		</languages>
+		<scripts>
+			<script type="Zxxx" draft="provisional">Zxxx</script>
+			<script type="Zzzz" draft="provisional">Zzzz</script>
+		</scripts>
+		<territories>
+			<territory type="001" draft="contributed">Thế giới</territory>
+			<territory type="002">Châu Phi</territory>
+			<territory type="003" draft="contributed">Bắc Mỹ</territory>
+			<territory type="005" draft="contributed">Nam Mỹ</territory>
+			<territory type="009" draft="contributed">Châu Đại Dương</territory>
+			<territory type="011">Tây Phi</territory>
+			<territory type="013">Trung Mỹ</territory>
+			<territory type="014" draft="contributed">Đông Phí</territory>
+			<territory type="015" draft="contributed">Bắc Phi</territory>
+			<territory type="017" draft="contributed">Trung Phi</territory>
+			<territory type="018" draft="contributed">Miền Nam Châu Phi</territory>
+			<territory type="019" draft="contributed">Châu Mỹ</territory>
+			<territory type="021" draft="contributed">Miền Bắc Châu Mỹ</territory>
+			<territory type="029" draft="contributed">Ca-ri-bê</territory>
+			<territory type="030" draft="contributed">Đông Á</territory>
+			<territory type="034">Nam Á</territory>
+			<territory type="035">Đông Nam Á</territory>
+			<territory type="039">Nam Âu</territory>
+			<territory type="053" draft="contributed">Úc và New Zealand</territory>
+			<territory type="054" draft="contributed">Melanesia</territory>
+			<territory type="057" draft="contributed">Vùng Micronesian</territory>
+			<territory type="061" draft="contributed">Polynesia</territory>
+			<territory type="062">Trung Nam Á</territory>
+			<territory type="142" draft="contributed">Châu Á</territory>
+			<territory type="143" draft="contributed">Trung Á</territory>
+			<territory type="145">Tây Á</territory>
+			<territory type="150">Âu Châu</territory>
+			<territory type="151" draft="contributed">Đông Âu</territory>
+			<territory type="154" draft="contributed">Miền Bắc Châu Âu</territory>
+			<territory type="155">Tây Âu</territory>
+			<territory type="419">Châu Mỹ La-tinh và Ca-ri-be</territory>
+			<territory type="AC" draft="provisional">Đảo Ascension</territory>
+			<territory type="AD" draft="contributed">Andorra</territory>
+			<territory type="AE">Các Tiểu Vương quốc A-rập Thống nhất</territory>
+			<territory type="AF">Áp-ga-ni-xtan</territory>
+			<territory type="AG">An-ti-gu-a và Ba-bu-đa</territory>
+			<territory type="AL">An-ba-ni</territory>
+			<territory type="AM">Ác-mê-ni-a</territory>
+			<territory type="AN" draft="contributed">Tây Ấn Hà Lan</territory>
+			<territory type="AO">Ăng-gô-la</territory>
+			<territory type="AQ">Nam Cực</territory>
+			<territory type="AR">Ác-hen-ti-na</territory>
+			<territory type="AS">Đảo Somoa thuộc Mỹ</territory>
+			<territory type="AT">Áo</territory>
+			<territory type="AU">Úc</territory>
+			<territory type="AX">Quần đảo Aland</territory>
+			<territory type="AZ">Ai-déc-bai-gian</territory>
+			<territory type="BA">Bô-xni-a Héc-xê-gô-vi-na</territory>
+			<territory type="BB">Bác-ba-đốt</territory>
+			<territory type="BD">Băng-la-đét</territory>
+			<territory type="BE">Bỉ</territory>
+			<territory type="BF">Buốc-ki-na Pha-xô</territory>
+			<territory type="BG">Bun-ga-ri</territory>
+			<territory type="BH">Ba-ren</territory>
+			<territory type="BI">Bu-run-đi</territory>
+			<territory type="BJ">Bê-nanh</territory>
+			<territory type="BL" draft="contributed">BL</territory>
+			<territory type="BN">Bru-nây</territory>
+			<territory type="BO">Bô-li-vi-a</territory>
+			<territory type="BR">Bra-xin</territory>
+			<territory type="BS">Ba-ha-ma</territory>
+			<territory type="BT" draft="contributed">Bu-tan (Bhutan)</territory>
+			<territory type="BT" alt="proposed-x1001" draft="unconfirmed">Bhutan</territory>
+			<territory type="BV" draft="contributed">Đảo Bouvet (Na Uy)</territory>
+			<territory type="BV" alt="proposed-x1001" draft="unconfirmed">Đảo Bouvet</territory>
+			<territory type="BW">Bốt-xoa-na</territory>
+			<territory type="BY">Bê-la-rút</territory>
+			<territory type="BZ">Bê-li-xê</territory>
+			<territory type="CA">Ca-na-đa</territory>
+			<territory type="CC">Quần đảo Cocos</territory>
+			<territory type="CD" draft="contributed">Cộng hoà dân chủ Côngô</territory>
+			<territory type="CD" alt="proposed-x1001" draft="unconfirmed">Công-gô - Kinshasa</territory>
+			<territory type="CF">Cộng hòa Trung Phi</territory>
+			<territory type="CG">Công-gô</territory>
+			<territory type="CG" alt="proposed-x1001" draft="unconfirmed">Công-gô - Brazzaville</territory>
+			<territory type="CH">Thụy Sĩ</territory>
+			<territory type="CI">Bờ Biển Ngà</territory>
+			<territory type="CK" draft="contributed">Quần Đảo Cook</territory>
+			<territory type="CL">Chi-lê</territory>
+			<territory type="CM">Ca-mơ-run</territory>
+			<territory type="CN">Trung Quốc</territory>
+			<territory type="CO">Cô-lôm-bi-a</territory>
+			<territory type="CP" draft="provisional">Đảo Clipperton</territory>
+			<territory type="CR">Cốt-xta Ri-ca</territory>
+			<territory type="CS">Séc-bia</territory>
+			<territory type="CU">Cu Ba</territory>
+			<territory type="CV">Cáp-ve</territory>
+			<territory type="CX">Đảo Giáng Sinh</territory>
+			<territory type="CY">Síp</territory>
+			<territory type="CZ">Cộng hòa Séc</territory>
+			<territory type="DE">Đức</territory>
+			<territory type="DG" draft="provisional">Diego Garcia</territory>
+			<territory type="DJ">Gi-bu-ti</territory>
+			<territory type="DK">Đan Mạch</territory>
+			<territory type="DO">Cộng hoà Đô-mi-ni-ca</territory>
+			<territory type="DZ">An-giê-ri</territory>
+			<territory type="EA" draft="provisional">Ceuta và Melilla</territory>
+			<territory type="EC">Ê-cu-a-đo</territory>
+			<territory type="EE">E-xtô-ni-a</territory>
+			<territory type="EG">Ai Cập</territory>
+			<territory type="EH">Tây Sahara</territory>
+			<territory type="ER">Ê-ri-tơ-rê-a</territory>
+			<territory type="ES">Tây Ban Nha</territory>
+			<territory type="ET">Ê-ti-ô-pi-a</territory>
+			<territory type="EU">Liên Minh Châu Âu</territory>
+			<territory type="FI">Phần Lan</territory>
+			<territory type="FJ">Phi-gi</territory>
+			<territory type="FK">Quần Đảo Falkland</territory>
+			<territory type="FM">Mi-crô-nê-xi-a</territory>
+			<territory type="FO">Quần Đảo Faroe</territory>
+			<territory type="FR">Pháp</territory>
+			<territory type="GA">Ga-bông</territory>
+			<territory type="GB">Vương quốc Anh</territory>
+			<territory type="GD">Grê-na-đa</territory>
+			<territory type="GE">Gru-di-a</territory>
+			<territory type="GF">Quiana thuộc Pháp</territory>
+			<territory type="GG" draft="contributed">Guernsey</territory>
+			<territory type="GH">Gha-na</territory>
+			<territory type="GL">Băng Đảo</territory>
+			<territory type="GM">Găm-bi-a</territory>
+			<territory type="GN">Ghi-nê</territory>
+			<territory type="GQ">Ghi-nê Xích-đạo</territory>
+			<territory type="GR">Hy Lạp</territory>
+			<territory type="GS" draft="contributed">Quần đảo Nam Georgia và Nam Sandwich</territory>
+			<territory type="GT">Goa-tê-ma-la</territory>
+			<territory type="GU">Đảo Gu-am</territory>
+			<territory type="GW">Ghi-nê Bít-xao</territory>
+			<territory type="GY">Guy-a-na</territory>
+			<territory type="HK">Đặc khu hành chính Hồng Kông thuộc CHND Trung Hoa</territory>
+			<territory type="HK" alt="short">Hồng Kông</territory>
+			<territory type="HM" draft="contributed">Đảo Heard và Quần đảo McDonald</territory>
+			<territory type="HN">Hôn-đu-rát</territory>
+			<territory type="HR">Crô-a-ti-a</territory>
+			<territory type="HT">Ha-i-ti</territory>
+			<territory type="HU">Hung-ga-ri</territory>
+			<territory type="IC" draft="provisional">Quần đảo Canary</territory>
+			<territory type="ID">Nam Dương</territory>
+			<territory type="IE">Ai-len</territory>
+			<territory type="IL">I-xra-en</territory>
+			<territory type="IM" draft="contributed">Đảo Man</territory>
+			<territory type="IN">Ấn Độ</territory>
+			<territory type="IO" draft="contributed">Thuộc địa Anh tại Ấn Độ Dương</territory>
+			<territory type="IQ">I-rắc</territory>
+			<territory type="IR">I-ran</territory>
+			<territory type="IS">Ai-xơ-len</territory>
+			<territory type="IT">Ý</territory>
+			<territory type="JE" draft="contributed">Jersey</territory>
+			<territory type="JM">Ha-mai-ca</territory>
+			<territory type="JO">Gióc-đa-ni</territory>
+			<territory type="JP">Nhật Bản</territory>
+			<territory type="KE">Kê-ni-a</territory>
+			<territory type="KG">Cư-rơ-gư-xtan</territory>
+			<territory type="KH">Campuchia</territory>
+			<territory type="KI">Ki-ri-ba-ti</territory>
+			<territory type="KM">Cô-mô</territory>
+			<territory type="KN">Xan-kít và Nê-vi</territory>
+			<territory type="KP">Bắc Triều Tiên</territory>
+			<territory type="KR">Hàn Quốc</territory>
+			<territory type="KW">Cô-oét</territory>
+			<territory type="KY">Quần Đảo Cayman</territory>
+			<territory type="KZ">Ka-dắc-xtan</territory>
+			<territory type="LA">Lào</territory>
+			<territory type="LB">Li-băng</territory>
+			<territory type="LC">Xan Lu-xi</territory>
+			<territory type="LI">Lich-ten-xtên</territory>
+			<territory type="LK">Xri Lan-ca</territory>
+			<territory type="LR">Li-bê-ri-a</territory>
+			<territory type="LS">Lê-xô-thô</territory>
+			<territory type="LT">Li-tu-a-ni-a</territory>
+			<territory type="LU">Lúc-xăm-bua</territory>
+			<territory type="LV">Lát-vi-a</territory>
+			<territory type="LY">Li-bi</territory>
+			<territory type="MA">Ma-rốc</territory>
+			<territory type="MC">Mô-na-cô</territory>
+			<territory type="MD">Môn-đô-va</territory>
+			<territory type="ME" draft="contributed">Montenegro</territory>
+			<territory type="MF" draft="contributed">MF</territory>
+			<territory type="MG">Ma-đa-gát-xca</territory>
+			<territory type="MH">Quần đảo Mác-san</territory>
+			<territory type="MK">Ma-xê-đô-ni-a</territory>
+			<territory type="MK" alt="proposed-x1001" draft="unconfirmed">Macedonia</territory>
+			<territory type="ML">Ma-li</territory>
+			<territory type="MM">Mi-an-ma</territory>
+			<territory type="MM" alt="proposed-x1001" draft="unconfirmed">Mi-an-ma [Miến Điện]</territory>
+			<territory type="MN">Mông Cổ</territory>
+			<territory type="MO" draft="contributed">Đặc khu hành chính Macao thuộc CHND Trung Hoa</territory>
+			<territory type="MO" alt="short" draft="contributed">Macao</territory>
+			<territory type="MP" draft="contributed">Quần Đảo Bắc Mariana</territory>
+			<territory type="MQ" draft="contributed">MQ</territory>
+			<territory type="MR">Mô-ri-ta-ni</territory>
+			<territory type="MT">Man-ta</territory>
+			<territory type="MU">Mô-ri-xơ</territory>
+			<territory type="MV">Man-đi-vơ</territory>
+			<territory type="MW">Ma-la-uy</territory>
+			<territory type="MX">Mê-hi-cô</territory>
+			<territory type="MY">Ma-lay-xi-a</territory>
+			<territory type="MZ">Mô-dăm-bích</territory>
+			<territory type="NA">Nam-mi-bi-a</territory>
+			<territory type="NC">New Caledonia</territory>
+			<territory type="NE">Ni-giê</territory>
+			<territory type="NF">Đảo Norfolk</territory>
+			<territory type="NG">Ni-giê-ri-a</territory>
+			<territory type="NI">Ni-ca-ra-goa</territory>
+			<territory type="NL">Hà Lan</territory>
+			<territory type="NO">Na Uy</territory>
+			<territory type="NP">Nê-pan</territory>
+			<territory type="NZ">Niu Di-lân</territory>
+			<territory type="OM">Ô-man</territory>
+			<territory type="PA">Pa-na-ma</territory>
+			<territory type="PE">Pê-ru</territory>
+			<territory type="PF">Polynesia thuộc Pháp</territory>
+			<territory type="PG">Pa-pu-a Niu Ghi-nê</territory>
+			<territory type="PH">Phi-lip-pin</territory>
+			<territory type="PK">Pa-ki-xtan</territory>
+			<territory type="PL">Ba Lan</territory>
+			<territory type="PM" draft="contributed">Saint Pierre và Miquelon</territory>
+			<territory type="PS">Lãnh thổ Palestine</territory>
+			<territory type="PS" alt="proposed-x1001" draft="unconfirmed">Lãnh thổ Palestin</territory>
+			<territory type="PT">Bồ Đào Nha</territory>
+			<territory type="PY">Pa-ra-goay</territory>
+			<territory type="QA">Ca-ta</territory>
+			<territory type="QO" draft="contributed">Vùng xa xôi thuộc Châu Đại Dương</territory>
+			<territory type="RE" draft="contributed">RE</territory>
+			<territory type="RO">Ru-ma-ni</territory>
+			<territory type="RS" draft="contributed">Xéc-bi</territory>
+			<territory type="RU">Nga</territory>
+			<territory type="RW">Ru-an-đa</territory>
+			<territory type="SA">A-rập Xê-út</territory>
+			<territory type="SB">Quần đảo Xô-lô-mông</territory>
+			<territory type="SC">Xây-sen</territory>
+			<territory type="SD">Xu-đăng</territory>
+			<territory type="SE">Thụy Điển</territory>
+			<territory type="SG">Xin-ga-po</territory>
+			<territory type="SH">Saint Helena</territory>
+			<territory type="SI">Xlô-ven-ni-a</territory>
+			<territory type="SJ" draft="contributed">Svalbard và Jan Mayen</territory>
+			<territory type="SK">Xlô-va-ki-a</territory>
+			<territory type="SL">Xi-ê-ra Lê-ôn</territory>
+			<territory type="SM">Xan Ma-ri-nô</territory>
+			<territory type="SN">Xê-nê-gan</territory>
+			<territory type="SO">Xô-ma-li</territory>
+			<territory type="SR">Xu-ri-nam</territory>
+			<territory type="ST">Xao Tô-mê và Prin-xi-pê</territory>
+			<territory type="SV">En-san-va-đo</territory>
+			<territory type="SY">Xi-ri</territory>
+			<territory type="SZ">Xoa-di-len</territory>
+			<territory type="TA" draft="provisional">Tristan da Cunha</territory>
+			<territory type="TC" draft="contributed">Quần Đảo Turk và Caicos</territory>
+			<territory type="TD">Sát</territory>
+			<territory type="TF">Thuộc Địa Nam của Pháp</territory>
+			<territory type="TG">Tô-gô</territory>
+			<territory type="TH">Thái Lan</territory>
+			<territory type="TJ">Tát-gi-ki-xtan</territory>
+			<territory type="TK" draft="contributed">Tokelau</territory>
+			<territory type="TL">Đông Ti-mo</territory>
+			<territory type="TM">Tuốc-mê-ni-xtan</territory>
+			<territory type="TN">Tuy-ni-di</territory>
+			<territory type="TO">Tông-ga</territory>
+			<territory type="TR">Thổ Nhĩ Kỳ</territory>
+			<territory type="TT">Tri-ni-đát và Tô-ba-gô</territory>
+			<territory type="TV">Tu-va-lu</territory>
+			<territory type="TW">Đài Loan</territory>
+			<territory type="TZ">Tan-da-ni-a</territory>
+			<territory type="UA">U-crai-na</territory>
+			<territory type="UG">U-gan-đa</territory>
+			<territory type="UM" draft="contributed">Các đảo nhỏ xa trung tâm thuộc Mỹ</territory>
+			<territory type="US">Hoa Kỳ</territory>
+			<territory type="UY">U-ru-goay</territory>
+			<territory type="UZ">U-dơ-bê-ki-xtan</territory>
+			<territory type="VA">Va-ti-căng</territory>
+			<territory type="VC">Xan Vin-xen và Grê-na-din</territory>
+			<territory type="VE">Vê-nê-zu-ê-la</territory>
+			<territory type="VG">Đảo Virgin, thuộc Anh</territory>
+			<territory type="VI" draft="contributed">Quần đảo Virgin, Mỹ</territory>
+			<territory type="VN">Việt Nam</territory>
+			<territory type="VU">Va-nu-a-tu</territory>
+			<territory type="WF" draft="contributed">Wallis và Futuna</territory>
+			<territory type="WS">Xa-moa</territory>
+			<territory type="YE">Y-ê-men</territory>
+			<territory type="YT" draft="contributed">YT</territory>
+			<territory type="ZA">Nam Phi</territory>
+			<territory type="ZM">Dăm-bi-a</territory>
+			<territory type="ZW">Dim-ba-bu-ê</territory>
+			<territory type="ZZ" draft="contributed">Vùng Chưa biết hoặc không Hợp lệ</territory>
+		</territories>
+		<variants>
+			<variant type="PINYIN" draft="provisional">PINYIN</variant>
+			<variant type="WADEGILE" draft="provisional">WADEGILE</variant>
+		</variants>
+		<types>
+			<type type="gregorian" key="calendar" draft="contributed">gregorian</type>
+		</types>
+		<codePatterns>
+			<codePattern type="language" draft="contributed">Ngôn ngữ: {0}</codePattern>
+			<codePattern type="script" draft="contributed">Chữ viết: {0}</codePattern>
+			<codePattern type="territory" draft="contributed">Vùng: {0}</codePattern>
+		</codePatterns>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[a à ả ã á ạ ă ằ ẳ ẵ ắ ặ â ầ ẩ ẫ ấ ậ b-d đ e è ẻ ẽ é ẹ ê ề ể ễ ế ệ f-i ì ỉ ĩ í ị j-o ò ỏ õ ó ọ ô ồ ổ ỗ ố ộ ơ ờ ở ỡ ớ ợ p-u ù ủ ũ ú ụ ư ừ ử ữ ứ ự v-y ỳ ỷ ỹ ý ỵ z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" alt="proposed-x1001" draft="unconfirmed">[á à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ß ú ù ŭ û ü ū ÿ]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol">[a-d đ e-z]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="provisional">[A Ă Â B C D Đ E Ê F G H I J K L M N O Ô Ơ P Q R S T U Ư V W X Y Z]</exemplarCharacters>
+		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[a à ả ã á ạ ă ằ ẳ ẵ ắ ặ â ầ ẩ ẫ ấ ậ b c d đ e è ẻ ẽ é ẹ ê ề ể ễ ế ệ f g h i ì ỉ ĩ í ị j k l m n o ò ỏ õ ó ọ ô ồ ổ ỗ ố ộ ơ ờ ở ỡ ớ ợ p q r s t u ù ủ ũ ú ụ ư ừ ử ữ ứ ự v w x y ỳ ỷ ỹ ý ỵ z]</exemplarCharacters>
+	</characters>
+	<delimiters>
+		<quotationStart>“</quotationStart>
+		<quotationEnd>”</quotationEnd>
+		<alternateQuotationStart>‘</alternateQuotationStart>
+		<alternateQuotationEnd>’</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">thg 1</month>
+							<month type="2">thg 2</month>
+							<month type="3">thg 3</month>
+							<month type="4">thg 4</month>
+							<month type="5">thg 5</month>
+							<month type="6">thg 6</month>
+							<month type="7">thg 7</month>
+							<month type="8">thg 8</month>
+							<month type="9">thg 9</month>
+							<month type="10">thg 10</month>
+							<month type="11">thg 11</month>
+							<month type="12">thg 12</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="provisional">1</month>
+							<month type="2" draft="provisional">2</month>
+							<month type="3" draft="provisional">3</month>
+							<month type="4" draft="provisional">4</month>
+							<month type="5" draft="provisional">5</month>
+							<month type="6" draft="provisional">6</month>
+							<month type="7" draft="provisional">7</month>
+							<month type="8" draft="provisional">8</month>
+							<month type="9" draft="provisional">9</month>
+							<month type="10" draft="provisional">10</month>
+							<month type="11" draft="provisional">11</month>
+							<month type="12" draft="provisional">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">tháng một</month>
+							<month type="2">tháng hai</month>
+							<month type="3">tháng ba</month>
+							<month type="4">tháng tư</month>
+							<month type="5">tháng năm</month>
+							<month type="6">tháng sáu</month>
+							<month type="7">tháng bảy</month>
+							<month type="8">tháng tám</month>
+							<month type="9">tháng chín</month>
+							<month type="10">tháng mười</month>
+							<month type="11">tháng mười một</month>
+							<month type="12">tháng mười hai</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="provisional">thg 1</month>
+							<month type="2" draft="provisional">thg 2</month>
+							<month type="3" draft="provisional">thg 3</month>
+							<month type="4" draft="provisional">thg 4</month>
+							<month type="5" draft="provisional">thg 5</month>
+							<month type="6" draft="provisional">thg 6</month>
+							<month type="7" draft="provisional">thg 7</month>
+							<month type="8" draft="provisional">thg 8</month>
+							<month type="9" draft="provisional">thg 9</month>
+							<month type="10" draft="provisional">thg 10</month>
+							<month type="11" draft="provisional">thg 11</month>
+							<month type="12" draft="provisional">thg 12</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="provisional">1</month>
+							<month type="2" draft="provisional">2</month>
+							<month type="3" draft="provisional">3</month>
+							<month type="4" draft="provisional">4</month>
+							<month type="5" draft="provisional">5</month>
+							<month type="6" draft="provisional">6</month>
+							<month type="7" draft="provisional">7</month>
+							<month type="8" draft="provisional">8</month>
+							<month type="9" draft="provisional">9</month>
+							<month type="10" draft="provisional">10</month>
+							<month type="11" draft="provisional">11</month>
+							<month type="12" draft="provisional">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="provisional">tháng một</month>
+							<month type="2" draft="provisional">tháng hai</month>
+							<month type="3" draft="provisional">tháng ba</month>
+							<month type="4" draft="provisional">tháng tư</month>
+							<month type="5" draft="provisional">tháng năm</month>
+							<month type="6" draft="provisional">tháng sáu</month>
+							<month type="7" draft="provisional">tháng bảy</month>
+							<month type="8" draft="provisional">tháng tám</month>
+							<month type="9" draft="provisional">tháng chín</month>
+							<month type="10" draft="provisional">tháng mười</month>
+							<month type="11" draft="provisional">tháng mười một</month>
+							<month type="12" draft="provisional">tháng mười hai</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">CN</day>
+							<day type="mon">Th 2</day>
+							<day type="tue">Th 3</day>
+							<day type="wed">Th 4</day>
+							<day type="thu">Th 5</day>
+							<day type="fri">Th 6</day>
+							<day type="sat">Th 7</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="provisional">CN</day>
+							<day type="mon" draft="provisional">2</day>
+							<day type="tue" draft="provisional">3</day>
+							<day type="wed" draft="provisional">4</day>
+							<day type="thu" draft="provisional">5</day>
+							<day type="fri" draft="provisional">6</day>
+							<day type="sat" draft="provisional">7</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Chủ nhật</day>
+							<day type="mon">Thứ hai</day>
+							<day type="tue">Thứ ba</day>
+							<day type="wed">Thứ tư</day>
+							<day type="thu">Thứ năm</day>
+							<day type="fri">Thứ sáu</day>
+							<day type="sat">Thứ bảy</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="provisional">CN</day>
+							<day type="mon" draft="provisional">Th 2</day>
+							<day type="tue" draft="provisional">Th 3</day>
+							<day type="wed" draft="provisional">Th 4</day>
+							<day type="thu" draft="provisional">Th 5</day>
+							<day type="fri" draft="provisional">Th 6</day>
+							<day type="sat" draft="provisional">Th 7</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="provisional">CN</day>
+							<day type="mon" draft="provisional">T2</day>
+							<day type="tue" draft="provisional">T3</day>
+							<day type="wed" draft="provisional">T4</day>
+							<day type="thu" draft="provisional">T5</day>
+							<day type="fri" draft="provisional">T6</day>
+							<day type="sat" draft="provisional">T7</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="provisional">Chủ nhật</day>
+							<day type="mon" draft="provisional">Thứ hai</day>
+							<day type="tue" draft="provisional">Thứ ba</day>
+							<day type="wed" draft="provisional">Thứ tư</day>
+							<day type="thu" draft="provisional">Thứ năm</day>
+							<day type="fri" draft="provisional">Thứ sáu</day>
+							<day type="sat" draft="provisional">Thứ bảy</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="provisional">Q1</quarter>
+							<quarter type="2" draft="provisional">Q2</quarter>
+							<quarter type="3" draft="provisional">Q3</quarter>
+							<quarter type="4" draft="provisional">Q4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="provisional">1</quarter>
+							<quarter type="2" draft="provisional">2</quarter>
+							<quarter type="3" draft="provisional">3</quarter>
+							<quarter type="4" draft="provisional">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="provisional">Q1</quarter>
+							<quarter type="2" draft="provisional">Q2</quarter>
+							<quarter type="3" draft="provisional">Q3</quarter>
+							<quarter type="4" draft="provisional">Q4</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="provisional">1</quarter>
+							<quarter type="2" draft="provisional">2</quarter>
+							<quarter type="3" draft="provisional">3</quarter>
+							<quarter type="4" draft="provisional">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="provisional">Q1</quarter>
+							<quarter type="2" draft="provisional">Q2</quarter>
+							<quarter type="3" draft="provisional">Q3</quarter>
+							<quarter type="4" draft="provisional">Q4</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="provisional">SA</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">CH</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="provisional">SA</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">CH</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">SA</dayPeriod>
+							<dayPeriod type="pm">CH</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="provisional">SA</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">CH</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="provisional">SA</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">CH</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="provisional">SA</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">CH</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">tr. CN</era>
+						<era type="1" draft="provisional">sau CN</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0">tr. CN</era>
+						<era type="1">sau CN</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="provisional">tr. CN</era>
+						<era type="1" draft="provisional">sau CN</era>
+					</eraNarrow>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, 'ngày' dd MMMM 'năm' y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>'Ngày' dd 'tháng' M 'năm' y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>dd-MM-yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="contributed">HH:mm:ss zzzz</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">h:mm:ss a zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="contributed">HH:mm:ss z</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">h:mm:ss a z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="contributed">HH:mm:ss</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">h:mm:ss a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="contributed">HH:mm</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">h:mm a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{0} {1}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{0} {1}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{0} {1}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{0} {1}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
+						<dateFormatItem id="EEEd" draft="provisional">d EEE</dateFormatItem>
+						<dateFormatItem id="H" draft="contributed">H</dateFormatItem>
+						<dateFormatItem id="HHmm" draft="contributed">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" draft="contributed">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hm" draft="provisional">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm" draft="provisional">H:mm</dateFormatItem>
+						<dateFormatItem id="hms" draft="provisional">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms" draft="provisional">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="M" draft="provisional">L</dateFormatItem>
+						<dateFormatItem id="Md">d-M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="contributed">dd-MM</dateFormatItem>
+						<dateFormatItem id="MMM" draft="provisional">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="mmss" draft="contributed">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="y" draft="provisional">y</dateFormatItem>
+						<dateFormatItem id="yM" draft="provisional">M/yyyy</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, d-M-yyyy</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yQ">Q yyyy</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="contributed">Q yy</dateFormatItem>
+						<dateFormatItem id="yyyy" draft="contributed">y</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="contributed">MM-yyyy</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback draft="contributed">{0} - {1}</intervalFormatFallback>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d" draft="contributed">'Ngày' d-d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a" draft="contributed">h'h' a - h'h' a</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h'h' - h'h' a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="a" draft="contributed">HH'h' - HH'h'</greatestDifference>
+							<greatestDifference id="H" draft="contributed">HH'h' - HH'h'</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a" draft="provisional">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h:mm-h:mm a</greatestDifference>
+							<greatestDifference id="m" draft="contributed">h:mm-h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H" draft="contributed">HH:mm-HH:mm</greatestDifference>
+							<greatestDifference id="m" draft="contributed">HH:mm-HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a" draft="provisional">h:mm a – h:mm a v</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h:mm-h:mm a v</greatestDifference>
+							<greatestDifference id="m" draft="contributed">h:mm-h:mm a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H" draft="contributed">HH:mm-HH:mm v</greatestDifference>
+							<greatestDifference id="m" draft="contributed">HH:mm-HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a" draft="contributed">h'h' a - h'h' a v</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h'h'-h'h' a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="a" draft="contributed">HH'h'-HH'h' v</greatestDifference>
+							<greatestDifference id="H" draft="contributed">HH'h'-HH'h' v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M" draft="contributed">'Tháng' M - 'Tháng' M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d" draft="contributed">dd/MM - dd/MM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">dd/MM - dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d" draft="contributed">EEEE, dd/MM - EEEE, dd/MM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">EEEE, dd/MM - EEEE, dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M" draft="contributed">MMM-MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d" draft="contributed">'Ngày' dd 'tháng' M - 'Ngày' dd 'tháng' M</greatestDifference>
+							<greatestDifference id="M" draft="contributed">'Ngày' dd 'tháng' M - 'Ngày' dd 'tháng' M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d" draft="contributed">EEEE, 'ngày' dd - EEEE, 'ngày' dd 'tháng' M</greatestDifference>
+							<greatestDifference id="M" draft="contributed">EEEE, 'ngày' dd 'tháng' M - EEEE, 'ngày' dd 'tháng' M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMM">
+							<greatestDifference id="M" draft="provisional">LLLL–LLLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y" draft="contributed">y-y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M" draft="contributed">MM/yyyy - MM/yyyy</greatestDifference>
+							<greatestDifference id="y" draft="contributed">MM/yyyy - MM/yyyy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d" draft="contributed">dd/MM/yyyy - dd/MM/yyyy</greatestDifference>
+							<greatestDifference id="M" draft="contributed">dd/MM/yyyy - dd/MM/yyyy</greatestDifference>
+							<greatestDifference id="y" draft="contributed">dd/MM/yyyy - dd/MM/yyyy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d" draft="contributed">EEEE, dd/MM/yyyy - EEEE, dd/MM/yyyy</greatestDifference>
+							<greatestDifference id="M" draft="contributed">EEEE, dd/MM/yyyy - EEEE, dd/MM/yyyy</greatestDifference>
+							<greatestDifference id="y" draft="contributed">EEEE, dd/MM/yyyy - EEEE, dd/MM/yyyy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M" draft="contributed">'Tháng' M - 'Tháng' M 'năm' y</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">MMM–MMM y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">'Tháng' M 'năm' y - 'Tháng' M 'năm' y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d" draft="contributed">'Ngày' dd 'tháng' M - 'Ngày' dd 'tháng' M 'năm' y</greatestDifference>
+							<greatestDifference id="M" draft="contributed">'Ngày' dd 'tháng' M - 'Ngày' dd 'tháng' M 'năm' y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">'Ngày' dd 'tháng' M 'năm' y - 'Ngày' dd 'tháng' M 'năm' y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d" draft="contributed">EEEE, 'ngày' dd MMM - EEEE, 'ngày' dd MMM 'năm' y</greatestDifference>
+							<greatestDifference id="M" draft="contributed">EEEE, 'ngày' dd MMM - EEEE, 'ngày' dd MMM 'năm' y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">EEEE, 'ngày' dd MMM 'năm' y - EEEE, 'ngày' dd MMM 'năm' y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M" draft="provisional">MMMM-MMMM y</greatestDifference>
+							<greatestDifference id="y" draft="provisional">MMMM y – MMMM y</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+				<fields>
+					<field type="era">
+						<displayName draft="provisional">Era</displayName>
+					</field>
+					<field type="year">
+						<displayName draft="provisional">Year</displayName>
+					</field>
+					<field type="month">
+						<displayName draft="provisional">Month</displayName>
+					</field>
+					<field type="week">
+						<displayName draft="provisional">Week</displayName>
+					</field>
+					<field type="day">
+						<displayName draft="provisional">Day</displayName>
+						<relative type="-3" draft="provisional">Three days ago</relative>
+						<relative type="-2" draft="provisional">The day before yesterday</relative>
+						<relative type="-1" draft="provisional">Yesterday</relative>
+						<relative type="0" draft="provisional">Today</relative>
+						<relative type="1" draft="provisional">Tomorrow</relative>
+						<relative type="2" draft="provisional">The day after tomorrow</relative>
+						<relative type="3" draft="provisional">Three days from now</relative>
+					</field>
+					<field type="weekday">
+						<displayName draft="provisional">Day of the Week</displayName>
+					</field>
+					<field type="dayperiod">
+						<displayName draft="provisional">Dayperiod</displayName>
+					</field>
+					<field type="hour">
+						<displayName draft="provisional">Hour</displayName>
+					</field>
+					<field type="minute">
+						<displayName draft="provisional">Minute</displayName>
+					</field>
+					<field type="second">
+						<displayName draft="provisional">Second</displayName>
+					</field>
+					<field type="zone">
+						<displayName draft="provisional">Zone</displayName>
+					</field>
+				</fields>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="contributed">GMT{0}</gmtFormat>
+			<regionFormat draft="contributed">{0}</regionFormat>
+			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Etc/Unknown">
+				<exemplarCity draft="contributed">Không rõ</exemplarCity>
+			</zone>
+			<zone type="Europe/Andorra">
+				<exemplarCity draft="provisional">Andorra Time</exemplarCity>
+			</zone>
+			<zone type="Antarctica/DumontDUrville">
+				<exemplarCity draft="contributed">Dumont D'Urville</exemplarCity>
+			</zone>
+			<zone type="America/Barbados">
+				<exemplarCity draft="provisional">Barbados Time</exemplarCity>
+			</zone>
+			<zone type="Asia/Bahrain">
+				<exemplarCity draft="provisional">Bahrain Time</exemplarCity>
+			</zone>
+			<zone type="America/Belize">
+				<exemplarCity draft="provisional">Belize Time</exemplarCity>
+			</zone>
+			<zone type="America/Costa_Rica">
+				<exemplarCity draft="provisional">Costa Rica Time</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Cape_Verde">
+				<exemplarCity draft="provisional">Cape Verde Time</exemplarCity>
+			</zone>
+			<zone type="Africa/Djibouti">
+				<exemplarCity draft="provisional">Djibouti Time</exemplarCity>
+			</zone>
+			<zone type="America/Dominica">
+				<exemplarCity draft="provisional">Dominica Time</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Canary">
+				<exemplarCity draft="contributed">Quần Đảo Canary</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fiji">
+				<exemplarCity draft="provisional">Fiji Time</exemplarCity>
+			</zone>
+			<zone type="America/Grenada">
+				<exemplarCity draft="provisional">Grenada Time</exemplarCity>
+			</zone>
+			<zone type="Atlantic/South_Georgia">
+				<exemplarCity draft="provisional">South Georgia and the South Sandwich Islands Time</exemplarCity>
+			</zone>
+			<zone type="America/Guatemala">
+				<exemplarCity draft="provisional">Guatemala Time</exemplarCity>
+			</zone>
+			<zone type="America/Guyana">
+				<exemplarCity draft="provisional">Guyana Time</exemplarCity>
+			</zone>
+			<zone type="Asia/Hong_Kong">
+				<exemplarCity draft="provisional">Hong Kong SAR China Time</exemplarCity>
+			</zone>
+			<zone type="America/Jamaica">
+				<exemplarCity draft="provisional">Jamaica Time</exemplarCity>
+			</zone>
+			<zone type="America/St_Kitts">
+				<exemplarCity draft="provisional">Saint Kitts and Nevis Time</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuwait">
+				<exemplarCity draft="provisional">Kuwait Time</exemplarCity>
+			</zone>
+			<zone type="Asia/Vientiane">
+				<exemplarCity draft="provisional">Laos Time</exemplarCity>
+			</zone>
+			<zone type="America/St_Lucia">
+				<exemplarCity draft="provisional">Saint Lucia Time</exemplarCity>
+			</zone>
+			<zone type="Europe/Luxembourg">
+				<exemplarCity draft="provisional">Luxembourg Time</exemplarCity>
+			</zone>
+			<zone type="Europe/Monaco">
+				<exemplarCity draft="provisional">Monaco Time</exemplarCity>
+			</zone>
+			<zone type="Europe/Malta">
+				<exemplarCity draft="provisional">Malta Time</exemplarCity>
+			</zone>
+			<zone type="Indian/Mauritius">
+				<exemplarCity draft="provisional">Mauritius Time</exemplarCity>
+			</zone>
+			<zone type="Indian/Maldives">
+				<exemplarCity draft="provisional">Maldives Time</exemplarCity>
+			</zone>
+			<zone type="Pacific/Nauru">
+				<exemplarCity draft="provisional">Nauru Time</exemplarCity>
+			</zone>
+			<zone type="America/Panama">
+				<exemplarCity draft="provisional">Panama Time</exemplarCity>
+			</zone>
+			<zone type="Pacific/Palau">
+				<exemplarCity draft="provisional">Palau Time</exemplarCity>
+			</zone>
+			<zone type="Asia/Qatar">
+				<exemplarCity draft="provisional">Qatar Time</exemplarCity>
+			</zone>
+			<zone type="Asia/Singapore">
+				<exemplarCity draft="provisional">Singapore Time</exemplarCity>
+			</zone>
+			<zone type="America/El_Salvador">
+				<exemplarCity draft="provisional">El Salvador Time</exemplarCity>
+			</zone>
+			<zone type="Asia/Taipei">
+				<exemplarCity draft="provisional">Taiwan Time</exemplarCity>
+			</zone>
+			<zone type="America/St_Vincent">
+				<exemplarCity draft="provisional">Saint Vincent and the Grenadines Time</exemplarCity>
+			</zone>
+			<zone type="America/St_Thomas">
+				<exemplarCity draft="provisional">U.S. Virgin Islands Time</exemplarCity>
+			</zone>
+			<zone type="Asia/Saigon">
+				<exemplarCity draft="provisional">Giờ Việt Nam</exemplarCity>
+			</zone>
+			<metazone type="Acre">
+				<long>
+					<standard draft="provisional">Giờ Acre</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Acre</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">ACT (Acre)</standard>
+					<daylight draft="provisional">ACST (Acre)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Afghanistan">
+				<long>
+					<standard draft="provisional">Giờ Afghanistan</standard>
+				</long>
+				<short>
+					<standard draft="provisional">AFT</standard>
+				</short>
+			</metazone>
+			<metazone type="Africa_Central">
+				<long>
+					<standard draft="provisional">Giờ Trung Phi</standard>
+				</long>
+				<short>
+					<standard draft="provisional">CAT</standard>
+				</short>
+			</metazone>
+			<metazone type="Africa_Eastern">
+				<long>
+					<standard draft="provisional">Giờ Đông Phi</standard>
+				</long>
+				<short>
+					<standard draft="provisional">EAT</standard>
+				</short>
+			</metazone>
+			<metazone type="Africa_Southern">
+				<long>
+					<generic draft="provisional">Giờ Nam Phi</generic>
+					<standard draft="provisional">Giờ Chuẩn Nam Phi</standard>
+				</long>
+				<short>
+					<generic draft="provisional">SAT</generic>
+					<standard draft="provisional">SAST</standard>
+				</short>
+			</metazone>
+			<metazone type="Africa_Western">
+				<long>
+					<standard draft="provisional">Giờ Tây Phi</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Tây Phi</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">WAT</standard>
+					<daylight draft="provisional">WAST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Aktyubinsk">
+				<long>
+					<standard draft="provisional">Giờ Aktyubinsk</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Aktyubinsk</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">AKTT</standard>
+					<daylight draft="provisional">AKTST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Alaska">
+				<long>
+					<generic draft="provisional">Giờ Alaska</generic>
+					<standard draft="provisional">Giờ Chuẩn Alaska</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Alaska</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">AKT</generic>
+					<standard draft="provisional">AKST</standard>
+					<daylight draft="provisional">AKDT</daylight>
+				</short>
+				<commonlyUsed draft="provisional">true</commonlyUsed>
+			</metazone>
+			<metazone type="Alaska_Hawaii">
+				<long>
+					<generic draft="provisional">Giờ Alaska-Hawaii</generic>
+					<standard draft="provisional">Giờ Chuẩn Alaska-Hawaii</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Alaska-Hawaii</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">AHT</generic>
+					<standard draft="provisional">AHST</standard>
+					<daylight draft="provisional">AHDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Almaty">
+				<long>
+					<standard draft="provisional">Giờ Almaty</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Almaty</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">ALMT</standard>
+					<daylight draft="provisional">ALMST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Amazon">
+				<long>
+					<standard draft="provisional">Giờ Amazon</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Amazon</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">AMT</standard>
+					<daylight draft="provisional">AMST</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<generic draft="provisional">Giờ Miền Trung</generic>
+					<standard draft="provisional">Giờ Chuẩn Miền Trung</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Miền Trung</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">CT</generic>
+					<standard draft="provisional">CST</standard>
+					<daylight draft="provisional">CDT</daylight>
+				</short>
+				<commonlyUsed draft="provisional">true</commonlyUsed>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<generic draft="provisional">Giờ Miền Đông</generic>
+					<standard draft="provisional">Giờ Chuẩn Miền Đông</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Miền Đông</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">ET</generic>
+					<standard draft="provisional">EST</standard>
+					<daylight draft="provisional">EDT</daylight>
+				</short>
+				<commonlyUsed draft="provisional">true</commonlyUsed>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<generic draft="provisional">Giờ Miền Núi</generic>
+					<standard draft="provisional">Giờ Chuẩn Miền Núi</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Miền Núi</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">MT</generic>
+					<standard draft="provisional">MST</standard>
+					<daylight draft="provisional">MDT</daylight>
+				</short>
+				<commonlyUsed draft="provisional">true</commonlyUsed>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<generic draft="provisional">Giờ Thái Bình Dương</generic>
+					<standard draft="provisional">Giờ Chuẩn Thái Bình Dương</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Thái Bình Dương</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">PT</generic>
+					<standard draft="provisional">PST</standard>
+					<daylight draft="provisional">PDT</daylight>
+				</short>
+				<commonlyUsed draft="provisional">true</commonlyUsed>
+			</metazone>
+			<metazone type="Anadyr">
+				<long>
+					<standard draft="provisional">Giờ Anadyr</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Anadyr</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">ANAT</standard>
+					<daylight draft="provisional">ANAST</daylight>
+				</short>
+				<commonlyUsed draft="provisional">false</commonlyUsed>
+			</metazone>
+			<metazone type="Aqtau">
+				<long>
+					<standard draft="provisional">Giờ Aqtau</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Aqtau</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">AQTT (Aqtau)</standard>
+					<daylight draft="provisional">AQTST (Aqtau)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Aqtobe">
+				<long>
+					<standard draft="provisional">Giờ Aqtobe</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Aqtobe</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">AQTT (Aqtobe)</standard>
+					<daylight draft="provisional">AQTST (Aqtobe)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Arabian">
+				<long>
+					<generic draft="provisional">Giờ A-rập</generic>
+					<standard draft="provisional">Giờ Chuẩn A-rập</standard>
+					<daylight draft="provisional">Giờ Mùa Hè A-rập</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">AT (A-rập)</generic>
+					<standard draft="provisional">AST (A-rập)</standard>
+					<daylight draft="provisional">ADT (A-rập)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Argentina">
+				<long>
+					<standard draft="provisional">Giờ Argentina</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Argentina</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">ART</standard>
+					<daylight draft="provisional">ARST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Argentina_Western">
+				<long>
+					<standard draft="provisional">Giờ Miền Tây Argentina</standard>
+				</long>
+				<short>
+					<standard draft="provisional">WART</standard>
+				</short>
+				<commonlyUsed draft="provisional">false</commonlyUsed>
+			</metazone>
+			<metazone type="Armenia">
+				<long>
+					<standard draft="provisional">Giờ Armenia</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Armenia</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">AMT (AM)</standard>
+					<daylight draft="provisional">AMST (AM)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Ashkhabad">
+				<long>
+					<standard draft="provisional">Giờ Ashkhabad</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Ashkhabad</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">ASHT</standard>
+					<daylight draft="provisional">ASHST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<generic draft="provisional">Giờ Đại Tây Dương</generic>
+					<standard draft="provisional">Giờ Chuẩn Đại Tây Dương</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Đại Tây Dương</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">AT</generic>
+					<standard draft="provisional">AST</standard>
+					<daylight draft="provisional">ADT</daylight>
+				</short>
+				<commonlyUsed draft="provisional">true</commonlyUsed>
+			</metazone>
+			<metazone type="Australia_Central">
+				<long>
+					<generic draft="provisional">Giờ Miền Trung Nước Úc</generic>
+					<standard draft="provisional">Giờ Chuẩn Miền Trung Nước Úc</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Miền Trung Nước Úc</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">ACT</generic>
+					<standard draft="provisional">ACST</standard>
+					<daylight draft="provisional">ACDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Australia_CentralWestern">
+				<long>
+					<generic draft="provisional">Giờ Miền Trung Tây Nước Úc</generic>
+					<standard draft="provisional">Giờ Chuẩn Miền Trung Tây Nước Úc</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Miền Trung Tây Nước Úc</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">ACWT</generic>
+					<standard draft="provisional">ACWST</standard>
+					<daylight draft="provisional">ACWDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Australia_Eastern">
+				<long>
+					<generic draft="provisional">Giờ Miền Đông Nước Úc</generic>
+					<standard draft="provisional">Giờ Chuẩn Miền Đông Nước Úc</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Miền Đông Nước Úc</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">AET</generic>
+					<standard draft="provisional">AEST</standard>
+					<daylight draft="provisional">AEDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Australia_Western">
+				<long>
+					<generic draft="provisional">Giờ Miền Tây Nước Úc</generic>
+					<standard draft="provisional">Giờ Chuẩn Miền Tây Nước Úc</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Miền Tây Nước Úc</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">AWT</generic>
+					<standard draft="provisional">AWST</standard>
+					<daylight draft="provisional">AWDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Azerbaijan">
+				<long>
+					<standard draft="provisional">Giờ Azerbaijan</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Azerbaijan</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">AZT</standard>
+					<daylight draft="provisional">AZST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Azores">
+				<long>
+					<standard draft="provisional">Giờ Azores</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Azores</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">AZOT</standard>
+					<daylight draft="provisional">AZOST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Baku">
+				<long>
+					<standard draft="provisional">Giờ Baku</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Baku</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">BAKT</standard>
+					<daylight draft="provisional">BAKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Bangladesh">
+				<long>
+					<standard draft="provisional">Giờ Bangladesh</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Bangladesh</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">BDT</standard>
+					<daylight draft="provisional">BDST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Bering">
+				<long>
+					<generic draft="provisional">Giờ Bering</generic>
+					<standard draft="provisional">Giờ Chuẩn Bering</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Bering</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">BT (Bering)</generic>
+					<standard draft="provisional">BST (Bering)</standard>
+					<daylight draft="provisional">BDT (Bering)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Bhutan">
+				<long>
+					<standard draft="provisional">Giờ Bhutan</standard>
+				</long>
+				<short>
+					<standard draft="provisional">BTT</standard>
+				</short>
+			</metazone>
+			<metazone type="Bolivia">
+				<long>
+					<standard draft="provisional">Giờ Bolivia</standard>
+				</long>
+				<short>
+					<standard draft="provisional">BOT</standard>
+				</short>
+			</metazone>
+			<metazone type="Borneo">
+				<long>
+					<standard draft="provisional">Giờ Borneo</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Borneo</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">BORT</standard>
+					<daylight draft="provisional">BORST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Brasilia">
+				<long>
+					<standard draft="provisional">Giờ Brasilia</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Brasilia</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">BRT</standard>
+					<daylight draft="provisional">BRST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Brunei">
+				<long>
+					<standard draft="provisional">Giờ Brunei Darussalam</standard>
+				</long>
+				<short>
+					<standard draft="provisional">BNT</standard>
+				</short>
+			</metazone>
+			<metazone type="Cape_Verde">
+				<long>
+					<standard draft="provisional">Giờ Cape Verde</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Cape Verde</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">CVT</standard>
+					<daylight draft="provisional">CVST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Chamorro">
+				<long>
+					<generic draft="provisional">Giờ Chamorro</generic>
+					<standard draft="provisional">Giờ Chuẩn Chamorro</standard>
+				</long>
+				<short>
+					<generic draft="provisional">ChT</generic>
+					<standard draft="provisional">ChST</standard>
+				</short>
+			</metazone>
+			<metazone type="Changbai">
+				<long>
+					<standard draft="provisional">Giờ Changbai</standard>
+				</long>
+				<short>
+					<standard draft="provisional">CHAT</standard>
+				</short>
+			</metazone>
+			<metazone type="Chatham">
+				<long>
+					<standard draft="provisional">Giờ Chuẩn Chatham</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Chatham</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">CHAST</standard>
+					<daylight draft="provisional">CHADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<standard draft="provisional">Giờ Chile</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Chile</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">CLT</standard>
+					<daylight draft="provisional">CLST</daylight>
+				</short>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<generic draft="provisional">Giờ Trung Quốc</generic>
+					<standard draft="provisional">Giờ Chuẩn Trung Quốc</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Trung Quốc</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">CT (TQ)</generic>
+					<standard draft="provisional">CST (TQ)</standard>
+					<daylight draft="provisional">CDT (TQ)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Choibalsan">
+				<long>
+					<standard draft="provisional">Giờ Choibalsan</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Choibalsan</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">CHOT</standard>
+					<daylight draft="provisional">CHOST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Christmas">
+				<long>
+					<standard draft="provisional">Giờ Đảo Christmas</standard>
+				</long>
+				<short>
+					<standard draft="provisional">CXT</standard>
+				</short>
+			</metazone>
+			<metazone type="Cocos">
+				<long>
+					<standard draft="provisional">Giờ Quần Đảo Cocos</standard>
+				</long>
+				<short>
+					<standard draft="provisional">CCT</standard>
+				</short>
+			</metazone>
+			<metazone type="Colombia">
+				<long>
+					<standard draft="provisional">Giờ Colombia</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Colombia</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">COT</standard>
+					<daylight draft="provisional">COST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Cook">
+				<long>
+					<standard draft="provisional">Giờ Quần Đảo Cook</standard>
+					<daylight draft="provisional">Giờ Nửa Mùa Hè Quần Đảo Cook</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">CKT</standard>
+					<daylight draft="provisional">CKHST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Cuba">
+				<long>
+					<generic draft="provisional">Giờ Cuba</generic>
+					<standard draft="provisional">Giờ Chuẩn Cuba</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Cuba</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">CST (CU)</standard>
+					<daylight draft="provisional">CDT (CU)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Dacca">
+				<long>
+					<standard draft="provisional">Giờ Dacca</standard>
+				</long>
+				<short>
+					<standard draft="provisional">DACT</standard>
+				</short>
+			</metazone>
+			<metazone type="Davis">
+				<long>
+					<standard draft="provisional">Giờ Davis</standard>
+				</long>
+				<short>
+					<standard draft="provisional">DAVT</standard>
+				</short>
+			</metazone>
+			<metazone type="DumontDUrville">
+				<long>
+					<standard draft="provisional">Giờ Dumont-d'Urville</standard>
+				</long>
+				<short>
+					<standard draft="provisional">DDUT</standard>
+				</short>
+			</metazone>
+			<metazone type="Dushanbe">
+				<long>
+					<standard draft="provisional">Giờ Dushanbe</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Dushanbe</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">DUST</standard>
+					<daylight draft="provisional">DUSST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Dutch_Guiana">
+				<long>
+					<standard draft="provisional">Giờ Guiana thuộc Hà Lan</standard>
+				</long>
+				<short>
+					<standard draft="provisional">NEGT</standard>
+				</short>
+			</metazone>
+			<metazone type="East_Timor">
+				<long>
+					<standard draft="provisional">Giờ Đông Timor</standard>
+				</long>
+				<short>
+					<standard draft="provisional">TLT</standard>
+				</short>
+			</metazone>
+			<metazone type="Easter">
+				<long>
+					<standard draft="provisional">Giờ Đảo Phục Sinh</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Đảo Phục Sinh</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">EAST</standard>
+					<daylight draft="provisional">EASST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Ecuador">
+				<long>
+					<standard draft="provisional">Giờ Ecuador</standard>
+				</long>
+				<short>
+					<standard draft="provisional">ECT</standard>
+				</short>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard draft="provisional">Giờ Trung Âu</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Trung Âu</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">CET</standard>
+					<daylight draft="provisional">CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard draft="provisional">Giờ Đông Âu</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Đông Âu</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">EET</standard>
+					<daylight draft="provisional">EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<standard draft="provisional">Giờ Tây Âu</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Tây Âu</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">WET</standard>
+					<daylight draft="provisional">WEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Falkland">
+				<long>
+					<standard draft="provisional">Giờ Quần Đảo Falkland</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Quần Đảo Falkland</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">FKT</standard>
+					<daylight draft="provisional">FKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Fiji">
+				<long>
+					<standard draft="provisional">Giờ Fiji</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Fiji</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">FJT</standard>
+					<daylight draft="provisional">FJST</daylight>
+				</short>
+			</metazone>
+			<metazone type="French_Guiana">
+				<long>
+					<standard draft="provisional">Giờ Guiana thuộc Pháp</standard>
+				</long>
+				<short>
+					<standard draft="provisional">GFT</standard>
+				</short>
+			</metazone>
+			<metazone type="French_Southern">
+				<long>
+					<standard draft="provisional">Giờ Nam Cực và Nam Nước Pháp</standard>
+				</long>
+				<short>
+					<standard draft="provisional">TFT</standard>
+				</short>
+			</metazone>
+			<metazone type="Frunze">
+				<long>
+					<standard draft="provisional">Giờ Frunze</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Frunze</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">FRUT</standard>
+					<daylight draft="provisional">FRUST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Galapagos">
+				<long>
+					<standard draft="provisional">Giờ Galapagos</standard>
+				</long>
+				<short>
+					<standard draft="provisional">GALT</standard>
+				</short>
+			</metazone>
+			<metazone type="Gambier">
+				<long>
+					<standard draft="provisional">Giờ Gambier</standard>
+				</long>
+				<short>
+					<standard draft="provisional">GAMT</standard>
+				</short>
+			</metazone>
+			<metazone type="Georgia">
+				<long>
+					<standard draft="provisional">Giờ Georgia</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Georgia</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">GET</standard>
+					<daylight draft="provisional">GEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Gilbert_Islands">
+				<long>
+					<standard draft="provisional">Giờ Quần Đảo Gilbert</standard>
+				</long>
+				<short>
+					<standard draft="provisional">GILT</standard>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard draft="provisional">Giờ Trung Bình Greenwich</standard>
+				</long>
+				<short>
+					<standard draft="provisional">GMT</standard>
+				</short>
+				<commonlyUsed draft="provisional">true</commonlyUsed>
+			</metazone>
+			<metazone type="Greenland_Central">
+				<long>
+					<standard draft="provisional">Giờ Miền Trung Greenland</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Miền Trung Greenland</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">CGT</standard>
+					<daylight draft="provisional">CGST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<standard draft="provisional">Giờ Miền Đông Greenland</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Miền Đông Greenland</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">EGT</standard>
+					<daylight draft="provisional">EGST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<standard draft="provisional">Giờ Miền Tây Greenland</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Miền Tây Greenland</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">WGT</standard>
+					<daylight draft="provisional">WGST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Guam">
+				<long>
+					<standard draft="provisional">Giờ Chuẩn Guam</standard>
+				</long>
+				<short>
+					<standard draft="provisional">GST (Guam)</standard>
+				</short>
+			</metazone>
+			<metazone type="Gulf">
+				<long>
+					<generic draft="provisional">Giờ Vùng Vịnh</generic>
+					<standard draft="provisional">Giờ Chuẩn Vùng Vịnh</standard>
+				</long>
+				<short>
+					<generic draft="provisional">GT</generic>
+					<standard draft="provisional">GST</standard>
+				</short>
+			</metazone>
+			<metazone type="Guyana">
+				<long>
+					<standard draft="provisional">Giờ Guyana</standard>
+				</long>
+				<short>
+					<standard draft="provisional">GYT</standard>
+				</short>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<long>
+					<standard draft="provisional">Giờ Chuẩn Hawaii-Aleutian</standard>
+				</long>
+				<short>
+					<standard draft="provisional">HST</standard>
+				</short>
+				<commonlyUsed draft="provisional">true</commonlyUsed>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<long>
+					<standard draft="provisional">Giờ Hồng Kông</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Hồng Kông</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">HKT</standard>
+					<daylight draft="provisional">HKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hovd">
+				<long>
+					<standard draft="provisional">Giờ Hovd</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Hovd</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">HOVT</standard>
+					<daylight draft="provisional">HOVST</daylight>
+				</short>
+			</metazone>
+			<metazone type="India">
+				<long>
+					<standard draft="provisional">Giờ Chuẩn Ấn Độ</standard>
+				</long>
+				<short>
+					<standard draft="provisional">IST</standard>
+				</short>
+			</metazone>
+			<metazone type="Indian_Ocean">
+				<long>
+					<standard draft="provisional">Giờ Ấn Độ Dương</standard>
+				</long>
+				<short>
+					<standard draft="provisional">IOT</standard>
+				</short>
+			</metazone>
+			<metazone type="Indochina">
+				<long>
+					<standard draft="provisional">Giờ Đông Dương</standard>
+				</long>
+				<short>
+					<standard draft="provisional">ICT</standard>
+				</short>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<long>
+					<standard draft="provisional">Giờ Miền Trung Đông Dương</standard>
+				</long>
+				<short>
+					<standard draft="provisional">CIT</standard>
+				</short>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<long>
+					<standard draft="provisional">Giờ Miền Đông Đông Dương</standard>
+				</long>
+				<short>
+					<standard draft="provisional">EIT</standard>
+				</short>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<long>
+					<standard draft="provisional">Giờ Miền Tây Đông Dương</standard>
+				</long>
+				<short>
+					<standard draft="provisional">WIT</standard>
+				</short>
+			</metazone>
+			<metazone type="Iran">
+				<long>
+					<standard draft="provisional">Giờ Chuẩn Iran</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Iran</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">IRST</standard>
+					<daylight draft="provisional">IRDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Irkutsk">
+				<long>
+					<standard draft="provisional">Giờ Irkutsk</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Irkutsk</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">IRKT</standard>
+					<daylight draft="provisional">IRKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<generic draft="provisional">Giờ Israel</generic>
+					<standard draft="provisional">Giờ Chuẩn Israel</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Israel</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">IST (Israel)</standard>
+					<daylight draft="provisional">IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<generic draft="provisional">Giờ Nhật Bản</generic>
+					<standard draft="provisional">Giờ Chuẩn Nhật Bản</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Nhật Bản</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">JT</generic>
+					<standard draft="provisional">JST</standard>
+					<daylight draft="provisional">JDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Kamchatka">
+				<long>
+					<standard draft="provisional">Giờ Petropavlovsk-Kamchatski</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Petropavlovsk-Kamchatski</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">PETT</standard>
+					<daylight draft="provisional">PETST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Karachi">
+				<long>
+					<standard draft="provisional">Giờ Karachi</standard>
+				</long>
+				<short>
+					<standard draft="provisional">KART</standard>
+				</short>
+			</metazone>
+			<metazone type="Kashgar">
+				<long>
+					<standard draft="provisional">Giờ Kashgar</standard>
+				</long>
+				<short>
+					<standard draft="provisional">KAST</standard>
+				</short>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<generic draft="provisional">Giờ Miền Đông Kazakhstan</generic>
+					<standard draft="provisional">Giờ Chuẩn Miền Đông Kazakhstan</standard>
+				</long>
+				<short>
+					<standard draft="provisional">EKST</standard>
+				</short>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
+					<generic draft="provisional">Giờ Miền Tây Kazakhstan</generic>
+					<standard draft="provisional">Giờ Chuẩn Miền Tây Kazakhstan</standard>
+				</long>
+				<short>
+					<standard draft="provisional">WKST</standard>
+				</short>
+			</metazone>
+			<metazone type="Kizilorda">
+				<long>
+					<standard draft="provisional">Giờ Kizilorda</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Kizilorda</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">KIZT</standard>
+					<daylight draft="provisional">KIZST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Korea">
+				<long>
+					<generic draft="provisional">Giờ Hàn Quốc</generic>
+					<standard draft="provisional">Giờ Chuẩn Hàn Quốc</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Hàn Quốc</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">KT</generic>
+					<standard draft="provisional">KST</standard>
+					<daylight draft="provisional">KDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Kosrae">
+				<long>
+					<standard draft="provisional">Giờ Kosrae</standard>
+				</long>
+				<short>
+					<standard draft="provisional">KOST</standard>
+				</short>
+			</metazone>
+			<metazone type="Krasnoyarsk">
+				<long>
+					<standard draft="provisional">Giờ Krasnoyarsk</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Krasnoyarsk</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">KRAT</standard>
+					<daylight draft="provisional">KRAST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Kuybyshev">
+				<long>
+					<standard draft="provisional">Giờ Kuybyshev</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Kuybyshev</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">KUYT</standard>
+					<daylight draft="provisional">KUYST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Kwajalein">
+				<long>
+					<standard draft="provisional">Giờ Kwajalein</standard>
+				</long>
+				<short>
+					<standard draft="provisional">KWAT</standard>
+				</short>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
+					<standard draft="provisional">Giờ Kyrgystan</standard>
+				</long>
+				<short>
+					<standard draft="provisional">KGT</standard>
+				</short>
+			</metazone>
+			<metazone type="Lanka">
+				<long>
+					<standard draft="provisional">Giờ Lanka</standard>
+				</long>
+				<short>
+					<standard draft="provisional">LKT</standard>
+				</short>
+			</metazone>
+			<metazone type="Line_Islands">
+				<long>
+					<standard draft="provisional">Giờ Quần Đảo Line</standard>
+				</long>
+				<short>
+					<standard draft="provisional">LINT</standard>
+				</short>
+			</metazone>
+			<metazone type="Long_Shu">
+				<long>
+					<standard draft="provisional">Giờ Long-Shu</standard>
+				</long>
+				<short>
+					<standard draft="provisional">LONT</standard>
+				</short>
+			</metazone>
+			<metazone type="Lord_Howe">
+				<long>
+					<generic draft="provisional">Giờ Lord Howe</generic>
+					<standard draft="provisional">Giờ Chuẩn Lord Howe</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Lord Howe</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">LHT</generic>
+					<standard draft="provisional">LHST</standard>
+					<daylight draft="provisional">LHDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Macau">
+				<long>
+					<standard draft="provisional">Giờ Ma Cao</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Ma Cao</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">MOT</standard>
+					<daylight draft="provisional">MOST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Magadan">
+				<long>
+					<standard draft="provisional">Giờ Magadan</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Magadan</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">MAGT</standard>
+					<daylight draft="provisional">MAGST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Malaya">
+				<long>
+					<standard draft="provisional">Giờ Malaya</standard>
+				</long>
+				<short>
+					<standard draft="provisional">MALT</standard>
+				</short>
+			</metazone>
+			<metazone type="Malaysia">
+				<long>
+					<standard draft="provisional">Giờ Malaysia</standard>
+				</long>
+				<short>
+					<standard draft="provisional">MYT</standard>
+				</short>
+			</metazone>
+			<metazone type="Maldives">
+				<long>
+					<standard draft="provisional">Giờ Maldives</standard>
+				</long>
+				<short>
+					<standard draft="provisional">MVT</standard>
+				</short>
+			</metazone>
+			<metazone type="Marquesas">
+				<long>
+					<standard draft="provisional">Giờ Marquesas</standard>
+				</long>
+				<short>
+					<standard draft="provisional">MART</standard>
+				</short>
+			</metazone>
+			<metazone type="Marshall_Islands">
+				<long>
+					<standard draft="provisional">Giờ Quần Đảo Marshall</standard>
+				</long>
+				<short>
+					<standard draft="provisional">MHT</standard>
+				</short>
+			</metazone>
+			<metazone type="Mauritius">
+				<long>
+					<standard draft="provisional">Giờ Mauritius</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Mauritius</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">MUT</standard>
+					<daylight draft="provisional">MUST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Mawson">
+				<long>
+					<standard draft="provisional">Giờ Mawson</standard>
+				</long>
+				<short>
+					<standard draft="provisional">MAWT</standard>
+				</short>
+			</metazone>
+			<metazone type="Mongolia">
+				<long>
+					<standard draft="provisional">Giờ Ulan Bator</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Ulan Bator</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">ULAT</standard>
+					<daylight draft="provisional">ULAST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic draft="provisional">Giờ Matxcơva</generic>
+					<standard draft="provisional">Giờ Chuẩn Matxcơva</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Matxcơva</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">MSK</standard>
+					<daylight draft="provisional">MSKS</daylight>
+				</short>
+			</metazone>
+			<metazone type="Myanmar">
+				<long>
+					<standard draft="provisional">Giờ Myanmar</standard>
+				</long>
+				<short>
+					<standard draft="provisional">MMT</standard>
+				</short>
+			</metazone>
+			<metazone type="Nauru">
+				<long>
+					<standard draft="provisional">Giờ Nauru</standard>
+				</long>
+				<short>
+					<standard draft="provisional">NRT</standard>
+				</short>
+			</metazone>
+			<metazone type="Nepal">
+				<long>
+					<standard draft="provisional">Giờ Nepan</standard>
+				</long>
+				<short>
+					<standard draft="provisional">NPT</standard>
+				</short>
+			</metazone>
+			<metazone type="New_Caledonia">
+				<long>
+					<standard draft="provisional">Giờ New Caledonia</standard>
+					<daylight draft="provisional">Giờ Mùa Hè New Caledonia</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">NCT</standard>
+					<daylight draft="provisional">NCST</daylight>
+				</short>
+			</metazone>
+			<metazone type="New_Zealand">
+				<long>
+					<generic draft="provisional">Giờ New Zealand</generic>
+					<standard draft="provisional">Giờ Chuẩn New Zealand</standard>
+					<daylight draft="provisional">Giờ Mùa Hè New Zealand</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">NZT</generic>
+					<standard draft="provisional">NZST</standard>
+					<daylight draft="provisional">NZDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<generic draft="provisional">Giờ Newfoundland</generic>
+					<standard draft="provisional">Giờ Chuẩn Newfoundland</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Newfoundland</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">NT</generic>
+					<standard draft="provisional">NST</standard>
+					<daylight draft="provisional">NDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Niue">
+				<long>
+					<standard draft="provisional">Giờ Niue</standard>
+				</long>
+				<short>
+					<standard draft="provisional">NUT</standard>
+				</short>
+			</metazone>
+			<metazone type="Norfolk">
+				<long>
+					<standard draft="provisional">Giờ Quần Đảo Norfolk</standard>
+				</long>
+				<short>
+					<standard draft="provisional">NFT</standard>
+				</short>
+			</metazone>
+			<metazone type="Noronha">
+				<long>
+					<standard draft="provisional">Giờ Fernando de Noronha</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Fernando de Noronha</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">FNT</standard>
+					<daylight draft="provisional">FNST</daylight>
+				</short>
+			</metazone>
+			<metazone type="North_Mariana">
+				<long>
+					<standard draft="provisional">Giờ Quần Đảo Bắc Mariana</standard>
+				</long>
+				<short>
+					<standard draft="provisional">MPT</standard>
+				</short>
+			</metazone>
+			<metazone type="Novosibirsk">
+				<long>
+					<standard draft="provisional">Giờ Novosibirsk</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Novosibirsk</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">NOVT</standard>
+					<daylight draft="provisional">NOVST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Omsk">
+				<long>
+					<standard draft="provisional">Giờ Omsk</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Omsk</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">OMST</standard>
+					<daylight draft="provisional">OMSST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Pakistan">
+				<long>
+					<standard draft="provisional">Giờ Pakistan</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Pakistan</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">PKT</standard>
+					<daylight draft="provisional">PKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Palau">
+				<long>
+					<standard draft="provisional">Giờ Palau</standard>
+				</long>
+				<short>
+					<standard draft="provisional">PWT</standard>
+				</short>
+			</metazone>
+			<metazone type="Papua_New_Guinea">
+				<long>
+					<standard draft="provisional">Giờ Papua New Guinea</standard>
+				</long>
+				<short>
+					<standard draft="provisional">PGT</standard>
+				</short>
+			</metazone>
+			<metazone type="Paraguay">
+				<long>
+					<standard draft="provisional">Giờ Paraguay</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Paraguay</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">PYT</standard>
+					<daylight draft="provisional">PYST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Peru">
+				<long>
+					<standard draft="provisional">Giờ Peru</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Peru</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">PET</standard>
+					<daylight draft="provisional">PEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Philippines">
+				<long>
+					<standard draft="provisional">Giờ Philippin</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Philippin</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">PHT</standard>
+					<daylight draft="provisional">PHST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Phoenix_Islands">
+				<long>
+					<standard draft="provisional">Giờ Quần Đảo Phoenix</standard>
+				</long>
+				<short>
+					<standard draft="provisional">PHOT</standard>
+				</short>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<long>
+					<generic draft="provisional">Giờ Pierre và Miquelon</generic>
+					<standard draft="provisional">Giờ Pierre và Miquelon</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Pierre và Miquelon</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">PMT</generic>
+					<standard draft="provisional">PMST</standard>
+					<daylight draft="provisional">PMDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Pitcairn">
+				<long>
+					<standard draft="provisional">Giờ Pitcairn</standard>
+				</long>
+				<short>
+					<standard draft="provisional">PNT</standard>
+				</short>
+			</metazone>
+			<metazone type="Ponape">
+				<long>
+					<standard draft="provisional">Giờ Ponape</standard>
+				</long>
+				<short>
+					<standard draft="provisional">PONT</standard>
+				</short>
+			</metazone>
+			<metazone type="Qyzylorda">
+				<long>
+					<standard draft="provisional">Giờ Qyzylorda</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Qyzylorda</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">QYZT</standard>
+					<daylight draft="provisional">QYZST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Reunion">
+				<long>
+					<standard draft="provisional">Giờ Reunion</standard>
+				</long>
+				<short>
+					<standard draft="provisional">RET</standard>
+				</short>
+			</metazone>
+			<metazone type="Rothera">
+				<long>
+					<standard draft="provisional">Giờ Rothera</standard>
+				</long>
+				<short>
+					<standard draft="provisional">ROTT</standard>
+				</short>
+			</metazone>
+			<metazone type="Sakhalin">
+				<long>
+					<standard draft="provisional">Giờ Sakhalin</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Sakhalin</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">SAKT</standard>
+					<daylight draft="provisional">SAKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Samara">
+				<long>
+					<standard draft="provisional">Giờ Samara</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Samara</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">SAMT</standard>
+					<daylight draft="provisional">SAMST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Samarkand">
+				<long>
+					<standard draft="provisional">Giờ Samarkand</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Samarkand</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">SAMT (Samarkand)</standard>
+					<daylight draft="provisional">SAMST (Samarkand)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Samoa">
+				<long>
+					<standard draft="provisional">Giờ Chuẩn Samoa</standard>
+				</long>
+				<short>
+					<standard draft="provisional">SST</standard>
+				</short>
+			</metazone>
+			<metazone type="Seychelles">
+				<long>
+					<standard draft="provisional">Giờ Seychelles</standard>
+				</long>
+				<short>
+					<standard draft="provisional">SCT</standard>
+				</short>
+			</metazone>
+			<metazone type="Shevchenko">
+				<long>
+					<standard draft="provisional">Giờ Shevchenko</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Shevchenko</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">SHET</standard>
+					<daylight draft="provisional">SHEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Singapore">
+				<long>
+					<standard draft="provisional">Giờ Chuẩn Singapo</standard>
+				</long>
+				<short>
+					<standard draft="provisional">SGT</standard>
+				</short>
+			</metazone>
+			<metazone type="Solomon">
+				<long>
+					<standard draft="provisional">Giờ Quần Đảo Solomon</standard>
+				</long>
+				<short>
+					<standard draft="provisional">SBT</standard>
+				</short>
+			</metazone>
+			<metazone type="South_Georgia">
+				<long>
+					<standard draft="provisional">Giờ Nam Georgia</standard>
+				</long>
+				<short>
+					<standard draft="provisional">GST (GS)</standard>
+				</short>
+			</metazone>
+			<metazone type="Suriname">
+				<long>
+					<standard draft="provisional">Giờ Suriname</standard>
+				</long>
+				<short>
+					<standard draft="provisional">SRT</standard>
+				</short>
+			</metazone>
+			<metazone type="Sverdlovsk">
+				<long>
+					<standard draft="provisional">Giờ Sverdlovsk</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Sverdlovsk</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">SVET</standard>
+					<daylight draft="provisional">SVEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Syowa">
+				<long>
+					<standard draft="provisional">Giờ Syowa</standard>
+				</long>
+				<short>
+					<standard draft="provisional">SYOT</standard>
+				</short>
+			</metazone>
+			<metazone type="Tahiti">
+				<long>
+					<standard draft="provisional">Giờ Tahiti</standard>
+				</long>
+				<short>
+					<standard draft="provisional">TAHT</standard>
+				</short>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic draft="provisional">Giờ Đài Bắc</generic>
+					<standard draft="provisional">Giờ Chuẩn Đài Bắc</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Đài Bắc</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">CT (Đài Bắc)</generic>
+					<standard draft="provisional">CST (TW)</standard>
+					<daylight draft="provisional">CDT (TW)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
+					<standard draft="provisional">Giờ Tajikistan</standard>
+				</long>
+				<short>
+					<standard draft="provisional">TJT</standard>
+				</short>
+			</metazone>
+			<metazone type="Tashkent">
+				<long>
+					<standard draft="provisional">Giờ Tashkent</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Tashkent</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">TAST</standard>
+					<daylight draft="provisional">TASST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Tbilisi">
+				<long>
+					<standard draft="provisional">Giờ Tbilisi</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Tbilisi</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">TBIT</standard>
+					<daylight draft="provisional">TBIST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Tokelau">
+				<long>
+					<standard draft="provisional">Giờ Tokelau</standard>
+				</long>
+				<short>
+					<standard draft="provisional">TKT</standard>
+				</short>
+			</metazone>
+			<metazone type="Tonga">
+				<long>
+					<standard draft="provisional">Giờ Tonga</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Tonga</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">TOT</standard>
+					<daylight draft="provisional">TOST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Truk">
+				<long>
+					<standard draft="provisional">Giờ Truk</standard>
+				</long>
+				<short>
+					<standard draft="provisional">TRUT</standard>
+				</short>
+			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<standard draft="provisional">Giờ Thổ Nhĩ Kỳ</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Thổ Nhĩ Kỳ</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">TRT</standard>
+					<daylight draft="provisional">TRST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Turkmenistan">
+				<long>
+					<standard draft="provisional">Giờ Turkmenistan</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Turkmenistan</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">TMT</standard>
+					<daylight draft="provisional">TMST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Tuvalu">
+				<long>
+					<standard draft="provisional">Giờ Tuvalu</standard>
+				</long>
+				<short>
+					<standard draft="provisional">TVT</standard>
+				</short>
+			</metazone>
+			<metazone type="Uralsk">
+				<long>
+					<standard draft="provisional">Giờ Ural'sk</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Ural'sk</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">URAT</standard>
+					<daylight draft="provisional">URAST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Uruguay">
+				<long>
+					<standard draft="provisional">Giờ Uruguay</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Uruguay</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">UYT</standard>
+					<daylight draft="provisional">UYST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard draft="provisional">Giờ Urumqi</standard>
+				</long>
+				<short>
+					<standard draft="provisional">URUT</standard>
+				</short>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
+					<standard draft="provisional">Giờ Uzbekistan</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Uzbekistan</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">UZT</standard>
+					<daylight draft="provisional">UZST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Vanuatu">
+				<long>
+					<standard draft="provisional">Giờ Vanuatu</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Vanuatu</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">VUT</standard>
+					<daylight draft="provisional">VUST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Venezuela">
+				<long>
+					<standard draft="provisional">Giờ Venezuela</standard>
+				</long>
+				<short>
+					<standard draft="provisional">VET</standard>
+				</short>
+			</metazone>
+			<metazone type="Vladivostok">
+				<long>
+					<standard draft="provisional">Giờ Vladivostok</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Vladivostok</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">VLAT</standard>
+					<daylight draft="provisional">VLAST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Volgograd">
+				<long>
+					<standard draft="provisional">Giờ Volgograd</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Volgograd</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">VOLT</standard>
+					<daylight draft="provisional">VOLST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Vostok">
+				<long>
+					<standard draft="provisional">Giờ Vostok</standard>
+				</long>
+				<short>
+					<standard draft="provisional">VOST</standard>
+				</short>
+			</metazone>
+			<metazone type="Wake">
+				<long>
+					<standard draft="provisional">Giờ Đảo Wake</standard>
+				</long>
+				<short>
+					<standard draft="provisional">WAKT</standard>
+				</short>
+			</metazone>
+			<metazone type="Wallis">
+				<long>
+					<standard draft="provisional">Giờ Wallis và Futuna</standard>
+				</long>
+				<short>
+					<standard draft="provisional">WFT</standard>
+				</short>
+			</metazone>
+			<metazone type="Yakutsk">
+				<long>
+					<standard draft="provisional">Giờ Yakutsk</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Yakutsk</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">YAKT</standard>
+					<daylight draft="provisional">YAKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Yekaterinburg">
+				<long>
+					<standard draft="provisional">Giờ Yekaterinburg</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Yekaterinburg</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">YEKT</standard>
+					<daylight draft="provisional">YEKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Yerevan">
+				<long>
+					<standard draft="provisional">Giờ Yerevan</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Yerevan</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">YERT</standard>
+					<daylight draft="provisional">YERST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Yukon">
+				<long>
+					<generic draft="provisional">Giờ Yukon</generic>
+					<standard draft="provisional">Giờ Chuẩn Yukon</standard>
+					<daylight draft="provisional">Giờ Mùa Hè Yukon</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">YT</generic>
+					<standard draft="provisional">YST</standard>
+					<daylight draft="provisional">YDT</daylight>
+				</short>
+			</metazone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<defaultNumberingSystem draft="provisional">latn</defaultNumberingSystem>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille draft="contributed">‰</perMille>
+			<infinity>∞</infinity>
+			<nan>NaN</nan>
+		</symbols>
+		<decimalFormats>
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats>
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats>
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+		</currencyFormats>
+		<currencies>
+			<currency type="AED">
+				<displayName draft="contributed">Điram UAE</displayName>
+			</currency>
+			<currency type="BGN">
+				<displayName draft="contributed">Lép Bungari</displayName>
+			</currency>
+			<currency type="BRL">
+				<displayName draft="contributed">BRL</displayName>
+			</currency>
+			<currency type="CHF">
+				<displayName draft="contributed">Franc Thụy sĩ</displayName>
+			</currency>
+			<currency type="CNY">
+				<displayName draft="contributed">CNY</displayName>
+			</currency>
+			<currency type="EEK">
+				<displayName draft="contributed">Crun Extônia</displayName>
+			</currency>
+			<currency type="EUR">
+				<displayName draft="contributed">Euro</displayName>
+			</currency>
+			<currency type="FJD">
+				<displayName draft="contributed">Đô-la Fi-ji</displayName>
+			</currency>
+			<currency type="FRF">
+				<displayName draft="contributed">Franc Pháp</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName draft="contributed">Bảng Anh</displayName>
+			</currency>
+			<currency type="GEL">
+				<displayName draft="contributed">Lari Georgia</displayName>
+			</currency>
+			<currency type="GHC">
+				<displayName draft="contributed">Cedi Ghana (1979-2007)</displayName>
+			</currency>
+			<currency type="GHS">
+				<displayName draft="contributed">Cedi Ghana</displayName>
+			</currency>
+			<currency type="GIP">
+				<displayName draft="contributed">Pao Gibraltar</displayName>
+			</currency>
+			<currency type="GNF">
+				<displayName draft="contributed">Franc Guinea</displayName>
+			</currency>
+			<currency type="GNS">
+				<displayName draft="contributed">Syli Guinea</displayName>
+			</currency>
+			<currency type="GRD">
+				<displayName draft="contributed">Drachma Hy Lạp</displayName>
+			</currency>
+			<currency type="GTQ">
+				<displayName draft="contributed">Quetzal Guatemala</displayName>
+			</currency>
+			<currency type="GWP">
+				<displayName draft="contributed">Peso Guinea-Bissau</displayName>
+			</currency>
+			<currency type="GYD">
+				<displayName draft="contributed">Đô-la Guyana</displayName>
+			</currency>
+			<currency type="HKD">
+				<displayName draft="contributed">Đô-la Hồng Kông</displayName>
+			</currency>
+			<currency type="HNL">
+				<displayName draft="contributed">Honduras Lempira</displayName>
+			</currency>
+			<currency type="HTG">
+				<displayName draft="contributed">Gourde Haiti</displayName>
+			</currency>
+			<currency type="HUF">
+				<displayName draft="contributed">Phôrin Hungari</displayName>
+			</currency>
+			<currency type="IDR">
+				<displayName draft="contributed">Rupia Inđônêxia</displayName>
+			</currency>
+			<currency type="IEP">
+				<displayName draft="contributed">Pao Ai-len</displayName>
+			</currency>
+			<currency type="ILP">
+				<displayName draft="contributed">Pao Ixraen</displayName>
+			</currency>
+			<currency type="ILS">
+				<displayName draft="contributed">Sêken Ixraen</displayName>
+			</currency>
+			<currency type="INR">
+				<displayName draft="contributed">Rupi Ấn Độ</displayName>
+			</currency>
+			<currency type="IQD">
+				<displayName draft="contributed">Dinar I-rắc</displayName>
+			</currency>
+			<currency type="IRR">
+				<displayName draft="contributed">Rial I-ran</displayName>
+			</currency>
+			<currency type="ITL">
+				<displayName draft="contributed">Lia Ý</displayName>
+			</currency>
+			<currency type="JMD">
+				<displayName draft="contributed">Đô la Jamaica</displayName>
+			</currency>
+			<currency type="JOD">
+				<displayName draft="contributed">Dinar Jordan</displayName>
+			</currency>
+			<currency type="JPY">
+				<displayName draft="contributed">Yên Nhật</displayName>
+			</currency>
+			<currency type="KES">
+				<displayName draft="contributed">Si-ling Kê-ny-a</displayName>
+			</currency>
+			<currency type="KRW">
+				<displayName draft="contributed">Won Hàn Quốc</displayName>
+			</currency>
+			<currency type="KZT">
+				<displayName draft="contributed">Kazakhstan Tenge</displayName>
+			</currency>
+			<currency type="LTL">
+				<displayName draft="contributed">Litat Lituani</displayName>
+			</currency>
+			<currency type="MAD">
+				<displayName draft="contributed">Điaham Marốc</displayName>
+			</currency>
+			<currency type="MTL">
+				<displayName draft="contributed">Lia xứ Man-tơ</displayName>
+			</currency>
+			<currency type="MXN">
+				<displayName draft="contributed">Peso Mêhicô</displayName>
+			</currency>
+			<currency type="MYR">
+				<displayName draft="contributed">Rinhgit Malaixia</displayName>
+			</currency>
+			<currency type="NOK">
+				<displayName draft="contributed">Curon Na Uy</displayName>
+			</currency>
+			<currency type="NZD">
+				<displayName draft="contributed">Đô-la New Zealand</displayName>
+			</currency>
+			<currency type="PEN">
+				<displayName draft="contributed">Nuevo Sol Pêru</displayName>
+			</currency>
+			<currency type="PHP">
+				<displayName draft="contributed">Peso Philíppin</displayName>
+			</currency>
+			<currency type="PKR">
+				<displayName draft="contributed">Rupi Pakistan</displayName>
+			</currency>
+			<currency type="PLN">
+				<displayName draft="contributed">Zloty Ba Lan</displayName>
+			</currency>
+			<currency type="RON">
+				<displayName draft="contributed">Lây Rumani</displayName>
+			</currency>
+			<currency type="RSD">
+				<displayName draft="contributed">Đina Xéc-bi</displayName>
+			</currency>
+			<currency type="RUB">
+				<displayName draft="contributed">Rúp Nga</displayName>
+			</currency>
+			<currency type="SAR">
+				<displayName draft="contributed">Rian Ả rập Xêút</displayName>
+			</currency>
+			<currency type="SEK">
+				<displayName draft="contributed">Cua-ron Thuỵ Điển</displayName>
+			</currency>
+			<currency type="SGD">
+				<displayName draft="contributed">Đô-la Singapore</displayName>
+			</currency>
+			<currency type="SIT">
+				<displayName draft="contributed">Tôla Xlôvênia</displayName>
+			</currency>
+			<currency type="SKK">
+				<displayName draft="contributed">Cuaron Xlôvác</displayName>
+			</currency>
+			<currency type="THB">
+				<displayName draft="contributed">Bạt Thái Lan</displayName>
+			</currency>
+			<currency type="TRL">
+				<displayName draft="contributed">Lia Thổ Nhĩ Kỳ</displayName>
+			</currency>
+			<currency type="TRY">
+				<displayName draft="contributed">Lia Thổ Nhĩ Kỳ Mới</displayName>
+			</currency>
+			<currency type="TWD">
+				<displayName draft="contributed">Đô-la Đài Loan</displayName>
+			</currency>
+			<currency type="UAH">
+				<displayName draft="contributed">Rúp U-crai-na</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName>Đô-la Mỹ</displayName>
+			</currency>
+			<currency type="VEB">
+				<displayName draft="contributed">Bôliva Vênêduêla</displayName>
+			</currency>
+			<currency type="VND">
+				<displayName>đồng</displayName>
+			</currency>
+			<currency type="XAU">
+				<displayName draft="contributed">Vàng</displayName>
+			</currency>
+			<currency type="XXX">
+				<displayName draft="contributed">Tiền tệ chưa biết hoặc không hợp lệ</displayName>
+			</currency>
+			<currency type="ZAR">
+				<displayName draft="contributed">Ran Nam Phi</displayName>
+			</currency>
+		</currencies>
+	</numbers>
+	<units>
+		<unit type="day">
+			<unitPattern count="other">{0} ngày</unitPattern>
+			<unitPattern count="other" alt="short">{0} ngày</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="other">{0} giờ</unitPattern>
+			<unitPattern count="other" alt="short">{0} g</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="other">{0} phút</unitPattern>
+			<unitPattern count="other" alt="short">{0} ph</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="other">{0} tháng</unitPattern>
+			<unitPattern count="other" alt="short">{0} tháng</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="other">{0} giây</unitPattern>
+			<unitPattern count="other" alt="short">{0} s</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="other">{0} tuần</unitPattern>
+			<unitPattern count="other" alt="short">{0} tuần</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="other">{0} năm</unitPattern>
+			<unitPattern count="other" alt="short">{0} năm</unitPattern>
+		</unit>
+	</units>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="2" draft="provisional">{0} và {1}</listPatternPart>
+			<listPatternPart type="end" draft="provisional">{0} và {1}</listPatternPart>
+			<listPatternPart type="middle" draft="provisional">{0}, {1}</listPatternPart>
+			<listPatternPart type="start" draft="provisional">{0}, {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
+	<posix>
+		<messages>
+			<yesstr draft="contributed">yes:y</yesstr>
+			<nostr draft="contributed">no:n</nostr>
+		</messages>
+	</posix>
+</ldml>
+

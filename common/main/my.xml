@@ -1,0 +1,1614 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="my"/>
+	</identity>
+	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localeSeparator draft="unconfirmed">၊</localeSeparator>
+		</localeDisplayPattern>
+		<languages>
+			<language type="ang" draft="provisional">အင်္ဂလိပ်စာဟောင်း</language>
+			<language type="ar" draft="provisional">အာရေဗီ</language>
+			<language type="art" draft="provisional">အယောင်ဆောင် ဘာသာစကား</language>
+			<language type="ban" draft="provisional">ဘာလီ</language>
+			<language type="bas" draft="provisional">ဘာဆာ</language>
+			<language type="bat" draft="provisional">ဘော်လတစ် ဘာသာစကား</language>
+			<language type="be" draft="provisional">ဘီလာရု</language>
+			<language type="bg" draft="provisional">ဘူဂေးရီးယား</language>
+			<language type="bn" draft="provisional">ဘင်္ဂါလီ</language>
+			<language type="bo" draft="provisional">တိဘက်</language>
+			<language type="bs" draft="provisional">ဘော့စ်နီးယား</language>
+			<language type="cai" draft="unconfirmed">အလယ်ပိုင်း အမေရိကန် အိန္ဒြိယ ဘာသာစကား</language>
+			<language type="cau" draft="provisional">ကောက်ကေးရှပ် ဘာသာစကား</language>
+			<language type="ce" draft="provisional">ချေချင်း</language>
+			<language type="chr" draft="provisional">ချာရိုကီ</language>
+			<language type="cpp" draft="provisional">ပေါ်တူဂီ အခြေခံ အနောက်အိန္ဒြိယ ကျွန်းစုသား သို့မဟုတ် ဗန်းစကား</language>
+			<language type="cr" draft="provisional">ခရီး</language>
+			<language type="crp" draft="unconfirmed">အနောက်အိန္ဒြိယ ကျွန်းစုသား သို့မဟုတ် ဗန်းစကား</language>
+			<language type="cs" draft="provisional">ချက်</language>
+			<language type="cy" draft="provisional">ဝေလ</language>
+			<language type="da" draft="provisional">ဒိန်းမတ်</language>
+			<language type="dak" draft="provisional">ဒါကိုတာ</language>
+			<language type="de" draft="provisional">ဂျာမန်</language>
+			<language type="de_AT" draft="provisional">ဩစတြီးယ ဂျာမန်</language>
+			<language type="de_CH" draft="provisional">ဆွစ် အမြင့် ဂျာမန်</language>
+			<language type="del" draft="provisional">ဒီလာဝဲ</language>
+			<language type="dum" draft="provisional">အလယ်ပိုင်း ဒတ်ချ်</language>
+			<language type="dz" draft="provisional">ဒွန်ကာ</language>
+			<language type="egy" draft="provisional">ရှေးဟောင်း အီဂျစ်</language>
+			<language type="el" draft="provisional">ဂရိ</language>
+			<language type="en" draft="provisional">အင်္ဂလိပ်</language>
+			<language type="en_AU" draft="provisional">ဩစတြေးလျှ အင်္ဂလိပ်</language>
+			<language type="en_CA" draft="provisional">ကနေဒါ အင်္ဂလိပ်</language>
+			<language type="en_GB" draft="provisional">ဗြိတိသျှ အင်္ဂလိပ်</language>
+			<language type="en_US" draft="provisional">အမေရိကန် အင်္ဂလိပ်</language>
+			<language type="enm" draft="provisional">အလယ်ပိုင်း အင်္ဂလိပ်</language>
+			<language type="es" draft="provisional">စပိန်</language>
+			<language type="es_419" draft="provisional">လက်တင်အမေရိက စပိန်</language>
+			<language type="et" draft="provisional">အက်စ်တိုးနီးရန်း</language>
+			<language type="fa" draft="provisional">ပါရှန်</language>
+			<language type="fi" draft="provisional">ဖင်နစ်ရှ်</language>
+			<language type="fil" draft="provisional">ဖိလစ်ပီနို</language>
+			<language type="fj" draft="provisional">ဖီဂျီ</language>
+			<language type="fr" draft="provisional">ပြင်သစ်</language>
+			<language type="fr_CA" draft="provisional">ကနေဒါ ပြင်သစ်</language>
+			<language type="fr_CH" draft="provisional">ဆွစ် ပြင်သစ်</language>
+			<language type="frm" draft="provisional">အလယ်ပိုင်းပြင်သစ်</language>
+			<language type="fro" draft="provisional">ပြင်သစ်ဟောင်း</language>
+			<language type="frr" draft="provisional">မြောက်ပိုင်း ဖရီစီရန်</language>
+			<language type="frs" draft="provisional">အရှေ့ပိုင်း ဖရီစီရန်</language>
+			<language type="fy" draft="provisional">အနောက်ပိုင်း ဖရီစီရန်</language>
+			<language type="ga" draft="provisional">အိုင်းရစ်</language>
+			<language type="gem" draft="provisional">ဂျာမန် အခြေခံဘာသာစကား</language>
+			<language type="gmh" draft="provisional">အလယ်ပိုင်းအမြင့်ဂျာမန်</language>
+			<language type="grc" draft="provisional">ရှေးဟောင်း ဂရိ</language>
+			<language type="gsw" draft="provisional">ဆွစ် ဂျာမန်</language>
+			<language type="gu" draft="provisional">ဂူဂျာရသီ</language>
+			<language type="haw" draft="provisional">ဟာဝေယံ</language>
+			<language type="he" draft="provisional">ဟီးဘရူး</language>
+			<language type="hi" draft="provisional">ဟိန္ဒီ</language>
+			<language type="hr" draft="provisional">ခရိုအေရှန်</language>
+			<language type="hu" draft="provisional">ဟန်ဂေရီ</language>
+			<language type="id" draft="provisional">အင်ဒိုနီးရှား</language>
+			<language type="ii" draft="provisional">စီချွမ် ရီ</language>
+			<language type="ine" draft="provisional">အင်ဒို ဥရောပ ဘာသာစကား</language>
+			<language type="ira" draft="provisional">အီရန် အခြေခံ ဘာသာစကား</language>
+			<language type="it" draft="provisional">အီတလီ</language>
+			<language type="ja" draft="provisional">ဂျပန်</language>
+			<language type="jpr" draft="provisional">ဂျူဒီယို-ပါရှန်</language>
+			<language type="jrb" draft="provisional">ဂျူဒီယို-အာရေဗျ</language>
+			<language type="jv" draft="provisional">ဂျာဗားနီးစ်</language>
+			<language type="ka" draft="provisional">ဂျော်ဂျီယန်</language>
+			<language type="kac" draft="provisional">ကချင်</language>
+			<language type="kar" draft="provisional">ကရင်</language>
+			<language type="kg" draft="provisional">ကွန်ဂို</language>
+			<language type="kha" draft="provisional">ခါစီ</language>
+			<language type="km" draft="provisional">ခမာ</language>
+			<language type="kn" draft="provisional">ကန်နာဒါ</language>
+			<language type="ko" draft="provisional">ကိုးရီးယား</language>
+			<language type="ku" draft="provisional">ကဒ်</language>
+			<language type="la" draft="provisional">လက်တင်</language>
+			<language type="lo" draft="provisional">လာအို</language>
+			<language type="mga" draft="provisional">အလယ်ပိုင်း အိုင်းရစ်</language>
+			<language type="mis" draft="provisional">အမျိုးမျိုးသော ဘာသာစကား</language>
+			<language type="mkh" draft="provisional">မွန်-ခမာ ဘာသာစကား</language>
+			<language type="ml" draft="provisional">မလေးရာလမ်</language>
+			<language type="mn" draft="provisional">မွန်ဂိုလီးယန်း</language>
+			<language type="mnc" draft="provisional">မန်ချူး</language>
+			<language type="mni" draft="unconfirmed">မနိပူရီ</language>
+			<language type="mno" draft="provisional">မနိုဘို ဘာသာစကား</language>
+			<language type="mr" draft="provisional">မာရသီ</language>
+			<language type="ms" draft="provisional">မလေး</language>
+			<language type="mul" draft="provisional">အကြိမ်များစွာ ဘာသာစကားများ</language>
+			<language type="my" draft="provisional">ဗမာ</language>
+			<language type="nds" draft="provisional">အနိမ့် ဂျာမန်</language>
+			<language type="ne" draft="provisional">နီပေါလ်</language>
+			<language type="nl" draft="provisional">ဒတ်ချ်</language>
+			<language type="no" draft="provisional">နော်ဝေး</language>
+			<language type="pa" draft="provisional">ပန်ဂျာပီ</language>
+			<language type="paa" draft="provisional">ပါပူရန် ဘာသာစကား</language>
+			<language type="peo" draft="provisional">ပါရှန် အဟောင်း</language>
+			<language type="phi" draft="provisional">ဖိလစ်ပိုင် ဘာသာစကား</language>
+			<language type="pi" draft="provisional">ပါဠိ</language>
+			<language type="pl" draft="provisional">ပိုလန်</language>
+			<language type="pt" draft="provisional">ပေါ်တူဂီ</language>
+			<language type="pt_BR" draft="provisional">ဘရာဇီး ပေါ်တူဂီ</language>
+			<language type="ro" draft="provisional">ရိုမေနီယား</language>
+			<language type="root" draft="provisional">မူလရင်းမြစ်</language>
+			<language type="ru" draft="provisional">ရုရှ</language>
+			<language type="sa" draft="provisional">သင်္သကရိုက်</language>
+			<language type="sai" draft="provisional">တောင် အမေရိကန် အိန္ဒြိယ ဘာသာစကား</language>
+			<language type="sco" draft="provisional">စကော့</language>
+			<language type="sd" draft="provisional">စင်ဒီ</language>
+			<language type="sga" draft="provisional">အိုင်းရစ် ဟောင်း</language>
+			<language type="sgn" draft="provisional">အချက်ပြ ဘာသာစကား</language>
+			<language type="shn" draft="provisional">ရှမ်း</language>
+			<language type="si" draft="provisional">ဆင်ဟာလ</language>
+			<language type="sit" draft="provisional">တရုတ်-တိဘက် ဘာသာစကား</language>
+			<language type="sk" draft="provisional">စလိုဗက်</language>
+			<language type="sl" draft="provisional">စလိုဗေးနီးယမ်း</language>
+			<language type="sla" draft="provisional">စလိုဗစ် ဘာသာစကား</language>
+			<language type="sma" draft="provisional">တောင်ပိုင်း ဆာမိ</language>
+			<language type="smi" draft="provisional">ဆာမိ ဘာသာစကား</language>
+			<language type="so" draft="provisional">ဆိုမာလီ</language>
+			<language type="sq" draft="provisional">အယ်လ်ဘေးနီးယန်း</language>
+			<language type="sr" draft="provisional">ဆားဗီးယန်း</language>
+			<language type="su" draft="provisional">ဆူဒန်</language>
+			<language type="sv" draft="provisional">ဆွီဒင်</language>
+			<language type="ta" draft="provisional">တမီးလ်</language>
+			<language type="tai" draft="provisional">တိုင် ဘာသာစကား</language>
+			<language type="th" draft="provisional">ထိုင်း</language>
+			<language type="tup" draft="provisional">တူပီ ဘာသာစကား</language>
+			<language type="uk" draft="provisional">ယူကရိန်း</language>
+			<language type="und" draft="provisional">မသိ သို့မဟုတ် မရှိ သော ဘာသာစကား</language>
+			<language type="vi" draft="provisional">ဗီယက်နမ်</language>
+			<language type="zh" draft="provisional">တရုတ်</language>
+			<language type="zh_Hans" draft="provisional">ရိုးရှင်းသော တရုတ်</language>
+			<language type="zh_Hant" draft="provisional">ရှေးရိုးစဉ်လာ တရုတ်</language>
+			<language type="zu" draft="provisional">ဇူလူ</language>
+			<language type="zxx" draft="provisional">ဘာသာစကား နှင့် ပတ်သက် သောအရာမရှိ</language>
+		</languages>
+		<scripts>
+			<script type="Arab" draft="provisional">အာရေဗျ</script>
+			<script type="Armn" draft="provisional">အာမေးနီးယား</script>
+			<script type="Beng" draft="provisional">ဘင်္ဂါလီ</script>
+			<script type="Brah" draft="provisional">ဗြဟ္မမီ</script>
+			<script type="Cyrl" draft="provisional">စစ်ရိလစ်</script>
+			<script type="Deva" draft="provisional">ဒီဗနာဂရီ</script>
+			<script type="Ethi" draft="provisional">အီသီယိုးပီးယား</script>
+			<script type="Geor" draft="provisional">ဂျော်ဂျီယန်</script>
+			<script type="Grek" draft="provisional">ဂရိ</script>
+			<script type="Gujr" draft="provisional">ဂုဂျာရသီ</script>
+			<script type="Hang" draft="provisional">ဟန်ဂူးလ်</script>
+			<script type="Hani" draft="provisional">ဟန်</script>
+			<script type="Hans" draft="provisional">ရိုးရှင်းသော တရုတ်</script>
+			<script type="Hant" draft="provisional">ရှေးရိုးစဉ်လာ တရုတ်</script>
+			<script type="Hebr" draft="provisional">ဟီဗရူး</script>
+			<script type="Hira" draft="provisional">ဟိရဂဏ</script>
+			<script type="Hrkt" draft="provisional">ခတခဏ သို့မဟုတ် ဟိရဂဏ</script>
+			<script type="Java" draft="provisional">ဂျာဗားနီးစ်</script>
+			<script type="Jpan" draft="provisional">ဂျပန်</script>
+			<script type="Kali" draft="provisional">ကယားလီ</script>
+			<script type="Kana" draft="provisional">ခတခဏ</script>
+			<script type="Khmr" draft="provisional">ခမာ</script>
+			<script type="Kore" draft="provisional">ကိုးရီးယား</script>
+			<script type="Laoo" draft="provisional">လာအို</script>
+			<script type="Latn" draft="provisional">လက်တင်</script>
+			<script type="Mong" draft="provisional">မွန်ဂိုလီးယား</script>
+			<script type="Mymr" draft="provisional">မြန်မာ</script>
+			<script type="Sinh" draft="provisional">ဆင်ဟာလ</script>
+			<script type="Sund" draft="provisional">ဆူဒန်</script>
+			<script type="Tale" draft="provisional">တိုင်လီ</script>
+			<script type="Taml" draft="provisional">တမီးလ်</script>
+			<script type="Tglg" draft="provisional">တဂလော့ဂ်</script>
+			<script type="Thai" draft="provisional">ထိုင်း</script>
+			<script type="Tibt" draft="provisional">တိဘက်</script>
+			<script type="Visp" draft="provisional">မြင်နိုင်သော စကား</script>
+			<script type="Xpeo" draft="provisional">ပါရှန် အဟောင်း</script>
+			<script type="Yiii" draft="provisional">ရီ</script>
+			<script type="Zxxx" draft="provisional">မရေးထားသော</script>
+			<script type="Zzzz" draft="provisional">မသိ သို့မဟုတ် မရှိသော စကားလုံး</script>
+		</scripts>
+		<territories>
+			<territory type="001" draft="provisional">ကမ္ဘာ</territory>
+			<territory type="002" draft="provisional">အာဖရိက</territory>
+			<territory type="003" draft="provisional">မြောက် အမေရိက</territory>
+			<territory type="005" draft="provisional">တောင် အမေရိက</territory>
+			<territory type="009" draft="provisional">သမုဒ္ဒရာဒေသ</territory>
+			<territory type="011" draft="provisional">အနောက် အာဖရိက</territory>
+			<territory type="013" draft="provisional">အလယ်ပိုင်း အမေရိက</territory>
+			<territory type="014" draft="provisional">အရှေ့ပိုင်း အာဖရိက</territory>
+			<territory type="015" draft="provisional">မြောက်ပိုင်း အာဖရိက</territory>
+			<territory type="017" draft="provisional">အလယ်ပိုင်း အာဖရိက</territory>
+			<territory type="018" draft="provisional">တောင်ပိုင်း အာဖရိက</territory>
+			<territory type="019" draft="provisional">အမေရိကများ</territory>
+			<territory type="021" draft="provisional">မြောက်ပိုင်း အမေရိက</territory>
+			<territory type="029" draft="provisional">ကာရီဘီယံ</territory>
+			<territory type="030" draft="provisional">အရှေ့ပိုင်း အာရှ</territory>
+			<territory type="034" draft="provisional">တောင်ပိုင်း အာရှ</territory>
+			<territory type="035" draft="provisional">အ‌ရှေ့တောင်ပိုင်း အာရှ</territory>
+			<territory type="039" draft="provisional">တောင်ပိုင်း ဥရောပ</territory>
+			<territory type="053" draft="provisional">ဩစတြေးလျှ နှင့် နယူးဇီလန်</territory>
+			<territory type="062" draft="provisional">တောင်-အလယ် အာရှ</territory>
+			<territory type="142" draft="provisional">အာရှ</territory>
+			<territory type="143" draft="provisional">အလယ် အာရှ</territory>
+			<territory type="145" draft="provisional">အနောက် အာရှ</territory>
+			<territory type="150" draft="provisional">ဥရောပ</territory>
+			<territory type="151" draft="provisional">အရှေ့ပိုင်း ဥရောပ</territory>
+			<territory type="154" draft="provisional">မြောက်ပိုင်း ဥရောပ</territory>
+			<territory type="155" draft="provisional">အနောက်ပိုင်း ဥရောပ</territory>
+			<territory type="172" draft="provisional">လွတ်လပ်သော ပြည်ထောင်စုများ၏ ဓနသဟာယအဖွဲ့</territory>
+			<territory type="419" draft="provisional">လက်တင် အမေရိက နှင့် ကာရီဘီယန်</territory>
+			<territory type="AE" draft="provisional">ယူအေအီး</territory>
+			<territory type="AF" draft="provisional">အာဖဂန်နစ္စတန်</territory>
+			<territory type="AI" draft="provisional">အန်ကွီလာ</territory>
+			<territory type="AM" draft="provisional">အာမေနီးယား</territory>
+			<territory type="AO" draft="provisional">အင်ဂိုလာ</territory>
+			<territory type="AQ" draft="provisional">အန္တာတိက</territory>
+			<territory type="AR" draft="provisional">အာဂျင်တီးနား</territory>
+			<territory type="AS" draft="provisional">အမေရိကန် စမိုအ</territory>
+			<territory type="AT" draft="provisional">ဩစတြီးယား</territory>
+			<territory type="AU" draft="provisional">ဩစတြေးလျှား</territory>
+			<territory type="AZ" draft="provisional">အဇာဘိုင်ဂျန်</territory>
+			<territory type="BA" draft="provisional">ဘော့စနီးယား နှင့် ဟာဇီဂိုဘီးနား</territory>
+			<territory type="BD" draft="provisional">ဘင်္ဂလားဒေ့ရှ်</territory>
+			<territory type="BE" draft="provisional">ဘယ်လ်ဂျီယမ်</territory>
+			<territory type="BG" draft="provisional">ဘူဂေးရီးယား</territory>
+			<territory type="BH" draft="provisional">ဘာရိန်း</territory>
+			<territory type="BM" draft="provisional">ဘာမူဒါ</territory>
+			<territory type="BN" draft="provisional">ဘရူနိုင်း</territory>
+			<territory type="BO" draft="provisional">ဘိုလီးဘီးယား</territory>
+			<territory type="BR" draft="provisional">ဘရာဇီး</territory>
+			<territory type="BS" draft="provisional">ဘဟားမား</territory>
+			<territory type="BT" draft="provisional">ဘူတန်</territory>
+			<territory type="BW" draft="provisional">ဘော့စ်ဝါနာ</territory>
+			<territory type="BY" draft="provisional">ဘီလာရုစ်</territory>
+			<territory type="BZ" draft="provisional">ဘေလီဇ်</territory>
+			<territory type="CA" draft="provisional">ကနေဒါ</territory>
+			<territory type="CC" draft="provisional">ကိုကိုး ကျွန်းစု</territory>
+			<territory type="CF" draft="provisional">အလယ်ပိုင်း အာဖရိက ပြည်ထောင်စု</territory>
+			<territory type="CH" draft="provisional">ဆွစ်ဇလန်</territory>
+			<territory type="CI" draft="provisional">အိုင်ဗရီကိုစ့်</territory>
+			<territory type="CK" draft="provisional">ကွတ် ကျွန်းစု</territory>
+			<territory type="CL" draft="provisional">ချီလီ</territory>
+			<territory type="CM" draft="provisional">ကင်မရွန်း</territory>
+			<territory type="CN" draft="provisional">တရုတ်</territory>
+			<territory type="CO" draft="provisional">ကိုလံဘီယာ</territory>
+			<territory type="CR" draft="provisional">ကော့စ်တာရီကာ</territory>
+			<territory type="CU" draft="provisional">ကျူးဘား</territory>
+			<territory type="CX" draft="provisional">ခရစ်စမတ် ကျွန်း</territory>
+			<territory type="CY" draft="provisional">ဆိုက်ပရက်စ်</territory>
+			<territory type="CZ" draft="provisional">ချက် ပြည်ထောင်စု</territory>
+			<territory type="DE" draft="provisional">ဂျာမဏီ</territory>
+			<territory type="DK" draft="provisional">ဒိန်းမတ်</territory>
+			<territory type="DM" draft="provisional">ဒိုမီနီကာ</territory>
+			<territory type="DO" draft="provisional">ဒိုမီနီကန်</territory>
+			<territory type="DZ" draft="provisional">အယ်လ်ဂျီးရီးယား</territory>
+			<territory type="EC" draft="provisional">အီကွေဒေါ</territory>
+			<territory type="EE" draft="provisional">အက်စတိုးနီးယား</territory>
+			<territory type="EG" draft="provisional">အီဂျစ်</territory>
+			<territory type="EH" draft="provisional">အနောက်ပိုင်း ဆာဟာရ</territory>
+			<territory type="ES" draft="provisional">စပိန်</territory>
+			<territory type="ET" draft="provisional">အီသီယိုးပီးယား</territory>
+			<territory type="FI" draft="provisional">ဖင်လန်</territory>
+			<territory type="FJ" draft="provisional">ဖီဂျီ</territory>
+			<territory type="FK" draft="provisional">ဖောက်ကလန် ကျွန်းစု</territory>
+			<territory type="FO" draft="provisional">ဖာရိုး ကျွန်းစုများ</territory>
+			<territory type="FR" draft="provisional">ပြင်သစ်</territory>
+			<territory type="GB" draft="provisional">ယူနိုက်တက်ကင်းဒမ်း</territory>
+			<territory type="GE" draft="provisional">ဂျော်ဂျီယာ</territory>
+			<territory type="GF" draft="provisional">ပြင်သစ် ဂီယာနာ</territory>
+			<territory type="GH" draft="provisional">ဂါနာ</territory>
+			<territory type="GI" draft="provisional">ဂျီဘရော်လ်တာ</territory>
+			<territory type="GL" draft="provisional">ဂရင်းလန်း</territory>
+			<territory type="GM" draft="provisional">ဂန်ဘီရာ</territory>
+			<territory type="GN" draft="provisional">ဂီရာနာ</territory>
+			<territory type="GQ" draft="provisional">အီကွေတာ ဂီရာနာ</territory>
+			<territory type="GR" draft="provisional">ဂရိ</territory>
+			<territory type="GS" draft="unconfirmed">တောင် ဂျော်ဂျီယာ နှင့် တောင် ဆင်းဒဝစ်ဂျ် ကျွန်းစုများ</territory>
+			<territory type="GT" draft="provisional">ဂွာတီမာလာ</territory>
+			<territory type="GU" draft="provisional">ဂူအမ်</territory>
+			<territory type="HK" draft="provisional">တရုတ်၏ အထူးအုပ်ချုပ်ခွင့်ရ ဟောင်ကောင်</territory>
+			<territory type="HK" alt="short" draft="provisional">ဟောင်ကောင်</territory>
+			<territory type="HN" draft="provisional">ဟွန်ဒူးရပ်စ်</territory>
+			<territory type="HR" draft="provisional">ခရိုအေးရှား</territory>
+			<territory type="HT" draft="provisional">ဟေတီ</territory>
+			<territory type="HU" draft="provisional">ဟန်ဂေရီ</territory>
+			<territory type="ID" draft="provisional">အင်ဒိုနီးရှား</territory>
+			<territory type="IE" draft="provisional">အိုင်ယာလန်</territory>
+			<territory type="IL" draft="provisional">အစ္စရေး</territory>
+			<territory type="IN" references="RP2" draft="provisional">အိန္ဒိယ</territory>
+			<territory type="IO" draft="provisional">ဗြိတိသျှ အိန္ဒြိယ သမုဒ္ဒရာ ပိုင်နက်</territory>
+			<territory type="IQ" draft="provisional">အီရတ်</territory>
+			<territory type="IR" draft="provisional">အီရန်</territory>
+			<territory type="IS" draft="provisional">အိုက်စလန်</territory>
+			<territory type="IT" draft="provisional">အီတလီ</territory>
+			<territory type="JE" draft="provisional">ဂျာစီ</territory>
+			<territory type="JM" draft="provisional">ဂျမေနီကာ</territory>
+			<territory type="JO" draft="provisional">ဂျော်ဒန်</territory>
+			<territory type="JP" draft="provisional">ဂျပန်</territory>
+			<territory type="KE" draft="provisional">ကင်ညာ</territory>
+			<territory type="KG" draft="unconfirmed">ခယ်ကစ်စတန်</territory>
+			<territory type="KH" draft="provisional">ကမ္ဘောဒီးယား</territory>
+			<territory type="KP" draft="provisional">မြောက်ကိုရီးယား</territory>
+			<territory type="KR" draft="provisional">တောင်ကိုရီးယား</territory>
+			<territory type="KW" draft="provisional">ကူဝိတ်</territory>
+			<territory type="KY" draft="provisional">ကေမန် ကျွန်းစု</territory>
+			<territory type="KZ" draft="provisional">ကာဇက်စတန်</territory>
+			<territory type="LA" draft="provisional">လာအို</territory>
+			<territory type="LB" draft="provisional">လက်ဘနွန်</territory>
+			<territory type="LK" draft="provisional">သီရိလင်္ကာ</territory>
+			<territory type="LR" draft="provisional">လိုင်ဘေးရီးယား</territory>
+			<territory type="LT" draft="provisional">လစ်သူယေးနီးယား</territory>
+			<territory type="LU" draft="provisional">လူဇင်ဘတ်</territory>
+			<territory type="LV" draft="provisional">လတ်ဗီးယား</territory>
+			<territory type="MA" draft="provisional">မော်ရိုကို</territory>
+			<territory type="MC" draft="provisional">မိုနကို</territory>
+			<territory type="ME" draft="provisional">မွန်တီနိဂရိုး</territory>
+			<territory type="MF" draft="provisional">စိန့်မာတင်</territory>
+			<territory type="MG" draft="provisional">မဒဂတ်စကာ</territory>
+			<territory type="MH" draft="provisional">မာရှယ် ကျွန်းစု</territory>
+			<territory type="MK" draft="provisional">မာစီဒိုးနီးယား</territory>
+			<territory type="ML" draft="provisional">မာလီ</territory>
+			<territory type="MM" draft="provisional">မြန်မာ</territory>
+			<territory type="MN" draft="provisional">မွန်ဂိုးလီးယား</territory>
+			<territory type="MO" draft="provisional">တရုတ်၏ အထူးအုပ်ချုပ်ခွင့်ရ မကာအို</territory>
+			<territory type="MO" alt="short" draft="provisional">မကာအို</territory>
+			<territory type="MV" draft="provisional">မော်လဒိုက်</territory>
+			<territory type="MW" draft="provisional">မာလာဝီ</territory>
+			<territory type="MX" draft="provisional">မက္ကဆီကို</territory>
+			<territory type="MY" draft="provisional">မလေးရှား</territory>
+			<territory type="MZ" draft="provisional">မိုဇန်ဘစ်</territory>
+			<territory type="NA" draft="provisional">နမ်မီးဘီးယား</territory>
+			<territory type="NC" draft="provisional">နယူး ကယ်လီဒိုနီးယား</territory>
+			<territory type="NE" draft="provisional">နိုင်ဂျာ</territory>
+			<territory type="NG" draft="provisional">နိုင်ဂျီးရီးယား</territory>
+			<territory type="NI" draft="provisional">နီကာရာဂွာ</territory>
+			<territory type="NL" draft="provisional">နယ်သာလန်</territory>
+			<territory type="NO" draft="provisional">နော်ဝေ</territory>
+			<territory type="NP" draft="provisional">နီပေါ</territory>
+			<territory type="NZ" draft="provisional">နယူးဇီလန်</territory>
+			<territory type="OM" draft="provisional">အိုမန်</territory>
+			<territory type="PA" draft="provisional">ပနားမား</territory>
+			<territory type="PE" draft="provisional">ပီရူး</territory>
+			<territory type="PF" draft="provisional">ပြင်သစ် ပေါ်လီနေးရှား</territory>
+			<territory type="PG" draft="provisional">ပါပူရာနယူးဂီနီ</territory>
+			<territory type="PH" draft="provisional">ဖိလစ်ပိုင်</territory>
+			<territory type="PK" draft="provisional">ပါကစ္စတန်</territory>
+			<territory type="PL" draft="provisional">ပိုလန်</territory>
+			<territory type="PR" draft="provisional">ပေါ်တူရီကို</territory>
+			<territory type="PS" draft="provisional">ပါလက်စတိုင်း ပိုင်နက်</territory>
+			<territory type="PT" draft="provisional">ပေါ်တူဂီ</territory>
+			<territory type="PY" draft="provisional">ပါရာဂွေး</territory>
+			<territory type="QA" draft="provisional">ကာတာ</territory>
+			<territory type="QU" draft="provisional">ဥရောပသမဂ္ဂ</territory>
+			<territory type="RO" draft="provisional">ရိုမေးနီးယား</territory>
+			<territory type="RS" draft="provisional">ဆားဘီးယား</territory>
+			<territory type="RU" draft="provisional">ရုရှ</territory>
+			<territory type="RW" draft="provisional">ရဝန်ဒါ</territory>
+			<territory type="SA" draft="provisional">ဆော်ဒီအာရေးဗီးယား</territory>
+			<territory type="SB" draft="provisional">ဆော်လမွန်ကျွန်းစု</territory>
+			<territory type="SD" draft="provisional">ဆူဒန်</territory>
+			<territory type="SE" draft="provisional">ဆွီဒင်</territory>
+			<territory type="SG" draft="provisional">စင်္ကာပူ</territory>
+			<territory type="SI" draft="provisional">စလိုဗေးနီးယား</territory>
+			<territory type="SK" draft="provisional">စလိုဗေးကီးယား</territory>
+			<territory type="SN" draft="provisional">ဆီနီဂေါ</territory>
+			<territory type="SO" draft="provisional">ဆိုမာလီယာ</territory>
+			<territory type="SV" draft="provisional">အယ်လ်ဆာဗေးဒိုး</territory>
+			<territory type="SY" draft="provisional">ဆီးရီးယား</territory>
+			<territory type="TD" draft="provisional">ချဒ်</territory>
+			<territory type="TF" draft="provisional">ပြင်သစ် တောင်ပိုင်း ပိုင်နက်များ</territory>
+			<territory type="TH" draft="provisional">ထိုင်း</territory>
+			<territory type="TJ" draft="provisional">တာဂျီကစ္စတန်</territory>
+			<territory type="TL" draft="provisional">အရှေ့တီမော</territory>
+			<territory type="TN" draft="provisional">တူနီးရှား</territory>
+			<territory type="TO" draft="provisional">တွန်ဂါ</territory>
+			<territory type="TR" draft="provisional">တူရကီ</territory>
+			<territory type="TW" draft="provisional">ထိုင်ဝမ်</territory>
+			<territory type="TZ" draft="provisional">တန်ဇန်နီးယား</territory>
+			<territory type="UA" draft="provisional">ယူကရိန်း</territory>
+			<territory type="UG" draft="provisional">ယူဂန္ဒာ</territory>
+			<territory type="UM" draft="provisional">ယူနိုက်တက်စတိတ် အပြင်ထွက် နေသည့် သေးငယ်သောကျွန်းများ</territory>
+			<territory type="US" draft="provisional">ယူနိုက်တက်စတိတ်</territory>
+			<territory type="UY" draft="provisional">ဥရုဂွေး</territory>
+			<territory type="UZ" draft="provisional">ဥဘက်ကစ္စတန်</territory>
+			<territory type="VA" draft="provisional">ဗာတီကန်</territory>
+			<territory type="VE" draft="provisional">ဗင်နီဇွဲလား</territory>
+			<territory type="VG" draft="provisional">ဗြိတိသျှ ဗာဂျင်း ကျွန်းစု</territory>
+			<territory type="VI" draft="provisional">ယူအက်စ် ဗာဂျင်း ကျွန်းစု</territory>
+			<territory type="VN" draft="provisional">ဗီယက်နမ်</territory>
+			<territory type="YE" draft="provisional">ယီမင်</territory>
+			<territory type="ZA" draft="provisional">တောင်အာဖရိက</territory>
+			<territory type="ZM" draft="provisional">ဇမ်ဘီယာ</territory>
+			<territory type="ZW" draft="provisional">ဇင်ဘာဘွေ</territory>
+			<territory type="ZZ" draft="provisional">မသိ သို့မဟုတ် မရှိ သော နေရာ</territory>
+		</territories>
+		<variants>
+			<variant type="1901" draft="provisional">ရှေးရိုးစဉ်လာ ဂျာမန် ရေးထုံး</variant>
+			<variant type="1996" draft="provisional">၁၉၉၆ ဂျာမန် ရေးထုံး</variant>
+			<variant type="1606NICT" draft="provisional">အလယ်ပိုင်းနောက်ကျသောပြင်သစ်မှ ၁၆၀၆</variant>
+			<variant type="1694ACAD" draft="provisional">၁၆၉၄ACAD</variant>
+			<variant type="AREVELA" draft="provisional">အရှေ့ပိုင်းအာမေးနီးယန်း</variant>
+			<variant type="BAKU1926" draft="provisional">ပေါင်းစပ်ထားသော တူရကီ လက်တင်စကားလုံး</variant>
+			<variant type="FONIPA" draft="provisional">IPA အသံထွက်</variant>
+			<variant type="FONUPA" draft="provisional">UPA အသံထွက်</variant>
+			<variant type="POSIX" draft="provisional">ကွန်ပျူတာ</variant>
+			<variant type="REVISED" draft="provisional">ပြန်လည်စီစစ်ထားသော ရေးထုံး</variant>
+			<variant type="SCOTLAND" draft="provisional">စကော့ စံ အင်္ဂလိပ်</variant>
+		</variants>
+		<keys>
+			<key type="calendar" draft="provisional">ပြက္ခဒိန်</key>
+			<key type="collation" draft="provisional">စနစ်တကျစီသော</key>
+			<key type="currency" draft="provisional">ငွေကြေး</key>
+		</keys>
+		<types>
+			<type type="buddhist" key="calendar" draft="provisional">ဗုဒ္ဓ ပြက္ခဒိန်</type>
+			<type type="chinese" key="calendar" draft="provisional">တရုတ် ပြက္ခဒိန်</type>
+			<type type="direct" key="collation" draft="provisional">တိုက်ရိုက်အစဉ်</type>
+			<type type="gregorian" key="calendar" draft="provisional">နိုင်ငံတကာသုံး ပြက္ခဒိန်</type>
+			<type type="hebrew" key="calendar" draft="provisional">ဟီဗရူး ပြက္ခဒိန်</type>
+			<type type="indian" key="calendar" draft="provisional">အိန္ဒြိယ အမျိုးသား ပြက္ခဒိန်</type>
+			<type type="islamic" key="calendar" draft="provisional">အစ္စလာမ် ပြက္ခဒိန်</type>
+			<type type="japanese" key="calendar" draft="provisional">ဂျပန် ပြက္ခဒိန်</type>
+			<type type="phonebook" key="collation" draft="provisional">ဖုန်းစာအုပ် အစီအစဉ်</type>
+		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric" draft="provisional">မက်ထရစ်စနစ်</measurementSystemName>
+			<measurementSystemName type="US" draft="provisional">အမေရိကန်စနစ်</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language" draft="provisional">ဘာသာစကား - {0}</codePattern>
+			<codePattern type="script" draft="provisional">စာ - {0}</codePattern>
+			<codePattern type="territory" draft="provisional">နယ်ပယ်ဒေသ - {0}</codePattern>
+		</codePatterns>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[က-အ ဣ-ဧ ဩ ဪ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="provisional">[\u1036-း ျ-\u103E ာ ါ \u102D-\u1032 \u1039 \u103A]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol" draft="unconfirmed">[a-z]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[က ခ ဂ ဃ င စ ဆ ဇ ဈ ဉ ည ဋ ဌ ဍ ဎ ဏ တ ထ ဒ ဓ န ပ ဖ ဗ ဘ မ ယ ရ လ ဝ သ ဟ ဠ အ ဣ ဤ ဥ ဦ ဧ ဩ ဪ]</exemplarCharacters>
+	</characters>
+	<delimiters>
+		<quotationStart draft="unconfirmed">“</quotationStart>
+		<quotationEnd draft="unconfirmed">”</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">‘</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">’</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="provisional">ဇန်</month>
+							<month type="2" draft="provisional">ဖေ</month>
+							<month type="3" draft="provisional">မတ်</month>
+							<month type="4" draft="provisional">ဧ</month>
+							<month type="5" draft="provisional">မေ</month>
+							<month type="6" draft="provisional">ဇွန်</month>
+							<month type="7" draft="provisional">ဇူ</month>
+							<month type="8" draft="provisional">ဩ</month>
+							<month type="9" draft="provisional">စက်</month>
+							<month type="10" draft="provisional">အောက်</month>
+							<month type="11" draft="provisional">နို</month>
+							<month type="12" draft="provisional">ဒီ</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="provisional">ဇန်နဝါရီ</month>
+							<month type="2" draft="provisional">ဖေဖော်ဝါရီ</month>
+							<month type="3" draft="provisional">မတ်</month>
+							<month type="4" draft="provisional">ဧပြီ</month>
+							<month type="5" draft="provisional">မေ</month>
+							<month type="6" draft="provisional">ဇွန်</month>
+							<month type="7" draft="provisional">ဇူလိုင်</month>
+							<month type="8" draft="provisional">ဩဂုတ်</month>
+							<month type="9" draft="provisional">စက်တင်ဘာ</month>
+							<month type="10" draft="provisional">အောက်တိုဘာ</month>
+							<month type="11" draft="provisional">နိုဝင်ဘာ</month>
+							<month type="12" draft="provisional">ဒီဇင်ဘာ</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1" draft="provisional">ဇ</month>
+							<month type="2" draft="provisional">ဖ</month>
+							<month type="3" draft="provisional">မ</month>
+							<month type="4" draft="provisional">ဧ</month>
+							<month type="5" draft="provisional">မ</month>
+							<month type="6" draft="provisional">ဇ</month>
+							<month type="7" draft="provisional">ဇ</month>
+							<month type="8" draft="provisional">ဩ</month>
+							<month type="9" draft="provisional">စ</month>
+							<month type="10" draft="provisional">အ</month>
+							<month type="11" draft="provisional">န</month>
+							<month type="12" draft="provisional">ဒ</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="provisional">နွေ</day>
+							<day type="mon" draft="provisional">လာ</day>
+							<day type="tue" draft="provisional">ဂါ</day>
+							<day type="wed" draft="provisional">ဟူး</day>
+							<day type="thu" draft="provisional">တေး</day>
+							<day type="fri" draft="provisional">ကြာ</day>
+							<day type="sat" draft="provisional">နေ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="provisional">တနင်္ဂနွေ</day>
+							<day type="mon" draft="provisional">တနင်္လာ</day>
+							<day type="tue" draft="provisional">အင်္ဂါ</day>
+							<day type="wed" draft="provisional">ဗုဒ္ဓဟူး</day>
+							<day type="thu" draft="provisional">ကြာသပတေး</day>
+							<day type="fri" draft="provisional">သောကြာ</day>
+							<day type="sat" draft="provisional">စနေ</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" draft="provisional">တ</day>
+							<day type="mon" draft="provisional">တ</day>
+							<day type="tue" draft="provisional">အ</day>
+							<day type="wed" draft="provisional">ဗ</day>
+							<day type="thu" draft="provisional">က</day>
+							<day type="fri" draft="provisional">သ</day>
+							<day type="sat" draft="provisional">စ</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="provisional">ပ-စိတ်</quarter>
+							<quarter type="2" draft="provisional">ဒု-စိတ်</quarter>
+							<quarter type="3" draft="provisional">တ-စိတ်</quarter>
+							<quarter type="4" draft="provisional">စ-စိတ်</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="provisional">ပထမ သုံးလပတ်</quarter>
+							<quarter type="2" draft="provisional">ဒုတိယ သုံးလပတ်</quarter>
+							<quarter type="3" draft="provisional">တတိယ သုံးလပတ်</quarter>
+							<quarter type="4" draft="provisional">စတုတ္ထ သုံးလပတ်</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="provisional">ပ-စိတ်</quarter>
+							<quarter type="2" draft="provisional">ဒု-စိတ်</quarter>
+							<quarter type="3" draft="provisional">တ-စိတ်</quarter>
+							<quarter type="4" draft="provisional">စ-စိတ်</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="provisional">ပ</quarter>
+							<quarter type="2" draft="provisional">ဒု</quarter>
+							<quarter type="3" draft="provisional">တ</quarter>
+							<quarter type="4" draft="provisional">စ</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="provisional">ပထမ သုံးလပတ်</quarter>
+							<quarter type="2" draft="provisional">ဒုတိယ သုံးလပတ်</quarter>
+							<quarter type="3" draft="provisional">တတိယ သုံးလပတ်</quarter>
+							<quarter type="4" draft="provisional">စတုတ္ထ သုံးလပတ်</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="provisional">နံနက်</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">ညနေ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">ခရစ်တော် မပေါ်မီကာလ</era>
+						<era type="1" draft="provisional">ခရစ်တော် ပေါ်ထွန်းပြီးကာလ</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="provisional">ဘီစီ</era>
+						<era type="1" draft="provisional">အေဒီ</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="provisional">EEEE, y MMMM dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="provisional">y MMMM d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="provisional">y MMM d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="provisional">yy/MM/dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
+						<dateFormatItem id="Hm" draft="provisional">H:mm</dateFormatItem>
+						<dateFormatItem id="M" draft="provisional">L</dateFormatItem>
+						<dateFormatItem id="Md" draft="provisional">M-d</dateFormatItem>
+						<dateFormatItem id="MEd" draft="unconfirmed">E, M-d</dateFormatItem>
+						<dateFormatItem id="MMM" draft="unconfirmed">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="provisional">MMM d</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="unconfirmed">E MMM d</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="provisional">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMEd" draft="unconfirmed">E MMMM d</dateFormatItem>
+						<dateFormatItem id="ms" draft="unconfirmed">mm:ss</dateFormatItem>
+						<dateFormatItem id="y" draft="provisional">y</dateFormatItem>
+						<dateFormatItem id="yM" draft="provisional">yyyy-M</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="unconfirmed">EEE, yyyy-M-d</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="provisional">y MMM</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="unconfirmed">EEE, y MMM d</dateFormatItem>
+						<dateFormatItem id="yMMMM" draft="provisional">y MMMM</dateFormatItem>
+						<dateFormatItem id="yQ" draft="unconfirmed">yyyy Q</dateFormatItem>
+						<dateFormatItem id="yQQQ" draft="provisional">y QQQ</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback draft="unconfirmed">{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d" draft="unconfirmed">d-d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a" draft="unconfirmed">h a - h a</greatestDifference>
+							<greatestDifference id="h" draft="unconfirmed">h-h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="a" draft="unconfirmed">HH-HH</greatestDifference>
+							<greatestDifference id="H" draft="unconfirmed">HH-HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a" draft="unconfirmed">h:mm a - h:mm a</greatestDifference>
+							<greatestDifference id="h" draft="unconfirmed">h:mm-h:mm a</greatestDifference>
+							<greatestDifference id="m" draft="unconfirmed">h:mm-h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="a" draft="unconfirmed">HH:mm-HH:mm</greatestDifference>
+							<greatestDifference id="H" draft="unconfirmed">HH:mm-HH:mm</greatestDifference>
+							<greatestDifference id="m" draft="unconfirmed">HH:mm-HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a" draft="unconfirmed">h:mm a - h:mm a v</greatestDifference>
+							<greatestDifference id="h" draft="unconfirmed">h:mm-h:mm a v</greatestDifference>
+							<greatestDifference id="m" draft="unconfirmed">h:mm-h:mm a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="a" draft="unconfirmed">HH:mm-HH:mm v</greatestDifference>
+							<greatestDifference id="H" draft="unconfirmed">HH:mm-HH:mm v</greatestDifference>
+							<greatestDifference id="m" draft="unconfirmed">HH:mm-HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a" draft="unconfirmed">h a - h a v</greatestDifference>
+							<greatestDifference id="h" draft="unconfirmed">h-h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="a" draft="unconfirmed">HH-HH v</greatestDifference>
+							<greatestDifference id="H" draft="unconfirmed">HH-HH v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M" draft="unconfirmed">M-M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d" draft="unconfirmed">d/M – d/M</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">d/M – d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d" draft="unconfirmed">EEEE၊ d/M – EEEE၊ d/M</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">EEEE၊ d/M – EEEE၊ d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d" draft="unconfirmed">MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y" draft="unconfirmed">y-y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d" draft="unconfirmed">d/M/yy – d/M/yy</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">d/M/yy – d/M/yy</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">d/M/yy – d/M/yy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d" draft="unconfirmed">EEEE၊ d/M/yy – EEEE၊ d/M/yy</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">EEEE၊ d/M/yy – EEEE၊ d/M/yy</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">EEEE၊ d-M-yyyy – EEEE၊ d-M-yyyy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="M" draft="unconfirmed">y၊ MMM d – MMM d</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">y MMM d – y MMM d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d" draft="unconfirmed">y၊ MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">y၊ MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">y၊ MMM d၊ EEEE – y၊ MMM d၊ EEEE</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+				<fields>
+					<field type="era">
+						<displayName draft="provisional">ခေတ်</displayName>
+					</field>
+					<field type="year">
+						<displayName draft="provisional">နှစ်</displayName>
+					</field>
+					<field type="month">
+						<displayName draft="provisional">လ</displayName>
+					</field>
+					<field type="week">
+						<displayName draft="provisional">ပတ်</displayName>
+					</field>
+					<field type="day">
+						<displayName draft="provisional">ရက်</displayName>
+						<relative type="-2" draft="provisional">တနေ့က</relative>
+						<relative type="-1" draft="provisional">မနေ့က</relative>
+						<relative type="0" draft="provisional">ယနေ့</relative>
+						<relative type="1" draft="provisional">မနက်ဖြန်</relative>
+						<relative type="2" draft="provisional">သဘက်ခါ</relative>
+					</field>
+					<field type="weekday">
+						<displayName draft="provisional">နေ့</displayName>
+					</field>
+					<field type="dayperiod">
+						<displayName draft="unconfirmed">နံနက်/ညနေ</displayName>
+					</field>
+					<field type="hour">
+						<displayName draft="provisional">နာရီ</displayName>
+					</field>
+					<field type="minute">
+						<displayName draft="provisional">မိနစ်</displayName>
+					</field>
+					<field type="second">
+						<displayName draft="provisional">စက္ကန့်</displayName>
+					</field>
+					<field type="zone">
+						<displayName references="RP3" draft="unconfirmed">ဇုန်</displayName>
+					</field>
+				</fields>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} အချိန်</regionFormat>
+			<zone type="Etc/Unknown">
+				<exemplarCity draft="provisional">မသိသော</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity draft="unconfirmed">ရီယို ဗြန်ကို</exemplarCity>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<exemplarCity draft="unconfirmed">ကိမ်ပို ဂရန်ဒ</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity draft="unconfirmed">ဆာပိုလို</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity draft="unconfirmed">ဟိုနိုလူလူ</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity draft="unconfirmed">အန်ကာရေ့ဂျ်</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity draft="unconfirmed">လော့စ်အိန်ဂျယ်လိစ်</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity draft="unconfirmed">ဖီးနစ်</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity draft="unconfirmed">ဒင်ဗာ</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity draft="unconfirmed">ချီကာကို</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity draft="unconfirmed">အင်ဒီယားနားပိုလစ်</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity draft="unconfirmed">နယူးယောက်</exemplarCity>
+			</zone>
+			<metazone type="Afghanistan">
+				<long>
+					<standard draft="unconfirmed">အာဖဂန်နစ္စတန် အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Central">
+				<long>
+					<standard draft="unconfirmed">အလယ်ပိုင်း အာဖရိက အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Eastern">
+				<long>
+					<standard draft="unconfirmed">အရှေ့ပိုင်း အာဖရိက အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Southern">
+				<long>
+					<generic draft="unconfirmed">တောင်အာဖရိက အချိန်</generic>
+					<standard draft="unconfirmed">တောင်အာဖရိက စံတော်ချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Western">
+				<long>
+					<standard draft="unconfirmed">အနောက်ပိုင်း အာဖရိက အချိန်</standard>
+					<daylight draft="unconfirmed">အနောက်ပိုင်း အာဖရိက နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<generic draft="unconfirmed">အလယ်ပိုင်း အမေရိက အချိန်</generic>
+					<standard draft="unconfirmed">အလယ်ပိုင်း အမေရိက စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">အလယ်ပိုင်း အမေရိက နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<generic draft="unconfirmed">အရှေ့ပိုင်း အမေရိက အချိန်</generic>
+					<standard draft="unconfirmed">အရှေ့ပိုင်း အမေရိက စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">အရှေ့ပိုင်း အမေရိက အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<generic draft="unconfirmed">အမေရိက တောင် အချိန်</generic>
+					<standard draft="unconfirmed">အမေရိက တောင် စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">အမေရိက တောင် နေ့ပိုင်း အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<generic draft="unconfirmed">ပစိဖိတ် အချိန်</generic>
+					<standard draft="unconfirmed">ပစိဖိတ် စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">ပစိဖိတ် နေ့ပိုင်း အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Arabian">
+				<long>
+					<generic draft="unconfirmed">အာရေဗျ အချိန်</generic>
+					<standard draft="unconfirmed">အာရေဗျ စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">အာရေဗျ နေ့ပိုင်း အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina">
+				<long>
+					<standard draft="unconfirmed">အာဂျင်တီးနား အချိန်</standard>
+					<daylight draft="unconfirmed">အာဂျင်တီးနား နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina_Western">
+				<long>
+					<standard draft="unconfirmed">အနောက် အာဂျင်တီးနား အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Armenia">
+				<long>
+					<standard draft="unconfirmed">အာမေနီးယား အချိန်</standard>
+					<daylight draft="unconfirmed">အာမေနီးယား နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<generic draft="unconfirmed">အတ္ထလန်တစ် အချိန်</generic>
+					<standard draft="unconfirmed">အတ္ထလန်တစ် စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">အတ္ထလန်တစ် နေ့ပိုင်း အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Central">
+				<long>
+					<generic draft="unconfirmed">အလယ်ဩစတြေးလျှား အချိန်</generic>
+					<standard draft="unconfirmed">အလယ်ပိုင်း ဩစတြေးလျှား စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">အလယ်ပိုင်း ဩစတြေးလျှား နေ့ပိုင်း အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_CentralWestern">
+				<long>
+					<generic draft="unconfirmed">အလယ်အနောက်ပိုင်း ဩစတြေးလျှား အချိန်</generic>
+					<standard draft="unconfirmed">အလယ်အနောက်ပိုင်း ဩစတြေးလျှား စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">အလယ်အနောက်ပိုင်း ဩစတြေးလျှား နေ့ပိုင်း အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Eastern">
+				<long>
+					<generic draft="unconfirmed">အရှေ့ဩစတြေးလျှား အချိန်</generic>
+					<standard draft="unconfirmed">အရှေ့ပိုင်း ဩစတြေးလျှား စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">အရှေ့ပိုင်း ဩစတြေးလျှား နေ့ပိုင်း အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Western">
+				<long>
+					<generic draft="unconfirmed">အနောက် ဩစတြေးလျှား အချိန်</generic>
+					<standard draft="unconfirmed">အနောက်ပိုင်း ဩစတြေးလျှား စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">အနောက်ပိုင်း ဩစတြေးလျှား နေ့ပိုင်း အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azerbaijan">
+				<long>
+					<standard draft="unconfirmed">အဇာဘိုင်ဂျန် အချိန်</standard>
+					<daylight draft="unconfirmed">အဇာဘိုင်ဂျန် နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bangladesh">
+				<long>
+					<standard draft="unconfirmed">ဘင်္ဂလားဒေ့ရှ် အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Bhutan">
+				<long>
+					<standard draft="unconfirmed">ဘူတန် အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Bolivia">
+				<long>
+					<standard draft="unconfirmed">ဘိုလီးဘီးယား အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Brasilia">
+				<long>
+					<standard draft="unconfirmed">ဘရာဇီး အချိန်</standard>
+					<daylight draft="unconfirmed">ဘရာဇီး နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="British">
+				<long>
+					<generic draft="unconfirmed">ဗြိတိသျှ အချိန်</generic>
+					<daylight draft="unconfirmed">ဗြိတိသျှ နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Brunei">
+				<long>
+					<standard draft="unconfirmed">ဘရူနိုင်း စံတော်ချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<standard draft="unconfirmed">ချီလီ အချိန်</standard>
+					<daylight draft="unconfirmed">ချီလီ နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<generic draft="unconfirmed">တရုတ် အချိန်</generic>
+					<standard draft="unconfirmed">တရုတ် စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">တရုတ် နေ့ပိုင်း အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Colombia">
+				<long>
+					<standard draft="unconfirmed">ကိုလံဘီယာ အချိန်</standard>
+					<daylight draft="unconfirmed">ကိုလံဘီယာ နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cuba">
+				<long>
+					<generic draft="unconfirmed">ကျူးဘား အချိန်</generic>
+					<standard draft="unconfirmed">ကျူးဘား စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">ကျူးဘား နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Dutch_Guiana">
+				<long>
+					<standard draft="unconfirmed">ဒတ်ချ် ဂီယာနာ အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="East_Timor">
+				<long>
+					<standard draft="unconfirmed">အရှေ့တီမော အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Ecuador">
+				<long>
+					<standard draft="unconfirmed">အီကွေဒေါ အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<generic draft="unconfirmed">ပြင်သစ် အချိန်</generic>
+					<standard draft="unconfirmed">ဥရောပ အလယ်ပိုင်း အချိန်</standard>
+					<daylight draft="unconfirmed">ဥရောပ အလယ်ပိုင်း နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<generic draft="unconfirmed">ရိုမေးနီးယား အချိန်</generic>
+					<standard draft="unconfirmed">အရှေ့ဥရောပ အချိန်</standard>
+					<daylight draft="unconfirmed">အရှေ့ဥရောပ နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<standard draft="unconfirmed">အနောက်ပိုင်း ဥရောပ အချိန်</standard>
+					<daylight draft="unconfirmed">အနောက်ပိုင်း ဥရောပ နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Falkland">
+				<long>
+					<standard draft="unconfirmed">ဖောင်ကလန်ကျွန်းစု အချိန်</standard>
+					<daylight draft="unconfirmed">ဖောင်ကလန်ကျွန်းစု နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="French_Guiana">
+				<long>
+					<standard draft="unconfirmed">ပြင်သစ် ဂီယာနာ အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Georgia">
+				<long>
+					<standard draft="unconfirmed">ဂျော်ဂျီယာ အချိန်</standard>
+					<daylight draft="unconfirmed">ဂျော်ဂျီယာ နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard draft="unconfirmed">ဂရင်းနစ် စံတော်ချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Central">
+				<long>
+					<standard draft="unconfirmed">အလယ်ဂရင်းလန်း အချိန်</standard>
+					<daylight draft="unconfirmed">အလယ်ဂရင်းလန်း နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<standard draft="unconfirmed">အရှေ့ဂရင်းလန်း အချိန်</standard>
+					<daylight draft="unconfirmed">အရှေ့ဂရင်းလန်း နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<standard draft="unconfirmed">အနောက် ဂရင်းလန်း အချိန်</standard>
+					<daylight draft="unconfirmed">အနောက် ဂရင်းလန်း နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gulf">
+				<long>
+					<generic draft="unconfirmed">ပင်လယ်ဂွေ့ အချိန်</generic>
+					<standard draft="unconfirmed">ပင်လယ်ဂွေ့ စံတော်ချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<long>
+					<standard draft="unconfirmed">ဟောင်ကောင် အချိန်</standard>
+					<daylight draft="unconfirmed">ဟောင်ကောင် နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="India">
+				<long>
+					<standard draft="unconfirmed">အိန္ဒြိယ စံတော်ချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Indian_Ocean">
+				<long>
+					<standard draft="unconfirmed">အိန္ဒြိယ သမုဒ္ဒရာ အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Indochina">
+				<long>
+					<standard draft="unconfirmed">အင်ဒိုချိုင်းနား အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<long>
+					<standard draft="unconfirmed">အလယ်ပိုင်း အင်ဒိုနီးရှား အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<long>
+					<standard draft="unconfirmed">အရှေ့ပိုင်း အင်ဒိုနီးရှား အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<long>
+					<standard draft="unconfirmed">အနောက်ပိုင်း အင်ဒိုနီးရှား အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Iran">
+				<long>
+					<standard draft="unconfirmed">အီရန် စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">အီရန် နေ့ပိုင်း အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<generic draft="unconfirmed">အိုင်ယာလန် အချိန်</generic>
+				</long>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<generic draft="unconfirmed">အစ္စရေး အချိန်</generic>
+					<standard draft="unconfirmed">အစ္စရေး စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">အစ္စရေး နေ့ပိုင်း အချိန်</daylight>
+				</long>
+				<short>
+					<standard draft="unconfirmed">IST (အစ္စရေး)</standard>
+				</short>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<generic draft="unconfirmed">ဂျပန် အချိန်</generic>
+					<standard draft="unconfirmed">ဂျပန် စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">ဂျပန် နေ့ပိုင်း အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<generic draft="unconfirmed">အရှေ့ကာဇက်စတန် အချိန်</generic>
+					<standard draft="unconfirmed">အရှေ့ကာဇက်စတန် စံတော်ချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Korea">
+				<long>
+					<generic draft="unconfirmed">ကိုးရီးယား အချိန်</generic>
+					<standard draft="unconfirmed">ကိုးရီးယား စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">ကိုးရီးယား နေ့ပိုင်း အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Lanka">
+				<long>
+					<standard draft="unconfirmed">သီရိလင်္ကာ အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Macau">
+				<long>
+					<standard draft="unconfirmed">မကာအို အချိန်</standard>
+					<daylight draft="unconfirmed">မကာအို နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Malaysia">
+				<long>
+					<standard draft="unconfirmed">မလေးရှား အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic draft="unconfirmed">မော်စကို အချိန်</generic>
+					<standard draft="unconfirmed">မော်စကို စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">မော်စကို နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Myanmar">
+				<long>
+					<standard draft="unconfirmed">မြန်မာ အချိန်</standard>
+				</long>
+				<commonlyUsed draft="unconfirmed">true</commonlyUsed>
+			</metazone>
+			<metazone type="Nepal">
+				<long>
+					<standard draft="unconfirmed">နီပေါ အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="New_Zealand">
+				<long>
+					<generic draft="unconfirmed">နယူးဇီလန် အချိန်</generic>
+					<standard draft="unconfirmed">နယူးဇီလန် စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">နယူးဇီလန် နေ့ပိုင်း အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<generic draft="unconfirmed">နယူးဖောင်လန် အချိန်</generic>
+					<standard draft="unconfirmed">နယူးဖောင်လန် စံတော်ချိန်</standard>
+					<daylight draft="unconfirmed">နယူးဖောင်လန် နေ့ပိုင်း အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pakistan">
+				<long>
+					<standard draft="unconfirmed">ပါကစ္စတန် အချိန်</standard>
+					<daylight draft="unconfirmed">ပါကစ္စတန် နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Papua_New_Guinea">
+				<long>
+					<standard draft="unconfirmed">ပါပူရာနယူးဂီနီ အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Paraguay">
+				<long>
+					<standard draft="unconfirmed">ပါရာဂွေး အချိန်</standard>
+					<daylight draft="unconfirmed">ပါရာဂွေး နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Peru">
+				<long>
+					<standard draft="unconfirmed">ပီရူး အချိန်</standard>
+					<daylight draft="unconfirmed">ပီရူး နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Philippines">
+				<long>
+					<standard draft="unconfirmed">ဖိလစ်ပိုင် အချိန်</standard>
+					<daylight draft="unconfirmed">ဖိလစ်ပိုင် နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Singapore">
+				<long>
+					<standard draft="unconfirmed">စင်္ကာပူ စံတော်ချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="South_Georgia">
+				<long>
+					<standard draft="unconfirmed">တောင်ဂျော်ဂျီယာ အချိန်</standard>
+				</long>
+			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<standard draft="unconfirmed">တူရကီ စံတော်ချိန် အချိန်</standard>
+					<daylight draft="unconfirmed">တူရကီ နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Uruguay">
+				<long>
+					<standard draft="unconfirmed">ဥရုဂွေး အချိန်</standard>
+					<daylight draft="unconfirmed">ဥရုဂွေး နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
+					<standard draft="unconfirmed">ဥဘက်ကစ္စတန် အချိန်</standard>
+					<daylight draft="unconfirmed">ဥဘက်ကစ္စတန် နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Venezuela">
+				<long>
+					<standard draft="unconfirmed">ဗင်နီဇွဲလား အချိန်</standard>
+				</long>
+			</metazone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<defaultNumberingSystem draft="unconfirmed">mymr</defaultNumberingSystem>
+		<symbols>
+			<decimal draft="unconfirmed">.</decimal>
+			<group draft="unconfirmed">,</group>
+			<list draft="unconfirmed">;</list>
+			<list draft="unconfirmed" numberSystem="mymr">၊</list>
+			<nativeZeroDigit draft="unconfirmed">0</nativeZeroDigit>
+			<nativeZeroDigit draft="unconfirmed" numberSystem="mymr">၀</nativeZeroDigit>
+		</symbols>
+		<decimalFormats>
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="provisional">#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats>
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="provisional">#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats>
+			<percentFormatLength>
+				<percentFormat>
+					<pattern draft="provisional">#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern draft="provisional">¤ #,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencies>
+			<currency type="ANG">
+				<displayName draft="provisional">နယ်သာလန် အန်တီလန် ဂင်းဒါး</displayName>
+			</currency>
+			<currency type="ARP">
+				<displayName draft="provisional">အာဂျင်တီးနား ပီဆို (၁၉၈၃-၁၉၈၅)</displayName>
+			</currency>
+			<currency type="ARS">
+				<displayName draft="provisional">အာဂျင်တီးနား ပီဆို</displayName>
+			</currency>
+			<currency type="AUD">
+				<displayName draft="provisional">ဩစတြေးလျှား ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="AWG">
+				<displayName draft="provisional">အရူဘန် ဂင်းဒါး</displayName>
+			</currency>
+			<currency type="BDT">
+				<displayName draft="unconfirmed">ဘင်္ဂလားဒေ့ရှ် တာကာ</displayName>
+			</currency>
+			<currency type="BEF">
+				<displayName draft="provisional">ဘယ်လ်ဂျီယမ် ဖရန့်</displayName>
+			</currency>
+			<currency type="BIF">
+				<displayName draft="unconfirmed">ဘူရွန်ဒီ ဖရန့်</displayName>
+			</currency>
+			<currency type="BMD">
+				<displayName draft="provisional">ဘာမူဒါ ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="BND">
+				<displayName draft="provisional">ဘရူနိုင်း ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="BOP">
+				<displayName draft="provisional">ဘိုလီးဘီးယား ပီဆို</displayName>
+			</currency>
+			<currency type="BRL">
+				<displayName draft="provisional">ဘရာဇီး ရီးယဲ</displayName>
+			</currency>
+			<currency type="BSD">
+				<displayName draft="unconfirmed">ဘဟားမား ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="BUK">
+				<displayName draft="provisional">ဗမာ ကျပ်</displayName>
+			</currency>
+			<currency type="BWP">
+				<displayName draft="provisional">ဘော့စ်ဝါနာ ပုလ</displayName>
+			</currency>
+			<currency type="BYB">
+				<displayName draft="provisional">ဘီလာရုစ် ရူဘယ်အသစ် (၁၉၉၄-၁၉၉၉)</displayName>
+			</currency>
+			<currency type="BYR">
+				<displayName draft="provisional">ဘီလာရုစ် ရူဘယ်</displayName>
+			</currency>
+			<currency type="BZD">
+				<displayName draft="unconfirmed">ဘေလီဇ် ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="CAD">
+				<displayName draft="provisional">ကနေဒါ ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="CHF">
+				<displayName draft="provisional">ဆွစ် ဖရန့်</displayName>
+			</currency>
+			<currency type="CLP">
+				<displayName draft="provisional">ချီလီ ပီဆို</displayName>
+			</currency>
+			<currency type="CNY">
+				<displayName draft="provisional">တရုတ် ယွမ်</displayName>
+			</currency>
+			<currency type="COP">
+				<displayName draft="provisional">ကိုလံဘီယာ ပီဆို</displayName>
+			</currency>
+			<currency type="CUP">
+				<displayName draft="provisional">ကျူးဘား ပီဆို</displayName>
+			</currency>
+			<currency type="CYP">
+				<displayName draft="provisional">ဆိုက်ပရက်စ် ပေါင်</displayName>
+			</currency>
+			<currency type="DEM">
+				<displayName draft="provisional">ဂျာမဏီ မတ်</displayName>
+			</currency>
+			<currency type="DKK">
+				<displayName draft="unconfirmed">ဒိန်းမတ် ခရိုဏာ</displayName>
+			</currency>
+			<currency type="DOP">
+				<displayName draft="provisional">ဒိုမီနီကန် ပီဆို</displayName>
+			</currency>
+			<currency type="EGP">
+				<displayName draft="provisional">အီဂျစ် ပေါင်</displayName>
+			</currency>
+			<currency type="ESP">
+				<displayName draft="provisional">စပိန် ပယ်စေးတာ</displayName>
+			</currency>
+			<currency type="EUR">
+				<displayName draft="provisional">ယူရို</displayName>
+			</currency>
+			<currency type="FJD">
+				<displayName draft="provisional">ဖီဂျီ ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="FKP">
+				<displayName draft="provisional">ဖောက်ကလန် ကျွန်းစု ပေါင်</displayName>
+			</currency>
+			<currency type="FRF">
+				<displayName draft="provisional">ပြင်သစ် ဖရန့်</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName draft="provisional">ဗြိတိသျှ ပေါင်</displayName>
+			</currency>
+			<currency type="GIP">
+				<displayName draft="provisional">ဂျီဘရော်လ်တာ ပေါင်</displayName>
+			</currency>
+			<currency type="GNF">
+				<displayName draft="provisional">ဂီရာနာ ဖရန့်</displayName>
+			</currency>
+			<currency type="HKD">
+				<displayName draft="provisional">ဟောင်ကောင် ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="IDR">
+				<displayName draft="provisional">အင်ဒိုနီးရှား ရူပီးယား</displayName>
+			</currency>
+			<currency type="ILP">
+				<displayName draft="provisional">အစ္စရေး ပေါင်</displayName>
+			</currency>
+			<currency type="INR">
+				<displayName draft="provisional">အိန္ဒြိယ ရူပီး</displayName>
+			</currency>
+			<currency type="JMD">
+				<displayName draft="provisional">ဂျမေနီကာ ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="JPY">
+				<displayName draft="provisional">ဂျပန်ယန်း</displayName>
+			</currency>
+			<currency type="KHR">
+				<displayName draft="unconfirmed">ကမ္ဘောဒီးယား ရီးယဲ</displayName>
+			</currency>
+			<currency type="KPW">
+				<displayName draft="provisional">မြောက်ကိုးရီးယား ဝမ်</displayName>
+			</currency>
+			<currency type="KRW">
+				<displayName draft="provisional">တောင်ကိုးရီးယား ဝမ်</displayName>
+			</currency>
+			<currency type="KYD">
+				<displayName draft="unconfirmed">ကေမန် ကျွန်းစု ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="LBP">
+				<displayName draft="provisional">လက်ဘနွန် ပေါင်</displayName>
+			</currency>
+			<currency type="LKR">
+				<displayName draft="provisional">သီရိလင်္ကာ ရူပီး</displayName>
+			</currency>
+			<currency type="LRD">
+				<displayName draft="provisional">လိုင်ဘေးရီးယား ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="MMK">
+				<displayName draft="provisional">မြန်မာ ကျပ်</displayName>
+				<symbol>K</symbol>
+			</currency>
+			<currency type="MXN">
+				<displayName draft="provisional">မက္ကဆီကို ပီဆို</displayName>
+			</currency>
+			<currency type="MYR">
+				<displayName draft="provisional">မလေးရှား ရင်းဂစ်</displayName>
+			</currency>
+			<currency type="NAD">
+				<displayName draft="provisional">နမ်မီးဘီးယား ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="NOK">
+				<displayName draft="provisional">နော်ဝေ ခရိုဏာ</displayName>
+			</currency>
+			<currency type="NPR">
+				<displayName draft="provisional">နီပေါ ရူပီး</displayName>
+			</currency>
+			<currency type="NZD">
+				<displayName draft="provisional">နယူးဇီလန် ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="PHP">
+				<displayName draft="provisional">ဖိလစ်ပိုင် ပီဆို</displayName>
+			</currency>
+			<currency type="PKR">
+				<displayName draft="provisional">ပါကစ္စတန် ရူပီး</displayName>
+			</currency>
+			<currency type="PLN">
+				<displayName draft="provisional">ပိုလန် ဇ‌လော့တီ</displayName>
+			</currency>
+			<currency type="RUB">
+				<displayName draft="provisional">ရုရှ ရူဘယ်</displayName>
+			</currency>
+			<currency type="RUR">
+				<displayName draft="provisional">ရုရှ ရူဘယ် (၁၉၉၁-၁၉၉၈)</displayName>
+			</currency>
+			<currency type="RWF">
+				<displayName draft="provisional">ရဝန်ဒါ ဖရန့်</displayName>
+			</currency>
+			<currency type="SBD">
+				<displayName draft="provisional">ဆော်လမွန်ကျွန်းစု ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="SDG">
+				<displayName draft="provisional">ဆူဒန် ပေါင်</displayName>
+			</currency>
+			<currency type="SDP">
+				<displayName draft="provisional">ဆူဒန် ပေါင်အဟောင်း</displayName>
+			</currency>
+			<currency type="SEK">
+				<displayName draft="provisional">ဆွီဒင် ခရိုဏာ</displayName>
+			</currency>
+			<currency type="SGD">
+				<displayName draft="provisional">စင်္ကာပူ ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="SRD">
+				<displayName draft="provisional">ဆူရိနမ် ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="SUR">
+				<displayName draft="provisional">ဆိုဗီယက် ရူဗယ်</displayName>
+			</currency>
+			<currency type="THB">
+				<displayName draft="provisional">ထိုင်းဘတ်</displayName>
+			</currency>
+			<currency type="TRL">
+				<displayName draft="provisional">ရှေးဟောင်းတူရကီ လိုင်ရာ</displayName>
+			</currency>
+			<currency type="TRY">
+				<displayName draft="provisional">တူရကီ လိုင်ရာ</displayName>
+			</currency>
+			<currency type="TWD">
+				<displayName draft="provisional">ထိုင်ဝမ် ဒေါ်လာအသစ်</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName draft="provisional">အမေရိကန် ဒေါ်လာ</displayName>
+			</currency>
+			<currency type="USN">
+				<displayName draft="provisional">အမေရိကန် ဒေါ်လာ (နောက်နေ့)</displayName>
+			</currency>
+			<currency type="USS">
+				<displayName draft="provisional">အမေရိကန် ဒေါ်လာ (တနေ့တည်း)</displayName>
+			</currency>
+			<currency type="VND">
+				<displayName draft="provisional">ဗီယက်နမ် ဒေါင်</displayName>
+			</currency>
+			<currency type="XAG">
+				<displayName draft="provisional">ငွေ</displayName>
+			</currency>
+			<currency type="XAU">
+				<displayName draft="provisional">ရွှေ</displayName>
+			</currency>
+			<currency type="XBB">
+				<displayName draft="provisional">ဥရောပငွေကြေးစံနစ်</displayName>
+			</currency>
+			<currency type="XDR">
+				<displayName draft="provisional">အထူးထုတ်ယူခွင့်</displayName>
+			</currency>
+			<currency type="XOF">
+				<displayName draft="unconfirmed">CFA ဖရန့် BCEAO</displayName>
+			</currency>
+			<currency type="XPT">
+				<displayName draft="provisional">ပလက်တီနမ်</displayName>
+			</currency>
+			<currency type="XTS">
+				<displayName draft="provisional">စမ်းသပ် ငွေကြေး ကုဒ်</displayName>
+			</currency>
+			<currency type="XXX">
+				<displayName draft="provisional">မသိ သို့မဟုတ် မရှိသော ငွေကြေး</displayName>
+			</currency>
+			<currency type="ZWD">
+				<displayName draft="provisional">ဇင်ဘာဘွေ ဒေါ်လာ</displayName>
+			</currency>
+		</currencies>
+	</numbers>
+	<units>
+		<unit type="day">
+			<unitPattern count="other">{0} ရက်</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="other">{0} နာရီ</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="other">{0} မိနစ်</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="other">{0} လ</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="other">{0} စက္ကန့်</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="other">{0} ပတ်</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="other">{0} နှစ်</unitPattern>
+		</unit>
+	</units>
+	<posix>
+		<messages>
+			<yesstr draft="provisional">ဟုတ်တယ်</yesstr>
+			<nostr draft="provisional">မဟုတ်ဘူး</nostr>
+		</messages>
+	</posix>
+	<references>
+		<reference type="RP1" uri="http://www.omniglot.com/writing/burmese.htm">Burmese Consonants and Vowels</reference>
+		<reference type="RP2" draft="unconfirmed">ThaLun English-Myanmar Pocket Dictionary 2002</reference>
+		<reference type="RP3" draft="unconfirmed">Myanmar Language Commission Myanmar-English Dictionary 2006</reference>
+	</references>
+</ldml>

@@ -1581,37 +1581,19 @@
 							<greatestDifference id="a" draft="provisional">h a – h a</greatestDifference>
 							<greatestDifference id="h" draft="provisional">h–h a</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="a" draft="provisional">HH–HH</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a" draft="provisional">h:mm a – h:mm a</greatestDifference>
 							<greatestDifference id="h" draft="provisional">h:mm–h:mm a</greatestDifference>
 							<greatestDifference id="m" draft="provisional">h:mm–h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a" draft="provisional">h:mm a – h:mm a v</greatestDifference>
 							<greatestDifference id="h" draft="provisional">h:mm–h:mm a v</greatestDifference>
 							<greatestDifference id="m" draft="provisional">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a" draft="provisional">h a – h a v</greatestDifference>
 							<greatestDifference id="h" draft="provisional">h–h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="a" draft="provisional">HH–HH v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M" draft="provisional">M–M</greatestDifference>
@@ -2025,93 +2007,20 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="EEEd" draft="provisional">d EEE</dateFormatItem>
-						<dateFormatItem id="hm" draft="provisional">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="provisional">H:mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="provisional">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="provisional">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="M" draft="provisional">L</dateFormatItem>
 						<dateFormatItem id="Md">d‏/M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="provisional">E، d-M</dateFormatItem>
-						<dateFormatItem id="MMM" draft="provisional">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="provisional">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="provisional">E d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="provisional">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMEd" draft="provisional">E MMMM d</dateFormatItem>
-						<dateFormatItem id="ms" draft="provisional">mm:ss</dateFormatItem>
-						<dateFormatItem id="y" draft="provisional">y</dateFormatItem>
 						<dateFormatItem id="yM">M‏/yyyy</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="provisional">EEE, y-M-d</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="provisional">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="provisional">EEE، d MMMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM" draft="provisional">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQ" draft="provisional">yyyy Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="provisional">y QQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="provisional">{0} - {1}</intervalFormatFallback>
-						<intervalFormatItem id="d">
-							<greatestDifference id="d" draft="provisional">d–d</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="provisional">h a – h a</greatestDifference>
-							<greatestDifference id="h" draft="provisional">h–h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="a" draft="provisional">HH–HH</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a" draft="provisional">h:mm a – h:mm a</greatestDifference>
-							<greatestDifference id="h" draft="provisional">h:mm–h:mm a</greatestDifference>
-							<greatestDifference id="m" draft="provisional">h:mm–h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a" draft="provisional">h:mm a – h:mm a v</greatestDifference>
 							<greatestDifference id="h" draft="provisional">v h:mm–h:mm a</greatestDifference>
-							<greatestDifference id="m" draft="provisional">h:mm–h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="provisional">h a – h a v</greatestDifference>
-							<greatestDifference id="h" draft="provisional">h–h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="a" draft="provisional">HH–HH v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="M">
-							<greatestDifference id="M" draft="provisional">M–M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d" draft="provisional">M/d - M/d</greatestDifference>
@@ -2131,12 +2040,6 @@
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d" draft="provisional">E, MMM d - E, MMM d</greatestDifference>
 							<greatestDifference id="M" draft="provisional">E, MMM d - E, MMM d</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M" draft="provisional">LLLL–LLLL</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="y">
-							<greatestDifference id="y" draft="provisional">y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M" draft="provisional">M/yy - M/yy</greatestDifference>

@@ -1189,30 +1189,16 @@
 						<intervalFormatItem id="h">
 							<greatestDifference id="h" draft="provisional">h-h a</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="H" draft="provisional">HH–HH</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="h" draft="provisional">h:mm-h:mm a</greatestDifference>
 							<greatestDifference id="m" draft="provisional">h:mm-h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="h" draft="provisional">h:mm-h:mm a v</greatestDifference>
 							<greatestDifference id="m" draft="provisional">h:mm-h:mm a v</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="h" draft="provisional">h-h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="H" draft="provisional">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M" draft="provisional">M–M</greatestDifference>
@@ -1693,7 +1679,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="provisional">latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
@@ -1923,7 +1908,6 @@
 			</currency>
 			<currency type="CZK">
 				<displayName>Koruna česká</displayName>
-				<symbol draft="provisional">Kč</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Marka NDR</displayName>
@@ -2602,8 +2586,6 @@
 		<listPattern>
 			<listPatternPart type="2" draft="provisional">{0} a {0}</listPatternPart>
 			<listPatternPart type="end" draft="provisional">{0} a {1}</listPatternPart>
-			<listPatternPart type="middle" draft="provisional">{0}, {1}</listPatternPart>
-			<listPatternPart type="start" draft="provisional">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

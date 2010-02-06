@@ -976,7 +976,6 @@
 			<variant type="REVISED">ออร์โธกราฟิปรับปรุง</variant>
 			<variant type="ROZAJ">เรเซียน</variant>
 			<variant type="SAAHO">ซาโฮ</variant>
-			<variant type="WADEGILE">WADEGILE</variant>
 		</variants>
 		<keys>
 			<key type="calendar">ปฏิทิน</key>
@@ -1181,25 +1180,11 @@
 				</days>
 				<quarters>
 					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="provisional">Q1</quarter>
-							<quarter type="2" draft="provisional">Q2</quarter>
-							<quarter type="3" draft="provisional">Q3</quarter>
-							<quarter type="4" draft="provisional">Q4</quarter>
-						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="provisional">ไตรมาส 1</quarter>
 							<quarter type="2" draft="provisional">ไตรมาส 2</quarter>
 							<quarter type="3" draft="provisional">ไตรมาส 3</quarter>
 							<quarter type="4" draft="provisional">ไตรมาส 4</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="provisional">1</quarter>
-							<quarter type="2" draft="provisional">2</quarter>
-							<quarter type="3" draft="provisional">3</quarter>
-							<quarter type="4" draft="provisional">4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1316,18 +1301,13 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
 						<dateFormatItem id="EEEd">EEEท d</dateFormatItem>
 						<dateFormatItem id="EEEd" alt="proposed-x1001" draft="unconfirmed">EEE d</dateFormatItem>
-						<dateFormatItem id="hm" draft="provisional">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm" draft="provisional">H.mm น.</dateFormatItem>
-						<dateFormatItem id="hms" draft="provisional">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms" draft="provisional">H.mm.ss น.</dateFormatItem>
-						<dateFormatItem id="M" draft="provisional">L</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">Eท d/M</dateFormatItem>
 						<dateFormatItem id="MEd" alt="proposed-x1001" draft="unconfirmed">E d/M</dateFormatItem>
-						<dateFormatItem id="MMM" draft="provisional">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">Eท d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd" alt="proposed-x1001" draft="unconfirmed">E d MMM</dateFormatItem>
@@ -1335,15 +1315,10 @@
 						<dateFormatItem id="MMMEEEd" alt="proposed-x1001" draft="unconfirmed">EEE ที่ d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
-						<dateFormatItem id="ms" draft="provisional">mm:ss</dateFormatItem>
-						<dateFormatItem id="y" draft="provisional">y</dateFormatItem>
-						<dateFormatItem id="yM" draft="provisional">M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE d/M/y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM yyyy</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
-						<dateFormatItem id="yQ" draft="provisional">y Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="provisional">y QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM">M/yyyy</dateFormatItem>
 						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">M/yy</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM y</dateFormatItem>
@@ -1406,12 +1381,6 @@
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d" draft="provisional">E d MMM - E d MMM</greatestDifference>
 							<greatestDifference id="M" draft="provisional">E d MMM - E d MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M" draft="provisional">LLLL–LLLL</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="y">
-							<greatestDifference id="y" draft="provisional">y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M" draft="provisional">M/yy – M/yy</greatestDifference>
@@ -3665,27 +3634,17 @@
 					<standard draft="provisional">เวลาอาเกร</standard>
 					<daylight draft="provisional">เวลาฤดูร้อนอาเกร</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">ACT (Acre)</standard>
-					<daylight draft="provisional">ACST (Acre)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard draft="provisional">เวลาแอฟริกากลาง</standard>
 				</long>
-				<short>
-					<standard draft="provisional">CAT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard draft="provisional">เวลาแอฟริกาตะวันออก</standard>
 				</long>
-				<short>
-					<standard draft="provisional">EAT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_FarWestern">
@@ -3695,9 +3654,6 @@
 				<long>
 					<standard draft="provisional">เวลามาตรฐานแอฟริกาใต้</standard>
 				</long>
-				<short>
-					<standard draft="provisional">SAST</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Western">
@@ -3705,10 +3661,6 @@
 					<standard draft="provisional">เวลาแอฟริกาตะวันตก</standard>
 					<daylight draft="provisional">เวลาออมแสงแอฟริกาตะวันตก</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">WAT</standard>
-					<daylight draft="provisional">WAST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Alaska">
@@ -3716,29 +3668,17 @@
 					<generic draft="provisional">เวลาอะแลสกา</generic>
 					<standard draft="provisional">เวลามาตรฐานอะแลสกา</standard>
 				</long>
-				<short>
-					<standard draft="provisional">AKST</standard>
-					<daylight draft="provisional">AKDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
 				<long>
 					<standard draft="provisional">เวลามาตรฐานอะแลสกา-ฮาวาย</standard>
 				</long>
-				<short>
-					<standard draft="provisional">AHST</standard>
-					<daylight draft="provisional">AHDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<standard draft="provisional">เวลาอะเมซอน</standard>
 					<daylight draft="provisional">เวลาฤดูร้อนอะเมซอน</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AMT</standard>
-					<daylight draft="provisional">AMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Central">
 				<long>
@@ -3801,18 +3741,11 @@
 					<standard draft="provisional">เวลาอาร์เจนตินา</standard>
 					<daylight draft="provisional">เวลาฤดูร้อนอาร์เจนตินา</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">ART</standard>
-					<daylight draft="provisional">ARST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<standard draft="provisional">เวลาอาร์เจนตินาตะวันตก</standard>
 				</long>
-				<short>
-					<standard draft="provisional">WART</standard>
-				</short>
 			</metazone>
 			<metazone type="Armenia">
 				<long>
@@ -3839,20 +3772,12 @@
 					<generic draft="provisional">เวลาออสเตรเลียกลาง</generic>
 					<standard draft="provisional">เวลามาตรฐานออสเตรเลียกลาง</standard>
 				</long>
-				<short>
-					<standard draft="provisional">ACST</standard>
-					<daylight draft="provisional">ACDT</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
 					<generic draft="provisional">เวลาออสเตรเลียตะวันตกกลาง</generic>
 				</long>
-				<short>
-					<standard draft="provisional">ACWST</standard>
-					<daylight draft="provisional">ACWDT</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Eastern">
@@ -3860,10 +3785,6 @@
 					<generic draft="provisional">เวลาออสเตรเลียตะวันออก</generic>
 					<standard draft="provisional">เวลามาตรฐานออสเตรเลียตะวันออก</standard>
 				</long>
-				<short>
-					<standard draft="provisional">AEST</standard>
-					<daylight draft="provisional">AEDT</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Western">
@@ -3871,10 +3792,6 @@
 					<generic draft="provisional">เวลาออสเตรเลียตะวันตก</generic>
 					<standard draft="provisional">เวลามาตรฐานออสเตรเลียตะวันตก</standard>
 				</long>
-				<short>
-					<standard draft="provisional">AWST</standard>
-					<daylight draft="provisional">AWDT</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Azores">
@@ -3882,10 +3799,6 @@
 					<standard draft="provisional">เวลาอาโซเรซ</standard>
 					<daylight draft="provisional">เวลาฤดูร้อนอาโซเรช</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AZOT</standard>
-					<daylight draft="provisional">AZOST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Baku">
@@ -3914,11 +3827,6 @@
 					<standard draft="provisional">เวลาภูฏาน</standard>
 				</long>
 			</metazone>
-			<metazone type="Bolivia">
-				<short>
-					<standard draft="provisional">BOT</standard>
-				</short>
-			</metazone>
 			<metazone type="Borneo">
 				<long>
 					<standard draft="provisional">เวลาบอร์เนียว</standard>
@@ -3930,10 +3838,6 @@
 					<standard draft="provisional">เวลาบราซิเลีย</standard>
 					<daylight draft="provisional">เวลาฤดูร้อนบราซิเลีย</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">BRT</standard>
-					<daylight draft="provisional">BRST</daylight>
-				</short>
 			</metazone>
 			<metazone type="British">
 				<commonlyUsed draft="provisional">false</commonlyUsed>
@@ -3943,26 +3847,15 @@
 					<standard draft="provisional">เวลาเคปเวิร์ด</standard>
 					<daylight draft="provisional">เวลา่ฤดูร้อนเคปเวิร์ด</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">CVT</standard>
-					<daylight draft="provisional">CVST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Chamorro">
 				<long>
 					<standard draft="provisional">เวลามาตรฐานชามอร์โร</standard>
 				</long>
-				<short>
-					<standard draft="provisional">ChST</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Chatham">
-				<short>
-					<standard draft="provisional">CHAST</standard>
-					<daylight draft="provisional">CHADT</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Chile">
@@ -3970,10 +3863,6 @@
 					<standard draft="provisional">เวลาชิลี</standard>
 					<daylight draft="provisional">เวลาฤดูร้อนชิลี</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">CLT</standard>
-					<daylight draft="provisional">CLST</daylight>
-				</short>
 			</metazone>
 			<metazone type="China">
 				<long>
@@ -3985,39 +3874,18 @@
 				</short>
 			</metazone>
 			<metazone type="Christmas">
-				<short>
-					<standard draft="provisional">CXT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Cocos">
-				<short>
-					<standard draft="provisional">CCT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
-			<metazone type="Colombia">
-				<short>
-					<standard draft="provisional">COT</standard>
-					<daylight draft="provisional">COST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Cook">
-				<short>
-					<standard draft="provisional">CKT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Davis">
-				<short>
-					<standard draft="provisional">DAVT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="DumontDUrville">
-				<short>
-					<standard draft="provisional">DDUT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Dushanbe">
@@ -4032,10 +3900,6 @@
 				</long>
 			</metazone>
 			<metazone type="Easter">
-				<short>
-					<standard draft="provisional">EAST</standard>
-					<daylight draft="provisional">EASST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Ecuador">
@@ -4081,38 +3945,21 @@
 					<standard draft="provisional">เวลาฟอล์กแลนด์</standard>
 					<daylight draft="provisional">เวลาฤดูร้อนฟอล์กแลนด์</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">FKT</standard>
-					<daylight draft="provisional">FKST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Fiji">
-				<short>
-					<standard draft="provisional">FJT</standard>
-					<daylight draft="provisional">FJST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="French_Southern">
-				<short>
-					<standard draft="provisional">TFT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Galapagos">
 				<long>
 					<standard draft="provisional">เวลากาลาปาโกส</standard>
 				</long>
-				<short>
-					<standard draft="provisional">GALT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Gambier">
-				<short>
-					<standard draft="provisional">GAMT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Georgia">
@@ -4122,9 +3969,6 @@
 				</long>
 			</metazone>
 			<metazone type="Gilbert_Islands">
-				<short>
-					<standard draft="provisional">GILT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="GMT">
@@ -4164,59 +4008,30 @@
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
-				<short>
-					<standard draft="provisional">HST</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
-			</metazone>
-			<metazone type="Hong_Kong">
-				<short>
-					<standard draft="provisional">HKT</standard>
-					<daylight draft="provisional">HKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="India">
 				<long>
 					<standard draft="provisional">เวลามาตรฐานอินเดีย</standard>
 				</long>
-				<short>
-					<standard draft="provisional">IST</standard>
-				</short>
 			</metazone>
 			<metazone type="Indian_Ocean">
-				<short>
-					<standard draft="provisional">IOT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
-			</metazone>
-			<metazone type="Indochina">
-				<short>
-					<standard draft="provisional">ICT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
 					<standard draft="provisional">เวลาอินโดนีเซียกลาง</standard>
 				</long>
-				<short>
-					<standard draft="provisional">CIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
 					<standard draft="provisional">เวลาอินโดนีเซียตะวันออก</standard>
 				</long>
-				<short>
-					<standard draft="provisional">EIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
 					<standard draft="provisional">เวลาอินโดนีเซียตะวันตก</standard>
 				</long>
-				<short>
-					<standard draft="provisional">WIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Irish">
 				<commonlyUsed draft="provisional">false</commonlyUsed>
@@ -4227,12 +4042,6 @@
 				</long>
 				<short>
 					<standard draft="provisional">IST (อิสราเอล)</standard>
-					<daylight draft="provisional">IDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Japan">
-				<short>
-					<standard draft="provisional">JST</standard>
 				</short>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -4250,44 +4059,22 @@
 					<generic draft="provisional">เวลาเกาหลี</generic>
 					<standard draft="provisional">เวลามาตรฐานเกาหลี</standard>
 				</long>
-				<short>
-					<standard draft="provisional">KST</standard>
-				</short>
 			</metazone>
 			<metazone type="Kosrae">
-				<short>
-					<standard draft="provisional">KOST</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Kuybyshev">
-				<short>
-					<standard draft="provisional">KUYT</standard>
-					<daylight draft="provisional">KUYST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Kwajalein">
 				<long>
 					<standard draft="provisional">เวลาควาจาเลน</standard>
 				</long>
-				<short>
-					<standard draft="provisional">KWAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Liberia">
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
-			<metazone type="Line_Islands">
-				<short>
-					<standard draft="provisional">LINT</standard>
-				</short>
-			</metazone>
 			<metazone type="Lord_Howe">
-				<short>
-					<standard draft="provisional">LHST</standard>
-					<daylight draft="provisional">LHDT</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Macau">
@@ -4307,35 +4094,17 @@
 				</long>
 			</metazone>
 			<metazone type="Maldives">
-				<short>
-					<standard draft="provisional">MVT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
-			</metazone>
-			<metazone type="Marquesas">
-				<short>
-					<standard draft="provisional">MART</standard>
-				</short>
 			</metazone>
 			<metazone type="Marshall_Islands">
 				<long>
 					<standard draft="provisional">เวลาหมู่เกาะมาร์แชลล์</standard>
 				</long>
-				<short>
-					<standard draft="provisional">MHT</standard>
-				</short>
 			</metazone>
 			<metazone type="Mauritius">
-				<short>
-					<standard draft="provisional">MUT</standard>
-					<daylight draft="provisional">MUST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Mawson">
-				<short>
-					<standard draft="provisional">MAWT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Mongolia">
@@ -4349,22 +4118,7 @@
 					<standard draft="provisional">เวลามาตรฐานมอสโคว์</standard>
 					<daylight draft="provisional">เวลาฤดูร้อนมอสโคว์</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">MSK</standard>
-					<daylight draft="provisional">MSKS</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
-			</metazone>
-			<metazone type="Nauru">
-				<short>
-					<standard draft="provisional">NRT</standard>
-				</short>
-			</metazone>
-			<metazone type="New_Caledonia">
-				<short>
-					<standard draft="provisional">NCT</standard>
-					<daylight draft="provisional">NCST</daylight>
-				</short>
 			</metazone>
 			<metazone type="New_Zealand">
 				<long>
@@ -4374,8 +4128,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">์์NZT</generic>
-					<standard draft="provisional">NZST</standard>
-					<daylight draft="provisional">NZDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Newfoundland">
@@ -4384,23 +4136,10 @@
 					<standard draft="provisional">เวลามาตรฐานนิวฟันด์แลนด์</standard>
 				</long>
 			</metazone>
-			<metazone type="Niue">
-				<short>
-					<standard draft="provisional">NUT</standard>
-				</short>
-			</metazone>
-			<metazone type="Norfolk">
-				<short>
-					<standard draft="provisional">NFT</standard>
-				</short>
-			</metazone>
 			<metazone type="North_Mariana">
 				<long>
 					<standard draft="provisional">เวลาหมู่เกาะมาเรียนาเหนือ</standard>
 				</long>
-				<short>
-					<standard draft="provisional">MPT</standard>
-				</short>
 			</metazone>
 			<metazone type="Pakistan">
 				<long>
@@ -4408,36 +4147,11 @@
 					<daylight draft="provisional">เวลาฤดูร้อนปากีสถาน</daylight>
 				</long>
 			</metazone>
-			<metazone type="Palau">
-				<short>
-					<standard draft="provisional">PWT</standard>
-				</short>
-			</metazone>
-			<metazone type="Papua_New_Guinea">
-				<short>
-					<standard draft="provisional">PGT</standard>
-				</short>
-			</metazone>
-			<metazone type="Phoenix_Islands">
-				<short>
-					<standard draft="provisional">PHOT</standard>
-				</short>
-			</metazone>
 			<metazone type="Pierre_Miquelon">
 				<long>
 					<generic draft="provisional">ปีแยร์และมีเกอลง</generic>
 					<standard draft="provisional">เวลามาตรฐานปีแยร์และมีเกอลง</standard>
 				</long>
-			</metazone>
-			<metazone type="Pitcairn">
-				<short>
-					<standard draft="provisional">PNT</standard>
-				</short>
-			</metazone>
-			<metazone type="Ponape">
-				<short>
-					<standard draft="provisional">PONT</standard>
-				</short>
 			</metazone>
 			<metazone type="Qyzylorda">
 				<long>
@@ -4446,15 +4160,9 @@
 				</long>
 			</metazone>
 			<metazone type="Reunion">
-				<short>
-					<standard draft="provisional">RET</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Rothera">
-				<short>
-					<standard draft="provisional">ROTT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Samara">
@@ -4462,10 +4170,6 @@
 					<standard draft="provisional">เวลาซามารา</standard>
 					<daylight draft="provisional">เวลาฤดูร้อนซามารา</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">SAMT</standard>
-					<daylight draft="provisional">SAMST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Samarkand">
@@ -4482,28 +4186,14 @@
 				<long>
 					<standard draft="provisional">เวลามาตรฐานซามัว</standard>
 				</long>
-				<short>
-					<standard draft="provisional">SST</standard>
-				</short>
 			</metazone>
 			<metazone type="Seychelles">
-				<short>
-					<standard draft="provisional">SCT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
-			</metazone>
-			<metazone type="Solomon">
-				<short>
-					<standard draft="provisional">SBT</standard>
-				</short>
 			</metazone>
 			<metazone type="South_Georgia">
 				<long>
 					<standard draft="provisional">เวลาจอร์เจียใต้</standard>
 				</long>
-				<short>
-					<standard draft="provisional">GST (GS)</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Suriname">
@@ -4518,15 +4208,7 @@
 				</long>
 			</metazone>
 			<metazone type="Syowa">
-				<short>
-					<standard draft="provisional">SYOT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
-			</metazone>
-			<metazone type="Tahiti">
-				<short>
-					<standard draft="provisional">TAHT</standard>
-				</short>
 			</metazone>
 			<metazone type="Tajikistan">
 				<long>
@@ -4544,30 +4226,11 @@
 					<daylight draft="provisional">เวลาฤดูร้อนทบิลิซิ</daylight>
 				</long>
 			</metazone>
-			<metazone type="Tokelau">
-				<short>
-					<standard draft="provisional">TKT</standard>
-				</short>
-			</metazone>
-			<metazone type="Tonga">
-				<short>
-					<standard draft="provisional">TOT</standard>
-					<daylight draft="provisional">TOST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Truk">
-				<short>
-					<standard draft="provisional">TRUT</standard>
-				</short>
-			</metazone>
 			<metazone type="Turkey">
 				<long>
 					<standard draft="provisional">เวลาตุรกี</standard>
 					<daylight draft="provisional">เวลาฤดูร้อนตุรกี</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">TRT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Turkmenistan">
@@ -4576,45 +4239,17 @@
 					<daylight draft="provisional">เวลาฤดูร้อนเติร์กเมนิสถาน</daylight>
 				</long>
 			</metazone>
-			<metazone type="Tuvalu">
-				<short>
-					<standard draft="provisional">TVT</standard>
-				</short>
-			</metazone>
 			<metazone type="Uzbekistan">
 				<long>
 					<standard draft="provisional">เวลาอุซเบกิสถาน</standard>
 					<daylight draft="provisional">เวลาฤดูร้อนอุซเบกิสถาน</daylight>
 				</long>
 			</metazone>
-			<metazone type="Vanuatu">
-				<short>
-					<standard draft="provisional">VUT</standard>
-					<daylight draft="provisional">VUST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Volgograd">
-				<short>
-					<standard draft="provisional">VOLT</standard>
-					<daylight draft="provisional">VOLST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Vostok">
-				<short>
-					<standard draft="provisional">VOST</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
-			</metazone>
-			<metazone type="Wake">
-				<short>
-					<standard draft="provisional">WAKT</standard>
-				</short>
-			</metazone>
-			<metazone type="Wallis">
-				<short>
-					<standard draft="provisional">WFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
@@ -4637,7 +4272,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="provisional">latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>.</decimal>
 			<group>,</group>
@@ -5319,7 +4953,6 @@
 			<currency type="THB">
 				<displayName>บาทไทย</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">บาท</displayName>
-				<symbol draft="provisional">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>รูเบิลทาจิกิสถาน</displayName>

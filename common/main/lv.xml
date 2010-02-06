@@ -1066,20 +1066,6 @@
 			<codePattern type="territory">Reģions: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList>mixed</inList>
-		<inText type="currency">mixed</inText>
-		<inText type="fields">mixed</inText>
-		<inText type="keys">mixed</inText>
-		<inText type="languages">mixed</inText>
-		<inText type="long">mixed</inText>
-		<inText type="measurementSystemNames">mixed</inText>
-		<inText type="monthWidth">mixed</inText>
-		<inText type="scripts">mixed</inText>
-		<inText type="territories">mixed</inText>
-		<inText type="types">mixed</inText>
-		<inText type="variants">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a ā b c č d e ē f g ģ h i ī j k ķ l ļ m n ņ o p r s š t u ū v z ž]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[y q w x]</exemplarCharacters>
@@ -1385,7 +1371,6 @@
 							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="a">HH–HH</greatestDifference>
 							<greatestDifference id="H">HH-HH</greatestDifference>
 							<greatestDifference id="H" alt="proposed-x1001" draft="unconfirmed">HH–HH</greatestDifference>
 						</intervalFormatItem>
@@ -1397,7 +1382,6 @@
 							<greatestDifference id="m" alt="proposed-x1001" draft="unconfirmed">h:mm–h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="a">HH:mm–HH:mm</greatestDifference>
 							<greatestDifference id="H">HH:mm-HH:mm</greatestDifference>
 							<greatestDifference id="H" alt="proposed-x1001" draft="unconfirmed">HH:mm–HH:mm</greatestDifference>
 							<greatestDifference id="m">HH:mm-HH:mm</greatestDifference>
@@ -1411,7 +1395,6 @@
 							<greatestDifference id="m" alt="proposed-x1001" draft="unconfirmed">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a">HH:mm–HH:mm v</greatestDifference>
 							<greatestDifference id="H">HH:mm-HH:mm v</greatestDifference>
 							<greatestDifference id="H" alt="proposed-x1001" draft="unconfirmed">HH:mm–HH:mm v</greatestDifference>
 							<greatestDifference id="m">HH:mm-HH:mm v</greatestDifference>
@@ -1423,7 +1406,6 @@
 							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="a">HH–HH v</greatestDifference>
 							<greatestDifference id="H">HH-HH v</greatestDifference>
 							<greatestDifference id="H" alt="proposed-x1001" draft="unconfirmed">HH–HH v</greatestDifference>
 						</intervalFormatItem>
@@ -1587,7 +1569,6 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{0} ({1})</fallbackFormat>
 			<fallbackFormat alt="proposed-x1001" draft="unconfirmed">{1} ({0})</fallbackFormat>
@@ -1669,9 +1650,6 @@
 			</zone>
 			<zone type="America/Catamarca">
 				<exemplarCity>Katamarka</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Salta">
-				<exemplarCity>Salta</exemplarCity>
 			</zone>
 			<zone type="America/Jujuy">
 				<exemplarCity>Žužuja</exemplarCity>
@@ -1870,9 +1848,6 @@
 			</zone>
 			<zone type="America/Nipigon">
 				<exemplarCity>Nipigona</exemplarCity>
-			</zone>
-			<zone type="America/Toronto">
-				<exemplarCity>Toronto</exemplarCity>
 			</zone>
 			<zone type="America/Montreal">
 				<exemplarCity>Monreāla</exemplarCity>
@@ -2279,9 +2254,6 @@
 			<zone type="America/Mexico_City">
 				<exemplarCity>Mehiko</exemplarCity>
 			</zone>
-			<zone type="America/Merida">
-				<exemplarCity>Merida</exemplarCity>
-			</zone>
 			<zone type="America/Cancun">
 				<exemplarCity>Kankūna</exemplarCity>
 			</zone>
@@ -2351,9 +2323,6 @@
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azoru salas</exemplarCity>
 			</zone>
-			<zone type="Atlantic/Madeira">
-				<exemplarCity>Madeira</exemplarCity>
-			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity draft="provisional">Lisabona</exemplarCity>
 			</zone>
@@ -2377,9 +2346,6 @@
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgograda</exemplarCity>
-			</zone>
-			<zone type="Europe/Samara">
-				<exemplarCity>Samara</exemplarCity>
 			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity>Jekaterinburga</exemplarCity>
@@ -2510,9 +2476,6 @@
 			<zone type="America/Nome">
 				<exemplarCity>Noma</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Ankurāža</exemplarCity>
 			</zone>
@@ -2629,25 +2592,16 @@
 				<long>
 					<standard>Afganistānas laiks</standard>
 				</long>
-				<short>
-					<standard>AFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>Centrālāfrikas laiks</standard>
 				</long>
-				<short>
-					<standard>CAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>Austrumāfrikas laiks</standard>
 				</long>
-				<short>
-					<standard>EAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
@@ -2656,7 +2610,6 @@
 				</long>
 				<short>
 					<generic>SAT</generic>
-					<standard>SAST</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">SAT</standard>
 				</short>
 			</metazone>
@@ -2666,16 +2619,8 @@
 					<daylight>Rietumāfrikas vasaras laiks</daylight>
 				</long>
 				<short>
-					<standard>WAT</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">WAST</standard>
-					<daylight>WAST</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">WAT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Aktyubinsk">
-				<short>
-					<standard>AKTT</standard>
-					<daylight>AKTST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Alaska">
@@ -2686,23 +2631,13 @@
 				</long>
 				<short>
 					<generic>AKT</generic>
-					<standard>AKST</standard>
-					<daylight>AKDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
 				<short>
 					<generic>AHT</generic>
-					<standard>AHST</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">AHT</standard>
-					<daylight>AHDT</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">AHST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Almaty">
-				<short>
-					<standard>ALMT</standard>
-					<daylight>ALMST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Amazon">
@@ -2710,10 +2645,6 @@
 					<standard>Amazones laiks</standard>
 					<daylight>Amazones vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>AMT</standard>
-					<daylight>AMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Central">
 				<long>
@@ -2779,12 +2710,6 @@
 					<daylight alt="proposed-x1001" draft="unconfirmed">PST</daylight>
 				</short>
 			</metazone>
-			<metazone type="Anadyr">
-				<short>
-					<standard>ANAT</standard>
-					<daylight>ANAST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Aqtau">
 				<short>
 					<standard>AQTT (Aktau)</standard>
@@ -2821,18 +2746,11 @@
 					<standard>Argentīnas laiks</standard>
 					<daylight>Argentīnas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>ART</standard>
-					<daylight>ARST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<standard>Rietumargentīnas laiks</standard>
 				</long>
-				<short>
-					<standard>WART</standard>
-				</short>
 			</metazone>
 			<metazone type="Armenia">
 				<long>
@@ -2851,10 +2769,6 @@
 					<standard>Ašhabadas laiks</standard>
 					<daylight>Ašhabadas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>ASHT</standard>
-					<daylight>ASHST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Atlantic">
 				<long>
@@ -2878,8 +2792,6 @@
 				</long>
 				<short>
 					<generic>ACT</generic>
-					<standard>ACST</standard>
-					<daylight>ACDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
@@ -2890,8 +2802,6 @@
 				</long>
 				<short>
 					<generic>ACWT</generic>
-					<standard>ACWST</standard>
-					<daylight>ACWDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Eastern">
@@ -2902,8 +2812,6 @@
 				</long>
 				<short>
 					<generic>AET</generic>
-					<standard>AEST</standard>
-					<daylight>AEDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Western">
@@ -2914,8 +2822,6 @@
 				</long>
 				<short>
 					<generic>AWT</generic>
-					<standard>AWST</standard>
-					<daylight>AWDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Azerbaijan">
@@ -2923,40 +2829,24 @@
 					<standard>Azerbaidžānas laiks</standard>
 					<daylight>Azerbaidžānas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>AZT</standard>
-					<daylight>AZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Azores">
 				<long>
 					<standard>Azoru salu laiks</standard>
 					<daylight>Azoru salu vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>AZOT</standard>
-					<daylight>AZOST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Baku">
 				<long>
 					<standard>Baku laiks</standard>
 					<daylight>Baku vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>BAKT</standard>
-					<daylight>BAKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Bangladesh">
 				<long>
 					<standard>Bangladešas laiks</standard>
 					<daylight>Bangladešas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>BDT</standard>
-					<daylight>BDST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Bering">
 				<short>
@@ -2974,74 +2864,29 @@
 				<long>
 					<standard>Butānas laiks</standard>
 				</long>
-				<short>
-					<standard>BTT</standard>
-				</short>
 			</metazone>
 			<metazone type="Bolivia">
 				<long>
 					<standard>Bolīvijas laiks</standard>
 				</long>
-				<short>
-					<standard>BOT</standard>
-				</short>
 			</metazone>
 			<metazone type="Borneo">
 				<long>
 					<standard>Borneo laiks</standard>
 					<daylight>Borneo vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>BORT</standard>
-					<daylight>BORST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
 					<standard>Brazīlijas laiks</standard>
 					<daylight>Brazīlijas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>BRT</standard>
-					<daylight>BRST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Brunei">
-				<short>
-					<standard>BNT</standard>
-				</short>
-			</metazone>
-			<metazone type="Cape_Verde">
-				<short>
-					<standard>CVT</standard>
-					<daylight>CVST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Chamorro">
-				<short>
-					<standard>ChST</standard>
-				</short>
-			</metazone>
-			<metazone type="Changbai">
-				<short>
-					<standard>CHAT</standard>
-				</short>
-			</metazone>
-			<metazone type="Chatham">
-				<short>
-					<standard>CHAST</standard>
-					<daylight>CHADT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Chile">
 				<long>
 					<standard>Čīles laiks</standard>
 					<daylight>Čīles vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>CLT</standard>
-					<daylight>CLST</daylight>
-				</short>
 			</metazone>
 			<metazone type="China">
 				<long>
@@ -3053,51 +2898,30 @@
 					<generic>CR (Ķīna)</generic>
 					<standard>CST (Ķīna)</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">CST (CN)</standard>
-					<daylight>CDT (CN)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Choibalsan">
-				<short>
-					<standard>CHOT</standard>
-					<daylight>CHOST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard>Ziemsvētku Salas laiks</standard>
 				</long>
-				<short>
-					<standard>CXT</standard>
-				</short>
 			</metazone>
 			<metazone type="Cocos">
 				<long>
 					<standard>Kokosa salu laiks</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Kokosu Salu laiks</standard>
 				</long>
-				<short>
-					<standard>CCT</standard>
-				</short>
 			</metazone>
 			<metazone type="Colombia">
 				<long>
 					<standard>Kolumbijas laiks</standard>
 					<daylight>Kolumbijas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>COT</standard>
-					<daylight>COST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Cook">
 				<long>
 					<standard>Kuka salu laiks</standard>
 					<daylight>Kuka salu vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>CKT</standard>
-					<daylight>CKHST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Cuba">
 				<long>
@@ -3105,66 +2929,28 @@
 					<standard>Kubas ziemas laiks</standard>
 					<daylight>Kubas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>CST (CU)</standard>
-					<daylight>CDT (CU)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Dacca">
-				<short>
-					<standard>DACT</standard>
-				</short>
-			</metazone>
-			<metazone type="Davis">
-				<short>
-					<standard>DAVT</standard>
-				</short>
-			</metazone>
-			<metazone type="DumontDUrville">
-				<short>
-					<standard>DDUT</standard>
-				</short>
 			</metazone>
 			<metazone type="Dushanbe">
 				<long>
 					<standard>Dušanbe laiks</standard>
 					<daylight>Dušanbe vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>DUST</standard>
-					<daylight>DUSST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Dutch_Guiana">
-				<short>
-					<standard>NEGT</standard>
-				</short>
 			</metazone>
 			<metazone type="East_Timor">
 				<long>
 					<standard>Austrumtimoras laiks</standard>
 				</long>
-				<short>
-					<standard>TLT</standard>
-				</short>
 			</metazone>
 			<metazone type="Easter">
 				<long>
 					<standard>Lieldienu salas laiks</standard>
 					<daylight>Lieldienu salas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>EAST</standard>
-					<daylight>EASST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Ecuador">
 				<long>
 					<standard>Ekvadoras laiks</standard>
 				</long>
-				<short>
-					<standard>ECT</standard>
-				</short>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
@@ -3203,70 +2989,33 @@
 					<daylight>Folklenda salu vasaras laiks</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Folklendu Salu vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>FKT</standard>
-					<daylight>FKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Fiji">
 				<long>
 					<standard>Fidži laiks</standard>
 					<daylight>Fidži vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>FJT</standard>
-					<daylight>FJST</daylight>
-				</short>
 			</metazone>
 			<metazone type="French_Guiana">
 				<long>
 					<standard>Franču Gviānas laiks</standard>
 				</long>
-				<short>
-					<standard>GFT</standard>
-				</short>
 			</metazone>
 			<metazone type="French_Southern">
 				<long>
 					<standard>Francijas Dienidjūru un Antarktikas teritorijas laiks</standard>
 				</long>
-				<short>
-					<standard>TFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Frunze">
 				<long>
 					<standard>Frunzes laiks</standard>
 					<daylight>Frunzes vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>FRUT</standard>
-					<daylight>FRUST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Galapagos">
 				<long>
 					<standard>Galapagu laiks</standard>
 				</long>
-				<short>
-					<standard>GALT</standard>
-				</short>
-			</metazone>
-			<metazone type="Gambier">
-				<short>
-					<standard>GAMT</standard>
-				</short>
-			</metazone>
-			<metazone type="Georgia">
-				<short>
-					<standard>GET</standard>
-					<daylight>GEST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Gilbert_Islands">
-				<short>
-					<standard>GILT</standard>
-				</short>
 			</metazone>
 			<metazone type="GMT">
 				<long>
@@ -3277,119 +3026,44 @@
 					<standard>GMT</standard>
 				</short>
 			</metazone>
-			<metazone type="Greenland_Central">
-				<short>
-					<standard>CGT</standard>
-					<daylight>CGST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Greenland_Eastern">
-				<short>
-					<standard>EGT</standard>
-					<daylight>EGST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Greenland_Western">
-				<short>
-					<standard>WGT</standard>
-					<daylight>WGST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Guam">
 				<short>
 					<standard>GST (Guama)</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">GST (GU)</standard>
 				</short>
 			</metazone>
-			<metazone type="Gulf">
-				<short>
-					<standard>GST</standard>
-				</short>
-			</metazone>
 			<metazone type="Guyana">
 				<long>
 					<standard>Gvijānas laiks</standard>
 				</long>
-				<short>
-					<standard>GYT</standard>
-				</short>
-			</metazone>
-			<metazone type="Hawaii_Aleutian">
-				<short>
-					<standard>HST</standard>
-				</short>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
 					<standard>Honkongas laiks</standard>
 					<daylight>Honkongas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>HKT</standard>
-					<daylight>HKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Hovd">
-				<short>
-					<standard>HOVT</standard>
-					<daylight>HOVST</daylight>
-				</short>
 			</metazone>
 			<metazone type="India">
 				<long>
 					<standard>Indijas ziemas laiks</standard>
 				</long>
-				<short>
-					<standard>IST</standard>
-				</short>
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
 					<standard>Indijas Okeāna laiks</standard>
 				</long>
-				<short>
-					<standard>IOT</standard>
-				</short>
-			</metazone>
-			<metazone type="Indochina">
-				<short>
-					<standard>ICT</standard>
-				</short>
-			</metazone>
-			<metazone type="Indonesia_Central">
-				<short>
-					<standard>CIT</standard>
-				</short>
-			</metazone>
-			<metazone type="Indonesia_Eastern">
-				<short>
-					<standard>EIT</standard>
-				</short>
-			</metazone>
-			<metazone type="Indonesia_Western">
-				<short>
-					<standard>WIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Iran">
 				<long>
 					<standard>Irānas ziemas laiks</standard>
 					<daylight>Irānas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>IRST</standard>
-					<daylight>IRDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
 					<standard>Irkutskas laiks</standard>
 					<daylight>Irkutskas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>IRKT</standard>
-					<daylight>IRKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Israel">
 				<long>
@@ -3400,7 +3074,6 @@
 				<short>
 					<standard>IST (Izraēla)</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">IST (IL)</standard>
-					<daylight>IDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Japan">
@@ -3411,40 +3084,6 @@
 				</long>
 				<short>
 					<generic>JT</generic>
-					<standard>JST</standard>
-					<daylight>JDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Kamchatka">
-				<short>
-					<standard>PETT</standard>
-					<daylight>PETST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Karachi">
-				<short>
-					<standard>KART</standard>
-				</short>
-			</metazone>
-			<metazone type="Kashgar">
-				<short>
-					<standard>KAST</standard>
-				</short>
-			</metazone>
-			<metazone type="Kazakhstan_Eastern">
-				<short>
-					<standard>EKST</standard>
-				</short>
-			</metazone>
-			<metazone type="Kazakhstan_Western">
-				<short>
-					<standard>WKST</standard>
-				</short>
-			</metazone>
-			<metazone type="Kizilorda">
-				<short>
-					<standard>KIZT</standard>
-					<daylight>KIZST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Korea">
@@ -3455,13 +3094,6 @@
 				</long>
 				<short>
 					<generic>KT</generic>
-					<standard>KST</standard>
-					<daylight>KDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Kosrae">
-				<short>
-					<standard>KOST</standard>
 				</short>
 			</metazone>
 			<metazone type="Krasnoyarsk">
@@ -3469,57 +3101,16 @@
 					<standard>Krasnojarskas laiks</standard>
 					<daylight>Krasnojarskas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>KRAT</standard>
-					<daylight>KRAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Kuybyshev">
 				<long>
 					<standard>Kuibiševas laiks</standard>
 					<daylight>Kuibiševas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>KUYT</standard>
-					<daylight>KUYST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Kwajalein">
-				<short>
-					<standard>KWAT</standard>
-				</short>
-			</metazone>
-			<metazone type="Kyrgystan">
-				<short>
-					<standard>KGT</standard>
-				</short>
-			</metazone>
-			<metazone type="Lanka">
-				<short>
-					<standard>LKT</standard>
-				</short>
-			</metazone>
-			<metazone type="Line_Islands">
-				<short>
-					<standard>LINT</standard>
-				</short>
-			</metazone>
-			<metazone type="Long_Shu">
-				<short>
-					<standard>LONT</standard>
-				</short>
 			</metazone>
 			<metazone type="Lord_Howe">
 				<short>
 					<generic>LHT</generic>
-					<standard>LHST</standard>
-					<daylight>LHDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Macau">
-				<short>
-					<standard>MOT</standard>
-					<daylight>MOST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Magadan">
@@ -3527,68 +3118,30 @@
 					<standard>Magadānas laiks</standard>
 					<daylight>Magadānas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>MAGT</standard>
-					<daylight>MAGST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Malaya">
-				<short>
-					<standard>MALT</standard>
-				</short>
-			</metazone>
-			<metazone type="Malaysia">
-				<short>
-					<standard>MYT</standard>
-				</short>
 			</metazone>
 			<metazone type="Maldives">
 				<long>
 					<standard>Maldīvijas laiks</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Maldivu laiks</standard>
 				</long>
-				<short>
-					<standard>MVT</standard>
-				</short>
-			</metazone>
-			<metazone type="Marquesas">
-				<short>
-					<standard>MART</standard>
-				</short>
 			</metazone>
 			<metazone type="Marshall_Islands">
 				<long>
 					<standard>Māršala salu laiks</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Māršala Salu laiks</standard>
 				</long>
-				<short>
-					<standard>MHT</standard>
-				</short>
 			</metazone>
 			<metazone type="Mauritius">
 				<long>
 					<standard>Maurīcijas laiks</standard>
 					<daylight>Maurīcijas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>MUT</standard>
-					<daylight>MUST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Mawson">
-				<short>
-					<standard>MAWT</standard>
-				</short>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
 					<standard>Ulanbatoras laiks</standard>
 					<daylight>Ulanbatoras vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>ULAT</standard>
-					<daylight>ULAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
@@ -3596,38 +3149,17 @@
 					<standard>Maskavas ziemas laiks</standard>
 					<daylight>Maskavas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>MSK</standard>
-					<daylight>MSKS</daylight>
-				</short>
-			</metazone>
-			<metazone type="Myanmar">
-				<short>
-					<standard>MMT</standard>
-				</short>
-			</metazone>
-			<metazone type="Nauru">
-				<short>
-					<standard>NRT</standard>
-				</short>
 			</metazone>
 			<metazone type="Nepal">
 				<long>
 					<standard>Nepālas laiks</standard>
 				</long>
-				<short>
-					<standard>NPT</standard>
-				</short>
 			</metazone>
 			<metazone type="New_Caledonia">
 				<long>
 					<standard>Jaunkaledonijas laiks</standard>
 					<daylight>Jaunkaledonijas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>NCT</standard>
-					<daylight>NCST</daylight>
-				</short>
 			</metazone>
 			<metazone type="New_Zealand">
 				<long>
@@ -3635,182 +3167,90 @@
 					<standard>Janzēlandes ziemas laiks</standard>
 					<daylight>Jaunzēlamdes vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>NZST</standard>
-					<daylight>NZDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Newfoundland">
 				<short>
 					<generic>NT</generic>
-					<standard>NST</standard>
-					<daylight>NDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Niue">
-				<short>
-					<standard>NUT</standard>
 				</short>
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
 					<standard>Norfolkas salu laiks</standard>
 				</long>
-				<short>
-					<standard>NFT</standard>
-				</short>
-			</metazone>
-			<metazone type="Noronha">
-				<short>
-					<standard>FNT</standard>
-					<daylight>FNST</daylight>
-				</short>
-			</metazone>
-			<metazone type="North_Mariana">
-				<short>
-					<standard>MPT</standard>
-				</short>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<standard>Novosibirskas laiks</standard>
 					<daylight>Novosibirskas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>NOVT</standard>
-					<daylight>NOVST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
 					<standard>Omskas laiks</standard>
 					<daylight>Omskas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>OMST</standard>
-					<daylight>OMSST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Pakistan">
 				<long>
 					<standard>Pakistānas laiks</standard>
 					<daylight>Pakistānas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>PKT</standard>
-					<daylight>PKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Palau">
 				<long>
 					<standard>Palau laiks</standard>
 				</long>
-				<short>
-					<standard>PWT</standard>
-				</short>
 			</metazone>
 			<metazone type="Papua_New_Guinea">
 				<long>
 					<standard>Papua-Jaungvinejas laiks</standard>
 				</long>
-				<short>
-					<standard>PGT</standard>
-				</short>
 			</metazone>
 			<metazone type="Paraguay">
 				<long>
 					<standard>Paragvajas laiks</standard>
 					<daylight>Paragvajas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>PYT</standard>
-					<daylight>PYST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Peru">
 				<long>
 					<standard>Peru laiks</standard>
 					<daylight>Peru vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>PET</standard>
-					<daylight>PEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Philippines">
 				<long>
 					<standard>Filipīnu laiks</standard>
 					<daylight>Filipīnu vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>PHT</standard>
-					<daylight>PHST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Phoenix_Islands">
-				<short>
-					<standard>PHOT</standard>
-				</short>
 			</metazone>
 			<metazone type="Pierre_Miquelon">
 				<short>
 					<generic>PMT</generic>
-					<standard>PMST</standard>
-					<daylight>PMDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Pitcairn">
 				<long>
 					<standard>Pitkērnas laiks</standard>
 				</long>
-				<short>
-					<standard>PNT</standard>
-				</short>
-			</metazone>
-			<metazone type="Ponape">
-				<short>
-					<standard>PONT</standard>
-				</short>
-			</metazone>
-			<metazone type="Qyzylorda">
-				<short>
-					<standard>QYZT</standard>
-					<daylight>QYZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Reinjonas laiks</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Reinjona</standard>
 				</long>
-				<short>
-					<standard>RET</standard>
-				</short>
-			</metazone>
-			<metazone type="Rothera">
-				<short>
-					<standard>ROTT</standard>
-				</short>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<standard>Sahalīnas laiks</standard>
 					<daylight>Sahalīnas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>SAKT</standard>
-					<daylight>SAKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<standard>Samaras laiks</standard>
 					<daylight>Samaras vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>SAMT</standard>
-					<daylight>SAMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samarkand">
 				<long>
@@ -3827,80 +3267,44 @@
 					<standard>Rietumsamoas ziemas laiks</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Rietumsamoa ziemas laiks</standard>
 				</long>
-				<short>
-					<standard>SST</standard>
-				</short>
 			</metazone>
 			<metazone type="Seychelles">
 				<long>
 					<standard>Seišeļu salu laiks</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Seišelu laiks</standard>
 				</long>
-				<short>
-					<standard>SCT</standard>
-				</short>
-			</metazone>
-			<metazone type="Shevchenko">
-				<short>
-					<standard>SHET</standard>
-					<daylight>SHEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Singapore">
 				<long>
 					<standard>Singapūras ziemas laiks</standard>
 				</long>
-				<short>
-					<standard>SGT</standard>
-				</short>
 			</metazone>
 			<metazone type="Solomon">
 				<long>
 					<standard>Zālamana salu laiks</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Zālamanu Salu laiks</standard>
 				</long>
-				<short>
-					<standard>SBT</standard>
-				</short>
 			</metazone>
 			<metazone type="South_Georgia">
 				<long>
 					<standard>Dienviddžordžijas laiks</standard>
 				</long>
-				<short>
-					<standard>GST (GS)</standard>
-				</short>
 			</metazone>
 			<metazone type="Suriname">
 				<long>
 					<standard>Surinamas laiks</standard>
 				</long>
-				<short>
-					<standard>SRT</standard>
-				</short>
 			</metazone>
 			<metazone type="Sverdlovsk">
 				<long>
 					<standard>Sverdlovskas laiks</standard>
 					<daylight>Sverdlovskas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>SVET</standard>
-					<daylight>SVEST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Syowa">
-				<short>
-					<standard>SYOT</standard>
-				</short>
 			</metazone>
 			<metazone type="Tahiti">
 				<long>
 					<standard>Taiti laiks</standard>
 				</long>
-				<short>
-					<standard>TAHT</standard>
-				</short>
 			</metazone>
 			<metazone type="Taipei">
 				<short>
@@ -3910,183 +3314,80 @@
 					<daylight alt="proposed-x1001" draft="unconfirmed">CDT (TW)</daylight>
 				</short>
 			</metazone>
-			<metazone type="Tajikistan">
-				<short>
-					<standard>TJT</standard>
-				</short>
-			</metazone>
 			<metazone type="Tashkent">
 				<long>
 					<standard>Taškentas laiks</standard>
 					<daylight>Taškentas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>TAST</standard>
-					<daylight>TASST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Tbilisi">
 				<long>
 					<standard>Tbilisi laiks</standard>
 					<daylight>Tbilisi vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>TBIT</standard>
-					<daylight>TBIST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Tokelau">
 				<long>
 					<standard>Tokelau laiks</standard>
 				</long>
-				<short>
-					<standard>TKT</standard>
-				</short>
-			</metazone>
-			<metazone type="Tonga">
-				<short>
-					<standard>TOT</standard>
-					<daylight>TOST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Truk">
-				<short>
-					<standard>TRUT</standard>
-				</short>
 			</metazone>
 			<metazone type="Turkey">
 				<long>
 					<standard>Turcijas laiks</standard>
 					<daylight>Turcijas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>TRT</standard>
-					<daylight>TRST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Turkmenistan">
-				<short>
-					<standard>TMT</standard>
-					<daylight>TMST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Tuvalu">
-				<short>
-					<standard>TVT</standard>
-				</short>
-			</metazone>
-			<metazone type="Uralsk">
-				<short>
-					<standard>URAT</standard>
-					<daylight>URAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Uruguay">
 				<long>
 					<standard>Urugvajas laiks</standard>
 					<daylight>Urugvajas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>UYT</standard>
-					<daylight>UYST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Urumqi">
-				<short>
-					<standard>URUT</standard>
-				</short>
-			</metazone>
-			<metazone type="Uzbekistan">
-				<short>
-					<standard>UZT</standard>
-					<daylight>UZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Vanuatu">
 				<long>
 					<standard>Vanuatu laiks</standard>
 					<daylight>Vanuatu vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>VUT</standard>
-					<daylight>VUST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Venezuela">
 				<long>
 					<standard>Venecuēlas laiks</standard>
 				</long>
-				<short>
-					<standard>VET</standard>
-				</short>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<standard>Vladivostokas laiks</standard>
 					<daylight>Vladivostokas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>VLAT</standard>
-					<daylight>VLAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<standard>Volgogradas laiks</standard>
 					<daylight>Volgogradas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>VOLT</standard>
-					<daylight>VOLST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Vostok">
-				<short>
-					<standard>VOST</standard>
-				</short>
-			</metazone>
-			<metazone type="Wake">
-				<short>
-					<standard>WAKT</standard>
-				</short>
 			</metazone>
 			<metazone type="Wallis">
 				<long>
 					<standard>Volisas un Futunas laiks</standard>
 				</long>
-				<short>
-					<standard>WFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
 					<standard>Jakutskas laiks</standard>
 					<daylight>Jakutskas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>YAKT</standard>
-					<daylight>YAKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
 					<standard>Jekaterinburgas laiks</standard>
 					<daylight>Jekaterinburgas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>YEKT</standard>
-					<daylight>YEKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Yerevan">
 				<long>
 					<standard>Erevānas laiks</standard>
 					<daylight>Erevānas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>YERT</standard>
-					<daylight>YERST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Yukon">
 				<long>
@@ -4096,14 +3397,11 @@
 				</long>
 				<short>
 					<generic>YT</generic>
-					<standard>YST</standard>
-					<daylight>YDT</daylight>
 				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
@@ -4157,35 +3455,30 @@
 				<displayName count="one">Apvienoto Arābu Emirātu dirhēms</displayName>
 				<displayName count="other">Apvienoto Arābu Emirātu dirhēmi</displayName>
 				<displayName count="zero">Apvienoto Arābu Emirātu dirhēmi</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>Afganistānas afgāns</displayName>
 				<displayName count="one">Afganistānas afgāns</displayName>
 				<displayName count="other">Afganistānas afgāni</displayName>
 				<displayName count="zero">Afganistānas afgāni</displayName>
-				<symbol>Af</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Albānijas leks</displayName>
 				<displayName count="one">Albānijas leks</displayName>
 				<displayName count="other">Albānijas leki</displayName>
 				<displayName count="zero">Albānijas leki</displayName>
-				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Armēnijas drams</displayName>
 				<displayName count="one">Armēnijas drams</displayName>
 				<displayName count="other">Armēnijas drami</displayName>
 				<displayName count="zero">Armēnijas drami</displayName>
-				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Nīderlandes Antiļu guldenis</displayName>
 				<displayName count="one">Nīderlandes Antiļu guldenis</displayName>
 				<displayName count="other">Nīderlandes Antiļu guldeņi</displayName>
 				<displayName count="zero">Nīderlandes Antiļu guldeņi</displayName>
-				<symbol>NAf.</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>Angolas kvanza</displayName>
@@ -4285,7 +3578,6 @@
 			</currency>
 			<currency type="BYR">
 				<displayName>Baltkrievijas rubelis</displayName>
-				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>Belizas dolārs</displayName>
@@ -4334,7 +3626,6 @@
 			</currency>
 			<currency type="DEM">
 				<displayName>Vācijas marka</displayName>
-				<symbol>DM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Džibutijas franks</displayName>
@@ -4350,7 +3641,6 @@
 			</currency>
 			<currency type="EEK">
 				<displayName>Igaunijas krona</displayName>
-				<symbol>Ekr</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Ēģiptes mārciņa</displayName>
@@ -4370,7 +3660,6 @@
 				<displayName count="other" draft="unconfirmed">euro</displayName>
 				<displayName count="zero" draft="unconfirmed">euro</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Somijas marka</displayName>
@@ -4384,11 +3673,9 @@
 			</currency>
 			<currency type="FRF">
 				<displayName>Francijas franks</displayName>
-				<symbol>₣</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Lielbritānijas sterliņu mārciņa</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>Gruzijas lari</displayName>
@@ -4431,7 +3718,6 @@
 			</currency>
 			<currency type="IDR">
 				<displayName>Indonēzijas rūpija</displayName>
-				<symbol>Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Īrijas mārciņa</displayName>
@@ -4453,7 +3739,6 @@
 			</currency>
 			<currency type="ITL">
 				<displayName>Itālijas lira</displayName>
-				<symbol>IT₤</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>Jamaikas dolārs</displayName>
@@ -4519,14 +3804,12 @@
 			</currency>
 			<currency type="LTL">
 				<displayName>Lietuvas lits</displayName>
-				<symbol>Lt</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>Luksemburgas franks</displayName>
 			</currency>
 			<currency type="LVL">
 				<displayName>Latvijas lats</displayName>
-				<symbol>Ls</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Latvijas rublis</displayName>
@@ -4608,7 +3891,6 @@
 			</currency>
 			<currency type="NOK">
 				<displayName>Norvēģijas krona</displayName>
-				<symbol>Nkr</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>Nepālas rūpija</displayName>
@@ -4666,7 +3948,6 @@
 			</currency>
 			<currency type="RUB">
 				<displayName>Krievijas rublis</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Ruandas franks</displayName>
@@ -4685,7 +3966,6 @@
 			</currency>
 			<currency type="SEK">
 				<displayName>Zviedrijas krona</displayName>
-				<symbol>Skr</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Singapūras dolārs</displayName>
@@ -4970,8 +4250,6 @@
 		<listPattern>
 			<listPatternPart type="2">{0} un {1}</listPatternPart>
 			<listPatternPart type="end">{0} un {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

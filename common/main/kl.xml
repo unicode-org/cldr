@@ -577,13 +577,11 @@
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<gmtZeroFormat draft="unconfirmed">GMT</gmtZeroFormat>
 			<regionFormat draft="unconfirmed">{0}</regionFormat>
 			<fallbackFormat draft="unconfirmed">{0} ({1})</fallbackFormat>
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
@@ -636,7 +634,6 @@
 			</currency>
 			<currency type="EUR">
 				<displayName draft="unconfirmed">euro</displayName>
-				<symbol draft="unconfirmed">€</symbol>
 			</currency>
 		</currencies>
 	</numbers>
@@ -666,8 +663,6 @@
 	<listPatterns>
 		<listPattern>
 			<listPatternPart type="2" draft="unconfirmed">{0} aamma {1}</listPatternPart>
-			<listPatternPart type="end" draft="unconfirmed">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
 			<listPatternPart type="start" draft="unconfirmed">{0} aamma {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>

@@ -1160,7 +1160,6 @@
 		</codePatterns>
 	</localeDisplayNames>
 	<layout>
-		<inList draft="unconfirmed">mixed</inList>
 		<inText type="currency">lowercase-words</inText>
 		<inText type="currency" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
 		<inText type="fields">titlecase-firstword</inText>
@@ -1171,7 +1170,6 @@
 		<inText type="languages" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
 		<inText type="long">lowercase-words</inText>
 		<inText type="long" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
-		<inText type="measurementSystemNames" draft="unconfirmed">mixed</inText>
 		<inText type="quarterWidth">titlecase-firstword</inText>
 		<inText type="quarterWidth" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
 		<inText type="scripts">lowercase-words</inText>
@@ -2108,7 +2106,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
@@ -2165,7 +2162,7 @@
 			</currency>
 			<currency type="AED">
 				<displayName>UAE dirham</displayName>
-				<symbol draft="contributed">AED</symbol>
+				<symbol draft=AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>afghani (1927-2002)</displayName>
@@ -2732,7 +2729,6 @@
 			<currency type="ISK">
 				<displayName>islandske kroner</displayName>
 				<displayName count="one">islandsk krone</displayName>
-				<symbol draft="contributed">Ikr</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>italienske lire</displayName>
@@ -3553,8 +3549,6 @@
 			<listPatternPart type="2" draft="provisional">{0} og {0}</listPatternPart>
 			<listPatternPart type="2" alt="proposed-x1001" draft="unconfirmed">{0} og {1}</listPatternPart>
 			<listPatternPart type="end" draft="contributed">{0} og {1}</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
-			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

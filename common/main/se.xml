@@ -423,7 +423,6 @@
 		</territories>
 		<variants>
 			<variant type="PINYIN" draft="unconfirmed">pinyin</variant>
-			<variant type="POSIX" draft="unconfirmed">POSIX</variant>
 			<variant type="WADEGILE" draft="unconfirmed">Wade-Giles</variant>
 		</variants>
 		<keys>
@@ -726,7 +725,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">latn</defaultNumberingSystem>
 		<symbols>
 			<decimal draft="unconfirmed">,</decimal>
 			<group draft="unconfirmed"> </group>
@@ -778,18 +776,15 @@
 				<displayName count="one" draft="unconfirmed">euro</displayName>
 				<displayName count="other" draft="unconfirmed">euro</displayName>
 				<displayName count="two" draft="unconfirmed">euro</displayName>
-				<symbol draft="unconfirmed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>suoma márkki</displayName>
 			</currency>
 			<currency type="NOK">
 				<displayName>norgga kruvdno</displayName>
-				<symbol draft="unconfirmed">Nkr</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>ruoŧŧa kruvdno</displayName>
-				<symbol draft="unconfirmed">Skr</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName draft="unconfirmed">uns silba</displayName>
@@ -840,8 +835,6 @@
 		<listPattern>
 			<listPatternPart type="2" draft="unconfirmed">{0} ja {1}</listPatternPart>
 			<listPatternPart type="end" draft="unconfirmed">{0} ja {1}</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
-			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

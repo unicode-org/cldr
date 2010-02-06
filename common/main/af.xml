@@ -813,30 +813,16 @@
 						<intervalFormatItem id="h">
 							<greatestDifference id="h" draft="unconfirmed">h–h a</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="H" draft="unconfirmed">HH–HH</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="h" draft="unconfirmed">h:mm–h:mm a</greatestDifference>
 							<greatestDifference id="m" draft="unconfirmed">h:mm–h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="H" draft="unconfirmed">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">HH:mm–HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="h" draft="unconfirmed">h:mm–h:mm a v</greatestDifference>
 							<greatestDifference id="m" draft="unconfirmed">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H" draft="unconfirmed">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="h" draft="unconfirmed">h–h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="H" draft="unconfirmed">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M" draft="unconfirmed">M–M</greatestDifference>
@@ -954,7 +940,6 @@
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<gmtZeroFormat draft="unconfirmed">GMT</gmtZeroFormat>
 			<regionFormat draft="unconfirmed">{0}-tyd</regionFormat>
 			<fallbackFormat draft="unconfirmed">{0} ({1})</fallbackFormat>
 			<zone type="Antarctica/South_Pole">
@@ -978,7 +963,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
@@ -1085,7 +1069,6 @@
 				<displayName count="one" draft="unconfirmed">euro</displayName>
 				<displayName count="other" draft="unconfirmed">euro</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Britse pond</displayName>
@@ -1266,8 +1249,6 @@
 		<listPattern>
 			<listPatternPart type="2">{0} en {1}</listPatternPart>
 			<listPatternPart type="end">{0} en {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

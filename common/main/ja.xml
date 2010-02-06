@@ -1036,10 +1036,6 @@
 							<month type="4" draft="provisional">4月</month>
 							<month type="5" draft="provisional">5月</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="provisional">1</month>
-							<month type="4" draft="provisional">4</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="provisional">1月</month>
 							<month type="2" draft="provisional">2月</month>
@@ -1176,10 +1172,6 @@
 							<month type="10">10月</month>
 							<month type="11">11月</month>
 							<month type="12">12月</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="provisional">1</month>
-							<month type="4" draft="provisional">4</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">1月</month>
@@ -3086,9 +3078,6 @@
 				<long>
 					<standard draft="provisional">アフガニスタン時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">AFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
@@ -3123,10 +3112,6 @@
 					<standard draft="provisional">アクチュービンスク時間</standard>
 					<daylight draft="provisional">アクチュービンスク夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AKTT</standard>
-					<daylight draft="provisional">AKTST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
@@ -3153,20 +3138,12 @@
 					<standard draft="provisional">アルマトイ時間</standard>
 					<daylight draft="provisional">アルマトイ夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">ALMT</standard>
-					<daylight draft="provisional">ALMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<standard>アマゾン時間</standard>
 					<daylight>アマゾン夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AMT</standard>
-					<daylight draft="provisional">AMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Central">
 				<long>
@@ -3221,10 +3198,6 @@
 					<standard draft="provisional">アナディリ時間</standard>
 					<daylight draft="provisional">アナディリ夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">ANAT</standard>
-					<daylight draft="provisional">ANAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Aqtau">
 				<long>
@@ -3285,10 +3258,6 @@
 					<standard draft="provisional">アシガバート時間</standard>
 					<daylight draft="provisional">アシガバート夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">ASHT</standard>
-					<daylight draft="provisional">ASHST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Atlantic">
 				<long>
@@ -3310,8 +3279,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">ACT</generic>
-					<standard draft="provisional">ACST</standard>
-					<daylight draft="provisional">ACDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
@@ -3322,8 +3289,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">ACWT</generic>
-					<standard draft="provisional">ACWST</standard>
-					<daylight draft="provisional">ACWDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Eastern">
@@ -3334,8 +3299,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">AET</generic>
-					<standard draft="provisional">AEST</standard>
-					<daylight draft="provisional">AEDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Western">
@@ -3344,50 +3307,30 @@
 					<standard draft="provisional">オーストラリア西部標準時</standard>
 					<daylight draft="provisional">オーストラリア西部夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AWST</standard>
-					<daylight draft="provisional">AWDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
 					<standard draft="provisional">アゼルバイジャン時間</standard>
 					<daylight draft="provisional">アゼルバイジャン夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AZT</standard>
-					<daylight draft="provisional">AZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Azores">
 				<long>
 					<standard draft="provisional">アゾレス時間</standard>
 					<daylight draft="provisional">アゾレス夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AZOT</standard>
-					<daylight draft="provisional">AZOST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Baku">
 				<long>
 					<standard draft="provisional">バクー時間</standard>
 					<daylight draft="provisional">バクー夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">BAKT</standard>
-					<daylight draft="provisional">BAKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Bangladesh">
 				<long>
 					<standard draft="provisional">バングラデシュ時間</standard>
 					<daylight draft="provisional">バングラデシュ夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">BDT</standard>
-					<daylight draft="provisional">BDST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Bering">
 				<long>
@@ -3405,9 +3348,6 @@
 				<long>
 					<standard draft="provisional">ブータン時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">BTT</standard>
-				</short>
 			</metazone>
 			<metazone type="Bolivia">
 				<long>
@@ -3419,38 +3359,23 @@
 					<standard draft="provisional">ボルネオ時間</standard>
 					<daylight draft="provisional">ボルネオ夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">BORT</standard>
-					<daylight draft="provisional">BORST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
 					<standard>ブラジリア時間</standard>
 					<daylight>ブラジリア夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">BRT</standard>
-					<daylight draft="provisional">BRST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard draft="provisional">ブルネイ・ダルサラーム時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">BNT</standard>
-				</short>
 			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
 					<standard draft="provisional">カーボベルデ時間</standard>
 					<daylight draft="provisional">カーボベルデ夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">CVT</standard>
-					<daylight draft="provisional">CVST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Chamorro">
 				<long>
@@ -3462,9 +3387,6 @@
 				<long>
 					<standard draft="provisional">チャンバイ時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">CHAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Chatham">
 				<long>
@@ -3496,10 +3418,6 @@
 					<standard draft="provisional">チョイバルサン時間</standard>
 					<daylight draft="provisional">チョイバルサン夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">CHOT</standard>
-					<daylight draft="provisional">CHOST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Christmas">
 				<long>
@@ -3537,35 +3455,22 @@
 				<long>
 					<standard draft="provisional">ダッカ時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">DACT</standard>
-				</short>
 			</metazone>
 			<metazone type="Davis">
 				<long>
 					<standard draft="provisional">デービス基地時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">DAVT</standard>
-				</short>
 			</metazone>
 			<metazone type="DumontDUrville">
 				<long>
 					<standard draft="provisional">デュモン・デュルヴィル基地時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">DDUT</standard>
-				</short>
 			</metazone>
 			<metazone type="Dushanbe">
 				<long>
 					<standard draft="provisional">ドゥシャンベ時間</standard>
 					<daylight draft="provisional">ドゥシャンベ夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">DUST</standard>
-					<daylight draft="provisional">DUSST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Dutch_Guiana">
 				<long>
@@ -3576,9 +3481,6 @@
 				<long>
 					<standard draft="provisional">東ティモール時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">TLT</standard>
-				</short>
 			</metazone>
 			<metazone type="Easter">
 				<long>
@@ -3626,10 +3528,6 @@
 					<standard draft="provisional">フォークランド諸島時間</standard>
 					<daylight draft="provisional">フォークランド諸島夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">FKT</standard>
-					<daylight draft="provisional">FKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Fiji">
 				<long>
@@ -3652,10 +3550,6 @@
 					<standard draft="provisional">フルンゼ時間</standard>
 					<daylight draft="provisional">フルンゼ夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">FRUT</standard>
-					<daylight draft="provisional">FRUST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Galapagos">
 				<long>
@@ -3672,10 +3566,6 @@
 					<standard draft="provisional">グルジア時間</standard>
 					<daylight draft="provisional">グルジア夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">GET</standard>
-					<daylight draft="provisional">GEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Gilbert_Islands">
 				<long>
@@ -3723,7 +3613,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">GT</generic>
-					<standard draft="provisional">GST</standard>
 				</short>
 			</metazone>
 			<metazone type="Guyana">
@@ -3747,10 +3636,6 @@
 					<standard draft="provisional">ホブド時間</standard>
 					<daylight draft="provisional">ホブド夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">HOVT</standard>
-					<daylight draft="provisional">HOVST</daylight>
-				</short>
 			</metazone>
 			<metazone type="India">
 				<long>
@@ -3787,20 +3672,12 @@
 					<standard draft="provisional">イラン標準時</standard>
 					<daylight draft="provisional">イラン夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">IRST</standard>
-					<daylight draft="provisional">IRDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
 					<standard draft="provisional">イルクーツク時間</standard>
 					<daylight draft="provisional">イルクーツク夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">IRKT</standard>
-					<daylight draft="provisional">IRKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Israel">
 				<long>
@@ -3820,7 +3697,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">JT</generic>
-					<daylight draft="provisional">JDT</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -3829,104 +3705,54 @@
 					<standard draft="provisional">ペトロパブロフスク・カムチャツキー時間</standard>
 					<daylight draft="provisional">ペトロパブロフスク・カムチャツキー夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">PETT</standard>
-					<daylight draft="provisional">PETST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Karachi">
 				<long>
 					<standard draft="provisional">カラチ時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">KART</standard>
-				</short>
 			</metazone>
 			<metazone type="Kashgar">
 				<long>
 					<standard draft="provisional">カシュガル時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">KAST</standard>
-				</short>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<generic draft="provisional">カザフスタン東部時間</generic>
 					<standard draft="provisional">カザフスタン東部標準時</standard>
 				</long>
-				<short>
-					<standard draft="provisional">EKST</standard>
-				</short>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
 					<generic draft="provisional">カザフスタン西部時間</generic>
 					<standard draft="provisional">カザフスタン西部標準時</standard>
 				</long>
-				<short>
-					<standard draft="provisional">WKST</standard>
-				</short>
-			</metazone>
-			<metazone type="Kizilorda">
-				<short>
-					<standard draft="provisional">KIZT</standard>
-					<daylight draft="provisional">KIZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Korea">
 				<long>
 					<standard draft="provisional">大韓民国標準時</standard>
 				</long>
-				<short>
-					<daylight draft="provisional">KDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Kosrae">
 				<long>
 					<standard draft="provisional">コスラエ時間</standard>
 				</long>
 			</metazone>
-			<metazone type="Krasnoyarsk">
-				<short>
-					<standard draft="provisional">KRAT</standard>
-					<daylight draft="provisional">KRAST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Kuybyshev">
 				<long>
 					<standard draft="provisional">クイビシェフ時間</standard>
 					<daylight draft="provisional">クイビシェフ夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">KUYT</standard>
-					<daylight draft="provisional">KUYST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Kwajalein">
 				<long>
 					<standard draft="provisional">クワジャレイン時間</standard>
 				</long>
 			</metazone>
-			<metazone type="Kyrgystan">
-				<short>
-					<standard draft="provisional">KGT</standard>
-				</short>
-			</metazone>
-			<metazone type="Lanka">
-				<short>
-					<standard draft="provisional">LKT</standard>
-				</short>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard draft="provisional">ライン諸島時間</standard>
 				</long>
-			</metazone>
-			<metazone type="Long_Shu">
-				<short>
-					<standard draft="provisional">LONT</standard>
-				</short>
 			</metazone>
 			<metazone type="Lord_Howe">
 				<long>
@@ -3936,30 +3762,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">LHT</generic>
-					<standard draft="provisional">LHST</standard>
-					<daylight draft="provisional">LHDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Macau">
-				<short>
-					<standard draft="provisional">MOT</standard>
-					<daylight draft="provisional">MOST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Magadan">
-				<short>
-					<standard draft="provisional">MAGT</standard>
-					<daylight draft="provisional">MAGST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Malaya">
-				<short>
-					<standard draft="provisional">MALT</standard>
-				</short>
-			</metazone>
-			<metazone type="Malaysia">
-				<short>
-					<standard draft="provisional">MYT</standard>
 				</short>
 			</metazone>
 			<metazone type="Maldives">
@@ -3987,15 +3789,6 @@
 				<long>
 					<standard draft="provisional">モーソン基地時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">MAWT</standard>
-				</short>
-			</metazone>
-			<metazone type="Mongolia">
-				<short>
-					<standard draft="provisional">ULAT</standard>
-					<daylight draft="provisional">ULAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
@@ -4003,25 +3796,11 @@
 					<standard draft="provisional">モスクワ標準時</standard>
 					<daylight draft="provisional">モスクワ夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">MSK</standard>
-					<daylight draft="provisional">MSKS</daylight>
-				</short>
-			</metazone>
-			<metazone type="Myanmar">
-				<short>
-					<standard draft="provisional">MMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Nauru">
 				<long>
 					<standard draft="provisional">ナウル時間</standard>
 				</long>
-			</metazone>
-			<metazone type="Nepal">
-				<short>
-					<standard draft="provisional">NPT</standard>
-				</short>
 			</metazone>
 			<metazone type="New_Caledonia">
 				<long>
@@ -4070,24 +3849,6 @@
 					<standard draft="provisional">北マリアナ諸島時間</standard>
 				</long>
 			</metazone>
-			<metazone type="Novosibirsk">
-				<short>
-					<standard draft="provisional">NOVT</standard>
-					<daylight draft="provisional">NOVST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Omsk">
-				<short>
-					<standard draft="provisional">OMST</standard>
-					<daylight draft="provisional">OMSST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Pakistan">
-				<short>
-					<standard draft="provisional">PKT</standard>
-					<daylight draft="provisional">PKST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Palau">
 				<long>
 					<standard draft="provisional">パラオ時間</standard>
@@ -4109,12 +3870,6 @@
 					<standard draft="provisional">ペルー時間</standard>
 					<daylight draft="provisional">ペルー夏時間</daylight>
 				</long>
-			</metazone>
-			<metazone type="Philippines">
-				<short>
-					<standard draft="provisional">PHT</standard>
-					<daylight draft="provisional">PHST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Phoenix_Islands">
 				<long>
@@ -4141,12 +3896,6 @@
 					<standard draft="provisional">ポナペ時間</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<short>
-					<standard draft="provisional">QYZT</standard>
-					<daylight draft="provisional">QYZST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard draft="provisional">レユニオン時間</standard>
@@ -4156,25 +3905,12 @@
 				<long>
 					<standard draft="provisional">ロゼラ研究基地時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">ROTT</standard>
-				</short>
-			</metazone>
-			<metazone type="Sakhalin">
-				<short>
-					<standard draft="provisional">SAKT</standard>
-					<daylight draft="provisional">SAKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<standard draft="provisional">サマラ時間</standard>
 					<daylight draft="provisional">サマラ夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">SAMT</standard>
-					<daylight draft="provisional">SAMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samarkand">
 				<short>
@@ -4191,17 +3927,6 @@
 				<long>
 					<standard draft="provisional">セーシェル時間</standard>
 				</long>
-			</metazone>
-			<metazone type="Shevchenko">
-				<short>
-					<standard draft="provisional">SHET</standard>
-					<daylight draft="provisional">SHEST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Singapore">
-				<short>
-					<standard draft="provisional">SGT</standard>
-				</short>
 			</metazone>
 			<metazone type="Solomon">
 				<long>
@@ -4221,19 +3946,10 @@
 					<standard draft="provisional">スリナム時間</standard>
 				</long>
 			</metazone>
-			<metazone type="Sverdlovsk">
-				<short>
-					<standard draft="provisional">SVET</standard>
-					<daylight draft="provisional">SVEST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Syowa">
 				<long>
 					<standard draft="provisional">昭和基地時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">SYOT</standard>
-				</short>
 			</metazone>
 			<metazone type="Tahiti">
 				<long>
@@ -4244,23 +3960,6 @@
 				<short>
 					<standard draft="provisional">CST（台北）</standard>
 					<daylight draft="provisional">CDT（台北）</daylight>
-				</short>
-			</metazone>
-			<metazone type="Tajikistan">
-				<short>
-					<standard draft="provisional">TJT</standard>
-				</short>
-			</metazone>
-			<metazone type="Tashkent">
-				<short>
-					<standard draft="provisional">TAST</standard>
-					<daylight draft="provisional">TASST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Tbilisi">
-				<short>
-					<standard draft="provisional">TBIT</standard>
-					<daylight draft="provisional">TBIST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Tokelau">
@@ -4284,44 +3983,17 @@
 					<standard draft="provisional">トルコ時間</standard>
 					<daylight draft="provisional">トルコ夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">TRT</standard>
-					<daylight draft="provisional">TRST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Turkmenistan">
-				<short>
-					<standard draft="provisional">TMT</standard>
-					<daylight draft="provisional">TMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Tuvalu">
 				<long>
 					<standard draft="provisional">ツバル時間</standard>
 				</long>
 			</metazone>
-			<metazone type="Uralsk">
-				<short>
-					<standard draft="provisional">URAT</standard>
-					<daylight draft="provisional">URAST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Uruguay">
 				<long>
 					<standard draft="provisional">ウルグアイ時間</standard>
 					<daylight draft="provisional">ウルグアイ夏時間</daylight>
 				</long>
-			</metazone>
-			<metazone type="Urumqi">
-				<short>
-					<standard draft="provisional">URUT</standard>
-				</short>
-			</metazone>
-			<metazone type="Uzbekistan">
-				<short>
-					<standard draft="provisional">UZT</standard>
-					<daylight draft="provisional">UZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Vanuatu">
 				<long>
@@ -4334,29 +4006,16 @@
 					<standard draft="provisional">ベネズエラ時間</standard>
 				</long>
 			</metazone>
-			<metazone type="Vladivostok">
-				<short>
-					<standard draft="provisional">VLAT</standard>
-					<daylight draft="provisional">VLAST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<standard draft="provisional">ヴォルゴグラード時間</standard>
 					<daylight draft="provisional">ヴォルゴグラード夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">VOLT</standard>
-					<daylight draft="provisional">VOLST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Vostok">
 				<long>
 					<standard draft="provisional">ボストーク基地時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">VOST</standard>
-				</short>
 			</metazone>
 			<metazone type="Wake">
 				<long>
@@ -4367,27 +4026,6 @@
 				<long>
 					<standard draft="provisional">ワリス・フテュナ時間</standard>
 				</long>
-				<short>
-					<standard draft="provisional">WFT</standard>
-				</short>
-			</metazone>
-			<metazone type="Yakutsk">
-				<short>
-					<standard draft="provisional">YAKT</standard>
-					<daylight draft="provisional">YAKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Yekaterinburg">
-				<short>
-					<standard draft="provisional">YEKT</standard>
-					<daylight draft="provisional">YEKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Yerevan">
-				<short>
-					<standard draft="provisional">YERT</standard>
-					<daylight draft="provisional">YERST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Yukon">
 				<long>
@@ -4402,7 +4040,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="provisional">latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>.</decimal>
 			<group>,</group>
@@ -4472,9 +4109,6 @@
 			<currency type="ARA">
 				<displayName>アルゼンチン アゥストラール</displayName>
 			</currency>
-			<currency type="ARM">
-				<symbol draft="provisional">m$n</symbol>
-			</currency>
 			<currency type="ARP">
 				<displayName>アルゼンチン ペソ (1983-1985)</displayName>
 			</currency>
@@ -4495,7 +4129,6 @@
 			</currency>
 			<currency type="AZN">
 				<displayName>アゼルバイジャン マナト</displayName>
-				<symbol draft="provisional">man.</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>ボスニア ディナール</displayName>
@@ -4541,7 +4174,6 @@
 			</currency>
 			<currency type="BOP">
 				<displayName>ボリビア ペソ</displayName>
-				<symbol draft="provisional">$b.</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>ボリビア Mvdol</displayName>
@@ -4690,7 +4322,6 @@
 			</currency>
 			<currency type="FIM">
 				<displayName>フィンランド マルカ</displayName>
-				<symbol draft="provisional">mk</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>フィジー諸島 ドル</displayName>
@@ -4757,7 +4388,6 @@
 			</currency>
 			<currency type="HRK">
 				<displayName>クロアチア クーナ</displayName>
-				<symbol draft="provisional">kn</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>ハイチ グールド</displayName>
@@ -4952,7 +4582,6 @@
 			</currency>
 			<currency type="NLG">
 				<displayName>オランダ ギルダー</displayName>
-				<symbol draft="provisional">fl</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>ノルウェー クローネ</displayName>
@@ -4989,7 +4618,6 @@
 			</currency>
 			<currency type="PLN">
 				<displayName>ポーランド ズウォティ</displayName>
-				<symbol draft="provisional">zł</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>ポーランド ズウォティ (1950-1995)</displayName>
@@ -5014,7 +4642,6 @@
 			</currency>
 			<currency type="RSD">
 				<displayName>ディナール (セルビア)</displayName>
-				<symbol draft="provisional">din.</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>ロシア ルーブル</displayName>

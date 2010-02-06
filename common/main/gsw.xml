@@ -1025,14 +1025,6 @@
 			<codePattern type="territory">Regioon: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inText type="currency" draft="unconfirmed">mixed</inText>
-		<inText type="keys" draft="unconfirmed">mixed</inText>
-		<inText type="languages" draft="unconfirmed">mixed</inText>
-		<inText type="scripts" draft="unconfirmed">mixed</inText>
-		<inText type="territories" draft="unconfirmed">mixed</inText>
-		<inText type="types" draft="unconfirmed">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a ä b c d e f g h i j k l m n o ö p q r s t u ü v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à ă â å ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ø ō œ ú ù ŭ û ū ÿ]</exemplarCharacters>
@@ -1883,7 +1875,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>.</decimal>
 			<group>’</group>
@@ -3033,8 +3024,6 @@
 		<listPattern>
 			<listPatternPart type="2" draft="unconfirmed">{0} und {1}</listPatternPart>
 			<listPatternPart type="end" draft="unconfirmed">{0} und {1}</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
-			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

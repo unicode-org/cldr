@@ -896,7 +896,6 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
 							<greatestDifference id="a" draft="contributed">HH-HH</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">h:mm a - h:mm a</greatestDifference>
@@ -924,7 +923,6 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
 							<greatestDifference id="a" draft="contributed">HH-HH v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M" draft="unconfirmed">M.-M.</greatestDifference>
@@ -1187,7 +1185,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="provisional">latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
@@ -1416,7 +1413,6 @@
 			<currency type="EUR">
 				<displayName>Euro</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">euro</displayName>
-				<symbol draft="provisional">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Finská marka</displayName>
@@ -1986,8 +1982,6 @@
 		<listPattern>
 			<listPatternPart type="2" draft="provisional">{0} a {0}</listPatternPart>
 			<listPatternPart type="end" draft="provisional">{0} a {1}</listPatternPart>
-			<listPatternPart type="middle" draft="provisional">{0}, {1}</listPatternPart>
-			<listPatternPart type="start" draft="provisional">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

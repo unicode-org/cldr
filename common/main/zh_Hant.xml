@@ -885,13 +885,6 @@
 			<calendar type="buddhist">
 				<months>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="provisional">1月</month>
-							<month type="2" draft="provisional">2月</month>
-							<month type="3" draft="provisional">3月</month>
-							<month type="4" draft="provisional">4月</month>
-							<month type="5" draft="provisional">5月</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1" draft="provisional">1</month>
 							<month type="2" draft="provisional">2</month>
@@ -903,13 +896,6 @@
 							<month type="8" draft="provisional">8</month>
 							<month type="9" draft="provisional">9</month>
 							<month type="10" draft="provisional">10</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="provisional">1月</month>
-							<month type="2" draft="provisional">2月</month>
-							<month type="3" draft="provisional">3月</month>
-							<month type="4" draft="provisional">4月</month>
-							<month type="5" draft="provisional">5月</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1707,7 +1693,6 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Ed" draft="provisional">d日（E）</dateFormatItem>
-						<dateFormatItem id="Md" draft="provisional">M/d</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="provisional">M月d日EEE</dateFormatItem>
 						<dateFormatItem id="yyyy" draft="provisional">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyyM" draft="provisional">Gy/M</dateFormatItem>

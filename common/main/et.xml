@@ -1238,30 +1238,16 @@
 						<intervalFormatItem id="h">
 							<greatestDifference id="h">h–h a</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="H">HH–HH</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="h">h:mm–h:mm a</greatestDifference>
 							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
 							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="h">h–h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="H">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M–M</greatestDifference>
@@ -1370,7 +1356,6 @@
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{0} ({1})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -1490,9 +1475,6 @@
 			<zone type="Europe/Kiev">
 				<exemplarCity draft="unconfirmed">Kiiev</exemplarCity>
 			</zone>
-			<zone type="America/Anchorage">
-				<exemplarCity>Anchorage</exemplarCity>
-			</zone>
 			<zone type="America/St_Vincent">
 				<exemplarCity draft="unconfirmed">St. Vincent</exemplarCity>
 			</zone>
@@ -1503,26 +1485,16 @@
 				<long>
 					<daylight>Acre suveaeg</daylight>
 				</long>
-				<short>
-					<standard>ACT (Acre)</standard>
-					<daylight>ACST (Acre)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>Kesk-Aafrika aeg</standard>
 				</long>
-				<short>
-					<standard>CAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>Ida-Aafrika aeg</standard>
 				</long>
-				<short>
-					<standard>EAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
@@ -1531,7 +1503,6 @@
 				</long>
 				<short>
 					<generic>SAT</generic>
-					<standard>SAST</standard>
 				</short>
 			</metazone>
 			<metazone type="Africa_Western">
@@ -1539,27 +1510,6 @@
 					<standard>Lääne-Aafrika aeg</standard>
 					<daylight>Lääne-Aafrika suveaeg</daylight>
 				</long>
-				<short>
-					<standard>WAT</standard>
-				</short>
-			</metazone>
-			<metazone type="Alaska">
-				<short>
-					<standard>AKST</standard>
-					<daylight>AKDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Alaska_Hawaii">
-				<short>
-					<standard>AHST</standard>
-					<daylight>AHDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Amazon">
-				<short>
-					<standard>AMT</standard>
-					<daylight>AMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Central">
 				<long>
@@ -1609,16 +1559,6 @@
 					<daylight>PDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Argentina">
-				<short>
-					<daylight>ARST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Argentina_Western">
-				<short>
-					<standard>WART</standard>
-				</short>
-			</metazone>
 			<metazone type="Atlantic">
 				<long>
 					<generic>Atlandi aeg</generic>
@@ -1637,10 +1577,6 @@
 					<standard>Kesk-Austraalia standardaeg</standard>
 					<daylight>Kesk-Austraalia suveaeg</daylight>
 				</long>
-				<short>
-					<standard>ACST</standard>
-					<daylight>ACDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -1648,10 +1584,6 @@
 					<standard>Kesk-Lääne Austraalia standardaeg</standard>
 					<daylight>Kesk-Lääne Austraalia suveaeg</daylight>
 				</long>
-				<short>
-					<standard>ACWST</standard>
-					<daylight>ACWDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -1659,10 +1591,6 @@
 					<standard>Ida-Austraalia standardaeg</standard>
 					<daylight>Ida-Austraalia suveaeg</daylight>
 				</long>
-				<short>
-					<standard>AEST</standard>
-					<daylight>AEDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -1670,47 +1598,18 @@
 					<standard>Lääne-Austraalia standardaeg</standard>
 					<daylight>Lääne-Austraalia suveaeg</daylight>
 				</long>
-				<short>
-					<standard>AWST</standard>
-					<daylight>AWDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Azores">
 				<long>
 					<standard>Assooride aeg</standard>
 					<daylight>Assooride suveaeg</daylight>
 				</long>
-				<short>
-					<standard>AZOT</standard>
-					<daylight>AZOST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Bering">
-				<short>
-					<standard>BST (Bering)</standard>
-					<daylight>BDT (Bering)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Bolivia">
-				<short>
-					<standard>BOT</standard>
-				</short>
-			</metazone>
-			<metazone type="Brasilia">
-				<short>
-					<standard>BRT</standard>
-					<daylight>BRST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
 					<standard>Rohuneemesaarte aeg</standard>
 					<daylight>Rohuneemesaarte suveaeg</daylight>
 				</long>
-				<short>
-					<standard>CVT</standard>
-					<daylight>CVST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Chamorro">
 				<long>
@@ -1727,33 +1626,15 @@
 					<daylight>Chathami suveaeg</daylight>
 				</long>
 			</metazone>
-			<metazone type="Chile">
-				<short>
-					<standard>CLT</standard>
-					<daylight>CLST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard>Jõulusaaare aeg</standard>
 				</long>
-				<short>
-					<standard>CXT</standard>
-				</short>
 			</metazone>
 			<metazone type="Cocos">
 				<long>
 					<standard>Kookossaarte aeg</standard>
 				</long>
-				<short>
-					<standard>CCT</standard>
-				</short>
-			</metazone>
-			<metazone type="Colombia">
-				<short>
-					<standard>COT</standard>
-					<daylight>COST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Cook">
 				<long>
@@ -1761,43 +1642,21 @@
 					<daylight>Cook'i saarte pool-suveaeg</daylight>
 				</long>
 			</metazone>
-			<metazone type="Cuba">
-				<short>
-					<standard>CST (CU)</standard>
-					<daylight>CDT (CU)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Davis">
 				<long>
 					<standard>Davis aeg</standard>
 				</long>
-				<short>
-					<standard>DAVT</standard>
-				</short>
 			</metazone>
 			<metazone type="DumontDUrville">
 				<long>
 					<standard>Dumont-d'Urville aeg</standard>
 				</long>
-				<short>
-					<standard>DDUT</standard>
-				</short>
-			</metazone>
-			<metazone type="Dutch_Guiana">
-				<short>
-					<standard>NEGT</standard>
-				</short>
 			</metazone>
 			<metazone type="Easter">
 				<long>
 					<standard>Lihavõttesaare aeg</standard>
 					<daylight>Lihavõttesaare suveaeg</daylight>
 				</long>
-			</metazone>
-			<metazone type="Ecuador">
-				<short>
-					<standard>ECT</standard>
-				</short>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
@@ -1834,10 +1693,6 @@
 					<standard>Falklandi saarte aeg</standard>
 					<daylight>Falklandi saarte suveaeg</daylight>
 				</long>
-				<short>
-					<standard>FKT</standard>
-					<daylight>FKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Fiji">
 				<long>
@@ -1845,18 +1700,10 @@
 					<daylight>Fiji suveaeg</daylight>
 				</long>
 			</metazone>
-			<metazone type="French_Guiana">
-				<short>
-					<standard>GFT</standard>
-				</short>
-			</metazone>
 			<metazone type="French_Southern">
 				<long>
 					<standard>Prantsuse Lõunaalade ja Antarktika aeg</standard>
 				</long>
-				<short>
-					<standard>TFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Galapagos">
 				<long>
@@ -1881,33 +1728,10 @@
 					<standard>GMT</standard>
 				</short>
 			</metazone>
-			<metazone type="Greenland_Central">
-				<short>
-					<standard>CGT</standard>
-					<daylight>CGST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Greenland_Eastern">
-				<short>
-					<standard>EGT</standard>
-					<daylight>EGST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Greenland_Western">
-				<short>
-					<standard>WGT</standard>
-					<daylight>WGST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Guam">
 				<long>
 					<standard>Guami standardaeg</standard>
 				</long>
-			</metazone>
-			<metazone type="Guyana">
-				<short>
-					<standard>GYT</standard>
-				</short>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
@@ -1918,9 +1742,6 @@
 				<long>
 					<standard>India ookeani aeg</standard>
 				</long>
-				<short>
-					<standard>IOT</standard>
-				</short>
 			</metazone>
 			<metazone type="Kosrae">
 				<long>
@@ -1932,10 +1753,6 @@
 					<standard>Kuibõševi aeg</standard>
 					<daylight>Kuibõševi suveaeg</daylight>
 				</long>
-				<short>
-					<standard>KUYT</standard>
-					<daylight>KUYST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Kwajalein">
 				<long>
@@ -1953,18 +1770,11 @@
 					<standard>Lord Howe standardaeg</standard>
 					<daylight>Lord Howe suveaeg</daylight>
 				</long>
-				<short>
-					<standard>LHST</standard>
-					<daylight>LHDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Maldives">
 				<long>
 					<standard>Maldiivide aeg</standard>
 				</long>
-				<short>
-					<standard>MVT</standard>
-				</short>
 			</metazone>
 			<metazone type="Marquesas">
 				<long>
@@ -1981,18 +1791,11 @@
 					<standard>Mauritiuse aeg</standard>
 					<daylight>Mauritiuse suveaeg</daylight>
 				</long>
-				<short>
-					<standard>MUT</standard>
-					<daylight>MUST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Mawson">
 				<long>
 					<standard>Mawson aeg</standard>
 				</long>
-				<short>
-					<standard>MAWT</standard>
-				</short>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
@@ -2000,74 +1803,27 @@
 					<standard>Moskva standardaeg</standard>
 					<daylight>Moskva suveaeg</daylight>
 				</long>
-				<short>
-					<standard>MSK</standard>
-					<daylight>MSKS</daylight>
-				</short>
-			</metazone>
-			<metazone type="Newfoundland">
-				<short>
-					<standard>NST</standard>
-					<daylight>NDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Noronha">
-				<short>
-					<standard>FNT</standard>
-					<daylight>FNST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Paraguay">
-				<short>
-					<standard>PYT</standard>
-					<daylight>PYST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Peru">
-				<short>
-					<standard>PET</standard>
-					<daylight>PEST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Pierre_Miquelon">
-				<short>
-					<standard>PMST</standard>
-					<daylight>PMDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Reunioni aeg</standard>
 				</long>
-				<short>
-					<standard>RET</standard>
-				</short>
 			</metazone>
 			<metazone type="Rothera">
 				<long>
 					<standard>Rothera aeg</standard>
 				</long>
-				<short>
-					<standard>ROTT</standard>
-				</short>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<standard>Samara aeg</standard>
 					<daylight>Samara suveag</daylight>
 				</long>
-				<short>
-					<standard>SAMT</standard>
-					<daylight>SAMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Seychelles">
 				<long>
 					<standard>Seišellide aeg</standard>
 				</long>
-				<short>
-					<standard>SCT</standard>
-				</short>
 			</metazone>
 			<metazone type="South_Georgia">
 				<long>
@@ -2077,68 +1833,31 @@
 					<standard>GST (Lõuna-Georgia)</standard>
 				</short>
 			</metazone>
-			<metazone type="Suriname">
-				<short>
-					<standard>SRT</standard>
-				</short>
-			</metazone>
 			<metazone type="Syowa">
 				<long>
 					<standard>Syowa aeg</standard>
 				</long>
-				<short>
-					<standard>SYOT</standard>
-				</short>
 			</metazone>
 			<metazone type="Turkey">
 				<long>
 					<standard>Türgi aeg</standard>
 					<daylight>Türgi suveaeg</daylight>
 				</long>
-				<short>
-					<standard>TRT</standard>
-					<daylight>TRST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Uruguay">
-				<short>
-					<standard>UYT</standard>
-					<daylight>UYST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Venezuela">
-				<short>
-					<standard>VET</standard>
-				</short>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<standard>Volgogradi aeg</standard>
 					<daylight>Volgogradi suveaeg</daylight>
 				</long>
-				<short>
-					<standard>VOLT</standard>
-					<daylight>VOLST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Vostok">
 				<long>
 					<standard>Vostoki aeg</standard>
 				</long>
-				<short>
-					<standard>VOST</standard>
-				</short>
-			</metazone>
-			<metazone type="Yukon">
-				<short>
-					<standard>YST</standard>
-					<daylight>YDT</daylight>
-				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
@@ -2373,7 +2092,6 @@
 				<displayName count="one">euro</displayName>
 				<displayName count="other">eurot</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Soome mark</displayName>
@@ -2757,7 +2475,6 @@
 				<displayName count="other">hõbedat</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">unssi höbe</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unssi höbe</displayName>
-				<symbol>XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>kuld</displayName>
@@ -2766,23 +2483,18 @@
 				<displayName count="other">kulda</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">unssi kuld</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unssi kuld</displayName>
-				<symbol>XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>EURCO</displayName>
-				<symbol>XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>Euroopa rahaühik</displayName>
-				<symbol>XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>Euroopa rahaline arvestusühik (XBC)</displayName>
-				<symbol>XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>Euroopa rahaline arvestusühik (XBD)</displayName>
-				<symbol>XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>Ida-Kariibi dollar</displayName>
@@ -2806,7 +2518,6 @@
 				<displayName count="other">pallaadiumit</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">unssi pallaadium</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unssi pallaadium</displayName>
-				<symbol>XPD</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>plaatina</displayName>
@@ -2815,7 +2526,6 @@
 				<displayName count="other">plaatina</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">unssi plaatina</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unssi plaatina</displayName>
-				<symbol>XPT</symbol>
 			</currency>
 			<currency type="XTS">
 				<displayName>vääringute testkood</displayName>
@@ -2881,8 +2591,6 @@
 			<listPatternPart type="2">{0} ja {0}</listPatternPart>
 			<listPatternPart type="2" alt="proposed-x1001" draft="unconfirmed">{0} ja {1}</listPatternPart>
 			<listPatternPart type="end">{0} ja {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

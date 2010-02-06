@@ -1033,18 +1033,8 @@
 		</codePatterns>
 	</localeDisplayNames>
 	<layout>
-		<inList draft="provisional">mixed</inList>
-		<inText type="currency" draft="provisional">mixed</inText>
-		<inText type="fields" draft="provisional">mixed</inText>
 		<inText type="keys">titlecase-firstword</inText>
-		<inText type="languages" draft="provisional">mixed</inText>
-		<inText type="long" draft="provisional">mixed</inText>
-		<inText type="measurementSystemNames" draft="provisional">mixed</inText>
-		<inText type="monthWidth" draft="provisional">mixed</inText>
-		<inText type="scripts" draft="provisional">mixed</inText>
-		<inText type="territories" draft="provisional">mixed</inText>
 		<inText type="types">titlecase-firstword</inText>
-		<inText type="variants" draft="provisional">mixed</inText>
 	</layout>
 	<characters>
 		<exemplarCharacters>[a b c č d e f g h i j k l m n o p r s š t u v z ž]</exemplarCharacters>
@@ -1068,42 +1058,6 @@
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="provisional">d.–d.</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="provisional">h a – h a</greatestDifference>
-							<greatestDifference id="h" draft="provisional">h–h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="a" draft="provisional">HH–HH</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a" draft="provisional">h:mm a – h:mm a</greatestDifference>
-							<greatestDifference id="h" draft="provisional">h:mm–h:mm a</greatestDifference>
-							<greatestDifference id="m" draft="provisional">h:mm–h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a" draft="provisional">h:mm a – h:mm a v</greatestDifference>
-							<greatestDifference id="h" draft="provisional">h:mm–h:mm a v</greatestDifference>
-							<greatestDifference id="m" draft="provisional">h:mm–h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="provisional">h a – h a v</greatestDifference>
-							<greatestDifference id="h" draft="provisional">h–h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="a" draft="provisional">HH–HH v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH v</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M" draft="provisional">M.–M.</greatestDifference>
 						</intervalFormatItem>
@@ -1125,12 +1079,6 @@
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d" draft="provisional">E., d. – E., d. MMM.</greatestDifference>
 							<greatestDifference id="M" draft="provisional">E., d. MMM. – E., d. MMM.</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M" draft="provisional">LLLL–LLLL</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="y">
-							<greatestDifference id="y" draft="provisional">y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M" draft="provisional">M – M/yy</greatestDifference>
@@ -1164,42 +1112,6 @@
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="provisional">d.–d.</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="provisional">h a – h a</greatestDifference>
-							<greatestDifference id="h" draft="provisional">h–h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="a" draft="provisional">HH–HH</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a" draft="provisional">h:mm a – h:mm a</greatestDifference>
-							<greatestDifference id="h" draft="provisional">h:mm–h:mm a</greatestDifference>
-							<greatestDifference id="m" draft="provisional">h:mm–h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a" draft="provisional">h:mm a – h:mm a v</greatestDifference>
-							<greatestDifference id="h" draft="provisional">h:mm–h:mm a v</greatestDifference>
-							<greatestDifference id="m" draft="provisional">h:mm–h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="provisional">h a – h a v</greatestDifference>
-							<greatestDifference id="h" draft="provisional">h–h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="a" draft="provisional">HH–HH v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH v</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M" draft="provisional">M.–M.</greatestDifference>
 						</intervalFormatItem>
@@ -1220,12 +1132,6 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="M" draft="provisional">E., d. MMM. – E., d. MMM.</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M" draft="provisional">LLLL–LLLL</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="y">
-							<greatestDifference id="y" draft="provisional">y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M" draft="provisional">M – M/yy</greatestDifference>
@@ -1411,12 +1317,6 @@
 							<quarter type="3">Q3</quarter>
 							<quarter type="4">Q4</quarter>
 						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="provisional">1</quarter>
-							<quarter type="2" draft="provisional">2</quarter>
-							<quarter type="3" draft="provisional">3</quarter>
-							<quarter type="4" draft="provisional">4</quarter>
-						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">1. četrtletje</quarter>
 							<quarter type="2">2. četrtletje</quarter>
@@ -1425,12 +1325,6 @@
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="provisional">Q1</quarter>
-							<quarter type="2" draft="provisional">Q2</quarter>
-							<quarter type="3" draft="provisional">Q3</quarter>
-							<quarter type="4" draft="provisional">Q4</quarter>
-						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
 							<quarter type="2">2</quarter>
@@ -1595,37 +1489,19 @@
 							<greatestDifference id="a">h a – h a</greatestDifference>
 							<greatestDifference id="h">h–h a</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="a" draft="provisional">HH–HH</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
 							<greatestDifference id="h">h:mm–h:mm a</greatestDifference>
 							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
 							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
 							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">h a – h a v</greatestDifference>
 							<greatestDifference id="h">h–h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="a" draft="provisional">HH–HH v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M.–M.</greatestDifference>
@@ -1736,7 +1612,6 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat draft="provisional">GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -1754,110 +1629,14 @@
 			<zone type="Asia/Yerevan">
 				<exemplarCity draft="provisional">Erevan</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Rothera">
-				<exemplarCity draft="provisional">Rothera</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Palmer">
-				<exemplarCity draft="provisional">Palmer</exemplarCity>
-			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Južni tečaj</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Syowa">
-				<exemplarCity draft="provisional">Syowa</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Mawson">
-				<exemplarCity draft="provisional">Mawson</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Davis">
-				<exemplarCity draft="provisional">Davis</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Vostok">
-				<exemplarCity draft="provisional">Vostok</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Casey">
-				<exemplarCity draft="provisional">Casey</exemplarCity>
-			</zone>
-			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity draft="provisional">Dumont d'Urville</exemplarCity>
-			</zone>
-			<zone type="Antarctica/McMurdo">
-				<exemplarCity draft="provisional">McMurdo</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity draft="provisional">Rio Gallegos</exemplarCity>
-			</zone>
-			<zone type="America/Mendoza">
-				<exemplarCity draft="provisional">Mendoza</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Juan">
-				<exemplarCity draft="provisional">San Juan</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity draft="provisional">Ushuaia</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity draft="provisional">La Rioja</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Luis">
-				<exemplarCity draft="provisional">San Luis</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity draft="provisional">Catamarca</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Salta">
-				<exemplarCity draft="provisional">Salta</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity draft="provisional">Jujuy</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Tucuman">
-				<exemplarCity draft="provisional">Tucuman</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
 				<exemplarCity>Kordova</exemplarCity>
 			</zone>
-			<zone type="America/Buenos_Aires">
-				<exemplarCity draft="provisional">Buenos Aires</exemplarCity>
-			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity draft="provisional">Dunaj</exemplarCity>
-			</zone>
-			<zone type="Australia/Perth">
-				<exemplarCity draft="provisional">Perth</exemplarCity>
-			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity draft="provisional">Eucla</exemplarCity>
-			</zone>
-			<zone type="Australia/Darwin">
-				<exemplarCity draft="provisional">Darwin</exemplarCity>
-			</zone>
-			<zone type="Australia/Adelaide">
-				<exemplarCity draft="provisional">Adelaide</exemplarCity>
-			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity draft="provisional">Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="provisional">Currie</exemplarCity>
-			</zone>
-			<zone type="Australia/Melbourne">
-				<exemplarCity draft="provisional">Melbourne</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity draft="provisional">Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity draft="provisional">Lindeman</exemplarCity>
-			</zone>
-			<zone type="Australia/Sydney">
-				<exemplarCity draft="provisional">Sydney</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity draft="provisional">Brisbane</exemplarCity>
-			</zone>
-			<zone type="Australia/Lord_Howe">
-				<exemplarCity draft="provisional">Lord Howe</exemplarCity>
 			</zone>
 			<zone type="Asia/Dhaka">
 				<exemplarCity draft="provisional">Daka</exemplarCity>
@@ -1877,135 +1656,6 @@
 			<zone type="Asia/Brunei">
 				<exemplarCity draft="provisional">Brunej</exemplarCity>
 			</zone>
-			<zone type="America/Eirunepe">
-				<exemplarCity draft="provisional">Eirunepe</exemplarCity>
-			</zone>
-			<zone type="America/Rio_Branco">
-				<exemplarCity draft="provisional">Rio Branco</exemplarCity>
-			</zone>
-			<zone type="America/Porto_Velho">
-				<exemplarCity draft="provisional">Porto Velho</exemplarCity>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity draft="provisional">Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Manaus">
-				<exemplarCity draft="provisional">Manaus</exemplarCity>
-			</zone>
-			<zone type="America/Cuiaba">
-				<exemplarCity draft="provisional">Cuiaba</exemplarCity>
-			</zone>
-			<zone type="America/Santarem">
-				<exemplarCity draft="provisional">Santarem</exemplarCity>
-			</zone>
-			<zone type="America/Campo_Grande">
-				<exemplarCity draft="provisional">Campo Grande</exemplarCity>
-			</zone>
-			<zone type="America/Belem">
-				<exemplarCity draft="provisional">Belem</exemplarCity>
-			</zone>
-			<zone type="America/Araguaina">
-				<exemplarCity draft="provisional">Araguaina</exemplarCity>
-			</zone>
-			<zone type="America/Sao_Paulo">
-				<exemplarCity draft="provisional">Sao Paulo</exemplarCity>
-			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity draft="provisional">Bahia</exemplarCity>
-			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity draft="provisional">Fortaleza</exemplarCity>
-			</zone>
-			<zone type="America/Maceio">
-				<exemplarCity draft="provisional">Maceio</exemplarCity>
-			</zone>
-			<zone type="America/Recife">
-				<exemplarCity draft="provisional">Recife</exemplarCity>
-			</zone>
-			<zone type="America/Noronha">
-				<exemplarCity draft="provisional">Noronha</exemplarCity>
-			</zone>
-			<zone type="America/Dawson">
-				<exemplarCity draft="provisional">Dawson</exemplarCity>
-			</zone>
-			<zone type="America/Whitehorse">
-				<exemplarCity draft="provisional">Whitehorse</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity draft="provisional">Inuvik</exemplarCity>
-			</zone>
-			<zone type="America/Vancouver">
-				<exemplarCity draft="provisional">Vancouver</exemplarCity>
-			</zone>
-			<zone type="America/Dawson_Creek">
-				<exemplarCity draft="provisional">Dawson Creek</exemplarCity>
-			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity draft="provisional">Yellowknife</exemplarCity>
-			</zone>
-			<zone type="America/Edmonton">
-				<exemplarCity draft="provisional">Edmonton</exemplarCity>
-			</zone>
-			<zone type="America/Swift_Current">
-				<exemplarCity draft="provisional">Swift Current</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity draft="provisional">Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Regina">
-				<exemplarCity draft="provisional">Regina</exemplarCity>
-			</zone>
-			<zone type="America/Winnipeg">
-				<exemplarCity draft="provisional">Winnipeg</exemplarCity>
-			</zone>
-			<zone type="America/Resolute">
-				<exemplarCity draft="provisional">Resolute</exemplarCity>
-			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity draft="provisional">Rainy River</exemplarCity>
-			</zone>
-			<zone type="America/Rankin_Inlet">
-				<exemplarCity draft="provisional">Rankin Inlet</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity draft="provisional">Coral Harbour</exemplarCity>
-			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity draft="provisional">Thunder Bay</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity draft="provisional">Nipigon</exemplarCity>
-			</zone>
-			<zone type="America/Toronto">
-				<exemplarCity draft="provisional">Toronto</exemplarCity>
-			</zone>
-			<zone type="America/Montreal">
-				<exemplarCity draft="provisional">Montreal</exemplarCity>
-			</zone>
-			<zone type="America/Iqaluit">
-				<exemplarCity draft="provisional">Iqaluit</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity draft="provisional">Pangnirtung</exemplarCity>
-			</zone>
-			<zone type="America/Moncton">
-				<exemplarCity draft="provisional">Moncton</exemplarCity>
-			</zone>
-			<zone type="America/Halifax">
-				<exemplarCity draft="provisional">Halifax</exemplarCity>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<exemplarCity draft="provisional">Goose Bay</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity draft="provisional">Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity draft="provisional">Blanc-Sablon</exemplarCity>
-			</zone>
-			<zone type="America/St_Johns">
-				<exemplarCity draft="provisional">St. John's</exemplarCity>
-			</zone>
 			<zone type="Indian/Cocos">
 				<exemplarCity draft="provisional">Kokosovi</exemplarCity>
 			</zone>
@@ -2024,17 +1674,8 @@
 			<zone type="Asia/Kashgar">
 				<exemplarCity>Kašgar</exemplarCity>
 			</zone>
-			<zone type="Asia/Urumqi">
-				<exemplarCity draft="provisional">Urumqi</exemplarCity>
-			</zone>
-			<zone type="Asia/Chongqing">
-				<exemplarCity draft="provisional">Chongqing</exemplarCity>
-			</zone>
 			<zone type="Asia/Shanghai">
 				<exemplarCity>Šangaj</exemplarCity>
-			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity draft="provisional">Harbin</exemplarCity>
 			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity draft="provisional">Kostarika</exemplarCity>
@@ -2060,9 +1701,6 @@
 			<zone type="Africa/Algiers">
 				<exemplarCity draft="provisional">Alžir</exemplarCity>
 			</zone>
-			<zone type="Pacific/Galapagos">
-				<exemplarCity draft="provisional">Galapagos</exemplarCity>
-			</zone>
 			<zone type="Europe/Tallinn">
 				<exemplarCity draft="provisional">Talin</exemplarCity>
 			</zone>
@@ -2072,23 +1710,11 @@
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Kanarski otoki</exemplarCity>
 			</zone>
-			<zone type="Africa/Ceuta">
-				<exemplarCity draft="provisional">Ceuta</exemplarCity>
-			</zone>
 			<zone type="Africa/Addis_Ababa">
 				<exemplarCity draft="provisional">Adis Abeba</exemplarCity>
 			</zone>
 			<zone type="Pacific/Fiji">
 				<exemplarCity draft="provisional">Fidži</exemplarCity>
-			</zone>
-			<zone type="Pacific/Truk">
-				<exemplarCity draft="provisional">Truk</exemplarCity>
-			</zone>
-			<zone type="Pacific/Ponape">
-				<exemplarCity draft="provisional">Ponape</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kosrae">
-				<exemplarCity draft="provisional">Kosrae</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity draft="provisional">Ferski otoki</exemplarCity>
@@ -2098,15 +1724,6 @@
 			</zone>
 			<zone type="Africa/Accra">
 				<exemplarCity draft="provisional">Akra</exemplarCity>
-			</zone>
-			<zone type="America/Thule">
-				<exemplarCity draft="provisional">Thule</exemplarCity>
-			</zone>
-			<zone type="America/Scoresbysund">
-				<exemplarCity draft="provisional">Scoresbysund</exemplarCity>
-			</zone>
-			<zone type="America/Danmarkshavn">
-				<exemplarCity draft="provisional">Danmarkshavn</exemplarCity>
 			</zone>
 			<zone type="America/Guadeloupe">
 				<exemplarCity draft="provisional">Gvadelupe</exemplarCity>
@@ -2132,14 +1749,8 @@
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Džakarta</exemplarCity>
 			</zone>
-			<zone type="Asia/Pontianak">
-				<exemplarCity draft="provisional">Pontianak</exemplarCity>
-			</zone>
 			<zone type="Asia/Makassar">
 				<exemplarCity>Makasar</exemplarCity>
-			</zone>
-			<zone type="Asia/Jayapura">
-				<exemplarCity draft="provisional">Jayapura</exemplarCity>
 			</zone>
 			<zone type="Asia/Baghdad">
 				<exemplarCity draft="provisional">Bagdad</exemplarCity>
@@ -2161,15 +1772,6 @@
 			</zone>
 			<zone type="Asia/Bishkek">
 				<exemplarCity draft="provisional">Biškek</exemplarCity>
-			</zone>
-			<zone type="Pacific/Enderbury">
-				<exemplarCity draft="provisional">Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kiritimati">
-				<exemplarCity draft="provisional">Kiritimati</exemplarCity>
-			</zone>
-			<zone type="Pacific/Tarawa">
-				<exemplarCity draft="provisional">Tarawa</exemplarCity>
 			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity draft="provisional">St. Kitts</exemplarCity>
@@ -2195,9 +1797,6 @@
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aktobe</exemplarCity>
 			</zone>
-			<zone type="Asia/Qyzylorda">
-				<exemplarCity draft="provisional">Qyzylorda</exemplarCity>
-			</zone>
 			<zone type="Asia/Almaty">
 				<exemplarCity>Almati</exemplarCity>
 			</zone>
@@ -2216,17 +1815,8 @@
 			<zone type="Europe/Monaco">
 				<exemplarCity draft="provisional">Monako</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kwajalein">
-				<exemplarCity draft="provisional">Kwajalein</exemplarCity>
-			</zone>
-			<zone type="Asia/Hovd">
-				<exemplarCity draft="provisional">Hovd</exemplarCity>
-			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulan Bator</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="provisional">Choibalsan</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity draft="provisional">Macao</exemplarCity>
@@ -2236,42 +1826,6 @@
 			</zone>
 			<zone type="Indian/Maldives">
 				<exemplarCity draft="provisional">Maldivi</exemplarCity>
-			</zone>
-			<zone type="America/Tijuana">
-				<exemplarCity draft="provisional">Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Hermosillo">
-				<exemplarCity draft="provisional">Hermosillo</exemplarCity>
-			</zone>
-			<zone type="America/Mazatlan">
-				<exemplarCity draft="provisional">Mazatlan</exemplarCity>
-			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity draft="provisional">Chihuahua</exemplarCity>
-			</zone>
-			<zone type="America/Monterrey">
-				<exemplarCity draft="provisional">Monterrey</exemplarCity>
-			</zone>
-			<zone type="America/Mexico_City">
-				<exemplarCity draft="provisional">Mexico City</exemplarCity>
-			</zone>
-			<zone type="America/Merida">
-				<exemplarCity draft="provisional">Merida</exemplarCity>
-			</zone>
-			<zone type="America/Cancun">
-				<exemplarCity draft="provisional">Cancun</exemplarCity>
-			</zone>
-			<zone type="Asia/Kuching">
-				<exemplarCity draft="provisional">Kuching</exemplarCity>
-			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity draft="provisional">Chatham</exemplarCity>
-			</zone>
-			<zone type="Pacific/Marquesas">
-				<exemplarCity draft="provisional">Marquesas</exemplarCity>
-			</zone>
-			<zone type="Pacific/Gambier">
-				<exemplarCity draft="provisional">Gambier</exemplarCity>
 			</zone>
 			<zone type="Asia/Karachi">
 				<exemplarCity draft="provisional">Karači</exemplarCity>
@@ -2285,9 +1839,6 @@
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azori</exemplarCity>
 			</zone>
-			<zone type="Atlantic/Madeira">
-				<exemplarCity draft="provisional">Madeira</exemplarCity>
-			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity draft="provisional">Lizbona</exemplarCity>
 			</zone>
@@ -2297,44 +1848,20 @@
 			<zone type="Europe/Bucharest">
 				<exemplarCity draft="provisional">Bukarešta</exemplarCity>
 			</zone>
-			<zone type="Europe/Kaliningrad">
-				<exemplarCity draft="provisional">Kaliningrad</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskva</exemplarCity>
-			</zone>
-			<zone type="Europe/Volgograd">
-				<exemplarCity draft="provisional">Volgograd</exemplarCity>
-			</zone>
-			<zone type="Europe/Samara">
-				<exemplarCity draft="provisional">Samara</exemplarCity>
 			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity>Jekaterinburg</exemplarCity>
 			</zone>
-			<zone type="Asia/Omsk">
-				<exemplarCity draft="provisional">Omsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Novosibirsk">
-				<exemplarCity draft="provisional">Novosibirsk</exemplarCity>
-			</zone>
 			<zone type="Asia/Krasnoyarsk">
 				<exemplarCity>Krasnojarsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Irkutsk">
-				<exemplarCity draft="provisional">Irkutsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Yakutsk">
 				<exemplarCity>Jakutsk</exemplarCity>
 			</zone>
-			<zone type="Asia/Vladivostok">
-				<exemplarCity draft="provisional">Vladivostok</exemplarCity>
-			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>Sahalin</exemplarCity>
-			</zone>
-			<zone type="Asia/Magadan">
-				<exemplarCity draft="provisional">Magadan</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>Kamčatka</exemplarCity>
@@ -2375,104 +1902,14 @@
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kijev</exemplarCity>
 			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity draft="provisional">Simferopol</exemplarCity>
-			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporožje</exemplarCity>
-			</zone>
-			<zone type="Pacific/Midway">
-				<exemplarCity draft="provisional">Midway</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity draft="provisional">Johnston</exemplarCity>
-			</zone>
-			<zone type="Pacific/Wake">
-				<exemplarCity draft="provisional">Wake</exemplarCity>
-			</zone>
-			<zone type="America/Adak">
-				<exemplarCity draft="provisional">Adak</exemplarCity>
-			</zone>
-			<zone type="America/Nome">
-				<exemplarCity draft="provisional">Nome</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity draft="provisional">Honolulu</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<exemplarCity draft="provisional">Anchorage</exemplarCity>
-			</zone>
-			<zone type="America/Yakutat">
-				<exemplarCity draft="provisional">Yakutat</exemplarCity>
-			</zone>
-			<zone type="America/Juneau">
-				<exemplarCity draft="provisional">Juneau</exemplarCity>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<exemplarCity draft="provisional">Los Angeles</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity draft="provisional">Boise</exemplarCity>
-			</zone>
-			<zone type="America/Phoenix">
-				<exemplarCity draft="provisional">Phoenix</exemplarCity>
-			</zone>
-			<zone type="America/Shiprock">
-				<exemplarCity draft="provisional">Shiprock</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<exemplarCity draft="provisional">Denver</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
 				<exemplarCity>New Salem, Severna Dakota</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Center, Severna Dakota</exemplarCity>
-			</zone>
-			<zone type="America/Chicago">
-				<exemplarCity draft="provisional">Chicago</exemplarCity>
-			</zone>
-			<zone type="America/Menominee">
-				<exemplarCity draft="provisional">Menominee</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vincennes">
-				<exemplarCity draft="provisional">Vincennes, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Petersburg">
-				<exemplarCity draft="provisional">Petersburg, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity draft="provisional">Tell City, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Knox">
-				<exemplarCity draft="provisional">Knox, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Winamac">
-				<exemplarCity draft="provisional">Winamac, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Marengo">
-				<exemplarCity draft="provisional">Marengo, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indianapolis">
-				<exemplarCity draft="provisional">Indianapolis</exemplarCity>
-			</zone>
-			<zone type="America/Louisville">
-				<exemplarCity draft="provisional">Louisville</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<exemplarCity draft="provisional">Vevay, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<exemplarCity draft="provisional">Monticello, Kentucky</exemplarCity>
-			</zone>
-			<zone type="America/Detroit">
-				<exemplarCity draft="provisional">Detroit</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
-				<exemplarCity draft="provisional">New York</exemplarCity>
-			</zone>
-			<zone type="Asia/Samarkand">
-				<exemplarCity draft="provisional">Samarkand</exemplarCity>
 			</zone>
 			<zone type="Asia/Tashkent">
 				<exemplarCity>Taškent</exemplarCity>
@@ -2486,32 +1923,15 @@
 			<zone type="Asia/Saigon">
 				<exemplarCity draft="provisional">Sajgon</exemplarCity>
 			</zone>
-			<metazone type="Acre">
-				<short>
-					<standard draft="provisional">ACT (Acre)</standard>
-					<daylight draft="provisional">ACST (Acre)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Afghanistan">
-				<short>
-					<standard draft="provisional">AFT</standard>
-				</short>
-			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>Centralnoafriški čas</standard>
 				</long>
-				<short>
-					<standard>CAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>Vzhodnoafriški čas</standard>
 				</long>
-				<short>
-					<standard>EAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
@@ -2520,7 +1940,6 @@
 				</long>
 				<short>
 					<generic>SAT</generic>
-					<standard>SAST</standard>
 				</short>
 			</metazone>
 			<metazone type="Africa_Western">
@@ -2528,40 +1947,6 @@
 					<standard>Zahodnoafriški čas</standard>
 					<daylight>Zahodnoafriški poletni čas</daylight>
 				</long>
-				<short>
-					<standard>WAT</standard>
-					<daylight>WAST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Aktyubinsk">
-				<short>
-					<standard draft="provisional">AKTT</standard>
-					<daylight draft="provisional">AKTST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Alaska">
-				<short>
-					<standard draft="provisional">AKST</standard>
-					<daylight draft="provisional">AKDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Alaska_Hawaii">
-				<short>
-					<standard draft="provisional">AHST</standard>
-					<daylight draft="provisional">AHDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Almaty">
-				<short>
-					<standard draft="provisional">ALMT</standard>
-					<daylight draft="provisional">ALMST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Amazon">
-				<short>
-					<standard draft="provisional">AMT</standard>
-					<daylight draft="provisional">AMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Central">
 				<long>
@@ -2611,24 +1996,6 @@
 					<daylight draft="provisional">PDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Anadyr">
-				<short>
-					<standard draft="provisional">ANAT</standard>
-					<daylight draft="provisional">ANAST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Aqtau">
-				<short>
-					<standard draft="provisional">AQTT (Aqtau)</standard>
-					<daylight draft="provisional">AQTST (Aqtau)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Aqtobe">
-				<short>
-					<standard draft="provisional">AQTT (Aqtobe)</standard>
-					<daylight draft="provisional">AQTST (Aqtobe)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Arabian">
 				<long>
 					<generic>Arabski čas</generic>
@@ -2637,31 +2004,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">Saudova Arabija</generic>
-					<standard draft="provisional">AST (SA)</standard>
-					<daylight draft="provisional">ADT (SA)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Argentina">
-				<short>
-					<standard draft="provisional">ART</standard>
-					<daylight draft="provisional">ARST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Argentina_Western">
-				<short>
-					<standard draft="provisional">WART</standard>
-				</short>
-			</metazone>
-			<metazone type="Armenia">
-				<short>
-					<standard draft="provisional">AMT (AM)</standard>
-					<daylight draft="provisional">AMST (AM)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Ashkhabad">
-				<short>
-					<standard draft="provisional">ASHT</standard>
-					<daylight draft="provisional">ASHST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Atlantic">
@@ -2682,10 +2024,6 @@
 					<standard>Avstralski centralni standardni čas</standard>
 					<daylight>Avstralski centralni poletni čas</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">ACST</standard>
-					<daylight draft="provisional">ACDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -2693,10 +2031,6 @@
 					<standard>Avstralski centralni zahodni standardničas</standard>
 					<daylight>Avstralski centralni zahodni poletni čas</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">ACWST</standard>
-					<daylight draft="provisional">ACWDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -2704,10 +2038,6 @@
 					<standard>Avstralski vzhodni standardni čas</standard>
 					<daylight>Avstralski vzhodni poletni čas</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AEST</standard>
-					<daylight draft="provisional">AEDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -2715,148 +2045,35 @@
 					<standard>Avstralski zahodni standardni čas</standard>
 					<daylight>Avstralski zahodni poletni čas</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AWST</standard>
-					<daylight draft="provisional">AWDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Azerbaijan">
-				<short>
-					<standard draft="provisional">AZT</standard>
-					<daylight draft="provisional">AZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Azores">
 				<long>
 					<standard>Azorski čas</standard>
 					<daylight>Azorski poletni čas</daylight>
 				</long>
-				<short>
-					<standard>AZOT</standard>
-					<daylight>AZOST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Baku">
-				<short>
-					<standard draft="provisional">BAKT</standard>
-					<daylight draft="provisional">BAKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Bangladesh">
-				<short>
-					<standard draft="provisional">BDT</standard>
-					<daylight draft="provisional">BDST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Bering">
-				<short>
-					<standard draft="provisional">BST (Bering)</standard>
-					<daylight draft="provisional">BDT (Bering)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Bhutan">
-				<short>
-					<standard draft="provisional">BTT</standard>
-				</short>
-			</metazone>
-			<metazone type="Bolivia">
-				<short>
-					<standard draft="provisional">BOT</standard>
-				</short>
-			</metazone>
-			<metazone type="Borneo">
-				<short>
-					<standard draft="provisional">BORT</standard>
-					<daylight draft="provisional">BORST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Brasilia">
-				<short>
-					<standard draft="provisional">BRT</standard>
-					<daylight draft="provisional">BRST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Brunei">
-				<short>
-					<standard draft="provisional">BNT</standard>
-				</short>
 			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
 					<standard>Kapverdski čas</standard>
 					<daylight>Kapverdski poletni čas</daylight>
 				</long>
-				<short>
-					<standard>CVT</standard>
-					<daylight>CVST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Chamorro">
-				<short>
-					<standard draft="provisional">ChST</standard>
-				</short>
-			</metazone>
-			<metazone type="Changbai">
-				<short>
-					<standard draft="provisional">CHAT</standard>
-				</short>
-			</metazone>
-			<metazone type="Chatham">
-				<short>
-					<standard draft="provisional">CHAST</standard>
-					<daylight draft="provisional">CHADT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Chile">
 				<long>
 					<standard>Čilski čas</standard>
 					<daylight>Čilski poletni čas</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">CLT</standard>
-					<daylight draft="provisional">CLST</daylight>
-				</short>
 			</metazone>
 			<metazone type="China">
 				<long>
 					<standard>Kitajski standardni čas</standard>
 				</long>
-				<short>
-					<standard draft="provisional">CST (CN)</standard>
-					<daylight draft="provisional">CDT (CN)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Choibalsan">
-				<short>
-					<standard draft="provisional">CHOT</standard>
-					<daylight draft="provisional">CHOST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Christmas">
-				<short>
-					<standard draft="provisional">CXT</standard>
-				</short>
-			</metazone>
-			<metazone type="Cocos">
-				<short>
-					<standard draft="provisional">CCT</standard>
-				</short>
 			</metazone>
 			<metazone type="Colombia">
 				<long>
 					<standard>Kolumbijski čas</standard>
 					<daylight>Kolumbijski poletni čas</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">COT</standard>
-					<daylight draft="provisional">COST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Cook">
-				<short>
-					<standard draft="provisional">CKT</standard>
-					<daylight draft="provisional">CKHST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Cuba">
 				<long>
@@ -2864,52 +2081,6 @@
 					<standard>Kubanski standardni čas</standard>
 					<daylight>Kubanski poletni čas</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">CST (CU)</standard>
-					<daylight draft="provisional">CDT (CU)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Dacca">
-				<short>
-					<standard draft="provisional">DACT</standard>
-				</short>
-			</metazone>
-			<metazone type="Davis">
-				<short>
-					<standard draft="provisional">DAVT</standard>
-				</short>
-			</metazone>
-			<metazone type="DumontDUrville">
-				<short>
-					<standard draft="provisional">DDUT</standard>
-				</short>
-			</metazone>
-			<metazone type="Dushanbe">
-				<short>
-					<standard draft="provisional">DUST</standard>
-					<daylight draft="provisional">DUSST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Dutch_Guiana">
-				<short>
-					<standard draft="provisional">NEGT</standard>
-				</short>
-			</metazone>
-			<metazone type="East_Timor">
-				<short>
-					<standard draft="provisional">TLT</standard>
-				</short>
-			</metazone>
-			<metazone type="Easter">
-				<short>
-					<standard draft="provisional">EAST</standard>
-					<daylight draft="provisional">EASST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Ecuador">
-				<short>
-					<standard draft="provisional">ECT</standard>
-				</short>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
@@ -2941,55 +2112,6 @@
 					<daylight>WEST</daylight>
 				</short>
 			</metazone>
-			<metazone type="Falkland">
-				<short>
-					<standard>FKT</standard>
-					<daylight>FKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Fiji">
-				<short>
-					<standard draft="provisional">FJT</standard>
-					<daylight draft="provisional">FJST</daylight>
-				</short>
-			</metazone>
-			<metazone type="French_Guiana">
-				<short>
-					<standard draft="provisional">GFT</standard>
-				</short>
-			</metazone>
-			<metazone type="French_Southern">
-				<short>
-					<standard draft="provisional">TFT</standard>
-				</short>
-			</metazone>
-			<metazone type="Frunze">
-				<short>
-					<standard draft="provisional">FRUT</standard>
-					<daylight draft="provisional">FRUST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Galapagos">
-				<short>
-					<standard draft="provisional">GALT</standard>
-				</short>
-			</metazone>
-			<metazone type="Gambier">
-				<short>
-					<standard draft="provisional">GAMT</standard>
-				</short>
-			</metazone>
-			<metazone type="Georgia">
-				<short>
-					<standard draft="provisional">GET</standard>
-					<daylight draft="provisional">GEST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Gilbert_Islands">
-				<short>
-					<standard draft="provisional">GILT</standard>
-				</short>
-			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard>Greenwiški srednji čas</standard>
@@ -2998,100 +2120,10 @@
 					<standard>GMT</standard>
 				</short>
 			</metazone>
-			<metazone type="Greenland_Central">
-				<short>
-					<standard draft="provisional">CGT</standard>
-					<daylight draft="provisional">CGST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Greenland_Eastern">
-				<short>
-					<standard draft="provisional">EGT</standard>
-					<daylight draft="provisional">EGST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Greenland_Western">
-				<short>
-					<standard draft="provisional">WGT</standard>
-					<daylight draft="provisional">WGST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Guam">
-				<short>
-					<standard draft="provisional">GST (GU)</standard>
-				</short>
-			</metazone>
-			<metazone type="Gulf">
-				<short>
-					<standard draft="provisional">GST</standard>
-				</short>
-			</metazone>
-			<metazone type="Guyana">
-				<short>
-					<standard draft="provisional">GYT</standard>
-				</short>
-			</metazone>
-			<metazone type="Hawaii_Aleutian">
-				<short>
-					<standard draft="provisional">HST</standard>
-				</short>
-			</metazone>
-			<metazone type="Hong_Kong">
-				<short>
-					<standard draft="provisional">HKT</standard>
-					<daylight draft="provisional">HKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Hovd">
-				<short>
-					<standard draft="provisional">HOVT</standard>
-					<daylight draft="provisional">HOVST</daylight>
-				</short>
-			</metazone>
 			<metazone type="India">
 				<long>
 					<standard>Indijski standardni čas</standard>
 				</long>
-				<short>
-					<standard draft="provisional">IST</standard>
-				</short>
-			</metazone>
-			<metazone type="Indian_Ocean">
-				<short>
-					<standard draft="provisional">IOT</standard>
-				</short>
-			</metazone>
-			<metazone type="Indochina">
-				<short>
-					<standard draft="provisional">ICT</standard>
-				</short>
-			</metazone>
-			<metazone type="Indonesia_Central">
-				<short>
-					<standard draft="provisional">CIT</standard>
-				</short>
-			</metazone>
-			<metazone type="Indonesia_Eastern">
-				<short>
-					<standard draft="provisional">EIT</standard>
-				</short>
-			</metazone>
-			<metazone type="Indonesia_Western">
-				<short>
-					<standard draft="provisional">WIT</standard>
-				</short>
-			</metazone>
-			<metazone type="Iran">
-				<short>
-					<standard draft="provisional">IRST</standard>
-					<daylight draft="provisional">IRDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Irkutsk">
-				<short>
-					<standard draft="provisional">IRKT</standard>
-					<daylight draft="provisional">IRKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Israel">
 				<long>
@@ -3099,7 +2131,6 @@
 					<daylight>Izraelski poletni čas</daylight>
 				</long>
 				<short>
-					<standard draft="provisional">IST (IL)</standard>
 					<daylight>Izraelski standardni čas</daylight>
 				</short>
 			</metazone>
@@ -3107,93 +2138,11 @@
 				<long>
 					<standard>Japonski standardni čas</standard>
 				</long>
-				<short>
-					<standard draft="provisional">JST</standard>
-					<daylight draft="provisional">JDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Kamchatka">
-				<short>
-					<standard draft="provisional">PETT</standard>
-					<daylight draft="provisional">PETST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Karachi">
-				<short>
-					<standard draft="provisional">KART</standard>
-				</short>
-			</metazone>
-			<metazone type="Kashgar">
-				<short>
-					<standard draft="provisional">KAST</standard>
-				</short>
-			</metazone>
-			<metazone type="Kazakhstan_Eastern">
-				<short>
-					<standard draft="provisional">EKST</standard>
-				</short>
-			</metazone>
-			<metazone type="Kazakhstan_Western">
-				<short>
-					<standard draft="provisional">WKST</standard>
-				</short>
-			</metazone>
-			<metazone type="Kizilorda">
-				<short>
-					<standard draft="provisional">KIZT</standard>
-					<daylight draft="provisional">KIZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Korea">
 				<long>
 					<standard>Korejski standardni čas</standard>
 				</long>
-				<short>
-					<standard draft="provisional">KST</standard>
-					<daylight draft="provisional">KDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Kosrae">
-				<short>
-					<standard draft="provisional">KOST</standard>
-				</short>
-			</metazone>
-			<metazone type="Krasnoyarsk">
-				<short>
-					<standard draft="provisional">KRAT</standard>
-					<daylight draft="provisional">KRAST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Kuybyshev">
-				<short>
-					<standard>KUYT</standard>
-					<daylight>KUYST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Kwajalein">
-				<short>
-					<standard draft="provisional">KWAT</standard>
-				</short>
-			</metazone>
-			<metazone type="Kyrgystan">
-				<short>
-					<standard draft="provisional">KGT</standard>
-				</short>
-			</metazone>
-			<metazone type="Lanka">
-				<short>
-					<standard draft="provisional">LKT</standard>
-				</short>
-			</metazone>
-			<metazone type="Line_Islands">
-				<short>
-					<standard draft="provisional">LINT</standard>
-				</short>
-			</metazone>
-			<metazone type="Long_Shu">
-				<short>
-					<standard draft="provisional">LONT</standard>
-				</short>
 			</metazone>
 			<metazone type="Lord_Howe">
 				<long>
@@ -3201,64 +2150,6 @@
 					<standard>Standardni čas otoka Lord Howe</standard>
 					<daylight>Poletni čas otoka Lord Howe</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">LHST</standard>
-					<daylight draft="provisional">LHDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Macau">
-				<short>
-					<standard draft="provisional">MOT</standard>
-					<daylight draft="provisional">MOST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Magadan">
-				<short>
-					<standard draft="provisional">MAGT</standard>
-					<daylight draft="provisional">MAGST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Malaya">
-				<short>
-					<standard draft="provisional">MALT</standard>
-				</short>
-			</metazone>
-			<metazone type="Malaysia">
-				<short>
-					<standard draft="provisional">MYT</standard>
-				</short>
-			</metazone>
-			<metazone type="Maldives">
-				<short>
-					<standard draft="provisional">MVT</standard>
-				</short>
-			</metazone>
-			<metazone type="Marquesas">
-				<short>
-					<standard draft="provisional">MART</standard>
-				</short>
-			</metazone>
-			<metazone type="Marshall_Islands">
-				<short>
-					<standard draft="provisional">MHT</standard>
-				</short>
-			</metazone>
-			<metazone type="Mauritius">
-				<short>
-					<standard draft="provisional">MUT</standard>
-					<daylight draft="provisional">MUST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Mawson">
-				<short>
-					<standard draft="provisional">MAWT</standard>
-				</short>
-			</metazone>
-			<metazone type="Mongolia">
-				<short>
-					<standard draft="provisional">ULAT</standard>
-					<daylight draft="provisional">ULAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
@@ -3266,375 +2157,28 @@
 					<standard>Moskovski standardni čas</standard>
 					<daylight>Moskovski poletni čas</daylight>
 				</long>
-				<short>
-					<standard>MSK</standard>
-					<daylight>MSKS</daylight>
-				</short>
-			</metazone>
-			<metazone type="Myanmar">
-				<short>
-					<standard draft="provisional">MMT</standard>
-				</short>
-			</metazone>
-			<metazone type="Nauru">
-				<short>
-					<standard draft="provisional">NRT</standard>
-				</short>
-			</metazone>
-			<metazone type="Nepal">
-				<short>
-					<standard draft="provisional">NPT</standard>
-				</short>
-			</metazone>
-			<metazone type="New_Caledonia">
-				<short>
-					<standard draft="provisional">NCT</standard>
-					<daylight draft="provisional">NCST</daylight>
-				</short>
-			</metazone>
-			<metazone type="New_Zealand">
-				<short>
-					<standard draft="provisional">NZST</standard>
-					<daylight draft="provisional">NZDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Newfoundland">
-				<short>
-					<standard draft="provisional">NST</standard>
-					<daylight draft="provisional">NDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Niue">
-				<short>
-					<standard draft="provisional">NUT</standard>
-				</short>
-			</metazone>
-			<metazone type="Norfolk">
-				<short>
-					<standard draft="provisional">NFT</standard>
-				</short>
-			</metazone>
-			<metazone type="Noronha">
-				<short>
-					<standard draft="provisional">FNT</standard>
-					<daylight draft="provisional">FNST</daylight>
-				</short>
-			</metazone>
-			<metazone type="North_Mariana">
-				<short>
-					<standard draft="provisional">MPT</standard>
-				</short>
-			</metazone>
-			<metazone type="Novosibirsk">
-				<short>
-					<standard draft="provisional">NOVT</standard>
-					<daylight draft="provisional">NOVST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Omsk">
-				<short>
-					<standard draft="provisional">OMST</standard>
-					<daylight draft="provisional">OMSST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Pakistan">
-				<short>
-					<standard draft="provisional">PKT</standard>
-					<daylight draft="provisional">PKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Palau">
-				<short>
-					<standard draft="provisional">PWT</standard>
-				</short>
-			</metazone>
-			<metazone type="Papua_New_Guinea">
-				<short>
-					<standard draft="provisional">PGT</standard>
-				</short>
-			</metazone>
-			<metazone type="Paraguay">
-				<short>
-					<standard draft="provisional">PYT</standard>
-					<daylight draft="provisional">PYST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Peru">
-				<short>
-					<standard draft="provisional">PET</standard>
-					<daylight draft="provisional">PEST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Philippines">
-				<short>
-					<standard draft="provisional">PHT</standard>
-					<daylight draft="provisional">PHST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Phoenix_Islands">
-				<short>
-					<standard draft="provisional">PHOT</standard>
-				</short>
-			</metazone>
-			<metazone type="Pierre_Miquelon">
-				<short>
-					<standard draft="provisional">PMST</standard>
-					<daylight draft="provisional">PMDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Pitcairn">
-				<short>
-					<standard draft="provisional">PNT</standard>
-				</short>
-			</metazone>
-			<metazone type="Ponape">
-				<short>
-					<standard draft="provisional">PONT</standard>
-				</short>
-			</metazone>
-			<metazone type="Qyzylorda">
-				<short>
-					<standard draft="provisional">QYZT</standard>
-					<daylight draft="provisional">QYZST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Reunion">
-				<short>
-					<standard draft="provisional">RET</standard>
-				</short>
-			</metazone>
-			<metazone type="Rothera">
-				<short>
-					<standard draft="provisional">ROTT</standard>
-				</short>
-			</metazone>
-			<metazone type="Sakhalin">
-				<short>
-					<standard draft="provisional">SAKT</standard>
-					<daylight draft="provisional">SAKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<standard>Samarski čas</standard>
 					<daylight>Samarski poletni čas</daylight>
 				</long>
-				<short>
-					<standard>SAMT</standard>
-					<daylight>SAMST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Samarkand">
-				<short>
-					<standard draft="provisional">SAMT (Samarkand)</standard>
-					<daylight draft="provisional">SAMST (Samarkand)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Samoa">
-				<short>
-					<standard draft="provisional">SST</standard>
-				</short>
-			</metazone>
-			<metazone type="Seychelles">
-				<short>
-					<standard draft="provisional">SCT</standard>
-				</short>
-			</metazone>
-			<metazone type="Shevchenko">
-				<short>
-					<standard draft="provisional">SHET</standard>
-					<daylight draft="provisional">SHEST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Singapore">
-				<short>
-					<standard draft="provisional">SGT</standard>
-				</short>
-			</metazone>
-			<metazone type="Solomon">
-				<short>
-					<standard draft="provisional">SBT</standard>
-				</short>
-			</metazone>
-			<metazone type="South_Georgia">
-				<short>
-					<standard>GST (GS)</standard>
-				</short>
-			</metazone>
-			<metazone type="Suriname">
-				<short>
-					<standard draft="provisional">SRT</standard>
-				</short>
-			</metazone>
-			<metazone type="Sverdlovsk">
-				<short>
-					<standard draft="provisional">SVET</standard>
-					<daylight draft="provisional">SVEST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Syowa">
-				<short>
-					<standard draft="provisional">SYOT</standard>
-				</short>
-			</metazone>
-			<metazone type="Tahiti">
-				<short>
-					<standard draft="provisional">TAHT</standard>
-				</short>
-			</metazone>
-			<metazone type="Taipei">
-				<short>
-					<standard draft="provisional">CST (TW)</standard>
-					<daylight draft="provisional">CDT (TW)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Tajikistan">
-				<short>
-					<standard draft="provisional">TJT</standard>
-				</short>
-			</metazone>
-			<metazone type="Tashkent">
-				<short>
-					<standard draft="provisional">TAST</standard>
-					<daylight draft="provisional">TASST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Tbilisi">
-				<short>
-					<standard draft="provisional">TBIT</standard>
-					<daylight draft="provisional">TBIST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Tokelau">
-				<short>
-					<standard draft="provisional">TKT</standard>
-				</short>
-			</metazone>
-			<metazone type="Tonga">
-				<short>
-					<standard draft="provisional">TOT</standard>
-					<daylight draft="provisional">TOST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Truk">
-				<short>
-					<standard draft="provisional">TRUT</standard>
-				</short>
 			</metazone>
 			<metazone type="Turkey">
 				<long>
 					<standard>turški čas</standard>
 					<daylight>turški poletni čas</daylight>
 				</long>
-				<short>
-					<standard>TRT</standard>
-					<daylight>TRST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Turkmenistan">
-				<short>
-					<standard draft="provisional">TMT</standard>
-					<daylight draft="provisional">TMST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Tuvalu">
-				<short>
-					<standard draft="provisional">TVT</standard>
-				</short>
-			</metazone>
-			<metazone type="Uralsk">
-				<short>
-					<standard draft="provisional">URAT</standard>
-					<daylight draft="provisional">URAST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Uruguay">
-				<short>
-					<standard draft="provisional">UYT</standard>
-					<daylight draft="provisional">UYST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Urumqi">
-				<short>
-					<standard draft="provisional">URUT</standard>
-				</short>
-			</metazone>
-			<metazone type="Uzbekistan">
-				<short>
-					<standard draft="provisional">UZT</standard>
-					<daylight draft="provisional">UZST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Vanuatu">
-				<short>
-					<standard draft="provisional">VUT</standard>
-					<daylight draft="provisional">VUST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Venezuela">
-				<short>
-					<standard draft="provisional">VET</standard>
-				</short>
-			</metazone>
-			<metazone type="Vladivostok">
-				<short>
-					<standard draft="provisional">VLAT</standard>
-					<daylight draft="provisional">VLAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<standard>Volgograjski čas</standard>
 					<daylight>Volgograjski poletni čas</daylight>
 				</long>
-				<short>
-					<standard>VOLT</standard>
-					<daylight>VOLST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Vostok">
-				<short>
-					<standard draft="provisional">VOST</standard>
-				</short>
-			</metazone>
-			<metazone type="Wake">
-				<short>
-					<standard draft="provisional">WAKT</standard>
-				</short>
-			</metazone>
-			<metazone type="Wallis">
-				<short>
-					<standard draft="provisional">WFT</standard>
-				</short>
-			</metazone>
-			<metazone type="Yakutsk">
-				<short>
-					<standard draft="provisional">YAKT</standard>
-					<daylight draft="provisional">YAKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Yekaterinburg">
-				<short>
-					<standard draft="provisional">YEKT</standard>
-					<daylight draft="provisional">YEKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Yerevan">
-				<short>
-					<standard draft="provisional">YERT</standard>
-					<daylight draft="provisional">YERST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Yukon">
-				<short>
-					<standard draft="provisional">YST</standard>
-					<daylight draft="provisional">YDT</daylight>
-				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="provisional">latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
@@ -3687,30 +2231,24 @@
 			</currency>
 			<currency type="AED">
 				<displayName>dirham Združenih arabskih emiratov</displayName>
-				<symbol draft="provisional">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>stari afganistanski afgani (1927–2002)</displayName>
 			</currency>
 			<currency type="AFN">
 				<displayName>afgani</displayName>
-				<symbol draft="provisional">Af</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>albanski lek</displayName>
-				<symbol draft="provisional">ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>armenski dram</displayName>
-				<symbol draft="provisional">AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>nizozemsko-antilski gulden</displayName>
-				<symbol draft="provisional">NAf.</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>angolska kvanza</displayName>
-				<symbol draft="provisional">Kz</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>stara angolska kvanza (1977–1990)</displayName>
@@ -3723,20 +2261,12 @@
 			</currency>
 			<currency type="ARA">
 				<displayName>argentinski avstral</displayName>
-				<symbol draft="provisional">₳</symbol>
-			</currency>
-			<currency type="ARL">
-				<symbol draft="provisional">$L</symbol>
-			</currency>
-			<currency type="ARM">
-				<symbol draft="provisional">m$n</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>argentinski peso (1983–1985)</displayName>
 			</currency>
 			<currency type="ARS">
 				<displayName>argentinski peso</displayName>
-				<symbol draft="provisional">AR$</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>avstrijski šiling</displayName>
@@ -3747,19 +2277,15 @@
 				<displayName count="one" draft="provisional">avstralski dolar</displayName>
 				<displayName count="other" draft="provisional">avstralskih dolarjev</displayName>
 				<displayName count="two" draft="provisional">avstralska dolarja</displayName>
-				<symbol draft="provisional">AU$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>arubski florin</displayName>
-				<symbol draft="provisional">Afl.</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>stari azerbajdžanski manat (1993–2006)</displayName>
-				<symbol draft="provisional">AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>azerbajdžanski manat</displayName>
-				<symbol draft="provisional">man.</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>bosansko-hercegovski dinar</displayName>
@@ -3770,15 +2296,12 @@
 				<displayName count="one" draft="provisional">bosansko-hercegovska konvertibilna marka</displayName>
 				<displayName count="other" draft="provisional">bosansko-hercegovskih konvertibilnih mark</displayName>
 				<displayName count="two" draft="provisional">bosansko-hercegovski konvertibilni marki</displayName>
-				<symbol draft="provisional">KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>barbadoški dolar</displayName>
-				<symbol draft="provisional">Bds$</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>bangladeška taka</displayName>
-				<symbol draft="provisional">Tk</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>belgijski konvertibilni frank</displayName>
@@ -3789,7 +2312,6 @@
 				<displayName count="one" draft="provisional">belgijski frank</displayName>
 				<displayName count="other" draft="provisional">belgijskih frankov</displayName>
 				<displayName count="two" draft="provisional">belgijska franka</displayName>
-				<symbol draft="provisional">BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>belgijski finančni frank</displayName>
@@ -3799,31 +2321,24 @@
 			</currency>
 			<currency type="BGN">
 				<displayName>bolgarski lev</displayName>
-				<symbol draft="provisional">BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>bahranski dinar</displayName>
-				<symbol draft="provisional">BD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>burundski frank</displayName>
-				<symbol draft="provisional">FBu</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>bermudski dolar</displayName>
-				<symbol draft="provisional">BD$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>brunejski dolar</displayName>
-				<symbol draft="provisional">BN$</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>bolivijski boliviano</displayName>
-				<symbol draft="provisional">Bs</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>bolivijski peso</displayName>
-				<symbol draft="provisional">$b.</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>bolivijski mvdol</displayName>
@@ -3839,7 +2354,6 @@
 			</currency>
 			<currency type="BRL">
 				<displayName>brazilski real</displayName>
-				<symbol draft="provisional">R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>novi brazilski kruzado</displayName>
@@ -3849,72 +2363,57 @@
 			</currency>
 			<currency type="BSD">
 				<displayName>bahamski dolar</displayName>
-				<symbol draft="provisional">BS$</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>butanski ngultrum</displayName>
-				<symbol draft="provisional">Nu.</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>burmanski kjat</displayName>
 			</currency>
 			<currency type="BWP">
 				<displayName>bocvanska pula</displayName>
-				<symbol draft="provisional">BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>beloruski novi rubelj (1994–1999)</displayName>
 			</currency>
 			<currency type="BYR">
 				<displayName>beloruski rubelj</displayName>
-				<symbol draft="provisional">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>belizejski dolar</displayName>
-				<symbol draft="provisional">BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>kanadski dolar</displayName>
-				<symbol draft="provisional">CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>kongoški frank</displayName>
-				<symbol draft="provisional">CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>evro WIR</displayName>
 			</currency>
 			<currency type="CHF">
 				<displayName>švicarski frank</displayName>
-				<symbol draft="provisional">Fr.</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>frank WIR</displayName>
-			</currency>
-			<currency type="CLE">
-				<symbol draft="provisional">Eº</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>čilski unidades de fomento</displayName>
 			</currency>
 			<currency type="CLP">
 				<displayName>čilski peso</displayName>
-				<symbol draft="provisional">CL$</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>kitajski juan renminbi</displayName>
-				<symbol draft="provisional">CN¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>kolumbijski peso</displayName>
-				<symbol draft="provisional">CO$</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>kolumbijska enota realne vrednosti</displayName>
 			</currency>
 			<currency type="CRC">
 				<displayName>kostariški kolon</displayName>
-				<symbol draft="provisional">₡</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>stari srbski dinar</displayName>
@@ -3928,23 +2427,18 @@
 				<displayName count="one" draft="provisional">CUC</displayName>
 				<displayName count="other" draft="provisional">CUC</displayName>
 				<displayName count="two" draft="provisional">CUC</displayName>
-				<symbol draft="provisional">CUC$</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>kubanski peso</displayName>
-				<symbol draft="provisional">CU$</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>zelenortski eskudo</displayName>
-				<symbol draft="provisional">CV$</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>ciprski funt</displayName>
-				<symbol draft="provisional">CY£</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>češka krona</displayName>
-				<symbol draft="provisional">Kč</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>vzhodnonemška marka</displayName>
@@ -3955,11 +2449,9 @@
 				<displayName count="one" draft="provisional">nemška marka</displayName>
 				<displayName count="other" draft="provisional">nemških mark</displayName>
 				<displayName count="two" draft="provisional">nemški marki</displayName>
-				<symbol draft="provisional">DM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>džibutski frank</displayName>
-				<symbol draft="provisional">Fdj</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>danska krona</displayName>
@@ -3967,15 +2459,12 @@
 				<displayName count="one" draft="provisional">danska krona</displayName>
 				<displayName count="other" draft="provisional">danskih kron</displayName>
 				<displayName count="two" draft="provisional">danski kroni</displayName>
-				<symbol draft="provisional">Dkr</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>dominikanski peso</displayName>
-				<symbol draft="provisional">RD$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>alžirski dinar</displayName>
-				<symbol draft="provisional">DA</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>ekvadorski sukre</displayName>
@@ -3985,15 +2474,12 @@
 			</currency>
 			<currency type="EEK">
 				<displayName>estonska krona</displayName>
-				<symbol draft="provisional">Ekr</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>egiptovski funt</displayName>
-				<symbol draft="provisional">EG£</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>eritrejska nakfa</displayName>
-				<symbol draft="provisional">Nfk</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>španska pezeta (račun A)</displayName>
@@ -4003,11 +2489,9 @@
 			</currency>
 			<currency type="ESP">
 				<displayName>španska pezeta</displayName>
-				<symbol draft="provisional">Pts</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>etiopski bir</displayName>
-				<symbol draft="provisional">Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>evro</displayName>
@@ -4015,53 +2499,42 @@
 				<displayName count="one" draft="provisional">evro</displayName>
 				<displayName count="other" draft="provisional">evrov</displayName>
 				<displayName count="two" draft="provisional">evra</displayName>
-				<symbol draft="provisional">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>finska marka</displayName>
-				<symbol draft="provisional">mk</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>fidžijski dolar</displayName>
-				<symbol draft="provisional">FJ$</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>falklandski funt</displayName>
-				<symbol draft="provisional">FK£</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>francoski frank</displayName>
-				<symbol draft="provisional">₣</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>britanski funt</displayName>
 				<displayName count="few" draft="provisional">britanski funti</displayName>
 				<displayName count="one" draft="provisional">britanski funt</displayName>
 				<displayName count="other" draft="provisional">britanskih funtov</displayName>
-				<symbol draft="provisional">£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>gruzijski bon lari</displayName>
 			</currency>
 			<currency type="GEL">
 				<displayName>gruzijski lari</displayName>
-				<symbol draft="provisional">GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>stari ganski cedi (1979–2007)</displayName>
-				<symbol draft="provisional">₵</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>ganski cedi</displayName>
-				<symbol draft="provisional">GH₵</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>gibraltarski funt</displayName>
-				<symbol draft="provisional">GI£</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>gambijski dalasi</displayName>
-				<symbol draft="provisional">GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName draft="provisional">gvinejski frank</displayName>
@@ -4069,7 +2542,6 @@
 				<displayName count="one" draft="provisional">GNF</displayName>
 				<displayName count="other" draft="provisional">GNF</displayName>
 				<displayName count="two" draft="provisional">GNF</displayName>
-				<symbol draft="provisional">FG</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>gvinejski sili</displayName>
@@ -4079,11 +2551,9 @@
 			</currency>
 			<currency type="GRD">
 				<displayName>grška drahma</displayName>
-				<symbol draft="provisional">₯</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>gvatemalski kecal</displayName>
-				<symbol draft="provisional">GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>eskudo Portugalske Gvineje</displayName>
@@ -4093,74 +2563,57 @@
 			</currency>
 			<currency type="GYD">
 				<displayName>gvajanski dolar</displayName>
-				<symbol draft="provisional">GY$</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>hongkonški dolar</displayName>
-				<symbol draft="provisional">HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>honduraška lempira</displayName>
-				<symbol draft="provisional">HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>hrvaški dinar</displayName>
 			</currency>
 			<currency type="HRK">
 				<displayName>hrvaška kuna</displayName>
-				<symbol draft="provisional">kn</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>haitski gurd</displayName>
-				<symbol draft="provisional">HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>madžarski forint</displayName>
-				<symbol draft="provisional">Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>indonezijska rupija</displayName>
-				<symbol draft="provisional">Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>irski funt</displayName>
-				<symbol draft="provisional">IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>izraelski funt</displayName>
-				<symbol draft="provisional">I£</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>izraelski šekel</displayName>
-				<symbol draft="provisional">₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>indijska rupija</displayName>
-				<symbol draft="provisional">Rs</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>iraški dinar</displayName>
-				<symbol draft="provisional">IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>iranski rial</displayName>
-				<symbol draft="provisional">IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>islandska krona</displayName>
-				<symbol draft="provisional">Ikr</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>italijanska lira</displayName>
-				<symbol draft="provisional">IT₤</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>jamajški dolar</displayName>
-				<symbol draft="provisional">J$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>jordanski dinar</displayName>
-				<symbol draft="provisional">JD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>japonski jen</displayName>
@@ -4168,63 +2621,48 @@
 			</currency>
 			<currency type="KES">
 				<displayName>kenijski šiling</displayName>
-				<symbol draft="provisional">Ksh</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>kirgiški som</displayName>
-				<symbol draft="provisional">KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>kamboški riel</displayName>
-				<symbol draft="provisional">KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>komorski frank</displayName>
-				<symbol draft="provisional">CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>severnokorejski von</displayName>
-				<symbol draft="provisional">KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>južnokorejski von</displayName>
-				<symbol draft="provisional">₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>kuvajtski dinar</displayName>
-				<symbol draft="provisional">KD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>kajmanski dolar</displayName>
-				<symbol draft="provisional">KY$</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>kazahstanski tenge</displayName>
-				<symbol draft="provisional">KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>laoški kip</displayName>
-				<symbol draft="provisional">₭</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>libanonski funt</displayName>
-				<symbol draft="provisional">LB£</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>šrilanška rupija</displayName>
-				<symbol draft="provisional">SLRs</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>liberijski dolar</displayName>
-				<symbol draft="provisional">L$</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>lesoški loti</displayName>
-				<symbol draft="provisional">LSL</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>litovski litas</displayName>
-				<symbol draft="provisional">Lt</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>litvanski litas</displayName>
@@ -4240,244 +2678,192 @@
 			</currency>
 			<currency type="LVL">
 				<displayName>latvijski lats</displayName>
-				<symbol draft="provisional">Ls</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>latvijski rubelj</displayName>
 			</currency>
 			<currency type="LYD">
 				<displayName>libijski dinar</displayName>
-				<symbol draft="provisional">LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>maroški dirham</displayName>
-				<symbol draft="provisional">MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>maroški frank</displayName>
 			</currency>
 			<currency type="MDL">
 				<displayName>moldavijski leu</displayName>
-				<symbol draft="provisional">MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>malgaški ariarij</displayName>
-				<symbol draft="provisional">MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>malgaški frank</displayName>
 			</currency>
 			<currency type="MKD">
 				<displayName>makedonski denar</displayName>
-				<symbol draft="provisional">MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>malijski frank</displayName>
 			</currency>
 			<currency type="MMK">
 				<displayName>mjanmarski kjat</displayName>
-				<symbol draft="provisional">MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>mongolski tugrik</displayName>
-				<symbol draft="provisional">₮</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>makavska pataka</displayName>
-				<symbol draft="provisional">MOP$</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>mavretanska uguija</displayName>
-				<symbol draft="provisional">UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>malteška lira</displayName>
-				<symbol draft="provisional">Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>malteški funt</displayName>
-				<symbol draft="provisional">MT£</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>mavricijska rupija</displayName>
-				<symbol draft="provisional">MURs</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>maldivska rufija</displayName>
-				<symbol draft="provisional">MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>malavijska kvača</displayName>
-				<symbol draft="provisional">MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>mehiški peso</displayName>
-				<symbol draft="provisional">MXN</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>mehiški srebrni peso (1861-1992)</displayName>
-				<symbol draft="provisional">MX$</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName>mehiška inverzna enota (UDI)</displayName>
 			</currency>
 			<currency type="MYR">
 				<displayName>malezijski ringit</displayName>
-				<symbol draft="provisional">RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>mozambiški eskudo</displayName>
 			</currency>
 			<currency type="MZM">
 				<displayName>stari mozambiški metikal</displayName>
-				<symbol draft="provisional">Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>mozambiški metikal</displayName>
-				<symbol draft="provisional">MTn</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>namibijski dolar</displayName>
-				<symbol draft="provisional">N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>nigerijska naira</displayName>
-				<symbol draft="provisional">₦</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>nikaraška kordova</displayName>
 			</currency>
 			<currency type="NIO">
 				<displayName>nikaraška zlata kordova</displayName>
-				<symbol draft="provisional">C$</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>nizozemski gulden</displayName>
-				<symbol draft="provisional">fl</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>norveška krona</displayName>
-				<symbol draft="provisional">Nkr</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>nepalska rupija</displayName>
-				<symbol draft="provisional">NPRs</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>novozelandski dolar</displayName>
-				<symbol draft="provisional">NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>omanski rial</displayName>
-				<symbol draft="provisional">OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>panamska balboa</displayName>
-				<symbol draft="provisional">B/.</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>perujski inti</displayName>
-				<symbol draft="provisional">I/.</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>perujski novi sol</displayName>
-				<symbol draft="provisional">S/.</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>perujski sol</displayName>
 			</currency>
 			<currency type="PGK">
 				<displayName>kina Papue Nove Gvineje</displayName>
-				<symbol draft="provisional">PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>filipinski peso</displayName>
-				<symbol draft="provisional">₱</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>pakistanska rupija</displayName>
-				<symbol draft="provisional">PKRs</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>poljski novi zlot</displayName>
-				<symbol draft="provisional">zł</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>stari poljski zlot (1950–1995)</displayName>
 			</currency>
 			<currency type="PTE">
 				<displayName>portugalski eskudo</displayName>
-				<symbol draft="provisional">Esc</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>paragvajski gvarani</displayName>
-				<symbol draft="provisional">₲</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>katarski rial</displayName>
-				<symbol draft="provisional">QR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>rodezijski dolar</displayName>
-				<symbol draft="provisional">RH$</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>stari romunski leu</displayName>
-				<symbol draft="provisional">ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>romunski leu</displayName>
-				<symbol draft="provisional">RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>srbski dinar</displayName>
-				<symbol draft="provisional">din.</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>ruski rubelj</displayName>
-				<symbol draft="provisional">RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>ruski rubelj (1991–1998)</displayName>
 			</currency>
 			<currency type="RWF">
 				<displayName>ruandski frank</displayName>
-				<symbol draft="provisional">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>saudski rial</displayName>
-				<symbol draft="provisional">SR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>solomonski dolar</displayName>
-				<symbol draft="provisional">SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>sejšelska rupija</displayName>
-				<symbol draft="provisional">SRe</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>stari sudanski dinar</displayName>
-				<symbol draft="provisional">LSd</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>sudanski funt</displayName>
-				<symbol draft="provisional">SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>stari sudanski funt</displayName>
 			</currency>
 			<currency type="SEK">
 				<displayName>švedska krona</displayName>
-				<symbol draft="provisional">Skr</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>singapurski dolar</displayName>
-				<symbol draft="provisional">S$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>funt Sv. Helene</displayName>
-				<symbol draft="provisional">SH£</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>slovenski tolar</displayName>
@@ -4492,57 +2878,45 @@
 				<displayName count="one" draft="provisional">slovaška krona</displayName>
 				<displayName count="other" draft="provisional">slovaških kron</displayName>
 				<displayName count="two" draft="provisional">slovaški kroni</displayName>
-				<symbol draft="provisional">Sk</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>sieraleonski leone</displayName>
-				<symbol draft="provisional">Le</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>somalski šiling</displayName>
-				<symbol draft="provisional">Ssh</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>surinamski dolar</displayName>
-				<symbol draft="provisional">SR$</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>surinamski gulden</displayName>
-				<symbol draft="provisional">Sf</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>saotomejska dobra</displayName>
-				<symbol draft="provisional">Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>sovjetski rubelj</displayName>
 			</currency>
 			<currency type="SVC">
 				<displayName>salvadorski kolon</displayName>
-				<symbol draft="provisional">SV₡</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>sirijski funt</displayName>
-				<symbol draft="provisional">SY£</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>svazijski lilangeni</displayName>
-				<symbol draft="provisional">SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>tajski baht</displayName>
-				<symbol draft="provisional">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>tadžikistanski rubelj</displayName>
 			</currency>
 			<currency type="TJS">
 				<displayName>tadžikistanski somoni</displayName>
-				<symbol draft="provisional">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>turkmenski manat</displayName>
-				<symbol draft="provisional">TMM</symbol>
 			</currency>
 			<currency type="TMT">
 				<displayName draft="provisional">turkmenistanski novi manat</displayName>
@@ -4550,42 +2924,33 @@
 				<displayName count="one" draft="provisional">TMT</displayName>
 				<displayName count="other" draft="provisional">TMT</displayName>
 				<displayName count="two" draft="provisional">TMT</displayName>
-				<symbol draft="provisional">TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>tunizijski dinar</displayName>
-				<symbol draft="provisional">DT</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>tongovska paanga</displayName>
-				<symbol draft="provisional">T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>timorski eskudo</displayName>
 			</currency>
 			<currency type="TRL">
 				<displayName>stara turška lira</displayName>
-				<symbol draft="provisional">TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>nova turška lira</displayName>
-				<symbol draft="provisional">TL</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>dolar Trinidada in Tobaga</displayName>
-				<symbol draft="provisional">TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>novi tajvanski dolar</displayName>
-				<symbol draft="provisional">NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>tanzanijski šiling</displayName>
-				<symbol draft="provisional">TSh</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>ukrajinska grivna</displayName>
-				<symbol draft="provisional">₴</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>ukrajinski karbovanci</displayName>
@@ -4595,7 +2960,6 @@
 			</currency>
 			<currency type="UGX">
 				<displayName>ugandski šiling</displayName>
-				<symbol draft="provisional">USh</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>ameriški dolar</displayName>
@@ -4616,111 +2980,87 @@
 			</currency>
 			<currency type="UYU">
 				<displayName>urugvajski peso</displayName>
-				<symbol draft="provisional">$U</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>uzbeški sum</displayName>
-				<symbol draft="provisional">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>venezuelski bolivar</displayName>
 			</currency>
 			<currency type="VEF">
 				<displayName>venezuelski bolivar fuerte</displayName>
-				<symbol draft="provisional">Bs.F.</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>vientnamski dong</displayName>
-				<symbol draft="provisional">₫</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>vanuatujski vatu</displayName>
-				<symbol draft="provisional">VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>samoanska tala</displayName>
-				<symbol draft="provisional">WS$</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>CFA frank BEAC</displayName>
-				<symbol draft="provisional">FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName>srebro</displayName>
-				<symbol draft="provisional">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>zlato</displayName>
-				<symbol draft="provisional">XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>evropska sestavljena enota</displayName>
-				<symbol draft="provisional">XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>evropska monetarna enota</displayName>
-				<symbol draft="provisional">XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>evropska obračunska enota (XBC)</displayName>
-				<symbol draft="provisional">XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>evropska obračunska enota (XBD)</displayName>
-				<symbol draft="provisional">XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>vzhodnokaribski dolar</displayName>
-				<symbol draft="provisional">EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>posebne pravice črpanja</displayName>
-				<symbol draft="provisional">XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>evropska denarna enota</displayName>
 			</currency>
 			<currency type="XFO">
 				<displayName>zlati frank</displayName>
-				<symbol draft="provisional">XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>frank UIC</displayName>
-				<symbol draft="provisional">XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>CFA frank BCEAO</displayName>
-				<symbol draft="provisional">CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>paladij</displayName>
-				<symbol draft="provisional">XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP frank</displayName>
-				<symbol draft="provisional">CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>platina</displayName>
-				<symbol draft="provisional">XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName>XRE</displayName>
 			</currency>
 			<currency type="XTS">
 				<displayName>koda za potrebe testiranja</displayName>
-				<symbol draft="provisional">XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>neznana ali neveljavna valuta</displayName>
-				<symbol draft="provisional">XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>jemenski dinar</displayName>
 			</currency>
 			<currency type="YER">
 				<displayName>jemenski rial</displayName>
-				<symbol draft="provisional">YR</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>stari jugoslovanski dinar</displayName>
@@ -4736,24 +3076,19 @@
 			</currency>
 			<currency type="ZAR">
 				<displayName>južnoafriški rand</displayName>
-				<symbol draft="provisional">R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>zambijska kvača</displayName>
-				<symbol draft="provisional">ZK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>zairski novi zaire</displayName>
-				<symbol draft="provisional">NZ</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>zairski zaire</displayName>
-				<symbol draft="provisional">ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>zimbabvejski dolar</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">stari zimbabvejski dolar</displayName>
-				<symbol draft="provisional">Z$</symbol>
 			</currency>
 			<currency type="ZWL">
 				<displayName>zimbabvejski dolar 	(2009)</displayName>
@@ -4762,7 +3097,6 @@
 				<displayName count="other" draft="provisional">ZWL</displayName>
 				<displayName count="two" draft="provisional">ZWL</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">zimbabvejski dolar</displayName>
-				<symbol draft="provisional">ZWL</symbol>
 			</currency>
 		</currencies>
 	</numbers>
@@ -4842,8 +3176,6 @@
 		<listPattern>
 			<listPatternPart type="2">{0} in {0}</listPatternPart>
 			<listPatternPart type="end">{0} in {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

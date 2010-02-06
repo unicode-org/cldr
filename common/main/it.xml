@@ -954,13 +954,11 @@
 			<variant type="FONUPA">alfabeto fonetico uralico UPA</variant>
 			<variant type="MONOTON">monotonico</variant>
 			<variant type="NEDIS">dialetto del Natisone</variant>
-			<variant type="PINYIN">PINYIN</variant>
 			<variant type="POLYTON">politonico</variant>
 			<variant type="POSIX">computer</variant>
 			<variant type="REVISED">ortografia revisionata</variant>
 			<variant type="ROZAJ">resiano</variant>
 			<variant type="SAAHO">saho</variant>
-			<variant type="WADEGILE">WADEGILE</variant>
 		</variants>
 		<keys>
 			<key type="calendar">calendario</key>
@@ -1788,10 +1786,6 @@
 					<standard draft="provisional">Bering Standard Time</standard>
 					<daylight draft="provisional">Bering Daylight Time</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">BST (Bering)</standard>
-					<daylight draft="provisional">BDT (Bering)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Bhutan">
 				<long>
@@ -2223,7 +2217,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="provisional">latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
@@ -3125,8 +3118,6 @@
 		<listPattern>
 			<listPatternPart type="2">{0} e {1}</listPatternPart>
 			<listPatternPart type="end">{0}, e {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

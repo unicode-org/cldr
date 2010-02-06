@@ -1197,12 +1197,6 @@
 							<quarter type="3" draft="provisional">Τ3</quarter>
 							<quarter type="4" draft="provisional">Τ4</quarter>
 						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="provisional">1</quarter>
-							<quarter type="2" draft="provisional">2</quarter>
-							<quarter type="3" draft="provisional">3</quarter>
-							<quarter type="4" draft="provisional">4</quarter>
-						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<dayPeriods>
@@ -1219,17 +1213,6 @@
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
-				<eras>
-					<eraNames>
-						<era type="0" draft="provisional">BE</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="provisional">BE</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="provisional">BE</era>
-					</eraNarrow>
-				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1275,50 +1258,16 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
-						<dateFormatItem id="EEEd" draft="provisional">EEE d</dateFormatItem>
-						<dateFormatItem id="hm" draft="provisional">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="provisional">H:mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="provisional">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="provisional">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="M" draft="provisional">L</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
-						<dateFormatItem id="MMM" draft="provisional">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
-						<dateFormatItem id="ms" draft="provisional">mm:ss</dateFormatItem>
-						<dateFormatItem id="y" draft="provisional">y</dateFormatItem>
-						<dateFormatItem id="yM" draft="provisional">M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, d/M/y</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="provisional">MMM, y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE, d MMM, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL, y</dateFormatItem>
-						<dateFormatItem id="yQ" draft="provisional">y Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="provisional">y QQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="provisional">{0} - {1}</intervalFormatFallback>
@@ -1329,37 +1278,19 @@
 							<greatestDifference id="a" draft="provisional">h a - h a</greatestDifference>
 							<greatestDifference id="h" draft="provisional">h-h a</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="a" draft="provisional">HH–HH</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a" draft="provisional">h:mm a - h:mm a</greatestDifference>
 							<greatestDifference id="h" draft="provisional">h:mm-h:mm a</greatestDifference>
 							<greatestDifference id="m" draft="provisional">h:mm-h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a" draft="provisional">h:mm a - h:mm a v</greatestDifference>
 							<greatestDifference id="h" draft="provisional">h:mm-h:mm a v</greatestDifference>
 							<greatestDifference id="m" draft="provisional">h:mm-h:mm a v</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a" draft="provisional">h a - h a v</greatestDifference>
 							<greatestDifference id="h" draft="provisional">h-h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="a" draft="provisional">HH–HH v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M" draft="provisional">M-M</greatestDifference>
@@ -1435,91 +1366,6 @@
 				</dayPeriods>
 			</calendar>
 			<calendar type="coptic">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="provisional">Tout</month>
-							<month type="2" draft="provisional">Baba</month>
-							<month type="3" draft="provisional">Hator</month>
-							<month type="4" draft="provisional">Kiahk</month>
-							<month type="5" draft="provisional">Toba</month>
-							<month type="6" draft="provisional">Amshir</month>
-							<month type="7" draft="provisional">Baramhat</month>
-							<month type="8" draft="provisional">Baramouda</month>
-							<month type="9" draft="provisional">Bashans</month>
-							<month type="10" draft="provisional">Paona</month>
-							<month type="11" draft="provisional">Epep</month>
-							<month type="12" draft="provisional">Mesra</month>
-							<month type="13" draft="provisional">Nasie</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="provisional">1</month>
-							<month type="2" draft="provisional">2</month>
-							<month type="3" draft="provisional">3</month>
-							<month type="4" draft="provisional">4</month>
-							<month type="5" draft="provisional">5</month>
-							<month type="6" draft="provisional">6</month>
-							<month type="7" draft="provisional">7</month>
-							<month type="8" draft="provisional">8</month>
-							<month type="9" draft="provisional">9</month>
-							<month type="10" draft="provisional">10</month>
-							<month type="11" draft="provisional">11</month>
-							<month type="12" draft="provisional">12</month>
-							<month type="13" draft="provisional">13</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="provisional">Tout</month>
-							<month type="2" draft="provisional">Baba</month>
-							<month type="3" draft="provisional">Hator</month>
-							<month type="4" draft="provisional">Kiahk</month>
-							<month type="5" draft="provisional">Toba</month>
-							<month type="6" draft="provisional">Amshir</month>
-							<month type="7" draft="provisional">Baramhat</month>
-							<month type="8" draft="provisional">Baramouda</month>
-							<month type="9" draft="provisional">Bashans</month>
-							<month type="10" draft="provisional">Paona</month>
-							<month type="11" draft="provisional">Epep</month>
-							<month type="12" draft="provisional">Mesra</month>
-							<month type="13" draft="provisional">Nasie</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="2" draft="provisional">Baba</month>
-							<month type="13" draft="provisional">Nasie</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="provisional">1</month>
-							<month type="2" draft="provisional">2</month>
-							<month type="3" draft="provisional">3</month>
-							<month type="4" draft="provisional">4</month>
-							<month type="5" draft="provisional">5</month>
-							<month type="6" draft="provisional">6</month>
-							<month type="7" draft="provisional">7</month>
-							<month type="8" draft="provisional">8</month>
-							<month type="9" draft="provisional">9</month>
-							<month type="10" draft="provisional">10</month>
-							<month type="11" draft="provisional">11</month>
-							<month type="12" draft="provisional">12</month>
-							<month type="13" draft="provisional">13</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="provisional">Tout</month>
-							<month type="2" draft="provisional">Baba</month>
-							<month type="3" draft="provisional">Hator</month>
-							<month type="4" draft="provisional">Kiahk</month>
-							<month type="5" draft="provisional">Toba</month>
-							<month type="6" draft="provisional">Amshir</month>
-							<month type="7" draft="provisional">Baramhat</month>
-							<month type="8" draft="provisional">Baramouda</month>
-							<month type="9" draft="provisional">Bashans</month>
-							<month type="10" draft="provisional">Paona</month>
-							<month type="11" draft="provisional">Epep</month>
-							<month type="12" draft="provisional">Mesra</month>
-							<month type="13" draft="provisional">Nasie</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -1601,12 +1447,6 @@
 							<quarter type="3" draft="provisional">Τ3</quarter>
 							<quarter type="4" draft="provisional">Τ4</quarter>
 						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="provisional">1</quarter>
-							<quarter type="2" draft="provisional">2</quarter>
-							<quarter type="3" draft="provisional">3</quarter>
-							<quarter type="4" draft="provisional">4</quarter>
-						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<dayPeriods>
@@ -1617,20 +1457,6 @@
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
-				<eras>
-					<eraNames>
-						<era type="0" draft="provisional">ERA0</era>
-						<era type="1" draft="provisional">ERA1</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="provisional">ERA0</era>
-						<era type="1" draft="provisional">ERA1</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="provisional">ERA0</era>
-						<era type="1" draft="provisional">ERA1</era>
-					</eraNarrow>
-				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1676,50 +1502,19 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
 						<dateFormatItem id="EEEd" draft="provisional">EEE d</dateFormatItem>
-						<dateFormatItem id="hm" draft="provisional">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="provisional">H:mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="provisional">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="provisional">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="M" draft="provisional">L</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">d/M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="provisional">E, d/M</dateFormatItem>
-						<dateFormatItem id="MMM" draft="provisional">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="provisional">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="provisional">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd" draft="provisional">E, d MMMM</dateFormatItem>
-						<dateFormatItem id="ms" draft="provisional">mm:ss</dateFormatItem>
-						<dateFormatItem id="y" draft="provisional">y</dateFormatItem>
 						<dateFormatItem id="yM" draft="provisional">M/yyyy</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="provisional">EEE, d/M/yyyy</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="provisional">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="provisional">EEE, d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM" draft="provisional">LLLL y</dateFormatItem>
-						<dateFormatItem id="yQ" draft="provisional">y Q</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="provisional">y QQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="provisional">{0} - {1}</intervalFormatFallback>
@@ -1730,37 +1525,19 @@
 							<greatestDifference id="a" draft="provisional">h a - h a</greatestDifference>
 							<greatestDifference id="h" draft="provisional">h-h a</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="a" draft="provisional">HH–HH</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a" draft="provisional">h:mm a - h:mm a</greatestDifference>
 							<greatestDifference id="h" draft="provisional">h:mm-h:mm a</greatestDifference>
 							<greatestDifference id="m" draft="provisional">h:mm-h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a" draft="provisional">h:mm a - h:mm a v</greatestDifference>
 							<greatestDifference id="h" draft="provisional">h:mm-h:mm a v</greatestDifference>
 							<greatestDifference id="m" draft="provisional">h:mm-h:mm a v</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a" draft="provisional">h a - h a v</greatestDifference>
 							<greatestDifference id="h" draft="provisional">h-h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="a" draft="provisional">HH–HH v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M" draft="provisional">M-M</greatestDifference>
@@ -2126,37 +1903,19 @@
 							<greatestDifference id="a">h a - h a</greatestDifference>
 							<greatestDifference id="h">h-h a</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="a" draft="provisional">HH–HH</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">h:mm a - h:mm a</greatestDifference>
 							<greatestDifference id="h">h:mm-h:mm a</greatestDifference>
 							<greatestDifference id="m">h:mm-h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">h:mm a - h:mm a v</greatestDifference>
 							<greatestDifference id="h">h:mm-h:mm a v</greatestDifference>
 							<greatestDifference id="m">h:mm-h:mm a v</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">h a - h a v</greatestDifference>
 							<greatestDifference id="h">h-h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="a" draft="provisional">HH–HH v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M-M</greatestDifference>
@@ -3558,11 +3317,6 @@
 					<daylight>ACST (Ακρ)</daylight>
 				</short>
 			</metazone>
-			<metazone type="Afghanistan">
-				<short>
-					<standard draft="provisional">AFT</standard>
-				</short>
-			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>ώρα Κεντρικής Αφρικής</standard>
@@ -3585,42 +3339,6 @@
 					<daylight>καλοκαιρινή ώρα Δυτικής Αφρικής</daylight>
 				</long>
 			</metazone>
-			<metazone type="Aktyubinsk">
-				<short>
-					<standard draft="provisional">AKTT</standard>
-					<daylight draft="provisional">AKTST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Alaska">
-				<short>
-					<standard draft="provisional">AKST</standard>
-					<daylight draft="provisional">AKDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Alaska_Hawaii">
-				<short>
-					<standard draft="provisional">AHST</standard>
-					<daylight draft="provisional">AHDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Almaty">
-				<short>
-					<standard draft="provisional">ALMT</standard>
-					<daylight draft="provisional">ALMST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Amazon">
-				<short>
-					<standard draft="provisional">AMT</standard>
-					<daylight draft="provisional">AMST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Anadyr">
-				<short>
-					<standard draft="provisional">ANAT</standard>
-					<daylight draft="provisional">ANAST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Aqtau">
 				<short>
 					<standard>AQTT (Ακτάου)</standard>
@@ -3633,169 +3351,10 @@
 					<daylight>AQTST (Ακτοβε)</daylight>
 				</short>
 			</metazone>
-			<metazone type="Argentina">
-				<short>
-					<standard draft="provisional">ART</standard>
-					<daylight draft="provisional">ARST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Argentina_Western">
-				<short>
-					<standard draft="provisional">WART</standard>
-				</short>
-			</metazone>
-			<metazone type="Armenia">
-				<short>
-					<standard draft="provisional">AMT (AM)</standard>
-					<daylight draft="provisional">AMST (AM)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Ashkhabad">
-				<short>
-					<standard draft="provisional">ASHT</standard>
-					<daylight draft="provisional">ASHST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Australia_Central">
-				<short>
-					<standard draft="provisional">ACST</standard>
-					<daylight draft="provisional">ACDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Australia_CentralWestern">
-				<short>
-					<standard draft="provisional">ACWST</standard>
-					<daylight draft="provisional">ACWDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Australia_Eastern">
-				<short>
-					<standard draft="provisional">AEST</standard>
-					<daylight draft="provisional">AEDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Australia_Western">
-				<short>
-					<standard draft="provisional">AWST</standard>
-					<daylight draft="provisional">AWDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Azerbaijan">
-				<short>
-					<standard draft="provisional">AZT</standard>
-					<daylight draft="provisional">AZST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Azores">
-				<short>
-					<standard draft="provisional">AZOT</standard>
-					<daylight draft="provisional">AZOST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Baku">
-				<short>
-					<standard draft="provisional">BAKT</standard>
-					<daylight draft="provisional">BAKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Bangladesh">
-				<short>
-					<standard draft="provisional">BDT</standard>
-					<daylight draft="provisional">BDST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Bering">
 				<short>
 					<standard>BST (Μπερίνγκ)</standard>
 					<daylight>BDT (Μπερίνγκ)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Bhutan">
-				<short>
-					<standard draft="provisional">BTT</standard>
-				</short>
-			</metazone>
-			<metazone type="Bolivia">
-				<short>
-					<standard draft="provisional">BOT</standard>
-				</short>
-			</metazone>
-			<metazone type="Borneo">
-				<short>
-					<standard draft="provisional">BORT</standard>
-					<daylight draft="provisional">BORST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Brasilia">
-				<short>
-					<standard draft="provisional">BRT</standard>
-					<daylight draft="provisional">BRST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Brunei">
-				<short>
-					<standard draft="provisional">BNT</standard>
-				</short>
-			</metazone>
-			<metazone type="Cape_Verde">
-				<short>
-					<standard draft="provisional">CVT</standard>
-					<daylight draft="provisional">CVST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Chamorro">
-				<short>
-					<standard draft="provisional">ChST</standard>
-				</short>
-			</metazone>
-			<metazone type="Changbai">
-				<short>
-					<standard draft="provisional">CHAT</standard>
-				</short>
-			</metazone>
-			<metazone type="Chatham">
-				<short>
-					<standard draft="provisional">CHAST</standard>
-					<daylight draft="provisional">CHADT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Chile">
-				<short>
-					<standard draft="provisional">CLT</standard>
-					<daylight draft="provisional">CLST</daylight>
-				</short>
-			</metazone>
-			<metazone type="China">
-				<short>
-					<daylight draft="provisional">CDT (CN)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Choibalsan">
-				<short>
-					<standard draft="provisional">CHOT</standard>
-					<daylight draft="provisional">CHOST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Christmas">
-				<short>
-					<standard draft="provisional">CXT</standard>
-				</short>
-			</metazone>
-			<metazone type="Cocos">
-				<short>
-					<standard draft="provisional">CCT</standard>
-				</short>
-			</metazone>
-			<metazone type="Colombia">
-				<short>
-					<standard draft="provisional">COT</standard>
-					<daylight draft="provisional">COST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Cook">
-				<short>
-					<standard draft="provisional">CKT</standard>
-					<daylight draft="provisional">CKHST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Cuba">
@@ -3804,686 +3363,15 @@
 					<daylight>CDT (Κούβα)</daylight>
 				</short>
 			</metazone>
-			<metazone type="Dacca">
-				<short>
-					<standard draft="provisional">DACT</standard>
-				</short>
-			</metazone>
-			<metazone type="Davis">
-				<short>
-					<standard draft="provisional">DAVT</standard>
-				</short>
-			</metazone>
-			<metazone type="DumontDUrville">
-				<short>
-					<standard draft="provisional">DDUT</standard>
-				</short>
-			</metazone>
-			<metazone type="Dushanbe">
-				<short>
-					<standard draft="provisional">DUST</standard>
-					<daylight draft="provisional">DUSST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Dutch_Guiana">
-				<short>
-					<standard draft="provisional">NEGT</standard>
-				</short>
-			</metazone>
-			<metazone type="East_Timor">
-				<short>
-					<standard draft="provisional">TLT</standard>
-				</short>
-			</metazone>
-			<metazone type="Easter">
-				<short>
-					<standard draft="provisional">EAST</standard>
-					<daylight draft="provisional">EASST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Ecuador">
-				<short>
-					<standard draft="provisional">ECT</standard>
-				</short>
-			</metazone>
-			<metazone type="Falkland">
-				<short>
-					<standard draft="provisional">FKT</standard>
-					<daylight draft="provisional">FKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Fiji">
-				<short>
-					<standard draft="provisional">FJT</standard>
-					<daylight draft="provisional">FJST</daylight>
-				</short>
-			</metazone>
-			<metazone type="French_Guiana">
-				<short>
-					<standard draft="provisional">GFT</standard>
-				</short>
-			</metazone>
-			<metazone type="French_Southern">
-				<short>
-					<standard draft="provisional">TFT</standard>
-				</short>
-			</metazone>
-			<metazone type="Frunze">
-				<short>
-					<standard draft="provisional">FRUT</standard>
-					<daylight draft="provisional">FRUST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Galapagos">
-				<short>
-					<standard draft="provisional">GALT</standard>
-				</short>
-			</metazone>
-			<metazone type="Gambier">
-				<short>
-					<standard draft="provisional">GAMT</standard>
-				</short>
-			</metazone>
-			<metazone type="Georgia">
-				<short>
-					<standard draft="provisional">GET</standard>
-					<daylight draft="provisional">GEST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Gilbert_Islands">
-				<short>
-					<standard draft="provisional">GILT</standard>
-				</short>
-			</metazone>
-			<metazone type="Greenland_Central">
-				<short>
-					<standard draft="provisional">CGT</standard>
-					<daylight draft="provisional">CGST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Greenland_Eastern">
-				<short>
-					<standard draft="provisional">EGT</standard>
-					<daylight draft="provisional">EGST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Greenland_Western">
-				<short>
-					<standard draft="provisional">WGT</standard>
-					<daylight draft="provisional">WGST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Guam">
-				<short>
-					<standard draft="provisional">GST (GU)</standard>
-				</short>
-			</metazone>
-			<metazone type="Gulf">
-				<short>
-					<standard draft="provisional">GST</standard>
-				</short>
-			</metazone>
-			<metazone type="Guyana">
-				<short>
-					<standard draft="provisional">GYT</standard>
-				</short>
-			</metazone>
-			<metazone type="Hawaii_Aleutian">
-				<short>
-					<standard draft="provisional">HST</standard>
-				</short>
-			</metazone>
-			<metazone type="Hong_Kong">
-				<short>
-					<standard draft="provisional">HKT</standard>
-					<daylight draft="provisional">HKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Hovd">
-				<short>
-					<standard draft="provisional">HOVT</standard>
-					<daylight draft="provisional">HOVST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Indian_Ocean">
-				<short>
-					<standard draft="provisional">IOT</standard>
-				</short>
-			</metazone>
-			<metazone type="Indochina">
-				<short>
-					<standard draft="provisional">ICT</standard>
-				</short>
-			</metazone>
-			<metazone type="Indonesia_Central">
-				<short>
-					<standard draft="provisional">CIT</standard>
-				</short>
-			</metazone>
-			<metazone type="Indonesia_Eastern">
-				<short>
-					<standard draft="provisional">EIT</standard>
-				</short>
-			</metazone>
-			<metazone type="Indonesia_Western">
-				<short>
-					<standard draft="provisional">WIT</standard>
-				</short>
-			</metazone>
-			<metazone type="Iran">
-				<short>
-					<standard draft="provisional">IRST</standard>
-					<daylight draft="provisional">IRDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Irkutsk">
-				<short>
-					<standard draft="provisional">IRKT</standard>
-					<daylight draft="provisional">IRKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Japan">
-				<short>
-					<daylight draft="provisional">JDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Kamchatka">
-				<short>
-					<standard draft="provisional">PETT</standard>
-					<daylight draft="provisional">PETST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Karachi">
-				<short>
-					<standard draft="provisional">KART</standard>
-				</short>
-			</metazone>
-			<metazone type="Kashgar">
-				<short>
-					<standard draft="provisional">KAST</standard>
-				</short>
-			</metazone>
-			<metazone type="Kazakhstan_Eastern">
-				<short>
-					<standard draft="provisional">EKST</standard>
-				</short>
-			</metazone>
-			<metazone type="Kazakhstan_Western">
-				<short>
-					<standard draft="provisional">WKST</standard>
-				</short>
-			</metazone>
-			<metazone type="Kizilorda">
-				<short>
-					<standard draft="provisional">KIZT</standard>
-					<daylight draft="provisional">KIZST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Korea">
-				<short>
-					<daylight draft="provisional">KDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Kosrae">
-				<short>
-					<standard draft="provisional">KOST</standard>
-				</short>
-			</metazone>
-			<metazone type="Krasnoyarsk">
-				<short>
-					<standard draft="provisional">KRAT</standard>
-					<daylight draft="provisional">KRAST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Kuybyshev">
-				<short>
-					<standard draft="provisional">KUYT</standard>
-					<daylight draft="provisional">KUYST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Kwajalein">
-				<short>
-					<standard draft="provisional">KWAT</standard>
-				</short>
-			</metazone>
-			<metazone type="Kyrgystan">
-				<short>
-					<standard draft="provisional">KGT</standard>
-				</short>
-			</metazone>
-			<metazone type="Lanka">
-				<short>
-					<standard draft="provisional">LKT</standard>
-				</short>
-			</metazone>
-			<metazone type="Line_Islands">
-				<short>
-					<standard draft="provisional">LINT</standard>
-				</short>
-			</metazone>
-			<metazone type="Long_Shu">
-				<short>
-					<standard draft="provisional">LONT</standard>
-				</short>
-			</metazone>
-			<metazone type="Lord_Howe">
-				<short>
-					<standard draft="provisional">LHST</standard>
-					<daylight draft="provisional">LHDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Macau">
-				<short>
-					<standard draft="provisional">MOT</standard>
-					<daylight draft="provisional">MOST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Magadan">
-				<short>
-					<standard draft="provisional">MAGT</standard>
-					<daylight draft="provisional">MAGST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Malaya">
-				<short>
-					<standard draft="provisional">MALT</standard>
-				</short>
-			</metazone>
-			<metazone type="Malaysia">
-				<short>
-					<standard draft="provisional">MYT</standard>
-				</short>
-			</metazone>
-			<metazone type="Maldives">
-				<short>
-					<standard draft="provisional">MVT</standard>
-				</short>
-			</metazone>
-			<metazone type="Marquesas">
-				<short>
-					<standard draft="provisional">MART</standard>
-				</short>
-			</metazone>
-			<metazone type="Marshall_Islands">
-				<short>
-					<standard draft="provisional">MHT</standard>
-				</short>
-			</metazone>
-			<metazone type="Mauritius">
-				<short>
-					<standard draft="provisional">MUT</standard>
-					<daylight draft="provisional">MUST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Mawson">
-				<short>
-					<standard draft="provisional">MAWT</standard>
-				</short>
-			</metazone>
-			<metazone type="Mongolia">
-				<short>
-					<standard draft="provisional">ULAT</standard>
-					<daylight draft="provisional">ULAST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Moscow">
-				<short>
-					<standard draft="provisional">MSK</standard>
-					<daylight draft="provisional">MSKS</daylight>
-				</short>
-			</metazone>
-			<metazone type="Myanmar">
-				<short>
-					<standard draft="provisional">MMT</standard>
-				</short>
-			</metazone>
-			<metazone type="Nauru">
-				<short>
-					<standard draft="provisional">NRT</standard>
-				</short>
-			</metazone>
-			<metazone type="Nepal">
-				<short>
-					<standard draft="provisional">NPT</standard>
-				</short>
-			</metazone>
-			<metazone type="New_Caledonia">
-				<short>
-					<standard draft="provisional">NCT</standard>
-					<daylight draft="provisional">NCST</daylight>
-				</short>
-			</metazone>
-			<metazone type="New_Zealand">
-				<short>
-					<standard draft="provisional">NZST</standard>
-					<daylight draft="provisional">NZDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Newfoundland">
-				<short>
-					<standard draft="provisional">NST</standard>
-					<daylight draft="provisional">NDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Niue">
-				<short>
-					<standard draft="provisional">NUT</standard>
-				</short>
-			</metazone>
-			<metazone type="Norfolk">
-				<short>
-					<standard draft="provisional">NFT</standard>
-				</short>
-			</metazone>
-			<metazone type="Noronha">
-				<short>
-					<standard draft="provisional">FNT</standard>
-					<daylight draft="provisional">FNST</daylight>
-				</short>
-			</metazone>
-			<metazone type="North_Mariana">
-				<short>
-					<standard draft="provisional">MPT</standard>
-				</short>
-			</metazone>
-			<metazone type="Novosibirsk">
-				<short>
-					<standard draft="provisional">NOVT</standard>
-					<daylight draft="provisional">NOVST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Omsk">
-				<short>
-					<standard draft="provisional">OMST</standard>
-					<daylight draft="provisional">OMSST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Pakistan">
-				<short>
-					<standard draft="provisional">PKT</standard>
-					<daylight draft="provisional">PKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Palau">
-				<short>
-					<standard draft="provisional">PWT</standard>
-				</short>
-			</metazone>
-			<metazone type="Papua_New_Guinea">
-				<short>
-					<standard draft="provisional">PGT</standard>
-				</short>
-			</metazone>
-			<metazone type="Paraguay">
-				<short>
-					<standard draft="provisional">PYT</standard>
-					<daylight draft="provisional">PYST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Peru">
-				<short>
-					<standard draft="provisional">PET</standard>
-					<daylight draft="provisional">PEST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Philippines">
-				<short>
-					<standard draft="provisional">PHT</standard>
-					<daylight draft="provisional">PHST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Phoenix_Islands">
-				<short>
-					<standard draft="provisional">PHOT</standard>
-				</short>
-			</metazone>
-			<metazone type="Pierre_Miquelon">
-				<short>
-					<standard draft="provisional">PMST</standard>
-					<daylight draft="provisional">PMDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Pitcairn">
-				<short>
-					<standard draft="provisional">PNT</standard>
-				</short>
-			</metazone>
-			<metazone type="Ponape">
-				<short>
-					<standard draft="provisional">PONT</standard>
-				</short>
-			</metazone>
-			<metazone type="Qyzylorda">
-				<short>
-					<standard draft="provisional">QYZT</standard>
-					<daylight draft="provisional">QYZST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Reunion">
-				<short>
-					<standard draft="provisional">RET</standard>
-				</short>
-			</metazone>
-			<metazone type="Rothera">
-				<short>
-					<standard draft="provisional">ROTT</standard>
-				</short>
-			</metazone>
-			<metazone type="Sakhalin">
-				<short>
-					<standard draft="provisional">SAKT</standard>
-					<daylight draft="provisional">SAKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Samara">
-				<short>
-					<standard draft="provisional">SAMT</standard>
-					<daylight draft="provisional">SAMST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Samarkand">
 				<short>
 					<standard>SAMT (Σάμαρκαντ)</standard>
 					<daylight>SAMST (Σάμαρκαντ)</daylight>
 				</short>
 			</metazone>
-			<metazone type="Samoa">
-				<short>
-					<standard draft="provisional">SST</standard>
-				</short>
-			</metazone>
-			<metazone type="Seychelles">
-				<short>
-					<standard draft="provisional">SCT</standard>
-				</short>
-			</metazone>
-			<metazone type="Shevchenko">
-				<short>
-					<standard draft="provisional">SHET</standard>
-					<daylight draft="provisional">SHEST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Singapore">
-				<short>
-					<standard draft="provisional">SGT</standard>
-				</short>
-			</metazone>
-			<metazone type="Solomon">
-				<short>
-					<standard draft="provisional">SBT</standard>
-				</short>
-			</metazone>
-			<metazone type="South_Georgia">
-				<short>
-					<standard draft="provisional">GST (GS)</standard>
-				</short>
-			</metazone>
-			<metazone type="Suriname">
-				<short>
-					<standard draft="provisional">SRT</standard>
-				</short>
-			</metazone>
-			<metazone type="Sverdlovsk">
-				<short>
-					<standard draft="provisional">SVET</standard>
-					<daylight draft="provisional">SVEST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Syowa">
-				<short>
-					<standard draft="provisional">SYOT</standard>
-				</short>
-			</metazone>
-			<metazone type="Tahiti">
-				<short>
-					<standard draft="provisional">TAHT</standard>
-				</short>
-			</metazone>
-			<metazone type="Taipei">
-				<short>
-					<standard draft="provisional">CST (TW)</standard>
-					<daylight draft="provisional">CDT (TW)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Tajikistan">
-				<short>
-					<standard draft="provisional">TJT</standard>
-				</short>
-			</metazone>
-			<metazone type="Tashkent">
-				<short>
-					<standard draft="provisional">TAST</standard>
-					<daylight draft="provisional">TASST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Tbilisi">
-				<short>
-					<standard draft="provisional">TBIT</standard>
-					<daylight draft="provisional">TBIST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Tokelau">
-				<short>
-					<standard draft="provisional">TKT</standard>
-				</short>
-			</metazone>
-			<metazone type="Tonga">
-				<short>
-					<standard draft="provisional">TOT</standard>
-					<daylight draft="provisional">TOST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Truk">
-				<short>
-					<standard draft="provisional">TRUT</standard>
-				</short>
-			</metazone>
-			<metazone type="Turkey">
-				<short>
-					<standard draft="provisional">TRT</standard>
-					<daylight draft="provisional">TRST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Turkmenistan">
-				<short>
-					<standard draft="provisional">TMT</standard>
-					<daylight draft="provisional">TMST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Tuvalu">
-				<short>
-					<standard draft="provisional">TVT</standard>
-				</short>
-			</metazone>
-			<metazone type="Uralsk">
-				<short>
-					<standard draft="provisional">URAT</standard>
-					<daylight draft="provisional">URAST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Uruguay">
-				<short>
-					<standard draft="provisional">UYT</standard>
-					<daylight draft="provisional">UYST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Urumqi">
-				<short>
-					<standard draft="provisional">URUT</standard>
-				</short>
-			</metazone>
-			<metazone type="Uzbekistan">
-				<short>
-					<standard draft="provisional">UZT</standard>
-					<daylight draft="provisional">UZST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Vanuatu">
-				<short>
-					<standard draft="provisional">VUT</standard>
-					<daylight draft="provisional">VUST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Venezuela">
-				<short>
-					<standard draft="provisional">VET</standard>
-				</short>
-			</metazone>
-			<metazone type="Vladivostok">
-				<short>
-					<standard draft="provisional">VLAT</standard>
-					<daylight draft="provisional">VLAST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Volgograd">
-				<short>
-					<standard draft="provisional">VOLT</standard>
-					<daylight draft="provisional">VOLST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Vostok">
-				<short>
-					<standard draft="provisional">VOST</standard>
-				</short>
-			</metazone>
-			<metazone type="Wake">
-				<short>
-					<standard draft="provisional">WAKT</standard>
-				</short>
-			</metazone>
-			<metazone type="Wallis">
-				<short>
-					<standard draft="provisional">WFT</standard>
-				</short>
-			</metazone>
-			<metazone type="Yakutsk">
-				<short>
-					<standard draft="provisional">YAKT</standard>
-					<daylight draft="provisional">YAKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Yekaterinburg">
-				<short>
-					<standard draft="provisional">YEKT</standard>
-					<daylight draft="provisional">YEKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Yerevan">
-				<short>
-					<standard draft="provisional">YERT</standard>
-					<daylight draft="provisional">YERST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Yukon">
-				<short>
-					<standard draft="provisional">YST</standard>
-					<daylight draft="provisional">YDT</daylight>
-				</short>
-			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
@@ -4533,7 +3421,6 @@
 				<displayName>Ντιράμ Ηνωμένων Αραβικών Εμιράτων</displayName>
 				<displayName count="one">ντιράμ Ηνωμένων Αραβικών Εμιράτων</displayName>
 				<displayName count="other">ντιράμ Ηνωμένων Αραβικών Εμιράτων</displayName>
-				<symbol draft="provisional">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Αφγανί Αφγανιστάν (1927-2002)</displayName>
@@ -4545,7 +3432,6 @@
 				<displayName count="one">αφγάνι Αφγανιστάν</displayName>
 				<displayName count="other">Αφγάνι Αφγανιστάν</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">αφγάνι Αφγανιστάν</displayName>
-				<symbol draft="provisional">Af</symbol>
 			</currency>
 			<currency type="ALK">
 				<displayName count="one" draft="provisional">Παλαιό λεκ Αλβανίας</displayName>
@@ -4555,25 +3441,21 @@
 				<displayName>Λεκ Αλβανίας</displayName>
 				<displayName count="one">λεκ Αλβανίας</displayName>
 				<displayName count="other">λεκ Αλβανίας</displayName>
-				<symbol draft="provisional">ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Ντραμ Αρμενίας</displayName>
 				<displayName count="one">ντραμ Αρμενίας</displayName>
 				<displayName count="other">ντραμ Αρμενίας</displayName>
-				<symbol draft="provisional">AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Γκίλντα Ολλανδικών Αντιλλών</displayName>
 				<displayName count="one">γκίλντα Ολλανδικών Αντιλλών</displayName>
 				<displayName count="other">γκίλντα Ολλανδικών Αντιλλών</displayName>
-				<symbol draft="provisional">NAf.</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>Κουάνζα Ανγκόλας</displayName>
 				<displayName count="one">κουάνζα Ανγκόλας</displayName>
 				<displayName count="other">κουάνζα Ανγκόλας</displayName>
-				<symbol draft="provisional">Kz</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Κουάνζα Ανγκόλας (1977-1990)</displayName>
@@ -4595,17 +3477,14 @@
 				<displayName>Ωστράλ Αργετινής</displayName>
 				<displayName count="one">αουστράλ Αργεντινής</displayName>
 				<displayName count="other">αουστράλ Αργεντινής</displayName>
-				<symbol draft="provisional">₳</symbol>
 			</currency>
 			<currency type="ARL">
 				<displayName count="one" draft="provisional">Πέσο λέι Αργετινής</displayName>
 				<displayName count="other" draft="provisional">Πέσο λέι Αργετινής</displayName>
-				<symbol draft="provisional">$L</symbol>
 			</currency>
 			<currency type="ARM">
 				<displayName count="one" draft="provisional">Πέσο moneda nacional Αργετινής</displayName>
 				<displayName count="other" draft="provisional">Πέσο moneda nacional Αργετινής</displayName>
-				<symbol draft="provisional">m$n</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>Πέσο Αργεντινής (1983-1985)</displayName>
@@ -4616,7 +3495,6 @@
 				<displayName>Πέσο Αργεντινής</displayName>
 				<displayName count="one">πέσο Αργεντινής</displayName>
 				<displayName count="other">πέσο Αργεντινής</displayName>
-				<symbol draft="provisional">AR$</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>Σελίνι Αυστρίας</displayName>
@@ -4627,25 +3505,21 @@
 				<displayName>Δολάριο Αυστραλίας</displayName>
 				<displayName count="one">δολάριο Αυστραλίας</displayName>
 				<displayName count="other">δολάρια Αυστραλίας</displayName>
-				<symbol draft="provisional">AU$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>Γκίλντα Αρούμπα</displayName>
 				<displayName count="one">γκίλντα Αρούμπα</displayName>
 				<displayName count="other">γκίλντα Αρούμπα</displayName>
-				<symbol draft="provisional">Afl.</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>Μανάτ Αζερμπαϊτζάν (1993-2006)</displayName>
 				<displayName count="one">μανάτ Αζερμπαϊτζάν (1993-2006)</displayName>
 				<displayName count="other">μανάτ Αζερμπαϊτζάν (1993-2006)</displayName>
-				<symbol draft="provisional">AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>Μανάτ Αζερμπαϊτζάν</displayName>
 				<displayName count="one">μανάτ Αζερμπαϊτζαν</displayName>
 				<displayName count="other">μανάτ Αζερμπαϊτζαν</displayName>
-				<symbol draft="provisional">man.</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>Δηνάριο Βοσνίας-Ερζεγοβίνης</displayName>
@@ -4657,7 +3531,6 @@
 				<displayName count="one">μάρκο Βοσνίας-Ερζεγοβίνης</displayName>
 				<displayName count="other">μάρκα Βοσνίας-Ερζεγοβίνης</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Μετατρέψιμο μάρκο Βοσνίας-Ερζεγοβίνης</displayName>
-				<symbol draft="provisional">KM</symbol>
 			</currency>
 			<currency type="BAN">
 				<displayName count="one" draft="provisional">Νέο δινάριο Βοσνίας-Ερζεγοβίνης</displayName>
@@ -4667,13 +3540,11 @@
 				<displayName>Δολάριο Μπαρμπάντος</displayName>
 				<displayName count="one">δολάριο Μπαρμπάντος</displayName>
 				<displayName count="other">δολάρια Μπαρμπάντος</displayName>
-				<symbol draft="provisional">Bds$</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>Τάκα Μπαγκλαντές</displayName>
 				<displayName count="one">τάκα Μπαγκλαντές</displayName>
 				<displayName count="other">τάκα Μπαγκλαντές</displayName>
-				<symbol draft="provisional">Tk</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>Φράγκο Βελγίου (μετατρέψιμο)</displayName>
@@ -4684,7 +3555,6 @@
 				<displayName>Φράγκο Βελγίου</displayName>
 				<displayName count="one">φράγκο Βελγίου</displayName>
 				<displayName count="other">φράγκα Βελγίου</displayName>
-				<symbol draft="provisional">BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>Φράγκο Βελγίου (οικονομικό)</displayName>
@@ -4706,7 +3576,6 @@
 				<displayName count="one">νέο λεβ Βουλγαρίας</displayName>
 				<displayName count="other">νέα λεβ Βουλγαρίας</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Λεβ Βουλγαρίας</displayName>
-				<symbol draft="provisional">BGN</symbol>
 			</currency>
 			<currency type="BGO">
 				<displayName count="one" draft="provisional">Παλαιό λεβ Βουλγαρίας</displayName>
@@ -4716,31 +3585,26 @@
 				<displayName>Δηνάριο Μπαχρέιν</displayName>
 				<displayName count="one">δηνάριο Μπαχρέιν</displayName>
 				<displayName count="other">δηνάρια Μπαχρέιν</displayName>
-				<symbol draft="provisional">BD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Φράγκο Μπουρούντι</displayName>
 				<displayName count="one">φράγκο Μπουρούντι</displayName>
 				<displayName count="other">φράγκα Μπουρούντι</displayName>
-				<symbol draft="provisional">FBu</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Δολάριο Βερμούδων</displayName>
 				<displayName count="one">δολάριο Βερμούδων</displayName>
 				<displayName count="other">δολάρια Βερμούδων</displayName>
-				<symbol draft="provisional">BD$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>Δολάριο Μπρουνέι</displayName>
 				<displayName count="one">δολάριο Μπρουνέι</displayName>
 				<displayName count="other">δολάρια Μπρουνέι</displayName>
-				<symbol draft="provisional">BN$</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Μπολιβιάνο Βολιβίας</displayName>
 				<displayName count="one">μπολιβιάνο Βολιβίας</displayName>
 				<displayName count="other">μπολιβιάνο Βολιβίας</displayName>
-				<symbol draft="provisional">Bs</symbol>
 			</currency>
 			<currency type="BOL">
 				<displayName count="one" draft="provisional">Παλαιό βολιβιάνο Βολιβίας</displayName>
@@ -4750,7 +3614,6 @@
 				<displayName>Πέσο Βολιβίας</displayName>
 				<displayName count="one">πέσο Βολιβίας</displayName>
 				<displayName count="other">πέσο Βολιβίας</displayName>
-				<symbol draft="provisional">$b.</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>Μβδολ Βολιβίας</displayName>
@@ -4777,7 +3640,6 @@
 				<displayName>Ρεάλ Βραζιλίας</displayName>
 				<displayName count="one">ρεάλ Βραζιλίας</displayName>
 				<displayName count="other">ρεάλ Βραζιλίας</displayName>
-				<symbol draft="provisional">R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Νέο Κρουζάντο Βραζιλίας</displayName>
@@ -4798,13 +3660,11 @@
 				<displayName>Δολάριο Μπαχάμες</displayName>
 				<displayName count="one">δολάριο Μπαχάμες</displayName>
 				<displayName count="other">δολάρια Μπαχάμες</displayName>
-				<symbol draft="provisional">BS$</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Νγκούλτρουμ Μπουτάν</displayName>
 				<displayName count="one">νγκούλτρουμ Μπουτάν</displayName>
 				<displayName count="other">νγκούλτρουμ Μπουτάν</displayName>
-				<symbol draft="provisional">Nu.</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>Κιατ Βιρμανίας</displayName>
@@ -4815,7 +3675,6 @@
 				<displayName>Πούλα Μποτσουάνας</displayName>
 				<displayName count="one">πούλα Μποτσουάνας</displayName>
 				<displayName count="other">πούλα Μποτσουάνας</displayName>
-				<symbol draft="provisional">BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Νέο Ρούβλι Λευκορωσίας (1994-1999)</displayName>
@@ -4827,25 +3686,21 @@
 				<displayName>Ρούβλι Λευκορωσίας</displayName>
 				<displayName count="one">ρούβλι Λευκορωσίας</displayName>
 				<displayName count="other">ρούβλια Λευκορωσίας</displayName>
-				<symbol draft="provisional">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>Δολάριο Μπελίζ</displayName>
 				<displayName count="one">δολάριο Μπελίζ</displayName>
 				<displayName count="other">δολάρια Μπελίζ</displayName>
-				<symbol draft="provisional">BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Δολάριο Καναδά</displayName>
 				<displayName count="one">δολάριο Καναδά</displayName>
 				<displayName count="other">δολάρια Καναδά</displayName>
-				<symbol draft="provisional">CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>Φράγκο Κονγκό</displayName>
 				<displayName count="one">φράγκο Κονγκό</displayName>
 				<displayName count="other">φράγκα Κονγκό</displayName>
-				<symbol draft="provisional">CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>Ευρώ WIR</displayName>
@@ -4856,7 +3711,6 @@
 				<displayName>Φράγκο Ελβετίας</displayName>
 				<displayName count="one">φράγκο Ελβετίας</displayName>
 				<displayName count="other">φράγκα Ελβετίας</displayName>
-				<symbol draft="provisional">Fr.</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>Φράγκο WIR</displayName>
@@ -4866,7 +3720,6 @@
 			<currency type="CLE">
 				<displayName count="one" draft="provisional">Εσκούδο Χιλής</displayName>
 				<displayName count="other" draft="provisional">Εσκούδο Χιλής</displayName>
-				<symbol draft="provisional">Eº</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>Unidades de Fomento Χιλής</displayName>
@@ -4877,7 +3730,6 @@
 				<displayName>Πέσο Χιλής</displayName>
 				<displayName count="one">πέσο Χιλής</displayName>
 				<displayName count="other">πέσο Χιλής</displayName>
-				<symbol draft="provisional">CL$</symbol>
 			</currency>
 			<currency type="CNX">
 				<displayName count="one" draft="provisional">Δολάριο Λαϊκής Τράπεζας Κίνας</displayName>
@@ -4888,13 +3740,11 @@
 				<displayName count="one">γιουάν Κίνας</displayName>
 				<displayName count="other">γιουάν Κίνας</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Γιουάν ρενμίμπι Κίνας</displayName>
-				<symbol draft="provisional">CN¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Πέσο Κολομβίας</displayName>
 				<displayName count="one">πέσο Κολομβίας</displayName>
 				<displayName count="other">πέσο Κολομβίας</displayName>
-				<symbol draft="provisional">CO$</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>unidad de valor real</displayName>
@@ -4906,7 +3756,6 @@
 				<displayName>Κολόν Κόστα Ρίκα</displayName>
 				<displayName count="one">κολόν Κόστα Ρίκα</displayName>
 				<displayName count="other">κολόν Κόστα Ρίκα</displayName>
-				<symbol draft="provisional">₡</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>Παλαιό Δηνάριο Σερβίας</displayName>
@@ -4924,31 +3773,26 @@
 				<displayName draft="provisional">Μετατρέψιμο πέσο Κούβας</displayName>
 				<displayName count="one" draft="provisional">Μετατρέψιμο πέσο Κούβας</displayName>
 				<displayName count="other" draft="provisional">Μετατρέψιμα πέσο Κούβας</displayName>
-				<symbol draft="provisional">CUC$</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Πέσο Κούβας</displayName>
 				<displayName count="one">πέσο Κούβας</displayName>
 				<displayName count="other">πέσο Κούβας</displayName>
-				<symbol draft="provisional">CU$</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Εσκούδο Πράσινου Ακρωτηρίου</displayName>
 				<displayName count="one">εσκούδο Πράσινου Ακρωτηρίου</displayName>
 				<displayName count="other">εσκούδο Πράσινου Ακρωτηρίου</displayName>
-				<symbol draft="provisional">CV$</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>Λίρα Κύπρου</displayName>
 				<displayName count="one">λίρα Κύπρου</displayName>
 				<displayName count="other">λίρες Κύπρου</displayName>
-				<symbol draft="provisional">CY£</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>Κορόνα Τσέχικης Δημοκρατίας</displayName>
 				<displayName count="one">κορόνα Τσέχικης Δημοκρατίας</displayName>
 				<displayName count="other">κορόνες Τσέχικης Δημοκρατίας</displayName>
-				<symbol draft="provisional">Kč</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Οστμάρκ Ανατολικής Γερμανίας</displayName>
@@ -4959,31 +3803,26 @@
 				<displayName>Μάρκο Γερμανίας</displayName>
 				<displayName count="one">μάρκο Γερμανίας</displayName>
 				<displayName count="other">μάρκα Γερμανίας</displayName>
-				<symbol draft="provisional">DM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Φράγκο Τζιμπουτί</displayName>
 				<displayName count="one">φράγκο Τζιμπουτί</displayName>
 				<displayName count="other">φράγκα Τζιμπουτί</displayName>
-				<symbol draft="provisional">Fdj</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>Κορόνα Δανίας</displayName>
 				<displayName count="one">κορόνα Δανίας</displayName>
 				<displayName count="other">κορόνες Δανίας</displayName>
-				<symbol draft="provisional">Dkr</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Πέσο Δομίνικου</displayName>
 				<displayName count="one">πέσο Δομίνικου</displayName>
 				<displayName count="other">πέσο Δομινικανής Δημοκρατίας</displayName>
-				<symbol draft="provisional">RD$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Δηνάριο Αλγερίας</displayName>
 				<displayName count="one">δηνάριο Αλγερίας</displayName>
 				<displayName count="other">δηνάρια Αλγερίας</displayName>
-				<symbol draft="provisional">DA</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>Σούκρε Εκουαδόρ</displayName>
@@ -4999,19 +3838,16 @@
 				<displayName>Κορόνα Εσθονίας</displayName>
 				<displayName count="one">κορόνα Εσθονίας</displayName>
 				<displayName count="other">κορόνες Εσθονίας</displayName>
-				<symbol draft="provisional">Ekr</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Λίρα Αιγύπτου</displayName>
 				<displayName count="one">λίρα Αιγύπτου</displayName>
 				<displayName count="other">λίρες Αιγύπτου</displayName>
-				<symbol draft="provisional">EG£</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Νάκφα Ερυθραίας</displayName>
 				<displayName count="one">νάκφα Ερυθραίας</displayName>
 				<displayName count="other">νάκφα Ερυθραίας</displayName>
-				<symbol draft="provisional">Nfk</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>πεσέτα Ισπανίας (λογαριασμός Α)</displayName>
@@ -5029,50 +3865,42 @@
 				<displayName>Πεσέτα Ισπανίας</displayName>
 				<displayName count="one">πεσέτα Ισπανίας</displayName>
 				<displayName count="other">πεσέτες Ισπανίας</displayName>
-				<symbol draft="provisional">Pts</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>Μπιρ Αιθιοπίας</displayName>
 				<displayName count="one">μπιρ Αιθιοπίας</displayName>
 				<displayName count="other">μπιρ Αιθιοπίας</displayName>
-				<symbol draft="provisional">Br</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Ευρώ</displayName>
 				<displayName count="one">ευρώ</displayName>
 				<displayName count="other">ευρώ</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Μάρκο Φινλανδίας</displayName>
 				<displayName count="one">μάρκο Φινλανδίας</displayName>
 				<displayName count="other">μάρκα Φινλανδίας</displayName>
-				<symbol draft="provisional">mk</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>Δολάριο Φίτζι</displayName>
 				<displayName count="one">δολάριο Φίτζι</displayName>
 				<displayName count="other">δολάρια Φίτζι</displayName>
-				<symbol draft="provisional">FJ$</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Λίρα Νησιών Φώλκλαντ</displayName>
 				<displayName count="one">λίρα Νησιών Φώλκλαντ</displayName>
 				<displayName count="other">λίρες Νησιών Φώλκλαντ</displayName>
-				<symbol draft="provisional">FK£</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Φράγκο Γαλλίας</displayName>
 				<displayName count="one">φράγκο Γαλλίας</displayName>
 				<displayName count="other">φράγκα Γαλλίας</displayName>
-				<symbol draft="provisional">₣</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Λίρα Στερλίνα Βρετανίας</displayName>
 				<displayName count="one">λίρα στερλίνα Βρετανίας</displayName>
 				<displayName count="other">λίρες στερλίνες Βρετανίας</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Λίρα στερλίνα Βρετανίας</displayName>
-				<symbol draft="provisional">£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Κούπον Λάρι Γεωργίας</displayName>
@@ -5084,37 +3912,31 @@
 				<displayName>Λάρι Γεωργίας</displayName>
 				<displayName count="one">λάρι Γεωργίας</displayName>
 				<displayName count="other">λάρι Γεωργίας</displayName>
-				<symbol draft="provisional">GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>Σέντι Γκάνας (1979-2007)</displayName>
 				<displayName count="one">σέντι Γκάνας (GHC)</displayName>
 				<displayName count="other">σέντι Γκάνας (GHC)</displayName>
-				<symbol draft="provisional">₵</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>Σέντι Γκάνας</displayName>
 				<displayName count="one">σέντι Γκάνας</displayName>
 				<displayName count="other">σέντι Γκανά</displayName>
-				<symbol draft="provisional">GH₵</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Λίρα Γιβραλτάρ</displayName>
 				<displayName count="one">λίρα Γιβραλτάρ</displayName>
 				<displayName count="other">λίρες Γιβραλτάρ</displayName>
-				<symbol draft="provisional">GI£</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Νταλάσι Γκάμπιας</displayName>
 				<displayName count="one">νταλάσι Γκάμπιας</displayName>
 				<displayName count="other">νταλάσι Γκάμπιας</displayName>
-				<symbol draft="provisional">GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Φράγκο Γουινέας</displayName>
 				<displayName count="one">φράγκο Γουινέας</displayName>
 				<displayName count="other">φράγκα Γουινέας</displayName>
-				<symbol draft="provisional">FG</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>Συλί Γουινέας</displayName>
@@ -5139,7 +3961,6 @@
 				<displayName>Κουετσάλ Γουατεμάλας</displayName>
 				<displayName count="one">κουετσάλ Γουατεμάλας</displayName>
 				<displayName count="other">κουετσάλ Γουατεμάλας</displayName>
-				<symbol draft="provisional">GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>Γκινέα Εσκούδο Πορτογαλίας</displayName>
@@ -5156,19 +3977,16 @@
 				<displayName>Δολάριο Γουιάνας</displayName>
 				<displayName count="one">δολάριο Γουιάνας</displayName>
 				<displayName count="other">δολάρια Γουιάνας</displayName>
-				<symbol draft="provisional">GY$</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>Δολάριο Χονγκ Κονγκ</displayName>
 				<displayName count="one">δολάριο Χονγκ Κονγκ</displayName>
 				<displayName count="other">δολάρια Χονγκ Κονγκ</displayName>
-				<symbol draft="provisional">HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Λεμπίρα Ονδούρας</displayName>
 				<displayName count="one">λεμπίρα Ονδούρας</displayName>
 				<displayName count="other">λεμπίρα Ονδούρας</displayName>
-				<symbol draft="provisional">HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>Δηνάριο Κροατίας</displayName>
@@ -5179,37 +3997,31 @@
 				<displayName>Κούνα Κροατίας</displayName>
 				<displayName count="one">κούνα Κροατίας</displayName>
 				<displayName count="other">κούνα Κροατίας</displayName>
-				<symbol draft="provisional">kn</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Γκουρντ Αϊτής</displayName>
 				<displayName count="one">γκουρντ Αϊτής</displayName>
 				<displayName count="other">γκουρντ Αϊτής</displayName>
-				<symbol draft="provisional">HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Φιορίνι Ουγγαρίας</displayName>
 				<displayName count="one">φιορίνι Ουγγαρίας</displayName>
 				<displayName count="other">φιορίνια Ουγγαρίας</displayName>
-				<symbol draft="provisional">Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Ρούπια Ινδονησίας</displayName>
 				<displayName count="one">ρούπι Ινδονησίας</displayName>
 				<displayName count="other">ρούπια Ινδονησίας</displayName>
-				<symbol draft="provisional">Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Λίρα Ιρλανδίας</displayName>
 				<displayName count="one">λίρα Ιρλανδίας</displayName>
 				<displayName count="other">λίρες Ιρλανδίας</displayName>
-				<symbol draft="provisional">IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>Λίρα Ισραήλ</displayName>
 				<displayName count="one">λίρα Ισραήλ</displayName>
 				<displayName count="other">λίρες Ισραήλ</displayName>
-				<symbol draft="provisional">I£</symbol>
 			</currency>
 			<currency type="ILR">
 				<displayName>παλιό σεκέλ Ισραήλ</displayName>
@@ -5222,25 +4034,21 @@
 				<displayName count="one">νέο σέκελ Ισραήλ</displayName>
 				<displayName count="other">νέα σέκελ Ισραήλ</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Νέο σέκελ Ισραήλ</displayName>
-				<symbol draft="provisional">₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Ρούπια Ινδίας</displayName>
 				<displayName count="one">ρούπι Ινδίας</displayName>
 				<displayName count="other">ρούπια Ινδίας</displayName>
-				<symbol draft="provisional">Rs</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Δηνάριο Ιράκ</displayName>
 				<displayName count="one">δηνάριο Ιράκ</displayName>
 				<displayName count="other">δηνάρια Ιράκ</displayName>
-				<symbol draft="provisional">IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>Ριάλ Ιράν</displayName>
 				<displayName count="one">ριάλ Ιράν</displayName>
 				<displayName count="other">ριάλ Ιράν</displayName>
-				<symbol draft="provisional">IRR</symbol>
 			</currency>
 			<currency type="ISJ">
 				<displayName>Παλιά κορόνα Ισλανδίας</displayName>
@@ -5253,61 +4061,51 @@
 				<displayName>Κορόνα Ισλανδίας</displayName>
 				<displayName count="one">κορόνα Ισλανδίας</displayName>
 				<displayName count="other">κορόνες Ισλανδίας</displayName>
-				<symbol draft="provisional">Ikr</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Λιρέτα Ιταλίας</displayName>
 				<displayName count="one">λιρέτα Ιταλίας</displayName>
 				<displayName count="other">λιρέτες Ιταλίας</displayName>
-				<symbol draft="provisional">IT₤</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>Δολάριο Τζαμάικας</displayName>
 				<displayName count="one">δολάριο Τζαμάικας</displayName>
 				<displayName count="other">δολάρια Τζαμάικας</displayName>
-				<symbol draft="provisional">J$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Δηνάριο Ιορδανίας</displayName>
 				<displayName count="one">δηνάριο Ιορδανίας</displayName>
 				<displayName count="other">δηνάρια Ιορδανίας</displayName>
-				<symbol draft="provisional">JD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Γιεν Ιαπωνίας</displayName>
 				<displayName count="one">γιεν Ιαπωνίας</displayName>
 				<displayName count="other">γιεν Ιαπωνίας</displayName>
-				<symbol draft="provisional">JP¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Σελίνι Κένυας</displayName>
 				<displayName count="one">σελίνι Κένυας</displayName>
 				<displayName count="other">σελίνια Κένυας</displayName>
-				<symbol draft="provisional">Ksh</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>Σομ Κιργιζίας</displayName>
 				<displayName count="one">σομ Κιργιστάν</displayName>
 				<displayName count="other">σομ Κιργιστάν</displayName>
-				<symbol draft="provisional">KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Ρίελ Καμπότζης</displayName>
 				<displayName count="one">ρίελ Καμπότζης</displayName>
 				<displayName count="other">ρίελ Καμπότζης</displayName>
-				<symbol draft="provisional">KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Φράγκο Κομόρος</displayName>
 				<displayName count="one">φράγκο Κομόρος</displayName>
 				<displayName count="other">φράγκα Κομόρο</displayName>
-				<symbol draft="provisional">CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Γον Βόρειας Κορέας</displayName>
 				<displayName count="one">γουόν Βόρειας Κορέας</displayName>
 				<displayName count="other">γουόν Βόρειας Κορέας</displayName>
-				<symbol draft="provisional">KPW</symbol>
 			</currency>
 			<currency type="KRO">
 				<displayName count="one" draft="provisional">Παλιό γον Νότιας Κορέας</displayName>
@@ -5319,61 +4117,51 @@
 				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">γον Νότιας Κορέας</displayName>
 				<displayName count="other">γουόν Νότιας Κορέας</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">γον Νότιας Κορέας</displayName>
-				<symbol draft="provisional">₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Δηνάριο Κουβέιτ</displayName>
 				<displayName count="one">δηνάριο Κουβέιτ</displayName>
 				<displayName count="other">δηνάρια Κουβέιτ</displayName>
-				<symbol draft="provisional">KD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Δολάριο Νήσων Κάιμαν</displayName>
 				<displayName count="one">δολάριο Νήσων Κάιμαν</displayName>
 				<displayName count="other">δολάρια Νήσων Κάιμαν</displayName>
-				<symbol draft="provisional">KY$</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Τένγκε Καζακστάν</displayName>
 				<displayName count="one">τένγκε Καζακστάν</displayName>
 				<displayName count="other">τένγκε Καζακστάν</displayName>
-				<symbol draft="provisional">KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Κιπ Λάος</displayName>
 				<displayName count="one">κιπ Λάος</displayName>
 				<displayName count="other">κιπ Λάος</displayName>
-				<symbol draft="provisional">₭</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Λίρα Λιβάνου</displayName>
 				<displayName count="one">λίρα Λιβάνου</displayName>
 				<displayName count="other">λίρες Λιβάνου</displayName>
-				<symbol draft="provisional">LB£</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>Ρούπια Σρι Λάνκα</displayName>
 				<displayName count="one">ρούπι Σρι Λάνκα</displayName>
 				<displayName count="other">ρούπια Σρι Λάνκα</displayName>
-				<symbol draft="provisional">SLRs</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>Δολάριο Λιβερίας</displayName>
 				<displayName count="one">δολάριο Λιβερίας</displayName>
 				<displayName count="other">δολάρια Λιβερίας</displayName>
-				<symbol draft="provisional">L$</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Λότι Λεσότο</displayName>
 				<displayName count="one">λότι Λεσόθο</displayName>
 				<displayName count="other">λότι Λεσόθο</displayName>
-				<symbol draft="provisional">LSL</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>Λίτα Λιθουανίας</displayName>
 				<displayName count="one">λίτα Λιθουανίας</displayName>
 				<displayName count="other">λίτα Λιθουανίας</displayName>
-				<symbol draft="provisional">Lt</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Ταλόνας Λιθουανίας</displayName>
@@ -5405,7 +4193,6 @@
 				<displayName>Λατς Λετονίας</displayName>
 				<displayName count="one">λατς Λετονίας</displayName>
 				<displayName count="other">λατς Λετονίας</displayName>
-				<symbol draft="provisional">Ls</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Ρούβλι Λετονίας</displayName>
@@ -5416,13 +4203,11 @@
 				<displayName>Δηνάριο Λιβύης</displayName>
 				<displayName count="one">δηνάριο Λιβύης</displayName>
 				<displayName count="other">δηνάρια Λιβύης</displayName>
-				<symbol draft="provisional">LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Ντιράμ Μαρόκου</displayName>
 				<displayName count="one">ντιράμ Μαρόκου</displayName>
 				<displayName count="other">ντιράμ Μαρόκου</displayName>
-				<symbol draft="provisional">MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Φράγκο Μαρόκου</displayName>
@@ -5441,13 +4226,11 @@
 				<displayName>Λέι Μολδαβίας</displayName>
 				<displayName count="one">λέι Μολδαβίας</displayName>
 				<displayName count="other">λέι Μολδαβίας</displayName>
-				<symbol draft="provisional">MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Αριανί Μαδαγασκάρης</displayName>
 				<displayName count="one">αριάρι Μαδαγασκάρης</displayName>
 				<displayName count="other">αριάρι Μαδαγασκάρης</displayName>
-				<symbol draft="provisional">MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Φράγκο Μαδαγασκάρης</displayName>
@@ -5458,7 +4241,6 @@
 				<displayName>Δηνάριο Π.Γ.Δ.Μ.</displayName>
 				<displayName count="one">δηνάριο Π.Γ.Δ.Μ.</displayName>
 				<displayName count="other">δηνάρια Π.Γ.Δ.Μ.</displayName>
-				<symbol draft="provisional">MKD</symbol>
 			</currency>
 			<currency type="MKN">
 				<displayName count="one" draft="provisional">Παλιό δηνάριο ΠΓΔΜ</displayName>
@@ -5473,68 +4255,57 @@
 				<displayName>Κυάτ Μιανμάρ</displayName>
 				<displayName count="one">κυάτ Μιανμάρ</displayName>
 				<displayName count="other">κυάτ Μιανμάρ</displayName>
-				<symbol draft="provisional">MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Τουγκρίκ Μογγολίας</displayName>
 				<displayName count="one">τουγκρίκ Μογγολίας</displayName>
 				<displayName count="other">τουγκρίκ Μογγολίας</displayName>
-				<symbol draft="provisional">₮</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>Πατάκα Μακάο</displayName>
 				<displayName count="one">πατάκα Μακάο</displayName>
 				<displayName count="other">πατάκα Μακάο</displayName>
-				<symbol draft="provisional">MOP$</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Ουγκουίγκα Μαυριτανίας</displayName>
 				<displayName count="one">ουγκουίγκα Μαυριτανίας</displayName>
 				<displayName count="other">ουγκουίγκα Μαυριτανίας</displayName>
-				<symbol draft="provisional">UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Λιρέτα Μάλτας</displayName>
 				<displayName count="one">λιρέτα Μάλτας</displayName>
 				<displayName count="other">λιρέτες Μάλτας</displayName>
-				<symbol draft="provisional">Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>Λίρα Μάλτας</displayName>
 				<displayName count="one">λίρα Μάλτας</displayName>
 				<displayName count="other">λίρες Μάλτας</displayName>
-				<symbol draft="provisional">MT£</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Ρούπια Μαυρικίου</displayName>
 				<displayName count="one">ρούπι Μαυρικίου</displayName>
 				<displayName count="other">ρούπια Μαυρικίου</displayName>
-				<symbol draft="provisional">MURs</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Ρουφίγια Νήσων Μαλδίβων</displayName>
 				<displayName count="one">ρουφίγια Νήσων Μαλδίβων</displayName>
 				<displayName count="other">ρουφίγια Νήσων Μαλδίβων</displayName>
-				<symbol draft="provisional">MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Κουάτσα Μαλάουι</displayName>
 				<displayName count="one">κουάτσα Μαλάουι</displayName>
 				<displayName count="other">κουάτσα Μαλάουι</displayName>
-				<symbol draft="provisional">MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Πέσο Μεξικού</displayName>
 				<displayName count="one">πέσο Μεξικού</displayName>
 				<displayName count="other">πέσο Μεξικού</displayName>
-				<symbol draft="provisional">MXN</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>Ασημένιο Πέσο Μεξικού (1861-1992)</displayName>
 				<displayName count="one">ασημένιο πέσο Μεξικού (MXP)</displayName>
 				<displayName count="other">ασημένια πέσο Μεξικού (MXP)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Ασημένιο πέσο Μεξικού (1861-1992)</displayName>
-				<symbol draft="provisional">MX$</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName>Unidad de Inversion (UDI) Μεξικού</displayName>
@@ -5545,7 +4316,6 @@
 				<displayName>Ρινγκίτ Μαλαισίας</displayName>
 				<displayName count="one">ρινγκίτ Μαλαισίας</displayName>
 				<displayName count="other">ρινγκίτ Μαλαισίας</displayName>
-				<symbol draft="provisional">RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Εσκούδο Μοζαμβίκης</displayName>
@@ -5557,25 +4327,21 @@
 				<displayName count="one">παλιό μετικάλ Μοζαμβίκης</displayName>
 				<displayName count="other">παλιά μετικάλ Μοζαμβίκης</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Παλαιό μετικάλ Μοζαμβίκης</displayName>
-				<symbol draft="provisional">Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>Μετικάλ Μοζαμβίκης</displayName>
 				<displayName count="one">μετικάλ Μοζαμβίκης</displayName>
 				<displayName count="other">μετικάλ Μοζαμβίκης</displayName>
-				<symbol draft="provisional">MTn</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Δολάριο Ναμίμπια</displayName>
 				<displayName count="one">δολάριο Ναμίμπια</displayName>
 				<displayName count="other">δολάρια Ναμίμπια</displayName>
-				<symbol draft="provisional">N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Νάιρα Νιγηρίας</displayName>
 				<displayName count="one">νάιρα Νιγηρίας</displayName>
 				<displayName count="other">νάιρα Νιγηρίας</displayName>
-				<symbol draft="provisional">₦</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>Κόρδοβα Νικαράγουας</displayName>
@@ -5587,56 +4353,47 @@
 				<displayName count="one">χρυσή κόρδοβα Νικαράγουας</displayName>
 				<displayName count="other">χρυσές κόρδοβα Νικαράγουας</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Χρυσή κόρδοβα Νικαράγουας</displayName>
-				<symbol draft="provisional">C$</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Γκίλντα Ολλανδίας</displayName>
 				<displayName count="one">γκίλντα Ολλανδίας</displayName>
 				<displayName count="other">γκίλντα Ολλανδίας</displayName>
-				<symbol draft="provisional">fl</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Κορόνα Νορβηγίας</displayName>
 				<displayName count="one">κορόνα Νορβηγίας</displayName>
 				<displayName count="other">κορόνες Νορβηγίας</displayName>
-				<symbol draft="provisional">Nkr</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>Ρούπια Νεπάλ</displayName>
 				<displayName count="one">ρούπι Νεπάλ</displayName>
 				<displayName count="other">ρούπια Νεπάλ</displayName>
-				<symbol draft="provisional">NPRs</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>Δολάριο Νέας Ζηλανδίας</displayName>
 				<displayName count="one">δολάριο Νέας Ζηλανδίας</displayName>
 				<displayName count="other">δολάρια Νέας Ζηλανδίας</displayName>
-				<symbol draft="provisional">NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>Ριάλ Ομάν</displayName>
 				<displayName count="one">ριάλ Ομάν</displayName>
 				<displayName count="other">ριάλ Ομάν</displayName>
-				<symbol draft="provisional">OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>Μπαλμπόα Παναμά</displayName>
 				<displayName count="one">μπαλμπόα Παναμά</displayName>
 				<displayName count="other">μπαλμπόα Παναμά</displayName>
-				<symbol draft="provisional">B/.</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>Ίντι Περού</displayName>
 				<displayName count="one">ίντι Περού</displayName>
 				<displayName count="other">ίντι Περού</displayName>
-				<symbol draft="provisional">I/.</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Νέο Σολ Περού</displayName>
 				<displayName count="one">νέο σολ Περού</displayName>
 				<displayName count="other">νέα Σολ Περού</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Νέο σολ Περού</displayName>
-				<symbol draft="provisional">S/.</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>Σολ Περού</displayName>
@@ -5647,25 +4404,21 @@
 				<displayName>Κίνα Παπούα Νέα Γουινέα</displayName>
 				<displayName count="one">κίνα Παπούα Νέα Γουινέα</displayName>
 				<displayName count="other">κίνα Παπούα Νέα Γουινέα</displayName>
-				<symbol draft="provisional">PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Πέσο Φιλιππίνων</displayName>
 				<displayName count="one">πέσο Φιλιππίνων</displayName>
 				<displayName count="other">πέσο Φιλιππίνων</displayName>
-				<symbol draft="provisional">₱</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Ρούπια Πακιστάν</displayName>
 				<displayName count="one">ρούπι Πακιστάν</displayName>
 				<displayName count="other">ρούπια Πακιστάν</displayName>
-				<symbol draft="provisional">PKRs</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Ζλότυ Πολωνίας</displayName>
 				<displayName count="one">ζλότυ Πολωνίας</displayName>
 				<displayName count="other">ζλότυ Πολωνίας</displayName>
-				<symbol draft="provisional">zł</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>Ζλότυ Πολωνίας (1950-1995)</displayName>
@@ -5676,49 +4429,41 @@
 				<displayName>Εσκούδο Πορτογαλίας</displayName>
 				<displayName count="one">εσκούδο Πορτογαλίας</displayName>
 				<displayName count="other">εσκούδο Πορτογαλίας</displayName>
-				<symbol draft="provisional">Esc</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>Γκουαρανί Παραγουάης</displayName>
 				<displayName count="one">γκουαρανί Παραγουάης</displayName>
 				<displayName count="other">γκουαρανί Παραγουάης</displayName>
-				<symbol draft="provisional">₲</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Ριάλ Κατάρ</displayName>
 				<displayName count="one">ριάλ Κατάρ</displayName>
 				<displayName count="other">ριάλ Κατάρ</displayName>
-				<symbol draft="provisional">QR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>Δολάριο Ροδεσίας</displayName>
 				<displayName count="one">δολάριο Ροδεσίας</displayName>
 				<displayName count="other">δολάρια Ροδεσίας</displayName>
-				<symbol draft="provisional">RH$</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>Λέι Ρουμανίας</displayName>
 				<displayName count="one">παλιό λέι Ρουμανίας</displayName>
 				<displayName count="other">παλιά λέι Ρουμανίας</displayName>
-				<symbol draft="provisional">ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>Λεβ Ρουμανίας</displayName>
 				<displayName count="one">λεβ Ρουμανίας</displayName>
 				<displayName count="other">λεβ Ρουμανίας</displayName>
-				<symbol draft="provisional">RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Δηνάριο Σερβίας</displayName>
 				<displayName count="one">δηνάριο Σερβίας</displayName>
 				<displayName count="other">δηνάρια Σερβίας</displayName>
-				<symbol draft="provisional">din.</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Ρούβλι Ρωσίας</displayName>
 				<displayName count="one">ρούβλι Ρωσίας</displayName>
 				<displayName count="other">ρούβλια Ρωσίας</displayName>
-				<symbol draft="provisional">RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Ρούβλι Ρωσίας (1991-1998)</displayName>
@@ -5729,37 +4474,31 @@
 				<displayName>Φράγκο Ρουάντας</displayName>
 				<displayName count="one">φράγκο Ρουάντας</displayName>
 				<displayName count="other">φράγκα Ρουάντας</displayName>
-				<symbol draft="provisional">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Ριάλ Σαουδικής Αραβίας</displayName>
 				<displayName count="one">ριάλ Σαουδικής Αραβίας</displayName>
 				<displayName count="other">ριάλ Σαουδικής Αραβίας</displayName>
-				<symbol draft="provisional">SR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Δολάριο Νήσων Σολομώντος</displayName>
 				<displayName count="one">δολάριο Νήσων Σολομώντος</displayName>
 				<displayName count="other">δολάρια Νήσων Σολομώντος</displayName>
-				<symbol draft="provisional">SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Ρούπια Σεϋχέλες</displayName>
 				<displayName count="one">ρούπι Σεϋχέλες</displayName>
 				<displayName count="other">ρούπια Σεϋχέλες</displayName>
-				<symbol draft="provisional">SRe</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>Δηνάριο Σουδάν</displayName>
 				<displayName count="one">δηνάριο Σουδάν</displayName>
 				<displayName count="other">δηνάρια Σουδάν</displayName>
-				<symbol draft="provisional">LSd</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>Λίρα Σουδάν</displayName>
 				<displayName count="one">λίρα Σουδάν</displayName>
 				<displayName count="other">λίρες Σουδάν</displayName>
-				<symbol draft="provisional">SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Παλαιά Λίρα Σουδάν</displayName>
@@ -5771,19 +4510,16 @@
 				<displayName>Κορόνα Σουηδίας</displayName>
 				<displayName count="one">κορόνα Σουηδίας</displayName>
 				<displayName count="other">κορόνες Σουηδίας</displayName>
-				<symbol draft="provisional">Skr</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Δολάριο Σιγκαπούρης</displayName>
 				<displayName count="one">δολάριο Σιγκαπούρης</displayName>
 				<displayName count="other">δολάρια Σιγκαπούρης</displayName>
-				<symbol draft="provisional">S$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Λίρα Αγίας Ελένης</displayName>
 				<displayName count="one">λίρα Αγίας Ελένης</displayName>
 				<displayName count="other">λίρες Αγίας Ελένης</displayName>
-				<symbol draft="provisional">SH£</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Τόλαρ Σλοβενίας</displayName>
@@ -5794,37 +4530,31 @@
 				<displayName>Κορόνα Σλοβενίας</displayName>
 				<displayName count="one">κορόνα Σλοβενίας</displayName>
 				<displayName count="other">κορόνες Σλοβενίας</displayName>
-				<symbol draft="provisional">Sk</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Λεόνε Σιέρα Λεόνε</displayName>
 				<displayName count="one">λεόνε Σιέρα Λεόνε</displayName>
 				<displayName count="other">λεόνε Σιέρα Λεόνε</displayName>
-				<symbol draft="provisional">Le</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Σελίνι Σομαλίας</displayName>
 				<displayName count="one">σελίνι Σομαλίας</displayName>
 				<displayName count="other">σελίνια Σομαλίας</displayName>
-				<symbol draft="provisional">Ssh</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>Δολάριο Σουρινάμ</displayName>
 				<displayName count="one">δολάριο Σουρινάμ</displayName>
 				<displayName count="other">δολάρια Σουρινάμ</displayName>
-				<symbol draft="provisional">SR$</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>Γκίλντα Σουρινάμ</displayName>
 				<displayName count="one">γκίλντα Σουρινάμ</displayName>
 				<displayName count="other">γκίλντα Σουρινάμ</displayName>
-				<symbol draft="provisional">Sf</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Ντόμπρα Σάο Τομέ και Πρίνσιπε</displayName>
 				<displayName count="one">ντόμπρα Σάο Τόμε και Πρίνσιπε</displayName>
 				<displayName count="other">ντόμπρα Σάο Τόμε και Πρίνσιπε</displayName>
-				<symbol draft="provisional">Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Σοβιετικό Ρούβλι</displayName>
@@ -5835,25 +4565,21 @@
 				<displayName>Κολόν Ελ Σαλβαδόρ</displayName>
 				<displayName count="one">κολόν Ελ Σαλβαδόρ</displayName>
 				<displayName count="other">κολόν Ελ Σαλβαδόρ</displayName>
-				<symbol draft="provisional">SV₡</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Λίρα Συρίας</displayName>
 				<displayName count="one">λίρα Συρίας</displayName>
 				<displayName count="other">λίρες Συρίας</displayName>
-				<symbol draft="provisional">SY£</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>Λιλανγκένι Σουαζιλάνδη</displayName>
 				<displayName count="one">λιλανγκένι Σουαζιλάνδη</displayName>
 				<displayName count="other">λιλανγκένι Σουαζιλάνδη</displayName>
-				<symbol draft="provisional">SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>Μπατ Ταϊλάνδης</displayName>
 				<displayName count="one">μπατ Ταϊλάνδης</displayName>
 				<displayName count="other">μπατ Ταϊλάνδης</displayName>
-				<symbol draft="provisional">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Ρούβλι Τατζικιστάν</displayName>
@@ -5864,31 +4590,26 @@
 				<displayName>Σομόν Τατζικιστάν</displayName>
 				<displayName count="one">σομόν Τατζικιστάν</displayName>
 				<displayName count="other">σομόν Τατζικιστάν</displayName>
-				<symbol draft="provisional">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>Μανάτ Τουρκμενιστάν</displayName>
 				<displayName count="one">μανάτ Τουρκμενιστάν</displayName>
 				<displayName count="other">μανάτ Τουρκμενιστάν</displayName>
-				<symbol draft="provisional">TMM</symbol>
 			</currency>
 			<currency type="TMT">
 				<displayName draft="provisional">Νέο μανάτ Τουρκμενιστάν</displayName>
 				<displayName count="one" draft="provisional">Νέο μανάτ Τουρκμενιστάν</displayName>
 				<displayName count="other" draft="provisional">Νέα μανάτ Τουρκμενιστάν</displayName>
-				<symbol draft="provisional">TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Δηνάριο Τυνησίας</displayName>
 				<displayName count="one">δηνάριο Τυνησίας</displayName>
 				<displayName count="other">δηνάρια Τυνησίας</displayName>
-				<symbol draft="provisional">DT</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Παάνγκα Τόνγκας</displayName>
 				<displayName count="one">πάνγκα Τόγκα</displayName>
 				<displayName count="other">πάνγκα Τόγκα</displayName>
-				<symbol draft="provisional">T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>Εσκούδο Τιμόρ</displayName>
@@ -5900,38 +4621,32 @@
 				<displayName count="one">παλιά λίρα Τουρκίας</displayName>
 				<displayName count="other">παλιές λίρες Τουρκίας</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Παλαιά λίρα Τουρκίας</displayName>
-				<symbol draft="provisional">TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>Τουρκική Λίρα</displayName>
 				<displayName count="one">λίρα Τουρκίας</displayName>
 				<displayName count="other">λίρες Τουρκίας</displayName>
-				<symbol draft="provisional">TL</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Δολάριο Τρινιντάντ και Τομπάγκο</displayName>
 				<displayName count="one">δολάριο Τρινιδάδ και Τομπάγκο</displayName>
 				<displayName count="other">δολάρια Τρινιδάδ και Τομπάγκο</displayName>
-				<symbol draft="provisional">TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Νέο Δολάριο Ταϊβάν</displayName>
 				<displayName count="one">νέο δολάριο Ταϊβάν</displayName>
 				<displayName count="other">νέα δολάρια Ταϊβάν</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Νέο δολάριο Ταϊβάν</displayName>
-				<symbol draft="provisional">NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Σελίνι Τανζανίας</displayName>
 				<displayName count="one">σελίνι Τανζανίας</displayName>
 				<displayName count="other">σελίνι Τανζανίας</displayName>
-				<symbol draft="provisional">TSh</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>Χρίφνα Ουκρανίας</displayName>
 				<displayName count="one">χρίφνα Ουκρανίας</displayName>
 				<displayName count="other">χρίφνα Ουκρανίας</displayName>
-				<symbol draft="provisional">₴</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>Καρμποβανέτς Ουκρανίας</displayName>
@@ -5947,13 +4662,11 @@
 				<displayName>Σελίνι Ουγκάντας</displayName>
 				<displayName count="one">σελίνι Ουγκάντας</displayName>
 				<displayName count="other">σελίνια Ουγκάντας</displayName>
-				<symbol draft="provisional">USh</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>Δολάριο ΗΠΑ</displayName>
 				<displayName count="one">δολάριο Η.Π.Α.</displayName>
 				<displayName count="other">δολάρια Η.Π.Α.</displayName>
-				<symbol draft="provisional">US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>Δολάριο ΗΠΑ (επόμενη ημέρα)</displayName>
@@ -5979,13 +4692,11 @@
 				<displayName>Πέσο Ουρουγουάης</displayName>
 				<displayName count="one">πέσο Ουρουγουάης</displayName>
 				<displayName count="other">πέσο Ουρουγουάης</displayName>
-				<symbol draft="provisional">$U</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>Σομ Ουζμπεκιστάν</displayName>
 				<displayName count="one">σομ Ουζμπεκιστάν</displayName>
 				<displayName count="other">σομ Ουζμπεκιστάν</displayName>
-				<symbol draft="provisional">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Μπολιβάρ Βενεζουέλας</displayName>
@@ -5997,13 +4708,11 @@
 				<displayName count="one">βολιβάρ φουέρτε Βενεζουέλας</displayName>
 				<displayName count="other">βολιβάρ φουέρτε Βενεζουέλας</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Βολιβάρ φουέρτε Βενεζουέλας</displayName>
-				<symbol draft="provisional">Bs.F.</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Ντονγκ Βιετνάμ</displayName>
 				<displayName count="one">ντονγκ Βιετνάμ</displayName>
 				<displayName count="other">ντονγκ Βιετνάμ</displayName>
-				<symbol draft="provisional">₫</symbol>
 			</currency>
 			<currency type="VNN">
 				<displayName count="one" draft="provisional">Παλαιό ντονγκ Βιετνάμ</displayName>
@@ -6013,70 +4722,59 @@
 				<displayName>Βατού Βανουάτου</displayName>
 				<displayName count="one">βατού Βανουάτου</displayName>
 				<displayName count="other">βατού Βανουάτου</displayName>
-				<symbol draft="provisional">VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>Ταλά Δυτικής Σαμόας</displayName>
 				<displayName count="one">Τάλα Σαμόας</displayName>
 				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">τάλα Σαμόας</displayName>
 				<displayName count="other">τάλα Σαμόας</displayName>
-				<symbol draft="provisional">WS$</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>Φράγκο BEAC CFA</displayName>
 				<displayName count="one">φράγκο BEAC CFA</displayName>
 				<displayName count="other">φράγκα BEAC CFA</displayName>
-				<symbol draft="provisional">FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName count="one" draft="provisional">XAG</displayName>
 				<displayName count="other" draft="provisional">XAG</displayName>
-				<symbol draft="provisional">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>Χρυσός</displayName>
 				<displayName count="one">XAU</displayName>
 				<displayName count="other">XAU</displayName>
-				<symbol draft="provisional">XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>Ευρωπαϊκή Σύνθετη Μονάδα</displayName>
 				<displayName count="one">ευρωπαϊκή σύνθετη μονάδα</displayName>
 				<displayName count="other">ευρωπαϊκές σύνθετες μονάδες</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Ευρωπαϊκή σύνθετη μονάδα</displayName>
-				<symbol draft="provisional">XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>Ευρωπαϊκή Νομισματική Μονάδα</displayName>
 				<displayName count="one">ευρωπαϊκή νομισματική μονάδα</displayName>
 				<displayName count="other">ευρωπαϊκές νομισματικές μονάδες</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Ευρωπαϊκή νομισματική μονάδα</displayName>
-				<symbol draft="provisional">XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>Ευρωπαϊκή μονάδα λογαριασμού (XBC)</displayName>
 				<displayName count="one">ευρωπαϊκή μονάδα λογαριασμού (XBC)</displayName>
 				<displayName count="other">ευρωπαϊκές μονάδες λογαριασμού (XBC)</displayName>
-				<symbol draft="provisional">XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>Ευρωπαϊκή μονάδα λογαριασμού (XBD)</displayName>
 				<displayName count="one">ευρωπαϊκή μονάδα λογαριασμού (XBD)</displayName>
 				<displayName count="other">ευρωπαϊκές μονάδες λογαριασμού (XBD)</displayName>
-				<symbol draft="provisional">XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>Δολάριο Ανατολικής Καραϊβικής</displayName>
 				<displayName count="one">δολάριο Ανατολικής Καραϊβικής</displayName>
 				<displayName count="other">δολάρια Ανατολικής Καραϊβικής</displayName>
-				<symbol draft="provisional">EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>Ειδικά Δικαιώματα Ανάληψης</displayName>
 				<displayName count="one">ειδικό δικαίωμα ανάληψης</displayName>
 				<displayName count="other">ειδικά δικαιώματα ανάληψης</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Ειδικά δικαιώματα ανάληψης</displayName>
-				<symbol draft="provisional">XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>Ευρωπαϊκή Συναλλαγματική Μονάδα</displayName>
@@ -6089,35 +4787,29 @@
 				<displayName count="one">χρυσό φράγκο Γαλλίας</displayName>
 				<displayName count="other">χρυσά φράγκα Γαλλίας</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Χρυσό φράγκο Γαλλίας</displayName>
-				<symbol draft="provisional">XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>UIC-Φράγκο Γαλλίας</displayName>
 				<displayName count="one">UIC-φράγκο Γαλλίας</displayName>
 				<displayName count="other">UIC-φράγκα Γαλλίας</displayName>
-				<symbol draft="provisional">XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>Φράγκο BCEAO CFA</displayName>
 				<displayName count="one">φράγκο BCEAO CFA</displayName>
 				<displayName count="other">φράγκα BCEAO CFA</displayName>
-				<symbol draft="provisional">CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName count="one" draft="provisional">XPD</displayName>
 				<displayName count="other" draft="provisional">XPD</displayName>
-				<symbol draft="provisional">XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>Φράγκο CFP</displayName>
 				<displayName count="one">φράγκο CFP</displayName>
 				<displayName count="other">φράγκα CFP</displayName>
-				<symbol draft="provisional">CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName count="one" draft="provisional">XPT</displayName>
 				<displayName count="other" draft="provisional">XPT</displayName>
-				<symbol draft="provisional">XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName count="one" draft="provisional">Ταμείο RINET</displayName>
@@ -6126,13 +4818,11 @@
 			<currency type="XTS">
 				<displayName count="one" draft="provisional">XTS</displayName>
 				<displayName count="other" draft="provisional">XTS</displayName>
-				<symbol draft="provisional">XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>Άγνωστο ή μη έγκυρο νόμισμα</displayName>
 				<displayName count="one">άγνωστο/μη έγκυρο νόμισμα</displayName>
 				<displayName count="other">Άγνωστο ή μη έγκυρο νόμισμα</displayName>
-				<symbol draft="provisional">XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>Δηνάριο Υεμένης</displayName>
@@ -6143,7 +4833,6 @@
 				<displayName>Ριάλ Υεμένης</displayName>
 				<displayName count="one">ριάλ Υεμένης</displayName>
 				<displayName count="other">ριάλ Υεμένης</displayName>
-				<symbol draft="provisional">YR</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>Μεταλλικό Δηνάριο Γιουγκοσλαβίας</displayName>
@@ -6176,38 +4865,32 @@
 				<displayName>Ραντ Νότιας Αφρικής</displayName>
 				<displayName count="one">ραντ Νότιας Αφρικής</displayName>
 				<displayName count="other">ραντ Νότιας Αφρικής</displayName>
-				<symbol draft="provisional">R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Κουάνζα Ζαΐρ</displayName>
 				<displayName count="one">κουάτσα Ζάμπιας</displayName>
 				<displayName count="other">κουάτσα Ζάμπιας</displayName>
-				<symbol draft="provisional">ZK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Νέο Ζαΐρ Ζαΐρ</displayName>
 				<displayName count="one">νέο ζαΐρ Ζαΐρ</displayName>
 				<displayName count="other">νέα ζαΐρ Ζαΐρ</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Νέο ζαΐρ Ζαΐρ</displayName>
-				<symbol draft="provisional">NZ</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>Ζαΐρ Ζαΐρ</displayName>
 				<displayName count="one">ζαΐρ Ζαΐρ</displayName>
 				<displayName count="other">ζαΐρ Ζαΐρ</displayName>
-				<symbol draft="provisional">ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>Δολάριο Ζιμπάμπουε</displayName>
 				<displayName count="one">δολάριο Ζιμπάμπουε</displayName>
 				<displayName count="other">δολάρια Ζιμπάμπουε</displayName>
-				<symbol draft="provisional">Z$</symbol>
 			</currency>
 			<currency type="ZWL">
 				<displayName draft="provisional">Δολάριο Ζιμπάμπουε (2009)</displayName>
 				<displayName count="one" draft="provisional">Δολάριο Ζιμπάμπουε (2009)</displayName>
 				<displayName count="other" draft="provisional">Δολάριο Ζιμπάμπουε (2009)</displayName>
-				<symbol draft="provisional">ZWL</symbol>
 			</currency>
 			<currency type="ZWR">
 				<displayName count="one" draft="provisional">Δολάριο Ζιμπάμπουε (2008)</displayName>
@@ -6250,8 +4933,6 @@
 			<listPatternPart type="2">{0} και {0}</listPatternPart>
 			<listPatternPart type="end">{0} και {1}</listPatternPart>
 			<listPatternPart type="end" alt="proposed-x1001" draft="unconfirmed">{0}, και  {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

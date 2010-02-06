@@ -13,9 +13,6 @@
 			<measurementSystemName type="US">अमेरिकेली</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
-	<characters>
-		<exemplarCharacters>[\u0901 \u0902 ः ० १ २ ३ ४ ५ ६ ७ ८ ९ अ आ इ ई उ ऊ ऋ ए ऐ ओ औ क ख ग घ ङ च छ ज झ ञ ट ठ ड ढ ण त थ द ध न प फ ब भ म य र ल व श ष स ह ा ि ी \u0941 \u0942 \u0943 \u0947 \u0948 ो \u094D]</exemplarCharacters>
-	</characters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -71,15 +68,6 @@
 				</months>
 				<days>
 					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">आइत</day>
-							<day type="mon">सोम</day>
-							<day type="tue">मङ्गल</day>
-							<day type="wed">बुध</day>
-							<day type="thu">बिही</day>
-							<day type="fri">शुक्र</day>
-							<day type="sat">शनि</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">आइतवार</day>
 							<day type="mon">सोमवार</day>
@@ -91,15 +79,6 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun">आइत</day>
-							<day type="mon">सोम</day>
-							<day type="tue">मङ्गल</day>
-							<day type="wed">बुध</day>
-							<day type="thu">बिही</day>
-							<day type="fri">शुक्र</day>
-							<day type="sat">शनि</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">आइतवार</day>
 							<day type="mon">सोमवार</day>
@@ -168,17 +147,6 @@
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
-				<eras>
-					<eraNames>
-						<era type="0">ईसा पूर्व</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0">ईसा पूर्व</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0">ईसा पूर्व</era>
-					</eraNarrow>
-				</eras>
 				<fields>
 					<field type="era">
 						<displayName>युग</displayName>
@@ -186,19 +154,11 @@
 					<field type="year">
 						<displayName>वर्ष</displayName>
 					</field>
-					<field type="month">
-						<displayName>महिना</displayName>
-					</field>
 					<field type="week">
 						<displayName>साता</displayName>
 					</field>
 					<field type="day">
 						<displayName>वार</displayName>
-						<relative type="-3">तीन दिन पछि</relative>
-						<relative type="-2">अस्ति</relative>
-						<relative type="-1">हिजो</relative>
-						<relative type="0">आज</relative>
-						<relative type="1">भोलि</relative>
 						<relative type="2">पर्सि</relative>
 						<relative type="3" draft="unconfirmed">निपर्सि</relative>
 					</field>
@@ -207,12 +167,6 @@
 					</field>
 					<field type="dayperiod">
 						<displayName>पूर्वाह्न / अपराह्न</displayName>
-					</field>
-					<field type="hour">
-						<displayName>घण्टा</displayName>
-					</field>
-					<field type="minute">
-						<displayName>मिनेट</displayName>
 					</field>
 					<field type="second">
 						<displayName>सेकेन्ड</displayName>
@@ -303,7 +257,6 @@
 				<displayName>भारतीय रूपिँया</displayName>
 				<displayName count="one">भारतीय रूपिँया</displayName>
 				<displayName count="other">भारतीय रूपिँया</displayName>
-				<symbol>Rs</symbol>
 			</currency>
 		</currencies>
 	</numbers>

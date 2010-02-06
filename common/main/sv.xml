@@ -1111,7 +1111,6 @@
 			<variant type="OSOJS">Osojane-dialekt</variant>
 			<variant type="PINYIN" draft="contributed">pinyin</variant>
 			<variant type="POLYTON">polytonisk stavning</variant>
-			<variant type="POSIX" draft="contributed">POSIX</variant>
 			<variant type="REVISED">reformerad stavning</variant>
 			<variant type="ROZAJ">resisk dialekt</variant>
 			<variant type="SAAHO">saho-dialekt</variant>
@@ -1564,7 +1563,6 @@
 							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="a" draft="unconfirmed">HH–HH</greatestDifference>
 							<greatestDifference id="H">HH-HH</greatestDifference>
 							<greatestDifference id="H" alt="proposed-x1001" draft="unconfirmed">HH–HH</greatestDifference>
 						</intervalFormatItem>
@@ -1573,28 +1571,14 @@
 							<greatestDifference id="h">h:mm–h:mm a</greatestDifference>
 							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="a">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
 							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
 							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">h a – h a v</greatestDifference>
 							<greatestDifference id="h">h–h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="a" draft="unconfirmed">HH–HH v</greatestDifference>
-							<greatestDifference id="H" draft="unconfirmed">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M–M</greatestDifference>
@@ -2129,8 +2113,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">ACT (Acre)</generic>
-					<standard draft="contributed">ACT (Acre)</standard>
-					<daylight draft="contributed">ACST (Acre)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Afghanistan">
@@ -2141,7 +2123,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">AFT</generic>
-					<standard draft="contributed">AFT</standard>
 					<daylight draft="contributed">AFST</daylight>
 				</short>
 			</metazone>
@@ -2154,7 +2135,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">CAT</generic>
-					<standard draft="contributed">CAT</standard>
 					<daylight draft="contributed">CAST</daylight>
 				</short>
 			</metazone>
@@ -2166,7 +2146,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">EAT</generic>
-					<standard draft="contributed">EAT</standard>
 					<daylight draft="contributed">EAST</daylight>
 				</short>
 			</metazone>
@@ -2185,7 +2164,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">SAT</generic>
-					<standard draft="provisional">SAST</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">SAT</standard>
 					<daylight draft="contributed">SAST</daylight>
 				</short>
@@ -2198,8 +2176,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">WAT</generic>
-					<standard draft="contributed">WAT</standard>
-					<daylight draft="contributed">WAST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Aktyubinsk">
@@ -2210,8 +2186,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">AKTT</generic>
-					<standard draft="contributed">AKTT</standard>
-					<daylight draft="contributed">AKTST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Alaska">
@@ -2249,8 +2223,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">ALMT</generic>
-					<standard draft="contributed">ALMT</standard>
-					<daylight draft="contributed">ALMST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Amazon">
@@ -2262,8 +2234,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">AMT</generic>
-					<standard draft="contributed">AMT</standard>
-					<daylight draft="contributed">AMST</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Central">
@@ -2330,8 +2300,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">ANAT</generic>
-					<standard draft="contributed">ANAT</standard>
-					<daylight draft="contributed">ANAST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Aqtau">
@@ -2342,8 +2310,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">AQTT (Aqtau)</generic>
-					<standard draft="contributed">AQTT (Aqtau)</standard>
-					<daylight draft="contributed">AQTST (Aqtau)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Aqtobe">
@@ -2381,8 +2347,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">ART</generic>
-					<standard draft="contributed">ART</standard>
-					<daylight draft="contributed">ARST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Argentina_Western">
@@ -2393,7 +2357,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">WART</generic>
-					<standard draft="contributed">WART</standard>
 					<daylight draft="contributed">WARST</daylight>
 				</short>
 			</metazone>
@@ -2405,8 +2368,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">AMT (AM)</generic>
-					<standard draft="contributed">AMT (AM)</standard>
-					<daylight draft="contributed">AMST (AM)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Ashkhabad">
@@ -2417,8 +2378,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">ASHT</generic>
-					<standard draft="contributed">ASHT</standard>
-					<daylight draft="contributed">ASHST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Atlantic">
@@ -2494,8 +2453,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">AZT</generic>
-					<standard draft="contributed">AZT</standard>
-					<daylight draft="contributed">AZST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Azores">
@@ -2506,8 +2463,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">AZOT</generic>
-					<standard draft="contributed">AZOT</standard>
-					<daylight draft="contributed">AZOST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Baku">
@@ -2518,8 +2473,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">BAKT</generic>
-					<standard draft="contributed">BAKT</standard>
-					<daylight draft="contributed">BAKST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Bangladesh">
@@ -2530,8 +2483,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">BDT</generic>
-					<standard draft="contributed">BDT</standard>
-					<daylight draft="contributed">BDST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Bering">
@@ -2557,7 +2508,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">BTT</generic>
-					<standard draft="contributed">BTT</standard>
 					<daylight draft="contributed">BTST</daylight>
 				</short>
 			</metazone>
@@ -2569,7 +2519,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">BOT</generic>
-					<standard draft="contributed">BOT</standard>
 					<daylight draft="contributed">BOST</daylight>
 				</short>
 			</metazone>
@@ -2582,8 +2531,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">BORT</generic>
-					<standard draft="contributed">BORT</standard>
-					<daylight draft="contributed">BORST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Brasilia">
@@ -2595,8 +2542,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">BRT</generic>
-					<standard draft="contributed">BRT</standard>
-					<daylight draft="contributed">BRST</daylight>
 				</short>
 			</metazone>
 			<metazone type="British">
@@ -2619,7 +2564,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">BNT</generic>
-					<standard draft="contributed">BNT</standard>
 					<daylight draft="contributed">BNST</daylight>
 				</short>
 			</metazone>
@@ -2631,8 +2575,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">CVT</generic>
-					<standard draft="contributed">CVT</standard>
-					<daylight draft="contributed">CVST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Chamorro">
@@ -2657,7 +2599,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">CHAT</generic>
-					<standard draft="contributed">CHAT</standard>
 					<daylight draft="contributed">CHAST</daylight>
 				</short>
 			</metazone>
@@ -2681,8 +2622,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">CLT</generic>
-					<standard draft="contributed">CLT</standard>
-					<daylight draft="contributed">CLST</daylight>
 				</short>
 			</metazone>
 			<metazone type="China">
@@ -2707,8 +2646,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">CHOT</generic>
-					<standard draft="contributed">CHOT</standard>
-					<daylight draft="contributed">CHOST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Christmas">
@@ -2719,7 +2656,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">CXT</generic>
-					<standard draft="contributed">CXT</standard>
 					<daylight draft="contributed">CXST</daylight>
 				</short>
 			</metazone>
@@ -2731,7 +2667,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">CCT</generic>
-					<standard draft="contributed">CCT</standard>
 					<daylight draft="contributed">CCST</daylight>
 				</short>
 			</metazone>
@@ -2743,8 +2678,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">COT</generic>
-					<standard draft="contributed">COT</standard>
-					<daylight draft="contributed">COST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Cook">
@@ -2755,7 +2688,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">CKT</generic>
-					<standard draft="contributed">CKT</standard>
 					<daylight draft="contributed">CKST</daylight>
 				</short>
 			</metazone>
@@ -2779,7 +2711,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">DACT</generic>
-					<standard draft="contributed">DACT</standard>
 					<daylight draft="contributed">DACST</daylight>
 				</short>
 			</metazone>
@@ -2791,7 +2722,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">DAVT</generic>
-					<standard draft="contributed">DAVT</standard>
 					<daylight draft="contributed">DAVST</daylight>
 				</short>
 			</metazone>
@@ -2810,7 +2740,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">DDUT</generic>
-					<standard draft="contributed">DDUT</standard>
 					<daylight draft="contributed">DDUST</daylight>
 				</short>
 			</metazone>
@@ -2822,8 +2751,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">DUST</generic>
-					<standard draft="contributed">DUST</standard>
-					<daylight draft="contributed">DUSST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Dutch_Guiana">
@@ -2834,7 +2761,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">NEGT</generic>
-					<standard draft="unconfirmed">NEGT</standard>
 					<daylight draft="unconfirmed">NEGST</daylight>
 				</short>
 			</metazone>
@@ -2846,7 +2772,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">TLT</generic>
-					<standard draft="contributed">TLT</standard>
 					<daylight draft="contributed">TLST</daylight>
 				</short>
 			</metazone>
@@ -2858,8 +2783,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">EAST</generic>
-					<standard draft="contributed">EAST</standard>
-					<daylight draft="contributed">EASST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Ecuador">
@@ -2870,7 +2793,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">ECT</generic>
-					<standard draft="unconfirmed">ECT</standard>
 					<daylight draft="unconfirmed">ECST</daylight>
 				</short>
 			</metazone>
@@ -2925,8 +2847,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">FKT</generic>
-					<standard draft="contributed">FKT</standard>
-					<daylight draft="contributed">FKST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Fiji">
@@ -2937,8 +2857,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">FJT</generic>
-					<standard draft="contributed">FJT</standard>
-					<daylight draft="contributed">FJST</daylight>
 				</short>
 			</metazone>
 			<metazone type="French_Guiana">
@@ -2949,7 +2867,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">GFT</generic>
-					<standard draft="unconfirmed">GFT</standard>
 					<daylight draft="unconfirmed">GFST</daylight>
 				</short>
 			</metazone>
@@ -2961,7 +2878,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">TFT</generic>
-					<standard draft="contributed">TFT</standard>
 					<daylight draft="contributed">TFST</daylight>
 				</short>
 			</metazone>
@@ -2973,8 +2889,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">FRUT</generic>
-					<standard draft="contributed">FRUT</standard>
-					<daylight draft="contributed">FRUST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Galapagos">
@@ -2985,7 +2899,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">GALT</generic>
-					<standard draft="contributed">GALT</standard>
 					<daylight draft="contributed">GALST</daylight>
 				</short>
 			</metazone>
@@ -2997,7 +2910,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">GAMT</generic>
-					<standard draft="contributed">GAMT</standard>
 					<daylight draft="contributed">GAMST</daylight>
 				</short>
 			</metazone>
@@ -3009,8 +2921,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">GET</generic>
-					<standard draft="contributed">GET</standard>
-					<daylight draft="contributed">GEST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Gilbert_Islands">
@@ -3021,7 +2931,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">GILT</generic>
-					<standard draft="contributed">GILT</standard>
 					<daylight draft="contributed">GILST</daylight>
 				</short>
 			</metazone>
@@ -3052,8 +2961,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">CGT</generic>
-					<standard draft="unconfirmed">CGT</standard>
-					<daylight draft="unconfirmed">CGST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Greenland_Eastern">
@@ -3064,8 +2971,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">EGT</generic>
-					<standard draft="unconfirmed">EGT</standard>
-					<daylight draft="unconfirmed">EGST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Greenland_Western">
@@ -3076,8 +2981,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">WGT</generic>
-					<standard draft="unconfirmed">WGT</standard>
-					<daylight draft="unconfirmed">WGST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Guam">
@@ -3112,7 +3015,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">GYT</generic>
-					<standard draft="unconfirmed">GYT</standard>
 					<daylight draft="unconfirmed">GYST</daylight>
 				</short>
 			</metazone>
@@ -3136,8 +3038,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">HKT</generic>
-					<standard draft="contributed">HKT</standard>
-					<daylight draft="contributed">HKST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Hovd">
@@ -3148,8 +3048,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">HOVT</generic>
-					<standard draft="contributed">HOVT</standard>
-					<daylight draft="contributed">HOVST</daylight>
 				</short>
 			</metazone>
 			<metazone type="India">
@@ -3172,7 +3070,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">IOT</generic>
-					<standard draft="contributed">IOT</standard>
 					<daylight draft="contributed">IOST</daylight>
 				</short>
 			</metazone>
@@ -3184,7 +3081,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">ICT</generic>
-					<standard draft="contributed">ICT</standard>
 					<daylight draft="contributed">ICST</daylight>
 				</short>
 			</metazone>
@@ -3196,7 +3092,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">CIT</generic>
-					<standard draft="contributed">CIT</standard>
 					<daylight draft="contributed">CIST</daylight>
 				</short>
 			</metazone>
@@ -3208,7 +3103,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">EIT</generic>
-					<standard draft="contributed">EIT</standard>
 					<daylight draft="contributed">EIST</daylight>
 				</short>
 			</metazone>
@@ -3220,7 +3114,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">WIT</generic>
-					<standard draft="contributed">WIT</standard>
 					<daylight draft="contributed">WIST</daylight>
 				</short>
 			</metazone>
@@ -3256,8 +3149,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">IRKT</generic>
-					<standard draft="contributed">IRKT</standard>
-					<daylight draft="contributed">IRKST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Israel">
@@ -3297,8 +3188,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">PETT</generic>
-					<standard draft="contributed">PETT</standard>
-					<daylight draft="contributed">PETST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Karachi">
@@ -3309,7 +3198,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">KART</generic>
-					<standard draft="contributed">KART</standard>
 					<daylight draft="contributed">KARST</daylight>
 				</short>
 			</metazone>
@@ -3321,7 +3209,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">KAST</generic>
-					<standard draft="contributed">KAST</standard>
 					<daylight draft="contributed">KASST</daylight>
 				</short>
 			</metazone>
@@ -3333,7 +3220,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">EKST</generic>
-					<standard draft="contributed">EKST</standard>
 					<daylight draft="contributed">EKSST</daylight>
 				</short>
 			</metazone>
@@ -3355,8 +3241,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">KIZT</generic>
-					<standard draft="contributed">KIZT</standard>
-					<daylight draft="contributed">KIZST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Korea">
@@ -3379,7 +3263,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">KOST</generic>
-					<standard draft="contributed">KOST</standard>
 					<daylight draft="contributed">KOSST</daylight>
 				</short>
 			</metazone>
@@ -3391,8 +3274,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">KRAT</generic>
-					<standard draft="contributed">KRAT</standard>
-					<daylight draft="contributed">KRAST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Kuybyshev">
@@ -3403,8 +3284,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">KUYT</generic>
-					<standard draft="unconfirmed">KUYT</standard>
-					<daylight draft="unconfirmed">KUYST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Kwajalein">
@@ -3415,7 +3294,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">KWAT</generic>
-					<standard draft="contributed">KWAT</standard>
 					<daylight draft="contributed">KWAST</daylight>
 				</short>
 			</metazone>
@@ -3427,7 +3305,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">KGT</generic>
-					<standard draft="contributed">KGT</standard>
 					<daylight draft="contributed">KGST</daylight>
 				</short>
 			</metazone>
@@ -3439,7 +3316,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">LKT</generic>
-					<standard draft="contributed">LKT</standard>
 					<daylight draft="contributed">LKST</daylight>
 				</short>
 			</metazone>
@@ -3463,7 +3339,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">LINT</generic>
-					<standard draft="contributed">LINT</standard>
 					<daylight draft="contributed">LINST</daylight>
 				</short>
 			</metazone>
@@ -3473,9 +3348,6 @@
 					<standard draft="contributed">Chongqingnormaltid</standard>
 					<daylight draft="contributed">Chongqingsommartid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">LONT</standard>
-				</short>
 			</metazone>
 			<metazone type="Lord_Howe">
 				<long>
@@ -3497,8 +3369,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">MOT</generic>
-					<standard draft="contributed">MOT</standard>
-					<daylight draft="contributed">MOST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Magadan">
@@ -3509,8 +3379,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">MAGT</generic>
-					<standard draft="contributed">MAGT</standard>
-					<daylight draft="contributed">MAGST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Malaya">
@@ -3521,7 +3389,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">MALT</generic>
-					<standard draft="contributed">MALT</standard>
 					<daylight draft="contributed">MALST</daylight>
 				</short>
 			</metazone>
@@ -3533,7 +3400,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">MYT</generic>
-					<standard draft="unconfirmed">MYT</standard>
 					<daylight draft="contributed">MYST</daylight>
 				</short>
 			</metazone>
@@ -3545,7 +3411,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">MVT</generic>
-					<standard draft="contributed">MVT</standard>
 					<daylight draft="contributed">MVST</daylight>
 				</short>
 			</metazone>
@@ -3557,7 +3422,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">MART</generic>
-					<standard draft="contributed">MART</standard>
 					<daylight draft="contributed">MARST</daylight>
 				</short>
 			</metazone>
@@ -3569,7 +3433,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">MHT</generic>
-					<standard draft="contributed">MHT</standard>
 					<daylight draft="contributed">MHST</daylight>
 				</short>
 			</metazone>
@@ -3581,8 +3444,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">MUT</generic>
-					<standard draft="contributed">MUT</standard>
-					<daylight draft="contributed">MUST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Mawson">
@@ -3593,7 +3454,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">MAWT</generic>
-					<standard draft="contributed">MAWT</standard>
 					<daylight draft="contributed">MAWST</daylight>
 				</short>
 			</metazone>
@@ -3605,8 +3465,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">ULAT</generic>
-					<standard draft="contributed">ULAT</standard>
-					<daylight draft="contributed">ULAST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Moscow">
@@ -3629,7 +3487,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">MMT</generic>
-					<standard draft="contributed">MMT</standard>
 					<daylight draft="contributed">MMST</daylight>
 				</short>
 			</metazone>
@@ -3641,7 +3498,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">NRT</generic>
-					<standard draft="contributed">NRT</standard>
 					<daylight draft="contributed">NRST</daylight>
 				</short>
 			</metazone>
@@ -3653,7 +3509,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">NPT</generic>
-					<standard draft="contributed">NPT</standard>
 					<daylight draft="contributed">NPST</daylight>
 				</short>
 			</metazone>
@@ -3665,8 +3520,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">NCT</generic>
-					<standard draft="contributed">NCT</standard>
-					<daylight draft="contributed">NCST</daylight>
 				</short>
 			</metazone>
 			<metazone type="New_Zealand">
@@ -3703,7 +3556,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">NUT</generic>
-					<standard draft="contributed">NUT</standard>
 					<daylight draft="contributed">NUST</daylight>
 				</short>
 			</metazone>
@@ -3715,7 +3567,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">NFT</generic>
-					<standard draft="contributed">NFT</standard>
 					<daylight draft="contributed">NFST</daylight>
 				</short>
 			</metazone>
@@ -3727,8 +3578,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">FNT</generic>
-					<standard draft="unconfirmed">FNT</standard>
-					<daylight draft="unconfirmed">FNST</daylight>
 				</short>
 			</metazone>
 			<metazone type="North_Mariana">
@@ -3739,7 +3588,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">MPT</generic>
-					<standard draft="contributed">MPT</standard>
 					<daylight draft="contributed">MPST</daylight>
 				</short>
 			</metazone>
@@ -3751,8 +3599,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">NOVT</generic>
-					<standard draft="contributed">NOVT</standard>
-					<daylight draft="contributed">NOVST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Omsk">
@@ -3763,8 +3609,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">OMST</generic>
-					<standard draft="contributed">OMST</standard>
-					<daylight draft="contributed">OMSST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Oral">
@@ -3782,8 +3626,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">PKT</generic>
-					<standard draft="contributed">PKT</standard>
-					<daylight draft="contributed">PKST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Palau">
@@ -3794,7 +3636,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">PWT</generic>
-					<standard draft="contributed">PWT</standard>
 					<daylight draft="contributed">PWST</daylight>
 				</short>
 			</metazone>
@@ -3806,7 +3647,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">PGT</generic>
-					<standard draft="contributed">PGT</standard>
 					<daylight draft="contributed">PGST</daylight>
 				</short>
 			</metazone>
@@ -3818,8 +3658,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">PYT</generic>
-					<standard draft="unconfirmed">PYT</standard>
-					<daylight draft="unconfirmed">PYST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Peru">
@@ -3830,8 +3668,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">PET</generic>
-					<standard draft="unconfirmed">PET</standard>
-					<daylight draft="unconfirmed">PEST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Philippines">
@@ -3842,8 +3678,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">PHT</generic>
-					<standard draft="contributed">PHT</standard>
-					<daylight draft="contributed">PHST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Phoenix_Islands">
@@ -3854,7 +3688,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">PHOT</generic>
-					<standard draft="contributed">PHOT</standard>
 					<daylight draft="contributed">PHOST</daylight>
 				</short>
 			</metazone>
@@ -3878,7 +3711,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">PNT</generic>
-					<standard draft="contributed">PNT</standard>
 					<daylight draft="contributed">PNST</daylight>
 				</short>
 			</metazone>
@@ -3890,7 +3722,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">PONT</generic>
-					<standard draft="contributed">PONT</standard>
 					<daylight draft="contributed">PONST</daylight>
 				</short>
 			</metazone>
@@ -3902,8 +3733,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">QYZT</generic>
-					<standard draft="contributed">QYZT</standard>
-					<daylight draft="contributed">QYZST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Reunion">
@@ -3914,7 +3743,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">RET</generic>
-					<standard draft="contributed">RET</standard>
 					<daylight draft="contributed">REST</daylight>
 				</short>
 			</metazone>
@@ -3926,7 +3754,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">ROTT</generic>
-					<standard draft="contributed">ROTT</standard>
 					<daylight draft="contributed">ROTST</daylight>
 				</short>
 			</metazone>
@@ -3938,8 +3765,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">SAKT</generic>
-					<standard draft="contributed">SAKT</standard>
-					<daylight draft="contributed">SAKST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Samara">
@@ -3950,8 +3775,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">SAMT</generic>
-					<standard draft="contributed">SAMT</standard>
-					<daylight draft="contributed">SAMST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Samarkand">
@@ -3962,8 +3785,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">SAMT (Samarkand)</generic>
-					<standard draft="contributed">SAMT (Samarkand)</standard>
-					<daylight draft="contributed">SAMST (Samarkand)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Samoa">
@@ -3986,7 +3807,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">SCT</generic>
-					<standard draft="contributed">SCT</standard>
 					<daylight draft="contributed">SCST</daylight>
 				</short>
 			</metazone>
@@ -3996,10 +3816,6 @@
 					<standard draft="contributed">Aqtaunormaltid</standard>
 					<daylight draft="contributed">Aqtausommartid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">SHET</standard>
-					<daylight draft="unconfirmed">SHEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Singapore">
 				<long>
@@ -4009,7 +3825,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">SGT</generic>
-					<standard draft="contributed">SGT</standard>
 					<daylight draft="contributed">SGST</daylight>
 				</short>
 			</metazone>
@@ -4021,7 +3836,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">SBT</generic>
-					<standard draft="contributed">SBT</standard>
 					<daylight draft="contributed">SBST</daylight>
 				</short>
 			</metazone>
@@ -4045,7 +3859,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">SRT</generic>
-					<standard draft="unconfirmed">SRT</standard>
 					<daylight draft="unconfirmed">SRST</daylight>
 				</short>
 			</metazone>
@@ -4057,8 +3870,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">SVET</generic>
-					<standard draft="contributed">SVET</standard>
-					<daylight draft="contributed">SVEST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Syowa">
@@ -4069,7 +3880,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">SYOT</generic>
-					<standard draft="contributed">SYOT</standard>
 					<daylight draft="contributed">SYOST</daylight>
 				</short>
 			</metazone>
@@ -4081,7 +3891,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">TAHT</generic>
-					<standard draft="contributed">TAHT</standard>
 					<daylight draft="contributed">TAHST</daylight>
 				</short>
 			</metazone>
@@ -4105,7 +3914,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">TJT</generic>
-					<standard draft="contributed">TJT</standard>
 					<daylight draft="contributed">TJST</daylight>
 				</short>
 			</metazone>
@@ -4117,8 +3925,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">TAST</generic>
-					<standard draft="contributed">TAST</standard>
-					<daylight draft="contributed">TASST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Tbilisi">
@@ -4129,8 +3935,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">TBIT</generic>
-					<standard draft="contributed">TBIT</standard>
-					<daylight draft="contributed">TBIST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Tokelau">
@@ -4141,7 +3945,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">TKT</generic>
-					<standard draft="contributed">TKT</standard>
 					<daylight draft="contributed">TKST</daylight>
 				</short>
 			</metazone>
@@ -4153,8 +3956,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">TOT</generic>
-					<standard draft="contributed">TOT</standard>
-					<daylight draft="contributed">TOST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Truk">
@@ -4165,7 +3966,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">TRUT</generic>
-					<standard draft="contributed">TRUT</standard>
 					<daylight draft="contributed">TRUST</daylight>
 				</short>
 			</metazone>
@@ -4177,8 +3977,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">TRT</generic>
-					<standard draft="contributed">TRT</standard>
-					<daylight draft="unconfirmed">TRST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Turkmenistan">
@@ -4189,8 +3987,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">TMT</generic>
-					<standard draft="contributed">TMT</standard>
-					<daylight draft="contributed">TMST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Tuvalu">
@@ -4201,7 +3997,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">TVT</generic>
-					<standard draft="contributed">TVT</standard>
 					<daylight draft="contributed">TVST</daylight>
 				</short>
 			</metazone>
@@ -4213,8 +4008,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">URAT</generic>
-					<standard draft="contributed">URAT</standard>
-					<daylight draft="contributed">URAST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Uruguay">
@@ -4225,8 +4018,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">UYT</generic>
-					<standard draft="unconfirmed">UYT</standard>
-					<daylight draft="unconfirmed">UYST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Urumqi">
@@ -4237,7 +4028,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">URUT</generic>
-					<standard draft="contributed">URUT</standard>
 					<daylight draft="contributed">URUST</daylight>
 				</short>
 			</metazone>
@@ -4249,8 +4039,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">UZT</generic>
-					<standard draft="contributed">UZT</standard>
-					<daylight draft="contributed">UZST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Vanuatu">
@@ -4261,8 +4049,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">VUT</generic>
-					<standard draft="contributed">VUT</standard>
-					<daylight draft="contributed">VUST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Venezuela">
@@ -4273,7 +4059,6 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">VET</generic>
-					<standard draft="unconfirmed">VET</standard>
 					<daylight draft="unconfirmed">VEST</daylight>
 				</short>
 			</metazone>
@@ -4285,8 +4070,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">VLAT</generic>
-					<standard draft="contributed">VLAT</standard>
-					<daylight draft="contributed">VLAST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Volgograd">
@@ -4297,8 +4080,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">VOLT</generic>
-					<standard draft="contributed">VOLT</standard>
-					<daylight draft="contributed">VOLST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Vostok">
@@ -4309,7 +4090,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">VOST</generic>
-					<standard draft="contributed">VOST</standard>
 					<daylight draft="contributed">VOSST</daylight>
 				</short>
 			</metazone>
@@ -4321,7 +4101,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">WAKT</generic>
-					<standard draft="contributed">WAKT</standard>
 					<daylight draft="contributed">WAKST</daylight>
 				</short>
 			</metazone>
@@ -4333,7 +4112,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">WFT</generic>
-					<standard draft="contributed">WFT</standard>
 					<daylight draft="contributed">WFST</daylight>
 				</short>
 			</metazone>
@@ -4345,8 +4123,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">YAKT</generic>
-					<standard draft="contributed">YAKT</standard>
-					<daylight draft="contributed">YAKST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Yekaterinburg">
@@ -4357,8 +4133,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">YEKT</generic>
-					<standard draft="contributed">YEKT</standard>
-					<daylight draft="contributed">YEKST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Yerevan">
@@ -4369,8 +4143,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">YERT</generic>
-					<standard draft="contributed">YERT</standard>
-					<daylight draft="contributed">YERST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Yukon">
@@ -4388,7 +4160,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
@@ -4443,7 +4214,6 @@
 				<displayName>Förenade Arabemiratens dirham</displayName>
 				<displayName count="one">Förenade Arabemiratens dirham</displayName>
 				<displayName count="other">Förenade Arabemiratens dirham</displayName>
-				<symbol draft="unconfirmed">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>afghani (1927-2002)</displayName>
@@ -4474,13 +4244,11 @@
 				<displayName>albansk lek</displayName>
 				<displayName count="one">albansk lek</displayName>
 				<displayName count="other">albanska lek</displayName>
-				<symbol draft="unconfirmed">ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>armenisk dram</displayName>
 				<displayName count="one">armenisk dram</displayName>
 				<displayName count="other">armeniska dram</displayName>
-				<symbol draft="unconfirmed">AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Nederländska Antillernas gulden</displayName>
@@ -4562,7 +4330,6 @@
 				<displayName>azerbajdzjansk manat (1993-2006)</displayName>
 				<displayName count="one">azerbajdzjansk manat (1993-2006)</displayName>
 				<displayName count="other" draft="contributed">azerbajdzjanska manat (1993-2006)</displayName>
-				<symbol draft="unconfirmed">AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>azerbajdzjansk manat</displayName>
@@ -4635,7 +4402,6 @@
 				<displayName count="other" draft="contributed">bulgariska nya lev</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">bulgariska lev</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">bulgarisk lev</displayName>
-				<symbol draft="unconfirmed">BGN</symbol>
 			</currency>
 			<currency type="BGO">
 				<displayName count="one" draft="unconfirmed">bulgarisk lev (1881–1952)</displayName>
@@ -4766,7 +4532,6 @@
 				<displayName>botswansk pula</displayName>
 				<displayName count="one">botswansk pula</displayName>
 				<displayName count="other">botswanska pula</displayName>
-				<symbol draft="unconfirmed">BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>vitrysk ny rubel (1994-1999)</displayName>
@@ -4779,7 +4544,6 @@
 				<displayName>vitrysk rubel</displayName>
 				<displayName count="one">vitrysk rubel</displayName>
 				<displayName count="other">vitryska rubel</displayName>
-				<symbol draft="unconfirmed">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>belizisk dollar</displayName>
@@ -4798,7 +4562,6 @@
 				<displayName>kongolesisk franc</displayName>
 				<displayName count="one">kongolesisk franc</displayName>
 				<displayName count="other" draft="contributed">kongolesiska franc</displayName>
-				<symbol draft="unconfirmed">CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>euro (konvertibelt konto, WIR Bank, Schweiz)</displayName>
@@ -4930,7 +4693,6 @@
 				<displayName count="other">tyska mark</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">tyska mark (-2001)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">tysk mark (-2001)</displayName>
-				<symbol draft="unconfirmed">DM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>djiboutisk franc</displayName>
@@ -4971,7 +4733,6 @@
 				<displayName>estnisk krona</displayName>
 				<displayName count="one">estnisk krona</displayName>
 				<displayName count="other">estniska kronor</displayName>
-				<symbol draft="unconfirmed">Ekr</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>egyptiskt pund</displayName>
@@ -5011,7 +4772,6 @@
 				<displayName>euro</displayName>
 				<displayName count="one">euro</displayName>
 				<displayName count="other">euro</displayName>
-				<symbol draft="unconfirmed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>finsk mark</displayName>
@@ -5047,7 +4807,6 @@
 				<displayName>brittiskt pund sterling</displayName>
 				<displayName count="one">brittiskt pund sterling</displayName>
 				<displayName count="other" draft="contributed">brittiska pund sterling</displayName>
-				<symbol draft="unconfirmed">£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>georgisk kupon larit</displayName>
@@ -5061,7 +4820,6 @@
 				<displayName>georgisk lari</displayName>
 				<displayName count="one">georgisk lari</displayName>
 				<displayName count="other" draft="contributed">georgiska lari</displayName>
-				<symbol draft="unconfirmed">GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>ghanansk cedi (1979-2007)</displayName>
@@ -5085,7 +4843,6 @@
 				<displayName>gambisk dalasi</displayName>
 				<displayName count="one">gambisk dalasi</displayName>
 				<displayName count="other" draft="contributed">gambiska dalasi</displayName>
-				<symbol draft="unconfirmed">GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>guineansk franc</displayName>
@@ -5119,7 +4876,6 @@
 				<displayName>guatemalansk quetzal</displayName>
 				<displayName count="one">guatemalansk quetzal</displayName>
 				<displayName count="other" draft="contributed">guatemalanska quetzal</displayName>
-				<symbol draft="unconfirmed">GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>Portugisiska Guinea-escudo</displayName>
@@ -5143,13 +4899,11 @@
 				<displayName>Hongkong-dollar</displayName>
 				<displayName count="one">Hongkong-dollar</displayName>
 				<displayName count="other" draft="contributed">Hongkong-dollar</displayName>
-				<symbol draft="unconfirmed">HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>honduransk lempira</displayName>
 				<displayName count="one">honduransk lempira</displayName>
 				<displayName count="other">honduranska lempira</displayName>
-				<symbol draft="unconfirmed">HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>kroatisk dinar</displayName>
@@ -5169,7 +4923,6 @@
 				<displayName>haitisk gourde</displayName>
 				<displayName count="one">haitisk gourde</displayName>
 				<displayName count="other">haitiska gourder</displayName>
-				<symbol draft="unconfirmed">HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>ungersk forint</displayName>
@@ -5228,13 +4981,11 @@
 				<displayName>irakisk dinar</displayName>
 				<displayName count="one">irakisk dinar</displayName>
 				<displayName count="other">irakiska dinarer</displayName>
-				<symbol draft="unconfirmed">IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>iransk rial</displayName>
 				<displayName count="one">iransk rial</displayName>
 				<displayName count="other">iranska rial</displayName>
-				<symbol draft="unconfirmed">IRR</symbol>
 			</currency>
 			<currency type="ISJ">
 				<displayName>isländsk gammal krona</displayName>
@@ -5274,7 +5025,6 @@
 				<displayName>japansk yen</displayName>
 				<displayName count="one">japansk yen</displayName>
 				<displayName count="other">japanska yen</displayName>
-				<symbol draft="unconfirmed">JP¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>kenyansk shilling</displayName>
@@ -5287,13 +5037,11 @@
 				<displayName count="one">kirgizisk som</displayName>
 				<displayName count="other">kirgiziska somer</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">kirgiziska som</displayName>
-				<symbol draft="unconfirmed">KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>kambodjansk riel</displayName>
 				<displayName count="one">kambodjansk riel</displayName>
 				<displayName count="other">kambodjanska riel</displayName>
-				<symbol draft="unconfirmed">KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>komorisk franc</displayName>
@@ -5305,7 +5053,6 @@
 				<displayName>nordkoreansk won</displayName>
 				<displayName count="one">nordkoreansk won</displayName>
 				<displayName count="other">nordkoreanska won</displayName>
-				<symbol draft="unconfirmed">KPW</symbol>
 			</currency>
 			<currency type="KRH">
 				<displayName count="one" draft="unconfirmed">sydkoreansk hwan (1953-1962)</displayName>
@@ -5337,7 +5084,6 @@
 				<displayName>kazakisk tenge</displayName>
 				<displayName count="one">kazakisk tenge</displayName>
 				<displayName count="other">kazakiska tenger</displayName>
-				<symbol draft="unconfirmed">KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>laotisk kip</displayName>
@@ -5367,7 +5113,6 @@
 				<displayName>lesothisk loti</displayName>
 				<displayName count="one">lesothisk loti</displayName>
 				<displayName count="other">lesothiska lotier</displayName>
-				<symbol draft="unconfirmed">LSL</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>litauisk litas</displayName>
@@ -5422,7 +5167,6 @@
 				<displayName>marockansk dirham</displayName>
 				<displayName count="one">marockansk dirham</displayName>
 				<displayName count="other">marockanska dirhamer</displayName>
-				<symbol draft="unconfirmed">MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>marockansk franc</displayName>
@@ -5444,13 +5188,11 @@
 				<displayName>moldavisk leu</displayName>
 				<displayName count="one">moldavisk leu</displayName>
 				<displayName count="other">moldaviska leu</displayName>
-				<symbol draft="unconfirmed">MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>madagaskisk ariary</displayName>
 				<displayName count="one">madagaskisk ariary</displayName>
 				<displayName count="other">madagaskiska ariary</displayName>
-				<symbol draft="unconfirmed">MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>madagaskisk franc</displayName>
@@ -5464,7 +5206,6 @@
 				<displayName>makedonisk denar</displayName>
 				<displayName count="one">makedonisk denar</displayName>
 				<displayName count="other">makedoniska denarer</displayName>
-				<symbol draft="unconfirmed">MKD</symbol>
 			</currency>
 			<currency type="MKN">
 				<displayName count="one" draft="unconfirmed">makedonisk denar (1992-1993)</displayName>
@@ -5482,7 +5223,6 @@
 				<displayName>myanmarisk kyat</displayName>
 				<displayName count="one">myanmarisk kyat</displayName>
 				<displayName count="other">myanmariska kyat</displayName>
-				<symbol draft="unconfirmed">MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>mongolisk tugrik</displayName>
@@ -5530,19 +5270,16 @@
 				<displayName>maldivisk rufiyaa</displayName>
 				<displayName count="one">maldivisk rufiyaa</displayName>
 				<displayName count="other" draft="contributed">maldiviska rufiyer</displayName>
-				<symbol draft="unconfirmed">MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>malawisk kwacha</displayName>
 				<displayName count="one">malawisk kwacha</displayName>
 				<displayName count="other" draft="contributed">malawiska kwacha</displayName>
-				<symbol draft="unconfirmed">MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>mexikansk peso</displayName>
 				<displayName count="one">mexikansk peso</displayName>
 				<displayName count="other">mexikanska pesos</displayName>
-				<symbol draft="unconfirmed">MXN</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>mexikansk silverpeso (1861-1992)</displayName>
@@ -5639,7 +5376,6 @@
 				<displayName>omansk rial</displayName>
 				<displayName count="one">omansk rial</displayName>
 				<displayName count="other">omanska rial</displayName>
-				<symbol draft="unconfirmed">OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>panamansk balboa</displayName>
@@ -5677,7 +5413,6 @@
 				<displayName>papuansk kina</displayName>
 				<displayName count="one">papuansk kina</displayName>
 				<displayName count="other" draft="contributed">papuanska kinor</displayName>
-				<symbol draft="unconfirmed">PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>filippinsk peso</displayName>
@@ -5738,13 +5473,11 @@
 				<displayName count="other" draft="contributed">gamla rumänska leu</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">rumänska leu (1952-2005)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">rumänsk leu (1952-2005)</displayName>
-				<symbol draft="unconfirmed">ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>rumänsk leu</displayName>
 				<displayName count="one">rumänsk leu</displayName>
 				<displayName count="other" draft="contributed">rumänska leu</displayName>
-				<symbol draft="unconfirmed">RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Serbisk dinar</displayName>
@@ -5757,7 +5490,6 @@
 				<displayName>rysk rubel</displayName>
 				<displayName count="one">rysk rubel</displayName>
 				<displayName count="other" draft="contributed">ryska rubel</displayName>
-				<symbol draft="unconfirmed">RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>rysk rubel (1991-1998)</displayName>
@@ -5768,7 +5500,6 @@
 				<displayName>rwandisk franc</displayName>
 				<displayName count="one">rwandisk franc</displayName>
 				<displayName count="other" draft="contributed">rwandiska franc</displayName>
-				<symbol draft="unconfirmed">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>saudisk riyal</displayName>
@@ -5801,7 +5532,6 @@
 				<displayName count="one" draft="unconfirmed">sudanskt pund</displayName>
 				<displayName count="other" draft="contributed">sudanska pund</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">sudanskt pund</displayName>
-				<symbol draft="unconfirmed">SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>gammalt sudanesiskt pund</displayName>
@@ -5892,13 +5622,11 @@
 				<displayName>swaziländsk lilangeni</displayName>
 				<displayName count="one" draft="unconfirmed">swaziländsk lilangeni</displayName>
 				<displayName count="other" draft="unconfirmed">swaziländska lilangeni</displayName>
-				<symbol draft="unconfirmed">SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>thailändsk baht</displayName>
 				<displayName count="one" draft="unconfirmed">thailändsk baht</displayName>
 				<displayName count="other" draft="contributed">thailändska baht</displayName>
-				<symbol draft="unconfirmed">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>tadzjikisk rubel</displayName>
@@ -5911,13 +5639,11 @@
 				<displayName>tadzjikisk somoni</displayName>
 				<displayName count="one" draft="unconfirmed">tadzjikisk somoni</displayName>
 				<displayName count="other" draft="contributed">tadzjikiska somoni</displayName>
-				<symbol draft="unconfirmed">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>turkmensk manat</displayName>
 				<displayName count="one" draft="unconfirmed">turkmensk manat</displayName>
 				<displayName count="other" draft="contributed">turkmenska manat</displayName>
-				<symbol draft="unconfirmed">TMM</symbol>
 			</currency>
 			<currency type="TMT">
 				<displayName draft="provisional">turkmenistansk ny manat</displayName>
@@ -5926,7 +5652,6 @@
 				<displayName count="other" draft="provisional">turkmenistanska nya manat</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">turkmenistanska manat</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">turkmenistansk manat</displayName>
-				<symbol draft="unconfirmed">TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>tunisisk dinar</displayName>
@@ -5954,7 +5679,6 @@
 				<displayName count="other">gamla turkiska lire</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">turkiska lire (-2004)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">turkisk lire (-2004)</displayName>
-				<symbol draft="unconfirmed">TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>ny turkisk lira</displayName>
@@ -6011,7 +5735,6 @@
 				<displayName>US-dollar</displayName>
 				<displayName count="one" draft="unconfirmed">US-dollar</displayName>
 				<displayName count="other" draft="contributed">US-dollar</displayName>
-				<symbol draft="unconfirmed">US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>US-dollar (nästa dag)</displayName>
@@ -6043,7 +5766,6 @@
 				<displayName>uzbekisk sum</displayName>
 				<displayName count="one">uzbekisk sum</displayName>
 				<displayName count="other" draft="contributed">uzbekiska sum</displayName>
-				<symbol draft="unconfirmed">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>venezuelansk bolivar</displayName>
@@ -6098,7 +5820,6 @@
 				<displayName count="other" draft="contributed">silveruns</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">uns silver</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">uns silver</displayName>
-				<symbol draft="unconfirmed">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>guld</displayName>
@@ -6106,7 +5827,6 @@
 				<displayName count="other" draft="contributed">gulduns</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">uns guld</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">uns guld</displayName>
-				<symbol draft="unconfirmed">XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>europeisk kompositenhet</displayName>
@@ -6114,7 +5834,6 @@
 				<displayName count="other" draft="contributed">europeiska kompositenheter</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">europeiska gamla kompositenheter</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">europeisk gammal kompositenhet</displayName>
-				<symbol draft="unconfirmed">XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>europeisk monetär enhet</displayName>
@@ -6122,7 +5841,6 @@
 				<displayName count="other" draft="contributed">europeiska monetära enheter</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">europeiska gamla monetära enheter</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">europeisk gammal monetär enhet</displayName>
-				<symbol draft="unconfirmed">XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>europeisk kontoenhet (XBC)</displayName>
@@ -6130,7 +5848,6 @@
 				<displayName count="other" draft="contributed">europeiska kontoenheter (XBC)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">europeiska gamla kontoenheter-9</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">europeisk gammal kontoenhet-9</displayName>
-				<symbol draft="unconfirmed">XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>europeisk kontoenhet (XBD)</displayName>
@@ -6139,7 +5856,6 @@
 				<displayName count="other" draft="contributed">europeiska kontoenheter (XBD)</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">europeiska gamla kontoenheter-17</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">europeisk gammal kontoenhet-17</displayName>
-				<symbol draft="unconfirmed">XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>östkaribisk dollar</displayName>
@@ -6151,7 +5867,6 @@
 				<displayName>IMF särskild dragningsrätt</displayName>
 				<displayName count="one">IMF särskild dragningsrätt</displayName>
 				<displayName count="other" draft="contributed">IMF särskilda dragningsrätter</displayName>
-				<symbol draft="unconfirmed">XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>europeisk valutaenhet</displayName>
@@ -6165,21 +5880,18 @@
 				<displayName>fransk guldfranc</displayName>
 				<displayName count="one">fransk guldfranc</displayName>
 				<displayName count="other">franska guldfranc</displayName>
-				<symbol draft="unconfirmed">XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>French UIC-Franc</displayName>
 				<displayName count="one">internationella järnvägsunionens franc</displayName>
 				<displayName count="other" draft="contributed">internationella järnvägsunionens franc</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">internationella järnvägsunionens franc</displayName>
-				<symbol draft="unconfirmed">XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>CFA Franc BCEAO</displayName>
 				<displayName count="one">västafrikansk franc</displayName>
 				<displayName count="other" draft="contributed">västafrikanska franc</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">västafrikansk franc</displayName>
-				<symbol draft="unconfirmed">CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>palladium</displayName>
@@ -6187,7 +5899,6 @@
 				<displayName count="other" draft="contributed">palladium</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">uns palladium</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">uns palladium</displayName>
-				<symbol draft="unconfirmed">XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP-franc</displayName>
@@ -6202,7 +5913,6 @@
 				<displayName count="other" draft="contributed">platina</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">uns platina</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">uns platina</displayName>
-				<symbol draft="unconfirmed">XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET-fond</displayName>
@@ -6215,7 +5925,6 @@
 				<displayName count="other" draft="contributed">test-valutakod</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">(valutakod för teständamål)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">(valutakod för teständamål)</displayName>
-				<symbol draft="unconfirmed">XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>okänd eller ogiltig valuta</displayName>
@@ -6224,7 +5933,6 @@
 				<displayName count="other">okänd eller ogiltig valuta</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">(okänd valuta)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">(okänd valuta)</displayName>
-				<symbol draft="unconfirmed">XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>jemenitisk dinar</displayName>
@@ -6301,7 +6009,6 @@
 				<displayName count="other">zaïriska zaïre</displayName>
 				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">zaïriska zaïre (1967-1993)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">zaïrisk zaïre (1967-1993)</displayName>
-				<symbol draft="unconfirmed">ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>Zimbabwe-dollar</displayName>
@@ -6316,7 +6023,6 @@
 				<displayName draft="contributed">Zimbabwe-dollar (2009)</displayName>
 				<displayName count="one" draft="contributed">Zimbabwe-dollar (2009)</displayName>
 				<displayName count="other" draft="contributed">Zimbabwe-dollar (2009)</displayName>
-				<symbol draft="unconfirmed">ZWL</symbol>
 			</currency>
 			<currency type="ZWR">
 				<displayName count="one" draft="provisional">Zimbabwe-dollar (2008)</displayName>
@@ -6388,8 +6094,6 @@
 		<listPattern>
 			<listPatternPart type="2" draft="contributed">{0} och {1}</listPatternPart>
 			<listPatternPart type="end" draft="contributed">{0} och {1}</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
-			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

@@ -20,11 +20,8 @@
 			<variant type="1901" draft="contributed">傳統德國拼字法</variant>
 			<variant type="1996" draft="contributed">1996 德國拼字法</variant>
 			<variant type="BISKE" draft="contributed">San Giorgio/Bila 方言</variant>
-			<variant type="NJIVA" draft="contributed">Gniva/Njiva 方言</variant>
-			<variant type="OSOJS" draft="contributed">Oseacco/Osojane 方言</variant>
 			<variant type="REVISED" draft="contributed">已修訂拼字法</variant>
 			<variant type="SCOTLAND" draft="contributed">蘇格蘭標準英語</variant>
-			<variant type="SOLBA" draft="contributed">Stolvizza/Solbica 方言</variant>
 		</variants>
 		<types>
 			<type type="big5han" key="collation">繁體中文順序 - Big5</type>
@@ -36,64 +33,11 @@
 	</localeDisplayNames>
 	<dates>
 		<calendars>
-			<calendar type="buddhist">
-				<dateTimeFormats>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="chinese">
 				<dateTimeFormats>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="MMMMEd" draft="contributed">M月d日E</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="contributed">y年M月d日，E</dateFormatItem>
 					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="coptic">
-				<dateTimeFormats>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="ethiopic">
-				<dateTimeFormats>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
@@ -180,90 +124,6 @@
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
-			<calendar type="hebrew">
-				<dateTimeFormats>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="indian">
-				<dateTimeFormats>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="islamic">
-				<dateTimeFormats>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="islamic-civil">
-				<dateTimeFormats>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="persian">
-				<dateTimeFormats>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="roc">
-				<dateTimeFormats>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
-			</calendar>
 		</calendars>
 	</dates>
 	<numbers>
@@ -326,3 +186,4 @@
 		</messages>
 	</posix>
 </ldml>
+

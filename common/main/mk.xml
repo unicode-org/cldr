@@ -985,12 +985,6 @@
 				</days>
 				<quarters>
 					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
-						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">прво тромесечје</quarter>
 							<quarter type="2">второ тромесечје</quarter>
@@ -998,32 +992,9 @@
 							<quarter type="4">четврто тромесечје</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dateTimeFormats>
 					<intervalFormats>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a">h a – h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a – h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M">LLLL–LLLL</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="y">dd MMM y - dd MMM y</greatestDifference>
 						</intervalFormatItem>
@@ -1031,10 +1002,6 @@
 							<greatestDifference id="d">E, dd - E, dd MMM y</greatestDifference>
 							<greatestDifference id="M">E, dd MMM - E, dd MMM y</greatestDifference>
 							<greatestDifference id="y">E, dd MMM y - E, dd MMM y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">yyyy-MM – MM</greatestDifference>
-							<greatestDifference id="y">yyyy-MM – yyyy-MM</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1052,25 +1019,6 @@
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a">h a – h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a – h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M">LLLL–LLLL</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="coptic">
 				<days>
@@ -1108,18 +1056,6 @@
 				</days>
 				<dateTimeFormats>
 					<intervalFormats>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a">h a – h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a – h a v</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="y">dd MMM y - dd MMM y</greatestDifference>
 						</intervalFormatItem>
@@ -1132,16 +1068,6 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="ethiopic">
-				<quarters>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
@@ -1156,29 +1082,10 @@
 				</dayPeriods>
 				<dateTimeFormats>
 					<intervalFormats>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a">h a – h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a – h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M">LLLL–LLLL</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
 							<greatestDifference id="d">E, dd - E, dd MMM y</greatestDifference>
 							<greatestDifference id="M">E, dd MMM - E, dd MMM y</greatestDifference>
 							<greatestDifference id="y">E, dd MMM y - E, dd MMM y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">yyyy-MM – MM</greatestDifference>
-							<greatestDifference id="y">yyyy-MM – yyyy-MM</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1565,29 +1472,10 @@
 			<calendar type="hebrew">
 				<dateTimeFormats>
 					<intervalFormats>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a">h a – h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a – h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M">LLLL–LLLL</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
 							<greatestDifference id="d">E, dd - E, dd MMM y</greatestDifference>
 							<greatestDifference id="M">E, dd MMM - E, dd MMM y</greatestDifference>
 							<greatestDifference id="y">E, dd MMM y - E, dd MMM y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">yyyy-MM – MM</greatestDifference>
-							<greatestDifference id="y">yyyy-MM – yyyy-MM</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1605,46 +1493,6 @@
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a">h a – h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a – h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M">LLLL–LLLL</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="islamic">
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a">h a – h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a – h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M">LLLL–LLLL</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
 				<days>
@@ -1672,53 +1520,13 @@
 					</dayContext>
 				</days>
 			</calendar>
-			<calendar type="persian">
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a">h a – h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a – h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M">LLLL–LLLL</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="roc">
 				<dateTimeFormats>
 					<intervalFormats>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a">h a – h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a – h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M">LLLL–LLLL</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
 							<greatestDifference id="d">E, dd - E, dd MMM y</greatestDifference>
 							<greatestDifference id="M">E, dd MMM - E, dd MMM y</greatestDifference>
 							<greatestDifference id="y">E, dd MMM y - E, dd MMM y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">yyyy-MM – MM</greatestDifference>
-							<greatestDifference id="y">yyyy-MM – yyyy-MM</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>

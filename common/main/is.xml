@@ -1415,9 +1415,6 @@
 						<intervalFormatItem id="h">
 							<greatestDifference id="h" draft="unconfirmed">h-h a</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="H" draft="unconfirmed">HH–HH</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a" draft="unconfirmed">h:mm a – h:mm a</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h:mm-h:mm a</greatestDifference>
@@ -1426,7 +1423,6 @@
 							<greatestDifference id="m" alt="proposed-x1001" draft="unconfirmed">h:mm–h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="a" draft="unconfirmed">HH:mm–HH:mm</greatestDifference>
 							<greatestDifference id="H" draft="contributed">HH:mm-HH:mm</greatestDifference>
 							<greatestDifference id="H" alt="proposed-x1001" draft="unconfirmed">HH:mm–HH:mm</greatestDifference>
 							<greatestDifference id="m" draft="contributed">HH:mm-HH:mm</greatestDifference>
@@ -1440,7 +1436,6 @@
 							<greatestDifference id="m" alt="proposed-x1001" draft="unconfirmed">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a" draft="unconfirmed">HH:mm–HH:mm v</greatestDifference>
 							<greatestDifference id="H" draft="contributed">HH:mm-HH:mm v</greatestDifference>
 							<greatestDifference id="H" alt="proposed-x1001" draft="unconfirmed">HH:mm–HH:mm v</greatestDifference>
 							<greatestDifference id="m" draft="contributed">HH:mm-HH:mm v</greatestDifference>
@@ -1452,7 +1447,6 @@
 							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="a" draft="unconfirmed">HH–HH v</greatestDifference>
 							<greatestDifference id="H" draft="contributed">HH-HH v</greatestDifference>
 							<greatestDifference id="H" alt="proposed-x1001" draft="unconfirmed">HH–HH v</greatestDifference>
 						</intervalFormatItem>
@@ -1904,7 +1898,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
@@ -1989,12 +1982,6 @@
 			<currency type="AUD">
 				<displayName>Ástralskur dalur</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">ástralskur dalur</displayName>
-			</currency>
-			<currency type="AZM">
-				<displayName draft="unconfirmed">AZM</displayName>
-			</currency>
-			<currency type="AZN">
-				<displayName draft="unconfirmed">AZN</displayName>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbadoskur dalur</displayName>
@@ -2137,7 +2124,6 @@
 				<displayName count="one" draft="unconfirmed">euro</displayName>
 				<displayName count="other" draft="unconfirmed">euro</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">euro</displayName>
-				<symbol draft="unconfirmed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Finnskt mark</displayName>
@@ -2158,9 +2144,6 @@
 			<currency type="GBP">
 				<displayName>Sterlingspund</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">breskur sterlingspund</displayName>
-			</currency>
-			<currency type="GHS">
-				<displayName draft="unconfirmed">GHS</displayName>
 			</currency>
 			<currency type="GIP">
 				<displayName>Gíbraltarspund</displayName>
@@ -2373,17 +2356,11 @@
 			<currency type="MZE">
 				<displayName>Mósambískur skúti</displayName>
 			</currency>
-			<currency type="MZM">
-				<displayName draft="unconfirmed">MZM</displayName>
-			</currency>
 			<currency type="NAD">
 				<displayName>Namibískur dalur</displayName>
 			</currency>
 			<currency type="NGN">
 				<displayName>Nigerian Naira</displayName>
-			</currency>
-			<currency type="NIO">
-				<displayName draft="unconfirmed">NIO</displayName>
 			</currency>
 			<currency type="NLG">
 				<displayName>Hollenskt gyllini</displayName>
@@ -2422,9 +2399,6 @@
 			<currency type="PTE">
 				<displayName>Portúgalskur skúti</displayName>
 			</currency>
-			<currency type="PYG">
-				<displayName draft="unconfirmed">PYG</displayName>
-			</currency>
 			<currency type="ROL">
 				<displayName>Rúmenskt lei</displayName>
 			</currency>
@@ -2454,9 +2428,6 @@
 			</currency>
 			<currency type="SDD">
 				<displayName>Súdanskur denari</displayName>
-			</currency>
-			<currency type="SDG">
-				<displayName draft="unconfirmed">SDG</displayName>
 			</currency>
 			<currency type="SDP">
 				<displayName>Súdanskt pund</displayName>
@@ -2551,9 +2522,6 @@
 			<currency type="VUV">
 				<displayName>Vanuatu Vatu</displayName>
 			</currency>
-			<currency type="WST">
-				<displayName draft="unconfirmed">WST</displayName>
-			</currency>
 			<currency type="XAF">
 				<displayName>Miðafrískur franki, BEAC</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">miðafrískur franki, BEAC</displayName>
@@ -2562,13 +2530,11 @@
 				<displayName draft="unconfirmed">unse silfur</displayName>
 				<displayName count="one" draft="unconfirmed">unse silfur</displayName>
 				<displayName count="other" draft="unconfirmed">unse silfur</displayName>
-				<symbol draft="unconfirmed">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName draft="unconfirmed">unse gull</displayName>
 				<displayName count="one" draft="unconfirmed">unse gull</displayName>
 				<displayName count="other" draft="unconfirmed">unse gull</displayName>
-				<symbol draft="unconfirmed">XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName draft="unconfirmed">XBA</displayName>
@@ -2605,7 +2571,6 @@
 				<displayName draft="unconfirmed">unse palladín</displayName>
 				<displayName count="one" draft="unconfirmed">unse palladín</displayName>
 				<displayName count="other" draft="unconfirmed">unse palladín</displayName>
-				<symbol draft="unconfirmed">XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>Pólinesískur franki</displayName>
@@ -2615,7 +2580,6 @@
 				<displayName draft="unconfirmed">unse platína</displayName>
 				<displayName count="one" draft="unconfirmed">unse platína</displayName>
 				<displayName count="other" draft="unconfirmed">unse platína</displayName>
-				<symbol draft="unconfirmed">XPT</symbol>
 			</currency>
 			<currency type="XTS">
 				<displayName draft="unconfirmed">XTS</displayName>
@@ -2684,8 +2648,6 @@
 		<listPattern>
 			<listPatternPart type="2" draft="unconfirmed">{0} og {1}</listPatternPart>
 			<listPatternPart type="end" draft="unconfirmed">{0} og {1}</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
-			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

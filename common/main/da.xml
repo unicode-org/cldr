@@ -1228,7 +1228,6 @@
 		<inText type="quarterWidth" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
 		<inText type="scripts">lowercase-words</inText>
 		<inText type="scripts" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
-		<inText type="territories" draft="contributed">mixed</inText>
 		<inText type="types">lowercase-words</inText>
 		<inText type="types" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
 		<inText type="variants">lowercase-words</inText>
@@ -1731,7 +1730,6 @@
 			<hourFormat>+HH.mm;-HH.mm</hourFormat>
 			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat draft="contributed">GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<regionFormat alt="proposed-x1001" draft="unconfirmed">{0}tid</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
@@ -1842,36 +1840,23 @@
 					<daylight>Acre-sommertid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Acre, sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">ACT (Acre)</standard>
-					<daylight draft="unconfirmed">ACST (Acre)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard>Afghansk tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">AFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>centralafrikansk tid</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Centralafrikansk tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">CAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>østafrikansk tid</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Østafrikansk tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">EAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
@@ -1892,10 +1877,6 @@
 					<daylight>vestafrikansk sommertid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Vestafrikansk sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">WAT</standard>
-					<daylight draft="contributed">WAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Aktyubinsk">
 				<long>
@@ -1904,10 +1885,6 @@
 					<daylight>Aktyubinsk-sommertid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Aktyubinsk sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">AKTT</standard>
-					<daylight draft="contributed">AKTST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
@@ -1952,10 +1929,6 @@
 					<daylight>Amazonas-sommertid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Amazonas, sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">AMT</standard>
-					<daylight draft="unconfirmed">AMST</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Central">
 				<long>
@@ -2062,7 +2035,6 @@
 					<daylight>Argentinsk sommertid</daylight>
 				</long>
 				<short>
-					<standard draft="unconfirmed">ART</standard>
 					<daylight draft="unconfirmed">AR</daylight>
 				</short>
 			</metazone>
@@ -2070,9 +2042,6 @@
 				<long>
 					<standard>Vestargentinsk tid</standard>
 				</long>
-				<short>
-					<standard draft="unconfirmed">WART</standard>
-				</short>
 			</metazone>
 			<metazone type="Armenia">
 				<long>
@@ -2207,9 +2176,6 @@
 				<long>
 					<standard>Boliviansk tid</standard>
 				</long>
-				<short>
-					<standard draft="unconfirmed">BOT</standard>
-				</short>
 			</metazone>
 			<metazone type="Borneo">
 				<long>
@@ -2224,10 +2190,6 @@
 					<standard>Brasiliansk tid</standard>
 					<daylight>Brasiliansk sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">BRT</standard>
-					<daylight draft="unconfirmed">BRST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Brunei">
 				<long>
@@ -2278,10 +2240,6 @@
 					<standard>Chilensk tid</standard>
 					<daylight>Chilensk sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">CLT</standard>
-					<daylight draft="unconfirmed">CLST</daylight>
-				</short>
 			</metazone>
 			<metazone type="China">
 				<long>
@@ -2311,28 +2269,18 @@
 					<standard>Juleøen</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Christmas Island-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">CXT</standard>
-				</short>
 			</metazone>
 			<metazone type="Cocos">
 				<long>
 					<standard>Cocosøerne</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Cocosøerne-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">CCT</standard>
-				</short>
 			</metazone>
 			<metazone type="Colombia">
 				<long>
 					<standard>Colombiansk tid</standard>
 					<daylight>Colombiansk sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">COT</standard>
-					<daylight draft="unconfirmed">COST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Cook">
 				<long>
@@ -2342,7 +2290,6 @@
 					<daylight alt="proposed-x1001" draft="unconfirmed">Cookøerne-sommertid</daylight>
 				</long>
 				<short>
-					<standard draft="contributed">CKT</standard>
 					<daylight draft="unconfirmed">CKST</daylight>
 				</short>
 			</metazone>
@@ -2368,18 +2315,12 @@
 					<standard>Davis-tid</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Davis</standard>
 				</long>
-				<short>
-					<standard draft="contributed">DAVT</standard>
-				</short>
 			</metazone>
 			<metazone type="DumontDUrville">
 				<long>
 					<standard>Dumont-d'Urville-tid</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Dumont-d'Urville</standard>
 				</long>
-				<short>
-					<standard draft="contributed">DDUT</standard>
-				</short>
 			</metazone>
 			<metazone type="Dushanbe">
 				<long>
@@ -2394,9 +2335,6 @@
 					<standard>Hollandsk Guiana-tid</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Hollandsk Guiana</standard>
 				</long>
-				<short>
-					<standard draft="unconfirmed">NEGT</standard>
-				</short>
 			</metazone>
 			<metazone type="East_Timor">
 				<long>
@@ -2411,18 +2349,11 @@
 					<daylight>Påskeøen, sommertid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Påskeøen-sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">EAST</standard>
-					<daylight draft="contributed">EASST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Ecuador">
 				<long>
 					<standard>Ecuadoriansk tid</standard>
 				</long>
-				<short>
-					<standard draft="unconfirmed">ECT</standard>
-				</short>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
@@ -2480,28 +2411,18 @@
 					<daylight>Fiji, sommertid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Fiji-sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">FJT</standard>
-					<daylight draft="contributed">FJST</daylight>
-				</short>
 			</metazone>
 			<metazone type="French_Guiana">
 				<long>
 					<standard>Fransk Guiana-tid</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Fransk Guiana</standard>
 				</long>
-				<short>
-					<standard draft="unconfirmed">GFT</standard>
-				</short>
 			</metazone>
 			<metazone type="French_Southern">
 				<long>
 					<standard>Franske sydlige og antarktiske territorier</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Franske Sydlige og Antarktiske Territorier-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">TFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Frunze">
 				<long>
@@ -2516,18 +2437,12 @@
 					<standard>Galapagos</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Galapagos-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">GALT</standard>
-				</short>
 			</metazone>
 			<metazone type="Gambier">
 				<long>
 					<standard>Gambier</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Gambier-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">GAMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Georgia">
 				<long>
@@ -2540,9 +2455,6 @@
 					<standard>Gilbertøerne</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Gilbert Islands-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">GILT</standard>
-				</short>
 			</metazone>
 			<metazone type="GMT">
 				<long>
@@ -2555,30 +2467,18 @@
 					<standard>Centralgrønlandsk tid</standard>
 					<daylight>Centralgrønlandsk sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">CGT</standard>
-					<daylight draft="unconfirmed">CGST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
 					<standard>Østgrønlandsk tid</standard>
 					<daylight>Østgrønlandsk sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">EGT</standard>
-					<daylight draft="unconfirmed">EGST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Greenland_Western">
 				<long>
 					<standard>Vestgrønlandsk tid</standard>
 					<daylight>Vestgrønlandsk sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">WGT</standard>
-					<daylight draft="unconfirmed">WGST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Guam">
 				<long>
@@ -2603,9 +2503,6 @@
 					<standard>Guyana-tid</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Guyana</standard>
 				</long>
-				<short>
-					<standard draft="unconfirmed">GYT</standard>
-				</short>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
@@ -2642,9 +2539,6 @@
 					<standard>Indiske Ocean</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Indiske Ocean-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">IOT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indochina">
 				<long>
@@ -2760,9 +2654,6 @@
 					<standard>Kosrae</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Kosrae-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">KOST</standard>
-				</short>
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
@@ -2784,9 +2675,6 @@
 					<standard>Kwajalein</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Kwajalein-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">KWAT</standard>
-				</short>
 			</metazone>
 			<metazone type="Kyrgystan">
 				<long>
@@ -2805,9 +2693,6 @@
 					<standard>Linjeøerne</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Line Islands-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">LINT</standard>
-				</short>
 			</metazone>
 			<metazone type="Long_Shu">
 				<long>
@@ -2861,27 +2746,18 @@
 					<standard>Maldiverne</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Maldiverne-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">MVT</standard>
-				</short>
 			</metazone>
 			<metazone type="Marquesas">
 				<long>
 					<standard>Marquesas</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Marquesas-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">MART</standard>
-				</short>
 			</metazone>
 			<metazone type="Marshall_Islands">
 				<long>
 					<standard>Marshalløerne</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Marshalløerne-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">MHT</standard>
-				</short>
 			</metazone>
 			<metazone type="Mauritius">
 				<long>
@@ -2890,19 +2766,12 @@
 					<daylight>Mauritius, sommertid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Mauritius-sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">MUT</standard>
-					<daylight draft="contributed">MUST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Mawson">
 				<long>
 					<standard>Mawson-tid</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Mawson</standard>
 				</long>
-				<short>
-					<standard draft="contributed">MAWT</standard>
-				</short>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
@@ -2921,10 +2790,6 @@
 					<daylight>Moskva-sommertid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Moskva, sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">MSK</standard>
-					<daylight draft="contributed">MSKS</daylight>
-				</short>
 			</metazone>
 			<metazone type="Myanmar">
 				<long>
@@ -2937,9 +2802,6 @@
 					<standard>Nauru</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Nauru-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">NRT</standard>
-				</short>
 			</metazone>
 			<metazone type="Nepal">
 				<long>
@@ -2954,10 +2816,6 @@
 					<daylight>Ny Kaledonien, sommertid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Ny Kaledonien-sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">NCT</standard>
-					<daylight draft="contributed">NCST</daylight>
-				</short>
 			</metazone>
 			<metazone type="New_Zealand">
 				<long>
@@ -2990,18 +2848,12 @@
 					<standard>Niue</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Niue-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">NUT</standard>
-				</short>
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
 					<standard>Norfolk-øen</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Norfolk Island-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">NFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Noronha">
 				<long>
@@ -3010,19 +2862,12 @@
 					<daylight>Fernando de Noronha-sommertid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Fernando de Noronha, sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">FNT</standard>
-					<daylight draft="unconfirmed">FNST</daylight>
-				</short>
 			</metazone>
 			<metazone type="North_Mariana">
 				<long>
 					<standard>Nordmarianerne</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Nordmarianerne-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">MPT</standard>
-				</short>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
@@ -3051,38 +2896,24 @@
 					<standard>Palau</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Palau-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">PWT</standard>
-				</short>
 			</metazone>
 			<metazone type="Papua_New_Guinea">
 				<long>
 					<standard>Papua Ny Guinea</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Papua Ny Guinea-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">PGT</standard>
-				</short>
 			</metazone>
 			<metazone type="Paraguay">
 				<long>
 					<standard>Paraguayansk tid</standard>
 					<daylight>Paraguayansk sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">PYT</standard>
-					<daylight draft="unconfirmed">PYST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Peru">
 				<long>
 					<standard>Peruviansk tid</standard>
 					<daylight>Peruviansk sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">PET</standard>
-					<daylight draft="unconfirmed">PEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Philippines">
 				<long>
@@ -3095,9 +2926,6 @@
 					<standard>Phoenix-øen</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Phoenix Island-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">PHOT</standard>
-				</short>
 			</metazone>
 			<metazone type="Pierre_Miquelon">
 				<long>
@@ -3118,18 +2946,12 @@
 					<standard>Pitcairn</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Pitcairn-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">PNT</standard>
-				</short>
 			</metazone>
 			<metazone type="Ponape">
 				<long>
 					<standard>Ponape</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Ponape-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">PONT</standard>
-				</short>
 			</metazone>
 			<metazone type="Qyzylorda">
 				<long>
@@ -3144,18 +2966,12 @@
 					<standard>Reunion</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Reunion-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">RET</standard>
-				</short>
 			</metazone>
 			<metazone type="Rothera">
 				<long>
 					<standard>Rothera-tid</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Rothera</standard>
 				</long>
-				<short>
-					<standard draft="contributed">ROTT</standard>
-				</short>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
@@ -3192,9 +3008,6 @@
 					<standard>Seychellerne</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Seychellerne-tid</standard>
 				</long>
-				<short>
-					<standard draft="contributed">SCT</standard>
-				</short>
 			</metazone>
 			<metazone type="Shevchenko">
 				<long>
@@ -3230,9 +3043,6 @@
 					<standard>Surinam-tid</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Surinam</standard>
 				</long>
-				<short>
-					<standard draft="unconfirmed">SRT</standard>
-				</short>
 			</metazone>
 			<metazone type="Sverdlovsk">
 				<long>
@@ -3247,9 +3057,6 @@
 					<standard>Syowa-tid</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Syowa</standard>
 				</long>
-				<short>
-					<standard draft="contributed">SYOT</standard>
-				</short>
 			</metazone>
 			<metazone type="Tahiti">
 				<long>
@@ -3347,10 +3154,6 @@
 					<standard>Uruguayansk tid</standard>
 					<daylight>Uruguayansk sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">UYT</standard>
-					<daylight draft="unconfirmed">UYST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Urumqi">
 				<long>
@@ -3378,9 +3181,6 @@
 				<long>
 					<standard>Venezuelansk tid</standard>
 				</long>
-				<short>
-					<standard draft="unconfirmed">VET</standard>
-				</short>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
@@ -3403,9 +3203,6 @@
 					<standard>Vostok-tid</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Vostok</standard>
 				</long>
-				<short>
-					<standard draft="contributed">VOST</standard>
-				</short>
 			</metazone>
 			<metazone type="Wake">
 				<long>
@@ -3459,7 +3256,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
@@ -3840,7 +3636,6 @@
 				<displayName count="one" draft="contributed">euro</displayName>
 				<displayName count="other" draft="contributed">euro</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">euro</displayName>
-				<symbol draft="contributed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Finsk mark</displayName>
@@ -4465,14 +4260,12 @@
 				<displayName count="one" draft="contributed">unse sølv</displayName>
 				<displayName count="other" draft="unconfirmed">unse sølv</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unse sølv</displayName>
-				<symbol draft="contributed">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>Guld</displayName>
 				<displayName count="one" draft="contributed">unse guld</displayName>
 				<displayName count="other" draft="unconfirmed">unse guld</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unse guld</displayName>
-				<symbol draft="contributed">XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>EURCO</displayName>
@@ -4510,7 +4303,6 @@
 				<displayName count="one" draft="contributed">unse palladium</displayName>
 				<displayName count="other" draft="unconfirmed">unse palladium</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unse palladium</displayName>
-				<symbol draft="contributed">XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP-franc</displayName>
@@ -4520,7 +4312,6 @@
 				<displayName count="one" draft="contributed">unse platin</displayName>
 				<displayName count="other" draft="unconfirmed">unse platin</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">unse platin</displayName>
-				<symbol draft="contributed">XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET-fond</displayName>
@@ -4530,7 +4321,6 @@
 				<displayName count="one">testvaluta</displayName>
 				<displayName count="other">testvaluta</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">testvaluta</displayName>
-				<symbol draft="contributed">XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>Ukendt eller ugyldig valuta</displayName>
@@ -4644,8 +4434,6 @@
 		<listPattern>
 			<listPatternPart type="2">{0} og {1}</listPatternPart>
 			<listPatternPart type="end">{0} og {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

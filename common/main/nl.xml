@@ -1152,19 +1152,12 @@
 		<inList alt="proposed-x1001" draft="unconfirmed">mixed</inList>
 		<inText type="currency">lowercase-words</inText>
 		<inText type="currency" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
-		<inText type="fields" draft="contributed">mixed</inText>
-		<inText type="keys" draft="contributed">mixed</inText>
 		<inText type="languages">titlecase-firstword</inText>
 		<inText type="languages" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
-		<inText type="long" draft="contributed">mixed</inText>
-		<inText type="measurementSystemNames" draft="contributed">mixed</inText>
-		<inText type="monthWidth" draft="contributed">mixed</inText>
 		<inText type="scripts">titlecase-firstword</inText>
 		<inText type="scripts" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
 		<inText type="territories">titlecase-firstword</inText>
 		<inText type="territories" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
-		<inText type="types" draft="contributed">mixed</inText>
-		<inText type="variants" draft="contributed">mixed</inText>
 	</layout>
 	<characters>
 		<exemplarCharacters>[a á ä b c d e é ë f g h i í ï {ij} j k l m n o ó ö p q r s t u ú ü v w x y z]</exemplarCharacters>
@@ -1701,7 +1694,6 @@
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
 			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat draft="contributed">GMT{0}</gmtFormat>
-			<gmtZeroFormat draft="contributed">GMT</gmtZeroFormat>
 			<regionFormat draft="contributed">{0}-tijd</regionFormat>
 			<fallbackFormat draft="contributed">{1} ({0})</fallbackFormat>
 			<fallbackFormat alt="proposed-x1001" draft="unconfirmed">{0} ({1})</fallbackFormat>
@@ -1720,50 +1712,14 @@
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Zuidpool</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Davis">
-				<exemplarCity draft="provisional">Davis</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Casey">
-				<exemplarCity draft="provisional">Casey</exemplarCity>
-			</zone>
-			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity draft="provisional">Dumont d'Urville</exemplarCity>
-			</zone>
 			<zone type="America/Argentina/Rio_Gallegos">
 				<exemplarCity>Río Gallegos</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity draft="provisional">Catamarca</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
 				<exemplarCity>Córdoba</exemplarCity>
 			</zone>
-			<zone type="America/Buenos_Aires">
-				<exemplarCity draft="provisional">Buenos Aires</exemplarCity>
-			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity>Wenen</exemplarCity>
-			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity draft="provisional">Eucla</exemplarCity>
-			</zone>
-			<zone type="Australia/Darwin">
-				<exemplarCity draft="provisional">Darwin</exemplarCity>
-			</zone>
-			<zone type="Australia/Adelaide">
-				<exemplarCity draft="provisional">Adelaide</exemplarCity>
-			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity draft="provisional">Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="provisional">Currie</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity draft="provisional">Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity draft="provisional">Brisbane</exemplarCity>
 			</zone>
 			<zone type="Asia/Baku">
 				<exemplarCity>Bakoe</exemplarCity>
@@ -1774,68 +1730,23 @@
 			<zone type="Asia/Bahrain">
 				<exemplarCity>Bahrein</exemplarCity>
 			</zone>
-			<zone type="America/Eirunepe">
-				<exemplarCity draft="provisional">Eirunepe</exemplarCity>
-			</zone>
 			<zone type="America/Porto_Velho">
 				<exemplarCity>Pôrto Velho</exemplarCity>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity draft="provisional">Boa Vista</exemplarCity>
 			</zone>
 			<zone type="America/Cuiaba">
 				<exemplarCity>Cuiabá</exemplarCity>
 			</zone>
-			<zone type="America/Campo_Grande">
-				<exemplarCity draft="provisional">Campo Grande</exemplarCity>
-			</zone>
 			<zone type="America/Belem">
 				<exemplarCity>Belém</exemplarCity>
-			</zone>
-			<zone type="America/Araguaina">
-				<exemplarCity draft="provisional">Araguaina</exemplarCity>
 			</zone>
 			<zone type="America/Sao_Paulo">
 				<exemplarCity>São Paulo</exemplarCity>
 			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity draft="provisional">Bahia</exemplarCity>
-			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity draft="provisional">Fortaleza</exemplarCity>
-			</zone>
 			<zone type="America/Maceio">
 				<exemplarCity>Maceió</exemplarCity>
 			</zone>
-			<zone type="America/Dawson">
-				<exemplarCity draft="provisional">Dawson</exemplarCity>
-			</zone>
-			<zone type="America/Dawson_Creek">
-				<exemplarCity draft="provisional">Dawson Creek</exemplarCity>
-			</zone>
-			<zone type="America/Edmonton">
-				<exemplarCity draft="provisional">Edmonton</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity draft="provisional">Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity draft="provisional">Coral Harbour</exemplarCity>
-			</zone>
 			<zone type="America/Montreal">
 				<exemplarCity>Montréal</exemplarCity>
-			</zone>
-			<zone type="America/Halifax">
-				<exemplarCity draft="provisional">Halifax</exemplarCity>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<exemplarCity draft="provisional">Goose Bay</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity draft="provisional">Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity draft="provisional">Blanc-Sablon</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity>St. Johns</exemplarCity>
@@ -1849,14 +1760,8 @@
 			<zone type="Pacific/Easter">
 				<exemplarCity>Paaseiland</exemplarCity>
 			</zone>
-			<zone type="Asia/Chongqing">
-				<exemplarCity draft="provisional">Chongqing</exemplarCity>
-			</zone>
 			<zone type="Asia/Shanghai">
 				<exemplarCity>Sjanghai</exemplarCity>
-			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity draft="provisional">Harbin</exemplarCity>
 			</zone>
 			<zone type="America/Bogota">
 				<exemplarCity>Bogotá</exemplarCity>
@@ -1882,9 +1787,6 @@
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Canarische Eilanden</exemplarCity>
 			</zone>
-			<zone type="Africa/Ceuta">
-				<exemplarCity draft="provisional">Ceuta</exemplarCity>
-			</zone>
 			<zone type="Africa/Addis_Ababa">
 				<exemplarCity>Addis Abeba</exemplarCity>
 			</zone>
@@ -1899,9 +1801,6 @@
 			</zone>
 			<zone type="Europe/London">
 				<exemplarCity>Londen</exemplarCity>
-			</zone>
-			<zone type="America/Danmarkshavn">
-				<exemplarCity draft="provisional">Danmarkshavn</exemplarCity>
 			</zone>
 			<zone type="Europe/Athens">
 				<exemplarCity>Athene</exemplarCity>
@@ -1936,9 +1835,6 @@
 			<zone type="Asia/Kuwait">
 				<exemplarCity>Koeweit</exemplarCity>
 			</zone>
-			<zone type="Asia/Aqtau">
-				<exemplarCity draft="provisional">Aqtau</exemplarCity>
-			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aqtöbe</exemplarCity>
 			</zone>
@@ -1957,20 +1853,11 @@
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulaanbaator</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="provisional">Choibalsan</exemplarCity>
-			</zone>
 			<zone type="Indian/Maldives">
 				<exemplarCity>Maldiven</exemplarCity>
 			</zone>
-			<zone type="America/Hermosillo">
-				<exemplarCity draft="provisional">Hermosillo</exemplarCity>
-			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>Mazatlán</exemplarCity>
-			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity draft="provisional">Chihuahua</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>Mexico-stad</exemplarCity>
@@ -1986,9 +1873,6 @@
 			</zone>
 			<zone type="Asia/Katmandu">
 				<exemplarCity>Kathmandu</exemplarCity>
-			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity draft="provisional">Chatham</exemplarCity>
 			</zone>
 			<zone type="Pacific/Marquesas">
 				<exemplarCity>Marquesaseilanden</exemplarCity>
@@ -2038,9 +1922,6 @@
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>Kamtsjatka</exemplarCity>
 			</zone>
-			<zone type="Asia/Anadyr">
-				<exemplarCity draft="provisional">Anadyr</exemplarCity>
-			</zone>
 			<zone type="Asia/Riyadh">
 				<exemplarCity>Riyad</exemplarCity>
 			</zone>
@@ -2082,24 +1963,6 @@
 			</zone>
 			<zone type="Pacific/Wake">
 				<exemplarCity>Wake-eiland</exemplarCity>
-			</zone>
-			<zone type="America/Adak">
-				<exemplarCity draft="provisional">Adak</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<exemplarCity draft="provisional">Anchorage</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity draft="provisional">Boise</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<exemplarCity draft="provisional">Denver</exemplarCity>
-			</zone>
-			<zone type="America/Chicago">
-				<exemplarCity draft="provisional">Chicago</exemplarCity>
-			</zone>
-			<zone type="America/Detroit">
-				<exemplarCity draft="provisional">Detroit</exemplarCity>
 			</zone>
 			<zone type="Asia/Tashkent">
 				<exemplarCity>Tasjkent</exemplarCity>
@@ -3345,7 +3208,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
@@ -3662,7 +3524,6 @@
 				<displayName count="one" draft="contributed">euro</displayName>
 				<displayName count="other" draft="contributed">euro</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">euro</displayName>
-				<symbol draft="contributed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Finse markka</displayName>
@@ -4327,8 +4188,6 @@
 			<listPatternPart type="2" alt="proposed-x1001" draft="unconfirmed">{0} en {1}</listPatternPart>
 			<listPatternPart type="end">{0} en {1}</listPatternPart>
 			<listPatternPart type="end" alt="proposed-x1001" draft="unconfirmed">{0}, en {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

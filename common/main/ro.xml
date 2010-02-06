@@ -658,7 +658,6 @@
 			<variant type="WADEGILE">Wade-Giles</variant>
 		</variants>
 		<keys>
-			<key type="calendar" draft="provisional">calendar</key>
 			<key type="collation">ordine de sortare</key>
 			<key type="currency">monedă</key>
 		</keys>
@@ -960,28 +959,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern draft="provisional">HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -1004,27 +981,12 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
-						<dateFormatItem id="EEEd" draft="provisional">EEE d</dateFormatItem>
-						<dateFormatItem id="hm" draft="provisional">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="provisional">H:mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="provisional">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="provisional">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="M" draft="provisional">L</dateFormatItem>
-						<dateFormatItem id="Md" draft="provisional">M-d</dateFormatItem>
-						<dateFormatItem id="MEd" draft="provisional">E, M-d</dateFormatItem>
-						<dateFormatItem id="MMM" draft="provisional">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
-						<dateFormatItem id="ms" draft="provisional">mm:ss</dateFormatItem>
-						<dateFormatItem id="y" draft="provisional">y</dateFormatItem>
-						<dateFormatItem id="yM" draft="provisional">M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, d/M/y</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="provisional">MMM, y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE, d MMM Y</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="provisional">MMMM, y</dateFormatItem>
 						<dateFormatItem id="yQ">'T'Q y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 					</availableFormats>
@@ -1629,263 +1591,20 @@
 			<zone type="Asia/Yerevan">
 				<exemplarCity>Erevan</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Rothera">
-				<exemplarCity draft="provisional">Rothera</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Palmer">
-				<exemplarCity draft="provisional">Palmer</exemplarCity>
-			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Polul Sud</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Syowa">
-				<exemplarCity draft="provisional">Syowa</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Mawson">
-				<exemplarCity draft="provisional">Mawson</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Davis">
-				<exemplarCity draft="provisional">Davis</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Vostok">
-				<exemplarCity draft="provisional">Vostok</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Casey">
-				<exemplarCity draft="provisional">Casey</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>Dumont D'Urville</exemplarCity>
 			</zone>
-			<zone type="Antarctica/McMurdo">
-				<exemplarCity draft="provisional">McMurdo</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity draft="provisional">Rio Gallegos</exemplarCity>
-			</zone>
-			<zone type="America/Mendoza">
-				<exemplarCity draft="provisional">Mendoza</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Juan">
-				<exemplarCity draft="provisional">San Juan</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity draft="provisional">Ushuaia</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity draft="provisional">La Rioja</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Luis">
-				<exemplarCity draft="provisional">San Luis</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity draft="provisional">Catamarca</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Salta">
-				<exemplarCity draft="provisional">Salta</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity draft="provisional">Jujuy</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Tucuman">
-				<exemplarCity draft="provisional">Tucuman</exemplarCity>
-			</zone>
-			<zone type="America/Cordoba">
-				<exemplarCity draft="provisional">Cordoba</exemplarCity>
-			</zone>
-			<zone type="America/Buenos_Aires">
-				<exemplarCity draft="provisional">Buenos Aires</exemplarCity>
-			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity>Viena</exemplarCity>
-			</zone>
-			<zone type="Australia/Perth">
-				<exemplarCity draft="provisional">Perth</exemplarCity>
-			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity draft="provisional">Eucla</exemplarCity>
-			</zone>
-			<zone type="Australia/Darwin">
-				<exemplarCity draft="provisional">Darwin</exemplarCity>
-			</zone>
-			<zone type="Australia/Adelaide">
-				<exemplarCity draft="provisional">Adelaide</exemplarCity>
-			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity draft="provisional">Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="provisional">Currie</exemplarCity>
-			</zone>
-			<zone type="Australia/Melbourne">
-				<exemplarCity draft="provisional">Melbourne</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity draft="provisional">Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity draft="provisional">Lindeman</exemplarCity>
-			</zone>
-			<zone type="Australia/Sydney">
-				<exemplarCity draft="provisional">Sydney</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity draft="provisional">Brisbane</exemplarCity>
-			</zone>
-			<zone type="Australia/Lord_Howe">
-				<exemplarCity draft="provisional">Lord Howe</exemplarCity>
 			</zone>
 			<zone type="Europe/Brussels">
 				<exemplarCity>Bruxelles</exemplarCity>
 			</zone>
-			<zone type="America/Eirunepe">
-				<exemplarCity draft="provisional">Eirunepe</exemplarCity>
-			</zone>
-			<zone type="America/Rio_Branco">
-				<exemplarCity draft="provisional">Rio Branco</exemplarCity>
-			</zone>
-			<zone type="America/Porto_Velho">
-				<exemplarCity draft="provisional">Porto Velho</exemplarCity>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity draft="provisional">Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Manaus">
-				<exemplarCity draft="provisional">Manaus</exemplarCity>
-			</zone>
-			<zone type="America/Cuiaba">
-				<exemplarCity draft="provisional">Cuiaba</exemplarCity>
-			</zone>
-			<zone type="America/Santarem">
-				<exemplarCity draft="provisional">Santarem</exemplarCity>
-			</zone>
-			<zone type="America/Campo_Grande">
-				<exemplarCity draft="provisional">Campo Grande</exemplarCity>
-			</zone>
-			<zone type="America/Belem">
-				<exemplarCity draft="provisional">Belem</exemplarCity>
-			</zone>
-			<zone type="America/Araguaina">
-				<exemplarCity draft="provisional">Araguaina</exemplarCity>
-			</zone>
-			<zone type="America/Sao_Paulo">
-				<exemplarCity draft="provisional">Sao Paulo</exemplarCity>
-			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity draft="provisional">Bahia</exemplarCity>
-			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity draft="provisional">Fortaleza</exemplarCity>
-			</zone>
-			<zone type="America/Maceio">
-				<exemplarCity draft="provisional">Maceio</exemplarCity>
-			</zone>
-			<zone type="America/Recife">
-				<exemplarCity draft="provisional">Recife</exemplarCity>
-			</zone>
-			<zone type="America/Noronha">
-				<exemplarCity draft="provisional">Noronha</exemplarCity>
-			</zone>
-			<zone type="America/Dawson">
-				<exemplarCity draft="provisional">Dawson</exemplarCity>
-			</zone>
-			<zone type="America/Whitehorse">
-				<exemplarCity draft="provisional">Whitehorse</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity draft="provisional">Inuvik</exemplarCity>
-			</zone>
-			<zone type="America/Vancouver">
-				<exemplarCity draft="provisional">Vancouver</exemplarCity>
-			</zone>
-			<zone type="America/Dawson_Creek">
-				<exemplarCity draft="provisional">Dawson Creek</exemplarCity>
-			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity draft="provisional">Yellowknife</exemplarCity>
-			</zone>
-			<zone type="America/Edmonton">
-				<exemplarCity draft="provisional">Edmonton</exemplarCity>
-			</zone>
-			<zone type="America/Swift_Current">
-				<exemplarCity draft="provisional">Swift Current</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity draft="provisional">Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Regina">
-				<exemplarCity draft="provisional">Regina</exemplarCity>
-			</zone>
-			<zone type="America/Winnipeg">
-				<exemplarCity draft="provisional">Winnipeg</exemplarCity>
-			</zone>
-			<zone type="America/Resolute">
-				<exemplarCity draft="provisional">Resolute</exemplarCity>
-			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity draft="provisional">Rainy River</exemplarCity>
-			</zone>
-			<zone type="America/Rankin_Inlet">
-				<exemplarCity draft="provisional">Rankin Inlet</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity draft="provisional">Coral Harbour</exemplarCity>
-			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity draft="provisional">Thunder Bay</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity draft="provisional">Nipigon</exemplarCity>
-			</zone>
-			<zone type="America/Toronto">
-				<exemplarCity draft="provisional">Toronto</exemplarCity>
-			</zone>
-			<zone type="America/Montreal">
-				<exemplarCity draft="provisional">Montreal</exemplarCity>
-			</zone>
-			<zone type="America/Iqaluit">
-				<exemplarCity draft="provisional">Iqaluit</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity draft="provisional">Pangnirtung</exemplarCity>
-			</zone>
-			<zone type="America/Moncton">
-				<exemplarCity draft="provisional">Moncton</exemplarCity>
-			</zone>
-			<zone type="America/Halifax">
-				<exemplarCity draft="provisional">Halifax</exemplarCity>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<exemplarCity draft="provisional">Goose Bay</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity draft="provisional">Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity draft="provisional">Blanc-Sablon</exemplarCity>
-			</zone>
-			<zone type="America/St_Johns">
-				<exemplarCity draft="provisional">St. John's</exemplarCity>
-			</zone>
-			<zone type="Africa/Kinshasa">
-				<exemplarCity draft="provisional">Kinshasa</exemplarCity>
-			</zone>
-			<zone type="Africa/Lubumbashi">
-				<exemplarCity draft="provisional">Lubumbashi</exemplarCity>
-			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>Insula Paștelui</exemplarCity>
-			</zone>
-			<zone type="Asia/Kashgar">
-				<exemplarCity draft="provisional">Kashgar</exemplarCity>
-			</zone>
-			<zone type="Asia/Urumqi">
-				<exemplarCity draft="provisional">Urumqi</exemplarCity>
-			</zone>
-			<zone type="Asia/Chongqing">
-				<exemplarCity draft="provisional">Chongqing</exemplarCity>
-			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity draft="provisional">Harbin</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Cape_Verde">
 				<exemplarCity>Capul Verde</exemplarCity>
@@ -1896,38 +1615,14 @@
 			<zone type="Africa/Algiers">
 				<exemplarCity>Alger</exemplarCity>
 			</zone>
-			<zone type="Pacific/Galapagos">
-				<exemplarCity draft="provisional">Galapagos</exemplarCity>
-			</zone>
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Insulele Canare</exemplarCity>
-			</zone>
-			<zone type="Africa/Ceuta">
-				<exemplarCity draft="provisional">Ceuta</exemplarCity>
 			</zone>
 			<zone type="Africa/Addis_Ababa">
 				<exemplarCity>Addis Abeba</exemplarCity>
 			</zone>
-			<zone type="Pacific/Truk">
-				<exemplarCity draft="provisional">Truk</exemplarCity>
-			</zone>
-			<zone type="Pacific/Ponape">
-				<exemplarCity draft="provisional">Ponape</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kosrae">
-				<exemplarCity draft="provisional">Kosrae</exemplarCity>
-			</zone>
 			<zone type="Europe/London">
 				<exemplarCity>Londra</exemplarCity>
-			</zone>
-			<zone type="America/Thule">
-				<exemplarCity draft="provisional">Thule</exemplarCity>
-			</zone>
-			<zone type="America/Scoresbysund">
-				<exemplarCity draft="provisional">Scoresbysund</exemplarCity>
-			</zone>
-			<zone type="America/Danmarkshavn">
-				<exemplarCity draft="provisional">Danmarkshavn</exemplarCity>
 			</zone>
 			<zone type="America/Guadeloupe">
 				<exemplarCity>Guadalupe</exemplarCity>
@@ -1941,18 +1636,6 @@
 			<zone type="Europe/Budapest">
 				<exemplarCity>Budapesta</exemplarCity>
 			</zone>
-			<zone type="Asia/Jakarta">
-				<exemplarCity draft="provisional">Jakarta</exemplarCity>
-			</zone>
-			<zone type="Asia/Pontianak">
-				<exemplarCity draft="provisional">Pontianak</exemplarCity>
-			</zone>
-			<zone type="Asia/Makassar">
-				<exemplarCity draft="provisional">Makassar</exemplarCity>
-			</zone>
-			<zone type="Asia/Jayapura">
-				<exemplarCity draft="provisional">Jayapura</exemplarCity>
-			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Ierusalim</exemplarCity>
 			</zone>
@@ -1965,15 +1648,6 @@
 			<zone type="Europe/Rome">
 				<exemplarCity>Roma</exemplarCity>
 			</zone>
-			<zone type="Pacific/Enderbury">
-				<exemplarCity draft="provisional">Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kiritimati">
-				<exemplarCity draft="provisional">Kiritimati</exemplarCity>
-			</zone>
-			<zone type="Pacific/Tarawa">
-				<exemplarCity draft="provisional">Tarawa</exemplarCity>
-			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity>St. Kitts</exemplarCity>
 			</zone>
@@ -1983,20 +1657,8 @@
 			<zone type="Asia/Kuwait">
 				<exemplarCity>Kuweit</exemplarCity>
 			</zone>
-			<zone type="Asia/Aqtau">
-				<exemplarCity draft="provisional">Aqtau</exemplarCity>
-			</zone>
-			<zone type="Asia/Oral">
-				<exemplarCity draft="provisional">Oral</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtobe">
-				<exemplarCity draft="provisional">Aqtobe</exemplarCity>
-			</zone>
 			<zone type="Asia/Qyzylorda">
 				<exemplarCity>Kyzylorda</exemplarCity>
-			</zone>
-			<zone type="Asia/Almaty">
-				<exemplarCity draft="provisional">Almaty</exemplarCity>
 			</zone>
 			<zone type="America/St_Lucia">
 				<exemplarCity>St. Lucia</exemplarCity>
@@ -2007,17 +1669,8 @@
 			<zone type="Europe/Chisinau">
 				<exemplarCity>Chișinău</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kwajalein">
-				<exemplarCity draft="provisional">Kwajalein</exemplarCity>
-			</zone>
-			<zone type="Asia/Hovd">
-				<exemplarCity draft="provisional">Hovd</exemplarCity>
-			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulan Bator</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="provisional">Choibalsan</exemplarCity>
 			</zone>
 			<zone type="America/Martinique">
 				<exemplarCity>Martinica</exemplarCity>
@@ -2025,50 +1678,14 @@
 			<zone type="Indian/Maldives">
 				<exemplarCity>Maldive</exemplarCity>
 			</zone>
-			<zone type="America/Tijuana">
-				<exemplarCity draft="provisional">Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Hermosillo">
-				<exemplarCity draft="provisional">Hermosillo</exemplarCity>
-			</zone>
-			<zone type="America/Mazatlan">
-				<exemplarCity draft="provisional">Mazatlan</exemplarCity>
-			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity draft="provisional">Chihuahua</exemplarCity>
-			</zone>
-			<zone type="America/Monterrey">
-				<exemplarCity draft="provisional">Monterrey</exemplarCity>
-			</zone>
-			<zone type="America/Mexico_City">
-				<exemplarCity draft="provisional">Mexico City</exemplarCity>
-			</zone>
-			<zone type="America/Merida">
-				<exemplarCity draft="provisional">Merida</exemplarCity>
-			</zone>
-			<zone type="America/Cancun">
-				<exemplarCity draft="provisional">Cancun</exemplarCity>
-			</zone>
-			<zone type="Asia/Kuching">
-				<exemplarCity draft="provisional">Kuching</exemplarCity>
-			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity draft="provisional">Chatham</exemplarCity>
-			</zone>
 			<zone type="Pacific/Marquesas">
 				<exemplarCity>Marchize</exemplarCity>
-			</zone>
-			<zone type="Pacific/Gambier">
-				<exemplarCity draft="provisional">Gambier</exemplarCity>
 			</zone>
 			<zone type="Europe/Warsaw">
 				<exemplarCity>Varșovia</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azore</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Madeira">
-				<exemplarCity draft="provisional">Madeira</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity>Lisabona</exemplarCity>
@@ -2079,26 +1696,11 @@
 			<zone type="Europe/Bucharest">
 				<exemplarCity>București</exemplarCity>
 			</zone>
-			<zone type="Europe/Kaliningrad">
-				<exemplarCity draft="provisional">Kaliningrad</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moscova</exemplarCity>
 			</zone>
-			<zone type="Europe/Volgograd">
-				<exemplarCity draft="provisional">Volgograd</exemplarCity>
-			</zone>
-			<zone type="Europe/Samara">
-				<exemplarCity draft="provisional">Samara</exemplarCity>
-			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity>Ekaterinburg</exemplarCity>
-			</zone>
-			<zone type="Asia/Omsk">
-				<exemplarCity draft="provisional">Omsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Novosibirsk">
-				<exemplarCity draft="provisional">Novosibirsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Krasnoyarsk">
 				<exemplarCity>Krasnoiarsk</exemplarCity>
@@ -2109,20 +1711,11 @@
 			<zone type="Asia/Yakutsk">
 				<exemplarCity>Yakuțk</exemplarCity>
 			</zone>
-			<zone type="Asia/Vladivostok">
-				<exemplarCity draft="provisional">Vladivostok</exemplarCity>
-			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>Sahalin</exemplarCity>
 			</zone>
-			<zone type="Asia/Magadan">
-				<exemplarCity draft="provisional">Magadan</exemplarCity>
-			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>Kamciatka</exemplarCity>
-			</zone>
-			<zone type="Asia/Anadyr">
-				<exemplarCity draft="provisional">Anadyr</exemplarCity>
 			</zone>
 			<zone type="Asia/Riyadh">
 				<exemplarCity>Riyad</exemplarCity>
@@ -2136,107 +1729,14 @@
 			<zone type="Asia/Damascus">
 				<exemplarCity>Damasc</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity draft="provisional">Uzhgorod</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity draft="provisional">Simferopol</exemplarCity>
-			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporoje</exemplarCity>
-			</zone>
-			<zone type="Pacific/Midway">
-				<exemplarCity draft="provisional">Midway</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity draft="provisional">Johnston</exemplarCity>
-			</zone>
-			<zone type="Pacific/Wake">
-				<exemplarCity draft="provisional">Wake</exemplarCity>
-			</zone>
-			<zone type="America/Adak">
-				<exemplarCity draft="provisional">Adak</exemplarCity>
-			</zone>
-			<zone type="America/Nome">
-				<exemplarCity draft="provisional">Nome</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity draft="provisional">Honolulu</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<exemplarCity draft="provisional">Anchorage</exemplarCity>
-			</zone>
-			<zone type="America/Yakutat">
-				<exemplarCity draft="provisional">Yakutat</exemplarCity>
-			</zone>
-			<zone type="America/Juneau">
-				<exemplarCity draft="provisional">Juneau</exemplarCity>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<exemplarCity draft="provisional">Los Angeles</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity draft="provisional">Boise</exemplarCity>
-			</zone>
-			<zone type="America/Phoenix">
-				<exemplarCity draft="provisional">Phoenix</exemplarCity>
-			</zone>
-			<zone type="America/Shiprock">
-				<exemplarCity draft="provisional">Shiprock</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<exemplarCity draft="provisional">Denver</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
 				<exemplarCity>New Salem, Dakota de Nord</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Centru, Dakota de Nord</exemplarCity>
-			</zone>
-			<zone type="America/Chicago">
-				<exemplarCity draft="provisional">Chicago</exemplarCity>
-			</zone>
-			<zone type="America/Menominee">
-				<exemplarCity draft="provisional">Menominee</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vincennes">
-				<exemplarCity draft="provisional">Vincennes, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Petersburg">
-				<exemplarCity draft="provisional">Petersburg, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity draft="provisional">Tell City, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Knox">
-				<exemplarCity draft="provisional">Knox, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Winamac">
-				<exemplarCity draft="provisional">Winamac, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Marengo">
-				<exemplarCity draft="provisional">Marengo, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indianapolis">
-				<exemplarCity draft="provisional">Indianapolis</exemplarCity>
-			</zone>
-			<zone type="America/Louisville">
-				<exemplarCity draft="provisional">Louisville</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<exemplarCity draft="provisional">Vevay, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<exemplarCity draft="provisional">Monticello, Kentucky</exemplarCity>
-			</zone>
-			<zone type="America/Detroit">
-				<exemplarCity draft="provisional">Detroit</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
-				<exemplarCity draft="provisional">New York</exemplarCity>
-			</zone>
-			<zone type="Asia/Samarkand">
-				<exemplarCity draft="provisional">Samarkand</exemplarCity>
 			</zone>
 			<zone type="America/St_Vincent">
 				<exemplarCity>Saint Vincent și Grenadines</exemplarCity>
@@ -2249,37 +1749,24 @@
 					<standard>Ora Acre</standard>
 					<daylight>Ora de vară Acre</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">ACT (Acre)</standard>
-					<daylight draft="provisional">ACST (Acre)</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard draft="provisional">Ora Afganistanului</standard>
 				</long>
-				<short>
-					<standard draft="provisional">AFT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>Ora Africii Centrale</standard>
 				</long>
-				<short>
-					<standard draft="provisional">CAT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>Ora Africii Orientale</standard>
 				</long>
-				<short>
-					<standard draft="provisional">EAT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_FarWestern">
@@ -2292,7 +1779,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">SAT</generic>
-					<standard draft="provisional">SAST</standard>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
@@ -2301,10 +1787,6 @@
 					<standard>Ora Africii Occidentale</standard>
 					<daylight>Ora de vară a Africii Occidentale</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">WAT</standard>
-					<daylight draft="provisional">WAST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Aktyubinsk">
@@ -2312,10 +1794,6 @@
 					<standard draft="provisional">Ora zonei Aktyubinsk</standard>
 					<daylight draft="provisional">Ora de vară a zonei Aktyubinsk</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AKTT</standard>
-					<daylight draft="provisional">AKTST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Alaska">
@@ -2326,8 +1804,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">AKT</generic>
-					<standard draft="provisional">AKST</standard>
-					<daylight draft="provisional">AKDT</daylight>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
@@ -2339,8 +1815,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">AHT</generic>
-					<standard draft="provisional">AHST</standard>
-					<daylight draft="provisional">AHDT</daylight>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
@@ -2349,10 +1823,6 @@
 					<standard draft="provisional">Ora zonei Almaty</standard>
 					<daylight draft="provisional">Ora de vară a zonei Almaty</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">ALMT</standard>
-					<daylight draft="provisional">ALMST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Amazon">
@@ -2360,10 +1830,6 @@
 					<standard>Ora Amazon</standard>
 					<daylight>Ora de vară Amazon</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AMT</standard>
-					<daylight draft="provisional">AMST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="America_Central">
@@ -2423,10 +1889,6 @@
 					<standard draft="provisional">Ora zonei Anadyr</standard>
 					<daylight draft="provisional">Ora de vară a zonei Anadyr</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">ANAT</standard>
-					<daylight draft="provisional">ANAST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Aqtau">
@@ -2434,10 +1896,6 @@
 					<standard draft="provisional">Ora zonei Aqtau</standard>
 					<daylight draft="provisional">Ora de vară a zonei Aqtau</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AQTT (Aqtau)</standard>
-					<daylight draft="provisional">AQTST (Aqtau)</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Aqtobe">
@@ -2445,10 +1903,6 @@
 					<standard draft="provisional">Ora zonei Aqtobe</standard>
 					<daylight draft="provisional">Ora de vară a zonei Aqtobe</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AQTT (Aqtobe)</standard>
-					<daylight draft="provisional">AQTST (Aqtobe)</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Arabian">
@@ -2469,19 +1923,12 @@
 					<standard>Ora Argentinei</standard>
 					<daylight>Ora de vară a Argentinei</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">ART</standard>
-					<daylight draft="provisional">ARST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<standard>Ora Argentinei Occidentale</standard>
 				</long>
-				<short>
-					<standard draft="provisional">WART</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Armenia">
@@ -2491,7 +1938,6 @@
 				</long>
 				<short>
 					<standard draft="provisional">AMT (Armenia)</standard>
-					<daylight draft="provisional">AMST (AM)</daylight>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
@@ -2500,10 +1946,6 @@
 					<standard draft="provisional">Ora dzonei Ashkhabad</standard>
 					<daylight draft="provisional">Ora de vară a zonei Ashkhabad</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">ASHT</standard>
-					<daylight draft="provisional">ASHST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Atlantic">
@@ -2550,10 +1992,6 @@
 					<standard draft="provisional">Ora Azerbaijanului</standard>
 					<daylight draft="provisional">Ora de vară a Azerbaijanului</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AZT</standard>
-					<daylight draft="provisional">AZST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Baku">
@@ -2561,10 +1999,6 @@
 					<standard draft="provisional">Ora zonei Baku</standard>
 					<daylight draft="provisional">Ora de vară a zonei Baku</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">BAKT</standard>
-					<daylight draft="provisional">BAKST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Bangladesh">
@@ -2572,10 +2006,6 @@
 					<standard draft="provisional">Ora statului Bangladesh</standard>
 					<daylight draft="provisional">Ora de vară a statului Bangladesh</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">BDT</standard>
-					<daylight draft="provisional">BDST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Bering">
@@ -2586,8 +2016,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">BT (Bering)</generic>
-					<standard draft="provisional">BST (Bering)</standard>
-					<daylight draft="provisional">BDT (Bering)</daylight>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
@@ -2595,18 +2023,12 @@
 				<long>
 					<standard draft="provisional">Ora Bhutanului</standard>
 				</long>
-				<short>
-					<standard draft="provisional">BTT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Bolivia">
 				<long>
 					<standard>Ora Boliviei</standard>
 				</long>
-				<short>
-					<standard draft="provisional">BOT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Borneo">
@@ -2614,10 +2036,6 @@
 					<standard draft="provisional">Ora zonei Borneo</standard>
 					<daylight draft="provisional">Ora de vară a zonei Borneo</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">BORT</standard>
-					<daylight draft="provisional">BORST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Brasilia">
@@ -2625,28 +2043,18 @@
 					<standard draft="provisional">Ora Brasiliei</standard>
 					<daylight draft="provisional">Ora de vară a Brasiliei</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">BRT</standard>
-					<daylight draft="provisional">BRST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard draft="provisional">Ora Brunei Darussalam</standard>
 				</long>
-				<short>
-					<standard draft="provisional">BNT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Changbai">
 				<long>
 					<standard draft="provisional">Ora Changbai</standard>
 				</long>
-				<short>
-					<standard draft="provisional">CHAT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Chile">
@@ -2654,10 +2062,6 @@
 					<standard draft="provisional">Ora statului Chile</standard>
 					<daylight draft="provisional">Ora de vară a statului Chile</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">CLT</standard>
-					<daylight draft="provisional">CLST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="China">
@@ -2678,10 +2082,6 @@
 					<standard draft="provisional">Ora Choibalsan</standard>
 					<daylight draft="provisional">Ora de vară Choibalsan</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">CHOT</standard>
-					<daylight draft="provisional">CHOST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Colombia">
@@ -2689,10 +2089,6 @@
 					<standard draft="provisional">Ora Columbiei</standard>
 					<daylight draft="provisional">Ora de vară a Columbiei</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">COT</standard>
-					<daylight draft="provisional">COST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Cuba">
@@ -2701,28 +2097,18 @@
 					<standard draft="provisional">Ora standard a Cubei</standard>
 					<daylight draft="provisional">Ora de vară a Cubei</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">CST (CU)</standard>
-					<daylight draft="provisional">CDT (CU)</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Dacca">
 				<long>
 					<standard draft="provisional">Ora zonei Dacca</standard>
 				</long>
-				<short>
-					<standard draft="provisional">DACT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Davis">
 				<long>
 					<standard>Ora Davis</standard>
 				</long>
-				<short>
-					<standard draft="provisional">DAVT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Dominican">
@@ -2732,9 +2118,6 @@
 				<long>
 					<standard>Ora Dumont-d'Urville</standard>
 				</long>
-				<short>
-					<standard draft="provisional">DDUT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Dushanbe">
@@ -2742,37 +2125,24 @@
 					<standard draft="provisional">Ora Dușanbe</standard>
 					<daylight draft="provisional">Ora de vară Dușanbe</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">DUST</standard>
-					<daylight draft="provisional">DUSST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Dutch_Guiana">
 				<long>
 					<standard draft="provisional">Ora Guianei Olandeze</standard>
 				</long>
-				<short>
-					<standard draft="provisional">NEGT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="East_Timor">
 				<long>
 					<standard draft="provisional">Ora Timorului de Est</standard>
 				</long>
-				<short>
-					<standard draft="provisional">TLT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Ecuador">
 				<long>
 					<standard draft="provisional">Ora Ecuadorului</standard>
 				</long>
-				<short>
-					<standard draft="provisional">ECT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Central">
@@ -2801,9 +2171,6 @@
 				<long>
 					<standard draft="provisional">Ora Guianei Franceze</standard>
 				</long>
-				<short>
-					<standard draft="provisional">GFT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Frunze">
@@ -2811,10 +2178,6 @@
 					<standard draft="provisional">Ora Frunze</standard>
 					<daylight draft="provisional">Ora de vară Frunze</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">FRUT</standard>
-					<daylight draft="provisional">FRUST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Georgia">
@@ -2822,10 +2185,6 @@
 					<standard draft="provisional">Ora Georgiei</standard>
 					<daylight draft="provisional">Ora de vară a Georgiei</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">GET</standard>
-					<daylight draft="provisional">GEST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="GMT">
@@ -2845,10 +2204,6 @@
 					<standard draft="provisional">Ora Groenlandei centrale</standard>
 					<daylight draft="provisional">Ora de vară a Groenlandei centrale</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">CGT</standard>
-					<daylight draft="provisional">CGST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Greenland_Eastern">
@@ -2856,10 +2211,6 @@
 					<standard draft="provisional">Ora Groenlandei orientale</standard>
 					<daylight draft="provisional">Ora de vară a Groenlandei orientale</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">EGT</standard>
-					<daylight draft="provisional">EGST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Greenland_Western">
@@ -2867,85 +2218,42 @@
 					<standard draft="provisional">Ora Groenlandei occidentale</standard>
 					<daylight draft="provisional">Ora de vară a Groenlandei occidentale</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">WGT</standard>
-					<daylight draft="provisional">WGST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Gulf">
-				<short>
-					<standard draft="provisional">GST</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Guyana">
 				<long>
 					<standard draft="provisional">Ora Guianei</standard>
 				</long>
-				<short>
-					<standard draft="provisional">GYT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Hong_Kong">
-				<short>
-					<standard draft="provisional">HKT</standard>
-					<daylight draft="provisional">HKST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Hovd">
-				<short>
-					<standard draft="provisional">HOVT</standard>
-					<daylight draft="provisional">HOVST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="India">
 				<long>
 					<standard draft="provisional">Ora standard a Indiei</standard>
 				</long>
-				<short>
-					<standard draft="provisional">IST</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
-			<metazone type="Indochina">
-				<short>
-					<standard draft="provisional">ICT</standard>
-				</short>
-			</metazone>
 			<metazone type="Indonesia_Central">
-				<short>
-					<standard draft="provisional">CIT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
-				<short>
-					<standard draft="provisional">EIT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Indonesia_Western">
-				<short>
-					<standard draft="provisional">WIT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Iran">
-				<short>
-					<standard draft="provisional">IRST</standard>
-					<daylight draft="provisional">IRDT</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Irkutsk">
-				<short>
-					<standard draft="provisional">IRKT</standard>
-					<daylight draft="provisional">IRKST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Israel">
@@ -2955,7 +2263,6 @@
 				</long>
 				<short>
 					<standard draft="provisional">IST (Israel)</standard>
-					<daylight draft="provisional">IDT</daylight>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
@@ -2963,86 +2270,45 @@
 				<long>
 					<standard draft="provisional">Ora standard a Japoniei</standard>
 				</long>
-				<short>
-					<standard draft="provisional">JST</standard>
-					<daylight draft="provisional">JDT</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Kamchatka">
-				<short>
-					<standard draft="provisional">PETT</standard>
-					<daylight draft="provisional">PETST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Karachi">
-				<short>
-					<standard draft="provisional">KART</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Kashgar">
-				<short>
-					<standard draft="provisional">KAST</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
-				<short>
-					<standard draft="provisional">EKST</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
-				<short>
-					<standard draft="provisional">WKST</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Kizilorda">
-				<short>
-					<standard draft="provisional">KIZT</standard>
-					<daylight draft="provisional">KIZST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Korea">
 				<long>
 					<standard draft="provisional">Ora standard a Coreei</standard>
 				</long>
-				<short>
-					<standard draft="provisional">KST</standard>
-					<daylight draft="provisional">KDT</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Krasnoyarsk">
-				<short>
-					<standard draft="provisional">KRAT</standard>
-					<daylight draft="provisional">KRAST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Kyrgystan">
-				<short>
-					<standard draft="provisional">KGT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Lanka">
-				<short>
-					<standard draft="provisional">LKT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Liberia">
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Long_Shu">
-				<short>
-					<standard draft="provisional">LONT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Lord_Howe">
@@ -3053,45 +2319,24 @@
 				</long>
 			</metazone>
 			<metazone type="Macau">
-				<short>
-					<standard draft="provisional">MOT</standard>
-					<daylight draft="provisional">MOST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Magadan">
-				<short>
-					<standard draft="provisional">MAGT</standard>
-					<daylight draft="provisional">MAGST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Malaya">
-				<short>
-					<standard draft="provisional">MALT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Malaysia">
-				<short>
-					<standard draft="provisional">MYT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Mawson">
 				<long>
 					<standard>Ora Mawson</standard>
 				</long>
-				<short>
-					<standard draft="provisional">MAWT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Mongolia">
-				<short>
-					<standard draft="provisional">ULAT</standard>
-					<daylight draft="provisional">ULAST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Moscow">
@@ -3102,15 +2347,9 @@
 				</long>
 			</metazone>
 			<metazone type="Myanmar">
-				<short>
-					<standard draft="provisional">MMT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Nepal">
-				<short>
-					<standard draft="provisional">NPT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Newfoundland">
@@ -3121,8 +2360,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">NT</generic>
-					<standard draft="provisional">NST</standard>
-					<daylight draft="provisional">NDT</daylight>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
@@ -3131,34 +2368,18 @@
 					<standard draft="provisional">Ora Fernando de Noronha</standard>
 					<daylight draft="provisional">Ora de vară Fernando de Noronha</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">FNT</standard>
-					<daylight draft="provisional">FNST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Novosibirsk">
-				<short>
-					<standard draft="provisional">NOVT</standard>
-					<daylight draft="provisional">NOVST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Omsk">
-				<short>
-					<standard draft="provisional">OMST</standard>
-					<daylight draft="provisional">OMSST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Oral">
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Pakistan">
-				<short>
-					<standard draft="provisional">PKT</standard>
-					<daylight draft="provisional">PKST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Paraguay">
@@ -3166,10 +2387,6 @@
 					<standard draft="provisional">Ora statului Paraguay</standard>
 					<daylight draft="provisional">Ora de vară a statului Paraguay</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">PYT</standard>
-					<daylight draft="provisional">PYST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Peru">
@@ -3177,17 +2394,9 @@
 					<standard draft="provisional">Ora statului Peru</standard>
 					<daylight draft="provisional">Ora de vară a statului Peru</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">PET</standard>
-					<daylight draft="provisional">PEST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Philippines">
-				<short>
-					<standard draft="provisional">PHT</standard>
-					<daylight draft="provisional">PHST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Pierre_Miquelon">
@@ -3198,77 +2407,43 @@
 				</long>
 				<short>
 					<generic draft="provisional">PMT</generic>
-					<standard draft="provisional">PMST</standard>
-					<daylight draft="provisional">PMDT</daylight>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Qyzylorda">
-				<short>
-					<standard draft="provisional">QYZT</standard>
-					<daylight draft="provisional">QYZST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Rothera">
 				<long>
 					<standard>Ora Rothera</standard>
 				</long>
-				<short>
-					<standard draft="provisional">ROTT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Sakhalin">
-				<short>
-					<standard draft="provisional">SAKT</standard>
-					<daylight draft="provisional">SAKST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Samarkand">
-				<short>
-					<standard draft="provisional">SAMT (Samarkand)</standard>
-					<daylight draft="provisional">SAMST (Samarkand)</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Shevchenko">
-				<short>
-					<standard draft="provisional">SHET</standard>
-					<daylight draft="provisional">SHEST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Singapore">
-				<short>
-					<standard draft="provisional">SGT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Suriname">
 				<long>
 					<standard draft="provisional">Ora Surinamului</standard>
 				</long>
-				<short>
-					<standard draft="provisional">SRT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Sverdlovsk">
-				<short>
-					<standard draft="provisional">SVET</standard>
-					<daylight draft="provisional">SVEST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Syowa">
 				<long>
 					<standard>Ora Syowa</standard>
 				</long>
-				<short>
-					<standard draft="provisional">SYOT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Taipei">
@@ -3279,37 +2454,18 @@
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Tajikistan">
-				<short>
-					<standard draft="provisional">TJT</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Tashkent">
-				<short>
-					<standard draft="provisional">TAST</standard>
-					<daylight draft="provisional">TASST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Tbilisi">
-				<short>
-					<standard draft="provisional">TBIT</standard>
-					<daylight draft="provisional">TBIST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Turkmenistan">
-				<short>
-					<standard draft="provisional">TMT</standard>
-					<daylight draft="provisional">TMST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Uralsk">
-				<short>
-					<standard draft="provisional">URAT</standard>
-					<daylight draft="provisional">URAST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Uruguay">
@@ -3317,64 +2473,19 @@
 					<standard draft="provisional">Ora statului Uruguay</standard>
 					<daylight draft="provisional">Ora de vară a statului Uruguay</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">UYT</standard>
-					<daylight draft="provisional">UYST</daylight>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
-			</metazone>
-			<metazone type="Urumqi">
-				<short>
-					<standard draft="provisional">URUT</standard>
-				</short>
-			</metazone>
-			<metazone type="Uzbekistan">
-				<short>
-					<standard draft="provisional">UZT</standard>
-					<daylight draft="provisional">UZST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Venezuela">
 				<long>
 					<standard draft="provisional">Ora Venezuelei</standard>
 				</long>
-				<short>
-					<standard draft="provisional">VET</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
-			</metazone>
-			<metazone type="Vladivostok">
-				<short>
-					<standard draft="provisional">VLAT</standard>
-					<daylight draft="provisional">VLAST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Vostok">
 				<long>
 					<standard>Ora Vostok</standard>
 				</long>
-				<short>
-					<standard draft="provisional">VOST</standard>
-				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
-			</metazone>
-			<metazone type="Yakutsk">
-				<short>
-					<standard draft="provisional">YAKT</standard>
-					<daylight draft="provisional">YAKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Yekaterinburg">
-				<short>
-					<standard draft="provisional">YEKT</standard>
-					<daylight draft="provisional">YEKST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Yerevan">
-				<short>
-					<standard draft="provisional">YERT</standard>
-					<daylight draft="provisional">YERST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Yukon">
 				<long>
@@ -3384,8 +2495,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">YT</generic>
-					<standard draft="provisional">YST</standard>
-					<daylight draft="provisional">YDT</daylight>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>

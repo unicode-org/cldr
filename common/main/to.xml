@@ -726,12 +726,6 @@
 							<quarter type="3">K3</quarter>
 							<quarter type="4">K4</quarter>
 						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">kuata ʻuluaki</quarter>
 							<quarter type="2">kuata ua</quarter>
@@ -918,37 +912,19 @@
 							<greatestDifference id="a">h a – h a</greatestDifference>
 							<greatestDifference id="h">h–h a</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="a">HH–HH</greatestDifference>
-							<greatestDifference id="H">HH–HH</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
 							<greatestDifference id="h">h:mm–h:mm a</greatestDifference>
 							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="a">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
 							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
 							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">h a – h a v</greatestDifference>
 							<greatestDifference id="h">h–h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="a">HH–HH v</greatestDifference>
-							<greatestDifference id="H">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M–M</greatestDifference>
@@ -1085,98 +1061,14 @@
 			<zone type="Etc/Unknown">
 				<exemplarCity>Halaʻata</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Rothera">
-				<exemplarCity draft="unconfirmed">Rothera</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Palmer">
-				<exemplarCity draft="unconfirmed">Palmer</exemplarCity>
-			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity draft="unconfirmed">pole tonga</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Syowa">
-				<exemplarCity draft="unconfirmed">Syowa</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Mawson">
-				<exemplarCity draft="unconfirmed">Mawson</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Davis">
-				<exemplarCity draft="unconfirmed">Davis</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Vostok">
-				<exemplarCity draft="unconfirmed">Vostok</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Casey">
-				<exemplarCity draft="unconfirmed">Casey</exemplarCity>
-			</zone>
-			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity draft="unconfirmed">Dumont d'Urville</exemplarCity>
-			</zone>
-			<zone type="Antarctica/McMurdo">
-				<exemplarCity draft="unconfirmed">McMurdo</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity draft="unconfirmed">Rio Gallegos</exemplarCity>
-			</zone>
-			<zone type="America/Mendoza">
-				<exemplarCity draft="unconfirmed">Mendoza</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Juan">
-				<exemplarCity draft="unconfirmed">San Juan</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity draft="unconfirmed">Ushuaia</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity draft="unconfirmed">La Rioja</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Luis">
-				<exemplarCity draft="unconfirmed">San Luis</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity draft="unconfirmed">Catamarca</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Salta">
-				<exemplarCity draft="unconfirmed">Salta</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity draft="unconfirmed">Jujuy</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Tucuman">
-				<exemplarCity draft="unconfirmed">Tucuman</exemplarCity>
-			</zone>
-			<zone type="America/Cordoba">
-				<exemplarCity draft="unconfirmed">Cordoba</exemplarCity>
-			</zone>
-			<zone type="America/Buenos_Aires">
-				<exemplarCity draft="unconfirmed">Buenos Aires</exemplarCity>
-			</zone>
-			<zone type="Australia/Perth">
-				<exemplarCity draft="unconfirmed">Perth</exemplarCity>
-			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity draft="unconfirmed">Eucla</exemplarCity>
-			</zone>
-			<zone type="Australia/Darwin">
-				<exemplarCity draft="unconfirmed">Darwin</exemplarCity>
 			</zone>
 			<zone type="Australia/Adelaide">
 				<exemplarCity>Atelaite</exemplarCity>
 			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity draft="unconfirmed">Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="unconfirmed">Currie</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity draft="unconfirmed">Melipoane</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity draft="unconfirmed">Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity draft="unconfirmed">Lindeman</exemplarCity>
 			</zone>
 			<zone type="Australia/Sydney">
 				<exemplarCity draft="unconfirmed">Senē</exemplarCity>
@@ -1184,347 +1076,20 @@
 			<zone type="Australia/Brisbane">
 				<exemplarCity>Pelisipane</exemplarCity>
 			</zone>
-			<zone type="Australia/Lord_Howe">
-				<exemplarCity draft="unconfirmed">Lord Howe</exemplarCity>
-			</zone>
-			<zone type="America/Eirunepe">
-				<exemplarCity draft="unconfirmed">Eirunepe</exemplarCity>
-			</zone>
 			<zone type="America/Rio_Branco">
 				<exemplarCity>Houa Palāsili (Rio Branco)</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Rio Branco</exemplarCity>
-			</zone>
-			<zone type="America/Porto_Velho">
-				<exemplarCity draft="unconfirmed">Porto Velho</exemplarCity>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity draft="unconfirmed">Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Manaus">
-				<exemplarCity draft="unconfirmed">Manaus</exemplarCity>
-			</zone>
-			<zone type="America/Cuiaba">
-				<exemplarCity draft="unconfirmed">Cuiaba</exemplarCity>
-			</zone>
-			<zone type="America/Santarem">
-				<exemplarCity draft="unconfirmed">Santarem</exemplarCity>
 			</zone>
 			<zone type="America/Campo_Grande">
 				<exemplarCity>Houa Palāsili (Campo Grande)</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Campo Grande</exemplarCity>
 			</zone>
-			<zone type="America/Belem">
-				<exemplarCity draft="unconfirmed">Belem</exemplarCity>
-			</zone>
-			<zone type="America/Araguaina">
-				<exemplarCity draft="unconfirmed">Araguaina</exemplarCity>
-			</zone>
 			<zone type="America/Sao_Paulo">
 				<exemplarCity>Houa Palāsili (Sao Paulo)</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Sao Paulo</exemplarCity>
 			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity draft="unconfirmed">Bahia</exemplarCity>
-			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity draft="unconfirmed">Fortaleza</exemplarCity>
-			</zone>
-			<zone type="America/Maceio">
-				<exemplarCity draft="unconfirmed">Maceio</exemplarCity>
-			</zone>
-			<zone type="America/Recife">
-				<exemplarCity draft="unconfirmed">Recife</exemplarCity>
-			</zone>
-			<zone type="America/Noronha">
-				<exemplarCity draft="unconfirmed">Noronha</exemplarCity>
-			</zone>
-			<zone type="America/Dawson">
-				<exemplarCity draft="unconfirmed">Dawson</exemplarCity>
-			</zone>
-			<zone type="America/Whitehorse">
-				<exemplarCity draft="unconfirmed">Whitehorse</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity draft="unconfirmed">Inuvik</exemplarCity>
-			</zone>
-			<zone type="America/Vancouver">
-				<exemplarCity draft="unconfirmed">Vancouver</exemplarCity>
-			</zone>
-			<zone type="America/Dawson_Creek">
-				<exemplarCity draft="unconfirmed">Dawson Creek</exemplarCity>
-			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity draft="unconfirmed">Yellowknife</exemplarCity>
-			</zone>
-			<zone type="America/Edmonton">
-				<exemplarCity draft="unconfirmed">Edmonton</exemplarCity>
-			</zone>
-			<zone type="America/Swift_Current">
-				<exemplarCity draft="unconfirmed">Swift Current</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity draft="unconfirmed">Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Regina">
-				<exemplarCity draft="unconfirmed">Regina</exemplarCity>
-			</zone>
-			<zone type="America/Winnipeg">
-				<exemplarCity draft="unconfirmed">Winnipeg</exemplarCity>
-			</zone>
-			<zone type="America/Resolute">
-				<exemplarCity draft="unconfirmed">Resolute</exemplarCity>
-			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity draft="unconfirmed">Rainy River</exemplarCity>
-			</zone>
-			<zone type="America/Rankin_Inlet">
-				<exemplarCity draft="unconfirmed">Rankin Inlet</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity draft="unconfirmed">Coral Harbour</exemplarCity>
-			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity draft="unconfirmed">Thunder Bay</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity draft="unconfirmed">Nipigon</exemplarCity>
-			</zone>
-			<zone type="America/Toronto">
-				<exemplarCity draft="unconfirmed">Toronto</exemplarCity>
-			</zone>
-			<zone type="America/Montreal">
-				<exemplarCity draft="unconfirmed">Montreal</exemplarCity>
-			</zone>
-			<zone type="America/Iqaluit">
-				<exemplarCity draft="unconfirmed">Iqaluit</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity draft="unconfirmed">Pangnirtung</exemplarCity>
-			</zone>
-			<zone type="America/Moncton">
-				<exemplarCity draft="unconfirmed">Moncton</exemplarCity>
-			</zone>
-			<zone type="America/Halifax">
-				<exemplarCity draft="unconfirmed">Halifax</exemplarCity>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<exemplarCity draft="unconfirmed">Goose Bay</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity draft="unconfirmed">Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity draft="unconfirmed">Blanc-Sablon</exemplarCity>
-			</zone>
-			<zone type="America/St_Johns">
-				<exemplarCity draft="unconfirmed">St. John's</exemplarCity>
-			</zone>
-			<zone type="Africa/Kinshasa">
-				<exemplarCity draft="unconfirmed">Kinshasa</exemplarCity>
-			</zone>
-			<zone type="Africa/Lubumbashi">
-				<exemplarCity draft="unconfirmed">Lubumbashi</exemplarCity>
-			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>Lapanui</exemplarCity>
-			</zone>
-			<zone type="Asia/Kashgar">
-				<exemplarCity draft="unconfirmed">Kashgar</exemplarCity>
-			</zone>
-			<zone type="Asia/Urumqi">
-				<exemplarCity draft="unconfirmed">Urumqi</exemplarCity>
-			</zone>
-			<zone type="Asia/Chongqing">
-				<exemplarCity draft="unconfirmed">Chongqing</exemplarCity>
-			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity draft="unconfirmed">Harbin</exemplarCity>
-			</zone>
-			<zone type="Pacific/Galapagos">
-				<exemplarCity draft="unconfirmed">Galapagos</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Canary">
-				<exemplarCity draft="unconfirmed">Canary</exemplarCity>
-			</zone>
-			<zone type="Africa/Ceuta">
-				<exemplarCity draft="unconfirmed">Ceuta</exemplarCity>
-			</zone>
-			<zone type="Pacific/Truk">
-				<exemplarCity draft="unconfirmed">Truk</exemplarCity>
-			</zone>
-			<zone type="Pacific/Ponape">
-				<exemplarCity draft="unconfirmed">Ponape</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kosrae">
-				<exemplarCity draft="unconfirmed">Kosrae</exemplarCity>
-			</zone>
-			<zone type="America/Thule">
-				<exemplarCity draft="unconfirmed">Thule</exemplarCity>
-			</zone>
-			<zone type="America/Scoresbysund">
-				<exemplarCity draft="unconfirmed">Scoresbysund</exemplarCity>
-			</zone>
-			<zone type="America/Danmarkshavn">
-				<exemplarCity draft="unconfirmed">Danmarkshavn</exemplarCity>
-			</zone>
-			<zone type="Asia/Jakarta">
-				<exemplarCity draft="unconfirmed">Jakarta</exemplarCity>
-			</zone>
-			<zone type="Asia/Pontianak">
-				<exemplarCity draft="unconfirmed">Pontianak</exemplarCity>
-			</zone>
-			<zone type="Asia/Makassar">
-				<exemplarCity draft="unconfirmed">Makassar</exemplarCity>
-			</zone>
-			<zone type="Asia/Jayapura">
-				<exemplarCity draft="unconfirmed">Jayapura</exemplarCity>
-			</zone>
-			<zone type="Pacific/Enderbury">
-				<exemplarCity draft="unconfirmed">Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kiritimati">
-				<exemplarCity draft="unconfirmed">Kiritimati</exemplarCity>
-			</zone>
-			<zone type="Pacific/Tarawa">
-				<exemplarCity draft="unconfirmed">Tarawa</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtau">
-				<exemplarCity draft="unconfirmed">Aqtau</exemplarCity>
-			</zone>
-			<zone type="Asia/Oral">
-				<exemplarCity draft="unconfirmed">Oral</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtobe">
-				<exemplarCity draft="unconfirmed">Aqtobe</exemplarCity>
-			</zone>
-			<zone type="Asia/Qyzylorda">
-				<exemplarCity draft="unconfirmed">Qyzylorda</exemplarCity>
-			</zone>
-			<zone type="Asia/Almaty">
-				<exemplarCity draft="unconfirmed">Almaty</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kwajalein">
-				<exemplarCity draft="unconfirmed">Kwajalein</exemplarCity>
-			</zone>
-			<zone type="Asia/Hovd">
-				<exemplarCity draft="unconfirmed">Hovd</exemplarCity>
-			</zone>
-			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity draft="unconfirmed">Ulaanbaatar</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="unconfirmed">Choibalsan</exemplarCity>
-			</zone>
-			<zone type="America/Tijuana">
-				<exemplarCity draft="unconfirmed">Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Hermosillo">
-				<exemplarCity draft="unconfirmed">Hermosillo</exemplarCity>
-			</zone>
-			<zone type="America/Mazatlan">
-				<exemplarCity draft="unconfirmed">Mazatlan</exemplarCity>
-			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity draft="unconfirmed">Chihuahua</exemplarCity>
-			</zone>
-			<zone type="America/Monterrey">
-				<exemplarCity draft="unconfirmed">Monterrey</exemplarCity>
-			</zone>
-			<zone type="America/Mexico_City">
-				<exemplarCity draft="unconfirmed">Mexico City</exemplarCity>
-			</zone>
-			<zone type="America/Merida">
-				<exemplarCity draft="unconfirmed">Merida</exemplarCity>
-			</zone>
-			<zone type="America/Cancun">
-				<exemplarCity draft="unconfirmed">Cancun</exemplarCity>
-			</zone>
-			<zone type="Asia/Kuching">
-				<exemplarCity draft="unconfirmed">Kuching</exemplarCity>
-			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity draft="unconfirmed">Chatham</exemplarCity>
-			</zone>
-			<zone type="Pacific/Marquesas">
-				<exemplarCity draft="unconfirmed">Marquesas</exemplarCity>
-			</zone>
-			<zone type="Pacific/Gambier">
-				<exemplarCity draft="unconfirmed">Gambier</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Azores">
-				<exemplarCity draft="unconfirmed">Azores</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Madeira">
-				<exemplarCity draft="unconfirmed">Madeira</exemplarCity>
-			</zone>
-			<zone type="Europe/Kaliningrad">
-				<exemplarCity draft="unconfirmed">Kaliningrad</exemplarCity>
-			</zone>
-			<zone type="Europe/Moscow">
-				<exemplarCity draft="unconfirmed">Moscow</exemplarCity>
-			</zone>
-			<zone type="Europe/Volgograd">
-				<exemplarCity draft="unconfirmed">Volgograd</exemplarCity>
-			</zone>
-			<zone type="Europe/Samara">
-				<exemplarCity draft="unconfirmed">Samara</exemplarCity>
-			</zone>
-			<zone type="Asia/Yekaterinburg">
-				<exemplarCity draft="unconfirmed">Yekaterinburg</exemplarCity>
-			</zone>
-			<zone type="Asia/Omsk">
-				<exemplarCity draft="unconfirmed">Omsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Novosibirsk">
-				<exemplarCity draft="unconfirmed">Novosibirsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity draft="unconfirmed">Krasnoyarsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Irkutsk">
-				<exemplarCity draft="unconfirmed">Irkutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Yakutsk">
-				<exemplarCity draft="unconfirmed">Yakutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Vladivostok">
-				<exemplarCity draft="unconfirmed">Vladivostok</exemplarCity>
-			</zone>
-			<zone type="Asia/Sakhalin">
-				<exemplarCity draft="unconfirmed">Sakhalin</exemplarCity>
-			</zone>
-			<zone type="Asia/Magadan">
-				<exemplarCity draft="unconfirmed">Magadan</exemplarCity>
-			</zone>
-			<zone type="Asia/Kamchatka">
-				<exemplarCity draft="unconfirmed">Kamchatka</exemplarCity>
-			</zone>
-			<zone type="Asia/Anadyr">
-				<exemplarCity draft="unconfirmed">Anadyr</exemplarCity>
-			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity draft="unconfirmed">Uzhgorod</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity draft="unconfirmed">Simferopol</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity draft="unconfirmed">Zaporozhye</exemplarCity>
-			</zone>
-			<zone type="Pacific/Midway">
-				<exemplarCity draft="unconfirmed">Midway</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity draft="unconfirmed">Johnston</exemplarCity>
-			</zone>
-			<zone type="Pacific/Wake">
-				<exemplarCity draft="unconfirmed">Wake</exemplarCity>
-			</zone>
-			<zone type="America/Adak">
-				<exemplarCity>Adak</exemplarCity>
-			</zone>
-			<zone type="America/Nome">
-				<exemplarCity draft="unconfirmed">Nome</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<exemplarCity>Houa Puleʻanga fakataha ʻAmelika (Honolulu)</exemplarCity>
@@ -1534,83 +1099,29 @@
 				<exemplarCity>Houa Puleʻanga fakataha ʻAmelika (Anchorage)</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Anchorage</exemplarCity>
 			</zone>
-			<zone type="America/Yakutat">
-				<exemplarCity draft="unconfirmed">Yakutat</exemplarCity>
-			</zone>
-			<zone type="America/Juneau">
-				<exemplarCity draft="unconfirmed">Juneau</exemplarCity>
-			</zone>
 			<zone type="America/Los_Angeles">
 				<exemplarCity>Houa Puleʻanga fakataha ʻAmelika (Los Angeles)</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Los Angeles</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity draft="unconfirmed">Boise</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
 				<exemplarCity>Houa Puleʻanga fakataha ʻAmelika (Phoenix)</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Phoenix</exemplarCity>
 			</zone>
-			<zone type="America/Shiprock">
-				<exemplarCity draft="unconfirmed">Shiprock</exemplarCity>
-			</zone>
 			<zone type="America/Denver">
 				<exemplarCity>Houa Puleʻanga fakataha ʻAmelika (Denver)</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Denver</exemplarCity>
-			</zone>
-			<zone type="America/North_Dakota/New_Salem">
-				<exemplarCity draft="unconfirmed">New Salem, North Dakota</exemplarCity>
-			</zone>
-			<zone type="America/North_Dakota/Center">
-				<exemplarCity draft="unconfirmed">Center, North Dakota</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<exemplarCity>Houa Puleʻanga fakataha ʻAmelika (Chicago)</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Chicago</exemplarCity>
 			</zone>
-			<zone type="America/Menominee">
-				<exemplarCity draft="unconfirmed">Menominee</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vincennes">
-				<exemplarCity draft="unconfirmed">Vincennes, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Petersburg">
-				<exemplarCity draft="unconfirmed">Petersburg, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity draft="unconfirmed">Tell City, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Knox">
-				<exemplarCity draft="unconfirmed">Knox, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Winamac">
-				<exemplarCity draft="unconfirmed">Winamac, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Marengo">
-				<exemplarCity draft="unconfirmed">Marengo, Indiana</exemplarCity>
-			</zone>
 			<zone type="America/Indianapolis">
 				<exemplarCity>Houa Puleʻanga fakataha ʻAmelika (Indianapolis)</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Indianapolis</exemplarCity>
 			</zone>
-			<zone type="America/Louisville">
-				<exemplarCity draft="unconfirmed">Louisville</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<exemplarCity draft="unconfirmed">Vevay, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<exemplarCity draft="unconfirmed">Monticello, Kentucky</exemplarCity>
-			</zone>
-			<zone type="America/Detroit">
-				<exemplarCity draft="unconfirmed">Detroit</exemplarCity>
-			</zone>
 			<zone type="America/New_York">
 				<exemplarCity>Houa Puleʻanga fakataha ʻAmelika (New York)</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">New York</exemplarCity>
-			</zone>
-			<zone type="Asia/Samarkand">
-				<exemplarCity draft="unconfirmed">Samarkand</exemplarCity>
 			</zone>
 			<metazone type="Fiji">
 				<long>
@@ -1713,470 +1224,32 @@
 			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
-			<currency type="AED">
-				<displayName draft="unconfirmed">AED</displayName>
-			</currency>
-			<currency type="AFN">
-				<displayName>AFN</displayName>
-			</currency>
-			<currency type="ALL">
-				<displayName draft="unconfirmed">ALL</displayName>
-			</currency>
-			<currency type="AMD">
-				<displayName draft="unconfirmed">AMD</displayName>
-			</currency>
-			<currency type="ANG">
-				<displayName draft="unconfirmed">ANG</displayName>
-			</currency>
-			<currency type="AOA">
-				<displayName draft="unconfirmed">AOA</displayName>
-			</currency>
-			<currency type="ARS">
-				<displayName draft="unconfirmed">ARS</displayName>
-			</currency>
-			<currency type="AUD">
-				<displayName draft="unconfirmed">AUD</displayName>
-			</currency>
-			<currency type="AWG">
-				<displayName draft="unconfirmed">AWG</displayName>
-			</currency>
-			<currency type="AZM">
-				<displayName draft="unconfirmed">AZM</displayName>
-			</currency>
-			<currency type="AZN">
-				<displayName draft="unconfirmed">AZN</displayName>
-			</currency>
-			<currency type="BAM">
-				<displayName draft="unconfirmed">BAM</displayName>
-			</currency>
-			<currency type="BBD">
-				<displayName draft="unconfirmed">BBD</displayName>
-			</currency>
-			<currency type="BDT">
-				<displayName draft="unconfirmed">BDT</displayName>
-			</currency>
-			<currency type="BGN">
-				<displayName draft="unconfirmed">BGN</displayName>
-			</currency>
-			<currency type="BHD">
-				<displayName draft="unconfirmed">BHD</displayName>
-			</currency>
-			<currency type="BIF">
-				<displayName draft="unconfirmed">BIF</displayName>
-			</currency>
-			<currency type="BMD">
-				<displayName draft="unconfirmed">BMD</displayName>
-			</currency>
-			<currency type="BND">
-				<displayName draft="unconfirmed">BND</displayName>
-			</currency>
-			<currency type="BOB">
-				<displayName draft="unconfirmed">BOB</displayName>
-			</currency>
 			<currency type="BRL">
 				<displayName>BRL</displayName>
-			</currency>
-			<currency type="BSD">
-				<displayName draft="unconfirmed">BSD</displayName>
-			</currency>
-			<currency type="BTN">
-				<displayName draft="unconfirmed">BTN</displayName>
-			</currency>
-			<currency type="BWP">
-				<displayName draft="unconfirmed">BWP</displayName>
-			</currency>
-			<currency type="BYR">
-				<displayName draft="unconfirmed">BYR</displayName>
-			</currency>
-			<currency type="BZD">
-				<displayName draft="unconfirmed">BZD</displayName>
-			</currency>
-			<currency type="CAD">
-				<displayName draft="unconfirmed">CAD</displayName>
-			</currency>
-			<currency type="CDF">
-				<displayName draft="unconfirmed">CDF</displayName>
-			</currency>
-			<currency type="CHF">
-				<displayName draft="unconfirmed">CHF</displayName>
-			</currency>
-			<currency type="CLP">
-				<displayName draft="unconfirmed">CLP</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>CNY</displayName>
 			</currency>
-			<currency type="COP">
-				<displayName draft="unconfirmed">COP</displayName>
-			</currency>
-			<currency type="CRC">
-				<displayName draft="unconfirmed">CRC</displayName>
-			</currency>
-			<currency type="CUC">
-				<displayName draft="unconfirmed">CUC</displayName>
-			</currency>
-			<currency type="CUP">
-				<displayName draft="unconfirmed">CUP</displayName>
-			</currency>
-			<currency type="CVE">
-				<displayName draft="unconfirmed">CVE</displayName>
-			</currency>
-			<currency type="CZK">
-				<displayName draft="unconfirmed">CZK</displayName>
-			</currency>
-			<currency type="DJF">
-				<displayName draft="unconfirmed">DJF</displayName>
-			</currency>
-			<currency type="DKK">
-				<displayName draft="unconfirmed">DKK</displayName>
-			</currency>
-			<currency type="DOP">
-				<displayName draft="unconfirmed">DOP</displayName>
-			</currency>
-			<currency type="DZD">
-				<displayName draft="unconfirmed">DZD</displayName>
-			</currency>
-			<currency type="EEK">
-				<displayName draft="unconfirmed">EEK</displayName>
-			</currency>
-			<currency type="EGP">
-				<displayName draft="unconfirmed">EGP</displayName>
-			</currency>
-			<currency type="ERN">
-				<displayName draft="unconfirmed">ERN</displayName>
-			</currency>
-			<currency type="ETB">
-				<displayName draft="unconfirmed">ETB</displayName>
-			</currency>
 			<currency type="EUR">
 				<displayName>EUR</displayName>
-			</currency>
-			<currency type="FJD">
-				<displayName draft="unconfirmed">FJD</displayName>
-			</currency>
-			<currency type="FKP">
-				<displayName draft="unconfirmed">FKP</displayName>
 			</currency>
 			<currency type="GBP">
 				<displayName>GBP</displayName>
 			</currency>
-			<currency type="GEL">
-				<displayName draft="unconfirmed">GEL</displayName>
-			</currency>
-			<currency type="GHS">
-				<displayName draft="unconfirmed">GHS</displayName>
-			</currency>
-			<currency type="GIP">
-				<displayName draft="unconfirmed">GIP</displayName>
-			</currency>
-			<currency type="GMD">
-				<displayName draft="unconfirmed">GMD</displayName>
-			</currency>
-			<currency type="GNF">
-				<displayName draft="unconfirmed">GNF</displayName>
-			</currency>
-			<currency type="GTQ">
-				<displayName draft="unconfirmed">GTQ</displayName>
-			</currency>
-			<currency type="GYD">
-				<displayName draft="unconfirmed">GYD</displayName>
-			</currency>
-			<currency type="HKD">
-				<displayName draft="unconfirmed">HKD</displayName>
-			</currency>
-			<currency type="HNL">
-				<displayName draft="unconfirmed">HNL</displayName>
-			</currency>
-			<currency type="HRK">
-				<displayName draft="unconfirmed">HRK</displayName>
-			</currency>
-			<currency type="HTG">
-				<displayName draft="unconfirmed">HTG</displayName>
-			</currency>
-			<currency type="HUF">
-				<displayName draft="unconfirmed">HUF</displayName>
-			</currency>
-			<currency type="IDR">
-				<displayName draft="unconfirmed">IDR</displayName>
-			</currency>
-			<currency type="ILS">
-				<displayName draft="unconfirmed">ILS</displayName>
-			</currency>
 			<currency type="INR">
 				<displayName>INR</displayName>
-			</currency>
-			<currency type="IQD">
-				<displayName draft="unconfirmed">IQD</displayName>
-			</currency>
-			<currency type="IRR">
-				<displayName>IRR</displayName>
-			</currency>
-			<currency type="ISK">
-				<displayName draft="unconfirmed">ISK</displayName>
-			</currency>
-			<currency type="JMD">
-				<displayName draft="unconfirmed">JMD</displayName>
-			</currency>
-			<currency type="JOD">
-				<displayName draft="unconfirmed">JOD</displayName>
 			</currency>
 			<currency type="JPY">
 				<displayName>JPY</displayName>
 			</currency>
-			<currency type="KES">
-				<displayName draft="unconfirmed">KES</displayName>
-			</currency>
-			<currency type="KGS">
-				<displayName draft="unconfirmed">KGS</displayName>
-			</currency>
-			<currency type="KHR">
-				<displayName draft="unconfirmed">KHR</displayName>
-			</currency>
-			<currency type="KMF">
-				<displayName draft="unconfirmed">KMF</displayName>
-			</currency>
-			<currency type="KPW">
-				<displayName draft="unconfirmed">KPW</displayName>
-			</currency>
-			<currency type="KRW">
-				<displayName draft="unconfirmed">KRW</displayName>
-			</currency>
-			<currency type="KWD">
-				<displayName draft="unconfirmed">KWD</displayName>
-			</currency>
-			<currency type="KYD">
-				<displayName draft="unconfirmed">KYD</displayName>
-			</currency>
-			<currency type="KZT">
-				<displayName draft="unconfirmed">KZT</displayName>
-			</currency>
-			<currency type="LAK">
-				<displayName draft="unconfirmed">LAK</displayName>
-			</currency>
-			<currency type="LBP">
-				<displayName draft="unconfirmed">LBP</displayName>
-			</currency>
-			<currency type="LKR">
-				<displayName draft="unconfirmed">LKR</displayName>
-			</currency>
-			<currency type="LRD">
-				<displayName draft="unconfirmed">LRD</displayName>
-			</currency>
-			<currency type="LSL">
-				<displayName draft="unconfirmed">LSL</displayName>
-			</currency>
-			<currency type="LTL">
-				<displayName draft="unconfirmed">LTL</displayName>
-			</currency>
-			<currency type="LVL">
-				<displayName draft="unconfirmed">LVL</displayName>
-			</currency>
-			<currency type="LYD">
-				<displayName draft="unconfirmed">LYD</displayName>
-			</currency>
-			<currency type="MAD">
-				<displayName draft="unconfirmed">MAD</displayName>
-			</currency>
-			<currency type="MDL">
-				<displayName draft="unconfirmed">MDL</displayName>
-			</currency>
-			<currency type="MGA">
-				<displayName draft="unconfirmed">MGA</displayName>
-			</currency>
-			<currency type="MKD">
-				<displayName draft="unconfirmed">MKD</displayName>
-			</currency>
-			<currency type="MMK">
-				<displayName draft="unconfirmed">MMK</displayName>
-			</currency>
-			<currency type="MNT">
-				<displayName draft="unconfirmed">MNT</displayName>
-			</currency>
-			<currency type="MOP">
-				<displayName draft="unconfirmed">MOP</displayName>
-			</currency>
-			<currency type="MRO">
-				<displayName draft="unconfirmed">MRO</displayName>
-			</currency>
-			<currency type="MUR">
-				<displayName draft="unconfirmed">MUR</displayName>
-			</currency>
-			<currency type="MVR">
-				<displayName draft="unconfirmed">MVR</displayName>
-			</currency>
-			<currency type="MWK">
-				<displayName draft="unconfirmed">MWK</displayName>
-			</currency>
-			<currency type="MXN">
-				<displayName draft="unconfirmed">MXN</displayName>
-			</currency>
-			<currency type="MYR">
-				<displayName draft="unconfirmed">MYR</displayName>
-			</currency>
-			<currency type="MZM">
-				<displayName draft="unconfirmed">MZM</displayName>
-			</currency>
-			<currency type="NAD">
-				<displayName draft="unconfirmed">NAD</displayName>
-			</currency>
-			<currency type="NGN">
-				<displayName draft="unconfirmed">NGN</displayName>
-			</currency>
-			<currency type="NIO">
-				<displayName draft="unconfirmed">NIO</displayName>
-			</currency>
-			<currency type="NOK">
-				<displayName draft="unconfirmed">NOK</displayName>
-			</currency>
-			<currency type="NPR">
-				<displayName draft="unconfirmed">NPR</displayName>
-			</currency>
-			<currency type="NZD">
-				<displayName draft="unconfirmed">NZD</displayName>
-			</currency>
-			<currency type="OMR">
-				<displayName draft="unconfirmed">OMR</displayName>
-			</currency>
-			<currency type="PAB">
-				<displayName draft="unconfirmed">PAB</displayName>
-			</currency>
-			<currency type="PEN">
-				<displayName draft="unconfirmed">PEN</displayName>
-			</currency>
-			<currency type="PGK">
-				<displayName draft="unconfirmed">PGK</displayName>
-			</currency>
-			<currency type="PHP">
-				<displayName draft="unconfirmed">PHP</displayName>
-			</currency>
-			<currency type="PKR">
-				<displayName draft="unconfirmed">PKR</displayName>
-			</currency>
-			<currency type="PLN">
-				<displayName draft="unconfirmed">PLN</displayName>
-			</currency>
-			<currency type="PYG">
-				<displayName draft="unconfirmed">PYG</displayName>
-			</currency>
-			<currency type="QAR">
-				<displayName draft="unconfirmed">QAR</displayName>
-			</currency>
-			<currency type="ROL">
-				<displayName draft="unconfirmed">ROL</displayName>
-			</currency>
-			<currency type="RSD">
-				<displayName draft="unconfirmed">RSD</displayName>
-			</currency>
 			<currency type="RUB">
 				<displayName>RUB</displayName>
-			</currency>
-			<currency type="RWF">
-				<displayName draft="unconfirmed">RWF</displayName>
-			</currency>
-			<currency type="SAR">
-				<displayName draft="unconfirmed">SAR</displayName>
-			</currency>
-			<currency type="SBD">
-				<displayName draft="unconfirmed">SBD</displayName>
-			</currency>
-			<currency type="SCR">
-				<displayName draft="unconfirmed">SCR</displayName>
-			</currency>
-			<currency type="SDG">
-				<displayName draft="unconfirmed">SDG</displayName>
-			</currency>
-			<currency type="SEK">
-				<displayName draft="unconfirmed">SEK</displayName>
-			</currency>
-			<currency type="SGD">
-				<displayName draft="unconfirmed">SGD</displayName>
-			</currency>
-			<currency type="SHP">
-				<displayName draft="unconfirmed">SHP</displayName>
-			</currency>
-			<currency type="SKK">
-				<displayName draft="unconfirmed">SKK</displayName>
-			</currency>
-			<currency type="SLL">
-				<displayName draft="unconfirmed">SLL</displayName>
-			</currency>
-			<currency type="SOS">
-				<displayName draft="unconfirmed">SOS</displayName>
-			</currency>
-			<currency type="SRD">
-				<displayName draft="unconfirmed">SRD</displayName>
-			</currency>
-			<currency type="STD">
-				<displayName draft="unconfirmed">STD</displayName>
-			</currency>
-			<currency type="SVC">
-				<displayName draft="unconfirmed">SVC</displayName>
-			</currency>
-			<currency type="SYP">
-				<displayName draft="unconfirmed">SYP</displayName>
-			</currency>
-			<currency type="SZL">
-				<displayName draft="unconfirmed">SZL</displayName>
-			</currency>
-			<currency type="THB">
-				<displayName draft="unconfirmed">THB</displayName>
-			</currency>
-			<currency type="TJS">
-				<displayName draft="unconfirmed">TJS</displayName>
-			</currency>
-			<currency type="TMM">
-				<displayName draft="unconfirmed">TMM</displayName>
-			</currency>
-			<currency type="TMT">
-				<displayName draft="unconfirmed">TMT</displayName>
-			</currency>
-			<currency type="TND">
-				<displayName draft="unconfirmed">TND</displayName>
 			</currency>
 			<currency type="TOP">
 				<displayName>TOP</displayName>
 			</currency>
-			<currency type="TRY">
-				<displayName draft="unconfirmed">TRY</displayName>
-			</currency>
-			<currency type="TTD">
-				<displayName draft="unconfirmed">TTD</displayName>
-			</currency>
-			<currency type="TWD">
-				<displayName draft="unconfirmed">TWD</displayName>
-			</currency>
-			<currency type="TZS">
-				<displayName draft="unconfirmed">TZS</displayName>
-			</currency>
-			<currency type="UAH">
-				<displayName draft="unconfirmed">UAH</displayName>
-			</currency>
-			<currency type="UGX">
-				<displayName draft="unconfirmed">UGX</displayName>
-			</currency>
 			<currency type="USD">
 				<displayName>USD</displayName>
-			</currency>
-			<currency type="UYU">
-				<displayName draft="unconfirmed">UYU</displayName>
-			</currency>
-			<currency type="UZS">
-				<displayName draft="unconfirmed">UZS</displayName>
-			</currency>
-			<currency type="VEF">
-				<displayName draft="unconfirmed">VEF</displayName>
-			</currency>
-			<currency type="VND">
-				<displayName draft="unconfirmed">VND</displayName>
-			</currency>
-			<currency type="VUV">
-				<displayName draft="unconfirmed">VUV</displayName>
-			</currency>
-			<currency type="WST">
-				<displayName draft="unconfirmed">WST</displayName>
-			</currency>
-			<currency type="XAF">
-				<displayName draft="unconfirmed">XAF</displayName>
 			</currency>
 			<currency type="XAG">
 				<displayName>XAG</displayName>
@@ -2196,9 +1269,6 @@
 			<currency type="XBD">
 				<displayName>XBD</displayName>
 			</currency>
-			<currency type="XCD">
-				<displayName draft="unconfirmed">XCD</displayName>
-			</currency>
 			<currency type="XDR">
 				<displayName>XDR</displayName>
 			</currency>
@@ -2208,14 +1278,8 @@
 			<currency type="XFU">
 				<displayName>XFU</displayName>
 			</currency>
-			<currency type="XOF">
-				<displayName draft="unconfirmed">XOF</displayName>
-			</currency>
 			<currency type="XPD">
 				<displayName>XPD</displayName>
-			</currency>
-			<currency type="XPF">
-				<displayName draft="unconfirmed">XPF</displayName>
 			</currency>
 			<currency type="XPT">
 				<displayName>XPT</displayName>
@@ -2225,21 +1289,6 @@
 			</currency>
 			<currency type="XXX">
 				<displayName>XXX</displayName>
-			</currency>
-			<currency type="YER">
-				<displayName draft="unconfirmed">YER</displayName>
-			</currency>
-			<currency type="ZAR">
-				<displayName draft="unconfirmed">ZAR</displayName>
-			</currency>
-			<currency type="ZMK">
-				<displayName draft="unconfirmed">ZMK</displayName>
-			</currency>
-			<currency type="ZWD">
-				<displayName draft="unconfirmed">ZWD</displayName>
-			</currency>
-			<currency type="ZWL">
-				<displayName draft="unconfirmed">ZWL</displayName>
 			</currency>
 		</currencies>
 	</numbers>

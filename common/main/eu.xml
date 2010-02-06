@@ -444,39 +444,11 @@
 			<territory type="ZZ">ZZ</territory>
 		</territories>
 		<variants>
-			<variant type="1901">1901</variant>
-			<variant type="1994">1994</variant>
-			<variant type="1996">1996</variant>
-			<variant type="1606NICT">1606NICT</variant>
-			<variant type="1694ACAD">1694ACAD</variant>
-			<variant type="1959ACAD">1959ACAD</variant>
-			<variant type="AREVELA">AREVELA</variant>
-			<variant type="AREVMDA">AREVMDA</variant>
-			<variant type="BAKU1926">BAKU1926</variant>
-			<variant type="BISKE">BISKE</variant>
-			<variant type="BOONT">BOONT</variant>
-			<variant type="FONIPA">FONIPA</variant>
-			<variant type="FONUPA">FONUPA</variant>
-			<variant type="KKCOR">KKCOR</variant>
-			<variant type="LIPAW">LIPAW</variant>
-			<variant type="MONOTON">MONOTON</variant>
-			<variant type="NEDIS">NEDIS</variant>
-			<variant type="NJIVA">NJIVA</variant>
-			<variant type="OSOJS">OSOJS</variant>
-			<variant type="PINYIN">PINYIN</variant>
 			<variant type="POLYTON">POLITON</variant>
-			<variant type="POSIX">POSIX</variant>
 			<variant type="REVISED">BERRIKUSIA</variant>
-			<variant type="ROZAJ">ROZAJ</variant>
 			<variant type="SAAHO">SAHO</variant>
 			<variant type="SCOTLAND">ESKOZIAR INGELESA</variant>
-			<variant type="SCOUSE">SCOUSE</variant>
-			<variant type="SOLBA">SOLBA</variant>
-			<variant type="TARASK">TARASK</variant>
-			<variant type="UCCOR">UCCOR</variant>
-			<variant type="UCRCOR">UCRCOR</variant>
 			<variant type="VALENCIA">VALENTZIERA</variant>
-			<variant type="WADEGILE">WADEGILE</variant>
 		</variants>
 		<keys>
 			<key type="calendar">egutegia</key>
@@ -496,9 +468,7 @@
 			<type type="islamic-civil" key="calendar">islamiar egutegi zibila</type>
 			<type type="japanese" key="calendar">japoniar egutegia</type>
 			<type type="phonebook" key="collation">Telefonoen zerrenda</type>
-			<type type="pinyin" key="collation">pinyin</type>
 			<type type="roc" key="calendar">Txinako Errepublikako egutegia</type>
-			<type type="stroke" key="collation">stroke</type>
 			<type type="traditional" key="collation">Tradizionala</type>
 		</types>
 		<measurementSystemNames>
@@ -511,20 +481,6 @@
 			<codePattern type="territory">{0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList>mixed</inList>
-		<inText type="currency">mixed</inText>
-		<inText type="dayWidth">mixed</inText>
-		<inText type="fields">mixed</inText>
-		<inText type="keys">mixed</inText>
-		<inText type="languages">mixed</inText>
-		<inText type="long">mixed</inText>
-		<inText type="measurementSystemNames">mixed</inText>
-		<inText type="scripts">mixed</inText>
-		<inText type="territories">mixed</inText>
-		<inText type="types">mixed</inText>
-		<inText type="variants">mixed</inText>
-	</layout>
 	<characters>
 		<exemplarCharacters>[a b c ç d e f g h i j k l m n ñ o p q r s t u v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
@@ -727,137 +683,16 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Ezezaguna</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Davis">
-				<exemplarCity>Davis</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Casey">
-				<exemplarCity>Casey</exemplarCity>
-			</zone>
-			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity>Dumont d'Urville</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity>La Rioja</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity>Catamarca</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity>Jujuy</exemplarCity>
-			</zone>
-			<zone type="America/Cordoba">
-				<exemplarCity>Cordoba</exemplarCity>
-			</zone>
-			<zone type="America/Buenos_Aires">
-				<exemplarCity>Buenos Aires</exemplarCity>
-			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity>Eucla</exemplarCity>
-			</zone>
-			<zone type="Australia/Darwin">
-				<exemplarCity>Darwin</exemplarCity>
-			</zone>
-			<zone type="Australia/Adelaide">
-				<exemplarCity>Adelaide</exemplarCity>
-			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity>Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Currie</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity>Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity>Lindeman</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity>Brisbane</exemplarCity>
 			</zone>
 			<zone type="Asia/Bahrain">
 				<exemplarCity draft="unconfirmed">Bahrein</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Bermuda">
 				<exemplarCity draft="unconfirmed">Bermudak</exemplarCity>
-			</zone>
-			<zone type="America/Eirunepe">
-				<exemplarCity>Eirunepe</exemplarCity>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity>Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Cuiaba">
-				<exemplarCity>Cuiaba</exemplarCity>
-			</zone>
-			<zone type="America/Campo_Grande">
-				<exemplarCity>Campo Grande</exemplarCity>
-			</zone>
-			<zone type="America/Belem">
-				<exemplarCity>Belem</exemplarCity>
-			</zone>
-			<zone type="America/Araguaina">
-				<exemplarCity>Araguaina</exemplarCity>
-			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity>Bahia</exemplarCity>
-			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity>Fortaleza</exemplarCity>
-			</zone>
-			<zone type="America/Dawson">
-				<exemplarCity>Dawson</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity>Inuvik</exemplarCity>
-			</zone>
-			<zone type="America/Dawson_Creek">
-				<exemplarCity>Dawson Creek</exemplarCity>
-			</zone>
-			<zone type="America/Edmonton">
-				<exemplarCity>Edmonton</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity>Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity>Coral Harbour</exemplarCity>
-			</zone>
-			<zone type="America/Iqaluit">
-				<exemplarCity>Iqaluit</exemplarCity>
-			</zone>
-			<zone type="America/Halifax">
-				<exemplarCity>Halifax</exemplarCity>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<exemplarCity>Goose Bay</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity>Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity>Blanc-Sablon</exemplarCity>
-			</zone>
-			<zone type="Africa/Kinshasa">
-				<exemplarCity>Kinshasa</exemplarCity>
-			</zone>
-			<zone type="Pacific/Easter">
-				<exemplarCity>Easter</exemplarCity>
-			</zone>
-			<zone type="Asia/Kashgar">
-				<exemplarCity>Kashgar</exemplarCity>
-			</zone>
-			<zone type="Asia/Chongqing">
-				<exemplarCity>Chongqing</exemplarCity>
-			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity>Harbin</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Cape_Verde">
 				<exemplarCity draft="unconfirmed">Cabo Verde</exemplarCity>
@@ -868,65 +703,23 @@
 			<zone type="America/Dominica">
 				<exemplarCity draft="unconfirmed">Dominika</exemplarCity>
 			</zone>
-			<zone type="Pacific/Galapagos">
-				<exemplarCity>Galapagos</exemplarCity>
-			</zone>
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Espainia (Kanariak)</exemplarCity>
-			</zone>
-			<zone type="Africa/Ceuta">
-				<exemplarCity>Ceuta</exemplarCity>
 			</zone>
 			<zone type="Europe/Madrid">
 				<exemplarCity draft="unconfirmed">Madril</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kosrae">
-				<exemplarCity>Kosrae</exemplarCity>
-			</zone>
-			<zone type="America/Danmarkshavn">
-				<exemplarCity>Danmarkshavn</exemplarCity>
-			</zone>
 			<zone type="America/Guadeloupe">
 				<exemplarCity draft="unconfirmed">Guadalupe</exemplarCity>
 			</zone>
-			<zone type="Asia/Jakarta">
-				<exemplarCity>Jakarta</exemplarCity>
-			</zone>
-			<zone type="Asia/Jayapura">
-				<exemplarCity>Jayapura</exemplarCity>
-			</zone>
 			<zone type="America/Jamaica">
 				<exemplarCity draft="unconfirmed">Jamaika</exemplarCity>
-			</zone>
-			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kiritimati">
-				<exemplarCity>Kiritimati</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtau">
-				<exemplarCity>Aqtau</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtobe">
-				<exemplarCity>Aqtobe</exemplarCity>
-			</zone>
-			<zone type="Asia/Almaty">
-				<exemplarCity>Almaty</exemplarCity>
 			</zone>
 			<zone type="Europe/Luxembourg">
 				<exemplarCity draft="unconfirmed">Luxenburgo</exemplarCity>
 			</zone>
 			<zone type="Europe/Monaco">
 				<exemplarCity draft="unconfirmed">Monako</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kwajalein">
-				<exemplarCity>Kwajalein</exemplarCity>
-			</zone>
-			<zone type="Asia/Hovd">
-				<exemplarCity>Hovd</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Choibalsan</exemplarCity>
 			</zone>
 			<zone type="America/Martinique">
 				<exemplarCity draft="unconfirmed">Martinika</exemplarCity>
@@ -937,80 +730,11 @@
 			<zone type="Indian/Maldives">
 				<exemplarCity draft="unconfirmed">Maldivak</exemplarCity>
 			</zone>
-			<zone type="America/Hermosillo">
-				<exemplarCity>Hermosillo</exemplarCity>
-			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity>Chihuahua</exemplarCity>
-			</zone>
-			<zone type="America/Cancun">
-				<exemplarCity>Cancun</exemplarCity>
-			</zone>
-			<zone type="Asia/Kuching">
-				<exemplarCity>Kuching</exemplarCity>
-			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity>Chatham</exemplarCity>
-			</zone>
-			<zone type="Pacific/Gambier">
-				<exemplarCity>Gambier</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Azores">
-				<exemplarCity>Azores</exemplarCity>
-			</zone>
-			<zone type="Europe/Kaliningrad">
-				<exemplarCity>Kaliningrad</exemplarCity>
-			</zone>
-			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity>Krasnoyarsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Irkutsk">
-				<exemplarCity>Irkutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Kamchatka">
-				<exemplarCity>Kamchatka</exemplarCity>
-			</zone>
-			<zone type="Asia/Anadyr">
-				<exemplarCity>Anadyr</exemplarCity>
-			</zone>
 			<zone type="Asia/Singapore">
 				<exemplarCity draft="unconfirmed">Singapur</exemplarCity>
 			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>Johnston</exemplarCity>
-			</zone>
-			<zone type="America/Adak">
-				<exemplarCity>Adak</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<exemplarCity>Anchorage</exemplarCity>
-			</zone>
-			<zone type="America/Juneau">
-				<exemplarCity>Juneau</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity>Boise</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<exemplarCity>Denver</exemplarCity>
-			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Ameriketako Estatu Batuak (Erdialdea, Ipar Dakota)</exemplarCity>
-			</zone>
-			<zone type="America/Chicago">
-				<exemplarCity>Chicago</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Knox">
-				<exemplarCity>Knox, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indianapolis">
-				<exemplarCity>Indianapolis</exemplarCity>
-			</zone>
-			<zone type="America/Detroit">
-				<exemplarCity>Detroit</exemplarCity>
 			</zone>
 			<metazone type="Australia_Central">
 				<commonlyUsed>true</commonlyUsed>
@@ -1191,128 +915,11 @@
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
-			<currency type="AFN">
-				<displayName>AFN</displayName>
-			</currency>
-			<currency type="ALL">
-				<displayName>ALL</displayName>
-			</currency>
-			<currency type="AMD">
-				<displayName>AMD</displayName>
-			</currency>
-			<currency type="AOA">
-				<displayName>AOA</displayName>
-			</currency>
-			<currency type="ARS">
-				<displayName>ARS</displayName>
-			</currency>
-			<currency type="AUD">
-				<displayName>AUD</displayName>
-			</currency>
-			<currency type="AWG">
-				<displayName>AWG</displayName>
-			</currency>
-			<currency type="AZM">
-				<displayName>AZM</displayName>
-			</currency>
-			<currency type="AZN">
-				<displayName>AZN</displayName>
-			</currency>
-			<currency type="BAM">
-				<displayName>BAM</displayName>
-			</currency>
-			<currency type="BBD">
-				<displayName>BBD</displayName>
-			</currency>
-			<currency type="BDT">
-				<displayName>BDT</displayName>
-			</currency>
-			<currency type="BGN">
-				<displayName>BGN</displayName>
-			</currency>
-			<currency type="BHD">
-				<displayName>BHD</displayName>
-			</currency>
-			<currency type="BIF">
-				<displayName>BIF</displayName>
-			</currency>
-			<currency type="BMD">
-				<displayName>BMD</displayName>
-			</currency>
-			<currency type="BND">
-				<displayName>BND</displayName>
-			</currency>
-			<currency type="BOB">
-				<displayName>BOB</displayName>
-			</currency>
 			<currency type="BRL">
 				<displayName>BRL</displayName>
 			</currency>
-			<currency type="BSD">
-				<displayName>BSD</displayName>
-			</currency>
-			<currency type="BTN">
-				<displayName>BTN</displayName>
-			</currency>
-			<currency type="BWP">
-				<displayName>BWP</displayName>
-			</currency>
-			<currency type="BYR">
-				<displayName>BYR</displayName>
-			</currency>
-			<currency type="BZD">
-				<displayName>BZD</displayName>
-			</currency>
-			<currency type="CAD">
-				<displayName>CAD</displayName>
-			</currency>
-			<currency type="CDF">
-				<displayName>CDF</displayName>
-			</currency>
-			<currency type="CLP">
-				<displayName>CLP</displayName>
-			</currency>
 			<currency type="CNY">
 				<displayName>CNY</displayName>
-			</currency>
-			<currency type="COP">
-				<displayName>COP</displayName>
-			</currency>
-			<currency type="CRC">
-				<displayName>CRC</displayName>
-			</currency>
-			<currency type="CUC">
-				<displayName>CUC</displayName>
-			</currency>
-			<currency type="CUP">
-				<displayName>CUP</displayName>
-			</currency>
-			<currency type="CVE">
-				<displayName>CVE</displayName>
-			</currency>
-			<currency type="CZK">
-				<displayName>CZK</displayName>
-			</currency>
-			<currency type="DJF">
-				<displayName>DJF</displayName>
-			</currency>
-			<currency type="DKK">
-				<displayName>DKK</displayName>
-			</currency>
-			<currency type="DOP">
-				<displayName>DOP</displayName>
-			</currency>
-			<currency type="DZD">
-				<displayName>DZD</displayName>
-			</currency>
-			<currency type="EEK">
-				<displayName>EEK</displayName>
-			</currency>
-			<currency type="EGP">
-				<displayName>EGP</displayName>
-			</currency>
-			<currency type="ERN">
-				<displayName>ERN</displayName>
 			</currency>
 			<currency type="ESP">
 				<pattern>¤ #,##0;-¤ #,##0</pattern>
@@ -1320,41 +927,17 @@
 				<decimal>,</decimal>
 				<group>.</group>
 			</currency>
-			<currency type="ETB">
-				<displayName>ETB</displayName>
-			</currency>
 			<currency type="EUR">
 				<displayName>EUR</displayName>
 			</currency>
-			<currency type="FJD">
-				<displayName>FJD</displayName>
-			</currency>
-			<currency type="FKP">
-				<displayName>FKP</displayName>
-			</currency>
 			<currency type="GBP">
 				<displayName>GBP</displayName>
-			</currency>
-			<currency type="GMD">
-				<displayName>GMD</displayName>
-			</currency>
-			<currency type="HRK">
-				<displayName>HRK</displayName>
 			</currency>
 			<currency type="INR">
 				<displayName>INR</displayName>
 			</currency>
 			<currency type="JPY">
 				<displayName>JPY</displayName>
-			</currency>
-			<currency type="KHR">
-				<displayName>KHR</displayName>
-			</currency>
-			<currency type="KMF">
-				<displayName>KMF</displayName>
-			</currency>
-			<currency type="KYD">
-				<displayName>KYD</displayName>
 			</currency>
 			<currency type="RUB">
 				<displayName>RUB</displayName>
@@ -1367,9 +950,6 @@
 			</currency>
 			<currency type="USS">
 				<displayName>USS</displayName>
-			</currency>
-			<currency type="XAF">
-				<displayName>XAF</displayName>
 			</currency>
 			<currency type="XAG">
 				<displayName>XAG</displayName>
@@ -1389,9 +969,6 @@
 			<currency type="XBD">
 				<displayName>XBD</displayName>
 			</currency>
-			<currency type="XCD">
-				<displayName>XCD</displayName>
-			</currency>
 			<currency type="XDR">
 				<displayName>XDR</displayName>
 			</currency>
@@ -1404,14 +981,8 @@
 			<currency type="XFU">
 				<displayName>XFU</displayName>
 			</currency>
-			<currency type="XOF">
-				<displayName>XOF</displayName>
-			</currency>
 			<currency type="XPD">
 				<displayName>XPD</displayName>
-			</currency>
-			<currency type="XPF">
-				<displayName>XPF</displayName>
 			</currency>
 			<currency type="XPT">
 				<displayName>XPT</displayName>
@@ -1459,9 +1030,6 @@
 	<listPatterns>
 		<listPattern>
 			<listPatternPart type="2">{0}, {0}</listPatternPart>
-			<listPatternPart type="end">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

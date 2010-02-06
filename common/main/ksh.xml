@@ -6,8 +6,8 @@
 		<generation date="$Date$"/>
 		<language type="ksh"/>
 	</identity>
+	<fallback draft="unconfirmed">de_DE nl nds en</fallback>
 	<fallback alt="proposed-x1001" draft="unconfirmed">de nl nds en</fallback>
-	<fallback alt="proposed-x1002" draft="unconfirmed">de_DE nl nds en</fallback>
 	<localeDisplayNames>
 		<localeDisplayPattern>
 			<localePattern draft="unconfirmed">{0} en {1}</localePattern>
@@ -285,7 +285,7 @@
 			<territory type="BZ" draft="unconfirmed">Belize</territory>
 			<territory type="CA" draft="unconfirmed">Kannada</territory>
 			<territory type="CC" draft="unconfirmed">Kokkos-Enselle</territory>
-			<territory type="CD" alt="proposed-x1001" draft="unconfirmed">Konggo-Kinshasa</territory>
+			<territory type="CD" draft="unconfirmed">Konggo-Kinshasa</territory>
 			<territory type="CD" alt="proposed-x1002" draft="unconfirmed">Konggo (Kinschasa)</territory>
 			<territory type="CD" alt="variant" draft="unconfirmed">Demmokraatesche Republik Konggo</territory>
 			<territory type="CF" draft="unconfirmed">Zetraalaffrikanesche Republik</territory>
@@ -794,28 +794,28 @@
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">null</dayPeriod>
 							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">v.m.</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1002" draft="unconfirmed">null</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">null</dayPeriod>
 							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">n.m.</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1002" draft="unconfirmed">null</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am" draft="unconfirmed">v.m.</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">n.m.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">null</dayPeriod>
+							<dayPeriod type="am" draft="unconfirmed">null</dayPeriod>
 							<dayPeriod type="am" alt="proposed-x1002" draft="unconfirmed">Uhr des vormittags</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">Uhr des nachmittags</dayPeriod>
 							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">null</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1002" draft="unconfirmed">Uhr des nachmittags</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">v.m.</dayPeriod>
 							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">null</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1002" draft="unconfirmed">v.m.</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">null</dayPeriod>
 							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">n.m.</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1002" draft="unconfirmed">null</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am" draft="unconfirmed">v.m.</dayPeriod>
@@ -823,8 +823,8 @@
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="unconfirmed">Vormittag</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">Nachmittag</dayPeriod>
 							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">null</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1002" draft="unconfirmed">Nachmittag</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1113,12 +1113,12 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
-			<hourFormat alt="proposed-x1002" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
 			<gmtZeroFormat draft="unconfirmed">GMT</gmtZeroFormat>
 			<regionFormat draft="unconfirmed">Zick vun {0}</regionFormat>
-			<fallbackFormat alt="proposed-x1001" draft="unconfirmed">{1} ({0})</fallbackFormat>
+			<fallbackFormat draft="unconfirmed">{1} ({0})</fallbackFormat>
 			<fallbackFormat alt="proposed-x1002" draft="unconfirmed">{0} ({1})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="unconfirmed">- weße mer nit -</exemplarCity>
@@ -1715,8 +1715,8 @@
 			<exponential draft="unconfirmed">×10^</exponential>
 			<perMille draft="unconfirmed">‰</perMille>
 			<infinity draft="unconfirmed">∞</infinity>
+			<nan draft="unconfirmed">¤¤¤</nan>
 			<nan alt="proposed-x1001" draft="unconfirmed">xxx</nan>
-			<nan alt="proposed-x1002" draft="unconfirmed">¤¤¤</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>

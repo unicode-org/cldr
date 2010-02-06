@@ -1,0 +1,4284 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="he"/>
+	</identity>
+	<fallback draft="contributed">en</fallback>
+	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="contributed">{0} ({1})</localePattern>
+			<localeSeparator draft="contributed">, </localeSeparator>
+		</localeDisplayPattern>
+		<languages>
+			<language type="aa">אפארית</language>
+			<language type="ab">אבחזית</language>
+			<language type="ady">אדיגית</language>
+			<language type="ae">אבסטן</language>
+			<language type="af">אפריקאנס</language>
+			<language type="afa">שפה אפרו-אסייתית</language>
+			<language type="afh">אפריהילי</language>
+			<language type="ain">אינו</language>
+			<language type="ak">אקאן</language>
+			<language type="akk">אכדית</language>
+			<language type="am">אמהרית</language>
+			<language type="ang">אנגלית עתיקה</language>
+			<language type="apa">שפה אפאצ׳ית</language>
+			<language type="ar">ערבית</language>
+			<language type="arc">ארמית</language>
+			<language type="art">שפה מלאכותית</language>
+			<language type="as">אסאמית</language>
+			<language type="ast">אסטורית</language>
+			<language type="aus">שפה אוסטרלית</language>
+			<language type="awa">אוואדית</language>
+			<language type="ay">איימארית</language>
+			<language type="az">אזרית</language>
+			<language type="ba">בשקירית</language>
+			<language type="bal">באלוצ'י</language>
+			<language type="ban">בלינזית</language>
+			<language type="bat">שפות בלטיות</language>
+			<language type="be">בלארוסית</language>
+			<language type="bej">בז'ה</language>
+			<language type="ber">ברברית</language>
+			<language type="bg">בולגרית</language>
+			<language type="bh">ביהארי</language>
+			<language type="bi">ביסלמה</language>
+			<language type="bn">בנגלית</language>
+			<language type="bnt" draft="contributed">בנטו</language>
+			<language type="bo">טיבטית</language>
+			<language type="br">ברטונית</language>
+			<language type="bs">בוסנית</language>
+			<language type="ca">קטלאנית</language>
+			<language type="cad">קאדו</language>
+			<language type="cai">שפה אינדיאנית מרכז-אמריקאית</language>
+			<language type="cau">שפה קווקזית</language>
+			<language type="ce">צ'צ'נית</language>
+			<language type="ceb">קבואנו</language>
+			<language type="cel">שפה קלטית</language>
+			<language type="chg">צ'אגאטאי</language>
+			<language type="chr">צ'רוקי</language>
+			<language type="co">קורסיקנית</language>
+			<language type="cop">קופטית</language>
+			<language type="crh">טטרית של קרים</language>
+			<language type="crp">שפה קראולית או פידג'אנית</language>
+			<language type="cs">צ׳כית</language>
+			<language type="cu">סלאבית כנסייתית עתיקה</language>
+			<language type="cy">וולשית</language>
+			<language type="da">דנית</language>
+			<language type="dak">דקוטה</language>
+			<language type="de">גרמנית</language>
+			<language type="de_AT">גרמנית אוסטרית</language>
+			<language type="del">דלאוור</language>
+			<language type="den">סלאבית</language>
+			<language type="doi">דוגרי</language>
+			<language type="dum">הולנדית תיכונה</language>
+			<language type="dv">דיבהי</language>
+			<language type="dz">דזונקה</language>
+			<language type="egy">מצרית עתיקה</language>
+			<language type="el">יוונית</language>
+			<language type="elx">עילמית</language>
+			<language type="en">אנגלית</language>
+			<language type="en_AU">אנגלית אוסטרלית</language>
+			<language type="en_CA">אנגלית קנדית</language>
+			<language type="en_GB">אנגלית בריטית</language>
+			<language type="en_US">אנגלית אמריקנית</language>
+			<language type="enm">אנגלית תיכונה</language>
+			<language type="eo">אספרנטו</language>
+			<language type="es">ספרדית</language>
+			<language type="es_419">ספרדית לטינו־אמריקאית</language>
+			<language type="es_419" alt="proposed-x1001" draft="unconfirmed">ספרדית של אמריקה הלטינית</language>
+			<language type="es_ES" draft="contributed">ספרדית איברית</language>
+			<language type="et">אסטונית</language>
+			<language type="eu">בסקית</language>
+			<language type="fa">פרסית</language>
+			<language type="fi">פינית</language>
+			<language type="fil">פיליפינית</language>
+			<language type="fj">פיג'ית</language>
+			<language type="fo">פארואזית</language>
+			<language type="fr">צרפתית</language>
+			<language type="fr_CA">צרפתית קנדית</language>
+			<language type="fr_CH">צרפתית שוויצרית</language>
+			<language type="frm">צרפתית תיכונה</language>
+			<language type="fro">צרפתית עתיקה</language>
+			<language type="frr">פריזית צפונית</language>
+			<language type="fy">פריזית</language>
+			<language type="ga">אירית</language>
+			<language type="gd">גאלית סקוטית</language>
+			<language type="gem">שפה גרמאנית</language>
+			<language type="gez">געז</language>
+			<language type="gl">גליציאנית</language>
+			<language type="gn">גוארני</language>
+			<language type="gon">גונדי</language>
+			<language type="got">גותית</language>
+			<language type="grc">יוונית עתיקה</language>
+			<language type="gsw">גרמנית שוויצרית</language>
+			<language type="gu">גוג'ראטית</language>
+			<language type="gv">מאנית</language>
+			<language type="ha">האוסה</language>
+			<language type="haw">הוואית</language>
+			<language type="he">עברית</language>
+			<language type="hi">הינדי</language>
+			<language type="hit">חיתית</language>
+			<language type="ho">הארי מוטו</language>
+			<language type="hr">קרואטית</language>
+			<language type="ht">האיטית</language>
+			<language type="hu">הונגרית</language>
+			<language type="hy">ארמנית</language>
+			<language type="ia">‏אינטרלינגואה</language>
+			<language type="id">אינדונזית</language>
+			<language type="ie">אינטרלינגה</language>
+			<language type="ig">איגבו</language>
+			<language type="ik">ik</language>
+			<language type="ik" alt="proposed-x1001" draft="unconfirmed">יופיק</language>
+			<language type="ine">שפה הודו-אירופית</language>
+			<language type="inh">אינגושית</language>
+			<language type="io">אידו</language>
+			<language type="ira">שפה איראנית</language>
+			<language type="is">איסלנדית</language>
+			<language type="it">איטלקית</language>
+			<language type="iu">אינוקטיטוט</language>
+			<language type="ja">יפנית</language>
+			<language type="jpr">פרסית יהודית</language>
+			<language type="jrb">ערבית יהודית</language>
+			<language type="jv">יאוונית</language>
+			<language type="ka">גיאורגית</language>
+			<language type="kab">קבילה</language>
+			<language type="kk">קזחית</language>
+			<language type="kl">קאלאליסוטית</language>
+			<language type="km">קמרית</language>
+			<language type="kn">קנאדה</language>
+			<language type="ko">קוריאנית</language>
+			<language type="ks">קשמירית</language>
+			<language type="ku">כורדית</language>
+			<language type="kw">קורנית</language>
+			<language type="ky">קירגיזית</language>
+			<language type="la">לטינית</language>
+			<language type="lad">לדינו</language>
+			<language type="lb">לוקסמבורגית</language>
+			<language type="ln">לינגלה</language>
+			<language type="lo">לאית</language>
+			<language type="lt">ליטאית</language>
+			<language type="lv">לטבית</language>
+			<language type="mag">מאגאהית</language>
+			<language type="mai">מאיטילית</language>
+			<language type="map">אוסטרונזית</language>
+			<language type="mas">מאסאית</language>
+			<language type="mg">מלגשית</language>
+			<language type="mga">אירית תיכונה</language>
+			<language type="mi">מאורית</language>
+			<language type="mis">שפה אחרת</language>
+			<language type="mk">מקדונית</language>
+			<language type="ml">מלאיאלם</language>
+			<language type="mn">מונגולית</language>
+			<language type="mni">מניפורית</language>
+			<language type="mo">מולדבית</language>
+			<language type="mr">מרטהי</language>
+			<language type="ms">מלאית</language>
+			<language type="mt">מלטית</language>
+			<language type="mul">מספר שפות</language>
+			<language type="mul" alt="proposed-x1001" draft="unconfirmed">שפות מרובות</language>
+			<language type="my">בורמזית</language>
+			<language type="myn">מאיה</language>
+			<language type="myn" alt="proposed-x1001" draft="unconfirmed">שפת מאיה</language>
+			<language type="na">נאורית</language>
+			<language type="nah">נאהואטל</language>
+			<language type="nai">שפה אינדיאנית צפון-אמריקאית</language>
+			<language type="nap">נפוליטנית</language>
+			<language type="nb">‏נורבגית ספרותית</language>
+			<language type="nds">גרמנית תחתית</language>
+			<language type="ne">נפאלית</language>
+			<language type="nl">הולנדית</language>
+			<language type="nl_BE">פלמית</language>
+			<language type="nn">נורבגית חדשה</language>
+			<language type="no">נורבגית</language>
+			<language type="non">‏נורדית עתיקה</language>
+			<language type="nub">שפות נבטיות</language>
+			<language type="nub" alt="proposed-x1001" draft="unconfirmed">שפה נובית</language>
+			<language type="nv">נבחו</language>
+			<language type="nwc">נווארית קלאסית</language>
+			<language type="oc">אוקסיטנית</language>
+			<language type="or" draft="contributed">אוריה</language>
+			<language type="ota">טורקית עותומנית</language>
+			<language type="ota" alt="proposed-x1001" draft="unconfirmed">טורקית עות'מאנית</language>
+			<language type="pa">פנג'אבית</language>
+			<language type="peo">פרסית עתיקה</language>
+			<language type="phi">שפה פיליפינית</language>
+			<language type="phn">פניקית</language>
+			<language type="pl">פולנית</language>
+			<language type="ps">פאשטו</language>
+			<language type="pt">פורטוגלית</language>
+			<language type="pt_BR">פורטוגזית ברזילאית</language>
+			<language type="raj">ראג'סטן</language>
+			<language type="rn">קירונדי</language>
+			<language type="ro">רומנית</language>
+			<language type="rom">רומאנית</language>
+			<language type="ru">רוסית</language>
+			<language type="rup">ארומנית</language>
+			<language type="rw">קינירואנדה</language>
+			<language type="sa">סנסקריט</language>
+			<language type="sai">שפה אינדיאנית דרום אמריקאית</language>
+			<language type="sam">ארמית שומרונית</language>
+			<language type="sat">סאנטלי</language>
+			<language type="sc">סרדינית</language>
+			<language type="scn">סיציליאנית</language>
+			<language type="sco">סקוטית</language>
+			<language type="sd">סינדהית</language>
+			<language type="sem">שפה שמית</language>
+			<language type="sga">אירית עתיקה</language>
+			<language type="sgn">שפת סימנים</language>
+			<language type="sh">סרבו-קרואטית</language>
+			<language type="si">סינהלה</language>
+			<language type="sid">סידמו</language>
+			<language type="sit">שפה סינו־טיבטית</language>
+			<language type="sit" alt="proposed-x1001" draft="unconfirmed">שפה סינו-טיבטית</language>
+			<language type="sk">סלובקית</language>
+			<language type="sl">סלובנית</language>
+			<language type="sla">שפה סלאבית</language>
+			<language type="sm">סמואית</language>
+			<language type="smi">שפת סאמי</language>
+			<language type="so">סומלית</language>
+			<language type="sq">אלבנית</language>
+			<language type="sr">סרבית</language>
+			<language type="ss">סיסוואטי</language>
+			<language type="st">ססות'ו</language>
+			<language type="su">סודנית</language>
+			<language type="sux">שומרית</language>
+			<language type="sv">שוודית</language>
+			<language type="sv" alt="proposed-x1001" draft="unconfirmed">שבדית</language>
+			<language type="sw">סווהילית</language>
+			<language type="swb" draft="provisional">קומורו</language>
+			<language type="syr">סורית</language>
+			<language type="ta">טמילית</language>
+			<language type="te">טלוגו</language>
+			<language type="tg">טג'יקית</language>
+			<language type="th">תאי</language>
+			<language type="ti">טיגרינאית</language>
+			<language type="tk">טורקמנית</language>
+			<language type="tl">טגלוג</language>
+			<language type="tlh">קלינגון</language>
+			<language type="tn">צוואנה</language>
+			<language type="to">טונגאית</language>
+			<language type="tr">טורקית</language>
+			<language type="ts">טסונגה</language>
+			<language type="tt">טטרית</language>
+			<language type="tw">טווי</language>
+			<language type="ty">טהיטית</language>
+			<language type="ug">אויגהור</language>
+			<language type="uga">אוגריתית</language>
+			<language type="uk">אוקראינית</language>
+			<language type="und">שפה לא ידועה או לא תקפה</language>
+			<language type="ur">אורדו</language>
+			<language type="uz">אוזבקית</language>
+			<language type="ve">וונדה</language>
+			<language type="vi">ויאטנמית</language>
+			<language type="vo">‏וולאפיק</language>
+			<language type="wo" draft="contributed">ג'ולוף</language>
+			<language type="xh">קסוסה</language>
+			<language type="yap">יאפזית</language>
+			<language type="yi">יידיש</language>
+			<language type="yo" draft="contributed">יורובה</language>
+			<language type="yue">קנטונזית</language>
+			<language type="yue" alt="proposed-x1001" draft="unconfirmed">קנטונזי</language>
+			<language type="zap" draft="contributed">זאפוטק</language>
+			<language type="zen" draft="contributed">זנאגה</language>
+			<language type="zh">סינית</language>
+			<language type="zh_Hans">סינית (מפושטת)</language>
+			<language type="zh_Hans" alt="proposed-x1001" draft="unconfirmed">סינית מפושטת</language>
+			<language type="zh_Hant">סינית מסורתית</language>
+			<language type="zu">זולו</language>
+			<language type="zxx">ללא תוכן לשוני</language>
+		</languages>
+		<scripts>
+			<script type="Arab">ערבי</script>
+			<script type="Armn">ארמני</script>
+			<script type="Bali">באלינזי</script>
+			<script type="Beng">בנגלי</script>
+			<script type="Brai">ברייל</script>
+			<script type="Cher">צ׳ירוקי</script>
+			<script type="Copt">קופטי</script>
+			<script type="Cprt">קפריסאי</script>
+			<script type="Cyrl">קירילי</script>
+			<script type="Cyrs">קירילי סלאבוני כנסייתי עתיק</script>
+			<script type="Deva">דוואנגרי</script>
+			<script type="Egyp">כתב חרטומים</script>
+			<script type="Ethi">אתיופי</script>
+			<script type="Geor">גאורגי</script>
+			<script type="Goth">גותי</script>
+			<script type="Grek">יווני</script>
+			<script type="Hang">האנגול</script>
+			<script type="Hani">האן</script>
+			<script type="Hans">האן מפושט</script>
+			<script type="Hant">האן מסורתי</script>
+			<script type="Hebr">עברי</script>
+			<script type="Hung">הונגרי עתיק</script>
+			<script type="Inds">אינדוס</script>
+			<script type="Ital">איטלקי עתיק</script>
+			<script type="Jpan">יפני</script>
+			<script type="Khmr" draft="contributed">קמרית</script>
+			<script type="Knda">קאנדה</script>
+			<script type="Kore">קוריאני</script>
+			<script type="Laoo">לאית</script>
+			<script type="Latg">לטיני גאלי</script>
+			<script type="Latn">לטיני</script>
+			<script type="Mong">מונגולי</script>
+			<script type="Orya">אורייה</script>
+			<script type="Phnx">פיניקי</script>
+			<script type="Runr">רוני</script>
+			<script type="Sinh">סינהלה</script>
+			<script type="Syrc">סורי</script>
+			<script type="Syrj">סורי מערבי</script>
+			<script type="Syrn">סורי מזרחי</script>
+			<script type="Taml">טמיל</script>
+			<script type="Telu">טלוגו</script>
+			<script type="Tglg">טגלוג</script>
+			<script type="Thai">תאי</script>
+			<script type="Tibt">טיבטי</script>
+			<script type="Ugar">אוגריתי</script>
+			<script type="Xpeo">פרסי עתיק</script>
+			<script type="Zxxx">לא כתוב</script>
+			<script type="Zzzz">כתב לא ידוע או לא תקף</script>
+		</scripts>
+		<territories>
+			<territory type="001">העולם</territory>
+			<territory type="002">אפריקה</territory>
+			<territory type="003">צפון אמריקה</territory>
+			<territory type="005">דרום אמריקה</territory>
+			<territory type="009">אוקיאניה</territory>
+			<territory type="011">מערב אפריקה</territory>
+			<territory type="013">מרכז אמריקה</territory>
+			<territory type="014">מזרח אפריקה</territory>
+			<territory type="015">צפון אפריקה</territory>
+			<territory type="017">מרכז אפריקה</territory>
+			<territory type="018">דרום יבשת אפריקה</territory>
+			<territory type="019">אמריקה</territory>
+			<territory type="021">אמריקה הצפונית</territory>
+			<territory type="029">קריביים</territory>
+			<territory type="030">מזרח אסיה</territory>
+			<territory type="034">דרום אסיה</territory>
+			<territory type="035">דרום־מזרח אסיה</territory>
+			<territory type="039">דרום אירופה</territory>
+			<territory type="053">אוסטרליה וניו־זילנד</territory>
+			<territory type="054">מלנסיה</territory>
+			<territory type="057">אזור מיקרונזיה</territory>
+			<territory type="061">פולינזיה</territory>
+			<territory type="062">דרום־מרכז אסיה</territory>
+			<territory type="142">אסיה</territory>
+			<territory type="143">מרכז אסיה</territory>
+			<territory type="145">מערב אסיה</territory>
+			<territory type="150">אירופה</territory>
+			<territory type="151">מזרח אירופה</territory>
+			<territory type="154">צפון אירופה</territory>
+			<territory type="155">מערב אירופה</territory>
+			<territory type="172">חבר המדינות העצמאיות</territory>
+			<territory type="419">אמריקה הלטינית והקריביים</territory>
+			<territory type="830">איי התעלה</territory>
+			<territory type="AC" draft="provisional">האי אסנשן</territory>
+			<territory type="AD">אנדורה</territory>
+			<territory type="AE">איחוד האמירויות הערביות</territory>
+			<territory type="AF">אפגניסטן</territory>
+			<territory type="AG">אנטיגואה וברבודה</territory>
+			<territory type="AI">אנגילה</territory>
+			<territory type="AL">אלבניה</territory>
+			<territory type="AM">ארמניה</territory>
+			<territory type="AN">אנטילים הולנדיים</territory>
+			<territory type="AO">אנגולה</territory>
+			<territory type="AQ">אנטארקטיקה</territory>
+			<territory type="AR">ארגנטינה</territory>
+			<territory type="AS">סמואה האמריקנית</territory>
+			<territory type="AT">אוסטריה</territory>
+			<territory type="AU">אוסטרליה</territory>
+			<territory type="AW">ארובה</territory>
+			<territory type="AX">איי אלנד</territory>
+			<territory type="AZ">אזרביג'ן</territory>
+			<territory type="BA">בוסניה והרצגובינה</territory>
+			<territory type="BB">ברבדוס</territory>
+			<territory type="BD">בנגלדש</territory>
+			<territory type="BE">בלגיה</territory>
+			<territory type="BF">בורקינה פאסו</territory>
+			<territory type="BG">בולגריה</territory>
+			<territory type="BH">בחריין</territory>
+			<territory type="BI">בורונדי</territory>
+			<territory type="BJ">בנין</territory>
+			<territory type="BL" draft="contributed">סנט ברתולומיאו</territory>
+			<territory type="BM">ברמודה</territory>
+			<territory type="BN">ברוניי</territory>
+			<territory type="BO">בוליביה</territory>
+			<territory type="BR">ברזיל</territory>
+			<territory type="BS">איי בהאמה</territory>
+			<territory type="BT">בהוטן</territory>
+			<territory type="BV">איי בובה</territory>
+			<territory type="BW">בוטסוואנה</territory>
+			<territory type="BY">בלארוס</territory>
+			<territory type="BZ">בליז</territory>
+			<territory type="CA">קנדה</territory>
+			<territory type="CC">איי קוקוס</territory>
+			<territory type="CD">קונגו - קינשאסה</territory>
+			<territory type="CD" alt="variant" draft="provisional">הרפובליקה הדמוקרטית של קונגו</territory>
+			<territory type="CF">הרפובליקה של מרכז אפריקה</territory>
+			<territory type="CG">קונגו - ברזאויל</territory>
+			<territory type="CG" alt="variant" draft="provisional">הרפובליקה של קונגו</territory>
+			<territory type="CH">שווייץ</territory>
+			<territory type="CI">חוף השנהב</territory>
+			<territory type="CI" alt="variant" draft="provisional">חוף השנהב</territory>
+			<territory type="CK">איי קוק</territory>
+			<territory type="CL">צ׳ילה</territory>
+			<territory type="CM">קמרון</territory>
+			<territory type="CN">סין</territory>
+			<territory type="CO">קולומביה</territory>
+			<territory type="CP" draft="provisional">האי קליפרטון</territory>
+			<territory type="CR">קוסטה ריקה</territory>
+			<territory type="CS">סרביה ומונטנגרו</territory>
+			<territory type="CU">קובה</territory>
+			<territory type="CV">כף ורדה</territory>
+			<territory type="CX">איי כריסטמס</territory>
+			<territory type="CY">קפריסין</territory>
+			<territory type="CZ">צ׳כיה</territory>
+			<territory type="DE">גרמניה</territory>
+			<territory type="DG" draft="provisional">דייגו גרסיה</territory>
+			<territory type="DJ">ג׳יבוטי</territory>
+			<territory type="DK">דנמרק</territory>
+			<territory type="DM">דומיניקה</territory>
+			<territory type="DO">הרפובליקה הדומיניקנית</territory>
+			<territory type="DZ">אלג׳יריה</territory>
+			<territory type="EA" draft="provisional">סאוטה ומלייה</territory>
+			<territory type="EC">אקוודור</territory>
+			<territory type="EE">אסטוניה</territory>
+			<territory type="EG">מצרים</territory>
+			<territory type="EH">סהרה המערבית</territory>
+			<territory type="ER">אריתראה</territory>
+			<territory type="ES">ספרד</territory>
+			<territory type="ET">אתיופיה</territory>
+			<territory type="EU">האיחוד האירופי</territory>
+			<territory type="FI">פינלנד</territory>
+			<territory type="FJ">פיג׳י</territory>
+			<territory type="FK">איי פוקלנד</territory>
+			<territory type="FK" alt="variant" draft="provisional">איי פוקלנד [איי מלווינס]</territory>
+			<territory type="FM">מיקרונזיה</territory>
+			<territory type="FO">איי פארו</territory>
+			<territory type="FR">צרפת</territory>
+			<territory type="GA">גאבון</territory>
+			<territory type="GB">בריטניה</territory>
+			<territory type="GD">גרנדה</territory>
+			<territory type="GE">גאורגיה</territory>
+			<territory type="GF">גיאנה הצרפתית</territory>
+			<territory type="GG">גרנסי</territory>
+			<territory type="GH">גאנה</territory>
+			<territory type="GI">גיברלטר</territory>
+			<territory type="GL">גרינלנד</territory>
+			<territory type="GM">גמביה</territory>
+			<territory type="GN">גיניאה</territory>
+			<territory type="GP">גוואדלופ</territory>
+			<territory type="GQ">גיניאה המשוונית</territory>
+			<territory type="GR">יוון</territory>
+			<territory type="GS">ג׳ורג׳יה הדרומית ואיי סנדוויץ׳ הדרומיים</territory>
+			<territory type="GT">גואטמלה</territory>
+			<territory type="GU">גואם</territory>
+			<territory type="GW">גיניאה-ביסאו</territory>
+			<territory type="GY">גיאנה</territory>
+			<territory type="HK">הונג קונג - מחוז מנהלי מיוחד של סין</territory>
+			<territory type="HK" alt="proposed-x1001" draft="unconfirmed">הונג קונג (מחוז מנהלי מיוחד של סין)</territory>
+			<territory type="HK" alt="short">הונג קונג</territory>
+			<territory type="HM" draft="contributed">איי הרד ואיי מקדונלנד</territory>
+			<territory type="HN">הונדורס</territory>
+			<territory type="HR">קרואטיה</territory>
+			<territory type="HT">האיטי</territory>
+			<territory type="HU">הונגריה</territory>
+			<territory type="IC" draft="provisional">האיים הקנריים</territory>
+			<territory type="ID">אינדונזיה</territory>
+			<territory type="IE">אירלנד</territory>
+			<territory type="IL">ישראל</territory>
+			<territory type="IM">האי מאן</territory>
+			<territory type="IN">הודו</territory>
+			<territory type="IO">טריטוריה בריטית באוקיאנוס ההודי</territory>
+			<territory type="IQ">עיראק</territory>
+			<territory type="IR">איראן</territory>
+			<territory type="IS">איסלנד</territory>
+			<territory type="IT">איטליה</territory>
+			<territory type="JE">ג'רסי</territory>
+			<territory type="JM">ג׳מייקה</territory>
+			<territory type="JO">ירדן</territory>
+			<territory type="JP">יפן</territory>
+			<territory type="KE">קניה</territory>
+			<territory type="KG">קירגיזסטן</territory>
+			<territory type="KH">קמבודיה</territory>
+			<territory type="KI">קיריבאטי</territory>
+			<territory type="KM">קומורוס</territory>
+			<territory type="KN">סנט קיטס ונוויס</territory>
+			<territory type="KP">צפון קוריאה</territory>
+			<territory type="KR">דרום קוריאה</territory>
+			<territory type="KW">כווית</territory>
+			<territory type="KY">איי קיימן</territory>
+			<territory type="KZ">קזחסטן</territory>
+			<territory type="LA">לאוס</territory>
+			<territory type="LB">לבנון</territory>
+			<territory type="LC">סנט לוסיה</territory>
+			<territory type="LI">ליכטנשטיין</territory>
+			<territory type="LK">סרי לנקה</territory>
+			<territory type="LR">ליבריה</territory>
+			<territory type="LS">לסוטו</territory>
+			<territory type="LT">ליטא</territory>
+			<territory type="LU">לוקסמבורג</territory>
+			<territory type="LV">לטביה</territory>
+			<territory type="LY">לוב</territory>
+			<territory type="MA">מרוקו</territory>
+			<territory type="MC">מונקו</territory>
+			<territory type="MD">מולדובה</territory>
+			<territory type="ME">מונטנגרו</territory>
+			<territory type="MF" draft="contributed">סנט מרטין</territory>
+			<territory type="MG">מדגסקר</territory>
+			<territory type="MH">איי מרשל</territory>
+			<territory type="MK">מקדוניה</territory>
+			<territory type="MK" alt="variant" draft="provisional">לשעבר הרפובליקה היוגוסלבית של מקדוניה</territory>
+			<territory type="ML">מאלי</territory>
+			<territory type="MM">מייאנמאר</territory>
+			<territory type="MN">מונגוליה</territory>
+			<territory type="MO">מקאו - מחוז מנהלי מיוחד של סין</territory>
+			<territory type="MO" alt="proposed-x1001" draft="unconfirmed">מקאו (מחוז מנהלי מיוחד של סין)</territory>
+			<territory type="MO" alt="short">מקאו</territory>
+			<territory type="MP">איי מריאנה הצפוניים</territory>
+			<territory type="MQ">מרטיניק</territory>
+			<territory type="MR">מאוריטניה</territory>
+			<territory type="MS">מונסראט</territory>
+			<territory type="MT">מלטה</territory>
+			<territory type="MU">מאוריציוס</territory>
+			<territory type="MV">מלדיבים</territory>
+			<territory type="MW">מלאווי</territory>
+			<territory type="MX">מקסיקו</territory>
+			<territory type="MY">מלזיה</territory>
+			<territory type="MZ">מוזמביק</territory>
+			<territory type="NA">נמיביה</territory>
+			<territory type="NC">קלדוניה החדשה</territory>
+			<territory type="NE">ניז׳ר</territory>
+			<territory type="NF">איי נורפוק</territory>
+			<territory type="NG">ניגריה</territory>
+			<territory type="NI">ניקרגואה</territory>
+			<territory type="NL">הולנד</territory>
+			<territory type="NO">נורווגיה</territory>
+			<territory type="NO" alt="proposed-x1001" draft="unconfirmed">נורבגיה</territory>
+			<territory type="NP">נפאל</territory>
+			<territory type="NR">נאורו</territory>
+			<territory type="NU">ניווה</territory>
+			<territory type="NZ">ניו זילנד</territory>
+			<territory type="OM">עומאן</territory>
+			<territory type="PA">פנמה</territory>
+			<territory type="PE">פרו</territory>
+			<territory type="PF">פולינזיה הצרפתית</territory>
+			<territory type="PG">פפואה גיניאה החדשה</territory>
+			<territory type="PH">פיליפינים</territory>
+			<territory type="PK">פקיסטן</territory>
+			<territory type="PL">פולין</territory>
+			<territory type="PM">סנט פייר ומיקלון</territory>
+			<territory type="PN">פיטקרן</territory>
+			<territory type="PR">פורטו ריקו</territory>
+			<territory type="PS">השטחים הפלסטיניים</territory>
+			<territory type="PS" alt="proposed-x1001" draft="unconfirmed">הרשות הפלסטינית</territory>
+			<territory type="PT">פורטוגל</territory>
+			<territory type="PW">פאלאו</territory>
+			<territory type="PY">פרגוואי</territory>
+			<territory type="QA">קטאר</territory>
+			<territory type="QO">אוקיאניה פרושה</territory>
+			<territory type="QO" alt="proposed-x1001" draft="unconfirmed">אוקיאניה</territory>
+			<territory type="RE">ראוניון</territory>
+			<territory type="RO">רומניה</territory>
+			<territory type="RS">סרביה</territory>
+			<territory type="RU">רוסיה</territory>
+			<territory type="RW">רואנדה</territory>
+			<territory type="SA">ערב הסעודית</territory>
+			<territory type="SB">איי שלמה</territory>
+			<territory type="SC">איי סיישל</territory>
+			<territory type="SD">סודן</territory>
+			<territory type="SE">שוודיה</territory>
+			<territory type="SE" alt="proposed-x1001" draft="unconfirmed">שבדיה</territory>
+			<territory type="SG">סינגפור</territory>
+			<territory type="SH">סנט הלנה</territory>
+			<territory type="SI">סלובניה</territory>
+			<territory type="SJ">סוולבארד וז׳אן מאיין</territory>
+			<territory type="SK">סלובקיה</territory>
+			<territory type="SL">סיירה לאונה</territory>
+			<territory type="SM">סן מרינו</territory>
+			<territory type="SN">סנגל</territory>
+			<territory type="SO">סומליה</territory>
+			<territory type="SR">סורינם</territory>
+			<territory type="ST">סאו טומה ופרינסיפה</territory>
+			<territory type="SV">אל סלבדור</territory>
+			<territory type="SY">סוריה</territory>
+			<territory type="SZ">סווזילנד</territory>
+			<territory type="TA" draft="provisional">טריסטן דה קונה</territory>
+			<territory type="TC">איי טורקס וקאיקוס</territory>
+			<territory type="TD">צ׳אד</territory>
+			<territory type="TF">טריטוריות דרומיות של צרפת</territory>
+			<territory type="TG">טוגו</territory>
+			<territory type="TH">תאילנד</territory>
+			<territory type="TJ">טג׳יקיסטן</territory>
+			<territory type="TK">טוקלאו</territory>
+			<territory type="TL">מזרח טימור</territory>
+			<territory type="TL" alt="variant" draft="provisional">מזרח טימור</territory>
+			<territory type="TM">טורקמניסטן</territory>
+			<territory type="TN">תוניסיה</territory>
+			<territory type="TO">טונגה</territory>
+			<territory type="TR">טורקיה</territory>
+			<territory type="TT">טרינידד וטובגו</territory>
+			<territory type="TV">טובלו</territory>
+			<territory type="TW">טייוואן</territory>
+			<territory type="TZ">טנזניה</territory>
+			<territory type="UA">אוקראינה</territory>
+			<territory type="UG">אוגנדה</territory>
+			<territory type="UM">איים קטנים שלחוף ארצות הברית</territory>
+			<territory type="US">ארצות הברית</territory>
+			<territory type="UY">אורוגוואי</territory>
+			<territory type="UZ">אוזבקיסטן</territory>
+			<territory type="VA">הוותיקן</territory>
+			<territory type="VC">סנט וינסנט והגרנדינים</territory>
+			<territory type="VE">ונצואלה</territory>
+			<territory type="VG">איי הבתולה הבריטיים</territory>
+			<territory type="VI">איי הבתולה האמריקניים</territory>
+			<territory type="VN">וייטנאם</territory>
+			<territory type="VU">ונואטו</territory>
+			<territory type="WF">איי ווליס ופוטונה</territory>
+			<territory type="WS">סמואה</territory>
+			<territory type="YE">תימן</territory>
+			<territory type="YT">מאיוט</territory>
+			<territory type="ZA">דרום אפריקה</territory>
+			<territory type="ZM">זמביה</territory>
+			<territory type="ZW">זימבאבווה</territory>
+			<territory type="ZZ">אזור לא ידוע או לא תקין</territory>
+		</territories>
+		<variants>
+			<variant type="1901">כתיב גרמני מסורתי</variant>
+			<variant type="AREVELA">מזרח ארמנית</variant>
+			<variant type="AREVMDA">מערב ארמנית</variant>
+			<variant type="MONOTON">מונוטונית</variant>
+			<variant type="PINYIN" draft="provisional">פיניין, שיטת כתב סיני בתעתיק לטיני</variant>
+			<variant type="POSIX">מחשב</variant>
+			<variant type="WADEGILE" draft="provisional">ווייד-גיילס, שיטה לתעתוק סינית לאותיות לטיניות</variant>
+		</variants>
+		<keys>
+			<key type="calendar">לוח שנה</key>
+			<key type="collation">מיון</key>
+			<key type="currency">מטבע</key>
+		</keys>
+		<types>
+			<type type="big5han" key="collation">מיון סינית מסורתית</type>
+			<type type="buddhist" key="calendar">לוח שנה בודהיסטי</type>
+			<type type="chinese" key="calendar">לוח שנה סיני</type>
+			<type type="direct" key="collation">מיון ישיר</type>
+			<type type="gb2312han" key="collation">מיון סינית מודרנית</type>
+			<type type="gregorian" key="calendar">לוח שנה גרגוריאני</type>
+			<type type="hebrew" key="calendar">לוח שנה עברי</type>
+			<type type="islamic" key="calendar">לוח שנה מוסלמי</type>
+			<type type="islamic-civil" key="calendar">לוח שנה מוסלמי-אזרחי</type>
+			<type type="japanese" key="calendar">לוח שנה יפני</type>
+			<type type="phonebook" key="collation">מיון ספר טלפונים</type>
+			<type type="pinyin" key="collation">מיון פיניין</type>
+			<type type="traditional" key="collation">מיון מסורתי</type>
+		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">מטרי</measurementSystemName>
+			<measurementSystemName type="US">ארה&quot;ב</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language" draft="contributed">{0}</codePattern>
+			<codePattern type="language" alt="proposed-x1001" draft="unconfirmed">שפה: {0}</codePattern>
+			<codePattern type="script" draft="contributed">{0}</codePattern>
+			<codePattern type="script" alt="proposed-x1001" draft="unconfirmed">תסריט: {0}</codePattern>
+			<codePattern type="territory" draft="contributed">{0}</codePattern>
+			<codePattern type="territory" alt="proposed-x1001" draft="unconfirmed">אזור: {0}</codePattern>
+		</codePatterns>
+	</localeDisplayNames>
+	<layout>
+		<orientation characters="right-to-left"/>
+	</layout>
+	<characters>
+		<exemplarCharacters>[א ב ג ד ה ו ז ח ט י כ ך ל מ ם נ ן ס ע פ ף צ ץ ק ר ש ת]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u05BD\u05C4\u200E\u200F \u05B0 \u05B1 \u05B2 \u05B3 \u05B4 \u05B5 \u05B6 \u05B7 \u05B8 \u05B9 \u05BB \u05C2 \u05C1 \u05BC \u05BF ־ ׳ ״ a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" alt="proposed-x1001" draft="unconfirmed">[\u034F\u0488\u0489\u0591-\u05AF\u05BD\u05C4\u05C5\u200E\u200F \u0332 \u0313\u0486 \u0314\u0485 \u0301 \u0300 \u0306 \u0302 \u030C \u030A \u0342 \u0308 {\u0308\u0301} \u030B \u0303 \u0307 \u0338 \u0327 \u0328 \u0304 \u030D \u030E\u0312\u0315\u031A\u033D-\u033F\u0346\u034A-\u034C\u0350-\u0352\u0357\u035B\u035D\u035E\u0484\u0487 \u0316-\u0319\u031C-\u0320\u0329-\u032C\u032F\u0333\u033A-\u033C\u0347-\u0349\u034D\u034E\u0353-\u0356\u0359\u035A\u035C\u035F\u0362 \u0336 \u0337 \u0305 \u0309 \u030F-\u0311 \u031B \u0321-\u0326 \u032D \u032E \u0330 \u0331 \u0334 \u0335 \u0339 \u0345 \u0358 \u0360 \u0361 \u0483 \u05B0-\u05B8\u05C7 \u05B9-\u05BB \u05C2 \u05C1 \u05BC \u05BF ΄ \u00AD ֊ ՝ \: ՜ ՞ · ՚ ՛ ՟ ־ ׀ ׃ ׆ ʹ ͵ ʺ ˆ-ˏ ˬ ҂ ϶ ː ˑ a \u0363 ª á à ă â ǎ å ǻ ä ǟ ã ȧ ǡ ą ā ȁ ȃ æ ǽ ǣ ⱥ ɐ-ɒ b ʙ ƀ ɓ ƃ c \u0368 ć ĉ č ċ ç ȼ ƈ ɕ d \u0369 ď đ ð ȸ ǳʣ ǆ ʥ ʤ ɖ ɗ ƌ ȡ e \u0364 é è ĕ ê ě ë ė ȩ ę ē ȅ ȇ ɇ ǝ ə ɛ ɘ ɚ ɜ-ɞ ʚ ɤ f ʩ ƒ g ǵ ğ ĝ ǧ ġ ģ ɡ ɢ ǥ ɠ ʛ ɣ ˠ ƣ h \u036A ʰ ĥ ȟ ħ ʜ ƕ ɦ ʱ ɧ ʻ ʽ i \u0365 í ì ĭ î ǐ ï ĩ {i\u0307} į ī ȉ ȋ ĳ ı ɪ ɨ ɩ j ʲ ĵ ǰ ȷ ɉ ʝ ɟ ʄ k ǩ ķ ƙ ʞ l ˡ ĺ ľ ļ ł ŀ ǉ ʪ ʫ ʟ ƚ ɫ-ɭ ȴ ɮ ƛ ʎ m \u036B ɱ n ń ǹ ň ñ ņ ǌ ɴ ɲ ƞ ɳ ȵ ŋ o \u0366 º ó ò ŏ ô ǒ ö ȫ ő õ ȭ ȯ ȱ ø ǿ ǫ ǭ ō ȍ ȏ ơ œ ɶ ɔ ɵ ɷ ȣ p ƥ ɸ q ȹ ʠ ɋ ĸ r \u036C ʳ ŕ ř ŗ ȑ ȓ ʀ ɍ ɹ ʴ ɺ ɻ ʵ ɼ-ɿ ʁ ʶ s ˢ ś ŝ š ş ș ſ ʂ ȿ ʃ ƪ ʅ ʆ t \u036D ť ţ ț ʨ ƾʦ ʧ ŧ ⱦ ƫ ƭ ʈ ȶ ʇ u \u0367 ú ù ŭ û ǔ ů ü ǘ ǜ ǚ ǖ ű ũ ų ū ȕ ȗ ư ʉ ɥ ʮ ʯ ɯ ɰ ʊ v \u036E ʋ ʌ w ʷ ŵ ʍ x \u036F ˣ y ʸ ý ŷ ÿ ȳ ʏ ɏ ƴ z ź ž ż ƍ ƶ ȥ ʐ ʑ ɀ ʒ ǯ ƹ ƺ ʓ ȝ þ ƿ ƻ ƨ ƽ ƅ ʔ ɂ ˀ ʼ ŉ ˮ ʾ ʕ ˤ ʿ ˁ ʡ ʢ ʖ ǀ-ǃ ʗ ʘ ʬ ʭ α ά β ϐ γ-ε ϵ έ ϝ ͷ ϛ ζ ͱ η ή θ ϑ ι ͺ ί ϊ ΐ ϳ κ ϰ ϗ λ μ µ ν-ο ό π ϖ ϻ ϟ ϙ ρ ϱ ϼ σ ϲ ς ͼ ͻ ͽ τ υ ϒ ύ ϓ ϋ ϔ ΰ φ ϕ χ-ω ώ ϡ ͳ ϸ ϣ ϥ ϧ ϩ ϫ ϭ ϯ а ӑ ӓ ә ӛ ӕ б-г ґ ғ ӻ ҕ ӷ д ԁ ђ ԃ ѓ ҙ е ѐ ё ӗ є ж ӂ ӝ җ з ԅ ԑ ӟ ѕ ӡ ԇ и ѝ ӣ ҋ ӥ і ї й ј к қ ӄ ҡ ҟ ҝ ԟ ԛ л ӆ ԓ ԡ љ ԉ ԕ м ӎ н ӊ ң ӈ ԣ ҥ њ ԋ о ӧ ө ӫ п ԥ ҧ ҁ р ҏ ԗ с ԍ ҫ т ԏ ҭ ћ ќ у ӯ ў ӱ ӳ ү ұ ѹ ф х ӽ ӿ ҳ һ ѡ ѿ ѽ ѻ ц ҵ ч ӵ ҷ ӌ ҹ ҽ ҿ џ ш-ы ӹ ь ҍ ѣ э ӭ ю я ԙ ѥ ѧ ѫ ѩ ѭ ѯ ѱ ѳ ѵ ѷ ҩ ԝ ӏ ա-ե և զ-ֆ ՙ \u0378 \u0379 \u037F-\u0383 \u038B \u038D \u03A2 \u0526-\u0530 \u0557 \u0558 \u0560 \u0588 \u058B-\u0590]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol" draft="contributed">[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
+		<exemplarCharacters type="index">[א ב ג ד ה ו ז ח ט י כ ל מ נ ס ע פ צ ק ר ש ת]</exemplarCharacters>
+		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[א ב ג ד ה ו ז ח ט י כ ך ל מ ם נ ן ס ע פ ף צ ץ ק ר ש ת]</exemplarCharacters>
+	</characters>
+	<delimiters>
+		<quotationStart draft="contributed">“</quotationStart>
+		<quotationEnd draft="contributed">”</quotationEnd>
+		<alternateQuotationStart>&quot;</alternateQuotationStart>
+		<alternateQuotationEnd>&quot;</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">ינו</month>
+							<month type="2">פבר</month>
+							<month type="2" alt="proposed-x1001" draft="unconfirmed">פבר'</month>
+							<month type="3">מרס</month>
+							<month type="3" alt="proposed-x1001" draft="unconfirmed">מרץ</month>
+							<month type="4">אפר</month>
+							<month type="4" alt="proposed-x1001" draft="unconfirmed">אפר'</month>
+							<month type="5">מאי</month>
+							<month type="6">יונ</month>
+							<month type="6" alt="proposed-x1001" draft="unconfirmed">יונ'</month>
+							<month type="7">יול</month>
+							<month type="7" alt="proposed-x1001" draft="unconfirmed">יול'</month>
+							<month type="8">אוג</month>
+							<month type="8" alt="proposed-x1001" draft="unconfirmed">אוג'</month>
+							<month type="9">ספט</month>
+							<month type="9" alt="proposed-x1001" draft="unconfirmed">ספט'</month>
+							<month type="10">אוק</month>
+							<month type="10" alt="proposed-x1001" draft="unconfirmed">אוק'</month>
+							<month type="11">נוב</month>
+							<month type="11" alt="proposed-x1001" draft="unconfirmed">נוב'</month>
+							<month type="12">דצמ</month>
+							<month type="12" alt="proposed-x1001" draft="unconfirmed">דצמ'</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="provisional">1</month>
+							<month type="2" draft="provisional">2</month>
+							<month type="3" draft="provisional">3</month>
+							<month type="4" draft="provisional">4</month>
+							<month type="5" draft="provisional">5</month>
+							<month type="6" draft="provisional">6</month>
+							<month type="7" draft="provisional">7</month>
+							<month type="8" draft="provisional">8</month>
+							<month type="9" draft="provisional">9</month>
+							<month type="10" draft="provisional">10</month>
+							<month type="11" draft="provisional">11</month>
+							<month type="12" draft="provisional">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">ינואר</month>
+							<month type="2">פברואר</month>
+							<month type="3">מרס</month>
+							<month type="3" alt="proposed-x1001" draft="unconfirmed">מרץ</month>
+							<month type="4">אפריל</month>
+							<month type="5">מאי</month>
+							<month type="6">יוני</month>
+							<month type="7">יולי</month>
+							<month type="8">אוגוסט</month>
+							<month type="9">ספטמבר</month>
+							<month type="10">אוקטובר</month>
+							<month type="11">נובמבר</month>
+							<month type="12">דצמבר</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">ינו'</month>
+							<month type="2" draft="provisional">פבר'</month>
+							<month type="3">מרס</month>
+							<month type="3" alt="proposed-x1001" draft="unconfirmed">מרץ</month>
+							<month type="4" draft="provisional">אפר'</month>
+							<month type="5" draft="provisional">מאי</month>
+							<month type="6">יונ'</month>
+							<month type="7">יול'</month>
+							<month type="8">אוג'</month>
+							<month type="9">ספט'</month>
+							<month type="10">אוק'</month>
+							<month type="11">נוב'</month>
+							<month type="12">דצמ'</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="provisional">ינואר</month>
+							<month type="2" draft="provisional">פברואר</month>
+							<month type="3">מרס</month>
+							<month type="3" alt="proposed-x1001" draft="unconfirmed">מרץ</month>
+							<month type="4" draft="provisional">אפריל</month>
+							<month type="5" draft="provisional">מאי</month>
+							<month type="6" draft="provisional">יוני</month>
+							<month type="7" draft="provisional">יולי</month>
+							<month type="8" draft="provisional">אוגוסט</month>
+							<month type="9" draft="provisional">ספטמבר</month>
+							<month type="10" draft="provisional">אוקטובר</month>
+							<month type="11" draft="provisional">נובמבר</month>
+							<month type="12" draft="provisional">דצמבר</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">יום א'</day>
+							<day type="mon">יום ב'</day>
+							<day type="tue">יום ג'</day>
+							<day type="wed">יום ד'</day>
+							<day type="thu">יום ה'</day>
+							<day type="fri">יום ו'</day>
+							<day type="sat">שבת</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">א</day>
+							<day type="sun" alt="proposed-x1001" draft="unconfirmed">א'</day>
+							<day type="mon" draft="provisional">ב</day>
+							<day type="tue">ג</day>
+							<day type="tue" alt="proposed-x1001" draft="unconfirmed">ג'</day>
+							<day type="wed" draft="provisional">ד</day>
+							<day type="thu">ה</day>
+							<day type="thu" alt="proposed-x1001" draft="unconfirmed">ה'</day>
+							<day type="fri">ו</day>
+							<day type="fri" alt="proposed-x1001" draft="unconfirmed">ו'</day>
+							<day type="sat">ש</day>
+							<day type="sat" alt="proposed-x1001" draft="unconfirmed">ש'</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">יום ראשון</day>
+							<day type="mon">יום שני</day>
+							<day type="tue">יום שלישי</day>
+							<day type="wed">יום רביעי</day>
+							<day type="thu">יום חמישי</day>
+							<day type="fri">יום שישי</day>
+							<day type="sat">יום שבת</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="provisional">יום א'</day>
+							<day type="mon">יום ב'</day>
+							<day type="tue" draft="provisional">יום ג'</day>
+							<day type="wed" draft="provisional">יום ד'</day>
+							<day type="thu" draft="provisional">יום ה'</day>
+							<day type="fri" draft="provisional">יום ו'</day>
+							<day type="sat" draft="provisional">שבת</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">א</day>
+							<day type="mon">ב</day>
+							<day type="mon" alt="proposed-x1001" draft="unconfirmed">ב'</day>
+							<day type="tue">ג</day>
+							<day type="wed">ד</day>
+							<day type="wed" alt="proposed-x1001" draft="unconfirmed">ד'</day>
+							<day type="thu">ה</day>
+							<day type="thu" alt="proposed-x1001" draft="unconfirmed">ה'</day>
+							<day type="fri">ו</day>
+							<day type="fri" alt="proposed-x1001" draft="unconfirmed">ו'</day>
+							<day type="sat">ש</day>
+							<day type="sat" alt="proposed-x1001" draft="unconfirmed">ש'</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="provisional">יום ראשון</day>
+							<day type="mon" draft="provisional">יום שני</day>
+							<day type="tue">יום שלישי</day>
+							<day type="wed" draft="provisional">יום רביעי</day>
+							<day type="thu" draft="provisional">יום חמישי</day>
+							<day type="fri">יום שישי</day>
+							<day type="fri" alt="proposed-x1001" draft="unconfirmed">יום ו'</day>
+							<day type="sat" draft="provisional">יום שבת</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">רבעון 1</quarter>
+							<quarter type="2">רבעון 2</quarter>
+							<quarter type="3">רבעון 3</quarter>
+							<quarter type="4">רבעון 4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="provisional">1</quarter>
+							<quarter type="2" draft="provisional">2</quarter>
+							<quarter type="3" draft="provisional">3</quarter>
+							<quarter type="4" draft="provisional">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">רבעון 1</quarter>
+							<quarter type="2">רבעון 2</quarter>
+							<quarter type="3">רבעון 3</quarter>
+							<quarter type="4">רבעון 4</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="provisional">רבעון 1</quarter>
+							<quarter type="2" draft="provisional">רבעון 2</quarter>
+							<quarter type="3" draft="provisional">רבעון 3</quarter>
+							<quarter type="4" draft="provisional">רבעון 4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="provisional">רבעון 1</quarter>
+							<quarter type="2" draft="provisional">רבעון 2</quarter>
+							<quarter type="3" draft="provisional">רבעון 3</quarter>
+							<quarter type="4" draft="provisional">רבעון 4</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="provisional">לפנה&quot;צ</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">אחה&quot;צ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="provisional">לפנה&quot;צ</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">אחה&quot;צ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">לפנה&quot;צ</dayPeriod>
+							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">לפנהצ</dayPeriod>
+							<dayPeriod type="pm">אחה&quot;צ</dayPeriod>
+							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">אחהצ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="provisional">לפה&quot;צ</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">אחה&quot;צ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="provisional">לפנה&quot;צ</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">אחה&quot;צ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="provisional">לפנה&quot;צ</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">אחה&quot;צ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraNames>
+						<era type="0">לפני הספירה</era>
+						<era type="1">לספירה</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0">לפנה״ס</era>
+						<era type="1">לסה״נ</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="provisional">לפנה״ס</era>
+						<era type="1" draft="provisional">לסה״נ</era>
+					</eraNarrow>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d בMMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d בMMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d בMMM yyyy</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">dd/MM/yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/yy</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">d.M.yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>HH:mm:ss zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="Ed">E ה-d</dateFormatItem>
+						<dateFormatItem id="EEEd">EEE ה-d</dateFormatItem>
+						<dateFormatItem id="H">H</dateFormatItem>
+						<dateFormatItem id="HHmm">H:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="hm">H:mm</dateFormatItem>
+						<dateFormatItem id="Hm" draft="contributed">H:mm</dateFormatItem>
+						<dateFormatItem id="hms" draft="provisional">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms" draft="provisional">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="Md" alt="proposed-x1001" draft="unconfirmed">d.M</dateFormatItem>
+						<dateFormatItem id="MEd" draft="contributed">E, M-d</dateFormatItem>
+						<dateFormatItem id="MEd" alt="proposed-x1001" draft="unconfirmed">E, d/M</dateFormatItem>
+						<dateFormatItem id="MEd" alt="proposed-x1002" draft="unconfirmed">E, d.M</dateFormatItem>
+						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-x1001" draft="unconfirmed">d.M</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d בMMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d בMMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d בMMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, d בMMMM</dateFormatItem>
+						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">y</dateFormatItem>
+						<dateFormatItem id="yM">M.yyyy</dateFormatItem>
+						<dateFormatItem id="yM" alt="proposed-x1001" draft="unconfirmed">M/yyyy</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, d.M.yyyy</dateFormatItem>
+						<dateFormatItem id="yMEd" alt="proposed-x1001" draft="unconfirmed">EEE, d.M.y</dateFormatItem>
+						<dateFormatItem id="yMEd" alt="proposed-x1002" draft="unconfirmed">EEE, d/M/yyyy</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, d בMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yQ" draft="contributed">yyyy Q</dateFormatItem>
+						<dateFormatItem id="yQ" alt="proposed-x1001" draft="unconfirmed">Q yyyy</dateFormatItem>
+						<dateFormatItem id="yQQQ" draft="contributed">y QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQ" alt="proposed-x1001" draft="unconfirmed">QQQ y</dateFormatItem>
+						<dateFormatItem id="yyMM">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">M.yy</dateFormatItem>
+						<dateFormatItem id="yyMMM">MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
+						<dateFormatItem id="yyyy">y</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-x1001" draft="unconfirmed">M.yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">h a – h a</greatestDifference>
+							<greatestDifference id="h">h–h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="a" draft="provisional">HH–HH</greatestDifference>
+							<greatestDifference id="H" draft="provisional">HH–HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a">h a – h a v</greatestDifference>
+							<greatestDifference id="h">h–h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="a" draft="provisional">HH–HH v</greatestDifference>
+							<greatestDifference id="H" draft="provisional">HH–HH v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M–M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">dd/MM – dd/MM</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">d.M–d.M</greatestDifference>
+							<greatestDifference id="M">dd/MM – dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">EEEE dd/MM – EEEE dd/MM</greatestDifference>
+							<greatestDifference id="M">EEEE dd/MM – EEEE dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">MMM–MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d–d MMM</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">EEEE d MMM – EEEE d MMM</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">EEEE d בMMM – EEEE d בMMM</greatestDifference>
+							<greatestDifference id="M">EEEE d MMM – EEEE d MMM</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">EEEE d בMMM – EEEE d בMMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMM">
+							<greatestDifference id="M">LLLL–LLLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y–y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">MM/yy – MM/yy</greatestDifference>
+							<greatestDifference id="y">MM/yy – MM/yy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">dd/MM/yy – dd/MM/yy</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">d.M.yy–d.M.yy</greatestDifference>
+							<greatestDifference id="M">dd/MM/yy – dd/MM/yy</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">d.M.yy–d.M.yy</greatestDifference>
+							<greatestDifference id="y">dd/MM/yy – dd/MM/yy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">EEEE dd/MM/yy – EEEE dd/MM/yy</greatestDifference>
+							<greatestDifference id="M">EEEE dd/MM/yy – EEEE dd/MM/yy</greatestDifference>
+							<greatestDifference id="y">EEEE dd/MM/yy – EEEE dd/MM/yy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">MMM–MMM y</greatestDifference>
+							<greatestDifference id="y">MMM y – MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">d–d MMM y</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">d–d בMMM y</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM y</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">d בMMM – d בMMM y</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1002" draft="unconfirmed">d בMMM–d בMMM y</greatestDifference>
+							<greatestDifference id="y">d MMM y – d MMM y</greatestDifference>
+							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">d בMMM y – d בMMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">EEEE d MMM – EEEE d MMM y</greatestDifference>
+							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">E d בMMM – E d בMMM y</greatestDifference>
+							<greatestDifference id="M">EEEE d MMM – EEEE d MMM y</greatestDifference>
+							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">E d בMMM – E d בMMM y</greatestDifference>
+							<greatestDifference id="y">EEEE d MMM y – EEEE d MMM y</greatestDifference>
+							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">E d בMMM – E d בMMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">MMMM–MMMM y</greatestDifference>
+							<greatestDifference id="y">MMMM y–MMMM y</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+				<fields>
+					<field type="era">
+						<displayName>תקופה</displayName>
+					</field>
+					<field type="year">
+						<displayName>שנה</displayName>
+					</field>
+					<field type="month">
+						<displayName>חודש</displayName>
+					</field>
+					<field type="week">
+						<displayName>שבוע</displayName>
+					</field>
+					<field type="day">
+						<displayName>יום</displayName>
+						<relative type="-3">לפני שלושה ימים</relative>
+						<relative type="-2">שלשום</relative>
+						<relative type="-1">אתמול</relative>
+						<relative type="0">היום</relative>
+						<relative type="1">מחר</relative>
+						<relative type="2">מחרתיים</relative>
+						<relative type="3">בעוד שלושה ימים</relative>
+					</field>
+					<field type="weekday">
+						<displayName>יום בשבוע</displayName>
+					</field>
+					<field type="dayperiod">
+						<displayName draft="contributed">Dayperiod</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">לפה&quot;צ/אחה&quot;צ</displayName>
+					</field>
+					<field type="hour">
+						<displayName>שעה</displayName>
+					</field>
+					<field type="minute">
+						<displayName>דקה</displayName>
+					</field>
+					<field type="second">
+						<displayName>שנייה</displayName>
+					</field>
+					<field type="zone">
+						<displayName>אזור</displayName>
+					</field>
+				</fields>
+			</calendar>
+			<calendar type="hebrew">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="provisional">תשרי</month>
+							<month type="2" draft="provisional">חשון</month>
+							<month type="3" draft="provisional">כסלו</month>
+							<month type="4" draft="provisional">טבת</month>
+							<month type="5" draft="provisional">שבט</month>
+							<month type="6" draft="provisional">אדר א׳</month>
+							<month type="7" draft="provisional">אדר</month>
+							<month type="7" draft="provisional" yeartype="leap">אדר ב׳</month>
+							<month type="8" draft="provisional">ניסן</month>
+							<month type="9" draft="provisional">אייר</month>
+							<month type="10" draft="provisional">סיון</month>
+							<month type="11" draft="provisional">תמוז</month>
+							<month type="12" draft="provisional">אב</month>
+							<month type="13" draft="provisional">אלול</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="provisional">תשרי</month>
+							<month type="2" draft="provisional">חשון</month>
+							<month type="3" draft="provisional">כסלו</month>
+							<month type="4" draft="provisional">טבת</month>
+							<month type="5" draft="provisional">שבט</month>
+							<month type="6" draft="provisional">אדר א׳</month>
+							<month type="7" draft="provisional">אדר</month>
+							<month type="7" draft="provisional" yeartype="leap">אדר ב׳</month>
+							<month type="8" draft="provisional">ניסן</month>
+							<month type="9" draft="provisional">אייר</month>
+							<month type="10" draft="provisional">סיון</month>
+							<month type="11" draft="provisional">תמוז</month>
+							<month type="12" draft="provisional">אב</month>
+							<month type="13" draft="provisional">אלול</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">תשרי</month>
+							<month type="2">חשון</month>
+							<month type="3">כסלו</month>
+							<month type="4">טבת</month>
+							<month type="5">שבט</month>
+							<month type="6">אדר א׳</month>
+							<month type="7">אדר</month>
+							<month type="7" yeartype="leap">אדר ב׳</month>
+							<month type="8">ניסן</month>
+							<month type="9">אייר</month>
+							<month type="10">סיון</month>
+							<month type="11">תמוז</month>
+							<month type="12">אב</month>
+							<month type="13">אלול</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="provisional">תשרי</month>
+							<month type="2" draft="provisional">חשון</month>
+							<month type="3" draft="provisional">כסלו</month>
+							<month type="4" draft="provisional">טבת</month>
+							<month type="5" draft="provisional">שבט</month>
+							<month type="6" draft="provisional">אדר א׳</month>
+							<month type="7" draft="provisional">אדר</month>
+							<month type="7" draft="provisional" yeartype="leap">אדר ב׳</month>
+							<month type="8" draft="provisional">ניסן</month>
+							<month type="9" draft="provisional">אייר</month>
+							<month type="10" draft="provisional">סיון</month>
+							<month type="11" draft="provisional">תמוז</month>
+							<month type="12" draft="provisional">אב</month>
+							<month type="13" draft="provisional">אלול</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">תשרי</month>
+							<month type="2">חשון</month>
+							<month type="3">כסלו</month>
+							<month type="4">טבת</month>
+							<month type="5">שבט</month>
+							<month type="6">אדר א׳</month>
+							<month type="7">אדר</month>
+							<month type="7" yeartype="leap">אדר ב׳</month>
+							<month type="8">ניסן</month>
+							<month type="9">אייר</month>
+							<month type="10">סיון</month>
+							<month type="11">תמוז</month>
+							<month type="12">אב</month>
+							<month type="13">אלול</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="provisional">תשרי</month>
+							<month type="2" draft="provisional">חשון</month>
+							<month type="3" draft="provisional">כסלו</month>
+							<month type="4" draft="provisional">טבת</month>
+							<month type="5" draft="provisional">שבט</month>
+							<month type="6" draft="provisional">אדר א׳</month>
+							<month type="7" draft="provisional">אדר</month>
+							<month type="7" draft="provisional" yeartype="leap">אדר ב׳</month>
+							<month type="8" draft="provisional">ניסן</month>
+							<month type="9" draft="provisional">אייר</month>
+							<month type="10" draft="provisional">סיון</month>
+							<month type="11" draft="provisional">תמוז</month>
+							<month type="12" draft="provisional">אב</month>
+							<month type="13" draft="provisional">אלול</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="provisional">יום א'</day>
+							<day type="mon" draft="provisional">יום ב'</day>
+							<day type="tue" draft="provisional">יום ג'</day>
+							<day type="wed" draft="provisional">יום ד'</day>
+							<day type="thu" draft="provisional">יום ה'</day>
+							<day type="fri" draft="provisional">יום ו'</day>
+							<day type="sat" draft="provisional">שבת</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="provisional">יום ראשון</day>
+							<day type="mon" draft="provisional">יום שני</day>
+							<day type="tue" draft="provisional">יום שלישי</day>
+							<day type="wed" draft="provisional">יום רביעי</day>
+							<day type="thu" draft="provisional">יום חמישי</day>
+							<day type="fri" draft="provisional">יום שישי</day>
+							<day type="sat" draft="provisional">יום שבת</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">א</day>
+							<day type="sun" alt="proposed-x1001" draft="unconfirmed">א'</day>
+							<day type="mon">ב</day>
+							<day type="mon" alt="proposed-x1001" draft="unconfirmed">ב'</day>
+							<day type="tue">ג</day>
+							<day type="tue" alt="proposed-x1001" draft="unconfirmed">ג'</day>
+							<day type="wed">ד</day>
+							<day type="wed" alt="proposed-x1001" draft="unconfirmed">ד'</day>
+							<day type="thu">ה</day>
+							<day type="thu" alt="proposed-x1001" draft="unconfirmed">ה'</day>
+							<day type="fri">ו</day>
+							<day type="fri" alt="proposed-x1001" draft="unconfirmed">ו'</day>
+							<day type="sat">ש</day>
+							<day type="sat" alt="proposed-x1001" draft="unconfirmed">ש'</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="provisional">רבעון 1</quarter>
+							<quarter type="2" draft="provisional">רבעון 2</quarter>
+							<quarter type="3" draft="provisional">רבעון 3</quarter>
+							<quarter type="4" draft="provisional">רבעון 4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="provisional">רבעון 1</quarter>
+							<quarter type="2" draft="provisional">רבעון 2</quarter>
+							<quarter type="3" draft="provisional">רבעון 3</quarter>
+							<quarter type="4" draft="provisional">רבעון 4</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="provisional">1</quarter>
+							<quarter type="2" draft="provisional">2</quarter>
+							<quarter type="3" draft="provisional">3</quarter>
+							<quarter type="4" draft="provisional">4</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">לפנה&quot;צ</dayPeriod>
+							<dayPeriod type="pm">אחה&quot;צ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">לבה&quot;ע</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0">לבה&quot;ע</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="provisional">לבה&quot;ע</era>
+					</eraNarrow>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern numbers="hebr">EEEE, d בMMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern numbers="hebr">d בMMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern numbers="hebr">dd/MM/yyyy</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">d בMMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern numbers="hebr">dd/MM/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
+						<dateFormatItem id="Ed" draft="provisional">E ה-d</dateFormatItem>
+						<dateFormatItem id="EEEd" draft="provisional">EEE ה-d</dateFormatItem>
+						<dateFormatItem id="H" draft="provisional">H</dateFormatItem>
+						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hm" draft="provisional">H:mm</dateFormatItem>
+						<dateFormatItem id="Hm" draft="provisional">H:mm</dateFormatItem>
+						<dateFormatItem id="hms" draft="provisional">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms" draft="provisional">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="M" draft="provisional">L</dateFormatItem>
+						<dateFormatItem id="Md" draft="provisional">d/M</dateFormatItem>
+						<dateFormatItem id="MEd" draft="provisional">E, d/M</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
+						<dateFormatItem id="MMM" draft="provisional">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="provisional">d בMMM</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="provisional">E, d בMMM</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="provisional">d בMMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, d בMMMM</dateFormatItem>
+						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="y" draft="provisional">y</dateFormatItem>
+						<dateFormatItem id="yM" draft="provisional">M/yyyy</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="provisional">EEE, d/M/yyyy</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="provisional">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="provisional">EEE, d בMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMM" draft="provisional">MMMM y</dateFormatItem>
+						<dateFormatItem id="yQ" draft="provisional">yyyy Q</dateFormatItem>
+						<dateFormatItem id="yQQQ" draft="provisional">QQQ y</dateFormatItem>
+						<dateFormatItem id="yyMM" draft="provisional">MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyMMM" draft="provisional">MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yyyy</dateFormatItem>
+						<dateFormatItem id="yyyy" draft="provisional">y</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="provisional">MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM y</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback draft="provisional">{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d" draft="provisional">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a" draft="provisional">H – H</greatestDifference>
+							<greatestDifference id="h" draft="provisional">H–H</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="a" draft="provisional">HH–HH</greatestDifference>
+							<greatestDifference id="H" draft="provisional">HH–HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a" draft="provisional">H:mm – H:mm</greatestDifference>
+							<greatestDifference id="h" draft="provisional">H:mm–H:mm</greatestDifference>
+							<greatestDifference id="m" draft="provisional">H:mm–H:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a" draft="provisional">H:mm – H:mm v</greatestDifference>
+							<greatestDifference id="h" draft="provisional">H:mm–H:mm v</greatestDifference>
+							<greatestDifference id="m" draft="provisional">H:mm–H:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="a" draft="provisional">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H" draft="provisional">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a" draft="provisional">H – H v</greatestDifference>
+							<greatestDifference id="h" draft="provisional">H–H v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="a" draft="provisional">HH–HH v</greatestDifference>
+							<greatestDifference id="H" draft="provisional">HH–HH v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M" draft="provisional">M–M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d" draft="provisional">dd/MM – dd/MM</greatestDifference>
+							<greatestDifference id="M" draft="provisional">dd/MM – dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d" draft="provisional">E dd/MM – E dd/MM</greatestDifference>
+							<greatestDifference id="M" draft="provisional">E dd/MM – E dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M" draft="provisional">MMM–MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d" draft="provisional">d–d בMMM</greatestDifference>
+							<greatestDifference id="M" draft="provisional">d בMMM – d בMMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d" draft="provisional">E d בMMM – E d בMMM</greatestDifference>
+							<greatestDifference id="M" draft="provisional">E d בMMM – E d בMMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMM">
+							<greatestDifference id="M" draft="provisional">LLLL–LLLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y" draft="provisional">y–y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M" draft="provisional">MM/yyyy – MM/yyyy</greatestDifference>
+							<greatestDifference id="y" draft="provisional">MM/yyyy – MM/yyyy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d" draft="provisional">dd/MM/yyyy – dd/MM/yyyy</greatestDifference>
+							<greatestDifference id="M" draft="provisional">dd/MM/yyyy – dd/MM/yyyy</greatestDifference>
+							<greatestDifference id="y" draft="provisional">dd/MM/yyyy – dd/MM/yyyy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d" draft="provisional">E dd/MM/yyyy – E dd/MM/yyyy</greatestDifference>
+							<greatestDifference id="M" draft="provisional">E dd/MM/yyyy – E dd/MM/yyyy</greatestDifference>
+							<greatestDifference id="y" draft="provisional">E dd/MM/yyyy – E dd/MM/yyyy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M" draft="provisional">MMM–MMM y</greatestDifference>
+							<greatestDifference id="y" draft="provisional">MMM y – MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d" draft="provisional">d–d בMMM y</greatestDifference>
+							<greatestDifference id="M" draft="provisional">d בMMM – d בMMM y</greatestDifference>
+							<greatestDifference id="y" draft="provisional">d בMMM y – d בMMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d" draft="provisional">E d בMMM – E d בMMM y</greatestDifference>
+							<greatestDifference id="M" draft="provisional">E d בMMM – E d בMMM y</greatestDifference>
+							<greatestDifference id="y" draft="provisional">E d בMMM y – E d בMMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M" draft="provisional">MMMM–MMMM y</greatestDifference>
+							<greatestDifference id="y" draft="provisional">MMMM y – MMMM y</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="islamic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1">מוחרם</month>
+							<month type="2">ספר</month>
+							<month type="3">רביע אל-אוואל</month>
+							<month type="4">רביע אל-תני</month>
+							<month type="5">ג׳ומדה אל-אוואל</month>
+							<month type="6">ג׳ומדה אל-תני</month>
+							<month type="7">רג׳אב</month>
+							<month type="8">שעבאן</month>
+							<month type="9">ראמדן</month>
+							<month type="10">שוואל</month>
+							<month type="11">זו אל-QI'DAH</month>
+							<month type="12">זו אל-חיג׳ה</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraAbbr>
+						<era type="0">שנת היג׳רה</era>
+					</eraAbbr>
+				</eras>
+			</calendar>
+			<calendar type="japanese">
+				<eras>
+					<eraAbbr>
+						<era type="0">טאיקה</era>
+						<era type="24">נינג'ו</era>
+						<era type="73">שוטוקו</era>
+					</eraAbbr>
+				</eras>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="contributed">GMT{0}</gmtFormat>
+			<regionFormat>שעון {0}</regionFormat>
+			<fallbackFormat draft="contributed">{1} ({0})</fallbackFormat>
+			<zone type="Etc/Unknown">
+				<exemplarCity>לא ידוע</exemplarCity>
+			</zone>
+			<zone type="Europe/Andorra">
+				<exemplarCity draft="provisional">אנדורה</exemplarCity>
+			</zone>
+			<zone type="Asia/Dubai">
+				<exemplarCity draft="provisional">דובאי</exemplarCity>
+			</zone>
+			<zone type="Asia/Kabul">
+				<exemplarCity draft="provisional">קאבול</exemplarCity>
+			</zone>
+			<zone type="America/Antigua">
+				<exemplarCity draft="provisional">אנטיגואה</exemplarCity>
+			</zone>
+			<zone type="America/Anguilla">
+				<exemplarCity draft="provisional">אנגווילה</exemplarCity>
+			</zone>
+			<zone type="Europe/Tirane">
+				<exemplarCity draft="provisional">טירנה</exemplarCity>
+			</zone>
+			<zone type="Asia/Yerevan">
+				<exemplarCity draft="provisional">ירבאן</exemplarCity>
+			</zone>
+			<zone type="America/Curacao">
+				<exemplarCity draft="provisional">קורסאו</exemplarCity>
+			</zone>
+			<zone type="Africa/Luanda">
+				<exemplarCity draft="provisional">לואנדה</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Rothera">
+				<exemplarCity draft="contributed">רות'רה</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity>אמריקה/פאלמר</exemplarCity>
+			</zone>
+			<zone type="Antarctica/South_Pole">
+				<exemplarCity draft="contributed">הקוטב הדרומי</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity draft="contributed">שויה</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity draft="contributed">מאוסון</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<exemplarCity draft="contributed">דייויס</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity draft="contributed">ווסטוק</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity draft="contributed">קאסיי</exemplarCity>
+			</zone>
+			<zone type="Antarctica/DumontDUrville">
+				<exemplarCity draft="contributed">דומון ד'אורווי</exemplarCity>
+			</zone>
+			<zone type="Antarctica/McMurdo">
+				<exemplarCity draft="contributed">מקמרדו</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity>אמריקה/מנדוזה</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity>אמריקה/ארגנטינה/סאן-חואן</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity>אמריקה/קורדובה</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity>בואנוס איירס</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pago_Pago">
+				<exemplarCity draft="provisional">פאגו פאגו</exemplarCity>
+			</zone>
+			<zone type="Europe/Vienna">
+				<exemplarCity draft="provisional">וינה</exemplarCity>
+			</zone>
+			<zone type="Australia/Perth">
+				<exemplarCity>אוסטרליה/פרת'</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity>אוסטרליה/דרווין</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity>אדלייד</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity>אוסטרליה/ברוקן-היל</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity>אוסטרליה/מלבורן</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity>אוסטרליה/הוברט</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity>אוסטרליה/סידני</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity>אוסטרליה/בריסבן</exemplarCity>
+			</zone>
+			<zone type="America/Aruba">
+				<exemplarCity draft="provisional">ארובה</exemplarCity>
+			</zone>
+			<zone type="Asia/Baku">
+				<exemplarCity draft="provisional">באקו</exemplarCity>
+			</zone>
+			<zone type="America/Barbados">
+				<exemplarCity draft="provisional">ברבדוס</exemplarCity>
+			</zone>
+			<zone type="Asia/Dhaka">
+				<exemplarCity draft="provisional">דאקה</exemplarCity>
+			</zone>
+			<zone type="Europe/Brussels">
+				<exemplarCity draft="provisional">בריסל</exemplarCity>
+			</zone>
+			<zone type="Africa/Ouagadougou">
+				<exemplarCity draft="provisional">ואגאדוגו</exemplarCity>
+			</zone>
+			<zone type="Europe/Sofia">
+				<exemplarCity draft="provisional">סופיה</exemplarCity>
+			</zone>
+			<zone type="Asia/Bahrain">
+				<exemplarCity draft="provisional">בהרין</exemplarCity>
+			</zone>
+			<zone type="Africa/Bujumbura">
+				<exemplarCity draft="provisional">בוג'ומבורה</exemplarCity>
+			</zone>
+			<zone type="Africa/Porto-Novo">
+				<exemplarCity draft="provisional">פורטו-נובו</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Bermuda">
+				<exemplarCity draft="provisional">ברמודה</exemplarCity>
+			</zone>
+			<zone type="Asia/Brunei">
+				<exemplarCity draft="provisional">ברוניי</exemplarCity>
+			</zone>
+			<zone type="America/La_Paz">
+				<exemplarCity draft="provisional">לה פאז</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity draft="contributed">ריאו ברנצ'ו</exemplarCity>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<exemplarCity draft="contributed">פורטו וולהו</exemplarCity>
+			</zone>
+			<zone type="America/Boa_Vista">
+				<exemplarCity draft="contributed">בואה ויסטה</exemplarCity>
+			</zone>
+			<zone type="America/Manaus">
+				<exemplarCity draft="contributed">מנאוס</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity draft="contributed">קויאבה</exemplarCity>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<exemplarCity draft="contributed">קמפו גרנדה</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity draft="contributed">בלם</exemplarCity>
+			</zone>
+			<zone type="America/Araguaina">
+				<exemplarCity draft="contributed">אראגואינה</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity>אמריקה/סאן-פאולו</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity>אמריקה/בהיאה</exemplarCity>
+			</zone>
+			<zone type="America/Fortaleza">
+				<exemplarCity draft="contributed">פורטאלזה</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity draft="contributed">מאסיו</exemplarCity>
+			</zone>
+			<zone type="America/Recife">
+				<exemplarCity draft="contributed">רסיפה</exemplarCity>
+			</zone>
+			<zone type="America/Noronha">
+				<exemplarCity draft="contributed">נורונהה</exemplarCity>
+			</zone>
+			<zone type="America/Nassau">
+				<exemplarCity draft="provisional">נסאו</exemplarCity>
+			</zone>
+			<zone type="Asia/Thimphu">
+				<exemplarCity draft="provisional">טימפו</exemplarCity>
+			</zone>
+			<zone type="Africa/Gaborone">
+				<exemplarCity draft="provisional">גאבורונה</exemplarCity>
+			</zone>
+			<zone type="Europe/Minsk">
+				<exemplarCity draft="provisional">מינסק</exemplarCity>
+			</zone>
+			<zone type="America/Belize">
+				<exemplarCity draft="provisional">בליז</exemplarCity>
+			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity>אמריקה/ונקובר</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity>אמריקה/דוסון-קריק</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity>אמריקה/אדמנטון</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity>אמריקה/וויניפוג</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity>אמריקה/טורנטו</exemplarCity>
+			</zone>
+			<zone type="America/Montreal">
+				<exemplarCity>אמריקה/מונטריאול</exemplarCity>
+			</zone>
+			<zone type="America/Halifax">
+				<exemplarCity>אמריקה/הליפקס</exemplarCity>
+			</zone>
+			<zone type="Indian/Cocos">
+				<exemplarCity draft="provisional">קוקוס</exemplarCity>
+			</zone>
+			<zone type="Africa/Kinshasa">
+				<exemplarCity draft="contributed">קינשסה</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity draft="contributed">לובומבאשי</exemplarCity>
+			</zone>
+			<zone type="Africa/Bangui">
+				<exemplarCity draft="provisional">בנגואי</exemplarCity>
+			</zone>
+			<zone type="Africa/Brazzaville">
+				<exemplarCity draft="provisional">בראזאווייל</exemplarCity>
+			</zone>
+			<zone type="Europe/Zurich">
+				<exemplarCity draft="provisional">ציריך</exemplarCity>
+			</zone>
+			<zone type="Africa/Abidjan">
+				<exemplarCity draft="provisional">אבידג'ן</exemplarCity>
+			</zone>
+			<zone type="Pacific/Rarotonga">
+				<exemplarCity draft="provisional">רארוטונגה</exemplarCity>
+			</zone>
+			<zone type="Pacific/Easter">
+				<exemplarCity draft="contributed">איי הפסחא</exemplarCity>
+			</zone>
+			<zone type="America/Santiago">
+				<exemplarCity>אמריקה/סנטיאגו</exemplarCity>
+			</zone>
+			<zone type="Africa/Douala">
+				<exemplarCity draft="provisional">דואלה</exemplarCity>
+			</zone>
+			<zone type="Asia/Shanghai">
+				<exemplarCity>אסיה/שנחאי</exemplarCity>
+			</zone>
+			<zone type="America/Bogota">
+				<exemplarCity draft="provisional">בוגוטה</exemplarCity>
+			</zone>
+			<zone type="America/Costa_Rica">
+				<exemplarCity draft="provisional">קוסטה ריקה</exemplarCity>
+			</zone>
+			<zone type="America/Havana">
+				<exemplarCity draft="provisional">הוואנה</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Cape_Verde">
+				<exemplarCity draft="provisional">קייפ ורדה</exemplarCity>
+			</zone>
+			<zone type="Indian/Christmas">
+				<exemplarCity draft="provisional">איי חג המולד</exemplarCity>
+			</zone>
+			<zone type="Asia/Nicosia">
+				<exemplarCity draft="provisional">ניקוסיה</exemplarCity>
+			</zone>
+			<zone type="Europe/Berlin">
+				<exemplarCity draft="provisional">ברלין</exemplarCity>
+			</zone>
+			<zone type="Africa/Djibouti">
+				<exemplarCity draft="provisional">ג'יבאוטי</exemplarCity>
+			</zone>
+			<zone type="Europe/Copenhagen">
+				<exemplarCity draft="provisional">קופנהגן</exemplarCity>
+			</zone>
+			<zone type="America/Dominica">
+				<exemplarCity draft="provisional">דומיניקה</exemplarCity>
+			</zone>
+			<zone type="America/Santo_Domingo">
+				<exemplarCity draft="provisional">סנטו דומינגו</exemplarCity>
+			</zone>
+			<zone type="Africa/Algiers">
+				<exemplarCity draft="provisional">אלג'יר</exemplarCity>
+			</zone>
+			<zone type="Pacific/Galapagos">
+				<exemplarCity>פסיפי/גלאפגוס</exemplarCity>
+			</zone>
+			<zone type="America/Guayaquil">
+				<exemplarCity draft="provisional">גוויקיל</exemplarCity>
+			</zone>
+			<zone type="Europe/Tallinn">
+				<exemplarCity draft="provisional">טאלין</exemplarCity>
+			</zone>
+			<zone type="Africa/Cairo">
+				<exemplarCity draft="provisional">קהיר</exemplarCity>
+			</zone>
+			<zone type="Africa/El_Aaiun">
+				<exemplarCity draft="provisional">אל עיון</exemplarCity>
+			</zone>
+			<zone type="Africa/Asmera">
+				<exemplarCity draft="provisional">אסמרה</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Canary">
+				<exemplarCity>אטלנטי/קנרי</exemplarCity>
+			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity draft="contributed">סאוטה</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity>אירופה/מדריד</exemplarCity>
+			</zone>
+			<zone type="Africa/Addis_Ababa">
+				<exemplarCity draft="provisional">אדיס אבבה</exemplarCity>
+			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity draft="provisional">הלסינקי</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fiji">
+				<exemplarCity draft="provisional">פיג'י</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Stanley">
+				<exemplarCity draft="provisional">סטנלי</exemplarCity>
+			</zone>
+			<zone type="Pacific/Truk">
+				<exemplarCity draft="contributed">טרוק</exemplarCity>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<exemplarCity draft="contributed">פונפה</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity>קוסרה</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Faeroe">
+				<exemplarCity draft="provisional">פארו</exemplarCity>
+			</zone>
+			<zone type="Europe/Paris">
+				<exemplarCity draft="provisional">פריס</exemplarCity>
+			</zone>
+			<zone type="Africa/Libreville">
+				<exemplarCity draft="provisional">ליברווייל</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<exemplarCity>אירופה/לונדון</exemplarCity>
+			</zone>
+			<zone type="America/Grenada">
+				<exemplarCity draft="provisional">גרנדה</exemplarCity>
+			</zone>
+			<zone type="Asia/Tbilisi">
+				<exemplarCity draft="provisional">טביליסי</exemplarCity>
+			</zone>
+			<zone type="America/Cayenne">
+				<exemplarCity draft="provisional">קאיין</exemplarCity>
+			</zone>
+			<zone type="Africa/Accra">
+				<exemplarCity draft="provisional">אקרה</exemplarCity>
+			</zone>
+			<zone type="Europe/Gibraltar">
+				<exemplarCity draft="provisional">גיברלטר</exemplarCity>
+			</zone>
+			<zone type="America/Thule">
+				<exemplarCity draft="contributed">טולה</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity draft="provisional">גודת'אב</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity draft="contributed">סקורסביסונד</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity draft="contributed">דנמרקסהוון</exemplarCity>
+			</zone>
+			<zone type="Africa/Banjul">
+				<exemplarCity draft="provisional">באנג'ול</exemplarCity>
+			</zone>
+			<zone type="Africa/Conakry">
+				<exemplarCity draft="provisional">קונאקרי</exemplarCity>
+			</zone>
+			<zone type="America/Guadeloupe">
+				<exemplarCity draft="provisional">גוואדלופ</exemplarCity>
+			</zone>
+			<zone type="Africa/Malabo">
+				<exemplarCity draft="provisional">מאלאבו</exemplarCity>
+			</zone>
+			<zone type="Europe/Athens">
+				<exemplarCity draft="provisional">אתונה</exemplarCity>
+			</zone>
+			<zone type="Atlantic/South_Georgia">
+				<exemplarCity draft="provisional">איי ג'ורג'יה הדרומית</exemplarCity>
+			</zone>
+			<zone type="America/Guatemala">
+				<exemplarCity draft="provisional">גוואטמלה</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guam">
+				<exemplarCity draft="provisional">גואם</exemplarCity>
+			</zone>
+			<zone type="Africa/Bissau">
+				<exemplarCity draft="provisional">ביסאו</exemplarCity>
+			</zone>
+			<zone type="America/Guyana">
+				<exemplarCity draft="provisional">גוינה</exemplarCity>
+			</zone>
+			<zone type="Asia/Hong_Kong">
+				<exemplarCity draft="provisional">הונג קונג</exemplarCity>
+			</zone>
+			<zone type="America/Port-au-Prince">
+				<exemplarCity draft="provisional">פורט או פרינס</exemplarCity>
+			</zone>
+			<zone type="Europe/Budapest">
+				<exemplarCity draft="provisional">בודפשט</exemplarCity>
+			</zone>
+			<zone type="Asia/Jakarta">
+				<exemplarCity>אסיה/ג'קרטה</exemplarCity>
+			</zone>
+			<zone type="Asia/Makassar">
+				<exemplarCity draft="contributed">מאקאסאר</exemplarCity>
+			</zone>
+			<zone type="Asia/Jayapura">
+				<exemplarCity>ג'איאפורה</exemplarCity>
+			</zone>
+			<zone type="Europe/Dublin">
+				<exemplarCity draft="provisional">דבלין</exemplarCity>
+			</zone>
+			<zone type="Asia/Jerusalem">
+				<exemplarCity draft="provisional">ירושלים</exemplarCity>
+			</zone>
+			<zone type="Indian/Chagos">
+				<exemplarCity draft="provisional">איי צ'גוס</exemplarCity>
+			</zone>
+			<zone type="Asia/Baghdad">
+				<exemplarCity draft="provisional">בגדד</exemplarCity>
+			</zone>
+			<zone type="Asia/Tehran">
+				<exemplarCity draft="provisional">טהרן</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Reykjavik">
+				<exemplarCity draft="provisional">רייקיאוויק</exemplarCity>
+			</zone>
+			<zone type="Europe/Rome">
+				<exemplarCity draft="provisional">רומא</exemplarCity>
+			</zone>
+			<zone type="America/Jamaica">
+				<exemplarCity draft="provisional">ג'מייקה</exemplarCity>
+			</zone>
+			<zone type="Asia/Amman">
+				<exemplarCity draft="provisional">רבת עמון</exemplarCity>
+			</zone>
+			<zone type="Asia/Tokyo">
+				<exemplarCity draft="provisional">טוקיו</exemplarCity>
+			</zone>
+			<zone type="Africa/Nairobi">
+				<exemplarCity draft="provisional">ניירובי</exemplarCity>
+			</zone>
+			<zone type="Asia/Bishkek">
+				<exemplarCity draft="provisional">בישקק</exemplarCity>
+			</zone>
+			<zone type="Asia/Phnom_Penh">
+				<exemplarCity draft="provisional">פנום פן</exemplarCity>
+			</zone>
+			<zone type="Pacific/Enderbury">
+				<exemplarCity draft="contributed">אנדרבורי</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity draft="contributed">קיריטימאטי</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<exemplarCity draft="contributed">טאראווה</exemplarCity>
+			</zone>
+			<zone type="Indian/Comoro">
+				<exemplarCity draft="provisional">קומורו</exemplarCity>
+			</zone>
+			<zone type="America/St_Kitts">
+				<exemplarCity draft="provisional">סנט קיטס</exemplarCity>
+			</zone>
+			<zone type="Asia/Pyongyang">
+				<exemplarCity>צפון קוריאה</exemplarCity>
+			</zone>
+			<zone type="Asia/Seoul">
+				<exemplarCity>דרום קוריאה</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuwait">
+				<exemplarCity draft="provisional">כווית</exemplarCity>
+			</zone>
+			<zone type="America/Cayman">
+				<exemplarCity draft="provisional">קיימן</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtau">
+				<exemplarCity draft="contributed">אקטאו</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity>אסיה/אורל</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity draft="contributed">אקטובה</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity draft="contributed">אלמאטי</exemplarCity>
+			</zone>
+			<zone type="Asia/Vientiane">
+				<exemplarCity draft="provisional">וינטיאן</exemplarCity>
+			</zone>
+			<zone type="Asia/Beirut">
+				<exemplarCity draft="provisional">ביירות</exemplarCity>
+			</zone>
+			<zone type="America/St_Lucia">
+				<exemplarCity draft="provisional">סנט לוצ'יה</exemplarCity>
+			</zone>
+			<zone type="Europe/Vaduz">
+				<exemplarCity draft="provisional">ואדוז</exemplarCity>
+			</zone>
+			<zone type="Asia/Colombo">
+				<exemplarCity draft="provisional">קולומבו</exemplarCity>
+			</zone>
+			<zone type="Africa/Monrovia">
+				<exemplarCity draft="provisional">מונרוביה</exemplarCity>
+			</zone>
+			<zone type="Africa/Maseru">
+				<exemplarCity draft="provisional">מאסרו</exemplarCity>
+			</zone>
+			<zone type="Europe/Vilnius">
+				<exemplarCity draft="provisional">וילניאוס</exemplarCity>
+			</zone>
+			<zone type="Europe/Luxembourg">
+				<exemplarCity draft="provisional">לוקסמבורג</exemplarCity>
+			</zone>
+			<zone type="Europe/Riga">
+				<exemplarCity draft="provisional">ריגה</exemplarCity>
+			</zone>
+			<zone type="Africa/Tripoli">
+				<exemplarCity draft="provisional">טריפולי</exemplarCity>
+			</zone>
+			<zone type="Africa/Casablanca">
+				<exemplarCity draft="provisional">קזבלנקה</exemplarCity>
+			</zone>
+			<zone type="Europe/Monaco">
+				<exemplarCity draft="provisional">מונקו</exemplarCity>
+			</zone>
+			<zone type="Europe/Chisinau">
+				<exemplarCity draft="provisional">קישינב</exemplarCity>
+			</zone>
+			<zone type="Indian/Antananarivo">
+				<exemplarCity draft="provisional">אנטננרבינו</exemplarCity>
+			</zone>
+			<zone type="Pacific/Majuro">
+				<exemplarCity draft="contributed">מאג'ורו</exemplarCity>
+			</zone>
+			<zone type="Africa/Bamako">
+				<exemplarCity draft="provisional">באמאקו</exemplarCity>
+			</zone>
+			<zone type="Asia/Rangoon">
+				<exemplarCity draft="provisional">ראנגון</exemplarCity>
+			</zone>
+			<zone type="Asia/Hovd">
+				<exemplarCity draft="contributed">חובד</exemplarCity>
+			</zone>
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity draft="contributed">אולאאנבטאר</exemplarCity>
+			</zone>
+			<zone type="Asia/Choibalsan">
+				<exemplarCity draft="contributed">צ'ואיבלסאן</exemplarCity>
+			</zone>
+			<zone type="Asia/Macau">
+				<exemplarCity draft="provisional">מקאו</exemplarCity>
+			</zone>
+			<zone type="Pacific/Saipan">
+				<exemplarCity draft="provisional">סאיפאן</exemplarCity>
+			</zone>
+			<zone type="America/Martinique">
+				<exemplarCity draft="provisional">מרטיניק</exemplarCity>
+			</zone>
+			<zone type="Africa/Nouakchott">
+				<exemplarCity draft="provisional">נוקשוט</exemplarCity>
+			</zone>
+			<zone type="America/Montserrat">
+				<exemplarCity draft="provisional">מונטסראט</exemplarCity>
+			</zone>
+			<zone type="Europe/Malta">
+				<exemplarCity draft="provisional">מאלטה</exemplarCity>
+			</zone>
+			<zone type="Indian/Mauritius">
+				<exemplarCity draft="provisional">מאוריטיוס</exemplarCity>
+			</zone>
+			<zone type="Indian/Maldives">
+				<exemplarCity draft="provisional">מולדוביה</exemplarCity>
+			</zone>
+			<zone type="Africa/Blantyre">
+				<exemplarCity draft="provisional">בלנטיר</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity>אמריקה/מזטלן</exemplarCity>
+			</zone>
+			<zone type="America/Monterrey">
+				<exemplarCity>אמריקה/מונטריי</exemplarCity>
+			</zone>
+			<zone type="America/Mexico_City">
+				<exemplarCity>אמריקה/מקסיקו סיטי</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity>אמריקה/קנקון</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity>קואלה לומפור</exemplarCity>
+			</zone>
+			<zone type="Africa/Maputo">
+				<exemplarCity draft="provisional">מאפוטו</exemplarCity>
+			</zone>
+			<zone type="Africa/Windhoek">
+				<exemplarCity draft="provisional">ווינדהוק</exemplarCity>
+			</zone>
+			<zone type="Pacific/Noumea">
+				<exemplarCity draft="provisional">נומאה</exemplarCity>
+			</zone>
+			<zone type="Africa/Niamey">
+				<exemplarCity draft="provisional">ניאמיי</exemplarCity>
+			</zone>
+			<zone type="Pacific/Norfolk">
+				<exemplarCity draft="provisional">איי נורפוק</exemplarCity>
+			</zone>
+			<zone type="Africa/Lagos">
+				<exemplarCity draft="provisional">לאגוס</exemplarCity>
+			</zone>
+			<zone type="America/Managua">
+				<exemplarCity draft="provisional">מנאגואה</exemplarCity>
+			</zone>
+			<zone type="Europe/Amsterdam">
+				<exemplarCity draft="provisional">אמסטרדם</exemplarCity>
+			</zone>
+			<zone type="Europe/Oslo">
+				<exemplarCity draft="provisional">אוסלו</exemplarCity>
+			</zone>
+			<zone type="Asia/Katmandu">
+				<exemplarCity draft="provisional">קטמנדו</exemplarCity>
+			</zone>
+			<zone type="Pacific/Nauru">
+				<exemplarCity draft="provisional">נאורו</exemplarCity>
+			</zone>
+			<zone type="Pacific/Niue">
+				<exemplarCity draft="provisional">ניווה</exemplarCity>
+			</zone>
+			<zone type="Pacific/Auckland">
+				<exemplarCity>פסיפי/אוקלנד</exemplarCity>
+			</zone>
+			<zone type="Asia/Muscat">
+				<exemplarCity draft="provisional">מוסקט</exemplarCity>
+			</zone>
+			<zone type="America/Panama">
+				<exemplarCity draft="provisional">פנמה</exemplarCity>
+			</zone>
+			<zone type="America/Lima">
+				<exemplarCity draft="provisional">לימה</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tahiti">
+				<exemplarCity>פסיפי/טהיטי</exemplarCity>
+			</zone>
+			<zone type="Pacific/Marquesas">
+				<exemplarCity draft="contributed">איי מרקיז</exemplarCity>
+			</zone>
+			<zone type="Pacific/Gambier">
+				<exemplarCity draft="contributed">איי גמביר</exemplarCity>
+			</zone>
+			<zone type="Pacific/Port_Moresby">
+				<exemplarCity draft="provisional">פורט מורנסבי</exemplarCity>
+			</zone>
+			<zone type="Asia/Manila">
+				<exemplarCity draft="provisional">מנילה</exemplarCity>
+			</zone>
+			<zone type="Asia/Karachi">
+				<exemplarCity draft="provisional">קאראצ'י</exemplarCity>
+			</zone>
+			<zone type="Europe/Warsaw">
+				<exemplarCity draft="provisional">ורשה</exemplarCity>
+			</zone>
+			<zone type="America/Miquelon">
+				<exemplarCity draft="provisional">מיקלון</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pitcairn">
+				<exemplarCity draft="provisional">פיטקרן</exemplarCity>
+			</zone>
+			<zone type="America/Puerto_Rico">
+				<exemplarCity draft="provisional">פוארטו ריקו</exemplarCity>
+			</zone>
+			<zone type="Asia/Gaza">
+				<exemplarCity draft="provisional">עזה</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Azores">
+				<exemplarCity draft="contributed">האיים האזורים</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity>אירופה/ליסבון</exemplarCity>
+			</zone>
+			<zone type="Pacific/Palau">
+				<exemplarCity draft="provisional">פלאו</exemplarCity>
+			</zone>
+			<zone type="America/Asuncion">
+				<exemplarCity draft="provisional">אסונסיון</exemplarCity>
+			</zone>
+			<zone type="Asia/Qatar">
+				<exemplarCity draft="provisional">קתר</exemplarCity>
+			</zone>
+			<zone type="Indian/Reunion">
+				<exemplarCity draft="provisional">ריונין</exemplarCity>
+			</zone>
+			<zone type="Europe/Bucharest">
+				<exemplarCity draft="provisional">בוקרשט</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity>אירופה/מוסקבה</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity>אירופה/סמרה</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity>איה/אומסק</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity>אסיה/נובוסיבירסק</exemplarCity>
+			</zone>
+			<zone type="Africa/Kigali">
+				<exemplarCity draft="provisional">קיגאלי</exemplarCity>
+			</zone>
+			<zone type="Asia/Riyadh">
+				<exemplarCity draft="provisional">ריאד</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guadalcanal">
+				<exemplarCity draft="provisional">גואדלקנל</exemplarCity>
+			</zone>
+			<zone type="Indian/Mahe">
+				<exemplarCity draft="provisional">מאהה</exemplarCity>
+			</zone>
+			<zone type="Africa/Khartoum">
+				<exemplarCity draft="provisional">חרטום</exemplarCity>
+			</zone>
+			<zone type="Europe/Stockholm">
+				<exemplarCity draft="provisional">שטוקהולם</exemplarCity>
+			</zone>
+			<zone type="Asia/Singapore">
+				<exemplarCity draft="provisional">סינגפור</exemplarCity>
+			</zone>
+			<zone type="Atlantic/St_Helena">
+				<exemplarCity draft="provisional">סנט הלנה</exemplarCity>
+			</zone>
+			<zone type="Africa/Freetown">
+				<exemplarCity draft="provisional">פריטאון</exemplarCity>
+			</zone>
+			<zone type="Africa/Dakar">
+				<exemplarCity draft="provisional">דאקאר</exemplarCity>
+			</zone>
+			<zone type="Africa/Mogadishu">
+				<exemplarCity draft="provisional">מוגדישו</exemplarCity>
+			</zone>
+			<zone type="America/Paramaribo">
+				<exemplarCity draft="provisional">פרמאריבו</exemplarCity>
+			</zone>
+			<zone type="Africa/Sao_Tome">
+				<exemplarCity draft="provisional">סאו טומה</exemplarCity>
+			</zone>
+			<zone type="America/El_Salvador">
+				<exemplarCity draft="provisional">סלבדור</exemplarCity>
+			</zone>
+			<zone type="Asia/Damascus">
+				<exemplarCity draft="provisional">דמשק</exemplarCity>
+			</zone>
+			<zone type="Africa/Mbabane">
+				<exemplarCity draft="provisional">מבאבאנה</exemplarCity>
+			</zone>
+			<zone type="America/Grand_Turk">
+				<exemplarCity draft="provisional">גרנד טורק</exemplarCity>
+			</zone>
+			<zone type="Africa/Ndjamena">
+				<exemplarCity draft="provisional">נג'מנה</exemplarCity>
+			</zone>
+			<zone type="Indian/Kerguelen">
+				<exemplarCity draft="provisional">קרגואלן</exemplarCity>
+			</zone>
+			<zone type="Africa/Lome">
+				<exemplarCity draft="provisional">לומה</exemplarCity>
+			</zone>
+			<zone type="Asia/Bangkok">
+				<exemplarCity draft="provisional">בנקוק</exemplarCity>
+			</zone>
+			<zone type="Asia/Dushanbe">
+				<exemplarCity draft="provisional">דושנבה</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fakaofo">
+				<exemplarCity draft="provisional">פאקאופו</exemplarCity>
+			</zone>
+			<zone type="Asia/Dili">
+				<exemplarCity draft="provisional">דילי</exemplarCity>
+			</zone>
+			<zone type="Asia/Ashgabat">
+				<exemplarCity draft="provisional">אשחבאד</exemplarCity>
+			</zone>
+			<zone type="Africa/Tunis">
+				<exemplarCity>תוניסיה</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tongatapu">
+				<exemplarCity draft="provisional">טונגטאפו</exemplarCity>
+			</zone>
+			<zone type="Europe/Istanbul">
+				<exemplarCity draft="provisional">איסטנבול</exemplarCity>
+			</zone>
+			<zone type="America/Port_of_Spain">
+				<exemplarCity draft="provisional">נמל ספרד</exemplarCity>
+			</zone>
+			<zone type="Pacific/Funafuti">
+				<exemplarCity draft="provisional">פונאפוטי</exemplarCity>
+			</zone>
+			<zone type="Asia/Taipei">
+				<exemplarCity draft="provisional">טייפה</exemplarCity>
+			</zone>
+			<zone type="Africa/Dar_es_Salaam">
+				<exemplarCity draft="provisional">דאר א-סאלם</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity>אירופה/קייב</exemplarCity>
+			</zone>
+			<zone type="Africa/Kampala">
+				<exemplarCity draft="provisional">קמפלה</exemplarCity>
+			</zone>
+			<zone type="Pacific/Midway">
+				<exemplarCity draft="contributed">מידוויי</exemplarCity>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity draft="contributed">ג'ונסטון</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity draft="contributed">וואק</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>פסיפי/הונולולו</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity draft="contributed">זמן אלסקה</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity>אמריקה/לוס-אנג'לס</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity>אמריקה/פיניקס</exemplarCity>
+			</zone>
+			<zone type="America/Shiprock">
+				<exemplarCity>אמריקה/שיפרוק</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity>אמריקה/דנוור</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/Center">
+				<exemplarCity>אמריקה/צפון דקוטה/מרכז</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity>אמריקה/שיקגו</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity>אינדיאנפוליס</exemplarCity>
+			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity>אמריקה/לואיסוויל</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity>אמריקה/דטרויט</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity>אמריקה/ניו-יורק</exemplarCity>
+			</zone>
+			<zone type="America/Montevideo">
+				<exemplarCity draft="provisional">מונטווידאו</exemplarCity>
+			</zone>
+			<zone type="Asia/Samarkand">
+				<exemplarCity>אסיה/סמרקנד</exemplarCity>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity>אסיה/טשקנט</exemplarCity>
+			</zone>
+			<zone type="America/St_Vincent">
+				<exemplarCity draft="provisional">סנט וינסנט</exemplarCity>
+			</zone>
+			<zone type="America/Caracas">
+				<exemplarCity draft="provisional">קאראקאס</exemplarCity>
+			</zone>
+			<zone type="America/Tortola">
+				<exemplarCity draft="provisional">טורטולה</exemplarCity>
+			</zone>
+			<zone type="America/St_Thomas">
+				<exemplarCity draft="provisional">סנט תומאס</exemplarCity>
+			</zone>
+			<zone type="Asia/Saigon">
+				<exemplarCity draft="provisional">סייגון</exemplarCity>
+			</zone>
+			<zone type="Pacific/Efate">
+				<exemplarCity draft="provisional">אפטה</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wallis">
+				<exemplarCity draft="provisional">ואליס</exemplarCity>
+			</zone>
+			<zone type="Pacific/Apia">
+				<exemplarCity draft="provisional">אפיה</exemplarCity>
+			</zone>
+			<zone type="Asia/Aden">
+				<exemplarCity draft="provisional">עדן</exemplarCity>
+			</zone>
+			<zone type="Indian/Mayotte">
+				<exemplarCity draft="provisional">מאיוט</exemplarCity>
+			</zone>
+			<zone type="Africa/Johannesburg">
+				<exemplarCity draft="provisional">יוהנסבורג</exemplarCity>
+			</zone>
+			<zone type="Africa/Lusaka">
+				<exemplarCity draft="provisional">לוסאקה</exemplarCity>
+			</zone>
+			<zone type="Africa/Harare">
+				<exemplarCity draft="provisional">הררה</exemplarCity>
+			</zone>
+			<metazone type="Acre">
+				<short>
+					<standard draft="provisional">ACT (Acre)</standard>
+					<daylight draft="provisional">ACST (Acre)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Afghanistan">
+				<short>
+					<standard draft="provisional">AFT</standard>
+				</short>
+			</metazone>
+			<metazone type="Africa_Central">
+				<long>
+					<standard>שעון מרכז אפריקה</standard>
+				</long>
+				<short>
+					<standard>CAT</standard>
+				</short>
+			</metazone>
+			<metazone type="Africa_Eastern">
+				<long>
+					<standard>שעון מזרח אפריקה</standard>
+				</long>
+				<short>
+					<standard>EAT</standard>
+				</short>
+			</metazone>
+			<metazone type="Africa_Southern">
+				<long>
+					<standard>שעון דרום אפריקה</standard>
+				</long>
+				<short>
+					<standard>SAST</standard>
+				</short>
+			</metazone>
+			<metazone type="Africa_Western">
+				<long>
+					<standard>שעון מערב אפריקה</standard>
+					<daylight>שעון קיץ, מערב אפריקה</daylight>
+				</long>
+				<short>
+					<standard>WAT</standard>
+					<daylight>WAST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Aktyubinsk">
+				<short>
+					<standard draft="provisional">AKTT</standard>
+					<daylight draft="provisional">AKTST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Alaska">
+				<short>
+					<standard draft="provisional">AKST</standard>
+					<daylight draft="provisional">AKDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Alaska_Hawaii">
+				<short>
+					<standard draft="provisional">AHST</standard>
+					<daylight draft="provisional">AHDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Almaty">
+				<short>
+					<standard draft="provisional">ALMT</standard>
+					<daylight draft="provisional">ALMST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Amazon">
+				<short>
+					<standard draft="provisional">AMT</standard>
+					<daylight draft="provisional">AMST</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<generic draft="provisional">שעון מרכז ארה&quot;ב (אמריקה/שיקגו)</generic>
+					<standard draft="provisional">שעון מרכז ארה&quot;ב (אמריקה/שיקגו)</standard>
+					<daylight draft="provisional">שעון קיץ, מרכז ארה&quot;ב</daylight>
+				</long>
+				<short>
+					<generic>שעון מרכז ארה&quot;ב (שיקגו)</generic>
+					<standard draft="provisional">CST</standard>
+					<daylight draft="provisional">CDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<generic draft="provisional">שעון מזרח ארה&quot;ב</generic>
+					<standard draft="provisional">שעון מזרח ארה&quot;ב</standard>
+					<daylight draft="provisional">שעון קיץ מזרח ארה&quot;ב</daylight>
+				</long>
+				<short>
+					<generic>שעון מזרח ארה&quot;ב (ניו-יורק)</generic>
+					<standard draft="provisional">EST</standard>
+					<daylight draft="provisional">EDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<generic draft="provisional">שעון אזור ההרים בארה&quot;ב (דנוור)</generic>
+					<standard draft="provisional">שעון אזור ההרים בארה&quot;ב (דנוור)</standard>
+					<daylight draft="provisional">שעון קיץ, אזור ההרים בארה&quot;ב</daylight>
+				</long>
+				<short>
+					<generic>שעון אזור ההרים של ארה&quot;ב (דנוור)</generic>
+					<standard draft="provisional">MST</standard>
+					<daylight draft="provisional">MDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<generic draft="provisional">שעון מערב ארה&quot;ב (לוס אנג'לס)</generic>
+					<standard draft="provisional">שעון מערב ארה&quot;ב (לוס אנג'לס)</standard>
+					<daylight draft="provisional">שעון קיץ, מערב ארה&quot;ב (לוס אנג'לס)</daylight>
+				</long>
+				<short>
+					<generic>שעון מערב ארה&quot;ב (לוס אנג'לס)</generic>
+					<standard draft="provisional">PST</standard>
+					<daylight draft="provisional">PDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Anadyr">
+				<short>
+					<standard draft="provisional">ANAT</standard>
+					<daylight draft="provisional">ANAST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Aqtau">
+				<short>
+					<standard draft="provisional">AQTT (Aqtau)</standard>
+					<daylight draft="provisional">AQTST (Aqtau)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Aqtobe">
+				<short>
+					<standard draft="provisional">AQTT (Aqtobe)</standard>
+					<daylight draft="provisional">AQTST (Aqtobe)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Arabian">
+				<long>
+					<generic draft="provisional">שעון ערב הסעודית</generic>
+					<standard draft="provisional">שעון ערב הסעודית</standard>
+					<daylight draft="provisional">שעון קיץ, ערב הסעודית</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">AT (ערב הסעודית)</generic>
+					<standard draft="provisional">AST (SA)</standard>
+					<daylight draft="provisional">ADT (SA)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Argentina">
+				<short>
+					<standard draft="provisional">ART</standard>
+					<daylight draft="provisional">ARST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Argentina_Western">
+				<short>
+					<standard draft="provisional">WART</standard>
+				</short>
+			</metazone>
+			<metazone type="Armenia">
+				<short>
+					<standard draft="provisional">AMT (ארמניה)</standard>
+					<daylight draft="provisional">AMST (ארמניה)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Ashkhabad">
+				<short>
+					<standard draft="provisional">ASHT</standard>
+					<daylight draft="provisional">ASHST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<generic draft="provisional">שעון קנדה (הליפקס)</generic>
+					<standard draft="provisional">הזמן התקני האטלנטי</standard>
+					<daylight draft="provisional">שעון קיץ, מזרח ארה&quot;ב</daylight>
+				</long>
+				<short>
+					<generic>שעון קנדה (הליפקס)</generic>
+					<standard draft="provisional">AST</standard>
+					<daylight draft="provisional">ADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Australia_Central">
+				<long>
+					<generic draft="provisional">שעון מרכז אוסטרליה</generic>
+					<standard draft="provisional">שעון מרכז אוסטרליה</standard>
+					<daylight draft="provisional">שעון קיץ מרכז אוסטרליה</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">ACT</generic>
+					<standard draft="provisional">ACST</standard>
+					<daylight draft="provisional">ACDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Australia_CentralWestern">
+				<long>
+					<generic draft="provisional">שעון מרכז-מערב אוסטרליה</generic>
+					<standard draft="provisional">שעון מרכז-מערב אוסטרליה</standard>
+					<daylight draft="provisional">שעון קיץ מרכז-מערב אוסטרליה</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">ACWT</generic>
+					<standard draft="provisional">ACWST</standard>
+					<daylight draft="provisional">ACWDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Australia_Eastern">
+				<long>
+					<generic draft="provisional">שעון מזרח אוסטרליה</generic>
+					<standard draft="provisional">שעון מזרח אוסטרליה</standard>
+					<daylight draft="provisional">שעון קיץ מזרח אוסטרליה</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">AET</generic>
+					<standard draft="provisional">AEST</standard>
+					<daylight draft="provisional">AEDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Australia_Western">
+				<long>
+					<generic draft="provisional">שעון מערב אוסטרליה</generic>
+					<standard draft="provisional">שעון מערב אוסטרליה</standard>
+					<daylight draft="provisional">שעון קיץ מערב אוסטרליה</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">AWT</generic>
+					<standard draft="provisional">AWST</standard>
+					<daylight draft="provisional">AWDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Azerbaijan">
+				<short>
+					<standard draft="provisional">AZT</standard>
+					<daylight draft="provisional">AZST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Azores">
+				<short>
+					<standard draft="provisional">AZOT</standard>
+					<daylight draft="provisional">AZOST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Baku">
+				<short>
+					<standard draft="provisional">BAKT</standard>
+					<daylight draft="provisional">BAKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Bangladesh">
+				<short>
+					<standard draft="provisional">BDT</standard>
+					<daylight draft="provisional">BDST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Bering">
+				<short>
+					<standard draft="provisional">BST (Bering)</standard>
+					<daylight draft="provisional">BDT (Bering)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Bhutan">
+				<short>
+					<standard draft="provisional">BTT</standard>
+				</short>
+			</metazone>
+			<metazone type="Bolivia">
+				<short>
+					<standard draft="provisional">BOT</standard>
+				</short>
+			</metazone>
+			<metazone type="Borneo">
+				<short>
+					<standard draft="provisional">BORT</standard>
+					<daylight draft="provisional">BORST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Brasilia">
+				<short>
+					<standard draft="provisional">BRT</standard>
+					<daylight draft="provisional">BRST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Brunei">
+				<short>
+					<standard draft="provisional">BNT</standard>
+				</short>
+			</metazone>
+			<metazone type="Cape_Verde">
+				<short>
+					<standard draft="provisional">CVT</standard>
+					<daylight draft="provisional">CVST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Chamorro">
+				<short>
+					<standard draft="provisional">ChST</standard>
+				</short>
+			</metazone>
+			<metazone type="Changbai">
+				<short>
+					<standard draft="provisional">CHAT</standard>
+				</short>
+			</metazone>
+			<metazone type="Chatham">
+				<short>
+					<standard draft="provisional">CHAST</standard>
+					<daylight draft="provisional">CHADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Chile">
+				<short>
+					<standard draft="provisional">CLT</standard>
+					<daylight draft="provisional">CLST</daylight>
+				</short>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard draft="provisional">שעון סין</standard>
+				</long>
+				<short>
+					<standard draft="provisional">CST (CN)</standard>
+					<daylight draft="provisional">CDT (CN)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Choibalsan">
+				<short>
+					<standard draft="provisional">CHOT</standard>
+					<daylight draft="provisional">CHOST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Christmas">
+				<short>
+					<standard draft="provisional">CXT</standard>
+				</short>
+			</metazone>
+			<metazone type="Cocos">
+				<short>
+					<standard draft="provisional">CCT</standard>
+				</short>
+			</metazone>
+			<metazone type="Colombia">
+				<short>
+					<standard draft="provisional">COT</standard>
+					<daylight draft="provisional">COST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Cook">
+				<short>
+					<standard draft="provisional">CKT</standard>
+					<daylight draft="provisional">CKHST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Cuba">
+				<short>
+					<standard draft="provisional">CST (CU)</standard>
+					<daylight draft="provisional">CDT (CU)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Dacca">
+				<short>
+					<standard draft="provisional">DACT</standard>
+				</short>
+			</metazone>
+			<metazone type="Davis">
+				<short>
+					<standard draft="provisional">DAVT</standard>
+				</short>
+			</metazone>
+			<metazone type="DumontDUrville">
+				<short>
+					<standard draft="provisional">DDUT</standard>
+				</short>
+			</metazone>
+			<metazone type="Dushanbe">
+				<short>
+					<standard draft="provisional">DUST</standard>
+					<daylight draft="provisional">DUSST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Dutch_Guiana">
+				<short>
+					<standard draft="provisional">NEGT</standard>
+				</short>
+			</metazone>
+			<metazone type="East_Timor">
+				<short>
+					<standard draft="provisional">TLT</standard>
+				</short>
+			</metazone>
+			<metazone type="Easter">
+				<short>
+					<standard draft="provisional">EAST</standard>
+					<daylight draft="provisional">EASST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Ecuador">
+				<short>
+					<standard draft="provisional">ECT</standard>
+				</short>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard draft="provisional">שעון מרכז אירופה</standard>
+					<daylight draft="provisional">שעון קיץ מרכז אירופה</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">CET</standard>
+					<daylight draft="provisional">CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard draft="provisional">שעון מזרח אירופה</standard>
+					<daylight draft="provisional">שעון קיץ מזרח אירופה</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">EET</standard>
+					<daylight draft="provisional">EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<standard draft="provisional">שעון מערב אירופה</standard>
+					<daylight draft="provisional">שעון קיץ, מערב אירופה</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">WET</standard>
+					<daylight draft="provisional">WEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Falkland">
+				<short>
+					<standard draft="provisional">FKT</standard>
+					<daylight draft="provisional">FKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Fiji">
+				<short>
+					<standard draft="provisional">FJT</standard>
+					<daylight draft="provisional">FJST</daylight>
+				</short>
+			</metazone>
+			<metazone type="French_Guiana">
+				<short>
+					<standard draft="provisional">GFT</standard>
+				</short>
+			</metazone>
+			<metazone type="French_Southern">
+				<short>
+					<standard draft="provisional">TFT</standard>
+				</short>
+			</metazone>
+			<metazone type="Frunze">
+				<short>
+					<standard draft="provisional">FRUT</standard>
+					<daylight draft="provisional">FRUST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Galapagos">
+				<short>
+					<standard draft="provisional">GALT</standard>
+				</short>
+			</metazone>
+			<metazone type="Gambier">
+				<short>
+					<standard draft="provisional">GAMT</standard>
+				</short>
+			</metazone>
+			<metazone type="Georgia">
+				<short>
+					<standard draft="provisional">GET</standard>
+					<daylight draft="provisional">GEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Gilbert_Islands">
+				<short>
+					<standard draft="provisional">GILT</standard>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard draft="provisional">זמן גריניץ'</standard>
+				</long>
+				<short>
+					<standard draft="provisional">GMT</standard>
+				</short>
+			</metazone>
+			<metazone type="Greenland_Central">
+				<short>
+					<standard draft="provisional">CGT</standard>
+					<daylight draft="provisional">CGST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<short>
+					<standard draft="provisional">EGT</standard>
+					<daylight draft="provisional">EGST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<short>
+					<standard draft="provisional">WGT</standard>
+					<daylight draft="provisional">WGST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Guam">
+				<short>
+					<standard draft="provisional">GST (GU)</standard>
+				</short>
+			</metazone>
+			<metazone type="Gulf">
+				<short>
+					<standard draft="provisional">GST</standard>
+				</short>
+			</metazone>
+			<metazone type="Guyana">
+				<short>
+					<standard draft="provisional">GYT</standard>
+				</short>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<short>
+					<standard draft="provisional">HST</standard>
+				</short>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<short>
+					<standard draft="provisional">HKT</standard>
+					<daylight draft="provisional">HKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hovd">
+				<short>
+					<standard draft="provisional">HOVT</standard>
+					<daylight draft="provisional">HOVST</daylight>
+				</short>
+			</metazone>
+			<metazone type="India">
+				<long>
+					<standard draft="provisional">שעון הודו</standard>
+				</long>
+				<short>
+					<standard draft="contributed">IST (הודו)</standard>
+				</short>
+			</metazone>
+			<metazone type="Indian_Ocean">
+				<short>
+					<standard draft="provisional">IOT</standard>
+				</short>
+			</metazone>
+			<metazone type="Indochina">
+				<short>
+					<standard draft="provisional">ICT</standard>
+				</short>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<short>
+					<standard draft="provisional">CIT</standard>
+				</short>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<short>
+					<standard draft="provisional">EIT</standard>
+				</short>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<short>
+					<standard draft="provisional">WIT</standard>
+				</short>
+			</metazone>
+			<metazone type="Iran">
+				<short>
+					<standard draft="provisional">IRST</standard>
+					<daylight draft="provisional">IRDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Irkutsk">
+				<short>
+					<standard draft="provisional">IRKT</standard>
+					<daylight draft="provisional">IRKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<generic draft="contributed">שעון ישראל</generic>
+					<standard draft="provisional">שעון ישראל</standard>
+					<daylight draft="provisional">שעון קיץ, ישראל</daylight>
+				</long>
+				<short>
+					<standard draft="contributed">IST</standard>
+					<daylight draft="provisional">IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<standard draft="provisional">שעון יפן</standard>
+				</long>
+				<short>
+					<standard draft="provisional">JST</standard>
+					<daylight draft="provisional">JDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Kamchatka">
+				<short>
+					<standard draft="provisional">PETT</standard>
+					<daylight draft="provisional">PETST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Karachi">
+				<short>
+					<standard draft="provisional">KART</standard>
+				</short>
+			</metazone>
+			<metazone type="Kashgar">
+				<short>
+					<standard draft="provisional">KAST</standard>
+				</short>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<short>
+					<standard draft="provisional">EKST</standard>
+				</short>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<short>
+					<standard draft="provisional">WKST</standard>
+				</short>
+			</metazone>
+			<metazone type="Kizilorda">
+				<short>
+					<standard draft="provisional">KIZT</standard>
+					<daylight draft="provisional">KIZST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Korea">
+				<long>
+					<standard draft="provisional">שעון קוריאה</standard>
+				</long>
+				<short>
+					<standard draft="provisional">KST</standard>
+					<daylight draft="provisional">KDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Kosrae">
+				<short>
+					<standard draft="provisional">KOST</standard>
+				</short>
+			</metazone>
+			<metazone type="Krasnoyarsk">
+				<short>
+					<daylight draft="provisional">KRAST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Kuybyshev">
+				<short>
+					<standard draft="provisional">KUYT</standard>
+					<daylight draft="provisional">KUYST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Kwajalein">
+				<short>
+					<standard draft="provisional">KWAT</standard>
+				</short>
+			</metazone>
+			<metazone type="Line_Islands">
+				<short>
+					<standard draft="provisional">LINT</standard>
+				</short>
+			</metazone>
+			<metazone type="Lord_Howe">
+				<long>
+					<generic draft="provisional">שעון האי לורד האו</generic>
+					<standard draft="provisional">שעון האי לורד האו</standard>
+					<daylight draft="provisional">שעון קיץ, האי לורד האו</daylight>
+				</long>
+				<short>
+					<generic draft="provisional">LHT</generic>
+					<standard draft="provisional">LHST</standard>
+					<daylight draft="provisional">LHDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Maldives">
+				<short>
+					<standard draft="provisional">MVT</standard>
+				</short>
+			</metazone>
+			<metazone type="Marquesas">
+				<short>
+					<standard draft="provisional">MART</standard>
+				</short>
+			</metazone>
+			<metazone type="Marshall_Islands">
+				<short>
+					<standard draft="provisional">MHT</standard>
+				</short>
+			</metazone>
+			<metazone type="Mauritius">
+				<short>
+					<standard draft="provisional">MUT</standard>
+					<daylight draft="provisional">MUST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Mawson">
+				<short>
+					<standard draft="provisional">MAWT</standard>
+				</short>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic draft="provisional">שעון מוסקבה</generic>
+					<standard draft="provisional">שעון מוסקבה</standard>
+					<daylight draft="provisional">שעון קיץ, מוסקבה</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">MSK</standard>
+					<daylight draft="provisional">MSKS</daylight>
+				</short>
+			</metazone>
+			<metazone type="Nauru">
+				<short>
+					<standard draft="provisional">NRT</standard>
+				</short>
+			</metazone>
+			<metazone type="New_Caledonia">
+				<short>
+					<standard draft="provisional">NCT</standard>
+					<daylight draft="provisional">NCST</daylight>
+				</short>
+			</metazone>
+			<metazone type="New_Zealand">
+				<short>
+					<standard draft="provisional">NZST</standard>
+					<daylight draft="provisional">NZDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Newfoundland">
+				<short>
+					<standard draft="provisional">NST</standard>
+					<daylight draft="provisional">NDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Niue">
+				<short>
+					<standard draft="provisional">NUT</standard>
+				</short>
+			</metazone>
+			<metazone type="Norfolk">
+				<short>
+					<standard draft="provisional">NFT</standard>
+				</short>
+			</metazone>
+			<metazone type="Noronha">
+				<short>
+					<standard draft="provisional">FNT</standard>
+					<daylight draft="provisional">FNST</daylight>
+				</short>
+			</metazone>
+			<metazone type="North_Mariana">
+				<short>
+					<standard draft="provisional">MPT</standard>
+				</short>
+			</metazone>
+			<metazone type="Palau">
+				<short>
+					<standard draft="provisional">PWT</standard>
+				</short>
+			</metazone>
+			<metazone type="Papua_New_Guinea">
+				<short>
+					<standard draft="provisional">PGT</standard>
+				</short>
+			</metazone>
+			<metazone type="Paraguay">
+				<short>
+					<standard draft="provisional">PYT</standard>
+					<daylight draft="provisional">PYST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Peru">
+				<short>
+					<standard draft="provisional">PET</standard>
+					<daylight draft="provisional">PEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Phoenix_Islands">
+				<short>
+					<standard draft="provisional">PHOT</standard>
+				</short>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<short>
+					<standard draft="provisional">PMST</standard>
+					<daylight draft="provisional">PMDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Pitcairn">
+				<short>
+					<standard draft="provisional">PNT</standard>
+				</short>
+			</metazone>
+			<metazone type="Ponape">
+				<short>
+					<standard draft="provisional">PONT</standard>
+				</short>
+			</metazone>
+			<metazone type="Reunion">
+				<short>
+					<standard draft="provisional">RET</standard>
+				</short>
+			</metazone>
+			<metazone type="Rothera">
+				<short>
+					<standard draft="provisional">ROTT</standard>
+				</short>
+			</metazone>
+			<metazone type="Samara">
+				<short>
+					<standard draft="provisional">SAMT</standard>
+					<daylight draft="provisional">SAMST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Samoa">
+				<short>
+					<standard draft="provisional">SST</standard>
+				</short>
+			</metazone>
+			<metazone type="Seychelles">
+				<short>
+					<standard draft="provisional">SCT</standard>
+				</short>
+			</metazone>
+			<metazone type="Solomon">
+				<short>
+					<standard draft="provisional">SBT</standard>
+				</short>
+			</metazone>
+			<metazone type="South_Georgia">
+				<short>
+					<standard draft="provisional">GST (GS)</standard>
+				</short>
+			</metazone>
+			<metazone type="Suriname">
+				<short>
+					<standard draft="provisional">SRT</standard>
+				</short>
+			</metazone>
+			<metazone type="Syowa">
+				<short>
+					<standard draft="provisional">SYOT</standard>
+				</short>
+			</metazone>
+			<metazone type="Tahiti">
+				<short>
+					<standard draft="provisional">TAHT</standard>
+				</short>
+			</metazone>
+			<metazone type="Tokelau">
+				<short>
+					<standard draft="provisional">TKT</standard>
+				</short>
+			</metazone>
+			<metazone type="Tonga">
+				<short>
+					<standard draft="provisional">TOT</standard>
+					<daylight draft="provisional">TOST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Truk">
+				<short>
+					<standard draft="provisional">TRUT</standard>
+				</short>
+			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<standard draft="provisional">שעון טורקיה</standard>
+					<daylight draft="provisional">שעון קיץ, טורקיה</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">TRT</standard>
+					<daylight draft="provisional">TRST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Tuvalu">
+				<short>
+					<standard draft="provisional">TVT</standard>
+				</short>
+			</metazone>
+			<metazone type="Uruguay">
+				<short>
+					<standard draft="provisional">UYT</standard>
+					<daylight draft="provisional">UYST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Vanuatu">
+				<short>
+					<standard draft="provisional">VUT</standard>
+					<daylight draft="provisional">VUST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Venezuela">
+				<short>
+					<standard draft="provisional">VET</standard>
+				</short>
+			</metazone>
+			<metazone type="Volgograd">
+				<short>
+					<standard draft="provisional">VOLT</standard>
+					<daylight draft="provisional">VOLST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Vostok">
+				<short>
+					<standard draft="provisional">VOST</standard>
+				</short>
+			</metazone>
+			<metazone type="Wake">
+				<short>
+					<standard draft="provisional">WAKT</standard>
+				</short>
+			</metazone>
+			<metazone type="Wallis">
+				<short>
+					<standard draft="provisional">WFT</standard>
+				</short>
+			</metazone>
+			<metazone type="Yukon">
+				<short>
+					<standard draft="provisional">YST</standard>
+					<daylight draft="provisional">YDT</daylight>
+				</short>
+			</metazone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<defaultNumberingSystem draft="provisional">latn</defaultNumberingSystem>
+		<symbols>
+			<decimal>.</decimal>
+			<group>,</group>
+			<list draft="contributed">;</list>
+			<percentSign draft="contributed">%</percentSign>
+			<nativeZeroDigit draft="contributed">0</nativeZeroDigit>
+			<patternDigit draft="contributed">#</patternDigit>
+			<plusSign draft="contributed">+</plusSign>
+			<minusSign draft="contributed">-</minusSign>
+			<exponential draft="contributed">E</exponential>
+			<perMille draft="contributed">‰</perMille>
+			<infinity draft="contributed">∞</infinity>
+			<nan draft="contributed">NaN</nan>
+		</symbols>
+		<decimalFormats>
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats>
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats>
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+		</currencyFormats>
+		<currencies>
+			<currency type="ADP">
+				<displayName>פזטה אנדורית</displayName>
+			</currency>
+			<currency type="AED">
+				<displayName>דירהם של איחוד הנסיכויות הערביות</displayName>
+			</currency>
+			<currency type="AFN">
+				<displayName>אפגני אפגני</displayName>
+			</currency>
+			<currency type="ALL">
+				<displayName>לק אלבני</displayName>
+			</currency>
+			<currency type="AMD">
+				<displayName>דראם ארמני</displayName>
+			</currency>
+			<currency type="ANG">
+				<displayName>גילדן של האנטילים ההולנדיים</displayName>
+			</currency>
+			<currency type="AOA">
+				<displayName>קואנזה אנגולי</displayName>
+			</currency>
+			<currency type="AON">
+				<displayName>קואנזה חדש אנגולי (1990-2000)</displayName>
+			</currency>
+			<currency type="AOR">
+				<displayName>קואנזה רג׳וסטדו אנגולי (1995-1999)</displayName>
+			</currency>
+			<currency type="ARP">
+				<displayName>פזו ארגנטינאי (1983-1985)</displayName>
+			</currency>
+			<currency type="ARS">
+				<displayName>פזו ארגנטינאי</displayName>
+			</currency>
+			<currency type="ATS">
+				<displayName>שילינג אוסטרי</displayName>
+			</currency>
+			<currency type="AUD">
+				<displayName>דולר אוסטרלי</displayName>
+			</currency>
+			<currency type="AWG">
+				<displayName>פלורין של ארובה</displayName>
+			</currency>
+			<currency type="AZM">
+				<displayName>מנאט אזרביג׳אני (1993-2006)</displayName>
+			</currency>
+			<currency type="AZN">
+				<displayName>מאנאט אזרביג׳ני</displayName>
+			</currency>
+			<currency type="BAD">
+				<displayName draft="contributed">דינר של בוסניה־הרצגובינה</displayName>
+			</currency>
+			<currency type="BAM">
+				<displayName>מארק בר המרה של בוסניה־הרצגובינה</displayName>
+			</currency>
+			<currency type="BBD">
+				<displayName>דולר ברבדיאני</displayName>
+			</currency>
+			<currency type="BDT">
+				<displayName>טאקה בנגלדשי</displayName>
+			</currency>
+			<currency type="BEC">
+				<displayName>פרנק בלגי (בר המרה)</displayName>
+			</currency>
+			<currency type="BEF">
+				<displayName>פרנק בלגי</displayName>
+			</currency>
+			<currency type="BGL">
+				<displayName>לב בולגרי ישן</displayName>
+			</currency>
+			<currency type="BGN">
+				<displayName>לב בולגרי</displayName>
+			</currency>
+			<currency type="BHD">
+				<displayName>דינר בחרייני</displayName>
+			</currency>
+			<currency type="BIF">
+				<displayName>פרנק בורונדי</displayName>
+			</currency>
+			<currency type="BMD">
+				<displayName>דולר ברמודה</displayName>
+			</currency>
+			<currency type="BND">
+				<displayName>דולר ברוניי</displayName>
+			</currency>
+			<currency type="BOB">
+				<displayName>בוליביאנו</displayName>
+			</currency>
+			<currency type="BOP">
+				<displayName>פזו בוליבי</displayName>
+			</currency>
+			<currency type="BRB">
+				<displayName>קרוזיארו חדש ברזילאי (1967-1986)</displayName>
+			</currency>
+			<currency type="BRC">
+				<displayName>קרוזדו ברזילאי</displayName>
+			</currency>
+			<currency type="BRL">
+				<displayName>ריאל ברזילאי</displayName>
+			</currency>
+			<currency type="BSD">
+				<displayName>דולר בהאמי</displayName>
+			</currency>
+			<currency type="BTN">
+				<displayName>נגולטרום בהוטני</displayName>
+			</currency>
+			<currency type="BWP">
+				<displayName>פולה בוצוואני</displayName>
+			</currency>
+			<currency type="BZD">
+				<displayName>דולר בליזי</displayName>
+			</currency>
+			<currency type="CAD">
+				<displayName>דולר קנדי</displayName>
+			</currency>
+			<currency type="CDF">
+				<displayName>פרנק קונגולזי</displayName>
+			</currency>
+			<currency type="CHF">
+				<displayName>פרנק שוויצרי</displayName>
+			</currency>
+			<currency type="CLP">
+				<displayName>פזו צ'ילאני</displayName>
+			</currency>
+			<currency type="CNY">
+				<displayName>יואן רנמינבי סיני</displayName>
+			</currency>
+			<currency type="COP">
+				<displayName>פזו קולומביאני</displayName>
+			</currency>
+			<currency type="CRC">
+				<displayName>קולון קוסטה־ריקני</displayName>
+			</currency>
+			<currency type="CSD">
+				<displayName>דינר סרבי ישן</displayName>
+			</currency>
+			<currency type="CSK">
+				<displayName>קורונה צ׳כית</displayName>
+			</currency>
+			<currency type="CUP">
+				<displayName>פזו קובני</displayName>
+			</currency>
+			<currency type="CYP">
+				<displayName>לירה קפריסאית</displayName>
+			</currency>
+			<currency type="CZK">
+				<displayName>קורונה צ'כית</displayName>
+			</currency>
+			<currency type="DDM">
+				<displayName>מרק מזרח גרמני</displayName>
+			</currency>
+			<currency type="DEM">
+				<displayName>מרק גרמני</displayName>
+			</currency>
+			<currency type="DJF">
+				<displayName>פרנק ג׳יבוטי</displayName>
+			</currency>
+			<currency type="DKK">
+				<displayName>כתר דני</displayName>
+			</currency>
+			<currency type="DOP">
+				<displayName>פזו דומיניקני</displayName>
+			</currency>
+			<currency type="DZD">
+				<displayName>דינר אלג׳ירי</displayName>
+			</currency>
+			<currency type="ECS">
+				<displayName>סוקר אקואדורי</displayName>
+			</currency>
+			<currency type="EEK">
+				<displayName>קרון אסטוני</displayName>
+			</currency>
+			<currency type="EGP">
+				<displayName>לירה מיצרית</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">לירה מצרית</displayName>
+			</currency>
+			<currency type="ERN">
+				<displayName>נאקפה אריתראי</displayName>
+			</currency>
+			<currency type="ESA">
+				<displayName draft="provisional">פזטה [ESA]</displayName>
+			</currency>
+			<currency type="ESB">
+				<displayName draft="provisional">פזטה [ESB]</displayName>
+			</currency>
+			<currency type="ESP">
+				<displayName>פסטה ספרדי</displayName>
+			</currency>
+			<currency type="ETB">
+				<displayName>ביר אתיופי</displayName>
+			</currency>
+			<currency type="EUR">
+				<displayName>אירו</displayName>
+			</currency>
+			<currency type="FIM">
+				<displayName>מרק פיני</displayName>
+			</currency>
+			<currency type="FJD">
+				<displayName>דולר פיג'י</displayName>
+			</currency>
+			<currency type="FKP">
+				<displayName>לירה של איי פוקלנד</displayName>
+			</currency>
+			<currency type="FRF">
+				<displayName>פרנק צרפתי</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName>לירה שטרלינג</displayName>
+			</currency>
+			<currency type="GEL">
+				<displayName>לרי גאורגי</displayName>
+			</currency>
+			<currency type="GIP">
+				<displayName>פאונד גיברלטר</displayName>
+			</currency>
+			<currency type="GMD">
+				<displayName>דלאסי גמבי</displayName>
+			</currency>
+			<currency type="GNF">
+				<displayName>פרנק גינאי</displayName>
+			</currency>
+			<currency type="GRD">
+				<displayName draft="contributed">דרכמה</displayName>
+			</currency>
+			<currency type="GTQ">
+				<displayName>קצל גואטמלי</displayName>
+			</currency>
+			<currency type="GWP">
+				<displayName>פזו גינאי</displayName>
+			</currency>
+			<currency type="GYD">
+				<displayName>דולר גיאני</displayName>
+			</currency>
+			<currency type="HKD">
+				<displayName>דולר הונג קונגי</displayName>
+			</currency>
+			<currency type="HNL">
+				<displayName>למפירה הונדורי</displayName>
+			</currency>
+			<currency type="HRK">
+				<displayName>קונה קרואטי</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">קונה קרואטית</displayName>
+			</currency>
+			<currency type="HTG">
+				<displayName>גארד האיטי</displayName>
+			</currency>
+			<currency type="HUF">
+				<displayName>פורינט הונגרי</displayName>
+			</currency>
+			<currency type="IDR">
+				<displayName>רופיה אינדונזית</displayName>
+			</currency>
+			<currency type="IEP">
+				<displayName>לירה אירית</displayName>
+			</currency>
+			<currency type="ILP">
+				<displayName>לירה ישראלית</displayName>
+				<symbol>ל״י</symbol>
+			</currency>
+			<currency type="ILS">
+				<displayName>ש&quot;ח</displayName>
+				<displayName count="other">שקלים חדשים</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">שקל</displayName>
+				<symbol draft="provisional">₪</symbol>
+			</currency>
+			<currency type="INR">
+				<displayName>רופי הודית</displayName>
+			</currency>
+			<currency type="IQD">
+				<displayName>דינר עירקי</displayName>
+			</currency>
+			<currency type="IRR">
+				<displayName>ריאל איראני</displayName>
+			</currency>
+			<currency type="ISK">
+				<displayName>קרונה איסלנדית</displayName>
+			</currency>
+			<currency type="ITL">
+				<displayName>לירה איטלקית</displayName>
+			</currency>
+			<currency type="JMD">
+				<displayName>דולר ג'מאיקני</displayName>
+			</currency>
+			<currency type="JOD">
+				<displayName>דינר ירדני</displayName>
+			</currency>
+			<currency type="JPY">
+				<displayName>ין יפני</displayName>
+			</currency>
+			<currency type="KES">
+				<displayName>שילינג קנייאתי</displayName>
+			</currency>
+			<currency type="KGS">
+				<displayName>סום קירגיזי</displayName>
+			</currency>
+			<currency type="KHR">
+				<displayName>ריל קמבודי</displayName>
+			</currency>
+			<currency type="KMF">
+				<displayName>פרנק קומורואי</displayName>
+			</currency>
+			<currency type="KPW">
+				<displayName>וון צפון קוראני</displayName>
+			</currency>
+			<currency type="KRW">
+				<displayName>וון דרום קוראני</displayName>
+			</currency>
+			<currency type="KWD">
+				<displayName>דינר כוויתי</displayName>
+			</currency>
+			<currency type="KYD">
+				<displayName>דולר קיימאני</displayName>
+			</currency>
+			<currency type="KZT">
+				<displayName>טנגה קזחסטני</displayName>
+			</currency>
+			<currency type="LAK">
+				<displayName>קיפ לאי</displayName>
+			</currency>
+			<currency type="LBP">
+				<displayName>לירה לבנונית</displayName>
+			</currency>
+			<currency type="LKR">
+				<displayName>רופי סרי לנקי</displayName>
+			</currency>
+			<currency type="LRD">
+				<displayName>דולר ליברי</displayName>
+			</currency>
+			<currency type="LSL">
+				<displayName>לוטי לסותי</displayName>
+			</currency>
+			<currency type="LTL">
+				<displayName draft="contributed">ליטא ליטאי</displayName>
+			</currency>
+			<currency type="LUF">
+				<displayName>פרנק לוקסמבורגי</displayName>
+			</currency>
+			<currency type="LVL">
+				<displayName>לט לטבי</displayName>
+			</currency>
+			<currency type="LYD">
+				<displayName>דינר לובי</displayName>
+			</currency>
+			<currency type="MAD">
+				<displayName>דירהם מרוקאי</displayName>
+			</currency>
+			<currency type="MAF">
+				<displayName>פרנק מרוקאי</displayName>
+			</currency>
+			<currency type="MDL">
+				<displayName>ליאו מולדובני</displayName>
+			</currency>
+			<currency type="MGF">
+				<displayName>פרנק מדגסקארי</displayName>
+			</currency>
+			<currency type="MMK">
+				<displayName>קיאט מיאנמרי</displayName>
+			</currency>
+			<currency type="MNT">
+				<displayName draft="provisional">טוגרוג</displayName>
+			</currency>
+			<currency type="MOP">
+				<displayName draft="provisional">פטקה</displayName>
+			</currency>
+			<currency type="MTL">
+				<displayName>לירה מלטית</displayName>
+			</currency>
+			<currency type="MUR">
+				<displayName>רופי מאוריציני</displayName>
+			</currency>
+			<currency type="MVR">
+				<displayName>רופיה מלדיבית</displayName>
+			</currency>
+			<currency type="MWK">
+				<displayName>קואצ׳ה מלאוי</displayName>
+			</currency>
+			<currency type="MXN">
+				<displayName>פזו מקסיקני</displayName>
+			</currency>
+			<currency type="MXP">
+				<displayName>פזו מקסיקני (1861 - 1992)</displayName>
+			</currency>
+			<currency type="MYR">
+				<displayName>רינגיט מלזי</displayName>
+			</currency>
+			<currency type="MZM">
+				<displayName>מטיקל</displayName>
+			</currency>
+			<currency type="NAD">
+				<displayName>דולר נמיבי</displayName>
+			</currency>
+			<currency type="NGN">
+				<displayName>נאירה ניגרי</displayName>
+			</currency>
+			<currency type="NIO">
+				<displayName>קורדובה ניקראגי</displayName>
+			</currency>
+			<currency type="NLG">
+				<displayName>גילדן הולנדי</displayName>
+			</currency>
+			<currency type="NOK">
+				<displayName>כתר נורבגי</displayName>
+			</currency>
+			<currency type="NPR">
+				<displayName>רופי נפאלי</displayName>
+			</currency>
+			<currency type="NZD">
+				<displayName>דולר ניו זילנדי</displayName>
+			</currency>
+			<currency type="PAB">
+				<displayName>בלבואה פנמי</displayName>
+			</currency>
+			<currency type="PEN">
+				<displayName>סול פרואני חדש</displayName>
+			</currency>
+			<currency type="PGK">
+				<displayName>קינה של פפואה גינאה החדשה</displayName>
+			</currency>
+			<currency type="PHP">
+				<displayName>פזו פיליפיני</displayName>
+			</currency>
+			<currency type="PKR">
+				<displayName>רופי פקיסטני</displayName>
+			</currency>
+			<currency type="PLN">
+				<displayName>זלוטי פולני</displayName>
+			</currency>
+			<currency type="PLZ">
+				<displayName draft="provisional">זלוטי (1950 - 1995)</displayName>
+			</currency>
+			<currency type="PTE">
+				<displayName>אסקודו פורטוגלי</displayName>
+			</currency>
+			<currency type="PYG">
+				<displayName>גוורני פראגוואי</displayName>
+			</currency>
+			<currency type="QAR">
+				<displayName>ריאל קטארי</displayName>
+			</currency>
+			<currency type="ROL">
+				<displayName>לאו רומני ישן</displayName>
+			</currency>
+			<currency type="RON">
+				<displayName>לאו רומני חדש</displayName>
+			</currency>
+			<currency type="RSD">
+				<displayName draft="contributed">דינר סרבי</displayName>
+			</currency>
+			<currency type="RUB">
+				<displayName>רובל</displayName>
+			</currency>
+			<currency type="RUR">
+				<displayName>רובל רוסי (1991 - 1998)</displayName>
+			</currency>
+			<currency type="RWF">
+				<displayName>פרנק רואנדי</displayName>
+			</currency>
+			<currency type="SAR">
+				<displayName>ריאל סעודי</displayName>
+			</currency>
+			<currency type="SBD">
+				<displayName>דולר איי שלמה</displayName>
+			</currency>
+			<currency type="SCR">
+				<displayName>רופי סיישלי</displayName>
+			</currency>
+			<currency type="SDD">
+				<displayName>דינר סודני</displayName>
+			</currency>
+			<currency type="SDP">
+				<displayName>לירה סודנית</displayName>
+			</currency>
+			<currency type="SEK">
+				<displayName>כתר שוודי</displayName>
+			</currency>
+			<currency type="SGD">
+				<displayName>דולר סינגפורי</displayName>
+			</currency>
+			<currency type="SHP">
+				<displayName>פאונד סנט הלני</displayName>
+			</currency>
+			<currency type="SIT">
+				<displayName>טולאר סלובני</displayName>
+			</currency>
+			<currency type="SKK">
+				<displayName>קורונה סלובקי</displayName>
+			</currency>
+			<currency type="SLL">
+				<displayName>ליאון סיירה לאוני</displayName>
+			</currency>
+			<currency type="SOS">
+				<displayName>שילינג סומאלי</displayName>
+			</currency>
+			<currency type="SRD">
+				<displayName>דולר סורינאמי</displayName>
+			</currency>
+			<currency type="SRG">
+				<displayName>גילדר סורינאמי</displayName>
+			</currency>
+			<currency type="STD">
+				<displayName>דוברה של סן טומה ופרינסיפה</displayName>
+			</currency>
+			<currency type="SUR">
+				<displayName>רובל סובייטי</displayName>
+			</currency>
+			<currency type="SYP">
+				<displayName>לירה סורית</displayName>
+			</currency>
+			<currency type="SZL">
+				<displayName>לילנגני סווזי</displayName>
+			</currency>
+			<currency type="THB">
+				<displayName>בהט תאילנדי</displayName>
+			</currency>
+			<currency type="TJS">
+				<displayName>סומוני טג'קיסטני</displayName>
+			</currency>
+			<currency type="TMM">
+				<displayName>מנאט טורקמאני</displayName>
+			</currency>
+			<currency type="TND">
+				<displayName>דינר טוניסאי</displayName>
+			</currency>
+			<currency type="TOP">
+				<displayName>פאאמגה טונגי</displayName>
+			</currency>
+			<currency type="TPE">
+				<displayName>אסקודו טימוראי</displayName>
+			</currency>
+			<currency type="TRL">
+				<displayName>לירה טורקית</displayName>
+			</currency>
+			<currency type="TRY">
+				<displayName>לירה טורקית חדשה</displayName>
+			</currency>
+			<currency type="TTD">
+				<displayName>דולר טרינידדי</displayName>
+			</currency>
+			<currency type="TWD">
+				<displayName>דולר טאייוני חדש</displayName>
+			</currency>
+			<currency type="TZS">
+				<displayName>שילינג טנזני</displayName>
+			</currency>
+			<currency type="UAH">
+				<displayName>גריבנה אוקראיני</displayName>
+			</currency>
+			<currency type="UGS">
+				<displayName>שילינג אוגנדי (1966 - 1987)</displayName>
+			</currency>
+			<currency type="UGX">
+				<displayName>שילינג אוגנדי</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName>דולר אמריקאי</displayName>
+			</currency>
+			<currency type="USN">
+				<displayName>דולר אמריקאי (היום הבא)</displayName>
+			</currency>
+			<currency type="USS">
+				<displayName>דולר אמריקאי (היום הזה)</displayName>
+			</currency>
+			<currency type="UYU">
+				<displayName>פזו אורוגוואי</displayName>
+			</currency>
+			<currency type="UZS">
+				<displayName>סום אוזבקי</displayName>
+			</currency>
+			<currency type="VEB">
+				<displayName>בוליבר ונצואלי</displayName>
+			</currency>
+			<currency type="VND">
+				<displayName>דונג וייטנאמי</displayName>
+			</currency>
+			<currency type="VUV">
+				<displayName>ואטו של ונואטו</displayName>
+			</currency>
+			<currency type="WST">
+				<displayName>טאלה סמואי</displayName>
+			</currency>
+			<currency type="XAF">
+				<displayName>פרנק CFA</displayName>
+			</currency>
+			<currency type="XAG">
+				<displayName draft="contributed">כסף</displayName>
+			</currency>
+			<currency type="XAU">
+				<displayName>זהב</displayName>
+			</currency>
+			<currency type="XCD">
+				<displayName>דולר מזרח קריבי</displayName>
+			</currency>
+			<currency type="XDR">
+				<displayName>זכויות משיכה מיוחדות</displayName>
+			</currency>
+			<currency type="XFO">
+				<displayName>פרנק זהב</displayName>
+			</currency>
+			<currency type="XPD">
+				<displayName draft="contributed">פלדיום</displayName>
+			</currency>
+			<currency type="XPT">
+				<displayName draft="contributed">פלטינה</displayName>
+			</currency>
+			<currency type="XTS">
+				<displayName>סימון למטרות בדיקה</displayName>
+			</currency>
+			<currency type="XXX">
+				<displayName>סימון &quot;ללא מטבע&quot;</displayName>
+			</currency>
+			<currency type="YDD">
+				<displayName>דינר תימני</displayName>
+			</currency>
+			<currency type="YER">
+				<displayName>ריאל תימני</displayName>
+			</currency>
+			<currency type="YUD">
+				<displayName draft="provisional">דינר יגוסלבי חדש</displayName>
+			</currency>
+			<currency type="YUM">
+				<displayName draft="provisional">דינר יגוסלבי</displayName>
+			</currency>
+			<currency type="ZAL">
+				<displayName>ראנד דרום אפריקאי (כספי)</displayName>
+			</currency>
+			<currency type="ZAR">
+				<displayName>ראנד דרום אפריקאי</displayName>
+			</currency>
+			<currency type="ZMK">
+				<displayName>קוואצ'ה זמבית</displayName>
+			</currency>
+			<currency type="ZRN">
+				<displayName>זאיר חדש</displayName>
+			</currency>
+			<currency type="ZWD">
+				<displayName>דולר זימבבואי</displayName>
+			</currency>
+		</currencies>
+	</numbers>
+	<units>
+		<unit type="day">
+			<unitPattern count="one">{0} יום</unitPattern>
+			<unitPattern count="one" alt="short">{0} יום</unitPattern>
+			<unitPattern count="other">{0} ימים</unitPattern>
+			<unitPattern count="other" alt="short">{0} ימים</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="one">{0} שעה</unitPattern>
+			<unitPattern count="one" alt="short">{0} שעה</unitPattern>
+			<unitPattern count="other">{0} שעות</unitPattern>
+			<unitPattern count="other" alt="short">{0} שעות</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="one">{0} דקה</unitPattern>
+			<unitPattern count="one" alt="short">{0} דק'</unitPattern>
+			<unitPattern count="other">{0} דקות</unitPattern>
+			<unitPattern count="other" alt="short">{0} דק'</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="one">{0} חודש</unitPattern>
+			<unitPattern count="one" alt="short">{0} חודש</unitPattern>
+			<unitPattern count="other">{0} חודשים</unitPattern>
+			<unitPattern count="other" alt="short">{0} חודשים</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="one">{0} שניה</unitPattern>
+			<unitPattern count="one" alt="short">{0} שנ'</unitPattern>
+			<unitPattern count="other">{0} שניות</unitPattern>
+			<unitPattern count="other" alt="short">{0} שנ'</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="one">{0} שבוע</unitPattern>
+			<unitPattern count="one" alt="short">{0} שבוע</unitPattern>
+			<unitPattern count="other">{0} שבועות</unitPattern>
+			<unitPattern count="other" alt="short">{0} שבועות</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="one">{0} שנה</unitPattern>
+			<unitPattern count="one" alt="short">{0} שנה</unitPattern>
+			<unitPattern count="other">{0} שנים</unitPattern>
+			<unitPattern count="other" alt="short">{0} שנים</unitPattern>
+		</unit>
+	</units>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="2" draft="provisional">{0}, {0}</listPatternPart>
+			<listPatternPart type="end" draft="provisional">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="provisional">{0}, {1}</listPatternPart>
+			<listPatternPart type="start" draft="provisional">{0}, {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
+	<posix>
+		<messages>
+			<yesstr>כן:כ</yesstr>
+			<nostr>לא:ל</nostr>
+		</messages>
+	</posix>
+	<references>
+		<reference type="RP1" uri="http://directory.kol-israel.com/asites/favorites.html?www.nrg.co.il/" draft="provisional">nrg on-line news - see date on right</reference>
+		<reference type="RP2" draft="contributed">Even-Shoshan dictionary</reference>
+	</references>
+</ldml>
+

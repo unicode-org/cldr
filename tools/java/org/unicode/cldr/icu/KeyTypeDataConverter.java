@@ -5,6 +5,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.Map.Entry;
@@ -188,7 +189,8 @@ public class KeyTypeDataConverter {
                 String bcpKey = LDMLUtilities.getAttributeValue(node, LDMLBCP47Constants.NAME);
                 String key = LDMLUtilities.getAttributeValue(node, LDMLBCP47Constants.ALIAS);
                 if (key != null && !bcpKey.equals(key)) {
-                    keyMap.put(escapeKey(key), bcpKey);
+                    /* keys are case-insensitive */
+                    keyMap.put(escapeKey(key.toLowerCase(Locale.ROOT)), bcpKey);
                 }
             }
         }
@@ -219,6 +221,7 @@ public class KeyTypeDataConverter {
                 if (key == null) {
                     key = bcpKey;
                 }
+                key = key.toLowerCase(Locale.ROOT); // keys are case-insensitive
                 for (Node node2 = node.getFirstChild(); node2 != null; node2 = node2.getNextSibling()) {
                     if (node2.getNodeType() != Node.ELEMENT_NODE) {
                         continue;

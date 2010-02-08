@@ -275,7 +275,7 @@ public class KeyTypeDataConverter {
             if (key == null) {
                 for (String extKey : externalTypeKeys) {
                     if (extKey.equals(itemKey)) {
-                        aliasName = "/" + itemKey + EXTERNAL_TYPES_SUFFIX
+                        aliasName = "/ICUDATA/" + itemKey + EXTERNAL_TYPES_SUFFIX
                                     + "/" + LDMLBCP47Constants.TYPEMAP
                                     + "/" + itemKey;
                         break;
@@ -341,7 +341,7 @@ public class KeyTypeDataConverter {
             if (key == null) {
                 for (String extKey : externalTypeKeys) {
                     if (extKey.equals(itemKey)) {
-                        aliasName = "/" + itemKey + EXTERNAL_TYPES_SUFFIX
+                        aliasName = "/ICUDATA/" + itemKey + EXTERNAL_TYPES_SUFFIX
                                     + "/" + LDMLBCP47Constants.TYPEALIAS
                                     + "/" + itemKey;
                         break;

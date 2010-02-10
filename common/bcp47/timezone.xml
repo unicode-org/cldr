@@ -133,6 +133,7 @@
             <type name="cnurc" alias="Asia/Urumqi"/>
             <type name="cobog" alias="America/Bogota"/>
             <type name="crsjo" alias="America/Costa_Rica"/>
+            <type name="cst6cdt" alias="CST6CDT SystemV/CST6CDT" since="1.8"/>
             <type name="cuhav" alias="America/Havana Cuba"/>
             <type name="cvrai" alias="Atlantic/Cape_Verde"/>
             <type name="cxxch" alias="Indian/Christmas"/>
@@ -153,6 +154,7 @@
             <type name="esceu" alias="Africa/Ceuta"/>
             <type name="eslpa" alias="Atlantic/Canary"/>
             <type name="esmad" alias="Europe/Madrid"/>
+            <type name="est5edt" alias="EST5EDT SystemV/EST5EDT" since="1.8"/>
             <type name="etadd" alias="Africa/Addis_Ababa"/>
             <type name="fihel" alias="Europe/Helsinki"/>
             <type name="fimhq" alias="Europe/Mariehamn"/>
@@ -256,6 +258,7 @@
             <type name="mqfdf" alias="America/Martinique"/>
             <type name="mrnkc" alias="Africa/Nouakchott"/>
             <type name="msmni" alias="America/Montserrat"/>
+            <type name="mst7mdt" alias="MST7MDT SystemV/MST7MDT" since="1.8"/>
             <type name="mtmla" alias="Europe/Malta"/>
             <type name="muplu" alias="Indian/Mauritius"/>
             <type name="mvmle" alias="Indian/Maldives"/>
@@ -297,6 +300,7 @@
             <type name="pmmqc" alias="America/Miquelon"/>
             <type name="pnpcn" alias="Pacific/Pitcairn"/>
             <type name="prsju" alias="America/Puerto_Rico"/>
+            <type name="pst8pdt" alias="PST8PDT SystemV/PST8PDT" since="1.8"/>
             <type name="ptfnc" alias="Atlantic/Madeira"/>
             <type name="ptlis" alias="Europe/Lisbon Portugal"/>
             <type name="ptpdl" alias="Atlantic/Azores"/>
@@ -371,22 +375,22 @@
             <type name="usaeg" alias="America/Indiana/Marengo"/>
             <type name="usanc" alias="America/Anchorage SystemV/YST9YDT US/Alaska"/>
             <type name="usboi" alias="America/Boise"/>
-            <type name="uschi" alias="America/Chicago CST6CDT SystemV/CST6CDT US/Central"/>
-            <type name="usden" alias="America/Denver MST7MDT SystemV/MST7MDT US/Mountain"/>
+            <type name="uschi" alias="America/Chicago US/Central"/>
+            <type name="usden" alias="America/Denver US/Mountain"/>
             <type name="usdet" alias="America/Detroit US/Michigan"/>
             <type name="ushnl" alias="Pacific/Honolulu US/Hawaii"/>
             <type name="usind" alias="America/Indianapolis America/Fort_Wayne America/Indiana/Indianapolis US/East-Indiana"/>
             <type name="usinvev" alias="America/Indiana/Vevay"/>
             <type name="usjnu" alias="America/Juneau"/>
             <type name="usknx" alias="America/Indiana/Knox America/Knox_IN US/Indiana-Starke"/>
-            <type name="uslax" alias="America/Los_Angeles PST8PDT SystemV/PST8PDT US/Pacific US/Pacific-New"/>
+            <type name="uslax" alias="America/Los_Angeles US/Pacific US/Pacific-New"/>
             <type name="uslui" alias="America/Louisville America/Kentucky/Louisville"/>
             <type name="usmnm" alias="America/Menominee"/>
             <type name="usmoc" alias="America/Kentucky/Monticello"/>
             <type name="usnavajo" alias="America/Shiprock Navajo"/>
             <type name="usndcnt" alias="America/North_Dakota/Center"/>
             <type name="usndnsl" alias="America/North_Dakota/New_Salem"/>
-            <type name="usnyc" alias="America/New_York EST5EDT SystemV/EST5EDT US/Eastern"/>
+            <type name="usnyc" alias="America/New_York US/Eastern"/>
             <type name="usoea" alias="America/Indiana/Vincennes"/>
             <type name="usome" alias="America/Nome"/>
             <type name="usphx" alias="America/Phoenix US/Arizona"/>

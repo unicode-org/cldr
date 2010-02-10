@@ -1410,6 +1410,18 @@
 			<timezone type="Africa/Harare">
 				<usesMetazone mzone="Africa_Central"/>
 			</timezone>
+			<timezone type="EST5EDT">
+				<usesMetazone mzone="America_Eastern"/>
+			</timezone>
+			<timezone type="CST6CDT">
+				<usesMetazone mzone="America_Central"/>
+			</timezone>
+			<timezone type="MST7MDT">
+				<usesMetazone mzone="America_Mountain"/>
+			</timezone>
+			<timezone type="PST8PDT">
+				<usesMetazone mzone="America_Pacific"/>
+			</timezone>
 		</metazoneInfo>
 
 		<mapTimezones type="metazones">

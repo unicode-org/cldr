@@ -933,14 +933,6 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">上午</dayPeriod>
-							<dayPeriod type="pm">下午</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1020,12 +1012,10 @@
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="afternoon" draft="provisional">下午</dayPeriod>
-							<dayPeriod type="am">上午</dayPeriod>
 							<dayPeriod type="earlyMorning" draft="provisional">清晨</dayPeriod>
 							<dayPeriod type="midDay" draft="provisional">中午</dayPeriod>
 							<dayPeriod type="morning" draft="provisional">上午</dayPeriod>
 							<dayPeriod type="night" draft="provisional">晚上</dayPeriod>
-							<dayPeriod type="pm">下午</dayPeriod>
 							<dayPeriod type="weeHours" draft="provisional">凌晨</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
@@ -1712,14 +1702,6 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="roc">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">上午</dayPeriod>
-							<dayPeriod type="pm">下午</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">民國前</era>

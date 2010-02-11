@@ -2351,8 +2351,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         final String stuff[] = { LDMLConstants.DEFAULT, LDMLConstants.MONTHS, LDMLConstants.DAYS,
             // LDMLConstants.WEEK,
-            LDMLConstants.AM, LDMLConstants.PM, LDMLConstants.ERAS, LDMLConstants.DATE_FORMATS, LDMLConstants.TIME_FORMATS, LDMLConstants.DATE_TIME_FORMATS, LDMLConstants.SPECIAL,
-            LDMLConstants.FIELDS, LDMLConstants.QUARTERS, };
+            LDMLConstants.ERAS, LDMLConstants.DATE_FORMATS, LDMLConstants.TIME_FORMATS, LDMLConstants.DATE_TIME_FORMATS, LDMLConstants.SPECIAL,
+            LDMLConstants.FIELDS, LDMLConstants.QUARTERS, LDMLConstants.DAYPERIODS, };
 
         for (int jj = 0; jj < stuff.length; jj++) {
             String name = stuff[jj];
@@ -2376,13 +2376,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 res = parseMonthsAndDays(loc, xpath);
             } else if (name.equals(LDMLConstants.WEEK)) {
                 log.info("<week > element is deprecated and the data should moved to " + supplementalDataFile);
-            } else if (name.equals(LDMLConstants.AM) || name.equals(LDMLConstants.PM)) {
-                // TODO: figure out the tricky parts .. basically get the
-                // missing element from
-                // fully resolved locale !
+            } else if (name.equals(LDMLConstants.DAYPERIODS)) {
                 if (writtenAmPm == false) {
                     writtenAmPm = true;
-                    res = parseAmPm(loc, origXpath); // We feed ampm the original xpath.
+                    res = parseAmPm(loc, xpath);
                 }
             } else if (name.equals(LDMLConstants.ERAS)) {
                 res = parseEras(loc, xpath);
@@ -3327,6 +3324,15 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
 
     private Resource parseAmPm(LDML2ICUInputLocale loc, String xpath) {
+        // if the whole thing is an alias
+        Resource current = new Resource();
+        if ((current = getAliasResource(loc, xpath)) != null) {
+            current.name = AM_PM_MARKERS;
+            // if dayPeriods is an alias, then we force AmPmMarkers to be an alias, too
+            String val = ((ResourceAlias) current).val;
+            ((ResourceAlias) current).val = val.replace(LDMLConstants.DAYPERIODS, AM_PM_MARKERS);
+            return current;
+        }
         String[] AMPM = { LDMLConstants.AM, LDMLConstants.PM };
         ResourceString[] strs = new ResourceString[AMPM.length];
         String[] paths = new String[AMPM.length];
@@ -3335,7 +3341,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         for (int i = 0; i < AMPM.length; i++) {
             strs[i] = new ResourceString();
             first = ResourceString.addAfter(first, strs[i]);
-            paths[i] = xpath + "/" + AMPM[i];
+            paths[i] = xpath + "/"
+                             + LDMLConstants.DAYPERIOD_CONTEXT + "[@" + LDMLConstants.TYPE + "=\"" + LDMLConstants.FORMAT + "\"]/"
+                             + LDMLConstants.DAYPERIOD_WIDTH + "[@" + LDMLConstants.TYPE + "=\"" + LDMLConstants.WIDE + "\"]/"
+                             + LDMLConstants.DAYPERIOD + "[@" + LDMLConstants.TYPE + "=\"" + AMPM[i] + "\"]";
             if (!loc.isPathNotConvertible(paths[i])) {
                 strs[i].val = loc.getFile().getStringValue(paths[i]);
                 if (strs[i].val != null) {

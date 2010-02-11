@@ -347,6 +347,12 @@ public class LDMLConstants {
     public static final String Q_3              = "3";
     public static final String Q_4              = "4";
     
+    //day periods 
+    public static final String DAYPERIODS         = "dayPeriods";
+    public static final String DAYPERIOD_CONTEXT  = "dayPeriodContext";
+    public static final String DAYPERIOD_WIDTH    = "dayPeriodWidth";
+    public static final String DAYPERIOD          = "dayPeriod";
+    
     //flexible date time
     public static final String AVAIL_FMTS       = "availableFormats";
     public static final String DATE_FMT_ITEM    = "dateFormatItem";

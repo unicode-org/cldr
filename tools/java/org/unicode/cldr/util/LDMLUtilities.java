@@ -506,6 +506,8 @@ public class LDMLUtilities {
         }else if(token.indexOf(LDMLConstants.MONTH) > -1){
             String valStr = getAttributeValue(token, LDMLConstants.TYPE);
             return getMonthIndexAsString(valStr);
+        }else if(token.indexOf(LDMLConstants.DAYPERIODS) > -1){
+            return "dayPeriods";
         }else if(token.indexOf(LDMLConstants.DAYS) > -1){
             return "dayNames";
         }else if(token.indexOf(LDMLConstants.DAY_CONTEXT) > -1){

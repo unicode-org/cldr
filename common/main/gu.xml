@@ -1105,22 +1105,10 @@
 							<quarter type="4">ચૌતા હંત 4</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="wide">
-							<quarter type="1">પેહલા હંત 1</quarter>
-							<quarter type="4">ચૌતા હંત 4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">પૂર્વ મધ્યાહ્ન</dayPeriod>
-							<dayPeriod type="pm">ઉત્તર મધ્યાહ્ન</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am">પૂર્વ મધ્યાહ્ન</dayPeriod>
 							<dayPeriod type="pm">ઉત્તર મધ્યાહ્ન</dayPeriod>
 						</dayPeriodWidth>
@@ -1226,67 +1214,6 @@
 						<displayName>વિસ્તાર</displayName>
 					</field>
 				</fields>
-			</calendar>
-			<calendar type="indian">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">ચૈત્ર</month>
-							<month type="2">વૈશાખ</month>
-							<month type="4">અષાઢ</month>
-							<month type="5">શ્રાવણ</month>
-							<month type="10">પોષ</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">ચૈત્ર</month>
-							<month type="2">વૈશાખ</month>
-							<month type="4">અષાઢ</month>
-							<month type="5">શ્રાવણ</month>
-							<month type="10">પોષ</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">ચૈત્ર</month>
-							<month type="4">અષાઢ</month>
-							<month type="5">શ્રાવણ</month>
-							<month type="10">પોષ</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">ચૈત્ર</month>
-							<month type="2">વૈશાખ</month>
-							<month type="4">અષાઢ</month>
-							<month type="5">શ્રાવણ</month>
-							<month type="10">પોષ</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<days>
-					<dayContext type="stand-alone">
-						<dayWidth type="wide">
-							<day type="sun">રવિવાર</day>
-							<day type="mon">સોમવાર</day>
-							<day type="tue">મંગળવાર</day>
-							<day type="wed">બુધવાર</day>
-							<day type="thu">ગુરુવાર</day>
-							<day type="sat">શનિવાર</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">પૂર્વ મધ્યાહ્ન</dayPeriod>
-							<dayPeriod type="pm">ઉત્તર મધ્યાહ્ન</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">પૂર્વ મધ્યાહ્ન</dayPeriod>
-							<dayPeriod type="pm">ઉત્તર મધ્યાહ્ન</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

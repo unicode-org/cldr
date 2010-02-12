@@ -54,30 +54,6 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<days>
-					<dayContext type="format">
-						<dayWidth type="wide">
-							<day type="sun">রবিবার</day>
-							<day type="mon">সোমবার</day>
-							<day type="tue">মঙ্গলবার</day>
-							<day type="wed">বুধবার</day>
-							<day type="thu">বৃহস্পতিবার</day>
-							<day type="fri">শুক্রবার</day>
-							<day type="sat">শনিবার</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="wide">
-							<day type="sun">রবিবার</day>
-							<day type="mon">সোমবার</day>
-							<day type="tue">মঙ্গলবার</day>
-							<day type="wed">বুধবার</day>
-							<day type="thu">বৃহস্পতিবার</day>
-							<day type="fri">শুক্রবার</day>
-							<day type="sat">শনিবার</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
@@ -85,13 +61,6 @@
 							<quarter type="2">ষাণ্মাসিক</quarter>
 							<quarter type="4">বার্ষিক</quarter>
 						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">ত্রৈমাসিক</quarter>
-							<quarter type="2">ষাণ্মাসিক</quarter>
-							<quarter type="4">বার্ষিক</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
 						<quarterWidth type="wide">
 							<quarter type="1">ত্রৈমাসিক</quarter>
 							<quarter type="2">ষাণ্মাসিক</quarter>
@@ -111,48 +80,6 @@
 						<displayName>সেকেণ্ড</displayName>
 					</field>
 				</fields>
-			</calendar>
-			<calendar type="indian">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="wide">
-							<day type="sun">রবিবার</day>
-							<day type="mon">সোমবার</day>
-							<day type="tue">মঙ্গলবার</day>
-							<day type="wed">বুধবার</day>
-							<day type="thu">বৃহস্পতিবার</day>
-							<day type="fri">শুক্রবার</day>
-							<day type="sat">শনিবার</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="wide">
-							<day type="sun">রবিবার</day>
-							<day type="mon">সোমবার</day>
-							<day type="tue">মঙ্গলবার</day>
-							<day type="wed">বুধবার</day>
-							<day type="thu">বৃহস্পতিবার</day>
-							<day type="fri">শুক্রবার</day>
-							<day type="sat">শনিবার</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="wide">
-							<quarter type="1">ত্রৈমাসিক</quarter>
-							<quarter type="2">ষাণ্মাসিক</quarter>
-							<quarter type="4">বার্ষিক</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="wide">
-							<quarter type="1">ত্রৈমাসিক</quarter>
-							<quarter type="2">ষাণ্মাসিক</quarter>
-							<quarter type="4">বার্ষিক</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 			</calendar>
 		</calendars>
 	</dates>

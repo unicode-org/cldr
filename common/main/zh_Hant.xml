@@ -1000,6 +1000,12 @@
 				</days>
 				<quarters>
 					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">1季</quarter>
+							<quarter type="2">2季</quarter>
+							<quarter type="3">3季</quarter>
+							<quarter type="4">4季</quarter>
+						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">第1季</quarter>
 							<quarter type="2">第2季</quarter>
@@ -4677,6 +4683,13 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
 				<displayName>安道爾陪士特</displayName>
@@ -4837,6 +4850,7 @@
 			</currency>
 			<currency type="CNY">
 				<displayName>人民幣</displayName>
+				<symbol>￥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>哥倫比亞披索</displayName>
@@ -5038,6 +5052,7 @@
 			</currency>
 			<currency type="KRW">
 				<displayName>韓圜</displayName>
+				<symbol>￦</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>科威特第納爾</displayName>

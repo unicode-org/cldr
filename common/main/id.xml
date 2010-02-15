@@ -1074,7 +1074,7 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HH.mm;-HH.mm</hourFormat>
-			<gmtFormat>{0} GMT</gmtFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat draft="unconfirmed">{0}</regionFormat>
 			<zone type="Europe/Andorra">
 				<exemplarCity draft="provisional">Andora</exemplarCity>
@@ -1167,7 +1167,7 @@
 					<standard>Waktu Afrika Timur</standard>
 				</long>
 				<short>
-					<standard>Waktu Afrika Tengah</standard>
+					<standard>Waktu Afrika Timur</standard>
 				</short>
 			</metazone>
 			<metazone type="Africa_Southern">
@@ -1738,6 +1738,33 @@
 				<short>
 					<standard>Waktu Samudera Hindia</standard>
 				</short>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<long>
+					<standard>Waktu Indonesia Tengah</standard>
+				</long>
+				<short>
+					<standard>WITA</standard>
+				</short>
+ 				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<long>
+					<standard>Waktu Indonesia Timur</standard>
+				</long>
+				<short>
+					<standard>WIT</standard>
+				</short>
+ 				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<long>
+					<standard>Waktu Indonesia Barat</standard>
+				</long>
+				<short>
+					<standard>WIB</standard>
+				</short>
+ 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Kosrae">
 				<long>

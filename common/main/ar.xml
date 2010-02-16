@@ -2392,8 +2392,9 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat>جرينتش{0}</gmtFormat>
+			<gmtZeroFormat>جرينتش</gmtZeroFormat>
 			<regionFormat draft="provisional">{0}</regionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>غير معروف</exemplarCity>

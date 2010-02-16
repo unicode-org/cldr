@@ -1189,22 +1189,22 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH.mm.ss zzzz</pattern>
+							<pattern>HH:mm:ss zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>HH.mm.ss z</pattern>
+							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>HH.mm.ss</pattern>
+							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>HH.mm</pattern>
+							<pattern>HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -1232,10 +1232,10 @@
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="EEEd" draft="unconfirmed">EEE d</dateFormatItem>
-						<dateFormatItem id="hhmm">hh.mm a</dateFormatItem>
-						<dateFormatItem id="HHmm">HH.mm</dateFormatItem>
-						<dateFormatItem id="hhmmss">hh.mm.ss a</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH.mm.ss</dateFormatItem>
+						<dateFormatItem id="hhmm">hh:mm a</dateFormatItem>
+						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
+						<dateFormatItem id="hhmmss">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="hm" draft="unconfirmed">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms" draft="unconfirmed">h:mm:ss a</dateFormatItem>
@@ -1278,24 +1278,24 @@
 							<greatestDifference id="H">HH-HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h.mm a - h.mm a</greatestDifference>
-							<greatestDifference id="h">h.mm-h.mm a</greatestDifference>
-							<greatestDifference id="m">h.mm-h.mm a</greatestDifference>
+							<greatestDifference id="a">h:mm a - h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm-h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm-h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="a">HH.mm-HH.mm</greatestDifference>
-							<greatestDifference id="H">HH.mm-HH.mm</greatestDifference>
-							<greatestDifference id="m">HH.mm-HH.mm</greatestDifference>
+							<greatestDifference id="a">HH:mm-HH:mm</greatestDifference>
+							<greatestDifference id="H">HH:mm-HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm-HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h.mm a - h.mm a v</greatestDifference>
-							<greatestDifference id="h">h.mm-h.mm a v</greatestDifference>
-							<greatestDifference id="m">h.mm-h.mm a v</greatestDifference>
+							<greatestDifference id="a">h:mm a - h:mm a v</greatestDifference>
+							<greatestDifference id="h">h:mm-h:mm a v</greatestDifference>
+							<greatestDifference id="m">h:mm-h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a">HH.mm-HH.mm v</greatestDifference>
-							<greatestDifference id="H">HH.mm-HH.mm v</greatestDifference>
-							<greatestDifference id="m">HH.mm-HH.mm v</greatestDifference>
+							<greatestDifference id="a">HH:mm-HH:mm v</greatestDifference>
+							<greatestDifference id="H">HH:mm-HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm-HH:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">h a - h a v</greatestDifference>
@@ -1412,7 +1412,7 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat>+HH.mm;-HH.mm</hourFormat>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat draft="contributed">{0}</regionFormat>
 			<fallbackFormat draft="unconfirmed">{1} ({0})</fallbackFormat>

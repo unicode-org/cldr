@@ -12,9 +12,12 @@ import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -29,6 +32,9 @@ import org.unicode.cldr.util.IsoCurrencyParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Pair;
 import com.ibm.icu.dev.test.util.Relation;
+
+import org.unicode.cldr.util.Iso639Data;
+import org.unicode.cldr.util.IsoRegionData;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TimezoneFormatter;
@@ -49,6 +55,7 @@ import com.ibm.icu.dev.test.util.UnicodeMapIterator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
@@ -719,7 +726,129 @@ public class CountItems {
       System.out.println("\t\t\t<variable id=\"$" + type
           + "\" type=\"choice\">" + broken + CldrUtility.LINE_SEPARATOR + "\t\t\t</variable>");
     }
+    Set<String> available = Iso639Data.getAvailable();
+    //      <languageAlias type="aju" replacement="jrb"/> <!-- Moroccan Judeo-Arabic ⇒ Judeo-Arabic -->
+    Set<String> bad3letter = new HashSet<String>();
+    for (String lang : available) {
+      if (lang.length() != 2) continue;
+      String alpha3 = Iso639Data.toAlpha3(lang);
+      bad3letter.add(alpha3);
+      System.out.println("\t\t\t<languageAlias type=\"" + alpha3 + "\" replacement=\"" + lang + "\"/> <!-- " +
+              Iso639Data.getNames(lang) + " -->");
+    }
+    SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+    Map<String, Map<String, List<String>>> localeAliasInfo = supplementalData.getLocaleAliasInfo();
+    Map<String, List<String>> languageAliasInfo = localeAliasInfo.get("language");
+    Set<String> encompassed = Iso639Data.getEncompassed();
+    Set<String> macros = Iso639Data.getMacros();
+    Map<String,String> encompassed_macro = new HashMap();
+    for (String type : languageAliasInfo.keySet()) {
+      List<String> replacements = languageAliasInfo.get(type);
+      if (!encompassed.contains(type)) continue;
+      if (replacements == null && replacements.size() != 1) continue;
+      String replacement = replacements.get(0);
+      if (macros.contains(replacement)) {
+        // we have a match, encompassed => replacement
+        encompassed_macro.put(type, replacement);
+      }
+    }
+    Set<String> missing = new TreeSet();
+    missing.addAll(macros);
+    missing.remove("no");
+    missing.remove("sh");
+    
+    missing.removeAll(encompassed_macro.values());
+    if (missing.size() != 0) {
+      for (String missingMacro : missing) {
+        System.out.println("ERROR Missing <languageAlias type=\"" + "???" + "\" replacement=\"" + missingMacro + "\"/> <!-- ??? => " +
+                Iso639Data.getNames(missingMacro) + " -->");
+        System.out.println("\tOptions for ???:");
+        for (String enc : Iso639Data.getEncompassedForMacro(missingMacro)) {
+          System.out.println("\t" + enc + "\t// " + Iso639Data.getNames(enc));
+        }
+      }
+    }
+    // verify that every macro language has a encompassed mapping to it
+    // and remember those codes
+    
 
+    // verify that nobody contains a bad code
+    
+    for(String type : languageAliasInfo.keySet()) {
+      List<String> replacements = languageAliasInfo.get(type);
+      if (replacements == null) continue;
+      for (String replacement : replacements) {
+        if (bad3letter.contains(replacement)) {
+          System.out.println("ERROR: Replacement(s) for type=\"" + type +
+          		"\" contains " + replacement + ", which should be: " + Iso639Data.fromAlpha3(replacement));
+        }
+      }
+    }
+    
+    // get the bad ISO codes
+    
+    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    CLDRFile english = cldrFactory.make("en", true);
+
+    Set<String> territories = new TreeSet();
+    Relation<String, String> containers = supplementalData.getTerritoryToContained();
+    for (String region : sc.getAvailableCodes("territory")) {
+      if (containers.containsKey(region)) continue;
+      territories.add(region);
+    }
+    addRegions(english, territories, "EA,EU,IC".split(","), new Transform<String,String>() {
+      public String transform(String region) {
+        return IsoRegionData.get_alpha3(region);
+      }
+    });
+    addRegions(english, territories, "AC,CP,DG,EA,EU,IC,TA".split(","), new Transform<String,String>() {
+      public String transform(String region) {
+        return IsoRegionData.getNumeric(region);
+      }
+    });
+    
+    // check that all deprecated codes are in fact deprecated
+    Map<String, Map<String, Map<String, String>>> fullData = sc.getLStreg();
+
+    checkCodes("language", sc, localeAliasInfo, fullData);
+    checkCodes("script", sc, localeAliasInfo, fullData);
+    checkCodes("territory", sc, localeAliasInfo, fullData);
+  }
+
+  private static void checkCodes(String type, StandardCodes sc,
+          Map<String, Map<String, List<String>>> localeAliasInfo, Map<String, Map<String, Map<String, String>>> fullData) {
+    Map<String, Map<String, String>> typeData = fullData.get("territory".equals(type) ? "region" : type);
+    Map<String, List<String>> aliasInfo = localeAliasInfo.get(type);
+    for (String code : sc.getAvailableCodes(type)) {
+      Map<String, String> subdata = typeData.get(code);
+      String deprecated = subdata.get("Deprecated");
+      if (deprecated == null) continue;
+      String replacement = subdata.get("Preferred-Value");
+      List<String> supplementalReplacements = aliasInfo.get(code);
+      if (supplementalReplacements == null) {
+        System.out.println("Deprecated in LSTR, but not in supplementalData: " + type + "\t" + code + "\t" + replacement);
+      }
+    }
+  }
+  
+
+  private static void addRegions(CLDRFile english, Set<String> availableCodes, String[] exceptions, Transform<String,String> trans) {
+    Set<String> missingRegions = new TreeSet<String>();
+    Set<String> exceptionSet = new HashSet(Arrays.asList(exceptions));
+    for (String region : availableCodes) {
+      if (exceptionSet.contains(region)) continue;
+      String alpha3 = trans.transform(region);
+      String name = english.getName(CLDRFile.TERRITORY_NAME, region);
+      if (alpha3 == null) {
+        missingRegions.add(region);
+        continue;
+      }
+      System.out.println("\t\t\t<territoryAlias type=\"" + alpha3 + "\" replacement=\"" + region + "\"/> <!-- " + name + " -->");
+    }
+    for (String region : missingRegions) {
+      String name = english.getName(CLDRFile.TERRITORY_NAME, region);
+      System.out.println("ERROR: Missing code for " + region + "\t" + name);
+    }
   }
 
   private static Set getSupplementalCurrency() {

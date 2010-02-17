@@ -25,7 +25,7 @@ public class GenerateLanguageData {
     System.out.println("Macrolanguages");
     Set<String> bcp47languages = StandardCodes.make().getAvailableCodes("language");
     for (String languageCode : languageCodes) {
-      Set<String> suffixes = iso639Data.getSuffixes(languageCode);
+      Set<String> suffixes = iso639Data.getEncompassedForMacro(languageCode);
       if (suffixes == null) continue;
 //    System.out.println(
 //    languageCode 
@@ -58,12 +58,12 @@ public class GenerateLanguageData {
       Type type = iso639Data.getType(languageCode);
       Set<String> names = iso639Data.getNames(languageCode);
       Source source = iso639Data.getSource(languageCode);
-      String prefix = iso639Data.getPrefix(languageCode);
+      String prefix = iso639Data.getMacroForEncompassed(languageCode);
       Set<String> prefixNames = prefix == null ? null : iso639Data.getNames(prefix);
       String prefixName = prefixNames == null || prefixNames.size() == 0 ? "" : prefixNames.iterator().next() + "::\t";
       String fullCode = (prefix != null ? prefix + "-" : "") + languageCode;
       String scopeString = String.valueOf(scope);
-      if (iso639Data.getSuffixes(languageCode) != null) {
+      if (iso639Data.getEncompassedForMacro(languageCode) != null) {
         scopeString += "*";
       }
       System.out.println(

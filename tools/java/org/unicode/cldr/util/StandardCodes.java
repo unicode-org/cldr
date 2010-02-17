@@ -175,6 +175,7 @@ public class StandardCodes {
      * @return
      */
     public Set<String> getAvailableCodes(String type) {
+      if ("region".equals(type)) type = "territory";
         Map code_name = (Map) type_code_data.get(type);
         if (code_name == null)
             return null;
@@ -812,9 +813,9 @@ public class StandardCodes {
         // "CLDR", "True", "Deprecated", "True"},
     };
 
-    public static Map getLStreg() {
+    public static Map<String,Map<String,Map<String,String>>> getLStreg() {
 
-        Map result = new TreeMap();
+      Map<String,Map<String,Map<String,String>>> result = new TreeMap();
 
         int lineNumber = 1;
 
@@ -826,8 +827,8 @@ public class StandardCodes {
             boolean started = false;
             String lastType = null;
             String lastTag = null;
-            Map subtagData = null;
-            Map currentData = null;
+            Map<String,Map<String,String>> subtagData = null;
+            Map<String,String> currentData = null;
             String lastLabel = null;
             String lastRest = null;
             boolean inRealContent = false;

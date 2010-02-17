@@ -24,14 +24,16 @@ public class Iso639Data {
   static Map<String, String> fromBiblio3;
 
   static Relation<String, String> toNames;
+  
+  static Relation<String, String> toRetirements;
 
   static Map<String, Scope> toScope;
 
   static Map<String, Type> toType;
 
-  static Map<String, String> suffix_prefix;
+  static Map<String, String> encompassed_macro;
 
-  static Relation<String, String> prefix_suffix;
+  static Relation<String, String> macro_encompassed;
 
   static Map<String, Source> toSource;
 
@@ -145,7 +147,7 @@ public class Iso639Data {
     if (toAlpha3 == null) {
       getData();
     }
-    if (!toNames.containsKey(languageSubtag)) {
+    if (!isValid(languageSubtag)) {
       return null;
     }
     Source result = toSource.get(languageSubtag);
@@ -158,7 +160,7 @@ public class Iso639Data {
     if (toAlpha3 == null) {
       getData();
     }
-    if (!toNames.containsKey(languageSubtag)) {
+    if (!isValid(languageSubtag)) {
       return null;
     }
     return toAlpha3.get(languageSubtag);
@@ -173,10 +175,14 @@ public class Iso639Data {
       return alpha2;
     }
     // it only exists if it has a name
-    if (toNames.containsKey(alpha3)) {
+    if (isValid(alpha3)) {
       return alpha3;
     }
     return null;
+  }
+
+  private static boolean isValid(String alpha3) {
+    return toNames.containsKey(alpha3);
   }
 
    public static String fromBiblio3(String biblio3) {
@@ -213,7 +219,7 @@ public class Iso639Data {
     if (toScope == null) {
       getData();
     }
-    if (!toNames.keySet().contains(languageSubtag))
+    if (!isValid(languageSubtag))
       return Scope.Unknown;
     Scope result = toScope.get(languageSubtag);
     if (result != null)
@@ -225,7 +231,7 @@ public class Iso639Data {
     if (toAlpha3 == null) {
       getData();
     }
-    if (!toNames.keySet().contains(languageSubtag))
+    if (!isValid(languageSubtag))
       return Type.Unknown;
     Type result = toType.get(languageSubtag);
     if (result != null)
@@ -261,7 +267,7 @@ public class Iso639Data {
 
   private static void getData() {
     try {
-      BufferedReader in = CldrUtility.getUTF8Data("iso-639-3.tab");
+      BufferedReader in = CldrUtility.getUTF8Data("iso-639-3-version.tab");
       version = in.readLine().trim();
       in.close();
       
@@ -274,8 +280,9 @@ public class Iso639Data {
       toScope = new HashMap();
       toType = new HashMap();
       toNames = new Relation(new TreeMap(), LinkedHashSet.class);
-      prefix_suffix = new Relation(new TreeMap(), LinkedHashSet.class);
-      suffix_prefix = new HashMap();
+      toRetirements = new Relation(new TreeMap(), LinkedHashSet.class);
+      macro_encompassed = new Relation(new TreeMap(), LinkedHashSet.class);
+      encompassed_macro = new HashMap();
       toSource = new HashMap();
       toSource.put("sh", Source.ISO_639_1); // add deprecated language
 
@@ -319,6 +326,25 @@ public class Iso639Data {
       //System.out.println("Size:\t" + toNames.size());
       in.close();
 
+      // Id Ref_Name  Ret_Reason  Change_To Ret_Remedy  Effective
+      in = CldrUtility.getUTF8Data("iso-639-3_Retirements.tab");
+      while (true) {
+        String line = in.readLine();
+        if (line == null)
+          break;
+        if (line.startsWith("\uFEFF"))
+          line = line.substring(1);
+        String[] parts = tabs.split(line);
+        String alpha3 = parts[0];
+        if (alpha3.equals("Id"))
+          continue;
+        toNames.put(alpha3, parts[1]);
+        toRetirements.put(alpha3, line);
+        // skip inverted name for now
+      }
+      //System.out.println("Size:\t" + toNames.size());
+      in.close();
+
       // Id Print_Name Inverted_Name
       in = CldrUtility.getUTF8Data("iso-639-3-macrolanguages.tab");
       while (true) {
@@ -333,8 +359,11 @@ public class Iso639Data {
           continue;
         prefix = fromAlpha3(prefix);
         String suffix = fromAlpha3(parts[1]);
-        suffix_prefix.put(suffix, prefix);
-        prefix_suffix.put(prefix, suffix);
+        if (suffix == null || prefix == null) {
+          throw new IllegalArgumentException();
+        }
+        encompassed_macro.put(suffix, prefix);
+        macro_encompassed.put(prefix, suffix);
         // skip inverted name for now
       }
       //System.out.println("Size:\t" + toNames.size());
@@ -395,7 +424,7 @@ public class Iso639Data {
         }
         String[] english = parts[3].split(";");
         toSource.put(languageSubtag, languageSubtag.length() == 2 ? Source.ISO_639_1 : Source.ISO_639_2);
-        if (!toNames.containsKey(languageSubtag)) {
+        if (!isValid(languageSubtag)) {
           // we don't have it already,
           //System.out.println("Adding2: " + alpha3 + "\t" + languageSubtag + "\t" + Arrays.asList(english));
           if (languageSubtag.length() == 2) {
@@ -420,7 +449,8 @@ public class Iso639Data {
      toScope = Collections.unmodifiableMap(toScope);
       toType = Collections.unmodifiableMap(toType);
       toNames.freeze();
-      prefix_suffix.freeze();
+      toRetirements.freeze();
+      macro_encompassed.freeze();
 
     } catch (IOException e) {
       throw (RuntimeException) new IllegalArgumentException("Cannot parse file").initCause(e);
@@ -443,8 +473,8 @@ public class Iso639Data {
     return toNames.keySet();
   }
 
-  public static String getPrefix(String suffix) {
-    String prefix = suffix_prefix.get(suffix);
+  public static String getMacroForEncompassed(String suffix) {
+    String prefix = encompassed_macro.get(suffix);
     if (prefix != null)
       return prefix;
     if (suffix.equals("sgn"))
@@ -459,7 +489,16 @@ public class Iso639Data {
     return null;
   }
 
-  public static Set<String> getSuffixes(String prefix) {
-    return prefix_suffix.getAll(prefix);
+  public static Set<String> getEncompassedForMacro(String prefix) {
+    return macro_encompassed.getAll(prefix);
   }
+  
+  public static Set<String> getMacros() {
+    return macro_encompassed.keySet();
+  }
+  
+  public static Set<String> getEncompassed() {
+    return encompassed_macro.keySet();
+  }
+
 }

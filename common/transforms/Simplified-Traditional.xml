@@ -3,7 +3,7 @@
 <supplementalData>
 	<transforms>
 		<transform source="Simplified" target="Traditional" direction="both">
-			<comment># Copyright (c) 2005-2007, Apple Inc., Unicode Inc.,</comment>
+			<comment># Copyright (c) 2005-2007,2010 Apple Inc., Unicode Inc.,</comment>
 			<comment># and others. All Rights Reserved.</comment>
 			<comment># For terms of use, see http://unicode.org/copyright.html#Exhibit1</comment>
 			<comment># Convert between simplified and traditional Chinese</comment>
@@ -20,7 +20,6 @@
 			<tRule>于思↔于思;</tRule>
 			<tRule>单于↔單于;</tRule>
 			<tRule>鲜于↔鮮于;</tRule>
-			<tRule>于↔於;</tRule>
 			<comment>#</comment>
 			<tRule>姜片↔薑片;</tRule>
 			<tRule>姜末↔薑末;</tRule>
@@ -29,6 +28,17 @@
 			<tRule>姜↔姜;</tRule>
 			<tRule>姜←薑;</tRule>
 			<comment>#</comment>
+			<tRule>赤皮仑↔赤皮崙;</tRule>
+			<tRule>金仑溪↔金崙溪;</tRule>
+			<tRule>下仑↔下崙;</tRule>
+			<tRule>中仑↔中崙;</tRule>
+			<tRule>仑顶↔崙頂;</tRule>
+			<tRule>昆山↔崑山;</tRule>
+			<tRule>昆仑↔崑崙;</tRule>
+			<tRule>昆曲↔崑曲;</tRule>
+			<tRule>昆←崑;</tRule>
+			<tRule>仑←崙;</tRule>
+			<tRule>仑↔侖;</tRule>
 			<tRule>曲↔曲;</tRule>
 			<tRule>曲←麯;</tRule>
 			<comment>#</comment>
@@ -84,9 +94,6 @@
 			<tRule>复↔復;</tRule>
 			<tRule>复←複;</tRule>
 			<comment>#</comment>
-			<tRule>着→著;</tRule>
-			<tRule>着←着;</tRule>
-			<tRule>著↔著;</tRule>
 			<comment>#</comment>
 			<tRule>了然↔瞭然;</tRule>
 			<tRule>了解↔瞭解;</tRule>
@@ -96,26 +103,114 @@
 			<tRule>了←瞭;</tRule>
 			<comment>#</comment>
 			<tRule>解铃系铃↔解鈴繫鈴;</tRule>
+			<tRule>系词↔繫詞;</tRule>
+			<tRule>系辞↔繫辭;</tRule>
 			<tRule>系念↔繫念;</tRule>
 			<tRule>关系↔關係;</tRule>
 			<tRule>联系↔聯繫;</tRule>
+			<tRule>系于↔繫於;</tRule>
+			<tRule>维系↔維繫;</tRule>
+			<tRule>连系↔連繫;</tRule>
 			<tRule>系↔系;</tRule>
 			<tRule>系←係;</tRule>
 			<tRule>系←繫;</tRule>
 			<comment>#</comment>
-			<tRule>吨海里↔噸海里;</tRule>
-			<tRule>里路↔里路;</tRule>
-			<tRule>里程↔里程;</tRule>
-			<tRule>阿里↔阿里;</tRule>
-			<tRule>长里↔长里;</tRule>
-			<tRule>公里↔公里;</tRule>
-			<tRule>故里↔故里;</tRule>
-			<tRule>英里↔英里;</tRule>
-			<tRule>$SCDigit { 里 → 里;</tRule>
-			<tRule>里↔裡;</tRule>
+			<tRule>糊里糊涂↔糊裡糊塗;</tRule>
+			<tRule>稀里糊涂↔稀裡糊塗;</tRule>
+			<tRule>蒙在鼓里↔蒙在鼓裡;</tRule>
+			<tRule>怪里怪气↔怪裡怪氣;</tRule>
+			<tRule>傻里傻气↔傻裡傻氣;</tRule>
+			<tRule>俗里俗气↔俗裡俗氣;</tRule>
+			<tRule>嗲里嗲气↔嗲裡嗲氣;</tRule>
+			<tRule>女里女气↔女裡女氣;</tRule>
+			<tRule>妖里妖气↔妖裡妖氣;</tRule>
+			<tRule>娇里娇气↔嬌裡嬌氣;</tRule>
+			<tRule>洋里洋气↔洋裡洋氣;</tRule>
+			<tRule>宝里宝气↔寶裡寶氣;</tRule>
+			<tRule>土里土气↔土裡土氣;</tRule>
+			<tRule>稀里哗啦↔稀裡嘩啦;</tRule>
+			<tRule>由表及里↔由表及裡;</tRule>
+			<tRule>百里挑一↔百裡挑一;</tRule>
+			<tRule>白里透红↔白裡透紅;</tRule>
+			<tRule>私下里↔私下裡;</tRule>
+			<tRule>骨子里↔骨子裡;</tRule>
+			<tRule>窝里斗↔窩裡鬥;</tRule>
+			<tRule>忙里↔忙裡;</tRule>
+			<tRule>闻里↔聞裡;</tRule>
+			<tRule>死里↔死裡;</tRule>
+			<tRule>$SCDigit { 海里 → 海里;</tRule>
+			<tRule>海里↔海裡;</tRule>
+			<tRule>浪里↔浪裡;</tRule>
+			<tRule>山里↔山裡;</tRule>
+			<tRule>地里↔地裡;</tRule>
+			<tRule>花里↔花裡;</tRule>
+			<tRule>田里↔田裡;</tRule>
+			<tRule>沟里↔溝裡;</tRule>
+			<tRule>河里↔河裡;</tRule>
+			<tRule>江里↔江裡;</tRule>
+			<tRule>沙里↔沙裡;</tRule>
+			<tRule>雪里↔雪裡;</tRule>
+			<tRule>风里↔風裡;</tRule>
+			<tRule>雨里↔雨裡;</tRule>
+			<tRule>雾里↔霧裡;</tRule>
+			<tRule>夜里↔夜裡;</tRule>
+			<tRule>省裡↔省裡;</tRule>
+			<tRule>镇里↔鎮裡;</tRule>
+			<tRule>城里↔城裡;</tRule>
+			<tRule>市里↔市裡;</tRule>
+			<tRule>村里↔村裡;</tRule>
+			<tRule>站里↔站裡;</tRule>
+			<tRule>段里↔段裡;</tRule>
+			<tRule>厂里↔廠裡;</tRule>
+			<tRule>店里↔店裡;</tRule>
+			<tRule>馆里↔館裡;</tRule>
+			<tRule>部里↔部裡;</tRule>
+			<tRule>队里↔隊裡;</tRule>
+			<tRule>班里↔班裡;</tRule>
+			<tRule>关里↔關裡;</tRule>
+			<tRule>门里↔門裡;</tRule>
+			<tRule>家里↔家裡;</tRule>
+			<tRule>屋里↔屋裡;</tRule>
+			<tRule>房里↔房裡;</tRule>
+			<tRule>连里↔連裡;</tRule>
+			<tRule>院里↔院裡;</tRule>
+			<tRule>行里↔行裡;</tRule>
+			<tRule>园里↔園裡;</tRule>
+			<tRule>苑里↔苑裡;</tRule>
+			<tRule>明里↔明裡;</tRule>
+			<tRule>暗里↔暗裡;</tRule>
+			<tRule>字里↔字裡;</tRule>
+			<tRule>表里↔表裡;</tRule>
+			<tRule>內里↔內裡;</tRule>
+			<tRule>手里↔手裡;</tRule>
+			<tRule>眼里↔眼裡;</tRule>
+			<tRule>嘴里↔嘴裡;</tRule>
+			<tRule>口里↔口裡;</tRule>
+			<tRule>心里↔心裡;</tRule>
+			<tRule>头里↔頭裡;</tRule>
+			<tRule>怀里↔懷裡;</tRule>
+			<tRule>肚里↔肚裡;</tRule>
+			<tRule>这里↔這裡;</tRule>
+			<tRule>那里↔那裡;</tRule>
+			<tRule>哪里↔哪裡;</tRule>
+			<tRule>入里↔入裡;</tRule>
+			<tRule>里里外外↔裡裡外外;</tRule>
+			<tRule>里应外合↔裡應外合;</tRule>
+			<tRule>里通外国↔裡通外國;</tRule>
+			<tRule>里衬↔裡襯;</tRule>
+			<tRule>里子↔裡子;</tRule>
+			<tRule>里海↔裡海;</tRule>
+			<tRule>里手↔裡手;</tRule>
+			<tRule>里快↔裡快;</tRule>
+			<tRule>里面↔裡面;</tRule>
+			<tRule>里层↔裡層;</tRule>
+			<tRule>里间↔裡間;</tRule>
+			<tRule>里屋↔裡屋;</tRule>
+			<tRule>里头↔裡頭;</tRule>
+			<tRule>里边↔裡邊;</tRule>
+			<tRule>里外↔裡外;</tRule>
+			<tRule>里←裡;</tRule>
 			<tRule>里←裏;</tRule>
-			<tRule>里←哩;</tRule>
-			<tRule>里←里;</tRule>
 			<comment>#</comment>
 			<comment># 乾 appears in the most compounds</comment>
 			<comment># 幹 is next</comment>
@@ -157,27 +252,46 @@
 			<tRule>无干↔無干;</tRule>
 			<tRule>相干↔相干;</tRule>
 			<tRule>干面↔乾麵;</tRule>
+			<tRule>乾坤↔乾坤;</tRule>
 			<tRule>干↔乾;</tRule>
 			<tRule>干←幹;</tRule>
 			<tRule>干←干;</tRule>
 			<comment>#</comment>
 			<tRule>划时代↔劃時代;</tRule>
 			<tRule>划分↔劃分;</tRule>
+			<tRule>划分←畫分;</tRule>
 			<tRule>划开↔劃開;</tRule>
+			<tRule>划开←畫開;</tRule>
 			<tRule>划一↔劃一;</tRule>
+			<tRule>划一←畫一;</tRule>
 			<tRule>划界↔劃界;</tRule>
+			<tRule>划界←畫界;</tRule>
 			<tRule>划策↔劃策;</tRule>
+			<tRule>划策←畫策;</tRule>
 			<tRule>划归↔劃歸;</tRule>
+			<tRule>划归←畫歸;</tRule>
 			<tRule>划清↔劃清;</tRule>
+			<tRule>划清←畫清;</tRule>
 			<tRule>规划↔規劃;</tRule>
+			<tRule>规划←規畫;</tRule>
 			<tRule>策划↔策劃;</tRule>
+			<tRule>策划←策畫;</tRule>
 			<tRule>筹划↔籌劃;</tRule>
+			<tRule>筹划←籌畫;</tRule>
 			<tRule>计划↔計劃;</tRule>
+			<tRule>计划←計畫;</tRule>
 			<tRule>比划↔比劃;</tRule>
+			<tRule>比划←比畫;</tRule>
 			<tRule>谋划↔謀劃;</tRule>
+			<tRule>谋划←謀畫;</tRule>
 			<tRule>区划↔區劃;</tRule>
+			<tRule>区划←區畫;</tRule>
+			<tRule>版画→版畫;</tRule>
+			<tRule>版画←板畫;</tRule>
+			<tRule>刻画←刻劃;</tRule>
 			<tRule>划↔划;</tRule>
 			<tRule>划←劃;</tRule>
+			<tRule>画↔畫;</tRule>
 			<comment>#</comment>
 			<tRule>$SCDigit { 斗 → 斗;</tRule>
 			<tRule>斗量↔斗量;</tRule>
@@ -212,9 +326,10 @@
 			<tRule>周↔周;</tRule>
 			<tRule>周←週;</tRule>
 			<comment>#</comment>
-			<tRule>沈阳↔瀋陽;</tRule>
-			<tRule>渖↔瀋;</tRule>
 			<comment>#</comment>
+			<tRule>松球↔松毬;</tRule>
+			<tRule>球花↔毬花;</tRule>
+			<tRule>球果↔毬果;</tRule>
 			<tRule>松动↔鬆動;</tRule>
 			<tRule>松紧↔鬆緊;</tRule>
 			<tRule>松散↔鬆散;</tRule>
@@ -229,6 +344,8 @@
 			<tRule>松↔松;</tRule>
 			<tRule>松←鬆;</tRule>
 			<comment>#</comment>
+			<tRule>果↔果;</tRule>
+			<tRule>果←菓;</tRule>
 			<tRule>老板↔老闆;</tRule>
 			<tRule>板↔板;</tRule>
 			<tRule>板←闆;</tRule>
@@ -263,8 +380,8 @@
 			<tRule>御←禦;</tRule>
 			<comment>#</comment>
 			<tRule>腼腆↔靦腆;</tRule>
-			<tRule>䩄↔靦;</tRule>
-			<tRule>腼↔腼;</tRule>
+			<tRule>腼←靦;</tRule>
+			<tRule>䩄→靦;</tRule>
 			<comment>#</comment>
 			<tRule>宫商角徵羽↔宮商角徵羽;</tRule>
 			<tRule>征伐↔征伐;</tRule>
@@ -277,7 +394,6 @@
 			<tRule>征↔徵;</tRule>
 			<tRule>征←征;</tRule>
 			<comment>#</comment>
-			<comment># 台湾↔臺灣</comment>
 			<tRule>台风↔颱風;</tRule>
 			<tRule>写字台↔寫字檯;</tRule>
 			<tRule>台↔台;</tRule>
@@ -301,14 +417,21 @@
 			<tRule>须←鬚;</tRule>
 			<comment>#</comment>
 			<tRule>$SCDigit { 只 → 隻;</tRule>
+			<tRule>形单影只↔形單影隻;</tRule>
+			<tRule>只贺新禧←祇賀新禧;</tRule>
+			<tRule>只请政安←祇請政安;</tRule>
 			<tRule>只身↔隻身;</tRule>
 			<tRule>只眼↔隻眼;</tRule>
-			<tRule>形单影只↔形單影隻;</tRule>
 			<tRule>船只↔船隻;</tRule>
 			<tRule>舰只↔艦隻;</tRule>
+			<tRule>只管←祇管;</tRule>
+			<tRule>只好←祇好;</tRule>
+			<tRule>只要←祇要;</tRule>
+			<tRule>只有←祇有;</tRule>
+			<tRule>只得←祇得;</tRule>
+			<tRule>祇↔祇;</tRule>
 			<tRule>只↔只;</tRule>
 			<tRule>只←隻;</tRule>
-			<tRule>只←衹;</tRule>
 			<comment>#</comment>
 			<tRule>并发↔併發;</tRule>
 			<tRule>并拢↔併攏;</tRule>
@@ -320,7 +443,6 @@
 			<tRule>并↔並;</tRule>
 			<tRule>并←併;</tRule>
 			<comment>#</comment>
-			<tRule>叮当↔叮噹;</tRule>
 			<tRule>当↔當;</tRule>
 			<tRule>当←噹;</tRule>
 			<comment>#</comment>
@@ -345,12 +467,17 @@
 			<tRule>辟邪↔闢邪;</tRule>
 			<tRule>辟↔辟;</tRule>
 			<tRule>辟←闢;</tRule>
+			<tRule>人言藉藉↔人言藉藉;</tRule>
 			<comment>#</comment>
 			<tRule>借口↔藉口;</tRule>
 			<tRule>借故↔藉故;</tRule>
 			<tRule>借使↔藉使;</tRule>
-			<tRule>凭借↔憑藉;</tRule>
+			<tRule>凭藉↔憑藉;</tRule>
+			<tRule>骀藉↔駘藉;</tRule>
 			<tRule>慰借↔慰藉;</tRule>
+			<tRule>狼藉↔狼藉;</tRule>
+			<tRule>蕴藉↔藴藉;</tRule>
+			<tRule>枕藉↔枕藉;</tRule>
 			<tRule>借↔借;</tRule>
 			<tRule>借←藉;</tRule>
 			<tRule>藉→藉;</tRule>
@@ -406,15 +533,17 @@
 			<tRule>历←曆;</tRule>
 			<comment>#</comment>
 			<tRule>万俟↔万俟; # surname</tRule>
-			<tRule>万↔萬;</tRule>
 			<comment>#</comment>
 			<tRule>气冲冲↔氣沖沖;</tRule>
+			<tRule>气焰↔氣燄;</tRule>
+			<tRule>焰←燄;</tRule>
 			<tRule>气↔氣;</tRule>
 			<tRule>气←气;</tRule>
 			<comment>#</comment>
 			<tRule>细致↔細緻;</tRule>
 			<tRule>精致↔精緻;</tRule>
 			<tRule>标致↔標緻;</tRule>
+			<tRule>别致↔別緻;</tRule>
 			<tRule>致↔致;</tRule>
 			<tRule>致←緻;</tRule>
 			<comment>#</comment>
@@ -437,18 +566,28 @@
 			<comment>#</comment>
 			<tRule>谷贱伤农↔穀賤傷農;</tRule>
 			<tRule>谷神星↔穀神星;</tRule>
-			<tRule>打谷场↔打穀場;</tRule>
+			<tRule>鬼谷子↔鬼谷子;</tRule>
 			<tRule>谷子↔穀子;</tRule>
+			<tRule>打谷↔打穀;</tRule>
+			<tRule>谷场↔穀場;</tRule>
 			<tRule>谷物↔穀物;</tRule>
 			<tRule>谷粒↔穀粒;</tRule>
 			<tRule>谷类↔穀類;</tRule>
 			<tRule>谷草↔穀草;</tRule>
 			<tRule>谷仓↔穀倉;</tRule>
+			<tRule>谷苗↔穀苗;</tRule>
+			<tRule>谷种↔穀種;</tRule>
+			<tRule>谷穗↔穀穗;</tRule>
+			<tRule>谷壳↔穀殻;</tRule>
 			<tRule>包谷↔包穀;</tRule>
 			<tRule>稻谷↔稻穀;</tRule>
 			<tRule>五谷↔五穀;</tRule>
+			<tRule>米谷↔米穀;</tRule>
+			<tRule>秕谷↔秕穀;</tRule>
+			<tRule>晒谷↔曬穀;</tRule>
 			<tRule>谷↔谷;</tRule>
 			<tRule>谷←穀;</tRule>
+			<tRule>谷←榖;</tRule>
 			<comment>#</comment>
 			<tRule>后妃↔后妃;</tRule>
 			<tRule>后稷↔后稷;</tRule>
@@ -481,6 +620,10 @@
 			<tRule>汇↔匯;</tRule>
 			<tRule>汇←彙;</tRule>
 			<comment>#</comment>
+			<tRule>辞↔辭;</tRule>
+			<tRule>辞←辞;</tRule>
+			<tRule>词↔詞;</tRule>
+			<comment>#</comment>
 			<tRule>机↔機;</tRule>
 			<tRule>机←机;</tRule>
 			<comment>#</comment>
@@ -489,14 +632,51 @@
 			<tRule>发型↔髮型;</tRule>
 			<tRule>＃ also governs 困</tRule>
 			<tRule>发困↔發睏;</tRule>
+			<tRule>卷土重来↔捲土重來;</tRule>
+			<tRule>卷心菜↔捲心菜;</tRule>
+			<tRule>卷铺盖↔捲鋪蓋;</tRule>
+			<tRule>卷尺↔捲尺;</tRule>
+			<tRule>卷入↔捲入;</tRule>
+			<tRule>卷动↔捲動;</tRule>
+			<tRule>卷成↔捲成;</tRule>
+			<tRule>卷曲↔捲曲;</tRule>
+			<tRule>卷款↔捲款;</tRule>
+			<tRule>卷帘↔捲簾;</tRule>
+			<tRule>卷纸↔捲紙;</tRule>
+			<tRule>卷缩↔捲縮;</tRule>
+			<tRule>卷舌↔捲舌;</tRule>
+			<tRule>卷袖↔捲袖;</tRule>
+			<tRule>卷走↔捲走;</tRule>
+			<tRule>卷起↔捲起;</tRule>
+			<tRule>卷门↔捲門;</tRule>
+			<tRule>卷云↔捲雲;</tRule>
+			<tRule>卷须↔捲鬚;</tRule>
+			<tRule>春卷↔春捲;</tRule>
+			<tRule>烟卷↔煙捲;</tRule>
+			<tRule>纸卷↔紙捲;</tRule>
+			<tRule>卷轴↔捲軸;</tRule>
+			<tRule>席卷↔席捲;</tRule>
+			<tRule>舒卷↔舒捲;</tRule>
+			<tRule>风卷残云↔風捲殘雲;</tRule>
+			<tRule>风驰电卷↔風馳電捲;</tRule>
+			<tRule>龙卷风↔龍捲風;</tRule>
+			<tRule>蛋卷↔蛋捲;</tRule>
+			<tRule>朱卷↔硃卷;</tRule>
+			<tRule>怒发冲冠↔怒髮衝冠;</tRule>
+			<tRule>长发↔長髮;</tRule>
+			<tRule>短发↔短髮;</tRule>
 			<tRule>白发↔白髮;</tRule>
+			<tRule>黑发↔黑髮;</tRule>
+			<tRule>金发↔金髮;</tRule>
+			<tRule>红发↔紅髮;</tRule>
+			<tRule>銀发↔銀髮;</tRule>
+			<tRule>染发↔染髮;</tRule>
 			<tRule>编发↔編髮;</tRule>
 			<tRule>毫发↔毫髮;</tRule>
 			<tRule>护发↔護髮;</tRule>
-			<tRule>金发↔金髮;</tRule>
 			<tRule>假发↔假髮;</tRule>
 			<tRule>结发↔結髮;</tRule>
-			<tRule>卷发↔卷髮;</tRule>
+			<tRule>卷发↔捲髮;</tRule>
 			<tRule>理发↔理髮;</tRule>
 			<tRule>落发↔落髮;</tRule>
 			<tRule>毛发↔毛髮;</tRule>
@@ -506,10 +686,11 @@
 			<tRule>势头↔勢頭;</tRule>
 			<tRule>头发↔頭髮;</tRule>
 			<tRule>秀发↔秀髮;</tRule>
+			<tRule>剃髮↔剃发;</tRule>
 			<tRule>一发↔一髮;</tRule>
-			<tRule>銀发↔銀髮;</tRule>
 			<tRule>发↔發;</tRule>
 			<tRule>发←髮;</tRule>
+			<tRule>卷←捲;</tRule>
 			<comment>#</comment>
 			<tRule>人云亦云↔人云亦云;</tRule>
 			<tRule>不知所云↔不知所云;</tRule>
@@ -518,7 +699,7 @@
 			<tRule>云←云;</tRule>
 			<comment>#</comment>
 			<tRule>子丑寅卯↔子丑寅卯;</tRule>
-			<tRule>生旦淨末丑↔生旦淨末丑;</tRule>
+			<tRule>生旦淨末丑↔生旦净末丑;</tRule>
 			<tRule>丑时↔丑時;</tRule>
 			<tRule>丑旦↔丑旦;</tRule>
 			<tRule>丑角↔丑角;</tRule>
@@ -575,6 +756,9 @@
 			<tRule>咸←鹹;</tRule>
 			<comment>#</comment>
 			<tRule>清心寡欲↔清心寡慾;</tRule>
+			<tRule>克欲修行↔克慾修行;</tRule>
+			<tRule>欲不可纵↔慾不可縱;</tRule>
+			<tRule>人之大欲↔人之大慾;</tRule>
 			<tRule>求知欲↔求知慾;</tRule>
 			<tRule>欲火↔慾火;</tRule>
 			<tRule>欲望↔慾望;</tRule>
@@ -588,6 +772,8 @@
 			<tRule>兽欲↔獸慾;</tRule>
 			<tRule>纵欲↔縱慾;</tRule>
 			<tRule>性欲↔性慾;</tRule>
+			<tRule>六欲↔六慾;</tRule>
+			<tRule>嗜欲↔嗜慾;</tRule>
 			<tRule>欲↔欲;</tRule>
 			<tRule>欲←慾;</tRule>
 			<comment>#</comment>
@@ -598,11 +784,13 @@
 			<tRule>准确↔準確;</tRule>
 			<tRule>为准↔為準;</tRule>
 			<tRule>标准↔標準;</tRule>
+			<tRule>标签↔標籤;</tRule>
 			<tRule>水准↔水準;</tRule>
 			<tRule>基准↔基準;</tRule>
 			<tRule>对准↔對準;</tRule>
 			<tRule>准↔准;</tRule>
 			<tRule>准←準;</tRule>
+			<tRule>标↔標;</tRule>
 			<comment>#</comment>
 			<tRule>注册↔註冊;</tRule>
 			<tRule>注销↔註銷;</tRule>
@@ -614,9 +802,6 @@
 			<tRule>注↔注;</tRule>
 			<tRule>注←註;</tRule>
 			<comment>#</comment>
-			<tRule>郁↔鬱;</tRule>
-			<tRule>郁←郁;</tRule>
-			<comment>#</comment>
 			<comment># variants</comment>
 			<comment>#</comment>
 			<tRule>凶暴↔兇暴;</tRule>
@@ -627,11 +812,6 @@
 			<tRule>逞凶↔逞兇;</tRule>
 			<tRule>凶↔凶;</tRule>
 			<tRule>凶←兇;</tRule>
-			<tRule>＃</tRule>
-			<tRule>烟酒↔菸酒;</tRule>
-			<tRule>烟↔煙;</tRule>
-			<tRule>烟←菸;</tRule>
-			<tRule>烟←烟;</tRule>
 			<comment>#</comment>
 			<tRule>扬↔揚;</tRule>
 			<tRule>扬←䬗;</tRule>
@@ -688,12 +868,6 @@
 			<tRule>锐↔銳;</tRule>
 			<tRule>锐←鋭;</tRule>
 			<comment>#</comment>
-			<tRule>锤↔錘;</tRule>
-			<tRule>锤←鎚;</tRule>
-			<comment>#</comment>
-			<tRule>辞↔辭;</tRule>
-			<tRule>辞←辞;</tRule>
-			<comment>#</comment>
 			<tRule>赝↔贋;</tRule>
 			<tRule>赝←贗;</tRule>
 			<tRule>赃↔贓;</tRule>
@@ -708,18 +882,12 @@
 			<tRule>饥↔飢;</tRule>
 			<tRule>饥←饑;</tRule>
 			<comment>#</comment>
-			<tRule>果↔果;</tRule>
-			<tRule>果←菓;</tRule>
-			<comment>#</comment>
 			<tRule>款↔款;</tRule>
 			<tRule>款←欵;</tRule>
+			<tRule>胧↔朧;</tRule>
 			<comment>#</comment>
-			<tRule>蒙胧↔朦朧;</tRule>
 			<tRule>蒙↔蒙;</tRule>
-			<tRule>蒙←濛;</tRule>
 			<tRule>蒙←懞;</tRule>
-			<tRule>蒙←矇;</tRule>
-			<tRule>蒙←朦;</tRule>
 			<comment>#</comment>
 			<tRule>骂↔罵;</tRule>
 			<tRule>骂←駡;</tRule>
@@ -769,9 +937,14 @@
 			<tRule>克←尅;</tRule>
 			<comment>#</comment>
 			<tRule>坛坛罐罐↔罈罈罐罐;</tRule>
+			<tRule>瓶瓶坛坛↔瓶瓶罈罈;</tRule>
+			<tRule>醋坛↔醋罈;</tRule>
+			<tRule>坛子↔罈子;</tRule>
+			<tRule>酒坛↔酒罈;</tRule>
 			<tRule>坛↔壇;</tRule>
 			<tRule>坛←壜;</tRule>
 			<tRule>坛←罎;</tRule>
+			<tRule>坛←罈;</tRule>
 			<comment>#</comment>
 			<tRule>升华↔昇華;</tRule>
 			<tRule>毕升↔畢昇;</tRule>
@@ -796,17 +969,22 @@
 			<tRule>钵↔鉢;</tRule>
 			<tRule>钵←缽;</tRule>
 			<comment>#</comment>
-			<tRule>芸↔蕓;</tRule>
-			<tRule>芸←芸;</tRule>
-			<comment>#</comment>
 			<tRule>蜡↔蠟;</tRule>
 			<tRule>蜡←蜡;</tRule>
 			<comment>#</comment>
+			<tRule>采薪之忧↔采薪之憂;</tRule>
 			<tRule>兴高采烈↔興高采烈;</tRule>
 			<tRule>无精打采↔無精打采;</tRule>
 			<tRule>采风↔采風;</tRule>
 			<tRule>风采↔風采;</tRule>
+			<tRule>精采↔精采;</tRule>
 			<tRule>神采↔神采;</tRule>
+			<tRule>多采↔多采;</tRule>
+			<tRule>喝采↔喝采;</tRule>
+			<tRule>采缉↔采緝;</tRule>
+			<tRule>彩↔彩;</tRule>
+			<tRule>彩←綵;</tRule>
+			<tRule>䌽→綵;</tRule>
 			<tRule>采↔採;</tRule>
 			<tRule>采←埰;</tRule>
 			<comment>#</comment>
@@ -868,10 +1046,8 @@
 			<tRule>锈↔鏽;</tRule>
 			<tRule>锈←銹;</tRule>
 			<comment>#</comment>
-			<tRule>镌↔鎸;</tRule>
-			<tRule>镌←鐫;</tRule>
 			<tRule>镢↔鐝;</tRule>
-			<tRule>镢←钁;</tRule>
+			<tRule>䦆←钁;</tRule>
 			<tRule>阅↔閱;</tRule>
 			<tRule>阅←閲;</tRule>
 			<tRule>妆↔妝;</tRule>
@@ -893,15 +1069,21 @@
 			<tRule>游廊↔遊廊;</tRule>
 			<tRule>游牧↔遊牧;</tRule>
 			<tRule>游人↔遊人;</tRule>
+			<tRule>游子↔遊子;</tRule>
+			<tRule>游侠↔遊俠;</tRule>
+			<tRule>游民↔遊民;</tRule>
 			<tRule>游荡↔遊蕩;</tRule>
 			<tRule>游说↔遊說;</tRule>
 			<tRule>游仙↔遊仙;</tRule>
 			<tRule>游憩↔遊憩;</tRule>
+			<tRule>游闲↔遊閑;</tRule>
 			<tRule>游戏↔遊戲;</tRule>
 			<tRule>游手↔遊手;</tRule>
+			<tRule>游魂↔遊魂;</tRule>
 			<tRule>游猎↔遊獵;</tRule>
 			<tRule>游玩↔遊玩;</tRule>
 			<tRule>游园↔遊園;</tRule>
+			<tRule>游遍↔遊遍;</tRule>
 			<tRule>游兴↔遊興;</tRule>
 			<tRule>游舫↔遊舫;</tRule>
 			<tRule>游艇↔遊艇;</tRule>
@@ -972,6 +1154,7 @@
 			<tRule>淀←淀;</tRule>
 			<comment>#</comment>
 			<tRule>向导↔嚮導;</tRule>
+			<tRule>响应←嚮應;</tRule>
 			<tRule>向往↔嚮往;</tRule>
 			<tRule>向↔向;</tRule>
 			<tRule>向←嚮;</tRule>
@@ -1059,7 +1242,10 @@
 			<tRule>勋↔勳;</tRule>
 			<tRule>勋←勛;</tRule>
 			<comment>#</comment>
-			<tRule>秋千↔韆鞦;</tRule>
+			<tRule>秋千↔鞦韆;</tRule>
+			<tRule>荡秋千↔盪鞦韆;</tRule>
+			<tRule>荡↔蕩;</tRule>
+			<tRule>荡←盪;</tRule>
 			<tRule>秋↔秋;</tRule>
 			<comment>#</comment>
 			<tRule>不寒而栗↔不寒而慄;</tRule>
@@ -1094,11 +1280,7 @@
 			<tRule>古迹↔古蹟;</tRule>
 			<tRule>史迹↔史蹟;</tRule>
 			<tRule>迹↔跡;</tRule>
-			<tRule>迹←迹;</tRule>
 			<tRule>迹←蹟;</tRule>
-			<comment>#</comment>
-			<tRule>荡↔蕩;</tRule>
-			<tRule>荡←盪;</tRule>
 			<comment>#</comment>
 			<tRule>净↔淨;</tRule>
 			<tRule>净←凈;</tRule>
@@ -1127,23 +1309,393 @@
 			<tRule>朴硝↔朴硝; # po4xiao1</tRule>
 			<tRule>朴↔樸;</tRule>
 			<tRule>朴←朴;</tRule>
+			<tRule># begin edits</tRule>
+			<tRule>钟灵毓秀↔鍾靈毓秀;</tRule>
+			<tRule>一见钟情↔一見鍾情;</tRule>
+			<tRule>千钟粟↔千鍾粟;</tRule>
+			<tRule>龙钟↔龍鍾;</tRule>
+			<tRule>独钟↔獨鍾;</tRule>
+			<tRule>汉钟离↔漢鍾離;</tRule>
+			<tRule>所钟↔所鍾;</tRule>
+			<tRule>钟离↔鍾離;</tRule>
+			<tRule>钟爱↔鍾愛;</tRule>
+			<tRule>钟馗↔鍾馗;</tRule>
+			<tRule>钟山↔鍾山;</tRule>
+			<tRule>钟↔鐘;</tRule>
+			<tRule>钟←鍾;</tRule>
+			<tRule>锺→鍾;</tRule>
+			<tRule>沾恩↔霑恩;</tRule>
+			<tRule>沾霈↔霑霈;</tRule>
+			<tRule>沾濡↔霑濡;</tRule>
+			<tRule>沾渥↔霑渥;</tRule>
+			<tRule>沾衣↔霑衣;</tRule>
+			<tRule>沾醉↔霑醉;</tRule>
+			<tRule>沾←霑;</tRule>
+			<tRule>著名↔著名;</tRule>
+			<tRule>著称↔著稱;</tRule>
+			<tRule>著述↔著述;</tRule>
+			<tRule>著作↔著作;</tRule>
+			<tRule>著书↔著書;</tRule>
+			<tRule>著绩↔著績;</tRule>
+			<tRule>著录↔著錄;</tRule>
+			<tRule>著文↔著文;</tRule>
+			<tRule>著有↔著有;</tRule>
+			<tRule>著者↔著者;</tRule>
+			<tRule>见微知著↔見微知著;</tRule>
+			<tRule>信义素著↔信義素著;</tRule>
+			<tRule>显著↔顯著;</tRule>
+			<tRule>论著↔論著;</tRule>
+			<tRule>编著↔編著;</tRule>
+			<tRule>炳著↔炳著;</tRule>
+			<tRule>昭著↔昭著;</tRule>
+			<tRule>大著↔大著;</tRule>
+			<tRule>合著↔合著;</tRule>
+			<tRule>巨著↔巨著;</tRule>
+			<tRule>钜著↔鉅著;</tRule>
+			<tRule>较著↔較著;</tRule>
+			<tRule>旧著↔舊著;</tRule>
+			<tRule>毛著↔毛著;</tRule>
+			<tRule>名著↔名著;</tRule>
+			<tRule>暴著↔暴著;</tRule>
+			<tRule>卓著↔卓著;</tRule>
+			<tRule>土著↔土著;</tRule>
+			<tRule>新著↔新著;</tRule>
+			<tRule>玄著↔玄著;</tRule>
+			<tRule>遗著↔遺著;</tRule>
+			<tRule>译著↔譯著;</tRule>
+			<tRule>原著↔原著;</tRule>
+			<tRule>专著↔專著;</tRule>
+			<tRule>撰著↔撰著;</tRule>
+			<tRule>拙著↔拙著;</tRule>
+			<tRule>着↔著;</tRule>
+			<tRule>着←着;</tRule>
+			<tRule>著→著;</tRule>
+			<tRule>扭转乾坤↔扭轉乾坤;</tRule>
+			<tRule>旋乾转坤↔旋乾轉坤;</tRule>
+			<tRule>朗朗乾坤↔朗朗乾坤;</tRule>
+			<tRule>搜罗↔蒐羅;</tRule>
+			<tRule>搜集↔蒐集;</tRule>
+			<tRule>搜录↔蒐錄;</tRule>
+			<tRule>搜↔搜;</tRule>
+			<tRule>搜←蒐;</tRule>
+			<tRule>抽签↔抽籤;</tRule>
+			<tRule>签诗↔籤詩;</tRule>
+			<tRule>签条↔籤條;</tRule>
+			<tRule>签筒↔籤筒;</tRule>
+			<tRule>签文↔籤文;</tRule>
+			<tRule>签语↔籤語;</tRule>
+			<tRule>求签↔求籤;</tRule>
+			<tRule>竹签↔竹籤;</tRule>
+			<tRule>芸签缥带↔芸籤縹帶;</tRule>
+			<tRule>芸←蕓;</tRule>
+			<tRule>芸↔芸;</tRule>
+			<tRule>万签插架↔萬籤插架;</tRule>
+			<tRule>万↔萬;</tRule>
+			<tRule>解签↔解籤;</tRule>
+			<tRule>签谱↔籤譜;</tRule>
+			<tRule>中签↔中籤;</tRule>
+			<tRule>签↔簽;</tRule>
+			<tRule>签←籤;</tRule>
+			<tRule>炼石补天↔鍊石補天;</tRule>
+			<tRule>炼而愈精↔鍊而愈精;</tRule>
+			<tRule>久炼成钢↔久鍊成鋼;</tRule>
+			<tRule>千锤百炼↔千錘百鍊;</tRule>
+			<tRule>百炼↔百鍊;</tRule>
+			<tRule>炼铝↔鍊鋁;</tRule>
+			<tRule>炼铜↔鍊銅;</tRule>
+			<tRule>炼句↔鍊句;</tRule>
+			<tRule>淬炼↔焠鍊;</tRule>
+			<tRule>锻炼↔鍛鍊;</tRule>
+			<tRule>锤炼↔錘鍊;</tRule>
+			<tRule>锤炼←捶鍊;</tRule>
+			<tRule>锤↔錘;</tRule>
+			<tRule>锤←鎚;</tRule>
+			<tRule>磨练←磨鍊; # train, drill</tRule>
+			<tRule>练气←鍊氣;</tRule>
+			<tRule>洗练←洗鍊;</tRule>
+			<tRule>金链↔金鍊; # chain</tRule>
+			<tRule>链子↔鍊子;</tRule>
+			<tRule>拉链↔拉鍊;</tRule>
+			<tRule>手链↔手鍊;</tRule>
+			<tRule>铁链↔鐵鍊;</tRule>
+			<tRule>项链↔項鍊;</tRule>
+			<tRule>炼←鍊;</tRule>
+			<tRule>炼↔煉; # defaults</tRule>
+			<tRule>练↔練;</tRule>
+			<tRule>链↔鏈;</tRule>
+			<tRule>巡查←巡察;</tRule>
+			<tRule>稽查←稽察;</tRule>
+			<tRule>询查←詢察;</tRule>
+			<tRule>细查←細察;</tRule>
+			<tRule>荧光↔螢光;</tRule>
+			<tRule>荧幕↔螢幕;</tRule>
+			<tRule>荧屏↔螢屏;</tRule>
+			<tRule>荧↔熒;</tRule>
+			<tRule>萤↔螢;</tRule>
+			<tRule>霉↔霉;</tRule>
+			<tRule>霉←黴;</tRule>
+			<tRule>艳↔艷;</tRule>
+			<tRule>艳←豔;</tRule>
+			<tRule>暗←闇;</tRule>
+			<tRule>证↔證;</tRule>
+			<tRule>证←証;</tRule>
+			<tRule>尝↔嘗;</tRule>
+			<tRule>尝←嚐;</tRule>
+			<tRule>吃↔吃;</tRule>
+			<tRule>吃←喫;</tRule>
+			<tRule>铺↔鋪;</tRule>
+			<tRule>铺←舖;</tRule>
+			<tRule>唇↔唇;</tRule>
+			<tRule>唇←脣;</tRule>
+			<tRule>壳↔殼;</tRule>
+			<tRule>遁↔遁;</tRule>
+			<tRule>遁←遯;</tRule>
+			<tRule>姐↔姐;</tRule>
+			<tRule>姐←姊;</tRule>
+			<tRule>污↔污;</tRule>
+			<tRule>污←汙;</tRule>
+			<tRule>个↔個;</tRule>
+			<tRule>个←箇;</tRule>
+			<tRule>弦←絃;</tRule>
+			<tRule>哗↔嘩;</tRule>
+			<tRule>哗←譁;</tRule>
+			<tRule>焊↔焊;</tRule>
+			<tRule>焊←銲;</tRule>
+			<tRule>馈↔饋;</tRule>
+			<tRule>馈←餽;</tRule>
+			<tRule>梁↔梁;</tRule>
+			<tRule>梁←樑;</tRule>
+			<tRule>具↔具;</tRule>
+			<tRule>具←俱;</tRule>
+			<tRule>私←俬;</tRule>
+			<tRule>私↔私;</tRule>
+			<tRule>鉴↔鑒;</tRule>
+			<tRule>鉴←鑑;</tRule>
+			<tRule>杯←盃;</tRule>
+			<tRule>湿↔濕;</tRule>
+			<tRule>湿←溼;</tRule>
+			<tRule>局↔局;</tRule>
+			<tRule>局←侷;</tRule>
+			<tRule>局←跼;</tRule>
+			<tRule>钜↔鉅;</tRule>
+			<tRule>捆←綑;</tRule>
+			<tRule>啰↔囉;</tRule>
+			<tRule>袅↔裊;</tRule>
+			<tRule>袅←嫋;</tRule>
+			<tRule>袅←嬝;</tRule>
+			<tRule>戚←慼;</tRule>
+			<tRule>折叠←褶疊;</tRule>
+			<tRule>折纸←褶紙;</tRule>
+			<tRule>叠↔疊;</tRule>
+			<tRule>捻←撚;</tRule>
+			<tRule>钳↔鉗;</tRule>
+			<tRule>钳←箝;</tRule>
+			<tRule>熔炉←鎔爐;</tRule>
+			<tRule>熔剂←鎔劑;</tRule>
+			<tRule>熔融←鎔融;</tRule>
+			<tRule>熔销←鎔銷;</tRule>
+			<tRule>熔铸←鎔鑄;</tRule>
+			<tRule>镕↔鎔; # surname</tRule>
+			<tRule>沙金↔砂金;</tRule>
+			<tRule>沙土↔砂土;</tRule>
+			<tRule>扇←搧;</tRule>
+			<tRule>相片↔像片;</tRule>
+			<tRule>毁↔毀;</tRule>
+			<tRule>毁←燬;</tRule>
+			<tRule>虱目鱼↔虱目魚;</tRule>
+			<tRule>虱↔蝨;</tRule>
+			<tRule>赞←讚;</tRule>
+			<tRule>赞↔贊;</tRule>
+			<tRule>才←纔;</tRule>
+			<tRule>薯←藷;</tRule>
+			<tRule>榨←搾;</tRule>
+			<tRule>蔑←衊;</tRule>
+			<tRule>酸←痠;</tRule>
+			<tRule>绔←袴;</tRule>
+			<tRule>绔↔絝;</tRule>
+			<tRule>绉褶↔縐摺;</tRule>
+			<tRule>皱褶↔皺摺;</tRule>
+			<tRule>折纸↔摺紙;</tRule>
+			<tRule>折←摺;</tRule>
+			<tRule>绉↔縐;</tRule>
+			<tRule>五岳↔五嶽;</tRule>
+			<tRule>东岳↔東嶽;</tRule>
+			<tRule>南岳↔南嶽;</tRule>
+			<tRule>西岳↔西嶽;</tRule>
+			<tRule>北岳↔北嶽;</tRule>
+			<tRule>山岳↔山嶽;</tRule>
+			<tRule>中岳↔中嶽;</tRule>
+			<tRule>岱岳↔岱嶽;</tRule>
+			<tRule>奇岩↔奇巖;</tRule>
+			<tRule>峭壁巉岩↔峭壁巉巖;</tRule>
+			<tRule>岩穴↔巖穴;</tRule>
+			<tRule>凿岩成室↔鑿巖成室;</tRule>
+			<tRule>凿通岩洞↔鑿通巖洞;</tRule>
+			<tRule>岩←巖;</tRule>
+			<tRule>掸↔撣;</tRule>
+			<tRule>掸←撢;</tRule>
+			<tRule>久病不愈↔久病不癒;</tRule>
+			<tRule>不药而愈↔不藥而癒;</tRule>
+			<tRule>固疾痊愈↔固疾痊癒;</tRule>
+			<tRule>疗愈↔療癒;</tRule>
+			<tRule>愈复↔癒復;</tRule>
+			<tRule>病愈↔病癒;</tRule>
+			<tRule>痊愈↔痊癒;</tRule>
+			<tRule>治愈↔治癒;</tRule>
+			<tRule>愈←癒;</tRule>
+			<tRule>棂←欞;</tRule>
+			<tRule>棂↔櫺;</tRule>
+			<tRule>呼吁↔呼籲;</tRule>
+			<tRule>吁求↔籲求;</tRule>
+			<tRule>吁请↔籲請;</tRule>
+			<tRule>吁防↔籲防;</tRule>
+			<tRule>吁←籲;</tRule>
+			<tRule>叮当↔叮噹;</tRule>
+			<tRule>叮叮当当↔叮叮噹噹;</tRule>
+			<tRule>疏浚↔疏濬;</tRule>
+			<tRule>浚←濬;</tRule>
+			<tRule>铲↔鏟;</tRule>
+			<tRule>铲←剷;</tRule>
+			<tRule>炭烟↔碳煙;</tRule>
+			<tRule>烟熏↔煙薰;</tRule>
+			<tRule>熏←燻;</tRule>
+			<tRule>烟↔煙;</tRule>
+			<tRule>烟←菸;</tRule>
+			<tRule>烟←烟;</tRule>
+			<tRule>玩←翫;</tRule>
+			<tRule>羡↔羨;</tRule>
+			<tRule>徭役↔繇役;</tRule>
+			<tRule>弥漫↔瀰漫;</tRule>
+			<tRule>弥↔彌;</tRule>
+			<tRule>弥←瀰;</tRule>
+			<tRule>殷←慇;</tRule>
+			<tRule>勤←懃;</tRule>
+			<tRule>谘↔諮;</tRule>
+			<tRule>缰↔繮;</tRule>
+			<tRule>缰←韁;</tRule>
+			<tRule>冢←塚;</tRule>
+			<tRule>耀←燿;</tRule>
+			<tRule>昵↔暱;</tRule>
+			<tRule>席←蓆;</tRule>
+			<tRule>瓮↔甕;</tRule>
+			<tRule>名噪一时↔名譟一時;</tRule>
+			<tRule>鼓噪↔鼓譟;</tRule>
+			<tRule>噪←譟;</tRule>
+			<tRule>哄←閧;</tRule>
+			<tRule>哄←鬨;</tRule>
+			<tRule>分子←份子;</tRule>
+			<tRule>冱←沍;</tRule>
+			<tRule>扣←釦;</tRule>
+			<tRule>藤←籐;</tRule>
+			<tRule>磷←燐;</tRule>
+			<tRule>檐←簷;</tRule>
+			<tRule>凄←悽;</tRule>
+			<tRule>礴↔礡;</tRule>
+			<tRule>膻↔羶;</tRule>
+			<tRule>蝎↔蠍;</tRule>
+			<tRule>球←毬;</tRule>
+			<tRule>忧←懮;</tRule>
+			<tRule>棱↔稜;</tRule>
+			<tRule>棱←棱;</tRule>
+			<tRule>喂↔餵;</tRule>
+			<tRule>捂←摀;</tRule>
+			<tRule>娘←孃;</tRule>
+			<tRule>勖←勗;</tRule>
+			<tRule>腌↔醃;</tRule>
+			<tRule>排泄↔排泄;</tRule>
+			<tRule>泄↔洩;</tRule>
+			<tRule>丫←枒;</tRule>
+			<tRule>昌言↔倡言;</tRule>
+			<tRule>眯←瞇;</tRule>
+			<tRule>佛陀←佛佗;</tRule>
+			<tRule>依傍↔依徬;</tRule>
+			<tRule>彷↔徬;</tRule>
+			<tRule>仿如↔彷如;</tRule>
+			<tRule>近旁←近傍;</tRule>
+			<tRule>仿佛↔彷彿;</tRule>
+			<tRule>仿↔仿;</tRule>
+			<tRule>仿←倣;</tRule>
+			<tRule>佛←彿;</tRule>
+			<tRule>依仗←依杖;</tRule>
+			<tRule>戮←僇;</tRule>
+			<tRule>抚恤↔撫卹;</tRule>
+			<tRule>恤养↔卹養;</tRule>
+			<tRule>恤←卹;</tRule>
+			<tRule>啮↔嚙;</tRule>
+			<tRule>啮←齧;</tRule>
+			<tRule>啮←囓;</tRule>
+			<tRule>念←唸;</tRule>
+			<tRule>亮←喨;</tRule>
+			<tRule>啕←咷;</tRule>
+			<tRule>橐←槖;</tRule>
+			<tRule>纼←靷;</tRule>
+			<tRule>捶←搥;</tRule>
+			<tRule>触目←怵目;</tRule>
+			<tRule>敛↔斂;</tRule>
+			<tRule>敛←歛;</tRule>
+			<tRule>糊←餬;</tRule>
+			<tRule>埙↔塤;</tRule>
+			<tRule>埙←壎;</tRule>
+			<tRule>媾和←搆和;</tRule>
+			<tRule>构←搆;</tRule>
+			<tRule>构↔構;</tRule>
+			<tRule>拓←搨;</tRule>
+			<tRule>舆←轝;</tRule>
+			<tRule>楫←檝;</tRule>
+			<tRule>剩←賸;</tRule>
+			<tRule>皂←皁;</tRule>
+			<tRule>鳌↔鰲;</tRule>
+			<tRule>鳌←鼇;</tRule>
+			<tRule>珐琅↔琺瑯;</tRule>
+			<tRule>琅←瑯;</tRule>
+			<tRule>麻←蔴;</tRule>
+			<tRule>佝←痀;</tRule>
+			<tRule>禧←囍;</tRule>
+			<tRule>谥↔謚;</tRule>
+			<tRule>谥←諡;</tRule>
+			<tRule>蓝↔藍;</tRule>
+			<tRule>缕↔縷;</tRule>
+			<tRule>褴↔襤;</tRule>
+			<tRule>褛↔褸;</tRule>
+			<tRule>糟←蹧;</tRule>
+			<tRule>挂碍↔罣礙;</tRule>
+			<tRule>挂↔掛;</tRule>
+			<tRule>挂←罣;</tRule>
+			<tRule>积肴于案↔積餚於案;</tRule>
+			<tRule>佳肴↔佳餚;</tRule>
+			<tRule>酒肴↔酒餚;</tRule>
+			<tRule>肴馔↔餚饌;</tRule>
+			<tRule>菜肴↔菜餚;</tRule>
+			<tRule>肴←餚;</tRule>
+			<tRule>翱←翺;</tRule>
+			<tRule>蠹←蠧;</tRule>
+			<tRule>蜷←踡;</tRule>
+			<tRule>逾←踰;</tRule>
+			<tRule>枪↔槍;</tRule>
+			<tRule>枪←鎗;</tRule>
+			<tRule>厄←阨;</tRule>
+			<tRule>堤←隄;</tRule>
+			<tRule>鳖↔鱉;</tRule>
+			<tRule>鳖←鼈;</tRule>
+			<tRule>篪←箎;</tRule>
+			<tRule>睾↔睪;</tRule>
+			<tRule>彝←彞;</tRule>
+			<tRule>镌↔鐫;</tRule>
+			<tRule>镌←鎸;</tRule>
+			<tRule>于↔於;</tRule>
 			<comment>#</comment>
 			<comment># one-to-one mappings</comment>
 			<comment>#</comment>
 			<tRule>亘↔亙;</tRule>
 			<tRule>铝↔鋁;</tRule>
 			<tRule>极↔極;</tRule>
-			<tRule>壳↔殻;</tRule>
 			<tRule>锨↔鍁;</tRule>
 			<tRule>咏↔詠;</tRule>
 			<tRule>琼↔瓊;</tRule>
 			<tRule>莼↔蒓;</tRule>
-			<tRule>缰↔繮;</tRule>
 			<tRule>鲞↔鮝;</tRule>
 			<tRule>鹚↔鷀;</tRule>
 			<tRule>种↔種;</tRule>
-			<tRule>钟↔鐘;</tRule>
-			<tRule>锺↔鍾;</tRule>
 			<tRule>妒↔妒;</tRule>
 			<tRule>和↔和;</tRule>
 			<tRule>傥↔儻;</tRule>
@@ -1166,7 +1718,6 @@
 			<tRule>卧↔臥;</tRule>
 			<tRule>伫↔佇;</tRule>
 			<tRule>来↔來;</tRule>
-			<tRule>仑↔侖;</tRule>
 			<tRule>侣↔侶;</tRule>
 			<tRule>俣↔俁;</tRule>
 			<tRule>伣↔俔;</tRule>
@@ -1175,7 +1726,6 @@
 			<tRule>俩↔倆;</tRule>
 			<tRule>俫↔倈;</tRule>
 			<tRule>仓↔倉;</tRule>
-			<tRule>个↔個;</tRule>
 			<tRule>们↔們;</tRule>
 			<tRule>伦↔倫;</tRule>
 			<tRule>伟↔偉;</tRule>
@@ -1292,9 +1842,7 @@
 			<tRule>喽↔嘍;</tRule>
 			<tRule>呕↔嘔;</tRule>
 			<tRule>啧↔嘖;</tRule>
-			<tRule>尝↔嘗;</tRule>
 			<tRule>唛↔嘜;</tRule>
-			<tRule>哗↔嘩;</tRule>
 			<tRule>唠↔嘮;</tRule>
 			<tRule>啸↔嘯;</tRule>
 			<tRule>叽↔嘰;</tRule>
@@ -1315,7 +1863,6 @@
 			<tRule>吓↔嚇;</tRule>
 			<tRule>哜↔嚌;</tRule>
 			<tRule>噜↔嚕;</tRule>
-			<tRule>啮↔嚙;</tRule>
 			<tRule>呖↔嚦;</tRule>
 			<tRule>咙↔嚨;</tRule>
 			<tRule>亸↔嚲;</tRule>
@@ -1351,7 +1898,6 @@
 			<tRule>埘↔塒;</tRule>
 			<tRule>涂↔塗;</tRule>
 			<tRule>坞↔塢;</tRule>
-			<tRule>埙↔塤;</tRule>
 			<tRule>尘↔塵;</tRule>
 			<tRule>堑↔塹;</tRule>
 			<tRule>垫↔墊;</tRule>
@@ -1487,9 +2033,7 @@
 			<tRule>张↔張;</tRule>
 			<tRule>强↔強;</tRule>
 			<tRule>弹↔彈;</tRule>
-			<tRule>弥↔彌;</tRule>
 			<tRule>弯↔彎;</tRule>
-			<tRule>彝←彞;</tRule>
 			<tRule>彦↔彥;</tRule>
 			<tRule>径↔徑;</tRule>
 			<tRule>从↔從;</tRule>
@@ -1520,7 +2064,6 @@
 			<tRule>虑↔慮;</tRule>
 			<tRule>悭↔慳;</tRule>
 			<tRule>庆↔慶;</tRule>
-			<tRule>忧↔憂;</tRule>
 			<tRule>惫↔憊;</tRule>
 			<tRule>怜↔憐;</tRule>
 			<tRule>凭↔憑;</tRule>
@@ -1562,7 +2105,6 @@
 			<tRule>抡↔掄;</tRule>
 			<tRule>挜↔掗;</tRule>
 			<tRule>挣↔掙;</tRule>
-			<tRule>挂↔掛;</tRule>
 			<tRule>拣↔揀;</tRule>
 			<tRule>换↔換;</tRule>
 			<tRule>挥↔揮;</tRule>
@@ -1583,7 +2125,6 @@
 			<tRule>挠↔撓;</tRule>
 			<tRule>㧑↔撝;</tRule>
 			<tRule>挢↔撟;</tRule>
-			<tRule>掸↔撣;</tRule>
 			<tRule>拨↔撥;</tRule>
 			<tRule>抚↔撫;</tRule>
 			<tRule>扑↔撲;</tRule>
@@ -1629,7 +2170,6 @@
 			<tRule>叙↔敘;</tRule>
 			<tRule>敌↔敵;</tRule>
 			<tRule>数↔數;</tRule>
-			<tRule>敛↔斂;</tRule>
 			<tRule>毙↔斃;</tRule>
 			<tRule>斓↔斕;</tRule>
 			<tRule>斩↔斬;</tRule>
@@ -1651,7 +2191,6 @@
 			<tRule>晒↔曬;</tRule>
 			<tRule>书↔書;</tRule>
 			<tRule>会↔會;</tRule>
-			<tRule>胧↔朧;</tRule>
 			<tRule>东↔東;</tRule>
 			<tRule>栅↔柵;</tRule>
 			<tRule>杆↔桿;</tRule>
@@ -1676,8 +2215,6 @@
 			<tRule>荣↔榮;</tRule>
 			<tRule>榅↔榲;</tRule>
 			<tRule>桤↔榿;</tRule>
-			<tRule>构↔構;</tRule>
-			<tRule>枪↔槍;</tRule>
 			<tRule>梿↔槤;</tRule>
 			<tRule>椠↔槧;</tRule>
 			<tRule>椁↔槨;</tRule>
@@ -1686,7 +2223,6 @@
 			<tRule>乐↔樂;</tRule>
 			<tRule>枞↔樅;</tRule>
 			<tRule>楼↔樓;</tRule>
-			<tRule>标↔標;</tRule>
 			<tRule>枢↔樞;</tRule>
 			<tRule>样↔樣;</tRule>
 			<tRule>树↔樹;</tRule>
@@ -1727,7 +2263,6 @@
 			<tRule>椤↔欏;</tRule>
 			<tRule>栾↔欒;</tRule>
 			<tRule>榄↔欖;</tRule>
-			<tRule>棂↔欞;</tRule>
 			<tRule>钦↔欽;</tRule>
 			<tRule>欧↔歐;</tRule>
 			<tRule>欤↔歟;</tRule>
@@ -1745,7 +2280,6 @@
 			<tRule>㱩↔殰;</tRule>
 			<tRule>歼↔殲;</tRule>
 			<tRule>杀↔殺;</tRule>
-			<tRule>毁↔毀;</tRule>
 			<tRule>殴↔毆;</tRule>
 			<tRule>毵↔毿;</tRule>
 			<tRule>牦↔氂;</tRule>
@@ -1754,7 +2288,68 @@
 			<tRule>氢↔氫;</tRule>
 			<tRule>氩↔氬;</tRule>
 			<tRule>氲↔氳;</tRule>
-			<tRule>沉↔沈;</tRule>
+			<tRule>郁金香↔鬱金香;</tRule>
+			<tRule>郁闷↔鬱悶;</tRule>
+			<tRule>郁郁↔鬱鬱;</tRule>
+			<tRule>阴郁↔陰鬱;</tRule>
+			<tRule>沉郁↔沈鬱;</tRule>
+			<tRule>苍郁↔蒼鬱;</tRule>
+			<tRule>忧郁↔憂鬱;</tRule>
+			<tRule>悒郁↔悒鬱;</tRule>
+			<tRule>抑郁↔抑鬱;</tRule>
+			<tRule>积郁↔積鬱;</tRule>
+			<tRule>郁←鬱;</tRule>
+			<tRule>忧↔憂;</tRule>
+			<tRule># 沈 is a surname in hans and hant</tRule>
+			<tRule># 瀋 / 沈 meaning Shenyang</tRule>
+			<tRule>沈大铁路↔瀋大鐵路;</tRule>
+			<tRule>沈大高速↔瀋大高速;</tRule>
+			<tRule>沈大线↔瀋大線;</tRule>
+			<tRule>沈吉铁路↔瀋吉鐵路;</tRule>
+			<tRule>沈吉高速↔瀋吉高速;</tRule>
+			<tRule>沈吉线↔瀋吉線;</tRule>
+			<tRule>沈山高速↔瀋山高速;</tRule>
+			<tRule>沈山铁路↔瀋山鐵路;</tRule>
+			<tRule>沈山线↔瀋山線;</tRule>
+			<tRule>沈阳↔瀋陽;</tRule>
+			<tRule>沈哈↔瀋哈;</tRule>
+			<tRule>京沈↔京瀋;</tRule>
+			<tRule>辽沈↔遼瀋;</tRule>
+			<tRule>沈←瀋;</tRule>
+			<tRule>墨渖未干↔墨瀋未乾;	 # 瀋 meaning liquid</tRule>
+			<tRule>渖→瀋;</tRule>
+			<tRule>石沉大海↔石沈大海; # 沈 meaning sink</tRule>
+			<tRule>鱼沉雁杳↔魚沈雁杳;</tRule>
+			<tRule>破釜沉舟↔破釜沈舟;</tRule>
+			<tRule>沉沉浮浮↔沈沈浮浮;</tRule>
+			<tRule>沉浮↔沈浮;</tRule>
+			<tRule>沉默↔沈默;</tRule>
+			<tRule>沉重↔沈重;</tRule>
+			<tRule>沉思↔沈思;</tRule>
+			<tRule>沉淀↔沈澱;</tRule>
+			<tRule>沉稳↔沈穩;</tRule>
+			<tRule>沉浸↔沈浸;</tRule>
+			<tRule>沉闷↔沈悶;</tRule>
+			<tRule>沉静↔沈靜;</tRule>
+			<tRule>沉醉↔沈醉;</tRule>
+			<tRule>沉迷↔沈迷;</tRule>
+			<tRule>沉寂↔沈寂;</tRule>
+			<tRule>沉入↔沈入;</tRule>
+			<tRule>沉沉↔沈沈;</tRule>
+			<tRule>沉落↔沈落;</tRule>
+			<tRule>沉睡↔沈睡;</tRule>
+			<tRule>沉潜↔沈潛;</tRule>
+			<tRule>沉沦↔沈淪;</tRule>
+			<tRule>沉吟↔沈吟;</tRule>
+			<tRule>沉积↔沈積;</tRule>
+			<tRule>沉着↔沈著;</tRule>
+			<tRule>沉没↔沈沒;</tRule>
+			<tRule>低沉↔低沈;</tRule>
+			<tRule>消沉↔消沈;</tRule>
+			<tRule>深沉↔深沈;</tRule>
+			<tRule>浮沉↔浮沈;</tRule>
+			<tRule>沉→沈;</tRule>
+			<tRule>秘←祕;</tRule>
 			<tRule>决↔決;</tRule>
 			<tRule>没↔沒;</tRule>
 			<tRule>况↔況;</tRule>
@@ -1819,7 +2414,6 @@
 			<tRule>浍↔澮;</tRule>
 			<tRule>浊↔濁;</tRule>
 			<tRule>浓↔濃;</tRule>
-			<tRule>湿↔濕;</tRule>
 			<tRule>泞↔濘;</tRule>
 			<tRule>济↔濟;</tRule>
 			<tRule>涛↔濤;</tRule>
@@ -1858,7 +2452,6 @@
 			<tRule>乌↔烏;</tRule>
 			<tRule>烃↔烴;</tRule>
 			<tRule>无↔無;</tRule>
-			<tRule>炼↔煉;</tRule>
 			<tRule>炜↔煒;</tRule>
 			<tRule>茕↔煢;</tRule>
 			<tRule>焕↔煥;</tRule>
@@ -1866,7 +2459,6 @@
 			<tRule>炀↔煬;</tRule>
 			<tRule>㶽↔煱;</tRule>
 			<tRule>煴↔熅;</tRule>
-			<tRule>荧↔熒;</tRule>
 			<tRule>炝↔熗;</tRule>
 			<tRule>热↔熱;</tRule>
 			<tRule>颎↔熲;</tRule>
@@ -1939,10 +2531,8 @@
 			<tRule>瓯↔甌;</tRule>
 			<tRule>亩↔畝;</tRule>
 			<tRule>毕↔畢;</tRule>
-			<tRule>画↔畫;</tRule>
 			<tRule>异↔異;</tRule>
 			<tRule>畴↔疇;</tRule>
-			<tRule>叠↔疊;</tRule>
 			<tRule>痉↔痙;</tRule>
 			<tRule>疴↔痾;</tRule>
 			<tRule>痖↔瘂;</tRule>
@@ -2066,7 +2656,6 @@
 			<tRule>篑↔簣;</tRule>
 			<tRule>箫↔簫;</tRule>
 			<tRule>筜↔簹;</tRule>
-			<tRule>签↔簽;</tRule>
 			<tRule>帘↔簾;</tRule>
 			<tRule>篮↔籃;</tRule>
 			<tRule>筹↔籌;</tRule>
@@ -2127,7 +2716,6 @@
 			<tRule>绊↔絆;</tRule>
 			<tRule>绗↔絎;</tRule>
 			<tRule>结↔結;</tRule>
-			<tRule>绔↔絝;</tRule>
 			<tRule>绞↔絞;</tRule>
 			<tRule>络↔絡;</tRule>
 			<tRule>绚↔絢;</tRule>
@@ -2157,7 +2745,6 @@
 			<tRule>纲↔綱;</tRule>
 			<tRule>网↔網;</tRule>
 			<tRule>缀↔綴;</tRule>
-			<tRule>䌽↔綵;</tRule>
 			<tRule>纶↔綸;</tRule>
 			<tRule>绺↔綹;</tRule>
 			<tRule>绮↔綺;</tRule>
@@ -2186,14 +2773,12 @@
 			<tRule>纬↔緯;</tRule>
 			<tRule>缑↔緱;</tRule>
 			<tRule>缈↔緲;</tRule>
-			<tRule>练↔練;</tRule>
 			<tRule>缏↔緶;</tRule>
 			<tRule>缇↔緹;</tRule>
 			<tRule>萦↔縈;</tRule>
 			<tRule>缙↔縉;</tRule>
 			<tRule>缢↔縊;</tRule>
 			<tRule>缒↔縋;</tRule>
-			<tRule>绉↔縐;</tRule>
 			<tRule>缣↔縑;</tRule>
 			<tRule>缊↔縕;</tRule>
 			<tRule>缞↔縗;</tRule>
@@ -2210,7 +2795,6 @@
 			<tRule>䌸↔縳;</tRule>
 			<tRule>缦↔縵;</tRule>
 			<tRule>絷↔縶;</tRule>
-			<tRule>缕↔縷;</tRule>
 			<tRule>缥↔縹;</tRule>
 			<tRule>总↔總;</tRule>
 			<tRule>绩↔績;</tRule>
@@ -2302,7 +2886,6 @@
 			<tRule>舰↔艦;</tRule>
 			<tRule>舻↔艫;</tRule>
 			<tRule>艰↔艱;</tRule>
-			<tRule>艳↔艷;</tRule>
 			<tRule>刍↔芻;</tRule>
 			<tRule>苎↔苧;</tRule>
 			<tRule>兹↔茲;</tRule>
@@ -2353,7 +2936,6 @@
 			<tRule>萨↔薩;</tRule>
 			<tRule>䓕↔薳;</tRule>
 			<tRule>荠↔薺;</tRule>
-			<tRule>蓝↔藍;</tRule>
 			<tRule>荩↔藎;</tRule>
 			<tRule>艺↔藝;</tRule>
 			<tRule>薮↔藪;</tRule>
@@ -2385,7 +2967,6 @@
 			<tRule>蜗↔蝸;</tRule>
 			<tRule>蛳↔螄;</tRule>
 			<tRule>蚂↔螞;</tRule>
-			<tRule>萤↔螢;</tRule>
 			<tRule>䗖↔螮;</tRule>
 			<tRule>蝼↔螻;</tRule>
 			<tRule>螀↔螿;</tRule>
@@ -2410,21 +2991,18 @@
 			<tRule>术↔術;</tRule>
 			<tRule>卫↔衛;</tRule>
 			<tRule>衮↔袞;</tRule>
-			<tRule>袅↔裊;</tRule>
 			<tRule>补↔補;</tRule>
 			<tRule>装↔裝;</tRule>
 			<tRule>裈↔褌;</tRule>
 			<tRule>袆↔褘;</tRule>
 			<tRule>裤↔褲;</tRule>
 			<tRule>裢↔褳;</tRule>
-			<tRule>褛↔褸;</tRule>
 			<tRule>亵↔褻;</tRule>
 			<tRule>裥↔襇;</tRule>
 			<tRule>袯↔襏;</tRule>
 			<tRule>袄↔襖;</tRule>
 			<tRule>裣↔襝;</tRule>
 			<tRule>裆↔襠;</tRule>
-			<tRule>褴↔襤;</tRule>
 			<tRule>袜↔襪;</tRule>
 			<tRule>䙓↔襬;</tRule>
 			<tRule>衬↔襯;</tRule>
@@ -2487,7 +3065,6 @@
 			<tRule>诇↔詗;</tRule>
 			<tRule>诎↔詘;</tRule>
 			<tRule>诅↔詛;</tRule>
-			<tRule>词↔詞;</tRule>
 			<tRule>诩↔詡;</tRule>
 			<tRule>询↔詢;</tRule>
 			<tRule>诣↔詣;</tRule>
@@ -2550,7 +3127,6 @@
 			<tRule>谐↔諧;</tRule>
 			<tRule>谏↔諫;</tRule>
 			<tRule>谕↔諭;</tRule>
-			<tRule>谘↔諮;</tRule>
 			<tRule>讳↔諱;</tRule>
 			<tRule>谙↔諳;</tRule>
 			<tRule>谌↔諶;</tRule>
@@ -2571,7 +3147,6 @@
 			<tRule>谡↔謖;</tRule>
 			<tRule>谤↔謗;</tRule>
 			<tRule>谦↔謙;</tRule>
-			<tRule>谥↔謚;</tRule>
 			<tRule>讲↔講;</tRule>
 			<tRule>谢↔謝;</tRule>
 			<tRule>谟↔謨;</tRule>
@@ -2581,7 +3156,6 @@
 			<tRule>谨↔謹;</tRule>
 			<tRule>谩↔謾;</tRule>
 			<tRule>䜧↔譅;</tRule>
-			<tRule>证↔證;</tRule>
 			<tRule>谲↔譎;</tRule>
 			<tRule>讥↔譏;</tRule>
 			<tRule>谮↔譖;</tRule>
@@ -2674,7 +3248,6 @@
 			<tRule>赘↔贅;</tRule>
 			<tRule>赟↔贇;</tRule>
 			<tRule>赠↔贈;</tRule>
-			<tRule>赞↔贊;</tRule>
 			<tRule>赡↔贍;</tRule>
 			<tRule>赢↔贏;</tRule>
 			<tRule>赆↔贐;</tRule>
@@ -2863,14 +3436,12 @@
 			<tRule>铀↔鈾;</tRule>
 			<tRule>钿↔鈿;</tRule>
 			<tRule>钾↔鉀;</tRule>
-			<tRule>钜↔鉅;</tRule>
 			<tRule>铊↔鉈;</tRule>
 			<tRule>铉↔鉉;</tRule>
 			<tRule>铇↔鉋;</tRule>
 			<tRule>铋↔鉍;</tRule>
 			<tRule>铂↔鉑;</tRule>
 			<tRule>钷↔鉕;</tRule>
-			<tRule>钳↔鉗;</tRule>
 			<tRule>铆↔鉚;</tRule>
 			<tRule>铅↔鉛;</tRule>
 			<tRule>钺↔鉞;</tRule>
@@ -2921,7 +3492,6 @@
 			<tRule>锔↔鋦;</tRule>
 			<tRule>锇↔鋨;</tRule>
 			<tRule>铓↔鋩;</tRule>
-			<tRule>铺↔鋪;</tRule>
 			<tRule>铖↔鋮;</tRule>
 			<tRule>锆↔鋯;</tRule>
 			<tRule>锂↔鋰;</tRule>
@@ -2976,7 +3546,6 @@
 			<tRule>锿↔鎄;</tRule>
 			<tRule>镅↔鎇;</tRule>
 			<tRule>镑↔鎊;</tRule>
-			<tRule>镕↔鎔;</tRule>
 			<tRule>锁↔鎖;</tRule>
 			<tRule>镉↔鎘;</tRule>
 			<tRule>镈↔鎛;</tRule>
@@ -2996,7 +3565,6 @@
 			<tRule>镎↔鎿;</tRule>
 			<tRule>镞↔鏃;</tRule>
 			<tRule>镟↔鏇;</tRule>
-			<tRule>链↔鏈;</tRule>
 			<tRule>镆↔鏌;</tRule>
 			<tRule>镙↔鏍;</tRule>
 			<tRule>镠↔鏐;</tRule>
@@ -3006,7 +3574,6 @@
 			<tRule>镗↔鏜;</tRule>
 			<tRule>镘↔鏝;</tRule>
 			<tRule>镛↔鏞;</tRule>
-			<tRule>铲↔鏟;</tRule>
 			<tRule>镜↔鏡;</tRule>
 			<tRule>镖↔鏢;</tRule>
 			<tRule>镂↔鏤;</tRule>
@@ -3037,7 +3604,6 @@
 			<tRule>铸↔鑄;</tRule>
 			<tRule>镬↔鑊;</tRule>
 			<tRule>镔↔鑌;</tRule>
-			<tRule>鉴↔鑒;</tRule>
 			<tRule>镲↔鑔;</tRule>
 			<tRule>锧↔鑕;</tRule>
 			<tRule>镴↔鑞;</tRule>
@@ -3236,7 +3802,6 @@
 			<tRule>饿↔餓;</tRule>
 			<tRule>馂↔餕;</tRule>
 			<tRule>饾↔餖;</tRule>
-			<tRule>肴↔餚;</tRule>
 			<tRule>馄↔餛;</tRule>
 			<tRule>馃↔餜;</tRule>
 			<tRule>饯↔餞;</tRule>
@@ -3256,7 +3821,6 @@
 			<tRule>馐↔饈;</tRule>
 			<tRule>馑↔饉;</tRule>
 			<tRule>馓↔饊;</tRule>
-			<tRule>馈↔饋;</tRule>
 			<tRule>馔↔饌;</tRule>
 			<tRule>饶↔饒;</tRule>
 			<tRule>飨↔饗;</tRule>
@@ -3408,7 +3972,6 @@
 			<tRule>鳍↔鰭;</tRule>
 			<tRule>鳁↔鰮;</tRule>
 			<tRule>鲢↔鰱;</tRule>
-			<tRule>鳌↔鰲;</tRule>
 			<tRule>鳓↔鰳;</tRule>
 			<tRule>鳘↔鰵;</tRule>
 			<tRule>鲦↔鰷;</tRule>
@@ -3420,7 +3983,6 @@
 			<tRule>鳉↔鱂;</tRule>
 			<tRule>鳙↔鱅;</tRule>
 			<tRule>鳕↔鱈;</tRule>
-			<tRule>鳖↔鱉;</tRule>
 			<tRule>鳟↔鱒;</tRule>
 			<tRule>鳝↔鱔;</tRule>
 			<tRule>鳜↔鱖;</tRule>

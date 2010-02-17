@@ -65,7 +65,7 @@
             <pluralRule count="many">n mod 100 in 11..19</pluralRule>
         </pluralRules>
         <pluralRules locales="mk"> <!-- from Tamplin's data -->
-            <pluralRule count="one">n mod 10 is 1</pluralRule>
+            <pluralRule count="one">n mod 10 is 1 and n is not 11</pluralRule>
         </pluralRules>
         <pluralRules locales="cy"> <!-- from Tamplin's data -->
             <pluralRule count="one">n is 1</pluralRule>

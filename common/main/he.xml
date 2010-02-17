@@ -1020,13 +1020,13 @@
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E ה-d</dateFormatItem>
 						<dateFormatItem id="EEEd">EEE ה-d</dateFormatItem>
-						<dateFormatItem id="H">H</dateFormatItem>
-						<dateFormatItem id="HHmm">H:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="hm">H:mm</dateFormatItem>
-						<dateFormatItem id="Hm" draft="contributed">H:mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="provisional">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="provisional">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms" draft="provisional">HH:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms" draft="provisional">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="Md" alt="proposed-x1001" draft="unconfirmed">d.M</dateFormatItem>
@@ -1370,11 +1370,11 @@
 					<availableFormats>
 						<dateFormatItem id="Ed" draft="provisional">E ה-d</dateFormatItem>
 						<dateFormatItem id="EEEd" draft="provisional">EEE ה-d</dateFormatItem>
-						<dateFormatItem id="H" draft="provisional">H</dateFormatItem>
+						<dateFormatItem id="H" draft="provisional">HHH</dateFormatItem>
 						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="hm" draft="provisional">H:mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="provisional">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="hm" draft="provisional">h:mm a</dateFormatItem>
+						<dateFormatItem id="hms" draft="provisional">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">d/M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="provisional">E, d/M</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>

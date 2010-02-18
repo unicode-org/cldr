@@ -52,6 +52,9 @@ import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.dev.test.util.Tabber;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.dev.test.util.UnicodeMapIterator;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -813,6 +816,26 @@ public class CountItems {
     checkCodes("language", sc, localeAliasInfo, fullData);
     checkCodes("script", sc, localeAliasInfo, fullData);
     checkCodes("territory", sc, localeAliasInfo, fullData);
+    
+    // generate mapping equivalences
+    //{ "aar", "aar", "aa" },  // Afar
+    // b, t, bcp47
+    Set<R3<String, String, String>> rows = new TreeSet();
+    for (String lang : Iso639Data.getAvailable()) {
+      String bib = Iso639Data.toBiblio3(lang);
+      String tech = Iso639Data.toAlpha3(lang);
+      R3<String, String, String> row = Row.of(tech, bib, lang);
+      rows.add(row);
+    }
+    for (R3<String, String, String> row : rows) {
+      String tech = row.get0();
+      String bib = row.get1();
+      String lang = row.get2();
+      String name = Iso639Data.getNames(lang).iterator().next(); // english.getName(lang);
+      if ((bib != null && !lang.equals(bib)) || (tech != null && !lang.equals(tech))) {
+        System.out.println("  { \"" + bib + "\", \"" + tech + "\", \"" + lang + "\" },  // " + name);
+      }
+    }
   }
 
   private static void checkCodes(String type, StandardCodes sc,

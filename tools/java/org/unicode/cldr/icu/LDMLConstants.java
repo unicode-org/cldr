@@ -22,6 +22,7 @@ public class LDMLConstants {
     public static final String CASING          = "casing";
     public static final String LINES           = "lines";
     public static final String DELIMITERS      = "delimiters";
+    public static final String LIST_PART       = "listPatterns";
     public static final String MEASUREMENT     = "measurement";
     public static final String DATES           = "dates";
     public static final String NUMBERS         = "numbers";

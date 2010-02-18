@@ -758,6 +758,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         keyNameMap.put("codePatterns", "codePatterns");
         keyNameMap.put("fractions", "CurrencyData");
         keyNameMap.put("quarters", "quarters");
+        keyNameMap.put("dayPeriods", "dayPeriods");
         keyNameMap.put("displayName", "dn");
         keyNameMap.put("icu:breakDictionaryData", "BreakDictionaryData");
 
@@ -894,7 +895,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             LDMLConstants.CHARACTERS, LDMLConstants.DELIMITERS, LDMLConstants.DATES, LDMLConstants.NUMBERS,
             // LDMLConstants.POSIX,
             // LDMLConstants.SEGMENTATIONS,
-            LDMLConstants.REFERENCES, LDMLConstants.RBNF, LDMLConstants.COLLATIONS, LDMLConstants.UNITS, LDMLConstants.UNITS_SHORT };
+            LDMLConstants.REFERENCES, LDMLConstants.RBNF, LDMLConstants.COLLATIONS, LDMLConstants.UNITS, LDMLConstants.UNITS_SHORT,
+            LDMLConstants.LIST_PART
+        };
 
         for (String name : stuff) {
             String xpath = "//ldml/" + name;
@@ -912,7 +915,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             } else if (name.equals(LDMLConstants.CHARACTERS)) {
                 res = parseCharacters(loc, xpath);
             } else if (name.equals(LDMLConstants.DELIMITERS)) {
-                res = parseDelimiters(loc, xpath);
+              res = parseDelimiters(loc, xpath);
+            } else if (name.equals(LDMLConstants.LIST_PART)) {
+              res = parseLists(loc, xpath);
             } else if (name.equals(LDMLConstants.DATES)) {
                 res = parseDates(loc, xpath);
             } else if (name.equals(LDMLConstants.NUMBERS)) {
@@ -1529,6 +1534,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 System.exit(-1);
             }
 
+            // this code is ugly, and repeated all over. Should be encapsulated, but table.addAfter(res) doesn't do the right thing.
+            // TODO fix it.
+
             if (res != null) {
                 if (current == null) {
                     current = table.first = res;
@@ -1545,6 +1553,90 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
 
         return null;
+    }
+    
+    /**
+     * Goal is to change:
+        <listPatterns>
+          <listPattern type="XXX">
+            <listPatternPart type="2">{0} and {1}</listPatternPart>
+            <listPatternPart type="end">{0}, and {1}</listPatternPart>
+          </listPattern>
+        </listPatterns>
+        
+        to
+        
+        listPattern{
+          XXX{
+              2{"{0} and {1}"}
+              end{"{0}, and {1}"} 
+          }
+        }
+        // note that XXX = standard if "XXX" == ""
+     * @param loc
+     * @param xpath
+     * @return
+     */
+    private Resource parseLists(LDML2ICUInputLocale loc, String xpath) {
+      if (loc.isPathNotConvertible(xpath)) {
+        return null;
+      }
+
+      // Since we have a two-level table, make a map to store the contents
+      // If the items are always in order, we don't really need a map, but this is simpler to manage.
+      Map<String,ResourceTable> subtables = new TreeMap<String,ResourceTable>();
+
+      for (Iterator<String> iter = loc.getFile().iterator(xpath); iter.hasNext();) {
+        xpath = iter.next();
+        if (loc.isPathNotConvertible(xpath)) {
+          continue;
+        }
+        // since we are a two-level table, we need to have an intermediate table
+        String index = XPPUtil.getAttributeValue(xpath, "listPattern", "type");
+        if (index == null) {
+          index = "standard";
+        }
+        ResourceTable subtable = subtables.get(index);
+        if (subtable == null) {
+          subtable = new ResourceTable();
+          subtable.name = index;
+          subtables.put(index, subtable);
+        }
+
+        ResourceString res = new ResourceString();
+        res.name = XPPUtil.getAttributeValue(xpath, "listPatternPart", "type");
+        res.val = loc.getFile().getStringValue(xpath);
+        addToTable(subtable, res);
+      }
+
+      if (subtables.size() == 0) {
+        return null;
+      }
+      ResourceTable table = new ResourceTable();
+      table.name = "listPattern";
+      for (Resource res : subtables.values()) {
+        addToTable(table, res);
+      }
+
+      return table;
+    }
+    
+    /**
+     * A hack to avoid duplicating code, and get around the fact that the model for resource tables doesn't keep an end-pointer.
+     * (And why it doesn't use standard collections??)
+     * @param table
+     * @param resource
+     */
+    static void addToTable(ResourceTable table, Resource resource) {
+      Resource current = table.first;
+      if (current == null) {
+        table.first = resource;
+      } else {
+        while (current.next != null) {
+          current = current.next;
+        }
+        current.next = resource;
+      }
     }
 
     private Resource parseMeasurement(String country, String variant, boolean isRoot) {

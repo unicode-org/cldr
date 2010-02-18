@@ -12,17 +12,17 @@ public class ICULogImpl implements ICULog {
     this.out= new PrintWriter(System.out);
   }
 
-  @Override
+
   public void debug(String msg) {
     out(Level.DEBUG, msg);
   }
 
-  @Override
+  
   public void error(String msg) {
     out(Level.ERROR, msg);
   }
 
-  @Override
+  
   public void error(String msg, Throwable t) {
     if (t == null) {
       error(msg);
@@ -33,22 +33,22 @@ public class ICULogImpl implements ICULog {
     out.flush();
   }
 
-  @Override
+  
   public void info(String msg) {
     out(Level.INFO, msg);
   }
 
-  @Override
+  
   public void log(String msg) {
     out(Level.LOG, msg);
   }
 
-  @Override
+  
   public void setStatus(String status) {
     this.status = status;
   }
 
-  @Override
+  
   public void warning(String msg) {
     out(Level.WARNING, msg);
   }
@@ -64,12 +64,12 @@ public class ICULogImpl implements ICULog {
     }
   }
 
-  @Override
+  
   public boolean willOutput(Level level) {
     return level.ordinal() >= this.level.ordinal();
   }
 
-  @Override
+  
   public Emitter emitter(Level level) {
     return willOutput(level) ? logEmitter : nullEmitter;
   }
@@ -80,12 +80,12 @@ public class ICULogImpl implements ICULog {
   private final Emitter logEmitter = new Emitter() {
     private final StringBuilder buf = new StringBuilder();
 
-    @Override
+    
     public void emit(String text) {
       buf.append(text);
     }
 
-    @Override
+    
     public void nl() {
       out.println(buf.toString());
       out.flush();
@@ -94,7 +94,7 @@ public class ICULogImpl implements ICULog {
   };
 
   private static final Emitter nullEmitter = new Emitter() {
-    @Override public void emit(String text) { }
-    @Override public void nl() { }
+     public void emit(String text) { }
+     public void nl() { }
   };
 }

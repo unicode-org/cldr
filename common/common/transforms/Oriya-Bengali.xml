@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<transforms>
+		<transform source="Oriya" target="Bengali" direction="forward">
+			<tRule>::[ଁ-ଃଅ-ଌଏ-ଐଓ-ନପ-ରଲ-ଳଵ-ହ଼-ୃେ-ୈୋ-୍ୖ-ୗଡ଼-ଢ଼ୟ-ୡ୦-ୱ];</tRule>
+			<tRule>::NFD;</tRule>
+			<tRule>::Oriya-InterIndic;</tRule>
+			<tRule>::InterIndic-Bengali;</tRule>
+			<tRule>::NFC;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>
+

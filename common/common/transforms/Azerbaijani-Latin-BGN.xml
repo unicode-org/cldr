@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<transforms>
+		<transform source="Azerbaijani" target="Latin" direction="forward" variant="BGN" draft="provisional">
+			<comment>
+			########################################################################
+			# BGN/PCGN 1993 Agreement
+			#
+			# Azerbaijani is the official language of Azerbaijan. In 1991, the
+			# Azerbaijani government adopted a Roman alphabet to replace the
+			# existing Cyrillic alphabet. The Azerbaijani Cyrillic alphabet 
+			# contains nine letters not present in the Russian alphabet: 
+			# Ғғ, Әә, Јј, Ҝҝ, Өө, Үү, Һһ, Ҹҹ, and ’. Four obsolete letters
+			# Йй, Ээ, Юю and Яя are also given.
+			#
+			# The Azerbaijani Alphabet as defined by the BGN (Page 13):
+			#
+			#   АБВГҒДЕӘЖЗИЫЈКҜЛМНОӨПРСТУҮФХҺЧҸШЙЭЮЯ
+			#   абвгғдеәжзиыјкҝлмноөпрстуүфхһчҹш’йэюя
+			#
+			# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
+			########################################################################
+			#
+			# MINIMAL FILTER: AzerbaijaniCyrl-Latin
+			#
+			</comment>
+			<tRule>:: [АБВГҒДЕӘЖЗИЫКҜЛМНОӨПРСТУҮФХҺЧҸШЙЭЮЯабвгғдеәжзиыкҝлмноөпрстуүфхһчҹш’йэюя] ;</tRule>
+			<tRule>:: NFD (NFC) ;</tRule>
+			<comment>
+			#
+			########################################################################
+			</comment>
+
+			<comment>
+			########################################################################
+			#
+			# Define All Transformation Variables
+			#
+			########################################################################
+			#
+			</comment>
+			<tRule>$prime  = ’ ;</tRule>
+
+			<tRule>$wordBoundary =  [^[:L:][:M:][:N:]] ;</tRule>
+
+			<tRule>$upperConsonants = [БВГҒДЖЗЈКҜЛМНПРСТФХҺЧҸШЙ] ;</tRule>
+			<tRule>$lowerConsonants = [бвгғджзјкҝлмнпрстфхһчҹш’й] ;</tRule>
+			<tRule>$consonants = [$upperConsonants $lowerConsonants] ;</tRule>
+
+			<tRule>$upperVowels = [АЕӘИЫОӨУҮЭЮЯ] ;</tRule>
+			<tRule>$lowerVowels = [аеәиыоөуүэюя] ;</tRule>
+			<tRule>$vowels = [$upperVowels $lowerVowels] ;</tRule>
+
+			<tRule>$lower = [$lowerConsonants $lowerVowels] ;</tRule>
+			<comment>
+			#
+			# Use this $wordBoundary until bug 2034 is fixed in ICU:
+			# http://bugs.icu-project.org/cgi-bin/icu-bugs/transliterate?id=2034;expression=boundary;user=guest
+			#
+			</comment>
+			<!-- <tRule>$wordBoundary =  [^[:L:][:M:][:N:]] ;</tRule> -->
+			<comment>
+			#
+			########################################################################
+			</comment>
+
+			<comment>
+			########################################################################
+			#
+			# Start of Alphabetic Transformations
+			#
+			########################################################################
+			</comment>
+
+			<tRule>А → A ; # CYRILLIC CAPITAL LETTER A</tRule>
+			<tRule>а → a ; # CYRILLIC SMALL LETTER A</tRule>
+			<tRule>Б → B ; # CYRILLIC CAPITAL LETTER BE</tRule>
+			<tRule>б → b ; # CYRILLIC SMALL LETTER BE</tRule>
+			<tRule>В → V ; # CYRILLIC CAPITAL LETTER VE</tRule>
+			<tRule>в → v ; # CYRILLIC SMALL LETTER VE</tRule>
+			<tRule>Г → Q ; # CYRILLIC CAPITAL LETTER GHE</tRule>
+			<tRule>г → q ; # CYRILLIC SMALL LETTER GHE</tRule>
+			<tRule>Ғ → Ğ ; # CYRILLIC CAPITAL LETTER GHE WITH STROKE</tRule>
+			<tRule>ғ → ğ ; # CYRILLIC SMALL LETTER GHE WITH STROKE</tRule>
+			<tRule>Д → D ; # CYRILLIC CAPITAL LETTER DE</tRule>
+			<tRule>д → d ; # CYRILLIC SMALL LETTER DE</tRule>
+			<tRule>Е → E ; # CYRILLIC CAPITAL LETTER DE</tRule>
+			<tRule>е → e ; # CYRILLIC SMALL LETTER DE</tRule>
+
+			<comment>
+			########################################################################
+			#
+			# BGN Page 14 Note 1
+			#
+			# The special letter Ə ə, known as schwa, should be reproduced in that
+			# form whenever encountered. In those instances when it cannot be
+			# reproduced, however, the letter Ä ä may be substituted for it.
+			#
+			########################################################################
+			#
+			</comment>
+			<tRule>Ә → Ə; # CYRILLIC CAPITAL LETTER SCHWA</tRule>
+			<tRule>ә → ə; # CYRILLIC SMALL LETTER SCHWA</tRule>
+			<comment>
+			#
+			# Alternative rule when schwa is not available. To apply uncomment the
+			# following by removing the '#' mark at the start of the line and insert
+			# before the two rule lines above.
+			#
+			# Ә → Ä; # CYRILLIC CAPITAL LETTER SCHWA
+			# ә → ä; # CYRILLIC SMALL LETTER SCHWA
+			#
+			########################################################################
+			#
+			# End BGN Page 14 Note 1
+			#
+			########################################################################
+			</comment>
+
+			<tRule>Ж → J ; # CYRILLIC CAPITAL LETTER ZHE</tRule>
+			<tRule>ж → j ; # CYRILLIC SMALL LETTER ZHE</tRule>
+			<tRule>З → Z ; # CYRILLIC CAPITAL LETTER ZE</tRule>
+			<tRule>з → z ; # CYRILLIC SMALL LETTER ZE</tRule>
+			<tRule>И → İ ; # CYRILLIC CAPITAL LETTER I</tRule>
+			<tRule>и → i ; # CYRILLIC SMALL LETTER I</tRule>
+			<tRule>Ы → I ; # CYRILLIC CAPITAL LETTER YERU</tRule>
+			<tRule>ы → ı ; # CYRILLIC SMALL LETTER YERU</tRule>
+			<tRule>Ј → Y ; # CYRILLIC CAPITAL LETTER JE</tRule>
+			<tRule>ј → y ; # CYRILLIC SMALL LETTER JE</tRule>
+			<tRule>К → K ; # CYRILLIC CAPITAL LETTER KA</tRule>
+			<tRule>к → k ; # CYRILLIC SMALL LETTER KA</tRule>
+			<tRule>Ҝ → G ; # CYRILLIC CAPITAL LETTER KA WITH VERTICAL STROKE</tRule>
+			<tRule>ҝ → g ; # CYRILLIC SMALL LETTER KA WITH VERTICAL STROKE</tRule>
+			<tRule>Л → L ; # CYRILLIC CAPITAL LETTER EL</tRule>
+			<tRule>л → l ; # CYRILLIC SMALL LETTER EL</tRule>
+			<tRule>М → M ; # CYRILLIC CAPITAL LETTER EM</tRule>
+			<tRule>м → m ; # CYRILLIC SMALL LETTER EM</tRule>
+			<tRule>Н → N ; # CYRILLIC CAPITAL LETTER EN</tRule>
+			<tRule>н → n ; # CYRILLIC SMALL LETTER EN</tRule>
+			<tRule>О → O ; # CYRILLIC CAPITAL LETTER O</tRule>
+			<tRule>о → o ; # CYRILLIC SMALL LETTER O</tRule>
+			<tRule>Ө → Ö ; # CYRILLIC CAPITAL LETTER BARRED O</tRule>
+			<tRule>ө → ö ; # CYRILLIC SMALL LETTER BARRED O</tRule>
+			<tRule>П → P ; # CYRILLIC CAPITAL LETTER PE</tRule>
+			<tRule>п → p ; # CYRILLIC SMALL LETTER PE</tRule>
+			<tRule>Р → R ; # CYRILLIC CAPITAL LETTER ER</tRule>
+			<tRule>р → r ; # CYRILLIC SMALL LETTER ER</tRule>
+			<tRule>С → S ; # CYRILLIC CAPITAL LETTER ES</tRule>
+			<tRule>с → s ; # CYRILLIC SMALL LETTER ES</tRule>
+			<tRule>Т → T ; # CYRILLIC CAPITAL LETTER TE</tRule>
+			<tRule>т → t ; # CYRILLIC SMALL LETTER TE</tRule>
+			<tRule>У → U ; # CYRILLIC CAPITAL LETTER U</tRule>
+			<tRule>у → u ; # CYRILLIC SMALL LETTER U</tRule>
+			<tRule>Ү → Ü ; # CYRILLIC CAPITAL LETTER STRAIGHT U</tRule>
+			<tRule>ү → ü ; # CYRILLIC SMALL LETTER STRAIGHT U</tRule>
+			<tRule>Ф → F ; # CYRILLIC CAPITAL LETTER EF</tRule>
+			<tRule>ф → f ; # CYRILLIC SMALL LETTER EF</tRule>
+			<tRule>Х → X ; # CYRILLIC CAPITAL LETTER HA</tRule>
+			<tRule>х → x ; # CYRILLIC SMALL LETTER HA</tRule>
+			<tRule>Һ → H ; # CYRILLIC CAPITAL LETTER SHHA</tRule>
+			<tRule>һ → h ; # CYRILLIC SMALL LETTER SHHA</tRule>
+			<tRule>Ч → Ç ; # CYRILLIC CAPITAL LETTER CHE</tRule>
+			<tRule>ч → ç ; # CYRILLIC SMALL LETTER CHE</tRule>
+			<tRule>Ҹ → C ; # CYRILLIC CAPITAL LETTER CHE WITH VERTICAL STROKE</tRule>
+			<tRule>ҹ → c ; # CYRILLIC SMALL LETTER CHE WITH VERTICAL STROKE</tRule>
+			<tRule>Ш → Ş ; # CYRILLIC CAPITAL LETTER SHA</tRule>
+			<tRule>ш → ş ; # CYRILLIC SMALL LETTER SHA</tRule>
+
+			<comment>
+			########################################################################
+			#
+			# BGN Page 13 Rule 33, maps the symbol onto itself and
+			# is ignored here for computational efficiency.
+			#
+			# $prime → $prime ; # RIGHT SINGLE QUOTATION MARK
+			#
+			########################################################################
+			</comment>
+
+			<comment>
+			########################################################################
+			#
+			# BGN Page 14 Note 2:
+			#
+			# The obsolete characters й, э, ю, and я should be romanized ẏ, ė,
+			# yu̇, and yȧ.
+			#
+			########################################################################
+			#
+			</comment>
+			<tRule>Й → Ẏ ; # CYRILLIC CAPITAL LETTER HARD SIGN</tRule>
+			<tRule>й → ẏ ; # CYRILLIC SMALL LETTER HARD SIGN</tRule>
+			<tRule>Э → Ė ; # CYRILLIC CAPITAL LETTER SOFT SIGN</tRule>
+			<tRule>э → ė ; # CYRILLIC SMALL LETTER SOFT SIGN</tRule>
+			<tRule>Ю} $lower → Yu̇ ; # CYRILLIC CAPITAL LETTER YU</tRule>
+			<tRule>Ю → YU̇ ; # CYRILLIC CAPITAL LETTER YU</tRule>
+			<tRule>ю → yu̇ ;  # CYRILLIC SMALL LETTER YU</tRule>
+			<tRule>Я} $lower → Yȧ ; # CYRILLIC CAPITAL LETTER YA</tRule>
+			<tRule>Я → YȦ ; # CYRILLIC CAPITAL LETTER YA</tRule>
+			<tRule>я → yȧ ; # CYRILLIC SMALL LETTER YA</tRule>
+			<comment>
+			#
+			########################################################################
+			#
+			# End BGN Page 14 Note 2.
+			#
+			########################################################################
+			</comment>
+		</transform>
+	</transforms>
+</supplementalData>

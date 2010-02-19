@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<transforms>
+		<transform source="InterIndic" target="Gurmukhi" direction="forward" visibility="internal">
+			<comment># InterIndic-Gurmukhi</comment>
+			<comment>#:: NFD (NFC) ;</comment>
+			<tRule>$vowel = [ਅ-ਔ ਾ-੍];</tRule>
+			<tRule>$consonant = [ਕ-ਹ];</tRule>
+			<tRule>\uE001→ਁ;       # SIGN CHANDRABINDU</tRule>
+			<comment>#rules for BINDI</comment>
+			<comment># Anusvara is equivalent to BINDI when preceeded by a vowel</comment>
+			<tRule>$vowel{\uE002→ਂ; # SIGN ANUSVARA (ਂ = SIGN BINDI)</tRule>
+			<comment># else is equivalent to TIPPI</comment>
+			<tRule>$consonant{\uE002→ੰ; # SIGN TIPPI</tRule>
+			<tRule>\uE002→ਂ;</tRule>
+			<tRule>\uE003→;       # FALLBACK BLOW AWAY SIGN VISARGA</tRule>
+			<tRule>\uE004→ਅ; # FALLBACK TO LETTER A</tRule>
+			<tRule>\uE005→ਅ; # LETTER A</tRule>
+			<tRule>\uE006→ਆ; # LETTER AA</tRule>
+			<tRule>\uE007→ਇ; # LETTER I</tRule>
+			<tRule>\uE008→ਈ; # LETTER II</tRule>
+			<tRule>\uE009→ਉ; # LETTER U</tRule>
+			<tRule>\uE00A→ਊ; # LETTER UU</tRule>
+			<tRule>\uE00B→ਰਿ; # REMAP (indicExceptions.txt): \u0A0B→ਰਿ = LETTER VOCALIC R→LETTER RA.VOWEL SIGN I</tRule>
+			<tRule>\uE00C→ਲ਼; # FALLBACK</tRule>
+			<tRule>\uE00D→ਏ; # FALLBACK</tRule>
+			<tRule>\uE00E→ਏ; # FALLBACK</tRule>
+			<tRule>\uE00F→ਏ; # LETTER EE</tRule>
+			<tRule>\uE010→ਐ; # LETTER AI</tRule>
+			<tRule>\uE011→ਓ; # FALLBACK</tRule>
+			<tRule>\uE012→ਓ; # FALLBACK</tRule>
+			<tRule>\uE013→ਓ; # LETTER OO</tRule>
+			<tRule>\uE014→ਔ; # LETTER AU</tRule>
+			<tRule>\uE015→ਕ; # LETTER KA</tRule>
+			<tRule>\uE016→ਖ; # LETTER KHA</tRule>
+			<tRule>\uE017→ਗ; # LETTER GA</tRule>
+			<tRule>\uE018→ਘ; # LETTER GHA</tRule>
+			<tRule>\uE019→ਙ; # LETTER NGA</tRule>
+			<tRule>\uE01A→ਚ; # LETTER CA</tRule>
+			<tRule>\uE01B→ਛ; # LETTER CHA</tRule>
+			<tRule>\uE01C→ਜ; # LETTER JA</tRule>
+			<tRule>\uE01D→ਝ; # LETTER JHA</tRule>
+			<tRule>\uE01E→ਞ; # LETTER NYA</tRule>
+			<tRule>\uE01F→ਟ; # LETTER TTA</tRule>
+			<tRule>\uE020→ਠ; # LETTER TTHA</tRule>
+			<tRule>\uE021→ਡ; # LETTER DDA</tRule>
+			<tRule>\uE022→ਢ; # LETTER DDHA</tRule>
+			<tRule>\uE023→ਣ; # LETTER NNA</tRule>
+			<tRule>\uE024→ਤ; # LETTER TA</tRule>
+			<tRule>\uE025→ਥ; # LETTER THA</tRule>
+			<tRule>\uE026→ਦ; # LETTER DA</tRule>
+			<tRule>\uE027→ਧ; # LETTER DHA</tRule>
+			<tRule>\uE028→ਨ; # LETTER NA</tRule>
+			<tRule>\uE029→ਨ਼; # REMAP (indicExceptions.txt): \u0A29→ਨ = LETTER NNNA→LETTER NA</tRule>
+			<tRule>\uE02A→ਪ; # LETTER PA</tRule>
+			<tRule>\uE02B→ਫ; # LETTER PHA</tRule>
+			<tRule>\uE02C→ਬ; # LETTER BA</tRule>
+			<tRule>\uE02D→ਭ; # LETTER BHA</tRule>
+			<tRule>\uE02E→ਮ; # LETTER MA</tRule>
+			<tRule>\uE02F→ਯ; # LETTER YA</tRule>
+			<tRule>\uE030→ਰ; # LETTER RA</tRule>
+			<tRule>\uE031→ਰ਼; # FALLBACK LETTER RA+NUKTA</tRule>
+			<tRule>\uE032→ਲ; # LETTER LA</tRule>
+			<tRule>\uE033→ਲ; # LETTER LLA</tRule>
+			<tRule>\uE034→ਲ਼; # REMAP (indicExceptions.txt): \u0A34→ਲ਼ = LETTER LLLA→LETTER LLA</tRule>
+			<tRule>\uE035→ਵ; # LETTER VA</tRule>
+			<tRule>\uE036→ਸ਼; # LETTER SHA</tRule>
+			<tRule>\uE037→ਸ਼; # REMAP (indicExceptions.txt): \u0A37→ਸ਼ = LETTER SSA→LETTER SHA</tRule>
+			<tRule>\uE038→ਸ; # LETTER SA</tRule>
+			<tRule>\uE039→ਹ; # LETTER HA</tRule>
+			<tRule>\uE03C→਼; # SIGN NUKTA</tRule>
+			<tRule>\uE03D→; # FALLBACK BLOW AWAY SIGN AVAGRAHA</tRule>
+			<tRule>\uE03E→ਾ; # VOWEL SIGN AA</tRule>
+			<tRule>\uE03F→ਿ; # VOWEL SIGN I</tRule>
+			<tRule>\uE040→ੀ; # VOWEL SIGN II</tRule>
+			<tRule>\uE041→ੁ; # VOWEL SIGN U</tRule>
+			<tRule>\uE042→ੂ; # VOWEL SIGN UU</tRule>
+			<tRule>\uE043→; # FALLBACK BLOW AWAY VOWEL SIGN VOCALIC R</tRule>
+			<tRule>\uE044→; # FALLBACK BLOW AWAY VOWEL SIGN VOCALIC RR</tRule>
+			<tRule>\uE045→ੈ; # REMAP (indicExceptions.txt): \u0A45→ੈ = VOWEL SIGN CANDRA E→VOWEL SIGN AI</tRule>
+			<tRule>\uE046→ੇ; # FALLABCK</tRule>
+			<tRule>\uE047→ੇ; # VOWEL SIGN EE</tRule>
+			<tRule>\uE048→ੈ; # VOWEL SIGN AI</tRule>
+			<tRule>\uE049→ੌ; # REMAP (indicExceptions.txt): \u0A49→ੌ = VOWEL SIGN CANDRA O→VOWEL SIGN AU</tRule>
+			<tRule>\uE04A→ੋ; # FALLBACK</tRule>
+			<tRule>\uE04B→ੋ; # VOWEL SIGN OO</tRule>
+			<tRule>\uE04C→ੌ; # VOWEL SIGN AU</tRule>
+			<tRule>\uE04D→੍; # SIGN VIRAMA</tRule>
+			<tRule>\uE050→ਏਂ; #  FALLBACK to OO+BINDI : OM</tRule>
+			<tRule>\uE051→;</tRule>
+			<tRule>\uE052→;</tRule>
+			<tRule>\uE053→;</tRule>
+			<tRule>\uE054→;</tRule>
+			<tRule>\uE055→; # FALLBACK BLOW AWAY LENGTH MARK</tRule>
+			<tRule>\uE056→ੈ; # REMAP (indicExceptions.txt): \u0A56→ੈ = AI LENGTH MARK→VOWEL SIGN AI</tRule>
+			<tRule>\uE057→ੌ; # REMAP (indicExceptions.txt): \u0A57→ੌ = AU LENGTH MARK→VOWEL SIGN AU</tRule>
+			<tRule>\uE058→ਕ਼; # FALLBACK RA+ NUKTA</tRule>
+			<tRule>\uE059→ਖ਼; # LETTER KHHA</tRule>
+			<tRule>\uE05A→ਗ਼; # LETTER GHHA</tRule>
+			<tRule>\uE05B→ਜ਼; # LETTER ZA</tRule>
+			<tRule>\uE05C→ੜ; # LETTER RRA</tRule>
+			<tRule>\uE05D→ਢ਼; # REMAP (indicExceptions.txt): \u0A5D→ਢ਼ = LETTER RHA→LETTER DDHA.SIGN NUKTA</tRule>
+			<tRule>\uE05E→ਫ਼; # LETTER FA</tRule>
+			<tRule>\uE05F→ਯ਼; # REMAP (indicExceptions.txt): \u0A5F→ਯ = LETTER YYA→LETTER YA</tRule>
+			<tRule>\uE060→ਰਿ; # REMAP (indicExceptions.txt): \u0A60→ਰਿ = LETTER VOCALIC RR→LETTER RA.VOWEL SIGN I</tRule>
+			<tRule>\uE061→ਲ਼; #</tRule>
+			<tRule>\uE062→ਿ਼; # REMAP (indicExceptions.txt): \u0A62→ਿ਼ = VOWEL SIGN VOCALIC L→VOWEL SIGN I.SIGN NUKTA</tRule>
+			<tRule>\uE063→ੀ਼; # REMAP (indicExceptions.txt): \u0A63→ੀ਼ = VOWEL SIGN VOCALIC LL→VOWEL SIGN II.SIGN NUKTA</tRule>
+			<tRule>\uE064→।;          # DANDA</tRule>
+			<tRule>\uE065→॥;          # DOUBLE DANDA</tRule>
+			<tRule>\uE066→੦; # DIGIT ZERO</tRule>
+			<tRule>\uE067→੧; # DIGIT ONE</tRule>
+			<tRule>\uE068→੨; # DIGIT TWO</tRule>
+			<tRule>\uE069→੩; # DIGIT THREE</tRule>
+			<tRule>\uE06A→੪; # DIGIT FOUR</tRule>
+			<tRule>\uE06B→੫; # DIGIT FIVE</tRule>
+			<tRule>\uE06C→੬; # DIGIT SIX</tRule>
+			<tRule>\uE06D→੭; # DIGIT SEVEN</tRule>
+			<tRule>\uE06E→੮; # DIGIT EIGHT</tRule>
+			<tRule>\uE06F→੯; # DIGIT NINE</tRule>
+			<tRule>\uE070→;       # ABBREVIATION SIGN</tRule>
+			<tRule>\uE071→ਰ;     # LETTER RA WITH MIDDLE DIAGONAL</tRule>
+			<tRule>\uE072→ਰ;     # LETTER RA WITH LOWER DIAGONAL</tRule>
+			<tRule>\uE073→;           # RUPEE MARK</tRule>
+			<tRule>\uE074→;           # RUPEE SIGN</tRule>
+			<tRule>\uE075→;           # CURRENCY NUMERATOR ONE</tRule>
+			<tRule>\uE076→;           # CURRENCY NUMERATOR TWO</tRule>
+			<tRule>\uE077→;           # CURRENCY NUMERATOR THREE</tRule>
+			<tRule>\uE078→;           # CURRENCY NUMERATOR FOUR</tRule>
+			<tRule>\uE079→;           # CURRENCY NUMERATOR ONE LESS THAN THE DENOMINATOR</tRule>
+			<tRule>\uE07A→;           # CURRENCY DENOMINATOR SIXTEEN</tRule>
+			<tRule>\uE07B→;           # ISSHAR</tRule>
+			<tRule>\uE07C→ੰ;     # TIPPI</tRule>
+			<tRule>\uE07D→ੱ;     # ADDAK</tRule>
+			<tRule>\uE07E→ੲ;     # IRI</tRule>
+			<tRule>\uE07F→ੳ;     # URA</tRule>
+			<tRule>\uE080→ੴ;     # EK ONKAR</tRule>
+			<tRule>\uE081→ਵ;     # FALLBACK FOR ORIYA LETTER WA</tRule>
+			<tRule>\uE082→;           # Devanagari Glottal Stop</tRule>
+			<tRule>\uE083→ਤ੍;  # Bengali Khanda-ta</tRule>
+			<tRule>0 → ੦;       # FALLBACK FOR TAMIL</tRule>
+			<tRule>1 → ੧;</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
+		</transform>
+	</transforms>
+</supplementalData>
+

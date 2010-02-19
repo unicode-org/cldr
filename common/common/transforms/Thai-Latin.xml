@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<transforms>
+		<transform source="Thai" target="Latin" direction="forward">
+			<tRule>::[[:thai:] ก-ฺเ-๛];</tRule>
+			<tRule>::NFD;</tRule>
+			<tRule>::Thai-ThaiSemi;</tRule>
+			<tRule>::Any-BreakInternal;</tRule>
+			<tRule>::Thai-ThaiLogical;</tRule>
+			<tRule>::ThaiLogical-Latin;</tRule>
+			<tRule>::NFC;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>
+

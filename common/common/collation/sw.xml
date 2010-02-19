@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="sw" /> 
+	</identity>
+	<collations  validSubLocales="sw_KE sw_TZ">
+		<collation type="standard" >
+			<rules>
+				<reset>B</reset>
+				<p>ch</p>
+				<t>Ch</t>
+				<t>CH</t>
+				<reset>D</reset>
+				<p>dh</p>
+				<t>Dh</t>
+				<t>DH</t>
+				<reset>G</reset>
+				<p>gh</p>
+				<t>Gh</t>
+				<t>GH</t>
+				<reset>K</reset>
+				<p>kh</p>
+				<t>Kh</t>
+				<t>KH</t>
+				<reset>N</reset>
+				<p>ng'</p>
+				<t>Ng'</t>
+				<t>NG'</t>
+				<p>ny</p>
+				<t>Ny</t>
+				<t>NY</t>
+				<reset>S</reset>
+				<p>sh</p>
+				<t>Sh</t>
+				<t>SH</t>
+				<reset>T</reset>
+				<p>th</p>
+				<t>Th</t>
+				<t>TH</t>
+			</rules>
+		</collation  >
+	</collations>
+</ldml>

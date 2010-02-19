@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<transforms>
+		<transform source="Kannada" target="InterIndic" direction="forward" visibility="internal">
+			<comment># Kannada-InterIndic</comment>
+			<tRule>ೇ→\uE047;        # VOWEL SIGN EE</tRule>
+			<tRule>ೆ್ೖ→\uE048\uE04D;        # VOWEL SIGN AI</tRule>
+			<tRule>ೈ→\uE048;        # VOWEL SIGN AI</tRule>
+			<tRule>ೋ→\uE04B;  # VOWEL SIGN OO</tRule>
+			<tRule>ೊ→\uE04A;        # VOWEL SIGN O</tRule>
+			<tRule>ೀ→\uE040;        # VOWEL SIGN II</tRule>
+			<tRule>ಂ→\uE002;              # SIGN ANUSVARA</tRule>
+			<tRule>ಃ→\uE003;              # SIGN VISARGA</tRule>
+			<tRule>ಅ→\uE005;              # LETTER A</tRule>
+			<tRule>ಆ→\uE006;              # LETTER AA</tRule>
+			<tRule>ಇ→\uE007;              # LETTER I</tRule>
+			<tRule>ಈ→\uE008;              # LETTER II</tRule>
+			<tRule>ಉ→\uE009;              # LETTER U</tRule>
+			<tRule>ಊ→\uE00A;              # LETTER UU</tRule>
+			<tRule>ಋ→\uE00B;              # LETTER VOCALIC R</tRule>
+			<tRule>ಌ→\uE00C;              # LETTER VOCALIC L</tRule>
+			<tRule>ಎ→\uE00E;              # LETTER E</tRule>
+			<tRule>ಏ→\uE00F;              # LETTER EE</tRule>
+			<tRule>ಐ→\uE010;              # LETTER AI</tRule>
+			<tRule>ಒ→\uE012;              # LETTER O</tRule>
+			<tRule>ಓ→\uE013;              # LETTER OO</tRule>
+			<tRule>ಔ→\uE014;              # LETTER AU</tRule>
+			<tRule>ಕ→\uE015;              # LETTER KA</tRule>
+			<tRule>ಖ→\uE016;              # LETTER KHA</tRule>
+			<tRule>ಗ→\uE017;              # LETTER GA</tRule>
+			<tRule>ಘ→\uE018;              # LETTER GHA</tRule>
+			<tRule>ಙ→\uE019;              # LETTER NGA</tRule>
+			<tRule>ಚ→\uE01A;              # LETTER CA</tRule>
+			<tRule>ಛ→\uE01B;              # LETTER CHA</tRule>
+			<tRule>ಜ→\uE01C;              # LETTER JA</tRule>
+			<tRule>ಝ→\uE01D;              # LETTER JHA</tRule>
+			<tRule>ಞ→\uE01E;              # LETTER NYA</tRule>
+			<tRule>ಟ→\uE01F;              # LETTER TTA</tRule>
+			<tRule>ಠ→\uE020;              # LETTER TTHA</tRule>
+			<tRule>ಡ→\uE021;              # LETTER DDA</tRule>
+			<tRule>ಢ→\uE022;              # LETTER DDHA</tRule>
+			<tRule>ಣ→\uE023;              # LETTER NNA</tRule>
+			<tRule>ತ→\uE024;              # LETTER TA</tRule>
+			<tRule>ಥ→\uE025;              # LETTER THA</tRule>
+			<tRule>ದ→\uE026;              # LETTER DA</tRule>
+			<tRule>ಧ→\uE027;              # LETTER DHA</tRule>
+			<tRule>ನ→\uE028;              # LETTER NA</tRule>
+			<tRule>ಪ→\uE02A;              # LETTER PA</tRule>
+			<tRule>ಫ→\uE02B;              # LETTER PHA</tRule>
+			<tRule>ಬ→\uE02C;              # LETTER BA</tRule>
+			<tRule>ಭ→\uE02D;              # LETTER BHA</tRule>
+			<tRule>ಮ→\uE02E;              # LETTER MA</tRule>
+			<tRule>ಯ→\uE02F;              # LETTER YA</tRule>
+			<tRule>ರ→\uE030;              # LETTER RA</tRule>
+			<tRule>ಱ→\uE031;              # LETTER RRA</tRule>
+			<tRule>ಲ→\uE032;              # LETTER LA</tRule>
+			<tRule>ಳ→\uE033;              # LETTER LLA</tRule>
+			<tRule>ವ→\uE035;              # LETTER VA</tRule>
+			<tRule>ಶ→\uE036;              # LETTER SHA</tRule>
+			<tRule>ಷ→\uE037;              # LETTER SSA</tRule>
+			<tRule>ಸ→\uE038;              # LETTER SA</tRule>
+			<tRule>ಹ→\uE039;              # LETTER HA</tRule>
+			<tRule>಼→\uE03C; # SIGN NUKTA</tRule>
+			<tRule>ಽ→\uE03D;              # AVAGRAHA</tRule>
+			<tRule>ಾ→\uE03E;              # VOWEL SIGN AA</tRule>
+			<tRule>ಿ→\uE03F;              # VOWEL SIGN I</tRule>
+			<tRule>ು→\uE041;              # VOWEL SIGN U</tRule>
+			<tRule>ೂ→\uE042;              # VOWEL SIGN UU</tRule>
+			<tRule>ೃ→\uE043;              # VOWEL SIGN VOCALIC R</tRule>
+			<tRule>ೄ→\uE044;              # VOWEL SIGN VOCALIC RR</tRule>
+			<tRule>ೆ→\uE046;              # VOWEL SIGN E</tRule>
+			<tRule>ೌ→\uE04C;              # VOWEL SIGN AU</tRule>
+			<tRule>್→\uE04D;              # SIGN VIRAMA</tRule>
+			<tRule>ೕ→\uE055;              # LENGTH MARK</tRule>
+			<tRule>ೖ→\uE056;              # AI LENGTH MARK</tRule>
+			<tRule>ೞ→\uE034;              # LETTER LLLA</tRule>
+			<tRule>ೠ→\uE060;              # LETTER VOCALIC RR</tRule>
+			<tRule>ೡ→\uE061;              # LETTER VOCALIC LL</tRule>
+			<tRule>೦→\uE066;              # DIGIT ZERO</tRule>
+			<tRule>೧→\uE067;              # DIGIT ONE</tRule>
+			<tRule>೨→\uE068;              # DIGIT TWO</tRule>
+			<tRule>೩→\uE069;              # DIGIT THREE</tRule>
+			<tRule>೪→\uE06A;              # DIGIT FOUR</tRule>
+			<tRule>೫→\uE06B;              # DIGIT FIVE</tRule>
+			<tRule>೬→\uE06C;              # DIGIT SIX</tRule>
+			<tRule>೭→\uE06D;              # DIGIT SEVEN</tRule>
+			<tRule>೮→\uE06E;              # DIGIT EIGHT</tRule>
+			<tRule>೯→\uE06F;              # DIGIT NINE</tRule>
+			<comment># eof</comment>
+		</transform>
+	</transforms>
+</supplementalData>
+

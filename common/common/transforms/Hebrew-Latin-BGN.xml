@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<transforms>
+		<transform source="Hebrew" target="Latin" direction="forward" variant="BGN" draft="provisional">
+			<comment>
+			########################################################################
+			# BGN/PCGN 1981 System
+			#
+			# The BGN/PCGN system for Hebrew was designed for use in romanizing
+			# names written in the Hebrew alphabet. The Roman letters and letter
+			# combinations shown as equivalents to the Hebrew characters reflect
+			# the eastern variety of Hebrew, i.e., the language spoken in 
+			# the Republic of Armenia.
+			#
+			# The Hebrew Alphabet as defined by the BGN (Page 33-35):
+			#
+			# אבגדהוזחטיכךלמםנןסעפףצץקרששת
+			#
+			# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
+			########################################################################
+			#
+			# MINIMAL FILTER: Hebrew-Latin
+			#
+			</comment>
+			<tRule>:: [ ְֱֲֳִֵֶַָֹֻּׁׂאבגדהוזחטיךכלםמןנסעףפץצקרשת׳] ;</tRule>
+			<tRule>:: NFD (NFC) ;</tRule>
+			<comment>
+			#
+			########################################################################
+			</comment>
+
+			<comment>
+			########################################################################
+			#
+			# Define All Transformation Variables
+			#
+			########################################################################
+			#
+			</comment>
+			<tRule>$alef = ’;</tRule>
+			<tRule>$ayin = ‘;</tRule>
+			<comment>
+			#
+			# Use this $wordBoundary until bug 2034 is fixed in ICU:
+			# http://bugs.icu-project.org/cgi-bin/icu-bugs/transliterate?id=2034;expression=boundary;user=guest
+			#
+			</comment>
+			<tRule>$wordBoundary = [^[:L:][:M:][:N:]] ;</tRule>
+			<comment>
+			#
+			########################################################################
+			</comment>
+
+			<comment>
+			########################################################################
+			#
+			# Rules moved to front to avoid masking
+			#
+			########################################################################
+			#
+			</comment>
+			<tRule>בּ → b ; # HEBREW LETTER BET + DAGESH</tRule>
+			<tRule>פּ → P ; # HEBREW LETTER PE + DAGESH</tRule>
+			<tRule>גּ → g ; # HEBREW LETTER GIMEL + DAGESH</tRule>
+			<tRule>ג׳ → ǧ ; # HEBREW LETTER GIMEL + GERESH</tRule>
+			<tRule>וּ → u ; # HEBREW LETTER VAV + POINT DAGESH</tRule>
+			<tRule>וֹ → o ; # HEBREW LETTER VAV + POINT HOLAM</tRule>
+			<tRule>צ׳ → č ; # HEBREW LETTER TSADI + GERESH</tRule>
+			<tRule>ז׳ → ž ; # HEBREW LETTER ZAYIN + GERESH</tRule>
+			<tRule>דּ → d ; # HEBREW LETTER DALET + DAGESH</tRule>
+			<tRule>הּ → h ; # HEBREW LETTER HE + DAGESH</tRule>
+			<tRule>ךּ → k ; # HEBREW LETTER FINAL KAF + DAGESH</tRule>
+			<tRule>כּ → k ; # HEBREW LETTER KAF + DAGESH</tRule>
+			<tRule>ךְ → kh ; # HEBREW LETTER FINAL KAF + SHEVA</tRule>
+			<tRule>תּ → t ; # HEBREW LETTER TAV + DAGESH</tRule>
+			<comment>
+			#
+			########################################################################
+			</comment>
+
+			<comment>
+			########################################################################
+			#
+			# Start of Alphabetic Transformations
+			#
+			########################################################################
+			#
+			</comment>
+			<tRule>א → $alef ; # HEBREW LETTER ALEF</tRule>
+			<tRule>ב → v ; # HEBREW LETTER BET</tRule>
+			<tRule>ג → g ; # HEBREW LETTER GIMEL</tRule>
+			<tRule>ד → d ; # HEBREW LETTER DALET</tRule>
+			<tRule>ה → h ; # HEBREW LETTER HE</tRule>
+			<tRule>ח → ẖ ; # HEBREW LETTER HET</tRule>
+			<tRule>ו → w ; # HEBREW LETTER VAV</tRule>
+			<tRule>ז → z ; # HEBREW LETTER ZAYIN</tRule>
+			<tRule>[טת] → t ; # HEBREW LETTER TET</tRule>
+			<tRule>י → y ; # HEBREW LETTER YOD</tRule>
+			<tRule>[כך] → kh ; # HEBREW LETTER KAF and FINAL KAF</tRule>
+			<tRule>ל → l ; # HEBREW LETTER LAMED</tRule>
+			<tRule>[מם] → m ; # HEBREW LETTER MEM and FINAL MEM</tRule>
+			<tRule>[נן] → n ; # HEBREW LETTER NUN and FINAL NUN</tRule>
+			<tRule>ס → s ; # HEBREW LETTER SAMEKH</tRule>
+			<tRule>ע → $ayin ; # HEBREW LETTER AYIN</tRule>
+			<tRule>[פף] → f ; # HEBREW LETTER PE and FINAL PE</tRule>
+			<tRule>[צץ] → ẕ ; # HEBREW LETTER TSADI and FINAL TSADI</tRule>
+			<tRule>ק → q ; # HEBREW LETTER QOF</tRule>
+			<tRule>ר → r ; # HEBREW LETTER RESH</tRule>
+			<tRule>שׁ → sh ; # HEBREW LETTER SHIN</tRule>
+			<tRule>שׂ → s ; # HEBREW LETTER SHIN</tRule>
+
+			<tRule>ַ → a ; # HEBREW POINT PATAH</tRule>
+			<tRule>ֲ → a ; # HEBREW POINT HATAF PATAH</tRule>
+			<tRule>ָ → o ; # HEBREW POINT QAMATS</tRule>
+			<tRule>ֶ → e ; # HEBREW POINT SEGOL</tRule>
+			<tRule>ֱ → e ; # HEBREW POINT HATAF SEGOL</tRule>
+			<tRule>ֵי → e ; # HEBREW POINT TSERE + LETTER YOD</tRule>
+			<tRule>ֵ → e ; # HEBREW POINT TSERE</tRule>
+			<tRule>ְ → e ; # HEBREW POINT SHEVA</tRule>
+			<tRule>ִי → i ; # HEBREW POINT HIRIQ + LETTER YOD</tRule>
+			<tRule>ִ → i ; # HEBREW POINT HIRIQ</tRule>
+			<tRule>ֳ → o ; # HEBREW LETTER HATAF QAMATS</tRule>
+			<tRule>ֹ → o ; # HEBREW POINT HOLAM</tRule>
+			<tRule>ֻ → u ; # HEBREW POINT QUBUTS</tRule>
+			<comment>
+			#
+			########################################################################
+			</comment>
+		</transform>
+	</transforms>
+</supplementalData>

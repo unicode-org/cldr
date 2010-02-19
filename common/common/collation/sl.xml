@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="sl" /> 
+	</identity>
+		<collations  validSubLocales="sl_SI">
+			<collation type="standard" >
+				<rules>
+					<reset>C</reset>
+					<p>č</p>
+					<t>Č</t>
+					<p>ć</p>
+					<t>Ć</t>
+					<reset>S</reset>
+					<p>š</p>
+					<t>Š</t>
+					<reset>Z</reset>
+					<p>ž</p>
+					<t>Ž</t>
+				</rules>
+			</collation  >
+			<collation type="standard" draft="unconfirmed" alt="proposed">
+				<rules>
+					<reset>C</reset>
+					<p>č</p>
+					<t>Č</t>
+					<reset>S</reset>
+					<p>š</p>
+					<t>Š</t>
+					<reset>Z</reset>
+					<p>ž</p>
+					<t>Ž</t>
+				</rules>
+			</collation  >
+		</collations>
+</ldml>

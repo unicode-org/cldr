@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<transforms>
+		<transform source="Gurmukhi" target="Gujarati" direction="forward">
+			<tRule>::[।-॥ਁਂਅ-ਊਏ-ਐਓ-ਨਪ-ਰਲ-ਲ਼ਵ-ਸ਼ਸ-ਹ਼ਾ-ੂੇ-ੈੋ-੍ਖ਼-ੜਫ਼੦-ੴ];</tRule>
+			<tRule>::NFD;</tRule>
+			<tRule>::Gurmukhi-InterIndic;</tRule>
+			<tRule>::InterIndic-Gujarati;</tRule>
+			<tRule>::NFC;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>
+

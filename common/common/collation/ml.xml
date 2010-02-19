@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+	Prepared by: R. Hari, Sr. IT Specialist, IBM India Ltd., India
+	Inputs from : Dr. V. Saratchandran Nair, Principal, South Regional
+	Language Centre, Mysore, India
+	Last update: 27/September/2004
+	UCA tailoring by Vladimir Weinstein 10/05/2004
+	Unicode 5.1 characters and Sabdatharavali convention by Cibu Johny 02/22/2009
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="ml" />
+	</identity>
+	<collations  validSubLocales="ml_IN">
+		<collation type="standard"
+		 references="Sabdatharavali Malayalam Dictionary 23rd Ed. by Sahithya Pravarthaka Co-operative Society Ltd.">
+			<rules>
+				<!--
+				  Avagraha and Visarga are primary ignorables.
+				-->
+				<reset>ഃ</reset>
+				<s>ഽ</s>
+
+				<!--
+				  Archaic and modern AU-Signs are different only by tertiary.
+				-->
+				<reset>ോ</reset>
+				<p>ൗ</p>
+				<reset>ൗ</reset>
+				<t>ൌ</t>
+
+				<!--
+				  Dravidian semivowels at the end of the character list.
+				-->
+				<reset>ഹ </reset>
+				<p>ള</p>
+
+				<reset>ള </reset>
+				<p>ഴ</p>
+
+				<reset>ഴ </reset>
+				<p>റ</p>
+
+				<!--
+				  Pre-5.1 Chillus secondary equal to 5.1 chillus.
+				  Chillus primary equal to its consonant_dead form.
+				-->
+				<reset>ക്</reset>
+				<s>ക്‍</s>
+				<reset>ക്‍</reset>
+				<t>ൿ</t>
+
+				<reset>ണ്</reset>
+				<s>ണ്‍ </s>
+				<reset>ണ്‍ </reset>
+				<t>ൺ</t>
+
+				<reset>ന്</reset>
+				<s>ന്‍</s>
+				<reset>ന്‍</reset>
+				<t>ൻ</t>
+
+				<reset>ര്</reset>
+				<s>ര്‍</s>
+				<reset>ര്‍</reset>
+				<t>ർ</t>
+
+				<reset>ല്</reset>
+				<s>ല്‍</s>
+				<reset>ല്‍</reset>
+				<t>ൽ</t>
+
+				<reset>ള്</reset>
+				<s>ള്‍</s>
+				<reset>ള്‍</reset>
+				<t>ൾ</t>
+
+				<!--
+				  Anuswara primary equal to MA_dead.
+				-->
+				<reset>മ്</reset>
+				<s>ം</s>
+
+				<!--
+				  /nta/ is sorted as <NA, Virama, RRA>.
+				-->
+				<reset>ന്</reset>
+				<t>ൻ്</t>
+			</rules>
+		</collation>
+
+		<collation type="standard" draft="unconfirmed" alt="proposed"
+		 references="R. Hari, Sr. IT Specialist, IBM India Ltd., India
+		 Inputs from : Dr. V. Saratchandran Nair, Principal, South Regional
+		 Language Centre, Mysore, India">
+			<settings normalization="on"  />
+			<rules>
+				<reset>ഹ </reset>
+				<p>ള</p>
+
+				<reset>ള </reset>
+				<p>ഴ</p>
+
+				<reset>ഴ </reset>
+				<p>റ</p>
+
+				<p>ഃ</p>
+				<p>ം</p>
+			</rules>
+		</collation>
+
+		<collation type="standard"
+		 references="Grundert: Malayalam-English Dictionary ISBN:8120600665 http://www.eki.ee/wgrs/rom1_ml.pdf"
+		 draft="unconfirmed" alt="proposed">
+			<settings normalization="on"/>
+			<rules>
+				<!--
+				The following tailoring is an adjustment of the
+				DUCET collation order for ANUSVARA and VISARGA.
+				Instead of being sorted with secondary weights,
+				they are collated on primary level between the
+				independent vowels and the consonants.
+				-->
+				<reset>ഔ</reset>
+				<p>ം</p>
+				<p>ഃ</p>
+
+				<!--
+				The following tailoring is an adjustment of the
+				DUCET collation order for LLA and LLLA. Instead
+				of being sorted after LA, LLA and LLLA is sorted
+				after HA.
+				-->
+				<reset>ഹ</reset>
+				<p>ള</p>
+				<p>ഴ</p>
+
+				<!--
+				Chillu K  is sorted before KA.
+				Chillu NN is sorted before NNA.
+				Chillu N  is sorted before NA.
+				Chillu RR is sorted before RRA.
+				Chillu L  is sorted before LA.
+				Chillu LL is sorted before LLA.
+				-->
+				<reset before="primary">ക</reset>
+				<p>ക്‍</p>
+				<reset before="primary">ണ</reset>
+				<p>ണ്‍</p>
+				<reset before="primary">ന</reset>
+				<p>ന്‍</p>
+				<reset before="primary">റ</reset>
+				<p>ര്‍</p>
+				<i>റ്‍</i>
+				<reset before="primary">ല</reset>
+				<p>ല്‍</p>
+				<reset before="primary">ള</reset>
+				<p>ള്‍</p>
+			</rules>
+		</collation>
+	</collations>
+</ldml>
+

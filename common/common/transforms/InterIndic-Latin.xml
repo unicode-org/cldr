@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<transforms>
+		<transform source="InterIndic" target="Latin" direction="forward" visibility="internal">
+			<comment># InterIndic-Latin</comment>
+			<comment>#\u0E00 reserved</comment>
+			<comment>#consonants</comment>
+			<tRule>$chandrabindu=\uE001;</tRule>
+			<tRule>$anusvara=\uE002;</tRule>
+			<tRule>$visarga=\uE003;</tRule>
+			<comment>#\u0E004 reserved</comment>
+			<comment># w←vowel→ represents the stand-alone form</comment>
+			<tRule>$wa=\uE005;</tRule>
+			<tRule>$waa=\uE006;</tRule>
+			<tRule>$wi=\uE007;</tRule>
+			<tRule>$wii=\uE008;</tRule>
+			<tRule>$wu=\uE009;</tRule>
+			<tRule>$wuu=\uE00A;</tRule>
+			<tRule>$wr=\uE00B;</tRule>
+			<tRule>$wl=\uE00C;</tRule>
+			<tRule>$wce=\uE00D; # LETTER CANDRA E</tRule>
+			<tRule>$wse=\uE00E; # LETTER SHORT E</tRule>
+			<tRule>$we=\uE00F;  # ए LETTER E</tRule>
+			<tRule>$wai=\uE010;</tRule>
+			<tRule>$wco=\uE011; # LETTER CANDRA O</tRule>
+			<tRule>$wso=\uE012; # LETTER SHORT O</tRule>
+			<tRule>$wo=\uE013;  # ओ LETTER O</tRule>
+			<tRule>$wau=\uE014;</tRule>
+			<tRule>$ka=\uE015;</tRule>
+			<tRule>$kha=\uE016;</tRule>
+			<tRule>$ga=\uE017;</tRule>
+			<tRule>$gha=\uE018;</tRule>
+			<tRule>$nga=\uE019;</tRule>
+			<tRule>$ca=\uE01A;</tRule>
+			<tRule>$cha=\uE01B;</tRule>
+			<tRule>$ja=\uE01C;</tRule>
+			<tRule>$jha=\uE01D;</tRule>
+			<tRule>$nya=\uE01E;</tRule>
+			<tRule>$tta=\uE01F;</tRule>
+			<tRule>$ttha=\uE020;</tRule>
+			<tRule>$dda=\uE021;</tRule>
+			<tRule>$ddha=\uE022;</tRule>
+			<tRule>$nna=\uE023;</tRule>
+			<tRule>$ta=\uE024;</tRule>
+			<tRule>$tha=\uE025;</tRule>
+			<tRule>$da=\uE026;</tRule>
+			<tRule>$dha=\uE027;</tRule>
+			<tRule>$na=\uE028;</tRule>
+			<tRule>$ena=\uE029; #compatibility</tRule>
+			<tRule>$pa=\uE02A;</tRule>
+			<tRule>$pha=\uE02B;</tRule>
+			<tRule>$ba=\uE02C;</tRule>
+			<tRule>$bha=\uE02D;</tRule>
+			<tRule>$ma=\uE02E;</tRule>
+			<tRule>$ya=\uE02F;</tRule>
+			<tRule>$ra=\uE030;</tRule>
+			<tRule>$vva=\uE081;</tRule>
+			<tRule>$rra=\uE031;</tRule>
+			<tRule>$la=\uE032;</tRule>
+			<tRule>$lla=\uE033;</tRule>
+			<tRule>$ela=\uE034; #compatibility</tRule>
+			<tRule>$va=\uE035;</tRule>
+			<tRule>$sha=\uE036;</tRule>
+			<tRule>$ssa=\uE037;</tRule>
+			<tRule>$sa=\uE038;</tRule>
+			<tRule>$ha=\uE039;</tRule>
+			<comment>#\u093A Reserved</comment>
+			<comment>#\u093B Reserved</comment>
+			<tRule>$nukta=\uE03C;</tRule>
+			<tRule>$avagraha=\uE03D; # SIGN AVAGRAHA</tRule>
+			<comment># ←vowel→ represents the dependent form</comment>
+			<tRule>$aa=\uE03E;</tRule>
+			<tRule>$i=\uE03F;</tRule>
+			<tRule>$ii=\uE040;</tRule>
+			<tRule>$u=\uE041;</tRule>
+			<tRule>$uu=\uE042;</tRule>
+			<tRule>$rh=\uE043;</tRule>
+			<tRule>$lh=\uE044;</tRule>
+			<tRule>$ce=\uE045; #VOWEL SIGN CANDRA E</tRule>
+			<tRule>$se=\uE046; #VOWEL SIGN SHORT E</tRule>
+			<tRule>$e=\uE047;</tRule>
+			<tRule>$ai=\uE048;</tRule>
+			<tRule>$co=\uE049; # VOWEL SIGN CANDRA O</tRule>
+			<tRule>$so=\uE04A; # VOWEL SIGN SHORT O</tRule>
+			<tRule>$o=\uE04B;  # ो</tRule>
+			<tRule>$au=\uE04C;</tRule>
+			<tRule>$virama=\uE04D;</tRule>
+			<comment># \u094E Reserved</comment>
+			<comment># \u094F Reserved</comment>
+			<tRule>$om=\uE050; # OM</tRule>
+			<tRule>\uE051→;        # UNMAPPED STRESS SIGN UDATTA</tRule>
+			<tRule>\uE052→;        # UNMAPPED STRESS SIGN ANUDATTA</tRule>
+			<tRule>\uE053→;        # UNMAPPED GRAVE ACCENT</tRule>
+			<tRule>\uE054→;        # UNMAPPED ACUTE ACCENT</tRule>
+			<tRule>$lm = \uE055;#  Telugu Length Mark</tRule>
+			<tRule>$ailm=\uE056;#  AI Length Mark</tRule>
+			<tRule>$aulm=\uE057;#  AU Length Mark</tRule>
+			<comment>#urdu compatibity forms</comment>
+			<tRule>$uka=\uE058;</tRule>
+			<tRule>$ukha=\uE059;</tRule>
+			<tRule>$ugha=\uE05A;</tRule>
+			<tRule>$ujha=\uE05B;</tRule>
+			<tRule>$uddha=\uE05C;</tRule>
+			<tRule>$udha=\uE05D;</tRule>
+			<tRule>$ufa=\uE05E;</tRule>
+			<tRule>$uya=\uE05F;</tRule>
+			<tRule>$wrr=\uE060;</tRule>
+			<tRule>$wll=\uE061;</tRule>
+			<tRule>$rrh=\uE062;</tRule>
+			<tRule>$llh=\uE063;</tRule>
+			<tRule>$danda=\uE064;</tRule>
+			<tRule>$doubleDanda=\uE065;</tRule>
+			<tRule>$zero=\uE066;     # DIGIT ZERO</tRule>
+			<tRule>$one=\uE067;      # DIGIT ONE</tRule>
+			<tRule>$two=\uE068;      # DIGIT TWO</tRule>
+			<tRule>$three=\uE069;    # DIGIT THREE</tRule>
+			<tRule>$four=\uE06A;     # DIGIT FOUR</tRule>
+			<tRule>$five=\uE06B;     # DIGIT FIVE</tRule>
+			<tRule>$six=\uE06C;      # DIGIT SIX</tRule>
+			<tRule>$seven=\uE06D;    # DIGIT SEVEN</tRule>
+			<tRule>$eight=\uE06E;    # DIGIT EIGHT</tRule>
+			<tRule>$nine=\uE06F;     # DIGIT NINE</tRule>
+			<comment># Glottal stop</comment>
+			<tRule>$dgs=\uE082;</tRule>
+			<comment>#Khanda-ta</comment>
+			<tRule>$kta=\uE083;</tRule>
+			<comment># ॰→; # UNMAPPED ABBREVIATION SIGN</comment>
+			<tRule>$depVowelAbove=[\uE03E-\uE040\uE045-\uE04C];</tRule>
+			<tRule>$depVowelBelow=[\uE041-\uE044];</tRule>
+			<comment># $x was originally called '§'; $z was '%'</comment>
+			<tRule>$x=[$aa$ai$au$ii$i$uu$u$rrh$rh$lh$llh$e$o$se$ce$so$co];</tRule>
+			<tRule>$z=[bcdfghjklmnpqrstvwxyz];</tRule>
+			<tRule>$vowels=[aeiour̥̄̆];</tRule>
+			<tRule>$forceIndependentMatra = [^[[:L:][̀-͌]]];</tRule>
+			<comment>######################################################################</comment>
+			<comment># convert from Native letters to Latin letters</comment>
+			<comment>######################################################################</comment>
+			<comment>#transliterations for anusvara</comment>
+			<tRule>$anusvara} [$ka$kha$ga$gha$nga]             → ṅ;</tRule>
+			<tRule>$anusvara} [$ca$cha$ja$jha$nya]             → n̄;</tRule>
+			<tRule>$anusvara} [$tta$ttha$dda$ddha$nna]         → ṇ;</tRule>
+			<tRule>$anusvara} [$ta$tha$da$dha$na]              → n;</tRule>
+			<tRule>$anusvara} [$pa$pha$ba$bha$ma]              → m;</tRule>
+			<tRule>$anusvara} [$ya$ra$lla$la$va$ssa$sha$sa$ha] → n;</tRule>
+			<tRule>$anusvara→ ṁ;</tRule>
+			<comment># Urdu compatibility</comment>
+			<tRule>$ya$nukta}$x        → ẏ;</tRule>
+			<tRule>$ya$nukta$virama    → ẏ;</tRule>
+			<tRule>$ya$nukta           → ẏa;</tRule>
+			<tRule>$la$nukta }$x       → ḻ;</tRule>
+			<tRule>$la$nukta$virama    → ḻ;</tRule>
+			<tRule>$la$nukta           → ḻa;</tRule>
+			<tRule>$na$nukta }$x       → ṉ;</tRule>
+			<tRule>$na$nukta$virama    → ṉ;</tRule>
+			<tRule>$na$nukta           → ṉa;</tRule>
+			<tRule>$ena }$x            → ṉ;</tRule>
+			<tRule>$ena$virama         → ṉ;</tRule>
+			<tRule>$ena                → ṉa;</tRule>
+			<tRule>$uka                → qa;</tRule>
+			<tRule>$ka$nukta }$x       → q;</tRule>
+			<tRule>$ka$nukta$virama    → q;</tRule>
+			<tRule>$ka$nukta           → qa;</tRule>
+			<tRule>$kha$nukta }$x      → ḵẖ;</tRule>
+			<tRule>$kha$nukta$virama   → ḵẖ;</tRule>
+			<tRule>$kha$nukta          → ḵẖa;</tRule>
+			<tRule>$ukha$virama        → ḵẖ;</tRule>
+			<tRule>$ukha               → ḵẖa;</tRule>
+			<tRule>$ugha               → ġa;</tRule>
+			<tRule>$ga$nukta }$x       → ġ;</tRule>
+			<tRule>$ga$nukta$virama    → ġ;</tRule>
+			<tRule>$ga$nukta           → ġa;</tRule>
+			<tRule>$ujha               → za;</tRule>
+			<tRule>$ja$nukta }$x       → z;</tRule>
+			<tRule>$ja$nukta$virama    → z;</tRule>
+			<tRule>$ja$nukta           → za;</tRule>
+			<tRule>$ddha$nukta}$x      → ṛh;</tRule>
+			<tRule>$ddha$nukta$virama  → ṛh;</tRule>
+			<tRule>$ddha$nukta         → ṛha;</tRule>
+			<tRule>$uddha}$x           → ṛ;</tRule>
+			<tRule>$uddha$virama       → ṛ;</tRule>
+			<tRule>$uddha              → ṛa;</tRule>
+			<tRule>$udha               → ṛa;</tRule>
+			<tRule>$dda$nukta}$x       → ṛ;</tRule>
+			<tRule>$dda$nukta$virama   → ṛ;</tRule>
+			<tRule>$dda$nukta          → ṛa;</tRule>
+			<tRule>$pha$nukta }$x      → f;</tRule>
+			<tRule>$pha$nukta$virama   → f;</tRule>
+			<tRule>$pha$nukta          → fa;</tRule>
+			<tRule>$ufa }$x            → f;</tRule>
+			<tRule>$ufa$virama         → f;</tRule>
+			<tRule>$ufa                → fa;</tRule>
+			<tRule>$ra$nukta}$x        → ṟ;</tRule>
+			<tRule>$ra$nukta$virama    → ṟ;</tRule>
+			<tRule>$ra$nukta           → ṟa;</tRule>
+			<tRule>$lla$nukta}$x       → ḻ;</tRule>
+			<tRule>$lla$nukta$virama   → ḻ;</tRule>
+			<tRule>$lla$nukta          → ḻa;</tRule>
+			<tRule>$ela}$x             → ḻ;</tRule>
+			<tRule>$ela$virama         → ḻ;</tRule>
+			<tRule>$ela                → ḻa;</tRule>
+			<tRule>$uya}$x             → ẏ;</tRule>
+			<tRule>$uya$virama         → ẏ;</tRule>
+			<tRule>$uya                → ẏa;</tRule>
+			<comment># normal consonants</comment>
+			<tRule>$ka$virama}$ha→k'';</tRule>
+			<tRule>$ka}$x→k;</tRule>
+			<tRule>$ka$virama→k;</tRule>
+			<tRule>$ka→ka;</tRule>
+			<tRule>$kha}$x→kh;</tRule>
+			<tRule>$kha$virama→kh;</tRule>
+			<tRule>$kha→kha;</tRule>
+			<tRule>$ga$virama}$ha→g'';</tRule>
+			<tRule>$ga}$x→g;</tRule>
+			<tRule>$ga$virama→g;</tRule>
+			<tRule>$ga→ga;</tRule>
+			<tRule>$gha}$x→gh;</tRule>
+			<tRule>$gha$virama→gh;</tRule>
+			<tRule>$gha→gha;</tRule>
+			<tRule>$nga}$x→ṅ;</tRule>
+			<tRule>$nga$virama→ṅ;</tRule>
+			<tRule>$nga→ṅa;</tRule>
+			<tRule>$ca$virama}$ha→c'';</tRule>
+			<tRule>$ca}$x→c;</tRule>
+			<tRule>$ca$virama→c;</tRule>
+			<tRule>$ca→ca;</tRule>
+			<tRule>$cha}$x→ch;</tRule>
+			<tRule>$cha$virama→ch;</tRule>
+			<tRule>$cha→cha;</tRule>
+			<tRule>$ja$virama}$ha→j'';</tRule>
+			<tRule>$ja}$x→j;</tRule>
+			<tRule>$ja$virama→j;</tRule>
+			<tRule>$ja→ja;</tRule>
+			<tRule>$jha}$x→jh;</tRule>
+			<tRule>$jha$virama→jh;</tRule>
+			<tRule>$jha→jha;</tRule>
+			<tRule>$nya }$x→ñ;</tRule>
+			<tRule>$nya$virama→ñ;</tRule>
+			<tRule>$nya → ña;</tRule>
+			<tRule>$tta$virama}$ha→ṭ'';</tRule>
+			<tRule>$tta}$x→ṭ;</tRule>
+			<tRule>$tta$virama→ṭ;</tRule>
+			<tRule>$tta→ṭa;</tRule>
+			<tRule>$ttha}$x→ṭh;</tRule>
+			<tRule>$ttha$virama→ṭh;</tRule>
+			<tRule>$ttha→ṭha;</tRule>
+			<tRule>$dda}$x$ha→ḍ'';</tRule>
+			<tRule>$dda}$x→ḍ;</tRule>
+			<tRule>$dda$virama→ḍ;</tRule>
+			<tRule>$dda→ḍa;</tRule>
+			<tRule>$ddha}$x→ḍh;</tRule>
+			<tRule>$ddha$virama→ḍh;</tRule>
+			<tRule>$ddha→ḍha;</tRule>
+			<tRule>$nna}$x→ṇ;</tRule>
+			<tRule>$nna$virama→ṇ;</tRule>
+			<tRule>$nna→ṇa;</tRule>
+			<tRule>$ta$virama}$ha→t'';</tRule>
+			<tRule>$ta$virama}$ttha→t'';</tRule>
+			<tRule>$ta$virama}$tta→t'';</tRule>
+			<tRule>$ta$virama}$tha→t'';</tRule>
+			<tRule>$ta}$x→t;</tRule>
+			<tRule>$ta$virama→t;</tRule>
+			<tRule>$ta→ta;</tRule>
+			<tRule>$tha}$x→th;</tRule>
+			<tRule>$tha$virama→th;</tRule>
+			<tRule>$tha→tha;</tRule>
+			<tRule>$da$virama}$ha→d'';</tRule>
+			<tRule>$da$virama}$ddha→d'';</tRule>
+			<tRule>$da$virama}$dda→d'';</tRule>
+			<tRule>$da$virama}$dha→d'';</tRule>
+			<tRule>$da}$x→d;</tRule>
+			<tRule>$da$virama→d;</tRule>
+			<tRule>$da→da;</tRule>
+			<tRule>$dha}$x→dh;</tRule>
+			<tRule>$dha$virama→dh;</tRule>
+			<tRule>$dha→dha;</tRule>
+			<tRule>$na$virama}$ga→n'';</tRule>
+			<tRule>$na$virama}$ya→n'';</tRule>
+			<tRule>$na}$x→n;</tRule>
+			<tRule>$na$virama→n;</tRule>
+			<tRule>$na→na;</tRule>
+			<tRule>$pa$virama}$ha→p'';</tRule>
+			<tRule>$pa}$x→p;</tRule>
+			<tRule>$pa$virama→p;</tRule>
+			<tRule>$pa→pa;</tRule>
+			<tRule>$pha}$x→ph;</tRule>
+			<tRule>$pha$virama→ph;</tRule>
+			<tRule>$pha→pha;</tRule>
+			<tRule>$ba$virama}$ha→b'';</tRule>
+			<tRule>$ba}$x→b;</tRule>
+			<tRule>$ba$virama→b;</tRule>
+			<tRule>$ba→ba;</tRule>
+			<tRule>$bha}$x→bh;</tRule>
+			<tRule>$bha$virama→bh;</tRule>
+			<tRule>$bha→bha;</tRule>
+			<tRule>$ma$virama}$ma→m'';</tRule>
+			<tRule>$ma}$x→m;</tRule>
+			<tRule>$ma$virama→m;</tRule>
+			<tRule>$ma→ma;</tRule>
+			<tRule>$ya}$x→y;</tRule>
+			<tRule>$ya$virama→y;</tRule>
+			<tRule>$ya→ya;</tRule>
+			<tRule>$ra$virama}$ha→r'';</tRule>
+			<tRule>$ra}$x→r;</tRule>
+			<tRule>$ra$virama→r;</tRule>
+			<tRule>$ra→ra;</tRule>
+			<tRule>$vva$virama}$ha→ẇ'';</tRule>
+			<tRule>$vva}$x→ẇ;</tRule>
+			<tRule>$vva$virama→ẇ;</tRule>
+			<tRule>$vva→ẇa;</tRule>
+			<tRule>$rra$virama}$ha→ṟ'';</tRule>
+			<tRule>$rra}$x→ṟ;</tRule>
+			<tRule>$rra$virama→ṟ;</tRule>
+			<tRule>$rra→ṟa;</tRule>
+			<tRule>$la$virama}$ha→l'';</tRule>
+			<tRule>$la}$x→l;</tRule>
+			<tRule>$la$virama→l;</tRule>
+			<tRule>$la→la;</tRule>
+			<tRule>$lla$virama}$ha→ḷ'';</tRule>
+			<tRule>$lla}$x→ḷ;</tRule>
+			<tRule>$lla$virama→ḷ;</tRule>
+			<tRule>$lla→ḷa;</tRule>
+			<tRule>$va}$x→v;</tRule>
+			<tRule>$va$virama→v;</tRule>
+			<tRule>$va→va;</tRule>
+			<tRule>$sa$virama}$ha→s'';</tRule>
+			<tRule>$sa$virama}$sha→s'';</tRule>
+			<tRule>$sa$virama}$ssa→s'';</tRule>
+			<tRule>$sa$virama}$sa→s'';</tRule>
+			<tRule>$sa}$x→s;</tRule>
+			<tRule>$sa$virama→s;</tRule>
+			<comment>#for gurmukhi</comment>
+			<tRule>$sa$nukta}$x→ś;</tRule>
+			<tRule>$sa$nukta$virama→ś;</tRule>
+			<tRule>$sa$nukta→śa;</tRule>
+			<tRule>$sa→sa;</tRule>
+			<tRule>$sha}$x→ś;</tRule>
+			<tRule>$sha$virama→ś;</tRule>
+			<tRule>$sha→śa;</tRule>
+			<tRule>$ssa}$x→ṣ;</tRule>
+			<tRule>$ssa$virama→ṣ;</tRule>
+			<tRule>$ssa→ṣa;</tRule>
+			<tRule>$ha}$x→h;</tRule>
+			<tRule>$ha$virama→h;</tRule>
+			<tRule>$ha→ha;</tRule>
+			<comment># dependent vowels (should never occur except following consonants)</comment>
+			<tRule>$forceIndependentMatra{$aa  → ̔ā;</tRule>
+			<tRule>$forceIndependentMatra{$ai  → ̔ai;</tRule>
+			<tRule>$forceIndependentMatra{$au  → ̔au;</tRule>
+			<tRule>$forceIndependentMatra{$ii  → ̔ī;</tRule>
+			<tRule>$forceIndependentMatra{$i   → ̔i;</tRule>
+			<tRule>$forceIndependentMatra{$uu  → ̔ū;</tRule>
+			<tRule>$forceIndependentMatra{$u   → ̔u;</tRule>
+			<tRule>$forceIndependentMatra{$rrh → ̔r̥̄;</tRule>
+			<tRule>$forceIndependentMatra{$rh  → ̔r̥;</tRule>
+			<tRule>$forceIndependentMatra{$llh → ̔l̥̄;</tRule>
+			<tRule>$forceIndependentMatra{$lh  → ̔l̥;</tRule>
+			<tRule>$forceIndependentMatra{$e   → ̔ē;</tRule>
+			<tRule>$forceIndependentMatra{$o   → ̔ō;</tRule>
+			<comment>#extra vowels</comment>
+			<tRule>$forceIndependentMatra{$ce  → ̔ĕ;</tRule>
+			<tRule>$forceIndependentMatra{$co  → ̔ŏ;</tRule>
+			<tRule>$forceIndependentMatra{$se  → ̔e;</tRule>
+			<tRule>$forceIndependentMatra{$so  → ̔o;</tRule>
+			<tRule>$forceIndependentMatra{$nukta  →; # Nukta cannot appear independently or as first character</tRule>
+			<tRule>$forceIndependentMatra{$virama →; # Virama cannot appear independently or as first character</tRule>
+			<tRule>$aa  → ā;</tRule>
+			<tRule>$ai  → ai;</tRule>
+			<tRule>$au  → au;</tRule>
+			<tRule>$ii  → ī;</tRule>
+			<tRule>$i   → i;</tRule>
+			<tRule>$uu  → ū;</tRule>
+			<tRule>$u   → u;</tRule>
+			<tRule>$rrh → r̥̄;</tRule>
+			<tRule>$rh  → r̥;</tRule>
+			<tRule>$llh → l̥̄;</tRule>
+			<tRule>$lh  → l̥;</tRule>
+			<tRule>$e   → ē;</tRule>
+			<tRule>$o   → ō;</tRule>
+			<comment>#extra vowels</comment>
+			<tRule>$ce  → ĕ;</tRule>
+			<tRule>$co  → ŏ;</tRule>
+			<tRule>$se  → e;</tRule>
+			<tRule>$so  → o;</tRule>
+			<comment>#dependent vowels when following independent vowels. Generally Illegal only for roundtripping</comment>
+			<tRule>$waa} $x → ā̔;</tRule>
+			<tRule>$wai} $x → ai̔;</tRule>
+			<tRule>$wau} $x → au̔;</tRule>
+			<tRule>$wii} $x → ī̔;</tRule>
+			<tRule>$wi } $x → i̔;</tRule>
+			<tRule>$wuu} $x → ū̔;</tRule>
+			<tRule>$wu } $x → u̔;</tRule>
+			<tRule>$wrr} $x → r̥̄̔;</tRule>
+			<tRule>$wr } $x → r̥̔;</tRule>
+			<tRule>$wll} $x → l̥̄̔;</tRule>
+			<tRule>$wl } $x → l̥̔;</tRule>
+			<tRule>$we } $x → ē̔;</tRule>
+			<tRule>$wo } $x → ō̔;</tRule>
+			<tRule>$wa } $x → a̔;</tRule>
+			<comment>#extra vowels</comment>
+			<tRule>$wce} $x → ĕ̔;</tRule>
+			<tRule>$wco} $x → ŏ̔;</tRule>
+			<tRule>$wse} $x → e̔;</tRule>
+			<tRule>$wso} $x → o̔;</tRule>
+			<tRule>$om} $x → ''om̔;</tRule>
+			<comment># independent vowels when preceeded by vowels</comment>
+			<tRule>$vowels{$waa  → ''ā;</tRule>
+			<tRule>$vowels{$wai  → ''ai;</tRule>
+			<tRule>$vowels{$wau  → ''au;</tRule>
+			<tRule>$vowels{$wii  → ''ī;</tRule>
+			<tRule>$vowels{$wi   → ''i;</tRule>
+			<tRule>$vowels{$wuu  → ''ū;</tRule>
+			<tRule>$vowels{$wu   → ''u;</tRule>
+			<tRule>$vowels{$wrr  → ''r̥̄;</tRule>
+			<tRule>$vowels{$wr   → ''r̥;</tRule>
+			<tRule>$vowels{$wll  → ''l̥̄;</tRule>
+			<tRule>$vowels{$wl   → ''l̥;</tRule>
+			<tRule>$vowels{$we   → ''ē;</tRule>
+			<tRule>$vowels{$wo   → ''ō;</tRule>
+			<tRule>$vowels{$wa   → ''a;</tRule>
+			<comment>#extra vowels</comment>
+			<tRule>$vowels{$wce  → ''ĕ;</tRule>
+			<tRule>$vowels{$wco  → ''ŏ;</tRule>
+			<tRule>$vowels{$wse  → ''e;</tRule>
+			<tRule>$vowels{$wso  → ''o;</tRule>
+			<comment># independent vowels (otherwise)</comment>
+			<tRule>$waa → ā;</tRule>
+			<tRule>$wai → ai;</tRule>
+			<tRule>$wau → au;</tRule>
+			<tRule>$wii → ī;</tRule>
+			<tRule>$wi  → i;</tRule>
+			<tRule>$wuu → ū;</tRule>
+			<tRule>$wu  → u;</tRule>
+			<tRule>$wrr → r̥̄;</tRule>
+			<tRule>$wr  → r̥;</tRule>
+			<tRule>$wll → l̥̄;</tRule>
+			<tRule>$wl  → l̥;</tRule>
+			<tRule>$we  → ē;</tRule>
+			<tRule>$wo  → ō;</tRule>
+			<tRule>$wa  → a;</tRule>
+			<comment>#extra vowels</comment>
+			<tRule>$wce → ĕ;</tRule>
+			<tRule>$wco → ŏ;</tRule>
+			<tRule>$wse → e;</tRule>
+			<tRule>$wso → o;</tRule>
+			<tRule>$om → ''om;</tRule>
+			<comment>#stress marks</comment>
+			<tRule>$avagraha → ̕;</tRule>
+			<tRule>$chandrabindu$anusvara→̃;</tRule>
+			<tRule>$chandrabindu → m̐;</tRule>
+			<tRule>$visarga→ḥ;</tRule>
+			<comment>#numbers</comment>
+			<tRule>$zero  → 0;</tRule>
+			<tRule>$one   → 1;</tRule>
+			<tRule>$two   → 2;</tRule>
+			<tRule>$three → 3;</tRule>
+			<tRule>$four  → 4;</tRule>
+			<tRule>$five  → 5;</tRule>
+			<tRule>$six   → 6;</tRule>
+			<tRule>$seven → 7;</tRule>
+			<tRule>$eight → 8;</tRule>
+			<tRule>$nine  → 9;</tRule>
+			<tRule>$lm   →;</tRule>
+			<tRule>$ailm →;</tRule>
+			<tRule>$aulm →;</tRule>
+			<tRule>$dgs→ʔ;</tRule>
+			<tRule>$kta→ṯ;</tRule>
+			<tRule>$danda→'.';</tRule>
+			<tRule>$doubleDanda→'.';</tRule>
+			<tRule>\uE070→;       # ABBREVIATION SIGN</tRule>
+			<comment># LETTER RA WITH MIDDLE DIAGONAL</comment>
+			<tRule>\uE071}$x→ra;</tRule>
+			<tRule>\uE071$virama→r;</tRule>
+			<tRule>\uE071→ra;</tRule>
+			<comment># LETTER RA WITH LOWER DIAGONAL</comment>
+			<tRule>\uE072}$x→ra;</tRule>
+			<tRule>\uE072$virama→r;</tRule>
+			<tRule>\uE072→ra;</tRule>
+			<tRule>\uE073→;       # RUPEE MARK</tRule>
+			<tRule>\uE074→;       # RUPEE SIGN</tRule>
+			<tRule>\uE075→;       # CURRENCY NUMERATOR ONE</tRule>
+			<tRule>\uE076→;       # CURRENCY NUMERATOR TWO</tRule>
+			<tRule>\uE077→;       # CURRENCY NUMERATOR THREE</tRule>
+			<tRule>\uE078→;       # CURRENCY NUMERATOR FOUR</tRule>
+			<tRule>\uE079→;       # CURRENCY NUMERATOR ONE LESS THAN THE DENOMINATOR</tRule>
+			<tRule>\uE07A→;       # CURRENCY DENOMINATOR SIXTEEN</tRule>
+			<tRule>\uE07B→;       # ISSHAR</tRule>
+			<tRule>\uE07C→;       # TIPPI</tRule>
+			<tRule>\uE07D→;       # ADDAK</tRule>
+			<tRule>\uE07E→;       # IRI</tRule>
+			<tRule>\uE07F→;       # URA</tRule>
+			<tRule>\uE080→;       # EK ONKAR</tRule>
+			<tRule>\uE004→;       # DEVANAGARI VOWEL SIGN SHORT A</tRule>
+		</transform>
+	</transforms>
+</supplementalData>
+

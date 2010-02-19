@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<transforms>
+		<transform source="Latin" target="NumericPinyin" direction="both">
+			<comment># According to the pinyin definitions I've been able to find:</comment>
+			<comment># 'a', 'e' are the preferred bases</comment>
+			<comment># otherwise 'o'</comment>
+			<comment># otherwise last vowel</comment>
+			<comment># The trailing form of syllables are the following:</comment>
+			<comment>#         &quot;a&quot;, &quot;ai&quot;, &quot;ao&quot;, &quot;an&quot;, &quot;ang&quot;,</comment>
+			<comment>#         &quot;o&quot;, &quot;ou&quot;, &quot;ong&quot;,</comment>
+			<comment>#         &quot;e&quot;, &quot;ei&quot;, &quot;er&quot;, &quot;en&quot;, &quot;eng&quot;,</comment>
+			<comment>#         &quot;i&quot;, &quot;ia&quot;, &quot;iao&quot;, &quot;ie&quot;, &quot;iu&quot;, &quot;ian&quot;, &quot;in&quot;, &quot;iang&quot;, &quot;ing&quot;, &quot;iong&quot;,</comment>
+			<comment>#         &quot;u&quot;, &quot;ua&quot;, &quot;uo&quot;, &quot;uai&quot;, &quot;ui&quot;, &quot;uan&quot;, &quot;un&quot;, &quot;uang&quot;, &quot;ueng&quot;,</comment>
+			<comment>#         &quot;ü&quot;, &quot;üe&quot;, &quot;üan&quot;, &quot;ün&quot;</comment>
+			<comment># so the letters the tone will 'hop' are:</comment>
+			<tRule>::NFD (NFC);</tRule>
+			<tRule>$tone = [̄́̌̀̆] ;</tRule>
+			<comment># Move the tone to the end of a syllable, and convert to number</comment>
+			<tRule>e {($tone) r} → r &amp;Pinyin-NumericPinyin($1);</tRule>
+			<tRule>($tone) ( [i o n u {o n} {n g}]) → $2 &amp;Pinyin-NumericPinyin($1);</tRule>
+			<tRule>($tone) → &amp;Pinyin-NumericPinyin($1);</tRule>
+			<comment># The following backs up until it finds the right vowel, then deposits the tone</comment>
+			<tRule>$vowel = [aAeEiIoOuUüÜ {ü} {Ü} ];</tRule>
+			<tRule>$consonant = [[a-z A-Z] - [$vowel]];</tRule>
+			<tRule>$digit = [1-5];</tRule>
+			<tRule>$1 &amp;NumericPinyin-Pinyin($3) $2 ← ([aAeE]) ($vowel* $consonant*) ($digit);</tRule>
+			<tRule>$1 &amp;NumericPinyin-Pinyin($3) $2 ← ([oO]) ([$vowel-[aeAE]]* $consonant*) ($digit);</tRule>
+			<tRule>$1 &amp;NumericPinyin-Pinyin($3) $2 ← ($vowel) ($consonant*) ($digit);</tRule>
+			<tRule>&amp;NumericPinyin-Pinyin($1) ← [:letter:] {($digit)};</tRule>
+			<tRule>::NFC (NFD);</tRule>
+		</transform>
+	</transforms>
+</supplementalData>
+

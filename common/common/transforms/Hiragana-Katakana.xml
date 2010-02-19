@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<transforms>
+		<transform source="Hiragana" target="Katakana" direction="both">
+			<comment># note: a global filter is more efficient, but MUST include all source chars</comment>
+			<tRule>:: [\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟー[:Hiragana:] [:Katakana:] [:nonspacing mark:]] ;</tRule>
+			<tRule>:: NFKC ();</tRule>
+			<comment># Hiragana-Katakana</comment>
+			<comment># This is largely a one-to-one mapping, but it has a</comment>
+			<comment># few kinks:</comment>
+			<comment># 1. The Katakana va/vi/ve/vo (30F7-30FA) have no</comment>
+			<comment># Hiragana equivalents.  We use Hiragana wa/wi/we/wo</comment>
+			<comment># (308F-3092) with a voicing mark (3099), which is</comment>
+			<comment># semantically equivalent.  However, this is a non-</comment>
+			<comment># roundtripping transformation.</comment>
+			<comment># 2. The Katakana small ka/ke (30F5,30F6) have no</comment>
+			<comment># Hiragana equiavlents.  We convert them to normal</comment>
+			<comment># Hiragana ka/ke (304B,3051).  This is a one-way</comment>
+			<comment># information-losing transformation and precludes</comment>
+			<comment># round-tripping of 30F5 and 30F6.</comment>
+			<comment># 3. The combining marks 3099-309C are in the Hiragana</comment>
+			<comment># block, but they apply to Katakana as well, so we</comment>
+			<comment># leave them untouched.</comment>
+			<comment># 4. The Katakana prolonged sound mark 30FC doubles the</comment>
+			<comment># preceding vowel.  This is a one-way information-</comment>
+			<comment># losing transformation from Katakana to Hiragana.</comment>
+			<comment># 5. The Katakana middle dot separates words in foreign</comment>
+			<comment># expressions; we leave this unmodified.</comment>
+			<comment># The above points preclude successful round-trip</comment>
+			<comment># transformations of arbitrary input text.  However,</comment>
+			<comment># they provide naturalistic results that should conform</comment>
+			<comment># to user expectations.</comment>
+			<comment># Combining equivalents va/vi/ve/vo</comment>
+			<tRule>わ゙ ↔ ヷ;</tRule>
+			<tRule>ゐ゙ ↔ ヸ;</tRule>
+			<tRule>ゑ゙ ↔ ヹ;</tRule>
+			<tRule>を゙ ↔ ヺ;</tRule>
+			<comment># One-to-one mappings, main block</comment>
+			<comment># 3041:3094 ↔ 30A1:30F4</comment>
+			<comment># 309D,E ↔ 30FD,E</comment>
+			<tRule>ぁ ↔ ァ;</tRule>
+			<tRule>あ ↔ ア;</tRule>
+			<tRule>ぃ ↔ ィ;</tRule>
+			<tRule>い ↔ イ;</tRule>
+			<tRule>ぅ ↔ ゥ;</tRule>
+			<tRule>う ↔ ウ;</tRule>
+			<tRule>ぇ ↔ ェ;</tRule>
+			<tRule>え ↔ エ;</tRule>
+			<tRule>ぉ ↔ ォ;</tRule>
+			<tRule>お ↔ オ;</tRule>
+			<tRule>か ↔ カ;</tRule>
+			<tRule>が ↔ ガ;</tRule>
+			<tRule>き ↔ キ;</tRule>
+			<tRule>ぎ ↔ ギ;</tRule>
+			<tRule>く ↔ ク;</tRule>
+			<tRule>ぐ ↔ グ;</tRule>
+			<tRule>け ↔ ケ;</tRule>
+			<tRule>げ ↔ ゲ;</tRule>
+			<tRule>こ ↔ コ;</tRule>
+			<tRule>ご ↔ ゴ;</tRule>
+			<tRule>さ ↔ サ;</tRule>
+			<tRule>ざ ↔ ザ;</tRule>
+			<tRule>し ↔ シ;</tRule>
+			<tRule>じ ↔ ジ;</tRule>
+			<tRule>す ↔ ス;</tRule>
+			<tRule>ず ↔ ズ;</tRule>
+			<tRule>せ ↔ セ;</tRule>
+			<tRule>ぜ ↔ ゼ;</tRule>
+			<tRule>そ ↔ ソ;</tRule>
+			<tRule>ぞ ↔ ゾ;</tRule>
+			<tRule>た ↔ タ;</tRule>
+			<tRule>だ ↔ ダ;</tRule>
+			<tRule>ち ↔ チ;</tRule>
+			<tRule>ぢ ↔ ヂ;</tRule>
+			<tRule>っ ↔ ッ;</tRule>
+			<tRule>つ ↔ ツ;</tRule>
+			<tRule>づ ↔ ヅ;</tRule>
+			<tRule>て ↔ テ;</tRule>
+			<tRule>で ↔ デ;</tRule>
+			<tRule>と ↔ ト;</tRule>
+			<tRule>ど ↔ ド;</tRule>
+			<tRule>な ↔ ナ;</tRule>
+			<tRule>に ↔ ニ;</tRule>
+			<tRule>ぬ ↔ ヌ;</tRule>
+			<tRule>ね ↔ ネ;</tRule>
+			<tRule>の ↔ ノ;</tRule>
+			<tRule>は ↔ ハ;</tRule>
+			<tRule>ば ↔ バ;</tRule>
+			<tRule>ぱ ↔ パ;</tRule>
+			<tRule>ひ ↔ ヒ;</tRule>
+			<tRule>び ↔ ビ;</tRule>
+			<tRule>ぴ ↔ ピ;</tRule>
+			<tRule>ふ ↔ フ;</tRule>
+			<tRule>ぶ ↔ ブ;</tRule>
+			<tRule>ぷ ↔ プ;</tRule>
+			<tRule>へ ↔ ヘ;</tRule>
+			<tRule>べ ↔ ベ;</tRule>
+			<tRule>ぺ ↔ ペ;</tRule>
+			<tRule>ほ ↔ ホ;</tRule>
+			<tRule>ぼ ↔ ボ;</tRule>
+			<tRule>ぽ ↔ ポ;</tRule>
+			<tRule>ま ↔ マ;</tRule>
+			<tRule>み ↔ ミ;</tRule>
+			<tRule>む ↔ ム;</tRule>
+			<tRule>め ↔ メ;</tRule>
+			<tRule>も ↔ モ;</tRule>
+			<tRule>ゃ ↔ ャ;</tRule>
+			<tRule>や ↔ ヤ;</tRule>
+			<tRule>ゅ ↔ ュ;</tRule>
+			<tRule>ゆ ↔ ユ;</tRule>
+			<tRule>ょ ↔ ョ;</tRule>
+			<tRule>よ ↔ ヨ;</tRule>
+			<tRule>ら ↔ ラ;</tRule>
+			<tRule>り ↔ リ;</tRule>
+			<tRule>る ↔ ル;</tRule>
+			<tRule>れ ↔ レ;</tRule>
+			<tRule>ろ ↔ ロ;</tRule>
+			<tRule>ゎ ↔ ヮ;</tRule>
+			<tRule>わ ↔ ワ;</tRule>
+			<tRule>ゐ ↔ ヰ;</tRule>
+			<tRule>ゑ ↔ ヱ;</tRule>
+			<tRule>を ↔ ヲ;</tRule>
+			<tRule>ん ↔ ン;</tRule>
+			<tRule>ゔ ↔ ヴ;</tRule>
+			<tRule>ゝ ↔ ヽ;</tRule>
+			<tRule>ゞ ↔ ヾ;</tRule>
+			<comment># One-way Katakana-Hiragana xform of small K ka/ke to</comment>
+			<comment># normal H ka/ke.</comment>
+			<tRule>か ← ヵ;</tRule>
+			<tRule>け ← ヶ;</tRule>
+			<comment># Katakana followed by a prolonged sound mark 30FC has</comment>
+			<comment># its final vowel doubled.  This is a Katakana-Hiragana</comment>
+			<comment># one-way information-losing transformation.  We</comment>
+			<comment># include the small Katakana (e.g., small A 3041) and</comment>
+			<comment># do not distinguish them from their large</comment>
+			<comment># counterparts.  It doesn't make sense to double a</comment>
+			<comment># small counterpart vowel as a small Hiragana vowel, so</comment>
+			<comment># we don't do so.  In natural text this should never</comment>
+			<comment># occur anyway.  If a 30FC is seen without a preceding</comment>
+			<comment># vowel sound (e.g., after n 30F3) we do not change it.</comment>
+			<comment>### $long = ー;</comment>
+			<comment># The following categories are Hiragana, not Katakana</comment>
+			<comment># as might be expected, since by the time we get to the</comment>
+			<comment># 30FC, the preceding character will have already been</comment>
+			<comment># transformed to Hiragana.</comment>
+			<comment># {The following mechanically generated from the</comment>
+			<comment># Unicode 3.0 data:}</comment>
+			<tRule>$xa = [ \</tRule>
+			<tRule>ぁ あ か が さ ざ \</tRule>
+			<tRule>た だ な は ば ぱ \</tRule>
+			<tRule>ま ゃ や ら ゎ わ \</tRule>
+			<tRule>];</tRule>
+			<tRule>$xi = [ \</tRule>
+			<tRule>ぃ い き ぎ し じ \</tRule>
+			<tRule>ち ぢ に ひ び ぴ \</tRule>
+			<tRule>み り ゐ \</tRule>
+			<tRule>];</tRule>
+			<tRule>$xu = [ \</tRule>
+			<tRule>ぅ う く ぐ す ず \</tRule>
+			<tRule>っ つ づ ぬ ふ ぶ \</tRule>
+			<tRule>ぷ む ゅ ゆ る ゔ \</tRule>
+			<tRule>];</tRule>
+			<tRule>$xe = [ \</tRule>
+			<tRule>ぇ え け げ せ ぜ \</tRule>
+			<tRule>て で ね へ べ ぺ \</tRule>
+			<tRule>め れ ゑ \</tRule>
+			<tRule>];</tRule>
+			<tRule>$xo = [ \</tRule>
+			<tRule>ぉ お こ ご そ ぞ \</tRule>
+			<tRule>と ど の ほ ぼ ぽ \</tRule>
+			<tRule>も ょ よ ろ を \</tRule>
+			<tRule>];</tRule>
+			<tRule>あ ← $xa {ー};</tRule>
+			<tRule>い ← $xi {ー};</tRule>
+			<tRule>う ← $xu {ー};</tRule>
+			<tRule>え ← $xe {ー};</tRule>
+			<tRule>お ← $xo {ー};</tRule>
+			<tRule>:: (NFKC) ;</tRule>
+			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
+			<tRule>:: ([\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟー[:Hiragana:] [:Katakana:] [:nonspacing mark:]]);</tRule>
+			<comment># eof</comment>
+		</transform>
+	</transforms>
+</supplementalData>
+

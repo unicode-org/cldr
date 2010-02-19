@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="th" /> 
+	</identity>
+		<collations validSubLocales="th_TH">
+			<collation type="standard" >
+				<settings normalization="on"  />
+				<rules>
+					<reset>ฤ</reset>
+					<p>ฤๅ</p>
+					<reset>ฦ</reset>
+					<p>ฦๅ</p>
+					<reset>ไ</reset>
+					<p>ๅ</p>
+					<reset before="secondary">็</reset>
+					<s>๎</s>
+					<reset>๋</reset>
+					<sc>์ํ</sc>
+					<reset><last_secondary_ignorable/></reset>
+					<tc> -.</tc>
+					<t>...</t>
+					<tc>ฯๆ๏๚๛</tc>
+				</rules>
+			</collation  >
+            <collation type="standard" references="ISO/IEC 14651, Annex C, C.2.1 Thai ordering principles" alt="proposed" draft="unconfirmed">
+                <settings normalization="on" />
+                <rules>
+        <!--
+            The following tailoring is an adjustment of the
+            DUCET collation order for PAIYANNOI, MAIYAMOK,
+            FONGMAN, ANGKHANKHU, KHOMUT, THANTHAKHAT,
+            NIKHAHIT, LAKKHANGYAO, and PHINTHU. This gives
+            a sort order as defined in the Royal Institute
+            Dictionary 2542 B.E. Edition (1999 A.D.).
+        -->
+
+                <reset><last_tertiary_ignorable /></reset>
+                    <q>ฯ</q>
+                    <q>ๆ</q>
+                    <q>๏</q>
+                    <q>๚</q>
+                    <q>๛</q>
+                <reset>๎</reset>
+                    <s>์</s>
+                <reset>ฮ</reset>
+                    <p>ํ</p>
+                <reset>า</reset>
+                    <t>ๅ</t>
+                <reset>ไ</reset>
+                    <p>ฺ</p>
+            </rules>
+        </collation>
+</collations>
+</ldml>

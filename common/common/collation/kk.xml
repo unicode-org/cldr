@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="kk" /> 
+	</identity>
+		<collations  validSubLocales="kk_KZ">
+			<collation type="standard" draft="unconfirmed" alt="proposed">
+				<settings normalization="on"  />
+				<suppress_contractions>[Ѐ-џ]</suppress_contractions>
+				<rules>
+					<reset before="primary">п</reset>
+					<p>ө</p>
+					<t>Ө</t>
+					<reset before="primary">ү</reset>
+					<p>ұ</p>
+					<t>Ұ</t>
+					<reset before="primary">ь</reset>
+					<p>і</p>
+					<t>І</t>
+				</rules>
+			</collation  >
+			<collation type="standard" >
+				<settings normalization="on"  />
+				<suppress_contractions>[Ѐ-џ]</suppress_contractions>
+				<rules>
+					<reset before="primary">ү</reset>
+					<p>ұ</p>
+					<t>Ұ</t>
+				</rules>
+			</collation  >
+		</collations>
+</ldml>

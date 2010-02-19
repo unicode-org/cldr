@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="uk" /> 
+	</identity>
+		<collations validSubLocales="uk_UA">
+			<collation type="standard" >
+				<rules>
+					<reset>Г</reset>
+					<p>ґ</p>
+					<t>Ґ</t>
+				</rules>
+			</collation  >
+		</collations>
+</ldml>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<transforms>
+		<transform source="Devanagari" target="Tamil" direction="forward">
+			<tRule>::[ँ-ःऄअ-ह़-्ॐ-॔क़-९ॽ];</tRule>
+			<tRule>::NFD;</tRule>
+			<tRule>::Devanagari-InterIndic;</tRule>
+			<tRule>::InterIndic-Tamil;</tRule>
+			<tRule>::NFC;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>
+

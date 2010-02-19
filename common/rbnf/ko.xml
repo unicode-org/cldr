@@ -28,10 +28,14 @@
                 <rbnfrule value="7">칠;</rbnfrule>
                 <rbnfrule value="8">팔;</rbnfrule>
                 <rbnfrule value="9">구;</rbnfrule>
-                <rbnfrule value="10">←←십[ →→];</rbnfrule>
-                <rbnfrule value="100">←←백[→→];</rbnfrule>
-                <rbnfrule value="1000">←←천[ →→];</rbnfrule>
-                <rbnfrule value="10000">←←만[ →→];</rbnfrule>
+                <rbnfrule value="10">십[→→];</rbnfrule>
+                <rbnfrule value="20">←←십[→→];</rbnfrule>
+                <rbnfrule value="100">백[→→];</rbnfrule>
+                <rbnfrule value="200">←←백[→→];</rbnfrule>
+                <rbnfrule value="1000">천[→→];</rbnfrule>
+                <rbnfrule value="2000">←←천[→→];</rbnfrule>
+                <rbnfrule value="10000">만[ →→];</rbnfrule>
+                <rbnfrule value="20000">←←만[ →→];</rbnfrule>
                 <rbnfrule value="100000000">←←억[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">←←조[ →→];</rbnfrule>
                 <rbnfrule value="10000000000000000">←←경[ →→];</rbnfrule>
@@ -59,12 +63,37 @@
                 <rbnfrule value="70">일흔[→→];</rbnfrule>
                 <rbnfrule value="80">여든[→→];</rbnfrule>
                 <rbnfrule value="90">아흔[→→];</rbnfrule>
-                <rbnfrule value="100">←←백[ →→];</rbnfrule>
-                <rbnfrule value="1000">←←천[ →→];</rbnfrule>
-                <rbnfrule value="10000">←←만[ →→];</rbnfrule>
+                <rbnfrule value="100">백[→→];</rbnfrule>
+                <rbnfrule value="200">←←백[→→];</rbnfrule>
+                <rbnfrule value="1000">천[→→];</rbnfrule>
+                <rbnfrule value="2000">←←천[→→];</rbnfrule>
+                <rbnfrule value="10000">만[ →→];</rbnfrule>
+                <rbnfrule value="20000">←←만[ →→];</rbnfrule>
                 <rbnfrule value="100000000">←←억[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">←←조[ →→];</rbnfrule>
                 <rbnfrule value="10000000000000000">←←경[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-financial">
+                <rbnfrule value="-x">마이너스 →→;</rbnfrule>
+                <rbnfrule value="x.x">←← 점 →→;</rbnfrule>
+                <rbnfrule value="0">영;</rbnfrule>
+                <rbnfrule value="1">일;</rbnfrule>
+                <rbnfrule value="2">이;</rbnfrule>
+                <rbnfrule value="3">삼;</rbnfrule>
+                <rbnfrule value="4">사;</rbnfrule>
+                <rbnfrule value="5">오;</rbnfrule>
+                <rbnfrule value="6">육;</rbnfrule>
+                <rbnfrule value="7">칠;</rbnfrule>
+                <rbnfrule value="8">팔;</rbnfrule>
+                <rbnfrule value="9">구;</rbnfrule>
+                <rbnfrule value="10">←←십[→→];</rbnfrule>
+                <rbnfrule value="100">←←백[→→];</rbnfrule>
+                <rbnfrule value="1000">←←천[→→];</rbnfrule>
+                <rbnfrule value="10000">←←만[→→];</rbnfrule>
+                <rbnfrule value="100000000">←←억[→→];</rbnfrule>
+                <rbnfrule value="1000000000000">←←조[→→];</rbnfrule>
+                <rbnfrule value="10000000000000000">←←경[→→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal">

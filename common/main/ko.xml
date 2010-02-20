@@ -1587,13 +1587,13 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>a hh시 mm분 ss초 zzzz</pattern>
+							<pattern>a h시 mm분 ss초 zzzz</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">a hh시mm분ss초 zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>a hh시 mm분 ss초 z</pattern>
+							<pattern>a h시 mm분 ss초 z</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">a hh시mm분ss초 z</pattern>
 						</timeFormat>
 					</timeFormatLength>
@@ -1639,9 +1639,9 @@
 						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="hm" draft="provisional">a h:mm</dateFormatItem>
-						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms" draft="provisional">a h:mm:ss</dateFormatItem>
-						<dateFormatItem id="Hms">H시 m분 s초</dateFormatItem>
+						<dateFormatItem id="Hms">HH시 m분 s초</dateFormatItem>
 						<dateFormatItem id="Hms" alt="proposed-x1001" draft="unconfirmed">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">M. d.</dateFormatItem>

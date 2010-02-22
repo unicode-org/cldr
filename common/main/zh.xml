@@ -1679,10 +1679,10 @@
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
 						<dateFormatItem id="EEEd" draft="provisional">d日E</dateFormatItem>
 						<dateFormatItem id="H">H时</dateFormatItem>
-						<dateFormatItem id="HHmm">H:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="hm">ah:mm</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="h">ah</dateFormatItem>
+						<dateFormatItem id="hm">ah:mm</dateFormatItem>
 						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
 						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
 						<dateFormatItem id="Md">M-d</dateFormatItem>
@@ -2660,6 +2660,7 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="h">ah</dateFormatItem>
 						<dateFormatItem id="hm">ah:mm</dateFormatItem>
 						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="provisional">M月d日E</dateFormatItem>

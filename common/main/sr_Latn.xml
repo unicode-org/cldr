@@ -2556,44 +2556,44 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="provisional">EEEE, dd. MMMM y.</pattern>
+							<pattern>EEEE, dd. MMMM y.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="provisional">dd. MMMM y.</pattern>
+							<pattern>dd. MMMM y.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="provisional">dd.MM.y.</pattern>
+							<pattern>dd.MM.y.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="provisional">d.M.yy.</pattern>
+							<pattern>d.M.yy.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="provisional">HH.mm.ss zzzz</pattern>
+							<pattern>HH.mm.ss zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="provisional">HH.mm.ss z</pattern>
+							<pattern>HH.mm.ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="provisional">HH.mm.ss</pattern>
+							<pattern>HH.mm.ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="provisional">HH.mm</pattern>
+							<pattern>HH.mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -2602,12 +2602,13 @@
 						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
 						<dateFormatItem id="Ed" draft="provisional">E d.</dateFormatItem>
 						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
-						<dateFormatItem id="hhmm" draft="provisional">hh.mm a</dateFormatItem>
-						<dateFormatItem id="hhmmss" draft="provisional">hh.mm.ss a</dateFormatItem>
-						<dateFormatItem id="hm" draft="provisional">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm">H.mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="provisional">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="provisional">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="hm" draft="provisional">hh.mm a</dateFormatItem>
+						<dateFormatItem id="hm" alt="proposed-x1001" draft="unconfirmed">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">HH.mm</dateFormatItem>
+						<dateFormatItem id="Hms">HH.mm.ss</dateFormatItem>
+						<dateFormatItem id="Hms" alt="proposed-x1001" draft="unconfirmed">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="hms" draft="provisional">hh.mm.ss a</dateFormatItem>
+						<dateFormatItem id="hms" alt="proposed-x1001" draft="unconfirmed">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="M" draft="provisional">L</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">d/M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="provisional">E, M-d</dateFormatItem>
@@ -2619,7 +2620,7 @@
 						<dateFormatItem id="MMMMd" draft="provisional">MMMM d.</dateFormatItem>
 						<dateFormatItem id="MMMMdd" draft="provisional">dd. MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd" draft="provisional">E MMMM d</dateFormatItem>
-						<dateFormatItem id="ms" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms" draft="provisional">mm.ss</dateFormatItem>
 						<dateFormatItem id="y" draft="provisional">y.</dateFormatItem>
 						<dateFormatItem id="yM" draft="provisional">y-M</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="provisional">EEE, d. M. yyyy.</dateFormatItem>

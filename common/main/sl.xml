@@ -1408,7 +1408,7 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>H:mm:ss zzzz</pattern>
+							<pattern>HH:mm:ss zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
@@ -1451,12 +1451,12 @@
 					<availableFormats>
 						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
 						<dateFormatItem id="EEEd" draft="provisional">EEE., d.</dateFormatItem>
-						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="Hm" alt="proposed-x1001" draft="unconfirmed">H:mm</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms" alt="proposed-x1001" draft="unconfirmed">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="hm" draft="provisional">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="provisional">H:mm</dateFormatItem>
 						<dateFormatItem id="hms" draft="provisional">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="provisional">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="M" draft="provisional">L</dateFormatItem>
 						<dateFormatItem id="Md">d. M.</dateFormatItem>
 						<dateFormatItem id="MEd" draft="provisional">E., d/M</dateFormatItem>

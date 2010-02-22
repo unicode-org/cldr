@@ -1303,8 +1303,11 @@
 					<availableFormats>
 						<dateFormatItem id="EEEd">EEEท d</dateFormatItem>
 						<dateFormatItem id="EEEd" alt="proposed-x1001" draft="unconfirmed">EEE d</dateFormatItem>
-						<dateFormatItem id="Hm" draft="provisional">H.mm น.</dateFormatItem>
-						<dateFormatItem id="Hms" draft="provisional">H.mm.ss น.</dateFormatItem>
+						<dateFormatItem id="H">H</dateFormatItem>
+						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="Hm" alt="proposed-x1001" draft="unconfirmed">H.mm น.</dateFormatItem>
+						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms" alt="proposed-x1001" draft="unconfirmed">H.mm.ss น.</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">Eท d/M</dateFormatItem>
 						<dateFormatItem id="MEd" alt="proposed-x1001" draft="unconfirmed">E d/M</dateFormatItem>
@@ -1742,15 +1745,13 @@
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
-						<dateFormatItem id="HHmm">H:mm</dateFormatItem>
-						<dateFormatItem id="HHmm" alt="proposed-x1001" draft="unconfirmed">H.mm น.</dateFormatItem>
-						<dateFormatItem id="HHmmss">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed-x1001" draft="unconfirmed">H.mm.ss น.</dateFormatItem>
-						<dateFormatItem id="hm" draft="provisional">h:mm a</dateFormatItem>
+						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="Hm" alt="proposed-x1001" draft="unconfirmed">H.mm น.</dateFormatItem>
+						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms" alt="proposed-x1001" draft="unconfirmed">H.mm.ss น.</dateFormatItem>
+						<dateFormatItem id="hm" draft="provisional">h:mm a</dateFormatItem>
 						<dateFormatItem id="hms" draft="provisional">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="provisional">H.mm.ss น.</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>

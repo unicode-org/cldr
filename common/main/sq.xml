@@ -455,8 +455,12 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
+						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="Hm">H.mm</dateFormatItem>
 						<dateFormatItem id="Hms">H.mm.ss</dateFormatItem>
+						<dateFormatItem id="h">h.a</dateFormatItem>
+						<dateFormatItem id="hm">h.mm.a</dateFormatItem>
+						<dateFormatItem id="hms">h.mm.ss.a</dateFormatItem>
 						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
 						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">E, d.M</dateFormatItem>
@@ -467,7 +471,7 @@
 						<dateFormatItem id="MMMMd" draft="contributed">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMdd" draft="unconfirmed">dd MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd" draft="contributed">E d MMMM</dateFormatItem>
-						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms" draft="contributed">mm.ss</dateFormatItem>
 						<dateFormatItem id="y" draft="contributed">y</dateFormatItem>
 						<dateFormatItem id="yM" draft="contributed">M.yyyy</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="contributed">EEE, d.M.yyyy</dateFormatItem>

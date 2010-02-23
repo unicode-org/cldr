@@ -934,4 +934,17 @@ public class XPathParts {
     }
     return this;
   }
+
+  public XPathParts setElement(int elementIndex, String newElement) {
+    if (elementIndex < 0) elementIndex += size();
+    Element element = elements.get(elementIndex);
+    element.element = newElement;
+    return this;
+  }
+
+  public XPathParts removeElement(int elementIndex) {
+    if (elementIndex < 0) elementIndex += size();
+    elements.remove(elementIndex);
+    return this;
+  }
 }

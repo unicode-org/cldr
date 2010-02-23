@@ -77,6 +77,8 @@ import com.ibm.icu.util.Freezable;
  http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
 public class CLDRFile implements Freezable, Iterable<String> {
+  public enum DtdType {ldml, supplementalData, ldmlBCP47}
+  
   public   static final Pattern ALT_PROPOSED_PATTERN = Pattern.compile(".*\\[@alt=\"[^\"]*proposed[^\"]*\"].*");
 
   private static boolean LOG_PROGRESS = false;
@@ -1063,13 +1065,33 @@ public class CLDRFile implements Freezable, Iterable<String> {
   //}
   //}
 
+  static String[][] distinguishingData = {
+    {"*", "key"},
+    {"*", "id"},
+    {"*", "_q"},
+    {"*", "alt"},
+    {"*", "iso4217"},
+    {"*", "iso3166"},
+    {"*", "indexSource"},
+    {"default", "type"},
+    {"measurementSystem", "type"},
+    {"mapping", "type"},
+    {"abbreviationFallback", "type"},
+    {"preferenceOrdering", "type"},
+    {"deprecatedItems", "iso3166"},
+    {"ruleset", "type"},
+    {"rbnfrule", "value"},
+  };
+
+  private final static Map distinguishingAttributeMap = asMap(distinguishingData, true); 
+
   /**
    * Determine if an attribute is a distinguishing attribute.
    * @param elementName
    * @param attribute
    * @return
    */
-  public static boolean isDistinguishing(String elementName, String attribute) {
+  public static boolean isDistinguishing(DtdType type, String elementName, String attribute) {
     boolean result =
       attribute.equals("key") 
       || attribute.equals("indexSource") 
@@ -1087,7 +1109,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
       || attribute.equals("value")
       || attribute.equals("yeartype")
       || attribute.equals("numberSystem")
-      || (attribute.equals("type") 
+      || (attribute.equals("type")
+              && !elementName.equals("listPattern") 
               && !elementName.equals("default") 
               && !elementName.equals("measurementSystem") 
               && !elementName.equals("mapping")
@@ -1099,6 +1122,13 @@ public class CLDRFile implements Freezable, Iterable<String> {
     //  throw new IllegalArgumentException("Failed: " + elementName + ", " + attribute);
     //  }
     return result;
+  }
+  
+  public static boolean isDistinguishing(String elementName, String attribute) {
+    if (isDistinguishing(DtdType.ldml, elementName, attribute)) return true;
+    if (isDistinguishing(DtdType.supplementalData, elementName, attribute)) return true;
+    if (isDistinguishing(DtdType.ldmlBCP47, elementName, attribute)) return true;
+    return false;
   }
 
   /**
@@ -1647,6 +1677,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
         if (isSupplemental < 0) { // set by first element
           if (qName.equals("ldml")) isSupplemental = 0;
           else if (qName.equals("supplementalData")) isSupplemental = 1;
+          else if (qName.equals("ldmlBCP47")) isSupplemental = 1;
           else throw new IllegalArgumentException("File is neither ldml or supplementalData!");
         }
         push(qName, attributes);                    
@@ -2332,6 +2363,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
                   "telephoneCountryCode",
                   "languagePopulation"
           })));
+  
+  public static boolean isOrdered(String element) {
+    return orderedElements.contains(element);
+  }
+  
   /**
    * 
    */
@@ -2430,26 +2466,6 @@ public class CLDRFile implements Freezable, Iterable<String> {
       return 0;
     }
   }
-
-  static String[][] distinguishingData = {
-    {"*", "key"},
-    {"*", "id"},
-    {"*", "_q"},
-    {"*", "alt"},
-    {"*", "iso4217"},
-    {"*", "iso3166"},
-    {"*", "indexSource"},
-    {"default", "type"},
-    {"measurementSystem", "type"},
-    {"mapping", "type"},
-    {"abbreviationFallback", "type"},
-    {"preferenceOrdering", "type"},
-    {"deprecatedItems", "iso3166"},
-    {"ruleset", "type"},
-    {"rbnfrule", "value"},
-  };
-
-  private final static Map distinguishingAttributeMap = asMap(distinguishingData, true); 
 
   private final static Map defaultSuppressionMap; 
   static {

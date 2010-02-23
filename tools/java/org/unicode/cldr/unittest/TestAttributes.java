@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -37,6 +38,62 @@ public class TestAttributes extends TestFmwk {
     new TestAttributes().run(args);
   }
 
+  public void TestOrdering() {
+    for (DtdType type : DtdType.values()) {
+      checkOrdering(type);
+    }
+  }
+
+  private void checkOrdering(DtdType type) {
+    Relation<String, String> toChildren = ElementAttributeInfo.getElement2Children(type);
+    //Relation<String, String> toParents = ElementAttributeInfo.getElement2Parents(type);
+    Set<String> containsOrdered = new LinkedHashSet();
+    for (String element : toChildren.keySet()) {
+      int ordered = 0;
+      Set<String> containedElements = toChildren.getAll(element);
+      for (String contained : containedElements) {
+        if (contained.equals("cp")) continue;
+        int currentOrdered = CLDRFile.isOrdered(contained, null) ? 1 : -1;
+        if (currentOrdered > 0) {
+          containsOrdered.add(element);
+        }
+        if (ordered == 0) {
+          ordered = currentOrdered;
+        } else {
+          if (ordered != currentOrdered) {
+            String error = type + "\tMixed ordering inside\t" + element + ":\tordered:\t";
+            for (String contained2 : containedElements) {
+              if (contained.equals("cp") || !CLDRFile.isOrdered(contained2, null)) continue;
+              error += " " + contained2;
+            }
+            error += ":\tunordered:\t";
+            for (String contained2 : containedElements) {
+              if (contained.equals("cp") || CLDRFile.isOrdered(contained2, null)) continue;
+              error += " " + contained2;
+            }
+            errln(error);
+            break;
+          }
+        }
+      }
+    }
+    if (containsOrdered.size() != 0) {
+      System.out.println();
+      System.out.println("                  " + "// DTD: " + type);
+      for (String element : containsOrdered) {
+        System.out.println("                  " + "// <" + element + "> children");
+        StringBuilder line = new StringBuilder("                  ");
+        for (String contained : toChildren.getAll(element)) {
+          line.append("\"" +
+                  contained +
+          "\", ");
+        }
+        System.out.println(line);
+        System.out.println();
+      }
+    }
+  }
+
   public void TestDistinguishing() {
     for (DtdType type : DtdType.values()) {
       showDistinguishing(type);
@@ -50,7 +107,7 @@ public class TestAttributes extends TestFmwk {
     Relation<String,String> orderedAttributeToElements = new Relation(new TreeMap(), TreeSet.class);
 
     for (String element : elementToAttributes.keySet()) {
-      boolean isOrdered = CLDRFile.isOrdered(element);
+      boolean isOrdered = CLDRFile.isOrdered(element, null);
       Set<String> attributes = elementToAttributes.getAll(element);
       for (String attribute : attributes) {
         if (isOrdered) {
@@ -66,11 +123,11 @@ public class TestAttributes extends TestFmwk {
     Set<String> nondistinguishing = new TreeSet(nondistinguishingAttributeToElements.keySet());
     nondistinguishing.removeAll(distinguishingAttributeToElements.keySet());
     System.out.println("// " + dtdType + "\tnondistinguishing: " + nondistinguishing);
-    
+
     Set<String> distinguishing = new TreeSet(distinguishingAttributeToElements.keySet());
     nondistinguishing.removeAll(nondistinguishingAttributeToElements.keySet());
     System.out.println("// " + dtdType + "\tdistinguishing: " + distinguishing);
-    
+
     Set<String> both = new TreeSet(distinguishingAttributeToElements.keySet());
     both.retainAll(nondistinguishingAttributeToElements.keySet());
     System.out.println("// " + dtdType + "\tboth: " + both);
@@ -79,9 +136,9 @@ public class TestAttributes extends TestFmwk {
       System.out.println("{\"" + "dist" + "\", \"" + dtdType + "\", \"" + "*" + "\", \"" + attribute + "\"},");
     }
     for (String attribute : both) {
-        for (String element : nondistinguishingAttributeToElements.getAll(attribute)) {
-          System.out.println("{\"" + "nondist" + "\", \"" + dtdType + "\", \"" + element + "\", \"" + attribute + "\"},");
-        }
+      for (String element : nondistinguishingAttributeToElements.getAll(attribute)) {
+        System.out.println("{\"" + "nondist" + "\", \"" + dtdType + "\", \"" + element + "\", \"" + attribute + "\"},");
+      }
     }
   }
   public void TestAttributes() {
@@ -118,8 +175,8 @@ public class TestAttributes extends TestFmwk {
   }
 
   public void TestElements() {
-    Relation<String, String> mainData = ElementAttributeInfo.getContainingElementData(DtdType.ldml);
-    Relation<String, String> suppData = ElementAttributeInfo.getContainingElementData(DtdType.supplementalData);
+    Relation<String, String> mainData = ElementAttributeInfo.getElement2Children(DtdType.ldml);
+    Relation<String, String> suppData = ElementAttributeInfo.getElement2Children(DtdType.supplementalData);
     Set<String> commonKeys = getCommon(mainData.keySet(), suppData.keySet(), new TreeSet<String>());
     Set<String> same = new TreeSet<String>();
     for (String key : commonKeys) {
@@ -156,7 +213,7 @@ public class TestAttributes extends TestFmwk {
   }));
 
   private void checkEmpty(DtdType type) {
-    Relation<String, String> mainData = ElementAttributeInfo.getContainedElementData(type);
+    Relation<String, String> mainData = ElementAttributeInfo.getElement2Parents(type);
     Relation<String, String> elementToAttributes = ElementAttributeInfo.getElementToAttributes(type);
     Map<R2<String, String>, R3<Set<String>, String, String>> eaData = ElementAttributeInfo.getAttributeData(type);
 
@@ -181,7 +238,7 @@ public class TestAttributes extends TestFmwk {
   }
 
   private void checkLeaf(DtdType type, String contained) {
-    Relation<String, String> mainData = ElementAttributeInfo.getContainedElementData(type);
+    Relation<String, String> mainData = ElementAttributeInfo.getElement2Parents(type);
     Relation<String, String> elementToAttributes = ElementAttributeInfo.getElementToAttributes(type);
     Map<R2<String, String>, R3<Set<String>, String, String>> eaData = ElementAttributeInfo.getAttributeData(type);
 
@@ -208,12 +265,12 @@ public class TestAttributes extends TestFmwk {
 
   public void checkNodeData(DtdType type) {
     NodeData data = CurrentData.fullNodeData.get(type);
-    Relation<String, String> dtdData = ElementAttributeInfo.getContainedElementData(type);
-    Relation<String, String> containingData = ElementAttributeInfo.getContainingElementData(type);
+    Relation<String, String> dtdData = ElementAttributeInfo.getElement2Parents(type);
+    Relation<String, String> containingData = ElementAttributeInfo.getElement2Children(type);
     Relation<String, String> elementToAttributes = data.elementToAttributes;
 
     Relation<String, String> dtdElementToAttributes = ElementAttributeInfo.getElementToAttributes(type);
-    
+
     Set<String> possibleElements = dtdElementToAttributes.keySet();
     Set<String> foundElements = elementToAttributes.keySet();
     if (!foundElements.equals(possibleElements)) {
@@ -221,7 +278,7 @@ public class TestAttributes extends TestFmwk {
       missing.removeAll(foundElements);
       errln(type + "\t" + "Elements defined but not in data: " + missing);
     }
-    
+
     // attributes not found
     for (String element : dtdElementToAttributes.keySet()) {
       Set<String> dtdAttributes = dtdElementToAttributes.getAll(element);
@@ -239,8 +296,8 @@ public class TestAttributes extends TestFmwk {
       }
     }
 
-    
-    
+
+
     Set<String> empties = dtdData.getAll("EMPTY");
 
     Set<String> overlap = getCommon(data.valueNodes.keySet(), data.branchNodes.keySet(), new TreeSet<String>());

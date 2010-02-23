@@ -1109,6 +1109,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
       || attribute.equals("value")
       || attribute.equals("yeartype")
       || attribute.equals("numberSystem")
+      || attribute.equals("code")
       || (attribute.equals("type")
               && !elementName.equals("listPattern") 
               && !elementName.equals("default") 
@@ -1116,7 +1117,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
               && !elementName.equals("mapping")
               && !elementName.equals("abbreviationFallback")
               && !elementName.equals("preferenceOrdering"))
-              || elementName.equals("deprecatedItems");
+      || elementName.equals("deprecatedItems");
     //  if (result != matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true)) {
     //  matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true);
     //  throw new IllegalArgumentException("Failed: " + elementName + ", " + attribute);
@@ -2339,32 +2340,67 @@ public class CLDRFile implements Freezable, Iterable<String> {
 
   static Set orderedElements = Collections.unmodifiableSet(new HashSet(java.util.Arrays
           .asList(new String[] {
-                  "variable", "comment", "tRule", "attributeValues", 
-                  // collation
-                  "base", "settings", "suppress_contractions", "optimize", "rules",
-                  //"dateFormatItem",
-                  // collation
-                  "collations", "collation", "context",
-                  "reset", "p", "pc", "s", "sc", "t", "tc", "q", "qc", "i",
-                  "ic", "x", "extend", "first_variable", "last_variable",
-                  "first_tertiary_ignorable", "last_tertiary_ignorable",
-                  "first_secondary_ignorable", "last_secondary_ignorable",
-                  "first_primary_ignorable", "last_primary_ignorable",
-                  "first_non_ignorable", "last_non_ignorable",
-                  "first_trailing", "last_trailing",
-                  // rbnf
-                  // supplemental
-                  "character-fallback", "character", "substitute",
-                  "rbnfrule", "ruleset",
-                  "timezone", 
-                  "numberingSystem",
-                  "pluralRule",
-                  "postCodeRegex",
-                  "telephoneCountryCode",
-                  "languagePopulation"
+                  // can prettyprint with TestAttributes
+                  
+                  // DTD: ldml
+                  // <collation> children
+                  "base", "optimize", "rules", "settings", "suppress_contractions", 
+
+                  // <rules> children
+                  "i", "ic", "p", "pc", "q", "qc", "reset", "s", "sc", "t", "tc", "x", 
+
+                  // <x> children
+                  "context", "extend", "i", "ic", "p", "pc", "q", "qc", "s", "sc", "t", "tc", 
+
+                  // <variables> children
+                  "variable", 
+
+                  // <rulesetGrouping> children
+                  "ruleset", 
+
+                  // <ruleset> children
+                  "rbnfrule", 
+
+
+                  // DTD: supplementalData
+                  // <territory> children
+                  //"languagePopulation", 
+
+                  // <postalCodeData> children
+                  //"postCodeRegex", 
+
+                  // <characters> children
+                  //"character-fallback", 
+
+                  // <character-fallback> children
+                  //"character", 
+
+                  // <character> children
+                  "substitute", // may occur multiple times
+
+                  // <transform> children
+                  "comment", "tRule", 
+
+                  // <validity> children
+                  // both of these don't need to be ordered, but must delay changes until after isDistinguished always uses the dtd type
+                  "attributeValues", // attribute values shouldn't need ordering, as long as these are distinguishing: elements="zoneItem" attributes="type"
+                  "variable", // doesn't need to be ordered
+
+                  // <pluralRules> children
+                  "pluralRule", 
+
+                  // <codesByTerritory> children
+                  //"telephoneCountryCode", // doesn't need ordering, as long as code is distinguishing, telephoneCountryCode code="376"
+
+                  // <numberingSystems> children
+                  // "numberingSystem", // doesn't need ordering, since id is distinguishing
+
+                  // <metazoneInfo> children
+                  //"timezone", // doesn't need ordering, since type is distinguishing
+
           })));
   
-  public static boolean isOrdered(String element) {
+  public static boolean isOrdered(String element, DtdType type) {
     return orderedElements.contains(element);
   }
   

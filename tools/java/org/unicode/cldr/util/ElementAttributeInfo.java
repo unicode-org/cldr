@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
@@ -28,9 +29,9 @@ public class ElementAttributeInfo {
   static class Data {
     DtdType dtdType;
     Map<R2<String, String>,R3<Set<String>, String, String>> mainAttributeData = new TreeMap<R2<String, String>,R3<Set<String>, String, String>>();
-    Relation<String,String> mainElementData = new Relation(new TreeMap(), TreeSet.class);
-    Relation<String,String> mainElementDataRev = new Relation(new TreeMap(), TreeSet.class);
-    Relation<String,String> mainElementToAttributes = new Relation(new TreeMap(), TreeSet.class);
+    Relation<String,String> element2children = new Relation(new LinkedHashMap(), LinkedHashSet.class);
+    Relation<String,String> element2parents = new Relation(new LinkedHashMap(), LinkedHashSet.class);
+    Relation<String,String> mainElementToAttributes = new Relation(new LinkedHashMap(), LinkedHashSet.class);
     Data(DtdType type) {
       dtdType = type;
     }
@@ -76,12 +77,12 @@ public class ElementAttributeInfo {
     return data.get(type).mainAttributeData;
   }
 
-  public static Relation<String, String> getContainingElementData(CLDRFile.DtdType type) {
-    return data.get(type).mainElementData; 
+  public static Relation<String, String> getElement2Children(CLDRFile.DtdType type) {
+    return data.get(type).element2children; 
   }
   
-  public static Relation<String, String> getContainedElementData(CLDRFile.DtdType type) {
-    return data.get(type).mainElementDataRev;
+  public static Relation<String, String> getElement2Parents(CLDRFile.DtdType type) {
+    return data.get(type).element2parents;
   }
 
   public static Relation<String,String> getElementToAttributes(CLDRFile.DtdType type) {
@@ -131,9 +132,9 @@ public class ElementAttributeInfo {
       if (identifiers.size() == 0) {
         identifiers.add("EMPTY");
       }
-      myData.mainElementData.putAll(name, identifiers);
+      myData.element2children.putAll(name, identifiers);
       for (String identifier : identifiers) {
-        myData.mainElementDataRev.put(identifier, name);
+        myData.element2parents.put(identifier, name);
       }
     }
 

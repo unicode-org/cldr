@@ -30,28 +30,28 @@ $Date: 2009-08-20 03:33:56 $
 <!ATTLIST language type NMTOKEN #REQUIRED >
 <!ATTLIST language draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST language references CDATA #IMPLIED >
-<!ATTLIST language alt  CDATA #IMPLIED >
+<!ATTLIST language alt NMTOKENS #IMPLIED >
 
 
 <!ELEMENT script ( #PCDATA ) >
 <!ATTLIST script type NMTOKEN #REQUIRED >
 <!ATTLIST script draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST script references CDATA #IMPLIED >
-<!ATTLIST script alt  CDATA #IMPLIED >
+<!ATTLIST script alt NMTOKENS #IMPLIED >
 
 
 <!ELEMENT territory ( #PCDATA ) >
 <!ATTLIST territory type NMTOKEN #REQUIRED >
 <!ATTLIST territory draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST territory references CDATA #IMPLIED >
-<!ATTLIST territory alt  CDATA #IMPLIED >
+<!ATTLIST territory alt NMTOKENS #IMPLIED >
 
 
 <!ELEMENT variant ( #PCDATA ) >
 <!ATTLIST variant type NMTOKEN #REQUIRED >
 <!ATTLIST variant draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST variant references CDATA #IMPLIED >
-<!ATTLIST variant alt  CDATA #IMPLIED >
+<!ATTLIST variant alt NMTOKENS #IMPLIED >
 
 
 <!-- ######################################################### -->
@@ -86,7 +86,7 @@ $Date: 2009-08-20 03:33:56 $
 <!ELEMENT fallback (#PCDATA) >
 <!ATTLIST fallback draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED  >
 <!ATTLIST fallback references CDATA #IMPLIED >
-<!ATTLIST fallback alt  CDATA #IMPLIED >
+<!ATTLIST fallback alt NMTOKENS #IMPLIED >
 
 <!ELEMENT localeDisplayNames (alias | (localeDisplayPattern?, languages?, scripts?, territories?, variants?, keys?, types?, measurementSystemNames?, codePatterns?, special*)) >
 <!ATTLIST localeDisplayNames draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -153,7 +153,7 @@ $Date: 2009-08-20 03:33:56 $
 <!ATTLIST codePattern type NMTOKEN #REQUIRED >
 <!ATTLIST codePattern draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST codePattern references CDATA #IMPLIED >
-<!ATTLIST codePattern alt  CDATA #IMPLIED >
+<!ATTLIST codePattern alt NMTOKENS #IMPLIED >
 
 <!-- Either 1 alias OR any specials, any order, zero or more measurementSystemName -->
 <!ELEMENT measurementSystemNames ( alias | (measurementSystemName | special)* ) >

@@ -3822,13 +3822,13 @@ XXX	Code for transations where no currency is involved
           <firstDay day="sun"  territories="AS AZ BW CA CN FO GE GL GU HK IE IL IN IS JM JP KG KR LA MH MN MO MP MT NZ PH PK SG SY TH TT TW UM US UZ VI ZW" />
 		  <firstDay day="sun"  territories="GB" alt="variant" references="Shorter Oxford Dictionary (5th edition, 2002)"/>
         
-          <weekendStart day="thu"  territories="DZ KW OM SA SD YE AF IR"/>
-          <weekendStart day="fri"  territories="AE BH EG IL IQ JO LY MA QA SY TN"/>
+          <weekendStart day="thu"  territories="AF DZ IR OM SA YE"/>
+          <weekendStart day="fri"  territories="AE BH EG IL IQ JO KW LY MA QA SD SY TN"/>
           <weekendStart day="sat"  territories="001"/>
           <weekendStart day="sun"  territories="IN"/>
         
-          <weekendEnd day="fri"  territories="DZ KW OM SA SD YE AF IR"/>
-          <weekendEnd day="sat"  territories="AE BH EG IL IQ JO LY MA QA SY TN"/>
+          <weekendEnd day="fri"  territories="AF DZ IR OM SA YE"/>
+          <weekendEnd day="sat"  territories="AE BH EG IL IQ JO KW LY MA QA SD SY TN"/>
           <weekendEnd day="sun"  territories="001"/>
     </weekData>
 

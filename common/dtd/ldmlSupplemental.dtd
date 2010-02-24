@@ -175,19 +175,19 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST character draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST character standard CDATA #IMPLIED >
 <!ATTLIST character references CDATA #IMPLIED >
-<!ATTLIST character alt CDATA #IMPLIED >
+<!ATTLIST character alt NMTOKENS #IMPLIED >
 
 <!ELEMENT substitute (#PCDATA) >
 <!ATTLIST substitute draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST substitute standard CDATA #IMPLIED >
 <!ATTLIST substitute references CDATA #IMPLIED >
-<!ATTLIST substitute alt CDATA #IMPLIED >
+<!ATTLIST substitute alt NMTOKENS #IMPLIED >
 
 <!ELEMENT transforms ( transform*) >
 <!ELEMENT transform ((comment | tRule)*) >
 <!ATTLIST transform draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST transform references CDATA #IMPLIED >
-<!ATTLIST transform alt CDATA #IMPLIED >
+<!ATTLIST transform alt NMTOKENS #IMPLIED >
 <!ATTLIST transform source CDATA #IMPLIED >
 <!ATTLIST transform target CDATA #IMPLIED >
 <!ATTLIST transform variant CDATA #IMPLIED >
@@ -376,7 +376,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST reference standard ( true | false ) #IMPLIED >
 <!ATTLIST reference uri CDATA #IMPLIED >
 <!ATTLIST reference draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
-<!ATTLIST reference alt CDATA #IMPLIED >
+<!ATTLIST reference alt NMTOKENS #IMPLIED >
 
 <!ELEMENT bcp47KeywordMappings ( mapKeys?, mapTypes* ) >
 <!ELEMENT mapKeys ( keyMap* ) >

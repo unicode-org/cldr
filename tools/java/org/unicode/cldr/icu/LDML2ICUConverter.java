@@ -1627,7 +1627,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
      * @param table
      * @param resource
      */
-    static void addToTable(ResourceTable table, Resource resource) {
+    static void addToTable(Resource table, Resource resource) {
       Resource current = table.first;
       if (current == null) {
         table.first = resource;

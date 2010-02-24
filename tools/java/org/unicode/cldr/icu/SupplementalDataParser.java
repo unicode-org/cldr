@@ -133,7 +133,7 @@ public class SupplementalDataParser {
       } else if (name.equals(LDMLConstants.BCP47_KEYWORD_MAPPINGS)) {
         res = parseBCP47MappingData(node, xpath);
       } else if (name.equals(LDMLConstants.LANGUAGE_MATCHING)) {
-        // Ignore this
+        res = parseLanguageMatch(node, xpath);
       } else {
         log.warning("Encountered unknown element " + LDML2ICUConverter.getXPath(node, xpath).toString());
         // System.exit(-1);
@@ -156,6 +156,7 @@ public class SupplementalDataParser {
 
   // Utilities
 
+
   private boolean isNodeNotConvertible(Node node, StringBuilder xpath) {
     // only deal with leaf nodes!
     // Here we assume that the CLDR files are normalized
@@ -166,7 +167,7 @@ public class SupplementalDataParser {
 
     return !service.xpathListContains(xpath.toString());
   }
-  
+
   private Resource parseAliasResource(Node node, StringBuilder xpath) {
     int saveLength = xpath.length();
     LDML2ICUConverter.getXPath(node, xpath);
@@ -182,10 +183,10 @@ public class SupplementalDataParser {
       }
     } catch(TransformerException ex) {
       log.error(
-          "Could not compile XPATH for" +
-          " source:  " + LDMLUtilities.getAttributeValue(node, LDMLConstants.SOURCE) +
-          " path: " + LDMLUtilities.getAttributeValue(node, LDMLConstants.PATH) +
-          " Node: " + node.getParentNode().getNodeName(), ex);
+              "Could not compile XPATH for" +
+              " source:  " + LDMLUtilities.getAttributeValue(node, LDMLConstants.SOURCE) +
+              " path: " + LDMLUtilities.getAttributeValue(node, LDMLConstants.PATH) +
+              " Node: " + node.getParentNode().getNodeName(), ex);
       System.exit(-1);
     }
 
@@ -309,9 +310,9 @@ public class SupplementalDataParser {
         String tender = LDMLUtilities.getAttributeValue(node, LDMLConstants.TENDER);
 
         ResourceIntVector fromRes = getSeconds(
-            LDMLUtilities.getAttributeValue(node, LDMLConstants.FROM));
+                LDMLUtilities.getAttributeValue(node, LDMLConstants.FROM));
         ResourceIntVector toRes =  getSeconds(
-            LDMLUtilities.getAttributeValue(node, LDMLConstants.TO));
+                LDMLUtilities.getAttributeValue(node, LDMLConstants.TO));
 
         if (fromRes != null) {
           fromRes.name = LDMLConstants.FROM;
@@ -479,7 +480,7 @@ public class SupplementalDataParser {
     vector.first = int1;
     int1.next = int2;
     vector.smallComment = dateStr; // + " " + millis + "L";
-    
+
     if (log.willOutput(Level.DEBUG)) {
       top = Integer.parseInt(int1.val);
       bottom = Integer.parseInt(int2.val);
@@ -544,6 +545,97 @@ public class SupplementalDataParser {
     }
 
     xpath.delete(savedLength, xpath.length());
+    if (table.first != null) {
+      return table;
+    }
+
+    return null;
+  }
+
+
+  private Resource parseLanguageMatch(Node root, StringBuilder xpath) {
+    //  <languageMatching>
+    //    <languageMatches type="written">
+
+    int savedLength = xpath.length();
+    LDML2ICUConverter.getXPath(root, xpath);
+    int oldLength = xpath.length();
+
+    if (isNodeNotConvertible(root, xpath)) {
+      xpath.setLength(savedLength);
+      return null;
+    }
+    Hashtable<String, Resource> hash = new Hashtable<String, Resource>();
+
+    ResourceTable table = new ResourceTable();
+    table.name = LDMLConstants.LANGUAGE_MATCHING;
+
+    for (Node node = root.getFirstChild(); node != null; node = node.getNextSibling()) {
+      if (node.getNodeType()!= Node.ELEMENT_NODE) {
+        continue;
+      }
+      String name = node.getNodeName();
+      LDML2ICUConverter.getXPath(node, xpath);
+      if (isNodeNotConvertible(node, xpath)) {
+        xpath.setLength(oldLength);
+        continue;
+      }
+      int oldLength2 = xpath.length();
+
+      if (name.equals(LDMLConstants.LANGUAGE_MATCHES)) {
+        String key = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
+        if (key == null) {
+          log.error("<language > element does not have type attribute ! " + xpath.toString());
+          return null;
+        }
+
+        ResourceArray subtable = new ResourceArray();
+        subtable.name = key;
+        LDML2ICUConverter.addToTable(table, subtable);
+
+        //      <languageMatch desired="no" supported="nb" percent="100"/>
+        //      <languageMatch desired="nn" supported="nb" percent="96"/>
+
+        for (Node node2 = node.getFirstChild(); node2 != null; node2 = node2.getNextSibling()) {
+          if (node2.getNodeType()!= Node.ELEMENT_NODE) {
+            continue;
+          }
+          String name2 = node2.getNodeName();
+          LDML2ICUConverter.getXPath(node2, xpath);
+          if (isNodeNotConvertible(node2, xpath)) {
+            xpath.setLength(oldLength2);
+            continue;
+          }
+
+          if (name2.equals(LDMLConstants.LANGUAGE_MATCH)) {
+            String desired = LDMLUtilities.getAttributeValue(node2, "desired");
+            String supported = LDMLUtilities.getAttributeValue(node2, "supported");
+            String percent = LDMLUtilities.getAttributeValue(node2, "percent");
+            if (desired == null || supported == null || percent == null ) {
+              log.error(LDMLConstants.LANGUAGE_MATCH + " does not have type attributes ! " + xpath.toString());
+              return null;
+            }
+
+            ResourceTable subsubsubtable = new ResourceTable();
+            subsubsubtable.name = LDMLConstants.LANGUAGE_MATCH;
+            LDML2ICUConverter.addToTable(subtable, subsubsubtable);
+
+            ResourceString res = new ResourceString();
+            res.name = "desired";
+            res.val = desired;
+            LDML2ICUConverter.addToTable(subsubsubtable, res);
+            res = new ResourceString();
+            res.name = "supported";
+            res.val = supported;
+            LDML2ICUConverter.addToTable(subsubsubtable, res);
+            res = new ResourceString();
+            res.name = "percent";
+            res.val = percent;
+            LDML2ICUConverter.addToTable(subsubsubtable, res);
+          }
+        }
+      }
+    }
     if (table.first != null) {
       return table;
     }
@@ -967,7 +1059,7 @@ public class SupplementalDataParser {
       } else if (name.equals(LDMLConstants.ZONE_ITEM)) {
         ResourceTable zi = new ResourceTable();
         zi.name = "\"" + LDMLUtilities.getAttributeValue(
-            node, LDMLConstants.TYPE).replaceAll("/", ":") + "\"";
+                node, LDMLConstants.TYPE).replaceAll("/", ":") + "\"";
 
         String canonical = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
         ResourceString canon = new ResourceString();
@@ -1140,9 +1232,9 @@ public class SupplementalDataParser {
       if (name.equals(LDMLConstants.KEY_MAP)) {
         ResourceString keyMap = new ResourceString();
         keyMap.name = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE)
-            .toLowerCase(Locale.ENGLISH);
+        .toLowerCase(Locale.ENGLISH);
         keyMap.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.BCP47)
-            .toLowerCase(Locale.ENGLISH);
+        .toLowerCase(Locale.ENGLISH);
         res = keyMap;
       } else {
         log.error("Encountered unknown <" + root.getNodeName() + "> subelement: " + name);
@@ -1183,7 +1275,7 @@ public class SupplementalDataParser {
 
     ResourceTable mapTypes = new ResourceTable();
     String ldmlKey = LDMLUtilities.getAttributeValue(root, LDMLConstants.TYPE)
-        .toLowerCase(Locale.ENGLISH);
+    .toLowerCase(Locale.ENGLISH);
     mapTypes.name = ldmlKey;
     boolean isTimeZone = ldmlKey.equals("timezone");
     Resource current = null;
@@ -1199,15 +1291,15 @@ public class SupplementalDataParser {
         ResourceString typeMap = new ResourceString();
         if (isTimeZone) {
           typeMap.name = "\""
-              + LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE).replaceAll("/", ":")
-              .toLowerCase(Locale.ENGLISH)
-              + "\"";
+            + LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE).replaceAll("/", ":")
+            .toLowerCase(Locale.ENGLISH)
+            + "\"";
         } else {
           typeMap.name = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE)
-              .toLowerCase(Locale.ENGLISH);
+          .toLowerCase(Locale.ENGLISH);
         }
         typeMap.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.BCP47)
-            .toLowerCase(Locale.ENGLISH);
+        .toLowerCase(Locale.ENGLISH);
         res = typeMap;
       } else {
         log.error("Encountered unknown <" + root.getNodeName() + "> subelement: " + name);

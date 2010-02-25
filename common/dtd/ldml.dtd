@@ -20,7 +20,7 @@ $Date: 2009-08-20 03:33:56 $
 
 <!ELEMENT identity (alias | (version, generation, language, script?, territory?, variant?, special*) ) >
 
-<!ELEMENT version ( #PCDATA ) >
+<!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #REQUIRED >
 
 <!ELEMENT generation EMPTY >

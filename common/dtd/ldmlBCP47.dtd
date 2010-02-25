@@ -11,7 +11,7 @@ $Date: 2009-12-07 00:00:00 $
 -->
 <!ELEMENT ldmlBCP47 ( version?, generation?, cldrVersion?, keyword*, attribute* )>
 
-<!ELEMENT version ( #PCDATA )>
+<!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #REQUIRED>
 
 <!ELEMENT generation EMPTY>

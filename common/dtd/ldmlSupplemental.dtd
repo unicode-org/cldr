@@ -14,7 +14,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT supplementalData ( version?, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, references?, languageMatching?, dayPeriodRuleSet?, metaZones?, windowsZones?) >
 <!ATTLIST supplementalData version CDATA #FIXED "1.7" >
 
-<!ELEMENT version ( #PCDATA ) >
+<!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #REQUIRED >
 
 <!ELEMENT generation EMPTY >
@@ -284,27 +284,27 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT coverageAdditions (  languageCoverage*,  scriptCoverage*, territoryCoverage*, currencyCoverage*, timezoneCoverage* ) >
 <!ATTLIST coverageAdditions draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
-<!ELEMENT languageCoverage ( #PCDATA ) >
+<!ELEMENT languageCoverage EMPTY >
 <!ATTLIST languageCoverage draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST languageCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST languageCoverage values NMTOKENS #IMPLIED >
 
-<!ELEMENT scriptCoverage ( #PCDATA ) >
+<!ELEMENT scriptCoverage EMPTY >
 <!ATTLIST scriptCoverage draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST scriptCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST scriptCoverage values NMTOKENS #IMPLIED >
 
-<!ELEMENT territoryCoverage ( #PCDATA ) >
+<!ELEMENT territoryCoverage EMPTY >
 <!ATTLIST territoryCoverage draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST territoryCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST territoryCoverage values NMTOKENS #IMPLIED >
 
-<!ELEMENT currencyCoverage ( #PCDATA ) >
+<!ELEMENT currencyCoverage EMPTY >
 <!ATTLIST currencyCoverage draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST currencyCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST currencyCoverage values NMTOKENS #IMPLIED >
 
-<!ELEMENT timezoneCoverage ( #PCDATA ) >
+<!ELEMENT timezoneCoverage EMPTY >
 <!ATTLIST timezoneCoverage draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST timezoneCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST timezoneCoverage values CDATA #IMPLIED > <!-- would be NMTOKENS, but needs to allow / -->
@@ -312,7 +312,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT defaultContent EMPTY >
 <!ATTLIST defaultContent locales NMTOKENS #IMPLIED >
 
-<!ELEMENT skipDefaultLocale ( #PCDATA ) >
+<!ELEMENT skipDefaultLocale EMPTY >
 <!ATTLIST skipDefaultLocale services NMTOKENS #IMPLIED >
 
 <!ELEMENT codeMappings (languageCodes*, territoryCodes*) >

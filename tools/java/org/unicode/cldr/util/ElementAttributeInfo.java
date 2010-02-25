@@ -113,7 +113,7 @@ public class ElementAttributeInfo {
     }
 
     private Set<String> getIdentifiers(String type) {
-      Set<String> result = new TreeSet<String>();
+      Set<String> result = new LinkedHashSet<String>();
       idmatcher.reset(type);
       while (idmatcher.find()) {
         result.add(idmatcher.group());

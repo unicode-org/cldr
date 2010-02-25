@@ -616,20 +616,20 @@ public class SupplementalDataParser {
               return null;
             }
 
-            ResourceTable subsubsubtable = new ResourceTable();
-            subsubsubtable.name = LDMLConstants.LANGUAGE_MATCH;
+            ResourceArray subsubsubtable = new ResourceArray();
+            //subsubsubtable.name = LDMLConstants.LANGUAGE_MATCH;
             LDML2ICUConverter.addToTable(subtable, subsubsubtable);
 
             ResourceString res = new ResourceString();
-            res.name = "desired";
+            //res.name = "desired";
             res.val = desired;
             LDML2ICUConverter.addToTable(subsubsubtable, res);
             res = new ResourceString();
-            res.name = "supported";
+            //res.name = "supported";
             res.val = supported;
             LDML2ICUConverter.addToTable(subsubsubtable, res);
             res = new ResourceString();
-            res.name = "percent";
+            //res.name = "percent";
             res.val = percent;
             LDML2ICUConverter.addToTable(subsubsubtable, res);
           }

@@ -27,12 +27,14 @@ import org.unicode.cldr.util.CLDRFile.DtdType;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.impl.Row.R2;
 
 public class JsonConverter {
 
-  private static final String FILES = ".*";
-  private static final String MAIN_DIRECTORY = CldrUtility.SUPPLEMENTAL_DIRECTORY; //CldrUtility.MAIN_DIRECTORY;
+  private static final String FILES = "el.*";
+  private static final String MAIN_DIRECTORY = CldrUtility.MAIN_DIRECTORY;//CldrUtility.SUPPLEMENTAL_DIRECTORY; //CldrUtility.MAIN_DIRECTORY;
   private static final String OUT_DIRECTORY = CldrUtility.GEN_DIRECTORY + "/jason/"; //CldrUtility.MAIN_DIRECTORY;
   private static final boolean COMPACT = false;
   static final Set<String> REPLACING_BASE = !COMPACT ? Collections.EMPTY_SET : new HashSet<String>(Arrays.asList("type id key count".split("\\s")));
@@ -44,6 +46,7 @@ public class JsonConverter {
     final String subdirectory = new File(MAIN_DIRECTORY).getName();
     final Factory cldrFactory = Factory.make(MAIN_DIRECTORY, FILES);
     final Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
+    final XPathParts oldParts = new XPathParts();
     final XPathParts parts = new XPathParts();
     //ElementName elementName = new ElementName();
     LinkedHashMap<String,String> nonDistinguishing = new LinkedHashMap<String,String>();
@@ -56,104 +59,34 @@ public class JsonConverter {
       for (Iterator<String> it = file.iterator("",CLDRFile.ldmlComparator); it.hasNext();) {
         final String xpath = it.next();
         final String fullXpath = file.getFullXPath(xpath);
-        final String value = file.getStringValue(xpath);
-        parts.set(fullXpath);
-        rewrite(parts);
+        String value = file.getStringValue(xpath);
+        oldParts.set(fullXpath);
+        rewrite(oldParts, value, element2Attributes, parts);
+        System.out.println(parts);
         Item current = main;
         int size = parts.size();
 
-        // we have to prescan for _q
-        ordered.clear();
         for (int i = 0; i < size-1; ++i) {
-          if (parts.getAttributeValue(i, "_q") != null) {
-            ordered.set(i);
-          }
-        }
-
-        // build up the table with the intermediate elements
-        for (int i = 1; i < size; ++i) {
           final String element = parts.getElement(i);
-          Item.Type nextLevelOrdered = ordered.get(i+1) ? Item.Type.orderedItem : Item.Type.unorderedItem;
-          current = current.makeSubItem(element, nextLevelOrdered);
-
-          Collection<String> actualAttributeKeys = parts.getAttributeKeys(i);
-          Set<String> possibleAttributeKeys = element2Attributes.getAll(element);
-          if (possibleAttributeKeys != null) {
-            for (final String attribute : actualAttributeKeys) {
-              String attributeValue = parts.getAttributeValue(i, attribute);
-              if (!isDistinguishing(element, attribute)) {
-                try {
-                  current.put("~" + attribute, attributeValue);
-                  //Item temp = current.makeSubItem(elementName.toString(), nextLevelOrdered);
-                  //nextLevelOrdered = Item.Type.unorderedItem;
-                  //current.put(elementName.toString() + "~" + attribute, attributeValue);
-                } catch (Exception e) {
-                  System.out.println("*3 " + e.getMessage() + "\t" + xpath);
-                }
-              }
-            }
-            for (final String attribute : possibleAttributeKeys) {
-              if (isDistinguishing(element, attribute)) {
-                //elementName.add(attribute, attributeValue);
-                if (attribute.equals("alt")) continue; // TODO fix
-                current = current.makeSubItem("_" + attribute, Item.Type.unorderedItem);
-                String attributeValue = parts.getAttributeValue(i, attribute);
-                if (attributeValue == null) attributeValue = "?";
-                current = current.makeSubItem(attributeValue, Item.Type.unorderedItem);
-              }
+          Map<String,String> actualAttributeKeys = parts.getAttributes(i);
+          Set<String> keySet = actualAttributeKeys.keySet();
+          if (keySet.size() != 0) {
+            Item temp = current.makeSubItem(element, Item.Type.unorderedItem);
+            for (String attribute : keySet) {
+              temp.put(attribute, actualAttributeKeys.get(attribute));
             }
           }
-//          if (i == size-1) {
-//            current.put(element, value);
-//          } else {
-//            current = current.makeSubItem(elementName.toString(),nextLevelOrdered);
-//          }
-        }
-        if (value.length() != 0) {
-          current.put("~value", value);
-        } else {
-          if (current.size() == 0) {
-            Item parent = current.parent;
-            if (parent.size() == 1) {
-              Item grandparent = parent.parent;
-            }
+          if (i < size-2) {
+            current = current.makeSubItem(element, actualAttributeKeys.containsKey("_q") ? Item.Type.orderedItem : Item.Type.unorderedItem);
+          } else {
+            current.put(element, parts.getElement(i+1));
           }
         }
-
-//
-//        // do the final element
-//        final String element = parts.getElement(size-1);
-//        elementName.reset(element);
-//        nonDistinguishing.clear();
-//        for (final String attribute : parts.getAttributeKeys(-1)) {
-//          if (attribute.equals("_q")) continue;
-//          final String attributeValue = parts.getAttributeValue(-1, attribute);
-//          if (isDistinguishing(element, attribute)) {
-//            elementName.add(attribute, attributeValue);
-//          } else {
-//            nonDistinguishing.put(attribute, attributeValue);
-//          }
-//        }
-//        String name = elementName.toString();
-//        try {
-//          current.put(name,value);
-//        } catch (Exception e) {
-//          System.out.println("*4 " + e.getMessage());
-//        }
-//        for (String attribute : nonDistinguishing.keySet()) {
-//          String attributeValue = nonDistinguishing.get(attribute);
-//          try {
-//            current.put(name + "~" + attribute, attributeValue);
-//          } catch (Exception e) {
-//            System.out.println("*5 " + e.getMessage() + "\t" + xpath + ",\t" + value);
-//          }
-//        }
       }
       PrintWriter out = BagFormatter.openUTF8Writer(OUT_DIRECTORY + subdirectory, locale +".json");
       main.print(out, 0);
       out.close();
     }
-
   }
 
   static Relation<String,String> extraDistinguishing = new Relation(new TreeMap(), LinkedHashSet.class);
@@ -176,7 +109,45 @@ public class JsonConverter {
     return CLDRFile.isDistinguishing(element, attribute);
   }
 
-  private static void rewrite(XPathParts parts) {
+  private static void rewrite(XPathParts parts, String value, Relation<String, String> element2Attributes, XPathParts out) {
+    out.clear();
+    int size = parts.size();
+    for (int i = 1; i < size; ++i) {
+      final String element = parts.getElement(i);
+      out.addElement(element);
+
+      Collection<String> actualAttributeKeys = parts.getAttributeKeys(i);
+      boolean isOrdered = actualAttributeKeys.contains("_q");
+      Set<String> possibleAttributeKeys = element2Attributes.getAll(element);
+
+      for (final String attribute : actualAttributeKeys) {
+        String attributeValue = parts.getAttributeValue(i, attribute);
+        if (!isDistinguishing(element, attribute)) {
+          out.addAttribute(attribute, attributeValue);
+        }
+      }
+      if (possibleAttributeKeys != null) {
+        for (final String attribute : possibleAttributeKeys) {
+          if (isDistinguishing(element, attribute)) {
+            if (attribute.equals("alt")) continue; // TODO fix
+            String attributeValue = parts.getAttributeValue(i, attribute);
+            out.addElement(attribute);
+            if (attributeValue == null) {
+              attributeValue = "?";
+            }
+            out.addElement(attributeValue);
+          }
+        }
+      }
+      if (isOrdered) {
+        Map<String, String> lastAttributes = out.getAttributes(-2);
+        lastAttributes.put("_q", "_q");
+      }
+    }
+    if (value.length() > 0) {
+      out.addElement(value);
+    }
+
     if (!COMPACT) {
       return;
     }
@@ -247,11 +218,11 @@ public class JsonConverter {
 
   static abstract class Item {
     protected Item parent;
-    
+
     public Item(Item parent) {
       this.parent = parent;
     }
-    
+
     public abstract int size();
 
     enum Type {unorderedItem, orderedItem}
@@ -312,6 +283,13 @@ public class JsonConverter {
     }
     public abstract Item makeSubItem(String element, Type ordered);
     public abstract void put(String element, String value);
+    public Item getRoot() {
+      if (parent == null) {
+        return this;
+      } else {
+        return parent.getRoot();
+      }
+    }
   }
 
   static class TableItem extends Item {
@@ -333,7 +311,7 @@ public class JsonConverter {
             return;
           }
         }
-        throw new IllegalArgumentException("ERROR: Table already has object: " + element + ", " + old + ", " + value);
+        throw new IllegalArgumentException("ERROR: Table already has object: " + element + ", " + old + ", " + value + ", " + getRoot().toString());
       }
       map.put(element, new StringItem(value));
     }
@@ -345,7 +323,7 @@ public class JsonConverter {
       }
       result = create(ordered);
       result.parent = this;
-      
+
       map.put(element, result);
       return result;
     }
@@ -388,7 +366,7 @@ public class JsonConverter {
       super(parent);
     }
 
-    private List<Item> list = new ArrayList<Item>();
+    private List<Row.R2<String,Item>> list = new ArrayList<Row.R2<String,Item>>();
 
     @Override
     public Appendable print(Appendable result, int i) {
@@ -404,7 +382,12 @@ public class JsonConverter {
             result.append(",\n");
           }
           indent(result, i+1);
-          list.get(j).print(result,i+1);
+          R2<String, Item> row = list.get(j);
+          result.append("{");
+          appendString(result, row.get0(), i+1);
+          result.append(" : ");
+          row.get1().print(result,i+1);
+          result.append("}");
         }
         result.append("\n");
         indent(result, i).append("]");
@@ -416,16 +399,12 @@ public class JsonConverter {
 
     public Item makeSubItem(String element, Type ordered) {
       Item result = create(ordered);
-      TableItem pair = new TableItem(this);
-      pair.map.put(element, result);
-      list.add(pair);
+      list.add(Row.of(element, result));
       return result;
     }
 
     public void put(String element, String value) {
-      TableItem pair = new TableItem(this);
-      pair.put(element, value);
-      list.add(pair);
+      list.add(Row.of(element, (Item) new StringItem(value)));
     }
 
     @Override

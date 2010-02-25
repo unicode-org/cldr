@@ -3815,11 +3815,14 @@ XXX	Code for transations where no currency is involved
 
     <weekData>
           <minDays count="4" territories="001" />
-        
+
+          <!-- Note, this firstDay is for the first day of the week in a calendar page view. -->
+          <!-- The first workday of the week (after the weekend) is distinct, and can be determined as the day after the weekendEnd day.  -->
+          <!-- Currently there is no separate information for the first day of the week in local day-of-week numbering, this is inferred from firstDay.  -->
           <firstDay day="mon"  territories="001" />
           <firstDay day="fri"  territories="MV" />
           <firstDay day="sat"  territories="AF BH DJ DZ EG ER ET IQ IR JO KE KW LY MA OM QA SA SD SO TN YE" />
-          <firstDay day="sun"  territories="AS AZ BW CA CN FO GE GL GU HK IE IL IN IS JM JP KG KR LA MH MN MO MP MT NZ PH PK SG SY TH TT TW UM US UZ VI ZW" />
+          <firstDay day="sun"  territories="AR AS AZ BW CA CN FO GE GL GU HK IE IL IN IS JM JP KG KR LA MH MN MO MP MT NZ PH PK SG SY TH TT TW UM US UZ VI ZW" />
 		  <firstDay day="sun"  territories="GB" alt="variant" references="Shorter Oxford Dictionary (5th edition, 2002)"/>
         
           <weekendStart day="thu"  territories="AF DZ IR OM SA YE"/>

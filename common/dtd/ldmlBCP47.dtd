@@ -9,10 +9,11 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 $Revision: 0.000 $
 $Date: 2009-12-07 00:00:00 $
 -->
-<!ELEMENT ldmlBCP47 ( version?, generation?, cldrVersion?, keyword*, attribute* )>
+<!ELEMENT ldmlBCP47 ( version, generation,  keyword*, attribute* )>
 
 <!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #REQUIRED>
+<!ATTLIST version cldrVersion CDATA #FIXED "1.8" >
 
 <!ELEMENT generation EMPTY>
 <!ATTLIST generation date CDATA #REQUIRED>

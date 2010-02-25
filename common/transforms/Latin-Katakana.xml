@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
 <supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
 	<transforms>
 		<transform source="Latin" target="Katakana" direction="both">
 			<comment># note: a global filter is more efficient, but MUST include all source chars</comment>

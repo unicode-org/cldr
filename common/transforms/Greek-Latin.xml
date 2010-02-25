@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
 <supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
 	<transforms>
 		<transform source="Greek" target="Latin" direction="both">
 			<comment># Rules are predicated on running NFD first, and NFC afterwards</comment>

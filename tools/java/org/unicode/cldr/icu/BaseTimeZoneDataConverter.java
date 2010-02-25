@@ -1,28 +1,25 @@
 package org.unicode.cldr.icu;
 
+import java.util.TreeMap;
+
 import org.unicode.cldr.icu.ICUResourceWriter.Resource;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceString;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Node;
 
-
 public abstract class BaseTimeZoneDataConverter extends SimpleLDMLConverter {
 
-    public BaseTimeZoneDataConverter(ICULog log, String fileName,
-            String supplementalDir, String tableName) {
+    public BaseTimeZoneDataConverter(ICULog log, String fileName, String supplementalDir, String tableName) {
         super(log, fileName, supplementalDir, tableName);
     }
 
     public Resource parseMapTimezones(Node root) {
-        Resource current = null;
-        Resource res = null;
 
-        ResourceTable table = new ResourceTable();
-        table.name = LDMLConstants.MAP_TIMEZONES;
+        TreeMap<String, TreeMap<String, String>> mapZones = new TreeMap<String, TreeMap<String, String>>();
 
         for (Node node = root.getFirstChild(); node != null; node = node.getNextSibling()) {
-            if (node.getNodeType()!= Node.ELEMENT_NODE) {
+            if (node.getNodeType() != Node.ELEMENT_NODE) {
                 continue;
             }
             String name = node.getNodeName();
@@ -31,34 +28,60 @@ public abstract class BaseTimeZoneDataConverter extends SimpleLDMLConverter {
                 String type = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
                 String other = LDMLUtilities.getAttributeValue(node, LDMLConstants.OTHER);
                 String territory = LDMLUtilities.getAttributeValue(node, LDMLConstants.TERRITORY);
-
-                String resname = other;
-                if (territory != null && territory.length() > 0 && !territory.equals("001")) {
-                    resname = resname + ":" + territory;
+                if (territory == null) {
+                    territory = "001";
                 }
-                resname = "\"" + resname + "\"";
-                res = new ResourceString(resname, type);
+
+                TreeMap<String, String> territoryMap = mapZones.get(other);
+                if (territoryMap == null) {
+                    territoryMap = new TreeMap<String, String>();
+                    mapZones.put(other, territoryMap);
+                }
+                territoryMap.put(territory, type);
             } else {
                 log.error("Encountered unknown <" + root.getNodeName() + "> subelement: " + name);
                 System.exit(-1);
             }
+        }
 
-            if (res != null) {
+        if (mapZones.isEmpty()) {
+            return null;
+        }
+
+        ResourceTable table = new ResourceTable();
+        table.name = LDMLConstants.MAP_TIMEZONES;
+        Resource currentSubTable = null;
+        Resource subTable = null;
+
+        for (String other : mapZones.keySet()) {
+            subTable = new ResourceTable();
+            subTable.name = other;
+
+            Resource current = null;
+            Resource res;
+
+            TreeMap<String, String> territoryMap = mapZones.get(other);
+
+            for (String territory : territoryMap.keySet()) {
+                String zone = territoryMap.get(territory);
+                res = new ResourceString(territory, zone);
+
                 if (current == null) {
-                    table.first = res;
-                    current = res.end();
+                    subTable.first = res;
                 } else {
                     current.next = res;
-                    current = res.end();
                 }
-                res = null;
+                current = res;
             }
+
+            if (currentSubTable == null) {
+                table.first = subTable;
+            } else {
+                currentSubTable.next = subTable;
+            }
+            currentSubTable = subTable;
         }
 
-        if (table.first != null) {
-            return table;
-        }
-
-        return null;
-      }
+        return table;
+    }
 }

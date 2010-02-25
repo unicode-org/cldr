@@ -601,7 +601,7 @@ public class CountItems {
       final Set<String> subcontinents = supplementalDataInfo.getContained(continent);
       countryToContinent.putAll(subcontinents, continent);
       for (String subcontinent : subcontinents) {
-        if (subcontinent.equals("QU")) continue;
+        if (subcontinent.equals("EU")) continue;
         final Set<String> countries = supplementalDataInfo.getContained(subcontinent);
         countryToContinent.putAll(countries, continent);
       }

@@ -1104,7 +1104,7 @@ public class ConvertLanguageData {
 
     Set<String> territories = new TreeSet(sc.getGoodAvailableCodes("territory"));
     territories.removeAll(supplementalData.getContainers());
-    territories.remove("QU");
+    territories.remove("EU");
     territories.remove("QO");
 
     Set<String> countriesNotFound = new TreeSet(territories);

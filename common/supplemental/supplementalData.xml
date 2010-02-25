@@ -851,7 +851,7 @@ The printed version of ISO-4217:2001
         <region iso3166="QA">
             <currency iso4217="QAR" from="1973-05-19"/>
         </region>
-        <region iso3166="QU"><!-- European Union -->
+        <region iso3166="EU"><!-- European Union -->
             <currency iso4217="EUR" from="1999-01-01"/>
         </region>
         <region iso3166="RE">
@@ -1169,7 +1169,7 @@ XXX	Code for transations where no currency is involved
 		<group type="143" contains="TM TJ KG KZ UZ"/> <!-- Central Asia -->
 		<group type="145" contains="AE AM AZ BH CY GE IL IQ JO KW LB OM PS QA SA NT SY TR YE YD"/> <!--Western Asia -->
 		<group type="015" contains="DZ EG EH LY MA SD TN"/> <!--Northern Africa -->
-		<group type="150" contains="039 151 154 155 QU"/> <!--Europe -->
+		<group type="150" contains="039 151 154 155 EU"/> <!--Europe -->
 		<group type="151" contains="BG BY CZ HU MD PL RO RU SU SK UA"/> <!--Eastern Europe -->
 		<group type="154" contains="GG IM JE AX DK EE FI FO GB IE IM IS LT LV NO SE SJ"/> <!--Northern Europe -->
 		<group type="830" contains="GG JE"/> <!--Channel Islands -->
@@ -1195,7 +1195,7 @@ XXX	Code for transations where no currency is involved
 		<group type="034" contains="AF BD BT IN IR LK MV NP PK"/> <!--Southern Asia -->
 		<group type="009" contains="053 054 057 061 QO"/> <!--Oceania -->
 		<group type="QO" contains="AQ BV CC CX GS HM IO TF UM"/> <!--Outlying Oceania -->
-		<group type="QU" contains="AT BE CY CZ DE DK EE ES FI FR GB GR HU IE IT LT LU LV MT NL PL PT SE SI SK BG RO"/> <!-- European Union, see http://europa.eu/abc/european_countries/index_en.htm -->
+		<group type="EU" contains="AT BE CY CZ DE DK EE ES FI FR GB GR HU IE IT LT LU LV MT NL PL PT SE SI SK BG RO"/> <!-- European Union, see http://europa.eu/abc/european_countries/index_en.htm -->
 	</territoryContainment>
 	<!-- Start of Generated Data: see http://unicode.org/cldr/data/tools/java/org/unicode/cldr/tool/package.html -->
 	<languageData>
@@ -4042,7 +4042,7 @@ XXX	Code for transations where no currency is involved
 		<territoryCodes type="QR" numeric="964" alpha3="QRR"/>
 		<territoryCodes type="QS" numeric="965" alpha3="QSS"/>
 		<territoryCodes type="QT" numeric="966" alpha3="QTT"/>
-		<territoryCodes type="QU" numeric="967" alpha3="QUU" internet="EU"/>
+		<territoryCodes type="EU" numeric="967" alpha3="QUU" internet="EU"/>
 		<territoryCodes type="QV" numeric="968" alpha3="QVV"/>
 		<territoryCodes type="QW" numeric="969" alpha3="QWW"/>
 		<territoryCodes type="QX" numeric="970" alpha3="QXX"/>

@@ -774,7 +774,7 @@ public class StandardCodes {
         { "variant", "POSIX", "Description", "Computer-Style", "CLDR", "True" },
         // {"region", "172", "Description", "Commonwealth of Independent States",
         // "CLDR", "True"},
-        { "region", "QU", "Description", "European Union", "CLDR", "True" },
+        //{ "region", "", "Description", "European Union", "CLDR", "True" },
         { "region", "ZZ", "Description", "Unknown or Invalid Region", "CLDR", "True" },
         { "region", "QO", "Description", "Outlying Oceania", "CLDR", "True" },
         { "script", "Qaai", "Description", "Inherited", "CLDR", "True" },

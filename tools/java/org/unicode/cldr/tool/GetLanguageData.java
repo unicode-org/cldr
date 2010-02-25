@@ -19,7 +19,7 @@ public class GetLanguageData {
   Factory                                   cldrFactory = Factory
                                                                 .make(CldrUtility.MAIN_DIRECTORY, ".*");
   CLDRFile                                  english     = cldrFactory.make("en", true);
-  Set<String>                               euCountries = sdata.getContained("QU");
+  Set<String>                               euCountries = sdata.getContained("EU");
   private Map<Pair<String, String>, Double> override    = new TreeMap();
   Counter<String>                    languageToGdp = new Counter();
   Counter<String>                    languageToPop = new Counter();

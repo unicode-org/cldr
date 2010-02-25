@@ -92,7 +92,7 @@ public class CoverageLevel {
         "|fallback(?![a-zA-Z])" +
         ")");
 
-  public static final String EUROPEAN_UNION = "QU";
+  public static final String EUROPEAN_UNION = "EU";
   
   /**
    * A simple class representing an enumeration of possible CLDR coverage levels. Levels may change in the future.

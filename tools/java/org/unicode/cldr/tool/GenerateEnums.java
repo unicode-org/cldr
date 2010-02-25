@@ -907,7 +907,7 @@ public class GenerateEnums {
 
   static boolean isPrivateUseRegion(String codeName) {
     // AA, QM..QZ, XA..XZ, ZZ - CLDR codes
-    if (codeName.equals("QU") || codeName.equals("QO") || codeName.equals("ZZ")) {
+    if (codeName.equals("EU") || codeName.equals("QO") || codeName.equals("ZZ")) {
       return false;
     } else if (codeName.equals("AA") || codeName.equals("ZZ")) {
       return true;

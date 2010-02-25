@@ -1,6 +1,6 @@
 /*
  **********************************************************************
- * Copyright (c) 2002-2004, International Business Machines
+ * Copyright (c) 2002-2010, International Business Machines
  * Corporation and others.  All Rights Reserved.
  **********************************************************************
  * Author: Mark Davis
@@ -1049,7 +1049,7 @@ public class StandardCodes {
             		"ga gl gn gsw gu ha haw he hi hr ht hu hy id ig is it ja jv " +
             		"ka kea kk km kn ko ks ku ky la lah lb ln lo lt luy lv " +
             		"mg mi mk ml mn mr ms mt mul my nb nd ne nl nn no nso ny or os " +
-            		"pa pl ps pt qu rm rn ro ru rw sa sd se sg sh si sk sl sm sn so sq sr ss st su sv sw swb " +
+            		"pa pl ps pt qu rm rn ro rof ru rw rwk sa sd se sg sh si sk sl sm sn so sq sr ss st su sv sw swb " +
             		"ta te tet tg th ti tk tl tn to tpi tr ts ty ug uk und ur uz ve vi wo xh yo yue zh zu zxx"))));
     static final Set<String> filteredScripts = Collections
             .unmodifiableSet(new TreeSet(

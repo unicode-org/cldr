@@ -768,6 +768,31 @@ public class CLDRModify {
             }
         });
 
+        fixList.add('c', "Remove EU", new CLDRFilter() {
+
+          public void handlePath(String xpath) {
+           
+            if (xpath.indexOf("/territory") < 0) return;
+            if (xpath.indexOf("[@type=\"EU\"]") < 0) return;
+            remove(xpath,"Remove territory EU");
+          }
+        });
+
+        fixList.add('a', "Fix QU/EU", new CLDRFilter() {
+
+          public void handlePath(String xpath) {
+           
+            if (xpath.indexOf("/territory") < 0) return;
+            if (xpath.indexOf("[@type=\"QU\"]") < 0) return;
+            String fullpath = cldrFileToFilter.getFullXPath(xpath);
+            String value = cldrFileToFilter.getStringValue(xpath);
+            parts.set(fullpath);
+            parts.setAttribute("territory", "type", "EU");
+            String newPath = parts.toString();
+            replace(fullpath, newPath, value);
+          }
+        });
+
         fixList.add('b', "Prep for bulk import", new CLDRFilter() {
 
           public void handlePath(String xpath) {

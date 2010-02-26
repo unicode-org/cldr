@@ -115,6 +115,9 @@ public class CheckDates extends CheckCLDR {
     if (fullPath == null) return this; // skip paths that we don't have
     if (path.indexOf("/dates") < 0 || path.indexOf("gregorian") < 0) return this;
     try {
+	if (value == null) {
+	    throw new  java.util.MissingResourceException( "xpath has null value: "+fullPath, "CheckCLDR", fullPath);
+	}
       if (path.indexOf("[@type=\"abbreviated\"]") >= 0 && value.length() > 0) {
       	String pathToWide = path.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
       	String wideValue = getCldrFileToCheck().getStringValue(pathToWide);
@@ -152,10 +155,12 @@ public class CheckDates extends CheckCLDR {
         }
       }
     } catch (ParseException e) {
+	
       CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
-      .setMessage("Error in creating date format {0}", new Object[]{e});    	
+      .setMessage("ParseException in creating date format {0}", new Object[]{e});    	
       result.add(item);
     } catch (Exception e) {
+	e.printStackTrace();
       CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
       .setMessage("Error in creating date format {0}", new Object[]{e});    	
       result.add(item);

@@ -2468,11 +2468,11 @@ public class SurveyMain extends HttpServlet {
         UserRegistry.User user;
 //        /*srl*/ System.err.println("isBusted: " + isBusted + ", reg: " + reg);
 	
-	System.err.println("reg.get  pw="+password+", email="+email+", lmi="+ctx.field("letmein")+", lmigood="+vap.equals(ctx.field("letmein")));
+//	System.err.println("reg.get  pw="+password+", email="+email+", lmi="+ctx.field("letmein")+", lmigood="+vap.equals(ctx.field("letmein")));
 
         user = reg.get(password,email,ctx.userIP(), letmein);
 
-	System.err.println("user= "+user);
+	//	System.err.println("user= "+user);
 
         if(ctx.request == null && ctx.session != null) {
             return "using canned session"; // already set - for testing

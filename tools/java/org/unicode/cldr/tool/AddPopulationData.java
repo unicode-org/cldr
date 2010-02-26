@@ -19,6 +19,9 @@ import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.CldrUtility;
 
+import quicktime.Errors;
+
+import com.ibm.icu.impl.Row;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -27,7 +30,7 @@ import com.ibm.icu.util.ULocale;
 public class AddPopulationData {
   static boolean SHOW_SKIP = CldrUtility.getProperty("SHOW_SKIP", false);
   static boolean SHOW_ALTERNATE_NAMES = CldrUtility.getProperty("SHOW_ALTERNATE_NAMES", false);
-  
+
   enum WBLine {
     Country_Name, Country_Code, Series_Name, Series_Code, YR2000, YR2001, YR2002, YR2003, YR2004, YR2005, YR2006, YR2007, YR2008;
     String get(String[] pieces) {
@@ -45,20 +48,24 @@ public class AddPopulationData {
   private static final String        GCP                   = "NY.GNP.MKTP.PP.CD";
   private static final String        POP                   = "SP.POP.TOTL";
   private static final String        EMPTY                 = "..";
-  private static Counter<String> worldbank_gdp        = new Counter<String>();
-  private static Counter<String> worldbank_population = new Counter<String>();
-  private static Counter<String> factbook_gdp          = new Counter<String>();
-  private static Counter<String> factbook_population   = new Counter<String>();
-  private static Counter2<String> factbook_literacy   = new Counter2<String>();
+  private static Counter2<String> worldbank_gdp        = new Counter2<String>();
+  private static Counter2<String> worldbank_population = new Counter2<String>();
   private static Counter2<String> un_literacy   = new Counter2<String>();
-  private static Counter<String> other_population   = new Counter<String>();
-  private static Counter<String> other_gdp   = new Counter<String>();
-  private static Counter2<String> other_literacy   = new Counter2<String>();
+
+  private static Counter2<String> factbook_gdp          = new Counter2<String>();
+  private static Counter2<String> factbook_population   = new Counter2<String>();
+  private static Counter2<String> factbook_literacy   = new Counter2<String>();
+
+  private static CountryData other = new CountryData();
+
   private static Map<String, String> nameToCountryCode     = new TreeMap(new UTF16.StringComparator(true, true, 0));
 
+  static class CountryData {
+    private static Counter2<String> population   = new Counter2<String>();
+    private static Counter2<String> gdp   = new Counter2<String>();
+    private static Counter2<String> literacy   = new Counter2<String>();
+  }
 
-
-  
   public static void main(String[] args) throws IOException {
 
 
@@ -95,18 +102,18 @@ public class AddPopulationData {
     }
     oldCode = "";
     if (SHOW_ALTERNATE_NAMES) {
-    for (String altName : altNames) {
-      String[] pieces = altName.split("\t");
-      String code = pieces[0];
-      if (code.equals("ZZ")) continue;
-      if (!code.equals(oldCode)) {
-        alt = 0;
-        oldCode = code;
-        System.out.println();
+      for (String altName : altNames) {
+        String[] pieces = altName.split("\t");
+        String code = pieces[0];
+        if (code.equals("ZZ")) continue;
+        if (!code.equals(oldCode)) {
+          alt = 0;
+          oldCode = code;
+          System.out.println();
+        }
+        System.out.println(code + "; " + pieces[2] + "; " + pieces[1]);
+        //System.out.println("<territory type=\"" + code + "\" alt=\"v" + (++alt) + "\">" + pieces[1] + "</territory> <!-- " + pieces[2] + " -->");
       }
-      System.out.println(code + "; " + pieces[2] + "; " + pieces[1]);
-      //System.out.println("<territory type=\"" + code + "\" alt=\"v" + (++alt) + "\">" + pieces[1] + "</territory> <!-- " + pieces[2] + " -->");
-    }
     }
   }
 
@@ -114,36 +121,36 @@ public class AddPopulationData {
     System.out.println(country
             + "\t" + ULocale.getDisplayCountry("und-" + country, "en")
             + "\t" + getPopulation(country)
-                    + "\t" + getGdp(country)
-                            + "\t" + getLiteracy(country)
+            + "\t" + getGdp(country)
+            + "\t" + getLiteracy(country)
     );
   }
 
-  public static Number getLiteracy(String country) {
+  public static Double getLiteracy(String country) {
     return firstNonZero(factbook_literacy.getCount(country),
             un_literacy.getCount(country),
-            other_literacy.getCount(country));
+            other.literacy.getCount(country));
   }
 
-  public static Number getGdp(String country) {
+  public static Double getGdp(String country) {
     return firstNonZero(factbook_gdp.getCount(country),
             worldbank_gdp.getCount(country),
-            other_gdp.getCount(country));
+            other.gdp.getCount(country));
   }
 
-  public static Number getPopulation(String country) {
+  public static Double getPopulation(String country) {
     return firstNonZero(factbook_population.getCount(country),
             worldbank_population.getCount(country),
-            other_population.getCount(country));
+            other.population.getCount(country));
   }
 
-  private static Number firstNonZero(Number...items) {
-    for (Number item : items) {
+  private static Double firstNonZero(Double...items) {
+    for (Double item : items) {
       if (item.doubleValue() != 0) {
         return item;
       }
     }
-    return 0;
+    return 0.0;
   }
 
   private interface LineHandler {
@@ -194,79 +201,79 @@ public class AddPopulationData {
         return true;
       }
     });
-//    if (false) {
-//    //addName("World", "ZZ");
-//    //addName("European Union", "ZZ");
-//    addName("Hong Kong", "HK");
-//    addName("Burma", "MM");
-//    addName("Cote d'Ivoire", "CI");
-//    addName("Congo, Democratic Republic of the", "CD");
-//    addName("Congo, Republic of the", "CG");
-//    addName("Macau", "MO");
-//    addName("Bahamas, The", "BS");
-//    addName("Gaza Strip", "PS");
-//    addName("West Bank", "PS");
-//    addName("Kosovo", "RS"); // no country code
-//    addName("Timor-Leste", "TL");
-//    addName("Gambia, The", "GM");
-//    addName("Virgin Islands", "VI"); // American
-//    addName("Micronesia, Federated States of", "FM");
-//    addName("Falkland Islands (Islas Malvinas)", "FK");
-//
-//    addName("Akrotiri", "CY"); // part
-//    addName("Dhekelia", "CY"); // part
-//    addName("Saint Barthelemy", "BL");
-//    addName("Svalbard", "SJ"); // part
-//    addName("Holy See (Vatican City)", "VA");
-//    addName("Cocos (Keeling) Islands", "CC");
-//    addName("Pitcairn Islands", "PN");
-//
-//    addName("Brunei Darussalam", "BN");
-//    addName("Channel Islands", "GG"); // should be GG + JE
-//    addName("Congo, Dem. Rep.", "CD");
-//    addName("Congo, Rep.", "CG");
-//    //addName("East Asia & Pacific", "ZZ");
-//    addName("Egypt, Arab Rep.", "EG");
-//    //addName("Europe & Central Asia", "ZZ");
-//    //addName("Euro area", "ZZ");
-//    addName("Faeroe Islands", "FO");
-//    //addName("Heavily indebted poor countries (HIPC)", "ZZ");
-//    //addName("High income", "ZZ");
-//    //addName("High income: nonOECD", "ZZ");
-//    //addName("High income: OECD", "ZZ");
-//    addName("Hong Kong, China", "HK");
-//    addName("Iran, Islamic Rep.", "IR");
-//    addName("Korea, Dem. Rep.", "KP");
-//    addName("Korea, Rep.", "KR");
-//    addName("Kyrgyz Republic", "KG");
-//    addName("Lao PDR", "LA");
-//    //addName("Latin America & Caribbean", "ZZ");
-//    //addName("Least developed countries: UN classification", "ZZ");
-//    //addName("Low & middle income", "ZZ");
-//    //addName("Low income", "ZZ");
-//    //addName("Lower middle income", "ZZ");
-//    addName("Macao, China", "MO");
-//    addName("Macedonia, FYR", "MK");
-//    addName("The Former Yugoslav Rep. of Macedonia", "MK");
-//    addName("Micronesia, Fed. Sts.", "FM");
-//    //addName("Middle East & North Africa", "ZZ");
-//    //addName("Middle income", "ZZ");
-//    addName("Russian Federation", "RU");
-//    addName("Slovak Republic", "SK");
-//    //addName("South Asia", "ZZ");
-//    addName("St. Kitts and Nevis", "KN");
-//    addName("St. Lucia", "LC");
-//    addName("St. Vincent and the Grenadines", "VC");
-//    //addName("Sub-Saharan Africa", "ZZ");
-//    addName("Syrian Arab Republic", "SY");
-//    //addName("Upper middle income", "ZZ");
-//    addName("Venezuela, RB", "VE");
-//    addName("Virgin Islands (U.S.)", "VI");
-//    addName("West Bank and Gaza", "PS");
-//    addName("Palestinian Autonomous Territories", "PS");
-//    addName("Yemen, Rep.", "YE");
-//    addName("C�te d'Ivoire", "CI");
-//    }
+    //    if (false) {
+    //    //addName("World", "ZZ");
+    //    //addName("European Union", "ZZ");
+    //    addName("Hong Kong", "HK");
+    //    addName("Burma", "MM");
+    //    addName("Cote d'Ivoire", "CI");
+    //    addName("Congo, Democratic Republic of the", "CD");
+    //    addName("Congo, Republic of the", "CG");
+    //    addName("Macau", "MO");
+    //    addName("Bahamas, The", "BS");
+    //    addName("Gaza Strip", "PS");
+    //    addName("West Bank", "PS");
+    //    addName("Kosovo", "RS"); // no country code
+    //    addName("Timor-Leste", "TL");
+    //    addName("Gambia, The", "GM");
+    //    addName("Virgin Islands", "VI"); // American
+    //    addName("Micronesia, Federated States of", "FM");
+    //    addName("Falkland Islands (Islas Malvinas)", "FK");
+    //
+    //    addName("Akrotiri", "CY"); // part
+    //    addName("Dhekelia", "CY"); // part
+    //    addName("Saint Barthelemy", "BL");
+    //    addName("Svalbard", "SJ"); // part
+    //    addName("Holy See (Vatican City)", "VA");
+    //    addName("Cocos (Keeling) Islands", "CC");
+    //    addName("Pitcairn Islands", "PN");
+    //
+    //    addName("Brunei Darussalam", "BN");
+    //    addName("Channel Islands", "GG"); // should be GG + JE
+    //    addName("Congo, Dem. Rep.", "CD");
+    //    addName("Congo, Rep.", "CG");
+    //    //addName("East Asia & Pacific", "ZZ");
+    //    addName("Egypt, Arab Rep.", "EG");
+    //    //addName("Europe & Central Asia", "ZZ");
+    //    //addName("Euro area", "ZZ");
+    //    addName("Faeroe Islands", "FO");
+    //    //addName("Heavily indebted poor countries (HIPC)", "ZZ");
+    //    //addName("High income", "ZZ");
+    //    //addName("High income: nonOECD", "ZZ");
+    //    //addName("High income: OECD", "ZZ");
+    //    addName("Hong Kong, China", "HK");
+    //    addName("Iran, Islamic Rep.", "IR");
+    //    addName("Korea, Dem. Rep.", "KP");
+    //    addName("Korea, Rep.", "KR");
+    //    addName("Kyrgyz Republic", "KG");
+    //    addName("Lao PDR", "LA");
+    //    //addName("Latin America & Caribbean", "ZZ");
+    //    //addName("Least developed countries: UN classification", "ZZ");
+    //    //addName("Low & middle income", "ZZ");
+    //    //addName("Low income", "ZZ");
+    //    //addName("Lower middle income", "ZZ");
+    //    addName("Macao, China", "MO");
+    //    addName("Macedonia, FYR", "MK");
+    //    addName("The Former Yugoslav Rep. of Macedonia", "MK");
+    //    addName("Micronesia, Fed. Sts.", "FM");
+    //    //addName("Middle East & North Africa", "ZZ");
+    //    //addName("Middle income", "ZZ");
+    //    addName("Russian Federation", "RU");
+    //    addName("Slovak Republic", "SK");
+    //    //addName("South Asia", "ZZ");
+    //    addName("St. Kitts and Nevis", "KN");
+    //    addName("St. Lucia", "LC");
+    //    addName("St. Vincent and the Grenadines", "VC");
+    //    //addName("Sub-Saharan Africa", "ZZ");
+    //    addName("Syrian Arab Republic", "SY");
+    //    //addName("Upper middle income", "ZZ");
+    //    addName("Venezuela, RB", "VE");
+    //    addName("Virgin Islands (U.S.)", "VI");
+    //    addName("West Bank and Gaza", "PS");
+    //    addName("Palestinian Autonomous Territories", "PS");
+    //    addName("Yemen, Rep.", "YE");
+    //    addName("C�te d'Ivoire", "CI");
+    //    }
   }
 
   static String[] splitCommaSeparated(String line) {
@@ -280,26 +287,26 @@ public class AddPopulationData {
     for (int i = 0; i < line.length(); ++i) {
       char ch = line.charAt(i); // don't worry about supplementaries
       switch(ch) {
-        case '"': 
-          inQuote = !inQuote;
-          // at start or end, that's enough
-          // if get a quote when we are not in a quote, and not at start, then add it and return to inQuote
-          if (inQuote && item.length() != 0) {
-            item.append('"');
-            inQuote = true;
-          }
-          break;
-        case ',':
-          if (!inQuote) {
-            result.add(item.toString());
-            item.setLength(0);
-          } else {
-            item.append(ch);
-          }
-          break;
-        default:
+      case '"': 
+        inQuote = !inQuote;
+        // at start or end, that's enough
+        // if get a quote when we are not in a quote, and not at start, then add it and return to inQuote
+        if (inQuote && item.length() != 0) {
+          item.append('"');
+          inQuote = true;
+        }
+        break;
+      case ',':
+        if (!inQuote) {
+          result.add(item.toString());
+          item.setLength(0);
+        } else {
           item.append(ch);
-          break;
+        }
+        break;
+      default:
+        item.append(ch);
+        break;
       }
     }
     result.add(item.toString());
@@ -351,7 +358,7 @@ public class AddPopulationData {
     return trial;
   }
 
-  private static void loadFactbookInfo(String filename, final Counter<String> factbook_gdp2) throws IOException {
+  private static void loadFactbookInfo(String filename, final Counter2<String> factbookGdp) throws IOException {
     handleFile(filename, new LineHandler() {
       public boolean handle(String line) {
         if (line.length() == 0 || line.startsWith("This tab") || line.startsWith("Rank")
@@ -369,7 +376,7 @@ public class AddPopulationData {
         }
         valueString = valueString.replace(",", "");
         double value = Double.parseDouble(valueString.trim());
-        factbook_gdp2.add(code, (long)value);
+        factbookGdp.add(code, value);
         // System.out.println(Arrays.asList(pieces));
         return true;
       }
@@ -379,42 +386,58 @@ public class AddPopulationData {
   static final NumberFormat dollars = NumberFormat.getCurrencyInstance(ULocale.US);
   static final NumberFormat number = NumberFormat.getNumberInstance(ULocale.US);
 
-  private static void loadOtherInfo() throws IOException {
-    final String filename = "external/other_country_data.txt";
-    handleFile(filename, new LineHandler() {
-      public boolean handle(String line) throws ParseException {
-        if (line.length() == 0) {
-          return true;
-        }
-        String[] pieces = line.split(";");
-        final String code = pieces[0].trim();
-        if (code.equals("Code")) {
-          return false;
-        }
-        // Code;Name;Type;Data;Source
-        final String typeString = pieces[2].trim();
-        final String data = pieces[3].trim();
-        if (typeString.equals("gdp-ppp")) {
-          other_gdp.add(code, dollars.parse(data).longValue());
-        } else if (typeString.equals("population")) {
-          other_population.add(code, number.parse(data).longValue());
-        } else if (typeString.equals("literacy")) {
-          final double literacy;
-          if (!DIGITS.containsSome(data)) {
-            literacy = factbook_literacy.getCount(data);
-            if (literacy == 0) {
-              throw new IllegalArgumentException("Need to do factbook literacy first");
-            }
-          } else {
-            literacy = number.parse(data).doubleValue();
-          }
-          other_literacy.add(code, literacy);
-        } else {
-          throw new IllegalArgumentException("Illegal type");
-        }
+  static class MyLineHandler implements LineHandler {
+    CountryData countryData;
+
+    public MyLineHandler(CountryData countryData) {
+      super();
+      this.countryData = countryData;
+    }
+    public boolean handle(String line) throws ParseException {
+      if (line.startsWith("#")) return true;
+      if (line.length() == 0) {
         return true;
       }
-    });
+      String[] pieces = line.split(";");
+      final String code = pieces[0].trim();
+      if (code.equals("Code")) {
+        return false;
+      }
+      // Code;Name;Type;Data;Source
+      final String typeString = pieces[2].trim();
+      final String data = pieces[3].trim();
+      if (typeString.equals("gdp-ppp")) {
+        if (StandardCodes.isCountry(data)) {
+          Double otherPop = getPopulation(data);
+          Double otherGdp = getPopulation(data);
+          Double myPop = getPopulation(code);
+          if (myPop.doubleValue() == 0 || otherPop.doubleValue() == 0 || otherGdp.doubleValue() == 0) {
+            otherPop = getPopulation(data);
+            otherGdp = getPopulation(data);
+            myPop = getPopulation(code);
+            throw new IllegalArgumentException("Zero population");
+          }
+          countryData.gdp.add(code, otherGdp * myPop / otherPop);
+        } else {
+          countryData.gdp.add(code, dollars.parse(data).doubleValue());
+        }
+      } else if (typeString.equals("population")) {
+        if (StandardCodes.isCountry(data)) {
+          throw new IllegalArgumentException("Population can't use other country's");
+        }
+        countryData.population.add(code, number.parse(data).doubleValue());
+      } else if (typeString.equals("literacy")) {
+        if (StandardCodes.isCountry(data)) {
+          Double otherPop = getLiteracy(data);
+          countryData.literacy.add(code, otherPop);
+        } else {
+          countryData.literacy.add(code, number.parse(data).doubleValue());
+        }
+      } else {
+        throw new IllegalArgumentException("Illegal type");
+      }
+      return true;
+    }
   }
 
   static final UnicodeSet DIGITS = (UnicodeSet) new UnicodeSet("[:Nd:]").freeze();
@@ -487,9 +510,9 @@ public class AddPopulationData {
         }
         double value = Double.parseDouble(last);
         if (seriesCode.equals(GCP)) {
-          worldbank_gdp.add(country, (long)value);
+          worldbank_gdp.add(country, value);
         } else if (seriesCode.equals(POP)) {
-          worldbank_population.add(country, (long)value);
+          worldbank_population.add(country, value);
         } else {
           throw new IllegalArgumentException();
         }
@@ -520,16 +543,39 @@ public class AddPopulationData {
 
   static {
     try {
-    loadNames();
-    loadFactbookLiteracy();
-    loadUnLiteracy();
-    loadOtherInfo();
+      loadNames();
+      loadFactbookLiteracy();
+      loadUnLiteracy();
 
-    loadFactbookInfo("external/factbook_gdp_ppp.txt", factbook_gdp);
-    loadFactbookInfo("external/factbook_population.txt", factbook_population);
+      loadFactbookInfo("external/factbook_gdp_ppp.txt", factbook_gdp);
+      loadFactbookInfo("external/factbook_population.txt", factbook_population);
+      handleFile("external/other_country_data.txt", new MyLineHandler(other));
 
-    loadWorldBankInfo();
-    } catch (Exception e) {
+      loadWorldBankInfo();
+      StandardCodes sc = StandardCodes.make();
+      StringBuilder myErrors = new StringBuilder();
+      for (String territory : sc.getGoodAvailableCodes("territory")) {
+        if (!sc.isCountry(territory)) {
+          continue;
+        }
+        double gdp = getGdp(territory);
+        double literacy = getLiteracy(territory);
+        double population = getPopulation(territory);
+        if (gdp == 0) {
+          // AX;Aland Islands;population;26,200;www.aland.ax
+          myErrors.append("\n" + territory + ";" + sc.getData("territory", territory) + ";gdp-ppp;0;reason");
+        }
+        if (literacy == 0) {
+          myErrors.append("\n" + territory + ";" + sc.getData("territory", territory) + ";literacy;0;reason");
+        }
+        if (population == 0) {
+          myErrors.append("\n" + territory + ";" + sc.getData("territory", territory) + ";population;0;reason");
+        }
+      }
+      if (myErrors.length() != 0) {
+        throw new IllegalArgumentException("Missing Country values, edit external/other_country_data to fix:" + myErrors);
+      }
+    } catch (IOException e) {
     }
   }
 }

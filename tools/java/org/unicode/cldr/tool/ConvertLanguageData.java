@@ -140,7 +140,9 @@ public class ConvertLanguageData {
           }
           String withoutScript = languageTagParser.setScript("").toString();
           if (!localesWithData.contains(withoutScript)) {
+            if (!locale.contains("419")) {
             System.out.println("*ERROR* Missing language/population data for CLDR locale: " + getLanguageCodeAndName(locale));
+            }
           } else {
             System.out.println("*WARNING* Missing language/population data for CLDR locale: " + getLanguageCodeAndName(locale) + " but have data for " + getLanguageCodeAndName(withoutScript));
           }
@@ -650,9 +652,9 @@ public class ConvertLanguageData {
       double languagePopulation1 = parsePercent(row.get(LANGUAGE_POPULATION), countryPopulation1) * countryPopulation1;
       if ((officialStatus.isMajor()) 
               && languagePopulation1*100 < countryPopulation && languagePopulation1 < 1000000) {
-        System.out.println("*ERROR* Official language has population < 1% of country and < 1,000,000: " + row);
+        System.out.println("*WARNING* Official language has population < 1% of country and < 1,000,000: " + row);
       }
-      if (languagePopulation1 <= 1) {
+      if (languagePopulation1 < 1) {
         System.out.println("*WARNING* Suspect language population: " + row);
       }
       if (languagePopulation1 > 10000 ) {
@@ -1149,7 +1151,7 @@ public class ConvertLanguageData {
         }
         String locale = x.languageCode + "_" + x.countryCode;
         if (localeToRowData.get(locale) != null) {
-          System.out.println("*WARNING* duplicate data for: " + x.languageCode + " with " + x.countryCode);
+          System.out.println("*ERROR* duplicate data for: " + x.languageCode + " with " + x.countryCode);
         }
         localeToRowData.put(locale, x);
         sortedInput.add(x);
@@ -1159,7 +1161,7 @@ public class ConvertLanguageData {
         throw (RuntimeException) new IllegalArgumentException("Failure on line " + count + ")\t" + row).initCause(e);
       }
     }
-    System.out.println("Status found: " + CldrUtility.join(statusFound, " | "));
+    //System.out.println("Note: the following Status values were found in the data: " + CldrUtility.join(statusFound, " | "));
 
     // make sure we have something
     for (String country : countriesNotFound) {
@@ -1257,7 +1259,7 @@ public class ConvertLanguageData {
   }
 
   private static void showFailures(List<String> failures) {
-    if (failures.size() == 0) {
+    if (failures.size() <= 1) {
       return;
     }
     System.out.println();
@@ -1861,6 +1863,7 @@ public class ConvertLanguageData {
           continue;
         }
       }
+      if (language.equals("tw")) continue; // TODO load aliases and check...
       System.out.println("*WARNING* ISO 639-1/2 language in language-territory list without primary script: " + language + "\t" + getLanguageName(language));
     }
 
@@ -1902,12 +1905,14 @@ public class ConvertLanguageData {
   static void addLanguageScriptData() throws IOException {
     // check to make sure that every language subtag is in 639-3
     Set<String> langRegistryCodes = sc.getGoodAvailableCodes("language");
-    Set<String> iso639_2_missing = new TreeSet(langRegistryCodes);
-    iso639_2_missing.removeAll(Iso639Data.getAvailable());
-    iso639_2_missing.remove("root");
-    if (iso639_2_missing.size() != 0) {
-      System.out.println("Missing Lang/Script data:\t" + iso639_2_missing);
-    }
+//    Set<String> iso639_2_missing = new TreeSet(langRegistryCodes);
+//    iso639_2_missing.removeAll(Iso639Data.getAvailable());
+//    iso639_2_missing.remove("root");
+//    if (iso639_2_missing.size() != 0) {
+//      for (String missing : iso639_2_missing){ 
+//        System.out.println("*ERROR in StandardCodes* Missing Lang/Script data:\t" + missing + ", " + sc.getData("language", missing));
+//      }
+//    }
 
     Map<String,String> nameToTerritoryCode = new TreeMap();
     for (String territoryCode : sc.getGoodAvailableCodes("territory")) {
@@ -1981,7 +1986,7 @@ public class ConvertLanguageData {
           if (territoryName.equals("ISO/DIS 639") || territoryName.equals("3")) continue;
           String territoryCode = nameToTerritoryCode.get(territoryName.toLowerCase());
           if (territoryCode == null) {
-            System.out.println("Territory <" + territoryName + "> for <" + languageSubtag + "> not found in " + nameToTerritoryCode.keySet());
+            System.out.println("*ERROR* Territory <" + territoryName + "> for <" + languageSubtag + "> not found in " + nameToTerritoryCode.keySet());
           } else {
             territories.add(territoryCode);
           }

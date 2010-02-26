@@ -37,6 +37,7 @@ import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.UnicodeSet;
 
 /**
  * Provides access to various codes used by CLDR: RFC 3066, ISO 4217, Olson
@@ -1080,5 +1081,13 @@ public class StandardCodes {
             return filteredCurrencies;
         }
         return getGoodAvailableCodes(type);
+    }
+
+    static UnicodeSet COUNTRY = new UnicodeSet("[a-zA-Z]").freeze();
+    public static boolean isCountry(String territory) {
+      if (territory.length() != 2) return false;
+      if (territory.equals("ZZ") || territory.equals("QO") || territory.equals("EU")) return false;
+      if (COUNTRY.containsAll(territory)) return true;
+      return false;
     }
 }

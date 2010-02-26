@@ -1,4 +1,6 @@
 Code;Name;Type;Data;Source
+# the data in the case of gdp-ppp or literacy can be a country code. For literacy, it is copied. For gdp it is scaled.
+# the population must be set before gdp occurs!
 AX;Aland Islands;gdp-ppp;$929,773,254;www.aland.ax
 GF;French Guiana;gdp-ppp;$1,551,000,000;www.countryreports.org
 GP;Guadeloupe;gdp-ppp;$3,513,000,000;www.countryreports.org
@@ -64,10 +66,56 @@ TK;Tokelau;gdp-ppp;$1500000
 TV;Tuvalu;gdp-ppp;$14940000
 YT;Mayotte;gdp-ppp;$953600000
 
-AQ;Antarctica;population;1;uninhabited
+AQ;Antarctica;population;300;uninhabited
 BV;Bouvet Island;population;1;uninhabited
-GS;South Georgia and the South Sandwich Islands;population;1;uninhabited
+GS;South Georgia and the South Sandwich Islands;population;20;uninhabited
 HM;Heard Island and McDonald Islands;population;1;uninhabited
-IO;British Indian Ocean Territory;population;1;uninhabited
-TF;French Southern Territories;population;1;uninhabited
-UM;United States Minor Outlying Islands;population;1;uninhabited
+IO;British Indian Ocean Territory;population;3500;uninhabited
+TF;French Southern Territories;population;140;uninhabited
+UM;United States Minor Outlying Islands;population;316;uninhabited
+
+# Extras in latest release
+AC;Ascension Island;population;940;http://en.wikipedia.org/wiki/Ascension_Island
+AC;Ascension Island;gdp-ppp;GB;reason
+AC;Ascension Island;literacy;GB;reason
+AQ;Antarctica;gdp-ppp;US;reason
+AQ;Antarctica;literacy;US;reason
+BV;Bouvet Island;gdp-ppp;GB;reason
+BV;Bouvet Island;literacy;GB;reason
+CC;Cocos (Keeling) Islands;gdp-ppp;AU;reason
+CC;Cocos (Keeling) Islands;literacy;AU;reason
+CP;Clipperton Island;population;1;reason
+CP;Clipperton Island;gdp-ppp;FR;reason
+CP;Clipperton Island;literacy;FR;reason
+CX;Christmas Island;gdp-ppp;AU;reason
+CX;Christmas Island;literacy;AU;reason
+DG;Diego Garcia;population;500;reason
+DG;Diego Garcia;gdp-ppp;GB;reason
+DG;Diego Garcia;literacy;GB;reason
+EA;Ceuta, Melilla;population;150000;wikipedia
+EA;Ceuta, Melilla;gdp-ppp;ES;reason
+EA;Ceuta, Melilla;literacy;ES;reason
+GS;South Georgia and the South Sandwich Islands;gdp-ppp;GB;reason
+GS;South Georgia and the South Sandwich Islands;literacy;GB;reason
+HM;Heard Island and McDonald Islands;gdp-ppp;AU;reason
+HM;Heard Island and McDonald Islands;literacy;AU;reason
+IC;Canary Islands;population;2,098,593;http://en.wikipedia.org/wiki/Canary_Islands
+IC;Canary Islands;gdp-ppp;ES;reason
+IC;Canary Islands;literacy;ES;reason
+IO;British Indian Ocean Territory;gdp-ppp;GB;reason
+IO;British Indian Ocean Territory;literacy;GB;reason
+NF;Norfolk Island;gdp-ppp;AU;reason
+NF;Norfolk Island;literacy;AU;reason
+PN;Pitcairn;gdp-ppp;GB;reason
+PN;Pitcairn;literacy;GB;reason
+SJ;Svalbard and Jan Mayen;gdp-ppp;NO;reason
+SJ;Svalbard and Jan Mayen;literacy;NO;reason
+TA;Tristan da Cunha;population;275;reason
+TA;Tristan da Cunha;gdp-ppp;GB;reason
+TA;Tristan da Cunha;literacy;GB;reason
+TF;French Southern Territories;gdp-ppp;FR;reason
+TF;French Southern Territories;literacy;FR;reason
+TK;Tokelau;literacy;94;http://www.ethnologue.com/show_country.asp?name=TK
+UM;United States Minor Outlying Islands;gdp-ppp;US;reason
+UM;United States Minor Outlying Islands;literacy;US;reason
+VA;Holy See (Vatican City State);gdp-ppp;IT;reason

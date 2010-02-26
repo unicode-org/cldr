@@ -1138,24 +1138,6 @@
 							<dayPeriod type="am">e.k.</dayPeriod>
 							<dayPeriod type="pm">p.k.</dayPeriod>
 						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">e.k.</dayPeriod>
-							<dayPeriod type="pm">p.k.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">enne keskpäeva</dayPeriod>
-							<dayPeriod type="pm">pärast keskpäeva</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">e.k.</dayPeriod>
-							<dayPeriod type="pm">p.k.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">e.k.</dayPeriod>
-							<dayPeriod type="pm">p.k.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">enne keskpäeva</dayPeriod>
 							<dayPeriod type="pm">pärast keskpäeva</dayPeriod>
@@ -1358,7 +1340,6 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
-			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{0} ({1})</fallbackFormat>
@@ -1523,8 +1504,6 @@
 				</long>
 				<short>
 					<generic>CT</generic>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Eastern">
@@ -1535,8 +1514,6 @@
 				</long>
 				<short>
 					<generic>ET</generic>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -1547,8 +1524,6 @@
 				</long>
 				<short>
 					<generic>MT</generic>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -1559,8 +1534,6 @@
 				</long>
 				<short>
 					<generic>PT</generic>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Atlantic">
@@ -1571,8 +1544,6 @@
 				</long>
 				<short>
 					<generic>AT</generic>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -1667,30 +1638,18 @@
 					<standard>Kesk-Euroopa aeg</standard>
 					<daylight>Kesk-Euroopa suveaeg</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Ida-Euroopa aeg</standard>
 					<daylight>Ida-Euroopa suveaeg</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>Lääne-Euroopa aeg</standard>
 					<daylight>Lääne-Euroopa suveaeg</daylight>
 				</long>
-				<short>
-					<standard>WET</standard>
-					<daylight>WEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -1728,9 +1687,6 @@
 				<long>
 					<standard>Greenwich'i aeg</standard>
 				</long>
-				<short>
-					<standard>GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Guam">
 				<long>

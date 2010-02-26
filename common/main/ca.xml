@@ -1271,48 +1271,12 @@
 							<quarter type="4">4t trimestre</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="provisional">1r trimestre</quarter>
-							<quarter type="2" draft="provisional">2n trimestre</quarter>
-							<quarter type="3" draft="provisional">3r trimestre</quarter>
-							<quarter type="4" draft="provisional">4t trimestre</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">a.m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">p.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="provisional">a.m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">p.m.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">a.m.</dayPeriod>
 							<dayPeriod type="pm">p.m.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">a.m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">p.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="provisional">a. m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">p. m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="provisional">a.m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">p.m.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1323,14 +1287,8 @@
 					</eraNames>
 					<eraAbbr>
 						<era type="0" references="R012">aC</era>
-						<era type="0" alt="proposed-x1001" draft="unconfirmed">aC</era>
 						<era type="1" references="R012">dC</era>
-						<era type="1" alt="proposed-x1001" draft="unconfirmed">dC</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0" references="R012" draft="provisional">aC</era>
-						<era type="1" references="R012" draft="provisional">dC</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1377,26 +1335,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
@@ -1882,8 +1820,6 @@
 				</long>
 				<short>
 					<generic>CT</generic>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Eastern">
@@ -1894,8 +1830,6 @@
 				</long>
 				<short>
 					<generic>ET</generic>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -1906,8 +1840,6 @@
 				</long>
 				<short>
 					<generic>MT</generic>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -1918,8 +1850,6 @@
 				</long>
 				<short>
 					<generic>PT</generic>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Arabian">
@@ -1942,8 +1872,6 @@
 				</long>
 				<short>
 					<generic>AT</generic>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="China">
@@ -1956,43 +1884,26 @@
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<generic draft="contributed">Hora d'Espanya</generic>
 					<standard>Hora Central Europea</standard>
 					<daylight>Hora Central Europea de l'estiu</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">Hora d'Espanya</generic>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Hora d'Europa de l'Est</standard>
 					<daylight>Hora d'estiu d'Europa de l'Est</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>Hora d'Europa Occidental</standard>
 					<daylight>Hora d'estiu d'Europa Occidental</daylight>
 				</long>
-				<short>
-					<standard>WET</standard>
-					<daylight>WEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard>Hora mitjana de Greenwich</standard>
 				</long>
-				<short>
-					<standard>GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="India">
 				<long>

@@ -562,20 +562,6 @@
 							<month type="11">Nov</month>
 							<month type="12">Des</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">J</month>
-							<month type="2">F</month>
-							<month type="3">M</month>
-							<month type="4">A</month>
-							<month type="5">M</month>
-							<month type="6">J</month>
-							<month type="7">J</month>
-							<month type="8">A</month>
-							<month type="9">S</month>
-							<month type="10">O</month>
-							<month type="11">N</month>
-							<month type="12">D</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Januarie</month>
 							<month type="2">Februarie</month>
@@ -631,15 +617,6 @@
 							<day type="fri">Vr</day>
 							<day type="sat">Sa</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">D</day>
-							<day type="wed">W</day>
-							<day type="thu">D</day>
-							<day type="fri">V</day>
-							<day type="sat">S</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Sondag</day>
 							<day type="mon">Maandag</day>
@@ -687,33 +664,11 @@
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">v.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">n.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">v.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">n.m.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">vm.</dayPeriod>
 							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">voormiddag</dayPeriod>
 							<dayPeriod type="pm">nm.</dayPeriod>
 							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">namiddag</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">v.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">n.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">v.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">n.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">voormiddag</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">namiddag</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -937,9 +892,6 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat>+HH:mm;-HH:mm</hourFormat>
-			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
 			<regionFormat draft="unconfirmed">{0}-tyd</regionFormat>
 			<fallbackFormat draft="unconfirmed">{0} ({1})</fallbackFormat>
 			<zone type="Antarctica/South_Pole">
@@ -1008,8 +960,6 @@
 					<pattern alt="proposed-x1001" draft="unconfirmed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="unconfirmed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">

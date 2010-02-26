@@ -1134,14 +1134,6 @@
 		<dateRangePattern>{0} – {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">matin</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">soir</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">ère bouddhiste</era>
@@ -1214,14 +1206,6 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">matin</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">soir</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1323,14 +1307,6 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">matin</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">soir</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">avant Dioclétien</era>
@@ -1394,14 +1370,6 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">matin</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">soir</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">avant l’Incarnation</era>
@@ -1532,14 +1500,6 @@
 							<quarter type="4">4e trimestre</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
@@ -1638,26 +1598,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
@@ -1848,6 +1788,7 @@
 							<month type="5" draft="unconfirmed">sché.</month>
 							<month type="6" draft="unconfirmed">ad.I</month>
 							<month type="7" draft="unconfirmed">adar</month>
+							<month type="7" yeartype="leap" draft="unconfirmed">ad.II</month>
 							<month type="8" draft="unconfirmed">nis.</month>
 							<month type="9" draft="unconfirmed">iyar</month>
 							<month type="10" draft="unconfirmed">siv.</month>
@@ -1858,14 +1799,15 @@
 						<monthWidth type="wide">
 							<month type="1">Tisseri</month>
 							<month type="2">Hesvan</month>
-							<month type="3" draft="unconfirmed">kislev</month>
+							<month type="3">Kislev</month>
 							<month type="4">Tébeth</month>
 							<month type="5">Schébat</month>
-							<month type="6">Adar</month>
-							<month type="7">Adar II</month>
+							<month type="6">Adar I</month>
+							<month type="7">Adar</month>
+							<month type="7" yeartype="leap">Adar II</month>
 							<month type="8">Nissan</month>
-							<month type="9" draft="unconfirmed">iyar</month>
-							<month type="10" draft="unconfirmed">sivan</month>
+							<month type="9">Iyar</month>
+							<month type="10">Sivan</month>
 							<month type="11">Tamouz</month>
 							<month type="12">Ab</month>
 							<month type="13">Elloul</month>
@@ -1880,6 +1822,7 @@
 							<month type="5" draft="unconfirmed">S</month>
 							<month type="6" draft="unconfirmed">A</month>
 							<month type="7" draft="unconfirmed">A</month>
+							<month type="7" yeartype="leap" draft="unconfirmed">A</month>
 							<month type="8" draft="unconfirmed">N</month>
 							<month type="9" draft="unconfirmed">I</month>
 							<month type="10" draft="unconfirmed">S</month>
@@ -1889,14 +1832,6 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">matin</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">soir</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">Anno Mundi</era>
@@ -1955,14 +1890,6 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">matin</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">soir</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 			</calendar>
 			<calendar type="islamic">
 				<months>

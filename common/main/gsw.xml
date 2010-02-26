@@ -1042,14 +1042,6 @@
 	<dates>
 		<calendars>
 			<calendar type="buddhist">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">vorm.</dayPeriod>
-							<dayPeriod type="pm">nam.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1072,26 +1064,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-			</calendar>
-			<calendar type="chinese">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">vorm.</dayPeriod>
-							<dayPeriod type="pm">nam.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
-			</calendar>
-			<calendar type="coptic">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">vorm.</dayPeriod>
-							<dayPeriod type="pm">nam.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1126,15 +1098,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="3">Mär</month>
-							<month type="7">Jul</month>
-							<month type="8">Aug</month>
-							<month type="9">Sep</month>
-							<month type="10">Okt</month>
-							<month type="11">Nov</month>
-							<month type="12">Dez</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">J</month>
 							<month type="2">F</month>
@@ -1199,22 +1162,10 @@
 							<quarter type="4">4. Quartal</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">v.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">n.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am" draft="unconfirmed">v.m.</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">n.m.</dayPeriod>
 						</dayPeriodWidth>
@@ -1226,14 +1177,6 @@
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">v.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">n.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">v.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">n.m.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="unconfirmed">Vormittag</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">Namittag</dayPeriod>
@@ -1482,26 +1425,6 @@
 						<displayName alt="proposed-x1001" draft="unconfirmed">Zeitzone</displayName>
 					</field>
 				</fields>
-			</calendar>
-			<calendar type="hebrew">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">vorm.</dayPeriod>
-							<dayPeriod type="pm">nam.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
-			</calendar>
-			<calendar type="islamic">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">vorm.</dayPeriod>
-							<dayPeriod type="pm">nam.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

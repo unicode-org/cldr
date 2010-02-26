@@ -1176,26 +1176,12 @@
 							<quarter type="4">IV. negyedév</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">de.</dayPeriod>
 							<dayPeriod type="pm">du.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">de.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">du.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1912,8 +1898,6 @@
 				</long>
 				<short>
 					<generic>CT</generic>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Eastern">
@@ -1924,8 +1908,6 @@
 				</long>
 				<short>
 					<generic>ET</generic>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -1936,8 +1918,6 @@
 				</long>
 				<short>
 					<generic>MT</generic>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -1948,8 +1928,6 @@
 				</long>
 				<short>
 					<generic>PT</generic>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Anadyr">
@@ -2017,8 +1995,6 @@
 				</long>
 				<short>
 					<generic>AT</generic>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -2253,10 +2229,6 @@
 					<standard>közép-európai idő</standard>
 					<daylight>közép-európai nyári idő</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
@@ -2264,10 +2236,6 @@
 					<standard>kelet-európai idő</standard>
 					<daylight>kelet-európai nyári idő</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Western">
@@ -2275,10 +2243,6 @@
 					<standard>Nyugat-európai idő</standard>
 					<daylight>Nyugat-európai nyári idő</daylight>
 				</long>
-				<short>
-					<standard>WET</standard>
-					<daylight>WEST</daylight>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Falkland">
@@ -2334,9 +2298,6 @@
 				<long>
 					<standard>Greenwichi középidő</standard>
 				</long>
-				<short>
-					<standard>GMT</standard>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Greenland_Central">

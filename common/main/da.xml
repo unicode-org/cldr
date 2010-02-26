@@ -1388,14 +1388,6 @@
 							<quarter type="4">4. kvartal</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
@@ -1407,14 +1399,6 @@
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">f.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">e.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">f.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">e.m.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="unconfirmed">formiddag</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">eftermiddag</dayPeriod>
@@ -1855,7 +1839,6 @@
 				</long>
 				<short>
 					<generic draft="contributed">SAT</generic>
-					<standard draft="contributed">SAT</standard>
 				</short>
 			</metazone>
 			<metazone type="Africa_Western">
@@ -1883,10 +1866,6 @@
 					<daylight>Alaska-sommertid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Alaska, sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">AKT</standard>
-					<daylight draft="unconfirmed">AKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
 				<long>
@@ -1897,10 +1876,6 @@
 					<daylight>Alaska-Hawaii-sommertid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Alaska-Hawaii, sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">AHT</standard>
-					<daylight draft="unconfirmed">AHST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Almaty">
 				<long>
@@ -1929,8 +1904,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">CT</generic>
-					<standard draft="unconfirmed">CST</standard>
-					<daylight draft="unconfirmed">CDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Eastern">
@@ -1944,8 +1917,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">ET</generic>
-					<standard draft="unconfirmed">ET</standard>
-					<daylight draft="unconfirmed">EST</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -1959,8 +1930,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">MT</generic>
-					<standard draft="unconfirmed">MT</standard>
-					<daylight draft="unconfirmed">MST</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -1974,8 +1943,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">PT</generic>
-					<standard draft="unconfirmed">PT</standard>
-					<daylight draft="unconfirmed">PST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Anadyr">
@@ -2060,8 +2027,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">AT</generic>
-					<standard draft="unconfirmed">AT</standard>
-					<daylight draft="unconfirmed">AST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -2072,8 +2037,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">ACT</generic>
-					<standard draft="unconfirmed">ACT</standard>
-					<daylight draft="unconfirmed">ACST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
@@ -2084,8 +2047,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">ACWT</generic>
-					<standard draft="unconfirmed">ACWT</standard>
-					<daylight draft="unconfirmed">ACWST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Eastern">
@@ -2096,8 +2057,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">AET</generic>
-					<standard draft="unconfirmed">AET</standard>
-					<daylight draft="unconfirmed">AEST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Western">
@@ -2108,8 +2067,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">AWT</generic>
-					<standard draft="unconfirmed">AWT</standard>
-					<daylight draft="unconfirmed">AWST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Azerbaijan">
@@ -2150,10 +2107,6 @@
 					<daylight>Bering-sommertid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Bering, sommertid</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">BT (Bering)</standard>
-					<daylight draft="unconfirmed">BST (Bering)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Bhutan">
 				<long>
@@ -2458,7 +2411,7 @@
 					<standard alt="proposed-x1001" draft="unconfirmed">Guam-normaltid</standard>
 				</long>
 				<short>
-					<standard draft="contributed">GT (GU)</standard>
+					<standard draft="contributed">GT (Guam)</standard>
 				</short>
 			</metazone>
 			<metazone type="Gulf">

@@ -644,14 +644,6 @@
 							<quarter type="4">4-ты квартал</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
@@ -668,18 +660,10 @@
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
-					<eraNames>
-						<era type="0">да н.э.</era>
-						<era type="1">н.э.</era>
-					</eraNames>
 					<eraAbbr>
-						<era type="0">да н.е.</era>
-						<era type="1">н.е.</era>
-					</eraAbbr>
-					<eraNarrow>
 						<era type="0">да н.э.</era>
 						<era type="1">н.э.</era>
-					</eraNarrow>
+					</eraAbbr>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">

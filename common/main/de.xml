@@ -386,9 +386,7 @@
 			<language type="mic" alt="proposed-x1001" draft="unconfirmed">Miʼkmaq</language>
 			<language type="min">Minangkabau-Sprache</language>
 			<language type="min" alt="proposed-x1001" draft="unconfirmed">Minangkabau</language>
-			<language type="mis">Unbestimmte Sprache</language>
-			<language type="mis" alt="proposed-x1001" draft="unconfirmed">Andere Sprache</language>
-			<language type="mis" alt="proposed-x1002" draft="unconfirmed">(andere Sprache)</language>
+			<language type="mis">(andere Sprache)</language>
 			<language type="mk">Mazedonisch</language>
 			<language type="mkh">Mon-Khmer-Sprache</language>
 			<language type="ml">Malayalam</language>
@@ -1269,20 +1267,6 @@
 							<month type="12">Dez</month>
 							<month type="12" alt="proposed-x1001" draft="unconfirmed">Dez.</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="unconfirmed">J</month>
-							<month type="2" draft="unconfirmed">F</month>
-							<month type="3" draft="unconfirmed">M</month>
-							<month type="4" draft="unconfirmed">A</month>
-							<month type="5" draft="unconfirmed">M</month>
-							<month type="6" draft="unconfirmed">J</month>
-							<month type="7" draft="unconfirmed">J</month>
-							<month type="8" draft="unconfirmed">A</month>
-							<month type="9" draft="unconfirmed">S</month>
-							<month type="10" draft="unconfirmed">O</month>
-							<month type="11" draft="unconfirmed">N</month>
-							<month type="12" draft="unconfirmed">D</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Januar</month>
 							<month type="2">Februar</month>
@@ -1338,20 +1322,6 @@
 							<month type="11">N</month>
 							<month type="12">D</month>
 						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="unconfirmed">Januar</month>
-							<month type="2" draft="unconfirmed">Februar</month>
-							<month type="3" draft="unconfirmed">März</month>
-							<month type="4" draft="unconfirmed">April</month>
-							<month type="5" draft="unconfirmed">Mai</month>
-							<month type="6" draft="unconfirmed">Juni</month>
-							<month type="7" draft="unconfirmed">Juli</month>
-							<month type="8" draft="unconfirmed">August</month>
-							<month type="9" draft="unconfirmed">September</month>
-							<month type="10" draft="unconfirmed">Oktober</month>
-							<month type="11" draft="unconfirmed">November</month>
-							<month type="12" draft="unconfirmed">Dezember</month>
-						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -1371,15 +1341,6 @@
 							<day type="fri" alt="proposed-x1001" draft="unconfirmed">Fr</day>
 							<day type="sat">Sa.</day>
 							<day type="sat" alt="proposed-x1001" draft="unconfirmed">Sa</day>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">S</day>
-							<day type="mon" draft="unconfirmed">M</day>
-							<day type="tue" draft="unconfirmed">D</day>
-							<day type="wed" draft="unconfirmed">M</day>
-							<day type="thu" draft="unconfirmed">D</day>
-							<day type="fri" draft="unconfirmed">F</day>
-							<day type="sat" draft="unconfirmed">S</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Sonntag</day>
@@ -1410,15 +1371,6 @@
 							<day type="fri">F</day>
 							<day type="sat">S</day>
 						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">Sonntag</day>
-							<day type="mon" draft="unconfirmed">Montag</day>
-							<day type="tue" draft="unconfirmed">Dienstag</day>
-							<day type="wed" draft="unconfirmed">Mittwoch</day>
-							<day type="thu" draft="unconfirmed">Donnerstag</day>
-							<day type="fri" draft="unconfirmed">Freitag</day>
-							<day type="sat" draft="unconfirmed">Samstag</day>
-						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
@@ -1434,20 +1386,6 @@
 							<quarter type="2">2. Quartal</quarter>
 							<quarter type="3">3. Quartal</quarter>
 							<quarter type="4">4. Quartal</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">1. Quartal</quarter>
-							<quarter type="2" draft="unconfirmed">2. Quartal</quarter>
-							<quarter type="3" draft="unconfirmed">3. Quartal</quarter>
-							<quarter type="4" draft="unconfirmed">4. Quartal</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1484,10 +1422,6 @@
 						<era type="0">v. Chr.</era>
 						<era type="1">n. Chr.</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="unconfirmed">v. Chr.</era>
-						<era type="1" draft="unconfirmed">n. Chr.</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1534,26 +1468,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
@@ -1800,7 +1714,6 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
-			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
@@ -2144,8 +2057,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">CT</generic>
-					<standard draft="provisional">CST</standard>
-					<daylight draft="provisional">CDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Eastern">
@@ -2156,8 +2067,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">ET</generic>
-					<standard draft="provisional">EST</standard>
-					<daylight draft="provisional">EDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -2168,8 +2077,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">MT</generic>
-					<standard draft="provisional">MST</standard>
-					<daylight draft="provisional">MDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -2180,8 +2087,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">PT</generic>
-					<standard draft="provisional">PST</standard>
-					<daylight draft="provisional">PDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Arabian">
@@ -2202,8 +2107,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">AT</generic>
-					<standard draft="provisional">AST</standard>
-					<daylight draft="provisional">ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -2383,9 +2286,6 @@
 				<long>
 					<standard draft="provisional">Mittlere Greenwich-Zeit</standard>
 				</long>
-				<short>
-					<standard draft="provisional">GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Guam">
 				<long>

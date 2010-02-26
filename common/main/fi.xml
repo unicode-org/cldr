@@ -1247,12 +1247,6 @@
 							<day type="fri">pe</day>
 							<day type="sat">la</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">T</day>
-							<day type="wed">K</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">sunnuntaina</day>
 							<day type="mon">maanantaina</day>
@@ -1264,11 +1258,6 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun">su</day>
-							<day type="mon">ma</day>
-							<day type="tue">ti</day>
-						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">S</day>
 							<day type="mon">M</day>
@@ -1304,24 +1293,10 @@
 							<quarter type="4">4. neljännes</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">ap.</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">a.p.</dayPeriod>
-							<dayPeriod type="pm">ip.</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">i.p.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">ap.</dayPeriod>
 							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">a.p.</dayPeriod>
 							<dayPeriod type="pm">ip.</dayPeriod>
@@ -1335,18 +1310,6 @@
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">ap.</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">a.p.</dayPeriod>
-							<dayPeriod type="pm">ip.</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">i.p.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">ap.</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">a.p.</dayPeriod>
-							<dayPeriod type="pm">ip.</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">i.p.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">ap.</dayPeriod>
 							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">aamupäivä</dayPeriod>
@@ -1412,26 +1375,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="EEEd">EEE d.</dateFormatItem>
@@ -1611,22 +1554,6 @@
 			<calendar type="hebrew">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1" references="R053">tišríkuuta</month>
-							<month type="2">hešvánkuuta</month>
-							<month type="3">kislévkuuta</month>
-							<month type="4">tevétkuuta</month>
-							<month type="5">ševátkuuta</month>
-							<month type="6">adárkuuta I</month>
-							<month type="7">adárkuuta</month>
-							<month type="7" yeartype="leap">adárkuuta II</month>
-							<month type="8">nisánkuuta</month>
-							<month type="9">ijjárkuuta</month>
-							<month type="10">sivánkuuta</month>
-							<month type="11">tammúzkuuta</month>
-							<month type="12">abkuuta</month>
-							<month type="13">elúlkuuta</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" references="R053">tišríkuuta</month>
 							<month type="2">hešvánkuuta</month>
@@ -2089,8 +2016,6 @@
 				</long>
 				<short>
 					<generic>CT</generic>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Eastern">
@@ -2101,8 +2026,6 @@
 				</long>
 				<short>
 					<generic>ET</generic>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -2113,8 +2036,6 @@
 				</long>
 				<short>
 					<generic>MT</generic>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -2125,8 +2046,6 @@
 				</long>
 				<short>
 					<generic>PT</generic>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Arabian">
@@ -2349,30 +2268,18 @@
 					<standard>Keski-Euroopan normaaliaika</standard>
 					<daylight>Keski-Euroopan kesäaika</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Itä-Euroopan normaaliaika</standard>
 					<daylight>Itä-Euroopan kesäaika</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>Länsi-Euroopan aika</standard>
 					<daylight>Länsi-Euroopan kesäaika</daylight>
 				</long>
-				<short>
-					<standard>WET</standard>
-					<daylight>WEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -2406,9 +2313,6 @@
 				<long>
 					<standard>Greenwichin normaaliaika</standard>
 				</long>
-				<short>
-					<standard>GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>

@@ -672,14 +672,6 @@
 							<quarter type="4" draft="unconfirmed">Cuart trimestri</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="unconfirmed">1</quarter>
-							<quarter type="2" draft="unconfirmed">2</quarter>
-							<quarter type="3" draft="unconfirmed">3</quarter>
-							<quarter type="4" draft="unconfirmed">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
@@ -690,10 +682,6 @@
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
-					<eraNames>
-						<era type="0" draft="unconfirmed">pdC</era>
-						<era type="1" draft="unconfirmed">ddC</era>
-					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="unconfirmed">pdC</era>
 						<era type="1" draft="unconfirmed">ddC</era>
@@ -948,20 +936,12 @@
 					<standard draft="unconfirmed">Ore de Europe centrâl</standard>
 					<daylight draft="unconfirmed">Ore estive de Europe centrâl</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">CET</standard>
-					<daylight draft="unconfirmed">CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard draft="unconfirmed">Ore de Europe orientâl</standard>
 					<daylight draft="unconfirmed">Ore estive de Europe orientâl</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">EET</standard>
-					<daylight draft="unconfirmed">EEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>

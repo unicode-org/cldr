@@ -590,24 +590,12 @@
 							<dayPeriod type="am" draft="unconfirmed">f.p.</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">s.p.</dayPeriod>
 						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">f.p.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">s.p.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="unconfirmed">um fyrrapartur</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">um seinnapartur</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">f.p.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">s.p.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">f.p.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">s.p.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="unconfirmed">fyrrapartur</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">seinnapartur</dayPeriod>
@@ -623,10 +611,6 @@
 						<era type="0" draft="unconfirmed">f.Kr.</era>
 						<era type="1" draft="unconfirmed">e.Kr.</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="unconfirmed">f.Kr.</era>
-						<era type="1" draft="unconfirmed">e.Kr.</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -673,26 +657,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="HHmm" draft="unconfirmed">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" draft="unconfirmed">HH:mm:ss</dateFormatItem>
@@ -831,12 +795,6 @@
 				</fields>
 			</calendar>
 		</calendars>
-		<timeZoneNames>
-			<hourFormat draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<regionFormat draft="unconfirmed">{0}</regionFormat>
-			<fallbackFormat draft="unconfirmed">{0} ({1})</fallbackFormat>
-		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>

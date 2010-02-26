@@ -6,7 +6,6 @@
 		<generation date="$Date$"/>
 		<language type="es"/>
 	</identity>
-	<fallback draft="provisional"/>
 	<localeDisplayNames>
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
@@ -1150,44 +1149,12 @@
 							<quarter type="4">4º trimestre</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">a.m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">p.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="provisional">a.m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">p.m.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" references="R039">a.m.</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">a.m.</dayPeriod>
 							<dayPeriod type="pm" references="R039">p.m.</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">p.m.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">a.m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">p.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="provisional">a.m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">p.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="provisional">a.m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">p.m.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1900,8 +1867,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">CT</generic>
-					<standard draft="provisional">CST</standard>
-					<daylight draft="provisional">CDT</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -1913,8 +1878,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">ET</generic>
-					<standard draft="provisional">EST</standard>
-					<daylight draft="provisional">EDT</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -1927,8 +1890,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">MT</generic>
-					<standard draft="provisional">MST</standard>
-					<daylight draft="provisional">MDT</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -1940,8 +1901,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">PT</generic>
-					<standard draft="provisional">PST</standard>
-					<daylight draft="provisional">PDT</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -2008,8 +1967,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">AT</generic>
-					<standard draft="provisional">AST</standard>
-					<daylight draft="provisional">ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -2190,30 +2147,18 @@
 					<standard>Hora estándar de Europa Central</standard>
 					<daylight>Hora de verano de Europa Central</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Hora estándar de Europa del Este</standard>
 					<daylight>Hora de verano de Europa del Este</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>Hora de Europa Occidental</standard>
 					<daylight>Hora de verano de Europa Occidental</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">WET</standard>
-					<daylight draft="provisional">WEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="French_Guiana">
 				<long>
@@ -2241,9 +2186,6 @@
 				<long>
 					<standard>Hora media de Greenwich</standard>
 				</long>
-				<short>
-					<standard draft="provisional">GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>

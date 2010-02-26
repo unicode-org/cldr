@@ -676,7 +676,7 @@
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">מטרי</measurementSystemName>
-			<measurementSystemName type="US">ארה׳ב</measurementSystemName>
+			<measurementSystemName type="US">ארה״ב</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language" draft="contributed">{0}</codePattern>
@@ -752,11 +752,11 @@
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
 							<month type="1">ינו׳</month>
-							<month type="2" draft="provisional">פבר׳</month>
+							<month type="2">פבר׳</month>
 							<month type="3">מרס</month>
 							<month type="3" alt="proposed-x1001" draft="unconfirmed">מרץ</month>
-							<month type="4" draft="provisional">אפר׳</month>
-							<month type="5" draft="provisional">מאי</month>
+							<month type="4">אפר׳</month>
+							<month type="5">מאי</month>
 							<month type="6">יונ׳</month>
 							<month type="7">יול׳</month>
 							<month type="8">אוג׳</month>
@@ -764,35 +764,6 @@
 							<month type="10">אוק׳</month>
 							<month type="11">נוב׳</month>
 							<month type="12">דצמ׳</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="provisional">ינואר</month>
-							<month type="2" draft="provisional">פברואר</month>
-							<month type="3">מרס</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">מרץ</month>
-							<month type="4" draft="provisional">אפריל</month>
-							<month type="5" draft="provisional">מאי</month>
-							<month type="6" draft="provisional">יוני</month>
-							<month type="7" draft="provisional">יולי</month>
-							<month type="8" draft="provisional">אוגוסט</month>
-							<month type="9" draft="provisional">ספטמבר</month>
-							<month type="10" draft="provisional">אוקטובר</month>
-							<month type="11" draft="provisional">נובמבר</month>
-							<month type="12" draft="provisional">דצמבר</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -807,20 +778,6 @@
 							<day type="fri">יום ו׳</day>
 							<day type="sat">שבת</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">א</day>
-							<day type="sun" alt="proposed-x1001" draft="unconfirmed">א׳</day>
-							<day type="mon" draft="provisional">ב</day>
-							<day type="tue">ג</day>
-							<day type="tue" alt="proposed-x1001" draft="unconfirmed">ג׳</day>
-							<day type="wed" draft="provisional">ד</day>
-							<day type="thu">ה</day>
-							<day type="thu" alt="proposed-x1001" draft="unconfirmed">ה׳</day>
-							<day type="fri">ו</day>
-							<day type="fri" alt="proposed-x1001" draft="unconfirmed">ו׳</day>
-							<day type="sat">ש</day>
-							<day type="sat" alt="proposed-x1001" draft="unconfirmed">ש׳</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">יום ראשון</day>
 							<day type="mon">יום שני</day>
@@ -832,20 +789,13 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="provisional">יום א׳</day>
-							<day type="mon">יום ב׳</day>
-							<day type="tue" draft="provisional">יום ג׳</day>
-							<day type="wed" draft="provisional">יום ד׳</day>
-							<day type="thu" draft="provisional">יום ה׳</day>
-							<day type="fri" draft="provisional">יום ו׳</day>
-							<day type="sat" draft="provisional">שבת</day>
-						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">א</day>
+							<day type="sun" alt="proposed-x1001" draft="unconfirmed">א׳</day>
 							<day type="mon">ב</day>
 							<day type="mon" alt="proposed-x1001" draft="unconfirmed">ב׳</day>
 							<day type="tue">ג</day>
+							<day type="tue" alt="proposed-x1001" draft="unconfirmed">ג׳</day>
 							<day type="wed">ד</day>
 							<day type="wed" alt="proposed-x1001" draft="unconfirmed">ד׳</day>
 							<day type="thu">ה</day>
@@ -855,83 +805,25 @@
 							<day type="sat">ש</day>
 							<day type="sat" alt="proposed-x1001" draft="unconfirmed">ש׳</day>
 						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="provisional">יום ראשון</day>
-							<day type="mon" draft="provisional">יום שני</day>
-							<day type="tue">יום שלישי</day>
-							<day type="wed" draft="provisional">יום רביעי</day>
-							<day type="thu" draft="provisional">יום חמישי</day>
-							<day type="fri">יום שישי</day>
-							<day type="fri" alt="proposed-x1001" draft="unconfirmed">יום ו׳</day>
-							<day type="sat" draft="provisional">יום שבת</day>
-						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">רבעון 1</quarter>
-							<quarter type="2">רבעון 2</quarter>
-							<quarter type="3">רבעון 3</quarter>
-							<quarter type="4">רבעון 4</quarter>
-						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">רבעון 1</quarter>
 							<quarter type="2">רבעון 2</quarter>
 							<quarter type="3">רבעון 3</quarter>
 							<quarter type="4">רבעון 4</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="provisional">רבעון 1</quarter>
-							<quarter type="2" draft="provisional">רבעון 2</quarter>
-							<quarter type="3" draft="provisional">רבעון 3</quarter>
-							<quarter type="4" draft="provisional">רבעון 4</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="provisional">רבעון 1</quarter>
-							<quarter type="2" draft="provisional">רבעון 2</quarter>
-							<quarter type="3" draft="provisional">רבעון 3</quarter>
-							<quarter type="4" draft="provisional">רבעון 4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">לפנה׳צ</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">אחה׳צ</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="provisional">לפנה׳צ</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">אחה׳צ</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">לפנה׳צ</dayPeriod>
+							<dayPeriod type="am">לפנה״צ</dayPeriod>
 							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">לפנהצ</dayPeriod>
-							<dayPeriod type="pm">אחה׳צ</dayPeriod>
+							<dayPeriod type="pm">אחה״צ</dayPeriod>
 							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">אחהצ</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">לפה׳צ</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">אחה׳צ</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="provisional">לפנה׳צ</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">אחה׳צ</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="provisional">לפנה׳צ</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">אחה׳צ</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -944,10 +836,6 @@
 						<era type="0">לפנה״ס</era>
 						<era type="1">לסה״נ</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="provisional">לפנה״ס</era>
-						<era type="1" draft="provisional">לסה״נ</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -996,26 +884,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E ה-d</dateFormatItem>
@@ -1186,8 +1054,7 @@
 						<displayName>יום בשבוע</displayName>
 					</field>
 					<field type="dayperiod">
-						<displayName draft="contributed">Dayperiod</displayName>
-						<displayName alt="proposed-x1001" draft="unconfirmed">לפה׳צ/אחה׳צ</displayName>
+						<displayName>לפה״צ/אחה״צ</displayName>
 					</field>
 					<field type="hour">
 						<displayName>שעה</displayName>
@@ -1206,38 +1073,6 @@
 			<calendar type="hebrew">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="provisional">תשרי</month>
-							<month type="2" draft="provisional">חשון</month>
-							<month type="3" draft="provisional">כסלו</month>
-							<month type="4" draft="provisional">טבת</month>
-							<month type="5" draft="provisional">שבט</month>
-							<month type="6" draft="provisional">אדר א׳</month>
-							<month type="7" draft="provisional">אדר</month>
-							<month type="7" draft="provisional" yeartype="leap">אדר ב׳</month>
-							<month type="8" draft="provisional">ניסן</month>
-							<month type="9" draft="provisional">אייר</month>
-							<month type="10" draft="provisional">סיון</month>
-							<month type="11" draft="provisional">תמוז</month>
-							<month type="12" draft="provisional">אב</month>
-							<month type="13" draft="provisional">אלול</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="provisional">תשרי</month>
-							<month type="2" draft="provisional">חשון</month>
-							<month type="3" draft="provisional">כסלו</month>
-							<month type="4" draft="provisional">טבת</month>
-							<month type="5" draft="provisional">שבט</month>
-							<month type="6" draft="provisional">אדר א׳</month>
-							<month type="7" draft="provisional">אדר</month>
-							<month type="7" draft="provisional" yeartype="leap">אדר ב׳</month>
-							<month type="8" draft="provisional">ניסן</month>
-							<month type="9" draft="provisional">אייר</month>
-							<month type="10" draft="provisional">סיון</month>
-							<month type="11" draft="provisional">תמוז</month>
-							<month type="12" draft="provisional">אב</month>
-							<month type="13" draft="provisional">אלול</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">תשרי</month>
 							<month type="2">חשון</month>
@@ -1253,93 +1088,13 @@
 							<month type="11">תמוז</month>
 							<month type="12">אב</month>
 							<month type="13">אלול</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="provisional">תשרי</month>
-							<month type="2" draft="provisional">חשון</month>
-							<month type="3" draft="provisional">כסלו</month>
-							<month type="4" draft="provisional">טבת</month>
-							<month type="5" draft="provisional">שבט</month>
-							<month type="6" draft="provisional">אדר א׳</month>
-							<month type="7" draft="provisional">אדר</month>
-							<month type="7" draft="provisional" yeartype="leap">אדר ב׳</month>
-							<month type="8" draft="provisional">ניסן</month>
-							<month type="9" draft="provisional">אייר</month>
-							<month type="10" draft="provisional">סיון</month>
-							<month type="11" draft="provisional">תמוז</month>
-							<month type="12" draft="provisional">אב</month>
-							<month type="13" draft="provisional">אלול</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">תשרי</month>
-							<month type="2">חשון</month>
-							<month type="3">כסלו</month>
-							<month type="4">טבת</month>
-							<month type="5">שבט</month>
-							<month type="6">אדר א׳</month>
-							<month type="7">אדר</month>
-							<month type="7" yeartype="leap">אדר ב׳</month>
-							<month type="8">ניסן</month>
-							<month type="9">אייר</month>
-							<month type="10">סיון</month>
-							<month type="11">תמוז</month>
-							<month type="12">אב</month>
-							<month type="13">אלול</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="provisional">תשרי</month>
-							<month type="2" draft="provisional">חשון</month>
-							<month type="3" draft="provisional">כסלו</month>
-							<month type="4" draft="provisional">טבת</month>
-							<month type="5" draft="provisional">שבט</month>
-							<month type="6" draft="provisional">אדר א׳</month>
-							<month type="7" draft="provisional">אדר</month>
-							<month type="7" draft="provisional" yeartype="leap">אדר ב׳</month>
-							<month type="8" draft="provisional">ניסן</month>
-							<month type="9" draft="provisional">אייר</month>
-							<month type="10" draft="provisional">סיון</month>
-							<month type="11" draft="provisional">תמוז</month>
-							<month type="12" draft="provisional">אב</month>
-							<month type="13" draft="provisional">אלול</month>
 						</monthWidth>
 					</monthContext>
 				</months>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="provisional">רבעון 1</quarter>
-							<quarter type="2" draft="provisional">רבעון 2</quarter>
-							<quarter type="3" draft="provisional">רבעון 3</quarter>
-							<quarter type="4" draft="provisional">רבעון 4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="provisional">רבעון 1</quarter>
-							<quarter type="2" draft="provisional">רבעון 2</quarter>
-							<quarter type="3" draft="provisional">רבעון 3</quarter>
-							<quarter type="4" draft="provisional">רבעון 4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">לפנה׳צ</dayPeriod>
-							<dayPeriod type="pm">אחה׳צ</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<eras>
-					<eraNames>
-						<era type="0" draft="provisional">לבה׳ע</era>
-					</eraNames>
 					<eraAbbr>
-						<era type="0">לבה׳ע</era>
+						<era type="0">לבה״ע</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="provisional">לבה׳ע</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -2450,50 +2205,42 @@
 			</metazone>
 			<metazone type="America_Central">
 				<long>
-					<generic draft="provisional">שעון מרכז ארה׳ב (אמריקה/שיקגו)</generic>
-					<standard draft="provisional">שעון מרכז ארה׳ב (אמריקה/שיקגו)</standard>
-					<daylight draft="provisional">שעון קיץ, מרכז ארה׳ב</daylight>
+					<generic draft="provisional">שעון מרכז ארה״ב (אמריקה/שיקגו)</generic>
+					<standard draft="provisional">שעון מרכז ארה״ב (אמריקה/שיקגו)</standard>
+					<daylight draft="provisional">שעון קיץ, מרכז ארה״ב</daylight>
 				</long>
 				<short>
-					<generic>שעון מרכז ארה׳ב (שיקגו)</generic>
-					<standard draft="provisional">CST</standard>
-					<daylight draft="provisional">CDT</daylight>
+					<generic>שעון מרכז ארה״ב (שיקגו)</generic>
 				</short>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
-					<generic draft="provisional">שעון מזרח ארה׳ב</generic>
-					<standard draft="provisional">שעון מזרח ארה׳ב</standard>
-					<daylight draft="provisional">שעון קיץ מזרח ארה׳ב</daylight>
+					<generic draft="provisional">שעון מזרח ארה״ב</generic>
+					<standard draft="provisional">שעון מזרח ארה״ב</standard>
+					<daylight draft="provisional">שעון קיץ מזרח ארה״ב</daylight>
 				</long>
 				<short>
-					<generic>שעון מזרח ארה׳ב (ניו-יורק)</generic>
-					<standard draft="provisional">EST</standard>
-					<daylight draft="provisional">EDT</daylight>
+					<generic>שעון מזרח ארה״ב (ניו-יורק)</generic>
 				</short>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
-					<generic draft="provisional">שעון אזור ההרים בארה׳ב (דנוור)</generic>
-					<standard draft="provisional">שעון אזור ההרים בארה׳ב (דנוור)</standard>
-					<daylight draft="provisional">שעון קיץ, אזור ההרים בארה׳ב</daylight>
+					<generic draft="provisional">שעון אזור ההרים בארה״ב (דנוור)</generic>
+					<standard draft="provisional">שעון אזור ההרים בארה״ב (דנוור)</standard>
+					<daylight draft="provisional">שעון קיץ, אזור ההרים בארה״ב</daylight>
 				</long>
 				<short>
-					<generic>שעון אזור ההרים של ארה׳ב (דנוור)</generic>
-					<standard draft="provisional">MST</standard>
-					<daylight draft="provisional">MDT</daylight>
+					<generic>שעון אזור ההרים של ארה״ב (דנוור)</generic>
 				</short>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
-					<generic draft="provisional">שעון מערב ארה׳ב (לוס אנג׳לס)</generic>
-					<standard draft="provisional">שעון מערב ארה׳ב (לוס אנג׳לס)</standard>
-					<daylight draft="provisional">שעון קיץ, מערב ארה׳ב (לוס אנג׳לס)</daylight>
+					<generic draft="provisional">שעון מערב ארה״ב (לוס אנג׳לס)</generic>
+					<standard draft="provisional">שעון מערב ארה״ב (לוס אנג׳לס)</standard>
+					<daylight draft="provisional">שעון קיץ, מערב ארה״ב (לוס אנג׳לס)</daylight>
 				</long>
 				<short>
-					<generic>שעון מערב ארה׳ב (לוס אנג׳לס)</generic>
-					<standard draft="provisional">PST</standard>
-					<daylight draft="provisional">PDT</daylight>
+					<generic>שעון מערב ארה״ב (לוס אנג׳לס)</generic>
 				</short>
 			</metazone>
 			<metazone type="Arabian">
@@ -2516,12 +2263,10 @@
 				<long>
 					<generic draft="provisional">שעון קנדה (הליפקס)</generic>
 					<standard draft="provisional">הזמן התקני האטלנטי</standard>
-					<daylight draft="provisional">שעון קיץ, מזרח ארה׳ב</daylight>
+					<daylight draft="provisional">שעון קיץ, מזרח ארה״ב</daylight>
 				</long>
 				<short>
 					<generic>שעון קנדה (הליפקס)</generic>
-					<standard draft="provisional">AST</standard>
-					<daylight draft="provisional">ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -2574,38 +2319,23 @@
 					<standard draft="provisional">שעון מרכז אירופה</standard>
 					<daylight draft="provisional">שעון קיץ מרכז אירופה</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">CET</standard>
-					<daylight draft="provisional">CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard draft="provisional">שעון מזרח אירופה</standard>
 					<daylight draft="provisional">שעון קיץ מזרח אירופה</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">EET</standard>
-					<daylight draft="provisional">EEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard draft="provisional">שעון מערב אירופה</standard>
 					<daylight draft="provisional">שעון קיץ, מערב אירופה</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">WET</standard>
-					<daylight draft="provisional">WEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard draft="provisional">זמן גריניץ׳</standard>
 				</long>
-				<short>
-					<standard draft="provisional">GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="India">
 				<long>
@@ -2841,9 +2571,6 @@
 			<currency type="CSD">
 				<displayName>דינר סרבי ישן</displayName>
 			</currency>
-			<currency type="CSK">
-				<displayName>קורונה צ׳כית</displayName>
-			</currency>
 			<currency type="CUP">
 				<displayName>פזו קובני</displayName>
 			</currency>
@@ -2965,7 +2692,7 @@
 				<symbol>ל״י</symbol>
 			</currency>
 			<currency type="ILS">
-				<displayName>ש׳ח</displayName>
+				<displayName>ש״ח</displayName>
 				<displayName count="other">שקלים חדשים</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">שקל</displayName>
 			</currency>
@@ -3312,7 +3039,7 @@
 				<displayName>סימון למטרות בדיקה</displayName>
 			</currency>
 			<currency type="XXX">
-				<displayName>סימון ׳ללא מטבע׳</displayName>
+				<displayName>סימון ״ללא מטבע״</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>דינר תימני</displayName>

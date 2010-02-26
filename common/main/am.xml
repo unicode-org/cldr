@@ -661,22 +661,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
@@ -920,8 +904,6 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<regionFormat draft="unconfirmed">{0}</regionFormat>
 			<zone type="Antarctica/Rothera">
 				<exemplarCity draft="unconfirmed">ሮተራ</exemplarCity>
 			</zone>
@@ -1429,10 +1411,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<symbols>
-			<decimal draft="unconfirmed">.</decimal>
-			<group draft="unconfirmed">,</group>
-		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>

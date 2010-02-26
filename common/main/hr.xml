@@ -1198,10 +1198,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="4" draft="provisional">04.</month>
-							<month type="8" draft="provisional">08.</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1.</month>
 							<month type="2">2.</month>
@@ -1278,14 +1274,6 @@
 							<quarter type="2">2. kvartal</quarter>
 							<quarter type="3">3. kvartal</quarter>
 							<quarter type="4">4. kvartal</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="provisional">1</quarter>
-							<quarter type="2" draft="provisional">2</quarter>
-							<quarter type="3" draft="provisional">3</quarter>
-							<quarter type="4" draft="provisional">4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1378,26 +1366,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d.</dateFormatItem>
 						<dateFormatItem id="EEEd">EEE, d.</dateFormatItem>
@@ -1620,6 +1588,7 @@
 				<eras>
 					<eraAbbr>
 						<era type="0">prije R.O.C.</era>
+						<era type="1">R.O.C.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1927,7 +1896,6 @@
 					<standard draft="provisional">altmajsko vrijeme</standard>
 					<daylight draft="provisional">altmajsko ljetno vrijeme</daylight>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
@@ -1944,8 +1912,6 @@
 				</long>
 				<short>
 					<generic>CT</generic>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
 				</short>
 				<commonlyUsed draft="provisional">true</commonlyUsed>
 			</metazone>
@@ -1957,8 +1923,6 @@
 				</long>
 				<short>
 					<generic>ET</generic>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
 				</short>
 				<commonlyUsed draft="provisional">true</commonlyUsed>
 			</metazone>
@@ -1970,8 +1934,6 @@
 				</long>
 				<short>
 					<generic>MT</generic>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
 				</short>
 				<commonlyUsed draft="provisional">true</commonlyUsed>
 			</metazone>
@@ -1983,8 +1945,6 @@
 				</long>
 				<short>
 					<generic>PT</generic>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
 				</short>
 				<commonlyUsed draft="provisional">true</commonlyUsed>
 			</metazone>
@@ -2004,7 +1964,6 @@
 					<standard>AQTT(Aqtau)</standard>
 					<daylight>AQTST(Aqtau)</daylight>
 				</short>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Aqtobe">
 				<long>
@@ -2015,7 +1974,6 @@
 					<standard>AQTT(Aqtobe)</standard>
 					<daylight>AQTST(Aqtobe)</daylight>
 				</short>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Arabian">
 				<long>
@@ -2069,8 +2027,6 @@
 				</long>
 				<short>
 					<generic>AT</generic>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
 				</short>
 				<commonlyUsed draft="provisional">true</commonlyUsed>
 			</metazone>
@@ -2215,7 +2171,6 @@
 				<long>
 					<standard draft="provisional">vrijeme za Changbai</standard>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Chatham">
 				<long>
@@ -2251,7 +2206,6 @@
 					<standard draft="provisional">vrijeme za Choibalsan</standard>
 					<daylight draft="provisional">ljetno vrijeme za Choibalsan</daylight>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Christmas">
 				<long>
@@ -2301,7 +2255,6 @@
 				<long>
 					<standard>vrijeme Davis</standard>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Dominican">
 				<commonlyUsed draft="provisional">true</commonlyUsed>
@@ -2310,7 +2263,6 @@
 				<long>
 					<standard>vrijeme Dumont-d'Urville</standard>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Dushanbe">
 				<long>
@@ -2351,33 +2303,21 @@
 					<daylight>srednjoeuropsko ljetno vrijeme</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">središnje europsko ljetno vrijeme</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
-				<commonlyUsed draft="provisional">true</commonlyUsed>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>istočnoeuropsko vrijeme</standard>
 					<daylight>istočnoeuropsko ljetno vrijeme</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
-				<commonlyUsed draft="provisional">true</commonlyUsed>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>zapadnoeuropsko vrijeme</standard>
 					<daylight>zapadnoeuropsko ljetno vrijeme</daylight>
 				</long>
-				<short>
-					<standard>WET</standard>
-					<daylight>WEST</daylight>
-				</short>
-				<commonlyUsed draft="provisional">true</commonlyUsed>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -2410,7 +2350,6 @@
 					<standard draft="provisional">vrijeme za Frunze</standard>
 					<daylight draft="provisional">ljetno vrijeme za Frunze</daylight>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Galapagos">
 				<long>
@@ -2429,7 +2368,6 @@
 					<standard draft="provisional">gruzijsko vrijeme</standard>
 					<daylight draft="provisional">gruzijsko ljetno vrijeme</daylight>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Gilbert_Islands">
 				<long>
@@ -2441,13 +2379,7 @@
 				<long>
 					<standard>univerzalno vrijeme</standard>
 				</long>
-				<short>
-					<standard>GMT</standard>
-				</short>
-				<commonlyUsed draft="provisional">true</commonlyUsed>
-			</metazone>
-			<metazone type="Goose_Bay">
-				<commonlyUsed draft="provisional">false</commonlyUsed>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>
@@ -2488,7 +2420,6 @@
 				<short>
 					<generic draft="provisional">GT</generic>
 				</short>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Guyana">
 				<long>
@@ -2515,7 +2446,6 @@
 					<standard draft="provisional">hovdsko vrijeme</standard>
 					<daylight draft="provisional">hovdsko ljetno vrijeme</daylight>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="India">
 				<long>
@@ -2612,7 +2542,6 @@
 				<long>
 					<standard draft="provisional">kašgarsko vrijeme</standard>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
@@ -2633,7 +2562,6 @@
 					<standard draft="provisional">kizilordsko vrijeme</standard>
 					<daylight draft="provisional">kizilordsko ljetno vrijeme</daylight>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Korea">
 				<long>
@@ -2658,7 +2586,6 @@
 					<standard draft="provisional">vrijeme Krasnoyarsk</standard>
 					<daylight draft="provisional">ljetno vrijeme Krasnoyarsk</daylight>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Kuybyshev">
 				<long>
@@ -2700,7 +2627,6 @@
 				<long>
 					<standard draft="provisional">vrijeme Long-Shu</standard>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Lord_Howe">
 				<long>
@@ -2768,7 +2694,6 @@
 				<long>
 					<standard>vrijeme Mawson</standard>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
@@ -2838,7 +2763,6 @@
 				<long>
 					<standard>vrijeme Niuea</standard>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
@@ -2872,9 +2796,6 @@
 					<daylight draft="provisional">ljetno vrijeme Omsk</daylight>
 				</long>
 				<commonlyUsed draft="provisional">true</commonlyUsed>
-			</metazone>
-			<metazone type="Oral">
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Pakistan">
 				<long>
@@ -2943,14 +2864,12 @@
 				<long>
 					<standard>vrijeme Ponapea</standard>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Qyzylorda">
 				<long>
 					<standard draft="provisional">vrijeme Qyzylorda</standard>
 					<daylight draft="provisional">ljetno vrijeme Qyzylorda</daylight>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Reunion">
 				<long>
@@ -2962,7 +2881,6 @@
 				<long>
 					<standard>vrijeme Rothera</standard>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
@@ -3047,7 +2965,6 @@
 				<long>
 					<standard>vrijeme Syowa</standard>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Tahiti">
 				<long>
@@ -3193,7 +3110,6 @@
 					<standard>vrijeme Otoka Wake</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">vrijeme otoka Wake</standard>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Wallis">
 				<long>

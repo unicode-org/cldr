@@ -56,6 +56,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -5196,24 +5197,14 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         StringBuilder xpath = new StringBuilder();
         xpath.append("//ldml");
 
-        Node ldml = null;
+        org.w3c.dom.Element ldmlElement = doc.getDocumentElement();
+        NodeList identityList = ldmlElement.getElementsByTagName(LDMLConstants.IDENTITY);
+        Element identity = (Element) identityList.item(0);
+        NodeList versionList = identity.getElementsByTagName(LDMLConstants.VERSION);
+        Node version = versionList.item(0);
+        setLdmlVersion(LDMLUtilities.getAttributeValue(version, LDMLConstants.CLDR_VERSION));
 
-        for (ldml = doc.getFirstChild(); ldml != null; ldml = ldml.getNextSibling()) {
-            if (ldml.getNodeType() != Node.ELEMENT_NODE) {
-                continue;
-            }
-
-            String name = ldml.getNodeName();
-            if (name.equals(LDMLConstants.LDML)) {
-                setLdmlVersion(LDMLUtilities.getAttributeValue(ldml, LDMLConstants.VERSION));
-                break;
-            }
-        }
-
-        if (ldml == null) {
-            throw new RuntimeException("ERROR: no <ldml> node found in parseBundle()");
-        }
-
+        Node ldml = doc.getDocumentElement();
         for (Node node = ldml.getFirstChild(); node != null; node = node.getNextSibling()) {
             if (node.getNodeType() != Node.ELEMENT_NODE) {
                 continue;
@@ -5223,8 +5214,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 return node;
             }
         }
-
-        return null;
+       return null;
     }
 
     private Resource parseBrkItrData(LDML2ICUInputLocale loc, String xpath) {

@@ -4818,21 +4818,28 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
 
     private String getStrengthSymbol(String name) {
+        String strengthSymbol = "";
         if (name.equals(LDMLConstants.PC) || name.equals(LDMLConstants.P)) {
-            return "<";
+            strengthSymbol = "<";
         } else if (name.equals(LDMLConstants.SC) || name.equals(LDMLConstants.S)) {
-            return "<<";
+            strengthSymbol = "<<";
         } else if (name.equals(LDMLConstants.TC) || name.equals(LDMLConstants.T)) {
-            return "<<<";
+            strengthSymbol = "<<<";
         } else if (name.equals(LDMLConstants.QC) || name.equals(LDMLConstants.Q)) {
-            return "<<<<";
+            strengthSymbol = "<<<<";
         } else if (name.equals(LDMLConstants.IC) || name.equals(LDMLConstants.I)) {
-            return "=";
+            strengthSymbol = "=";
         } else {
             log.error("Encountered strength: " + name);
             System.exit(-1);
         }
-        return null;
+
+        if(name.equals(LDMLConstants.PC) || name.equals(LDMLConstants.SC) ||
+           name.equals(LDMLConstants.TC)|| name.equals(LDMLConstants.QC) ||
+           name.equals(LDMLConstants.IC)){
+          strengthSymbol += "*";
+        }
+        return strengthSymbol;
     }
 
     private String getStrength(String name) {
@@ -4903,12 +4910,28 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         UCharacterIterator iter = UCharacterIterator.getInstance(data);
         StringBuilder ret = new StringBuilder();
         String strengthSymbol = getStrengthSymbol(name);
+        String nonExpandedStrengthSymbol = strengthSymbol.substring(0, strengthSymbol.length()-1);
         int ch;
+        boolean restartExpandedRules = true;
+        UnicodeSet inertSet = new UnicodeSet("[:nfd_inert:]");
+        inertSet.remove("-<=");
+        int consecutiveCount = 1;
         while ((ch = iter.nextCodePoint()) != UCharacterIterator.DONE) {
-            if (DEBUG) {
-                ret.append(" ");
+            if (inertSet.contains(ch)) {
+                if (restartExpandedRules){
+                    if (DEBUG) {
+                        ret.append(" ");
+                    }
+                    ret.append(strengthSymbol);
+                }
+                restartExpandedRules = false;
+            } else {
+                if (DEBUG) {
+                    ret.append(" ");
+                }
+                ret.append(nonExpandedStrengthSymbol);
+                restartExpandedRules = true;
             }
-            ret.append(strengthSymbol);
             if (DEBUG) {
                 ret.append(" ");
             }

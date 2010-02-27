@@ -321,20 +321,6 @@
 							<month type="11">nov</month>
 							<month type="12">dec</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="unconfirmed">J</month>
-							<month type="2" draft="unconfirmed">F</month>
-							<month type="3" draft="unconfirmed">M</month>
-							<month type="4" draft="unconfirmed">A</month>
-							<month type="5" draft="unconfirmed">M</month>
-							<month type="6" draft="unconfirmed">J</month>
-							<month type="7" draft="unconfirmed">J</month>
-							<month type="8" draft="unconfirmed">A</month>
-							<month type="9" draft="unconfirmed">S</month>
-							<month type="10" draft="unconfirmed">O</month>
-							<month type="11" draft="unconfirmed">N</month>
-							<month type="12" draft="unconfirmed">D</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januari</month>
 							<month type="2">februari</month>
@@ -378,15 +364,6 @@
 							<day type="fri">tal</day>
 							<day type="sat">arf</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">S</day>
-							<day type="mon" draft="unconfirmed">A</day>
-							<day type="tue" draft="unconfirmed">M</day>
-							<day type="wed" draft="unconfirmed">P</day>
-							<day type="thu" draft="unconfirmed">S</day>
-							<day type="fri" draft="unconfirmed">T</day>
-							<day type="sat" draft="unconfirmed">A</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">sabaat</day>
 							<day type="mon">ataasinngorneq</day>
@@ -410,20 +387,6 @@
 					</dayContext>
 				</days>
 				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
-							<quarter type="3" draft="unconfirmed">Q3</quarter>
-							<quarter type="4" draft="unconfirmed">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
-							<quarter type="3" draft="unconfirmed">Q3</quarter>
-							<quarter type="4" draft="unconfirmed">Q4</quarter>
-						</quarterWidth>
-					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="narrow">
 							<quarter type="1" draft="unconfirmed">Q1</quarter>
@@ -436,24 +399,6 @@
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">u.t.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">u.k.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">u.t.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">u.k.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">ulloqeqqata-tungaa</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">ulloqeqqata-kingorna</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">u.t.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">u.k.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am" draft="unconfirmed">u.t.</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">u.k.</dayPeriod>
 						</dayPeriodWidth>
@@ -574,12 +519,6 @@
 				</fields>
 			</calendar>
 		</calendars>
-		<timeZoneNames>
-			<hourFormat draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<regionFormat draft="unconfirmed">{0}</regionFormat>
-			<fallbackFormat draft="unconfirmed">{0} ({1})</fallbackFormat>
-		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>

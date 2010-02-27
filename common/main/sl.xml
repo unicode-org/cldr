@@ -6,7 +6,6 @@
 		<generation date="$Date$"/>
 		<language type="sl"/>
 	</identity>
-	<fallback draft="provisional"/>
 	<localeDisplayNames>
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
@@ -1051,113 +1050,6 @@
 	<dates>
 		<dateRangePattern>{0} – {1}</dateRangePattern>
 		<calendars>
-			<calendar type="buddhist">
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatFallback draft="provisional">{0} – {1}</intervalFormatFallback>
-						<intervalFormatItem id="d">
-							<greatestDifference id="d" draft="provisional">d.–d.</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="M">
-							<greatestDifference id="M" draft="provisional">M.–M.</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Md">
-							<greatestDifference id="d" draft="provisional">d. – d. M.</greatestDifference>
-							<greatestDifference id="M" draft="provisional">d. M. – d. M.</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MEd">
-							<greatestDifference id="d" draft="provisional">E., d. – E., d. M.</greatestDifference>
-							<greatestDifference id="M" draft="provisional">E., d. M. – E., d. M.</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMM">
-							<greatestDifference id="M" draft="provisional">MMM–MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d" draft="provisional">d.–d. MMM.</greatestDifference>
-							<greatestDifference id="M" draft="provisional">d. MMM. – d. MMM.</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d" draft="provisional">E., d. – E., d. MMM.</greatestDifference>
-							<greatestDifference id="M" draft="provisional">E., d. MMM. – E., d. MMM.</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yM">
-							<greatestDifference id="M" draft="provisional">M – M/yy</greatestDifference>
-							<greatestDifference id="y" draft="provisional">M/yy – M/yy</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMd">
-							<greatestDifference id="d" draft="provisional">d. M. yy – d. M. yy</greatestDifference>
-							<greatestDifference id="M" draft="provisional">d. M. – d. M. yy</greatestDifference>
-							<greatestDifference id="y" draft="provisional">d. M. yy – d. M. yy</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d" draft="provisional">E., d. – E., d. M. yy</greatestDifference>
-							<greatestDifference id="M" draft="provisional">E., d. M. – E., d. M. yy</greatestDifference>
-							<greatestDifference id="y" draft="provisional">E., d. M. yy – E., d. M. yy</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="provisional">MMM. – MMM. y</greatestDifference>
-							<greatestDifference id="y" draft="provisional">MMM. y – MMM. y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d" draft="provisional">d.–d. MMM. y</greatestDifference>
-							<greatestDifference id="M" draft="provisional">d. MMM. – d. MMM. y</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="ethiopic">
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatFallback draft="provisional">{0} – {1}</intervalFormatFallback>
-						<intervalFormatItem id="d">
-							<greatestDifference id="d" draft="provisional">d.–d.</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="M">
-							<greatestDifference id="M" draft="provisional">M.–M.</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Md">
-							<greatestDifference id="d" draft="provisional">d. – d. M.</greatestDifference>
-							<greatestDifference id="M" draft="provisional">d. M. – d. M.</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MEd">
-							<greatestDifference id="d" draft="provisional">E., d. – E., d. M.</greatestDifference>
-							<greatestDifference id="M" draft="provisional">E., d. M. – E., d. M.</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMM">
-							<greatestDifference id="M" draft="provisional">MMM–MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d" draft="provisional">d.–d. MMM.</greatestDifference>
-							<greatestDifference id="M" draft="provisional">d. MMM. – d. MMM.</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="M" draft="provisional">E., d. MMM. – E., d. MMM.</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yM">
-							<greatestDifference id="M" draft="provisional">M – M/yy</greatestDifference>
-							<greatestDifference id="y" draft="provisional">M/yy – M/yy</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMd">
-							<greatestDifference id="d" draft="provisional">d. M. yy – d. M. yy</greatestDifference>
-							<greatestDifference id="M" draft="provisional">d. M. – d. M. yy</greatestDifference>
-							<greatestDifference id="y" draft="provisional">d. M. yy – d. M. yy</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d" draft="provisional">E., d. – E., d. M. yy</greatestDifference>
-							<greatestDifference id="M" draft="provisional">E., d. M. – E., d. M. yy</greatestDifference>
-							<greatestDifference id="y" draft="provisional">E., d. M. yy – E., d. M. yy</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="provisional">MMM. – MMM. y</greatestDifference>
-							<greatestDifference id="y" draft="provisional">MMM. y – MMM. y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d" draft="provisional">d.–d. MMM. y</greatestDifference>
-							<greatestDifference id="M" draft="provisional">d. MMM. – d. MMM. y</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -1175,20 +1067,6 @@
 							<month type="11">nov</month>
 							<month type="12">dec</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="provisional">j</month>
-							<month type="2" draft="provisional">f</month>
-							<month type="3" draft="provisional">m</month>
-							<month type="4" draft="provisional">a</month>
-							<month type="5" draft="provisional">m</month>
-							<month type="6" draft="provisional">j</month>
-							<month type="7" draft="provisional">j</month>
-							<month type="8" draft="provisional">a</month>
-							<month type="9" draft="provisional">s</month>
-							<month type="10" draft="provisional">o</month>
-							<month type="11" draft="provisional">n</month>
-							<month type="12" draft="provisional">d</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januar</month>
 							<month type="2">februar</month>
@@ -1205,20 +1083,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="provisional">jan</month>
-							<month type="2" draft="provisional">feb</month>
-							<month type="3" draft="provisional">mar</month>
-							<month type="4" draft="provisional">apr</month>
-							<month type="5" draft="provisional">maj</month>
-							<month type="6" draft="provisional">jun</month>
-							<month type="7" draft="provisional">jul</month>
-							<month type="8" draft="provisional">avg</month>
-							<month type="9" draft="provisional">sep</month>
-							<month type="10" draft="provisional">okt</month>
-							<month type="11" draft="provisional">nov</month>
-							<month type="12" draft="provisional">dec</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">j</month>
 							<month type="2">f</month>
@@ -1233,20 +1097,6 @@
 							<month type="11">n</month>
 							<month type="12">d</month>
 						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="provisional">januar</month>
-							<month type="2" draft="provisional">februar</month>
-							<month type="3" draft="provisional">marec</month>
-							<month type="4" draft="provisional">april</month>
-							<month type="5" draft="provisional">maj</month>
-							<month type="6" draft="provisional">junij</month>
-							<month type="7" draft="provisional">julij</month>
-							<month type="8" draft="provisional">avgust</month>
-							<month type="9" draft="provisional">september</month>
-							<month type="10" draft="provisional">oktober</month>
-							<month type="11" draft="provisional">november</month>
-							<month type="12" draft="provisional">december</month>
-						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -1260,15 +1110,6 @@
 							<day type="fri">pet</day>
 							<day type="sat">sob</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="provisional">n</day>
-							<day type="mon" draft="provisional">p</day>
-							<day type="tue" draft="provisional">t</day>
-							<day type="wed" draft="provisional">s</day>
-							<day type="thu" draft="provisional">č</day>
-							<day type="fri" draft="provisional">p</day>
-							<day type="sat" draft="provisional">s</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">nedelja</day>
 							<day type="mon">ponedeljek</day>
@@ -1280,15 +1121,6 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="provisional">ned</day>
-							<day type="mon" draft="provisional">pon</day>
-							<day type="tue" draft="provisional">tor</day>
-							<day type="wed" draft="provisional">sre</day>
-							<day type="thu" draft="provisional">čet</day>
-							<day type="fri" draft="provisional">pet</day>
-							<day type="sat" draft="provisional">sob</day>
-						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">n</day>
 							<day type="mon">p</day>
@@ -1297,15 +1129,6 @@
 							<day type="thu">č</day>
 							<day type="fri">p</day>
 							<day type="sat">s</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="provisional">nedelja</day>
-							<day type="mon" draft="provisional">ponedeljek</day>
-							<day type="tue" draft="provisional">torek</day>
-							<day type="wed" draft="provisional">sreda</day>
-							<day type="thu" draft="provisional">četrtek</day>
-							<day type="fri" draft="provisional">petek</day>
-							<day type="sat" draft="provisional">sobota</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1324,48 +1147,12 @@
 							<quarter type="4">4. četrtletje</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="provisional">1. četrtletje</quarter>
-							<quarter type="2" draft="provisional">2. četrtletje</quarter>
-							<quarter type="3" draft="provisional">3. četrtletje</quarter>
-							<quarter type="4" draft="provisional">4. četrtletje</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">dop.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">pop.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="provisional">dop.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">pop.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">dop.</dayPeriod>
 							<dayPeriod type="pm">pop.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">dop.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">pop.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="provisional">dop.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">pop.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="provisional">dop.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">pop.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1378,10 +1165,6 @@
 						<era type="0">pr. n. št.</era>
 						<era type="1">po Kr.</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="provisional">pr. n. št.</era>
-						<era type="1" draft="provisional">po Kr.</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1428,26 +1211,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
 						<dateFormatItem id="EEEd" draft="provisional">EEE., d.</dateFormatItem>
@@ -1956,8 +1719,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">CT</generic>
-					<standard draft="provisional">CST</standard>
-					<daylight draft="provisional">CDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Eastern">
@@ -1968,8 +1729,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">ET</generic>
-					<standard draft="provisional">EST</standard>
-					<daylight draft="provisional">EDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -1980,8 +1739,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">MT</generic>
-					<standard draft="provisional">MST</standard>
-					<daylight draft="provisional">MDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -1992,8 +1749,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">PT</generic>
-					<standard draft="provisional">PST</standard>
-					<daylight draft="provisional">PDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Arabian">
@@ -2014,8 +1769,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">AT</generic>
-					<standard draft="provisional">AST</standard>
-					<daylight draft="provisional">ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -2087,38 +1840,23 @@
 					<standard>Srednjeevropski čas</standard>
 					<daylight>Srednjeevropski poletni čas</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Vzhodnoevropski čas</standard>
 					<daylight>Vzhodnoevropski poletni čas</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>Zahodnoevropski čas</standard>
 					<daylight>Zahodnoevropski poletni čas</daylight>
 				</long>
-				<short>
-					<standard>WET</standard>
-					<daylight>WEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard>Greenwiški srednji čas</standard>
 				</long>
-				<short>
-					<standard>GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="India">
 				<long>
@@ -3088,12 +2826,11 @@
 				<displayName alt="proposed-x1001" draft="unconfirmed">stari zimbabvejski dolar</displayName>
 			</currency>
 			<currency type="ZWL">
-				<displayName>zimbabvejski dolar 	(2009)</displayName>
+				<displayName>zimbabvejski dolar (2009)</displayName>
 				<displayName count="few" draft="provisional">ZWL</displayName>
 				<displayName count="one" draft="provisional">ZWL</displayName>
 				<displayName count="other" draft="provisional">ZWL</displayName>
 				<displayName count="two" draft="provisional">ZWL</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">zimbabvejski dolar</displayName>
 			</currency>
 		</currencies>
 	</numbers>

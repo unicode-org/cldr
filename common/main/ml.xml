@@ -1099,20 +1099,6 @@
 							<month type="11">ന</month>
 							<month type="12">ഡി</month>
 						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">ജനുവരി</month>
-							<month type="2">ഫെബ്രുവരി</month>
-							<month type="3">മാര്‍ച്ച്</month>
-							<month type="4">ഏപ്രില്‍</month>
-							<month type="5">മേയ്</month>
-							<month type="6">ജൂണ്‍</month>
-							<month type="7">ജൂലൈ</month>
-							<month type="8">ആഗസ്റ്റ്</month>
-							<month type="9">സെപ്റ്റംബര്‍</month>
-							<month type="10">ഒക്ടോബര്‍</month>
-							<month type="11">നവംബര്‍</month>
-							<month type="12">ഡിസംബര്‍</month>
-						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -1146,15 +1132,6 @@
 							<day type="fri">വെ</day>
 							<day type="sat">ശ</day>
 						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">ഞായറാഴ്ച</day>
-							<day type="mon">തിങ്കളാഴ്ച</day>
-							<day type="tue">ചൊവ്വാഴ്ച</day>
-							<day type="wed">ബുധനാഴ്ച</day>
-							<day type="thu">വ്യാഴാഴ്ച</day>
-							<day type="fri">വെള്ളിയാഴ്ച</day>
-							<day type="sat">ശനിയാഴ്ച</day>
-						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
@@ -1172,39 +1149,9 @@
 							<quarter type="4">നാലാം പാദം</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">രാവിലെ</dayPeriod>
-							<dayPeriod type="pm">വൈകുന്നേരം</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">രാവിലെ</dayPeriod>
-							<dayPeriod type="pm">വൈകുന്നേരം</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">രാവിലെ</dayPeriod>
-							<dayPeriod type="pm">വൈകുന്നേരം</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">രാവിലെ</dayPeriod>
-							<dayPeriod type="pm">വൈകുന്നേരം</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">രാവിലെ</dayPeriod>
-							<dayPeriod type="pm">വൈകുന്നേരം</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">രാവിലെ</dayPeriod>
 							<dayPeriod type="pm">വൈകുന്നേരം</dayPeriod>
@@ -1218,12 +1165,8 @@
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ക്രി.മൂ</era>
-						<era type="1">ക്രി.മു</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0">ക്രി.മു.</era>
 						<era type="1">ക്രി.പി.</era>
-					</eraNarrow>
+					</eraAbbr>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1270,11 +1213,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
@@ -1464,32 +1402,6 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">രാവിലെ</dayPeriod>
-							<dayPeriod type="pm">വൈകുന്നേരം</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">രാവിലെ</dayPeriod>
-							<dayPeriod type="pm">വൈകുന്നേരം</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">രാവിലെ</dayPeriod>
-							<dayPeriod type="pm">വൈകുന്നേരം</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">രാവിലെ</dayPeriod>
-							<dayPeriod type="pm">വൈകുന്നേരം</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">രാവിലെ</dayPeriod>
-							<dayPeriod type="pm">വൈകുന്നേരം</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">ശക</era>

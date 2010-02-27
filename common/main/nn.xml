@@ -1258,10 +1258,6 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="mon">må.</day>
-							<day type="sat">la.</day>
-						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">S</day>
 							<day type="mon">M</day>
@@ -1295,29 +1291,11 @@
 							<dayPeriod type="am" draft="unconfirmed">f.m.</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">e.m.</dayPeriod>
 						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">f.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">e.m.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">formiddag</dayPeriod>
 							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">på formiddagen</dayPeriod>
 							<dayPeriod type="pm">ettermiddag</dayPeriod>
 							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">på ettermiddagen</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">f.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">e.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">f.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">e.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">formiddag</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">ettermiddag</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1658,20 +1636,12 @@
 					<standard>sentraleuropeisk tid</standard>
 					<daylight>sentraleuropeisk sommartid</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>austeuropeisk tid</standard>
 					<daylight>austeuropeisk sommartid</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>

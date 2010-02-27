@@ -1267,19 +1267,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1" references="R201" draft="provisional">jan.</month>
-							<month type="2" references="R201" draft="provisional">feb.</month>
-							<month type="3" references="R201" draft="provisional">mars</month>
-							<month type="4" draft="provisional">apr.</month>
-							<month type="6" references="R201" draft="provisional">juni</month>
-							<month type="7" references="R201" draft="provisional">juli</month>
-							<month type="8" references="R201" draft="provisional">aug.</month>
-							<month type="9" references="R201" draft="provisional">sep.</month>
-							<month type="10" references="R201" draft="provisional">okt.</month>
-							<month type="11" references="R201" draft="provisional">nov.</month>
-							<month type="12" references="R201" draft="provisional">des.</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">J</month>
 							<month type="2">F</month>
@@ -1360,24 +1347,10 @@
 							<quarter type="4">4. kvartal</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">f.m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">e.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
 							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">f.m.</dayPeriod>
 							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
@@ -1393,18 +1366,6 @@
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">f.m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">e.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">f.m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">e.m.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
 							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">formiddag</dayPeriod>
@@ -1902,28 +1863,8 @@
 				</long>
 			</metazone>
 			<metazone type="America_Central">
-				<long>
-					<generic>normaltid</generic>
-				</long>
 				<short>
 					<generic>CT</generic>
-					<daylight>CDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="America_Eastern">
-				<short>
-					<daylight>EDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="America_Mountain">
-				<short>
-					<standard>MST</standard>
-				</short>
-			</metazone>
-			<metazone type="America_Pacific">
-				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Arabian">
@@ -1941,8 +1882,6 @@
 			<metazone type="Atlantic">
 				<short>
 					<generic>AT</generic>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -2001,38 +1940,23 @@
 					<standard>sentraleuropeisk normaltid</standard>
 					<daylight>sentraleuropeisk sommertid</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>østeuropeisk normaltid</standard>
 					<daylight>østeuropeisk sommertid</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>vesteuropeisk tid</standard>
 					<daylight>vesteuropeisk sommertid</daylight>
 				</long>
-				<short>
-					<standard>WET</standard>
-					<daylight>WEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard>Greenwich middeltid</standard>
 				</long>
-				<short>
-					<standard>GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>

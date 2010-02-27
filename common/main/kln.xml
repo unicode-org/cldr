@@ -396,9 +396,13 @@
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">BE</dayPeriod>
+							<dayPeriod type="pm">KE</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">BE/KE</dayPeriod>
-							<dayPeriod type="pm">Beet/Kemo</dayPeriod>
+							<dayPeriod type="am">Beet</dayPeriod>
+							<dayPeriod type="pm">Kemo</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>

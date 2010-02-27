@@ -1118,11 +1118,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yyMM" draft="provisional">MM-yy</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1221,14 +1216,6 @@
 							<quarter type="4">4º trimestre</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
@@ -1304,11 +1291,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="EEEd">EEE, d</dateFormatItem>
@@ -1510,12 +1492,10 @@
 			</calendar>
 			<calendar type="roc">
 				<eras>
-					<eraNames>
+					<eraAbbr>
 						<era type="0" draft="contributed">Antes de R.O.C.</era>
-					</eraNames>
-					<eraNarrow>
-						<era type="0" draft="contributed">Antes de R.O.C.</era>
-					</eraNarrow>
+						<era type="1" draft="contributed">R.O.C.</era>
+					</eraAbbr>
 				</eras>
 			</calendar>
 		</calendars>
@@ -1965,8 +1945,6 @@
 				</long>
 				<short>
 					<generic>CT</generic>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Eastern">
@@ -1977,8 +1955,6 @@
 				</long>
 				<short>
 					<generic>ET</generic>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -1992,8 +1968,6 @@
 				</long>
 				<short>
 					<generic>MT</generic>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -2004,8 +1978,6 @@
 				</long>
 				<short>
 					<generic>PT</generic>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Anadyr">
@@ -2079,8 +2051,6 @@
 				</long>
 				<short>
 					<generic>AT</generic>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -2094,6 +2064,8 @@
 					<generic alt="proposed-x1001" draft="unconfirmed">ACT</generic>
 					<standard>ACST (Austrália)</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">ACST</standard>
+					<daylight>ACDT (Austrália)</daylight>
+					<daylight alt="proposed-x1001" draft="unconfirmed">ACDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
@@ -2323,10 +2295,6 @@
 					<standard>Horário da Europa Central</standard>
 					<daylight>Horário de Verão da Europa Central</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
@@ -2334,20 +2302,12 @@
 					<standard alt="proposed-x1001" draft="unconfirmed">Horário da Europa Oriental</standard>
 					<daylight>Horário de Verão da Europa Oriental</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>Horário da Europa Ocidental</standard>
 					<daylight>Horário de Verão da Europa Ocidental</daylight>
 				</long>
-				<short>
-					<standard>WET</standard>
-					<daylight>WEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -2405,9 +2365,6 @@
 				<long>
 					<standard>Horário do Meridiano de Greenwich</standard>
 				</long>
-				<short>
-					<standard>GMT</standard>
-				</short>
 				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Greenland_Central">
@@ -4613,13 +4570,14 @@
 				<displayName count="other">Dólares do Zimbábue</displayName>
 			</currency>
 			<currency type="ZWL">
-				<displayName draft="provisional">Dólar do Zimbábue (2009)</displayName>
-				<displayName count="one" draft="provisional">Dólar do Zimbábue (2009)</displayName>
-				<displayName count="other" draft="provisional">Dólares do Zimbábue (2009)</displayName>
+				<displayName>Dólar do Zimbábue (2009)</displayName>
+				<displayName count="one">Dólar do Zimbábue (2009)</displayName>
+				<displayName count="other">Dólares do Zimbábue (2009)</displayName>
 			</currency>
 			<currency type="ZWR">
-				<displayName count="one" draft="provisional">Dólar do Zimbábue (2008)</displayName>
-				<displayName count="other" draft="provisional">Dólares do Zimbábue (2008)</displayName>
+				<displayName>Dólar do Zimbábue (2008)</displayName>
+				<displayName count="one">Dólar do Zimbábue (2008)</displayName>
+				<displayName count="other">Dólares do Zimbábue (2008)</displayName>
 			</currency>
 		</currencies>
 	</numbers>

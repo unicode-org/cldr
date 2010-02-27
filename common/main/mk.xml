@@ -1006,33 +1006,11 @@
 							<quarter type="3">јул-сеп</quarter>
 							<quarter type="4">окт-дек</quarter>
 						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">прво тромесечје</quarter>
-							<quarter type="2">второ тромесечје</quarter>
-							<quarter type="3">трето тромесечје</quarter>
-							<quarter type="4">четврто тромесечје</quarter>
-						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">претпладне</dayPeriod>
-							<dayPeriod type="pm">попладне</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">претпладне</dayPeriod>
-							<dayPeriod type="pm">попладне</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">претпладне</dayPeriod>
 							<dayPeriod type="pm">попладне</dayPeriod>
 						</dayPeriodWidth>
@@ -1089,26 +1067,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
@@ -1283,9 +1241,6 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<regionFormat draft="unconfirmed">{0}</regionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Непознато</exemplarCity>
 			</zone>
@@ -1960,10 +1915,6 @@
 					<standard>Средноевропско време</standard>
 					<daylight>Средноевропско летно време</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
@@ -1971,10 +1922,6 @@
 					<standard>Источноевропско време</standard>
 					<daylight>Источноевропско летно време</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Western">

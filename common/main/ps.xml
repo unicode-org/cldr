@@ -202,20 +202,6 @@
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="unconfirmed">1</month>
-							<month type="2" draft="unconfirmed">2</month>
-							<month type="3" draft="unconfirmed">3</month>
-							<month type="4" draft="unconfirmed">4</month>
-							<month type="5" draft="unconfirmed">مـی</month>
-							<month type="6" draft="unconfirmed">جون</month>
-							<month type="7" draft="unconfirmed">7</month>
-							<month type="8" draft="unconfirmed">8</month>
-							<month type="9" draft="unconfirmed">9</month>
-							<month type="10" draft="unconfirmed">10</month>
-							<month type="11" draft="unconfirmed">11</month>
-							<month type="12" draft="unconfirmed">12</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">جنوري</month>
 							<month type="2">فبروري</month>
@@ -231,34 +217,9 @@
 							<month type="12">دسمبر</month>
 						</monthWidth>
 					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1" draft="unconfirmed">1</month>
-							<month type="2" draft="unconfirmed">2</month>
-							<month type="3" draft="unconfirmed">3</month>
-							<month type="4" draft="unconfirmed">4</month>
-							<month type="5" draft="unconfirmed">5</month>
-							<month type="6" draft="unconfirmed">6</month>
-							<month type="7" draft="unconfirmed">7</month>
-							<month type="8" draft="unconfirmed">8</month>
-							<month type="9" draft="unconfirmed">9</month>
-							<month type="10" draft="unconfirmed">10</month>
-							<month type="11" draft="unconfirmed">11</month>
-							<month type="12" draft="unconfirmed">12</month>
-						</monthWidth>
-					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">1</day>
-							<day type="mon" draft="unconfirmed">2</day>
-							<day type="tue" draft="unconfirmed">3</day>
-							<day type="wed" draft="unconfirmed">4</day>
-							<day type="thu" draft="unconfirmed">5</day>
-							<day type="fri" draft="unconfirmed">6</day>
-							<day type="sat" draft="unconfirmed">7</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">یکشنبه</day>
 							<day type="mon">دوشنبه</day>
@@ -269,34 +230,7 @@
 							<day type="sat">شنبه</day>
 						</dayWidth>
 					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">1</day>
-							<day type="mon" draft="unconfirmed">2</day>
-							<day type="tue" draft="unconfirmed">3</day>
-							<day type="wed" draft="unconfirmed">4</day>
-							<day type="thu" draft="unconfirmed">5</day>
-							<day type="fri" draft="unconfirmed">6</day>
-							<day type="sat" draft="unconfirmed">7</day>
-						</dayWidth>
-					</dayContext>
 				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
-							<quarter type="3" draft="unconfirmed">Q3</quarter>
-							<quarter type="4" draft="unconfirmed">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
-							<quarter type="3" draft="unconfirmed">Q3</quarter>
-							<quarter type="4" draft="unconfirmed">Q4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
@@ -391,8 +325,6 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
 			<regionFormat references="R212">د {0} په وخت</regionFormat>
 			<zone type="Asia/Kabul">
 				<exemplarCity>کابل</exemplarCity>

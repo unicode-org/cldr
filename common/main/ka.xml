@@ -504,10 +504,6 @@
 			<type type="roc" key="calendar" draft="contributed">ჩინეთის რესპუბლიკის კალენდარი</type>
 			<type type="traditional" key="collation">ტრადიციული</type>
 		</types>
-		<measurementSystemNames>
-			<measurementSystemName type="metric" draft="contributed">Metric</measurementSystemName>
-			<measurementSystemName type="US" draft="contributed">US</measurementSystemName>
-		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[ა ბ გ დ ე ვ ზ ჱ თ ი კ ლ მ ნ ჲ ო პ ჟ რ ს ტ ჳ უ ფ ქ ღ ყ შ ჩ ც ძ წ ჭ ხ ჴ ჯ ჰ ჵ ჶ ჷ ჸ ჹ ჺ]</exemplarCharacters>
@@ -637,18 +633,10 @@
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
-					<eraNames>
-						<era type="0" draft="provisional">ჩვენს წელთაღრიცხვამდე</era>
-						<era type="1" draft="provisional">ჩვენი წელთაღრიცხვით</era>
-					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="provisional">ჩვენს წელთაღრიცხვამდე</era>
 						<era type="1" draft="provisional">ჩვენი წელთაღრიცხვით</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="provisional">ჩვენს წელთაღრიცხვამდე</era>
-						<era type="1" draft="provisional">ჩვენი წელთაღრიცხვით</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -756,7 +744,6 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
 			<regionFormat draft="contributed">{0}</regionFormat>
 			<fallbackFormat draft="contributed">{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -1145,9 +1132,6 @@
 			</zone>
 			<zone type="Africa/Bissau">
 				<exemplarCity draft="provisional">გინეა-ბისაუ</exemplarCity>
-			</zone>
-			<zone type="America/Guyana">
-				<exemplarCity draft="provisional">გუიანა</exemplarCity>
 			</zone>
 			<zone type="Asia/Jakarta">
 				<exemplarCity draft="contributed">ჯაკარტა</exemplarCity>

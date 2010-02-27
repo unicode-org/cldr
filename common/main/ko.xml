@@ -1171,57 +1171,10 @@
 	<dates>
 		<calendars>
 			<calendar type="buddhist">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="provisional">일</day>
-							<day type="mon" draft="provisional">월</day>
-							<day type="tue" draft="provisional">화</day>
-							<day type="wed" draft="provisional">수</day>
-							<day type="thu" draft="provisional">목</day>
-							<day type="fri" draft="provisional">금</day>
-							<day type="sat" draft="provisional">토</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="provisional">일요일</day>
-							<day type="mon" draft="provisional">월요일</day>
-							<day type="tue" draft="provisional">화요일</day>
-							<day type="wed" draft="provisional">수요일</day>
-							<day type="thu" draft="provisional">목요일</day>
-							<day type="fri" draft="provisional">금요일</day>
-							<day type="sat" draft="provisional">토요일</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun" draft="provisional">일</day>
-							<day type="mon" draft="provisional">월</day>
-							<day type="tue" draft="provisional">화</day>
-							<day type="wed" draft="provisional">수</day>
-							<day type="thu" draft="provisional">목</day>
-							<day type="fri" draft="provisional">금</day>
-							<day type="sat" draft="provisional">토</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">오전</dayPeriod>
-							<dayPeriod type="pm">오후</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<eras>
-					<eraNames>
-						<era type="0" draft="provisional">불기</era>
-					</eraNames>
 					<eraAbbr>
 						<era type="0">불기</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="provisional">불기</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1247,130 +1200,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="provisional">a hh시mm분ss초 zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="provisional">a hh시mm분ss초 z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
-				<dateTimeFormats>
-					<default choice="medium"/>
-					<availableFormats>
-						<dateFormatItem id="EEEd" draft="provisional">d (EEE)</dateFormatItem>
-						<dateFormatItem id="hm" draft="provisional">a h:mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="provisional">a h:mm:ss</dateFormatItem>
-						<dateFormatItem id="Md" draft="provisional">M.d</dateFormatItem>
-						<dateFormatItem id="MEd" draft="provisional">M.d (E)</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="provisional">M월d일</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="provisional">M월d일 (E)</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="provisional">M월d일</dateFormatItem>
-						<dateFormatItem id="MMMMEd" draft="provisional">M월d일 (E)</dateFormatItem>
-						<dateFormatItem id="yM" draft="provisional">y.M</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="provisional">y.M.d (EEE)</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="provisional">y년M월</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="provisional">y년M월d일 (EEE)</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="provisional">y년M월</dateFormatItem>
-						<dateFormatItem id="yQ" draft="provisional">y년 Q분기</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="provisional">y년 QQQ</dateFormatItem>
-					</availableFormats>
-					<intervalFormats>
-						<intervalFormatFallback draft="provisional">{0} ~ {1}</intervalFormatFallback>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="provisional">a h시 ~ a h시</greatestDifference>
-							<greatestDifference id="h" draft="provisional">a h ~ h시</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="a" draft="provisional">HH시 ~ HH시</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH ~ HH시</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="h" draft="provisional">a h:mm ~ h:mm</greatestDifference>
-							<greatestDifference id="m" draft="provisional">a h:mm ~ h:mm</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="a" draft="provisional">HH:mm ~ HH:mm</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm ~ HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm ~ HH:mm</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="h" draft="provisional">a h:mm ~ h:mm v</greatestDifference>
-							<greatestDifference id="m" draft="provisional">a h:mm ~ h:mm v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a" draft="provisional">HH:mm ~ HH:mm v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH:mm ~ HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm ~ HH:mm v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="provisional">a h시 ~ a h시 v</greatestDifference>
-							<greatestDifference id="h" draft="provisional">a h ~ h시 v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="a" draft="provisional">HH시 ~ HH시 v</greatestDifference>
-							<greatestDifference id="H" draft="provisional">HH ~ HH시 v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Md">
-							<greatestDifference id="d" draft="provisional">M.d ~ M.d</greatestDifference>
-							<greatestDifference id="M" draft="provisional">M.d ~ M.d</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MEd">
-							<greatestDifference id="d" draft="provisional">M.d (E) ~ M.d (E)</greatestDifference>
-							<greatestDifference id="M" draft="provisional">M.d (E) ~ M.d (E)</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMM">
-							<greatestDifference id="M" draft="provisional">M월 ~ M월</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d" draft="provisional">M월d일 ~ d일</greatestDifference>
-							<greatestDifference id="M" draft="provisional">M월d일 ~ M월d일</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d" draft="provisional">M월d일 (E) ~ d일 (E)</greatestDifference>
-							<greatestDifference id="M" draft="provisional">M월d일 (E) ~ M월d일 (E)</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M" draft="provisional">LLLL ~ LLLL</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yM">
-							<greatestDifference id="M" draft="provisional">yyyy.MM ~ yyyy.MM</greatestDifference>
-							<greatestDifference id="y" draft="provisional">yyyy.MM ~ yyyy.MM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMd">
-							<greatestDifference id="d" draft="provisional">yy.MM.dd ~ yy.MM.dd</greatestDifference>
-							<greatestDifference id="M" draft="provisional">yy.MM.dd ~ yy.MM.dd</greatestDifference>
-							<greatestDifference id="y" draft="provisional">yy.MM.dd ~ yy.MM.dd</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d" draft="provisional">yy.MM.dd (E) ~ yy.MM.dd (E)</greatestDifference>
-							<greatestDifference id="M" draft="provisional">yy.MM.dd (E) ~ yy.MM.dd (E)</greatestDifference>
-							<greatestDifference id="y" draft="provisional">yy.MM.dd (E) ~ yy.MM.dd (E)</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="provisional">y년M월 ~ M월</greatestDifference>
-							<greatestDifference id="y" draft="provisional">y년M월 ~ y년M월</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d" draft="provisional">y년M월d일 ~ d일</greatestDifference>
-							<greatestDifference id="M" draft="provisional">y년M월d일 ~ M월d일</greatestDifference>
-							<greatestDifference id="y" draft="provisional">y년M월d일 ~ y년M월d일</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d" draft="provisional">y년M월d일 (E) ~ d일 (E)</greatestDifference>
-							<greatestDifference id="M" draft="provisional">y년M월d일 (E) ~ M월d일 (E)</greatestDifference>
-							<greatestDifference id="y" draft="provisional">y년M월d일 (E) ~ y년M월d일 (E)</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M" draft="provisional">y년MM월 ~ MM월</greatestDifference>
-							<greatestDifference id="y" draft="provisional">y년MM월 ~ y년MM월</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
 				<dateFormats>
@@ -1380,26 +1209,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-			</calendar>
-			<calendar type="coptic">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">오전</dayPeriod>
-							<dayPeriod type="pm">오후</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
-			</calendar>
-			<calendar type="ethiopic">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">오전</dayPeriod>
-							<dayPeriod type="pm">오후</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1484,26 +1293,12 @@
 							<quarter type="4">제 4/4분기</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">오전</dayPeriod>
 							<dayPeriod type="pm">오후</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">오전</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">오후</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1819,251 +1614,8 @@
 					</field>
 				</fields>
 			</calendar>
-			<calendar type="islamic">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">오전</dayPeriod>
-							<dayPeriod type="pm">오후</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
-			</calendar>
 			<calendar type="japanese">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">오전</dayPeriod>
-							<dayPeriod type="pm">오후</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<eras>
-					<eraNames>
-						<era type="0" draft="provisional">다이카</era>
-						<era type="1" draft="provisional">하쿠치</era>
-						<era type="3" draft="provisional">슈초</era>
-						<era type="4" draft="provisional">다이호</era>
-						<era type="5" draft="provisional">게이운</era>
-						<era type="6" draft="provisional">와도</era>
-						<era type="7" draft="provisional">레이키</era>
-						<era type="8" draft="provisional">요로</era>
-						<era type="9" draft="provisional">진키</era>
-						<era type="10" draft="provisional">덴표</era>
-						<era type="11" draft="provisional">덴표칸포</era>
-						<era type="12" draft="provisional">덴표쇼호</era>
-						<era type="13" draft="provisional">덴표호지</era>
-						<era type="14" draft="provisional">덴표진고</era>
-						<era type="15" draft="provisional">진고케이운</era>
-						<era type="16" draft="provisional">호키</era>
-						<era type="17" draft="provisional">덴오</era>
-						<era type="18" draft="provisional">엔랴쿠</era>
-						<era type="19" draft="provisional">다이도</era>
-						<era type="20" draft="provisional">고닌</era>
-						<era type="21" draft="provisional">덴초</era>
-						<era type="22" draft="provisional">조와</era>
-						<era type="23" draft="provisional">가쇼</era>
-						<era type="24" draft="provisional">닌주</era>
-						<era type="25" draft="provisional">사이코</era>
-						<era type="26" draft="provisional">덴난</era>
-						<era type="27" draft="provisional">조간</era>
-						<era type="28" draft="provisional">간교</era>
-						<era type="29" draft="provisional">닌나</era>
-						<era type="30" draft="provisional">간표</era>
-						<era type="31" draft="provisional">쇼타이</era>
-						<era type="32" draft="provisional">엔기</era>
-						<era type="33" draft="provisional">엔초</era>
-						<era type="34" draft="provisional">조헤이</era>
-						<era type="35" draft="provisional">덴교</era>
-						<era type="36" draft="provisional">덴랴쿠</era>
-						<era type="37" draft="provisional">덴토쿠</era>
-						<era type="38" draft="provisional">오와</era>
-						<era type="39" draft="provisional">고호</era>
-						<era type="40" draft="provisional">안나</era>
-						<era type="41" draft="provisional">덴로쿠</era>
-						<era type="42" draft="provisional">덴엔</era>
-						<era type="43" draft="provisional">조겐</era>
-						<era type="44" draft="provisional">덴겐</era>
-						<era type="45" draft="provisional">에이간</era>
-						<era type="46" draft="provisional">간나</era>
-						<era type="47" draft="provisional">에이엔</era>
-						<era type="48" draft="provisional">에이소</era>
-						<era type="49" draft="provisional">쇼랴쿠</era>
-						<era type="50" draft="provisional">조토쿠</era>
-						<era type="51" draft="provisional">조호</era>
-						<era type="52" draft="provisional">간코</era>
-						<era type="53" draft="provisional">조와</era>
-						<era type="54" draft="provisional">간닌</era>
-						<era type="55" draft="provisional">지안</era>
-						<era type="56" draft="provisional">만주</era>
-						<era type="57" draft="provisional">조겐</era>
-						<era type="58" draft="provisional">조랴쿠</era>
-						<era type="59" draft="provisional">조큐</era>
-						<era type="60" draft="provisional">간토쿠</era>
-						<era type="61" draft="provisional">에이쇼</era>
-						<era type="62" draft="provisional">덴기</era>
-						<era type="63" draft="provisional">고헤이</era>
-						<era type="64" draft="provisional">지랴쿠</era>
-						<era type="65" draft="provisional">엔큐</era>
-						<era type="66" draft="provisional">조호</era>
-						<era type="67" draft="provisional">쇼랴쿠</era>
-						<era type="68" draft="provisional">에이호</era>
-						<era type="69" draft="provisional">오토쿠</era>
-						<era type="70" draft="provisional">간지</era>
-						<era type="71" draft="provisional">가호</era>
-						<era type="72" draft="provisional">에이초</era>
-						<era type="73" draft="provisional">조토쿠</era>
-						<era type="74" draft="provisional">고와</era>
-						<era type="75" draft="provisional">조지</era>
-						<era type="76" draft="provisional">가쇼</era>
-						<era type="77" draft="provisional">덴닌</era>
-						<era type="78" draft="provisional">덴에이</era>
-						<era type="79" draft="provisional">에이큐</era>
-						<era type="80" draft="provisional">겐에이</era>
-						<era type="81" draft="provisional">호안</era>
-						<era type="82" draft="provisional">덴지</era>
-						<era type="83" draft="provisional">다이지</era>
-						<era type="84" draft="provisional">덴쇼</era>
-						<era type="85" draft="provisional">조쇼</era>
-						<era type="86" draft="provisional">호엔</era>
-						<era type="87" draft="provisional">에이지</era>
-						<era type="88" draft="provisional">고지</era>
-						<era type="89" draft="provisional">덴요</era>
-						<era type="90" draft="provisional">규안</era>
-						<era type="91" draft="provisional">닌페이</era>
-						<era type="92" draft="provisional">규주</era>
-						<era type="93" draft="provisional">호겐</era>
-						<era type="94" draft="provisional">헤이지</era>
-						<era type="95" draft="provisional">에이랴쿠</era>
-						<era type="96" draft="provisional">오호</era>
-						<era type="97" draft="provisional">조칸</era>
-						<era type="98" draft="provisional">에이만</era>
-						<era type="99" draft="provisional">닌난</era>
-						<era type="100" draft="provisional">가오</era>
-						<era type="101" draft="provisional">조안</era>
-						<era type="102" draft="provisional">안겐</era>
-						<era type="103" draft="provisional">지쇼</era>
-						<era type="104" draft="provisional">요와</era>
-						<era type="105" draft="provisional">주에이</era>
-						<era type="106" draft="provisional">겐랴쿠</era>
-						<era type="107" draft="provisional">분지</era>
-						<era type="108" draft="provisional">겐큐</era>
-						<era type="109" draft="provisional">쇼지</era>
-						<era type="110" draft="provisional">겐닌</era>
-						<era type="111" draft="provisional">겐큐</era>
-						<era type="112" draft="provisional">겐에이</era>
-						<era type="113" draft="provisional">조겐</era>
-						<era type="114" draft="provisional">겐랴쿠</era>
-						<era type="115" draft="provisional">겐포</era>
-						<era type="116" draft="provisional">조큐</era>
-						<era type="117" draft="provisional">조오</era>
-						<era type="118" draft="provisional">겐닌</era>
-						<era type="119" draft="provisional">가로쿠</era>
-						<era type="120" draft="provisional">안테이</era>
-						<era type="121" draft="provisional">간키</era>
-						<era type="122" draft="provisional">조에이</era>
-						<era type="123" draft="provisional">덴푸쿠</era>
-						<era type="124" draft="provisional">분랴쿠</era>
-						<era type="125" draft="provisional">가테이</era>
-						<era type="126" draft="provisional">랴쿠닌</era>
-						<era type="127" draft="provisional">엔오</era>
-						<era type="128" draft="provisional">닌지</era>
-						<era type="129" draft="provisional">간겐</era>
-						<era type="130" draft="provisional">호지</era>
-						<era type="131" draft="provisional">겐초</era>
-						<era type="132" draft="provisional">고겐</era>
-						<era type="133" draft="provisional">쇼카</era>
-						<era type="134" draft="provisional">쇼겐</era>
-						<era type="135" draft="provisional">분오</era>
-						<era type="136" draft="provisional">고초</era>
-						<era type="137" draft="provisional">분에이</era>
-						<era type="138" draft="provisional">겐지</era>
-						<era type="139" draft="provisional">고안</era>
-						<era type="140" draft="provisional">쇼오</era>
-						<era type="141" draft="provisional">에이닌</era>
-						<era type="142" draft="provisional">쇼안</era>
-						<era type="143" draft="provisional">겐겐</era>
-						<era type="144" draft="provisional">가겐</era>
-						<era type="145" draft="provisional">도쿠지</era>
-						<era type="146" draft="provisional">엔쿄</era>
-						<era type="147" draft="provisional">오초</era>
-						<era type="148" draft="provisional">쇼와</era>
-						<era type="149" draft="provisional">분포</era>
-						<era type="150" draft="provisional">겐오</era>
-						<era type="151" draft="provisional">겐코</era>
-						<era type="152" draft="provisional">쇼추</era>
-						<era type="153" draft="provisional">가랴쿠</era>
-						<era type="154" draft="provisional">겐토쿠</era>
-						<era type="155" draft="provisional">겐코</era>
-						<era type="156" draft="provisional">겐무</era>
-						<era type="157" draft="provisional">엔겐</era>
-						<era type="158" draft="provisional">고코쿠</era>
-						<era type="159" draft="provisional">쇼헤이</era>
-						<era type="160" draft="provisional">겐토쿠</era>
-						<era type="161" draft="provisional">분추</era>
-						<era type="162" draft="provisional">덴주</era>
-						<era type="163" draft="provisional">고랴쿠</era>
-						<era type="164" draft="provisional">고와</era>
-						<era type="165" draft="provisional">겐추</era>
-						<era type="166" draft="provisional">메이토쿠</era>
-						<era type="167" draft="provisional">가쿄</era>
-						<era type="168" draft="provisional">고오</era>
-						<era type="169" draft="provisional">메이토쿠</era>
-						<era type="170" draft="provisional">오에이</era>
-						<era type="171" draft="provisional">쇼초</era>
-						<era type="172" draft="provisional">에이쿄</era>
-						<era type="173" draft="provisional">가키쓰</era>
-						<era type="174" draft="provisional">분안</era>
-						<era type="175" draft="provisional">호토쿠</era>
-						<era type="176" draft="provisional">교토쿠</era>
-						<era type="177" draft="provisional">고쇼</era>
-						<era type="178" draft="provisional">조로쿠</era>
-						<era type="179" draft="provisional">간쇼</era>
-						<era type="180" draft="provisional">분쇼</era>
-						<era type="181" draft="provisional">오닌</era>
-						<era type="182" draft="provisional">분메이</era>
-						<era type="183" draft="provisional">조쿄</era>
-						<era type="184" draft="provisional">엔토쿠</era>
-						<era type="185" draft="provisional">메이오</era>
-						<era type="186" draft="provisional">분키</era>
-						<era type="187" draft="provisional">에이쇼</era>
-						<era type="188" draft="provisional">다이에이</era>
-						<era type="189" draft="provisional">교로쿠</era>
-						<era type="190" draft="provisional">덴분</era>
-						<era type="191" draft="provisional">고지</era>
-						<era type="192" draft="provisional">에이로쿠</era>
-						<era type="193" draft="provisional">겐키</era>
-						<era type="194" draft="provisional">덴쇼</era>
-						<era type="195" draft="provisional">분로쿠</era>
-						<era type="196" draft="provisional">게이초</era>
-						<era type="197" draft="provisional">겐나</era>
-						<era type="198" draft="provisional">간에이</era>
-						<era type="199" draft="provisional">쇼호</era>
-						<era type="200" draft="provisional">게이안</era>
-						<era type="201" draft="provisional">조오</era>
-						<era type="202" draft="provisional">메이레키</era>
-						<era type="203" draft="provisional">만지</era>
-						<era type="204" draft="provisional">간분</era>
-						<era type="205" draft="provisional">엔포</era>
-						<era type="206" draft="provisional">덴나</era>
-						<era type="207" draft="provisional">조쿄</era>
-						<era type="208" draft="provisional">겐로쿠</era>
-						<era type="209" draft="provisional">호에이</era>
-						<era type="210" draft="provisional">쇼토쿠</era>
-						<era type="211" draft="provisional">교호</era>
-						<era type="212" draft="provisional">겐분</era>
-						<era type="213" draft="provisional">간포</era>
-						<era type="214" draft="provisional">엔쿄</era>
-						<era type="215" draft="provisional">간엔</era>
-						<era type="216" draft="provisional">호레키</era>
-						<era type="217" draft="provisional">메이와</era>
-						<era type="218" draft="provisional">안에이</era>
-						<era type="219" draft="provisional">덴메이</era>
-						<era type="220" draft="provisional">간세이</era>
-						<era type="221" draft="provisional">교와</era>
-						<era type="222" draft="provisional">분카</era>
-						<era type="235" draft="provisional">헤이세이</era>
-					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="provisional">다이카</era>
 						<era type="1" draft="provisional">하쿠치</era>
@@ -2333,25 +1885,7 @@
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
-			<calendar type="persian">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">오전</dayPeriod>
-							<dayPeriod type="pm">오후</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
-			</calendar>
 			<calendar type="roc">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">오전</dayPeriod>
-							<dayPeriod type="pm">오후</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">중화민국전</era>
@@ -3656,8 +3190,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">CT</generic>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Eastern">
@@ -3671,8 +3203,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">ET</generic>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -3686,8 +3216,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">MT</generic>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -3701,8 +3229,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">PT</generic>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Anadyr">
@@ -3787,8 +3313,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">AT</generic>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">

@@ -1150,20 +1150,6 @@
 							<month type="12" alt="proposed-x1001" draft="unconfirmed">grd</month>
 							<month type="12" alt="proposed-x1002" draft="unconfirmed">Gruod.</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">S</month>
-							<month type="2">V</month>
-							<month type="3">K</month>
-							<month type="4">B</month>
-							<month type="5">G</month>
-							<month type="6">B</month>
-							<month type="7">L</month>
-							<month type="8">R</month>
-							<month type="9">R</month>
-							<month type="10">S</month>
-							<month type="11">L</month>
-							<month type="12">G</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">sausis</month>
 							<month type="1" alt="proposed-x1001" draft="unconfirmed">sausio</month>
@@ -1283,15 +1269,6 @@
 							<day type="fri">Pn</day>
 							<day type="sat">Št</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">P</day>
-							<day type="tue">A</day>
-							<day type="wed">T</day>
-							<day type="thu">K</day>
-							<day type="fri">P</day>
-							<day type="sat">Š</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">sekmadienis</day>
 							<day type="mon">pirmadienis</day>
@@ -1326,15 +1303,6 @@
 							<day type="fri">P</day>
 							<day type="sat">Š</day>
 						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">sekmadienis</day>
-							<day type="mon">pirmadienis</day>
-							<day type="tue">antradienis</day>
-							<day type="wed">trečiadienis</day>
-							<day type="thu">ketvirtadienis</day>
-							<day type="fri">penktadienis</day>
-							<day type="sat">šeštadienis</day>
-						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
@@ -1363,39 +1331,11 @@
 							<quarter type="3">3K</quarter>
 							<quarter type="4">4K</quarter>
 						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">pirmasis ketvirtis</quarter>
-							<quarter type="1" alt="proposed-x1001" draft="unconfirmed">1. ketvirtis</quarter>
-							<quarter type="2">antrasis ketvirtis</quarter>
-							<quarter type="2" alt="proposed-x1001" draft="unconfirmed">2. ketvirtis</quarter>
-							<quarter type="3">trečiasis ketvirtis</quarter>
-							<quarter type="3" alt="proposed-x1001" draft="unconfirmed">3. ketvirtis</quarter>
-							<quarter type="4">ketvirtasis ketvirtis</quarter>
-							<quarter type="4" alt="proposed-x1001" draft="unconfirmed">4. ketvirtis</quarter>
-						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">pr.p.</dayPeriod>
-							<dayPeriod type="pm">pop.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">pr.p.</dayPeriod>
-							<dayPeriod type="pm">pop.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">priešpiet</dayPeriod>
-							<dayPeriod type="pm">popiet</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">pr.p.</dayPeriod>
-							<dayPeriod type="pm">pop.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">pr.p.</dayPeriod>
 							<dayPeriod type="pm">pop.</dayPeriod>
 						</dayPeriodWidth>
@@ -1414,11 +1354,6 @@
 						<era type="0">pr. Kr.</era>
 						<era type="1">po Kr.</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0">po Kr.</era>
-						<era type="0" alt="proposed-x1001" draft="unconfirmed">pr. Kr.</era>
-						<era type="1">po Kr.</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -2480,8 +2415,6 @@
 				</long>
 				<short>
 					<generic>Čikaga (Jungtinės Valstijos)</generic>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Eastern">
@@ -2490,16 +2423,6 @@
 					<standard>Rytų žiemos laikas</standard>
 					<daylight>Rytų vasaros laikas</daylight>
 				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="America_Mountain">
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -2507,10 +2430,6 @@
 					<standard>Ramiojo vandenyno žiemos laikas</standard>
 					<daylight>Ramiojo vandenyno vasaros laikas</daylight>
 				</long>
-				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
@@ -2567,10 +2486,6 @@
 					<standard>Atlanto žiemos laikas</standard>
 					<daylight>Atlanto vasaros laikas</daylight>
 				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -2786,26 +2701,12 @@
 					<standard>Vidurio Europos laikas</standard>
 					<daylight>Vidurio Europos vasaros laikas</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Rytų Europos laikas</standard>
 					<daylight>Rytų Europos vasaros laikas</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Europe_Western">
-				<short>
-					<standard>WET</standard>
-					<daylight>WEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -2855,11 +2756,6 @@
 				<long>
 					<standard>Gilberto salų laikas</standard>
 				</long>
-			</metazone>
-			<metazone type="GMT">
-				<short>
-					<standard>GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>

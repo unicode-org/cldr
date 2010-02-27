@@ -558,16 +558,6 @@
 	</delimiters>
 	<dates>
 		<calendars>
-			<calendar type="buddhist">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="contributed">पूर्व मध्यान्ह</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">पूर्व अपरान्ह</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
-			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -652,12 +642,6 @@
 				</days>
 				<quarters>
 					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
-							<quarter type="3" draft="unconfirmed">Q3</quarter>
-							<quarter type="4" draft="unconfirmed">Q4</quarter>
-						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="unconfirmed">पहिलो सत्र</quarter>
 							<quarter type="2" draft="unconfirmed">दोस्रो सत्र</quarter>
@@ -683,64 +667,11 @@
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">ईसा पूर्व</era>
-						<era type="1" draft="unconfirmed">सन्</era>
-					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="contributed">ईसा पूर्व</era>
-						<era type="1" draft="unconfirmed">सन्</era>
+						<era type="1" draft="contributed">सन्</era>
 					</eraAbbr>
 				</eras>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern draft="unconfirmed">EEEE, y MMMM dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern draft="unconfirmed">y MMMM d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern draft="unconfirmed">y MMM d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="unconfirmed">yy/MM/dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 				<fields>
 					<field type="era">
 						<displayName draft="contributed">काल</displayName>
@@ -784,9 +715,6 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<regionFormat draft="unconfirmed">{0}</regionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="contributed">अज्ञात</exemplarCity>
 			</zone>

@@ -1130,11 +1130,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">janv.</month>
-							<month type="2">febr.</month>
-							<month type="3">marts</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">J</month>
 							<month type="2">F</month>
@@ -1199,49 +1194,9 @@
 							<quarter type="4">4. ceturksnis</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">priekšpusdienā</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">pr.p.</dayPeriod>
-							<dayPeriod type="pm">pēcpusdienā</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">pē.p.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">priekšpusdienā</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">pr.p.</dayPeriod>
-							<dayPeriod type="pm">pēcpusdienā</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">pē.p.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">priekšpusdienā</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">priekšpusdiena</dayPeriod>
-							<dayPeriod type="pm">pēcpusdienā</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">pēcpusdiena</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">priekšpusdienā</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">pr.p.</dayPeriod>
-							<dayPeriod type="pm">pēcpusdienā</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">pē.p.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">priekšpusdienā</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">pr.p.</dayPeriod>
-							<dayPeriod type="pm">pēcpusdienā</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">pē.p.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">priekšpusdienā</dayPeriod>
 							<dayPeriod type="pm">pēcpusdienā</dayPeriod>
@@ -1257,10 +1212,6 @@
 						<era type="0">p.m.ē.</era>
 						<era type="1">m.ē.</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0">p.m.ē.</era>
-						<era type="1">m.ē.</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1307,26 +1258,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">EEE, d.</dateFormatItem>
@@ -2649,9 +2580,6 @@
 				</long>
 				<short>
 					<generic>CT</generic>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">CST</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Eastern">
@@ -2665,10 +2593,6 @@
 				</long>
 				<short>
 					<generic>ET</generic>
-					<standard>EST</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">ET</standard>
-					<daylight>EDT</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">EST</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -2682,10 +2606,6 @@
 				</long>
 				<short>
 					<generic>MT</generic>
-					<standard>MST</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">MT</standard>
-					<daylight>MDT</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">MST</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -2696,10 +2616,6 @@
 				</long>
 				<short>
 					<generic>PT</generic>
-					<standard>PST</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">PT</standard>
-					<daylight>PDT</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">PST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Aqtau">
@@ -2728,9 +2644,7 @@
 					<generic>AT (Arābija)</generic>
 					<generic alt="proposed-x1001" draft="unconfirmed">AT (Arābu)</generic>
 					<standard>AST (Arābija)</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">AST (SA)</standard>
 					<daylight>ADT (Arābija)</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">ADT (SA)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Argentina">
@@ -2751,9 +2665,7 @@
 				</long>
 				<short>
 					<standard>AMT (Armēnija)</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">AMT (AM)</standard>
 					<daylight>AMST (Armēnija)</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">AMST (AM)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Ashkhabad">
@@ -2771,9 +2683,7 @@
 				<short>
 					<generic>AT</generic>
 					<standard>AST</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">AT</standard>
 					<daylight>ADT</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">AST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -2887,9 +2797,8 @@
 					<daylight>Ķīnas vasaras laiks</daylight>
 				</long>
 				<short>
-					<generic>CR (Ķīna)</generic>
+					<generic>CT (Ķīna)</generic>
 					<standard>CST (Ķīna)</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">CST (CN)</standard>
 				</short>
 			</metazone>
 			<metazone type="Christmas">
@@ -2949,30 +2858,18 @@
 					<standard>Centrāleiropas laiks</standard>
 					<daylight>Centrāleiropas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Austrumeiropas laiks</standard>
 					<daylight>Austrumeiropas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>Rietumeiropas laiks</standard>
 					<daylight>Rietumeiropas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>WET</standard>
-					<daylight>WEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -3065,7 +2962,6 @@
 				</long>
 				<short>
 					<standard>IST (Izraēla)</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">IST (IL)</standard>
 				</short>
 			</metazone>
 			<metazone type="Japan">
@@ -3301,9 +3197,7 @@
 			<metazone type="Taipei">
 				<short>
 					<standard>CST (Taipeja)</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">CST (TW)</standard>
 					<daylight>CDT (Taipeja)</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">CDT (TW)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Tashkent">
@@ -4176,7 +4070,6 @@
 				<displayName count="one">Zimbabves dollārs (2009)</displayName>
 				<displayName count="other">Zimbabves dollāri (2009)</displayName>
 				<displayName count="zero">Zimbabves dollāri (2009)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Zimbabves dolārs</displayName>
 			</currency>
 		</currencies>
 	</numbers>

@@ -1026,153 +1026,9 @@
 	</delimiters>
 	<dates>
 		<calendars>
-			<calendar type="buddhist">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="provisional">1月</month>
-							<month type="2" draft="provisional">2月</month>
-							<month type="3" draft="provisional">3月</month>
-							<month type="4" draft="provisional">4月</month>
-							<month type="5" draft="provisional">5月</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="provisional">1月</month>
-							<month type="2" draft="provisional">2月</month>
-							<month type="3" draft="provisional">3月</month>
-							<month type="4" draft="provisional">4月</month>
-							<month type="5" draft="provisional">5月</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="provisional">1月</month>
-							<month type="2" draft="provisional">2月</month>
-							<month type="3" draft="provisional">3月</month>
-							<month type="4" draft="provisional">4月</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="provisional">1月</month>
-							<month type="2" draft="provisional">2月</month>
-							<month type="3" draft="provisional">3月</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="provisional">日</day>
-							<day type="mon" draft="provisional">月</day>
-							<day type="tue" draft="provisional">火</day>
-							<day type="wed" draft="provisional">水</day>
-							<day type="thu" draft="provisional">木</day>
-							<day type="fri" draft="provisional">金</day>
-							<day type="sat" draft="provisional">土</day>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="provisional">日</day>
-							<day type="mon" draft="provisional">月</day>
-							<day type="tue" draft="provisional">火</day>
-							<day type="wed" draft="provisional">水</day>
-							<day type="thu" draft="provisional">木</day>
-							<day type="fri" draft="provisional">金</day>
-							<day type="sat" draft="provisional">土</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="provisional">日曜日</day>
-							<day type="mon" draft="provisional">月曜日</day>
-							<day type="tue" draft="provisional">火曜日</day>
-							<day type="wed" draft="provisional">水曜日</day>
-							<day type="thu" draft="provisional">木曜日</day>
-							<day type="fri" draft="provisional">金曜日</day>
-							<day type="sat" draft="provisional">土曜日</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="provisional">日</day>
-							<day type="mon" draft="provisional">月</day>
-							<day type="tue" draft="provisional">火</day>
-							<day type="wed" draft="provisional">水</day>
-							<day type="thu" draft="provisional">木</day>
-							<day type="fri" draft="provisional">金</day>
-							<day type="sat" draft="provisional">土</day>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="provisional">日</day>
-							<day type="mon" draft="provisional">月</day>
-							<day type="tue" draft="provisional">火</day>
-							<day type="wed" draft="provisional">水</day>
-							<day type="thu" draft="provisional">木</day>
-							<day type="fri" draft="provisional">金</day>
-							<day type="sat" draft="provisional">土</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="provisional">日曜日</day>
-							<day type="mon" draft="provisional">月曜日</day>
-							<day type="tue" draft="provisional">火曜日</day>
-							<day type="wed" draft="provisional">水曜日</day>
-							<day type="thu" draft="provisional">木曜日</day>
-							<day type="fri" draft="provisional">金曜日</day>
-							<day type="sat" draft="provisional">土曜日</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<dayPeriods>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="provisional">H時mm分ss秒 zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="provisional">H:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern draft="provisional">H:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern draft="provisional">H:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
-			</calendar>
-			<calendar type="coptic">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="EEEd" draft="provisional">d (EEE)</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">1月</month>
-							<month type="2">2月</month>
-							<month type="3">3月</month>
-							<month type="4">4月</month>
-							<month type="5">5月</month>
-							<month type="6">6月</month>
-							<month type="7">7月</month>
-							<month type="8">8月</month>
-							<month type="9">9月</month>
-							<month type="10">10月</month>
-							<month type="11">11月</month>
-							<month type="12">12月</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">1月</month>
 							<month type="2">2月</month>
@@ -1189,20 +1045,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">1月</month>
-							<month type="2">2月</month>
-							<month type="3">3月</month>
-							<month type="4">4月</month>
-							<month type="5">5月</month>
-							<month type="6">6月</month>
-							<month type="7">7月</month>
-							<month type="8">8月</month>
-							<month type="9">9月</month>
-							<month type="10">10月</month>
-							<month type="11">11月</month>
-							<month type="12">12月</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
 							<month type="2">2</month>
@@ -1217,11 +1059,6 @@
 							<month type="11">11</month>
 							<month type="12">12</month>
 						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="provisional">1月</month>
-							<month type="2" draft="provisional">2月</month>
-							<month type="3" draft="provisional">3月</month>
-						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -1235,15 +1072,6 @@
 							<day type="fri">金</day>
 							<day type="sat">土</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="provisional">日</day>
-							<day type="mon" draft="provisional">月</day>
-							<day type="tue" draft="provisional">火</day>
-							<day type="wed" draft="provisional">水</day>
-							<day type="thu" draft="provisional">木</day>
-							<day type="fri" draft="provisional">金</day>
-							<day type="sat" draft="provisional">土</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">日曜日</day>
 							<day type="mon">月曜日</day>
@@ -1255,15 +1083,6 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="provisional">日</day>
-							<day type="mon" draft="provisional">月</day>
-							<day type="tue" draft="provisional">火</day>
-							<day type="wed" draft="provisional">水</day>
-							<day type="thu" draft="provisional">木</day>
-							<day type="fri" draft="provisional">金</day>
-							<day type="sat" draft="provisional">土</day>
-						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">日</day>
 							<day type="mon">月</day>
@@ -1272,15 +1091,6 @@
 							<day type="thu">木</day>
 							<day type="fri">金</day>
 							<day type="sat">土</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="provisional">日曜日</day>
-							<day type="mon" draft="provisional">月曜日</day>
-							<day type="tue" draft="provisional">火曜日</day>
-							<day type="wed" draft="provisional">水曜日</day>
-							<day type="thu" draft="provisional">木曜日</day>
-							<day type="fri" draft="provisional">金曜日</day>
-							<day type="sat" draft="provisional">土曜日</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1299,26 +1109,12 @@
 							<quarter type="4">第4四半期</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">午前</dayPeriod>
 							<dayPeriod type="pm">午後</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">午前</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">午後</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1331,10 +1127,6 @@
 						<era type="0">BC</era>
 						<era type="1">AD</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="provisional">BC</era>
-						<era type="1" draft="provisional">AD</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1387,12 +1179,12 @@
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>{1}{0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>{1}{0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1585,14 +1377,6 @@
 				</fields>
 			</calendar>
 			<calendar type="japanese">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">午前</dayPeriod>
-							<dayPeriod type="pm">午後</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<eras>
 					<eraAbbr>
 						<era type="0">大化</era>
@@ -3158,8 +2942,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">CT</generic>
-					<standard draft="provisional">CST</standard>
-					<daylight draft="provisional">CDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Eastern">
@@ -3170,8 +2952,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">ET</generic>
-					<standard draft="provisional">EST</standard>
-					<daylight draft="provisional">EDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -3182,8 +2962,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">MT</generic>
-					<standard draft="provisional">MST</standard>
-					<daylight draft="provisional">MDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -3194,8 +2972,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">PT</generic>
-					<standard draft="provisional">PST</standard>
-					<daylight draft="provisional">PDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Anadyr">
@@ -3272,8 +3048,6 @@
 				</long>
 				<short>
 					<generic draft="provisional">AT</generic>
-					<standard draft="provisional">AST</standard>
-					<daylight draft="provisional">ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -3503,30 +3277,18 @@
 					<standard>中欧標準時</standard>
 					<daylight>中欧夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">CET</standard>
-					<daylight draft="provisional">CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>東欧標準時</standard>
 					<daylight>東欧夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">EET</standard>
-					<daylight draft="provisional">EEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard draft="provisional">西ヨーロッパ時間</standard>
 					<daylight draft="provisional">西ヨーロッパ夏時間</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">WET</standard>
-					<daylight draft="provisional">WEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -3581,9 +3343,6 @@
 				<long>
 					<standard>グリニッジ標準時</standard>
 				</long>
-				<short>
-					<standard draft="provisional">GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>

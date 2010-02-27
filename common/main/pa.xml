@@ -140,12 +140,6 @@
 				</days>
 				<quarters>
 					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
-							<quarter type="3" draft="unconfirmed">Q3</quarter>
-							<quarter type="4" draft="unconfirmed">Q4</quarter>
-						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">ਪਹਿਲਾਂ ਚੌਥਾਈ</quarter>
 							<quarter type="2">ਦੂਜਾ ਚੌਥਾਈ</quarter>
@@ -163,13 +157,9 @@
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
-					<eraNames>
+					<eraAbbr>
 						<era type="0">ਈਸਾਪੂਰਵ</era>
 						<era type="1">ਸੰਨ</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="unconfirmed">BCE</era>
-						<era type="1" draft="unconfirmed">CE</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -259,11 +249,6 @@
 				</fields>
 			</calendar>
 		</calendars>
-		<timeZoneNames>
-			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<regionFormat draft="unconfirmed">{0}</regionFormat>
-		</timeZoneNames>
 	</dates>
 	<numbers>
 		<defaultNumberingSystem>guru</defaultNumberingSystem>

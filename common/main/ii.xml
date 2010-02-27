@@ -93,25 +93,9 @@
 							<month type="7">ꏃꆪ</month>
 							<month type="8">ꉆꆪ</month>
 							<month type="9">ꈬꆪ</month>
-							<month type="10" draft="provisional">ꊰꆪ</month>
+							<month type="10">ꊰꆪ</month>
 							<month type="11">ꊰꊪꆪ</month>
 							<month type="12">ꊰꑋꆪ</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1" draft="provisional">1</month>
-							<month type="2" draft="provisional">2</month>
-							<month type="3" draft="provisional">3</month>
-							<month type="4" draft="provisional">4</month>
-							<month type="5" draft="provisional">5</month>
-							<month type="6" draft="provisional">6</month>
-							<month type="7" draft="provisional">7</month>
-							<month type="8" draft="provisional">8</month>
-							<month type="9" draft="provisional">9</month>
-							<month type="10" draft="provisional">10</month>
-							<month type="11" draft="provisional">11</month>
-							<month type="12" draft="provisional">12</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -143,32 +127,18 @@
 							<day type="tue">ꑍ</day>
 							<day type="wed">ꌕ</day>
 							<day type="thu">ꇖ</day>
-							<day type="fri" draft="provisional">ꉬ</day>
+							<day type="fri">ꉬ</day>
 							<day type="sat">ꃘ</day>
 						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">ꃅꑌ</quarter>
-							<quarter type="2">ꃅꎸ</quarter>
-							<quarter type="3">ꃅꍵ</quarter>
-							<quarter type="4" draft="provisional">ꃅꋆ</quarter>
-						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">ꃅꑌ</quarter>
 							<quarter type="2">ꃅꎸ</quarter>
-							<quarter type="3" draft="provisional">ꃅꍵ</quarter>
-							<quarter type="4" draft="provisional">ꃅꋆ</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
+							<quarter type="3">ꃅꍵ</quarter>
+							<quarter type="4">ꃅꋆ</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -186,13 +156,6 @@
 						<era type="1">ꃅꋊꊂ</era>
 					</eraAbbr>
 				</eras>
-				<dateFormats>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern draft="provisional">y MMMM d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 				<fields>
 					<field type="era">
 						<displayName>ꃅꋊ</displayName>

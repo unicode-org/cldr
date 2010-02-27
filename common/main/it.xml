@@ -1131,26 +1131,12 @@
 							<quarter type="4">4o trimestre</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">m.</dayPeriod>
 							<dayPeriod type="pm">p.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">AM</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1209,26 +1195,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="EEEd" draft="unconfirmed">EEE d</dateFormatItem>
@@ -1411,7 +1377,6 @@
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat draft="contributed">{0}</regionFormat>
-			<fallbackFormat draft="unconfirmed">{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Sconosciuto</exemplarCity>
 			</zone>
@@ -1601,220 +1566,23 @@
 			<zone type="America/St_Thomas">
 				<exemplarCity>St. Thomas</exemplarCity>
 			</zone>
-			<metazone type="Acre">
-				<long>
-					<standard draft="provisional">Acre Time</standard>
-					<daylight draft="provisional">Acre Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Africa_Central">
-				<long>
-					<standard draft="provisional">Central Africa Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Africa_Eastern">
-				<long>
-					<standard draft="provisional">East Africa Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Africa_Southern">
-				<long>
-					<standard draft="provisional">South Africa Standard Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Africa_Western">
-				<long>
-					<standard draft="provisional">West Africa Time</standard>
-					<daylight draft="provisional">West Africa Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aktyubinsk">
-				<long>
-					<standard draft="provisional">Aktyubinsk Time</standard>
-					<daylight draft="provisional">Aktyubinsk Summer Time</daylight>
-				</long>
-			</metazone>
 			<metazone type="Alaska">
 				<long>
-					<generic draft="provisional">Alaska Time</generic>
 					<standard>Ora Standard Alaska</standard>
 					<daylight>Ora Legale Alaska</daylight>
 				</long>
 			</metazone>
-			<metazone type="Alaska_Hawaii">
-				<long>
-					<standard draft="provisional">Alaska-Hawaii Standard Time</standard>
-					<daylight draft="provisional">Alaska-Hawaii Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Amazon">
-				<long>
-					<standard draft="provisional">Amazon Time</standard>
-					<daylight draft="provisional">Amazon Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Central">
-				<long>
-					<generic draft="provisional">Central Time</generic>
-					<standard draft="provisional">Central Standard Time</standard>
-					<daylight draft="provisional">Central Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Eastern">
-				<long>
-					<generic draft="provisional">Eastern Time</generic>
-					<standard draft="provisional">Eastern Standard Time</standard>
-					<daylight draft="provisional">Eastern Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Mountain">
-				<long>
-					<generic draft="provisional">Mountain Time</generic>
-					<standard draft="provisional">Mountain Standard Time</standard>
-					<daylight draft="provisional">Mountain Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Pacific">
-				<long>
-					<generic draft="provisional">Pacific Time</generic>
-					<standard draft="provisional">Pacific Standard Time</standard>
-					<daylight draft="provisional">Pacific Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<standard draft="provisional">Aqtau Time</standard>
-					<daylight draft="provisional">Aqtau Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<standard draft="provisional">Aqtobe Time</standard>
-					<daylight draft="provisional">Aqtobe Summer Time</daylight>
-				</long>
-			</metazone>
 			<metazone type="Arabian">
-				<long>
-					<generic draft="provisional">Arabian Time</generic>
-					<standard draft="provisional">Arabian Standard Time</standard>
-					<daylight draft="provisional">Arabian Daylight Time</daylight>
-				</long>
 				<short>
-					<standard draft="provisional">ST arabo</standard>
+					<standard draft="provisional">AST arabo</standard>
 					<daylight draft="provisional">ADT arabo</daylight>
 				</short>
 			</metazone>
-			<metazone type="Argentina">
-				<long>
-					<standard draft="provisional">Argentina Time</standard>
-					<daylight draft="provisional">Argentina Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Argentina_Western">
-				<long>
-					<standard draft="provisional">Western Argentina Time</standard>
-				</long>
-			</metazone>
 			<metazone type="Armenia">
-				<long>
-					<standard draft="provisional">Armenia Time</standard>
-					<daylight draft="provisional">Armenia Summer Time</daylight>
-				</long>
 				<short>
 					<standard draft="provisional">AMT Armenia</standard>
 					<daylight draft="provisional">AMST Armenia</daylight>
 				</short>
-			</metazone>
-			<metazone type="Ashkhabad">
-				<long>
-					<standard draft="provisional">Ashkhabad Time</standard>
-					<daylight draft="provisional">Ashkhabad Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Atlantic">
-				<long>
-					<generic draft="provisional">Atlantic Time</generic>
-					<standard draft="provisional">Atlantic Standard Time</standard>
-					<daylight draft="provisional">Atlantic Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Australia_Central">
-				<long>
-					<generic draft="provisional">Central Australia Time</generic>
-					<standard draft="provisional">Australian Central Standard Time</standard>
-					<daylight draft="provisional">Australian Central Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Australia_Eastern">
-				<long>
-					<generic draft="provisional">Eastern Australia Time</generic>
-					<standard draft="provisional">Australian Eastern Standard Time</standard>
-					<daylight draft="provisional">Australian Eastern Daylight Tim</daylight>
-				</long>
-			</metazone>
-			<metazone type="Australia_Western">
-				<long>
-					<generic draft="provisional">Western Australia Time</generic>
-					<standard draft="provisional">Australian Western Standard Time</standard>
-					<daylight draft="provisional">Australian Western Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Azores">
-				<long>
-					<standard draft="provisional">Azores Time</standard>
-					<daylight draft="provisional">Azores Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Baku">
-				<long>
-					<standard draft="provisional">Baku Time</standard>
-					<daylight draft="provisional">Baku Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Bangladesh">
-				<long>
-					<standard draft="provisional">Bangladesh Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Bering">
-				<long>
-					<generic draft="provisional">Bering Time</generic>
-					<standard draft="provisional">Bering Standard Time</standard>
-					<daylight draft="provisional">Bering Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Bhutan">
-				<long>
-					<standard draft="provisional">Bhutan Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Borneo">
-				<long>
-					<standard draft="provisional">Borneo Time</standard>
-					<daylight draft="provisional">Borneo Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Brasilia">
-				<long>
-					<standard draft="provisional">Brasilia Time</standard>
-					<daylight draft="provisional">Brasilia Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Chamorro">
-				<long>
-					<standard draft="provisional">Chamorro Standard Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Changbai">
-				<long>
-					<standard draft="provisional">Changbai Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Chile">
-				<long>
-					<standard draft="provisional">Chile Time</standard>
-					<daylight draft="provisional">Chile Summer Time</daylight>
-				</long>
 			</metazone>
 			<metazone type="China">
 				<long>
@@ -1825,38 +1593,6 @@
 					<standard>CST (Cina)</standard>
 					<daylight>CDT (Cina)</daylight>
 				</short>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<standard draft="provisional">Choibalsan Time</standard>
-					<daylight draft="provisional">Choibalsan Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Dacca">
-				<long>
-					<standard draft="provisional">Dacca Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Dushanbe">
-				<long>
-					<standard draft="provisional">Dushanbe Time</standard>
-					<daylight draft="provisional">Dushanbe Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Dutch_Guiana">
-				<long>
-					<standard draft="provisional">Dutch Guiana Time</standard>
-				</long>
-			</metazone>
-			<metazone type="East_Timor">
-				<long>
-					<standard draft="provisional">East Timor Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Ecuador">
-				<long>
-					<standard draft="provisional">Ecuador Time</standard>
-				</long>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
@@ -1870,98 +1606,10 @@
 					<daylight>Ora Legale Europa Orientale</daylight>
 				</long>
 			</metazone>
-			<metazone type="Europe_Western">
-				<long>
-					<standard draft="provisional">Western European Time</standard>
-					<daylight draft="provisional">Western European Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Frunze">
-				<long>
-					<standard draft="provisional">Frunze Time</standard>
-					<daylight draft="provisional">Frunze Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Galapagos">
-				<long>
-					<standard draft="provisional">Galapagos Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Georgia">
-				<long>
-					<standard draft="provisional">Georgia Time</standard>
-					<daylight draft="provisional">Georgia Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="GMT">
-				<long>
-					<standard draft="provisional">Greenwich Mean Time</standard>
-				</long>
-				<commonlyUsed draft="provisional">true</commonlyUsed>
-			</metazone>
-			<metazone type="Greenland_Central">
-				<long>
-					<standard draft="provisional">Central Greenland Time</standard>
-					<daylight draft="provisional">Central Greenland Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Greenland_Eastern">
-				<long>
-					<standard draft="provisional">East Greenland Time</standard>
-					<daylight draft="provisional">East Greenland Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Greenland_Western">
-				<long>
-					<standard draft="provisional">West Greenland Time</standard>
-					<daylight draft="provisional">West Greenland Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="provisional">Guam Standard Time</standard>
-				</long>
-				<short>
-					<standard draft="provisional">GST Guam</standard>
-				</short>
-			</metazone>
-			<metazone type="Gulf">
-				<long>
-					<standard draft="provisional">Gulf Standard Time</standard>
-				</long>
-			</metazone>
 			<metazone type="Hawaii">
 				<long>
-					<generic draft="provisional">Hawaii Time</generic>
 					<standard>Ora Standard Hawaii</standard>
 					<daylight>Ora Legale Hawaii</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii_Aleutian">
-				<long>
-					<generic draft="provisional">Hawaii-Aleutian Time</generic>
-					<standard draft="provisional">Hawaii-Aleutian Standard Time</standard>
-					<daylight draft="provisional">Hawaii-Aleutian Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="India">
-				<long>
-					<standard draft="provisional">India Standard Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Indonesia_Central">
-				<long>
-					<standard draft="provisional">Central Indonesia Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Indonesia_Eastern">
-				<long>
-					<standard draft="provisional">Eastern Indonesia Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Indonesia_Western">
-				<long>
-					<standard draft="provisional">Western Indonesia Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Israel">
@@ -1974,240 +1622,6 @@
 				<long>
 					<standard>Ora Standard Giappone</standard>
 					<daylight>Ora Legale Giappone</daylight>
-				</long>
-			</metazone>
-			<metazone type="Karachi">
-				<long>
-					<standard draft="provisional">Karachi Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Kashgar">
-				<long>
-					<standard draft="provisional">Kashgar Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Kazakhstan_Eastern">
-				<long>
-					<standard draft="provisional">East Kazakhstan Standard Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Kazakhstan_Western">
-				<long>
-					<standard draft="provisional">West Kazakhstan Standard Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Kizilorda">
-				<long>
-					<standard draft="provisional">Kizilorda Time</standard>
-					<daylight draft="provisional">Kizilorda Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Korea">
-				<long>
-					<generic draft="provisional">Korean Time</generic>
-					<standard draft="provisional">Korean Standard Time</standard>
-					<daylight draft="provisional">Korean Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Kuybyshev">
-				<long>
-					<standard draft="provisional">Kuybyshev Time</standard>
-					<daylight draft="provisional">Kuybyshev Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Kwajalein">
-				<long>
-					<standard draft="provisional">Kwajalein Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Kyrgystan">
-				<long>
-					<standard draft="provisional">Kyrgystan Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="provisional">Lanka Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Long_Shu">
-				<long>
-					<standard draft="provisional">Long-Shu Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Lord_Howe">
-				<long>
-					<generic draft="provisional">Lord Howe Time</generic>
-					<standard draft="provisional">Lord Howe Standard Time</standard>
-					<daylight draft="provisional">Lord Howe Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<standard draft="provisional">Macau Time</standard>
-					<daylight draft="provisional">Macau Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Malaya">
-				<long>
-					<standard draft="provisional">Malaya Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Malaysia">
-				<long>
-					<standard draft="provisional">Malaysia Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Marshall_Islands">
-				<long>
-					<standard draft="provisional">Marshall Islands Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Mongolia">
-				<long>
-					<standard draft="provisional">Ulan Bator Time</standard>
-					<daylight draft="provisional">Ulan Bator Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="New_Zealand">
-				<long>
-					<generic draft="provisional">New Zealand Time</generic>
-					<standard draft="provisional">New Zealand Standard Time</standard>
-					<daylight draft="provisional">New Zealand Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Newfoundland">
-				<long>
-					<generic draft="provisional">Newfoundland Time</generic>
-					<standard draft="provisional">Newfoundland Standard Time</standard>
-					<daylight draft="provisional">Newfoundland Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="provisional">North Mariana Islands Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Pakistan">
-				<long>
-					<standard draft="provisional">Pakistan Time</standard>
-					<daylight draft="provisional">Pakistan Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Pierre_Miquelon">
-				<long>
-					<generic draft="provisional">Pierre and Miquelon Time</generic>
-					<standard draft="provisional">Pierre and Miquelon Standard Time</standard>
-					<daylight draft="provisional">Pierre and Miquelon Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<standard draft="provisional">Qyzylorda Time</standard>
-					<daylight draft="provisional">Qyzylorda Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Samara">
-				<long>
-					<standard draft="provisional">Samara Time</standard>
-					<daylight draft="provisional">Samara Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Samarkand">
-				<long>
-					<standard draft="provisional">Samarkand Time</standard>
-					<daylight draft="provisional">Samarkand Summer Time</daylight>
-				</long>
-				<short>
-					<standard draft="provisional">SAMT Samarkand</standard>
-					<daylight draft="provisional">SAMST Samarkand</daylight>
-				</short>
-			</metazone>
-			<metazone type="Samoa">
-				<long>
-					<standard draft="provisional">Samoa Standard Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Shevchenko">
-				<long>
-					<standard draft="provisional">Shevchenko Time</standard>
-					<daylight draft="provisional">Shevchenko Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Suriname">
-				<long>
-					<standard draft="provisional">Suriname Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Sverdlovsk">
-				<long>
-					<standard draft="provisional">Sverdlovsk Time</standard>
-					<daylight draft="provisional">Sverdlovsk Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Tajikistan">
-				<long>
-					<standard draft="provisional">Tajikistan Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Tashkent">
-				<long>
-					<standard draft="provisional">Tashkent Time</standard>
-					<daylight draft="provisional">Tashkent Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Tbilisi">
-				<long>
-					<standard draft="provisional">Tbilisi Time</standard>
-					<daylight draft="provisional">Tbilisi Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Turkey">
-				<long>
-					<standard draft="provisional">Turkey Time</standard>
-					<daylight draft="provisional">Turkey Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Turkmenistan">
-				<long>
-					<standard draft="provisional">Turkmenistan Time</standard>
-					<daylight draft="provisional">Turkmenistan Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Uralsk">
-				<long>
-					<standard draft="provisional">Ural'sk Time</standard>
-					<daylight draft="provisional">Ural'sk Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Urumqi">
-				<long>
-					<standard draft="provisional">Urumqi Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Uzbekistan">
-				<long>
-					<standard draft="provisional">Uzbekistan Time</standard>
-					<daylight draft="provisional">Uzbekistan Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Yekaterinburg">
-				<long>
-					<standard draft="provisional">Yekaterinburg Time</standard>
-					<daylight draft="provisional">Yekaterinburg Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Yerevan">
-				<long>
-					<standard draft="provisional">Yerevan Time</standard>
-					<daylight draft="provisional">Yerevan Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Yukon">
-				<long>
-					<generic draft="provisional">Yukon Time</generic>
-					<standard draft="provisional">Yukon Standard Time</standard>
-					<daylight draft="provisional">Yukon Daylight Time</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>

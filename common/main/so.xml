@@ -472,10 +472,10 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
+							<quarter type="1">R1</quarter>
+							<quarter type="2">R2</quarter>
+							<quarter type="3">R3</quarter>
+							<quarter type="4">R4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">Rubaca 1aad</quarter>
@@ -695,9 +695,6 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<regionFormat draft="unconfirmed">{0}</regionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Far aan la aqoon amase aan saxnayn</exemplarCity>
 			</zone>
@@ -716,12 +713,6 @@
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
-			<currency type="BRL">
-				<displayName draft="unconfirmed">Brazilian Real</displayName>
-			</currency>
-			<currency type="CNY">
-				<displayName draft="unconfirmed">Chinese Yuan Renminbi</displayName>
-			</currency>
 			<currency type="DJF">
 				<displayName>Faran Jabbuuti</displayName>
 			</currency>
@@ -730,18 +721,6 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>Yuuroo</displayName>
-			</currency>
-			<currency type="GBP">
-				<displayName draft="unconfirmed">British Pound Sterling</displayName>
-			</currency>
-			<currency type="INR">
-				<displayName draft="unconfirmed">Indian Rupee</displayName>
-			</currency>
-			<currency type="JPY">
-				<displayName draft="unconfirmed">Japanese Yen</displayName>
-			</currency>
-			<currency type="RUB">
-				<displayName draft="unconfirmed">Russian Ruble</displayName>
 			</currency>
 			<currency type="SAR">
 				<displayName>Riyaalka Sacuudiga</displayName>

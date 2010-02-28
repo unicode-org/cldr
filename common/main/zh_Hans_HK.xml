@@ -16,26 +16,10 @@
 	</localeDisplayNames>
 	<dates>
 		<calendars>
-			<calendar type="buddhist">
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d" draft="provisional">M月d日E至M月d日E</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="chinese">
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="MEd" draft="provisional">M-dE</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="ethiopic">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yyyyMMMM" draft="provisional">yyyy年M月</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -60,18 +44,6 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y" draft="provisional">y–y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d" draft="provisional">y年M月d日E至M月d日E</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="islamic">
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d" draft="provisional">M月d日E至M月d日E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
 							<greatestDifference id="d" draft="provisional">y年M月d日E至M月d日E</greatestDifference>

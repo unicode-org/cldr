@@ -9,35 +9,14 @@
 	<localeDisplayNames>
 		<languages>
 			<language type="aa" draft="unconfirmed">Qafar</language>
-			<language type="ar" draft="unconfirmed">Arabic</language>
-			<language type="de" draft="unconfirmed">German</language>
-			<language type="en" draft="unconfirmed">English</language>
-			<language type="es" draft="unconfirmed">Spanish</language>
-			<language type="fr" draft="unconfirmed">French</language>
-			<language type="hi" draft="unconfirmed">Hindi</language>
-			<language type="it" draft="unconfirmed">Italian</language>
-			<language type="ja" draft="unconfirmed">Japanese</language>
-			<language type="pt" draft="unconfirmed">Portuguese</language>
-			<language type="ru" draft="unconfirmed">Russian</language>
-			<language type="zh" draft="unconfirmed">Chinese</language>
 		</languages>
 		<scripts>
 			<script type="Latn" draft="unconfirmed">Latin</script>
 		</scripts>
 		<territories>
-			<territory type="BR" draft="unconfirmed">Brazil</territory>
-			<territory type="CN" draft="unconfirmed">China</territory>
-			<territory type="DE" draft="unconfirmed">Germany</territory>
 			<territory type="DJ" draft="unconfirmed">Yabuuti</territory>
 			<territory type="ER" draft="unconfirmed">Eretria</territory>
 			<territory type="ET" draft="unconfirmed">Otobbia</territory>
-			<territory type="FR" draft="unconfirmed">France</territory>
-			<territory type="GB" draft="unconfirmed">United Kingdom</territory>
-			<territory type="IN" draft="unconfirmed">India</territory>
-			<territory type="IT" draft="unconfirmed">Italy</territory>
-			<territory type="JP" draft="unconfirmed">Japan</territory>
-			<territory type="RU" draft="unconfirmed">Russia</territory>
-			<territory type="US" draft="unconfirmed">United States</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
@@ -128,22 +107,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
-							<quarter type="3" draft="unconfirmed">Q3</quarter>
-							<quarter type="4" draft="unconfirmed">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
-							<quarter type="3" draft="unconfirmed">Q3</quarter>
-							<quarter type="4" draft="unconfirmed">Q4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
@@ -202,18 +165,8 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
-		<timeZoneNames>
-			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<regionFormat draft="unconfirmed">{0}</regionFormat>
-		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencyFormats>

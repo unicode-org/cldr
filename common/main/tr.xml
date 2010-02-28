@@ -1035,13 +1035,6 @@
 	</delimiters>
 	<dates>
 		<calendars>
-			<calendar type="chinese">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yyMMM">yy MMM</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="coptic">
 				<months>
 					<monthContext type="format">
@@ -1101,20 +1094,6 @@
 							<month type="11">Kas</month>
 							<month type="12">Ara</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">O</month>
-							<month type="2">Ş</month>
-							<month type="3">M</month>
-							<month type="4">N</month>
-							<month type="5">M</month>
-							<month type="6">H</month>
-							<month type="7">T</month>
-							<month type="8">A</month>
-							<month type="9">E</month>
-							<month type="10">E</month>
-							<month type="11">K</month>
-							<month type="12">A</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Ocak</month>
 							<month type="2">Şubat</month>
@@ -1131,20 +1110,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">Oca</month>
-							<month type="2">Şub</month>
-							<month type="3">Mar</month>
-							<month type="4">Nis</month>
-							<month type="5">May</month>
-							<month type="6">Haz</month>
-							<month type="7">Tem</month>
-							<month type="8">Ağu</month>
-							<month type="9">Eyl</month>
-							<month type="10">Eki</month>
-							<month type="11">Kas</month>
-							<month type="12">Ara</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">O</month>
 							<month type="2">Ş</month>
@@ -1159,20 +1124,6 @@
 							<month type="11">K</month>
 							<month type="12">A</month>
 						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Ocak</month>
-							<month type="2">Şubat</month>
-							<month type="3">Mart</month>
-							<month type="4">Nisan</month>
-							<month type="5">Mayıs</month>
-							<month type="6">Haziran</month>
-							<month type="7">Temmuz</month>
-							<month type="8">Ağustos</month>
-							<month type="9">Eylül</month>
-							<month type="10">Ekim</month>
-							<month type="11">Kasım</month>
-							<month type="12">Aralık</month>
-						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -1186,15 +1137,6 @@
 							<day type="fri">Cum</day>
 							<day type="sat">Cmt</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">P</day>
-							<day type="mon">P</day>
-							<day type="tue">S</day>
-							<day type="wed">Ç</day>
-							<day type="thu">P</day>
-							<day type="fri">C</day>
-							<day type="sat">C</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Pazar</day>
 							<day type="mon">Pazartesi</day>
@@ -1206,15 +1148,6 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun">Paz</day>
-							<day type="mon">Pzt</day>
-							<day type="tue">Sal</day>
-							<day type="wed">Çar</day>
-							<day type="thu">Per</day>
-							<day type="fri">Cum</day>
-							<day type="sat">Cmt</day>
-						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">P</day>
 							<day type="mon">P</day>
@@ -1223,15 +1156,6 @@
 							<day type="thu">P</day>
 							<day type="fri">C</day>
 							<day type="sat">C</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Pazar</day>
-							<day type="mon">Pazartesi</day>
-							<day type="tue">Salı</day>
-							<day type="wed">Çarşamba</day>
-							<day type="thu">Perşembe</day>
-							<day type="fri">Cuma</day>
-							<day type="sat">Cumartesi</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1250,56 +1174,14 @@
 							<quarter type="4">4. çeyrek</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">Ç1</quarter>
-							<quarter type="2">Ç2</quarter>
-							<quarter type="3">Ç3</quarter>
-							<quarter type="4">Ç4</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">1. çeyrek</quarter>
-							<quarter type="2">2. çeyrek</quarter>
-							<quarter type="3">3. çeyrek</quarter>
-							<quarter type="4">4. çeyrek</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">ÖÖ</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
 							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">ÖS</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1312,10 +1194,6 @@
 						<era type="0">MÖ</era>
 						<era type="1">MS</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0">MÖ</era>
-						<era type="1">MS</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1362,26 +1240,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
@@ -1564,88 +1422,6 @@
 			<calendar type="hebrew">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">Tişri</month>
-							<month type="2">Heşvan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tevet</month>
-							<month type="5">Şevat</month>
-							<month type="6">Veadar</month>
-							<month type="7">Adar</month>
-							<month type="7" yeartype="leap">Adar II</month>
-							<month type="8">Nisan</month>
-							<month type="9">İyar</month>
-							<month type="10">Sivan</month>
-							<month type="11">Tamuz</month>
-							<month type="12">Av</month>
-							<month type="13">Elul</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">Tişri</month>
-							<month type="2">Heşvan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tevet</month>
-							<month type="5">Şevat</month>
-							<month type="6">Veadar</month>
-							<month type="7">Adar</month>
-							<month type="7" yeartype="leap">Adar II</month>
-							<month type="8">Nisan</month>
-							<month type="9">İyar</month>
-							<month type="10">Sivan</month>
-							<month type="11">Tamuz</month>
-							<month type="12">Av</month>
-							<month type="13">Elul</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Tişri</month>
-							<month type="2">Heşvan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tevet</month>
-							<month type="5">Şevat</month>
-							<month type="6">Veadar</month>
-							<month type="7">Adar</month>
-							<month type="7" yeartype="leap">Adar II</month>
-							<month type="8">Nisan</month>
-							<month type="9">İyar</month>
-							<month type="10">Sivan</month>
-							<month type="11">Tamuz</month>
-							<month type="12">Av</month>
-							<month type="13">Elul</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">Tişri</month>
-							<month type="2">Heşvan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tevet</month>
-							<month type="5">Şevat</month>
-							<month type="6">Veadar</month>
-							<month type="7">Adar</month>
-							<month type="7" yeartype="leap">Adar II</month>
-							<month type="8">Nisan</month>
-							<month type="9">İyar</month>
-							<month type="10">Sivan</month>
-							<month type="11">Tamuz</month>
-							<month type="12">Av</month>
-							<month type="13">Elul</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">Tişri</month>
-							<month type="2">Heşvan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tevet</month>
-							<month type="5">Şevat</month>
-							<month type="6">Veadar</month>
-							<month type="7">Adar</month>
-							<month type="7" yeartype="leap">Adar II</month>
-							<month type="8">Nisan</month>
-							<month type="9">İyar</month>
-							<month type="10">Sivan</month>
-							<month type="11">Tamuz</month>
-							<month type="12">Av</month>
-							<month type="13">Elul</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tişri</month>
 							<month type="2">Heşvan</month>
@@ -1668,114 +1444,6 @@
 			<calendar type="islamic">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">Muharrem</month>
-							<month type="2">Safer</month>
-							<month type="3">Rebiülevvel</month>
-							<month type="4">Rebiülahir</month>
-							<month type="5">Cemaziyelevvel</month>
-							<month type="6">Cemaziyelahir</month>
-							<month type="7">Recep</month>
-							<month type="8">Şaban</month>
-							<month type="9">Ramazan</month>
-							<month type="10">Şevval</month>
-							<month type="11">Zilkade</month>
-							<month type="12">Zilhicce</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Muharrem</month>
-							<month type="2">Safer</month>
-							<month type="3">Rebiülevvel</month>
-							<month type="4">Rebiülahir</month>
-							<month type="5">Cemaziyelevvel</month>
-							<month type="6">Cemaziyelahir</month>
-							<month type="7">Recep</month>
-							<month type="8">Şaban</month>
-							<month type="9">Ramazan</month>
-							<month type="10">Şevval</month>
-							<month type="11">Zilkade</month>
-							<month type="12">Zilhicce</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">Muharrem</month>
-							<month type="2">Safer</month>
-							<month type="3">Rebiülevvel</month>
-							<month type="4">Rebiülahir</month>
-							<month type="5">Cemaziyelevvel</month>
-							<month type="6">Cemaziyelahir</month>
-							<month type="7">Recep</month>
-							<month type="8">Şaban</month>
-							<month type="9">Ramazan</month>
-							<month type="10">Şevval</month>
-							<month type="11">Zilkade</month>
-							<month type="12">Zilhicce</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Muharrem</month>
-							<month type="2">Safer</month>
-							<month type="3">Rebiülevvel</month>
-							<month type="4">Rebiülahir</month>
-							<month type="5">Cemaziyelevvel</month>
-							<month type="6">Cemaziyelahir</month>
-							<month type="7">Recep</month>
-							<month type="8">Şaban</month>
-							<month type="9">Ramazan</month>
-							<month type="10">Şevval</month>
-							<month type="11">Zilkade</month>
-							<month type="12">Zilhicce</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-			</calendar>
-			<calendar type="islamic-civil">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">Muharrem</month>
-							<month type="2">Safer</month>
-							<month type="3">Rebiülevvel</month>
-							<month type="4">Rebiülahir</month>
-							<month type="5">Cemaziyelevvel</month>
-							<month type="6">Cemaziyelahir</month>
-							<month type="7">Recep</month>
-							<month type="8">Şaban</month>
-							<month type="9">Ramazan</month>
-							<month type="10">Şevval</month>
-							<month type="11">Zilkade</month>
-							<month type="12">Zilhicce</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Muharrem</month>
-							<month type="2">Safer</month>
-							<month type="3">Rebiülevvel</month>
-							<month type="4">Rebiülahir</month>
-							<month type="5">Cemaziyelevvel</month>
-							<month type="6">Cemaziyelahir</month>
-							<month type="7">Recep</month>
-							<month type="8">Şaban</month>
-							<month type="9">Ramazan</month>
-							<month type="10">Şevval</month>
-							<month type="11">Zilkade</month>
-							<month type="12">Zilhicce</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">Muharrem</month>
-							<month type="2">Safer</month>
-							<month type="3">Rebiülevvel</month>
-							<month type="4">Rebiülahir</month>
-							<month type="5">Cemaziyelevvel</month>
-							<month type="6">Cemaziyelahir</month>
-							<month type="7">Recep</month>
-							<month type="8">Şaban</month>
-							<month type="9">Ramazan</month>
-							<month type="10">Şevval</month>
-							<month type="11">Zilkade</month>
-							<month type="12">Zilhicce</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Muharrem</month>
 							<month type="2">Safer</month>
@@ -1796,47 +1464,6 @@
 			<calendar type="persian">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">Ferverdin</month>
-							<month type="2">Ordibeheşt</month>
-							<month type="3">Hordad</month>
-							<month type="4">Tir</month>
-							<month type="5">Mordad</month>
-							<month type="6">Şehriver</month>
-							<month type="7">Mehr</month>
-							<month type="9">Azer</month>
-							<month type="10">Dey</month>
-							<month type="11">Behmen</month>
-							<month type="12">Esfend</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Ferverdin</month>
-							<month type="2">Ordibeheşt</month>
-							<month type="3">Hordad</month>
-							<month type="4">Tir</month>
-							<month type="5">Mordad</month>
-							<month type="6">Şehriver</month>
-							<month type="7">Mehr</month>
-							<month type="9">Azer</month>
-							<month type="10">Dey</month>
-							<month type="11">Behmen</month>
-							<month type="12">Esfend</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">Ferverdin</month>
-							<month type="2">Ordibeheşt</month>
-							<month type="3">Hordad</month>
-							<month type="4">Tir</month>
-							<month type="5">Mordad</month>
-							<month type="6">Şehriver</month>
-							<month type="7">Mehr</month>
-							<month type="9">Azer</month>
-							<month type="10">Dey</month>
-							<month type="11">Behmen</month>
-							<month type="12">Esfend</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Ferverdin</month>
 							<month type="2">Ordibeheşt</month>
@@ -2262,8 +1889,6 @@
 				</long>
 				<short>
 					<generic>CT</generic>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Eastern">
@@ -2274,8 +1899,6 @@
 				</long>
 				<short>
 					<generic>ET</generic>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -2286,8 +1909,6 @@
 				</long>
 				<short>
 					<generic>MT</generic>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -2298,8 +1919,6 @@
 				</long>
 				<short>
 					<generic>PT</generic>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Anadyr">
@@ -2375,8 +1994,6 @@
 				</long>
 				<short>
 					<generic>AT</generic>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -2610,30 +2227,18 @@
 					<standard>Orta Avrupa Saati</standard>
 					<daylight>Orta Avrupa Yaz Saati</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Doğu Avrupa Saati</standard>
 					<daylight>Doğu Avrupa Yaz Saati</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>Batı Avrupa Saati</standard>
 					<daylight>Batı Avrupa Yaz Saati</daylight>
 				</long>
-				<short>
-					<standard>WET</standard>
-					<daylight>WEST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -2688,9 +2293,6 @@
 				<long>
 					<standard>Greenwich Merkez Saati</standard>
 				</long>
-				<short>
-					<standard>GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>

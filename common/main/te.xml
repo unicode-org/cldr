@@ -1056,12 +1056,6 @@
 				</days>
 				<quarters>
 					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
-							<quarter type="3" draft="unconfirmed">Q3</quarter>
-							<quarter type="4" draft="unconfirmed">Q4</quarter>
-						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">ఒకటి 1</quarter>
 							<quarter type="2">రెండు 2</quarter>
@@ -1098,8 +1092,8 @@
 						<era type="1" alt="proposed-x1001" draft="unconfirmed">క్రీస్తుశకం</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0" draft="unconfirmed">BCE</era>
-						<era type="1" draft="unconfirmed">CE</era>
+						<era type="0">ఈసాపూర్వ.</era>
+						<era type="1">సన్.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1201,8 +1195,6 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
 			<regionFormat draft="unconfirmed">{0} సమయం</regionFormat>
 			<zone type="Australia/Brisbane">
 				<exemplarCity draft="unconfirmed">బ్రిస్బేన్</exemplarCity>

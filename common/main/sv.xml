@@ -1212,14 +1212,6 @@
 		<dateRangePattern>{0} till {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="provisional">fm</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">em</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1242,11 +1234,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yyMMM" draft="provisional">MMM -yy</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="coptic">
 				<months>
@@ -1401,10 +1388,6 @@
 							<dayPeriod type="am" draft="unconfirmed">f.m.</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">e.m.</dayPeriod>
 						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">f.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">e.m.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">fm</dayPeriod>
 							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">på förmiddagen</dayPeriod>
@@ -1438,10 +1421,6 @@
 						<era type="0">f.Kr.</era>
 						<era type="1">e.Kr.</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">f.Kr.</era>
-						<era type="1" draft="contributed">e.Kr.</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1488,26 +1467,6 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="EEEd" draft="contributed">EEE d</dateFormatItem>

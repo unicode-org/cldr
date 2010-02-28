@@ -405,15 +405,6 @@
 				</months>
 				<days>
 					<dayContext type="format">
-						<dayWidth type="narrow">
-							<day type="sun" draft="provisional">ا</day>
-							<day type="mon" draft="provisional">پ</day>
-							<day type="tue" draft="provisional">م</day>
-							<day type="wed" draft="provisional">ب</day>
-							<day type="thu" draft="provisional">ج</day>
-							<day type="fri" draft="provisional">ج</day>
-							<day type="sat" draft="provisional">ہ</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">اتوار</day>
 							<day type="mon">پير</day>
@@ -422,6 +413,17 @@
 							<day type="thu">جمعرات</day>
 							<day type="fri">جمعہ</day>
 							<day type="sat">ہفتہ</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" draft="provisional">ا</day>
+							<day type="mon" draft="provisional">پ</day>
+							<day type="tue" draft="provisional">م</day>
+							<day type="wed" draft="provisional">ب</day>
+							<day type="thu" draft="provisional">ج</day>
+							<day type="fri" draft="provisional">ج</day>
+							<day type="sat" draft="provisional">ہ</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -672,20 +674,14 @@
 					</monthContext>
 				</months>
 				<eras>
-					<eraNames>
-						<era type="1" draft="unconfirmed">عيسوی سن</era>
-					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="unconfirmed">ق م</era>
-						<era type="1" draft="unconfirmed">CE</era>
+						<era type="1" draft="unconfirmed">عيسوی سن</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<regionFormat draft="unconfirmed">{0}</regionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="provisional">Unknown</exemplarCity>
 			</zone>

@@ -19,8 +19,6 @@ import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.CldrUtility;
 
-import quicktime.Errors;
-
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;

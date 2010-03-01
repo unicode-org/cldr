@@ -390,12 +390,15 @@ public class CLDRFile implements Freezable, Iterable<String> {
     Set orderedSet = new TreeSet(ldmlComparator);
     CollectionUtilities.addAll(dataSource.iterator(), orderedSet);
 
+    String firstPath = (String) orderedSet.iterator().next();
+    //Value firstValue = (Value) getXpath_value().get(firstPath);
+    String firstFullPath = getFullXPath(firstPath);
+    XPathParts parts = new XPathParts(null,null).set(firstFullPath);
+
+    DtdType dtdType = DtdType.valueOf(parts.getElement(0));
+    
     pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-    pw.println("<!DOCTYPE " 
-            + (isNonInheriting() ? "supplementalData" : "ldml")  
-        + " SYSTEM \"../../common/dtd/ldml" 
-            + (isNonInheriting() ? "Supplemental" : "")
-            + ".dtd\">");
+    pw.println("<!DOCTYPE " + dtdType + " SYSTEM \"../../common/dtd/" + dtdType + ".dtd\">");
     /*
      <identity>
      <version number="1.2"/>
@@ -410,10 +413,6 @@ public class CLDRFile implements Freezable, Iterable<String> {
     } else {
       String ldml_identity = "//ldml/identity";
       if (orderedSet.size() > 0) {
-        String firstPath = (String) orderedSet.iterator().next();
-        //Value firstValue = (Value) getXpath_value().get(firstPath);
-        String firstFullPath = getFullXPath(firstPath);
-        XPathParts parts = new XPathParts(null,null).set(firstFullPath);
         if (firstFullPath.indexOf("/identity") >= 0) {
           ldml_identity = parts.toString(2);
         } else {
@@ -2397,6 +2396,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
 
                   // <metazoneInfo> children
                   //"timezone", // doesn't need ordering, since type is distinguishing
+                  
+                  "languageMatch",
 
           })));
   
@@ -2507,6 +2508,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   static {
     String[][] data = {
             {"ldml", "version", GEN_VERSION},
+            {"version", "cldrVersion", "*"},
             {"orientation", "characters", "left-to-right"},
             {"orientation", "lines", "top-to-bottom"},
             {"weekendStart", "time", "00:00"},
@@ -2520,7 +2522,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
             {"currencyFormat", "type", "standard"},
             {"pattern", "type", "standard"},
             {"currency", "type", "standard"},
-            {"collation", "type", "standard"},
+            //{"collation", "type", "standard"},
             {"transform", "visibility", "external"},
             {"*", "_q", "*"},
     };

@@ -407,7 +407,7 @@ public class AddPopulationData {
       if (typeString.equals("gdp-ppp")) {
         if (StandardCodes.isCountry(data)) {
           Double otherPop = getPopulation(data);
-          Double otherGdp = getPopulation(data);
+          Double otherGdp = getGdp(data);
           Double myPop = getPopulation(code);
           if (myPop.doubleValue() == 0 || otherPop.doubleValue() == 0 || otherGdp.doubleValue() == 0) {
             otherPop = getPopulation(data);

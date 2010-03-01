@@ -141,10 +141,10 @@ public class ConvertLanguageData {
           String withoutScript = languageTagParser.setScript("").toString();
           if (!localesWithData.contains(withoutScript)) {
             if (!locale.contains("419")) {
-            System.out.println("*ERROR* Missing language/population data for CLDR locale: " + getLanguageCodeAndName(locale));
+            System.out.println("*ERROR*	Missing language/population data for CLDR locale: " + getLanguageCodeAndName(locale));
             }
           } else {
-            System.out.println("*WARNING* Missing language/population data for CLDR locale: " + getLanguageCodeAndName(locale) + " but have data for " + getLanguageCodeAndName(withoutScript));
+            System.out.println("*ERROR*	Missing language/population data for CLDR locale: " + getLanguageCodeAndName(locale) + " but have data for " + getLanguageCodeAndName(withoutScript));
           }
         }
       }
@@ -227,7 +227,7 @@ public class ConvertLanguageData {
     for (String oldDefault : oldDefaultContent) {
       if (!defaultLocaleContent.contains(oldDefault)) {
         String replacement = getReplacement(oldDefault, defaultLocaleContent);
-        System.out.println("*WARNING* Might later change default content: examine carefully: " 
+        System.out.println("*WARNING*	Might later change default content: examine carefully: " 
                 + getLanguageCodeAndName(oldDefault)
                 + "\t=>\t" + getLanguageCodeAndName(replacement)
         );
@@ -604,7 +604,10 @@ public class ConvertLanguageData {
       this.languageCode = language;
       badLanguageName = country = language = notes = comment = "";
       officialStatus = OfficialStatus.unknown;
-      countryGdp = countryLiteracy = countryPopulation = languagePopulation = languageLiteracy = -1;
+      countryGdp = roundToPartsPer(AddPopulationData.getGdp(countryCode).doubleValue(), 1000);
+      countryLiteracy = AddPopulationData.getLiteracy(countryCode).doubleValue()/100.0d;
+      countryPopulation = AddPopulationData.getPopulation(countryCode).doubleValue();
+      languagePopulation = languageLiteracy = Double.NaN;
       relativeLanguagePopulation = false;
     }
 
@@ -652,10 +655,10 @@ public class ConvertLanguageData {
       double languagePopulation1 = parsePercent(row.get(LANGUAGE_POPULATION), countryPopulation1) * countryPopulation1;
       if ((officialStatus.isMajor()) 
               && languagePopulation1*100 < countryPopulation && languagePopulation1 < 1000000) {
-        System.out.println("*WARNING* Official language has population < 1% of country and < 1,000,000: " + row);
+        System.out.println("*WARNING*	Official language has population < 1% of country and < 1,000,000: " + row);
       }
       if (languagePopulation1 < 1) {
-        System.out.println("*WARNING* Suspect language population: " + row);
+        System.out.println("*WARNING*	Suspect language population: " + row);
       }
       if (languagePopulation1 > 10000 ) {
         relativeLanguagePopulation = true;
@@ -664,7 +667,7 @@ public class ConvertLanguageData {
         relativeLanguagePopulation = false;
       }
       if (isApproximatelyGreater(languagePopulation1, countryPopulation, 0.0001)) {
-        System.out.println("*ERROR* : language population= " + languagePopulation1 
+        System.out.println("*ERROR*	language population= " + languagePopulation1 
                 + " > country population=" + countryPopulation + "; " + row);
       }
       languagePopulation = languagePopulation1 < countryPopulation ? languagePopulation1 : countryPopulation;
@@ -860,12 +863,16 @@ public class ConvertLanguageData {
 
     public String getLanguagePopulationString() {
 
-      final double percent = languagePopulation/countryPopulation;
-      return getExcelQuote(relativeLanguagePopulation  
-              && percent > 0.03
-              && languagePopulation > 10000
-              ? formatPercent(percent,2, false) 
-                      : formatNumber(languagePopulation, 3, false));
+      try {
+        final double percent = languagePopulation/countryPopulation;
+        return getExcelQuote(relativeLanguagePopulation  
+                && percent > 0.03
+                && languagePopulation > 10000
+                ? formatPercent(percent,2, false) 
+                        : formatNumber(languagePopulation, 3, false));
+      } catch (IllegalArgumentException e) {
+        return "NaN";
+      }
     }
 
     private double getLanguagePopulation() {
@@ -967,7 +974,7 @@ public class ConvertLanguageData {
                 + "/>");
         Log.println("\t<!--" + getLanguageName(languageCode) + "-->");
       } else if (!row.countryCode.equals("ZZ")){
-        failures.add("*ERROR* Too few speakers: suspect line." + row.toString(true));
+        failures.add("*ERROR*	Too few speakers: suspect line." + row.toString(true));
       }
       //if (first) {
       if (false) System.out.print(
@@ -1151,7 +1158,7 @@ public class ConvertLanguageData {
         }
         String locale = x.languageCode + "_" + x.countryCode;
         if (localeToRowData.get(locale) != null) {
-          System.out.println("*ERROR* duplicate data for: " + x.languageCode + " with " + x.countryCode);
+          System.out.println("*ERROR*	duplicate data for: " + x.languageCode + " with " + x.countryCode);
         }
         localeToRowData.put(locale, x);
         sortedInput.add(x);
@@ -1180,14 +1187,14 @@ public class ConvertLanguageData {
         String country = row.countryCode;
         Row.R2<String, Double> largestOffical = countryToLargestOfficialLanguage.get(row.countryCode);
         if (largestOffical != null && largestOffical.get1() < row.languagePopulation) {
-          System.out.println("*WARNING* language population greater than any official language: "
+          System.out.println("*WARNING*	language population greater than any official language: "
                   + getLanguageCodeAndName(largestOffical.get0()) + "; " + row.toString(true));
         }
       }
 
       // see which countries are missing an official language
       if (!countriesWithoutOfficial.contains(row.countryCode)) continue;   
-      System.out.println("*ERROR* missing official language for " + 
+      System.out.println("*ERROR*	missing official language for " + 
               row.getCountryName()
               + "\t" + row.countryCode);
       countriesWithoutOfficial.remove(row.countryCode);
@@ -1196,7 +1203,7 @@ public class ConvertLanguageData {
     // write out file for rick
     PrintWriter log = BagFormatter.openUTF8Writer(dir,ricksFile);
     log.println(
-            "CName" +
+            "*\tCName" +
             "\tCCode" +
             "\tCPopulation" +
             "\tCLiteracy" +
@@ -1559,10 +1566,10 @@ public class ConvertLanguageData {
     }
 
     if (skippingSingletons.size() != 0) {
-      System.out.format("*WARNING* Skipping Singletons %s" + CldrUtility.LINE_SEPARATOR, skippingSingletons);
+      System.out.format("*WARNING*	Skipping Singletons %s" + CldrUtility.LINE_SEPARATOR, skippingSingletons);
     }
     if (missingData.size() != 0) {
-      System.out.format("*WARNING* Missing Data %s" + CldrUtility.LINE_SEPARATOR, missingData);
+      System.out.format("*WARNING*	Missing Data %s" + CldrUtility.LINE_SEPARATOR, missingData);
     }
 
     //  LanguageTagParser ltp = new LanguageTagParser();
@@ -1784,12 +1791,12 @@ public class ConvertLanguageData {
           if (!checkCode("script", script, row)) continue;
           // if the script is not modern, demote
           if (status == BasicLanguageData.Type.primary && !StandardCodes.isScriptModern(script)) {
-            System.out.println("*WARNING* Should be secondary, script is not modern: " + script + "\t" + ULocale.getDisplayScript("und-" + script, ULocale.ENGLISH));
+            System.out.println("*ERROR*	Should be secondary, script is not modern: " + script + "\t" + ULocale.getDisplayScript("und-" + script, ULocale.ENGLISH));
             status = BasicLanguageData.Type.secondary;
           }
           // if the language is not modern, demote
           if (status == BasicLanguageData.Type.primary && !sc.isModernLanguage(language)) {
-            System.out.println("*WARNING* Should be secondary, language is not modern: " + language + "\t" + getLanguageName(language));
+            System.out.println("*ERROR*	Should be secondary, language is not modern: " + language + "\t" + getLanguageName(language));
             status = BasicLanguageData.Type.secondary;
           }
 
@@ -1840,7 +1847,7 @@ public class ConvertLanguageData {
         //        status_scripts.putAll(BasicLanguageData.Type.primary, secondaryScripts);
         //        status_scripts.removeAll(BasicLanguageData.Type.secondary);
         if (sc.isModernLanguage(language)) {
-          System.out.println("*WARNING* modern language without primary script: " + language + "\t" + getLanguageName(language));
+          System.out.println("*ERROR*	modern language without primary script: " + language + "\t" + getLanguageName(language));
         }
       } else {
         status_scripts.removeAll(BasicLanguageData.Type.secondary, primaryScripts);
@@ -1864,7 +1871,7 @@ public class ConvertLanguageData {
         }
       }
       if (language.equals("tw")) continue; // TODO load aliases and check...
-      System.out.println("*WARNING* ISO 639-1/2 language in language-territory list without primary script: " + language + "\t" + getLanguageName(language));
+      System.out.println("*WARNING*	ISO 639-1/2 language in language-territory list without primary script: " + language + "\t" + getLanguageName(language));
     }
 
     // System.out.println("Language 2 scripts: " + language_status_scripts); 
@@ -1878,7 +1885,7 @@ public class ConvertLanguageData {
   private static boolean checkCode(String type, String code, Object sourceLine) {
     if (sc.getGoodAvailableCodes(type).contains(code)) {
       if (code.equals("no")) {
-        System.out.println("Illegitimate Code for " + type + ": " + code + (sourceLine != null ? "\tfrom: " + sourceLine : ""));
+        System.out.println("*ERROR*\tIllegitimate Code for " + type + ": " + code + (sourceLine != null ? "\tfrom: " + sourceLine : ""));
         return false;
       }
       return true;
@@ -1892,7 +1899,7 @@ public class ConvertLanguageData {
       //        return true;
       //      }
     }
-    System.out.println("Illegitimate Code for " + type + ": " + code + (sourceLine != null ? "\tfrom: " + sourceLine : ""));
+    System.out.println("*ERROR*\tIllegitimate Code for " + type + ": " + code + (sourceLine != null ? "\tfrom: " + sourceLine : ""));
     return false;
   }
 
@@ -1935,7 +1942,7 @@ public class ConvertLanguageData {
         if (langRegistryCodes.contains(alpha3)) {
           languageSubtag = alpha3;
         } else {
-          System.out.println("*WARNING* Language subtag <" + alpha3 + "> not found, on line:\t" + line);
+          System.out.println("*WARNING*	Language subtag <" + alpha3 + "> not found, on line:\t" + line);
           continue;
         }
       }
@@ -1986,7 +1993,7 @@ public class ConvertLanguageData {
           if (territoryName.equals("ISO/DIS 639") || territoryName.equals("3")) continue;
           String territoryCode = nameToTerritoryCode.get(territoryName.toLowerCase());
           if (territoryCode == null) {
-            System.out.println("*ERROR* Territory <" + territoryName + "> for <" + languageSubtag + "> not found in " + nameToTerritoryCode.keySet());
+            System.out.println("*ERROR*	Territory <" + territoryName + "> for <" + languageSubtag + "> not found in " + nameToTerritoryCode.keySet());
           } else {
             territories.add(territoryCode);
           }
@@ -2104,10 +2111,15 @@ public class ConvertLanguageData {
   }
   static NumberFormat pf = NumberFormat.getPercentInstance(ULocale.ENGLISH);
 
-  public static String formatNumber(double d, int roundDigits, boolean xml) {
+  public static String formatNumber(double original, int roundDigits, boolean xml) {
+    double d = original;
     if (roundDigits != 0) {
-      d = CldrUtility.roundToDecimals(d, roundDigits);
+      d = CldrUtility.roundToDecimals(original, roundDigits);
     }    
+    if (Double.isNaN(d)) {
+      d = CldrUtility.roundToDecimals(original, roundDigits);
+      throw new IllegalArgumentException("Double is NaN");
+    }
     if (xml) {
       return nf_no_comma.format(d);
     }

@@ -66,21 +66,25 @@ public class Log {
 		log.print('\uFEFF');
 	}
 	 
-  public static void setLogNoBOM(String file) throws IOException {
-    log = BagFormatter.openUTF8Writer("", file);
-  }
+        public static void setLogNoBOM(String file) throws IOException {
+          log = BagFormatter.openUTF8Writer("", file);
+        }
 
-  public static void println() {
-    log.println();
-  }
+        public static void setLogNoBOM(String dir, String file) throws IOException {
+          log = BagFormatter.openUTF8Writer(dir, file);
+        }
 
-  public static void println(String string) {
-    log.println(string);
-  }
+        public static void println() {
+          log.println();
+        }
 
-  public static void print(String string) {
-    log.print(string);
-  }
+        public static void println(String string) {
+          log.println(string);
+        }
+
+        public static void print(String string) {
+          log.print(string);
+        }
 
   /**
    * format a line and print, in 80 character pieces. A bit dumb right now: doesn't handle strings.

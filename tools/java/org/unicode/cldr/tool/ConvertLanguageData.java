@@ -96,7 +96,7 @@ public class ConvertLanguageData {
     BufferedReader oldFile = null;
     try {
       // load elements we care about
-      Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/supplemental/supplementalData.xml");
+      Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/supplemental", "supplementalData.xml");
       //Log.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
       //Log.println("<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/data/dtd/ldmlSupplemental.dtd\">");
       //Log.println("<supplementalData version=\"1.5\">");
@@ -209,7 +209,7 @@ public class ConvertLanguageData {
       //      Log.close();
       //      oldFile.close();
 
-      Log.setLog(CldrUtility.GEN_DIRECTORY + "/supplemental/language_script_raw.txt");
+      Log.setLog(CldrUtility.GEN_DIRECTORY + "/supplemental" , "language_script_raw.txt");
       getLanguageScriptSpreadsheet(Log.getLog());
       Log.close();
     } catch (Exception e) {

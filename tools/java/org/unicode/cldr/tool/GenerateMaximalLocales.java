@@ -411,7 +411,7 @@ public class GenerateMaximalLocales {
       }
 
 
-    Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/supplemental/supplementalMetadata.xml");
+    Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/supplemental", "supplementalMetadata.xml");
     BufferedReader oldFile = BagFormatter.openUTF8Reader(CldrUtility.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
     CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*<defaultContent locales=\"\\s*"), Log.getLog(), false);
 
@@ -523,22 +523,30 @@ public class GenerateMaximalLocales {
   private static final double UNOFFICIAL_SCALE_DOWN = 1.0;
 
   private static final Map<String,String> LANGUAGE_OVERRIDES = CldrUtility.asMap(new String[][]{
+          {"az", "az_Latn_AZ"},
+          {"cch", "cch_Latn_NG"},
+          {"chr", "chr_Cher_US"},
           {"es", "es_Latn_ES"},
           {"es_Latn", "es_Latn_ES"},
-          {"az", "az_Latn_AZ"},
-          {"az_Cyrl", "az_Cyrl_AZ"},
+          {"gez", "gez_Ethi_ET"},
+          {"gv", "gv_Latn_GB"},
+          {"ha_Arab", "ha_Arab_SD"},
+          {"kcg", "kcg_Latn_NG"},
+          {"kfo", "kfo_Latn_CI"},
+          {"khq", "khq_Latn_ML"},
+          {"kw", "kw_Latn_GB"},
           {"mn", "mn_Cyrl_MN"},
           {"mn_Cyrl", "mn_Cyrl_MN"},
+          {"pa", "pa_Guru_IN"},
+          {"rwk", "rwk_Latn_TZ"},
           {"sw", "sw_Latn_TZ"},
           {"sw_Latn", "sw_Latn_TZ"},
           {"und", "en_Latn_US"},
+          {"und_Cher", "chr_Cher_US"},
           {"und_Hani", "zh_Hans_CN"},
           {"und_Hani_CN", "zh_Hans_CN"},
           {"zh_Hani", "zh_Hans_CN"},
           {"trv", "trv_Latn_TW"}, // should fix by having tr_TW in repository
-          //{"und_Latn_MK", "sq_Latn_MK"}, // because Albanian not official language
-          {"pa_Arab", "pa_Arab_PK"},
-          {"pa_PK", "pa_Arab_PK"},
           {"ps", "ps_Arab_AF"},
           {"ps_Arab", "ps_Arab_AF"},
   });

@@ -333,15 +333,12 @@ public class ConvertTransforms extends CLDRConverterTool{
 		PrintWriter output = null;
 		String filename = null;
 		CLDRFile cldrFile = cldrFactory.make(id, false);
-        if (cldrFile.getDtdVersion().equals("1.4")) {
-            if (id.indexOf("Ethiopic") >= 0 || id.indexOf("CanadianAboriginal") >= 0) {
-               System.out.println("WARNING: Skipping file for 1.4" + id);
-                return;
-            }
-        }
 		boolean first = true;
 		for (Iterator it = cldrFile.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
 			String path = (String) it.next();
+			if (path.indexOf("/version") >= 0 || path.indexOf("/generation") >= 0) {
+                            continue;
+                        }
 			String value = cldrFile.getStringValue(path);
 			if (first) {
 				filename = addIndexInfo(index, path, id);
@@ -524,8 +521,6 @@ public class ConvertTransforms extends CLDRConverterTool{
 			filename += "_" + variant;
 		}
 		filename += ".txt";
-		//if(verbose) {
-		// } else { System.out.print('.'); } /* one dot per file */ 
 		if (direction.equals("both") || direction.equals("forward")) {
 			if (verbose) { System.out.println("    " + id + "    " +  filename + "    " + "FORWARD"); }
 			index.println("        " + id + " {");
@@ -619,7 +614,6 @@ public class ConvertTransforms extends CLDRConverterTool{
                 else
                 {
                 	writeTransforms(sourceDir, match, targetDir+File.separator);
-//                	if(!verbose) System.out.println();
                 	System.out.println("ConvertTransforms: wrote " + fileCount + " files + root.res in  " + et);
                 }
             }

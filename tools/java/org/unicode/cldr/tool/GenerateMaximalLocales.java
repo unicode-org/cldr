@@ -542,6 +542,7 @@ public class GenerateMaximalLocales {
           {"sw", "sw_Latn_TZ"},
           {"sw_Latn", "sw_Latn_TZ"},
           {"und", "en_Latn_US"},
+          {"und_Arab", "ar_Arab_EG"},
           {"und_Cher", "chr_Cher_US"},
           {"und_Hani", "zh_Hans_CN"},
           {"und_Hani_CN", "zh_Hans_CN"},

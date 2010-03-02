@@ -1369,10 +1369,10 @@ XXX	Code for transations where no currency is involved
 		<language type="el" scripts="Grek" territories="CY GR"/>
 		<language type="emk" scripts="Nkoo"/>
 		<language type="emk" territories="GN" alt="secondary"/>
-		<language type="en" scripts="Latn" territories="AG AI AS AU BB BM BS BW BZ CA CC CK CM CX DM FJ FK FM GB GD GG GH GI GM GU GY HK IE IM JE JM KE KI KN KY LC LR LS MG MH MP MS MT MU MW NA NF NG NR NU NZ PG PH PK PN PR RW SB SC SG SH SL SZ TC TK TO TT TV TZ UG UM US VC VG VI VU WS ZA ZM ZW"/>
-		<language type="en" scripts="Dsrt Shaw" territories="BE DE ES ET FR IN IO IT MY NL PW" alt="secondary"/>
+		<language type="en" scripts="Latn" territories="AG AI AS AU BB BM BS BW BZ CA CC CK CM CX DG DM FJ FK FM GB GD GG GH GI GM GU GY HK IE IM JE JM KE KI KN KY LC LR LS MG MH MP MS MT MU MW NA NF NG NR NU NZ PG PH PK PN PR RW SB SC SG SH SL SZ TC TK TO TT TV TZ UG UM US VC VG VI VU WS ZA ZM ZW"/>
+		<language type="en" scripts="Dsrt Shaw" territories="BE DE ES ET FR IN IO IT MY NL PW TA" alt="secondary"/>
 		<language type="eo" scripts="Latn"/>
-		<language type="es" scripts="Latn" territories="AR BO CL CO CR CU DO EC ES GQ GT HN MX NI PA PE PH PR PY SV UY VE"/>
+		<language type="es" scripts="Latn" territories="AR BO CL CO CR CU DO EA EC ES GQ GT HN IC MX NI PA PE PH PR PY SV UY VE"/>
 		<language type="es" territories="AD BZ US" alt="secondary"/>
 		<language type="et" scripts="Latn" territories="EE"/>
 		<language type="ett" scripts="Ital Latn" alt="secondary"/>
@@ -1396,8 +1396,8 @@ XXX	Code for transations where no currency is involved
 		<language type="fo" scripts="Latn" territories="FO"/>
 		<language type="fon" scripts="Latn"/>
 		<language type="fon" territories="BJ" alt="secondary"/>
-		<language type="fr" scripts="Latn" territories="BE BF BI BJ BL CA CD CF CG CH CI CM DJ DZ FR GA GF GN GP GQ HT KM LU MA MC MF MG ML MQ MU NC NE PF PM RE RW SC SN SY TD TG TN VU WF YT"/>
-		<language type="fr" territories="GB TF US" alt="secondary"/>
+		<language type="fr" scripts="Latn" territories="BE BF BI BJ BL CA CD CF CG CH CI CM CP DJ DZ FR GA GF GN GP GQ HT KM LU MA MC MF MG ML MQ MU NC NE PF PM RE RW SC SN SY TD TG TN VU WF YT"/>
+		<language type="fr" territories="AC GB TF US" alt="secondary"/>
 		<language type="frr" scripts="Latn"/>
 		<language type="frs" scripts="Latn"/>
 		<language type="fud" territories="WF" alt="secondary"/>
@@ -1935,6 +1935,7 @@ XXX	Code for transations where no currency is involved
  <!-- See http://unicode.org/cldr/data/diff/supplemental/territory_language_information.html for more information on territoryInfo. -->
 	<territoryInfo>
 		<territory type="AC" gdp="34320000" literacyPercent="99" population="940">	<!--Ascension Island-->
+			<languagePopulation type="fr" populationPercent="99" references="R1020"/>	<!--French-->
 		</territory>
 		<territory type="AD" gdp="3660000000" literacyPercent="100" population="83888">	<!--Andorra-->
 			<languagePopulation type="ca" populationPercent="51" officialStatus="official"/>	<!--Catalan-->
@@ -2218,6 +2219,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="es" populationPercent="93" officialStatus="official" references="R1014"/>	<!--Spanish-->
 		</territory>
 		<territory type="CP" gdp="32740" literacyPercent="99" population="1">	<!--Clipperton Island-->
+			<languagePopulation type="fr" populationPercent="100" officialStatus="official" references="R1062"/>	<!--French-->
 		</territory>
 		<territory type="CR" gdp="48480000000" literacyPercent="94.9" population="4253880">	<!--Costa Rica-->
 			<languagePopulation type="es" populationPercent="81" officialStatus="official"/>	<!--Spanish-->
@@ -2259,6 +2261,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="nl" populationPercent="0.12"/>	<!--Dutch-->
 		</territory>
 		<territory type="DG" gdp="18250000" literacyPercent="99" population="500">	<!--Diego Garcia-->
+			<languagePopulation type="en" populationPercent="99" officialStatus="de_facto_official" references="R1065"/>	<!--English-->
 		</territory>
 		<territory type="DJ" gdp="1889000000" literacyPercent="67.9" population="516055">	<!--Djibouti-->
 			<languagePopulation type="aa" populationPercent="42"/>	<!--Afar-->
@@ -2284,6 +2287,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="kab" populationPercent="7.8" references="R1095"/>	<!--Kabyle-->
 		</territory>
 		<territory type="EA" gdp="5101000000" literacyPercent="97.9" population="150000">	<!--Ceuta and Melilla-->
+			<languagePopulation type="es" populationPercent="98" officialStatus="official" references="R1067"/>	<!--Spanish-->
 		</territory>
 		<territory type="EC" gdp="107100000000" literacyPercent="91" population="14573100">	<!--Ecuador-->
 			<languagePopulation type="es" populationPercent="72" officialStatus="official"/>	<!--Spanish-->
@@ -2498,6 +2502,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="sl" populationPercent="0.05"/>	<!--Slovenian-->
 		</territory>
 		<territory type="IC" gdp="71360000000" literacyPercent="97.9" population="2098590">	<!--Canary Islands-->
+			<languagePopulation type="es" populationPercent="98" officialStatus="official" references="R1075"/>	<!--Spanish-->
 		</territory>
 		<territory type="ID" gdp="915900000000" literacyPercent="90.4" population="240272000">	<!--Indonesia-->
 			<languagePopulation type="id" populationPercent="64" officialStatus="official"/>	<!--Indonesian-->
@@ -3301,6 +3306,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="ts" populationPercent="1.7"/>	<!--Tsonga-->
 		</territory>
 		<territory type="TA" gdp="10040000" literacyPercent="99" population="275">	<!--Tristan da Cunha-->
+			<languagePopulation type="en" populationPercent="99"/>	<!--English-->
 		</territory>
 		<territory type="TC" gdp="216000000" literacyPercent="98" population="22942">	<!--Turks and Caicos Islands-->
 			<languagePopulation type="en" populationPercent="98" officialStatus="de_facto_official"/>	<!--English-->
@@ -3420,7 +3426,7 @@ XXX	Code for transations where no currency is involved
 		</territory>
 		<territory type="UG" gdp="35880000000" literacyPercent="66.8" population="32369600">	<!--Uganda-->
 			<languagePopulation type="sw" populationPercent="75" officialStatus="official" references="R1134"/>	<!--Swahili-->
-			<languagePopulation type="lg" populationPercent="12"/>	<!--Ganda-->
+			<languagePopulation type="lg" populationPercent="13"/>	<!--Ganda-->
 			<languagePopulation type="nyn" populationPercent="6.3"/>	<!--Nyankole-->
 			<languagePopulation type="cgg" populationPercent="5.4"/>	<!--Chiga-->
 			<languagePopulation type="xog" populationPercent="5.3"/>	<!--Soga-->
@@ -4207,6 +4213,7 @@ XXX	Code for transations where no currency is involved
 		<reference type="R1017">For languages not customarily written, the writing population is artificially set to 5% in the absence of better information.</reference>
 		<reference type="R1018" uri="https://www.cia.gov/cia/publications/factbook/geos/gj.html">English official; the figure is derived from literacy * lang pop</reference>
 		<reference type="R1019" uri="http://www.ethnologue.com/show_country.asp?name=GF">French official; the figure is derived from literacy * lang pop</reference>
+		<reference type="R1020" uri="http://en.wikipedia.org/wiki/Ascension_Island">[missing]</reference>
 		<reference type="R1021" uri="http://en.wikipedia.org/wiki/Ghana">English official in education ; 1mil 2nd lang speakers</reference>
 		<reference type="R1022" uri="https://www.cia.gov/cia/publications/factbook/geos/gi.html">English official, the figure is derived from literacy * lang pop</reference>
 		<reference type="R1023" uri="http://www.ethnologue.com/show_country.asp?name=GP">French official; the figure is derived from literacy * lang pop</reference>
@@ -4248,9 +4255,12 @@ XXX	Code for transations where no currency is involved
 		<reference type="R1059" uri="https://www.cia.gov/cia/publications/factbook/fields/2098.html">English official on some islands, total 9.4%</reference>
 		<reference type="R1060" uri="http://www.nsf.gov/od/opp/support/southp.jsp">http://astro.uchicago.edu/cara/vtour/mcmurdo/ http://www.usap.gov/videoclipsandmaps/mcmwebcam.cfm Winter population is listed.</reference>
 		<reference type="R1061" uri="http://www.ethnologue.com/show_language.asp?code=tem">1.2mil 1st lang + 240k 2nd lang users, low literacy</reference>
+		<reference type="R1062" uri="http://en.wikipedia.org/wiki/Clipperton_Island">[missing]</reference>
 		<reference type="R1063">Canadian census shows 97,230 total population for all Cree languages</reference>
 		<reference type="R1064" uri="https://www.cia.gov/cia/publications/factbook/geos/hm.html">Uninhabited, barren, sub-Antarctic islands</reference>
+		<reference type="R1065" uri="http://en.wikipedia.org/wiki/Diego_Garcia">[missing]</reference>
 		<reference type="R1066" uri="http://www.censusindia.net/">Figure for Hindi includes 2nd language users, India Census data.</reference>
+		<reference type="R1067" uri="http://en.wikipedia.org/wiki/Ceuta">[missing]</reference>
 		<reference type="R1068" uri="https://www.cia.gov/cia/publications/factbook/geos/kz.html">CIA Factbook entry on Kazakhstan</reference>
 		<reference type="R1069" uri="http://en.wikipedia.org/wiki/Senegal">50k Europeans, mostly French. The figure for writing population is derived from literacy * population, and may be too high.</reference>
 		<reference type="R1070" uri="http://en.wikipedia.org/wiki/List_of_countries_by_English-speaking_population">The figure is from Wikipedia article on http://en.wikipedia.org/wiki/List_of_countries_by_English-speaking_population The figure is from Wikipedia article on English-speaking populations</reference>
@@ -4258,6 +4268,7 @@ XXX	Code for transations where no currency is involved
 		<reference type="R1072" uri="http://en.wikipedia.org/wiki/List_of_countries_by_English-speaking_population"> The figure is from Wikipedia article on English-speaking populations</reference>
 		<reference type="R1073" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/iz.html">Lang pop est, CIA factbook 15-20% country pop</reference>
 		<reference type="R1074" uri="https://www.cia.gov/cia/publications/factbook/geos/sv.html">CIA Factbook</reference>
+		<reference type="R1075" uri="http://en.wikipedia.org/wiki/Canary_islands">[missing]</reference>
 		<reference type="R1076" uri="https://www.cia.gov/cia/publications/factbook/geos/tt.html">CIA Factbook. See also http://www.jsmp.minihub.org/Reports/jsmpreports/Language%20Report/LanguageReport(english).pdf</reference>
 		<reference type="R1077" uri="https://www.cia.gov/cia/publications/factbook/geos/vt.html">CIA Factbook.</reference>
 		<reference type="R1078" uri="http://www.pressreference.com/Sw-Ur/Tonga.html">The Tonga Chronicle is a government-owned newspaper... It publishes two editions, one in Tongan with a circulation of 5,000, and one in English with a circulation of 1,500; Writing pop figure shown for English is set to 30% of that for Tonga. </reference>

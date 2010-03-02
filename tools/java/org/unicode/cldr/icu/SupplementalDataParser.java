@@ -99,6 +99,7 @@ public class SupplementalDataParser {
       } else if (name.equals(LDMLConstants.REFERENCES)) {
         //Ignore this
       } else if (name.equals(LDMLConstants.VERSION)) {
+        res = parseCLDRVersion(node, xpath);
         //Ignore this
         //if (DEBUG)printXPathWarning(node, xpath);
       } else if (name.equals(LDMLConstants.GENERATION)) {
@@ -126,8 +127,6 @@ public class SupplementalDataParser {
         //Ignore this
       } else if (name.equals(LDMLConstants.POSTAL_CODE_DATA)) {
         //Ignore this
-      } else if (name.equals(LDMLConstants.CLDR_VERSION)) {
-        res = parseCLDRVersion(node, xpath);
       } else if (name.equals(LDMLConstants.TELEPHONE_CODE_DATA)) {
         res = addTelephoneCodeData(); // uses SupplementalDataInfo, doesn't need node, xpath
       } else if (name.equals(LDMLConstants.BCP47_KEYWORD_MAPPINGS)) {
@@ -1146,7 +1145,7 @@ public class SupplementalDataParser {
   private Resource parseCLDRVersion(Node root, StringBuilder xpath) {
     ResourceString str = new ResourceString();
     str.name = LDMLConstants.CLDR_VERSION;
-    str.val = LDMLUtilities.getAttributeValue(root, LDMLConstants.VERSION);
+    str.val = LDMLUtilities.getAttributeValue(root, LDMLConstants.CLDR_VERSION);
     return str;
   }
 

@@ -193,7 +193,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     errorType = "Error", 
     exampleType = "Example",
     demoType = "Demo";
-    enum Subtype {none, noUnproposedVariant, deprecatedAttribute, illegalPlural, invalidLocale, 
+    public enum Subtype {none, noUnproposedVariant, deprecatedAttribute, illegalPlural, invalidLocale, 
       incorrectCasing, valueAlwaysOverridden, nullChildFile, internalError, coverageLevel, 
       missingPluralInfo, currencySymbolTooWide, incorrectDatePattern, abbreviatedDateFieldTooWide, 
       displayCollision, illegalExemplarSet, missingAuxiliaryExemplars, missingPlaceholders, shouldntHavePlaceholders,
@@ -273,6 +273,27 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     public Object[] getParameters() {
       return parameters;
     }
+    
+    /**
+     * Returns any Exception parameters in the status, or null if there are none.
+     * @return
+     */
+    public Exception[] getExceptionParameters() {
+      if (parameters == null) {
+        return null;
+      }
+
+      List<Exception> errors = new ArrayList();
+      for (Object o : parameters) {
+        if (o instanceof Exception) {
+          errors.add((Exception)o);
+        }
+      }
+      if (errors.size() == 0) {
+        return null;
+      }
+      return errors.toArray(new Exception[errors.size()]);
+    }
     /**
      * Warning: don't change the contents of the parameters after passing in.
      */
@@ -290,10 +311,10 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       this.cause = cause;
       return this;
     }
-    protected Subtype getSubtype() {
+    public Subtype getSubtype() {
       return subtype;
     }
-    protected CheckStatus setSubtype(Subtype subtype) {
+    public CheckStatus setSubtype(Subtype subtype) {
       this.subtype = subtype;
       return this;
     }

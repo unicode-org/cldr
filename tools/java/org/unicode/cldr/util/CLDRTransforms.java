@@ -656,10 +656,15 @@ public class CLDRTransforms {
       //  private boolean handlePath(String cldrFileName, ParsedTransformID directionInfo, boolean first,
       //          StringBuffer rules, XPathParts parts, String path, String value) {
       if (first) {
+        if (path.startsWith("//supplementalData/version")) {
+          return;
+        } else if (path.startsWith("//supplementalData/generation")) {
+          return;
+        }
         parts.set(path);
         Map<String,String> attributes = parts.findAttributes("transform");
         if (attributes == null) {
-          throw new IllegalArgumentException("Not an XML transform file: " + cldrFileName);
+          throw new IllegalArgumentException("Not an XML transform file: " + cldrFileName + "\t" + path);
         }
         directionInfo.setSource((String) attributes.get("source"));
         directionInfo.setTarget((String) attributes.get("target"));

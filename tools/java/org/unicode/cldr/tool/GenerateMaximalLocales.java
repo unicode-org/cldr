@@ -537,6 +537,7 @@ public class GenerateMaximalLocales {
           {"kw", "kw_Latn_GB"},
           {"mn", "mn_Cyrl_MN"},
           {"mn_Cyrl", "mn_Cyrl_MN"},
+          {"ny", "ny_Latn_MW"},
           {"pa", "pa_Guru_IN"},
           {"rwk", "rwk_Latn_TZ"},
           {"sw", "sw_Latn_TZ"},

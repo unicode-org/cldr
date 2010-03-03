@@ -1421,6 +1421,16 @@
 			<timezone type="PST8PDT">
 				<usesMetazone mzone="America_Pacific"/>
 			</timezone>
+			<timezone type="America/Matamoros">
+				<usesMetazone mzone="America_Central"/>
+			</timezone>
+			<timezone type="America/Ojinaga">
+				<usesMetazone to="1998-04-05 09:00" mzone="America_Central"/>
+				<usesMetazone from="1998-04-05 09:00" mzone="America_Mountain"/>
+			</timezone>
+			<timezone type="America/Santa_Isabel">
+				<usesMetazone mzone="America_Pacific"/>
+			</timezone>
 		</metazoneInfo>
 
 		<mapTimezones type="metazones">

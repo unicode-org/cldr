@@ -73,7 +73,7 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 public class ShowLanguages {
-  public static final String CHART_DISPLAY_VERSION = "1.7";
+  public static final String CHART_DISPLAY_VERSION = "1.8\u03B2";
   
   private static final boolean SHOW_NATIVE = true;
   

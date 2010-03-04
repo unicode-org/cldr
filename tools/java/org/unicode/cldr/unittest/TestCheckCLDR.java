@@ -34,5 +34,6 @@ public class TestCheckCLDR extends TestFmwk {
     assertEquals("Number of exceptions:", exceptions.length, 1);
     assertEquals("Exception message:", "hi", exceptions[0].getMessage());
     logln(Arrays.asList(exceptions[0].getStackTrace()).toString());
+    logln(status.getMessage());
   }
 }

@@ -61,6 +61,7 @@ public class CoverageLevel {
           "\\[@type=\"format\"].*\\[@type=\"(wide|abbreviated)\"]" +
           "|\\[@type=\"stand-alone\"].*\\[@type=\"narrow\"]" +
           "|/pattern" +
+          "|/intervalFormatFallback" + 
 //          "|/dateFormatItem" +
           ")" +
         "|numbers/(" +
@@ -69,7 +70,7 @@ public class CoverageLevel {
           ")" +
         "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
         "|unitPattern" + // "|units/unit.*/unitPattern" +
-        "|intervalFormatFallback" + 
+        "|listPatternPart" + 
         ")");
 
   private static final Pattern BASIC_PATTERNS = Pattern.compile(
@@ -100,21 +101,27 @@ public class CoverageLevel {
    *
    */
   public enum Level {
-    UNDETERMINED(0, "none"),
-    POSIX(20,"G4"),
-    MINIMAL(30,"G3.5"),
-    BASIC(40,"G3"),
-    MODERATE(60, "G2"),
-    MODERN(80, "G1"),
-    COMPREHENSIVE(100, "G0"),
-    OPTIONAL(101, "optional");
+    UNDETERMINED(0, "none",0),
+    POSIX(20,"G4", 100),
+    MINIMAL(30,"G3.5", 90),
+    BASIC(40,"G3", 80),
+    MODERATE(60, "G2", 70),
+    MODERN(80, "G1", 50),
+    COMPREHENSIVE(100, "G0", 2),
+    OPTIONAL(101, "optional", 1);
     
     private byte level;
     private String altName;
+    private int value;
     
-    private Level(int i, String altName) {
+    public int getValue() {
+      return value;
+    }
+
+    private Level(int i, String altName, int value) {
       level = (byte) i;
       this.altName = altName;
+      this.value = value;
     }
     
     public static Level get(String name) {
@@ -531,12 +538,20 @@ public class CoverageLevel {
       if (currencyExemplarsContainA_Z && lastElement.equals("symbol")) {
         result = CoverageLevel.Level.OPTIONAL;
       } else if (lastElement.equals("displayName") || lastElement.equals("symbol")) {
-        if (parts.getAttributeValue(-1, "count") != null) {
-          result = Level.UNDETERMINED;
-        } else {
           String currency = parts.getAttributeValue(-2, "type");
           result = (CoverageLevel.Level) currency_level.get(currency);
-        }
+          if (parts.getAttributeValue(-1, "count") != null) {
+            boolean found = false;
+            // ugly loop to get next value
+            for (Level nextHigher : Level.values()) {
+              if (found) {
+                result = nextHigher;
+                break;
+              } else if (nextHigher == result) {
+                found = true;
+              }
+            }
+          }
       }
     } else if (part1.equals("identity")) {
       result = Level.UNDETERMINED;
@@ -1210,13 +1225,17 @@ public class CoverageLevel {
       } else if (parts.containsElement("currencyData") && lastElement.equals("currency")) {
         //         <region iso3166="AM"><currency iso4217="AMD" from="1993-11-22"/>
         // if the 'to' value is less than 10 years, it is not modern
+        String region = parts.getAttributes(-2).get("iso3166");
         String to = parts.getAttributeValue(-1, "to");
         String currency = parts.getAttributeValue(-1, "iso4217");
-        if (to == null || to.compareTo(lastCurrencyYear) >= 0) {
+        String tender = parts.getAttributeValue(-1, "tender");
+        if (tender != null) {
+          // skip
+          // System.out.println("TENDER: " + region + "\t" + currency + "\t" + to + "\t" + tender);
+        } else if (to == null || to.compareTo(lastCurrencyYear) >= 0) {
           modernCurrencies.add(currency);
           // only add current currencies to must have list
           if (to == null) {
-            String region = parts.getAttributes(-2).get("iso3166");
             Set currencies = (Set) territory_currency.get(region);
             if (currencies == null) territory_currency.put(region, currencies = new TreeSet());
             currencies.add(currency);

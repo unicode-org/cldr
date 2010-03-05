@@ -4818,28 +4818,21 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
 
     private String getStrengthSymbol(String name) {
-        String strengthSymbol = "";
         if (name.equals(LDMLConstants.PC) || name.equals(LDMLConstants.P)) {
-            strengthSymbol = "<";
+            return "<";
         } else if (name.equals(LDMLConstants.SC) || name.equals(LDMLConstants.S)) {
-            strengthSymbol = "<<";
+            return "<<";
         } else if (name.equals(LDMLConstants.TC) || name.equals(LDMLConstants.T)) {
-            strengthSymbol = "<<<";
+            return "<<<";
         } else if (name.equals(LDMLConstants.QC) || name.equals(LDMLConstants.Q)) {
-            strengthSymbol = "<<<<";
+            return "<<<<";
         } else if (name.equals(LDMLConstants.IC) || name.equals(LDMLConstants.I)) {
-            strengthSymbol = "=";
+            return "=";
         } else {
             log.error("Encountered strength: " + name);
             System.exit(-1);
         }
-
-        if(name.equals(LDMLConstants.PC) || name.equals(LDMLConstants.SC) ||
-           name.equals(LDMLConstants.TC)|| name.equals(LDMLConstants.QC) ||
-           name.equals(LDMLConstants.IC)){
-          strengthSymbol += "*";
-        }
-        return strengthSymbol;
+        return null;
     }
 
     private String getStrength(String name) {
@@ -4910,28 +4903,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         UCharacterIterator iter = UCharacterIterator.getInstance(data);
         StringBuilder ret = new StringBuilder();
         String strengthSymbol = getStrengthSymbol(name);
-        String nonExpandedStrengthSymbol = strengthSymbol.substring(0, strengthSymbol.length()-1);
         int ch;
-        boolean restartExpandedRules = true;
-        UnicodeSet inertSet = new UnicodeSet("[:nfd_inert:]");
-        inertSet.remove("-<=");
-        int consecutiveCount = 1;
         while ((ch = iter.nextCodePoint()) != UCharacterIterator.DONE) {
-            if (inertSet.contains(ch)) {
-                if (restartExpandedRules){
-                    if (DEBUG) {
-                        ret.append(" ");
-                    }
-                    ret.append(strengthSymbol);
-                }
-                restartExpandedRules = false;
-            } else {
-                if (DEBUG) {
-                    ret.append(" ");
-                }
-                ret.append(nonExpandedStrengthSymbol);
-                restartExpandedRules = true;
+            if (DEBUG) {
+                ret.append(" ");
             }
+            ret.append(strengthSymbol);
             if (DEBUG) {
                 ret.append(" ");
             }

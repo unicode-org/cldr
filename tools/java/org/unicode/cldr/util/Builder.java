@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
+import com.ibm.icu.text.Transform;
 
 /**
  * Convenience class for building collections and maps. Allows them to be built by chaining, making it simpler to
@@ -208,6 +209,17 @@ public final class Builder {
     public CBuilder<E,U> keepNew(Iterator<E> items) {
       HashSet<E> temp = Builder.with(new HashSet<E>()).addAll(items).get();
       return keepNew(temp);
+    }
+    
+    public CBuilder<E,U> filter(Transform<E,Boolean> filter) {
+      HashSet<E> temp = new HashSet<E>();
+      for (E item : collection) {
+        if (filter.transform(item) == Boolean.FALSE) {
+          temp.add(item);
+        }
+      }
+      collection.removeAll(temp);
+      return this;
     }
     
     public U get() {

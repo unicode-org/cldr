@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import com.ibm.icu.text.Transform;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Convenience class for building collections and maps. Allows them to be built by chaining, making it simpler to
@@ -135,6 +136,16 @@ public final class Builder {
       return this;
     }
     
+    public <T> CBuilder<E, U> addAll(Collection<T> available, Transform<T, E> transform) {
+      for (T item : available) {
+        E made = transform.transform(item);
+        if (made != null) {
+          collection.add(made);
+        }
+      }
+      return this;
+    }
+
     public CBuilder<E, U> remove(E o) {
       collection.remove(o);
       return this;

@@ -960,7 +960,14 @@ public class CLDRFile implements Freezable, Iterable<String> {
    */
   public static Set<String> getMatchingXMLFiles(String sourceDir, Matcher m) {
     Set<String> s = new TreeSet();
-    File[] files = new File(sourceDir).listFiles();
+    File dir = new File(sourceDir);
+    if (!dir.exists()) {
+      throw new IllegalArgumentException("Directory doesn't exist:\t" + sourceDir);
+    }
+    if (!dir.isDirectory()) {
+      throw new IllegalArgumentException("Input isn't a file directory:\t" + sourceDir);
+    }
+    File[] files = dir.listFiles();
     for (int i = 0; i < files.length; ++i) {
       String name = files[i].getName();
       if (!name.endsWith(".xml")) continue;

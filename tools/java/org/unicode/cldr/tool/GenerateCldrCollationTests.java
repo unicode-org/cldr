@@ -18,6 +18,7 @@ import org.unicode.cldr.icu.ICUResourceWriter.Resource;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceString;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -32,7 +33,7 @@ import com.ibm.icu.util.ULocale;
 public class GenerateCldrCollationTests {
 	String sourceDir;
     Set validLocales = new TreeSet();
-    Map ulocale_rules = new TreeMap(GenerateCldrTests.ULocaleComparator);
+    Map<String,Object> ulocale_rules = new TreeMap(GenerateCldrTests.ULocaleComparator);
     Map locale_types_rules = new TreeMap();
     Map collation_collation = new HashMap();
     RuleBasedCollator emptyCollator = (RuleBasedCollator) Collator.getInstance(new ULocale(""));
@@ -41,7 +42,7 @@ public class GenerateCldrCollationTests {
         return ulocale_rules.keySet();
     }
 
-    public RuleBasedCollator getInstance(ULocale locale) {
+    public RuleBasedCollator getInstance(String locale) {
          return (RuleBasedCollator) ulocale_rules.get(locale);
     }
 
@@ -55,7 +56,7 @@ public class GenerateCldrCollationTests {
         }
     }
 
-    GenerateCldrCollationTests(String sourceDir, String localeRegex, Set locales) throws Exception {
+    GenerateCldrCollationTests(String sourceDir, String localeRegex, Set<String> locales) throws Exception {
     	this.sourceDir = sourceDir;
         Set s = GenerateCldrTests.getMatchingXMLFiles(sourceDir, localeRegex);
         for (Iterator it = s.iterator(); it.hasNext();) {
@@ -69,7 +70,7 @@ public class GenerateCldrCollationTests {
             Map types_rules = (Map) locale_types_rules.get(locale);
             if (types_rules != null) Log.logln("Weird: overlap in validLocales: " + locale);
             else {
-                for (String parentlocale = GenerateCldrTests.getParent(locale); parentlocale != null; locale = GenerateCldrTests.getParent(parentlocale)) {
+                for (String parentlocale = GenerateCldrTests.getParent(locale); parentlocale != null; parentlocale = GenerateCldrTests.getParent(parentlocale)) {
                     types_rules = (Map) locale_types_rules.get(parentlocale);
                     if (types_rules != null) {
                         locale_types_rules.put(locale, types_rules);
@@ -79,7 +80,7 @@ public class GenerateCldrCollationTests {
             }
         }
         // now generate the @-style locales
-       ulocale_rules.put(ULocale.ROOT, Collator.getInstance(ULocale.ROOT));
+       ulocale_rules.put("root", Collator.getInstance(ULocale.ROOT));
 
         for (Iterator it = locale_types_rules.keySet().iterator(); it.hasNext(); ) {
             String locale = (String) it.next();
@@ -92,15 +93,15 @@ public class GenerateCldrCollationTests {
                 }
                 RuleBasedCollator col = (RuleBasedCollator) types_rules.get(type);
                 String name = type.equals("standard") ? locale : locale + "@collation=" + type;
-                ulocale_rules.put(new ULocale(name), col);
+                ulocale_rules.put(name, col);
             }
         }
         // now flesh out
         //Collator root = Collator.getInstance(ULocale.ROOT);
-        for (Iterator it = locales.iterator(); it.hasNext();) {
-        	String locale = (String) it.next();
+        for (Iterator<String> it = locales.iterator(); it.hasNext();) {
+          String locale = it.next();
         	if (ulocale_rules.get(locale) != null) continue;
-            String parent = GenerateCldrTests.getParent(locale);
+            String parent = LanguageTagParser.getParent(locale); // GenerateCldrTests.getParent(locale);
             if (parent == null) continue;
         	try {
                 ulocale_rules.put(locale, ulocale_rules.get(parent));
@@ -113,7 +114,7 @@ public class GenerateCldrCollationTests {
     static Transliterator fromHex = Transliterator.getInstance("hex-any");
 
     private void getCollationRules(String locale) throws Exception {
-        System.out.println(locale);
+        System.out.println("Loading collation:\t" + locale);
         Document doc = LDMLUtilities.getFullyResolvedLDML(sourceDir, locale, false, false, false, false);
         Node node = LDMLUtilities.getNode(doc, "//ldml/collations");
         LDML2ICUConverter cnv = new LDML2ICUConverter();

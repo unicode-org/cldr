@@ -19,6 +19,8 @@
     <result input='ar' add='ar-Arab-EG' remove='ar'/>
     <!-- {Assamese;?;?} → {Assamese;Bengali;India} → {Assamese;?;?} -->
     <result input='as' add='as-Beng-IN' remove='as'/>
+    <!-- {Asu;?;?} → {Asu;Latin;Tanzania} → {Asu;?;?} -->
+    <result input='asa' add='asa-Latn-TZ' remove='asa'/>
     <!-- {Asturian;?;?} → {Asturian;Latin;Spain} → {Asturian;?;?} -->
     <result input='ast' add='ast-Latn-ES' remove='ast'/>
     <!-- {Avaric;?;?} → {Avaric;Cyrillic;Russia} → {Avaric;?;?} -->
@@ -35,42 +37,56 @@
     <result input='ba' add='ba-Cyrl-RU' remove='ba'/>
     <!-- {Belarusian;?;?} → {Belarusian;Cyrillic;Belarus} → {Belarusian;?;?} -->
     <result input='be' add='be-Cyrl-BY' remove='be'/>
+    <!-- {Bemba;?;?} → {Bemba;Latin;Zambia} → {Bemba;?;?} -->
+    <result input='bem' add='bem-Latn-ZM' remove='bem'/>
+    <!-- {Bena;?;?} → {Bena;Latin;Tanzania} → {Bena;?;?} -->
+    <result input='bez' add='bez-Latn-TZ' remove='bez'/>
     <!-- {Bulgarian;?;?} → {Bulgarian;Cyrillic;Bulgaria} → {Bulgarian;?;?} -->
     <result input='bg' add='bg-Cyrl-BG' remove='bg'/>
     <!-- {Bislama;?;?} → {Bislama;Latin;Vanuatu} → {Bislama;?;?} -->
     <result input='bi' add='bi-Latn-VU' remove='bi'/>
+    <!-- {Bambara;?;?} → {Bambara;Latin;Mali} → {Bambara;?;?} -->
+    <result input='bm' add='bm-Latn-ML' remove='bm'/>
     <!-- {Bengali;?;?} → {Bengali;Bengali;Bangladesh} → {Bengali;?;?} -->
     <result input='bn' add='bn-Beng-BD' remove='bn'/>
     <!-- {Tibetan;?;?} → {Tibetan;Tibetan;China} → {Tibetan;?;?} -->
     <result input='bo' add='bo-Tibt-CN' remove='bo'/>
+    <!-- {Breton;?;?} → {Breton;Latin;France} → {Breton;?;?} -->
+    <result input='br' add='br-Latn-FR' remove='br'/>
     <!-- {Bosnian;?;?} → {Bosnian;Latin;Bosnia and Herzegovina} → {Bosnian;?;?} -->
     <result input='bs' add='bs-Latn-BA' remove='bs'/>
     <!-- {Catalan;?;?} → {Catalan;Latin;Spain} → {Catalan;?;?} -->
     <result input='ca' add='ca-Latn-ES' remove='ca'/>
+    <!-- {Atsam;?;?} → {Atsam;Latin;Nigeria} → {Atsam;?;?} -->
+    <result input='cch' add='cch-Latn-NG' remove='cch'/>
     <!-- {Chechen;?;?} → {Chechen;Cyrillic;Russia} → {Chechen;?;?} -->
     <result input='ce' add='ce-Cyrl-RU' remove='ce'/>
     <!-- {Cebuano;?;?} → {Cebuano;Latin;Philippines} → {Cebuano;?;?} -->
     <result input='ceb' add='ceb-Latn-PH' remove='ceb'/>
+    <!-- {Chiga;?;?} → {Chiga;Latin;Uganda} → {Chiga;?;?} -->
+    <result input='cgg' add='cgg-Latn-UG' remove='cgg'/>
     <!-- {Chamorro;?;?} → {Chamorro;Latin;Guam} → {Chamorro;?;?} -->
     <result input='ch' add='ch-Latn-GU' remove='ch'/>
     <!-- {Chuukese;?;?} → {Chuukese;Latin;Micronesia} → {Chuukese;?;?} -->
     <result input='chk' add='chk-Latn-FM' remove='chk'/>
-    <!-- {Plains Cree;?;?} → {Plains Cree;Unified Canadian Aboriginal Syllabics;Canada} → {Plains Cree;?;?} -->
-    <result input='crk' add='crk-Cans-CA' remove='crk'/>
+    <!-- {Cherokee;?;?} → {Cherokee;Cherokee;United States} → {Cherokee;?;?} -->
+    <result input='chr' add='chr-Cher-US' remove='chr'/>
     <!-- {Czech;?;?} → {Czech;Latin;Czech Republic} → {Czech;?;?} -->
     <result input='cs' add='cs-Latn-CZ' remove='cs'/>
-    <!-- {Woods Cree;?;?} → {Woods Cree;Unified Canadian Aboriginal Syllabics;Canada} → {Woods Cree;?;?} -->
-    <result input='cwd' add='cwd-Cans-CA' remove='cwd'/>
     <!-- {Welsh;?;?} → {Welsh;Latin;United Kingdom} → {Welsh;?;?} -->
     <result input='cy' add='cy-Latn-GB' remove='cy'/>
     <!-- {Danish;?;?} → {Danish;Latin;Denmark} → {Danish;?;?} -->
     <result input='da' add='da-Latn-DK' remove='da'/>
+    <!-- {Taita;?;?} → {Taita;Latin;Kenya} → {Taita;?;?} -->
+    <result input='dav' add='dav-Latn-KE' remove='dav'/>
     <!-- {German;?;?} → {German;Latin;Germany} → {German;?;?} -->
     <result input='de' add='de-Latn-DE' remove='de'/>
     <!-- {Divehi;?;?} → {Divehi;Thaana;Maldives} → {Divehi;?;?} -->
     <result input='dv' add='dv-Thaa-MV' remove='dv'/>
     <!-- {Dzongkha;?;?} → {Dzongkha;Tibetan;Bhutan} → {Dzongkha;?;?} -->
     <result input='dz' add='dz-Tibt-BT' remove='dz'/>
+    <!-- {Embu;?;?} → {Embu;Latin;Kenya} → {Embu;?;?} -->
+    <result input='ebu' add='ebu-Latn-KE' remove='ebu'/>
     <!-- {Ewe;?;?} → {Ewe;Latin;Ghana} → {Ewe;?;?} -->
     <result input='ee' add='ee-Latn-GH' remove='ee'/>
     <!-- {Efik;?;?} → {Efik;Latin;Nigeria} → {Efik;?;?} -->
@@ -87,6 +103,8 @@
     <result input='eu' add='eu-Latn-ES' remove='eu'/>
     <!-- {Persian;?;?} → {Persian;Arabic;Iran} → {Persian;?;?} -->
     <result input='fa' add='fa-Arab-IR' remove='fa'/>
+    <!-- {Fulah;?;?} → {Fulah;Latin;Senegal} → {Fulah;?;?} -->
+    <result input='ff' add='ff-Latn-SN' remove='ff'/>
     <!-- {Finnish;?;?} → {Finnish;Latin;Finland} → {Finnish;?;?} -->
     <result input='fi' add='fi-Latn-FI' remove='fi'/>
     <!-- {Filipino;?;?} → {Filipino;Latin;Philippines} → {Filipino;?;?} -->
@@ -109,6 +127,8 @@
     <result input='gag' add='gag-Latn-MD' remove='gag'/>
     <!-- {Scottish Gaelic;?;?} → {Scottish Gaelic;Latin;United Kingdom} → {Scottish Gaelic;?;?} -->
     <result input='gd' add='gd-Latn-GB' remove='gd'/>
+    <!-- {Geez;?;?} → {Geez;Ethiopic;Ethiopia} → {Geez;?;?} -->
+    <result input='gez' add='gez-Ethi-ET' remove='gez'/>
     <!-- {Gilbertese;?;?} → {Gilbertese;Latin;Kiribati} → {Gilbertese;?;?} -->
     <result input='gil' add='gil-Latn-KI' remove='gil'/>
     <!-- {Galician;?;?} → {Galician;Latin;Spain} → {Galician;?;?} -->
@@ -119,6 +139,10 @@
     <result input='gsw' add='gsw-Latn-CH' remove='gsw'/>
     <!-- {Gujarati;?;?} → {Gujarati;Gujarati;India} → {Gujarati;?;?} -->
     <result input='gu' add='gu-Gujr-IN' remove='gu'/>
+    <!-- {Gusii;?;?} → {Gusii;Latin;Kenya} → {Gusii;?;?} -->
+    <result input='guz' add='guz-Latn-KE' remove='guz'/>
+    <!-- {Manx;?;?} → {Manx;Latin;United Kingdom} → {Manx;?;?} -->
+    <result input='gv' add='gv-Latn-GB' remove='gv'/>
     <!-- {Hausa;?;?} → {Hausa;Latin;Nigeria} → {Hausa;?;?} -->
     <result input='ha' add='ha-Latn-NG' remove='ha'/>
     <!-- {Hausa;Arabic;?} → {Hausa;Arabic;Sudan} → {Hausa;?;Sudan} -->
@@ -157,26 +181,46 @@
     <result input='is' add='is-Latn-IS' remove='is'/>
     <!-- {Italian;?;?} → {Italian;Latin;Italy} → {Italian;?;?} -->
     <result input='it' add='it-Latn-IT' remove='it'/>
-    <!-- {Inuktitut;?;?} → {Inuktitut;Unified Canadian Aboriginal Syllabics;Canada} → {Inuktitut;?;?} -->
-    <result input='iu' add='iu-Cans-CA' remove='iu'/>
     <!-- {Japanese;?;?} → {Japanese;Japanese;Japan} → {Japanese;?;?} -->
     <result input='ja' add='ja-Jpan-JP' remove='ja'/>
+    <!-- {Machame;?;?} → {Machame;Latin;Tanzania} → {Machame;?;?} -->
+    <result input='jmc' add='jmc-Latn-TZ' remove='jmc'/>
     <!-- {Javanese;?;?} → {Javanese;Latin;Indonesia} → {Javanese;?;?} -->
     <result input='jv' add='jv-Latn-ID' remove='jv'/>
     <!-- {Georgian;?;?} → {Georgian;Georgian;Georgia} → {Georgian;?;?} -->
     <result input='ka' add='ka-Geor-GE' remove='ka'/>
+    <!-- {Kabyle;?;?} → {Kabyle;Latin;Algeria} → {Kabyle;?;?} -->
+    <result input='kab' add='kab-Latn-DZ' remove='kab'/>
     <!-- {Jju;?;?} → {Jju;Latin;Nigeria} → {Jju;?;?} -->
     <result input='kaj' add='kaj-Latn-NG' remove='kaj'/>
     <!-- {Kamba;?;?} → {Kamba;Latin;Kenya} → {Kamba;?;?} -->
     <result input='kam' add='kam-Latn-KE' remove='kam'/>
     <!-- {Kabardian;?;?} → {Kabardian;Cyrillic;Russia} → {Kabardian;?;?} -->
     <result input='kbd' add='kbd-Cyrl-RU' remove='kbd'/>
+    <!-- {Tyap;?;?} → {Tyap;Latin;Nigeria} → {Tyap;?;?} -->
+    <result input='kcg' add='kcg-Latn-NG' remove='kcg'/>
+    <!-- {Makonde;?;?} → {Makonde;Latin;Tanzania} → {Makonde;?;?} -->
+    <result input='kde' add='kde-Latn-TZ' remove='kde'/>
+    <!-- {Kabuverdianu;?;?} → {Kabuverdianu;Latin;Cape Verde} → {Kabuverdianu;?;?} -->
+    <result input='kea' add='kea-Latn-CV' remove='kea'/>
+    <!-- {Koro;?;?} → {Koro;Latin;Côte d’Ivoire} → {Koro;?;?} -->
+    <result input='kfo' add='kfo-Latn-CI' remove='kfo'/>
+    <!-- {Kongo;?;?} → {Kongo;Latin;Congo - Kinshasa} → {Kongo;?;?} -->
+    <result input='kg' add='kg-Latn-CD' remove='kg'/>
     <!-- {Khasi;?;?} → {Khasi;Latin;India} → {Khasi;?;?} -->
     <result input='kha' add='kha-Latn-IN' remove='kha'/>
+    <!-- {Koyra Chiini;?;?} → {Koyra Chiini;Latin;Mali} → {Koyra Chiini;?;?} -->
+    <result input='khq' add='khq-Latn-ML' remove='khq'/>
+    <!-- {Kikuyu;?;?} → {Kikuyu;Latin;Kenya} → {Kikuyu;?;?} -->
+    <result input='ki' add='ki-Latn-KE' remove='ki'/>
+    <!-- {Kuanyama;?;?} → {Kuanyama;Latin;Namibia} → {Kuanyama;?;?} -->
+    <result input='kj' add='kj-Latn-NA' remove='kj'/>
     <!-- {Kazakh;?;?} → {Kazakh;Cyrillic;Kazakhstan} → {Kazakh;?;?} -->
     <result input='kk' add='kk-Cyrl-KZ' remove='kk'/>
     <!-- {Kalaallisut;?;?} → {Kalaallisut;Latin;Greenland} → {Kalaallisut;?;?} -->
     <result input='kl' add='kl-Latn-GL' remove='kl'/>
+    <!-- {Kalenjin;?;?} → {Kalenjin;Latin;Kenya} → {Kalenjin;?;?} -->
+    <result input='kln' add='kln-Latn-KE' remove='kln'/>
     <!-- {Khmer;?;?} → {Khmer;Khmer;Cambodia} → {Khmer;?;?} -->
     <result input='km' add='km-Khmr-KH' remove='km'/>
     <!-- {Kannada;?;?} → {Kannada;Kannada;India} → {Kannada;?;?} -->
@@ -197,6 +241,10 @@
     <result input='krc' add='krc-Cyrl-RU' remove='krc'/>
     <!-- {Kashmiri;?;?} → {Kashmiri;Arabic;India} → {Kashmiri;?;?} -->
     <result input='ks' add='ks-Arab-IN' remove='ks'/>
+    <!-- {Shambala;?;?} → {Shambala;Latin;Tanzania} → {Shambala;?;?} -->
+    <result input='ksb' add='ksb-Latn-TZ' remove='ksb'/>
+    <!-- {Colognian;?;?} → {Colognian;Latin;Germany} → {Colognian;?;?} -->
+    <result input='ksh' add='ksh-Latn-DE' remove='ksh'/>
     <!-- {Kurdish;?;?} → {Kurdish;Arabic;Iraq} → {Kurdish;?;?} -->
     <result input='ku' add='ku-Arab-IQ' remove='ku'/>
     <!-- {Kurdish;Latin;?} → {Kurdish;Latin;Turkey} → {Kurdish;?;Turkey} -->
@@ -205,10 +253,14 @@
     <result input='ku-TR' add='ku-Latn-TR' remove='ku-TR'/>
     <!-- {Kumyk;?;?} → {Kumyk;Cyrillic;Russia} → {Kumyk;?;?} -->
     <result input='kum' add='kum-Cyrl-RU' remove='kum'/>
+    <!-- {Cornish;?;?} → {Cornish;Latin;United Kingdom} → {Cornish;?;?} -->
+    <result input='kw' add='kw-Latn-GB' remove='kw'/>
     <!-- {Kirghiz;?;?} → {Kirghiz;Cyrillic;Kyrgyzstan} → {Kirghiz;?;?} -->
     <result input='ky' add='ky-Cyrl-KG' remove='ky'/>
     <!-- {Latin;?;?} → {Latin;Latin;Vatican City} → {Latin;?;?} -->
     <result input='la' add='la-Latn-VA' remove='la'/>
+    <!-- {Langi;?;?} → {Langi;Latin;Tanzania} → {Langi;?;?} -->
+    <result input='lag' add='lag-Latn-TZ' remove='lag'/>
     <!-- {Lahnda;?;?} → {Lahnda;Arabic;Pakistan} → {Lahnda;?;?} -->
     <result input='lah' add='lah-Arab-PK' remove='lah'/>
     <!-- {Luxembourgish;?;?} → {Luxembourgish;Latin;Luxembourg} → {Luxembourgish;?;?} -->
@@ -217,20 +269,34 @@
     <result input='lbe' add='lbe-Cyrl-RU' remove='lbe'/>
     <!-- {Lezghian;?;?} → {Lezghian;Cyrillic;Russia} → {Lezghian;?;?} -->
     <result input='lez' add='lez-Cyrl-RU' remove='lez'/>
+    <!-- {Ganda;?;?} → {Ganda;Latin;Uganda} → {Ganda;?;?} -->
+    <result input='lg' add='lg-Latn-UG' remove='lg'/>
     <!-- {Lingala;?;?} → {Lingala;Latin;Congo - Kinshasa} → {Lingala;?;?} -->
     <result input='ln' add='ln-Latn-CD' remove='ln'/>
     <!-- {Lao;?;?} → {Lao;Lao;Laos} → {Lao;?;?} -->
     <result input='lo' add='lo-Laoo-LA' remove='lo'/>
     <!-- {Lithuanian;?;?} → {Lithuanian;Latin;Lithuania} → {Lithuanian;?;?} -->
     <result input='lt' add='lt-Latn-LT' remove='lt'/>
+    <!-- {Luba-Lulua;?;?} → {Luba-Lulua;Latin;Congo - Kinshasa} → {Luba-Lulua;?;?} -->
+    <result input='lua' add='lua-Latn-CD' remove='lua'/>
+    <!-- {Luo;?;?} → {Luo;Latin;Kenya} → {Luo;?;?} -->
+    <result input='luo' add='luo-Latn-KE' remove='luo'/>
+    <!-- {Luyia;?;?} → {Luyia;Latin;Kenya} → {Luyia;?;?} -->
+    <result input='luy' add='luy-Latn-KE' remove='luy'/>
     <!-- {Latvian;?;?} → {Latvian;Latin;Latvia} → {Latvian;?;?} -->
     <result input='lv' add='lv-Latn-LV' remove='lv'/>
     <!-- {Maithili;?;?} → {Maithili;Devanagari;India} → {Maithili;?;?} -->
     <result input='mai' add='mai-Deva-IN' remove='mai'/>
+    <!-- {Masai;?;?} → {Masai;Latin;Kenya} → {Masai;?;?} -->
+    <result input='mas' add='mas-Latn-KE' remove='mas'/>
     <!-- {Moksha;?;?} → {Moksha;Cyrillic;Russia} → {Moksha;?;?} -->
     <result input='mdf' add='mdf-Cyrl-RU' remove='mdf'/>
-    <!-- {Maguindanao;?;?} → {Maguindanao;Latin;Philippines} → {Maguindanao;?;?} -->
+    <!-- {Maguindanaon;?;?} → {Maguindanaon;Latin;Philippines} → {Maguindanaon;?;?} -->
     <result input='mdh' add='mdh-Latn-PH' remove='mdh'/>
+    <!-- {Meru;?;?} → {Meru;Latin;Kenya} → {Meru;?;?} -->
+    <result input='mer' add='mer-Latn-KE' remove='mer'/>
+    <!-- {Morisyen;?;?} → {Morisyen;Latin;Mauritius} → {Morisyen;?;?} -->
+    <result input='mfe' add='mfe-Latn-MU' remove='mfe'/>
     <!-- {Malagasy;?;?} → {Malagasy;Latin;Madagascar} → {Malagasy;?;?} -->
     <result input='mg' add='mg-Latn-MG' remove='mg'/>
     <!-- {Marshallese;?;?} → {Marshallese;Latin;Marshall Islands} → {Marshallese;?;?} -->
@@ -259,8 +325,14 @@
     <result input='myv' add='myv-Cyrl-RU' remove='myv'/>
     <!-- {Nauru;?;?} → {Nauru;Latin;Nauru} → {Nauru;?;?} -->
     <result input='na' add='na-Latn-NR' remove='na'/>
+    <!-- {Nama;?;?} → {Nama;Latin;Namibia} → {Nama;?;?} -->
+    <result input='naq' add='naq-Latn-NA' remove='naq'/>
     <!-- {Norwegian Bokmål;?;?} → {Norwegian Bokmål;Latin;Norway} → {Norwegian Bokmål;?;?} -->
     <result input='no' add='no-Latn-NO' remove='no'/>
+    <!-- {North Ndebele;?;?} → {North Ndebele;Latin;Zimbabwe} → {North Ndebele;?;?} -->
+    <result input='nd' add='nd-Latn-ZW' remove='nd'/>
+    <!-- {Low German;?;?} → {Low German;Latin;Germany} → {Low German;?;?} -->
+    <result input='nds' add='nds-Latn-DE' remove='nds'/>
     <!-- {Nepali;?;?} → {Nepali;Devanagari;Nepal} → {Nepali;?;?} -->
     <result input='ne' add='ne-Deva-NP' remove='ne'/>
     <!-- {Niuean;?;?} → {Niuean;Latin;Niue} → {Niuean;?;?} -->
@@ -275,6 +347,8 @@
     <result input='nso' add='nso-Latn-ZA' remove='nso'/>
     <!-- {Nyanja;?;?} → {Nyanja;Latin;Malawi} → {Nyanja;?;?} -->
     <result input='ny' add='ny-Latn-MW' remove='ny'/>
+    <!-- {Nyankole;?;?} → {Nyankole;Latin;Uganda} → {Nyankole;?;?} -->
+    <result input='nyn' add='nyn-Latn-UG' remove='nyn'/>
     <!-- {Occitan;?;?} → {Occitan;Latin;France} → {Occitan;?;?} -->
     <result input='oc' add='oc-Latn-FR' remove='oc'/>
     <!-- {Oromo;?;?} → {Oromo;Latin;Ethiopia} → {Oromo;?;?} -->
@@ -305,28 +379,40 @@
     <result input='pt' add='pt-Latn-BR' remove='pt'/>
     <!-- {Quechua;?;?} → {Quechua;Latin;Peru} → {Quechua;?;?} -->
     <result input='qu' add='qu-Latn-PE' remove='qu'/>
-    <!-- {Rhaeto-Romance;?;?} → {Rhaeto-Romance;Latin;Switzerland} → {Rhaeto-Romance;?;?} -->
+    <!-- {Romansh;?;?} → {Romansh;Latin;Switzerland} → {Romansh;?;?} -->
     <result input='rm' add='rm-Latn-CH' remove='rm'/>
     <!-- {Rundi;?;?} → {Rundi;Latin;Burundi} → {Rundi;?;?} -->
     <result input='rn' add='rn-Latn-BI' remove='rn'/>
     <!-- {Romanian;?;?} → {Romanian;Latin;Romania} → {Romanian;?;?} -->
     <result input='ro' add='ro-Latn-RO' remove='ro'/>
+    <!-- {Rombo;?;?} → {Rombo;Latin;Tanzania} → {Rombo;?;?} -->
+    <result input='rof' add='rof-Latn-TZ' remove='rof'/>
     <!-- {Russian;?;?} → {Russian;Cyrillic;Russia} → {Russian;?;?} -->
     <result input='ru' add='ru-Cyrl-RU' remove='ru'/>
     <!-- {Kinyarwanda;?;?} → {Kinyarwanda;Latin;Rwanda} → {Kinyarwanda;?;?} -->
     <result input='rw' add='rw-Latn-RW' remove='rw'/>
+    <!-- {Rwa;?;?} → {Rwa;Latin;Tanzania} → {Rwa;?;?} -->
+    <result input='rwk' add='rwk-Latn-TZ' remove='rwk'/>
     <!-- {Sanskrit;?;?} → {Sanskrit;Devanagari;India} → {Sanskrit;?;?} -->
     <result input='sa' add='sa-Deva-IN' remove='sa'/>
     <!-- {Yakut;?;?} → {Yakut;Cyrillic;Russia} → {Yakut;?;?} -->
     <result input='sah' add='sah-Cyrl-RU' remove='sah'/>
+    <!-- {Samburu;?;?} → {Samburu;Latin;Kenya} → {Samburu;?;?} -->
+    <result input='saq' add='saq-Latn-KE' remove='saq'/>
     <!-- {Santali;?;?} → {Santali;Latin;India} → {Santali;?;?} -->
     <result input='sat' add='sat-Latn-IN' remove='sat'/>
     <!-- {Sindhi;?;?} → {Sindhi;Arabic;India} → {Sindhi;?;?} -->
     <result input='sd' add='sd-Arab-IN' remove='sd'/>
     <!-- {Northern Sami;?;?} → {Northern Sami;Latin;Norway} → {Northern Sami;?;?} -->
     <result input='se' add='se-Latn-NO' remove='se'/>
+    <!-- {Sena;?;?} → {Sena;Latin;Mozambique} → {Sena;?;?} -->
+    <result input='seh' add='seh-Latn-MZ' remove='seh'/>
+    <!-- {Koyraboro Senni;?;?} → {Koyraboro Senni;Latin;Mali} → {Koyraboro Senni;?;?} -->
+    <result input='ses' add='ses-Latn-ML' remove='ses'/>
     <!-- {Sango;?;?} → {Sango;Latin;Central African Republic} → {Sango;?;?} -->
     <result input='sg' add='sg-Latn-CF' remove='sg'/>
+    <!-- {Tachelhit;?;?} → {Tachelhit;Latin;Morocco} → {Tachelhit;?;?} -->
+    <result input='shi' add='shi-Latn-MA' remove='shi'/>
     <!-- {Sinhala;?;?} → {Sinhala;Sinhala;Sri Lanka} → {Sinhala;?;?} -->
     <result input='si' add='si-Sinh-LK' remove='si'/>
     <!-- {Sidamo;?;?} → {Sidamo;Latin;Ethiopia} → {Sidamo;?;?} -->
@@ -337,6 +423,8 @@
     <result input='sl' add='sl-Latn-SI' remove='sl'/>
     <!-- {Samoan;?;?} → {Samoan;Latin;Samoa} → {Samoan;?;?} -->
     <result input='sm' add='sm-Latn-WS' remove='sm'/>
+    <!-- {Shona;?;?} → {Shona;Latin;Zimbabwe} → {Shona;?;?} -->
+    <result input='sn' add='sn-Latn-ZW' remove='sn'/>
     <!-- {Somali;?;?} → {Somali;Latin;Somalia} → {Somali;?;?} -->
     <result input='so' add='so-Latn-SO' remove='so'/>
     <!-- {Albanian;?;?} → {Albanian;Latin;Albania} → {Albanian;?;?} -->
@@ -347,6 +435,8 @@
     <result input='sr-ME' add='sr-Latn-ME' remove='sr-ME'/>
     <!-- {Swati;?;?} → {Swati;Latin;South Africa} → {Swati;?;?} -->
     <result input='ss' add='ss-Latn-ZA' remove='ss'/>
+    <!-- {Saho;?;?} → {Saho;Latin;Eritrea} → {Saho;?;?} -->
+    <result input='ssy' add='ssy-Latn-ER' remove='ssy'/>
     <!-- {Southern Sotho;?;?} → {Southern Sotho;Latin;South Africa} → {Southern Sotho;?;?} -->
     <result input='st' add='st-Latn-ZA' remove='st'/>
     <!-- {Sundanese;?;?} → {Sundanese;Latin;Indonesia} → {Sundanese;?;?} -->
@@ -355,12 +445,14 @@
     <result input='sv' add='sv-Latn-SE' remove='sv'/>
     <!-- {Swahili;?;?} → {Swahili;Latin;Tanzania} → {Swahili;?;?} -->
     <result input='sw' add='sw-Latn-TZ' remove='sw'/>
-    <!-- {Maore Comorian;?;?} → {Maore Comorian;Arabic;Comoros} → {Maore Comorian;?;?} -->
+    <!-- {Comorian;?;?} → {Comorian;Arabic;Comoros} → {Comorian;?;?} -->
     <result input='swb' add='swb-Arab-KM' remove='swb'/>
     <!-- {Tamil;?;?} → {Tamil;Tamil;India} → {Tamil;?;?} -->
     <result input='ta' add='ta-Taml-IN' remove='ta'/>
     <!-- {Telugu;?;?} → {Telugu;Telugu;India} → {Telugu;?;?} -->
     <result input='te' add='te-Telu-IN' remove='te'/>
+    <!-- {Teso;?;?} → {Teso;Latin;Uganda} → {Teso;?;?} -->
+    <result input='teo' add='teo-Latn-UG' remove='teo'/>
     <!-- {Tetum;?;?} → {Tetum;Latin;Timor-Leste} → {Tetum;?;?} -->
     <result input='tet' add='tet-Latn-TL' remove='tet'/>
     <!-- {Tajik;?;?} → {Tajik;Cyrillic;Tajikistan} → {Tajik;?;?} -->
@@ -397,12 +489,12 @@
     <result input='tts' add='tts-Thai-TH' remove='tts'/>
     <!-- {Tuvalu;?;?} → {Tuvalu;Latin;Tuvalu} → {Tuvalu;?;?} -->
     <result input='tvl' add='tvl-Latn-TV' remove='tvl'/>
-    <!-- {Twi;?;?} → {Twi;Latin;Ghana} → {Twi;?;?} -->
-    <result input='tw' add='tw-Latn-GH' remove='tw'/>
     <!-- {Tahitian;?;?} → {Tahitian;Latin;French Polynesia} → {Tahitian;?;?} -->
     <result input='ty' add='ty-Latn-PF' remove='ty'/>
     <!-- {Tuvinian;?;?} → {Tuvinian;Cyrillic;Russia} → {Tuvinian;?;?} -->
     <result input='tyv' add='tyv-Cyrl-RU' remove='tyv'/>
+    <!-- {Central Morocco Tamazight;?;?} → {Central Morocco Tamazight;Latin;Morocco} → {Central Morocco Tamazight;?;?} -->
+    <result input='tzm' add='tzm-Latn-MA' remove='tzm'/>
     <!-- {Udmurt;?;?} → {Udmurt;Cyrillic;Russia} → {Udmurt;?;?} -->
     <result input='udm' add='udm-Cyrl-RU' remove='udm'/>
     <!-- {Uighur;?;?} → {Uighur;Arabic;China} → {Uighur;?;?} -->
@@ -439,18 +531,16 @@
     <result input='und-AX' add='sv-Latn-AX' remove='sv-AX'/>
     <!-- {?;?;Azerbaijan} → {Azerbaijani;Latin;Azerbaijan} → {Azerbaijani;?;?} -->
     <result input='und-AZ' add='az-Latn-AZ' remove='az'/>
-    <!-- {?;Arabic;?} → {Urdu;Arabic;Pakistan} → {Urdu;?;?} -->
-    <result input='und-Arab' add='ur-Arab-PK' remove='ur'/>
+    <!-- {?;Arabic;?} → {Arabic;Arabic;Egypt} → {Arabic;?;?} -->
+    <result input='und-Arab' add='ar-Arab-EG' remove='ar'/>
     <!-- {?;Arabic;China} → {Uighur;Arabic;China} → {Uighur;?;?} -->
     <result input='und-Arab-CN' add='ug-Arab-CN' remove='ug'/>
-    <!-- {?;Arabic;Djibouti} → {Arabic;Arabic;Djibouti} → {Arabic;?;Djibouti} -->
-    <result input='und-Arab-DJ' add='ar-Arab-DJ' remove='ar-DJ'/>
-    <!-- {?;Arabic;Eritrea} → {Arabic;Arabic;Eritrea} → {Arabic;?;Eritrea} -->
-    <result input='und-Arab-ER' add='ar-Arab-ER' remove='ar-ER'/>
-    <!-- {?;Arabic;Israel} → {Arabic;Arabic;Israel} → {Arabic;?;Israel} -->
-    <result input='und-Arab-IL' add='ar-Arab-IL' remove='ar-IL'/>
-    <!-- {?;Arabic;Chad} → {Arabic;Arabic;Chad} → {Arabic;?;Chad} -->
-    <result input='und-Arab-TD' add='ar-Arab-TD' remove='ar-TD'/>
+    <!-- {?;Arabic;India} → {Urdu;Arabic;India} → {Urdu;?;India} -->
+    <result input='und-Arab-IN' add='ur-Arab-IN' remove='ur-IN'/>
+    <!-- {?;Arabic;Nigeria} → {Hausa;Arabic;Nigeria} → {Hausa;Arabic;Nigeria} -->
+    <result input='und-Arab-NG' add='ha-Arab-NG' remove='ha-Arab-NG'/>
+    <!-- {?;Arabic;Pakistan} → {Urdu;Arabic;Pakistan} → {Urdu;?;?} -->
+    <result input='und-Arab-PK' add='ur-Arab-PK' remove='ur'/>
     <!-- {?;Armenian;?} → {Armenian;Armenian;Armenia} → {Armenian;?;?} -->
     <result input='und-Armn' add='hy-Armn-AM' remove='hy'/>
     <!-- {?;?;Bosnia and Herzegovina} → {Bosnian;Latin;Bosnia and Herzegovina} → {Bosnian;?;?} -->
@@ -501,6 +591,8 @@
     <result input='und-CN' add='zh-Hans-CN' remove='zh'/>
     <!-- {?;?;Colombia} → {Spanish;Latin;Colombia} → {Spanish;?;Colombia} -->
     <result input='und-CO' add='es-Latn-CO' remove='es-CO'/>
+    <!-- {?;?;Clipperton Island} → {French;Latin;Clipperton Island} → {French;?;Clipperton Island} -->
+    <result input='und-CP' add='fr-Latn-CP' remove='fr-CP'/>
     <!-- {?;?;Costa Rica} → {Spanish;Latin;Costa Rica} → {Spanish;?;Costa Rica} -->
     <result input='und-CR' add='es-Latn-CR' remove='es-CR'/>
     <!-- {?;?;Cuba} → {Spanish;Latin;Cuba} → {Spanish;?;Cuba} -->
@@ -511,8 +603,8 @@
     <result input='und-CY' add='el-Grek-CY' remove='el-CY'/>
     <!-- {?;?;Czech Republic} → {Czech;Latin;Czech Republic} → {Czech;?;?} -->
     <result input='und-CZ' add='cs-Latn-CZ' remove='cs'/>
-    <!-- {?;Unified Canadian Aboriginal Syllabics;?} → {Plains Cree;Unified Canadian Aboriginal Syllabics;Canada} → {Plains Cree;?;?} -->
-    <result input='und-Cans' add='crk-Cans-CA' remove='crk'/>
+    <!-- {?;Cherokee;?} → {Cherokee;Cherokee;United States} → {Cherokee;?;?} -->
+    <result input='und-Cher' add='chr-Cher-US' remove='chr'/>
     <!-- {?;Cyrillic;?} → {Russian;Cyrillic;Russia} → {Russian;?;?} -->
     <result input='und-Cyrl' add='ru-Cyrl-RU' remove='ru'/>
     <!-- {?;Cyrillic;Bosnia and Herzegovina} → {Serbian;Cyrillic;Bosnia and Herzegovina} → {Serbian;?;Bosnia and Herzegovina} -->
@@ -531,6 +623,8 @@
     <result input='und-DZ' add='ar-Arab-DZ' remove='ar-DZ'/>
     <!-- {?;Devanagari;?} → {Hindi;Devanagari;India} → {Hindi;?;?} -->
     <result input='und-Deva' add='hi-Deva-IN' remove='hi'/>
+    <!-- {?;?;Ceuta and Melilla} → {Spanish;Latin;Ceuta and Melilla} → {Spanish;?;Ceuta and Melilla} -->
+    <result input='und-EA' add='es-Latn-EA' remove='es-EA'/>
     <!-- {?;?;Ecuador} → {Spanish;Latin;Ecuador} → {Spanish;?;Ecuador} -->
     <result input='und-EC' add='es-Latn-EC' remove='es-EC'/>
     <!-- {?;?;Estonia} → {Estonian;Latin;Estonia} → {Estonian;?;?} -->
@@ -547,8 +641,6 @@
     <result input='und-Ethi' add='am-Ethi-ET' remove='am'/>
     <!-- {?;?;Finland} → {Finnish;Latin;Finland} → {Finnish;?;?} -->
     <result input='und-FI' add='fi-Latn-FI' remove='fi'/>
-    <!-- {?;?;Fiji} → {Fijian;Latin;Fiji} → {Fijian;?;?} -->
-    <result input='und-FJ' add='fj-Latn-FJ' remove='fj'/>
     <!-- {?;?;Micronesia} → {Chuukese;Latin;Micronesia} → {Chuukese;?;?} -->
     <result input='und-FM' add='chk-Latn-FM' remove='chk'/>
     <!-- {?;?;Faroe Islands} → {Faroese;Latin;Faroe Islands} → {Faroese;?;?} -->
@@ -569,8 +661,8 @@
     <result input='und-GN' add='fr-Latn-GN' remove='fr-GN'/>
     <!-- {?;?;Guadeloupe} → {French;Latin;Guadeloupe} → {French;?;Guadeloupe} -->
     <result input='und-GP' add='fr-Latn-GP' remove='fr-GP'/>
-    <!-- {?;?;Equatorial Guinea} → {French;Latin;Equatorial Guinea} → {French;?;Equatorial Guinea} -->
-    <result input='und-GQ' add='fr-Latn-GQ' remove='fr-GQ'/>
+    <!-- {?;?;Equatorial Guinea} → {Spanish;Latin;Equatorial Guinea} → {Spanish;?;Equatorial Guinea} -->
+    <result input='und-GQ' add='es-Latn-GQ' remove='es-GQ'/>
     <!-- {?;?;Greece} → {Greek;Greek;Greece} → {Greek;?;?} -->
     <result input='und-GR' add='el-Grek-GR' remove='el'/>
     <!-- {?;?;Guatemala} → {Spanish;Latin;Guatemala} → {Spanish;?;Guatemala} -->
@@ -603,6 +695,8 @@
     <result input='und-Hant' add='zh-Hant-TW' remove='zh-TW'/>
     <!-- {?;Hebrew;?} → {Hebrew;Hebrew;Israel} → {Hebrew;?;?} -->
     <result input='und-Hebr' add='iw-Hebr-IL' remove='iw'/>
+    <!-- {?;?;Canary Islands} → {Spanish;Latin;Canary Islands} → {Spanish;?;Canary Islands} -->
+    <result input='und-IC' add='es-Latn-IC' remove='es-IC'/>
     <!-- {?;?;Indonesia} → {Indonesian;Latin;Indonesia} → {Indonesian;?;?} -->
     <result input='und-ID' add='id-Latn-ID' remove='id'/>
     <!-- {?;?;Israel} → {Hebrew;Hebrew;Israel} → {Hebrew;?;?} -->
@@ -693,12 +787,10 @@
     <result input='und-MF' add='fr-Latn-MF' remove='fr-MF'/>
     <!-- {?;?;Madagascar} → {Malagasy;Latin;Madagascar} → {Malagasy;?;?} -->
     <result input='und-MG' add='mg-Latn-MG' remove='mg'/>
-    <!-- {?;?;Marshall Islands} → {Marshallese;Latin;Marshall Islands} → {Marshallese;?;?} -->
-    <result input='und-MH' add='mh-Latn-MH' remove='mh'/>
     <!-- {?;?;Macedonia} → {Macedonian;Cyrillic;Macedonia} → {Macedonian;?;?} -->
     <result input='und-MK' add='mk-Cyrl-MK' remove='mk'/>
-    <!-- {?;?;Mali} → {French;Latin;Mali} → {French;?;Mali} -->
-    <result input='und-ML' add='fr-Latn-ML' remove='fr-ML'/>
+    <!-- {?;?;Mali} → {Bambara;Latin;Mali} → {Bambara;?;?} -->
+    <result input='und-ML' add='bm-Latn-ML' remove='bm'/>
     <!-- {?;?;Myanmar [Burma]} → {Burmese;Myanmar;Myanmar [Burma]} → {Burmese;?;?} -->
     <result input='und-MM' add='my-Mymr-MM' remove='my'/>
     <!-- {?;?;Mongolia} → {Mongolian;Cyrillic;Mongolia} → {Mongolian;?;?} -->
@@ -711,10 +803,10 @@
     <result input='und-MR' add='ar-Arab-MR' remove='ar-MR'/>
     <!-- {?;?;Malta} → {Maltese;Latin;Malta} → {Maltese;?;?} -->
     <result input='und-MT' add='mt-Latn-MT' remove='mt'/>
+    <!-- {?;?;Mauritius} → {Morisyen;Latin;Mauritius} → {Morisyen;?;?} -->
+    <result input='und-MU' add='mfe-Latn-MU' remove='mfe'/>
     <!-- {?;?;Maldives} → {Divehi;Thaana;Maldives} → {Divehi;?;?} -->
     <result input='und-MV' add='dv-Thaa-MV' remove='dv'/>
-    <!-- {?;?;Malawi} → {Nyanja;Latin;Malawi} → {Nyanja;?;?} -->
-    <result input='und-MW' add='ny-Latn-MW' remove='ny'/>
     <!-- {?;?;Mexico} → {Spanish;Latin;Mexico} → {Spanish;?;Mexico} -->
     <result input='und-MX' add='es-Latn-MX' remove='es-MX'/>
     <!-- {?;?;Malaysia} → {Malay;Latin;Malaysia} → {Malay;?;?} -->
@@ -727,6 +819,8 @@
     <result input='und-Mong' add='mn-Mong-CN' remove='mn-CN'/>
     <!-- {?;Myanmar;?} → {Burmese;Myanmar;Myanmar [Burma]} → {Burmese;?;?} -->
     <result input='und-Mymr' add='my-Mymr-MM' remove='my'/>
+    <!-- {?;?;Namibia} → {Kuanyama;Latin;Namibia} → {Kuanyama;?;?} -->
+    <result input='und-NA' add='kj-Latn-NA' remove='kj'/>
     <!-- {?;?;New Caledonia} → {French;Latin;New Caledonia} → {French;?;New Caledonia} -->
     <result input='und-NC' add='fr-Latn-NC' remove='fr-NC'/>
     <!-- {?;?;Niger} → {Hausa;Latin;Niger} → {Hausa;?;Niger} -->
@@ -739,8 +833,6 @@
     <result input='und-NO' add='no-Latn-NO' remove='no'/>
     <!-- {?;?;Nepal} → {Nepali;Devanagari;Nepal} → {Nepali;?;?} -->
     <result input='und-NP' add='ne-Deva-NP' remove='ne'/>
-    <!-- {?;?;Niue} → {Niuean;Latin;Niue} → {Niuean;?;?} -->
-    <result input='und-NU' add='niu-Latn-NU' remove='niu'/>
     <!-- {?;?;Oman} → {Arabic;Arabic;Oman} → {Arabic;?;Oman} -->
     <result input='und-OM' add='ar-Arab-OM' remove='ar-OM'/>
     <!-- {?;Oriya;?} → {Oriya;Oriya;India} → {Oriya;?;?} -->
@@ -785,6 +877,8 @@
     <result input='und-RW' add='rw-Latn-RW' remove='rw'/>
     <!-- {?;?;Saudi Arabia} → {Arabic;Arabic;Saudi Arabia} → {Arabic;?;Saudi Arabia} -->
     <result input='und-SA' add='ar-Arab-SA' remove='ar-SA'/>
+    <!-- {?;?;Seychelles} → {French;Latin;Seychelles} → {French;?;Seychelles} -->
+    <result input='und-SC' add='fr-Latn-SC' remove='fr-SC'/>
     <!-- {?;?;Sudan} → {Arabic;Arabic;Sudan} → {Arabic;?;Sudan} -->
     <result input='und-SD' add='ar-Arab-SD' remove='ar-SD'/>
     <!-- {?;?;Sweden} → {Swedish;Latin;Sweden} → {Swedish;?;?} -->
@@ -819,6 +913,8 @@
     <result input='und-TH' add='th-Thai-TH' remove='th'/>
     <!-- {?;?;Tajikistan} → {Tajik;Cyrillic;Tajikistan} → {Tajik;?;?} -->
     <result input='und-TJ' add='tg-Cyrl-TJ' remove='tg'/>
+    <!-- {?;?;Tokelau} → {Tokelau;Latin;Tokelau} → {Tokelau;?;?} -->
+    <result input='und-TK' add='tkl-Latn-TK' remove='tkl'/>
     <!-- {?;?;Timor-Leste} → {Portuguese;Latin;Timor-Leste} → {Portuguese;?;Timor-Leste} -->
     <result input='und-TL' add='pt-Latn-TL' remove='pt-TL'/>
     <!-- {?;?;Turkmenistan} → {Turkmen;Latin;Turkmenistan} → {Turkmen;?;?} -->
@@ -839,6 +935,8 @@
     <result input='und-Taml' add='ta-Taml-IN' remove='ta'/>
     <!-- {?;Telugu;?} → {Telugu;Telugu;India} → {Telugu;?;?} -->
     <result input='und-Telu' add='te-Telu-IN' remove='te'/>
+    <!-- {?;Tifinagh;?} → {Tachelhit;Tifinagh;Morocco} → {Tachelhit;Tifinagh;?} -->
+    <result input='und-Tfng' add='shi-Tfng-MA' remove='shi-Tfng'/>
     <!-- {?;Thaana;?} → {Divehi;Thaana;Maldives} → {Divehi;?;?} -->
     <result input='und-Thaa' add='dv-Thaa-MV' remove='dv'/>
     <!-- {?;Thai;?} → {Thai;Thai;Thailand} → {Thai;?;?} -->
@@ -859,8 +957,8 @@
     <result input='und-VE' add='es-Latn-VE' remove='es-VE'/>
     <!-- {?;?;Vietnam} → {Vietnamese;Latin;Vietnam} → {Vietnamese;?;?} -->
     <result input='und-VN' add='vi-Latn-VN' remove='vi'/>
-    <!-- {?;?;Vanuatu} → {Bislama;Latin;Vanuatu} → {Bislama;?;?} -->
-    <result input='und-VU' add='bi-Latn-VU' remove='bi'/>
+    <!-- {?;?;Vanuatu} → {French;Latin;Vanuatu} → {French;?;Vanuatu} -->
+    <result input='und-VU' add='fr-Latn-VU' remove='fr-VU'/>
     <!-- {?;?;Wallis and Futuna} → {French;Latin;Wallis and Futuna} → {French;?;Wallis and Futuna} -->
     <result input='und-WF' add='fr-Latn-WF' remove='fr-WF'/>
     <!-- {?;?;Samoa} → {Samoan;Latin;Samoa} → {Samoan;?;?} -->
@@ -883,6 +981,8 @@
     <result input='ve' add='ve-Latn-ZA' remove='ve'/>
     <!-- {Vietnamese;?;?} → {Vietnamese;Latin;Vietnam} → {Vietnamese;?;?} -->
     <result input='vi' add='vi-Latn-VN' remove='vi'/>
+    <!-- {Vunjo;?;?} → {Vunjo;Latin;Tanzania} → {Vunjo;?;?} -->
+    <result input='vun' add='vun-Latn-TZ' remove='vun'/>
     <!-- {Walamo;?;?} → {Walamo;Ethiopic;Ethiopia} → {Walamo;?;?} -->
     <result input='wal' add='wal-Ethi-ET' remove='wal'/>
     <!-- {Waray;?;?} → {Waray;Latin;Philippines} → {Waray;?;?} -->
@@ -891,6 +991,8 @@
     <result input='wo' add='wo-Latn-SN' remove='wo'/>
     <!-- {Xhosa;?;?} → {Xhosa;Latin;South Africa} → {Xhosa;?;?} -->
     <result input='xh' add='xh-Latn-ZA' remove='xh'/>
+    <!-- {Soga;?;?} → {Soga;Latin;Uganda} → {Soga;?;?} -->
+    <result input='xog' add='xog-Latn-UG' remove='xog'/>
     <!-- {Yapese;?;?} → {Yapese;Latin;Micronesia} → {Yapese;?;?} -->
     <result input='yap' add='yap-Latn-FM' remove='yap'/>
     <!-- {Yoruba;?;?} → {Yoruba;Latin;Nigeria} → {Yoruba;?;?} -->

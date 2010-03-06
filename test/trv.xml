@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='trv'>
- <!-- Taroko [Taroko] -->
+ <!-- Taroko [trv] -->
   <number 
 locales='trv trv_TW'>
-<!-- Taroko [Taroko]; Taroko (Taiwan) [Taroko (Taiwan)] -->
+<!-- Taroko [trv@]; Taroko (Taiwan) [trv (TW)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='trv trv_TW'>
   </number>
   <date 
 locales='trv trv_TW'>
-<!-- Taroko [Taroko]; Taroko (Taiwan) [Taroko (Taiwan)] -->
+<!-- Taroko [trv@]; Taroko (Taiwan) [trv (TW)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>1900-01-31</result>
@@ -337,11 +337,11 @@ locales='trv trv_TW'>
   </date>
   <zoneFields 
 locales='trv trv_TW'>
-<!-- Taroko [Taroko]; Taroko (Taiwan) [Taroko (Taiwan)] -->
+<!-- Taroko [trv@]; Taroko (Taiwan) [trv (TW)@] -->
   </zoneFields>
   <collation 
 locales='trv trv_TW'>
-<!-- Taroko [Taroko]; Taroko (Taiwan) [Taroko (Taiwan)] -->
+<!-- Taroko [trv@]; Taroko (Taiwan) [trv (TW)@] -->
    <result draft='unconfirmed'>
 x 
 X 

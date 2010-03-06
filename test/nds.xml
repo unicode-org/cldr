@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='nds'>
- <!-- Low German [Low German] -->
+ <!-- Low German [Plattdüütsch] -->
   <number 
 locales='nds nds_DE'>
-<!-- Low German [Low German]; Low German (Germany) [Low German (Germany)] -->
+<!-- Low German [Plattdüütsch@]; Low German (Germany) [Plattdüütsch (Düütschland)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent' draft='unconfirmed'>0 %</result>
@@ -80,7 +80,7 @@ locales='nds nds_DE'>
   </number>
   <date 
 locales='nds nds_DE'>
-<!-- Low German [Low German]; Low German (Germany) [Low German (Germany)] -->
+<!-- Low German [Plattdüütsch@]; Low German (Germany) [Plattdüütsch (Düütschland)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>1900-01-31</result>
@@ -252,11 +252,11 @@ locales='nds nds_DE'>
   </date>
   <zoneFields 
 locales='nds nds_DE'>
-<!-- Low German [Low German]; Low German (Germany) [Low German (Germany)] -->
+<!-- Low German [Plattdüütsch@]; Low German (Germany) [Plattdüütsch (Düütschland)@] -->
   </zoneFields>
   <collation 
 locales='nds nds_DE'>
-<!-- Low German [Low German]; Low German (Germany) [Low German (Germany)] -->
+<!-- Low German [Plattdüütsch@]; Low German (Germany) [Plattdüütsch (Düütschland)@] -->
    <result draft='unconfirmed'>
 x 
 X 
@@ -571,21 +571,6 @@ xs
 xS
 Xs
 XS
-xss
-xsS
-xSs
-xSS
-Xss
-XsS
-XSs
-XSS
-xß
-Xß
-xssx
-xsSx
-xSsx
-xSSx
-xßx
 xsx
 xSx
 xt

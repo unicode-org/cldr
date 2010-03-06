@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='kam'>
- <!-- Kamba [Kamba] -->
+ <!-- Kamba [Kikamba] -->
   <number 
 locales='kam kam_KE'>
-<!-- Kamba [Kamba]; Kamba (Kenya) [Kamba (Kenya)] -->
+<!-- Kamba [Kikamba@]; Kamba (Kenya) [Kikamba (Kenya)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,328 +57,184 @@ locales='kam kam_KE'>
   </number>
   <date 
 locales='kam kam_KE'>
-<!-- Kamba [Kamba]; Kamba (Kenya) [Kamba (Kenya)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
-   <result timeType='medium'>00:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>00/01/31</result>
-   <result draft='approved'>1900-01-31</result>
-   <result timeType='short' draft='unconfirmed'>00/01/31 00:00</result>
-   <result draft='approved'>1900-01-31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>00/01/31 00:00:00</result>
-   <result draft='approved'>1900-01-31 00:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1900 Mwei wa mbee 31</result>
-   <result draft='approved'>1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>1900 Mwei wa mbee 31 00:00</result>
-   <result draft='approved'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1900 Mwei wa mbee 31 00:00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1900 Mwei wa mbee 31</result>
-   <result draft='approved'>1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>1900 Mwei wa mbee 31 00:00</result>
-   <result draft='approved'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1900 Mwei wa mbee 31 00:00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Jumatano, 1900 Mwei wa mbee 31</result>
-   <result draft='approved'>4, 1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>Jumatano, 1900 Mwei wa mbee 31 00:00</result>
-   <result draft='approved'>4, 1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>Jumatano, 1900 Mwei wa mbee 31 00:00:00</result>
-   <result draft='approved'>4, 1900 1 31 00:00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
-   <result timeType='medium'>00:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>09/02/28</result>
-   <result draft='approved'>1909-02-28</result>
-   <result timeType='short' draft='unconfirmed'>09/02/28 00:00</result>
-   <result draft='approved'>1909-02-28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>09/02/28 00:00:01</result>
-   <result draft='approved'>1909-02-28 00:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1909 Mwei wa keli 28</result>
-   <result draft='approved'>1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>1909 Mwei wa keli 28 00:00</result>
-   <result draft='approved'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1909 Mwei wa keli 28 00:00:01</result>
-   <result draft='approved'>1909 2 28 00:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1909 Mwei wa keli 28</result>
-   <result draft='approved'>1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>1909 Mwei wa keli 28 00:00</result>
-   <result draft='approved'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1909 Mwei wa keli 28 00:00:01</result>
-   <result draft='approved'>1909 2 28 00:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Jumapili, 1909 Mwei wa keli 28</result>
-   <result draft='approved'>1, 1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>Jumapili, 1909 Mwei wa keli 28 00:00</result>
-   <result draft='approved'>1, 1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>Jumapili, 1909 Mwei wa keli 28 00:00:01</result>
-   <result draft='approved'>1, 1909 2 28 00:00:01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:59</result>
-   <result timeType='medium'>00:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>18/03/26</result>
-   <result draft='approved'>1918-03-26</result>
-   <result timeType='short' draft='unconfirmed'>18/03/26 00:59</result>
-   <result draft='approved'>1918-03-26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>18/03/26 00:59:59</result>
-   <result draft='approved'>1918-03-26 00:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1918 Mwei wa katatu 26</result>
-   <result draft='approved'>1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>1918 Mwei wa katatu 26 00:59</result>
-   <result draft='approved'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>1918 Mwei wa katatu 26 00:59:59</result>
-   <result draft='approved'>1918 3 26 00:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1918 Mwei wa katatu 26</result>
-   <result draft='approved'>1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>1918 Mwei wa katatu 26 00:59</result>
-   <result draft='approved'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>1918 Mwei wa katatu 26 00:59:59</result>
-   <result draft='approved'>1918 3 26 00:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Jumanne, 1918 Mwei wa katatu 26</result>
-   <result draft='approved'>3, 1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>Jumanne, 1918 Mwei wa katatu 26 00:59</result>
-   <result draft='approved'>3, 1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>Jumanne, 1918 Mwei wa katatu 26 00:59:59</result>
-   <result draft='approved'>3, 1918 3 26 00:59:59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
-   <result timeType='medium'>01:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>32/04/24</result>
-   <result draft='approved'>1932-04-24</result>
-   <result timeType='short' draft='unconfirmed'>32/04/24 01:00</result>
-   <result draft='approved'>1932-04-24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>32/04/24 01:00:00</result>
-   <result draft='approved'>1932-04-24 01:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1932 Mwei wa kanne 24</result>
-   <result draft='approved'>1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>1932 Mwei wa kanne 24 01:00</result>
-   <result draft='approved'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1932 Mwei wa kanne 24 01:00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1932 Mwei wa kanne 24</result>
-   <result draft='approved'>1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>1932 Mwei wa kanne 24 01:00</result>
-   <result draft='approved'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1932 Mwei wa kanne 24 01:00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Jumapili, 1932 Mwei wa kanne 24</result>
-   <result draft='approved'>1, 1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>Jumapili, 1932 Mwei wa kanne 24 01:00</result>
-   <result draft='approved'>1, 1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>Jumapili, 1932 Mwei wa kanne 24 01:00:00</result>
-   <result draft='approved'>1, 1932 4 24 01:00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
-   <result timeType='medium'>01:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>45/05/20</result>
-   <result draft='approved'>1945-05-20</result>
-   <result timeType='short' draft='unconfirmed'>45/05/20 01:00</result>
-   <result draft='approved'>1945-05-20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>45/05/20 01:00:01</result>
-   <result draft='approved'>1945-05-20 01:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1945 Mwei wa katano 20</result>
-   <result draft='approved'>1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>1945 Mwei wa katano 20 01:00</result>
-   <result draft='approved'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1945 Mwei wa katano 20 01:00:01</result>
-   <result draft='approved'>1945 5 20 01:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1945 Mwei wa katano 20</result>
-   <result draft='approved'>1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>1945 Mwei wa katano 20 01:00</result>
-   <result draft='approved'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1945 Mwei wa katano 20 01:00:01</result>
-   <result draft='approved'>1945 5 20 01:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Jumapili, 1945 Mwei wa katano 20</result>
-   <result draft='approved'>1, 1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>Jumapili, 1945 Mwei wa katano 20 01:00</result>
-   <result draft='approved'>1, 1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>Jumapili, 1945 Mwei wa katano 20 01:00:01</result>
-   <result draft='approved'>1, 1945 5 20 01:00:01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>11:59</result>
-   <result timeType='medium'>11:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>52/06/18</result>
-   <result draft='approved'>1952-06-18</result>
-   <result timeType='short' draft='unconfirmed'>52/06/18 11:59</result>
-   <result draft='approved'>1952-06-18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>52/06/18 11:59:59</result>
-   <result draft='approved'>1952-06-18 11:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1952 Mwei wa thanthatu 18</result>
-   <result draft='approved'>1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>1952 Mwei wa thanthatu 18 11:59</result>
-   <result draft='approved'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>1952 Mwei wa thanthatu 18 11:59:59</result>
-   <result draft='approved'>1952 6 18 11:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1952 Mwei wa thanthatu 18</result>
-   <result draft='approved'>1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>1952 Mwei wa thanthatu 18 11:59</result>
-   <result draft='approved'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>1952 Mwei wa thanthatu 18 11:59:59</result>
-   <result draft='approved'>1952 6 18 11:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Jumatano, 1952 Mwei wa thanthatu 18</result>
-   <result draft='approved'>4, 1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>Jumatano, 1952 Mwei wa thanthatu 18 11:59</result>
-   <result draft='approved'>4, 1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>Jumatano, 1952 Mwei wa thanthatu 18 11:59:59</result>
-   <result draft='approved'>4, 1952 6 18 11:59:59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
-   <result timeType='medium'>12:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>73/07/16</result>
-   <result draft='approved'>1973-07-16</result>
-   <result timeType='short' draft='unconfirmed'>73/07/16 12:00</result>
-   <result draft='approved'>1973-07-16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>73/07/16 12:00:00</result>
-   <result draft='approved'>1973-07-16 12:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1973 Mwei wa muonza 16</result>
-   <result draft='approved'>1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>1973 Mwei wa muonza 16 12:00</result>
-   <result draft='approved'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1973 Mwei wa muonza 16 12:00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1973 Mwei wa muonza 16</result>
-   <result draft='approved'>1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>1973 Mwei wa muonza 16 12:00</result>
-   <result draft='approved'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1973 Mwei wa muonza 16 12:00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Jumatatu, 1973 Mwei wa muonza 16</result>
-   <result draft='approved'>2, 1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>Jumatatu, 1973 Mwei wa muonza 16 12:00</result>
-   <result draft='approved'>2, 1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>Jumatatu, 1973 Mwei wa muonza 16 12:00:00</result>
-   <result draft='approved'>2, 1973 7 16 12:00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
-   <result timeType='medium'>12:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>99/08/14</result>
-   <result draft='approved'>1999-08-14</result>
-   <result timeType='short' draft='unconfirmed'>99/08/14 12:00</result>
-   <result draft='approved'>1999-08-14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>99/08/14 12:00:01</result>
-   <result draft='approved'>1999-08-14 12:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1999 Mwei wa nyanya 14</result>
-   <result draft='approved'>1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>1999 Mwei wa nyanya 14 12:00</result>
-   <result draft='approved'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1999 Mwei wa nyanya 14 12:00:01</result>
-   <result draft='approved'>1999 8 14 12:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1999 Mwei wa nyanya 14</result>
-   <result draft='approved'>1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>1999 Mwei wa nyanya 14 12:00</result>
-   <result draft='approved'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1999 Mwei wa nyanya 14 12:00:01</result>
-   <result draft='approved'>1999 8 14 12:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Jumamosi, 1999 Mwei wa nyanya 14</result>
-   <result draft='approved'>7, 1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>Jumamosi, 1999 Mwei wa nyanya 14 12:00</result>
-   <result draft='approved'>7, 1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>Jumamosi, 1999 Mwei wa nyanya 14 12:00:01</result>
-   <result draft='approved'>7, 1999 8 14 12:00:01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>22:59</result>
-   <result timeType='medium'>22:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>00/09/12</result>
-   <result draft='approved'>2000-09-12</result>
-   <result timeType='short' draft='unconfirmed'>00/09/12 22:59</result>
-   <result draft='approved'>2000-09-12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>00/09/12 22:59:59</result>
-   <result draft='approved'>2000-09-12 22:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2000 Mwei wa kenda 12</result>
-   <result draft='approved'>2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>2000 Mwei wa kenda 12 22:59</result>
-   <result draft='approved'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>2000 Mwei wa kenda 12 22:59:59</result>
-   <result draft='approved'>2000 9 12 22:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2000 Mwei wa kenda 12</result>
-   <result draft='approved'>2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>2000 Mwei wa kenda 12 22:59</result>
-   <result draft='approved'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>2000 Mwei wa kenda 12 22:59:59</result>
-   <result draft='approved'>2000 9 12 22:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Jumanne, 2000 Mwei wa kenda 12</result>
-   <result draft='approved'>3, 2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>Jumanne, 2000 Mwei wa kenda 12 22:59</result>
-   <result draft='approved'>3, 2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>Jumanne, 2000 Mwei wa kenda 12 22:59:59</result>
-   <result draft='approved'>3, 2000 9 12 22:59:59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
-   <result timeType='medium'>23:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>01/10/08</result>
-   <result draft='approved'>2001-10-08</result>
-   <result timeType='short' draft='unconfirmed'>01/10/08 23:00</result>
-   <result draft='approved'>2001-10-08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>01/10/08 23:00:00</result>
-   <result draft='approved'>2001-10-08 23:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2001 Mwei wa ikumi 8</result>
-   <result draft='approved'>2001 10 8</result>
-   <result timeType='short' draft='unconfirmed'>2001 Mwei wa ikumi 8 23:00</result>
-   <result draft='approved'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2001 Mwei wa ikumi 8 23:00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2001 Mwei wa ikumi 8</result>
-   <result draft='approved'>2001 10 8</result>
-   <result timeType='short' draft='unconfirmed'>2001 Mwei wa ikumi 8 23:00</result>
-   <result draft='approved'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2001 Mwei wa ikumi 8 23:00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Jumatatu, 2001 Mwei wa ikumi 08</result>
-   <result draft='approved'>2, 2001 10 08</result>
-   <result timeType='short' draft='unconfirmed'>Jumatatu, 2001 Mwei wa ikumi 08 23:00</result>
-   <result draft='approved'>2, 2001 10 08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>Jumatatu, 2001 Mwei wa ikumi 08 23:00:00</result>
-   <result draft='approved'>2, 2001 10 08 23:00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
-   <result timeType='medium'>23:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>04/11/04</result>
-   <result draft='approved'>2004-11-04</result>
-   <result timeType='short' draft='unconfirmed'>04/11/04 23:00</result>
-   <result draft='approved'>2004-11-04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>04/11/04 23:00:01</result>
-   <result draft='approved'>2004-11-04 23:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2004 Mwei wa ikumi na imwe 4</result>
-   <result draft='approved'>2004 11 4</result>
-   <result timeType='short' draft='unconfirmed'>2004 Mwei wa ikumi na imwe 4 23:00</result>
-   <result draft='approved'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2004 Mwei wa ikumi na imwe 4 23:00:01</result>
-   <result draft='approved'>2004 11 4 23:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2004 Mwei wa ikumi na imwe 4</result>
-   <result draft='approved'>2004 11 4</result>
-   <result timeType='short' draft='unconfirmed'>2004 Mwei wa ikumi na imwe 4 23:00</result>
-   <result draft='approved'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2004 Mwei wa ikumi na imwe 4 23:00:01</result>
-   <result draft='approved'>2004 11 4 23:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Alamisi, 2004 Mwei wa ikumi na imwe 04</result>
-   <result draft='approved'>5, 2004 11 04</result>
-   <result timeType='short' draft='unconfirmed'>Alamisi, 2004 Mwei wa ikumi na imwe 04 23:00</result>
-   <result draft='approved'>5, 2004 11 04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>Alamisi, 2004 Mwei wa ikumi na imwe 04 23:00:01</result>
-   <result draft='approved'>5, 2004 11 04 23:00:01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:59</result>
-   <result timeType='medium'>23:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>10/12/01</result>
-   <result draft='approved'>2010-12-01</result>
-   <result timeType='short' draft='unconfirmed'>10/12/01 23:59</result>
-   <result draft='approved'>2010-12-01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>10/12/01 23:59:59</result>
-   <result draft='approved'>2010-12-01 23:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2010 Mwei wa ikumi na ili 1</result>
-   <result draft='approved'>2010 12 1</result>
-   <result timeType='short' draft='unconfirmed'>2010 Mwei wa ikumi na ili 1 23:59</result>
-   <result draft='approved'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>2010 Mwei wa ikumi na ili 1 23:59:59</result>
-   <result draft='approved'>2010 12 1 23:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2010 Mwei wa ikumi na ili 1</result>
-   <result draft='approved'>2010 12 1</result>
-   <result timeType='short' draft='unconfirmed'>2010 Mwei wa ikumi na ili 1 23:59</result>
-   <result draft='approved'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>2010 Mwei wa ikumi na ili 1 23:59:59</result>
-   <result draft='approved'>2010 12 1 23:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Jumatano, 2010 Mwei wa ikumi na ili 01</result>
-   <result draft='approved'>4, 2010 12 01</result>
-   <result timeType='short' draft='unconfirmed'>Jumatano, 2010 Mwei wa ikumi na ili 01 23:59</result>
-   <result draft='approved'>4, 2010 12 01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>Jumatano, 2010 Mwei wa ikumi na ili 01 23:59:59</result>
-   <result draft='approved'>4, 2010 12 01 23:59:59</result>
+<!-- Kamba [Kikamba@]; Kamba (Kenya) [Kikamba (Kenya)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 Ĩyakwakya</result>
+   <result timeType='medium'>12:00:00 Ĩyakwakya</result>
+   <result dateType='short' timeType='none'>31/01/1900</result>
+   <result timeType='short'>31/01/1900 12:00 Ĩyakwakya</result>
+   <result timeType='medium'>31/01/1900 12:00:00 Ĩyakwakya</result>
+   <result dateType='medium' timeType='none'>31 Mbe 1900</result>
+   <result timeType='short'>31 Mbe 1900 12:00 Ĩyakwakya</result>
+   <result timeType='medium'>31 Mbe 1900 12:00:00 Ĩyakwakya</result>
+   <result dateType='long' timeType='none'>31 Mwai wa mbee 1900</result>
+   <result timeType='short'>31 Mwai wa mbee 1900 12:00 Ĩyakwakya</result>
+   <result timeType='medium'>31 Mwai wa mbee 1900 12:00:00 Ĩyakwakya</result>
+   <result dateType='full' timeType='none'>Wa katatũ, 31 Mwai wa mbee 1900</result>
+   <result timeType='short'>Wa katatũ, 31 Mwai wa mbee 1900 12:00 Ĩyakwakya</result>
+   <result timeType='medium'>Wa katatũ, 31 Mwai wa mbee 1900 12:00:00 Ĩyakwakya</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 Ĩyakwakya</result>
+   <result timeType='medium'>12:00:01 Ĩyakwakya</result>
+   <result dateType='short' timeType='none'>28/02/1909</result>
+   <result timeType='short'>28/02/1909 12:00 Ĩyakwakya</result>
+   <result timeType='medium'>28/02/1909 12:00:01 Ĩyakwakya</result>
+   <result dateType='medium' timeType='none'>28 Kel 1909</result>
+   <result timeType='short'>28 Kel 1909 12:00 Ĩyakwakya</result>
+   <result timeType='medium'>28 Kel 1909 12:00:01 Ĩyakwakya</result>
+   <result dateType='long' timeType='none'>28 Mwai wa kelĩ 1909</result>
+   <result timeType='short'>28 Mwai wa kelĩ 1909 12:00 Ĩyakwakya</result>
+   <result timeType='medium'>28 Mwai wa kelĩ 1909 12:00:01 Ĩyakwakya</result>
+   <result dateType='full' timeType='none'>Wa kyumwa, 28 Mwai wa kelĩ 1909</result>
+   <result timeType='short'>Wa kyumwa, 28 Mwai wa kelĩ 1909 12:00 Ĩyakwakya</result>
+   <result timeType='medium'>Wa kyumwa, 28 Mwai wa kelĩ 1909 12:00:01 Ĩyakwakya</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 Ĩyakwakya</result>
+   <result timeType='medium'>12:59:59 Ĩyakwakya</result>
+   <result dateType='short' timeType='none'>26/03/1918</result>
+   <result timeType='short'>26/03/1918 12:59 Ĩyakwakya</result>
+   <result timeType='medium'>26/03/1918 12:59:59 Ĩyakwakya</result>
+   <result dateType='medium' timeType='none'>26 Ktũ 1918</result>
+   <result timeType='short'>26 Ktũ 1918 12:59 Ĩyakwakya</result>
+   <result timeType='medium'>26 Ktũ 1918 12:59:59 Ĩyakwakya</result>
+   <result dateType='long' timeType='none'>26 Mwai wa katatũ 1918</result>
+   <result timeType='short'>26 Mwai wa katatũ 1918 12:59 Ĩyakwakya</result>
+   <result timeType='medium'>26 Mwai wa katatũ 1918 12:59:59 Ĩyakwakya</result>
+   <result dateType='full' timeType='none'>Wa kelĩ, 26 Mwai wa katatũ 1918</result>
+   <result timeType='short'>Wa kelĩ, 26 Mwai wa katatũ 1918 12:59 Ĩyakwakya</result>
+   <result timeType='medium'>Wa kelĩ, 26 Mwai wa katatũ 1918 12:59:59 Ĩyakwakya</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 Ĩyakwakya</result>
+   <result timeType='medium'>1:00:00 Ĩyakwakya</result>
+   <result dateType='short' timeType='none'>24/04/1932</result>
+   <result timeType='short'>24/04/1932 1:00 Ĩyakwakya</result>
+   <result timeType='medium'>24/04/1932 1:00:00 Ĩyakwakya</result>
+   <result dateType='medium' timeType='none'>24 Kan 1932</result>
+   <result timeType='short'>24 Kan 1932 1:00 Ĩyakwakya</result>
+   <result timeType='medium'>24 Kan 1932 1:00:00 Ĩyakwakya</result>
+   <result dateType='long' timeType='none'>24 Mwai wa kana 1932</result>
+   <result timeType='short'>24 Mwai wa kana 1932 1:00 Ĩyakwakya</result>
+   <result timeType='medium'>24 Mwai wa kana 1932 1:00:00 Ĩyakwakya</result>
+   <result dateType='full' timeType='none'>Wa kyumwa, 24 Mwai wa kana 1932</result>
+   <result timeType='short'>Wa kyumwa, 24 Mwai wa kana 1932 1:00 Ĩyakwakya</result>
+   <result timeType='medium'>Wa kyumwa, 24 Mwai wa kana 1932 1:00:00 Ĩyakwakya</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 Ĩyakwakya</result>
+   <result timeType='medium'>1:00:01 Ĩyakwakya</result>
+   <result dateType='short' timeType='none'>20/05/1945</result>
+   <result timeType='short'>20/05/1945 1:00 Ĩyakwakya</result>
+   <result timeType='medium'>20/05/1945 1:00:01 Ĩyakwakya</result>
+   <result dateType='medium' timeType='none'>20 Ktn 1945</result>
+   <result timeType='short'>20 Ktn 1945 1:00 Ĩyakwakya</result>
+   <result timeType='medium'>20 Ktn 1945 1:00:01 Ĩyakwakya</result>
+   <result dateType='long' timeType='none'>20 Mwai wa katano 1945</result>
+   <result timeType='short'>20 Mwai wa katano 1945 1:00 Ĩyakwakya</result>
+   <result timeType='medium'>20 Mwai wa katano 1945 1:00:01 Ĩyakwakya</result>
+   <result dateType='full' timeType='none'>Wa kyumwa, 20 Mwai wa katano 1945</result>
+   <result timeType='short'>Wa kyumwa, 20 Mwai wa katano 1945 1:00 Ĩyakwakya</result>
+   <result timeType='medium'>Wa kyumwa, 20 Mwai wa katano 1945 1:00:01 Ĩyakwakya</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 Ĩyakwakya</result>
+   <result timeType='medium'>11:59:59 Ĩyakwakya</result>
+   <result dateType='short' timeType='none'>18/06/1952</result>
+   <result timeType='short'>18/06/1952 11:59 Ĩyakwakya</result>
+   <result timeType='medium'>18/06/1952 11:59:59 Ĩyakwakya</result>
+   <result dateType='medium' timeType='none'>18 Tha 1952</result>
+   <result timeType='short'>18 Tha 1952 11:59 Ĩyakwakya</result>
+   <result timeType='medium'>18 Tha 1952 11:59:59 Ĩyakwakya</result>
+   <result dateType='long' timeType='none'>18 Mwai wa thanthatũ 1952</result>
+   <result timeType='short'>18 Mwai wa thanthatũ 1952 11:59 Ĩyakwakya</result>
+   <result timeType='medium'>18 Mwai wa thanthatũ 1952 11:59:59 Ĩyakwakya</result>
+   <result dateType='full' timeType='none'>Wa katatũ, 18 Mwai wa thanthatũ 1952</result>
+   <result timeType='short'>Wa katatũ, 18 Mwai wa thanthatũ 1952 11:59 Ĩyakwakya</result>
+   <result timeType='medium'>Wa katatũ, 18 Mwai wa thanthatũ 1952 11:59:59 Ĩyakwakya</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 Ĩyawĩoo</result>
+   <result timeType='medium'>12:00:00 Ĩyawĩoo</result>
+   <result dateType='short' timeType='none'>16/07/1973</result>
+   <result timeType='short'>16/07/1973 12:00 Ĩyawĩoo</result>
+   <result timeType='medium'>16/07/1973 12:00:00 Ĩyawĩoo</result>
+   <result dateType='medium' timeType='none'>16 Moo 1973</result>
+   <result timeType='short'>16 Moo 1973 12:00 Ĩyawĩoo</result>
+   <result timeType='medium'>16 Moo 1973 12:00:00 Ĩyawĩoo</result>
+   <result dateType='long' timeType='none'>16 Mwai wa muonza 1973</result>
+   <result timeType='short'>16 Mwai wa muonza 1973 12:00 Ĩyawĩoo</result>
+   <result timeType='medium'>16 Mwai wa muonza 1973 12:00:00 Ĩyawĩoo</result>
+   <result dateType='full' timeType='none'>Wa kwambĩlĩlya, 16 Mwai wa muonza 1973</result>
+   <result timeType='short'>Wa kwambĩlĩlya, 16 Mwai wa muonza 1973 12:00 Ĩyawĩoo</result>
+   <result timeType='medium'>Wa kwambĩlĩlya, 16 Mwai wa muonza 1973 12:00:00 Ĩyawĩoo</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 Ĩyawĩoo</result>
+   <result timeType='medium'>12:00:01 Ĩyawĩoo</result>
+   <result dateType='short' timeType='none'>14/08/1999</result>
+   <result timeType='short'>14/08/1999 12:00 Ĩyawĩoo</result>
+   <result timeType='medium'>14/08/1999 12:00:01 Ĩyawĩoo</result>
+   <result dateType='medium' timeType='none'>14 Nya 1999</result>
+   <result timeType='short'>14 Nya 1999 12:00 Ĩyawĩoo</result>
+   <result timeType='medium'>14 Nya 1999 12:00:01 Ĩyawĩoo</result>
+   <result dateType='long' timeType='none'>14 Mwai wa nyaanya 1999</result>
+   <result timeType='short'>14 Mwai wa nyaanya 1999 12:00 Ĩyawĩoo</result>
+   <result timeType='medium'>14 Mwai wa nyaanya 1999 12:00:01 Ĩyawĩoo</result>
+   <result dateType='full' timeType='none'>Wa thanthatũ, 14 Mwai wa nyaanya 1999</result>
+   <result timeType='short'>Wa thanthatũ, 14 Mwai wa nyaanya 1999 12:00 Ĩyawĩoo</result>
+   <result timeType='medium'>Wa thanthatũ, 14 Mwai wa nyaanya 1999 12:00:01 Ĩyawĩoo</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 Ĩyawĩoo</result>
+   <result timeType='medium'>10:59:59 Ĩyawĩoo</result>
+   <result dateType='short' timeType='none'>12/09/2000</result>
+   <result timeType='short'>12/09/2000 10:59 Ĩyawĩoo</result>
+   <result timeType='medium'>12/09/2000 10:59:59 Ĩyawĩoo</result>
+   <result dateType='medium' timeType='none'>12 Knd 2000</result>
+   <result timeType='short'>12 Knd 2000 10:59 Ĩyawĩoo</result>
+   <result timeType='medium'>12 Knd 2000 10:59:59 Ĩyawĩoo</result>
+   <result dateType='long' timeType='none'>12 Mwai wa kenda 2000</result>
+   <result timeType='short'>12 Mwai wa kenda 2000 10:59 Ĩyawĩoo</result>
+   <result timeType='medium'>12 Mwai wa kenda 2000 10:59:59 Ĩyawĩoo</result>
+   <result dateType='full' timeType='none'>Wa kelĩ, 12 Mwai wa kenda 2000</result>
+   <result timeType='short'>Wa kelĩ, 12 Mwai wa kenda 2000 10:59 Ĩyawĩoo</result>
+   <result timeType='medium'>Wa kelĩ, 12 Mwai wa kenda 2000 10:59:59 Ĩyawĩoo</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 Ĩyawĩoo</result>
+   <result timeType='medium'>11:00:00 Ĩyawĩoo</result>
+   <result dateType='short' timeType='none'>08/10/2001</result>
+   <result timeType='short'>08/10/2001 11:00 Ĩyawĩoo</result>
+   <result timeType='medium'>08/10/2001 11:00:00 Ĩyawĩoo</result>
+   <result dateType='medium' timeType='none'>8 Ĩku 2001</result>
+   <result timeType='short'>8 Ĩku 2001 11:00 Ĩyawĩoo</result>
+   <result timeType='medium'>8 Ĩku 2001 11:00:00 Ĩyawĩoo</result>
+   <result dateType='long' timeType='none'>8 Mwai wa ĩkumi 2001</result>
+   <result timeType='short'>8 Mwai wa ĩkumi 2001 11:00 Ĩyawĩoo</result>
+   <result timeType='medium'>8 Mwai wa ĩkumi 2001 11:00:00 Ĩyawĩoo</result>
+   <result dateType='full' timeType='none'>Wa kwambĩlĩlya, 8 Mwai wa ĩkumi 2001</result>
+   <result timeType='short'>Wa kwambĩlĩlya, 8 Mwai wa ĩkumi 2001 11:00 Ĩyawĩoo</result>
+   <result timeType='medium'>Wa kwambĩlĩlya, 8 Mwai wa ĩkumi 2001 11:00:00 Ĩyawĩoo</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 Ĩyawĩoo</result>
+   <result timeType='medium'>11:00:01 Ĩyawĩoo</result>
+   <result dateType='short' timeType='none'>04/11/2004</result>
+   <result timeType='short'>04/11/2004 11:00 Ĩyawĩoo</result>
+   <result timeType='medium'>04/11/2004 11:00:01 Ĩyawĩoo</result>
+   <result dateType='medium' timeType='none'>4 Ĩkm 2004</result>
+   <result timeType='short'>4 Ĩkm 2004 11:00 Ĩyawĩoo</result>
+   <result timeType='medium'>4 Ĩkm 2004 11:00:01 Ĩyawĩoo</result>
+   <result dateType='long' timeType='none'>4 Mwai wa ĩkumi na ĩmwe 2004</result>
+   <result timeType='short'>4 Mwai wa ĩkumi na ĩmwe 2004 11:00 Ĩyawĩoo</result>
+   <result timeType='medium'>4 Mwai wa ĩkumi na ĩmwe 2004 11:00:01 Ĩyawĩoo</result>
+   <result dateType='full' timeType='none'>Wa kana, 4 Mwai wa ĩkumi na ĩmwe 2004</result>
+   <result timeType='short'>Wa kana, 4 Mwai wa ĩkumi na ĩmwe 2004 11:00 Ĩyawĩoo</result>
+   <result timeType='medium'>Wa kana, 4 Mwai wa ĩkumi na ĩmwe 2004 11:00:01 Ĩyawĩoo</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 Ĩyawĩoo</result>
+   <result timeType='medium'>11:59:59 Ĩyawĩoo</result>
+   <result dateType='short' timeType='none'>01/12/2010</result>
+   <result timeType='short'>01/12/2010 11:59 Ĩyawĩoo</result>
+   <result timeType='medium'>01/12/2010 11:59:59 Ĩyawĩoo</result>
+   <result dateType='medium' timeType='none'>1 Ĩkl 2010</result>
+   <result timeType='short'>1 Ĩkl 2010 11:59 Ĩyawĩoo</result>
+   <result timeType='medium'>1 Ĩkl 2010 11:59:59 Ĩyawĩoo</result>
+   <result dateType='long' timeType='none'>1 Mwai wa ĩkumi na ilĩ 2010</result>
+   <result timeType='short'>1 Mwai wa ĩkumi na ilĩ 2010 11:59 Ĩyawĩoo</result>
+   <result timeType='medium'>1 Mwai wa ĩkumi na ilĩ 2010 11:59:59 Ĩyawĩoo</result>
+   <result dateType='full' timeType='none'>Wa katatũ, 1 Mwai wa ĩkumi na ilĩ 2010</result>
+   <result timeType='short'>Wa katatũ, 1 Mwai wa ĩkumi na ilĩ 2010 11:59 Ĩyawĩoo</result>
+   <result timeType='medium'>Wa katatũ, 1 Mwai wa ĩkumi na ilĩ 2010 11:59:59 Ĩyawĩoo</result>
   </date>
   <zoneFields 
 locales='kam kam_KE'>
-<!-- Kamba [Kamba]; Kamba (Kenya) [Kamba (Kenya)] -->
+<!-- Kamba [Kikamba@]; Kamba (Kenya) [Kikamba (Kenya)@] -->
   </zoneFields>
   <collation 
 locales='kam kam_KE'>
-<!-- Kamba [Kamba]; Kamba (Kenya) [Kamba (Kenya)] -->
-   <result draft='unconfirmed'>
+<!-- Kamba [Kikamba@]; Kamba (Kenya) [Kikamba (Kenya)@] -->
+   <result draft='unconfirmed approved'>
 x 
 X 
 x x
@@ -424,6 +280,12 @@ Xe
 XE
 xex
 xEx
+xf
+xF
+Xf
+XF
+xfx
+xFx
 xg
 xG
 Xg
@@ -440,8 +302,14 @@ xi
 xI
 Xi
 XI
+xĩ
+xĨ
+Xĩ
+XĨ
 xix
 xIx
+xĩx
+xĨx
 xj
 xJ
 Xj
@@ -478,6 +346,18 @@ Xo
 XO
 xox
 xOx
+xp
+xP
+Xp
+XP
+xpx
+xPx
+xq
+xQ
+Xq
+XQ
+xqx
+xQx
 xr
 xR
 Xr
@@ -500,8 +380,14 @@ xu
 xU
 Xu
 XU
+xũ
+xŨ
+Xũ
+XŨ
 xux
 xUx
+xũx
+xŨx
 xv
 xV
 Xv
@@ -526,23 +412,6 @@ Xz
 XZ
 xzx
 xZx
-</result>
-   <result draft='approved'>
-x 
-X 
-x x
-x.
-X.
-x.x
-x0
-X0
-x0x
-x12
-X12
-x12x
-x2
-X2
-x2x
 </result>
   </collation>
  </cldrTest>

@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='wo'>
- <!-- Wolof [Wolof] -->
+ <!-- Wolof [wo] -->
   <number 
-locales='wo wo_Latn wo_Latn_SN wo_SN'>
-<!-- Wolof [Wolof]; Wolof (Latin) [Wolof (Latin)]; Wolof (Latin, Senegal) [Wolof (Latin, Senegal)]; Wolof (Senegal) [Wolof (Senegal)] -->
+locales='wo wo_SN'>
+<!-- Wolof [wo@]; Wolof (Senegal) [wo (SN)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='wo wo_Latn wo_Latn_SN wo_SN'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='wo wo_Latn wo_Latn_SN wo_SN'>
-<!-- Wolof [Wolof]; Wolof (Latin) [Wolof (Latin)]; Wolof (Latin, Senegal) [Wolof (Latin, Senegal)]; Wolof (Senegal) [Wolof (Senegal)] -->
+locales='wo wo_SN'>
+<!-- Wolof [wo@]; Wolof (Senegal) [wo (SN)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>1900-01-31</result>
@@ -228,12 +228,12 @@ locales='wo wo_Latn wo_Latn_SN wo_SN'>
    <result timeType='medium'>4, 2010 12 01 23:59:59</result>
   </date>
   <zoneFields 
-locales='wo wo_Latn wo_Latn_SN wo_SN'>
-<!-- Wolof [Wolof]; Wolof (Latin) [Wolof (Latin)]; Wolof (Latin, Senegal) [Wolof (Latin, Senegal)]; Wolof (Senegal) [Wolof (Senegal)] -->
+locales='wo wo_SN'>
+<!-- Wolof [wo@]; Wolof (Senegal) [wo (SN)@] -->
   </zoneFields>
   <collation 
-locales='wo wo_Latn wo_Latn_SN wo_SN'>
-<!-- Wolof [Wolof]; Wolof (Latin) [Wolof (Latin)]; Wolof (Latin, Senegal) [Wolof (Latin, Senegal)]; Wolof (Senegal) [Wolof (Senegal)] -->
+locales='wo wo_SN'>
+<!-- Wolof [wo@]; Wolof (Senegal) [wo (SN)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -254,20 +254,20 @@ xa
 xA
 Xa
 XA
-xà
-xÀ
-Xà
-XÀ
 xã
 xÃ
 Xã
 XÃ
 xax
 xAx
-xàx
-xÀx
 xãx
 xÃx
+xà
+xÀ
+Xà
+XÀ
+xàx
+xÀx
 xb
 xB
 Xb
@@ -290,18 +290,18 @@ xe
 xE
 Xe
 XE
+xex
+xEx
 xé
 xÉ
 Xé
 XÉ
+xéx
+xÉx
 xë
 xË
 Xë
 XË
-xex
-xEx
-xéx
-xÉx
 xëx
 xËx
 xf
@@ -356,12 +356,12 @@ xn
 xN
 Xn
 XN
+xnx
+xNx
 xñ
 xÑ
 Xñ
 XÑ
-xnx
-xNx
 xñx
 xÑx
 xŋ
@@ -374,12 +374,12 @@ xo
 xO
 Xo
 XO
+xox
+xOx
 xó
 xÓ
 Xó
 XÓ
-xox
-xOx
 xóx
 xÓx
 xp

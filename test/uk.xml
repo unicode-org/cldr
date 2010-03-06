@@ -5,7 +5,7 @@
  <!-- Ukrainian [українська] -->
   <number 
 locales='uk uk_UA'>
-<!-- Ukrainian [українська]; Ukrainian (Ukraine) [українська (Україна)] -->
+<!-- Ukrainian [українська@]; Ukrainian (Ukraine) [українська (Україна)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='uk uk_UA'>
   </number>
   <date 
 locales='uk uk_UA'>
-<!-- Ukrainian [українська]; Ukrainian (Ukraine) [українська (Україна)] -->
+<!-- Ukrainian [українська@]; Ukrainian (Ukraine) [українська (Україна)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31.01.00</result>
@@ -67,12 +67,16 @@ locales='uk uk_UA'>
    <result timeType='short'>31 січ. 1900 00:00</result>
    <result timeType='medium'>31 січ. 1900 00:00:00</result>
    <result dateType='long' timeType='none'>31 січня 1900 р.</result>
-   <result timeType='short'>31 січня 1900 р. 00:00</result>
-   <result timeType='medium'>31 січня 1900 р. 00:00:00</result>
-   <result dateType='full' timeType='none'>Середа, 31 січня 1900 р.</result>
-   <result timeType='short'>Середа, 31 січня 1900 р. 00:00</result>
-   <result timeType='medium'>Середа, 31 січня 1900 р. 00:00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
+   <result timeType='short' draft='unconfirmed'>31 січня 1900 р., 00:00</result>
+   <result draft='approved'>31 січня 1900 р. 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>31 січня 1900 р., 00:00:00</result>
+   <result draft='approved'>31 січня 1900 р. 00:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>Середа, 31 січня 1900 р.</result>
+   <result timeType='short' draft='unconfirmed'>Середа, 31 січня 1900 р., 00:00</result>
+   <result draft='approved'>Середа, 31 січня 1900 р. 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>Середа, 31 січня 1900 р., 00:00:00</result>
+   <result draft='approved'>Середа, 31 січня 1900 р. 00:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:01</result>
    <result dateType='short' timeType='none'>28.02.09</result>
    <result timeType='short'>28.02.09 00:00</result>
@@ -81,12 +85,16 @@ locales='uk uk_UA'>
    <result timeType='short'>28 лют. 1909 00:00</result>
    <result timeType='medium'>28 лют. 1909 00:00:01</result>
    <result dateType='long' timeType='none'>28 лютого 1909 р.</result>
-   <result timeType='short'>28 лютого 1909 р. 00:00</result>
-   <result timeType='medium'>28 лютого 1909 р. 00:00:01</result>
-   <result dateType='full' timeType='none'>Неділя, 28 лютого 1909 р.</result>
-   <result timeType='short'>Неділя, 28 лютого 1909 р. 00:00</result>
-   <result timeType='medium'>Неділя, 28 лютого 1909 р. 00:00:01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
+   <result timeType='short' draft='unconfirmed'>28 лютого 1909 р., 00:00</result>
+   <result draft='approved'>28 лютого 1909 р. 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>28 лютого 1909 р., 00:00:01</result>
+   <result draft='approved'>28 лютого 1909 р. 00:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>Неділя, 28 лютого 1909 р.</result>
+   <result timeType='short' draft='unconfirmed'>Неділя, 28 лютого 1909 р., 00:00</result>
+   <result draft='approved'>Неділя, 28 лютого 1909 р. 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>Неділя, 28 лютого 1909 р., 00:00:01</result>
+   <result draft='approved'>Неділя, 28 лютого 1909 р. 00:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result dateType='short' timeType='none'>26.03.18</result>
    <result timeType='short'>26.03.18 00:59</result>
@@ -95,12 +103,16 @@ locales='uk uk_UA'>
    <result timeType='short'>26 бер. 1918 00:59</result>
    <result timeType='medium'>26 бер. 1918 00:59:59</result>
    <result dateType='long' timeType='none'>26 березня 1918 р.</result>
-   <result timeType='short'>26 березня 1918 р. 00:59</result>
-   <result timeType='medium'>26 березня 1918 р. 00:59:59</result>
-   <result dateType='full' timeType='none'>Вівторок, 26 березня 1918 р.</result>
-   <result timeType='short'>Вівторок, 26 березня 1918 р. 00:59</result>
-   <result timeType='medium'>Вівторок, 26 березня 1918 р. 00:59:59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='short' draft='unconfirmed'>26 березня 1918 р., 00:59</result>
+   <result draft='approved'>26 березня 1918 р. 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>26 березня 1918 р., 00:59:59</result>
+   <result draft='approved'>26 березня 1918 р. 00:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>Вівторок, 26 березня 1918 р.</result>
+   <result timeType='short' draft='unconfirmed'>Вівторок, 26 березня 1918 р., 00:59</result>
+   <result draft='approved'>Вівторок, 26 березня 1918 р. 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>Вівторок, 26 березня 1918 р., 00:59:59</result>
+   <result draft='approved'>Вівторок, 26 березня 1918 р. 00:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:00</result>
    <result dateType='short' timeType='none'>24.04.32</result>
    <result timeType='short'>24.04.32 01:00</result>
@@ -109,12 +121,16 @@ locales='uk uk_UA'>
    <result timeType='short'>24 квіт. 1932 01:00</result>
    <result timeType='medium'>24 квіт. 1932 01:00:00</result>
    <result dateType='long' timeType='none'>24 квітня 1932 р.</result>
-   <result timeType='short'>24 квітня 1932 р. 01:00</result>
-   <result timeType='medium'>24 квітня 1932 р. 01:00:00</result>
-   <result dateType='full' timeType='none'>Неділя, 24 квітня 1932 р.</result>
-   <result timeType='short'>Неділя, 24 квітня 1932 р. 01:00</result>
-   <result timeType='medium'>Неділя, 24 квітня 1932 р. 01:00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='short' draft='unconfirmed'>24 квітня 1932 р., 01:00</result>
+   <result draft='approved'>24 квітня 1932 р. 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>24 квітня 1932 р., 01:00:00</result>
+   <result draft='approved'>24 квітня 1932 р. 01:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>Неділя, 24 квітня 1932 р.</result>
+   <result timeType='short' draft='unconfirmed'>Неділя, 24 квітня 1932 р., 01:00</result>
+   <result draft='approved'>Неділя, 24 квітня 1932 р. 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>Неділя, 24 квітня 1932 р., 01:00:00</result>
+   <result draft='approved'>Неділя, 24 квітня 1932 р. 01:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result dateType='short' timeType='none'>20.05.45</result>
    <result timeType='short'>20.05.45 01:00</result>
@@ -123,12 +139,16 @@ locales='uk uk_UA'>
    <result timeType='short'>20 трав. 1945 01:00</result>
    <result timeType='medium'>20 трав. 1945 01:00:01</result>
    <result dateType='long' timeType='none'>20 травня 1945 р.</result>
-   <result timeType='short'>20 травня 1945 р. 01:00</result>
-   <result timeType='medium'>20 травня 1945 р. 01:00:01</result>
-   <result dateType='full' timeType='none'>Неділя, 20 травня 1945 р.</result>
-   <result timeType='short'>Неділя, 20 травня 1945 р. 01:00</result>
-   <result timeType='medium'>Неділя, 20 травня 1945 р. 01:00:01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
+   <result timeType='short' draft='unconfirmed'>20 травня 1945 р., 01:00</result>
+   <result draft='approved'>20 травня 1945 р. 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>20 травня 1945 р., 01:00:01</result>
+   <result draft='approved'>20 травня 1945 р. 01:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>Неділя, 20 травня 1945 р.</result>
+   <result timeType='short' draft='unconfirmed'>Неділя, 20 травня 1945 р., 01:00</result>
+   <result draft='approved'>Неділя, 20 травня 1945 р. 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>Неділя, 20 травня 1945 р., 01:00:01</result>
+   <result draft='approved'>Неділя, 20 травня 1945 р. 01:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result dateType='short' timeType='none'>18.06.52</result>
    <result timeType='short'>18.06.52 11:59</result>
@@ -137,12 +157,16 @@ locales='uk uk_UA'>
    <result timeType='short'>18 черв. 1952 11:59</result>
    <result timeType='medium'>18 черв. 1952 11:59:59</result>
    <result dateType='long' timeType='none'>18 червня 1952 р.</result>
-   <result timeType='short'>18 червня 1952 р. 11:59</result>
-   <result timeType='medium'>18 червня 1952 р. 11:59:59</result>
-   <result dateType='full' timeType='none'>Середа, 18 червня 1952 р.</result>
-   <result timeType='short'>Середа, 18 червня 1952 р. 11:59</result>
-   <result timeType='medium'>Середа, 18 червня 1952 р. 11:59:59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='short' draft='unconfirmed'>18 червня 1952 р., 11:59</result>
+   <result draft='approved'>18 червня 1952 р. 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>18 червня 1952 р., 11:59:59</result>
+   <result draft='approved'>18 червня 1952 р. 11:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>Середа, 18 червня 1952 р.</result>
+   <result timeType='short' draft='unconfirmed'>Середа, 18 червня 1952 р., 11:59</result>
+   <result draft='approved'>Середа, 18 червня 1952 р. 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>Середа, 18 червня 1952 р., 11:59:59</result>
+   <result draft='approved'>Середа, 18 червня 1952 р. 11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result dateType='short' timeType='none'>16.07.73</result>
    <result timeType='short'>16.07.73 12:00</result>
@@ -151,12 +175,16 @@ locales='uk uk_UA'>
    <result timeType='short'>16 лип. 1973 12:00</result>
    <result timeType='medium'>16 лип. 1973 12:00:00</result>
    <result dateType='long' timeType='none'>16 липня 1973 р.</result>
-   <result timeType='short'>16 липня 1973 р. 12:00</result>
-   <result timeType='medium'>16 липня 1973 р. 12:00:00</result>
-   <result dateType='full' timeType='none'>Понеділок, 16 липня 1973 р.</result>
-   <result timeType='short'>Понеділок, 16 липня 1973 р. 12:00</result>
-   <result timeType='medium'>Понеділок, 16 липня 1973 р. 12:00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='short' draft='unconfirmed'>16 липня 1973 р., 12:00</result>
+   <result draft='approved'>16 липня 1973 р. 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>16 липня 1973 р., 12:00:00</result>
+   <result draft='approved'>16 липня 1973 р. 12:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>Понеділок, 16 липня 1973 р.</result>
+   <result timeType='short' draft='unconfirmed'>Понеділок, 16 липня 1973 р., 12:00</result>
+   <result draft='approved'>Понеділок, 16 липня 1973 р. 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>Понеділок, 16 липня 1973 р., 12:00:00</result>
+   <result draft='approved'>Понеділок, 16 липня 1973 р. 12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result dateType='short' timeType='none'>14.08.99</result>
    <result timeType='short'>14.08.99 12:00</result>
@@ -165,12 +193,16 @@ locales='uk uk_UA'>
    <result timeType='short'>14 серп. 1999 12:00</result>
    <result timeType='medium'>14 серп. 1999 12:00:01</result>
    <result dateType='long' timeType='none'>14 серпня 1999 р.</result>
-   <result timeType='short'>14 серпня 1999 р. 12:00</result>
-   <result timeType='medium'>14 серпня 1999 р. 12:00:01</result>
-   <result dateType='full' timeType='none'>Субота, 14 серпня 1999 р.</result>
-   <result timeType='short'>Субота, 14 серпня 1999 р. 12:00</result>
-   <result timeType='medium'>Субота, 14 серпня 1999 р. 12:00:01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
+   <result timeType='short' draft='unconfirmed'>14 серпня 1999 р., 12:00</result>
+   <result draft='approved'>14 серпня 1999 р. 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>14 серпня 1999 р., 12:00:01</result>
+   <result draft='approved'>14 серпня 1999 р. 12:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>Субота, 14 серпня 1999 р.</result>
+   <result timeType='short' draft='unconfirmed'>Субота, 14 серпня 1999 р., 12:00</result>
+   <result draft='approved'>Субота, 14 серпня 1999 р. 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>Субота, 14 серпня 1999 р., 12:00:01</result>
+   <result draft='approved'>Субота, 14 серпня 1999 р. 12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result dateType='short' timeType='none'>12.09.00</result>
    <result timeType='short'>12.09.00 22:59</result>
@@ -179,12 +211,16 @@ locales='uk uk_UA'>
    <result timeType='short'>12 вер. 2000 22:59</result>
    <result timeType='medium'>12 вер. 2000 22:59:59</result>
    <result dateType='long' timeType='none'>12 вересня 2000 р.</result>
-   <result timeType='short'>12 вересня 2000 р. 22:59</result>
-   <result timeType='medium'>12 вересня 2000 р. 22:59:59</result>
-   <result dateType='full' timeType='none'>Вівторок, 12 вересня 2000 р.</result>
-   <result timeType='short'>Вівторок, 12 вересня 2000 р. 22:59</result>
-   <result timeType='medium'>Вівторок, 12 вересня 2000 р. 22:59:59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='short' draft='unconfirmed'>12 вересня 2000 р., 22:59</result>
+   <result draft='approved'>12 вересня 2000 р. 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>12 вересня 2000 р., 22:59:59</result>
+   <result draft='approved'>12 вересня 2000 р. 22:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>Вівторок, 12 вересня 2000 р.</result>
+   <result timeType='short' draft='unconfirmed'>Вівторок, 12 вересня 2000 р., 22:59</result>
+   <result draft='approved'>Вівторок, 12 вересня 2000 р. 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>Вівторок, 12 вересня 2000 р., 22:59:59</result>
+   <result draft='approved'>Вівторок, 12 вересня 2000 р. 22:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result dateType='short' timeType='none'>08.10.01</result>
    <result timeType='short'>08.10.01 23:00</result>
@@ -193,12 +229,16 @@ locales='uk uk_UA'>
    <result timeType='short'>8 жовт. 2001 23:00</result>
    <result timeType='medium'>8 жовт. 2001 23:00:00</result>
    <result dateType='long' timeType='none'>8 жовтня 2001 р.</result>
-   <result timeType='short'>8 жовтня 2001 р. 23:00</result>
-   <result timeType='medium'>8 жовтня 2001 р. 23:00:00</result>
-   <result dateType='full' timeType='none'>Понеділок, 8 жовтня 2001 р.</result>
-   <result timeType='short'>Понеділок, 8 жовтня 2001 р. 23:00</result>
-   <result timeType='medium'>Понеділок, 8 жовтня 2001 р. 23:00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='short' draft='unconfirmed'>8 жовтня 2001 р., 23:00</result>
+   <result draft='approved'>8 жовтня 2001 р. 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>8 жовтня 2001 р., 23:00:00</result>
+   <result draft='approved'>8 жовтня 2001 р. 23:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>Понеділок, 8 жовтня 2001 р.</result>
+   <result timeType='short' draft='unconfirmed'>Понеділок, 8 жовтня 2001 р., 23:00</result>
+   <result draft='approved'>Понеділок, 8 жовтня 2001 р. 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>Понеділок, 8 жовтня 2001 р., 23:00:00</result>
+   <result draft='approved'>Понеділок, 8 жовтня 2001 р. 23:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result dateType='short' timeType='none'>04.11.04</result>
    <result timeType='short'>04.11.04 23:00</result>
@@ -207,12 +247,16 @@ locales='uk uk_UA'>
    <result timeType='short'>4 лист. 2004 23:00</result>
    <result timeType='medium'>4 лист. 2004 23:00:01</result>
    <result dateType='long' timeType='none'>4 листопада 2004 р.</result>
-   <result timeType='short'>4 листопада 2004 р. 23:00</result>
-   <result timeType='medium'>4 листопада 2004 р. 23:00:01</result>
-   <result dateType='full' timeType='none'>Четвер, 4 листопада 2004 р.</result>
-   <result timeType='short'>Четвер, 4 листопада 2004 р. 23:00</result>
-   <result timeType='medium'>Четвер, 4 листопада 2004 р. 23:00:01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
+   <result timeType='short' draft='unconfirmed'>4 листопада 2004 р., 23:00</result>
+   <result draft='approved'>4 листопада 2004 р. 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>4 листопада 2004 р., 23:00:01</result>
+   <result draft='approved'>4 листопада 2004 р. 23:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>Четвер, 4 листопада 2004 р.</result>
+   <result timeType='short' draft='unconfirmed'>Четвер, 4 листопада 2004 р., 23:00</result>
+   <result draft='approved'>Четвер, 4 листопада 2004 р. 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>Четвер, 4 листопада 2004 р., 23:00:01</result>
+   <result draft='approved'>Четвер, 4 листопада 2004 р. 23:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result dateType='short' timeType='none'>01.12.10</result>
    <result timeType='short'>01.12.10 23:59</result>
@@ -221,19 +265,23 @@ locales='uk uk_UA'>
    <result timeType='short'>1 груд. 2010 23:59</result>
    <result timeType='medium'>1 груд. 2010 23:59:59</result>
    <result dateType='long' timeType='none'>1 грудня 2010 р.</result>
-   <result timeType='short'>1 грудня 2010 р. 23:59</result>
-   <result timeType='medium'>1 грудня 2010 р. 23:59:59</result>
-   <result dateType='full' timeType='none'>Середа, 1 грудня 2010 р.</result>
-   <result timeType='short'>Середа, 1 грудня 2010 р. 23:59</result>
-   <result timeType='medium'>Середа, 1 грудня 2010 р. 23:59:59</result>
+   <result timeType='short' draft='unconfirmed'>1 грудня 2010 р., 23:59</result>
+   <result draft='approved'>1 грудня 2010 р. 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>1 грудня 2010 р., 23:59:59</result>
+   <result draft='approved'>1 грудня 2010 р. 23:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>Середа, 1 грудня 2010 р.</result>
+   <result timeType='short' draft='unconfirmed'>Середа, 1 грудня 2010 р., 23:59</result>
+   <result draft='approved'>Середа, 1 грудня 2010 р. 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>Середа, 1 грудня 2010 р., 23:59:59</result>
+   <result draft='approved'>Середа, 1 грудня 2010 р. 23:59:59</result>
   </date>
   <zoneFields 
 locales='uk uk_UA'>
-<!-- Ukrainian [українська]; Ukrainian (Ukraine) [українська (Україна)] -->
+<!-- Ukrainian [українська@]; Ukrainian (Ukraine) [українська (Україна)@] -->
   </zoneFields>
   <collation 
 locales='uk uk_UA'>
-<!-- Ukrainian [українська]; Ukrainian (Ukraine) [українська (Україна)] -->
+<!-- Ukrainian [українська@]; Ukrainian (Ukraine) [українська (Україна)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -250,24 +298,162 @@ x12x
 x2
 X2
 x2x
+xa
+xA
+Xa
+XA
+xax
+xAx
+xb
+xB
+Xb
+XB
+xbx
+xBx
+xc
+xC
+Xc
+XC
+xcx
+xCx
+xd
+xD
+Xd
+XD
+xdx
+xDx
+xe
+xE
+Xe
+XE
+xex
+xEx
+xf
+xF
+Xf
+XF
+xfx
+xFx
+xg
+xG
+Xg
+XG
+xgx
+xGx
+xh
+xH
+Xh
+XH
+xhx
+xHx
 xi
 xI
 Xi
 XI
 xix
 xIx
+xj
+xJ
+Xj
+XJ
+xjx
+xJx
+xk
+xK
+Xk
+XK
+xkx
+xKx
+xl
+xL
+Xl
+XL
+xlx
+xLx
+xm
+xM
+Xm
+XM
+xmx
+xMx
+xn
+xN
+Xn
+XN
+xnx
+xNx
+xo
+xO
+Xo
+XO
+xox
+xOx
+xp
+xP
+Xp
+XP
+xpx
+xPx
+xq
+xQ
+Xq
+XQ
+xqx
+xQx
+xr
+xR
+Xr
+XR
+xrx
+xRx
+xs
+xS
+Xs
+XS
+xsx
+xSx
+xt
+xT
+Xt
+XT
+xtx
+xTx
+xu
+xU
+Xu
+XU
+xux
+xUx
 xv
 xV
 Xv
 XV
 xvx
 xVx
+xw
+xW
+Xw
+XW
+xwx
+xWx
 xx
 xX
 Xx
 XX
 xxx
 xXx
+xy
+xY
+Xy
+XY
+xyx
+xYx
+xz
+xZ
+Xz
+XZ
+xzx
+xZx
 xʼ
 Xʼ
 xʼx

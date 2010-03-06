@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='kaj'>
- <!-- Jju [Jju] -->
+ <!-- Jju [kaj] -->
   <number 
 locales='kaj kaj_NG'>
-<!-- Jju [Jju]; Jju (Nigeria) [Jju (Nigeria)] -->
+<!-- Jju [kaj@]; Jju (Nigeria) [kaj (NG)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='kaj kaj_NG'>
   </number>
   <date 
 locales='kaj kaj_NG'>
-<!-- Jju [Jju]; Jju (Nigeria) [Jju (Nigeria)] -->
+<!-- Jju [kaj@]; Jju (Nigeria) [kaj (NG)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>00/01/31</result>
@@ -373,11 +373,11 @@ locales='kaj kaj_NG'>
   </date>
   <zoneFields 
 locales='kaj kaj_NG'>
-<!-- Jju [Jju]; Jju (Nigeria) [Jju (Nigeria)] -->
+<!-- Jju [kaj@]; Jju (Nigeria) [kaj (NG)@] -->
   </zoneFields>
   <collation 
 locales='kaj kaj_NG'>
-<!-- Jju [Jju]; Jju (Nigeria) [Jju (Nigeria)] -->
+<!-- Jju [kaj@]; Jju (Nigeria) [kaj (NG)@] -->
    <result draft='unconfirmed'>
 x 
 X 

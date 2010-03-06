@@ -5,53 +5,44 @@
  <!-- Lithuanian [lietuvių] -->
   <number 
 locales='lt lt_LT'>
-<!-- Lithuanian [lietuvių]; Lithuanian (Lithuania) [lietuvių (Lietuva)] -->
+<!-- Lithuanian [lietuvių@]; Lithuanian (Lithuania) [lietuvių (Lietuva)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
-   <result numberType='scientific' draft='unconfirmed'>0×10^0</result>
-   <result draft='approved'>0E0</result>
-   <result input='0.01' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='scientific'>0×10^0</result>
+   <result input='0.01' numberType='integer'>0</result>
    <result numberType='decimal'>0,01</result>
    <result numberType='percent'>1%</result>
-   <result numberType='scientific' draft='unconfirmed'>1×10^−2</result>
-   <result draft='approved'>1E−2</result>
-   <result input='-0.01' numberType='integer' draft='unconfirmed approved'>−0</result>
+   <result numberType='scientific'>1×10^−2</result>
+   <result input='-0.01' numberType='integer'>−0</result>
    <result numberType='decimal'>−0,01</result>
    <result numberType='percent'>−1%</result>
-   <result numberType='scientific' draft='unconfirmed'>−1×10^−2</result>
-   <result draft='approved'>−1E−2</result>
-   <result input='1.0' numberType='integer' draft='unconfirmed approved'>1</result>
+   <result numberType='scientific'>−1×10^−2</result>
+   <result input='1.0' numberType='integer'>1</result>
    <result numberType='decimal'>1</result>
    <result numberType='percent'>100%</result>
-   <result numberType='scientific' draft='unconfirmed'>1×10^0</result>
-   <result draft='approved'>1E0</result>
-   <result input='-1.0' numberType='integer' draft='unconfirmed approved'>−1</result>
+   <result numberType='scientific'>1×10^0</result>
+   <result input='-1.0' numberType='integer'>−1</result>
    <result numberType='decimal'>−1</result>
    <result numberType='percent'>−100%</result>
-   <result numberType='scientific' draft='unconfirmed'>−1×10^0</result>
-   <result draft='approved'>−1E0</result>
-   <result input='123.456' numberType='integer' draft='unconfirmed approved'>123</result>
+   <result numberType='scientific'>−1×10^0</result>
+   <result input='123.456' numberType='integer'>123</result>
    <result numberType='decimal'>123,456</result>
    <result numberType='percent'>12.346%</result>
-   <result numberType='scientific' draft='unconfirmed'>1,23456×10^2</result>
-   <result draft='approved'>1,23456E2</result>
-   <result input='-123.456' numberType='integer' draft='unconfirmed approved'>−123</result>
+   <result numberType='scientific'>1,23456×10^2</result>
+   <result input='-123.456' numberType='integer'>−123</result>
    <result numberType='decimal'>−123,456</result>
    <result numberType='percent'>−12.346%</result>
-   <result numberType='scientific' draft='unconfirmed'>−1,23456×10^2</result>
-   <result draft='approved'>−1,23456E2</result>
-   <result input='123456.78' numberType='integer' draft='unconfirmed approved'>123.457</result>
+   <result numberType='scientific'>−1,23456×10^2</result>
+   <result input='123456.78' numberType='integer'>123.457</result>
    <result numberType='decimal'>123.456,78</result>
    <result numberType='percent'>12.345.678%</result>
-   <result numberType='scientific' draft='unconfirmed'>1,2345678×10^5</result>
-   <result draft='approved'>1,2345678E5</result>
-   <result input='-123456.78' numberType='integer' draft='unconfirmed approved'>−123.457</result>
+   <result numberType='scientific'>1,2345678×10^5</result>
+   <result input='-123456.78' numberType='integer'>−123.457</result>
    <result numberType='decimal'>−123.456,78</result>
    <result numberType='percent'>−12.345.678%</result>
-   <result numberType='scientific' draft='unconfirmed'>−1,2345678×10^5</result>
-   <result draft='approved'>−1,2345678E5</result>
-   <result input='Infinity' numberType='integer' draft='unconfirmed approved'>∞</result>
+   <result numberType='scientific'>−1,2345678×10^5</result>
+   <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
@@ -59,18 +50,14 @@ locales='lt lt_LT'>
    <result numberType='decimal'>−∞</result>
    <result numberType='percent'>−∞%</result>
    <result numberType='scientific'>−∞</result>
-   <result input='NaN' numberType='integer' draft='unconfirmed'>¤¤¤</result>
-   <result draft='approved'>NaN</result>
-   <result numberType='decimal' draft='unconfirmed'>¤¤¤</result>
-   <result draft='approved'>NaN</result>
-   <result numberType='percent' draft='unconfirmed'>¤¤¤</result>
-   <result draft='approved'>NaN</result>
-   <result numberType='scientific' draft='unconfirmed'>¤¤¤</result>
-   <result draft='approved'>NaN</result>
+   <result input='NaN' numberType='integer'>¤¤¤</result>
+   <result numberType='decimal'>¤¤¤</result>
+   <result numberType='percent'>¤¤¤</result>
+   <result numberType='scientific'>¤¤¤</result>
   </number>
   <date 
 locales='lt lt_LT'>
-<!-- Lithuanian [lietuvių]; Lithuanian (Lithuania) [lietuvių (Lietuva)] -->
+<!-- Lithuanian [lietuvių@]; Lithuanian (Lithuania) [lietuvių (Lietuva)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>1900-01-31</result>
@@ -79,12 +66,12 @@ locales='lt lt_LT'>
    <result dateType='medium' timeType='none'>1900.01.31</result>
    <result timeType='short'>1900.01.31 00:00</result>
    <result timeType='medium'>1900.01.31 00:00:00</result>
-   <result dateType='long' timeType='none'>1900 m. sausio 31 d.</result>
-   <result timeType='short'>1900 m. sausio 31 d. 00:00</result>
-   <result timeType='medium'>1900 m. sausio 31 d. 00:00:00</result>
-   <result dateType='full' timeType='none'>1900 m. sausio 31 d.,trečiadienis</result>
-   <result timeType='short'>1900 m. sausio 31 d.,trečiadienis 00:00</result>
-   <result timeType='medium'>1900 m. sausio 31 d.,trečiadienis 00:00:00</result>
+   <result dateType='long' timeType='none'>1900 m. sausis 31 d.</result>
+   <result timeType='short'>1900 m. sausis 31 d. 00:00</result>
+   <result timeType='medium'>1900 m. sausis 31 d. 00:00:00</result>
+   <result dateType='full' timeType='none'>1900 m. sausis 31 d.,trečiadienis</result>
+   <result timeType='short'>1900 m. sausis 31 d.,trečiadienis 00:00</result>
+   <result timeType='medium'>1900 m. sausis 31 d.,trečiadienis 00:00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
    <result dateType='short' timeType='none'>1909-02-28</result>
@@ -93,12 +80,12 @@ locales='lt lt_LT'>
    <result dateType='medium' timeType='none'>1909.02.28</result>
    <result timeType='short'>1909.02.28 00:00</result>
    <result timeType='medium'>1909.02.28 00:00:01</result>
-   <result dateType='long' timeType='none'>1909 m. vasario 28 d.</result>
-   <result timeType='short'>1909 m. vasario 28 d. 00:00</result>
-   <result timeType='medium'>1909 m. vasario 28 d. 00:00:01</result>
-   <result dateType='full' timeType='none'>1909 m. vasario 28 d.,sekmadienis</result>
-   <result timeType='short'>1909 m. vasario 28 d.,sekmadienis 00:00</result>
-   <result timeType='medium'>1909 m. vasario 28 d.,sekmadienis 00:00:01</result>
+   <result dateType='long' timeType='none'>1909 m. vasaris 28 d.</result>
+   <result timeType='short'>1909 m. vasaris 28 d. 00:00</result>
+   <result timeType='medium'>1909 m. vasaris 28 d. 00:00:01</result>
+   <result dateType='full' timeType='none'>1909 m. vasaris 28 d.,sekmadienis</result>
+   <result timeType='short'>1909 m. vasaris 28 d.,sekmadienis 00:00</result>
+   <result timeType='medium'>1909 m. vasaris 28 d.,sekmadienis 00:00:01</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result dateType='short' timeType='none'>1918-03-26</result>
@@ -107,12 +94,12 @@ locales='lt lt_LT'>
    <result dateType='medium' timeType='none'>1918.03.26</result>
    <result timeType='short'>1918.03.26 00:59</result>
    <result timeType='medium'>1918.03.26 00:59:59</result>
-   <result dateType='long' timeType='none'>1918 m. kovo 26 d.</result>
-   <result timeType='short'>1918 m. kovo 26 d. 00:59</result>
-   <result timeType='medium'>1918 m. kovo 26 d. 00:59:59</result>
-   <result dateType='full' timeType='none'>1918 m. kovo 26 d.,antradienis</result>
-   <result timeType='short'>1918 m. kovo 26 d.,antradienis 00:59</result>
-   <result timeType='medium'>1918 m. kovo 26 d.,antradienis 00:59:59</result>
+   <result dateType='long' timeType='none'>1918 m. kovas 26 d.</result>
+   <result timeType='short'>1918 m. kovas 26 d. 00:59</result>
+   <result timeType='medium'>1918 m. kovas 26 d. 00:59:59</result>
+   <result dateType='full' timeType='none'>1918 m. kovas 26 d.,antradienis</result>
+   <result timeType='short'>1918 m. kovas 26 d.,antradienis 00:59</result>
+   <result timeType='medium'>1918 m. kovas 26 d.,antradienis 00:59:59</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
    <result dateType='short' timeType='none'>1932-04-24</result>
@@ -121,12 +108,12 @@ locales='lt lt_LT'>
    <result dateType='medium' timeType='none'>1932.04.24</result>
    <result timeType='short'>1932.04.24 01:00</result>
    <result timeType='medium'>1932.04.24 01:00:00</result>
-   <result dateType='long' timeType='none'>1932 m. balandžio 24 d.</result>
-   <result timeType='short'>1932 m. balandžio 24 d. 01:00</result>
-   <result timeType='medium'>1932 m. balandžio 24 d. 01:00:00</result>
-   <result dateType='full' timeType='none'>1932 m. balandžio 24 d.,sekmadienis</result>
-   <result timeType='short'>1932 m. balandžio 24 d.,sekmadienis 01:00</result>
-   <result timeType='medium'>1932 m. balandžio 24 d.,sekmadienis 01:00:00</result>
+   <result dateType='long' timeType='none'>1932 m. balandis 24 d.</result>
+   <result timeType='short'>1932 m. balandis 24 d. 01:00</result>
+   <result timeType='medium'>1932 m. balandis 24 d. 01:00:00</result>
+   <result dateType='full' timeType='none'>1932 m. balandis 24 d.,sekmadienis</result>
+   <result timeType='short'>1932 m. balandis 24 d.,sekmadienis 01:00</result>
+   <result timeType='medium'>1932 m. balandis 24 d.,sekmadienis 01:00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result dateType='short' timeType='none'>1945-05-20</result>
@@ -135,12 +122,12 @@ locales='lt lt_LT'>
    <result dateType='medium' timeType='none'>1945.05.20</result>
    <result timeType='short'>1945.05.20 01:00</result>
    <result timeType='medium'>1945.05.20 01:00:01</result>
-   <result dateType='long' timeType='none'>1945 m. gegužės 20 d.</result>
-   <result timeType='short'>1945 m. gegužės 20 d. 01:00</result>
-   <result timeType='medium'>1945 m. gegužės 20 d. 01:00:01</result>
-   <result dateType='full' timeType='none'>1945 m. gegužės 20 d.,sekmadienis</result>
-   <result timeType='short'>1945 m. gegužės 20 d.,sekmadienis 01:00</result>
-   <result timeType='medium'>1945 m. gegužės 20 d.,sekmadienis 01:00:01</result>
+   <result dateType='long' timeType='none'>1945 m. gegužė 20 d.</result>
+   <result timeType='short'>1945 m. gegužė 20 d. 01:00</result>
+   <result timeType='medium'>1945 m. gegužė 20 d. 01:00:01</result>
+   <result dateType='full' timeType='none'>1945 m. gegužė 20 d.,sekmadienis</result>
+   <result timeType='short'>1945 m. gegužė 20 d.,sekmadienis 01:00</result>
+   <result timeType='medium'>1945 m. gegužė 20 d.,sekmadienis 01:00:01</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result dateType='short' timeType='none'>1952-06-18</result>
@@ -149,12 +136,12 @@ locales='lt lt_LT'>
    <result dateType='medium' timeType='none'>1952.06.18</result>
    <result timeType='short'>1952.06.18 11:59</result>
    <result timeType='medium'>1952.06.18 11:59:59</result>
-   <result dateType='long' timeType='none'>1952 m. birželio 18 d.</result>
-   <result timeType='short'>1952 m. birželio 18 d. 11:59</result>
-   <result timeType='medium'>1952 m. birželio 18 d. 11:59:59</result>
-   <result dateType='full' timeType='none'>1952 m. birželio 18 d.,trečiadienis</result>
-   <result timeType='short'>1952 m. birželio 18 d.,trečiadienis 11:59</result>
-   <result timeType='medium'>1952 m. birželio 18 d.,trečiadienis 11:59:59</result>
+   <result dateType='long' timeType='none'>1952 m. birželis 18 d.</result>
+   <result timeType='short'>1952 m. birželis 18 d. 11:59</result>
+   <result timeType='medium'>1952 m. birželis 18 d. 11:59:59</result>
+   <result dateType='full' timeType='none'>1952 m. birželis 18 d.,trečiadienis</result>
+   <result timeType='short'>1952 m. birželis 18 d.,trečiadienis 11:59</result>
+   <result timeType='medium'>1952 m. birželis 18 d.,trečiadienis 11:59:59</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result dateType='short' timeType='none'>1973-07-16</result>
@@ -163,12 +150,12 @@ locales='lt lt_LT'>
    <result dateType='medium' timeType='none'>1973.07.16</result>
    <result timeType='short'>1973.07.16 12:00</result>
    <result timeType='medium'>1973.07.16 12:00:00</result>
-   <result dateType='long' timeType='none'>1973 m. liepos 16 d.</result>
-   <result timeType='short'>1973 m. liepos 16 d. 12:00</result>
-   <result timeType='medium'>1973 m. liepos 16 d. 12:00:00</result>
-   <result dateType='full' timeType='none'>1973 m. liepos 16 d.,pirmadienis</result>
-   <result timeType='short'>1973 m. liepos 16 d.,pirmadienis 12:00</result>
-   <result timeType='medium'>1973 m. liepos 16 d.,pirmadienis 12:00:00</result>
+   <result dateType='long' timeType='none'>1973 m. liepa 16 d.</result>
+   <result timeType='short'>1973 m. liepa 16 d. 12:00</result>
+   <result timeType='medium'>1973 m. liepa 16 d. 12:00:00</result>
+   <result dateType='full' timeType='none'>1973 m. liepa 16 d.,pirmadienis</result>
+   <result timeType='short'>1973 m. liepa 16 d.,pirmadienis 12:00</result>
+   <result timeType='medium'>1973 m. liepa 16 d.,pirmadienis 12:00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result dateType='short' timeType='none'>1999-08-14</result>
@@ -177,12 +164,12 @@ locales='lt lt_LT'>
    <result dateType='medium' timeType='none'>1999.08.14</result>
    <result timeType='short'>1999.08.14 12:00</result>
    <result timeType='medium'>1999.08.14 12:00:01</result>
-   <result dateType='long' timeType='none'>1999 m. rugpjūčio 14 d.</result>
-   <result timeType='short'>1999 m. rugpjūčio 14 d. 12:00</result>
-   <result timeType='medium'>1999 m. rugpjūčio 14 d. 12:00:01</result>
-   <result dateType='full' timeType='none'>1999 m. rugpjūčio 14 d.,šeštadienis</result>
-   <result timeType='short'>1999 m. rugpjūčio 14 d.,šeštadienis 12:00</result>
-   <result timeType='medium'>1999 m. rugpjūčio 14 d.,šeštadienis 12:00:01</result>
+   <result dateType='long' timeType='none'>1999 m. rugpjūtis 14 d.</result>
+   <result timeType='short'>1999 m. rugpjūtis 14 d. 12:00</result>
+   <result timeType='medium'>1999 m. rugpjūtis 14 d. 12:00:01</result>
+   <result dateType='full' timeType='none'>1999 m. rugpjūtis 14 d.,šeštadienis</result>
+   <result timeType='short'>1999 m. rugpjūtis 14 d.,šeštadienis 12:00</result>
+   <result timeType='medium'>1999 m. rugpjūtis 14 d.,šeštadienis 12:00:01</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result dateType='short' timeType='none'>2000-09-12</result>
@@ -191,12 +178,12 @@ locales='lt lt_LT'>
    <result dateType='medium' timeType='none'>2000.09.12</result>
    <result timeType='short'>2000.09.12 22:59</result>
    <result timeType='medium'>2000.09.12 22:59:59</result>
-   <result dateType='long' timeType='none'>2000 m. rugsėjo 12 d.</result>
-   <result timeType='short'>2000 m. rugsėjo 12 d. 22:59</result>
-   <result timeType='medium'>2000 m. rugsėjo 12 d. 22:59:59</result>
-   <result dateType='full' timeType='none'>2000 m. rugsėjo 12 d.,antradienis</result>
-   <result timeType='short'>2000 m. rugsėjo 12 d.,antradienis 22:59</result>
-   <result timeType='medium'>2000 m. rugsėjo 12 d.,antradienis 22:59:59</result>
+   <result dateType='long' timeType='none'>2000 m. rugsėjis 12 d.</result>
+   <result timeType='short'>2000 m. rugsėjis 12 d. 22:59</result>
+   <result timeType='medium'>2000 m. rugsėjis 12 d. 22:59:59</result>
+   <result dateType='full' timeType='none'>2000 m. rugsėjis 12 d.,antradienis</result>
+   <result timeType='short'>2000 m. rugsėjis 12 d.,antradienis 22:59</result>
+   <result timeType='medium'>2000 m. rugsėjis 12 d.,antradienis 22:59:59</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result dateType='short' timeType='none'>2001-10-08</result>
@@ -205,12 +192,12 @@ locales='lt lt_LT'>
    <result dateType='medium' timeType='none'>2001.10.08</result>
    <result timeType='short'>2001.10.08 23:00</result>
    <result timeType='medium'>2001.10.08 23:00:00</result>
-   <result dateType='long' timeType='none'>2001 m. spalio 8 d.</result>
-   <result timeType='short'>2001 m. spalio 8 d. 23:00</result>
-   <result timeType='medium'>2001 m. spalio 8 d. 23:00:00</result>
-   <result dateType='full' timeType='none'>2001 m. spalio 8 d.,pirmadienis</result>
-   <result timeType='short'>2001 m. spalio 8 d.,pirmadienis 23:00</result>
-   <result timeType='medium'>2001 m. spalio 8 d.,pirmadienis 23:00:00</result>
+   <result dateType='long' timeType='none'>2001 m. spalis 8 d.</result>
+   <result timeType='short'>2001 m. spalis 8 d. 23:00</result>
+   <result timeType='medium'>2001 m. spalis 8 d. 23:00:00</result>
+   <result dateType='full' timeType='none'>2001 m. spalis 8 d.,pirmadienis</result>
+   <result timeType='short'>2001 m. spalis 8 d.,pirmadienis 23:00</result>
+   <result timeType='medium'>2001 m. spalis 8 d.,pirmadienis 23:00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result dateType='short' timeType='none'>2004-11-04</result>
@@ -219,12 +206,12 @@ locales='lt lt_LT'>
    <result dateType='medium' timeType='none'>2004.11.04</result>
    <result timeType='short'>2004.11.04 23:00</result>
    <result timeType='medium'>2004.11.04 23:00:01</result>
-   <result dateType='long' timeType='none'>2004 m. lapkričio 4 d.</result>
-   <result timeType='short'>2004 m. lapkričio 4 d. 23:00</result>
-   <result timeType='medium'>2004 m. lapkričio 4 d. 23:00:01</result>
-   <result dateType='full' timeType='none'>2004 m. lapkričio 4 d.,ketvirtadienis</result>
-   <result timeType='short'>2004 m. lapkričio 4 d.,ketvirtadienis 23:00</result>
-   <result timeType='medium'>2004 m. lapkričio 4 d.,ketvirtadienis 23:00:01</result>
+   <result dateType='long' timeType='none'>2004 m. lapkritis 4 d.</result>
+   <result timeType='short'>2004 m. lapkritis 4 d. 23:00</result>
+   <result timeType='medium'>2004 m. lapkritis 4 d. 23:00:01</result>
+   <result dateType='full' timeType='none'>2004 m. lapkritis 4 d.,ketvirtadienis</result>
+   <result timeType='short'>2004 m. lapkritis 4 d.,ketvirtadienis 23:00</result>
+   <result timeType='medium'>2004 m. lapkritis 4 d.,ketvirtadienis 23:00:01</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result dateType='short' timeType='none'>2010-12-01</result>
@@ -233,20 +220,20 @@ locales='lt lt_LT'>
    <result dateType='medium' timeType='none'>2010.12.01</result>
    <result timeType='short'>2010.12.01 23:59</result>
    <result timeType='medium'>2010.12.01 23:59:59</result>
-   <result dateType='long' timeType='none'>2010 m. gruodžio 1 d.</result>
-   <result timeType='short'>2010 m. gruodžio 1 d. 23:59</result>
-   <result timeType='medium'>2010 m. gruodžio 1 d. 23:59:59</result>
-   <result dateType='full' timeType='none'>2010 m. gruodžio 1 d.,trečiadienis</result>
-   <result timeType='short'>2010 m. gruodžio 1 d.,trečiadienis 23:59</result>
-   <result timeType='medium'>2010 m. gruodžio 1 d.,trečiadienis 23:59:59</result>
+   <result dateType='long' timeType='none'>2010 m. gruodis 1 d.</result>
+   <result timeType='short'>2010 m. gruodis 1 d. 23:59</result>
+   <result timeType='medium'>2010 m. gruodis 1 d. 23:59:59</result>
+   <result dateType='full' timeType='none'>2010 m. gruodis 1 d.,trečiadienis</result>
+   <result timeType='short'>2010 m. gruodis 1 d.,trečiadienis 23:59</result>
+   <result timeType='medium'>2010 m. gruodis 1 d.,trečiadienis 23:59:59</result>
   </date>
   <zoneFields 
 locales='lt lt_LT'>
-<!-- Lithuanian [lietuvių]; Lithuanian (Lithuania) [lietuvių (Lietuva)] -->
+<!-- Lithuanian [lietuvių@]; Lithuanian (Lithuania) [lietuvių (Lietuva)@] -->
   </zoneFields>
   <collation 
 locales='lt lt_LT'>
-<!-- Lithuanian [lietuvių]; Lithuanian (Lithuania) [lietuvių (Lietuva)] -->
+<!-- Lithuanian [lietuvių@]; Lithuanian (Lithuania) [lietuvių (Lietuva)@] -->
    <result draft='unconfirmed approved'>
 ẋ
 Ẋ

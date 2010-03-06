@@ -5,7 +5,7 @@
  <!-- Khmer [ភាសាខ្មែរ] -->
   <number 
 locales='km km_KH'>
-<!-- Khmer [ភាសាខ្មែរ]; Khmer (Cambodia) [ភាសាខ្មែរ (កម្ពុជា)] -->
+<!-- Khmer [ភាសាខ្មែរ@]; Khmer (Cambodia) [ភាសាខ្មែរ (កម្ពុជា)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='km km_KH'>
   </number>
   <date 
 locales='km km_KH'>
-<!-- Khmer [ភាសាខ្មែរ]; Khmer (Cambodia) [ភាសាខ្មែរ (កម្ពុជា)] -->
+<!-- Khmer [ភាសាខ្មែរ@]; Khmer (Cambodia) [ភាសាខ្មែរ (កម្ពុជា)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result dateType='short' timeType='none'>31/1/1900</result>
@@ -301,20 +301,22 @@ locales='km km_KH'>
   </date>
   <zoneFields 
 locales='km km_KH'>
-<!-- Khmer [ភាសាខ្មែរ]; Khmer (Cambodia) [ភាសាខ្មែរ (កម្ពុជា)] -->
+<!-- Khmer [ភាសាខ្មែរ@]; Khmer (Cambodia) [ភាសាខ្មែរ (កម្ពុជា)@] -->
   </zoneFields>
   <collation 
 locales='km km_KH'>
-<!-- Khmer [ភាសាខ្មែរ]; Khmer (Cambodia) [ភាសាខ្មែរ (កម្ពុជា)] -->
+<!-- Khmer [ភាសាខ្មែរ@]; Khmer (Cambodia) [ភាសាខ្មែរ (កម្ពុជា)@] -->
    <result draft='unconfirmed approved'>
-x​
 x឵
-x឴
 x​
+x឴
+x឵
+X឵
 X​
 X឴
 X឵
-X​
+x៌
+X៌
 x៎
 X៎
 x៏
@@ -335,8 +337,6 @@ x៊
 X៊
 x៍
 X៍
-x៌
-X៌
 x 
 X 
 x x
@@ -379,10 +379,11 @@ x12x
 x2
 X2
 x2x
-x឵x
 x​x
 x឴x
 x឵x
+x​x
+x៌x
 x៎x
 x៏x
 x៑x
@@ -393,7 +394,6 @@ x់x
 x៉x
 x៊x
 x៍x
-x៌x
 xក
 Xក
 xកx
@@ -637,12 +637,12 @@ xឣx
 xឤ
 xអា
 xឤ
-Xឤ
 Xអា
 Xឤ
-xអាx
+Xអា
 xឤx
 xអាx
+xឤx
 xឥ
 Xឥ
 xឥx

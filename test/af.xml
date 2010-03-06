@@ -5,7 +5,7 @@
  <!-- Afrikaans [Afrikaans] -->
   <number 
 locales='af af_NA af_ZA'>
-<!-- Afrikaans [Afrikaans]; Afrikaans (Namibia) [Afrikaans (Namibië)]; Afrikaans (South Africa) [Afrikaans (Suid-Afrika)] -->
+<!-- Afrikaans [Afrikaans@]; Afrikaans (Namibia) [Afrikaans (Namibië)@]; Afrikaans (South Africa) [Afrikaans (Suid-Afrika)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -50,599 +50,495 @@ locales='af af_NA af_ZA'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>NaN</result>
-   <result numberType='decimal'>NaN</result>
-   <result numberType='percent'>NaN</result>
-   <result numberType='scientific'>NaN</result>
+   <result input='NaN' numberType='integer' draft='unconfirmed'>¤¤¤</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='decimal' draft='unconfirmed'>¤¤¤</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='percent' draft='unconfirmed'>¤¤¤</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='scientific' draft='unconfirmed'>¤¤¤</result>
+   <result draft='approved'>NaN</result>
   </number>
   <date 
 locales='af af_ZA'>
-<!-- Afrikaans [Afrikaans]; Afrikaans (South Africa) [Afrikaans (Suid-Afrika)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 vm.</result>
-   <result draft='approved'>00:00</result>
-   <result timeType='medium' draft='unconfirmed'>12:00:00 vm.</result>
-   <result draft='approved'>00:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>1900/01/31</result>
-   <result draft='approved'>1900-01-31</result>
-   <result timeType='short' draft='unconfirmed'>1900/01/31 12:00 vm.</result>
-   <result draft='approved'>1900-01-31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1900/01/31 12:00:00 vm.</result>
-   <result draft='approved'>1900-01-31 00:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>31 Jan 1900</result>
-   <result draft='approved'>1900 Jan 31</result>
-   <result timeType='short' draft='unconfirmed'>31 Jan 1900 12:00 vm.</result>
-   <result draft='approved'>1900 Jan 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>31 Jan 1900 12:00:00 vm.</result>
-   <result draft='approved'>1900 Jan 31 00:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>31 Januarie 1900</result>
-   <result draft='approved'>1900 Januarie 31</result>
-   <result timeType='short' draft='unconfirmed'>31 Januarie 1900 12:00 vm.</result>
-   <result draft='approved'>1900 Januarie 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>31 Januarie 1900 12:00:00 vm.</result>
-   <result draft='approved'>1900 Januarie 31 00:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed approved'>Woensdag 31 Januarie 1900</result>
-   <result timeType='short' draft='unconfirmed'>Woensdag 31 Januarie 1900 12:00 vm.</result>
-   <result draft='approved'>Woensdag 31 Januarie 1900 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>Woensdag 31 Januarie 1900 12:00:00 vm.</result>
-   <result draft='approved'>Woensdag 31 Januarie 1900 00:00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 vm.</result>
-   <result draft='approved'>00:00</result>
-   <result timeType='medium' draft='unconfirmed'>12:00:01 vm.</result>
-   <result draft='approved'>00:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>1909/02/28</result>
-   <result draft='approved'>1909-02-28</result>
-   <result timeType='short' draft='unconfirmed'>1909/02/28 12:00 vm.</result>
-   <result draft='approved'>1909-02-28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1909/02/28 12:00:01 vm.</result>
-   <result draft='approved'>1909-02-28 00:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>28 Feb 1909</result>
-   <result draft='approved'>1909 Feb 28</result>
-   <result timeType='short' draft='unconfirmed'>28 Feb 1909 12:00 vm.</result>
-   <result draft='approved'>1909 Feb 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>28 Feb 1909 12:00:01 vm.</result>
-   <result draft='approved'>1909 Feb 28 00:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>28 Februarie 1909</result>
-   <result draft='approved'>1909 Februarie 28</result>
-   <result timeType='short' draft='unconfirmed'>28 Februarie 1909 12:00 vm.</result>
-   <result draft='approved'>1909 Februarie 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>28 Februarie 1909 12:00:01 vm.</result>
-   <result draft='approved'>1909 Februarie 28 00:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed approved'>Sondag 28 Februarie 1909</result>
-   <result timeType='short' draft='unconfirmed'>Sondag 28 Februarie 1909 12:00 vm.</result>
-   <result draft='approved'>Sondag 28 Februarie 1909 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>Sondag 28 Februarie 1909 12:00:01 vm.</result>
-   <result draft='approved'>Sondag 28 Februarie 1909 00:00:01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>12:59 vm.</result>
-   <result draft='approved'>00:59</result>
-   <result timeType='medium' draft='unconfirmed'>12:59:59 vm.</result>
-   <result draft='approved'>00:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>1918/03/26</result>
-   <result draft='approved'>1918-03-26</result>
-   <result timeType='short' draft='unconfirmed'>1918/03/26 12:59 vm.</result>
-   <result draft='approved'>1918-03-26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>1918/03/26 12:59:59 vm.</result>
-   <result draft='approved'>1918-03-26 00:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>26 Mar 1918</result>
-   <result draft='approved'>1918 Mar 26</result>
-   <result timeType='short' draft='unconfirmed'>26 Mar 1918 12:59 vm.</result>
-   <result draft='approved'>1918 Mar 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>26 Mar 1918 12:59:59 vm.</result>
-   <result draft='approved'>1918 Mar 26 00:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>26 Maart 1918</result>
-   <result draft='approved'>1918 Maart 26</result>
-   <result timeType='short' draft='unconfirmed'>26 Maart 1918 12:59 vm.</result>
-   <result draft='approved'>1918 Maart 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>26 Maart 1918 12:59:59 vm.</result>
-   <result draft='approved'>1918 Maart 26 00:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed approved'>Dinsdag 26 Maart 1918</result>
-   <result timeType='short' draft='unconfirmed'>Dinsdag 26 Maart 1918 12:59 vm.</result>
-   <result draft='approved'>Dinsdag 26 Maart 1918 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>Dinsdag 26 Maart 1918 12:59:59 vm.</result>
-   <result draft='approved'>Dinsdag 26 Maart 1918 00:59:59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>1:00 vm.</result>
-   <result draft='approved'>01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1:00:00 vm.</result>
-   <result draft='approved'>01:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>1932/04/24</result>
-   <result draft='approved'>1932-04-24</result>
-   <result timeType='short' draft='unconfirmed'>1932/04/24 1:00 vm.</result>
-   <result draft='approved'>1932-04-24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1932/04/24 1:00:00 vm.</result>
-   <result draft='approved'>1932-04-24 01:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>24 Apr 1932</result>
-   <result draft='approved'>1932 Apr 24</result>
-   <result timeType='short' draft='unconfirmed'>24 Apr 1932 1:00 vm.</result>
-   <result draft='approved'>1932 Apr 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>24 Apr 1932 1:00:00 vm.</result>
-   <result draft='approved'>1932 Apr 24 01:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>24 April 1932</result>
-   <result draft='approved'>1932 April 24</result>
-   <result timeType='short' draft='unconfirmed'>24 April 1932 1:00 vm.</result>
-   <result draft='approved'>1932 April 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>24 April 1932 1:00:00 vm.</result>
-   <result draft='approved'>1932 April 24 01:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed approved'>Sondag 24 April 1932</result>
-   <result timeType='short' draft='unconfirmed'>Sondag 24 April 1932 1:00 vm.</result>
-   <result draft='approved'>Sondag 24 April 1932 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>Sondag 24 April 1932 1:00:00 vm.</result>
-   <result draft='approved'>Sondag 24 April 1932 01:00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>1:00 vm.</result>
-   <result draft='approved'>01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1:00:01 vm.</result>
-   <result draft='approved'>01:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>1945/05/20</result>
-   <result draft='approved'>1945-05-20</result>
-   <result timeType='short' draft='unconfirmed'>1945/05/20 1:00 vm.</result>
-   <result draft='approved'>1945-05-20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1945/05/20 1:00:01 vm.</result>
-   <result draft='approved'>1945-05-20 01:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>20 Mei 1945</result>
-   <result draft='approved'>1945 Mei 20</result>
-   <result timeType='short' draft='unconfirmed'>20 Mei 1945 1:00 vm.</result>
-   <result draft='approved'>1945 Mei 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>20 Mei 1945 1:00:01 vm.</result>
-   <result draft='approved'>1945 Mei 20 01:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>20 Mei 1945</result>
-   <result draft='approved'>1945 Mei 20</result>
-   <result timeType='short' draft='unconfirmed'>20 Mei 1945 1:00 vm.</result>
-   <result draft='approved'>1945 Mei 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>20 Mei 1945 1:00:01 vm.</result>
-   <result draft='approved'>1945 Mei 20 01:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed approved'>Sondag 20 Mei 1945</result>
-   <result timeType='short' draft='unconfirmed'>Sondag 20 Mei 1945 1:00 vm.</result>
-   <result draft='approved'>Sondag 20 Mei 1945 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>Sondag 20 Mei 1945 1:00:01 vm.</result>
-   <result draft='approved'>Sondag 20 Mei 1945 01:00:01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>11:59 vm.</result>
-   <result draft='approved'>11:59</result>
-   <result timeType='medium' draft='unconfirmed'>11:59:59 vm.</result>
-   <result draft='approved'>11:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>1952/06/18</result>
-   <result draft='approved'>1952-06-18</result>
-   <result timeType='short' draft='unconfirmed'>1952/06/18 11:59 vm.</result>
-   <result draft='approved'>1952-06-18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>1952/06/18 11:59:59 vm.</result>
-   <result draft='approved'>1952-06-18 11:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>18 Jun 1952</result>
-   <result draft='approved'>1952 Jun 18</result>
-   <result timeType='short' draft='unconfirmed'>18 Jun 1952 11:59 vm.</result>
-   <result draft='approved'>1952 Jun 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>18 Jun 1952 11:59:59 vm.</result>
-   <result draft='approved'>1952 Jun 18 11:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>18 Junie 1952</result>
-   <result draft='approved'>1952 Junie 18</result>
-   <result timeType='short' draft='unconfirmed'>18 Junie 1952 11:59 vm.</result>
-   <result draft='approved'>1952 Junie 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>18 Junie 1952 11:59:59 vm.</result>
-   <result draft='approved'>1952 Junie 18 11:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed approved'>Woensdag 18 Junie 1952</result>
-   <result timeType='short' draft='unconfirmed'>Woensdag 18 Junie 1952 11:59 vm.</result>
-   <result draft='approved'>Woensdag 18 Junie 1952 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>Woensdag 18 Junie 1952 11:59:59 vm.</result>
-   <result draft='approved'>Woensdag 18 Junie 1952 11:59:59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 nm.</result>
-   <result draft='approved'>12:00</result>
-   <result timeType='medium' draft='unconfirmed'>12:00:00 nm.</result>
-   <result draft='approved'>12:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>1973/07/16</result>
-   <result draft='approved'>1973-07-16</result>
-   <result timeType='short' draft='unconfirmed'>1973/07/16 12:00 nm.</result>
-   <result draft='approved'>1973-07-16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1973/07/16 12:00:00 nm.</result>
-   <result draft='approved'>1973-07-16 12:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>16 Jul 1973</result>
-   <result draft='approved'>1973 Jul 16</result>
-   <result timeType='short' draft='unconfirmed'>16 Jul 1973 12:00 nm.</result>
-   <result draft='approved'>1973 Jul 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>16 Jul 1973 12:00:00 nm.</result>
-   <result draft='approved'>1973 Jul 16 12:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>16 Julie 1973</result>
-   <result draft='approved'>1973 Julie 16</result>
-   <result timeType='short' draft='unconfirmed'>16 Julie 1973 12:00 nm.</result>
-   <result draft='approved'>1973 Julie 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>16 Julie 1973 12:00:00 nm.</result>
-   <result draft='approved'>1973 Julie 16 12:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed approved'>Maandag 16 Julie 1973</result>
-   <result timeType='short' draft='unconfirmed'>Maandag 16 Julie 1973 12:00 nm.</result>
-   <result draft='approved'>Maandag 16 Julie 1973 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>Maandag 16 Julie 1973 12:00:00 nm.</result>
-   <result draft='approved'>Maandag 16 Julie 1973 12:00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 nm.</result>
-   <result draft='approved'>12:00</result>
-   <result timeType='medium' draft='unconfirmed'>12:00:01 nm.</result>
-   <result draft='approved'>12:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>1999/08/14</result>
-   <result draft='approved'>1999-08-14</result>
-   <result timeType='short' draft='unconfirmed'>1999/08/14 12:00 nm.</result>
-   <result draft='approved'>1999-08-14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1999/08/14 12:00:01 nm.</result>
-   <result draft='approved'>1999-08-14 12:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>14 Aug 1999</result>
-   <result draft='approved'>1999 Aug 14</result>
-   <result timeType='short' draft='unconfirmed'>14 Aug 1999 12:00 nm.</result>
-   <result draft='approved'>1999 Aug 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>14 Aug 1999 12:00:01 nm.</result>
-   <result draft='approved'>1999 Aug 14 12:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>14 Augustus 1999</result>
-   <result draft='approved'>1999 Augustus 14</result>
-   <result timeType='short' draft='unconfirmed'>14 Augustus 1999 12:00 nm.</result>
-   <result draft='approved'>1999 Augustus 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>14 Augustus 1999 12:00:01 nm.</result>
-   <result draft='approved'>1999 Augustus 14 12:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed approved'>Saterdag 14 Augustus 1999</result>
-   <result timeType='short' draft='unconfirmed'>Saterdag 14 Augustus 1999 12:00 nm.</result>
-   <result draft='approved'>Saterdag 14 Augustus 1999 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>Saterdag 14 Augustus 1999 12:00:01 nm.</result>
-   <result draft='approved'>Saterdag 14 Augustus 1999 12:00:01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>10:59 nm.</result>
-   <result draft='approved'>22:59</result>
-   <result timeType='medium' draft='unconfirmed'>10:59:59 nm.</result>
-   <result draft='approved'>22:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>2000/09/12</result>
-   <result draft='approved'>2000-09-12</result>
-   <result timeType='short' draft='unconfirmed'>2000/09/12 10:59 nm.</result>
-   <result draft='approved'>2000-09-12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>2000/09/12 10:59:59 nm.</result>
-   <result draft='approved'>2000-09-12 22:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>12 Sep 2000</result>
-   <result draft='approved'>2000 Sep 12</result>
-   <result timeType='short' draft='unconfirmed'>12 Sep 2000 10:59 nm.</result>
-   <result draft='approved'>2000 Sep 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>12 Sep 2000 10:59:59 nm.</result>
-   <result draft='approved'>2000 Sep 12 22:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>12 September 2000</result>
-   <result draft='approved'>2000 September 12</result>
-   <result timeType='short' draft='unconfirmed'>12 September 2000 10:59 nm.</result>
-   <result draft='approved'>2000 September 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>12 September 2000 10:59:59 nm.</result>
-   <result draft='approved'>2000 September 12 22:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed approved'>Dinsdag 12 September 2000</result>
-   <result timeType='short' draft='unconfirmed'>Dinsdag 12 September 2000 10:59 nm.</result>
-   <result draft='approved'>Dinsdag 12 September 2000 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>Dinsdag 12 September 2000 10:59:59 nm.</result>
-   <result draft='approved'>Dinsdag 12 September 2000 22:59:59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>11:00 nm.</result>
-   <result draft='approved'>23:00</result>
-   <result timeType='medium' draft='unconfirmed'>11:00:00 nm.</result>
-   <result draft='approved'>23:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>2001/10/08</result>
-   <result draft='approved'>2001-10-08</result>
-   <result timeType='short' draft='unconfirmed'>2001/10/08 11:00 nm.</result>
-   <result draft='approved'>2001-10-08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2001/10/08 11:00:00 nm.</result>
-   <result draft='approved'>2001-10-08 23:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>08 Okt 2001</result>
-   <result draft='approved'>2001 Okt 8</result>
-   <result timeType='short' draft='unconfirmed'>08 Okt 2001 11:00 nm.</result>
-   <result draft='approved'>2001 Okt 8 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>08 Okt 2001 11:00:00 nm.</result>
-   <result draft='approved'>2001 Okt 8 23:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>08 Oktober 2001</result>
-   <result draft='approved'>2001 Oktober 8</result>
-   <result timeType='short' draft='unconfirmed'>08 Oktober 2001 11:00 nm.</result>
-   <result draft='approved'>2001 Oktober 8 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>08 Oktober 2001 11:00:00 nm.</result>
-   <result draft='approved'>2001 Oktober 8 23:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed approved'>Maandag 08 Oktober 2001</result>
-   <result timeType='short' draft='unconfirmed'>Maandag 08 Oktober 2001 11:00 nm.</result>
-   <result draft='approved'>Maandag 08 Oktober 2001 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>Maandag 08 Oktober 2001 11:00:00 nm.</result>
-   <result draft='approved'>Maandag 08 Oktober 2001 23:00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>11:00 nm.</result>
-   <result draft='approved'>23:00</result>
-   <result timeType='medium' draft='unconfirmed'>11:00:01 nm.</result>
-   <result draft='approved'>23:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>2004/11/04</result>
-   <result draft='approved'>2004-11-04</result>
-   <result timeType='short' draft='unconfirmed'>2004/11/04 11:00 nm.</result>
-   <result draft='approved'>2004-11-04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2004/11/04 11:00:01 nm.</result>
-   <result draft='approved'>2004-11-04 23:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>04 Nov 2004</result>
-   <result draft='approved'>2004 Nov 4</result>
-   <result timeType='short' draft='unconfirmed'>04 Nov 2004 11:00 nm.</result>
-   <result draft='approved'>2004 Nov 4 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>04 Nov 2004 11:00:01 nm.</result>
-   <result draft='approved'>2004 Nov 4 23:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>04 November 2004</result>
-   <result draft='approved'>2004 November 4</result>
-   <result timeType='short' draft='unconfirmed'>04 November 2004 11:00 nm.</result>
-   <result draft='approved'>2004 November 4 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>04 November 2004 11:00:01 nm.</result>
-   <result draft='approved'>2004 November 4 23:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed approved'>Donderdag 04 November 2004</result>
-   <result timeType='short' draft='unconfirmed'>Donderdag 04 November 2004 11:00 nm.</result>
-   <result draft='approved'>Donderdag 04 November 2004 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>Donderdag 04 November 2004 11:00:01 nm.</result>
-   <result draft='approved'>Donderdag 04 November 2004 23:00:01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>11:59 nm.</result>
-   <result draft='approved'>23:59</result>
-   <result timeType='medium' draft='unconfirmed'>11:59:59 nm.</result>
-   <result draft='approved'>23:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>2010/12/01</result>
-   <result draft='approved'>2010-12-01</result>
-   <result timeType='short' draft='unconfirmed'>2010/12/01 11:59 nm.</result>
-   <result draft='approved'>2010-12-01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>2010/12/01 11:59:59 nm.</result>
-   <result draft='approved'>2010-12-01 23:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>01 Des 2010</result>
-   <result draft='approved'>2010 Des 1</result>
-   <result timeType='short' draft='unconfirmed'>01 Des 2010 11:59 nm.</result>
-   <result draft='approved'>2010 Des 1 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>01 Des 2010 11:59:59 nm.</result>
-   <result draft='approved'>2010 Des 1 23:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>01 Desember 2010</result>
-   <result draft='approved'>2010 Desember 1</result>
-   <result timeType='short' draft='unconfirmed'>01 Desember 2010 11:59 nm.</result>
-   <result draft='approved'>2010 Desember 1 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>01 Desember 2010 11:59:59 nm.</result>
-   <result draft='approved'>2010 Desember 1 23:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed approved'>Woensdag 01 Desember 2010</result>
-   <result timeType='short' draft='unconfirmed'>Woensdag 01 Desember 2010 11:59 nm.</result>
-   <result draft='approved'>Woensdag 01 Desember 2010 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>Woensdag 01 Desember 2010 11:59:59 nm.</result>
-   <result draft='approved'>Woensdag 01 Desember 2010 23:59:59</result>
+<!-- Afrikaans [Afrikaans@]; Afrikaans (South Africa) [Afrikaans (Suid-Afrika)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 vm.</result>
+   <result timeType='medium'>12:00:00 vm.</result>
+   <result dateType='short' timeType='none'>1900-01-31</result>
+   <result timeType='short'>1900-01-31 12:00 vm.</result>
+   <result timeType='medium'>1900-01-31 12:00:00 vm.</result>
+   <result dateType='medium' timeType='none'>31 Jan 1900</result>
+   <result timeType='short'>31 Jan 1900 12:00 vm.</result>
+   <result timeType='medium'>31 Jan 1900 12:00:00 vm.</result>
+   <result dateType='long' timeType='none'>31 Januarie 1900</result>
+   <result timeType='short'>31 Januarie 1900 12:00 vm.</result>
+   <result timeType='medium'>31 Januarie 1900 12:00:00 vm.</result>
+   <result dateType='full' timeType='none'>Woensdag 31 Januarie 1900</result>
+   <result timeType='short'>Woensdag 31 Januarie 1900 12:00 vm.</result>
+   <result timeType='medium'>Woensdag 31 Januarie 1900 12:00:00 vm.</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 vm.</result>
+   <result timeType='medium'>12:00:01 vm.</result>
+   <result dateType='short' timeType='none'>1909-02-28</result>
+   <result timeType='short'>1909-02-28 12:00 vm.</result>
+   <result timeType='medium'>1909-02-28 12:00:01 vm.</result>
+   <result dateType='medium' timeType='none'>28 Feb 1909</result>
+   <result timeType='short'>28 Feb 1909 12:00 vm.</result>
+   <result timeType='medium'>28 Feb 1909 12:00:01 vm.</result>
+   <result dateType='long' timeType='none'>28 Februarie 1909</result>
+   <result timeType='short'>28 Februarie 1909 12:00 vm.</result>
+   <result timeType='medium'>28 Februarie 1909 12:00:01 vm.</result>
+   <result dateType='full' timeType='none'>Sondag 28 Februarie 1909</result>
+   <result timeType='short'>Sondag 28 Februarie 1909 12:00 vm.</result>
+   <result timeType='medium'>Sondag 28 Februarie 1909 12:00:01 vm.</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 vm.</result>
+   <result timeType='medium'>12:59:59 vm.</result>
+   <result dateType='short' timeType='none'>1918-03-26</result>
+   <result timeType='short'>1918-03-26 12:59 vm.</result>
+   <result timeType='medium'>1918-03-26 12:59:59 vm.</result>
+   <result dateType='medium' timeType='none'>26 Mar 1918</result>
+   <result timeType='short'>26 Mar 1918 12:59 vm.</result>
+   <result timeType='medium'>26 Mar 1918 12:59:59 vm.</result>
+   <result dateType='long' timeType='none'>26 Maart 1918</result>
+   <result timeType='short'>26 Maart 1918 12:59 vm.</result>
+   <result timeType='medium'>26 Maart 1918 12:59:59 vm.</result>
+   <result dateType='full' timeType='none'>Dinsdag 26 Maart 1918</result>
+   <result timeType='short'>Dinsdag 26 Maart 1918 12:59 vm.</result>
+   <result timeType='medium'>Dinsdag 26 Maart 1918 12:59:59 vm.</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 vm.</result>
+   <result timeType='medium'>1:00:00 vm.</result>
+   <result dateType='short' timeType='none'>1932-04-24</result>
+   <result timeType='short'>1932-04-24 1:00 vm.</result>
+   <result timeType='medium'>1932-04-24 1:00:00 vm.</result>
+   <result dateType='medium' timeType='none'>24 Apr 1932</result>
+   <result timeType='short'>24 Apr 1932 1:00 vm.</result>
+   <result timeType='medium'>24 Apr 1932 1:00:00 vm.</result>
+   <result dateType='long' timeType='none'>24 April 1932</result>
+   <result timeType='short'>24 April 1932 1:00 vm.</result>
+   <result timeType='medium'>24 April 1932 1:00:00 vm.</result>
+   <result dateType='full' timeType='none'>Sondag 24 April 1932</result>
+   <result timeType='short'>Sondag 24 April 1932 1:00 vm.</result>
+   <result timeType='medium'>Sondag 24 April 1932 1:00:00 vm.</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 vm.</result>
+   <result timeType='medium'>1:00:01 vm.</result>
+   <result dateType='short' timeType='none'>1945-05-20</result>
+   <result timeType='short'>1945-05-20 1:00 vm.</result>
+   <result timeType='medium'>1945-05-20 1:00:01 vm.</result>
+   <result dateType='medium' timeType='none'>20 Mei 1945</result>
+   <result timeType='short'>20 Mei 1945 1:00 vm.</result>
+   <result timeType='medium'>20 Mei 1945 1:00:01 vm.</result>
+   <result dateType='long' timeType='none'>20 Mei 1945</result>
+   <result timeType='short'>20 Mei 1945 1:00 vm.</result>
+   <result timeType='medium'>20 Mei 1945 1:00:01 vm.</result>
+   <result dateType='full' timeType='none'>Sondag 20 Mei 1945</result>
+   <result timeType='short'>Sondag 20 Mei 1945 1:00 vm.</result>
+   <result timeType='medium'>Sondag 20 Mei 1945 1:00:01 vm.</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 vm.</result>
+   <result timeType='medium'>11:59:59 vm.</result>
+   <result dateType='short' timeType='none'>1952-06-18</result>
+   <result timeType='short'>1952-06-18 11:59 vm.</result>
+   <result timeType='medium'>1952-06-18 11:59:59 vm.</result>
+   <result dateType='medium' timeType='none'>18 Jun 1952</result>
+   <result timeType='short'>18 Jun 1952 11:59 vm.</result>
+   <result timeType='medium'>18 Jun 1952 11:59:59 vm.</result>
+   <result dateType='long' timeType='none'>18 Junie 1952</result>
+   <result timeType='short'>18 Junie 1952 11:59 vm.</result>
+   <result timeType='medium'>18 Junie 1952 11:59:59 vm.</result>
+   <result dateType='full' timeType='none'>Woensdag 18 Junie 1952</result>
+   <result timeType='short'>Woensdag 18 Junie 1952 11:59 vm.</result>
+   <result timeType='medium'>Woensdag 18 Junie 1952 11:59:59 vm.</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 nm.</result>
+   <result timeType='medium'>12:00:00 nm.</result>
+   <result dateType='short' timeType='none'>1973-07-16</result>
+   <result timeType='short'>1973-07-16 12:00 nm.</result>
+   <result timeType='medium'>1973-07-16 12:00:00 nm.</result>
+   <result dateType='medium' timeType='none'>16 Jul 1973</result>
+   <result timeType='short'>16 Jul 1973 12:00 nm.</result>
+   <result timeType='medium'>16 Jul 1973 12:00:00 nm.</result>
+   <result dateType='long' timeType='none'>16 Julie 1973</result>
+   <result timeType='short'>16 Julie 1973 12:00 nm.</result>
+   <result timeType='medium'>16 Julie 1973 12:00:00 nm.</result>
+   <result dateType='full' timeType='none'>Maandag 16 Julie 1973</result>
+   <result timeType='short'>Maandag 16 Julie 1973 12:00 nm.</result>
+   <result timeType='medium'>Maandag 16 Julie 1973 12:00:00 nm.</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 nm.</result>
+   <result timeType='medium'>12:00:01 nm.</result>
+   <result dateType='short' timeType='none'>1999-08-14</result>
+   <result timeType='short'>1999-08-14 12:00 nm.</result>
+   <result timeType='medium'>1999-08-14 12:00:01 nm.</result>
+   <result dateType='medium' timeType='none'>14 Aug 1999</result>
+   <result timeType='short'>14 Aug 1999 12:00 nm.</result>
+   <result timeType='medium'>14 Aug 1999 12:00:01 nm.</result>
+   <result dateType='long' timeType='none'>14 Augustus 1999</result>
+   <result timeType='short'>14 Augustus 1999 12:00 nm.</result>
+   <result timeType='medium'>14 Augustus 1999 12:00:01 nm.</result>
+   <result dateType='full' timeType='none'>Saterdag 14 Augustus 1999</result>
+   <result timeType='short'>Saterdag 14 Augustus 1999 12:00 nm.</result>
+   <result timeType='medium'>Saterdag 14 Augustus 1999 12:00:01 nm.</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 nm.</result>
+   <result timeType='medium'>10:59:59 nm.</result>
+   <result dateType='short' timeType='none'>2000-09-12</result>
+   <result timeType='short'>2000-09-12 10:59 nm.</result>
+   <result timeType='medium'>2000-09-12 10:59:59 nm.</result>
+   <result dateType='medium' timeType='none'>12 Sep 2000</result>
+   <result timeType='short'>12 Sep 2000 10:59 nm.</result>
+   <result timeType='medium'>12 Sep 2000 10:59:59 nm.</result>
+   <result dateType='long' timeType='none'>12 September 2000</result>
+   <result timeType='short'>12 September 2000 10:59 nm.</result>
+   <result timeType='medium'>12 September 2000 10:59:59 nm.</result>
+   <result dateType='full' timeType='none'>Dinsdag 12 September 2000</result>
+   <result timeType='short'>Dinsdag 12 September 2000 10:59 nm.</result>
+   <result timeType='medium'>Dinsdag 12 September 2000 10:59:59 nm.</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 nm.</result>
+   <result timeType='medium'>11:00:00 nm.</result>
+   <result dateType='short' timeType='none'>2001-10-08</result>
+   <result timeType='short'>2001-10-08 11:00 nm.</result>
+   <result timeType='medium'>2001-10-08 11:00:00 nm.</result>
+   <result dateType='medium' timeType='none'>08 Okt 2001</result>
+   <result timeType='short'>08 Okt 2001 11:00 nm.</result>
+   <result timeType='medium'>08 Okt 2001 11:00:00 nm.</result>
+   <result dateType='long' timeType='none'>08 Oktober 2001</result>
+   <result timeType='short'>08 Oktober 2001 11:00 nm.</result>
+   <result timeType='medium'>08 Oktober 2001 11:00:00 nm.</result>
+   <result dateType='full' timeType='none'>Maandag 08 Oktober 2001</result>
+   <result timeType='short'>Maandag 08 Oktober 2001 11:00 nm.</result>
+   <result timeType='medium'>Maandag 08 Oktober 2001 11:00:00 nm.</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 nm.</result>
+   <result timeType='medium'>11:00:01 nm.</result>
+   <result dateType='short' timeType='none'>2004-11-04</result>
+   <result timeType='short'>2004-11-04 11:00 nm.</result>
+   <result timeType='medium'>2004-11-04 11:00:01 nm.</result>
+   <result dateType='medium' timeType='none'>04 Nov 2004</result>
+   <result timeType='short'>04 Nov 2004 11:00 nm.</result>
+   <result timeType='medium'>04 Nov 2004 11:00:01 nm.</result>
+   <result dateType='long' timeType='none'>04 November 2004</result>
+   <result timeType='short'>04 November 2004 11:00 nm.</result>
+   <result timeType='medium'>04 November 2004 11:00:01 nm.</result>
+   <result dateType='full' timeType='none'>Donderdag 04 November 2004</result>
+   <result timeType='short'>Donderdag 04 November 2004 11:00 nm.</result>
+   <result timeType='medium'>Donderdag 04 November 2004 11:00:01 nm.</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 nm.</result>
+   <result timeType='medium'>11:59:59 nm.</result>
+   <result dateType='short' timeType='none'>2010-12-01</result>
+   <result timeType='short'>2010-12-01 11:59 nm.</result>
+   <result timeType='medium'>2010-12-01 11:59:59 nm.</result>
+   <result dateType='medium' timeType='none'>01 Des 2010</result>
+   <result timeType='short'>01 Des 2010 11:59 nm.</result>
+   <result timeType='medium'>01 Des 2010 11:59:59 nm.</result>
+   <result dateType='long' timeType='none'>01 Desember 2010</result>
+   <result timeType='short'>01 Desember 2010 11:59 nm.</result>
+   <result timeType='medium'>01 Desember 2010 11:59:59 nm.</result>
+   <result dateType='full' timeType='none'>Woensdag 01 Desember 2010</result>
+   <result timeType='short'>Woensdag 01 Desember 2010 11:59 nm.</result>
+   <result timeType='medium'>Woensdag 01 Desember 2010 11:59:59 nm.</result>
   </date>
   <date 
 locales='af_NA'>
-<!-- Afrikaans (Namibia) [Afrikaans (Namibië)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
-   <result timeType='medium'>00:00:00</result>
-   <result dateType='short' timeType='none'>1900-01-31</result>
-   <result timeType='short'>1900-01-31 00:00</result>
-   <result timeType='medium'>1900-01-31 00:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>31 Jan 1900</result>
-   <result draft='approved'>1900 Jan 31</result>
+<!-- Afrikaans (Namibia) [Afrikaans (Namibië)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>00:00</result>
+   <result draft='approved'>12:00 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>00:00:00</result>
+   <result draft='approved'>12:00:00 vm.</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>1900-01-31</result>
+   <result timeType='short' draft='unconfirmed'>1900-01-31 00:00</result>
+   <result draft='approved'>1900-01-31 12:00 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>1900-01-31 00:00:00</result>
+   <result draft='approved'>1900-01-31 12:00:00 vm.</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>31 Jan 1900</result>
    <result timeType='short' draft='unconfirmed'>31 Jan 1900 00:00</result>
-   <result draft='approved'>1900 Jan 31 00:00</result>
+   <result draft='approved'>31 Jan 1900 12:00 vm.</result>
    <result timeType='medium' draft='unconfirmed'>31 Jan 1900 00:00:00</result>
-   <result draft='approved'>1900 Jan 31 00:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>31 Januarie 1900</result>
-   <result draft='approved'>1900 Januarie 31</result>
+   <result draft='approved'>31 Jan 1900 12:00:00 vm.</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>31 Januarie 1900</result>
    <result timeType='short' draft='unconfirmed'>31 Januarie 1900 00:00</result>
-   <result draft='approved'>1900 Januarie 31 00:00</result>
+   <result draft='approved'>31 Januarie 1900 12:00 vm.</result>
    <result timeType='medium' draft='unconfirmed'>31 Januarie 1900 00:00:00</result>
-   <result draft='approved'>1900 Januarie 31 00:00:00</result>
+   <result draft='approved'>31 Januarie 1900 12:00:00 vm.</result>
    <result dateType='full' timeType='none' draft='unconfirmed approved'>Woensdag 31 Januarie 1900</result>
-   <result timeType='short'>Woensdag 31 Januarie 1900 00:00</result>
-   <result timeType='medium'>Woensdag 31 Januarie 1900 00:00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
-   <result timeType='medium'>00:00:01</result>
-   <result dateType='short' timeType='none'>1909-02-28</result>
-   <result timeType='short'>1909-02-28 00:00</result>
-   <result timeType='medium'>1909-02-28 00:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>28 Feb 1909</result>
-   <result draft='approved'>1909 Feb 28</result>
+   <result timeType='short' draft='unconfirmed'>Woensdag 31 Januarie 1900 00:00</result>
+   <result draft='approved'>Woensdag 31 Januarie 1900 12:00 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>Woensdag 31 Januarie 1900 00:00:00</result>
+   <result draft='approved'>Woensdag 31 Januarie 1900 12:00:00 vm.</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>00:00</result>
+   <result draft='approved'>12:00 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>00:00:01</result>
+   <result draft='approved'>12:00:01 vm.</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>1909-02-28</result>
+   <result timeType='short' draft='unconfirmed'>1909-02-28 00:00</result>
+   <result draft='approved'>1909-02-28 12:00 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>1909-02-28 00:00:01</result>
+   <result draft='approved'>1909-02-28 12:00:01 vm.</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>28 Feb 1909</result>
    <result timeType='short' draft='unconfirmed'>28 Feb 1909 00:00</result>
-   <result draft='approved'>1909 Feb 28 00:00</result>
+   <result draft='approved'>28 Feb 1909 12:00 vm.</result>
    <result timeType='medium' draft='unconfirmed'>28 Feb 1909 00:00:01</result>
-   <result draft='approved'>1909 Feb 28 00:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>28 Februarie 1909</result>
-   <result draft='approved'>1909 Februarie 28</result>
+   <result draft='approved'>28 Feb 1909 12:00:01 vm.</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>28 Februarie 1909</result>
    <result timeType='short' draft='unconfirmed'>28 Februarie 1909 00:00</result>
-   <result draft='approved'>1909 Februarie 28 00:00</result>
+   <result draft='approved'>28 Februarie 1909 12:00 vm.</result>
    <result timeType='medium' draft='unconfirmed'>28 Februarie 1909 00:00:01</result>
-   <result draft='approved'>1909 Februarie 28 00:00:01</result>
+   <result draft='approved'>28 Februarie 1909 12:00:01 vm.</result>
    <result dateType='full' timeType='none' draft='unconfirmed approved'>Sondag 28 Februarie 1909</result>
-   <result timeType='short'>Sondag 28 Februarie 1909 00:00</result>
-   <result timeType='medium'>Sondag 28 Februarie 1909 00:00:01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
-   <result timeType='medium'>00:59:59</result>
-   <result dateType='short' timeType='none'>1918-03-26</result>
-   <result timeType='short'>1918-03-26 00:59</result>
-   <result timeType='medium'>1918-03-26 00:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>26 Mar 1918</result>
-   <result draft='approved'>1918 Mar 26</result>
+   <result timeType='short' draft='unconfirmed'>Sondag 28 Februarie 1909 00:00</result>
+   <result draft='approved'>Sondag 28 Februarie 1909 12:00 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>Sondag 28 Februarie 1909 00:00:01</result>
+   <result draft='approved'>Sondag 28 Februarie 1909 12:00:01 vm.</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>00:59</result>
+   <result draft='approved'>12:59 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>00:59:59</result>
+   <result draft='approved'>12:59:59 vm.</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>1918-03-26</result>
+   <result timeType='short' draft='unconfirmed'>1918-03-26 00:59</result>
+   <result draft='approved'>1918-03-26 12:59 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>1918-03-26 00:59:59</result>
+   <result draft='approved'>1918-03-26 12:59:59 vm.</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>26 Mar 1918</result>
    <result timeType='short' draft='unconfirmed'>26 Mar 1918 00:59</result>
-   <result draft='approved'>1918 Mar 26 00:59</result>
+   <result draft='approved'>26 Mar 1918 12:59 vm.</result>
    <result timeType='medium' draft='unconfirmed'>26 Mar 1918 00:59:59</result>
-   <result draft='approved'>1918 Mar 26 00:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>26 Maart 1918</result>
-   <result draft='approved'>1918 Maart 26</result>
+   <result draft='approved'>26 Mar 1918 12:59:59 vm.</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>26 Maart 1918</result>
    <result timeType='short' draft='unconfirmed'>26 Maart 1918 00:59</result>
-   <result draft='approved'>1918 Maart 26 00:59</result>
+   <result draft='approved'>26 Maart 1918 12:59 vm.</result>
    <result timeType='medium' draft='unconfirmed'>26 Maart 1918 00:59:59</result>
-   <result draft='approved'>1918 Maart 26 00:59:59</result>
+   <result draft='approved'>26 Maart 1918 12:59:59 vm.</result>
    <result dateType='full' timeType='none' draft='unconfirmed approved'>Dinsdag 26 Maart 1918</result>
-   <result timeType='short'>Dinsdag 26 Maart 1918 00:59</result>
-   <result timeType='medium'>Dinsdag 26 Maart 1918 00:59:59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
-   <result timeType='medium'>01:00:00</result>
-   <result dateType='short' timeType='none'>1932-04-24</result>
-   <result timeType='short'>1932-04-24 01:00</result>
-   <result timeType='medium'>1932-04-24 01:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>24 Apr 1932</result>
-   <result draft='approved'>1932 Apr 24</result>
+   <result timeType='short' draft='unconfirmed'>Dinsdag 26 Maart 1918 00:59</result>
+   <result draft='approved'>Dinsdag 26 Maart 1918 12:59 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>Dinsdag 26 Maart 1918 00:59:59</result>
+   <result draft='approved'>Dinsdag 26 Maart 1918 12:59:59 vm.</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>01:00</result>
+   <result draft='approved'>1:00 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>01:00:00</result>
+   <result draft='approved'>1:00:00 vm.</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>1932-04-24</result>
+   <result timeType='short' draft='unconfirmed'>1932-04-24 01:00</result>
+   <result draft='approved'>1932-04-24 1:00 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>1932-04-24 01:00:00</result>
+   <result draft='approved'>1932-04-24 1:00:00 vm.</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>24 Apr 1932</result>
    <result timeType='short' draft='unconfirmed'>24 Apr 1932 01:00</result>
-   <result draft='approved'>1932 Apr 24 01:00</result>
+   <result draft='approved'>24 Apr 1932 1:00 vm.</result>
    <result timeType='medium' draft='unconfirmed'>24 Apr 1932 01:00:00</result>
-   <result draft='approved'>1932 Apr 24 01:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>24 April 1932</result>
-   <result draft='approved'>1932 April 24</result>
+   <result draft='approved'>24 Apr 1932 1:00:00 vm.</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>24 April 1932</result>
    <result timeType='short' draft='unconfirmed'>24 April 1932 01:00</result>
-   <result draft='approved'>1932 April 24 01:00</result>
+   <result draft='approved'>24 April 1932 1:00 vm.</result>
    <result timeType='medium' draft='unconfirmed'>24 April 1932 01:00:00</result>
-   <result draft='approved'>1932 April 24 01:00:00</result>
+   <result draft='approved'>24 April 1932 1:00:00 vm.</result>
    <result dateType='full' timeType='none' draft='unconfirmed approved'>Sondag 24 April 1932</result>
-   <result timeType='short'>Sondag 24 April 1932 01:00</result>
-   <result timeType='medium'>Sondag 24 April 1932 01:00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
-   <result timeType='medium'>01:00:01</result>
-   <result dateType='short' timeType='none'>1945-05-20</result>
-   <result timeType='short'>1945-05-20 01:00</result>
-   <result timeType='medium'>1945-05-20 01:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>20 Mei 1945</result>
-   <result draft='approved'>1945 Mei 20</result>
+   <result timeType='short' draft='unconfirmed'>Sondag 24 April 1932 01:00</result>
+   <result draft='approved'>Sondag 24 April 1932 1:00 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>Sondag 24 April 1932 01:00:00</result>
+   <result draft='approved'>Sondag 24 April 1932 1:00:00 vm.</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>01:00</result>
+   <result draft='approved'>1:00 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>01:00:01</result>
+   <result draft='approved'>1:00:01 vm.</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>1945-05-20</result>
+   <result timeType='short' draft='unconfirmed'>1945-05-20 01:00</result>
+   <result draft='approved'>1945-05-20 1:00 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>1945-05-20 01:00:01</result>
+   <result draft='approved'>1945-05-20 1:00:01 vm.</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>20 Mei 1945</result>
    <result timeType='short' draft='unconfirmed'>20 Mei 1945 01:00</result>
-   <result draft='approved'>1945 Mei 20 01:00</result>
+   <result draft='approved'>20 Mei 1945 1:00 vm.</result>
    <result timeType='medium' draft='unconfirmed'>20 Mei 1945 01:00:01</result>
-   <result draft='approved'>1945 Mei 20 01:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>20 Mei 1945</result>
-   <result draft='approved'>1945 Mei 20</result>
+   <result draft='approved'>20 Mei 1945 1:00:01 vm.</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>20 Mei 1945</result>
    <result timeType='short' draft='unconfirmed'>20 Mei 1945 01:00</result>
-   <result draft='approved'>1945 Mei 20 01:00</result>
+   <result draft='approved'>20 Mei 1945 1:00 vm.</result>
    <result timeType='medium' draft='unconfirmed'>20 Mei 1945 01:00:01</result>
-   <result draft='approved'>1945 Mei 20 01:00:01</result>
+   <result draft='approved'>20 Mei 1945 1:00:01 vm.</result>
    <result dateType='full' timeType='none' draft='unconfirmed approved'>Sondag 20 Mei 1945</result>
-   <result timeType='short'>Sondag 20 Mei 1945 01:00</result>
-   <result timeType='medium'>Sondag 20 Mei 1945 01:00:01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
-   <result timeType='medium'>11:59:59</result>
-   <result dateType='short' timeType='none'>1952-06-18</result>
-   <result timeType='short'>1952-06-18 11:59</result>
-   <result timeType='medium'>1952-06-18 11:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>18 Jun 1952</result>
-   <result draft='approved'>1952 Jun 18</result>
+   <result timeType='short' draft='unconfirmed'>Sondag 20 Mei 1945 01:00</result>
+   <result draft='approved'>Sondag 20 Mei 1945 1:00 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>Sondag 20 Mei 1945 01:00:01</result>
+   <result draft='approved'>Sondag 20 Mei 1945 1:00:01 vm.</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>11:59</result>
+   <result draft='approved'>11:59 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>11:59:59</result>
+   <result draft='approved'>11:59:59 vm.</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>1952-06-18</result>
+   <result timeType='short' draft='unconfirmed'>1952-06-18 11:59</result>
+   <result draft='approved'>1952-06-18 11:59 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>1952-06-18 11:59:59</result>
+   <result draft='approved'>1952-06-18 11:59:59 vm.</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>18 Jun 1952</result>
    <result timeType='short' draft='unconfirmed'>18 Jun 1952 11:59</result>
-   <result draft='approved'>1952 Jun 18 11:59</result>
+   <result draft='approved'>18 Jun 1952 11:59 vm.</result>
    <result timeType='medium' draft='unconfirmed'>18 Jun 1952 11:59:59</result>
-   <result draft='approved'>1952 Jun 18 11:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>18 Junie 1952</result>
-   <result draft='approved'>1952 Junie 18</result>
+   <result draft='approved'>18 Jun 1952 11:59:59 vm.</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>18 Junie 1952</result>
    <result timeType='short' draft='unconfirmed'>18 Junie 1952 11:59</result>
-   <result draft='approved'>1952 Junie 18 11:59</result>
+   <result draft='approved'>18 Junie 1952 11:59 vm.</result>
    <result timeType='medium' draft='unconfirmed'>18 Junie 1952 11:59:59</result>
-   <result draft='approved'>1952 Junie 18 11:59:59</result>
+   <result draft='approved'>18 Junie 1952 11:59:59 vm.</result>
    <result dateType='full' timeType='none' draft='unconfirmed approved'>Woensdag 18 Junie 1952</result>
-   <result timeType='short'>Woensdag 18 Junie 1952 11:59</result>
-   <result timeType='medium'>Woensdag 18 Junie 1952 11:59:59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
-   <result timeType='medium'>12:00:00</result>
-   <result dateType='short' timeType='none'>1973-07-16</result>
-   <result timeType='short'>1973-07-16 12:00</result>
-   <result timeType='medium'>1973-07-16 12:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>16 Jul 1973</result>
-   <result draft='approved'>1973 Jul 16</result>
+   <result timeType='short' draft='unconfirmed'>Woensdag 18 Junie 1952 11:59</result>
+   <result draft='approved'>Woensdag 18 Junie 1952 11:59 vm.</result>
+   <result timeType='medium' draft='unconfirmed'>Woensdag 18 Junie 1952 11:59:59</result>
+   <result draft='approved'>Woensdag 18 Junie 1952 11:59:59 vm.</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>12:00</result>
+   <result draft='approved'>12:00 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>12:00:00</result>
+   <result draft='approved'>12:00:00 nm.</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>1973-07-16</result>
+   <result timeType='short' draft='unconfirmed'>1973-07-16 12:00</result>
+   <result draft='approved'>1973-07-16 12:00 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>1973-07-16 12:00:00</result>
+   <result draft='approved'>1973-07-16 12:00:00 nm.</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>16 Jul 1973</result>
    <result timeType='short' draft='unconfirmed'>16 Jul 1973 12:00</result>
-   <result draft='approved'>1973 Jul 16 12:00</result>
+   <result draft='approved'>16 Jul 1973 12:00 nm.</result>
    <result timeType='medium' draft='unconfirmed'>16 Jul 1973 12:00:00</result>
-   <result draft='approved'>1973 Jul 16 12:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>16 Julie 1973</result>
-   <result draft='approved'>1973 Julie 16</result>
+   <result draft='approved'>16 Jul 1973 12:00:00 nm.</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>16 Julie 1973</result>
    <result timeType='short' draft='unconfirmed'>16 Julie 1973 12:00</result>
-   <result draft='approved'>1973 Julie 16 12:00</result>
+   <result draft='approved'>16 Julie 1973 12:00 nm.</result>
    <result timeType='medium' draft='unconfirmed'>16 Julie 1973 12:00:00</result>
-   <result draft='approved'>1973 Julie 16 12:00:00</result>
+   <result draft='approved'>16 Julie 1973 12:00:00 nm.</result>
    <result dateType='full' timeType='none' draft='unconfirmed approved'>Maandag 16 Julie 1973</result>
-   <result timeType='short'>Maandag 16 Julie 1973 12:00</result>
-   <result timeType='medium'>Maandag 16 Julie 1973 12:00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
-   <result timeType='medium'>12:00:01</result>
-   <result dateType='short' timeType='none'>1999-08-14</result>
-   <result timeType='short'>1999-08-14 12:00</result>
-   <result timeType='medium'>1999-08-14 12:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>14 Aug 1999</result>
-   <result draft='approved'>1999 Aug 14</result>
+   <result timeType='short' draft='unconfirmed'>Maandag 16 Julie 1973 12:00</result>
+   <result draft='approved'>Maandag 16 Julie 1973 12:00 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>Maandag 16 Julie 1973 12:00:00</result>
+   <result draft='approved'>Maandag 16 Julie 1973 12:00:00 nm.</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>12:00</result>
+   <result draft='approved'>12:00 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>12:00:01</result>
+   <result draft='approved'>12:00:01 nm.</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>1999-08-14</result>
+   <result timeType='short' draft='unconfirmed'>1999-08-14 12:00</result>
+   <result draft='approved'>1999-08-14 12:00 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>1999-08-14 12:00:01</result>
+   <result draft='approved'>1999-08-14 12:00:01 nm.</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>14 Aug 1999</result>
    <result timeType='short' draft='unconfirmed'>14 Aug 1999 12:00</result>
-   <result draft='approved'>1999 Aug 14 12:00</result>
+   <result draft='approved'>14 Aug 1999 12:00 nm.</result>
    <result timeType='medium' draft='unconfirmed'>14 Aug 1999 12:00:01</result>
-   <result draft='approved'>1999 Aug 14 12:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>14 Augustus 1999</result>
-   <result draft='approved'>1999 Augustus 14</result>
+   <result draft='approved'>14 Aug 1999 12:00:01 nm.</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>14 Augustus 1999</result>
    <result timeType='short' draft='unconfirmed'>14 Augustus 1999 12:00</result>
-   <result draft='approved'>1999 Augustus 14 12:00</result>
+   <result draft='approved'>14 Augustus 1999 12:00 nm.</result>
    <result timeType='medium' draft='unconfirmed'>14 Augustus 1999 12:00:01</result>
-   <result draft='approved'>1999 Augustus 14 12:00:01</result>
+   <result draft='approved'>14 Augustus 1999 12:00:01 nm.</result>
    <result dateType='full' timeType='none' draft='unconfirmed approved'>Saterdag 14 Augustus 1999</result>
-   <result timeType='short'>Saterdag 14 Augustus 1999 12:00</result>
-   <result timeType='medium'>Saterdag 14 Augustus 1999 12:00:01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
-   <result timeType='medium'>22:59:59</result>
-   <result dateType='short' timeType='none'>2000-09-12</result>
-   <result timeType='short'>2000-09-12 22:59</result>
-   <result timeType='medium'>2000-09-12 22:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>12 Sep 2000</result>
-   <result draft='approved'>2000 Sep 12</result>
+   <result timeType='short' draft='unconfirmed'>Saterdag 14 Augustus 1999 12:00</result>
+   <result draft='approved'>Saterdag 14 Augustus 1999 12:00 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>Saterdag 14 Augustus 1999 12:00:01</result>
+   <result draft='approved'>Saterdag 14 Augustus 1999 12:00:01 nm.</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>22:59</result>
+   <result draft='approved'>10:59 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>22:59:59</result>
+   <result draft='approved'>10:59:59 nm.</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>2000-09-12</result>
+   <result timeType='short' draft='unconfirmed'>2000-09-12 22:59</result>
+   <result draft='approved'>2000-09-12 10:59 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>2000-09-12 22:59:59</result>
+   <result draft='approved'>2000-09-12 10:59:59 nm.</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>12 Sep 2000</result>
    <result timeType='short' draft='unconfirmed'>12 Sep 2000 22:59</result>
-   <result draft='approved'>2000 Sep 12 22:59</result>
+   <result draft='approved'>12 Sep 2000 10:59 nm.</result>
    <result timeType='medium' draft='unconfirmed'>12 Sep 2000 22:59:59</result>
-   <result draft='approved'>2000 Sep 12 22:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>12 September 2000</result>
-   <result draft='approved'>2000 September 12</result>
+   <result draft='approved'>12 Sep 2000 10:59:59 nm.</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>12 September 2000</result>
    <result timeType='short' draft='unconfirmed'>12 September 2000 22:59</result>
-   <result draft='approved'>2000 September 12 22:59</result>
+   <result draft='approved'>12 September 2000 10:59 nm.</result>
    <result timeType='medium' draft='unconfirmed'>12 September 2000 22:59:59</result>
-   <result draft='approved'>2000 September 12 22:59:59</result>
+   <result draft='approved'>12 September 2000 10:59:59 nm.</result>
    <result dateType='full' timeType='none' draft='unconfirmed approved'>Dinsdag 12 September 2000</result>
-   <result timeType='short'>Dinsdag 12 September 2000 22:59</result>
-   <result timeType='medium'>Dinsdag 12 September 2000 22:59:59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
-   <result timeType='medium'>23:00:00</result>
-   <result dateType='short' timeType='none'>2001-10-08</result>
-   <result timeType='short'>2001-10-08 23:00</result>
-   <result timeType='medium'>2001-10-08 23:00:00</result>
+   <result timeType='short' draft='unconfirmed'>Dinsdag 12 September 2000 22:59</result>
+   <result draft='approved'>Dinsdag 12 September 2000 10:59 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>Dinsdag 12 September 2000 22:59:59</result>
+   <result draft='approved'>Dinsdag 12 September 2000 10:59:59 nm.</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>23:00</result>
+   <result draft='approved'>11:00 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>23:00:00</result>
+   <result draft='approved'>11:00:00 nm.</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>2001-10-08</result>
+   <result timeType='short' draft='unconfirmed'>2001-10-08 23:00</result>
+   <result draft='approved'>2001-10-08 11:00 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>2001-10-08 23:00:00</result>
+   <result draft='approved'>2001-10-08 11:00:00 nm.</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>8 Okt 2001</result>
-   <result draft='approved'>2001 Okt 8</result>
+   <result draft='approved'>08 Okt 2001</result>
    <result timeType='short' draft='unconfirmed'>8 Okt 2001 23:00</result>
-   <result draft='approved'>2001 Okt 8 23:00</result>
+   <result draft='approved'>08 Okt 2001 11:00 nm.</result>
    <result timeType='medium' draft='unconfirmed'>8 Okt 2001 23:00:00</result>
-   <result draft='approved'>2001 Okt 8 23:00:00</result>
+   <result draft='approved'>08 Okt 2001 11:00:00 nm.</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>8 Oktober 2001</result>
-   <result draft='approved'>2001 Oktober 8</result>
+   <result draft='approved'>08 Oktober 2001</result>
    <result timeType='short' draft='unconfirmed'>8 Oktober 2001 23:00</result>
-   <result draft='approved'>2001 Oktober 8 23:00</result>
+   <result draft='approved'>08 Oktober 2001 11:00 nm.</result>
    <result timeType='medium' draft='unconfirmed'>8 Oktober 2001 23:00:00</result>
-   <result draft='approved'>2001 Oktober 8 23:00:00</result>
+   <result draft='approved'>08 Oktober 2001 11:00:00 nm.</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>Maandag 8 Oktober 2001</result>
    <result draft='approved'>Maandag 08 Oktober 2001</result>
    <result timeType='short' draft='unconfirmed'>Maandag 8 Oktober 2001 23:00</result>
-   <result draft='approved'>Maandag 08 Oktober 2001 23:00</result>
+   <result draft='approved'>Maandag 08 Oktober 2001 11:00 nm.</result>
    <result timeType='medium' draft='unconfirmed'>Maandag 8 Oktober 2001 23:00:00</result>
-   <result draft='approved'>Maandag 08 Oktober 2001 23:00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
-   <result timeType='medium'>23:00:01</result>
-   <result dateType='short' timeType='none'>2004-11-04</result>
-   <result timeType='short'>2004-11-04 23:00</result>
-   <result timeType='medium'>2004-11-04 23:00:01</result>
+   <result draft='approved'>Maandag 08 Oktober 2001 11:00:00 nm.</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>23:00</result>
+   <result draft='approved'>11:00 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>23:00:01</result>
+   <result draft='approved'>11:00:01 nm.</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>2004-11-04</result>
+   <result timeType='short' draft='unconfirmed'>2004-11-04 23:00</result>
+   <result draft='approved'>2004-11-04 11:00 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>2004-11-04 23:00:01</result>
+   <result draft='approved'>2004-11-04 11:00:01 nm.</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>4 Nov 2004</result>
-   <result draft='approved'>2004 Nov 4</result>
+   <result draft='approved'>04 Nov 2004</result>
    <result timeType='short' draft='unconfirmed'>4 Nov 2004 23:00</result>
-   <result draft='approved'>2004 Nov 4 23:00</result>
+   <result draft='approved'>04 Nov 2004 11:00 nm.</result>
    <result timeType='medium' draft='unconfirmed'>4 Nov 2004 23:00:01</result>
-   <result draft='approved'>2004 Nov 4 23:00:01</result>
+   <result draft='approved'>04 Nov 2004 11:00:01 nm.</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>4 November 2004</result>
-   <result draft='approved'>2004 November 4</result>
+   <result draft='approved'>04 November 2004</result>
    <result timeType='short' draft='unconfirmed'>4 November 2004 23:00</result>
-   <result draft='approved'>2004 November 4 23:00</result>
+   <result draft='approved'>04 November 2004 11:00 nm.</result>
    <result timeType='medium' draft='unconfirmed'>4 November 2004 23:00:01</result>
-   <result draft='approved'>2004 November 4 23:00:01</result>
+   <result draft='approved'>04 November 2004 11:00:01 nm.</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>Donderdag 4 November 2004</result>
    <result draft='approved'>Donderdag 04 November 2004</result>
    <result timeType='short' draft='unconfirmed'>Donderdag 4 November 2004 23:00</result>
-   <result draft='approved'>Donderdag 04 November 2004 23:00</result>
+   <result draft='approved'>Donderdag 04 November 2004 11:00 nm.</result>
    <result timeType='medium' draft='unconfirmed'>Donderdag 4 November 2004 23:00:01</result>
-   <result draft='approved'>Donderdag 04 November 2004 23:00:01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:59</result>
-   <result timeType='medium'>23:59:59</result>
-   <result dateType='short' timeType='none'>2010-12-01</result>
-   <result timeType='short'>2010-12-01 23:59</result>
-   <result timeType='medium'>2010-12-01 23:59:59</result>
+   <result draft='approved'>Donderdag 04 November 2004 11:00:01 nm.</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>23:59</result>
+   <result draft='approved'>11:59 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>23:59:59</result>
+   <result draft='approved'>11:59:59 nm.</result>
+   <result dateType='short' timeType='none' draft='unconfirmed approved'>2010-12-01</result>
+   <result timeType='short' draft='unconfirmed'>2010-12-01 23:59</result>
+   <result draft='approved'>2010-12-01 11:59 nm.</result>
+   <result timeType='medium' draft='unconfirmed'>2010-12-01 23:59:59</result>
+   <result draft='approved'>2010-12-01 11:59:59 nm.</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1 Des 2010</result>
-   <result draft='approved'>2010 Des 1</result>
+   <result draft='approved'>01 Des 2010</result>
    <result timeType='short' draft='unconfirmed'>1 Des 2010 23:59</result>
-   <result draft='approved'>2010 Des 1 23:59</result>
+   <result draft='approved'>01 Des 2010 11:59 nm.</result>
    <result timeType='medium' draft='unconfirmed'>1 Des 2010 23:59:59</result>
-   <result draft='approved'>2010 Des 1 23:59:59</result>
+   <result draft='approved'>01 Des 2010 11:59:59 nm.</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1 Desember 2010</result>
-   <result draft='approved'>2010 Desember 1</result>
+   <result draft='approved'>01 Desember 2010</result>
    <result timeType='short' draft='unconfirmed'>1 Desember 2010 23:59</result>
-   <result draft='approved'>2010 Desember 1 23:59</result>
+   <result draft='approved'>01 Desember 2010 11:59 nm.</result>
    <result timeType='medium' draft='unconfirmed'>1 Desember 2010 23:59:59</result>
-   <result draft='approved'>2010 Desember 1 23:59:59</result>
+   <result draft='approved'>01 Desember 2010 11:59:59 nm.</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>Woensdag 1 Desember 2010</result>
    <result draft='approved'>Woensdag 01 Desember 2010</result>
    <result timeType='short' draft='unconfirmed'>Woensdag 1 Desember 2010 23:59</result>
-   <result draft='approved'>Woensdag 01 Desember 2010 23:59</result>
+   <result draft='approved'>Woensdag 01 Desember 2010 11:59 nm.</result>
    <result timeType='medium' draft='unconfirmed'>Woensdag 1 Desember 2010 23:59:59</result>
-   <result draft='approved'>Woensdag 01 Desember 2010 23:59:59</result>
+   <result draft='approved'>Woensdag 01 Desember 2010 11:59:59 nm.</result>
   </date>
   <zoneFields 
 locales='af af_NA af_ZA'>
-<!-- Afrikaans [Afrikaans]; Afrikaans (Namibia) [Afrikaans (Namibië)]; Afrikaans (South Africa) [Afrikaans (Suid-Afrika)] -->
+<!-- Afrikaans [Afrikaans@]; Afrikaans (Namibia) [Afrikaans (Namibië)@]; Afrikaans (South Africa) [Afrikaans (Suid-Afrika)@] -->
   </zoneFields>
   <collation 
 locales='af af_NA af_ZA'>
-<!-- Afrikaans [Afrikaans]; Afrikaans (Namibia) [Afrikaans (Namibië)]; Afrikaans (South Africa) [Afrikaans (Suid-Afrika)] -->
+<!-- Afrikaans [Afrikaans@]; Afrikaans (Namibia) [Afrikaans (Namibië)@]; Afrikaans (South Africa) [Afrikaans (Suid-Afrika)@] -->
    <result draft='unconfirmed'>
 x 
 X 
@@ -876,21 +772,6 @@ xs
 xS
 Xs
 XS
-xss
-xsS
-xSs
-xSS
-Xss
-XsS
-XSs
-XSS
-xß
-Xß
-xssx
-xsSx
-xSsx
-xSSx
-xßx
 xsx
 xSx
 xt

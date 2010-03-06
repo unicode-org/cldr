@@ -2,83 +2,47 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='my'>
- <!-- Burmese [Burmese] -->
+ <!-- Burmese [ဗမာ] -->
   <number 
 locales='my my_MM'>
-<!-- Burmese [Burmese]; Burmese (Myanmar [Burma]) [Burmese (Myanmar [Burma])] -->
-   <result input='0.0' numberType='integer' draft='unconfirmed'>၀</result>
-   <result draft='approved'>0</result>
-   <result numberType='decimal' draft='unconfirmed'>၀</result>
-   <result draft='approved'>0</result>
-   <result numberType='percent' draft='unconfirmed'>၀%</result>
-   <result draft='approved'>0%</result>
-   <result numberType='scientific' draft='unconfirmed'>၀E၀</result>
-   <result draft='approved'>0E0</result>
-   <result input='0.01' numberType='integer' draft='unconfirmed'>၀</result>
-   <result draft='approved'>0</result>
-   <result numberType='decimal' draft='unconfirmed'>၀.၀၁</result>
-   <result draft='approved'>0.01</result>
-   <result numberType='percent' draft='unconfirmed'>၁%</result>
-   <result draft='approved'>1%</result>
-   <result numberType='scientific' draft='unconfirmed'>၁E-၂</result>
-   <result draft='approved'>1E-2</result>
-   <result input='-0.01' numberType='integer' draft='unconfirmed'>-၀</result>
-   <result draft='approved'>-0</result>
-   <result numberType='decimal' draft='unconfirmed'>-၀.၀၁</result>
-   <result draft='approved'>-0.01</result>
-   <result numberType='percent' draft='unconfirmed'>-၁%</result>
-   <result draft='approved'>-1%</result>
-   <result numberType='scientific' draft='unconfirmed'>-၁E-၂</result>
-   <result draft='approved'>-1E-2</result>
-   <result input='1.0' numberType='integer' draft='unconfirmed'>၁</result>
-   <result draft='approved'>1</result>
-   <result numberType='decimal' draft='unconfirmed'>၁</result>
-   <result draft='approved'>1</result>
-   <result numberType='percent' draft='unconfirmed'>၁၀၀%</result>
-   <result draft='approved'>100%</result>
-   <result numberType='scientific' draft='unconfirmed'>၁E၀</result>
-   <result draft='approved'>1E0</result>
-   <result input='-1.0' numberType='integer' draft='unconfirmed'>-၁</result>
-   <result draft='approved'>-1</result>
-   <result numberType='decimal' draft='unconfirmed'>-၁</result>
-   <result draft='approved'>-1</result>
-   <result numberType='percent' draft='unconfirmed'>-၁၀၀%</result>
-   <result draft='approved'>-100%</result>
-   <result numberType='scientific' draft='unconfirmed'>-၁E၀</result>
-   <result draft='approved'>-1E0</result>
-   <result input='123.456' numberType='integer' draft='unconfirmed'>၁၂၃</result>
-   <result draft='approved'>123</result>
-   <result numberType='decimal' draft='unconfirmed'>၁၂၃.၄၅၆</result>
-   <result draft='approved'>123.456</result>
-   <result numberType='percent' draft='unconfirmed'>၁၂,၃၄၆%</result>
-   <result draft='approved'>12,346%</result>
-   <result numberType='scientific' draft='unconfirmed'>၁.၂၃၄၅၆E၂</result>
-   <result draft='approved'>1.23456E2</result>
-   <result input='-123.456' numberType='integer' draft='unconfirmed'>-၁၂၃</result>
-   <result draft='approved'>-123</result>
-   <result numberType='decimal' draft='unconfirmed'>-၁၂၃.၄၅၆</result>
-   <result draft='approved'>-123.456</result>
-   <result numberType='percent' draft='unconfirmed'>-၁၂,၃၄၆%</result>
-   <result draft='approved'>-12,346%</result>
-   <result numberType='scientific' draft='unconfirmed'>-၁.၂၃၄၅၆E၂</result>
-   <result draft='approved'>-1.23456E2</result>
-   <result input='123456.78' numberType='integer' draft='unconfirmed'>၁၂၃,၄၅၇</result>
-   <result draft='approved'>123,457</result>
-   <result numberType='decimal' draft='unconfirmed'>၁၂၃,၄၅၆.၇၈</result>
-   <result draft='approved'>123,456.78</result>
-   <result numberType='percent' draft='unconfirmed'>၁၂,၃၄၅,၆၇၈%</result>
-   <result draft='approved'>12,345,678%</result>
-   <result numberType='scientific' draft='unconfirmed'>၁.၂၃၄၅၆၇၈E၅</result>
-   <result draft='approved'>1.2345678E5</result>
-   <result input='-123456.78' numberType='integer' draft='unconfirmed'>-၁၂၃,၄၅၇</result>
-   <result draft='approved'>-123,457</result>
-   <result numberType='decimal' draft='unconfirmed'>-၁၂၃,၄၅၆.၇၈</result>
-   <result draft='approved'>-123,456.78</result>
-   <result numberType='percent' draft='unconfirmed'>-၁၂,၃၄၅,၆၇၈%</result>
-   <result draft='approved'>-12,345,678%</result>
-   <result numberType='scientific' draft='unconfirmed'>-၁.၂၃၄၅၆၇၈E၅</result>
-   <result draft='approved'>-1.2345678E5</result>
-   <result input='Infinity' numberType='integer' draft='unconfirmed approved'>∞</result>
+<!-- Burmese [ဗမာ@]; Burmese (Myanmar [Burma]) [ဗမာ (မြန်မာ)@] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal'>0.01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='decimal'>-0.01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal'>123.456</result>
+   <result numberType='percent'>12,346%</result>
+   <result numberType='scientific'>1.23456E2</result>
+   <result input='-123.456' numberType='integer'>-123</result>
+   <result numberType='decimal'>-123.456</result>
+   <result numberType='percent'>-12,346%</result>
+   <result numberType='scientific'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer'>123,457</result>
+   <result numberType='decimal'>123,456.78</result>
+   <result numberType='percent'>12,345,678%</result>
+   <result numberType='scientific'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-123,457</result>
+   <result numberType='decimal'>-123,456.78</result>
+   <result numberType='percent'>-12,345,678%</result>
+   <result numberType='scientific'>-1.2345678E5</result>
+   <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
@@ -93,351 +57,327 @@ locales='my my_MM'>
   </number>
   <date 
 locales='my my_MM'>
-<!-- Burmese [Burmese]; Burmese (Myanmar [Burma]) [Burmese (Myanmar [Burma])] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>၀၀:၀၀</result>
-   <result draft='approved'>00:00</result>
-   <result timeType='medium' draft='unconfirmed'>၀၀:၀၀:၀၀</result>
-   <result draft='approved'>00:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>၀၀/၀၁/၃၁</result>
+<!-- Burmese [ဗမာ@]; Burmese (Myanmar [Burma]) [ဗမာ (မြန်မာ)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>00/01/31</result>
    <result draft='approved'>1900-01-31</result>
-   <result timeType='short' draft='unconfirmed'>၀၀/၀၁/၃၁ ၀၀:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>00/01/31 00:00</result>
    <result draft='approved'>1900-01-31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>၀၀/၀၁/၃၁ ၀၀:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>00/01/31 00:00:00</result>
    <result draft='approved'>1900-01-31 00:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>၁၉၀၀ ဇန် ၃၁</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1900 ဇန် 31</result>
    <result draft='approved'>1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၀၀ ဇန် ၃၁ ၀၀:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>1900 ဇန် 31 00:00</result>
    <result draft='approved'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၀၀ ဇန် ၃၁ ၀၀:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>1900 ဇန် 31 00:00:00</result>
    <result draft='approved'>1900 1 31 00:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>၁၉၀၀ ဇန်နဝါရီ ၃၁</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1900 ဇန်နဝါရီ 31</result>
    <result draft='approved'>1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၀၀ ဇန်နဝါရီ ၃၁ ၀၀:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>1900 ဇန်နဝါရီ 31 00:00</result>
    <result draft='approved'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၀၀ ဇန်နဝါရီ ၃၁ ၀၀:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>1900 ဇန်နဝါရီ 31 00:00:00</result>
    <result draft='approved'>1900 1 31 00:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>ဗုဒ္ဓဟူး, ၁၉၀၀ ဇန်နဝါရီ ၃၁</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>ဗုဒ္ဓဟူး, 1900 ဇန်နဝါရီ 31</result>
    <result draft='approved'>4, 1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>ဗုဒ္ဓဟူး, ၁၉၀၀ ဇန်နဝါရီ ၃၁ ၀၀:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>ဗုဒ္ဓဟူး, 1900 ဇန်နဝါရီ 31 00:00</result>
    <result draft='approved'>4, 1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>ဗုဒ္ဓဟူး, ၁၉၀၀ ဇန်နဝါရီ ၃၁ ၀၀:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>ဗုဒ္ဓဟူး, 1900 ဇန်နဝါရီ 31 00:00:00</result>
    <result draft='approved'>4, 1900 1 31 00:00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>၀၀:၀၀</result>
-   <result draft='approved'>00:00</result>
-   <result timeType='medium' draft='unconfirmed'>၀၀:၀၀:၀၁</result>
-   <result draft='approved'>00:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>၀၉/၀၂/၂၈</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>09/02/28</result>
    <result draft='approved'>1909-02-28</result>
-   <result timeType='short' draft='unconfirmed'>၀၉/၀၂/၂၈ ၀၀:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>09/02/28 00:00</result>
    <result draft='approved'>1909-02-28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>၀၉/၀၂/၂၈ ၀၀:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>09/02/28 00:00:01</result>
    <result draft='approved'>1909-02-28 00:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>၁၉၀၉ ဖေ ၂၈</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1909 ဖေ 28</result>
    <result draft='approved'>1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၀၉ ဖေ ၂၈ ၀၀:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>1909 ဖေ 28 00:00</result>
    <result draft='approved'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၀၉ ဖေ ၂၈ ၀၀:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>1909 ဖေ 28 00:00:01</result>
    <result draft='approved'>1909 2 28 00:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>၁၉၀၉ ဖေဖော်ဝါရီ ၂၈</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1909 ဖေဖော်ဝါရီ 28</result>
    <result draft='approved'>1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၀၉ ဖေဖော်ဝါရီ ၂၈ ၀၀:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>1909 ဖေဖော်ဝါရီ 28 00:00</result>
    <result draft='approved'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၀၉ ဖေဖော်ဝါရီ ၂၈ ၀၀:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>1909 ဖေဖော်ဝါရီ 28 00:00:01</result>
    <result draft='approved'>1909 2 28 00:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္ဂနွေ, ၁၉၀၉ ဖေဖော်ဝါရီ ၂၈</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္ဂနွေ, 1909 ဖေဖော်ဝါရီ 28</result>
    <result draft='approved'>1, 1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>တနင်္ဂနွေ, ၁၉၀၉ ဖေဖော်ဝါရီ ၂၈ ၀၀:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>တနင်္ဂနွေ, 1909 ဖေဖော်ဝါရီ 28 00:00</result>
    <result draft='approved'>1, 1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>တနင်္ဂနွေ, ၁၉၀၉ ဖေဖော်ဝါရီ ၂၈ ၀၀:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>တနင်္ဂနွေ, 1909 ဖေဖော်ဝါရီ 28 00:00:01</result>
    <result draft='approved'>1, 1909 2 28 00:00:01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>၀၀:၅၉</result>
-   <result draft='approved'>00:59</result>
-   <result timeType='medium' draft='unconfirmed'>၀၀:၅၉:၅၉</result>
-   <result draft='approved'>00:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>၁၈/၀၃/၂၆</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>18/03/26</result>
    <result draft='approved'>1918-03-26</result>
-   <result timeType='short' draft='unconfirmed'>၁၈/၀၃/၂၆ ၀၀:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>18/03/26 00:59</result>
    <result draft='approved'>1918-03-26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>၁၈/၀၃/၂၆ ၀၀:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>18/03/26 00:59:59</result>
    <result draft='approved'>1918-03-26 00:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>၁၉၁၈ မတ် ၂၆</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1918 မတ် 26</result>
    <result draft='approved'>1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၁၈ မတ် ၂၆ ၀၀:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>1918 မတ် 26 00:59</result>
    <result draft='approved'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၁၈ မတ် ၂၆ ၀၀:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>1918 မတ် 26 00:59:59</result>
    <result draft='approved'>1918 3 26 00:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>၁၉၁၈ မတ် ၂၆</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1918 မတ် 26</result>
    <result draft='approved'>1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၁၈ မတ် ၂၆ ၀၀:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>1918 မတ် 26 00:59</result>
    <result draft='approved'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၁၈ မတ် ၂၆ ၀၀:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>1918 မတ် 26 00:59:59</result>
    <result draft='approved'>1918 3 26 00:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>အင်္ဂါ, ၁၉၁၈ မတ် ၂၆</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>အင်္ဂါ, 1918 မတ် 26</result>
    <result draft='approved'>3, 1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>အင်္ဂါ, ၁၉၁၈ မတ် ၂၆ ၀၀:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>အင်္ဂါ, 1918 မတ် 26 00:59</result>
    <result draft='approved'>3, 1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>အင်္ဂါ, ၁၉၁၈ မတ် ၂၆ ၀၀:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>အင်္ဂါ, 1918 မတ် 26 00:59:59</result>
    <result draft='approved'>3, 1918 3 26 00:59:59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>၀၁:၀၀</result>
-   <result draft='approved'>01:00</result>
-   <result timeType='medium' draft='unconfirmed'>၀၁:၀၀:၀၀</result>
-   <result draft='approved'>01:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>၃၂/၀၄/၂၄</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>32/04/24</result>
    <result draft='approved'>1932-04-24</result>
-   <result timeType='short' draft='unconfirmed'>၃၂/၀၄/၂၄ ၀၁:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>32/04/24 01:00</result>
    <result draft='approved'>1932-04-24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>၃၂/၀၄/၂၄ ၀၁:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>32/04/24 01:00:00</result>
    <result draft='approved'>1932-04-24 01:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>၁၉၃၂ ဧ ၂၄</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1932 ဧ 24</result>
    <result draft='approved'>1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၃၂ ဧ ၂၄ ၀၁:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>1932 ဧ 24 01:00</result>
    <result draft='approved'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၃၂ ဧ ၂၄ ၀၁:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>1932 ဧ 24 01:00:00</result>
    <result draft='approved'>1932 4 24 01:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>၁၉၃၂ ဧပြီ ၂၄</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1932 ဧပြီ 24</result>
    <result draft='approved'>1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၃၂ ဧပြီ ၂၄ ၀၁:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>1932 ဧပြီ 24 01:00</result>
    <result draft='approved'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၃၂ ဧပြီ ၂၄ ၀၁:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>1932 ဧပြီ 24 01:00:00</result>
    <result draft='approved'>1932 4 24 01:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္ဂနွေ, ၁၉၃၂ ဧပြီ ၂၄</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္ဂနွေ, 1932 ဧပြီ 24</result>
    <result draft='approved'>1, 1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>တနင်္ဂနွေ, ၁၉၃၂ ဧပြီ ၂၄ ၀၁:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>တနင်္ဂနွေ, 1932 ဧပြီ 24 01:00</result>
    <result draft='approved'>1, 1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>တနင်္ဂနွေ, ၁၉၃၂ ဧပြီ ၂၄ ၀၁:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>တနင်္ဂနွေ, 1932 ဧပြီ 24 01:00:00</result>
    <result draft='approved'>1, 1932 4 24 01:00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>၀၁:၀၀</result>
-   <result draft='approved'>01:00</result>
-   <result timeType='medium' draft='unconfirmed'>၀၁:၀၀:၀၁</result>
-   <result draft='approved'>01:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>၄၅/၀၅/၂၀</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>45/05/20</result>
    <result draft='approved'>1945-05-20</result>
-   <result timeType='short' draft='unconfirmed'>၄၅/၀၅/၂၀ ၀၁:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>45/05/20 01:00</result>
    <result draft='approved'>1945-05-20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>၄၅/၀၅/၂၀ ၀၁:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>45/05/20 01:00:01</result>
    <result draft='approved'>1945-05-20 01:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>၁၉၄၅ မေ ၂၀</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1945 မေ 20</result>
    <result draft='approved'>1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၄၅ မေ ၂၀ ၀၁:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>1945 မေ 20 01:00</result>
    <result draft='approved'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၄၅ မေ ၂၀ ၀၁:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>1945 မေ 20 01:00:01</result>
    <result draft='approved'>1945 5 20 01:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>၁၉၄၅ မေ ၂၀</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1945 မေ 20</result>
    <result draft='approved'>1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၄၅ မေ ၂၀ ၀၁:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>1945 မေ 20 01:00</result>
    <result draft='approved'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၄၅ မေ ၂၀ ၀၁:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>1945 မေ 20 01:00:01</result>
    <result draft='approved'>1945 5 20 01:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္ဂနွေ, ၁၉၄၅ မေ ၂၀</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္ဂနွေ, 1945 မေ 20</result>
    <result draft='approved'>1, 1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>တနင်္ဂနွေ, ၁၉၄၅ မေ ၂၀ ၀၁:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>တနင်္ဂနွေ, 1945 မေ 20 01:00</result>
    <result draft='approved'>1, 1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>တနင်္ဂနွေ, ၁၉၄၅ မေ ၂၀ ၀၁:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>တနင်္ဂနွေ, 1945 မေ 20 01:00:01</result>
    <result draft='approved'>1, 1945 5 20 01:00:01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>၁၁:၅၉</result>
-   <result draft='approved'>11:59</result>
-   <result timeType='medium' draft='unconfirmed'>၁၁:၅၉:၅၉</result>
-   <result draft='approved'>11:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>၅၂/၀၆/၁၈</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>52/06/18</result>
    <result draft='approved'>1952-06-18</result>
-   <result timeType='short' draft='unconfirmed'>၅၂/၀၆/၁၈ ၁၁:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>52/06/18 11:59</result>
    <result draft='approved'>1952-06-18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>၅၂/၀၆/၁၈ ၁၁:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>52/06/18 11:59:59</result>
    <result draft='approved'>1952-06-18 11:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>၁၉၅၂ ဇွန် ၁၈</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1952 ဇွန် 18</result>
    <result draft='approved'>1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၅၂ ဇွန် ၁၈ ၁၁:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>1952 ဇွန် 18 11:59</result>
    <result draft='approved'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၅၂ ဇွန် ၁၈ ၁၁:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>1952 ဇွန် 18 11:59:59</result>
    <result draft='approved'>1952 6 18 11:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>၁၉၅၂ ဇွန် ၁၈</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1952 ဇွန် 18</result>
    <result draft='approved'>1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၅၂ ဇွန် ၁၈ ၁၁:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>1952 ဇွန် 18 11:59</result>
    <result draft='approved'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၅၂ ဇွန် ၁၈ ၁၁:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>1952 ဇွန် 18 11:59:59</result>
    <result draft='approved'>1952 6 18 11:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>ဗုဒ္ဓဟူး, ၁၉၅၂ ဇွန် ၁၈</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>ဗုဒ္ဓဟူး, 1952 ဇွန် 18</result>
    <result draft='approved'>4, 1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>ဗုဒ္ဓဟူး, ၁၉၅၂ ဇွန် ၁၈ ၁၁:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>ဗုဒ္ဓဟူး, 1952 ဇွန် 18 11:59</result>
    <result draft='approved'>4, 1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>ဗုဒ္ဓဟူး, ၁၉၅၂ ဇွန် ၁၈ ၁၁:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>ဗုဒ္ဓဟူး, 1952 ဇွန် 18 11:59:59</result>
    <result draft='approved'>4, 1952 6 18 11:59:59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>၁၂:၀၀</result>
-   <result draft='approved'>12:00</result>
-   <result timeType='medium' draft='unconfirmed'>၁၂:၀၀:၀၀</result>
-   <result draft='approved'>12:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>၇၃/၀၇/၁၆</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>73/07/16</result>
    <result draft='approved'>1973-07-16</result>
-   <result timeType='short' draft='unconfirmed'>၇၃/၀၇/၁၆ ၁၂:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>73/07/16 12:00</result>
    <result draft='approved'>1973-07-16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>၇၃/၀၇/၁၆ ၁၂:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>73/07/16 12:00:00</result>
    <result draft='approved'>1973-07-16 12:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>၁၉၇၃ ဇူ ၁၆</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1973 ဇူ 16</result>
    <result draft='approved'>1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၇၃ ဇူ ၁၆ ၁၂:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>1973 ဇူ 16 12:00</result>
    <result draft='approved'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၇၃ ဇူ ၁၆ ၁၂:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>1973 ဇူ 16 12:00:00</result>
    <result draft='approved'>1973 7 16 12:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>၁၉၇၃ ဇူလိုင် ၁၆</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1973 ဇူလိုင် 16</result>
    <result draft='approved'>1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၇၃ ဇူလိုင် ၁၆ ၁၂:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>1973 ဇူလိုင် 16 12:00</result>
    <result draft='approved'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၇၃ ဇူလိုင် ၁၆ ၁၂:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>1973 ဇူလိုင် 16 12:00:00</result>
    <result draft='approved'>1973 7 16 12:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္လာ, ၁၉၇၃ ဇူလိုင် ၁၆</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္လာ, 1973 ဇူလိုင် 16</result>
    <result draft='approved'>2, 1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>တနင်္လာ, ၁၉၇၃ ဇူလိုင် ၁၆ ၁၂:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>တနင်္လာ, 1973 ဇူလိုင် 16 12:00</result>
    <result draft='approved'>2, 1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>တနင်္လာ, ၁၉၇၃ ဇူလိုင် ၁၆ ၁၂:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>တနင်္လာ, 1973 ဇူလိုင် 16 12:00:00</result>
    <result draft='approved'>2, 1973 7 16 12:00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>၁၂:၀၀</result>
-   <result draft='approved'>12:00</result>
-   <result timeType='medium' draft='unconfirmed'>၁၂:၀၀:၀၁</result>
-   <result draft='approved'>12:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>၉၉/၀၈/၁၄</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>99/08/14</result>
    <result draft='approved'>1999-08-14</result>
-   <result timeType='short' draft='unconfirmed'>၉၉/၀၈/၁၄ ၁၂:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>99/08/14 12:00</result>
    <result draft='approved'>1999-08-14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>၉၉/၀၈/၁၄ ၁၂:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>99/08/14 12:00:01</result>
    <result draft='approved'>1999-08-14 12:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>၁၉၉၉ ဩ ၁၄</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1999 ဩ 14</result>
    <result draft='approved'>1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၉၉ ဩ ၁၄ ၁၂:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>1999 ဩ 14 12:00</result>
    <result draft='approved'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၉၉ ဩ ၁၄ ၁၂:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>1999 ဩ 14 12:00:01</result>
    <result draft='approved'>1999 8 14 12:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>၁၉၉၉ ဩဂုတ် ၁၄</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1999 ဩဂုတ် 14</result>
    <result draft='approved'>1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>၁၉၉၉ ဩဂုတ် ၁၄ ၁၂:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>1999 ဩဂုတ် 14 12:00</result>
    <result draft='approved'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>၁၉၉၉ ဩဂုတ် ၁၄ ၁၂:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>1999 ဩဂုတ် 14 12:00:01</result>
    <result draft='approved'>1999 8 14 12:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>စနေ, ၁၉၉၉ ဩဂုတ် ၁၄</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>စနေ, 1999 ဩဂုတ် 14</result>
    <result draft='approved'>7, 1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>စနေ, ၁၉၉၉ ဩဂုတ် ၁၄ ၁၂:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>စနေ, 1999 ဩဂုတ် 14 12:00</result>
    <result draft='approved'>7, 1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>စနေ, ၁၉၉၉ ဩဂုတ် ၁၄ ၁၂:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>စနေ, 1999 ဩဂုတ် 14 12:00:01</result>
    <result draft='approved'>7, 1999 8 14 12:00:01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>၂၂:၅၉</result>
-   <result draft='approved'>22:59</result>
-   <result timeType='medium' draft='unconfirmed'>၂၂:၅၉:၅၉</result>
-   <result draft='approved'>22:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>၀၀/၀၉/၁၂</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>00/09/12</result>
    <result draft='approved'>2000-09-12</result>
-   <result timeType='short' draft='unconfirmed'>၀၀/၀၉/၁၂ ၂၂:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>00/09/12 22:59</result>
    <result draft='approved'>2000-09-12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>၀၀/၀၉/၁၂ ၂၂:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>00/09/12 22:59:59</result>
    <result draft='approved'>2000-09-12 22:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>၂၀၀၀ စက် ၁၂</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2000 စက် 12</result>
    <result draft='approved'>2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>၂၀၀၀ စက် ၁၂ ၂၂:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>2000 စက် 12 22:59</result>
    <result draft='approved'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>၂၀၀၀ စက် ၁၂ ၂၂:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>2000 စက် 12 22:59:59</result>
    <result draft='approved'>2000 9 12 22:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>၂၀၀၀ စက်တင်ဘာ ၁၂</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>2000 စက်တင်ဘာ 12</result>
    <result draft='approved'>2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>၂၀၀၀ စက်တင်ဘာ ၁၂ ၂၂:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>2000 စက်တင်ဘာ 12 22:59</result>
    <result draft='approved'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>၂၀၀၀ စက်တင်ဘာ ၁၂ ၂၂:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>2000 စက်တင်ဘာ 12 22:59:59</result>
    <result draft='approved'>2000 9 12 22:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>အင်္ဂါ, ၂၀၀၀ စက်တင်ဘာ ၁၂</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>အင်္ဂါ, 2000 စက်တင်ဘာ 12</result>
    <result draft='approved'>3, 2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>အင်္ဂါ, ၂၀၀၀ စက်တင်ဘာ ၁၂ ၂၂:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>အင်္ဂါ, 2000 စက်တင်ဘာ 12 22:59</result>
    <result draft='approved'>3, 2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>အင်္ဂါ, ၂၀၀၀ စက်တင်ဘာ ၁၂ ၂၂:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>အင်္ဂါ, 2000 စက်တင်ဘာ 12 22:59:59</result>
    <result draft='approved'>3, 2000 9 12 22:59:59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>၂၃:၀၀</result>
-   <result draft='approved'>23:00</result>
-   <result timeType='medium' draft='unconfirmed'>၂၃:၀၀:၀၀</result>
-   <result draft='approved'>23:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>၀၁/၁၀/၀၈</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>01/10/08</result>
    <result draft='approved'>2001-10-08</result>
-   <result timeType='short' draft='unconfirmed'>၀၁/၁၀/၀၈ ၂၃:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>01/10/08 23:00</result>
    <result draft='approved'>2001-10-08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>၀၁/၁၀/၀၈ ၂၃:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>01/10/08 23:00:00</result>
    <result draft='approved'>2001-10-08 23:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>၂၀၀၁ အောက် ၈</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2001 အောက် 8</result>
    <result draft='approved'>2001 10 8</result>
-   <result timeType='short' draft='unconfirmed'>၂၀၀၁ အောက် ၈ ၂၃:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>2001 အောက် 8 23:00</result>
    <result draft='approved'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>၂၀၀၁ အောက် ၈ ၂၃:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>2001 အောက် 8 23:00:00</result>
    <result draft='approved'>2001 10 8 23:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>၂၀၀၁ အောက်တိုဘာ ၈</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>2001 အောက်တိုဘာ 8</result>
    <result draft='approved'>2001 10 8</result>
-   <result timeType='short' draft='unconfirmed'>၂၀၀၁ အောက်တိုဘာ ၈ ၂၃:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>2001 အောက်တိုဘာ 8 23:00</result>
    <result draft='approved'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>၂၀၀၁ အောက်တိုဘာ ၈ ၂၃:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>2001 အောက်တိုဘာ 8 23:00:00</result>
    <result draft='approved'>2001 10 8 23:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္လာ, ၂၀၀၁ အောက်တိုဘာ ၀၈</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္လာ, 2001 အောက်တိုဘာ 08</result>
    <result draft='approved'>2, 2001 10 08</result>
-   <result timeType='short' draft='unconfirmed'>တနင်္လာ, ၂၀၀၁ အောက်တိုဘာ ၀၈ ၂၃:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>တနင်္လာ, 2001 အောက်တိုဘာ 08 23:00</result>
    <result draft='approved'>2, 2001 10 08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>တနင်္လာ, ၂၀၀၁ အောက်တိုဘာ ၀၈ ၂၃:၀၀:၀၀</result>
+   <result timeType='medium' draft='unconfirmed'>တနင်္လာ, 2001 အောက်တိုဘာ 08 23:00:00</result>
    <result draft='approved'>2, 2001 10 08 23:00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>၂၃:၀၀</result>
-   <result draft='approved'>23:00</result>
-   <result timeType='medium' draft='unconfirmed'>၂၃:၀၀:၀၁</result>
-   <result draft='approved'>23:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>၀၄/၁၁/၀၄</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>04/11/04</result>
    <result draft='approved'>2004-11-04</result>
-   <result timeType='short' draft='unconfirmed'>၀၄/၁၁/၀၄ ၂၃:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>04/11/04 23:00</result>
    <result draft='approved'>2004-11-04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>၀၄/၁၁/၀၄ ၂၃:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>04/11/04 23:00:01</result>
    <result draft='approved'>2004-11-04 23:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>၂၀၀၄ နို ၄</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2004 နို 4</result>
    <result draft='approved'>2004 11 4</result>
-   <result timeType='short' draft='unconfirmed'>၂၀၀၄ နို ၄ ၂၃:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>2004 နို 4 23:00</result>
    <result draft='approved'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>၂၀၀၄ နို ၄ ၂၃:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>2004 နို 4 23:00:01</result>
    <result draft='approved'>2004 11 4 23:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>၂၀၀၄ နိုဝင်ဘာ ၄</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>2004 နိုဝင်ဘာ 4</result>
    <result draft='approved'>2004 11 4</result>
-   <result timeType='short' draft='unconfirmed'>၂၀၀၄ နိုဝင်ဘာ ၄ ၂၃:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>2004 နိုဝင်ဘာ 4 23:00</result>
    <result draft='approved'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>၂၀၀၄ နိုဝင်ဘာ ၄ ၂၃:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>2004 နိုဝင်ဘာ 4 23:00:01</result>
    <result draft='approved'>2004 11 4 23:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>ကြာသပတေး, ၂၀၀၄ နိုဝင်ဘာ ၀၄</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>ကြာသပတေး, 2004 နိုဝင်ဘာ 04</result>
    <result draft='approved'>5, 2004 11 04</result>
-   <result timeType='short' draft='unconfirmed'>ကြာသပတေး, ၂၀၀၄ နိုဝင်ဘာ ၀၄ ၂၃:၀၀</result>
+   <result timeType='short' draft='unconfirmed'>ကြာသပတေး, 2004 နိုဝင်ဘာ 04 23:00</result>
    <result draft='approved'>5, 2004 11 04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>ကြာသပတေး, ၂၀၀၄ နိုဝင်ဘာ ၀၄ ၂၃:၀၀:၀၁</result>
+   <result timeType='medium' draft='unconfirmed'>ကြာသပတေး, 2004 နိုဝင်ဘာ 04 23:00:01</result>
    <result draft='approved'>5, 2004 11 04 23:00:01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>၂၃:၅၉</result>
-   <result draft='approved'>23:59</result>
-   <result timeType='medium' draft='unconfirmed'>၂၃:၅၉:၅၉</result>
-   <result draft='approved'>23:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>၁၀/၁၂/၀၁</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>10/12/01</result>
    <result draft='approved'>2010-12-01</result>
-   <result timeType='short' draft='unconfirmed'>၁၀/၁၂/၀၁ ၂၃:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>10/12/01 23:59</result>
    <result draft='approved'>2010-12-01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>၁၀/၁၂/၀၁ ၂၃:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>10/12/01 23:59:59</result>
    <result draft='approved'>2010-12-01 23:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>၂၀၁၀ ဒီ ၁</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2010 ဒီ 1</result>
    <result draft='approved'>2010 12 1</result>
-   <result timeType='short' draft='unconfirmed'>၂၀၁၀ ဒီ ၁ ၂၃:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>2010 ဒီ 1 23:59</result>
    <result draft='approved'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>၂၀၁၀ ဒီ ၁ ၂၃:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>2010 ဒီ 1 23:59:59</result>
    <result draft='approved'>2010 12 1 23:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>၂၀၁၀ ဒီဇင်ဘာ ၁</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>2010 ဒီဇင်ဘာ 1</result>
    <result draft='approved'>2010 12 1</result>
-   <result timeType='short' draft='unconfirmed'>၂၀၁၀ ဒီဇင်ဘာ ၁ ၂၃:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>2010 ဒီဇင်ဘာ 1 23:59</result>
    <result draft='approved'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>၂၀၁၀ ဒီဇင်ဘာ ၁ ၂၃:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>2010 ဒီဇင်ဘာ 1 23:59:59</result>
    <result draft='approved'>2010 12 1 23:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>ဗုဒ္ဓဟူး, ၂၀၁၀ ဒီဇင်ဘာ ၀၁</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>ဗုဒ္ဓဟူး, 2010 ဒီဇင်ဘာ 01</result>
    <result draft='approved'>4, 2010 12 01</result>
-   <result timeType='short' draft='unconfirmed'>ဗုဒ္ဓဟူး, ၂၀၁၀ ဒီဇင်ဘာ ၀၁ ၂၃:၅၉</result>
+   <result timeType='short' draft='unconfirmed'>ဗုဒ္ဓဟူး, 2010 ဒီဇင်ဘာ 01 23:59</result>
    <result draft='approved'>4, 2010 12 01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>ဗုဒ္ဓဟူး, ၂၀၁၀ ဒီဇင်ဘာ ၀၁ ၂၃:၅၉:၅၉</result>
+   <result timeType='medium' draft='unconfirmed'>ဗုဒ္ဓဟူး, 2010 ဒီဇင်ဘာ 01 23:59:59</result>
    <result draft='approved'>4, 2010 12 01 23:59:59</result>
   </date>
   <zoneFields 
 locales='my my_MM'>
-<!-- Burmese [Burmese]; Burmese (Myanmar [Burma]) [Burmese (Myanmar [Burma])] -->
+<!-- Burmese [ဗမာ@]; Burmese (Myanmar [Burma]) [ဗမာ (မြန်မာ)@] -->
   </zoneFields>
   <collation 
 locales='my my_MM'>
-<!-- Burmese [Burmese]; Burmese (Myanmar [Burma]) [Burmese (Myanmar [Burma])] -->
+<!-- Burmese [ဗမာ@]; Burmese (Myanmar [Burma]) [ဗမာ (မြန်မာ)@] -->
    <result draft='unconfirmed'>
 xံ
 Xံ

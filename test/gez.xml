@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='gez'>
- <!-- Geez [Geez] -->
+ <!-- Geez [ግዕዝኛ] -->
   <number 
 locales='gez gez_ER gez_ET'>
-<!-- Geez [Geez]; Geez (Eritrea) [Geez (Eritrea)]; Geez (Ethiopia) [Geez (Ethiopia)] -->
+<!-- Geez [ግዕዝኛ@]; Geez (Eritrea) [ግዕዝኛ (ኤርትራ)@]; Geez (Ethiopia) [ግዕዝኛ (ኢትዮጵያ)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -65,7 +65,7 @@ locales='gez gez_ER gez_ET'>
   </number>
   <date 
 locales='gez gez_ER gez_ET'>
-<!-- Geez [Geez]; Geez (Eritrea) [Geez (Eritrea)]; Geez (Ethiopia) [Geez (Ethiopia)] -->
+<!-- Geez [ግዕዝኛ@]; Geez (Eritrea) [ግዕዝኛ (ኤርትራ)@]; Geez (Ethiopia) [ግዕዝኛ (ኢትዮጵያ)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 ጽባሕ</result>
    <result draft='approved'>00:00</result>
    <result timeType='medium' draft='unconfirmed'>12:00:00 ጽባሕ</result>
@@ -188,11 +188,11 @@ locales='gez gez_ER gez_ET'>
    <result draft='approved'>1945-05-20 01:00</result>
    <result timeType='medium' draft='unconfirmed'>20/05/45 1:00:01 ጽባሕ</result>
    <result draft='approved'>1945-05-20 01:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>20-ግንባ-1945</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>20-ግንባት-1945</result>
    <result draft='approved'>1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>20-ግንባ-1945 1:00 ጽባሕ</result>
+   <result timeType='short' draft='unconfirmed'>20-ግንባት-1945 1:00 ጽባሕ</result>
    <result draft='approved'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>20-ግንባ-1945 1:00:01 ጽባሕ</result>
+   <result timeType='medium' draft='unconfirmed'>20-ግንባት-1945 1:00:01 ጽባሕ</result>
    <result draft='approved'>1945 5 20 01:00:01</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>20 ግንባት 1945</result>
    <result draft='approved'>1945 5 20</result>
@@ -405,11 +405,11 @@ locales='gez gez_ER gez_ET'>
   </date>
   <zoneFields 
 locales='gez gez_ER gez_ET'>
-<!-- Geez [Geez]; Geez (Eritrea) [Geez (Eritrea)]; Geez (Ethiopia) [Geez (Ethiopia)] -->
+<!-- Geez [ግዕዝኛ@]; Geez (Eritrea) [ግዕዝኛ (ኤርትራ)@]; Geez (Ethiopia) [ግዕዝኛ (ኢትዮጵያ)@] -->
   </zoneFields>
   <collation 
 locales='gez gez_ER gez_ET'>
-<!-- Geez [Geez]; Geez (Eritrea) [Geez (Eritrea)]; Geez (Ethiopia) [Geez (Ethiopia)] -->
+<!-- Geez [ግዕዝኛ@]; Geez (Eritrea) [ግዕዝኛ (ኤርትራ)@]; Geez (Ethiopia) [ግዕዝኛ (ኢትዮጵያ)@] -->
    <result draft='unconfirmed'>
 x፟
 X፟

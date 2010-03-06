@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='ha'>
- <!-- Hausa [Haoussa] -->
+ <!-- Hausa [Hausa] -->
   <number 
-locales='ha ha_Arab ha_Arab_NG ha_Arab_SD ha_GH ha_Latn ha_Latn_GH ha_Latn_NE ha_Latn_NG ha_NE ha_NG ha_SD'>
-<!-- Hausa [Haoussa]; Hausa (Arabic) [Haoussa (Arab)]; Hausa (Arabic, Nigeria) [Haoussa (Arab, Nijeriya)]; Hausa (Arabic, Sudan) [Haoussa (Arab, SD)]; Hausa (Ghana) [Haoussa (Gaana)]; Hausa (Latin) [Haoussa (Latn)]; Hausa (Latin, Ghana) [Haoussa (Latn, Gaana)]; Hausa (Latin, Niger) [Haoussa (Latn, Nijer)]; Hausa (Latin, Nigeria) [Haoussa (Latn, Nijeriya)]; Hausa (Niger) [Haoussa (Nijer)]; Hausa (Nigeria) [Haoussa (Nijeriya)]; Hausa (Sudan) [Haoussa (SD)] -->
+locales='ha ha_GH ha_NE ha_NG ha_SD'>
+<!-- Hausa [Hausa@]; Hausa (Ghana) [Hausa (Gana)@]; Hausa (Niger) [Hausa (Nijar)@]; Hausa (Nigeria) [Hausa (Najeriya)@]; Hausa (Sudan) [Hausa (Sudan)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='ha ha_Arab ha_Arab_NG ha_Arab_SD ha_GH ha_Latn ha_Latn_GH ha_Latn_NE ha
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='ha ha_GH ha_Latn ha_Latn_GH ha_Latn_NE ha_Latn_NG ha_NE ha_NG'>
-<!-- Hausa [Haoussa]; Hausa (Ghana) [Haoussa (Gaana)]; Hausa (Latin) [Haoussa (Latn)]; Hausa (Latin, Ghana) [Haoussa (Latn, Gaana)]; Hausa (Latin, Niger) [Haoussa (Latn, Nijer)]; Hausa (Latin, Nigeria) [Haoussa (Latn, Nijeriya)]; Hausa (Niger) [Haoussa (Nijer)]; Hausa (Nigeria) [Haoussa (Nijeriya)] -->
+locales='ha ha_GH ha_NE ha_NG'>
+<!-- Hausa [Hausa@]; Hausa (Ghana) [Hausa (Gana)@]; Hausa (Niger) [Hausa (Nijar)@]; Hausa (Nigeria) [Hausa (Najeriya)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31/1/00</result>
@@ -80,12 +80,12 @@ locales='ha ha_GH ha_Latn ha_Latn_GH ha_Latn_NE ha_Latn_NG ha_NE ha_NG'>
    <result dateType='medium' timeType='none'>28 Fab, 1909</result>
    <result timeType='short'>28 Fab, 1909 00:00</result>
    <result timeType='medium'>28 Fab, 1909 00:00:01</result>
-   <result dateType='long' timeType='none'>28 Fabrairu, 1909</result>
-   <result timeType='short'>28 Fabrairu, 1909 00:00</result>
-   <result timeType='medium'>28 Fabrairu, 1909 00:00:01</result>
-   <result dateType='full' timeType='none'>Lahadi, 28 Fabrairu, 1909</result>
-   <result timeType='short'>Lahadi, 28 Fabrairu, 1909 00:00</result>
-   <result timeType='medium'>Lahadi, 28 Fabrairu, 1909 00:00:01</result>
+   <result dateType='long' timeType='none'>28 Faburairu, 1909</result>
+   <result timeType='short'>28 Faburairu, 1909 00:00</result>
+   <result timeType='medium'>28 Faburairu, 1909 00:00:01</result>
+   <result dateType='full' timeType='none'>Lahadi, 28 Faburairu, 1909</result>
+   <result timeType='short'>Lahadi, 28 Faburairu, 1909 00:00</result>
+   <result timeType='medium'>Lahadi, 28 Faburairu, 1909 00:00:01</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result dateType='short' timeType='none'>26/3/18</result>
@@ -105,15 +105,15 @@ locales='ha ha_GH ha_Latn ha_Latn_GH ha_Latn_NE ha_Latn_NG ha_NE ha_NG'>
    <result dateType='short' timeType='none'>24/4/32</result>
    <result timeType='short'>24/4/32 01:00</result>
    <result timeType='medium'>24/4/32 01:00:00</result>
-   <result dateType='medium' timeType='none'>24 Afr, 1932</result>
-   <result timeType='short'>24 Afr, 1932 01:00</result>
-   <result timeType='medium'>24 Afr, 1932 01:00:00</result>
-   <result dateType='long' timeType='none'>24 Afrilu, 1932</result>
-   <result timeType='short'>24 Afrilu, 1932 01:00</result>
-   <result timeType='medium'>24 Afrilu, 1932 01:00:00</result>
-   <result dateType='full' timeType='none'>Lahadi, 24 Afrilu, 1932</result>
-   <result timeType='short'>Lahadi, 24 Afrilu, 1932 01:00</result>
-   <result timeType='medium'>Lahadi, 24 Afrilu, 1932 01:00:00</result>
+   <result dateType='medium' timeType='none'>24 Afi, 1932</result>
+   <result timeType='short'>24 Afi, 1932 01:00</result>
+   <result timeType='medium'>24 Afi, 1932 01:00:00</result>
+   <result dateType='long' timeType='none'>24 Afirilu, 1932</result>
+   <result timeType='short'>24 Afirilu, 1932 01:00</result>
+   <result timeType='medium'>24 Afirilu, 1932 01:00:00</result>
+   <result dateType='full' timeType='none'>Lahadi, 24 Afirilu, 1932</result>
+   <result timeType='short'>Lahadi, 24 Afirilu, 1932 01:00</result>
+   <result timeType='medium'>Lahadi, 24 Afirilu, 1932 01:00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result dateType='short' timeType='none'>20/5/45</result>
@@ -153,23 +153,23 @@ locales='ha ha_GH ha_Latn ha_Latn_GH ha_Latn_NE ha_Latn_NG ha_NE ha_NG'>
    <result dateType='long' timeType='none'>16 Yuli, 1973</result>
    <result timeType='short'>16 Yuli, 1973 12:00</result>
    <result timeType='medium'>16 Yuli, 1973 12:00:00</result>
-   <result dateType='full' timeType='none'>Litini, 16 Yuli, 1973</result>
-   <result timeType='short'>Litini, 16 Yuli, 1973 12:00</result>
-   <result timeType='medium'>Litini, 16 Yuli, 1973 12:00:00</result>
+   <result dateType='full' timeType='none'>Litinin, 16 Yuli, 1973</result>
+   <result timeType='short'>Litinin, 16 Yuli, 1973 12:00</result>
+   <result timeType='medium'>Litinin, 16 Yuli, 1973 12:00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result dateType='short' timeType='none'>14/8/99</result>
    <result timeType='short'>14/8/99 12:00</result>
    <result timeType='medium'>14/8/99 12:00:01</result>
-   <result dateType='medium' timeType='none'>14 Aug, 1999</result>
-   <result timeType='short'>14 Aug, 1999 12:00</result>
-   <result timeType='medium'>14 Aug, 1999 12:00:01</result>
-   <result dateType='long' timeType='none'>14 Augusta, 1999</result>
-   <result timeType='short'>14 Augusta, 1999 12:00</result>
-   <result timeType='medium'>14 Augusta, 1999 12:00:01</result>
-   <result dateType='full' timeType='none'>Asabar, 14 Augusta, 1999</result>
-   <result timeType='short'>Asabar, 14 Augusta, 1999 12:00</result>
-   <result timeType='medium'>Asabar, 14 Augusta, 1999 12:00:01</result>
+   <result dateType='medium' timeType='none'>14 Agu, 1999</result>
+   <result timeType='short'>14 Agu, 1999 12:00</result>
+   <result timeType='medium'>14 Agu, 1999 12:00:01</result>
+   <result dateType='long' timeType='none'>14 Agusta, 1999</result>
+   <result timeType='short'>14 Agusta, 1999 12:00</result>
+   <result timeType='medium'>14 Agusta, 1999 12:00:01</result>
+   <result dateType='full' timeType='none'>Asabar, 14 Agusta, 1999</result>
+   <result timeType='short'>Asabar, 14 Agusta, 1999 12:00</result>
+   <result timeType='medium'>Asabar, 14 Agusta, 1999 12:00:01</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result dateType='short' timeType='none'>12/9/00</result>
@@ -195,9 +195,9 @@ locales='ha ha_GH ha_Latn ha_Latn_GH ha_Latn_NE ha_Latn_NG ha_NE ha_NG'>
    <result dateType='long' timeType='none'>8 Oktoba, 2001</result>
    <result timeType='short'>8 Oktoba, 2001 23:00</result>
    <result timeType='medium'>8 Oktoba, 2001 23:00:00</result>
-   <result dateType='full' timeType='none'>Litini, 8 Oktoba, 2001</result>
-   <result timeType='short'>Litini, 8 Oktoba, 2001 23:00</result>
-   <result timeType='medium'>Litini, 8 Oktoba, 2001 23:00:00</result>
+   <result dateType='full' timeType='none'>Litinin, 8 Oktoba, 2001</result>
+   <result timeType='short'>Litinin, 8 Oktoba, 2001 23:00</result>
+   <result timeType='medium'>Litinin, 8 Oktoba, 2001 23:00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result dateType='short' timeType='none'>4/11/04</result>
@@ -228,8 +228,8 @@ locales='ha ha_GH ha_Latn ha_Latn_GH ha_Latn_NE ha_Latn_NG ha_NE ha_NG'>
    <result timeType='medium'>Laraba, 1 Disamba, 2010 23:59:59</result>
   </date>
   <date 
-locales='ha_Arab ha_Arab_NG ha_Arab_SD ha_SD'>
-<!-- Hausa (Arabic) [Haoussa (Arab)]; Hausa (Arabic, Nigeria) [Haoussa (Arab, Nijeriya)]; Hausa (Arabic, Sudan) [Haoussa (Arab, SD)]; Hausa (Sudan) [Haoussa (SD)] -->
+locales='ha_SD'>
+<!-- Hausa (Sudan) [Hausa (Sudan)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31/1/00</result>
@@ -265,17 +265,17 @@ locales='ha_Arab ha_Arab_NG ha_Arab_SD ha_SD'>
    <result timeType='medium' draft='unconfirmed'>28 ڢَب, 1909 00:00:01</result>
    <result draft='approved'>28 Fab, 1909 00:00:01</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>28 ڢَبْرَيْرُ, 1909</result>
-   <result draft='approved'>28 Fabrairu, 1909</result>
+   <result draft='approved'>28 Faburairu, 1909</result>
    <result timeType='short' draft='unconfirmed'>28 ڢَبْرَيْرُ, 1909 00:00</result>
-   <result draft='approved'>28 Fabrairu, 1909 00:00</result>
+   <result draft='approved'>28 Faburairu, 1909 00:00</result>
    <result timeType='medium' draft='unconfirmed'>28 ڢَبْرَيْرُ, 1909 00:00:01</result>
-   <result draft='approved'>28 Fabrairu, 1909 00:00:01</result>
+   <result draft='approved'>28 Faburairu, 1909 00:00:01</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>لَحَدِ, 28 ڢَبْرَيْرُ, 1909</result>
-   <result draft='approved'>Lahadi, 28 Fabrairu, 1909</result>
+   <result draft='approved'>Lahadi, 28 Faburairu, 1909</result>
    <result timeType='short' draft='unconfirmed'>لَحَدِ, 28 ڢَبْرَيْرُ, 1909 00:00</result>
-   <result draft='approved'>Lahadi, 28 Fabrairu, 1909 00:00</result>
+   <result draft='approved'>Lahadi, 28 Faburairu, 1909 00:00</result>
    <result timeType='medium' draft='unconfirmed'>لَحَدِ, 28 ڢَبْرَيْرُ, 1909 00:00:01</result>
-   <result draft='approved'>Lahadi, 28 Fabrairu, 1909 00:00:01</result>
+   <result draft='approved'>Lahadi, 28 Faburairu, 1909 00:00:01</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result dateType='short' timeType='none'>26/3/18</result>
@@ -305,23 +305,23 @@ locales='ha_Arab ha_Arab_NG ha_Arab_SD ha_SD'>
    <result timeType='short'>24/4/32 01:00</result>
    <result timeType='medium'>24/4/32 01:00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>24 أَڢْر, 1932</result>
-   <result draft='approved'>24 Afr, 1932</result>
+   <result draft='approved'>24 Afi, 1932</result>
    <result timeType='short' draft='unconfirmed'>24 أَڢْر, 1932 01:00</result>
-   <result draft='approved'>24 Afr, 1932 01:00</result>
+   <result draft='approved'>24 Afi, 1932 01:00</result>
    <result timeType='medium' draft='unconfirmed'>24 أَڢْر, 1932 01:00:00</result>
-   <result draft='approved'>24 Afr, 1932 01:00:00</result>
+   <result draft='approved'>24 Afi, 1932 01:00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>24 أَڢْرِلُ, 1932</result>
-   <result draft='approved'>24 Afrilu, 1932</result>
+   <result draft='approved'>24 Afirilu, 1932</result>
    <result timeType='short' draft='unconfirmed'>24 أَڢْرِلُ, 1932 01:00</result>
-   <result draft='approved'>24 Afrilu, 1932 01:00</result>
+   <result draft='approved'>24 Afirilu, 1932 01:00</result>
    <result timeType='medium' draft='unconfirmed'>24 أَڢْرِلُ, 1932 01:00:00</result>
-   <result draft='approved'>24 Afrilu, 1932 01:00:00</result>
+   <result draft='approved'>24 Afirilu, 1932 01:00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>لَحَدِ, 24 أَڢْرِلُ, 1932</result>
-   <result draft='approved'>Lahadi, 24 Afrilu, 1932</result>
+   <result draft='approved'>Lahadi, 24 Afirilu, 1932</result>
    <result timeType='short' draft='unconfirmed'>لَحَدِ, 24 أَڢْرِلُ, 1932 01:00</result>
-   <result draft='approved'>Lahadi, 24 Afrilu, 1932 01:00</result>
+   <result draft='approved'>Lahadi, 24 Afirilu, 1932 01:00</result>
    <result timeType='medium' draft='unconfirmed'>لَحَدِ, 24 أَڢْرِلُ, 1932 01:00:00</result>
-   <result draft='approved'>Lahadi, 24 Afrilu, 1932 01:00:00</result>
+   <result draft='approved'>Lahadi, 24 Afirilu, 1932 01:00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result dateType='short' timeType='none'>20/5/45</result>
@@ -386,34 +386,34 @@ locales='ha_Arab ha_Arab_NG ha_Arab_SD ha_SD'>
    <result timeType='medium' draft='unconfirmed'>16 يُولِ, 1973 12:00:00</result>
    <result draft='approved'>16 Yuli, 1973 12:00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>لِتِنِنْ, 16 يُولِ, 1973</result>
-   <result draft='approved'>Litini, 16 Yuli, 1973</result>
+   <result draft='approved'>Litinin, 16 Yuli, 1973</result>
    <result timeType='short' draft='unconfirmed'>لِتِنِنْ, 16 يُولِ, 1973 12:00</result>
-   <result draft='approved'>Litini, 16 Yuli, 1973 12:00</result>
+   <result draft='approved'>Litinin, 16 Yuli, 1973 12:00</result>
    <result timeType='medium' draft='unconfirmed'>لِتِنِنْ, 16 يُولِ, 1973 12:00:00</result>
-   <result draft='approved'>Litini, 16 Yuli, 1973 12:00:00</result>
+   <result draft='approved'>Litinin, 16 Yuli, 1973 12:00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result dateType='short' timeType='none'>14/8/99</result>
    <result timeType='short'>14/8/99 12:00</result>
    <result timeType='medium'>14/8/99 12:00:01</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>14 أَغُ, 1999</result>
-   <result draft='approved'>14 Aug, 1999</result>
+   <result draft='approved'>14 Agu, 1999</result>
    <result timeType='short' draft='unconfirmed'>14 أَغُ, 1999 12:00</result>
-   <result draft='approved'>14 Aug, 1999 12:00</result>
+   <result draft='approved'>14 Agu, 1999 12:00</result>
    <result timeType='medium' draft='unconfirmed'>14 أَغُ, 1999 12:00:01</result>
-   <result draft='approved'>14 Aug, 1999 12:00:01</result>
+   <result draft='approved'>14 Agu, 1999 12:00:01</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>14 أَغُسْتَ, 1999</result>
-   <result draft='approved'>14 Augusta, 1999</result>
+   <result draft='approved'>14 Agusta, 1999</result>
    <result timeType='short' draft='unconfirmed'>14 أَغُسْتَ, 1999 12:00</result>
-   <result draft='approved'>14 Augusta, 1999 12:00</result>
+   <result draft='approved'>14 Agusta, 1999 12:00</result>
    <result timeType='medium' draft='unconfirmed'>14 أَغُسْتَ, 1999 12:00:01</result>
-   <result draft='approved'>14 Augusta, 1999 12:00:01</result>
+   <result draft='approved'>14 Agusta, 1999 12:00:01</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>أَسَبَرْ, 14 أَغُسْتَ, 1999</result>
-   <result draft='approved'>Asabar, 14 Augusta, 1999</result>
+   <result draft='approved'>Asabar, 14 Agusta, 1999</result>
    <result timeType='short' draft='unconfirmed'>أَسَبَرْ, 14 أَغُسْتَ, 1999 12:00</result>
-   <result draft='approved'>Asabar, 14 Augusta, 1999 12:00</result>
+   <result draft='approved'>Asabar, 14 Agusta, 1999 12:00</result>
    <result timeType='medium' draft='unconfirmed'>أَسَبَرْ, 14 أَغُسْتَ, 1999 12:00:01</result>
-   <result draft='approved'>Asabar, 14 Augusta, 1999 12:00:01</result>
+   <result draft='approved'>Asabar, 14 Agusta, 1999 12:00:01</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result dateType='short' timeType='none'>12/9/00</result>
@@ -455,11 +455,11 @@ locales='ha_Arab ha_Arab_NG ha_Arab_SD ha_SD'>
    <result timeType='medium' draft='unconfirmed'>8 أُكْتوُبَ, 2001 23:00:00</result>
    <result draft='approved'>8 Oktoba, 2001 23:00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>لِتِنِنْ, 8 أُكْتوُبَ, 2001</result>
-   <result draft='approved'>Litini, 8 Oktoba, 2001</result>
+   <result draft='approved'>Litinin, 8 Oktoba, 2001</result>
    <result timeType='short' draft='unconfirmed'>لِتِنِنْ, 8 أُكْتوُبَ, 2001 23:00</result>
-   <result draft='approved'>Litini, 8 Oktoba, 2001 23:00</result>
+   <result draft='approved'>Litinin, 8 Oktoba, 2001 23:00</result>
    <result timeType='medium' draft='unconfirmed'>لِتِنِنْ, 8 أُكْتوُبَ, 2001 23:00:00</result>
-   <result draft='approved'>Litini, 8 Oktoba, 2001 23:00:00</result>
+   <result draft='approved'>Litinin, 8 Oktoba, 2001 23:00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result dateType='short' timeType='none'>4/11/04</result>
@@ -508,12 +508,12 @@ locales='ha_Arab ha_Arab_NG ha_Arab_SD ha_SD'>
    <result draft='approved'>Laraba, 1 Disamba, 2010 23:59:59</result>
   </date>
   <zoneFields 
-locales='ha ha_Arab ha_Arab_NG ha_Arab_SD ha_GH ha_Latn ha_Latn_GH ha_Latn_NE ha_Latn_NG ha_NE ha_NG ha_SD'>
-<!-- Hausa [Haoussa]; Hausa (Arabic) [Haoussa (Arab)]; Hausa (Arabic, Nigeria) [Haoussa (Arab, Nijeriya)]; Hausa (Arabic, Sudan) [Haoussa (Arab, SD)]; Hausa (Ghana) [Haoussa (Gaana)]; Hausa (Latin) [Haoussa (Latn)]; Hausa (Latin, Ghana) [Haoussa (Latn, Gaana)]; Hausa (Latin, Niger) [Haoussa (Latn, Nijer)]; Hausa (Latin, Nigeria) [Haoussa (Latn, Nijeriya)]; Hausa (Niger) [Haoussa (Nijer)]; Hausa (Nigeria) [Haoussa (Nijeriya)]; Hausa (Sudan) [Haoussa (SD)] -->
+locales='ha ha_GH ha_NE ha_NG ha_SD'>
+<!-- Hausa [Hausa@]; Hausa (Ghana) [Hausa (Gana)@]; Hausa (Niger) [Hausa (Nijar)@]; Hausa (Nigeria) [Hausa (Najeriya)@]; Hausa (Sudan) [Hausa (Sudan)@] -->
   </zoneFields>
   <collation 
-locales='ha ha_GH ha_Latn ha_Latn_GH ha_Latn_NE ha_Latn_NG ha_NE ha_NG'>
-<!-- Hausa [Haoussa]; Hausa (Ghana) [Haoussa (Gaana)]; Hausa (Latin) [Haoussa (Latn)]; Hausa (Latin, Ghana) [Haoussa (Latn, Gaana)]; Hausa (Latin, Niger) [Haoussa (Latn, Nijer)]; Hausa (Latin, Nigeria) [Haoussa (Latn, Nijeriya)]; Hausa (Niger) [Haoussa (Nijer)]; Hausa (Nigeria) [Haoussa (Nijeriya)] -->
+locales='ha ha_GH ha_NE ha_NG'>
+<!-- Hausa [Hausa@]; Hausa (Ghana) [Hausa (Gana)@]; Hausa (Niger) [Hausa (Nijar)@]; Hausa (Nigeria) [Hausa (Najeriya)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -738,38 +738,38 @@ xs
 xS
 Xs
 XS
-xsh
 xsH
+XsH
+xsHx
+xsx
+xSx
+xsh
 xSh
 xSH
 Xsh
-XsH
 XSh
 XSH
 xshx
-xsHx
 xShx
 xSHx
-xsx
-xSx
 xt
 xT
 Xt
 XT
-xts
 xtS
+XtS
+xtSx
+xtx
+xTx
+xts
 xTs
 xTS
 Xts
-XtS
 XTs
 XTS
 xtsx
-xtSx
 xTsx
 xTSx
-xtx
-xTx
 xu
 xU
 Xu
@@ -819,11 +819,23 @@ XY
 xyx
 xYx
 xƴ
+x&amp;apos;y
+xƴ
+x&amp;apos;Y
 xƳ
+x&apos;Y
+X&amp;apos;y
 Xƴ
+X&apos;y
+XƳ
+X&amp;apos;Y
 XƳ
 xƴx
+x&amp;apos;yx
+xƴx
+x&amp;apos;Yx
 xƳx
+x&apos;Yx
 xz
 xZ
 Xz
@@ -842,8 +854,8 @@ xʼYx
 </result>
   </collation>
   <collation 
-locales='ha_Arab ha_Arab_NG ha_Arab_SD ha_SD'>
-<!-- Hausa (Arabic) [Haoussa (Arab)]; Hausa (Arabic, Nigeria) [Haoussa (Arab, Nijeriya)]; Hausa (Arabic, Sudan) [Haoussa (Arab, SD)]; Hausa (Sudan) [Haoussa (SD)] -->
+locales='ha_SD'>
+<!-- Hausa (Sudan) [Hausa (Sudan)@] -->
    <result draft='unconfirmed'>
 x 
 X 
@@ -878,6 +890,18 @@ xàx
 xÀx
 xâx
 xÂx
+xɓ
+xƁ
+Xɓ
+XƁ
+xɓx
+xƁx
+xɗ
+xƊ
+Xɗ
+XƊ
+xɗx
+xƊx
 xé
 xÉ
 Xé
@@ -914,6 +938,12 @@ xìx
 xÌx
 xîx
 xÎx
+xƙ
+xƘ
+Xƙ
+XƘ
+xƙx
+xƘx
 xó
 xÓ
 Xó
@@ -950,6 +980,30 @@ Xr̃
 XR̃
 xr̃x
 xR̃x
+xsH
+XsH
+xsHx
+xsh
+xSh
+xSH
+Xsh
+XSh
+XSH
+xshx
+xShx
+xSHx
+xtS
+XtS
+xtSx
+xts
+xTs
+xTS
+Xts
+XTs
+XTS
+xtsx
+xTsx
+xTSx
 xú
 xÚ
 Xú
@@ -981,11 +1035,23 @@ XX
 xxx
 xXx
 xƴ
+x&amp;apos;y
+xƴ
+x&amp;apos;Y
 xƳ
+x&apos;Y
+X&amp;apos;y
 Xƴ
+X&apos;y
+XƳ
+X&amp;apos;Y
 XƳ
 xƴx
+x&amp;apos;yx
+xƴx
+x&amp;apos;Yx
 xƳx
+x&apos;Yx
 xا
 Xا
 xاx
@@ -1286,38 +1352,38 @@ xs
 xS
 Xs
 XS
-xsh
 xsH
+XsH
+xsHx
+xsx
+xSx
+xsh
 xSh
 xSH
 Xsh
-XsH
 XSh
 XSH
 xshx
-xsHx
 xShx
 xSHx
-xsx
-xSx
 xt
 xT
 Xt
 XT
-xts
 xtS
+XtS
+xtSx
+xtx
+xTx
+xts
 xTs
 xTS
 Xts
-XtS
 XTs
 XTS
 xtsx
-xtSx
 xTsx
 xTSx
-xtx
-xTx
 xu
 xU
 Xu
@@ -1367,11 +1433,23 @@ XY
 xyx
 xYx
 xƴ
+x&amp;apos;y
+xƴ
+x&amp;apos;Y
 xƳ
+x&apos;Y
+X&amp;apos;y
 Xƴ
+X&apos;y
+XƳ
+X&amp;apos;Y
 XƳ
 xƴx
+x&amp;apos;yx
+xƴx
+x&amp;apos;Yx
 xƳx
+x&apos;Yx
 xz
 xZ
 Xz

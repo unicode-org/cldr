@@ -4,8 +4,8 @@
  <cldrTest version='1.7' base='sr'>
  <!-- Serbian [Српски] -->
   <number 
-locales='sr sr_BA sr_CS sr_Cyrl sr_Cyrl_BA sr_Cyrl_CS sr_Cyrl_ME sr_Cyrl_RS sr_Cyrl_YU sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_ME sr_Latn_RS sr_Latn_YU sr_ME sr_RS sr_YU'>
-<!-- Serbian [Српски]; Serbian (Bosnia and Herzegovina) [Српски (Босна и Херцеговина)]; Serbian (Serbia and Montenegro) [Српски (Србија и Црна Гора)]; Serbian (Cyrillic) [Српски (Ћирилица)]; Serbian (Cyrillic, Bosnia and Herzegovina) [Српски (Ћирилица, Босна и Херцеговина)]; Serbian (Cyrillic, Serbia and Montenegro) [Српски (Ћирилица, Србија и Црна Гора)]; Serbian (Cyrillic, Montenegro) [Српски (Ћирилица, Црна Гора)]; Serbian (Cyrillic, Serbia) [Српски (Ћирилица, Србија)]; Serbian (Cyrillic, Serbia) [Српски (Ћирилица, Србија)]; Serbian (Latin) [Srpski (Latinica)]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)]; Serbian (Latin, Serbia and Montenegro) [Srpski (Latinica, Srbija i Crna Gora)]; Serbian (Latin, Montenegro) [Srpski (Latinica, Crna Gora)]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)]; Serbian (Montenegro) [Српски (Црна Гора)]; Serbian (Serbia) [Српски (Србија)]; Serbian (Serbia) [Српски (Србија)] -->
+locales='sr sr_BA sr_CS sr_ME sr_RS sr_YU'>
+<!-- Serbian [Српски@]; Serbian (Bosnia and Herzegovina) [српски (Босна и Херцеговина)@]; Serbian (Serbia and Montenegro) [Српски (Србија и Црна Гора)@]; Serbian (Montenegro) [Srpski (Crna Gora)@]; Serbian (Serbia) [Српски (Србија)@]; Serbian (YU) [Српски (YU)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='sr sr_BA sr_CS sr_Cyrl sr_Cyrl_BA sr_Cyrl_CS sr_Cyrl_ME sr_Cyrl_RS sr_C
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='sr sr_CS sr_Cyrl sr_Cyrl_CS sr_Cyrl_ME sr_Cyrl_RS sr_Cyrl_YU sr_ME sr_RS sr_YU'>
-<!-- Serbian [Српски]; Serbian (Serbia and Montenegro) [Српски (Србија и Црна Гора)]; Serbian (Cyrillic) [Српски (Ћирилица)]; Serbian (Cyrillic, Serbia and Montenegro) [Српски (Ћирилица, Србија и Црна Гора)]; Serbian (Cyrillic, Montenegro) [Српски (Ћирилица, Црна Гора)]; Serbian (Cyrillic, Serbia) [Српски (Ћирилица, Србија)]; Serbian (Cyrillic, Serbia) [Српски (Ћирилица, Србија)]; Serbian (Montenegro) [Српски (Црна Гора)]; Serbian (Serbia) [Српски (Србија)]; Serbian (Serbia) [Српски (Србија)] -->
+locales='sr sr_CS sr_RS sr_YU'>
+<!-- Serbian [Српски@]; Serbian (Serbia and Montenegro) [Српски (Србија и Црна Гора)@]; Serbian (Serbia) [Српски (Србија)@]; Serbian (YU) [Српски (YU)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00.00</result>
    <result timeType='medium'>00.00.00</result>
    <result dateType='short' timeType='none'>31.1.00.</result>
@@ -228,8 +228,8 @@ locales='sr sr_CS sr_Cyrl sr_Cyrl_CS sr_Cyrl_ME sr_Cyrl_RS sr_Cyrl_YU sr_ME sr_R
    <result timeType='medium'>среда, 01. децембар 2010. 23.59.59</result>
   </date>
   <date 
-locales='sr_BA sr_Cyrl_BA'>
-<!-- Serbian (Bosnia and Herzegovina) [Српски (Босна и Херцеговина)]; Serbian (Cyrillic, Bosnia and Herzegovina) [Српски (Ћирилица, Босна и Херцеговина)] -->
+locales='sr_BA'>
+<!-- Serbian (Bosnia and Herzegovina) [српски (Босна и Херцеговина)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>00-01-31</result>
@@ -400,180 +400,8 @@ locales='sr_BA sr_Cyrl_BA'>
    <result timeType='medium'>сриједа, 01. децембар 2010. 23:59:59</result>
   </date>
   <date 
-locales='sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_RS sr_Latn_YU'>
-<!-- Serbian (Latin) [Srpski (Latinica)]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)]; Serbian (Latin, Serbia and Montenegro) [Srpski (Latinica, Srbija i Crna Gora)]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00.00</result>
-   <result timeType='medium'>00.00.00</result>
-   <result dateType='short' timeType='none'>31.1.00.</result>
-   <result timeType='short'>31.1.00. 00.00</result>
-   <result timeType='medium'>31.1.00. 00.00.00</result>
-   <result dateType='medium' timeType='none'>31.01.1900.</result>
-   <result timeType='short'>31.01.1900. 00.00</result>
-   <result timeType='medium'>31.01.1900. 00.00.00</result>
-   <result dateType='long' timeType='none'>31. januar 1900.</result>
-   <result timeType='short'>31. januar 1900. 00.00</result>
-   <result timeType='medium'>31. januar 1900. 00.00.00</result>
-   <result dateType='full' timeType='none'>sreda, 31. januar 1900.</result>
-   <result timeType='short'>sreda, 31. januar 1900. 00.00</result>
-   <result timeType='medium'>sreda, 31. januar 1900. 00.00.00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00.00</result>
-   <result timeType='medium'>00.00.01</result>
-   <result dateType='short' timeType='none'>28.2.09.</result>
-   <result timeType='short'>28.2.09. 00.00</result>
-   <result timeType='medium'>28.2.09. 00.00.01</result>
-   <result dateType='medium' timeType='none'>28.02.1909.</result>
-   <result timeType='short'>28.02.1909. 00.00</result>
-   <result timeType='medium'>28.02.1909. 00.00.01</result>
-   <result dateType='long' timeType='none'>28. februar 1909.</result>
-   <result timeType='short'>28. februar 1909. 00.00</result>
-   <result timeType='medium'>28. februar 1909. 00.00.01</result>
-   <result dateType='full' timeType='none'>nedelja, 28. februar 1909.</result>
-   <result timeType='short'>nedelja, 28. februar 1909. 00.00</result>
-   <result timeType='medium'>nedelja, 28. februar 1909. 00.00.01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00.59</result>
-   <result timeType='medium'>00.59.59</result>
-   <result dateType='short' timeType='none'>26.3.18.</result>
-   <result timeType='short'>26.3.18. 00.59</result>
-   <result timeType='medium'>26.3.18. 00.59.59</result>
-   <result dateType='medium' timeType='none'>26.03.1918.</result>
-   <result timeType='short'>26.03.1918. 00.59</result>
-   <result timeType='medium'>26.03.1918. 00.59.59</result>
-   <result dateType='long' timeType='none'>26. mart 1918.</result>
-   <result timeType='short'>26. mart 1918. 00.59</result>
-   <result timeType='medium'>26. mart 1918. 00.59.59</result>
-   <result dateType='full' timeType='none'>utorak, 26. mart 1918.</result>
-   <result timeType='short'>utorak, 26. mart 1918. 00.59</result>
-   <result timeType='medium'>utorak, 26. mart 1918. 00.59.59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01.00</result>
-   <result timeType='medium'>01.00.00</result>
-   <result dateType='short' timeType='none'>24.4.32.</result>
-   <result timeType='short'>24.4.32. 01.00</result>
-   <result timeType='medium'>24.4.32. 01.00.00</result>
-   <result dateType='medium' timeType='none'>24.04.1932.</result>
-   <result timeType='short'>24.04.1932. 01.00</result>
-   <result timeType='medium'>24.04.1932. 01.00.00</result>
-   <result dateType='long' timeType='none'>24. april 1932.</result>
-   <result timeType='short'>24. april 1932. 01.00</result>
-   <result timeType='medium'>24. april 1932. 01.00.00</result>
-   <result dateType='full' timeType='none'>nedelja, 24. april 1932.</result>
-   <result timeType='short'>nedelja, 24. april 1932. 01.00</result>
-   <result timeType='medium'>nedelja, 24. april 1932. 01.00.00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01.00</result>
-   <result timeType='medium'>01.00.01</result>
-   <result dateType='short' timeType='none'>20.5.45.</result>
-   <result timeType='short'>20.5.45. 01.00</result>
-   <result timeType='medium'>20.5.45. 01.00.01</result>
-   <result dateType='medium' timeType='none'>20.05.1945.</result>
-   <result timeType='short'>20.05.1945. 01.00</result>
-   <result timeType='medium'>20.05.1945. 01.00.01</result>
-   <result dateType='long' timeType='none'>20. maj 1945.</result>
-   <result timeType='short'>20. maj 1945. 01.00</result>
-   <result timeType='medium'>20. maj 1945. 01.00.01</result>
-   <result dateType='full' timeType='none'>nedelja, 20. maj 1945.</result>
-   <result timeType='short'>nedelja, 20. maj 1945. 01.00</result>
-   <result timeType='medium'>nedelja, 20. maj 1945. 01.00.01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11.59</result>
-   <result timeType='medium'>11.59.59</result>
-   <result dateType='short' timeType='none'>18.6.52.</result>
-   <result timeType='short'>18.6.52. 11.59</result>
-   <result timeType='medium'>18.6.52. 11.59.59</result>
-   <result dateType='medium' timeType='none'>18.06.1952.</result>
-   <result timeType='short'>18.06.1952. 11.59</result>
-   <result timeType='medium'>18.06.1952. 11.59.59</result>
-   <result dateType='long' timeType='none'>18. jun 1952.</result>
-   <result timeType='short'>18. jun 1952. 11.59</result>
-   <result timeType='medium'>18. jun 1952. 11.59.59</result>
-   <result dateType='full' timeType='none'>sreda, 18. jun 1952.</result>
-   <result timeType='short'>sreda, 18. jun 1952. 11.59</result>
-   <result timeType='medium'>sreda, 18. jun 1952. 11.59.59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12.00</result>
-   <result timeType='medium'>12.00.00</result>
-   <result dateType='short' timeType='none'>16.7.73.</result>
-   <result timeType='short'>16.7.73. 12.00</result>
-   <result timeType='medium'>16.7.73. 12.00.00</result>
-   <result dateType='medium' timeType='none'>16.07.1973.</result>
-   <result timeType='short'>16.07.1973. 12.00</result>
-   <result timeType='medium'>16.07.1973. 12.00.00</result>
-   <result dateType='long' timeType='none'>16. jul 1973.</result>
-   <result timeType='short'>16. jul 1973. 12.00</result>
-   <result timeType='medium'>16. jul 1973. 12.00.00</result>
-   <result dateType='full' timeType='none'>ponedeljak, 16. jul 1973.</result>
-   <result timeType='short'>ponedeljak, 16. jul 1973. 12.00</result>
-   <result timeType='medium'>ponedeljak, 16. jul 1973. 12.00.00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12.00</result>
-   <result timeType='medium'>12.00.01</result>
-   <result dateType='short' timeType='none'>14.8.99.</result>
-   <result timeType='short'>14.8.99. 12.00</result>
-   <result timeType='medium'>14.8.99. 12.00.01</result>
-   <result dateType='medium' timeType='none'>14.08.1999.</result>
-   <result timeType='short'>14.08.1999. 12.00</result>
-   <result timeType='medium'>14.08.1999. 12.00.01</result>
-   <result dateType='long' timeType='none'>14. avgust 1999.</result>
-   <result timeType='short'>14. avgust 1999. 12.00</result>
-   <result timeType='medium'>14. avgust 1999. 12.00.01</result>
-   <result dateType='full' timeType='none'>subota, 14. avgust 1999.</result>
-   <result timeType='short'>subota, 14. avgust 1999. 12.00</result>
-   <result timeType='medium'>subota, 14. avgust 1999. 12.00.01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22.59</result>
-   <result timeType='medium'>22.59.59</result>
-   <result dateType='short' timeType='none'>12.9.00.</result>
-   <result timeType='short'>12.9.00. 22.59</result>
-   <result timeType='medium'>12.9.00. 22.59.59</result>
-   <result dateType='medium' timeType='none'>12.09.2000.</result>
-   <result timeType='short'>12.09.2000. 22.59</result>
-   <result timeType='medium'>12.09.2000. 22.59.59</result>
-   <result dateType='long' timeType='none'>12. septembar 2000.</result>
-   <result timeType='short'>12. septembar 2000. 22.59</result>
-   <result timeType='medium'>12. septembar 2000. 22.59.59</result>
-   <result dateType='full' timeType='none'>utorak, 12. septembar 2000.</result>
-   <result timeType='short'>utorak, 12. septembar 2000. 22.59</result>
-   <result timeType='medium'>utorak, 12. septembar 2000. 22.59.59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23.00</result>
-   <result timeType='medium'>23.00.00</result>
-   <result dateType='short' timeType='none'>8.10.01.</result>
-   <result timeType='short'>8.10.01. 23.00</result>
-   <result timeType='medium'>8.10.01. 23.00.00</result>
-   <result dateType='medium' timeType='none'>08.10.2001.</result>
-   <result timeType='short'>08.10.2001. 23.00</result>
-   <result timeType='medium'>08.10.2001. 23.00.00</result>
-   <result dateType='long' timeType='none'>08. oktobar 2001.</result>
-   <result timeType='short'>08. oktobar 2001. 23.00</result>
-   <result timeType='medium'>08. oktobar 2001. 23.00.00</result>
-   <result dateType='full' timeType='none'>ponedeljak, 08. oktobar 2001.</result>
-   <result timeType='short'>ponedeljak, 08. oktobar 2001. 23.00</result>
-   <result timeType='medium'>ponedeljak, 08. oktobar 2001. 23.00.00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23.00</result>
-   <result timeType='medium'>23.00.01</result>
-   <result dateType='short' timeType='none'>4.11.04.</result>
-   <result timeType='short'>4.11.04. 23.00</result>
-   <result timeType='medium'>4.11.04. 23.00.01</result>
-   <result dateType='medium' timeType='none'>04.11.2004.</result>
-   <result timeType='short'>04.11.2004. 23.00</result>
-   <result timeType='medium'>04.11.2004. 23.00.01</result>
-   <result dateType='long' timeType='none'>04. novembar 2004.</result>
-   <result timeType='short'>04. novembar 2004. 23.00</result>
-   <result timeType='medium'>04. novembar 2004. 23.00.01</result>
-   <result dateType='full' timeType='none'>četvrtak, 04. novembar 2004.</result>
-   <result timeType='short'>četvrtak, 04. novembar 2004. 23.00</result>
-   <result timeType='medium'>četvrtak, 04. novembar 2004. 23.00.01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23.59</result>
-   <result timeType='medium'>23.59.59</result>
-   <result dateType='short' timeType='none'>1.12.10.</result>
-   <result timeType='short'>1.12.10. 23.59</result>
-   <result timeType='medium'>1.12.10. 23.59.59</result>
-   <result dateType='medium' timeType='none'>01.12.2010.</result>
-   <result timeType='short'>01.12.2010. 23.59</result>
-   <result timeType='medium'>01.12.2010. 23.59.59</result>
-   <result dateType='long' timeType='none'>01. decembar 2010.</result>
-   <result timeType='short'>01. decembar 2010. 23.59</result>
-   <result timeType='medium'>01. decembar 2010. 23.59.59</result>
-   <result dateType='full' timeType='none'>sreda, 01. decembar 2010.</result>
-   <result timeType='short'>sreda, 01. decembar 2010. 23.59</result>
-   <result timeType='medium'>sreda, 01. decembar 2010. 23.59.59</result>
-  </date>
-  <date 
-locales='sr_Latn_ME'>
-<!-- Serbian (Latin, Montenegro) [Srpski (Latinica, Crna Gora)] -->
+locales='sr_ME'>
+<!-- Serbian (Montenegro) [Srpski (Crna Gora)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00.00</result>
    <result timeType='medium'>00.00.00</result>
    <result dateType='short' timeType='none'>31.1.00.</result>
@@ -744,12 +572,12 @@ locales='sr_Latn_ME'>
    <result timeType='medium'>sreda, 01. decembar 2010. 23.59.59</result>
   </date>
   <zoneFields 
-locales='sr sr_BA sr_CS sr_Cyrl sr_Cyrl_BA sr_Cyrl_CS sr_Cyrl_ME sr_Cyrl_RS sr_Cyrl_YU sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_ME sr_Latn_RS sr_Latn_YU sr_ME sr_RS sr_YU'>
-<!-- Serbian [Српски]; Serbian (Bosnia and Herzegovina) [Српски (Босна и Херцеговина)]; Serbian (Serbia and Montenegro) [Српски (Србија и Црна Гора)]; Serbian (Cyrillic) [Српски (Ћирилица)]; Serbian (Cyrillic, Bosnia and Herzegovina) [Српски (Ћирилица, Босна и Херцеговина)]; Serbian (Cyrillic, Serbia and Montenegro) [Српски (Ћирилица, Србија и Црна Гора)]; Serbian (Cyrillic, Montenegro) [Српски (Ћирилица, Црна Гора)]; Serbian (Cyrillic, Serbia) [Српски (Ћирилица, Србија)]; Serbian (Cyrillic, Serbia) [Српски (Ћирилица, Србија)]; Serbian (Latin) [Srpski (Latinica)]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)]; Serbian (Latin, Serbia and Montenegro) [Srpski (Latinica, Srbija i Crna Gora)]; Serbian (Latin, Montenegro) [Srpski (Latinica, Crna Gora)]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)]; Serbian (Montenegro) [Српски (Црна Гора)]; Serbian (Serbia) [Српски (Србија)]; Serbian (Serbia) [Српски (Србија)] -->
+locales='sr sr_BA sr_CS sr_ME sr_RS sr_YU'>
+<!-- Serbian [Српски@]; Serbian (Bosnia and Herzegovina) [српски (Босна и Херцеговина)@]; Serbian (Serbia and Montenegro) [Српски (Србија и Црна Гора)@]; Serbian (Montenegro) [Srpski (Crna Gora)@]; Serbian (Serbia) [Српски (Србија)@]; Serbian (YU) [Српски (YU)@] -->
   </zoneFields>
   <collation 
-locales='sr sr_BA sr_CS sr_Cyrl sr_Cyrl_BA sr_Cyrl_CS sr_Cyrl_ME sr_Cyrl_RS sr_Cyrl_YU sr_ME sr_RS sr_YU'>
-<!-- Serbian [Српски]; Serbian (Bosnia and Herzegovina) [Српски (Босна и Херцеговина)]; Serbian (Serbia and Montenegro) [Српски (Србија и Црна Гора)]; Serbian (Cyrillic) [Српски (Ћирилица)]; Serbian (Cyrillic, Bosnia and Herzegovina) [Српски (Ћирилица, Босна и Херцеговина)]; Serbian (Cyrillic, Serbia and Montenegro) [Српски (Ћирилица, Србија и Црна Гора)]; Serbian (Cyrillic, Montenegro) [Српски (Ћирилица, Црна Гора)]; Serbian (Cyrillic, Serbia) [Српски (Ћирилица, Србија)]; Serbian (Cyrillic, Serbia) [Српски (Ћирилица, Србија)]; Serbian (Montenegro) [Српски (Црна Гора)]; Serbian (Serbia) [Српски (Србија)]; Serbian (Serbia) [Српски (Србија)] -->
+locales='sr sr_BA sr_CS sr_RS sr_YU'>
+<!-- Serbian [Српски@]; Serbian (Bosnia and Herzegovina) [српски (Босна и Херцеговина)@]; Serbian (Serbia and Montenegro) [Српски (Србија и Црна Гора)@]; Serbian (Serbia) [Српски (Србија)@]; Serbian (YU) [Српски (YU)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -1058,21 +886,6 @@ xs
 xS
 Xs
 XS
-xss
-xsS
-xSs
-xSS
-Xss
-XsS
-XSs
-XSS
-xß
-Xß
-xssx
-xsSx
-xSsx
-xSSx
-xßx
 xsx
 xSx
 xt
@@ -1342,8 +1155,8 @@ xШx
 </result>
   </collation>
   <collation 
-locales='sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_ME sr_Latn_RS sr_Latn_YU'>
-<!-- Serbian (Latin) [Srpski (Latinica)]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)]; Serbian (Latin, Serbia and Montenegro) [Srpski (Latinica, Srbija i Crna Gora)]; Serbian (Latin, Montenegro) [Srpski (Latinica, Crna Gora)]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)] -->
+locales='sr_ME'>
+<!-- Serbian (Montenegro) [Srpski (Crna Gora)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -1376,62 +1189,44 @@ xc
 xC
 Xc
 XC
-xcx
-xCx
-xč
-xČ
-Xč
-XČ
-xčx
-xČx
 xć
 xĆ
 Xć
 XĆ
+xč
+xČ
+Xč
+XČ
+xcx
+xCx
 xćx
 xĆx
+xčx
+xČx
 xd
 xD
 Xd
 XD
-xdx
-xDx
-xǆ
-xdž
-xǆ
-xdŽ
-xǅ
-xDž
-xǅ
-xǄ
-xDŽ
-xǄ
-Xǆ
-Xdž
-Xǆ
-XdŽ
-Xǅ
-XDž
-Xǅ
-XDŽ
-XǄ
-XDŽ
-xǆx
-xdžx
-xǆx
-xdŽx
-xǅx
-xDžx
-xǅx
-xǄx
-xDŽx
-xǄx
 xđ
 xĐ
 Xđ
 XĐ
+xdx
+xDx
 xđx
 xĐx
+xdž
+xdŽ
+xDž
+xDŽ
+Xdž
+XdŽ
+XDž
+XDŽ
+xdžx
+xdŽx
+xDžx
+xDŽx
 xe
 xE
 Xe
@@ -1478,38 +1273,20 @@ xl
 xL
 Xl
 XL
-xlx
-xLx
-xǉ
 xlj
-xǉ
 xlJ
-xǈ
 xLj
-xǈ
-xǇ
 xLJ
-xǇ
-Xlj
-Xǉ
 Xlj
 XlJ
-Xǈ
 XLj
-Xǈ
-XǇ
 XLJ
-XǇ
-xǉx
 xljx
-xǉx
 xlJx
-xǈx
 xLjx
-xǈx
 xLJx
-xǇx
-xLJx
+xlx
+xLx
 xm
 xM
 Xm
@@ -1520,38 +1297,20 @@ xn
 xN
 Xn
 XN
-xnx
-xNx
-xnj
-xǌ
 xnj
 xnJ
 xNj
-xǋ
-xNj
-xǊ
 xNJ
-xǊ
-Xǌ
 Xnj
-Xǌ
 XnJ
 XNj
-Xǋ
-XNj
 XNJ
-XǊ
-XNJ
-xǌx
 xnjx
-xǌx
 xnJx
-xǋx
 xNjx
-xǋx
-xǊx
 xNJx
-xǊx
+xnx
+xNx
 xo
 xO
 Xo
@@ -1580,12 +1339,12 @@ xs
 xS
 Xs
 XS
-xsx
-xSx
 xš
 xŠ
 Xš
 XŠ
+xsx
+xSx
 xšx
 xŠx
 xt
@@ -1628,12 +1387,12 @@ xz
 xZ
 Xz
 XZ
-xzx
-xZx
 xž
 xŽ
 Xž
 XŽ
+xzx
+xZx
 xžx
 xŽx
 </result>

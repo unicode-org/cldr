@@ -5,50 +5,50 @@
  <!-- Pashto [پښتو] -->
   <number 
 locales='ps ps_AF'>
-<!-- Pashto [پښتو]; Pashto (Afghanistan) [پښتو (افغانستان)] -->
-   <result input='0.0' numberType='integer' draft='unconfirmed approved'>۰</result>
-   <result numberType='decimal'>۰</result>
-   <result numberType='percent'>۰٪</result>
-   <result numberType='scientific'>۰×۱۰^۰</result>
-   <result input='0.01' numberType='integer'>۰</result>
-   <result numberType='decimal'>۰٫۰۱</result>
-   <result numberType='percent'>۱٪</result>
-   <result numberType='scientific'>۱×۱۰^−۲</result>
-   <result input='-0.01' numberType='integer'>−۰</result>
-   <result numberType='decimal'>−۰٫۰۱</result>
-   <result numberType='percent'>−۱٪</result>
-   <result numberType='scientific'>−۱×۱۰^−۲</result>
-   <result input='1.0' numberType='integer'>۱</result>
-   <result numberType='decimal'>۱</result>
-   <result numberType='percent'>۱۰۰٪</result>
-   <result numberType='scientific'>۱×۱۰^۰</result>
-   <result input='-1.0' numberType='integer'>−۱</result>
-   <result numberType='decimal'>−۱</result>
-   <result numberType='percent'>−۱۰۰٪</result>
-   <result numberType='scientific'>−۱×۱۰^۰</result>
-   <result input='123.456' numberType='integer'>۱۲۳</result>
-   <result numberType='decimal'>۱۲۳٫۴۵۶</result>
-   <result numberType='percent'>۱۲٬۳۴۶٪</result>
-   <result numberType='scientific'>۱٫۲۳۴۵۶×۱۰^۲</result>
-   <result input='-123.456' numberType='integer'>−۱۲۳</result>
-   <result numberType='decimal'>−۱۲۳٫۴۵۶</result>
-   <result numberType='percent'>−۱۲٬۳۴۶٪</result>
-   <result numberType='scientific'>−۱٫۲۳۴۵۶×۱۰^۲</result>
-   <result input='123456.78' numberType='integer'>۱۲۳٬۴۵۷</result>
-   <result numberType='decimal'>۱۲۳٬۴۵۶٫۷۸</result>
-   <result numberType='percent'>۱۲٬۳۴۵٬۶۷۸٪</result>
-   <result numberType='scientific'>۱٫۲۳۴۵۶۷۸×۱۰^۵</result>
-   <result input='-123456.78' numberType='integer'>−۱۲۳٬۴۵۷</result>
-   <result numberType='decimal'>−۱۲۳٬۴۵۶٫۷۸</result>
-   <result numberType='percent'>−۱۲٬۳۴۵٬۶۷۸٪</result>
-   <result numberType='scientific'>−۱٫۲۳۴۵۶۷۸×۱۰^۵</result>
+<!-- Pashto [پښتو@]; Pashto (Afghanistan) [پښتو (افغانستان)@] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal'>0,01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E−2</result>
+   <result input='-0.01' numberType='integer'>−0</result>
+   <result numberType='decimal'>−0,01</result>
+   <result numberType='percent'>−1%</result>
+   <result numberType='scientific'>−1E−2</result>
+   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>−1</result>
+   <result numberType='decimal'>−1</result>
+   <result numberType='percent'>−100%</result>
+   <result numberType='scientific'>−1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal'>123,456</result>
+   <result numberType='percent'>12.346%</result>
+   <result numberType='scientific'>1,23456E2</result>
+   <result input='-123.456' numberType='integer'>−123</result>
+   <result numberType='decimal'>−123,456</result>
+   <result numberType='percent'>−12.346%</result>
+   <result numberType='scientific'>−1,23456E2</result>
+   <result input='123456.78' numberType='integer'>123.457</result>
+   <result numberType='decimal'>123.456,78</result>
+   <result numberType='percent'>12.345.678%</result>
+   <result numberType='scientific'>1,2345678E5</result>
+   <result input='-123456.78' numberType='integer'>−123.457</result>
+   <result numberType='decimal'>−123.456,78</result>
+   <result numberType='percent'>−12.345.678%</result>
+   <result numberType='scientific'>−1,2345678E5</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
-   <result numberType='percent'>∞٪</result>
+   <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
    <result input='-Infinity' numberType='integer'>−∞</result>
    <result numberType='decimal'>−∞</result>
-   <result numberType='percent'>−∞٪</result>
+   <result numberType='percent'>−∞%</result>
    <result numberType='scientific'>−∞</result>
    <result input='NaN' numberType='integer'>NaN</result>
    <result numberType='decimal'>NaN</result>
@@ -57,216 +57,183 @@ locales='ps ps_AF'>
   </number>
   <date 
 locales='ps ps_AF'>
-<!-- Pashto [پښتو]; Pashto (Afghanistan) [پښتو (افغانستان)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>۰:۰۰</result>
-   <result timeType='medium'>۰:۰۰:۰۰</result>
-   <result dateType='short' timeType='none'>۱۹۰۰/۱/۳۱</result>
-   <result timeType='short'>۱۹۰۰/۱/۳۱ ۰:۰۰</result>
-   <result timeType='medium'>۱۹۰۰/۱/۳۱ ۰:۰۰:۰۰</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>۳۱ 1 ۱۹۰۰</result>
-   <result draft='approved'>۳۱ جنوري ۱۹۰۰</result>
-   <result timeType='short' draft='unconfirmed'>۳۱ 1 ۱۹۰۰ ۰:۰۰</result>
-   <result draft='approved'>۳۱ جنوري ۱۹۰۰ ۰:۰۰</result>
-   <result timeType='medium' draft='unconfirmed'>۳۱ 1 ۱۹۰۰ ۰:۰۰:۰۰</result>
-   <result draft='approved'>۳۱ جنوري ۱۹۰۰ ۰:۰۰:۰۰</result>
-   <result dateType='long' timeType='none' draft='unconfirmed approved'>د ۱۹۰۰ د جنوري ۳۱</result>
-   <result timeType='short'>د ۱۹۰۰ د جنوري ۳۱ ۰:۰۰</result>
-   <result timeType='medium'>د ۱۹۰۰ د جنوري ۳۱ ۰:۰۰:۰۰</result>
-   <result dateType='full' timeType='none'>چهارشنبه د ۱۹۰۰ د جنوري ۳۱</result>
-   <result timeType='short'>چهارشنبه د ۱۹۰۰ د جنوري ۳۱ ۰:۰۰</result>
-   <result timeType='medium'>چهارشنبه د ۱۹۰۰ د جنوري ۳۱ ۰:۰۰:۰۰</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>۰:۰۰</result>
-   <result timeType='medium'>۰:۰۰:۰۱</result>
-   <result dateType='short' timeType='none'>۱۹۰۹/۲/۲۸</result>
-   <result timeType='short'>۱۹۰۹/۲/۲۸ ۰:۰۰</result>
-   <result timeType='medium'>۱۹۰۹/۲/۲۸ ۰:۰۰:۰۱</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>۲۸ 2 ۱۹۰۹</result>
-   <result draft='approved'>۲۸ فبروري ۱۹۰۹</result>
-   <result timeType='short' draft='unconfirmed'>۲۸ 2 ۱۹۰۹ ۰:۰۰</result>
-   <result draft='approved'>۲۸ فبروري ۱۹۰۹ ۰:۰۰</result>
-   <result timeType='medium' draft='unconfirmed'>۲۸ 2 ۱۹۰۹ ۰:۰۰:۰۱</result>
-   <result draft='approved'>۲۸ فبروري ۱۹۰۹ ۰:۰۰:۰۱</result>
-   <result dateType='long' timeType='none' draft='unconfirmed approved'>د ۱۹۰۹ د فبروري ۲۸</result>
-   <result timeType='short'>د ۱۹۰۹ د فبروري ۲۸ ۰:۰۰</result>
-   <result timeType='medium'>د ۱۹۰۹ د فبروري ۲۸ ۰:۰۰:۰۱</result>
-   <result dateType='full' timeType='none'>یکشنبه د ۱۹۰۹ د فبروري ۲۸</result>
-   <result timeType='short'>یکشنبه د ۱۹۰۹ د فبروري ۲۸ ۰:۰۰</result>
-   <result timeType='medium'>یکشنبه د ۱۹۰۹ د فبروري ۲۸ ۰:۰۰:۰۱</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>۰:۵۹</result>
-   <result timeType='medium'>۰:۵۹:۵۹</result>
-   <result dateType='short' timeType='none'>۱۹۱۸/۳/۲۶</result>
-   <result timeType='short'>۱۹۱۸/۳/۲۶ ۰:۵۹</result>
-   <result timeType='medium'>۱۹۱۸/۳/۲۶ ۰:۵۹:۵۹</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>۲۶ 3 ۱۹۱۸</result>
-   <result draft='approved'>۲۶ مارچ ۱۹۱۸</result>
-   <result timeType='short' draft='unconfirmed'>۲۶ 3 ۱۹۱۸ ۰:۵۹</result>
-   <result draft='approved'>۲۶ مارچ ۱۹۱۸ ۰:۵۹</result>
-   <result timeType='medium' draft='unconfirmed'>۲۶ 3 ۱۹۱۸ ۰:۵۹:۵۹</result>
-   <result draft='approved'>۲۶ مارچ ۱۹۱۸ ۰:۵۹:۵۹</result>
-   <result dateType='long' timeType='none' draft='unconfirmed approved'>د ۱۹۱۸ د مارچ ۲۶</result>
-   <result timeType='short'>د ۱۹۱۸ د مارچ ۲۶ ۰:۵۹</result>
-   <result timeType='medium'>د ۱۹۱۸ د مارچ ۲۶ ۰:۵۹:۵۹</result>
-   <result dateType='full' timeType='none'>سه‌شنبه د ۱۹۱۸ د مارچ ۲۶</result>
-   <result timeType='short'>سه‌شنبه د ۱۹۱۸ د مارچ ۲۶ ۰:۵۹</result>
-   <result timeType='medium'>سه‌شنبه د ۱۹۱۸ د مارچ ۲۶ ۰:۵۹:۵۹</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>۱:۰۰</result>
-   <result timeType='medium'>۱:۰۰:۰۰</result>
-   <result dateType='short' timeType='none'>۱۹۳۲/۴/۲۴</result>
-   <result timeType='short'>۱۹۳۲/۴/۲۴ ۱:۰۰</result>
-   <result timeType='medium'>۱۹۳۲/۴/۲۴ ۱:۰۰:۰۰</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>۲۴ 4 ۱۹۳۲</result>
-   <result draft='approved'>۲۴ اپریل ۱۹۳۲</result>
-   <result timeType='short' draft='unconfirmed'>۲۴ 4 ۱۹۳۲ ۱:۰۰</result>
-   <result draft='approved'>۲۴ اپریل ۱۹۳۲ ۱:۰۰</result>
-   <result timeType='medium' draft='unconfirmed'>۲۴ 4 ۱۹۳۲ ۱:۰۰:۰۰</result>
-   <result draft='approved'>۲۴ اپریل ۱۹۳۲ ۱:۰۰:۰۰</result>
-   <result dateType='long' timeType='none' draft='unconfirmed approved'>د ۱۹۳۲ د اپریل ۲۴</result>
-   <result timeType='short'>د ۱۹۳۲ د اپریل ۲۴ ۱:۰۰</result>
-   <result timeType='medium'>د ۱۹۳۲ د اپریل ۲۴ ۱:۰۰:۰۰</result>
-   <result dateType='full' timeType='none'>یکشنبه د ۱۹۳۲ د اپریل ۲۴</result>
-   <result timeType='short'>یکشنبه د ۱۹۳۲ د اپریل ۲۴ ۱:۰۰</result>
-   <result timeType='medium'>یکشنبه د ۱۹۳۲ د اپریل ۲۴ ۱:۰۰:۰۰</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>۱:۰۰</result>
-   <result timeType='medium'>۱:۰۰:۰۱</result>
-   <result dateType='short' timeType='none'>۱۹۴۵/۵/۲۰</result>
-   <result timeType='short'>۱۹۴۵/۵/۲۰ ۱:۰۰</result>
-   <result timeType='medium'>۱۹۴۵/۵/۲۰ ۱:۰۰:۰۱</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>۲۰ مـی ۱۹۴۵</result>
-   <result draft='approved'>۲۰ می ۱۹۴۵</result>
-   <result timeType='short' draft='unconfirmed'>۲۰ مـی ۱۹۴۵ ۱:۰۰</result>
-   <result draft='approved'>۲۰ می ۱۹۴۵ ۱:۰۰</result>
-   <result timeType='medium' draft='unconfirmed'>۲۰ مـی ۱۹۴۵ ۱:۰۰:۰۱</result>
-   <result draft='approved'>۲۰ می ۱۹۴۵ ۱:۰۰:۰۱</result>
-   <result dateType='long' timeType='none' draft='unconfirmed approved'>د ۱۹۴۵ د می ۲۰</result>
-   <result timeType='short'>د ۱۹۴۵ د می ۲۰ ۱:۰۰</result>
-   <result timeType='medium'>د ۱۹۴۵ د می ۲۰ ۱:۰۰:۰۱</result>
-   <result dateType='full' timeType='none'>یکشنبه د ۱۹۴۵ د می ۲۰</result>
-   <result timeType='short'>یکشنبه د ۱۹۴۵ د می ۲۰ ۱:۰۰</result>
-   <result timeType='medium'>یکشنبه د ۱۹۴۵ د می ۲۰ ۱:۰۰:۰۱</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>۱۱:۵۹</result>
-   <result timeType='medium'>۱۱:۵۹:۵۹</result>
-   <result dateType='short' timeType='none'>۱۹۵۲/۶/۱۸</result>
-   <result timeType='short'>۱۹۵۲/۶/۱۸ ۱۱:۵۹</result>
-   <result timeType='medium'>۱۹۵۲/۶/۱۸ ۱۱:۵۹:۵۹</result>
-   <result dateType='medium' timeType='none'>۱۸ جون ۱۹۵۲</result>
-   <result timeType='short'>۱۸ جون ۱۹۵۲ ۱۱:۵۹</result>
-   <result timeType='medium'>۱۸ جون ۱۹۵۲ ۱۱:۵۹:۵۹</result>
-   <result dateType='long' timeType='none'>د ۱۹۵۲ د جون ۱۸</result>
-   <result timeType='short'>د ۱۹۵۲ د جون ۱۸ ۱۱:۵۹</result>
-   <result timeType='medium'>د ۱۹۵۲ د جون ۱۸ ۱۱:۵۹:۵۹</result>
-   <result dateType='full' timeType='none'>چهارشنبه د ۱۹۵۲ د جون ۱۸</result>
-   <result timeType='short'>چهارشنبه د ۱۹۵۲ د جون ۱۸ ۱۱:۵۹</result>
-   <result timeType='medium'>چهارشنبه د ۱۹۵۲ د جون ۱۸ ۱۱:۵۹:۵۹</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>۱۲:۰۰</result>
-   <result timeType='medium'>۱۲:۰۰:۰۰</result>
-   <result dateType='short' timeType='none'>۱۹۷۳/۷/۱۶</result>
-   <result timeType='short'>۱۹۷۳/۷/۱۶ ۱۲:۰۰</result>
-   <result timeType='medium'>۱۹۷۳/۷/۱۶ ۱۲:۰۰:۰۰</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>۱۶ 7 ۱۹۷۳</result>
-   <result draft='approved'>۱۶ جولای ۱۹۷۳</result>
-   <result timeType='short' draft='unconfirmed'>۱۶ 7 ۱۹۷۳ ۱۲:۰۰</result>
-   <result draft='approved'>۱۶ جولای ۱۹۷۳ ۱۲:۰۰</result>
-   <result timeType='medium' draft='unconfirmed'>۱۶ 7 ۱۹۷۳ ۱۲:۰۰:۰۰</result>
-   <result draft='approved'>۱۶ جولای ۱۹۷۳ ۱۲:۰۰:۰۰</result>
-   <result dateType='long' timeType='none' draft='unconfirmed approved'>د ۱۹۷۳ د جولای ۱۶</result>
-   <result timeType='short'>د ۱۹۷۳ د جولای ۱۶ ۱۲:۰۰</result>
-   <result timeType='medium'>د ۱۹۷۳ د جولای ۱۶ ۱۲:۰۰:۰۰</result>
-   <result dateType='full' timeType='none'>دوشنبه د ۱۹۷۳ د جولای ۱۶</result>
-   <result timeType='short'>دوشنبه د ۱۹۷۳ د جولای ۱۶ ۱۲:۰۰</result>
-   <result timeType='medium'>دوشنبه د ۱۹۷۳ د جولای ۱۶ ۱۲:۰۰:۰۰</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>۱۲:۰۰</result>
-   <result timeType='medium'>۱۲:۰۰:۰۱</result>
-   <result dateType='short' timeType='none'>۱۹۹۹/۸/۱۴</result>
-   <result timeType='short'>۱۹۹۹/۸/۱۴ ۱۲:۰۰</result>
-   <result timeType='medium'>۱۹۹۹/۸/۱۴ ۱۲:۰۰:۰۱</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>۱۴ 8 ۱۹۹۹</result>
-   <result draft='approved'>۱۴ اګست ۱۹۹۹</result>
-   <result timeType='short' draft='unconfirmed'>۱۴ 8 ۱۹۹۹ ۱۲:۰۰</result>
-   <result draft='approved'>۱۴ اګست ۱۹۹۹ ۱۲:۰۰</result>
-   <result timeType='medium' draft='unconfirmed'>۱۴ 8 ۱۹۹۹ ۱۲:۰۰:۰۱</result>
-   <result draft='approved'>۱۴ اګست ۱۹۹۹ ۱۲:۰۰:۰۱</result>
-   <result dateType='long' timeType='none' draft='unconfirmed approved'>د ۱۹۹۹ د اګست ۱۴</result>
-   <result timeType='short'>د ۱۹۹۹ د اګست ۱۴ ۱۲:۰۰</result>
-   <result timeType='medium'>د ۱۹۹۹ د اګست ۱۴ ۱۲:۰۰:۰۱</result>
-   <result dateType='full' timeType='none'>شنبه د ۱۹۹۹ د اګست ۱۴</result>
-   <result timeType='short'>شنبه د ۱۹۹۹ د اګست ۱۴ ۱۲:۰۰</result>
-   <result timeType='medium'>شنبه د ۱۹۹۹ د اګست ۱۴ ۱۲:۰۰:۰۱</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>۲۲:۵۹</result>
-   <result timeType='medium'>۲۲:۵۹:۵۹</result>
-   <result dateType='short' timeType='none'>۲۰۰۰/۹/۱۲</result>
-   <result timeType='short'>۲۰۰۰/۹/۱۲ ۲۲:۵۹</result>
-   <result timeType='medium'>۲۰۰۰/۹/۱۲ ۲۲:۵۹:۵۹</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>۱۲ 9 ۲۰۰۰</result>
-   <result draft='approved'>۱۲ سپتمبر ۲۰۰۰</result>
-   <result timeType='short' draft='unconfirmed'>۱۲ 9 ۲۰۰۰ ۲۲:۵۹</result>
-   <result draft='approved'>۱۲ سپتمبر ۲۰۰۰ ۲۲:۵۹</result>
-   <result timeType='medium' draft='unconfirmed'>۱۲ 9 ۲۰۰۰ ۲۲:۵۹:۵۹</result>
-   <result draft='approved'>۱۲ سپتمبر ۲۰۰۰ ۲۲:۵۹:۵۹</result>
-   <result dateType='long' timeType='none' draft='unconfirmed approved'>د ۲۰۰۰ د سپتمبر ۱۲</result>
-   <result timeType='short'>د ۲۰۰۰ د سپتمبر ۱۲ ۲۲:۵۹</result>
-   <result timeType='medium'>د ۲۰۰۰ د سپتمبر ۱۲ ۲۲:۵۹:۵۹</result>
-   <result dateType='full' timeType='none'>سه‌شنبه د ۲۰۰۰ د سپتمبر ۱۲</result>
-   <result timeType='short'>سه‌شنبه د ۲۰۰۰ د سپتمبر ۱۲ ۲۲:۵۹</result>
-   <result timeType='medium'>سه‌شنبه د ۲۰۰۰ د سپتمبر ۱۲ ۲۲:۵۹:۵۹</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>۲۳:۰۰</result>
-   <result timeType='medium'>۲۳:۰۰:۰۰</result>
-   <result dateType='short' timeType='none'>۲۰۰۱/۱۰/۸</result>
-   <result timeType='short'>۲۰۰۱/۱۰/۸ ۲۳:۰۰</result>
-   <result timeType='medium'>۲۰۰۱/۱۰/۸ ۲۳:۰۰:۰۰</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>۸ 10 ۲۰۰۱</result>
-   <result draft='approved'>۸ اکتوبر ۲۰۰۱</result>
-   <result timeType='short' draft='unconfirmed'>۸ 10 ۲۰۰۱ ۲۳:۰۰</result>
-   <result draft='approved'>۸ اکتوبر ۲۰۰۱ ۲۳:۰۰</result>
-   <result timeType='medium' draft='unconfirmed'>۸ 10 ۲۰۰۱ ۲۳:۰۰:۰۰</result>
-   <result draft='approved'>۸ اکتوبر ۲۰۰۱ ۲۳:۰۰:۰۰</result>
-   <result dateType='long' timeType='none' draft='unconfirmed approved'>د ۲۰۰۱ د اکتوبر ۸</result>
-   <result timeType='short'>د ۲۰۰۱ د اکتوبر ۸ ۲۳:۰۰</result>
-   <result timeType='medium'>د ۲۰۰۱ د اکتوبر ۸ ۲۳:۰۰:۰۰</result>
-   <result dateType='full' timeType='none'>دوشنبه د ۲۰۰۱ د اکتوبر ۸</result>
-   <result timeType='short'>دوشنبه د ۲۰۰۱ د اکتوبر ۸ ۲۳:۰۰</result>
-   <result timeType='medium'>دوشنبه د ۲۰۰۱ د اکتوبر ۸ ۲۳:۰۰:۰۰</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>۲۳:۰۰</result>
-   <result timeType='medium'>۲۳:۰۰:۰۱</result>
-   <result dateType='short' timeType='none'>۲۰۰۴/۱۱/۴</result>
-   <result timeType='short'>۲۰۰۴/۱۱/۴ ۲۳:۰۰</result>
-   <result timeType='medium'>۲۰۰۴/۱۱/۴ ۲۳:۰۰:۰۱</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>۴ 11 ۲۰۰۴</result>
-   <result draft='approved'>۴ نومبر ۲۰۰۴</result>
-   <result timeType='short' draft='unconfirmed'>۴ 11 ۲۰۰۴ ۲۳:۰۰</result>
-   <result draft='approved'>۴ نومبر ۲۰۰۴ ۲۳:۰۰</result>
-   <result timeType='medium' draft='unconfirmed'>۴ 11 ۲۰۰۴ ۲۳:۰۰:۰۱</result>
-   <result draft='approved'>۴ نومبر ۲۰۰۴ ۲۳:۰۰:۰۱</result>
-   <result dateType='long' timeType='none' draft='unconfirmed approved'>د ۲۰۰۴ د نومبر ۴</result>
-   <result timeType='short'>د ۲۰۰۴ د نومبر ۴ ۲۳:۰۰</result>
-   <result timeType='medium'>د ۲۰۰۴ د نومبر ۴ ۲۳:۰۰:۰۱</result>
-   <result dateType='full' timeType='none'>پنجشنبه د ۲۰۰۴ د نومبر ۴</result>
-   <result timeType='short'>پنجشنبه د ۲۰۰۴ د نومبر ۴ ۲۳:۰۰</result>
-   <result timeType='medium'>پنجشنبه د ۲۰۰۴ د نومبر ۴ ۲۳:۰۰:۰۱</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>۲۳:۵۹</result>
-   <result timeType='medium'>۲۳:۵۹:۵۹</result>
-   <result dateType='short' timeType='none'>۲۰۱۰/۱۲/۱</result>
-   <result timeType='short'>۲۰۱۰/۱۲/۱ ۲۳:۵۹</result>
-   <result timeType='medium'>۲۰۱۰/۱۲/۱ ۲۳:۵۹:۵۹</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>۱ 12 ۲۰۱۰</result>
-   <result draft='approved'>۱ دسمبر ۲۰۱۰</result>
-   <result timeType='short' draft='unconfirmed'>۱ 12 ۲۰۱۰ ۲۳:۵۹</result>
-   <result draft='approved'>۱ دسمبر ۲۰۱۰ ۲۳:۵۹</result>
-   <result timeType='medium' draft='unconfirmed'>۱ 12 ۲۰۱۰ ۲۳:۵۹:۵۹</result>
-   <result draft='approved'>۱ دسمبر ۲۰۱۰ ۲۳:۵۹:۵۹</result>
-   <result dateType='long' timeType='none' draft='unconfirmed approved'>د ۲۰۱۰ د دسمبر ۱</result>
-   <result timeType='short'>د ۲۰۱۰ د دسمبر ۱ ۲۳:۵۹</result>
-   <result timeType='medium'>د ۲۰۱۰ د دسمبر ۱ ۲۳:۵۹:۵۹</result>
-   <result dateType='full' timeType='none'>چهارشنبه د ۲۰۱۰ د دسمبر ۱</result>
-   <result timeType='short'>چهارشنبه د ۲۰۱۰ د دسمبر ۱ ۲۳:۵۹</result>
-   <result timeType='medium'>چهارشنبه د ۲۰۱۰ د دسمبر ۱ ۲۳:۵۹:۵۹</result>
+<!-- Pashto [پښتو@]; Pashto (Afghanistan) [پښتو (افغانستان)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>0:00</result>
+   <result timeType='medium'>0:00:00</result>
+   <result dateType='short' timeType='none'>1900/1/31</result>
+   <result timeType='short'>1900/1/31 0:00</result>
+   <result timeType='medium'>1900/1/31 0:00:00</result>
+   <result dateType='medium' timeType='none'>31 جنوري 1900</result>
+   <result timeType='short'>31 جنوري 1900 0:00</result>
+   <result timeType='medium'>31 جنوري 1900 0:00:00</result>
+   <result dateType='long' timeType='none'>د 1900 د جنوري 31</result>
+   <result timeType='short'>د 1900 د جنوري 31 0:00</result>
+   <result timeType='medium'>د 1900 د جنوري 31 0:00:00</result>
+   <result dateType='full' timeType='none'>چهارشنبه د 1900 د جنوري 31</result>
+   <result timeType='short'>چهارشنبه د 1900 د جنوري 31 0:00</result>
+   <result timeType='medium'>چهارشنبه د 1900 د جنوري 31 0:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>0:00</result>
+   <result timeType='medium'>0:00:01</result>
+   <result dateType='short' timeType='none'>1909/2/28</result>
+   <result timeType='short'>1909/2/28 0:00</result>
+   <result timeType='medium'>1909/2/28 0:00:01</result>
+   <result dateType='medium' timeType='none'>28 فبروري 1909</result>
+   <result timeType='short'>28 فبروري 1909 0:00</result>
+   <result timeType='medium'>28 فبروري 1909 0:00:01</result>
+   <result dateType='long' timeType='none'>د 1909 د فبروري 28</result>
+   <result timeType='short'>د 1909 د فبروري 28 0:00</result>
+   <result timeType='medium'>د 1909 د فبروري 28 0:00:01</result>
+   <result dateType='full' timeType='none'>یکشنبه د 1909 د فبروري 28</result>
+   <result timeType='short'>یکشنبه د 1909 د فبروري 28 0:00</result>
+   <result timeType='medium'>یکشنبه د 1909 د فبروري 28 0:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>0:59</result>
+   <result timeType='medium'>0:59:59</result>
+   <result dateType='short' timeType='none'>1918/3/26</result>
+   <result timeType='short'>1918/3/26 0:59</result>
+   <result timeType='medium'>1918/3/26 0:59:59</result>
+   <result dateType='medium' timeType='none'>26 مارچ 1918</result>
+   <result timeType='short'>26 مارچ 1918 0:59</result>
+   <result timeType='medium'>26 مارچ 1918 0:59:59</result>
+   <result dateType='long' timeType='none'>د 1918 د مارچ 26</result>
+   <result timeType='short'>د 1918 د مارچ 26 0:59</result>
+   <result timeType='medium'>د 1918 د مارچ 26 0:59:59</result>
+   <result dateType='full' timeType='none'>سه‌شنبه د 1918 د مارچ 26</result>
+   <result timeType='short'>سه‌شنبه د 1918 د مارچ 26 0:59</result>
+   <result timeType='medium'>سه‌شنبه د 1918 د مارچ 26 0:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00</result>
+   <result timeType='medium'>1:00:00</result>
+   <result dateType='short' timeType='none'>1932/4/24</result>
+   <result timeType='short'>1932/4/24 1:00</result>
+   <result timeType='medium'>1932/4/24 1:00:00</result>
+   <result dateType='medium' timeType='none'>24 اپریل 1932</result>
+   <result timeType='short'>24 اپریل 1932 1:00</result>
+   <result timeType='medium'>24 اپریل 1932 1:00:00</result>
+   <result dateType='long' timeType='none'>د 1932 د اپریل 24</result>
+   <result timeType='short'>د 1932 د اپریل 24 1:00</result>
+   <result timeType='medium'>د 1932 د اپریل 24 1:00:00</result>
+   <result dateType='full' timeType='none'>یکشنبه د 1932 د اپریل 24</result>
+   <result timeType='short'>یکشنبه د 1932 د اپریل 24 1:00</result>
+   <result timeType='medium'>یکشنبه د 1932 د اپریل 24 1:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00</result>
+   <result timeType='medium'>1:00:01</result>
+   <result dateType='short' timeType='none'>1945/5/20</result>
+   <result timeType='short'>1945/5/20 1:00</result>
+   <result timeType='medium'>1945/5/20 1:00:01</result>
+   <result dateType='medium' timeType='none'>20 می 1945</result>
+   <result timeType='short'>20 می 1945 1:00</result>
+   <result timeType='medium'>20 می 1945 1:00:01</result>
+   <result dateType='long' timeType='none'>د 1945 د می 20</result>
+   <result timeType='short'>د 1945 د می 20 1:00</result>
+   <result timeType='medium'>د 1945 د می 20 1:00:01</result>
+   <result dateType='full' timeType='none'>یکشنبه د 1945 د می 20</result>
+   <result timeType='short'>یکشنبه د 1945 د می 20 1:00</result>
+   <result timeType='medium'>یکشنبه د 1945 د می 20 1:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result dateType='short' timeType='none'>1952/6/18</result>
+   <result timeType='short'>1952/6/18 11:59</result>
+   <result timeType='medium'>1952/6/18 11:59:59</result>
+   <result dateType='medium' timeType='none'>18 جون 1952</result>
+   <result timeType='short'>18 جون 1952 11:59</result>
+   <result timeType='medium'>18 جون 1952 11:59:59</result>
+   <result dateType='long' timeType='none'>د 1952 د جون 18</result>
+   <result timeType='short'>د 1952 د جون 18 11:59</result>
+   <result timeType='medium'>د 1952 د جون 18 11:59:59</result>
+   <result dateType='full' timeType='none'>چهارشنبه د 1952 د جون 18</result>
+   <result timeType='short'>چهارشنبه د 1952 د جون 18 11:59</result>
+   <result timeType='medium'>چهارشنبه د 1952 د جون 18 11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result dateType='short' timeType='none'>1973/7/16</result>
+   <result timeType='short'>1973/7/16 12:00</result>
+   <result timeType='medium'>1973/7/16 12:00:00</result>
+   <result dateType='medium' timeType='none'>16 جولای 1973</result>
+   <result timeType='short'>16 جولای 1973 12:00</result>
+   <result timeType='medium'>16 جولای 1973 12:00:00</result>
+   <result dateType='long' timeType='none'>د 1973 د جولای 16</result>
+   <result timeType='short'>د 1973 د جولای 16 12:00</result>
+   <result timeType='medium'>د 1973 د جولای 16 12:00:00</result>
+   <result dateType='full' timeType='none'>دوشنبه د 1973 د جولای 16</result>
+   <result timeType='short'>دوشنبه د 1973 د جولای 16 12:00</result>
+   <result timeType='medium'>دوشنبه د 1973 د جولای 16 12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result dateType='short' timeType='none'>1999/8/14</result>
+   <result timeType='short'>1999/8/14 12:00</result>
+   <result timeType='medium'>1999/8/14 12:00:01</result>
+   <result dateType='medium' timeType='none'>14 اګست 1999</result>
+   <result timeType='short'>14 اګست 1999 12:00</result>
+   <result timeType='medium'>14 اګست 1999 12:00:01</result>
+   <result dateType='long' timeType='none'>د 1999 د اګست 14</result>
+   <result timeType='short'>د 1999 د اګست 14 12:00</result>
+   <result timeType='medium'>د 1999 د اګست 14 12:00:01</result>
+   <result dateType='full' timeType='none'>شنبه د 1999 د اګست 14</result>
+   <result timeType='short'>شنبه د 1999 د اګست 14 12:00</result>
+   <result timeType='medium'>شنبه د 1999 د اګست 14 12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result dateType='short' timeType='none'>2000/9/12</result>
+   <result timeType='short'>2000/9/12 22:59</result>
+   <result timeType='medium'>2000/9/12 22:59:59</result>
+   <result dateType='medium' timeType='none'>12 سپتمبر 2000</result>
+   <result timeType='short'>12 سپتمبر 2000 22:59</result>
+   <result timeType='medium'>12 سپتمبر 2000 22:59:59</result>
+   <result dateType='long' timeType='none'>د 2000 د سپتمبر 12</result>
+   <result timeType='short'>د 2000 د سپتمبر 12 22:59</result>
+   <result timeType='medium'>د 2000 د سپتمبر 12 22:59:59</result>
+   <result dateType='full' timeType='none'>سه‌شنبه د 2000 د سپتمبر 12</result>
+   <result timeType='short'>سه‌شنبه د 2000 د سپتمبر 12 22:59</result>
+   <result timeType='medium'>سه‌شنبه د 2000 د سپتمبر 12 22:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result dateType='short' timeType='none'>2001/10/8</result>
+   <result timeType='short'>2001/10/8 23:00</result>
+   <result timeType='medium'>2001/10/8 23:00:00</result>
+   <result dateType='medium' timeType='none'>8 اکتوبر 2001</result>
+   <result timeType='short'>8 اکتوبر 2001 23:00</result>
+   <result timeType='medium'>8 اکتوبر 2001 23:00:00</result>
+   <result dateType='long' timeType='none'>د 2001 د اکتوبر 8</result>
+   <result timeType='short'>د 2001 د اکتوبر 8 23:00</result>
+   <result timeType='medium'>د 2001 د اکتوبر 8 23:00:00</result>
+   <result dateType='full' timeType='none'>دوشنبه د 2001 د اکتوبر 8</result>
+   <result timeType='short'>دوشنبه د 2001 د اکتوبر 8 23:00</result>
+   <result timeType='medium'>دوشنبه د 2001 د اکتوبر 8 23:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result dateType='short' timeType='none'>2004/11/4</result>
+   <result timeType='short'>2004/11/4 23:00</result>
+   <result timeType='medium'>2004/11/4 23:00:01</result>
+   <result dateType='medium' timeType='none'>4 نومبر 2004</result>
+   <result timeType='short'>4 نومبر 2004 23:00</result>
+   <result timeType='medium'>4 نومبر 2004 23:00:01</result>
+   <result dateType='long' timeType='none'>د 2004 د نومبر 4</result>
+   <result timeType='short'>د 2004 د نومبر 4 23:00</result>
+   <result timeType='medium'>د 2004 د نومبر 4 23:00:01</result>
+   <result dateType='full' timeType='none'>پنجشنبه د 2004 د نومبر 4</result>
+   <result timeType='short'>پنجشنبه د 2004 د نومبر 4 23:00</result>
+   <result timeType='medium'>پنجشنبه د 2004 د نومبر 4 23:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result dateType='short' timeType='none'>2010/12/1</result>
+   <result timeType='short'>2010/12/1 23:59</result>
+   <result timeType='medium'>2010/12/1 23:59:59</result>
+   <result dateType='medium' timeType='none'>1 دسمبر 2010</result>
+   <result timeType='short'>1 دسمبر 2010 23:59</result>
+   <result timeType='medium'>1 دسمبر 2010 23:59:59</result>
+   <result dateType='long' timeType='none'>د 2010 د دسمبر 1</result>
+   <result timeType='short'>د 2010 د دسمبر 1 23:59</result>
+   <result timeType='medium'>د 2010 د دسمبر 1 23:59:59</result>
+   <result dateType='full' timeType='none'>چهارشنبه د 2010 د دسمبر 1</result>
+   <result timeType='short'>چهارشنبه د 2010 د دسمبر 1 23:59</result>
+   <result timeType='medium'>چهارشنبه د 2010 د دسمبر 1 23:59:59</result>
   </date>
   <zoneFields 
 locales='ps ps_AF'>
-<!-- Pashto [پښتو]; Pashto (Afghanistan) [پښتو (افغانستان)] -->
+<!-- Pashto [پښتو@]; Pashto (Afghanistan) [پښتو (افغانستان)@] -->
   </zoneFields>
   <collation 
 locales='ps ps_AF'>
-<!-- Pashto [پښتو]; Pashto (Afghanistan) [پښتو (افغانستان)] -->
+<!-- Pashto [پښتو@]; Pashto (Afghanistan) [پښتو (افغانستان)@] -->
    <result draft='unconfirmed approved'>
 xَ
 Xَ

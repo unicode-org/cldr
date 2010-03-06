@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='ts'>
- <!-- Tsonga [Tsonga] -->
+ <!-- Tsonga [Xitsonga] -->
   <number 
 locales='ts ts_ZA'>
-<!-- Tsonga [Tsonga]; Tsonga (South Africa) [Tsonga (South Africa)] -->
+<!-- Tsonga [Xitsonga@]; Tsonga (South Africa) [Xitsonga (ZA)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='ts ts_ZA'>
   </number>
   <date 
 locales='ts ts_ZA'>
-<!-- Tsonga [Tsonga]; Tsonga (South Africa) [Tsonga (South Africa)] -->
+<!-- Tsonga [Xitsonga@]; Tsonga (South Africa) [Xitsonga (ZA)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>1900-01-31</result>
@@ -337,11 +337,11 @@ locales='ts ts_ZA'>
   </date>
   <zoneFields 
 locales='ts ts_ZA'>
-<!-- Tsonga [Tsonga]; Tsonga (South Africa) [Tsonga (South Africa)] -->
+<!-- Tsonga [Xitsonga@]; Tsonga (South Africa) [Xitsonga (ZA)@] -->
   </zoneFields>
   <collation 
 locales='ts ts_ZA'>
-<!-- Tsonga [Tsonga]; Tsonga (South Africa) [Tsonga (South Africa)] -->
+<!-- Tsonga [Xitsonga@]; Tsonga (South Africa) [Xitsonga (ZA)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 

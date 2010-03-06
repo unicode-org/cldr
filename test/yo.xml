@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='yo'>
- <!-- Yoruba [Yoruba] -->
+ <!-- Yoruba [Èdè Yorùbá] -->
   <number 
 locales='yo yo_NG'>
-<!-- Yoruba [Yoruba]; Yoruba (Nigeria) [Yoruba (Nigeria)] -->
+<!-- Yoruba [Èdè Yorùbá@]; Yoruba (Nigeria) [Èdè Yorùbá (Orílẹ́ède Nàìjíríà)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,183 +57,183 @@ locales='yo yo_NG'>
   </number>
   <date 
 locales='yo yo_NG'>
-<!-- Yoruba [Yoruba]; Yoruba (Nigeria) [Yoruba (Nigeria)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
-   <result timeType='medium'>00:00:00</result>
-   <result dateType='short' timeType='none'>1900-01-31</result>
-   <result timeType='short'>1900-01-31 00:00</result>
-   <result timeType='medium'>1900-01-31 00:00:00</result>
-   <result dateType='medium' timeType='none'>1900 Ṣẹ́rẹ́ 31</result>
-   <result timeType='short'>1900 Ṣẹ́rẹ́ 31 00:00</result>
-   <result timeType='medium'>1900 Ṣẹ́rẹ́ 31 00:00:00</result>
-   <result dateType='long' timeType='none'>1900 Oṣù Ṣẹ́rẹ́ 31</result>
-   <result timeType='short'>1900 Oṣù Ṣẹ́rẹ́ 31 00:00</result>
-   <result timeType='medium'>1900 Oṣù Ṣẹ́rẹ́ 31 00:00:00</result>
-   <result dateType='full' timeType='none'>Ọjọ́rú, 1900 Oṣù Ṣẹ́rẹ́ 31</result>
-   <result timeType='short'>Ọjọ́rú, 1900 Oṣù Ṣẹ́rẹ́ 31 00:00</result>
-   <result timeType='medium'>Ọjọ́rú, 1900 Oṣù Ṣẹ́rẹ́ 31 00:00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
-   <result timeType='medium'>00:00:01</result>
-   <result dateType='short' timeType='none'>1909-02-28</result>
-   <result timeType='short'>1909-02-28 00:00</result>
-   <result timeType='medium'>1909-02-28 00:00:01</result>
-   <result dateType='medium' timeType='none'>1909 Èrèlè 28</result>
-   <result timeType='short'>1909 Èrèlè 28 00:00</result>
-   <result timeType='medium'>1909 Èrèlè 28 00:00:01</result>
-   <result dateType='long' timeType='none'>1909 Oṣù Èrèlè 28</result>
-   <result timeType='short'>1909 Oṣù Èrèlè 28 00:00</result>
-   <result timeType='medium'>1909 Oṣù Èrèlè 28 00:00:01</result>
-   <result dateType='full' timeType='none'>Ọjọ́ Àìkú, 1909 Oṣù Èrèlè 28</result>
-   <result timeType='short'>Ọjọ́ Àìkú, 1909 Oṣù Èrèlè 28 00:00</result>
-   <result timeType='medium'>Ọjọ́ Àìkú, 1909 Oṣù Èrèlè 28 00:00:01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
-   <result timeType='medium'>00:59:59</result>
-   <result dateType='short' timeType='none'>1918-03-26</result>
-   <result timeType='short'>1918-03-26 00:59</result>
-   <result timeType='medium'>1918-03-26 00:59:59</result>
-   <result dateType='medium' timeType='none'>1918 Ẹrẹ̀nà 26</result>
-   <result timeType='short'>1918 Ẹrẹ̀nà 26 00:59</result>
-   <result timeType='medium'>1918 Ẹrẹ̀nà 26 00:59:59</result>
-   <result dateType='long' timeType='none'>1918 Oṣù Ẹrẹ̀nà 26</result>
-   <result timeType='short'>1918 Oṣù Ẹrẹ̀nà 26 00:59</result>
-   <result timeType='medium'>1918 Oṣù Ẹrẹ̀nà 26 00:59:59</result>
-   <result dateType='full' timeType='none'>Ọjọ́ Ìsẹ́gun, 1918 Oṣù Ẹrẹ̀nà 26</result>
-   <result timeType='short'>Ọjọ́ Ìsẹ́gun, 1918 Oṣù Ẹrẹ̀nà 26 00:59</result>
-   <result timeType='medium'>Ọjọ́ Ìsẹ́gun, 1918 Oṣù Ẹrẹ̀nà 26 00:59:59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
-   <result timeType='medium'>01:00:00</result>
-   <result dateType='short' timeType='none'>1932-04-24</result>
-   <result timeType='short'>1932-04-24 01:00</result>
-   <result timeType='medium'>1932-04-24 01:00:00</result>
-   <result dateType='medium' timeType='none'>1932 Ìgbé 24</result>
-   <result timeType='short'>1932 Ìgbé 24 01:00</result>
-   <result timeType='medium'>1932 Ìgbé 24 01:00:00</result>
-   <result dateType='long' timeType='none'>1932 Oṣù Ìgbé 24</result>
-   <result timeType='short'>1932 Oṣù Ìgbé 24 01:00</result>
-   <result timeType='medium'>1932 Oṣù Ìgbé 24 01:00:00</result>
-   <result dateType='full' timeType='none'>Ọjọ́ Àìkú, 1932 Oṣù Ìgbé 24</result>
-   <result timeType='short'>Ọjọ́ Àìkú, 1932 Oṣù Ìgbé 24 01:00</result>
-   <result timeType='medium'>Ọjọ́ Àìkú, 1932 Oṣù Ìgbé 24 01:00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
-   <result timeType='medium'>01:00:01</result>
-   <result dateType='short' timeType='none'>1945-05-20</result>
-   <result timeType='short'>1945-05-20 01:00</result>
-   <result timeType='medium'>1945-05-20 01:00:01</result>
-   <result dateType='medium' timeType='none'>1945 Ẹ̀bibi 20</result>
-   <result timeType='short'>1945 Ẹ̀bibi 20 01:00</result>
-   <result timeType='medium'>1945 Ẹ̀bibi 20 01:00:01</result>
-   <result dateType='long' timeType='none'>1945 Oṣù Ẹ̀bibi 20</result>
-   <result timeType='short'>1945 Oṣù Ẹ̀bibi 20 01:00</result>
-   <result timeType='medium'>1945 Oṣù Ẹ̀bibi 20 01:00:01</result>
-   <result dateType='full' timeType='none'>Ọjọ́ Àìkú, 1945 Oṣù Ẹ̀bibi 20</result>
-   <result timeType='short'>Ọjọ́ Àìkú, 1945 Oṣù Ẹ̀bibi 20 01:00</result>
-   <result timeType='medium'>Ọjọ́ Àìkú, 1945 Oṣù Ẹ̀bibi 20 01:00:01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
-   <result timeType='medium'>11:59:59</result>
-   <result dateType='short' timeType='none'>1952-06-18</result>
-   <result timeType='short'>1952-06-18 11:59</result>
-   <result timeType='medium'>1952-06-18 11:59:59</result>
-   <result dateType='medium' timeType='none'>1952 Òkúdu 18</result>
-   <result timeType='short'>1952 Òkúdu 18 11:59</result>
-   <result timeType='medium'>1952 Òkúdu 18 11:59:59</result>
-   <result dateType='long' timeType='none'>1952 Oṣù Òkúdu 18</result>
-   <result timeType='short'>1952 Oṣù Òkúdu 18 11:59</result>
-   <result timeType='medium'>1952 Oṣù Òkúdu 18 11:59:59</result>
-   <result dateType='full' timeType='none'>Ọjọ́rú, 1952 Oṣù Òkúdu 18</result>
-   <result timeType='short'>Ọjọ́rú, 1952 Oṣù Òkúdu 18 11:59</result>
-   <result timeType='medium'>Ọjọ́rú, 1952 Oṣù Òkúdu 18 11:59:59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
-   <result timeType='medium'>12:00:00</result>
-   <result dateType='short' timeType='none'>1973-07-16</result>
-   <result timeType='short'>1973-07-16 12:00</result>
-   <result timeType='medium'>1973-07-16 12:00:00</result>
-   <result dateType='medium' timeType='none'>1973 Agẹmọ 16</result>
-   <result timeType='short'>1973 Agẹmọ 16 12:00</result>
-   <result timeType='medium'>1973 Agẹmọ 16 12:00:00</result>
-   <result dateType='long' timeType='none'>1973 Oṣù Agẹmọ 16</result>
-   <result timeType='short'>1973 Oṣù Agẹmọ 16 12:00</result>
-   <result timeType='medium'>1973 Oṣù Agẹmọ 16 12:00:00</result>
-   <result dateType='full' timeType='none'>Ọjọ́ Ajé, 1973 Oṣù Agẹmọ 16</result>
-   <result timeType='short'>Ọjọ́ Ajé, 1973 Oṣù Agẹmọ 16 12:00</result>
-   <result timeType='medium'>Ọjọ́ Ajé, 1973 Oṣù Agẹmọ 16 12:00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
-   <result timeType='medium'>12:00:01</result>
-   <result dateType='short' timeType='none'>1999-08-14</result>
-   <result timeType='short'>1999-08-14 12:00</result>
-   <result timeType='medium'>1999-08-14 12:00:01</result>
-   <result dateType='medium' timeType='none'>1999 Ògún 14</result>
-   <result timeType='short'>1999 Ògún 14 12:00</result>
-   <result timeType='medium'>1999 Ògún 14 12:00:01</result>
-   <result dateType='long' timeType='none'>1999 Oṣù Ògún 14</result>
-   <result timeType='short'>1999 Oṣù Ògún 14 12:00</result>
-   <result timeType='medium'>1999 Oṣù Ògún 14 12:00:01</result>
-   <result dateType='full' timeType='none'>Ọjọ́ Àbámẹ́ta, 1999 Oṣù Ògún 14</result>
-   <result timeType='short'>Ọjọ́ Àbámẹ́ta, 1999 Oṣù Ògún 14 12:00</result>
-   <result timeType='medium'>Ọjọ́ Àbámẹ́ta, 1999 Oṣù Ògún 14 12:00:01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
-   <result timeType='medium'>22:59:59</result>
-   <result dateType='short' timeType='none'>2000-09-12</result>
-   <result timeType='short'>2000-09-12 22:59</result>
-   <result timeType='medium'>2000-09-12 22:59:59</result>
-   <result dateType='medium' timeType='none'>2000 Owewe 12</result>
-   <result timeType='short'>2000 Owewe 12 22:59</result>
-   <result timeType='medium'>2000 Owewe 12 22:59:59</result>
-   <result dateType='long' timeType='none'>2000 Oṣù Owewe 12</result>
-   <result timeType='short'>2000 Oṣù Owewe 12 22:59</result>
-   <result timeType='medium'>2000 Oṣù Owewe 12 22:59:59</result>
-   <result dateType='full' timeType='none'>Ọjọ́ Ìsẹ́gun, 2000 Oṣù Owewe 12</result>
-   <result timeType='short'>Ọjọ́ Ìsẹ́gun, 2000 Oṣù Owewe 12 22:59</result>
-   <result timeType='medium'>Ọjọ́ Ìsẹ́gun, 2000 Oṣù Owewe 12 22:59:59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
-   <result timeType='medium'>23:00:00</result>
-   <result dateType='short' timeType='none'>2001-10-08</result>
-   <result timeType='short'>2001-10-08 23:00</result>
-   <result timeType='medium'>2001-10-08 23:00:00</result>
-   <result dateType='medium' timeType='none'>2001 Ọ̀wàrà 8</result>
-   <result timeType='short'>2001 Ọ̀wàrà 8 23:00</result>
-   <result timeType='medium'>2001 Ọ̀wàrà 8 23:00:00</result>
-   <result dateType='long' timeType='none'>2001 Oṣù Ọ̀wàrà 8</result>
-   <result timeType='short'>2001 Oṣù Ọ̀wàrà 8 23:00</result>
-   <result timeType='medium'>2001 Oṣù Ọ̀wàrà 8 23:00:00</result>
-   <result dateType='full' timeType='none'>Ọjọ́ Ajé, 2001 Oṣù Ọ̀wàrà 08</result>
-   <result timeType='short'>Ọjọ́ Ajé, 2001 Oṣù Ọ̀wàrà 08 23:00</result>
-   <result timeType='medium'>Ọjọ́ Ajé, 2001 Oṣù Ọ̀wàrà 08 23:00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
-   <result timeType='medium'>23:00:01</result>
-   <result dateType='short' timeType='none'>2004-11-04</result>
-   <result timeType='short'>2004-11-04 23:00</result>
-   <result timeType='medium'>2004-11-04 23:00:01</result>
-   <result dateType='medium' timeType='none'>2004 Bélú 4</result>
-   <result timeType='short'>2004 Bélú 4 23:00</result>
-   <result timeType='medium'>2004 Bélú 4 23:00:01</result>
-   <result dateType='long' timeType='none'>2004 Oṣù Bélú 4</result>
-   <result timeType='short'>2004 Oṣù Bélú 4 23:00</result>
-   <result timeType='medium'>2004 Oṣù Bélú 4 23:00:01</result>
-   <result dateType='full' timeType='none'>Ọjọ́ Àṣẹ̀ṣẹ̀dáiyé, 2004 Oṣù Bélú 04</result>
-   <result timeType='short'>Ọjọ́ Àṣẹ̀ṣẹ̀dáiyé, 2004 Oṣù Bélú 04 23:00</result>
-   <result timeType='medium'>Ọjọ́ Àṣẹ̀ṣẹ̀dáiyé, 2004 Oṣù Bélú 04 23:00:01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
-   <result timeType='medium'>23:59:59</result>
-   <result dateType='short' timeType='none'>2010-12-01</result>
-   <result timeType='short'>2010-12-01 23:59</result>
-   <result timeType='medium'>2010-12-01 23:59:59</result>
-   <result dateType='medium' timeType='none'>2010 Ọ̀pẹ̀ 1</result>
-   <result timeType='short'>2010 Ọ̀pẹ̀ 1 23:59</result>
-   <result timeType='medium'>2010 Ọ̀pẹ̀ 1 23:59:59</result>
-   <result dateType='long' timeType='none'>2010 Oṣù Ọ̀pẹ̀ 1</result>
-   <result timeType='short'>2010 Oṣù Ọ̀pẹ̀ 1 23:59</result>
-   <result timeType='medium'>2010 Oṣù Ọ̀pẹ̀ 1 23:59:59</result>
-   <result dateType='full' timeType='none'>Ọjọ́rú, 2010 Oṣù Ọ̀pẹ̀ 01</result>
-   <result timeType='short'>Ọjọ́rú, 2010 Oṣù Ọ̀pẹ̀ 01 23:59</result>
-   <result timeType='medium'>Ọjọ́rú, 2010 Oṣù Ọ̀pẹ̀ 01 23:59:59</result>
+<!-- Yoruba [Èdè Yorùbá@]; Yoruba (Nigeria) [Èdè Yorùbá (Orílẹ́ède Nàìjíríà)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 Àárọ̀</result>
+   <result timeType='medium'>12:00:00 Àárọ̀</result>
+   <result dateType='short' timeType='none'>31/01/1900</result>
+   <result timeType='short'>31/01/1900 12:00 Àárọ̀</result>
+   <result timeType='medium'>31/01/1900 12:00:00 Àárọ̀</result>
+   <result dateType='medium' timeType='none'>31 Ṣẹ́rẹ̣ 1900</result>
+   <result timeType='short'>31 Ṣẹ́rẹ̣ 1900 12:00 Àárọ̀</result>
+   <result timeType='medium'>31 Ṣẹ́rẹ̣ 1900 12:00:00 Àárọ̀</result>
+   <result dateType='long' timeType='none'>31 OṢù ṢẸ́rẹ́ 1900</result>
+   <result timeType='short'>31 OṢù ṢẸ́rẹ́ 1900 12:00 Àárọ̀</result>
+   <result timeType='medium'>31 OṢù ṢẸ́rẹ́ 1900 12:00:00 Àárọ̀</result>
+   <result dateType='full' timeType='none'>Ọjọ́rú, 31 OṢù ṢẸ́rẹ́ 1900</result>
+   <result timeType='short'>Ọjọ́rú, 31 OṢù ṢẸ́rẹ́ 1900 12:00 Àárọ̀</result>
+   <result timeType='medium'>Ọjọ́rú, 31 OṢù ṢẸ́rẹ́ 1900 12:00:00 Àárọ̀</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 Àárọ̀</result>
+   <result timeType='medium'>12:00:01 Àárọ̀</result>
+   <result dateType='short' timeType='none'>28/02/1909</result>
+   <result timeType='short'>28/02/1909 12:00 Àárọ̀</result>
+   <result timeType='medium'>28/02/1909 12:00:01 Àárọ̀</result>
+   <result dateType='medium' timeType='none'>28 Èrèlè 1909</result>
+   <result timeType='short'>28 Èrèlè 1909 12:00 Àárọ̀</result>
+   <result timeType='medium'>28 Èrèlè 1909 12:00:01 Àárọ̀</result>
+   <result dateType='long' timeType='none'>28 OṢù Èrèlè 1909</result>
+   <result timeType='short'>28 OṢù Èrèlè 1909 12:00 Àárọ̀</result>
+   <result timeType='medium'>28 OṢù Èrèlè 1909 12:00:01 Àárọ̀</result>
+   <result dateType='full' timeType='none'>Ọjọ́ Àìkú, 28 OṢù Èrèlè 1909</result>
+   <result timeType='short'>Ọjọ́ Àìkú, 28 OṢù Èrèlè 1909 12:00 Àárọ̀</result>
+   <result timeType='medium'>Ọjọ́ Àìkú, 28 OṢù Èrèlè 1909 12:00:01 Àárọ̀</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 Àárọ̀</result>
+   <result timeType='medium'>12:59:59 Àárọ̀</result>
+   <result dateType='short' timeType='none'>26/03/1918</result>
+   <result timeType='short'>26/03/1918 12:59 Àárọ̀</result>
+   <result timeType='medium'>26/03/1918 12:59:59 Àárọ̀</result>
+   <result dateType='medium' timeType='none'>26 Ẹrẹ̀nà 1918</result>
+   <result timeType='short'>26 Ẹrẹ̀nà 1918 12:59 Àárọ̀</result>
+   <result timeType='medium'>26 Ẹrẹ̀nà 1918 12:59:59 Àárọ̀</result>
+   <result dateType='long' timeType='none'>26 OṢù Ẹrẹ̀nà 1918</result>
+   <result timeType='short'>26 OṢù Ẹrẹ̀nà 1918 12:59 Àárọ̀</result>
+   <result timeType='medium'>26 OṢù Ẹrẹ̀nà 1918 12:59:59 Àárọ̀</result>
+   <result dateType='full' timeType='none'>Ọjọ́ Ìsẹ́gun, 26 OṢù Ẹrẹ̀nà 1918</result>
+   <result timeType='short'>Ọjọ́ Ìsẹ́gun, 26 OṢù Ẹrẹ̀nà 1918 12:59 Àárọ̀</result>
+   <result timeType='medium'>Ọjọ́ Ìsẹ́gun, 26 OṢù Ẹrẹ̀nà 1918 12:59:59 Àárọ̀</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 Àárọ̀</result>
+   <result timeType='medium'>1:00:00 Àárọ̀</result>
+   <result dateType='short' timeType='none'>24/04/1932</result>
+   <result timeType='short'>24/04/1932 1:00 Àárọ̀</result>
+   <result timeType='medium'>24/04/1932 1:00:00 Àárọ̀</result>
+   <result dateType='medium' timeType='none'>24 Ìgbé 1932</result>
+   <result timeType='short'>24 Ìgbé 1932 1:00 Àárọ̀</result>
+   <result timeType='medium'>24 Ìgbé 1932 1:00:00 Àárọ̀</result>
+   <result dateType='long' timeType='none'>24 OṢù Ìgbé 1932</result>
+   <result timeType='short'>24 OṢù Ìgbé 1932 1:00 Àárọ̀</result>
+   <result timeType='medium'>24 OṢù Ìgbé 1932 1:00:00 Àárọ̀</result>
+   <result dateType='full' timeType='none'>Ọjọ́ Àìkú, 24 OṢù Ìgbé 1932</result>
+   <result timeType='short'>Ọjọ́ Àìkú, 24 OṢù Ìgbé 1932 1:00 Àárọ̀</result>
+   <result timeType='medium'>Ọjọ́ Àìkú, 24 OṢù Ìgbé 1932 1:00:00 Àárọ̀</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 Àárọ̀</result>
+   <result timeType='medium'>1:00:01 Àárọ̀</result>
+   <result dateType='short' timeType='none'>20/05/1945</result>
+   <result timeType='short'>20/05/1945 1:00 Àárọ̀</result>
+   <result timeType='medium'>20/05/1945 1:00:01 Àárọ̀</result>
+   <result dateType='medium' timeType='none'>20 Ẹ̀bibi 1945</result>
+   <result timeType='short'>20 Ẹ̀bibi 1945 1:00 Àárọ̀</result>
+   <result timeType='medium'>20 Ẹ̀bibi 1945 1:00:01 Àárọ̀</result>
+   <result dateType='long' timeType='none'>20 OṢù Ẹ̀bibi 1945</result>
+   <result timeType='short'>20 OṢù Ẹ̀bibi 1945 1:00 Àárọ̀</result>
+   <result timeType='medium'>20 OṢù Ẹ̀bibi 1945 1:00:01 Àárọ̀</result>
+   <result dateType='full' timeType='none'>Ọjọ́ Àìkú, 20 OṢù Ẹ̀bibi 1945</result>
+   <result timeType='short'>Ọjọ́ Àìkú, 20 OṢù Ẹ̀bibi 1945 1:00 Àárọ̀</result>
+   <result timeType='medium'>Ọjọ́ Àìkú, 20 OṢù Ẹ̀bibi 1945 1:00:01 Àárọ̀</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 Àárọ̀</result>
+   <result timeType='medium'>11:59:59 Àárọ̀</result>
+   <result dateType='short' timeType='none'>18/06/1952</result>
+   <result timeType='short'>18/06/1952 11:59 Àárọ̀</result>
+   <result timeType='medium'>18/06/1952 11:59:59 Àárọ̀</result>
+   <result dateType='medium' timeType='none'>18 Òkúdu 1952</result>
+   <result timeType='short'>18 Òkúdu 1952 11:59 Àárọ̀</result>
+   <result timeType='medium'>18 Òkúdu 1952 11:59:59 Àárọ̀</result>
+   <result dateType='long' timeType='none'>18 OṢù Òkúdu 1952</result>
+   <result timeType='short'>18 OṢù Òkúdu 1952 11:59 Àárọ̀</result>
+   <result timeType='medium'>18 OṢù Òkúdu 1952 11:59:59 Àárọ̀</result>
+   <result dateType='full' timeType='none'>Ọjọ́rú, 18 OṢù Òkúdu 1952</result>
+   <result timeType='short'>Ọjọ́rú, 18 OṢù Òkúdu 1952 11:59 Àárọ̀</result>
+   <result timeType='medium'>Ọjọ́rú, 18 OṢù Òkúdu 1952 11:59:59 Àárọ̀</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 Ọ̀sán</result>
+   <result timeType='medium'>12:00:00 Ọ̀sán</result>
+   <result dateType='short' timeType='none'>16/07/1973</result>
+   <result timeType='short'>16/07/1973 12:00 Ọ̀sán</result>
+   <result timeType='medium'>16/07/1973 12:00:00 Ọ̀sán</result>
+   <result dateType='medium' timeType='none'>16 Agẹmọ 1973</result>
+   <result timeType='short'>16 Agẹmọ 1973 12:00 Ọ̀sán</result>
+   <result timeType='medium'>16 Agẹmọ 1973 12:00:00 Ọ̀sán</result>
+   <result dateType='long' timeType='none'>16 OṢù Agẹmọ 1973</result>
+   <result timeType='short'>16 OṢù Agẹmọ 1973 12:00 Ọ̀sán</result>
+   <result timeType='medium'>16 OṢù Agẹmọ 1973 12:00:00 Ọ̀sán</result>
+   <result dateType='full' timeType='none'>Ọjọ́ Ajé, 16 OṢù Agẹmọ 1973</result>
+   <result timeType='short'>Ọjọ́ Ajé, 16 OṢù Agẹmọ 1973 12:00 Ọ̀sán</result>
+   <result timeType='medium'>Ọjọ́ Ajé, 16 OṢù Agẹmọ 1973 12:00:00 Ọ̀sán</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 Ọ̀sán</result>
+   <result timeType='medium'>12:00:01 Ọ̀sán</result>
+   <result dateType='short' timeType='none'>14/08/1999</result>
+   <result timeType='short'>14/08/1999 12:00 Ọ̀sán</result>
+   <result timeType='medium'>14/08/1999 12:00:01 Ọ̀sán</result>
+   <result dateType='medium' timeType='none'>14 Ògún 1999</result>
+   <result timeType='short'>14 Ògún 1999 12:00 Ọ̀sán</result>
+   <result timeType='medium'>14 Ògún 1999 12:00:01 Ọ̀sán</result>
+   <result dateType='long' timeType='none'>14 OṢù Ògún 1999</result>
+   <result timeType='short'>14 OṢù Ògún 1999 12:00 Ọ̀sán</result>
+   <result timeType='medium'>14 OṢù Ògún 1999 12:00:01 Ọ̀sán</result>
+   <result dateType='full' timeType='none'>Ọjọ́ Àbámẹ́ta, 14 OṢù Ògún 1999</result>
+   <result timeType='short'>Ọjọ́ Àbámẹ́ta, 14 OṢù Ògún 1999 12:00 Ọ̀sán</result>
+   <result timeType='medium'>Ọjọ́ Àbámẹ́ta, 14 OṢù Ògún 1999 12:00:01 Ọ̀sán</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 Ọ̀sán</result>
+   <result timeType='medium'>10:59:59 Ọ̀sán</result>
+   <result dateType='short' timeType='none'>12/09/2000</result>
+   <result timeType='short'>12/09/2000 10:59 Ọ̀sán</result>
+   <result timeType='medium'>12/09/2000 10:59:59 Ọ̀sán</result>
+   <result dateType='medium' timeType='none'>12 Owewe 2000</result>
+   <result timeType='short'>12 Owewe 2000 10:59 Ọ̀sán</result>
+   <result timeType='medium'>12 Owewe 2000 10:59:59 Ọ̀sán</result>
+   <result dateType='long' timeType='none'>12 OṢù Owewe 2000</result>
+   <result timeType='short'>12 OṢù Owewe 2000 10:59 Ọ̀sán</result>
+   <result timeType='medium'>12 OṢù Owewe 2000 10:59:59 Ọ̀sán</result>
+   <result dateType='full' timeType='none'>Ọjọ́ Ìsẹ́gun, 12 OṢù Owewe 2000</result>
+   <result timeType='short'>Ọjọ́ Ìsẹ́gun, 12 OṢù Owewe 2000 10:59 Ọ̀sán</result>
+   <result timeType='medium'>Ọjọ́ Ìsẹ́gun, 12 OṢù Owewe 2000 10:59:59 Ọ̀sán</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 Ọ̀sán</result>
+   <result timeType='medium'>11:00:00 Ọ̀sán</result>
+   <result dateType='short' timeType='none'>08/10/2001</result>
+   <result timeType='short'>08/10/2001 11:00 Ọ̀sán</result>
+   <result timeType='medium'>08/10/2001 11:00:00 Ọ̀sán</result>
+   <result dateType='medium' timeType='none'>8 Ọ̀wàrà 2001</result>
+   <result timeType='short'>8 Ọ̀wàrà 2001 11:00 Ọ̀sán</result>
+   <result timeType='medium'>8 Ọ̀wàrà 2001 11:00:00 Ọ̀sán</result>
+   <result dateType='long' timeType='none'>8 OṢù Ọ̀wàrà 2001</result>
+   <result timeType='short'>8 OṢù Ọ̀wàrà 2001 11:00 Ọ̀sán</result>
+   <result timeType='medium'>8 OṢù Ọ̀wàrà 2001 11:00:00 Ọ̀sán</result>
+   <result dateType='full' timeType='none'>Ọjọ́ Ajé, 8 OṢù Ọ̀wàrà 2001</result>
+   <result timeType='short'>Ọjọ́ Ajé, 8 OṢù Ọ̀wàrà 2001 11:00 Ọ̀sán</result>
+   <result timeType='medium'>Ọjọ́ Ajé, 8 OṢù Ọ̀wàrà 2001 11:00:00 Ọ̀sán</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 Ọ̀sán</result>
+   <result timeType='medium'>11:00:01 Ọ̀sán</result>
+   <result dateType='short' timeType='none'>04/11/2004</result>
+   <result timeType='short'>04/11/2004 11:00 Ọ̀sán</result>
+   <result timeType='medium'>04/11/2004 11:00:01 Ọ̀sán</result>
+   <result dateType='medium' timeType='none'>4 Bélú 2004</result>
+   <result timeType='short'>4 Bélú 2004 11:00 Ọ̀sán</result>
+   <result timeType='medium'>4 Bélú 2004 11:00:01 Ọ̀sán</result>
+   <result dateType='long' timeType='none'>4 OṢù Bélú 2004</result>
+   <result timeType='short'>4 OṢù Bélú 2004 11:00 Ọ̀sán</result>
+   <result timeType='medium'>4 OṢù Bélú 2004 11:00:01 Ọ̀sán</result>
+   <result dateType='full' timeType='none'>Ọjọ́bọ, 4 OṢù Bélú 2004</result>
+   <result timeType='short'>Ọjọ́bọ, 4 OṢù Bélú 2004 11:00 Ọ̀sán</result>
+   <result timeType='medium'>Ọjọ́bọ, 4 OṢù Bélú 2004 11:00:01 Ọ̀sán</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 Ọ̀sán</result>
+   <result timeType='medium'>11:59:59 Ọ̀sán</result>
+   <result dateType='short' timeType='none'>01/12/2010</result>
+   <result timeType='short'>01/12/2010 11:59 Ọ̀sán</result>
+   <result timeType='medium'>01/12/2010 11:59:59 Ọ̀sán</result>
+   <result dateType='medium' timeType='none'>1 Ọ̀pẹ̀ 2010</result>
+   <result timeType='short'>1 Ọ̀pẹ̀ 2010 11:59 Ọ̀sán</result>
+   <result timeType='medium'>1 Ọ̀pẹ̀ 2010 11:59:59 Ọ̀sán</result>
+   <result dateType='long' timeType='none'>1 OṢù Ọ̀pẹ̀ 2010</result>
+   <result timeType='short'>1 OṢù Ọ̀pẹ̀ 2010 11:59 Ọ̀sán</result>
+   <result timeType='medium'>1 OṢù Ọ̀pẹ̀ 2010 11:59:59 Ọ̀sán</result>
+   <result dateType='full' timeType='none'>Ọjọ́rú, 1 OṢù Ọ̀pẹ̀ 2010</result>
+   <result timeType='short'>Ọjọ́rú, 1 OṢù Ọ̀pẹ̀ 2010 11:59 Ọ̀sán</result>
+   <result timeType='medium'>Ọjọ́rú, 1 OṢù Ọ̀pẹ̀ 2010 11:59:59 Ọ̀sán</result>
   </date>
   <zoneFields 
 locales='yo yo_NG'>
-<!-- Yoruba [Yoruba]; Yoruba (Nigeria) [Yoruba (Nigeria)] -->
+<!-- Yoruba [Èdè Yorùbá@]; Yoruba (Nigeria) [Èdè Yorùbá (Orílẹ́ède Nàìjíríà)@] -->
   </zoneFields>
   <collation 
 locales='yo yo_NG'>
-<!-- Yoruba [Yoruba]; Yoruba (Nigeria) [Yoruba (Nigeria)] -->
+<!-- Yoruba [Èdè Yorùbá@]; Yoruba (Nigeria) [Èdè Yorùbá (Orílẹ́ède Nàìjíríà)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -298,6 +298,12 @@ xè
 xÈ
 Xè
 XÈ
+xex
+xEx
+xéx
+xÉx
+xèx
+xÈx
 xẹ
 xẸ
 Xẹ
@@ -310,12 +316,6 @@ xẹ̀
 xẸ̀
 Xẹ̀
 XẸ̀
-xex
-xEx
-xéx
-xÉx
-xèx
-xÈx
 xẹx
 xẸx
 xẹ́x
@@ -332,20 +332,20 @@ xg
 xG
 Xg
 XG
-xgb
 xgB
+XgB
+xgBx
+xgx
+xGx
+xgb
 xGb
 xGB
 Xgb
-XgB
 XGb
 XGB
 xgbx
-xgBx
 xGbx
 xGBx
-xgx
-xGx
 xh
 xH
 Xh
@@ -412,6 +412,12 @@ xò
 xÒ
 Xò
 XÒ
+xox
+xOx
+xóx
+xÓx
+xòx
+xÒx
 xọ
 xỌ
 Xọ
@@ -424,12 +430,6 @@ xọ̀
 xỌ̀
 Xọ̀
 XỌ̀
-xox
-xOx
-xóx
-xÓx
-xòx
-xÒx
 xọx
 xỌx
 xọ́x
@@ -458,12 +458,12 @@ xs
 xS
 Xs
 XS
+xsx
+xSx
 xṣ
 xṢ
 Xṣ
 XṢ
-xsx
-xSx
 xṣx
 xṢx
 xt

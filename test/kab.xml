@@ -1,0 +1,471 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
+<!-- For information, see readme.html -->
+ <cldrTest version='1.7' base='kab'>
+ <!-- Kabyle [Taqbaylit] -->
+  <number 
+locales='kab kab_DZ'>
+<!-- Kabyle [Taqbaylit@]; Kabyle (Algeria) [Taqbaylit (Lezzayer)@] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal'>0,01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='decimal'>-0,01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal'>123,456</result>
+   <result numberType='percent'>12 346%</result>
+   <result numberType='scientific'>1,23456E2</result>
+   <result input='-123.456' numberType='integer'>-123</result>
+   <result numberType='decimal'>-123,456</result>
+   <result numberType='percent'>-12 346%</result>
+   <result numberType='scientific'>-1,23456E2</result>
+   <result input='123456.78' numberType='integer'>123 457</result>
+   <result numberType='decimal'>123 456,78</result>
+   <result numberType='percent'>12 345 678%</result>
+   <result numberType='scientific'>1,2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-123 457</result>
+   <result numberType='decimal'>-123 456,78</result>
+   <result numberType='percent'>-12 345 678%</result>
+   <result numberType='scientific'>-1,2345678E5</result>
+   <result input='Infinity' numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result input='-Infinity' numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
+  </number>
+  <date 
+locales='kab kab_DZ'>
+<!-- Kabyle [Taqbaylit@]; Kabyle (Algeria) [Taqbaylit (Lezzayer)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
+   <result dateType='short' timeType='none'>31/1/1900</result>
+   <result timeType='short'>31/1/1900 00:00</result>
+   <result timeType='medium'>31/1/1900 00:00:00</result>
+   <result dateType='medium' timeType='none'>31 Yen, 1900</result>
+   <result timeType='short'>31 Yen, 1900 00:00</result>
+   <result timeType='medium'>31 Yen, 1900 00:00:00</result>
+   <result dateType='long' timeType='none'>31 Yennayer 1900</result>
+   <result timeType='short'>31 Yennayer 1900 00:00</result>
+   <result timeType='medium'>31 Yennayer 1900 00:00:00</result>
+   <result dateType='full' timeType='none'>Kuẓass 31 Yennayer 1900</result>
+   <result timeType='short'>Kuẓass 31 Yennayer 1900 00:00</result>
+   <result timeType='medium'>Kuẓass 31 Yennayer 1900 00:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
+   <result dateType='short' timeType='none'>28/2/1909</result>
+   <result timeType='short'>28/2/1909 00:00</result>
+   <result timeType='medium'>28/2/1909 00:00:01</result>
+   <result dateType='medium' timeType='none'>28 Fur, 1909</result>
+   <result timeType='short'>28 Fur, 1909 00:00</result>
+   <result timeType='medium'>28 Fur, 1909 00:00:01</result>
+   <result dateType='long' timeType='none'>28 Fuṛar 1909</result>
+   <result timeType='short'>28 Fuṛar 1909 00:00</result>
+   <result timeType='medium'>28 Fuṛar 1909 00:00:01</result>
+   <result dateType='full' timeType='none'>Yanass 28 Fuṛar 1909</result>
+   <result timeType='short'>Yanass 28 Fuṛar 1909 00:00</result>
+   <result timeType='medium'>Yanass 28 Fuṛar 1909 00:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
+   <result dateType='short' timeType='none'>26/3/1918</result>
+   <result timeType='short'>26/3/1918 00:59</result>
+   <result timeType='medium'>26/3/1918 00:59:59</result>
+   <result dateType='medium' timeType='none'>26 Meɣ, 1918</result>
+   <result timeType='short'>26 Meɣ, 1918 00:59</result>
+   <result timeType='medium'>26 Meɣ, 1918 00:59:59</result>
+   <result dateType='long' timeType='none'>26 Meɣres 1918</result>
+   <result timeType='short'>26 Meɣres 1918 00:59</result>
+   <result timeType='medium'>26 Meɣres 1918 00:59:59</result>
+   <result dateType='full' timeType='none'>Kraḍass 26 Meɣres 1918</result>
+   <result timeType='short'>Kraḍass 26 Meɣres 1918 00:59</result>
+   <result timeType='medium'>Kraḍass 26 Meɣres 1918 00:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
+   <result dateType='short' timeType='none'>24/4/1932</result>
+   <result timeType='short'>24/4/1932 01:00</result>
+   <result timeType='medium'>24/4/1932 01:00:00</result>
+   <result dateType='medium' timeType='none'>24 Yeb, 1932</result>
+   <result timeType='short'>24 Yeb, 1932 01:00</result>
+   <result timeType='medium'>24 Yeb, 1932 01:00:00</result>
+   <result dateType='long' timeType='none'>24 Yebrir 1932</result>
+   <result timeType='short'>24 Yebrir 1932 01:00</result>
+   <result timeType='medium'>24 Yebrir 1932 01:00:00</result>
+   <result dateType='full' timeType='none'>Yanass 24 Yebrir 1932</result>
+   <result timeType='short'>Yanass 24 Yebrir 1932 01:00</result>
+   <result timeType='medium'>Yanass 24 Yebrir 1932 01:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
+   <result dateType='short' timeType='none'>20/5/1945</result>
+   <result timeType='short'>20/5/1945 01:00</result>
+   <result timeType='medium'>20/5/1945 01:00:01</result>
+   <result dateType='medium' timeType='none'>20 May, 1945</result>
+   <result timeType='short'>20 May, 1945 01:00</result>
+   <result timeType='medium'>20 May, 1945 01:00:01</result>
+   <result dateType='long' timeType='none'>20 Mayyu 1945</result>
+   <result timeType='short'>20 Mayyu 1945 01:00</result>
+   <result timeType='medium'>20 Mayyu 1945 01:00:01</result>
+   <result dateType='full' timeType='none'>Yanass 20 Mayyu 1945</result>
+   <result timeType='short'>Yanass 20 Mayyu 1945 01:00</result>
+   <result timeType='medium'>Yanass 20 Mayyu 1945 01:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result dateType='short' timeType='none'>18/6/1952</result>
+   <result timeType='short'>18/6/1952 11:59</result>
+   <result timeType='medium'>18/6/1952 11:59:59</result>
+   <result dateType='medium' timeType='none'>18 Yun, 1952</result>
+   <result timeType='short'>18 Yun, 1952 11:59</result>
+   <result timeType='medium'>18 Yun, 1952 11:59:59</result>
+   <result dateType='long' timeType='none'>18 Yunyu 1952</result>
+   <result timeType='short'>18 Yunyu 1952 11:59</result>
+   <result timeType='medium'>18 Yunyu 1952 11:59:59</result>
+   <result dateType='full' timeType='none'>Kuẓass 18 Yunyu 1952</result>
+   <result timeType='short'>Kuẓass 18 Yunyu 1952 11:59</result>
+   <result timeType='medium'>Kuẓass 18 Yunyu 1952 11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result dateType='short' timeType='none'>16/7/1973</result>
+   <result timeType='short'>16/7/1973 12:00</result>
+   <result timeType='medium'>16/7/1973 12:00:00</result>
+   <result dateType='medium' timeType='none'>16 Yul, 1973</result>
+   <result timeType='short'>16 Yul, 1973 12:00</result>
+   <result timeType='medium'>16 Yul, 1973 12:00:00</result>
+   <result dateType='long' timeType='none'>16 Yulyu 1973</result>
+   <result timeType='short'>16 Yulyu 1973 12:00</result>
+   <result timeType='medium'>16 Yulyu 1973 12:00:00</result>
+   <result dateType='full' timeType='none'>Sanass 16 Yulyu 1973</result>
+   <result timeType='short'>Sanass 16 Yulyu 1973 12:00</result>
+   <result timeType='medium'>Sanass 16 Yulyu 1973 12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result dateType='short' timeType='none'>14/8/1999</result>
+   <result timeType='short'>14/8/1999 12:00</result>
+   <result timeType='medium'>14/8/1999 12:00:01</result>
+   <result dateType='medium' timeType='none'>14 Ɣuc, 1999</result>
+   <result timeType='short'>14 Ɣuc, 1999 12:00</result>
+   <result timeType='medium'>14 Ɣuc, 1999 12:00:01</result>
+   <result dateType='long' timeType='none'>14 Ɣuct 1999</result>
+   <result timeType='short'>14 Ɣuct 1999 12:00</result>
+   <result timeType='medium'>14 Ɣuct 1999 12:00:01</result>
+   <result dateType='full' timeType='none'>Sayass 14 Ɣuct 1999</result>
+   <result timeType='short'>Sayass 14 Ɣuct 1999 12:00</result>
+   <result timeType='medium'>Sayass 14 Ɣuct 1999 12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result dateType='short' timeType='none'>12/9/2000</result>
+   <result timeType='short'>12/9/2000 22:59</result>
+   <result timeType='medium'>12/9/2000 22:59:59</result>
+   <result dateType='medium' timeType='none'>12 Cte, 2000</result>
+   <result timeType='short'>12 Cte, 2000 22:59</result>
+   <result timeType='medium'>12 Cte, 2000 22:59:59</result>
+   <result dateType='long' timeType='none'>12 Ctembeṛ 2000</result>
+   <result timeType='short'>12 Ctembeṛ 2000 22:59</result>
+   <result timeType='medium'>12 Ctembeṛ 2000 22:59:59</result>
+   <result dateType='full' timeType='none'>Kraḍass 12 Ctembeṛ 2000</result>
+   <result timeType='short'>Kraḍass 12 Ctembeṛ 2000 22:59</result>
+   <result timeType='medium'>Kraḍass 12 Ctembeṛ 2000 22:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result dateType='short' timeType='none'>8/10/2001</result>
+   <result timeType='short'>8/10/2001 23:00</result>
+   <result timeType='medium'>8/10/2001 23:00:00</result>
+   <result dateType='medium' timeType='none'>8 Tub, 2001</result>
+   <result timeType='short'>8 Tub, 2001 23:00</result>
+   <result timeType='medium'>8 Tub, 2001 23:00:00</result>
+   <result dateType='long' timeType='none'>8 Tubeṛ 2001</result>
+   <result timeType='short'>8 Tubeṛ 2001 23:00</result>
+   <result timeType='medium'>8 Tubeṛ 2001 23:00:00</result>
+   <result dateType='full' timeType='none'>Sanass 8 Tubeṛ 2001</result>
+   <result timeType='short'>Sanass 8 Tubeṛ 2001 23:00</result>
+   <result timeType='medium'>Sanass 8 Tubeṛ 2001 23:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result dateType='short' timeType='none'>4/11/2004</result>
+   <result timeType='short'>4/11/2004 23:00</result>
+   <result timeType='medium'>4/11/2004 23:00:01</result>
+   <result dateType='medium' timeType='none'>4 Nun, 2004</result>
+   <result timeType='short'>4 Nun, 2004 23:00</result>
+   <result timeType='medium'>4 Nun, 2004 23:00:01</result>
+   <result dateType='long' timeType='none'>4 Nunembeṛ 2004</result>
+   <result timeType='short'>4 Nunembeṛ 2004 23:00</result>
+   <result timeType='medium'>4 Nunembeṛ 2004 23:00:01</result>
+   <result dateType='full' timeType='none'>Samass 4 Nunembeṛ 2004</result>
+   <result timeType='short'>Samass 4 Nunembeṛ 2004 23:00</result>
+   <result timeType='medium'>Samass 4 Nunembeṛ 2004 23:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result dateType='short' timeType='none'>1/12/2010</result>
+   <result timeType='short'>1/12/2010 23:59</result>
+   <result timeType='medium'>1/12/2010 23:59:59</result>
+   <result dateType='medium' timeType='none'>1 Duǧ, 2010</result>
+   <result timeType='short'>1 Duǧ, 2010 23:59</result>
+   <result timeType='medium'>1 Duǧ, 2010 23:59:59</result>
+   <result dateType='long' timeType='none'>1 Duǧembeṛ 2010</result>
+   <result timeType='short'>1 Duǧembeṛ 2010 23:59</result>
+   <result timeType='medium'>1 Duǧembeṛ 2010 23:59:59</result>
+   <result dateType='full' timeType='none'>Kuẓass 1 Duǧembeṛ 2010</result>
+   <result timeType='short'>Kuẓass 1 Duǧembeṛ 2010 23:59</result>
+   <result timeType='medium'>Kuẓass 1 Duǧembeṛ 2010 23:59:59</result>
+  </date>
+  <zoneFields 
+locales='kab kab_DZ'>
+<!-- Kabyle [Taqbaylit@]; Kabyle (Algeria) [Taqbaylit (Lezzayer)@] -->
+  </zoneFields>
+  <collation 
+locales='kab kab_DZ'>
+<!-- Kabyle [Taqbaylit@]; Kabyle (Algeria) [Taqbaylit (Lezzayer)@] -->
+   <result draft='unconfirmed approved'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xa
+xA
+Xa
+XA
+xax
+xAx
+xb
+xB
+Xb
+XB
+xbx
+xBx
+xc
+xC
+Xc
+XC
+xč
+xČ
+Xč
+XČ
+xcx
+xCx
+xčx
+xČx
+xd
+xD
+Xd
+XD
+xḍ
+xḌ
+Xḍ
+XḌ
+xdx
+xDx
+xḍx
+xḌx
+xe
+xE
+Xe
+XE
+xex
+xEx
+xɛ
+xƐ
+Xɛ
+XƐ
+xɛx
+xƐx
+xf
+xF
+Xf
+XF
+xfx
+xFx
+xg
+xG
+Xg
+XG
+xǧ
+xǦ
+Xǧ
+XǦ
+xgx
+xGx
+xǧx
+xǦx
+xɣ
+xƔ
+Xɣ
+XƔ
+xɣx
+xƔx
+xh
+xH
+Xh
+XH
+xḥ
+xḤ
+Xḥ
+XḤ
+xhx
+xHx
+xḥx
+xḤx
+xi
+xI
+Xi
+XI
+xix
+xIx
+xj
+xJ
+Xj
+XJ
+xjx
+xJx
+xk
+xK
+Xk
+XK
+xkx
+xKx
+xl
+xL
+Xl
+XL
+xlx
+xLx
+xm
+xM
+Xm
+XM
+xmx
+xMx
+xn
+xN
+Xn
+XN
+xnx
+xNx
+xo
+xO
+Xo
+XO
+xox
+xOx
+xp
+xP
+Xp
+XP
+xpx
+xPx
+xq
+xQ
+Xq
+XQ
+xqx
+xQx
+xr
+xR
+Xr
+XR
+xṛ
+xṚ
+Xṛ
+XṚ
+xrx
+xRx
+xṛx
+xṚx
+xs
+xS
+Xs
+XS
+xṣ
+xṢ
+Xṣ
+XṢ
+xsx
+xSx
+xṣx
+xṢx
+xt
+xT
+Xt
+XT
+xṭ
+xṬ
+Xṭ
+XṬ
+xtx
+xTx
+xṭx
+xṬx
+xu
+xU
+Xu
+XU
+xux
+xUx
+xv
+xV
+Xv
+XV
+xvx
+xVx
+xw
+xW
+Xw
+XW
+xwx
+xWx
+xx
+xX
+Xx
+XX
+xxx
+xXx
+xy
+xY
+Xy
+XY
+xyx
+xYx
+xz
+xZ
+Xz
+XZ
+xẓ
+xẒ
+Xẓ
+XẒ
+xzx
+xZx
+xẓx
+xẒx
+</result>
+  </collation>
+ </cldrTest>

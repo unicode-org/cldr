@@ -1,0 +1,610 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
+<!-- For information, see readme.html -->
+ <cldrTest version='1.7' base='az_Cyrl'>
+ <!-- Azerbaijani (Cyrillic) [Азәрбајҹан (kiril)] -->
+  <number 
+locales='az_Cyrl az_Cyrl_AZ'>
+<!-- Azerbaijani (Cyrillic) [Азәрбајҹан (kiril)@]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (kiril, Азәрбајҹан)@] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal' draft='unconfirmed'>0,01</result>
+   <result draft='approved'>0.01</result>
+   <result numberType='percent' draft='unconfirmed approved'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='decimal' draft='unconfirmed'>-0,01</result>
+   <result draft='approved'>-0.01</result>
+   <result numberType='percent' draft='unconfirmed approved'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal' draft='unconfirmed'>123,456</result>
+   <result draft='approved'>123.456</result>
+   <result numberType='percent' draft='unconfirmed'>12.346%</result>
+   <result draft='approved'>12,346%</result>
+   <result numberType='scientific' draft='unconfirmed'>1,23456E2</result>
+   <result draft='approved'>1.23456E2</result>
+   <result input='-123.456' numberType='integer' draft='unconfirmed approved'>-123</result>
+   <result numberType='decimal' draft='unconfirmed'>-123,456</result>
+   <result draft='approved'>-123.456</result>
+   <result numberType='percent' draft='unconfirmed'>-12.346%</result>
+   <result draft='approved'>-12,346%</result>
+   <result numberType='scientific' draft='unconfirmed'>-1,23456E2</result>
+   <result draft='approved'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer' draft='unconfirmed'>123.457</result>
+   <result draft='approved'>123,457</result>
+   <result numberType='decimal' draft='unconfirmed'>123.456,78</result>
+   <result draft='approved'>123,456.78</result>
+   <result numberType='percent' draft='unconfirmed'>12.345.678%</result>
+   <result draft='approved'>12,345,678%</result>
+   <result numberType='scientific' draft='unconfirmed'>1,2345678E5</result>
+   <result draft='approved'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer' draft='unconfirmed'>-123.457</result>
+   <result draft='approved'>-123,457</result>
+   <result numberType='decimal' draft='unconfirmed'>-123.456,78</result>
+   <result draft='approved'>-123,456.78</result>
+   <result numberType='percent' draft='unconfirmed'>-12.345.678%</result>
+   <result draft='approved'>-12,345,678%</result>
+   <result numberType='scientific' draft='unconfirmed'>-1,2345678E5</result>
+   <result draft='approved'>-1.2345678E5</result>
+   <result input='Infinity' numberType='integer' draft='unconfirmed approved'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result input='-Infinity' numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
+  </number>
+  <date 
+locales='az_Cyrl az_Cyrl_AZ'>
+<!-- Azerbaijani (Cyrillic) [Азәрбајҹан (kiril)@]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (kiril, Азәрбајҹан)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>00/01/31</result>
+   <result draft='approved'>1900-01-31</result>
+   <result timeType='short' draft='unconfirmed'>00/01/31 00:00</result>
+   <result draft='approved'>1900-01-31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>00/01/31 00:00:00</result>
+   <result draft='approved'>1900-01-31 00:00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>31 yan, 1900</result>
+   <result timeType='short'>31 yan, 1900 00:00</result>
+   <result timeType='medium'>31 yan, 1900 00:00:00</result>
+   <result dateType='long' timeType='none'>31 јанвар , 1900</result>
+   <result timeType='short'>31 јанвар , 1900 00:00</result>
+   <result timeType='medium'>31 јанвар , 1900 00:00:00</result>
+   <result dateType='full' timeType='none'>чәршәнбә, 31, јанвар, 1900</result>
+   <result timeType='short'>чәршәнбә, 31, јанвар, 1900 00:00</result>
+   <result timeType='medium'>чәршәнбә, 31, јанвар, 1900 00:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>09/02/28</result>
+   <result draft='approved'>1909-02-28</result>
+   <result timeType='short' draft='unconfirmed'>09/02/28 00:00</result>
+   <result draft='approved'>1909-02-28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>09/02/28 00:00:01</result>
+   <result draft='approved'>1909-02-28 00:00:01</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>28 fev, 1909</result>
+   <result timeType='short'>28 fev, 1909 00:00</result>
+   <result timeType='medium'>28 fev, 1909 00:00:01</result>
+   <result dateType='long' timeType='none'>28 феврал , 1909</result>
+   <result timeType='short'>28 феврал , 1909 00:00</result>
+   <result timeType='medium'>28 феврал , 1909 00:00:01</result>
+   <result dateType='full' timeType='none'>базар, 28, феврал, 1909</result>
+   <result timeType='short'>базар, 28, феврал, 1909 00:00</result>
+   <result timeType='medium'>базар, 28, феврал, 1909 00:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>18/03/26</result>
+   <result draft='approved'>1918-03-26</result>
+   <result timeType='short' draft='unconfirmed'>18/03/26 00:59</result>
+   <result draft='approved'>1918-03-26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>18/03/26 00:59:59</result>
+   <result draft='approved'>1918-03-26 00:59:59</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>26 mar, 1918</result>
+   <result timeType='short'>26 mar, 1918 00:59</result>
+   <result timeType='medium'>26 mar, 1918 00:59:59</result>
+   <result dateType='long' timeType='none'>26 март , 1918</result>
+   <result timeType='short'>26 март , 1918 00:59</result>
+   <result timeType='medium'>26 март , 1918 00:59:59</result>
+   <result dateType='full' timeType='none'>чәршәнбә ахшамы, 26, март, 1918</result>
+   <result timeType='short'>чәршәнбә ахшамы, 26, март, 1918 00:59</result>
+   <result timeType='medium'>чәршәнбә ахшамы, 26, март, 1918 00:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>32/04/24</result>
+   <result draft='approved'>1932-04-24</result>
+   <result timeType='short' draft='unconfirmed'>32/04/24 01:00</result>
+   <result draft='approved'>1932-04-24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>32/04/24 01:00:00</result>
+   <result draft='approved'>1932-04-24 01:00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>24 apr, 1932</result>
+   <result timeType='short'>24 apr, 1932 01:00</result>
+   <result timeType='medium'>24 apr, 1932 01:00:00</result>
+   <result dateType='long' timeType='none'>24 апрел , 1932</result>
+   <result timeType='short'>24 апрел , 1932 01:00</result>
+   <result timeType='medium'>24 апрел , 1932 01:00:00</result>
+   <result dateType='full' timeType='none'>базар, 24, апрел, 1932</result>
+   <result timeType='short'>базар, 24, апрел, 1932 01:00</result>
+   <result timeType='medium'>базар, 24, апрел, 1932 01:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>45/05/20</result>
+   <result draft='approved'>1945-05-20</result>
+   <result timeType='short' draft='unconfirmed'>45/05/20 01:00</result>
+   <result draft='approved'>1945-05-20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>45/05/20 01:00:01</result>
+   <result draft='approved'>1945-05-20 01:00:01</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>20 may, 1945</result>
+   <result timeType='short'>20 may, 1945 01:00</result>
+   <result timeType='medium'>20 may, 1945 01:00:01</result>
+   <result dateType='long' timeType='none'>20 май , 1945</result>
+   <result timeType='short'>20 май , 1945 01:00</result>
+   <result timeType='medium'>20 май , 1945 01:00:01</result>
+   <result dateType='full' timeType='none'>базар, 20, май, 1945</result>
+   <result timeType='short'>базар, 20, май, 1945 01:00</result>
+   <result timeType='medium'>базар, 20, май, 1945 01:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>52/06/18</result>
+   <result draft='approved'>1952-06-18</result>
+   <result timeType='short' draft='unconfirmed'>52/06/18 11:59</result>
+   <result draft='approved'>1952-06-18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>52/06/18 11:59:59</result>
+   <result draft='approved'>1952-06-18 11:59:59</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>18 iyn, 1952</result>
+   <result timeType='short'>18 iyn, 1952 11:59</result>
+   <result timeType='medium'>18 iyn, 1952 11:59:59</result>
+   <result dateType='long' timeType='none'>18 ијун , 1952</result>
+   <result timeType='short'>18 ијун , 1952 11:59</result>
+   <result timeType='medium'>18 ијун , 1952 11:59:59</result>
+   <result dateType='full' timeType='none'>чәршәнбә, 18, ијун, 1952</result>
+   <result timeType='short'>чәршәнбә, 18, ијун, 1952 11:59</result>
+   <result timeType='medium'>чәршәнбә, 18, ијун, 1952 11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>73/07/16</result>
+   <result draft='approved'>1973-07-16</result>
+   <result timeType='short' draft='unconfirmed'>73/07/16 12:00</result>
+   <result draft='approved'>1973-07-16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>73/07/16 12:00:00</result>
+   <result draft='approved'>1973-07-16 12:00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>16 iyl, 1973</result>
+   <result timeType='short'>16 iyl, 1973 12:00</result>
+   <result timeType='medium'>16 iyl, 1973 12:00:00</result>
+   <result dateType='long' timeType='none'>16 ијул , 1973</result>
+   <result timeType='short'>16 ијул , 1973 12:00</result>
+   <result timeType='medium'>16 ијул , 1973 12:00:00</result>
+   <result dateType='full' timeType='none'>базар ертәси, 16, ијул, 1973</result>
+   <result timeType='short'>базар ертәси, 16, ијул, 1973 12:00</result>
+   <result timeType='medium'>базар ертәси, 16, ијул, 1973 12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>99/08/14</result>
+   <result draft='approved'>1999-08-14</result>
+   <result timeType='short' draft='unconfirmed'>99/08/14 12:00</result>
+   <result draft='approved'>1999-08-14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>99/08/14 12:00:01</result>
+   <result draft='approved'>1999-08-14 12:00:01</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>14 avq, 1999</result>
+   <result timeType='short'>14 avq, 1999 12:00</result>
+   <result timeType='medium'>14 avq, 1999 12:00:01</result>
+   <result dateType='long' timeType='none'>14 август , 1999</result>
+   <result timeType='short'>14 август , 1999 12:00</result>
+   <result timeType='medium'>14 август , 1999 12:00:01</result>
+   <result dateType='full' timeType='none'>шәнбә, 14, август, 1999</result>
+   <result timeType='short'>шәнбә, 14, август, 1999 12:00</result>
+   <result timeType='medium'>шәнбә, 14, август, 1999 12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>00/09/12</result>
+   <result draft='approved'>2000-09-12</result>
+   <result timeType='short' draft='unconfirmed'>00/09/12 22:59</result>
+   <result draft='approved'>2000-09-12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>00/09/12 22:59:59</result>
+   <result draft='approved'>2000-09-12 22:59:59</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>12 sen, 2000</result>
+   <result timeType='short'>12 sen, 2000 22:59</result>
+   <result timeType='medium'>12 sen, 2000 22:59:59</result>
+   <result dateType='long' timeType='none'>12 сентјабр , 2000</result>
+   <result timeType='short'>12 сентјабр , 2000 22:59</result>
+   <result timeType='medium'>12 сентјабр , 2000 22:59:59</result>
+   <result dateType='full' timeType='none'>чәршәнбә ахшамы, 12, сентјабр, 2000</result>
+   <result timeType='short'>чәршәнбә ахшамы, 12, сентјабр, 2000 22:59</result>
+   <result timeType='medium'>чәршәнбә ахшамы, 12, сентјабр, 2000 22:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>01/10/08</result>
+   <result draft='approved'>2001-10-08</result>
+   <result timeType='short' draft='unconfirmed'>01/10/08 23:00</result>
+   <result draft='approved'>2001-10-08 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>01/10/08 23:00:00</result>
+   <result draft='approved'>2001-10-08 23:00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>8 okt, 2001</result>
+   <result timeType='short'>8 okt, 2001 23:00</result>
+   <result timeType='medium'>8 okt, 2001 23:00:00</result>
+   <result dateType='long' timeType='none'>8 октјабр , 2001</result>
+   <result timeType='short'>8 октјабр , 2001 23:00</result>
+   <result timeType='medium'>8 октјабр , 2001 23:00:00</result>
+   <result dateType='full' timeType='none'>базар ертәси, 8, октјабр, 2001</result>
+   <result timeType='short'>базар ертәси, 8, октјабр, 2001 23:00</result>
+   <result timeType='medium'>базар ертәси, 8, октјабр, 2001 23:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>04/11/04</result>
+   <result draft='approved'>2004-11-04</result>
+   <result timeType='short' draft='unconfirmed'>04/11/04 23:00</result>
+   <result draft='approved'>2004-11-04 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>04/11/04 23:00:01</result>
+   <result draft='approved'>2004-11-04 23:00:01</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>4 noy, 2004</result>
+   <result timeType='short'>4 noy, 2004 23:00</result>
+   <result timeType='medium'>4 noy, 2004 23:00:01</result>
+   <result dateType='long' timeType='none'>4 нојабр , 2004</result>
+   <result timeType='short'>4 нојабр , 2004 23:00</result>
+   <result timeType='medium'>4 нојабр , 2004 23:00:01</result>
+   <result dateType='full' timeType='none'>ҹүмә ахшамы, 4, нојабр, 2004</result>
+   <result timeType='short'>ҹүмә ахшамы, 4, нојабр, 2004 23:00</result>
+   <result timeType='medium'>ҹүмә ахшамы, 4, нојабр, 2004 23:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>10/12/01</result>
+   <result draft='approved'>2010-12-01</result>
+   <result timeType='short' draft='unconfirmed'>10/12/01 23:59</result>
+   <result draft='approved'>2010-12-01 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>10/12/01 23:59:59</result>
+   <result draft='approved'>2010-12-01 23:59:59</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1 dek, 2010</result>
+   <result timeType='short'>1 dek, 2010 23:59</result>
+   <result timeType='medium'>1 dek, 2010 23:59:59</result>
+   <result dateType='long' timeType='none'>1 декабр , 2010</result>
+   <result timeType='short'>1 декабр , 2010 23:59</result>
+   <result timeType='medium'>1 декабр , 2010 23:59:59</result>
+   <result dateType='full' timeType='none'>чәршәнбә, 1, декабр, 2010</result>
+   <result timeType='short'>чәршәнбә, 1, декабр, 2010 23:59</result>
+   <result timeType='medium'>чәршәнбә, 1, декабр, 2010 23:59:59</result>
+  </date>
+  <zoneFields 
+locales='az_Cyrl az_Cyrl_AZ'>
+<!-- Azerbaijani (Cyrillic) [Азәрбајҹан (kiril)@]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (kiril, Азәрбајҹан)@] -->
+  </zoneFields>
+  <collation 
+locales='az_Cyrl az_Cyrl_AZ'>
+<!-- Azerbaijani (Cyrillic) [Азәрбајҹан (kiril)@]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (kiril, Азәрбајҹан)@] -->
+   <result draft='unconfirmed approved'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xç
+xÇ
+Xç
+XÇ
+xçx
+xÇx
+xə
+xƏ
+Xə
+XƏ
+xəx
+xƏx
+xğ
+xĞ
+Xğ
+XĞ
+xğx
+xĞx
+xx
+xX
+Xx
+XX
+xxx
+xXx
+xı
+xI
+Xı
+XI
+xıx
+xIx
+xi
+xİ
+Xi
+Xİ
+xi̇
+Xi̇
+xix
+xİx
+xi̇x
+xq
+xQ
+Xq
+XQ
+xqx
+xQx
+xö
+xÖ
+Xö
+XÖ
+xöx
+xÖx
+xş
+xŞ
+Xş
+XŞ
+xşx
+xŞx
+xü
+xÜ
+Xü
+XÜ
+xüx
+xÜx
+xа
+xА
+Xа
+XА
+xаx
+xАx
+xә
+xӘ
+Xә
+XӘ
+xәx
+xӘx
+xб
+xБ
+Xб
+XБ
+xбx
+xБx
+xв
+xВ
+Xв
+XВ
+xвx
+xВx
+xг
+xГ
+Xг
+XГ
+xгx
+xГx
+xғ
+xҒ
+Xғ
+XҒ
+xғx
+xҒx
+xд
+xД
+Xд
+XД
+xдx
+xДx
+xе
+xЕ
+Xе
+XЕ
+xеx
+xЕx
+xж
+xЖ
+Xж
+XЖ
+xжx
+xЖx
+xз
+xЗ
+Xз
+XЗ
+xзx
+xЗx
+xи
+xИ
+Xи
+XИ
+xиx
+xИx
+xй
+xЙ
+Xй
+XЙ
+xйx
+xЙx
+xј
+xЈ
+Xј
+XЈ
+xјx
+xЈx
+xк
+xК
+Xк
+XК
+xкx
+xКx
+xҝ
+xҜ
+Xҝ
+XҜ
+xҝx
+xҜx
+xл
+xЛ
+Xл
+XЛ
+xлx
+xЛx
+xм
+xМ
+Xм
+XМ
+xмx
+xМx
+xн
+xН
+Xн
+XН
+xнx
+xНx
+xо
+xО
+Xо
+XО
+xоx
+xОx
+xө
+xӨ
+Xө
+XӨ
+xөx
+xӨx
+xп
+xП
+Xп
+XП
+xпx
+xПx
+xр
+xР
+Xр
+XР
+xрx
+xРx
+xс
+xС
+Xс
+XС
+xсx
+xСx
+xт
+xТ
+Xт
+XТ
+xтx
+xТx
+xу
+xУ
+Xу
+XУ
+xуx
+xУx
+xү
+xҮ
+Xү
+XҮ
+xүx
+xҮx
+xф
+xФ
+Xф
+XФ
+xфx
+xФx
+xх
+xХ
+Xх
+XХ
+xхx
+xХx
+xһ
+xҺ
+Xһ
+XҺ
+xһx
+xҺx
+xц
+xЦ
+Xц
+XЦ
+xцx
+xЦx
+xч
+xЧ
+Xч
+XЧ
+xчx
+xЧx
+xҹ
+xҸ
+Xҹ
+XҸ
+xҹx
+xҸx
+xш
+xШ
+Xш
+XШ
+xшx
+xШx
+xщ
+xЩ
+Xщ
+XЩ
+xщx
+xЩx
+xъ
+xЪ
+Xъ
+XЪ
+xъx
+xЪx
+xы
+xЫ
+Xы
+XЫ
+xыx
+xЫx
+xь
+xЬ
+Xь
+XЬ
+xьx
+xЬx
+xэ
+xЭ
+Xэ
+XЭ
+xэx
+xЭx
+xю
+xЮ
+Xю
+XЮ
+xюx
+xЮx
+xя
+xЯ
+Xя
+XЯ
+xяx
+xЯx
+</result>
+  </collation>
+ </cldrTest>

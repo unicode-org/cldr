@@ -1,0 +1,372 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
+<!-- For information, see readme.html -->
+ <cldrTest version='1.7' base='shi_Tfng'>
+ <!-- Tachelhit (Tifinagh) [ⵜⴰⵎⴰⵣⵉⵖⵜ (Tfng)] -->
+  <number 
+locales='shi_Tfng shi_Tfng_MA'>
+<!-- Tachelhit (Tifinagh) [ⵜⴰⵎⴰⵣⵉⵖⵜ (Tfng)@]; Tachelhit (Tifinagh, Morocco) [ⵜⴰⵎⴰⵣⵉⵖⵜ (Tfng, ⵍⵎⵖⵔⵉⴱ)@] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal'>0,01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='decimal'>-0,01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal'>123,456</result>
+   <result numberType='percent'>12 346%</result>
+   <result numberType='scientific'>1,23456E2</result>
+   <result input='-123.456' numberType='integer'>-123</result>
+   <result numberType='decimal'>-123,456</result>
+   <result numberType='percent'>-12 346%</result>
+   <result numberType='scientific'>-1,23456E2</result>
+   <result input='123456.78' numberType='integer'>123 457</result>
+   <result numberType='decimal'>123 456,78</result>
+   <result numberType='percent'>12 345 678%</result>
+   <result numberType='scientific'>1,2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-123 457</result>
+   <result numberType='decimal'>-123 456,78</result>
+   <result numberType='percent'>-12 345 678%</result>
+   <result numberType='scientific'>-1,2345678E5</result>
+   <result input='Infinity' numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result input='-Infinity' numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
+  </number>
+  <date 
+locales='shi_Tfng shi_Tfng_MA'>
+<!-- Tachelhit (Tifinagh) [ⵜⴰⵎⴰⵣⵉⵖⵜ (Tfng)@]; Tachelhit (Tifinagh, Morocco) [ⵜⴰⵎⴰⵣⵉⵖⵜ (Tfng, ⵍⵎⵖⵔⵉⴱ)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
+   <result dateType='short' timeType='none'>31/1/1900</result>
+   <result timeType='short'>31/1/1900 00:00</result>
+   <result timeType='medium'>31/1/1900 00:00:00</result>
+   <result dateType='medium' timeType='none'>31 ⵉⵏⵏ, 1900</result>
+   <result timeType='short'>31 ⵉⵏⵏ, 1900 00:00</result>
+   <result timeType='medium'>31 ⵉⵏⵏ, 1900 00:00:00</result>
+   <result dateType='long' timeType='none'>31 ⵉⵏⵏⴰⵢⵔ 1900</result>
+   <result timeType='short'>31 ⵉⵏⵏⴰⵢⵔ 1900 00:00</result>
+   <result timeType='medium'>31 ⵉⵏⵏⴰⵢⵔ 1900 00:00:00</result>
+   <result dateType='full' timeType='none'>ⴰⴽⵕⴰⵙ 31 ⵉⵏⵏⴰⵢⵔ 1900</result>
+   <result timeType='short'>ⴰⴽⵕⴰⵙ 31 ⵉⵏⵏⴰⵢⵔ 1900 00:00</result>
+   <result timeType='medium'>ⴰⴽⵕⴰⵙ 31 ⵉⵏⵏⴰⵢⵔ 1900 00:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
+   <result dateType='short' timeType='none'>28/2/1909</result>
+   <result timeType='short'>28/2/1909 00:00</result>
+   <result timeType='medium'>28/2/1909 00:00:01</result>
+   <result dateType='medium' timeType='none'>28 ⴱⵕⴰ, 1909</result>
+   <result timeType='short'>28 ⴱⵕⴰ, 1909 00:00</result>
+   <result timeType='medium'>28 ⴱⵕⴰ, 1909 00:00:01</result>
+   <result dateType='long' timeType='none'>28 ⴱⵕⴰⵢⵕ 1909</result>
+   <result timeType='short'>28 ⴱⵕⴰⵢⵕ 1909 00:00</result>
+   <result timeType='medium'>28 ⴱⵕⴰⵢⵕ 1909 00:00:01</result>
+   <result dateType='full' timeType='none'>ⴰⵙⴰⵎⴰⵙ 28 ⴱⵕⴰⵢⵕ 1909</result>
+   <result timeType='short'>ⴰⵙⴰⵎⴰⵙ 28 ⴱⵕⴰⵢⵕ 1909 00:00</result>
+   <result timeType='medium'>ⴰⵙⴰⵎⴰⵙ 28 ⴱⵕⴰⵢⵕ 1909 00:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
+   <result dateType='short' timeType='none'>26/3/1918</result>
+   <result timeType='short'>26/3/1918 00:59</result>
+   <result timeType='medium'>26/3/1918 00:59:59</result>
+   <result dateType='medium' timeType='none'>26 ⵎⴰⵕ, 1918</result>
+   <result timeType='short'>26 ⵎⴰⵕ, 1918 00:59</result>
+   <result timeType='medium'>26 ⵎⴰⵕ, 1918 00:59:59</result>
+   <result dateType='long' timeType='none'>26 ⵎⴰⵕⵚ 1918</result>
+   <result timeType='short'>26 ⵎⴰⵕⵚ 1918 00:59</result>
+   <result timeType='medium'>26 ⵎⴰⵕⵚ 1918 00:59:59</result>
+   <result dateType='full' timeType='none'>ⴰⵙⵉⵏⴰⵙ 26 ⵎⴰⵕⵚ 1918</result>
+   <result timeType='short'>ⴰⵙⵉⵏⴰⵙ 26 ⵎⴰⵕⵚ 1918 00:59</result>
+   <result timeType='medium'>ⴰⵙⵉⵏⴰⵙ 26 ⵎⴰⵕⵚ 1918 00:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
+   <result dateType='short' timeType='none'>24/4/1932</result>
+   <result timeType='short'>24/4/1932 01:00</result>
+   <result timeType='medium'>24/4/1932 01:00:00</result>
+   <result dateType='medium' timeType='none'>24 ⵉⴱⵔ, 1932</result>
+   <result timeType='short'>24 ⵉⴱⵔ, 1932 01:00</result>
+   <result timeType='medium'>24 ⵉⴱⵔ, 1932 01:00:00</result>
+   <result dateType='long' timeType='none'>24 ⵉⴱⵔⵉⵔ 1932</result>
+   <result timeType='short'>24 ⵉⴱⵔⵉⵔ 1932 01:00</result>
+   <result timeType='medium'>24 ⵉⴱⵔⵉⵔ 1932 01:00:00</result>
+   <result dateType='full' timeType='none'>ⴰⵙⴰⵎⴰⵙ 24 ⵉⴱⵔⵉⵔ 1932</result>
+   <result timeType='short'>ⴰⵙⴰⵎⴰⵙ 24 ⵉⴱⵔⵉⵔ 1932 01:00</result>
+   <result timeType='medium'>ⴰⵙⴰⵎⴰⵙ 24 ⵉⴱⵔⵉⵔ 1932 01:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
+   <result dateType='short' timeType='none'>20/5/1945</result>
+   <result timeType='short'>20/5/1945 01:00</result>
+   <result timeType='medium'>20/5/1945 01:00:01</result>
+   <result dateType='medium' timeType='none'>20 ⵎⴰⵢ, 1945</result>
+   <result timeType='short'>20 ⵎⴰⵢ, 1945 01:00</result>
+   <result timeType='medium'>20 ⵎⴰⵢ, 1945 01:00:01</result>
+   <result dateType='long' timeType='none'>20 ⵎⴰⵢⵢⵓ 1945</result>
+   <result timeType='short'>20 ⵎⴰⵢⵢⵓ 1945 01:00</result>
+   <result timeType='medium'>20 ⵎⴰⵢⵢⵓ 1945 01:00:01</result>
+   <result dateType='full' timeType='none'>ⴰⵙⴰⵎⴰⵙ 20 ⵎⴰⵢⵢⵓ 1945</result>
+   <result timeType='short'>ⴰⵙⴰⵎⴰⵙ 20 ⵎⴰⵢⵢⵓ 1945 01:00</result>
+   <result timeType='medium'>ⴰⵙⴰⵎⴰⵙ 20 ⵎⴰⵢⵢⵓ 1945 01:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result dateType='short' timeType='none'>18/6/1952</result>
+   <result timeType='short'>18/6/1952 11:59</result>
+   <result timeType='medium'>18/6/1952 11:59:59</result>
+   <result dateType='medium' timeType='none'>18 ⵢⵓⵏ, 1952</result>
+   <result timeType='short'>18 ⵢⵓⵏ, 1952 11:59</result>
+   <result timeType='medium'>18 ⵢⵓⵏ, 1952 11:59:59</result>
+   <result dateType='long' timeType='none'>18 ⵢⵓⵏⵢⵓ 1952</result>
+   <result timeType='short'>18 ⵢⵓⵏⵢⵓ 1952 11:59</result>
+   <result timeType='medium'>18 ⵢⵓⵏⵢⵓ 1952 11:59:59</result>
+   <result dateType='full' timeType='none'>ⴰⴽⵕⴰⵙ 18 ⵢⵓⵏⵢⵓ 1952</result>
+   <result timeType='short'>ⴰⴽⵕⴰⵙ 18 ⵢⵓⵏⵢⵓ 1952 11:59</result>
+   <result timeType='medium'>ⴰⴽⵕⴰⵙ 18 ⵢⵓⵏⵢⵓ 1952 11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result dateType='short' timeType='none'>16/7/1973</result>
+   <result timeType='short'>16/7/1973 12:00</result>
+   <result timeType='medium'>16/7/1973 12:00:00</result>
+   <result dateType='medium' timeType='none'>16 ⵢⵓⵍ, 1973</result>
+   <result timeType='short'>16 ⵢⵓⵍ, 1973 12:00</result>
+   <result timeType='medium'>16 ⵢⵓⵍ, 1973 12:00:00</result>
+   <result dateType='long' timeType='none'>16 ⵢⵓⵍⵢⵓⵣ 1973</result>
+   <result timeType='short'>16 ⵢⵓⵍⵢⵓⵣ 1973 12:00</result>
+   <result timeType='medium'>16 ⵢⵓⵍⵢⵓⵣ 1973 12:00:00</result>
+   <result dateType='full' timeType='none'>ⴰⵢⵏⴰⵙ 16 ⵢⵓⵍⵢⵓⵣ 1973</result>
+   <result timeType='short'>ⴰⵢⵏⴰⵙ 16 ⵢⵓⵍⵢⵓⵣ 1973 12:00</result>
+   <result timeType='medium'>ⴰⵢⵏⴰⵙ 16 ⵢⵓⵍⵢⵓⵣ 1973 12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result dateType='short' timeType='none'>14/8/1999</result>
+   <result timeType='short'>14/8/1999 12:00</result>
+   <result timeType='medium'>14/8/1999 12:00:01</result>
+   <result dateType='medium' timeType='none'>14 ⵖⵓⵛ, 1999</result>
+   <result timeType='short'>14 ⵖⵓⵛ, 1999 12:00</result>
+   <result timeType='medium'>14 ⵖⵓⵛ, 1999 12:00:01</result>
+   <result dateType='long' timeType='none'>14 ⵖⵓⵛⵜ 1999</result>
+   <result timeType='short'>14 ⵖⵓⵛⵜ 1999 12:00</result>
+   <result timeType='medium'>14 ⵖⵓⵛⵜ 1999 12:00:01</result>
+   <result dateType='full' timeType='none'>ⴰⵙⵉⴹⵢⴰⵙ 14 ⵖⵓⵛⵜ 1999</result>
+   <result timeType='short'>ⴰⵙⵉⴹⵢⴰⵙ 14 ⵖⵓⵛⵜ 1999 12:00</result>
+   <result timeType='medium'>ⴰⵙⵉⴹⵢⴰⵙ 14 ⵖⵓⵛⵜ 1999 12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result dateType='short' timeType='none'>12/9/2000</result>
+   <result timeType='short'>12/9/2000 22:59</result>
+   <result timeType='medium'>12/9/2000 22:59:59</result>
+   <result dateType='medium' timeType='none'>12 ⵛⵓⵜ, 2000</result>
+   <result timeType='short'>12 ⵛⵓⵜ, 2000 22:59</result>
+   <result timeType='medium'>12 ⵛⵓⵜ, 2000 22:59:59</result>
+   <result dateType='long' timeType='none'>12 ⵛⵓⵜⴰⵏⴱⵉⵔ 2000</result>
+   <result timeType='short'>12 ⵛⵓⵜⴰⵏⴱⵉⵔ 2000 22:59</result>
+   <result timeType='medium'>12 ⵛⵓⵜⴰⵏⴱⵉⵔ 2000 22:59:59</result>
+   <result dateType='full' timeType='none'>ⴰⵙⵉⵏⴰⵙ 12 ⵛⵓⵜⴰⵏⴱⵉⵔ 2000</result>
+   <result timeType='short'>ⴰⵙⵉⵏⴰⵙ 12 ⵛⵓⵜⴰⵏⴱⵉⵔ 2000 22:59</result>
+   <result timeType='medium'>ⴰⵙⵉⵏⴰⵙ 12 ⵛⵓⵜⴰⵏⴱⵉⵔ 2000 22:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result dateType='short' timeType='none'>8/10/2001</result>
+   <result timeType='short'>8/10/2001 23:00</result>
+   <result timeType='medium'>8/10/2001 23:00:00</result>
+   <result dateType='medium' timeType='none'>8 ⴽⵜⵓ, 2001</result>
+   <result timeType='short'>8 ⴽⵜⵓ, 2001 23:00</result>
+   <result timeType='medium'>8 ⴽⵜⵓ, 2001 23:00:00</result>
+   <result dateType='long' timeType='none'>8 ⴽⵜⵓⴱⵔ 2001</result>
+   <result timeType='short'>8 ⴽⵜⵓⴱⵔ 2001 23:00</result>
+   <result timeType='medium'>8 ⴽⵜⵓⴱⵔ 2001 23:00:00</result>
+   <result dateType='full' timeType='none'>ⴰⵢⵏⴰⵙ 8 ⴽⵜⵓⴱⵔ 2001</result>
+   <result timeType='short'>ⴰⵢⵏⴰⵙ 8 ⴽⵜⵓⴱⵔ 2001 23:00</result>
+   <result timeType='medium'>ⴰⵢⵏⴰⵙ 8 ⴽⵜⵓⴱⵔ 2001 23:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result dateType='short' timeType='none'>4/11/2004</result>
+   <result timeType='short'>4/11/2004 23:00</result>
+   <result timeType='medium'>4/11/2004 23:00:01</result>
+   <result dateType='medium' timeType='none'>4 ⵏⵓⵡ, 2004</result>
+   <result timeType='short'>4 ⵏⵓⵡ, 2004 23:00</result>
+   <result timeType='medium'>4 ⵏⵓⵡ, 2004 23:00:01</result>
+   <result dateType='long' timeType='none'>4 ⵏⵓⵡⴰⵏⴱⵉⵔ 2004</result>
+   <result timeType='short'>4 ⵏⵓⵡⴰⵏⴱⵉⵔ 2004 23:00</result>
+   <result timeType='medium'>4 ⵏⵓⵡⴰⵏⴱⵉⵔ 2004 23:00:01</result>
+   <result dateType='full' timeType='none'>ⴰⴽⵡⴰⵙ 4 ⵏⵓⵡⴰⵏⴱⵉⵔ 2004</result>
+   <result timeType='short'>ⴰⴽⵡⴰⵙ 4 ⵏⵓⵡⴰⵏⴱⵉⵔ 2004 23:00</result>
+   <result timeType='medium'>ⴰⴽⵡⴰⵙ 4 ⵏⵓⵡⴰⵏⴱⵉⵔ 2004 23:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result dateType='short' timeType='none'>1/12/2010</result>
+   <result timeType='short'>1/12/2010 23:59</result>
+   <result timeType='medium'>1/12/2010 23:59:59</result>
+   <result dateType='medium' timeType='none'>1 ⴷⵓⵊ, 2010</result>
+   <result timeType='short'>1 ⴷⵓⵊ, 2010 23:59</result>
+   <result timeType='medium'>1 ⴷⵓⵊ, 2010 23:59:59</result>
+   <result dateType='long' timeType='none'>1 ⴷⵓⵊⴰⵏⴱⵉⵔ 2010</result>
+   <result timeType='short'>1 ⴷⵓⵊⴰⵏⴱⵉⵔ 2010 23:59</result>
+   <result timeType='medium'>1 ⴷⵓⵊⴰⵏⴱⵉⵔ 2010 23:59:59</result>
+   <result dateType='full' timeType='none'>ⴰⴽⵕⴰⵙ 1 ⴷⵓⵊⴰⵏⴱⵉⵔ 2010</result>
+   <result timeType='short'>ⴰⴽⵕⴰⵙ 1 ⴷⵓⵊⴰⵏⴱⵉⵔ 2010 23:59</result>
+   <result timeType='medium'>ⴰⴽⵕⴰⵙ 1 ⴷⵓⵊⴰⵏⴱⵉⵔ 2010 23:59:59</result>
+  </date>
+  <zoneFields 
+locales='shi_Tfng shi_Tfng_MA'>
+<!-- Tachelhit (Tifinagh) [ⵜⴰⵎⴰⵣⵉⵖⵜ (Tfng)@]; Tachelhit (Tifinagh, Morocco) [ⵜⴰⵎⴰⵣⵉⵖⵜ (Tfng, ⵍⵎⵖⵔⵉⴱ)@] -->
+  </zoneFields>
+  <collation 
+locales='shi_Tfng shi_Tfng_MA'>
+<!-- Tachelhit (Tifinagh) [ⵜⴰⵎⴰⵣⵉⵖⵜ (Tfng)@]; Tachelhit (Tifinagh, Morocco) [ⵜⴰⵎⴰⵣⵉⵖⵜ (Tfng, ⵍⵎⵖⵔⵉⴱ)@] -->
+   <result draft='unconfirmed approved'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xo
+xO
+Xo
+XO
+xox
+xOx
+xp
+xP
+Xp
+XP
+xpx
+xPx
+xv
+xV
+Xv
+XV
+xvx
+xVx
+xⴰ
+Xⴰ
+xⴰx
+xⴱ
+Xⴱ
+xⴱx
+xⴳ
+Xⴳ
+xⴳx
+xⴳⵯ
+Xⴳⵯ
+xⴳⵯx
+xⴷ
+Xⴷ
+xⴷx
+xⴹ
+Xⴹ
+xⴹx
+xⴻ
+Xⴻ
+xⴻx
+xⴼ
+Xⴼ
+xⴼx
+xⴽ
+Xⴽ
+xⴽx
+xⴽⵯ
+Xⴽⵯ
+xⴽⵯx
+xⵀ
+Xⵀ
+xⵀx
+xⵃ
+Xⵃ
+xⵃx
+xⵄ
+Xⵄ
+xⵄx
+xⵅ
+Xⵅ
+xⵅx
+xⵇ
+Xⵇ
+xⵇx
+xⵉ
+Xⵉ
+xⵉx
+xⵊ
+Xⵊ
+xⵊx
+xⵍ
+Xⵍ
+xⵍx
+xⵎ
+Xⵎ
+xⵎx
+xⵏ
+Xⵏ
+xⵏx
+xⵓ
+Xⵓ
+xⵓx
+xⵔ
+Xⵔ
+xⵔx
+xⵕ
+Xⵕ
+xⵕx
+xⵖ
+Xⵖ
+xⵖx
+xⵙ
+Xⵙ
+xⵙx
+xⵚ
+Xⵚ
+xⵚx
+xⵛ
+Xⵛ
+xⵛx
+xⵜ
+Xⵜ
+xⵜx
+xⵟ
+Xⵟ
+xⵟx
+xⵡ
+Xⵡ
+xⵡx
+xⵢ
+Xⵢ
+xⵢx
+xⵣ
+Xⵣ
+xⵣx
+xⵥ
+Xⵥ
+xⵥx
+</result>
+  </collation>
+ </cldrTest>

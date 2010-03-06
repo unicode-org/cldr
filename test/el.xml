@@ -4,8 +4,8 @@
  <cldrTest version='1.7' base='el'>
  <!-- Greek [Ελληνικά] -->
   <number 
-locales='el el_CY el_GR'>
-<!-- Greek [Ελληνικά]; Greek (Cyprus) [Ελληνικά (Κύπρος)]; Greek (Greece) [Ελληνικά (Ελλάδα)] -->
+locales='el el_CY el_GR el_POLYTON'>
+<!-- Greek [Ελληνικά@]; Greek (Cyprus) [Ελληνικά (Κύπρος)@]; Greek (Greece) [Ελληνικά (Ελλάδα)@]; Greek (Polytonic) [Ἑλληνικά (Πολυτονικό)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,12 +57,12 @@ locales='el el_CY el_GR'>
   </number>
   <date 
 locales='el el_CY el_GR'>
-<!-- Greek [Ελληνικά]; Greek (Cyprus) [Ελληνικά (Κύπρος)]; Greek (Greece) [Ελληνικά (Ελλάδα)] -->
+<!-- Greek [Ελληνικά@]; Greek (Cyprus) [Ελληνικά (Κύπρος)@]; Greek (Greece) [Ελληνικά (Ελλάδα)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 π.μ.</result>
    <result timeType='medium'>12:00:00 π.μ.</result>
-   <result dateType='short' timeType='none'>31/01/1900</result>
-   <result timeType='short'>31/01/1900 12:00 π.μ.</result>
-   <result timeType='medium'>31/01/1900 12:00:00 π.μ.</result>
+   <result dateType='short' timeType='none'>31/1/00</result>
+   <result timeType='short'>31/1/00 12:00 π.μ.</result>
+   <result timeType='medium'>31/1/00 12:00:00 π.μ.</result>
    <result dateType='medium' timeType='none'>31 Ιαν 1900</result>
    <result timeType='short'>31 Ιαν 1900 12:00 π.μ.</result>
    <result timeType='medium'>31 Ιαν 1900 12:00:00 π.μ.</result>
@@ -74,9 +74,9 @@ locales='el el_CY el_GR'>
    <result timeType='medium'>Τετάρτη, 31 Ιανουαρίου 1900 12:00:00 π.μ.</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 π.μ.</result>
    <result timeType='medium'>12:00:01 π.μ.</result>
-   <result dateType='short' timeType='none'>28/02/1909</result>
-   <result timeType='short'>28/02/1909 12:00 π.μ.</result>
-   <result timeType='medium'>28/02/1909 12:00:01 π.μ.</result>
+   <result dateType='short' timeType='none'>28/2/09</result>
+   <result timeType='short'>28/2/09 12:00 π.μ.</result>
+   <result timeType='medium'>28/2/09 12:00:01 π.μ.</result>
    <result dateType='medium' timeType='none'>28 Φεβ 1909</result>
    <result timeType='short'>28 Φεβ 1909 12:00 π.μ.</result>
    <result timeType='medium'>28 Φεβ 1909 12:00:01 π.μ.</result>
@@ -88,9 +88,9 @@ locales='el el_CY el_GR'>
    <result timeType='medium'>Κυριακή, 28 Φεβρουαρίου 1909 12:00:01 π.μ.</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 π.μ.</result>
    <result timeType='medium'>12:59:59 π.μ.</result>
-   <result dateType='short' timeType='none'>26/03/1918</result>
-   <result timeType='short'>26/03/1918 12:59 π.μ.</result>
-   <result timeType='medium'>26/03/1918 12:59:59 π.μ.</result>
+   <result dateType='short' timeType='none'>26/3/18</result>
+   <result timeType='short'>26/3/18 12:59 π.μ.</result>
+   <result timeType='medium'>26/3/18 12:59:59 π.μ.</result>
    <result dateType='medium' timeType='none'>26 Μαρ 1918</result>
    <result timeType='short'>26 Μαρ 1918 12:59 π.μ.</result>
    <result timeType='medium'>26 Μαρ 1918 12:59:59 π.μ.</result>
@@ -102,9 +102,9 @@ locales='el el_CY el_GR'>
    <result timeType='medium'>Τρίτη, 26 Μαρτίου 1918 12:59:59 π.μ.</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 π.μ.</result>
    <result timeType='medium'>1:00:00 π.μ.</result>
-   <result dateType='short' timeType='none'>24/04/1932</result>
-   <result timeType='short'>24/04/1932 1:00 π.μ.</result>
-   <result timeType='medium'>24/04/1932 1:00:00 π.μ.</result>
+   <result dateType='short' timeType='none'>24/4/32</result>
+   <result timeType='short'>24/4/32 1:00 π.μ.</result>
+   <result timeType='medium'>24/4/32 1:00:00 π.μ.</result>
    <result dateType='medium' timeType='none'>24 Απρ 1932</result>
    <result timeType='short'>24 Απρ 1932 1:00 π.μ.</result>
    <result timeType='medium'>24 Απρ 1932 1:00:00 π.μ.</result>
@@ -116,9 +116,9 @@ locales='el el_CY el_GR'>
    <result timeType='medium'>Κυριακή, 24 Απριλίου 1932 1:00:00 π.μ.</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 π.μ.</result>
    <result timeType='medium'>1:00:01 π.μ.</result>
-   <result dateType='short' timeType='none'>20/05/1945</result>
-   <result timeType='short'>20/05/1945 1:00 π.μ.</result>
-   <result timeType='medium'>20/05/1945 1:00:01 π.μ.</result>
+   <result dateType='short' timeType='none'>20/5/45</result>
+   <result timeType='short'>20/5/45 1:00 π.μ.</result>
+   <result timeType='medium'>20/5/45 1:00:01 π.μ.</result>
    <result dateType='medium' timeType='none'>20 Μαϊ 1945</result>
    <result timeType='short'>20 Μαϊ 1945 1:00 π.μ.</result>
    <result timeType='medium'>20 Μαϊ 1945 1:00:01 π.μ.</result>
@@ -130,9 +130,9 @@ locales='el el_CY el_GR'>
    <result timeType='medium'>Κυριακή, 20 Μαΐου 1945 1:00:01 π.μ.</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 π.μ.</result>
    <result timeType='medium'>11:59:59 π.μ.</result>
-   <result dateType='short' timeType='none'>18/06/1952</result>
-   <result timeType='short'>18/06/1952 11:59 π.μ.</result>
-   <result timeType='medium'>18/06/1952 11:59:59 π.μ.</result>
+   <result dateType='short' timeType='none'>18/6/52</result>
+   <result timeType='short'>18/6/52 11:59 π.μ.</result>
+   <result timeType='medium'>18/6/52 11:59:59 π.μ.</result>
    <result dateType='medium' timeType='none'>18 Ιουν 1952</result>
    <result timeType='short'>18 Ιουν 1952 11:59 π.μ.</result>
    <result timeType='medium'>18 Ιουν 1952 11:59:59 π.μ.</result>
@@ -144,9 +144,9 @@ locales='el el_CY el_GR'>
    <result timeType='medium'>Τετάρτη, 18 Ιουνίου 1952 11:59:59 π.μ.</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 μ.μ.</result>
    <result timeType='medium'>12:00:00 μ.μ.</result>
-   <result dateType='short' timeType='none'>16/07/1973</result>
-   <result timeType='short'>16/07/1973 12:00 μ.μ.</result>
-   <result timeType='medium'>16/07/1973 12:00:00 μ.μ.</result>
+   <result dateType='short' timeType='none'>16/7/73</result>
+   <result timeType='short'>16/7/73 12:00 μ.μ.</result>
+   <result timeType='medium'>16/7/73 12:00:00 μ.μ.</result>
    <result dateType='medium' timeType='none'>16 Ιουλ 1973</result>
    <result timeType='short'>16 Ιουλ 1973 12:00 μ.μ.</result>
    <result timeType='medium'>16 Ιουλ 1973 12:00:00 μ.μ.</result>
@@ -158,9 +158,9 @@ locales='el el_CY el_GR'>
    <result timeType='medium'>Δευτέρα, 16 Ιουλίου 1973 12:00:00 μ.μ.</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 μ.μ.</result>
    <result timeType='medium'>12:00:01 μ.μ.</result>
-   <result dateType='short' timeType='none'>14/08/1999</result>
-   <result timeType='short'>14/08/1999 12:00 μ.μ.</result>
-   <result timeType='medium'>14/08/1999 12:00:01 μ.μ.</result>
+   <result dateType='short' timeType='none'>14/8/99</result>
+   <result timeType='short'>14/8/99 12:00 μ.μ.</result>
+   <result timeType='medium'>14/8/99 12:00:01 μ.μ.</result>
    <result dateType='medium' timeType='none'>14 Αυγ 1999</result>
    <result timeType='short'>14 Αυγ 1999 12:00 μ.μ.</result>
    <result timeType='medium'>14 Αυγ 1999 12:00:01 μ.μ.</result>
@@ -172,9 +172,9 @@ locales='el el_CY el_GR'>
    <result timeType='medium'>Σάββατο, 14 Αυγούστου 1999 12:00:01 μ.μ.</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 μ.μ.</result>
    <result timeType='medium'>10:59:59 μ.μ.</result>
-   <result dateType='short' timeType='none'>12/09/2000</result>
-   <result timeType='short'>12/09/2000 10:59 μ.μ.</result>
-   <result timeType='medium'>12/09/2000 10:59:59 μ.μ.</result>
+   <result dateType='short' timeType='none'>12/9/00</result>
+   <result timeType='short'>12/9/00 10:59 μ.μ.</result>
+   <result timeType='medium'>12/9/00 10:59:59 μ.μ.</result>
    <result dateType='medium' timeType='none'>12 Σεπ 2000</result>
    <result timeType='short'>12 Σεπ 2000 10:59 μ.μ.</result>
    <result timeType='medium'>12 Σεπ 2000 10:59:59 μ.μ.</result>
@@ -186,54 +186,226 @@ locales='el el_CY el_GR'>
    <result timeType='medium'>Τρίτη, 12 Σεπτεμβρίου 2000 10:59:59 μ.μ.</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 μ.μ.</result>
    <result timeType='medium'>11:00:00 μ.μ.</result>
-   <result dateType='short' timeType='none'>08/10/2001</result>
-   <result timeType='short'>08/10/2001 11:00 μ.μ.</result>
-   <result timeType='medium'>08/10/2001 11:00:00 μ.μ.</result>
-   <result dateType='medium' timeType='none'>08 Οκτ 2001</result>
-   <result timeType='short'>08 Οκτ 2001 11:00 μ.μ.</result>
-   <result timeType='medium'>08 Οκτ 2001 11:00:00 μ.μ.</result>
-   <result dateType='long' timeType='none'>08 Οκτωβρίου 2001</result>
-   <result timeType='short'>08 Οκτωβρίου 2001 11:00 μ.μ.</result>
-   <result timeType='medium'>08 Οκτωβρίου 2001 11:00:00 μ.μ.</result>
-   <result dateType='full' timeType='none'>Δευτέρα, 08 Οκτωβρίου 2001</result>
-   <result timeType='short'>Δευτέρα, 08 Οκτωβρίου 2001 11:00 μ.μ.</result>
-   <result timeType='medium'>Δευτέρα, 08 Οκτωβρίου 2001 11:00:00 μ.μ.</result>
+   <result dateType='short' timeType='none'>8/10/01</result>
+   <result timeType='short'>8/10/01 11:00 μ.μ.</result>
+   <result timeType='medium'>8/10/01 11:00:00 μ.μ.</result>
+   <result dateType='medium' timeType='none'>8 Οκτ 2001</result>
+   <result timeType='short'>8 Οκτ 2001 11:00 μ.μ.</result>
+   <result timeType='medium'>8 Οκτ 2001 11:00:00 μ.μ.</result>
+   <result dateType='long' timeType='none'>8 Οκτωβρίου 2001</result>
+   <result timeType='short'>8 Οκτωβρίου 2001 11:00 μ.μ.</result>
+   <result timeType='medium'>8 Οκτωβρίου 2001 11:00:00 μ.μ.</result>
+   <result dateType='full' timeType='none'>Δευτέρα, 8 Οκτωβρίου 2001</result>
+   <result timeType='short'>Δευτέρα, 8 Οκτωβρίου 2001 11:00 μ.μ.</result>
+   <result timeType='medium'>Δευτέρα, 8 Οκτωβρίου 2001 11:00:00 μ.μ.</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 μ.μ.</result>
    <result timeType='medium'>11:00:01 μ.μ.</result>
-   <result dateType='short' timeType='none'>04/11/2004</result>
-   <result timeType='short'>04/11/2004 11:00 μ.μ.</result>
-   <result timeType='medium'>04/11/2004 11:00:01 μ.μ.</result>
-   <result dateType='medium' timeType='none'>04 Νοε 2004</result>
-   <result timeType='short'>04 Νοε 2004 11:00 μ.μ.</result>
-   <result timeType='medium'>04 Νοε 2004 11:00:01 μ.μ.</result>
-   <result dateType='long' timeType='none'>04 Νοεμβρίου 2004</result>
-   <result timeType='short'>04 Νοεμβρίου 2004 11:00 μ.μ.</result>
-   <result timeType='medium'>04 Νοεμβρίου 2004 11:00:01 μ.μ.</result>
-   <result dateType='full' timeType='none'>Πέμπτη, 04 Νοεμβρίου 2004</result>
-   <result timeType='short'>Πέμπτη, 04 Νοεμβρίου 2004 11:00 μ.μ.</result>
-   <result timeType='medium'>Πέμπτη, 04 Νοεμβρίου 2004 11:00:01 μ.μ.</result>
+   <result dateType='short' timeType='none'>4/11/04</result>
+   <result timeType='short'>4/11/04 11:00 μ.μ.</result>
+   <result timeType='medium'>4/11/04 11:00:01 μ.μ.</result>
+   <result dateType='medium' timeType='none'>4 Νοε 2004</result>
+   <result timeType='short'>4 Νοε 2004 11:00 μ.μ.</result>
+   <result timeType='medium'>4 Νοε 2004 11:00:01 μ.μ.</result>
+   <result dateType='long' timeType='none'>4 Νοεμβρίου 2004</result>
+   <result timeType='short'>4 Νοεμβρίου 2004 11:00 μ.μ.</result>
+   <result timeType='medium'>4 Νοεμβρίου 2004 11:00:01 μ.μ.</result>
+   <result dateType='full' timeType='none'>Πέμπτη, 4 Νοεμβρίου 2004</result>
+   <result timeType='short'>Πέμπτη, 4 Νοεμβρίου 2004 11:00 μ.μ.</result>
+   <result timeType='medium'>Πέμπτη, 4 Νοεμβρίου 2004 11:00:01 μ.μ.</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 μ.μ.</result>
    <result timeType='medium'>11:59:59 μ.μ.</result>
-   <result dateType='short' timeType='none'>01/12/2010</result>
-   <result timeType='short'>01/12/2010 11:59 μ.μ.</result>
-   <result timeType='medium'>01/12/2010 11:59:59 μ.μ.</result>
-   <result dateType='medium' timeType='none'>01 Δεκ 2010</result>
-   <result timeType='short'>01 Δεκ 2010 11:59 μ.μ.</result>
-   <result timeType='medium'>01 Δεκ 2010 11:59:59 μ.μ.</result>
-   <result dateType='long' timeType='none'>01 Δεκεμβρίου 2010</result>
-   <result timeType='short'>01 Δεκεμβρίου 2010 11:59 μ.μ.</result>
-   <result timeType='medium'>01 Δεκεμβρίου 2010 11:59:59 μ.μ.</result>
-   <result dateType='full' timeType='none'>Τετάρτη, 01 Δεκεμβρίου 2010</result>
-   <result timeType='short'>Τετάρτη, 01 Δεκεμβρίου 2010 11:59 μ.μ.</result>
-   <result timeType='medium'>Τετάρτη, 01 Δεκεμβρίου 2010 11:59:59 μ.μ.</result>
+   <result dateType='short' timeType='none'>1/12/10</result>
+   <result timeType='short'>1/12/10 11:59 μ.μ.</result>
+   <result timeType='medium'>1/12/10 11:59:59 μ.μ.</result>
+   <result dateType='medium' timeType='none'>1 Δεκ 2010</result>
+   <result timeType='short'>1 Δεκ 2010 11:59 μ.μ.</result>
+   <result timeType='medium'>1 Δεκ 2010 11:59:59 μ.μ.</result>
+   <result dateType='long' timeType='none'>1 Δεκεμβρίου 2010</result>
+   <result timeType='short'>1 Δεκεμβρίου 2010 11:59 μ.μ.</result>
+   <result timeType='medium'>1 Δεκεμβρίου 2010 11:59:59 μ.μ.</result>
+   <result dateType='full' timeType='none'>Τετάρτη, 1 Δεκεμβρίου 2010</result>
+   <result timeType='short'>Τετάρτη, 1 Δεκεμβρίου 2010 11:59 μ.μ.</result>
+   <result timeType='medium'>Τετάρτη, 1 Δεκεμβρίου 2010 11:59:59 μ.μ.</result>
+  </date>
+  <date 
+locales='el_POLYTON'>
+<!-- Greek (Polytonic) [Ἑλληνικά (Πολυτονικό)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 π.μ.</result>
+   <result timeType='medium'>12:00:00 π.μ.</result>
+   <result dateType='short' timeType='none'>31/1/00</result>
+   <result timeType='short'>31/1/00 12:00 π.μ.</result>
+   <result timeType='medium'>31/1/00 12:00:00 π.μ.</result>
+   <result dateType='medium' timeType='none'>31 Ιαν 1900</result>
+   <result timeType='short'>31 Ιαν 1900 12:00 π.μ.</result>
+   <result timeType='medium'>31 Ιαν 1900 12:00:00 π.μ.</result>
+   <result dateType='long' timeType='none'>31 Ιανουαρίου 1900</result>
+   <result timeType='short'>31 Ιανουαρίου 1900 12:00 π.μ.</result>
+   <result timeType='medium'>31 Ιανουαρίου 1900 12:00:00 π.μ.</result>
+   <result dateType='full' timeType='none'>Τετάρτη, 31 Ιανουαρίου 1900</result>
+   <result timeType='short'>Τετάρτη, 31 Ιανουαρίου 1900 12:00 π.μ.</result>
+   <result timeType='medium'>Τετάρτη, 31 Ιανουαρίου 1900 12:00:00 π.μ.</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 π.μ.</result>
+   <result timeType='medium'>12:00:01 π.μ.</result>
+   <result dateType='short' timeType='none'>28/2/09</result>
+   <result timeType='short'>28/2/09 12:00 π.μ.</result>
+   <result timeType='medium'>28/2/09 12:00:01 π.μ.</result>
+   <result dateType='medium' timeType='none'>28 Φεβ 1909</result>
+   <result timeType='short'>28 Φεβ 1909 12:00 π.μ.</result>
+   <result timeType='medium'>28 Φεβ 1909 12:00:01 π.μ.</result>
+   <result dateType='long' timeType='none'>28 Φεβρουαρίου 1909</result>
+   <result timeType='short'>28 Φεβρουαρίου 1909 12:00 π.μ.</result>
+   <result timeType='medium'>28 Φεβρουαρίου 1909 12:00:01 π.μ.</result>
+   <result dateType='full' timeType='none'>Κυριακή, 28 Φεβρουαρίου 1909</result>
+   <result timeType='short'>Κυριακή, 28 Φεβρουαρίου 1909 12:00 π.μ.</result>
+   <result timeType='medium'>Κυριακή, 28 Φεβρουαρίου 1909 12:00:01 π.μ.</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 π.μ.</result>
+   <result timeType='medium'>12:59:59 π.μ.</result>
+   <result dateType='short' timeType='none'>26/3/18</result>
+   <result timeType='short'>26/3/18 12:59 π.μ.</result>
+   <result timeType='medium'>26/3/18 12:59:59 π.μ.</result>
+   <result dateType='medium' timeType='none'>26 Μαρ 1918</result>
+   <result timeType='short'>26 Μαρ 1918 12:59 π.μ.</result>
+   <result timeType='medium'>26 Μαρ 1918 12:59:59 π.μ.</result>
+   <result dateType='long' timeType='none'>26 Μαρτίου 1918</result>
+   <result timeType='short'>26 Μαρτίου 1918 12:59 π.μ.</result>
+   <result timeType='medium'>26 Μαρτίου 1918 12:59:59 π.μ.</result>
+   <result dateType='full' timeType='none'>Τρίτη, 26 Μαρτίου 1918</result>
+   <result timeType='short'>Τρίτη, 26 Μαρτίου 1918 12:59 π.μ.</result>
+   <result timeType='medium'>Τρίτη, 26 Μαρτίου 1918 12:59:59 π.μ.</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 π.μ.</result>
+   <result timeType='medium'>1:00:00 π.μ.</result>
+   <result dateType='short' timeType='none'>24/4/32</result>
+   <result timeType='short'>24/4/32 1:00 π.μ.</result>
+   <result timeType='medium'>24/4/32 1:00:00 π.μ.</result>
+   <result dateType='medium' timeType='none'>24 Απρ 1932</result>
+   <result timeType='short'>24 Απρ 1932 1:00 π.μ.</result>
+   <result timeType='medium'>24 Απρ 1932 1:00:00 π.μ.</result>
+   <result dateType='long' timeType='none'>24 Απριλίου 1932</result>
+   <result timeType='short'>24 Απριλίου 1932 1:00 π.μ.</result>
+   <result timeType='medium'>24 Απριλίου 1932 1:00:00 π.μ.</result>
+   <result dateType='full' timeType='none'>Κυριακή, 24 Απριλίου 1932</result>
+   <result timeType='short'>Κυριακή, 24 Απριλίου 1932 1:00 π.μ.</result>
+   <result timeType='medium'>Κυριακή, 24 Απριλίου 1932 1:00:00 π.μ.</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 π.μ.</result>
+   <result timeType='medium'>1:00:01 π.μ.</result>
+   <result dateType='short' timeType='none'>20/5/45</result>
+   <result timeType='short'>20/5/45 1:00 π.μ.</result>
+   <result timeType='medium'>20/5/45 1:00:01 π.μ.</result>
+   <result dateType='medium' timeType='none'>20 Μαϊ 1945</result>
+   <result timeType='short'>20 Μαϊ 1945 1:00 π.μ.</result>
+   <result timeType='medium'>20 Μαϊ 1945 1:00:01 π.μ.</result>
+   <result dateType='long' timeType='none'>20 Μαΐου 1945</result>
+   <result timeType='short'>20 Μαΐου 1945 1:00 π.μ.</result>
+   <result timeType='medium'>20 Μαΐου 1945 1:00:01 π.μ.</result>
+   <result dateType='full' timeType='none'>Κυριακή, 20 Μαΐου 1945</result>
+   <result timeType='short'>Κυριακή, 20 Μαΐου 1945 1:00 π.μ.</result>
+   <result timeType='medium'>Κυριακή, 20 Μαΐου 1945 1:00:01 π.μ.</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 π.μ.</result>
+   <result timeType='medium'>11:59:59 π.μ.</result>
+   <result dateType='short' timeType='none'>18/6/52</result>
+   <result timeType='short'>18/6/52 11:59 π.μ.</result>
+   <result timeType='medium'>18/6/52 11:59:59 π.μ.</result>
+   <result dateType='medium' timeType='none'>18 Ιουν 1952</result>
+   <result timeType='short'>18 Ιουν 1952 11:59 π.μ.</result>
+   <result timeType='medium'>18 Ιουν 1952 11:59:59 π.μ.</result>
+   <result dateType='long' timeType='none'>18 Ιουνίου 1952</result>
+   <result timeType='short'>18 Ιουνίου 1952 11:59 π.μ.</result>
+   <result timeType='medium'>18 Ιουνίου 1952 11:59:59 π.μ.</result>
+   <result dateType='full' timeType='none'>Τετάρτη, 18 Ιουνίου 1952</result>
+   <result timeType='short'>Τετάρτη, 18 Ιουνίου 1952 11:59 π.μ.</result>
+   <result timeType='medium'>Τετάρτη, 18 Ιουνίου 1952 11:59:59 π.μ.</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 μ.μ.</result>
+   <result timeType='medium'>12:00:00 μ.μ.</result>
+   <result dateType='short' timeType='none'>16/7/73</result>
+   <result timeType='short'>16/7/73 12:00 μ.μ.</result>
+   <result timeType='medium'>16/7/73 12:00:00 μ.μ.</result>
+   <result dateType='medium' timeType='none'>16 Ιουλ 1973</result>
+   <result timeType='short'>16 Ιουλ 1973 12:00 μ.μ.</result>
+   <result timeType='medium'>16 Ιουλ 1973 12:00:00 μ.μ.</result>
+   <result dateType='long' timeType='none'>16 Ιουλίου 1973</result>
+   <result timeType='short'>16 Ιουλίου 1973 12:00 μ.μ.</result>
+   <result timeType='medium'>16 Ιουλίου 1973 12:00:00 μ.μ.</result>
+   <result dateType='full' timeType='none'>Δευτέρα, 16 Ιουλίου 1973</result>
+   <result timeType='short'>Δευτέρα, 16 Ιουλίου 1973 12:00 μ.μ.</result>
+   <result timeType='medium'>Δευτέρα, 16 Ιουλίου 1973 12:00:00 μ.μ.</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 μ.μ.</result>
+   <result timeType='medium'>12:00:01 μ.μ.</result>
+   <result dateType='short' timeType='none'>14/8/99</result>
+   <result timeType='short'>14/8/99 12:00 μ.μ.</result>
+   <result timeType='medium'>14/8/99 12:00:01 μ.μ.</result>
+   <result dateType='medium' timeType='none'>14 Αὐγ 1999</result>
+   <result timeType='short'>14 Αὐγ 1999 12:00 μ.μ.</result>
+   <result timeType='medium'>14 Αὐγ 1999 12:00:01 μ.μ.</result>
+   <result dateType='long' timeType='none'>14 Αὐγούστου 1999</result>
+   <result timeType='short'>14 Αὐγούστου 1999 12:00 μ.μ.</result>
+   <result timeType='medium'>14 Αὐγούστου 1999 12:00:01 μ.μ.</result>
+   <result dateType='full' timeType='none'>Σάββατο, 14 Αὐγούστου 1999</result>
+   <result timeType='short'>Σάββατο, 14 Αὐγούστου 1999 12:00 μ.μ.</result>
+   <result timeType='medium'>Σάββατο, 14 Αὐγούστου 1999 12:00:01 μ.μ.</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 μ.μ.</result>
+   <result timeType='medium'>10:59:59 μ.μ.</result>
+   <result dateType='short' timeType='none'>12/9/00</result>
+   <result timeType='short'>12/9/00 10:59 μ.μ.</result>
+   <result timeType='medium'>12/9/00 10:59:59 μ.μ.</result>
+   <result dateType='medium' timeType='none'>12 Σεπ 2000</result>
+   <result timeType='short'>12 Σεπ 2000 10:59 μ.μ.</result>
+   <result timeType='medium'>12 Σεπ 2000 10:59:59 μ.μ.</result>
+   <result dateType='long' timeType='none'>12 Σεπτεμβρίου 2000</result>
+   <result timeType='short'>12 Σεπτεμβρίου 2000 10:59 μ.μ.</result>
+   <result timeType='medium'>12 Σεπτεμβρίου 2000 10:59:59 μ.μ.</result>
+   <result dateType='full' timeType='none'>Τρίτη, 12 Σεπτεμβρίου 2000</result>
+   <result timeType='short'>Τρίτη, 12 Σεπτεμβρίου 2000 10:59 μ.μ.</result>
+   <result timeType='medium'>Τρίτη, 12 Σεπτεμβρίου 2000 10:59:59 μ.μ.</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 μ.μ.</result>
+   <result timeType='medium'>11:00:00 μ.μ.</result>
+   <result dateType='short' timeType='none'>8/10/01</result>
+   <result timeType='short'>8/10/01 11:00 μ.μ.</result>
+   <result timeType='medium'>8/10/01 11:00:00 μ.μ.</result>
+   <result dateType='medium' timeType='none'>8 Ὀκτ 2001</result>
+   <result timeType='short'>8 Ὀκτ 2001 11:00 μ.μ.</result>
+   <result timeType='medium'>8 Ὀκτ 2001 11:00:00 μ.μ.</result>
+   <result dateType='long' timeType='none'>8 Ὀκτωβρίου 2001</result>
+   <result timeType='short'>8 Ὀκτωβρίου 2001 11:00 μ.μ.</result>
+   <result timeType='medium'>8 Ὀκτωβρίου 2001 11:00:00 μ.μ.</result>
+   <result dateType='full' timeType='none'>Δευτέρα, 8 Ὀκτωβρίου 2001</result>
+   <result timeType='short'>Δευτέρα, 8 Ὀκτωβρίου 2001 11:00 μ.μ.</result>
+   <result timeType='medium'>Δευτέρα, 8 Ὀκτωβρίου 2001 11:00:00 μ.μ.</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 μ.μ.</result>
+   <result timeType='medium'>11:00:01 μ.μ.</result>
+   <result dateType='short' timeType='none'>4/11/04</result>
+   <result timeType='short'>4/11/04 11:00 μ.μ.</result>
+   <result timeType='medium'>4/11/04 11:00:01 μ.μ.</result>
+   <result dateType='medium' timeType='none'>4 Νοε 2004</result>
+   <result timeType='short'>4 Νοε 2004 11:00 μ.μ.</result>
+   <result timeType='medium'>4 Νοε 2004 11:00:01 μ.μ.</result>
+   <result dateType='long' timeType='none'>4 Νοεμβρίου 2004</result>
+   <result timeType='short'>4 Νοεμβρίου 2004 11:00 μ.μ.</result>
+   <result timeType='medium'>4 Νοεμβρίου 2004 11:00:01 μ.μ.</result>
+   <result dateType='full' timeType='none'>Πέμπτη, 4 Νοεμβρίου 2004</result>
+   <result timeType='short'>Πέμπτη, 4 Νοεμβρίου 2004 11:00 μ.μ.</result>
+   <result timeType='medium'>Πέμπτη, 4 Νοεμβρίου 2004 11:00:01 μ.μ.</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 μ.μ.</result>
+   <result timeType='medium'>11:59:59 μ.μ.</result>
+   <result dateType='short' timeType='none'>1/12/10</result>
+   <result timeType='short'>1/12/10 11:59 μ.μ.</result>
+   <result timeType='medium'>1/12/10 11:59:59 μ.μ.</result>
+   <result dateType='medium' timeType='none'>1 Δεκ 2010</result>
+   <result timeType='short'>1 Δεκ 2010 11:59 μ.μ.</result>
+   <result timeType='medium'>1 Δεκ 2010 11:59:59 μ.μ.</result>
+   <result dateType='long' timeType='none'>1 Δεκεμβρίου 2010</result>
+   <result timeType='short'>1 Δεκεμβρίου 2010 11:59 μ.μ.</result>
+   <result timeType='medium'>1 Δεκεμβρίου 2010 11:59:59 μ.μ.</result>
+   <result dateType='full' timeType='none'>Τετάρτη, 1 Δεκεμβρίου 2010</result>
+   <result timeType='short'>Τετάρτη, 1 Δεκεμβρίου 2010 11:59 μ.μ.</result>
+   <result timeType='medium'>Τετάρτη, 1 Δεκεμβρίου 2010 11:59:59 μ.μ.</result>
   </date>
   <zoneFields 
-locales='el el_CY el_GR'>
-<!-- Greek [Ελληνικά]; Greek (Cyprus) [Ελληνικά (Κύπρος)]; Greek (Greece) [Ελληνικά (Ελλάδα)] -->
+locales='el el_CY el_GR el_POLYTON'>
+<!-- Greek [Ελληνικά@]; Greek (Cyprus) [Ελληνικά (Κύπρος)@]; Greek (Greece) [Ελληνικά (Ελλάδα)@]; Greek (Polytonic) [Ἑλληνικά (Πολυτονικό)@] -->
   </zoneFields>
   <collation 
 locales='el el_CY el_GR'>
-<!-- Greek [Ελληνικά]; Greek (Cyprus) [Ελληνικά (Κύπρος)]; Greek (Greece) [Ελληνικά (Ελλάδα)] -->
+<!-- Greek [Ελληνικά@]; Greek (Cyprus) [Ελληνικά (Κύπρος)@]; Greek (Greece) [Ελληνικά (Ελλάδα)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -463,6 +635,618 @@ xωx
 xΩx
 xώx
 xΏx
+</result>
+  </collation>
+  <collation 
+locales='el_POLYTON'>
+<!-- Greek (Polytonic) [Ἑλληνικά (Πολυτονικό)@] -->
+   <result draft='unconfirmed approved'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xα
+xΑ
+Xα
+XΑ
+xἀ
+xἈ
+Xἀ
+XἈ
+xἄ
+xἌ
+Xἄ
+XἌ
+xἂ
+xἊ
+Xἂ
+XἊ
+xἆ
+xἎ
+Xἆ
+XἎ
+xἁ
+xἉ
+Xἁ
+XἉ
+xἅ
+xἍ
+Xἅ
+XἍ
+xἃ
+xἋ
+Xἃ
+XἋ
+xἇ
+xἏ
+Xἇ
+XἏ
+xά
+xΆ
+Xά
+XΆ
+xὰ
+xᾺ
+Xὰ
+XᾺ
+xᾶ
+xΑ͂
+Xᾶ
+XΑ͂
+xαx
+xΑx
+xἀx
+xἈx
+xἄx
+xἌx
+xἂx
+xἊx
+xἆx
+xἎx
+xἁx
+xἉx
+xἅx
+xἍx
+xἃx
+xἋx
+xἇx
+xἏx
+xάx
+xΆx
+xὰx
+xᾺx
+xᾶx
+xΑ͂x
+xβ
+xΒ
+Xβ
+XΒ
+xβx
+xΒx
+xγ
+xΓ
+Xγ
+XΓ
+xγx
+xΓx
+xδ
+xΔ
+Xδ
+XΔ
+xδx
+xΔx
+xε
+xΕ
+Xε
+XΕ
+xἐ
+xἘ
+Xἐ
+XἘ
+xἔ
+xἜ
+Xἔ
+XἜ
+xἒ
+xἚ
+Xἒ
+XἚ
+xἑ
+xἙ
+Xἑ
+XἙ
+xἕ
+xἝ
+Xἕ
+XἝ
+xἓ
+xἛ
+Xἓ
+XἛ
+xέ
+xΈ
+Xέ
+XΈ
+xὲ
+xῈ
+Xὲ
+XῈ
+xεx
+xΕx
+xἐx
+xἘx
+xἔx
+xἜx
+xἒx
+xἚx
+xἑx
+xἙx
+xἕx
+xἝx
+xἓx
+xἛx
+xέx
+xΈx
+xὲx
+xῈx
+xζ
+xΖ
+Xζ
+XΖ
+xζx
+xΖx
+xη
+xΗ
+Xη
+XΗ
+xἠ
+xἨ
+Xἠ
+XἨ
+xἤ
+xἬ
+Xἤ
+XἬ
+xἢ
+xἪ
+Xἢ
+XἪ
+xἦ
+xἮ
+Xἦ
+XἮ
+xἡ
+xἩ
+Xἡ
+XἩ
+xἥ
+xἭ
+Xἥ
+XἭ
+xἣ
+xἫ
+Xἣ
+XἫ
+xἧ
+xἯ
+Xἧ
+XἯ
+xή
+xΉ
+Xή
+XΉ
+xὴ
+xῊ
+Xὴ
+XῊ
+xῆ
+xΗ͂
+Xῆ
+XΗ͂
+xηx
+xΗx
+xἠx
+xἨx
+xἤx
+xἬx
+xἢx
+xἪx
+xἦx
+xἮx
+xἡx
+xἩx
+xἥx
+xἭx
+xἣx
+xἫx
+xἧx
+xἯx
+xήx
+xΉx
+xὴx
+xῊx
+xῆx
+xΗ͂x
+xθ
+xΘ
+Xθ
+XΘ
+xθx
+xΘx
+xι
+xΙ
+Xι
+XΙ
+xἰ
+xἸ
+Xἰ
+XἸ
+xἴ
+xἼ
+Xἴ
+XἼ
+xἲ
+xἺ
+Xἲ
+XἺ
+xἶ
+xἾ
+Xἶ
+XἾ
+xἱ
+xἹ
+Xἱ
+XἹ
+xἵ
+xἽ
+Xἵ
+XἽ
+xἳ
+xἻ
+Xἳ
+XἻ
+xἷ
+xἿ
+Xἷ
+XἿ
+xί
+xΊ
+Xί
+XΊ
+xὶ
+xῚ
+Xὶ
+XῚ
+xῖ
+xΙ͂
+Xῖ
+XΙ͂
+xϊ
+xΪ
+Xϊ
+XΪ
+xΐ
+xΪ́
+Xΐ
+XΪ́
+xῒ
+xΪ̀
+Xῒ
+XΪ̀
+xῗ
+xΪ͂
+Xῗ
+XΪ͂
+xιx
+xΙx
+xἰx
+xἸx
+xἴx
+xἼx
+xἲx
+xἺx
+xἶx
+xἾx
+xἱx
+xἹx
+xἵx
+xἽx
+xἳx
+xἻx
+xἷx
+xἿx
+xίx
+xΊx
+xὶx
+xῚx
+xῖx
+xΙ͂x
+xϊx
+xΪx
+xΐx
+xΪ́x
+xῒx
+xΪ̀x
+xῗx
+xΪ͂x
+xκ
+xΚ
+Xκ
+XΚ
+xκx
+xΚx
+xλ
+xΛ
+Xλ
+XΛ
+xλx
+xΛx
+xμ
+xΜ
+Xμ
+XΜ
+xμx
+xΜx
+xν
+xΝ
+Xν
+XΝ
+xνx
+xΝx
+xξ
+xΞ
+Xξ
+XΞ
+xξx
+xΞx
+xο
+xΟ
+Xο
+XΟ
+xὄ
+xὌ
+Xὄ
+XὌ
+xὂ
+xὊ
+Xὂ
+XὊ
+xὃ
+xὋ
+Xὃ
+XὋ
+xό
+xΌ
+Xό
+XΌ
+xὸ
+xῸ
+Xὸ
+XῸ
+xοx
+xΟx
+xὄx
+xὌx
+xὂx
+xὊx
+xὃx
+xὋx
+xόx
+xΌx
+xὸx
+xῸx
+xπ
+xΠ
+Xπ
+XΠ
+xπx
+xΠx
+xρ
+xΡ
+Xρ
+XΡ
+xρx
+xΡx
+xσ
+xΣ
+xς
+Xσ
+XΣ
+Xς
+xσx
+xΣx
+xςx
+xτ
+xΤ
+Xτ
+XΤ
+xτx
+xΤx
+xυ
+xΥ
+Xυ
+XΥ
+xὐ
+xΥ̓
+Xὐ
+XΥ̓
+xὔ
+xΥ̓́
+Xὔ
+XΥ̓́
+xὒ
+xΥ̓̀
+Xὒ
+XΥ̓̀
+xὖ
+xΥ̓͂
+Xὖ
+XΥ̓͂
+xὑ
+xὙ
+Xὑ
+XὙ
+xὕ
+xὝ
+Xὕ
+XὝ
+xὓ
+xὛ
+Xὓ
+XὛ
+xὗ
+xὟ
+Xὗ
+XὟ
+xύ
+xΎ
+Xύ
+XΎ
+xὺ
+xῪ
+Xὺ
+XῪ
+xῦ
+xΥ͂
+Xῦ
+XΥ͂
+xϋ
+xΫ
+Xϋ
+XΫ
+xΰ
+xΫ́
+Xΰ
+XΫ́
+xῢ
+xΫ̀
+Xῢ
+XΫ̀
+xῧ
+xΫ͂
+Xῧ
+XΫ͂
+xυx
+xΥx
+xὐx
+xΥ̓x
+xὔx
+xΥ̓́x
+xὒx
+xΥ̓̀x
+xὖx
+xΥ̓͂x
+xὑx
+xὙx
+xὕx
+xὝx
+xὓx
+xὛx
+xὗx
+xὟx
+xύx
+xΎx
+xὺx
+xῪx
+xῦx
+xΥ͂x
+xϋx
+xΫx
+xΰx
+xΫ́x
+xῢx
+xΫ̀x
+xῧx
+xΫ͂x
+xφ
+xΦ
+Xφ
+XΦ
+xφx
+xΦx
+xχ
+xΧ
+Xχ
+XΧ
+xχx
+xΧx
+xψ
+xΨ
+Xψ
+XΨ
+xψx
+xΨx
+xω
+xΩ
+Xω
+XΩ
+xὤ
+xὬ
+Xὤ
+XὬ
+xὢ
+xὪ
+Xὢ
+XὪ
+xὦ
+xὮ
+Xὦ
+XὮ
+xὥ
+xὭ
+Xὥ
+XὭ
+xὣ
+xὫ
+Xὣ
+XὫ
+xὧ
+xὯ
+Xὧ
+XὯ
+xώ
+xΏ
+Xώ
+XΏ
+xὼ
+xῺ
+Xὼ
+XῺ
+xῶ
+xΩ͂
+Xῶ
+XΩ͂
+xωx
+xΩx
+xὤx
+xὬx
+xὢx
+xὪx
+xὦx
+xὮx
+xὥx
+xὭx
+xὣx
+xὫx
+xὧx
+xὯx
+xώx
+xΏx
+xὼx
+xῺx
+xῶx
+xΩ͂x
 </result>
   </collation>
  </cldrTest>

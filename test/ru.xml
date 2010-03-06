@@ -4,8 +4,8 @@
  <cldrTest version='1.7' base='ru'>
  <!-- Russian [русский] -->
   <number 
-locales='ru ru_RU ru_UA'>
-<!-- Russian [русский]; Russian (Russia) [русский (Россия)]; Russian (Ukraine) [русский (Украина)] -->
+locales='ru ru_MD ru_RU ru_UA'>
+<!-- Russian [русский@]; Russian (Moldova) [русский (Молдова)@]; Russian (Russia) [русский (Россия)@]; Russian (Ukraine) [русский (Украина)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0 %</result>
@@ -56,8 +56,8 @@ locales='ru ru_RU ru_UA'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='ru ru_RU'>
-<!-- Russian [русский]; Russian (Russia) [русский (Россия)] -->
+locales='ru ru_MD ru_RU'>
+<!-- Russian [русский@]; Russian (Moldova) [русский (Молдова)@]; Russian (Russia) [русский (Россия)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result dateType='short' timeType='none'>31.01.00</result>
@@ -66,12 +66,12 @@ locales='ru ru_RU'>
    <result dateType='medium' timeType='none'>31.01.1900</result>
    <result timeType='short'>31.01.1900 0:00</result>
    <result timeType='medium'>31.01.1900 0:00:00</result>
-   <result dateType='long' timeType='none'>31 января 1900 г.</result>
-   <result timeType='short'>31 января 1900 г. 0:00</result>
-   <result timeType='medium'>31 января 1900 г. 0:00:00</result>
-   <result dateType='full' timeType='none'>среда, 31 января 1900 г.</result>
-   <result timeType='short'>среда, 31 января 1900 г. 0:00</result>
-   <result timeType='medium'>среда, 31 января 1900 г. 0:00:00</result>
+   <result dateType='long' timeType='none'>31 января 1900 г.</result>
+   <result timeType='short'>31 января 1900 г. 0:00</result>
+   <result timeType='medium'>31 января 1900 г. 0:00:00</result>
+   <result dateType='full' timeType='none'>среда, 31 января 1900 г.</result>
+   <result timeType='short'>среда, 31 января 1900 г. 0:00</result>
+   <result timeType='medium'>среда, 31 января 1900 г. 0:00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>0:00</result>
    <result timeType='medium'>0:00:01</result>
    <result dateType='short' timeType='none'>28.02.09</result>
@@ -80,12 +80,12 @@ locales='ru ru_RU'>
    <result dateType='medium' timeType='none'>28.02.1909</result>
    <result timeType='short'>28.02.1909 0:00</result>
    <result timeType='medium'>28.02.1909 0:00:01</result>
-   <result dateType='long' timeType='none'>28 февраля 1909 г.</result>
-   <result timeType='short'>28 февраля 1909 г. 0:00</result>
-   <result timeType='medium'>28 февраля 1909 г. 0:00:01</result>
-   <result dateType='full' timeType='none'>воскресенье, 28 февраля 1909 г.</result>
-   <result timeType='short'>воскресенье, 28 февраля 1909 г. 0:00</result>
-   <result timeType='medium'>воскресенье, 28 февраля 1909 г. 0:00:01</result>
+   <result dateType='long' timeType='none'>28 февраля 1909 г.</result>
+   <result timeType='short'>28 февраля 1909 г. 0:00</result>
+   <result timeType='medium'>28 февраля 1909 г. 0:00:01</result>
+   <result dateType='full' timeType='none'>воскресенье, 28 февраля 1909 г.</result>
+   <result timeType='short'>воскресенье, 28 февраля 1909 г. 0:00</result>
+   <result timeType='medium'>воскресенье, 28 февраля 1909 г. 0:00:01</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>0:59</result>
    <result timeType='medium'>0:59:59</result>
    <result dateType='short' timeType='none'>26.03.18</result>
@@ -94,12 +94,12 @@ locales='ru ru_RU'>
    <result dateType='medium' timeType='none'>26.03.1918</result>
    <result timeType='short'>26.03.1918 0:59</result>
    <result timeType='medium'>26.03.1918 0:59:59</result>
-   <result dateType='long' timeType='none'>26 марта 1918 г.</result>
-   <result timeType='short'>26 марта 1918 г. 0:59</result>
-   <result timeType='medium'>26 марта 1918 г. 0:59:59</result>
-   <result dateType='full' timeType='none'>вторник, 26 марта 1918 г.</result>
-   <result timeType='short'>вторник, 26 марта 1918 г. 0:59</result>
-   <result timeType='medium'>вторник, 26 марта 1918 г. 0:59:59</result>
+   <result dateType='long' timeType='none'>26 марта 1918 г.</result>
+   <result timeType='short'>26 марта 1918 г. 0:59</result>
+   <result timeType='medium'>26 марта 1918 г. 0:59:59</result>
+   <result dateType='full' timeType='none'>вторник, 26 марта 1918 г.</result>
+   <result timeType='short'>вторник, 26 марта 1918 г. 0:59</result>
+   <result timeType='medium'>вторник, 26 марта 1918 г. 0:59:59</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00</result>
    <result timeType='medium'>1:00:00</result>
    <result dateType='short' timeType='none'>24.04.32</result>
@@ -108,12 +108,12 @@ locales='ru ru_RU'>
    <result dateType='medium' timeType='none'>24.04.1932</result>
    <result timeType='short'>24.04.1932 1:00</result>
    <result timeType='medium'>24.04.1932 1:00:00</result>
-   <result dateType='long' timeType='none'>24 апреля 1932 г.</result>
-   <result timeType='short'>24 апреля 1932 г. 1:00</result>
-   <result timeType='medium'>24 апреля 1932 г. 1:00:00</result>
-   <result dateType='full' timeType='none'>воскресенье, 24 апреля 1932 г.</result>
-   <result timeType='short'>воскресенье, 24 апреля 1932 г. 1:00</result>
-   <result timeType='medium'>воскресенье, 24 апреля 1932 г. 1:00:00</result>
+   <result dateType='long' timeType='none'>24 апреля 1932 г.</result>
+   <result timeType='short'>24 апреля 1932 г. 1:00</result>
+   <result timeType='medium'>24 апреля 1932 г. 1:00:00</result>
+   <result dateType='full' timeType='none'>воскресенье, 24 апреля 1932 г.</result>
+   <result timeType='short'>воскресенье, 24 апреля 1932 г. 1:00</result>
+   <result timeType='medium'>воскресенье, 24 апреля 1932 г. 1:00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00</result>
    <result timeType='medium'>1:00:01</result>
    <result dateType='short' timeType='none'>20.05.45</result>
@@ -122,12 +122,12 @@ locales='ru ru_RU'>
    <result dateType='medium' timeType='none'>20.05.1945</result>
    <result timeType='short'>20.05.1945 1:00</result>
    <result timeType='medium'>20.05.1945 1:00:01</result>
-   <result dateType='long' timeType='none'>20 мая 1945 г.</result>
-   <result timeType='short'>20 мая 1945 г. 1:00</result>
-   <result timeType='medium'>20 мая 1945 г. 1:00:01</result>
-   <result dateType='full' timeType='none'>воскресенье, 20 мая 1945 г.</result>
-   <result timeType='short'>воскресенье, 20 мая 1945 г. 1:00</result>
-   <result timeType='medium'>воскресенье, 20 мая 1945 г. 1:00:01</result>
+   <result dateType='long' timeType='none'>20 мая 1945 г.</result>
+   <result timeType='short'>20 мая 1945 г. 1:00</result>
+   <result timeType='medium'>20 мая 1945 г. 1:00:01</result>
+   <result dateType='full' timeType='none'>воскресенье, 20 мая 1945 г.</result>
+   <result timeType='short'>воскресенье, 20 мая 1945 г. 1:00</result>
+   <result timeType='medium'>воскресенье, 20 мая 1945 г. 1:00:01</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result dateType='short' timeType='none'>18.06.52</result>
@@ -136,12 +136,12 @@ locales='ru ru_RU'>
    <result dateType='medium' timeType='none'>18.06.1952</result>
    <result timeType='short'>18.06.1952 11:59</result>
    <result timeType='medium'>18.06.1952 11:59:59</result>
-   <result dateType='long' timeType='none'>18 июня 1952 г.</result>
-   <result timeType='short'>18 июня 1952 г. 11:59</result>
-   <result timeType='medium'>18 июня 1952 г. 11:59:59</result>
-   <result dateType='full' timeType='none'>среда, 18 июня 1952 г.</result>
-   <result timeType='short'>среда, 18 июня 1952 г. 11:59</result>
-   <result timeType='medium'>среда, 18 июня 1952 г. 11:59:59</result>
+   <result dateType='long' timeType='none'>18 июня 1952 г.</result>
+   <result timeType='short'>18 июня 1952 г. 11:59</result>
+   <result timeType='medium'>18 июня 1952 г. 11:59:59</result>
+   <result dateType='full' timeType='none'>среда, 18 июня 1952 г.</result>
+   <result timeType='short'>среда, 18 июня 1952 г. 11:59</result>
+   <result timeType='medium'>среда, 18 июня 1952 г. 11:59:59</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result dateType='short' timeType='none'>16.07.73</result>
@@ -150,12 +150,12 @@ locales='ru ru_RU'>
    <result dateType='medium' timeType='none'>16.07.1973</result>
    <result timeType='short'>16.07.1973 12:00</result>
    <result timeType='medium'>16.07.1973 12:00:00</result>
-   <result dateType='long' timeType='none'>16 июля 1973 г.</result>
-   <result timeType='short'>16 июля 1973 г. 12:00</result>
-   <result timeType='medium'>16 июля 1973 г. 12:00:00</result>
-   <result dateType='full' timeType='none'>понедельник, 16 июля 1973 г.</result>
-   <result timeType='short'>понедельник, 16 июля 1973 г. 12:00</result>
-   <result timeType='medium'>понедельник, 16 июля 1973 г. 12:00:00</result>
+   <result dateType='long' timeType='none'>16 июля 1973 г.</result>
+   <result timeType='short'>16 июля 1973 г. 12:00</result>
+   <result timeType='medium'>16 июля 1973 г. 12:00:00</result>
+   <result dateType='full' timeType='none'>понедельник, 16 июля 1973 г.</result>
+   <result timeType='short'>понедельник, 16 июля 1973 г. 12:00</result>
+   <result timeType='medium'>понедельник, 16 июля 1973 г. 12:00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result dateType='short' timeType='none'>14.08.99</result>
@@ -164,12 +164,12 @@ locales='ru ru_RU'>
    <result dateType='medium' timeType='none'>14.08.1999</result>
    <result timeType='short'>14.08.1999 12:00</result>
    <result timeType='medium'>14.08.1999 12:00:01</result>
-   <result dateType='long' timeType='none'>14 августа 1999 г.</result>
-   <result timeType='short'>14 августа 1999 г. 12:00</result>
-   <result timeType='medium'>14 августа 1999 г. 12:00:01</result>
-   <result dateType='full' timeType='none'>суббота, 14 августа 1999 г.</result>
-   <result timeType='short'>суббота, 14 августа 1999 г. 12:00</result>
-   <result timeType='medium'>суббота, 14 августа 1999 г. 12:00:01</result>
+   <result dateType='long' timeType='none'>14 августа 1999 г.</result>
+   <result timeType='short'>14 августа 1999 г. 12:00</result>
+   <result timeType='medium'>14 августа 1999 г. 12:00:01</result>
+   <result dateType='full' timeType='none'>суббота, 14 августа 1999 г.</result>
+   <result timeType='short'>суббота, 14 августа 1999 г. 12:00</result>
+   <result timeType='medium'>суббота, 14 августа 1999 г. 12:00:01</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result dateType='short' timeType='none'>12.09.00</result>
@@ -178,12 +178,12 @@ locales='ru ru_RU'>
    <result dateType='medium' timeType='none'>12.09.2000</result>
    <result timeType='short'>12.09.2000 22:59</result>
    <result timeType='medium'>12.09.2000 22:59:59</result>
-   <result dateType='long' timeType='none'>12 сентября 2000 г.</result>
-   <result timeType='short'>12 сентября 2000 г. 22:59</result>
-   <result timeType='medium'>12 сентября 2000 г. 22:59:59</result>
-   <result dateType='full' timeType='none'>вторник, 12 сентября 2000 г.</result>
-   <result timeType='short'>вторник, 12 сентября 2000 г. 22:59</result>
-   <result timeType='medium'>вторник, 12 сентября 2000 г. 22:59:59</result>
+   <result dateType='long' timeType='none'>12 сентября 2000 г.</result>
+   <result timeType='short'>12 сентября 2000 г. 22:59</result>
+   <result timeType='medium'>12 сентября 2000 г. 22:59:59</result>
+   <result dateType='full' timeType='none'>вторник, 12 сентября 2000 г.</result>
+   <result timeType='short'>вторник, 12 сентября 2000 г. 22:59</result>
+   <result timeType='medium'>вторник, 12 сентября 2000 г. 22:59:59</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result dateType='short' timeType='none'>08.10.01</result>
@@ -192,12 +192,12 @@ locales='ru ru_RU'>
    <result dateType='medium' timeType='none'>08.10.2001</result>
    <result timeType='short'>08.10.2001 23:00</result>
    <result timeType='medium'>08.10.2001 23:00:00</result>
-   <result dateType='long' timeType='none'>8 октября 2001 г.</result>
-   <result timeType='short'>8 октября 2001 г. 23:00</result>
-   <result timeType='medium'>8 октября 2001 г. 23:00:00</result>
-   <result dateType='full' timeType='none'>понедельник, 8 октября 2001 г.</result>
-   <result timeType='short'>понедельник, 8 октября 2001 г. 23:00</result>
-   <result timeType='medium'>понедельник, 8 октября 2001 г. 23:00:00</result>
+   <result dateType='long' timeType='none'>8 октября 2001 г.</result>
+   <result timeType='short'>8 октября 2001 г. 23:00</result>
+   <result timeType='medium'>8 октября 2001 г. 23:00:00</result>
+   <result dateType='full' timeType='none'>понедельник, 8 октября 2001 г.</result>
+   <result timeType='short'>понедельник, 8 октября 2001 г. 23:00</result>
+   <result timeType='medium'>понедельник, 8 октября 2001 г. 23:00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result dateType='short' timeType='none'>04.11.04</result>
@@ -206,12 +206,12 @@ locales='ru ru_RU'>
    <result dateType='medium' timeType='none'>04.11.2004</result>
    <result timeType='short'>04.11.2004 23:00</result>
    <result timeType='medium'>04.11.2004 23:00:01</result>
-   <result dateType='long' timeType='none'>4 ноября 2004 г.</result>
-   <result timeType='short'>4 ноября 2004 г. 23:00</result>
-   <result timeType='medium'>4 ноября 2004 г. 23:00:01</result>
-   <result dateType='full' timeType='none'>четверг, 4 ноября 2004 г.</result>
-   <result timeType='short'>четверг, 4 ноября 2004 г. 23:00</result>
-   <result timeType='medium'>четверг, 4 ноября 2004 г. 23:00:01</result>
+   <result dateType='long' timeType='none'>4 ноября 2004 г.</result>
+   <result timeType='short'>4 ноября 2004 г. 23:00</result>
+   <result timeType='medium'>4 ноября 2004 г. 23:00:01</result>
+   <result dateType='full' timeType='none'>четверг, 4 ноября 2004 г.</result>
+   <result timeType='short'>четверг, 4 ноября 2004 г. 23:00</result>
+   <result timeType='medium'>четверг, 4 ноября 2004 г. 23:00:01</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result dateType='short' timeType='none'>01.12.10</result>
@@ -220,16 +220,16 @@ locales='ru ru_RU'>
    <result dateType='medium' timeType='none'>01.12.2010</result>
    <result timeType='short'>01.12.2010 23:59</result>
    <result timeType='medium'>01.12.2010 23:59:59</result>
-   <result dateType='long' timeType='none'>1 декабря 2010 г.</result>
-   <result timeType='short'>1 декабря 2010 г. 23:59</result>
-   <result timeType='medium'>1 декабря 2010 г. 23:59:59</result>
-   <result dateType='full' timeType='none'>среда, 1 декабря 2010 г.</result>
-   <result timeType='short'>среда, 1 декабря 2010 г. 23:59</result>
-   <result timeType='medium'>среда, 1 декабря 2010 г. 23:59:59</result>
+   <result dateType='long' timeType='none'>1 декабря 2010 г.</result>
+   <result timeType='short'>1 декабря 2010 г. 23:59</result>
+   <result timeType='medium'>1 декабря 2010 г. 23:59:59</result>
+   <result dateType='full' timeType='none'>среда, 1 декабря 2010 г.</result>
+   <result timeType='short'>среда, 1 декабря 2010 г. 23:59</result>
+   <result timeType='medium'>среда, 1 декабря 2010 г. 23:59:59</result>
   </date>
   <date 
 locales='ru_UA'>
-<!-- Russian (Ukraine) [русский (Украина)] -->
+<!-- Russian (Ukraine) [русский (Украина)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31.01.00</result>
@@ -241,9 +241,9 @@ locales='ru_UA'>
    <result dateType='long' timeType='none'>31 января 1900</result>
    <result timeType='short'>31 января 1900 00:00</result>
    <result timeType='medium'>31 января 1900 00:00:00</result>
-   <result dateType='full' timeType='none'>среда, 31 января 1900 г.</result>
-   <result timeType='short'>среда, 31 января 1900 г. 00:00</result>
-   <result timeType='medium'>среда, 31 января 1900 г. 00:00:00</result>
+   <result dateType='full' timeType='none'>среда, 31 января 1900 г.</result>
+   <result timeType='short'>среда, 31 января 1900 г. 00:00</result>
+   <result timeType='medium'>среда, 31 января 1900 г. 00:00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
    <result dateType='short' timeType='none'>28.02.09</result>
@@ -255,9 +255,9 @@ locales='ru_UA'>
    <result dateType='long' timeType='none'>28 февраля 1909</result>
    <result timeType='short'>28 февраля 1909 00:00</result>
    <result timeType='medium'>28 февраля 1909 00:00:01</result>
-   <result dateType='full' timeType='none'>воскресенье, 28 февраля 1909 г.</result>
-   <result timeType='short'>воскресенье, 28 февраля 1909 г. 00:00</result>
-   <result timeType='medium'>воскресенье, 28 февраля 1909 г. 00:00:01</result>
+   <result dateType='full' timeType='none'>воскресенье, 28 февраля 1909 г.</result>
+   <result timeType='short'>воскресенье, 28 февраля 1909 г. 00:00</result>
+   <result timeType='medium'>воскресенье, 28 февраля 1909 г. 00:00:01</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result dateType='short' timeType='none'>26.03.18</result>
@@ -269,9 +269,9 @@ locales='ru_UA'>
    <result dateType='long' timeType='none'>26 марта 1918</result>
    <result timeType='short'>26 марта 1918 00:59</result>
    <result timeType='medium'>26 марта 1918 00:59:59</result>
-   <result dateType='full' timeType='none'>вторник, 26 марта 1918 г.</result>
-   <result timeType='short'>вторник, 26 марта 1918 г. 00:59</result>
-   <result timeType='medium'>вторник, 26 марта 1918 г. 00:59:59</result>
+   <result dateType='full' timeType='none'>вторник, 26 марта 1918 г.</result>
+   <result timeType='short'>вторник, 26 марта 1918 г. 00:59</result>
+   <result timeType='medium'>вторник, 26 марта 1918 г. 00:59:59</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
    <result dateType='short' timeType='none'>24.04.32</result>
@@ -283,9 +283,9 @@ locales='ru_UA'>
    <result dateType='long' timeType='none'>24 апреля 1932</result>
    <result timeType='short'>24 апреля 1932 01:00</result>
    <result timeType='medium'>24 апреля 1932 01:00:00</result>
-   <result dateType='full' timeType='none'>воскресенье, 24 апреля 1932 г.</result>
-   <result timeType='short'>воскресенье, 24 апреля 1932 г. 01:00</result>
-   <result timeType='medium'>воскресенье, 24 апреля 1932 г. 01:00:00</result>
+   <result dateType='full' timeType='none'>воскресенье, 24 апреля 1932 г.</result>
+   <result timeType='short'>воскресенье, 24 апреля 1932 г. 01:00</result>
+   <result timeType='medium'>воскресенье, 24 апреля 1932 г. 01:00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result dateType='short' timeType='none'>20.05.45</result>
@@ -297,9 +297,9 @@ locales='ru_UA'>
    <result dateType='long' timeType='none'>20 мая 1945</result>
    <result timeType='short'>20 мая 1945 01:00</result>
    <result timeType='medium'>20 мая 1945 01:00:01</result>
-   <result dateType='full' timeType='none'>воскресенье, 20 мая 1945 г.</result>
-   <result timeType='short'>воскресенье, 20 мая 1945 г. 01:00</result>
-   <result timeType='medium'>воскресенье, 20 мая 1945 г. 01:00:01</result>
+   <result dateType='full' timeType='none'>воскресенье, 20 мая 1945 г.</result>
+   <result timeType='short'>воскресенье, 20 мая 1945 г. 01:00</result>
+   <result timeType='medium'>воскресенье, 20 мая 1945 г. 01:00:01</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result dateType='short' timeType='none'>18.06.52</result>
@@ -311,9 +311,9 @@ locales='ru_UA'>
    <result dateType='long' timeType='none'>18 июня 1952</result>
    <result timeType='short'>18 июня 1952 11:59</result>
    <result timeType='medium'>18 июня 1952 11:59:59</result>
-   <result dateType='full' timeType='none'>среда, 18 июня 1952 г.</result>
-   <result timeType='short'>среда, 18 июня 1952 г. 11:59</result>
-   <result timeType='medium'>среда, 18 июня 1952 г. 11:59:59</result>
+   <result dateType='full' timeType='none'>среда, 18 июня 1952 г.</result>
+   <result timeType='short'>среда, 18 июня 1952 г. 11:59</result>
+   <result timeType='medium'>среда, 18 июня 1952 г. 11:59:59</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result dateType='short' timeType='none'>16.07.73</result>
@@ -325,9 +325,9 @@ locales='ru_UA'>
    <result dateType='long' timeType='none'>16 июля 1973</result>
    <result timeType='short'>16 июля 1973 12:00</result>
    <result timeType='medium'>16 июля 1973 12:00:00</result>
-   <result dateType='full' timeType='none'>понедельник, 16 июля 1973 г.</result>
-   <result timeType='short'>понедельник, 16 июля 1973 г. 12:00</result>
-   <result timeType='medium'>понедельник, 16 июля 1973 г. 12:00:00</result>
+   <result dateType='full' timeType='none'>понедельник, 16 июля 1973 г.</result>
+   <result timeType='short'>понедельник, 16 июля 1973 г. 12:00</result>
+   <result timeType='medium'>понедельник, 16 июля 1973 г. 12:00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result dateType='short' timeType='none'>14.08.99</result>
@@ -339,9 +339,9 @@ locales='ru_UA'>
    <result dateType='long' timeType='none'>14 августа 1999</result>
    <result timeType='short'>14 августа 1999 12:00</result>
    <result timeType='medium'>14 августа 1999 12:00:01</result>
-   <result dateType='full' timeType='none'>суббота, 14 августа 1999 г.</result>
-   <result timeType='short'>суббота, 14 августа 1999 г. 12:00</result>
-   <result timeType='medium'>суббота, 14 августа 1999 г. 12:00:01</result>
+   <result dateType='full' timeType='none'>суббота, 14 августа 1999 г.</result>
+   <result timeType='short'>суббота, 14 августа 1999 г. 12:00</result>
+   <result timeType='medium'>суббота, 14 августа 1999 г. 12:00:01</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result dateType='short' timeType='none'>12.09.00</result>
@@ -353,9 +353,9 @@ locales='ru_UA'>
    <result dateType='long' timeType='none'>12 сентября 2000</result>
    <result timeType='short'>12 сентября 2000 22:59</result>
    <result timeType='medium'>12 сентября 2000 22:59:59</result>
-   <result dateType='full' timeType='none'>вторник, 12 сентября 2000 г.</result>
-   <result timeType='short'>вторник, 12 сентября 2000 г. 22:59</result>
-   <result timeType='medium'>вторник, 12 сентября 2000 г. 22:59:59</result>
+   <result dateType='full' timeType='none'>вторник, 12 сентября 2000 г.</result>
+   <result timeType='short'>вторник, 12 сентября 2000 г. 22:59</result>
+   <result timeType='medium'>вторник, 12 сентября 2000 г. 22:59:59</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result dateType='short' timeType='none'>08.10.01</result>
@@ -367,9 +367,9 @@ locales='ru_UA'>
    <result dateType='long' timeType='none'>8 октября 2001</result>
    <result timeType='short'>8 октября 2001 23:00</result>
    <result timeType='medium'>8 октября 2001 23:00:00</result>
-   <result dateType='full' timeType='none'>понедельник, 8 октября 2001 г.</result>
-   <result timeType='short'>понедельник, 8 октября 2001 г. 23:00</result>
-   <result timeType='medium'>понедельник, 8 октября 2001 г. 23:00:00</result>
+   <result dateType='full' timeType='none'>понедельник, 8 октября 2001 г.</result>
+   <result timeType='short'>понедельник, 8 октября 2001 г. 23:00</result>
+   <result timeType='medium'>понедельник, 8 октября 2001 г. 23:00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result dateType='short' timeType='none'>04.11.04</result>
@@ -381,9 +381,9 @@ locales='ru_UA'>
    <result dateType='long' timeType='none'>4 ноября 2004</result>
    <result timeType='short'>4 ноября 2004 23:00</result>
    <result timeType='medium'>4 ноября 2004 23:00:01</result>
-   <result dateType='full' timeType='none'>четверг, 4 ноября 2004 г.</result>
-   <result timeType='short'>четверг, 4 ноября 2004 г. 23:00</result>
-   <result timeType='medium'>четверг, 4 ноября 2004 г. 23:00:01</result>
+   <result dateType='full' timeType='none'>четверг, 4 ноября 2004 г.</result>
+   <result timeType='short'>четверг, 4 ноября 2004 г. 23:00</result>
+   <result timeType='medium'>четверг, 4 ноября 2004 г. 23:00:01</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result dateType='short' timeType='none'>01.12.10</result>
@@ -395,17 +395,17 @@ locales='ru_UA'>
    <result dateType='long' timeType='none'>1 декабря 2010</result>
    <result timeType='short'>1 декабря 2010 23:59</result>
    <result timeType='medium'>1 декабря 2010 23:59:59</result>
-   <result dateType='full' timeType='none'>среда, 1 декабря 2010 г.</result>
-   <result timeType='short'>среда, 1 декабря 2010 г. 23:59</result>
-   <result timeType='medium'>среда, 1 декабря 2010 г. 23:59:59</result>
+   <result dateType='full' timeType='none'>среда, 1 декабря 2010 г.</result>
+   <result timeType='short'>среда, 1 декабря 2010 г. 23:59</result>
+   <result timeType='medium'>среда, 1 декабря 2010 г. 23:59:59</result>
   </date>
   <zoneFields 
-locales='ru ru_RU ru_UA'>
-<!-- Russian [русский]; Russian (Russia) [русский (Россия)]; Russian (Ukraine) [русский (Украина)] -->
+locales='ru ru_MD ru_RU ru_UA'>
+<!-- Russian [русский@]; Russian (Moldova) [русский (Молдова)@]; Russian (Russia) [русский (Россия)@]; Russian (Ukraine) [русский (Украина)@] -->
   </zoneFields>
   <collation 
-locales='ru ru_RU ru_UA'>
-<!-- Russian [русский]; Russian (Russia) [русский (Россия)]; Russian (Ukraine) [русский (Украина)] -->
+locales='ru ru_MD ru_RU ru_UA'>
+<!-- Russian [русский@]; Russian (Moldova) [русский (Молдова)@]; Russian (Russia) [русский (Россия)@]; Russian (Ukraine) [русский (Украина)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -426,20 +426,44 @@ xa
 xA
 Xa
 XA
+xá
+xÁ
+Xá
+XÁ
+xà
+xÀ
+Xà
+XÀ
+xâ
+xÂ
+Xâ
+XÂ
+xä
+xÄ
+Xä
+XÄ
 xax
 xAx
+xáx
+xÁx
+xàx
+xÀx
+xâx
+xÂx
+xäx
+xÄx
 xb
 xB
 Xb
 XB
 xbx
 xBx
-xc
-xC
-Xc
-XC
-xcx
-xCx
+xç
+xÇ
+Xç
+XÇ
+xçx
+xÇx
 xd
 xD
 Xd
@@ -450,20 +474,74 @@ xe
 xE
 Xe
 XE
+xé
+xÉ
+Xé
+XÉ
+xè
+xÈ
+Xè
+XÈ
+xê
+xÊ
+Xê
+XÊ
+xë
+xË
+Xë
+XË
 xex
 xEx
+xéx
+xÉx
+xèx
+xÈx
+xêx
+xÊx
+xëx
+xËx
+xf
+xF
+Xf
+XF
+xfx
+xFx
 xg
 xG
 Xg
 XG
 xgx
 xGx
+xh
+xH
+Xh
+XH
+xhx
+xHx
 xi
 xI
 Xi
 XI
 xix
 xIx
+xj
+xJ
+Xj
+XJ
+xjx
+xJx
+xk
+xK
+Xk
+XK
+xkx
+xKx
+xl
+xL
+Xl
+XL
+xlx
+xLx
 xm
 xM
 Xm
@@ -476,6 +554,36 @@ Xn
 XN
 xnx
 xNx
+xo
+xO
+Xo
+XO
+xó
+xÓ
+Xó
+XÓ
+xò
+xÒ
+Xò
+XÒ
+xô
+xÔ
+Xô
+XÔ
+xö
+xÖ
+Xö
+XÖ
+xox
+xOx
+xóx
+xÓx
+xòx
+xÒx
+xôx
+xÔx
+xöx
+xÖx
 xp
 xP
 Xp
@@ -488,6 +596,12 @@ Xr
 XR
 xrx
 xRx
+xs
+xS
+Xs
+XS
+xsx
+xSx
 xt
 xT
 Xt
@@ -498,8 +612,32 @@ xu
 xU
 Xu
 XU
+xú
+xÚ
+Xú
+XÚ
+xù
+xÙ
+Xù
+XÙ
+xû
+xÛ
+Xû
+XÛ
+xü
+xÜ
+Xü
+XÜ
 xux
 xUx
+xúx
+xÚx
+xùx
+xÙx
+xûx
+xÛx
+xüx
+xÜx
 xv
 xV
 Xv
@@ -518,6 +656,24 @@ Xx
 XX
 xxx
 xXx
+xy
+xY
+Xy
+XY
+xÿ
+xŸ
+Xÿ
+XŸ
+xyx
+xYx
+xÿx
+xŸx
+xz
+xZ
+Xz
+XZ
+xzx
+xZx
 xа
 xА
 Xа

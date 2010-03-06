@@ -4,8 +4,8 @@
  <cldrTest version='1.7' base='ta'>
  <!-- Tamil [தமிழ்] -->
   <number 
-locales='ta ta_IN'>
-<!-- Tamil [தமிழ்]; Tamil (India) [தமிழ் (இந்தியா)] -->
+locales='ta ta_IN ta_LK'>
+<!-- Tamil [தமிழ்@]; Tamil (India) [தமிழ் (இந்தியா)@]; Tamil (Sri Lanka) [தமிழ் (இலங்கை)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='ta ta_IN'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='ta ta_IN'>
-<!-- Tamil [தமிழ்]; Tamil (India) [தமிழ் (இந்தியா)] -->
+locales='ta ta_IN ta_LK'>
+<!-- Tamil [தமிழ்@]; Tamil (India) [தமிழ் (இந்தியா)@]; Tamil (Sri Lanka) [தமிழ் (இலங்கை)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 am</result>
    <result timeType='medium'>12:00:00 am</result>
    <result dateType='short' timeType='none'>31-1-00</result>
@@ -228,12 +228,12 @@ locales='ta ta_IN'>
    <result timeType='medium'>புதன், 1 டிசம்பர், 2010 11:59:59 pm</result>
   </date>
   <zoneFields 
-locales='ta ta_IN'>
-<!-- Tamil [தமிழ்]; Tamil (India) [தமிழ் (இந்தியா)] -->
+locales='ta ta_IN ta_LK'>
+<!-- Tamil [தமிழ்@]; Tamil (India) [தமிழ் (இந்தியா)@]; Tamil (Sri Lanka) [தமிழ் (இலங்கை)@] -->
   </zoneFields>
   <collation 
-locales='ta ta_IN'>
-<!-- Tamil [தமிழ்]; Tamil (India) [தமிழ் (இந்தியா)] -->
+locales='ta ta_IN ta_LK'>
+<!-- Tamil [தமிழ்@]; Tamil (India) [தமிழ் (இந்தியா)@]; Tamil (Sri Lanka) [தமிழ் (இலங்கை)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -319,14 +319,14 @@ xஓx
 xஔ
 Xஔ
 xஔx
-xக்
-Xக்
 xஂ
 Xஂ
 xஂx
 xஃ
 Xஃ
 xஃx
+xக்
+Xக்
 xக்x
 xக
 Xக

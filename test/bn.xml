@@ -5,43 +5,43 @@
  <!-- Bengali [বাংলা] -->
   <number 
 locales='bn bn_BD bn_IN'>
-<!-- Bengali [বাংলা]; Bengali (Bangladesh) [বাংলা (বাংলাদেশ)]; Bengali (India) [বাংলা (ভারত)] -->
-   <result input='0.0' numberType='integer' draft='unconfirmed approved'>০</result>
-   <result numberType='decimal'>০</result>
-   <result numberType='percent'>০%</result>
-   <result numberType='scientific'>০E০</result>
-   <result input='0.01' numberType='integer'>০</result>
-   <result numberType='decimal'>০.০১</result>
-   <result numberType='percent'>১%</result>
-   <result numberType='scientific'>১E-২</result>
-   <result input='-0.01' numberType='integer'>-০</result>
-   <result numberType='decimal'>-০.০১</result>
-   <result numberType='percent'>-১%</result>
-   <result numberType='scientific'>-১E-২</result>
-   <result input='1.0' numberType='integer'>১</result>
-   <result numberType='decimal'>১</result>
-   <result numberType='percent'>১০০%</result>
-   <result numberType='scientific'>১E০</result>
-   <result input='-1.0' numberType='integer'>-১</result>
-   <result numberType='decimal'>-১</result>
-   <result numberType='percent'>-১০০%</result>
-   <result numberType='scientific'>-১E০</result>
-   <result input='123.456' numberType='integer'>১২৩</result>
-   <result numberType='decimal'>১২৩.৪৫৬</result>
-   <result numberType='percent'>১২,৩৪৬%</result>
-   <result numberType='scientific'>১.২৩৪৫৬E২</result>
-   <result input='-123.456' numberType='integer'>-১২৩</result>
-   <result numberType='decimal'>-১২৩.৪৫৬</result>
-   <result numberType='percent'>-১২,৩৪৬%</result>
-   <result numberType='scientific'>-১.২৩৪৫৬E২</result>
-   <result input='123456.78' numberType='integer'>১,২৩,৪৫৭</result>
-   <result numberType='decimal'>১,২৩,৪৫৬.৭৮</result>
-   <result numberType='percent'>১,২৩,৪৫,৬৭৮%</result>
-   <result numberType='scientific'>১.২৩৪৫৬৭৮E৫</result>
-   <result input='-123456.78' numberType='integer'>-১,২৩,৪৫৭</result>
-   <result numberType='decimal'>-১,২৩,৪৫৬.৭৮</result>
-   <result numberType='percent'>-১,২৩,৪৫,৬৭৮%</result>
-   <result numberType='scientific'>-১.২৩৪৫৬৭৮E৫</result>
+<!-- Bengali [বাংলা@]; Bengali (Bangladesh) [বাংলা (বাংলাদেশ)@]; Bengali (India) [বাংলা (ভারত)@] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal'>0.01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='decimal'>-0.01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal'>123.456</result>
+   <result numberType='percent'>12,346%</result>
+   <result numberType='scientific'>1.23456E2</result>
+   <result input='-123.456' numberType='integer'>-123</result>
+   <result numberType='decimal'>-123.456</result>
+   <result numberType='percent'>-12,346%</result>
+   <result numberType='scientific'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer'>1,23,457</result>
+   <result numberType='decimal'>1,23,456.78</result>
+   <result numberType='percent'>1,23,45,678%</result>
+   <result numberType='scientific'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-1,23,457</result>
+   <result numberType='decimal'>-1,23,456.78</result>
+   <result numberType='percent'>-1,23,45,678%</result>
+   <result numberType='scientific'>-1.2345678E5</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
@@ -50,194 +50,194 @@ locales='bn bn_BD bn_IN'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>সংখ্যা না</result>
-   <result numberType='decimal'>সংখ্যা না</result>
-   <result numberType='percent'>সংখ্যা না</result>
-   <result numberType='scientific'>সংখ্যা না</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='bn bn_BD bn_IN'>
-<!-- Bengali [বাংলা]; Bengali (Bangladesh) [বাংলা (বাংলাদেশ)]; Bengali (India) [বাংলা (ভারত)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>১২:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>১২:০০:০০ পূর্বাহ্ণ</result>
-   <result dateType='short' timeType='none'>৩১/১/০০</result>
-   <result timeType='short'>৩১/১/০০ ১২:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>৩১/১/০০ ১২:০০:০০ পূর্বাহ্ণ</result>
-   <result dateType='medium' timeType='none'>৩১ জানুয়ারী, ১৯০০</result>
-   <result timeType='short'>৩১ জানুয়ারী, ১৯০০ ১২:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>৩১ জানুয়ারী, ১৯০০ ১২:০০:০০ পূর্বাহ্ণ</result>
-   <result dateType='long' timeType='none'>৩১ জানুয়ারী, ১৯০০</result>
-   <result timeType='short'>৩১ জানুয়ারী, ১৯০০ ১২:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>৩১ জানুয়ারী, ১৯০০ ১২:০০:০০ পূর্বাহ্ণ</result>
-   <result dateType='full' timeType='none'>বুধবার, ৩১ জানুয়ারী, ১৯০০</result>
-   <result timeType='short'>বুধবার, ৩১ জানুয়ারী, ১৯০০ ১২:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>বুধবার, ৩১ জানুয়ারী, ১৯০০ ১২:০০:০০ পূর্বাহ্ণ</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>১২:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>১২:০০:০১ পূর্বাহ্ণ</result>
-   <result dateType='short' timeType='none'>২৮/২/০৯</result>
-   <result timeType='short'>২৮/২/০৯ ১২:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>২৮/২/০৯ ১২:০০:০১ পূর্বাহ্ণ</result>
-   <result dateType='medium' timeType='none'>২৮ ফেব্রুয়ারী, ১৯০৯</result>
-   <result timeType='short'>২৮ ফেব্রুয়ারী, ১৯০৯ ১২:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>২৮ ফেব্রুয়ারী, ১৯০৯ ১২:০০:০১ পূর্বাহ্ণ</result>
-   <result dateType='long' timeType='none'>২৮ ফেব্রুয়ারী, ১৯০৯</result>
-   <result timeType='short'>২৮ ফেব্রুয়ারী, ১৯০৯ ১২:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>২৮ ফেব্রুয়ারী, ১৯০৯ ১২:০০:০১ পূর্বাহ্ণ</result>
-   <result dateType='full' timeType='none'>রবিবার, ২৮ ফেব্রুয়ারী, ১৯০৯</result>
-   <result timeType='short'>রবিবার, ২৮ ফেব্রুয়ারী, ১৯০৯ ১২:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>রবিবার, ২৮ ফেব্রুয়ারী, ১৯০৯ ১২:০০:০১ পূর্বাহ্ণ</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>১২:৫৯ পূর্বাহ্ণ</result>
-   <result timeType='medium'>১২:৫৯:৫৯ পূর্বাহ্ণ</result>
-   <result dateType='short' timeType='none'>২৬/৩/১৮</result>
-   <result timeType='short'>২৬/৩/১৮ ১২:৫৯ পূর্বাহ্ণ</result>
-   <result timeType='medium'>২৬/৩/১৮ ১২:৫৯:৫৯ পূর্বাহ্ণ</result>
-   <result dateType='medium' timeType='none'>২৬ মার্চ, ১৯১৮</result>
-   <result timeType='short'>২৬ মার্চ, ১৯১৮ ১২:৫৯ পূর্বাহ্ণ</result>
-   <result timeType='medium'>২৬ মার্চ, ১৯১৮ ১২:৫৯:৫৯ পূর্বাহ্ণ</result>
-   <result dateType='long' timeType='none'>২৬ মার্চ, ১৯১৮</result>
-   <result timeType='short'>২৬ মার্চ, ১৯১৮ ১২:৫৯ পূর্বাহ্ণ</result>
-   <result timeType='medium'>২৬ মার্চ, ১৯১৮ ১২:৫৯:৫৯ পূর্বাহ্ণ</result>
-   <result dateType='full' timeType='none'>মঙ্গলবার, ২৬ মার্চ, ১৯১৮</result>
-   <result timeType='short'>মঙ্গলবার, ২৬ মার্চ, ১৯১৮ ১২:৫৯ পূর্বাহ্ণ</result>
-   <result timeType='medium'>মঙ্গলবার, ২৬ মার্চ, ১৯১৮ ১২:৫৯:৫৯ পূর্বাহ্ণ</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>১:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>১:০০:০০ পূর্বাহ্ণ</result>
-   <result dateType='short' timeType='none'>২৪/৪/৩২</result>
-   <result timeType='short'>২৪/৪/৩২ ১:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>২৪/৪/৩২ ১:০০:০০ পূর্বাহ্ণ</result>
-   <result dateType='medium' timeType='none'>২৪ এপ্রিল, ১৯৩২</result>
-   <result timeType='short'>২৪ এপ্রিল, ১৯৩২ ১:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>২৪ এপ্রিল, ১৯৩২ ১:০০:০০ পূর্বাহ্ণ</result>
-   <result dateType='long' timeType='none'>২৪ এপ্রিল, ১৯৩২</result>
-   <result timeType='short'>২৪ এপ্রিল, ১৯৩২ ১:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>২৪ এপ্রিল, ১৯৩২ ১:০০:০০ পূর্বাহ্ণ</result>
-   <result dateType='full' timeType='none'>রবিবার, ২৪ এপ্রিল, ১৯৩২</result>
-   <result timeType='short'>রবিবার, ২৪ এপ্রিল, ১৯৩২ ১:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>রবিবার, ২৪ এপ্রিল, ১৯৩২ ১:০০:০০ পূর্বাহ্ণ</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>১:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>১:০০:০১ পূর্বাহ্ণ</result>
-   <result dateType='short' timeType='none'>২০/৫/৪৫</result>
-   <result timeType='short'>২০/৫/৪৫ ১:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>২০/৫/৪৫ ১:০০:০১ পূর্বাহ্ণ</result>
-   <result dateType='medium' timeType='none'>২০ মে, ১৯৪৫</result>
-   <result timeType='short'>২০ মে, ১৯৪৫ ১:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>২০ মে, ১৯৪৫ ১:০০:০১ পূর্বাহ্ণ</result>
-   <result dateType='long' timeType='none'>২০ মে, ১৯৪৫</result>
-   <result timeType='short'>২০ মে, ১৯৪৫ ১:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>২০ মে, ১৯৪৫ ১:০০:০১ পূর্বাহ্ণ</result>
-   <result dateType='full' timeType='none'>রবিবার, ২০ মে, ১৯৪৫</result>
-   <result timeType='short'>রবিবার, ২০ মে, ১৯৪৫ ১:০০ পূর্বাহ্ণ</result>
-   <result timeType='medium'>রবিবার, ২০ মে, ১৯৪৫ ১:০০:০১ পূর্বাহ্ণ</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>১১:৫৯ পূর্বাহ্ণ</result>
-   <result timeType='medium'>১১:৫৯:৫৯ পূর্বাহ্ণ</result>
-   <result dateType='short' timeType='none'>১৮/৬/৫২</result>
-   <result timeType='short'>১৮/৬/৫২ ১১:৫৯ পূর্বাহ্ণ</result>
-   <result timeType='medium'>১৮/৬/৫২ ১১:৫৯:৫৯ পূর্বাহ্ণ</result>
-   <result dateType='medium' timeType='none'>১৮ জুন, ১৯৫২</result>
-   <result timeType='short'>১৮ জুন, ১৯৫২ ১১:৫৯ পূর্বাহ্ণ</result>
-   <result timeType='medium'>১৮ জুন, ১৯৫২ ১১:৫৯:৫৯ পূর্বাহ্ণ</result>
-   <result dateType='long' timeType='none'>১৮ জুন, ১৯৫২</result>
-   <result timeType='short'>১৮ জুন, ১৯৫২ ১১:৫৯ পূর্বাহ্ণ</result>
-   <result timeType='medium'>১৮ জুন, ১৯৫২ ১১:৫৯:৫৯ পূর্বাহ্ণ</result>
-   <result dateType='full' timeType='none'>বুধবার, ১৮ জুন, ১৯৫২</result>
-   <result timeType='short'>বুধবার, ১৮ জুন, ১৯৫২ ১১:৫৯ পূর্বাহ্ণ</result>
-   <result timeType='medium'>বুধবার, ১৮ জুন, ১৯৫২ ১১:৫৯:৫৯ পূর্বাহ্ণ</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>১২:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>১২:০০:০০ অপরাহ্ণ</result>
-   <result dateType='short' timeType='none'>১৬/৭/৭৩</result>
-   <result timeType='short'>১৬/৭/৭৩ ১২:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>১৬/৭/৭৩ ১২:০০:০০ অপরাহ্ণ</result>
-   <result dateType='medium' timeType='none'>১৬ জুলাই, ১৯৭৩</result>
-   <result timeType='short'>১৬ জুলাই, ১৯৭৩ ১২:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>১৬ জুলাই, ১৯৭৩ ১২:০০:০০ অপরাহ্ণ</result>
-   <result dateType='long' timeType='none'>১৬ জুলাই, ১৯৭৩</result>
-   <result timeType='short'>১৬ জুলাই, ১৯৭৩ ১২:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>১৬ জুলাই, ১৯৭৩ ১২:০০:০০ অপরাহ্ণ</result>
-   <result dateType='full' timeType='none'>সোমবার, ১৬ জুলাই, ১৯৭৩</result>
-   <result timeType='short'>সোমবার, ১৬ জুলাই, ১৯৭৩ ১২:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>সোমবার, ১৬ জুলাই, ১৯৭৩ ১২:০০:০০ অপরাহ্ণ</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>১২:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>১২:০০:০১ অপরাহ্ণ</result>
-   <result dateType='short' timeType='none'>১৪/৮/৯৯</result>
-   <result timeType='short'>১৪/৮/৯৯ ১২:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>১৪/৮/৯৯ ১২:০০:০১ অপরাহ্ণ</result>
-   <result dateType='medium' timeType='none'>১৪ আগস্ট, ১৯৯৯</result>
-   <result timeType='short'>১৪ আগস্ট, ১৯৯৯ ১২:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>১৪ আগস্ট, ১৯৯৯ ১২:০০:০১ অপরাহ্ণ</result>
-   <result dateType='long' timeType='none'>১৪ আগস্ট, ১৯৯৯</result>
-   <result timeType='short'>১৪ আগস্ট, ১৯৯৯ ১২:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>১৪ আগস্ট, ১৯৯৯ ১২:০০:০১ অপরাহ্ণ</result>
-   <result dateType='full' timeType='none'>শনিবার, ১৪ আগস্ট, ১৯৯৯</result>
-   <result timeType='short'>শনিবার, ১৪ আগস্ট, ১৯৯৯ ১২:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>শনিবার, ১৪ আগস্ট, ১৯৯৯ ১২:০০:০১ অপরাহ্ণ</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>১০:৫৯ অপরাহ্ণ</result>
-   <result timeType='medium'>১০:৫৯:৫৯ অপরাহ্ণ</result>
-   <result dateType='short' timeType='none'>১২/৯/০০</result>
-   <result timeType='short'>১২/৯/০০ ১০:৫৯ অপরাহ্ণ</result>
-   <result timeType='medium'>১২/৯/০০ ১০:৫৯:৫৯ অপরাহ্ণ</result>
-   <result dateType='medium' timeType='none'>১২ সেপ্টেম্বর, ২০০০</result>
-   <result timeType='short'>১২ সেপ্টেম্বর, ২০০০ ১০:৫৯ অপরাহ্ণ</result>
-   <result timeType='medium'>১২ সেপ্টেম্বর, ২০০০ ১০:৫৯:৫৯ অপরাহ্ণ</result>
-   <result dateType='long' timeType='none'>১২ সেপ্টেম্বর, ২০০০</result>
-   <result timeType='short'>১২ সেপ্টেম্বর, ২০০০ ১০:৫৯ অপরাহ্ণ</result>
-   <result timeType='medium'>১২ সেপ্টেম্বর, ২০০০ ১০:৫৯:৫৯ অপরাহ্ণ</result>
-   <result dateType='full' timeType='none'>মঙ্গলবার, ১২ সেপ্টেম্বর, ২০০০</result>
-   <result timeType='short'>মঙ্গলবার, ১২ সেপ্টেম্বর, ২০০০ ১০:৫৯ অপরাহ্ণ</result>
-   <result timeType='medium'>মঙ্গলবার, ১২ সেপ্টেম্বর, ২০০০ ১০:৫৯:৫৯ অপরাহ্ণ</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>১১:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>১১:০০:০০ অপরাহ্ণ</result>
-   <result dateType='short' timeType='none'>৮/১০/০১</result>
-   <result timeType='short'>৮/১০/০১ ১১:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>৮/১০/০১ ১১:০০:০০ অপরাহ্ণ</result>
-   <result dateType='medium' timeType='none'>৮ অক্টোবর, ২০০১</result>
-   <result timeType='short'>৮ অক্টোবর, ২০০১ ১১:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>৮ অক্টোবর, ২০০১ ১১:০০:০০ অপরাহ্ণ</result>
-   <result dateType='long' timeType='none'>৮ অক্টোবর, ২০০১</result>
-   <result timeType='short'>৮ অক্টোবর, ২০০১ ১১:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>৮ অক্টোবর, ২০০১ ১১:০০:০০ অপরাহ্ণ</result>
-   <result dateType='full' timeType='none'>সোমবার, ৮ অক্টোবর, ২০০১</result>
-   <result timeType='short'>সোমবার, ৮ অক্টোবর, ২০০১ ১১:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>সোমবার, ৮ অক্টোবর, ২০০১ ১১:০০:০০ অপরাহ্ণ</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>১১:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>১১:০০:০১ অপরাহ্ণ</result>
-   <result dateType='short' timeType='none'>৪/১১/০৪</result>
-   <result timeType='short'>৪/১১/০৪ ১১:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>৪/১১/০৪ ১১:০০:০১ অপরাহ্ণ</result>
-   <result dateType='medium' timeType='none'>৪ নভেম্বর, ২০০৪</result>
-   <result timeType='short'>৪ নভেম্বর, ২০০৪ ১১:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>৪ নভেম্বর, ২০০৪ ১১:০০:০১ অপরাহ্ণ</result>
-   <result dateType='long' timeType='none'>৪ নভেম্বর, ২০০৪</result>
-   <result timeType='short'>৪ নভেম্বর, ২০০৪ ১১:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>৪ নভেম্বর, ২০০৪ ১১:০০:০১ অপরাহ্ণ</result>
-   <result dateType='full' timeType='none'>বৃহষ্পতিবার, ৪ নভেম্বর, ২০০৪</result>
-   <result timeType='short'>বৃহষ্পতিবার, ৪ নভেম্বর, ২০০৪ ১১:০০ অপরাহ্ণ</result>
-   <result timeType='medium'>বৃহষ্পতিবার, ৪ নভেম্বর, ২০০৪ ১১:০০:০১ অপরাহ্ণ</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>১১:৫৯ অপরাহ্ণ</result>
-   <result timeType='medium'>১১:৫৯:৫৯ অপরাহ্ণ</result>
-   <result dateType='short' timeType='none'>১/১২/১০</result>
-   <result timeType='short'>১/১২/১০ ১১:৫৯ অপরাহ্ণ</result>
-   <result timeType='medium'>১/১২/১০ ১১:৫৯:৫৯ অপরাহ্ণ</result>
-   <result dateType='medium' timeType='none'>১ ডিসেম্বর, ২০১০</result>
-   <result timeType='short'>১ ডিসেম্বর, ২০১০ ১১:৫৯ অপরাহ্ণ</result>
-   <result timeType='medium'>১ ডিসেম্বর, ২০১০ ১১:৫৯:৫৯ অপরাহ্ণ</result>
-   <result dateType='long' timeType='none'>১ ডিসেম্বর, ২০১০</result>
-   <result timeType='short'>১ ডিসেম্বর, ২০১০ ১১:৫৯ অপরাহ্ণ</result>
-   <result timeType='medium'>১ ডিসেম্বর, ২০১০ ১১:৫৯:৫৯ অপরাহ্ণ</result>
-   <result dateType='full' timeType='none'>বুধবার, ১ ডিসেম্বর, ২০১০</result>
-   <result timeType='short'>বুধবার, ১ ডিসেম্বর, ২০১০ ১১:৫৯ অপরাহ্ণ</result>
-   <result timeType='medium'>বুধবার, ১ ডিসেম্বর, ২০১০ ১১:৫৯:৫৯ অপরাহ্ণ</result>
+<!-- Bengali [বাংলা@]; Bengali (Bangladesh) [বাংলা (বাংলাদেশ)@]; Bengali (India) [বাংলা (ভারত)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>12:00:00 পূর্বাহ্ণ</result>
+   <result dateType='short' timeType='none'>31/1/00</result>
+   <result timeType='short'>31/1/00 12:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>31/1/00 12:00:00 পূর্বাহ্ণ</result>
+   <result dateType='medium' timeType='none'>31 জানুয়ারী, 1900</result>
+   <result timeType='short'>31 জানুয়ারী, 1900 12:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>31 জানুয়ারী, 1900 12:00:00 পূর্বাহ্ণ</result>
+   <result dateType='long' timeType='none'>31 জানুয়ারী, 1900</result>
+   <result timeType='short'>31 জানুয়ারী, 1900 12:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>31 জানুয়ারী, 1900 12:00:00 পূর্বাহ্ণ</result>
+   <result dateType='full' timeType='none'>বুধবার, 31 জানুয়ারী, 1900</result>
+   <result timeType='short'>বুধবার, 31 জানুয়ারী, 1900 12:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>বুধবার, 31 জানুয়ারী, 1900 12:00:00 পূর্বাহ্ণ</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>12:00:01 পূর্বাহ্ণ</result>
+   <result dateType='short' timeType='none'>28/2/09</result>
+   <result timeType='short'>28/2/09 12:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>28/2/09 12:00:01 পূর্বাহ্ণ</result>
+   <result dateType='medium' timeType='none'>28 ফেব্রুয়ারী, 1909</result>
+   <result timeType='short'>28 ফেব্রুয়ারী, 1909 12:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>28 ফেব্রুয়ারী, 1909 12:00:01 পূর্বাহ্ণ</result>
+   <result dateType='long' timeType='none'>28 ফেব্রুয়ারী, 1909</result>
+   <result timeType='short'>28 ফেব্রুয়ারী, 1909 12:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>28 ফেব্রুয়ারী, 1909 12:00:01 পূর্বাহ্ণ</result>
+   <result dateType='full' timeType='none'>রবিবার, 28 ফেব্রুয়ারী, 1909</result>
+   <result timeType='short'>রবিবার, 28 ফেব্রুয়ারী, 1909 12:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>রবিবার, 28 ফেব্রুয়ারী, 1909 12:00:01 পূর্বাহ্ণ</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 পূর্বাহ্ণ</result>
+   <result timeType='medium'>12:59:59 পূর্বাহ্ণ</result>
+   <result dateType='short' timeType='none'>26/3/18</result>
+   <result timeType='short'>26/3/18 12:59 পূর্বাহ্ণ</result>
+   <result timeType='medium'>26/3/18 12:59:59 পূর্বাহ্ণ</result>
+   <result dateType='medium' timeType='none'>26 মার্চ, 1918</result>
+   <result timeType='short'>26 মার্চ, 1918 12:59 পূর্বাহ্ণ</result>
+   <result timeType='medium'>26 মার্চ, 1918 12:59:59 পূর্বাহ্ণ</result>
+   <result dateType='long' timeType='none'>26 মার্চ, 1918</result>
+   <result timeType='short'>26 মার্চ, 1918 12:59 পূর্বাহ্ণ</result>
+   <result timeType='medium'>26 মার্চ, 1918 12:59:59 পূর্বাহ্ণ</result>
+   <result dateType='full' timeType='none'>মঙ্গলবার, 26 মার্চ, 1918</result>
+   <result timeType='short'>মঙ্গলবার, 26 মার্চ, 1918 12:59 পূর্বাহ্ণ</result>
+   <result timeType='medium'>মঙ্গলবার, 26 মার্চ, 1918 12:59:59 পূর্বাহ্ণ</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>1:00:00 পূর্বাহ্ণ</result>
+   <result dateType='short' timeType='none'>24/4/32</result>
+   <result timeType='short'>24/4/32 1:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>24/4/32 1:00:00 পূর্বাহ্ণ</result>
+   <result dateType='medium' timeType='none'>24 এপ্রিল, 1932</result>
+   <result timeType='short'>24 এপ্রিল, 1932 1:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>24 এপ্রিল, 1932 1:00:00 পূর্বাহ্ণ</result>
+   <result dateType='long' timeType='none'>24 এপ্রিল, 1932</result>
+   <result timeType='short'>24 এপ্রিল, 1932 1:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>24 এপ্রিল, 1932 1:00:00 পূর্বাহ্ণ</result>
+   <result dateType='full' timeType='none'>রবিবার, 24 এপ্রিল, 1932</result>
+   <result timeType='short'>রবিবার, 24 এপ্রিল, 1932 1:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>রবিবার, 24 এপ্রিল, 1932 1:00:00 পূর্বাহ্ণ</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>1:00:01 পূর্বাহ্ণ</result>
+   <result dateType='short' timeType='none'>20/5/45</result>
+   <result timeType='short'>20/5/45 1:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>20/5/45 1:00:01 পূর্বাহ্ণ</result>
+   <result dateType='medium' timeType='none'>20 মে, 1945</result>
+   <result timeType='short'>20 মে, 1945 1:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>20 মে, 1945 1:00:01 পূর্বাহ্ণ</result>
+   <result dateType='long' timeType='none'>20 মে, 1945</result>
+   <result timeType='short'>20 মে, 1945 1:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>20 মে, 1945 1:00:01 পূর্বাহ্ণ</result>
+   <result dateType='full' timeType='none'>রবিবার, 20 মে, 1945</result>
+   <result timeType='short'>রবিবার, 20 মে, 1945 1:00 পূর্বাহ্ণ</result>
+   <result timeType='medium'>রবিবার, 20 মে, 1945 1:00:01 পূর্বাহ্ণ</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 পূর্বাহ্ণ</result>
+   <result timeType='medium'>11:59:59 পূর্বাহ্ণ</result>
+   <result dateType='short' timeType='none'>18/6/52</result>
+   <result timeType='short'>18/6/52 11:59 পূর্বাহ্ণ</result>
+   <result timeType='medium'>18/6/52 11:59:59 পূর্বাহ্ণ</result>
+   <result dateType='medium' timeType='none'>18 জুন, 1952</result>
+   <result timeType='short'>18 জুন, 1952 11:59 পূর্বাহ্ণ</result>
+   <result timeType='medium'>18 জুন, 1952 11:59:59 পূর্বাহ্ণ</result>
+   <result dateType='long' timeType='none'>18 জুন, 1952</result>
+   <result timeType='short'>18 জুন, 1952 11:59 পূর্বাহ্ণ</result>
+   <result timeType='medium'>18 জুন, 1952 11:59:59 পূর্বাহ্ণ</result>
+   <result dateType='full' timeType='none'>বুধবার, 18 জুন, 1952</result>
+   <result timeType='short'>বুধবার, 18 জুন, 1952 11:59 পূর্বাহ্ণ</result>
+   <result timeType='medium'>বুধবার, 18 জুন, 1952 11:59:59 পূর্বাহ্ণ</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 অপরাহ্ণ</result>
+   <result timeType='medium'>12:00:00 অপরাহ্ণ</result>
+   <result dateType='short' timeType='none'>16/7/73</result>
+   <result timeType='short'>16/7/73 12:00 অপরাহ্ণ</result>
+   <result timeType='medium'>16/7/73 12:00:00 অপরাহ্ণ</result>
+   <result dateType='medium' timeType='none'>16 জুলাই, 1973</result>
+   <result timeType='short'>16 জুলাই, 1973 12:00 অপরাহ্ণ</result>
+   <result timeType='medium'>16 জুলাই, 1973 12:00:00 অপরাহ্ণ</result>
+   <result dateType='long' timeType='none'>16 জুলাই, 1973</result>
+   <result timeType='short'>16 জুলাই, 1973 12:00 অপরাহ্ণ</result>
+   <result timeType='medium'>16 জুলাই, 1973 12:00:00 অপরাহ্ণ</result>
+   <result dateType='full' timeType='none'>সোমবার, 16 জুলাই, 1973</result>
+   <result timeType='short'>সোমবার, 16 জুলাই, 1973 12:00 অপরাহ্ণ</result>
+   <result timeType='medium'>সোমবার, 16 জুলাই, 1973 12:00:00 অপরাহ্ণ</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 অপরাহ্ণ</result>
+   <result timeType='medium'>12:00:01 অপরাহ্ণ</result>
+   <result dateType='short' timeType='none'>14/8/99</result>
+   <result timeType='short'>14/8/99 12:00 অপরাহ্ণ</result>
+   <result timeType='medium'>14/8/99 12:00:01 অপরাহ্ণ</result>
+   <result dateType='medium' timeType='none'>14 আগস্ট, 1999</result>
+   <result timeType='short'>14 আগস্ট, 1999 12:00 অপরাহ্ণ</result>
+   <result timeType='medium'>14 আগস্ট, 1999 12:00:01 অপরাহ্ণ</result>
+   <result dateType='long' timeType='none'>14 আগস্ট, 1999</result>
+   <result timeType='short'>14 আগস্ট, 1999 12:00 অপরাহ্ণ</result>
+   <result timeType='medium'>14 আগস্ট, 1999 12:00:01 অপরাহ্ণ</result>
+   <result dateType='full' timeType='none'>শনিবার, 14 আগস্ট, 1999</result>
+   <result timeType='short'>শনিবার, 14 আগস্ট, 1999 12:00 অপরাহ্ণ</result>
+   <result timeType='medium'>শনিবার, 14 আগস্ট, 1999 12:00:01 অপরাহ্ণ</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 অপরাহ্ণ</result>
+   <result timeType='medium'>10:59:59 অপরাহ্ণ</result>
+   <result dateType='short' timeType='none'>12/9/00</result>
+   <result timeType='short'>12/9/00 10:59 অপরাহ্ণ</result>
+   <result timeType='medium'>12/9/00 10:59:59 অপরাহ্ণ</result>
+   <result dateType='medium' timeType='none'>12 সেপ্টেম্বর, 2000</result>
+   <result timeType='short'>12 সেপ্টেম্বর, 2000 10:59 অপরাহ্ণ</result>
+   <result timeType='medium'>12 সেপ্টেম্বর, 2000 10:59:59 অপরাহ্ণ</result>
+   <result dateType='long' timeType='none'>12 সেপ্টেম্বর, 2000</result>
+   <result timeType='short'>12 সেপ্টেম্বর, 2000 10:59 অপরাহ্ণ</result>
+   <result timeType='medium'>12 সেপ্টেম্বর, 2000 10:59:59 অপরাহ্ণ</result>
+   <result dateType='full' timeType='none'>মঙ্গলবার, 12 সেপ্টেম্বর, 2000</result>
+   <result timeType='short'>মঙ্গলবার, 12 সেপ্টেম্বর, 2000 10:59 অপরাহ্ণ</result>
+   <result timeType='medium'>মঙ্গলবার, 12 সেপ্টেম্বর, 2000 10:59:59 অপরাহ্ণ</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 অপরাহ্ণ</result>
+   <result timeType='medium'>11:00:00 অপরাহ্ণ</result>
+   <result dateType='short' timeType='none'>8/10/01</result>
+   <result timeType='short'>8/10/01 11:00 অপরাহ্ণ</result>
+   <result timeType='medium'>8/10/01 11:00:00 অপরাহ্ণ</result>
+   <result dateType='medium' timeType='none'>8 অক্টোবর, 2001</result>
+   <result timeType='short'>8 অক্টোবর, 2001 11:00 অপরাহ্ণ</result>
+   <result timeType='medium'>8 অক্টোবর, 2001 11:00:00 অপরাহ্ণ</result>
+   <result dateType='long' timeType='none'>8 অক্টোবর, 2001</result>
+   <result timeType='short'>8 অক্টোবর, 2001 11:00 অপরাহ্ণ</result>
+   <result timeType='medium'>8 অক্টোবর, 2001 11:00:00 অপরাহ্ণ</result>
+   <result dateType='full' timeType='none'>সোমবার, 8 অক্টোবর, 2001</result>
+   <result timeType='short'>সোমবার, 8 অক্টোবর, 2001 11:00 অপরাহ্ণ</result>
+   <result timeType='medium'>সোমবার, 8 অক্টোবর, 2001 11:00:00 অপরাহ্ণ</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 অপরাহ্ণ</result>
+   <result timeType='medium'>11:00:01 অপরাহ্ণ</result>
+   <result dateType='short' timeType='none'>4/11/04</result>
+   <result timeType='short'>4/11/04 11:00 অপরাহ্ণ</result>
+   <result timeType='medium'>4/11/04 11:00:01 অপরাহ্ণ</result>
+   <result dateType='medium' timeType='none'>4 নভেম্বর, 2004</result>
+   <result timeType='short'>4 নভেম্বর, 2004 11:00 অপরাহ্ণ</result>
+   <result timeType='medium'>4 নভেম্বর, 2004 11:00:01 অপরাহ্ণ</result>
+   <result dateType='long' timeType='none'>4 নভেম্বর, 2004</result>
+   <result timeType='short'>4 নভেম্বর, 2004 11:00 অপরাহ্ণ</result>
+   <result timeType='medium'>4 নভেম্বর, 2004 11:00:01 অপরাহ্ণ</result>
+   <result dateType='full' timeType='none'>বৃহষ্পতিবার, 4 নভেম্বর, 2004</result>
+   <result timeType='short'>বৃহষ্পতিবার, 4 নভেম্বর, 2004 11:00 অপরাহ্ণ</result>
+   <result timeType='medium'>বৃহষ্পতিবার, 4 নভেম্বর, 2004 11:00:01 অপরাহ্ণ</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 অপরাহ্ণ</result>
+   <result timeType='medium'>11:59:59 অপরাহ্ণ</result>
+   <result dateType='short' timeType='none'>1/12/10</result>
+   <result timeType='short'>1/12/10 11:59 অপরাহ্ণ</result>
+   <result timeType='medium'>1/12/10 11:59:59 অপরাহ্ণ</result>
+   <result dateType='medium' timeType='none'>1 ডিসেম্বর, 2010</result>
+   <result timeType='short'>1 ডিসেম্বর, 2010 11:59 অপরাহ্ণ</result>
+   <result timeType='medium'>1 ডিসেম্বর, 2010 11:59:59 অপরাহ্ণ</result>
+   <result dateType='long' timeType='none'>1 ডিসেম্বর, 2010</result>
+   <result timeType='short'>1 ডিসেম্বর, 2010 11:59 অপরাহ্ণ</result>
+   <result timeType='medium'>1 ডিসেম্বর, 2010 11:59:59 অপরাহ্ণ</result>
+   <result dateType='full' timeType='none'>বুধবার, 1 ডিসেম্বর, 2010</result>
+   <result timeType='short'>বুধবার, 1 ডিসেম্বর, 2010 11:59 অপরাহ্ণ</result>
+   <result timeType='medium'>বুধবার, 1 ডিসেম্বর, 2010 11:59:59 অপরাহ্ণ</result>
   </date>
   <zoneFields 
 locales='bn bn_BD bn_IN'>
-<!-- Bengali [বাংলা]; Bengali (Bangladesh) [বাংলা (বাংলাদেশ)]; Bengali (India) [বাংলা (ভারত)] -->
+<!-- Bengali [বাংলা@]; Bengali (Bangladesh) [বাংলা (বাংলাদেশ)@]; Bengali (India) [বাংলা (ভারত)@] -->
   </zoneFields>
   <collation 
-locales='bn bn_BD'>
-<!-- Bengali [বাংলা]; Bengali (Bangladesh) [বাংলা (বাংলাদেশ)] -->
+locales='bn bn_BD bn_IN'>
+<!-- Bengali [বাংলা@]; Bengali (Bangladesh) [বাংলা (বাংলাদেশ)@]; Bengali (India) [বাংলা (ভারত)@] -->
    <result draft='unconfirmed approved'>
-x‍
 x‌
 x‍
+x‌
 X‌
 X‍
 X‌
@@ -478,20 +478,11 @@ x্x
 xৗ
 Xৗ
 xৗx
-x0
-X0
-x0x
 x৴
 X৴
-x12
-X12
-x12x
 x৴x
-x2
-X2
 x৵
 X৵
-x2x
 x৵x
 x৶
 X৶
@@ -499,6 +490,15 @@ x৶x
 x৷
 X৷
 x৷x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
 xa
 xA
 Xa
@@ -565,12 +565,12 @@ xYx
 </result>
   </collation>
   <collation 
-locales='bn_IN'>
-<!-- Bengali (India) [বাংলা (ভারত)] -->
+locales='bn@collation=traditional bn_BD@collation=traditional bn_IN@collation=traditional'>
+<!-- Bengali [বাংলা@collation=traditional]; Bengali (Bangladesh) [বাংলা (বাংলাদেশ)@collation=traditional]; Bengali (India) [বাংলা (ভারত)@collation=traditional] -->
    <result draft='unconfirmed approved'>
-x‍
 x‌
 x‍
+x‌
 X‌
 X‍
 X‌
@@ -585,6 +585,18 @@ x.x
 x৺
 X৺
 x৺x
+x৴
+X৴
+x৴x
+x৵
+X৵
+x৵x
+x৶
+X৶
+x৶x
+x৷
+X৷
+x৷x
 x৸
 X৸
 x৸x
@@ -600,360 +612,12 @@ x৳x
 x0
 X0
 x0x
-x৴
-X৴
 x12
 X12
 x12x
-x৴x
 x2
 X2
-x৵
-X৵
 x2x
-x৵x
-x৶
-X৶
-x৶x
-x৷
-X৷
-x৷x
-xa
-xA
-Xa
-XA
-xax
-xAx
-xd
-xD
-Xd
-XD
-xdx
-xDx
-xe
-xE
-Xe
-XE
-xex
-xEx
-xh
-xH
-Xh
-XH
-xhx
-xHx
-xl
-xL
-Xl
-XL
-xlx
-xLx
-xm
-xM
-Xm
-XM
-xmx
-xMx
-xq
-xQ
-Xq
-XQ
-xqx
-xQx
-xs
-xS
-Xs
-XS
-xsx
-xSx
-xv
-xV
-Xv
-XV
-xvx
-xVx
-x‌x
-x‍x
-x‌x
-x়x
-xy
-xY
-Xy
-XY
-xyx
-xYx
-xঅ
-Xঅ
-xঅx
-xআ
-Xআ
-xআx
-xই
-Xই
-xইx
-xঈ
-Xঈ
-xঈx
-xউ
-Xউ
-xউx
-xঊ
-Xঊ
-xঊx
-xঋ
-Xঋ
-xঋx
-xৠ
-Xৠ
-xৠx
-xঌ
-Xঌ
-xঌx
-xৡ
-Xৡ
-xৡx
-xএ
-Xএ
-xএx
-xঐ
-Xঐ
-xঐx
-xও
-Xও
-xওx
-xঔ
-Xঔ
-xঔx
-xং
-Xং
-xংx
-xঁ
-Xঁ
-xঁx
-xঃ
-Xঃ
-xঃx
-xক
-Xক
-xকx
-xখ
-Xখ
-xখx
-xগ
-Xগ
-xগx
-xঘ
-Xঘ
-xঘx
-xঙ
-Xঙ
-xঙx
-xচ
-Xচ
-xচx
-xছ
-Xছ
-xছx
-xজ
-Xজ
-xজx
-xঝ
-Xঝ
-xঝx
-xঞ
-Xঞ
-xঞx
-xট
-Xট
-xটx
-xঠ
-Xঠ
-xঠx
-xড
-Xড
-xড়
-Xড়
-xডx
-xড়x
-xঢ
-Xঢ
-xঢ়
-Xঢ়
-xঢx
-xঢ়x
-xণ
-Xণ
-xণx
-xত্‍
-Xত্‍
-xত্‍x
-xত
-Xত
-xতx
-xৎ
-Xৎ
-xৎx
-xথ
-Xথ
-xথx
-xদ
-Xদ
-xদx
-xধ
-Xধ
-xধx
-xন
-Xন
-xনx
-xপ
-Xপ
-xপx
-xফ
-Xফ
-xফx
-xব
-Xব
-xবx
-xভ
-Xভ
-xভx
-xম
-Xম
-xমx
-xয
-Xয
-xয়
-Xয়
-xযx
-xয়x
-xর
-Xর
-xরx
-xৰ
-Xৰ
-xৰx
-xল
-Xল
-xলx
-xৱ
-Xৱ
-xৱx
-xশ
-Xশ
-xশx
-xষ
-Xষ
-xষx
-xস
-Xস
-xসx
-xহ
-Xহ
-xহx
-xঽ
-Xঽ
-xঽx
-xা
-Xা
-xাx
-xি
-Xি
-xিx
-xী
-Xী
-xীx
-xু
-Xু
-xুx
-xূ
-Xূ
-xূx
-xৃ
-Xৃ
-xৃx
-xৄ
-Xৄ
-xৄx
-xৢ
-Xৢ
-xৢx
-xৣ
-Xৣ
-xৣx
-xে
-Xে
-xেx
-xৈ
-Xৈ
-xৈx
-xো
-Xো
-xোx
-xৌ
-Xৌ
-xৌx
-x্
-X্
-x্x
-xৗ
-Xৗ
-xৗx
-</result>
-  </collation>
-  <collation 
-locales='bn_IN@collation=traditional'>
-<!-- Bengali (India, collation=Traditional Sort Order) [বাংলা (ভারত, সজ্জাক্রম=প্রথাগত সজ্জাক্রম)] -->
-   <result draft='unconfirmed approved'>
-x‍
-x‌
-x‍
-X‌
-X‍
-X‌
-x়
-X়
-x 
-X 
-x x
-x.
-X.
-x.x
-x৺
-X৺
-x৺x
-x৸
-X৸
-x৸x
-x৹
-X৹
-x৹x
-x৲
-X৲
-x৲x
-x৳
-X৳
-x৳x
-x0
-X0
-x0x
-x৴
-X৴
-x12
-X12
-x12x
-x৴x
-x2
-X2
-x৵
-X৵
-x2x
-x৵x
-x৶
-X৶
-x৶x
-x৷
-X৷
-x৷x
 xa
 xA
 Xa
@@ -2014,9 +1678,9 @@ xণোx
 xণৌ
 Xণৌ
 xণৌx
-xৎ
 xত্‍
 xৎ
+xত্‍
 Xৎ
 Xত্‍
 Xৎ

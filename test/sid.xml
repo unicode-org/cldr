@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='sid'>
- <!-- Sidamo [Sidamo] -->
+ <!-- Sidamo [Sidaamu Afo] -->
   <number 
 locales='sid sid_ET'>
-<!-- Sidamo [Sidamo]; Sidamo (Ethiopia) [Sidamo (Ethiopia)] -->
+<!-- Sidamo [Sidaamu Afo@]; Sidamo (Ethiopia) [Sidaamu Afo (Itiyoophiya)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='sid sid_ET'>
   </number>
   <date 
 locales='sid sid_ET'>
-<!-- Sidamo [Sidamo]; Sidamo (Ethiopia) [Sidamo (Ethiopia)] -->
+<!-- Sidamo [Sidaamu Afo@]; Sidamo (Ethiopia) [Sidaamu Afo (Itiyoophiya)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 soodo</result>
    <result draft='approved'>00:00</result>
    <result timeType='medium' draft='unconfirmed'>12:00:00 soodo</result>
@@ -68,23 +68,23 @@ locales='sid sid_ET'>
    <result draft='approved'>1900-01-31 00:00</result>
    <result timeType='medium' draft='unconfirmed'>31/01/00 12:00:00 soodo</result>
    <result draft='approved'>1900-01-31 00:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>31-Jan-1900</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>31-1-1900</result>
    <result draft='approved'>1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>31-Jan-1900 12:00 soodo</result>
+   <result timeType='short' draft='unconfirmed'>31-1-1900 12:00 soodo</result>
    <result draft='approved'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>31-Jan-1900 12:00:00 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>31-1-1900 12:00:00 soodo</result>
    <result draft='approved'>1900 1 31 00:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>31 January 1900</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>31 1 1900</result>
    <result draft='approved'>1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>31 January 1900 12:00 soodo</result>
+   <result timeType='short' draft='unconfirmed'>31 1 1900 12:00 soodo</result>
    <result draft='approved'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>31 January 1900 12:00:00 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>31 1 1900 12:00:00 soodo</result>
    <result draft='approved'>1900 1 31 00:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Roowe, January 31, 1900</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Roowe, 1 31, 1900</result>
    <result draft='approved'>4, 1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>Roowe, January 31, 1900 12:00 soodo</result>
+   <result timeType='short' draft='unconfirmed'>Roowe, 1 31, 1900 12:00 soodo</result>
    <result draft='approved'>4, 1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>Roowe, January 31, 1900 12:00:00 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>Roowe, 1 31, 1900 12:00:00 soodo</result>
    <result draft='approved'>4, 1900 1 31 00:00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 soodo</result>
    <result draft='approved'>00:00</result>
@@ -96,23 +96,23 @@ locales='sid sid_ET'>
    <result draft='approved'>1909-02-28 00:00</result>
    <result timeType='medium' draft='unconfirmed'>28/02/09 12:00:01 soodo</result>
    <result draft='approved'>1909-02-28 00:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>28-Feb-1909</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>28-2-1909</result>
    <result draft='approved'>1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>28-Feb-1909 12:00 soodo</result>
+   <result timeType='short' draft='unconfirmed'>28-2-1909 12:00 soodo</result>
    <result draft='approved'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>28-Feb-1909 12:00:01 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>28-2-1909 12:00:01 soodo</result>
    <result draft='approved'>1909 2 28 00:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>28 February 1909</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>28 2 1909</result>
    <result draft='approved'>1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>28 February 1909 12:00 soodo</result>
+   <result timeType='short' draft='unconfirmed'>28 2 1909 12:00 soodo</result>
    <result draft='approved'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>28 February 1909 12:00:01 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>28 2 1909 12:00:01 soodo</result>
    <result draft='approved'>1909 2 28 00:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Sambata, February 28, 1909</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Sambata, 2 28, 1909</result>
    <result draft='approved'>1, 1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>Sambata, February 28, 1909 12:00 soodo</result>
+   <result timeType='short' draft='unconfirmed'>Sambata, 2 28, 1909 12:00 soodo</result>
    <result draft='approved'>1, 1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>Sambata, February 28, 1909 12:00:01 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>Sambata, 2 28, 1909 12:00:01 soodo</result>
    <result draft='approved'>1, 1909 2 28 00:00:01</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>12:59 soodo</result>
    <result draft='approved'>00:59</result>
@@ -124,23 +124,23 @@ locales='sid sid_ET'>
    <result draft='approved'>1918-03-26 00:59</result>
    <result timeType='medium' draft='unconfirmed'>26/03/18 12:59:59 soodo</result>
    <result draft='approved'>1918-03-26 00:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>26-Mar-1918</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>26-3-1918</result>
    <result draft='approved'>1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>26-Mar-1918 12:59 soodo</result>
+   <result timeType='short' draft='unconfirmed'>26-3-1918 12:59 soodo</result>
    <result draft='approved'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>26-Mar-1918 12:59:59 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>26-3-1918 12:59:59 soodo</result>
    <result draft='approved'>1918 3 26 00:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>26 March 1918</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>26 3 1918</result>
    <result draft='approved'>1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>26 March 1918 12:59 soodo</result>
+   <result timeType='short' draft='unconfirmed'>26 3 1918 12:59 soodo</result>
    <result draft='approved'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>26 March 1918 12:59:59 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>26 3 1918 12:59:59 soodo</result>
    <result draft='approved'>1918 3 26 00:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Maakisanyo, March 26, 1918</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Maakisanyo, 3 26, 1918</result>
    <result draft='approved'>3, 1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>Maakisanyo, March 26, 1918 12:59 soodo</result>
+   <result timeType='short' draft='unconfirmed'>Maakisanyo, 3 26, 1918 12:59 soodo</result>
    <result draft='approved'>3, 1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>Maakisanyo, March 26, 1918 12:59:59 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>Maakisanyo, 3 26, 1918 12:59:59 soodo</result>
    <result draft='approved'>3, 1918 3 26 00:59:59</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>1:00 soodo</result>
    <result draft='approved'>01:00</result>
@@ -152,23 +152,23 @@ locales='sid sid_ET'>
    <result draft='approved'>1932-04-24 01:00</result>
    <result timeType='medium' draft='unconfirmed'>24/04/32 1:00:00 soodo</result>
    <result draft='approved'>1932-04-24 01:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>24-Apr-1932</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>24-4-1932</result>
    <result draft='approved'>1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>24-Apr-1932 1:00 soodo</result>
+   <result timeType='short' draft='unconfirmed'>24-4-1932 1:00 soodo</result>
    <result draft='approved'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>24-Apr-1932 1:00:00 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>24-4-1932 1:00:00 soodo</result>
    <result draft='approved'>1932 4 24 01:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>24 April 1932</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>24 4 1932</result>
    <result draft='approved'>1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>24 April 1932 1:00 soodo</result>
+   <result timeType='short' draft='unconfirmed'>24 4 1932 1:00 soodo</result>
    <result draft='approved'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>24 April 1932 1:00:00 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>24 4 1932 1:00:00 soodo</result>
    <result draft='approved'>1932 4 24 01:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Sambata, April 24, 1932</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Sambata, 4 24, 1932</result>
    <result draft='approved'>1, 1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>Sambata, April 24, 1932 1:00 soodo</result>
+   <result timeType='short' draft='unconfirmed'>Sambata, 4 24, 1932 1:00 soodo</result>
    <result draft='approved'>1, 1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>Sambata, April 24, 1932 1:00:00 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>Sambata, 4 24, 1932 1:00:00 soodo</result>
    <result draft='approved'>1, 1932 4 24 01:00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>1:00 soodo</result>
    <result draft='approved'>01:00</result>
@@ -180,23 +180,23 @@ locales='sid sid_ET'>
    <result draft='approved'>1945-05-20 01:00</result>
    <result timeType='medium' draft='unconfirmed'>20/05/45 1:00:01 soodo</result>
    <result draft='approved'>1945-05-20 01:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>20-May-1945</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>20-5-1945</result>
    <result draft='approved'>1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>20-May-1945 1:00 soodo</result>
+   <result timeType='short' draft='unconfirmed'>20-5-1945 1:00 soodo</result>
    <result draft='approved'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>20-May-1945 1:00:01 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>20-5-1945 1:00:01 soodo</result>
    <result draft='approved'>1945 5 20 01:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>20 May 1945</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>20 5 1945</result>
    <result draft='approved'>1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>20 May 1945 1:00 soodo</result>
+   <result timeType='short' draft='unconfirmed'>20 5 1945 1:00 soodo</result>
    <result draft='approved'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>20 May 1945 1:00:01 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>20 5 1945 1:00:01 soodo</result>
    <result draft='approved'>1945 5 20 01:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Sambata, May 20, 1945</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Sambata, 5 20, 1945</result>
    <result draft='approved'>1, 1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>Sambata, May 20, 1945 1:00 soodo</result>
+   <result timeType='short' draft='unconfirmed'>Sambata, 5 20, 1945 1:00 soodo</result>
    <result draft='approved'>1, 1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>Sambata, May 20, 1945 1:00:01 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>Sambata, 5 20, 1945 1:00:01 soodo</result>
    <result draft='approved'>1, 1945 5 20 01:00:01</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>11:59 soodo</result>
    <result draft='approved'>11:59</result>
@@ -208,23 +208,23 @@ locales='sid sid_ET'>
    <result draft='approved'>1952-06-18 11:59</result>
    <result timeType='medium' draft='unconfirmed'>18/06/52 11:59:59 soodo</result>
    <result draft='approved'>1952-06-18 11:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>18-Jun-1952</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>18-6-1952</result>
    <result draft='approved'>1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>18-Jun-1952 11:59 soodo</result>
+   <result timeType='short' draft='unconfirmed'>18-6-1952 11:59 soodo</result>
    <result draft='approved'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>18-Jun-1952 11:59:59 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>18-6-1952 11:59:59 soodo</result>
    <result draft='approved'>1952 6 18 11:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>18 June 1952</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>18 6 1952</result>
    <result draft='approved'>1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>18 June 1952 11:59 soodo</result>
+   <result timeType='short' draft='unconfirmed'>18 6 1952 11:59 soodo</result>
    <result draft='approved'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>18 June 1952 11:59:59 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>18 6 1952 11:59:59 soodo</result>
    <result draft='approved'>1952 6 18 11:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Roowe, June 18, 1952</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Roowe, 6 18, 1952</result>
    <result draft='approved'>4, 1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>Roowe, June 18, 1952 11:59 soodo</result>
+   <result timeType='short' draft='unconfirmed'>Roowe, 6 18, 1952 11:59 soodo</result>
    <result draft='approved'>4, 1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>Roowe, June 18, 1952 11:59:59 soodo</result>
+   <result timeType='medium' draft='unconfirmed'>Roowe, 6 18, 1952 11:59:59 soodo</result>
    <result draft='approved'>4, 1952 6 18 11:59:59</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 hawwaro</result>
    <result draft='approved'>12:00</result>
@@ -236,23 +236,23 @@ locales='sid sid_ET'>
    <result draft='approved'>1973-07-16 12:00</result>
    <result timeType='medium' draft='unconfirmed'>16/07/73 12:00:00 hawwaro</result>
    <result draft='approved'>1973-07-16 12:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>16-Jul-1973</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>16-7-1973</result>
    <result draft='approved'>1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>16-Jul-1973 12:00 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>16-7-1973 12:00 hawwaro</result>
    <result draft='approved'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>16-Jul-1973 12:00:00 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>16-7-1973 12:00:00 hawwaro</result>
    <result draft='approved'>1973 7 16 12:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>16 July 1973</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>16 7 1973</result>
    <result draft='approved'>1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>16 July 1973 12:00 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>16 7 1973 12:00 hawwaro</result>
    <result draft='approved'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>16 July 1973 12:00:00 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>16 7 1973 12:00:00 hawwaro</result>
    <result draft='approved'>1973 7 16 12:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Sanyo, July 16, 1973</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Sanyo, 7 16, 1973</result>
    <result draft='approved'>2, 1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>Sanyo, July 16, 1973 12:00 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>Sanyo, 7 16, 1973 12:00 hawwaro</result>
    <result draft='approved'>2, 1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>Sanyo, July 16, 1973 12:00:00 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>Sanyo, 7 16, 1973 12:00:00 hawwaro</result>
    <result draft='approved'>2, 1973 7 16 12:00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 hawwaro</result>
    <result draft='approved'>12:00</result>
@@ -264,23 +264,23 @@ locales='sid sid_ET'>
    <result draft='approved'>1999-08-14 12:00</result>
    <result timeType='medium' draft='unconfirmed'>14/08/99 12:00:01 hawwaro</result>
    <result draft='approved'>1999-08-14 12:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>14-Aug-1999</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>14-8-1999</result>
    <result draft='approved'>1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>14-Aug-1999 12:00 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>14-8-1999 12:00 hawwaro</result>
    <result draft='approved'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>14-Aug-1999 12:00:01 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>14-8-1999 12:00:01 hawwaro</result>
    <result draft='approved'>1999 8 14 12:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>14 August 1999</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>14 8 1999</result>
    <result draft='approved'>1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>14 August 1999 12:00 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>14 8 1999 12:00 hawwaro</result>
    <result draft='approved'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>14 August 1999 12:00:01 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>14 8 1999 12:00:01 hawwaro</result>
    <result draft='approved'>1999 8 14 12:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Qidaame, August 14, 1999</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Qidaame, 8 14, 1999</result>
    <result draft='approved'>7, 1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>Qidaame, August 14, 1999 12:00 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>Qidaame, 8 14, 1999 12:00 hawwaro</result>
    <result draft='approved'>7, 1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>Qidaame, August 14, 1999 12:00:01 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>Qidaame, 8 14, 1999 12:00:01 hawwaro</result>
    <result draft='approved'>7, 1999 8 14 12:00:01</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>10:59 hawwaro</result>
    <result draft='approved'>22:59</result>
@@ -292,23 +292,23 @@ locales='sid sid_ET'>
    <result draft='approved'>2000-09-12 22:59</result>
    <result timeType='medium' draft='unconfirmed'>12/09/00 10:59:59 hawwaro</result>
    <result draft='approved'>2000-09-12 22:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>12-Sep-2000</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>12-9-2000</result>
    <result draft='approved'>2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>12-Sep-2000 10:59 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>12-9-2000 10:59 hawwaro</result>
    <result draft='approved'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>12-Sep-2000 10:59:59 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>12-9-2000 10:59:59 hawwaro</result>
    <result draft='approved'>2000 9 12 22:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>12 September 2000</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>12 9 2000</result>
    <result draft='approved'>2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>12 September 2000 10:59 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>12 9 2000 10:59 hawwaro</result>
    <result draft='approved'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>12 September 2000 10:59:59 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>12 9 2000 10:59:59 hawwaro</result>
    <result draft='approved'>2000 9 12 22:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Maakisanyo, September 12, 2000</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Maakisanyo, 9 12, 2000</result>
    <result draft='approved'>3, 2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>Maakisanyo, September 12, 2000 10:59 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>Maakisanyo, 9 12, 2000 10:59 hawwaro</result>
    <result draft='approved'>3, 2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>Maakisanyo, September 12, 2000 10:59:59 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>Maakisanyo, 9 12, 2000 10:59:59 hawwaro</result>
    <result draft='approved'>3, 2000 9 12 22:59:59</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>11:00 hawwaro</result>
    <result draft='approved'>23:00</result>
@@ -320,23 +320,23 @@ locales='sid sid_ET'>
    <result draft='approved'>2001-10-08 23:00</result>
    <result timeType='medium' draft='unconfirmed'>08/10/01 11:00:00 hawwaro</result>
    <result draft='approved'>2001-10-08 23:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>08-Oct-2001</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>08-10-2001</result>
    <result draft='approved'>2001 10 8</result>
-   <result timeType='short' draft='unconfirmed'>08-Oct-2001 11:00 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>08-10-2001 11:00 hawwaro</result>
    <result draft='approved'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>08-Oct-2001 11:00:00 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>08-10-2001 11:00:00 hawwaro</result>
    <result draft='approved'>2001 10 8 23:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>08 October 2001</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>08 10 2001</result>
    <result draft='approved'>2001 10 8</result>
-   <result timeType='short' draft='unconfirmed'>08 October 2001 11:00 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>08 10 2001 11:00 hawwaro</result>
    <result draft='approved'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>08 October 2001 11:00:00 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>08 10 2001 11:00:00 hawwaro</result>
    <result draft='approved'>2001 10 8 23:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Sanyo, October 08, 2001</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Sanyo, 10 08, 2001</result>
    <result draft='approved'>2, 2001 10 08</result>
-   <result timeType='short' draft='unconfirmed'>Sanyo, October 08, 2001 11:00 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>Sanyo, 10 08, 2001 11:00 hawwaro</result>
    <result draft='approved'>2, 2001 10 08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>Sanyo, October 08, 2001 11:00:00 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>Sanyo, 10 08, 2001 11:00:00 hawwaro</result>
    <result draft='approved'>2, 2001 10 08 23:00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>11:00 hawwaro</result>
    <result draft='approved'>23:00</result>
@@ -348,23 +348,23 @@ locales='sid sid_ET'>
    <result draft='approved'>2004-11-04 23:00</result>
    <result timeType='medium' draft='unconfirmed'>04/11/04 11:00:01 hawwaro</result>
    <result draft='approved'>2004-11-04 23:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>04-Nov-2004</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>04-11-2004</result>
    <result draft='approved'>2004 11 4</result>
-   <result timeType='short' draft='unconfirmed'>04-Nov-2004 11:00 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>04-11-2004 11:00 hawwaro</result>
    <result draft='approved'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>04-Nov-2004 11:00:01 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>04-11-2004 11:00:01 hawwaro</result>
    <result draft='approved'>2004 11 4 23:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>04 November 2004</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>04 11 2004</result>
    <result draft='approved'>2004 11 4</result>
-   <result timeType='short' draft='unconfirmed'>04 November 2004 11:00 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>04 11 2004 11:00 hawwaro</result>
    <result draft='approved'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>04 November 2004 11:00:01 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>04 11 2004 11:00:01 hawwaro</result>
    <result draft='approved'>2004 11 4 23:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Hamuse, November 04, 2004</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Hamuse, 11 04, 2004</result>
    <result draft='approved'>5, 2004 11 04</result>
-   <result timeType='short' draft='unconfirmed'>Hamuse, November 04, 2004 11:00 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>Hamuse, 11 04, 2004 11:00 hawwaro</result>
    <result draft='approved'>5, 2004 11 04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>Hamuse, November 04, 2004 11:00:01 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>Hamuse, 11 04, 2004 11:00:01 hawwaro</result>
    <result draft='approved'>5, 2004 11 04 23:00:01</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>11:59 hawwaro</result>
    <result draft='approved'>23:59</result>
@@ -376,32 +376,32 @@ locales='sid sid_ET'>
    <result draft='approved'>2010-12-01 23:59</result>
    <result timeType='medium' draft='unconfirmed'>01/12/10 11:59:59 hawwaro</result>
    <result draft='approved'>2010-12-01 23:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>01-Dec-2010</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>01-12-2010</result>
    <result draft='approved'>2010 12 1</result>
-   <result timeType='short' draft='unconfirmed'>01-Dec-2010 11:59 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>01-12-2010 11:59 hawwaro</result>
    <result draft='approved'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>01-Dec-2010 11:59:59 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>01-12-2010 11:59:59 hawwaro</result>
    <result draft='approved'>2010 12 1 23:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>01 December 2010</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>01 12 2010</result>
    <result draft='approved'>2010 12 1</result>
-   <result timeType='short' draft='unconfirmed'>01 December 2010 11:59 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>01 12 2010 11:59 hawwaro</result>
    <result draft='approved'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>01 December 2010 11:59:59 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>01 12 2010 11:59:59 hawwaro</result>
    <result draft='approved'>2010 12 1 23:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Roowe, December 01, 2010</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Roowe, 12 01, 2010</result>
    <result draft='approved'>4, 2010 12 01</result>
-   <result timeType='short' draft='unconfirmed'>Roowe, December 01, 2010 11:59 hawwaro</result>
+   <result timeType='short' draft='unconfirmed'>Roowe, 12 01, 2010 11:59 hawwaro</result>
    <result draft='approved'>4, 2010 12 01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>Roowe, December 01, 2010 11:59:59 hawwaro</result>
+   <result timeType='medium' draft='unconfirmed'>Roowe, 12 01, 2010 11:59:59 hawwaro</result>
    <result draft='approved'>4, 2010 12 01 23:59:59</result>
   </date>
   <zoneFields 
 locales='sid sid_ET'>
-<!-- Sidamo [Sidamo]; Sidamo (Ethiopia) [Sidamo (Ethiopia)] -->
+<!-- Sidamo [Sidaamu Afo@]; Sidamo (Ethiopia) [Sidaamu Afo (Itiyoophiya)@] -->
   </zoneFields>
   <collation 
 locales='sid sid_ET'>
-<!-- Sidamo [Sidamo]; Sidamo (Ethiopia) [Sidamo (Ethiopia)] -->
+<!-- Sidamo [Sidaamu Afo@]; Sidamo (Ethiopia) [Sidaamu Afo (Itiyoophiya)@] -->
    <result draft='unconfirmed'>
 x 
 X 

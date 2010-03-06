@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='wal'>
- <!-- Walamo [Walamo] -->
+ <!-- Walamo [ወላይታቱ] -->
   <number 
 locales='wal wal_ET'>
-<!-- Walamo [Walamo]; Walamo (Ethiopia) [Walamo (Ethiopia)] -->
+<!-- Walamo [ወላይታቱ@]; Walamo (Ethiopia) [ወላይታቱ (ኢትዮጵያ)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -28,26 +28,26 @@ locales='wal wal_ET'>
    <result numberType='scientific'>-1E0</result>
    <result input='123.456' numberType='integer'>123</result>
    <result numberType='decimal'>123.456</result>
-   <result numberType='percent' draft='unconfirmed'>12ወ346%</result>
+   <result numberType='percent' draft='unconfirmed'>12’346%</result>
    <result draft='approved'>12,346%</result>
    <result numberType='scientific' draft='unconfirmed approved'>1.23456E2</result>
    <result input='-123.456' numberType='integer'>-123</result>
    <result numberType='decimal'>-123.456</result>
-   <result numberType='percent' draft='unconfirmed'>-12ወ346%</result>
+   <result numberType='percent' draft='unconfirmed'>-12’346%</result>
    <result draft='approved'>-12,346%</result>
    <result numberType='scientific' draft='unconfirmed approved'>-1.23456E2</result>
-   <result input='123456.78' numberType='integer' draft='unconfirmed'>123ወ457</result>
+   <result input='123456.78' numberType='integer' draft='unconfirmed'>123’457</result>
    <result draft='approved'>123,457</result>
-   <result numberType='decimal' draft='unconfirmed'>123ወ456.78</result>
+   <result numberType='decimal' draft='unconfirmed'>123’456.78</result>
    <result draft='approved'>123,456.78</result>
-   <result numberType='percent' draft='unconfirmed'>12ወ345ወ678%</result>
+   <result numberType='percent' draft='unconfirmed'>12’345’678%</result>
    <result draft='approved'>12,345,678%</result>
    <result numberType='scientific' draft='unconfirmed approved'>1.2345678E5</result>
-   <result input='-123456.78' numberType='integer' draft='unconfirmed'>-123ወ457</result>
+   <result input='-123456.78' numberType='integer' draft='unconfirmed'>-123’457</result>
    <result draft='approved'>-123,457</result>
-   <result numberType='decimal' draft='unconfirmed'>-123ወ456.78</result>
+   <result numberType='decimal' draft='unconfirmed'>-123’456.78</result>
    <result draft='approved'>-123,456.78</result>
-   <result numberType='percent' draft='unconfirmed'>-12ወ345ወ678%</result>
+   <result numberType='percent' draft='unconfirmed'>-12’345’678%</result>
    <result draft='approved'>-12,345,678%</result>
    <result numberType='scientific' draft='unconfirmed approved'>-1.2345678E5</result>
    <result input='Infinity' numberType='integer'>∞</result>
@@ -65,7 +65,7 @@ locales='wal wal_ET'>
   </number>
   <date 
 locales='wal wal_ET'>
-<!-- Walamo [Walamo]; Walamo (Ethiopia) [Walamo (Ethiopia)] -->
+<!-- Walamo [ወላይታቱ@]; Walamo (Ethiopia) [ወላይታቱ (ኢትዮጵያ)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 ማለዶ</result>
    <result draft='approved'>00:00</result>
    <result timeType='medium' draft='unconfirmed'>12:00:00 ማለዶ</result>
@@ -405,11 +405,11 @@ locales='wal wal_ET'>
   </date>
   <zoneFields 
 locales='wal wal_ET'>
-<!-- Walamo [Walamo]; Walamo (Ethiopia) [Walamo (Ethiopia)] -->
+<!-- Walamo [ወላይታቱ@]; Walamo (Ethiopia) [ወላይታቱ (ኢትዮጵያ)@] -->
   </zoneFields>
   <collation 
 locales='wal wal_ET'>
-<!-- Walamo [Walamo]; Walamo (Ethiopia) [Walamo (Ethiopia)] -->
+<!-- Walamo [ወላይታቱ@]; Walamo (Ethiopia) [ወላይታቱ (ኢትዮጵያ)@] -->
    <result draft='unconfirmed approved'>
 x፟
 X፟

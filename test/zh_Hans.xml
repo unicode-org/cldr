@@ -1,0 +1,1126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
+<!-- For information, see readme.html -->
+ <cldrTest version='1.7' base='zh_Hans'>
+ <!-- Simplified Chinese [中文（简体）] -->
+  <number 
+locales='zh_Hans zh_Hans_CN zh_Hans_HK zh_Hans_MO zh_Hans_SG'>
+<!-- Simplified Chinese [中文（简体）@]; Simplified Chinese (China) [中文（简体）（中国）@]; Simplified Chinese (Hong Kong SAR China) [中文（简体）（中国香港特别行政区）@]; Simplified Chinese (Macau SAR China) [中文（简体）（中国澳门特别行政区）@]; Simplified Chinese (Singapore) [中文（简体）（新加坡）@] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal'>0.01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='decimal'>-0.01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal'>123.456</result>
+   <result numberType='percent'>12,346%</result>
+   <result numberType='scientific'>1.23456E2</result>
+   <result input='-123.456' numberType='integer'>-123</result>
+   <result numberType='decimal'>-123.456</result>
+   <result numberType='percent'>-12,346%</result>
+   <result numberType='scientific'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer'>123,457</result>
+   <result numberType='decimal'>123,456.78</result>
+   <result numberType='percent'>12,345,678%</result>
+   <result numberType='scientific'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-123,457</result>
+   <result numberType='decimal'>-123,456.78</result>
+   <result numberType='percent'>-12,345,678%</result>
+   <result numberType='scientific'>-1.2345678E5</result>
+   <result input='Infinity' numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result input='-Infinity' numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
+  </number>
+  <date 
+locales='zh_Hans zh_Hans_CN zh_Hans_HK zh_Hans_MO'>
+<!-- Simplified Chinese [中文（简体）@]; Simplified Chinese (China) [中文（简体）（中国）@]; Simplified Chinese (Hong Kong SAR China) [中文（简体）（中国香港特别行政区）@]; Simplified Chinese (Macau SAR China) [中文（简体）（中国澳门特别行政区）@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>AM12:00</result>
+   <result timeType='medium'>AM12:00:00</result>
+   <result dateType='short' timeType='none'>00-1-31</result>
+   <result timeType='short'>00-1-31 AM12:00</result>
+   <result timeType='medium'>00-1-31 AM12:00:00</result>
+   <result dateType='medium' timeType='none'>1900-1-31</result>
+   <result timeType='short'>1900-1-31 AM12:00</result>
+   <result timeType='medium'>1900-1-31 AM12:00:00</result>
+   <result dateType='long' timeType='none'>1900年1月31日</result>
+   <result timeType='short'>1900年1月31日AM12:00</result>
+   <result timeType='medium'>1900年1月31日AM12:00:00</result>
+   <result dateType='full' timeType='none'>1900年1月31日星期三</result>
+   <result timeType='short'>1900年1月31日星期三AM12:00</result>
+   <result timeType='medium'>1900年1月31日星期三AM12:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>AM12:00</result>
+   <result timeType='medium'>AM12:00:01</result>
+   <result dateType='short' timeType='none'>09-2-28</result>
+   <result timeType='short'>09-2-28 AM12:00</result>
+   <result timeType='medium'>09-2-28 AM12:00:01</result>
+   <result dateType='medium' timeType='none'>1909-2-28</result>
+   <result timeType='short'>1909-2-28 AM12:00</result>
+   <result timeType='medium'>1909-2-28 AM12:00:01</result>
+   <result dateType='long' timeType='none'>1909年2月28日</result>
+   <result timeType='short'>1909年2月28日AM12:00</result>
+   <result timeType='medium'>1909年2月28日AM12:00:01</result>
+   <result dateType='full' timeType='none'>1909年2月28日星期日</result>
+   <result timeType='short'>1909年2月28日星期日AM12:00</result>
+   <result timeType='medium'>1909年2月28日星期日AM12:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>AM12:59</result>
+   <result timeType='medium'>AM12:59:59</result>
+   <result dateType='short' timeType='none'>18-3-26</result>
+   <result timeType='short'>18-3-26 AM12:59</result>
+   <result timeType='medium'>18-3-26 AM12:59:59</result>
+   <result dateType='medium' timeType='none'>1918-3-26</result>
+   <result timeType='short'>1918-3-26 AM12:59</result>
+   <result timeType='medium'>1918-3-26 AM12:59:59</result>
+   <result dateType='long' timeType='none'>1918年3月26日</result>
+   <result timeType='short'>1918年3月26日AM12:59</result>
+   <result timeType='medium'>1918年3月26日AM12:59:59</result>
+   <result dateType='full' timeType='none'>1918年3月26日星期二</result>
+   <result timeType='short'>1918年3月26日星期二AM12:59</result>
+   <result timeType='medium'>1918年3月26日星期二AM12:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>AM1:00</result>
+   <result timeType='medium'>AM1:00:00</result>
+   <result dateType='short' timeType='none'>32-4-24</result>
+   <result timeType='short'>32-4-24 AM1:00</result>
+   <result timeType='medium'>32-4-24 AM1:00:00</result>
+   <result dateType='medium' timeType='none'>1932-4-24</result>
+   <result timeType='short'>1932-4-24 AM1:00</result>
+   <result timeType='medium'>1932-4-24 AM1:00:00</result>
+   <result dateType='long' timeType='none'>1932年4月24日</result>
+   <result timeType='short'>1932年4月24日AM1:00</result>
+   <result timeType='medium'>1932年4月24日AM1:00:00</result>
+   <result dateType='full' timeType='none'>1932年4月24日星期日</result>
+   <result timeType='short'>1932年4月24日星期日AM1:00</result>
+   <result timeType='medium'>1932年4月24日星期日AM1:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>AM1:00</result>
+   <result timeType='medium'>AM1:00:01</result>
+   <result dateType='short' timeType='none'>45-5-20</result>
+   <result timeType='short'>45-5-20 AM1:00</result>
+   <result timeType='medium'>45-5-20 AM1:00:01</result>
+   <result dateType='medium' timeType='none'>1945-5-20</result>
+   <result timeType='short'>1945-5-20 AM1:00</result>
+   <result timeType='medium'>1945-5-20 AM1:00:01</result>
+   <result dateType='long' timeType='none'>1945年5月20日</result>
+   <result timeType='short'>1945年5月20日AM1:00</result>
+   <result timeType='medium'>1945年5月20日AM1:00:01</result>
+   <result dateType='full' timeType='none'>1945年5月20日星期日</result>
+   <result timeType='short'>1945年5月20日星期日AM1:00</result>
+   <result timeType='medium'>1945年5月20日星期日AM1:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>AM11:59</result>
+   <result timeType='medium'>AM11:59:59</result>
+   <result dateType='short' timeType='none'>52-6-18</result>
+   <result timeType='short'>52-6-18 AM11:59</result>
+   <result timeType='medium'>52-6-18 AM11:59:59</result>
+   <result dateType='medium' timeType='none'>1952-6-18</result>
+   <result timeType='short'>1952-6-18 AM11:59</result>
+   <result timeType='medium'>1952-6-18 AM11:59:59</result>
+   <result dateType='long' timeType='none'>1952年6月18日</result>
+   <result timeType='short'>1952年6月18日AM11:59</result>
+   <result timeType='medium'>1952年6月18日AM11:59:59</result>
+   <result dateType='full' timeType='none'>1952年6月18日星期三</result>
+   <result timeType='short'>1952年6月18日星期三AM11:59</result>
+   <result timeType='medium'>1952年6月18日星期三AM11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>PM12:00</result>
+   <result timeType='medium'>PM12:00:00</result>
+   <result dateType='short' timeType='none'>73-7-16</result>
+   <result timeType='short'>73-7-16 PM12:00</result>
+   <result timeType='medium'>73-7-16 PM12:00:00</result>
+   <result dateType='medium' timeType='none'>1973-7-16</result>
+   <result timeType='short'>1973-7-16 PM12:00</result>
+   <result timeType='medium'>1973-7-16 PM12:00:00</result>
+   <result dateType='long' timeType='none'>1973年7月16日</result>
+   <result timeType='short'>1973年7月16日PM12:00</result>
+   <result timeType='medium'>1973年7月16日PM12:00:00</result>
+   <result dateType='full' timeType='none'>1973年7月16日星期一</result>
+   <result timeType='short'>1973年7月16日星期一PM12:00</result>
+   <result timeType='medium'>1973年7月16日星期一PM12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>PM12:00</result>
+   <result timeType='medium'>PM12:00:01</result>
+   <result dateType='short' timeType='none'>99-8-14</result>
+   <result timeType='short'>99-8-14 PM12:00</result>
+   <result timeType='medium'>99-8-14 PM12:00:01</result>
+   <result dateType='medium' timeType='none'>1999-8-14</result>
+   <result timeType='short'>1999-8-14 PM12:00</result>
+   <result timeType='medium'>1999-8-14 PM12:00:01</result>
+   <result dateType='long' timeType='none'>1999年8月14日</result>
+   <result timeType='short'>1999年8月14日PM12:00</result>
+   <result timeType='medium'>1999年8月14日PM12:00:01</result>
+   <result dateType='full' timeType='none'>1999年8月14日星期六</result>
+   <result timeType='short'>1999年8月14日星期六PM12:00</result>
+   <result timeType='medium'>1999年8月14日星期六PM12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>PM10:59</result>
+   <result timeType='medium'>PM10:59:59</result>
+   <result dateType='short' timeType='none'>00-9-12</result>
+   <result timeType='short'>00-9-12 PM10:59</result>
+   <result timeType='medium'>00-9-12 PM10:59:59</result>
+   <result dateType='medium' timeType='none'>2000-9-12</result>
+   <result timeType='short'>2000-9-12 PM10:59</result>
+   <result timeType='medium'>2000-9-12 PM10:59:59</result>
+   <result dateType='long' timeType='none'>2000年9月12日</result>
+   <result timeType='short'>2000年9月12日PM10:59</result>
+   <result timeType='medium'>2000年9月12日PM10:59:59</result>
+   <result dateType='full' timeType='none'>2000年9月12日星期二</result>
+   <result timeType='short'>2000年9月12日星期二PM10:59</result>
+   <result timeType='medium'>2000年9月12日星期二PM10:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>PM11:00</result>
+   <result timeType='medium'>PM11:00:00</result>
+   <result dateType='short' timeType='none'>01-10-8</result>
+   <result timeType='short'>01-10-8 PM11:00</result>
+   <result timeType='medium'>01-10-8 PM11:00:00</result>
+   <result dateType='medium' timeType='none'>2001-10-8</result>
+   <result timeType='short'>2001-10-8 PM11:00</result>
+   <result timeType='medium'>2001-10-8 PM11:00:00</result>
+   <result dateType='long' timeType='none'>2001年10月8日</result>
+   <result timeType='short'>2001年10月8日PM11:00</result>
+   <result timeType='medium'>2001年10月8日PM11:00:00</result>
+   <result dateType='full' timeType='none'>2001年10月8日星期一</result>
+   <result timeType='short'>2001年10月8日星期一PM11:00</result>
+   <result timeType='medium'>2001年10月8日星期一PM11:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>PM11:00</result>
+   <result timeType='medium'>PM11:00:01</result>
+   <result dateType='short' timeType='none'>04-11-4</result>
+   <result timeType='short'>04-11-4 PM11:00</result>
+   <result timeType='medium'>04-11-4 PM11:00:01</result>
+   <result dateType='medium' timeType='none'>2004-11-4</result>
+   <result timeType='short'>2004-11-4 PM11:00</result>
+   <result timeType='medium'>2004-11-4 PM11:00:01</result>
+   <result dateType='long' timeType='none'>2004年11月4日</result>
+   <result timeType='short'>2004年11月4日PM11:00</result>
+   <result timeType='medium'>2004年11月4日PM11:00:01</result>
+   <result dateType='full' timeType='none'>2004年11月4日星期四</result>
+   <result timeType='short'>2004年11月4日星期四PM11:00</result>
+   <result timeType='medium'>2004年11月4日星期四PM11:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>PM11:59</result>
+   <result timeType='medium'>PM11:59:59</result>
+   <result dateType='short' timeType='none'>10-12-1</result>
+   <result timeType='short'>10-12-1 PM11:59</result>
+   <result timeType='medium'>10-12-1 PM11:59:59</result>
+   <result dateType='medium' timeType='none'>2010-12-1</result>
+   <result timeType='short'>2010-12-1 PM11:59</result>
+   <result timeType='medium'>2010-12-1 PM11:59:59</result>
+   <result dateType='long' timeType='none'>2010年12月1日</result>
+   <result timeType='short'>2010年12月1日PM11:59</result>
+   <result timeType='medium'>2010年12月1日PM11:59:59</result>
+   <result dateType='full' timeType='none'>2010年12月1日星期三</result>
+   <result timeType='short'>2010年12月1日星期三PM11:59</result>
+   <result timeType='medium'>2010年12月1日星期三PM11:59:59</result>
+  </date>
+  <date 
+locales='zh_Hans_SG'>
+<!-- Simplified Chinese (Singapore) [中文（简体）（新加坡）@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>AM12:00</result>
+   <result timeType='medium'>AM12:00:00</result>
+   <result dateType='short' timeType='none'>31/01/00</result>
+   <result timeType='short'>31/01/00 AM12:00</result>
+   <result timeType='medium'>31/01/00 AM12:00:00</result>
+   <result dateType='medium' timeType='none'>1900-1-31</result>
+   <result timeType='short'>1900-1-31 AM12:00</result>
+   <result timeType='medium'>1900-1-31 AM12:00:00</result>
+   <result dateType='long' timeType='none'>1900年1月31日</result>
+   <result timeType='short'>1900年1月31日AM12:00</result>
+   <result timeType='medium'>1900年1月31日AM12:00:00</result>
+   <result dateType='full' timeType='none'>1900年1月31日星期三</result>
+   <result timeType='short'>1900年1月31日星期三AM12:00</result>
+   <result timeType='medium'>1900年1月31日星期三AM12:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>AM12:00</result>
+   <result timeType='medium'>AM12:00:01</result>
+   <result dateType='short' timeType='none'>28/02/09</result>
+   <result timeType='short'>28/02/09 AM12:00</result>
+   <result timeType='medium'>28/02/09 AM12:00:01</result>
+   <result dateType='medium' timeType='none'>1909-2-28</result>
+   <result timeType='short'>1909-2-28 AM12:00</result>
+   <result timeType='medium'>1909-2-28 AM12:00:01</result>
+   <result dateType='long' timeType='none'>1909年2月28日</result>
+   <result timeType='short'>1909年2月28日AM12:00</result>
+   <result timeType='medium'>1909年2月28日AM12:00:01</result>
+   <result dateType='full' timeType='none'>1909年2月28日星期日</result>
+   <result timeType='short'>1909年2月28日星期日AM12:00</result>
+   <result timeType='medium'>1909年2月28日星期日AM12:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>AM12:59</result>
+   <result timeType='medium'>AM12:59:59</result>
+   <result dateType='short' timeType='none'>26/03/18</result>
+   <result timeType='short'>26/03/18 AM12:59</result>
+   <result timeType='medium'>26/03/18 AM12:59:59</result>
+   <result dateType='medium' timeType='none'>1918-3-26</result>
+   <result timeType='short'>1918-3-26 AM12:59</result>
+   <result timeType='medium'>1918-3-26 AM12:59:59</result>
+   <result dateType='long' timeType='none'>1918年3月26日</result>
+   <result timeType='short'>1918年3月26日AM12:59</result>
+   <result timeType='medium'>1918年3月26日AM12:59:59</result>
+   <result dateType='full' timeType='none'>1918年3月26日星期二</result>
+   <result timeType='short'>1918年3月26日星期二AM12:59</result>
+   <result timeType='medium'>1918年3月26日星期二AM12:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>AM01:00</result>
+   <result timeType='medium'>AM1:00:00</result>
+   <result dateType='short' timeType='none'>24/04/32</result>
+   <result timeType='short'>24/04/32 AM01:00</result>
+   <result timeType='medium'>24/04/32 AM1:00:00</result>
+   <result dateType='medium' timeType='none'>1932-4-24</result>
+   <result timeType='short'>1932-4-24 AM01:00</result>
+   <result timeType='medium'>1932-4-24 AM1:00:00</result>
+   <result dateType='long' timeType='none'>1932年4月24日</result>
+   <result timeType='short'>1932年4月24日AM01:00</result>
+   <result timeType='medium'>1932年4月24日AM1:00:00</result>
+   <result dateType='full' timeType='none'>1932年4月24日星期日</result>
+   <result timeType='short'>1932年4月24日星期日AM01:00</result>
+   <result timeType='medium'>1932年4月24日星期日AM1:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>AM01:00</result>
+   <result timeType='medium'>AM1:00:01</result>
+   <result dateType='short' timeType='none'>20/05/45</result>
+   <result timeType='short'>20/05/45 AM01:00</result>
+   <result timeType='medium'>20/05/45 AM1:00:01</result>
+   <result dateType='medium' timeType='none'>1945-5-20</result>
+   <result timeType='short'>1945-5-20 AM01:00</result>
+   <result timeType='medium'>1945-5-20 AM1:00:01</result>
+   <result dateType='long' timeType='none'>1945年5月20日</result>
+   <result timeType='short'>1945年5月20日AM01:00</result>
+   <result timeType='medium'>1945年5月20日AM1:00:01</result>
+   <result dateType='full' timeType='none'>1945年5月20日星期日</result>
+   <result timeType='short'>1945年5月20日星期日AM01:00</result>
+   <result timeType='medium'>1945年5月20日星期日AM1:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>AM11:59</result>
+   <result timeType='medium'>AM11:59:59</result>
+   <result dateType='short' timeType='none'>18/06/52</result>
+   <result timeType='short'>18/06/52 AM11:59</result>
+   <result timeType='medium'>18/06/52 AM11:59:59</result>
+   <result dateType='medium' timeType='none'>1952-6-18</result>
+   <result timeType='short'>1952-6-18 AM11:59</result>
+   <result timeType='medium'>1952-6-18 AM11:59:59</result>
+   <result dateType='long' timeType='none'>1952年6月18日</result>
+   <result timeType='short'>1952年6月18日AM11:59</result>
+   <result timeType='medium'>1952年6月18日AM11:59:59</result>
+   <result dateType='full' timeType='none'>1952年6月18日星期三</result>
+   <result timeType='short'>1952年6月18日星期三AM11:59</result>
+   <result timeType='medium'>1952年6月18日星期三AM11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>PM12:00</result>
+   <result timeType='medium'>PM12:00:00</result>
+   <result dateType='short' timeType='none'>16/07/73</result>
+   <result timeType='short'>16/07/73 PM12:00</result>
+   <result timeType='medium'>16/07/73 PM12:00:00</result>
+   <result dateType='medium' timeType='none'>1973-7-16</result>
+   <result timeType='short'>1973-7-16 PM12:00</result>
+   <result timeType='medium'>1973-7-16 PM12:00:00</result>
+   <result dateType='long' timeType='none'>1973年7月16日</result>
+   <result timeType='short'>1973年7月16日PM12:00</result>
+   <result timeType='medium'>1973年7月16日PM12:00:00</result>
+   <result dateType='full' timeType='none'>1973年7月16日星期一</result>
+   <result timeType='short'>1973年7月16日星期一PM12:00</result>
+   <result timeType='medium'>1973年7月16日星期一PM12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>PM12:00</result>
+   <result timeType='medium'>PM12:00:01</result>
+   <result dateType='short' timeType='none'>14/08/99</result>
+   <result timeType='short'>14/08/99 PM12:00</result>
+   <result timeType='medium'>14/08/99 PM12:00:01</result>
+   <result dateType='medium' timeType='none'>1999-8-14</result>
+   <result timeType='short'>1999-8-14 PM12:00</result>
+   <result timeType='medium'>1999-8-14 PM12:00:01</result>
+   <result dateType='long' timeType='none'>1999年8月14日</result>
+   <result timeType='short'>1999年8月14日PM12:00</result>
+   <result timeType='medium'>1999年8月14日PM12:00:01</result>
+   <result dateType='full' timeType='none'>1999年8月14日星期六</result>
+   <result timeType='short'>1999年8月14日星期六PM12:00</result>
+   <result timeType='medium'>1999年8月14日星期六PM12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>PM10:59</result>
+   <result timeType='medium'>PM10:59:59</result>
+   <result dateType='short' timeType='none'>12/09/00</result>
+   <result timeType='short'>12/09/00 PM10:59</result>
+   <result timeType='medium'>12/09/00 PM10:59:59</result>
+   <result dateType='medium' timeType='none'>2000-9-12</result>
+   <result timeType='short'>2000-9-12 PM10:59</result>
+   <result timeType='medium'>2000-9-12 PM10:59:59</result>
+   <result dateType='long' timeType='none'>2000年9月12日</result>
+   <result timeType='short'>2000年9月12日PM10:59</result>
+   <result timeType='medium'>2000年9月12日PM10:59:59</result>
+   <result dateType='full' timeType='none'>2000年9月12日星期二</result>
+   <result timeType='short'>2000年9月12日星期二PM10:59</result>
+   <result timeType='medium'>2000年9月12日星期二PM10:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>PM11:00</result>
+   <result timeType='medium'>PM11:00:00</result>
+   <result dateType='short' timeType='none'>08/10/01</result>
+   <result timeType='short'>08/10/01 PM11:00</result>
+   <result timeType='medium'>08/10/01 PM11:00:00</result>
+   <result dateType='medium' timeType='none'>2001-10-8</result>
+   <result timeType='short'>2001-10-8 PM11:00</result>
+   <result timeType='medium'>2001-10-8 PM11:00:00</result>
+   <result dateType='long' timeType='none'>2001年10月8日</result>
+   <result timeType='short'>2001年10月8日PM11:00</result>
+   <result timeType='medium'>2001年10月8日PM11:00:00</result>
+   <result dateType='full' timeType='none'>2001年10月8日星期一</result>
+   <result timeType='short'>2001年10月8日星期一PM11:00</result>
+   <result timeType='medium'>2001年10月8日星期一PM11:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>PM11:00</result>
+   <result timeType='medium'>PM11:00:01</result>
+   <result dateType='short' timeType='none'>04/11/04</result>
+   <result timeType='short'>04/11/04 PM11:00</result>
+   <result timeType='medium'>04/11/04 PM11:00:01</result>
+   <result dateType='medium' timeType='none'>2004-11-4</result>
+   <result timeType='short'>2004-11-4 PM11:00</result>
+   <result timeType='medium'>2004-11-4 PM11:00:01</result>
+   <result dateType='long' timeType='none'>2004年11月4日</result>
+   <result timeType='short'>2004年11月4日PM11:00</result>
+   <result timeType='medium'>2004年11月4日PM11:00:01</result>
+   <result dateType='full' timeType='none'>2004年11月4日星期四</result>
+   <result timeType='short'>2004年11月4日星期四PM11:00</result>
+   <result timeType='medium'>2004年11月4日星期四PM11:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>PM11:59</result>
+   <result timeType='medium'>PM11:59:59</result>
+   <result dateType='short' timeType='none'>01/12/10</result>
+   <result timeType='short'>01/12/10 PM11:59</result>
+   <result timeType='medium'>01/12/10 PM11:59:59</result>
+   <result dateType='medium' timeType='none'>2010-12-1</result>
+   <result timeType='short'>2010-12-1 PM11:59</result>
+   <result timeType='medium'>2010-12-1 PM11:59:59</result>
+   <result dateType='long' timeType='none'>2010年12月1日</result>
+   <result timeType='short'>2010年12月1日PM11:59</result>
+   <result timeType='medium'>2010年12月1日PM11:59:59</result>
+   <result dateType='full' timeType='none'>2010年12月1日星期三</result>
+   <result timeType='short'>2010年12月1日星期三PM11:59</result>
+   <result timeType='medium'>2010年12月1日星期三PM11:59:59</result>
+  </date>
+  <zoneFields 
+locales='zh_Hans zh_Hans_CN zh_Hans_HK zh_Hans_MO zh_Hans_SG'>
+<!-- Simplified Chinese [中文（简体）@]; Simplified Chinese (China) [中文（简体）（中国）@]; Simplified Chinese (Hong Kong SAR China) [中文（简体）（中国香港特别行政区）@]; Simplified Chinese (Macau SAR China) [中文（简体）（中国澳门特别行政区）@]; Simplified Chinese (Singapore) [中文（简体）（新加坡）@] -->
+  </zoneFields>
+  <collation 
+locales='zh_Hans zh_Hans_CN zh_Hans_HK zh_Hans_MO zh_Hans_SG'>
+<!-- Simplified Chinese [中文（简体）@]; Simplified Chinese (China) [中文（简体）（中国）@]; Simplified Chinese (Hong Kong SAR China) [中文（简体）（中国香港特别行政区）@]; Simplified Chinese (Macau SAR China) [中文（简体）（中国澳门特别行政区）@]; Simplified Chinese (Singapore) [中文（简体）（新加坡）@] -->
+   <result draft='unconfirmed approved'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xā
+xĀ
+Xā
+XĀ
+xá
+xÁ
+Xá
+XÁ
+xǎ
+xǍ
+Xǎ
+XǍ
+xà
+xÀ
+Xà
+XÀ
+xa
+xA
+Xa
+XA
+xāx
+xĀx
+xáx
+xÁx
+xǎx
+xǍx
+xàx
+xÀx
+xax
+xAx
+xb
+xB
+Xb
+XB
+xbx
+xBx
+xc
+xC
+Xc
+XC
+xcx
+xCx
+xd
+xD
+Xd
+XD
+xdx
+xDx
+xē
+xĒ
+Xē
+XĒ
+xé
+xÉ
+Xé
+XÉ
+xě
+xĚ
+Xě
+XĚ
+xè
+xÈ
+Xè
+XÈ
+xe
+xE
+Xe
+XE
+xê̄
+xÊ̄
+Xê̄
+XÊ̄
+xế
+xẾ
+Xế
+XẾ
+xê̌
+xÊ̌
+Xê̌
+XÊ̌
+xề
+xỀ
+Xề
+XỀ
+xēx
+xĒx
+xéx
+xÉx
+xěx
+xĚx
+xèx
+xÈx
+xex
+xEx
+xê̄x
+xÊ̄x
+xếx
+xẾx
+xê̌x
+xÊ̌x
+xềx
+xỀx
+xf
+xF
+Xf
+XF
+xfx
+xFx
+xg
+xG
+Xg
+XG
+xgx
+xGx
+xh
+xH
+Xh
+XH
+xhx
+xHx
+xī
+xĪ
+Xī
+XĪ
+xí
+xÍ
+Xí
+XÍ
+xǐ
+xǏ
+Xǐ
+XǏ
+xì
+xÌ
+Xì
+XÌ
+xi
+xI
+Xi
+XI
+xīx
+xĪx
+xíx
+xÍx
+xǐx
+xǏx
+xìx
+xÌx
+xix
+xIx
+xj
+xJ
+Xj
+XJ
+xjx
+xJx
+xk
+xK
+Xk
+XK
+xkx
+xKx
+xl
+xL
+Xl
+XL
+xlx
+xLx
+xm̄
+xM̄
+Xm̄
+XM̄
+xḿ
+xḾ
+Xḿ
+XḾ
+xm̌
+xM̌
+Xm̌
+XM̌
+xm̀
+xM̀
+Xm̀
+XM̀
+xm
+xM
+Xm
+XM
+xm̄x
+xM̄x
+xḿx
+xḾx
+xm̌x
+xM̌x
+xm̀x
+xM̀x
+xmx
+xMx
+xn̄
+xN̄
+Xn̄
+XN̄
+xń
+xŃ
+Xń
+XŃ
+xň
+xŇ
+Xň
+XŇ
+xǹ
+xǸ
+Xǹ
+XǸ
+xn
+xN
+Xn
+XN
+xn̄x
+xN̄x
+xńx
+xŃx
+xňx
+xŇx
+xǹx
+xǸx
+xnx
+xNx
+xō
+xŌ
+Xō
+XŌ
+xó
+xÓ
+Xó
+XÓ
+xǒ
+xǑ
+Xǒ
+XǑ
+xò
+xÒ
+Xò
+XÒ
+xo
+xO
+Xo
+XO
+xōx
+xŌx
+xóx
+xÓx
+xǒx
+xǑx
+xòx
+xÒx
+xox
+xOx
+xp
+xP
+Xp
+XP
+xpx
+xPx
+xq
+xQ
+Xq
+XQ
+xqx
+xQx
+xr
+xR
+Xr
+XR
+xrx
+xRx
+xs
+xS
+Xs
+XS
+xsx
+xSx
+xt
+xT
+Xt
+XT
+xtx
+xTx
+xū
+xŪ
+Xū
+XŪ
+xú
+xÚ
+Xú
+XÚ
+xǔ
+xǓ
+Xǔ
+XǓ
+xù
+xÙ
+Xù
+XÙ
+xu
+xU
+Xu
+XU
+xǖ
+xǕ
+Xǖ
+XǕ
+xǘ
+xǗ
+Xǘ
+XǗ
+xǚ
+xǙ
+Xǚ
+XǙ
+xǜ
+xǛ
+Xǜ
+XǛ
+xü
+xÜ
+Xü
+XÜ
+xūx
+xŪx
+xúx
+xÚx
+xǔx
+xǓx
+xùx
+xÙx
+xux
+xUx
+xǖx
+xǕx
+xǘx
+xǗx
+xǚx
+xǙx
+xǜx
+xǛx
+xüx
+xÜx
+xw
+xW
+Xw
+XW
+xwx
+xWx
+xx
+xX
+Xx
+XX
+xxx
+xXx
+xy
+xY
+Xy
+XY
+xyx
+xYx
+xz
+xZ
+Xz
+XZ
+xzx
+xZx
+x一
+X一
+x一x
+x丁
+X丁
+x丁x
+x七
+X七
+x七x
+x丈
+X丈
+x丈x
+x三
+X三
+x三x
+x上
+X上
+x上x
+x下
+X下
+x下x
+x丌
+X丌
+x丌x
+x不
+X不
+x不x
+x与
+X与
+x与x
+x专
+X专
+x专x
+x且
+X且
+x且x
+x世
+X世
+x世x
+x丘
+X丘
+x丘x
+x丙
+X丙
+x丙x
+x业
+X业
+x业x
+x东
+X东
+x东x
+x丝
+X丝
+x丝x
+x丢
+X丢
+x丢x
+x两
+X两
+x两x
+x严
+X严
+x严x
+x丧
+X丧
+x丧x
+x个
+X个
+x个x
+x中
+X中
+x中x
+x丰
+X丰
+x丰x
+x串
+X串
+x串x
+x临
+X临
+x临x
+x丸
+X丸
+x丸x
+x丹
+X丹
+x丹x
+x为
+X为
+x为x
+x主
+X主
+x主x
+x丽
+X丽
+x丽x
+x举
+X举
+x举x
+x乃
+X乃
+x乃x
+x久
+X久
+x久x
+x么
+X么
+x么x
+x义
+X义
+x义x
+x之
+X之
+x之x
+x乌
+X乌
+x乌x
+x乍
+X乍
+x乍x
+x乎
+X乎
+x乎x
+x乏
+X乏
+x乏x
+x乐
+X乐
+x乐x
+x乔
+X乔
+x乔x
+x乖
+X乖
+x乖x
+x乘
+X乘
+x乘x
+x乙
+X乙
+x乙x
+x九
+X九
+x九x
+x也
+X也
+x也x
+x习
+X习
+x习x
+x乡
+X乡
+x乡x
+x书
+X书
+x书x
+x买
+X买
+x买x
+x乱
+X乱
+x乱x
+x乾
+X乾
+x乾x
+x了
+X了
+x了x
+x予
+X予
+x予x
+x争
+X争
+x争x
+x事
+X事
+x事x
+x二
+X二
+x二x
+x于
+X于
+x于x
+x亏
+X亏
+x亏x
+x云
+X云
+x云x
+x互
+X互
+x互x
+x五
+X五
+x五x
+x井
+X井
+x井x
+x亚
+X亚
+x亚x
+x些
+X些
+x些x
+x亡
+X亡
+x亡x
+x交
+X交
+x交x
+x亦
+X亦
+x亦x
+x亨
+X亨
+x亨x
+x享
+X享
+x享x
+x京
+X京
+x京x
+x亮
+X亮
+x亮x
+x亲
+X亲
+x亲x
+x人
+X人
+x人x
+x亿
+X亿
+x亿x
+x什
+X什
+x什x
+x仁
+X仁
+x仁x
+x仅
+X仅
+x仅x
+x仇
+X仇
+x仇x
+x今
+X今
+x今x
+x介
+X介
+x介x
+x仍
+X仍
+x仍x
+x从
+X从
+x从x
+x仔
+X仔
+x仔x
+x他
+X他
+x他x
+x付
+X付
+x付x
+x仙
+X仙
+x仙x
+x代
+X代
+x代x
+x令
+X令
+x令x
+x以
+X以
+x以x
+x仪
+X仪
+x仪x
+x们
+X们
+x们x
+x仰
+X仰
+x仰x
+x仲
+X仲
+x仲x
+x件
+X件
+x件x
+x任
+X任
+x任x
+x份
+X份
+x份x
+x仿
+X仿
+x仿x
+x鼓
+X鼓
+x鼓x
+x鼠
+X鼠
+x鼠x
+x鼻
+X鼻
+x鼻x
+x齐
+X齐
+x齐x
+x齿
+X齿
+x齿x
+x龄
+X龄
+x龄x
+x龙
+X龙
+x龙x
+x龟
+X龟
+x龟x
+</result>
+  </collation>
+ </cldrTest>

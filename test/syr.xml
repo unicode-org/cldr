@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='syr'>
- <!-- Syriac [Syriac] -->
+ <!-- Syriac [ܣܘܪܝܝܐ] -->
   <number 
 locales='syr syr_SY'>
-<!-- Syriac [Syriac]; Syriac (Syria) [Syriac (Syria)] -->
+<!-- Syriac [ܣܘܪܝܝܐ@]; Syriac (Syria) [ܣܘܪܝܝܐ (ܣܘܪܝܝܐ)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -67,7 +67,7 @@ locales='syr syr_SY'>
   </number>
   <date 
 locales='syr syr_SY'>
-<!-- Syriac [Syriac]; Syriac (Syria) [Syriac (Syria)] -->
+<!-- Syriac [ܣܘܪܝܝܐ@]; Syriac (Syria) [ܣܘܪܝܝܐ (ܣܘܪܝܝܐ)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>12:00</result>
    <result draft='approved'>00:00</result>
    <result timeType='medium' draft='unconfirmed'>12:00:00</result>
@@ -401,20 +401,46 @@ locales='syr syr_SY'>
   </date>
   <zoneFields 
 locales='syr syr_SY'>
-<!-- Syriac [Syriac]; Syriac (Syria) [Syriac (Syria)] -->
+<!-- Syriac [ܣܘܪܝܝܐ@]; Syriac (Syria) [ܣܘܪܝܝܐ (ܣܘܪܝܝܐ)@] -->
   </zoneFields>
   <collation 
 locales='syr syr_SY'>
-<!-- Syriac [Syriac]; Syriac (Syria) [Syriac (Syria)] -->
+<!-- Syriac [ܣܘܪܝܝܐ@]; Syriac (Syria) [ܣܘܪܝܝܐ (ܣܘܪܝܝܐ)@] -->
    <result draft='unconfirmed approved'>
-x‍
 x‌
-x܏
 x‍
-X‍
+x܏
+x݊
+x݉
+x݈
+x݇
+x݄
+x݃
+x݀
+x‌
+X݄
+X݇
+X݀
+X݃
 X‌
-X܏
 X‍
+X݉
+X݈
+X܏
+X݊
+X݄
+x݁
+x݅
+x݁
+X݁
+X݅
+X݁
+x݂
+x݆
+x݂
+X݂
+X݆
+X݂
 xܑ
 Xܑ
 xܰ
@@ -449,28 +475,6 @@ xܾ
 Xܾ
 xܿ
 Xܿ
-x݀
-X݀
-x݁
-X݁
-x݂
-X݂
-x݃
-X݃
-x݄
-X݄
-x݅
-X݅
-x݆
-X݆
-x݇
-X݇
-x݈
-X݈
-x݉
-X݉
-x݊
-X݊
 x 
 X 
 x x
@@ -528,10 +532,23 @@ x12x
 x2
 X2
 x2x
-x܏x
+x݇x
+x݈x
+x݀x
 x‌x
+x݊x
+x݉x
 x‍x
+x݃x
 x܏x
+x݄x
+x݇x
+x݁x
+x݅x
+x݁x
+x݆x
+x݂x
+x݆x
 xܑx
 xܰx
 xܱx
@@ -549,17 +566,6 @@ xܼx
 xܽx
 xܾx
 xܿx
-x݀x
-x݁x
-x݂x
-x݃x
-x݄x
-x݅x
-x݆x
-x݇x
-x݈x
-x݉x
-x݊x
 xܐ
 Xܐ
 xܐx

@@ -4,8 +4,8 @@
  <cldrTest version='1.7' base='pt'>
  <!-- Portuguese [português] -->
   <number 
-locales='pt pt_BR'>
-<!-- Portuguese [português]; Portuguese (Brazil) [português (Brasil)] -->
+locales='pt pt_BR pt_GW pt_MZ'>
+<!-- Portuguese [português@]; Brazilian Portuguese [português do Brasil@]; Portuguese (Guinea-Bissau) [português (Guiné Bissau)@]; Portuguese (Mozambique) [português (Moçambique)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='pt pt_BR'>
   </number>
   <number 
 locales='pt_PT'>
-<!-- Portuguese (Portugal) [português (Portugal)] -->
+<!-- Iberian Portuguese [português europeu@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -108,8 +108,8 @@ locales='pt_PT'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='pt pt_BR'>
-<!-- Portuguese [português]; Portuguese (Brazil) [português (Brasil)] -->
+locales='pt pt_BR pt_GW pt_MZ'>
+<!-- Portuguese [português@]; Brazilian Portuguese [português do Brasil@]; Portuguese (Guinea-Bissau) [português (Guiné Bissau)@]; Portuguese (Mozambique) [português (Moçambique)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31/01/00</result>
@@ -281,7 +281,7 @@ locales='pt pt_BR'>
   </date>
   <date 
 locales='pt_PT'>
-<!-- Portuguese (Portugal) [português (Portugal)] -->
+<!-- Iberian Portuguese [português europeu@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31/01/00</result>
@@ -293,9 +293,9 @@ locales='pt_PT'>
    <result dateType='long' timeType='none'>31 de Janeiro de 1900</result>
    <result timeType='short'>31 de Janeiro de 1900 00:00</result>
    <result timeType='medium'>31 de Janeiro de 1900 00:00:00</result>
-   <result dateType='full' timeType='none'>quarta-feira, 31 de Janeiro de 1900</result>
-   <result timeType='short'>quarta-feira, 31 de Janeiro de 1900 00:00</result>
-   <result timeType='medium'>quarta-feira, 31 de Janeiro de 1900 00:00:00</result>
+   <result dateType='full' timeType='none'>Quarta-feira, 31 de Janeiro de 1900</result>
+   <result timeType='short'>Quarta-feira, 31 de Janeiro de 1900 00:00</result>
+   <result timeType='medium'>Quarta-feira, 31 de Janeiro de 1900 00:00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
    <result dateType='short' timeType='none'>28/02/09</result>
@@ -307,9 +307,9 @@ locales='pt_PT'>
    <result dateType='long' timeType='none'>28 de Fevereiro de 1909</result>
    <result timeType='short'>28 de Fevereiro de 1909 00:00</result>
    <result timeType='medium'>28 de Fevereiro de 1909 00:00:01</result>
-   <result dateType='full' timeType='none'>domingo, 28 de Fevereiro de 1909</result>
-   <result timeType='short'>domingo, 28 de Fevereiro de 1909 00:00</result>
-   <result timeType='medium'>domingo, 28 de Fevereiro de 1909 00:00:01</result>
+   <result dateType='full' timeType='none'>Domingo, 28 de Fevereiro de 1909</result>
+   <result timeType='short'>Domingo, 28 de Fevereiro de 1909 00:00</result>
+   <result timeType='medium'>Domingo, 28 de Fevereiro de 1909 00:00:01</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result dateType='short' timeType='none'>26/03/18</result>
@@ -321,9 +321,9 @@ locales='pt_PT'>
    <result dateType='long' timeType='none'>26 de Março de 1918</result>
    <result timeType='short'>26 de Março de 1918 00:59</result>
    <result timeType='medium'>26 de Março de 1918 00:59:59</result>
-   <result dateType='full' timeType='none'>terça-feira, 26 de Março de 1918</result>
-   <result timeType='short'>terça-feira, 26 de Março de 1918 00:59</result>
-   <result timeType='medium'>terça-feira, 26 de Março de 1918 00:59:59</result>
+   <result dateType='full' timeType='none'>Terça-feira, 26 de Março de 1918</result>
+   <result timeType='short'>Terça-feira, 26 de Março de 1918 00:59</result>
+   <result timeType='medium'>Terça-feira, 26 de Março de 1918 00:59:59</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
    <result dateType='short' timeType='none'>24/04/32</result>
@@ -335,9 +335,9 @@ locales='pt_PT'>
    <result dateType='long' timeType='none'>24 de Abril de 1932</result>
    <result timeType='short'>24 de Abril de 1932 01:00</result>
    <result timeType='medium'>24 de Abril de 1932 01:00:00</result>
-   <result dateType='full' timeType='none'>domingo, 24 de Abril de 1932</result>
-   <result timeType='short'>domingo, 24 de Abril de 1932 01:00</result>
-   <result timeType='medium'>domingo, 24 de Abril de 1932 01:00:00</result>
+   <result dateType='full' timeType='none'>Domingo, 24 de Abril de 1932</result>
+   <result timeType='short'>Domingo, 24 de Abril de 1932 01:00</result>
+   <result timeType='medium'>Domingo, 24 de Abril de 1932 01:00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result dateType='short' timeType='none'>20/05/45</result>
@@ -349,9 +349,9 @@ locales='pt_PT'>
    <result dateType='long' timeType='none'>20 de Maio de 1945</result>
    <result timeType='short'>20 de Maio de 1945 01:00</result>
    <result timeType='medium'>20 de Maio de 1945 01:00:01</result>
-   <result dateType='full' timeType='none'>domingo, 20 de Maio de 1945</result>
-   <result timeType='short'>domingo, 20 de Maio de 1945 01:00</result>
-   <result timeType='medium'>domingo, 20 de Maio de 1945 01:00:01</result>
+   <result dateType='full' timeType='none'>Domingo, 20 de Maio de 1945</result>
+   <result timeType='short'>Domingo, 20 de Maio de 1945 01:00</result>
+   <result timeType='medium'>Domingo, 20 de Maio de 1945 01:00:01</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result dateType='short' timeType='none'>18/06/52</result>
@@ -363,9 +363,9 @@ locales='pt_PT'>
    <result dateType='long' timeType='none'>18 de Junho de 1952</result>
    <result timeType='short'>18 de Junho de 1952 11:59</result>
    <result timeType='medium'>18 de Junho de 1952 11:59:59</result>
-   <result dateType='full' timeType='none'>quarta-feira, 18 de Junho de 1952</result>
-   <result timeType='short'>quarta-feira, 18 de Junho de 1952 11:59</result>
-   <result timeType='medium'>quarta-feira, 18 de Junho de 1952 11:59:59</result>
+   <result dateType='full' timeType='none'>Quarta-feira, 18 de Junho de 1952</result>
+   <result timeType='short'>Quarta-feira, 18 de Junho de 1952 11:59</result>
+   <result timeType='medium'>Quarta-feira, 18 de Junho de 1952 11:59:59</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result dateType='short' timeType='none'>16/07/73</result>
@@ -377,9 +377,9 @@ locales='pt_PT'>
    <result dateType='long' timeType='none'>16 de Julho de 1973</result>
    <result timeType='short'>16 de Julho de 1973 12:00</result>
    <result timeType='medium'>16 de Julho de 1973 12:00:00</result>
-   <result dateType='full' timeType='none'>segunda-feira, 16 de Julho de 1973</result>
-   <result timeType='short'>segunda-feira, 16 de Julho de 1973 12:00</result>
-   <result timeType='medium'>segunda-feira, 16 de Julho de 1973 12:00:00</result>
+   <result dateType='full' timeType='none'>Segunda-feira, 16 de Julho de 1973</result>
+   <result timeType='short'>Segunda-feira, 16 de Julho de 1973 12:00</result>
+   <result timeType='medium'>Segunda-feira, 16 de Julho de 1973 12:00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result dateType='short' timeType='none'>14/08/99</result>
@@ -391,9 +391,9 @@ locales='pt_PT'>
    <result dateType='long' timeType='none'>14 de Agosto de 1999</result>
    <result timeType='short'>14 de Agosto de 1999 12:00</result>
    <result timeType='medium'>14 de Agosto de 1999 12:00:01</result>
-   <result dateType='full' timeType='none'>sábado, 14 de Agosto de 1999</result>
-   <result timeType='short'>sábado, 14 de Agosto de 1999 12:00</result>
-   <result timeType='medium'>sábado, 14 de Agosto de 1999 12:00:01</result>
+   <result dateType='full' timeType='none'>Sábado, 14 de Agosto de 1999</result>
+   <result timeType='short'>Sábado, 14 de Agosto de 1999 12:00</result>
+   <result timeType='medium'>Sábado, 14 de Agosto de 1999 12:00:01</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result dateType='short' timeType='none'>12/09/00</result>
@@ -405,9 +405,9 @@ locales='pt_PT'>
    <result dateType='long' timeType='none'>12 de Setembro de 2000</result>
    <result timeType='short'>12 de Setembro de 2000 22:59</result>
    <result timeType='medium'>12 de Setembro de 2000 22:59:59</result>
-   <result dateType='full' timeType='none'>terça-feira, 12 de Setembro de 2000</result>
-   <result timeType='short'>terça-feira, 12 de Setembro de 2000 22:59</result>
-   <result timeType='medium'>terça-feira, 12 de Setembro de 2000 22:59:59</result>
+   <result dateType='full' timeType='none'>Terça-feira, 12 de Setembro de 2000</result>
+   <result timeType='short'>Terça-feira, 12 de Setembro de 2000 22:59</result>
+   <result timeType='medium'>Terça-feira, 12 de Setembro de 2000 22:59:59</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result dateType='short' timeType='none'>08/10/01</result>
@@ -419,9 +419,9 @@ locales='pt_PT'>
    <result dateType='long' timeType='none'>8 de Outubro de 2001</result>
    <result timeType='short'>8 de Outubro de 2001 23:00</result>
    <result timeType='medium'>8 de Outubro de 2001 23:00:00</result>
-   <result dateType='full' timeType='none'>segunda-feira, 8 de Outubro de 2001</result>
-   <result timeType='short'>segunda-feira, 8 de Outubro de 2001 23:00</result>
-   <result timeType='medium'>segunda-feira, 8 de Outubro de 2001 23:00:00</result>
+   <result dateType='full' timeType='none'>Segunda-feira, 8 de Outubro de 2001</result>
+   <result timeType='short'>Segunda-feira, 8 de Outubro de 2001 23:00</result>
+   <result timeType='medium'>Segunda-feira, 8 de Outubro de 2001 23:00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result dateType='short' timeType='none'>04/11/04</result>
@@ -433,9 +433,9 @@ locales='pt_PT'>
    <result dateType='long' timeType='none'>4 de Novembro de 2004</result>
    <result timeType='short'>4 de Novembro de 2004 23:00</result>
    <result timeType='medium'>4 de Novembro de 2004 23:00:01</result>
-   <result dateType='full' timeType='none'>quinta-feira, 4 de Novembro de 2004</result>
-   <result timeType='short'>quinta-feira, 4 de Novembro de 2004 23:00</result>
-   <result timeType='medium'>quinta-feira, 4 de Novembro de 2004 23:00:01</result>
+   <result dateType='full' timeType='none'>Quinta-feira, 4 de Novembro de 2004</result>
+   <result timeType='short'>Quinta-feira, 4 de Novembro de 2004 23:00</result>
+   <result timeType='medium'>Quinta-feira, 4 de Novembro de 2004 23:00:01</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result dateType='short' timeType='none'>01/12/10</result>
@@ -447,17 +447,17 @@ locales='pt_PT'>
    <result dateType='long' timeType='none'>1 de Dezembro de 2010</result>
    <result timeType='short'>1 de Dezembro de 2010 23:59</result>
    <result timeType='medium'>1 de Dezembro de 2010 23:59:59</result>
-   <result dateType='full' timeType='none'>quarta-feira, 1 de Dezembro de 2010</result>
-   <result timeType='short'>quarta-feira, 1 de Dezembro de 2010 23:59</result>
-   <result timeType='medium'>quarta-feira, 1 de Dezembro de 2010 23:59:59</result>
+   <result dateType='full' timeType='none'>Quarta-feira, 1 de Dezembro de 2010</result>
+   <result timeType='short'>Quarta-feira, 1 de Dezembro de 2010 23:59</result>
+   <result timeType='medium'>Quarta-feira, 1 de Dezembro de 2010 23:59:59</result>
   </date>
   <zoneFields 
-locales='pt pt_BR pt_PT'>
-<!-- Portuguese [português]; Portuguese (Brazil) [português (Brasil)]; Portuguese (Portugal) [português (Portugal)] -->
+locales='pt pt_BR pt_GW pt_MZ pt_PT'>
+<!-- Portuguese [português@]; Brazilian Portuguese [português do Brasil@]; Portuguese (Guinea-Bissau) [português (Guiné Bissau)@]; Portuguese (Mozambique) [português (Moçambique)@]; Iberian Portuguese [português europeu@] -->
   </zoneFields>
   <collation 
-locales='pt pt_BR'>
-<!-- Portuguese [português]; Portuguese (Brazil) [português (Brasil)] -->
+locales='pt pt_BR pt_GW pt_MZ'>
+<!-- Portuguese [português@]; Brazilian Portuguese [português do Brasil@]; Portuguese (Guinea-Bissau) [português (Guiné Bissau)@]; Portuguese (Mozambique) [português (Moçambique)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -778,21 +778,6 @@ xs
 xS
 Xs
 XS
-xss
-xsS
-xSs
-xSS
-Xss
-XsS
-XSs
-XSS
-xß
-Xß
-xssx
-xsSx
-xSsx
-xSSx
-xßx
 xsx
 xSx
 xt
@@ -883,7 +868,7 @@ xZx
   </collation>
   <collation 
 locales='pt_PT'>
-<!-- Portuguese (Portugal) [português (Portugal)] -->
+<!-- Iberian Portuguese [português europeu@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -1210,21 +1195,6 @@ xs
 xS
 Xs
 XS
-xss
-xsS
-xSs
-xSS
-Xss
-XsS
-XSs
-XSS
-xß
-Xß
-xssx
-xsSx
-xSsx
-xSSx
-xßx
 xsx
 xSx
 xt

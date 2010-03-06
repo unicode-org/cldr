@@ -4,8 +4,8 @@
  <cldrTest version='1.7' base='es'>
  <!-- Spanish [español] -->
   <number 
-locales='es es_AR es_BO es_CL es_CO es_CR es_EC es_ES es_PY es_UY es_VE'>
-<!-- Spanish [español]; Spanish (Argentina) [español (Argentina)]; Spanish (Bolivia) [español (Bolivia)]; Spanish (Chile) [español (Chile)]; Spanish (Colombia) [español (Colombia)]; Spanish (Costa Rica) [español (Costa Rica)]; Spanish (Ecuador) [español (Ecuador)]; Spanish (Spain) [español (España)]; Spanish (Paraguay) [español (Paraguay)]; Spanish (Uruguay) [español (Uruguay)]; Spanish (Venezuela) [español (Venezuela)] -->
+locales='es es_AR es_BO es_CL es_CO es_CR es_EC es_ES es_GQ es_PY es_UY es_VE'>
+<!-- Spanish [español@]; Spanish (Argentina) [español (Argentina)@]; Spanish (Bolivia) [español (Bolivia)@]; Spanish (Chile) [español (Chile)@]; Spanish (Colombia) [español (Colombia)@]; Spanish (Costa Rica) [español (Costa Rica)@]; Spanish (Ecuador) [español (Ecuador)@]; Iberian Spanish [español de España@]; Spanish (Equatorial Guinea) [español (Guinea Ecuatorial)@]; Spanish (Paraguay) [español (Paraguay)@]; Spanish (Uruguay) [español (Uruguay)@]; Spanish (Venezuela) [español (Venezuela)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='es es_AR es_BO es_CL es_CO es_CR es_EC es_ES es_PY es_UY es_VE'>
    <result numberType='scientific'>NaN</result>
   </number>
   <number 
-locales='es_DO es_GT es_HN es_MX es_NI es_PA es_PE es_PR es_SV es_US'>
-<!-- Spanish (Dominican Republic) [español (República Dominicana)]; Spanish (Guatemala) [español (Guatemala)]; Spanish (Honduras) [español (Honduras)]; Spanish (Mexico) [español (México)]; Spanish (Nicaragua) [español (Nicaragua)]; Spanish (Panama) [español (Panamá)]; Spanish (Peru) [español (Perú)]; Spanish (Puerto Rico) [español (Puerto Rico)]; Spanish (El Salvador) [español (El Salvador)]; Spanish (United States) [español (Estados Unidos)] -->
+locales='es_419 es_DO es_GT es_HN es_MX es_NI es_PA es_PE es_PR es_SV es_US'>
+<!-- Latin American Spanish [español latinoamericano@]; Spanish (Dominican Republic) [español (República Dominicana)@]; Spanish (Guatemala) [español (Guatemala)@]; Spanish (Honduras) [español (Honduras)@]; Spanish (Mexico) [español (México)@]; Spanish (Nicaragua) [español (Nicaragua)@]; Spanish (Panama) [español (Panamá)@]; Spanish (Peru) [español (Perú)@]; Spanish (Puerto Rico) [español (Puerto Rico)@]; Spanish (El Salvador) [español (El Salvador)@]; Spanish (United States) [español (Estados Unidos)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -108,8 +108,8 @@ locales='es_DO es_GT es_HN es_MX es_NI es_PA es_PE es_PR es_SV es_US'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='es es_AR es_BO es_CR es_DO es_ES es_MX es_NI es_PY es_SV es_UY es_VE'>
-<!-- Spanish [español]; Spanish (Argentina) [español (Argentina)]; Spanish (Bolivia) [español (Bolivia)]; Spanish (Costa Rica) [español (Costa Rica)]; Spanish (Dominican Republic) [español (República Dominicana)]; Spanish (Spain) [español (España)]; Spanish (Mexico) [español (México)]; Spanish (Nicaragua) [español (Nicaragua)]; Spanish (Paraguay) [español (Paraguay)]; Spanish (El Salvador) [español (El Salvador)]; Spanish (Uruguay) [español (Uruguay)]; Spanish (Venezuela) [español (Venezuela)] -->
+locales='es es_419 es_AR es_BO es_CR es_DO es_ES es_GQ es_MX es_NI es_PY es_SV es_UY es_VE'>
+<!-- Spanish [español@]; Latin American Spanish [español latinoamericano@]; Spanish (Argentina) [español (Argentina)@]; Spanish (Bolivia) [español (Bolivia)@]; Spanish (Costa Rica) [español (Costa Rica)@]; Spanish (Dominican Republic) [español (República Dominicana)@]; Iberian Spanish [español de España@]; Spanish (Equatorial Guinea) [español (Guinea Ecuatorial)@]; Spanish (Mexico) [español (México)@]; Spanish (Nicaragua) [español (Nicaragua)@]; Spanish (Paraguay) [español (Paraguay)@]; Spanish (El Salvador) [español (El Salvador)@]; Spanish (Uruguay) [español (Uruguay)@]; Spanish (Venezuela) [español (Venezuela)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31/01/00</result>
@@ -281,7 +281,7 @@ locales='es es_AR es_BO es_CR es_DO es_ES es_MX es_NI es_PY es_SV es_UY es_VE'>
   </date>
   <date 
 locales='es_CL'>
-<!-- Spanish (Chile) [español (Chile)] -->
+<!-- Spanish (Chile) [español (Chile)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result dateType='short' timeType='none'>31-01-00</result>
@@ -453,7 +453,7 @@ locales='es_CL'>
   </date>
   <date 
 locales='es_CO'>
-<!-- Spanish (Colombia) [español (Colombia)] -->
+<!-- Spanish (Colombia) [español (Colombia)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result dateType='short' timeType='none'>31/01/00</result>
@@ -625,7 +625,7 @@ locales='es_CO'>
   </date>
   <date 
 locales='es_EC'>
-<!-- Spanish (Ecuador) [español (Ecuador)] -->
+<!-- Spanish (Ecuador) [español (Ecuador)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result dateType='short' timeType='none'>31/01/00</result>
@@ -797,7 +797,7 @@ locales='es_EC'>
   </date>
   <date 
 locales='es_GT'>
-<!-- Spanish (Guatemala) [español (Guatemala)] -->
+<!-- Spanish (Guatemala) [español (Guatemala)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31/01/00</result>
@@ -969,7 +969,7 @@ locales='es_GT'>
   </date>
   <date 
 locales='es_HN'>
-<!-- Spanish (Honduras) [español (Honduras)] -->
+<!-- Spanish (Honduras) [español (Honduras)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31/01/00</result>
@@ -1141,7 +1141,7 @@ locales='es_HN'>
   </date>
   <date 
 locales='es_PA es_PR'>
-<!-- Spanish (Panama) [español (Panamá)]; Spanish (Puerto Rico) [español (Puerto Rico)] -->
+<!-- Spanish (Panama) [español (Panamá)@]; Spanish (Puerto Rico) [español (Puerto Rico)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>01/31/00</result>
@@ -1313,7 +1313,7 @@ locales='es_PA es_PR'>
   </date>
   <date 
 locales='es_PE'>
-<!-- Spanish (Peru) [español (Perú)] -->
+<!-- Spanish (Peru) [español (Perú)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31/01/00</result>
@@ -1485,7 +1485,7 @@ locales='es_PE'>
   </date>
   <date 
 locales='es_US'>
-<!-- Spanish (United States) [español (Estados Unidos)] -->
+<!-- Spanish (United States) [español (Estados Unidos)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 a.m.</result>
    <result timeType='medium'>12:00:00 a.m.</result>
    <result dateType='short' timeType='none'>1/31/00</result>
@@ -1656,12 +1656,12 @@ locales='es_US'>
    <result timeType='medium'>miércoles 1 de diciembre de 2010 11:59:59 p.m.</result>
   </date>
   <zoneFields 
-locales='es es_AR es_BO es_CL es_CO es_CR es_DO es_EC es_ES es_GT es_HN es_MX es_NI es_PA es_PE es_PR es_PY es_SV es_US es_UY es_VE'>
-<!-- Spanish [español]; Spanish (Argentina) [español (Argentina)]; Spanish (Bolivia) [español (Bolivia)]; Spanish (Chile) [español (Chile)]; Spanish (Colombia) [español (Colombia)]; Spanish (Costa Rica) [español (Costa Rica)]; Spanish (Dominican Republic) [español (República Dominicana)]; Spanish (Ecuador) [español (Ecuador)]; Spanish (Spain) [español (España)]; Spanish (Guatemala) [español (Guatemala)]; Spanish (Honduras) [español (Honduras)]; Spanish (Mexico) [español (México)]; Spanish (Nicaragua) [español (Nicaragua)]; Spanish (Panama) [español (Panamá)]; Spanish (Peru) [español (Perú)]; Spanish (Puerto Rico) [español (Puerto Rico)]; Spanish (Paraguay) [español (Paraguay)]; Spanish (El Salvador) [español (El Salvador)]; Spanish (United States) [español (Estados Unidos)]; Spanish (Uruguay) [español (Uruguay)]; Spanish (Venezuela) [español (Venezuela)] -->
+locales='es es_419 es_AR es_BO es_CL es_CO es_CR es_DO es_EC es_ES es_GQ es_GT es_HN es_MX es_NI es_PA es_PE es_PR es_PY es_SV es_US es_UY es_VE'>
+<!-- Spanish [español@]; Latin American Spanish [español latinoamericano@]; Spanish (Argentina) [español (Argentina)@]; Spanish (Bolivia) [español (Bolivia)@]; Spanish (Chile) [español (Chile)@]; Spanish (Colombia) [español (Colombia)@]; Spanish (Costa Rica) [español (Costa Rica)@]; Spanish (Dominican Republic) [español (República Dominicana)@]; Spanish (Ecuador) [español (Ecuador)@]; Iberian Spanish [español de España@]; Spanish (Equatorial Guinea) [español (Guinea Ecuatorial)@]; Spanish (Guatemala) [español (Guatemala)@]; Spanish (Honduras) [español (Honduras)@]; Spanish (Mexico) [español (México)@]; Spanish (Nicaragua) [español (Nicaragua)@]; Spanish (Panama) [español (Panamá)@]; Spanish (Peru) [español (Perú)@]; Spanish (Puerto Rico) [español (Puerto Rico)@]; Spanish (Paraguay) [español (Paraguay)@]; Spanish (El Salvador) [español (El Salvador)@]; Spanish (United States) [español (Estados Unidos)@]; Spanish (Uruguay) [español (Uruguay)@]; Spanish (Venezuela) [español (Venezuela)@] -->
   </zoneFields>
   <collation 
-locales='es es_AR es_BO es_CL es_CO es_CR es_DO es_EC es_ES es_GT es_HN es_MX es_NI es_PA es_PE es_PR es_PY es_SV es_US es_UY es_VE'>
-<!-- Spanish [español]; Spanish (Argentina) [español (Argentina)]; Spanish (Bolivia) [español (Bolivia)]; Spanish (Chile) [español (Chile)]; Spanish (Colombia) [español (Colombia)]; Spanish (Costa Rica) [español (Costa Rica)]; Spanish (Dominican Republic) [español (República Dominicana)]; Spanish (Ecuador) [español (Ecuador)]; Spanish (Spain) [español (España)]; Spanish (Guatemala) [español (Guatemala)]; Spanish (Honduras) [español (Honduras)]; Spanish (Mexico) [español (México)]; Spanish (Nicaragua) [español (Nicaragua)]; Spanish (Panama) [español (Panamá)]; Spanish (Peru) [español (Perú)]; Spanish (Puerto Rico) [español (Puerto Rico)]; Spanish (Paraguay) [español (Paraguay)]; Spanish (El Salvador) [español (El Salvador)]; Spanish (United States) [español (Estados Unidos)]; Spanish (Uruguay) [español (Uruguay)]; Spanish (Venezuela) [español (Venezuela)] -->
+locales='es es_419 es_AR es_BO es_CL es_CO es_CR es_DO es_EC es_ES es_GQ es_GT es_HN es_MX es_NI es_PA es_PE es_PR es_PY es_SV es_US es_UY es_VE'>
+<!-- Spanish [español@]; Latin American Spanish [español latinoamericano@]; Spanish (Argentina) [español (Argentina)@]; Spanish (Bolivia) [español (Bolivia)@]; Spanish (Chile) [español (Chile)@]; Spanish (Colombia) [español (Colombia)@]; Spanish (Costa Rica) [español (Costa Rica)@]; Spanish (Dominican Republic) [español (República Dominicana)@]; Spanish (Ecuador) [español (Ecuador)@]; Iberian Spanish [español de España@]; Spanish (Equatorial Guinea) [español (Guinea Ecuatorial)@]; Spanish (Guatemala) [español (Guatemala)@]; Spanish (Honduras) [español (Honduras)@]; Spanish (Mexico) [español (México)@]; Spanish (Nicaragua) [español (Nicaragua)@]; Spanish (Panama) [español (Panamá)@]; Spanish (Peru) [español (Perú)@]; Spanish (Puerto Rico) [español (Puerto Rico)@]; Spanish (Paraguay) [español (Paraguay)@]; Spanish (El Salvador) [español (El Salvador)@]; Spanish (United States) [español (Estados Unidos)@]; Spanish (Uruguay) [español (Uruguay)@]; Spanish (Venezuela) [español (Venezuela)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -1979,21 +1979,6 @@ xs
 xS
 Xs
 XS
-xss
-xsS
-xSs
-xSS
-Xss
-XsS
-XSs
-XSS
-xß
-Xß
-xssx
-xsSx
-xSsx
-xSSx
-xßx
 xsx
 xSx
 xt
@@ -2084,7 +2069,7 @@ xZx
   </collation>
   <collation 
 locales='es@collation=traditional es_AR@collation=traditional es_BO@collation=traditional es_CL@collation=traditional es_CO@collation=traditional es_CR@collation=traditional es_DO@collation=traditional es_EC@collation=traditional es_ES@collation=traditional es_GT@collation=traditional es_HN@collation=traditional es_MX@collation=traditional es_NI@collation=traditional es_PA@collation=traditional es_PE@collation=traditional es_PR@collation=traditional es_PY@collation=traditional es_SV@collation=traditional es_US@collation=traditional es_UY@collation=traditional es_VE@collation=traditional'>
-<!-- Spanish (collation=Traditional Sort Order) [español (intercalación=orden tradicional)]; Spanish (Argentina, collation=Traditional Sort Order) [español (Argentina, intercalación=orden tradicional)]; Spanish (Bolivia, collation=Traditional Sort Order) [español (Bolivia, intercalación=orden tradicional)]; Spanish (Chile, collation=Traditional Sort Order) [español (Chile, intercalación=orden tradicional)]; Spanish (Colombia, collation=Traditional Sort Order) [español (Colombia, intercalación=orden tradicional)]; Spanish (Costa Rica, collation=Traditional Sort Order) [español (Costa Rica, intercalación=orden tradicional)]; Spanish (Dominican Republic, collation=Traditional Sort Order) [español (República Dominicana, intercalación=orden tradicional)]; Spanish (Ecuador, collation=Traditional Sort Order) [español (Ecuador, intercalación=orden tradicional)]; Spanish (Spain, collation=Traditional Sort Order) [español (España, intercalación=orden tradicional)]; Spanish (Guatemala, collation=Traditional Sort Order) [español (Guatemala, intercalación=orden tradicional)]; Spanish (Honduras, collation=Traditional Sort Order) [español (Honduras, intercalación=orden tradicional)]; Spanish (Mexico, collation=Traditional Sort Order) [español (México, intercalación=orden tradicional)]; Spanish (Nicaragua, collation=Traditional Sort Order) [español (Nicaragua, intercalación=orden tradicional)]; Spanish (Panama, collation=Traditional Sort Order) [español (Panamá, intercalación=orden tradicional)]; Spanish (Peru, collation=Traditional Sort Order) [español (Perú, intercalación=orden tradicional)]; Spanish (Puerto Rico, collation=Traditional Sort Order) [español (Puerto Rico, intercalación=orden tradicional)]; Spanish (Paraguay, collation=Traditional Sort Order) [español (Paraguay, intercalación=orden tradicional)]; Spanish (El Salvador, collation=Traditional Sort Order) [español (El Salvador, intercalación=orden tradicional)]; Spanish (United States, collation=Traditional Sort Order) [español (Estados Unidos, intercalación=orden tradicional)]; Spanish (Uruguay, collation=Traditional Sort Order) [español (Uruguay, intercalación=orden tradicional)]; Spanish (Venezuela, collation=Traditional Sort Order) [español (Venezuela, intercalación=orden tradicional)] -->
+<!-- Spanish [español@collation=traditional]; Spanish (Argentina) [español (Argentina)@collation=traditional]; Spanish (Bolivia) [español (Bolivia)@collation=traditional]; Spanish (Chile) [español (Chile)@collation=traditional]; Spanish (Colombia) [español (Colombia)@collation=traditional]; Spanish (Costa Rica) [español (Costa Rica)@collation=traditional]; Spanish (Dominican Republic) [español (República Dominicana)@collation=traditional]; Spanish (Ecuador) [español (Ecuador)@collation=traditional]; Iberian Spanish [español de España@collation=traditional]; Spanish (Guatemala) [español (Guatemala)@collation=traditional]; Spanish (Honduras) [español (Honduras)@collation=traditional]; Spanish (Mexico) [español (México)@collation=traditional]; Spanish (Nicaragua) [español (Nicaragua)@collation=traditional]; Spanish (Panama) [español (Panamá)@collation=traditional]; Spanish (Peru) [español (Perú)@collation=traditional]; Spanish (Puerto Rico) [español (Puerto Rico)@collation=traditional]; Spanish (Paraguay) [español (Paraguay)@collation=traditional]; Spanish (El Salvador) [español (El Salvador)@collation=traditional]; Spanish (United States) [español (Estados Unidos)@collation=traditional]; Spanish (Uruguay) [español (Uruguay)@collation=traditional]; Spanish (Venezuela) [español (Venezuela)@collation=traditional] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -2426,21 +2411,6 @@ xs
 xS
 Xs
 XS
-xss
-xsS
-xSs
-xSS
-Xss
-XsS
-XSs
-XSS
-xß
-Xß
-xssx
-xsSx
-xSsx
-xSSx
-xßx
 xsx
 xSx
 xt

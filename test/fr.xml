@@ -4,8 +4,8 @@
  <cldrTest version='1.7' base='fr'>
  <!-- French [français] -->
   <number 
-locales='fr fr_CA fr_FR fr_MC fr_SN'>
-<!-- French [français]; French (Canada) [français (Canada)]; French (France) [français (France)]; French (Monaco) [français (Monaco)]; French (Senegal) [français (Sénégal)] -->
+locales='fr fr_BL fr_CA fr_CF fr_CI fr_CM fr_FR fr_GN fr_GP fr_MC fr_MF fr_MG fr_ML fr_MQ fr_NE fr_RE fr_SN'>
+<!-- French [français@]; French (Saint Barthélemy) [français (Saint-Barthélémy)@]; Canadian French [français canadien@]; French (Central African Republic) [français (République centrafricaine)@]; French (Côte d’Ivoire) [français (Côte d’Ivoire)@]; French (Cameroon) [français (Cameroun)@]; French (France) [français (France)@]; French (Guinea) [français (Guinée)@]; French (Guadeloupe) [français (Guadeloupe)@]; French (Monaco) [français (Monaco)@]; French (Saint Martin) [français (Saint-Martin)@]; French (Madagascar) [français (Madagascar)@]; French (Mali) [français (Mali)@]; French (Martinique) [français (Martinique)@]; French (Niger) [français (Niger)@]; French (Réunion) [français (Réunion)@]; French (Senegal) [français (Sénégal)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0 %</result>
@@ -57,7 +57,7 @@ locales='fr fr_CA fr_FR fr_MC fr_SN'>
   </number>
   <number 
 locales='fr_BE fr_LU'>
-<!-- French (Belgium) [français (Belgique)]; French (Luxembourg) [français (Luxembourg)] -->
+<!-- French (Belgium) [français (Belgique)@]; French (Luxembourg) [français (Luxembourg)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0 %</result>
@@ -109,7 +109,7 @@ locales='fr_BE fr_LU'>
   </number>
   <number 
 locales='fr_CH'>
-<!-- French (Switzerland) [français (Suisse)] -->
+<!-- Swiss French [français suisse@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0 %</result>
@@ -160,8 +160,8 @@ locales='fr_CH'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='fr fr_FR fr_LU fr_MC fr_SN'>
-<!-- French [français]; French (France) [français (France)]; French (Luxembourg) [français (Luxembourg)]; French (Monaco) [français (Monaco)]; French (Senegal) [français (Sénégal)] -->
+locales='fr fr_BL fr_CF fr_CI fr_CM fr_FR fr_GN fr_GP fr_LU fr_MC fr_MF fr_MG fr_ML fr_MQ fr_NE fr_RE fr_SN'>
+<!-- French [français@]; French (Saint Barthélemy) [français (Saint-Barthélémy)@]; French (Central African Republic) [français (République centrafricaine)@]; French (Côte d’Ivoire) [français (Côte d’Ivoire)@]; French (Cameroon) [français (Cameroun)@]; French (France) [français (France)@]; French (Guinea) [français (Guinée)@]; French (Guadeloupe) [français (Guadeloupe)@]; French (Luxembourg) [français (Luxembourg)@]; French (Monaco) [français (Monaco)@]; French (Saint Martin) [français (Saint-Martin)@]; French (Madagascar) [français (Madagascar)@]; French (Mali) [français (Mali)@]; French (Martinique) [français (Martinique)@]; French (Niger) [français (Niger)@]; French (Réunion) [français (Réunion)@]; French (Senegal) [français (Sénégal)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31/01/00</result>
@@ -333,7 +333,7 @@ locales='fr fr_FR fr_LU fr_MC fr_SN'>
   </date>
   <date 
 locales='fr_BE'>
-<!-- French (Belgium) [français (Belgique)] -->
+<!-- French (Belgium) [français (Belgique)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31/01/00</result>
@@ -505,7 +505,7 @@ locales='fr_BE'>
   </date>
   <date 
 locales='fr_CA'>
-<!-- French (Canada) [français (Canada)] -->
+<!-- Canadian French [français canadien@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>00-01-31</result>
@@ -677,7 +677,7 @@ locales='fr_CA'>
   </date>
   <date 
 locales='fr_CH'>
-<!-- French (Switzerland) [français (Suisse)] -->
+<!-- Swiss French [français suisse@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31.01.00</result>
@@ -848,12 +848,12 @@ locales='fr_CH'>
    <result timeType='medium'>mercredi, 1 décembre 2010 23:59:59</result>
   </date>
   <zoneFields 
-locales='fr fr_BE fr_CA fr_CH fr_FR fr_LU fr_MC fr_SN'>
-<!-- French [français]; French (Belgium) [français (Belgique)]; French (Canada) [français (Canada)]; French (Switzerland) [français (Suisse)]; French (France) [français (France)]; French (Luxembourg) [français (Luxembourg)]; French (Monaco) [français (Monaco)]; French (Senegal) [français (Sénégal)] -->
+locales='fr fr_BE fr_BL fr_CA fr_CF fr_CH fr_CI fr_CM fr_FR fr_GN fr_GP fr_LU fr_MC fr_MF fr_MG fr_ML fr_MQ fr_NE fr_RE fr_SN'>
+<!-- French [français@]; French (Belgium) [français (Belgique)@]; French (Saint Barthélemy) [français (Saint-Barthélémy)@]; Canadian French [français canadien@]; French (Central African Republic) [français (République centrafricaine)@]; Swiss French [français suisse@]; French (Côte d’Ivoire) [français (Côte d’Ivoire)@]; French (Cameroon) [français (Cameroun)@]; French (France) [français (France)@]; French (Guinea) [français (Guinée)@]; French (Guadeloupe) [français (Guadeloupe)@]; French (Luxembourg) [français (Luxembourg)@]; French (Monaco) [français (Monaco)@]; French (Saint Martin) [français (Saint-Martin)@]; French (Madagascar) [français (Madagascar)@]; French (Mali) [français (Mali)@]; French (Martinique) [français (Martinique)@]; French (Niger) [français (Niger)@]; French (Réunion) [français (Réunion)@]; French (Senegal) [français (Sénégal)@] -->
   </zoneFields>
   <collation 
-locales='fr fr_BE fr_CA fr_CH fr_FR fr_LU fr_MC fr_SN'>
-<!-- French [français]; French (Belgium) [français (Belgique)]; French (Canada) [français (Canada)]; French (Switzerland) [français (Suisse)]; French (France) [français (France)]; French (Luxembourg) [français (Luxembourg)]; French (Monaco) [français (Monaco)]; French (Senegal) [français (Sénégal)] -->
+locales='fr fr_BE fr_BL fr_CA fr_CF fr_CH fr_CI fr_CM fr_FR fr_GN fr_GP fr_LU fr_MC fr_MF fr_MG fr_ML fr_MQ fr_NE fr_RE fr_SN'>
+<!-- French [français@]; French (Belgium) [français (Belgique)@]; French (Saint Barthélemy) [français (Saint-Barthélémy)@]; Canadian French [français canadien@]; French (Central African Republic) [français (République centrafricaine)@]; Swiss French [français suisse@]; French (Côte d’Ivoire) [français (Côte d’Ivoire)@]; French (Cameroon) [français (Cameroun)@]; French (France) [français (France)@]; French (Guinea) [français (Guinée)@]; French (Guadeloupe) [français (Guadeloupe)@]; French (Luxembourg) [français (Luxembourg)@]; French (Monaco) [français (Monaco)@]; French (Saint Martin) [français (Saint-Martin)@]; French (Madagascar) [français (Madagascar)@]; French (Mali) [français (Mali)@]; French (Martinique) [français (Martinique)@]; French (Niger) [français (Niger)@]; French (Réunion) [français (Réunion)@]; French (Senegal) [français (Sénégal)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 

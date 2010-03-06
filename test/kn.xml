@@ -5,43 +5,43 @@
  <!-- Kannada [ಕನ್ನಡ] -->
   <number 
 locales='kn kn_IN'>
-<!-- Kannada [ಕನ್ನಡ]; Kannada (India) [ಕನ್ನಡ (ಭಾರತ)] -->
-   <result input='0.0' numberType='integer' draft='unconfirmed approved'>೦</result>
-   <result numberType='decimal'>೦</result>
-   <result numberType='percent'>೦%</result>
-   <result numberType='scientific'>೦E೦</result>
-   <result input='0.01' numberType='integer'>೦</result>
-   <result numberType='decimal'>೦.೦೧</result>
-   <result numberType='percent'>೧%</result>
-   <result numberType='scientific'>೧E-೨</result>
-   <result input='-0.01' numberType='integer'>-೦</result>
-   <result numberType='decimal'>-೦.೦೧</result>
-   <result numberType='percent'>-೧%</result>
-   <result numberType='scientific'>-೧E-೨</result>
-   <result input='1.0' numberType='integer'>೧</result>
-   <result numberType='decimal'>೧</result>
-   <result numberType='percent'>೧೦೦%</result>
-   <result numberType='scientific'>೧E೦</result>
-   <result input='-1.0' numberType='integer'>-೧</result>
-   <result numberType='decimal'>-೧</result>
-   <result numberType='percent'>-೧೦೦%</result>
-   <result numberType='scientific'>-೧E೦</result>
-   <result input='123.456' numberType='integer'>೧೨೩</result>
-   <result numberType='decimal'>೧೨೩.೪೫೬</result>
-   <result numberType='percent'>೧೨,೩೪೬%</result>
-   <result numberType='scientific'>೧.೨೩೪೫೬E೨</result>
-   <result input='-123.456' numberType='integer'>-೧೨೩</result>
-   <result numberType='decimal'>-೧೨೩.೪೫೬</result>
-   <result numberType='percent'>-೧೨,೩೪೬%</result>
-   <result numberType='scientific'>-೧.೨೩೪೫೬E೨</result>
-   <result input='123456.78' numberType='integer'>೧,೨೩,೪೫೭</result>
-   <result numberType='decimal'>೧,೨೩,೪೫೬.೭೮</result>
-   <result numberType='percent'>೧,೨೩,೪೫,೬೭೮%</result>
-   <result numberType='scientific'>೧.೨೩೪೫೬೭೮E೫</result>
-   <result input='-123456.78' numberType='integer'>-೧,೨೩,೪೫೭</result>
-   <result numberType='decimal'>-೧,೨೩,೪೫೬.೭೮</result>
-   <result numberType='percent'>-೧,೨೩,೪೫,೬೭೮%</result>
-   <result numberType='scientific'>-೧.೨೩೪೫೬೭೮E೫</result>
+<!-- Kannada [ಕನ್ನಡ@]; Kannada (India) [ಕನ್ನಡ (ಭಾರತ)@] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal'>0.01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='decimal'>-0.01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal'>123.456</result>
+   <result numberType='percent'>12,346%</result>
+   <result numberType='scientific'>1.23456E2</result>
+   <result input='-123.456' numberType='integer'>-123</result>
+   <result numberType='decimal'>-123.456</result>
+   <result numberType='percent'>-12,346%</result>
+   <result numberType='scientific'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer'>1,23,457</result>
+   <result numberType='decimal'>1,23,456.78</result>
+   <result numberType='percent'>1,23,45,678%</result>
+   <result numberType='scientific'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-1,23,457</result>
+   <result numberType='decimal'>-1,23,456.78</result>
+   <result numberType='percent'>-1,23,45,678%</result>
+   <result numberType='scientific'>-1.2345678E5</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
@@ -57,184 +57,450 @@ locales='kn kn_IN'>
   </number>
   <date 
 locales='kn kn_IN'>
-<!-- Kannada [ಕನ್ನಡ]; Kannada (India) [ಕನ್ನಡ (ಭಾರತ)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>೧೨:೦೦ am</result>
-   <result timeType='medium'>೧೨:೦೦:೦೦ am</result>
-   <result dateType='short' timeType='none'>೩೧-೧-೦೦</result>
-   <result timeType='short'>೩೧-೧-೦೦ ೧೨:೦೦ am</result>
-   <result timeType='medium'>೩೧-೧-೦೦ ೧೨:೦೦:೦೦ am</result>
-   <result dateType='medium' timeType='none'>೩೧ ಜನವರೀ ೧೯೦೦</result>
-   <result timeType='short'>೩೧ ಜನವರೀ ೧೯೦೦ ೧೨:೦೦ am</result>
-   <result timeType='medium'>೩೧ ಜನವರೀ ೧೯೦೦ ೧೨:೦೦:೦೦ am</result>
-   <result dateType='long' timeType='none'>೩೧ ಜನವರೀ ೧೯೦೦</result>
-   <result timeType='short'>೩೧ ಜನವರೀ ೧೯೦೦ ೧೨:೦೦ am</result>
-   <result timeType='medium'>೩೧ ಜನವರೀ ೧೯೦೦ ೧೨:೦೦:೦೦ am</result>
-   <result dateType='full' timeType='none'>ಬುಧವಾರ ೩೧ ಜನವರೀ ೧೯೦೦</result>
-   <result timeType='short'>ಬುಧವಾರ ೩೧ ಜನವರೀ ೧೯೦೦ ೧೨:೦೦ am</result>
-   <result timeType='medium'>ಬುಧವಾರ ೩೧ ಜನವರೀ ೧೯೦೦ ೧೨:೦೦:೦೦ am</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>೧೨:೦೦ am</result>
-   <result timeType='medium'>೧೨:೦೦:೦೧ am</result>
-   <result dateType='short' timeType='none'>೨೮-೨-೦೯</result>
-   <result timeType='short'>೨೮-೨-೦೯ ೧೨:೦೦ am</result>
-   <result timeType='medium'>೨೮-೨-೦೯ ೧೨:೦೦:೦೧ am</result>
-   <result dateType='medium' timeType='none'>೨೮ ಫೆಬ್ರವರೀ ೧೯೦೯</result>
-   <result timeType='short'>೨೮ ಫೆಬ್ರವರೀ ೧೯೦೯ ೧೨:೦೦ am</result>
-   <result timeType='medium'>೨೮ ಫೆಬ್ರವರೀ ೧೯೦೯ ೧೨:೦೦:೦೧ am</result>
-   <result dateType='long' timeType='none'>೨೮ ಫೆಬ್ರವರೀ ೧೯೦೯</result>
-   <result timeType='short'>೨೮ ಫೆಬ್ರವರೀ ೧೯೦೯ ೧೨:೦೦ am</result>
-   <result timeType='medium'>೨೮ ಫೆಬ್ರವರೀ ೧೯೦೯ ೧೨:೦೦:೦೧ am</result>
-   <result dateType='full' timeType='none'>ರವಿವಾರ ೨೮ ಫೆಬ್ರವರೀ ೧೯೦೯</result>
-   <result timeType='short'>ರವಿವಾರ ೨೮ ಫೆಬ್ರವರೀ ೧೯೦೯ ೧೨:೦೦ am</result>
-   <result timeType='medium'>ರವಿವಾರ ೨೮ ಫೆಬ್ರವರೀ ೧೯೦೯ ೧೨:೦೦:೦೧ am</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>೧೨:೫೯ am</result>
-   <result timeType='medium'>೧೨:೫೯:೫೯ am</result>
-   <result dateType='short' timeType='none'>೨೬-೩-೧೮</result>
-   <result timeType='short'>೨೬-೩-೧೮ ೧೨:೫೯ am</result>
-   <result timeType='medium'>೨೬-೩-೧೮ ೧೨:೫೯:೫೯ am</result>
-   <result dateType='medium' timeType='none'>೨೬ ಮಾರ್ಚ್ ೧೯೧೮</result>
-   <result timeType='short'>೨೬ ಮಾರ್ಚ್ ೧೯೧೮ ೧೨:೫೯ am</result>
-   <result timeType='medium'>೨೬ ಮಾರ್ಚ್ ೧೯೧೮ ೧೨:೫೯:೫೯ am</result>
-   <result dateType='long' timeType='none'>೨೬ ಮಾರ್ಚ್ ೧೯೧೮</result>
-   <result timeType='short'>೨೬ ಮಾರ್ಚ್ ೧೯೧೮ ೧೨:೫೯ am</result>
-   <result timeType='medium'>೨೬ ಮಾರ್ಚ್ ೧೯೧೮ ೧೨:೫೯:೫೯ am</result>
-   <result dateType='full' timeType='none'>ಮಂಗಳವಾರ ೨೬ ಮಾರ್ಚ್ ೧೯೧೮</result>
-   <result timeType='short'>ಮಂಗಳವಾರ ೨೬ ಮಾರ್ಚ್ ೧೯೧೮ ೧೨:೫೯ am</result>
-   <result timeType='medium'>ಮಂಗಳವಾರ ೨೬ ಮಾರ್ಚ್ ೧೯೧೮ ೧೨:೫೯:೫೯ am</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>೦೧:೦೦ am</result>
-   <result timeType='medium'>೦೧:೦೦:೦೦ am</result>
-   <result dateType='short' timeType='none'>೨೪-೪-೩೨</result>
-   <result timeType='short'>೨೪-೪-೩೨ ೦೧:೦೦ am</result>
-   <result timeType='medium'>೨೪-೪-೩೨ ೦೧:೦೦:೦೦ am</result>
-   <result dateType='medium' timeType='none'>೨೪ ಎಪ್ರಿಲ್ ೧೯೩೨</result>
-   <result timeType='short'>೨೪ ಎಪ್ರಿಲ್ ೧೯೩೨ ೦೧:೦೦ am</result>
-   <result timeType='medium'>೨೪ ಎಪ್ರಿಲ್ ೧೯೩೨ ೦೧:೦೦:೦೦ am</result>
-   <result dateType='long' timeType='none'>೨೪ ಎಪ್ರಿಲ್ ೧೯೩೨</result>
-   <result timeType='short'>೨೪ ಎಪ್ರಿಲ್ ೧೯೩೨ ೦೧:೦೦ am</result>
-   <result timeType='medium'>೨೪ ಎಪ್ರಿಲ್ ೧೯೩೨ ೦೧:೦೦:೦೦ am</result>
-   <result dateType='full' timeType='none'>ರವಿವಾರ ೨೪ ಎಪ್ರಿಲ್ ೧೯೩೨</result>
-   <result timeType='short'>ರವಿವಾರ ೨೪ ಎಪ್ರಿಲ್ ೧೯೩೨ ೦೧:೦೦ am</result>
-   <result timeType='medium'>ರವಿವಾರ ೨೪ ಎಪ್ರಿಲ್ ೧೯೩೨ ೦೧:೦೦:೦೦ am</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>೦೧:೦೦ am</result>
-   <result timeType='medium'>೦೧:೦೦:೦೧ am</result>
-   <result dateType='short' timeType='none'>೨೦-೫-೪೫</result>
-   <result timeType='short'>೨೦-೫-೪೫ ೦೧:೦೦ am</result>
-   <result timeType='medium'>೨೦-೫-೪೫ ೦೧:೦೦:೦೧ am</result>
-   <result dateType='medium' timeType='none'>೨೦ ಮೆ ೧೯೪೫</result>
-   <result timeType='short'>೨೦ ಮೆ ೧೯೪೫ ೦೧:೦೦ am</result>
-   <result timeType='medium'>೨೦ ಮೆ ೧೯೪೫ ೦೧:೦೦:೦೧ am</result>
-   <result dateType='long' timeType='none'>೨೦ ಮೆ ೧೯೪೫</result>
-   <result timeType='short'>೨೦ ಮೆ ೧೯೪೫ ೦೧:೦೦ am</result>
-   <result timeType='medium'>೨೦ ಮೆ ೧೯೪೫ ೦೧:೦೦:೦೧ am</result>
-   <result dateType='full' timeType='none'>ರವಿವಾರ ೨೦ ಮೆ ೧೯೪೫</result>
-   <result timeType='short'>ರವಿವಾರ ೨೦ ಮೆ ೧೯೪೫ ೦೧:೦೦ am</result>
-   <result timeType='medium'>ರವಿವಾರ ೨೦ ಮೆ ೧೯೪೫ ೦೧:೦೦:೦೧ am</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>೧೧:೫೯ am</result>
-   <result timeType='medium'>೧೧:೫೯:೫೯ am</result>
-   <result dateType='short' timeType='none'>೧೮-೬-೫೨</result>
-   <result timeType='short'>೧೮-೬-೫೨ ೧೧:೫೯ am</result>
-   <result timeType='medium'>೧೮-೬-೫೨ ೧೧:೫೯:೫೯ am</result>
-   <result dateType='medium' timeType='none'>೧೮ ಜೂನ್ ೧೯೫೨</result>
-   <result timeType='short'>೧೮ ಜೂನ್ ೧೯೫೨ ೧೧:೫೯ am</result>
-   <result timeType='medium'>೧೮ ಜೂನ್ ೧೯೫೨ ೧೧:೫೯:೫೯ am</result>
-   <result dateType='long' timeType='none'>೧೮ ಜೂನ್ ೧೯೫೨</result>
-   <result timeType='short'>೧೮ ಜೂನ್ ೧೯೫೨ ೧೧:೫೯ am</result>
-   <result timeType='medium'>೧೮ ಜೂನ್ ೧೯೫೨ ೧೧:೫೯:೫೯ am</result>
-   <result dateType='full' timeType='none'>ಬುಧವಾರ ೧೮ ಜೂನ್ ೧೯೫೨</result>
-   <result timeType='short'>ಬುಧವಾರ ೧೮ ಜೂನ್ ೧೯೫೨ ೧೧:೫೯ am</result>
-   <result timeType='medium'>ಬುಧವಾರ ೧೮ ಜೂನ್ ೧೯೫೨ ೧೧:೫೯:೫೯ am</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>೧೨:೦೦ pm</result>
-   <result timeType='medium'>೧೨:೦೦:೦೦ pm</result>
-   <result dateType='short' timeType='none'>೧೬-೭-೭೩</result>
-   <result timeType='short'>೧೬-೭-೭೩ ೧೨:೦೦ pm</result>
-   <result timeType='medium'>೧೬-೭-೭೩ ೧೨:೦೦:೦೦ pm</result>
-   <result dateType='medium' timeType='none'>೧೬ ಜುಲೈ ೧೯೭೩</result>
-   <result timeType='short'>೧೬ ಜುಲೈ ೧೯೭೩ ೧೨:೦೦ pm</result>
-   <result timeType='medium'>೧೬ ಜುಲೈ ೧೯೭೩ ೧೨:೦೦:೦೦ pm</result>
-   <result dateType='long' timeType='none'>೧೬ ಜುಲೈ ೧೯೭೩</result>
-   <result timeType='short'>೧೬ ಜುಲೈ ೧೯೭೩ ೧೨:೦೦ pm</result>
-   <result timeType='medium'>೧೬ ಜುಲೈ ೧೯೭೩ ೧೨:೦೦:೦೦ pm</result>
-   <result dateType='full' timeType='none'>ಸೋಮವಾರ ೧೬ ಜುಲೈ ೧೯೭೩</result>
-   <result timeType='short'>ಸೋಮವಾರ ೧೬ ಜುಲೈ ೧೯೭೩ ೧೨:೦೦ pm</result>
-   <result timeType='medium'>ಸೋಮವಾರ ೧೬ ಜುಲೈ ೧೯೭೩ ೧೨:೦೦:೦೦ pm</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>೧೨:೦೦ pm</result>
-   <result timeType='medium'>೧೨:೦೦:೦೧ pm</result>
-   <result dateType='short' timeType='none'>೧೪-೮-೯೯</result>
-   <result timeType='short'>೧೪-೮-೯೯ ೧೨:೦೦ pm</result>
-   <result timeType='medium'>೧೪-೮-೯೯ ೧೨:೦೦:೦೧ pm</result>
-   <result dateType='medium' timeType='none'>೧೪ ಆಗಸ್ಟ್ ೧೯೯೯</result>
-   <result timeType='short'>೧೪ ಆಗಸ್ಟ್ ೧೯೯೯ ೧೨:೦೦ pm</result>
-   <result timeType='medium'>೧೪ ಆಗಸ್ಟ್ ೧೯೯೯ ೧೨:೦೦:೦೧ pm</result>
-   <result dateType='long' timeType='none'>೧೪ ಆಗಸ್ಟ್ ೧೯೯೯</result>
-   <result timeType='short'>೧೪ ಆಗಸ್ಟ್ ೧೯೯೯ ೧೨:೦೦ pm</result>
-   <result timeType='medium'>೧೪ ಆಗಸ್ಟ್ ೧೯೯೯ ೧೨:೦೦:೦೧ pm</result>
-   <result dateType='full' timeType='none'>ಶನಿವಾರ ೧೪ ಆಗಸ್ಟ್ ೧೯೯೯</result>
-   <result timeType='short'>ಶನಿವಾರ ೧೪ ಆಗಸ್ಟ್ ೧೯೯೯ ೧೨:೦೦ pm</result>
-   <result timeType='medium'>ಶನಿವಾರ ೧೪ ಆಗಸ್ಟ್ ೧೯೯೯ ೧೨:೦೦:೦೧ pm</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>೧೦:೫೯ pm</result>
-   <result timeType='medium'>೧೦:೫೯:೫೯ pm</result>
-   <result dateType='short' timeType='none'>೧೨-೯-೦೦</result>
-   <result timeType='short'>೧೨-೯-೦೦ ೧೦:೫೯ pm</result>
-   <result timeType='medium'>೧೨-೯-೦೦ ೧೦:೫೯:೫೯ pm</result>
-   <result dateType='medium' timeType='none'>೧೨ ಸಪ್ಟೆಂಬರ್ ೨೦೦೦</result>
-   <result timeType='short'>೧೨ ಸಪ್ಟೆಂಬರ್ ೨೦೦೦ ೧೦:೫೯ pm</result>
-   <result timeType='medium'>೧೨ ಸಪ್ಟೆಂಬರ್ ೨೦೦೦ ೧೦:೫೯:೫೯ pm</result>
-   <result dateType='long' timeType='none'>೧೨ ಸಪ್ಟೆಂಬರ್ ೨೦೦೦</result>
-   <result timeType='short'>೧೨ ಸಪ್ಟೆಂಬರ್ ೨೦೦೦ ೧೦:೫೯ pm</result>
-   <result timeType='medium'>೧೨ ಸಪ್ಟೆಂಬರ್ ೨೦೦೦ ೧೦:೫೯:೫೯ pm</result>
-   <result dateType='full' timeType='none'>ಮಂಗಳವಾರ ೧೨ ಸಪ್ಟೆಂಬರ್ ೨೦೦೦</result>
-   <result timeType='short'>ಮಂಗಳವಾರ ೧೨ ಸಪ್ಟೆಂಬರ್ ೨೦೦೦ ೧೦:೫೯ pm</result>
-   <result timeType='medium'>ಮಂಗಳವಾರ ೧೨ ಸಪ್ಟೆಂಬರ್ ೨೦೦೦ ೧೦:೫೯:೫೯ pm</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>೧೧:೦೦ pm</result>
-   <result timeType='medium'>೧೧:೦೦:೦೦ pm</result>
-   <result dateType='short' timeType='none'>೮-೧೦-೦೧</result>
-   <result timeType='short'>೮-೧೦-೦೧ ೧೧:೦೦ pm</result>
-   <result timeType='medium'>೮-೧೦-೦೧ ೧೧:೦೦:೦೦ pm</result>
-   <result dateType='medium' timeType='none'>೮ ಅಕ್ಟೋಬರ್ ೨೦೦೧</result>
-   <result timeType='short'>೮ ಅಕ್ಟೋಬರ್ ೨೦೦೧ ೧೧:೦೦ pm</result>
-   <result timeType='medium'>೮ ಅಕ್ಟೋಬರ್ ೨೦೦೧ ೧೧:೦೦:೦೦ pm</result>
-   <result dateType='long' timeType='none'>೮ ಅಕ್ಟೋಬರ್ ೨೦೦೧</result>
-   <result timeType='short'>೮ ಅಕ್ಟೋಬರ್ ೨೦೦೧ ೧೧:೦೦ pm</result>
-   <result timeType='medium'>೮ ಅಕ್ಟೋಬರ್ ೨೦೦೧ ೧೧:೦೦:೦೦ pm</result>
-   <result dateType='full' timeType='none'>ಸೋಮವಾರ ೮ ಅಕ್ಟೋಬರ್ ೨೦೦೧</result>
-   <result timeType='short'>ಸೋಮವಾರ ೮ ಅಕ್ಟೋಬರ್ ೨೦೦೧ ೧೧:೦೦ pm</result>
-   <result timeType='medium'>ಸೋಮವಾರ ೮ ಅಕ್ಟೋಬರ್ ೨೦೦೧ ೧೧:೦೦:೦೦ pm</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>೧೧:೦೦ pm</result>
-   <result timeType='medium'>೧೧:೦೦:೦೧ pm</result>
-   <result dateType='short' timeType='none'>೪-೧೧-೦೪</result>
-   <result timeType='short'>೪-೧೧-೦೪ ೧೧:೦೦ pm</result>
-   <result timeType='medium'>೪-೧೧-೦೪ ೧೧:೦೦:೦೧ pm</result>
-   <result dateType='medium' timeType='none'>೪ ನವೆಂಬರ್ ೨೦೦೪</result>
-   <result timeType='short'>೪ ನವೆಂಬರ್ ೨೦೦೪ ೧೧:೦೦ pm</result>
-   <result timeType='medium'>೪ ನವೆಂಬರ್ ೨೦೦೪ ೧೧:೦೦:೦೧ pm</result>
-   <result dateType='long' timeType='none'>೪ ನವೆಂಬರ್ ೨೦೦೪</result>
-   <result timeType='short'>೪ ನವೆಂಬರ್ ೨೦೦೪ ೧೧:೦೦ pm</result>
-   <result timeType='medium'>೪ ನವೆಂಬರ್ ೨೦೦೪ ೧೧:೦೦:೦೧ pm</result>
-   <result dateType='full' timeType='none'>ಗುರುವಾರ ೪ ನವೆಂಬರ್ ೨೦೦೪</result>
-   <result timeType='short'>ಗುರುವಾರ ೪ ನವೆಂಬರ್ ೨೦೦೪ ೧೧:೦೦ pm</result>
-   <result timeType='medium'>ಗುರುವಾರ ೪ ನವೆಂಬರ್ ೨೦೦೪ ೧೧:೦೦:೦೧ pm</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>೧೧:೫೯ pm</result>
-   <result timeType='medium'>೧೧:೫೯:೫೯ pm</result>
-   <result dateType='short' timeType='none'>೧-೧೨-೧೦</result>
-   <result timeType='short'>೧-೧೨-೧೦ ೧೧:೫೯ pm</result>
-   <result timeType='medium'>೧-೧೨-೧೦ ೧೧:೫೯:೫೯ pm</result>
-   <result dateType='medium' timeType='none'>೧ ಡಿಸೆಂಬರ್ ೨೦೧೦</result>
-   <result timeType='short'>೧ ಡಿಸೆಂಬರ್ ೨೦೧೦ ೧೧:೫೯ pm</result>
-   <result timeType='medium'>೧ ಡಿಸೆಂಬರ್ ೨೦೧೦ ೧೧:೫೯:೫೯ pm</result>
-   <result dateType='long' timeType='none'>೧ ಡಿಸೆಂಬರ್ ೨೦೧೦</result>
-   <result timeType='short'>೧ ಡಿಸೆಂಬರ್ ೨೦೧೦ ೧೧:೫೯ pm</result>
-   <result timeType='medium'>೧ ಡಿಸೆಂಬರ್ ೨೦೧೦ ೧೧:೫೯:೫೯ pm</result>
-   <result dateType='full' timeType='none'>ಬುಧವಾರ ೧ ಡಿಸೆಂಬರ್ ೨೦೧೦</result>
-   <result timeType='short'>ಬುಧವಾರ ೧ ಡಿಸೆಂಬರ್ ೨೦೧೦ ೧೧:೫೯ pm</result>
-   <result timeType='medium'>ಬುಧವಾರ ೧ ಡಿಸೆಂಬರ್ ೨೦೧೦ ೧೧:೫೯:೫೯ pm</result>
+<!-- Kannada [ಕನ್ನಡ@]; Kannada (India) [ಕನ್ನಡ (ಭಾರತ)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 am</result>
+   <result timeType='medium'>12:00:00 am</result>
+   <result dateType='short' timeType='none'>31-1-00</result>
+   <result timeType='short'>31-1-00 12:00 am</result>
+   <result timeType='medium'>31-1-00 12:00:00 am</result>
+   <result dateType='medium' timeType='none'>31 ಜನವರೀ 1900</result>
+   <result timeType='short'>31 ಜನವರೀ 1900 12:00 am</result>
+   <result timeType='medium'>31 ಜನವರೀ 1900 12:00:00 am</result>
+   <result dateType='long' timeType='none'>31 ಜನವರೀ 1900</result>
+   <result timeType='short'>31 ಜನವರೀ 1900 12:00 am</result>
+   <result timeType='medium'>31 ಜನವರೀ 1900 12:00:00 am</result>
+   <result dateType='full' timeType='none'>ಬುಧವಾರ 31 ಜನವರೀ 1900</result>
+   <result timeType='short'>ಬುಧವಾರ 31 ಜನವರೀ 1900 12:00 am</result>
+   <result timeType='medium'>ಬುಧವಾರ 31 ಜನವರೀ 1900 12:00:00 am</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 am</result>
+   <result timeType='medium'>12:00:01 am</result>
+   <result dateType='short' timeType='none'>28-2-09</result>
+   <result timeType='short'>28-2-09 12:00 am</result>
+   <result timeType='medium'>28-2-09 12:00:01 am</result>
+   <result dateType='medium' timeType='none'>28 ಫೆಬ್ರವರೀ 1909</result>
+   <result timeType='short'>28 ಫೆಬ್ರವರೀ 1909 12:00 am</result>
+   <result timeType='medium'>28 ಫೆಬ್ರವರೀ 1909 12:00:01 am</result>
+   <result dateType='long' timeType='none'>28 ಫೆಬ್ರವರೀ 1909</result>
+   <result timeType='short'>28 ಫೆಬ್ರವರೀ 1909 12:00 am</result>
+   <result timeType='medium'>28 ಫೆಬ್ರವರೀ 1909 12:00:01 am</result>
+   <result dateType='full' timeType='none'>ರವಿವಾರ 28 ಫೆಬ್ರವರೀ 1909</result>
+   <result timeType='short'>ರವಿವಾರ 28 ಫೆಬ್ರವರೀ 1909 12:00 am</result>
+   <result timeType='medium'>ರವಿವಾರ 28 ಫೆಬ್ರವರೀ 1909 12:00:01 am</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 am</result>
+   <result timeType='medium'>12:59:59 am</result>
+   <result dateType='short' timeType='none'>26-3-18</result>
+   <result timeType='short'>26-3-18 12:59 am</result>
+   <result timeType='medium'>26-3-18 12:59:59 am</result>
+   <result dateType='medium' timeType='none'>26 ಮಾರ್ಚ್ 1918</result>
+   <result timeType='short'>26 ಮಾರ್ಚ್ 1918 12:59 am</result>
+   <result timeType='medium'>26 ಮಾರ್ಚ್ 1918 12:59:59 am</result>
+   <result dateType='long' timeType='none'>26 ಮಾರ್ಚ್ 1918</result>
+   <result timeType='short'>26 ಮಾರ್ಚ್ 1918 12:59 am</result>
+   <result timeType='medium'>26 ಮಾರ್ಚ್ 1918 12:59:59 am</result>
+   <result dateType='full' timeType='none'>ಮಂಗಳವಾರ 26 ಮಾರ್ಚ್ 1918</result>
+   <result timeType='short'>ಮಂಗಳವಾರ 26 ಮಾರ್ಚ್ 1918 12:59 am</result>
+   <result timeType='medium'>ಮಂಗಳವಾರ 26 ಮಾರ್ಚ್ 1918 12:59:59 am</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00 am</result>
+   <result timeType='medium'>01:00:00 am</result>
+   <result dateType='short' timeType='none'>24-4-32</result>
+   <result timeType='short'>24-4-32 01:00 am</result>
+   <result timeType='medium'>24-4-32 01:00:00 am</result>
+   <result dateType='medium' timeType='none'>24 ಎಪ್ರಿಲ್ 1932</result>
+   <result timeType='short'>24 ಎಪ್ರಿಲ್ 1932 01:00 am</result>
+   <result timeType='medium'>24 ಎಪ್ರಿಲ್ 1932 01:00:00 am</result>
+   <result dateType='long' timeType='none'>24 ಎಪ್ರಿಲ್ 1932</result>
+   <result timeType='short'>24 ಎಪ್ರಿಲ್ 1932 01:00 am</result>
+   <result timeType='medium'>24 ಎಪ್ರಿಲ್ 1932 01:00:00 am</result>
+   <result dateType='full' timeType='none'>ರವಿವಾರ 24 ಎಪ್ರಿಲ್ 1932</result>
+   <result timeType='short'>ರವಿವಾರ 24 ಎಪ್ರಿಲ್ 1932 01:00 am</result>
+   <result timeType='medium'>ರವಿವಾರ 24 ಎಪ್ರಿಲ್ 1932 01:00:00 am</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00 am</result>
+   <result timeType='medium'>01:00:01 am</result>
+   <result dateType='short' timeType='none'>20-5-45</result>
+   <result timeType='short'>20-5-45 01:00 am</result>
+   <result timeType='medium'>20-5-45 01:00:01 am</result>
+   <result dateType='medium' timeType='none'>20 ಮೆ 1945</result>
+   <result timeType='short'>20 ಮೆ 1945 01:00 am</result>
+   <result timeType='medium'>20 ಮೆ 1945 01:00:01 am</result>
+   <result dateType='long' timeType='none'>20 ಮೆ 1945</result>
+   <result timeType='short'>20 ಮೆ 1945 01:00 am</result>
+   <result timeType='medium'>20 ಮೆ 1945 01:00:01 am</result>
+   <result dateType='full' timeType='none'>ರವಿವಾರ 20 ಮೆ 1945</result>
+   <result timeType='short'>ರವಿವಾರ 20 ಮೆ 1945 01:00 am</result>
+   <result timeType='medium'>ರವಿವಾರ 20 ಮೆ 1945 01:00:01 am</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 am</result>
+   <result timeType='medium'>11:59:59 am</result>
+   <result dateType='short' timeType='none'>18-6-52</result>
+   <result timeType='short'>18-6-52 11:59 am</result>
+   <result timeType='medium'>18-6-52 11:59:59 am</result>
+   <result dateType='medium' timeType='none'>18 ಜೂನ್ 1952</result>
+   <result timeType='short'>18 ಜೂನ್ 1952 11:59 am</result>
+   <result timeType='medium'>18 ಜೂನ್ 1952 11:59:59 am</result>
+   <result dateType='long' timeType='none'>18 ಜೂನ್ 1952</result>
+   <result timeType='short'>18 ಜೂನ್ 1952 11:59 am</result>
+   <result timeType='medium'>18 ಜೂನ್ 1952 11:59:59 am</result>
+   <result dateType='full' timeType='none'>ಬುಧವಾರ 18 ಜೂನ್ 1952</result>
+   <result timeType='short'>ಬುಧವಾರ 18 ಜೂನ್ 1952 11:59 am</result>
+   <result timeType='medium'>ಬುಧವಾರ 18 ಜೂನ್ 1952 11:59:59 am</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 pm</result>
+   <result timeType='medium'>12:00:00 pm</result>
+   <result dateType='short' timeType='none'>16-7-73</result>
+   <result timeType='short'>16-7-73 12:00 pm</result>
+   <result timeType='medium'>16-7-73 12:00:00 pm</result>
+   <result dateType='medium' timeType='none'>16 ಜುಲೈ 1973</result>
+   <result timeType='short'>16 ಜುಲೈ 1973 12:00 pm</result>
+   <result timeType='medium'>16 ಜುಲೈ 1973 12:00:00 pm</result>
+   <result dateType='long' timeType='none'>16 ಜುಲೈ 1973</result>
+   <result timeType='short'>16 ಜುಲೈ 1973 12:00 pm</result>
+   <result timeType='medium'>16 ಜುಲೈ 1973 12:00:00 pm</result>
+   <result dateType='full' timeType='none'>ಸೋಮವಾರ 16 ಜುಲೈ 1973</result>
+   <result timeType='short'>ಸೋಮವಾರ 16 ಜುಲೈ 1973 12:00 pm</result>
+   <result timeType='medium'>ಸೋಮವಾರ 16 ಜುಲೈ 1973 12:00:00 pm</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 pm</result>
+   <result timeType='medium'>12:00:01 pm</result>
+   <result dateType='short' timeType='none'>14-8-99</result>
+   <result timeType='short'>14-8-99 12:00 pm</result>
+   <result timeType='medium'>14-8-99 12:00:01 pm</result>
+   <result dateType='medium' timeType='none'>14 ಆಗಸ್ಟ್ 1999</result>
+   <result timeType='short'>14 ಆಗಸ್ಟ್ 1999 12:00 pm</result>
+   <result timeType='medium'>14 ಆಗಸ್ಟ್ 1999 12:00:01 pm</result>
+   <result dateType='long' timeType='none'>14 ಆಗಸ್ಟ್ 1999</result>
+   <result timeType='short'>14 ಆಗಸ್ಟ್ 1999 12:00 pm</result>
+   <result timeType='medium'>14 ಆಗಸ್ಟ್ 1999 12:00:01 pm</result>
+   <result dateType='full' timeType='none'>ಶನಿವಾರ 14 ಆಗಸ್ಟ್ 1999</result>
+   <result timeType='short'>ಶನಿವಾರ 14 ಆಗಸ್ಟ್ 1999 12:00 pm</result>
+   <result timeType='medium'>ಶನಿವಾರ 14 ಆಗಸ್ಟ್ 1999 12:00:01 pm</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 pm</result>
+   <result timeType='medium'>10:59:59 pm</result>
+   <result dateType='short' timeType='none'>12-9-00</result>
+   <result timeType='short'>12-9-00 10:59 pm</result>
+   <result timeType='medium'>12-9-00 10:59:59 pm</result>
+   <result dateType='medium' timeType='none'>12 ಸಪ್ಟೆಂಬರ್ 2000</result>
+   <result timeType='short'>12 ಸಪ್ಟೆಂಬರ್ 2000 10:59 pm</result>
+   <result timeType='medium'>12 ಸಪ್ಟೆಂಬರ್ 2000 10:59:59 pm</result>
+   <result dateType='long' timeType='none'>12 ಸಪ್ಟೆಂಬರ್ 2000</result>
+   <result timeType='short'>12 ಸಪ್ಟೆಂಬರ್ 2000 10:59 pm</result>
+   <result timeType='medium'>12 ಸಪ್ಟೆಂಬರ್ 2000 10:59:59 pm</result>
+   <result dateType='full' timeType='none'>ಮಂಗಳವಾರ 12 ಸಪ್ಟೆಂಬರ್ 2000</result>
+   <result timeType='short'>ಮಂಗಳವಾರ 12 ಸಪ್ಟೆಂಬರ್ 2000 10:59 pm</result>
+   <result timeType='medium'>ಮಂಗಳವಾರ 12 ಸಪ್ಟೆಂಬರ್ 2000 10:59:59 pm</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 pm</result>
+   <result timeType='medium'>11:00:00 pm</result>
+   <result dateType='short' timeType='none'>8-10-01</result>
+   <result timeType='short'>8-10-01 11:00 pm</result>
+   <result timeType='medium'>8-10-01 11:00:00 pm</result>
+   <result dateType='medium' timeType='none'>8 ಅಕ್ಟೋಬರ್ 2001</result>
+   <result timeType='short'>8 ಅಕ್ಟೋಬರ್ 2001 11:00 pm</result>
+   <result timeType='medium'>8 ಅಕ್ಟೋಬರ್ 2001 11:00:00 pm</result>
+   <result dateType='long' timeType='none'>8 ಅಕ್ಟೋಬರ್ 2001</result>
+   <result timeType='short'>8 ಅಕ್ಟೋಬರ್ 2001 11:00 pm</result>
+   <result timeType='medium'>8 ಅಕ್ಟೋಬರ್ 2001 11:00:00 pm</result>
+   <result dateType='full' timeType='none'>ಸೋಮವಾರ 8 ಅಕ್ಟೋಬರ್ 2001</result>
+   <result timeType='short'>ಸೋಮವಾರ 8 ಅಕ್ಟೋಬರ್ 2001 11:00 pm</result>
+   <result timeType='medium'>ಸೋಮವಾರ 8 ಅಕ್ಟೋಬರ್ 2001 11:00:00 pm</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 pm</result>
+   <result timeType='medium'>11:00:01 pm</result>
+   <result dateType='short' timeType='none'>4-11-04</result>
+   <result timeType='short'>4-11-04 11:00 pm</result>
+   <result timeType='medium'>4-11-04 11:00:01 pm</result>
+   <result dateType='medium' timeType='none'>4 ನವೆಂಬರ್ 2004</result>
+   <result timeType='short'>4 ನವೆಂಬರ್ 2004 11:00 pm</result>
+   <result timeType='medium'>4 ನವೆಂಬರ್ 2004 11:00:01 pm</result>
+   <result dateType='long' timeType='none'>4 ನವೆಂಬರ್ 2004</result>
+   <result timeType='short'>4 ನವೆಂಬರ್ 2004 11:00 pm</result>
+   <result timeType='medium'>4 ನವೆಂಬರ್ 2004 11:00:01 pm</result>
+   <result dateType='full' timeType='none'>ಗುರುವಾರ 4 ನವೆಂಬರ್ 2004</result>
+   <result timeType='short'>ಗುರುವಾರ 4 ನವೆಂಬರ್ 2004 11:00 pm</result>
+   <result timeType='medium'>ಗುರುವಾರ 4 ನವೆಂಬರ್ 2004 11:00:01 pm</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 pm</result>
+   <result timeType='medium'>11:59:59 pm</result>
+   <result dateType='short' timeType='none'>1-12-10</result>
+   <result timeType='short'>1-12-10 11:59 pm</result>
+   <result timeType='medium'>1-12-10 11:59:59 pm</result>
+   <result dateType='medium' timeType='none'>1 ಡಿಸೆಂಬರ್ 2010</result>
+   <result timeType='short'>1 ಡಿಸೆಂಬರ್ 2010 11:59 pm</result>
+   <result timeType='medium'>1 ಡಿಸೆಂಬರ್ 2010 11:59:59 pm</result>
+   <result dateType='long' timeType='none'>1 ಡಿಸೆಂಬರ್ 2010</result>
+   <result timeType='short'>1 ಡಿಸೆಂಬರ್ 2010 11:59 pm</result>
+   <result timeType='medium'>1 ಡಿಸೆಂಬರ್ 2010 11:59:59 pm</result>
+   <result dateType='full' timeType='none'>ಬುಧವಾರ 1 ಡಿಸೆಂಬರ್ 2010</result>
+   <result timeType='short'>ಬುಧವಾರ 1 ಡಿಸೆಂಬರ್ 2010 11:59 pm</result>
+   <result timeType='medium'>ಬುಧವಾರ 1 ಡಿಸೆಂಬರ್ 2010 11:59:59 pm</result>
   </date>
   <zoneFields 
 locales='kn kn_IN'>
-<!-- Kannada [ಕನ್ನಡ]; Kannada (India) [ಕನ್ನಡ (ಭಾರತ)] -->
+<!-- Kannada [ಕನ್ನಡ@]; Kannada (India) [ಕನ್ನಡ (ಭಾರತ)@] -->
   </zoneFields>
   <collation 
 locales='kn kn_IN'>
-<!-- Kannada [ಕನ್ನಡ]; Kannada (India) [ಕನ್ನಡ (ಭಾರತ)] -->
-   <result draft='unconfirmed approved'>
+<!-- Kannada [ಕನ್ನಡ@]; Kannada (India) [ಕನ್ನಡ (ಭಾರತ)@] -->
+   <result draft='unconfirmed'>
+x‌
+X‌
+x಼
+X಼
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x೦
+X೦
+x0x
+x೦x
+x೧
+X೧
+x12
+X12
+x12x
+x೧x
+x2
+X2
+x೨
+X೨
+x2x
+x೨x
+x೩
+X೩
+x೩x
+x೪
+X೪
+x೪x
+x೫
+X೫
+x೫x
+x೬
+X೬
+x೬x
+x೭
+X೭
+x೭x
+x೮
+X೮
+x೮x
+x೯
+X೯
+x೯x
+x‌x
+x಼x
+xಅ
+Xಅ
+xಅx
+xಆ
+Xಆ
+xಆx
+xಇ
+Xಇ
+xಇx
+xಈ
+Xಈ
+xಈx
+xಉ
+Xಉ
+xಉx
+xಊ
+Xಊ
+xಊx
+xಋ
+Xಋ
+xಋx
+xೠ
+Xೠ
+xೠx
+xಌ
+Xಌ
+xಌx
+xೡ
+Xೡ
+xೡx
+xಎ
+Xಎ
+xಎx
+xಏ
+Xಏ
+xಏx
+xಐ
+Xಐ
+xಐx
+xಒ
+Xಒ
+xಒx
+xಓ
+Xಓ
+xಓx
+xಔ
+Xಔ
+xಔx
+xಂ
+Xಂ
+xಂx
+xಃ
+Xಃ
+xಃx
+xಕ
+Xಕ
+xಕx
+xಖ
+Xಖ
+xಖx
+xಗ
+Xಗ
+xಗx
+xಘ
+Xಘ
+xಘx
+xಙ
+Xಙ
+xಙx
+xಚ
+Xಚ
+xಚx
+xಛ
+Xಛ
+xಛx
+xಜ
+Xಜ
+xಜx
+xಝ
+Xಝ
+xಝx
+xಞ
+Xಞ
+xಞx
+xಟ
+Xಟ
+xಟx
+xಠ
+Xಠ
+xಠx
+xಡ
+Xಡ
+xಡx
+xಢ
+Xಢ
+xಢx
+xಣ
+Xಣ
+xಣx
+xತ
+Xತ
+xತx
+xಥ
+Xಥ
+xಥx
+xದ
+Xದ
+xದx
+xಧ
+Xಧ
+xಧx
+xನ
+Xನ
+xನx
+xಪ
+Xಪ
+xಪx
+xಫ
+Xಫ
+xಫx
+xಬ
+Xಬ
+xಬx
+xಭ
+Xಭ
+xಭx
+xಮ
+Xಮ
+xಮx
+xಯ
+Xಯ
+xಯx
+xರ
+Xರ
+xರx
+xಱ
+Xಱ
+xಱx
+xಲ
+Xಲ
+xಲx
+xವ
+Xವ
+xವx
+xಶ
+Xಶ
+xಶx
+xಷ
+Xಷ
+xಷx
+xಸ
+Xಸ
+xಸx
+xಹ
+Xಹ
+xಹx
+xಳ
+Xಳ
+xಳx
+xೞ
+Xೞ
+xೞx
+xಽ
+Xಽ
+xಽx
+xಾ
+Xಾ
+xಾx
+xಿ
+Xಿ
+xಿx
+xೀ
+Xೀ
+xೀx
+xು
+Xು
+xುx
+xೂ
+Xೂ
+xೂx
+xೃ
+Xೃ
+xೃx
+xೄ
+Xೄ
+xೄx
+xೆ
+Xೆ
+xೆx
+xೇ
+Xೇ
+xೇx
+xೈ
+Xೈ
+xೈx
+xೊ
+Xೊ
+xೊx
+xೋ
+Xೋ
+xೋx
+xೌ
+Xೌ
+xೌx
+x್
+X್
+x್x
+xೕ
+Xೕ
+xೕx
+xೖ
+Xೖ
+xೖx
+</result>
+   <result draft='approved'>
 x಼
 X಼
 x 
@@ -500,8 +766,2179 @@ xೖx
   </collation>
   <collation 
 locales='kn@collation=traditional kn_IN@collation=traditional'>
-<!-- Kannada (collation=Traditional Sort Order) [ಕನ್ನಡ (collation=traditional)]; Kannada (India, collation=Traditional Sort Order) [ಕನ್ನಡ (ಭಾರತ, collation=traditional)] -->
-   <result draft='unconfirmed approved'>
+<!-- Kannada [ಕನ್ನಡ@collation=traditional]; Kannada (India) [ಕನ್ನಡ (ಭಾರತ)@collation=traditional] -->
+   <result draft='unconfirmed'>
+x‌
+X‌
+x಼
+X಼
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x೦
+X೦
+x0x
+x೦x
+x೧
+X೧
+x12
+X12
+x12x
+x೧x
+x2
+X2
+x೨
+X೨
+x2x
+x೨x
+x೩
+X೩
+x೩x
+x೪
+X೪
+x೪x
+x೫
+X೫
+x೫x
+x೬
+X೬
+x೬x
+x೭
+X೭
+x೭x
+x೮
+X೮
+x೮x
+x೯
+X೯
+x೯x
+x‌x
+x಼x
+xಅ
+Xಅ
+xಅx
+xಆ
+Xಆ
+xಆx
+xಇ
+Xಇ
+xಇx
+xಈ
+Xಈ
+xಈx
+xಉ
+Xಉ
+xಉx
+xಊ
+Xಊ
+xಊx
+xಋ
+Xಋ
+xಋx
+xೠ
+Xೠ
+xೠx
+xಌ
+Xಌ
+xಌx
+xೡ
+Xೡ
+xೡx
+xಎ
+Xಎ
+xಎx
+xಏ
+Xಏ
+xಏx
+xಐ
+Xಐ
+xಐx
+xಒ
+Xಒ
+xಒx
+xಓ
+Xಓ
+xಓx
+xಔ
+Xಔ
+xಔx
+xಂ
+Xಂ
+xಂx
+xಃ
+Xಃ
+xಃx
+xೱ
+Xೱ
+xೱx
+xೲ
+Xೲ
+xೲx
+xಕ್
+Xಕ್
+xಕ್x
+xಕ
+Xಕ
+xಕx
+xಕಾ
+Xಕಾ
+xಕಾx
+xಕಿ
+Xಕಿ
+xಕಿx
+xಕೀ
+Xಕೀ
+xಕೀx
+xಕು
+Xಕು
+xಕುx
+xಕೂ
+Xಕೂ
+xಕೂx
+xಕೃ
+Xಕೃ
+xಕೃx
+xಕೄ
+Xಕೄ
+xಕೄx
+xಕೢ
+Xಕೢ
+xಕೢx
+xಕೣ
+Xಕೣ
+xಕೣx
+xಕೆ
+Xಕೆ
+xಕೆx
+xಕೇ
+Xಕೇ
+xಕೇx
+xಕೈ
+Xಕೈ
+xಕೈx
+xಕೊ
+Xಕೊ
+xಕೊx
+xಕೋ
+Xಕೋ
+xಕೋx
+xಕೌ
+Xಕೌ
+xಕೌx
+xಖ್
+Xಖ್
+xಖ್x
+xಖ
+Xಖ
+xಖx
+xಖಾ
+Xಖಾ
+xಖಾx
+xಖಿ
+Xಖಿ
+xಖಿx
+xಖೀ
+Xಖೀ
+xಖೀx
+xಖು
+Xಖು
+xಖುx
+xಖೂ
+Xಖೂ
+xಖೂx
+xಖೃ
+Xಖೃ
+xಖೃx
+xಖೄ
+Xಖೄ
+xಖೄx
+xಖೢ
+Xಖೢ
+xಖೢx
+xಖೣ
+Xಖೣ
+xಖೣx
+xಖೆ
+Xಖೆ
+xಖೆx
+xಖೇ
+Xಖೇ
+xಖೇx
+xಖೈ
+Xಖೈ
+xಖೈx
+xಖೊ
+Xಖೊ
+xಖೊx
+xಖೋ
+Xಖೋ
+xಖೋx
+xಖೌ
+Xಖೌ
+xಖೌx
+xಗ್
+Xಗ್
+xಗ್x
+xಗ
+Xಗ
+xಗx
+xಗಾ
+Xಗಾ
+xಗಾx
+xಗಿ
+Xಗಿ
+xಗಿx
+xಗೀ
+Xಗೀ
+xಗೀx
+xಗು
+Xಗು
+xಗುx
+xಗೂ
+Xಗೂ
+xಗೂx
+xಗೃ
+Xಗೃ
+xಗೃx
+xಗೄ
+Xಗೄ
+xಗೄx
+xಗೢ
+Xಗೢ
+xಗೢx
+xಗೣ
+Xಗೣ
+xಗೣx
+xಗೆ
+Xಗೆ
+xಗೆx
+xಗೇ
+Xಗೇ
+xಗೇx
+xಗೈ
+Xಗೈ
+xಗೈx
+xಗೊ
+Xಗೊ
+xಗೊx
+xಗೋ
+Xಗೋ
+xಗೋx
+xಗೌ
+Xಗೌ
+xಗೌx
+xಘ್
+Xಘ್
+xಘ್x
+xಘ
+Xಘ
+xಘx
+xಘಾ
+Xಘಾ
+xಘಾx
+xಘಿ
+Xಘಿ
+xಘಿx
+xಘೀ
+Xಘೀ
+xಘೀx
+xಘು
+Xಘು
+xಘುx
+xಘೂ
+Xಘೂ
+xಘೂx
+xಘೃ
+Xಘೃ
+xಘೃx
+xಘೄ
+Xಘೄ
+xಘೄx
+xಘೢ
+Xಘೢ
+xಘೢx
+xಘೣ
+Xಘೣ
+xಘೣx
+xಘೆ
+Xಘೆ
+xಘೆx
+xಘೇ
+Xಘೇ
+xಘೇx
+xಘೈ
+Xಘೈ
+xಘೈx
+xಘೊ
+Xಘೊ
+xಘೊx
+xಘೋ
+Xಘೋ
+xಘೋx
+xಘೌ
+Xಘೌ
+xಘೌx
+xಙ್
+Xಙ್
+xಙ್x
+xಙ
+Xಙ
+xಙx
+xಙಾ
+Xಙಾ
+xಙಾx
+xಙಿ
+Xಙಿ
+xಙಿx
+xಙೀ
+Xಙೀ
+xಙೀx
+xಙು
+Xಙು
+xಙುx
+xಙೂ
+Xಙೂ
+xಙೂx
+xಙೃ
+Xಙೃ
+xಙೃx
+xಙೄ
+Xಙೄ
+xಙೄx
+xಙೢ
+Xಙೢ
+xಙೢx
+xಙೣ
+Xಙೣ
+xಙೣx
+xಙೆ
+Xಙೆ
+xಙೆx
+xಙೇ
+Xಙೇ
+xಙೇx
+xಙೈ
+Xಙೈ
+xಙೈx
+xಙೊ
+Xಙೊ
+xಙೊx
+xಙೋ
+Xಙೋ
+xಙೋx
+xಙೌ
+Xಙೌ
+xಙೌx
+xಂಕ
+Xಂಕ
+xಂಕx
+xಂಖ
+Xಂಖ
+xಂಖx
+xಂಗ
+Xಂಗ
+xಂಗx
+xಂಘ
+Xಂಘ
+xಂಘx
+xಂಙ
+Xಂಙ
+xಂಙx
+xಚ್
+Xಚ್
+xಚ್x
+xಚ
+Xಚ
+xಚx
+xಚಾ
+Xಚಾ
+xಚಾx
+xಚಿ
+Xಚಿ
+xಚಿx
+xಚೀ
+Xಚೀ
+xಚೀx
+xಚು
+Xಚು
+xಚುx
+xಚೂ
+Xಚೂ
+xಚೂx
+xಚೃ
+Xಚೃ
+xಚೃx
+xಚೄ
+Xಚೄ
+xಚೄx
+xಚೢ
+Xಚೢ
+xಚೢx
+xಚೣ
+Xಚೣ
+xಚೣx
+xಚೆ
+Xಚೆ
+xಚೆx
+xಚೇ
+Xಚೇ
+xಚೇx
+xಚೈ
+Xಚೈ
+xಚೈx
+xಚೊ
+Xಚೊ
+xಚೊx
+xಚೋ
+Xಚೋ
+xಚೋx
+xಚೌ
+Xಚೌ
+xಚೌx
+xಛ್
+Xಛ್
+xಛ್x
+xಛ
+Xಛ
+xಛx
+xಛಾ
+Xಛಾ
+xಛಾx
+xಛಿ
+Xಛಿ
+xಛಿx
+xಛೀ
+Xಛೀ
+xಛೀx
+xಛು
+Xಛು
+xಛುx
+xಛೂ
+Xಛೂ
+xಛೂx
+xಛೃ
+Xಛೃ
+xಛೃx
+xಛೄ
+Xಛೄ
+xಛೄx
+xಛೢ
+Xಛೢ
+xಛೢx
+xಛೣ
+Xಛೣ
+xಛೣx
+xಛೆ
+Xಛೆ
+xಛೆx
+xಛೇ
+Xಛೇ
+xಛೇx
+xಛೈ
+Xಛೈ
+xಛೈx
+xಛೊ
+Xಛೊ
+xಛೊx
+xಛೋ
+Xಛೋ
+xಛೋx
+xಛೌ
+Xಛೌ
+xಛೌx
+xಜ್
+Xಜ್
+xಜ್x
+xಜ
+Xಜ
+xಜx
+xಜಾ
+Xಜಾ
+xಜಾx
+xಜಿ
+Xಜಿ
+xಜಿx
+xಜೀ
+Xಜೀ
+xಜೀx
+xಜು
+Xಜು
+xಜುx
+xಜೂ
+Xಜೂ
+xಜೂx
+xಜೃ
+Xಜೃ
+xಜೃx
+xಜೄ
+Xಜೄ
+xಜೄx
+xಜೢ
+Xಜೢ
+xಜೢx
+xಜೣ
+Xಜೣ
+xಜೣx
+xಜೆ
+Xಜೆ
+xಜೆx
+xಜೇ
+Xಜೇ
+xಜೇx
+xಜೈ
+Xಜೈ
+xಜೈx
+xಜೊ
+Xಜೊ
+xಜೊx
+xಜೋ
+Xಜೋ
+xಜೋx
+xಜೌ
+Xಜೌ
+xಜೌx
+xಜ಼ೌ
+xಜ಼ೋ
+xಜ಼ೊ
+xಜ಼ೈ
+xಜ಼ೇ
+xಜ಼ೆ
+xಜ಼ೣ
+xಜ಼ೢ
+xಜ಼ೄ
+xಜ಼ೃ
+xಜ಼ೂ
+xಜ಼ು
+xಜ಼ೀ
+xಜ಼ಿ
+xಜ಼ಾ
+xಜ಼
+Xಜ಼ೌ
+Xಜ಼ೋ
+Xಜ಼ೊ
+Xಜ಼ೈ
+Xಜ಼ೇ
+Xಜ಼ೆ
+Xಜ಼ೣ
+Xಜ಼ೢ
+Xಜ಼ೄ
+Xಜ಼ೃ
+Xಜ಼ೂ
+Xಜ಼ು
+Xಜ಼ೀ
+Xಜ಼ಿ
+Xಜ಼ಾ
+Xಜ಼
+xಜ಼ೌx
+xಜ಼ೋx
+xಜ಼ೊx
+xಜ಼ೈx
+xಜ಼ೇx
+xಜ಼ೆx
+xಜ಼ೣx
+xಜ಼ೢx
+xಜ಼ೄx
+xಜ಼ೃx
+xಜ಼ೂx
+xಜ಼ುx
+xಜ಼ೀx
+xಜ಼ಿx
+xಜ಼ಾx
+xಜ಼x
+xಝ್
+Xಝ್
+xಝ್x
+xಝ
+Xಝ
+xಝx
+xಝಾ
+Xಝಾ
+xಝಾx
+xಝಿ
+Xಝಿ
+xಝಿx
+xಝೀ
+Xಝೀ
+xಝೀx
+xಝು
+Xಝು
+xಝುx
+xಝೂ
+Xಝೂ
+xಝೂx
+xಝೃ
+Xಝೃ
+xಝೃx
+xಝೄ
+Xಝೄ
+xಝೄx
+xಝೢ
+Xಝೢ
+xಝೢx
+xಝೣ
+Xಝೣ
+xಝೣx
+xಝೆ
+Xಝೆ
+xಝೆx
+xಝೇ
+Xಝೇ
+xಝೇx
+xಝೈ
+Xಝೈ
+xಝೈx
+xಝೊ
+Xಝೊ
+xಝೊx
+xಝೋ
+Xಝೋ
+xಝೋx
+xಝೌ
+Xಝೌ
+xಝೌx
+xಞ್
+Xಞ್
+xಞ್x
+xಞ
+Xಞ
+xಞx
+xಞಾ
+Xಞಾ
+xಞಾx
+xಞಿ
+Xಞಿ
+xಞಿx
+xಞೀ
+Xಞೀ
+xಞೀx
+xಞು
+Xಞು
+xಞುx
+xಞೂ
+Xಞೂ
+xಞೂx
+xಞೃ
+Xಞೃ
+xಞೃx
+xಞೄ
+Xಞೄ
+xಞೄx
+xಞೢ
+Xಞೢ
+xಞೢx
+xಞೣ
+Xಞೣ
+xಞೣx
+xಞೆ
+Xಞೆ
+xಞೆx
+xಞೇ
+Xಞೇ
+xಞೇx
+xಞೈ
+Xಞೈ
+xಞೈx
+xಞೊ
+Xಞೊ
+xಞೊx
+xಞೋ
+Xಞೋ
+xಞೋx
+xಞೌ
+Xಞೌ
+xಞೌx
+xಂಚ
+Xಂಚ
+xಂಚx
+xಂಛ
+Xಂಛ
+xಂಛx
+xಂಜ
+Xಂಜ
+xಂಜx
+xಂಝ
+Xಂಝ
+xಂಝx
+xಂಞ
+Xಂಞ
+xಂಞx
+xಟ್
+Xಟ್
+xಟ್x
+xಟ
+Xಟ
+xಟx
+xಟಾ
+Xಟಾ
+xಟಾx
+xಟಿ
+Xಟಿ
+xಟಿx
+xಟೀ
+Xಟೀ
+xಟೀx
+xಟು
+Xಟು
+xಟುx
+xಟೂ
+Xಟೂ
+xಟೂx
+xಟೃ
+Xಟೃ
+xಟೃx
+xಟೄ
+Xಟೄ
+xಟೄx
+xಟೢ
+Xಟೢ
+xಟೢx
+xಟೣ
+Xಟೣ
+xಟೣx
+xಟೆ
+Xಟೆ
+xಟೆx
+xಟೇ
+Xಟೇ
+xಟೇx
+xಟೈ
+Xಟೈ
+xಟೈx
+xಟೊ
+Xಟೊ
+xಟೊx
+xಟೋ
+Xಟೋ
+xಟೋx
+xಟೌ
+Xಟೌ
+xಟೌx
+xಠ್
+Xಠ್
+xಠ್x
+xಠ
+Xಠ
+xಠx
+xಠಾ
+Xಠಾ
+xಠಾx
+xಠಿ
+Xಠಿ
+xಠಿx
+xಠೀ
+Xಠೀ
+xಠೀx
+xಠು
+Xಠು
+xಠುx
+xಠೂ
+Xಠೂ
+xಠೂx
+xಠೃ
+Xಠೃ
+xಠೃx
+xಠೄ
+Xಠೄ
+xಠೄx
+xಠೢ
+Xಠೢ
+xಠೢx
+xಠೣ
+Xಠೣ
+xಠೣx
+xಠೆ
+Xಠೆ
+xಠೆx
+xಠೇ
+Xಠೇ
+xಠೇx
+xಠೈ
+Xಠೈ
+xಠೈx
+xಠೊ
+Xಠೊ
+xಠೊx
+xಠೋ
+Xಠೋ
+xಠೋx
+xಠೌ
+Xಠೌ
+xಠೌx
+xಡ್
+Xಡ್
+xಡ್x
+xಡ
+Xಡ
+xಡx
+xಡಾ
+Xಡಾ
+xಡಾx
+xಡಿ
+Xಡಿ
+xಡಿx
+xಡೀ
+Xಡೀ
+xಡೀx
+xಡು
+Xಡು
+xಡುx
+xಡೂ
+Xಡೂ
+xಡೂx
+xಡೃ
+Xಡೃ
+xಡೃx
+xಡೄ
+Xಡೄ
+xಡೄx
+xಡೢ
+Xಡೢ
+xಡೢx
+xಡೣ
+Xಡೣ
+xಡೣx
+xಡೆ
+Xಡೆ
+xಡೆx
+xಡೇ
+Xಡೇ
+xಡೇx
+xಡೈ
+Xಡೈ
+xಡೈx
+xಡೊ
+Xಡೊ
+xಡೊx
+xಡೋ
+Xಡೋ
+xಡೋx
+xಡೌ
+Xಡೌ
+xಡೌx
+xಢ್
+Xಢ್
+xಢ್x
+xಢ
+Xಢ
+xಢx
+xಢಾ
+Xಢಾ
+xಢಾx
+xಢಿ
+Xಢಿ
+xಢಿx
+xಢೀ
+Xಢೀ
+xಢೀx
+xಢು
+Xಢು
+xಢುx
+xಢೂ
+Xಢೂ
+xಢೂx
+xಢೃ
+Xಢೃ
+xಢೃx
+xಢೄ
+Xಢೄ
+xಢೄx
+xಢೢ
+Xಢೢ
+xಢೢx
+xಢೣ
+Xಢೣ
+xಢೣx
+xಢೆ
+Xಢೆ
+xಢೆx
+xಢೇ
+Xಢೇ
+xಢೇx
+xಢೈ
+Xಢೈ
+xಢೈx
+xಢೊ
+Xಢೊ
+xಢೊx
+xಢೋ
+Xಢೋ
+xಢೋx
+xಢೌ
+Xಢೌ
+xಢೌx
+xಣ್
+Xಣ್
+xಣ್x
+xಣ
+Xಣ
+xಣx
+xಣಾ
+Xಣಾ
+xಣಾx
+xಣಿ
+Xಣಿ
+xಣಿx
+xಣೀ
+Xಣೀ
+xಣೀx
+xಣು
+Xಣು
+xಣುx
+xಣೂ
+Xಣೂ
+xಣೂx
+xಣೃ
+Xಣೃ
+xಣೃx
+xಣೄ
+Xಣೄ
+xಣೄx
+xಣೢ
+Xಣೢ
+xಣೢx
+xಣೣ
+Xಣೣ
+xಣೣx
+xಣೆ
+Xಣೆ
+xಣೆx
+xಣೇ
+Xಣೇ
+xಣೇx
+xಣೈ
+Xಣೈ
+xಣೈx
+xಣೊ
+Xಣೊ
+xಣೊx
+xಣೋ
+Xಣೋ
+xಣೋx
+xಣೌ
+Xಣೌ
+xಣೌx
+xಂಟ
+Xಂಟ
+xಂಟx
+xಂಠ
+Xಂಠ
+xಂಠx
+xಂಡ
+Xಂಡ
+xಂಡx
+xಂಢ
+Xಂಢ
+xಂಢx
+xಂಣ
+Xಂಣ
+xಂಣx
+xತ್
+Xತ್
+xತ್x
+xತ
+Xತ
+xತx
+xತಾ
+Xತಾ
+xತಾx
+xತಿ
+Xತಿ
+xತಿx
+xತೀ
+Xತೀ
+xತೀx
+xತು
+Xತು
+xತುx
+xತೂ
+Xತೂ
+xತೂx
+xತೃ
+Xತೃ
+xತೃx
+xತೄ
+Xತೄ
+xತೄx
+xತೢ
+Xತೢ
+xತೢx
+xತೣ
+Xತೣ
+xತೣx
+xತೆ
+Xತೆ
+xತೆx
+xತೇ
+Xತೇ
+xತೇx
+xತೈ
+Xತೈ
+xತೈx
+xತೊ
+Xತೊ
+xತೊx
+xತೋ
+Xತೋ
+xತೋx
+xತೌ
+Xತೌ
+xತೌx
+xಥ್
+Xಥ್
+xಥ್x
+xಥ
+Xಥ
+xಥx
+xಥಾ
+Xಥಾ
+xಥಾx
+xಥಿ
+Xಥಿ
+xಥಿx
+xಥೀ
+Xಥೀ
+xಥೀx
+xಥು
+Xಥು
+xಥುx
+xಥೂ
+Xಥೂ
+xಥೂx
+xಥೃ
+Xಥೃ
+xಥೃx
+xಥೄ
+Xಥೄ
+xಥೄx
+xಥೢ
+Xಥೢ
+xಥೢx
+xಥೣ
+Xಥೣ
+xಥೣx
+xಥೆ
+Xಥೆ
+xಥೆx
+xಥೇ
+Xಥೇ
+xಥೇx
+xಥೈ
+Xಥೈ
+xಥೈx
+xಥೊ
+Xಥೊ
+xಥೊx
+xಥೋ
+Xಥೋ
+xಥೋx
+xಥೌ
+Xಥೌ
+xಥೌx
+xದ್
+Xದ್
+xದ್x
+xದ
+Xದ
+xದx
+xದಾ
+Xದಾ
+xದಾx
+xದಿ
+Xದಿ
+xದಿx
+xದೀ
+Xದೀ
+xದೀx
+xದು
+Xದು
+xದುx
+xದೂ
+Xದೂ
+xದೂx
+xದೃ
+Xದೃ
+xದೃx
+xದೄ
+Xದೄ
+xದೄx
+xದೢ
+Xದೢ
+xದೢx
+xದೣ
+Xದೣ
+xದೣx
+xದೆ
+Xದೆ
+xದೆx
+xದೇ
+Xದೇ
+xದೇx
+xದೈ
+Xದೈ
+xದೈx
+xದೊ
+Xದೊ
+xದೊx
+xದೋ
+Xದೋ
+xದೋx
+xದೌ
+Xದೌ
+xದೌx
+xಧ್
+Xಧ್
+xಧ್x
+xಧ
+Xಧ
+xಧx
+xಧಾ
+Xಧಾ
+xಧಾx
+xಧಿ
+Xಧಿ
+xಧಿx
+xಧೀ
+Xಧೀ
+xಧೀx
+xಧು
+Xಧು
+xಧುx
+xಧೂ
+Xಧೂ
+xಧೂx
+xಧೃ
+Xಧೃ
+xಧೃx
+xಧೄ
+Xಧೄ
+xಧೄx
+xಧೢ
+Xಧೢ
+xಧೢx
+xಧೣ
+Xಧೣ
+xಧೣx
+xಧೆ
+Xಧೆ
+xಧೆx
+xಧೇ
+Xಧೇ
+xಧೇx
+xಧೈ
+Xಧೈ
+xಧೈx
+xಧೊ
+Xಧೊ
+xಧೊx
+xಧೋ
+Xಧೋ
+xಧೋx
+xಧೌ
+Xಧೌ
+xಧೌx
+xನ್
+Xನ್
+xನ್x
+xನ
+Xನ
+xನx
+xನಾ
+Xನಾ
+xನಾx
+xನಿ
+Xನಿ
+xನಿx
+xನೀ
+Xನೀ
+xನೀx
+xನು
+Xನು
+xನುx
+xನೂ
+Xನೂ
+xನೂx
+xನೃ
+Xನೃ
+xನೃx
+xನೄ
+Xನೄ
+xನೄx
+xನೢ
+Xನೢ
+xನೢx
+xನೣ
+Xನೣ
+xನೣx
+xನೆ
+Xನೆ
+xನೆx
+xನೇ
+Xನೇ
+xನೇx
+xನೈ
+Xನೈ
+xನೈx
+xನೊ
+Xನೊ
+xನೊx
+xನೋ
+Xನೋ
+xನೋx
+xನೌ
+Xನೌ
+xನೌx
+xಂತ
+Xಂತ
+xಂತx
+xಂಥ
+Xಂಥ
+xಂಥx
+xಂದ
+Xಂದ
+xಂದx
+xಂಧ
+Xಂಧ
+xಂಧx
+xಂನ
+Xಂನ
+xಂನx
+xಪ್
+Xಪ್
+xಪ್x
+xಪ
+Xಪ
+xಪx
+xಪಾ
+Xಪಾ
+xಪಾx
+xಪಿ
+Xಪಿ
+xಪಿx
+xಪೀ
+Xಪೀ
+xಪೀx
+xಪು
+Xಪು
+xಪುx
+xಪೂ
+Xಪೂ
+xಪೂx
+xಪೃ
+Xಪೃ
+xಪೃx
+xಪೄ
+Xಪೄ
+xಪೄx
+xಪೢ
+Xಪೢ
+xಪೢx
+xಪೣ
+Xಪೣ
+xಪೣx
+xಪೆ
+Xಪೆ
+xಪೆx
+xಪೇ
+Xಪೇ
+xಪೇx
+xಪೈ
+Xಪೈ
+xಪೈx
+xಪೊ
+Xಪೊ
+xಪೊx
+xಪೋ
+Xಪೋ
+xಪೋx
+xಪೌ
+Xಪೌ
+xಪೌx
+xಫ್
+Xಫ್
+xಫ್x
+xಫ
+Xಫ
+xಫx
+xಫಾ
+Xಫಾ
+xಫಾx
+xಫಿ
+Xಫಿ
+xಫಿx
+xಫೀ
+Xಫೀ
+xಫೀx
+xಫು
+Xಫು
+xಫುx
+xಫೂ
+Xಫೂ
+xಫೂx
+xಫೃ
+Xಫೃ
+xಫೃx
+xಫೄ
+Xಫೄ
+xಫೄx
+xಫೢ
+Xಫೢ
+xಫೢx
+xಫೣ
+Xಫೣ
+xಫೣx
+xಫೆ
+Xಫೆ
+xಫೆx
+xಫೇ
+Xಫೇ
+xಫೇx
+xಫೈ
+Xಫೈ
+xಫೈx
+xಫೊ
+Xಫೊ
+xಫೊx
+xಫೋ
+Xಫೋ
+xಫೋx
+xಫೌ
+Xಫೌ
+xಫೌx
+xಫ಼ೌ
+xಫ಼ೋ
+xಫ಼ೊ
+xಫ಼ೈ
+xಫ಼ೇ
+xಫ಼ೆ
+xಫ಼ೣ
+xಫ಼ೢ
+xಫ಼ೄ
+xಫ಼ೃ
+xಫ಼ೂ
+xಫ಼ು
+xಫ಼ೀ
+xಫ಼ಿ
+xಫ಼ಾ
+xಫ಼
+Xಫ಼ೌ
+Xಫ಼ೋ
+Xಫ಼ೊ
+Xಫ಼ೈ
+Xಫ಼ೇ
+Xಫ಼ೆ
+Xಫ಼ೣ
+Xಫ಼ೢ
+Xಫ಼ೄ
+Xಫ಼ೃ
+Xಫ಼ೂ
+Xಫ಼ು
+Xಫ಼ೀ
+Xಫ಼ಿ
+Xಫ಼ಾ
+Xಫ಼
+xಫ಼ೌx
+xಫ಼ೋx
+xಫ಼ೊx
+xಫ಼ೈx
+xಫ಼ೇx
+xಫ಼ೆx
+xಫ಼ೣx
+xಫ಼ೢx
+xಫ಼ೄx
+xಫ಼ೃx
+xಫ಼ೂx
+xಫ಼ುx
+xಫ಼ೀx
+xಫ಼ಿx
+xಫ಼ಾx
+xಫ಼x
+xಬ್
+Xಬ್
+xಬ್x
+xಬ
+Xಬ
+xಬx
+xಬಾ
+Xಬಾ
+xಬಾx
+xಬಿ
+Xಬಿ
+xಬಿx
+xಬೀ
+Xಬೀ
+xಬೀx
+xಬು
+Xಬು
+xಬುx
+xಬೂ
+Xಬೂ
+xಬೂx
+xಬೃ
+Xಬೃ
+xಬೃx
+xಬೄ
+Xಬೄ
+xಬೄx
+xಬೢ
+Xಬೢ
+xಬೢx
+xಬೣ
+Xಬೣ
+xಬೣx
+xಬೆ
+Xಬೆ
+xಬೆx
+xಬೇ
+Xಬೇ
+xಬೇx
+xಬೈ
+Xಬೈ
+xಬೈx
+xಬೊ
+Xಬೊ
+xಬೊx
+xಬೋ
+Xಬೋ
+xಬೋx
+xಬೌ
+Xಬೌ
+xಬೌx
+xಭ್
+Xಭ್
+xಭ್x
+xಭ
+Xಭ
+xಭx
+xಭಾ
+Xಭಾ
+xಭಾx
+xಭಿ
+Xಭಿ
+xಭಿx
+xಭೀ
+Xಭೀ
+xಭೀx
+xಭು
+Xಭು
+xಭುx
+xಭೂ
+Xಭೂ
+xಭೂx
+xಭೃ
+Xಭೃ
+xಭೃx
+xಭೄ
+Xಭೄ
+xಭೄx
+xಭೢ
+Xಭೢ
+xಭೢx
+xಭೣ
+Xಭೣ
+xಭೣx
+xಭೆ
+Xಭೆ
+xಭೆx
+xಭೇ
+Xಭೇ
+xಭೇx
+xಭೈ
+Xಭೈ
+xಭೈx
+xಭೊ
+Xಭೊ
+xಭೊx
+xಭೋ
+Xಭೋ
+xಭೋx
+xಭೌ
+Xಭೌ
+xಭೌx
+xಮ್
+Xಮ್
+xಮ್x
+xಮ
+Xಮ
+xಮx
+xಮಾ
+Xಮಾ
+xಮಾx
+xಮಿ
+Xಮಿ
+xಮಿx
+xಮೀ
+Xಮೀ
+xಮೀx
+xಮು
+Xಮು
+xಮುx
+xಮೂ
+Xಮೂ
+xಮೂx
+xಮೃ
+Xಮೃ
+xಮೃx
+xಮೄ
+Xಮೄ
+xಮೄx
+xಮೢ
+Xಮೢ
+xಮೢx
+xಮೣ
+Xಮೣ
+xಮೣx
+xಮೆ
+Xಮೆ
+xಮೆx
+xಮೇ
+Xಮೇ
+xಮೇx
+xಮೈ
+Xಮೈ
+xಮೈx
+xಮೊ
+Xಮೊ
+xಮೊx
+xಮೋ
+Xಮೋ
+xಮೋx
+xಮೌ
+Xಮೌ
+xಮೌx
+xಂಪ
+Xಂಪ
+xಂಪx
+xಂಫ
+Xಂಫ
+xಂಫx
+xಂಬ
+Xಂಬ
+xಂಬx
+xಂಭ
+Xಂಭ
+xಂಭx
+xಂಮ
+Xಂಮ
+xಂಮx
+xಯ್
+Xಯ್
+xಯ್x
+xಯ
+Xಯ
+xಯx
+xಯಾ
+Xಯಾ
+xಯಾx
+xಯಿ
+Xಯಿ
+xಯಿx
+xಯೀ
+Xಯೀ
+xಯೀx
+xಯು
+Xಯು
+xಯುx
+xಯೂ
+Xಯೂ
+xಯೂx
+xಯೃ
+Xಯೃ
+xಯೃx
+xಯೄ
+Xಯೄ
+xಯೄx
+xಯೢ
+Xಯೢ
+xಯೢx
+xಯೣ
+Xಯೣ
+xಯೣx
+xಯೆ
+Xಯೆ
+xಯೆx
+xಯೇ
+Xಯೇ
+xಯೇx
+xಯೈ
+Xಯೈ
+xಯೈx
+xಯೊ
+Xಯೊ
+xಯೊx
+xಯೋ
+Xಯೋ
+xಯೋx
+xಯೌ
+Xಯೌ
+xಯೌx
+xರ್
+Xರ್
+xರ್x
+xರ
+Xರ
+xರx
+xರಾ
+Xರಾ
+xರಾx
+xರಿ
+Xರಿ
+xರಿx
+xರೀ
+Xರೀ
+xರೀx
+xರು
+Xರು
+xರುx
+xರೂ
+Xರೂ
+xರೂx
+xರೃ
+Xರೃ
+xರೃx
+xರೄ
+Xರೄ
+xರೄx
+xರೢ
+Xರೢ
+xರೢx
+xರೣ
+Xರೣ
+xರೣx
+xರೆ
+Xರೆ
+xರೆx
+xರೇ
+Xರೇ
+xರೇx
+xರೈ
+Xರೈ
+xರೈx
+xರೊ
+Xರೊ
+xರೊx
+xರೋ
+Xರೋ
+xರೋx
+xರೌ
+Xರೌ
+xರೌx
+xಱ್
+Xಱ್
+xಱ್x
+xಱ
+Xಱ
+xಱx
+xಱಾ
+Xಱಾ
+xಱಾx
+xಱಿ
+Xಱಿ
+xಱಿx
+xಱೀ
+Xಱೀ
+xಱೀx
+xಱು
+Xಱು
+xಱುx
+xಱೂ
+Xಱೂ
+xಱೂx
+xಱೃ
+Xಱೃ
+xಱೃx
+xಱೄ
+Xಱೄ
+xಱೄx
+xಱೢ
+Xಱೢ
+xಱೢx
+xಱೣ
+Xಱೣ
+xಱೣx
+xಱೆ
+Xಱೆ
+xಱೆx
+xಱೇ
+Xಱೇ
+xಱೇx
+xಱೈ
+Xಱೈ
+xಱೈx
+xಱೊ
+Xಱೊ
+xಱೊx
+xಱೋ
+Xಱೋ
+xಱೋx
+xಱೌ
+Xಱೌ
+xಱೌx
+xಲ್
+Xಲ್
+xಲ್x
+xಲ
+Xಲ
+xಲx
+xಲಾ
+Xಲಾ
+xಲಾx
+xಲಿ
+Xಲಿ
+xಲಿx
+xಲೀ
+Xಲೀ
+xಲೀx
+xಲು
+Xಲು
+xಲುx
+xಲೂ
+Xಲೂ
+xಲೂx
+xಲೃ
+Xಲೃ
+xಲೃx
+xಲೄ
+Xಲೄ
+xಲೄx
+xಲೢ
+Xಲೢ
+xಲೢx
+xಲೣ
+Xಲೣ
+xಲೣx
+xಲೆ
+Xಲೆ
+xಲೆx
+xಲೇ
+Xಲೇ
+xಲೇx
+xಲೈ
+Xಲೈ
+xಲೈx
+xಲೊ
+Xಲೊ
+xಲೊx
+xಲೋ
+Xಲೋ
+xಲೋx
+xಲೌ
+Xಲೌ
+xಲೌx
+xವ್
+Xವ್
+xವ್x
+xವ
+Xವ
+xವx
+xವಾ
+Xವಾ
+xವಾx
+xವಿ
+Xವಿ
+xವಿx
+xವೀ
+Xವೀ
+xವೀx
+xವು
+Xವು
+xವುx
+xವೂ
+Xವೂ
+xವೂx
+xವೃ
+Xವೃ
+xವೃx
+xವೄ
+Xವೄ
+xವೄx
+xವೢ
+Xವೢ
+xವೢx
+xವೣ
+Xವೣ
+xವೣx
+xವೆ
+Xವೆ
+xವೆx
+xವೇ
+Xವೇ
+xವೇx
+xವೈ
+Xವೈ
+xವೈx
+xವೊ
+Xವೊ
+xವೊx
+xವೋ
+Xವೋ
+xವೋx
+xವೌ
+Xವೌ
+xವೌx
+xಶ್
+Xಶ್
+xಶ್x
+xಶ
+Xಶ
+xಶx
+xಶಾ
+Xಶಾ
+xಶಾx
+xಶಿ
+Xಶಿ
+xಶಿx
+xಶೀ
+Xಶೀ
+xಶೀx
+xಶು
+Xಶು
+xಶುx
+xಶೂ
+Xಶೂ
+xಶೂx
+xಶೃ
+Xಶೃ
+xಶೃx
+xಶೄ
+Xಶೄ
+xಶೄx
+xಶೢ
+Xಶೢ
+xಶೢx
+xಶೣ
+Xಶೣ
+xಶೣx
+xಶೆ
+Xಶೆ
+xಶೆx
+xಶೇ
+Xಶೇ
+xಶೇx
+xಶೈ
+Xಶೈ
+xಶೈx
+xಶೊ
+Xಶೊ
+xಶೊx
+xಶೋ
+Xಶೋ
+xಶೋx
+xಶೌ
+Xಶೌ
+xಶೌx
+xಷ್
+Xಷ್
+xಷ್x
+xಷ
+Xಷ
+xಷx
+xಷಾ
+Xಷಾ
+xಷಾx
+xಷಿ
+Xಷಿ
+xಷಿx
+xಷೀ
+Xಷೀ
+xಷೀx
+xಷು
+Xಷು
+xಷುx
+xಷೂ
+Xಷೂ
+xಷೂx
+xಷೃ
+Xಷೃ
+xಷೃx
+xಷೄ
+Xಷೄ
+xಷೄx
+xಷೢ
+Xಷೢ
+xಷೢx
+xಷೣ
+Xಷೣ
+xಷೣx
+xಷೆ
+Xಷೆ
+xಷೆx
+xಷೇ
+Xಷೇ
+xಷೇx
+xಷೈ
+Xಷೈ
+xಷೈx
+xಷೊ
+Xಷೊ
+xಷೊx
+xಷೋ
+Xಷೋ
+xಷೋx
+xಷೌ
+Xಷೌ
+xಷೌx
+xಸ್
+Xಸ್
+xಸ್x
+xಸ
+Xಸ
+xಸx
+xಸಾ
+Xಸಾ
+xಸಾx
+xಸಿ
+Xಸಿ
+xಸಿx
+xಸೀ
+Xಸೀ
+xಸೀx
+xಸು
+Xಸು
+xಸುx
+xಸೂ
+Xಸೂ
+xಸೂx
+xಸೃ
+Xಸೃ
+xಸೃx
+xಸೄ
+Xಸೄ
+xಸೄx
+xಸೢ
+Xಸೢ
+xಸೢx
+xಸೣ
+Xಸೣ
+xಸೣx
+xಸೆ
+Xಸೆ
+xಸೆx
+xಸೇ
+Xಸೇ
+xಸೇx
+xಸೈ
+Xಸೈ
+xಸೈx
+xಸೊ
+Xಸೊ
+xಸೊx
+xಸೋ
+Xಸೋ
+xಸೋx
+xಸೌ
+Xಸೌ
+xಸೌx
+xಹ್
+Xಹ್
+xಹ್x
+xಹ
+Xಹ
+xಹx
+xಹಾ
+Xಹಾ
+xಹಾx
+xಹಿ
+Xಹಿ
+xಹಿx
+xಹೀ
+Xಹೀ
+xಹೀx
+xಹು
+Xಹು
+xಹುx
+xಹೂ
+Xಹೂ
+xಹೂx
+xಹೃ
+Xಹೃ
+xಹೃx
+xಹೄ
+Xಹೄ
+xಹೄx
+xಹೢ
+Xಹೢ
+xಹೢx
+xಹೣ
+Xಹೣ
+xಹೣx
+xಹೆ
+Xಹೆ
+xಹೆx
+xಹೇ
+Xಹೇ
+xಹೇx
+xಹೈ
+Xಹೈ
+xಹೈx
+xಹೊ
+Xಹೊ
+xಹೊx
+xಹೋ
+Xಹೋ
+xಹೋx
+xಹೌ
+Xಹೌ
+xಹೌx
+xಳ್
+Xಳ್
+xಳ್x
+xಳ
+Xಳ
+xಳx
+xಳಾ
+Xಳಾ
+xಳಾx
+xಳಿ
+Xಳಿ
+xಳಿx
+xಳೀ
+Xಳೀ
+xಳೀx
+xಳು
+Xಳು
+xಳುx
+xಳೂ
+Xಳೂ
+xಳೂx
+xಳೃ
+Xಳೃ
+xಳೃx
+xಳೄ
+Xಳೄ
+xಳೄx
+xಳೢ
+Xಳೢ
+xಳೢx
+xಳೣ
+Xಳೣ
+xಳೣx
+xಳೆ
+Xಳೆ
+xಳೆx
+xಳೇ
+Xಳೇ
+xಳೇx
+xಳೈ
+Xಳೈ
+xಳೈx
+xಳೊ
+Xಳೊ
+xಳೊx
+xಳೋ
+Xಳೋ
+xಳೋx
+xಳೌ
+Xಳೌ
+xಳೌx
+xೞ್
+Xೞ್
+xೞ್x
+xೞ
+Xೞ
+xೞx
+xೞಾ
+Xೞಾ
+xೞಾx
+xೞಿ
+Xೞಿ
+xೞಿx
+xೞೀ
+Xೞೀ
+xೞೀx
+xೞು
+Xೞು
+xೞುx
+xೞೂ
+Xೞೂ
+xೞೂx
+xೞೃ
+Xೞೃ
+xೞೃx
+xೞೄ
+Xೞೄ
+xೞೄx
+xೞೢ
+Xೞೢ
+xೞೢx
+xೞೣ
+Xೞೣ
+xೞೣx
+xೞೆ
+Xೞೆ
+xೞೆx
+xೞೇ
+Xೞೇ
+xೞೇx
+xೞೈ
+Xೞೈ
+xೞೈx
+xೞೊ
+Xೞೊ
+xೞೊx
+xೞೋ
+Xೞೋ
+xೞೋx
+xೞೌ
+Xೞೌ
+xೞೌx
+xಽ
+Xಽ
+xಽx
+xಾ
+Xಾ
+xಾx
+xಿ
+Xಿ
+xಿx
+xೀ
+Xೀ
+xೀx
+xು
+Xು
+xುx
+xೂ
+Xೂ
+xೂx
+xೃ
+Xೃ
+xೃx
+xೄ
+Xೄ
+xೄx
+xೆ
+Xೆ
+xೆx
+xೇ
+Xೇ
+xೇx
+xೈ
+Xೈ
+xೈx
+xೊ
+Xೊ
+xೊx
+xೋ
+Xೋ
+xೋx
+xೌ
+Xೌ
+xೌx
+x್
+X್
+x್x
+xೕ
+Xೕ
+xೕx
+xೖ
+Xೖ
+xೖx
+</result>
+   <result draft='approved'>
 x಼
 X಼
 x 

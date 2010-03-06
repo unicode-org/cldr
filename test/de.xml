@@ -5,7 +5,7 @@
  <!-- German [Deutsch] -->
   <number 
 locales='de de_AT de_BE de_DE de_LU'>
-<!-- German [Deutsch]; German (Austria) [Deutsch (Österreich)]; German (Belgium) [Deutsch (Belgien)]; German (Germany) [Deutsch (Deutschland)]; German (Luxembourg) [Deutsch (Luxemburg)] -->
+<!-- German [Deutsch@]; Austrian German [Österreichisches Deutsch@]; German (Belgium) [Deutsch (Belgien)@]; German (Germany) [Deutsch (Deutschland)@]; German (Luxembourg) [Deutsch (Luxemburg)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0 %</result>
@@ -57,7 +57,7 @@ locales='de de_AT de_BE de_DE de_LU'>
   </number>
   <number 
 locales='de_CH de_LI'>
-<!-- German (Switzerland) [Deutsch (Schweiz)]; German (Liechtenstein) [Deutsch (Liechtenstein)] -->
+<!-- Swiss High German [Schweizer Hochdeutsch@]; German (Liechtenstein) [Deutsch (Liechtenstein)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0 %</result>
@@ -109,7 +109,7 @@ locales='de_CH de_LI'>
   </number>
   <date 
 locales='de de_CH de_DE de_LI de_LU'>
-<!-- German [Deutsch]; German (Switzerland) [Deutsch (Schweiz)]; German (Germany) [Deutsch (Deutschland)]; German (Liechtenstein) [Deutsch (Liechtenstein)]; German (Luxembourg) [Deutsch (Luxemburg)] -->
+<!-- German [Deutsch@]; Swiss High German [Schweizer Hochdeutsch@]; German (Germany) [Deutsch (Deutschland)@]; German (Liechtenstein) [Deutsch (Liechtenstein)@]; German (Luxembourg) [Deutsch (Luxemburg)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31.01.00</result>
@@ -281,7 +281,7 @@ locales='de de_CH de_DE de_LI de_LU'>
   </date>
   <date 
 locales='de_AT'>
-<!-- German (Austria) [Deutsch (Österreich)] -->
+<!-- Austrian German [Österreichisches Deutsch@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31.01.00</result>
@@ -453,7 +453,7 @@ locales='de_AT'>
   </date>
   <date 
 locales='de_BE'>
-<!-- German (Belgium) [Deutsch (Belgien)] -->
+<!-- German (Belgium) [Deutsch (Belgien)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31/01/00</result>
@@ -625,11 +625,11 @@ locales='de_BE'>
   </date>
   <zoneFields 
 locales='de de_AT de_BE de_CH de_DE de_LI de_LU'>
-<!-- German [Deutsch]; German (Austria) [Deutsch (Österreich)]; German (Belgium) [Deutsch (Belgien)]; German (Switzerland) [Deutsch (Schweiz)]; German (Germany) [Deutsch (Deutschland)]; German (Liechtenstein) [Deutsch (Liechtenstein)]; German (Luxembourg) [Deutsch (Luxemburg)] -->
+<!-- German [Deutsch@]; Austrian German [Österreichisches Deutsch@]; German (Belgium) [Deutsch (Belgien)@]; Swiss High German [Schweizer Hochdeutsch@]; German (Germany) [Deutsch (Deutschland)@]; German (Liechtenstein) [Deutsch (Liechtenstein)@]; German (Luxembourg) [Deutsch (Luxemburg)@] -->
   </zoneFields>
   <collation 
 locales='de de_AT de_BE de_CH de_DE de_LI de_LU'>
-<!-- German [Deutsch]; German (Austria) [Deutsch (Österreich)]; German (Belgium) [Deutsch (Belgien)]; German (Switzerland) [Deutsch (Schweiz)]; German (Germany) [Deutsch (Deutschland)]; German (Liechtenstein) [Deutsch (Liechtenstein)]; German (Luxembourg) [Deutsch (Luxemburg)] -->
+<!-- German [Deutsch@]; Austrian German [Österreichisches Deutsch@]; German (Belgium) [Deutsch (Belgien)@]; Swiss High German [Schweizer Hochdeutsch@]; German (Germany) [Deutsch (Deutschland)@]; German (Liechtenstein) [Deutsch (Liechtenstein)@]; German (Luxembourg) [Deutsch (Luxemburg)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -938,21 +938,6 @@ xs
 xS
 Xs
 XS
-xss
-xsS
-xSs
-xSS
-Xss
-XsS
-XSs
-XSS
-xß
-Xß
-xssx
-xsSx
-xSsx
-xSSx
-xßx
 xsx
 xSx
 xt
@@ -1043,7 +1028,7 @@ xZx
   </collation>
   <collation 
 locales='de@collation=phonebook de_AT@collation=phonebook de_BE@collation=phonebook de_CH@collation=phonebook de_DE@collation=phonebook de_LU@collation=phonebook'>
-<!-- German (collation=Phonebook Sort Order) [Deutsch (Sortierung=Telefonbuch-Sortierregeln)]; German (Austria, collation=Phonebook Sort Order) [Deutsch (Österreich, Sortierung=Telefonbuch-Sortierregeln)]; German (Belgium, collation=Phonebook Sort Order) [Deutsch (Belgien, Sortierung=Telefonbuch-Sortierregeln)]; German (Switzerland, collation=Phonebook Sort Order) [Deutsch (Schweiz, Sortierung=Telefonbuch-Sortierregeln)]; German (Germany, collation=Phonebook Sort Order) [Deutsch (Deutschland, Sortierung=Telefonbuch-Sortierregeln)]; German (Luxembourg, collation=Phonebook Sort Order) [Deutsch (Luxemburg, Sortierung=Telefonbuch-Sortierregeln)] -->
+<!-- German [Deutsch@collation=phonebook]; Austrian German [Österreichisches Deutsch@collation=phonebook]; German (Belgium) [Deutsch (Belgien)@collation=phonebook]; Swiss High German [Schweizer Hochdeutsch@collation=phonebook]; German (Germany) [Deutsch (Deutschland)@collation=phonebook]; German (Luxembourg) [Deutsch (Luxemburg)@collation=phonebook] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -1352,21 +1337,6 @@ xs
 xS
 Xs
 XS
-xss
-xsS
-xSs
-xSS
-Xss
-XsS
-XSs
-XSS
-xß
-Xß
-xssx
-xsSx
-xSsx
-xSSx
-xßx
 xsx
 xSx
 xt

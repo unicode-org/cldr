@@ -1,0 +1,495 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
+<!-- For information, see readme.html -->
+ <cldrTest version='1.7' base='pa_Guru'>
+ <!-- Punjabi (Gurmukhi) [ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)] -->
+  <number 
+locales='pa_Guru pa_Guru_IN'>
+<!-- Punjabi (Gurmukhi) [ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)@]; Punjabi (Gurmukhi, India) [ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ, ਭਾਰਤ)@] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal'>0.01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='decimal'>-0.01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal'>123.456</result>
+   <result numberType='percent'>12,346%</result>
+   <result numberType='scientific'>1.23456E2</result>
+   <result input='-123.456' numberType='integer'>-123</result>
+   <result numberType='decimal'>-123.456</result>
+   <result numberType='percent'>-12,346%</result>
+   <result numberType='scientific'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer'>1,23,457</result>
+   <result numberType='decimal'>1,23,456.78</result>
+   <result numberType='percent'>1,23,45,678%</result>
+   <result numberType='scientific'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-1,23,457</result>
+   <result numberType='decimal'>-1,23,456.78</result>
+   <result numberType='percent'>-1,23,45,678%</result>
+   <result numberType='scientific'>-1.2345678E5</result>
+   <result input='Infinity' numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result input='-Infinity' numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
+  </number>
+  <date 
+locales='pa_Guru pa_Guru_IN'>
+<!-- Punjabi (Gurmukhi) [ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)@]; Punjabi (Gurmukhi, India) [ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ, ਭਾਰਤ)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>12:00:00 ਸਵੇਰੇ</result>
+   <result dateType='short' timeType='none'>31/01/1900</result>
+   <result timeType='short'>31/01/1900 12:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>31/01/1900 12:00:00 ਸਵੇਰੇ</result>
+   <result dateType='medium' timeType='none'>31 ਜਨਵਰੀ 1900</result>
+   <result timeType='short'>31 ਜਨਵਰੀ 1900 12:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>31 ਜਨਵਰੀ 1900 12:00:00 ਸਵੇਰੇ</result>
+   <result dateType='long' timeType='none'>31 ਜਨਵਰੀ 1900</result>
+   <result timeType='short'>31 ਜਨਵਰੀ 1900 12:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>31 ਜਨਵਰੀ 1900 12:00:00 ਸਵੇਰੇ</result>
+   <result dateType='full' timeType='none'>ਬੁਧਵਾਰ, 31 ਜਨਵਰੀ 1900</result>
+   <result timeType='short'>ਬੁਧਵਾਰ, 31 ਜਨਵਰੀ 1900 12:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>ਬੁਧਵਾਰ, 31 ਜਨਵਰੀ 1900 12:00:00 ਸਵੇਰੇ</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>12:00:01 ਸਵੇਰੇ</result>
+   <result dateType='short' timeType='none'>28/02/1909</result>
+   <result timeType='short'>28/02/1909 12:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>28/02/1909 12:00:01 ਸਵੇਰੇ</result>
+   <result dateType='medium' timeType='none'>28 ਫ਼ਰਵਰੀ 1909</result>
+   <result timeType='short'>28 ਫ਼ਰਵਰੀ 1909 12:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>28 ਫ਼ਰਵਰੀ 1909 12:00:01 ਸਵੇਰੇ</result>
+   <result dateType='long' timeType='none'>28 ਫ਼ਰਵਰੀ 1909</result>
+   <result timeType='short'>28 ਫ਼ਰਵਰੀ 1909 12:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>28 ਫ਼ਰਵਰੀ 1909 12:00:01 ਸਵੇਰੇ</result>
+   <result dateType='full' timeType='none'>ਐਤਵਾਰ, 28 ਫ਼ਰਵਰੀ 1909</result>
+   <result timeType='short'>ਐਤਵਾਰ, 28 ਫ਼ਰਵਰੀ 1909 12:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>ਐਤਵਾਰ, 28 ਫ਼ਰਵਰੀ 1909 12:00:01 ਸਵੇਰੇ</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 ਸਵੇਰੇ</result>
+   <result timeType='medium'>12:59:59 ਸਵੇਰੇ</result>
+   <result dateType='short' timeType='none'>26/03/1918</result>
+   <result timeType='short'>26/03/1918 12:59 ਸਵੇਰੇ</result>
+   <result timeType='medium'>26/03/1918 12:59:59 ਸਵੇਰੇ</result>
+   <result dateType='medium' timeType='none'>26 ਮਾਰਚ 1918</result>
+   <result timeType='short'>26 ਮਾਰਚ 1918 12:59 ਸਵੇਰੇ</result>
+   <result timeType='medium'>26 ਮਾਰਚ 1918 12:59:59 ਸਵੇਰੇ</result>
+   <result dateType='long' timeType='none'>26 ਮਾਰਚ 1918</result>
+   <result timeType='short'>26 ਮਾਰਚ 1918 12:59 ਸਵੇਰੇ</result>
+   <result timeType='medium'>26 ਮਾਰਚ 1918 12:59:59 ਸਵੇਰੇ</result>
+   <result dateType='full' timeType='none'>ਮੰਗਲਵਾਰ, 26 ਮਾਰਚ 1918</result>
+   <result timeType='short'>ਮੰਗਲਵਾਰ, 26 ਮਾਰਚ 1918 12:59 ਸਵੇਰੇ</result>
+   <result timeType='medium'>ਮੰਗਲਵਾਰ, 26 ਮਾਰਚ 1918 12:59:59 ਸਵੇਰੇ</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>1:00:00 ਸਵੇਰੇ</result>
+   <result dateType='short' timeType='none'>24/04/1932</result>
+   <result timeType='short'>24/04/1932 1:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>24/04/1932 1:00:00 ਸਵੇਰੇ</result>
+   <result dateType='medium' timeType='none'>24 ਅਪ੍ਰੈਲ 1932</result>
+   <result timeType='short'>24 ਅਪ੍ਰੈਲ 1932 1:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>24 ਅਪ੍ਰੈਲ 1932 1:00:00 ਸਵੇਰੇ</result>
+   <result dateType='long' timeType='none'>24 ਅਪ੍ਰੈਲ 1932</result>
+   <result timeType='short'>24 ਅਪ੍ਰੈਲ 1932 1:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>24 ਅਪ੍ਰੈਲ 1932 1:00:00 ਸਵੇਰੇ</result>
+   <result dateType='full' timeType='none'>ਐਤਵਾਰ, 24 ਅਪ੍ਰੈਲ 1932</result>
+   <result timeType='short'>ਐਤਵਾਰ, 24 ਅਪ੍ਰੈਲ 1932 1:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>ਐਤਵਾਰ, 24 ਅਪ੍ਰੈਲ 1932 1:00:00 ਸਵੇਰੇ</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>1:00:01 ਸਵੇਰੇ</result>
+   <result dateType='short' timeType='none'>20/05/1945</result>
+   <result timeType='short'>20/05/1945 1:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>20/05/1945 1:00:01 ਸਵੇਰੇ</result>
+   <result dateType='medium' timeType='none'>20 ਮਈ 1945</result>
+   <result timeType='short'>20 ਮਈ 1945 1:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>20 ਮਈ 1945 1:00:01 ਸਵੇਰੇ</result>
+   <result dateType='long' timeType='none'>20 ਮਈ 1945</result>
+   <result timeType='short'>20 ਮਈ 1945 1:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>20 ਮਈ 1945 1:00:01 ਸਵੇਰੇ</result>
+   <result dateType='full' timeType='none'>ਐਤਵਾਰ, 20 ਮਈ 1945</result>
+   <result timeType='short'>ਐਤਵਾਰ, 20 ਮਈ 1945 1:00 ਸਵੇਰੇ</result>
+   <result timeType='medium'>ਐਤਵਾਰ, 20 ਮਈ 1945 1:00:01 ਸਵੇਰੇ</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 ਸਵੇਰੇ</result>
+   <result timeType='medium'>11:59:59 ਸਵੇਰੇ</result>
+   <result dateType='short' timeType='none'>18/06/1952</result>
+   <result timeType='short'>18/06/1952 11:59 ਸਵੇਰੇ</result>
+   <result timeType='medium'>18/06/1952 11:59:59 ਸਵੇਰੇ</result>
+   <result dateType='medium' timeType='none'>18 ਜੂਨ 1952</result>
+   <result timeType='short'>18 ਜੂਨ 1952 11:59 ਸਵੇਰੇ</result>
+   <result timeType='medium'>18 ਜੂਨ 1952 11:59:59 ਸਵੇਰੇ</result>
+   <result dateType='long' timeType='none'>18 ਜੂਨ 1952</result>
+   <result timeType='short'>18 ਜੂਨ 1952 11:59 ਸਵੇਰੇ</result>
+   <result timeType='medium'>18 ਜੂਨ 1952 11:59:59 ਸਵੇਰੇ</result>
+   <result dateType='full' timeType='none'>ਬੁਧਵਾਰ, 18 ਜੂਨ 1952</result>
+   <result timeType='short'>ਬੁਧਵਾਰ, 18 ਜੂਨ 1952 11:59 ਸਵੇਰੇ</result>
+   <result timeType='medium'>ਬੁਧਵਾਰ, 18 ਜੂਨ 1952 11:59:59 ਸਵੇਰੇ</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>12:00:00 ਸ਼ਾਮ</result>
+   <result dateType='short' timeType='none'>16/07/1973</result>
+   <result timeType='short'>16/07/1973 12:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>16/07/1973 12:00:00 ਸ਼ਾਮ</result>
+   <result dateType='medium' timeType='none'>16 ਜੁਲਾਈ 1973</result>
+   <result timeType='short'>16 ਜੁਲਾਈ 1973 12:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>16 ਜੁਲਾਈ 1973 12:00:00 ਸ਼ਾਮ</result>
+   <result dateType='long' timeType='none'>16 ਜੁਲਾਈ 1973</result>
+   <result timeType='short'>16 ਜੁਲਾਈ 1973 12:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>16 ਜੁਲਾਈ 1973 12:00:00 ਸ਼ਾਮ</result>
+   <result dateType='full' timeType='none'>ਸੋਮਵਾਰ, 16 ਜੁਲਾਈ 1973</result>
+   <result timeType='short'>ਸੋਮਵਾਰ, 16 ਜੁਲਾਈ 1973 12:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>ਸੋਮਵਾਰ, 16 ਜੁਲਾਈ 1973 12:00:00 ਸ਼ਾਮ</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>12:00:01 ਸ਼ਾਮ</result>
+   <result dateType='short' timeType='none'>14/08/1999</result>
+   <result timeType='short'>14/08/1999 12:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>14/08/1999 12:00:01 ਸ਼ਾਮ</result>
+   <result dateType='medium' timeType='none'>14 ਅਗਸਤ 1999</result>
+   <result timeType='short'>14 ਅਗਸਤ 1999 12:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>14 ਅਗਸਤ 1999 12:00:01 ਸ਼ਾਮ</result>
+   <result dateType='long' timeType='none'>14 ਅਗਸਤ 1999</result>
+   <result timeType='short'>14 ਅਗਸਤ 1999 12:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>14 ਅਗਸਤ 1999 12:00:01 ਸ਼ਾਮ</result>
+   <result dateType='full' timeType='none'>ਸ਼ਨੀਚਰਵਾਰ, 14 ਅਗਸਤ 1999</result>
+   <result timeType='short'>ਸ਼ਨੀਚਰਵਾਰ, 14 ਅਗਸਤ 1999 12:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>ਸ਼ਨੀਚਰਵਾਰ, 14 ਅਗਸਤ 1999 12:00:01 ਸ਼ਾਮ</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 ਸ਼ਾਮ</result>
+   <result timeType='medium'>10:59:59 ਸ਼ਾਮ</result>
+   <result dateType='short' timeType='none'>12/09/2000</result>
+   <result timeType='short'>12/09/2000 10:59 ਸ਼ਾਮ</result>
+   <result timeType='medium'>12/09/2000 10:59:59 ਸ਼ਾਮ</result>
+   <result dateType='medium' timeType='none'>12 ਸਤੰਬਰ 2000</result>
+   <result timeType='short'>12 ਸਤੰਬਰ 2000 10:59 ਸ਼ਾਮ</result>
+   <result timeType='medium'>12 ਸਤੰਬਰ 2000 10:59:59 ਸ਼ਾਮ</result>
+   <result dateType='long' timeType='none'>12 ਸਤੰਬਰ 2000</result>
+   <result timeType='short'>12 ਸਤੰਬਰ 2000 10:59 ਸ਼ਾਮ</result>
+   <result timeType='medium'>12 ਸਤੰਬਰ 2000 10:59:59 ਸ਼ਾਮ</result>
+   <result dateType='full' timeType='none'>ਮੰਗਲਵਾਰ, 12 ਸਤੰਬਰ 2000</result>
+   <result timeType='short'>ਮੰਗਲਵਾਰ, 12 ਸਤੰਬਰ 2000 10:59 ਸ਼ਾਮ</result>
+   <result timeType='medium'>ਮੰਗਲਵਾਰ, 12 ਸਤੰਬਰ 2000 10:59:59 ਸ਼ਾਮ</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>11:00:00 ਸ਼ਾਮ</result>
+   <result dateType='short' timeType='none'>08/10/2001</result>
+   <result timeType='short'>08/10/2001 11:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>08/10/2001 11:00:00 ਸ਼ਾਮ</result>
+   <result dateType='medium' timeType='none'>8 ਅਕਤੂਬਰ 2001</result>
+   <result timeType='short'>8 ਅਕਤੂਬਰ 2001 11:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>8 ਅਕਤੂਬਰ 2001 11:00:00 ਸ਼ਾਮ</result>
+   <result dateType='long' timeType='none'>8 ਅਕਤੂਬਰ 2001</result>
+   <result timeType='short'>8 ਅਕਤੂਬਰ 2001 11:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>8 ਅਕਤੂਬਰ 2001 11:00:00 ਸ਼ਾਮ</result>
+   <result dateType='full' timeType='none'>ਸੋਮਵਾਰ, 08 ਅਕਤੂਬਰ 2001</result>
+   <result timeType='short'>ਸੋਮਵਾਰ, 08 ਅਕਤੂਬਰ 2001 11:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>ਸੋਮਵਾਰ, 08 ਅਕਤੂਬਰ 2001 11:00:00 ਸ਼ਾਮ</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>11:00:01 ਸ਼ਾਮ</result>
+   <result dateType='short' timeType='none'>04/11/2004</result>
+   <result timeType='short'>04/11/2004 11:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>04/11/2004 11:00:01 ਸ਼ਾਮ</result>
+   <result dateType='medium' timeType='none'>4 ਨਵੰਬਰ 2004</result>
+   <result timeType='short'>4 ਨਵੰਬਰ 2004 11:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>4 ਨਵੰਬਰ 2004 11:00:01 ਸ਼ਾਮ</result>
+   <result dateType='long' timeType='none'>4 ਨਵੰਬਰ 2004</result>
+   <result timeType='short'>4 ਨਵੰਬਰ 2004 11:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>4 ਨਵੰਬਰ 2004 11:00:01 ਸ਼ਾਮ</result>
+   <result dateType='full' timeType='none'>ਵੀਰਵਾਰ, 04 ਨਵੰਬਰ 2004</result>
+   <result timeType='short'>ਵੀਰਵਾਰ, 04 ਨਵੰਬਰ 2004 11:00 ਸ਼ਾਮ</result>
+   <result timeType='medium'>ਵੀਰਵਾਰ, 04 ਨਵੰਬਰ 2004 11:00:01 ਸ਼ਾਮ</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 ਸ਼ਾਮ</result>
+   <result timeType='medium'>11:59:59 ਸ਼ਾਮ</result>
+   <result dateType='short' timeType='none'>01/12/2010</result>
+   <result timeType='short'>01/12/2010 11:59 ਸ਼ਾਮ</result>
+   <result timeType='medium'>01/12/2010 11:59:59 ਸ਼ਾਮ</result>
+   <result dateType='medium' timeType='none'>1 ਦਸੰਬਰ 2010</result>
+   <result timeType='short'>1 ਦਸੰਬਰ 2010 11:59 ਸ਼ਾਮ</result>
+   <result timeType='medium'>1 ਦਸੰਬਰ 2010 11:59:59 ਸ਼ਾਮ</result>
+   <result dateType='long' timeType='none'>1 ਦਸੰਬਰ 2010</result>
+   <result timeType='short'>1 ਦਸੰਬਰ 2010 11:59 ਸ਼ਾਮ</result>
+   <result timeType='medium'>1 ਦਸੰਬਰ 2010 11:59:59 ਸ਼ਾਮ</result>
+   <result dateType='full' timeType='none'>ਬੁਧਵਾਰ, 01 ਦਸੰਬਰ 2010</result>
+   <result timeType='short'>ਬੁਧਵਾਰ, 01 ਦਸੰਬਰ 2010 11:59 ਸ਼ਾਮ</result>
+   <result timeType='medium'>ਬੁਧਵਾਰ, 01 ਦਸੰਬਰ 2010 11:59:59 ਸ਼ਾਮ</result>
+  </date>
+  <zoneFields 
+locales='pa_Guru pa_Guru_IN'>
+<!-- Punjabi (Gurmukhi) [ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)@]; Punjabi (Gurmukhi, India) [ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ, ਭਾਰਤ)@] -->
+  </zoneFields>
+  <collation 
+locales='pa_Guru pa_Guru_IN'>
+<!-- Punjabi (Gurmukhi) [ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)@]; Punjabi (Gurmukhi, India) [ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ, ਭਾਰਤ)@] -->
+   <result draft='unconfirmed approved'>
+x‌
+x‍
+x‌
+X‌
+X‍
+X‌
+xਃ
+Xਃ
+xੱ
+Xੱ
+xੰ
+Xੰ
+xਂ
+Xਂ
+xਁ
+Xਁ
+x਼
+X਼
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x੦
+X੦
+x0x
+x੦x
+x੧
+X੧
+x12
+X12
+x12x
+x੧x
+x2
+X2
+x੨
+X੨
+x2x
+x੨x
+x੩
+X੩
+x੩x
+x੪
+X੪
+x੪x
+x੫
+X੫
+x੫x
+x੬
+X੬
+x੬x
+x੭
+X੭
+x੭x
+x੮
+X੮
+x੮x
+x੯
+X੯
+x੯x
+x‌x
+x‍x
+x‌x
+xਃx
+xੱx
+xੰx
+xਂx
+xਁx
+x਼x
+xੴ
+Xੴ
+xੴx
+xੳ
+Xੳ
+xੳx
+xਉ
+Xਉ
+xਉx
+xਊ
+Xਊ
+xਊx
+xਓ
+Xਓ
+xਓx
+xਅ
+Xਅ
+xਅx
+xਆ
+Xਆ
+xਆx
+xਐ
+Xਐ
+xਐx
+xਔ
+Xਔ
+xਔx
+xੲ
+Xੲ
+xੲx
+xਇ
+Xਇ
+xਇx
+xਈ
+Xਈ
+xਈx
+xਏ
+Xਏ
+xਏx
+xਸ
+Xਸ
+xਸ਼
+Xਸ਼
+xਸx
+xਸ਼x
+xਹ
+Xਹ
+xਹx
+xਕ
+Xਕ
+xਕx
+xਖ
+Xਖ
+xਖ਼
+Xਖ਼
+xਖx
+xਖ਼x
+xਗ
+Xਗ
+xਗ਼
+Xਗ਼
+xਗx
+xਗ਼x
+xਘ
+Xਘ
+xਘx
+xਙ
+Xਙ
+xਙx
+xਚ
+Xਚ
+xਚx
+xਛ
+Xਛ
+xਛx
+xਜ
+Xਜ
+xਜ਼
+Xਜ਼
+xਜx
+xਜ਼x
+xਝ
+Xਝ
+xਝx
+xਞ
+Xਞ
+xਞx
+xਟ
+Xਟ
+xਟx
+xਠ
+Xਠ
+xਠx
+xਡ
+Xਡ
+xਡx
+xਢ
+Xਢ
+xਢx
+xਣ
+Xਣ
+xਣx
+xਤ
+Xਤ
+xਤx
+xਥ
+Xਥ
+xਥx
+xਦ
+Xਦ
+xਦx
+xਧ
+Xਧ
+xਧx
+xਨ
+Xਨ
+xਨx
+xਪ
+Xਪ
+xਪx
+xਫ
+Xਫ
+xਫ਼
+Xਫ਼
+xਫx
+xਫ਼x
+xਬ
+Xਬ
+xਬx
+xਭ
+Xਭ
+xਭx
+xਮ
+Xਮ
+xਮx
+xਯ
+Xਯ
+xਯx
+xਰ
+Xਰ
+xਰx
+xਲ
+Xਲ
+xਲ਼
+Xਲ਼
+xਲx
+xਲ਼x
+xਵ
+Xਵ
+xਵx
+xੜ
+Xੜ
+xੜx
+x੍
+X੍
+x੍x
+xਾ
+Xਾ
+xਾx
+xਿ
+Xਿ
+xਿx
+xੀ
+Xੀ
+xੀx
+xੁ
+Xੁ
+xੁx
+xੂ
+Xੂ
+xੂx
+xੇ
+Xੇ
+xੇx
+xੈ
+Xੈ
+xੈx
+xੋ
+Xੋ
+xੋx
+xੌ
+Xੌ
+xੌx
+</result>
+  </collation>
+ </cldrTest>

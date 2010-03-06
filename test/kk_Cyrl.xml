@@ -1,0 +1,501 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
+<!-- For information, see readme.html -->
+ <cldrTest version='1.7' base='kk_Cyrl'>
+ <!-- Kazakh (Cyrillic) [Қазақ (Cyrl)] -->
+  <number 
+locales='kk_Cyrl kk_Cyrl_KZ'>
+<!-- Kazakh (Cyrillic) [Қазақ (Cyrl)@]; Kazakh (Cyrillic, Kazakhstan) [Қазақ (Cyrl, Қазақстан)@] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal'>0,01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='decimal'>-0,01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal'>123,456</result>
+   <result numberType='percent'>12 346%</result>
+   <result numberType='scientific'>1,23456E2</result>
+   <result input='-123.456' numberType='integer'>-123</result>
+   <result numberType='decimal'>-123,456</result>
+   <result numberType='percent'>-12 346%</result>
+   <result numberType='scientific'>-1,23456E2</result>
+   <result input='123456.78' numberType='integer'>123 457</result>
+   <result numberType='decimal'>123 456,78</result>
+   <result numberType='percent'>12 345 678%</result>
+   <result numberType='scientific'>1,2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-123 457</result>
+   <result numberType='decimal'>-123 456,78</result>
+   <result numberType='percent'>-12 345 678%</result>
+   <result numberType='scientific'>-1,2345678E5</result>
+   <result input='Infinity' numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result input='-Infinity' numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
+  </number>
+  <date 
+locales='kk_Cyrl kk_Cyrl_KZ'>
+<!-- Kazakh (Cyrillic) [Қазақ (Cyrl)@]; Kazakh (Cyrillic, Kazakhstan) [Қазақ (Cyrl, Қазақстан)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
+   <result dateType='short' timeType='none'>31.01.00</result>
+   <result timeType='short'>31.01.00 00:00</result>
+   <result timeType='medium'>31.01.00 00:00:00</result>
+   <result dateType='medium' timeType='none'>31.01.1900</result>
+   <result timeType='short'>31.01.1900 00:00</result>
+   <result timeType='medium'>31.01.1900 00:00:00</result>
+   <result dateType='long' timeType='none'>31 қаңтар 1900 ж.</result>
+   <result timeType='short'>31 қаңтар 1900 ж. 00:00</result>
+   <result timeType='medium'>31 қаңтар 1900 ж. 00:00:00</result>
+   <result dateType='full' timeType='none'>сәренбі, 31 қаңтар 1900 ж.</result>
+   <result timeType='short'>сәренбі, 31 қаңтар 1900 ж. 00:00</result>
+   <result timeType='medium'>сәренбі, 31 қаңтар 1900 ж. 00:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
+   <result dateType='short' timeType='none'>28.02.09</result>
+   <result timeType='short'>28.02.09 00:00</result>
+   <result timeType='medium'>28.02.09 00:00:01</result>
+   <result dateType='medium' timeType='none'>28.02.1909</result>
+   <result timeType='short'>28.02.1909 00:00</result>
+   <result timeType='medium'>28.02.1909 00:00:01</result>
+   <result dateType='long' timeType='none'>28 ақпан 1909 ж.</result>
+   <result timeType='short'>28 ақпан 1909 ж. 00:00</result>
+   <result timeType='medium'>28 ақпан 1909 ж. 00:00:01</result>
+   <result dateType='full' timeType='none'>жексені, 28 ақпан 1909 ж.</result>
+   <result timeType='short'>жексені, 28 ақпан 1909 ж. 00:00</result>
+   <result timeType='medium'>жексені, 28 ақпан 1909 ж. 00:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
+   <result dateType='short' timeType='none'>26.03.18</result>
+   <result timeType='short'>26.03.18 00:59</result>
+   <result timeType='medium'>26.03.18 00:59:59</result>
+   <result dateType='medium' timeType='none'>26.03.1918</result>
+   <result timeType='short'>26.03.1918 00:59</result>
+   <result timeType='medium'>26.03.1918 00:59:59</result>
+   <result dateType='long' timeType='none'>26 наурыз 1918 ж.</result>
+   <result timeType='short'>26 наурыз 1918 ж. 00:59</result>
+   <result timeType='medium'>26 наурыз 1918 ж. 00:59:59</result>
+   <result dateType='full' timeType='none'>сейсенбі, 26 наурыз 1918 ж.</result>
+   <result timeType='short'>сейсенбі, 26 наурыз 1918 ж. 00:59</result>
+   <result timeType='medium'>сейсенбі, 26 наурыз 1918 ж. 00:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
+   <result dateType='short' timeType='none'>24.04.32</result>
+   <result timeType='short'>24.04.32 01:00</result>
+   <result timeType='medium'>24.04.32 01:00:00</result>
+   <result dateType='medium' timeType='none'>24.04.1932</result>
+   <result timeType='short'>24.04.1932 01:00</result>
+   <result timeType='medium'>24.04.1932 01:00:00</result>
+   <result dateType='long' timeType='none'>24 сәуір 1932 ж.</result>
+   <result timeType='short'>24 сәуір 1932 ж. 01:00</result>
+   <result timeType='medium'>24 сәуір 1932 ж. 01:00:00</result>
+   <result dateType='full' timeType='none'>жексені, 24 сәуір 1932 ж.</result>
+   <result timeType='short'>жексені, 24 сәуір 1932 ж. 01:00</result>
+   <result timeType='medium'>жексені, 24 сәуір 1932 ж. 01:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
+   <result dateType='short' timeType='none'>20.05.45</result>
+   <result timeType='short'>20.05.45 01:00</result>
+   <result timeType='medium'>20.05.45 01:00:01</result>
+   <result dateType='medium' timeType='none'>20.05.1945</result>
+   <result timeType='short'>20.05.1945 01:00</result>
+   <result timeType='medium'>20.05.1945 01:00:01</result>
+   <result dateType='long' timeType='none'>20 мамыр 1945 ж.</result>
+   <result timeType='short'>20 мамыр 1945 ж. 01:00</result>
+   <result timeType='medium'>20 мамыр 1945 ж. 01:00:01</result>
+   <result dateType='full' timeType='none'>жексені, 20 мамыр 1945 ж.</result>
+   <result timeType='short'>жексені, 20 мамыр 1945 ж. 01:00</result>
+   <result timeType='medium'>жексені, 20 мамыр 1945 ж. 01:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result dateType='short' timeType='none'>18.06.52</result>
+   <result timeType='short'>18.06.52 11:59</result>
+   <result timeType='medium'>18.06.52 11:59:59</result>
+   <result dateType='medium' timeType='none'>18.06.1952</result>
+   <result timeType='short'>18.06.1952 11:59</result>
+   <result timeType='medium'>18.06.1952 11:59:59</result>
+   <result dateType='long' timeType='none'>18 маусым 1952 ж.</result>
+   <result timeType='short'>18 маусым 1952 ж. 11:59</result>
+   <result timeType='medium'>18 маусым 1952 ж. 11:59:59</result>
+   <result dateType='full' timeType='none'>сәренбі, 18 маусым 1952 ж.</result>
+   <result timeType='short'>сәренбі, 18 маусым 1952 ж. 11:59</result>
+   <result timeType='medium'>сәренбі, 18 маусым 1952 ж. 11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result dateType='short' timeType='none'>16.07.73</result>
+   <result timeType='short'>16.07.73 12:00</result>
+   <result timeType='medium'>16.07.73 12:00:00</result>
+   <result dateType='medium' timeType='none'>16.07.1973</result>
+   <result timeType='short'>16.07.1973 12:00</result>
+   <result timeType='medium'>16.07.1973 12:00:00</result>
+   <result dateType='long' timeType='none'>16 шілде 1973 ж.</result>
+   <result timeType='short'>16 шілде 1973 ж. 12:00</result>
+   <result timeType='medium'>16 шілде 1973 ж. 12:00:00</result>
+   <result dateType='full' timeType='none'>дуйсенбі, 16 шілде 1973 ж.</result>
+   <result timeType='short'>дуйсенбі, 16 шілде 1973 ж. 12:00</result>
+   <result timeType='medium'>дуйсенбі, 16 шілде 1973 ж. 12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result dateType='short' timeType='none'>14.08.99</result>
+   <result timeType='short'>14.08.99 12:00</result>
+   <result timeType='medium'>14.08.99 12:00:01</result>
+   <result dateType='medium' timeType='none'>14.08.1999</result>
+   <result timeType='short'>14.08.1999 12:00</result>
+   <result timeType='medium'>14.08.1999 12:00:01</result>
+   <result dateType='long' timeType='none'>14 тамыз 1999 ж.</result>
+   <result timeType='short'>14 тамыз 1999 ж. 12:00</result>
+   <result timeType='medium'>14 тамыз 1999 ж. 12:00:01</result>
+   <result dateType='full' timeType='none'>сенбі, 14 тамыз 1999 ж.</result>
+   <result timeType='short'>сенбі, 14 тамыз 1999 ж. 12:00</result>
+   <result timeType='medium'>сенбі, 14 тамыз 1999 ж. 12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result dateType='short' timeType='none'>12.09.00</result>
+   <result timeType='short'>12.09.00 22:59</result>
+   <result timeType='medium'>12.09.00 22:59:59</result>
+   <result dateType='medium' timeType='none'>12.09.2000</result>
+   <result timeType='short'>12.09.2000 22:59</result>
+   <result timeType='medium'>12.09.2000 22:59:59</result>
+   <result dateType='long' timeType='none'>12 қыркүйек 2000 ж.</result>
+   <result timeType='short'>12 қыркүйек 2000 ж. 22:59</result>
+   <result timeType='medium'>12 қыркүйек 2000 ж. 22:59:59</result>
+   <result dateType='full' timeType='none'>сейсенбі, 12 қыркүйек 2000 ж.</result>
+   <result timeType='short'>сейсенбі, 12 қыркүйек 2000 ж. 22:59</result>
+   <result timeType='medium'>сейсенбі, 12 қыркүйек 2000 ж. 22:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result dateType='short' timeType='none'>08.10.01</result>
+   <result timeType='short'>08.10.01 23:00</result>
+   <result timeType='medium'>08.10.01 23:00:00</result>
+   <result dateType='medium' timeType='none'>08.10.2001</result>
+   <result timeType='short'>08.10.2001 23:00</result>
+   <result timeType='medium'>08.10.2001 23:00:00</result>
+   <result dateType='long' timeType='none'>8 қазан 2001 ж.</result>
+   <result timeType='short'>8 қазан 2001 ж. 23:00</result>
+   <result timeType='medium'>8 қазан 2001 ж. 23:00:00</result>
+   <result dateType='full' timeType='none'>дуйсенбі, 8 қазан 2001 ж.</result>
+   <result timeType='short'>дуйсенбі, 8 қазан 2001 ж. 23:00</result>
+   <result timeType='medium'>дуйсенбі, 8 қазан 2001 ж. 23:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result dateType='short' timeType='none'>04.11.04</result>
+   <result timeType='short'>04.11.04 23:00</result>
+   <result timeType='medium'>04.11.04 23:00:01</result>
+   <result dateType='medium' timeType='none'>04.11.2004</result>
+   <result timeType='short'>04.11.2004 23:00</result>
+   <result timeType='medium'>04.11.2004 23:00:01</result>
+   <result dateType='long' timeType='none'>4 қараша 2004 ж.</result>
+   <result timeType='short'>4 қараша 2004 ж. 23:00</result>
+   <result timeType='medium'>4 қараша 2004 ж. 23:00:01</result>
+   <result dateType='full' timeType='none'>бейсенбі, 4 қараша 2004 ж.</result>
+   <result timeType='short'>бейсенбі, 4 қараша 2004 ж. 23:00</result>
+   <result timeType='medium'>бейсенбі, 4 қараша 2004 ж. 23:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result dateType='short' timeType='none'>01.12.10</result>
+   <result timeType='short'>01.12.10 23:59</result>
+   <result timeType='medium'>01.12.10 23:59:59</result>
+   <result dateType='medium' timeType='none'>01.12.2010</result>
+   <result timeType='short'>01.12.2010 23:59</result>
+   <result timeType='medium'>01.12.2010 23:59:59</result>
+   <result dateType='long' timeType='none'>1 желтоқсан 2010 ж.</result>
+   <result timeType='short'>1 желтоқсан 2010 ж. 23:59</result>
+   <result timeType='medium'>1 желтоқсан 2010 ж. 23:59:59</result>
+   <result dateType='full' timeType='none'>сәренбі, 1 желтоқсан 2010 ж.</result>
+   <result timeType='short'>сәренбі, 1 желтоқсан 2010 ж. 23:59</result>
+   <result timeType='medium'>сәренбі, 1 желтоқсан 2010 ж. 23:59:59</result>
+  </date>
+  <zoneFields 
+locales='kk_Cyrl kk_Cyrl_KZ'>
+<!-- Kazakh (Cyrillic) [Қазақ (Cyrl)@]; Kazakh (Cyrillic, Kazakhstan) [Қазақ (Cyrl, Қазақстан)@] -->
+  </zoneFields>
+  <collation 
+locales='kk_Cyrl kk_Cyrl_KZ'>
+<!-- Kazakh (Cyrillic) [Қазақ (Cyrl)@]; Kazakh (Cyrillic, Kazakhstan) [Қазақ (Cyrl, Қазақстан)@] -->
+   <result draft='unconfirmed approved'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xа
+xА
+Xа
+XА
+xаx
+xАx
+xә
+xӘ
+Xә
+XӘ
+xәx
+xӘx
+xб
+xБ
+Xб
+XБ
+xбx
+xБx
+xв
+xВ
+Xв
+XВ
+xвx
+xВx
+xг
+xГ
+Xг
+XГ
+xгx
+xГx
+xд
+xД
+Xд
+XД
+xдx
+xДx
+xе
+xЕ
+Xе
+XЕ
+xё
+xЁ
+Xё
+XЁ
+xеx
+xЕx
+xёx
+xЁx
+xж
+xЖ
+Xж
+XЖ
+xжx
+xЖx
+xз
+xЗ
+Xз
+XЗ
+xзx
+xЗx
+xи
+xИ
+Xи
+XИ
+xй
+xЙ
+Xй
+XЙ
+xиx
+xИx
+xйx
+xЙx
+xк
+xК
+Xк
+XК
+xкx
+xКx
+xқ
+xҚ
+Xқ
+XҚ
+xқx
+xҚx
+xл
+xЛ
+Xл
+XЛ
+xлx
+xЛx
+xм
+xМ
+Xм
+XМ
+xмx
+xМx
+xн
+xН
+Xн
+XН
+xнx
+xНx
+xң
+xҢ
+Xң
+XҢ
+xңx
+xҢx
+xо
+Xо
+xоx
+xО
+XО
+xОx
+xө
+xӨ
+Xө
+XӨ
+xөx
+xӨx
+xп
+xП
+Xп
+XП
+xпx
+xПx
+xр
+xР
+Xр
+XР
+xрx
+xРx
+xс
+xС
+Xс
+XС
+xсx
+xСx
+xт
+xТ
+Xт
+XТ
+xтx
+xТx
+xу
+xУ
+Xу
+XУ
+xуx
+xУx
+xұ
+xҰ
+Xұ
+XҰ
+xұx
+xҰx
+xү
+xҮ
+Xү
+XҮ
+xүx
+xҮx
+xф
+xФ
+Xф
+XФ
+xфx
+xФx
+xх
+xХ
+Xх
+XХ
+xхx
+xХx
+xһ
+xҺ
+Xһ
+XҺ
+xһx
+xҺx
+xц
+xЦ
+Xц
+XЦ
+xцx
+xЦx
+xч
+xЧ
+Xч
+XЧ
+xчx
+xЧx
+xш
+xШ
+Xш
+XШ
+xшx
+xШx
+xщ
+xЩ
+Xщ
+XЩ
+xщx
+xЩx
+xъ
+xЪ
+Xъ
+XЪ
+xъx
+xЪx
+xы
+xЫ
+Xы
+XЫ
+xыx
+xЫx
+xі
+xІ
+Xі
+XІ
+xіx
+xІx
+xь
+xЬ
+Xь
+XЬ
+xьx
+xЬx
+xэ
+xЭ
+Xэ
+XЭ
+xэx
+xЭx
+xю
+xЮ
+Xю
+XЮ
+xюx
+xЮx
+xя
+xЯ
+Xя
+XЯ
+xяx
+xЯx
+</result>
+  </collation>
+ </cldrTest>

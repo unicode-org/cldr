@@ -5,7 +5,7 @@
  <!-- Swedish [svenska] -->
   <number 
 locales='sv sv_FI sv_SE'>
-<!-- Swedish [svenska]; Swedish (Finland) [svenska (Finland)]; Swedish (Sweden) [svenska (Sverige)] -->
+<!-- Swedish [svenska@]; Swedish (Finland) [svenska (Finland)@]; Swedish (Sweden) [svenska (Sverige)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0 %</result>
@@ -57,183 +57,183 @@ locales='sv sv_FI sv_SE'>
   </number>
   <date 
 locales='sv sv_FI sv_SE'>
-<!-- Swedish [svenska]; Swedish (Finland) [svenska (Finland)]; Swedish (Sweden) [svenska (Sverige)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00.00</result>
-   <result timeType='medium'>00.00.00</result>
+<!-- Swedish [svenska@]; Swedish (Finland) [svenska (Finland)@]; Swedish (Sweden) [svenska (Sverige)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>1900-01-31</result>
-   <result timeType='short'>1900-01-31 00.00</result>
-   <result timeType='medium'>1900-01-31 00.00.00</result>
+   <result timeType='short'>1900-01-31 00:00</result>
+   <result timeType='medium'>1900-01-31 00:00:00</result>
    <result dateType='medium' timeType='none'>31 jan 1900</result>
-   <result timeType='short'>31 jan 1900 00.00</result>
-   <result timeType='medium'>31 jan 1900 00.00.00</result>
+   <result timeType='short'>31 jan 1900 00:00</result>
+   <result timeType='medium'>31 jan 1900 00:00:00</result>
    <result dateType='long' timeType='none'>31 januari 1900</result>
-   <result timeType='short'>31 januari 1900 00.00</result>
-   <result timeType='medium'>31 januari 1900 00.00.00</result>
-   <result dateType='full' timeType='none'>onsdag 31 januari 1900</result>
-   <result timeType='short'>onsdag 31 januari 1900 00.00</result>
-   <result timeType='medium'>onsdag 31 januari 1900 00.00.00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00.00</result>
-   <result timeType='medium'>00.00.01</result>
+   <result timeType='short'>31 januari 1900 00:00</result>
+   <result timeType='medium'>31 januari 1900 00:00:00</result>
+   <result dateType='full' timeType='none'>onsdagen den 31:e januari 1900</result>
+   <result timeType='short'>onsdagen den 31:e januari 1900 00:00</result>
+   <result timeType='medium'>onsdagen den 31:e januari 1900 00:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
    <result dateType='short' timeType='none'>1909-02-28</result>
-   <result timeType='short'>1909-02-28 00.00</result>
-   <result timeType='medium'>1909-02-28 00.00.01</result>
+   <result timeType='short'>1909-02-28 00:00</result>
+   <result timeType='medium'>1909-02-28 00:00:01</result>
    <result dateType='medium' timeType='none'>28 feb 1909</result>
-   <result timeType='short'>28 feb 1909 00.00</result>
-   <result timeType='medium'>28 feb 1909 00.00.01</result>
+   <result timeType='short'>28 feb 1909 00:00</result>
+   <result timeType='medium'>28 feb 1909 00:00:01</result>
    <result dateType='long' timeType='none'>28 februari 1909</result>
-   <result timeType='short'>28 februari 1909 00.00</result>
-   <result timeType='medium'>28 februari 1909 00.00.01</result>
-   <result dateType='full' timeType='none'>söndag 28 februari 1909</result>
-   <result timeType='short'>söndag 28 februari 1909 00.00</result>
-   <result timeType='medium'>söndag 28 februari 1909 00.00.01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00.59</result>
-   <result timeType='medium'>00.59.59</result>
+   <result timeType='short'>28 februari 1909 00:00</result>
+   <result timeType='medium'>28 februari 1909 00:00:01</result>
+   <result dateType='full' timeType='none'>söndagen den 28:e februari 1909</result>
+   <result timeType='short'>söndagen den 28:e februari 1909 00:00</result>
+   <result timeType='medium'>söndagen den 28:e februari 1909 00:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
    <result dateType='short' timeType='none'>1918-03-26</result>
-   <result timeType='short'>1918-03-26 00.59</result>
-   <result timeType='medium'>1918-03-26 00.59.59</result>
+   <result timeType='short'>1918-03-26 00:59</result>
+   <result timeType='medium'>1918-03-26 00:59:59</result>
    <result dateType='medium' timeType='none'>26 mar 1918</result>
-   <result timeType='short'>26 mar 1918 00.59</result>
-   <result timeType='medium'>26 mar 1918 00.59.59</result>
+   <result timeType='short'>26 mar 1918 00:59</result>
+   <result timeType='medium'>26 mar 1918 00:59:59</result>
    <result dateType='long' timeType='none'>26 mars 1918</result>
-   <result timeType='short'>26 mars 1918 00.59</result>
-   <result timeType='medium'>26 mars 1918 00.59.59</result>
-   <result dateType='full' timeType='none'>tisdag 26 mars 1918</result>
-   <result timeType='short'>tisdag 26 mars 1918 00.59</result>
-   <result timeType='medium'>tisdag 26 mars 1918 00.59.59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01.00</result>
-   <result timeType='medium'>01.00.00</result>
+   <result timeType='short'>26 mars 1918 00:59</result>
+   <result timeType='medium'>26 mars 1918 00:59:59</result>
+   <result dateType='full' timeType='none'>tisdagen den 26:e mars 1918</result>
+   <result timeType='short'>tisdagen den 26:e mars 1918 00:59</result>
+   <result timeType='medium'>tisdagen den 26:e mars 1918 00:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
    <result dateType='short' timeType='none'>1932-04-24</result>
-   <result timeType='short'>1932-04-24 01.00</result>
-   <result timeType='medium'>1932-04-24 01.00.00</result>
+   <result timeType='short'>1932-04-24 01:00</result>
+   <result timeType='medium'>1932-04-24 01:00:00</result>
    <result dateType='medium' timeType='none'>24 apr 1932</result>
-   <result timeType='short'>24 apr 1932 01.00</result>
-   <result timeType='medium'>24 apr 1932 01.00.00</result>
+   <result timeType='short'>24 apr 1932 01:00</result>
+   <result timeType='medium'>24 apr 1932 01:00:00</result>
    <result dateType='long' timeType='none'>24 april 1932</result>
-   <result timeType='short'>24 april 1932 01.00</result>
-   <result timeType='medium'>24 april 1932 01.00.00</result>
-   <result dateType='full' timeType='none'>söndag 24 april 1932</result>
-   <result timeType='short'>söndag 24 april 1932 01.00</result>
-   <result timeType='medium'>söndag 24 april 1932 01.00.00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01.00</result>
-   <result timeType='medium'>01.00.01</result>
+   <result timeType='short'>24 april 1932 01:00</result>
+   <result timeType='medium'>24 april 1932 01:00:00</result>
+   <result dateType='full' timeType='none'>söndagen den 24:e april 1932</result>
+   <result timeType='short'>söndagen den 24:e april 1932 01:00</result>
+   <result timeType='medium'>söndagen den 24:e april 1932 01:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
    <result dateType='short' timeType='none'>1945-05-20</result>
-   <result timeType='short'>1945-05-20 01.00</result>
-   <result timeType='medium'>1945-05-20 01.00.01</result>
+   <result timeType='short'>1945-05-20 01:00</result>
+   <result timeType='medium'>1945-05-20 01:00:01</result>
    <result dateType='medium' timeType='none'>20 maj 1945</result>
-   <result timeType='short'>20 maj 1945 01.00</result>
-   <result timeType='medium'>20 maj 1945 01.00.01</result>
+   <result timeType='short'>20 maj 1945 01:00</result>
+   <result timeType='medium'>20 maj 1945 01:00:01</result>
    <result dateType='long' timeType='none'>20 maj 1945</result>
-   <result timeType='short'>20 maj 1945 01.00</result>
-   <result timeType='medium'>20 maj 1945 01.00.01</result>
-   <result dateType='full' timeType='none'>söndag 20 maj 1945</result>
-   <result timeType='short'>söndag 20 maj 1945 01.00</result>
-   <result timeType='medium'>söndag 20 maj 1945 01.00.01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11.59</result>
-   <result timeType='medium'>11.59.59</result>
+   <result timeType='short'>20 maj 1945 01:00</result>
+   <result timeType='medium'>20 maj 1945 01:00:01</result>
+   <result dateType='full' timeType='none'>söndagen den 20:e maj 1945</result>
+   <result timeType='short'>söndagen den 20:e maj 1945 01:00</result>
+   <result timeType='medium'>söndagen den 20:e maj 1945 01:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
    <result dateType='short' timeType='none'>1952-06-18</result>
-   <result timeType='short'>1952-06-18 11.59</result>
-   <result timeType='medium'>1952-06-18 11.59.59</result>
+   <result timeType='short'>1952-06-18 11:59</result>
+   <result timeType='medium'>1952-06-18 11:59:59</result>
    <result dateType='medium' timeType='none'>18 jun 1952</result>
-   <result timeType='short'>18 jun 1952 11.59</result>
-   <result timeType='medium'>18 jun 1952 11.59.59</result>
+   <result timeType='short'>18 jun 1952 11:59</result>
+   <result timeType='medium'>18 jun 1952 11:59:59</result>
    <result dateType='long' timeType='none'>18 juni 1952</result>
-   <result timeType='short'>18 juni 1952 11.59</result>
-   <result timeType='medium'>18 juni 1952 11.59.59</result>
-   <result dateType='full' timeType='none'>onsdag 18 juni 1952</result>
-   <result timeType='short'>onsdag 18 juni 1952 11.59</result>
-   <result timeType='medium'>onsdag 18 juni 1952 11.59.59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12.00</result>
-   <result timeType='medium'>12.00.00</result>
+   <result timeType='short'>18 juni 1952 11:59</result>
+   <result timeType='medium'>18 juni 1952 11:59:59</result>
+   <result dateType='full' timeType='none'>onsdagen den 18:e juni 1952</result>
+   <result timeType='short'>onsdagen den 18:e juni 1952 11:59</result>
+   <result timeType='medium'>onsdagen den 18:e juni 1952 11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
    <result dateType='short' timeType='none'>1973-07-16</result>
-   <result timeType='short'>1973-07-16 12.00</result>
-   <result timeType='medium'>1973-07-16 12.00.00</result>
+   <result timeType='short'>1973-07-16 12:00</result>
+   <result timeType='medium'>1973-07-16 12:00:00</result>
    <result dateType='medium' timeType='none'>16 jul 1973</result>
-   <result timeType='short'>16 jul 1973 12.00</result>
-   <result timeType='medium'>16 jul 1973 12.00.00</result>
+   <result timeType='short'>16 jul 1973 12:00</result>
+   <result timeType='medium'>16 jul 1973 12:00:00</result>
    <result dateType='long' timeType='none'>16 juli 1973</result>
-   <result timeType='short'>16 juli 1973 12.00</result>
-   <result timeType='medium'>16 juli 1973 12.00.00</result>
-   <result dateType='full' timeType='none'>måndag 16 juli 1973</result>
-   <result timeType='short'>måndag 16 juli 1973 12.00</result>
-   <result timeType='medium'>måndag 16 juli 1973 12.00.00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12.00</result>
-   <result timeType='medium'>12.00.01</result>
+   <result timeType='short'>16 juli 1973 12:00</result>
+   <result timeType='medium'>16 juli 1973 12:00:00</result>
+   <result dateType='full' timeType='none'>måndagen den 16:e juli 1973</result>
+   <result timeType='short'>måndagen den 16:e juli 1973 12:00</result>
+   <result timeType='medium'>måndagen den 16:e juli 1973 12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
    <result dateType='short' timeType='none'>1999-08-14</result>
-   <result timeType='short'>1999-08-14 12.00</result>
-   <result timeType='medium'>1999-08-14 12.00.01</result>
+   <result timeType='short'>1999-08-14 12:00</result>
+   <result timeType='medium'>1999-08-14 12:00:01</result>
    <result dateType='medium' timeType='none'>14 aug 1999</result>
-   <result timeType='short'>14 aug 1999 12.00</result>
-   <result timeType='medium'>14 aug 1999 12.00.01</result>
+   <result timeType='short'>14 aug 1999 12:00</result>
+   <result timeType='medium'>14 aug 1999 12:00:01</result>
    <result dateType='long' timeType='none'>14 augusti 1999</result>
-   <result timeType='short'>14 augusti 1999 12.00</result>
-   <result timeType='medium'>14 augusti 1999 12.00.01</result>
-   <result dateType='full' timeType='none'>lördag 14 augusti 1999</result>
-   <result timeType='short'>lördag 14 augusti 1999 12.00</result>
-   <result timeType='medium'>lördag 14 augusti 1999 12.00.01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22.59</result>
-   <result timeType='medium'>22.59.59</result>
+   <result timeType='short'>14 augusti 1999 12:00</result>
+   <result timeType='medium'>14 augusti 1999 12:00:01</result>
+   <result dateType='full' timeType='none'>lördagen den 14:e augusti 1999</result>
+   <result timeType='short'>lördagen den 14:e augusti 1999 12:00</result>
+   <result timeType='medium'>lördagen den 14:e augusti 1999 12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
    <result dateType='short' timeType='none'>2000-09-12</result>
-   <result timeType='short'>2000-09-12 22.59</result>
-   <result timeType='medium'>2000-09-12 22.59.59</result>
+   <result timeType='short'>2000-09-12 22:59</result>
+   <result timeType='medium'>2000-09-12 22:59:59</result>
    <result dateType='medium' timeType='none'>12 sep 2000</result>
-   <result timeType='short'>12 sep 2000 22.59</result>
-   <result timeType='medium'>12 sep 2000 22.59.59</result>
+   <result timeType='short'>12 sep 2000 22:59</result>
+   <result timeType='medium'>12 sep 2000 22:59:59</result>
    <result dateType='long' timeType='none'>12 september 2000</result>
-   <result timeType='short'>12 september 2000 22.59</result>
-   <result timeType='medium'>12 september 2000 22.59.59</result>
-   <result dateType='full' timeType='none'>tisdag 12 september 2000</result>
-   <result timeType='short'>tisdag 12 september 2000 22.59</result>
-   <result timeType='medium'>tisdag 12 september 2000 22.59.59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23.00</result>
-   <result timeType='medium'>23.00.00</result>
+   <result timeType='short'>12 september 2000 22:59</result>
+   <result timeType='medium'>12 september 2000 22:59:59</result>
+   <result dateType='full' timeType='none'>tisdagen den 12:e september 2000</result>
+   <result timeType='short'>tisdagen den 12:e september 2000 22:59</result>
+   <result timeType='medium'>tisdagen den 12:e september 2000 22:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
    <result dateType='short' timeType='none'>2001-10-08</result>
-   <result timeType='short'>2001-10-08 23.00</result>
-   <result timeType='medium'>2001-10-08 23.00.00</result>
+   <result timeType='short'>2001-10-08 23:00</result>
+   <result timeType='medium'>2001-10-08 23:00:00</result>
    <result dateType='medium' timeType='none'>8 okt 2001</result>
-   <result timeType='short'>8 okt 2001 23.00</result>
-   <result timeType='medium'>8 okt 2001 23.00.00</result>
+   <result timeType='short'>8 okt 2001 23:00</result>
+   <result timeType='medium'>8 okt 2001 23:00:00</result>
    <result dateType='long' timeType='none'>8 oktober 2001</result>
-   <result timeType='short'>8 oktober 2001 23.00</result>
-   <result timeType='medium'>8 oktober 2001 23.00.00</result>
-   <result dateType='full' timeType='none'>måndag 8 oktober 2001</result>
-   <result timeType='short'>måndag 8 oktober 2001 23.00</result>
-   <result timeType='medium'>måndag 8 oktober 2001 23.00.00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23.00</result>
-   <result timeType='medium'>23.00.01</result>
+   <result timeType='short'>8 oktober 2001 23:00</result>
+   <result timeType='medium'>8 oktober 2001 23:00:00</result>
+   <result dateType='full' timeType='none'>måndagen den 8:e oktober 2001</result>
+   <result timeType='short'>måndagen den 8:e oktober 2001 23:00</result>
+   <result timeType='medium'>måndagen den 8:e oktober 2001 23:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
    <result dateType='short' timeType='none'>2004-11-04</result>
-   <result timeType='short'>2004-11-04 23.00</result>
-   <result timeType='medium'>2004-11-04 23.00.01</result>
+   <result timeType='short'>2004-11-04 23:00</result>
+   <result timeType='medium'>2004-11-04 23:00:01</result>
    <result dateType='medium' timeType='none'>4 nov 2004</result>
-   <result timeType='short'>4 nov 2004 23.00</result>
-   <result timeType='medium'>4 nov 2004 23.00.01</result>
+   <result timeType='short'>4 nov 2004 23:00</result>
+   <result timeType='medium'>4 nov 2004 23:00:01</result>
    <result dateType='long' timeType='none'>4 november 2004</result>
-   <result timeType='short'>4 november 2004 23.00</result>
-   <result timeType='medium'>4 november 2004 23.00.01</result>
-   <result dateType='full' timeType='none'>torsdag 4 november 2004</result>
-   <result timeType='short'>torsdag 4 november 2004 23.00</result>
-   <result timeType='medium'>torsdag 4 november 2004 23.00.01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23.59</result>
-   <result timeType='medium'>23.59.59</result>
+   <result timeType='short'>4 november 2004 23:00</result>
+   <result timeType='medium'>4 november 2004 23:00:01</result>
+   <result dateType='full' timeType='none'>torsdagen den 4:e november 2004</result>
+   <result timeType='short'>torsdagen den 4:e november 2004 23:00</result>
+   <result timeType='medium'>torsdagen den 4:e november 2004 23:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
    <result dateType='short' timeType='none'>2010-12-01</result>
-   <result timeType='short'>2010-12-01 23.59</result>
-   <result timeType='medium'>2010-12-01 23.59.59</result>
+   <result timeType='short'>2010-12-01 23:59</result>
+   <result timeType='medium'>2010-12-01 23:59:59</result>
    <result dateType='medium' timeType='none'>1 dec 2010</result>
-   <result timeType='short'>1 dec 2010 23.59</result>
-   <result timeType='medium'>1 dec 2010 23.59.59</result>
+   <result timeType='short'>1 dec 2010 23:59</result>
+   <result timeType='medium'>1 dec 2010 23:59:59</result>
    <result dateType='long' timeType='none'>1 december 2010</result>
-   <result timeType='short'>1 december 2010 23.59</result>
-   <result timeType='medium'>1 december 2010 23.59.59</result>
-   <result dateType='full' timeType='none'>onsdag 1 december 2010</result>
-   <result timeType='short'>onsdag 1 december 2010 23.59</result>
-   <result timeType='medium'>onsdag 1 december 2010 23.59.59</result>
+   <result timeType='short'>1 december 2010 23:59</result>
+   <result timeType='medium'>1 december 2010 23:59:59</result>
+   <result dateType='full' timeType='none'>onsdagen den 1:e december 2010</result>
+   <result timeType='short'>onsdagen den 1:e december 2010 23:59</result>
+   <result timeType='medium'>onsdagen den 1:e december 2010 23:59:59</result>
   </date>
   <zoneFields 
 locales='sv sv_FI sv_SE'>
-<!-- Swedish [svenska]; Swedish (Finland) [svenska (Finland)]; Swedish (Sweden) [svenska (Sverige)] -->
+<!-- Swedish [svenska@]; Swedish (Finland) [svenska (Finland)@]; Swedish (Sweden) [svenska (Sverige)@] -->
   </zoneFields>
   <collation 
 locales='sv sv_SE'>
-<!-- Swedish [svenska]; Swedish (Sweden) [svenska (Sverige)] -->
+<!-- Swedish [svenska@]; Swedish (Sweden) [svenska (Sverige)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -495,363 +495,6 @@ XW
 xvx
 xwx
 xVx
-xWx
-xx
-xX
-Xx
-XX
-xxx
-xXx
-xy
-xY
-Xy
-XY
-xÿ
-xŸ
-Xÿ
-XŸ
-xü
-xÜ
-Xü
-XÜ
-xű
-xŰ
-Xű
-XŰ
-xyx
-xYx
-xÿx
-xŸx
-xüx
-xÜx
-xűx
-xŰx
-xz
-xZ
-Xz
-XZ
-xzx
-xZx
-xå
-xÅ
-Xå
-XÅ
-xåx
-xÅx
-xä
-xÄ
-Xä
-XÄ
-xæ
-xÆ
-Xæ
-XÆ
-xę
-xĘ
-Xę
-XĘ
-xäx
-xÄx
-xæx
-xÆx
-xęx
-xĘx
-xö
-xÖ
-Xö
-XÖ
-xø
-xØ
-Xø
-XØ
-xő
-xŐ
-Xő
-XŐ
-xœ
-xŒ
-Xœ
-XŒ
-xô
-xÔ
-Xô
-XÔ
-xöx
-xÖx
-xøx
-xØx
-xőx
-xŐx
-xœx
-xŒx
-xôx
-xÔx
-</result>
-  </collation>
-  <collation 
-locales='sv@collation=reformed sv_SE@collation=reformed'>
-<!-- Swedish (collation=reformed) [svenska (sorteringsordning=reformed)]; Swedish (Sweden, collation=reformed) [svenska (Sverige, sorteringsordning=reformed)] -->
-   <result draft='unconfirmed approved'>
-x 
-X 
-x x
-x.
-X.
-x.x
-x0
-X0
-x0x
-x12
-X12
-x12x
-x2
-X2
-x2x
-xa
-xA
-Xa
-XA
-xá
-xÁ
-Xá
-XÁ
-xà
-xÀ
-Xà
-XÀ
-xâ
-xÂ
-Xâ
-XÂ
-xã
-xÃ
-Xã
-XÃ
-xā
-xĀ
-Xā
-XĀ
-xax
-xAx
-xáx
-xÁx
-xàx
-xÀx
-xâx
-xÂx
-xãx
-xÃx
-xāx
-xĀx
-xb
-xB
-Xb
-XB
-xbx
-xBx
-xc
-xC
-Xc
-XC
-xç
-xÇ
-Xç
-XÇ
-xcx
-xCx
-xçx
-xÇx
-xd
-xD
-Xd
-XD
-xđ
-xĐ
-Xđ
-XĐ
-xð
-xÐ
-Xð
-XÐ
-xdx
-xDx
-xđx
-xĐx
-xðx
-xÐx
-xe
-xE
-Xe
-XE
-xé
-xÉ
-Xé
-XÉ
-xë
-xË
-Xë
-XË
-xex
-xEx
-xéx
-xÉx
-xëx
-xËx
-xf
-xF
-Xf
-XF
-xfx
-xFx
-xg
-xG
-Xg
-XG
-xgx
-xGx
-xh
-xH
-Xh
-XH
-xhx
-xHx
-xi
-xI
-Xi
-XI
-xí
-xÍ
-Xí
-XÍ
-xî
-xÎ
-Xî
-XÎ
-xï
-xÏ
-Xï
-XÏ
-xī
-xĪ
-Xī
-XĪ
-xix
-xIx
-xíx
-xÍx
-xîx
-xÎx
-xïx
-xÏx
-xīx
-xĪx
-xj
-xJ
-Xj
-XJ
-xjx
-xJx
-xk
-xK
-Xk
-XK
-xkx
-xKx
-xl
-xL
-Xl
-XL
-xlx
-xLx
-xm
-xM
-Xm
-XM
-xmx
-xMx
-xn
-xN
-Xn
-XN
-xñ
-xÑ
-Xñ
-XÑ
-xnx
-xNx
-xñx
-xÑx
-xo
-xO
-Xo
-XO
-xó
-xÓ
-Xó
-XÓ
-xox
-xOx
-xóx
-xÓx
-xp
-xP
-Xp
-XP
-xpx
-xPx
-xq
-xQ
-Xq
-XQ
-xqx
-xQx
-xr
-xR
-Xr
-XR
-xrx
-xRx
-xs
-xS
-Xs
-XS
-xsx
-xSx
-xt
-xT
-Xt
-XT
-xþ
-xÞ
-Xþ
-XÞ
-xþx
-xÞx
-xtx
-xTx
-xu
-xU
-Xu
-XU
-xú
-xÚ
-Xú
-XÚ
-xux
-xUx
-xúx
-xÚx
-xv
-xV
-Xv
-XV
-xvx
-xVx
-xw
-xW
-Xw
-XW
-xwx
 xWx
 xx
 xX
@@ -947,7 +590,7 @@ xÔx
   </collation>
   <collation 
 locales='sv_FI'>
-<!-- Swedish (Finland) [svenska (Finland)] -->
+<!-- Swedish (Finland) [svenska (Finland)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -1173,333 +816,6 @@ XW
 xvx
 xwx
 xVx
-xWx
-xx
-xX
-Xx
-XX
-xxx
-xXx
-xy
-xY
-Xy
-XY
-xÿ
-xŸ
-Xÿ
-XŸ
-xü
-xÜ
-Xü
-XÜ
-xű
-xŰ
-Xű
-XŰ
-xyx
-xYx
-xÿx
-xŸx
-xüx
-xÜx
-xűx
-xŰx
-xz
-xZ
-Xz
-XZ
-xž
-xŽ
-Xž
-XŽ
-xzx
-xZx
-xžx
-xŽx
-xå
-xÅ
-Xå
-XÅ
-xåx
-xÅx
-xä
-xÄ
-Xä
-XÄ
-xæ
-xÆ
-Xæ
-XÆ
-xę
-xĘ
-Xę
-XĘ
-xäx
-xÄx
-xæx
-xÆx
-xęx
-xĘx
-xö
-xÖ
-Xö
-XÖ
-xø
-xØ
-Xø
-XØ
-xő
-xŐ
-Xő
-XŐ
-xœ
-xŒ
-Xœ
-XŒ
-xô
-xÔ
-Xô
-XÔ
-xöx
-xÖx
-xøx
-xØx
-xőx
-xŐx
-xœx
-xŒx
-xôx
-xÔx
-</result>
-  </collation>
-  <collation 
-locales='sv_FI@collation=reformed'>
-<!-- Swedish (Finland, collation=reformed) [svenska (Finland, sorteringsordning=reformed)] -->
-   <result draft='unconfirmed approved'>
-x 
-X 
-x x
-x.
-X.
-x.x
-x0
-X0
-x0x
-x12
-X12
-x12x
-x2
-X2
-x2x
-xa
-xA
-Xa
-XA
-xà
-xÀ
-Xà
-XÀ
-xã
-xÃ
-Xã
-XÃ
-xax
-xAx
-xàx
-xÀx
-xãx
-xÃx
-xb
-xB
-Xb
-XB
-xbx
-xBx
-xc
-xC
-Xc
-XC
-xç
-xÇ
-Xç
-XÇ
-xcx
-xCx
-xçx
-xÇx
-xd
-xD
-Xd
-XD
-xđ
-xĐ
-Xđ
-XĐ
-xð
-xÐ
-Xð
-XÐ
-xdx
-xDx
-xđx
-xĐx
-xðx
-xÐx
-xe
-xE
-Xe
-XE
-xé
-xÉ
-Xé
-XÉ
-xë
-xË
-Xë
-XË
-xex
-xEx
-xéx
-xÉx
-xëx
-xËx
-xf
-xF
-Xf
-XF
-xfx
-xFx
-xg
-xG
-Xg
-XG
-xgx
-xGx
-xh
-xH
-Xh
-XH
-xhx
-xHx
-xi
-xI
-Xi
-XI
-xí
-xÍ
-Xí
-XÍ
-xix
-xIx
-xíx
-xÍx
-xj
-xJ
-Xj
-XJ
-xjx
-xJx
-xk
-xK
-Xk
-XK
-xkx
-xKx
-xl
-xL
-Xl
-XL
-xlx
-xLx
-xm
-xM
-Xm
-XM
-xmx
-xMx
-xn
-xN
-Xn
-XN
-xñ
-xÑ
-Xñ
-XÑ
-xnx
-xNx
-xñx
-xÑx
-xo
-xO
-Xo
-XO
-xó
-xÓ
-Xó
-XÓ
-xox
-xOx
-xóx
-xÓx
-xp
-xP
-Xp
-XP
-xpx
-xPx
-xq
-xQ
-Xq
-XQ
-xqx
-xQx
-xr
-xR
-Xr
-XR
-xrx
-xRx
-xs
-xS
-Xs
-XS
-xš
-xŠ
-Xš
-XŠ
-xsx
-xSx
-xšx
-xŠx
-xt
-xT
-Xt
-XT
-xþ
-xÞ
-Xþ
-XÞ
-xþx
-xÞx
-xtx
-xTx
-xu
-xU
-Xu
-XU
-xux
-xUx
-xv
-xV
-Xv
-XV
-xvx
-xVx
-xw
-xW
-Xw
-XW
-xwx
 xWx
 xx
 xX

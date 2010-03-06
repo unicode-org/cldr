@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='ee'>
- <!-- Ewe [Ewe] -->
+ <!-- Ewe [Eʋegbe] -->
   <number 
 locales='ee ee_GH ee_TG'>
-<!-- Ewe [Ewe]; Ewe (Ghana) [Ewe (Ghana)]; Ewe (Togo) [Ewe (Togo)] -->
+<!-- Ewe [Eʋegbe@]; Ewe (Ghana) [Eʋegbe (Ghanadu)@]; Ewe (Togo) [Eʋegbe (Togodu)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,327 +57,183 @@ locales='ee ee_GH ee_TG'>
   </number>
   <date 
 locales='ee ee_GH ee_TG'>
-<!-- Ewe [Ewe]; Ewe (Ghana) [Ewe (Ghana)]; Ewe (Togo) [Ewe (Togo)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
-   <result timeType='medium'>00:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>00/01/31</result>
-   <result draft='approved'>1900-01-31</result>
-   <result timeType='short' draft='unconfirmed'>00/01/31 00:00</result>
-   <result draft='approved'>1900-01-31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>00/01/31 00:00:00</result>
-   <result draft='approved'>1900-01-31 00:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1900 Dzv 31</result>
-   <result draft='approved'>1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>1900 Dzv 31 00:00</result>
-   <result draft='approved'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1900 Dzv 31 00:00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1900 Dzove 31</result>
-   <result draft='approved'>1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>1900 Dzove 31 00:00</result>
-   <result draft='approved'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1900 Dzove 31 00:00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Kuɖa, 1900 Dzove 31</result>
-   <result draft='approved'>4, 1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>Kuɖa, 1900 Dzove 31 00:00</result>
-   <result draft='approved'>4, 1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>Kuɖa, 1900 Dzove 31 00:00:00</result>
-   <result draft='approved'>4, 1900 1 31 00:00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
-   <result timeType='medium'>00:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>09/02/28</result>
-   <result draft='approved'>1909-02-28</result>
-   <result timeType='short' draft='unconfirmed'>09/02/28 00:00</result>
-   <result draft='approved'>1909-02-28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>09/02/28 00:00:01</result>
-   <result draft='approved'>1909-02-28 00:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1909 Dzd 28</result>
-   <result draft='approved'>1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>1909 Dzd 28 00:00</result>
-   <result draft='approved'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1909 Dzd 28 00:00:01</result>
-   <result draft='approved'>1909 2 28 00:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1909 Dzodze 28</result>
-   <result draft='approved'>1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>1909 Dzodze 28 00:00</result>
-   <result draft='approved'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1909 Dzodze 28 00:00:01</result>
-   <result draft='approved'>1909 2 28 00:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Kɔsiɖa, 1909 Dzodze 28</result>
-   <result draft='approved'>1, 1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>Kɔsiɖa, 1909 Dzodze 28 00:00</result>
-   <result draft='approved'>1, 1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>Kɔsiɖa, 1909 Dzodze 28 00:00:01</result>
-   <result draft='approved'>1, 1909 2 28 00:00:01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:59</result>
-   <result timeType='medium'>00:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>18/03/26</result>
-   <result draft='approved'>1918-03-26</result>
-   <result timeType='short' draft='unconfirmed'>18/03/26 00:59</result>
-   <result draft='approved'>1918-03-26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>18/03/26 00:59:59</result>
-   <result draft='approved'>1918-03-26 00:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1918 Ted 26</result>
-   <result draft='approved'>1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>1918 Ted 26 00:59</result>
-   <result draft='approved'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>1918 Ted 26 00:59:59</result>
-   <result draft='approved'>1918 3 26 00:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1918 Tedoxe 26</result>
-   <result draft='approved'>1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>1918 Tedoxe 26 00:59</result>
-   <result draft='approved'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>1918 Tedoxe 26 00:59:59</result>
-   <result draft='approved'>1918 3 26 00:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Braɖa, 1918 Tedoxe 26</result>
-   <result draft='approved'>3, 1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>Braɖa, 1918 Tedoxe 26 00:59</result>
-   <result draft='approved'>3, 1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>Braɖa, 1918 Tedoxe 26 00:59:59</result>
-   <result draft='approved'>3, 1918 3 26 00:59:59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
-   <result timeType='medium'>01:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>32/04/24</result>
-   <result draft='approved'>1932-04-24</result>
-   <result timeType='short' draft='unconfirmed'>32/04/24 01:00</result>
-   <result draft='approved'>1932-04-24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>32/04/24 01:00:00</result>
-   <result draft='approved'>1932-04-24 01:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1932 Afɔ 24</result>
-   <result draft='approved'>1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>1932 Afɔ 24 01:00</result>
-   <result draft='approved'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1932 Afɔ 24 01:00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1932 Afɔfiɛ 24</result>
-   <result draft='approved'>1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>1932 Afɔfiɛ 24 01:00</result>
-   <result draft='approved'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1932 Afɔfiɛ 24 01:00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Kɔsiɖa, 1932 Afɔfiɛ 24</result>
-   <result draft='approved'>1, 1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>Kɔsiɖa, 1932 Afɔfiɛ 24 01:00</result>
-   <result draft='approved'>1, 1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>Kɔsiɖa, 1932 Afɔfiɛ 24 01:00:00</result>
-   <result draft='approved'>1, 1932 4 24 01:00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
-   <result timeType='medium'>01:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>45/05/20</result>
-   <result draft='approved'>1945-05-20</result>
-   <result timeType='short' draft='unconfirmed'>45/05/20 01:00</result>
-   <result draft='approved'>1945-05-20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>45/05/20 01:00:01</result>
-   <result draft='approved'>1945-05-20 01:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1945 Dam 20</result>
-   <result draft='approved'>1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>1945 Dam 20 01:00</result>
-   <result draft='approved'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1945 Dam 20 01:00:01</result>
-   <result draft='approved'>1945 5 20 01:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1945 Dama 20</result>
-   <result draft='approved'>1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>1945 Dama 20 01:00</result>
-   <result draft='approved'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1945 Dama 20 01:00:01</result>
-   <result draft='approved'>1945 5 20 01:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Kɔsiɖa, 1945 Dama 20</result>
-   <result draft='approved'>1, 1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>Kɔsiɖa, 1945 Dama 20 01:00</result>
-   <result draft='approved'>1, 1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>Kɔsiɖa, 1945 Dama 20 01:00:01</result>
-   <result draft='approved'>1, 1945 5 20 01:00:01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>11:59</result>
-   <result timeType='medium'>11:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>52/06/18</result>
-   <result draft='approved'>1952-06-18</result>
-   <result timeType='short' draft='unconfirmed'>52/06/18 11:59</result>
-   <result draft='approved'>1952-06-18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>52/06/18 11:59:59</result>
-   <result draft='approved'>1952-06-18 11:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1952 Mas 18</result>
-   <result draft='approved'>1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>1952 Mas 18 11:59</result>
-   <result draft='approved'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>1952 Mas 18 11:59:59</result>
-   <result draft='approved'>1952 6 18 11:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1952 Masa 18</result>
-   <result draft='approved'>1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>1952 Masa 18 11:59</result>
-   <result draft='approved'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>1952 Masa 18 11:59:59</result>
-   <result draft='approved'>1952 6 18 11:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Kuɖa, 1952 Masa 18</result>
-   <result draft='approved'>4, 1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>Kuɖa, 1952 Masa 18 11:59</result>
-   <result draft='approved'>4, 1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>Kuɖa, 1952 Masa 18 11:59:59</result>
-   <result draft='approved'>4, 1952 6 18 11:59:59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
-   <result timeType='medium'>12:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>73/07/16</result>
-   <result draft='approved'>1973-07-16</result>
-   <result timeType='short' draft='unconfirmed'>73/07/16 12:00</result>
-   <result draft='approved'>1973-07-16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>73/07/16 12:00:00</result>
-   <result draft='approved'>1973-07-16 12:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1973 Sia 16</result>
-   <result draft='approved'>1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>1973 Sia 16 12:00</result>
-   <result draft='approved'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1973 Sia 16 12:00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1973 Siamlɔm 16</result>
-   <result draft='approved'>1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>1973 Siamlɔm 16 12:00</result>
-   <result draft='approved'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1973 Siamlɔm 16 12:00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Dzoɖa, 1973 Siamlɔm 16</result>
-   <result draft='approved'>2, 1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>Dzoɖa, 1973 Siamlɔm 16 12:00</result>
-   <result draft='approved'>2, 1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>Dzoɖa, 1973 Siamlɔm 16 12:00:00</result>
-   <result draft='approved'>2, 1973 7 16 12:00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
-   <result timeType='medium'>12:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>99/08/14</result>
-   <result draft='approved'>1999-08-14</result>
-   <result timeType='short' draft='unconfirmed'>99/08/14 12:00</result>
-   <result draft='approved'>1999-08-14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>99/08/14 12:00:01</result>
-   <result draft='approved'>1999-08-14 12:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1999 Dea 14</result>
-   <result draft='approved'>1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>1999 Dea 14 12:00</result>
-   <result draft='approved'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1999 Dea 14 12:00:01</result>
-   <result draft='approved'>1999 8 14 12:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1999 Deasiamime 14</result>
-   <result draft='approved'>1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>1999 Deasiamime 14 12:00</result>
-   <result draft='approved'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1999 Deasiamime 14 12:00:01</result>
-   <result draft='approved'>1999 8 14 12:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Memleɖa, 1999 Deasiamime 14</result>
-   <result draft='approved'>7, 1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>Memleɖa, 1999 Deasiamime 14 12:00</result>
-   <result draft='approved'>7, 1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>Memleɖa, 1999 Deasiamime 14 12:00:01</result>
-   <result draft='approved'>7, 1999 8 14 12:00:01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>22:59</result>
-   <result timeType='medium'>22:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>00/09/12</result>
-   <result draft='approved'>2000-09-12</result>
-   <result timeType='short' draft='unconfirmed'>00/09/12 22:59</result>
-   <result draft='approved'>2000-09-12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>00/09/12 22:59:59</result>
-   <result draft='approved'>2000-09-12 22:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2000 Any 12</result>
-   <result draft='approved'>2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>2000 Any 12 22:59</result>
-   <result draft='approved'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>2000 Any 12 22:59:59</result>
-   <result draft='approved'>2000 9 12 22:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2000 Anyɔnyɔ 12</result>
-   <result draft='approved'>2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>2000 Anyɔnyɔ 12 22:59</result>
-   <result draft='approved'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>2000 Anyɔnyɔ 12 22:59:59</result>
-   <result draft='approved'>2000 9 12 22:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Braɖa, 2000 Anyɔnyɔ 12</result>
-   <result draft='approved'>3, 2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>Braɖa, 2000 Anyɔnyɔ 12 22:59</result>
-   <result draft='approved'>3, 2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>Braɖa, 2000 Anyɔnyɔ 12 22:59:59</result>
-   <result draft='approved'>3, 2000 9 12 22:59:59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
-   <result timeType='medium'>23:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>01/10/08</result>
-   <result draft='approved'>2001-10-08</result>
-   <result timeType='short' draft='unconfirmed'>01/10/08 23:00</result>
-   <result draft='approved'>2001-10-08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>01/10/08 23:00:00</result>
-   <result draft='approved'>2001-10-08 23:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2001 Kel 8</result>
-   <result draft='approved'>2001 10 8</result>
-   <result timeType='short' draft='unconfirmed'>2001 Kel 8 23:00</result>
-   <result draft='approved'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2001 Kel 8 23:00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2001 Kele 8</result>
-   <result draft='approved'>2001 10 8</result>
-   <result timeType='short' draft='unconfirmed'>2001 Kele 8 23:00</result>
-   <result draft='approved'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2001 Kele 8 23:00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Dzoɖa, 2001 Kele 08</result>
-   <result draft='approved'>2, 2001 10 08</result>
-   <result timeType='short' draft='unconfirmed'>Dzoɖa, 2001 Kele 08 23:00</result>
-   <result draft='approved'>2, 2001 10 08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>Dzoɖa, 2001 Kele 08 23:00:00</result>
-   <result draft='approved'>2, 2001 10 08 23:00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
-   <result timeType='medium'>23:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>04/11/04</result>
-   <result draft='approved'>2004-11-04</result>
-   <result timeType='short' draft='unconfirmed'>04/11/04 23:00</result>
-   <result draft='approved'>2004-11-04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>04/11/04 23:00:01</result>
-   <result draft='approved'>2004-11-04 23:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2004 Ade 4</result>
-   <result draft='approved'>2004 11 4</result>
-   <result timeType='short' draft='unconfirmed'>2004 Ade 4 23:00</result>
-   <result draft='approved'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2004 Ade 4 23:00:01</result>
-   <result draft='approved'>2004 11 4 23:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2004 Adeɛmekpɔxe 4</result>
-   <result draft='approved'>2004 11 4</result>
-   <result timeType='short' draft='unconfirmed'>2004 Adeɛmekpɔxe 4 23:00</result>
-   <result draft='approved'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2004 Adeɛmekpɔxe 4 23:00:01</result>
-   <result draft='approved'>2004 11 4 23:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Yawoɖa, 2004 Adeɛmekpɔxe 04</result>
-   <result draft='approved'>5, 2004 11 04</result>
-   <result timeType='short' draft='unconfirmed'>Yawoɖa, 2004 Adeɛmekpɔxe 04 23:00</result>
-   <result draft='approved'>5, 2004 11 04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>Yawoɖa, 2004 Adeɛmekpɔxe 04 23:00:01</result>
-   <result draft='approved'>5, 2004 11 04 23:00:01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:59</result>
-   <result timeType='medium'>23:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>10/12/01</result>
-   <result draft='approved'>2010-12-01</result>
-   <result timeType='short' draft='unconfirmed'>10/12/01 23:59</result>
-   <result draft='approved'>2010-12-01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>10/12/01 23:59:59</result>
-   <result draft='approved'>2010-12-01 23:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2010 Dzm 1</result>
-   <result draft='approved'>2010 12 1</result>
-   <result timeType='short' draft='unconfirmed'>2010 Dzm 1 23:59</result>
-   <result draft='approved'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>2010 Dzm 1 23:59:59</result>
-   <result draft='approved'>2010 12 1 23:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2010 Dzome 1</result>
-   <result draft='approved'>2010 12 1</result>
-   <result timeType='short' draft='unconfirmed'>2010 Dzome 1 23:59</result>
-   <result draft='approved'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>2010 Dzome 1 23:59:59</result>
-   <result draft='approved'>2010 12 1 23:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>Kuɖa, 2010 Dzome 01</result>
-   <result draft='approved'>4, 2010 12 01</result>
-   <result timeType='short' draft='unconfirmed'>Kuɖa, 2010 Dzome 01 23:59</result>
-   <result draft='approved'>4, 2010 12 01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>Kuɖa, 2010 Dzome 01 23:59:59</result>
-   <result draft='approved'>4, 2010 12 01 23:59:59</result>
+<!-- Ewe [Eʋegbe@]; Ewe (Ghana) [Eʋegbe (Ghanadu)@]; Ewe (Togo) [Eʋegbe (Togodu)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 AN</result>
+   <result timeType='medium'>12:00:00 AN</result>
+   <result dateType='short' timeType='none'>31/01/1900</result>
+   <result timeType='short'>31/01/1900 12:00 AN</result>
+   <result timeType='medium'>31/01/1900 12:00:00 AN</result>
+   <result dateType='medium' timeType='none'>31 Dzv 1900</result>
+   <result timeType='short'>31 Dzv 1900 12:00 AN</result>
+   <result timeType='medium'>31 Dzv 1900 12:00:00 AN</result>
+   <result dateType='long' timeType='none'>31 Dzove 1900</result>
+   <result timeType='short'>31 Dzove 1900 12:00 AN</result>
+   <result timeType='medium'>31 Dzove 1900 12:00:00 AN</result>
+   <result dateType='full' timeType='none'>Kuɖa, 31 Dzove 1900</result>
+   <result timeType='short'>Kuɖa, 31 Dzove 1900 12:00 AN</result>
+   <result timeType='medium'>Kuɖa, 31 Dzove 1900 12:00:00 AN</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 AN</result>
+   <result timeType='medium'>12:00:01 AN</result>
+   <result dateType='short' timeType='none'>28/02/1909</result>
+   <result timeType='short'>28/02/1909 12:00 AN</result>
+   <result timeType='medium'>28/02/1909 12:00:01 AN</result>
+   <result dateType='medium' timeType='none'>28 Dzd 1909</result>
+   <result timeType='short'>28 Dzd 1909 12:00 AN</result>
+   <result timeType='medium'>28 Dzd 1909 12:00:01 AN</result>
+   <result dateType='long' timeType='none'>28 Dzodze 1909</result>
+   <result timeType='short'>28 Dzodze 1909 12:00 AN</result>
+   <result timeType='medium'>28 Dzodze 1909 12:00:01 AN</result>
+   <result dateType='full' timeType='none'>Kɔsiɖa, 28 Dzodze 1909</result>
+   <result timeType='short'>Kɔsiɖa, 28 Dzodze 1909 12:00 AN</result>
+   <result timeType='medium'>Kɔsiɖa, 28 Dzodze 1909 12:00:01 AN</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 AN</result>
+   <result timeType='medium'>12:59:59 AN</result>
+   <result dateType='short' timeType='none'>26/03/1918</result>
+   <result timeType='short'>26/03/1918 12:59 AN</result>
+   <result timeType='medium'>26/03/1918 12:59:59 AN</result>
+   <result dateType='medium' timeType='none'>26 Ted 1918</result>
+   <result timeType='short'>26 Ted 1918 12:59 AN</result>
+   <result timeType='medium'>26 Ted 1918 12:59:59 AN</result>
+   <result dateType='long' timeType='none'>26 Tedoxe 1918</result>
+   <result timeType='short'>26 Tedoxe 1918 12:59 AN</result>
+   <result timeType='medium'>26 Tedoxe 1918 12:59:59 AN</result>
+   <result dateType='full' timeType='none'>Braɖa, 26 Tedoxe 1918</result>
+   <result timeType='short'>Braɖa, 26 Tedoxe 1918 12:59 AN</result>
+   <result timeType='medium'>Braɖa, 26 Tedoxe 1918 12:59:59 AN</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 AN</result>
+   <result timeType='medium'>1:00:00 AN</result>
+   <result dateType='short' timeType='none'>24/04/1932</result>
+   <result timeType='short'>24/04/1932 1:00 AN</result>
+   <result timeType='medium'>24/04/1932 1:00:00 AN</result>
+   <result dateType='medium' timeType='none'>24 Afɔ 1932</result>
+   <result timeType='short'>24 Afɔ 1932 1:00 AN</result>
+   <result timeType='medium'>24 Afɔ 1932 1:00:00 AN</result>
+   <result dateType='long' timeType='none'>24 Afɔfiɛ 1932</result>
+   <result timeType='short'>24 Afɔfiɛ 1932 1:00 AN</result>
+   <result timeType='medium'>24 Afɔfiɛ 1932 1:00:00 AN</result>
+   <result dateType='full' timeType='none'>Kɔsiɖa, 24 Afɔfiɛ 1932</result>
+   <result timeType='short'>Kɔsiɖa, 24 Afɔfiɛ 1932 1:00 AN</result>
+   <result timeType='medium'>Kɔsiɖa, 24 Afɔfiɛ 1932 1:00:00 AN</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 AN</result>
+   <result timeType='medium'>1:00:01 AN</result>
+   <result dateType='short' timeType='none'>20/05/1945</result>
+   <result timeType='short'>20/05/1945 1:00 AN</result>
+   <result timeType='medium'>20/05/1945 1:00:01 AN</result>
+   <result dateType='medium' timeType='none'>20 Dam 1945</result>
+   <result timeType='short'>20 Dam 1945 1:00 AN</result>
+   <result timeType='medium'>20 Dam 1945 1:00:01 AN</result>
+   <result dateType='long' timeType='none'>20 Dama 1945</result>
+   <result timeType='short'>20 Dama 1945 1:00 AN</result>
+   <result timeType='medium'>20 Dama 1945 1:00:01 AN</result>
+   <result dateType='full' timeType='none'>Kɔsiɖa, 20 Dama 1945</result>
+   <result timeType='short'>Kɔsiɖa, 20 Dama 1945 1:00 AN</result>
+   <result timeType='medium'>Kɔsiɖa, 20 Dama 1945 1:00:01 AN</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 AN</result>
+   <result timeType='medium'>11:59:59 AN</result>
+   <result dateType='short' timeType='none'>18/06/1952</result>
+   <result timeType='short'>18/06/1952 11:59 AN</result>
+   <result timeType='medium'>18/06/1952 11:59:59 AN</result>
+   <result dateType='medium' timeType='none'>18 Mas 1952</result>
+   <result timeType='short'>18 Mas 1952 11:59 AN</result>
+   <result timeType='medium'>18 Mas 1952 11:59:59 AN</result>
+   <result dateType='long' timeType='none'>18 Masa 1952</result>
+   <result timeType='short'>18 Masa 1952 11:59 AN</result>
+   <result timeType='medium'>18 Masa 1952 11:59:59 AN</result>
+   <result dateType='full' timeType='none'>Kuɖa, 18 Masa 1952</result>
+   <result timeType='short'>Kuɖa, 18 Masa 1952 11:59 AN</result>
+   <result timeType='medium'>Kuɖa, 18 Masa 1952 11:59:59 AN</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 EW</result>
+   <result timeType='medium'>12:00:00 EW</result>
+   <result dateType='short' timeType='none'>16/07/1973</result>
+   <result timeType='short'>16/07/1973 12:00 EW</result>
+   <result timeType='medium'>16/07/1973 12:00:00 EW</result>
+   <result dateType='medium' timeType='none'>16 Sia 1973</result>
+   <result timeType='short'>16 Sia 1973 12:00 EW</result>
+   <result timeType='medium'>16 Sia 1973 12:00:00 EW</result>
+   <result dateType='long' timeType='none'>16 Siamlɔm 1973</result>
+   <result timeType='short'>16 Siamlɔm 1973 12:00 EW</result>
+   <result timeType='medium'>16 Siamlɔm 1973 12:00:00 EW</result>
+   <result dateType='full' timeType='none'>Dzoɖa, 16 Siamlɔm 1973</result>
+   <result timeType='short'>Dzoɖa, 16 Siamlɔm 1973 12:00 EW</result>
+   <result timeType='medium'>Dzoɖa, 16 Siamlɔm 1973 12:00:00 EW</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 EW</result>
+   <result timeType='medium'>12:00:01 EW</result>
+   <result dateType='short' timeType='none'>14/08/1999</result>
+   <result timeType='short'>14/08/1999 12:00 EW</result>
+   <result timeType='medium'>14/08/1999 12:00:01 EW</result>
+   <result dateType='medium' timeType='none'>14 Dea 1999</result>
+   <result timeType='short'>14 Dea 1999 12:00 EW</result>
+   <result timeType='medium'>14 Dea 1999 12:00:01 EW</result>
+   <result dateType='long' timeType='none'>14 Deasiamime 1999</result>
+   <result timeType='short'>14 Deasiamime 1999 12:00 EW</result>
+   <result timeType='medium'>14 Deasiamime 1999 12:00:01 EW</result>
+   <result dateType='full' timeType='none'>Memleɖa, 14 Deasiamime 1999</result>
+   <result timeType='short'>Memleɖa, 14 Deasiamime 1999 12:00 EW</result>
+   <result timeType='medium'>Memleɖa, 14 Deasiamime 1999 12:00:01 EW</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 EW</result>
+   <result timeType='medium'>10:59:59 EW</result>
+   <result dateType='short' timeType='none'>12/09/2000</result>
+   <result timeType='short'>12/09/2000 10:59 EW</result>
+   <result timeType='medium'>12/09/2000 10:59:59 EW</result>
+   <result dateType='medium' timeType='none'>12 Any 2000</result>
+   <result timeType='short'>12 Any 2000 10:59 EW</result>
+   <result timeType='medium'>12 Any 2000 10:59:59 EW</result>
+   <result dateType='long' timeType='none'>12 Anyɔnyɔ 2000</result>
+   <result timeType='short'>12 Anyɔnyɔ 2000 10:59 EW</result>
+   <result timeType='medium'>12 Anyɔnyɔ 2000 10:59:59 EW</result>
+   <result dateType='full' timeType='none'>Braɖa, 12 Anyɔnyɔ 2000</result>
+   <result timeType='short'>Braɖa, 12 Anyɔnyɔ 2000 10:59 EW</result>
+   <result timeType='medium'>Braɖa, 12 Anyɔnyɔ 2000 10:59:59 EW</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 EW</result>
+   <result timeType='medium'>11:00:00 EW</result>
+   <result dateType='short' timeType='none'>08/10/2001</result>
+   <result timeType='short'>08/10/2001 11:00 EW</result>
+   <result timeType='medium'>08/10/2001 11:00:00 EW</result>
+   <result dateType='medium' timeType='none'>8 Kel 2001</result>
+   <result timeType='short'>8 Kel 2001 11:00 EW</result>
+   <result timeType='medium'>8 Kel 2001 11:00:00 EW</result>
+   <result dateType='long' timeType='none'>8 Kele 2001</result>
+   <result timeType='short'>8 Kele 2001 11:00 EW</result>
+   <result timeType='medium'>8 Kele 2001 11:00:00 EW</result>
+   <result dateType='full' timeType='none'>Dzoɖa, 8 Kele 2001</result>
+   <result timeType='short'>Dzoɖa, 8 Kele 2001 11:00 EW</result>
+   <result timeType='medium'>Dzoɖa, 8 Kele 2001 11:00:00 EW</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 EW</result>
+   <result timeType='medium'>11:00:01 EW</result>
+   <result dateType='short' timeType='none'>04/11/2004</result>
+   <result timeType='short'>04/11/2004 11:00 EW</result>
+   <result timeType='medium'>04/11/2004 11:00:01 EW</result>
+   <result dateType='medium' timeType='none'>4 Ade 2004</result>
+   <result timeType='short'>4 Ade 2004 11:00 EW</result>
+   <result timeType='medium'>4 Ade 2004 11:00:01 EW</result>
+   <result dateType='long' timeType='none'>4 Adeɛmekpɔxe 2004</result>
+   <result timeType='short'>4 Adeɛmekpɔxe 2004 11:00 EW</result>
+   <result timeType='medium'>4 Adeɛmekpɔxe 2004 11:00:01 EW</result>
+   <result dateType='full' timeType='none'>Yawoɖa, 4 Adeɛmekpɔxe 2004</result>
+   <result timeType='short'>Yawoɖa, 4 Adeɛmekpɔxe 2004 11:00 EW</result>
+   <result timeType='medium'>Yawoɖa, 4 Adeɛmekpɔxe 2004 11:00:01 EW</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 EW</result>
+   <result timeType='medium'>11:59:59 EW</result>
+   <result dateType='short' timeType='none'>01/12/2010</result>
+   <result timeType='short'>01/12/2010 11:59 EW</result>
+   <result timeType='medium'>01/12/2010 11:59:59 EW</result>
+   <result dateType='medium' timeType='none'>1 Dzm 2010</result>
+   <result timeType='short'>1 Dzm 2010 11:59 EW</result>
+   <result timeType='medium'>1 Dzm 2010 11:59:59 EW</result>
+   <result dateType='long' timeType='none'>1 Dzome 2010</result>
+   <result timeType='short'>1 Dzome 2010 11:59 EW</result>
+   <result timeType='medium'>1 Dzome 2010 11:59:59 EW</result>
+   <result dateType='full' timeType='none'>Kuɖa, 1 Dzome 2010</result>
+   <result timeType='short'>Kuɖa, 1 Dzome 2010 11:59 EW</result>
+   <result timeType='medium'>Kuɖa, 1 Dzome 2010 11:59:59 EW</result>
   </date>
   <zoneFields 
 locales='ee ee_GH ee_TG'>
-<!-- Ewe [Ewe]; Ewe (Ghana) [Ewe (Ghana)]; Ewe (Togo) [Ewe (Togo)] -->
+<!-- Ewe [Eʋegbe@]; Ewe (Ghana) [Eʋegbe (Ghanadu)@]; Ewe (Togo) [Eʋegbe (Togodu)@] -->
   </zoneFields>
   <collation 
 locales='ee ee_GH ee_TG'>
-<!-- Ewe [Ewe]; Ewe (Ghana) [Ewe (Ghana)]; Ewe (Togo) [Ewe (Togo)] -->
+<!-- Ewe [Eʋegbe@]; Ewe (Ghana) [Eʋegbe (Ghanadu)@]; Ewe (Togo) [Eʋegbe (Togodu)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 

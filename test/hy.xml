@@ -4,8 +4,8 @@
  <cldrTest version='1.7' base='hy'>
  <!-- Armenian [Հայերէն] -->
   <number 
-locales='hy hy_AM hy_AM_REVISED'>
-<!-- Armenian [Հայերէն]; Armenian (Armenia) [Հայերէն (Հայաստանի Հանրապետութիւն)]; Armenian (Armenia, Revised Orthography) [Հայերէն (Հայաստանի Հանրապետութիւն, REVISED)] -->
+locales='hy hy_AM'>
+<!-- Armenian [Հայերէն@]; Armenian (Armenia) [Հայերէն (Հայաստանի Հանրապետութիւն)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,179 +57,7 @@ locales='hy hy_AM hy_AM_REVISED'>
   </number>
   <date 
 locales='hy hy_AM'>
-<!-- Armenian [Հայերէն]; Armenian (Armenia) [Հայերէն (Հայաստանի Հանրապետութիւն)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
-   <result timeType='medium'>00:00:00</result>
-   <result dateType='short' timeType='none'>01/31/00</result>
-   <result timeType='short'>01/31/00 00:00</result>
-   <result timeType='medium'>01/31/00 00:00:00</result>
-   <result dateType='medium' timeType='none'>Յնր 31, 1900</result>
-   <result timeType='short'>Յնր 31, 1900 00:00</result>
-   <result timeType='medium'>Յնր 31, 1900 00:00:00</result>
-   <result dateType='long' timeType='none'>Յունուար 31, 1900</result>
-   <result timeType='short'>Յունուար 31, 1900 00:00</result>
-   <result timeType='medium'>Յունուար 31, 1900 00:00:00</result>
-   <result dateType='full' timeType='none'>Չորեքշաբթի, Յունուար 31, 1900</result>
-   <result timeType='short'>Չորեքշաբթի, Յունուար 31, 1900 00:00</result>
-   <result timeType='medium'>Չորեքշաբթի, Յունուար 31, 1900 00:00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
-   <result timeType='medium'>00:00:01</result>
-   <result dateType='short' timeType='none'>02/28/09</result>
-   <result timeType='short'>02/28/09 00:00</result>
-   <result timeType='medium'>02/28/09 00:00:01</result>
-   <result dateType='medium' timeType='none'>Փտր 28, 1909</result>
-   <result timeType='short'>Փտր 28, 1909 00:00</result>
-   <result timeType='medium'>Փտր 28, 1909 00:00:01</result>
-   <result dateType='long' timeType='none'>Փետրուար 28, 1909</result>
-   <result timeType='short'>Փետրուար 28, 1909 00:00</result>
-   <result timeType='medium'>Փետրուար 28, 1909 00:00:01</result>
-   <result dateType='full' timeType='none'>Կիրակի, Փետրուար 28, 1909</result>
-   <result timeType='short'>Կիրակի, Փետրուար 28, 1909 00:00</result>
-   <result timeType='medium'>Կիրակի, Փետրուար 28, 1909 00:00:01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
-   <result timeType='medium'>00:59:59</result>
-   <result dateType='short' timeType='none'>03/26/18</result>
-   <result timeType='short'>03/26/18 00:59</result>
-   <result timeType='medium'>03/26/18 00:59:59</result>
-   <result dateType='medium' timeType='none'>Մրտ 26, 1918</result>
-   <result timeType='short'>Մրտ 26, 1918 00:59</result>
-   <result timeType='medium'>Մրտ 26, 1918 00:59:59</result>
-   <result dateType='long' timeType='none'>Մարտ 26, 1918</result>
-   <result timeType='short'>Մարտ 26, 1918 00:59</result>
-   <result timeType='medium'>Մարտ 26, 1918 00:59:59</result>
-   <result dateType='full' timeType='none'>Երեքշաբթի, Մարտ 26, 1918</result>
-   <result timeType='short'>Երեքշաբթի, Մարտ 26, 1918 00:59</result>
-   <result timeType='medium'>Երեքշաբթի, Մարտ 26, 1918 00:59:59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
-   <result timeType='medium'>01:00:00</result>
-   <result dateType='short' timeType='none'>04/24/32</result>
-   <result timeType='short'>04/24/32 01:00</result>
-   <result timeType='medium'>04/24/32 01:00:00</result>
-   <result dateType='medium' timeType='none'>Ապր 24, 1932</result>
-   <result timeType='short'>Ապր 24, 1932 01:00</result>
-   <result timeType='medium'>Ապր 24, 1932 01:00:00</result>
-   <result dateType='long' timeType='none'>Ապրիլ 24, 1932</result>
-   <result timeType='short'>Ապրիլ 24, 1932 01:00</result>
-   <result timeType='medium'>Ապրիլ 24, 1932 01:00:00</result>
-   <result dateType='full' timeType='none'>Կիրակի, Ապրիլ 24, 1932</result>
-   <result timeType='short'>Կիրակի, Ապրիլ 24, 1932 01:00</result>
-   <result timeType='medium'>Կիրակի, Ապրիլ 24, 1932 01:00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
-   <result timeType='medium'>01:00:01</result>
-   <result dateType='short' timeType='none'>05/20/45</result>
-   <result timeType='short'>05/20/45 01:00</result>
-   <result timeType='medium'>05/20/45 01:00:01</result>
-   <result dateType='medium' timeType='none'>Մյս 20, 1945</result>
-   <result timeType='short'>Մյս 20, 1945 01:00</result>
-   <result timeType='medium'>Մյս 20, 1945 01:00:01</result>
-   <result dateType='long' timeType='none'>Մայիս 20, 1945</result>
-   <result timeType='short'>Մայիս 20, 1945 01:00</result>
-   <result timeType='medium'>Մայիս 20, 1945 01:00:01</result>
-   <result dateType='full' timeType='none'>Կիրակի, Մայիս 20, 1945</result>
-   <result timeType='short'>Կիրակի, Մայիս 20, 1945 01:00</result>
-   <result timeType='medium'>Կիրակի, Մայիս 20, 1945 01:00:01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
-   <result timeType='medium'>11:59:59</result>
-   <result dateType='short' timeType='none'>06/18/52</result>
-   <result timeType='short'>06/18/52 11:59</result>
-   <result timeType='medium'>06/18/52 11:59:59</result>
-   <result dateType='medium' timeType='none'>Յնս 18, 1952</result>
-   <result timeType='short'>Յնս 18, 1952 11:59</result>
-   <result timeType='medium'>Յնս 18, 1952 11:59:59</result>
-   <result dateType='long' timeType='none'>Յունիս 18, 1952</result>
-   <result timeType='short'>Յունիս 18, 1952 11:59</result>
-   <result timeType='medium'>Յունիս 18, 1952 11:59:59</result>
-   <result dateType='full' timeType='none'>Չորեքշաբթի, Յունիս 18, 1952</result>
-   <result timeType='short'>Չորեքշաբթի, Յունիս 18, 1952 11:59</result>
-   <result timeType='medium'>Չորեքշաբթի, Յունիս 18, 1952 11:59:59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
-   <result timeType='medium'>12:00:00</result>
-   <result dateType='short' timeType='none'>07/16/73</result>
-   <result timeType='short'>07/16/73 12:00</result>
-   <result timeType='medium'>07/16/73 12:00:00</result>
-   <result dateType='medium' timeType='none'>Յլս 16, 1973</result>
-   <result timeType='short'>Յլս 16, 1973 12:00</result>
-   <result timeType='medium'>Յլս 16, 1973 12:00:00</result>
-   <result dateType='long' timeType='none'>Յուլիս 16, 1973</result>
-   <result timeType='short'>Յուլիս 16, 1973 12:00</result>
-   <result timeType='medium'>Յուլիս 16, 1973 12:00:00</result>
-   <result dateType='full' timeType='none'>Երկուշաբթի, Յուլիս 16, 1973</result>
-   <result timeType='short'>Երկուշաբթի, Յուլիս 16, 1973 12:00</result>
-   <result timeType='medium'>Երկուշաբթի, Յուլիս 16, 1973 12:00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
-   <result timeType='medium'>12:00:01</result>
-   <result dateType='short' timeType='none'>08/14/99</result>
-   <result timeType='short'>08/14/99 12:00</result>
-   <result timeType='medium'>08/14/99 12:00:01</result>
-   <result dateType='medium' timeType='none'>Օգս 14, 1999</result>
-   <result timeType='short'>Օգս 14, 1999 12:00</result>
-   <result timeType='medium'>Օգս 14, 1999 12:00:01</result>
-   <result dateType='long' timeType='none'>Օգոստոս 14, 1999</result>
-   <result timeType='short'>Օգոստոս 14, 1999 12:00</result>
-   <result timeType='medium'>Օգոստոս 14, 1999 12:00:01</result>
-   <result dateType='full' timeType='none'>Շաբաթ, Օգոստոս 14, 1999</result>
-   <result timeType='short'>Շաբաթ, Օգոստոս 14, 1999 12:00</result>
-   <result timeType='medium'>Շաբաթ, Օգոստոս 14, 1999 12:00:01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
-   <result timeType='medium'>22:59:59</result>
-   <result dateType='short' timeType='none'>09/12/00</result>
-   <result timeType='short'>09/12/00 22:59</result>
-   <result timeType='medium'>09/12/00 22:59:59</result>
-   <result dateType='medium' timeType='none'>Սեպ 12, 2000</result>
-   <result timeType='short'>Սեպ 12, 2000 22:59</result>
-   <result timeType='medium'>Սեպ 12, 2000 22:59:59</result>
-   <result dateType='long' timeType='none'>Սեպտեմբեր 12, 2000</result>
-   <result timeType='short'>Սեպտեմբեր 12, 2000 22:59</result>
-   <result timeType='medium'>Սեպտեմբեր 12, 2000 22:59:59</result>
-   <result dateType='full' timeType='none'>Երեքշաբթի, Սեպտեմբեր 12, 2000</result>
-   <result timeType='short'>Երեքշաբթի, Սեպտեմբեր 12, 2000 22:59</result>
-   <result timeType='medium'>Երեքշաբթի, Սեպտեմբեր 12, 2000 22:59:59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
-   <result timeType='medium'>23:00:00</result>
-   <result dateType='short' timeType='none'>10/08/01</result>
-   <result timeType='short'>10/08/01 23:00</result>
-   <result timeType='medium'>10/08/01 23:00:00</result>
-   <result dateType='medium' timeType='none'>Հոկ 8, 2001</result>
-   <result timeType='short'>Հոկ 8, 2001 23:00</result>
-   <result timeType='medium'>Հոկ 8, 2001 23:00:00</result>
-   <result dateType='long' timeType='none'>Հոկտեմբեր 08, 2001</result>
-   <result timeType='short'>Հոկտեմբեր 08, 2001 23:00</result>
-   <result timeType='medium'>Հոկտեմբեր 08, 2001 23:00:00</result>
-   <result dateType='full' timeType='none'>Երկուշաբթի, Հոկտեմբեր 8, 2001</result>
-   <result timeType='short'>Երկուշաբթի, Հոկտեմբեր 8, 2001 23:00</result>
-   <result timeType='medium'>Երկուշաբթի, Հոկտեմբեր 8, 2001 23:00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
-   <result timeType='medium'>23:00:01</result>
-   <result dateType='short' timeType='none'>11/04/04</result>
-   <result timeType='short'>11/04/04 23:00</result>
-   <result timeType='medium'>11/04/04 23:00:01</result>
-   <result dateType='medium' timeType='none'>Նոյ 4, 2004</result>
-   <result timeType='short'>Նոյ 4, 2004 23:00</result>
-   <result timeType='medium'>Նոյ 4, 2004 23:00:01</result>
-   <result dateType='long' timeType='none'>Նոյեմբեր 04, 2004</result>
-   <result timeType='short'>Նոյեմբեր 04, 2004 23:00</result>
-   <result timeType='medium'>Նոյեմբեր 04, 2004 23:00:01</result>
-   <result dateType='full' timeType='none'>Հինգշաբթի, Նոյեմբեր 4, 2004</result>
-   <result timeType='short'>Հինգշաբթի, Նոյեմբեր 4, 2004 23:00</result>
-   <result timeType='medium'>Հինգշաբթի, Նոյեմբեր 4, 2004 23:00:01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
-   <result timeType='medium'>23:59:59</result>
-   <result dateType='short' timeType='none'>12/01/10</result>
-   <result timeType='short'>12/01/10 23:59</result>
-   <result timeType='medium'>12/01/10 23:59:59</result>
-   <result dateType='medium' timeType='none'>Դեկ 1, 2010</result>
-   <result timeType='short'>Դեկ 1, 2010 23:59</result>
-   <result timeType='medium'>Դեկ 1, 2010 23:59:59</result>
-   <result dateType='long' timeType='none'>Դեկտեմբեր 01, 2010</result>
-   <result timeType='short'>Դեկտեմբեր 01, 2010 23:59</result>
-   <result timeType='medium'>Դեկտեմբեր 01, 2010 23:59:59</result>
-   <result dateType='full' timeType='none'>Չորեքշաբթի, Դեկտեմբեր 1, 2010</result>
-   <result timeType='short'>Չորեքշաբթի, Դեկտեմբեր 1, 2010 23:59</result>
-   <result timeType='medium'>Չորեքշաբթի, Դեկտեմբեր 1, 2010 23:59:59</result>
-  </date>
-  <date 
-locales='hy_AM_REVISED'>
-<!-- Armenian (Armenia, Revised Orthography) [Հայերէն (Հայաստանի Հանրապետութիւն, REVISED)] -->
+<!-- Armenian [Հայերէն@]; Armenian (Armenia) [Հայերէն (Հայաստանի Հանրապետութիւն)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>01/31/00</result>
@@ -400,12 +228,12 @@ locales='hy_AM_REVISED'>
    <result timeType='medium'>Չորեքշաբթի, Դեկտեմբեր 1, 2010 23:59:59</result>
   </date>
   <zoneFields 
-locales='hy hy_AM hy_AM_REVISED'>
-<!-- Armenian [Հայերէն]; Armenian (Armenia) [Հայերէն (Հայաստանի Հանրապետութիւն)]; Armenian (Armenia, Revised Orthography) [Հայերէն (Հայաստանի Հանրապետութիւն, REVISED)] -->
+locales='hy hy_AM'>
+<!-- Armenian [Հայերէն@]; Armenian (Armenia) [Հայերէն (Հայաստանի Հանրապետութիւն)@] -->
   </zoneFields>
   <collation 
-locales='hy hy_AM hy_AM_REVISED'>
-<!-- Armenian [Հայերէն]; Armenian (Armenia) [Հայերէն (Հայաստանի Հանրապետութիւն)]; Armenian (Armenia, Revised Orthography) [Հայերէն (Հայաստանի Հանրապետութիւն, REVISED)] -->
+locales='hy hy_AM'>
+<!-- Armenian [Հայերէն@]; Armenian (Armenia) [Հայերէն (Հայաստանի Հանրապետութիւն)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -473,14 +301,14 @@ Xե
 XԵ
 xեx
 xԵx
-xև
-xԵւ
+xեւ
+xեՒ
 xԵՒ
-Xև
-XԵւ
+Xեւ
+XեՒ
 XԵՒ
-xևx
-xԵւx
+xեւx
+xեՒx
 xԵՒx
 xզ
 xԶ
@@ -668,6 +496,12 @@ Xք
 XՔ
 xքx
 xՔx
+xև
+xԵւ
+Xև
+XԵւ
+xևx
+xԵւx
 xօ
 xՕ
 Xօ

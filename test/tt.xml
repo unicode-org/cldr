@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='tt'>
- <!-- Tatar [Tatar] -->
+ <!-- Tatar [Татар] -->
   <number 
 locales='tt tt_RU'>
-<!-- Tatar [Tatar]; Tatar (Russia) [Tatar (Russia)] -->
+<!-- Tatar [Татар@]; Tatar (Russia) [Татар (Россия)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -73,7 +73,7 @@ locales='tt tt_RU'>
   </number>
   <date 
 locales='tt tt_RU'>
-<!-- Tatar [Tatar]; Tatar (Russia) [Tatar (Russia)] -->
+<!-- Tatar [Татар@]; Tatar (Russia) [Татар (Россия)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>0:00</result>
    <result draft='approved'>00:00</result>
    <result timeType='medium' draft='unconfirmed'>0:00:00</result>
@@ -399,11 +399,11 @@ locales='tt tt_RU'>
   </date>
   <zoneFields 
 locales='tt tt_RU'>
-<!-- Tatar [Tatar]; Tatar (Russia) [Tatar (Russia)] -->
+<!-- Tatar [Татар@]; Tatar (Russia) [Татар (Россия)@] -->
   </zoneFields>
   <collation 
 locales='tt tt_RU'>
-<!-- Tatar [Tatar]; Tatar (Russia) [Tatar (Russia)] -->
+<!-- Tatar [Татар@]; Tatar (Russia) [Татар (Россия)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 

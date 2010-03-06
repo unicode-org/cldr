@@ -5,50 +5,50 @@
  <!-- Czech [čeština] -->
   <number 
 locales='cs cs_CZ'>
-<!-- Czech [čeština]; Czech (Czech Republic) [čeština (Česká republika)] -->
+<!-- Czech [čeština@]; Czech (Czech Republic) [čeština (Česká republika)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
-   <result numberType='percent'>0%</result>
+   <result numberType='percent'>0 %</result>
    <result numberType='scientific'>0E0</result>
    <result input='0.01' numberType='integer'>0</result>
    <result numberType='decimal'>0,01</result>
-   <result numberType='percent'>1%</result>
+   <result numberType='percent'>1 %</result>
    <result numberType='scientific'>1E-2</result>
    <result input='-0.01' numberType='integer'>-0</result>
    <result numberType='decimal'>-0,01</result>
-   <result numberType='percent'>-1%</result>
+   <result numberType='percent'>-1 %</result>
    <result numberType='scientific'>-1E-2</result>
    <result input='1.0' numberType='integer'>1</result>
    <result numberType='decimal'>1</result>
-   <result numberType='percent'>100%</result>
+   <result numberType='percent'>100 %</result>
    <result numberType='scientific'>1E0</result>
    <result input='-1.0' numberType='integer'>-1</result>
    <result numberType='decimal'>-1</result>
-   <result numberType='percent'>-100%</result>
+   <result numberType='percent'>-100 %</result>
    <result numberType='scientific'>-1E0</result>
    <result input='123.456' numberType='integer'>123</result>
    <result numberType='decimal'>123,456</result>
-   <result numberType='percent'>12 346%</result>
+   <result numberType='percent'>12 346 %</result>
    <result numberType='scientific'>1,23456E2</result>
    <result input='-123.456' numberType='integer'>-123</result>
    <result numberType='decimal'>-123,456</result>
-   <result numberType='percent'>-12 346%</result>
+   <result numberType='percent'>-12 346 %</result>
    <result numberType='scientific'>-1,23456E2</result>
    <result input='123456.78' numberType='integer'>123 457</result>
    <result numberType='decimal'>123 456,78</result>
-   <result numberType='percent'>12 345 678%</result>
+   <result numberType='percent'>12 345 678 %</result>
    <result numberType='scientific'>1,2345678E5</result>
    <result input='-123456.78' numberType='integer'>-123 457</result>
    <result numberType='decimal'>-123 456,78</result>
-   <result numberType='percent'>-12 345 678%</result>
+   <result numberType='percent'>-12 345 678 %</result>
    <result numberType='scientific'>-1,2345678E5</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
-   <result numberType='percent'>∞%</result>
+   <result numberType='percent'>∞ %</result>
    <result numberType='scientific'>∞</result>
    <result input='-Infinity' numberType='integer'>-∞</result>
    <result numberType='decimal'>-∞</result>
-   <result numberType='percent'>-∞%</result>
+   <result numberType='percent'>-∞ %</result>
    <result numberType='scientific'>-∞</result>
    <result input='NaN' numberType='integer'>NaN</result>
    <result numberType='decimal'>NaN</result>
@@ -57,7 +57,7 @@ locales='cs cs_CZ'>
   </number>
   <date 
 locales='cs cs_CZ'>
-<!-- Czech [čeština]; Czech (Czech Republic) [čeština (Česká republika)] -->
+<!-- Czech [čeština@]; Czech (Czech Republic) [čeština (Česká republika)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result dateType='short' timeType='none'>31.1.00</result>
@@ -229,12 +229,335 @@ locales='cs cs_CZ'>
   </date>
   <zoneFields 
 locales='cs cs_CZ'>
-<!-- Czech [čeština]; Czech (Czech Republic) [čeština (Česká republika)] -->
+<!-- Czech [čeština@]; Czech (Czech Republic) [čeština (Česká republika)@] -->
   </zoneFields>
   <collation 
 locales='cs cs_CZ'>
-<!-- Czech [čeština]; Czech (Czech Republic) [čeština (Česká republika)] -->
-   <result draft='unconfirmed approved'>
+<!-- Czech [čeština@]; Czech (Czech Republic) [čeština (Česká republika)@] -->
+   <result draft='unconfirmed'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xa
+xA
+Xa
+XA
+xá
+xÁ
+Xá
+XÁ
+xå
+xÅ
+Xå
+XÅ
+xä
+xÄ
+Xä
+XÄ
+xã
+xÃ
+Xã
+XÃ
+xax
+xAx
+xáx
+xÁx
+xåx
+xÅx
+xäx
+xÄx
+xãx
+xÃx
+xb
+xB
+Xb
+XB
+xbx
+xBx
+xc
+xC
+Xc
+XC
+xcx
+xCx
+xč
+xČ
+Xč
+XČ
+xčx
+xČx
+xd
+xD
+Xd
+XD
+xď
+xĎ
+Xď
+XĎ
+xdx
+xDx
+xďx
+xĎx
+xe
+xE
+Xe
+XE
+xé
+xÉ
+Xé
+XÉ
+xě
+xĚ
+Xě
+XĚ
+xë
+xË
+Xë
+XË
+xex
+xEx
+xéx
+xÉx
+xěx
+xĚx
+xëx
+xËx
+xf
+xF
+Xf
+XF
+xfx
+xFx
+xg
+xG
+Xg
+XG
+xgx
+xGx
+xh
+xH
+Xh
+XH
+xhx
+xHx
+xch
+xcH
+xCh
+xCH
+Xch
+XcH
+XCh
+XCH
+xchx
+xcHx
+xChx
+xCHx
+xi
+xI
+Xi
+XI
+xí
+xÍ
+Xí
+XÍ
+xix
+xIx
+xíx
+xÍx
+xj
+xJ
+Xj
+XJ
+xjx
+xJx
+xk
+xK
+Xk
+XK
+xkx
+xKx
+xl
+xL
+Xl
+XL
+xlx
+xLx
+xm
+xM
+Xm
+XM
+xmx
+xMx
+xn
+xN
+Xn
+XN
+xň
+xŇ
+Xň
+XŇ
+xñ
+xÑ
+Xñ
+XÑ
+xnx
+xNx
+xňx
+xŇx
+xñx
+xÑx
+xo
+xO
+Xo
+XO
+xó
+xÓ
+Xó
+XÓ
+xö
+xÖ
+Xö
+XÖ
+xø
+xØ
+Xø
+XØ
+xox
+xOx
+xóx
+xÓx
+xöx
+xÖx
+xøx
+xØx
+xp
+xP
+Xp
+XP
+xpx
+xPx
+xq
+xQ
+Xq
+XQ
+xqx
+xQx
+xr
+xR
+Xr
+XR
+xrx
+xRx
+xř
+xŘ
+Xř
+XŘ
+xřx
+xŘx
+xs
+xS
+Xs
+XS
+xsx
+xSx
+xš
+xŠ
+Xš
+XŠ
+xšx
+xŠx
+xt
+xT
+Xt
+XT
+xť
+xŤ
+Xť
+XŤ
+xtx
+xTx
+xťx
+xŤx
+xu
+xU
+Xu
+XU
+xú
+xÚ
+Xú
+XÚ
+xů
+xŮ
+Xů
+XŮ
+xü
+xÜ
+Xü
+XÜ
+xux
+xUx
+xúx
+xÚx
+xůx
+xŮx
+xüx
+xÜx
+xv
+xV
+Xv
+XV
+xvx
+xVx
+xw
+xW
+Xw
+XW
+xwx
+xWx
+xx
+xX
+Xx
+XX
+xxx
+xXx
+xy
+xY
+Xy
+XY
+xý
+xÝ
+Xý
+XÝ
+xyx
+xYx
+xýx
+xÝx
+xz
+xZ
+Xz
+XZ
+xzx
+xZx
+xž
+xŽ
+Xž
+XŽ
+xžx
+xŽx
+</result>
+   <result draft='approved'>
 x 
 X 
 x x

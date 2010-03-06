@@ -1,0 +1,858 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
+<!-- For information, see readme.html -->
+ <cldrTest version='1.7' base='ksh'>
+ <!-- Colognian [ksh] -->
+  <number 
+locales='ksh ksh_DE'>
+<!-- Colognian [ksh@]; Colognian (Germany) [ksh en Doütschland@] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent' draft='unconfirmed'>0 %</result>
+   <result draft='approved'>0%</result>
+   <result numberType='scientific' draft='unconfirmed'>0×10^0</result>
+   <result draft='approved'>0E0</result>
+   <result input='0.01' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal' draft='unconfirmed'>0,01</result>
+   <result draft='approved'>0.01</result>
+   <result numberType='percent' draft='unconfirmed'>1 %</result>
+   <result draft='approved'>1%</result>
+   <result numberType='scientific' draft='unconfirmed'>1×10^−2</result>
+   <result draft='approved'>1E-2</result>
+   <result input='-0.01' numberType='integer' draft='unconfirmed'>−0</result>
+   <result draft='approved'>-0</result>
+   <result numberType='decimal' draft='unconfirmed'>−0,01</result>
+   <result draft='approved'>-0.01</result>
+   <result numberType='percent' draft='unconfirmed'>−1 %</result>
+   <result draft='approved'>-1%</result>
+   <result numberType='scientific' draft='unconfirmed'>−1×10^−2</result>
+   <result draft='approved'>-1E-2</result>
+   <result input='1.0' numberType='integer' draft='unconfirmed approved'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent' draft='unconfirmed'>100 %</result>
+   <result draft='approved'>100%</result>
+   <result numberType='scientific' draft='unconfirmed'>1×10^0</result>
+   <result draft='approved'>1E0</result>
+   <result input='-1.0' numberType='integer' draft='unconfirmed'>−1</result>
+   <result draft='approved'>-1</result>
+   <result numberType='decimal' draft='unconfirmed'>−1</result>
+   <result draft='approved'>-1</result>
+   <result numberType='percent' draft='unconfirmed'>−100 %</result>
+   <result draft='approved'>-100%</result>
+   <result numberType='scientific' draft='unconfirmed'>−1×10^0</result>
+   <result draft='approved'>-1E0</result>
+   <result input='123.456' numberType='integer' draft='unconfirmed approved'>123</result>
+   <result numberType='decimal' draft='unconfirmed'>123,456</result>
+   <result draft='approved'>123.456</result>
+   <result numberType='percent' draft='unconfirmed'>12 346 %</result>
+   <result draft='approved'>12,346%</result>
+   <result numberType='scientific' draft='unconfirmed'>1,23456×10^2</result>
+   <result draft='approved'>1.23456E2</result>
+   <result input='-123.456' numberType='integer' draft='unconfirmed'>−123</result>
+   <result draft='approved'>-123</result>
+   <result numberType='decimal' draft='unconfirmed'>−123,456</result>
+   <result draft='approved'>-123.456</result>
+   <result numberType='percent' draft='unconfirmed'>−12 346 %</result>
+   <result draft='approved'>-12,346%</result>
+   <result numberType='scientific' draft='unconfirmed'>−1,23456×10^2</result>
+   <result draft='approved'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer' draft='unconfirmed'>123 457</result>
+   <result draft='approved'>123,457</result>
+   <result numberType='decimal' draft='unconfirmed'>123 456,78</result>
+   <result draft='approved'>123,456.78</result>
+   <result numberType='percent' draft='unconfirmed'>12 345 678 %</result>
+   <result draft='approved'>12,345,678%</result>
+   <result numberType='scientific' draft='unconfirmed'>1,2345678×10^5</result>
+   <result draft='approved'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer' draft='unconfirmed'>−123 457</result>
+   <result draft='approved'>-123,457</result>
+   <result numberType='decimal' draft='unconfirmed'>−123 456,78</result>
+   <result draft='approved'>-123,456.78</result>
+   <result numberType='percent' draft='unconfirmed'>−12 345 678 %</result>
+   <result draft='approved'>-12,345,678%</result>
+   <result numberType='scientific' draft='unconfirmed'>−1,2345678×10^5</result>
+   <result draft='approved'>-1.2345678E5</result>
+   <result input='Infinity' numberType='integer' draft='unconfirmed approved'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent' draft='unconfirmed'>∞ %</result>
+   <result draft='approved'>∞%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>∞</result>
+   <result input='-Infinity' numberType='integer' draft='unconfirmed'>−∞</result>
+   <result draft='approved'>-∞</result>
+   <result numberType='decimal' draft='unconfirmed'>−∞</result>
+   <result draft='approved'>-∞</result>
+   <result numberType='percent' draft='unconfirmed'>−∞ %</result>
+   <result draft='approved'>-∞%</result>
+   <result numberType='scientific' draft='unconfirmed'>−∞</result>
+   <result draft='approved'>-∞</result>
+   <result input='NaN' numberType='integer' draft='unconfirmed'>¤¤¤</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='decimal' draft='unconfirmed'>¤¤¤</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='percent' draft='unconfirmed'>¤¤¤</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='scientific' draft='unconfirmed'>¤¤¤</result>
+   <result draft='approved'>NaN</result>
+  </number>
+  <date 
+locales='ksh ksh_DE'>
+<!-- Colognian [ksh@]; Colognian (Germany) [ksh en Doütschland@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>31. 1. 1900</result>
+   <result draft='approved'>1900-01-31</result>
+   <result timeType='short' draft='unconfirmed'>31. 1. 1900 00:00</result>
+   <result draft='approved'>1900-01-31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>31. 1. 1900 00:00:00</result>
+   <result draft='approved'>1900-01-31 00:00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>31. Jan. 1900</result>
+   <result draft='approved'>1900 1 31</result>
+   <result timeType='short' draft='unconfirmed'>31. Jan. 1900 00:00</result>
+   <result draft='approved'>1900 1 31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>31. Jan. 1900 00:00:00</result>
+   <result draft='approved'>1900 1 31 00:00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>31. Jannewa 1900</result>
+   <result draft='approved'>1900 1 31</result>
+   <result timeType='short' draft='unconfirmed'>31. Jannewa 1900 00:00</result>
+   <result draft='approved'>1900 1 31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>31. Jannewa 1900 00:00:00</result>
+   <result draft='approved'>1900 1 31 00:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Metwoch, dä 31. Jannewa 1900</result>
+   <result draft='approved'>4, 1900 1 31</result>
+   <result timeType='short' draft='unconfirmed'>Metwoch, dä 31. Jannewa 1900 00:00</result>
+   <result draft='approved'>4, 1900 1 31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>Metwoch, dä 31. Jannewa 1900 00:00:00</result>
+   <result draft='approved'>4, 1900 1 31 00:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>28. 2. 1909</result>
+   <result draft='approved'>1909-02-28</result>
+   <result timeType='short' draft='unconfirmed'>28. 2. 1909 00:00</result>
+   <result draft='approved'>1909-02-28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>28. 2. 1909 00:00:01</result>
+   <result draft='approved'>1909-02-28 00:00:01</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>28. Fäb. 1909</result>
+   <result draft='approved'>1909 2 28</result>
+   <result timeType='short' draft='unconfirmed'>28. Fäb. 1909 00:00</result>
+   <result draft='approved'>1909 2 28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>28. Fäb. 1909 00:00:01</result>
+   <result draft='approved'>1909 2 28 00:00:01</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>28. Fäbrowa 1909</result>
+   <result draft='approved'>1909 2 28</result>
+   <result timeType='short' draft='unconfirmed'>28. Fäbrowa 1909 00:00</result>
+   <result draft='approved'>1909 2 28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>28. Fäbrowa 1909 00:00:01</result>
+   <result draft='approved'>1909 2 28 00:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Sunndaach, dä 28. Fäbrowa 1909</result>
+   <result draft='approved'>1, 1909 2 28</result>
+   <result timeType='short' draft='unconfirmed'>Sunndaach, dä 28. Fäbrowa 1909 00:00</result>
+   <result draft='approved'>1, 1909 2 28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>Sunndaach, dä 28. Fäbrowa 1909 00:00:01</result>
+   <result draft='approved'>1, 1909 2 28 00:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>26. 3. 1918</result>
+   <result draft='approved'>1918-03-26</result>
+   <result timeType='short' draft='unconfirmed'>26. 3. 1918 00:59</result>
+   <result draft='approved'>1918-03-26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>26. 3. 1918 00:59:59</result>
+   <result draft='approved'>1918-03-26 00:59:59</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>26. Mar. 1918</result>
+   <result draft='approved'>1918 3 26</result>
+   <result timeType='short' draft='unconfirmed'>26. Mar. 1918 00:59</result>
+   <result draft='approved'>1918 3 26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>26. Mar. 1918 00:59:59</result>
+   <result draft='approved'>1918 3 26 00:59:59</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>26. Määz 1918</result>
+   <result draft='approved'>1918 3 26</result>
+   <result timeType='short' draft='unconfirmed'>26. Määz 1918 00:59</result>
+   <result draft='approved'>1918 3 26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>26. Määz 1918 00:59:59</result>
+   <result draft='approved'>1918 3 26 00:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Dinnsdaach, dä 26. Määz 1918</result>
+   <result draft='approved'>3, 1918 3 26</result>
+   <result timeType='short' draft='unconfirmed'>Dinnsdaach, dä 26. Määz 1918 00:59</result>
+   <result draft='approved'>3, 1918 3 26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>Dinnsdaach, dä 26. Määz 1918 00:59:59</result>
+   <result draft='approved'>3, 1918 3 26 00:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>24. 4. 1932</result>
+   <result draft='approved'>1932-04-24</result>
+   <result timeType='short' draft='unconfirmed'>24. 4. 1932 01:00</result>
+   <result draft='approved'>1932-04-24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>24. 4. 1932 01:00:00</result>
+   <result draft='approved'>1932-04-24 01:00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>24. Apr. 1932</result>
+   <result draft='approved'>1932 4 24</result>
+   <result timeType='short' draft='unconfirmed'>24. Apr. 1932 01:00</result>
+   <result draft='approved'>1932 4 24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>24. Apr. 1932 01:00:00</result>
+   <result draft='approved'>1932 4 24 01:00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>24. Aprell 1932</result>
+   <result draft='approved'>1932 4 24</result>
+   <result timeType='short' draft='unconfirmed'>24. Aprell 1932 01:00</result>
+   <result draft='approved'>1932 4 24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>24. Aprell 1932 01:00:00</result>
+   <result draft='approved'>1932 4 24 01:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Sunndaach, dä 24. Aprell 1932</result>
+   <result draft='approved'>1, 1932 4 24</result>
+   <result timeType='short' draft='unconfirmed'>Sunndaach, dä 24. Aprell 1932 01:00</result>
+   <result draft='approved'>1, 1932 4 24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>Sunndaach, dä 24. Aprell 1932 01:00:00</result>
+   <result draft='approved'>1, 1932 4 24 01:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>20. 5. 1945</result>
+   <result draft='approved'>1945-05-20</result>
+   <result timeType='short' draft='unconfirmed'>20. 5. 1945 01:00</result>
+   <result draft='approved'>1945-05-20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>20. 5. 1945 01:00:01</result>
+   <result draft='approved'>1945-05-20 01:00:01</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>20. Mäi 1945</result>
+   <result draft='approved'>1945 5 20</result>
+   <result timeType='short' draft='unconfirmed'>20. Mäi 1945 01:00</result>
+   <result draft='approved'>1945 5 20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>20. Mäi 1945 01:00:01</result>
+   <result draft='approved'>1945 5 20 01:00:01</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>20. Mäi 1945</result>
+   <result draft='approved'>1945 5 20</result>
+   <result timeType='short' draft='unconfirmed'>20. Mäi 1945 01:00</result>
+   <result draft='approved'>1945 5 20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>20. Mäi 1945 01:00:01</result>
+   <result draft='approved'>1945 5 20 01:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Sunndaach, dä 20. Mäi 1945</result>
+   <result draft='approved'>1, 1945 5 20</result>
+   <result timeType='short' draft='unconfirmed'>Sunndaach, dä 20. Mäi 1945 01:00</result>
+   <result draft='approved'>1, 1945 5 20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>Sunndaach, dä 20. Mäi 1945 01:00:01</result>
+   <result draft='approved'>1, 1945 5 20 01:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>18. 6. 1952</result>
+   <result draft='approved'>1952-06-18</result>
+   <result timeType='short' draft='unconfirmed'>18. 6. 1952 11:59</result>
+   <result draft='approved'>1952-06-18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>18. 6. 1952 11:59:59</result>
+   <result draft='approved'>1952-06-18 11:59:59</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>18. Jun. 1952</result>
+   <result draft='approved'>1952 6 18</result>
+   <result timeType='short' draft='unconfirmed'>18. Jun. 1952 11:59</result>
+   <result draft='approved'>1952 6 18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>18. Jun. 1952 11:59:59</result>
+   <result draft='approved'>1952 6 18 11:59:59</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>18. Juuni 1952</result>
+   <result draft='approved'>1952 6 18</result>
+   <result timeType='short' draft='unconfirmed'>18. Juuni 1952 11:59</result>
+   <result draft='approved'>1952 6 18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>18. Juuni 1952 11:59:59</result>
+   <result draft='approved'>1952 6 18 11:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Metwoch, dä 18. Juuni 1952</result>
+   <result draft='approved'>4, 1952 6 18</result>
+   <result timeType='short' draft='unconfirmed'>Metwoch, dä 18. Juuni 1952 11:59</result>
+   <result draft='approved'>4, 1952 6 18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>Metwoch, dä 18. Juuni 1952 11:59:59</result>
+   <result draft='approved'>4, 1952 6 18 11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>16. 7. 1973</result>
+   <result draft='approved'>1973-07-16</result>
+   <result timeType='short' draft='unconfirmed'>16. 7. 1973 12:00</result>
+   <result draft='approved'>1973-07-16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>16. 7. 1973 12:00:00</result>
+   <result draft='approved'>1973-07-16 12:00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>16. Jul. 1973</result>
+   <result draft='approved'>1973 7 16</result>
+   <result timeType='short' draft='unconfirmed'>16. Jul. 1973 12:00</result>
+   <result draft='approved'>1973 7 16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>16. Jul. 1973 12:00:00</result>
+   <result draft='approved'>1973 7 16 12:00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>16. Juuli 1973</result>
+   <result draft='approved'>1973 7 16</result>
+   <result timeType='short' draft='unconfirmed'>16. Juuli 1973 12:00</result>
+   <result draft='approved'>1973 7 16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>16. Juuli 1973 12:00:00</result>
+   <result draft='approved'>1973 7 16 12:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Moondaach, dä 16. Juuli 1973</result>
+   <result draft='approved'>2, 1973 7 16</result>
+   <result timeType='short' draft='unconfirmed'>Moondaach, dä 16. Juuli 1973 12:00</result>
+   <result draft='approved'>2, 1973 7 16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>Moondaach, dä 16. Juuli 1973 12:00:00</result>
+   <result draft='approved'>2, 1973 7 16 12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>14. 8. 1999</result>
+   <result draft='approved'>1999-08-14</result>
+   <result timeType='short' draft='unconfirmed'>14. 8. 1999 12:00</result>
+   <result draft='approved'>1999-08-14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>14. 8. 1999 12:00:01</result>
+   <result draft='approved'>1999-08-14 12:00:01</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>14. Oug. 1999</result>
+   <result draft='approved'>1999 8 14</result>
+   <result timeType='short' draft='unconfirmed'>14. Oug. 1999 12:00</result>
+   <result draft='approved'>1999 8 14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>14. Oug. 1999 12:00:01</result>
+   <result draft='approved'>1999 8 14 12:00:01</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>14. Oujoß 1999</result>
+   <result draft='approved'>1999 8 14</result>
+   <result timeType='short' draft='unconfirmed'>14. Oujoß 1999 12:00</result>
+   <result draft='approved'>1999 8 14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>14. Oujoß 1999 12:00:01</result>
+   <result draft='approved'>1999 8 14 12:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Samsdaach, dä 14. Oujoß 1999</result>
+   <result draft='approved'>7, 1999 8 14</result>
+   <result timeType='short' draft='unconfirmed'>Samsdaach, dä 14. Oujoß 1999 12:00</result>
+   <result draft='approved'>7, 1999 8 14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>Samsdaach, dä 14. Oujoß 1999 12:00:01</result>
+   <result draft='approved'>7, 1999 8 14 12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>12. 9. 2000</result>
+   <result draft='approved'>2000-09-12</result>
+   <result timeType='short' draft='unconfirmed'>12. 9. 2000 22:59</result>
+   <result draft='approved'>2000-09-12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>12. 9. 2000 22:59:59</result>
+   <result draft='approved'>2000-09-12 22:59:59</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>12. Säp. 2000</result>
+   <result draft='approved'>2000 9 12</result>
+   <result timeType='short' draft='unconfirmed'>12. Säp. 2000 22:59</result>
+   <result draft='approved'>2000 9 12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>12. Säp. 2000 22:59:59</result>
+   <result draft='approved'>2000 9 12 22:59:59</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>12. Septämber 2000</result>
+   <result draft='approved'>2000 9 12</result>
+   <result timeType='short' draft='unconfirmed'>12. Septämber 2000 22:59</result>
+   <result draft='approved'>2000 9 12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>12. Septämber 2000 22:59:59</result>
+   <result draft='approved'>2000 9 12 22:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Dinnsdaach, dä 12. Septämber 2000</result>
+   <result draft='approved'>3, 2000 9 12</result>
+   <result timeType='short' draft='unconfirmed'>Dinnsdaach, dä 12. Septämber 2000 22:59</result>
+   <result draft='approved'>3, 2000 9 12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>Dinnsdaach, dä 12. Septämber 2000 22:59:59</result>
+   <result draft='approved'>3, 2000 9 12 22:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>8. 10. 2001</result>
+   <result draft='approved'>2001-10-08</result>
+   <result timeType='short' draft='unconfirmed'>8. 10. 2001 23:00</result>
+   <result draft='approved'>2001-10-08 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>8. 10. 2001 23:00:00</result>
+   <result draft='approved'>2001-10-08 23:00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>8. Okt. 2001</result>
+   <result draft='approved'>2001 10 8</result>
+   <result timeType='short' draft='unconfirmed'>8. Okt. 2001 23:00</result>
+   <result draft='approved'>2001 10 8 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>8. Okt. 2001 23:00:00</result>
+   <result draft='approved'>2001 10 8 23:00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>8. Oktoober 2001</result>
+   <result draft='approved'>2001 10 8</result>
+   <result timeType='short' draft='unconfirmed'>8. Oktoober 2001 23:00</result>
+   <result draft='approved'>2001 10 8 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>8. Oktoober 2001 23:00:00</result>
+   <result draft='approved'>2001 10 8 23:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Moondaach, dä 8. Oktoober 2001</result>
+   <result draft='approved'>2, 2001 10 08</result>
+   <result timeType='short' draft='unconfirmed'>Moondaach, dä 8. Oktoober 2001 23:00</result>
+   <result draft='approved'>2, 2001 10 08 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>Moondaach, dä 8. Oktoober 2001 23:00:00</result>
+   <result draft='approved'>2, 2001 10 08 23:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>4. 11. 2004</result>
+   <result draft='approved'>2004-11-04</result>
+   <result timeType='short' draft='unconfirmed'>4. 11. 2004 23:00</result>
+   <result draft='approved'>2004-11-04 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>4. 11. 2004 23:00:01</result>
+   <result draft='approved'>2004-11-04 23:00:01</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>4. Nov. 2004</result>
+   <result draft='approved'>2004 11 4</result>
+   <result timeType='short' draft='unconfirmed'>4. Nov. 2004 23:00</result>
+   <result draft='approved'>2004 11 4 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>4. Nov. 2004 23:00:01</result>
+   <result draft='approved'>2004 11 4 23:00:01</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>4. Novämber 2004</result>
+   <result draft='approved'>2004 11 4</result>
+   <result timeType='short' draft='unconfirmed'>4. Novämber 2004 23:00</result>
+   <result draft='approved'>2004 11 4 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>4. Novämber 2004 23:00:01</result>
+   <result draft='approved'>2004 11 4 23:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Dunnersdaach, dä 4. Novämber 2004</result>
+   <result draft='approved'>5, 2004 11 04</result>
+   <result timeType='short' draft='unconfirmed'>Dunnersdaach, dä 4. Novämber 2004 23:00</result>
+   <result draft='approved'>5, 2004 11 04 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>Dunnersdaach, dä 4. Novämber 2004 23:00:01</result>
+   <result draft='approved'>5, 2004 11 04 23:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>1. 12. 2010</result>
+   <result draft='approved'>2010-12-01</result>
+   <result timeType='short' draft='unconfirmed'>1. 12. 2010 23:59</result>
+   <result draft='approved'>2010-12-01 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>1. 12. 2010 23:59:59</result>
+   <result draft='approved'>2010-12-01 23:59:59</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1. Dez. 2010</result>
+   <result draft='approved'>2010 12 1</result>
+   <result timeType='short' draft='unconfirmed'>1. Dez. 2010 23:59</result>
+   <result draft='approved'>2010 12 1 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>1. Dez. 2010 23:59:59</result>
+   <result draft='approved'>2010 12 1 23:59:59</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1. Dezämber 2010</result>
+   <result draft='approved'>2010 12 1</result>
+   <result timeType='short' draft='unconfirmed'>1. Dezämber 2010 23:59</result>
+   <result draft='approved'>2010 12 1 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>1. Dezämber 2010 23:59:59</result>
+   <result draft='approved'>2010 12 1 23:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Metwoch, dä 1. Dezämber 2010</result>
+   <result draft='approved'>4, 2010 12 01</result>
+   <result timeType='short' draft='unconfirmed'>Metwoch, dä 1. Dezämber 2010 23:59</result>
+   <result draft='approved'>4, 2010 12 01 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>Metwoch, dä 1. Dezämber 2010 23:59:59</result>
+   <result draft='approved'>4, 2010 12 01 23:59:59</result>
+  </date>
+  <zoneFields 
+locales='ksh ksh_DE'>
+<!-- Colognian [ksh@]; Colognian (Germany) [ksh en Doütschland@] -->
+  </zoneFields>
+  <collation 
+locales='ksh ksh_DE'>
+<!-- Colognian [ksh@]; Colognian (Germany) [ksh en Doütschland@] -->
+   <result draft='unconfirmed approved'>
+x̨
+X̨
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xa
+xA
+Xa
+XA
+xá
+xÁ
+Xá
+XÁ
+xà
+xÀ
+Xà
+XÀ
+xă
+xĂ
+Xă
+XĂ
+xâ
+xÂ
+Xâ
+XÂ
+xå
+xÅ
+Xå
+XÅ
+xä
+xÄ
+Xä
+XÄ
+xã
+xÃ
+Xã
+XÃ
+xā
+xĀ
+Xā
+XĀ
+xæ
+xÆ
+Xæ
+XÆ
+xæx
+xÆx
+xax
+xAx
+xáx
+xÁx
+xàx
+xÀx
+xăx
+xĂx
+xâx
+xÂx
+xåx
+xÅx
+xäx
+xÄx
+xãx
+xÃx
+xāx
+xĀx
+xb
+xB
+Xb
+XB
+xbx
+xBx
+xc
+xC
+Xc
+XC
+xç
+xÇ
+Xç
+XÇ
+xcx
+xCx
+xçx
+xÇx
+xd
+xD
+Xd
+XD
+xdx
+xDx
+xe
+xE
+Xe
+XE
+xé
+xÉ
+Xé
+XÉ
+xè
+xÈ
+Xè
+XÈ
+xĕ
+xĔ
+Xĕ
+XĔ
+xê
+xÊ
+Xê
+XÊ
+xë
+xË
+Xë
+XË
+xė
+xĖ
+Xė
+XĖ
+xē
+xĒ
+Xē
+XĒ
+xex
+xEx
+xéx
+xÉx
+xèx
+xÈx
+xĕx
+xĔx
+xêx
+xÊx
+xëx
+xËx
+xėx
+xĖx
+xēx
+xĒx
+xf
+xF
+Xf
+XF
+xfx
+xFx
+xg
+xG
+Xg
+XG
+xğ
+xĞ
+Xğ
+XĞ
+xgx
+xGx
+xğx
+xĞx
+xh
+xH
+Xh
+XH
+xhx
+xHx
+xi
+xI
+Xi
+XI
+xí
+xÍ
+Xí
+XÍ
+xì
+xÌ
+Xì
+XÌ
+xĭ
+xĬ
+Xĭ
+XĬ
+xî
+xÎ
+Xî
+XÎ
+xï
+xÏ
+Xï
+XÏ
+xī
+xĪ
+Xī
+XĪ
+xĳ
+xĲ
+Xĳ
+XĲ
+xĳx
+xĲx
+xix
+xIx
+xíx
+xÍx
+xìx
+xÌx
+xĭx
+xĬx
+xîx
+xÎx
+xïx
+xÏx
+xīx
+xĪx
+xı
+Xı
+xıx
+xj
+xJ
+Xj
+XJ
+xjx
+xJx
+xk
+xK
+Xk
+XK
+xkx
+xKx
+xl
+xL
+Xl
+XL
+xł
+xŁ
+Xł
+XŁ
+xlx
+xLx
+xłx
+xŁx
+xm
+xM
+Xm
+XM
+xmx
+xMx
+xn
+xN
+Xn
+XN
+xñ
+xÑ
+Xñ
+XÑ
+xnx
+xNx
+xñx
+xÑx
+xo
+xO
+Xo
+XO
+xó
+xÓ
+Xó
+XÓ
+xò
+xÒ
+Xò
+XÒ
+xŏ
+xŎ
+Xŏ
+XŎ
+xô
+xÔ
+Xô
+XÔ
+xö
+xÖ
+Xö
+XÖ
+xø
+xØ
+Xø
+XØ
+xō
+xŌ
+Xō
+XŌ
+xœ
+xŒ
+Xœ
+XŒ
+xœx
+xŒx
+xox
+xOx
+xóx
+xÓx
+xòx
+xÒx
+xŏx
+xŎx
+xôx
+xÔx
+xöx
+xÖx
+xøx
+xØx
+xōx
+xŌx
+xp
+xP
+Xp
+XP
+xpx
+xPx
+xq
+xQ
+Xq
+XQ
+xqx
+xQx
+xr
+xR
+Xr
+XR
+xrx
+xRx
+xs
+xS
+Xs
+XS
+xsx
+xSx
+xt
+xT
+Xt
+XT
+xtx
+xTx
+xu
+xU
+Xu
+XU
+xú
+xÚ
+Xú
+XÚ
+xù
+xÙ
+Xù
+XÙ
+xŭ
+xŬ
+Xŭ
+XŬ
+xû
+xÛ
+Xû
+XÛ
+xů
+xŮ
+Xů
+XŮ
+xü
+xÜ
+Xü
+XÜ
+xū
+xŪ
+Xū
+XŪ
+xux
+xUx
+xúx
+xÚx
+xùx
+xÙx
+xŭx
+xŬx
+xûx
+xÛx
+xůx
+xŮx
+xüx
+xÜx
+xūx
+xŪx
+xv
+xV
+Xv
+XV
+xvx
+xVx
+xw
+xW
+Xw
+XW
+xwx
+xWx
+xx
+xX
+Xx
+XX
+x̨x
+xxx
+xXx
+xy
+xY
+Xy
+XY
+xÿ
+xŸ
+Xÿ
+XŸ
+xyx
+xYx
+xÿx
+xŸx
+xz
+xZ
+Xz
+XZ
+xzx
+xZx
+</result>
+  </collation>
+ </cldrTest>

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.7' base='cop'>
- <!-- Coptic [Coptic] -->
+ <cldrTest version='1.7' base='br'>
+ <!-- Breton [br] -->
   <number 
-locales='cop'>
-<!-- Coptic [Coptic] -->
+locales='br br_FR'>
+<!-- Breton [br@]; Breton (France) [br (Frañs)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,17 +56,14 @@ locales='cop'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='cop'>
-<!-- Coptic [Coptic] -->
+locales='br br_FR'>
+<!-- Breton [br@]; Breton (France) [br (Frañs)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>00/01/31</result>
-   <result draft='approved'>1900-01-31</result>
-   <result timeType='short' draft='unconfirmed'>00/01/31 00:00</result>
-   <result draft='approved'>1900-01-31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>00/01/31 00:00:00</result>
-   <result draft='approved'>1900-01-31 00:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1900 1 31</result>
+   <result dateType='short' timeType='none'>1900-01-31</result>
+   <result timeType='short'>1900-01-31 00:00</result>
+   <result timeType='medium'>1900-01-31 00:00:00</result>
+   <result dateType='medium' timeType='none'>1900 1 31</result>
    <result timeType='short'>1900 1 31 00:00</result>
    <result timeType='medium'>1900 1 31 00:00:00</result>
    <result dateType='long' timeType='none'>1900 1 31</result>
@@ -77,13 +74,10 @@ locales='cop'>
    <result timeType='medium'>4, 1900 1 31 00:00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>09/02/28</result>
-   <result draft='approved'>1909-02-28</result>
-   <result timeType='short' draft='unconfirmed'>09/02/28 00:00</result>
-   <result draft='approved'>1909-02-28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>09/02/28 00:00:01</result>
-   <result draft='approved'>1909-02-28 00:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1909 2 28</result>
+   <result dateType='short' timeType='none'>1909-02-28</result>
+   <result timeType='short'>1909-02-28 00:00</result>
+   <result timeType='medium'>1909-02-28 00:00:01</result>
+   <result dateType='medium' timeType='none'>1909 2 28</result>
    <result timeType='short'>1909 2 28 00:00</result>
    <result timeType='medium'>1909 2 28 00:00:01</result>
    <result dateType='long' timeType='none'>1909 2 28</result>
@@ -94,13 +88,10 @@ locales='cop'>
    <result timeType='medium'>1, 1909 2 28 00:00:01</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>18/03/26</result>
-   <result draft='approved'>1918-03-26</result>
-   <result timeType='short' draft='unconfirmed'>18/03/26 00:59</result>
-   <result draft='approved'>1918-03-26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>18/03/26 00:59:59</result>
-   <result draft='approved'>1918-03-26 00:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1918 3 26</result>
+   <result dateType='short' timeType='none'>1918-03-26</result>
+   <result timeType='short'>1918-03-26 00:59</result>
+   <result timeType='medium'>1918-03-26 00:59:59</result>
+   <result dateType='medium' timeType='none'>1918 3 26</result>
    <result timeType='short'>1918 3 26 00:59</result>
    <result timeType='medium'>1918 3 26 00:59:59</result>
    <result dateType='long' timeType='none'>1918 3 26</result>
@@ -111,13 +102,10 @@ locales='cop'>
    <result timeType='medium'>3, 1918 3 26 00:59:59</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>32/04/24</result>
-   <result draft='approved'>1932-04-24</result>
-   <result timeType='short' draft='unconfirmed'>32/04/24 01:00</result>
-   <result draft='approved'>1932-04-24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>32/04/24 01:00:00</result>
-   <result draft='approved'>1932-04-24 01:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1932 4 24</result>
+   <result dateType='short' timeType='none'>1932-04-24</result>
+   <result timeType='short'>1932-04-24 01:00</result>
+   <result timeType='medium'>1932-04-24 01:00:00</result>
+   <result dateType='medium' timeType='none'>1932 4 24</result>
    <result timeType='short'>1932 4 24 01:00</result>
    <result timeType='medium'>1932 4 24 01:00:00</result>
    <result dateType='long' timeType='none'>1932 4 24</result>
@@ -128,13 +116,10 @@ locales='cop'>
    <result timeType='medium'>1, 1932 4 24 01:00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>45/05/20</result>
-   <result draft='approved'>1945-05-20</result>
-   <result timeType='short' draft='unconfirmed'>45/05/20 01:00</result>
-   <result draft='approved'>1945-05-20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>45/05/20 01:00:01</result>
-   <result draft='approved'>1945-05-20 01:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1945 5 20</result>
+   <result dateType='short' timeType='none'>1945-05-20</result>
+   <result timeType='short'>1945-05-20 01:00</result>
+   <result timeType='medium'>1945-05-20 01:00:01</result>
+   <result dateType='medium' timeType='none'>1945 5 20</result>
    <result timeType='short'>1945 5 20 01:00</result>
    <result timeType='medium'>1945 5 20 01:00:01</result>
    <result dateType='long' timeType='none'>1945 5 20</result>
@@ -145,13 +130,10 @@ locales='cop'>
    <result timeType='medium'>1, 1945 5 20 01:00:01</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>52/06/18</result>
-   <result draft='approved'>1952-06-18</result>
-   <result timeType='short' draft='unconfirmed'>52/06/18 11:59</result>
-   <result draft='approved'>1952-06-18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>52/06/18 11:59:59</result>
-   <result draft='approved'>1952-06-18 11:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1952 6 18</result>
+   <result dateType='short' timeType='none'>1952-06-18</result>
+   <result timeType='short'>1952-06-18 11:59</result>
+   <result timeType='medium'>1952-06-18 11:59:59</result>
+   <result dateType='medium' timeType='none'>1952 6 18</result>
    <result timeType='short'>1952 6 18 11:59</result>
    <result timeType='medium'>1952 6 18 11:59:59</result>
    <result dateType='long' timeType='none'>1952 6 18</result>
@@ -162,13 +144,10 @@ locales='cop'>
    <result timeType='medium'>4, 1952 6 18 11:59:59</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>73/07/16</result>
-   <result draft='approved'>1973-07-16</result>
-   <result timeType='short' draft='unconfirmed'>73/07/16 12:00</result>
-   <result draft='approved'>1973-07-16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>73/07/16 12:00:00</result>
-   <result draft='approved'>1973-07-16 12:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1973 7 16</result>
+   <result dateType='short' timeType='none'>1973-07-16</result>
+   <result timeType='short'>1973-07-16 12:00</result>
+   <result timeType='medium'>1973-07-16 12:00:00</result>
+   <result dateType='medium' timeType='none'>1973 7 16</result>
    <result timeType='short'>1973 7 16 12:00</result>
    <result timeType='medium'>1973 7 16 12:00:00</result>
    <result dateType='long' timeType='none'>1973 7 16</result>
@@ -179,13 +158,10 @@ locales='cop'>
    <result timeType='medium'>2, 1973 7 16 12:00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>99/08/14</result>
-   <result draft='approved'>1999-08-14</result>
-   <result timeType='short' draft='unconfirmed'>99/08/14 12:00</result>
-   <result draft='approved'>1999-08-14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>99/08/14 12:00:01</result>
-   <result draft='approved'>1999-08-14 12:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1999 8 14</result>
+   <result dateType='short' timeType='none'>1999-08-14</result>
+   <result timeType='short'>1999-08-14 12:00</result>
+   <result timeType='medium'>1999-08-14 12:00:01</result>
+   <result dateType='medium' timeType='none'>1999 8 14</result>
    <result timeType='short'>1999 8 14 12:00</result>
    <result timeType='medium'>1999 8 14 12:00:01</result>
    <result dateType='long' timeType='none'>1999 8 14</result>
@@ -196,13 +172,10 @@ locales='cop'>
    <result timeType='medium'>7, 1999 8 14 12:00:01</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>00/09/12</result>
-   <result draft='approved'>2000-09-12</result>
-   <result timeType='short' draft='unconfirmed'>00/09/12 22:59</result>
-   <result draft='approved'>2000-09-12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>00/09/12 22:59:59</result>
-   <result draft='approved'>2000-09-12 22:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2000 9 12</result>
+   <result dateType='short' timeType='none'>2000-09-12</result>
+   <result timeType='short'>2000-09-12 22:59</result>
+   <result timeType='medium'>2000-09-12 22:59:59</result>
+   <result dateType='medium' timeType='none'>2000 9 12</result>
    <result timeType='short'>2000 9 12 22:59</result>
    <result timeType='medium'>2000 9 12 22:59:59</result>
    <result dateType='long' timeType='none'>2000 9 12</result>
@@ -213,13 +186,10 @@ locales='cop'>
    <result timeType='medium'>3, 2000 9 12 22:59:59</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>01/10/08</result>
-   <result draft='approved'>2001-10-08</result>
-   <result timeType='short' draft='unconfirmed'>01/10/08 23:00</result>
-   <result draft='approved'>2001-10-08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>01/10/08 23:00:00</result>
-   <result draft='approved'>2001-10-08 23:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2001 10 8</result>
+   <result dateType='short' timeType='none'>2001-10-08</result>
+   <result timeType='short'>2001-10-08 23:00</result>
+   <result timeType='medium'>2001-10-08 23:00:00</result>
+   <result dateType='medium' timeType='none'>2001 10 8</result>
    <result timeType='short'>2001 10 8 23:00</result>
    <result timeType='medium'>2001 10 8 23:00:00</result>
    <result dateType='long' timeType='none'>2001 10 8</result>
@@ -230,13 +200,10 @@ locales='cop'>
    <result timeType='medium'>2, 2001 10 08 23:00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>04/11/04</result>
-   <result draft='approved'>2004-11-04</result>
-   <result timeType='short' draft='unconfirmed'>04/11/04 23:00</result>
-   <result draft='approved'>2004-11-04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>04/11/04 23:00:01</result>
-   <result draft='approved'>2004-11-04 23:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2004 11 4</result>
+   <result dateType='short' timeType='none'>2004-11-04</result>
+   <result timeType='short'>2004-11-04 23:00</result>
+   <result timeType='medium'>2004-11-04 23:00:01</result>
+   <result dateType='medium' timeType='none'>2004 11 4</result>
    <result timeType='short'>2004 11 4 23:00</result>
    <result timeType='medium'>2004 11 4 23:00:01</result>
    <result dateType='long' timeType='none'>2004 11 4</result>
@@ -247,13 +214,10 @@ locales='cop'>
    <result timeType='medium'>5, 2004 11 04 23:00:01</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>10/12/01</result>
-   <result draft='approved'>2010-12-01</result>
-   <result timeType='short' draft='unconfirmed'>10/12/01 23:59</result>
-   <result draft='approved'>2010-12-01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>10/12/01 23:59:59</result>
-   <result draft='approved'>2010-12-01 23:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2010 12 1</result>
+   <result dateType='short' timeType='none'>2010-12-01</result>
+   <result timeType='short'>2010-12-01 23:59</result>
+   <result timeType='medium'>2010-12-01 23:59:59</result>
+   <result dateType='medium' timeType='none'>2010 12 1</result>
    <result timeType='short'>2010 12 1 23:59</result>
    <result timeType='medium'>2010 12 1 23:59:59</result>
    <result dateType='long' timeType='none'>2010 12 1</result>
@@ -264,12 +228,12 @@ locales='cop'>
    <result timeType='medium'>4, 2010 12 01 23:59:59</result>
   </date>
   <zoneFields 
-locales='cop'>
-<!-- Coptic [Coptic] -->
+locales='br br_FR'>
+<!-- Breton [br@]; Breton (France) [br (Frañs)@] -->
   </zoneFields>
   <collation 
-locales='cop'>
-<!-- Coptic [Coptic] -->
+locales='br br_FR'>
+<!-- Breton [br@]; Breton (France) [br (Frañs)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -286,198 +250,414 @@ x12x
 x2
 X2
 x2x
-xα
-xΑ
-Xα
-XΑ
-xαx
-xΑx
-xβ
-xΒ
-Xβ
-XΒ
-xβx
-xΒx
-xγ
-xΓ
-Xγ
-XΓ
-xγx
-xΓx
-xδ
-xΔ
-Xδ
-XΔ
-xδx
-xΔx
-xε
-xΕ
-Xε
-XΕ
-xεx
-xΕx
-xζ
-xΖ
-Xζ
-XΖ
-xζx
-xΖx
-xη
-xΗ
-Xη
-XΗ
-xηx
-xΗx
-xθ
-xΘ
-Xθ
-XΘ
-xθx
-xΘx
-xι
-xΙ
-Xι
-XΙ
-xιx
-xΙx
-xκ
-xΚ
-Xκ
-XΚ
-xκx
-xΚx
-xλ
-xΛ
-Xλ
-XΛ
-xλx
-xΛx
-xμ
-xΜ
-Xμ
-XΜ
-xμx
-xΜx
-xν
-xΝ
-Xν
-XΝ
-xνx
-xΝx
-xξ
-xΞ
-Xξ
-XΞ
-xξx
-xΞx
-xο
-xΟ
-Xο
-XΟ
-xοx
-xΟx
-xπ
-xΠ
-Xπ
-XΠ
-xπx
-xΠx
-xρ
-xΡ
-Xρ
-XΡ
-xρx
-xΡx
-xσ
-xϲ
-xΣ
-xϹ
-Xσ
-Xϲ
-XΣ
-XϹ
-xσx
-xϲx
-xΣx
-xϹx
-xτ
-xΤ
-Xτ
-XΤ
-xτx
-xΤx
-xυ
-xΥ
-Xυ
-XΥ
-xυx
-xΥx
-xφ
-xΦ
-Xφ
-XΦ
-xφx
-xΦx
-xχ
-xΧ
-Xχ
-XΧ
-xχx
-xΧx
-xψ
-xΨ
-Xψ
-XΨ
-xψx
-xΨx
-xω
-xΩ
-Xω
-XΩ
-xωx
-xΩx
-xϣ
-xϢ
-Xϣ
-XϢ
-xϣx
-xϢx
-xϥ
-xϤ
-Xϥ
-XϤ
-xϥx
-xϤx
-xϧ
-xϦ
-Xϧ
-XϦ
-xϧx
-xϦx
-xϩ
-xϨ
-Xϩ
-XϨ
-xϩx
-xϨx
-xϫ
-xϪ
-Xϫ
-XϪ
-xϫx
-xϪx
-xϭ
-xϬ
-Xϭ
-XϬ
-xϭx
-xϬx
-xϯ
-xϮ
-Xϯ
-XϮ
-xϯx
-xϮx
+xa
+xA
+Xa
+XA
+xá
+xÁ
+Xá
+XÁ
+xà
+xÀ
+Xà
+XÀ
+xă
+xĂ
+Xă
+XĂ
+xâ
+xÂ
+Xâ
+XÂ
+xå
+xÅ
+Xå
+XÅ
+xä
+xÄ
+Xä
+XÄ
+xã
+xÃ
+Xã
+XÃ
+xā
+xĀ
+Xā
+XĀ
+xæ
+xÆ
+Xæ
+XÆ
+xæx
+xÆx
+xax
+xAx
+xáx
+xÁx
+xàx
+xÀx
+xăx
+xĂx
+xâx
+xÂx
+xåx
+xÅx
+xäx
+xÄx
+xãx
+xÃx
+xāx
+xĀx
+xb
+xB
+Xb
+XB
+xbx
+xBx
+xc
+xC
+Xc
+XC
+xç
+xÇ
+Xç
+XÇ
+xc&amp;apos;h
+xc&amp;apos;H
+xC&amp;apos;h
+xC&amp;apos;H
+Xc&amp;apos;h
+Xc&amp;apos;H
+XC&amp;apos;h
+XC&amp;apos;H
+xc&amp;apos;hx
+xc&amp;apos;Hx
+xC&amp;apos;hx
+xC&amp;apos;Hx
+xch
+xcH
+xCh
+xCH
+Xch
+XcH
+XCh
+XCH
+xchx
+xcHx
+xChx
+xCHx
+xcx
+xCx
+xçx
+xÇx
+xd
+xD
+Xd
+XD
+xdx
+xDx
+xe
+xE
+Xe
+XE
+xé
+xÉ
+Xé
+XÉ
+xè
+xÈ
+Xè
+XÈ
+xĕ
+xĔ
+Xĕ
+XĔ
+xê
+xÊ
+Xê
+XÊ
+xë
+xË
+Xë
+XË
+xē
+xĒ
+Xē
+XĒ
+xex
+xEx
+xéx
+xÉx
+xèx
+xÈx
+xĕx
+xĔx
+xêx
+xÊx
+xëx
+xËx
+xēx
+xĒx
+xf
+xF
+Xf
+XF
+xfx
+xFx
+xg
+xG
+Xg
+XG
+xgx
+xGx
+xh
+xH
+Xh
+XH
+xhx
+xHx
+xi
+xI
+Xi
+XI
+xí
+xÍ
+Xí
+XÍ
+xì
+xÌ
+Xì
+XÌ
+xĭ
+xĬ
+Xĭ
+XĬ
+xî
+xÎ
+Xî
+XÎ
+xï
+xÏ
+Xï
+XÏ
+xī
+xĪ
+Xī
+XĪ
+xix
+xIx
+xíx
+xÍx
+xìx
+xÌx
+xĭx
+xĬx
+xîx
+xÎx
+xïx
+xÏx
+xīx
+xĪx
+xj
+xJ
+Xj
+XJ
+xjx
+xJx
+xk
+xK
+Xk
+XK
+xkx
+xKx
+xl
+xL
+Xl
+XL
+xlx
+xLx
+xm
+xM
+Xm
+XM
+xmx
+xMx
+xn
+xN
+Xn
+XN
+xñ
+xÑ
+Xñ
+XÑ
+xnx
+xNx
+xñx
+xÑx
+xo
+xO
+Xo
+XO
+xó
+xÓ
+Xó
+XÓ
+xò
+xÒ
+Xò
+XÒ
+xŏ
+xŎ
+Xŏ
+XŎ
+xô
+xÔ
+Xô
+XÔ
+xö
+xÖ
+Xö
+XÖ
+xø
+xØ
+Xø
+XØ
+xō
+xŌ
+Xō
+XŌ
+xœ
+xŒ
+Xœ
+XŒ
+xœx
+xŒx
+xox
+xOx
+xóx
+xÓx
+xòx
+xÒx
+xŏx
+xŎx
+xôx
+xÔx
+xöx
+xÖx
+xøx
+xØx
+xōx
+xŌx
+xp
+xP
+Xp
+XP
+xpx
+xPx
+xq
+xQ
+Xq
+XQ
+xqx
+xQx
+xr
+xR
+Xr
+XR
+xrx
+xRx
+xs
+xS
+Xs
+XS
+xsx
+xSx
+xt
+xT
+Xt
+XT
+xtx
+xTx
+xu
+xU
+Xu
+XU
+xú
+xÚ
+Xú
+XÚ
+xù
+xÙ
+Xù
+XÙ
+xŭ
+xŬ
+Xŭ
+XŬ
+xû
+xÛ
+Xû
+XÛ
+xü
+xÜ
+Xü
+XÜ
+xū
+xŪ
+Xū
+XŪ
+xux
+xUx
+xúx
+xÚx
+xùx
+xÙx
+xŭx
+xŬx
+xûx
+xÛx
+xüx
+xÜx
+xūx
+xŪx
+xv
+xV
+Xv
+XV
+xvx
+xVx
+xw
+xW
+Xw
+XW
+xwx
+xWx
+xx
+xX
+Xx
+XX
+xxx
+xXx
+xy
+xY
+Xy
+XY
+xÿ
+xŸ
+Xÿ
+XŸ
+xyx
+xYx
+xÿx
+xŸx
+xz
+xZ
+Xz
+XZ
+xzx
+xZx
 </result>
   </collation>
  </cldrTest>

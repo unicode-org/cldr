@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='sw'>
- <!-- Swahili [Kiswahili] -->
+ <!-- Swahili [Kenya] -->
   <number 
 locales='sw sw_KE sw_TZ'>
-<!-- Swahili [Kiswahili]; Swahili (Kenya) [Kiswahili (Kenya)]; Swahili (Tanzania) [Kiswahili (Tanzania)] -->
+<!-- Swahili [Kenya@]; Swahili (Kenya) [Kenya (Kenya)@]; Swahili (Tanzania) [Kenya (Tanzania)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,219 +57,183 @@ locales='sw sw_KE sw_TZ'>
   </number>
   <date 
 locales='sw sw_KE sw_TZ'>
-<!-- Swahili [Kiswahili]; Swahili (Kenya) [Kiswahili (Kenya)]; Swahili (Tanzania) [Kiswahili (Tanzania)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
-   <result timeType='medium'>00:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>00/01/31</result>
-   <result draft='approved'>1900-01-31</result>
-   <result timeType='short' draft='unconfirmed'>00/01/31 00:00</result>
-   <result draft='approved'>1900-01-31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>00/01/31 00:00:00</result>
-   <result draft='approved'>1900-01-31 00:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1900 Jan 31</result>
-   <result timeType='short'>1900 Jan 31 00:00</result>
-   <result timeType='medium'>1900 Jan 31 00:00:00</result>
-   <result dateType='long' timeType='none'>1900 Januari 31</result>
-   <result timeType='short'>1900 Januari 31 00:00</result>
-   <result timeType='medium'>1900 Januari 31 00:00:00</result>
-   <result dateType='full' timeType='none'>Jumatano, 1900 Januari 31</result>
-   <result timeType='short'>Jumatano, 1900 Januari 31 00:00</result>
-   <result timeType='medium'>Jumatano, 1900 Januari 31 00:00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
-   <result timeType='medium'>00:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>09/02/28</result>
-   <result draft='approved'>1909-02-28</result>
-   <result timeType='short' draft='unconfirmed'>09/02/28 00:00</result>
-   <result draft='approved'>1909-02-28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>09/02/28 00:00:01</result>
-   <result draft='approved'>1909-02-28 00:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1909 Feb 28</result>
-   <result timeType='short'>1909 Feb 28 00:00</result>
-   <result timeType='medium'>1909 Feb 28 00:00:01</result>
-   <result dateType='long' timeType='none'>1909 Februari 28</result>
-   <result timeType='short'>1909 Februari 28 00:00</result>
-   <result timeType='medium'>1909 Februari 28 00:00:01</result>
-   <result dateType='full' timeType='none'>Jumapili, 1909 Februari 28</result>
-   <result timeType='short'>Jumapili, 1909 Februari 28 00:00</result>
-   <result timeType='medium'>Jumapili, 1909 Februari 28 00:00:01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
-   <result timeType='medium'>00:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>18/03/26</result>
-   <result draft='approved'>1918-03-26</result>
-   <result timeType='short' draft='unconfirmed'>18/03/26 00:59</result>
-   <result draft='approved'>1918-03-26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>18/03/26 00:59:59</result>
-   <result draft='approved'>1918-03-26 00:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1918 Mac 26</result>
-   <result timeType='short'>1918 Mac 26 00:59</result>
-   <result timeType='medium'>1918 Mac 26 00:59:59</result>
-   <result dateType='long' timeType='none'>1918 Machi 26</result>
-   <result timeType='short'>1918 Machi 26 00:59</result>
-   <result timeType='medium'>1918 Machi 26 00:59:59</result>
-   <result dateType='full' timeType='none'>Jumanne, 1918 Machi 26</result>
-   <result timeType='short'>Jumanne, 1918 Machi 26 00:59</result>
-   <result timeType='medium'>Jumanne, 1918 Machi 26 00:59:59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
-   <result timeType='medium'>01:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>32/04/24</result>
-   <result draft='approved'>1932-04-24</result>
-   <result timeType='short' draft='unconfirmed'>32/04/24 01:00</result>
-   <result draft='approved'>1932-04-24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>32/04/24 01:00:00</result>
-   <result draft='approved'>1932-04-24 01:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1932 Apr 24</result>
-   <result timeType='short'>1932 Apr 24 01:00</result>
-   <result timeType='medium'>1932 Apr 24 01:00:00</result>
-   <result dateType='long' timeType='none'>1932 Aprili 24</result>
-   <result timeType='short'>1932 Aprili 24 01:00</result>
-   <result timeType='medium'>1932 Aprili 24 01:00:00</result>
-   <result dateType='full' timeType='none'>Jumapili, 1932 Aprili 24</result>
-   <result timeType='short'>Jumapili, 1932 Aprili 24 01:00</result>
-   <result timeType='medium'>Jumapili, 1932 Aprili 24 01:00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
-   <result timeType='medium'>01:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>45/05/20</result>
-   <result draft='approved'>1945-05-20</result>
-   <result timeType='short' draft='unconfirmed'>45/05/20 01:00</result>
-   <result draft='approved'>1945-05-20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>45/05/20 01:00:01</result>
-   <result draft='approved'>1945-05-20 01:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1945 Mei 20</result>
-   <result timeType='short'>1945 Mei 20 01:00</result>
-   <result timeType='medium'>1945 Mei 20 01:00:01</result>
-   <result dateType='long' timeType='none'>1945 Mei 20</result>
-   <result timeType='short'>1945 Mei 20 01:00</result>
-   <result timeType='medium'>1945 Mei 20 01:00:01</result>
-   <result dateType='full' timeType='none'>Jumapili, 1945 Mei 20</result>
-   <result timeType='short'>Jumapili, 1945 Mei 20 01:00</result>
-   <result timeType='medium'>Jumapili, 1945 Mei 20 01:00:01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
-   <result timeType='medium'>11:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>52/06/18</result>
-   <result draft='approved'>1952-06-18</result>
-   <result timeType='short' draft='unconfirmed'>52/06/18 11:59</result>
-   <result draft='approved'>1952-06-18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>52/06/18 11:59:59</result>
-   <result draft='approved'>1952-06-18 11:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1952 Jun 18</result>
-   <result timeType='short'>1952 Jun 18 11:59</result>
-   <result timeType='medium'>1952 Jun 18 11:59:59</result>
-   <result dateType='long' timeType='none'>1952 Juni 18</result>
-   <result timeType='short'>1952 Juni 18 11:59</result>
-   <result timeType='medium'>1952 Juni 18 11:59:59</result>
-   <result dateType='full' timeType='none'>Jumatano, 1952 Juni 18</result>
-   <result timeType='short'>Jumatano, 1952 Juni 18 11:59</result>
-   <result timeType='medium'>Jumatano, 1952 Juni 18 11:59:59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
-   <result timeType='medium'>12:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>73/07/16</result>
-   <result draft='approved'>1973-07-16</result>
-   <result timeType='short' draft='unconfirmed'>73/07/16 12:00</result>
-   <result draft='approved'>1973-07-16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>73/07/16 12:00:00</result>
-   <result draft='approved'>1973-07-16 12:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1973 Jul 16</result>
-   <result timeType='short'>1973 Jul 16 12:00</result>
-   <result timeType='medium'>1973 Jul 16 12:00:00</result>
-   <result dateType='long' timeType='none'>1973 Julai 16</result>
-   <result timeType='short'>1973 Julai 16 12:00</result>
-   <result timeType='medium'>1973 Julai 16 12:00:00</result>
-   <result dateType='full' timeType='none'>Jumatatu, 1973 Julai 16</result>
-   <result timeType='short'>Jumatatu, 1973 Julai 16 12:00</result>
-   <result timeType='medium'>Jumatatu, 1973 Julai 16 12:00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
-   <result timeType='medium'>12:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>99/08/14</result>
-   <result draft='approved'>1999-08-14</result>
-   <result timeType='short' draft='unconfirmed'>99/08/14 12:00</result>
-   <result draft='approved'>1999-08-14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>99/08/14 12:00:01</result>
-   <result draft='approved'>1999-08-14 12:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1999 Ago 14</result>
-   <result timeType='short'>1999 Ago 14 12:00</result>
-   <result timeType='medium'>1999 Ago 14 12:00:01</result>
-   <result dateType='long' timeType='none'>1999 Agosti 14</result>
-   <result timeType='short'>1999 Agosti 14 12:00</result>
-   <result timeType='medium'>1999 Agosti 14 12:00:01</result>
-   <result dateType='full' timeType='none'>Jumamosi, 1999 Agosti 14</result>
-   <result timeType='short'>Jumamosi, 1999 Agosti 14 12:00</result>
-   <result timeType='medium'>Jumamosi, 1999 Agosti 14 12:00:01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
-   <result timeType='medium'>22:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>00/09/12</result>
-   <result draft='approved'>2000-09-12</result>
-   <result timeType='short' draft='unconfirmed'>00/09/12 22:59</result>
-   <result draft='approved'>2000-09-12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>00/09/12 22:59:59</result>
-   <result draft='approved'>2000-09-12 22:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2000 Sep 12</result>
-   <result timeType='short'>2000 Sep 12 22:59</result>
-   <result timeType='medium'>2000 Sep 12 22:59:59</result>
-   <result dateType='long' timeType='none'>2000 Septemba 12</result>
-   <result timeType='short'>2000 Septemba 12 22:59</result>
-   <result timeType='medium'>2000 Septemba 12 22:59:59</result>
-   <result dateType='full' timeType='none'>Jumanne, 2000 Septemba 12</result>
-   <result timeType='short'>Jumanne, 2000 Septemba 12 22:59</result>
-   <result timeType='medium'>Jumanne, 2000 Septemba 12 22:59:59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
-   <result timeType='medium'>23:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>01/10/08</result>
-   <result draft='approved'>2001-10-08</result>
-   <result timeType='short' draft='unconfirmed'>01/10/08 23:00</result>
-   <result draft='approved'>2001-10-08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>01/10/08 23:00:00</result>
-   <result draft='approved'>2001-10-08 23:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2001 Okt 8</result>
-   <result timeType='short'>2001 Okt 8 23:00</result>
-   <result timeType='medium'>2001 Okt 8 23:00:00</result>
-   <result dateType='long' timeType='none'>2001 Oktoba 8</result>
-   <result timeType='short'>2001 Oktoba 8 23:00</result>
-   <result timeType='medium'>2001 Oktoba 8 23:00:00</result>
-   <result dateType='full' timeType='none'>Jumatatu, 2001 Oktoba 08</result>
-   <result timeType='short'>Jumatatu, 2001 Oktoba 08 23:00</result>
-   <result timeType='medium'>Jumatatu, 2001 Oktoba 08 23:00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
-   <result timeType='medium'>23:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>04/11/04</result>
-   <result draft='approved'>2004-11-04</result>
-   <result timeType='short' draft='unconfirmed'>04/11/04 23:00</result>
-   <result draft='approved'>2004-11-04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>04/11/04 23:00:01</result>
-   <result draft='approved'>2004-11-04 23:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2004 Nov 4</result>
-   <result timeType='short'>2004 Nov 4 23:00</result>
-   <result timeType='medium'>2004 Nov 4 23:00:01</result>
-   <result dateType='long' timeType='none'>2004 Novemba 4</result>
-   <result timeType='short'>2004 Novemba 4 23:00</result>
-   <result timeType='medium'>2004 Novemba 4 23:00:01</result>
-   <result dateType='full' timeType='none'>Alhamisi, 2004 Novemba 04</result>
-   <result timeType='short'>Alhamisi, 2004 Novemba 04 23:00</result>
-   <result timeType='medium'>Alhamisi, 2004 Novemba 04 23:00:01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
-   <result timeType='medium'>23:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>10/12/01</result>
-   <result draft='approved'>2010-12-01</result>
-   <result timeType='short' draft='unconfirmed'>10/12/01 23:59</result>
-   <result draft='approved'>2010-12-01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>10/12/01 23:59:59</result>
-   <result draft='approved'>2010-12-01 23:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2010 Des 1</result>
-   <result timeType='short'>2010 Des 1 23:59</result>
-   <result timeType='medium'>2010 Des 1 23:59:59</result>
-   <result dateType='long' timeType='none'>2010 Desemba 1</result>
-   <result timeType='short'>2010 Desemba 1 23:59</result>
-   <result timeType='medium'>2010 Desemba 1 23:59:59</result>
-   <result dateType='full' timeType='none'>Jumatano, 2010 Desemba 01</result>
-   <result timeType='short'>Jumatano, 2010 Desemba 01 23:59</result>
-   <result timeType='medium'>Jumatano, 2010 Desemba 01 23:59:59</result>
+<!-- Swahili [Kenya@]; Swahili (Kenya) [Kenya (Kenya)@]; Swahili (Tanzania) [Kenya (Tanzania)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 asubuhi</result>
+   <result timeType='medium'>12:00:00 asubuhi</result>
+   <result dateType='short' timeType='none'>31/01/1900</result>
+   <result timeType='short'>31/01/1900 12:00 asubuhi</result>
+   <result timeType='medium'>31/01/1900 12:00:00 asubuhi</result>
+   <result dateType='medium' timeType='none'>31 Jan 1900</result>
+   <result timeType='short'>31 Jan 1900 12:00 asubuhi</result>
+   <result timeType='medium'>31 Jan 1900 12:00:00 asubuhi</result>
+   <result dateType='long' timeType='none'>31 Januari 1900</result>
+   <result timeType='short'>31 Januari 1900 12:00 asubuhi</result>
+   <result timeType='medium'>31 Januari 1900 12:00:00 asubuhi</result>
+   <result dateType='full' timeType='none'>Jumatano, 31 Januari 1900</result>
+   <result timeType='short'>Jumatano, 31 Januari 1900 12:00 asubuhi</result>
+   <result timeType='medium'>Jumatano, 31 Januari 1900 12:00:00 asubuhi</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 asubuhi</result>
+   <result timeType='medium'>12:00:01 asubuhi</result>
+   <result dateType='short' timeType='none'>28/02/1909</result>
+   <result timeType='short'>28/02/1909 12:00 asubuhi</result>
+   <result timeType='medium'>28/02/1909 12:00:01 asubuhi</result>
+   <result dateType='medium' timeType='none'>28 Feb 1909</result>
+   <result timeType='short'>28 Feb 1909 12:00 asubuhi</result>
+   <result timeType='medium'>28 Feb 1909 12:00:01 asubuhi</result>
+   <result dateType='long' timeType='none'>28 Februari 1909</result>
+   <result timeType='short'>28 Februari 1909 12:00 asubuhi</result>
+   <result timeType='medium'>28 Februari 1909 12:00:01 asubuhi</result>
+   <result dateType='full' timeType='none'>Jumapili, 28 Februari 1909</result>
+   <result timeType='short'>Jumapili, 28 Februari 1909 12:00 asubuhi</result>
+   <result timeType='medium'>Jumapili, 28 Februari 1909 12:00:01 asubuhi</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 asubuhi</result>
+   <result timeType='medium'>12:59:59 asubuhi</result>
+   <result dateType='short' timeType='none'>26/03/1918</result>
+   <result timeType='short'>26/03/1918 12:59 asubuhi</result>
+   <result timeType='medium'>26/03/1918 12:59:59 asubuhi</result>
+   <result dateType='medium' timeType='none'>26 Mac 1918</result>
+   <result timeType='short'>26 Mac 1918 12:59 asubuhi</result>
+   <result timeType='medium'>26 Mac 1918 12:59:59 asubuhi</result>
+   <result dateType='long' timeType='none'>26 Machi 1918</result>
+   <result timeType='short'>26 Machi 1918 12:59 asubuhi</result>
+   <result timeType='medium'>26 Machi 1918 12:59:59 asubuhi</result>
+   <result dateType='full' timeType='none'>Jumanne, 26 Machi 1918</result>
+   <result timeType='short'>Jumanne, 26 Machi 1918 12:59 asubuhi</result>
+   <result timeType='medium'>Jumanne, 26 Machi 1918 12:59:59 asubuhi</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 asubuhi</result>
+   <result timeType='medium'>1:00:00 asubuhi</result>
+   <result dateType='short' timeType='none'>24/04/1932</result>
+   <result timeType='short'>24/04/1932 1:00 asubuhi</result>
+   <result timeType='medium'>24/04/1932 1:00:00 asubuhi</result>
+   <result dateType='medium' timeType='none'>24 Apr 1932</result>
+   <result timeType='short'>24 Apr 1932 1:00 asubuhi</result>
+   <result timeType='medium'>24 Apr 1932 1:00:00 asubuhi</result>
+   <result dateType='long' timeType='none'>24 Aprili 1932</result>
+   <result timeType='short'>24 Aprili 1932 1:00 asubuhi</result>
+   <result timeType='medium'>24 Aprili 1932 1:00:00 asubuhi</result>
+   <result dateType='full' timeType='none'>Jumapili, 24 Aprili 1932</result>
+   <result timeType='short'>Jumapili, 24 Aprili 1932 1:00 asubuhi</result>
+   <result timeType='medium'>Jumapili, 24 Aprili 1932 1:00:00 asubuhi</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 asubuhi</result>
+   <result timeType='medium'>1:00:01 asubuhi</result>
+   <result dateType='short' timeType='none'>20/05/1945</result>
+   <result timeType='short'>20/05/1945 1:00 asubuhi</result>
+   <result timeType='medium'>20/05/1945 1:00:01 asubuhi</result>
+   <result dateType='medium' timeType='none'>20 Mei 1945</result>
+   <result timeType='short'>20 Mei 1945 1:00 asubuhi</result>
+   <result timeType='medium'>20 Mei 1945 1:00:01 asubuhi</result>
+   <result dateType='long' timeType='none'>20 Mei 1945</result>
+   <result timeType='short'>20 Mei 1945 1:00 asubuhi</result>
+   <result timeType='medium'>20 Mei 1945 1:00:01 asubuhi</result>
+   <result dateType='full' timeType='none'>Jumapili, 20 Mei 1945</result>
+   <result timeType='short'>Jumapili, 20 Mei 1945 1:00 asubuhi</result>
+   <result timeType='medium'>Jumapili, 20 Mei 1945 1:00:01 asubuhi</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 asubuhi</result>
+   <result timeType='medium'>11:59:59 asubuhi</result>
+   <result dateType='short' timeType='none'>18/06/1952</result>
+   <result timeType='short'>18/06/1952 11:59 asubuhi</result>
+   <result timeType='medium'>18/06/1952 11:59:59 asubuhi</result>
+   <result dateType='medium' timeType='none'>18 Jun 1952</result>
+   <result timeType='short'>18 Jun 1952 11:59 asubuhi</result>
+   <result timeType='medium'>18 Jun 1952 11:59:59 asubuhi</result>
+   <result dateType='long' timeType='none'>18 Juni 1952</result>
+   <result timeType='short'>18 Juni 1952 11:59 asubuhi</result>
+   <result timeType='medium'>18 Juni 1952 11:59:59 asubuhi</result>
+   <result dateType='full' timeType='none'>Jumatano, 18 Juni 1952</result>
+   <result timeType='short'>Jumatano, 18 Juni 1952 11:59 asubuhi</result>
+   <result timeType='medium'>Jumatano, 18 Juni 1952 11:59:59 asubuhi</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 alasiri</result>
+   <result timeType='medium'>12:00:00 alasiri</result>
+   <result dateType='short' timeType='none'>16/07/1973</result>
+   <result timeType='short'>16/07/1973 12:00 alasiri</result>
+   <result timeType='medium'>16/07/1973 12:00:00 alasiri</result>
+   <result dateType='medium' timeType='none'>16 Jul 1973</result>
+   <result timeType='short'>16 Jul 1973 12:00 alasiri</result>
+   <result timeType='medium'>16 Jul 1973 12:00:00 alasiri</result>
+   <result dateType='long' timeType='none'>16 Julai 1973</result>
+   <result timeType='short'>16 Julai 1973 12:00 alasiri</result>
+   <result timeType='medium'>16 Julai 1973 12:00:00 alasiri</result>
+   <result dateType='full' timeType='none'>Jumatatu, 16 Julai 1973</result>
+   <result timeType='short'>Jumatatu, 16 Julai 1973 12:00 alasiri</result>
+   <result timeType='medium'>Jumatatu, 16 Julai 1973 12:00:00 alasiri</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 alasiri</result>
+   <result timeType='medium'>12:00:01 alasiri</result>
+   <result dateType='short' timeType='none'>14/08/1999</result>
+   <result timeType='short'>14/08/1999 12:00 alasiri</result>
+   <result timeType='medium'>14/08/1999 12:00:01 alasiri</result>
+   <result dateType='medium' timeType='none'>14 Ago 1999</result>
+   <result timeType='short'>14 Ago 1999 12:00 alasiri</result>
+   <result timeType='medium'>14 Ago 1999 12:00:01 alasiri</result>
+   <result dateType='long' timeType='none'>14 Agosti 1999</result>
+   <result timeType='short'>14 Agosti 1999 12:00 alasiri</result>
+   <result timeType='medium'>14 Agosti 1999 12:00:01 alasiri</result>
+   <result dateType='full' timeType='none'>Jumamosi, 14 Agosti 1999</result>
+   <result timeType='short'>Jumamosi, 14 Agosti 1999 12:00 alasiri</result>
+   <result timeType='medium'>Jumamosi, 14 Agosti 1999 12:00:01 alasiri</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 alasiri</result>
+   <result timeType='medium'>10:59:59 alasiri</result>
+   <result dateType='short' timeType='none'>12/09/2000</result>
+   <result timeType='short'>12/09/2000 10:59 alasiri</result>
+   <result timeType='medium'>12/09/2000 10:59:59 alasiri</result>
+   <result dateType='medium' timeType='none'>12 Sep 2000</result>
+   <result timeType='short'>12 Sep 2000 10:59 alasiri</result>
+   <result timeType='medium'>12 Sep 2000 10:59:59 alasiri</result>
+   <result dateType='long' timeType='none'>12 Septemba 2000</result>
+   <result timeType='short'>12 Septemba 2000 10:59 alasiri</result>
+   <result timeType='medium'>12 Septemba 2000 10:59:59 alasiri</result>
+   <result dateType='full' timeType='none'>Jumanne, 12 Septemba 2000</result>
+   <result timeType='short'>Jumanne, 12 Septemba 2000 10:59 alasiri</result>
+   <result timeType='medium'>Jumanne, 12 Septemba 2000 10:59:59 alasiri</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 alasiri</result>
+   <result timeType='medium'>11:00:00 alasiri</result>
+   <result dateType='short' timeType='none'>08/10/2001</result>
+   <result timeType='short'>08/10/2001 11:00 alasiri</result>
+   <result timeType='medium'>08/10/2001 11:00:00 alasiri</result>
+   <result dateType='medium' timeType='none'>8 Okt 2001</result>
+   <result timeType='short'>8 Okt 2001 11:00 alasiri</result>
+   <result timeType='medium'>8 Okt 2001 11:00:00 alasiri</result>
+   <result dateType='long' timeType='none'>8 Oktoba 2001</result>
+   <result timeType='short'>8 Oktoba 2001 11:00 alasiri</result>
+   <result timeType='medium'>8 Oktoba 2001 11:00:00 alasiri</result>
+   <result dateType='full' timeType='none'>Jumatatu, 8 Oktoba 2001</result>
+   <result timeType='short'>Jumatatu, 8 Oktoba 2001 11:00 alasiri</result>
+   <result timeType='medium'>Jumatatu, 8 Oktoba 2001 11:00:00 alasiri</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 alasiri</result>
+   <result timeType='medium'>11:00:01 alasiri</result>
+   <result dateType='short' timeType='none'>04/11/2004</result>
+   <result timeType='short'>04/11/2004 11:00 alasiri</result>
+   <result timeType='medium'>04/11/2004 11:00:01 alasiri</result>
+   <result dateType='medium' timeType='none'>4 Nov 2004</result>
+   <result timeType='short'>4 Nov 2004 11:00 alasiri</result>
+   <result timeType='medium'>4 Nov 2004 11:00:01 alasiri</result>
+   <result dateType='long' timeType='none'>4 Novemba 2004</result>
+   <result timeType='short'>4 Novemba 2004 11:00 alasiri</result>
+   <result timeType='medium'>4 Novemba 2004 11:00:01 alasiri</result>
+   <result dateType='full' timeType='none'>Alhamisi, 4 Novemba 2004</result>
+   <result timeType='short'>Alhamisi, 4 Novemba 2004 11:00 alasiri</result>
+   <result timeType='medium'>Alhamisi, 4 Novemba 2004 11:00:01 alasiri</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 alasiri</result>
+   <result timeType='medium'>11:59:59 alasiri</result>
+   <result dateType='short' timeType='none'>01/12/2010</result>
+   <result timeType='short'>01/12/2010 11:59 alasiri</result>
+   <result timeType='medium'>01/12/2010 11:59:59 alasiri</result>
+   <result dateType='medium' timeType='none'>1 Des 2010</result>
+   <result timeType='short'>1 Des 2010 11:59 alasiri</result>
+   <result timeType='medium'>1 Des 2010 11:59:59 alasiri</result>
+   <result dateType='long' timeType='none'>1 Desemba 2010</result>
+   <result timeType='short'>1 Desemba 2010 11:59 alasiri</result>
+   <result timeType='medium'>1 Desemba 2010 11:59:59 alasiri</result>
+   <result dateType='full' timeType='none'>Jumatano, 1 Desemba 2010</result>
+   <result timeType='short'>Jumatano, 1 Desemba 2010 11:59 alasiri</result>
+   <result timeType='medium'>Jumatano, 1 Desemba 2010 11:59:59 alasiri</result>
   </date>
   <zoneFields 
 locales='sw sw_KE sw_TZ'>
-<!-- Swahili [Kiswahili]; Swahili (Kenya) [Kiswahili (Kenya)]; Swahili (Tanzania) [Kiswahili (Tanzania)] -->
+<!-- Swahili [Kenya@]; Swahili (Kenya) [Kenya (Kenya)@]; Swahili (Tanzania) [Kenya (Tanzania)@] -->
   </zoneFields>
   <collation 
 locales='sw sw_KE sw_TZ'>
-<!-- Swahili [Kiswahili]; Swahili (Kenya) [Kiswahili (Kenya)]; Swahili (Tanzania) [Kiswahili (Tanzania)] -->
+<!-- Swahili [Kenya@]; Swahili (Kenya) [Kenya (Kenya)@]; Swahili (Tanzania) [Kenya (Tanzania)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -298,30 +262,42 @@ Xb
 XB
 xbx
 xBx
+xch
+xCh
+xCH
+Xch
+XCh
+XCH
+xchx
+xChx
+xCHx
 xc
 xC
 Xc
 XC
+xcH
+XcH
+xcHx
 xcx
 xCx
 xd
 xD
 Xd
 XD
-xdh
 xdH
+XdH
+xdHx
+xdx
+xDx
+xdh
 xDh
 xDH
 Xdh
-XdH
 XDh
 XDH
 xdhx
-xdHx
 xDhx
 xDHx
-xdx
-xDx
 xe
 xE
 Xe
@@ -338,8 +314,20 @@ xg
 xG
 Xg
 XG
+xgH
+XgH
+xgHx
 xgx
 xGx
+xgh
+xGh
+xGH
+Xgh
+XGh
+XGH
+xghx
+xGhx
+xGHx
 xh
 xH
 Xh
@@ -362,8 +350,20 @@ xk
 xK
 Xk
 XK
+xkH
+XkH
+xkHx
 xkx
 xKx
+xkh
+xKh
+xKH
+Xkh
+XKh
+XKH
+xkhx
+xKhx
+xKHx
 xl
 xL
 Xl
@@ -388,34 +388,34 @@ Xng
 XnG
 XNg
 XNG
-xng&amp;apos;
 xnG&amp;apos;
-xNg&amp;apos;
-xNG&amp;apos;
-Xng&amp;apos;
 XnG&amp;apos;
-XNg&amp;apos;
-XNG&amp;apos;
-xng&amp;apos;x
 xnG&amp;apos;x
-xNg&amp;apos;x
-xNG&amp;apos;x
 xngx
 xnGx
 xNgx
 xNGx
 xnx
 xNx
-xny
 xnY
+XnY
+xnYx
+xng&amp;apos;
+xNg&amp;apos;
+xNG&amp;apos;
+Xng&amp;apos;
+XNg&amp;apos;
+XNG&amp;apos;
+xng&amp;apos;x
+xNg&amp;apos;x
+xNG&amp;apos;x
+xny
 xNy
 xNY
 Xny
-XnY
 XNy
 XNY
 xnyx
-xnYx
 xNyx
 xNYx
 xo
@@ -446,38 +446,38 @@ xs
 xS
 Xs
 XS
-xsh
 xsH
+XsH
+xsHx
+xsx
+xSx
+xsh
 xSh
 xSH
 Xsh
-XsH
 XSh
 XSH
 xshx
-xsHx
 xShx
 xSHx
-xsx
-xSx
 xt
 xT
 Xt
 XT
-xth
 xtH
+XtH
+xtHx
+xtx
+xTx
+xth
 xTh
 xTH
 Xth
-XtH
 XTh
 XTH
 xthx
-xtHx
 xThx
 xTHx
-xtx
-xTx
 xu
 xU
 Xu

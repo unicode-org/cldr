@@ -2,10 +2,10 @@
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.7' base='lo'>
- <!-- Lao [Lao] -->
+ <!-- Lao [ລາວ] -->
   <number 
 locales='lo lo_LA'>
-<!-- Lao [Lao]; Lao (Laos) [Lao (Laos)] -->
+<!-- Lao [ລາວ@]; Lao (Laos) [ລາວ (ລາວ)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='lo lo_LA'>
   </number>
   <date 
 locales='lo lo_LA'>
-<!-- Lao [Lao]; Lao (Laos) [Lao (Laos)] -->
+<!-- Lao [ລາວ@]; Lao (Laos) [ລາວ (ລາວ)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>0:00</result>
    <result draft='approved'>00:00</result>
    <result timeType='medium' draft='unconfirmed'>0:00:00</result>
@@ -383,11 +383,11 @@ locales='lo lo_LA'>
   </date>
   <zoneFields 
 locales='lo lo_LA'>
-<!-- Lao [Lao]; Lao (Laos) [Lao (Laos)] -->
+<!-- Lao [ລາວ@]; Lao (Laos) [ລາວ (ລາວ)@] -->
   </zoneFields>
   <collation 
 locales='lo lo_LA'>
-<!-- Lao [Lao]; Lao (Laos) [Lao (Laos)] -->
+<!-- Lao [ລາວ@]; Lao (Laos) [ລາວ (ລາວ)@] -->
    <result draft='unconfirmed approved'>
 x​
 X​
@@ -473,6 +473,9 @@ xງx
 xຈ
 Xຈ
 xຈx
+xສ
+Xສ
+xສx
 xຊ
 Xຊ
 xຊx
@@ -527,9 +530,6 @@ xລx
 xວ
 Xວ
 xວx
-xສ
-Xສ
-xສx
 xຫ
 Xຫ
 xຫx

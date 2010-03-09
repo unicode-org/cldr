@@ -7,8 +7,10 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DiscreteComparator;
 import org.unicode.cldr.util.ElementAttributeInfo;
 import org.unicode.cldr.util.CLDRFile.DtdType;
+import org.unicode.cldr.util.DiscreteComparator.Ordering;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.Relation;
@@ -52,13 +54,12 @@ public class TestDtdCompatibility extends TestFmwk {
           errln("Old " + dtd + " contains element not in new: <" + element + ">");
           continue;
         }
-        if (!newChildren.containsAll(oldChildren)) {
+        Set<String> funny = containsInOrder(newChildren, oldChildren);
+        if (funny != null) {
           if (changedToEmpty.contains(element) && oldChildren.equals(PCDATA) && newChildren.equals(EMPTY)) {
             // ok, skip
           } else {
-            LinkedHashSet<String> missing = new LinkedHashSet<String>(oldChildren);
-            missing.removeAll(newChildren);
-            errln("Old " + dtd + " element <" + element + "> has children not in new:\tMissing:\t" + missing + "\tOld:\t" + oldChildren + ",\tNew:\t" + newChildren);
+            errln("Old " + dtd + " element <" + element + "> has children Missing/Misordered:\t" + funny + "\n\t\tOld:\t" + oldChildren + "\n\t\tNew:\t" + newChildren);
           }
         }
 
@@ -76,10 +77,36 @@ public class TestDtdCompatibility extends TestFmwk {
           if (element.equals(dtd.toString()) && missing.equals(VERSION)) {
             // ok, skip
           } else {
-            errln("Old " + dtd + " element <" + element + "> has attributes not in new:\tMissing:\t" + missing + "\tOld:\t" + oldAttributes + ",\tNew:\t" + newAttributes);
+            errln("Old " + dtd + " element <" + element + "> has attributes Missing:\t" + missing + "\n\t\tOld:\t" + oldAttributes + "\n\t\tNew:\t" + newAttributes);
           }
         }
       }
     }
+  }
+
+  private <T> Set<T> containsInOrder(Set<T> superset, Set<T> subset) {
+    if (!superset.containsAll(subset)) {
+      LinkedHashSet<T> missing = new LinkedHashSet<T>(subset);
+      missing.removeAll(superset);
+      return missing;
+    }
+    // ok, we know that they are subsets, try order
+    Set<T> result = null;
+    DiscreteComparator<T> comp = new DiscreteComparator.Builder<T>(Ordering.ARBITRARY).add(superset).get();
+    T last = null;
+    for (T item : subset) {
+      if (last != null) {
+        int order = comp.compare(last, item);
+        if (order != -1) {
+          if (result == null) {
+            result = new HashSet<T>();
+            result.add(last);
+            result.add(item);
+          }
+        }
+      }
+      last = item;
+    }
+    return result;
   }
 }

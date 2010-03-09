@@ -47,7 +47,7 @@ public class TestAttributes extends TestFmwk {
   }
 
   private void checkOrdering(DtdType type) {
-    Relation<String, String> toChildren = ElementAttributeInfo.getElement2Children(type);
+    Relation<String, String> toChildren = ElementAttributeInfo.getInstance(type).getElement2Children();
     //Relation<String, String> toParents = ElementAttributeInfo.getElement2Parents(type);
     Set<String> containsOrdered = new LinkedHashSet();
     for (String element : toChildren.keySet()) {
@@ -103,11 +103,11 @@ public class TestAttributes extends TestFmwk {
   }
 
   private void showDistinguishing(DtdType dtdType) {
-    Relation<String, String> elementToAttributes = ElementAttributeInfo.getElementToAttributes(dtdType);
+    Relation<String, String> elementToAttributes = ElementAttributeInfo.getInstance(dtdType).getElement2Attributes();
     Relation<String,String> distinguishingAttributeToElements = new Relation(new TreeMap(), TreeSet.class);
     Relation<String,String> nondistinguishingAttributeToElements = new Relation(new TreeMap(), TreeSet.class);
     Relation<String,String> orderedAttributeToElements = new Relation(new TreeMap(), TreeSet.class);
-    Map<R2<String, String>, R3<Set<String>, String, String>> attributeData = ElementAttributeInfo.getAttributeData(dtdType);
+    Map<R2<String, String>, R3<Set<String>, String, String>> attributeData = ElementAttributeInfo.getInstance(dtdType).getElementAttribute2Data();
 
     for (String element : elementToAttributes.keySet()) {
       boolean isOrdered = CLDRFile.isOrdered(element, null);
@@ -164,8 +164,8 @@ public class TestAttributes extends TestFmwk {
   }
 
   private void checkAttributes(DtdType dtdType1, DtdType dtdType2) {
-    Map<R2<String, String>, R3<Set<String>, String, String>> mainData = ElementAttributeInfo.getAttributeData(dtdType1);
-    Map<R2<String, String>, R3<Set<String>, String, String>> suppData = ElementAttributeInfo.getAttributeData(dtdType2);
+    Map<R2<String, String>, R3<Set<String>, String, String>> mainData = ElementAttributeInfo.getInstance(dtdType1).getElementAttribute2Data();
+    Map<R2<String, String>, R3<Set<String>, String, String>> suppData = ElementAttributeInfo.getInstance(dtdType2).getElementAttribute2Data();
     Set<R2<String, String>> commonKeys = getCommon(mainData.keySet(), suppData.keySet(), new TreeSet<R2<String, String>>());
     Set<R2<String, String>> same = new TreeSet<R2<String, String>>();
     for (R2<String, String> key : commonKeys) {
@@ -203,8 +203,8 @@ public class TestAttributes extends TestFmwk {
   }
 
   private void checkElements(DtdType dtdType1, DtdType dtdType2) {
-    Relation<String, String> mainData = ElementAttributeInfo.getElement2Children(dtdType1);
-    Relation<String, String> suppData = ElementAttributeInfo.getElement2Children(dtdType2);
+    Relation<String, String> mainData = ElementAttributeInfo.getInstance(dtdType1).getElement2Children();
+    Relation<String, String> suppData = ElementAttributeInfo.getInstance(dtdType2).getElement2Children();
     Set<String> commonKeys = getCommon(mainData.keySet(), suppData.keySet(), new TreeSet<String>());
     Set<String> same = new TreeSet<String>();
     for (String key : commonKeys) {
@@ -242,9 +242,9 @@ public class TestAttributes extends TestFmwk {
   }));
 
   private void checkEmpty(DtdType type) {
-    Relation<String, String> mainData = ElementAttributeInfo.getElement2Parents(type);
-    Relation<String, String> elementToAttributes = ElementAttributeInfo.getElementToAttributes(type);
-    Map<R2<String, String>, R3<Set<String>, String, String>> eaData = ElementAttributeInfo.getAttributeData(type);
+    Relation<String, String> mainData = ElementAttributeInfo.getInstance(type).getElement2Parents();
+    Relation<String, String> elementToAttributes = ElementAttributeInfo.getInstance(type).getElement2Attributes();
+    Map<R2<String, String>, R3<Set<String>, String, String>> eaData = ElementAttributeInfo.getInstance(type).getElementAttribute2Data();
 
     Set<String> empties = mainData.getAll("EMPTY");
     for (String empty : empties) {
@@ -268,9 +268,9 @@ public class TestAttributes extends TestFmwk {
   }
 
   private void checkLeaf(DtdType type, String contained) {
-    Relation<String, String> mainData = ElementAttributeInfo.getElement2Parents(type);
-    Relation<String, String> elementToAttributes = ElementAttributeInfo.getElementToAttributes(type);
-    Map<R2<String, String>, R3<Set<String>, String, String>> eaData = ElementAttributeInfo.getAttributeData(type);
+    Relation<String, String> mainData = ElementAttributeInfo.getInstance(type).getElement2Parents();
+    Relation<String, String> elementToAttributes = ElementAttributeInfo.getInstance(type).getElement2Attributes();
+    Map<R2<String, String>, R3<Set<String>, String, String>> eaData = ElementAttributeInfo.getInstance(type).getElementAttribute2Data();
 
     Set<String> data = mainData.getAll(contained);
     if (data == null) return;
@@ -295,12 +295,12 @@ public class TestAttributes extends TestFmwk {
 
   public void checkNodeData(DtdType type) {
     CurrentData.NodeData data = CurrentData.fullNodeData.get(type);
-    Relation<String, String> element2Parents = ElementAttributeInfo.getElement2Parents(type);
-    Relation<String, String> element2Children = ElementAttributeInfo.getElement2Children(type);
+    Relation<String, String> element2Parents = ElementAttributeInfo.getInstance(type).getElement2Parents();
+    Relation<String, String> element2Children = ElementAttributeInfo.getInstance(type).getElement2Children();
     Relation<String, String> elementToAttributes = data.elementToAttributes;
 
-    Relation<String, String> dtdElementToAttributes = ElementAttributeInfo.getElementToAttributes(type);
-    Map<R2<String, String>, R3<Set<String>, String, String>> attributeData = ElementAttributeInfo.getAttributeData(type);
+    Relation<String, String> dtdElementToAttributes = ElementAttributeInfo.getInstance(type).getElement2Attributes();
+    Map<R2<String, String>, R3<Set<String>, String, String>> attributeData = ElementAttributeInfo.getInstance(type).getElementAttribute2Data();
 
 
     Set<String> possibleElements = dtdElementToAttributes.keySet();
@@ -480,9 +480,9 @@ public class TestAttributes extends TestFmwk {
     for (DtdType type : DtdType.values()) {
       System.out.println();
       System.out.println("*= distinguished, \u2021=ordered, \u2020=default");
-      Relation<String, String> toChildren = ElementAttributeInfo.getElement2Children(type);
-      Relation<String, String> toAttributes = ElementAttributeInfo.getElementToAttributes(type);
-      Map<R2<String, String>, R3<Set<String>, String, String>> toAttributeData = ElementAttributeInfo.getAttributeData(type);
+      Relation<String, String> toChildren = ElementAttributeInfo.getInstance(type).getElement2Children();
+      Relation<String, String> toAttributes = ElementAttributeInfo.getInstance(type).getElement2Attributes();
+      Map<R2<String, String>, R3<Set<String>, String, String>> toAttributeData = ElementAttributeInfo.getInstance(type).getElementAttribute2Data();
       checkStructure(type, type.toString(), 0, toChildren, toAttributes, toAttributeData);
     }
   }

@@ -39,8 +39,8 @@ public class JsonConverter {
   private static final boolean COMPACT = false;
   static final Set<String> REPLACING_BASE = !COMPACT ? Collections.EMPTY_SET : new HashSet<String>(Arrays.asList("type id key count".split("\\s")));
   static final Set<String> EXTRA_DISTINGUISHING = new HashSet<String>(Arrays.asList("locales territory desired supported".split("\\s")));
-  static final Relation<String, String> mainInfo = ElementAttributeInfo.getElementToAttributes(DtdType.ldml);
-  static final Relation<String, String> suppInfo = ElementAttributeInfo.getElementToAttributes(DtdType.supplementalData);
+  static final Relation<String, String> mainInfo = ElementAttributeInfo.getInstance(DtdType.ldml).getElement2Attributes();
+  static final Relation<String, String> suppInfo = ElementAttributeInfo.getInstance(DtdType.supplementalData).getElement2Attributes();
 
   public static void main(String[] args) throws IOException {
     final String subdirectory = new File(MAIN_DIRECTORY).getName();

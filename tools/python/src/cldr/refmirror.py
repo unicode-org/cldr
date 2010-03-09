@@ -1,4 +1,4 @@
-# (c) 2007 IBM Corporation and Others. All Rights Reserved.
+# (c) 2007-2010 IBM Corporation and Others. All Rights Reserved.
 # Python module for scanning and mirroring CLDR references.
 #
 # Steven R. Loomis. Oct 30th, 2007
@@ -8,7 +8,8 @@
 #
 # note:
 #  - does condense duplicate URLs within a locale, to only download once
-#      (should condense globally?)
+#      (should condense globally.)
+#  - requires 'wget' installed.
 # 
 # todo:
 #  - only handles <references> formats - so CLDR 1.5 main/ but NOT collation/
@@ -66,6 +67,8 @@ for dir in dirs:
         
         nodes = dom.childNodes
         
+        if not (nodes[1].nodeType == 1):
+            continue
         refNode = nodes[1].getElementsByTagName('references')
         
         if not refNode:

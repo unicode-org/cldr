@@ -12,9 +12,6 @@ import java.io.PrintWriter;
 import java.io.File;
 import java.nio.charset.Charset;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
@@ -22,7 +19,10 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 
 import org.unicode.cldr.icu.SimpleConverter;
-import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.SupplementalDataInfo;
 
 
 /**
@@ -34,10 +34,6 @@ public class POSIXLocale {
 
    String locale_name;
    String codeset;
-   Document doc;
-   Document supp;
-   Document collrules;
-   Document char_fallbk;
    POSIX_LCCtype lc_ctype;
    POSIX_LCCollate lc_collate;
    POSIX_LCNumeric lc_numeric;
@@ -46,24 +42,25 @@ public class POSIXLocale {
    POSIX_LCMessages lc_messages;
    POSIXVariant variant;
 
-   public POSIXLocale ( String locale_name , String cldr_data_location , UnicodeSet repertoire, Charset cs, String codeset, UnicodeSet collateset , POSIXVariant variant ) throws Exception {
+   public POSIXLocale ( String locale_name , UnicodeSet repertoire, Charset cs, String codeset, UnicodeSet collateset , POSIXVariant variant ) throws Exception {
 
       this.locale_name = locale_name;
       this.codeset = codeset;
       this.variant = variant;
       
-      boolean ignoreDraft = true;
-      doc = LDMLUtilities.getFullyResolvedLDML ( cldr_data_location+File.separator+"main", locale_name, false, false, false, ignoreDraft);
-      supp = LDMLUtilities.parse ( cldr_data_location+File.separator+"supplemental"+File.separator+"supplementalData.xml",  true );
-      char_fallbk = LDMLUtilities.parse ( cldr_data_location+File.separator+"supplemental"+File.separator+"characters.xml",  true );
-      collrules = LDMLUtilities.getFullyResolvedLDML ( cldr_data_location+File.separator+"collation", locale_name, true, true, true, ignoreDraft );
+      Factory mainFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+      Factory suppFactory = Factory.make(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY,".*");
+      Factory collFactory = Factory.make(CldrUtility.COLLATION_DIRECTORY, ".*");
+      CLDRFile doc = mainFactory.make(locale_name,true);
+      SupplementalDataInfo supp = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+      CLDRFile char_fallbk = suppFactory.make("characters", false );
+      CLDRFile collrules = collFactory.makeWithFallback(locale_name);
 
 
      if ( repertoire.isEmpty() && codeset.equals("UTF-8")) // Generate default repertoire set from exemplar characters;
      {
         String SearchLocation = "//ldml/characters/exemplarCharacters";
-        Node n = LDMLUtilities.getNode(doc,SearchLocation);
-        UnicodeSet ExemplarCharacters = new UnicodeSet(LDMLUtilities.getNodeValue(n));
+        UnicodeSet ExemplarCharacters = new UnicodeSet(doc.getStringValue(SearchLocation));
         UnicodeSetIterator ec = new UnicodeSetIterator(ExemplarCharacters);
         while ( ec.next() )
         {
@@ -71,11 +68,11 @@ public class POSIXLocale {
            repertoire.add(ec.codepoint);
         }
         UnicodeSet CaseFoldedExemplars = new UnicodeSet(ExemplarCharacters.closeOver(UnicodeSet.CASE));
-        UnicodeSetIterator cf = new UnicodeSetIterator(CaseFoldedExemplars);
-        while ( cf.next() )
+        UnicodeSetIterator cfe = new UnicodeSetIterator(CaseFoldedExemplars);
+        while ( cfe.next() )
         {
-           if ( (cf.codepoint != UnicodeSetIterator.IS_STRING) && (cf.codepoint <= 0x00ffff) )
-           repertoire.add(cf.codepoint);
+           if ( (cfe.codepoint != UnicodeSetIterator.IS_STRING) && (cfe.codepoint <= 0x00ffff) )
+           repertoire.add(cfe.codepoint);
         }
 
         UnicodeSetIterator it = new UnicodeSetIterator(repertoire);

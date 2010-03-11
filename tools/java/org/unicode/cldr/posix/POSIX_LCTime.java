@@ -12,12 +12,7 @@ package org.unicode.cldr.posix;
 import java.io.PrintWriter;
 import java.lang.Character;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import java.lang.RuntimeException;
-
-import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.CLDRFile;
 
 
 public class POSIX_LCTime {
@@ -37,7 +32,7 @@ public class POSIX_LCTime {
    String nlldate;
 
 
-   public POSIX_LCTime ( Document doc , POSIXVariant variant )
+   public POSIX_LCTime ( CLDRFile doc , POSIXVariant variant )
    {
       abday = new String[7];
       day = new String[7];
@@ -48,44 +43,38 @@ public class POSIX_LCTime {
 
       String[] days = { "sun", "mon", "tue", "wed", "thu", "fri", "sat" };
       String SearchLocation;
-      Node n;
 
       for ( int i = 0 ; i < 7 ; i++ )
       {
          // Get each value for abbreviated day names ( abday )
          SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='format']/dayWidth[@type='abbreviated']/day[@type='"+days[i]+"']";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         abday[i] = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
+         abday[i] = POSIXUtilities.POSIXCharName(doc.getWinningValue(SearchLocation));
 
          // Get each value for full month names ( day )
          SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='format']/dayWidth[@type='wide']/day[@type='"+days[i]+"']";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         day[i] = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
+         day[i] = POSIXUtilities.POSIXCharName(doc.getWinningValue(SearchLocation));
       }
 
       for ( int i = 0 ; i < 12 ; i++ )
       {
          // Get each value for abbreviated month names ( abmon )
          SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='format']/monthWidth[@type='abbreviated']/month[@type='"+String.valueOf(i+1)+"']";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         abmon[i] = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
+         abmon[i] = POSIXUtilities.POSIXCharName(doc.getWinningValue(SearchLocation));
 
          // Get each value for full month names ( mon )
          SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='format']/monthWidth[@type='wide']/month[@type='"+String.valueOf(i+1)+"']";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         mon[i] = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
+         mon[i] = POSIXUtilities.POSIXCharName(doc.getWinningValue(SearchLocation));
       }
 
       // alt_digits
          alt_digits[0] = "";
          SearchLocation = "//ldml/numbers/symbols/nativeZeroDigit";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         if ( (n != null) &&  !(LDMLUtilities.getNodeValue(n).equals("0")))
+         String nativeZeroDigit = doc.getWinningValue(SearchLocation);
+         if ( (nativeZeroDigit != null) &&  !(nativeZeroDigit.equals("0")))
          {
             //Character ThisDigit;
-            String NativeZeroDigit = LDMLUtilities.getNodeValue(n);
-            alt_digits[0] = POSIXUtilities.POSIXCharName(NativeZeroDigit);
-            char base_value = NativeZeroDigit.charAt(0);
+            alt_digits[0] = POSIXUtilities.POSIXCharName(nativeZeroDigit);
+            char base_value = nativeZeroDigit.charAt(0);
             for ( short i = 1 ; i < 10 ; i++ )
                 alt_digits[i] = POSIXUtilities.POSIXCharName(Character.toString(((char)((short)base_value + i))));
             for ( short i = 10 ; i < 100 ; i++ )
@@ -93,9 +82,8 @@ public class POSIX_LCTime {
          }
 
       // t_fmt - 
-         SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/timeFormats/timeFormatLength[@type='medium']/timeFormat/pattern";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         t_fmt = POSIXUtilities.POSIXDateTimeFormat(LDMLUtilities.getNodeValue(n),alt_digits[0].length()>0, variant);
+         SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/timeFormats/timeFormatLength[@type='medium']/timeFormat[@type='standard']/pattern[@type='standard']";
+         t_fmt = POSIXUtilities.POSIXDateTimeFormat(doc.getWinningValue(SearchLocation),alt_digits[0].length()>0, variant);
          t_fmt = t_fmt.replaceAll("\"", "/\""); //excaping of " in strings
 
         
@@ -103,19 +91,12 @@ public class POSIX_LCTime {
             t_fmt_ampm = t_fmt;
          else
          {
-            t_fmt_ampm = "";
             SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='hhmmss']";
-            try
-            {
-                n = LDMLUtilities.getNode(doc, SearchLocation);
-            }
-            catch (RuntimeException ex)
-            {
-            }
+            t_fmt_ampm = doc.getWinningValue(SearchLocation);
 
-            if ( n != null )
+            if ( t_fmt_ampm != null )
             {
-                t_fmt_ampm = POSIXUtilities.POSIXDateTimeFormat(LDMLUtilities.getNodeValue(n),alt_digits[0].length()>0, variant);
+                t_fmt_ampm = POSIXUtilities.POSIXDateTimeFormat(t_fmt_ampm,alt_digits[0].length()>0, variant);
                 t_fmt_ampm = t_fmt_ampm.replaceAll("\"", "/\""); //excaping of " in strings
            }
             
@@ -124,24 +105,28 @@ public class POSIX_LCTime {
 
          }
       // d_fmt - 
-         SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='short']/dateFormat/pattern";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         d_fmt = POSIXUtilities.POSIXDateTimeFormat(LDMLUtilities.getNodeValue(n),alt_digits[0].length()>0, variant);
+         SearchLocation = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]" +
+             "/dateFormats/dateFormatLength[@type=\"medium\"]" +
+             "/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+         d_fmt = POSIXUtilities.POSIXDateTimeFormat(doc.getWinningValue(SearchLocation),alt_digits[0].length()>0, variant);
          d_fmt = d_fmt.replaceAll("\"", "/\""); //excaping of " in strings
 
       // d_t_fmt - 
-         SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength/dateTimeFormat/pattern";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         d_t_fmt = LDMLUtilities.getNodeValue(n);
+         SearchLocation = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]" +
+             "/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]" +
+             "/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+         d_t_fmt = doc.getWinningValue(SearchLocation);
 
-         SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/timeFormats/timeFormatLength[@type='long']/timeFormat/pattern";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         d_t_fmt = d_t_fmt.replaceAll("\\{0\\}",LDMLUtilities.getNodeValue(n));
+         SearchLocation = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]" +
+             "/timeFormats/timeFormatLength[@type=\"long\"]" +
+             "/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+         d_t_fmt = d_t_fmt.replaceAll("\\{0\\}",doc.getWinningValue(SearchLocation));
 
 
-         SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='long']/dateFormat/pattern";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         d_t_fmt = d_t_fmt.replaceAll("\\{1\\}",LDMLUtilities.getNodeValue(n));
+         SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']" +
+             "/dateFormats/dateFormatLength[@type=\"long\"]" +
+             "/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+         d_t_fmt = d_t_fmt.replaceAll("\\{1\\}",doc.getWinningValue(SearchLocation));
 
          d_t_fmt = POSIXUtilities.POSIXDateTimeFormat(d_t_fmt,alt_digits[0].length()>0, variant);
          d_t_fmt = POSIXUtilities.POSIXCharNameNP(d_t_fmt);
@@ -149,29 +134,27 @@ public class POSIX_LCTime {
 
 
       // am_pm
-         SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/am";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         am_pm[0] = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
+         SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']" +
+             "/dayPeriods/dayPeriodContext[@type='format']/dayPeriodWidth[@type='wide']" +
+             "/dayPeriod[@type='am']";
+         am_pm[0] = POSIXUtilities.POSIXCharName(doc.getWinningValue(SearchLocation));
 
-         SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/pm";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         am_pm[1] = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
-       
+         SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']" +
+         "/dayPeriods/dayPeriodContext[@type='format']/dayPeriodWidth[@type='wide']" +
+         "/dayPeriod[@type='pm']";
+         am_pm[1] = POSIXUtilities.POSIXCharName(doc.getWinningValue(SearchLocation));   
          
          if ( variant.platform.equals(POSIXVariant.SOLARIS))
          {
              // date_fmt
              SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength/dateTimeFormat/pattern";
-             n = LDMLUtilities.getNode(doc, SearchLocation);
-             date_fmt = LDMLUtilities.getNodeValue(n);
+             date_fmt = doc.getWinningValue(SearchLocation);
              
              SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/timeFormats/timeFormatLength[@type='full']/timeFormat/pattern";
-             n = LDMLUtilities.getNode(doc, SearchLocation);
-             date_fmt = date_fmt.replaceAll("\\{0\\}",LDMLUtilities.getNodeValue(n));
+             date_fmt = date_fmt.replaceAll("\\{0\\}",doc.getWinningValue(SearchLocation));
              
              SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='full']/dateFormat/pattern";
-             n = LDMLUtilities.getNode(doc, SearchLocation);
-             date_fmt = date_fmt.replaceAll("\\{1\\}",LDMLUtilities.getNodeValue(n));
+             date_fmt = date_fmt.replaceAll("\\{1\\}",doc.getWinningValue(SearchLocation));
              
              date_fmt = POSIXUtilities.POSIXDateTimeFormat(date_fmt, alt_digits[0].length()>0, variant);
              date_fmt = POSIXUtilities.POSIXCharNameNP(date_fmt);
@@ -186,26 +169,18 @@ public class POSIX_LCTime {
                     "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='yyyyMMMd']"};
              for (int i=0; i < SearchLocations.length; i++)
              {
-                 try
-                 {
-                     n = LDMLUtilities.getNode(doc, SearchLocation);  //throws exception if only alt nodes found, returns null if nothing found
-                 }
-                 catch (RuntimeException ex)
-                 {
-                     continue;
-                 }
-                 if (n != null) break;
+                 nlldate = doc.getWinningValue(SearchLocation);  //throws exception if only alt nodes found, returns null if nothing found
+                 if (nlldate != null) break;
              }
              
-             if (n != null)
-                 nlldate = POSIXUtilities.POSIXDateTimeFormat(LDMLUtilities.getNodeValue(n),alt_digits[0].length()>0, variant);
+             if (nlldate != null)
+                 nlldate = POSIXUtilities.POSIXDateTimeFormat(nlldate,alt_digits[0].length()>0, variant);
              
              // if no match found or erroneous data, use default dd MMM yyyy
              if (( nlldate.indexOf("%d") < 0 ) || ( nlldate.indexOf("%b") < 0 ) || ( nlldate.indexOf("%Y") < 0 ))
              {
                  nlldate = "%d %b %Y";   //dd MMM yyyy
                  nlldate = nlldate.replaceAll("\"", "/\""); //excaping of " in strings
-                 //TODO ? are strings allowed ?
              }
          }
             

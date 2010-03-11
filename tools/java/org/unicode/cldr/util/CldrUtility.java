@@ -115,6 +115,7 @@ public class CldrUtility {
   public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
   public static final String COMMON_DIRECTORY = getPath(BASE_DIRECTORY , "common/");
   public static final String MAIN_DIRECTORY = CldrUtility.getProperty("CLDR_MAIN", getPath(CldrUtility.COMMON_DIRECTORY,  "main"));
+  public static final String COLLATION_DIRECTORY = getPath(COMMON_DIRECTORY,"collation/");
   public static final String GEN_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_GEN_DIR", getPath(BASE_DIRECTORY , "../Generated/cldr/"))); 
 
   /**

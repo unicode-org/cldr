@@ -1,6 +1,6 @@
 /*
 **********************************************************************
-* Copyright (c) 2002-2004, International Business Machines
+* Copyright (c) 2002-2010, International Business Machines
 * Corporation and others.  All Rights Reserved.
 **********************************************************************
 * Author: John Emmons & Mark Davis
@@ -25,17 +25,15 @@ public class GeneratePOSIX {
     private static final int 
         HELP1 = 0,
         HELP2 = 1,
-        SOURCEDIR = 2,
-        DESTDIR = 3,
-        MATCH = 4,
-        UNICODESET = 5,
-        COLLATESET = 6,
-        CHARSET = 7;
+        DESTDIR = 2,
+        MATCH = 3,
+        UNICODESET = 4,
+        COLLATESET = 5,
+        CHARSET = 6;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
-        UOption.create("sourcedir", 's', UOption.REQUIRES_ARG).setDefault("."),
         UOption.create("destdir", 'd', UOption.REQUIRES_ARG).setDefault("."),
         UOption.create("match", 'm', UOption.REQUIRES_ARG),
         UOption.create("unicodeset", 'u', UOption.REQUIRES_ARG),
@@ -45,12 +43,11 @@ public class GeneratePOSIX {
 
     public static void main(String[] args) throws Exception {
         UOption.parseArgs(args, options);
-        if ( ! options[MATCH].doesOccur )
+        if ( ! options[MATCH].doesOccur || options[HELP1].doesOccur || options[HELP2].doesOccur)
            Usage();
 
         String [] matchargs = options[MATCH].value.split("@",2);
         String locale = matchargs[0];
-        String variant_string;
         POSIXVariant variant;
 
         if ( options[MATCH].value.indexOf("@") > 0 )
@@ -59,7 +56,6 @@ public class GeneratePOSIX {
            variant = new POSIXVariant();
 
         String codeset = options[CHARSET].value;
-        String cldr_data_location = options[SOURCEDIR].value;
         UnicodeSet collate_set;
         UnicodeSet repertoire;
         if ( options[COLLATESET].doesOccur )
@@ -79,7 +75,7 @@ public class GeneratePOSIX {
         }
 
 
-    	POSIXLocale pl = new POSIXLocale(locale,cldr_data_location,repertoire,Charset.forName(options[CHARSET].value),codeset,collate_set,variant);
+    	POSIXLocale pl = new POSIXLocale(locale,repertoire,Charset.forName(options[CHARSET].value),codeset,collate_set,variant);
         PrintWriter out = BagFormatter.openUTF8Writer(options[DESTDIR].value+File.separator,options[MATCH].value + "." + codeset + ".src");
         pl.write(out);
         out.close();
@@ -87,10 +83,9 @@ public class GeneratePOSIX {
 
     public static void Usage () {
 
-    System.out.println("Usage: GeneratePOSIX [-s source_dir] [-d target_dir] -m locale_name[@variants]");
+    System.out.println("Usage: GeneratePOSIX [-d target_dir] -m locale_name[@variants]");
     System.out.println("                     { [-c codeset] | [-u repertoire_set][-x collation_set] }");
     System.out.println("where:");
-    System.out.println("   -s source_dir is the directory where CLDR .xml files reside");
     System.out.println("   -d target_dir is the directory where POSIX .src files will be written");
     System.out.println("   -m locale_name is the language/territory you want to generate");
     System.out.println("   -c codeset is the character set to use for the locale (Default = UTF-8)");

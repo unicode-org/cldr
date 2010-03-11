@@ -9,29 +9,28 @@
 package org.unicode.cldr.posix;
 
 import java.text.StringCharacterIterator;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.NamedNodeMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 
-import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.XPathParts;
 
 public class POSIXUtilities {
 
    private static UnicodeSet repertoire = new UnicodeSet(0x0000,0x10FFFF);
-   private static Document char_fallbk;
+   private static CLDRFile char_fallbk;
 
    public static void setRepertoire ( UnicodeSet rep )
    {
       repertoire = rep;
    }
 
-   public static void setCharFallback ( Document fallbk )
+   public static void setCharFallback ( CLDRFile fallbk )
    {
       char_fallbk = fallbk;
    }
@@ -95,14 +94,14 @@ public class POSIXUtilities {
 
            String substituteString = "";
            boolean SubFound = false;
-           Node n;
            String SearchLocation = "//supplementalData/characters/character-fallback/character[@value='"+UCharacter.toString(cp)+"']/substitute";
 
-           while ( !SubFound && ( (n = LDMLUtilities.getNode(char_fallbk, SearchLocation)) != null ))
+           for ( Iterator<String> it = char_fallbk.iterator(SearchLocation,CLDRFile.ldmlComparator); it.hasNext() && !SubFound;)
            {
-              substituteString = LDMLUtilities.getNodeValue(n);
-              if ( repertoire.containsAll(substituteString) )
-                 SubFound = true;
+               String path = it.next();
+               substituteString = char_fallbk.getStringValue(path);
+               if ( repertoire.containsAll(substituteString) )
+                   SubFound = true;
            }
  
            if ( SubFound )
@@ -284,215 +283,217 @@ public class POSIXUtilities {
      return ( ( a < b && b < c ) || ( c < b && b < a ) );
    }
 
-   public static String CollationSettingString ( Node node ) {
+   public static String CollationSettingString ( CLDRFile collrules, String path ) {
       StringBuffer result = new StringBuffer("");
-      NamedNodeMap settings = node.getAttributes();
-      Node s;
-
+      String settings = collrules.getFullXPath(path);
+      XPathParts xp = new XPathParts();
+      xp.set(settings);
+      
       String[] Strengths = { "primary","secondary","tertiary","quarternary","identical" };
-      if ( (s = settings.getNamedItem("strength")) != null )
+      if ( xp.containsAttribute("strength") )
          for ( int i = 0 ; i < Strengths.length ; i++ )
-            if ( s.getNodeValue().equals(Strengths[i]))
+            if ( xp.getAttributeValue(0,"strength").equals(Strengths[i]))
             {
                result.append("[strength ");
                result.append(i+1);
                result.append("]");
             }
 
-      if ( (s = settings.getNamedItem("alternate")) != null )
-         if ( s.getNodeValue().matches("non\\x2dignorable|shifted") )
-            result.append("[alternate "+s.getNodeValue()+"]");
+      if ( xp.containsAttribute("alternate")) {
+          String value = xp.getAttributeValue(0,"alternate");
+          if ( value.matches("non\\x2dignorable|shifted") )
+            result.append("[alternate "+value+"]");
+      }
+      
+      if ( xp.containsAttribute("backwards")) {
+          String value = xp.getAttributeValue(0,"backwards");
+          if ( value.matches("on"))
+              result.append("[backwards 2]");
+      }
 
-      if ( (s = settings.getNamedItem("backwards")) != null )
-         if ( s.getNodeValue().matches("on") )
-            result.append("[backwards 2]");
+      if ( xp.containsAttribute("caseFirst")) {
+          String value = xp.getAttributeValue(0,"caseFirst");
+          if ( value.matches("upper|lower|off") )
+              result.append("[casefirst "+value+"]");
+      }
+      
+      if ( xp.containsAttribute("normalization")) {
+          String value = xp.getAttributeValue(0,"normalization");
+          if ( value.matches("on|off"))
+              result.append("[normalization "+value+"]");
+      }
 
-      if ( (s = settings.getNamedItem("caseFirst")) != null )
-         if ( s.getNodeValue().matches("upper|lower|off") )
-            result.append("[caseFirst "+s.getNodeValue()+"]");
+      if ( xp.containsAttribute("caseLevel")) {
+          String value = xp.getAttributeValue(0,"caseLevel");
+          if ( value.matches("on|off"))
+              result.append("[caseLevel "+value+"]");
+      }
+      if ( xp.containsAttribute("hiraganaQuarternary")) {
+          String value = xp.getAttributeValue(0,"hiraganaQuarternary");
+          if ( value.matches("on|off"))
+            result.append("[hiraganaQ "+value+"]");
+      }
 
-      if ( (s = settings.getNamedItem("normalization")) != null )
-         if ( s.getNodeValue().matches("on|off") )
-            result.append("[normalization "+s.getNodeValue()+"]");
+      if ( xp.containsAttribute("numeric")) {
+          String value = xp.getAttributeValue(0,"numeric");
+          if ( value.matches("on|off"))
+            result.append("[numeric "+value+"]");
+      }
 
-      if ( (s = settings.getNamedItem("caseLevel")) != null )
-         if ( s.getNodeValue().matches("on|off") )
-            result.append("[caseLevel "+s.getNodeValue()+"]");
-
-      if ( (s = settings.getNamedItem("hiraganaQuarternary")) != null )
-         if ( s.getNodeValue().matches("on|off") )
-            result.append("[hiraganaQ "+s.getNodeValue()+"]");
-
-      if ( (s = settings.getNamedItem("numeric")) != null )
-         if ( s.getNodeValue().matches("on|off") )
-            result.append("[numeric "+s.getNodeValue()+"]");
 
       return result.toString();
 
    }
 
-   public static String CollationRuleString ( Node node ) {
+   public static String CollationRuleString ( CLDRFile collrules, String path ) {
       StringBuffer result = new StringBuffer("");
-      String PreviousContext = new String("");
-      NodeList rules = node.getChildNodes();
-
-       for(int i = 0 ; i < rules.getLength() ; i++ ) {
-           Node rule = rules.item(i);
-           if(rule.getNodeType()==Node.ELEMENT_NODE) {
-              String rule_name = XML2ICURuleString(rule,PreviousContext);
-              if ( rule_name.length() > 0 )
-                 if ( rule_name.startsWith("|"))
-                    PreviousContext = rule_name.substring(1);
-                 else
-                 {
-                    result.append(rule_name);
-                    PreviousContext = "";
-                 }
+      String previousContext = new String("");
+      XPathParts xp = new XPathParts();
+      
+      Iterator<String> ri;
+       for(ri=collrules.iterator(path) ; ri.hasNext() ;  ) {
+           String rulePath = collrules.getFullXPath(ri.next());
+           xp.set(rulePath);
+           String ruleName = xp.getElement(-1);
+           String ruleValue = collrules.getStringValue(rulePath);
+           String before;
+           if (xp.containsAttribute("before")) {
+               before = xp.findAttributeValue(ruleName,"before");
+           } else {
+               before = null;
            }
-        }
+           String ICURuleString = XML2ICURuleString(ruleName,ruleValue,before,previousContext);
+           if ( ICURuleString.length() > 0 )
+               if ( ICURuleString.startsWith("|"))
+                   previousContext = ICURuleString.substring(1);
+               else
+               {
+                   result.append(ICURuleString);
+                   previousContext = "";
+               }
+           }
 
         return result.toString();
    }
-    public static String XML2ICURuleString( Node rule , String PreviousContext)
-    {
+    
+   public static String XML2ICURuleString( String ruleName, String ruleValue, String before, String previousContext)
+   {
+       String [] logicalPositionsArray = { 
+           "first_variable",
+           "first_trailing",
+           "first_tertiary_ignorable",
+           "first_secondary_ignorable",
+           "first_primary_ignorable",
+           "first_non_ignorable",
+           "last_variable",
+           "last_trailing",
+           "last_tertiary_ignorable",
+           "last_secondary_ignorable",
+           "last_primary_ignorable",
+           "last_non_ignorable" };
 
-       String s = rule.getNodeName();
+       Set<String> logicalPositions = new HashSet<String>();
+       logicalPositions.clear();
+       for ( int i = 0 ; i < logicalPositionsArray.length ; i++) {
+           logicalPositions.add(logicalPositionsArray[i]);
+       }
+       
        StringBuffer result = new StringBuffer("");
-       if ( s.equals("p") )
+       if ( ruleName.equals("p") )
        {
           result.append("<");
-          if (PreviousContext.length() > 0 )
-             result.append(PreviousContext+"|");
-          result.append(RuleData(LDMLUtilities.getNodeValue(rule)));
+          if (previousContext.length() > 0 )
+             result.append(previousContext+"|");
+          result.append(RuleData(ruleValue));
        }
-       else if ( s.equals("s") )
+       else if ( ruleName.equals("s") )
        {
           result.append("<<");
-          if (PreviousContext.length() > 0 )
-             result.append(PreviousContext+"|");
-          result.append(RuleData(LDMLUtilities.getNodeValue(rule)));
+          if (previousContext.length() > 0 )
+             result.append(previousContext+"|");
+          result.append(RuleData(ruleValue));
        }
-       else if ( s.equals("t") )
+       else if ( ruleName.equals("t") )
        {
           result.append("<<<");
-          if (PreviousContext.length() > 0 )
-             result.append(PreviousContext+"|");
-          result.append(RuleData(LDMLUtilities.getNodeValue(rule)));
+          if (previousContext.length() > 0 )
+             result.append(previousContext+"|");
+          result.append(RuleData(ruleValue));
        }
-       else if ( s.equals("i") )
+       else if ( ruleName.equals("i") )
        {
           result.append("=");
-          if (PreviousContext.length() > 0 )
-             result.append(PreviousContext+"|");
-          result.append(RuleData(LDMLUtilities.getNodeValue(rule)));
+          if (previousContext.length() > 0 )
+             result.append(previousContext+"|");
+          result.append(RuleData(ruleValue));
        }
-       else if ( s.equals("x") )     return(CollationRuleString(rule));
-       else if ( s.equals("extend"))
+       else if ( ruleName.equals("extend"))
        {
           result.append("/");
-          if (PreviousContext.length() > 0 )
-             result.append(PreviousContext+"|");
-          result.append(RuleData(LDMLUtilities.getNodeValue(rule)));
+          if (previousContext.length() > 0 )
+             result.append(previousContext+"|");
+          result.append(RuleData(ruleValue));
        }
-       else if ( s.equals("context"))
+       else if ( ruleName.equals("context"))
        {
           result.append("|");
-          result.append(RuleData(LDMLUtilities.getNodeValue(rule)));
+          result.append(RuleData(ruleValue));
        }
-       else if ( s.equals("pc") )
+       else if ( ruleName.equals("pc") )
        {
-          String chars = LDMLUtilities.getNodeValue(rule);
-          for ( int i = 0 ; i < chars.length() ; i++ )
+          for ( int i = 0 ; i < ruleValue.length() ; i++ )
           {
              result.append("<");
-             result.append(RuleData(chars.substring(i,i+1)));
+             result.append(RuleData(ruleValue.substring(i,i+1)));
           }
        } 
-       else if ( s.equals("sc") )
+       else if ( ruleName.equals("sc") )
        {
-          String chars = LDMLUtilities.getNodeValue(rule);
-          for ( int i = 0 ; i < chars.length() ; i++ )
+          for ( int i = 0 ; i < ruleValue.length() ; i++ )
           {
              result.append("<<");
-             result.append(RuleData(chars.substring(i,i+1)));
+             result.append(RuleData(ruleValue.substring(i,i+1)));
           }
        } 
-       else if ( s.equals("tc") )
+       else if ( ruleName.equals("tc") )
        {
-          String chars = LDMLUtilities.getNodeValue(rule);
-          for ( int i = 0 ; i < chars.length() ; i++ )
+          for ( int i = 0 ; i < ruleValue.length() ; i++ )
           {
              result.append("<<<");
-             result.append(RuleData(chars.substring(i,i+1)));
+             result.append(RuleData(ruleValue.substring(i,i+1)));
           }
        } 
-       else if ( s.equals("ic") )
+       else if ( ruleName.equals("ic") )
        {
-          String chars = LDMLUtilities.getNodeValue(rule);
-          for ( int i = 0 ; i < chars.length() ; i++ )
+          for ( int i = 0 ; i < ruleValue.length() ; i++ )
           {
              result.append("=");
-             result.append(RuleData(chars.substring(i,i+1)));
+             result.append(RuleData(ruleValue.substring(i,i+1)));
           }
        } 
-       else if ( s.equals("reset"))
+       else if ( ruleName.equals("reset"))
        {
           result.append("&");
-          String WeightType = LDMLUtilities.getAttributeValue(rule,"before");
 
-          if ( WeightType != null )
-             if ( WeightType.equals("primary"))
+          if ( before != null )
+             if ( before.equals("primary"))
                 result.append("[before 1]");
-             else if ( WeightType.equals("secondary"))
+             else if ( before.equals("secondary"))
                 result.append("[before 2]");
-             else if ( WeightType.equals("tertiary"))
+             else if ( before.equals("tertiary"))
                 result.append("[before 3]");
 
-          for (Node child=rule.getFirstChild(); child!=null; child=child.getNextSibling())
-             if (child.getNodeType()==Node.TEXT_NODE)
-                result.append(RuleData(child.getNodeValue()));
-             else if ( child.getNodeType()==Node.ELEMENT_NODE)
-             {
-                String[] LogicalPositions = { 
-                   "first_variable",
-                   "first_trailing",
-                   "first_tertiary_ignorable",
-                   "first_secondary_ignorable",
-                   "first_primary_ignorable",
-                   "first_non_ignorable",
-                   "last_variable",
-                   "last_trailing",
-                   "last_tertiary_ignorable",
-                   "last_secondary_ignorable",
-                   "last_primary_ignorable",
-                   "last_non_ignorable" };
-
-               s = child.getNodeName();
-
-               
-               if ( s.equals("cp")) // Explicit codepoint definition
-               {
-                  String Codepoint = LDMLUtilities.getAttributeValue(child,"hex");
-                  char CodepointValue = 0;
-                  for ( int i = 0 ; i< Codepoint.length(); i++ )
-                  {
-                     CodepointValue *= 16;
-                     CodepointValue += Character.digit(Codepoint.charAt(i),16);
-                  }
-                  result.append(CodepointValue);
-               }
-               else
-               {
-                  boolean found = false;
-                  for ( int i = 0 ; i < LogicalPositions.length && !found; i++ )
-                     if ( s.equals(LogicalPositions[i]))
-                     {
-                        result.append("["+s.replaceAll("non_ignorable","regular").replaceAll("_"," ")+"]");
-                        found = true;
-                     }
-               }
-             }
+          result.append(RuleData(ruleValue));
        }
+       else if ( logicalPositions.contains(ruleName)) {
+           
+          result.append("&[");
+          result.append(ruleName.replaceAll("non_ignorable","regular").replace('_',' '));
+          result.append("]");
+ 
+               
+       
+      }
        
        return(result.toString());
     }

@@ -12,10 +12,7 @@ package org.unicode.cldr.posix;
 import java.io.PrintWriter;
 import java.util.Locale;
 
-import org.unicode.cldr.util.LDMLUtilities;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
+import org.unicode.cldr.util.CLDRFile;
 
 public class POSIX_LCMessages {
 
@@ -24,10 +21,9 @@ public class POSIX_LCMessages {
    String yesexpr;
    String noexpr;
    String SearchLocation;
-   Node n;
    Locale loc;
 
-   public POSIX_LCMessages ( Document doc , String locale_name , POSIXVariant variant )
+   public POSIX_LCMessages ( CLDRFile doc , String locale_name , POSIXVariant variant )
    {
          int i = locale_name.indexOf('_');
          if ( i > 0 )
@@ -37,9 +33,8 @@ public class POSIX_LCMessages {
 
          SearchLocation = "//ldml/posix/messages/yesstr";
          String s;
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         if ( n != null && (( s = LDMLUtilities.getNodeValue(n)) != null ))
-         {
+         s = doc.getWinningValue(SearchLocation);
+         if ( s != null ) {
             StringBuffer buf;
             if ( variant.yesno.equals("short"))
             {
@@ -72,12 +67,10 @@ public class POSIX_LCMessages {
          }
 
          SearchLocation = "//ldml/posix/messages/nostr";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         if ( n != null && (( s = LDMLUtilities.getNodeValue(n)) != null ))
-         {
+         s = doc.getWinningValue(SearchLocation);
+         if ( s != null ) {
             StringBuffer buf;
-            if ( variant.yesno.equals("short"))
-            {
+            if ( variant.yesno.equals("short")) {
                i = s.indexOf(":");
                if ( i > 0 )
                   buf = new StringBuffer(s.substring(0,i));

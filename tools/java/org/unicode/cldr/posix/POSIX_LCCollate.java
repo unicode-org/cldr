@@ -1,6 +1,6 @@
 /*
 **********************************************************************
-* Copyright (c) 2002-2005, International Business Machines
+* Copyright (c) 2002-2010, International Business Machines
 * Corporation and others.  All Rights Reserved.
 **********************************************************************
 * Author: John Emmons
@@ -17,10 +17,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.CLDRFile;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.CollationElementIterator;
@@ -38,12 +35,11 @@ public class POSIX_LCCollate {
    UnicodeSet chars;
    SortedBag allItems;
    SortedBag contractions;
-   Document collrules;
+   CLDRFile collrules;
    int longest_char;
 
-   public POSIX_LCCollate ( Document doc, UnicodeSet repertoire, Document collrules , UnicodeSet CollateSet , String codeset , POSIXVariant variant ) throws Exception
+   public POSIX_LCCollate ( CLDRFile doc, UnicodeSet repertoire, CLDRFile collrules , UnicodeSet CollateSet , String codeset , POSIXVariant variant ) throws Exception
    {
-     Node n;
      String rules = "";
      String settings = "";
      boolean UsingDefaultCollateSet = false;
@@ -57,16 +53,15 @@ public class POSIX_LCCollate {
      chars = new UnicodeSet(repertoire).retainAll(CollateSet);
 
      this.collrules = collrules;
-
      if ( collrules != null )
      {
-        n = LDMLUtilities.getNode(collrules, "//ldml/collations/collation[@type='"+variant.collation_type+"']/settings");
-        if ( n != null )
-           settings = POSIXUtilities.CollationSettingString(n);
+        String path = "//ldml/collations/collation[@type='" + variant.collation_type + "']/settings";
+        if ( collrules.isNotRoot(path) )
+           settings = POSIXUtilities.CollationSettingString(collrules,path);
    
-        n = LDMLUtilities.getNode(collrules, "//ldml/collations/collation[@type='"+variant.collation_type+"']/rules");
-        if ( n != null )
-           rules = POSIXUtilities.CollationRuleString(n);
+        path = "//ldml/collations/collation[@type='"+variant.collation_type+"']/rules";
+        if ( collrules.isNotRoot(path) )
+           rules = POSIXUtilities.CollationRuleString(collrules,path);
 
      }
 

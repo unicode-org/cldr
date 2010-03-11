@@ -1,6 +1,6 @@
 /*
 **********************************************************************
-* Copyright (c) 2002-2004, International Business Machines
+* Copyright (c) 2002-2010, International Business Machines
 * Corporation and others.  All Rights Reserved.
 **********************************************************************
 * Author: John Emmons
@@ -10,24 +10,19 @@ package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.CLDRFile;
 
 public class POSIX_LCNumeric {
    String decimal_point;
    String thousands_sep;
    String grouping;
 
-   public POSIX_LCNumeric ( Document doc ) {
+   public POSIX_LCNumeric ( CLDRFile doc ) {
 
-   Node n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/decimal");
-   decimal_point = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
-   n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/group");
-   thousands_sep = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
-   n = LDMLUtilities.getNode(doc, "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat/pattern");
-   String grouping_pattern = LDMLUtilities.getNodeValue(n);
-
+   decimal_point = POSIXUtilities.POSIXCharName(doc.getWinningValue("//ldml/numbers/symbols/decimal"));
+   thousands_sep = POSIXUtilities.POSIXCharName(doc.getWinningValue("//ldml/numbers/symbols/group"));
+   String grouping_pattern = doc.getWinningValue("//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type='standard']/pattern[@type='standard']");
+   
    grouping = POSIXUtilities.POSIXGrouping( grouping_pattern );
 
    }   

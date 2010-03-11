@@ -1197,6 +1197,19 @@ public class CLDRFile implements Freezable, Iterable<String> {
       return make(localeID, resolved, getMinimalDraftStatus());
     }
 
+    public CLDRFile makeWithFallback(String localeID) {
+       return makeWithFallback(localeID,getMinimalDraftStatus());
+    }
+    
+    public CLDRFile makeWithFallback(String localeID, DraftStatus madeWithMinimalDraftStatus) {
+        String currentLocaleID = localeID;
+        Set<String> availableLocales = this.getAvailable();
+        while ( !availableLocales.contains(currentLocaleID) && currentLocaleID != "root") {
+            currentLocaleID = LocaleIDParser.getParent(currentLocaleID);
+        }
+        return make(currentLocaleID,true,madeWithMinimalDraftStatus);
+    }
+   
     protected abstract DraftStatus getMinimalDraftStatus();
 
     /**
@@ -1224,6 +1237,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
       return SimpleFactory.make(mainDirectory, string, approved);
     }
 
+    
     /**
      * Get a set of the available locales for the factory.
      */

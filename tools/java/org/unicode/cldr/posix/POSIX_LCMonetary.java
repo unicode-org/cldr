@@ -1,6 +1,6 @@
 /*
 **********************************************************************
-* Copyright (c) 2002-2004, International Business Machines
+* Copyright (c) 2002-2010, International Business Machines
 * Corporation and others.  All Rights Reserved.
 **********************************************************************
 * Author: John Emmons
@@ -10,10 +10,14 @@ package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
 import java.lang.Float;
+import java.util.Iterator;
+import java.util.Set;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.XPathParts;
+
+import com.ibm.icu.util.ULocale;
 
 public class POSIX_LCMonetary {
    String int_curr_symbol;
@@ -40,12 +44,11 @@ public class POSIX_LCMonetary {
    private static final int POSITIVE = 0;
    private static final int NEGATIVE = 1;
 
-   public POSIX_LCMonetary ( Document doc , Document supp , POSIXVariant variant ) {
+   public POSIX_LCMonetary ( CLDRFile doc , SupplementalDataInfo supp , POSIXVariant variant ) {
 
-   Node n; 
-
-   n = LDMLUtilities.getNode(doc, "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat/pattern");
-   String grouping_pattern = LDMLUtilities.getNodeValue(n);
+   XPathParts xp = new XPathParts();
+   
+   String grouping_pattern = doc.getWinningValue("//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type='standard']/pattern[@type='standard']");
 
    String [] monetary_formats = new String[2];
    if ( grouping_pattern.indexOf(";") > 0 )
@@ -58,23 +61,34 @@ public class POSIX_LCMonetary {
 
    mon_grouping = POSIXUtilities.POSIXGrouping( monetary_formats[POSITIVE] );
 
-   n = LDMLUtilities.getNode(doc, "//ldml/identity/territory");
-   String territory = LDMLUtilities.getAttributeValue(n,"type");
+   String territory = ULocale.getCountry(doc.getLocaleID());
 
    if ( variant.currency.equals("default") )
    {
-      n = LDMLUtilities.getNode(supp, "//supplementalData/currencyData/region[@iso3166='"+territory+"']/currency");
-      int_curr_symbol = LDMLUtilities.getAttributeValue(n,"iso4217");
+       Set<SupplementalDataInfo.CurrencyDateInfo> ci = supp.getCurrencyDateInfo(territory);
+       Iterator<SupplementalDataInfo.CurrencyDateInfo> it = ci.iterator();
+       SupplementalDataInfo.CurrencyDateInfo currentCI = null;
+       while (it.hasNext()) {
+           currentCI = it.next();
+           if ( currentCI.getEnd() == SupplementalDataInfo.CurrencyDateInfo.END_OF_TIME) {
+               continue;
+           } else {
+               currentCI = null;
+           }
+       }
+
+      if ( currentCI == null ) {
+          int_curr_symbol = "XXX";
+      } else {
+          int_curr_symbol = currentCI.getCurrency();
+      }
    }
    else
       int_curr_symbol = variant.currency;
 
    String tmp_currency_symbol;
-   n = LDMLUtilities.getNode(doc, "//ldml/numbers/currencies/currency[@type='"+int_curr_symbol+"']/symbol");
-   if ( n != null )
-       tmp_currency_symbol = LDMLUtilities.getNodeValue(n);
-   else
-       tmp_currency_symbol = int_curr_symbol;
+   String symbolPath = "//ldml/numbers/currencies/currency[@type=\""+int_curr_symbol+"\"]/symbol";
+   tmp_currency_symbol = doc.getWinningValue(symbolPath);
    
 
 // Check to see if currency symbol has a choice pattern
@@ -97,42 +111,38 @@ public class POSIX_LCMonetary {
    else
       currency_symbol = POSIXUtilities.POSIXCharName(tmp_currency_symbol);
 
-   n = LDMLUtilities.getNode(doc, "//ldml/numbers/currencies/currency[@type='"+int_curr_symbol+"']/decimal");
-   if ( n == null )
-      n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/currencySeparator");
-   if ( n == null )
-      n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/decimal");
+   mon_decimal_point = doc.getWinningValue("//ldml/numbers/currencies/currency[@type='"+int_curr_symbol+"']/decimal");
+   if ( mon_decimal_point == null )
+       mon_decimal_point = doc.getWinningValue("//ldml/numbers/symbols/currencySeparator");
+   if ( mon_decimal_point == null )
+       mon_decimal_point = doc.getWinningValue("//ldml/numbers/symbols/decimal");
 
-   mon_decimal_point = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
+   mon_decimal_point = POSIXUtilities.POSIXCharName(mon_decimal_point);
 
-   n = LDMLUtilities.getNode(doc, "//ldml/numbers/currencies/currency[@type='"+int_curr_symbol+"']/group");
-   if ( n == null )
-      n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/currencyGroup");
-   if ( n == null )
-      n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/group");
+   mon_thousands_sep = doc.getWinningValue("//ldml/numbers/currencies/currency[@type='"+int_curr_symbol+"']/group");
+   if ( mon_thousands_sep == null )
+      mon_thousands_sep = doc.getWinningValue("//ldml/numbers/symbols/currencyGroup");
+   if ( mon_thousands_sep == null )
+      mon_thousands_sep = doc.getWinningValue("//ldml/numbers/symbols/group");
 
-   mon_thousands_sep = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
+   mon_thousands_sep = POSIXUtilities.POSIXCharName(mon_thousands_sep);
 
-   n = LDMLUtilities.getNode(supp, "//supplementalData/currencyData/fractions/info[@iso4217='"+int_curr_symbol+"']");
-   if ( n == null )
-      n = LDMLUtilities.getNode(supp, "//supplementalData/currencyData/fractions/info[@iso4217='DEFAULT']");
-
-   frac_digits = LDMLUtilities.getAttributeValue(n,"digits");
+   int fracDigits = supp.getCurrencyNumberInfo(int_curr_symbol).getDigits();
+   frac_digits = Integer.toString(fracDigits);
+   
    int_frac_digits = frac_digits;
 
    
    if ( monetary_formats[POSITIVE].indexOf('+') >= 0 )
    {
-      n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/plusSign");
-      positive_sign = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
+       positive_sign = POSIXUtilities.POSIXCharName(doc.getWinningValue("//ldml/numbers/symbols/plusSign"));
    }
    else
       positive_sign = "";
    
    if ( monetary_formats[NEGATIVE].indexOf('-') >= 0 )
    {
-      n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/minusSign");
-      negative_sign = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
+      negative_sign = POSIXUtilities.POSIXCharName(doc.getWinningValue("//ldml/numbers/symbols/minusSign"));
    }
    else
       negative_sign = POSIXUtilities.POSIXCharName("-");

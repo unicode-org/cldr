@@ -1,6 +1,6 @@
 /*
 **********************************************************************
-* Copyright (c) 2002-2005, International Business Machines
+* Copyright (c) 2002-2010, International Business Machines
 * Corporation and others.  All Rights Reserved.
 **********************************************************************
 * Author: John Emmons
@@ -11,10 +11,8 @@ package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 
-import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.CLDRFile;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
@@ -24,12 +22,11 @@ public class POSIX_LCCtype {
 
    UnicodeSet chars;
 
-   public POSIX_LCCtype ( Document doc, UnicodeSet chars ) {
+   public POSIX_LCCtype ( CLDRFile doc, UnicodeSet chars ) {
 
       String SearchLocation = "//ldml/characters/exemplarCharacters";
-      Node n = LDMLUtilities.getNode(doc,SearchLocation);
 
-      UnicodeSet ExemplarCharacters = new UnicodeSet(LDMLUtilities.getNodeValue(n));
+      UnicodeSet ExemplarCharacters = new UnicodeSet(doc.getWinningValue(SearchLocation));
 
       boolean ExemplarError = false;
       UnicodeSetIterator it = new UnicodeSetIterator(ExemplarCharacters);
@@ -60,17 +57,17 @@ public class POSIX_LCCtype {
       out.println();
 
       String[][] types = { 
-                { "upper", "[:Uppercase:]" },
-		{ "lower", "[:Lowercase:]" }, 
-		{ "alpha", "[[:Alphabetic:]-[[:Uppercase:][:Lowercase:]]]" },
-                { "space", "[:Whitespace:]" },
-		{ "cntrl", "[:Control:]" }, 
-                { "graph", "[^[:Whitespace:][:Control:][:Format:][:Surrogate:][:Unassigned:]]" },
-                { "print", "[^[:Control:][:Format:][:Surrogate:][:Unassigned:]]" },
-                { "punct", "[:Punctuation:]" },
-		{ "digit", "[0-9]" }, 
-                { "xdigit", "[0-9 a-f A-F]" },
-		{ "blank", "[[:Whitespace:]-[\\u000A-\\u000D \\u0085 [:Line_Separator:][:Paragraph_Separator:]]]" } };
+          { "upper", "[:Uppercase:]" },
+		  { "lower", "[:Lowercase:]" }, 
+		  { "alpha", "[[:Alphabetic:]-[[:Uppercase:][:Lowercase:]]]" },
+          { "space", "[:Whitespace:]" },
+		  { "cntrl", "[:Control:]" }, 
+          { "graph", "[^[:Whitespace:][:Control:][:Format:][:Surrogate:][:Unassigned:]]" },
+          { "print", "[^[:Control:][:Format:][:Surrogate:][:Unassigned:]]" },
+          { "punct", "[:Punctuation:]" },
+		  { "digit", "[0-9]" }, 
+          { "xdigit", "[0-9 a-f A-F]" },
+		  { "blank", "[[:Whitespace:]-[\\u000A-\\u000D \\u0085 [:Line_Separator:][:Paragraph_Separator:]]]" } };
 
         // print character types, restricted to the charset
         int item, last;

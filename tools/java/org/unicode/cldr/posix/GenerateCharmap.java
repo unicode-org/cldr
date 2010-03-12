@@ -1,6 +1,6 @@
 /*
 **********************************************************************
-* Copyright (c) 2005, International Business Machines
+* Copyright (c) 2005-2010, International Business Machines
 * Corporation and others.  All Rights Reserved.
 **********************************************************************
 * Author: John Emmons
@@ -102,7 +102,7 @@ public class GenerateCharmap {
         out.println("# charset:\t" + codeset);
         out.println("######################");
         out.println("#################################################################################################");
-        out.println("# Copyright 1991-2008 Unicode, Inc. All rights reserved. Distributed under the Terms of Use in  #");
+        out.println("# Copyright 1991-2010 Unicode, Inc. All rights reserved. Distributed under the Terms of Use in  #");
         out.println("# http://www.unicode.org/copyright.html.                                                        #");
         out.println("#                                                                                               #");
         out.println("# Permission is hereby granted, free of charge, to any person obtaining a copy of the Unicode   #");
@@ -140,7 +140,7 @@ public class GenerateCharmap {
         // print character types, restricted to the charset
         int LongestCharNameLength = 0;
         int LongestCharValueLength = 0;
-        UnicodeSet us = new UnicodeSet("[^[:Noncharacter_Code_Point:][:Cn:]]").retainAll(chars);
+        UnicodeSet us = new UnicodeSet("[^[:Noncharacter_Code_Point:][:Cn:][:Cs:]]").retainAll(chars);
         List cml = new ArrayList();
         CharmapLine current;
         for (UnicodeSetIterator it = new UnicodeSetIterator(us); it.next(); )

@@ -1,6 +1,6 @@
 /*
 **********************************************************************
-* Copyright (c) 2004, International Business Machines
+* Copyright (c) 2004-2010, International Business Machines
 * Corporation and others.  All Rights Reserved.
 **********************************************************************
 * Author: John Emmons
@@ -91,14 +91,14 @@ public class POSIX_LCTime {
             t_fmt_ampm = t_fmt;
          else
          {
-            SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='hhmmss']";
+            SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='hms']";
             t_fmt_ampm = doc.getWinningValue(SearchLocation);
 
             if ( t_fmt_ampm != null )
             {
                 t_fmt_ampm = POSIXUtilities.POSIXDateTimeFormat(t_fmt_ampm,alt_digits[0].length()>0, variant);
                 t_fmt_ampm = t_fmt_ampm.replaceAll("\"", "/\""); //excaping of " in strings
-           }
+            }
             
             if ( t_fmt_ampm.indexOf("%p") < 0 )
                t_fmt_ampm = "";

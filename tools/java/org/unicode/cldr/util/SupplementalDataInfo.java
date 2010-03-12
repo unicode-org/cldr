@@ -386,12 +386,14 @@ public class SupplementalDataInfo {
     private String currency;
     private Date start;
     private Date end;
+    private boolean isLegalTender;
     private String errors = "";
 
-    public CurrencyDateInfo(String currency, String startDate, String endDate) {
+    public CurrencyDateInfo(String currency, String startDate, String endDate, boolean isLegalTender) {
       this.currency = currency;
       start = parseDate(startDate, START_OF_TIME);
       end = parseDate(endDate, END_OF_TIME);
+      this.isLegalTender = isLegalTender;
     }
 
     static DateFormat[] simpleFormats = { 
@@ -434,6 +436,10 @@ public class SupplementalDataInfo {
 
     public String getErrors() {
       return errors;
+    }
+
+    public boolean isLegalTender() {
+      return isLegalTender;
     }
 
     public int compareTo(CurrencyDateInfo o) {
@@ -1079,7 +1085,8 @@ public class SupplementalDataInfo {
         territoryToCurrencyDateInfo.put(parts.getAttributeValue(2, "iso3166"), 
                 new CurrencyDateInfo(parts.getAttributeValue(3, "iso4217"),
                         parts.getAttributeValue(3, "from"),
-                        parts.getAttributeValue(3, "to")
+                        parts.getAttributeValue(3, "to"),
+                        parts.getAttributeValue(3, "tender") != "false"
                 ));
         return true;
       }

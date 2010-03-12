@@ -70,8 +70,8 @@ public class POSIX_LCMonetary {
        SupplementalDataInfo.CurrencyDateInfo currentCI = null;
        while (it.hasNext()) {
            currentCI = it.next();
-           if ( currentCI.getEnd() == SupplementalDataInfo.CurrencyDateInfo.END_OF_TIME) {
-               continue;
+           if ( currentCI.isLegalTender() && currentCI.getEnd() == SupplementalDataInfo.CurrencyDateInfo.END_OF_TIME) {
+               break;
            } else {
                currentCI = null;
            }

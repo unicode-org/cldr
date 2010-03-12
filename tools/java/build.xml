@@ -66,7 +66,8 @@
             srcdir="${src.dir}"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.5"
+            source="1.6"
+            target="1.6"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
     </target>
@@ -76,7 +77,8 @@
             srcdir="${src.dir}"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.5"
+            source="1.6"
+            target="1.6"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
         <!-- copy data files into classes.. -->
@@ -92,7 +94,8 @@
             srcdir="${src.dir}"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.5"
+            source="1.6"
+            target="1.6"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
     </target>
@@ -102,7 +105,8 @@
             srcdir="${src.dir}"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.4"
+            source="1.5"
+            target="1.5"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
     </target>
@@ -112,7 +116,8 @@
 	            srcdir="${src.dir}"
 	            destdir="${build.dir}"
                 classpathref="project.class.path"
-	            source="1.5"
+	            source="1.6"
+                    target="1.6"
 	            debug="on" deprecation="off"
 	            encoding="UTF-8"/>
 	</target>
@@ -122,7 +127,8 @@
             srcdir="${src.dir}"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.5"
+            source="1.6"
+            target="1.6"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
     </target>
@@ -132,7 +138,8 @@
             srcdir="${src.dir}"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.4"
+            source="1.6"
+            target="1.6"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
     </target>
@@ -168,7 +175,8 @@
             additionalparam="${doc.params}"
             link="http://java.sun.com/j2se/1.5/docs/api"
             bottom="&lt;font size=-1>&lt;a  target='_top' href='http://www.unicode.org/copyright.html'>Copyright &amp;copy; 2004-${current.year} Unicode, Inc. All Rights Reserved.&lt;/a>&lt;/font>"
-            source="1.5"/>
+            source="1.6"
+            target="1.6"/>
     </target>
                <!-- bottom="&lt;font size=-1>Copyright (c) ${current.year} IBM Corporation and others.&lt;/font>" -->
 
@@ -254,7 +262,8 @@
             srcdir="${src.dir}"
             destdir="${build.dir}"
             classpathref="weblib.classpath"
-            source="1.5"
+            source="1.6"
+            target="1.6"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
     </target>

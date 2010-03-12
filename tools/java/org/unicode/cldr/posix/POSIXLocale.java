@@ -1,6 +1,6 @@
 /*
 **********************************************************************
-* Copyright (c) 2005, International Business Machines
+* Copyright (c) 2005-2010, International Business Machines
 * Corporation and others.  All Rights Reserved.
 **********************************************************************
 * Author: John Emmons
@@ -167,7 +167,7 @@ public class POSIXLocale {
       out.println("* see http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap07.html                    *");
       out.println("* Locale Name : " + locale_name + "   Codeset : " + codeset ); 
       out.println("*************************************************************************************************");
-      out.println("* Copyright 1991-2009 Unicode, Inc. All rights reserved. Distributed under the Terms of Use in  *");
+      out.println("* Copyright 1991-2010 Unicode, Inc. All rights reserved. Distributed under the Terms of Use in  *");
       out.println("* http://www.unicode.org/copyright.html.                                                        *");
       out.println("*                                                                                               *");
       out.println("* Permission is hereby granted, free of charge, to any person obtaining a copy of the Unicode   *");

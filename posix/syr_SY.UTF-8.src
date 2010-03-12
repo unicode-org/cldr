@@ -7,7 +7,7 @@ escape_char /
 * see http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap07.html                    *
 * Locale Name : syr_SY   Codeset : UTF-8
 *************************************************************************************************
-* Copyright 1991-2009 Unicode, Inc. All rights reserved. Distributed under the Terms of Use in  *
+* Copyright 1991-2010 Unicode, Inc. All rights reserved. Distributed under the Terms of Use in  *
 * http://www.unicode.org/copyright.html.                                                        *
 *                                                                                               *
 * Permission is hereby granted, free of charge, to any person obtaining a copy of the Unicode   *
@@ -5402,35 +5402,35 @@ order_start forward;forward;forward;forward
 
 * assignment of characters to weights
 
-<DELETE>                               IGNORE;IGNORE;IGNORE;<DELETE>
+<NULL>                                 IGNORE;IGNORE;IGNORE;<NULL>
+<START_OF_HEADING>                     IGNORE;IGNORE;IGNORE;<START_OF_HEADING>
+<START_OF_TEXT>                        IGNORE;IGNORE;IGNORE;<START_OF_TEXT>
+<END_OF_TEXT>                          IGNORE;IGNORE;IGNORE;<END_OF_TEXT>
+<END_OF_TRANSMISSION>                  IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION>
+<ENQUIRY>                              IGNORE;IGNORE;IGNORE;<ENQUIRY>
+<ACKNOWLEDGE>                          IGNORE;IGNORE;IGNORE;<ACKNOWLEDGE>
+<BELL>                                 IGNORE;IGNORE;IGNORE;<BELL>
+<BACKSPACE>                            IGNORE;IGNORE;IGNORE;<BACKSPACE>
+<SHIFT_OUT>                            IGNORE;IGNORE;IGNORE;<SHIFT_OUT>
 <SYRIAC_ABBREVIATION_MARK>             IGNORE;IGNORE;IGNORE;<SYRIAC_ABBREVIATION_MARK>
-<INFORMATION_SEPARATOR_TWO>            IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_TWO>
-<INFORMATION_SEPARATOR_ONE>            IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_ONE>
-<INFORMATION_SEPARATOR_FOUR>           IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_FOUR>
-<INFORMATION_SEPARATOR_THREE>          IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_THREE>
-<SUBSTITUTE>                           IGNORE;IGNORE;IGNORE;<SUBSTITUTE>
-<ESCAPE>                               IGNORE;IGNORE;IGNORE;<ESCAPE>
-<CANCEL>                               IGNORE;IGNORE;IGNORE;<CANCEL>
-<END_OF_MEDIUM>                        IGNORE;IGNORE;IGNORE;<END_OF_MEDIUM>
-<SYNCHRONOUS_IDLE>                     IGNORE;IGNORE;IGNORE;<SYNCHRONOUS_IDLE>
-<END_OF_TRANSMISSION_BLOCK>            IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION_BLOCK>
-<DEVICE_CONTROL_FOUR>                  IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_FOUR>
-<NEGATIVE_ACKNOWLEDGE>                 IGNORE;IGNORE;IGNORE;<NEGATIVE_ACKNOWLEDGE>
-<DEVICE_CONTROL_TWO>                   IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_TWO>
-<DEVICE_CONTROL_THREE>                 IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_THREE>
+<SHIFT_IN>                             IGNORE;IGNORE;IGNORE;<SHIFT_IN>
 <DATA_LINK_ESCAPE>                     IGNORE;IGNORE;IGNORE;<DATA_LINK_ESCAPE>
 <DEVICE_CONTROL_ONE>                   IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_ONE>
-<SHIFT_IN>                             IGNORE;IGNORE;IGNORE;<SHIFT_IN>
-<SHIFT_OUT>                            IGNORE;IGNORE;IGNORE;<SHIFT_OUT>
-<BACKSPACE>                            IGNORE;IGNORE;IGNORE;<BACKSPACE>
-<BELL>                                 IGNORE;IGNORE;IGNORE;<BELL>
-<ACKNOWLEDGE>                          IGNORE;IGNORE;IGNORE;<ACKNOWLEDGE>
-<ENQUIRY>                              IGNORE;IGNORE;IGNORE;<ENQUIRY>
-<END_OF_TRANSMISSION>                  IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION>
-<END_OF_TEXT>                          IGNORE;IGNORE;IGNORE;<END_OF_TEXT>
-<START_OF_TEXT>                        IGNORE;IGNORE;IGNORE;<START_OF_TEXT>
-<START_OF_HEADING>                     IGNORE;IGNORE;IGNORE;<START_OF_HEADING>
-<NULL>                                 IGNORE;IGNORE;IGNORE;<NULL>
+<DEVICE_CONTROL_TWO>                   IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_TWO>
+<DEVICE_CONTROL_THREE>                 IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_THREE>
+<DEVICE_CONTROL_FOUR>                  IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_FOUR>
+<NEGATIVE_ACKNOWLEDGE>                 IGNORE;IGNORE;IGNORE;<NEGATIVE_ACKNOWLEDGE>
+<SYNCHRONOUS_IDLE>                     IGNORE;IGNORE;IGNORE;<SYNCHRONOUS_IDLE>
+<END_OF_TRANSMISSION_BLOCK>            IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION_BLOCK>
+<CANCEL>                               IGNORE;IGNORE;IGNORE;<CANCEL>
+<END_OF_MEDIUM>                        IGNORE;IGNORE;IGNORE;<END_OF_MEDIUM>
+<SUBSTITUTE>                           IGNORE;IGNORE;IGNORE;<SUBSTITUTE>
+<ESCAPE>                               IGNORE;IGNORE;IGNORE;<ESCAPE>
+<INFORMATION_SEPARATOR_FOUR>           IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_FOUR>
+<INFORMATION_SEPARATOR_THREE>          IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_THREE>
+<INFORMATION_SEPARATOR_TWO>            IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_TWO>
+<INFORMATION_SEPARATOR_ONE>            IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_ONE>
+<DELETE>                               IGNORE;IGNORE;IGNORE;<DELETE>
 <SYRIAC_LETTER_SUPERSCRIPT_ALAPH>      IGNORE;"<X00D7><X00E9>";"<X0005><X00C0>";IGNORE
 <SYRIAC_PTHAHA_ABOVE>                  IGNORE;"<X00D7><X00F9>";"<X0005><X00C0>";IGNORE
 <SYRIAC_PTHAHA_BELOW>                  IGNORE;"<X00D8><X000D>";"<X0005><X00C0>";IGNORE
@@ -5630,7 +5630,7 @@ LC_MONETARY
 *************
 
 int_curr_symbol       "<S><Y><P><space>"
-currency_symbol       "<S><Y><POUND_SIGN>"
+currency_symbol       "<ARABIC_LETTER_LAM><FULL_STOP><ARABIC_LETTER_SEEN><FULL_STOP><RIGHT-TO-LEFT_MARK>"
 mon_decimal_point     "<FULL_STOP>"
 mon_thousands_sep     "<COMMA>"
 mon_grouping          3
@@ -5643,13 +5643,13 @@ p_sep_by_space        1
 n_cs_precedes         1
 n_sep_by_space        1
 p_sign_posn           1
-n_sign_posn           1
+n_sign_posn           2
 int_p_cs_precedes     1
 int_p_sep_by_space    1
 int_n_cs_precedes     1
 int_n_sep_by_space    1
 int_p_sign_posn       1
-int_n_sign_posn       1
+int_n_sign_posn       2
 
 END LC_MONETARY
 
@@ -5700,15 +5700,15 @@ mon     "<SYRIAC_ABBREVIATION_MARK><SYRIAC_LETTER_KAPH><SYRIAC_LETTER_NUN><space
         "<SYRIAC_ABBREVIATION_MARK><SYRIAC_LETTER_TAW><SYRIAC_LETTER_SHIN><space><SYRIAC_ABBREVIATION_MARK><SYRIAC_LETTER_BETH>";/
         "<SYRIAC_ABBREVIATION_MARK><SYRIAC_LETTER_KAPH><SYRIAC_LETTER_NUN><space><SYRIAC_ABBREVIATION_MARK><SYRIAC_LETTER_ALAPH>"
 
-d_fmt    "%Y-%m-%d"
+d_fmt    "%d<SOLIDUS>%m<SOLIDUS>%Y"
 
-t_fmt    "%H:%M:%S"
+t_fmt    "%I:%M:%S"
 
-d_t_fmt  "%Y %B %e %H:%M:%S %Z"
+d_t_fmt  "%d %B, %Y %I:%M:%S %p %Z"
 
 am_pm    "<A><M>";"<P><M>"
 
-t_fmt_ampm  ""
+t_fmt_ampm  "%I:%M:%S %p"
 
 END LC_TIME
 *************

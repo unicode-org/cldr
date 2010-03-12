@@ -7,7 +7,7 @@ escape_char /
 * see http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap07.html                    *
 * Locale Name : om_KE   Codeset : UTF-8
 *************************************************************************************************
-* Copyright 1991-2009 Unicode, Inc. All rights reserved. Distributed under the Terms of Use in  *
+* Copyright 1991-2010 Unicode, Inc. All rights reserved. Distributed under the Terms of Use in  *
 * http://www.unicode.org/copyright.html.                                                        *
 *                                                                                               *
 * Permission is hereby granted, free of charge, to any person obtaining a copy of the Unicode   *
@@ -4860,23 +4860,6 @@ END LC_CTYPE
 LC_COLLATE
 *************
 
-collating-element <c-h> from "<c><h>"
-collating-element <C-h> from "<C><h>"
-collating-element <C-H> from "<C><H>"
-collating-element <d-h> from "<d><h>"
-collating-element <D-h> from "<D><h>"
-collating-element <D-H> from "<D><H>"
-collating-element <k-h> from "<k><h>"
-collating-element <K-h> from "<K><h>"
-collating-element <K-H> from "<K><H>"
-collating-element <n-y> from "<n><y>"
-collating-element <N-y> from "<N><y>"
-collating-element <N-Y> from "<N><Y>"
-collating-element <p-h> from "<p><h>"
-collating-element <P-h> from "<P><h>"
-collating-element <P-H> from "<P><H>"
-collating-element <s-h> from "<s><h>"
-collating-element <S-h> from "<S><h>"
 
 
 * Define collation weights as symbols
@@ -4890,11 +4873,11 @@ collating-symbol <X0027>
 collating-symbol <X0029>
 collating-symbol <X003D>
 collating-symbol <X0041>
-collating-symbol <X0046>
 collating-symbol <X004D>
 collating-symbol <X005D>
 collating-symbol <X006D>
 collating-symbol <X007D>
+collating-symbol <X0086>
 collating-symbol <X0087>
 collating-symbol <X008D>
 collating-symbol <X008F>
@@ -5245,12 +5228,6 @@ collating-symbol <X5D62>
 collating-symbol <X5D64>
 collating-symbol <X5D66>
 collating-symbol <X5E00>
-collating-symbol <X5F04>
-collating-symbol <X5F05>
-collating-symbol <X5F06>
-collating-symbol <X5F07>
-collating-symbol <X5F08>
-collating-symbol <X5F09>
 collating-symbol <X5F60>
 collating-symbol <X5F62>
 collating-symbol <X5F64>
@@ -5320,11 +5297,11 @@ order_start forward;forward;forward;forward
 <X0029>
 <X003D>
 <X0041>
-<X0046>
 <X004D>
 <X005D>
 <X006D>
 <X007D>
+<X0086>
 <X0087>
 <X008D>
 <X008F>
@@ -5675,12 +5652,6 @@ order_start forward;forward;forward;forward
 <X5D64>
 <X5D66>
 <X5E00>
-<X5F04>
-<X5F05>
-<X5F06>
-<X5F07>
-<X5F08>
-<X5F09>
 <X5F60>
 <X5F62>
 <X5F64>
@@ -5738,34 +5709,34 @@ order_start forward;forward;forward;forward
 
 * assignment of characters to weights
 
-<DELETE>                                                   IGNORE;IGNORE;IGNORE;<DELETE>
-<INFORMATION_SEPARATOR_TWO>                                IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_TWO>
-<INFORMATION_SEPARATOR_ONE>                                IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_ONE>
-<INFORMATION_SEPARATOR_FOUR>                               IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_FOUR>
-<INFORMATION_SEPARATOR_THREE>                              IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_THREE>
-<SUBSTITUTE>                                               IGNORE;IGNORE;IGNORE;<SUBSTITUTE>
-<ESCAPE>                                                   IGNORE;IGNORE;IGNORE;<ESCAPE>
-<CANCEL>                                                   IGNORE;IGNORE;IGNORE;<CANCEL>
-<END_OF_MEDIUM>                                            IGNORE;IGNORE;IGNORE;<END_OF_MEDIUM>
-<SYNCHRONOUS_IDLE>                                         IGNORE;IGNORE;IGNORE;<SYNCHRONOUS_IDLE>
-<END_OF_TRANSMISSION_BLOCK>                                IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION_BLOCK>
-<DEVICE_CONTROL_FOUR>                                      IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_FOUR>
-<NEGATIVE_ACKNOWLEDGE>                                     IGNORE;IGNORE;IGNORE;<NEGATIVE_ACKNOWLEDGE>
-<DEVICE_CONTROL_TWO>                                       IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_TWO>
-<DEVICE_CONTROL_THREE>                                     IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_THREE>
+<NULL>                                                     IGNORE;IGNORE;IGNORE;<NULL>
+<START_OF_HEADING>                                         IGNORE;IGNORE;IGNORE;<START_OF_HEADING>
+<START_OF_TEXT>                                            IGNORE;IGNORE;IGNORE;<START_OF_TEXT>
+<END_OF_TEXT>                                              IGNORE;IGNORE;IGNORE;<END_OF_TEXT>
+<END_OF_TRANSMISSION>                                      IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION>
+<ENQUIRY>                                                  IGNORE;IGNORE;IGNORE;<ENQUIRY>
+<ACKNOWLEDGE>                                              IGNORE;IGNORE;IGNORE;<ACKNOWLEDGE>
+<BELL>                                                     IGNORE;IGNORE;IGNORE;<BELL>
+<BACKSPACE>                                                IGNORE;IGNORE;IGNORE;<BACKSPACE>
+<SHIFT_OUT>                                                IGNORE;IGNORE;IGNORE;<SHIFT_OUT>
+<SHIFT_IN>                                                 IGNORE;IGNORE;IGNORE;<SHIFT_IN>
 <DATA_LINK_ESCAPE>                                         IGNORE;IGNORE;IGNORE;<DATA_LINK_ESCAPE>
 <DEVICE_CONTROL_ONE>                                       IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_ONE>
-<SHIFT_IN>                                                 IGNORE;IGNORE;IGNORE;<SHIFT_IN>
-<SHIFT_OUT>                                                IGNORE;IGNORE;IGNORE;<SHIFT_OUT>
-<BACKSPACE>                                                IGNORE;IGNORE;IGNORE;<BACKSPACE>
-<BELL>                                                     IGNORE;IGNORE;IGNORE;<BELL>
-<ACKNOWLEDGE>                                              IGNORE;IGNORE;IGNORE;<ACKNOWLEDGE>
-<ENQUIRY>                                                  IGNORE;IGNORE;IGNORE;<ENQUIRY>
-<END_OF_TRANSMISSION>                                      IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION>
-<END_OF_TEXT>                                              IGNORE;IGNORE;IGNORE;<END_OF_TEXT>
-<START_OF_TEXT>                                            IGNORE;IGNORE;IGNORE;<START_OF_TEXT>
-<START_OF_HEADING>                                         IGNORE;IGNORE;IGNORE;<START_OF_HEADING>
-<NULL>                                                     IGNORE;IGNORE;IGNORE;<NULL>
+<DEVICE_CONTROL_TWO>                                       IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_TWO>
+<DEVICE_CONTROL_THREE>                                     IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_THREE>
+<DEVICE_CONTROL_FOUR>                                      IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_FOUR>
+<NEGATIVE_ACKNOWLEDGE>                                     IGNORE;IGNORE;IGNORE;<NEGATIVE_ACKNOWLEDGE>
+<SYNCHRONOUS_IDLE>                                         IGNORE;IGNORE;IGNORE;<SYNCHRONOUS_IDLE>
+<END_OF_TRANSMISSION_BLOCK>                                IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION_BLOCK>
+<CANCEL>                                                   IGNORE;IGNORE;IGNORE;<CANCEL>
+<END_OF_MEDIUM>                                            IGNORE;IGNORE;IGNORE;<END_OF_MEDIUM>
+<SUBSTITUTE>                                               IGNORE;IGNORE;IGNORE;<SUBSTITUTE>
+<ESCAPE>                                                   IGNORE;IGNORE;IGNORE;<ESCAPE>
+<INFORMATION_SEPARATOR_FOUR>                               IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_FOUR>
+<INFORMATION_SEPARATOR_THREE>                              IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_THREE>
+<INFORMATION_SEPARATOR_TWO>                                IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_TWO>
+<INFORMATION_SEPARATOR_ONE>                                IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_ONE>
+<DELETE>                                                   IGNORE;IGNORE;IGNORE;<DELETE>
 <tab>                                                      <X0507>;<X0005>;<X0005>;IGNORE
 <newline>                                                  <X0509>;<X0005>;<X0005>;IGNORE
 <vertical-tab>                                             <X050B>;<X0005>;<X0005>;IGNORE
@@ -5856,8 +5827,8 @@ order_start forward;forward;forward;forward
 <LATIN_SMALL_LETTER_A_WITH_CARON>                          <X2C00>;"<X0005><X0097>";"<X0005><X0005>";IGNORE
 <LATIN_CAPITAL_LETTER_A_WITH_CARON>                        <X2C00>;"<X0005><X0097>";"<X008F><X0005>";IGNORE
 <LATIN_SMALL_LETTER_A_WITH_RING_ABOVE>                     <X2C00>;"<X0005><X0099>";"<X0005><X0005>";IGNORE
-<ANGSTROM_SIGN>                                            <X2C00>;"<X0005><X0099>";"<X008F><X0005>";"<A><COMBINING_RING_ABOVE>"
 <LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE>                   <X2C00>;"<X0005><X0099>";"<X008F><X0005>";"<A><COMBINING_RING_ABOVE>"
+<ANGSTROM_SIGN>                                            <X2C00>;"<X0005><X0099>";"<X008F><X0005>";"<A><COMBINING_RING_ABOVE>"
 <LATIN_SMALL_LETTER_A_WITH_RING_ABOVE_AND_ACUTE>           <X2C00>;"<X0005><X0099><X008D>";"<X0005><X0005><X0005>";IGNORE
 <LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE_AND_ACUTE>         <X2C00>;"<X0005><X0099><X008D>";"<X008F><X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_A_WITH_DIAERESIS>                      <X2C00>;"<X0005><X009D>";"<X0005><X0005>";IGNORE
@@ -5890,13 +5861,13 @@ order_start forward;forward;forward;forward
 <LATIN_CAPITAL_LETTER_A_WITH_RING_BELOW>                   <X2C00>;"<X0005><X00D0><X006D>";"<X008F><X0005><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_AA>                                    "<X2C00><X2C00>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
 <LATIN_CAPITAL_LETTER_AA>                                  "<X2C00><X2C00>";"<X0005><X0005>";"<X0093><X0093>";IGNORE
-<LATIN_SMALL_LETTER_AE>                                    "<X2C00><X3400>";"<X0005><X00E5><X00B1><X0005>";"<X0009><X0009><X00C0><X003D>";IGNORE
-<LATIN_CAPITAL_LETTER_AE>                                  "<X2C00><X3400>";"<X0005><X00E5><X00B1><X0005>";"<X0093><X0009><X00C0><X003D>";IGNORE
 <MODIFIER_LETTER_CAPITAL_AE>                               "<X2C00><X3400>";"<X0005><X00E5><X00B1><X0005>";"<X0027><X0027><X00C0><X003D>";IGNORE
-<LATIN_SMALL_LETTER_AE_WITH_ACUTE>                         "<X2C00><X3400>";"<X0005><X00E5><X00B1><X0005><X008D>";"<X0009><X0009><X00C0><X003D><X0005>";IGNORE
-<LATIN_CAPITAL_LETTER_AE_WITH_ACUTE>                       "<X2C00><X3400>";"<X0005><X00E5><X00B1><X0005><X008D>";"<X0093><X0009><X00C0><X003D><X0005>";IGNORE
-<LATIN_SMALL_LETTER_AE_WITH_MACRON>                        "<X2C00><X3400>";"<X0005><X00E5><X00B1><X0005><X00AB>";"<X0009><X0009><X00C0><X003D><X0005>";IGNORE
-<LATIN_CAPITAL_LETTER_AE_WITH_MACRON>                      "<X2C00><X3400>";"<X0005><X00E5><X00B1><X0005><X00AB>";"<X0093><X0009><X00C0><X003D><X0005>";IGNORE
+<LATIN_SMALL_LETTER_AE>                                    "<X2C00><X3400>";"<X0087><X0005>";"<X0005><X0005>";IGNORE
+<LATIN_CAPITAL_LETTER_AE>                                  "<X2C00><X3400>";"<X0087><X0005>";"<X0086><X0005>";IGNORE
+<LATIN_SMALL_LETTER_AE_WITH_ACUTE>                         "<X2C00><X3400>";"<X0087><X0005><X008D>";"<X0005><X0005><X0005>";IGNORE
+<LATIN_CAPITAL_LETTER_AE_WITH_ACUTE>                       "<X2C00><X3400>";"<X0087><X0005><X008D>";"<X0086><X0005><X0005>";IGNORE
+<LATIN_SMALL_LETTER_AE_WITH_MACRON>                        "<X2C00><X3400>";"<X0087><X0005><X00AB>";"<X0005><X0005><X0005>";IGNORE
+<LATIN_CAPITAL_LETTER_AE_WITH_MACRON>                      "<X2C00><X3400>";"<X0087><X0005><X00AB>";"<X0086><X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_AO>                                    "<X2C00><X4800>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
 <LATIN_CAPITAL_LETTER_AO>                                  "<X2C00><X4800>";"<X0005><X0005>";"<X0093><X0093>";IGNORE
 <LATIN_SMALL_LETTER_AU>                                    "<X2C00><X5400>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
@@ -6005,8 +5976,8 @@ order_start forward;forward;forward;forward
 <LATIN_SMALL_LETTER_INSULAR_D>                             <X3200>;"<X0005><X00E5><X00C1>";"<X0009><X0009><X00C0>";IGNORE
 <LATIN_CAPITAL_LETTER_INSULAR_D>                           <X3200>;"<X0005><X00E5><X00C1>";"<X0093><X0009><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_DB_DIGRAPH>                            "<X3200><X2E00>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
-<LATIN_SMALL_LETTER_DZ>                                    "<X3200><X5E00>";"<X0005><X0005>";"<X0009><X0009>";<LATIN_SMALL_LETTER_DZ>
 <LATIN_SMALL_LETTER_DZ_DIGRAPH>                            "<X3200><X5E00>";"<X0005><X0005>";"<X0009><X0009>";<LATIN_SMALL_LETTER_DZ_DIGRAPH>
+<LATIN_SMALL_LETTER_DZ>                                    "<X3200><X5E00>";"<X0005><X0005>";"<X0009><X0009>";<LATIN_SMALL_LETTER_DZ>
 <LATIN_CAPITAL_LETTER_D_WITH_SMALL_LETTER_Z>               "<X3200><X5E00>";"<X0005><X0005>";"<X0093><X0009>";IGNORE
 <LATIN_CAPITAL_LETTER_DZ>                                  "<X3200><X5E00>";"<X0005><X0005>";"<X0093><X0093>";IGNORE
 <LATIN_SMALL_LETTER_DZ_WITH_CARON>                         "<X3200><X5E00>";"<X0005><X0005><X0097>";"<X0009><X0009><X003D>";IGNORE
@@ -6298,8 +6269,8 @@ order_start forward;forward;forward;forward
 <LATIN_SMALL_LETTER_DOTLESS_J_WITH_STROKE_AND_HOOK>        <X3F6A>;<X0005>;<X0005>;IGNORE
 <k>                                                        <X4000>;<X0005>;<X0005>;IGNORE
 <FULLWIDTH_LATIN_SMALL_LETTER_K>                           <X4000>;<X0005>;<X0007>;IGNORE
-<K>                                                        <X4000>;<X0005>;<X008F>;<K>
 <KELVIN_SIGN>                                              <X4000>;<X0005>;<X008F>;<K>
+<K>                                                        <X4000>;<X0005>;<X008F>;<K>
 <FULLWIDTH_LATIN_CAPITAL_LETTER_K>                         <X4000>;<X0005>;<X0091>;IGNORE
 <MODIFIER_LETTER_SMALL_K>                                  <X4000>;<X0005>;<X0027>;IGNORE
 <MODIFIER_LETTER_CAPITAL_K>                                <X4000>;<X0005>;<X00B9>;IGNORE
@@ -6456,8 +6427,8 @@ order_start forward;forward;forward;forward
 <FULLWIDTH_LATIN_SMALL_LETTER_O>                           <X4800>;<X0005>;<X0007>;IGNORE
 <O>                                                        <X4800>;<X0005>;<X008F>;IGNORE
 <FULLWIDTH_LATIN_CAPITAL_LETTER_O>                         <X4800>;<X0005>;<X0091>;IGNORE
-<MASCULINE_ORDINAL_INDICATOR>                              <X4800>;<X0005>;<X0027>;<MASCULINE_ORDINAL_INDICATOR>
 <MODIFIER_LETTER_SMALL_O>                                  <X4800>;<X0005>;<X0027>;<MODIFIER_LETTER_SMALL_O>
+<MASCULINE_ORDINAL_INDICATOR>                              <X4800>;<X0005>;<X0027>;<MASCULINE_ORDINAL_INDICATOR>
 <LATIN_SUBSCRIPT_SMALL_LETTER_O>                           <X4800>;<X0005>;<X0029>;IGNORE
 <MODIFIER_LETTER_CAPITAL_O>                                <X4800>;<X0005>;<X00B9>;IGNORE
 <LATIN_SMALL_LETTER_O_WITH_ACUTE>                          <X4800>;"<X0005><X008D>";"<X0005><X0005>";IGNORE
@@ -6684,8 +6655,8 @@ order_start forward;forward;forward;forward
 <LATIN_CAPITAL_LETTER_S_WITH_DOT_BELOW_AND_DOT_ABOVE>      <X5000>;"<X0005><X00D0><X004D><X00A3>";"<X008F><X0005><X00C0><X0005>";IGNORE
 <LATIN_SMALL_LETTER_S_WITH_COMMA_BELOW>                    <X5000>;"<X0005><X00D0><X007D>";"<X0005><X0005><X00C0>";IGNORE
 <LATIN_CAPITAL_LETTER_S_WITH_COMMA_BELOW>                  <X5000>;"<X0005><X00D0><X007D>";"<X008F><X0005><X00C0>";IGNORE
-<LATIN_SMALL_LETTER_LONG_S>                                <X5000>;"<X0005><X00E5><X00C1>";"<X0009><X0009><X00C0>";<LATIN_SMALL_LETTER_LONG_S>
 <LATIN_SMALL_LETTER_INSULAR_S>                             <X5000>;"<X0005><X00E5><X00C1>";"<X0009><X0009><X00C0>";<LATIN_SMALL_LETTER_INSULAR_S>
+<LATIN_SMALL_LETTER_LONG_S>                                <X5000>;"<X0005><X00E5><X00C1>";"<X0009><X0009><X00C0>";<LATIN_SMALL_LETTER_LONG_S>
 <LATIN_CAPITAL_LETTER_INSULAR_S>                           <X5000>;"<X0005><X00E5><X00C1>";"<X0093><X0009><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_LONG_S_WITH_DOT_ABOVE>                 <X5000>;"<X0005><X00E5><X00C1><X00A3>";"<X0009><X0009><X00C0><X0005>";IGNORE
 <LATIN_SMALL_LETTER_SHARP_S>                               "<X5000><X5000>";"<X0005><X00E5><X00B1><X0005>";"<X0009><X0009><X00C0><X003D>";IGNORE
@@ -6733,8 +6704,8 @@ order_start forward;forward;forward;forward
 <LATIN_CAPITAL_LETTER_INSULAR_T>                           <X5200>;"<X0005><X00E5><X00C1>";"<X0093><X0009><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_TC_DIGRAPH_WITH_CURL>                  "<X5200><X3166>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
 <LATIN_SMALL_LETTER_TH_WITH_STRIKETHROUGH>                 "<X5200><X3A00>";"<X0005><X00E5><X00B1><X0005>";"<X0009><X0009><X00C0><X003D>";IGNORE
-<LATIN_LETTER_INVERTED_GLOTTAL_STOP_WITH_STROKE>           "<X5200><X5000>";"<X0005><X0005>";"<X0009><X0009>";<LATIN_LETTER_INVERTED_GLOTTAL_STOP_WITH_STROKE>
 <LATIN_SMALL_LETTER_TS_DIGRAPH>                            "<X5200><X5000>";"<X0005><X0005>";"<X0009><X0009>";<LATIN_SMALL_LETTER_TS_DIGRAPH>
+<LATIN_LETTER_INVERTED_GLOTTAL_STOP_WITH_STROKE>           "<X5200><X5000>";"<X0005><X0005>";"<X0009><X0009>";<LATIN_LETTER_INVERTED_GLOTTAL_STOP_WITH_STROKE>
 <LATIN_SMALL_LETTER_TESH_DIGRAPH>                          "<X5200><X516E>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
 <LATIN_SMALL_LETTER_TZ>                                    "<X5200><X5E00>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
 <LATIN_CAPITAL_LETTER_TZ>                                  "<X5200><X5E00>";"<X0005><X0005>";"<X0093><X0009>";IGNORE
@@ -6969,23 +6940,6 @@ order_start forward;forward;forward;forward
 <LATIN_SMALL_LETTER_Z_WITH_LINE_BELOW>                     <X5E00>;"<X0005><X00D1><X0011>";"<X0005><X0005><X00C0>";IGNORE
 <LATIN_CAPITAL_LETTER_Z_WITH_LINE_BELOW>                   <X5E00>;"<X0005><X00D1><X0011>";"<X008F><X0005><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_TURNED_DELTA>                          "<X5E00><X5800>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
-<c-h>                                                      <X5F04>;<X0005>;<X0005>;IGNORE
-<C-h>                                                      <X5F04>;<X0005>;<X0046>;IGNORE
-<C-H>                                                      <X5F04>;<X0005>;<X0087>;IGNORE
-<d-h>                                                      <X5F05>;<X0005>;<X0005>;IGNORE
-<D-h>                                                      <X5F05>;<X0005>;<X0046>;IGNORE
-<D-H>                                                      <X5F05>;<X0005>;<X0087>;IGNORE
-<k-h>                                                      <X5F06>;<X0005>;<X0005>;IGNORE
-<K-h>                                                      <X5F06>;<X0005>;<X0046>;IGNORE
-<K-H>                                                      <X5F06>;<X0005>;<X0087>;IGNORE
-<n-y>                                                      <X5F07>;<X0005>;<X0005>;IGNORE
-<N-y>                                                      <X5F07>;<X0005>;<X0046>;IGNORE
-<N-Y>                                                      <X5F07>;<X0005>;<X0087>;IGNORE
-<p-h>                                                      <X5F08>;<X0005>;<X0005>;IGNORE
-<P-h>                                                      <X5F08>;<X0005>;<X0046>;IGNORE
-<P-H>                                                      <X5F08>;<X0005>;<X0087>;IGNORE
-<s-h>                                                      <X5F09>;<X0005>;<X0005>;IGNORE
-<S-h>                                                      <X5F09>;<X0005>;<X0046>;IGNORE
 <LATIN_LETTER_SMALL_CAPITAL_Z>                             <X5F60>;<X0005>;<X0005>;IGNORE
 <LATIN_SMALL_LETTER_Z_WITH_STROKE>                         <X5F62>;<X0005>;<X0005>;IGNORE
 <LATIN_CAPITAL_LETTER_Z_WITH_STROKE>                       <X5F62>;<X0005>;<X008F>;IGNORE
@@ -7163,15 +7117,15 @@ mon     "<A><m><a><j><j><i><i>";/
         "<S><a><d><a><a><s><a>";/
         "<M><u><d><d><e><e>"
 
-d_fmt    "%Y-%m-%d"
+d_fmt    "%d-%b-%Y"
 
-t_fmt    "%H:%M:%S"
+t_fmt    "%I:%M:%S %p"
 
-d_t_fmt  "%Y %B %e %H:%M:%S %Z"
+d_t_fmt  "%d %B %Y %I:%M:%S %p %Z"
 
-am_pm    "<A><M>";"<P><M>"
+am_pm    "<W><D>";"<W><B>"
 
-t_fmt_ampm  ""
+t_fmt_ampm  "%I:%M:%S %p"
 
 END LC_TIME
 *************

@@ -7,7 +7,7 @@ escape_char /
 * see http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap07.html                    *
 * Locale Name : uz_Arab_AF   Codeset : UTF-8
 *************************************************************************************************
-* Copyright 1991-2009 Unicode, Inc. All rights reserved. Distributed under the Terms of Use in  *
+* Copyright 1991-2010 Unicode, Inc. All rights reserved. Distributed under the Terms of Use in  *
 * http://www.unicode.org/copyright.html.                                                        *
 *                                                                                               *
 * Permission is hereby granted, free of charge, to any person obtaining a copy of the Unicode   *
@@ -8501,66 +8501,66 @@ order_start forward;forward;forward;forward
 
 * assignment of characters to weights
 
-<ARABIC_SIGN_RAHMATULLAH_ALAYHE>                                                      IGNORE;IGNORE;IGNORE;<ARABIC_SIGN_RAHMATULLAH_ALAYHE>
-<ARABIC_SIGN_RADI_ALLAHOU_ANHU>                                                       IGNORE;IGNORE;IGNORE;<ARABIC_SIGN_RADI_ALLAHOU_ANHU>
+<NULL>                                                                                IGNORE;IGNORE;IGNORE;<NULL>
+<START_OF_HEADING>                                                                    IGNORE;IGNORE;IGNORE;<START_OF_HEADING>
+<START_OF_TEXT>                                                                       IGNORE;IGNORE;IGNORE;<START_OF_TEXT>
+<END_OF_TEXT>                                                                         IGNORE;IGNORE;IGNORE;<END_OF_TEXT>
+<END_OF_TRANSMISSION>                                                                 IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION>
+<ENQUIRY>                                                                             IGNORE;IGNORE;IGNORE;<ENQUIRY>
+<ACKNOWLEDGE>                                                                         IGNORE;IGNORE;IGNORE;<ACKNOWLEDGE>
+<BELL>                                                                                IGNORE;IGNORE;IGNORE;<BELL>
+<BACKSPACE>                                                                           IGNORE;IGNORE;IGNORE;<BACKSPACE>
+<SHIFT_OUT>                                                                           IGNORE;IGNORE;IGNORE;<SHIFT_OUT>
+<SHIFT_IN>                                                                            IGNORE;IGNORE;IGNORE;<SHIFT_IN>
+<DATA_LINK_ESCAPE>                                                                    IGNORE;IGNORE;IGNORE;<DATA_LINK_ESCAPE>
 <ARABIC_SIGN_SALLALLAHOU_ALAYHE_WASSALLAM>                                            IGNORE;IGNORE;IGNORE;<ARABIC_SIGN_SALLALLAHOU_ALAYHE_WASSALLAM>
+<DEVICE_CONTROL_ONE>                                                                  IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_ONE>
 <ARABIC_SIGN_ALAYHE_ASSALLAM>                                                         IGNORE;IGNORE;IGNORE;<ARABIC_SIGN_ALAYHE_ASSALLAM>
-<ARABIC_SMALL_HIGH_LIGATURE_ALEF_WITH_LAM_WITH_YEH>                                   IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_LIGATURE_ALEF_WITH_LAM_WITH_YEH>
-<ARABIC_SMALL_HIGH_ZAIN>                                                              IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_ZAIN>
+<DEVICE_CONTROL_TWO>                                                                  IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_TWO>
+<ARABIC_SIGN_RAHMATULLAH_ALAYHE>                                                      IGNORE;IGNORE;IGNORE;<ARABIC_SIGN_RAHMATULLAH_ALAYHE>
+<DEVICE_CONTROL_THREE>                                                                IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_THREE>
+<ARABIC_SIGN_RADI_ALLAHOU_ANHU>                                                       IGNORE;IGNORE;IGNORE;<ARABIC_SIGN_RADI_ALLAHOU_ANHU>
+<DEVICE_CONTROL_FOUR>                                                                 IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_FOUR>
 <ARABIC_SIGN_TAKHALLUS>                                                               IGNORE;IGNORE;IGNORE;<ARABIC_SIGN_TAKHALLUS>
-<DELETE>                                                                              IGNORE;IGNORE;IGNORE;<DELETE>
+<NEGATIVE_ACKNOWLEDGE>                                                                IGNORE;IGNORE;IGNORE;<NEGATIVE_ACKNOWLEDGE>
 <ARABIC_SMALL_HIGH_TAH>                                                               IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_TAH>
-<ARABIC_SMALL_KASRA>                                                                  IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_KASRA>
+<SYNCHRONOUS_IDLE>                                                                    IGNORE;IGNORE;IGNORE;<SYNCHRONOUS_IDLE>
+<ARABIC_SMALL_HIGH_LIGATURE_ALEF_WITH_LAM_WITH_YEH>                                   IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_LIGATURE_ALEF_WITH_LAM_WITH_YEH>
+<END_OF_TRANSMISSION_BLOCK>                                                           IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION_BLOCK>
+<ARABIC_SMALL_HIGH_ZAIN>                                                              IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_ZAIN>
+<CANCEL>                                                                              IGNORE;IGNORE;IGNORE;<CANCEL>
 <ARABIC_SMALL_FATHA>                                                                  IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_FATHA>
+<END_OF_MEDIUM>                                                                       IGNORE;IGNORE;IGNORE;<END_OF_MEDIUM>
 <ARABIC_SMALL_DAMMA>                                                                  IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_DAMMA>
-<ARABIC_TAIL_FRAGMENT>                                                                IGNORE;IGNORE;IGNORE;<ARABIC_TAIL_FRAGMENT>
-<ARABIC_SMALL_HIGH_ROUNDED_ZERO>                                                      IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_ROUNDED_ZERO>
-<ARABIC_START_OF_RUB_EL_HIZB>                                                         IGNORE;IGNORE;IGNORE;<ARABIC_START_OF_RUB_EL_HIZB>
-<ARABIC_SMALL_HIGH_SEEN>                                                              IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_SEEN>
-<ARABIC_SMALL_HIGH_THREE_DOTS>                                                        IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_THREE_DOTS>
-<ARABIC_SMALL_HIGH_JEEM>                                                              IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_JEEM>
-<ARABIC_SMALL_HIGH_LAM_ALEF>                                                          IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_LAM_ALEF>
-<ARABIC_SMALL_HIGH_MEEM_INITIAL_FORM>                                                 IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_MEEM_INITIAL_FORM>
-<ARABIC_SMALL_HIGH_LIGATURE_QAF_WITH_LAM_WITH_ALEF_MAKSURA>                           IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_LIGATURE_QAF_WITH_LAM_WITH_ALEF_MAKSURA>
-<ARABIC_SMALL_HIGH_LIGATURE_SAD_WITH_LAM_WITH_ALEF_MAKSURA>                           IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_LIGATURE_SAD_WITH_LAM_WITH_ALEF_MAKSURA>
-<INFORMATION_SEPARATOR_TWO>                                                           IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_TWO>
-<INFORMATION_SEPARATOR_ONE>                                                           IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_ONE>
+<SUBSTITUTE>                                                                          IGNORE;IGNORE;IGNORE;<SUBSTITUTE>
+<ARABIC_SMALL_KASRA>                                                                  IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_KASRA>
+<ESCAPE>                                                                              IGNORE;IGNORE;IGNORE;<ESCAPE>
 <INFORMATION_SEPARATOR_FOUR>                                                          IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_FOUR>
 <INFORMATION_SEPARATOR_THREE>                                                         IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_THREE>
-<SUBSTITUTE>                                                                          IGNORE;IGNORE;IGNORE;<SUBSTITUTE>
-<ESCAPE>                                                                              IGNORE;IGNORE;IGNORE;<ESCAPE>
-<CANCEL>                                                                              IGNORE;IGNORE;IGNORE;<CANCEL>
-<END_OF_MEDIUM>                                                                       IGNORE;IGNORE;IGNORE;<END_OF_MEDIUM>
-<SYNCHRONOUS_IDLE>                                                                    IGNORE;IGNORE;IGNORE;<SYNCHRONOUS_IDLE>
-<END_OF_TRANSMISSION_BLOCK>                                                           IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION_BLOCK>
-<DEVICE_CONTROL_FOUR>                                                                 IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_FOUR>
-<NEGATIVE_ACKNOWLEDGE>                                                                IGNORE;IGNORE;IGNORE;<NEGATIVE_ACKNOWLEDGE>
-<DEVICE_CONTROL_TWO>                                                                  IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_TWO>
-<DEVICE_CONTROL_THREE>                                                                IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_THREE>
-<DATA_LINK_ESCAPE>                                                                    IGNORE;IGNORE;IGNORE;<DATA_LINK_ESCAPE>
-<DEVICE_CONTROL_ONE>                                                                  IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_ONE>
-<ARABIC_ROUNDED_HIGH_STOP_WITH_FILLED_CENTRE>                                         IGNORE;IGNORE;IGNORE;<ARABIC_ROUNDED_HIGH_STOP_WITH_FILLED_CENTRE>
-<SHIFT_IN>                                                                            IGNORE;IGNORE;IGNORE;<SHIFT_IN>
-<ARABIC_SMALL_LOW_MEEM>                                                               IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_LOW_MEEM>
-<SHIFT_OUT>                                                                           IGNORE;IGNORE;IGNORE;<SHIFT_OUT>
+<INFORMATION_SEPARATOR_TWO>                                                           IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_TWO>
+<INFORMATION_SEPARATOR_ONE>                                                           IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_ONE>
+<ARABIC_SMALL_HIGH_LIGATURE_SAD_WITH_LAM_WITH_ALEF_MAKSURA>                           IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_LIGATURE_SAD_WITH_LAM_WITH_ALEF_MAKSURA>
+<ARABIC_SMALL_HIGH_LIGATURE_QAF_WITH_LAM_WITH_ALEF_MAKSURA>                           IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_LIGATURE_QAF_WITH_LAM_WITH_ALEF_MAKSURA>
+<ARABIC_SMALL_HIGH_MEEM_INITIAL_FORM>                                                 IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_MEEM_INITIAL_FORM>
+<ARABIC_SMALL_HIGH_LAM_ALEF>                                                          IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_LAM_ALEF>
+<ARABIC_SMALL_HIGH_JEEM>                                                              IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_JEEM>
+<ARABIC_SMALL_HIGH_THREE_DOTS>                                                        IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_THREE_DOTS>
+<ARABIC_SMALL_HIGH_SEEN>                                                              IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_SEEN>
+<ARABIC_START_OF_RUB_EL_HIZB>                                                         IGNORE;IGNORE;IGNORE;<ARABIC_START_OF_RUB_EL_HIZB>
+<ARABIC_SMALL_HIGH_ROUNDED_ZERO>                                                      IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_ROUNDED_ZERO>
+<ARABIC_SMALL_HIGH_UPRIGHT_RECTANGULAR_ZERO>                                          IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_UPRIGHT_RECTANGULAR_ZERO>
+<ARABIC_SMALL_HIGH_DOTLESS_HEAD_OF_KHAH>                                              IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_DOTLESS_HEAD_OF_KHAH>
+<ARABIC_SMALL_HIGH_MEEM_ISOLATED_FORM>                                                IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_MEEM_ISOLATED_FORM>
+<ARABIC_SMALL_LOW_SEEN>                                                               IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_LOW_SEEN>
+<ARABIC_SMALL_HIGH_MADDA>                                                             IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_MADDA>
+<ARABIC_SMALL_HIGH_YEH>                                                               IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_YEH>
 <ARABIC_SMALL_HIGH_NOON>                                                              IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_NOON>
 <ARABIC_EMPTY_CENTRE_LOW_STOP>                                                        IGNORE;IGNORE;IGNORE;<ARABIC_EMPTY_CENTRE_LOW_STOP>
 <ARABIC_EMPTY_CENTRE_HIGH_STOP>                                                       IGNORE;IGNORE;IGNORE;<ARABIC_EMPTY_CENTRE_HIGH_STOP>
-<BACKSPACE>                                                                           IGNORE;IGNORE;IGNORE;<BACKSPACE>
-<ARABIC_SMALL_HIGH_MADDA>                                                             IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_MADDA>
-<BELL>                                                                                IGNORE;IGNORE;IGNORE;<BELL>
-<ACKNOWLEDGE>                                                                         IGNORE;IGNORE;IGNORE;<ACKNOWLEDGE>
-<ENQUIRY>                                                                             IGNORE;IGNORE;IGNORE;<ENQUIRY>
-<ARABIC_SMALL_HIGH_YEH>                                                               IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_YEH>
-<END_OF_TRANSMISSION>                                                                 IGNORE;IGNORE;IGNORE;<END_OF_TRANSMISSION>
-<END_OF_TEXT>                                                                         IGNORE;IGNORE;IGNORE;<END_OF_TEXT>
-<ARABIC_SMALL_HIGH_UPRIGHT_RECTANGULAR_ZERO>                                          IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_UPRIGHT_RECTANGULAR_ZERO>
-<ARABIC_SMALL_HIGH_DOTLESS_HEAD_OF_KHAH>                                              IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_DOTLESS_HEAD_OF_KHAH>
-<START_OF_TEXT>                                                                       IGNORE;IGNORE;IGNORE;<START_OF_TEXT>
-<ARABIC_SMALL_HIGH_MEEM_ISOLATED_FORM>                                                IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_MEEM_ISOLATED_FORM>
-<START_OF_HEADING>                                                                    IGNORE;IGNORE;IGNORE;<START_OF_HEADING>
-<ARABIC_SMALL_LOW_SEEN>                                                               IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_LOW_SEEN>
-<NULL>                                                                                IGNORE;IGNORE;IGNORE;<NULL>
+<ARABIC_ROUNDED_HIGH_STOP_WITH_FILLED_CENTRE>                                         IGNORE;IGNORE;IGNORE;<ARABIC_ROUNDED_HIGH_STOP_WITH_FILLED_CENTRE>
+<ARABIC_SMALL_LOW_MEEM>                                                               IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_LOW_MEEM>
+<ARABIC_TAIL_FRAGMENT>                                                                IGNORE;IGNORE;IGNORE;<ARABIC_TAIL_FRAGMENT>
+<DELETE>                                                                              IGNORE;IGNORE;IGNORE;<DELETE>
 <ARABIC_FATHATAN>                                                                     IGNORE;"<X00D6><X0095>";"<X0005><X00C0>";IGNORE
 <ARABIC_TATWEEL_WITH_FATHATAN_ABOVE>                                                  IGNORE;"<X00D6><X0095>";"<X002F><X00C0>";IGNORE
 <ARABIC_FATHATAN_ISOLATED_FORM>                                                       IGNORE;"<X00D6><X0095>";"<X0033><X00C0>";IGNORE
@@ -8786,8 +8786,8 @@ order_start forward;forward;forward;forward
 <ARABIC_LIGATURE_YEH_WITH_HAMZA_ABOVE_WITH_YU_FINAL_FORM>                             "<X6834><X6971>";"<X0005><X0005>";"<X0031><X0031>";IGNORE
 <ARABIC_LIGATURE_YEH_WITH_HAMZA_ABOVE_WITH_YU_ISOLATED_FORM>                          "<X6834><X6971>";"<X0005><X0005>";"<X0033><X0033>";IGNORE
 <ARABIC_LIGATURE_UIGHUR_KIRGHIZ_YEH_WITH_HAMZA_ABOVE_WITH_ALEF_MAKSURA_INITIAL_FORM>  "<X6834><X697F>";"<X0005><X0005>";"<X002D><X002D>";IGNORE
-<ARABIC_LIGATURE_UIGHUR_KIRGHIZ_YEH_WITH_HAMZA_ABOVE_WITH_ALEF_MAKSURA_FINAL_FORM>    "<X6834><X697F>";"<X0005><X0005>";"<X0031><X0031>";<ARABIC_LIGATURE_UIGHUR_KIRGHIZ_YEH_WITH_HAMZA_ABOVE_WITH_ALEF_MAKSURA_FINAL_FORM>
 <ARABIC_LIGATURE_YEH_WITH_HAMZA_ABOVE_WITH_ALEF_MAKSURA_FINAL_FORM>                   "<X6834><X697F>";"<X0005><X0005>";"<X0031><X0031>";<ARABIC_LIGATURE_YEH_WITH_HAMZA_ABOVE_WITH_ALEF_MAKSURA_FINAL_FORM>
+<ARABIC_LIGATURE_UIGHUR_KIRGHIZ_YEH_WITH_HAMZA_ABOVE_WITH_ALEF_MAKSURA_FINAL_FORM>    "<X6834><X697F>";"<X0005><X0005>";"<X0031><X0031>";<ARABIC_LIGATURE_UIGHUR_KIRGHIZ_YEH_WITH_HAMZA_ABOVE_WITH_ALEF_MAKSURA_FINAL_FORM>
 <ARABIC_LIGATURE_UIGHUR_KIRGHIZ_YEH_WITH_HAMZA_ABOVE_WITH_ALEF_MAKSURA_ISOLATED_FORM> "<X6834><X697F>";"<X0005><X0005>";"<X0033><X0033>";<ARABIC_LIGATURE_UIGHUR_KIRGHIZ_YEH_WITH_HAMZA_ABOVE_WITH_ALEF_MAKSURA_ISOLATED_FORM>
 <ARABIC_LIGATURE_YEH_WITH_HAMZA_ABOVE_WITH_ALEF_MAKSURA_ISOLATED_FORM>                "<X6834><X697F>";"<X0005><X0005>";"<X0033><X0033>";<ARABIC_LIGATURE_YEH_WITH_HAMZA_ABOVE_WITH_ALEF_MAKSURA_ISOLATED_FORM>
 <ARABIC_LIGATURE_YEH_WITH_HAMZA_ABOVE_WITH_YEH_FINAL_FORM>                            "<X6834><X6981>";"<X0005><X0005>";"<X0031><X0031>";IGNORE
@@ -9669,15 +9669,15 @@ positive_sign         ""
 negative_sign         "<MINUS_SIGN>"
 int_frac_digits       0
 frac_digits           0
-p_cs_precedes         1
+p_cs_precedes         0
 p_sep_by_space        1
-n_cs_precedes         1
+n_cs_precedes         0
 n_sep_by_space        1
 p_sign_posn           1
 n_sign_posn           1
-int_p_cs_precedes     1
+int_p_cs_precedes     0
 int_p_sep_by_space    1
-int_n_cs_precedes     1
+int_n_cs_precedes     0
 int_n_sep_by_space    1
 int_p_sign_posn       1
 int_n_sign_posn       1
@@ -9690,20 +9690,20 @@ LC_TIME
 *************
 
 abday   "<ARABIC_LETTER_FARSI_YEH><FULL_STOP>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
+        "<ARABIC_LETTER_DAL><FULL_STOP>";/
+        "<ARABIC_LETTER_SEEN><FULL_STOP>";/
+        "<ARABIC_LETTER_TCHEH><FULL_STOP>";/
         "<ARABIC_LETTER_PEH><FULL_STOP>";/
         "<ARABIC_LETTER_JEEM><FULL_STOP>";/
-        "<seven>"
+        "<ARABIC_LETTER_SHEEN><FULL_STOP>"
 
-day     "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>"
+day     "<ARABIC_LETTER_FARSI_YEH><ARABIC_LETTER_KEHEH><ARABIC_LETTER_SHEEN><ARABIC_LETTER_NOON><ARABIC_LETTER_BEH><ARABIC_LETTER_HEH>";/
+        "<ARABIC_LETTER_DAL><ARABIC_LETTER_WAW><ARABIC_LETTER_SHEEN><ARABIC_LETTER_NOON><ARABIC_LETTER_BEH><ARABIC_LETTER_HEH>";/
+        "<ARABIC_LETTER_SEEN><ARABIC_LETTER_HEH><ZERO_WIDTH_NON-JOINER><ARABIC_LETTER_SHEEN><ARABIC_LETTER_NOON><ARABIC_LETTER_BEH><ARABIC_LETTER_HEH>";/
+        "<ARABIC_LETTER_TCHEH><ARABIC_LETTER_HEH><ARABIC_LETTER_ALEF><ARABIC_LETTER_REH><ARABIC_LETTER_SHEEN><ARABIC_LETTER_NOON><ARABIC_LETTER_BEH><ARABIC_LETTER_HEH>";/
+        "<ARABIC_LETTER_PEH><ARABIC_LETTER_NOON><ARABIC_LETTER_JEEM><ARABIC_LETTER_SHEEN><ARABIC_LETTER_NOON><ARABIC_LETTER_BEH><ARABIC_LETTER_HEH>";/
+        "<ARABIC_LETTER_JEEM><ARABIC_LETTER_MEEM><ARABIC_LETTER_AIN><ARABIC_LETTER_HEH>";/
+        "<ARABIC_LETTER_SHEEN><ARABIC_LETTER_NOON><ARABIC_LETTER_BEH><ARABIC_LETTER_HEH>"
 
 abmon   "<ARABIC_LETTER_JEEM><ARABIC_LETTER_NOON><ARABIC_LETTER_WAW>";/
         "<ARABIC_LETTER_FEH><ARABIC_LETTER_BEH><ARABIC_LETTER_REH>";/
@@ -9714,32 +9714,32 @@ abmon   "<ARABIC_LETTER_JEEM><ARABIC_LETTER_NOON><ARABIC_LETTER_WAW>";/
         "<ARABIC_LETTER_JEEM><ARABIC_LETTER_WAW><ARABIC_LETTER_LAM>";/
         "<ARABIC_LETTER_ALEF><ARABIC_LETTER_GAF><ARABIC_LETTER_SEEN>";/
         "<ARABIC_LETTER_SEEN><ARABIC_LETTER_PEH><ARABIC_LETTER_TEH>";/
-        "<one><zero>";/
-        "<one><one>";/
+        "<ARABIC_LETTER_ALEF><ARABIC_LETTER_KEHEH><ARABIC_LETTER_TEH>";/
+        "<ARABIC_LETTER_NOON><ARABIC_LETTER_WAW><ARABIC_LETTER_MEEM>";/
         "<ARABIC_LETTER_DAL><ARABIC_LETTER_SEEN><ARABIC_LETTER_MEEM>"
 
-mon     "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>";/
-        "<eight>";/
-        "<nine>";/
-        "<one><zero>";/
-        "<one><one>";/
-        "<one><two>"
+mon     "<ARABIC_LETTER_JEEM><ARABIC_LETTER_NOON><ARABIC_LETTER_WAW><ARABIC_LETTER_REH><ARABIC_LETTER_FARSI_YEH>";/
+        "<ARABIC_LETTER_FEH><ARABIC_LETTER_BEH><ARABIC_LETTER_REH><ARABIC_LETTER_WAW><ARABIC_LETTER_REH><ARABIC_LETTER_FARSI_YEH>";/
+        "<ARABIC_LETTER_MEEM><ARABIC_LETTER_ALEF><ARABIC_LETTER_REH><ARABIC_LETTER_TCHEH>";/
+        "<ARABIC_LETTER_ALEF><ARABIC_LETTER_PEH><ARABIC_LETTER_REH><ARABIC_LETTER_FARSI_YEH><ARABIC_LETTER_LAM>";/
+        "<ARABIC_LETTER_MEEM><ARABIC_LETTER_FARSI_YEH>";/
+        "<ARABIC_LETTER_JEEM><ARABIC_LETTER_WAW><ARABIC_LETTER_NOON>";/
+        "<ARABIC_LETTER_JEEM><ARABIC_LETTER_WAW><ARABIC_LETTER_LAM><ARABIC_LETTER_ALEF><ARABIC_LETTER_FARSI_YEH>";/
+        "<ARABIC_LETTER_ALEF><ARABIC_LETTER_GAF><ARABIC_LETTER_SEEN><ARABIC_LETTER_TEH>";/
+        "<ARABIC_LETTER_SEEN><ARABIC_LETTER_PEH><ARABIC_LETTER_TEH><ARABIC_LETTER_MEEM><ARABIC_LETTER_BEH><ARABIC_LETTER_REH>";/
+        "<ARABIC_LETTER_ALEF><ARABIC_LETTER_KEHEH><ARABIC_LETTER_TEH><ARABIC_LETTER_WAW><ARABIC_LETTER_BEH><ARABIC_LETTER_REH>";/
+        "<ARABIC_LETTER_NOON><ARABIC_LETTER_WAW><ARABIC_LETTER_MEEM><ARABIC_LETTER_BEH><ARABIC_LETTER_REH>";/
+        "<ARABIC_LETTER_DAL><ARABIC_LETTER_SEEN><ARABIC_LETTER_MEEM><ARABIC_LETTER_BEH><ARABIC_LETTER_REH>"
 
-d_fmt    "%Y-%m-%d"
+d_fmt    "%e %b %Y"
 
 t_fmt    "%H:%M:%S"
 
-d_t_fmt  "%Y %B %e %H:%M:%S %Z"
+d_t_fmt  "%e <ARABIC_LETTER_NOON><ARABIC_LETTER_TCHEH><ARABIC_LETTER_FARSI_YEH> %B %Y %H:%M:%S (%Z)"
 
 am_pm    "<A><M>";"<P><M>"
 
-t_fmt_ampm  ""
+t_fmt_ampm  "%I:%M:%S %p"
 
 END LC_TIME
 *************

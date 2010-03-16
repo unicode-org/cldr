@@ -2719,9 +2719,15 @@ public class CLDRFile implements Freezable, Iterable<String> {
               --placementIndex;
             }
             Map attributes = distinguishingParts.getAttributes(placementIndex);
-            if (draft != null) attributes.put("draft", draft);
-            if (alt != null) attributes.put("alt", alt);
-            if (references.length() != 0) attributes.put("references", references);
+            if (draft != null) {
+              attributes.put("draft", draft);
+            }
+            if (alt != null) {
+              attributes.put("alt", alt);
+            }
+            if (references.length() != 0) {
+              attributes.put("references", references);
+            }
             String newXPath = distinguishingParts.toString();
             if (!newXPath.equals(xpath)) {
               normalizedPathMap.put(xpath, newXPath); // store differences
@@ -2731,15 +2737,13 @@ public class CLDRFile implements Freezable, Iterable<String> {
 
           // now remove non-distinguishing attributes (if non-inheriting)
 
-          if (inheriting) {
-            for (int i = 0; i < distinguishingParts.size(); ++i) {
-              String element = distinguishingParts.getElement(i);
-              Map attributes = distinguishingParts.getAttributes(i);
-              for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
-                String attribute = (String) it.next();
-                if (!isDistinguishing(element, attribute)) {
-                  it.remove();
-                }
+          for (int i = 0; i < distinguishingParts.size(); ++i) {
+            String element = distinguishingParts.getElement(i);
+            Map attributes = distinguishingParts.getAttributes(i);
+            for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
+              String attribute = (String) it.next();
+              if (!isDistinguishing(element, attribute)) {
+                it.remove();
               }
             }
           }

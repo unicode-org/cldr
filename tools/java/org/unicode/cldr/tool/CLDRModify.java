@@ -93,7 +93,7 @@ public class CLDRModify {
     UOption.create("resolve", 'z', UOption.OPTIONAL_ARG),
     UOption.create("path", 'p', UOption.REQUIRES_ARG),
     UOption.create("user", 'u', UOption.REQUIRES_ARG),
-    UOption.create("all", 'a', UOption.NO_ARG),
+    UOption.create("all", 'a', UOption.REQUIRES_ARG),
   };
 
   private static final UnicodeSet allMergeOptions = new UnicodeSet("[rc]");
@@ -118,7 +118,7 @@ public class CLDRModify {
   + "-p\t set path for -fx" + XPathParts.NEWLINE
   + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)" + XPathParts.NEWLINE
   + "-u\t set user for -fb" + XPathParts.NEWLINE
-  + "-a\t recurse over all subdirectories" + XPathParts.NEWLINE
+  + "-a\t pattern: recurse over all subdirectories that match pattern" + XPathParts.NEWLINE
   ;
 
   static final String HELP_TEXT2 =  "Note: A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results." + XPathParts.NEWLINE;
@@ -135,14 +135,14 @@ public class CLDRModify {
     }
     checkSuboptions(options[FIX], fixList.getOptions());
     checkSuboptions(options[JOIN_ARGS], allMergeOptions);
-    boolean recurseOnDirectories = options[ALL_DIRS].doesOccur;
+    String recurseOnDirectories = options[ALL_DIRS].value;
     boolean makeResolved = options[RESOLVE].doesOccur;  // Utility.COMMON_DIRECTORY + "main/";
 
     //String sourceDir = "C:\\ICU4C\\locale\\common\\main\\";
 
     String sourceInput = options[SOURCEDIR].value;
     String destInput = options[DESTDIR].value;
-    if (recurseOnDirectories) {
+    if (recurseOnDirectories != null) {
       sourceInput = removeSuffix(sourceInput, "main/", "main");
       destInput = removeSuffix(destInput, "main/", "main");
     }
@@ -150,11 +150,13 @@ public class CLDRModify {
     String targetDirBase = CldrUtility.checkValidDirectory(destInput);	// Utility.GEN_DIRECTORY + "main/";
 
     Set<String> dirSet = new TreeSet();
-    if (!recurseOnDirectories) {
+    if (recurseOnDirectories == null) {
       dirSet.add("");
     } else {
       String[] subdirs = new File(sourceDirBase).list();
+      Matcher subdirMatch = Pattern.compile(recurseOnDirectories).matcher("");
       for (String subdir : subdirs) {
+        if (!subdirMatch.reset(subdir).find()) continue;
         dirSet.add(subdir + "/");
       }
     }

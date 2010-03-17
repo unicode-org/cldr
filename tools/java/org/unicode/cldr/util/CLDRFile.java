@@ -344,6 +344,9 @@ public class CLDRFile implements Freezable, Iterable<String> {
         throw new IllegalArgumentException("root of file must be either ldml or supplementalData");
       }
       this.setNonInheriting(DEFAULT_DECLHANDLER.isSupplemental > 0);
+      if (DEFAULT_DECLHANDLER.overrideCount > 0) {
+        throw new IllegalArgumentException("Internal problems, mostly likely bug in isDistinguishing() or isOrdered(): " + DEFAULT_DECLHANDLER.overrideCount);
+      }
       return this;
     } catch (SAXParseException e) {
       System.out.println(CLDRFile.showSAX(e));
@@ -1098,37 +1101,63 @@ public class CLDRFile implements Freezable, Iterable<String> {
    * @return
    */
   public static boolean isDistinguishing(DtdType type, String elementName, String attribute) {
-    boolean result =
-      attribute.equals("key") 
-      || attribute.equals("indexSource") 
-      || attribute.equals("request") 
-      || attribute.equals("count") 
-      || attribute.equals("id") 
-      || attribute.equals("_q") 
-      || attribute.equals("registry") 
-      || attribute.equals("alt")
-      || attribute.equals("iso4217")
-      || attribute.equals("iso3166")
-      || attribute.equals("mzone")
-      || attribute.equals("from")
-      || attribute.equals("to")
-      || attribute.equals("value")
-      || attribute.equals("yeartype")
-      || attribute.equals("numberSystem")
-      || attribute.equals("code")
-      || (attribute.equals("type")
-              && !elementName.equals("listPattern") 
-              && !elementName.equals("default") 
-              && !elementName.equals("measurementSystem") 
-              && !elementName.equals("mapping")
-              && !elementName.equals("abbreviationFallback")
-              && !elementName.equals("preferenceOrdering"))
-      || elementName.equals("deprecatedItems");
+    switch (type) {
+    case ldml: 
+      return
+        attribute.equals("key") 
+        || attribute.equals("indexSource") 
+        || attribute.equals("request") 
+        || attribute.equals("count") 
+        || attribute.equals("id") 
+        || attribute.equals("_q") 
+        || attribute.equals("registry") 
+        || attribute.equals("alt")
+        || attribute.equals("iso4217")
+        || attribute.equals("iso3166")
+        || attribute.equals("mzone")
+        || attribute.equals("from")
+        || attribute.equals("to")
+        || attribute.equals("value")
+        || attribute.equals("yeartype")
+        || attribute.equals("numberSystem")
+        || attribute.equals("code")
+        || (attribute.equals("type")
+                && !elementName.equals("listPattern") 
+                && !elementName.equals("default") 
+                && !elementName.equals("measurementSystem") 
+                && !elementName.equals("mapping")
+                && !elementName.equals("abbreviationFallback")
+                && !elementName.equals("preferenceOrdering"))
+        || elementName.equals("deprecatedItems")
+        ;
+    case ldmlBCP47: 
+      return
+      attribute.equals("_q") 
+      || attribute.equals("alias")
+      || attribute.equals("name")
+      ;
+    case supplementalData: 
+      return
+      attribute.equals("_q") 
+      || elementName.equals("dayPeriodRules") && attribute.equals("locales")
+      || elementName.equals("dayPeriodRule") && attribute.equals("type")
+      || elementName.equals("metazones") && attribute.equals("type")
+      || elementName.equals("mapZone") && (attribute.equals("other") || attribute.equals("territory"))
+      || elementName.equals("postCodeRegex") && attribute.equals("territoryId")
+      || elementName.equals("calendarPreference") && attribute.equals("territories")
+      || elementName.equals("firstDay") && attribute.equals("territories")
+      || elementName.equals("weekendStart") && attribute.equals("territories")
+      || elementName.equals("weekendEnd") && attribute.equals("territories")
+      || elementName.equals("measurementSystem") && attribute.equals("territories")
+      || elementName.equals("distinguishingItems") && attribute.equals("attributes")
+      || elementName.equals("codesByTerritory") && attribute.equals("territory")
+      ;
+    }
     //  if (result != matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true)) {
     //  matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true);
     //  throw new IllegalArgumentException("Failed: " + elementName + ", " + attribute);
     //  }
-    return result;
+    throw new IllegalArgumentException("Type is wrong: " + type);
   }
   
   public static boolean isDistinguishing(String elementName, String attribute) {
@@ -1475,6 +1504,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     private int[] orderedCounter = new int[30]; // just make deep enough to handle any CLDR file.
     private String[] orderedString = new String[30]; // just make deep enough to handle any CLDR file.
     private int level = 0;
+    private int overrideCount = 0;
 
     MyDeclHandler(CLDRFile target, DraftStatus minimalDraftStatus) {
       this.target = target;
@@ -1653,8 +1683,10 @@ public class CLDRFile implements Freezable, Iterable<String> {
     }
 
     private void warnOnOverride(String former, String formerPath) {
-      System.out.println("\tWARNING: overriding " + target.getLocaleID() + "\t<" + former + ">\t\t" + formerPath + 
-              CldrUtility.LINE_SEPARATOR + "\twith " + target.getLocaleID() + "\t<" + lastChars + ">\t" + (currentFullXPath.equals(formerPath) ? "" : currentFullXPath));
+      String distinguishing = CLDRFile.getDistinguishingXPath(formerPath, null, true);
+      System.out.println("\tWARNING! in " + target.getLocaleID() + ";\toverriding old value <" + former + "> at path " + distinguishing + 
+              CldrUtility.LINE_SEPARATOR + "\twith\t<" + lastChars + ">;\told fullpath: " + formerPath + ";\tnew fullpath: " + currentFullXPath);
+      overrideCount += 1;
     }
 
     private static String stripAfter(String input, String qName) {
@@ -2417,6 +2449,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
 
                   // <metazoneInfo> children
                   //"timezone", // doesn't need ordering, since type is distinguishing
+                  
+                  "attributes", // shouldn't need this in //supplementalData/metadata/suppress/attributes, except that the element is badly designed
                   
                   "languageMatch",
 

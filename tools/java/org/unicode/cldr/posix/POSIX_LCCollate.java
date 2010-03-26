@@ -75,7 +75,6 @@ public class POSIX_LCCollate {
         settingsPaths = collrules.getPaths(path, null, settingsPaths);
         for ( Iterator<String> it = settingsPaths.iterator(); it.hasNext();) {
             String settingPath = it.next();
-            System.out.println(settingPath);
             settings += POSIXUtilities.CollationSettingString(collrules,settingPath);           
         }
 

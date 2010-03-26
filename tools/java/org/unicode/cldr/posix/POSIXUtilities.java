@@ -353,6 +353,9 @@ public class POSIXUtilities {
       Iterator<String> ri;
        for(ri=collrules.iterator(path) ; ri.hasNext() ;  ) {
            String rulePath = collrules.getFullXPath(ri.next());
+           if (rulePath == null) {
+               continue;
+           }
            xp.set(rulePath);
            String ruleName = xp.getElement(-1);
            String ruleValue = collrules.getStringValue(rulePath);

@@ -16,8 +16,10 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.CollationElementIterator;
@@ -42,6 +44,7 @@ public class POSIX_LCCollate {
    {
      String rules = "";
      String settings = "";
+     String collationType = "standard";
      boolean UsingDefaultCollateSet = false;
 
      if ( CollateSet.isEmpty() ) // Generate default collation set from exemplar characters;
@@ -55,19 +58,40 @@ public class POSIX_LCCollate {
      this.collrules = collrules;
      if ( collrules != null )
      {
-        String path = "//ldml/collations/collation[@type='" + variant.collation_type + "']/settings";
-        if ( collrules.isNotRoot(path) )
-           settings = POSIXUtilities.CollationSettingString(collrules,path);
-   
-        path = "//ldml/collations/collation[@type='"+variant.collation_type+"']/rules";
-        if ( collrules.isNotRoot(path) )
-           rules = POSIXUtilities.CollationRuleString(collrules,path);
+        if ( variant.collation_type == "default" ) {
+            String path = "//ldml/collations/default";
+            String fp = collrules.getFullXPath(path);
+            XPathParts xp = new XPathParts();
+            xp.set(fp);
+            if (xp.containsAttribute("choice")) {
+                collationType = xp.getAttributeValue(-1,"choice");
+            }
+        } else {
+            collationType = variant.collation_type;
+        }
+        
+        String path = "//ldml/collations/collation[@type=\""+collationType+"\"]/settings";
+        Set<String> settingsPaths = new TreeSet<String>(CLDRFile.ldmlComparator);
+        settingsPaths = collrules.getPaths(path, null, settingsPaths);
+        for ( Iterator<String> it = settingsPaths.iterator(); it.hasNext();) {
+            String settingPath = it.next();
+            System.out.println(settingPath);
+            settings += POSIXUtilities.CollationSettingString(collrules,settingPath);           
+        }
 
+        path = "//ldml/collations/collation[@type=\""+collationType+"\"]/rules";
+        Set<String> rulesPaths = new TreeSet<String>(CLDRFile.ldmlComparator);
+        rulesPaths = collrules.getPaths(path, null, rulesPaths);
+        for ( Iterator<String> it = rulesPaths.iterator(); it.hasNext();) {
+            String rulePath = it.next();
+            rules += POSIXUtilities.CollationRuleString(collrules,rulePath);           
+        }
+ 
      }
 
 //     Useful for debugging collation settings
-//     System.out.println("Setting string is :"+POSIXUtilities.POSIXCharNameNP(settings));
-//     System.out.println("Rules   string is :"+POSIXUtilities.POSIXCharNameNP(rules));
+//     System.out.println("Setting string is :"+settings);
+//     System.out.println("Rules   string is :"+rules);
 
      if ( settings.length() > 0 || rules.length() > 0 )
         col = new RuleBasedCollator(settings+rules);
@@ -135,8 +159,9 @@ public class POSIX_LCCollate {
       out.println();
       out.println("* assignment of characters to weights");
       out.println();
-      for (Iterator it = allItems.iterator(); it.hasNext();) {
-         out.println(showLine(col, (String) it.next()));
+      for (Iterator<String> it = allItems.iterator(); it.hasNext();) {
+         String currentChar = it.next();
+         out.println(showLine(col, currentChar));
       }
       out.print("UNDEFINED");
       for ( int i = longest_char - 9 ; i > 0 ; i-- )
@@ -152,9 +177,9 @@ public class POSIX_LCCollate {
 	private void writeDefinitions(PrintWriter out) {
         //collating-element <A-A> from "<U0041><U0041>"
         StringBuffer buffer = new StringBuffer();
-        for (Iterator it = contractions.iterator(); it.hasNext();) {
+        for (Iterator<String> it = contractions.iterator(); it.hasNext();) {
             buffer.setLength(0);
-            String s = (String) it.next();
+            String s = it.next();
             buffer.append("collating-element ")
                   .append(POSIXUtilities.POSIXContraction(s))
                   .append(" from \"")
@@ -189,17 +214,17 @@ public class POSIX_LCCollate {
         }
     }
 
-    Set nonUniqueWeights = new HashSet();
-    Set allWeights = new HashSet();
-    Map stringToWeights = new HashMap();
+    Set<Weights> nonUniqueWeights = new HashSet<Weights>();
+    Set<Weights> allWeights = new HashSet<Weights>();
+    Map<String, Weights> stringToWeights = new HashMap<String, Weights>();
 
     private void writeList(PrintWriter out ) {
        // BitSet alreadySeen = new BitSet();
         BitSet needToWrite = new BitSet();
         needToWrite.set(1); // special weight for uniqueness
         //int maxSeen = 0;
-        for (Iterator it1 = allItems.iterator(); it1.hasNext();) {
-            String string = (String) it1.next();
+        for (Iterator<String> it1 = allItems.iterator(); it1.hasNext();) {
+            String string = it1.next();
             Weights w = new Weights(col.getCollationElementIterator(string));
             w.primaries.setBits(needToWrite);
             w.secondaries.setBits(needToWrite);
@@ -249,7 +274,7 @@ public class POSIX_LCCollate {
            result.append(" ");
         result.append(" ");
         // gather data
-        Weights w = (Weights) stringToWeights.get(string);
+        Weights w = stringToWeights.get(string);
         result.append(w.primaries)
         .append(";")
         .append(w.secondaries)
@@ -274,12 +299,18 @@ public class POSIX_LCCollate {
 	}
     
 	/**
-	 * @param leadChar TODO
+	 * @param leadChar
 	 * @param i
 	 * @return
 	 */
 	private static String getID(char leadChar, int i) {
-		return "<" + leadChar + Utility.hex(i,4)+ ">";
+	    int length;
+	    if ( i < 256 ) {
+	        length = 2;
+	    } else {
+	        length = 4;
+	    }
+		return "<" + leadChar + Utility.hex(i,length)+ ">";
 	}
 
 

@@ -21,7 +21,7 @@ public class POSIXVariant {
 
    public POSIXVariant ( String variant_string ) {
 
-      this.collation_type = "standard";
+      this.collation_type = "default";
       this.currency = "default";
       this.platform = "common";
       this.yesno = "long";
@@ -64,7 +64,7 @@ public class POSIXVariant {
    }   
 
    public POSIXVariant ( ) {
-      this.collation_type = "standard";
+      this.collation_type = "default";
       this.currency = "default";
       this.platform = "common";
       this.yesno = "long";

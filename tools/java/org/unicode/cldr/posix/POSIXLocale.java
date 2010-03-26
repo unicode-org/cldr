@@ -9,7 +9,6 @@
 package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
-import java.io.File;
 import java.nio.charset.Charset;
 
 import com.ibm.icu.lang.UCharacter;

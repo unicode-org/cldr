@@ -15,7 +15,6 @@ import java.util.Set;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.util.ULocale;
 
@@ -45,8 +44,6 @@ public class POSIX_LCMonetary {
    private static final int NEGATIVE = 1;
 
    public POSIX_LCMonetary ( CLDRFile doc , SupplementalDataInfo supp , POSIXVariant variant ) {
-
-   XPathParts xp = new XPathParts();
    
    String grouping_pattern = doc.getWinningValue("//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type='standard']/pattern[@type='standard']");
 

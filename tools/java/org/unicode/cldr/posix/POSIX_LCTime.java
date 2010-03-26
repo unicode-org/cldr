@@ -106,7 +106,7 @@ public class POSIX_LCTime {
          }
       // d_fmt - 
          SearchLocation = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]" +
-             "/dateFormats/dateFormatLength[@type=\"medium\"]" +
+             "/dateFormats/dateFormatLength[@type=\"short\"]" +
              "/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
          d_fmt = POSIXUtilities.POSIXDateTimeFormat(doc.getWinningValue(SearchLocation),alt_digits[0].length()>0, variant);
          d_fmt = d_fmt.replaceAll("\"", "/\""); //excaping of " in strings

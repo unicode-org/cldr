@@ -292,7 +292,7 @@ public class POSIXUtilities {
       String[] Strengths = { "primary","secondary","tertiary","quarternary","identical" };
       if ( xp.containsAttribute("strength") )
          for ( int i = 0 ; i < Strengths.length ; i++ )
-            if ( xp.getAttributeValue(0,"strength").equals(Strengths[i]))
+            if ( xp.getAttributeValue(-1,"strength").equals(Strengths[i]))
             {
                result.append("[strength ");
                result.append(i+1);
@@ -300,42 +300,42 @@ public class POSIXUtilities {
             }
 
       if ( xp.containsAttribute("alternate")) {
-          String value = xp.getAttributeValue(0,"alternate");
+          String value = xp.getAttributeValue(-1,"alternate");
           if ( value.matches("non\\x2dignorable|shifted") )
             result.append("[alternate "+value+"]");
       }
       
       if ( xp.containsAttribute("backwards")) {
-          String value = xp.getAttributeValue(0,"backwards");
+          String value = xp.getAttributeValue(-1,"backwards");
           if ( value.matches("on"))
               result.append("[backwards 2]");
       }
 
       if ( xp.containsAttribute("caseFirst")) {
-          String value = xp.getAttributeValue(0,"caseFirst");
+          String value = xp.getAttributeValue(-1,"caseFirst");
           if ( value.matches("upper|lower|off") )
               result.append("[casefirst "+value+"]");
       }
       
       if ( xp.containsAttribute("normalization")) {
-          String value = xp.getAttributeValue(0,"normalization");
+          String value = xp.getAttributeValue(-1,"normalization");
           if ( value.matches("on|off"))
               result.append("[normalization "+value+"]");
       }
 
       if ( xp.containsAttribute("caseLevel")) {
-          String value = xp.getAttributeValue(0,"caseLevel");
+          String value = xp.getAttributeValue(-1,"caseLevel");
           if ( value.matches("on|off"))
               result.append("[caseLevel "+value+"]");
       }
       if ( xp.containsAttribute("hiraganaQuarternary")) {
-          String value = xp.getAttributeValue(0,"hiraganaQuarternary");
+          String value = xp.getAttributeValue(-1,"hiraganaQuarternary");
           if ( value.matches("on|off"))
             result.append("[hiraganaQ "+value+"]");
       }
 
       if ( xp.containsAttribute("numeric")) {
-          String value = xp.getAttributeValue(0,"numeric");
+          String value = xp.getAttributeValue(-1,"numeric");
           if ( value.matches("on|off"))
             result.append("[numeric "+value+"]");
       }
@@ -353,6 +353,9 @@ public class POSIXUtilities {
       Iterator<String> ri;
        for(ri=collrules.iterator(path) ; ri.hasNext() ;  ) {
            String rulePath = collrules.getFullXPath(ri.next());
+           if (rulePath == null) {
+               continue;
+           }
            xp.set(rulePath);
            String ruleName = xp.getElement(-1);
            String ruleValue = collrules.getStringValue(rulePath);

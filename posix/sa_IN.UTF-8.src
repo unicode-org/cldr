@@ -5175,22 +5175,22 @@ LC_COLLATE
 
 * Define collation weights as symbols
 
-collating-symbol <X0001>
-collating-symbol <X0005>
-collating-symbol <X0045>
-collating-symbol <X0055>
-collating-symbol <X0065>
-collating-symbol <X0075>
-collating-symbol <X0085>
-collating-symbol <X0086>
-collating-symbol <X0087>
-collating-symbol <X008F>
-collating-symbol <X0095>
-collating-symbol <X00A5>
-collating-symbol <X00B5>
-collating-symbol <X00C0>
-collating-symbol <X00DA>
-collating-symbol <X00E6>
+collating-symbol <X01>
+collating-symbol <X05>
+collating-symbol <X45>
+collating-symbol <X55>
+collating-symbol <X65>
+collating-symbol <X75>
+collating-symbol <X85>
+collating-symbol <X86>
+collating-symbol <X87>
+collating-symbol <X8F>
+collating-symbol <X95>
+collating-symbol <XA5>
+collating-symbol <XB5>
+collating-symbol <XC0>
+collating-symbol <XDA>
+collating-symbol <XE6>
 collating-symbol <X0507>
 collating-symbol <X0509>
 collating-symbol <X050B>
@@ -5351,22 +5351,22 @@ order_start forward;forward;forward;forward
 
 * collation weights in order
 
-<X0001>
-<X0005>
-<X0045>
-<X0055>
-<X0065>
-<X0075>
-<X0085>
-<X0086>
-<X0087>
-<X008F>
-<X0095>
-<X00A5>
-<X00B5>
-<X00C0>
-<X00DA>
-<X00E6>
+<X01>
+<X05>
+<X45>
+<X55>
+<X65>
+<X75>
+<X85>
+<X86>
+<X87>
+<X8F>
+<X95>
+<XA5>
+<XB5>
+<XC0>
+<XDA>
+<XE6>
 <X0507>
 <X0509>
 <X050B>
@@ -5552,217 +5552,217 @@ order_start forward;forward;forward;forward
 <INFORMATION_SEPARATOR_TWO>        IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_TWO>
 <INFORMATION_SEPARATOR_ONE>        IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_ONE>
 <DELETE>                           IGNORE;IGNORE;IGNORE;<DELETE>
-<DEVANAGARI_SIGN_NUKTA>            IGNORE;"<X00DA><X0045>";"<X0005><X00C0>";IGNORE
-<DEVANAGARI_SIGN_CANDRABINDU>      IGNORE;"<X00DA><X0055>";"<X0005><X00C0>";IGNORE
-<DEVANAGARI_SIGN_ANUSVARA>         IGNORE;"<X00DA><X0065>";"<X0005><X00C0>";IGNORE
-<DEVANAGARI_SIGN_VISARGA>          IGNORE;"<X00DA><X0075>";"<X0005><X00C0>";IGNORE
-<DEVANAGARI_STRESS_SIGN_UDATTA>    IGNORE;"<X00DA><X0085>";"<X0005><X00C0>";IGNORE
-<DEVANAGARI_STRESS_SIGN_ANUDATTA>  IGNORE;"<X00DA><X0095>";"<X0005><X00C0>";IGNORE
-<DEVANAGARI_GRAVE_ACCENT>          IGNORE;"<X00DA><X00A5>";"<X0005><X00C0>";IGNORE
-<DEVANAGARI_ACUTE_ACCENT>          IGNORE;"<X00DA><X00B5>";"<X0005><X00C0>";IGNORE
-<tab>                              <X0507>;<X0005>;<X0005>;IGNORE
-<newline>                          <X0509>;<X0005>;<X0005>;IGNORE
-<vertical-tab>                     <X050B>;<X0005>;<X0005>;IGNORE
-<form-feed>                        <X050D>;<X0005>;<X0005>;IGNORE
-<carriage-return>                  <X050F>;<X0005>;<X0005>;IGNORE
-<space>                            <X0600>;<X0005>;<X0005>;IGNORE
-<GRAVE_ACCENT>                     <X0766>;<X0005>;<X0005>;IGNORE
-<CIRCUMFLEX_ACCENT>                <X076C>;<X0005>;<X0005>;IGNORE
-<LOW_LINE>                         <X0784>;<X0005>;<X0005>;IGNORE
-<HYPHEN-MINUS>                     <X0790>;<X0005>;<X0005>;IGNORE
-<COMMA>                            <X07B0>;<X0005>;<X0005>;IGNORE
-<SEMICOLON>                        <X07CA>;<X0005>;<X0005>;IGNORE
-<COLON>                            <X07D0>;<X0005>;<X0005>;IGNORE
-<EXCLAMATION_MARK>                 <X07FC>;<X0005>;<X0005>;IGNORE
-<QUESTION_MARK>                    <X080B>;<X0005>;<X0005>;IGNORE
-<FULL_STOP>                        <X0825>;<X0005>;<X0005>;IGNORE
-<APOSTROPHE>                       <X08BF>;<X0005>;<X0005>;IGNORE
-<QUOTATION_MARK>                   <X08CD>;<X0005>;<X0005>;IGNORE
-<LEFT_PARENTHESIS>                 <X08E1>;<X0005>;<X0005>;IGNORE
-<RIGHT_PARENTHESIS>                <X08E3>;<X0005>;<X0005>;IGNORE
-<LEFT_SQUARE_BRACKET>              <X08E5>;<X0005>;<X0005>;IGNORE
-<RIGHT_SQUARE_BRACKET>             <X08E7>;<X0005>;<X0005>;IGNORE
-<LEFT_CURLY_BRACKET>               <X08E9>;<X0005>;<X0005>;IGNORE
-<RIGHT_CURLY_BRACKET>              <X08EB>;<X0005>;<X0005>;IGNORE
-<COMMERCIAL_AT>                    <X0995>;<X0005>;<X0005>;IGNORE
-<ASTERISK>                         <X0997>;<X0005>;<X0005>;IGNORE
-<SOLIDUS>                          <X09A1>;<X0005>;<X0005>;IGNORE
-<REVERSE_SOLIDUS>                  <X09A5>;<X0005>;<X0005>;IGNORE
-<AMPERSAND>                        <X09A7>;<X0005>;<X0005>;IGNORE
-<NUMBER_SIGN>                      <X09AD>;<X0005>;<X0005>;IGNORE
-<PERCENT_SIGN>                     <X09AF>;<X0005>;<X0005>;IGNORE
-<PLUS_SIGN>                        <X0D67>;<X0005>;<X0005>;IGNORE
-<LESS-THAN_SIGN>                   <X0D6F>;<X0005>;<X0005>;IGNORE
-<EQUALS_SIGN>                      <X0D71>;<X0005>;<X0005>;IGNORE
-<GREATER-THAN_SIGN>                <X0D73>;<X0005>;<X0005>;IGNORE
-<VERTICAL_LINE>                    <X0D77>;<X0005>;<X0005>;IGNORE
-<TILDE>                            <X0D7D>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_SIGN_HIGH_SPACING_DOT> <X2924>;<X0005>;<X0005>;IGNORE
-<DOLLAR_SIGN>                      <X293E>;<X0005>;<X0005>;IGNORE
-<zero>                             <X297C>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_DIGIT_ZERO>            <X297C>;"<X0005><X00E6><X0055>";"<X0005><X0005><X00C0>";IGNORE
-<one>                              <X297E>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_DIGIT_ONE>             <X297E>;"<X0005><X00E6><X0055>";"<X0005><X0005><X00C0>";IGNORE
-<two>                              <X2980>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_DIGIT_TWO>             <X2980>;"<X0005><X00E6><X0055>";"<X0005><X0005><X00C0>";IGNORE
-<three>                            <X2982>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_DIGIT_THREE>           <X2982>;"<X0005><X00E6><X0055>";"<X0005><X0005><X00C0>";IGNORE
-<four>                             <X2984>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_DIGIT_FOUR>            <X2984>;"<X0005><X00E6><X0055>";"<X0005><X0005><X00C0>";IGNORE
-<five>                             <X2986>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_DIGIT_FIVE>            <X2986>;"<X0005><X00E6><X0055>";"<X0005><X0005><X00C0>";IGNORE
-<six>                              <X2988>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_DIGIT_SIX>             <X2988>;"<X0005><X00E6><X0055>";"<X0005><X0005><X00C0>";IGNORE
-<seven>                            <X298A>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_DIGIT_SEVEN>           <X298A>;"<X0005><X00E6><X0055>";"<X0005><X0005><X00C0>";IGNORE
-<eight>                            <X298C>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_DIGIT_EIGHT>           <X298C>;"<X0005><X00E6><X0055>";"<X0005><X0005><X00C0>";IGNORE
-<nine>                             <X298E>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_DIGIT_NINE>            <X298E>;"<X0005><X00E6><X0055>";"<X0005><X0005><X00C0>";IGNORE
-<a>                                <X2C00>;<X0005>;<X0005>;IGNORE
-<A>                                <X2C00>;<X0005>;<X008F>;IGNORE
-<LATIN_SMALL_LETTER_AE>            "<X2C00><X3400>";"<X0087><X0005>";"<X0005><X0005>";IGNORE
-<LATIN_CAPITAL_LETTER_AE>          "<X2C00><X3400>";"<X0087><X0005>";"<X0086><X0005>";IGNORE
-<b>                                <X2E00>;<X0005>;<X0005>;IGNORE
-<B>                                <X2E00>;<X0005>;<X008F>;IGNORE
-<c>                                <X3000>;<X0005>;<X0005>;IGNORE
-<C>                                <X3000>;<X0005>;<X008F>;IGNORE
-<d>                                <X3200>;<X0005>;<X0005>;IGNORE
-<D>                                <X3200>;<X0005>;<X008F>;IGNORE
-<e>                                <X3400>;<X0005>;<X0005>;IGNORE
-<E>                                <X3400>;<X0005>;<X008F>;IGNORE
-<f>                                <X3600>;<X0005>;<X0005>;IGNORE
-<F>                                <X3600>;<X0005>;<X008F>;IGNORE
-<g>                                <X3800>;<X0005>;<X0005>;IGNORE
-<G>                                <X3800>;<X0005>;<X008F>;IGNORE
-<h>                                <X3A00>;<X0005>;<X0005>;IGNORE
-<H>                                <X3A00>;<X0005>;<X008F>;IGNORE
-<i>                                <X3C00>;<X0005>;<X0005>;IGNORE
-<I>                                <X3C00>;<X0005>;<X008F>;IGNORE
-<j>                                <X3E00>;<X0005>;<X0005>;IGNORE
-<J>                                <X3E00>;<X0005>;<X008F>;IGNORE
-<k>                                <X4000>;<X0005>;<X0005>;IGNORE
-<K>                                <X4000>;<X0005>;<X008F>;IGNORE
-<l>                                <X4200>;<X0005>;<X0005>;IGNORE
-<L>                                <X4200>;<X0005>;<X008F>;IGNORE
-<m>                                <X4400>;<X0005>;<X0005>;IGNORE
-<M>                                <X4400>;<X0005>;<X008F>;IGNORE
-<n>                                <X4600>;<X0005>;<X0005>;IGNORE
-<N>                                <X4600>;<X0005>;<X008F>;IGNORE
-<o>                                <X4800>;<X0005>;<X0005>;IGNORE
-<O>                                <X4800>;<X0005>;<X008F>;IGNORE
-<p>                                <X4A00>;<X0005>;<X0005>;IGNORE
-<P>                                <X4A00>;<X0005>;<X008F>;IGNORE
-<q>                                <X4C00>;<X0005>;<X0005>;IGNORE
-<Q>                                <X4C00>;<X0005>;<X008F>;IGNORE
-<r>                                <X4E00>;<X0005>;<X0005>;IGNORE
-<R>                                <X4E00>;<X0005>;<X008F>;IGNORE
-<s>                                <X5000>;<X0005>;<X0005>;IGNORE
-<S>                                <X5000>;<X0005>;<X008F>;IGNORE
-<t>                                <X5200>;<X0005>;<X0005>;IGNORE
-<T>                                <X5200>;<X0005>;<X008F>;IGNORE
-<u>                                <X5400>;<X0005>;<X0005>;IGNORE
-<U>                                <X5400>;<X0005>;<X008F>;IGNORE
-<v>                                <X5600>;<X0005>;<X0005>;IGNORE
-<V>                                <X5600>;<X0005>;<X008F>;IGNORE
-<w>                                <X5800>;<X0005>;<X0005>;IGNORE
-<W>                                <X5800>;<X0005>;<X008F>;IGNORE
-<x>                                <X5A00>;<X0005>;<X0005>;IGNORE
-<X>                                <X5A00>;<X0005>;<X008F>;IGNORE
-<y>                                <X5C00>;<X0005>;<X0005>;IGNORE
-<Y>                                <X5C00>;<X0005>;<X008F>;IGNORE
-<z>                                <X5E00>;<X0005>;<X0005>;IGNORE
-<Z>                                <X5E00>;<X0005>;<X008F>;IGNORE
-<DEVANAGARI_OM>                    <X7220>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_CANDRA_A>       <X7222>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_SHORT_A>        <X7224>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_A>              <X7226>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_AA>             <X7228>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_I>              <X722A>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_II>             <X722C>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_U>              <X722E>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_UU>             <X7230>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_VOCALIC_R>      <X7232>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_VOCALIC_RR>     <X7234>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_VOCALIC_L>      <X7236>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_VOCALIC_LL>     <X7238>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_CANDRA_E>       <X723A>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_SHORT_E>        <X723C>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_E>              <X723E>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_AI>             <X7240>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_CANDRA_O>       <X7242>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_SHORT_O>        <X7244>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_O>              <X7246>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_AU>             <X7248>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_KA>             <X724A>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_QA>             <X724A>;"<X0005><X00DA><X0045>";"<X0005><X0005><X00C0>";IGNORE
-<DEVANAGARI_LETTER_KHA>            <X724C>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_KHHA>           <X724C>;"<X0005><X00DA><X0045>";"<X0005><X0005><X00C0>";IGNORE
-<DEVANAGARI_LETTER_GA>             <X724E>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_GHHA>           <X724E>;"<X0005><X00DA><X0045>";"<X0005><X0005><X00C0>";IGNORE
-<DEVANAGARI_LETTER_GGA>            <X7250>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_GHA>            <X7252>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_NGA>            <X7254>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_CA>             <X7256>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_CHA>            <X7258>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_JA>             <X725A>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_ZA>             <X725A>;"<X0005><X00DA><X0045>";"<X0005><X0005><X00C0>";IGNORE
-<DEVANAGARI_LETTER_JJA>            <X725C>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_JHA>            <X725E>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_NYA>            <X7260>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_TTA>            <X7262>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_TTHA>           <X7264>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_DDA>            <X7266>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_DDDHA>          <X7266>;"<X0005><X00DA><X0045>";"<X0005><X0005><X00C0>";IGNORE
-<DEVANAGARI_LETTER_DDDA>           <X7268>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_DDHA>           <X726A>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_RHA>            <X726A>;"<X0005><X00DA><X0045>";"<X0005><X0005><X00C0>";IGNORE
-<DEVANAGARI_LETTER_NNA>            <X726C>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_TA>             <X726E>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_THA>            <X7270>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_DA>             <X7272>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_DHA>            <X7274>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_NA>             <X7276>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_NNNA>           <X7276>;"<X0005><X00DA><X0045>";"<X0005><X0005><X00C0>";IGNORE
-<DEVANAGARI_LETTER_PA>             <X7278>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_PHA>            <X727A>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_FA>             <X727A>;"<X0005><X00DA><X0045>";"<X0005><X0005><X00C0>";IGNORE
-<DEVANAGARI_LETTER_BA>             <X727C>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_BBA>            <X727E>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_BHA>            <X7280>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_MA>             <X7282>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_YA>             <X7284>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_YYA>            <X7284>;"<X0005><X00DA><X0045>";"<X0005><X0005><X00C0>";IGNORE
-<DEVANAGARI_LETTER_RA>             <X7286>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_RRA>            <X7286>;"<X0005><X00DA><X0045>";"<X0005><X0005><X00C0>";IGNORE
-<DEVANAGARI_LETTER_LA>             <X7288>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_LLA>            <X728A>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_LLLA>           <X728A>;"<X0005><X00DA><X0045>";"<X0005><X0005><X00C0>";IGNORE
-<DEVANAGARI_LETTER_VA>             <X728C>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_SHA>            <X728E>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_SSA>            <X7290>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_SA>             <X7292>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_HA>             <X7294>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_SIGN_AVAGRAHA>         <X7296>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_LETTER_GLOTTAL_STOP>   <X7298>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_AA>         <X729A>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_I>          <X729C>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_II>         <X729E>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_U>          <X72A0>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_UU>         <X72A2>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_VOCALIC_R>  <X72A4>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_VOCALIC_RR> <X72A6>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_VOCALIC_L>  <X72A8>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_VOCALIC_LL> <X72AA>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_CANDRA_E>   <X72AC>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_SHORT_E>    <X72AE>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_E>          <X72B0>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_AI>         <X72B2>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_CANDRA_O>   <X72B4>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_SHORT_O>    <X72B6>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_O>          <X72B8>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_VOWEL_SIGN_AU>         <X72BA>;<X0005>;<X0005>;IGNORE
-<DEVANAGARI_SIGN_VIRAMA>           <X72BC>;<X0005>;<X0005>;IGNORE
+<DEVANAGARI_SIGN_NUKTA>            IGNORE;"<XDA><X45>";"<X05><XC0>";IGNORE
+<DEVANAGARI_SIGN_CANDRABINDU>      IGNORE;"<XDA><X55>";"<X05><XC0>";IGNORE
+<DEVANAGARI_SIGN_ANUSVARA>         IGNORE;"<XDA><X65>";"<X05><XC0>";IGNORE
+<DEVANAGARI_SIGN_VISARGA>          IGNORE;"<XDA><X75>";"<X05><XC0>";IGNORE
+<DEVANAGARI_STRESS_SIGN_UDATTA>    IGNORE;"<XDA><X85>";"<X05><XC0>";IGNORE
+<DEVANAGARI_STRESS_SIGN_ANUDATTA>  IGNORE;"<XDA><X95>";"<X05><XC0>";IGNORE
+<DEVANAGARI_GRAVE_ACCENT>          IGNORE;"<XDA><XA5>";"<X05><XC0>";IGNORE
+<DEVANAGARI_ACUTE_ACCENT>          IGNORE;"<XDA><XB5>";"<X05><XC0>";IGNORE
+<tab>                              <X0507>;<X05>;<X05>;IGNORE
+<newline>                          <X0509>;<X05>;<X05>;IGNORE
+<vertical-tab>                     <X050B>;<X05>;<X05>;IGNORE
+<form-feed>                        <X050D>;<X05>;<X05>;IGNORE
+<carriage-return>                  <X050F>;<X05>;<X05>;IGNORE
+<space>                            <X0600>;<X05>;<X05>;IGNORE
+<GRAVE_ACCENT>                     <X0766>;<X05>;<X05>;IGNORE
+<CIRCUMFLEX_ACCENT>                <X076C>;<X05>;<X05>;IGNORE
+<LOW_LINE>                         <X0784>;<X05>;<X05>;IGNORE
+<HYPHEN-MINUS>                     <X0790>;<X05>;<X05>;IGNORE
+<COMMA>                            <X07B0>;<X05>;<X05>;IGNORE
+<SEMICOLON>                        <X07CA>;<X05>;<X05>;IGNORE
+<COLON>                            <X07D0>;<X05>;<X05>;IGNORE
+<EXCLAMATION_MARK>                 <X07FC>;<X05>;<X05>;IGNORE
+<QUESTION_MARK>                    <X080B>;<X05>;<X05>;IGNORE
+<FULL_STOP>                        <X0825>;<X05>;<X05>;IGNORE
+<APOSTROPHE>                       <X08BF>;<X05>;<X05>;IGNORE
+<QUOTATION_MARK>                   <X08CD>;<X05>;<X05>;IGNORE
+<LEFT_PARENTHESIS>                 <X08E1>;<X05>;<X05>;IGNORE
+<RIGHT_PARENTHESIS>                <X08E3>;<X05>;<X05>;IGNORE
+<LEFT_SQUARE_BRACKET>              <X08E5>;<X05>;<X05>;IGNORE
+<RIGHT_SQUARE_BRACKET>             <X08E7>;<X05>;<X05>;IGNORE
+<LEFT_CURLY_BRACKET>               <X08E9>;<X05>;<X05>;IGNORE
+<RIGHT_CURLY_BRACKET>              <X08EB>;<X05>;<X05>;IGNORE
+<COMMERCIAL_AT>                    <X0995>;<X05>;<X05>;IGNORE
+<ASTERISK>                         <X0997>;<X05>;<X05>;IGNORE
+<SOLIDUS>                          <X09A1>;<X05>;<X05>;IGNORE
+<REVERSE_SOLIDUS>                  <X09A5>;<X05>;<X05>;IGNORE
+<AMPERSAND>                        <X09A7>;<X05>;<X05>;IGNORE
+<NUMBER_SIGN>                      <X09AD>;<X05>;<X05>;IGNORE
+<PERCENT_SIGN>                     <X09AF>;<X05>;<X05>;IGNORE
+<PLUS_SIGN>                        <X0D67>;<X05>;<X05>;IGNORE
+<LESS-THAN_SIGN>                   <X0D6F>;<X05>;<X05>;IGNORE
+<EQUALS_SIGN>                      <X0D71>;<X05>;<X05>;IGNORE
+<GREATER-THAN_SIGN>                <X0D73>;<X05>;<X05>;IGNORE
+<VERTICAL_LINE>                    <X0D77>;<X05>;<X05>;IGNORE
+<TILDE>                            <X0D7D>;<X05>;<X05>;IGNORE
+<DEVANAGARI_SIGN_HIGH_SPACING_DOT> <X2924>;<X05>;<X05>;IGNORE
+<DOLLAR_SIGN>                      <X293E>;<X05>;<X05>;IGNORE
+<zero>                             <X297C>;<X05>;<X05>;IGNORE
+<DEVANAGARI_DIGIT_ZERO>            <X297C>;"<X05><XE6><X55>";"<X05><X05><XC0>";IGNORE
+<one>                              <X297E>;<X05>;<X05>;IGNORE
+<DEVANAGARI_DIGIT_ONE>             <X297E>;"<X05><XE6><X55>";"<X05><X05><XC0>";IGNORE
+<two>                              <X2980>;<X05>;<X05>;IGNORE
+<DEVANAGARI_DIGIT_TWO>             <X2980>;"<X05><XE6><X55>";"<X05><X05><XC0>";IGNORE
+<three>                            <X2982>;<X05>;<X05>;IGNORE
+<DEVANAGARI_DIGIT_THREE>           <X2982>;"<X05><XE6><X55>";"<X05><X05><XC0>";IGNORE
+<four>                             <X2984>;<X05>;<X05>;IGNORE
+<DEVANAGARI_DIGIT_FOUR>            <X2984>;"<X05><XE6><X55>";"<X05><X05><XC0>";IGNORE
+<five>                             <X2986>;<X05>;<X05>;IGNORE
+<DEVANAGARI_DIGIT_FIVE>            <X2986>;"<X05><XE6><X55>";"<X05><X05><XC0>";IGNORE
+<six>                              <X2988>;<X05>;<X05>;IGNORE
+<DEVANAGARI_DIGIT_SIX>             <X2988>;"<X05><XE6><X55>";"<X05><X05><XC0>";IGNORE
+<seven>                            <X298A>;<X05>;<X05>;IGNORE
+<DEVANAGARI_DIGIT_SEVEN>           <X298A>;"<X05><XE6><X55>";"<X05><X05><XC0>";IGNORE
+<eight>                            <X298C>;<X05>;<X05>;IGNORE
+<DEVANAGARI_DIGIT_EIGHT>           <X298C>;"<X05><XE6><X55>";"<X05><X05><XC0>";IGNORE
+<nine>                             <X298E>;<X05>;<X05>;IGNORE
+<DEVANAGARI_DIGIT_NINE>            <X298E>;"<X05><XE6><X55>";"<X05><X05><XC0>";IGNORE
+<a>                                <X2C00>;<X05>;<X05>;IGNORE
+<A>                                <X2C00>;<X05>;<X8F>;IGNORE
+<LATIN_SMALL_LETTER_AE>            "<X2C00><X3400>";"<X87><X05>";"<X05><X05>";IGNORE
+<LATIN_CAPITAL_LETTER_AE>          "<X2C00><X3400>";"<X87><X05>";"<X86><X05>";IGNORE
+<b>                                <X2E00>;<X05>;<X05>;IGNORE
+<B>                                <X2E00>;<X05>;<X8F>;IGNORE
+<c>                                <X3000>;<X05>;<X05>;IGNORE
+<C>                                <X3000>;<X05>;<X8F>;IGNORE
+<d>                                <X3200>;<X05>;<X05>;IGNORE
+<D>                                <X3200>;<X05>;<X8F>;IGNORE
+<e>                                <X3400>;<X05>;<X05>;IGNORE
+<E>                                <X3400>;<X05>;<X8F>;IGNORE
+<f>                                <X3600>;<X05>;<X05>;IGNORE
+<F>                                <X3600>;<X05>;<X8F>;IGNORE
+<g>                                <X3800>;<X05>;<X05>;IGNORE
+<G>                                <X3800>;<X05>;<X8F>;IGNORE
+<h>                                <X3A00>;<X05>;<X05>;IGNORE
+<H>                                <X3A00>;<X05>;<X8F>;IGNORE
+<i>                                <X3C00>;<X05>;<X05>;IGNORE
+<I>                                <X3C00>;<X05>;<X8F>;IGNORE
+<j>                                <X3E00>;<X05>;<X05>;IGNORE
+<J>                                <X3E00>;<X05>;<X8F>;IGNORE
+<k>                                <X4000>;<X05>;<X05>;IGNORE
+<K>                                <X4000>;<X05>;<X8F>;IGNORE
+<l>                                <X4200>;<X05>;<X05>;IGNORE
+<L>                                <X4200>;<X05>;<X8F>;IGNORE
+<m>                                <X4400>;<X05>;<X05>;IGNORE
+<M>                                <X4400>;<X05>;<X8F>;IGNORE
+<n>                                <X4600>;<X05>;<X05>;IGNORE
+<N>                                <X4600>;<X05>;<X8F>;IGNORE
+<o>                                <X4800>;<X05>;<X05>;IGNORE
+<O>                                <X4800>;<X05>;<X8F>;IGNORE
+<p>                                <X4A00>;<X05>;<X05>;IGNORE
+<P>                                <X4A00>;<X05>;<X8F>;IGNORE
+<q>                                <X4C00>;<X05>;<X05>;IGNORE
+<Q>                                <X4C00>;<X05>;<X8F>;IGNORE
+<r>                                <X4E00>;<X05>;<X05>;IGNORE
+<R>                                <X4E00>;<X05>;<X8F>;IGNORE
+<s>                                <X5000>;<X05>;<X05>;IGNORE
+<S>                                <X5000>;<X05>;<X8F>;IGNORE
+<t>                                <X5200>;<X05>;<X05>;IGNORE
+<T>                                <X5200>;<X05>;<X8F>;IGNORE
+<u>                                <X5400>;<X05>;<X05>;IGNORE
+<U>                                <X5400>;<X05>;<X8F>;IGNORE
+<v>                                <X5600>;<X05>;<X05>;IGNORE
+<V>                                <X5600>;<X05>;<X8F>;IGNORE
+<w>                                <X5800>;<X05>;<X05>;IGNORE
+<W>                                <X5800>;<X05>;<X8F>;IGNORE
+<x>                                <X5A00>;<X05>;<X05>;IGNORE
+<X>                                <X5A00>;<X05>;<X8F>;IGNORE
+<y>                                <X5C00>;<X05>;<X05>;IGNORE
+<Y>                                <X5C00>;<X05>;<X8F>;IGNORE
+<z>                                <X5E00>;<X05>;<X05>;IGNORE
+<Z>                                <X5E00>;<X05>;<X8F>;IGNORE
+<DEVANAGARI_OM>                    <X7220>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_CANDRA_A>       <X7222>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_SHORT_A>        <X7224>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_A>              <X7226>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_AA>             <X7228>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_I>              <X722A>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_II>             <X722C>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_U>              <X722E>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_UU>             <X7230>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_VOCALIC_R>      <X7232>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_VOCALIC_RR>     <X7234>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_VOCALIC_L>      <X7236>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_VOCALIC_LL>     <X7238>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_CANDRA_E>       <X723A>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_SHORT_E>        <X723C>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_E>              <X723E>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_AI>             <X7240>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_CANDRA_O>       <X7242>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_SHORT_O>        <X7244>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_O>              <X7246>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_AU>             <X7248>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_KA>             <X724A>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_QA>             <X724A>;"<X05><XDA><X45>";"<X05><X05><XC0>";IGNORE
+<DEVANAGARI_LETTER_KHA>            <X724C>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_KHHA>           <X724C>;"<X05><XDA><X45>";"<X05><X05><XC0>";IGNORE
+<DEVANAGARI_LETTER_GA>             <X724E>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_GHHA>           <X724E>;"<X05><XDA><X45>";"<X05><X05><XC0>";IGNORE
+<DEVANAGARI_LETTER_GGA>            <X7250>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_GHA>            <X7252>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_NGA>            <X7254>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_CA>             <X7256>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_CHA>            <X7258>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_JA>             <X725A>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_ZA>             <X725A>;"<X05><XDA><X45>";"<X05><X05><XC0>";IGNORE
+<DEVANAGARI_LETTER_JJA>            <X725C>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_JHA>            <X725E>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_NYA>            <X7260>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_TTA>            <X7262>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_TTHA>           <X7264>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_DDA>            <X7266>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_DDDHA>          <X7266>;"<X05><XDA><X45>";"<X05><X05><XC0>";IGNORE
+<DEVANAGARI_LETTER_DDDA>           <X7268>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_DDHA>           <X726A>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_RHA>            <X726A>;"<X05><XDA><X45>";"<X05><X05><XC0>";IGNORE
+<DEVANAGARI_LETTER_NNA>            <X726C>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_TA>             <X726E>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_THA>            <X7270>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_DA>             <X7272>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_DHA>            <X7274>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_NA>             <X7276>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_NNNA>           <X7276>;"<X05><XDA><X45>";"<X05><X05><XC0>";IGNORE
+<DEVANAGARI_LETTER_PA>             <X7278>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_PHA>            <X727A>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_FA>             <X727A>;"<X05><XDA><X45>";"<X05><X05><XC0>";IGNORE
+<DEVANAGARI_LETTER_BA>             <X727C>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_BBA>            <X727E>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_BHA>            <X7280>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_MA>             <X7282>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_YA>             <X7284>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_YYA>            <X7284>;"<X05><XDA><X45>";"<X05><X05><XC0>";IGNORE
+<DEVANAGARI_LETTER_RA>             <X7286>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_RRA>            <X7286>;"<X05><XDA><X45>";"<X05><X05><XC0>";IGNORE
+<DEVANAGARI_LETTER_LA>             <X7288>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_LLA>            <X728A>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_LLLA>           <X728A>;"<X05><XDA><X45>";"<X05><X05><XC0>";IGNORE
+<DEVANAGARI_LETTER_VA>             <X728C>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_SHA>            <X728E>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_SSA>            <X7290>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_SA>             <X7292>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_HA>             <X7294>;<X05>;<X05>;IGNORE
+<DEVANAGARI_SIGN_AVAGRAHA>         <X7296>;<X05>;<X05>;IGNORE
+<DEVANAGARI_LETTER_GLOTTAL_STOP>   <X7298>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_AA>         <X729A>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_I>          <X729C>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_II>         <X729E>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_U>          <X72A0>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_UU>         <X72A2>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_VOCALIC_R>  <X72A4>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_VOCALIC_RR> <X72A6>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_VOCALIC_L>  <X72A8>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_VOCALIC_LL> <X72AA>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_CANDRA_E>   <X72AC>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_SHORT_E>    <X72AE>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_E>          <X72B0>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_AI>         <X72B2>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_CANDRA_O>   <X72B4>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_SHORT_O>    <X72B6>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_O>          <X72B8>;<X05>;<X05>;IGNORE
+<DEVANAGARI_VOWEL_SIGN_AU>         <X72BA>;<X05>;<X05>;IGNORE
+<DEVANAGARI_SIGN_VIRAMA>           <X72BC>;<X05>;<X05>;IGNORE
 UNDEFINED                          IGNORE;IGNORE;IGNORE;...
 
 order_end
@@ -5854,7 +5854,7 @@ mon     "<one>";/
         "<one><one>";/
         "<one><two>"
 
-d_fmt    "%d-%m-%Y"
+d_fmt    "%e-%m-%y"
 
 t_fmt    "%I:%M:%S %p"
 

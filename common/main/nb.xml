@@ -1861,11 +1861,6 @@
 					<daylight>Amazonas sommertid</daylight>
 				</long>
 			</metazone>
-			<metazone type="America_Central">
-				<short>
-					<generic>CT</generic>
-				</short>
-			</metazone>
 			<metazone type="Arabian">
 				<long>
 					<generic>arabisk tid</generic>
@@ -1889,9 +1884,6 @@
 					<standard>sentralaustralsk standardtid</standard>
 					<daylight>sentralaustralsk sommertid</daylight>
 				</long>
-				<short>
-					<generic>ACT</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -1906,9 +1898,6 @@
 					<standard>østaustralsk standardtid</standard>
 					<daylight>østaustralsk sommertid</daylight>
 				</long>
-				<short>
-					<generic>AET</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -1916,9 +1905,6 @@
 					<standard>vestaustralsk standardtid</standard>
 					<daylight>vestaustralsk sommertid</daylight>
 				</long>
-				<short>
-					<generic>AWT</generic>
-				</short>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
@@ -1931,7 +1917,9 @@
 					<standard>kinesisk standardtid</standard>
 				</long>
 				<short>
+					<generic>CT (Kina)</generic>
 					<standard>CST (Kina)</standard>
+					<daylight>CDT (Kina)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Europe_Central">
@@ -2019,9 +2007,6 @@
 					<standard>newzealandsk standardtid</standard>
 					<daylight>newzealandsk sommertid</daylight>
 				</long>
-				<short>
-					<generic>NZT</generic>
-				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>

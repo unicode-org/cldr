@@ -1807,9 +1807,6 @@
 					<generic>Hora de Sudáfrica</generic>
 					<standard>Hora estándar de África meridional</standard>
 				</long>
-				<short>
-					<generic draft="provisional">SAT</generic>
-				</short>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
@@ -1829,9 +1826,6 @@
 					<standard>Hora estándar de Alaska</standard>
 					<daylight>Hora de verano de Alaska</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">AKT</generic>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
@@ -1840,9 +1834,6 @@
 					<standard draft="contributed">Hora estándar de Alaska-Hawái</standard>
 					<daylight draft="contributed">Hora de verano de Alaska-Hawái</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">AHT</generic>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Amazon">
@@ -1857,9 +1848,6 @@
 					<standard>Hora estándar central</standard>
 					<daylight>Hora de verano central</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">CT</generic>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Eastern">
@@ -1868,9 +1856,6 @@
 					<standard>Hora estándar oriental</standard>
 					<daylight>Hora de verano oriental</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">ET</generic>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -1880,9 +1865,6 @@
 					<standard>Hora estándar de Montaña</standard>
 					<daylight>Hora de verano de Montaña</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">MT</generic>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -1891,9 +1873,6 @@
 					<standard>Hora estándar del Pacífico</standard>
 					<daylight>Hora de verano del Pacífico</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">PT</generic>
-				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Aqtau">
@@ -1957,9 +1936,6 @@
 					<standard>Hora estándar del Atlántico</standard>
 					<daylight>Hora de verano del Atlántico</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">AT</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -1967,9 +1943,6 @@
 					<standard>Hora estándar de Australia central</standard>
 					<daylight>Hora de verano de Australia central</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">ACT</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -1984,9 +1957,6 @@
 					<standard>Hora estándar de Australia oriental</standard>
 					<daylight>Hora de verano de Australia oriental</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">AET</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -1994,9 +1964,6 @@
 					<standard>Hora estándar de Australia occidental</standard>
 					<daylight>Hora de verano de Australia occidental</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">AWT</generic>
-				</short>
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
@@ -2027,9 +1994,6 @@
 					<standard draft="contributed">Hora estándar de Bering</standard>
 					<daylight draft="contributed">Hora de verano de Bering</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">BT (Bering)</generic>
-				</short>
 			</metazone>
 			<metazone type="Bhutan">
 				<long>
@@ -2082,7 +2046,9 @@
 					<daylight>Hora de verano de China</daylight>
 				</long>
 				<short>
+					<generic>CT (China)</generic>
 					<standard>CST (China)</standard>
+					<daylight>CDT (China)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Choibalsan">
@@ -2104,6 +2070,7 @@
 					<daylight>Hora de verano de Cuba</daylight>
 				</long>
 				<short>
+					<generic draft="provisional">CT (Cuba)</generic>
 					<standard draft="provisional">CST (Cuba)</standard>
 					<daylight draft="provisional">CDT (Cuba)</daylight>
 				</short>
@@ -2384,9 +2351,6 @@
 					<standard>Hora estándar de Nueva Zelanda</standard>
 					<daylight>Hora de verano de Nueva Zelanda</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">NZT</generic>
-				</short>
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
@@ -2394,9 +2358,6 @@
 					<standard>Hora estándar de Newfoundland</standard>
 					<daylight>Hora de verano de Newfoundland</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">NT</generic>
-				</short>
 			</metazone>
 			<metazone type="Noronha">
 				<long>
@@ -2442,9 +2403,6 @@
 					<daylight draft="contributed">Hora de verano de San Pedro y Miquelón</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Hora de verano de San Pedro y Miguelón</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">PMT</generic>
-				</short>
 			</metazone>
 			<metazone type="Qyzylorda">
 				<long>
@@ -2576,9 +2534,6 @@
 					<standard draft="contributed">Hora estándar del Yukón</standard>
 					<daylight draft="contributed">Hora de verano del Yukón</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">YT</generic>
-				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>

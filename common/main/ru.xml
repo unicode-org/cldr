@@ -3059,9 +3059,6 @@
 					<standard draft="provisional">Центральноавстралийское стандартное время</standard>
 					<daylight draft="provisional">Центральноавстралийское летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">ACT</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -3069,9 +3066,6 @@
 					<standard draft="provisional">Центральноавстралийское западное стандартное время</standard>
 					<daylight draft="provisional">Центральноавстралийское западное летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">ACWT</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -3079,9 +3073,6 @@
 					<standard draft="provisional">Восточноавстралийское стандартное время</standard>
 					<daylight draft="provisional">Восточноавстралийское летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">AET</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -3089,9 +3080,6 @@
 					<standard draft="provisional">Западноавстралийское стандартное время</standard>
 					<daylight draft="provisional">Западноавстралийское летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">AWT</generic>
-				</short>
 			</metazone>
 			<metazone type="Azores">
 				<long>
@@ -3101,7 +3089,8 @@
 			</metazone>
 			<metazone type="Bering">
 				<short>
-					<standard draft="provisional">BDT (Берингов пролив)</standard>
+					<generic draft="provisional">BT (Берингов пролив)</generic>
+					<standard draft="provisional">BST (Берингов пролив)</standard>
 					<daylight draft="provisional">BDT (Берингов пролив)</daylight>
 				</short>
 			</metazone>
@@ -3128,9 +3117,6 @@
 					<generic draft="provisional">Чаморро время</generic>
 					<standard draft="provisional">Чаморро стандартное время</standard>
 				</long>
-				<short>
-					<generic draft="provisional">ChT</generic>
-				</short>
 			</metazone>
 			<metazone type="Chatham">
 				<long>
@@ -3165,6 +3151,7 @@
 			</metazone>
 			<metazone type="Cuba">
 				<short>
+					<generic draft="provisional">CT (Куба)</generic>
 					<standard draft="provisional">CST (Куба)</standard>
 					<daylight draft="provisional">CDT (Куба)</daylight>
 				</short>
@@ -3376,9 +3363,6 @@
 					<standard draft="provisional">Лорд-Хау стандартное время</standard>
 					<daylight draft="provisional">Лорд-Хау летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">LHT</generic>
-				</short>
 			</metazone>
 			<metazone type="Maldives">
 				<long>
@@ -3415,9 +3399,6 @@
 					<standard draft="provisional">Новозеландское стандартное время</standard>
 					<daylight draft="provisional">Новозеландское летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">NZT</generic>
-				</short>
 			</metazone>
 			<metazone type="Reunion">
 				<long>

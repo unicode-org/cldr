@@ -1818,9 +1818,6 @@
 					<standard>Hora estàndard central</standard>
 					<daylight>Hora d'estiu central</daylight>
 				</long>
-				<short>
-					<generic>CT</generic>
-				</short>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
@@ -1828,9 +1825,6 @@
 					<standard>Hora estàndard oriental</standard>
 					<daylight>Hora d'estiu oriental</daylight>
 				</long>
-				<short>
-					<generic>ET</generic>
-				</short>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
@@ -1838,9 +1832,6 @@
 					<standard>Hora estàndard de muntanya</standard>
 					<daylight>Hora d'estiu de muntanya</daylight>
 				</long>
-				<short>
-					<generic>MT</generic>
-				</short>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -1848,9 +1839,6 @@
 					<standard>Hora estàndard del Pacífic</standard>
 					<daylight>Hora d'estiu del Pacífic</daylight>
 				</long>
-				<short>
-					<generic>PT</generic>
-				</short>
 			</metazone>
 			<metazone type="Arabian">
 				<long>
@@ -1870,16 +1858,15 @@
 					<standard>Hora estàndard de l'Atlàntic</standard>
 					<daylight>Hora d'estiu de l'Atlàntic</daylight>
 				</long>
-				<short>
-					<generic>AT</generic>
-				</short>
 			</metazone>
 			<metazone type="China">
 				<long>
 					<standard>Hora estàndard de la Xina</standard>
 				</long>
 				<short>
+					<generic>CT (Xina)</generic>
 					<standard>CST (Xina)</standard>
+					<daylight>CDT (Xina)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Europe_Central">

@@ -2942,36 +2942,18 @@
 					<generic draft="provisional">เวลากลาง</generic>
 					<standard draft="provisional">เวลามาตรฐานกลาง</standard>
 				</long>
-				<short>
-					<standard draft="provisional">CST</standard>
-					<daylight draft="provisional">CDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
 					<generic draft="provisional">เวลาตะวันออก</generic>
 					<standard draft="provisional">เวลามาตรฐานตะวันออก</standard>
 				</long>
-				<short>
-					<standard draft="provisional">EST</standard>
-					<daylight draft="provisional">EDT</daylight>
-				</short>
-			</metazone>
-			<metazone type="America_Mountain">
-				<short>
-					<standard draft="provisional">MST</standard>
-					<daylight draft="provisional">MDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
 					<generic draft="provisional">เวลาแปซิฟิค</generic>
 					<standard draft="provisional">เวลามาตรฐานแปซิฟิค</standard>
 				</long>
-				<short>
-					<standard draft="provisional">PST</standard>
-					<daylight draft="provisional">PDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Aqtau">
 				<long>
@@ -3066,6 +3048,7 @@
 					<standard draft="provisional">เวลามาตรฐานเบริง</standard>
 				</long>
 				<short>
+					<generic draft="provisional">BT (เบริง)</generic>
 					<standard draft="provisional">BST (เบริง)</standard>
 					<daylight draft="provisional">BDT (เบริง)</daylight>
 				</short>
@@ -3109,6 +3092,7 @@
 					<standard draft="provisional">เวลามาตรฐานจีน</standard>
 				</long>
 				<short>
+					<generic draft="provisional">CT (จีน)</generic>
 					<standard draft="provisional">CST (จีน)</standard>
 					<daylight draft="provisional">CDT (จีน)</daylight>
 				</short>
@@ -3284,9 +3268,6 @@
 					<standard draft="provisional">เวลามาตรฐานนิวซีแลนด์</standard>
 					<daylight draft="provisional">เวลาออมแสงนิวซีแลนด์</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">์์NZT</generic>
-				</short>
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>

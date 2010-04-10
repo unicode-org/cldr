@@ -2101,9 +2101,6 @@
 					<standard>sydafrikansk normaltid</standard>
 					<daylight>sydafrikansk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">SAT</generic>
-				</short>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
@@ -2134,9 +2131,6 @@
 					<daylight>Alaska, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Alaskasommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">AKT</generic>
-				</short>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
 				<long>
@@ -2144,9 +2138,6 @@
 					<standard draft="contributed">hawaiisk normaltid</standard>
 					<daylight draft="contributed">hawaiisk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">AHT</generic>
-				</short>
 			</metazone>
 			<metazone type="Almaty">
 				<long>
@@ -2177,9 +2168,6 @@
 					<daylight>Central, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">centralnordamerikansk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">CT</generic>
-				</short>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
@@ -2189,9 +2177,6 @@
 					<daylight>Eastern, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">östnordamerikansk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">ET</generic>
-				</short>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
@@ -2201,9 +2186,6 @@
 					<daylight>Mountain, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Klippiga Bergensommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">MT</generic>
-				</short>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -2213,9 +2195,6 @@
 					<daylight>Pacific, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">västnordamerikansk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">PT</generic>
-				</short>
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
@@ -2310,9 +2289,6 @@
 					<daylight>Atlantic, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">nordamerikansk atlantsommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">AT</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -2320,9 +2296,6 @@
 					<standard>centralaustralisk normaltid</standard>
 					<daylight>centralaustralisk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">ACT</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -2333,9 +2306,6 @@
 					<daylight draft="provisional">Euclasommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">västcentralaustralisk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">ACWT</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -2343,9 +2313,6 @@
 					<standard>östaustralisk normaltid</standard>
 					<daylight>östaustralisk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">AET</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -2353,9 +2320,6 @@
 					<standard>västaustralisk normaltid</standard>
 					<daylight>västaustralisk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">AWT</generic>
-				</short>
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
@@ -2406,9 +2370,6 @@
 					<daylight>beringsundssommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Berings sundsommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">BT (Bering)</generic>
-				</short>
 			</metazone>
 			<metazone type="Bhutan">
 				<long>
@@ -2484,9 +2445,6 @@
 					<standard draft="contributed">Chamorronormaltid</standard>
 					<daylight draft="contributed">Chamorrosommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">ChT</generic>
-				</short>
 			</metazone>
 			<metazone type="Changbai">
 				<long>
@@ -2523,6 +2481,8 @@
 				</long>
 				<short>
 					<generic draft="contributed">CT (Kina)</generic>
+					<standard draft="contributed">CST (Kina)</standard>
+					<daylight draft="contributed">CDT (Kina)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Choibalsan">
@@ -2865,9 +2825,6 @@
 					<standard draft="contributed">Persiska vikennormaltid</standard>
 					<daylight draft="contributed">Persiska vikensommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">GT</generic>
-				</short>
 			</metazone>
 			<metazone type="Guyana">
 				<long>
@@ -3012,9 +2969,6 @@
 					<daylight>Japan, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">japansk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">JT</generic>
-				</short>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
@@ -3079,9 +3033,6 @@
 					<standard draft="contributed">koreansk normaltid</standard>
 					<daylight draft="contributed">koreansk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">KT</generic>
-				</short>
 			</metazone>
 			<metazone type="Kosrae">
 				<long>
@@ -3171,9 +3122,6 @@
 					<standard draft="contributed">Lord Howenormaltid</standard>
 					<daylight draft="contributed">Lord Howesommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">LHT</generic>
-				</short>
 			</metazone>
 			<metazone type="Macau">
 				<long>
@@ -3331,9 +3279,6 @@
 					<standard draft="contributed">nyzeeländsk normaltid</standard>
 					<daylight draft="contributed">nyzeeländsk sommartid</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">NZT</generic>
-				</short>
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
@@ -3343,9 +3288,6 @@
 					<daylight>Newfoundland, sommartid</daylight>
 					<daylight alt="proposed-x1001" draft="unconfirmed">Newfoundlandsommartid</daylight>
 				</long>
-				<short>
-					<generic draft="unconfirmed">NT</generic>
-				</short>
 			</metazone>
 			<metazone type="Niue">
 				<long>
@@ -3490,9 +3432,6 @@
 					<standard draft="unconfirmed">Pierre och Miquelonnormalid</standard>
 					<daylight draft="unconfirmed">Pierre och Miquelonsommartid</daylight>
 				</long>
-				<short>
-					<generic draft="unconfirmed">PMT</generic>
-				</short>
 			</metazone>
 			<metazone type="Pitcairn">
 				<long>
@@ -3679,6 +3618,8 @@
 				</long>
 				<short>
 					<generic draft="contributed">CT (Taipei)</generic>
+					<standard draft="contributed">CST (Taipei)</standard>
+					<daylight draft="contributed">CDT (Taipei)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Tajikistan">
@@ -3917,9 +3858,6 @@
 					<standard draft="unconfirmed">Yukonnormaltid</standard>
 					<daylight draft="unconfirmed">Yukonsommartid</daylight>
 				</long>
-				<short>
-					<generic draft="unconfirmed">YT</generic>
-				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>

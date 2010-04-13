@@ -1,0 +1,11 @@
+<%
+    if(ctx.sm.isUnofficial) {
+		%><div style='float: right; border: 1px solid gray; margin: 0.5em;'><%
+			JspWebContext jwc = new JspWebContext(ctx);
+			jwc.setQuery(SurveyMain.QUERY_SECTION,ctx.field(SurveyMain.QUERY_SECTION));
+			jwc.setQuery(SurveyMain.QUERY_LOCALE,ctx.localeString());
+			jwc.sm.showTogglePref(jwc,SurveyMain.PREF_DEBUGJSP,"Debug JSP?");
+		%></div>
+		<%
+	}
+%>

@@ -23,7 +23,25 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<dateFormats>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>yyyy/MM/dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>yyyy/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
 				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Md">M/d</dateFormatItem>
+						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
+						<dateFormatItem id="yM">yyyy/M</dateFormatItem>
+						<dateFormatItem id="yyyyMM">yyyy/MM</dateFormatItem>
+					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d‏-d</greatestDifference>

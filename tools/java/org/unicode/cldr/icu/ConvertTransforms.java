@@ -341,7 +341,8 @@ public class ConvertTransforms extends CLDRConverterTool{
                         }
 			String value = cldrFile.getStringValue(path);
 			if (first) {
-				filename = addIndexInfo(index, path, id);
+				String fullPath = cldrFile.getFullXPath(path);
+				filename = addIndexInfo(index, fullPath, id);
 				if (filename == null) return; // not a transform file!
 				output = BagFormatter.openUTF8Writer(outputDirectory, filename);
 				doHeader(output, "#", filename);

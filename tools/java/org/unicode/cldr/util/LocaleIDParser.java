@@ -9,10 +9,13 @@
 package org.unicode.cldr.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.EnumSet;
 import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -71,6 +74,11 @@ public class LocaleIDParser {
 	private String region;
 	private String[] variants;
 	
+	public static final List<String> CROSS_SCRIPT_LOCALES = Arrays.asList(new String[]
+	    {"az_Arab", "az_Cyrl", "en_Dsrt", "en_Shaw", "ku_Latn", "mn_Mong", "pa_Arab",
+	     "shi_Tfng", "sr_Latn", "uz_Arab", "uz_Latn", "zh_Hant"});
+	// TODO, Make this data driven instead of a hard-coded list.
+	
 	static final UnicodeSet letters = new UnicodeSet("[a-zA-Z]");
 	static final UnicodeSet digits = new UnicodeSet("[0-9]");
 	
@@ -106,7 +114,10 @@ public class LocaleIDParser {
 	 */
 	public static String getParent(String localeName) {
 	    int pos = localeName.lastIndexOf('_');
-	    if (pos >= 0) {
+	    if (pos >= 0) { 
+	        if (CROSS_SCRIPT_LOCALES.contains(localeName)) {
+	          return "root";
+	        }
 	        return localeName.substring(0,pos);
 	    }
 	    if (localeName.equals("root") || localeName.equals(CLDRFile.SUPPLEMENTAL_NAME)) return null;
@@ -148,9 +159,12 @@ public class LocaleIDParser {
     String localeName = toString();
     int pos = localeName.lastIndexOf('_');
     if (pos >= 0) {
+      if (CROSS_SCRIPT_LOCALES.contains(localeName)) {
+          return "root";
+      }
       return localeName.substring(0,pos);
     }
-    if (localeName.equals("root")) return null;
+    if (localeName.equals("root") || localeName.equals("supplementalData")) return null;
     return "root";
   }
   

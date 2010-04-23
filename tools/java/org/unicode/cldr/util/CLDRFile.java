@@ -37,6 +37,7 @@ import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Utility;
 
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.xml.sax.Attributes;
@@ -2183,12 +2184,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
    * Utility to get the parent of a locale. If the input is "root", then the output is null.
    */
   public static String getParent(String localeName) {
-    int pos = localeName.lastIndexOf('_');
-    if (pos >= 0) {
-      return localeName.substring(0,pos);
-    }
-    if (localeName.equals("root") || localeName.equals("supplementalData")) return null;
-    return "root";
+    return LocaleIDParser.getParent(localeName);
   }
 
   // note: run FindDTDOrder to get this list

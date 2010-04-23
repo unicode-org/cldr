@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 public class CharacterFallbacks {
   private static CharacterFallbacks SINGLETON = new CharacterFallbacks();
-  private HashMap<Integer, List> data = new HashMap<Integer, List>();
+  private HashMap<Integer, List<String>> data = new HashMap<Integer, List<String>>();
   static public CharacterFallbacks make() {
     return SINGLETON;
   }
@@ -18,7 +17,7 @@ public class CharacterFallbacks {
     return data.get(cp);
   }
   private CharacterFallbacks() {
-    Factory cldrFactory = Factory.make(CldrUtility.SUPPLEMENTAL_DIRECTORY, ".*");
+    Factory cldrFactory = Factory.make(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
     CLDRFile characterFallbacks = cldrFactory.make("characters", false);
     XPathParts parts = new XPathParts();
     

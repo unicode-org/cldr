@@ -76,7 +76,7 @@ import com.ibm.icu.util.Freezable;
  http://lists.xml.org/archives/xml-dev/200007/msg00284.html
  http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
-public class CLDRFile implements Freezable, Iterable<String> {
+public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
   public enum DtdType {ldml, supplementalData, ldmlBCP47}
   
   public   static final Pattern ALT_PROPOSED_PATTERN = Pattern.compile(".*\\[@alt=\"[^\"]*proposed[^\"]*\"].*");
@@ -85,7 +85,6 @@ public class CLDRFile implements Freezable, Iterable<String> {
 
   public static boolean HACK_ORDER = false;
   private static boolean DEBUG_LOGGING = false;
-  private static boolean SHOW_ALIAS_FIXES = false;
 
   public static final String SUPPLEMENTAL_NAME = "supplementalData";
   public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
@@ -101,8 +100,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
   public enum DraftStatus {unconfirmed, provisional, contributed, approved};
 
   public static class SimpleXMLSource extends XMLSource {
-    private HashMap xpath_value = new HashMap(); // TODO change to HashMap, once comparator is gone
-    private HashMap xpath_fullXPath = new HashMap();
+    private HashMap<String,String> xpath_value = new HashMap<String,String>(); // TODO change to HashMap, once comparator is gone
+    private HashMap<String,String> xpath_fullXPath = new HashMap<String,String>();
     private Comments xpath_comments = new Comments(); // map from paths to comments.
     private Factory factory; // for now, fix later
     public DraftStatus madeWithMinimalDraftStatus = DraftStatus.unconfirmed;
@@ -170,7 +169,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     public Object cloneAsThawed() {
       SimpleXMLSource result = (SimpleXMLSource) super.cloneAsThawed();
       result.xpath_comments = (Comments) result.xpath_comments.clone();
-      result.xpath_fullXPath = (HashMap) result.xpath_fullXPath.clone();
+      result.xpath_fullXPath = (HashMap<String,String>) result.xpath_fullXPath.clone();
       result.xpath_value = (HashMap) result.xpath_value.clone();
       return result;
     }
@@ -186,7 +185,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
       if (file == null) return null;
       return file.dataSource;
     }
-    public Set getAvailableLocales() {
+    public Set<String> getAvailableLocales() {
       return factory.getAvailable();
     }
   }
@@ -362,7 +361,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
    * Clone the object. Produces unlocked version
    * @see com.ibm.icu.dev.test.util.Freezeble
    */
-  public Object cloneAsThawed() {
+  public CLDRFile cloneAsThawed() {
     try {
       CLDRFile result = (CLDRFile) super.clone();
       result.locked = false;
@@ -378,8 +377,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
    *
    */
   public CLDRFile show() {
-    for (Iterator it2 = iterator(); it2.hasNext();) {
-      String xpath = (String)it2.next();
+    for (Iterator<String> it2 = iterator(); it2.hasNext();) {
+      String xpath = it2.next();
       System.out.println(getFullXPath(xpath) + " =>\t" + getStringValue(xpath));
     }
     return this;
@@ -917,7 +916,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   /**
    * @see com.ibm.icu.util.Freezable#freeze()
    */
-  public synchronized Object freeze() {
+  public synchronized CLDRFile freeze() {
     locked = true;
     dataSource.freeze();
     return this;
@@ -1279,7 +1278,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
      * Get a set of the available language locales (according to isLanguage).
      */
     public Set<String> getAvailableLanguages() {
-      Set<String> result = new TreeSet();
+      Set<String> result = new TreeSet<String>();
       for (Iterator<String> it = handleGetAvailable().iterator(); it.hasNext();) {
         String s = it.next();
         if (XPathParts.isLanguage(s)) result.add(s);
@@ -1291,11 +1290,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
      * Get a set of the locales that have the given parent (according to isSubLocale())
      * @param isProper if false, then parent itself will match
      */
-    public Set getAvailableWithParent(String parent, boolean isProper) {
-      Set result = new TreeSet();
+    public Set<String> getAvailableWithParent(String parent, boolean isProper) {
+      Set<String> result = new TreeSet<String>();
 
-      for (Iterator it = handleGetAvailable().iterator(); it.hasNext();) {
-        String s = (String) it.next();
+      for (Iterator<String> it = handleGetAvailable().iterator(); it.hasNext();) {
+        String s = it.next();
         int relation = XPathParts.isSubLocale(parent, s);
         if (relation >= 0 && !(isProper && relation == 0)) result.add(s);
       }
@@ -1843,13 +1842,6 @@ public class CLDRFile implements Freezable, Iterable<String> {
       Log.logln(LOG_PROGRESS, "Internal Entity\t" + name + "\t" + publicId + "\t" + systemId);
     }
 
-    public void notationDecl (String name, String publicId, String systemId){
-      Log.logln(LOG_PROGRESS, "notationDecl: " + name
-              + ", " + publicId
-              + ", " + systemId
-      );
-    }
-
     public void processingInstruction (String target, String data)
     throws SAXException {
       Log.logln(LOG_PROGRESS, "processingInstruction: " + target + ", " + data);
@@ -1858,15 +1850,6 @@ public class CLDRFile implements Freezable, Iterable<String> {
     public void skippedEntity (String name)
     throws SAXException {
       Log.logln(LOG_PROGRESS, "skippedEntity: " + name);
-    }
-
-    public void unparsedEntityDecl (String name, String publicId,
-            String systemId, String notationName) {
-      Log.logln(LOG_PROGRESS, "unparsedEntityDecl: " + name
-              + ", " + publicId
-              + ", " + systemId
-              + ", " + notationName
-      );
     }
 
     public void setDocumentLocator(Locator locator) {
@@ -1927,111 +1910,6 @@ public class CLDRFile implements Freezable, Iterable<String> {
     + ";\t LineNumber: " + exception.getLineNumber() 
     + ";\t ColumnNumber: " + exception.getColumnNumber() 
     ;
-  }
-
-  /**
-   * Only gets called on (mostly) resolved stuff
-   */
-  private CLDRFile fixAliases(Factory factory, boolean includeDraft) {
-    // walk through the entire tree. If we ever find an alias, 
-    // remove every peer of that alias,
-    // then add everything from the resolved source of the alias.
-    List aliases = new ArrayList();
-    for (Iterator it = iterator(); it.hasNext();) {
-      String xpath = (String) it.next();
-      if (xpath.indexOf("/alias") >= 0) { // quick check; have more rigorous one later.
-        aliases.add(xpath);
-      }
-    }
-    if (aliases.size() == 0) return this;
-    XPathParts parts = new XPathParts(attributeOrdering, defaultSuppressionMap);
-    XPathParts fullParts = new XPathParts(attributeOrdering, defaultSuppressionMap);
-    XPathParts otherParts = new XPathParts(attributeOrdering, defaultSuppressionMap);
-    for (Iterator it = aliases.iterator(); it.hasNext();) {
-      String xpathKey = (String) it.next();
-      if (SHOW_ALIAS_FIXES) System.out.println("Doing Alias for: " + xpathKey);
-      //Value v = (Value) getXpath_value().get(xpathKey);
-      parts.set(xpathKey);
-      int index = parts.findElement("alias"); // can have no children
-      if (index < 0) continue;
-      parts.trimLast();
-      fullParts.set(dataSource.getFullPath(xpathKey));
-      Map attributes = fullParts.getAttributes(index);
-      fullParts.trimLast();
-      // <alias source="<locale_ID>" path="..."/>
-      String source = (String) attributes.get("source");
-      if (source == null || source.equals("locale")) source = dataSource.getLocaleID();
-      otherParts.set(parts);
-      String otherPath = (String) attributes.get("path");
-      if (otherPath != null) {
-        otherParts.addRelative(otherPath);
-      }
-      //removeChildren(parts);  WARNING: leave the alias in the resolved one, for now.
-      CLDRFile other;
-      if (source.equals(dataSource.getLocaleID())) {
-        other = this; 
-      } else {				
-        try {
-          other = factory.make(source, true, includeDraft);
-        } catch (RuntimeException e) {
-          System.err.println("Bad alias");
-          e.printStackTrace();
-          throw e;
-        }
-      }
-      addChildren(parts, fullParts, other, otherParts);
-    }		
-    return this;
-  }
-
-  /**
-   * Search through the other CLDRFile, and add anything that starts with otherParts.
-   * The new path will be fullParts + 
-   * @param parts
-   * @param other
-   * @param otherParts
-   */
-  private CLDRFile addChildren(XPathParts parts, XPathParts fullParts, CLDRFile other, XPathParts otherParts) {
-    String otherPath = otherParts + "/";
-    XPathParts temp = new XPathParts(attributeOrdering, defaultSuppressionMap);
-    XPathParts fullTemp = new XPathParts(attributeOrdering, defaultSuppressionMap);
-    Map stuffToAdd = new HashMap();
-    for (Iterator it = other.iterator(); it.hasNext();) {
-      String path = (String)it.next();
-      if (path.startsWith(otherPath)) {
-        //Value value = (Value) other.getXpath_value().get(path);
-        //temp.set(path);
-        //temp.replace(otherParts.size(), parts);
-        fullTemp.set(other.dataSource.getFullPath(path));
-        fullTemp.replace(otherParts.size(), fullParts);
-        String newPath = fullTemp.toString();
-        String value = dataSource.getValueAtPath(path);
-        //value = value.changePath(fullTemp.toString());
-        if (SHOW_ALIAS_FIXES) System.out.println("Adding*: " + path + ";" + CldrUtility.LINE_SEPARATOR + "\t" + newPath + ";" + CldrUtility.LINE_SEPARATOR + "\t" 
-                + dataSource.getValueAtPath(path));
-        stuffToAdd.put(newPath, value);
-        // to do, fix path
-      }
-    }
-    dataSource.putAll(stuffToAdd, MERGE_REPLACE_MINE);
-    return this;
-  }
-
-  /**
-   * @param parts
-   */
-  private CLDRFile removeChildren(XPathParts parts) {
-    String mypath = parts + "/";
-    Set temp = new HashSet();
-    for (Iterator it = iterator(); it.hasNext();) {
-      String path = (String)it.next();
-      if (path.startsWith(mypath)) {
-        //if (false) System.out.println("Removing: " + getXpath_value().get(path));
-        temp.add(path);
-      }
-    }
-    dataSource.removeAll(temp);
-    return this;
   }
 
   /**
@@ -2247,7 +2125,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
         extras += (sname == null ? original : sname);
       }
     }
-    List variants = lparser.getVariants();
+    List<String> variants = lparser.getVariants();
     for (int i = 0; i < variants.size(); ++i) {
       if (extras.length() != 0) extras += nameSeparator;
       sname = getName(VARIANT_NAME, original = (String)variants.get(i));

@@ -8,16 +8,13 @@
 */
 package org.unicode.cldr.util;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR;
 
-import com.ibm.icu.text.Replaceable;
 import com.ibm.icu.text.Transliterator;
 
 public class PrettyPath {
@@ -25,13 +22,11 @@ public class PrettyPath {
   {
     prettyPathZoneTransform = CheckCLDR.getTransliteratorFromFile("prettyPathZone", "prettyPathZone.txt");
     Transliterator.registerInstance(prettyPathZoneTransform);
-    Transliterator foo = Transliterator.getInstance("prettyPathZone");
   }
   private Transliterator prettyPathTransform = CheckCLDR.getTransliteratorFromFile("ID", "prettyPath.txt");
 
-	private Map prettyPath_path = new HashMap();
-  private Map path_prettyPath_sortable = new HashMap();
-  private Map path_prettyPath = new HashMap();
+  private Map<String, String> prettyPath_path = new HashMap<String, String>();
+  private Map<String, String> path_prettyPath_sortable = new HashMap<String, String>();
   private boolean showErrors;
  	
   /**
@@ -76,7 +71,7 @@ public class PrettyPath {
 		return prettyString;
  	}
   
-  private void addBackmap(String prettyString, String path, Map prettyPath_path_map) {
+  private void addBackmap(String prettyString, String path, Map<String, String> prettyPath_path_map) {
     String old = (String) prettyPath_path_map.get(prettyString);
     if (old != null) {
       if (showErrors) System.out.println("Warning:\tFailed bijection, " + prettyString);

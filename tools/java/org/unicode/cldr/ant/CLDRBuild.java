@@ -155,7 +155,6 @@ public class CLDRBuild extends Task {
 
     try {
       for (Run run : runs) {
-        Config config = run.config;
 
         Args runArgs = run.args;
 

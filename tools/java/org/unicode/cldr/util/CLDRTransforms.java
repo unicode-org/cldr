@@ -13,7 +13,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -27,8 +26,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.Relation;
@@ -82,6 +79,7 @@ public class CLDRTransforms {
       r.registerTransliteratorsFromXML(dir, cldrFileName, files);
     }
     Transliterator.registerAny(); // do this last!
+
   }
 
 
@@ -236,15 +234,15 @@ public class CLDRTransforms {
       overridden.add(id);
       Transliterator.unregister(id);
       Transliterator.registerInstance(t);
-      if (false) { // for paranoid testing
-        Transliterator t1 = Transliterator.createFromRules(id, ruleString, direction);
-        String r1 = t1.toRules(false);
-        Transliterator t2 = Transliterator.getInstance(id);
-        String r2 = t2.toRules(false);
-        if (!r1.equals(r2)) {
-          throw (IllegalArgumentException) new IllegalArgumentException("Rules unequal" + ruleString + "$$$\n$$$" + r2);
-        }
-      }
+//      if (false) { // for paranoid testing
+//        Transliterator t1 = Transliterator.createFromRules(id, ruleString, direction);
+//        String r1 = t1.toRules(false);
+//        Transliterator t2 = Transliterator.getInstance(id);
+//        String r2 = t2.toRules(false);
+//        if (!r1.equals(r2)) {
+//          throw (IllegalArgumentException) new IllegalArgumentException("Rules unequal" + ruleString + "$$$\n$$$" + r2);
+//        }
+//      }
       //verifyNullFilter("halfwidth-fullwidth");
       if (showProgress != null) {
         append("Registered new Transliterator: " + id + '\n');
@@ -469,8 +467,8 @@ public class CLDRTransforms {
     // Remove all of the current registrations
     // first load into array, so we don't get sync problems.
     List<String> rawAvailable = new ArrayList<String>();
-    for (Enumeration en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
-      final String id = (String)en.nextElement();
+    for (Enumeration<String> en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
+      final String id = en.nextElement();
       if (filter != null && !filter.reset(id).matches()) {
         continue;
       }
@@ -480,7 +478,7 @@ public class CLDRTransforms {
     //deregisterIcuTransliterators(rawAvailable);
 
     Set<String> available = dependencyOrder.getOrderedItems(rawAvailable, filter, false);
-    List reversed = new LinkedList();
+    List<String> reversed = new LinkedList<String>();
     for (String item : available) {
       reversed.add(0, item);
     }
@@ -489,8 +487,8 @@ public class CLDRTransforms {
     //      deregisterIcuTransliterators(rawAvailable);
     deregisterIcuTransliterators(reversed);
 
-    for (Enumeration en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
-      String oldId = (String)en.nextElement();
+    for (Enumeration<String> en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
+      String oldId = en.nextElement();
       append("Retaining: " + oldId);
     }
   }

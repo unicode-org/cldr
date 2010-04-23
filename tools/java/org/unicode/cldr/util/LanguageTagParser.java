@@ -46,7 +46,7 @@ public class LanguageTagParser {
 	/**
 	 * @return Returns the variants.
 	 */
-	public List getVariants() {
+	public List<String> getVariants() {
 		return frozenVariants;
 	}
 	/**
@@ -58,7 +58,7 @@ public class LanguageTagParser {
 	/**
 	 * @return Returns the extensions.
 	 */
-	public Map getExtensions() {
+	public Map<String, String> getExtensions() {
 		return frozenExtensions;
 	}
 
@@ -80,18 +80,18 @@ public class LanguageTagParser {
 	 * @param in Collection of language tag strings
 	 * @return Returns each of the language-script tags in the collection.
 	 */
-	public static Set getLanguageScript(Collection in) {
+	public static Set<String> getLanguageScript(Collection<String> in) {
 		return getLanguageAndScript(in, null);
 	}
 	/**
 	 * @param in Collection of language tag strings
 	 * @return Returns each of the language-script tags in the collection.
 	 */
-	public static Set getLanguageAndScript(Collection in, Set output) {
-		if (output == null) output = new TreeSet();
+	public static Set<String> getLanguageAndScript(Collection<String> in, Set<String> output) {
+		if (output == null) output = new TreeSet<String>();
 		LanguageTagParser lparser = new LanguageTagParser();
-		for (Iterator it = in.iterator(); it.hasNext();) {
-			output.add(lparser.set((String)it.next()).getLanguageScript());
+		for (Iterator<String> it = in.iterator(); it.hasNext();) {
+			output.add(lparser.set(it.next()).getLanguageScript());
 		}
 		return output;
 	}
@@ -103,11 +103,11 @@ public class LanguageTagParser {
 	private String language;
 	private String script;
 	private String region;
-	private List variants = new ArrayList();
+	private List<String> variants = new ArrayList<String>();
 	private Map<String,String> extensions = new LinkedHashMap<String,String>();
 	private LinkedHashMap<String,String> localeExtensions = new LinkedHashMap<String,String>();
 	
-	private List frozenVariants = Collections.unmodifiableList(variants);
+	private List<String> frozenVariants = Collections.unmodifiableList(variants);
 	private Map<String,String> frozenExtensions = Collections.unmodifiableMap(extensions);
 	
 	private static final UnicodeSet ALPHA = new UnicodeSet("[a-zA-Z]");
@@ -116,7 +116,7 @@ public class LanguageTagParser {
 	private static final UnicodeSet X = new UnicodeSet("[xX]");
 	private static final UnicodeSet ALPHA_MINUS_X = new UnicodeSet(ALPHA).removeAll(X);
 	private static StandardCodes standardCodes = StandardCodes.make();
-	private static final Set grandfatheredCodes = standardCodes.getAvailableCodes("grandfathered");
+	private static final Set<String> grandfatheredCodes = standardCodes.getAvailableCodes("grandfathered");
 	private static final String separator = "-_"; // '-' alone for 3066bis language tags
 	
 	/**
@@ -161,7 +161,7 @@ public class LanguageTagParser {
 		}
 		
 		// each time we fetch a token, we check for length from 1..8, and all alphanum
-		StringTokenizer st = new StringTokenizer(languageTag,"-_");
+		StringTokenizer st = new StringTokenizer(languageTag,separator);
 		String subtag = getSubtag(st);
 		
 		// check for private use (x-...) and return if so
@@ -227,13 +227,9 @@ public class LanguageTagParser {
 		if (!validates(language, "language")) return false;
 		if (!validates(script, "script")) return false;
 		if (!validates(region, "territory")) return false;
-		for (Iterator it = variants.iterator(); it.hasNext();) {
-			if (!validates((String)it.next(), "variant")) return false;
+		for (Iterator<String> it = variants.iterator(); it.hasNext();) {
+			if (!validates(it.next(), "variant")) return false;
 		}
-//		for (Iterator it = extensions.iterator(); it.hasNext();) {
-//			char ch = ((String)it.next()).charAt(0);
-//			if (!X.contains(ch)) return false;
-//		}
 		return true; // passed the gauntlet
 	}
 	
@@ -356,7 +352,7 @@ public class LanguageTagParser {
     if (language.contains("_")) {
       String oldScript = script;
       String oldRegion = region;
-      List oldVariants = variants;
+      List<String> oldVariants = variants;
       set(language);
       if (script.length() == 0) {
         script = oldScript;

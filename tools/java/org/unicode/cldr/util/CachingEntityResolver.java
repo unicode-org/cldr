@@ -133,7 +133,7 @@ public class CachingEntityResolver implements EntityResolver {
                 if(xFile.canRead()) {
                 	String newUrl;
 					try {
-						newUrl = xFile.toURL().toString();
+						newUrl = xFile.toURI().toURL().toString();
 	                	if(gDebug) System.err.println("CRE: redir to " + newUrl);
 	                	
 	                	InputSource is =  new InputSource(newUrl);
@@ -146,11 +146,11 @@ public class CachingEntityResolver implements EntityResolver {
                 }
             }
             if(systemId.startsWith("file:") || !systemId.startsWith("http://")) {
-                File xFile = new File(systemId);
+//                File xFile = new File(systemId);
 //                if(xFile.canRead()) {
                 	return new InputSource(systemId);
-  //              }
-    //            return null;
+//                }
+//                return null;
             }
             StringBuffer systemNew = new StringBuffer(systemId);
 //          char c = systemNew.charAt(0);

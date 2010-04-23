@@ -11,7 +11,6 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import com.ibm.icu.text.Transform;
-import com.ibm.icu.util.ULocale;
 
 /**
  * Convenience class for building collections and maps. Allows them to be built by chaining, making it simpler to
@@ -112,7 +111,7 @@ public final class Builder {
     }
     
     public CBuilder<E,U> addAll(Iterable<? extends E> c) {
-      if (equalAction == EqualAction.REPLACE && c instanceof Collection) {
+      if (equalAction == EqualAction.REPLACE && c instanceof Collection<?>) {
         collection.addAll((Collection<E>)c);
       } else {
         for (E item : c) {

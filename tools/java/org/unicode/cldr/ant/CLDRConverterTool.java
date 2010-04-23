@@ -14,6 +14,7 @@ import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CoverageLevel;
 import org.w3c.dom.Node;
 
@@ -161,7 +162,7 @@ public abstract class CLDRConverterTool {
             CLDRFile smd = CLDRFile.make(CLDRFile.SUPPLEMENTAL_METADATA, supplementalDir, true);
             coverageLevel = new CoverageLevel();
             CoverageLevel.init(sd, smd);
-            ArrayList errors = new ArrayList();
+            ArrayList<CheckStatus> errors = new ArrayList<CheckStatus>();
             coverageLevel.setFile(localeName, exemplarsContainA_Z, false, null, null, errors);
         }
     }

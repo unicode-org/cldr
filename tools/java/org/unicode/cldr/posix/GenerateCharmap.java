@@ -31,9 +31,7 @@ import org.unicode.cldr.icu.SimpleConverter;
 public class GenerateCharmap {
     
     private static final int 
-        HELP1 = 0,
-        HELP2 = 1,
-        DESTDIR = 2,
+        DESTDIR = 2, 
         UNICODESET = 3,
         CHARSET = 4;
 
@@ -56,7 +54,7 @@ public class GenerateCharmap {
     }
     
 
-    public class CharmapLine implements Comparable
+    public class CharmapLine implements Comparable<Object>
     {
        public String CharacterValue;
        public String CharacterName;
@@ -141,7 +139,7 @@ public class GenerateCharmap {
         int LongestCharNameLength = 0;
         int LongestCharValueLength = 0;
         UnicodeSet us = new UnicodeSet("[^[:Noncharacter_Code_Point:][:Cn:][:Cs:]]").retainAll(chars);
-        List cml = new ArrayList();
+        List<CharmapLine> cml = new ArrayList<CharmapLine>();
         CharmapLine current;
         for (UnicodeSetIterator it = new UnicodeSetIterator(us); it.next(); )
         {
@@ -168,7 +166,7 @@ public class GenerateCharmap {
         out.println();
 	out.println("CHARMAP");
 
-        for ( ListIterator li=cml.listIterator(); li.hasNext(); )
+        for ( ListIterator<CharmapLine> li=cml.listIterator(); li.hasNext(); )
         {
                 current = (CharmapLine) li.next();
 

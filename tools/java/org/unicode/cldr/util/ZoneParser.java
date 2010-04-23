@@ -4,8 +4,6 @@ import com.ibm.icu.dev.test.util.XEquivalenceClass;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -27,15 +25,15 @@ public class ZoneParser {
 
   private String version;
   
-  private Map zone_to_country;
+  private Map<String,String> zone_to_country;
 
-  private Map country_to_zoneSet;
+  private Map<String,Set<String>> country_to_zoneSet;
 
   /**
    * @return mapping from zone id to country. If a zone has no country, then XX
    *         is used.
    */
-  public Map getZoneToCounty() {
+  public Map<String,String> getZoneToCounty() {
     if (zone_to_country == null)
       make_zone_to_country();
     return zone_to_country;
@@ -45,7 +43,7 @@ public class ZoneParser {
    * @return mapping from country to zoneid. If a zone has no country, then XX
    *         is used.
    */
-  public Map getCountryToZoneSet() {
+  public Map<String,Set<String>> getCountryToZoneSet() {
     if (country_to_zoneSet == null)
       make_zone_to_country();
     return country_to_zoneSet;

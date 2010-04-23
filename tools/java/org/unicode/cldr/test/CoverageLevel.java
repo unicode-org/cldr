@@ -226,7 +226,7 @@ public class CoverageLevel {
    * @param possibleErrors if there are errors or warnings, those are added (as CheckStatus objects) to this list.
    * @return 
    */
-  public CoverageLevel setFile(CLDRFile file, Map options, CheckCLDR cause, List possibleErrors) {
+  public CoverageLevel setFile(CLDRFile file, Map options, CheckCLDR cause, List<CheckStatus> possibleErrors) {
     synchronized (sync) {
       if (!initialized) {
         CLDRFile supplementalMetadata = file.getSupplementalMetadata();

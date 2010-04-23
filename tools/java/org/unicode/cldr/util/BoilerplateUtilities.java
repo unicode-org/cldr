@@ -7,7 +7,7 @@ public final class BoilerplateUtilities {
   
   public static String toStringHelper(Object object) {
     StringBuffer result = new StringBuffer("[");
-    Class cls = object.getClass();
+    Class<?> cls = object.getClass();
     Field[] fields = cls.getDeclaredFields();
     boolean gotOne = false;
     for (int i = 0; i < fields.length; ++i) {
@@ -32,13 +32,13 @@ public final class BoilerplateUtilities {
     } else if (b == null) {
       return 1;
     }
-    Class aClass = a.getClass();
-    Class bClass = b.getClass();
+    Class<?> aClass = a.getClass();
+    Class<?> bClass = b.getClass();
     if (aClass != bClass) {
       return aClass.getName().compareTo(bClass.getName());
     }
-    if (depth != 0 && a instanceof Comparable) {
-      return ((Comparable)a).compareTo(b);
+    if (depth != 0 && a instanceof Comparable<?>) {
+        return ((Comparable<Object>)a).compareTo(b);
     }
     if (a instanceof Number) {
       double aDouble = ((Number)a).doubleValue();
@@ -46,15 +46,12 @@ public final class BoilerplateUtilities {
       return aDouble < bDouble ? -1 : aDouble == bDouble ? 0 : -1;
     }
     Field[] fields = aClass.getDeclaredFields();
-    boolean gotOne = false;
     for (int i = 0; i < fields.length; ++i) {
       int mods = fields[i].getModifiers();
       if (Modifier.isStatic(mods)) continue;
-      Object aValue = "a-no-access";
-      Object bValue = "b-no-access";
       try {
-        aValue = fields[i].get(a);
-        bValue = fields[i].get(b);
+        fields[i].get(a);
+        fields[i].get(b);
       } catch (Exception e) {}
       int result = compareToHelper(a,b, depth+1);
       if (result != 0) return result;

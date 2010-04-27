@@ -3,9 +3,12 @@ Steven R. Loomis srl@icu-project.org.    Updated 2008 Jan 25
 Copyright 2007-2010 IBM and others. All Rights Reserved
 ------------------------------------------------------------
 
-Note: this document is somewhat out of date. see http://unicode.org/cldr for the latest instructions.
+Note: this document is somewhat out of date. see 
+	http://cldr.unicode.org/development/running-survey-tool
 
----
+for the latest instructions.
+
+--- (old information below) ----
 
 
 

@@ -18,7 +18,6 @@
 
         <!-- CLDR_TOOLS defaults to ../java, override if not correct. -->        
         <property name="CLDR_TOOLS" value="../java"/>
-        <property name="CLDR_CLASSES" value="${CLDR_TOOLS}/classes"/>
         <property name="CLDR_JAR" value="${CLDR_TOOLS}/cldr.jar"/>
 
         <path id="build.classpath">
@@ -43,15 +42,14 @@
         <path id="project.class.path">
             <pathelement path="${java.class.path}/"/>
             <pathelement path="${build.dir}"/>
-            <pathelement path="${env.ICU4J_CLASSES}"/>
             <pathelement path="${CLDR_CLASSES}"/>
-            <pathelement location="${env.ICU4J_JAR}"/>
-            <pathelement location="{CLDR_JAR}"/>
-            <pathelement location="${env.UTILITIES_JAR}"/>
-            <pathelement location="${env.XML_APIS_JAR}"/>
+            <pathelement location="${ICU4J_JAR}"/>
+            <pathelement location="${CLDR_JAR}"/>
+            <pathelement location="${UTILITIES_JAR}"/>
+            <pathelement location="${XML_APIS_JAR}"/>
             <pathelement location="${DERBY_LIB}"/>
             <pathelement location="${JDOM_LIB}"/>
-            <pathelement location="${servlet.jar}"/>
+            <pathelement location="${SERVLET_JAR}"/>
             <pathelement location="${MAIL_LIB}"/>
             <pathelement location="${ROME_LIB}"/>
         </path>
@@ -66,10 +64,6 @@
  <!--       <property name="icu.home"           value="${env.ICU4J_HOME}"/> -->
         
         <property name="SERVLET_JAR"        value="${tomcat.home}/lib/servlet-api.jar"/>
-        <property name="jsp.jar"            value="${tomcat.home}/lib/jsp-api.jar"/>
-        <property name="derby.jar"          value="${env.DERBY_HOME}/lib/derby.jar"/>
-
-        <property name="mail.jar"            value="${tomcat.home}/lib/mail.jar"/>
         <property name="wardata" value="${src.dir}/org/unicode/cldr/web/data"/>
 
   <path id="catalina-ant.classpath">
@@ -114,6 +108,7 @@
         <echo message="java home: ${java.home}"/>
         <echo message="java version: ${java.version} ant java version: ${ant.java.version}"/>
         <echo message="java.class.path: ${java.class.path}/"/>
+        <echo message="project.class.path: ${project.class.path}"/>
         <echo message="build.dir: ${build.dir}"/>
         <echo message="${ant.version}"/>
         <echo/>

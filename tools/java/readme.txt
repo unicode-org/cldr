@@ -16,7 +16,7 @@ ooo 	OpenOffice.org tools for :
 			- Converting OpenOffice.org format to LDML
 			- CLDR data to OpenOffice.org format 
 			- Comparing OpenOffice.org data
-web     Web-based code (Survey tool) - for information, see:  data/surveytool/readme.txt
+web     ... is no longer here. Look at the 'cldr-apps' project parallel to this one.
 -----------------
 
 The tools may use ICU4J code for testing, but should use none of the data in ICU4J. 

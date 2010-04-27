@@ -1,4 +1,4 @@
-<project name="CLDR" default="web" basedir=".">
+<project name="CLDR Web Apps" default="all" basedir=".">
     <target name="init">
     	<!-- copied from cldr/tools/java's build.xml -->
         <tstamp/>
@@ -179,7 +179,9 @@
     	// includes="${src.dir}/**/*.java"
     	    excludes="**/.svn/**/*"
     -->
-    <target name="web" depends="init" description="build web classes">
+	<target name="web" depends="all" description="alias for old 'web' target"/>
+
+    <target name="all" depends="init" description="build web classes">
         <javac 
             srcdir="${src.dir}"
             destdir="${build.dir}"

@@ -1,8 +1,0 @@
-<!--  simple for now. -->
-<%@ include file="stcontext.jspf" %>
-<%
-JspWebContext subCtx = ctx;
-String thisBaseXpath = (String)ctx.get("thisBaseXpath");
-Integer thisStep = (Integer)ctx.get("thisStep");
-subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
-%>

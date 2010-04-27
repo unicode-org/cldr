@@ -1,7 +1,12 @@
 About the Survey Tool and the org.unicode.cldr.web.* classes
 Steven R. Loomis srl@icu-project.org.    Updated 2008 Jan 25
-Copyright 2007-2008 IBM and others. All Rights Reserved
+Copyright 2007-2010 IBM and others. All Rights Reserved
 ------------------------------------------------------------
+
+Note: this document is somewhat out of date. see http://unicode.org/cldr for the latest instructions.
+
+---
+
 
 
 -1. ABOUT THIS DOCUMENT:

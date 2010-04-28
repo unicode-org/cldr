@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8' base='sw'>
- <!-- Swahili [Kenya] -->
+ <cldrTest version='1.8.1' base='sw'>
+ <!-- Swahili [Kiswahili] -->
   <number 
 locales='sw sw_KE sw_TZ'>
-<!-- Swahili [Kenya@]; Swahili (Kenya) [Kenya (Kenya)@]; Swahili (Tanzania) [Kenya (Tanzania)@] -->
+<!-- Swahili [Kiswahili@]; Swahili (Kenya) [Kiswahili (Kenya)@]; Swahili (Tanzania) [Kiswahili (Tanzania)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='sw sw_KE sw_TZ'>
   </number>
   <date 
 locales='sw sw_KE sw_TZ'>
-<!-- Swahili [Kenya@]; Swahili (Kenya) [Kenya (Kenya)@]; Swahili (Tanzania) [Kenya (Tanzania)@] -->
+<!-- Swahili [Kiswahili@]; Swahili (Kenya) [Kiswahili (Kenya)@]; Swahili (Tanzania) [Kiswahili (Tanzania)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 asubuhi</result>
    <result timeType='medium'>12:00:00 asubuhi</result>
    <result dateType='short' timeType='none'>31/01/1900</result>
@@ -229,11 +229,11 @@ locales='sw sw_KE sw_TZ'>
   </date>
   <zoneFields 
 locales='sw sw_KE sw_TZ'>
-<!-- Swahili [Kenya@]; Swahili (Kenya) [Kenya (Kenya)@]; Swahili (Tanzania) [Kenya (Tanzania)@] -->
+<!-- Swahili [Kiswahili@]; Swahili (Kenya) [Kiswahili (Kenya)@]; Swahili (Tanzania) [Kiswahili (Tanzania)@] -->
   </zoneFields>
   <collation 
 locales='sw sw_KE sw_TZ'>
-<!-- Swahili [Kenya@]; Swahili (Kenya) [Kenya (Kenya)@]; Swahili (Tanzania) [Kenya (Tanzania)@] -->
+<!-- Swahili [Kiswahili@]; Swahili (Kenya) [Kiswahili (Kenya)@]; Swahili (Tanzania) [Kiswahili (Tanzania)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -271,15 +271,9 @@ XCH
 xchx
 xChx
 xCHx
-xc
-xC
-Xc
-XC
 xcH
 XcH
 xcHx
-xcx
-xCx
 xd
 xD
 Xd
@@ -380,21 +374,9 @@ xn
 xN
 Xn
 XN
-xng
-xnG
-xNg
-xNG
-Xng
-XnG
-XNg
-XNG
 xnG&amp;apos;
 XnG&amp;apos;
 xnG&amp;apos;x
-xngx
-xnGx
-xNgx
-xNGx
 xnx
 xNx
 xnY

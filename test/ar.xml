@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8' base='ar'>
+ <cldrTest version='1.8.1' base='ar'>
  <!-- Arabic [العربية] -->
   <number 
 locales='ar ar_AE ar_BH ar_DZ ar_EG ar_IQ ar_JO ar_KW ar_LB ar_LY ar_MA ar_OM ar_SD'>
@@ -108,8 +108,8 @@ locales='ar_QA ar_SA ar_SY ar_TN ar_YE'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='ar ar_AE ar_BH ar_DZ ar_EG ar_IQ ar_KW ar_LY ar_MA ar_OM ar_QA ar_SA ar_SD ar_TN ar_YE'>
-<!-- Arabic [العربية@]; Arabic (United Arab Emirates) [العربية (الامارات العربية المتحدة)@]; Arabic (Bahrain) [العربية (البحرين)@]; Arabic (Algeria) [العربية (الجزائر)@]; Arabic (Egypt) [العربية (مصر)@]; Arabic (Iraq) [العربية (العراق)@]; Arabic (Kuwait) [العربية (الكويت)@]; Arabic (Libya) [العربية (ليبيا)@]; Arabic (Morocco) [العربية (المغرب)@]; Arabic (Oman) [العربية (عُمان)@]; Arabic (Qatar) [العربية (قطر)@]; Arabic (Saudi Arabia) [العربية (المملكة العربية السعودية)@]; Arabic (Sudan) [العربية (السودان)@]; Arabic (Tunisia) [العربية (تونس)@]; Arabic (Yemen) [العربية (اليمن)@] -->
+locales='ar ar_AE ar_BH ar_EG ar_IQ ar_KW ar_LY ar_OM ar_QA ar_SA ar_SD ar_YE'>
+<!-- Arabic [العربية@]; Arabic (United Arab Emirates) [العربية (الامارات العربية المتحدة)@]; Arabic (Bahrain) [العربية (البحرين)@]; Arabic (Egypt) [العربية (مصر)@]; Arabic (Iraq) [العربية (العراق)@]; Arabic (Kuwait) [العربية (الكويت)@]; Arabic (Libya) [العربية (ليبيا)@]; Arabic (Oman) [العربية (عُمان)@]; Arabic (Qatar) [العربية (قطر)@]; Arabic (Saudi Arabia) [العربية (المملكة العربية السعودية)@]; Arabic (Sudan) [العربية (السودان)@]; Arabic (Yemen) [العربية (اليمن)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 ص</result>
    <result timeType='medium'>12:00:00 ص</result>
    <result dateType='short' timeType='none'>31‏/1‏/1900</result>
@@ -272,6 +272,178 @@ locales='ar ar_AE ar_BH ar_DZ ar_EG ar_IQ ar_KW ar_LY ar_MA ar_OM ar_QA ar_SA ar
    <result dateType='medium' timeType='none'>01‏/12‏/2010</result>
    <result timeType='short'>01‏/12‏/2010 11:59 م</result>
    <result timeType='medium'>01‏/12‏/2010 11:59:59 م</result>
+   <result dateType='long' timeType='none'>1 ديسمبر، 2010</result>
+   <result timeType='short'>1 ديسمبر، 2010 11:59 م</result>
+   <result timeType='medium'>1 ديسمبر، 2010 11:59:59 م</result>
+   <result dateType='full' timeType='none'>الأربعاء، 1 ديسمبر، 2010</result>
+   <result timeType='short'>الأربعاء، 1 ديسمبر، 2010 11:59 م</result>
+   <result timeType='medium'>الأربعاء، 1 ديسمبر، 2010 11:59:59 م</result>
+  </date>
+  <date 
+locales='ar_DZ ar_MA ar_TN'>
+<!-- Arabic (Algeria) [العربية (الجزائر)@]; Arabic (Morocco) [العربية (المغرب)@]; Arabic (Tunisia) [العربية (تونس)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 ص</result>
+   <result timeType='medium'>12:00:00 ص</result>
+   <result dateType='short' timeType='none'>1900/1/31</result>
+   <result timeType='short'>1900/1/31 12:00 ص</result>
+   <result timeType='medium'>1900/1/31 12:00:00 ص</result>
+   <result dateType='medium' timeType='none'>1900/01/31</result>
+   <result timeType='short'>1900/01/31 12:00 ص</result>
+   <result timeType='medium'>1900/01/31 12:00:00 ص</result>
+   <result dateType='long' timeType='none'>31 يناير، 1900</result>
+   <result timeType='short'>31 يناير، 1900 12:00 ص</result>
+   <result timeType='medium'>31 يناير، 1900 12:00:00 ص</result>
+   <result dateType='full' timeType='none'>الأربعاء، 31 يناير، 1900</result>
+   <result timeType='short'>الأربعاء، 31 يناير، 1900 12:00 ص</result>
+   <result timeType='medium'>الأربعاء، 31 يناير، 1900 12:00:00 ص</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 ص</result>
+   <result timeType='medium'>12:00:01 ص</result>
+   <result dateType='short' timeType='none'>1909/2/28</result>
+   <result timeType='short'>1909/2/28 12:00 ص</result>
+   <result timeType='medium'>1909/2/28 12:00:01 ص</result>
+   <result dateType='medium' timeType='none'>1909/02/28</result>
+   <result timeType='short'>1909/02/28 12:00 ص</result>
+   <result timeType='medium'>1909/02/28 12:00:01 ص</result>
+   <result dateType='long' timeType='none'>28 فبراير، 1909</result>
+   <result timeType='short'>28 فبراير، 1909 12:00 ص</result>
+   <result timeType='medium'>28 فبراير، 1909 12:00:01 ص</result>
+   <result dateType='full' timeType='none'>الأحد، 28 فبراير، 1909</result>
+   <result timeType='short'>الأحد، 28 فبراير، 1909 12:00 ص</result>
+   <result timeType='medium'>الأحد، 28 فبراير، 1909 12:00:01 ص</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 ص</result>
+   <result timeType='medium'>12:59:59 ص</result>
+   <result dateType='short' timeType='none'>1918/3/26</result>
+   <result timeType='short'>1918/3/26 12:59 ص</result>
+   <result timeType='medium'>1918/3/26 12:59:59 ص</result>
+   <result dateType='medium' timeType='none'>1918/03/26</result>
+   <result timeType='short'>1918/03/26 12:59 ص</result>
+   <result timeType='medium'>1918/03/26 12:59:59 ص</result>
+   <result dateType='long' timeType='none'>26 مارس، 1918</result>
+   <result timeType='short'>26 مارس، 1918 12:59 ص</result>
+   <result timeType='medium'>26 مارس، 1918 12:59:59 ص</result>
+   <result dateType='full' timeType='none'>الثلاثاء، 26 مارس، 1918</result>
+   <result timeType='short'>الثلاثاء، 26 مارس، 1918 12:59 ص</result>
+   <result timeType='medium'>الثلاثاء، 26 مارس، 1918 12:59:59 ص</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 ص</result>
+   <result timeType='medium'>1:00:00 ص</result>
+   <result dateType='short' timeType='none'>1932/4/24</result>
+   <result timeType='short'>1932/4/24 1:00 ص</result>
+   <result timeType='medium'>1932/4/24 1:00:00 ص</result>
+   <result dateType='medium' timeType='none'>1932/04/24</result>
+   <result timeType='short'>1932/04/24 1:00 ص</result>
+   <result timeType='medium'>1932/04/24 1:00:00 ص</result>
+   <result dateType='long' timeType='none'>24 أبريل، 1932</result>
+   <result timeType='short'>24 أبريل، 1932 1:00 ص</result>
+   <result timeType='medium'>24 أبريل، 1932 1:00:00 ص</result>
+   <result dateType='full' timeType='none'>الأحد، 24 أبريل، 1932</result>
+   <result timeType='short'>الأحد، 24 أبريل، 1932 1:00 ص</result>
+   <result timeType='medium'>الأحد، 24 أبريل، 1932 1:00:00 ص</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 ص</result>
+   <result timeType='medium'>1:00:01 ص</result>
+   <result dateType='short' timeType='none'>1945/5/20</result>
+   <result timeType='short'>1945/5/20 1:00 ص</result>
+   <result timeType='medium'>1945/5/20 1:00:01 ص</result>
+   <result dateType='medium' timeType='none'>1945/05/20</result>
+   <result timeType='short'>1945/05/20 1:00 ص</result>
+   <result timeType='medium'>1945/05/20 1:00:01 ص</result>
+   <result dateType='long' timeType='none'>20 مايو، 1945</result>
+   <result timeType='short'>20 مايو، 1945 1:00 ص</result>
+   <result timeType='medium'>20 مايو، 1945 1:00:01 ص</result>
+   <result dateType='full' timeType='none'>الأحد، 20 مايو، 1945</result>
+   <result timeType='short'>الأحد، 20 مايو، 1945 1:00 ص</result>
+   <result timeType='medium'>الأحد، 20 مايو، 1945 1:00:01 ص</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 ص</result>
+   <result timeType='medium'>11:59:59 ص</result>
+   <result dateType='short' timeType='none'>1952/6/18</result>
+   <result timeType='short'>1952/6/18 11:59 ص</result>
+   <result timeType='medium'>1952/6/18 11:59:59 ص</result>
+   <result dateType='medium' timeType='none'>1952/06/18</result>
+   <result timeType='short'>1952/06/18 11:59 ص</result>
+   <result timeType='medium'>1952/06/18 11:59:59 ص</result>
+   <result dateType='long' timeType='none'>18 يونيو، 1952</result>
+   <result timeType='short'>18 يونيو، 1952 11:59 ص</result>
+   <result timeType='medium'>18 يونيو، 1952 11:59:59 ص</result>
+   <result dateType='full' timeType='none'>الأربعاء، 18 يونيو، 1952</result>
+   <result timeType='short'>الأربعاء، 18 يونيو، 1952 11:59 ص</result>
+   <result timeType='medium'>الأربعاء، 18 يونيو، 1952 11:59:59 ص</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 م</result>
+   <result timeType='medium'>12:00:00 م</result>
+   <result dateType='short' timeType='none'>1973/7/16</result>
+   <result timeType='short'>1973/7/16 12:00 م</result>
+   <result timeType='medium'>1973/7/16 12:00:00 م</result>
+   <result dateType='medium' timeType='none'>1973/07/16</result>
+   <result timeType='short'>1973/07/16 12:00 م</result>
+   <result timeType='medium'>1973/07/16 12:00:00 م</result>
+   <result dateType='long' timeType='none'>16 يوليو، 1973</result>
+   <result timeType='short'>16 يوليو، 1973 12:00 م</result>
+   <result timeType='medium'>16 يوليو، 1973 12:00:00 م</result>
+   <result dateType='full' timeType='none'>الإثنين، 16 يوليو، 1973</result>
+   <result timeType='short'>الإثنين، 16 يوليو، 1973 12:00 م</result>
+   <result timeType='medium'>الإثنين، 16 يوليو، 1973 12:00:00 م</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 م</result>
+   <result timeType='medium'>12:00:01 م</result>
+   <result dateType='short' timeType='none'>1999/8/14</result>
+   <result timeType='short'>1999/8/14 12:00 م</result>
+   <result timeType='medium'>1999/8/14 12:00:01 م</result>
+   <result dateType='medium' timeType='none'>1999/08/14</result>
+   <result timeType='short'>1999/08/14 12:00 م</result>
+   <result timeType='medium'>1999/08/14 12:00:01 م</result>
+   <result dateType='long' timeType='none'>14 أغسطس، 1999</result>
+   <result timeType='short'>14 أغسطس، 1999 12:00 م</result>
+   <result timeType='medium'>14 أغسطس، 1999 12:00:01 م</result>
+   <result dateType='full' timeType='none'>السبت، 14 أغسطس، 1999</result>
+   <result timeType='short'>السبت، 14 أغسطس، 1999 12:00 م</result>
+   <result timeType='medium'>السبت، 14 أغسطس، 1999 12:00:01 م</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 م</result>
+   <result timeType='medium'>10:59:59 م</result>
+   <result dateType='short' timeType='none'>2000/9/12</result>
+   <result timeType='short'>2000/9/12 10:59 م</result>
+   <result timeType='medium'>2000/9/12 10:59:59 م</result>
+   <result dateType='medium' timeType='none'>2000/09/12</result>
+   <result timeType='short'>2000/09/12 10:59 م</result>
+   <result timeType='medium'>2000/09/12 10:59:59 م</result>
+   <result dateType='long' timeType='none'>12 سبتمبر، 2000</result>
+   <result timeType='short'>12 سبتمبر، 2000 10:59 م</result>
+   <result timeType='medium'>12 سبتمبر، 2000 10:59:59 م</result>
+   <result dateType='full' timeType='none'>الثلاثاء، 12 سبتمبر، 2000</result>
+   <result timeType='short'>الثلاثاء، 12 سبتمبر، 2000 10:59 م</result>
+   <result timeType='medium'>الثلاثاء، 12 سبتمبر، 2000 10:59:59 م</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 م</result>
+   <result timeType='medium'>11:00:00 م</result>
+   <result dateType='short' timeType='none'>2001/10/8</result>
+   <result timeType='short'>2001/10/8 11:00 م</result>
+   <result timeType='medium'>2001/10/8 11:00:00 م</result>
+   <result dateType='medium' timeType='none'>2001/10/08</result>
+   <result timeType='short'>2001/10/08 11:00 م</result>
+   <result timeType='medium'>2001/10/08 11:00:00 م</result>
+   <result dateType='long' timeType='none'>8 أكتوبر، 2001</result>
+   <result timeType='short'>8 أكتوبر، 2001 11:00 م</result>
+   <result timeType='medium'>8 أكتوبر، 2001 11:00:00 م</result>
+   <result dateType='full' timeType='none'>الإثنين، 8 أكتوبر، 2001</result>
+   <result timeType='short'>الإثنين، 8 أكتوبر، 2001 11:00 م</result>
+   <result timeType='medium'>الإثنين، 8 أكتوبر، 2001 11:00:00 م</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 م</result>
+   <result timeType='medium'>11:00:01 م</result>
+   <result dateType='short' timeType='none'>2004/11/4</result>
+   <result timeType='short'>2004/11/4 11:00 م</result>
+   <result timeType='medium'>2004/11/4 11:00:01 م</result>
+   <result dateType='medium' timeType='none'>2004/11/04</result>
+   <result timeType='short'>2004/11/04 11:00 م</result>
+   <result timeType='medium'>2004/11/04 11:00:01 م</result>
+   <result dateType='long' timeType='none'>4 نوفمبر، 2004</result>
+   <result timeType='short'>4 نوفمبر، 2004 11:00 م</result>
+   <result timeType='medium'>4 نوفمبر، 2004 11:00:01 م</result>
+   <result dateType='full' timeType='none'>الخميس، 4 نوفمبر، 2004</result>
+   <result timeType='short'>الخميس، 4 نوفمبر، 2004 11:00 م</result>
+   <result timeType='medium'>الخميس، 4 نوفمبر، 2004 11:00:01 م</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 م</result>
+   <result timeType='medium'>11:59:59 م</result>
+   <result dateType='short' timeType='none'>2010/12/1</result>
+   <result timeType='short'>2010/12/1 11:59 م</result>
+   <result timeType='medium'>2010/12/1 11:59:59 م</result>
+   <result dateType='medium' timeType='none'>2010/12/01</result>
+   <result timeType='short'>2010/12/01 11:59 م</result>
+   <result timeType='medium'>2010/12/01 11:59:59 م</result>
    <result dateType='long' timeType='none'>1 ديسمبر، 2010</result>
    <result timeType='short'>1 ديسمبر، 2010 11:59 م</result>
    <result timeType='medium'>1 ديسمبر، 2010 11:59:59 م</result>

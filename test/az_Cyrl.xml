@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8' base='az_Cyrl'>
- <!-- Azerbaijani (Cyrillic) [Азәрбајҹан (kiril)] -->
+ <cldrTest version='1.8.1' base='az_Cyrl'>
+ <!-- Azerbaijani (Cyrillic) [Азәрбајҹан (Cyrl)] -->
   <number 
 locales='az_Cyrl az_Cyrl_AZ'>
-<!-- Azerbaijani (Cyrillic) [Азәрбајҹан (kiril)@]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (kiril, Азәрбајҹан)@] -->
+<!-- Azerbaijani (Cyrillic) [Азәрбајҹан (Cyrl)@]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (Cyrl, Азәрбајҹан)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -73,7 +73,7 @@ locales='az_Cyrl az_Cyrl_AZ'>
   </number>
   <date 
 locales='az_Cyrl az_Cyrl_AZ'>
-<!-- Azerbaijani (Cyrillic) [Азәрбајҹан (kiril)@]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (kiril, Азәрбајҹан)@] -->
+<!-- Azerbaijani (Cyrillic) [Азәрбајҹан (Cyrl)@]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (Cyrl, Азәрбајҹан)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>00/01/31</result>
@@ -82,9 +82,9 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result draft='approved'>1900-01-31 00:00</result>
    <result timeType='medium' draft='unconfirmed'>00/01/31 00:00:00</result>
    <result draft='approved'>1900-01-31 00:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>31 yan, 1900</result>
-   <result timeType='short'>31 yan, 1900 00:00</result>
-   <result timeType='medium'>31 yan, 1900 00:00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>31 јанвар, 1900</result>
+   <result timeType='short'>31 јанвар, 1900 00:00</result>
+   <result timeType='medium'>31 јанвар, 1900 00:00:00</result>
    <result dateType='long' timeType='none'>31 јанвар , 1900</result>
    <result timeType='short'>31 јанвар , 1900 00:00</result>
    <result timeType='medium'>31 јанвар , 1900 00:00:00</result>
@@ -99,9 +99,9 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result draft='approved'>1909-02-28 00:00</result>
    <result timeType='medium' draft='unconfirmed'>09/02/28 00:00:01</result>
    <result draft='approved'>1909-02-28 00:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>28 fev, 1909</result>
-   <result timeType='short'>28 fev, 1909 00:00</result>
-   <result timeType='medium'>28 fev, 1909 00:00:01</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>28 феврал, 1909</result>
+   <result timeType='short'>28 феврал, 1909 00:00</result>
+   <result timeType='medium'>28 феврал, 1909 00:00:01</result>
    <result dateType='long' timeType='none'>28 феврал , 1909</result>
    <result timeType='short'>28 феврал , 1909 00:00</result>
    <result timeType='medium'>28 феврал , 1909 00:00:01</result>
@@ -116,9 +116,9 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result draft='approved'>1918-03-26 00:59</result>
    <result timeType='medium' draft='unconfirmed'>18/03/26 00:59:59</result>
    <result draft='approved'>1918-03-26 00:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>26 mar, 1918</result>
-   <result timeType='short'>26 mar, 1918 00:59</result>
-   <result timeType='medium'>26 mar, 1918 00:59:59</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>26 март, 1918</result>
+   <result timeType='short'>26 март, 1918 00:59</result>
+   <result timeType='medium'>26 март, 1918 00:59:59</result>
    <result dateType='long' timeType='none'>26 март , 1918</result>
    <result timeType='short'>26 март , 1918 00:59</result>
    <result timeType='medium'>26 март , 1918 00:59:59</result>
@@ -133,9 +133,9 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result draft='approved'>1932-04-24 01:00</result>
    <result timeType='medium' draft='unconfirmed'>32/04/24 01:00:00</result>
    <result draft='approved'>1932-04-24 01:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>24 apr, 1932</result>
-   <result timeType='short'>24 apr, 1932 01:00</result>
-   <result timeType='medium'>24 apr, 1932 01:00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>24 апрел, 1932</result>
+   <result timeType='short'>24 апрел, 1932 01:00</result>
+   <result timeType='medium'>24 апрел, 1932 01:00:00</result>
    <result dateType='long' timeType='none'>24 апрел , 1932</result>
    <result timeType='short'>24 апрел , 1932 01:00</result>
    <result timeType='medium'>24 апрел , 1932 01:00:00</result>
@@ -150,9 +150,9 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result draft='approved'>1945-05-20 01:00</result>
    <result timeType='medium' draft='unconfirmed'>45/05/20 01:00:01</result>
    <result draft='approved'>1945-05-20 01:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>20 may, 1945</result>
-   <result timeType='short'>20 may, 1945 01:00</result>
-   <result timeType='medium'>20 may, 1945 01:00:01</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>20 май, 1945</result>
+   <result timeType='short'>20 май, 1945 01:00</result>
+   <result timeType='medium'>20 май, 1945 01:00:01</result>
    <result dateType='long' timeType='none'>20 май , 1945</result>
    <result timeType='short'>20 май , 1945 01:00</result>
    <result timeType='medium'>20 май , 1945 01:00:01</result>
@@ -167,9 +167,9 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result draft='approved'>1952-06-18 11:59</result>
    <result timeType='medium' draft='unconfirmed'>52/06/18 11:59:59</result>
    <result draft='approved'>1952-06-18 11:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>18 iyn, 1952</result>
-   <result timeType='short'>18 iyn, 1952 11:59</result>
-   <result timeType='medium'>18 iyn, 1952 11:59:59</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>18 ијун, 1952</result>
+   <result timeType='short'>18 ијун, 1952 11:59</result>
+   <result timeType='medium'>18 ијун, 1952 11:59:59</result>
    <result dateType='long' timeType='none'>18 ијун , 1952</result>
    <result timeType='short'>18 ијун , 1952 11:59</result>
    <result timeType='medium'>18 ијун , 1952 11:59:59</result>
@@ -184,9 +184,9 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result draft='approved'>1973-07-16 12:00</result>
    <result timeType='medium' draft='unconfirmed'>73/07/16 12:00:00</result>
    <result draft='approved'>1973-07-16 12:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>16 iyl, 1973</result>
-   <result timeType='short'>16 iyl, 1973 12:00</result>
-   <result timeType='medium'>16 iyl, 1973 12:00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>16 ијул, 1973</result>
+   <result timeType='short'>16 ијул, 1973 12:00</result>
+   <result timeType='medium'>16 ијул, 1973 12:00:00</result>
    <result dateType='long' timeType='none'>16 ијул , 1973</result>
    <result timeType='short'>16 ијул , 1973 12:00</result>
    <result timeType='medium'>16 ијул , 1973 12:00:00</result>
@@ -201,9 +201,9 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result draft='approved'>1999-08-14 12:00</result>
    <result timeType='medium' draft='unconfirmed'>99/08/14 12:00:01</result>
    <result draft='approved'>1999-08-14 12:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>14 avq, 1999</result>
-   <result timeType='short'>14 avq, 1999 12:00</result>
-   <result timeType='medium'>14 avq, 1999 12:00:01</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>14 август, 1999</result>
+   <result timeType='short'>14 август, 1999 12:00</result>
+   <result timeType='medium'>14 август, 1999 12:00:01</result>
    <result dateType='long' timeType='none'>14 август , 1999</result>
    <result timeType='short'>14 август , 1999 12:00</result>
    <result timeType='medium'>14 август , 1999 12:00:01</result>
@@ -218,9 +218,9 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result draft='approved'>2000-09-12 22:59</result>
    <result timeType='medium' draft='unconfirmed'>00/09/12 22:59:59</result>
    <result draft='approved'>2000-09-12 22:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>12 sen, 2000</result>
-   <result timeType='short'>12 sen, 2000 22:59</result>
-   <result timeType='medium'>12 sen, 2000 22:59:59</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>12 сентјабр, 2000</result>
+   <result timeType='short'>12 сентјабр, 2000 22:59</result>
+   <result timeType='medium'>12 сентјабр, 2000 22:59:59</result>
    <result dateType='long' timeType='none'>12 сентјабр , 2000</result>
    <result timeType='short'>12 сентјабр , 2000 22:59</result>
    <result timeType='medium'>12 сентјабр , 2000 22:59:59</result>
@@ -235,9 +235,9 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result draft='approved'>2001-10-08 23:00</result>
    <result timeType='medium' draft='unconfirmed'>01/10/08 23:00:00</result>
    <result draft='approved'>2001-10-08 23:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>8 okt, 2001</result>
-   <result timeType='short'>8 okt, 2001 23:00</result>
-   <result timeType='medium'>8 okt, 2001 23:00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>8 октјабр, 2001</result>
+   <result timeType='short'>8 октјабр, 2001 23:00</result>
+   <result timeType='medium'>8 октјабр, 2001 23:00:00</result>
    <result dateType='long' timeType='none'>8 октјабр , 2001</result>
    <result timeType='short'>8 октјабр , 2001 23:00</result>
    <result timeType='medium'>8 октјабр , 2001 23:00:00</result>
@@ -252,9 +252,9 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result draft='approved'>2004-11-04 23:00</result>
    <result timeType='medium' draft='unconfirmed'>04/11/04 23:00:01</result>
    <result draft='approved'>2004-11-04 23:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>4 noy, 2004</result>
-   <result timeType='short'>4 noy, 2004 23:00</result>
-   <result timeType='medium'>4 noy, 2004 23:00:01</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>4 нојабр, 2004</result>
+   <result timeType='short'>4 нојабр, 2004 23:00</result>
+   <result timeType='medium'>4 нојабр, 2004 23:00:01</result>
    <result dateType='long' timeType='none'>4 нојабр , 2004</result>
    <result timeType='short'>4 нојабр , 2004 23:00</result>
    <result timeType='medium'>4 нојабр , 2004 23:00:01</result>
@@ -269,9 +269,9 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result draft='approved'>2010-12-01 23:59</result>
    <result timeType='medium' draft='unconfirmed'>10/12/01 23:59:59</result>
    <result draft='approved'>2010-12-01 23:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1 dek, 2010</result>
-   <result timeType='short'>1 dek, 2010 23:59</result>
-   <result timeType='medium'>1 dek, 2010 23:59:59</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1 декабр, 2010</result>
+   <result timeType='short'>1 декабр, 2010 23:59</result>
+   <result timeType='medium'>1 декабр, 2010 23:59:59</result>
    <result dateType='long' timeType='none'>1 декабр , 2010</result>
    <result timeType='short'>1 декабр , 2010 23:59</result>
    <result timeType='medium'>1 декабр , 2010 23:59:59</result>
@@ -281,11 +281,11 @@ locales='az_Cyrl az_Cyrl_AZ'>
   </date>
   <zoneFields 
 locales='az_Cyrl az_Cyrl_AZ'>
-<!-- Azerbaijani (Cyrillic) [Азәрбајҹан (kiril)@]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (kiril, Азәрбајҹан)@] -->
+<!-- Azerbaijani (Cyrillic) [Азәрбајҹан (Cyrl)@]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (Cyrl, Азәрбајҹан)@] -->
   </zoneFields>
   <collation 
 locales='az_Cyrl az_Cyrl_AZ'>
-<!-- Azerbaijani (Cyrillic) [Азәрбајҹан (kiril)@]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (kiril, Азәрбајҹан)@] -->
+<!-- Azerbaijani (Cyrillic) [Азәрбајҹан (Cyrl)@]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (Cyrl, Азәрбајҹан)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 

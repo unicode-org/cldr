@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8' base='ku_Latn'>
- <!-- Kurdish (Latin) [kurdî (لاتین)] -->
+ <cldrTest version='1.8.1' base='ku_Latn'>
+ <!-- Kurdish (Latin) [kurdî (Latn)] -->
   <number 
 locales='ku_Latn ku_Latn_SY ku_Latn_TR'>
-<!-- Kurdish (Latin) [kurdî (لاتین)@]; Kurdish (Latin, Syria) [kurdî (لاتین, SY)@]; Kurdish (Latin, Turkey) [kurdî (لاتین, Tirkiye)@] -->
+<!-- Kurdish (Latin) [kurdî (Latn)@]; Kurdish (Latin, Syria) [kurdî (Latn, SY)@]; Kurdish (Latin, Turkey) [kurdî (Latn, Tirkiye)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='ku_Latn ku_Latn_SY ku_Latn_TR'>
   </number>
   <date 
 locales='ku_Latn ku_Latn_SY ku_Latn_TR'>
-<!-- Kurdish (Latin) [kurdî (لاتین)@]; Kurdish (Latin, Syria) [kurdî (لاتین, SY)@]; Kurdish (Latin, Turkey) [kurdî (لاتین, Tirkiye)@] -->
+<!-- Kurdish (Latin) [kurdî (Latn)@]; Kurdish (Latin, Syria) [kurdî (Latn, SY)@]; Kurdish (Latin, Turkey) [kurdî (Latn, Tirkiye)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>1900-01-31</result>
@@ -304,28 +304,12 @@ locales='ku_Latn ku_Latn_SY ku_Latn_TR'>
   </date>
   <zoneFields 
 locales='ku_Latn ku_Latn_SY ku_Latn_TR'>
-<!-- Kurdish (Latin) [kurdî (لاتین)@]; Kurdish (Latin, Syria) [kurdî (لاتین, SY)@]; Kurdish (Latin, Turkey) [kurdî (لاتین, Tirkiye)@] -->
+<!-- Kurdish (Latin) [kurdî (Latn)@]; Kurdish (Latin, Syria) [kurdî (Latn, SY)@]; Kurdish (Latin, Turkey) [kurdî (Latn, Tirkiye)@] -->
   </zoneFields>
   <collation 
 locales='ku_Latn ku_Latn_SY ku_Latn_TR'>
-<!-- Kurdish (Latin) [kurdî (لاتین)@]; Kurdish (Latin, Syria) [kurdî (لاتین, SY)@]; Kurdish (Latin, Turkey) [kurdî (لاتین, Tirkiye)@] -->
+<!-- Kurdish (Latin) [kurdî (Latn)@]; Kurdish (Latin, Syria) [kurdî (Latn, SY)@]; Kurdish (Latin, Turkey) [kurdî (Latn, Tirkiye)@] -->
    <result draft='unconfirmed approved'>
-xً
-Xً
-xٌ
-Xٌ
-xٍ
-Xٍ
-xَ
-Xَ
-xُ
-Xُ
-xِ
-Xِ
-xّ
-Xّ
-xْ
-Xْ
 x 
 X 
 x x
@@ -513,14 +497,6 @@ xx
 xX
 Xx
 XX
-xًx
-xٌx
-xٍx
-xَx
-xُx
-xِx
-xّx
-xْx
 xxx
 xXx
 xy
@@ -535,60 +511,6 @@ Xz
 XZ
 xzx
 xZx
-xء
-Xء
-xءx
-xآ
-Xآ
-xآx
-xأ
-Xأ
-xأx
-xؤ
-Xؤ
-xؤx
-xإ
-Xإ
-xإx
-xئ
-Xئ
-xئx
-xا
-Xا
-xاx
-xب
-Xب
-xبx
-xة
-Xة
-xةx
-xث
-Xث
-xثx
-xذ
-Xذ
-xذx
-xص
-Xص
-xصx
-xض
-Xض
-xضx
-xط
-Xط
-xطx
-xظ
-Xظ
-xظx
-xك
-Xك
-xكx
-xى
-Xى
-xىx
-xي
-Xي
-xيx
 </result>
   </collation>
  </cldrTest>

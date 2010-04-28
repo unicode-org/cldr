@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8' base='en_Shaw'>
- <!-- English (Shavian) [English (Shavian)] -->
+ <cldrTest version='1.8.1' base='en_Shaw'>
+ <!-- English (Shavian) [en (Shaw)] -->
   <number 
 locales='en_Shaw'>
-<!-- English (Shavian) [English (Shavian)@] -->
+<!-- English (Shavian) [en (Shaw)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,183 +57,183 @@ locales='en_Shaw'>
   </number>
   <date 
 locales='en_Shaw'>
-<!-- English (Shavian) [English (Shavian)@] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 𐑨𐑥</result>
-   <result timeType='medium'>12:00:00 𐑨𐑥</result>
-   <result dateType='short' timeType='none'>1/31/00</result>
-   <result timeType='short'>1/31/00 12:00 𐑨𐑥</result>
-   <result timeType='medium'>1/31/00 12:00:00 𐑨𐑥</result>
-   <result dateType='medium' timeType='none'>·𐑡𐑨 31, 1900</result>
-   <result timeType='short'>·𐑡𐑨 31, 1900 12:00 𐑨𐑥</result>
-   <result timeType='medium'>·𐑡𐑨 31, 1900 12:00:00 𐑨𐑥</result>
-   <result dateType='long' timeType='none'>·𐑡𐑨𐑙𐑘𐑭𐑢𐑺𐑰 31, 1900</result>
-   <result timeType='short'>·𐑡𐑨𐑙𐑘𐑭𐑢𐑺𐑰 31, 1900 12:00 𐑨𐑥</result>
-   <result timeType='medium'>·𐑡𐑨𐑙𐑘𐑭𐑢𐑺𐑰 31, 1900 12:00:00 𐑨𐑥</result>
-   <result dateType='full' timeType='none'>·𐑢𐑧𐑙𐑟𐑛𐑱, ·𐑡𐑨𐑙𐑘𐑭𐑢𐑺𐑰 31, 1900</result>
-   <result timeType='short'>·𐑢𐑧𐑙𐑟𐑛𐑱, ·𐑡𐑨𐑙𐑘𐑭𐑢𐑺𐑰 31, 1900 12:00 𐑨𐑥</result>
-   <result timeType='medium'>·𐑢𐑧𐑙𐑟𐑛𐑱, ·𐑡𐑨𐑙𐑘𐑭𐑢𐑺𐑰 31, 1900 12:00:00 𐑨𐑥</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 𐑨𐑥</result>
-   <result timeType='medium'>12:00:01 𐑨𐑥</result>
-   <result dateType='short' timeType='none'>2/28/09</result>
-   <result timeType='short'>2/28/09 12:00 𐑨𐑥</result>
-   <result timeType='medium'>2/28/09 12:00:01 𐑨𐑥</result>
-   <result dateType='medium' timeType='none'>·𐑓𐑧 28, 1909</result>
-   <result timeType='short'>·𐑓𐑧 28, 1909 12:00 𐑨𐑥</result>
-   <result timeType='medium'>·𐑓𐑧 28, 1909 12:00:01 𐑨𐑥</result>
-   <result dateType='long' timeType='none'>·𐑓𐑧𐑚𐑘𐑵𐑢𐑺𐑰 28, 1909</result>
-   <result timeType='short'>·𐑓𐑧𐑚𐑘𐑵𐑢𐑺𐑰 28, 1909 12:00 𐑨𐑥</result>
-   <result timeType='medium'>·𐑓𐑧𐑚𐑘𐑵𐑢𐑺𐑰 28, 1909 12:00:01 𐑨𐑥</result>
-   <result dateType='full' timeType='none'>·𐑕𐑭𐑙𐑛𐑱, ·𐑓𐑧𐑚𐑘𐑵𐑢𐑺𐑰 28, 1909</result>
-   <result timeType='short'>·𐑕𐑭𐑙𐑛𐑱, ·𐑓𐑧𐑚𐑘𐑵𐑢𐑺𐑰 28, 1909 12:00 𐑨𐑥</result>
-   <result timeType='medium'>·𐑕𐑭𐑙𐑛𐑱, ·𐑓𐑧𐑚𐑘𐑵𐑢𐑺𐑰 28, 1909 12:00:01 𐑨𐑥</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 𐑨𐑥</result>
-   <result timeType='medium'>12:59:59 𐑨𐑥</result>
-   <result dateType='short' timeType='none'>3/26/18</result>
-   <result timeType='short'>3/26/18 12:59 𐑨𐑥</result>
-   <result timeType='medium'>3/26/18 12:59:59 𐑨𐑥</result>
-   <result dateType='medium' timeType='none'>·𐑥𐑸 26, 1918</result>
-   <result timeType='short'>·𐑥𐑸 26, 1918 12:59 𐑨𐑥</result>
-   <result timeType='medium'>·𐑥𐑸 26, 1918 12:59:59 𐑨𐑥</result>
-   <result dateType='long' timeType='none'>·𐑥𐑸𐑗 26, 1918</result>
-   <result timeType='short'>·𐑥𐑸𐑗 26, 1918 12:59 𐑨𐑥</result>
-   <result timeType='medium'>·𐑥𐑸𐑗 26, 1918 12:59:59 𐑨𐑥</result>
-   <result dateType='full' timeType='none'>·𐑑𐑵𐑟𐑛𐑱, ·𐑥𐑸𐑗 26, 1918</result>
-   <result timeType='short'>·𐑑𐑵𐑟𐑛𐑱, ·𐑥𐑸𐑗 26, 1918 12:59 𐑨𐑥</result>
-   <result timeType='medium'>·𐑑𐑵𐑟𐑛𐑱, ·𐑥𐑸𐑗 26, 1918 12:59:59 𐑨𐑥</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 𐑨𐑥</result>
-   <result timeType='medium'>1:00:00 𐑨𐑥</result>
-   <result dateType='short' timeType='none'>4/24/32</result>
-   <result timeType='short'>4/24/32 1:00 𐑨𐑥</result>
-   <result timeType='medium'>4/24/32 1:00:00 𐑨𐑥</result>
-   <result dateType='medium' timeType='none'>·𐑱𐑐 24, 1932</result>
-   <result timeType='short'>·𐑱𐑐 24, 1932 1:00 𐑨𐑥</result>
-   <result timeType='medium'>·𐑱𐑐 24, 1932 1:00:00 𐑨𐑥</result>
-   <result dateType='long' timeType='none'>·𐑱𐑐𐑮𐑭𐑤 24, 1932</result>
-   <result timeType='short'>·𐑱𐑐𐑮𐑭𐑤 24, 1932 1:00 𐑨𐑥</result>
-   <result timeType='medium'>·𐑱𐑐𐑮𐑭𐑤 24, 1932 1:00:00 𐑨𐑥</result>
-   <result dateType='full' timeType='none'>·𐑕𐑭𐑙𐑛𐑱, ·𐑱𐑐𐑮𐑭𐑤 24, 1932</result>
-   <result timeType='short'>·𐑕𐑭𐑙𐑛𐑱, ·𐑱𐑐𐑮𐑭𐑤 24, 1932 1:00 𐑨𐑥</result>
-   <result timeType='medium'>·𐑕𐑭𐑙𐑛𐑱, ·𐑱𐑐𐑮𐑭𐑤 24, 1932 1:00:00 𐑨𐑥</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 𐑨𐑥</result>
-   <result timeType='medium'>1:00:01 𐑨𐑥</result>
-   <result dateType='short' timeType='none'>5/20/45</result>
-   <result timeType='short'>5/20/45 1:00 𐑨𐑥</result>
-   <result timeType='medium'>5/20/45 1:00:01 𐑨𐑥</result>
-   <result dateType='medium' timeType='none'>·𐑥𐑱 20, 1945</result>
-   <result timeType='short'>·𐑥𐑱 20, 1945 1:00 𐑨𐑥</result>
-   <result timeType='medium'>·𐑥𐑱 20, 1945 1:00:01 𐑨𐑥</result>
-   <result dateType='long' timeType='none'>·𐑥𐑱 20, 1945</result>
-   <result timeType='short'>·𐑥𐑱 20, 1945 1:00 𐑨𐑥</result>
-   <result timeType='medium'>·𐑥𐑱 20, 1945 1:00:01 𐑨𐑥</result>
-   <result dateType='full' timeType='none'>·𐑕𐑭𐑙𐑛𐑱, ·𐑥𐑱 20, 1945</result>
-   <result timeType='short'>·𐑕𐑭𐑙𐑛𐑱, ·𐑥𐑱 20, 1945 1:00 𐑨𐑥</result>
-   <result timeType='medium'>·𐑕𐑭𐑙𐑛𐑱, ·𐑥𐑱 20, 1945 1:00:01 𐑨𐑥</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 𐑨𐑥</result>
-   <result timeType='medium'>11:59:59 𐑨𐑥</result>
-   <result dateType='short' timeType='none'>6/18/52</result>
-   <result timeType='short'>6/18/52 11:59 𐑨𐑥</result>
-   <result timeType='medium'>6/18/52 11:59:59 𐑨𐑥</result>
-   <result dateType='medium' timeType='none'>·𐑡𐑵 18, 1952</result>
-   <result timeType='short'>·𐑡𐑵 18, 1952 11:59 𐑨𐑥</result>
-   <result timeType='medium'>·𐑡𐑵 18, 1952 11:59:59 𐑨𐑥</result>
-   <result dateType='long' timeType='none'>·𐑡𐑵𐑯 18, 1952</result>
-   <result timeType='short'>·𐑡𐑵𐑯 18, 1952 11:59 𐑨𐑥</result>
-   <result timeType='medium'>·𐑡𐑵𐑯 18, 1952 11:59:59 𐑨𐑥</result>
-   <result dateType='full' timeType='none'>·𐑢𐑧𐑙𐑟𐑛𐑱, ·𐑡𐑵𐑯 18, 1952</result>
-   <result timeType='short'>·𐑢𐑧𐑙𐑟𐑛𐑱, ·𐑡𐑵𐑯 18, 1952 11:59 𐑨𐑥</result>
-   <result timeType='medium'>·𐑢𐑧𐑙𐑟𐑛𐑱, ·𐑡𐑵𐑯 18, 1952 11:59:59 𐑨𐑥</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 𐑐𐑥</result>
-   <result timeType='medium'>12:00:00 𐑐𐑥</result>
-   <result dateType='short' timeType='none'>7/16/73</result>
-   <result timeType='short'>7/16/73 12:00 𐑐𐑥</result>
-   <result timeType='medium'>7/16/73 12:00:00 𐑐𐑥</result>
-   <result dateType='medium' timeType='none'>·𐑡𐑫 16, 1973</result>
-   <result timeType='short'>·𐑡𐑫 16, 1973 12:00 𐑐𐑥</result>
-   <result timeType='medium'>·𐑡𐑫 16, 1973 12:00:00 𐑐𐑥</result>
-   <result dateType='long' timeType='none'>·𐑡𐑫𐑤𐑲 16, 1973</result>
-   <result timeType='short'>·𐑡𐑫𐑤𐑲 16, 1973 12:00 𐑐𐑥</result>
-   <result timeType='medium'>·𐑡𐑫𐑤𐑲 16, 1973 12:00:00 𐑐𐑥</result>
-   <result dateType='full' timeType='none'>·𐑥𐑭𐑙𐑛𐑱, ·𐑡𐑫𐑤𐑲 16, 1973</result>
-   <result timeType='short'>·𐑥𐑭𐑙𐑛𐑱, ·𐑡𐑫𐑤𐑲 16, 1973 12:00 𐑐𐑥</result>
-   <result timeType='medium'>·𐑥𐑭𐑙𐑛𐑱, ·𐑡𐑫𐑤𐑲 16, 1973 12:00:00 𐑐𐑥</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 𐑐𐑥</result>
-   <result timeType='medium'>12:00:01 𐑐𐑥</result>
-   <result dateType='short' timeType='none'>8/14/99</result>
-   <result timeType='short'>8/14/99 12:00 𐑐𐑥</result>
-   <result timeType='medium'>8/14/99 12:00:01 𐑐𐑥</result>
-   <result dateType='medium' timeType='none'>·𐑪𐑜 14, 1999</result>
-   <result timeType='short'>·𐑪𐑜 14, 1999 12:00 𐑐𐑥</result>
-   <result timeType='medium'>·𐑪𐑜 14, 1999 12:00:01 𐑐𐑥</result>
-   <result dateType='long' timeType='none'>·𐑪𐑜𐑭𐑕𐑑 14, 1999</result>
-   <result timeType='short'>·𐑪𐑜𐑭𐑕𐑑 14, 1999 12:00 𐑐𐑥</result>
-   <result timeType='medium'>·𐑪𐑜𐑭𐑕𐑑 14, 1999 12:00:01 𐑐𐑥</result>
-   <result dateType='full' timeType='none'>·𐑕𐑨𐑛𐑻𐑛𐑱, ·𐑪𐑜𐑭𐑕𐑑 14, 1999</result>
-   <result timeType='short'>·𐑕𐑨𐑛𐑻𐑛𐑱, ·𐑪𐑜𐑭𐑕𐑑 14, 1999 12:00 𐑐𐑥</result>
-   <result timeType='medium'>·𐑕𐑨𐑛𐑻𐑛𐑱, ·𐑪𐑜𐑭𐑕𐑑 14, 1999 12:00:01 𐑐𐑥</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 𐑐𐑥</result>
-   <result timeType='medium'>10:59:59 𐑐𐑥</result>
-   <result dateType='short' timeType='none'>9/12/00</result>
-   <result timeType='short'>9/12/00 10:59 𐑐𐑥</result>
-   <result timeType='medium'>9/12/00 10:59:59 𐑐𐑥</result>
-   <result dateType='medium' timeType='none'>·𐑕𐑧 12, 2000</result>
-   <result timeType='short'>·𐑕𐑧 12, 2000 10:59 𐑐𐑥</result>
-   <result timeType='medium'>·𐑕𐑧 12, 2000 10:59:59 𐑐𐑥</result>
-   <result dateType='long' timeType='none'>·𐑕𐑧𐑐𐑑𐑧𐑥𐑚𐑸 12, 2000</result>
-   <result timeType='short'>·𐑕𐑧𐑐𐑑𐑧𐑥𐑚𐑸 12, 2000 10:59 𐑐𐑥</result>
-   <result timeType='medium'>·𐑕𐑧𐑐𐑑𐑧𐑥𐑚𐑸 12, 2000 10:59:59 𐑐𐑥</result>
-   <result dateType='full' timeType='none'>·𐑑𐑵𐑟𐑛𐑱, ·𐑕𐑧𐑐𐑑𐑧𐑥𐑚𐑸 12, 2000</result>
-   <result timeType='short'>·𐑑𐑵𐑟𐑛𐑱, ·𐑕𐑧𐑐𐑑𐑧𐑥𐑚𐑸 12, 2000 10:59 𐑐𐑥</result>
-   <result timeType='medium'>·𐑑𐑵𐑟𐑛𐑱, ·𐑕𐑧𐑐𐑑𐑧𐑥𐑚𐑸 12, 2000 10:59:59 𐑐𐑥</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 𐑐𐑥</result>
-   <result timeType='medium'>11:00:00 𐑐𐑥</result>
-   <result dateType='short' timeType='none'>10/8/01</result>
-   <result timeType='short'>10/8/01 11:00 𐑐𐑥</result>
-   <result timeType='medium'>10/8/01 11:00:00 𐑐𐑥</result>
-   <result dateType='medium' timeType='none'>·𐑷𐑒 8, 2001</result>
-   <result timeType='short'>·𐑷𐑒 8, 2001 11:00 𐑐𐑥</result>
-   <result timeType='medium'>·𐑷𐑒 8, 2001 11:00:00 𐑐𐑥</result>
-   <result dateType='long' timeType='none'>·𐑷𐑒𐑑𐑴𐑚𐑸 8, 2001</result>
-   <result timeType='short'>·𐑷𐑒𐑑𐑴𐑚𐑸 8, 2001 11:00 𐑐𐑥</result>
-   <result timeType='medium'>·𐑷𐑒𐑑𐑴𐑚𐑸 8, 2001 11:00:00 𐑐𐑥</result>
-   <result dateType='full' timeType='none'>·𐑥𐑭𐑙𐑛𐑱, ·𐑷𐑒𐑑𐑴𐑚𐑸 8, 2001</result>
-   <result timeType='short'>·𐑥𐑭𐑙𐑛𐑱, ·𐑷𐑒𐑑𐑴𐑚𐑸 8, 2001 11:00 𐑐𐑥</result>
-   <result timeType='medium'>·𐑥𐑭𐑙𐑛𐑱, ·𐑷𐑒𐑑𐑴𐑚𐑸 8, 2001 11:00:00 𐑐𐑥</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 𐑐𐑥</result>
-   <result timeType='medium'>11:00:01 𐑐𐑥</result>
-   <result dateType='short' timeType='none'>11/4/04</result>
-   <result timeType='short'>11/4/04 11:00 𐑐𐑥</result>
-   <result timeType='medium'>11/4/04 11:00:01 𐑐𐑥</result>
-   <result dateType='medium' timeType='none'>·𐑯𐑴 4, 2004</result>
-   <result timeType='short'>·𐑯𐑴 4, 2004 11:00 𐑐𐑥</result>
-   <result timeType='medium'>·𐑯𐑴 4, 2004 11:00:01 𐑐𐑥</result>
-   <result dateType='long' timeType='none'>·𐑯𐑴𐑝𐑧𐑥𐑚𐑸 4, 2004</result>
-   <result timeType='short'>·𐑯𐑴𐑝𐑧𐑥𐑚𐑸 4, 2004 11:00 𐑐𐑥</result>
-   <result timeType='medium'>·𐑯𐑴𐑝𐑧𐑥𐑚𐑸 4, 2004 11:00:01 𐑐𐑥</result>
-   <result dateType='full' timeType='none'>·𐑔𐑻𐑟𐑛𐑱, ·𐑯𐑴𐑝𐑧𐑥𐑚𐑸 4, 2004</result>
-   <result timeType='short'>·𐑔𐑻𐑟𐑛𐑱, ·𐑯𐑴𐑝𐑧𐑥𐑚𐑸 4, 2004 11:00 𐑐𐑥</result>
-   <result timeType='medium'>·𐑔𐑻𐑟𐑛𐑱, ·𐑯𐑴𐑝𐑧𐑥𐑚𐑸 4, 2004 11:00:01 𐑐𐑥</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 𐑐𐑥</result>
-   <result timeType='medium'>11:59:59 𐑐𐑥</result>
-   <result dateType='short' timeType='none'>12/1/10</result>
-   <result timeType='short'>12/1/10 11:59 𐑐𐑥</result>
-   <result timeType='medium'>12/1/10 11:59:59 𐑐𐑥</result>
-   <result dateType='medium' timeType='none'>·𐑛𐑭 1, 2010</result>
-   <result timeType='short'>·𐑛𐑭 1, 2010 11:59 𐑐𐑥</result>
-   <result timeType='medium'>·𐑛𐑭 1, 2010 11:59:59 𐑐𐑥</result>
-   <result dateType='long' timeType='none'>·𐑛𐑭𐑕𐑧𐑥𐑚𐑸 1, 2010</result>
-   <result timeType='short'>·𐑛𐑭𐑕𐑧𐑥𐑚𐑸 1, 2010 11:59 𐑐𐑥</result>
-   <result timeType='medium'>·𐑛𐑭𐑕𐑧𐑥𐑚𐑸 1, 2010 11:59:59 𐑐𐑥</result>
-   <result dateType='full' timeType='none'>·𐑢𐑧𐑙𐑟𐑛𐑱, ·𐑛𐑭𐑕𐑧𐑥𐑚𐑸 1, 2010</result>
-   <result timeType='short'>·𐑢𐑧𐑙𐑟𐑛𐑱, ·𐑛𐑭𐑕𐑧𐑥𐑚𐑸 1, 2010 11:59 𐑐𐑥</result>
-   <result timeType='medium'>·𐑢𐑧𐑙𐑟𐑛𐑱, ·𐑛𐑭𐑕𐑧𐑥𐑚𐑸 1, 2010 11:59:59 𐑐𐑥</result>
+<!-- English (Shavian) [en (Shaw)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
+   <result dateType='short' timeType='none'>1900-01-31</result>
+   <result timeType='short'>1900-01-31 00:00</result>
+   <result timeType='medium'>1900-01-31 00:00:00</result>
+   <result dateType='medium' timeType='none'>1900 ·𐑡𐑨 31</result>
+   <result timeType='short'>1900 ·𐑡𐑨 31 00:00</result>
+   <result timeType='medium'>1900 ·𐑡𐑨 31 00:00:00</result>
+   <result dateType='long' timeType='none'>1900 ·𐑡𐑨𐑙𐑘𐑭𐑢𐑺𐑰 31</result>
+   <result timeType='short'>1900 ·𐑡𐑨𐑙𐑘𐑭𐑢𐑺𐑰 31 00:00</result>
+   <result timeType='medium'>1900 ·𐑡𐑨𐑙𐑘𐑭𐑢𐑺𐑰 31 00:00:00</result>
+   <result dateType='full' timeType='none'>·𐑢𐑧𐑙𐑟𐑛𐑱, 1900 ·𐑡𐑨𐑙𐑘𐑭𐑢𐑺𐑰 31</result>
+   <result timeType='short'>·𐑢𐑧𐑙𐑟𐑛𐑱, 1900 ·𐑡𐑨𐑙𐑘𐑭𐑢𐑺𐑰 31 00:00</result>
+   <result timeType='medium'>·𐑢𐑧𐑙𐑟𐑛𐑱, 1900 ·𐑡𐑨𐑙𐑘𐑭𐑢𐑺𐑰 31 00:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
+   <result dateType='short' timeType='none'>1909-02-28</result>
+   <result timeType='short'>1909-02-28 00:00</result>
+   <result timeType='medium'>1909-02-28 00:00:01</result>
+   <result dateType='medium' timeType='none'>1909 ·𐑓𐑧 28</result>
+   <result timeType='short'>1909 ·𐑓𐑧 28 00:00</result>
+   <result timeType='medium'>1909 ·𐑓𐑧 28 00:00:01</result>
+   <result dateType='long' timeType='none'>1909 ·𐑓𐑧𐑚𐑘𐑵𐑢𐑺𐑰 28</result>
+   <result timeType='short'>1909 ·𐑓𐑧𐑚𐑘𐑵𐑢𐑺𐑰 28 00:00</result>
+   <result timeType='medium'>1909 ·𐑓𐑧𐑚𐑘𐑵𐑢𐑺𐑰 28 00:00:01</result>
+   <result dateType='full' timeType='none'>·𐑕𐑭𐑙𐑛𐑱, 1909 ·𐑓𐑧𐑚𐑘𐑵𐑢𐑺𐑰 28</result>
+   <result timeType='short'>·𐑕𐑭𐑙𐑛𐑱, 1909 ·𐑓𐑧𐑚𐑘𐑵𐑢𐑺𐑰 28 00:00</result>
+   <result timeType='medium'>·𐑕𐑭𐑙𐑛𐑱, 1909 ·𐑓𐑧𐑚𐑘𐑵𐑢𐑺𐑰 28 00:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
+   <result dateType='short' timeType='none'>1918-03-26</result>
+   <result timeType='short'>1918-03-26 00:59</result>
+   <result timeType='medium'>1918-03-26 00:59:59</result>
+   <result dateType='medium' timeType='none'>1918 ·𐑥𐑸 26</result>
+   <result timeType='short'>1918 ·𐑥𐑸 26 00:59</result>
+   <result timeType='medium'>1918 ·𐑥𐑸 26 00:59:59</result>
+   <result dateType='long' timeType='none'>1918 ·𐑥𐑸𐑗 26</result>
+   <result timeType='short'>1918 ·𐑥𐑸𐑗 26 00:59</result>
+   <result timeType='medium'>1918 ·𐑥𐑸𐑗 26 00:59:59</result>
+   <result dateType='full' timeType='none'>·𐑑𐑵𐑟𐑛𐑱, 1918 ·𐑥𐑸𐑗 26</result>
+   <result timeType='short'>·𐑑𐑵𐑟𐑛𐑱, 1918 ·𐑥𐑸𐑗 26 00:59</result>
+   <result timeType='medium'>·𐑑𐑵𐑟𐑛𐑱, 1918 ·𐑥𐑸𐑗 26 00:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
+   <result dateType='short' timeType='none'>1932-04-24</result>
+   <result timeType='short'>1932-04-24 01:00</result>
+   <result timeType='medium'>1932-04-24 01:00:00</result>
+   <result dateType='medium' timeType='none'>1932 ·𐑱𐑐 24</result>
+   <result timeType='short'>1932 ·𐑱𐑐 24 01:00</result>
+   <result timeType='medium'>1932 ·𐑱𐑐 24 01:00:00</result>
+   <result dateType='long' timeType='none'>1932 ·𐑱𐑐𐑮𐑭𐑤 24</result>
+   <result timeType='short'>1932 ·𐑱𐑐𐑮𐑭𐑤 24 01:00</result>
+   <result timeType='medium'>1932 ·𐑱𐑐𐑮𐑭𐑤 24 01:00:00</result>
+   <result dateType='full' timeType='none'>·𐑕𐑭𐑙𐑛𐑱, 1932 ·𐑱𐑐𐑮𐑭𐑤 24</result>
+   <result timeType='short'>·𐑕𐑭𐑙𐑛𐑱, 1932 ·𐑱𐑐𐑮𐑭𐑤 24 01:00</result>
+   <result timeType='medium'>·𐑕𐑭𐑙𐑛𐑱, 1932 ·𐑱𐑐𐑮𐑭𐑤 24 01:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
+   <result dateType='short' timeType='none'>1945-05-20</result>
+   <result timeType='short'>1945-05-20 01:00</result>
+   <result timeType='medium'>1945-05-20 01:00:01</result>
+   <result dateType='medium' timeType='none'>1945 ·𐑥𐑱 20</result>
+   <result timeType='short'>1945 ·𐑥𐑱 20 01:00</result>
+   <result timeType='medium'>1945 ·𐑥𐑱 20 01:00:01</result>
+   <result dateType='long' timeType='none'>1945 ·𐑥𐑱 20</result>
+   <result timeType='short'>1945 ·𐑥𐑱 20 01:00</result>
+   <result timeType='medium'>1945 ·𐑥𐑱 20 01:00:01</result>
+   <result dateType='full' timeType='none'>·𐑕𐑭𐑙𐑛𐑱, 1945 ·𐑥𐑱 20</result>
+   <result timeType='short'>·𐑕𐑭𐑙𐑛𐑱, 1945 ·𐑥𐑱 20 01:00</result>
+   <result timeType='medium'>·𐑕𐑭𐑙𐑛𐑱, 1945 ·𐑥𐑱 20 01:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result dateType='short' timeType='none'>1952-06-18</result>
+   <result timeType='short'>1952-06-18 11:59</result>
+   <result timeType='medium'>1952-06-18 11:59:59</result>
+   <result dateType='medium' timeType='none'>1952 ·𐑡𐑵 18</result>
+   <result timeType='short'>1952 ·𐑡𐑵 18 11:59</result>
+   <result timeType='medium'>1952 ·𐑡𐑵 18 11:59:59</result>
+   <result dateType='long' timeType='none'>1952 ·𐑡𐑵𐑯 18</result>
+   <result timeType='short'>1952 ·𐑡𐑵𐑯 18 11:59</result>
+   <result timeType='medium'>1952 ·𐑡𐑵𐑯 18 11:59:59</result>
+   <result dateType='full' timeType='none'>·𐑢𐑧𐑙𐑟𐑛𐑱, 1952 ·𐑡𐑵𐑯 18</result>
+   <result timeType='short'>·𐑢𐑧𐑙𐑟𐑛𐑱, 1952 ·𐑡𐑵𐑯 18 11:59</result>
+   <result timeType='medium'>·𐑢𐑧𐑙𐑟𐑛𐑱, 1952 ·𐑡𐑵𐑯 18 11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result dateType='short' timeType='none'>1973-07-16</result>
+   <result timeType='short'>1973-07-16 12:00</result>
+   <result timeType='medium'>1973-07-16 12:00:00</result>
+   <result dateType='medium' timeType='none'>1973 ·𐑡𐑫 16</result>
+   <result timeType='short'>1973 ·𐑡𐑫 16 12:00</result>
+   <result timeType='medium'>1973 ·𐑡𐑫 16 12:00:00</result>
+   <result dateType='long' timeType='none'>1973 ·𐑡𐑫𐑤𐑲 16</result>
+   <result timeType='short'>1973 ·𐑡𐑫𐑤𐑲 16 12:00</result>
+   <result timeType='medium'>1973 ·𐑡𐑫𐑤𐑲 16 12:00:00</result>
+   <result dateType='full' timeType='none'>·𐑥𐑭𐑙𐑛𐑱, 1973 ·𐑡𐑫𐑤𐑲 16</result>
+   <result timeType='short'>·𐑥𐑭𐑙𐑛𐑱, 1973 ·𐑡𐑫𐑤𐑲 16 12:00</result>
+   <result timeType='medium'>·𐑥𐑭𐑙𐑛𐑱, 1973 ·𐑡𐑫𐑤𐑲 16 12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result dateType='short' timeType='none'>1999-08-14</result>
+   <result timeType='short'>1999-08-14 12:00</result>
+   <result timeType='medium'>1999-08-14 12:00:01</result>
+   <result dateType='medium' timeType='none'>1999 ·𐑪𐑜 14</result>
+   <result timeType='short'>1999 ·𐑪𐑜 14 12:00</result>
+   <result timeType='medium'>1999 ·𐑪𐑜 14 12:00:01</result>
+   <result dateType='long' timeType='none'>1999 ·𐑪𐑜𐑭𐑕𐑑 14</result>
+   <result timeType='short'>1999 ·𐑪𐑜𐑭𐑕𐑑 14 12:00</result>
+   <result timeType='medium'>1999 ·𐑪𐑜𐑭𐑕𐑑 14 12:00:01</result>
+   <result dateType='full' timeType='none'>·𐑕𐑨𐑛𐑻𐑛𐑱, 1999 ·𐑪𐑜𐑭𐑕𐑑 14</result>
+   <result timeType='short'>·𐑕𐑨𐑛𐑻𐑛𐑱, 1999 ·𐑪𐑜𐑭𐑕𐑑 14 12:00</result>
+   <result timeType='medium'>·𐑕𐑨𐑛𐑻𐑛𐑱, 1999 ·𐑪𐑜𐑭𐑕𐑑 14 12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result dateType='short' timeType='none'>2000-09-12</result>
+   <result timeType='short'>2000-09-12 22:59</result>
+   <result timeType='medium'>2000-09-12 22:59:59</result>
+   <result dateType='medium' timeType='none'>2000 ·𐑕𐑧 12</result>
+   <result timeType='short'>2000 ·𐑕𐑧 12 22:59</result>
+   <result timeType='medium'>2000 ·𐑕𐑧 12 22:59:59</result>
+   <result dateType='long' timeType='none'>2000 ·𐑕𐑧𐑐𐑑𐑧𐑥𐑚𐑸 12</result>
+   <result timeType='short'>2000 ·𐑕𐑧𐑐𐑑𐑧𐑥𐑚𐑸 12 22:59</result>
+   <result timeType='medium'>2000 ·𐑕𐑧𐑐𐑑𐑧𐑥𐑚𐑸 12 22:59:59</result>
+   <result dateType='full' timeType='none'>·𐑑𐑵𐑟𐑛𐑱, 2000 ·𐑕𐑧𐑐𐑑𐑧𐑥𐑚𐑸 12</result>
+   <result timeType='short'>·𐑑𐑵𐑟𐑛𐑱, 2000 ·𐑕𐑧𐑐𐑑𐑧𐑥𐑚𐑸 12 22:59</result>
+   <result timeType='medium'>·𐑑𐑵𐑟𐑛𐑱, 2000 ·𐑕𐑧𐑐𐑑𐑧𐑥𐑚𐑸 12 22:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result dateType='short' timeType='none'>2001-10-08</result>
+   <result timeType='short'>2001-10-08 23:00</result>
+   <result timeType='medium'>2001-10-08 23:00:00</result>
+   <result dateType='medium' timeType='none'>2001 ·𐑷𐑒 8</result>
+   <result timeType='short'>2001 ·𐑷𐑒 8 23:00</result>
+   <result timeType='medium'>2001 ·𐑷𐑒 8 23:00:00</result>
+   <result dateType='long' timeType='none'>2001 ·𐑷𐑒𐑑𐑴𐑚𐑸 8</result>
+   <result timeType='short'>2001 ·𐑷𐑒𐑑𐑴𐑚𐑸 8 23:00</result>
+   <result timeType='medium'>2001 ·𐑷𐑒𐑑𐑴𐑚𐑸 8 23:00:00</result>
+   <result dateType='full' timeType='none'>·𐑥𐑭𐑙𐑛𐑱, 2001 ·𐑷𐑒𐑑𐑴𐑚𐑸 08</result>
+   <result timeType='short'>·𐑥𐑭𐑙𐑛𐑱, 2001 ·𐑷𐑒𐑑𐑴𐑚𐑸 08 23:00</result>
+   <result timeType='medium'>·𐑥𐑭𐑙𐑛𐑱, 2001 ·𐑷𐑒𐑑𐑴𐑚𐑸 08 23:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result dateType='short' timeType='none'>2004-11-04</result>
+   <result timeType='short'>2004-11-04 23:00</result>
+   <result timeType='medium'>2004-11-04 23:00:01</result>
+   <result dateType='medium' timeType='none'>2004 ·𐑯𐑴 4</result>
+   <result timeType='short'>2004 ·𐑯𐑴 4 23:00</result>
+   <result timeType='medium'>2004 ·𐑯𐑴 4 23:00:01</result>
+   <result dateType='long' timeType='none'>2004 ·𐑯𐑴𐑝𐑧𐑥𐑚𐑸 4</result>
+   <result timeType='short'>2004 ·𐑯𐑴𐑝𐑧𐑥𐑚𐑸 4 23:00</result>
+   <result timeType='medium'>2004 ·𐑯𐑴𐑝𐑧𐑥𐑚𐑸 4 23:00:01</result>
+   <result dateType='full' timeType='none'>·𐑔𐑻𐑟𐑛𐑱, 2004 ·𐑯𐑴𐑝𐑧𐑥𐑚𐑸 04</result>
+   <result timeType='short'>·𐑔𐑻𐑟𐑛𐑱, 2004 ·𐑯𐑴𐑝𐑧𐑥𐑚𐑸 04 23:00</result>
+   <result timeType='medium'>·𐑔𐑻𐑟𐑛𐑱, 2004 ·𐑯𐑴𐑝𐑧𐑥𐑚𐑸 04 23:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result dateType='short' timeType='none'>2010-12-01</result>
+   <result timeType='short'>2010-12-01 23:59</result>
+   <result timeType='medium'>2010-12-01 23:59:59</result>
+   <result dateType='medium' timeType='none'>2010 ·𐑛𐑭 1</result>
+   <result timeType='short'>2010 ·𐑛𐑭 1 23:59</result>
+   <result timeType='medium'>2010 ·𐑛𐑭 1 23:59:59</result>
+   <result dateType='long' timeType='none'>2010 ·𐑛𐑭𐑕𐑧𐑥𐑚𐑸 1</result>
+   <result timeType='short'>2010 ·𐑛𐑭𐑕𐑧𐑥𐑚𐑸 1 23:59</result>
+   <result timeType='medium'>2010 ·𐑛𐑭𐑕𐑧𐑥𐑚𐑸 1 23:59:59</result>
+   <result dateType='full' timeType='none'>·𐑢𐑧𐑙𐑟𐑛𐑱, 2010 ·𐑛𐑭𐑕𐑧𐑥𐑚𐑸 01</result>
+   <result timeType='short'>·𐑢𐑧𐑙𐑟𐑛𐑱, 2010 ·𐑛𐑭𐑕𐑧𐑥𐑚𐑸 01 23:59</result>
+   <result timeType='medium'>·𐑢𐑧𐑙𐑟𐑛𐑱, 2010 ·𐑛𐑭𐑕𐑧𐑥𐑚𐑸 01 23:59:59</result>
   </date>
   <zoneFields 
 locales='en_Shaw'>
-<!-- English (Shavian) [English (Shavian)@] -->
+<!-- English (Shavian) [en (Shaw)@] -->
   </zoneFields>
   <collation 
 locales='en_Shaw'>
-<!-- English (Shavian) [English (Shavian)@] -->
+<!-- English (Shavian) [en (Shaw)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 

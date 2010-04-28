@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8' base='pl'>
+ <cldrTest version='1.8.1' base='pl'>
  <!-- Polish [polski] -->
   <number 
 locales='pl pl_PL'>
@@ -60,11 +60,11 @@ locales='pl pl_PL'>
 <!-- Polish [polski@]; Polish (Poland) [polski (Polska)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
-   <result dateType='short' timeType='none'>31-01-00</result>
-   <result timeType='short' draft='unconfirmed'>31-01-00, 00:00</result>
-   <result draft='approved'>31-01-00 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>31-01-00, 00:00:00</result>
-   <result draft='approved'>31-01-00 00:00:00</result>
+   <result dateType='short' timeType='none'>31-01-1900</result>
+   <result timeType='short' draft='unconfirmed'>31-01-1900, 00:00</result>
+   <result draft='approved'>31-01-1900 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>31-01-1900, 00:00:00</result>
+   <result draft='approved'>31-01-1900 00:00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed approved'>31-01-1900</result>
    <result timeType='short' draft='unconfirmed'>31-01-1900, 00:00</result>
    <result draft='approved'>31-01-1900 00:00</result>
@@ -82,11 +82,11 @@ locales='pl pl_PL'>
    <result draft='approved'>środa, 31 stycznia 1900 00:00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:01</result>
-   <result dateType='short' timeType='none'>28-02-09</result>
-   <result timeType='short' draft='unconfirmed'>28-02-09, 00:00</result>
-   <result draft='approved'>28-02-09 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>28-02-09, 00:00:01</result>
-   <result draft='approved'>28-02-09 00:00:01</result>
+   <result dateType='short' timeType='none'>28-02-1909</result>
+   <result timeType='short' draft='unconfirmed'>28-02-1909, 00:00</result>
+   <result draft='approved'>28-02-1909 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>28-02-1909, 00:00:01</result>
+   <result draft='approved'>28-02-1909 00:00:01</result>
    <result dateType='medium' timeType='none' draft='unconfirmed approved'>28-02-1909</result>
    <result timeType='short' draft='unconfirmed'>28-02-1909, 00:00</result>
    <result draft='approved'>28-02-1909 00:00</result>
@@ -104,11 +104,11 @@ locales='pl pl_PL'>
    <result draft='approved'>niedziela, 28 lutego 1909 00:00:01</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:59</result>
    <result timeType='medium'>00:59:59</result>
-   <result dateType='short' timeType='none'>26-03-18</result>
-   <result timeType='short' draft='unconfirmed'>26-03-18, 00:59</result>
-   <result draft='approved'>26-03-18 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>26-03-18, 00:59:59</result>
-   <result draft='approved'>26-03-18 00:59:59</result>
+   <result dateType='short' timeType='none'>26-03-1918</result>
+   <result timeType='short' draft='unconfirmed'>26-03-1918, 00:59</result>
+   <result draft='approved'>26-03-1918 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>26-03-1918, 00:59:59</result>
+   <result draft='approved'>26-03-1918 00:59:59</result>
    <result dateType='medium' timeType='none' draft='unconfirmed approved'>26-03-1918</result>
    <result timeType='short' draft='unconfirmed'>26-03-1918, 00:59</result>
    <result draft='approved'>26-03-1918 00:59</result>
@@ -126,11 +126,11 @@ locales='pl pl_PL'>
    <result draft='approved'>wtorek, 26 marca 1918 00:59:59</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:00</result>
-   <result dateType='short' timeType='none'>24-04-32</result>
-   <result timeType='short' draft='unconfirmed'>24-04-32, 01:00</result>
-   <result draft='approved'>24-04-32 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>24-04-32, 01:00:00</result>
-   <result draft='approved'>24-04-32 01:00:00</result>
+   <result dateType='short' timeType='none'>24-04-1932</result>
+   <result timeType='short' draft='unconfirmed'>24-04-1932, 01:00</result>
+   <result draft='approved'>24-04-1932 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>24-04-1932, 01:00:00</result>
+   <result draft='approved'>24-04-1932 01:00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed approved'>24-04-1932</result>
    <result timeType='short' draft='unconfirmed'>24-04-1932, 01:00</result>
    <result draft='approved'>24-04-1932 01:00</result>
@@ -148,11 +148,11 @@ locales='pl pl_PL'>
    <result draft='approved'>niedziela, 24 kwietnia 1932 01:00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:01</result>
-   <result dateType='short' timeType='none'>20-05-45</result>
-   <result timeType='short' draft='unconfirmed'>20-05-45, 01:00</result>
-   <result draft='approved'>20-05-45 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>20-05-45, 01:00:01</result>
-   <result draft='approved'>20-05-45 01:00:01</result>
+   <result dateType='short' timeType='none'>20-05-1945</result>
+   <result timeType='short' draft='unconfirmed'>20-05-1945, 01:00</result>
+   <result draft='approved'>20-05-1945 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>20-05-1945, 01:00:01</result>
+   <result draft='approved'>20-05-1945 01:00:01</result>
    <result dateType='medium' timeType='none' draft='unconfirmed approved'>20-05-1945</result>
    <result timeType='short' draft='unconfirmed'>20-05-1945, 01:00</result>
    <result draft='approved'>20-05-1945 01:00</result>
@@ -170,11 +170,11 @@ locales='pl pl_PL'>
    <result draft='approved'>niedziela, 20 maja 1945 01:00:01</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>11:59</result>
    <result timeType='medium'>11:59:59</result>
-   <result dateType='short' timeType='none'>18-06-52</result>
-   <result timeType='short' draft='unconfirmed'>18-06-52, 11:59</result>
-   <result draft='approved'>18-06-52 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>18-06-52, 11:59:59</result>
-   <result draft='approved'>18-06-52 11:59:59</result>
+   <result dateType='short' timeType='none'>18-06-1952</result>
+   <result timeType='short' draft='unconfirmed'>18-06-1952, 11:59</result>
+   <result draft='approved'>18-06-1952 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>18-06-1952, 11:59:59</result>
+   <result draft='approved'>18-06-1952 11:59:59</result>
    <result dateType='medium' timeType='none' draft='unconfirmed approved'>18-06-1952</result>
    <result timeType='short' draft='unconfirmed'>18-06-1952, 11:59</result>
    <result draft='approved'>18-06-1952 11:59</result>
@@ -192,11 +192,11 @@ locales='pl pl_PL'>
    <result draft='approved'>środa, 18 czerwca 1952 11:59:59</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:00</result>
-   <result dateType='short' timeType='none'>16-07-73</result>
-   <result timeType='short' draft='unconfirmed'>16-07-73, 12:00</result>
-   <result draft='approved'>16-07-73 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>16-07-73, 12:00:00</result>
-   <result draft='approved'>16-07-73 12:00:00</result>
+   <result dateType='short' timeType='none'>16-07-1973</result>
+   <result timeType='short' draft='unconfirmed'>16-07-1973, 12:00</result>
+   <result draft='approved'>16-07-1973 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>16-07-1973, 12:00:00</result>
+   <result draft='approved'>16-07-1973 12:00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed approved'>16-07-1973</result>
    <result timeType='short' draft='unconfirmed'>16-07-1973, 12:00</result>
    <result draft='approved'>16-07-1973 12:00</result>
@@ -214,11 +214,11 @@ locales='pl pl_PL'>
    <result draft='approved'>poniedziałek, 16 lipca 1973 12:00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:01</result>
-   <result dateType='short' timeType='none'>14-08-99</result>
-   <result timeType='short' draft='unconfirmed'>14-08-99, 12:00</result>
-   <result draft='approved'>14-08-99 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>14-08-99, 12:00:01</result>
-   <result draft='approved'>14-08-99 12:00:01</result>
+   <result dateType='short' timeType='none'>14-08-1999</result>
+   <result timeType='short' draft='unconfirmed'>14-08-1999, 12:00</result>
+   <result draft='approved'>14-08-1999 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>14-08-1999, 12:00:01</result>
+   <result draft='approved'>14-08-1999 12:00:01</result>
    <result dateType='medium' timeType='none' draft='unconfirmed approved'>14-08-1999</result>
    <result timeType='short' draft='unconfirmed'>14-08-1999, 12:00</result>
    <result draft='approved'>14-08-1999 12:00</result>
@@ -236,11 +236,11 @@ locales='pl pl_PL'>
    <result draft='approved'>sobota, 14 sierpnia 1999 12:00:01</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>22:59</result>
    <result timeType='medium'>22:59:59</result>
-   <result dateType='short' timeType='none'>12-09-00</result>
-   <result timeType='short' draft='unconfirmed'>12-09-00, 22:59</result>
-   <result draft='approved'>12-09-00 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>12-09-00, 22:59:59</result>
-   <result draft='approved'>12-09-00 22:59:59</result>
+   <result dateType='short' timeType='none'>12-09-2000</result>
+   <result timeType='short' draft='unconfirmed'>12-09-2000, 22:59</result>
+   <result draft='approved'>12-09-2000 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>12-09-2000, 22:59:59</result>
+   <result draft='approved'>12-09-2000 22:59:59</result>
    <result dateType='medium' timeType='none' draft='unconfirmed approved'>12-09-2000</result>
    <result timeType='short' draft='unconfirmed'>12-09-2000, 22:59</result>
    <result draft='approved'>12-09-2000 22:59</result>
@@ -258,11 +258,11 @@ locales='pl pl_PL'>
    <result draft='approved'>wtorek, 12 września 2000 22:59:59</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:00</result>
-   <result dateType='short' timeType='none'>08-10-01</result>
-   <result timeType='short' draft='unconfirmed'>08-10-01, 23:00</result>
-   <result draft='approved'>08-10-01 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>08-10-01, 23:00:00</result>
-   <result draft='approved'>08-10-01 23:00:00</result>
+   <result dateType='short' timeType='none'>08-10-2001</result>
+   <result timeType='short' draft='unconfirmed'>08-10-2001, 23:00</result>
+   <result draft='approved'>08-10-2001 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>08-10-2001, 23:00:00</result>
+   <result draft='approved'>08-10-2001 23:00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed approved'>08-10-2001</result>
    <result timeType='short' draft='unconfirmed'>08-10-2001, 23:00</result>
    <result draft='approved'>08-10-2001 23:00</result>
@@ -280,11 +280,11 @@ locales='pl pl_PL'>
    <result draft='approved'>poniedziałek, 8 października 2001 23:00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:01</result>
-   <result dateType='short' timeType='none'>04-11-04</result>
-   <result timeType='short' draft='unconfirmed'>04-11-04, 23:00</result>
-   <result draft='approved'>04-11-04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>04-11-04, 23:00:01</result>
-   <result draft='approved'>04-11-04 23:00:01</result>
+   <result dateType='short' timeType='none'>04-11-2004</result>
+   <result timeType='short' draft='unconfirmed'>04-11-2004, 23:00</result>
+   <result draft='approved'>04-11-2004 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>04-11-2004, 23:00:01</result>
+   <result draft='approved'>04-11-2004 23:00:01</result>
    <result dateType='medium' timeType='none' draft='unconfirmed approved'>04-11-2004</result>
    <result timeType='short' draft='unconfirmed'>04-11-2004, 23:00</result>
    <result draft='approved'>04-11-2004 23:00</result>
@@ -302,11 +302,11 @@ locales='pl pl_PL'>
    <result draft='approved'>czwartek, 4 listopada 2004 23:00:01</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:59</result>
    <result timeType='medium'>23:59:59</result>
-   <result dateType='short' timeType='none'>01-12-10</result>
-   <result timeType='short' draft='unconfirmed'>01-12-10, 23:59</result>
-   <result draft='approved'>01-12-10 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>01-12-10, 23:59:59</result>
-   <result draft='approved'>01-12-10 23:59:59</result>
+   <result dateType='short' timeType='none'>01-12-2010</result>
+   <result timeType='short' draft='unconfirmed'>01-12-2010, 23:59</result>
+   <result draft='approved'>01-12-2010 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>01-12-2010, 23:59:59</result>
+   <result draft='approved'>01-12-2010 23:59:59</result>
    <result dateType='medium' timeType='none' draft='unconfirmed approved'>01-12-2010</result>
    <result timeType='short' draft='unconfirmed'>01-12-2010, 23:59</result>
    <result draft='approved'>01-12-2010 23:59</result>

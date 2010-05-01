@@ -21,7 +21,6 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
@@ -29,19 +28,18 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.Map.Entry;
 
 import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
-import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.Pair;
-import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
@@ -55,25 +53,21 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.FileUtilities;
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
-import com.ibm.icu.impl.MultiComparator;
+import com.ibm.icu.dev.test.util.FileUtilities;
+import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 public class ShowLanguages {
-  public static final String CHART_DISPLAY_VERSION = "1.8\u03B2";
+  public static final String CHART_DISPLAY_VERSION = "1.8.1"; // "1.8\u03B2"; // \u03B2 is beta
   
   private static final boolean SHOW_NATIVE = true;
   
@@ -170,7 +164,7 @@ public class ShowLanguages {
     }
     contents += "</ul>";
     String[] replacements = { "%date%", CldrUtility.isoFormat(new Date()), "%contents%", contents, "%data%", sw.toString() };
-    PrintWriter pw2 = BagFormatter.openUTF8Writer(CldrUtility.COMMON_DIRECTORY + "../diff/supplemental/", filename);
+    PrintWriter pw2 = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "/supplemental/", filename);
     FileUtilities.appendFile(CldrUtility.BASE_DIRECTORY + java.io.File.separatorChar  + "tools/java/org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
     pw2.close();
   }
@@ -246,11 +240,11 @@ public class ShowLanguages {
       addLanguageScriptCells(tablePrinter, tablePrinter2, "und", script, "?");
     }
     
-    pw1 = new PrintWriter(new FormattedFileWriter(pw, "Languages and Scripts", null));
+    pw1 = new PrintWriter(new FormattedFileWriter(pw, "Languages and Scripts", null, false));
     pw1.println(tablePrinter.toTable());
     pw1.close();
     
-    pw1 = new PrintWriter(new FormattedFileWriter(pw, "Scripts and Languages", null));
+    pw1 = new PrintWriter(new FormattedFileWriter(pw, "Scripts and Languages", null, false));
     pw1.println(tablePrinter2.toTable());
     pw1.close();
     
@@ -365,7 +359,7 @@ public class ShowLanguages {
 //  addLanguageScriptCells2( tablePrinter2, "und", "Zzzz", territory);
 //  }
     
-    pw1 = new PrintWriter(new FormattedFileWriter(pw, "Scripts, Languages, and Territories", null));
+    pw1 = new PrintWriter(new FormattedFileWriter(pw, "Scripts, Languages, and Territories", null, false));
     pw1.println(tablePrinter2.toTable());
     pw1.close();
   }
@@ -568,11 +562,13 @@ public class ShowLanguages {
     
     private String filename;
     
-    public FormattedFileWriter(PrintWriter indexFile, String title, String explanation) throws IOException {
+    public FormattedFileWriter(PrintWriter indexFile, String title, String explanation, boolean skipIndex) throws IOException {
       String anchor = FileUtilities.anchorize(title);
       filename = anchor + ".html";
       this.title = title;
-      anchors.add("<a name='" + FileUtilities.anchorize(getTitle()) + "' href='" + getFilename() + "'>" + getTitle() + "</a></caption>");
+      if (!skipIndex) {
+        anchors.add("<a name='" + FileUtilities.anchorize(getTitle()) + "' href='" + getFilename() + "'>" + getTitle() + "</a></caption>");
+      }
       String helpText = getHelpHtml(anchor);
       if (explanation == null) {
         explanation = helpText;
@@ -617,9 +613,7 @@ public class ShowLanguages {
     Map language_scripts = new TreeMap();
     
     Map language_territories = new TreeMap();
-    
-    Map windows_tzid = new TreeMap();
-    
+        
     List deprecatedItems = new ArrayList();
     
     Map territory_languages;
@@ -759,13 +753,6 @@ public class ShowLanguages {
           continue;
         }
         
-        if (path.indexOf("/mapTimezones") >= 0 && path.contains("[@type=\"windows\"]")) {
-          Map attributes = parts.findAttributes("mapZone");
-          String tzid = (String) attributes.get("type");
-          String other = (String) attributes.get("other");
-          windows_tzid.put(other, tzid);
-          continue;
-        }
         if (path.indexOf("/deprecatedItems") >= 0) {
           deprecatedItems.add(parts.findAttributes("deprecatedItems"));
           continue;
@@ -922,7 +909,7 @@ public class ShowLanguages {
     
     public void printLikelySubtags(PrintWriter index) throws IOException {
 
-        PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Likely Subtags", null));
+        PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Likely Subtags", null, false));
         
         TablePrinter tablePrinter = new TablePrinter()
         .addColumn("Source Lang","class='source'",null,"class='source'",true).setSortPriority(1).setSpanRows(false)
@@ -1149,6 +1136,7 @@ public class ShowLanguages {
 //        "To add a new territory for a language, see the <i>add new</i> links below. " +
 //        "For more information, see <a href=\"territory_language_information.html\">Territory-Language Information.</a>" +
 //        "<p></div>"
+, false
       ));
       PrintWriter pw2 = pw21;
       NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
@@ -1267,6 +1255,7 @@ public class ShowLanguages {
 //        "<a href='http://www.unicode.org/reports/tr35/#Coverage_Levels'>Appendix M: Coverage Levels</a>. " +
 //        "See also the coverageAdditions in <a href='http://www.unicode.org/cldr/data/common/supplemental/supplementalMetadata.xml'>supplemental metadata</a>." +
 //        "</p>"
+, true
       ));
       
       
@@ -1380,6 +1369,7 @@ public class ShowLanguages {
 //        "<p>Official status is supplied where available, formatted as {O}. Hovering with the mouse shows a short description.</p>" + 
 //        "<p><b>Defects:</b> If you find errors or omissions in this data, please report the information with the <i>bug</i> or <i>add new</i> link below." +
 //        "</p></div>"
+, false
       ));
       PrintWriter pw2 = pw21;
       NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
@@ -1595,7 +1585,7 @@ public class ShowLanguages {
     }
     
     public void showCalendarData(PrintWriter pw0) throws IOException {
-      PrintWriter pw = new PrintWriter(new FormattedFileWriter(pw0, "Other Territory Data", null));
+      PrintWriter pw = new PrintWriter(new FormattedFileWriter(pw0, "Other Territory Data", null, false));
       pw.println("<table>");
       pw.println("<tr><th class='source'>Territory</th>");
       for (Iterator<String> it = territoryTypes.iterator(); it.hasNext();) {
@@ -1711,6 +1701,7 @@ public class ShowLanguages {
 //        "To correct any information here, please file a " +
 //        addBug(1274, "bug", "<email>", "Currency Bug", "<currency, country, and references supporting change>") +
 //        ".</p>"
+, false
       ));
       //doTitle(pw, "Territory \u2192 Currency");
       pw.println("<table>");
@@ -1803,7 +1794,7 @@ public class ShowLanguages {
      * 
      */
     public void printAliases(PrintWriter index) throws IOException {
-      PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Aliases", null));
+      PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Aliases", null, false));
       
       //doTitle(pw, "Aliases");
       pw.println("<table>");
@@ -1835,18 +1826,29 @@ public class ShowLanguages {
     //		}
     
     public void printWindows_Tzid(PrintWriter index) throws IOException {
-      PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Windows \u2192 Tzid", null));
-      pw.println("<table>");
-      // TODO add metazones
+      Map<String, Map<String, Map<String, String>>> zoneMapping = supplementalDataInfo.getTypeToZoneToRegionToZone();
+      PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Zone \u2192 Tzid", null, false));
+      for (Entry<String, Map<String, Map<String, String>>> typeAndZoneToRegionToZone : zoneMapping.entrySet()) {
+        String type = typeAndZoneToRegionToZone.getKey();
+        Map<String, Map<String, String>> zoneToRegionToZone = typeAndZoneToRegionToZone.getValue();
+        pw.println("<br><h1>Mapping for: " + type + "</h1><br>");
+        //doTitle(pw, "Windows \u2192 Tzid");
+        pw.println("<table>");
+        pw.println("<tr><th class='source'>" + type + "</th><th class='source'>" + "Region" + "</th><th class='target'>" + "TZID" + "</th></tr>");
 
-      //doTitle(pw, "Windows \u2192 Tzid");
-      for (Iterator it = windows_tzid.keySet().iterator(); it.hasNext();) {
-        String source = (String) it.next();
-        String target = (String) windows_tzid.get(source);
-        pw.println("<tr><td class='source'>" + source + "</td><td class='target'>" + target + "</td></tr>");
+        for (Entry<String, Map<String, String>> zoneAndregionToZone : zoneToRegionToZone.entrySet()) {
+          String source = zoneAndregionToZone.getKey();
+          Map<String, String> regionToZone = zoneAndregionToZone.getValue();
+          for (Entry<String, String> regionAndZone : regionToZone.entrySet()) {
+            String region = regionAndZone.getKey();
+            String target = regionAndZone.getValue();
+            if (region == null) region = "<i>any</a>";
+            pw.println("<tr><td class='source'>" + source + "</td><td class='source'>" + region + "</td><td class='target'>" + target + "</td></tr>");
+          }
+        }
+        //doFooter(pw);
+        pw.println("</table>");
       }
-      //doFooter(pw);
-      pw.println("</table>");
       pw.close();
     }
     
@@ -1855,7 +1857,7 @@ public class ShowLanguages {
     public void printContains(PrintWriter index) throws IOException {
       String title = "Territory Containment (UN M.49)";
       
-      PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null));
+      PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null, false));
       //doTitle(pw, title);
       List<String[]> rows = new ArrayList<String[]>();
       printContains3("001", rows, new ArrayList());
@@ -1907,7 +1909,7 @@ public class ShowLanguages {
     public void printPlurals(PrintWriter index) throws IOException {
       final String title = "Language Plural Rules";
 
-      final PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null));
+      final PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null, false));
 
       final TablePrinter tablePrinter = new TablePrinter()
       .addColumn("Language Name","class='source'",null,"class='source'",true).setSortPriority(0).setBreakSpans(true).setRepeatHeader(true)
@@ -1941,7 +1943,7 @@ public class ShowLanguages {
     public void printCharacters(PrintWriter index) throws IOException {
       String title = "Character Fallback Substitutions";
       
-      PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null));
+      PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null, false));
       //doTitle(pw, title);
       pw.println("<table>");
 

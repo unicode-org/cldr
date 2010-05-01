@@ -384,7 +384,7 @@ public class GenerateComparison {
 
       System.out.println(locale + "\tDifferences:\t" + format.format(differences)
               + "\tPaths:\t" + format.format(paths.size())
-              + "\tTime:\t" + timer.getDuration() + "ms");
+              + "\tTime:\t" + timer);
 
       totalPaths += paths.size();
       out.println(ShowData.dateFooter());

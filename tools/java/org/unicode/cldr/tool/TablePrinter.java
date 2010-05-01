@@ -103,6 +103,11 @@ public class TablePrinter {
       return this;
     }
     
+    public Column setCellPattern(MessageFormat cellPattern) {
+      this.cellPattern = cellPattern;
+      return this;
+    }
+    
     public Column setHeader(String header) {
       this.header = header;
       return this;
@@ -237,23 +242,22 @@ public class TablePrinter {
     private int[] sortPriorities = new int[0];
     private BitSet ascending = new BitSet();
     Collator englishCollator = Collator.getInstance(ULocale.ENGLISH);
-    
+
     public int compare(T[] o1, T[] o2) {
       int result;
       for (int curr : sortPriorities) {
-        result = o1[curr] instanceof String ? 
-            englishCollator.compare((String)o1[curr],(String)o2[curr])
-            : o1[curr].compareTo(o2[curr]);
-            if (0 != result) {
-              if (ascending.get(curr)) {
-                return result;
-              }
-              return -result;
-            }
+        result = o1[curr] instanceof String ? englishCollator.compare((String)o1[curr],(String)o2[curr])
+                : o1[curr].compareTo(o2[curr]);
+        if (0 != result) {
+          if (ascending.get(curr)) {
+            return result;
+          }
+          return -result;
+        }
       }
       return 0;
     }
-    
+
     public void setSortPriority(int column, int priority) {
       if (sortPriorities.length <= priority) {
         int[] temp = new int[priority+1];
@@ -262,15 +266,15 @@ public class TablePrinter {
       }
       sortPriorities[priority] = column;
     }
-    
+
     public int[] getSortPriorities() {
       return sortPriorities;
     }
-    
+
     public boolean getSortAscending(int bitIndex) {
       return ascending.get(bitIndex);
     }
-    
+
     public void setSortAscending(int bitIndex, boolean value) {
       ascending.set(bitIndex, value);
     }

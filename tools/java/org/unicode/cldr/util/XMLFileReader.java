@@ -106,7 +106,6 @@ public class XMLFileReader {
     }      
   }
 
-
   private class MyContentHandler implements ContentHandler, ErrorHandler, LexicalHandler, DeclHandler {
     StringBuffer chars = new StringBuffer();
     StringBuffer commentChars = new StringBuffer();

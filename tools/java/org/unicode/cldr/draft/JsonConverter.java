@@ -56,12 +56,16 @@ public class JsonConverter {
       final CLDRFile file = (CLDRFile) cldrFactory.make(locale, false);
       Relation<String, String> element2Attributes = file.isNonInheriting() ? suppInfo : mainInfo;
       final Item main = new TableItem(null);
+      DtdType dtdType = null;
       for (Iterator<String> it = file.iterator("",CLDRFile.ldmlComparator); it.hasNext();) {
         final String xpath = it.next();
         final String fullXpath = file.getFullXPath(xpath);
         String value = file.getStringValue(xpath);
         oldParts.set(fullXpath);
-        rewrite(oldParts, value, element2Attributes, parts);
+        if (dtdType == null) {
+          dtdType = DtdType.valueOf(parts.getElement(0));
+        }
+        rewrite(dtdType, oldParts, value, element2Attributes, parts);
         System.out.println(parts);
         Item current = main;
         int size = parts.size();
@@ -96,7 +100,7 @@ public class JsonConverter {
   static <K, V> void putAll(Relation r, K key, V... values) {
     r.putAll(key, Arrays.asList(values));
   }
-  private static boolean isDistinguishing(final String element, final String attribute) {
+  private static boolean isDistinguishing(DtdType dtdType, final String element, final String attribute) {
     //      <mapZone other="Afghanistan" territory="001" type="Asia/Kabul"/> result is the type!
     //             <deprecatedItems elements="variant" attributes="type" values="BOKMAL NYNORSK AALAND POLYTONI"/>
     // ugly: if there are values, then everything else is distinguishing, ow if there are attibutes, elements are
@@ -106,32 +110,38 @@ public class JsonConverter {
     Set<String> extras = extraDistinguishing.getAll(element);
     if (extras != null && extras.contains(attribute)) return true;
     if (EXTRA_DISTINGUISHING.contains(attribute)) return true;
-    return CLDRFile.isDistinguishing(element, attribute);
+    return CLDRFile.isDistinguishing(dtdType, element, attribute);
   }
 
-  private static void rewrite(XPathParts parts, String value, Relation<String, String> element2Attributes, XPathParts out) {
+  private static void rewrite(DtdType dtdType, XPathParts parts, String value, Relation<String, String> element2Attributes, XPathParts out) {
     out.clear();
     int size = parts.size();
     for (int i = 1; i < size; ++i) {
       final String element = parts.getElement(i);
       out.addElement(element);
 
+      // turn a path into a revised path. All distinguished attributes (including those not currently on the string)
+      // get turned into extra element/element pairs, starting with _
+      // all non-distinguishing attributes get turned into separate children
+      // a/b[@non="y"][@dist="x"]/w : z =>
+      //    a/b/_dist/x/_non=y
+      //    a/b/_dist/x/w=z
       Collection<String> actualAttributeKeys = parts.getAttributeKeys(i);
       boolean isOrdered = actualAttributeKeys.contains("_q");
       Set<String> possibleAttributeKeys = element2Attributes.getAll(element);
 
       for (final String attribute : actualAttributeKeys) {
         String attributeValue = parts.getAttributeValue(i, attribute);
-        if (!isDistinguishing(element, attribute)) {
+        if (!isDistinguishing(dtdType, element, attribute)) {
           out.addAttribute(attribute, attributeValue);
         }
       }
       if (possibleAttributeKeys != null) {
         for (final String attribute : possibleAttributeKeys) {
-          if (isDistinguishing(element, attribute)) {
+          if (isDistinguishing(dtdType, element, attribute)) {
             if (attribute.equals("alt")) continue; // TODO fix
             String attributeValue = parts.getAttributeValue(i, attribute);
-            out.addElement(attribute);
+            out.addElement("_"+attribute);
             if (attributeValue == null) {
               attributeValue = "?";
             }

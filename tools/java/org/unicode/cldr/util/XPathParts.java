@@ -947,4 +947,14 @@ public class XPathParts {
     elements.remove(elementIndex);
     return this;
   }
+
+  public String findFirstAttributeValue(String attribute) {
+    for (int i = 0; i < elements.size(); ++i) {
+      String value = getAttributeValue(i, attribute);
+      if (value != null) {
+        return value;
+      }
+    }
+    return null;
+  }
 }

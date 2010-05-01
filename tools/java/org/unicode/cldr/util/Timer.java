@@ -1,36 +1,51 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.DecimalFormat;
+
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;
 
 public final class Timer {
-  long startTime;
-  long duration;
+  private long startTime;
+  private long duration;
   {
     start();
   }
+  
   public void start() {
-    startTime = System.currentTimeMillis();
+    startTime = System.nanoTime();
     duration = Long.MIN_VALUE;
   }
+  
   public long getDuration() {
     if (duration == Long.MIN_VALUE) {
-      duration = System.currentTimeMillis() - startTime;
+      duration = System.nanoTime() - startTime;
     }
     return duration;
   }
-  public void stop() {
-    getDuration();
+  
+  public long stop() {
+    return getDuration();
   }
+  
   public String toString() {
-    return nf.format(getDuration()) + "ms";
+    return nf.format(getDuration()) + "ns";
   }
   public String toString(Timer other) {
-    return toString() + " (" + pf.format((double)getDuration()/other.getDuration()) + ")";
+    return toString(1L, other.getDuration());
   }
-  static  NumberFormat nf = NumberFormat.getNumberInstance(ULocale.ENGLISH);
-  static  NumberFormat pf = NumberFormat.getPercentInstance(ULocale.ENGLISH);
+  public String toString(long iterations) {
+    return nf.format(getDuration()/iterations) + "ns";
+  }
+  
+  public String toString(long iterations, long other) {
+    return nf.format(getDuration()/iterations) + "ns" + " (" + pf.format((double)getDuration()/other - 1D) + ")";
+  }
+  
+  private static DecimalFormat nf = (DecimalFormat) NumberFormat.getNumberInstance(ULocale.ENGLISH);
+  private static DecimalFormat pf = (DecimalFormat) NumberFormat.getPercentInstance(ULocale.ENGLISH);
   static {
-    pf.setMaximumFractionDigits(3);
+    pf.setMaximumFractionDigits(1);
+    pf.setPositivePrefix("+");
   }
 }

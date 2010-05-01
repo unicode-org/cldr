@@ -1,26 +1,8 @@
 package org.unicode.cldr.test;
 
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Log;
-import org.unicode.cldr.util.PrettyPath;
-import com.ibm.icu.dev.test.util.Relation;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.XMLFileReader;
-import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.CLDRFile.Status;
-
-import org.xml.sax.ErrorHandler;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-import org.xml.sax.SAXParseException;
-import org.xml.sax.XMLReader;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -29,6 +11,21 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.PrettyPath;
+import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.CLDRFile.DtdType;
+import org.unicode.cldr.util.CLDRFile.Factory;
+import org.xml.sax.ErrorHandler;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
+import org.xml.sax.XMLReader;
+
+import com.ibm.icu.dev.test.util.Relation;
 
 /**
  * Simple test that loads each file in the cldr directory, thus verifying that
@@ -179,6 +176,7 @@ public class QuickCheck {
       DisplayAndInputProcessor displayAndInputProcessor = new DisplayAndInputProcessor(file);
       
       System.out.println(locale + "\t-\t" + english.getName(locale));
+      DtdType dtdType = null;
       
       for (Iterator<String> it = file.iterator(); it.hasNext();) {
         String path = it.next();
@@ -225,12 +223,15 @@ public class QuickCheck {
         
         String fullPath = file.getFullXPath(path);
         parts.set(fullPath);
+        if (dtdType == null) {
+          dtdType = DtdType.valueOf(parts.getElement(0));
+        }
         for (int i = 0; i < parts.size(); ++i) {
           if (parts.getAttributeCount(i) == 0) continue;
           String element = parts.getElement(i);
           for (String attribute : parts.getAttributeKeys(i)) {
             if (skipAttributes.contains(attribute)) continue;
-            if (CLDRFile.isDistinguishing(element, attribute)) {
+            if (CLDRFile.isDistinguishing(dtdType, element, attribute)) {
               distinguishing.put(element, attribute);
             } else {
               nonDistinguishing.put(element, attribute);

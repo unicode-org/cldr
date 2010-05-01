@@ -127,7 +127,7 @@ public class CldrUtility {
    * Only the default, if no other directory is specified.
    */
   public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = getPath(COMMON_DIRECTORY , "supplemental/");
-  public static final String CHART_DIRECTORY = getPath(GEN_DIRECTORY ,  "diff/");
+  public static final String CHART_DIRECTORY = getPath(BASE_DIRECTORY,  "/../cldr-tmp/diff/");
   public static final String TEST_DIR = getPath(CldrUtility.BASE_DIRECTORY,  "test/");
 
 

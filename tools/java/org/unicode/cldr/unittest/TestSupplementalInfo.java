@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -11,22 +12,138 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DayPeriodInfo;
+import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.IsoCurrencyParser;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.DayPeriodInfo;
+import org.unicode.cldr.util.Iso639Data.Scope;
+import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.lang.UCharacter;
 
 public class TestSupplementalInfo extends TestFmwk {
   static TestInfo testInfo = TestInfo.getInstance();
 
   public static void main(String[] args) {
     new TestSupplementalInfo().run(args);
+  }
+
+  public void TestMacrolanguages() {
+    Set<String> languageCodes = testInfo.getStandardCodes().getAvailableCodes("language");
+    Map<String, Map<String, List<String>>> typeToTagToReplacement = testInfo.getSupplementalDataInfo().getLocaleAliasInfo();
+    Map<String, List<String>> tagToReplacement = typeToTagToReplacement.get("language");
+
+    Relation<String,String> replacementToReplaced = new Relation(new TreeMap(), TreeSet.class);
+    for (String language : tagToReplacement.keySet()) {
+      List<String> replacements = tagToReplacement.get(language);
+      if (replacements != null) {
+        replacementToReplaced.putAll(replacements, language);
+      }
+    }
+    replacementToReplaced.freeze();
+
+    Map<String, Map<String, Map<String, String>>> lstreg = testInfo.getStandardCodes().getLStreg();
+    Map<String, Map<String, String>> lstregLanguageInfo = lstreg.get("language");
+
+    Relation<Scope,String> scopeToCodes = new Relation(new TreeMap(), TreeSet.class);
+    // the invariant is that every macrolanguage has exactly 1 encompassed language that maps to it
+
+    main:
+    for (String language : Builder.with(new TreeSet<String>()).addAll(languageCodes).addAll(Iso639Data.getAvailable()).get()) {
+      if (language.equals("no") || language.equals("sh")) continue; // special cases
+      Scope languageScope = getScope(language, lstregLanguageInfo);
+      if (languageScope == Scope.Collection || languageScope == Scope.Macrolanguage) {
+        if (Iso639Data.getHeirarchy(language) != null) {
+          continue main; // is real family
+        }
+        Set<String> replacements = replacementToReplaced.getAll(language);
+        if (replacements == null || replacements.size() == 0) {
+          scopeToCodes.put(languageScope, language);
+        } else {
+          // it still might be bad, if we don't have a mapping to a regular language
+          for (String replacement : replacements) {
+            Scope replacementScope = getScope(replacement, lstregLanguageInfo);
+            if (replacementScope == Scope.Individual) {
+              continue main;
+            }
+          }
+          scopeToCodes.put(languageScope, language);
+        }
+      }
+    }
+    // now show the items we found
+    for (Scope scope : scopeToCodes.keySet()) {
+      for (String language : scopeToCodes.getAll(scope)) {
+        String name = testInfo.getEnglish().getName(language);
+        if (name == null || name.equals(language)) {
+          Set<String> set = Iso639Data.getNames(language);
+          if (set != null) {
+            name = set.iterator().next();
+          } else {
+            Map<String, String> languageInfo = lstregLanguageInfo.get(language);
+            if (languageInfo != null) {
+              name = languageInfo.get("Description");
+            }
+          }
+        }
+        errln(scope
+                + "\t" + language
+                + "\t" + name
+                + "\t" + Iso639Data.getType(language)
+        );
+      }
+    }
+  }
+
+  private Scope getScope(String language, Map<String, Map<String, String>> lstregLanguageInfo) {
+    Scope languageScope = Iso639Data.getScope(language);
+    Map<String, String> languageInfo = lstregLanguageInfo.get(language);
+    if (languageInfo == null) {
+      //System.out.println("Couldn't get lstreg info for " + language);
+    } else {
+      String lstregScope = languageInfo.get("Scope");
+      if (lstregScope != null) {
+        Scope scope2 = Scope.fromString(lstregScope);
+        if (languageScope != scope2) {
+          //System.out.println("Mismatch in scope between LSTR and ISO 639:\t" + scope2 + "\t" + languageScope);
+          languageScope = scope2;
+        }
+      }
+    }
+    return languageScope;
+  }
+
+  public void TestPopulation() {
+    Set<String> languages = testInfo.getSupplementalDataInfo().getLanguagesForTerritoriesPopulationData();
+    Relation<String,String> baseToLanguages = new Relation(new TreeMap(), TreeSet.class);
+    LanguageTagParser ltp = new LanguageTagParser();
+    for (String language : languages) {
+      String base = ltp.set(language).getLanguage();
+      baseToLanguages.put(base, language);
+    }
+    // the invariants are that if we have a base, we must not have a script.
+    // and if we don't have a base, we must have two items
+    for (String base : baseToLanguages.keySet()) {
+      Set<String> languagesForBase = baseToLanguages.getAll(base);
+      if (languagesForBase.contains(base)) {
+        if (languagesForBase.size() > 1) {
+          errln("Cannot have base alone with other scripts:\t" + languagesForBase);
+        }
+      } else {
+        if (languagesForBase.size() == 1) {
+          errln("Cannot only one script for language:\t" + languagesForBase);
+        }
+
+      }
+    }
   }
 
   public void TestCompleteness() {

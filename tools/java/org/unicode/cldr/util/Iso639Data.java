@@ -6,11 +6,13 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Relation;
 
 public class Iso639Data {
@@ -24,10 +26,12 @@ public class Iso639Data {
   static Map<String, String> fromBiblio3;
 
   static Relation<String, String> toNames;
-  
+
   static Relation<String, String> toRetirements;
 
   static Map<String, Scope> toScope;
+
+  static Map<String, List<String>> toHeirarchy;
 
   static Map<String, Type> toType;
 
@@ -88,7 +92,16 @@ public class Iso639Data {
    * </p>
    */
   public enum Scope {
-    Individual, Macrolanguage, Special, Collection, PrivateUse, Unknown
+    Individual, Macrolanguage, Special, Collection, PrivateUse, Unknown;
+    public static Scope fromString(String input) {
+      input = input.replace("-","");
+      for (Scope item : Scope.values()) {
+        if (item.toString().equalsIgnoreCase(input)) {
+          return item;
+        }
+      }
+      return Scope.valueOf(input); // to get exception
+    }
   };
 
   /**
@@ -165,8 +178,8 @@ public class Iso639Data {
     }
     return toAlpha3.get(languageSubtag);
   }
-  
-   public static String fromAlpha3(String alpha3) {
+
+  public static String fromAlpha3(String alpha3) {
     if (fromAlpha3 == null) {
       getData();
     }
@@ -185,27 +198,27 @@ public class Iso639Data {
     return toNames.containsKey(alpha3);
   }
 
-   public static String fromBiblio3(String biblio3) {
-     if (toNames == null) {
-       getData();
-     }
-     String result = fromBiblio3.get(biblio3);
-     if (result != null) {
-       return result;
-     }
-     return fromAlpha3(biblio3);
-   }
+  public static String fromBiblio3(String biblio3) {
+    if (toNames == null) {
+      getData();
+    }
+    String result = fromBiblio3.get(biblio3);
+    if (result != null) {
+      return result;
+    }
+    return fromAlpha3(biblio3);
+  }
 
-   public static String toBiblio3(String languageTag) {
-     if (toNames == null) {
-       getData();
-     }
-     String result = toBiblio3.get(languageTag);
-     if (result != null) {
-       return result;
-     }
-     return toAlpha3(languageTag);
-   }
+  public static String toBiblio3(String languageTag) {
+    if (toNames == null) {
+      getData();
+    }
+    String result = toBiblio3.get(languageTag);
+    if (result != null) {
+      return result;
+    }
+    return toAlpha3(languageTag);
+  }
 
 
   public static Set<String> getNames(String languageSubtag) {
@@ -225,6 +238,16 @@ public class Iso639Data {
     if (result != null)
       return result;
     return Scope.Individual;
+  }
+
+  /**
+   * Returns the ISO 639-5 heirarchy if available, otherwise null.
+   */
+  public static List<String> getHeirarchy(String languageSubtag) {
+    if (toHeirarchy == null) {
+      getData();
+    }
+    return toHeirarchy.get(languageSubtag);
   }
 
   public static Type getType(String languageSubtag) {
@@ -265,12 +288,16 @@ public class Iso639Data {
     Id, Print_Name, Inverted_Name
   };
 
+  private enum Status {
+    BASE, BEFORE_CELL, IN_CELL, IN_INSIDE_TABLE
+  };
+
   private static void getData() {
     try {
       BufferedReader in = CldrUtility.getUTF8Data("iso-639-3-version.tab");
       version = in.readLine().trim();
       in.close();
-      
+
       in = CldrUtility.getUTF8Data("iso-639-3.tab");
       Pattern tabs = Pattern.compile("\\t");
       toAlpha3 = new HashMap();
@@ -304,7 +331,7 @@ public class Iso639Data {
           toAlpha3.put(languageSubtag, alpha3);
           fromAlpha3.put(alpha3, languageSubtag);
         }
-        
+
         if (parts[IsoColumn.Part2B.ordinal()].length() != 0) { // parts.length >
           // IsoColumn.Part1.ordinal()
           // &&
@@ -314,7 +341,7 @@ public class Iso639Data {
             fromBiblio3.put(biblio, languageSubtag);
           }
         }
-        
+
         toNames.put(languageSubtag, parts[IsoColumn.Ref_Name.ordinal()]);
         Scope scope = findMatchToPrefix(parts[IsoColumn.Scope.ordinal()], Scope.values());
         if (scope != Scope.Individual)
@@ -438,6 +465,115 @@ public class Iso639Data {
         // skip inverted name for now
       }
       in.close();
+
+      Map<String,String> toHeirarchyTemp = new TreeMap<String,String>();
+      in = CldrUtility.getUTF8Data("external/Iso639-5.html");
+      String lastCode = null;
+      int column = 0;
+      boolean lastAttributeIsScope = false;
+      boolean lastElementIsTD = false;
+      boolean hadPop = true;
+      // if the table level is 1 (we are in the main table), then we look for <td>...</td><td>...</td>. That means that we have column 1 and column 2.
+
+      SimpleHtmlParser simple = new SimpleHtmlParser().setReader(in);
+      StringBuilder result = new StringBuilder();
+      
+      main:
+        while (true) {
+          SimpleHtmlParser.Type x = simple.next(result);
+//          System.out.println(column + "\t" + x + "\t" + result);
+          switch (x) {
+          case ELEMENT_START:
+            hadPop = false;
+            lastElementIsTD = false;
+            break;
+          case ELEMENT:
+            if (SimpleHtmlParser.equals("tr", result)) {
+              column = 0;
+            } else if (SimpleHtmlParser.equals("td", result)) {
+              lastElementIsTD = true;
+            }
+            break;
+          case ELEMENT_POP:
+            hadPop = true;
+            break;
+          case ELEMENT_END:
+            // if we get a POP and a TD, and we have column > 0, we increment
+            if (lastElementIsTD && hadPop && column > 0) {
+              ++column;
+            }
+            break;
+          case ELEMENT_CONTENT:
+            /*
+            <th scope="col">Identifier<br />Indicatif</th>
+            <th scope="col">English name<br />Nom anglais</th>
+            <th scope="col">French name<br />Nom français</th>
+            <th scope="col">639-2</th>
+            <th scope="col">Hierarchy<br />Hiérarchie</th>
+            <th scope="col">Notes<br />Notes</th>
+
+            <td scope="row">apa</td>
+            <td>Apache languages</td>
+            <td>apaches, langues</td>
+            <td>language group<br />groupe de langues</td>
+            <td>nai : xnd : ath : apa</td>
+            <td>
+                <br />
+            </td>
+            */
+            switch (column) {
+            case 1: 
+              lastCode = result.toString(); 
+              break;
+            case 5: 
+              String old = toHeirarchyTemp.get(lastCode);
+              toHeirarchyTemp.put(lastCode, old == null || old.length() == 0 ? result.toString().trim() 
+                      : old + " " + result.toString().trim()); 
+              break;
+            case 2: 
+              break;
+            case 3: 
+              break;
+            case 4: 
+              break;
+            case 0:
+              break;
+            default:
+              break;
+            }
+            break;
+          case ATTRIBUTE:
+            lastAttributeIsScope = SimpleHtmlParser.equals("scope", result);
+            break;
+          case ATTRIBUTE_CONTENT:
+            if (lastAttributeIsScope && SimpleHtmlParser.equals("row", result)) {
+              column = 1;
+            }
+            break;
+          case QUOTE:
+            break;
+          case DONE:
+            break main;
+          }
+        }
+
+      in.close();
+
+      Pattern SPLIT_HEIRARCHY = Pattern.compile("\\s*:\\s*");
+      toHeirarchy = new TreeMap<String, List<String>>();
+//      for (String code : toHeirarchyTemp.keySet()) {
+//        System.out.println(code + " => " + toHeirarchyTemp.get(code));
+//      }
+      for (String code : toHeirarchyTemp.keySet()) {
+        String valueString = toHeirarchyTemp.get(code);
+        String[] values = SPLIT_HEIRARCHY.split(valueString);
+        for (String value : values) {
+          if (toScope.get(value) == null && toHeirarchyTemp.get(value) == null) {
+            throw new IllegalArgumentException("Unexpected value in heirarchy:\t" + value + "\t" + code + "\t" + valueString);
+          }
+        }
+        toHeirarchy.put(code, Arrays.asList(values));
+      }
       //System.out.println("Size:\t" + toNames.size());
 
       // make data unmodifiable, just to prevent mistakes
@@ -446,8 +582,10 @@ public class Iso639Data {
       fromAlpha3 = Collections.unmodifiableMap(fromAlpha3);
       toBiblio3 = Collections.unmodifiableMap(toBiblio3);
       fromBiblio3 = Collections.unmodifiableMap(fromBiblio3);
-     toScope = Collections.unmodifiableMap(toScope);
+      toScope = Collections.unmodifiableMap(toScope);
       toType = Collections.unmodifiableMap(toType);
+      toHeirarchy = Collections.unmodifiableMap(toHeirarchy);
+
       toNames.freeze();
       toRetirements.freeze();
       macro_encompassed.freeze();
@@ -492,11 +630,11 @@ public class Iso639Data {
   public static Set<String> getEncompassedForMacro(String prefix) {
     return macro_encompassed.getAll(prefix);
   }
-  
+
   public static Set<String> getMacros() {
     return macro_encompassed.keySet();
   }
-  
+
   public static Set<String> getEncompassed() {
     return encompassed_macro.keySet();
   }

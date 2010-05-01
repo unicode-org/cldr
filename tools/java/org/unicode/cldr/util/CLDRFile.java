@@ -77,10 +77,19 @@ import com.ibm.icu.util.Freezable;
  http://lists.xml.org/archives/xml-dev/200007/msg00284.html
  http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
-public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
-  public enum DtdType {ldml, supplementalData, ldmlBCP47}
-  
+public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {  
+
   public   static final Pattern ALT_PROPOSED_PATTERN = Pattern.compile(".*\\[@alt=\"[^\"]*proposed[^\"]*\"].*");
+
+  static Pattern FIRST_ELEMENT = Pattern.compile("//([^/\\[]*)");
+  
+  public enum DtdType {ldml, supplementalData, ldmlBCP47;
+  public static DtdType fromPath(String elementOrPath) {
+    Matcher m = FIRST_ELEMENT.matcher(elementOrPath);
+    m.lookingAt();
+    return DtdType.valueOf(m.group(1));
+  }
+  }
 
   private static boolean LOG_PROGRESS = false;
 
@@ -399,7 +408,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     XPathParts parts = new XPathParts(null,null).set(firstFullPath);
 
     DtdType dtdType = DtdType.valueOf(parts.getElement(0));
-    
+
     pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
     pw.println("<!DOCTYPE " + dtdType + " SYSTEM \"../../common/dtd/" + dtdType + ".dtd\">");
     /*
@@ -1104,32 +1113,28 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     switch (type) {
     case ldml: 
       return
-        attribute.equals("key") 
-        || attribute.equals("indexSource") 
-        || attribute.equals("request") 
-        || attribute.equals("count") 
-        || attribute.equals("id") 
-        || attribute.equals("_q") 
-        || attribute.equals("registry") 
-        || attribute.equals("alt")
-        || attribute.equals("iso4217")
-        || attribute.equals("iso3166")
-        || attribute.equals("mzone")
-        || attribute.equals("from")
-        || attribute.equals("to")
-        || attribute.equals("value")
-        || attribute.equals("yeartype")
-        || attribute.equals("numberSystem")
-        || attribute.equals("code")
-        || (attribute.equals("type")
-                && !elementName.equals("listPattern") 
-                && !elementName.equals("default") 
-                && !elementName.equals("measurementSystem") 
-                && !elementName.equals("mapping")
-                && !elementName.equals("abbreviationFallback")
-                && !elementName.equals("preferenceOrdering"))
-        || elementName.equals("deprecatedItems")
-        ;
+      attribute.equals("_q") 
+      || attribute.equals("key") 
+      || attribute.equals("indexSource") 
+      || attribute.equals("request") 
+      || attribute.equals("count") 
+      || attribute.equals("id") 
+      || attribute.equals("registry") 
+      || attribute.equals("alt")
+      || attribute.equals("mzone")
+      || attribute.equals("from")
+      || attribute.equals("to")
+      || attribute.equals("value")
+      || attribute.equals("yeartype")
+      || attribute.equals("numberSystem")
+      || (attribute.equals("type")
+              && !elementName.equals("listPattern") 
+              && !elementName.equals("default") 
+              && !elementName.equals("measurementSystem") 
+              && !elementName.equals("mapping")
+              && !elementName.equals("abbreviationFallback")
+              && !elementName.equals("preferenceOrdering"))
+              ;
     case ldmlBCP47: 
       return
       attribute.equals("_q") 
@@ -1139,6 +1144,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     case supplementalData: 
       return
       attribute.equals("_q") 
+      || attribute.equals("iso4217")
+      || attribute.equals("iso3166")
+      || attribute.equals("code")
+      || elementName.equals("deprecatedItems") && (attribute.equals("type") || attribute.equals("elements") || attribute.equals("attributes") || attribute.equals("values"))
       || elementName.equals("dayPeriodRules") && attribute.equals("locales")
       || elementName.equals("dayPeriodRule") && attribute.equals("type")
       || elementName.equals("metazones") && attribute.equals("type")
@@ -1159,7 +1168,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     //  }
     throw new IllegalArgumentException("Type is wrong: " + type);
   }
-  
+
   public static boolean isDistinguishing(String elementName, String attribute) {
     if (isDistinguishing(DtdType.ldml, elementName, attribute)) return true;
     if (isDistinguishing(DtdType.supplementalData, elementName, attribute)) return true;
@@ -1227,18 +1236,18 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     public CLDRFile makeWithFallback(String localeID) {
-       return makeWithFallback(localeID,getMinimalDraftStatus());
+      return makeWithFallback(localeID,getMinimalDraftStatus());
     }
-    
+
     public CLDRFile makeWithFallback(String localeID, DraftStatus madeWithMinimalDraftStatus) {
-        String currentLocaleID = localeID;
-        Set<String> availableLocales = this.getAvailable();
-        while ( !availableLocales.contains(currentLocaleID) && currentLocaleID != "root") {
-            currentLocaleID = LocaleIDParser.getParent(currentLocaleID);
-        }
-        return make(currentLocaleID,true,madeWithMinimalDraftStatus);
+      String currentLocaleID = localeID;
+      Set<String> availableLocales = this.getAvailable();
+      while ( !availableLocales.contains(currentLocaleID) && currentLocaleID != "root") {
+        currentLocaleID = LocaleIDParser.getParent(currentLocaleID);
+      }
+      return make(currentLocaleID,true,madeWithMinimalDraftStatus);
     }
-   
+
     protected abstract DraftStatus getMinimalDraftStatus();
 
     /**
@@ -1266,7 +1275,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
       return SimpleFactory.make(mainDirectory, string, approved);
     }
 
-    
+
     /**
      * Get a set of the available locales for the factory.
      */
@@ -1705,9 +1714,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
       for (int i = input.length()-1; i >= 0; --i) {
         char ch = input.charAt(i);
         switch(ch) {
-          case '/': if (braceStack == 0) return i; break;
-          case '[': --braceStack; break;
-          case ']': ++braceStack; break;
+        case '/': if (braceStack == 0) return i; break;
+        case '[': --braceStack; break;
+        case ']': ++braceStack; break;
         }
       }
       return -1;
@@ -2203,8 +2212,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
   static MapComparator elementOrdering = (MapComparator) new MapComparator()
   .add(
           // START MECHANICALLY elementOrdering GENERATED BY FindDTDOrder
-					"ldml alternate attributeOrder attributes blockingItems calendarPreference calendarSystem character character-fallback codePattern codesByTerritory comment context cp dayPeriod dayPeriodRule dayPeriodRules dayPeriodWidth deprecatedItems distinguishingItems elementOrder first_variable fractions identity indexSeparator compressedIndexSeparator indexRangePattern indexLabelBefore indexLabelAfter indexLabel info keyMap languageAlias languageCodes languageCoverage languageMatch languageMatches languagePopulation last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing likelySubtag mapKeys mapTimezones mapTypes mapZone numberingSystem pluralRule pluralRules postCodeRegex reference region scriptAlias scriptCoverage serialElements substitute suppress tRule telephoneCountryCode territoryAlias territoryCodes territoryCoverage currencyCoverage timezone timezoneCoverage transform typeMap usesMetazone validity alias appendItem base beforeCurrency afterCurrency currencyMatch dateFormatItem day dayPeriodContext defaultNumberingSystem deprecated distinguishing blocking coverageAdditions era eraNames eraAbbr eraNarrow exemplarCharacters fallback field generic greatestDifference height hourFormat hoursFormat gmtFormat gmtZeroFormat indexLabels intervalFormatFallback intervalFormatItem key listPattern listPatternPart localeDisplayNames layout localeDisplayPattern languages localePattern localeSeparator localizedPatternChars dateRangePattern calendars long mapping measurementSystem measurementSystemName messages minDays firstDay month months monthNames monthAbbr days dayNames dayAbbr orientation inList inText paperSize pattern displayName quarter quarters quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd rbnfrule regionFormat fallbackFormat abbreviationFallback preferenceOrdering relative reset p pc rule ruleset rulesetGrouping s sc scripts segmentation settings short commonlyUsed exemplarCity singleCountries default calendar collation currency currencyFormat currencySpacing currencyFormatLength dateFormat dateFormatLength dateTimeFormat dateTimeFormatLength availableFormats appendItems dayContext dayWidth decimalFormat decimalFormatLength intervalFormats monthContext monthWidth percentFormat percentFormatLength quarterContext quarterWidth scientificFormat scientificFormatLength skipDefaultLocale defaultContent standard daylight suppress_contractions optimize rules surroundingMatch insertBetween symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan currencyDecimal currencyGroup symbols decimalFormats scientificFormats percentFormats currencyFormats currencies t tc q qc i ic extend territories timeFormat timeFormatLength timeZoneNames type unit unitPattern variable attributeValues variables segmentRules variantAlias variants keys types measurementSystemNames codePatterns version generation cldrVersion currencyData language script territory territoryContainment languageData territoryInfo postalCodeData calendarData calendarPreferenceData variant week am pm dayPeriods eras dateFormats timeFormats dateTimeFormats fields weekData measurementData timezoneData characters delimiters measurement dates numbers transforms metadata codeMappings likelySubtags metazoneInfo plurals telephoneCodeData numberingSystems bcp47KeywordMappings units listPatterns collations posix segmentations rbnf references languageMatching dayPeriodRuleSet weekendStart weekendEnd width x yesstr nostr yesexpr noexpr zone metazone special zoneAlias zoneFormatting zoneItem supplementalData"
-					// END MECHANICALLY elementOrdering GENERATED BY FindDTDOrder
+          "ldml alternate attributeOrder attributes blockingItems calendarPreference calendarSystem character character-fallback codePattern codesByTerritory comment context cp dayPeriod dayPeriodRule dayPeriodRules dayPeriodWidth deprecatedItems distinguishingItems elementOrder first_variable fractions identity indexSeparator compressedIndexSeparator indexRangePattern indexLabelBefore indexLabelAfter indexLabel info keyMap languageAlias languageCodes languageCoverage languageMatch languageMatches languagePopulation last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing likelySubtag mapKeys mapTimezones mapTypes mapZone numberingSystem pluralRule pluralRules postCodeRegex reference region scriptAlias scriptCoverage serialElements substitute suppress tRule telephoneCountryCode territoryAlias territoryCodes territoryCoverage currencyCoverage timezone timezoneCoverage transform typeMap usesMetazone validity alias appendItem base beforeCurrency afterCurrency currencyMatch dateFormatItem day dayPeriodContext defaultNumberingSystem deprecated distinguishing blocking coverageAdditions era eraNames eraAbbr eraNarrow exemplarCharacters fallback field generic greatestDifference height hourFormat hoursFormat gmtFormat gmtZeroFormat indexLabels intervalFormatFallback intervalFormatItem key listPattern listPatternPart localeDisplayNames layout localeDisplayPattern languages localePattern localeSeparator localizedPatternChars dateRangePattern calendars long mapping measurementSystem measurementSystemName messages minDays firstDay month months monthNames monthAbbr days dayNames dayAbbr orientation inList inText paperSize pattern displayName quarter quarters quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd rbnfrule regionFormat fallbackFormat abbreviationFallback preferenceOrdering relative reset p pc rule ruleset rulesetGrouping s sc scripts segmentation settings short commonlyUsed exemplarCity singleCountries default calendar collation currency currencyFormat currencySpacing currencyFormatLength dateFormat dateFormatLength dateTimeFormat dateTimeFormatLength availableFormats appendItems dayContext dayWidth decimalFormat decimalFormatLength intervalFormats monthContext monthWidth percentFormat percentFormatLength quarterContext quarterWidth scientificFormat scientificFormatLength skipDefaultLocale defaultContent standard daylight suppress_contractions optimize rules surroundingMatch insertBetween symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan currencyDecimal currencyGroup symbols decimalFormats scientificFormats percentFormats currencyFormats currencies t tc q qc i ic extend territories timeFormat timeFormatLength timeZoneNames type unit unitPattern variable attributeValues variables segmentRules variantAlias variants keys types measurementSystemNames codePatterns version generation cldrVersion currencyData language script territory territoryContainment languageData territoryInfo postalCodeData calendarData calendarPreferenceData variant week am pm dayPeriods eras dateFormats timeFormats dateTimeFormats fields weekData measurementData timezoneData characters delimiters measurement dates numbers transforms metadata codeMappings likelySubtags metazoneInfo plurals telephoneCodeData numberingSystems bcp47KeywordMappings units listPatterns collations posix segmentations rbnf references languageMatching dayPeriodRuleSet weekendStart weekendEnd width x yesstr nostr yesexpr noexpr zone metazone special zoneAlias zoneFormatting zoneItem supplementalData"
+          // END MECHANICALLY elementOrdering GENERATED BY FindDTDOrder
           .split("\\s+"))
           .setErrorOnMissing(false)
           .freeze();
@@ -2267,7 +2276,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
   static Set orderedElements = Collections.unmodifiableSet(new HashSet(java.util.Arrays
           .asList(new String[] {
                   // can prettyprint with TestAttributes
-                  
+
                   // DTD: ldml
                   // <collation> children
                   "base", "optimize", "rules", "settings", "suppress_contractions", 
@@ -2277,6 +2286,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
                   // <x> children
                   "context", "extend", "i", "ic", "p", "pc", "q", "qc", "s", "sc", "t", "tc", 
+                  "last_non_ignorable", "last_secondary_ignorable", "last_tertiary_ignorable",
 
                   // <variables> children
                   "variable", 
@@ -2323,17 +2333,17 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
                   // <metazoneInfo> children
                   //"timezone", // doesn't need ordering, since type is distinguishing
-                  
+
                   "attributes", // shouldn't need this in //supplementalData/metadata/suppress/attributes, except that the element is badly designed
-                  
+
                   "languageMatch",
 
           })));
-  
+
   public static boolean isOrdered(String element, DtdType type) {
     return orderedElements.contains(element);
   }
-  
+
   /**
    * 
    */
@@ -2517,6 +2527,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
   }
 
   public UnicodeSet getExemplarSet(String type, WinningChoice winningChoice) {
+    return getExemplarSet(type, winningChoice, UnicodeSet.CASE);
+  }
+  
+  public UnicodeSet getExemplarSet(String type, WinningChoice winningChoice, int option) {
     if (type.length() != 0) type = "[@type=\"" + type + "\"]";
     String path = "//ldml/characters/exemplarCharacters" + type;
     if (winningChoice == WinningChoice.WINNING) {
@@ -2524,7 +2538,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
     String v = getStringValue(path);
     if (v == null) return null;
-    UnicodeSet result = new UnicodeSet(v, UnicodeSet.CASE);
+    UnicodeSet result = new UnicodeSet(v, option);
     result.remove(0x20);
     return result;
   }
@@ -2832,7 +2846,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
     return result;
   }
-  
+
   /**
    * Return the distinguished paths that match the pathPrefix and pathMatcher
    * The pathMatcher can be null (equals .*).
@@ -2988,16 +3002,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     for (String context : new String[] {"format", "stand-alone"}) {
       for (String width : new String[] {"narrow", "abbreviated", "wide"}) {
-       if(dayPeriods!=null) {
-        LinkedHashSet<DayPeriod> items = new LinkedHashSet(dayPeriods.getPeriods());
-        for (DayPeriod dayPeriod : items) {
-          //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
-          toAddTo.add("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/" +
-                  "dayPeriodContext[@type=\""  + context 
-                  + "\"]/dayPeriodWidth[@type=\"" + width
-                  + "\"]/dayPeriod[@type=\"" + dayPeriod + "\"]");
+        if(dayPeriods!=null) {
+          LinkedHashSet<DayPeriod> items = new LinkedHashSet(dayPeriods.getPeriods());
+          for (DayPeriod dayPeriod : items) {
+            //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
+            toAddTo.add("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/" +
+                    "dayPeriodContext[@type=\""  + context 
+                    + "\"]/dayPeriodWidth[@type=\"" + width
+                    + "\"]/dayPeriod[@type=\"" + dayPeriod + "\"]");
+          }
         }
-       }
       }
     }
     return toAddTo;

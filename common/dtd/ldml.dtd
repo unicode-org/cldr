@@ -976,6 +976,7 @@ $Date$
 <!ATTLIST decimalFormat references CDATA #IMPLIED >
 <!ATTLIST decimalFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST decimalFormat validSubLocales CDATA #IMPLIED >
+<!ATTLIST decimalFormat numberSystem CDATA #IMPLIED >
 
 <!ELEMENT scientificFormats (alias | (default*, scientificFormatLength*, special*)) >
 <!ATTLIST scientificFormats draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -996,6 +997,7 @@ $Date$
 <!ATTLIST scientificFormat references CDATA #IMPLIED >
 <!ATTLIST scientificFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST scientificFormat validSubLocales CDATA #IMPLIED >
+<!ATTLIST scientificFormat numberSystem CDATA #IMPLIED >
 
 <!ELEMENT percentFormats (alias | (default*, percentFormatLength*, special*)) >
 <!ATTLIST percentFormats draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -1016,6 +1018,7 @@ $Date$
 <!ATTLIST percentFormat references CDATA #IMPLIED >
 <!ATTLIST percentFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST percentFormat validSubLocales CDATA #IMPLIED >
+<!ATTLIST percentFormat numberSystem CDATA #IMPLIED >
 
 <!ELEMENT currencyFormats (alias | (default*, currencySpacing*, currencyFormatLength*, unitPattern*, special*)) >
 <!ATTLIST currencyFormats draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -1055,6 +1058,7 @@ $Date$
 <!ATTLIST currencyFormat references CDATA #IMPLIED >
 <!ATTLIST currencyFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST currencyFormat validSubLocales CDATA #IMPLIED >
+<!ATTLIST currencyFormat numberSystem CDATA #IMPLIED >
 
 <!ELEMENT currencies (alias | (default?, currency*, special*)) >
 <!ATTLIST currencies draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->

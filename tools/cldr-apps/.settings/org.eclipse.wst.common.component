@@ -2,25 +2,6 @@
     <wb-module deploy-name="cldr-apps">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated"/>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/srl/cw/utilities.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/srl/Downloads/icu4j-4_4.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//usr/share/java/tomcat6/jdom.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//usr/share/java/tomcat6/joid-1.1.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//usr/share/java/tomcat6/mail.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//usr/share/java/tomcat6/rome-0.9.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="cldr-tools.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cldr-tools/cldr-tools">
             <dependency-type>uses</dependency-type>
         </dependent-module>

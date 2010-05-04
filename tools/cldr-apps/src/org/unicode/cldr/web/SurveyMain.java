@@ -600,6 +600,33 @@ public class SurveyMain extends HttpServlet {
             return true;
         }
     }
+    
+    private String getHome() {
+    	if(cldrHome == null) {
+	    	String props[] = { 
+	    			"catalina.home",
+	    			"websphere.home",
+	    			"user.dir"
+	    	};
+	    	for(String prop : props) {
+	    		if(cldrHome == null) {
+	    			cldrHome = System.getProperty(prop);
+	    			if(cldrHome!=null) {
+	    				System.err.println(" Using " + prop + " = " + cldrHome);
+	    			} else {
+	    				System.err.println(" Unset: " + prop);
+	    			}
+	    		}
+	    	}
+	        if(cldrHome == null) {  
+	            busted("Could not find cldrHome. please set catalina.home, user.dir, etc, or set a servlet parameter cldr.home");
+//	            for(Object qq : System.getProperties().keySet()) {
+//	            	System.err.println("  >> "+qq+"="+System.getProperties().get(qq));
+//	            }
+	        } 
+    	}
+    	return cldrHome;
+    }
 
     /** SQL Console
     */
@@ -617,11 +644,7 @@ public class SurveyMain extends HttpServlet {
             specialMessage = "<b>SurveyTool is in an administrative mode- please log off.</b>";
             try {
                 if(cldrHome == null) {
-                    cldrHome = System.getProperty("catalina.home");
-                    if(cldrHome == null) {  
-                        busted("no $(catalina.home) set - please use it or set a servlet parameter cldr.home");
-                        return;
-                    } 
+                	getHome();
                     File homeFile = new File(cldrHome, "cldr");
                     
                     if(!homeFile.exists()) {
@@ -8959,9 +8982,8 @@ public class SurveyMain extends HttpServlet {
             survprops = new java.util.Properties(); 
     
             if(cldrHome == null) {
-                cldrHome = System.getProperty("catalina.home");
+            	getHome();
                 if(cldrHome == null) {  
-                    busted("no $(catalina.home) set - please use it or set a servlet parameter cldr.home");
                     return;
                 } 
                 homeFile = new File(cldrHome, "cldr");

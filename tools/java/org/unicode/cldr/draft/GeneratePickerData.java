@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -68,14 +67,14 @@ class GeneratePickerData {
 
     private static final String EAST_ASIAN = "Other East Asian Scripts";
 
-    private static final UnicodeSet COMPATIBILITY = (UnicodeSet) ScriptCategories.parseUnicodeSet("[[:nfkcqc=n:]-[:Lm:]]")
+    static final UnicodeSet COMPATIBILITY = (UnicodeSet) ScriptCategories.parseUnicodeSet("[[:nfkcqc=n:]-[:Lm:]]")
     .removeAll(ScriptCategories.IPA)
     .removeAll(ScriptCategories.IPA_EXTENSIONS)
     .freeze();
 
     private static final UnicodeSet PRIVATE_USE = (UnicodeSet) new UnicodeSet("[:private use:]").freeze();
 
-    private static final UnicodeSet SKIP = (UnicodeSet) ScriptCategories.parseUnicodeSet("[[:cn:][:cs:][:co:][:cc:]\uFFFC]").addAll(ScriptCategories.DEPRECATED_NEW).freeze();
+    static final UnicodeSet SKIP = (UnicodeSet) ScriptCategories.parseUnicodeSet("[[:cn:][:cs:][:co:][:cc:]\uFFFC]").addAll(ScriptCategories.DEPRECATED_NEW).freeze();
     private static final UnicodeSet KNOWN_DUPLICATES = (UnicodeSet) ScriptCategories.parseUnicodeSet("[:Nd:]").freeze();
 
     public static final UnicodeSet HISTORIC = ScriptCategories.ARCHAIC;
@@ -258,6 +257,57 @@ class GeneratePickerData {
         addHan();
         addProperty("Script", EAST_ASIAN, buttonComparator, EastAsianMinusHanAndHangul);
         addProperty("Script", AMERICAN, buttonComparator, ScriptCategories.AMERICAN);
+    }
+
+    private static void addHan() throws IOException {
+      
+      UnicodeSet others = ScriptCategories.parseUnicodeSet("[:script=Han:]");
+      // find base values
+      for (int radicalStrokes : RadicalStroke.SINGLETON.radStrokesToRadToRemainingStrokes.keySet()) {
+          //String mainCat = null;
+          Map<String, Map<Integer, UnicodeSet>> char2RemStrokes2Set = RadicalStroke.SINGLETON.radStrokesToRadToRemainingStrokes.get(radicalStrokes);
+          for (String radical : char2RemStrokes2Set.keySet()) {
+              Map<Integer, UnicodeSet> remStrokes2Set = char2RemStrokes2Set.get(radical);
+              for (int remStrokes : remStrokes2Set.keySet()) {
+                  int radicalChar = ScriptCategories.RADICAL_NUM2CHAR.get(radical);
+                  String mainCat = "Han " + (radicalStrokes > 10 ? "11..17" : String.valueOf(radicalStrokes)) + "-Stroke Radicals";
+                  String subCat = UTF16.valueOf(radicalChar);
+                  //if (DEBUG) System.out.println(radical + " => " + radicalToChar.get(radical));
+                  //      String radChar = getRadicalName(radicalToChar, radical);
+                  //      String subCat = radChar + " Han";
+                  //      try {
+                  //        String radical2 = radical.endsWith("'") ? radical.substring(0, radical.length() - 1) : radical;
+                  //        int x = Integer.parseInt(radical2);
+                  //        int base = (x / 20) * 20;
+                  //        int top = base + 19;
+                  //        mainCat = "CJK (Han) " + getRadicalName(radicalToChar, Math.max(base,1)) + " - " + getRadicalName(radicalToChar, Math.min(top,214));
+                  //      } catch (Exception e) {}
+                  //      if (mainCat == null) {
+                  //        mainCat = "Symbol";
+                  //        subCat = "CJK";
+                  //      }
+  
+                  final UnicodeSet values = remStrokes2Set.get(remStrokes);
+  
+                  // close over NFKC
+                  for (UnicodeSetIterator it = new UnicodeSetIterator(RadicalStroke.SINGLETON.remainder); it.next(); ) {
+                      String nfkc = Normalizer.normalize(it.codepoint, Normalizer.NFKC);
+                      if (values.contains(nfkc)) {
+                          values.add(it.codepoint);
+                      }
+                  }
+  
+                  others.removeAll(values);
+                  UnicodeSet normal = new UnicodeSet(values).removeAll(GeneratePickerData.HISTORIC).removeAll(GeneratePickerData.COMPATIBILITY).removeAll(GeneratePickerData.UNCOMMON_HAN);
+                  GeneratePickerData.CATEGORYTABLE.add(mainCat, true, subCat, GeneratePickerData.LinkedHashSetComparator, Separation.AUTOMATIC, normal);
+                  values.removeAll(normal);
+                  GeneratePickerData.CATEGORYTABLE.add(mainCat, true, "Other", GeneratePickerData.LinkedHashSetComparator, Separation.AUTOMATIC, values);
+              }
+          }
+      }
+      GeneratePickerData.CATEGORYTABLE.add("Han - Other", true, "Other", GeneratePickerData.LinkedHashSetComparator, Separation.AUTOMATIC, others);
+      GeneratePickerData.UNCOMMON_HAN.removeAll(RadicalStroke.SINGLETON.iiCoreSet);
+
     }
 
 
@@ -509,173 +559,6 @@ class GeneratePickerData {
     public static String codeAndName(String comp) {
         return toHex(comp, false) + "(" + comp + ")" + UCharacter.getExtendedName(comp.codePointAt(0));
     }
-
-    // U+3433 kRSUnicode  9.3
-    static Pattern RAD_STROKE = Pattern.compile("U\\+([A-Z0-9]+)\\s+kRSUnicode\\s+(.*)");
-    static Pattern RAD_DATA = Pattern.compile("([0-9]{1,3}\\'?)\\.([0-9]{1,2})\\s*");
-
-    static Pattern TOTAL_STROKE = Pattern.compile("U\\+([A-Z0-9]+)\\s+kTotalStrokes\\s+(.*)");
-    static Pattern IICORE = Pattern.compile("U\\+([A-Z0-9]+)\\s+kIICore\\s+(.*)");
-
-    private static void addHan() throws IOException {
-        Matcher radStrokeMatcher = RAD_STROKE.matcher("");
-        Matcher radDataMatcher = RAD_DATA.matcher("");
-        Matcher iiCore = IICORE.matcher("");
-        //Matcher totalStrokeMatcher = TOTAL_STROKE.matcher("");
-        //    final boolean test = rad2.reset("U+3433 kRSUnicode  9.3").matches();
-        //    System.out.println("Test match: " + test);
-        Map<Integer,Map<String,Map<Integer,UnicodeSet>>> index = new TreeMap<Integer, Map<String,Map<Integer,UnicodeSet>>>();
-        UnicodeSet remainder = ScriptCategories.parseUnicodeSet("[:script=Han:]").removeAll(SKIP);
-        //index.put("Other", remainder);
-        //    Map<String,String> radicalToChar = new TreeMap<String, String>();
-        //    for (int i = 1; i < 215; ++i) {
-        //      final int cp = 0x2F00 + (i-1);
-        //      final int nfkc = Normalizer.normalize(cp, Normalizer.NFKC).codePointAt(0);
-        //      final String cpString = nfkc;
-        //      final String radical = i;
-        //      radicalToChar.put(radical, cpString);
-        //      mapToUnicodeSetAdd(index, radical, cp);
-        //      mapToUnicodeSetAdd(index, radical, nfkc);
-        //      remainder.remove(cp);
-        //      remainder.remove(nfkc);
-        //    }
-        // special case
-        //mapToUnicodeSetAdd(index, "197'", 0x5364);
-        //remainder.remove(0x5364);
-        //Map<Integer,Integer> totalStrokes = new HashMap<Integer,Integer>();
-
-        String unihanFile = unicodeDataDirectory + "Unihan.txt";
-        BufferedReader in = new BufferedReader(new FileReader(Subheader.getFileNameFromPattern(unicodeDataDirectory + "Unihan/", "Unihan_RadicalStrokeCounts.*\\.txt")));
-
-        while (true) {
-            String line = in.readLine();
-            if (line == null) break;
-            if (iiCore.reset(line).matches()) {
-                int cp = Integer.parseInt(iiCore.group(1),16);
-                UNCOMMON_HAN.remove(cp);
-            } else if (radStrokeMatcher.reset(line).matches()) {
-                int cp = Integer.parseInt(radStrokeMatcher.group(1), 16);
-                String[] items = radStrokeMatcher.group(2).split("\\s");
-                for (String item : items) {
-                    if (!radDataMatcher.reset(item).matches()) {
-                        throw new IllegalArgumentException("Bad line: " + line);
-                    }
-                    String radical = radDataMatcher.group(1);
-                    int radicalChar = ScriptCategories.RADICAL_NUM2CHAR.get(radical);
-                    int radicalStrokes = ScriptCategories.RADICAL_CHAR2STROKES.get(radicalChar);
-                    int remainingStrokes = Integer.parseInt(radDataMatcher.group(2));
-                    //          if (radical.startsWith("211")) {
-                    //            System.out.println(line);
-                    //          }
-                    //String baseRadical = radical.endsWith("'") ? radical.substring(0, radical.length()-1) : radical;
-                    mapToUnicodeSetAdd(index, radicalStrokes, radical, remainingStrokes, cp);
-                    remainder.remove(cp);
-                    //          if (radDataMatcher.group(2).equals("0") && radical.endsWith("'")) {
-                    //            String radicalString = Normalizer.normalize(cp, Normalizer.NFKC);
-                    //            String old = radicalToChar.get(radical);
-                    //            if (old == null) {
-                    //              radicalToChar.put(radical, radicalString);
-                    //            } else if (!radicalString.equals(old)) {
-                    //              System.out.println("Duplicate radical: " + line + " with " + radicalString + " and " + old);
-                    //            }
-                    //          }
-                }
-            }
-        }
-        in.close();
-
-        // fix the compat characters that didn't have strokes
-        remainder.retainAll(COMPATIBILITY);
-
-
-        UnicodeSet others = ScriptCategories.parseUnicodeSet("[:script=Han:]");
-        // find base values
-        for (int radicalStrokes : index.keySet()) {
-            //String mainCat = null;
-            Map<String, Map<Integer, UnicodeSet>> char2RemStrokes2Set = index.get(radicalStrokes);
-            for (String radical : char2RemStrokes2Set.keySet()) {
-                Map<Integer, UnicodeSet> remStrokes2Set = char2RemStrokes2Set.get(radical);
-                for (int remStrokes : remStrokes2Set.keySet()) {
-                    int radicalChar = ScriptCategories.RADICAL_NUM2CHAR.get(radical);
-                    String mainCat = "Han " + (radicalStrokes > 10 ? "11..17" : String.valueOf(radicalStrokes)) + "-Stroke Radicals";
-                    String subCat = UTF16.valueOf(radicalChar);
-                    //if (DEBUG) System.out.println(radical + " => " + radicalToChar.get(radical));
-                    //      String radChar = getRadicalName(radicalToChar, radical);
-                    //      String subCat = radChar + " Han";
-                    //      try {
-                    //        String radical2 = radical.endsWith("'") ? radical.substring(0, radical.length() - 1) : radical;
-                    //        int x = Integer.parseInt(radical2);
-                    //        int base = (x / 20) * 20;
-                    //        int top = base + 19;
-                    //        mainCat = "CJK (Han) " + getRadicalName(radicalToChar, Math.max(base,1)) + " - " + getRadicalName(radicalToChar, Math.min(top,214));
-                    //      } catch (Exception e) {}
-                    //      if (mainCat == null) {
-                    //        mainCat = "Symbol";
-                    //        subCat = "CJK";
-                    //      }
-
-                    final UnicodeSet values = remStrokes2Set.get(remStrokes);
-
-                    // close over NFKC
-                    for (UnicodeSetIterator it = new UnicodeSetIterator(remainder); it.next(); ) {
-                        String nfkc = Normalizer.normalize(it.codepoint, Normalizer.NFKC);
-                        if (values.contains(nfkc)) {
-                            values.add(it.codepoint);
-                        }
-                    }
-
-                    others.removeAll(values);
-                    UnicodeSet normal = new UnicodeSet(values).removeAll(HISTORIC).removeAll(COMPATIBILITY).removeAll(UNCOMMON_HAN);
-                    CATEGORYTABLE.add(mainCat, true, subCat, LinkedHashSetComparator, Separation.AUTOMATIC, normal);
-                    values.removeAll(normal);
-                    CATEGORYTABLE.add(mainCat, true, "Other", LinkedHashSetComparator, Separation.AUTOMATIC, values);
-                }
-            }
-        }
-        CATEGORYTABLE.add("Han - Other", true, "Other", LinkedHashSetComparator, Separation.AUTOMATIC, others);
-
-
-        //    UnicodeSet temp = new UnicodeSet();
-        //    for (UnicodeSetIterator it = new UnicodeSetIterator(ScriptCategories.parseUnicodeSet("[:script=Han:]").removeAll(SKIP)); it.next();) {
-        //      temp.add(it.codepoint);
-        //      if (temp.size() >= 800) {
-        //        int code = temp.charAt(0);
-        //        CATEGORYTABLE.add("Han (CJK)", false, UTF16.valueOf(code) + " Han " + toHex(code, false), false, temp);
-        //        temp.clear();
-        //      }
-        //    }
-        //    if (temp.size() > 0) {
-        //      int code = temp.charAt(0);
-        //      CATEGORYTABLE.add("Han (CJK)", false, UTF16.valueOf(code) + " Han " + toHex(code, false), false, temp);
-        //    }
-    }
-
-    private static <T>void mapToUnicodeSetAdd(Map<Integer, Map<String, Map<Integer, UnicodeSet>>> index,
-            int radicalStrokes, String radicalChar, int remainingStrokes, int cp) {
-        Map<String, Map<Integer, UnicodeSet>> subIndex = index.get(radicalStrokes);
-        if (subIndex == null) {
-            index.put(radicalStrokes, subIndex = new TreeMap<String, Map<Integer, UnicodeSet>>(UCA));
-        }
-        Map<Integer, UnicodeSet> uset = subIndex.get(radicalChar);
-        if (uset == null) {
-            subIndex.put(radicalChar, uset = new TreeMap<Integer, UnicodeSet>());
-        }
-        UnicodeSet uset2 = uset.get(remainingStrokes);
-        if (uset2 == null) {
-            uset.put(remainingStrokes, uset2 = new UnicodeSet());
-        }
-        uset2.add(cp);
-    }
-
-    //  private static String getRadicalName(Map<String, String> radicalToChar, int max) {
-    //    // TODO Auto-generated method stub
-    //    return getRadicalName(radicalToChar, Integer.toString(max));
-    //  }
-
-    //  private static String getRadicalName(Map<String, String> radicalToChar, String radical) {
-    //    String simpRadical = RADICAL_NUM2CHAR.get(radical + "'");
-    //    return RADICAL_NUM2CHAR.get(radical) + (simpRadical != null ? "/" + simpRadical : ""); // + " " + radical;
-    //  }
 
     private static void addHangul() {
         for (UnicodeSetIterator it = new UnicodeSetIterator(ScriptCategories.parseUnicodeSet("[:script=Hangul:]").removeAll(SKIP)); it.next();) {
@@ -1920,7 +1803,7 @@ class GeneratePickerData {
 
     public static final UnicodeSet ADD_SUBHEAD = (UnicodeSet) ScriptCategories.parseUnicodeSet("[[:S:][:P:][:M:]&[[:script=common:][:script=inherited:]]-[:nfkdqc=n:]]")
     .removeAll(ScriptCategories.ARCHAIC).freeze();
-    private static UnicodeSet UNCOMMON_HAN = ScriptCategories.parseUnicodeSet("[" +
+    static UnicodeSet UNCOMMON_HAN = ScriptCategories.parseUnicodeSet("[" +
             "[:script=han:]" +
             "-[:block=CJK Unified Ideographs:]" +
             "-[:block=CJK Symbols And Punctuation:]" +

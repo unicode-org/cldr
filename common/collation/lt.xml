@@ -2,46 +2,47 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="lt" /> 
+		<version number="$Revision$" />
+		<generation date="$Date$" />
+		<language type="lt" />
 	</identity>
-		<collations  validSubLocales="lt_LT">
-			<collation type="standard" >
-				<rules>
-					<reset>̨</reset>
-					<s>̇</s>
-					<reset before="primary">D</reset>
-					<p>č</p>
-					<t>Č</t>
-					<reset before="primary">J</reset>
-					<p>y</p>
-					<t>Y</t>
-					<reset before="primary">T</reset>
-					<p>š</p>
-					<t>Š</t>
-					<reset before="primary">Ʒ</reset>
-					<p>ž</p>
-					<t>Ž</t>
-				</rules>
-			</collation  >
-			<collation type="standard" draft="unconfirmed" alt="proposed" >
-				<rules>
-					<reset>̨</reset>
-					<s>̇</s>
-					<reset before="primary">D</reset>
-					<p>č</p>
-					<t>Č</t>
-					<reset>I</reset>
-					<s>y</s>
-					<t>Y</t>
-					<reset before="primary">T</reset>
-					<p>š</p>
-					<t>Š</t>
-					<reset before="primary">Ʒ</reset>
-					<p>ž</p>
-					<t>Ž</t>
-				</rules>
-			</collation  >
-		</collations>
+	<collations validSubLocales="lt_LT">
+		<collation type="standard">
+			<rules>
+				<reset>̀</reset>
+				<i>̇̀</i>
+				<reset>́</reset>
+				<i>̇́</i>
+				<reset>̃</reset>
+				<i>̇̃</i>
+				<reset>A</reset>
+				<s>ą</s>
+				<t>Ą</t>
+				<reset>C</reset>
+				<p>č</p>
+				<t>Č</t>
+				<reset>E</reset>
+				<s>ę</s>
+				<t>Ę</t>
+				<s>ė</s>
+				<t>Ė</t>
+				<reset>I</reset>
+				<s>į</s>
+				<t>Į</t>
+				<s>y</s>
+				<t>Y</t>
+				<reset>S</reset>
+				<p>š</p>
+				<t>Š</t>
+				<reset>U</reset>
+				<s>ų</s>
+				<t>Ų</t>
+				<s>ū</s>
+				<t>Ū</t>
+				<reset>Z</reset>
+				<p>ž</p>
+				<t>Ž</t>
+			</rules>
+		</collation>
+	</collations>
 </ldml>

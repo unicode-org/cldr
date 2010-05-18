@@ -8,10 +8,28 @@
 	</identity>
 		<collations validSubLocales="uk_UA">
 			<collation type="standard" >
+<!--
+List of UCA contractions remaining after suppression:
+
+0490 CYRILLIC CAPITAL LETTER GHE WITH UPTURN
+0491 CYRILLIC SMALL LETTER GHE WITH UPTURN
+04C1 CYRILLIC CAPITAL LETTER ZHE WITH BREVE
+04C2 CYRILLIC SMALL LETTER ZHE WITH BREVE
+04E2 CYRILLIC CAPITAL LETTER I WITH MACRON
+04E3 CYRILLIC SMALL LETTER I WITH MACRON
+04EE CYRILLIC CAPITAL LETTER U WITH MACRON
+04EF CYRILLIC SMALL LETTER U WITH MACRON
+-->
+				<suppress_contractions>
+				[Ѐ-ЅЈ-ЗК-зк-ѕј-џ]
+				</suppress_contractions>
 				<rules>
-					<reset>Г</reset>
-					<p>ґ</p>
-					<t>Ґ</t>
+				    <reset>Г</reset>
+				        <p>ґ</p>
+				        <t>Ґ</t>
+				    <reset>я</reset>
+				        <p>ь</p>
+				        <t>Ь</t>
 				</rules>
 			</collation  >
 		</collations>

@@ -7,6 +7,22 @@
 		<language type="bg" /> 
 	</identity>
 		<collations  validSubLocales="bg_BG">
-      <alias source="ru" path="//ldml/collations"/>
+			<collation type="standard" >
+<!--
+List of UCA contractions remaining after suppression:
+
+0490 CYRILLIC CAPITAL LETTER GHE WITH UPTURN
+0491 CYRILLIC SMALL LETTER GHE WITH UPTURN
+04C1 CYRILLIC CAPITAL LETTER ZHE WITH BREVE
+04C2 CYRILLIC SMALL LETTER ZHE WITH BREVE
+04E2 CYRILLIC CAPITAL LETTER I WITH MACRON
+04E3 CYRILLIC SMALL LETTER I WITH MACRON
+04EE CYRILLIC CAPITAL LETTER U WITH MACRON
+04EF CYRILLIC SMALL LETTER U WITH MACRON
+-->
+				<suppress_contractions>
+				[Ѐ-џ]
+				</suppress_contractions>
+			</collation>
 		</collations>
 </ldml>

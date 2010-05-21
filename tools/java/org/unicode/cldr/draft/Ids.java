@@ -29,9 +29,8 @@ import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.util.ULocale;
-
-import sun.text.normalizer.UTF16;
 
 public abstract class Ids implements Comparable<Ids> {
 

@@ -376,6 +376,11 @@ public class SupplementalDataInfo {
     }
   }
 
+  public static class NumberingSystemsInfo {
+      public Set<String> getAvailableNumberingSystems() {
+          return null;
+      }
+  }
   /**
    * Information about when currencies are in use in territories
    */
@@ -848,6 +853,9 @@ public class SupplementalDataInfo {
         } else if (level1.equals("likelySubtags")) {
           handleLikelySubtags();
           return;
+        } else if (level1.equals("numberingSystems")) {
+          handleNumberingSystems();
+          return;
         } else if (level1.equals("metadata")) {
           if (handleMetadata(level2, value)) {
             return;
@@ -907,6 +915,11 @@ public class SupplementalDataInfo {
       return false;
     }
 
+    private void handleNumberingSystems() {
+      String name = parts.getAttributeValue(-1,"id");
+      numberingSystems.add(name);
+    }
+    
     private void handleLikelySubtags() {
       String from = parts.getAttributeValue(-1, "from");
       String to = parts.getAttributeValue(-1, "to");
@@ -1237,6 +1250,8 @@ public class SupplementalDataInfo {
 
   private Map<String, Pair<String, String>> references = new TreeMap();
   private Map<String, String> likelySubtags = new TreeMap();
+  
+  private Set<String> numberingSystems = new TreeSet();
 
   private Set<String> defaultContentLocales;
 
@@ -1369,7 +1384,9 @@ public class SupplementalDataInfo {
   public Set<String> getDefaultContentLocales() {
     return defaultContentLocales;
   }
-
+  public Set<String> getNumberingSystems() {
+    return numberingSystems;
+  }
   /**
    * Return the canonicalized zone, or null if there is none.
    * 

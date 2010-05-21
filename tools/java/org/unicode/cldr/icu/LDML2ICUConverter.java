@@ -2339,7 +2339,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         // So.
         String theArray[] = leapStrings;
         ResourceString strs[] = new ResourceString[theArray.length];
-        GroupStatus status = parseGroupWithFallback(loc, xpath, theArray, strs, false);
+        GroupStatus status = parseGroupWithFallback(loc, xpath, theArray, strs);
         if (GroupStatus.EMPTY == status) {
             log.warning("Could not load " + xpath + " - " + theArray[0] + ", etc.");
             return null; // NO items were found - don't even bother.
@@ -3484,16 +3484,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         "dateTimeFormats/dateTimeFormatLength[@type=\"full\"]/dateTimeFormat" + STD_SUFFIX, "dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat" + STD_SUFFIX,
         "dateTimeFormats/dateTimeFormatLength[@type=\"medium\"]/dateTimeFormat" + STD_SUFFIX, "dateTimeFormats/dateTimeFormatLength[@type=\"short\"]/dateTimeFormat" + STD_SUFFIX, };
 
-    private static final String[] ValidNumberingSystems = ("arab arabext armn armnlow beng deva ethi fullwide geor grek greklow gujr guru hans "
-        + "hansfin hant hantfin hebr jpan jpanfin knda khmr laoo latn mlym mong mymr orya roman " + "romanlow taml telu thai tibt").split("\\s+");
-
-    private static final Set<String> NUMBER_SYSTEMS = new HashSet<String>(Arrays.asList(ValidNumberingSystems));
-
-    // TODO: update to get from supplemental data: <variable id="$numberSystem" type="choice">
-    // "arab arabext armn armnlow beng deva ethi fullwide geor grek greklow gujr guru hans " +
-    // "hansfin hant hantfin hebr jpan jpanfin knda khmr laoo latn mlym mong mymr orya roman " +
-    // "romanlow taml telu thai tibt</variable>"
-
     private Resource parseDTF(LDML2ICUInputLocale loc, String xpath) {
         log.setStatus(loc.getLocale());
 
@@ -3510,7 +3500,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         ResourceString strs[] = new ResourceString[theArray.length];
         String nsov[] = new String[theArray.length];
 
-        GroupStatus status = parseGroupWithFallback(loc, xpath, theArray, strs, false);
+        GroupStatus status = parseGroupWithFallback(loc, xpath, theArray, strs);
         if (GroupStatus.EMPTY == status) {
             // TODO: cldrbug #2188: What follows is a hack because of
             // mismatch between CLDR & ICU format, need to do something
@@ -3546,7 +3536,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             if (!type.equals("gregorian")) {
                 log.info(loc.getLocale() + " " + xpath + " - some items are missing, attempting fallback from gregorian");
                 ResourceString gregstrs[] = new ResourceString[theArray.length];
-                GroupStatus gregstatus = parseGroupWithFallback(loc, xpath.replaceAll("\"" + type + "\"", "\"gregorian\""), theArray, gregstrs, false);
+                GroupStatus gregstatus = parseGroupWithFallback(loc, xpath.replaceAll("\"" + type + "\"", "\"gregorian\""), theArray, gregstrs);
                 if ((gregstatus != GroupStatus.EMPTY) && (gregstatus != GroupStatus.SPARSE)) {
                     // They have something, let's see if it is enough;
                     for (int j = 0; j < theArray.length; j++) {
@@ -3634,7 +3624,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     private Resource parseNumbers(LDML2ICUInputLocale loc, String xpath) {
         Resource current = null, first = null;
-        boolean writtenFormats = false;
+        boolean writtenNumberElements = false;
         boolean writtenCurrencyFormatPlurals = false;
         boolean writtenCurrencies = false;
         boolean writtenCurrencyPlurals = false;
@@ -3666,13 +3656,13 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     continue;
                 }
                 res = getDefaultResource(loc, xpath, name);
-            } else if (name.equals(LDMLConstants.SYMBOLS)) {
-                res = parseSymbols(loc, xpath);
-            } else if (name.equals(LDMLConstants.DECIMAL_FORMATS) || name.equals(LDMLConstants.PERCENT_FORMATS) || name.equals(LDMLConstants.SCIENTIFIC_FORMATS)
-                || name.equals(LDMLConstants.CURRENCY_FORMATS)) {
-                if (writtenFormats == false) {
-                    res = parseNumberFormats(loc, xpath);
-                    writtenFormats = true;
+            } else if (name.equals(LDMLConstants.SYMBOLS)|| name.equals(LDMLConstants.DECIMAL_FORMATS) || name.equals(LDMLConstants.PERCENT_FORMATS) || name.equals(LDMLConstants.SCIENTIFIC_FORMATS)
+                || name.equals(LDMLConstants.CURRENCY_FORMATS) || name.equals(LDMLConstants.DEFAULT_NUMBERING_SYSTEM)) {
+                if (writtenNumberElements == false) {
+                    Resource ne = parseNumberElements(loc,origXpath);
+                    res = ne;
+                    writtenNumberElements = true;
+                    
                 } else if (writtenCurrencyFormatPlurals == false) {
                     res = parseCurrencyFormatPlurals(loc, origXpath);
                     writtenCurrencyFormatPlurals = true;
@@ -3688,8 +3678,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     res = parseCurrencyPlurals(loc, origXpath);
                     writtenCurrencyPlurals = true;
                 }
-            } else if (name.equals(LDMLConstants.DEFAULT_NUMBERING_SYSTEM)) {
-                res = parseDefaultNumberingSystem(loc, xpath);
             } else {
                 log.error("Encountered unknown <" + xpath + "> subelement: " + name);
                 System.exit(-1);
@@ -3712,6 +3700,57 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
 
         return null;
+    }
+    
+    private Resource parseNumberElements(LDML2ICUInputLocale loc, String xpath) {
+        String[] numSystems = supplementalDataInfo.getNumberingSystems().toArray(new String[0]);
+        Resource current = null;
+        ResourceTable numElements = new ResourceTable();
+        numElements.name = NUMBER_ELEMENTS;
+        
+        Resource defaultNS = parseDefaultNumberingSystem(loc,xpath);
+        if ( defaultNS != null ) {
+            numElements.first = defaultNS;
+            current = defaultNS;
+        }
+        
+        for ( String ns : numSystems ) {
+            Resource syms = parseSymbols(loc,ns, xpath +"/" + LDMLConstants.SYMBOLS);
+            Resource formats = parseNumberFormats(loc,ns,xpath);
+           
+            if ( syms != null || formats != null ) {
+                ResourceTable nsTable = new ResourceTable();
+                nsTable.name = ns;
+                Resource current2 = null;
+                
+                if ( syms != null ) {
+                    nsTable.first = syms;
+                    current2 = syms;
+                }
+                
+                if ( formats != null ) {
+                    if ( current2 == null ) {
+                        nsTable.first = formats;
+                    } else {
+                        current2.next = formats;
+                    }
+                }
+                
+                if ( current != null ) {
+                    current.next = nsTable;
+                } else {
+                    numElements.first = nsTable;
+                }
+                
+                current = nsTable;
+            }
+        }
+        
+        if ( current != null ) {
+            return numElements;
+        }
+        
+        return null;        
     }
 
     private Resource parseUnits(LDML2ICUInputLocale loc, String tableName, String altValue) {
@@ -3840,12 +3879,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
      *            the xpath (with slash before) to append to the base
      * @param res
      *            output array to hold res strings. must be same size as xpaths
-     * @param preferNativeNumberSymbols
-     *            fix the number symbols
      * @return Will return the lowest possible value that applies to any item, or GROUP_EMPTY if no items could be
      *         filled in
      */
-    private GroupStatus parseGroupWithFallback(LDML2ICUInputLocale loc, String xpathBase, String xpaths[], ResourceString res[], boolean preferNativeNumberSymbols) {
+    private GroupStatus parseGroupWithFallback(LDML2ICUInputLocale loc, String xpathBase, String xpaths[], ResourceString res[]) {
 
         String[] values = new String[xpaths.length];
         XPathParts xpp = new XPathParts();
@@ -3853,9 +3890,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         boolean anyExtant = false;
         for (int i = 0; i < xpaths.length; i++) {
             String aPath = xpathBase + "/" + xpaths[i];
-            if (preferNativeNumberSymbols) {
-                aPath = reviseAPath(loc, xpp, aPath);
-            }
             if (loc.getFile().isHere(aPath)) {
                 anyExtant = true;
                 if (!loc.isPathNotConvertible(aPath)) {
@@ -3880,9 +3914,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 String temp = values[i];
                 if (temp == null) {
                     String aPath = xpathBase + "/" + xpaths[i];
-                    if (preferNativeNumberSymbols) {
-                        aPath = reviseAPath(loc, xpp, aPath);
-                    }
                     temp = loc.resolved().getStringValue(aPath);
                     if (temp != null) {
                         CLDRFile.Status fileStatus = new CLDRFile.Status();
@@ -3917,7 +3948,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             String distinguishing = CLDRFile.getDistinguishingXPath(path, null, false);
             if (distinguishing.contains("@numberSystem")) {
                 String alt = xpp.set(distinguishing).getAttributeValue(-1, "numberSystem");
-                if (NUMBER_SYSTEMS.contains(alt)) {
+                if (supplementalDataInfo.getNumberingSystems().contains(alt)) {
                     aPath = distinguishing;
                     break;
                 }
@@ -3927,32 +3958,42 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return aPath;
     }
 
-    private static final String[] sym_paths = new String[] { LDMLConstants.DECIMAL, LDMLConstants.GROUP, LDMLConstants.LIST, LDMLConstants.PERCENT_SIGN, LDMLConstants.NATIVE_ZERO_SIGN,
-        LDMLConstants.PATTERN_DIGIT, LDMLConstants.MINUS_SIGN, LDMLConstants.EXPONENTIAL, LDMLConstants.PER_MILLE, LDMLConstants.INFINITY, LDMLConstants.NAN, LDMLConstants.PLUS_SIGN, };
+    private static final String[] sym_paths = new String[] { LDMLConstants.DECIMAL, LDMLConstants.GROUP, LDMLConstants.LIST, LDMLConstants.PERCENT_SIGN, 
+        LDMLConstants.MINUS_SIGN, LDMLConstants.EXPONENTIAL, LDMLConstants.PER_MILLE, LDMLConstants.INFINITY, LDMLConstants.NAN, LDMLConstants.PLUS_SIGN, };
 
-    private Resource parseSymbols(LDML2ICUInputLocale loc, String xpath) {
-        ResourceArray arr = new ResourceArray();
-        arr.name = NUMBER_ELEMENTS;
+    private Resource parseSymbols(LDML2ICUInputLocale loc, String ns, String xpath) {
+        ResourceTable tbl = new ResourceTable();
+        tbl.name = LDMLConstants.SYMBOLS;
         Resource current = null;
-        ResourceString strs[] = new ResourceString[sym_paths.length];
-        GroupStatus status = parseGroupWithFallback(loc, xpath, sym_paths, strs, !asciiNumbers);
-        if (GroupStatus.EMPTY == status || GroupStatus.SPARSE == status) {
-            return null;
-        }
+        String pathToTest;
+        
+        for ( String sym : sym_paths ) {
+            pathToTest = xpath + "/" + sym;
+            if ( !ns.equals("latn")) {
+                pathToTest = pathToTest + "[@numberSystem=\"" + ns + "\"]";
+            }
+            
+            String value = loc.getFile().getWinningValue(pathToTest);
+            if (loc.isPathNotConvertible(pathToTest) || value == null) {
+                continue;
+            }
+            
+            ResourceString str = new ResourceString();
+            str.name = sym;
+            str.val = value;
 
-        for (ResourceString str : strs) {
-            if (current == null) {
-                current = arr.first = str;
+            if ( current == null ) {
+                tbl.first = str;
             } else {
                 current.next = str;
-                current = current.next;
             }
+            current = str;
         }
-
-        if (arr.first != null) {
-            return arr;
+        
+        if ( current != null ) {
+            return tbl;
         }
-
+        
         return null;
     }
 
@@ -4140,35 +4181,46 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
 
     // TODO figure out what to do for alias, draft and alt elements
-    private static final String[] num_paths = new String[] { "decimalFormats/decimalFormatLength/decimalFormat" + STD_SUFFIX, "currencyFormats/currencyFormatLength/currencyFormat" + STD_SUFFIX,
-        "percentFormats/percentFormatLength/percentFormat" + STD_SUFFIX, "scientificFormats/scientificFormatLength/scientificFormat" + STD_SUFFIX };
+    private static final String[] numFmtKeys = 
+        new String[] { "decimalFormat", "currencyFormat", "percentFormat", "scientificFormat" };
 
-    private Resource parseNumberFormats(LDML2ICUInputLocale loc, String xpath) {
-        ResourceArray arr = new ResourceArray();
-        String[] theArray = num_paths;
-        arr.name = NUMBER_PATTERNS;
+    private Resource parseNumberFormats(LDML2ICUInputLocale loc, String ns, String xpath) {
+        
+        ResourceTable tbl = new ResourceTable();
+        tbl.name = LDMLConstants.PATTERNS;
         Resource current = null;
-        ResourceString strs[] = new ResourceString[theArray.length];
-        GroupStatus status = parseGroupWithFallback(loc, "//ldml/numbers", theArray, strs, false);
-        if (GroupStatus.EMPTY == status) {
-            return null; // NO items were found
-        }
+        String pathToTest;
+        
+        for ( String numFmtKey : numFmtKeys ) {
+            pathToTest = xpath + "/" + numFmtKey + "s/" + numFmtKey + "Length/" + numFmtKey + STD_SUFFIX;
+            if ( !ns.equals("latn")) {
+                pathToTest = pathToTest + "[@numberSystem=\"" + ns + "\"]";
+            }
+            
+            String value = loc.getFile().getWinningValue(pathToTest);
+            if (loc.isPathNotConvertible(pathToTest) || value == null) {
+                continue;
+            }
+            
+            ResourceString str = new ResourceString();
+            str.name = numFmtKey;
+            str.val = value;
 
-        for (ResourceString str : strs) {
-            if (current == null) {
-                current = arr.first = str;
+            if ( current == null ) {
+                tbl.first = str;
             } else {
                 current.next = str;
-                current = current.next;
             }
+            current = str;
         }
-
-        if (arr.first != null) {
-            return arr;
+        
+        if ( current != null ) {
+            return tbl;
         }
-
+        
         return null;
     }
+
 
     private Resource parseCurrencies(LDML2ICUInputLocale loc, String xpath) {
         ResourceTable table = new ResourceTable();
@@ -4240,10 +4292,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     };
 
     private Resource parseCurrency(LDML2ICUInputLocale loc, String xpath, String type) {
+        
         ResourceArray arr = new ResourceArray();
         arr.name = type;
         ResourceString strs[] = new ResourceString[curr_syms.length];
-        GroupStatus status = parseGroupWithFallback(loc, xpath, curr_syms, strs, false);
+        GroupStatus status = parseGroupWithFallback(loc, xpath, curr_syms, strs);
         if (status == GroupStatus.EMPTY) {
             String full = loc.resolved().getFullXPath(xpath);
             String val = loc.resolved().getStringValue(xpath);
@@ -5283,8 +5336,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     private Resource parseDefaultNumberingSystem(LDML2ICUInputLocale loc, String xpath) {
         ResourceString str = new ResourceString();
-        str.name = LDMLConstants.DEFAULT_NUMBERING_SYSTEM;
-        str.val = loc.getFile().getStringValue(xpath);
+        str.name = LDMLConstants.DEFAULT;;
+        str.val = loc.getFile().getStringValue(xpath+"/"+LDMLConstants.DEFAULT_NUMBERING_SYSTEM);
         if (str.val != null) {
             return str;
         }

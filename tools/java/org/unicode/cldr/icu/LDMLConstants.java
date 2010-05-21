@@ -145,6 +145,7 @@ public class LDMLConstants {
     public static final String CURRENCY_FORMATS    = "currencyFormats";
     public static final String PERCENT_FORMATS     = "percentFormats";
     public static final String SYMBOLS         = "symbols";
+    public static final String PATTERNS        = "patterns";
     public static final String CURRENCIES      = "currencies";
     public static final String SYMBOL          = "symbol";
     public static final String DISPLAY_NAME    = "displayName";

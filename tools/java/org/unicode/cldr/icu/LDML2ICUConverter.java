@@ -3703,7 +3703,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
     
     private Resource parseNumberElements(LDML2ICUInputLocale loc, String xpath) {
-        String[] numSystems = supplementalDataInfo.getNumberingSystems().toArray(new String[0]);
+        
+        String[] numSystems = { "latn" };
+        if ( supplementalDataInfo != null ) {
+            numSystems = supplementalDataInfo.getNumberingSystems().toArray(new String[0]);
+        }
         Resource current = null;
         ResourceTable numElements = new ResourceTable();
         numElements.name = NUMBER_ELEMENTS;

@@ -1036,22 +1036,22 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>H.mm.ss zzzz</pattern>
+							<pattern>H:mm:ss zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>HH.mm.ss z</pattern>
+							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>HH.mm.ss</pattern>
+							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>HH.mm</pattern>
+							<pattern>HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -1070,7 +1070,7 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat>+HH.mm;-HH.mm</hourFormat>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat draft="unconfirmed">{0}</regionFormat>
 			<zone type="Europe/Andorra">

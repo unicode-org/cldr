@@ -1200,6 +1200,15 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">d일</dateFormatItem>
+						<dateFormatItem id="h">a h시</dateFormatItem>
+						<dateFormatItem id="H">H시</dateFormatItem>
+						<dateFormatItem id="M">M월</dateFormatItem>
+						<dateFormatItem id="y">G y년</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
 				<dateFormats>
@@ -1386,18 +1395,19 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="d">d일</dateFormatItem>
 						<dateFormatItem id="Ed">d일 (E)</dateFormatItem>
 						<dateFormatItem id="EEEd">d일 EEE</dateFormatItem>
 						<dateFormatItem id="EEEd" alt="proposed-x1001" draft="unconfirmed">d (EEE)</dateFormatItem>
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="h">a h</dateFormatItem>
+						<dateFormatItem id="h">a h시</dateFormatItem>
+						<dateFormatItem id="H">H시</dateFormatItem>
 						<dateFormatItem id="hm">a h:mm</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">a h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Hms">H시 m분 s초</dateFormatItem>
 						<dateFormatItem id="Hms" alt="proposed-x1001" draft="unconfirmed">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="M">M월</dateFormatItem>
 						<dateFormatItem id="Md">M. d.</dateFormatItem>
 						<dateFormatItem id="Md" alt="proposed-x1001" draft="unconfirmed">M.d</dateFormatItem>
 						<dateFormatItem id="MEd">M. d. (E)</dateFormatItem>
@@ -1412,7 +1422,7 @@
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="mmss" alt="proposed-x1001" draft="unconfirmed">mm분ss초</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y</dateFormatItem>
+						<dateFormatItem id="y">y년</dateFormatItem>
 						<dateFormatItem id="yM">yyyy. M.</dateFormatItem>
 						<dateFormatItem id="yM" alt="proposed-x1001" draft="unconfirmed">yyyy.M</dateFormatItem>
 						<dateFormatItem id="yMEd">yyyy. M. d. EEE</dateFormatItem>
@@ -1875,11 +1885,15 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="d">d일</dateFormatItem>
 						<dateFormatItem id="Ed" draft="provisional">d (E)</dateFormatItem>
+						<dateFormatItem id="h">a h시</dateFormatItem>
+						<dateFormatItem id="H">H시</dateFormatItem>
 						<dateFormatItem id="hm" draft="provisional">a hh:mm</dateFormatItem>
 						<dateFormatItem id="hms" draft="provisional">a hh:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">M월</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="provisional">M월d일 (E)</dateFormatItem>
-						<dateFormatItem id="yyyy" draft="provisional">GGG yy년</dateFormatItem>
+						<dateFormatItem id="yyyy">G yy년</dateFormatItem>
 						<dateFormatItem id="yyyyMMM" draft="provisional">GGGGG yy년M월</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd" draft="provisional">GGGGG yy년M월d일</dateFormatItem>
 						<dateFormatItem id="yyyyQ" draft="provisional">GGGGG yy년 Q</dateFormatItem>
@@ -1921,13 +1935,17 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="d">d일</dateFormatItem>
+						<dateFormatItem id="h">a h시</dateFormatItem>
+						<dateFormatItem id="H">H시</dateFormatItem>
 						<dateFormatItem id="hm" draft="provisional">a h:mm</dateFormatItem>
 						<dateFormatItem id="hms" draft="provisional">a h:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">M월</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">M.d</dateFormatItem>
 						<dateFormatItem id="MEd" draft="provisional">M.d (E)</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="provisional">M월d일</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="provisional">M월d일 (E)</dateFormatItem>
-						<dateFormatItem id="yyyy" draft="provisional">G y년</dateFormatItem>
+						<dateFormatItem id="yyyy">G y년</dateFormatItem>
 						<dateFormatItem id="yyyyMEd" draft="provisional">G y/M/d (EEE)</dateFormatItem>
 						<dateFormatItem id="yyyyMMM" draft="provisional">G y년M월</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd" draft="provisional">G y년M월d일 (EEE)</dateFormatItem>

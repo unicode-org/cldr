@@ -1019,6 +1019,15 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">d日</dateFormatItem>
+						<dateFormatItem id="h">ah時</dateFormatItem>
+						<dateFormatItem id="H">H時</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
+						<dateFormatItem id="y">Gy年</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
 				<dateFormats>
@@ -1231,13 +1240,13 @@
 						<dateFormatItem id="Ed">d日(E)</dateFormatItem>
 						<dateFormatItem id="Ed" alt="proposed-x1001" draft="unconfirmed">d日（E）</dateFormatItem>
 						<dateFormatItem id="EEEd" draft="provisional">d日（E）</dateFormatItem>
-						<dateFormatItem id="h">ah</dateFormatItem>
+						<dateFormatItem id="h">ah時</dateFormatItem>
 						<dateFormatItem id="H">H時</dateFormatItem>
 						<dateFormatItem id="hm">ah:mm</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
 						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">M/d（E）</dateFormatItem>
 						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
@@ -1648,9 +1657,13 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed" draft="provisional">d日（E）</dateFormatItem>
+						<dateFormatItem id="h">ah時</dateFormatItem>
+						<dateFormatItem id="H">H時</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="provisional">M月d日EEE</dateFormatItem>
-						<dateFormatItem id="yyyy" draft="provisional">Gy年</dateFormatItem>
+						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyyM" draft="provisional">Gy/M</dateFormatItem>
 						<dateFormatItem id="yyyyMd" draft="provisional">Gy/M/d</dateFormatItem>
 						<dateFormatItem id="yyyyMMM" draft="provisional">Gy年M月</dateFormatItem>
@@ -1680,14 +1693,16 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="h">ah</dateFormatItem>
+						<dateFormatItem id="d">d日</dateFormatItem>
+						<dateFormatItem id="h">ah時</dateFormatItem>
+						<dateFormatItem id="H">H時</dateFormatItem>
 						<dateFormatItem id="hm">ah:mm</dateFormatItem>
 						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="MEd" draft="provisional">M/d（E）</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日EEE</dateFormatItem>
-						<dateFormatItem id="yyyy">Gy</dateFormatItem>
-						<dateFormatItem id="yyyy" alt="proposed-x1001" draft="unconfirmed">Gy年</dateFormatItem>
+						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyyM">Gy/M</dateFormatItem>
 						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">Gy/M/d（E）</dateFormatItem>

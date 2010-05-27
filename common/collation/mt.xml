@@ -7,10 +7,10 @@
 		<language type="mt" /> 
 	</identity>
 		<collations  validSubLocales="mt_MT">
-			<collation type="standard" >
-				<settings caseFirst="upper"  />
+			<collation type="standard">
+				<settings caseFirst="upper"/>
 				<rules>
-					<reset before="primary">d</reset>
+					<reset before="primary">c</reset>
 					<p>Ċ</p>
 					<t>ċ</t>
 					<reset before="primary">g</reset>
@@ -28,6 +28,6 @@
 					<p>Ż</p>
 					<t>ż</t>
 				</rules>
-			</collation  >
+			</collation>
 		</collations>
 </ldml>

@@ -2,69 +2,51 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="hr" /> 
+		<version number="$Revision$" />
+		<generation date="$Date$" />
+		<language type="hr" />
 	</identity>
-		<collations  validSubLocales="hr_HR">
-			<collation type="standard" >
-				<rules>
-					<reset>C</reset>
-					<p>č</p>
-					<t>Č</t>
-					<p>ć</p>
-					<t>Ć</t>
-					<reset>D</reset>
-					<p>dž</p>
-					<t>Dž</t>
-					<t>DŽ</t>
-					<reset>L</reset>
-					<p>lj</p>
-					<t>Lj</t>
-					<t>LJ</t>
-					<reset>N</reset>
-					<p>nj</p>
-					<t>Nj</t>
-					<t>NJ</t>
-					<reset>S</reset>
-					<p>š</p>
-					<t>Š</t>
-					<reset>Z</reset>
-					<p>ž</p>
-					<t>Ž</t>
-				</rules>
-			</collation  >
-			<collation draft="unconfirmed" alt="proposed" type="standard" >
-				<rules>
-					<reset>C</reset>
-					<p>č</p>
-					<t>Č</t>
-					<p>ć</p>
-					<t>Ć</t>
-					<reset>D</reset>
-					<p>dž</p><i>ǆ</i>
-					<t>dŽ</t>
-					<t>Dž</t><i>ǅ</i>
-					<t>DŽ</t><i>Ǆ</i>
-					<p>đ</p>
-					<t>Đ</t>
-					<reset>L</reset>
-					<p>lj</p><i>ǉ</i>
-					<t>lJ</t>
-					<t>Lj</t><i>ǈ</i>
-					<t>LJ</t><i>Ǉ</i>
-					<reset>N</reset>
-					<p>nj</p><i>ǌ</i>
-					<t>nJ</t>
-					<t>Nj</t><i>ǋ</i>
-					<t>NJ</t><i>Ǌ</i>
-					<reset>S</reset>
-					<p>š</p>
-					<t>Š</t>
-					<reset>Z</reset>
-					<p>ž</p>
-					<t>Ž</t>
-				</rules>
-			</collation  >
-		</collations>
+	<collations validSubLocales="hr_HR">
+		<collation type="standard">
+			<rules>
+				<reset>C</reset>
+				<p>č</p>
+				<t>Č</t>
+				<p>ć</p>
+				<t>Ć</t>
+				<reset>D</reset>
+				<p>dž</p>
+				<i>ǆ</i>
+				<t>dŽ</t>
+				<t>Dž</t>
+				<i>ǅ</i>
+				<t>DŽ</t>
+				<i>Ǆ</i>
+				<p>đ</p>
+				<t>Đ</t>
+				<reset>L</reset>
+				<p>lj</p>
+				<i>ǉ</i>
+				<t>lJ</t>
+				<t>Lj</t>
+				<i>ǈ</i>
+				<t>LJ</t>
+				<i>Ǉ</i>
+				<reset>N</reset>
+				<p>nj</p>
+				<i>ǌ</i>
+				<t>nJ</t>
+				<t>Nj</t>
+				<i>ǋ</i>
+				<t>NJ</t>
+				<i>Ǌ</i>
+				<reset>S</reset>
+				<p>š</p>
+				<t>Š</t>
+				<reset>Z</reset>
+				<p>ž</p>
+				<t>Ž</t>
+			</rules>
+		</collation>
+	</collations>
 </ldml>

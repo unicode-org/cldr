@@ -5,10 +5,12 @@
 	<generation date="$Date: 2010-05-27 12:00:00 -0800 (Thu, 27 May 2010) $"/>
 	<transforms>
 		<transform source="Han" target="Latin" direction="forward" variant="Names">
-			<comment># first convert name characters with special readings</comment>
+			<comment># Need Spacedhan so the name transliterations get spaced properly</comment>
+			<tRule>::Han-Spacedhan();</tRule>
+			<comment># Convert name characters with special readings</comment>
 			<tRule>沈→shěn;</tRule>
 			<tRule>曾→zēng;</tRule>
-			<comment># then run the normal Han-Latin transform for the rest</comment>
+			<comment># Then run the normal Han-Latin transform for the rest</comment>
 			<tRule>::Han-Latin();</tRule>
 		</transform>
 	</transforms>

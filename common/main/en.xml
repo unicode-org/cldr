@@ -2613,6 +2613,22 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="short">
+                <decimalFormat>
+                    <pattern type="1000">0.0K</pattern>
+                    <pattern type="10000">00K</pattern>
+                    <pattern type="100000">000K</pattern>
+                    <pattern type="1000000">0.0M</pattern>
+                    <pattern type="10000000">00M</pattern>
+                    <pattern type="100000000">000M</pattern>
+                    <pattern type="1000000000">0.0B</pattern>
+                    <pattern type="10000000000">00B</pattern>
+                    <pattern type="100000000000">000B</pattern>
+                    <pattern type="1000000000000">0.0T</pattern>
+                    <pattern type="10000000000000">00T</pattern>
+                    <pattern type="100000000000000">000T</pattern>
+                </decimalFormat>
+			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats>
 			<scientificFormatLength>

@@ -22,11 +22,6 @@ import java.util.regex.Pattern;
 
 
 // DOM imports
-import org.apache.xpath.XPathAPI;
-import org.apache.xalan.serialize.DOMSerializer;
-import org.apache.xalan.serialize.Serializer;
-import org.apache.xalan.serialize.SerializerFactory;
-import org.apache.xalan.templates.OutputProperties;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NamedNodeMap;
@@ -44,6 +39,11 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath; 
+import javax.xml.xpath.XPathConstants; 
+import javax.xml.xpath.XPathExpression; 
+import javax.xml.xpath.XPathExpressionException; 
+import javax.xml.xpath.XPathFactory; 
 
 // SAX2 imports
 import org.xml.sax.ErrorHandler;
@@ -260,6 +260,9 @@ public class LDMLUtilities {
         }
         return locName.toString();
     }
+// revalidate wasn't called anywhere.  
+// TODO: if needed, reimplement using DOM level 3 
+/* 
     public static Document revalidate(Document doc, String fileName){
         // what a waste!!
         // to revalidate an in-memory DOM tree we need to first
@@ -282,7 +285,7 @@ public class LDMLUtilities {
             throw new RuntimeException(ex.getMessage());
         }
     }
-    
+*/
     @Deprecated
     public static String convertXPath2ICU(Node alias, Node namespaceNode, StringBuffer fullPath)
       throws TransformerException {
@@ -299,14 +302,14 @@ public class LDMLUtilities {
         
         // make sure that the xpaths are valid
         if(namespaceNode==null){
-            XPathAPI.eval(context, fullPath.toString());
+            XPathAPI_eval(context, fullPath.toString());
             if(xpath!=null){
-                XPathAPI.eval(context,xpath);
+                XPathAPI_eval(context,xpath);
             }
         }else{
-            XPathAPI.eval(context, fullPath.toString(), namespaceNode);
+            XPathAPI_eval(context, fullPath.toString(), namespaceNode);
             if(xpath!=null){
-                XPathAPI.eval(context, xpath, namespaceNode);
+                XPathAPI_eval(context, xpath, namespaceNode);
             }
         }
         if(source.equals(LDMLConstants.LOCALE)){
@@ -318,7 +321,7 @@ public class LDMLUtilities {
         if(xpath!=null){
             StringBuilder resolved = XPathTokenizer.relativeToAbsolute(xpath, fullPath);
             // make sure that fullPath is not corrupted!
-            XPathAPI.eval(context, fullPath.toString());
+            XPathAPI_eval(context, fullPath.toString());
             
             //TODO .. do the conversion
             XPathTokenizer tokenizer = new XPathTokenizer(resolved.toString());
@@ -1231,7 +1234,7 @@ public class LDMLUtilities {
     }
     public static Node[] getNodeListAsArray( Node doc, String xpath){
         try{
-            NodeList list = XPathAPI.selectNodeList(doc, xpath);
+            NodeList list = XPathAPI_selectNodeList(doc, xpath);
             int length = list.getLength();
             if(length>0){
                 Node[] array = new Node[length];
@@ -1301,7 +1304,7 @@ public class LDMLUtilities {
      */
     public static NodeList getNodeList( Document doc, String xpath){
         try{
-            return XPathAPI.selectNodeList(doc, xpath);
+            return XPathAPI_selectNodeList(doc, xpath);
 
         }catch(TransformerException ex){
             throw new RuntimeException(ex.getMessage());
@@ -1379,7 +1382,7 @@ public class LDMLUtilities {
      */
     public static Node getNode(Document doc, String xpath, Node namespaceNode){
         try{
-            NodeList nl = XPathAPI.selectNodeList(doc, xpath, namespaceNode);
+            NodeList nl = XPathAPI_selectNodeList(doc, xpath, namespaceNode);
             int len = nl.getLength();
             //TODO watch for attribute "alt"
             if(len>1){
@@ -1396,7 +1399,7 @@ public class LDMLUtilities {
     }
     public static Node getNode(Node context, String resToFetch, Node namespaceNode){
         try{
-            NodeList nl = XPathAPI.selectNodeList(context, "./"+resToFetch, namespaceNode);
+            NodeList nl = XPathAPI_selectNodeList(context, "./"+resToFetch, namespaceNode);
             int len = nl.getLength();
             //TODO watch for attribute "alt"
             if(len>1){
@@ -1419,7 +1422,7 @@ public class LDMLUtilities {
      */
     public static Node getNode(Node node, String xpath){
         try{
-            NodeList nl = XPathAPI.selectNodeList(node, xpath);
+            NodeList nl = XPathAPI_selectNodeList(node, xpath);
             int len = nl.getLength();
             //TODO watch for attribute "alt"
             if(len>1){
@@ -1448,7 +1451,7 @@ public class LDMLUtilities {
     }
     public static Node getNode(Node node, String xpath, boolean preferDraft, boolean preferAlt){
         try{
-            NodeList nl = XPathAPI.selectNodeList(node, xpath);
+            NodeList nl = XPathAPI_selectNodeList(node, xpath);
             return getNode(nl, xpath, preferDraft, preferAlt);
 
         }catch(TransformerException ex){
@@ -1577,7 +1580,7 @@ public class LDMLUtilities {
      */
     public static NodeList getNodeList(Document doc, String xpath, Node namespaceNode){
         try{
-            NodeList nl = XPathAPI.selectNodeList(doc, xpath, namespaceNode);
+            NodeList nl = XPathAPI_selectNodeList(doc, xpath, namespaceNode);
             if(nl.getLength()==0){
                 return null;
             }
@@ -1595,7 +1598,7 @@ public class LDMLUtilities {
      */
     public static NodeList getNodeList(Node node, String xpath){
         try{
-            NodeList nl = XPathAPI.selectNodeList(node, xpath);
+            NodeList nl = XPathAPI_selectNodeList(node, xpath);
             int len = nl.getLength();
             if(len==0){
                 return null;
@@ -1968,7 +1971,7 @@ public class LDMLUtilities {
     }
     
     // Utility functions, HTML and such.
-	public static String CVSBASE="http://www.unicode.org/cldr/trac/browser/trunk";
+    public static String CVSBASE="http://www.unicode.org/cldr/trac/browser/trunk";
     
     public static final String getCVSLink(String locale)
     {
@@ -2009,51 +2012,51 @@ public class LDMLUtilities {
        String aVersion = null;
        File entriesFile = new File(sourceDir + File.separatorChar + "CVS","Entries");
        if(entriesFile.exists() && entriesFile.canRead()) {
-	      try{
-	        BufferedReader r = new BufferedReader(new FileReader(entriesFile.getPath()));
-	            String s;
-	            while((s=r.readLine())!=null) {
-	                String lookFor = "/"+fileName+"/";
-	                if(s.startsWith(lookFor)) {
-	                    String ver = s.substring(lookFor.length());
-	                    ver = ver.substring(0,ver.indexOf('/'));
-	                    aVersion = ver;
-	                }
-	            }
-	            r.close();
-	      }  catch ( Throwable th ) {
-	            System.err.println(th.toString() + " trying to read CVS Entries file " + entriesFile.getPath());
-	            return null;
-	        }
+          try{
+            BufferedReader r = new BufferedReader(new FileReader(entriesFile.getPath()));
+                String s;
+                while((s=r.readLine())!=null) {
+                    String lookFor = "/"+fileName+"/";
+                    if(s.startsWith(lookFor)) {
+                        String ver = s.substring(lookFor.length());
+                        ver = ver.substring(0,ver.indexOf('/'));
+                        aVersion = ver;
+                    }
+                }
+                r.close();
+          }  catch ( Throwable th ) {
+                System.err.println(th.toString() + " trying to read CVS Entries file " + entriesFile.getPath());
+                return null;
+            }
        } else {
-    	   // no CVS, use file ident.
+           // no CVS, use file ident.
            File xmlFile = new File(sourceDir, fileName);
            if(!xmlFile.exists()) return null;
            final String bVersion[] = { "unknown" };
            try {
-	           XMLFileReader xfr = new XMLFileReader().setHandler(new SimpleHandler() {
-	        	   private boolean done=false;
-//	        	    public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {
-	        	   public void handlePathValue(String p, String v) {
-	        		   if(!done) {
-	        			   Matcher m = VERSION_PATTERN.matcher(p);
-	        			   if(m.matches()) {
-	        				   //System.err.println("Matches! "+p+" = "+m.group(1));
-	        				   bVersion[0] = m.group(1);
-		        			   done=true;
-	        			   }
-	        		   }
-	        	   }
-	           });
-	           xfr.read(xmlFile.getPath(), -1, true);
-	           aVersion = bVersion[0]; // copy from input param
+               XMLFileReader xfr = new XMLFileReader().setHandler(new SimpleHandler() {
+                   private boolean done=false;
+//                  public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {
+                   public void handlePathValue(String p, String v) {
+                       if(!done) {
+                           Matcher m = VERSION_PATTERN.matcher(p);
+                           if(m.matches()) {
+                               //System.err.println("Matches! "+p+" = "+m.group(1));
+                               bVersion[0] = m.group(1);
+                               done=true;
+                           }
+                       }
+                   }
+               });
+               xfr.read(xmlFile.getPath(), -1, true);
+               aVersion = bVersion[0]; // copy from input param
            } catch(Throwable t) {
-        	   t.printStackTrace();
-        	   aVersion = "err";
-        	   System.err.println("Error reading version of " + xmlFile.getAbsolutePath() + ": " + t.toString());
+               t.printStackTrace();
+               aVersion = "err";
+               System.err.println("Error reading version of " + xmlFile.getAbsolutePath() + ": " + t.toString());
            }
        }
-	   //System.err.println("v="+aVersion);
+       //System.err.println("v="+aVersion);
        return aVersion;
     }
 
@@ -2218,5 +2221,55 @@ public class LDMLUtilities {
         } else {        
             return altType + "-" + proposedType; // 'alternate-proposed'
         }
+    }
+    
+    /**
+     * Compatibility.
+     * @param node
+     * @param xpath
+     * @return
+     * @throws TransformerException 
+     */
+    private static NodeList XPathAPI_selectNodeList(Node node, String xpath) throws TransformerException {
+        XPathFactory  factory=XPathFactory.newInstance();
+        XPath xPath=factory.newXPath();
+        try {
+            XPathExpression  xPathExpression=
+                xPath.compile(xpath);
+            return (NodeList)xPathExpression.evaluate( node, XPathConstants.NODESET);
+        } catch (XPathExpressionException e) {
+            throw new TransformerException("Exception in XPathAPI_selectNodeList: "+xpath,e);
+        }
+    }
+    private static NodeList XPathAPI_selectNodeList(Document doc, String xpath,
+            Node namespaceNode) throws TransformerException {
+        XPathFactory  factory=XPathFactory.newInstance();
+        XPath xPath=factory.newXPath();
+        try {
+            XPathExpression  xPathExpression=
+                xPath.compile(xpath);
+            return (NodeList)xPathExpression.evaluate( doc, XPathConstants.NODESET);
+        } catch (XPathExpressionException e) {
+            throw new TransformerException("Exception in XPathAPI_selectNodeList: "+xpath,e);
+        }
+    }
+    private static NodeList XPathAPI_selectNodeList(Node context, String xpath,
+            Node namespaceNode) throws TransformerException {
+        XPathFactory  factory=XPathFactory.newInstance();
+        XPath xPath=factory.newXPath();
+        try {
+            XPathExpression  xPathExpression=
+                xPath.compile(xpath);
+            return (NodeList)xPathExpression.evaluate( context, XPathConstants.NODESET);
+        } catch (XPathExpressionException e) {
+            throw new TransformerException("Exception in XPathAPI_selectNodeList: "+xpath,e);
+        }
+    }
+    private static void XPathAPI_eval(Node context, String string,
+            Node namespaceNode) throws TransformerException {
+        XPathAPI_selectNodeList(context, string, namespaceNode);
+    }
+    private static void XPathAPI_eval(Node context, String string) throws TransformerException {
+        XPathAPI_selectNodeList(context, string);
     }
 }

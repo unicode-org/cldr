@@ -1435,6 +1435,11 @@
 			<timezone type="Antarctica/Macquarie">
 				<usesMetazone to="2010-04-03 16:00" mzone="Australia_Eastern"/>
 			</timezone>
+			<timezone type="America/Bahia_Banderas">
+				<usesMetazone to="1970-01-01 08:00" mzone="America_Pacific"/>
+				<usesMetazone to="2010-04-04 07:00" from="1970-01-01 08:00" mzone="America_Mountain"/>
+				<usesMetazone from="2010-04-04 07:00" mzone="America_Central"/>
+			</timezone>
 		</metazoneInfo>
 
 		<mapTimezones type="metazones">

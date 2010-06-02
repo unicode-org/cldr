@@ -6,170 +6,299 @@
     <generation date="$Date$"/>
     <keyword>
         <key name="cu" alias="currency">
-            <type name="AFN"/>
-            <type name="ANG"/>
-            <type name="AOA"/>
-            <type name="ARA"/>
-            <type name="ARL"/>
-            <type name="ARM"/>
-            <type name="ARS"/>
-            <type name="AUD"/>
-            <type name="AWG"/>
-            <type name="AZN"/>
-            <type name="BAM"/>
-            <type name="BBD"/>
-            <type name="BDT"/>
-            <type name="BEF"/>
-            <type name="BHD"/>
-            <type name="BIF"/>
-            <type name="BMD"/>
-            <type name="BND"/>
-            <type name="BOB"/>
-            <type name="BOP"/>
-            <type name="BRL"/>
-            <type name="BSD"/>
-            <type name="BTN"/>
-            <type name="BWP"/>
-            <type name="BZD"/>
-            <type name="CAD"/>
-            <type name="CDF"/>
-            <type name="CHF"/>
-            <type name="CLE"/>
-            <type name="CLP"/>
-            <type name="CNY"/>
-            <type name="COP"/>
-            <type name="CRC"/>
-            <type name="CUC"/>
-            <type name="CUP"/>
-            <type name="CVE"/>
-            <type name="CYP"/>
-            <type name="CZK"/>
-            <type name="DEM"/>
-            <type name="DJF"/>
-            <type name="DKK"/>
-            <type name="DOP"/>
-            <type name="DZD"/>
-            <type name="EEK"/>
-            <type name="EGP"/>
-            <type name="ERN"/>
-            <type name="ESP"/>
-            <type name="ETB"/>
-            <type name="EUR"/>
-            <type name="FIM"/>
-            <type name="FJD"/>
-            <type name="FKP"/>
-            <type name="FRF"/>
-            <type name="GBP"/>
-            <type name="GHC"/>
-            <type name="GHS"/>
-            <type name="GIP"/>
-            <type name="GMD"/>
-            <type name="GNF"/>
-            <type name="GRD"/>
-            <type name="GTQ"/>
-            <type name="GYD"/>
-            <type name="HKD"/>
-            <type name="HNL"/>
-            <type name="HRK"/>
-            <type name="HTG"/>
-            <type name="HUF"/>
-            <type name="IDR"/>
-            <type name="IEP"/>
-            <type name="ILP"/>
-            <type name="ILS"/>
-            <type name="INR"/>
-            <type name="ISK"/>
-            <type name="ITL"/>
-            <type name="JMD"/>
-            <type name="JOD"/>
-            <type name="JPY"/>
-            <type name="KES"/>
-            <type name="KMF"/>
-            <type name="KRW"/>
-            <type name="KWD"/>
-            <type name="KYD"/>
-            <type name="LAK"/>
-            <type name="LBP"/>
-            <type name="LKR"/>
-            <type name="LRD"/>
-            <type name="LSL"/>
-            <type name="LTL"/>
-            <type name="LVL"/>
-            <type name="LYD"/>
-            <type name="MMK"/>
-            <type name="MNT"/>
-            <type name="MOP"/>
-            <type name="MRO"/>
-            <type name="MTL"/>
-            <type name="MTP"/>
-            <type name="MUR"/>
-            <type name="MXP"/>
-            <type name="MYR"/>
-            <type name="MZM"/>
-            <type name="MZN"/>
-            <type name="NAD"/>
-            <type name="NGN"/>
-            <type name="NIO"/>
-            <type name="NLG"/>
-            <type name="NOK"/>
-            <type name="NPR"/>
-            <type name="NZD"/>
-            <type name="PAB"/>
-            <type name="PEI"/>
-            <type name="PEN"/>
-            <type name="PGK"/>
-            <type name="PHP"/>
-            <type name="PKR"/>
-            <type name="PLN"/>
-            <type name="PTE"/>
-            <type name="PYG"/>
-            <type name="QAR"/>
-            <type name="RHD"/>
-            <type name="RON"/>
-            <type name="RSD"/>
-            <type name="SAR"/>
-            <type name="SBD"/>
-            <type name="SCR"/>
-            <type name="SDD"/>
-            <type name="SEK"/>
-            <type name="SGD"/>
-            <type name="SHP"/>
-            <type name="SKK"/>
-            <type name="SLL"/>
-            <type name="SOS"/>
-            <type name="SRD"/>
-            <type name="SRG"/>
-            <type name="STD"/>
-            <type name="SVC"/>
-            <type name="SYP"/>
-            <type name="SZL"/>
-            <type name="THB"/>
-            <type name="TMM"/>
-            <type name="TND"/>
-            <type name="TOP"/>
-            <type name="TRL"/>
-            <type name="TRY"/>
-            <type name="TTD"/>
-            <type name="TWD"/>
-            <type name="TZS"/>
-            <type name="UAH"/>
-            <type name="UGX"/>
-            <type name="USD"/>
-            <type name="UYU"/>
-            <type name="VEF"/>
-            <type name="VND"/>
-            <type name="VUV"/>
-            <type name="WST"/>
-            <type name="XAF"/>
-            <type name="XCD"/>
-            <type name="XOF"/>
-            <type name="XPF"/>
-            <type name="YER"/>
-            <type name="ZAR"/>
-            <type name="ZMK"/>
-            <type name="ZRN"/>
-            <type name="ZRZ"/>
-            <type name="ZWD"/>
+            <type name="adp" since="1.9"/>
+            <type name="aed" since="1.9"/>
+            <type name="afa" since="1.9"/>
+            <type name="afn"/>
+            <type name="alk" since="1.9"/>
+            <type name="all" since="1.9"/>
+            <type name="amd" since="1.9"/>
+            <type name="ang"/>
+            <type name="aoa"/>
+            <type name="aok" since="1.9"/>
+            <type name="aon" since="1.9"/>
+            <type name="aor" since="1.9"/>
+            <type name="ara"/>
+            <type name="arl"/>
+            <type name="arm"/>
+            <type name="arp" since="1.9"/>
+            <type name="ars"/>
+            <type name="ats" since="1.9"/>
+            <type name="aud"/>
+            <type name="awg"/>
+            <type name="azm" since="1.9"/>
+            <type name="azn"/>
+            <type name="bad" since="1.9"/>
+            <type name="bam"/>
+            <type name="ban" since="1.9"/>
+            <type name="bbd"/>
+            <type name="bdt"/>
+            <type name="bec" since="1.9"/>
+            <type name="bef"/>
+            <type name="bel" since="1.9"/>
+            <type name="bgl" since="1.9"/>
+            <type name="bgm" since="1.9"/>
+            <type name="bgn" since="1.9"/>
+            <type name="bgo" since="1.9"/>
+            <type name="bhd"/>
+            <type name="bif"/>
+            <type name="bmd"/>
+            <type name="bnd"/>
+            <type name="bob"/>
+            <type name="bol" since="1.9"/>
+            <type name="bop"/>
+            <type name="bov" since="1.9"/>
+            <type name="brb" since="1.9"/>
+            <type name="brc" since="1.9"/>
+            <type name="bre" since="1.9"/>
+            <type name="brl"/>
+            <type name="brn" since="1.9"/>
+            <type name="brr" since="1.9"/>
+            <type name="brz" since="1.9"/>
+            <type name="bsd"/>
+            <type name="btn"/>
+            <type name="buk" since="1.9"/>
+            <type name="bwp"/>
+            <type name="byb" since="1.9"/>
+            <type name="byr" since="1.9"/>
+            <type name="bzd"/>
+            <type name="cad"/>
+            <type name="cdf"/>
+            <type name="che" since="1.9"/>
+            <type name="chf"/>
+            <type name="chw" since="1.9"/>
+            <type name="cle"/>
+            <type name="clf" since="1.9"/>
+            <type name="clp"/>
+            <type name="cnx" since="1.9"/>
+            <type name="cny"/>
+            <type name="cop"/>
+            <type name="cou" since="1.9"/>
+            <type name="crc"/>
+            <type name="csd" since="1.9"/>
+            <type name="csk" since="1.9"/>
+            <type name="cuc"/>
+            <type name="cup"/>
+            <type name="cve"/>
+            <type name="cyp"/>
+            <type name="czk"/>
+            <type name="ddm" since="1.9"/>
+            <type name="dem"/>
+            <type name="djf"/>
+            <type name="dkk"/>
+            <type name="dop"/>
+            <type name="dzd"/>
+            <type name="ecs" since="1.9"/>
+            <type name="ecv" since="1.9"/>
+            <type name="eek"/>
+            <type name="egp"/>
+            <type name="ern"/>
+            <type name="esa" since="1.9"/>
+            <type name="esb" since="1.9"/>
+            <type name="esp"/>
+            <type name="etb"/>
+            <type name="eur"/>
+            <type name="fim"/>
+            <type name="fjd"/>
+            <type name="fkp"/>
+            <type name="frf"/>
+            <type name="gbp"/>
+            <type name="gek" since="1.9"/>
+            <type name="gel" since="1.9"/>
+            <type name="ghc"/>
+            <type name="ghs"/>
+            <type name="gip"/>
+            <type name="gmd"/>
+            <type name="gnf"/>
+            <type name="gns" since="1.9"/>
+            <type name="gqe" since="1.9"/>
+            <type name="grd"/>
+            <type name="gtq"/>
+            <type name="gwe" since="1.9"/>
+            <type name="gwp" since="1.9"/>
+            <type name="gyd"/>
+            <type name="hkd"/>
+            <type name="hnl"/>
+            <type name="hrd" since="1.9"/>
+            <type name="hrk"/>
+            <type name="htg"/>
+            <type name="huf"/>
+            <type name="idr"/>
+            <type name="iep"/>
+            <type name="ilp"/>
+            <type name="ilr" since="1.9"/>
+            <type name="ils"/>
+            <type name="inr"/>
+            <type name="iqd" since="1.9"/>
+            <type name="irr" since="1.9"/>
+            <type name="isj" since="1.9"/>
+            <type name="isk"/>
+            <type name="itl"/>
+            <type name="jmd"/>
+            <type name="jod"/>
+            <type name="jpy"/>
+            <type name="kes"/>
+            <type name="kgs" since="1.9"/>
+            <type name="khr" since="1.9"/>
+            <type name="kmf"/>
+            <type name="kpw" since="1.9"/>
+            <type name="krh" since="1.9"/>
+            <type name="kro" since="1.9"/>
+            <type name="krw"/>
+            <type name="kwd"/>
+            <type name="kyd"/>
+            <type name="kzt" since="1.9"/>
+            <type name="lak"/>
+            <type name="lbp"/>
+            <type name="lkr"/>
+            <type name="lrd"/>
+            <type name="lsl"/>
+            <type name="ltl"/>
+            <type name="ltt" since="1.9"/>
+            <type name="luc" since="1.9"/>
+            <type name="luf" since="1.9"/>
+            <type name="lul" since="1.9"/>
+            <type name="lvl"/>
+            <type name="lvr" since="1.9"/>
+            <type name="lyd"/>
+            <type name="mad" since="1.9"/>
+            <type name="maf" since="1.9"/>
+            <type name="mcf" since="1.9"/>
+            <type name="mdc" since="1.9"/>
+            <type name="mdl" since="1.9"/>
+            <type name="mga" since="1.9"/>
+            <type name="mgf" since="1.9"/>
+            <type name="mkd" since="1.9"/>
+            <type name="mkn" since="1.9"/>
+            <type name="mlf" since="1.9"/>
+            <type name="mmk"/>
+            <type name="mnt"/>
+            <type name="mop"/>
+            <type name="mro"/>
+            <type name="mtl"/>
+            <type name="mtp"/>
+            <type name="mur"/>
+            <type name="mvp" since="1.9"/>
+            <type name="mvr" since="1.9"/>
+            <type name="mwk" since="1.9"/>
+            <type name="mxn" since="1.9"/>
+            <type name="mxp"/>
+            <type name="mxv" since="1.9"/>
+            <type name="myr"/>
+            <type name="mze" since="1.9"/>
+            <type name="mzm"/>
+            <type name="mzn"/>
+            <type name="nad"/>
+            <type name="ngn"/>
+            <type name="nic" since="1.9"/>
+            <type name="nio"/>
+            <type name="nlg"/>
+            <type name="nok"/>
+            <type name="npr"/>
+            <type name="nzd"/>
+            <type name="omr" since="1.9"/>
+            <type name="pab"/>
+            <type name="pei"/>
+            <type name="pen"/>
+            <type name="pes" since="1.9"/>
+            <type name="pgk"/>
+            <type name="php"/>
+            <type name="pkr"/>
+            <type name="pln"/>
+            <type name="plz" since="1.9"/>
+            <type name="pte"/>
+            <type name="pyg"/>
+            <type name="qar"/>
+            <type name="rhd"/>
+            <type name="rol" since="1.9"/>
+            <type name="ron"/>
+            <type name="rsd"/>
+            <type name="rub" since="1.9"/>
+            <type name="rur" since="1.9"/>
+            <type name="rwf" since="1.9"/>
+            <type name="sar"/>
+            <type name="sbd"/>
+            <type name="scr"/>
+            <type name="sdd"/>
+            <type name="sdg" since="1.9"/>
+            <type name="sdp" since="1.9"/>
+            <type name="sek"/>
+            <type name="sgd"/>
+            <type name="shp"/>
+            <type name="sit" since="1.9"/>
+            <type name="skk"/>
+            <type name="sll"/>
+            <type name="sos"/>
+            <type name="srd"/>
+            <type name="srg"/>
+            <type name="std"/>
+            <type name="sur" since="1.9"/>
+            <type name="svc"/>
+            <type name="syp"/>
+            <type name="szl"/>
+            <type name="thb"/>
+            <type name="tjr" since="1.9"/>
+            <type name="tjs" since="1.9"/>
+            <type name="tmm"/>
+            <type name="tmt" since="1.9"/>
+            <type name="tnd"/>
+            <type name="top"/>
+            <type name="tpe" since="1.9"/>
+            <type name="trl"/>
+            <type name="try"/>
+            <type name="ttd"/>
+            <type name="twd"/>
+            <type name="tzs"/>
+            <type name="uah"/>
+            <type name="uak" since="1.9"/>
+            <type name="ugs" since="1.9"/>
+            <type name="ugx"/>
+            <type name="usd"/>
+            <type name="usn" since="1.9"/>
+            <type name="uss" since="1.9"/>
+            <type name="uyi" since="1.9"/>
+            <type name="uyp" since="1.9"/>
+            <type name="uyu"/>
+            <type name="uzs" since="1.9"/>
+            <type name="veb" since="1.9"/>
+            <type name="vef"/>
+            <type name="vnd"/>
+            <type name="vnn" since="1.9"/>
+            <type name="vuv"/>
+            <type name="wst"/>
+            <type name="xaf"/>
+            <type name="xag" since="1.9"/>
+            <type name="xau" since="1.9"/>
+            <type name="xba" since="1.9"/>
+            <type name="xbb" since="1.9"/>
+            <type name="xbc" since="1.9"/>
+            <type name="xbd" since="1.9"/>
+            <type name="xcd"/>
+            <type name="xdr" since="1.9"/>
+            <type name="xeu" since="1.9"/>
+            <type name="xfo" since="1.9"/>
+            <type name="xfu" since="1.9"/>
+            <type name="xof"/>
+            <type name="xpd" since="1.9"/>
+            <type name="xpf"/>
+            <type name="xpt" since="1.9"/>
+            <type name="xre" since="1.9"/>
+            <type name="xts" since="1.9"/>
+            <type name="xxx" since="1.9"/>
+            <type name="ydd" since="1.9"/>
+            <type name="yer"/>
+            <type name="yud" since="1.9"/>
+            <type name="yum" since="1.9"/>
+            <type name="yun" since="1.9"/>
+            <type name="yur" since="1.9"/>
+            <type name="zal" since="1.9"/>
+            <type name="zar"/>
+            <type name="zmk"/>
+            <type name="zrn"/>
+            <type name="zrz"/>
+            <type name="zwd"/>
+            <type name="zwl" since="1.9"/>
+            <type name="zwr" since="1.9"/>
         </key>
     </keyword>
 </ldmlBCP47>

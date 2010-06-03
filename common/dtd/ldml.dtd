@@ -86,7 +86,7 @@ $Date$
 <!ATTLIST fallback references CDATA #IMPLIED >
 <!ATTLIST fallback alt NMTOKENS #IMPLIED >
 
-<!ELEMENT localeDisplayNames (alias | (localeDisplayPattern?, languages?, scripts?, territories?, variants?, keys?, types?, measurementSystemNames?, codePatterns?, special*)) >
+<!ELEMENT localeDisplayNames (alias | (localeDisplayPattern?, languages?, scripts?, territories?, variants?, keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, special*)) >
 <!ATTLIST localeDisplayNames draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!-- Either 1 alias OR any specials, any order, zero or more language -->
@@ -144,6 +144,16 @@ $Date$
 <!ATTLIST type draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST type references CDATA #IMPLIED >
 <!ATTLIST type alt NMTOKENS #IMPLIED >
+
+<!ELEMENT transformNames ( alias | (type | special)* ) >
+<!ATTLIST transformNames draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST transformNames references CDATA #IMPLIED >
+
+<!ELEMENT transformName ( #PCDATA ) >
+<!ATTLIST transformName type NMTOKEN #REQUIRED >
+<!ATTLIST transformName draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST transformName references CDATA #IMPLIED >
+<!ATTLIST transformName alt NMTOKENS #IMPLIED >
 
 
 <!ELEMENT codePatterns ( codePattern+ ) >

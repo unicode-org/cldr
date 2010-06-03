@@ -1175,6 +1175,53 @@
 						<era type="0">التقويم البوذي</era>
 					</eraAbbr>
 				</eras>
+				<dateFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE، d MMMM، y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM، y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>dd‏/MM‏/y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d‏/M‏/y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">d/‏M</dateFormatItem>
+						<dateFormatItem id="MMdd">dd‏/MM</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">y G</dateFormatItem>
+						<dateFormatItem id="yM">M‏/y G</dateFormatItem>
+						<dateFormatItem id="yMd">d/‏M/‏y G</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE، d/‏M/‏y G</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMMM y G</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE، d MMMM y G</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM‏/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM، y G</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="coptic">
 				<months>
@@ -1832,6 +1879,50 @@
 						<era type="235">هيسي</era>
 					</eraAbbr>
 				</eras>
+				<dateFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE، d MMMM، y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM، y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>dd‏/MM‏/y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d‏/M‏/y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">d/‏M</dateFormatItem>
+						<dateFormatItem id="MMdd">dd‏/MM</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyy">y G</dateFormatItem>
+						<dateFormatItem id="yyyyM">M‏/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">EEE، d/‏M/‏y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM‏/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">EEE، d MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="persian">
 				<months>
@@ -1857,6 +1948,60 @@
 						<era type="0">ه‍.ش</era>
 					</eraAbbr>
 				</eras>
+			</calendar>
+			<calendar type="roc">
+				<eras> <!-- per cldrbug 2835, added with best guess for translation of ROC -->
+					<eraAbbr>
+						<era type="0">Before R.O.C.</era>
+						<era type="1">جمهورية الصي</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE، d MMMM، y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM، y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>dd‏/MM‏/y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d‏/M‏/y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">d/‏M</dateFormatItem>
+						<dateFormatItem id="MMdd">dd‏/MM</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyy">y G</dateFormatItem>
+						<dateFormatItem id="yyyyM">M‏/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d/‏M/‏y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">EEE، d/‏M/‏y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM‏/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">EEE، d MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

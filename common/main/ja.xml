@@ -1026,6 +1026,60 @@
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="buddhist">
+				<dateFormats> <!-- per cldrbug 2835, copied from roc -->
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>Gy年M月d日EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>Gy年M月d日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>Gy/MM/dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>Gy/MM/dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats> <!-- per cldrbug 2835, copied from japanese -->
+					<availableFormats>
+						<dateFormatItem id="d">d日</dateFormatItem>
+						<dateFormatItem id="Ed">d日(EEE)</dateFormatItem>
+						<dateFormatItem id="GGGGyMd">GGGGy年M月d日</dateFormatItem>
+						<dateFormatItem id="h">ah</dateFormatItem>
+						<dateFormatItem id="H">H時</dateFormatItem>
+						<dateFormatItem id="hm">ah:mm</dateFormatItem>
+						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
+						<dateFormatItem id="Md">M/d</dateFormatItem>
+						<dateFormatItem id="MEd">M/d(E)</dateFormatItem>
+						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">Gy年</dateFormatItem>
+						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
+						<dateFormatItem id="yyyyMd">Gyy/M/d</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">Gyy/M/d(E)</dateFormatItem>
+						<dateFormatItem id="yyyyMM">Gyy/MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(EEE)</dateFormatItem>
+						<dateFormatItem id="yyyyQ">Gyy/Q</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -1686,23 +1740,40 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>Gy/MM/dd(EE)</pattern>
+							<pattern>Gy/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>Gy/MM/dd(E)</pattern>
+							<pattern>Gy/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats>
+				<dateTimeFormats> <!-- per cldrbug 2835, copied from japanese -->
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
+						<dateFormatItem id="Ed">d日(EEE)</dateFormatItem>
 						<dateFormatItem id="h">ah</dateFormatItem>
 						<dateFormatItem id="H">H時</dateFormatItem>
+						<dateFormatItem id="hm">ah:mm</dateFormatItem>
+						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">M月</dateFormatItem>
+						<dateFormatItem id="Md">M/d</dateFormatItem>
+						<dateFormatItem id="MEd">M/d(E)</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMEd">M月d日(EEE)</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
+						<dateFormatItem id="yyyyMd">Gyy/M/d</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">Gyy/M/d(E)</dateFormatItem>
+						<dateFormatItem id="yyyyMM">Gyy/MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(EEE)</dateFormatItem>
+						<dateFormatItem id="yyyyQ">Gyy/Q</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

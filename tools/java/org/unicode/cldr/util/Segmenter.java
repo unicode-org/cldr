@@ -43,6 +43,7 @@ public class Segmenter {
    */
   public static UnicodeSet DEBUG_REDUCE_SET_SIZE = null; // new UnicodeSet("[\\u0000-\\u00FF\\u0300-\\u03FF\\u2000-\\u20FF]"); // new UnicodeSet("[\\u0000-\\u00FF\\u2000-\\u20FF]"); // or null
   private static final boolean SHOW_VAR_CONTENTS = false;
+  static boolean SHOW_SAMPLES = false;
   private static final String DEBUG_AT_STRING = "\u0009\u0308\u00A0"; // null to turn off
   private static final String DEBUG_AT_RULE_CONTAINING = "$Spec3_"; // null to turn off
 
@@ -385,7 +386,6 @@ public class Segmenter {
 		 * @param value
 		 * @return
 		 */
-		static boolean SHOW_SAMPLES = false;
 		
 		static class MyComposer extends UnicodeMap.Composer {
 			public Object compose(int codePoint, String string, Object a, Object b) {

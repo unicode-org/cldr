@@ -238,22 +238,27 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT languageAlias EMPTY >
 <!ATTLIST languageAlias type NMTOKEN #IMPLIED >
 <!ATTLIST languageAlias replacement NMTOKEN #IMPLIED >
+<!ATTLIST languageAlias reason ( deprecated | overlong | macrolanguage | legacy ) #IMPLIED >
 
 <!ELEMENT scriptAlias EMPTY >
 <!ATTLIST scriptAlias type NMTOKEN #IMPLIED >
 <!ATTLIST scriptAlias replacement NMTOKEN #IMPLIED >
+<!ATTLIST scriptAlias reason ( deprecated | overlong ) #IMPLIED >
 
 <!ELEMENT territoryAlias EMPTY >
 <!ATTLIST territoryAlias type NMTOKEN #IMPLIED >
 <!ATTLIST territoryAlias replacement NMTOKENS #IMPLIED >
+<!ATTLIST territoryAlias reason ( deprecated | overlong ) #IMPLIED >
 
 <!ELEMENT variantAlias EMPTY >
 <!ATTLIST variantAlias type NMTOKEN #IMPLIED >
 <!ATTLIST variantAlias replacement NMTOKEN #IMPLIED >
+<!ATTLIST variantAlias reason ( deprecated | overlong ) #IMPLIED >
 
 <!ELEMENT zoneAlias EMPTY >
 <!ATTLIST zoneAlias type CDATA #IMPLIED >
 <!ATTLIST zoneAlias replacement CDATA #IMPLIED >
+<!ATTLIST zoneAlias reason ( deprecated | overlong ) #IMPLIED >
 
 <!ELEMENT deprecated ( deprecatedItems* ) >
 <!ATTLIST deprecated draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->

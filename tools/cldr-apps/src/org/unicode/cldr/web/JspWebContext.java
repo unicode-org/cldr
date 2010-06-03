@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2009 IBM Corp. and Others. All Rights Reserved.
+ * Copyright (C) 2009-2010 IBM Corp. and Others. All Rights Reserved.
  */
 package org.unicode.cldr.web;
 
@@ -16,15 +16,27 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 
 /**
  * This class has routines on it helpful for JSPs.
+ * 
+ * See this URL for documentation about the Easy Steps system:
+ *   http://cldr.unicode.org/development/coding-cldr-tools/easy-steps
+ * 
  * @author srl
  *
  */
 public class JspWebContext extends WebContext {
 
+	/**
+	 * List of xpaths indicating the types of data being submitted (numbers, currency, etc)
+	 */
+	Set<String> podBases = null;
+	
+	/**
+	 * Name of the JSP to be used for showing a row of output
+	 */
 	private static final Object DATAROW_JSP_CODE = "datarow_short_code.jsp";
 
 	/**
-	 * For creating a JspContext from a raw input/output stream.
+	 * Create a JspContext from a raw HTTP connection.
 	 * @param irq
 	 * @param irs
 	 * @throws IOException
@@ -32,28 +44,30 @@ public class JspWebContext extends WebContext {
 	public JspWebContext(HttpServletRequest irq, HttpServletResponse irs)
 			throws IOException {
 		super(irq, irs);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * For creating a JspContext from a WebContext.
-	 * Slicing is fine here (for now), no extra state in a JspWebContext
+	 * For creating a JspContext from another WebContext.
+	 * Slicing is fine here (for now), as there isn't any extra state in a JspWebContext
 	 * @param other
 	 */
 	public JspWebContext(WebContext other) {
 		super(other);
-		// TODO Auto-generated constructor stub
+		if(other instanceof JspWebContext) {
+			this.podBases = ((JspWebContext)other).podBases;
+		}
 	}
 
 	/**
-	 * Get the current CLDRFile. Not resolved.
+	 * @return the non-resolved CLDRFile for the current locale.
 	 */
 	public CLDRFile cldrFile() {
 		return SurveyForum.getCLDRFile(this);
 	}
 	
 	/**
-	 * Get a copy of the SupplementalDataInfo
+	 * @return a copy of the SupplementalDataInfo
+	 * @see SupplementalDataInfo
 	 */
 	public SupplementalDataInfo supplementalDataInfo() {
 		SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(cldrFile().getSupplementalDirectory());
@@ -62,7 +76,7 @@ public class JspWebContext extends WebContext {
 	
 	/**
 	 * Is JSP debugging on?
-	 * @return true if JSP debugging is on
+	 * @return true if the 'JSP debugging' switch is on
 	 */
 	public boolean debugJsp() {
 		return this.prefBool(SurveyMain.PREF_DEBUGJSP);
@@ -70,6 +84,7 @@ public class JspWebContext extends WebContext {
 	
 	/**
 	 * Process data, without any hint.
+	 * @return the result handler for the operation
 	 */
 	public SummarizingSubmissionResultHandler processDataSubmission() {
 		return processDataSubmission(null);
@@ -77,7 +92,7 @@ public class JspWebContext extends WebContext {
 	
 	/**
 	 * Process data.
-	 * @param xpathHint a string to show to the user (such as 'Languages') identifying what items are being submitted.
+	 * @param xpathHint base xpath to identify which fields ar ebeing submitted.
 	 */
 	public SummarizingSubmissionResultHandler processDataSubmission(String xpathHint) {
 		SummarizingSubmissionResultHandler ssrh  = null;
@@ -107,43 +122,47 @@ public class JspWebContext extends WebContext {
 		return ssrh;
 	}
 	
-	Set<String> ourPodBases = null;
-	
+	/**
+	 * This adds a base to the list of paths to process/
+	 * @param base base xpath to add
+	 * @see #doneWithXpaths()
+	 * @internal
+	 */
 	private void addPodBase(String base) {
-		if(ourPodBases==null) {
-			ourPodBases = 	new HashSet<String>();
+		if(podBases==null) {
+			podBases = 	new HashSet<String>();
 		}
-		ourPodBases.add(base);
-//		if(false || debugJsp()) {
-//			this.println("<tr><td>added base: "+base+"</td></tr>");
-//		}
+		podBases.add(base);
 	}
 	
 	/**
 	 * Open a table with a 'code' column.
+	 * @see #closeTable()
 	 */
 	public void openTable() {
 		this.put(SurveyMain.DATAROW_JSP,DATAROW_JSP_CODE);
 		SurveyMain.printSectionTableOpenCode(this);
 	}
 	/**
-	 *  Also, sets the 'datarow' type to not include code.
+	 *  Open a table, but without the 'code' column.
+	 *  @see #closeTableNoCode()
 	 */
 	public void openTableNoCode() {
 		this.put(SurveyMain.DATAROW_JSP, SurveyMain.DATAROW_JSP_DEFAULT);
 		SurveyForum.printSectionTableOpenShort(this, null);
 	}
 	/**
-	 * Show one xpath.
-	 * @param xpath
+	 * Show a single xpath's data to the user for submission/vetting. 
+	 * @param xpath path to show
+	 * @see #doneWithXpaths()
 	 */
 	public void showXpath(String xpath) {
 		String podBase = SurveyForum.showXpathShort(this, xpath, xpath);
 		addPodBase(podBase);
 	}
 	/**
-	 * Convenience: show xpaths from an array
-	 * @param xpaths
+	 * Show a list of xpaths. This is the same as calling showXpath repeatedly.
+	 * @param xpaths list of xpaths to show.
 	 */
 	public void showXpath(String[] xpaths) {
 		for(String xpath : xpaths) {
@@ -151,25 +170,31 @@ public class JspWebContext extends WebContext {
 		}
 	}
 	/**
-	 * End of the table.
+	 * Close the table.
+	 * @see #openTable()
 	 */
 	public void closeTable() {
 		SurveyMain.printSectionTableCloseCode(this);
 	}
 	
+	/**
+	 * Close the table without a 'code' column.
+	 * @see #openTableNoCode()
+	 */
 	public void closeTableNoCode() {
 		SurveyForum.printSectionTableCloseShort(this, null);
 	}
 	/**
-	 * Important for mixed-xpath pages. Notify the server which xpaths to check on.
+	 * This should be called after all calls to showXpath are done.
+	 * @see #showXpath(String)
 	 */
 	public void doneWithXpaths() {
 		StringBuffer sb = null;
-		if(ourPodBases==null) {
+		if(podBases==null) {
 			this.println("<!-- no items included. No hidden field needed -->");
 			return; 
 		}
-		for(String base : ourPodBases) {
+		for(String base : podBases) {
 			int xpath = sm.xpt.getByXpath(base);
 			if(sb==null) {
 				sb = new StringBuffer(Integer.toString(xpath));
@@ -186,6 +211,7 @@ public class JspWebContext extends WebContext {
 	
 	/**
 	 * Check based on user permissions.
+	 * @return true if the user is allowed to modify this locale
 	 */
 	public Boolean canModify() {
 		if(canModify == null) {
@@ -200,23 +226,24 @@ public class JspWebContext extends WebContext {
 	
 	
 	/**
-	 * URL to the 'top' of a survey tool locale.
+	 * @return URL to the 'top' of a survey tool locale.
 	 */
 	public String urlToLocale() {
 		return urlToLocale(getLocale());
 	}
 
 	/**
-	 * URL to the top of a survey tool locale.
-	 * @param locale
+	 * @return URL to the top of a certain survey tool locale.
+	 * @param locale as a CLDRLocale
 	 */
 	public String urlToLocale(CLDRLocale locale) {
 		return base()+"?_="+locale.getBaseName();
 	}
 	
 	/**
-	 * URL to a particular section in the current locale
-	 * @param sectionName
+	 * @return URL to a particular section in the current locale
+	 * @param sectionName section name
+	 * @see DataSection#xpathToSectionBase(String)
 	 */
 	public String urlToSection(String sectionName) {
 		return urlToLocale()+"&x="+sectionName;
@@ -226,6 +253,7 @@ public class JspWebContext extends WebContext {
 	 * URL to a particular section in a particular locale
 	 * @param locale
 	 * @param sectionName
+	 * @see DataSection#xpathToSectionBase(String)
 	 */
 	public String urlToSection(CLDRLocale locale, String sectionName) {
 		return urlToLocale(locale)+"&x="+sectionName;

@@ -58,18 +58,30 @@ public class WebContext implements Cloneable {
     String outQuery = null;
     TreeMap<String, String> outQueryMap = new TreeMap<String, String>();
     boolean dontCloseMe = false;
+    HttpServletRequest request;
+    HttpServletResponse response;
 
+    /**
+     * 
+     * @return the output PrintWriter
+     */
     public PrintWriter getOut() { 
         return pw;
     }
     
+    /**
+     * Flush output content. This is useful when JSPs are mixed in with servlet code.
+     * @see java.io.PrintWriter#flush()
+     */
     public void flush() {
     	pw.flush();
     }
     
-    HttpServletRequest request;
-    HttpServletResponse response;
-    
+
+    /**
+     * Return the parameter map of the underlying request.
+     * @return {@link ServletRequest#getParameterMap()}
+     */
     public Map getParameterMap() { 
         return request.getParameterMap();
     }
@@ -77,6 +89,7 @@ public class WebContext implements Cloneable {
     /**
      * Construct a new WebContext from the servlet request and response. This is the normal constructor to use 
      * when a top level servlet or JSP spins up.  Embedded JSPs should use fromRequest.
+     * @see #fromRequest(ServletRequest, ServletResponse, Writer)
      */
     public WebContext(HttpServletRequest irq, HttpServletResponse irs) throws IOException {
         setRequestResponse(irq, irs);
@@ -98,6 +111,11 @@ public class WebContext implements Cloneable {
        }
     }
     
+    /**
+     * Change the output stream to a different writer. If it isn't a PrintWriter, it will be wrapped in one.
+     * The WebContext will assume it does not own the stream, and will not close it when done.
+     * @param w
+     */
     protected void setStream(Writer w) {
         out = w;
         if(out instanceof PrintWriter) {
@@ -109,6 +127,7 @@ public class WebContext implements Cloneable {
     }
     
     /**
+     * Extract (or create) a WebContext from a request/response.
      * Call this from a .jsp which is embedded in survey tool to extract the WebContext object.
      * The WebContext will have its output stream set to point to the request and response, so you
      * can mix write calls from the JSP with ST calls.
@@ -131,8 +150,9 @@ public class WebContext implements Cloneable {
     }
     
     /**
-     * Construct a new fake WebContext - for testing purposes.
-     * Writes to stderr. 
+     * Construct a new, fake WebContext - for testing purposes.
+     * Writes all output to stdout.
+     * @param fake ignored
      */
     public WebContext(boolean fake)throws IOException  {
         dontCloseMe=false;
@@ -140,8 +160,9 @@ public class WebContext implements Cloneable {
     }
     
     /**
-     * Copy one WebContext to another.
-     * useful for sub-contexts with different base urls.
+     * Copy one WebContext to another. This is useful when you wish to create a sub-context
+     * which has a different base URL (such as for processing a certain form or widget).
+     * @param other the other WebContext to copy from
      */
     public WebContext( WebContext other) {
         if((other instanceof URLWebContext) && !(this instanceof URLWebContext)) {
@@ -172,8 +193,8 @@ public class WebContext implements Cloneable {
      * get a field's value as a boolean
      * @param x field name
      * @param def default value if field is not found.
+     * @return the field value
      */
-     
     boolean fieldBool(String x, boolean def) {
         if(field(x).length()>0) {
             if(field(x).charAt(0)=='t') {
@@ -187,8 +208,9 @@ public class WebContext implements Cloneable {
     }
 
     /**
-     * get a field's value, or -1
+     * get a field's value as an integer, or -1 if not found
      * @param x field name
+     * @return the field's value as an integer, or -1 if it was not found
      */
     final int fieldInt(String x) {
         return fieldInt(x,-1);
@@ -198,6 +220,7 @@ public class WebContext implements Cloneable {
      * get a field's value, or the default
      * @param x field name
      * @param def default value
+     * @return the field's value as an integer, or the default value if the field was not found.
      */
     public int fieldInt(String x, int def) {
         String f;
@@ -211,11 +234,11 @@ public class WebContext implements Cloneable {
             return def;
         }
     }
-    
 
     /*
-    * get a field's value, or -1
+    * get a field's value as a long, or -1
     * @param x field name
+    * @return the field's value as a long, or -1 value if the field was not found.
     */
    final long fieldLong(String x) {
        return fieldLong(x,-1);
@@ -225,6 +248,7 @@ public class WebContext implements Cloneable {
     * get a field's value, or the default
     * @param x field name
     * @param def default value
+    * @return the field's value as a long, or the default value if the field was not found.
     */
    long fieldLong(String x, long def) {
        String f;
@@ -239,9 +263,10 @@ public class WebContext implements Cloneable {
        }
    }
    
-    
     /**
      * Return true if the field is present
+     * @param x field name
+     * @return true if the field is present
      */
     public boolean hasField(String x) {
         return(request.getParameter(x)!=null);
@@ -250,13 +275,14 @@ public class WebContext implements Cloneable {
     /**
      * return a field's value, else ""
      * @param x field name
+     * @return the field value, or else ""
      */
     public final String field(String x) {
         return field(x, "");
     }
 
     /**
-     * return a field's values, or a 0 length array if none
+     * return a field's values, or a 0-length array if none
      * @param x field name
      */
     public final String[] fieldValues(String x) {
@@ -270,14 +296,14 @@ public class WebContext implements Cloneable {
 				values[n] = decodeFieldString(values[n]);
 			}
 		}
-		
 		return values;
     }
 
     /**
-     * return a field's value, else def
+     * return a field's value, else default
      * @param x field name
      * @param def default value
+     * @return the field's value as a string, otherwise the default
      */
     public String field(String x, String def) {
         if(request==null) { 
@@ -286,15 +312,15 @@ public class WebContext implements Cloneable {
 
         String res = request.getParameter(x);
          if(res == null) {       
-//              System.err.println("[[ empty query string: " + x + "]]");
             return def;    // don't try to transcode null.
         }
-        
 		return decodeFieldString(res);
 	}
 
 	/*
-	 * Decode a single string
+	 * Decode a single string from URL format into Unicode
+	 * @param res UTF-8 'encoded' bytes (expanded to a string)
+	 * @return Unicode string (will return 'res' if no high bits were detected)
 	 */
 	public static String decodeFieldString(String res) {
 		if(res==null) return null;
@@ -325,11 +351,18 @@ public class WebContext implements Cloneable {
     /**
      * get a preference's value as a boolean. defaults to false.
      * @param x pref name
+     * @return preference value (or false)
      */
     boolean prefBool(String x) {
         return prefBool(x,false);
     }
 
+    /**
+     * Get a preference's value as an integer. Defaults to 'def'
+     * @param x field name
+     * @param def default value
+     * @return the prefence's value
+     */
     int prefInt(String x, int def) {
         String f;
         if((f=pref(x,"")).length()>0) {
@@ -343,11 +376,22 @@ public class WebContext implements Cloneable {
         }
     }
     
+    /**
+     * Get a preference's value as an integer, or else -1
+     * @param x field name
+     * @return preference value or -1 
+     */
     int prefInt(String x) {
         return prefInt(x, -1);
     }
     
     int codesPerPage = -1;
+    
+    /**
+     * Special preference: Number of codes to show on a single page
+     * @return The preferred value (minimum: 5)
+     * @see SurveyMain#CODES_PER_PAGE
+     */
     int prefCodesPerPage() {
         if(codesPerPage == -1) {
             codesPerPage =  prefInt(SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.CODES_PER_PAGE);
@@ -360,6 +404,7 @@ public class WebContext implements Cloneable {
      * get a preference's value as a boolean. defaults to defVal.
      * @param x preference name
      * @param defVal default value
+     * @return the preference value
      */
     boolean prefBool(String x, boolean defVal)
     {
@@ -374,15 +419,17 @@ public class WebContext implements Cloneable {
     /**
      * get a pref that is a string, 
      * @param x the field name and pref name
+     * @return string preference value or "" if otherwise not found.
      */
     String pref(String x) {
-        return pref(x, ""); // should be null?
+        return pref(x, "");
     }
     
     /**
      * get a pref that is a string, 
      * @param x the field name and pref name
      * @param def default value
+     * @return pref value or def
      */
     String pref(String x, String def)
     {
@@ -396,11 +443,19 @@ public class WebContext implements Cloneable {
         return ret;
     }
     
-// convenience - atarget
+    /**
+     * Get the target keyword and value for an 'a href' HTML tag.
+     * @return the target to use (defaults to something like  'target=_blank')
+     */
     String atarget() {
         return atarget("_blank");
     }
     
+    /**
+     * Get the target  keyword and value for an 'a href' HTML tag
+     * @param target the target name to use
+     * @return the 'target=...' string - may be blank if the user has requested no popups
+     */
     String atarget(String target) {
         if(prefBool(SurveyMain.PREF_NOPOPUPS)) {
             return "";
@@ -409,7 +464,11 @@ public class WebContext implements Cloneable {
         }
     }
 
-// query api
+    /**
+     * Add a parameter to the output URL
+     * @param k key
+     * @param v value
+     */
     void addQuery(String k, String v) {
         outQueryMap.put(k,v);
         if(outQuery == null) {
@@ -419,10 +478,20 @@ public class WebContext implements Cloneable {
         }
     }
     
+    /**
+     * Add a boolean parameter to the output URL as 't' or 'f'
+     * @param k key
+     * @param v value
+     */
     void addQuery(String k, boolean v) {
         addQuery(k,v?"t":"f");
     }
     
+    /**
+     * Set a parameter on the output URL, replacing an existing value if any
+     * @param k key
+     * @param v value
+     */
     public void setQuery(String k, String v) {
         if(outQueryMap.get(k)==null) { // if it wasn't there..
             addQuery(k,v); // then do a simple append
@@ -439,6 +508,19 @@ public class WebContext implements Cloneable {
         }
     }
 
+    /**
+     * Set a query from an integer
+     * @param k
+     * @param v
+     */
+	public void setQuery(String k, int v) {
+		setQuery(k, new Integer(v).toString());
+	}
+	
+    /**
+     * Remove the specified key from the query. Has no effect if the field doesn't exist.
+     * @param k key
+     */
     void removeQuery(String k) {
         if(outQueryMap.get(k)!=null) { // if it was there..
             // rebuild query string:
@@ -453,6 +535,10 @@ public class WebContext implements Cloneable {
         }
     }
 
+    /**
+     * Return the output URL 
+     * @return the output URL
+     */
     String url() {
         if(outQuery == null) {
             return base();
@@ -461,32 +547,64 @@ public class WebContext implements Cloneable {
         }
     }
 
+    /**
+     * Returns the string that must be appended to the URL to start the next parameter - either ? or &amp;
+     * @return the connecting string
+     */
     final String urlConnector() {
         return (url().indexOf('?')!=-1)?"&amp;":"?";
     }
     
+    /**
+     * Get the base URL (servlet path)
+     * @return the servlet path in context
+     */
     String base() { 
         return context() + request.getServletPath();
     }
     
+    /**
+     * Get the base URL for some request
+     * @param request
+     * @return base URL
+     */
     public static String base(HttpServletRequest request) {
         return schemeHostPort(request)+request.getContextPath() + request.getServletPath();
     }
     
+    /**
+     * Get the context path
+     * @return the context path
+     */
     public String context() { 
         return request.getContextPath();
     }
 
+    /**
+     * Get the context path for a certain resource
+     * @param s resource URL
+     * @return the context path for the specified resource
+     */
     public String context(String s) { 
         return context() + "/" + s;
     }
     
+    /**
+     * Get a link (HTML URL) to  a JSP
+     * @param s resource to link to
+     * @return the URL suitable for HTML
+     */
     public String jspLink(String s) {
         return context(s)+"?a=" + base() +
             ((outQuery!=null)?("&amp;" + outQuery):
                 ((session!=null)?("&amp;s="+session.id):"")
             );
      }
+    /**
+     * Get a link (Text URL) to  a JSP
+     * @param s resource to link to
+     * @return the URL suitable for Text
+     */
     public String jspUrl(String s) {
         return context(s)+"?a=" + base() +
             ((outQuery!=null)?("&" + outQuery):
@@ -494,6 +612,9 @@ public class WebContext implements Cloneable {
             );
      }
     
+    /**
+     * Output the full current output URL in hidden field format.
+     */
     void printUrlAsHiddenFields() {
         for(Iterator<String> e = outQueryMap.keySet().iterator();e.hasNext();) {
             String k = e.next().toString();
@@ -503,40 +624,55 @@ public class WebContext implements Cloneable {
     }
     
     /**
-     * return the IP of the remote user.
+     * return the IP of the remote user. If they are behind a proxy, return the actual original URL.
+     * @return a URL
      */
     String userIP() {
-	return userIP(request);
+    	return userIP(request);
     }
 	
     /**
-     * return the IP of the remote user, who might be behind a proxy
+     * return the IP of the remote user given a request. If they are behind a proxy, return the actual original URL.
+     * @param request the request to use
+     * @return a URL
      */
     public static String userIP(HttpServletRequest request) {
-	String ip = request.getHeader("x-forwarded-for");
-	if(ip==null || ip.length()==0) {
-		ip = request.getRemoteAddr();
-	}
-	return ip;
+    	String ip = request.getHeader("x-forwarded-for");
+    	if(ip==null || ip.length()==0) {
+    		ip = request.getRemoteAddr();
+    	}
+    	return ip;
     }
 
     /**
      * return the hostname of the web server
+     * @return the Server Name
      */
     String serverName() {
         return request.getServerName();
     }
     
     /**
-     * return the hostname of the web server
+     * return the hostname of the web server given a request
+     * @return the Server name
      */
     static String serverName(HttpServletRequest request) {
         return request.getServerName();
     }
     
+    /**
+     * Returns the host:port of the server
+     * @return the "host:port:
+     */
     String serverHostport() {
         return serverHostport(request);
     }
+    
+    /**
+     * Returns the host:port of the server
+     * @param request a specific request
+     * @return the "host:port:
+     */
     static String serverHostport(HttpServletRequest request) {
         int port = request.getServerPort();
         String scheme = request.getScheme(); 
@@ -548,23 +684,44 @@ public class WebContext implements Cloneable {
             return serverName(request) + ":"+port;
         }
     }
+    /**
+     * Returns the scheme://host:port
+     * @return the "scheme://host:port"
+     */
     String schemeHostPort() {
         return schemeHostPort(request);
     }
     
+    /**
+     * Returns the scheme://host:port
+     * @return the "scheme://host:port"
+     * @param request the request portion
+     */
     static String schemeHostPort(HttpServletRequest request) {
         return request.getScheme()+"://" + serverHostport(request);
     }
     
-// print api
+    /**
+     * Print out a line
+     * @param s line to print
+     * @see PrintWriter#println(String)
+     */
     final void println(String s) {
         pw.println(s);
     }
     
+    /**
+     * @param s
+     * @see PrintWriter#print(String)
+     */
     final void print(String s) {
         pw.print(s);
     }
     
+    /**
+     * Print out a Throwable as HTML.
+     * @param t throwable to print
+     */
     void print(Throwable t) {
         print("<pre style='border: 2px dashed red; margin: 1em; padding: 1'>" +                        
                 t.toString() + "<br />");
@@ -578,6 +735,11 @@ public class WebContext implements Cloneable {
         print("</pre>");
     }
 
+    /**
+     * Send the user to another URL.  Won't work if there was already some output.
+     * @param where
+     * @see HttpServletResponse#sendRedirect(String)
+     */
     void redirect(String where) {
         try {
             response.sendRedirect(where);
@@ -588,6 +750,10 @@ public class WebContext implements Cloneable {
         }
     }
     
+    /**
+     * Close the stream. Normally not called directly.
+     * @throws IOException
+     */
     void close() throws IOException {
         if(!dontCloseMe) {
             out.close();
@@ -599,9 +765,16 @@ public class WebContext implements Cloneable {
     
 // doc api
 
-    
+    /**
+     * the current processor
+     * @see DisplayAndInputProcessor
+     */
     public DisplayAndInputProcessor processor = null;
     
+    /**
+     * Set this context to be handlign a certain locale
+     * @param l locale to set
+     */
     void setLocale(CLDRLocale l) {
         locale = l;
 //        localeString = locale.getBaseName();
@@ -615,7 +788,9 @@ public class WebContext implements Cloneable {
     }
     
     /**
-     * @deprecated use getLocale().toString()
+     * Return the current locale as a string. Deprecated, please use getLocale instead.
+     * @deprecated use getLocale().toString() - 
+     * @see #getLocale()
      */
     public final String localeString() {
         if(locale == null) {
@@ -624,26 +799,55 @@ public class WebContext implements Cloneable {
         return locale.toString();
     }
 
-    // convenience.	
+    /**
+     * Get an object out of the session data  
+     * @param key 
+     * @param aLocale locale to fetch
+     * @return the object or null
+     */
     public final Object getByLocale(String key, String aLocale) {
         return session.getByLocale(key,aLocale);
     }
 
+    /**
+     * Put an object into the session data
+     * @param key 
+     * @param locale
+     * @param value object to put
+     */
     public final void putByLocale(String key, String locale, Object value) {
         session.putByLocale(key,locale,value);
     }
         
-    
+    /**
+     * Remove an object from the session data
+     * @param key
+     * @param aLocale
+     */
     public final void removeByLocale(String key, String aLocale) {
         session.removeByLocale(key,aLocale);
     }
-    // ultra conveniences
+    
+    /**
+     * Remove an object from the current locale's session data
+     * @param key
+     */
     public final void removeByLocale(String key) {
         removeByLocale(key, locale.toString());
     }
+    /**
+     * Put an object into the current locale's session data
+     * @param key
+     * @param value
+     */
     public final void putByLocale(String key, Object value) {
         putByLocale(key, locale.toString(), value);
     }
+    /**
+     * Get an object from the current locale's session data
+     * @param key
+     * @return the object
+     */
     public final Object getByLocale(String key) {
 		return getByLocale(key, locale.toString());
 	}
@@ -651,6 +855,11 @@ public class WebContext implements Cloneable {
     // Static data
     static Hashtable<CLDRLocale, Hashtable<String, Object>> staticStuff = new Hashtable<CLDRLocale, Hashtable<String, Object>>();
     
+    /**
+     * Debugging: print a Reference object
+     * @param o
+     * @return number of sub-objects including this object
+     */
     public int staticInfo_Reference(Object o) {
         int s = 0;
         Object oo = ((Reference)o).get();
@@ -660,6 +869,11 @@ public class WebContext implements Cloneable {
         return s;
     }
     
+    /**
+     * Debugging: print a DataPod object
+     * @param o
+     * @return number of sub-objects including this object
+     */
     public int staticInfo_DataPod(Object o) {
         int s = 0;
         DataSection section = (DataSection)o;
@@ -669,6 +883,11 @@ public class WebContext implements Cloneable {
         return 1;
     }
 
+    /**
+     * Debugging: print an Object object
+     * @param o
+     * @return number of sub-objects including this object
+     */
     public int staticInfo_Object(Object o) {
         if(o == null) {
             println("null");
@@ -689,6 +908,11 @@ public class WebContext implements Cloneable {
         }
     }
     
+    /**
+     * Debugging: print a Hashtable object
+     * @param o
+     * @return number of sub-objects including this object
+     */
     public int staticInfo_Hashtable(Object o) {
         int s = 0;
         Hashtable subHash = (Hashtable)o;
@@ -704,12 +928,22 @@ public class WebContext implements Cloneable {
         return s;
     }
 
+    /**
+     * Debugging: print a String object
+     * @param o
+     * @return number of sub-objects including this object
+     */
     public int staticInfo_String(Object o) {
         String obj = (String)o;
         println("("+obj+")<br>");
         return 1;
     }
 
+    /**
+     * Debugging: print a Boolean object
+     * @param o
+     * @return number of sub-objects including this object
+     */
     public int staticInfo_Boolean(Object o) {
         Boolean obj = (Boolean)o;
         boolean b = (boolean)obj;
@@ -717,6 +951,10 @@ public class WebContext implements Cloneable {
         return 1;
     }
     
+    /**
+     * Debugging: print out all static objects
+     * @return the number of sub items
+     */
     public final int staticInfo() {
         println("<h4>Static Info</h4>");
         int s = staticInfo_Object(staticStuff);
@@ -725,13 +963,26 @@ public class WebContext implements Cloneable {
         return s;
     }
     
+    /**
+     * Put an object into the current locale's static store
+     * @param key
+     * @param value
+     */
     public final void putByLocaleStatic(String key, Object value) {
         putByLocaleStatic(key, locale, value);
     }
+    /**
+     * Get an object from the current locale's static store
+     * @param key
+     * @return the object
+     */
     public final Object getByLocaleStatic(String key) {
 		return getByLocaleStatic(key, locale);
 	}
     // bottlenecks for static access
+    /**
+     * Get an object from the specified static stuff
+     */
     public static synchronized final Object getByLocaleStatic(String key, CLDRLocale aLocale) {
         Hashtable subHash = staticStuff.get(aLocale);
         if(subHash == null) {
@@ -739,6 +990,12 @@ public class WebContext implements Cloneable {
         }
         return subHash.get(key);
     }
+    /**
+     * Put an object into the current locale's static stuff
+     * @param key
+     * @param locale
+     * @param value
+     */
     public static final synchronized void putByLocaleStatic(String key, CLDRLocale locale, Object value) {
         Hashtable<String, Object> subHash = staticStuff.get(locale);
         if(subHash == null) {
@@ -748,13 +1005,24 @@ public class WebContext implements Cloneable {
         subHash.put(key,value);
     }
     static private StandardCodes sc = null;
+    
+    /**
+     * Get a copy of the StandardCodes
+     * @return the StandardCodes
+     * @see StandardCodes#make()
+     */
     static private synchronized StandardCodes getSC() {
         if(sc == null) {
+        	// TODO: this is a singleton. NO need to cache.
             sc = StandardCodes.make();
         }
         return sc;
     }
     
+    /**
+     * Get the default coverage level type, possibly for the user's org
+     * @return the default type
+     */
     public String defaultPtype() {
         if(sm.isPhaseSubmit()) {
             String def = pref(SurveyMain.PREF_COVLEV,"default");
@@ -770,6 +1038,12 @@ public class WebContext implements Cloneable {
         }
     }
     
+    /**
+     * Get the effective locale type
+     * @param org
+     * @return
+     * @see StandardCodes#getEffectiveLocaleType(String)
+     */
     static String getEffectiveLocaleType(String org) {
         try {
             return  getSC().getEffectiveLocaleType(org);
@@ -777,11 +1051,20 @@ public class WebContext implements Cloneable {
             return org;
         }
     }
-    
+   
+    /**
+     * Get a list of all locale types
+     * @return a list of locale types
+     * @see StandardCodes#getLocaleCoverageOrganizations()
+     */
    static String[] getLocaleTypes() {
        return getSC().getLocaleCoverageOrganizations().toArray(new String[0]);
    }
     
+   /**
+    * Return the type of the current locale according to coverage
+    * @return the type for locale coverage
+    */
     public String getChosenLocaleType() {
         if(sm.isPhaseSubmit()) { 
             String org = pref(SurveyMain.PREF_COVTYP, "default");
@@ -798,10 +1081,24 @@ public class WebContext implements Cloneable {
         }
     }
     
+    /**
+     * Get the basic and WebContext Options map
+     * @return the map
+     * @see #getOptionsMap(Map)
+     * @see org.unicode.cldr.test.CheckCoverage#check(String, String, String, Map, List)
+     * @see SurveyMain#basicOptionsMap()
+     */
     public Map<String, String> getOptionsMap() {
         return getOptionsMap(sm.basicOptionsMap());
     }
     
+    /**
+     * Append the WebContext Options map to the specified map
+     * @return the map
+     * @see #getOptionsMap(Map)
+     * @see org.unicode.cldr.test.CheckCoverage#check(String, String, String, Map, List)
+     * @see SurveyMain#basicOptionsMap()
+     */
     public Map<String, String> getOptionsMap(Map<String, String> options) {
         if(sm.isPhaseSubmit()) { 
             String def = pref(SurveyMain.PREF_COVLEV,"default");
@@ -822,13 +1119,22 @@ public class WebContext implements Cloneable {
     private static final String DATA_POD = "DataPod_";
     
     /**
-     * Get a pod.. even if it may be no longer invalid.
+     * Get the DataSection for the given xpath prefix and default ptype, even if it may be no longer valid.
      * May be null.
+     * @param prefix the xpath prefix
+     * @return the existing data section or null if it is invalid
      */
     DataSection getExistingSection(String prefix) {
         return getExistingSection(prefix, defaultPtype());
     }
     
+    /**
+     * Get the DataSection for the given xpath prefix and default ptype, even if it may be no longer valid.
+     * May be null.
+     * @param prefix the xpath prefix
+     * @param ptype the ptype to use to distinguish
+     * @return the existing data section or null if it is invalid
+     */
     DataSection getExistingSection(String prefix, String ptype) {
         synchronized(this) {
             Reference sr = (Reference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
@@ -844,22 +1150,30 @@ public class WebContext implements Cloneable {
     }
     
     /** 
-     * Get a currently valid pod.. creating it if need be.
-     * UI: does write informative notes to the ctx in case of a long delay.
+     * Get a currently valid DataSection.. creating it if need be.
+     * prints informative notes to the ctx in case of a long delay.
+     * @param prefix
      */
     DataSection getSection(String prefix) {
         return getSection(prefix, defaultPtype());
     }
     
+    /** 
+     * Get a currently valid DataSection for the specified ptype.. creating it if need be.
+     * prints informative notes to the ctx in case of a long delay.
+     * @param prefix
+     */
     DataSection getSection(String prefix, String ptype) {
         if(hasField("srl_veryslow")&&sm.isUnofficial) {
+        	// TODO: parameterize
+        	// test case: make the data section 50x
             for(int q=0;q<50;q++) {
                 DataSection.make(this, locale, prefix, false);
             }
         }
     
         String loadString = "data was loaded.";
-	DataSection section = null;
+        DataSection section = null;
         synchronized(this) {
             section = getExistingSection(prefix, ptype);
             if((section != null) && (!section.isValid())) {
@@ -886,10 +1200,20 @@ public class WebContext implements Cloneable {
 // Internal Utils
 
     // from BagFormatter
+    /**
+     * Open a UTF 8 writer (convenience function)/
+     */
     public static PrintWriter openUTF8Writer(OutputStream out) throws IOException {
         return openWriter(out,"UTF-8");
     }
     
+    /**
+     * Open a Writer in the specified encoding
+     * @param out
+     * @param encoding
+     * @return
+     * @throws IOException
+     */
     private static PrintWriter openWriter(OutputStream out, String encoding) throws IOException {
         return new PrintWriter(
             new BufferedWriter(
@@ -907,37 +1231,53 @@ public class WebContext implements Cloneable {
 	public static final String BASE_EXAMPLE = "baseExample";
 	public static final String BASE_VALUE = "baseValue";
 
+	/**
+	 * Get help on a certain xpath in html.
+ 	 * The HTML help given is independent of locale. 
+	 * @param xpath
+	 * @see HelpMessages
+	 */
     public void printHelpHtml(String xpath) {
-        /*
-     * TODO: Mark says:   "getHelpHtml() is independent of locale. Whichever locale you 
-     * call it on, you'll get the same answer. So you can call it always on English 
-     * (or any other language) if you want. Its code just uses the static class 
-     * HelpMessages, and a file for the source. So you can create your own static class
-     * once for that, like:
-     *    static final HelpMessages surveyToolHelpMessages = new HelpMessages("test_help_messages.html");
-     *  That is what I'd recommend. "
-     
-*/
         String helpHtml = surveyToolHelpMessages.find(xpath);
         if(helpHtml != null)  {
             println("<div class='helpHtml'><!-- "+xpath+" -->\n"+helpHtml+"</div>");
         }        
     }
     
-    
+    /**
+     * Print a link to help with the title 'Help'
+     * @param what
+     * @see #printHelpLink(String, String)
+     */
     public void printHelpLink(String what)  {
         printHelpLink(what, "Help");
     }
     
+    /**
+     * Print a link to help with  a specified title
+     * @param what the help to link to
+     * @param title the title of the help
+     */
     public void printHelpLink(String what, String title)
     {
-//        boolean doEdit = UserRegistry.userIsTC(session.user);
-    
         printHelpLink(what, title, true);
     }
+    /**
+     * @param what
+     * @param title
+     * @param doEdit
+     * @deprecated editing is deprecated
+     */
     public void printHelpLink(String what, String title, boolean doEdit) {
         printHelpLink(what,title,doEdit,true);
     }
+    /**
+     * @deprecated editing is deprecated
+     * @param what
+     * @param title
+     * @param doEdit
+     * @param parens
+     */
     public void printHelpLink(String what, String title, boolean doEdit, boolean parens)
     {
         if(parens) {
@@ -951,9 +1291,22 @@ public class WebContext implements Cloneable {
             println(")");
         }
     }
+    
+    /**
+     * Get HTML for the 'modify' thing, with the hand icon
+     * @param message
+     * @see #iconHtml(String, String)
+     * @return HTML for the message
+     */
     public String modifyThing(String message) {
         return iconHtml("hand",message);
     }
+    /**
+     * get HTML for an icon with a certain message
+     * @param icon
+     * @param message
+     * @return the HTML for the icon and message
+     */
     public String iconHtml(String icon, String message) {
         if(message==null) {
             message = "[" + icon +"]";
@@ -961,10 +1314,18 @@ public class WebContext implements Cloneable {
         return "<img border='0' alt='["+icon+"]' style='width: 16px; height: 16px;' src='"+context(icon+".png")+"' title='"+message+"' />";
     }
     
+    /**
+     * Clone (copy construct) the context
+     * @see #WebContext(WebContext)
+     */
     public Object clone() {
         return new WebContext(this);
     }
     
+    /**
+     * Include a template fragment from /WEB-INF/tmpl
+     * @param filename
+     */
     public void includeFragment(String filename)  {
         RequestDispatcher dp = request.getRequestDispatcher("/WEB-INF/tmpl/"+filename);
         try {
@@ -978,47 +1339,66 @@ public class WebContext implements Cloneable {
         }
     }
 
+    /**
+     * Put something into the temporary (context, non session data) store
+     * @param string
+     * @param object
+     */
     public void put(String string, Object object) {
         temporaryStuff.put(string, object);
     }
+    /**
+     * Get something from the temporary (context, non session data) store
+     * @param string
+     * @return the object
+     */
     public Object get(String string) {
         return temporaryStuff.get(string);
     }
 
     /**
      * @return the CLDRLocale with which this WebCOntext currently pertains.
+     * @see CLDRLocale
      */
     public CLDRLocale getLocale() {
         return locale;
     }
 
-	public void setQuery(String k, int v) {
-		setQuery(k, new Integer(v).toString());
-	}
-	
 	// Display Context Data
 	protected Boolean canModify = null;
 	private Boolean zoomedIn = null;
 
+	/**
+	 * Set whether this user can modify this locale
+	 * @param canModify
+	 * @return true if the user can modify this locale
+	 */
 	public boolean setCanModify(boolean canModify) {
 		this.canModify = canModify;
 		return canModify;
 	}
 	
+	/**
+	 * Return true if the user can modify this locale
+	 * @return true if the user can modify this locale
+	 */
 	public Boolean canModify() {
 		if(canModify==null) throw new InternalError("canModify()- not set.");
 		return canModify;
 	}
 
 	/**
-	 * @param zoomedIn the zoomedIn to set
+	 * Set the zoomed-in state of this context
+	 * @param zoomedIn true if this context is in 'zoomed-in' state
+	 * @see #zoomedIn()
 	 */
 	public void setZoomedIn(Boolean zoomedIn) {
 		this.zoomedIn = zoomedIn;
 	}
 
 	/**
-	 * @return the zoomedIn
+	 * @return the zoomedIn state
+	 * @see #setZoomedIn(Boolean)
 	 */
 	public Boolean zoomedIn() {
 		if(canModify==null) throw new InternalError("zoomedIn()- not set.");

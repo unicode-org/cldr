@@ -270,6 +270,9 @@ public class SurveyMain extends HttpServlet {
     public static final String METAZONE_EPOCH = "1970-01-01";
   
     // ========== lengths
+    /**
+     * @see WebContext#prefCodesPerPage()
+     */
     static final int CODES_PER_PAGE = 80;  // This is only a default.
     static final int PAGER_SHORTEN_WIDTH = 25   ; // # of chars in the 'pager' list before they are shortened
     static final int REFS_SHORTEN_WIDTH = 120;
@@ -5881,6 +5884,11 @@ public class SurveyMain extends HttpServlet {
     }
 
     
+    /**
+     * Returns the current basic options map.
+     * @return the map
+     * @see org.unicode.cldr.test.CheckCoverage#check(String, String, String, Map, List)
+     */
     public Map basicOptionsMap() {
         Map options = new HashMap();
         

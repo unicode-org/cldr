@@ -2358,7 +2358,9 @@ if(true == true)    throw new InternalError("removed from use.");
 	}
     
     /**
-     * Abstract interface for handling the results of pod changes.
+     * Callback interface for handling the results of user input changes to survey tool data.
+     * The survey tool will call these functions to record changes.
+     * 
      * @author srl
      *
      */
@@ -2366,40 +2368,93 @@ if(true == true)    throw new InternalError("removed from use.");
 
     	/**
     	 * If nonzero, some results were updated. 
-    	 * @param j
+    	 * @param resultCount number of results which were updated. 
     	 */
-		void handleResultCount(int j);
+		void handleResultCount(int resultCount);
 
-		void handleRemoveItem(DataRow p, CandidateItem item, boolean b);
+		/**
+		 * Items were removed from a row.
+		 * @param row which row
+		 * @param item item which was removed
+		 * @param voteRemoved The item had the user's vote on it, which was also removed.
+		 */
+		void handleRemoveItem(DataRow row, CandidateItem item, boolean voteRemoved);
 
+		/**
+		 * Failure: You didn't have permission to do this operation
+		 * @param p Row in question 
+		 * @param optionalItem item in question, or null
+		 * @param string informational string
+		 */
 		void handleNoPermission(DataRow p, CandidateItem optionalItem, String string);
 
+		/**
+		 * A vote was removed
+		 * @param p which row
+		 * @param voter which users' vote
+		 * @param item which item
+		 */
 		void handleRemoveVote(DataRow p, UserRegistry.User voter, CandidateItem item);
 
+		/**
+		 * An requested change was empty. 
+		 * @param p row
+		 */
 		void handleEmptyChangeto(DataRow p);
 
+		/**
+		 * User was already voting for this item
+		 * @param p row
+		 * @param item item
+		 */
 		void warnAlreadyVotingFor(DataRow p, CandidateItem item);
 
+		/**
+		 * User voted for an extant item, it was accepted as a vote for that item
+		 * @param p row
+		 * @param item the extant item
+		 */
 		void warnAcceptedAsVoteFor(DataRow p, CandidateItem item);
 
+		/**
+		 * A new value was accepted
+		 * @param p row
+		 * @param choice_v new value
+		 * @param hadFailures true if there were failures
+		 */
 		void handleNewValue(DataRow p, String choice_v, boolean hadFailures);
 
 		/**
 		 * Error when adding/changing value.
-		 * @param p
-		 * @param status
-		 * @param choice_v
+		 * @param p row
+		 * @param status which error
+		 * @param choice_v which new value
 		 */
 		void handleError(DataRow p, CheckStatus status, String choice_v);
 
+		/**
+		 * Item was removed
+		 * @param p
+		 */
 		void handleRemoved(DataRow p);
 
+		/**
+		 * Vote was accepted
+		 * @param p
+		 * @param oldVote
+		 * @param base_xpath
+		 */
 		void handleVote(DataRow p, int oldVote, int base_xpath);
 
+		/**
+		 * Internal error, an unknown choice was made.
+		 * @param p
+		 * @param choice
+		 */
 		void handleUnknownChoice(DataRow p, String choice);
 
 		/**
-		 * Return true if this errored item should NOT be added to the data.
+		 * @return true if this errored item should NOT be added to the data.
 		 * @param p
 		 */
 		boolean rejectErrorItem(DataRow p);

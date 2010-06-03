@@ -224,7 +224,7 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!ELEMENT characters (alias | (exemplarCharacters*, elipsis*, moreInformation*, indexLabels*, mapping*, special*))  >
+<!ELEMENT characters (alias | (exemplarCharacters*, ellipsis*, moreInformation*, indexLabels*, mapping*, special*))  >
 <!ATTLIST characters draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
@@ -235,11 +235,11 @@ $Date$
 <!ATTLIST exemplarCharacters alt NMTOKENS #IMPLIED >
 <!ATTLIST exemplarCharacters validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT elipsis ( #PCDATA ) >
-<!ATTLIST elipsis type ( initial | medial | final ) #IMPLIED >
-<!ATTLIST elipsis draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
-<!ATTLIST elipsis references CDATA #IMPLIED >
-<!ATTLIST elipsis alt NMTOKENS #IMPLIED >
+<!ELEMENT ellipsis ( #PCDATA ) >
+<!ATTLIST ellipsis type ( initial | medial | final ) #IMPLIED >
+<!ATTLIST ellipsis draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST ellipsis references CDATA #IMPLIED >
+<!ATTLIST ellipsis alt NMTOKENS #IMPLIED >
 
 <!ELEMENT moreInformation ( #PCDATA ) >
 <!ATTLIST moreInformation draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >

@@ -145,7 +145,7 @@ $Date$
 <!ATTLIST type references CDATA #IMPLIED >
 <!ATTLIST type alt NMTOKENS #IMPLIED >
 
-<!ELEMENT transformNames ( alias | (type | special)* ) >
+<!ELEMENT transformNames ( alias | (transformName | special)* ) >
 <!ATTLIST transformNames draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST transformNames references CDATA #IMPLIED >
 

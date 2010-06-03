@@ -47,7 +47,6 @@ public class JspWebContext extends WebContext {
 
 	/**
 	 * Get the current CLDRFile. Not resolved.
-	 * @return
 	 */
 	public CLDRFile cldrFile() {
 		return SurveyForum.getCLDRFile(this);
@@ -55,7 +54,6 @@ public class JspWebContext extends WebContext {
 	
 	/**
 	 * Get a copy of the SupplementalDataInfo
-	 * @return
 	 */
 	public SupplementalDataInfo supplementalDataInfo() {
 		SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(cldrFile().getSupplementalDirectory());
@@ -64,7 +62,7 @@ public class JspWebContext extends WebContext {
 	
 	/**
 	 * Is JSP debugging on?
-	 * @return
+	 * @return true if JSP debugging is on
 	 */
 	public boolean debugJsp() {
 		return this.prefBool(SurveyMain.PREF_DEBUGJSP);
@@ -72,7 +70,6 @@ public class JspWebContext extends WebContext {
 	
 	/**
 	 * Process data, without any hint.
-	 * @return
 	 */
 	public SummarizingSubmissionResultHandler processDataSubmission() {
 		return processDataSubmission(null);
@@ -80,8 +77,7 @@ public class JspWebContext extends WebContext {
 	
 	/**
 	 * Process data.
-	 * @param xpathHint
-	 * @return
+	 * @param xpathHint a string to show to the user (such as 'Languages') identifying what items are being submitted.
 	 */
 	public SummarizingSubmissionResultHandler processDataSubmission(String xpathHint) {
 		SummarizingSubmissionResultHandler ssrh  = null;
@@ -205,7 +201,6 @@ public class JspWebContext extends WebContext {
 	
 	/**
 	 * URL to the 'top' of a survey tool locale.
-	 * @return
 	 */
 	public String urlToLocale() {
 		return urlToLocale(getLocale());
@@ -214,7 +209,6 @@ public class JspWebContext extends WebContext {
 	/**
 	 * URL to the top of a survey tool locale.
 	 * @param locale
-	 * @return
 	 */
 	public String urlToLocale(CLDRLocale locale) {
 		return base()+"?_="+locale.getBaseName();
@@ -223,7 +217,6 @@ public class JspWebContext extends WebContext {
 	/**
 	 * URL to a particular section in the current locale
 	 * @param sectionName
-	 * @return
 	 */
 	public String urlToSection(String sectionName) {
 		return urlToLocale()+"&x="+sectionName;
@@ -233,7 +226,6 @@ public class JspWebContext extends WebContext {
 	 * URL to a particular section in a particular locale
 	 * @param locale
 	 * @param sectionName
-	 * @return
 	 */
 	public String urlToSection(CLDRLocale locale, String sectionName) {
 		return urlToLocale(locale)+"&x="+sectionName;

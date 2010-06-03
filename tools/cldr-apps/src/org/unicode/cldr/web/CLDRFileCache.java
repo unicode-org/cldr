@@ -299,7 +299,6 @@ public class CLDRFileCache {
 		 * Create a shallow clone.
 		 * 
 		 * @param copyAsLockedFrom
-		 * @param finalData
 		 */
 		protected CacheableXMLSource(CacheableXMLSource copyAsLockedFrom) {
 			super(factory, copyAsLockedFrom.getLocaleID());
@@ -458,7 +457,7 @@ public class CLDRFileCache {
 		/**
 		 * Load (copy) from another source.
 		 * 
-		 * @param make
+		 * @param from source of data
 		 */
 		public void load(XMLSource from) {
 			Iterator<String> iter = from.iterator();

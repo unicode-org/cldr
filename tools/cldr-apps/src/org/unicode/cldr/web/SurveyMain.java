@@ -823,8 +823,7 @@ public class SurveyMain extends HttpServlet {
     }
     
     /**
-     * Print memory stats
-     * @return
+     * @return memory statistics as a string
      */
     public static String freeMem() {
         Runtime r = Runtime.getRuntime();
@@ -3961,7 +3960,6 @@ public class SurveyMain extends HttpServlet {
      * @param ctx
      * @param pref which preference
      * @param what description of preference
-     * @return
      */
     public boolean showTogglePref(WebContext ctx, String pref, String what) {
         boolean val = ctx.prefBool(pref);
@@ -6078,11 +6076,11 @@ public class SurveyMain extends HttpServlet {
     }
 
     /**
+     * Return the UserLocaleStuff for the current context.
      * Any user of this should be within session sync (ctx.session)
      * @param ctx
      * @param user
      * @param locale
-     * @return
      */
     public UserLocaleStuff getUserFile(WebContext ctx, UserRegistry.User user, CLDRLocale locale) {
         // has this locale been invalidated?
@@ -6330,9 +6328,7 @@ public class SurveyMain extends HttpServlet {
     /**
     * show the webpage for one of the 'locale codes' items.. 
      * @param ctx the web context
-     * @param xpath xpath to the root of the structure
-     * @param tx the texter to use for presentation of the items
-     * @param fullSet the set of tags denoting the expected full-set, or null if none.
+     * @param which menu item to use
      */
     public void showLocaleCodeList(WebContext ctx, String which) {
         showPathList(ctx, PathUtilities.LOCALEDISPLAYNAMES+which, typeToSubtype(which), true /* simple */);

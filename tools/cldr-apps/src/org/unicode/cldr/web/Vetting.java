@@ -114,7 +114,6 @@ public class Vetting {
      * Called by SurveyMain to create the vetting table
      * @param xlogger the logger to use
      * @param ourConn the conn to use
-     * @param isNew  true if should CREATE TABLEs
      * @return vetting service object
      */
     public static Vetting createTable(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain sm) throws SQLException {
@@ -611,7 +610,7 @@ public class Vetting {
     /**
      * return the result of a particular user's vote
      * @param locale which locale
-     * @param userid of the submitter
+     * @param submitter userid of the submitter
      * @param base_xpath base xpath id to check
      * @return result of vetting, RES_NO_VOTES, etc.
      * @see XPathTable
@@ -623,7 +622,7 @@ public class Vetting {
     /**
      * return the result of a particular user's vote
      * @param locale which locale
-     * @param userid of the submitter
+     * @param submitter userid of the submitter
      * @param base_xpath base xpath id to check
      * @param type if non-null, item [0] receives the voting type
      * @return result of vetting, RES_NO_VOTES, etc.
@@ -654,7 +653,7 @@ public class Vetting {
 
     /**
      * get a Set consisting of all of the users which voted on a certain path
-     * @param locale. which locale
+     * @param locale which locale
      * @param base_xpath string xpath to gather for
      * @return a Set of UserRegistry.User objects
      */
@@ -690,16 +689,21 @@ public class Vetting {
      */
     final Collator myCollator = getOurCollator();
 
-    // update all 
+    /**
+     * update all vetting results. Will not remove items first.
+     * @return the number of results changed
+     */
     public int updateResults() {
         return updateResults(false);
     }
-    /**
-     * update all vetting results
-     * @return the number of results changed
-     */
+
     public boolean stopUpdating = false;
     
+    /**
+     * update all vetting results
+     * @param removeFirst true if items should be removed before proceeding
+     * @return the number of results changed
+     */
     public int updateResults(boolean removeFirst) {
         stopUpdating = false;
         try {
@@ -1011,7 +1015,6 @@ public class Vetting {
     /**
      * update the results of a specific locale, and return the bitwise OR of all types of results had
      * @param locale which locale
-     * @param type an OUT parameter, must be a 1-element ( new int[1] ) array. input value doesn't matter. on output, 
      * contains the bitwise OR of all types of vetting results which were found.
      * @return number of results changed
      **/
@@ -2398,7 +2401,6 @@ if(true == true)    throw new InternalError("removed from use.");
 		/**
 		 * Return true if this errored item should NOT be added to the data.
 		 * @param p
-		 * @return
 		 */
 		boolean rejectErrorItem(DataRow p);
 
@@ -2413,8 +2415,6 @@ if(true == true)    throw new InternalError("removed from use.");
     
     /**
      * Process all changes with the default result handler.
-     * @param ctx
-     * @param podBase
      * @return true if any changes were processed.
      */
     public boolean processPodChanges(WebContext inputContext, String podBase) {

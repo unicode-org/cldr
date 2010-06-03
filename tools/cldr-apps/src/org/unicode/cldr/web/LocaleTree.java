@@ -104,7 +104,6 @@ public class LocaleTree {
     }
     /**
      * Return a list of the 'top' locales (language, or language_script)
-     * @return
      */
     public Set<String> getTopLocales() {
         return localeListMap.keySet();

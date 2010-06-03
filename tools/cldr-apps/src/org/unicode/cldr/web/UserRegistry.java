@@ -194,7 +194,6 @@ private static final String INTERNAL = "INTERNAL";
         
         /**
          * Return the value of this voter info, out of the cache
-         * @return
          */
         public VoterInfo voterInfo() {
             return getVoterToInfo(id);
@@ -241,7 +240,6 @@ private static final String INTERNAL = "INTERNAL";
         
         /**
          * Convenience function for returning the "VoteResult friendly" organization.
-         * @return
          */
         public String voterOrg() {
             if(voterOrg==null) {
@@ -252,7 +250,6 @@ private static final String INTERNAL = "INTERNAL";
         /**
          * Is this user an administrator 'over' this user?  Always true if admin, orif TC in same org. 
          * @param other
-         * @return
          */
         public boolean isAdminFor(User other) {
             boolean adminOrRelevantTc = UserRegistry.userIsAdmin(this) || 
@@ -276,7 +273,6 @@ private static final String INTERNAL = "INTERNAL";
      * Called by SM to create the reg
      * @param xlogger the logger to use
      * @param ourConn the conn to use
-     * @param isNew  true if should CREATE TABLEs
      */
     public static UserRegistry createRegistry(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain theSm) 
       throws SQLException

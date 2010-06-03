@@ -154,7 +154,6 @@ public class DataSection extends Registerable {
     /**
      * @deprecated use p.xpath()
      * @param p
-     * @return
      */
     public String xpath(DataRow p) {
     	return p.xpath();
@@ -287,7 +286,6 @@ public class DataSection extends Registerable {
 			
 			/**
 			 * Is this a winning (non fallback) item?
-			 * @return
 			 */
 			public boolean isWinner() {
 				String resultXpath = getResultXpath();
@@ -348,7 +346,6 @@ public class DataSection extends Registerable {
             /**
              * Did any voters in my org vote for it?
              * @param me
-             * @return
              */
             public boolean votesByMyOrg(User me) {
                 if(me==null || getVotes()==null) return false;
@@ -402,7 +399,6 @@ public class DataSection extends Registerable {
         
         /**
          * Calculate the hash used for HTML forms for this row
-         * @return
          */
         public String fieldHash() { // deterministic. No need for sync.
             if(myFieldHash == null) {
@@ -709,7 +705,6 @@ public class DataSection extends Registerable {
 		/**
 		 * Get a list of current CandidateItems for this Row.
 		 * The top item will be the winning value, if any. 
-		 * @return
 		 */
 		public synchronized List<CandidateItem> getCurrentItems() {
 			if(this.currentItems==null) {
@@ -1227,9 +1222,9 @@ public class DataSection extends Registerable {
     }
     /**
      * Returns a list parallel to that of getList, but of Strings suitable for display
-     * @param sortMode
+     * @param sortMode the mode such as SurveyMain.PREF_SORTMODE_CODE
      * @param matcher regex to determine matching rows
-     * @return
+     * @return the new list
      */
     public List getDisplayList(String sortMode, Pattern matcher) {
         return getDisplayList(sortMode, getList(sortMode, matcher));
@@ -2181,7 +2176,7 @@ public class DataSection extends Registerable {
     /**
      * Linear search for matching item.
      * @param xpath
-     * @return
+     * @return the matching DatRow
      */
     public DataRow getDataRow(int xpath) {
     	// TODO: replace with better sort.
@@ -2268,10 +2263,8 @@ public class DataSection extends Registerable {
      * @param altType
      * @param altPrefix
      * @param id
-     * @param choice_v
-     * @param choice_r
-     * @return
-     * @deprecated SHIM- please rewrite caller
+     * @deprecated SHIM- please rewrite caller to use CLDRFile api
+     * @return the altProposed string for the new slot, or null on failure
      */
     public static String addDataToNextSlot(XMLSource ourSrc, CLDRFile cf, CLDRLocale locale,
             String fullPathMinusAlt, String altType, String altPrefix, int id, String value,
@@ -2365,7 +2358,7 @@ public class DataSection extends Registerable {
      * @param id
      * @param newRef
      * @param uri
-     * @return
+     * @return the altProposed string for the new slot, or null on failure
      * @deprecated SHIM- please rewrite caller
      */
     public static String addReferenceToNextSlot(XMLSource ourSrc, CLDRFile cf, String string,

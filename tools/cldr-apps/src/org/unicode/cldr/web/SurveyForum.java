@@ -579,8 +579,8 @@ public class SurveyForum {
 
     /**
      * 
-     * @param ctx
-     * @param baseXpath
+     * @param ctx the current web context
+     * @param baseXpath the xpath of one of the items being submitted
      * @return true if no errors were detected, otherwise false.
      */
     public static SummarizingSubmissionResultHandler processDataSubmission(WebContext ctx, String baseXpath) {
@@ -588,8 +588,8 @@ public class SurveyForum {
     }
     /**
      * 
-     * @param ctx
-     * @param baseXpath
+     * @param ctx the current web context
+     * @param baseXpath the xpath of one of the items being submitted
      * @param ssrh ResultHandler, if null one will be created.
      * @return true if no errors were detected, otherwise false.
      */
@@ -603,7 +603,7 @@ public class SurveyForum {
     
     /**
      * Output the beginning of a data submission form.
-     * @param baseCtx
+     * @param ctx
      * @param section_xpath
      */
     public static void beginSurveyToolForm(WebContext ctx, String section_xpath) {
@@ -979,7 +979,6 @@ public class SurveyForum {
      * Called by SM to create the reg
      * @param xlogger the logger to use
      * @param ourConn the conn to use
-     * @param isNew  true if should CREATE TABLEs
      */
     public static SurveyForum createTable(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain sm) throws SQLException {
         SurveyForum reg = new SurveyForum(xlogger,ourConn,sm);

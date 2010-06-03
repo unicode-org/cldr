@@ -39,7 +39,7 @@ public class Registerable {
      * protected constructor. Does not register, call register()
      * @param lcr the LCR to eventually register with
      * @param locale the locale to register as.
-     * @see register()
+     * @see #register
      */
     protected Registerable(LocaleChangeRegistry lcr, CLDRLocale locale) {
         this.lcr = lcr;

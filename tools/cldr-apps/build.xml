@@ -4,8 +4,9 @@
         <tstamp/>
         <property name="src.dir" value="src"/>
         <property name="build.dir" value="build/classes"/>
-        <property name="jar.file" value="cldrapps.jar"/>
-        <property name="jarSrc.file" value="cldrapps-src.jar"/>
+        <property name="jar.file" value="cldr-apps.jar"/>
+        <property name="jarSrc.file" value="cldr-apps-src.jar"/>
+        <property name="jarDocs.file" value="cldr-apps-docs.jar"/>
         <property name="doc.dir" value="doc"/>
         <property name="doc.params" value=""/>
         <!--  Load local definitions from an optional build.properties file, if available. 
@@ -136,6 +137,10 @@
     <target name="clean" depends="init" description="remove all build targets">
         <delete dir="${build.dir}"/>
         <delete file="${jar.file}"/>
+        <delete file="${warfile}"/>
+        <delete file="${jarSrc.file}"/>
+        <delete file="${jarDocs.file}"/>
+        <delete dir="${doc.dir}"/>
     </target>
     
     <target name="jar" depends="web" description="build full 'cldr.jar' jar file">
@@ -146,6 +151,12 @@
     </target>
   <!-- Docs stuff -->
     <!-- use excludefiles below when we move to ant 1.5 -->
+    <target name="docs-jar" depends="docs">
+      <jar jarfile="${jarDocs.file}"
+           compress="true"
+           includes="**/*"
+           basedir="${doc.dir}"/>
+    </target>
     <target name="docs" depends="init" description="build user javadoc">
 	<tstamp>
 		<format property="current.year" pattern="yyyy"/>
@@ -165,8 +176,7 @@
             additionalparam="${doc.params}"
             link="http://java.sun.com/j2se/1.5/docs/api"
             bottom="&lt;font size=-1>&lt;a  target='_top' href='http://www.unicode.org/copyright.html'>Copyright &amp;copy; 2004-${current.year} Unicode, Inc. All Rights Reserved.&lt;/a>&lt;/font>"
-            source="1.6"
-            target="1.6"/>
+            source="1.6" />
     </target>
                <!-- bottom="&lt;font size=-1>Copyright (c) ${current.year} IBM Corporation and others.&lt;/font>" -->
 

@@ -92,7 +92,7 @@ public class SurveyThread extends Thread {
 		
 		/**
 		 * Is this task still running? Check this periodically.
-		 * @return
+		 * @return true if the task is running
 		 */
 		public boolean running() {
 		    if(theThread!=null && !theThread.surveyThreadIsRunning) return false;
@@ -143,7 +143,7 @@ public class SurveyThread extends Thread {
 	
 	/**
 	 * How many tasks are remaining? 0 if none.
-	 * @return
+	 * @return Number of tasks remaining (0 if none)
 	 */
 	public int tasksRemaining() {
 		return tasks.size();

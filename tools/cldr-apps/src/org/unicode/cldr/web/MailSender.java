@@ -109,7 +109,7 @@ public class MailSender {
      * Send a piece of mail
      * @param smtp smtp server
      * @param from From: user
-     * @param to to: user
+     * @param bcc list of addresses to BCC
      * @param subject mail subject
      * @param body mail body
      */

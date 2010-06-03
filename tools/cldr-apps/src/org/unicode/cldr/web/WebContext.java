@@ -986,8 +986,7 @@ public class WebContext implements Cloneable {
     }
 
     /**
-     * Return the CLDRLocale with which this WebCOntext currently pertains.
-     * @return
+     * @return the CLDRLocale with which this WebCOntext currently pertains.
      */
     public CLDRLocale getLocale() {
         return locale;

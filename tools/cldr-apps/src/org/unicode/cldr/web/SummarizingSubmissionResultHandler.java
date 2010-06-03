@@ -141,7 +141,6 @@ public class SummarizingSubmissionResultHandler implements
 	}
 	/**
 	 * Were any errors encountered?
-	 * @return
 	 */
 	public boolean hadErrors() {
 		return hadErrors;

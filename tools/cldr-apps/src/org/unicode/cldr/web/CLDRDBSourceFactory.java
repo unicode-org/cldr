@@ -191,7 +191,7 @@ public class CLDRDBSourceFactory {
 
         }
 
-        /* (non-Javadoc)
+        /**
          * @see com.ibm.icu.util.Freezable#freeze()
          */
         public Object freeze() {
@@ -359,10 +359,7 @@ public class CLDRDBSourceFactory {
     
     /** 
      * called once (at DB setup time) to initialize the database.
-     * @param xlogger the logger to use
      * @param sconn the database connection to be used for initial table creation
-     * @param isNew set to true of this is the first time teh DB is being setup. TODO: replace with 'does table exist' code.
-     * @param sm the link back to the SurveyMain
      */
     public void setupDB(Connection sconn) throws SQLException
     {
@@ -614,7 +611,7 @@ public class CLDRDBSourceFactory {
      * given a tree and locale, return the source ID.
      * @param tree which tree. should be "main". TODO: support multiple trees
      * @param locale the locale to fetch.
-     * @returns the source id, or -1 if not found.
+     * @return the source id, or -1 if not found.
      */
     public int getSourceId(String tree, String locale) {
         String key = tree + "_" + locale;
@@ -741,12 +738,6 @@ public class CLDRDBSourceFactory {
         sm.lcr.invalidateLocale(loc); // force a reload.
     }
     
-    /**
-     * 
-     * @param ctx
-     * @param sm
-     * @param quietUpdateAll if true - quietly do 'update all'
-     */
     public int manageSourceUpdates(WebContext ctx, SurveyMain sm) {
         return manageSourceUpdates(ctx, sm, false);
     }
@@ -1056,7 +1047,7 @@ public class CLDRDBSourceFactory {
 
     /** 
      * source ID of this CLDRDBSource. 
-     * @see #getSourceID
+     * @see #getSourceId
      */
     public int srcId = -1; 
 
@@ -2061,7 +2052,7 @@ public class CLDRDBSourceFactory {
 	}
     
     /**
-     * @see Freezable
+     * @see com.ibm.icu.util.Freezable#freeze()
      */
     // Lockable things
     public Object freeze() {

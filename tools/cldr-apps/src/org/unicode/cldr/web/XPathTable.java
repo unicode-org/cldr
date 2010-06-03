@@ -34,7 +34,6 @@ public class XPathTable {
      * Called by SM to create the reg
      * @param xlogger the logger to use
      * @param ourConn the conn to use
-     * @param isNew  true if should CREATE TABLEs
      */
     public static XPathTable createTable(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain sm) throws SQLException {
         boolean isNew =  !sm.hasTable(ourConn, CLDR_XPATHS);
@@ -295,7 +294,7 @@ public class XPathTable {
    /**
     * get an xpath id by value, add it if not found
     * @param xpath string string to add
-    * @return
+    * @return the id for the specified path
     */
     public final int getByXpath(String xpath) {
         Integer nid = (Integer)stringToId.get(xpath);
@@ -388,7 +387,6 @@ public class XPathTable {
     /**
      * note does not remove draft. expects a dpath.
      * @param xpath
-     * @return
      */
     public String xpathToBaseXpath(String xpath) {
         XPathParts xpp = new XPathParts(null,null);
@@ -479,7 +477,6 @@ public class XPathTable {
     /**
      * Gets sortable form of the pretty path, and caches the mapping for faster later mapping.
      * @param path
-     * @return
      */
     public String getPrettyPath(String path) {
         if(path == null) {
@@ -500,7 +497,7 @@ public class XPathTable {
     /**
      * Get original path. ONLY works if getPrettyPath was called with the original!
      * @param prettyPath
-     * @return
+     * @return original path
      */
     public String getOriginal(String prettyPath) {
         synchronized(ppath) {
@@ -516,7 +513,7 @@ public class XPathTable {
 
     /**
      * How much is inside?
-     * @return
+     * @return Number of xpaths in the table
      */
     public int count() {
         return stringToId.size();

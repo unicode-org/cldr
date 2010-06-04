@@ -2201,7 +2201,7 @@ public class SurveyMain extends HttpServlet {
         }
         
         ctx.println("</head>");
-        ctx.println("<body onload='this.focus(); top.focus(); ContextWindow.focus(); top.parent.focus(); '>");
+        ctx.println("<body onload='this.focus(); top.focus(); top.parent.focus(); '>");
         ctx.print("<div class='topnotices'>");
         if(/*!isUnofficial && */ 
             ((ctx.session!=null && ctx.session.user!=null && UserRegistry.userIsAdmin(ctx.session.user))||

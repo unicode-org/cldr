@@ -1486,8 +1486,13 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 // And we don't need to
                 // if (DEBUG)printXPathWarning(node, xpath);
             } else if (aPath.indexOf("/" + LDMLConstants.SPECIAL) > 0) {
-                res = parseSpecialElements(loc, aPath);
+              res = parseSpecialElements(loc, aPath);
+            } else if (aPath.contains("/ellipsis")) {
+              System.out.println("TODO: Fix /ellipsis");
+            } else if (aPath.contains("/moreInformation")) {
+              System.out.println("TODO: Fix /moreInformation");
             } else {
+              // skip ellipsis for now
                 log.error("Unknown  character element found: " + aPath + " / " + name + " -> " + loc.getFile().getFullXPath(aPath));
                 System.exit(-1);
             }

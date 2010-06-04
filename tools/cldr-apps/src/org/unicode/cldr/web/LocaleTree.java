@@ -99,11 +99,10 @@ public class LocaleTree {
         return locale.getDisplayName(displayLocale);
     }
     public Map<String, CLDRLocale> getMap() {
-        // TODO Auto-generated method stub
         return localeListMap;
     }
     /**
-     * Return a list of the 'top' locales (language, or language_script)
+     * @return a list of the 'top' locales (language, or language_script)
      */
     public Set<String> getTopLocales() {
         return localeListMap.keySet();

@@ -4326,7 +4326,13 @@ public class SurveyMain extends HttpServlet {
                 int dot = localeName.indexOf('.');
                 if(dot !=  -1) {
                     localeName = localeName.substring(0,dot);
-                    newLocaleTree.add(CLDRLocale.getInstance(localeName));
+                    CLDRLocale loc = CLDRLocale.getInstance(localeName);
+                    
+                    // but, is it just an alias?
+                    CLDRLocale aliasTo = isLocaleAliased(loc);
+                    if(aliasTo == null) {
+                    	newLocaleTree.add(CLDRLocale.getInstance(localeName));
+                    }
                 }
             }
             localeTree = newLocaleTree;
@@ -4387,23 +4393,26 @@ public class SurveyMain extends HttpServlet {
         return rv;
     }
     
-    String getLocaleLink(WebContext ctx, CLDRLocale aliasTarget, String n) {
+    String getLocaleLink(WebContext ctx, CLDRLocale locale, String n) {
         if(n == null) {
-            n = aliasTarget.getDisplayName(ctx.displayLocale) ;
+            n = locale.getDisplayName(ctx.displayLocale) ;
         }
         String connector = ctx.urlConnector();
 //        boolean hasDraft = draftSet.contains(localeName);
 //        ctx.print(hasDraft?"<b>":"") ;
+        String title = locale.toString();
+        String classstr = "";
+        
         String rv = 
-            ("<a "  /* + (hasDraft?"class='draftl'":"class='nodraft'")  */
-                  +" title='" + aliasTarget + "' href=\"" + ctx.url() 
-                  + connector + QUERY_LOCALE+"=" + aliasTarget + "\">");
-        rv = rv + getLocaleStatus(aliasTarget, n, aliasTarget.toString());
-        boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,aliasTarget);
+            ("<a " +classstr
+                  +" title='" + title + "' href=\"" + ctx.url() 
+                  + connector + QUERY_LOCALE+"=" + locale + "\">");
+        rv = rv + getLocaleStatus(locale, n, locale.toString());
+        boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,locale);
         if(canModify) {
             rv = rv + (modifyThing(ctx));
             int odisp = 0;
-            if((this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT || isPhaseVettingClosed()) && ((odisp=vet.getOrgDisputeCount(ctx.session.user.voterOrg(),aliasTarget))>0)) {
+            if((this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT || isPhaseVettingClosed()) && ((odisp=vet.getOrgDisputeCount(ctx.session.user.voterOrg(),locale))>0)) {
                 rv = rv + ctx.iconHtml("disp","("+odisp+" org disputes)");
             }
         }

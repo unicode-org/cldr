@@ -4405,8 +4405,8 @@ public class SurveyMain extends HttpServlet {
         
         String rv = 
             ("<a " +classstr
-                  +" title='" + title + "' href=\"" + ctx.url() 
-                  + connector + QUERY_LOCALE+"=" + locale + "\">");
+           +" title='" + title + "' href=\"" + ctx.url() 
+                  + connector + QUERY_LOCALE+"=" + locale.getBaseName() + "\">");
         rv = rv + getLocaleStatus(locale, n, locale.toString());
         boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,locale);
         if(canModify) {

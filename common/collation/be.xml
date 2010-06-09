@@ -4,32 +4,26 @@
 	<identity>
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
-		<language type="be" /> 
+		<language type="be"/> 
 	</identity>
-		<collations  validSubLocales="be_BY">
-			<collation type="standard" >
-<!--
-List of UCA contractions remaining after suppression:
+	<collations  validSubLocales="be_BY">
+		<collation type="standard">
+			<suppress_contractions>[АаӘәГгЕеЖжЗзІіОоӨөКкЧчЫыЭэѴѵ]</suppress_contractions>
+			<!--
+				List of UCA contractions remaining after suppression:
 
-0401 CYRILLIC CAPITAL LETTER IO
-0451 CYRILLIC SMALL LETTER IO
-0490 CYRILLIC CAPITAL LETTER GHE WITH UPTURN
-0491 CYRILLIC SMALL LETTER GHE WITH UPTURN
-04C1 CYRILLIC CAPITAL LETTER ZHE WITH BREVE
-04C2 CYRILLIC SMALL LETTER ZHE WITH BREVE
-04E2 CYRILLIC CAPITAL LETTER I WITH MACRON
-04E3 CYRILLIC SMALL LETTER I WITH MACRON
-04EE CYRILLIC CAPITAL LETTER U WITH MACRON
-04EF CYRILLIC SMALL LETTER U WITH MACRON
--->
-				<suppress_contractions>
-				[ЀЂ-ЍЏ-ДЖЗК-ТФ-джзк-тф-ѐђ-ѝџ]
-				</suppress_contractions>
-				<rules>
-				    <reset>Е</reset>
-				        <p>ё</p>
-				        <t>Ё</t>
-				</rules>
-			</collation>
-		</collations>
+				Ё 0415 0308 CYRILLIC CAPITAL LETTER IO
+				ё 0435 0308 CYRILLIC SMALL LETTER IO
+				Й 0418 0306 CYRILLIC CAPITAL LETTER SHORT I
+				й 0438 0306 CYRILLIC SMALL LETTER SHORT I
+				Ў 0423 0306 CYRILLIC CAPITAL LETTER SHORT U
+				ў 0443 0306 CYRILLIC SMALL LETTER SHORT U
+			-->
+			<rules>
+			    <reset>Е</reset>
+			        <p>ё</p>
+			        <t>Ё</t>
+			</rules>
+		</collation>
+	</collations>
 </ldml>

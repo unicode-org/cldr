@@ -4,38 +4,30 @@
 	<identity>
 		<version number="$Revision$" />
 		<generation date="$Date$" />
-		<language type="kk" />
+		<language type="kk"/>
 	</identity>
-	    <collations validSubLocales="kk_KZ">
-            <collation type="standard">
-<!--
-List of UCA contractions remaining after suppression:
+	<collations validSubLocales="kk_KZ">
+		<collation type="standard">
+			<suppress_contractions>[АаӘәГгЕеЖжЗзІіОоӨөКкУуЧчЫыЭэѴѵ]</suppress_contractions>
+			<!--
+				List of UCA contractions remaining after suppression:
 
-0401 CYRILLIC CAPITAL LETTER IO
-0451 CYRILLIC SMALL LETTER IO
-0490 CYRILLIC CAPITAL LETTER GHE WITH UPTURN
-0491 CYRILLIC SMALL LETTER GHE WITH UPTURN
-04C1 CYRILLIC CAPITAL LETTER ZHE WITH BREVE
-04C2 CYRILLIC SMALL LETTER ZHE WITH BREVE
-04E2 CYRILLIC CAPITAL LETTER I WITH MACRON
-04E3 CYRILLIC SMALL LETTER I WITH MACRON
-04EE CYRILLIC CAPITAL LETTER U WITH MACRON
-04EF CYRILLIC SMALL LETTER U WITH MACRON
--->
-				<suppress_contractions>
-				[ЀЂ-ДЖЗК-джзк-ѐђ-џ]
-				</suppress_contractions>
-				<rules>
-					<reset>Е</reset>
+				Ё 0415 0308 CYRILLIC CAPITAL LETTER IO
+				ё 0435 0308 CYRILLIC SMALL LETTER IO
+				Й 0418 0306 CYRILLIC CAPITAL LETTER SHORT I
+				й 0438 0306 CYRILLIC SMALL LETTER SHORT I
+			-->
+			<rules>
+				<reset>Е</reset>
 					<p>ё</p>
 					<t>Ё</t>
-					<reset>Ұ</reset>
+				<reset>Ұ</reset>
 					<p>ү</p>
 					<t>Ү</t>
-					<reset before="primary">ь</reset>
+				<reset before="primary">ь</reset>
 					<p>і</p>
 					<t>І</t>
-				</rules>
-            </collation>
-        </collations>
+			</rules>
+		</collation>
+	</collations>
 </ldml>

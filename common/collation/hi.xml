@@ -26,5 +26,13 @@
 				<p>ः</p>
 			</rules>
 		</collation>
-	</collations>
+		<collation type="direct">
+			<!-- Not sure whether or not we stilll need the direct rules or not.  Leaving them here until we know for sure.
+			-->
+			<rules>
+				<reset><last_non_ignorable/></reset>
+				<pc>ँंःअआइईउऊऋऌऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनऩपफबभमयरऱलळऴवशषसह़ऽािीुूृॄॅॆेैॉॊोौ्ॐ॒॑॓॔क़ख़ग़ज़ड़ढ़फ़य़ॠॡॢॣ।॥०१२३४५६७८९॰</pc>
+			</rules>
+		</collation>
+</collations>
 </ldml>

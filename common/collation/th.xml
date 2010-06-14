@@ -7,7 +7,26 @@
 		<language type="th" /> 
 	</identity>
 		<collations validSubLocales="th_TH">
-            <collation type="standard" references="ISO/IEC 14651, Annex C, C.2.1 Thai ordering principles; Royal Institute Dictionary 2542 B.E. Edition (1999) ISBN 974-9588-04-5">
+			<collation type="standard" >
+				<settings normalization="on"  />
+				<rules>
+					<reset>ฤ</reset>
+					<p>ฤๅ</p>
+					<reset>ฦ</reset>
+					<p>ฦๅ</p>
+					<reset>ไ</reset>
+					<p>ๅ</p>
+					<reset before="secondary">็</reset>
+					<s>๎</s>
+					<reset>๋</reset>
+					<sc>์ํ</sc>
+					<reset><last_secondary_ignorable/></reset>
+					<tc> -.</tc>
+					<t>...</t>
+					<tc>ฯๆ๏๚๛</tc>
+				</rules>
+			</collation  >
+            <collation type="standard" references="ISO/IEC 14651, Annex C, C.2.1 Thai ordering principles" alt="proposed" draft="unconfirmed">
                 <settings normalization="on" />
                 <rules>
         <!--

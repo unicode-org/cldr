@@ -1,11 +1,12 @@
 package org.unicode.cldr.test;
 
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.XPathParts;
 
 import java.util.List;
 import java.util.Map;
+
+import com.ibm.icu.lang.UCharacter;
 
 public class CheckCurrencies extends CheckCLDR {
     // remember to add this class to the list in CheckCLDR.getCheckAll
@@ -33,7 +34,7 @@ public class CheckCurrencies extends CheckCLDR {
             // Don't include Cf format chars in length test
             int adjustedLength = value.length();
             for (int idx = 0; idx < value.length(); idx++) {
-                if ( Character.getType(value.charAt(idx)) == Character.FORMAT ) {
+                if ( UCharacter.getType(value.charAt(idx)) == UCharacter.FORMAT ) {
                     if ( --adjustedLength <= 5 ) {
                          return this;
                     }

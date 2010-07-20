@@ -1161,6 +1161,8 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="d">d.</dateFormatItem>
+						<dateFormatItem id="EEEd">EEE, d.</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
@@ -1168,16 +1170,17 @@
 						<dateFormatItem id="MEd">E, d.M</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
 						<dateFormatItem id="yM">M.y</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, d.M.y</dateFormatItem>
-						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMM">LLL y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE, d. MMM y</dateFormatItem>
 						<dateFormatItem id="yMd">d.M.y</dateFormatItem>
+						<dateFormatItem id="yQ">Q yyyy</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyy">y</dateFormatItem>
 						<dateFormatItem id="yyyyM">M.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="provisional">{0} - {1}</intervalFormatFallback>

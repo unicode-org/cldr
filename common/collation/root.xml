@@ -10,6 +10,37 @@
 			<default type="standard"/>
 			<collation type="standard" >
 			</collation  >
+			<collation type="search" >
+				<settings normalization="on" />
+				<suppress_contractions>[เ-ไ ເ-ໄ]</suppress_contractions>
+				<rules>
+					<reset>ا</reset>
+						<s>آ</s>
+						<s>أ</s>
+						<s>إ</s>
+					<reset>و</reset>
+						<s>ؤ</s>
+					<reset>ي</reset>
+						<s>ئ</s>
+						<s>ى</s>
+					<reset>ه</reset>
+						<s>ة</s>
+					<reset><last_primary_ignorable/></reset>
+						<s>׳</s>
+						<s>״</s>
+						<s>ـ</s>
+						<s>ٌ</s>
+						<s>ٍ</s>
+						<s>َ</s>
+						<s>ُ</s>
+						<s>ِ</s>
+						<s>ّ</s>
+						<s>ْ</s>
+						<s>ฺ</s>
+				</rules>
+			</collation  >
 		</collations>
     <!-- for UCA rules please see: http://www.unicode.org/reports/tr10/ -->
 </ldml>
+
+

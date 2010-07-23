@@ -1071,12 +1071,12 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM, y G</pattern>
+							<pattern>d MMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">  <!-- per cldrbug 2835, add, matches gregorian + G -->
 						<dateFormat>
-							<pattern>d-M-y G</pattern>
+							<pattern>dd.MM.yyyy G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1089,26 +1089,25 @@
 						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d-M</dateFormatItem>
-						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
-						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
+						<dateFormatItem id="Md">d.MM</dateFormatItem>
+						<dateFormatItem id="MEd">E, d.MM</dateFormatItem>
+						<dateFormatItem id="MMdd">d.MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
-						<dateFormatItem id="yM">M-y G</dateFormatItem>
-						<dateFormatItem id="yMd">d-M-y G</dateFormatItem>
-						<dateFormatItem id="yMEd">EEE, d-M-y G</dateFormatItem>
+						<dateFormatItem id="yM">MM.yyyy G</dateFormatItem>
+						<dateFormatItem id="yMd">d.MM.yyyy G</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, d.MM.yyyy G</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE, d MMM y G</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL y G</dateFormatItem>
 						<dateFormatItem id="yQ">G y Q</dateFormatItem>
 						<dateFormatItem id="yQQQ">G y QQQ</dateFormatItem>
-						<dateFormatItem id="yyMM">MM/y G</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyQ">Q y G</dateFormatItem>
-						<dateFormatItem id="yyyyMM">MM-y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM.yyyy G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -1273,14 +1272,12 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>dd-MM-yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">d MMM y</pattern>
+							<pattern>d MMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>dd-MM-yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">d.MM.yy</pattern>
+							<pattern>dd.MM.yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1341,39 +1338,28 @@
 						<dateFormatItem id="Hms" alt="proposed-x1001" draft="unconfirmed">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="M" alt="proposed-x1001" draft="unconfirmed">LL</dateFormatItem>
-						<dateFormatItem id="Md">d-M</dateFormatItem>
-						<dateFormatItem id="Md" alt="proposed-x1001" draft="unconfirmed">d.MM</dateFormatItem>
-						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
-						<dateFormatItem id="MEd" alt="proposed-x1001" draft="unconfirmed">E, d.MM</dateFormatItem>
-						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed-x1001" draft="unconfirmed">d.MM</dateFormatItem>
+						<dateFormatItem id="Md">d.MM</dateFormatItem>
+						<dateFormatItem id="MEd">E, d.MM</dateFormatItem>
+						<dateFormatItem id="MMdd">d.MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMd" alt="proposed-x1001" draft="unconfirmed">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMd" alt="proposed-x1001" draft="unconfirmed">14 MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">M-y</dateFormatItem>
-						<dateFormatItem id="yM" alt="proposed-x1001" draft="unconfirmed">MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yMEd">EEE, d-M-y</dateFormatItem>
-						<dateFormatItem id="yMEd" alt="proposed-x1001" draft="unconfirmed">EEE, d.MM.yyyy</dateFormatItem>
+						<dateFormatItem id="yM">MM.yyyy</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, d.MM.yyyy</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="provisional">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE, d MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd" alt="proposed-x1001" draft="unconfirmed">EEE, d MMM yyyy</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL y</dateFormatItem>
 						<dateFormatItem id="yQ">yyyy Q</dateFormatItem>
 						<dateFormatItem id="yQ" alt="proposed-x1001" draft="unconfirmed">3 'kw'. yyyy</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQ" alt="proposed-x1001" draft="unconfirmed">QQQ y</dateFormatItem>
-						<dateFormatItem id="yyMM">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">MM.yy</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM yy</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQ" alt="proposed-x1001" draft="unconfirmed">Q 'kw'. yy</dateFormatItem>
-						<dateFormatItem id="yyyyMM">yyyy-MM</dateFormatItem>
-						<dateFormatItem id="yyyyMM" alt="proposed-x1001" draft="unconfirmed">MM.yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM.yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">LLLL y</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" alt="proposed-x1001" draft="unconfirmed">LLLL yyyy</dateFormatItem>
 					</availableFormats>
@@ -1577,12 +1563,12 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM, y G</pattern>
+							<pattern>d MMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d-M-y G</pattern>
+							<pattern>dd.MM.yyyy G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1595,21 +1581,18 @@
 						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d-M</dateFormatItem>
-						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
-						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
+						<dateFormatItem id="Md">d.MM</dateFormatItem>
+						<dateFormatItem id="MEd">E, d.MM</dateFormatItem>
+						<dateFormatItem id="MMdd">d.MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyMM">MM/y G</dateFormatItem>
-						<dateFormatItem id="yyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyMMM">MMM yy G</dateFormatItem>
 						<dateFormatItem id="yyQ">Q y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
-						<dateFormatItem id="yyyyM">M-y G</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">EEE, d-M-y G</dateFormatItem>
-						<dateFormatItem id="yyyyMM">MM-y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM.yyyy G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">EEE, d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
 						<dateFormatItem id="yyyyQ">G y Q</dateFormatItem>
@@ -1631,12 +1614,12 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM, y G</pattern>
+							<pattern>d MMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d-M-y G</pattern>
+							<pattern>dd.MM.yyyy G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1649,21 +1632,20 @@
 						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d-M</dateFormatItem>
-						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
-						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
+						<dateFormatItem id="Md">d.MM</dateFormatItem>
+						<dateFormatItem id="MEd">E, d.MM</dateFormatItem>
+						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyMM">MM/y G</dateFormatItem>
-						<dateFormatItem id="yyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyMMM">MMM yy G</dateFormatItem>
 						<dateFormatItem id="yyQ">Q y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
-						<dateFormatItem id="yyyyM">M-y G</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">EEE, d-M-y G</dateFormatItem>
-						<dateFormatItem id="yyyyMM">MM-y G</dateFormatItem>
+						<dateFormatItem id="yyyyM">M.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">EEE, dd.MM.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM.y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">EEE, d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
 						<dateFormatItem id="yyyyQ">G y Q</dateFormatItem>
@@ -1685,12 +1667,12 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM, y G</pattern>
+							<pattern>d MMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d-M-y G</pattern>
+							<pattern>dd.MM.yyyy G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1703,9 +1685,9 @@
 						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d-M</dateFormatItem>
-						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
-						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
+						<dateFormatItem id="Md">d.MM</dateFormatItem>
+						<dateFormatItem id="MEd">E, d.MM</dateFormatItem>
+						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
@@ -1715,9 +1697,9 @@
 						<dateFormatItem id="yyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyQ">Q y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
-						<dateFormatItem id="yyyyM">M-y G</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">EEE, d-M-y G</dateFormatItem>
-						<dateFormatItem id="yyyyMM">MM-y G</dateFormatItem>
+						<dateFormatItem id="yyyyM">M.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">EEE, d.MM.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM.yyyy G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">EEE, d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
 						<dateFormatItem id="yyyyQ">G y Q</dateFormatItem>

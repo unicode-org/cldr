@@ -319,7 +319,7 @@ public class TestUtilities {
 
         String[] serialElements = new String[] { "variable", "comment", "tRule",
                 // collation
-                "reset", "p", "pc", "s", "sc", "t", "tc", "q", "qc", "i", "ic", "x", "extend", "first_variable", "last_variable", "first_tertiary_ignorable", "last_tertiary_ignorable",
+                "reset", "p", "pc", "s", "sc", "t", "tc", "i", "ic", "x", "extend", "first_variable", "last_variable", "first_tertiary_ignorable", "last_tertiary_ignorable",
                 "first_secondary_ignorable", "last_secondary_ignorable", "first_primary_ignorable", "last_primary_ignorable", "first_non_ignorable", "last_non_ignorable", "first_trailing", "last_trailing" };
         meta.add(prefix + "serialElements", CollectionUtilities.join(serialElements, " "));
         /*

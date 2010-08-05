@@ -496,7 +496,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
   static final Set ELEMENT_SKIP_LIST = new HashSet(Arrays.asList(new String[] {
           "collation", "base", "settings", "suppress_contractions", "optimize",
-          "rules", "reset", "context", "p", "pc", "s", "sc", "t", "tc", "q", "qc",
+          "rules", "reset", "context", "p", "pc", "s", "sc", "t", "tc",
           "i", "ic", "extend", "x" }));
 
   static final Set SUBELEMENT_SKIP_LIST = new HashSet(Arrays

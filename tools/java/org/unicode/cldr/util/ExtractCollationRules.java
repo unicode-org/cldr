@@ -52,7 +52,7 @@ public class ExtractCollationRules {
             }
             String mainType = parts.getElement(3);
             // base?, settings?, suppress_contractions?, optimize?
-            // x: context?, ( p | pc | s | sc | t | tc | q | qc | i | ic )*, extend? 
+            // x: context?, ( p | pc | s | sc | t | tc | i | ic )*, extend? 
             if (mainType.equals("settings")) {
                 writeSettings(parts.getAttributes(3), rules);
                 continue;

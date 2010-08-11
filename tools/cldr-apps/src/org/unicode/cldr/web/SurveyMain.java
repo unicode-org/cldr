@@ -4968,7 +4968,7 @@ public class SurveyMain extends HttpServlet {
         }
     }
     
-    private static Pattern reportSuffixPattern = Pattern.compile("^[0-9a-z]([0-9a-z]*)$");
+    private static Pattern reportSuffixPattern = Pattern.compile("^[0-9a-z]([0-9a-z_]*)$");
     /**
      * Is this a legal report suffix? Must contain one or more of [0-9a-z].
      * @param suffix The suffix (not including r_)
@@ -4987,6 +4987,7 @@ public class SurveyMain extends HttpServlet {
         if(isLegalReportSuffix(which.substring(2))) {
             ctx.includeFragment(which+".jsp");
         } else {
+            ctx.println("<i>Illegal report name: " + which+"</i><br/>");
             doMain(ctx);
         }
     }

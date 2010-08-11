@@ -2698,10 +2698,10 @@ if(true == true)    throw new InternalError("removed from use.");
                 int outFull = results.getInt(2);
                 if(outFull>=xpathSet.length || baseXpath>=xpathSet.length) {
                     if(xpathMax==0) {
-                        xpathMax=sm.xpt.count()+XPathTable.CHUNKSIZE;
+                        xpathMax=sm.xpt.count()+IntHash.CHUNKSIZE;
                     }
                     int max = java.lang.Math.max(outFull, baseXpath);
-                    xpathMax = java.lang.Math.max(max+XPathTable.CHUNKSIZE, xpathMax);
+                    xpathMax = java.lang.Math.max(max+IntHash.CHUNKSIZE, xpathMax);
                     boolean newXpathSet[] = new boolean[xpathMax];
                     System.arraycopy(xpathSet, 0, newXpathSet, 0, xpathSet.length);
                     xpathSet=newXpathSet;

@@ -127,33 +127,6 @@ public class XPathTable {
         }
     }
     
-    public final static int CHUNKSIZE = 4096;
-    public final static int INITIAL_SIZE=10240;
-    public final static int MAX_SIZE=385024;
-
-    /**
-     * 
-     *    Map<Integer>  implementation ...
-     *    
-    public Map<Integer,String> idToString_ = new HashMap<Integer,String>(INITIAL_SIZE);  // public for statistics only
-    private final String idToString_put(int id, String str) {
-    {
-        synchronized(this) {
-            idToString_.put(Integer.valueOf(id),str);
-        }
-        return str;
-    }
-    
-    private final String idToString_get(int id) {
-        synchronized(this) {
-            return (String)idToString_.get(Integer.valueOf(id));
-        }
-    }
-    private final String idStats() {
-        return " ID: "+idToString_.size();
-    }
-    */
-    
     /**
      *  SpecialTable implementation
      */

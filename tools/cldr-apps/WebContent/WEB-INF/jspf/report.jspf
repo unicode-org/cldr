@@ -62,7 +62,7 @@ static final String base_xpaths[] = {
 String section = ctx.field(SurveyMain.QUERY_SECTION);
 
 JspWebContext subCtx = new JspWebContext(ctx);
-subCtx.setQuery(SurveyMain.QUERY_LOCALE,ctx.localeString());
+subCtx.setQuery(SurveyMain.QUERY_LOCALE,ctx.getLocale().toString());
 
 // which report are we on?
 int whichFile  = -1;

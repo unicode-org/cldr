@@ -660,10 +660,9 @@ private static final String INTERNAL = "INTERNAL";
                 
                 // from params:
                 u.password = pass;
-		if(letmein) {
-		    u.password = rs.getString(8);
-		    System.err.println(">> pass: " + u.password);
-		}
+                if(letmein) {
+                    u.password = rs.getString(8);
+                }
                 u.email = email;
                 // from db:   (id,name,userlevel,org,locales)
                 u.id = rs.getInt(1);

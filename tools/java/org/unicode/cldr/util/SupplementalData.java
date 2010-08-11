@@ -54,11 +54,11 @@ public class SupplementalData {
      */
     public SupplementalData(String pathName) {
         this.pathName = pathName;
-        supplementalDocument = LDMLUtilities.parse(pathName+"/supplementalData.xml", true);
+        supplementalDocument = LDMLUtilities.parse(pathName+"/supplementalData.xml", false);
         if(supplementalDocument == null) {
             throw new InternalError("Can't parse supplemental: " + pathName+"/supplementalData.xml");
         }
-        supplementalMetaDocument = LDMLUtilities.parse(pathName+"/supplementalMetadata.xml", true);
+        supplementalMetaDocument = LDMLUtilities.parse(pathName+"/supplementalMetadata.xml", false);
         if(supplementalMetaDocument == null) {
             throw new InternalError("Can't parse metadata: " + pathName+"/supplementalMetadata.xml");
         }

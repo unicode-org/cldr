@@ -224,7 +224,6 @@ public class SurveyMain extends HttpServlet {
     public static java.util.logging.Handler loggingHandler = null;
             
 //    public static final String LOGFILE = "cldr.log";        // log file of all changes
-    public static final ULocale inLocale = new ULocale("en"); // locale to use to 'localize' things
 
     // ======= query fields
     public static final String QUERY_TERRITORY = "territory";
@@ -264,9 +263,11 @@ public class SurveyMain extends HttpServlet {
     public static final String PREF_COVLEV = "p_covlev"; // covlev
     public static final String PREF_COVTYP = "p_covtyp"; // covtyp
     //    static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
-    static final String  BASELINE_ID = "en";
-    static final ULocale BASELINE_LOCALE = new ULocale(BASELINE_ID);
-    public static final String  BASELINE_NAME = BASELINE_LOCALE.getDisplayName(BASELINE_LOCALE);
+    
+    static final String  BASELINE_ID = "en"; // Needs to be en_ZZ as per cldrbug #2918
+    public static final ULocale BASELINE_LOCALE = new ULocale(BASELINE_ID);
+    public static final String  BASELINE_LANGUAGE_NAME = BASELINE_LOCALE.getDisplayLanguage(BASELINE_LOCALE); // Note: Only shows language.
+    
     public static final String METAZONE_EPOCH = "1970-01-01";
   
     // ========== lengths
@@ -4250,7 +4251,7 @@ public class SurveyMain extends HttpServlet {
             String dcChild = supplemental.defaultContentToChild(ctx.getLocale().toString());
             if(dcParent != null) {
                 ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
-                ctx.println("<h1>"+ctx.getLocale().getDisplayName(ctx.displayLocale)+"</h1>");
+                ctx.println("<h1 title='"+ctx.getLocale().getBaseName()+"'>"+ctx.getLocale().getDisplayName(ctx.displayLocale)+"</h1>");
                 ctx.println("<div class='ferrbox'>This locale is the default content for <b>"+
                     getLocaleLink(ctx,dcParent,null)+
                     "</b>; thus editing and viewing is disabled. Please view and/or propose changes in <b>"+
@@ -5797,9 +5798,13 @@ public class SurveyMain extends HttpServlet {
 
     public synchronized CLDRFile getBaselineFile(/*CLDRDBSource ourSrc*/) {
         if(gBaselineFile == null) {
-            CLDRFile file = getFactory().make(BASELINE_LOCALE.toString(), true);
-            file.freeze(); // so it can be shared.
-            gBaselineFile = file;
+            try {
+                CLDRFile file = getFactory().make(BASELINE_LOCALE.toString(), true);
+                file.freeze(); // so it can be shared.
+                gBaselineFile = file;
+            } catch (Throwable t) {
+                busted("Could not load baseline locale " + BASELINE_LOCALE, t);
+            }
         }
         return gBaselineFile;
     }
@@ -6732,8 +6737,8 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<tr class='headingb'>\n"+
                         " <th>St.</th>\n"+                  // 1
                         " <th>Code</th>\n"+                 // 2
-                        " <th colspan='1'>"+BASELINE_NAME+"</th>\n"+              // 3
-                        " <th title='"+BASELINE_NAME+" Example'><i>Ex</i></th>\n" + 
+                        " <th colspan='1' title='["+BASELINE_LOCALE+"]'>"+BASELINE_LANGUAGE_NAME+"</th>\n"+              // 3
+                        " <th title='"+BASELINE_LANGUAGE_NAME+" ["+BASELINE_LOCALE+"] Example'><i>Ex</i></th>\n" + 
                         " <th colspan='2'>"+getProposedName()+"</th>\n"+ // 7
                         " <th title='Proposed Example'><i>Ex</i></th>\n" + 
                         " <th colspan='2'>"+CURRENT_NAME+"</th>\n"+  // 6
@@ -6769,7 +6774,7 @@ public class SurveyMain extends HttpServlet {
         }
         ctx.println("class='data' border='1'>");
             ctx.println("<tr class='headingb'>\n"+
-                        " <th colspan='1' width='50%'>"+BASELINE_NAME+"</th>\n"+              // 3
+                        " <th colspan='1' width='50%'>["+BASELINE_LOCALE+"] "+BASELINE_LANGUAGE_NAME+"</th>\n"+              // 3
                         " <th colspan='2' width='50%'>Your Language</th>\n");  // 8
 
         ctx.println("</tr>");
@@ -8755,7 +8760,7 @@ public class SurveyMain extends HttpServlet {
                 showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
                 showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Priority");
                 if(displaySet.canName) {
-                    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_NAME, this.BASELINE_NAME+"-"+"Name");
+                    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_NAME, this.BASELINE_LANGUAGE_NAME+"-"+"Name");
                 }
             }
             

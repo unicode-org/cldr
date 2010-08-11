@@ -51,6 +51,27 @@
         }
     %>
     
+    
+        <h4 class="selected">Survey Tool information</h4>
+    <% 
+        { int i=0;
+    %>
+    
+    <table class="userlist" border="2">
+    
+        <tr class="row<%= ((i++)%2) %>">
+            <th>SurveyMain.BASELINE_LOCALE</th>
+            <td> <%= org.unicode.cldr.web.SurveyMain.BASELINE_LOCALE.toLanguageTag() %>  </td>
+        </tr>
+        <tr class="row<%= ((i++)%2) %>">
+            <th>SurveyMain.BASELINE_LANGUAGE_NAME</th>
+            <td> <%= org.unicode.cldr.web.SurveyMain.BASELINE_LANGUAGE_NAME %>  </td>
+        </tr>
+
+    </table>    
+    <%
+        }
+    %>
 	<body>
 		<hr/>
 		<a href="./survey">Return to Survey Tool</a> |

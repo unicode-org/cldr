@@ -7942,7 +7942,8 @@ public class SurveyMain extends HttpServlet {
                     ctx.print("  <option value='true'>true</option> ");
                     ctx.print("  <option value='false'>false</option> ");
                     ctx.println("</select>");
-                } else */ if(p.valuesList != null) {
+                } else */ 
+                if(p.valuesList != null) {
                     ctx.print("<select onclick=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v'>");
                     ctx.print("  <option value=''></option> ");
                     for(String s : p.valuesList ) {
@@ -7950,7 +7951,8 @@ public class SurveyMain extends HttpServlet {
                     }
                     ctx.println("</select>");
                 } else {
-                    ctx.print("<input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'>");
+                    // regular change box (text)
+                    ctx.print("<input dir='"+ourDir+"' onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'>");
                 }
                 // references
                 if(badInputBox) {

@@ -111,6 +111,11 @@ private static final String INTERNAL = "INTERNAL";
         public String locales;
         public String intlocs = null;
         public String ip;
+        
+        
+        public void touch()  {
+            UserRegistry.this.touch(id);
+        }
         public boolean equals(Object other ) {
             if(!(other instanceof User)) {
                 return false;
@@ -314,7 +319,7 @@ private static final String INTERNAL = "INTERNAL";
                                                             "locales varchar(1024) , " +
                                                             "prefs varchar(1024) , " +
                                                             "intlocs varchar(1024) , " + // added apr 2006: ALTER table CLDR_USERS ADD COLUMN intlocs VARCHAR(1024)
-                                                            "lastlogin TIMESTAMP " + // added may 2006:  alter table CLDR_USERS ADD COLUMN lastlogin TIMESTAMP
+                                                            "lastlogin DATETIME " + // added may 2006:  alter table CLDR_USERS ADD COLUMN lastlogin TIMESTAMP
                                                             (sm.db_Mysql?"":",primary key(id)")+
                                                                 ")"); 
                     s.execute(sql);
@@ -328,6 +333,13 @@ private static final String INTERNAL = "INTERNAL";
                     sql = null;
                     logger.info("DB: added user Admin");
                     
+                    s.close();
+                    conn.commit();
+                } else {
+                    /* update table to DATETIME instead of TIMESTAMP */
+                    Statement s = conn.createStatement();
+                    sql = "alter table cldr_users change lastlogin lastlogin DATETIME";
+                    s.execute(sql);
                     s.close();
                     conn.commit();
                 }
@@ -473,8 +485,8 @@ private static final String INTERNAL = "INTERNAL";
     private void myinit() throws SQLException {
      try {
         synchronized(conn) {
-            insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password,locales) " +
-            "VALUES(?,?,?,?,?,?)" );
+            insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password,locales,lastlogin) " +
+            "VALUES(?,?,?,?,?,?,NULL)" );
             queryStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs,lastlogin from " + CLDR_USERS +" where email=? AND password=?",
                     ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
             queryIdStmt = conn.prepareStatement("SELECT name,org,email,userlevel,intlocs,locales,lastlogin,password from " + CLDR_USERS +" where id=?",
@@ -625,6 +637,22 @@ private static final String INTERNAL = "INTERNAL";
     public final UserRegistry.User get(String pass, String email, String ip) {
 	return get(pass, email, ip, false);
     }
+    
+    
+    public void touch(int id)  {
+        System.err.println("Touching: " + id);
+        synchronized(conn) {
+            try {
+                touchStmt.setInt(1, id);
+                touchStmt.executeUpdate();
+                conn.commit();
+            } catch(SQLException se) {
+                logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to touch " + id + " - " + SurveyMain.unchainSqlException(se),se);
+                throw new InternalError("UserRegistry: SQL error trying to touch " + id + " - " + SurveyMain.unchainSqlException(se));
+            }
+        }
+    }
+    
 
     /**
      * @param letmein The VAP was given - allow the user in regardless 
@@ -682,11 +710,6 @@ private static final String INTERNAL = "INTERNAL";
                 }
                 if(!ip.startsWith("RSS@") && !ip.equals(INTERNAL)) {
                     logger.info("Login: " + email + " @ " + ip);
-                    if(!FOR_ADDING.equals(ip)) {
-                        touchStmt.setInt(1, u.id);
-                        touchStmt.executeUpdate();
-                        conn.commit();
-                    }
                 }
                 
                 return u;

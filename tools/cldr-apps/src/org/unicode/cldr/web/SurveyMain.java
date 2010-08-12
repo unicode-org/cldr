@@ -2500,7 +2500,7 @@ public class SurveyMain extends HttpServlet {
 //	System.err.println("reg.get  pw="+password+", email="+email+", lmi="+ctx.field("letmein")+", lmigood="+vap.equals(ctx.field("letmein")));
 
         user = reg.get(password,email,ctx.userIP(), letmein);
-
+        if(user!=null) user.touch();
 	//	System.err.println("user= "+user);
 
         if(ctx.request == null && ctx.session != null) {

@@ -19,7 +19,7 @@ if(false){ // debug
 	  dataRow.getDisplayName() %></th>
   <td> <input name="<%= dataRow.fullFieldHash() %>" value="<%= SurveyMain.CHANGETO %>" type='hidden'>
   <% if(ctx.canModify()) { %>
-	  <input class="inputbox" name="<%= dataRow.fullFieldHash() %>_v" value="<%= vToShow %>">
+	  <input dir="<%= htmlDirection %>" class="inputbox" name="<%= dataRow.fullFieldHash() %>_v" value="<%= vToShow %>">
   <% } else { %>
   		<%= vToShow %>
   <% } %>	

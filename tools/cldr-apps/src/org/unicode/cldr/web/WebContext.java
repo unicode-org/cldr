@@ -13,6 +13,7 @@ import java.util.*;
 
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
+import org.unicode.cldr.web.WebContext.HTMLDirection;
 import org.unicode.cldr.test.*;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 
@@ -772,7 +773,7 @@ public class WebContext implements Cloneable {
     public DisplayAndInputProcessor processor = null;
     
     /**
-     * Set this context to be handlign a certain locale
+     * Set this context to be handling a certain locale
      * @param l locale to set
      */
     void setLocale(CLDRLocale l) {
@@ -785,6 +786,27 @@ public class WebContext implements Cloneable {
         }
         docLocale = localesVector.toArray(docLocale);        
            // logger.info("NOT NOT NOT fetching locale: " + l.toString() + ", count: " + doc.length);
+    }
+    
+    /**
+     * Cached direction of this locale.
+     */
+    private HTMLDirection direction = null;
+    
+    /**
+     * Return the HTML direction of this locale, ltr or rtl. Returns ltr by default.
+     * TODO: should return display locale's directionality by default.
+     * @return directionality
+     */
+    public HTMLDirection getDirectionForLocale() {
+        if((locale != null) && (direction == null)) {
+            direction = sm.getHTMLDirectionFor(getLocale());
+        }
+        if(direction==null) {
+            return HTMLDirection.LEFT_TO_RIGHT;
+        } else {
+            return direction;
+        }
     }
     
     /**
@@ -1367,6 +1389,40 @@ public class WebContext implements Cloneable {
 	// Display Context Data
 	protected Boolean canModify = null;
 	private Boolean zoomedIn = null;
+    /**
+     * A direction, suitable for html 'dir=...'
+     * @author srl
+     * @see getDirectionForLocale
+     */
+    public enum HTMLDirection {
+        LEFT_TO_RIGHT("ltr"),
+        RIGHT_TO_LEFT("rtl");
+        
+        private String str;
+        HTMLDirection(String str) {
+            this.str = str;
+        }
+        public String toString() {
+            return str;
+        }
+        
+        /**
+         * Convert a CLDR direction to an enum
+         * @param dir CLDR direction string
+         * @return HTML direction enum
+         */
+        public static HTMLDirection fromCldr(String dir) {
+            if(dir.equals("left-to-right")) {
+                return HTMLDirection.LEFT_TO_RIGHT;
+            } else if(dir.equals("right-to-left")) {
+                return HTMLDirection.RIGHT_TO_LEFT;
+            } else if(dir.equals("top-to-bottom")) {
+                return HTMLDirection.LEFT_TO_RIGHT; // !
+            } else {
+                return HTMLDirection.LEFT_TO_RIGHT;
+            }
+        }
+    }
 
 	/**
 	 * Set whether this user can modify this locale

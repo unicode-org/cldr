@@ -79,6 +79,7 @@ import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.SurveyThread.SurveyTask;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
+import org.unicode.cldr.web.WebContext.HTMLDirection;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -5843,31 +5844,9 @@ public class SurveyMain extends HttpServlet {
         return gBaselineExample;
     }
 
-    public synchronized String getHTMLDirectionFor(CLDRLocale locale) {
+    public synchronized WebContext.HTMLDirection getHTMLDirectionFor(CLDRLocale locale) {
         String dir = getDirectionalityFor(locale);
-        if(dir.equals("left-to-right")) {
-            return "ltr";
-        } else if(dir.equals("right-to-left")) {
-            return "rtl";
-        } else if(dir.equals("top-to-bottom")) {
-            return "ltr"; // !
-        } else {
-            System.err.println("Could not get directionality for " + locale + "- got "+dir + " - assuming ltr");
-            return "ltr";
-        }
-//        // TODO: use orientation.
-//        String locStr = locale.toString();
-//        String script = locale.getScript();
-//        if(locStr.startsWith("ps") ||
-//           locStr.startsWith("fa") ||
-//           locStr.startsWith("ar") ||
-//           locStr.startsWith("syr") ||
-//           locStr.startsWith("he") ||
-//           "Arab".equals(script)) {
-//            return "rtl";
-//        } else {
-//            return "ltr";
-//        }
+        return HTMLDirection.fromCldr(dir);
     }
     
     public synchronized String getDirectionalityFor(CLDRLocale id) {
@@ -6927,7 +6906,6 @@ public class SurveyMain extends HttpServlet {
             Hashtable<String,DataSection.DataRow> refsHash = new Hashtable<String, DataSection.DataRow>();
             Hashtable<String,DataSection.DataRow.CandidateItem> refsItemHash = new Hashtable<String, DataSection.DataRow.CandidateItem>();
             
-            String ourDir = getHTMLDirectionFor(ctx.getLocale());
     //        boolean showFullXpaths = ctx.prefBool(PREF_XPATHS);
             // calculate references
             if(section.xpathPrefix.indexOf("references")==-1) {
@@ -7065,10 +7043,10 @@ public class SurveyMain extends HttpServlet {
                         if(n!=-1) {
                             zone = zone.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)
                         }
-                        showDataRow(ctx, section, p, ourDir, uf, cf, ourSrc, canModify,ctx.base()+"?"+
+                        showDataRow(ctx, section, p, uf, cf, ourSrc, canModify,ctx.base()+"?"+
                                 "_="+ctx.getLocale()+"&amp;x=timezones&amp;zone="+zone,refs,checkCldr, zoomedIn);                
                     } else {
-                        showDataRow(ctx, section, p, ourDir, uf, cf, ourSrc, canModify,null,refs,checkCldr, zoomedIn);
+                        showDataRow(ctx, section, p, uf, cf, ourSrc, canModify,null,refs,checkCldr, zoomedIn);
                     }
                 } catch(Throwable t) {
                     // failed to show pea. 
@@ -7080,7 +7058,7 @@ public class SurveyMain extends HttpServlet {
                     for(Iterator e = p.subRows.values().iterator();e.hasNext();) {
                         DataSection.DataRow subDataRow = (DataSection.DataRow)e.next();
                         try {
-                            showDataRow(ctx, section, subDataRow, ourDir, uf, cf, ourSrc, canModify, null,refs,checkCldr, zoomedIn);
+                            showDataRow(ctx, section, subDataRow, uf, cf, ourSrc, canModify, null,refs,checkCldr, zoomedIn);
                         } catch(Throwable t) {
                             // failed to show sub-pea.
                             ctx.println("<tr class='topbar'><td colspan='8'>sub pea: <b>"+section.xpath(subDataRow)+"."+subDataRow.altType+"</b><br>");
@@ -7123,16 +7101,15 @@ public class SurveyMain extends HttpServlet {
      * @return
      */
     boolean processPeaChanges(WebContext ctx, DataSection oldSection, CLDRFile cf, XMLSource ourSrc, DataSubmissionResultHandler dsrh) {
-        String ourDir = getHTMLDirectionFor(ctx.getLocale());
         boolean someDidChange = false;
         if(oldSection != null) {
             for(Iterator i = oldSection.getAll().iterator();i.hasNext();) {
                 DataSection.DataRow p = (DataSection.DataRow)i.next();
-                someDidChange = processDataRowChanges(ctx, oldSection, p, ourDir, cf, ourSrc, dsrh) || someDidChange;
+                someDidChange = processDataRowChanges(ctx, oldSection, p, cf, ourSrc, dsrh) || someDidChange;
                 if(p.subRows != null) {
                     for(Iterator e = p.subRows.values().iterator();e.hasNext();) {
                         DataSection.DataRow subDataRow = (DataSection.DataRow)e.next();
-                        someDidChange = processDataRowChanges(ctx, oldSection, subDataRow, ourDir, cf, ourSrc, dsrh) || someDidChange;
+                        someDidChange = processDataRowChanges(ctx, oldSection, subDataRow, cf, ourSrc, dsrh) || someDidChange;
                     }
                 }
             }            
@@ -7185,13 +7162,12 @@ public class SurveyMain extends HttpServlet {
      * @param ctx
      * @param section
      * @param p
-     * @param ourDir
      * @param cf
      * @param ourSrc
      * @param dsrh 
      * @return
      */
-    boolean processDataRowChanges(WebContext ctx, DataSection section, DataSection.DataRow p, String ourDir, CLDRFile cf, XMLSource ourSrc, DataSubmissionResultHandler dsrh) {
+    boolean processDataRowChanges(WebContext ctx, DataSection section, DataSection.DataRow p, CLDRFile cf, XMLSource ourSrc, DataSubmissionResultHandler dsrh) {
         String fieldHash = section.fieldHash(p);
         String altType = p.altType;
         String choice = ctx.field(fieldHash); // checkmark choice
@@ -7613,9 +7589,9 @@ public class SurveyMain extends HttpServlet {
         return rs;
     }
 
-    void showDataRow(WebContext ctx, DataSection section, DataSection.DataRow p, String ourDir, UserLocaleStuff uf, CLDRFile cf, 
+    void showDataRow(WebContext ctx, DataSection section, DataSection.DataRow p, UserLocaleStuff uf, CLDRFile cf, 
         XMLSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr)  {
-        showDataRow(ctx,section,p,ourDir,uf, cf,ourSrc,canModify,specialUrl,refs,checkCldr,false);
+        showDataRow(ctx,section,p,uf, cf,ourSrc,canModify,specialUrl,refs,checkCldr,false);
     }
 
     /**
@@ -7635,11 +7611,11 @@ public class SurveyMain extends HttpServlet {
     /**
      * Show a single pea
      */
-    void showDataRow(WebContext ctx, DataSection section, DataSection.DataRow p, String ourDir, UserLocaleStuff uf, CLDRFile cf, 
+    void showDataRow(WebContext ctx, DataSection section, DataSection.DataRow p, UserLocaleStuff uf, CLDRFile cf, 
         XMLSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr, boolean zoomedIn) {
 
         String ourAlign = "left";
-        if(ourDir.equals("rtl")) {
+        if(ctx.getDirectionForLocale().equals(HTMLDirection.RIGHT_TO_LEFT)) {
             ourAlign = "right";
         }
         
@@ -7883,9 +7859,9 @@ public class SurveyMain extends HttpServlet {
         }
         
 //        if(topCurrent != null) {
-            printCells(ctx,section,p,topCurrent,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
+            printCells(ctx,section,p,topCurrent,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
 //        } else {
-//            printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
+//            printEmptyCells(ctx, section, p, ourAlign, zoomedIn);
 //        }
 
         // ## 6.1, 6.2 - Print the top proposed item. Can be null if there aren't any.
@@ -7894,9 +7870,9 @@ public class SurveyMain extends HttpServlet {
             topProposed = proposedItems.get(0);
         }
         if(topProposed != null) {
-            printCells(ctx,section,p,topProposed,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
+            printCells(ctx,section,p,topProposed,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
         } else {
-            printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
+            printEmptyCells(ctx, section, p, ourAlign, zoomedIn);
         }
 
         boolean areShowingInputBox = (canSubmit && !isAlias && canModify && !p.confirmOnly && (zoomedIn||!p.zoomOnly));
@@ -7917,7 +7893,7 @@ public class SurveyMain extends HttpServlet {
             
             changetoBox=changetoBox+("</td>");
             
-            if(!"rtl".equals(ourDir)) {
+            if(!(ctx.getDirectionForLocale() == HTMLDirection.RIGHT_TO_LEFT)) {
                 ctx.println(changetoBox);
             }
             
@@ -7952,7 +7928,7 @@ public class SurveyMain extends HttpServlet {
                     ctx.println("</select>");
                 } else {
                     // regular change box (text)
-                    ctx.print("<input dir='"+ourDir+"' onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'>");
+                    ctx.print("<input dir='"+ctx.getDirectionForLocale()+"' onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'>");
                 }
                 // references
                 if(badInputBox) {
@@ -7983,7 +7959,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("</td>");
             }
 
-            if("rtl".equals(ourDir)) {
+            if(ctx.getDirectionForLocale()==HTMLDirection.RIGHT_TO_LEFT) {
                 ctx.println(changetoBox);
             }
 
@@ -8017,19 +7993,19 @@ public class SurveyMain extends HttpServlet {
                 // current item
                 if(currentItems.size() > row) {
                     item = currentItems.get(row);
-                    printCells(ctx,section, p,item,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
+                    printCells(ctx,section, p,item,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
                 } else {
                     item = null;
-                    printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
+                    printEmptyCells(ctx, section, p, ourAlign, zoomedIn);
                 }
 
                 // #6.1, 6.2 - proposed items
                 if(proposedItems.size() > row) {
                     item = proposedItems.get(row);
-                    printCells(ctx,section, p,item,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
+                    printCells(ctx,section, p,item,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
                 } else {
                     item = null;
-                    printEmptyCells(ctx, section, p, ourAlign, ourDir, zoomedIn);
+                    printEmptyCells(ctx, section, p, ourAlign, zoomedIn);
                 }
                                 
                 ctx.println("</tr>");
@@ -8222,7 +8198,7 @@ public class SurveyMain extends HttpServlet {
 			if(orgVote.disqualified) {
 			    ctx.print("<strike>");
 			}
-			ctx.print("<span dir='"+ourDir+"'>");
+			ctx.print("<span dir='"+ctx.getDirectionForLocale()+"'>");
 			//						ctx.print(VoteResolver.getOrganizationToMaxVote(section.locale).
 			//						            get(VoteResolver.Organization.valueOf(org.name)).toString().replaceAll("street","guest")
 			ctx.print(ctx.iconHtml("vote","#"+orgVote.xpath)+theValue+"</span>");
@@ -8261,7 +8237,7 @@ public class SurveyMain extends HttpServlet {
 			    if(item.disqualified) {
 				ctx.print("<strike>");
 			    }
-			    ctx.print("<span dir='"+ourDir+"' class='notselected' title='#"+item.xpath+"'>"+theValue+"</span>");
+			    ctx.print("<span dir='"+ctx.getDirectionForLocale()+"' class='notselected' title='#"+item.xpath+"'>"+theValue+"</span>");
 			    if(item.disqualified) {
 				ctx.print("</strike>");
 			    }
@@ -8345,7 +8321,7 @@ public class SurveyMain extends HttpServlet {
 			    ctx.print("<strike>");
 			}
 		    }
-		    ctx.print("<span dir='"+ourDir+"' title='"+title+"'>"+theValue+"</span> ");
+		    ctx.print("<span dir='"+ctx.getDirectionForLocale()+"' title='"+title+"'>"+theValue+"</span> ");
 		    if(item!=null) {
 			if(item.disqualified) {
 			    ctx.print("</strike>");
@@ -8404,7 +8380,7 @@ public class SurveyMain extends HttpServlet {
 			    wn=nn;
 			}
 		    }
-		    ctx.print("<b class='selected'>Optimal field</b>: #"+wn+" <span dir='"+ourDir+"' class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.vrstatus + ", <!-- score: "+r.winner.score +" -->");
+		    ctx.print("<b class='selected'>Optimal field</b>: #"+wn+" <span dir='"+ctx.getDirectionForLocale()+"' class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.vrstatus + ", <!-- score: "+r.winner.score +" -->");
 		}
 		                
 		ctx.println("For more information, see <a href='http://cldr.unicode.org/index/process#Voting_Process'>Voting Process</a><br>");
@@ -8444,11 +8420,11 @@ public class SurveyMain extends HttpServlet {
      * @param section
      * @param p
      */
-    void printEmptyCells(WebContext ctx, DataSection section, DataSection.DataRow p, String ourAlign, String ourDir, boolean zoomedIn) {
+    void printEmptyCells(WebContext ctx, DataSection section, DataSection.DataRow p, String ourAlign, boolean zoomedIn) {
         int colspan = zoomedIn?1:2;
         boolean haveTests = false;
         boolean haveReferences = false; // no item
-        ctx.print("<td  colspan='"+colspan+"' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
+        ctx.print("<td  colspan='"+colspan+"' class='propcolumn' align='"+ourAlign+"' dir='"+ctx.getDirectionForLocale()+"' valign='top'>");
         ctx.println("</td>");    
         if(zoomedIn) {
             ctx.println("<td></td>"); // no tests, no references
@@ -8464,7 +8440,7 @@ public class SurveyMain extends HttpServlet {
      * @param numberedItemsList All items are added here.
      */ 
     void printCells(WebContext ctx, DataSection section, DataSection.DataRow p, DataSection.DataRow.CandidateItem item, String fieldHash, String resultXpath, String ourVoteXpath,
-        boolean canModify, String ourAlign, String ourDir, UserLocaleStuff uf, boolean zoomedIn, List<DataSection.DataRow.CandidateItem> numberedItemsList, List<String> refsList,
+        boolean canModify, String ourAlign, UserLocaleStuff uf, boolean zoomedIn, List<DataSection.DataRow.CandidateItem> numberedItemsList, List<String> refsList,
         ExampleContext exampleContext) {
         // ##6.1 proposed - print the TOP item
         
@@ -8484,7 +8460,7 @@ public class SurveyMain extends HttpServlet {
                     zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
         }
         
-        ctx.print("<td  colspan='"+colspan+"' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
+        ctx.print("<td  colspan='"+colspan+"' class='propcolumn' align='"+ourAlign+"' dir='"+ctx.getDirectionForLocale()+"' valign='top'>");
         if((item != null)&&(item.value != null)) {
             printDataRowItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify, zoomedIn, exampleContext);
         }
@@ -8525,7 +8501,7 @@ public class SurveyMain extends HttpServlet {
 
         // ##6.2 example column. always present
         if(itemExample!=null) {
-            ctx.print("<td class='generatedexample' valign='top' align='"+ourAlign+"' dir='"+ourDir+"' >");
+            ctx.print("<td class='generatedexample' valign='top' align='"+ourAlign+"' dir='"+ctx.getDirectionForLocale()+"' >");
             ctx.print(itemExample.replaceAll("\\\\","\u200b\\\\")); // \u200bu
             ctx.println("</td>");
         } else {
@@ -8674,7 +8650,7 @@ public class SurveyMain extends HttpServlet {
                     "' value='"+item.altProposed+"' name='"+fieldHash+ACTION_UNVOTE+"'>" +"Unvote&nbsp;item</label>");
         }
         if(zoomedIn) {
-            if(processed != null && /* ourDir.equals("rtl")&& */ CallOut.containsSome(processed)) {
+            if(processed != null && /* direction.equals("rtl")&& */ CallOut.containsSome(processed)) {
                 String altProcessed = processed.replaceAll("\u200F","\u200F<b dir=rtl>RLM</b>\u200F")
                                                .replaceAll("\u200E","\u200E<b>LRM</b>\u200E");
                 ctx.print("<br><span class=marks>" + altProcessed + "</span>");

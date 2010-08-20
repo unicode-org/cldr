@@ -2,43 +2,27 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="si" /> 
+		<version number="$Revision$" />
+		<generation date="$Date$" />
+		<language type="si" />
 	</identity>
-	<collations  validSubLocales="si_LK">
-		<collation type="standard" references="Sri Lanka standard 1134 Part 1 - 2007 edition - Sri Lanka Standards Institution" >
-			<settings normalization="on"/>
+	<collations validSubLocales="si_LK">
+		<collation type="standard" references="Sri Lanka standard 1134 Part 1 - 2007 edition - Sri Lanka Standards Institution">
+			<settings normalization="on" />
 			<rules>
-				<reset>෴</reset>
-				<p>අ</p>
 				<reset>ඖ</reset>
 				<p>ං</p>
 				<p>ඃ</p>
-				<reset>ෳ</reset>
-				<p>්</p>
-				<reset>ෘ</reset>
-				<p>ෲ</p>
-				<p>ෟ</p>
-				<p>ෳ</p>
 				<reset>ඥ</reset>
 				<p>ඤ</p>
 			</rules>
 		</collation>
-		<collation type="dictionary" references="Sri Lanka standard 1134 Part 1 - 2007 edition - Sri Lanka Standards Institution" >
-			<settings normalization="on"/>
+		<collation type="dictionary" references="Sri Lanka standard 1134 Part 1 - 2007 edition - Sri Lanka Standards Institution">
+			<settings normalization="on" />
 			<rules>
-				<reset>෴</reset>
-				<p>අ</p>
 				<reset>ඖ</reset>
 				<p>ං</p>
 				<p>ඃ</p>
-				<reset>ෳ</reset>
-				<p>්</p>
-				<reset>ෘ</reset>
-				<p>ෲ</p>
-				<p>ෟ</p>
-				<p>ෳ</p>
 				<reset>ජ්ඤ</reset>
 				<s>ඥ</s>
 			</rules>

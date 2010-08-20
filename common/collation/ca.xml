@@ -2,45 +2,40 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="ca" /> 
+		<version number="$Revision$" />
+		<generation date="$Date$" />
+		<language type="ca" />
 	</identity>
-		<collations  validSubLocales="ca_ES">
-			<collation type="standard" >
-				<settings backwards="on"  />
-				<rules>
-					<reset>C</reset>
-					<p>ch</p>
-					<t>Ch</t>
-					<t>CH</t>
-					<reset>L</reset>
-					<p>ll</p>
-					<t>l·l</t>
-					<t>Ll</t>
-					<t>L·l</t>
-					<t>LL</t>
-					<t>L·L</t>
-				</rules>
-			</collation  >
-			<collation draft="unconfirmed" alt="proposed" type="standard" >
-				<settings backwards="on"  />
-				<rules>
-					<reset>C</reset>
-					<p>ch</p>
-					<t>cH</t>
-					<t>Ch</t>
-					<t>CH</t>
-					<reset>L</reset>
-					<p>ll</p>
-					<t>l·l</t>
-					<t>lL</t>
-					<t>l·L</t>
-					<t>Ll</t>
-					<t>L·l</t>
-					<t>LL</t>
-					<t>L·L</t>
-				</rules>
-			</collation  >
-		</collations>
+	<collations validSubLocales="ca_ES">
+		<collation type="standard"
+			references="Enciclopèdia Catalana: Diccionari da la llengua catalana ISBN 84-85194-46-2">
+			<settings backwards="on" />
+			<rules>
+				<reset>L</reset>
+				<s>ŀ</s>
+				<i>l·</i>
+				<t>Ŀ</t>
+				<i>L·</i>
+			</rules>
+		</collation>
+		<collation draft="unconfirmed" alt="proposed" type="standard">
+			<settings backwards="on" />
+			<rules>
+				<reset>C</reset>
+				<p>ch</p>
+				<t>cH</t>
+				<t>Ch</t>
+				<t>CH</t>
+				<reset>L</reset>
+				<p>ll</p>
+				<t>l·l</t>
+				<t>lL</t>
+				<t>l·L</t>
+				<t>Ll</t>
+				<t>L·l</t>
+				<t>LL</t>
+				<t>L·L</t>
+			</rules>
+		</collation>
+	</collations>
 </ldml>

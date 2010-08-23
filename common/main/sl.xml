@@ -1054,18 +1054,18 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">jan</month>
-							<month type="2">feb</month>
-							<month type="3">mar</month>
-							<month type="4">apr</month>
-							<month type="5">maj</month>
-							<month type="6">jun</month>
-							<month type="7">jul</month>
-							<month type="8">avg</month>
-							<month type="9">sep</month>
-							<month type="10">okt</month>
-							<month type="11">nov</month>
-							<month type="12">dec</month>
+							<month type="1">jan.</month>
+							<month type="2">feb.</month>
+							<month type="3">mar.</month>
+							<month type="4">apr.</month>
+							<month type="5">maj.</month>
+							<month type="6">jun.</month>
+							<month type="7">jul.</month>
+							<month type="8">avg.</month>
+							<month type="9">sep.</month>
+							<month type="10">okt.</month>
+							<month type="11">nov.</month>
+							<month type="12">dec.</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januar</month>
@@ -1083,6 +1083,20 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">jan</month>
+							<month type="2">feb</month>
+							<month type="3">mar</month>
+							<month type="4">apr</month>
+							<month type="5">maj</month>
+							<month type="6">jun</month>
+							<month type="7">jul</month>
+							<month type="8">avg</month>
+							<month type="9">sep</month>
+							<month type="10">okt</month>
+							<month type="11">nov</month>
+							<month type="12">dec</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">j</month>
 							<month type="2">f</month>
@@ -1179,7 +1193,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d. MMM. yyyy</pattern>
+							<pattern>d. MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1213,7 +1227,7 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d" draft="provisional">d</dateFormatItem>
-						<dateFormatItem id="EEEd" draft="provisional">EEE., d.</dateFormatItem>
+						<dateFormatItem id="Ed">E., d.</dateFormatItem>
 						<dateFormatItem id="hm" draft="provisional">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="Hm" alt="proposed-x1001" draft="unconfirmed">H:mm</dateFormatItem>
@@ -1222,21 +1236,17 @@
 						<dateFormatItem id="Hms" alt="proposed-x1001" draft="unconfirmed">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="M" draft="provisional">L</dateFormatItem>
 						<dateFormatItem id="Md">d. M.</dateFormatItem>
-						<dateFormatItem id="MEd" draft="provisional">E., d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E., d. MM.</dateFormatItem>
 						<dateFormatItem id="MMM" draft="provisional">LLL.</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="provisional">d. MMM.</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="provisional">E., d. MMM.</dateFormatItem>
-						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMdd">dd. MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd" draft="provisional">E., d. MMMM</dateFormatItem>
+						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E., d. MMM</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM" draft="provisional">M/yyyy</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="provisional">EEE., d. M. yyyy</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="provisional">MMM. y</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="provisional">EEE., d. MMM. y</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="provisional">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMEd">E., d. M. y</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E., d. MMM y</dateFormatItem>
 						<dateFormatItem id="yQ" draft="provisional">Q yyyy</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="provisional">y QQQ</dateFormatItem>
 						<dateFormatItem id="yyQ">Q/yy</dateFormatItem>

@@ -2831,24 +2831,24 @@
 		<defaultNumberingSystem>arabext</defaultNumberingSystem>
 		<symbols>
 			<decimal>/</decimal>
-			<decimal references="R048" numberSystem="arabext">٫</decimal>
 			<group>،</group>
-			<group references="R048" numberSystem="arabext">٬</group>
 			<list>;</list>
-			<list numberSystem="arabext">؛</list>
 			<percentSign>%</percentSign>
-			<percentSign references="R048" numberSystem="arabext">٪</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<nativeZeroDigit references="R048" numberSystem="arabext">۰</nativeZeroDigit>
 			<patternDigit>#</patternDigit>
 			<plusSign>+</plusSign>
 			<minusSign references="R048">−</minusSign>
 			<exponential>E</exponential>
-			<exponential numberSystem="arabext">×۱۰^</exponential>
 			<perMille>‰</perMille>
-			<perMille numberSystem="arabext">؉</perMille>
 			<infinity>∞</infinity>
 			<nan draft="contributed">NaN</nan>
+		</symbols>
+		<symbols numberSystem="arabext">
+			<decimal references="R048">٫</decimal>
+			<group references="R048">٬</group>
+			<list>؛</list>
+			<percentSign references="R048">٪</percentSign>
+			<exponential>×۱۰^</exponential>
+			<perMille>؉</perMille>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>

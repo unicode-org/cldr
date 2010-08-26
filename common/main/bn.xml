@@ -3006,7 +3006,6 @@
 			<list>;</list>
 			<percentSign>%</percentSign>
 			<nativeZeroDigit>0</nativeZeroDigit>
-			<nativeZeroDigit numberSystem="beng">০</nativeZeroDigit>
 			<patternDigit>#</patternDigit>
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
@@ -3014,7 +3013,10 @@
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
-			<nan numberSystem="beng">সংখ্যা না</nan>
+		</symbols>
+		<symbols numberSystem="beng">
+			<nativeZeroDigit>০</nativeZeroDigit>
+			<nan>সংখ্যা না</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>

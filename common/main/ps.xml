@@ -333,16 +333,16 @@
 		<defaultNumberingSystem>arabext</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
-			<decimal numberSystem="arabext">٫</decimal>
 			<group>.</group>
-			<group numberSystem="arabext">٬</group>
 			<percentSign>%</percentSign>
-			<percentSign numberSystem="arabext">٪</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<nativeZeroDigit numberSystem="arabext">۰</nativeZeroDigit>
 			<minusSign>−</minusSign>
 			<exponential>E</exponential>
-			<exponential numberSystem="arabext">×۱۰^</exponential>
+		</symbols>
+		<symbols numberSystem="arabext">
+			<decimal>٫</decimal>
+			<group>٬</group>
+			<percentSign>٪</percentSign>
+			<exponential>×۱۰^</exponential>
 		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>

@@ -145,13 +145,14 @@
 		<defaultNumberingSystem>arabext</defaultNumberingSystem>
 		<symbols>
 			<decimal>,</decimal>
-			<decimal numberSystem="arabext">٫</decimal>
 			<group>.</group>
-			<group numberSystem="arabext">٬</group>
-			<percentSign numberSystem="arabext">٪</percentSign>
-			<nativeZeroDigit numberSystem="arabext">۰</nativeZeroDigit>
 			<minusSign>−</minusSign>
-			<exponential numberSystem="arabext">×۱۰^</exponential>
+		</symbols>
+		<symbols numberSystem="arabext">
+			<decimal>٫</decimal>
+			<group>٬</group>
+			<percentSign>٪</percentSign>
+			<exponential>×۱۰^</exponential>
 		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>

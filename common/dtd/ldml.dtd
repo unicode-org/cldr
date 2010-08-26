@@ -868,7 +868,7 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!ELEMENT numbers (alias | (defaultNumberingSystem*, symbols?, decimalFormats?, scientificFormats?, percentFormats?, currencyFormats?, currencies?, special*)) >
+<!ELEMENT numbers (alias | (defaultNumberingSystem*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, special*)) >
 <!ATTLIST numbers draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST numbers standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST numbers references CDATA #IMPLIED >
@@ -886,90 +886,77 @@ $Date$
 <!ATTLIST symbols references CDATA #IMPLIED >
 <!ATTLIST symbols alt NMTOKENS #IMPLIED >
 <!ATTLIST symbols validSubLocales CDATA #IMPLIED >
+<!ATTLIST symbols numberSystem CDATA #IMPLIED >
 
 <!ELEMENT decimal ( #PCDATA ) >
 <!ATTLIST decimal references CDATA #IMPLIED >
 <!ATTLIST decimal draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST decimal alt NMTOKENS #IMPLIED >
-<!ATTLIST decimal numberSystem CDATA #IMPLIED >
 
 <!ELEMENT group ( #PCDATA ) >
 <!ATTLIST group references CDATA #IMPLIED >
 <!ATTLIST group draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST group alt NMTOKENS #IMPLIED >
-<!ATTLIST group numberSystem CDATA #IMPLIED >
 
 <!ELEMENT list ( #PCDATA ) >
 <!ATTLIST list references CDATA #IMPLIED >
 <!ATTLIST list draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST list alt NMTOKENS #IMPLIED >
-<!ATTLIST list numberSystem CDATA #IMPLIED >
 
 <!ELEMENT percentSign ( #PCDATA ) >
 <!ATTLIST percentSign references CDATA #IMPLIED >
 <!ATTLIST percentSign draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST percentSign alt NMTOKENS #IMPLIED >
-<!ATTLIST percentSign numberSystem CDATA #IMPLIED >
 
 <!ELEMENT nativeZeroDigit ( #PCDATA ) >
 <!ATTLIST nativeZeroDigit references CDATA #IMPLIED >
 <!ATTLIST nativeZeroDigit draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST nativeZeroDigit alt NMTOKENS #IMPLIED >
-<!ATTLIST nativeZeroDigit numberSystem CDATA #IMPLIED >
 
 <!ELEMENT patternDigit ( #PCDATA ) >
 <!ATTLIST patternDigit references CDATA #IMPLIED >
 <!ATTLIST patternDigit draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST patternDigit alt NMTOKENS #IMPLIED >
-<!ATTLIST patternDigit numberSystem CDATA #IMPLIED >
 
 <!ELEMENT plusSign ( #PCDATA ) >
 <!ATTLIST plusSign references CDATA #IMPLIED >
 <!ATTLIST plusSign draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST plusSign alt NMTOKENS #IMPLIED >
-<!ATTLIST plusSign numberSystem CDATA #IMPLIED >
 
 <!ELEMENT minusSign ( #PCDATA ) >
 <!ATTLIST minusSign references CDATA #IMPLIED >
 <!ATTLIST minusSign draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST minusSign alt NMTOKENS #IMPLIED >
-<!ATTLIST minusSign numberSystem CDATA #IMPLIED >
 
 <!ELEMENT exponential ( #PCDATA ) >
 <!ATTLIST exponential references CDATA #IMPLIED >
 <!ATTLIST exponential draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST exponential alt NMTOKENS #IMPLIED >
-<!ATTLIST exponential numberSystem CDATA #IMPLIED >
 
 <!ELEMENT perMille ( #PCDATA ) >
 <!ATTLIST perMille references CDATA #IMPLIED >
 <!ATTLIST perMille draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST perMille alt NMTOKENS #IMPLIED >
-<!ATTLIST perMille numberSystem CDATA #IMPLIED >
 
 <!ELEMENT infinity ( #PCDATA ) >
 <!ATTLIST infinity references CDATA #IMPLIED >
 <!ATTLIST infinity draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST infinity alt NMTOKENS #IMPLIED >
-<!ATTLIST infinity numberSystem CDATA #IMPLIED >
 
 <!ELEMENT nan ( #PCDATA ) >
 <!ATTLIST nan references CDATA #IMPLIED >
 <!ATTLIST nan draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST nan alt NMTOKENS #IMPLIED >
-<!ATTLIST nan numberSystem CDATA #IMPLIED >
 
 <!ELEMENT currencyDecimal ( #PCDATA ) >
 <!ATTLIST currencyDecimal references CDATA #IMPLIED >
 <!ATTLIST currencyDecimal draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST currencyDecimal alt NMTOKENS #IMPLIED >
-<!ATTLIST currencyDecimal numberSystem CDATA #IMPLIED >
 
 <!ELEMENT currencyGroup ( #PCDATA ) >
 <!ATTLIST currencyGroup references CDATA #IMPLIED >
 <!ATTLIST currencyGroup draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST currencyGroup alt NMTOKENS #IMPLIED >
-<!ATTLIST currencyGroup numberSystem CDATA #IMPLIED >
 
 <!ELEMENT pattern ( #PCDATA ) >
 <!ATTLIST pattern type NMTOKEN "standard" >
@@ -981,6 +968,7 @@ $Date$
 <!ELEMENT decimalFormats (alias | (default*, decimalFormatLength*, special*)) >
 <!ATTLIST decimalFormats draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST decimalFormats validSubLocales CDATA #IMPLIED >
+<!ATTLIST decimalFormats numberSystem CDATA #IMPLIED >
 
 <!ELEMENT decimalFormatLength (alias | (default*, decimalFormat*, special*)) >
 <!ATTLIST decimalFormatLength type ( full | long | medium | short ) #IMPLIED >
@@ -997,11 +985,11 @@ $Date$
 <!ATTLIST decimalFormat references CDATA #IMPLIED >
 <!ATTLIST decimalFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST decimalFormat validSubLocales CDATA #IMPLIED >
-<!ATTLIST decimalFormat numberSystem CDATA #IMPLIED >
 
 <!ELEMENT scientificFormats (alias | (default*, scientificFormatLength*, special*)) >
 <!ATTLIST scientificFormats draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST scientificFormats validSubLocales CDATA #IMPLIED >
+<!ATTLIST scientificFormats numberSystem CDATA #IMPLIED >
 
 <!ELEMENT scientificFormatLength (alias | (default*, scientificFormat*, special*)) >
 <!ATTLIST scientificFormatLength type ( full | long | medium | short ) #IMPLIED >
@@ -1018,11 +1006,11 @@ $Date$
 <!ATTLIST scientificFormat references CDATA #IMPLIED >
 <!ATTLIST scientificFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST scientificFormat validSubLocales CDATA #IMPLIED >
-<!ATTLIST scientificFormat numberSystem CDATA #IMPLIED >
 
 <!ELEMENT percentFormats (alias | (default*, percentFormatLength*, special*)) >
 <!ATTLIST percentFormats draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST percentFormats validSubLocales CDATA #IMPLIED >
+<!ATTLIST percentFormats numberSystem CDATA #IMPLIED >
 
 <!ELEMENT percentFormatLength (alias | (default*, percentFormat*, special*)) >
 <!ATTLIST percentFormatLength type ( full | long | medium | short ) #IMPLIED >
@@ -1039,11 +1027,11 @@ $Date$
 <!ATTLIST percentFormat references CDATA #IMPLIED >
 <!ATTLIST percentFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST percentFormat validSubLocales CDATA #IMPLIED >
-<!ATTLIST percentFormat numberSystem CDATA #IMPLIED >
 
 <!ELEMENT currencyFormats (alias | (default*, currencySpacing*, currencyFormatLength*, unitPattern*, special*)) >
 <!ATTLIST currencyFormats draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST currencyFormats validSubLocales CDATA #IMPLIED >
+<!ATTLIST currencyFormats numberSystem CDATA #IMPLIED >
 
 <!ELEMENT currencySpacing (alias | (beforeCurrency*, afterCurrency*, special*)) >
 <!ELEMENT beforeCurrency (alias | (currencyMatch*, surroundingMatch*, insertBetween*)) >

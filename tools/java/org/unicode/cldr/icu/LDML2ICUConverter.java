@@ -28,7 +28,6 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -3980,10 +3979,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         String pathToTest;
         
         for ( String sym : sym_paths ) {
-            pathToTest = xpath + "/" + sym;
             if ( !ns.equals("latn")) {
-                pathToTest = pathToTest + "[@numberSystem=\"" + ns + "\"]";
+                pathToTest = xpath + "[@numberSystem=\"" + ns + "\"]";
+            } else {
+                pathToTest = xpath;
             }
+            pathToTest = pathToTest + "/" + sym;
             
             String value = loc.getFile().getWinningValue(pathToTest);
             if (loc.isPathNotConvertible(pathToTest) || value == null) {

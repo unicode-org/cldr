@@ -6,12 +6,12 @@
 		<generation date="$Date$"/>
 		<language type="root" /> 
 	</identity>
-		<collations validSubLocales="en en_AU en_BE en_BW en_CA en_GB en_HK en_IE en_IN en_MT en_NZ en_PH en_SG en_US en_US_POSIX en_VI en_ZA en_ZW ga ga_IE id id_ID it it_CH it_IT ka ka_GE ms ms_BN ms_MY nl nl_BE nl_NL pt pt_BR pt_PT st st_LS st_ZA xh xh_ZA zu zu_ZA">
+		<collations validSubLocales="en en_AU en_BE en_BW en_CA en_GB en_HK en_IE en_IN en_MT en_NZ en_PH en_SG en_US en_US_POSIX en_VI en_ZA en_ZW ga ga_IE id id_ID it it_CH it_IT ka ka_GE ms ms_BN ms_MY nl nl_BE nl_NL pt pt_BR pt_PT st st_LS st_ZA sw_KE sw_TZ xh xh_ZA zu zu_ZA">
 			<default type="standard"/>
-			<collation type="standard" >
-			</collation  >
+			<collation type="standard">
+			</collation>
 			<collation type="search" >
-				<settings normalization="on" />
+				<settings normalization="on"/>
 				<suppress_contractions>[เ-ไ ເ-ໄ]</suppress_contractions>
 				<rules>
 					<reset>ا</reset>
@@ -305,7 +305,7 @@
 					<reset>ᄒᄒ</reset>	<!-- HIEUH(L) + HIEUH(L) = SSANGHIEUH(L) -->
 						<i>ᅘ</i>
 				</rules>
-			</collation  >
+			</collation>
 		</collations>
     <!-- for UCA rules please see: http://www.unicode.org/reports/tr10/ -->
 </ldml>

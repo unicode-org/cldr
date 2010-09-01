@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!--
-	Prepared by: R. Hari, Sr. IT Specialist, IBM India Ltd., India
-	Inputs from : Dr. V. Saratchandran Nair, Principal, South Regional
-	Language Centre, Mysore, India
-	Last update: 31/August/2010
-	UCA tailoring by Vladimir Weinstein 10/05/2004
-	Unicode 5.1 characters and Sabdatharavali convention by Cibu Johny 02/22/2009
--->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -15,8 +7,7 @@
 		<language type="ml" />
 	</identity>
 	<collations  validSubLocales="ml_IN">
-		<collation type="standard"
-		 references="Sabdatharavali Malayalam Dictionary 23rd Ed. by Sahithya Pravarthaka Co-operative Society Ltd.">
+		<collation type="standard" references="Sabdatharavali Malayalam Dictionary 23rd Ed. by Sahithya Pravarthaka Co-operative Society Ltd.">
 			<rules>
 				<!--
 				  Avagraha and Visarga are primary ignorables.

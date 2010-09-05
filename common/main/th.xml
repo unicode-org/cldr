@@ -1922,6 +1922,38 @@
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="roc">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEEที่ d MMMM ปีGที่ y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM ปีG y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM G y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d/M/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yyyy">GGG yy</dateFormatItem>
+						<dateFormatItem id="yyyyM">M/GGGGG yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM GGGGG yy</dateFormatItem>
+						<dateFormatItem id="yyyyQ">Q GGGGG yy</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>

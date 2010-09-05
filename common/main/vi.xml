@@ -449,6 +449,55 @@
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="buddhist">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, 'ngày' dd MMMM 'năm' y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>'Ngày' dd 'tháng' M 'năm' y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>dd-MM-yyyy G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/yyyy G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">'Ngày' d</dateFormatItem>
+						<dateFormatItem id="Md">d-M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
+						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">'Năm' y G</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, d-M-yyyy G</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, d MMM y G</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yQ">Q yyyy G</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyQ">Q yy G</dateFormatItem>
+						<dateFormatItem id="yyyy">'Năm' y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM-yyyy G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d-M-yyyy G</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -792,6 +841,150 @@
 						<displayName draft="provisional">Zone</displayName>
 					</field>
 				</fields>
+			</calendar>
+			<calendar type="islamic">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, 'ngày' dd MMMM 'năm' y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>'Ngày' dd 'tháng' M 'năm' y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>dd-MM-y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">'Ngày' d</dateFormatItem>
+						<dateFormatItem id="Md">d-M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
+						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyQ">Q yy G</dateFormatItem>
+						<dateFormatItem id="yyyy">'Năm' y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d-M-y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">EEE, d-M-y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM-y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">EEE, d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyQ">Q y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="japanese">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, 'ngày' dd MMMM 'năm' y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>'Ngày' dd 'tháng' M 'năm' y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>dd-MM-y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">'Ngày' d</dateFormatItem>
+						<dateFormatItem id="Md">d-M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
+						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyQ">Q yy G</dateFormatItem>
+						<dateFormatItem id="yyyy">'Năm' y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d-M-y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">EEE, d-M-y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM-y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">EEE, d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyQ">Q y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="roc">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, 'ngày' dd MMMM 'năm' y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>'Ngày' dd 'tháng' M 'năm' y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>dd-MM-y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">'Ngày' d</dateFormatItem>
+						<dateFormatItem id="Md">d-M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
+						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyQ">Q yy G</dateFormatItem>
+						<dateFormatItem id="yyyy">'Năm' y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d-M-y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">EEE, d-M-y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM-y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">EEE, d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyQ">Q y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2009, International Business Machines Corporation and   *
+ * Copyright (C) 2004-2010, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -485,7 +485,7 @@ public class ShowLanguages {
     .finishRow();
   }
   
-  static Map<String,String> fixScriptGif = CollectionUtilities.asMap(new Object[][] {
+  static Map<String,String> fixScriptGif = CollectionUtilities.asMap(new String[][] {
       {"hangul", "hangulsyllables"},
       {"japanese", "hiragana"},
       {"unknown or invalid script", "unknown"},

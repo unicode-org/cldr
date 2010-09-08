@@ -265,7 +265,7 @@ public class SurveyMain extends HttpServlet {
     public static final String PREF_COVTYP = "p_covtyp"; // covtyp
     //    static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
     
-    static final String  BASELINE_ID = "en"; // Needs to be en_ZZ as per cldrbug #2918
+    static final String  BASELINE_ID = "en_ZZ"; // Needs to be en_ZZ as per cldrbug #2918
     public static final ULocale BASELINE_LOCALE = new ULocale(BASELINE_ID);
     public static final String  BASELINE_LANGUAGE_NAME = BASELINE_LOCALE.getDisplayLanguage(BASELINE_LOCALE); // Note: Only shows language.
     

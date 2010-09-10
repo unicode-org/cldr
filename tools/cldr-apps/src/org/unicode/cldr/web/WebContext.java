@@ -38,6 +38,7 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
  * it has print*() like functions, and so can be written to.
  */
 public class WebContext implements Cloneable {
+    public static final String TMPL_PATH = "/WEB-INF/tmpl/";
     public static java.util.logging.Logger logger = SurveyMain.logger;
 // USER fields
     public SurveyMain sm = null;
@@ -1350,15 +1351,26 @@ public class WebContext implements Cloneable {
      */
     public void includeFragment(String filename)  {
         try {
-            RequestDispatcher dp = request.getRequestDispatcher("/WEB-INF/tmpl/"+filename);
-            dp.include(request,response);
+            WebContext.includeFragment(request, response, filename);
         } catch(Throwable t) {
             this.println("<div class='ferrorbox'><B>Error</b> while including template <tt class='code'>"+filename+"</tt>:<br>");
             this.print(t);
             this.println("</div>");
-            System.err.println("While expanding /WEB-INF/tmpl/"+filename + ": " +t.toString());
+            System.err.println("While expanding "+TMPL_PATH+filename + ": " +t.toString());
             t.printStackTrace();
         }
+    }
+    /**
+     * Include a template fragment from /WEB-INF/tmpl
+     * @param request
+     * @param response
+     * @param filename
+     * @throws ServletException
+     * @throws IOException
+     */
+    public static void includeFragment(HttpServletRequest request, HttpServletResponse response, String filename) throws ServletException, IOException {
+            RequestDispatcher dp = request.getRequestDispatcher(TMPL_PATH+filename);
+            dp.include(request,response);
     }
 
     /**

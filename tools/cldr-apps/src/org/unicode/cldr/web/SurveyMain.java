@@ -10307,7 +10307,7 @@ public class SurveyMain extends HttpServlet {
         return timeDiff(a,System.currentTimeMillis());
     }
     
-    public static final String timeDiff(long a, long b) {
+    public static final String timeDiff(long a, long b) {        
         final long ONE_DAY = 86400*1000;
         final long A_LONG_TIME = ONE_DAY*3;
         if((b-a)>(A_LONG_TIME)) {
@@ -10316,7 +10316,10 @@ public class SurveyMain extends HttpServlet {
             int days = (int)del;
             return days + " days";
         } else {
-            return ElapsedTimer.elapsedTime(a,b);
+          // round to even second, to avoid ElapsedTimer bug
+          a -= (a%1000);
+          b -= (b%1000);
+          return ElapsedTimer.elapsedTime(a, b);
         }
     }
     

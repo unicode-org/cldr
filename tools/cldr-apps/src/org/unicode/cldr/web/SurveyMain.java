@@ -151,7 +151,7 @@ public class SurveyMain extends HttpServlet {
     private static String isBustedStack = null;
     private static Throwable isBustedThrowable = null;
     private static ElapsedTimer isBustedTimer = null;
-    ServletConfig config = null;
+    static ServletConfig config = null;
 
     
     // ===== UI constants
@@ -327,10 +327,10 @@ public class SurveyMain extends HttpServlet {
      */
     
     public static SurveyMain getInstance(HttpServletRequest req) {
-        return(SurveyMain)req.getServletContext().getAttribute(SurveyMain.class.getName());
+        return(SurveyMain)config.getServletContext().getAttribute(SurveyMain.class.getName());
     }
     private void setInstance(HttpServletRequest req) {
-        req.getServletContext().setAttribute(SurveyMain.class.getName(), this);
+        config.getServletContext().setAttribute(SurveyMain.class.getName(), this);
     }
     
     

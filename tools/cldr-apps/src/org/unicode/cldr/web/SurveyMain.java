@@ -327,6 +327,7 @@ public class SurveyMain extends HttpServlet {
      */
     
     public static SurveyMain getInstance(HttpServletRequest req) {
+        if(config == null) return null; // not initialized.
         return(SurveyMain)config.getServletContext().getAttribute(SurveyMain.class.getName());
     }
     private void setInstance(HttpServletRequest req) {

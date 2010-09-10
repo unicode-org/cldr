@@ -1,6 +1,7 @@
 package org.unicode.cldr.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -52,8 +53,10 @@ public class SurveyAjax extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	    request.setCharacterEncoding("UTF-8");
+	    response.setCharacterEncoding("UTF-8");
 	    SurveyMain sm = SurveyMain.getInstance(request);
-	    ServletOutputStream out = response.getOutputStream();
+	    PrintWriter out = response.getWriter();
 	    String what = request.getParameter(REQ_WHAT);
 	    if(sm == null) {
 	        sendNoSurveyMain(out);
@@ -66,7 +69,7 @@ public class SurveyAjax extends HttpServlet {
 	    }
 	}
 
-    private void sendStatus(SurveyMain sm, ServletOutputStream out) throws IOException {
+    private void sendStatus(SurveyMain sm, PrintWriter out) throws IOException {
         JSONWriter r = newJSON();
         r.put("SurveyOK","1");
         r.put("isSetup", (sm.isSetup)?"1":"0");
@@ -85,7 +88,6 @@ public class SurveyAjax extends HttpServlet {
 
     private JSONWriter newJSON() {
         JSONWriter r = new JSONWriter();
-        r.put("X-Pizza", "pepperoni");
         r.put("progress", "");
         r.put("visitors", "");
         r.put("uptime", "");
@@ -96,21 +98,21 @@ public class SurveyAjax extends HttpServlet {
         return r;
     }
 
-	private void sendNoSurveyMain(ServletOutputStream out) throws IOException {
+	private void sendNoSurveyMain(PrintWriter out) throws IOException {
         JSONWriter r = newJSON();
         r.put("SurveyOK","0");
         r.put("err","The Survey Tool is not running.");
         send(r,out);
     }
 
-    private void sendError(ServletOutputStream out, String string) throws IOException {
+    private void sendError(PrintWriter out, String string) throws IOException {
         JSONWriter r = newJSON();
         r.put("SurveyOK","0");
         r.put("err",string);
         send(r,out);
     }
 
-    private void send(JSONWriter r, ServletOutputStream out) throws IOException {
+    private void send(JSONWriter r, PrintWriter out) throws IOException {
         out.print(r.toString());
     }
 

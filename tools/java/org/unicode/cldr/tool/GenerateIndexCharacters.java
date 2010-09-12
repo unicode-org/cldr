@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.Set;
+import java.util.List;
 
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.CLDRFile;
@@ -15,7 +16,8 @@ import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.IndexCharacters;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.AlphabeticIndex;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
@@ -37,9 +39,10 @@ public class GenerateIndexCharacters {
     public static String getConstructedIndexSet(String locale, CLDRFile cFile) {
         ULocale uLocale = new ULocale(locale);
         Collator collator = Collator.getInstance(uLocale).setStrength2(Collator.PRIMARY);// ought to build from CLDR, but...
-        IndexCharacters index = new IndexCharacters(uLocale, cFile.getExemplarSet("", WinningChoice.WINNING), collator);
+        AlphabeticIndex index = new AlphabeticIndex(uLocale, (RuleBasedCollator)collator, cFile.getExemplarSet("", WinningChoice.WINNING));
         UnicodeSet uset = new UnicodeSet();
-        for (String item : index.getIndexCharacters()) {
+        List<String> items = index.getBucketLabels();
+        for (String item : items) {
             uset.add(item);
         }
         PrettyPrinter pp = new PrettyPrinter()

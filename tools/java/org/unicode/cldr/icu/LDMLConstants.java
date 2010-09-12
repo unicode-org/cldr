@@ -266,6 +266,8 @@ public class LDMLConstants {
     public static final String BCP47             = "bcp47";
     public static final String META_ZONES        = "metaZones";
     public static final String WINDOWS_ZONES     = "windowsZones";
+    public static final String COVERAGE_LEVELS   = "coverageLevels";
+    public static final String DAY_PERIOD_RULE_SET = "dayPeriodRuleSet";
 
     //PN added
     public static final String MEDIUM          = "medium";

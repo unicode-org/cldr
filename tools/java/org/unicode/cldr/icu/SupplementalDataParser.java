@@ -133,6 +133,10 @@ public class SupplementalDataParser {
         res = parseBCP47MappingData(node, xpath);
       } else if (name.equals(LDMLConstants.LANGUAGE_MATCHING)) {
         res = parseLanguageMatch(node, xpath);
+      } else if (name.equals(LDMLConstants.COVERAGE_LEVELS)) {
+        //Ignore this for now
+      } else if (name.equals(LDMLConstants.DAY_PERIOD_RULE_SET)) {
+        //Ignore this for now
       } else {
         log.warning("Encountered unknown element " + LDML2ICUConverter.getXPath(node, xpath).toString());
         // System.exit(-1);

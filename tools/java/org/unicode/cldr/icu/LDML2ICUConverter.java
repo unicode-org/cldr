@@ -1590,6 +1590,13 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return null;
       }
 
+      // if the whole thing is an alias
+      Resource alias = null;
+      if ((alias = getAliasResource(loc, xpath.toString())) != null) {
+        alias.name = "listPattern";
+        return alias;
+      }
+
       // Since we have a two-level table, make a map to store the contents
       // If the items are always in order, we don't really need a map, but this is simpler to manage.
       Map<String,ResourceTable> subtables = new TreeMap<String,ResourceTable>();
@@ -3771,6 +3778,13 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         unitsTable.name = tableName;
         Resource current = null;
         Resource first = null;
+        
+        // if the whole thing is an alias
+        Resource alias = null;
+        if ((alias = getAliasResource(loc, xpath.toString())) != null) {
+            alias.name = tableName;
+            return alias;
+        }
 
         String origXpath = xpath;
         String names[] = { LDMLConstants.ALIAS, LDMLConstants.UNIT, LDMLConstants.SPECIAL };

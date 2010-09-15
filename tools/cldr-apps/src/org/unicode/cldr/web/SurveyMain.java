@@ -548,9 +548,9 @@ public class SurveyMain extends HttpServlet {
         setInstance(request);
         if(!isSetup) {
             boolean isGET = "GET".equals(request.getMethod());
-            int sec = 120; // was 4
+            int sec = 600; // was 4
             if(isBusted != null) {
-                sec = 120;
+                sec = 300;
             }
             String base = WebContext.base(request);
             String loadOnOk = base;
@@ -573,7 +573,11 @@ public class SurveyMain extends HttpServlet {
             out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head>");
             out.println("<title>"+sysmsg("startup_title")+"</title>");
             WebContext.includeFragment(request, response, SurveyAjax.AJAX_STATUS_SCRIPT);
-            out.println("<script type=\"text/javascript\">timerSpeed = 1234;</script>");
+	    if(isUnofficial) {
+            	out.println("<script type=\"text/javascript\">timerSpeed = 2500;</script>");
+            } else {
+                out.println("<script type=\"text/javascript\">timerSpeed = 10000;</script>");
+	    }
             out.println("<link rel='stylesheet' type='text/css' href='"+base+"/../surveytool.css'>");
             out.println("</head><body>");
             if(isUnofficial) {
@@ -671,7 +675,7 @@ public class SurveyMain extends HttpServlet {
     private void doSql(WebContext ctx)
     {
         printHeader(ctx, "SQL Console@"+localhost());
-        ctx.println("<script type=\"text/javascript\">timerSpeed = 1234;</script>");
+        ctx.println("<script type=\"text/javascript\">timerSpeed = 6000;</script>");
         String q = ctx.field("q");
         boolean tblsel = false;        
         printAdminMenu(ctx, "/AdminSql");
@@ -953,7 +957,7 @@ public class SurveyMain extends HttpServlet {
     {
         String action = ctx.field("action");
         printHeader(ctx, "ST Admin@"+localhost() + " | " + action);
-        ctx.println("<script type=\"text/javascript\">timerSpeed = 1234;</script>");
+        ctx.println("<script type=\"text/javascript\">timerSpeed = 6000;</script>");
         printAdminMenu(ctx, "/AdminDump");
         ctx.println("<h1>SurveyTool Administration</h1>");
         ctx.println("<hr>");

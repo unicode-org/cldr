@@ -397,17 +397,24 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
   /**
    * Write the corresponding XML file out, with the normal formatting and indentation.
    * Will update the identity element, including generation, version, and other items.
+   * If the CLDRFile is empty, the DTD type will be //ldml.
    */
   public CLDRFile write(PrintWriter pw) {
     Set orderedSet = new TreeSet(ldmlComparator);
     CollectionUtilities.addAll(dataSource.iterator(), orderedSet);
 
-    String firstPath = (String) orderedSet.iterator().next();
-    //Value firstValue = (Value) getXpath_value().get(firstPath);
-    String firstFullPath = getFullXPath(firstPath);
-    XPathParts parts = new XPathParts(null,null).set(firstFullPath);
+    String firstPath = null;
+    String firstFullPath = null;
+    XPathParts parts = new XPathParts(null,null);
+    DtdType dtdType = DtdType.ldml; // default
 
-    DtdType dtdType = DtdType.valueOf(parts.getElement(0));
+    if(orderedSet.size() > 0) { // May not have any elements.
+        firstPath = (String) orderedSet.iterator().next();
+        //Value firstValue = (Value) getXpath_value().get(firstPath);
+        firstFullPath = getFullXPath(firstPath);
+        parts.set(firstFullPath);
+        dtdType = DtdType.valueOf(parts.getElement(0));
+    }
 
     pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
     pw.println("<!DOCTYPE " + dtdType + " SYSTEM \"../../common/dtd/" + dtdType + ".dtd\">");
@@ -424,7 +431,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
       //identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/generation[@date=\"$" + "Date: 2009/03/27 00:39:03 $\"]");
     } else {
       String ldml_identity = "//ldml/identity";
-      if (orderedSet.size() > 0) {
+      if (firstFullPath != null) { // if we had a path
         if (firstFullPath.indexOf("/identity") >= 0) {
           ldml_identity = parts.toString(2);
         } else {

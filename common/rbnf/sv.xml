@@ -47,9 +47,7 @@
                 <rbnfrule value="80">åttio[­→→];</rbnfrule>
                 <rbnfrule value="90">nittio[­→→];</rbnfrule>
                 <rbnfrule value="100">←%spellout-numbering←­hundra[­→→];</rbnfrule>
-                <rbnfrule value="1000">ettusen[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-numbering←­tusen[ →→];</rbnfrule>
-                <rbnfrule value="20000" radix="1000">←%spellout-numbering←-tusen[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%%spellout-numbering-t←­tusen[ →→];</rbnfrule>
                 <rbnfrule value="1000000">en miljon[ →→];</rbnfrule>
                 <rbnfrule value="2000000">←%spellout-cardinal-reale← miljoner[ →→];</rbnfrule>
                 <rbnfrule value="1000000000">en miljard[ →→];</rbnfrule>
@@ -59,6 +57,37 @@
                 <rbnfrule value="1000000000000000">en biljard[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000000">←%spellout-cardinal-reale← biljarder[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering-t" access="private">
+                <rbnfrule value="1">et;</rbnfrule>
+                <rbnfrule value="2">två;</rbnfrule>
+                <rbnfrule value="3">tre;</rbnfrule>
+                <rbnfrule value="4">fyra;</rbnfrule>
+                <rbnfrule value="5">fem;</rbnfrule>
+                <rbnfrule value="6">sex;</rbnfrule>
+                <rbnfrule value="7">sju;</rbnfrule>
+                <rbnfrule value="8">åtta;</rbnfrule>
+                <rbnfrule value="9">nio;</rbnfrule>
+                <rbnfrule value="10">tio;</rbnfrule>
+                <rbnfrule value="11">elva;</rbnfrule>
+                <rbnfrule value="12">tolv;</rbnfrule>
+                <rbnfrule value="13">tretton;</rbnfrule>
+                <rbnfrule value="14">fjorton;</rbnfrule>
+                <rbnfrule value="15">femton;</rbnfrule>
+                <rbnfrule value="16">sexton;</rbnfrule>
+                <rbnfrule value="17">sjutton;</rbnfrule>
+                <rbnfrule value="18">arton;</rbnfrule>
+                <rbnfrule value="19">nitton;</rbnfrule>
+                <rbnfrule value="20">tjugo[­→→];</rbnfrule>
+                <rbnfrule value="30">trettio[­→→];</rbnfrule>
+                <rbnfrule value="40">fyrtio[­→→];</rbnfrule>
+                <rbnfrule value="50">femtio[­→→];</rbnfrule>
+                <rbnfrule value="60">sextio[­→→];</rbnfrule>
+                <rbnfrule value="70">sjuttio[­→→];</rbnfrule>
+                <rbnfrule value="80">åttio[­→→];</rbnfrule>
+                <rbnfrule value="90">nittio[­→→];</rbnfrule>
+                <rbnfrule value="100">←%spellout-numbering←­hundra[­→→];</rbnfrule>
+                <rbnfrule value="1000">ERROR;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-neutre">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
@@ -126,9 +155,7 @@
                 <rbnfrule value="80">åttio→%%ord-masc-nde→;</rbnfrule>
                 <rbnfrule value="90">nittio→%%ord-masc-nde→;</rbnfrule>
                 <rbnfrule value="100">←%spellout-numbering←­hundra→%%ord-masc-de→;</rbnfrule>
-                <rbnfrule value="1000">ettusen→%%ord-masc-de→;</rbnfrule>
-                <rbnfrule value="2000">←%spellout-numbering←­tusen→%%ord-masc-de→;</rbnfrule>
-                <rbnfrule value="20000" radix="1000">←%spellout-numbering←-tusen→%%ord-masc-de→;</rbnfrule>
+                <rbnfrule value="1000">←%%spellout-numbering-t←­tusen→%%ord-masc-de→;</rbnfrule>
                 <rbnfrule value="1000000">en miljon→%%ord-masc-te→;</rbnfrule>
                 <rbnfrule value="2000000">←%spellout-cardinal-reale← miljon→%%ord-masc-teer→;</rbnfrule>
                 <rbnfrule value="1000000000">en miljard→%%ord-masc-te→;</rbnfrule>
@@ -177,9 +204,7 @@
                 <rbnfrule value="80">åttio→%%ord-fem-nde→;</rbnfrule>
                 <rbnfrule value="90">nittio→%%ord-fem-nde→;</rbnfrule>
                 <rbnfrule value="100">←%spellout-numbering←­hundra→%%ord-fem-de→;</rbnfrule>
-                <rbnfrule value="1000">ettusen→%%ord-fem-de→;</rbnfrule>
-                <rbnfrule value="2000">←%spellout-numbering←­tusen→%%ord-fem-de→;</rbnfrule>
-                <rbnfrule value="20000" radix="1000">←%spellout-numbering←-tusen→%%ord-fem-de→;</rbnfrule>
+                <rbnfrule value="1000">←%%spellout-numbering-t←­tusen→%%ord-fem-de→;</rbnfrule>
                 <rbnfrule value="1000000">en miljon→%%ord-fem-te→;</rbnfrule>
                 <rbnfrule value="2000000">←%spellout-cardinal-reale← miljon→%%ord-fem-teer→;</rbnfrule>
                 <rbnfrule value="1000000000">en miljard→%%ord-fem-te→;</rbnfrule>

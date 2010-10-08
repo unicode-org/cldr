@@ -176,7 +176,6 @@ public class CharacterListCompressor {
     List<List<Integer>> result = new ArrayList<List<Integer>>();
     int lastCode = 0;
     
-    int code;
     for(int i = 0; i < ilist.size(); i++) {
        int value = 0;
        int first = ilist.get(i).first;
@@ -265,8 +264,6 @@ public class CharacterListCompressor {
   public static String strRangeList2string(List<Interval> ilist) {
     
     StringBuilder sbuild = new StringBuilder();
-    int code;
-    int currcode = 0;
     for(int i = 0; i< ilist.size(); i++) {
       int first = ilist.get(i).first;
       int last = ilist.get(i).last;

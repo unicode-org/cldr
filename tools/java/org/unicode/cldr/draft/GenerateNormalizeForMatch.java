@@ -58,7 +58,7 @@ public class GenerateNormalizeForMatch {
   private static final int DIFF_LIMIT = 10;
 
   // Fixes to match Jim's names
-  private static UnicodeMap JIM_NAMES = new UnicodeMap();
+  private static UnicodeMap<String> JIM_NAMES = new UnicodeMap<String>();
   static {
     JIM_NAMES.putAll(new UnicodeSet("[:block=CJK Unified Ideographs:]"), "<CJK Ideograph>");
     JIM_NAMES.putAll(new UnicodeSet("[:block=CJK Unified Ideographs Extension A:]"), "<CJK Ideograph Extension A>");
@@ -135,11 +135,11 @@ public class GenerateNormalizeForMatch {
   }
 
 
-  private static void logDiffs(UnicodeMap newMappings, String oldMappingFile, String frequencyFile) throws IOException {
+  private static void logDiffs(UnicodeMap<String> newMappings, String oldMappingFile, String frequencyFile) throws IOException {
     LOG_WRITER.println();
     LOG_WRITER.println("# *** Differences from " + new File(oldMappingFile).getName() + " ***");
     LOG_WRITER.println();
-    UnicodeMap diffMappings = new UnicodeMap();
+    UnicodeMap<String> diffMappings = new UnicodeMap<String>();
     loadMappings(oldMappingFile, diffMappings, false);
 
 
@@ -153,7 +153,7 @@ public class GenerateNormalizeForMatch {
   }
 
   private static void showOrderedList(String title, UnicodeSet charsToShow,
-          UnicodeMap oldMappings, UnicodeMap newMappings, int limit) {
+          UnicodeMap<String> oldMappings, UnicodeMap<String> newMappings, int limit) {
 
     Set<Comparable<? extends Object>[]> ordered = new TreeSet(DOUBLE_STRING_COMP);
     for (UnicodeSetIterator it = new UnicodeSetIterator(charsToShow); it.next();) {

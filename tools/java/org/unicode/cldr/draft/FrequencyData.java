@@ -1,13 +1,10 @@
 package org.unicode.cldr.draft;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -30,8 +27,6 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.text.Normalizer.Mode;
-import com.ibm.icu.util.ULocale;
-import com.ibm.icu.util.VersionInfo;
 
 public class FrequencyData {
 
@@ -39,7 +34,6 @@ public class FrequencyData {
     private static final boolean MAP_CASE = true;
 
     private static final UnicodeSet NO_SCRIPT = new UnicodeSet("[[:script=common:][:script=inherited:][:script=unknown:]]");
-    private static final UnicodeSet PRIVATE_USE = new UnicodeSet("[:Co:]");
     static final UnicodeSet NfcNo = (UnicodeSet) new UnicodeSet("[:nfcqc=no:]").freeze();
     static final UnicodeSet NfcMaybe = (UnicodeSet) new UnicodeSet("[:nfcqc=maybe:]").freeze();
     static final Transliterator fixOutput = Transliterator.createFromRules("fix", "" +
@@ -51,7 +45,7 @@ public class FrequencyData {
     //  private Counter<String> langNfcMaybe = new Counter<String>();
     //  private Counter<String> langTotal = new Counter<String>();
     //  private Counter<String> langUpper = new Counter<String>();
-    private Map<String,Counter<Integer>> langData = new HashMap();
+    private Map<String,Counter<Integer>> langData = new HashMap<String, Counter<Integer>>();
     private Counter<Integer> frequencies = new Counter<Integer>();
     {
         langData.put("mul", frequencies);
@@ -271,21 +265,18 @@ navboost, pagerank, language, encoding, url
 
     private void showData(String category, String title, UnicodeSet valueChars) {
         RelativeFrequency relative = getRelativeFrequency(valueChars, null); // Normalizer.NFKC
-        UnicodeMap sds = new UnicodeMap();
+        UnicodeMap<Integer> sds = new UnicodeMap<Integer>();
         for (int rank = 0; rank < relative.getRankCount(); ++rank) {
             int cp = relative.getCodePointAtRank(rank);
             double totalFrequency = relative.getCumulative(cp);
             final int sd = standardDeviationInterval(totalFrequency);
             sds.put(cp, sd);
             if (sd == standardDeviation.length) break;
-            boolean isNFKC = Normalizer.isNormalized(cp, Normalizer.COMPOSE_COMPAT, 0);
+            //boolean isNFKC = Normalizer.isNormalized(cp, Normalizer.COMPOSE_COMPAT, 0);
             //System.out.println(new StringBuilder().appendCodePoint(cp) + "\t" + (totalFrequency*100) + "%\t" + sd + "\t" + (isNFKC ? "" : "K"));
         }
 
         double nfkcSize = new UnicodeSet(valueChars).removeAll(nonNFKC).size();
-
-        int total = 0;
-        UnicodeSet totalSet = new UnicodeSet();
 
         System.out.print(category + "\t" + title + "\t" + nf.format(nfkcSize) + "\t");
         System.out.print(relative.getFractionOfWhole() + "\t");
@@ -432,13 +423,10 @@ navboost, pagerank, language, encoding, url
         for (CountLang countLang : ordered) {
             String lang = countLang.code;
             long total = countLang.total;
-            Counter<String> normCounter = new Counter();
+            Counter<String> normCounter = new Counter<String>();
             Counter<Integer> langCounter = data.langData.get(lang);
-            StringBuilder b = new StringBuilder();
             int count = 0;
             int rank = 1;
-            long nfcNoCount = 0;
-            long nfcMaybeCount = 0;
             long runningTotal = 0;
             double threshold = standardDeviation[4] * total;
 

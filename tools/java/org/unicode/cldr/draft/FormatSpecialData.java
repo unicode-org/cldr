@@ -19,12 +19,10 @@ import org.unicode.cldr.util.CldrUtility.CollectionComparator;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
-import com.ibm.icu.dev.test.util.FileUtilities;
 import com.ibm.icu.dev.test.util.UnicodeLabel;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 
 public class FormatSpecialData {
@@ -156,7 +154,7 @@ public class FormatSpecialData {
     }
   }
 
-  public static String getRelativeFileName(Class class1, String filename) {
+  public static String getRelativeFileName(Class<FormatSpecialData> class1, String filename) {
     URL resource = FormatSpecialData.class.getResource(filename);
     String resourceString = resource.toString();
     if (!resourceString.startsWith("file:")) {
@@ -168,7 +166,7 @@ public class FormatSpecialData {
   // should be in Utilities
   public static final Charset UTF8 = Charset.forName("utf-8");
 
-  public static BufferedReader openFile(Class class1, String file) throws IOException {
+  public static BufferedReader openFile(Class<?> class1, String file) throws IOException {
     //URL path = null;
     //String externalForm = null;
     try {

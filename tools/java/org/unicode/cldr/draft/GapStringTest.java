@@ -21,12 +21,8 @@ public class GapStringTest extends TestFmwk {
     GapString a = new GapString();
     StringBuilder b = new StringBuilder();
 
-    int y = 1;
 
     for (int iteration = 0; iteration < ITERATIONS; ++iteration) {
-      if (iteration == 24) {
-        y = iteration; // for debugging
-      }
       int randomPos = random.nextInt(b.length() + 1);
       String randomString;
       switch(random.nextInt(4)) {

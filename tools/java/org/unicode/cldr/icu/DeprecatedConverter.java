@@ -84,7 +84,7 @@ public class DeprecatedConverter {
   }
 
   public void write(ICUWriter writer, AliasDeprecates alias, boolean parseDraft,
-      boolean parseSubLocale) {
+      boolean parseSubLocale, Set<String> validLocales) {
 
     MakefileInfo mfi = new MakefileInfo();
     List<Resource> generated = new ArrayList<Resource>();
@@ -123,7 +123,7 @@ public class DeprecatedConverter {
     // (6) Calculate 'valid sub locales'
     // These are empty locales generated due to a validSubLocales attribute.
     processValidSubmap(validSubMap, maybeValidAlias, generated, mfi.fromFiles, mfi.emptyFromFiles,
-        mfi.generatedAliasFiles);
+        mfi.generatedAliasFiles,validLocales);
 
     // (7) Warn about any files still in maybeValidAlias
     warnUnusedAliases(maybeValidAlias);
@@ -351,7 +351,7 @@ public class DeprecatedConverter {
 
   private void processValidSubmap(Map<String, String> validSubMap, Map<String,
       String> maybeValidAlias, List<Resource> generated, Set<String> fromFiles,
-      Set<String> emptyFromFiles, Set<String> generatedAliasFiles) {
+      Set<String> emptyFromFiles, Set<String> generatedAliasFiles, Set<String> validLocales) {
     if (!validSubMap.isEmpty()) {
       log.info("Writing valid sublocales for: " + validSubMap.toString());
 
@@ -380,6 +380,14 @@ public class DeprecatedConverter {
                   + ".xml  exists.");
               testSub = null;
               break;
+            }
+            
+            if (!validLocales.contains(testSub)) {
+                log.warning(
+                    "validSubLocale=" + aSub + " (validSubLoale of \"" + actualLocale + "\") not written" +
+                    " because it is not in the valid locales list.");
+                testSub = null;
+                break;
             }
           }
 

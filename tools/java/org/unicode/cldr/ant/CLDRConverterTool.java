@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.tools.ant.Task;
 
@@ -44,6 +45,8 @@ public abstract class CLDRConverterTool {
      * Value: draft attribute
      */
     private Map<String, String> localesMap;
+    
+    private Set<String> includedLocales;
 
     /**
      * List of xpaths to include or exclude
@@ -120,6 +123,9 @@ public abstract class CLDRConverterTool {
         localesMap = map;
     }
 
+    public void setIncludedLocales(Set<String> set){
+        includedLocales = set;
+    }
     /**
      * Sets the list of objects that contain information in
      * include and exclude elements
@@ -440,6 +446,10 @@ public abstract class CLDRConverterTool {
     }
 
     protected Map<String, String> getLocalesMap() {
-      return localesMap;
-    }
+        return localesMap;
+      }
+    
+    protected Set<String> getIncludedLocales() {
+        return includedLocales;
+      }
 }

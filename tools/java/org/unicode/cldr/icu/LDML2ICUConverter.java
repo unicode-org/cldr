@@ -40,6 +40,7 @@ import java.util.TreeSet;
 
 import javax.xml.transform.TransformerException;
 
+import org.unicode.cldr.ant.CLDRBuild;
 import org.unicode.cldr.ant.CLDRConverterTool;
 import org.unicode.cldr.icu.ICUResourceWriter.Resource;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceAlias;
@@ -307,7 +308,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             File dstDir = new File(destDir);
             boolean parseDraft = !writeDraft;
             boolean parseSubLocale = sourceDir.indexOf("collation") > -1;
-            new DeprecatedConverter(log, serviceAdapter, depDir, dstDir).write(writer, aliasDeprecates, parseDraft, parseSubLocale);
+            Set<String> validLocales = getIncludedLocales();
+            new DeprecatedConverter(log, serviceAdapter, depDir, dstDir).write(writer, aliasDeprecates, parseDraft, parseSubLocale, validLocales);
             return;
         }
 

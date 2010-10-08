@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 import org.apache.tools.ant.BuildException;
@@ -110,6 +112,22 @@ public class CLDRBuild extends Task {
     return ret;
   }
 
+  public Set<String> getIncludedLocales(Config config) {
+
+      Set<String> ret = new HashSet<String>();
+      if (config != null) {
+          List<InExclude> localesList = config.locales.localesList;
+          for (InExclude inex : localesList) {
+              if (inex.include) {
+                  for (String str : inex.locales){
+                      ret.add(str);
+                  }
+              }
+          }
+      }
+     return ret;
+  }
+
   private static String stripExtension(String fileName) {
     int index = fileName.lastIndexOf('.');
     return index == -1 ? fileName : fileName.substring(0, index);
@@ -158,9 +176,9 @@ public class CLDRBuild extends Task {
 
         Args runArgs = run.args;
 
+        Set<String> includedLocales = getIncludedLocales( run.config );
         Map<String, String> localesMap = getLocalesList(
             run.config, getDirString(runArgs, srcDir), getDirString(runArgs, destDir));
-
         if (localesMap == null || (localesMap.size() == 0 && !noArgs)) {
           continue;
         }
@@ -185,6 +203,7 @@ public class CLDRBuild extends Task {
 
         CLDRConverterTool tool = (CLDRConverterTool) obj;
         tool.setLocalesMap(localesMap);
+        tool.setIncludedLocales(includedLocales);
 
         if (run.deprecates != null) {
           AliasDeprecates aliasDeprecates = new AliasDeprecates(

@@ -10,16 +10,13 @@ package org.unicode.cldr.icu;
 
 import java.io.*;
 import java.util.*;
-import java.text.ParseException;
 import java.math.BigInteger;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
 
 import com.ibm.icu.dev.tool.UOption;
-import org.unicode.cldr.icu.SimpleConverter;
 
-import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.Calendar;
 
@@ -31,8 +28,6 @@ import com.ibm.icu.util.Calendar;
 public class RBNFWriter {
     
     private static final int 
-        HELP1 = 0,
-        HELP2 = 1,
         SOURCEDIR = 2,
         DESTDIR = 3,
         FROMFILE = 4,
@@ -76,8 +71,6 @@ public class RBNFWriter {
         String line = in.readLine();
         boolean firstRuleset = true;
         BigInteger currentRuleValue = BigInteger.ZERO;
-        BigInteger currentRadixValue = BigInteger.ZERO;
-        NumberFormat nf = NumberFormat.getInstance();
         char LARROW = 0x2190;
         char RARROW = 0x2192;
 

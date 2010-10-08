@@ -127,7 +127,7 @@ public class CheckIBMCoverage  extends CLDRConverterTool {
                 File myDir = new File(sourceDir);
                 String[] files = myDir.list(filter);
                 if(getLocalesMap() == null){
-                    setLocalesMap(new TreeMap());
+                    setLocalesMap(new TreeMap<String,String>());
                 }
                 for(int i=0; i< files.length; i++){
                     getLocalesMap().put(files[i], "");
@@ -157,8 +157,8 @@ public class CheckIBMCoverage  extends CLDRConverterTool {
         fw.write("\t\t\t</tr>\n");
         int bp =0, bf=0, mp=0, mf=0, gp=0, gf=0;
         
-        for(Iterator iter = getLocalesMap().keySet().iterator(); iter.hasNext(); ){
-            String fileName = (String) iter.next();
+        for(Iterator<String> iter = getLocalesMap().keySet().iterator(); iter.hasNext(); ){
+            String fileName = iter.next();
             int index = fileName.indexOf(".");
             String locale = fileName.substring(0, index);
             String glf = locale.concat("_group.log");
@@ -304,8 +304,8 @@ public class CheckIBMCoverage  extends CLDRConverterTool {
         Factory cldrFactory = CLDRFile.Factory.make(sourceDir, "xml");
         CLDRFile file = cldrFactory.make(locale, true);
         CoverageLevel covLevel = new CoverageLevel();
-        List result = new ArrayList();
-        Map options = new HashMap();
+        List<CheckStatus> result = new ArrayList<CheckStatus>();
+        Map<String,String> options = new HashMap<String,String>();
         options.put("CoverageLevel.localeType", group);
         options.put("CheckCoverage.requiredLevel", group);
         options.put("submission", "true");
@@ -313,13 +313,13 @@ public class CheckIBMCoverage  extends CLDRConverterTool {
         coverage.setCldrFileToCheck(file, options, result);
         covLevel.setFile(file, options, null, result );
         CLDRFile resolved = coverage.getResolvedCldrFileToCheck();
-        Set paths = new TreeSet(CLDRFile.ldmlComparator);
+        Set<String> paths = new TreeSet<String>(CLDRFile.ldmlComparator);
         com.ibm.icu.dev.test.util.CollectionUtilities.addAll(resolved.iterator(), paths);
         int ret = 0;
         if(level!=null){
             coverage.setRequiredLevel(level);
         }
-        for (Iterator it2 = paths.iterator(); it2.hasNext();) {
+        for (Iterator<String> it2 = paths.iterator(); it2.hasNext();) {
 
             String path = (String) it2.next();
             String value = file.getStringValue(path);
@@ -333,7 +333,7 @@ public class CheckIBMCoverage  extends CLDRConverterTool {
             } else {
                 coverage.check(path, fullPath, value, options, result);
             }
-            for (Iterator it3 = result.iterator(); it3.hasNext();) {
+            for (Iterator<CheckStatus> it3 = result.iterator(); it3.hasNext();) {
                 CheckStatus status = (CheckStatus) it3.next();
                 //String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
                 String statusType = status.getType();

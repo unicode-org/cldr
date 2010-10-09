@@ -306,15 +306,14 @@
 						<i>ᅘ</i>
 				</rules>
 			</collation>
-				<collation type="ducet">
-					<settings normalization="on" />
-					<rules>
-						<reset>&#x1680;
-			        </reset> <!--U+1680 OGHAM SPACE MARK-->
+			<collation type="ducet">
+				<settings normalization="on" variableTop="&#x1D371;"/>    <!--U+1D371 COUNTING ROD TENS DIGIT NINE-->
+				<rules>
+					<reset>&#x1680;</reset> <!--U+1680 OGHAM SPACE MARK-->
 			        <p>`</p>    <!--U+0060 GRAVE ACCENT-->
 			        <t>&#xFF40;</t> <!--U+FF40 FULLWIDTH GRAVE ACCENT-->
 			        <p>&#xB4;</p>   <!--U+00B4 ACUTE ACCENT-->
-			        <eq>&#x384;</eq>    <!--U+0384 GREEK TONOS-->
+			        <i>&#x384;</i>    <!--U+0384 GREEK TONOS-->
 			        <p>&#x2DC;</p>  <!--U+02DC SMALL TILDE-->
 			        <p>^</p>    <!--U+005E CIRCUMFLEX ACCENT-->
 			        <t>&#xFF3E;</t> <!--U+FF3E FULLWIDTH CIRCUMFLEX ACCENT-->
@@ -328,7 +327,7 @@
 			        <p>&#x2DA;</p>  <!--U+02DA RING ABOVE-->
 			        <p>&#x2DD;</p>  <!--U+02DD DOUBLE ACUTE ACCENT-->
 			        <p>&#x1FBD;</p> <!--U+1FBD GREEK KORONIS-->
-			        <eq>&#x1FBF;</eq>   <!--U+1FBF GREEK PSILI-->
+			        <i>&#x1FBF;</i>   <!--U+1FBF GREEK PSILI-->
 			        <p>&#x1FFE;</p> <!--U+1FFE GREEK DASIA-->
 			        <p>&#xB8;</p>   <!--U+00B8 CEDILLA-->
 			        <p>&#x2DB;</p>  <!--U+02DB OGONEK-->
@@ -433,10 +432,7 @@
 			
 			        <reset>&#x10A7E;</reset>    <!--U+10A7E OLD SOUTH ARABIAN NUMBER FIFTY-->
 			        <p>&#x10A7F;</p>    <!--U+10A7F OLD SOUTH ARABIAN NUMERIC INDICATOR-->
-			
-			        <reset>&#x1D371;</reset>    <!--U+1D371 COUNTING ROD TENS DIGIT NINE-->
-			        <variableTop />
-			
+						
 			        <reset>&#xA7A6;</reset> <!--U+A7A6 LATIN CAPITAL LETTER R WITH OBLIQUE STROKE / 20EB-->
 			        <x><t>&#x20A8;</t><extend>s</extend></x> <!--U+20A8 RUPEE SIGN / 0073-->
 			        <reset>&#xFDF6;</reset> <!--U+FDF6 ARABIC LIGATURE RASOUL ISOLATED FORM / 0633 0648 0644-->

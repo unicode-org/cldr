@@ -306,6 +306,143 @@
 						<i>ᅘ</i>
 				</rules>
 			</collation>
+				<collation type="ducet">
+					<settings normalization="on" />
+					<rules>
+						<reset>&#x1680;
+			        </reset> <!--U+1680 OGHAM SPACE MARK-->
+			        <p>`</p>    <!--U+0060 GRAVE ACCENT-->
+			        <t>&#xFF40;</t> <!--U+FF40 FULLWIDTH GRAVE ACCENT-->
+			        <p>&#xB4;</p>   <!--U+00B4 ACUTE ACCENT-->
+			        <eq>&#x384;</eq>    <!--U+0384 GREEK TONOS-->
+			        <p>&#x2DC;</p>  <!--U+02DC SMALL TILDE-->
+			        <p>^</p>    <!--U+005E CIRCUMFLEX ACCENT-->
+			        <t>&#xFF3E;</t> <!--U+FF3E FULLWIDTH CIRCUMFLEX ACCENT-->
+			        <p>&#xAF;</p>   <!--U+00AF MACRON-->
+			        <t>&#xFFE3;</t> <!--U+FFE3 FULLWIDTH MACRON-->
+			
+			        <reset>&#xFE4C;</reset> <!--U+FE4C DOUBLE WAVY OVERLINE-->
+			        <p>&#x2D8;</p>  <!--U+02D8 BREVE-->
+			        <p>&#x2D9;</p>  <!--U+02D9 DOT ABOVE-->
+			        <p>&#xA8;</p>   <!--U+00A8 DIAERESIS-->
+			        <p>&#x2DA;</p>  <!--U+02DA RING ABOVE-->
+			        <p>&#x2DD;</p>  <!--U+02DD DOUBLE ACUTE ACCENT-->
+			        <p>&#x1FBD;</p> <!--U+1FBD GREEK KORONIS-->
+			        <eq>&#x1FBF;</eq>   <!--U+1FBF GREEK PSILI-->
+			        <p>&#x1FFE;</p> <!--U+1FFE GREEK DASIA-->
+			        <p>&#xB8;</p>   <!--U+00B8 CEDILLA-->
+			        <p>&#x2DB;</p>  <!--U+02DB OGONEK-->
+			
+			        <reset>&#x2017;</reset> <!--U+2017 DOUBLE LOW LINE-->
+			        <p>&#x1FC0;</p> <!--U+1FC0 GREEK PERISPOMENI-->
+			        <p>&#xFBB2;</p> <!--U+FBB2 ARABIC SYMBOL DOT ABOVE-->
+			        <p>&#xFBB3;</p> <!--U+FBB3 ARABIC SYMBOL DOT BELOW-->
+			        <p>&#xFBB4;</p> <!--U+FBB4 ARABIC SYMBOL TWO DOTS ABOVE-->
+			        <p>&#xFBB5;</p> <!--U+FBB5 ARABIC SYMBOL TWO DOTS BELOW-->
+			        <p>&#xFBB6;</p> <!--U+FBB6 ARABIC SYMBOL THREE DOTS ABOVE-->
+			        <p>&#xFBB7;</p> <!--U+FBB7 ARABIC SYMBOL THREE DOTS BELOW-->
+			        <p>&#xFBB8;</p> <!--U+FBB8 ARABIC SYMBOL THREE DOTS POINTING DOWNWARDS ABOVE-->
+			        <p>&#xFBB9;</p> <!--U+FBB9 ARABIC SYMBOL THREE DOTS POINTING DOWNWARDS BELOW-->
+			        <p>&#xFBBA;</p> <!--U+FBBA ARABIC SYMBOL FOUR DOTS ABOVE-->
+			        <p>&#xFBBB;</p> <!--U+FBBB ARABIC SYMBOL FOUR DOTS BELOW-->
+			        <p>&#xFBBC;</p> <!--U+FBBC ARABIC SYMBOL DOUBLE VERTICAL BAR BELOW-->
+			        <p>&#xFBBD;</p> <!--U+FBBD ARABIC SYMBOL TWO DOTS VERTICALLY ABOVE-->
+			        <p>&#xFBBE;</p> <!--U+FBBE ARABIC SYMBOL TWO DOTS VERTICALLY BELOW-->
+			        <p>&#xFBBF;</p> <!--U+FBBF ARABIC SYMBOL RING-->
+			        <p>&#xFBC0;</p> <!--U+FBC0 ARABIC SYMBOL SMALL TAH ABOVE-->
+			        <p>&#xFBC1;</p> <!--U+FBC1 ARABIC SYMBOL SMALL TAH BELOW-->
+			        <p>&#x309B;</p> <!--U+309B KATAKANA-HIRAGANA VOICED SOUND MARK-->
+			        <p>&#x309C;</p> <!--U+309C KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK-->
+			
+			        <reset>&#x1805;</reset> <!--U+1805 MONGOLIAN FOUR DOTS-->
+			        <p>&#xF14;</p>  <!--U+0F14 TIBETAN MARK GTER TSHEG-->
+			
+			        <reset>&#x10FB;</reset> <!--U+10FB GEORGIAN PARAGRAPH SEPARATOR-->
+			        <p>&#x1360;</p> <!--U+1360 ETHIOPIC SECTION MARK-->
+			
+			        <reset>&#x10101;</reset>    <!--U+10101 AEGEAN WORD SEPARATOR DOT-->
+			        <p>&#x10102;</p>    <!--U+10102 AEGEAN CHECK MARK-->
+			
+			        <reset>&#xFD3F;</reset> <!--U+FD3F ORNATE RIGHT PARENTHESIS-->
+			        <p>&#xA7;</p>   <!--U+00A7 SECTION SIGN-->
+			        <p>&#xB6;</p>   <!--U+00B6 PILCROW SIGN-->
+			
+			        <reset>&#x204B;</reset> <!--U+204B REVERSED PILCROW SIGN-->
+			        <p>&#xA9;</p>   <!--U+00A9 COPYRIGHT SIGN-->
+			        <p>&#xAE;</p>   <!--U+00AE REGISTERED SIGN-->
+			
+			        <reset>&#xFF0F;</reset> <!--U+FF0F FULLWIDTH SOLIDUS-->
+			        <p>&#x2044;</p> <!--U+2044 FRACTION SLASH-->
+			
+			        <reset>&#xFE60;</reset> <!--U+FE60 SMALL AMPERSAND-->
+			        <p>&#x214B;</p> <!--U+214B TURNED AMPERSAND-->
+			
+			        <reset>&#x60A;</reset>  <!--U+060A ARABIC-INDIC PER TEN THOUSAND SIGN-->
+			        <p>&#x2052;</p> <!--U+2052 COMMERCIAL MINUS SIGN-->
+			
+			        <reset>&#x1C3F;</reset> <!--U+1C3F LEPCHA PUNCTUATION TSHOOK-->
+			        <p>&#x1940;</p> <!--U+1940 LIMBU SIGN LOO-->
+			
+			        <reset>&#x104F;</reset> <!--U+104F MYANMAR SYMBOL GENITIVE-->
+			        <p>&#x109E;</p> <!--U+109E MYANMAR SYMBOL SHAN ONE-->
+			        <p>&#x109F;</p> <!--U+109F MYANMAR SYMBOL SHAN EXCLAMATION-->
+			        <p>&#xAA77;</p> <!--U+AA77 MYANMAR SYMBOL AITON EXCLAMATION-->
+			        <p>&#xAA78;</p> <!--U+AA78 MYANMAR SYMBOL AITON ONE-->
+			        <p>&#xAA79;</p> <!--U+AA79 MYANMAR SYMBOL AITON TWO-->
+			        <p>&#x17D7;</p> <!--U+17D7 KHMER SIGN LEK TOO-->
+			
+			        <reset>&#xA839;</reset> <!--U+A839 NORTH INDIC QUANTITY MARK-->
+			        <p>&#xE4F;</p>  <!--U+0E4F THAI CHARACTER FONGMAN-->
+			
+			        <reset>&#xFFE4;</reset> <!--U+FFE4 FULLWIDTH BROKEN BAR-->
+			        <p>&#x2016;</p> <!--U+2016 DOUBLE VERTICAL LINE-->
+			
+			        <reset>&#x2767;</reset> <!--U+2767 ROTATED FLORAL HEART BULLET-->
+			        <p>&#x2768;</p> <!--U+2768 MEDIUM LEFT PARENTHESIS ORNAMENT-->
+			        <p>&#x2769;</p> <!--U+2769 MEDIUM RIGHT PARENTHESIS ORNAMENT-->
+			        <p>&#x276A;</p> <!--U+276A MEDIUM FLATTENED LEFT PARENTHESIS ORNAMENT-->
+			        <p>&#x276B;</p> <!--U+276B MEDIUM FLATTENED RIGHT PARENTHESIS ORNAMENT-->
+			        <p>&#x276C;</p> <!--U+276C MEDIUM LEFT-POINTING ANGLE BRACKET ORNAMENT-->
+			        <p>&#x276D;</p> <!--U+276D MEDIUM RIGHT-POINTING ANGLE BRACKET ORNAMENT-->
+			        <p>&#x276E;</p> <!--U+276E HEAVY LEFT-POINTING ANGLE QUOTATION MARK ORNAMENT-->
+			        <p>&#x276F;</p> <!--U+276F HEAVY RIGHT-POINTING ANGLE QUOTATION MARK ORNAMENT-->
+			        <p>&#x2770;</p> <!--U+2770 HEAVY LEFT-POINTING ANGLE BRACKET ORNAMENT-->
+			        <p>&#x2771;</p> <!--U+2771 HEAVY RIGHT-POINTING ANGLE BRACKET ORNAMENT-->
+			        <p>&#x2772;</p> <!--U+2772 LIGHT LEFT TORTOISE SHELL BRACKET ORNAMENT-->
+			        <p>&#x2773;</p> <!--U+2773 LIGHT RIGHT TORTOISE SHELL BRACKET ORNAMENT-->
+			        <p>&#x2774;</p> <!--U+2774 MEDIUM LEFT CURLY BRACKET ORNAMENT-->
+			        <p>&#x2775;</p> <!--U+2775 MEDIUM RIGHT CURLY BRACKET ORNAMENT-->
+			
+			        <reset>&#x27C4;</reset> <!--U+27C4 OPEN SUPERSET-->
+			        <p>&#x27C5;</p> <!--U+27C5 LEFT S-SHAPED BAG DELIMITER-->
+			        <p>&#x27C6;</p> <!--U+27C6 RIGHT S-SHAPED BAG DELIMITER-->
+			
+			        <reset>&#x27E5;</reset> <!--U+27E5 WHITE SQUARE WITH RIGHTWARDS TICK-->
+			        <p>&#x27E6;</p> <!--U+27E6 MATHEMATICAL LEFT WHITE SQUARE BRACKET-->
+			        <p>&#x27E7;</p> <!--U+27E7 MATHEMATICAL RIGHT WHITE SQUARE BRACKET-->
+			        <p>&#x27E8;</p> <!--U+27E8 MATHEMATICAL LEFT ANGLE BRACKET-->
+			        <p>&#x27E9;</p> <!--U+27E9 MATHEMATICAL RIGHT ANGLE BRACKET-->
+			        <p>&#x27EA;</p> <!--U+27EA MATHEMATICAL LEFT DOUBLE ANGLE BRACKET-->
+			        <p>&#x27EB;</p> <!--U+27EB MATHEMATICAL RIGHT DOUBLE ANGLE BRACKET-->
+			
+			        <reset>&#x29D7;</reset> <!--U+29D7 BLACK HOURGLASS-->
+			        <p>&#x29D8;</p> <!--U+29D8 LEFT WIGGLY FENCE-->
+			        <p>&#x29D9;</p> <!--U+29D9 RIGHT WIGGLY FENCE-->
+			        <p>&#x29DA;</p> <!--U+29DA LEFT DOUBLE WIGGLY FENCE-->
+			        <p>&#x29DB;</p> <!--U+29DB RIGHT DOUBLE WIGGLY FENCE-->
+			
+			        <reset>&#x10A7E;</reset>    <!--U+10A7E OLD SOUTH ARABIAN NUMBER FIFTY-->
+			        <p>&#x10A7F;</p>    <!--U+10A7F OLD SOUTH ARABIAN NUMERIC INDICATOR-->
+			
+			        <reset>&#x1D371;</reset>    <!--U+1D371 COUNTING ROD TENS DIGIT NINE-->
+			        <variableTop />
+			
+			        <reset>&#xA7A6;</reset> <!--U+A7A6 LATIN CAPITAL LETTER R WITH OBLIQUE STROKE / 20EB-->
+			        <x><t>&#x20A8;</t><extend>s</extend></x> <!--U+20A8 RUPEE SIGN / 0073-->
+			        <reset>&#xFDF6;</reset> <!--U+FDF6 ARABIC LIGATURE RASOUL ISOLATED FORM / 0633 0648 0644-->
+			        <x><t>&#xFDFC;</t><extend>&#x6CC;&#x627;&#x644;</extend></x> <!--U+FDFC RIAL SIGN / 06CC 0627 0644-->
+			    </rules>
+			</collation>
 		</collations>
     <!-- for UCA rules please see: http://www.unicode.org/reports/tr10/ -->
 </ldml>

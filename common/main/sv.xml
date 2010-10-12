@@ -1530,7 +1530,7 @@
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">yyyy-MM</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yMMM">y MMM</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE d MMM y</dateFormatItem>
 						<dateFormatItem id="yQ">yyyy Q</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
@@ -1626,8 +1626,8 @@
 							<greatestDifference id="y">E dd MMM y–E dd MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">yyyy-MM – MM</greatestDifference>
-							<greatestDifference id="y">yyyy-MM – yyyy-MM</greatestDifference>
+							<greatestDifference id="M">MMMM–MMMM y</greatestDifference>
+							<greatestDifference id="y">MMMM y – MMMM y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>

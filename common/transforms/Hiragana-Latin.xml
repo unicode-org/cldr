@@ -5,7 +5,7 @@
 	<generation date="$Date$"/>
 	<transforms>
 		<transform source="Hiragana" target="Latin" direction="both">
-			<tRule>:: [ぁ-ゔ゙ゝ-ゞガギグゲゴザジズゼゾダヂヅデドバビブベボヴヷ-ヺヾ] ;</tRule>
+			<tRule>:: [ぁ-ゔ゙ゝ-ゞガギグゲゴザジズゼゾダヂヅデドバビブベボヴヷ-ヺーヾ] ;</tRule>
 			<tRule>:: NFD ;</tRule>
 			<tRule>:: Hiragana-Katakana;</tRule>
 			<tRule>:: Katakana-Latin;</tRule>

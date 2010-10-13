@@ -1091,7 +1091,7 @@
 						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">ccc, d MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yM">M.y G</dateFormatItem>
@@ -1244,13 +1244,13 @@
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun">Вс</day>
-							<day type="mon">Пн</day>
-							<day type="tue">Вт</day>
-							<day type="wed">Ср</day>
-							<day type="thu">Чт</day>
-							<day type="fri">Пт</day>
-							<day type="sat">Сб</day>
+							<day type="sun">вс</day>
+							<day type="mon">пн</day>
+							<day type="tue">вт</day>
+							<day type="wed">ср</day>
+							<day type="thu">чт</day>
+							<day type="fri">пт</day>
+							<day type="sat">сб</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">воскресенье</day>
@@ -1263,6 +1263,15 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">Вс</day>
+							<day type="mon">Пн</day>
+							<day type="tue">Вт</day>
+							<day type="wed">Ср</day>
+							<day type="thu">Чт</day>
+							<day type="fri">Пт</day>
+							<day type="sat">Сб</day>
+						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">В</day>
 							<day type="mon">П</day>
@@ -1364,7 +1373,7 @@
 						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
 						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">ccc, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd" alt="proposed-x1001" draft="unconfirmed">E, d MMM</dateFormatItem>
 						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
 						<dateFormatItem id="y" draft="contributed">y</dateFormatItem>
@@ -1625,7 +1634,7 @@
 						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">ccc, d MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyMM">MM.yy G</dateFormatItem>
 						<dateFormatItem id="yyMMM">LLL yy G</dateFormatItem>
@@ -1745,7 +1754,7 @@
 						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">ccc, d MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyMM">MM.yy G</dateFormatItem>
 						<dateFormatItem id="yyMMM">LLL yy G</dateFormatItem>
@@ -1820,7 +1829,7 @@
 						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">ccc, d MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyMM">MM.yy G</dateFormatItem>
 						<dateFormatItem id="yyMMM">LLL yy G</dateFormatItem>

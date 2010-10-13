@@ -9,12 +9,15 @@
 	<segmentations>
 		<segmentation type="GraphemeClusterBreak">
 			<variables>
-				<!-- delete Thai/Lao postfix spacing vowels from $Extend, except for THAI CHARACTER SARA AM & LAO VOWEL SIGN AM -->
-				<variable id="$Extend">[[$Extend] - [\u0E30 \u0E32 \u0E45 \u0EB0 \u0EB2]]</variable>
-				<!-- make $Prepend empty (we delete the relevant rule below anyway) -->
+				<!-- Thai/Lao postfix spacing vowels no longer in $Extend, but want THAI CHARACTER SARA AM & LAO VOWEL SIGN AM -->
+				<variable id="$Extend">[[$Extend] + [\u0E33 \u0EB3]]</variable>
+				<!-- make $Prepend and $SpacingMark empty (we delete the relevant rules below anyway) -->
 				<variable id="$Prepend"/>
+				<variable id="$SpacingMark"/>
 			</variables>
 			<segmentRules>
+				<!-- delete rule 9.1, "× $SpacingMark" -->
+				<rule id="9.2"/>
 				<!-- delete rule 9.2, "$Prepend ×" -->
 				<rule id="9.2"/>
 			</segmentRules>

@@ -1113,7 +1113,7 @@
 				<dateTimeFormats>
 					<availableFormats> <!-- per cldrbug 2835, accept provisional, add others from gregorian and adjust -->
 						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="EEEd">EEE d.</dateFormatItem>
+						<dateFormatItem id="Ed">ccc d.</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">h.mm a</dateFormatItem>
@@ -1394,7 +1394,7 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="EEEd">EEE d.</dateFormatItem>
+						<dateFormatItem id="Ed">ccc d.</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">h.mm a</dateFormatItem>
 						<dateFormatItem id="Hm">H.mm</dateFormatItem>
@@ -1684,7 +1684,7 @@
 				<dateTimeFormats> <!-- per cldrbug 2835, copied from buddhist, adjusted skeleton y length -->
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="EEEd">EEE d.</dateFormatItem>
+						<dateFormatItem id="Ed">ccc d.</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">h.mm a</dateFormatItem>
@@ -1738,7 +1738,7 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats> <!-- per cldrbug 2835, accept provisional formats -->
-						<dateFormatItem id="Ed">E d.</dateFormatItem>
+						<dateFormatItem id="Ed">ccc d.</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="hm">h.mm a</dateFormatItem>
 						<dateFormatItem id="Hm">H.mm</dateFormatItem>
@@ -1783,7 +1783,7 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats> <!-- per cldrbug 2835, accept provisional formats -->
-						<dateFormatItem id="Ed">E d.</dateFormatItem>
+						<dateFormatItem id="Ed">ccc d.</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="hm">h.mm a</dateFormatItem>
 						<dateFormatItem id="Hm">H.mm</dateFormatItem>

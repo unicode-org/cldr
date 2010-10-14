@@ -156,7 +156,7 @@ $Date$
 <!ATTLIST transformName alt NMTOKENS #IMPLIED >
 
 
-<!ELEMENT codePatterns ( codePattern+ ) >
+<!ELEMENT codePatterns ( alias | (codePattern | special)* ) >
 <!ELEMENT codePattern ( #PCDATA ) >
 <!ATTLIST codePattern type NMTOKEN #REQUIRED >
 <!ATTLIST codePattern draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >

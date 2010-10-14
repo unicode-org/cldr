@@ -8,6 +8,75 @@
 	</identity>
 	<collations validSubLocales="sv_FI sv_SE">
 		<default type="reformed"/>
+		<collation type="search" >
+			<settings normalization="on"/>
+			<suppress_contractions>[เ-ไ ເ-ໄ]</suppress_contractions>
+			<rules>
+				<reset>ا</reset>
+					<s>آ</s>
+					<s>أ</s>
+					<s>إ</s>
+				<reset>و</reset>
+					<s>ؤ</s>
+				<reset>ي</reset>
+					<s>ئ</s>
+					<s>ى</s>
+				<reset>ه</reset>
+					<s>ة</s>
+				<reset><last_primary_ignorable/></reset>
+					<s>׳</s>
+					<s>״</s>
+					<s>ـ</s>
+					<s>ٌ</s>
+					<s>ٍ</s>
+					<s>َ</s>
+					<s>ُ</s>
+					<s>ِ</s>
+					<s>ّ</s>
+					<s>ْ</s>
+					<s>ฺ</s>
+				<!-- Above are the standard root search collator rules. -->
+				<!-- Below are the rules specific to sv. -->
+				<!-- These rules match standard collation below. -->
+				<reset>D</reset>
+				<s>đ</s>
+				<t>Đ</t>
+				<s>ð</s>
+				<t>Ð</t>
+				<reset>t</reset>
+				<x><t>þ</t><extend>h</extend></x>
+				<reset>T</reset>
+				<x><t>Þ</t><extend>H</extend></x>
+				<reset>v</reset>
+				<t>V</t>
+				<s>w</s>
+				<t>W</t>
+				<reset>Y</reset>
+				<s>ü</s>
+				<t>Ü</t>
+				<s>ű</s>
+				<t>Ű</t>
+				<reset before="primary">ǀ</reset>
+				<p>å</p>
+				<t>Å</t>
+				<p>ä</p>
+				<t>Ä</t>
+				<s>æ</s>
+				<t>Æ</t>
+				<s>ę</s>
+				<t>Ę</t>
+				<p>ö</p>
+				<t>Ö</t>
+				<s>ø</s>
+				<t>Ø</t>
+				<s>ő</s>
+				<t>Ő</t>
+				<s>œ</s>
+				<t>Œ</t>
+				<s>ô</s>
+				<t>Ô</t>
+			</rules>
+		</collation>
 		<collation type="standard">
 			<rules>
 				<reset>D</reset>

@@ -305,7 +305,7 @@ public class CheckDates extends CheckCLDR {
       Pattern.compile("y{2,4}M{1,2}(d|dd)"), // date-short
       Pattern.compile("y(yyy)?M{1,3}(d|dd)"), // date-medium
       Pattern.compile("y(yyy)?M{1,4}(d|dd)"), // date-long
-      Pattern.compile("G*y(yyy)?M{1,4}E*(d|dd)"), // date-full
+      Pattern.compile("G*y(yyy)?M{1,4}((E*)|(c*))(d|dd)"), // date-full
   };
   String[] dateTimeMessage = {
       "hours (H, HH, h, or hh), and minutes (m or mm)", // time-short
@@ -315,7 +315,7 @@ public class CheckDates extends CheckCLDR {
       "year (yy or yyyy), month (M or MM), and day (d or dd)", // date-short
       "year (yyyy), month (M, MM, or MMM), and day (d or dd)", // date-medium
       "year (yyyy), month (M, ... MMMM), and day (d or dd)", // date-long
-      "year (yyyy), month (M, ... MMMM), and day (d or dd); optionally day of week (EEEE) or era (G)", // date-full
+      "year (yyyy), month (M, ... MMMM), and day (d or dd); optionally day of week (EEEE or cccc) or era (G)", // date-full
   };
   
   

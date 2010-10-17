@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="es" target="es_FONIPA" direction="forward">
+			<comment>
+			# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
+			# Author: mjansche@google.com (Martin Jansche)
+			#
+			# Tranformation from Spanish to Spanish in IPA transcription (es_FONIPA).
+			# Not fully phonemic, since we mark up allophonic variants of voiced stops,
+			# e.g. we break down /b/ into [b] and [β].
+			#
+			# See e.g. "Ortografía de la lengua española" by Real Academia Española,
+			# available in PDF format on the web (non-stable URL).
+			#
+			# Definitions.
+			</comment>
+			<tRule>$bow = [-\ $] ;  # Beginning of word.</tRule>
+			<tRule>$breve = '̯' ;   # Marker for off-glides in diphthongs.</tRule>
+			<tRule>$consonant = [bβdðfgɣʝklʎmnŋɲθprɾstʧx] ;</tRule>
+			<tRule>$syll = '.' ;    # Syllable boundary.</tRule>
+			<comment>
+			#
+			</comment>
+			<comment>
+			#
+			</comment>
+			<tRule>::NFC;</tRule>
+			<tRule>::Lower;</tRule>
+			<comment>
+			#
+			</comment>
+			<comment>
+			#
+			#
+			# Word-initial cluster simplification.
+			#
+			</comment>
+			<tRule>$bow { ct → | t ;  # ctónico (?)</tRule>
+			<tRule>$bow { cz → | z ;  # czar</tRule>
+			<tRule>$bow { gn → | n ;  # gnomo</tRule>
+			<tRule>$bow { mn → | n ;  # mnemotécnico</tRule>
+			<tRule>$bow { ps → | s ;  # psicología</tRule>
+			<tRule>$bow { pt → | t ;  # pterodáctilo</tRule>
+			<tRule>$bow { x  → | s ;  # xilófono</tRule>
+			<comment>
+			#
+			#
+			# Vowels and glides.
+			#
+			</comment>
+			<tRule>$bow       { i                 → i ;</tRule>
+			<tRule>$consonant { i } [ aáeé  oóuú] → j ;</tRule>
+			<tRule>[aeo]      { i } [^aáeé  oóuú] → i $breve ;</tRule>
+			<tRule>i } [ aáeé  oóuú] → ʝ ;</tRule>
+			<tRule>i                 → i ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>[aeo]      { y } [^aáeéiíoóuú] → i $breve ;</tRule>
+			<tRule>y } [ aáeéiíoóuú] → ʝ ;</tRule>
+			<tRule>y                 → i ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>[aeo]      { u } [^aáeéiíoó  ] → u $breve ;</tRule>
+			<tRule>u } [ aáeéiíoó  ] → w ;</tRule>
+			<tRule>ü } [   eéií    ] → w ;</tRule>
+			<tRule>u                 → u ;</tRule>
+			<tRule>ü                 → u ;  # Should not be needed, but just in case.</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>[aá] → a ;</tRule>
+			<tRule>[eé] → e ;</tRule>
+			<tRule>í    → i ;</tRule>
+			<tRule>[oó] → o ;</tRule>
+			<tRule>ú    → u ;</tRule>
+			<comment>
+			#
+			#
+			# Consonants.
+			#
+			</comment>
+			<tRule>b → β ;</tRule>
+			<tRule>cch → ʧ ;</tRule>
+			<tRule>ch → ʧ ;</tRule>
+			<tRule>cc } [^eéií] → k ;</tRule>
+			<tRule>c } [eéií] → θ ;</tRule>
+			<tRule>c → k ;</tRule>
+			<tRule>d → ð ;</tRule>
+			<tRule>f → f;</tRule>
+			<tRule>gu } [eéiíy] → ɣ ;</tRule>
+			<tRule>g } [eéiíy] → x ;</tRule>
+			<tRule>g → ɣ ;</tRule>
+			<tRule>hi } [aáeéoóuú] → ʝ ;</tRule>
+			<tRule>h → $syll ;</tRule>
+			<tRule>j → x ;</tRule>
+			<tRule>k → k ;</tRule>
+			<tRule>ll → ʎ ;</tRule>
+			<tRule>l → l ;</tRule>
+			<tRule>m → m ;</tRule>
+			<tRule>n → n ;</tRule>
+			<tRule>ñ → ɲ ;</tRule>
+			<tRule>p → p ;</tRule>
+			<tRule>qu } [eéiíy] → k ;</tRule>
+			<tRule>q → k ;</tRule>
+			<tRule>[-\ lns$] { r → r ;</tRule>
+			<tRule>rr → r ;</tRule>
+			<tRule>r → ɾ ;</tRule>
+			<tRule>ss → s ;</tRule>
+			<tRule>s → s ;</tRule>
+			<tRule>tx → ʧ ;  # for loanwords from Basque, Catalan</tRule>
+			<tRule>t → t ;</tRule>
+			<tRule>v → β ;</tRule>
+			<tRule>w → $syll w ;</tRule>
+			<tRule>x } h?[aáeéiíoóuú$] → ks ;</tRule>
+			<tRule>x } [^aáeéiíoóuú$] → s ;</tRule>
+			<tRule>x → ks ;</tRule>
+			<tRule>z → θ ;</tRule>
+			<comment>
+			#
+			#
+			# Second pass: phoneme-to-phone rules. Differentiation of /β/ into [b] and [β],
+			# place assimilation of [n], etc.
+			#
+			</comment>
+			<tRule>::Null;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>[-\ ] → ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>[mnɲŋ  $] { β → b ;</tRule>
+			<tRule>[mnɲŋlʎ$] { ð → d ;</tRule>
+			<tRule>[mnɲŋ  $] { ɣ → g ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>n } [gɣk] → ŋ ;</tRule>
+			<comment>
+			#
+			# Optional: Place assimilation of n before labial consonants.
+			#
+			# n } [bβpfm] → m ;
+			#
+			# Optional: Voicing of [s].
+			#
+			# s } [bβdð] → z ;
+			# s } [gɣ][^ei] → z ;
+			# s } [mnɲŋlʎrɾ] → z ;
+			#
+			# Optional: Lenition of [k] before [θ].
+			#
+			# k } θ → ɣ ;
+			#
+			#
+			</comment>
+			<tRule>::NFC;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

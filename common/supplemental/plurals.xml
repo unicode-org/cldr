@@ -43,6 +43,7 @@
             <pluralRule count="one">n mod 10 is 1 and n mod 100 is not 11</pluralRule>
             <pluralRule count="few">n mod 10 in 2..4 and n mod 100 not in 12..14</pluralRule>
             <pluralRule count="many">n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 11..14</pluralRule>
+            <!-- others are fractions -->
             <!-- rest are plurals -->
         </pluralRules>
         <pluralRules locales="cs sk">
@@ -52,6 +53,8 @@
         <pluralRules locales="pl">
             <pluralRule count="one">n is 1</pluralRule>
             <pluralRule count="few">n mod 10 in 2..4 and n mod 100 not in 12..14</pluralRule>
+            <pluralRule count="few">n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 12..14</pluralRule>
+            <!-- others are fractions -->
             <!-- and n mod 100 not in 22..24 from Tamplin -->
         </pluralRules>
         <pluralRules locales="sl">
@@ -81,6 +84,13 @@
         <pluralRules locales="shi">
             <pluralRule count="one">n within 0..1</pluralRule>
             <pluralRule count="few">n in 2..10</pluralRule>
+        </pluralRules>
+        <pluralRules locales="br"> <!-- from http://unicode.org/cldr/trac/ticket/2886 -->
+            <pluralRule count="zero">n is 0</pluralRule>
+            <pluralRule count="one">n is 1</pluralRule>
+            <pluralRule count="two">n is 2</pluralRule>
+            <pluralRule count="few">n is 3</pluralRule>
+            <pluralRule count="many">n is 6</pluralRule>
         </pluralRules>
     </plurals>
 </supplementalData>

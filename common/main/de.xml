@@ -1242,7 +1242,7 @@
 					<availableFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
-						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="H">HH 'Uhr'</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
@@ -1506,7 +1506,7 @@
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
-						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="H">HH 'Uhr'</dateFormatItem>
 						<dateFormatItem id="hm" draft="unconfirmed">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms" draft="unconfirmed">h:mm:ss a</dateFormatItem>
@@ -1551,10 +1551,10 @@
 							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="a">HH-HH</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">HH–HH</greatestDifference>
-							<greatestDifference id="H">HH-HH</greatestDifference>
-							<greatestDifference id="H" alt="proposed-x1001" draft="unconfirmed">HH–HH</greatestDifference>
+							<greatestDifference id="a">HH-HH 'Uhr'</greatestDifference>
+							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">HH–HH 'Uhr'</greatestDifference>
+							<greatestDifference id="H">HH-HH 'Uhr'</greatestDifference>
+							<greatestDifference id="H" alt="proposed-x1001" draft="unconfirmed">HH–HH 'Uhr'</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">h:mm a - h:mm a</greatestDifference>
@@ -1595,10 +1595,10 @@
 							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="a">HH-HH v</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">HH–HH v</greatestDifference>
-							<greatestDifference id="H">HH-HH v</greatestDifference>
-							<greatestDifference id="H" alt="proposed-x1001" draft="unconfirmed">HH–HH v</greatestDifference>
+							<greatestDifference id="a">HH-HH 'Uhr' v</greatestDifference>
+							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">HH–HH 'Uhr' v</greatestDifference>
+							<greatestDifference id="H">HH-HH 'Uhr' v</greatestDifference>
+							<greatestDifference id="H" alt="proposed-x1001" draft="unconfirmed">HH–HH 'Uhr' v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M.-M.</greatestDifference>
@@ -1771,7 +1771,7 @@
 					<availableFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
-						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="H">HH 'Uhr'</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
@@ -1827,7 +1827,7 @@
 					<availableFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
-						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="H">HH 'Uhr'</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
@@ -1883,7 +1883,7 @@
 					<availableFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
-						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="H">HH 'Uhr'</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>

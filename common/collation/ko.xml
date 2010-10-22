@@ -968,8 +968,10 @@
 		</collation>
 		<collation type="search" >
 			<settings normalization="on"/>
+			<!-- root search, suppress contractions for Thai, Lao -->
 			<suppress_contractions>[เ-ไ ເ-ໄ]</suppress_contractions>
 			<rules>
+				<!-- root search rules for Arabic, Hebrew -->
 				<reset>ا</reset>
 					<s>آ</s>
 					<s>أ</s>
@@ -993,278 +995,305 @@
 					<s>ّ</s>
 					<s>ْ</s>
 					<s>ฺ</s>
-				<!-- the rest is all rules for Korean -->
-				<!-- First the complex consonants: x(L) = CHOSEONG x, x(T) = JONGSEONG x -->
-				<reset>ᄀ</reset>	<!-- KIYEOK(L) = KIYEOK(T) -->
+				<!-- root search rules for modern Korean jamos -->
+				<!-- Korean modern complex consonants, decompose: x(L) = CHOSEONG x, x(T) = JONGSEONG x -->
+				<reset>ᄀ</reset>	<!-- 1100 KIYEOK(L) = 11A8 KIYEOK(T) -->
 					<i>ᆨ</i>
-				<reset>ᄀᄀ</reset>	<!-- KIYEOK(L) + KIYEOK(L) = SSANGKIYEOK(L) = SSANGKIYEOK(T) -->
+				<reset>ᄀᄀ</reset>	<!-- 1100 KIYEOK(L) + 1100 KIYEOK(L) = 1101 SSANGKIYEOK(L) = 11A9 SSANGKIYEOK(T) -->
 					<i>ᄁ</i>
 					<i>ᆩ</i>
-				<reset>ᄀᄂ</reset>	<!-- KIYEOK(L) + NIEUN(L) = KIYEOK-NIEUN(T) -->
-					<i>ᇺ</i>
-				<reset>ᄀᄃ</reset>	<!-- KIYEOK(L) + TIKEUT(L) = KIYEOK-TIKEUT(L) -->
-					<i>ᅚ</i>
-				<reset>ᄀᄅ</reset>	<!-- KIYEOK(L) + RIEUL(L) = KIYEOK-RIEUL(T) -->
-					<i>ᇃ</i>
-				<reset>ᄀᄇ</reset>	<!-- KIYEOK(L) + PIEUP(L) = KIYEOK-PIEUP(T) -->
-					<i>ᇻ</i>
-				<reset>ᄀᄉ</reset>	<!-- KIYEOK(L) + SIOS(L) = KIYEOK-SIOS(T) -->
+				<reset>ᄀᄉ</reset>	<!-- 1100 KIYEOK(L) + 1109 SIOS(L) = 11AA KIYEOK-SIOS(T) -->
 					<i>ᆪ</i>
-				<reset>ᄀᄉᄀ</reset>	<!-- KIYEOK(L) + SIOS(L) + KIYEOK(L) = KIYEOK-SIOS-KIYEOK(T) -->
-					<i>ᇄ</i>
-				<reset>ᄀᄎ</reset>	<!-- KIYEOK(L) + CHIEUCH(L) = KIYEOK-CHIEUCH(T) -->
-					<i>ᇼ</i>
-				<reset>ᄀᄏ</reset>	<!-- KIYEOK(L) + KHIEUKH(L) = KIYEOK-KHIEUKH(T) -->
-					<i>ᇽ</i>
-				<reset>ᄀᄒ</reset>	<!-- KIYEOK(L) + HIEUH(L) = KIYEOK-HIEUH(T) -->
-					<i>ᇾ</i>
-				<reset>ᄂ</reset>	<!-- NIEUN(L) = NIEUN(T) -->
+				<reset>ᄂ</reset>	<!-- 1102 NIEUN(L) = 11AB NIEUN(T) -->
 					<i>ᆫ</i>
-				<reset>ᄂᄀ</reset>	<!-- NIEUN(L) + KIYEOK(L) = NIEUN-KIYEOK(L) = NIEUN-KIYEOK(T) -->
-					<i>ᄓ</i>
-					<i>ᇅ</i>
-				<reset>ᄂᄂ</reset>	<!-- NIEUN(L) + NIEUN(L) = SSANGNIEUN(L) = SSANGNIEUN(T) -->
-					<i>ᄔ</i>
-					<i>ᇿ</i>
-				<reset>ᄂᄃ</reset>	<!-- NIEUN(L) + TIKEUT(L) = NIEUN-TIKEUT(L) = NIEUN-TIKEUT(T) -->
-					<i>ᄕ</i>
-					<i>ᇆ</i>
-				<reset>ᄂᄇ</reset>	<!-- NIEUN(L) + PIEUP(L) = NIEUN-PIEUP(L) -->
-					<i>ᄖ</i>
-				<reset>ᄂᄉ</reset>	<!-- NIEUN(L) + SIOS(L) = NIEUN-SIOS(L) = NIEUN-SIOS(T) -->
-					<i>ᅛ</i>
-					<i>ᇇ</i>
-				<reset>ᄂᄌ</reset>	<!-- NIEUN(L) + CIEUC(L) = NIEUN-CIEUC(L) = NIEUN-CIEUC(T) -->
-					<i>ᅜ</i>
+				<reset>ᄂᄌ</reset>	<!-- 1102 NIEUN(L) + 110C CIEUC(L) = 11AC NIEUN-CIEUC(T), also archaic 115C NIEUN-CIEUC(L) -->
 					<i>ᆬ</i>
-				<reset>ᄂᄐ</reset>	<!-- NIEUN(L) + THIEUTH(L) = NIEUN-THIEUTH(T) -->
-					<i>ᇉ</i>
-				<reset>ᄂᄒ</reset>	<!-- NIEUN(L) + HIEUH(L) = NIEUN-HIEUH(L) = NIEUN-HIEUH(T) -->
-					<i>ᅝ</i>
+				<reset>ᄂᄒ</reset>	<!-- 1102 NIEUN(L) + 1112 HIEUH(L) = 11AD NIEUN-HIEUH(T), also archaic 115D NIEUN-HIEUH(L) -->
 					<i>ᆭ</i>
-				<reset>ᄃ</reset>	<!-- TIKEUT(L) = TIKEUT(T) -->
+				<reset>ᄃ</reset>	<!-- 1103 TIKEUT(L) = 11AE TIKEUT(T) -->
 					<i>ᆮ</i>
-				<reset>ᄃᄀ</reset>	<!-- TIKEUT(L) + KIYEOK(L) = TIKEUT-KIYEOK(L) = TIKEUT-KIYEOK(T) -->
-					<i>ᄗ</i>
-					<i>ᇊ</i>
-				<reset>ᄃᄃ</reset>	<!-- TIKEUT(L) + TIKEUT(L) = SSANGTIKEUT(L) -->
+				<reset>ᄃᄃ</reset>	<!-- 1103 TIKEUT(L) + 1103 TIKEUT(L) = 1104 SSANGTIKEUT(L) -->
 					<i>ᄄ</i>
-				<reset>ᄃᄅ</reset>	<!-- TIKEUT(L) + RIEUL(L) = TIKEUT-RIEUL(L) = TIKEUT-RIEUL(T) -->
-					<i>ᅞ</i>
-					<i>ᇋ</i>
-				<reset>ᄅ</reset>	<!-- RIEUL(L) = RIEUL(T) -->
+				<reset>ᄅ</reset>	<!-- 1105 RIEUL(L) = 11AF RIEUL(T) -->
 					<i>ᆯ</i>
-				<reset>ᄅᄀ</reset>	<!-- RIEUL(L) + KIYEOK(L) = RIEUL-KIYEOK(T) -->
+				<reset>ᄅᄀ</reset>	<!-- 1105 RIEUL(L) + 1100 KIYEOK(L) = 11B0 RIEUL-KIYEOK(T) -->
 					<i>ᆰ</i>
-				<reset>ᄅᄀᄉ</reset>	<!-- RIEUL(L) + KIYEOK(L) + SIOS(L) = RIEUL-KIYEOK-SIOS(T) -->
-					<i>ᇌ</i>
-				<reset>ᄅᄂ</reset>	<!-- RIEUL(L) + NIEUN(L) = RIEUL-NIEUN(L) = RIEUL-NIEUN(T) -->
-					<i>ᄘ</i>
-					<i>ᇍ</i>
-				<reset>ᄅᄃ</reset>	<!-- RIEUL(L) + TIKEUT(L) = RIEUL-TIKEUT(T) -->
-					<i>ᇎ</i>
-				<reset>ᄅᄃᄒ</reset>	<!-- RIEUL(L) + TIKEUT(L) + HIEUH(L) = RIEUL-TIKEUT-HIEUH(T) -->
-					<i>ᇏ</i>
-				<reset>ᄅᄅ</reset>	<!-- RIEUL(L) + RIEUL(L) = SSANGRIEUL(L) = SSANGRIEUL(T) -->
-					<i>ᄙ</i>
-					<i>ᇐ</i>
-				<reset>ᄅᄆ</reset>	<!-- RIEUL(L) + MIEUM(L) = RIEUL-MIEUM(T) -->
+				<reset>ᄅᄆ</reset>	<!-- 1105 RIEUL(L) + 1106 MIEUM(L) = 11B1 RIEUL-MIEUM(T) -->
 					<i>ᆱ</i>
-				<reset>ᄅᄆᄀ</reset>	<!-- RIEUL(L) + MIEUM(L) + KIYEOK(L) = RIEUL-MIEUM-KIYEOK(T) -->
-					<i>ᇑ</i>
-				<reset>ᄅᄆᄉ</reset>	<!-- RIEUL(L) + MIEUM(L) + SIOS(L) = RIEUL-MIEUM-SIOS(T) -->
-					<i>ᇒ</i>
-				<reset>ᄅᄇ</reset>	<!-- RIEUL(L) + PIEUP(L) = RIEUL-PIEUP(T) -->
+				<reset>ᄅᄇ</reset>	<!-- 1105 RIEUL(L) + 1107 PIEUP(L) = 11B2 RIEUL-PIEUP(T) -->
 					<i>ᆲ</i>
-				<reset>ᄅᄇᄉ</reset>	<!-- RIEUL(L) + PIEUP(L) + SIOS(L) = RIEUL-PIEUP-SIOS(T) -->
-					<i>ᇓ</i>
-				<reset>ᄅᄇᄋ</reset>	<!-- RIEUL(L) + PIEUP(L) + IEUNG(L) = RIEUL-KAPYEOUNPIEUP(T) -->
-					<i>ᇕ</i>
-				<reset>ᄅᄇᄒ</reset>	<!-- RIEUL(L) + PIEUP(L) + HIEUH(L) = RIEUL-PIEUP-HIEUH(T) -->
-					<i>ᇔ</i>
-				<reset>ᄅᄉ</reset>	<!-- RIEUL(L) + SIOS(L) = RIEUL-SIOS(T) -->
+				<reset>ᄅᄉ</reset>	<!-- 1105 RIEUL(L) + 1109 SIOS(L) = 11B3 RIEUL-SIOS(T) -->
 					<i>ᆳ</i>
-				<reset>ᄅᄉᄉ</reset>	<!-- RIEUL(L) + SIOS(L) + SIOS(L) = RIEUL-SSANGSIOS(T) -->
-					<i>ᇖ</i>
-				<reset>ᄅᄋ</reset>	<!-- RIEUL(L) + IEUNG(L) = KAPYEOUNRIEUL(L) -->
-					<i>ᄛ</i>
-				<reset>ᄅᄏ</reset>	<!-- RIEUL(L) + KHIEUKH(L) = RIEUL-KHIEUKH(T) -->
-					<i>ᇘ</i>
-				<reset>ᄅᄐ</reset>	<!-- RIEUL(L) + THIEUTH(L) = RIEUL-THIEUTH(T) -->
+				<reset>ᄅᄐ</reset>	<!-- 1105 RIEUL(L) + 1110 THIEUTH(L) = 11B4 RIEUL-THIEUTH(T) -->
 					<i>ᆴ</i>
-				<reset>ᄅᄑ</reset>	<!-- RIEUL(L) + PHIEUPH(L) = RIEUL-PHIEUPH(T) -->
+				<reset>ᄅᄑ</reset>	<!-- 1105 RIEUL(L) + 1111 PHIEUPH(L) = 11B5 RIEUL-PHIEUPH(T) -->
 					<i>ᆵ</i>
-				<reset>ᄅᄒ</reset>	<!-- RIEUL(L) + HIEUH(L) = RIEUL-HIEUH(L) = RIEUL-HIEUH(T) -->
-					<i>ᄚ</i>
+				<reset>ᄅᄒ</reset>	<!-- 1105 RIEUL(L) + 1112 HIEUH(L) = 11B6 RIEUL-HIEUH(T), also archic 111A RIEUL-HIEUH(L) -->
 					<i>ᆶ</i>
-				<reset>ᄆ</reset>	<!-- MIEUM(L) = MIEUM(T) -->
+				<reset>ᄆ</reset>	<!-- 1106 MIEUM(L) = 11B7 MIEUM(T) -->
 					<i>ᆷ</i>
-				<reset>ᄆᄀ</reset>	<!-- MIEUM(L) + KIYEOK(L) = MIEUM-KIYEOK(T) -->
-					<i>ᇚ</i>
-				<reset>ᄆᄅ</reset>	<!-- MIEUM(L) + RIEUL(L) = MIEUM-RIEUL(T) -->
-					<i>ᇛ</i>
-				<reset>ᄆᄇ</reset>	<!-- MIEUM(L) + PIEUP(L) = MIEUM-PIEUP(L) = MIEUM-PIEUP(T) -->
-					<i>ᄜ</i>
-					<i>ᇜ</i>
-				<reset>ᄆᄉ</reset>	<!-- MIEUM(L) + SIOS(L) = MIEUM-SIOS(T) -->
-					<i>ᇝ</i>
-				<reset>ᄆᄉᄉ</reset>	<!-- MIEUM(L) + SIOS(L) + SIOS(L) = MIEUM-SSANGSIOS(T) -->
-					<i>ᇞ</i>
-				<reset>ᄆᄋ</reset>	<!-- MIEUM(L) + IEUNG(L) = KAPYEOUNMIEUM(L) = KAPYEOUNMIEUM(T) -->
-					<i>ᄝ</i>
-					<i>ᇢ</i>
-				<reset>ᄆᄎ</reset>	<!-- MIEUM(L) + CHIEUCH(L) = MIEUM-CHIEUCH(T) -->
-					<i>ᇠ</i>
-				<reset>ᄆᄒ</reset>	<!-- MIEUM(L) + HIEUH(L) = MIEUM-HIEUH(T) -->
-					<i>ᇡ</i>
-				<reset>ᄇ</reset>	<!-- PIEUP(L) = PIEUP(T) -->
+				<reset>ᄇ</reset>	<!-- 1107 PIEUP(L) = 11B8 PIEUP(T) -->
 					<i>ᆸ</i>
-				<reset>ᄇᄀ</reset>	<!-- PIEUP(L) + KIYEOK(L) = PIEUP-KIYEOK(L) -->
-					<i>ᄞ</i>
-				<reset>ᄇᄂ</reset>	<!-- PIEUP(L) + NIEUN(L) = PIEUP-NIEUN(L) -->
-					<i>ᄟ</i>
-				<reset>ᄇᄃ</reset>	<!-- PIEUP(L) + TIKEUT(L) = PIEUP-TIKEUT(L) -->
-					<i>ᄠ</i>
-				<reset>ᄇᄅ</reset>	<!-- PIEUP(L) + RIEUL(L) = PIEUP-RIEUL(T) -->
-					<i>ᇣ</i>
-				<reset>ᄇᄇ</reset>	<!-- PIEUP(L) + PIEUP(L) = SSANGPIEUP(L) -->
+				<reset>ᄇᄇ</reset>	<!-- 1107 PIEUP(L) + 1107 PIEUP(L) = 1108 SSANGPIEUP(L) -->
 					<i>ᄈ</i>
-				<reset>ᄇᄇᄋ</reset>	<!-- PIEUP(L) + PIEUP(L) + IEUNG(L) = KAPYEOUNSSANGPIEUP(L) -->
-					<i>ᄬ</i>
-				<reset>ᄇᄉ</reset>	<!-- PIEUP(L) + SIOS(L) = PIEUP-SIOS(L) = PIEUP-SIOS(T) -->
-					<i>ᄡ</i>
+				<reset>ᄇᄉ</reset>	<!-- 1107 PIEUP(L) + 1109 SIOS(L) = 11B9 PIEUP-SIOS(T), also archaic 1121 PIEUP-SIOS(L) -->
 					<i>ᆹ</i>
-				<reset>ᄇᄉᄀ</reset>	<!-- PIEUP(L) + SIOS(L) + KIYEOK(L) = PIEUP-SIOS-KIYEOK(L) -->
-					<i>ᄢ</i>
-				<reset>ᄇᄉᄃ</reset>	<!-- PIEUP(L) + SIOS(L) + TIKEUT(L) = PIEUP-SIOS-TIKEUT(L) -->
-					<i>ᄣ</i>
-				<reset>ᄇᄉᄇ</reset>	<!-- PIEUP(L) + SIOS(L) + PIEUP(L) = PIEUP-SIOS-PIEUP(L) -->
-					<i>ᄤ</i>
-				<reset>ᄇᄉᄉ</reset>	<!-- PIEUP(L) + SIOS(L) + SIOS(L) = PIEUP-SSANGSIOS(L) -->
-					<i>ᄥ</i>
-				<reset>ᄇᄉᄌ</reset>	<!-- PIEUP(L) + SIOS(L) + CIEUC(L) = PIEUP-SIOS-CIEUC(L) -->
-					<i>ᄦ</i>
-				<reset>ᄇᄋ</reset>	<!-- PIEUP(L) + IEUNG(L) = KAPYEOUNPIEUP(L) = KAPYEOUNPIEUP(T) -->
-					<i>ᄫ</i>
-					<i>ᇦ</i>
-				<reset>ᄇᄌ</reset>	<!-- PIEUP(L) + CIEUC(L) = PIEUP-CIEUC(L) -->
-					<i>ᄧ</i>
-				<reset>ᄇᄎ</reset>	<!-- PIEUP(L) + CHIEUCH(L) = PIEUP-CHIEUCH(L) -->
-					<i>ᄨ</i>
-				<reset>ᄇᄐ</reset>	<!-- PIEUP(L) + THIEUTH(L) = PIEUP-THIEUTH(L) -->
-					<i>ᄩ</i>
-				<reset>ᄇᄑ</reset>	<!-- PIEUP(L) + PHIEUPH(L) = PIEUP-PHIEUPH(L) = PIEUP-PHIEUPH(T) -->
-					<i>ᄪ</i>
-					<i>ᇤ</i>
-				<reset>ᄇᄒ</reset>	<!-- PIEUP(L) + HIEUH(L) = PIEUP-HIEUH(T) -->
-					<i>ᇥ</i>
-				<reset>ᄉ</reset>	<!-- SIOS(L) = SIOS(T) -->
+				<reset>ᄉ</reset>	<!-- 1109 SIOS(L) = 11BA SIOS(T) -->
 					<i>ᆺ</i>
-				<reset>ᄉᄀ</reset>	<!-- SIOS(L) + KIYEOK(L) = SIOS-KIYEOK(L) = SIOS-KIYEOK(T) -->
-					<i>ᄭ</i>
-					<i>ᇧ</i>
-				<reset>ᄉᄂ</reset>	<!-- SIOS(L) + NIEUN(L) = SIOS-NIEUN(L) -->
-					<i>ᄮ</i>
-				<reset>ᄉᄃ</reset>	<!-- SIOS(L) + TIKEUT(L) = SIOS-TIKEUT(L) = SIOS-TIKEUT(T) -->
-					<i>ᄯ</i>
-					<i>ᇨ</i>
-				<reset>ᄉᄅ</reset>	<!-- SIOS(L) + RIEUL(L) = SIOS-RIEUL(L) = SIOS-RIEUL(T) -->
-					<i>ᄰ</i>
-					<i>ᇩ</i>
-				<reset>ᄉᄆ</reset>	<!-- SIOS(L) + MIEUM(L) = SIOS-MIEUM(L) -->
-					<i>ᄱ</i>
-				<reset>ᄉᄇ</reset>	<!-- SIOS(L) + PIEUP(L) = SIOS-PIEUP(L) = SIOS-PIEUP(T) -->
-					<i>ᄲ</i>
-					<i>ᇪ</i>
-				<reset>ᄉᄇᄀ</reset>	<!-- SIOS(L) + PIEUP(L) + KIYEOK(L) = SIOS-PIEUP-KIYEOK(L) -->
-					<i>ᄳ</i>
-				<reset>ᄉᄉ</reset>	<!-- SIOS(L) + SIOS(L) = SSANGSIOS(L) = SSANGSIOS(T) -->
+				<reset>ᄉᄉ</reset>	<!-- 1109 SIOS(L) + 1109 SIOS(L) = 110A SSANGSIOS(L) = 11BB SSANGSIOS(T) -->
 					<i>ᄊ</i>
 					<i>ᆻ</i>
-				<reset>ᄉᄉᄉ</reset>	<!-- SIOS(L) + SIOS(L) + SIOS(L) = SIOS-SSANGSIOS(L) -->
-					<i>ᄴ</i>
-				<reset>ᄉᄋ</reset>	<!-- SIOS(L) + IEUNG(L) = SIOS-IEUNG(L) -->
-					<i>ᄵ</i>
-				<reset>ᄉᄌ</reset>	<!-- SIOS(L) + CIEUC(L) = SIOS-CIEUC(L) -->
-					<i>ᄶ</i>
-				<reset>ᄉᄎ</reset>	<!-- SIOS(L) + CHIEUCH(L) = SIOS-CHIEUCH(L) -->
-					<i>ᄷ</i>
-				<reset>ᄉᄏ</reset>	<!-- SIOS(L) + KHIEUKH(L) = SIOS-KHIEUKH(L) -->
-					<i>ᄸ</i>
-				<reset>ᄉᄐ</reset>	<!-- SIOS(L) + THIEUTH(L) = SIOS-THIEUTH(L) -->
-					<i>ᄹ</i>
-				<reset>ᄉᄑ</reset>	<!-- SIOS(L) + PHIEUPH(L) = SIOS-PHIEUPH(L) -->
-					<i>ᄺ</i>
-				<reset>ᄉᄒ</reset>	<!-- SIOS(L) + HIEUH(L) = SIOS-HIEUH(L) -->
-					<i>ᄻ</i>
-				<reset>ᄋ</reset>	<!-- IEUNG(L) = IEUNG(T) -->
+				<reset>ᄋ</reset>	<!-- 110B IEUNG(L) = 11BC IEUNG(T) -->
 					<i>ᆼ</i>
-				<reset>ᄋᄀ</reset>	<!-- IEUNG(L) + KIYEOK(L) = IEUNG-KIYEOK(L) = IEUNG-KIYEOK(T) -->
+				<reset>ᄌ</reset>	<!-- 110C CIEUC(L) = 11BD CIEUC(T) -->
+					<i>ᆽ</i>
+				<reset>ᄌᄌ</reset>	<!-- 110C CIEUC(L) + 110C CIEUC(L) = 110D SSANGCIEUC(L) -->
+					<i>ᄍ</i>
+				<reset>ᄎ</reset>	<!-- 110E CHIEUCH(L) = 11BE CHIEUCH(T) -->
+					<i>ᆾ</i>
+				<reset>ᄏ</reset>	<!-- 110F KHIEUKH(L) = 11BF KHIEUKH(T) -->
+					<i>ᆿ</i>
+				<reset>ᄐ</reset>	<!-- 1110 THIEUTH(L) = 11C0 THIEUTH(T) -->
+					<i>ᇀ</i>
+				<reset>ᄑ</reset>	<!-- 1111 PHIEUPH(L) = 11C1 PHIEUPH(T) -->
+					<i>ᇁ</i>
+				<reset>ᄒ</reset>	<!-- 1112 HIEUH(L) = 11C2 HIEUH(T) -->
+					<i>ᇂ</i>
+				<!-- Korean modern complex vowels, decompose -->
+				<reset>ᅡᅵ</reset>	<!-- 1161 A(V) + 1175 I(V) = 1162 AE(V) -->
+					<i>ᅢ</i>
+				<reset>ᅣᅵ</reset>	<!-- 1163 YA(V) + 1175 I(V) = 1164 YAE(V) -->
+					<i>ᅤ</i>
+				<reset>ᅥᅵ</reset>	<!-- 1165 EO(V) + 1175 I(V) = 1166 E(V) -->
+					<i>ᅦ</i>
+				<reset>ᅧᅵ</reset>	<!-- 1167 YEO(V) + 1175 I(V) = 1168 YE(V) -->
+					<i>ᅨ</i>
+				<reset>ᅩᅡ</reset>	<!-- 1169 O(V) + 1161 A(V) = 116A WA(V) -->
+					<i>ᅪ</i>
+				<reset>ᅩᅡᅵ</reset>	<!-- 1169 O(V) + 1161 A(V) + 1175 I(V) = 116B WAE(V) -->
+					<i>ᅫ</i>
+				<reset>ᅩᅵ</reset>	<!-- 1169 O(V) + 1175 I(V) = 116C OE(V) -->
+					<i>ᅬ</i>
+				<reset>ᅮᅴ</reset>	<!-- 116E U(V) + 1174 YI(V) = 116F WEO(V) -->
+					<i>ᅯ</i>
+				<reset>ᅮᅴᅵ</reset>	<!-- 116E U(V) + 1174 YI(V) + 1175 I(V) = 1170 WE(V) -->
+					<i>ᅰ</i>
+				<reset>ᅮᅵ</reset>	<!-- 116E U(V) + 1175 I(V) = 1171 WI(V) -->
+					<i>ᅱ</i>
+				<!-- Additional Korean search rules for Korean locale -->
+				<!-- Archaic complex consonants: x(L) = CHOSEONG x, x(T) = JONGSEONG x -->
+				<reset>ᄀᄂ</reset>	<!-- 1100 KIYEOK(L) + 1102 NIEUN(L) = 11FA KIYEOK-NIEUN(T) -->
+					<i>ᇺ</i>
+				<reset>ᄀᄃ</reset>	<!-- 1100 KIYEOK(L) + 1103 TIKEUT(L) = 115A KIYEOK-TIKEUT(L) -->
+					<i>ᅚ</i>
+				<reset>ᄀᄅ</reset>	<!-- 1100 KIYEOK(L) + 1105 RIEUL(L) = 11C3 KIYEOK-RIEUL(T) -->
+					<i>ᇃ</i>
+				<reset>ᄀᄇ</reset>	<!-- 1100 KIYEOK(L) + 1107 PIEUP(L) = 11FB KIYEOK-PIEUP(T) -->
+					<i>ᇻ</i>
+				<reset>ᄀᄉᄀ</reset>	<!-- 1100 KIYEOK(L) + 1109 SIOS(L) + 1100 KIYEOK(L) = 11C4 KIYEOK-SIOS-KIYEOK(T) -->
+					<i>ᇄ</i>
+				<reset>ᄀᄎ</reset>	<!-- 1100 KIYEOK(L) + 110E CHIEUCH(L) = 11FC KIYEOK-CHIEUCH(T) -->
+					<i>ᇼ</i>
+				<reset>ᄀᄏ</reset>	<!-- 1100 KIYEOK(L) + 110F KHIEUKH(L) = 11FD KIYEOK-KHIEUKH(T) -->
+					<i>ᇽ</i>
+				<reset>ᄀᄒ</reset>	<!-- 1100 KIYEOK(L) + 1112 HIEUH(L) = 11FE KIYEOK-HIEUH(T) -->
+					<i>ᇾ</i>
+				<reset>ᄂᄀ</reset>	<!-- 1102 NIEUN(L) + 1100 KIYEOK(L) = 1113 NIEUN-KIYEOK(L) = 11C5 NIEUN-KIYEOK(T) -->
+					<i>ᄓ</i>
+					<i>ᇅ</i>
+				<reset>ᄂᄂ</reset>	<!-- 1102 NIEUN(L) + 1102 NIEUN(L) = 1114 SSANGNIEUN(L) = 11FF SSANGNIEUN(T) -->
+					<i>ᄔ</i>
+					<i>ᇿ</i>
+				<reset>ᄂᄃ</reset>	<!-- 1102 NIEUN(L) + 1103 TIKEUT(L) = 1115 NIEUN-TIKEUT(L) = 11C6 NIEUN-TIKEUT(T) -->
+					<i>ᄕ</i>
+					<i>ᇆ</i>
+				<reset>ᄂᄇ</reset>	<!-- 1102 NIEUN(L) + 1107 PIEUP(L) = 1116 NIEUN-PIEUP(L) -->
+					<i>ᄖ</i>
+				<reset>ᄂᄉ</reset>	<!-- 1102 NIEUN(L) + 1109 SIOS(L) = 115B NIEUN-SIOS(L) = 11C7 NIEUN-SIOS(T) -->
+					<i>ᅛ</i>
+					<i>ᇇ</i>
+				<reset>ᄂᄌ</reset>	<!-- 1102 NIEUN(L) + 110C CIEUC(L) = 115C NIEUN-CIEUC(L), also modern 11AC NIEUN-CIEUC(T) -->
+					<i>ᅜ</i>
+				<reset>ᄂᄐ</reset>	<!-- 1102 NIEUN(L) + 1110 THIEUTH(L) = 11C9 NIEUN-THIEUTH(T) -->
+					<i>ᇉ</i>
+				<reset>ᄂᄒ</reset>	<!-- 1102 NIEUN(L) + 1112 HIEUH(L) = 115D NIEUN-HIEUH(L), also modern 11AD NIEUN-HIEUH(T) -->
+					<i>ᅝ</i>
+				<reset>ᄃᄀ</reset>	<!-- 1103 TIKEUT(L) + 1100 KIYEOK(L) = 1117 TIKEUT-KIYEOK(L) = 11CA TIKEUT-KIYEOK(T) -->
+					<i>ᄗ</i>
+					<i>ᇊ</i>
+				<reset>ᄃᄅ</reset>	<!-- 1103 TIKEUT(L) + 1105 RIEUL(L) = 115E TIKEUT-RIEUL(L) = 11CB TIKEUT-RIEUL(T) -->
+					<i>ᅞ</i>
+					<i>ᇋ</i>
+				<reset>ᄅᄀᄉ</reset>	<!-- 1105 RIEUL(L) + 1100 KIYEOK(L) + 1109 SIOS(L) = 11CC RIEUL-KIYEOK-SIOS(T) -->
+					<i>ᇌ</i>
+				<reset>ᄅᄂ</reset>	<!-- 1105 RIEUL(L) + 1102 NIEUN(L) = 1118 RIEUL-NIEUN(L) = 11CD RIEUL-NIEUN(T) -->
+					<i>ᄘ</i>
+					<i>ᇍ</i>
+				<reset>ᄅᄃ</reset>	<!-- 1105 RIEUL(L) + 1103 TIKEUT(L) = 11CE RIEUL-TIKEUT(T) -->
+					<i>ᇎ</i>
+				<reset>ᄅᄃᄒ</reset>	<!-- 1105 RIEUL(L) + 1103 TIKEUT(L) + 1112 HIEUH(L) = 11CF RIEUL-TIKEUT-HIEUH(T) -->
+					<i>ᇏ</i>
+				<reset>ᄅᄅ</reset>	<!-- 1105 RIEUL(L) + 1105 RIEUL(L) = 1119 SSANGRIEUL(L) = 11D0 SSANGRIEUL(T) -->
+					<i>ᄙ</i>
+					<i>ᇐ</i>
+				<reset>ᄅᄆᄀ</reset>	<!-- 1105 RIEUL(L) + 1106 MIEUM(L) + 1100 KIYEOK(L) = 11D1 RIEUL-MIEUM-KIYEOK(T) -->
+					<i>ᇑ</i>
+				<reset>ᄅᄆᄉ</reset>	<!-- 1105 RIEUL(L) + 1106 MIEUM(L) + 1109 SIOS(L) = 11D2 RIEUL-MIEUM-SIOS(T) -->
+					<i>ᇒ</i>
+				<reset>ᄅᄇᄉ</reset>	<!-- 1105 RIEUL(L) + 1107 PIEUP(L) + 1109 SIOS(L) = 11D3 RIEUL-PIEUP-SIOS(T) -->
+					<i>ᇓ</i>
+				<reset>ᄅᄇᄋ</reset>	<!-- 1105 RIEUL(L) + 1107 PIEUP(L) + 110B IEUNG(L) = 11D5 RIEUL-KAPYEOUNPIEUP(T) -->
+					<i>ᇕ</i>
+				<reset>ᄅᄇᄒ</reset>	<!-- 1105 RIEUL(L) + 1107 PIEUP(L) + 1112 HIEUH(L) = 11D4 RIEUL-PIEUP-HIEUH(T) -->
+					<i>ᇔ</i>
+				<reset>ᄅᄉᄉ</reset>	<!-- 1105 RIEUL(L) + 1109 SIOS(L) + 1109 SIOS(L) = 11D6 RIEUL-SSANGSIOS(T) -->
+					<i>ᇖ</i>
+				<reset>ᄅᄋ</reset>	<!-- 1105 RIEUL(L) + 110B IEUNG(L) = 111B KAPYEOUNRIEUL(L) -->
+					<i>ᄛ</i>
+				<reset>ᄅᄏ</reset>	<!-- 1105 RIEUL(L) + 110F KHIEUKH(L) = 11D8 RIEUL-KHIEUKH(T) -->
+					<i>ᇘ</i>
+				<reset>ᄅᄒ</reset>	<!-- 1105 RIEUL(L) + 1112 HIEUH(L) = 111A RIEUL-HIEUH(L), also modern 11B6 RIEUL-HIEUH(T) -->
+					<i>ᄚ</i>
+				<reset>ᄆᄀ</reset>	<!-- 1106 MIEUM(L) + 1100 KIYEOK(L) = 11DA MIEUM-KIYEOK(T) -->
+					<i>ᇚ</i>
+				<reset>ᄆᄅ</reset>	<!-- 1106 MIEUM(L) + 1105 RIEUL(L) = 11DB MIEUM-RIEUL(T) -->
+					<i>ᇛ</i>
+				<reset>ᄆᄇ</reset>	<!-- 1106 MIEUM(L) + 1107 PIEUP(L) = 111C MIEUM-PIEUP(L) = 11DC MIEUM-PIEUP(T) -->
+					<i>ᄜ</i>
+					<i>ᇜ</i>
+				<reset>ᄆᄉ</reset>	<!-- 1106 MIEUM(L) + 1109 SIOS(L) = 11DD MIEUM-SIOS(T) -->
+					<i>ᇝ</i>
+				<reset>ᄆᄉᄉ</reset>	<!-- 1106 MIEUM(L) + 1109 SIOS(L) + 1109 SIOS(L) = 11DE MIEUM-SSANGSIOS(T) -->
+					<i>ᇞ</i>
+				<reset>ᄆᄋ</reset>	<!-- 1106 MIEUM(L) + 110B IEUNG(L) = 111D KAPYEOUNMIEUM(L) = 11E2 KAPYEOUNMIEUM(T) -->
+					<i>ᄝ</i>
+					<i>ᇢ</i>
+				<reset>ᄆᄎ</reset>	<!-- 1106 MIEUM(L) + 110E CHIEUCH(L) = 11E0 MIEUM-CHIEUCH(T) -->
+					<i>ᇠ</i>
+				<reset>ᄆᄒ</reset>	<!-- 1106 MIEUM(L) + 1112 HIEUH(L) = 11E1 MIEUM-HIEUH(T) -->
+					<i>ᇡ</i>
+				<reset>ᄇᄀ</reset>	<!-- 1107 PIEUP(L) + 1100 KIYEOK(L) = 111E PIEUP-KIYEOK(L) -->
+					<i>ᄞ</i>
+				<reset>ᄇᄂ</reset>	<!-- 1107 PIEUP(L) + 1102 NIEUN(L) = 111F PIEUP-NIEUN(L) -->
+					<i>ᄟ</i>
+				<reset>ᄇᄃ</reset>	<!-- 1107 PIEUP(L) + 1103 TIKEUT(L) = 1120 PIEUP-TIKEUT(L) -->
+					<i>ᄠ</i>
+				<reset>ᄇᄅ</reset>	<!-- 1107 PIEUP(L) + 1105 RIEUL(L) = 11E3 PIEUP-RIEUL(T) -->
+					<i>ᇣ</i>
+				<reset>ᄇᄇᄋ</reset>	<!-- 1107 PIEUP(L) + 1107 PIEUP(L) + 110B IEUNG(L) = 112C KAPYEOUNSSANGPIEUP(L) -->
+					<i>ᄬ</i>
+				<reset>ᄇᄉ</reset>	<!-- 1107 PIEUP(L) + 1109 SIOS(L) = 1121 PIEUP-SIOS(L), also modern 11B9 PIEUP-SIOS(T) -->
+					<i>ᄡ</i>
+				<reset>ᄇᄉᄀ</reset>	<!-- 1107 PIEUP(L) + 1109 SIOS(L) + 1100 KIYEOK(L) = 1122 PIEUP-SIOS-KIYEOK(L) -->
+					<i>ᄢ</i>
+				<reset>ᄇᄉᄃ</reset>	<!-- 1107 PIEUP(L) + 1109 SIOS(L) + 1103 TIKEUT(L) = 1123 PIEUP-SIOS-TIKEUT(L) -->
+					<i>ᄣ</i>
+				<reset>ᄇᄉᄇ</reset>	<!-- 1107 PIEUP(L) + 1109 SIOS(L) + 1107 PIEUP(L) = 1124 PIEUP-SIOS-PIEUP(L) -->
+					<i>ᄤ</i>
+				<reset>ᄇᄉᄉ</reset>	<!-- 1107 PIEUP(L) + 1109 SIOS(L) + 1109 SIOS(L) = 1125 PIEUP-SSANGSIOS(L) -->
+					<i>ᄥ</i>
+				<reset>ᄇᄉᄌ</reset>	<!-- 1107 PIEUP(L) + 1109 SIOS(L) + 110C CIEUC(L) = 1126 PIEUP-SIOS-CIEUC(L) -->
+					<i>ᄦ</i>
+				<reset>ᄇᄋ</reset>	<!-- 1107 PIEUP(L) + 110B IEUNG(L) = 112B KAPYEOUNPIEUP(L) = 11E6 KAPYEOUNPIEUP(T) -->
+					<i>ᄫ</i>
+					<i>ᇦ</i>
+				<reset>ᄇᄌ</reset>	<!-- 1107 PIEUP(L) + 110C CIEUC(L) = 1127 PIEUP-CIEUC(L) -->
+					<i>ᄧ</i>
+				<reset>ᄇᄎ</reset>	<!-- 1107 PIEUP(L) + CHIEUCH(L) = 1128 PIEUP-CHIEUCH(L) -->
+					<i>ᄨ</i>
+				<reset>ᄇᄐ</reset>	<!-- 1107 PIEUP(L) + 1110 THIEUTH(L) = 1129 PIEUP-THIEUTH(L) -->
+					<i>ᄩ</i>
+				<reset>ᄇᄑ</reset>	<!-- 1107 PIEUP(L) + 1111 PHIEUPH(L) = 112A PIEUP-PHIEUPH(L) = 11E4 PIEUP-PHIEUPH(T) -->
+					<i>ᄪ</i>
+					<i>ᇤ</i>
+				<reset>ᄇᄒ</reset>	<!-- 1107 PIEUP(L) + 1112 HIEUH(L) = 11E5 PIEUP-HIEUH(T) -->
+					<i>ᇥ</i>
+				<reset>ᄉᄀ</reset>	<!-- 1109 SIOS(L) + 1100 KIYEOK(L) = 112D SIOS-KIYEOK(L) = 11E7 SIOS-KIYEOK(T) -->
+					<i>ᄭ</i>
+					<i>ᇧ</i>
+				<reset>ᄉᄂ</reset>	<!-- 1109 SIOS(L) + 1102 NIEUN(L) = 112E SIOS-NIEUN(L) -->
+					<i>ᄮ</i>
+				<reset>ᄉᄃ</reset>	<!-- 1109 SIOS(L) + 1103 TIKEUT(L) = 112F SIOS-TIKEUT(L) = 11E8 SIOS-TIKEUT(T) -->
+					<i>ᄯ</i>
+					<i>ᇨ</i>
+				<reset>ᄉᄅ</reset>	<!-- 1109 SIOS(L) + 1105 RIEUL(L) = 1130 SIOS-RIEUL(L) = 11E9 SIOS-RIEUL(T) -->
+					<i>ᄰ</i>
+					<i>ᇩ</i>
+				<reset>ᄉᄆ</reset>	<!-- 1109 SIOS(L) + 1106 MIEUM(L) = 1131 SIOS-MIEUM(L) -->
+					<i>ᄱ</i>
+				<reset>ᄉᄇ</reset>	<!-- 1109 SIOS(L) + 1107 PIEUP(L) = 1132 SIOS-PIEUP(L) = 11EA SIOS-PIEUP(T) -->
+					<i>ᄲ</i>
+					<i>ᇪ</i>
+				<reset>ᄉᄇᄀ</reset>	<!-- 1109 SIOS(L) + 1107 PIEUP(L) + 1100 KIYEOK(L) = 1133 SIOS-PIEUP-KIYEOK(L) -->
+					<i>ᄳ</i>
+				<reset>ᄉᄉᄉ</reset>	<!-- 1109 SIOS(L) + 1109 SIOS(L) + 1109 SIOS(L) = 1134 SIOS-SSANGSIOS(L) -->
+					<i>ᄴ</i>
+				<reset>ᄉᄋ</reset>	<!-- 1109 SIOS(L) + 110B IEUNG(L) = 1135 SIOS-IEUNG(L) -->
+					<i>ᄵ</i>
+				<reset>ᄉᄌ</reset>	<!-- 1109 SIOS(L) + 110C CIEUC(L) = 1136 SIOS-CIEUC(L) -->
+					<i>ᄶ</i>
+				<reset>ᄉᄎ</reset>	<!-- 1109 SIOS(L) + 110E CHIEUCH(L) = 1137 SIOS-CHIEUCH(L) -->
+					<i>ᄷ</i>
+				<reset>ᄉᄏ</reset>	<!-- 1109 SIOS(L) + 110F KHIEUKH(L) = 1138 SIOS-KHIEUKH(L) -->
+					<i>ᄸ</i>
+				<reset>ᄉᄐ</reset>	<!-- 1109 SIOS(L) + 1110 THIEUTH(L) = 1139 SIOS-THIEUTH(L) -->
+					<i>ᄹ</i>
+				<reset>ᄉᄑ</reset>	<!-- 1109 SIOS(L) + 1111 PHIEUPH(L) = 113A SIOS-PHIEUPH(L) -->
+					<i>ᄺ</i>
+				<reset>ᄉᄒ</reset>	<!-- 1109 SIOS(L) + 1112 HIEUH(L) = 113B SIOS-HIEUH(L) -->
+					<i>ᄻ</i>
+				<reset>ᄋᄀ</reset>	<!-- 110B IEUNG(L) + 1100 KIYEOK(L) = 1141 IEUNG-KIYEOK(L) = 11EC IEUNG-KIYEOK(T) -->
 					<i>ᅁ</i>
 					<i>ᇬ</i>
-				<reset>ᄋᄀᄀ</reset>	<!-- IEUNG(L) + KIYEOK(L) + KIYEOK(L) = IEUNG-SSANGKIYEOK(T) -->
+				<reset>ᄋᄀᄀ</reset>	<!-- 110B IEUNG(L) + 1100 KIYEOK(L) + 1100 KIYEOK(L) = 11ED IEUNG-SSANGKIYEOK(T) -->
 					<i>ᇭ</i>
-				<reset>ᄋᄃ</reset>	<!-- IEUNG(L) + TIKEUT(L) = IEUNG-TIKEUT(L) -->
+				<reset>ᄋᄃ</reset>	<!-- 110B IEUNG(L) + 1103 TIKEUT(L) = 1142 IEUNG-TIKEUT(L) -->
 					<i>ᅂ</i>
-				<reset>ᄋᄆ</reset>	<!-- IEUNG(L) + MIEUM(L) = IEUNG-MIEUM(L) -->
+				<reset>ᄋᄆ</reset>	<!-- 110B IEUNG(L) + 1106 MIEUM(L) = 1143 IEUNG-MIEUM(L) -->
 					<i>ᅃ</i>
-				<reset>ᄋᄇ</reset>	<!-- IEUNG(L) + PIEUP(L) = IEUNG-PIEUP(L) -->
+				<reset>ᄋᄇ</reset>	<!-- 110B IEUNG(L) + 1107 PIEUP(L) = 1144 IEUNG-PIEUP(L) -->
 					<i>ᅄ</i>
-				<reset>ᄋᄉ</reset>	<!-- IEUNG(L) + SIOS(L) = IEUNG-SIOS(L) -->
+				<reset>ᄋᄉ</reset>	<!-- 110B IEUNG(L) + 1109 SIOS(L) = 1145 IEUNG-SIOS(L) -->
 					<i>ᅅ</i>
-				<reset>ᄋᄋ</reset>	<!-- IEUNG(L) + IEUNG(L) = SSANGIEUNG(L) = SSANGIEUNG(T) -->
+				<reset>ᄋᄋ</reset>	<!-- 110B IEUNG(L) + 110B IEUNG(L) = 1147 SSANGIEUNG(L) = 11EE SSANGIEUNG(T) -->
 					<i>ᅇ</i>
 					<i>ᇮ</i>
-				<reset>ᄋᄌ</reset>	<!-- IEUNG(L) + CIEUC(L) = IEUNG-CIEUC(L) -->
+				<reset>ᄋᄌ</reset>	<!-- 110B IEUNG(L) + 110C CIEUC(L) = 1148 IEUNG-CIEUC(L) -->
 					<i>ᅈ</i>
-				<reset>ᄋᄎ</reset>	<!-- IEUNG(L) + CHIEUCH(L) = IEUNG-CHIEUCH(L) -->
+				<reset>ᄋᄎ</reset>	<!-- 110B IEUNG(L) + 110E CHIEUCH(L) = 1149 IEUNG-CHIEUCH(L) -->
 					<i>ᅉ</i>
-				<reset>ᄋᄏ</reset>	<!-- IEUNG(L) + KHIEUKH(L) = IEUNG-KHIEUKH(T) -->
+				<reset>ᄋᄏ</reset>	<!-- 110B IEUNG(L) + 110F KHIEUKH(L) = 11EF IEUNG-KHIEUKH(T) -->
 					<i>ᇯ</i>
-				<reset>ᄋᄐ</reset>	<!-- IEUNG(L) + THIEUTH(L) = IEUNG-THIEUTH(L) -->
+				<reset>ᄋᄐ</reset>	<!-- 110B IEUNG(L) + 1110 THIEUTH(L) = 114A IEUNG-THIEUTH(L) -->
 					<i>ᅊ</i>
-				<reset>ᄋᄑ</reset>	<!-- IEUNG(L) + PHIEUPH(L) = IEUNG-PHIEUPH(L) -->
+				<reset>ᄋᄑ</reset>	<!-- 110B IEUNG(L) + 1111 PHIEUPH(L) = 114B IEUNG-PHIEUPH(L) -->
 					<i>ᅋ</i>
-				<reset>ᄌ</reset>	<!-- CIEUC(L) = CIEUC(T) -->
-					<i>ᆽ</i>
-				<reset>ᄌᄋ</reset>	<!-- CIEUC(L) + IEUNG(L) = CIEUC-IEUNG(L) -->
+				<reset>ᄌᄋ</reset>	<!-- 110C CIEUC(L) + 110B IEUNG(L) = 114D CIEUC-IEUNG(L) -->
 					<i>ᅍ</i>
-				<reset>ᄌᄌ</reset>	<!-- CIEUC(L) + CIEUC(L) = SSANGCIEUC(L) -->
-					<i>ᄍ</i>
-				<reset>ᄎ</reset>	<!-- CHIEUCH(L) = CHIEUCH(T) -->
-					<i>ᆾ</i>
-				<reset>ᄎᄏ</reset>	<!-- CHIEUCH(L) + KHIEUKH(L) = CHIEUCH-KHIEUKH(L) -->
+				<reset>ᄎᄏ</reset>	<!-- 110E CHIEUCH(L) + 110F KHIEUKH(L) = 1152 CHIEUCH-KHIEUKH(L) -->
 					<i>ᅒ</i>
-				<reset>ᄎᄒ</reset>	<!-- CHIEUCH(L) + HIEUH(L) = CHIEUCH-HIEUH(L) -->
+				<reset>ᄎᄒ</reset>	<!-- 110E CHIEUCH(L) + 1112 HIEUH(L) = 1153 CHIEUCH-HIEUH(L) -->
 					<i>ᅓ</i>
-				<reset>ᄏ</reset>	<!-- KHIEUKH(L) = KHIEUKH(T) -->
-					<i>ᆿ</i>
-				<reset>ᄐ</reset>	<!-- THIEUTH(L) = THIEUTH(T) -->
-					<i>ᇀ</i>
-				<reset>ᄑ</reset>	<!-- PHIEUPH(L) = PHIEUPH(T) -->
-					<i>ᇁ</i>
-				<reset>ᄑᄇ</reset>	<!-- PHIEUPH(L) + PIEUP(L) = PHIEUPH-PIEUP(L) = PHIEUPH-PIEUP(T) -->
+				<reset>ᄑᄇ</reset>	<!-- 1111 PHIEUPH(L) + 1107 PIEUP(L) = 1156 PHIEUPH-PIEUP(L) = 11F3 PHIEUPH-PIEUP(T) -->
 					<i>ᅖ</i>
 					<i>ᇳ</i>
-				<reset>ᄑᄋ</reset>	<!-- PHIEUPH(L) + IEUNG(L) = KAPYEOUNPHIEUPH(L) = KAPYEOUNPHIEUPH(T) -->
+				<reset>ᄑᄋ</reset>	<!-- 1111 PHIEUPH(L) + 110B IEUNG(L) = 1157 KAPYEOUNPHIEUPH(L) = 11F4 KAPYEOUNPHIEUPH(T) -->
 					<i>ᅗ</i>
 					<i>ᇴ</i>
-				<reset>ᄒ</reset>	<!-- HIEUH(L) = HIEUH(T) -->
-					<i>ᇂ</i>
-				<reset>ᄒᄂ</reset>	<!-- HIEUH(L) + NIEUN(L) = HIEUH-NIEUN(T) -->
+				<reset>ᄒᄂ</reset>	<!-- 1112 HIEUH(L) + 1102 NIEUN(L) = 11F5 HIEUH-NIEUN(T) -->
 					<i>ᇵ</i>
-				<reset>ᄒᄅ</reset>	<!-- HIEUH(L) + RIEUL(L) = HIEUH-RIEUL(T) -->
+				<reset>ᄒᄅ</reset>	<!-- 1112 HIEUH(L) + 1105 RIEUL(L) = 11F6 HIEUH-RIEUL(T) -->
 					<i>ᇶ</i>
-				<reset>ᄒᄆ</reset>	<!-- HIEUH(L) + MIEUM(L) = HIEUH-MIEUM(T) -->
+				<reset>ᄒᄆ</reset>	<!-- 1112 HIEUH(L) + 1106 MIEUM(L) = 11F7 HIEUH-MIEUM(T) -->
 					<i>ᇷ</i>
-				<reset>ᄒᄇ</reset>	<!-- HIEUH(L) + PIEUP(L) = HIEUH-PIEUP(T) -->
+				<reset>ᄒᄇ</reset>	<!-- 1112 HIEUH(L) + 1107 PIEUP(L) = 11F8 HIEUH-PIEUP(T) -->
 					<i>ᇸ</i>
-				<reset>ᄒᄒ</reset>	<!-- HIEUH(L) + HIEUH(L) = SSANGHIEUH(L) -->
+				<reset>ᄒᄒ</reset>	<!-- 1112 HIEUH(L) + 1112 HIEUH(L) = 1158 SSANGHIEUH(L) -->
 					<i>ᅘ</i>
-				<!-- Now the complex vowels (decomposes 1176-119C and 11A3-11A7, skips 119D-11A2 -->
-				<reset>ᅡᅩ</reset>	<!-- A + O = A-O -->
+				<!-- Archaic complex vowels (decomposes 1176-119C and 11A3-11A7, need to add handling of 119D-11A2) -->
+				<reset>ᅡᅩ</reset>	<!-- A + O = 1176 A-O(V) -->
 					<i>ᅶ</i>
-				<reset>ᅡᅮ</reset>	<!-- A + U = A-U -->
+				<reset>ᅡᅮ</reset>	<!-- A + U = 1177 A-U(V) -->
 					<i>ᅷ</i>
 				<reset>ᅣᅩ</reset>	<!-- YA + O = YA-O -->
 					<i>ᅸ</i>
@@ -1282,9 +1311,9 @@
 					<i>ᅾ</i>
 				<reset>ᅩᅥ</reset>	<!-- O + EO = O-EO -->
 					<i>ᅿ</i>
-				<reset>ᅩᅦ</reset>	<!-- O + E = O-E -->
+				<reset>ᅩᅥᅵ</reset>	<!-- O + (EO + I) = O-E -->
 					<i>ᆀ</i>
-				<reset>ᅩᅨ</reset>	<!-- O + YE = O-YE -->
+				<reset>ᅩᅧᅵ</reset>	<!-- O + (YEO + I) = O-YE -->
 					<i>ᆁ</i>
 				<reset>ᅩᅩ</reset>	<!-- O + O = O-O -->
 					<i>ᆂ</i>
@@ -1292,7 +1321,7 @@
 					<i>ᆃ</i>
 				<reset>ᅭᅣ</reset>	<!-- YO + YA = YO-YA -->
 					<i>ᆄ</i>
-				<reset>ᅭᅤ</reset>	<!-- YO + YAE = YO-YAE -->
+				<reset>ᅭᅣᅵ</reset>	<!-- YO + (YA + I) = YO-YAE -->
 					<i>ᆅ</i>
 				<reset>ᅭᅧ</reset>	<!-- YO + YEO = YO-YEO -->
 					<i>ᆆ</i>
@@ -1302,11 +1331,11 @@
 					<i>ᆈ</i>
 				<reset>ᅮᅡ</reset>	<!-- U + A = U-A -->
 					<i>ᆉ</i>
-				<reset>ᅮᅢ</reset>	<!-- U + AE = U-AE -->
+				<reset>ᅮᅡᅵ</reset>	<!-- U + (A + I) = U-AE -->
 					<i>ᆊ</i>
 				<reset>ᅮᅥᅳ</reset>	<!-- U + EO + EU = U-EO-EU -->
 					<i>ᆋ</i>
-				<reset>ᅮᅨ</reset>	<!-- U + YE = U-YE -->
+				<reset>ᅮᅧᅵ</reset>	<!-- U + (YEO + I) = U-YE -->
 					<i>ᆌ</i>
 				<reset>ᅮᅮ</reset>	<!-- U + U = U-U -->
 					<i>ᆍ</i>
@@ -1314,11 +1343,11 @@
 					<i>ᆎ</i>
 				<reset>ᅲᅥ</reset>	<!-- YU + EO = YU-EO -->
 					<i>ᆏ</i>
-				<reset>ᅲᅦ</reset>	<!-- YU + E = YU-E -->
+				<reset>ᅲᅥᅵ</reset>	<!-- YU + (EO + I) = YU-E -->
 					<i>ᆐ</i>
 				<reset>ᅲᅧ</reset>	<!-- YU + YEO = YU-YEO -->
 					<i>ᆑ</i>
-				<reset>ᅲᅨ</reset>	<!-- YU + YE = YU-YE -->
+				<reset>ᅲᅧᅵ</reset>	<!-- YU + (YEO + I) = YU-YE -->
 					<i>ᆒ</i>
 				<reset>ᅲᅮ</reset>	<!-- YU + U = YU-U -->
 					<i>ᆓ</i>
@@ -1348,8 +1377,9 @@
 					<i>ᆥ</i>
 				<reset>ᅩᅣ</reset>	<!-- O + YA = O-YA -->
 					<i>ᆦ</i>
-				<reset>ᅩᅤ</reset>	<!-- O + YAE = O-YAE -->
+				<reset>ᅩᅣᅵ</reset>	<!-- O + (YA + I) = O-YAE -->
 					<i>ᆧ</i>
+				<!-- add Hanja - Hangul equivalence rules? -->
 			</rules>
 		</collation>
 		<collation type="unihan">

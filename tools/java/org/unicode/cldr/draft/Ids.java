@@ -443,7 +443,7 @@ U+2FFB ( ⿻ ) IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID
 
     //System.out.println(Ids.parse("⿱一⿰⿵冂丶⿵冂丶"));
     //System.out.println(Ids.parse("⿹&CDP-8BBF;一"));
-    String dirString = "/Users/markdavis/Documents/workspace35/DATA/ids/";
+    String dirString = "/Users/markdavis/Documents/workspace/DATA/ids/";
     File dir = new File(dirString);
     UnicodeMap<Ids> data = new UnicodeMap<Ids>();
     UnicodeSet mapsToSelf = new UnicodeSet();

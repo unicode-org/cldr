@@ -65,29 +65,38 @@ public class SupplementalDataInfo {
   /**
    * Official status of languages
    */
-  public enum OfficialStatus {
-    unknown, recognized, official_regional, official_minority, de_facto_official, official;
+    public enum OfficialStatus {
+        unknown("U", 1),
+        recognized("R", 1),
+        official_minority("OM", 2),
+        official_regional("OR", 3), 
+        de_facto_official("R", 10),
+        official("R", 10);
 
-    public String toShortString() {
-      switch (this) {
-      case unknown: return "U";
-      case de_facto_official: return "DO";
-      case recognized: return "R";
-      case official: return "O";
-      case official_regional: return "OR";
-      case official_minority: return "OM";
-      }
-      throw new IllegalArgumentException("Missing value");
-    }
+        private final String shortName;
+        private final int    weight;
 
-    public boolean isMajor() {
-      return compareTo(OfficialStatus.de_facto_official) >= 0;
-    }
+        private OfficialStatus(String shortName, int weight) {
+            this.shortName = shortName;
+            this.weight = weight;
+        }
 
-    public boolean isOfficial() {
-      return compareTo(OfficialStatus.official_regional) >= 0;
-    }
-  };
+        public String toShortString() {
+            return shortName;
+        }
+
+        public int getWeight() {
+            return weight;
+        }
+
+        public boolean isMajor() {
+            return compareTo(OfficialStatus.de_facto_official) >= 0;
+        }
+
+        public boolean isOfficial() {
+            return compareTo(OfficialStatus.official_regional) >= 0;
+        }
+    };
 
   /**
    * Population data for different languages.
@@ -1073,9 +1082,14 @@ public class SupplementalDataInfo {
         Map<String, String> languageInTerritoryAttributes = parts
         .getAttributes(3);
         String language = languageInTerritoryAttributes.get("type");
-        double languageLiteracyPercent = parseDouble(languageInTerritoryAttributes.get("literacyPercent"));
-        if (Double.isNaN(languageLiteracyPercent))
+        double languageLiteracyPercent = parseDouble(languageInTerritoryAttributes.get("writingPercent"));
+        if (Double.isNaN(languageLiteracyPercent)) {
           languageLiteracyPercent = territoryLiteracyPercent;
+        } else {
+            if (true) System.out.println("writingPercent\t" + languageLiteracyPercent
+                    + "\tterritory\t" + territory
+                    + "\tlanguage\t" + language);
+        }
         double languagePopulationPercent = parseDouble(languageInTerritoryAttributes.get("populationPercent"));
         double languagePopulation = languagePopulationPercent * territoryPopulation / 100;
         //double languageGdp = languagePopulationPercent * territoryGdp;

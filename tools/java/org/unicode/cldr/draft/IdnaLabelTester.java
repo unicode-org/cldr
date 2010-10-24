@@ -206,7 +206,7 @@ public class IdnaLabelTester {
 
     public static XEquivalenceClass<String,String> getConfusables() throws IOException {
         XEquivalenceClass<String,String> result = new XEquivalenceClass<String,String>();
-        BufferedReader in = openFile("/Users/markdavis/Documents/workspace35/draft/reports/tr39/data/confusables.txt");
+        BufferedReader in = openFile("/Users/markdavis/Documents/workspace/draft/reports/tr39/data/confusables.txt");
         String original = null;
         try {
             while (true) {

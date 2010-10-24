@@ -43,7 +43,7 @@ public class RadicalStroke {
       Matcher iiCore = IICORE.matcher("");
       radStrokesToRadToRemainingStrokes = new TreeMap<Integer, Map<String,Map<Integer,UnicodeSet>>>();
       remainder = ScriptCategories.parseUnicodeSet("[:script=Han:]").removeAll(GeneratePickerData.SKIP);
-      String dataDir = CldrUtility.getProperty("DATA_DIR", "/Users/markdavis/Documents/workspace35/DATA/UCD/5.2.0-Update/Unihan/");
+      String dataDir = CldrUtility.getProperty("DATA_DIR", "/Users/markdavis/Documents/workspace/DATA/UCD/5.2.0-Update/Unihan/");
 
       String unihanFile = GeneratePickerData.unicodeDataDirectory + "Unihan.txt";
       BufferedReader in = new BufferedReader(

@@ -20,7 +20,7 @@ import com.ibm.icu.dev.test.util.Relation;
  * @author markdavis
  */
 public class TestDtdCompatibility extends TestFmwk {
-  static final String oldCommon = CldrUtility.getProperty("oldCommon", "/Users/markdavis/Documents/workspace35/cldr-maint-1-7/common");
+  static final String oldCommon = CldrUtility.getProperty("oldCommon", "/Users/markdavis/Documents/workspace/cldr-maint-1-7/common");
 
   public static void main(String[] args) {
     new TestDtdCompatibility().run(args);

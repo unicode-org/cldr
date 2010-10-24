@@ -75,6 +75,8 @@ public class CLDRTransforms {
     final List<String> files = Arrays.asList(new File(TRANSFORM_DIR).list());
     Set<String> ordered = r.dependencyOrder.getOrderedItems(files, filter, true);
 
+    //System.out.println(ordered);
+    
     for (String cldrFileName : ordered) {
       r.registerTransliteratorsFromXML(dir, cldrFileName, files);
     }
@@ -93,6 +95,8 @@ public class CLDRTransforms {
   class DependencyOrder {
     //String[] doFirst = {"Latin-ConjoiningJamo"};
     // the following are file names, not IDs, so the dependencies have to go both directions
+      //List<String> extras = new ArrayList<String>();
+      
     Relation<Matcher,String> dependsOn = new Relation(new LinkedHashMap(), LinkedHashSet.class);
     {
       addDependency("Latin-(Jamo|Hangul)(/.*)?", "Latin-ConjoiningJamo", "ConjoiningJamo-Latin");
@@ -115,7 +119,21 @@ public class CLDRTransforms {
       addDependency(".*Digit.*", "NumericPinyin-Pinyin", "Pinyin-NumericPinyin");
       addDependency("Latin-NumericPinyin(/.*)?", "Tone-Digit", "Digit-Tone");
       addDependency("NumericPinyin-Latin(/.*)?", "Tone-Digit", "Digit-Tone");
+      addDependency("cs-ja", "cs-cs_FONIPA", "cs_FONIPA-ja");
+      addDependency("cs_FONIPA-ko", "Latin-Hangul");
+      addDependency("cs-ko", "cs-cs_FONIPA", "cs_FONIPA-ko");
+      addDependency("es_419-ja", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "es_FONIPA-ja");
+      addDependency("es-am", "es-es_FONIPA", "es_FONIPA-am");
+      addDependency("es-ja", "es-es_FONIPA", "es_FONIPA-ja");
+      addDependency("es-zh", "es-es_FONIPA", "es_FONIPA-zh");
 
+      addDependency("Han-Latin-Names", "Han-Latin");
+      
+      addDependency("pl-ja", "pl-pl_FONIPA", "pl_FONIPA-ja");
+      addDependency("ro-ja", "ro-ro_FONIPA", "ro_FONIPA-ja");
+      addDependency("sk-ja", "sk-sk_FONIPA", "sk_FONIPA-ja");
+
+      //addExtras("cs-ja", "cs-ja", "es-am", "es-ja", "es-zh", "Han-Latin/Names");
       //Pinyin-NumericPinyin.xml
     }
 
@@ -124,11 +142,20 @@ public class CLDRTransforms {
       addDependency(".*-" + "Bengali" + "(/.*)?", pivot + "-" + "Bengali", pivot + "-" + "Bengali");
     }
 
+//    private void addExtras(String... strings) {
+//        for (String item : strings) {
+//            extras.add(item);
+//        }
+//    }
+
     private void addDependency(String pattern, String... whatItDependsOn) {
       dependsOn.putAll(Pattern.compile(pattern).matcher(""), Arrays.asList(whatItDependsOn));
     }
 
-    public Set<String> getOrderedItems(Collection<String> input, Matcher filter, boolean hasXmlSuffix) {
+    public Set<String> getOrderedItems(Collection<String> rawInput, Matcher filter, boolean hasXmlSuffix) {
+        Set<String> input = new LinkedHashSet<String>(rawInput);
+        //input.addAll(extras);
+
       Set<String> ordered = new LinkedHashSet<String>();
 
       //      for (String other : doFirst) {
@@ -498,10 +525,17 @@ public class CLDRTransforms {
       Transliterator t;
       try {
         t = Transliterator.getInstance(oldId);
+      } catch (IllegalArgumentException e) {
+          if (e.getMessage().startsWith("Illegal ID")) {
+              continue;
+          }
+          append("Failure with: " + oldId);
+          t = Transliterator.getInstance(oldId);
+          throw e;
       } catch (RuntimeException e) {
-        append("Failure with: " + oldId);
-        t = Transliterator.getInstance(oldId);
-        throw e;
+          append("Failure with: " + oldId);
+          t = Transliterator.getInstance(oldId);
+          throw e;
       }
       String className = t.getClass().getName();
       if (className.endsWith(".CompoundTransliterator")

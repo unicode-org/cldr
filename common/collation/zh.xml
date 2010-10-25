@@ -97,6 +97,89 @@
 		</collation>
         <collation type='pinyin'>
             <rules>
+				<reset before="secondary">a</reset>
+				<s>ā</s>
+				<t>Ā</t>
+				<s>á</s>
+				<t>Á</t>
+				<s>ǎ</s>
+				<t>Ǎ</t>
+				<s>à</s>
+				<t>À</t>
+				<reset before="secondary">e</reset>
+				<s>ē</s>
+				<t>Ē</t>
+				<s>é</s>
+				<t>É</t>
+				<s>ě</s>
+				<t>Ě</t>
+				<s>è</s>
+				<t>È</t>
+				<reset>e</reset>
+				<s>ê̄</s>
+				<t>Ê̄</t>
+				<s>ế</s>
+				<t>Ế</t>
+				<s>ê̌</s>
+				<t>Ê̌</t>
+				<s>ề</s>
+				<t>Ề</t>
+				<reset before="secondary">i</reset>
+				<s>ī</s>
+				<t>Ī</t>
+				<s>í</s>
+				<t>Í</t>
+				<s>ǐ</s>
+				<t>Ǐ</t>
+				<s>ì</s>
+				<t>Ì</t>
+				<reset before="secondary">m</reset>
+				<s>m̄</s>
+				<t>M̄</t>
+				<s>ḿ</s>
+				<t>Ḿ</t>
+				<s>m̌</s>
+				<t>M̌</t>
+				<s>m̀</s>
+				<t>M̀</t>
+				<reset before="secondary">n</reset>
+				<s>n̄</s>
+				<t>N̄</t>
+				<s>ń</s>
+				<t>Ń</t>
+				<s>ň</s>
+				<t>Ň</t>
+				<s>ǹ</s>
+				<t>Ǹ</t>
+				<reset before="secondary">o</reset>
+				<s>ō</s>
+				<t>Ō</t>
+				<s>ó</s>
+				<t>Ó</t>
+				<s>ǒ</s>
+				<t>Ǒ</t>
+				<s>ò</s>
+				<t>Ò</t>
+				<reset before="secondary">u</reset>
+				<s>ū</s>
+				<t>Ū</t>
+				<s>ú</s>
+				<t>Ú</t>
+				<s>ǔ</s>
+				<t>Ǔ</t>
+				<s>ù</s>
+				<t>Ù</t>
+				<reset>U</reset>
+				<s>ǖ</s>
+				<t>Ǖ</t>
+				<s>ǘ</s>
+				<t>Ǘ</t>
+				<s>ǚ</s>
+				<t>Ǚ</t>
+				<s>ǜ</s>
+				<t>Ǜ</t>
+				<s>ü</s>
+				<t>Ü</t>
                <reset><last_non_ignorable /></reset>
                <pc>阿呵𥥩腌锕𠼞𨉚</pc><!-- ā -->
                <pc>嗄</pc><!-- á -->
@@ -2647,6 +2730,89 @@
         </collation>
         <collation type='pinyin' alt='short'>
             <rules>
+				<reset before="secondary">a</reset>
+				<s>ā</s>
+				<t>Ā</t>
+				<s>á</s>
+				<t>Á</t>
+				<s>ǎ</s>
+				<t>Ǎ</t>
+				<s>à</s>
+				<t>À</t>
+				<reset before="secondary">e</reset>
+				<s>ē</s>
+				<t>Ē</t>
+				<s>é</s>
+				<t>É</t>
+				<s>ě</s>
+				<t>Ě</t>
+				<s>è</s>
+				<t>È</t>
+				<reset>e</reset>
+				<s>ê̄</s>
+				<t>Ê̄</t>
+				<s>ế</s>
+				<t>Ế</t>
+				<s>ê̌</s>
+				<t>Ê̌</t>
+				<s>ề</s>
+				<t>Ề</t>
+				<reset before="secondary">i</reset>
+				<s>ī</s>
+				<t>Ī</t>
+				<s>í</s>
+				<t>Í</t>
+				<s>ǐ</s>
+				<t>Ǐ</t>
+				<s>ì</s>
+				<t>Ì</t>
+				<reset before="secondary">m</reset>
+				<s>m̄</s>
+				<t>M̄</t>
+				<s>ḿ</s>
+				<t>Ḿ</t>
+				<s>m̌</s>
+				<t>M̌</t>
+				<s>m̀</s>
+				<t>M̀</t>
+				<reset before="secondary">n</reset>
+				<s>n̄</s>
+				<t>N̄</t>
+				<s>ń</s>
+				<t>Ń</t>
+				<s>ň</s>
+				<t>Ň</t>
+				<s>ǹ</s>
+				<t>Ǹ</t>
+				<reset before="secondary">o</reset>
+				<s>ō</s>
+				<t>Ō</t>
+				<s>ó</s>
+				<t>Ó</t>
+				<s>ǒ</s>
+				<t>Ǒ</t>
+				<s>ò</s>
+				<t>Ò</t>
+				<reset before="secondary">u</reset>
+				<s>ū</s>
+				<t>Ū</t>
+				<s>ú</s>
+				<t>Ú</t>
+				<s>ǔ</s>
+				<t>Ǔ</t>
+				<s>ù</s>
+				<t>Ù</t>
+				<reset>U</reset>
+				<s>ǖ</s>
+				<t>Ǖ</t>
+				<s>ǘ</s>
+				<t>Ǘ</t>
+				<s>ǚ</s>
+				<t>Ǚ</t>
+				<s>ǜ</s>
+				<t>Ǜ</t>
+				<s>ü</s>
+				<t>Ü</t>
                <reset><last_non_ignorable /></reset>
                <pc>阿呵腌锕</pc><!-- ā -->
                <pc>嗄</pc><!-- á -->
@@ -5182,6 +5348,89 @@
 		</collation>
 		        <collation type='stroke'>
             <rules>
+				<reset before="secondary">a</reset>
+				<s>ā</s>
+				<t>Ā</t>
+				<s>á</s>
+				<t>Á</t>
+				<s>ǎ</s>
+				<t>Ǎ</t>
+				<s>à</s>
+				<t>À</t>
+				<reset before="secondary">e</reset>
+				<s>ē</s>
+				<t>Ē</t>
+				<s>é</s>
+				<t>É</t>
+				<s>ě</s>
+				<t>Ě</t>
+				<s>è</s>
+				<t>È</t>
+				<reset>e</reset>
+				<s>ê̄</s>
+				<t>Ê̄</t>
+				<s>ế</s>
+				<t>Ế</t>
+				<s>ê̌</s>
+				<t>Ê̌</t>
+				<s>ề</s>
+				<t>Ề</t>
+				<reset before="secondary">i</reset>
+				<s>ī</s>
+				<t>Ī</t>
+				<s>í</s>
+				<t>Í</t>
+				<s>ǐ</s>
+				<t>Ǐ</t>
+				<s>ì</s>
+				<t>Ì</t>
+				<reset before="secondary">m</reset>
+				<s>m̄</s>
+				<t>M̄</t>
+				<s>ḿ</s>
+				<t>Ḿ</t>
+				<s>m̌</s>
+				<t>M̌</t>
+				<s>m̀</s>
+				<t>M̀</t>
+				<reset before="secondary">n</reset>
+				<s>n̄</s>
+				<t>N̄</t>
+				<s>ń</s>
+				<t>Ń</t>
+				<s>ň</s>
+				<t>Ň</t>
+				<s>ǹ</s>
+				<t>Ǹ</t>
+				<reset before="secondary">o</reset>
+				<s>ō</s>
+				<t>Ō</t>
+				<s>ó</s>
+				<t>Ó</t>
+				<s>ǒ</s>
+				<t>Ǒ</t>
+				<s>ò</s>
+				<t>Ò</t>
+				<reset before="secondary">u</reset>
+				<s>ū</s>
+				<t>Ū</t>
+				<s>ú</s>
+				<t>Ú</t>
+				<s>ǔ</s>
+				<t>Ǔ</t>
+				<s>ù</s>
+				<t>Ù</t>
+				<reset>U</reset>
+				<s>ǖ</s>
+				<t>Ǖ</t>
+				<s>ǘ</s>
+				<t>Ǘ</t>
+				<s>ǚ</s>
+				<t>Ǚ</t>
+				<s>ǜ</s>
+				<t>Ǜ</t>
+				<s>ü</s>
+				<t>Ü</t>
                <reset><last_non_ignorable /></reset>
                <pc>一丨丶丿乀乁⺄乙乚乛𠃉𠃊𠃋𠃌𠃍𠃎𠃑亅𠄌〆〇〡〥〻</pc><!-- 1 -->
                <pc>丁丂七丄丅丆𠀀𠀁𠀂丩𠁡𠁢丷𪜊㐅乂乃乄𠂆𠂇𠂈𠂉𠂊乜九龴𠃏𠃐了𠄍𠄎𠄏𠄐二𠄞𠄟𠄠亠人亻𠆢儿入八⺆冂冖冫⺇几𠘧𠘨凵𠙴⺈刀刁刂𠚣力勹匕𠤎匚𠤬匸十⺊卜卩厂厶⺀又巜廴讠𨙨⻏⻖阝𨸏〢〤〦</pc><!-- 2 -->
@@ -6699,6 +6948,89 @@
 
         <collation type='stroke' alt='short'>
             <rules>
+				<reset before="secondary">a</reset>
+				<s>ā</s>
+				<t>Ā</t>
+				<s>á</s>
+				<t>Á</t>
+				<s>ǎ</s>
+				<t>Ǎ</t>
+				<s>à</s>
+				<t>À</t>
+				<reset before="secondary">e</reset>
+				<s>ē</s>
+				<t>Ē</t>
+				<s>é</s>
+				<t>É</t>
+				<s>ě</s>
+				<t>Ě</t>
+				<s>è</s>
+				<t>È</t>
+				<reset>e</reset>
+				<s>ê̄</s>
+				<t>Ê̄</t>
+				<s>ế</s>
+				<t>Ế</t>
+				<s>ê̌</s>
+				<t>Ê̌</t>
+				<s>ề</s>
+				<t>Ề</t>
+				<reset before="secondary">i</reset>
+				<s>ī</s>
+				<t>Ī</t>
+				<s>í</s>
+				<t>Í</t>
+				<s>ǐ</s>
+				<t>Ǐ</t>
+				<s>ì</s>
+				<t>Ì</t>
+				<reset before="secondary">m</reset>
+				<s>m̄</s>
+				<t>M̄</t>
+				<s>ḿ</s>
+				<t>Ḿ</t>
+				<s>m̌</s>
+				<t>M̌</t>
+				<s>m̀</s>
+				<t>M̀</t>
+				<reset before="secondary">n</reset>
+				<s>n̄</s>
+				<t>N̄</t>
+				<s>ń</s>
+				<t>Ń</t>
+				<s>ň</s>
+				<t>Ň</t>
+				<s>ǹ</s>
+				<t>Ǹ</t>
+				<reset before="secondary">o</reset>
+				<s>ō</s>
+				<t>Ō</t>
+				<s>ó</s>
+				<t>Ó</t>
+				<s>ǒ</s>
+				<t>Ǒ</t>
+				<s>ò</s>
+				<t>Ò</t>
+				<reset before="secondary">u</reset>
+				<s>ū</s>
+				<t>Ū</t>
+				<s>ú</s>
+				<t>Ú</t>
+				<s>ǔ</s>
+				<t>Ǔ</t>
+				<s>ù</s>
+				<t>Ù</t>
+				<reset>U</reset>
+				<s>ǖ</s>
+				<t>Ǖ</t>
+				<s>ǘ</s>
+				<t>Ǘ</t>
+				<s>ǚ</s>
+				<t>Ǚ</t>
+				<s>ǜ</s>
+				<t>Ǜ</t>
+				<s>ü</s>
+				<t>Ü</t>
                <reset><last_non_ignorable /></reset>
                <pc>一丨丶丿乀乁⺄乙乚乛𠃊𠃋𠃌𠃍𠃑亅𠄌〆〇〡〥〻</pc><!-- 1 -->
                <pc>丁丂七丄丅丆丩丷乂乃乄𠂆𠂇𠂊乜九了𠄎二亠人亻儿入八⺆冂冖冫⺇几凵⺈刀刁刂力勹匕匚匸十⺊卜卩厂厶⺀又巜廴讠⻏⻖阝𨸏〢〤〦</pc><!-- 2 -->
@@ -7899,6 +8231,89 @@
 		</collation>
 		<collation type='unihan'>
             <rules>
+				<reset before="secondary">a</reset>
+				<s>ā</s>
+				<t>Ā</t>
+				<s>á</s>
+				<t>Á</t>
+				<s>ǎ</s>
+				<t>Ǎ</t>
+				<s>à</s>
+				<t>À</t>
+				<reset before="secondary">e</reset>
+				<s>ē</s>
+				<t>Ē</t>
+				<s>é</s>
+				<t>É</t>
+				<s>ě</s>
+				<t>Ě</t>
+				<s>è</s>
+				<t>È</t>
+				<reset>e</reset>
+				<s>ê̄</s>
+				<t>Ê̄</t>
+				<s>ế</s>
+				<t>Ế</t>
+				<s>ê̌</s>
+				<t>Ê̌</t>
+				<s>ề</s>
+				<t>Ề</t>
+				<reset before="secondary">i</reset>
+				<s>ī</s>
+				<t>Ī</t>
+				<s>í</s>
+				<t>Í</t>
+				<s>ǐ</s>
+				<t>Ǐ</t>
+				<s>ì</s>
+				<t>Ì</t>
+				<reset before="secondary">m</reset>
+				<s>m̄</s>
+				<t>M̄</t>
+				<s>ḿ</s>
+				<t>Ḿ</t>
+				<s>m̌</s>
+				<t>M̌</t>
+				<s>m̀</s>
+				<t>M̀</t>
+				<reset before="secondary">n</reset>
+				<s>n̄</s>
+				<t>N̄</t>
+				<s>ń</s>
+				<t>Ń</t>
+				<s>ň</s>
+				<t>Ň</t>
+				<s>ǹ</s>
+				<t>Ǹ</t>
+				<reset before="secondary">o</reset>
+				<s>ō</s>
+				<t>Ō</t>
+				<s>ó</s>
+				<t>Ó</t>
+				<s>ǒ</s>
+				<t>Ǒ</t>
+				<s>ò</s>
+				<t>Ò</t>
+				<reset before="secondary">u</reset>
+				<s>ū</s>
+				<t>Ū</t>
+				<s>ú</s>
+				<t>Ú</t>
+				<s>ǔ</s>
+				<t>Ǔ</t>
+				<s>ù</s>
+				<t>Ù</t>
+				<reset>U</reset>
+				<s>ǖ</s>
+				<t>Ǖ</t>
+				<s>ǘ</s>
+				<t>Ǘ</t>
+				<s>ǚ</s>
+				<t>Ǚ</t>
+				<s>ǜ</s>
+				<t>Ǜ</t>
+				<s>ü</s>
+				<t>Ü</t>
                <reset><last_non_ignorable /></reset>
                <pc>一</pc><!-- 1.0 -->
                <pc>丁丂七丄丅丆𠀀𠀁𠀂</pc><!-- 1.1 -->

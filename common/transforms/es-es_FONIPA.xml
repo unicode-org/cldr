@@ -19,7 +19,6 @@
 			# Definitions.
 			</comment>
 			<tRule>$bow = [-\ $] ;  # Beginning of word.</tRule>
-			<tRule>$breve = '̯' ;   # Marker for off-glides in diphthongs.</tRule>
 			<tRule>$consonant = [bβdðfgɣʝklʎmnŋɲθprɾstʧx] ;</tRule>
 			<tRule>$syll = '.' ;    # Syllable boundary.</tRule>
 			<comment>
@@ -54,19 +53,19 @@
 			</comment>
 			<tRule>$bow       { i                 → i ;</tRule>
 			<tRule>$consonant { i } [ aáeé  oóuú] → j ;</tRule>
-			<tRule>[aeo]      { i } [^aáeé  oóuú] → i $breve ;</tRule>
+			<tRule>[aeo]      { i } [^aáeé  oóuú] → i̯ ;</tRule>
 			<tRule>i } [ aáeé  oóuú] → ʝ ;</tRule>
 			<tRule>i                 → i ;</tRule>
 			<comment>
 			#
 			</comment>
-			<tRule>[aeo]      { y } [^aáeéiíoóuú] → i $breve ;</tRule>
+			<tRule>[aeo]      { y } [^aáeéiíoóuú] → i̯ ;</tRule>
 			<tRule>y } [ aáeéiíoóuú] → ʝ ;</tRule>
 			<tRule>y                 → i ;</tRule>
 			<comment>
 			#
 			</comment>
-			<tRule>[aeo]      { u } [^aáeéiíoó  ] → u $breve ;</tRule>
+			<tRule>[aeo]      { u } [^aáeéiíoó  ] → u̯ ;</tRule>
 			<tRule>u } [ aáeéiíoó  ] → w ;</tRule>
 			<tRule>ü } [   eéií    ] → w ;</tRule>
 			<tRule>u                 → u ;</tRule>

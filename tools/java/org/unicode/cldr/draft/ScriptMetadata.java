@@ -5,8 +5,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import sun.text.normalizer.UTF16;
-
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.lang.UScript;
 
 

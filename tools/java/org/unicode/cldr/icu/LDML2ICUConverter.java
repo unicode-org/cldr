@@ -128,6 +128,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private boolean asciiNumbers;
     private int startOfRange;   // First character of a potential range.
     private int lastOfRange;    // The (so far) last character of a potential range.
+    private String lastStrengthSymbol = "";
 
     /**
      * Add comments on the item to indicate where fallbacks came from. Good for information, bad for diffs.
@@ -4570,6 +4571,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             return null;
         }
 
+        lastStrengthSymbol = "";
         StringBuilder rules = new StringBuilder();
         for (Node node = root.getFirstChild(); node != null; node = node.getNextSibling()) {
             if (node.getNodeType() != Node.ELEMENT_NODE) {
@@ -4973,6 +4975,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 ret.append(quoteOperand(node.getNodeValue()));
             }
         }
+        lastStrengthSymbol = "";
 
         return ret;
     }
@@ -5023,11 +5026,15 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         while ((ch = iter.nextCodePoint()) != UCharacterIterator.DONE) {
           if (inertSet.contains(ch)) {  // The character is nfd_inert.
                 if (restartExpandedRules){
-                    addSpaceForDebug(ret);
+                   addSpaceForDebug(ret);
 
                     // This is the start of an expanded rule.  Add the strength
                     // symbol, with a star, and then the first character.
-                    ret.append(strengthSymbol);
+                    if (!strengthSymbol.equals(lastStrengthSymbol)) {
+                      ret.append(strengthSymbol);
+                      lastStrengthSymbol = strengthSymbol;
+                    }
+
                     addSpaceForDebug(ret);
                     ret.append(quoteOperand(UTF16.valueOf(ch)));
                     startOfRange = lastOfRange = ch;
@@ -5047,6 +5054,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 // Treat it without compact collation syntax.
                 ret.append(nonExpandedStrengthSymbol);
                 ret.append(quoteOperand(UTF16.valueOf(ch)));
+                lastStrengthSymbol = nonExpandedStrengthSymbol;
 
                 // Restart expanded rules so that if there are more characters,
                 // they will use compact collation syntax.

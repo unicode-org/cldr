@@ -4524,7 +4524,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         Set<String> typesWithAlt = new HashSet<String>();
 		// Collect set of collation types that have alt='short' variants
 		for (Node node = root.getFirstChild(); node != null; node = node.getNextSibling()) {
-			if (node.getNodeType() == Node.ELEMENT_NODE && node.getNodeName() == LDMLConstants.COLLATION) {
+			if (node.getNodeType() == Node.ELEMENT_NODE && node.getNodeName().equals(LDMLConstants.COLLATION)) {
 				NamedNodeMap attributes = node.getAttributes();
 				if (attributes != null) {
 					Node typeNode = attributes.getNamedItem(LDMLConstants.TYPE);

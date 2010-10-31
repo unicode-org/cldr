@@ -59,6 +59,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.NamedNodeMap;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.tool.UOption;
@@ -97,6 +98,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private static final int ASCII_NUMBERS = 15;
     private static final int WINDOWSZONES_ONLY = 16;
     private static final int BCP47_KEY_TYPE = 17;
+    private static final int SHORT_COLLATIONS = 18;
 
     private static final UOption[] options = new UOption[] {
         UOption.HELP_H(),
@@ -117,6 +119,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         UOption.create("ascii-numbers", 'a', UOption.NO_ARG),
         UOption.create("windowszones-only", 'i', UOption.NO_ARG),
         UOption.create("bcp47-keytype", 'k', UOption.REQUIRES_ARG),
+        UOption.create("short-collations", 'c', UOption.NO_ARG),
     };
 
     private String sourceDir;
@@ -126,6 +129,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private boolean writeDraft;
     private boolean writeBinary;
     private boolean asciiNumbers;
+    private boolean shortCollations;
     private int startOfRange;   // First character of a potential range.
     private int lastOfRange;    // The (so far) last character of a potential range.
     private String lastStrengthSymbol = "";
@@ -229,6 +233,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             "-a or --ascii-numbers      do ASCII-only numbers.\n" +
             "-k [dir] or --bcp47-keytype [dir]  write data for bcp47 key/type data.  'dir' is a " +
                                        "directory of bcp47 key/type data xml files.\n" +
+            "-c or --short-collations   choose alt='short' collations if available.\n" +
             "example: org.unicode.cldr.icu.LDML2ICUConverter -s xxx -d yyy en.xml");
         System.exit(-1);
     }
@@ -279,6 +284,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         if (options[ASCII_NUMBERS].doesOccur) {
             asciiNumbers = true;
+        }
+        if (options[SHORT_COLLATIONS].doesOccur) {
+            shortCollations = true;
         }
 
         // Set up logging so we can use it here on out
@@ -4513,6 +4521,21 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             return null;
         }
 
+        Set<String> typesWithAlt = new HashSet<String>();
+		// Collect set of collation types that have alt='short' variants
+		for (Node node = root.getFirstChild(); node != null; node = node.getNextSibling()) {
+			if (node.getNodeType() == Node.ELEMENT_NODE && node.getNodeName() == LDMLConstants.COLLATION) {
+				NamedNodeMap attributes = node.getAttributes();
+				if (attributes != null) {
+					Node typeNode = attributes.getNamedItem(LDMLConstants.TYPE);
+					Node altNode = attributes.getNamedItem(LDMLConstants.ALT);
+					if (typeNode != null && altNode != null && altNode.getNodeValue().equals(LDMLConstants.SHORT)) {
+						typesWithAlt.add(typeNode.getNodeValue());
+					}
+				}
+			}
+		}
+
         current = table.first = null; // parseValidSubLocales(root, xpath);
         for (Node node = root.getFirstChild(); node != null; node = node.getNextSibling()) {
             if (node.getNodeType() != Node.ELEMENT_NODE) {
@@ -4530,6 +4553,27 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             if (name.equals(LDMLConstants.DEFAULT)) {
                 res = getDefaultResource(node, xpath, name);
             } else if (name.equals(LDMLConstants.COLLATION)) {
+                NamedNodeMap attributes = node.getAttributes();
+                if (attributes != null) {
+                    Node typeNode = attributes.getNamedItem(LDMLConstants.TYPE);
+                    if (typeNode != null && typesWithAlt.contains(typeNode.getNodeValue())) {
+                    	// This collation type has an alt='short' variant, pick the right one
+                    	Node altNode = attributes.getNamedItem(LDMLConstants.ALT);
+                    	if (shortCollations) {
+                    		if (altNode == null || !(altNode.getNodeValue().equals(LDMLConstants.SHORT))) {
+                    			continue;
+                    		} else {
+                    			log.info("Using short variant for collation type " + typeNode.getNodeValue());
+                    		}
+                    	} else {
+                    		if (altNode != null) { // There might be other alt variants, skip them
+                    			continue;
+                    		} else {
+                    			log.info("Using full variant for collation type " + typeNode.getNodeValue());
+                    		}
+                    	}
+                    }
+                }
                 res = parseCollation(node, fullyResolvedDoc, xpath, checkIfConvertible);
             } else {
                 log.error("Encountered unknown <" + root.getNodeName() + "> subelement: " + name);

@@ -200,6 +200,7 @@ public class LDMLConstants {
     public static final String FIELDS          = "fields";
     public static final String FIELD           = "field";
     public static final String RELATIVE        = "relative";
+    public static final String IMPORT          = "import";
     // supplemental data
     public static final String SUPPLEMENTAL_DATA = "supplementalData";
     public static final String CURRENCY_DATA     = "currencyData";

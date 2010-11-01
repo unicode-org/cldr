@@ -1162,10 +1162,14 @@ $Date$
 
 <!ELEMENT optimize ( #PCDATA | cp )* >
 
-<!ELEMENT rules (alias | ( reset, ( reset | p | pc |  s | sc | t | tc | i | ic | x)* )) >
+<!ELEMENT rules (alias | ( reset, ( reset | import | p | pc |  s | sc | t | tc | i | ic | x)* )) >
 
 <!ELEMENT reset ( #PCDATA | cp  | first_variable| last_variable | first_tertiary_ignorable | last_tertiary_ignorable | first_secondary_ignorable | last_secondary_ignorable | first_primary_ignorable | last_primary_ignorable | first_non_ignorable | last_non_ignorable | first_trailing | last_trailing )* >
 <!ATTLIST reset before NMTOKEN #IMPLIED >
+
+<!ELEMENT import EMPTY >
+<!ATTLIST import source CDATA #REQUIRED >
+<!ATTLIST import type CDATA #IMPLIED >
 
 <!ELEMENT p  ( #PCDATA  | cp | last_variable )* >
 

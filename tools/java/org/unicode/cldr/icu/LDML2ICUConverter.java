@@ -4851,6 +4851,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 rules.append(parseExtension(node));
             } else if (name.equals(LDMLConstants.RESET)) {
                 rules.append(parseReset(node));
+            } else if (name.equals(LDMLConstants.IMPORT)) {
+                rules.append(parseImport(node));
             } else {
                 log.error("Encountered unknown <" + root.getNodeName() + "> subelement: " + name);
                 System.exit(-1);
@@ -5022,6 +5024,32 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         lastStrengthSymbol = "";
 
         return ret;
+    }
+
+    private StringBuilder parseImport(Node node) {
+      StringBuilder ret = new StringBuilder();
+
+      org.w3c.dom.NamedNodeMap attributes = node.getAttributes();
+      if (attributes == null || attributes.getLength() == 0) {
+        throw new InternalError("<import> doesn't have any attributes.");
+      }
+
+      Node source = attributes.getNamedItem("source");
+      Node type = attributes.getNamedItem("type");
+
+      if (source == null) {
+        throw new InternalError("<import> doesn't have a source attribute.");
+      }
+
+      ret.append("[import ");
+      ret.append(source.getNodeValue().replace("_", "-"));
+      if (type != null) {
+        ret.append("-u-co-");
+        ret.append(type.getNodeValue());
+      }
+      ret.append("]");
+
+      return ret;
     }
 
     /**

@@ -297,7 +297,7 @@ public class XPathParts {
             et1 = e1.getAttribute("id");
             et2 = e2.getAttribute("id");
           }
-          if(et1.equals(et2)){
+          if(et1!=null && et2!=null && et1.equals(et2)){
             return true;
           }
         }else{

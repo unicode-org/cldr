@@ -318,7 +318,7 @@ public abstract class CLDRConverterTool {
                         } else if (exc.alt != null && altVal == null) {
                             altExc = false;
                         } else {
-                            if (altVal.matches(exc.alt)) {
+                           if (altVal.matches(exc.alt)) {
                                 altExc = true;
                             }
                         }
@@ -392,20 +392,25 @@ public abstract class CLDRConverterTool {
                         } else if (inc.alt != null && altVal == null) {
                             // the current xpath does not have the alt attribute set
                             // since the list is sorted we can be sure that if the
-                            // next xpath matches the the current one then additional
-                            // alt attribute should be set
+                            // next xpath matches the current one and there is an alt
+                            // attibute available for this path, that next entry is
+                            // where we should expect to find it.
                             // now check if next xpath contains alt attribute
-                            String nxp = xpathList.get(i+1);
-                            XPathParts nparts = (new XPathParts(null, null)).set(nxp);
-                            Map<String, String> nattr = nparts.getAttributes(parts.size()-1);
-                            // make sure the type attribute is the same
-                            if (parts.isLike(nparts)) {
-                                altVal = nattr.get(LDMLConstants.ALT);
-                                if (altVal.matches(inc.alt)) {
-                                    draftVal = nattr.get(LDMLConstants.DRAFT);
-                                    xpath = nxp;
-                                    i++;
-                                    altInc = true;
+                            if (i+1 < xpathList.size()) {
+                                String nxp = xpathList.get(i+1);
+                                XPathParts nparts = (new XPathParts(null, null)).set(nxp);
+                                // make sure the type attribute is the same
+                                if (parts.isLike(nparts)) {
+                                    Map<String, String> nattr = nparts.getAttributes(nparts.size()-1);
+                                    if (nattr != null) {
+                                        altVal = nattr.get(LDMLConstants.ALT);
+                                        if (altVal != null && altVal.matches(inc.alt)) {
+                                            draftVal = nattr.get(LDMLConstants.DRAFT);
+                                            xpath = nxp;
+                                            i++;
+                                            altInc = true;
+                                        }
+                                    }
                                 }
                             }
                         } else {

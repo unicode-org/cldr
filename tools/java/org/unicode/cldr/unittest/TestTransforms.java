@@ -16,6 +16,10 @@ public class TestTransforms extends TestFmwk {
     public static void main(String[] args) throws Exception {
         new TestTransforms().run(args);
     }
+    
+    public void TestASimple() {
+        Transliterator foo = Transliterator.getInstance("cs-cs_FONIPA");
+    }
 
     boolean registered = false;
 

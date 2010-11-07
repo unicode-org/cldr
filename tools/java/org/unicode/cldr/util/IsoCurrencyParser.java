@@ -49,6 +49,13 @@ public class IsoCurrencyParser {
         {"MOLDOVA, REPUBLIC OF", "MD"},
         {"SAINT-BARTHÉLEMY", "EU"},
         {"ZZ", "ZZ"},
+        {"IRAN, ISLAMIC REPUBLIC OF", "IR"},
+        {"KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF", "KP"},
+        {"KOREA, REPUBLIC OF", "KR"},
+        {"MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF", "MK"},
+        {"MICRONESIA, FEDERATED STATES OF", "FM"},
+        {"TANZANIA, UNITED REPUBLIC OF", "TZ"},
+        {"VATICAN CITY STATE (Holy See)", "VA"},
     };
     for (String[] pair : extras) {
       iso4217CountryToCountryCode.put(pair[0], pair[1]);

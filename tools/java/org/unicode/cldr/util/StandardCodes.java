@@ -176,7 +176,7 @@ public class StandardCodes {
      * @return
      */
     public Set<String> getAvailableCodes(String type) {
-      if ("region".equals(type)) type = "territory";
+        if ("region".equals(type)) type = "territory";
         Map code_name = (Map) type_code_data.get(type);
         if (code_name == null)
             return null;
@@ -760,17 +760,16 @@ public class StandardCodes {
     // "Description->y,...}
     static String[][] extras = {
         { "language", "root", "Description", "Root", "CLDR", "True" },
-        { "language", "cch", "Description", "Atsam", "CLDR", "True" },
-        { "language", "kaj", "Description", "Jju", "CLDR", "True" },
-        { "language", "kcg", "Description", "Tyap", "CLDR", "True" },
-        { "language", "kfo", "Description", "Koro", "CLDR", "True" },
-        { "language", "mfe", "Description", "Morisyen", "CLDR", "True" },
-        { "region", "172", "Description", "Commonwealth of Independent States", "CLDR", "True" },
-        { "region", "062", "Description", "South-Central Asia", "CLDR", "True" },
-        { "region", "003", "Description", "North America", "CLDR", "True" },
+//        { "language", "cch", "Description", "Atsam", "CLDR", "True" },
+//        { "language", "kaj", "Description", "Jju", "CLDR", "True" },
+//        { "language", "kcg", "Description", "Tyap", "CLDR", "True" },
+//        { "language", "kfo", "Description", "Koro", "CLDR", "True" },
+//        { "language", "mfe", "Description", "Morisyen", "CLDR", "True" },
+        //{ "region", "172", "Description", "Commonwealth of Independent States", "CLDR", "True" },
+        //{ "region", "062", "Description", "South-Central Asia", "CLDR", "True" },
+        //{ "region", "003", "Description", "North America", "CLDR", "True" },
         { "variant", "POLYTONI", "Description", "Polytonic Greek", "CLDR", "True", "Preferred-Value", "POLYTON" },
-        { "variant", "REVISED", "Description", "Revised Orthography", "CLDR",
-        "True" },
+        { "variant", "REVISED", "Description", "Revised Orthography", "CLDR", "True" },
         { "variant", "SAAHO", "Description", "Dialect", "CLDR", "True" },
         { "variant", "POSIX", "Description", "Computer-Style", "CLDR", "True" },
         // {"region", "172", "Description", "Commonwealth of Independent States",
@@ -816,7 +815,7 @@ public class StandardCodes {
 
     public static Map<String,Map<String,Map<String,String>>> getLStreg() {
 
-      Map<String,Map<String,Map<String,String>>> result = new TreeMap();
+        Map<String,Map<String,Map<String,String>>> result = new TreeMap();
 
         int lineNumber = 1;
 
@@ -930,12 +929,21 @@ public class StandardCodes {
         // add extras
         for (int i = 0; i < extras.length; ++i) {
             Map subtagData = (Map) result.get(extras[i][0]);
-            if (subtagData == null)
+            if (subtagData == null) {
                 result.put(extras[i][0], subtagData = new TreeMap());
+            }            
             Map labelData = new TreeMap();
             for (int j = 2; j < extras[i].length; j += 2) {
                 labelData.put(extras[i][j], extras[i][j + 1]);
             }
+            Map<String,String> old = (Map<String, String>) subtagData.get(extras[i][1]);
+            if (old != null) {
+                if (!"Private use".equals(old.get("Description"))) {
+                    throw new IllegalArgumentException("REPLACING data for " + extras[i][1] + "\t" + old + "\twith" + labelData);
+                }
+            }
+            if (false) System.out.println((old != null ? "REPLACING"  + "\t" + old : "ADDING") +
+            		" data for " + extras[i][1] + "\twith" + labelData);
             subtagData.put(extras[i][1], labelData);
         }
         return result;
@@ -1041,25 +1049,25 @@ public class StandardCodes {
     }
 
     static final Pattern whitespace = Pattern.compile("\\s+");
-    
+
     static final Set<String> filteredLanguages = Collections
-            .unmodifiableSet(new TreeSet(
+    .unmodifiableSet(new TreeSet(
             Arrays
             .asList(whitespace.split("ab af am ar as asa ay az be bem bez bg bm bn bo brx bs ca " +
-            		"cs cy da de dv dz ebu efi el en eo es et eu fa fi fil fj fr " +
-            		"ga gl gn gsw gu ha haw he hi hr ht hu hy id ig is it ja jv " +
-            		"ka kea kk km kn ko ks ku ky la lah lb ln lo lt luy lv " +
-            		"mg mi mk ml mn mr ms mt mul my nb nd ne nl nn no nso ny or os " +
-            		"pa pl ps pt qu rm rn ro rof ru rw rwk sa sd se sg sh si sk sl sm sn so sq sr ss st su sv sw swb " +
-            		"ta te tet tg th ti tk tl tn to tpi tr ts ty ug uk und ur uz ve vi wo xh yo yue zh zu zxx"))));
+                    "cs cy da de dv dz ebu efi el en eo es et eu fa fi fil fj fr " +
+                    "ga gl gn gsw gu ha haw he hi hr ht hu hy id ig is it ja jv " +
+                    "ka kea kk km kn ko ks ku ky la lah lb ln lo lt luy lv " +
+                    "mg mi mk ml mn mr ms mt mul my nb nd ne nl nn no nso ny or os " +
+                    "pa pl ps pt qu rm rn ro rof ru rw rwk sa sd se sg sh si sk sl sm sn so sq sr ss st su sv sw swb " +
+            "ta te tet tg th ti tk tl tn to tpi tr ts ty ug uk und ur uz ve vi wo xh yo yue zh zu zxx"))));
     static final Set<String> filteredScripts = Collections
-            .unmodifiableSet(new TreeSet(
+    .unmodifiableSet(new TreeSet(
             Arrays
             .asList(whitespace.split("Arab Armn Beng Cyrl Deva Ethi Geor Grek Gujr Guru Hebr Hani Hans Hant Bopo " +
-            "Jpan Hira Kana Knda Khmr Kore Hang Laoo Latn Mlym Mong Mymr Orya Sinh Taml " +
+                    "Jpan Hira Kana Knda Khmr Kore Hang Laoo Latn Mlym Mong Mymr Orya Sinh Taml " +
             "Telu Thaa Thai Tibt Zyyy Zsym Zxxx Zzzz Brai"))));
     static Set<String> filteredCurrencies = null;
-    
+
     public Set<String> getSurveyToolDisplayCodes(String type) {
         // TODO return filtered list of codes
         // TODO fix QU => EU
@@ -1085,9 +1093,9 @@ public class StandardCodes {
 
     static UnicodeSet COUNTRY = new UnicodeSet("[a-zA-Z]").freeze();
     public static boolean isCountry(String territory) {
-      if (territory.length() != 2) return false;
-      if (territory.equals("ZZ") || territory.equals("QO") || territory.equals("EU")) return false;
-      if (COUNTRY.containsAll(territory)) return true;
-      return false;
+        if (territory.length() != 2) return false;
+        if (territory.equals("ZZ") || territory.equals("QO") || territory.equals("EU")) return false;
+        if (COUNTRY.containsAll(territory)) return true;
+        return false;
     }
 }

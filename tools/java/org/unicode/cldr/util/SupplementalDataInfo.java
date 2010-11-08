@@ -1086,7 +1086,7 @@ public class SupplementalDataInfo {
         if (Double.isNaN(languageLiteracyPercent)) {
           languageLiteracyPercent = territoryLiteracyPercent;
         } else {
-            if (true) System.out.println("writingPercent\t" + languageLiteracyPercent
+            if (false) System.out.println("writingPercent\t" + languageLiteracyPercent
                     + "\tterritory\t" + territory
                     + "\tlanguage\t" + language);
         }

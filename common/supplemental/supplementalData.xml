@@ -1165,17 +1165,15 @@ XXX Code for transations where no currency is involved
         <group type="011" contains="BF BJ CI CV GH GM GN GW LR ML MR NE NG SH SL SN TG"/> <!--Western Africa -->
         <group type="013" contains="BZ CR GT HN MX NI PA SV"/> <!--Central America -->
         <group type="014" contains="BI DJ ER ET KE KM MG MU MW MZ RE RW SC SO TZ UG YT ZM ZW"/> <!--Eastern Africa -->
-        <group type="142" contains="030 035 143 145 034 062"/> <!--Asia -->
+        <group type="142" contains="030 035 143 145 034"/> <!--Asia -->
         <group type="143" contains="TM TJ KG KZ UZ"/> <!-- Central Asia -->
-        <group type="145" contains="AE AM AZ BH CY GE IL IQ JO KW LB OM PS QA SA NT SY TR YE YD"/> <!--Western Asia -->
-        <group type="015" contains="DZ EG EH LY MA SD TN"/> <!--Northern Africa -->
+        <group type="145" contains="AE AM AZ BH CY GE IL IQ JO KW LB OM PS QA SA SY TR YE"/> <!--Western Asia -->
+        <group type="015" contains="DZ EG EH LY MA SD TN EA IC"/> <!--Northern Africa -->
         <group type="150" contains="039 151 154 155 EU"/> <!--Europe -->
-        <group type="151" contains="BG BY CZ HU MD PL RO RU SU SK UA"/> <!--Eastern Europe -->
+        <group type="151" contains="BG BY CZ HU MD PL RO RU SK UA"/> <!--Eastern Europe -->
         <group type="154" contains="GG IM JE AX DK EE FI FO GB IE IM IS LT LV NO SE SJ"/> <!--Northern Europe -->
-        <group type="830" contains="GG JE"/> <!--Channel Islands -->
-        <group type="155" contains="AT BE CH DE DD FR FX LI LU MC NL"/> <!--Western Europe -->
-        <group type="017" contains="AO CD ZR CF CG CM GA GQ ST TD"/> <!--Middle Africa -->
-        <group type="172" contains="AM AZ BY GE KG KZ MD RU TJ TM UA UZ"/> <!-- Commonwealth of Independent States -->
+        <group type="155" contains="AT BE CH DE FR LI LU MC NL"/> <!--Western Europe -->
+        <group type="017" contains="AO CD CF CG CM GA GQ ST TD"/> <!--Middle Africa -->
         <group type="018" contains="BW LS NA SZ ZA"/> <!--Southern Africa -->
         <group type="019" contains="005 013 021 029 003 419"/> <!--Americas -->
         <group type="002" contains="011 014 015 017 018"/> <!--Africa -->
@@ -1183,18 +1181,17 @@ XXX Code for transations where no currency is involved
         <group type="029" contains="AG AI AN AW BB BL BS CU DM DO GD GP HT JM KN KY LC MF MQ MS PR TC TT VC VG VI"/> <!--Caribbean -->
         <group type="003" contains="013 021 029"/> <!--North America -->
         <group type="030" contains="CN HK JP KP KR MN MO TW"/> <!--Eastern Asia -->
-        <group type="035" contains="BN ID KH LA MM BU MY PH SG TH TL TP VN"/> <!--South-Eastern Asia -->
-        <group type="039" contains="AD AL BA ES GI GR HR IT ME MK MT CS RS PT SI SM VA YU"/> <!--Southern Europe -->
+        <group type="035" contains="BN ID KH LA MM MY PH SG TH TL VN"/> <!--South-Eastern Asia -->
+        <group type="039" contains="AD AL BA ES GI GR HR IT ME MK MT RS PT SI SM VA"/> <!--Southern Europe -->
         <group type="419" contains="005 013 029"/> <!--Latin America and the Caribbean -->
         <group type="005" contains="AR BO BR CL CO EC FK GF GY PE PY SR UY VE"/> <!--South America -->
         <group type="053" contains="AU NF NZ"/> <!--Australia and New Zealand -->
         <group type="054" contains="FJ NC PG SB VU"/> <!--Melanesia -->
         <group type="057" contains="FM GU KI MH MP NR PW"/> <!--Micronesia -->
         <group type="061" contains="AS CK NU PF PN TK TO TV WF WS"/> <!--Polynesia -->
-        <group type="062" contains="034 143"/> <!--South-Central Asia --> 
         <group type="034" contains="AF BD BT IN IR LK MV NP PK"/> <!--Southern Asia -->
         <group type="009" contains="053 054 057 061 QO"/> <!--Oceania -->
-        <group type="QO" contains="AQ BV CC CX GS HM IO TF UM"/> <!--Outlying Oceania -->
+        <group type="QO" contains="AQ BV CC CX GS HM IO TF UM AC CP DG TA"/> <!--Outlying Oceania -->
         <group type="EU" contains="AT BE CY CZ DE DK EE ES FI FR GB GR HU IE IT LT LU LV MT NL PL PT SE SI SK BG RO"/> <!-- European Union, see http://europa.eu/abc/european_countries/index_en.htm -->
     </territoryContainment>
     <!-- Start of Generated Data: see http://unicode.org/cldr/data/tools/java/org/unicode/cldr/tool/package.html -->

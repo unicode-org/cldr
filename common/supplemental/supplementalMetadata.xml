@@ -132,7 +132,7 @@
                 NA NC NE NF NG NI NL NO NP NR NT NU NZ
                 OM
                 PA PE PF PG PH PK PL PM PN PR PS PT PW PY
-				QA QM QN QO QP QQ QR QS QT QV QW QX QY QZ
+                QA QM QN QO QP QQ QR QS QT QU QV QW QX QY QZ
                 RE RO RS RU RW
                 SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SU SV SY SZ
                 TA TC TD TF TG TH TJ TK TL TM TN TO TP TR TT TV TW TZ
@@ -145,26 +145,26 @@
             </variable>
             <variable id="$script" type="choice">
                 Arab Armi Armn Avst
-                Bali Bamu Batk Beng Blis Bopo Brah Brai Bugi Buhd
+                Bali Bamu Bass Batk Beng Blis Bopo Brah Brai Bugi Buhd
                 Cakm Cans Cari Cham Cher Cirt Copt Cprt Cyrl Cyrs
-                Deva Dsrt
-                Egyd Egyh Egyp Ethi
+                Deva Dsrt Dupl
+                Egyd Egyh Egyp Elba Ethi
                 Geok Geor Glag Goth Gran Grek Gujr Guru
                 Hang Hani Hano Hans Hant Hebr Hira Hmng Hrkt Hung
                 Inds Ital
                 Java Jpan
-                Kali Kana Khar Khmr Knda Kore Kthi
-                Lana Laoo Latf Latg Latn Lepc Limb Lina Linb Lisu Lyci Lydi
-                Mand Mani Maya Merc Mero Mlym Mong Moon Mtei Mymr
-                Nkgb Nkoo
+                Kali Kana Khar Khmr Knda Kore Kpel Kthi
+                Lana Laoo Latf Latg Latn Lepc Limb Lina Linb Lisu Loma Lyci Lydi
+                Mand Mani Maya Mend Merc Mero Mlym Mong Moon Mtei Mymr
+                Narb Nbat Nkgb Nkoo
                 Ogam Olck Orkh Orya Osma
-                Perm Phag Phli Phlp Phlv Phnx Plrd Prti
+                Palm Perm Phag Phli Phlp Phlv Phnx Plrd Prti
                 Qaaa Qaab Qaac Qaad Qaae Qaaf Qaag Qaah Qaai Qaaj Qaak Qaal Qaam Qaan Qaao Qaap
                 Qaaq Qaar Qaas Qaat Qaau Qaav Qaaw Qaax Qaay Qaaz Qaba Qabb Qabc Qabd Qabe Qabf
                 Qabg Qabh Qabi Qabj Qabk Qabl Qabm Qabn Qabo Qabp Qabq Qabr Qabs Qabt Qabu Qabv
                 Qabw Qabx
                 Rjng Roro Runr
-                Samr Sara Sarb Saur Sgnw Shaw Sinh Sund Sylo Syrc Syre Syrj Syrn
+                Samr Sara Sarb Saur Sgnw Shaw Sind Sinh Sund Sylo Syrc Syre Syrj Syrn
                 Tagb Tale Talu Taml Tavt Telu Teng Tfng Tglg Thaa Thai Tibt
                 Ugar
                 Vaii Visp
@@ -176,20 +176,22 @@
             <variable id="$variant" type="choice">
                 1606NICT 1694ACAD 1901 1959ACAD 1994 1996
                 ALALC97 ALUKU AREVELA AREVMDA
-                BAKU1926 BISKE BOONT
-                FONIPA FONUPA
+                BAKU1926 BAUDDHA BISCAYAN BISKE BOONT
+                FONIPA FONUPA FONXSAMP
                 HEPBURN HEPLOC HOGNORSK
+                ITIHASA
+                JAUER JYUTPING
                 KKCOR
-                LIPAW
+                LAUKIKA LIPAW LUNA1918
                 MONOTON
                 NDYUKA NEDIS NJIVA
                 OSOJS
-                PAMAKA PINYIN POLYTON POLYTONI POSIX
-                REVISED ROZAJ
-                SAAHO SCOTLAND SCOUSE SOLBA
+                PAMAKA PETR1708 PINYIN POLYTON POLYTONI POSIX PUTER
+                REVISED ROZAJ RUMGR
+                SAAHO SCOTLAND SCOUSE SOLBA SURMIRAN SURSILV SUTSILV
                 TARASK
-                UCCOR UCRCOR
-                VALENCIA
+                UCCOR UCRCOR ULSTER
+                VAIDIKA VALENCIA VALLADER
                 WADEGILE
             </variable>
             <variable id="$currency" type="choice">

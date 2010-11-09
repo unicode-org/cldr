@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Iterator;
@@ -10,6 +11,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -28,8 +30,12 @@ import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.lang.UCharacter;
 
 public class TestSupplementalInfo extends TestFmwk {
@@ -37,6 +43,72 @@ public class TestSupplementalInfo extends TestFmwk {
 
     public static void main(String[] args) {
         new TestSupplementalInfo().run(args);
+    }
+
+    public void TestAliases() {
+        Map<String, Map<String, Map<String, String>>> bcp47Data = testInfo.getStandardCodes().getLStreg();
+        Map<String, Map<String, List<String>>> aliases = testInfo.getSupplementalDataInfo().getLocaleAliasInfo();
+
+        for (Entry<String, Map<String, List<String>>> typeMap : aliases.entrySet()) {
+            String type = typeMap.getKey();
+            Map<String, List<String>> codeReplacement = typeMap.getValue();
+
+            Map<String, Map<String, String>> bcp47DataTypeData = bcp47Data.get(type.equals("territory") ? "region" : type);
+            if (bcp47DataTypeData == null) {
+                logln("skipping BCP47 test for " + type);
+            } else {
+                for (Entry<String, Map<String, String>> codeData : bcp47DataTypeData.entrySet()) {
+                    String code = codeData.getKey();
+                    if (codeReplacement.containsKey(code)) {
+                        continue;
+                        // TODO, check the value
+                    }
+                    Map<String, String> data = codeData.getValue();
+                    if (data.containsKey("Deprecated")) {
+                        errln("Missing deprecated code:\t" + code + "\t" + data);
+                    }
+                }
+            }
+
+            Set<R3<String, List<String>, List<String>>> failures = new TreeSet();
+            Set<String> nullReplacements = new TreeSet();
+            for (Entry<String, List<String>> codeRep : codeReplacement.entrySet()) {
+                String code = codeRep.getKey();
+                List<String> replacements = codeRep.getValue();
+                if (replacements == null) {
+                    nullReplacements.add(code);
+                    continue;
+                }
+                Set<String> fixedReplacements = new LinkedHashSet();
+                for (String replacement : replacements) {
+                    List<String> newReplacement = codeReplacement.get(replacement);
+                    if (newReplacement != null ) {
+                        fixedReplacements.addAll(newReplacement);
+                    } else {
+                        fixedReplacements.add(replacement);
+                    }
+                }
+                List<String> fixedList = new ArrayList(fixedReplacements);
+                if (!replacements.equals(fixedList)) {
+                    R3<String, List<String>, List<String>> row = Row.of(code, replacements, fixedList);
+                    failures.add(row);
+                }
+            }
+
+            if (failures.size() != 0) {
+                for (R3<String, List<String>, List<String>> item : failures) {
+                    String code = item.get0();
+                    List<String> oldReplacement = item.get1();
+                    List<String> newReplacement = item.get2();
+
+                    errln(code + "\t=>\t" + oldReplacement + "\tshould be:\n\t" +
+                            "<" + type + "Alias type=\"" + code + "\" replacement=\"" + CollectionUtilities.join(newReplacement, " ") + "\" reason=\"XXX\"/> <!-- YYY -->\n");
+                }
+            }
+            if (nullReplacements.size() != 0) {
+                logln("No Replacements\t" + type + "\t" + nullReplacements);
+            }
+        }
     }
 
     public void TestTerritoryContainment() {
@@ -62,12 +134,12 @@ public class TestSupplementalInfo extends TestFmwk {
                 it.remove();
             }
         }
-        
+
         if (!mapItems.equals(bcp47Regions)) {
             errlnDiff("containment items - bcp47 regions: ", mapItems, bcp47Regions);
             errlnDiff("bcp47 regions - containment items: ", bcp47Regions, mapItems);
         }
-        
+
         // verify that everything can be reached downwards from 001.
 
         Map<String, Integer> from001 = getRecursiveContainment("001", map, new LinkedHashMap<String,Integer>(), 1);

@@ -986,7 +986,7 @@ public class CldrUtility {
         break;
       }
       String prefix = matcher.group(1);
-      if (!prefix.equals(lastPrefix) || matcher.end() - lastBreakPos > width) { // break before?
+      if (!prefix.equalsIgnoreCase(lastPrefix) || matcher.end() - lastBreakPos > width) { // break before?
         output.append(separator);
         lastBreakPos = lastEnd;
       } else if (lastEnd != 0){

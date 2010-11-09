@@ -2173,7 +2173,10 @@ public class ShowLanguages {
         int pos = oldcode.indexOf('*');
         String code = pos < 0 ? oldcode : oldcode.substring(0, pos);
         String ename = english.getName(type, code);
-        return codeFirst ? "[" + oldcode + "]\t" + (ename == null ? code : ename) : (ename == null ? code : ename) + "\t[" + oldcode + "]";
+        String nameString = ename == null ? code : ename;
+        return nameString.equals(oldcode) ? nameString
+                : codeFirst ? "[" + oldcode + "]" + "\t" + nameString 
+                        : nameString + "\t" + "[" + oldcode + "]";
       }
     }
     

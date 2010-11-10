@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -47,11 +48,11 @@ public class TestSupplementalInfo extends TestFmwk {
 
     public void TestAliases() {
         Map<String, Map<String, Map<String, String>>> bcp47Data = testInfo.getStandardCodes().getLStreg();
-        Map<String, Map<String, List<String>>> aliases = testInfo.getSupplementalDataInfo().getLocaleAliasInfo();
+        Map<String, Map<String, R2<List<String>, String>>> aliases = testInfo.getSupplementalDataInfo().getLocaleAliasInfo();
 
-        for (Entry<String, Map<String, List<String>>> typeMap : aliases.entrySet()) {
+        for (Entry<String, Map<String, R2<List<String>, String>>> typeMap : aliases.entrySet()) {
             String type = typeMap.getKey();
-            Map<String, List<String>> codeReplacement = typeMap.getValue();
+            Map<String, R2<List<String>, String>> codeReplacement = typeMap.getValue();
 
             Map<String, Map<String, String>> bcp47DataTypeData = bcp47Data.get(type.equals("territory") ? "region" : type);
             if (bcp47DataTypeData == null) {
@@ -59,7 +60,7 @@ public class TestSupplementalInfo extends TestFmwk {
             } else {
                 for (Entry<String, Map<String, String>> codeData : bcp47DataTypeData.entrySet()) {
                     String code = codeData.getKey();
-                    if (codeReplacement.containsKey(code)) {
+                    if (codeReplacement.containsKey(code) || codeReplacement.containsKey(code.toUpperCase(Locale.ENGLISH))) {
                         continue;
                         // TODO, check the value
                     }
@@ -72,18 +73,21 @@ public class TestSupplementalInfo extends TestFmwk {
 
             Set<R3<String, List<String>, List<String>>> failures = new TreeSet();
             Set<String> nullReplacements = new TreeSet();
-            for (Entry<String, List<String>> codeRep : codeReplacement.entrySet()) {
+            for (Entry<String, R2<List<String>, String>> codeRep : codeReplacement.entrySet()) {
                 String code = codeRep.getKey();
-                List<String> replacements = codeRep.getValue();
+                List<String> replacements = codeRep.getValue().get0();
                 if (replacements == null) {
                     nullReplacements.add(code);
                     continue;
                 }
                 Set<String> fixedReplacements = new LinkedHashSet();
                 for (String replacement : replacements) {
-                    List<String> newReplacement = codeReplacement.get(replacement);
+                    R2<List<String>, String> newReplacement = codeReplacement.get(replacement);
                     if (newReplacement != null ) {
-                        fixedReplacements.addAll(newReplacement);
+                        List<String> list = newReplacement.get0();
+                        if (list != null) {
+                            fixedReplacements.addAll(list);
+                        }
                     } else {
                         fixedReplacements.add(replacement);
                     }
@@ -184,12 +188,12 @@ public class TestSupplementalInfo extends TestFmwk {
 
     public void TestMacrolanguages() {
         Set<String> languageCodes = testInfo.getStandardCodes().getAvailableCodes("language");
-        Map<String, Map<String, List<String>>> typeToTagToReplacement = testInfo.getSupplementalDataInfo().getLocaleAliasInfo();
-        Map<String, List<String>> tagToReplacement = typeToTagToReplacement.get("language");
+        Map<String, Map<String, R2<List<String>, String>>> typeToTagToReplacement = testInfo.getSupplementalDataInfo().getLocaleAliasInfo();
+        Map<String, R2<List<String>, String>> tagToReplacement = typeToTagToReplacement.get("language");
 
         Relation<String,String> replacementToReplaced = new Relation(new TreeMap(), TreeSet.class);
         for (String language : tagToReplacement.keySet()) {
-            List<String> replacements = tagToReplacement.get(language);
+            List<String> replacements = tagToReplacement.get(language).get0();
             if (replacements != null) {
                 replacementToReplaced.putAll(replacements, language);
             }

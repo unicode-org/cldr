@@ -50,7 +50,7 @@ public class GenerateCoverageLevels {
   private static final CLDRFile english = cldrFactory.make("en", true);
   private static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(english.getSupplementalDirectory());
   private static Set<String> defaultContents = supplementalData.getDefaultContentLocales();
-  private static Map<String, List<String>> languageAliasInfo = supplementalData.getLocaleAliasInfo().get("language");
+  private static Map<String, R2<List<String>, String>> languageAliasInfo = supplementalData.getLocaleAliasInfo().get("language");
   private static LocaleFilter localeFilter = new LocaleFilter(true);
   private static LocaleFilter nonAliasLocaleFilter = new LocaleFilter(false);
   

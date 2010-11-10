@@ -754,13 +754,15 @@ public class CountItems {
             System.out.println("\t\t\t<languageAlias type=\"" + alpha3 + "\" replacement=\"" + lang + "\"/> <!-- " +
                     Iso639Data.getNames(lang) + " -->");
         }
-        Map<String, Map<String, List<String>>> localeAliasInfo = supplementalData.getLocaleAliasInfo();
-        Map<String, List<String>> languageAliasInfo = localeAliasInfo.get("language");
+        Map<String, Map<String, R2<List<String>, String>>> localeAliasInfo = supplementalData.getLocaleAliasInfo();
+        Map<String, R2<List<String>, String>> languageAliasInfo = localeAliasInfo.get("language");
         Set<String> encompassed = Iso639Data.getEncompassed();
         Set<String> macros = Iso639Data.getMacros();
         Map<String,String> encompassed_macro = new HashMap();
-        for (String type : languageAliasInfo.keySet()) {
-            List<String> replacements = languageAliasInfo.get(type);
+        for (Entry<String, R2<List<String>, String>> typeAndData : languageAliasInfo.entrySet()) {
+            String type = typeAndData.getKey();
+            R2<List<String>, String> data = typeAndData.getValue();
+            List<String> replacements = data.get0();
             if (!encompassed.contains(type)) continue;
             if (replacements == null && replacements.size() != 1) continue;
             String replacement = replacements.get(0);
@@ -791,8 +793,9 @@ public class CountItems {
 
         // verify that nobody contains a bad code
 
-        for(String type : languageAliasInfo.keySet()) {
-            List<String> replacements = languageAliasInfo.get(type);
+        for(Entry<String, R2<List<String>, String>> typeAndData : languageAliasInfo.entrySet()) {
+            String type = typeAndData.getKey();
+            List<String> replacements = typeAndData.getValue().get0();
             if (replacements == null) continue;
             for (String replacement : replacements) {
                 if (bad3letter.contains(replacement)) {
@@ -872,15 +875,15 @@ public class CountItems {
     }
 
     private static void checkCodes(String type, StandardCodes sc,
-            Map<String, Map<String, List<String>>> localeAliasInfo, Map<String, Map<String, Map<String, String>>> fullData) {
+            Map<String, Map<String, R2<List<String>, String>>> localeAliasInfo, Map<String, Map<String, Map<String, String>>> fullData) {
         Map<String, Map<String, String>> typeData = fullData.get("territory".equals(type) ? "region" : type);
-        Map<String, List<String>> aliasInfo = localeAliasInfo.get(type);
+        Map<String, R2<List<String>, String>> aliasInfo = localeAliasInfo.get(type);
         for (String code : sc.getAvailableCodes(type)) {
             Map<String, String> subdata = typeData.get(code);
             String deprecated = subdata.get("Deprecated");
             if (deprecated == null) continue;
             String replacement = subdata.get("Preferred-Value");
-            List<String> supplementalReplacements = aliasInfo.get(code);
+            R2<List<String>, String> supplementalReplacements = aliasInfo.get(code);
             if (supplementalReplacements == null) {
                 System.out.println("Deprecated in LSTR, but not in supplementalData: " + type + "\t" + code + "\t" + replacement);
             }

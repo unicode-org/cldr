@@ -509,7 +509,7 @@
             <attributeValues elements="minDays" attributes="count" type="regex">[0-7]</attributeValues>
             <attributeValues elements="month" attributes="type" type="choice">1 2 3 4 5 6 7 8 9 10 11 12 13</attributeValues>
             <attributeValues elements="monthWidth dayWidth quarterWidth" attributes="type" order="given">abbreviated narrow wide</attributeValues>
-            <attributeValues elements="pattern" attributes="type" type="choice">standard</attributeValues>
+            <attributeValues elements="pattern" attributes="type" type="choice">standard 1000 10000 100000 1000000 10000000 10000000 100000000 1000000000 10000000000 100000000000 1000000000000 10000000000000 100000000000000</attributeValues>
             <attributeValues elements="preferenceOrdering" attributes="type">$tzidList</attributeValues>
             <attributeValues elements="quarter" attributes="type" type="choice">1 2 3 4</attributeValues> <!-- move to DTD? -->
             <attributeValues elements="reference" attributes="type">$reference</attributeValues>
@@ -821,6 +821,9 @@
             <languageAlias type="zha" replacement="za" reason="overlong"/> <!-- [Zhuang, Chuang] -->
             <languageAlias type="zho" replacement="zh" reason="overlong"/> <!-- [Chinese] -->
             <languageAlias type="zul" replacement="zu" reason="overlong"/> <!-- [Zulu] -->
+            <languageAlias type="no_BOKMAL" replacement="nb" reason="deprecated"/>
+            <languageAlias type="no_NYNORSK" replacement="nn" reason="deprecated"/>
+            <languageAlias type="aa_SAAHO" replacement="ssy" reason="deprecated"/>
             <!-- scripts -->
             <scriptAlias type="Qaai" replacement="Zinh" reason="deprecated"/>
             <!-- deprecated ISO territories in 3066 + CLDR ones (older deprecated ISO codes -->
@@ -1460,9 +1463,7 @@
             <territoryAlias type="999" replacement="ZZ" reason="overlong"/> <!-- Unknown or Invalid Region -->
             <!-- variants -->
             <variantAlias type="BOKMAL" reason="deprecated"/>
-            <variantAlias type="no_BOKMAL" replacement="nb" reason="deprecated"/>
             <variantAlias type="NYNORSK" reason="deprecated"/>
-            <variantAlias type="no_NYNORSK" replacement="nn" reason="deprecated"/>
             <variantAlias type="AALAND" replacement="AX" reason="deprecated"/>
             <variantAlias type="BOONT" reason="deprecated"/>
             <variantAlias type="GAULISH" reason="deprecated"/>
@@ -1472,9 +1473,8 @@
             <variantAlias type="SCOUSE" reason="deprecated"/>
             <variantAlias type="XIANG" reason="deprecated"/>
             <variantAlias type="POLYTONI" replacement="POLYTON" reason="deprecated"/>
-            <variantAlias type="heploc" replacement="alalc97" reason="deprecated"/>
+            <variantAlias type="HEPLOC" replacement="alalc97" reason="deprecated"/>
             <variantAlias type="SAAHO" reason="deprecated"/>
-            <variantAlias type="aa_SAAHO" replacement="ssy" reason="deprecated"/>
             <zoneAlias type="Africa/Timbuktu" replacement="Africa/Bamako" reason="deprecated"/>          
             <zoneAlias type="Pacific/Yap" replacement="Pacific/Truk" reason="deprecated"/>          
             <zoneAlias type="Europe/Belfast" replacement="Europe/London" reason="deprecated"/>

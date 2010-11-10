@@ -955,302 +955,106 @@ vary in how they handle plurals of nouns or unit expressions ("hours",
 "meters", and so on). Some languages have two forms, like English;
 some languages have only a single form; and some languages have multiple forms
 (see <a href="#sl">Slovenian</a> below). CLDR uses short, mnemonic tags for these
-plural categories: <span style="font-family: monospace;"></span></p>
+plural categories. For more information on these categories, see <a href="http://cldr.unicode.org/index/cldr-spec/plural-rules">Plural Rules</a>. </p>
 
 
       
       
       <ul>
-
-
-        <li><span style="font-family: monospace;">zero</span><span style="font-family: monospace;"></span></li>
-
-
-        <li><span style="font-family: monospace;">one</span><span style="font-family: monospace;"></span> (singular)</li>
-
-
-        <li><span style="font-family: monospace;">two</span><span style="font-family: monospace;"></span> (dual)</li>
-
-
-        <li><span style="font-family: monospace;">few</span><span style="font-family: monospace;"></span> (paucal)</li>
-
-
-        <li><span style="font-family: monospace;">many</span></li>
-
-
-        <li><span style="font-family: monospace;"></span><span style="font-family: monospace;">other</span> (general plural form -- also used if the language only has a single form)<span style="font-family: monospace;"></span><span style="font-style: italic;"><span style="color: rgb(153, 0, 0); font-weight: bold;"></span></span></li>
-
-
-      
-      
-      </ul>
-
-
-      
-      
-      <p>These categories are used to provide localized units, with a more natural ways of expressing phrases
-that vary in plural form, such as "1 hour" vs "2 hours". While they
-cannot express all the intricacies of natural languages, they allow for
-more natural phrasing than constructions like "1 hour(s)".</p>
-
-
-      
-      
-      <p><span style="font-style: italic; color: black;"> These categories are only mnemonics -- the names don't necessarily imply the exact contents of the category.&nbsp;</span>For example, for both&nbsp;English and French the number 1 has the category <span style="font-family: monospace;">one</span> (singular). In English, every other number has a plural form, and is given the category <span style="font-family: monospace;">other</span>. French is similar, except that the number 0 also has the category <span style="font-family: monospace;">one</span> and not&nbsp;<span style="font-family: monospace;">other</span> or <span style="font-family: monospace;">zero</span>, because the form of units qualified by 0 is also singular.</p>
-
-
-      
-      
-      <p>Note
-that these categories may be different from the forms used for pronouns
-or other parts of speech. In particular, they are solely concerned with
-changes that would need to be made if different numbers, expressed with
-decimal digits, are used with a sentence. If there is a dual form in
-the language, but it isn't used with decimal numbers, it should not be
-reflected in the categories. That is, the key feature to look for
-is:&nbsp;</p>
-
-
-      
-      
-      <div style="margin-left: 40px;">
-      
-      
-      <p>If you were to
-substitute a different number for "1" in a sentence or phrase, would
-the rest of the text be required to change? For example, in a caption
-for a video: </p>
-
-
-      </div>
-
-
-      
-      
-      <p style="margin-left: 40px; text-align: center;">"Duration: 1 hour" → "Duration: 3.2 hour<span style="text-decoration: underline; color: rgb(153, 0, 0);">s</span>"</p>
-
-
-      
-      <p><b>Plural rule syntax:</b> Each plural rule is a <em>condition</em> with a boolean result
-that specifies whether that rule (i.e. that plural form) applies for a given numeric value <em>n</em>;
-conditions have the following syntax:</p>
-
-
-      
-      <pre>condition     = and_condition ('or' and_condition)*<br>and_condition = relation ('and' relation)*<br>relation      = is_relation | in_relation | within_relation | 'n' &lt;EOL&gt;<br>is_relation   = expr 'is' ('not')? value<br>in_relation   = expr ('not')? 'in' range<br>within_relation = expr ('not')? 'within' range<br>expr          = 'n' ('mod' value)?<br>value         = digit+<br>digit         = 0|1|2|3|4|5|6|7|8|9<br>range         = value'..'value</pre>
-
-
-      
-      <ul>
-      <li>Whitespace (defined as Unicode Pattern_White_Space) can occur between or around any of the above tokens.</li>
-      <li>Rules should be mutually exclusive; for a given numeric value, only one rule should apply (i.e. the condition should only be
-      true for one of the pluralRule elements.</li>
-      <li>The difference between 'in' and 'within' is that 'in' only includes integers in the specified range,
-      while 'within' includes all values.</li>
-      <li>'mod' (modulus) is a remainder operation as defined in Java; for example, the result of "4.3 mod 3" is 1.3.</li>
-      </ul>
-
-
-      <p>Examples:</p>
-
-      <table border>
-		<tr>
-			<td width="50%"><span style="font-family: monospace;">
-				one: n is 1<br>
-				few: n in 2..4
-			</span></td>
-			<td>
-				This defines two rules, for 'one' and 'few'. The condition for 'one' is &quot;n is 1&quot;
-				which means that the number must be equal to 1 for this condition to pass. The
-				condition for 'few' is &quot;n in 2..4&quot; which means that the number must be between 2
-				and 4 inclusive for this condition to pass. All other numbers are assigned the
-				keyword 'other' by the default rule.
-			</td>
-		</tr>
-		<tr>
-			<td><span style="font-family: monospace;">
-				zero: n is 0 or n is not 1 and n mod 100 in 1..19<br>
-				one: n is 1
-			</span></td>
-			<td>
-				Each rule must not overlap with other rules. Also note that a modulus is
-				applied to n in the last rule, thus its condition holds for 119, 219, 319...
-			</td>
-		</tr>
-		<tr>
-			<td><span style="font-family: monospace;">
-				one: n is 1<br>
-				few: n mod 10 in 2..4 and n mod 100 not in 12..14
-			</span></td>
-			<td>
-				This illustrates conjunction and negation. The condition for 'few' has two
-				parts, both of which must be met: &quot;n mod 10 in 2..4&quot; and &quot;n mod 100 not in
-				12..14&quot;. The first part applies a modulus to n before the test as in the
-				previous example. The second part applies a different modulus and also uses
-				negation, thus it matches all numbers <em>not</em> in 12, 13, 14, 112, 113, 114, 212,
-				213, 214...
-			</td>
-		</tr>
-      </table>
-
-      
-      <p style="color: rgb(153, 0, 0); font-style: italic; font-weight: bold;">The following is draft data for this version of CLDR, so please look it over carefully. Known omissions are:</p>
-
-
-      
-      
-      <ol>
-
-
-        <li>Data is only available for a limited set of languages, so please supply data for missing cases!</li>
-
-
-        <li>The available data may need adjustment if it is inaccurate.</li>
-
-
-        <li>Please look over
-examples of decimal values (such as 1.31) to see which plural form they
-should have. The default in the absence of other information is for
-them to have the category&nbsp;<span style="font-family: monospace;">other</span>.<br>
-
-
-          <br>
-
-
-That
-is, in expressions like the following (where "hours" could be any
-countable nouns: minutes, degrees, meters, and so on), what categories
-should the numbers fall into?
-
         
         
-          <ul>
-
-
-          <li>0.23 hours</li>
-
-
-          <li>1.23 hours</li>
-
-
-          <li>2.23 hours</li>
-
-
-          <li>5.23 hours</li>
-
-
-          <li>...</li>
-
-
-        
-        
-          </ul>
-        </li>
+        <li> <b>Reporting Defects:</b> When you find errors or omissions in this data, please report the information with a
+          <a target="_blank" href="http://unicode.org/cldr/trac/newticket">bug report</a>. Please give examples of how the forms may differ. You don't have to give the exact rules, but it is extremely helpful! Here's an example: </li>
 
 
       
       
-      </ol>
-
-
-      
-      
-      <ul>
-
-
-        <li><b>Reporting Defects:</b> When you find errors or omissions in this data, please report the information with a
-			<a target="_blank" href="http://unicode.org/cldr/trac/newticket">bug report</a>. Please give examples of how the forms may differ. Here's an example:</li>
-
-
-      
-      
-      </ul>
+    </ul>
 
 
 
 		
       
       
-      <table id="table4" style="margin: 1em; border-collapse: collapse;" border="1">
-
-
-
-			<tbody>
-
-
-          <tr>
-
-
-
-				<th align="left">Sample Bug Report</th>
-
-
-
-				
-			</tr>
-
-
-
-			<tr>
-
-
-
-				<td colspan="1" rowspan="1">The draft Ukrainian (uk) plural rules are:<br>
-
-
-one: 1, 21, 31, 41, 51, 61...<br>
-
-
-few: 2-4, 22-24, 32-34...<br>
-
-
-other: 0, 5-20, 25-30, 35-40...; 1.31, 2.31, 5.31...<br>
-
-
-            <br>
-
-
-Although rules for integer values are correct, there needs to be four categories, with an extra one for fractions. For example:<br>
-
-
+      <div align="center">
+        <table id="table4" style="margin: 1em; border-collapse: collapse;" border="1">
+          
+          
+          
+          <tbody>
             
             
-            <div style="margin-left: 40px;">1 день<br>
-
-
-2 дні<br>
-
-
-5 днів<br>
-
-
-1.31 дня<br>
-
-
-2.31 дня<br>
-
-
-5.31 дня</div>
-
-
- </td>
-
-
-
-				
-			</tr>
-
-
-
-        
-        </tbody>
-      
-      
-      </table>
-
-
-
-		</td>
+            <tr>
+              
+              
+              
+              <th align="left">Sample Bug Report</th>
+              
+              
+              
+              
+              </tr>
+            
+            
+            
+            <tr>
+              
+              
+              
+              <td colspan="1" rowspan="1">The draft Ukrainian (uk) plural rules are:<br>
+                
+                
+                one: 1, 21, 31, 41, 51, 61...<br>
+                
+                
+                few: 2-4, 22-24, 32-34...<br>
+                
+                
+                other: 0, 5-20, 25-30, 35-40...; 1.31, 2.31, 5.31...<br>
+                
+                
+                <br>
+                
+                
+                Although rules for integer values are correct, there needs to be four categories,<br>
+                with an extra one for fractions. For example:<br>
+                
+                
+                
+                
+                <div style="margin-left: 40px;">1 день<br>
+                  
+                  
+                  2 дні<br>
+                  
+                  
+                  5 днів<br>
+                  
+                  
+                  1.31 дня<br>
+                  
+                  
+                  2.31 дня<br>
+                  
+                  
+                  5.31 дня</div>
+                
+                
+                </td>
+              
+              
+              
+              
+              </tr>
+            
+            
+            
+            
+            </tbody>
+          
+          
+        </table>
+      </div></td>
 
 
     </tr>

@@ -632,7 +632,7 @@ public class SupplementalDataInfo {
 
     static Map<String, SupplementalDataInfo> directory_instance = new HashMap();
 
-    public Map<String, Map<String,List<String>>> typeToTagToReplacement = new TreeMap<String, Map<String,List<String>>>();
+    public Map<String, Map<String,Row.R2<List<String>,String>>> typeToTagToReplacement = new TreeMap<String, Map<String,Row.R2<List<String>,String>>>();
 
     Map<String,List<Row.R4<String,String,Integer,Boolean>>> languageMatch = new HashMap();
 
@@ -651,7 +651,7 @@ public class SupplementalDataInfo {
      * Returns type -> tag -> replacement, like "language" -> "sh" -> "sr_Latn"
      * @return
      */
-    public Map<String, Map<String,List<String>>> getLocaleAliasInfo() {
+    public Map<String, Map<String, R2<List<String>, String>>> getLocaleAliasInfo() {
         return typeToTagToReplacement;
     }
 
@@ -1042,14 +1042,15 @@ public class SupplementalDataInfo {
                     throw new IllegalArgumentException();
                 }
                 level3 = level3.substring(0,level3.length() - "Alias".length());
-                Map<String, List<String>> tagToReplacement = typeToTagToReplacement.get(level3);
+                Map<String, R2<List<String>, String>> tagToReplacement = typeToTagToReplacement.get(level3);
                 if (tagToReplacement == null) {
-                    typeToTagToReplacement.put(level3, tagToReplacement = new TreeMap<String, List<String>>());
+                    typeToTagToReplacement.put(level3, tagToReplacement = new TreeMap<String, R2<List<String>, String>>());
                 }
                 final String replacement = parts.getAttributeValue(3,"replacement");
+                final String reason = parts.getAttributeValue(3,"reason");
                 List<String> replacementList = replacement == null ? null : Arrays.asList(replacement.replace("-","_").split("\\s+"));
                 String cleanTag = parts.getAttributeValue(3,"type").replace("-","_");
-                tagToReplacement.put(cleanTag, replacementList);
+                tagToReplacement.put(cleanTag, (R2<List<String>, String>) Row.of(replacementList, reason).freeze());
                 return true;
             }
             if (level2.equals("attributeOrder")) {

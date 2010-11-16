@@ -71,8 +71,8 @@ public class SupplementalDataInfo {
         recognized("R", 1),
         official_minority("OM", 2),
         official_regional("OR", 3), 
-        de_facto_official("R", 10),
-        official("R", 10);
+        de_facto_official("OD", 10),
+        official("O", 10);
 
         private final String shortName;
         private final int    weight;

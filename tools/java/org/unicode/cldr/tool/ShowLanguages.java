@@ -62,6 +62,7 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -1392,7 +1393,8 @@ public class ShowLanguages {
             NumberFormat percent = new DecimalFormat("000.0%");
             TablePrinter tablePrinter = new TablePrinter()
             //tablePrinter.setSortPriorities(0,4)
-            .addColumn("Territory", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true).setRepeatHeader(true)
+            .addColumn("T", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true).setRepeatHeader(true).setHidden(true)
+            .addColumn("Territory", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true)
             .addColumn("Code", "class='source'", "<a name=\"{0}\" href='likely_subtags.html#und_{0}'>{0}</a>", "class='source'", true)
             .addColumn("Terr. Pop (M)", "class='target'", "{0,number,#,###.0}", "class='targetRight'", true)
             .addColumn("Terr. Literacy", "class='target'", "{0,number,#.0}%", "class='targetRight'", true)
@@ -1447,6 +1449,7 @@ public class ShowLanguages {
                     //        };
                     //        tablePrinter.addRow(items);
                     tablePrinter.addRow()
+                    .addCell(getFirstPrimaryWeight(territoryName))
                     .addCell(territoryName)
                     .addCell(territoryCode)
                     .addCell(population)
@@ -1482,6 +1485,7 @@ public class ShowLanguages {
                 //      };
                 //      tablePrinter.addRow(items);
                 tablePrinter.addRow()
+                    .addCell(getFirstPrimaryWeight(territoryName))
                 .addCell(territoryName)
                 .addCell(territoryCode)
                 .addCell(population)
@@ -1506,6 +1510,18 @@ public class ShowLanguages {
             pw2.close();
         }
 
+        static Normalizer2 nfd = Normalizer2.getInstance(null, "NFC", Normalizer2.Mode.DECOMPOSE);
+        // Do just an approximation for now
+        
+        private String getFirstPrimaryWeight(String territoryName) {
+            char first = territoryName.charAt(0);
+            String result = nfd.getDecomposition(first);
+            if (result == null) {
+                return UTF16.valueOf(first);
+            }
+            return UTF16.valueOf(result.codePointAt(0));            
+        }
+        
         //    private String getTerritoryWithLikelyLink(String territoryCode) {
         //      return "<a href='likely_subtags.html#und_"+ territoryCode + "'>" + territoryCode + "</a>";
         //    }

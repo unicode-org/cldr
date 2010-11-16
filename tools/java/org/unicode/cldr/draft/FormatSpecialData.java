@@ -154,7 +154,7 @@ public class FormatSpecialData {
     }
   }
 
-  public static String getRelativeFileName(Class<FormatSpecialData> class1, String filename) {
+  public static String getRelativeFileName(Class class1, String filename) {
     URL resource = FormatSpecialData.class.getResource(filename);
     String resourceString = resource.toString();
     if (!resourceString.startsWith("file:")) {

@@ -1132,17 +1132,22 @@ public class ShowLanguages {
                 throw (IllegalArgumentException) new IllegalArgumentException().initCause(e);
             }
         }
+        // http://trac.edgewall.org/wiki/TracTickets#PresetValuesforNewTickets
+        // http://unicode.org/cldr/trac/newticket?summary=Fix_XXX
         private String addBug(int bugNumber, String text, String from, String subject, String body) {
-            if (from.length() != 0) {
-                from = "&from=" + urlEncode(from);
+            String parameters = "";
+//            if (from != null && from.length() != 0) {
+//                parameters += "&from=" + urlEncode(from);
+//            }
+            if (body != null && body.length() != 0) {
+                parameters += "&description=" + urlEncode(body);
             }
-            if (body.length() != 0) {
-                body = "&body=" + urlEncode(body);
+            if (subject != null && subject.length() != 0) {
+                parameters += "&summary=" + urlEncode(subject);
             }
-            if (subject.length() != 0) {
-                subject = "&subject=" + urlEncode(subject);
-            }
-            return "<a target='_blank' href='http://unicode.org/cldr/bugs/locale-bugs" + "'>" + text + "</a>";
+            if (parameters.length() != 0) parameters = "?" + parameters;
+            return "<a target='_blank' href='http://unicode.org/cldr/trac/newticket"
+            + parameters + "'>" + text + "</a>";
         }
 
         private void showLanguageCountryInfo(PrintWriter pw) throws IOException {
@@ -1160,7 +1165,8 @@ public class ShowLanguages {
             NumberFormat percent = new DecimalFormat("000.0%");
             TablePrinter tablePrinter = new TablePrinter()
             //tablePrinter.setSortPriorities(0,5)
-            .addColumn("Language", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true).setRepeatHeader(true)
+            .addColumn("L", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true).setRepeatHeader(true).setHidden(true)
+            .addColumn("Language", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true)
             .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true)
             //.addColumn("Report Bug", "class='target'", null, "class='target'", false)
             .addColumn("Territory", "class='target'", null, "class='target'", true)
@@ -1181,6 +1187,7 @@ public class ShowLanguages {
                 double gdp = Double.parseDouble((String)results.get("gdp"));
                 if (language == null) {
                     Comparable[] items = new Comparable[]{
+                            getFirstPrimaryWeight(getLanguageName("und")),
                             getLanguageName("und") + msg,
                             "und",
                             //bug,
@@ -1205,7 +1212,8 @@ public class ShowLanguages {
                         }
                         String territoryCode = (String)results.get("code");
                         Comparable[] items = new Comparable[]{
-                                getLanguageName(languageCode) + getLanguagePluralMessage(msg, languageCode),
+                                getFirstPrimaryWeight(getLanguageName(languageCode)),
+                                getLanguageName(languageCode), // + getLanguagePluralMessage(msg, languageCode),
                                 languageCode,
                                 //bug,
                                 territoryName  + getOfficialStatus(territoryCode, languageCode),
@@ -1222,10 +1230,11 @@ public class ShowLanguages {
             }
             for (String languageCode : languages) {
                 Comparable[] items = new Comparable[]{
-                        getLanguageName(languageCode) + getLanguagePluralMessage(msg, languageCode),
+                        getFirstPrimaryWeight(getLanguageName(languageCode)),
+                        getLanguageName(languageCode), // + getLanguagePluralMessage(msg, languageCode),
                         languageCode,
                         //bug,
-                        addBug(1217, "<i>add new</i>", "<email>", "add territory to " + getLanguageName(languageCode) + " (" + languageCode + ")", "<territory, speaker population in territory, and references>"),
+                        addBug(1217, "<i>add new</i>", "<email>", "Add territory to " + getLanguageName(languageCode) + " (" + languageCode + ")", "<territory, speaker population in territory, and references>"),
                         "",
                         0.0d,
                         //          0.0d,
@@ -1464,7 +1473,7 @@ public class ShowLanguages {
                     .addCell(languageCode)
                     .addCell(languagePopulation)
                     .addCell(languageliteracy)
-                    .addCell(addBug(1217, "<i>bug</i>", "<email>", "fix info for " + getLanguageName(languageCode) + " (" + languageCode + ")"
+                    .addCell(addBug(1217, "<i>bug</i>", "<email>", "Fix info for " + getLanguageName(languageCode) + " (" + languageCode + ")"
                             + " in " + territoryName + " (" + territoryCode + ")",
                     "<fixed data for territory, plus references>"))
                     .finishRow();
@@ -1496,7 +1505,7 @@ public class ShowLanguages {
                 addOtherCountryData(tablePrinter, worldData, countryData);
 
                 tablePrinter
-                .addCell(addBug(1217, "<i>add new</i>", "<email>", "add language to " + territoryName + "(" + territoryCode + ")", "<language, speaker pop. and literacy in territory, plus references>"))
+                .addCell(addBug(1217, "<i>add new</i>", "<email>", "Add language to " + territoryName + "(" + territoryCode + ")", "<language, speaker pop. and literacy in territory, plus references>"))
                 .addCell("")
                 .addCell(0.0d)
                 .addCell(0.0d)

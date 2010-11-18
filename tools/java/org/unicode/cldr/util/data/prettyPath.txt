@@ -140,7 +140,7 @@ $element=[a-zA-Z0-9]+;
 '/numbers/currencies/currency[@type="' ($avalue) '"]/' ($element) > '0-names|currency|' $1 ':' $2;
 
 '/numbers/symbols/' (.*) > '2-number|symbol|' $1;
-'/numbers/symbols[@numberSystem="' ($avalue) '"]' (.*) > '2-number|symbol|' $2 '-' $1;
+'/numbers/symbols[@numberSystem="' ($avalue) '"]/' (.*) > '2-number|symbol|' $2 '-' $1;
 '/numbers/' ([a-z]+) 'Formats/' ($element) '/' ($element) '[@type="' ($avalue) '"]/pattern[@type="standard"]' > '2-number|pattern|' $1;
 #'/numbers/decimalFormats/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="standard"]
 '/numbers/' ([a-z]+) 'Formats/' ($element) '[@type="' ($avalue) '"]/' ($element) '[@type="standard"]/pattern[@type="standard"]' > '2-number|pattern-|' $1;

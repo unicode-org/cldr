@@ -663,6 +663,11 @@ public class SupplementalDataInfo {
             .initCause(e);
         }
     }
+    
+    public static SupplementalDataInfo getInstance() {
+        return getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+    }
+    
     public static SupplementalDataInfo getInstance(String supplementalDirectory) {
         synchronized (SupplementalDataInfo.class) {
             SupplementalDataInfo instance = directory_instance

@@ -74,10 +74,56 @@ public class LocaleIDParser {
 	private String region;
 	private String[] variants;
 	
-	public static final List<String> CROSS_SCRIPT_LOCALES = Arrays.asList(new String[]
-	    {"az_Arab", "az_Cyrl", "en_Dsrt", "en_Shaw", "ku_Latn", "mn_Mong", "pa_Arab",
-	     "shi_Tfng", "sr_Latn", "uz_Arab", "uz_Latn", "zh_Hant"});
+	public static final List<String> CROSS_SCRIPT_LOCALES = Arrays.asList(
+	        new String[] {
+	                "az_Arab","az_Cyrl","en_Dsrt","en_Shaw","ha_Arab","ku_Latn","mn_Mong","pa_Arab","sh","shi_Tfng","sr_Latn","uz_Arab","uz_Latn","zh_Hant"
+	        }
+	);
 	// TODO, Make this data driven instead of a hard-coded list.
+	
+    public static final Map<String,String> TOP_LEVEL_ALIAS_LOCALES = Builder.with(new HashMap<String,String>())
+    .put("az_AZ", "az_Latn")
+    .put("az_IR", "az_Arab")
+    .put("ha_GH", "ha_Latn")
+    .put("ha_NE", "ha_Latn")
+    .put("ha_NG", "ha_Latn")
+    .put("ha_SD", "ha_Arab")
+    .put("kk_KZ", "kk_Cyrl")
+    .put("ku_IQ", "ku_Arab")
+    .put("ku_IR", "ku_Arab")
+    .put("ku_SY", "ku_Latn")
+    .put("ku_TR", "ku_Latn")
+    .put("mn_CN", "mn_Mong")
+    .put("mn_MN", "mn_Cyrl")
+    .put("mo", "ro")
+    .put("pa_IN", "pa_Guru")
+    .put("pa_PK", "pa_Arab")
+    .put("sh_BA", "sr_Latn")
+    .put("sh_CS", "sr_Latn")
+    .put("sh_YU", "sr_Latn")
+    .put("shi_MA", "shi_Latn")
+    .put("sr_BA", "sr_Cyrl")
+    .put("sr_CS", "sr_Cyrl")
+    .put("sr_Cyrl_CS", "sr_Cyrl")
+    .put("sr_Cyrl_YU", "sr_Cyrl")
+    .put("sr_Latn_CS", "sr_Latn")
+    .put("sr_Latn_YU", "sr_Latn")
+    .put("sr_ME", "sr_Latn")
+    .put("sr_RS", "sr_Cyrl")
+    .put("sr_YU", "sr_Cyrl")
+    .put("tg_TJ", "tg_Cyrl")
+    .put("tl_PH", "fil")
+    .put("tzm_MA", "tzm_Latn")
+    .put("ug_CN", "ug_Arab")
+    .put("uz_AF", "uz_Arab")
+    .put("uz_UZ", "uz_Cyrl")
+    .put("wo_SN", "wo_Latn")
+    .put("zh_CN", "zh_Hans")
+    .put("zh_HK", "zh_Hant")
+    .put("zh_MO", "zh_Hant")
+    .put("zh_SG", "zh_Hans")
+    .put("zh_TW", "zh_Hant")
+    .freeze();
 	
 	static final UnicodeSet letters = new UnicodeSet("[a-zA-Z]");
 	static final UnicodeSet digits = new UnicodeSet("[0-9]");
@@ -118,11 +164,16 @@ public class LocaleIDParser {
 	        if (CROSS_SCRIPT_LOCALES.contains(localeName)) {
 	          return "root";
 	        }
+	        String other = TOP_LEVEL_ALIAS_LOCALES.get(localeName);
+	        if (other != null) {
+	            return other;
+	        }
 	        return localeName.substring(0,pos);
 	    }
 	    if (localeName.equals("root") || localeName.equals(CLDRFile.SUPPLEMENTAL_NAME)) return null;
 	    return "root";
 	}
+	
 	public LocaleIDParser setLanguage(String language) {
 		this.language = language;
 		return this;
@@ -161,6 +212,10 @@ public class LocaleIDParser {
     if (pos >= 0) {
       if (CROSS_SCRIPT_LOCALES.contains(localeName)) {
           return "root";
+      }
+      String other = TOP_LEVEL_ALIAS_LOCALES.get(localeName);
+      if (other != null) {
+          return other;
       }
       return localeName.substring(0,pos);
     }

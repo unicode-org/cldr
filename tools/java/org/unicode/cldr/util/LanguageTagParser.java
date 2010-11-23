@@ -21,6 +21,8 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
+import java.util.Map.Entry;
+import java.util.regex.Pattern;
 
 import com.ibm.icu.text.UnicodeSet;
 
@@ -193,7 +195,7 @@ public class LanguageTagParser {
 			}
 			
 			// get variants: length > 4 or len=4 & starts with digit
-			while (subtag.length() > 4 || subtag.length() == 4 && DIGIT.contains(subtag.charAt(0))) {
+			while (isValidVariant(subtag)) {
 				variants.add(subtag);
 				subtag = getSubtag(st); // prepare for next
 			}
@@ -217,6 +219,11 @@ public class LanguageTagParser {
 		}
 		return this;
 	}
+	
+    private boolean isValidVariant(String subtag) {
+        return subtag != null && ALPHANUM.containsAll(subtag) 
+        && (subtag.length() > 4 || subtag.length() == 4 && DIGIT.contains(subtag.charAt(0)));
+    }
 	
 	/**
 	 * 
@@ -246,29 +253,29 @@ public class LanguageTagParser {
 	 * @param minLength TODO
 	 */
 	private String getExtension(String subtag, StringTokenizer st, int minLength) {
-    final String key = subtag;
-    if (extensions.containsKey(key)) {
-      throwError(subtag, "Can't have two extensions with the same key");
-    }
-		if (!st.hasMoreElements()) {
-		  throwError(subtag, "Private Use / Extension requires subsequent subtag");
-		}
-		StringBuffer result = new StringBuffer();
-		try {
-			while (st.hasMoreElements()) {
-				subtag = getSubtag(st);
-				if (subtag.length() < minLength) {
-				  return subtag;
-				}
-				if (result.length() != 0) {
-				    result.append('-');
-				}
-				result.append(subtag);
-			}
-			return null;
-		} finally {
-			extensions.put(key, result.toString());
-		}
+	    final String key = subtag;
+	    if (extensions.containsKey(key)) {
+	        throwError(subtag, "Can't have two extensions with the same key");
+	    }
+	    if (!st.hasMoreElements()) {
+	        throwError(subtag, "Private Use / Extension requires subsequent subtag");
+	    }
+	    StringBuffer result = new StringBuffer();
+	    try {
+	        while (st.hasMoreElements()) {
+	            subtag = getSubtag(st);
+	            if (subtag.length() < minLength) {
+	                return subtag;
+	            }
+	            if (result.length() != 0) {
+	                result.append('-');
+	            }
+	            result.append(subtag);
+	        }
+	        return null;
+	    } finally {
+	        extensions.put(key, result.toString());
+	    }
 	}
 	
 	/**
@@ -348,6 +355,7 @@ public class LanguageTagParser {
     if (pos < 0) return "root";
     return localeCode.substring(0,pos);
   }
+  
   public void setLanguage(String language) {
     if (language.contains("_")) {
       String oldScript = script;
@@ -368,8 +376,35 @@ public class LanguageTagParser {
       this.language = language;
     }
   }
+  
   public LanguageTagParser setLocaleExtensions(LinkedHashMap<String, String> localeExtensions) {
     this.localeExtensions = localeExtensions;
     return this;
   }
+  
+  public LanguageTagParser setVariants(Collection<String> newVariants) {
+      for (String variant : newVariants) {
+          if (!isValidVariant(variant)) {
+              throw new IllegalArgumentException("Illegal variant: " + variant);
+          }
+      }
+      variants.clear();
+      variants.addAll(newVariants);
+      return this;
+  }
+  
+  static final Pattern EXTENSION_PATTERN = Pattern.compile("([0-9a-zA-Z]{2,8}(-[0-9a-zA-Z]{2,8})*)?");
+  
+  public LanguageTagParser setExtensions(Map<String, String> newExtensions) {
+      for (Entry<String, String> entry : newExtensions.entrySet()) {
+          if (!ALPHA.contains(entry.getKey())) {
+              throw new IllegalArgumentException("Illegal exception key: " + entry.getKey());
+          }
+          if (EXTENSION_PATTERN.matcher(entry.getValue()).matches()) {
+              throw new IllegalArgumentException("Illegal exception value: " + entry.getValue());
+          }
+      }
+      this.extensions.putAll(newExtensions);
+      return this;
+    }
 }

@@ -728,7 +728,7 @@ public class GenerateMaximalLocales {
     toMaximized.putAll(temp);
   }
 
-  private static String maximize(String languageTag, Map<String, String> toMaximized) {
+  public static String maximize(String languageTag, Map<String, String> toMaximized) {
     LanguageTagParser ltp = new LanguageTagParser();
 
     // clean up the input by removing Zzzz, ZZ, and changing "" into und.
@@ -790,6 +790,9 @@ public class GenerateMaximalLocales {
       System.out.print(""); // debug
     }
     String maximized = maximize(input, toMaximized);
+    if (maximized == null) {
+        return null; // failed
+    }
     LanguageTagParser ltp = new LanguageTagParser().set(maximized);
     String language = ltp.getLanguage();
     String region = ltp.getRegion();
@@ -1198,7 +1201,7 @@ public class GenerateMaximalLocales {
   //
   //  };
 
-  private static void minimize(Map<String, String> fluffup) {
+  public static void minimize(Map<String, String> fluffup) {
     LanguageTagParser parser = new LanguageTagParser();
     LanguageTagParser targetParser = new LanguageTagParser();
     Set<String> removals = new TreeSet<String>();

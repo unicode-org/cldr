@@ -22,6 +22,7 @@ $element=[a-zA-Z0-9]+;
 
 '/layout/orientation' > '1-misc|layout|orientation';
 
+'/characters/exemplarCharacters[@type="index"]' > '1-misc|indexCharacters|';
 '/characters/exemplarCharacters[@type="' ($avalue) '"]' > '1-misc|exemplarCharacters|2-' $1;
 '/characters/exemplarCharacters' > '1-misc|exemplarCharacters|2-main';
 
@@ -144,7 +145,7 @@ $element=[a-zA-Z0-9]+;
 '/numbers/' ([a-z]+) 'Formats/' ($element) '/' ($element) '[@type="' ($avalue) '"]/pattern[@type="standard"]' > '2-number|pattern|' $1;
 #'/numbers/decimalFormats/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="standard"]
 '/numbers/' ([a-z]+) 'Formats/' ($element) '[@type="' ($avalue) '"]/' ($element) '[@type="standard"]/pattern[@type="standard"]' > '2-number|pattern-|' $1;
-'/numbers/' ([a-z]+) 'Formats/' ($element) '[@type="' ($avalue) '"]/' ($element) '[@type="standard"]/pattern[@type="' ($avalue) '"]' > '2-number|pattern-' $5 '|' $1;
+'/numbers/' ([a-z]+) 'Formats/' ($element) '[@type="' ($avalue) '"]/' ($element) '[@type="standard"]/pattern[@type="' ($avalue) '"]' > '2-number|pattern|' $1 '-' $5;
 '/numbers/currencyFormats/currencySpacing/beforeCurrency/' (.*) > '2-number|currency|match-before-' $1;
 '/numbers/currencyFormats/currencySpacing/afterCurrency/' (.*) > '2-number|currency|match-after-' $1;
 '/numbers/currencyFormats/unitPattern' > '2-number|currency|name-pattern';

@@ -81,8 +81,8 @@ public class TestCoverageLevel extends TestFmwk {
 
     private int keyValuePairCount(Relation<Level, String> values) {
         int total = 0;
-        for (Entry<Level, Set<String>> entry : values.entrySet()) {
-            total += entry.getValue().size();
+        for (Entry<Level, String> entry : values.entrySet()) {
+            total++;
         }
         return total;
     }

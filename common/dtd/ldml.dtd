@@ -1067,7 +1067,6 @@ $Date$
 <!ATTLIST currencyFormat references CDATA #IMPLIED >
 <!ATTLIST currencyFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST currencyFormat validSubLocales CDATA #IMPLIED >
-<!ATTLIST currencyFormat numberSystem CDATA #IMPLIED >
 
 <!ELEMENT currencies (alias | (default?, currency*, special*)) >
 <!ATTLIST currencies draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->

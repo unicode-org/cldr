@@ -892,85 +892,85 @@ $Date$
 <!ATTLIST decimal references CDATA #IMPLIED >
 <!ATTLIST decimal draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST decimal alt NMTOKENS #IMPLIED >
-<!ATTLIST decimal numberSystem CDATA #IMPLIED >
+<!ATTLIST decimal numberSystem CDATA #IMPLIED > <!-- deprecated -->
 
 <!ELEMENT group ( #PCDATA ) >
 <!ATTLIST group references CDATA #IMPLIED >
 <!ATTLIST group draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST group alt NMTOKENS #IMPLIED >
-<!ATTLIST group numberSystem CDATA #IMPLIED >
+<!ATTLIST group numberSystem CDATA #IMPLIED > <!-- deprecated -->
 
 <!ELEMENT list ( #PCDATA ) >
 <!ATTLIST list references CDATA #IMPLIED >
 <!ATTLIST list draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST list alt NMTOKENS #IMPLIED >
-<!ATTLIST list numberSystem CDATA #IMPLIED >
+<!ATTLIST list numberSystem CDATA #IMPLIED > <!-- deprecated -->
 
 <!ELEMENT percentSign ( #PCDATA ) >
 <!ATTLIST percentSign references CDATA #IMPLIED >
 <!ATTLIST percentSign draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST percentSign alt NMTOKENS #IMPLIED >
-<!ATTLIST percentSign numberSystem CDATA #IMPLIED >
+<!ATTLIST percentSign numberSystem CDATA #IMPLIED > <!-- deprecated -->
 
 <!ELEMENT nativeZeroDigit ( #PCDATA ) >
 <!ATTLIST nativeZeroDigit references CDATA #IMPLIED >
 <!ATTLIST nativeZeroDigit draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST nativeZeroDigit alt NMTOKENS #IMPLIED >
-<!ATTLIST nativeZeroDigit numberSystem CDATA #IMPLIED >
+<!ATTLIST nativeZeroDigit numberSystem CDATA #IMPLIED > <!-- deprecated -->
 
 <!ELEMENT patternDigit ( #PCDATA ) >
 <!ATTLIST patternDigit references CDATA #IMPLIED >
 <!ATTLIST patternDigit draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST patternDigit alt NMTOKENS #IMPLIED >
-<!ATTLIST patternDigit numberSystem CDATA #IMPLIED >
+<!ATTLIST patternDigit numberSystem CDATA #IMPLIED > <!-- deprecated -->
 
 <!ELEMENT plusSign ( #PCDATA ) >
 <!ATTLIST plusSign references CDATA #IMPLIED >
 <!ATTLIST plusSign draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST plusSign alt NMTOKENS #IMPLIED >
-<!ATTLIST plusSign numberSystem CDATA #IMPLIED >
+<!ATTLIST plusSign numberSystem CDATA #IMPLIED > <!-- deprecated -->
 
 <!ELEMENT minusSign ( #PCDATA ) >
 <!ATTLIST minusSign references CDATA #IMPLIED >
 <!ATTLIST minusSign draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST minusSign alt NMTOKENS #IMPLIED >
-<!ATTLIST minusSign numberSystem CDATA #IMPLIED >
+<!ATTLIST minusSign numberSystem CDATA #IMPLIED > <!-- deprecated -->
 
 <!ELEMENT exponential ( #PCDATA ) >
 <!ATTLIST exponential references CDATA #IMPLIED >
 <!ATTLIST exponential draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST exponential alt NMTOKENS #IMPLIED >
-<!ATTLIST exponential numberSystem CDATA #IMPLIED >
+<!ATTLIST exponential numberSystem CDATA #IMPLIED > <!-- deprecated -->
 
 <!ELEMENT perMille ( #PCDATA ) >
 <!ATTLIST perMille references CDATA #IMPLIED >
 <!ATTLIST perMille draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST perMille alt NMTOKENS #IMPLIED >
-<!ATTLIST perMille numberSystem CDATA #IMPLIED >
+<!ATTLIST perMille numberSystem CDATA #IMPLIED > <!-- deprecated -->
 
 <!ELEMENT infinity ( #PCDATA ) >
 <!ATTLIST infinity references CDATA #IMPLIED >
 <!ATTLIST infinity draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST infinity alt NMTOKENS #IMPLIED >
-<!ATTLIST infinity numberSystem CDATA #IMPLIED >
+<!ATTLIST infinity numberSystem CDATA #IMPLIED > <!-- deprecated -->
 
 <!ELEMENT nan ( #PCDATA ) >
 <!ATTLIST nan references CDATA #IMPLIED >
 <!ATTLIST nan draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST nan alt NMTOKENS #IMPLIED >
-<!ATTLIST nan numberSystem CDATA #IMPLIED >
+<!ATTLIST nan numberSystem CDATA #IMPLIED > <!-- deprecated -->
 
 <!ELEMENT currencyDecimal ( #PCDATA ) >
 <!ATTLIST currencyDecimal references CDATA #IMPLIED >
 <!ATTLIST currencyDecimal draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST currencyDecimal alt NMTOKENS #IMPLIED >
-<!ATTLIST currencyDecimal numberSystem CDATA #IMPLIED >
+<!ATTLIST currencyDecimal numberSystem CDATA #IMPLIED > <!-- deprecated -->
 
 <!ELEMENT currencyGroup ( #PCDATA ) >
 <!ATTLIST currencyGroup references CDATA #IMPLIED >
 <!ATTLIST currencyGroup draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST currencyGroup alt NMTOKENS #IMPLIED >
-<!ATTLIST currencyGroup numberSystem CDATA #IMPLIED >
+<!ATTLIST currencyGroup numberSystem CDATA #IMPLIED > <!-- deprecated -->
 
 <!ELEMENT pattern ( #PCDATA ) >
 <!ATTLIST pattern type NMTOKEN "standard" >
@@ -1196,9 +1196,9 @@ $Date$
 
 <!ELEMENT tc ( #PCDATA  | cp | last_variable )* >
 
-<!ELEMENT q  ( #PCDATA  | cp | last_variable )* >
+<!ELEMENT q  ( #PCDATA  | cp | last_variable )* > <!-- deprecated -->
 
-<!ELEMENT qc ( #PCDATA  | cp | last_variable )* >
+<!ELEMENT qc ( #PCDATA  | cp | last_variable )* > <!-- deprecated -->
 
 <!ELEMENT i  ( #PCDATA  | cp | last_variable )* >
 

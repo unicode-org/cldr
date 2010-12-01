@@ -81,7 +81,7 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!ELEMENT fallback (#PCDATA) >
+<!ELEMENT fallback (#PCDATA) > <!-- deprecated -->
 <!ATTLIST fallback draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED  >
 <!ATTLIST fallback references CDATA #IMPLIED >
 <!ATTLIST fallback alt NMTOKENS #IMPLIED >

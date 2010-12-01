@@ -1513,6 +1513,8 @@
             <deprecatedItems type="supplemental" elements="bcp47KeywordMappings mapKeys mapTypes keyMap typeMap"/>
             <deprecatedItems elements="cldrVersion"/>
             <deprecatedItems elements="calendar" attributes="type" values="civil-arabic thai-buddhist"/>
+            <deprecatedItems elements="decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan currencyDecimal currencyGroup" attributes="numberSystem"/>
+            <deprecatedItems elements="q qc"/>
         </deprecated>
         <distinguishing>
              <distinguishingItems attributes="key request id _q registry alt iso4217 iso3166 mzone from to type"/>

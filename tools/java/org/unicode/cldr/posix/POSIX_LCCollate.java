@@ -22,6 +22,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.CollationElementIterator;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -104,7 +105,9 @@ public class POSIX_LCCollate {
         UnicodeSetIterator it = new UnicodeSetIterator(tailored);
         while ( it.next() )
         {
-           if ( it.codepoint != UnicodeSetIterator.IS_STRING && it.codepoint < 0xffff )
+           if ( it.codepoint != UnicodeSetIterator.IS_STRING && UCharacter.isBMP(it.codepoint) &&
+              ( !UCharacter.isLowSurrogate((char)it.codepoint) &&
+                !UCharacter.isHighSurrogate((char)it.codepoint)))
               chars.add(it.codepoint);
         }
      }

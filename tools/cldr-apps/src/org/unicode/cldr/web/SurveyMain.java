@@ -4127,7 +4127,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             } else {
                 String unlock = (String)ctx.session.get("unlock");
                 if((unlock==null) || (!unlock.equals(lockOut))) {
-                    showSpecialHeader(ctx);
+                    printHeader(ctx, "Locked for Maintenance");
                     ctx.print("<hr><div class='ferrbox'>Sorry, the Survey Tool has been locked for maintenance work. Please try back later.</div>");
                     printFooter(ctx);
                     return;

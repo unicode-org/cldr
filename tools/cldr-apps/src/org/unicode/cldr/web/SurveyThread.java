@@ -64,7 +64,7 @@ public class SurveyThread extends Thread {
      *   });
 	 * 
 	 */
-	public static abstract class SurveyTask {
+	public static abstract class SurveyTask implements CLDRProgressIndicator{
 		/**
 		 * Name of the task.
 		 */
@@ -134,6 +134,19 @@ public class SurveyThread extends Thread {
 		 * @throws Throwable  - any exception will be noted.
 		 */
 		abstract public void run() throws Throwable;
+
+		// ----- CLDRProgressIndicator overrides. For now, delegate to theThread.sm
+        @Override
+        public CLDRProgressTask openProgress(String what) {
+            if(running()) return theThread.sm.openProgress(what);
+            return null;
+        }
+
+        @Override
+        public CLDRProgressTask openProgress(String what, int max) {
+            if(running()) return theThread.sm.openProgress(what,max);
+            return null;
+        }
 	}
 	
 	/**
@@ -202,6 +215,10 @@ public class SurveyThread extends Thread {
 		    } catch(Throwable t) {
 				if(DEBUG) System.err.println("SurveyThread(count:"+tasksRemaining()+"): Got exception on: "+current + " - "+t.toString());
 		        t.printStackTrace();
+		        if(SurveyMain.specialHeader == null) {
+		            SurveyMain.specialHeader = "";
+		        }
+		        SurveyMain.specialHeader = "<div class='ferrbox'>While working on task " + current + " - "+t.toString() + "</div>" + SurveyMain.specialHeader;
 //		        SurveyMain.busted("While working on task " + current + " - "+t.toString(), t);
 		    }
 			current = null; /* done. */

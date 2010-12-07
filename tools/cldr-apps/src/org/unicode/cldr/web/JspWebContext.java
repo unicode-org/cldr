@@ -25,6 +25,8 @@ import org.unicode.cldr.util.SupplementalDataInfo;
  */
 public class JspWebContext extends WebContext {
 
+	private enum MainFormState { OPEN, CLOSED };
+	MainFormState mainFormState = MainFormState.CLOSED;
 	/**
 	 * List of xpaths indicating the types of data being submitted (numbers, currency, etc)
 	 */
@@ -136,10 +138,54 @@ public class JspWebContext extends WebContext {
 	}
 	
 	/**
+	 * Open up the main form, if not already open.
+	 * May be called multiple times.
+	 */
+	public void openMainForm() {
+		if(mainFormState == MainFormState.CLOSED) {
+			if(debugJsp()) {
+				this.println("<h4>&lt;form url='"+url()+"'&gt;</h4>");
+			}
+			sm.printPathListOpen(this);
+            printUrlAsHiddenFields();   
+			mainFormState = MainFormState.OPEN;
+		} else 	if(debugJsp()) {
+			this.println("<h4><i>duplicate &lt;form/&gt;</i></h4>");
+		}
+
+	}
+	
+	/**
+	 * Close the main <form> iff it is already open.
+	 * Throws an error if it was not open.
+	 */
+	public void closeMainForm() {
+		if(mainFormState == MainFormState.OPEN) {
+			String nextStep = (String)this.get("nextStep");
+			if(nextStep!=null) {
+				this.println("<input type='hidden' name='step' value='"+ nextStep+"'>");
+			}
+			if(canModify()) {
+				this.println("<input type='submit' value='Submit'>");
+			} else {
+				this.println("<input type='submit' value='Continue'>");
+			}
+			sm.printPathListClose(this);
+			mainFormState = MainFormState.CLOSED;
+			if(debugJsp()) {
+				this.println("<h4>&lt;/form&gt;</h4>");
+			}
+		} else {
+			throw new InternalError("Error: main form is already " + mainFormState.name());
+		}
+	}
+	
+	/**
 	 * Open a table with a 'code' column.
 	 * @see #closeTable()
 	 */
 	public void openTable() {
+		openMainForm();
 		this.put(SurveyMain.DATAROW_JSP,DATAROW_JSP_CODE);
 		SurveyMain.printSectionTableOpenCode(this);
 	}
@@ -148,6 +194,7 @@ public class JspWebContext extends WebContext {
 	 *  @see #closeTableNoCode()
 	 */
 	public void openTableNoCode() {
+		openMainForm();
 		this.put(SurveyMain.DATAROW_JSP, SurveyMain.DATAROW_JSP_DEFAULT);
 		SurveyForum.printSectionTableOpenShort(this, null);
 	}
@@ -157,6 +204,7 @@ public class JspWebContext extends WebContext {
 	 * @see #doneWithXpaths()
 	 */
 	public void showXpath(String xpath) {
+		openMainForm();
 		String podBase = SurveyForum.showXpathShort(this, xpath, xpath);
 		addPodBase(podBase);
 	}
@@ -207,6 +255,7 @@ public class JspWebContext extends WebContext {
 			this.println("Submitting hidden field for bases: "+sb+"<br>");
 		}
 		this.println("<input name='pod_bases' type='hidden' value='"+sb+"'>");
+		closeMainForm();
 	}
 	
 	/**

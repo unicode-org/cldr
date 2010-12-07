@@ -1,6 +1,11 @@
+<%@ page import="org.unicode.cldr.web.*" %>
+<%@ page import="org.unicode.cldr.util.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="com.ibm.icu.text.*" %>
+<%@ page import="com.ibm.icu.util.*" %>
 <%
     if(ctx.sm.isUnofficial) {
-		%><div style='float: right; border: 1px solid gray; margin: 0.5em;'><%
+		%><div class='debugJsp' ><%
 			JspWebContext jwc = new JspWebContext(ctx);
 			jwc.setQuery(SurveyMain.QUERY_SECTION,ctx.field(SurveyMain.QUERY_SECTION));
 			jwc.setQuery(SurveyMain.QUERY_LOCALE,ctx.localeString());

@@ -7,14 +7,22 @@ subCtx.setQuery(SurveyMain.QUERY_LOCALE,ctx.localeString());
 /* flush output (sync between subCtx' stream and JSP stream ) */
 subCtx.flush();
 %>
+<%@ include file="/WEB-INF/jspf/debug_jsp.jspf" %>
 
 <%--
     <%@ include file="/WEB-INF/jspf/report_top.jspf" %>
 --%>
-
 <%
 	// set up the 'x' parameter to the current secrtion (r_steps, etc)
-	subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
+subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
+ctx.setQuery(SurveyMain.QUERY_LOCALE,subCtx.field(SurveyMain.QUERY_LOCALE));
+
+/**
+ * Set query fields to be propagated to the individual steps 
+ */
+WebContext topCtx = (WebContext) request.getAttribute(WebContext.CLDR_WEBCONTEXT);
+topCtx.setQuery(SurveyMain.QUERY_SECTION, subCtx.field(SurveyMain.QUERY_SECTION));
+topCtx.setQuery(SurveyMain.QUERY_LOCALE, subCtx.field(SurveyMain.QUERY_LOCALE));
 
     // step parameter determines which 'stage' we are at. Stage 1: characters, stage 2: two currencies, stage 3: congratulations.
 
@@ -57,11 +65,7 @@ subCtx.flush();
 
 	// begin the form.
 	if(baseXpathForNextStage != null) {
-		SurveyForum.beginSurveyToolForm(ctx, baseXpathForNextStage);
-		
-		// print hidden fields, as needed
-		out.println("<input type='hidden' value='"+ctx.field(SurveyMain.QUERY_SECTION)+"' name='"+SurveyMain.QUERY_SECTION+"'>");
-		out.println("<input type='hidden' name='old_step' value='"+stepNumberToName(myStage)+"'>");
+		topCtx.setQuery("old_step", stepNumberToName(myStage));
 	}
 %>
 
@@ -108,6 +112,11 @@ subCtx.flush();
 	} else {
 		ctx.put("thisBaseXpath",baseXpathForNextStage);
 		ctx.put("thisStep",(Integer)myStage);
+		if(baseXpathForNextStage != null) {
+			ctx.put("nextStep",stepNumberToName(nextStage));
+			topCtx.put("nextStep",stepNumberToName(nextStage));
+			ctx.println("nextStep = " + stepNumberToName(nextStage));
+		}
 		ctx.flush();
 		ctx.includeFragment(reports[myStage-1]+".jsp");
 		ctx.flush();
@@ -117,20 +126,6 @@ subCtx.flush();
 
 	// now, enter the close of the form
 	
-	if(baseXpathForNextStage != null) {  // if we have a form open..
-		// send them to the next section
-%>      
-		<input type='hidden' name='step' value='<%= stepNumberToName(nextStage) %>'>
-		
-<%   if (ctx.canModify()) { %>
-		<input type='submit' value='Submit'>
-<%
-	  } else {
-%>
-		<i>Must be logged in to submit data.</i>
-<%
-	  }
-	}
 	
 	subCtx.flush();
 

@@ -1267,7 +1267,7 @@ public class DataSection extends Registerable {
 	public static DataSection make(WebContext ctx, CLDRLocale locale, String prefix, boolean simple) {
 		DataSection section = new DataSection(ctx.sm, locale, prefix);
 //        section.simple = simple;
-        SurveyMain.UserLocaleStuff uf = ctx.sm.getUserFile(ctx, ctx.session.user, ctx.getLocale());
+        SurveyMain.UserLocaleStuff uf = ctx.getUserFile();
   
         XMLSource ourSrc = uf.dbSource;
         

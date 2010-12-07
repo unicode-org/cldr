@@ -71,7 +71,7 @@ public class XPathTable {
                 String uniqueness = ", " +   "unique(xpath)";
                 if(SurveyMain.db_Mysql) {
                     uniqueness = "";
-                    xpathindex="xpath(1000)";
+                    xpathindex="xpath(755)";
                 }
                 sql=("create table " + CLDR_XPATHS + "(id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
                                                         "xpath "+sm.DB_SQL_VARCHARXPATH+" not null"+uniqueness+")");

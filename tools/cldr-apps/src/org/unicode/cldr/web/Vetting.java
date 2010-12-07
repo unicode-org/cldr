@@ -29,6 +29,7 @@ import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
+import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -266,7 +267,7 @@ public class Vetting {
                 logger.info("Vetting DB: setting up " + theTable);
                 Statement s = conn.createStatement();
                 s.execute("create table " + theTable + " " +
-                        "(org varchar(256) not null, " +
+                        "(org varchar(100) not null, " +
                         "locale VARCHAR(20) not null, " +
                 "base_xpath INT not null, unique(org,locale,base_xpath))");
                 s.execute("CREATE UNIQUE INDEX "+theTable+"_U on " + theTable +" (org,locale,base_xpath)");
@@ -482,22 +483,28 @@ public class Vetting {
         int tcount = 0;
         int lcount = 0;
         int nrInFiles = inFiles.length;
-        for(int i=0;i<nrInFiles;i++) {
-            String fileName = inFiles[i].getName();
-            int dot = fileName.indexOf('.');
-            String localeName = fileName.substring(0,dot);
-            if((i%100)==0) {
-                System.err.println(localeName + " - "+i+"/"+nrInFiles);
-            }
-            ElapsedTimer et2 = new ElapsedTimer();
-            int count = updateImpliedVotes(CLDRLocale.getInstance(localeName));
-            tcount += count;
-            if(count>0) {
-                lcount++;
-                System.err.println("updateImpliedVotes("+localeName+") took " + et2.toString());
-            } else {
-                // no reason to print it.
-            }
+        CLDRProgressTask progress = sm.openProgress("update implied votes");
+        try {
+	        for(int i=0;i<nrInFiles;i++) {
+	            String fileName = inFiles[i].getName();
+	            int dot = fileName.indexOf('.');
+	            String localeName = fileName.substring(0,dot);
+	            progress.update(i,localeName);
+	            if((i%100)==0) {
+	                System.err.println(localeName + " - "+i+"/"+nrInFiles);
+	            }
+	            ElapsedTimer et2 = new ElapsedTimer();
+	            int count = updateImpliedVotes(CLDRLocale.getInstance(localeName));
+	            tcount += count;
+	            if(count>0) {
+	                lcount++;
+	                System.err.println("updateImpliedVotes("+localeName+") took " + et2.toString());
+	            } else {
+	                // no reason to print it.
+	            }
+	        }
+        } finally {
+        	progress.close();
         }
         System.err.println("Done updating "+tcount+" implied votes ("+lcount + " locales). Elapsed:" + et.toString());
         return tcount;
@@ -706,24 +713,23 @@ public class Vetting {
      */
     public int updateResults(boolean removeFirst) {
         stopUpdating = false;
+        File inFiles[] = sm.getInFiles();
+        int nrInFiles = inFiles.length;
+        CLDRProgressTask progress = sm.openProgress("vetting update", nrInFiles);
         try {
-            sm.progressWhat = "vetting update";
             ElapsedTimer et = new ElapsedTimer();
             System.err.println("updating results... ***********************************");
-            File inFiles[] = sm.getInFiles();
             int tcount = 0;
             int lcount = 0;
             int types[] = new int[1];
-            int nrInFiles = inFiles.length;
-            sm.progressMax = nrInFiles;
             for(int i=0;i<nrInFiles;i++) {
-                sm.progressCount = i;
 
                 // TODO: need a function for this.
                 String fileName = inFiles[i].getName();
                 int dot = fileName.indexOf('.');
                 String localeString= fileName.substring(0,dot);
                 CLDRLocale localeName = CLDRLocale.getInstance(localeString);
+                progress.update(i, localeString);
                 //System.err.println(localeName + " - "+i+"/"+nrInFiles);
                 ElapsedTimer et2 = new ElapsedTimer();
                 types[0]=0;
@@ -747,7 +753,7 @@ public class Vetting {
             System.err.println("******************** NOTE: updateResults() doesn't send notifications yet.");
             return tcount;
         } finally {
-            sm.progressWhat = null; // clean up counter.
+            progress.close();
         }
     }
     
@@ -1057,7 +1063,7 @@ public class Vetting {
                     CLDRLocale ulocale = (locale);
                     //                        WebContext xctx = new WebContext(false);
                     //                        xctx.setLocale(locale);
-                    sm.makeCLDRFile(sm.makeDBSource(sm.getDBConnection(),  null, ulocale));
+                    sm.makeCLDRFile(sm.makeDBSource( ulocale));
                 } catch(Throwable t) {
                     t.printStackTrace();
                     String complaint = ("Error loading: " + locale + " - " + t.toString() + " ...");
@@ -1593,9 +1599,7 @@ public class Vetting {
      * @return bitwise OR of good, disputed, etc.
      */
     int status(CLDRLocale locale) {
-        synchronized(conn) {
             return getCachedLocaleData(locale).getStatus();
-        }
     }
     public int getWinningXPath(int xpath, CLDRLocale locale) {
         return getCachedLocaleData(locale).getWinningXPath(xpath, null);
@@ -2490,7 +2494,7 @@ if(true == true)    throw new InternalError("removed from use.");
             
 //            System.err.println("PPC["+podBase+"] - ges-> " + oldSection);
             
-            SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.getLocale());
+            SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx.session, ctx.getLocale());
             CLDRFile cf = uf.cldrfile;
             if(cf == null) {
                 throw new InternalError("CLDRFile is null!");
@@ -2559,7 +2563,7 @@ if(true == true)    throw new InternalError("removed from use.");
         
         void reset() {
 //            System.err.println("vetting::checker reset " + locale);
-            XMLSource dbSource = sm.makeDBSource(conn, null, locale);
+            XMLSource dbSource = sm.makeDBSource( locale);
 //            CLDRDBSourceFactory.vettingMode(sm.vet);
             //if(resolved == false) {
                 file = sm.makeCLDRFile(dbSource);

@@ -12,6 +12,7 @@ import java.io.*;
 import java.util.*;
 
 import org.unicode.cldr.util.*;
+import org.unicode.cldr.web.SurveyAjax.AjaxType;
 import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
 import org.unicode.cldr.test.*;
@@ -159,6 +160,7 @@ public class WebContext implements Cloneable {
     public WebContext(boolean fake)throws IOException  {
         dontCloseMe=false;
         out=openUTF8Writer(System.out);
+        pw = new PrintWriter(out);
     }
     
     /**
@@ -355,7 +357,7 @@ public class WebContext implements Cloneable {
      * @param x pref name
      * @return preference value (or false)
      */
-    boolean prefBool(String x) {
+    public boolean prefBool(String x) {
         return prefBool(x,false);
     }
 
@@ -458,7 +460,7 @@ public class WebContext implements Cloneable {
      * @param target the target name to use
      * @return the 'target=...' string - may be blank if the user has requested no popups
      */
-    String atarget(String target) {
+    public String atarget(String target) {
         if(prefBool(SurveyMain.PREF_NOPOPUPS)) {
             return "";
         } else {
@@ -471,7 +473,7 @@ public class WebContext implements Cloneable {
      * @param k key
      * @param v value
      */
-    void addQuery(String k, String v) {
+    public void addQuery(String k, String v) {
         outQueryMap.put(k,v);
         if(outQuery == null) {
             outQuery = k + "=" + v;
@@ -541,7 +543,7 @@ public class WebContext implements Cloneable {
      * Return the output URL 
      * @return the output URL
      */
-    String url() {
+    public String url() {
         if(outQuery == null) {
             return base();
         } else {
@@ -588,7 +590,15 @@ public class WebContext implements Cloneable {
      * @return the context path for the specified resource
      */
     public String context(String s) { 
-        return context() + "/" + s;
+        return context(request,s);
+    }
+    /**
+     * Get the context path for a certain resource
+     * @param s resource URL
+     * @return the context path for the specified resource
+     */
+    public static String context(HttpServletRequest request, String s) { 
+        return request.getContextPath() + "/" + s;
     }
     
     /**
@@ -708,7 +718,7 @@ public class WebContext implements Cloneable {
      * @param s line to print
      * @see PrintWriter#println(String)
      */
-    final void println(String s) {
+    public final void println(String s) {
         pw.println(s);
     }
     
@@ -716,7 +726,7 @@ public class WebContext implements Cloneable {
      * @param s
      * @see PrintWriter#print(String)
      */
-    final void print(String s) {
+    public final void print(String s) {
         pw.print(s);
     }
     
@@ -1331,10 +1341,14 @@ public class WebContext implements Cloneable {
      * @return the HTML for the icon and message
      */
     public String iconHtml(String icon, String message) {
+        return iconHtml(request, icon, message);
+    }
+    
+    public static String iconHtml(HttpServletRequest request, String icon, String message) {
         if(message==null) {
             message = "[" + icon +"]";
         }
-        return "<img border='0' alt='["+icon+"]' style='width: 16px; height: 16px;' src='"+context(icon+".png")+"' title='"+message+"' />";
+        return "<img border='0' alt='["+icon+"]' style='width: 16px; height: 16px;' src='"+context(request, icon+".png")+"' title='"+message+"' />";
     }
     
     /**
@@ -1472,4 +1486,24 @@ public class WebContext implements Cloneable {
 		if(canModify==null) throw new InternalError("zoomedIn()- not set.");
 		return zoomedIn;
 	}
+
+
+    public void includeAjaxScript(AjaxType type)  {
+        try {
+            SurveyAjax.includeAjaxScript(request, response, type);
+        } catch(Throwable t) {
+            this.println("<div class='ferrorbox'><B>Error</b> while including template :<br>");
+            this.print(t);
+            this.println("</div>");
+            System.err.println("While expanding ajax: " +t.toString());
+            t.printStackTrace();
+        }
+    }
+    
+    public SurveyMain.UserLocaleStuff getUserFile() {
+    	return sm.getUserFile(session, getLocale());
+    }
+    public CLDRFile getCLDRFile() {
+    	return getUserFile().cldrfile;
+    }
 }

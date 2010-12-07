@@ -312,14 +312,14 @@ private static final String INTERNAL = "INTERNAL";
                     sql = ("create table " + CLDR_USERS + "(id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
                                                             "userlevel int not null, " +
                                                             "name "+sm.DB_SQL_UNICODE+" not null, " +
-                                                            "email varchar(256) not null UNIQUE, " +
+                                                            "email varchar(128) not null UNIQUE, " +
                                                             "org varchar(256) not null, " +
                                                             "password varchar(100) not null, " +
                                                             "audit varchar(1024) , " +
                                                             "locales varchar(1024) , " +
                                                             "prefs varchar(1024) , " +
                                                             "intlocs varchar(1024) , " + // added apr 2006: ALTER table CLDR_USERS ADD COLUMN intlocs VARCHAR(1024)
-                                                            "lastlogin DATETIME " + // added may 2006:  alter table CLDR_USERS ADD COLUMN lastlogin TIMESTAMP
+                                                            "lastlogin " + sm.DB_SQL_TIMESTAMP0 + // added may 2006:  alter table CLDR_USERS ADD COLUMN lastlogin TIMESTAMP
                                                             (sm.db_Mysql?"":",primary key(id)")+
                                                                 ")"); 
                     s.execute(sql);
@@ -335,7 +335,7 @@ private static final String INTERNAL = "INTERNAL";
                     
                     s.close();
                     conn.commit();
-                } else {
+                } else if(!sm.db_Derby) {
                     /* update table to DATETIME instead of TIMESTAMP */
                     Statement s = conn.createStatement();
                     sql = "alter table cldr_users change lastlogin lastlogin DATETIME";

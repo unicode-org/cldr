@@ -1,4 +1,4 @@
-/* Copyright (c) 2004-2007 IBM and others. All Rights Reserved. */
+/* Copyright (c) 2004-2010 IBM and others. All Rights Reserved. */
 
 /* @override 
 	http://127.0.0.1:8080/cldr-apps/surveytool.css
@@ -7,6 +7,7 @@
 	http://nestor.local:8080/cldr-apps/surveytool.css
 	http://unicode.org/cldr/apps/surveytool.css
 	http://kwanyin.unicode.org/cldr-apps/surveytool.css
+	http://localhost:8080/cldr-apps/surveytool.css
 */
 
 td {
@@ -66,6 +67,8 @@ A.nodraft:visited {
 .missing a:active {
 	color: #f00
 }
+
+
 
 .missing a:hover {
 	color: #fDD
@@ -413,10 +416,9 @@ tr.headingb th {
 
 tt.codebox {
 	border: 1px solid gray;
-/
-
-* padding: 1px; 
-  margin-top:0px;
+/*
+		padding: 1px; 
+  	margin-top:0px;
   */
 }
 
@@ -628,8 +630,19 @@ table.sqlbox form {
 .ferrbox {
 	background-color: #ddd;
 	border: 1px solid red;
-	margin: 1em;
-	padding: 1em;
+	margin: .4em;
+	padding: .2em;
+}
+
+h4#toptitle {
+	margin-top: 0;
+	border-bottom: 3px solid green;
+	background-color: whitesmoke;
+	font: normal 1.2em Georgia, "Times New Roman", Times, serif;
+}
+
+h4#toptitle b{
+	
 }
 
 .sterrmsg {
@@ -643,13 +656,15 @@ table.sqlbox form {
 	font-size: small;
 	margin-left: 1px;
 	margin-right: 1px;
-	color: #d00;
+	color: #d00
 	font-weight: bold;
-	/
-
-* border: 1px solid red; margin: 1em; padding: 1em;	 */
     white-space: nowrap;
 }
+
+/*
+deletebox: 
+ border: 1px solid red; margin: 1em; padding: 1em;	
+*/
 
 .unvotebox {
 	font-size: small;
@@ -658,11 +673,11 @@ table.sqlbox form {
 	margin-bottom: 2px;
 	color: #00989e;
 	font-weight: bold;
+    white-space: nowrap;
+}
 	/*
 
 border: 1px solid red; margin: 1em; padding: 1em;	 */
-    white-space: nowrap;
-}
 
 .fnotebox {
 	background-color: #ddd;
@@ -762,8 +777,39 @@ div.topnotices p.unofficial {
 	background-color: goldenrod;
 }
 
+div.topnotices div.unofficial {
+    background-color: goldenrod;
+	padding: 3px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	opacity: 0.9;
+	width:  100%;
+	text-align: center;
+}
+
 div.topnotices p.beta {
 	background-color: yellow;
+}
+
+div.topnotices div.beta {
+    background-color: yellow;
+	padding: 3px;
+	float: right;
+	font-size: smaller;
+	clear: right;
+	position: absolute;
+	top: 0;
+	right: 0;
+	opacity:  0.8;
+	z-index: 0;
+}
+
+div.debugJsp {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	border: 1px solid gray; margin: 0.5em;
 }
 
 form.adduser table {
@@ -808,6 +854,40 @@ form.adduser tr.submit td {
 form.adduser tr.submit input {
 	font-size: x-large;
 }
+span.elapsedtime {
+	font-size: smaller;
+}
+
+ table.progress-list {
+	border-collapse: collapse;
+	border:  none;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+table.progress-list tr th {
+	vertical-align: top;
+
+	background-color: #eee;
+	opacity: .8;
+	padding-left:  1em;
+	font-color: red;
+}
+
+ table.progress-list tbody tr td {
+	background-color: #bbb;
+	opacity: .6;
+	border-left:  3px dashed gray;
+	padding-left:  1em;
+}
+
+table.progress-list tbody tr td:first-child {
+	opacity: 1.0;
+	background-color: whitesmoke;
+	border-left:  none;
+	padding-left:  0;
+}
 
 table.stprogress {
 	margin: 5px;
@@ -830,4 +910,38 @@ table.stprogress td.remain {
 	border-left: none;
 	border-right: 2px solid black;
 	background: #ddd url(bar1.png) repeat;
+}
+
+label.menutop-active {
+	border: 2px solid green;
+	background-color: navy;
+	color: white;
+}
+
+select.menutop-active {
+}
+
+select.menutop-other {
+}
+
+/* classes for ajax form responses */
+tr.tr_checking {
+	background-color: goldenrod;
+}
+tr.tr_warn {
+	background-color: yellow;
+}
+tr.tr_err {
+	background-color: red;
+}
+/*
+  ready to submit
+  */
+tr.tr_submit {
+	background-color: #dfd;
+}
+/*
+ Unknown status
+*/
+tr.tr_unknown {
 }

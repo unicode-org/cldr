@@ -5,14 +5,7 @@
 
 // list of the 'report' templates
 static final String reports[] = { 
-    "new",
-    "list_patterns",
-    "day_periods",
-    "characters",
-    "numbering_system",
-    "decimal_separator",
-    "group_separator",
-    "decimal_format",
+    "numbers",
     "currency_format",
     "wide_months",
     "abbreviated_months",
@@ -32,14 +25,7 @@ static final String reports[] = {
 static final String report_name[] = reports;  // TODO: replace with human readable name?
 
 static final String base_xpaths[] = {
-        "//ldml/localeDisplayNames",
-        "//ldml/listPatterns/listPattern",
-        "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods",
-		"//ldml/characters/exemplarCharacters", // an example xpath is fine
 		"//ldml/numbers", //ldml/numbers/defaultNumberingSystem",
-		"//ldml/numbers", //ldml/numbers/symbols/decimal",
-		"//ldml/numbers", //ldml/numbers/symbols/group",
-		"//ldml/numbers", //ldml/numbers/decimalFormats/decimalFormatLength",
 		"//ldml/numbers", //ldml/numbers/currencyFormats/currencyFormatLength",
 		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
 		"//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
@@ -60,9 +46,10 @@ static final String base_xpaths[] = {
 
 // names?
 String section = ctx.field(SurveyMain.QUERY_SECTION);
-
+ctx.setQuery(SurveyMain.QUERY_LOCALE,ctx.getLocale().toString());
+ctx.setQuery(SurveyMain.QUERY_SECTION, ctx.field(SurveyMain.QUERY_SECTION));
 JspWebContext subCtx = new JspWebContext(ctx);
-subCtx.setQuery(SurveyMain.QUERY_LOCALE,ctx.getLocale().toString());
+//subCtx.setQuery(SurveyMain.QUERY_LOCALE,ctx.getLocale().toString());
 
 // which report are we on?
 int whichFile  = -1;

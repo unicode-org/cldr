@@ -31,6 +31,8 @@ import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.web.CLDRFileCache.CacheableXMLSource;
+import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
+import org.unicode.cldr.web.SurveyThread.SurveyTask;
 import org.unicode.cldr.icu.LDMLConstants;
 
 // ICU
@@ -290,34 +292,49 @@ public class CLDRDBSourceFactory {
     
     /**
      * Mark a locale as needing update.
+     * Do NOT have the conn locked when you call this, because you will deadlock.
      * @param loc
      */
     public void needUpdate(CLDRLocale loc) {
-    	if(!needUpdate.contains(loc)) 
-    	needUpdate.add(loc);
+    	if(!needUpdate.contains(loc)) {
+	    	synchronized(needUpdate) {
+	    		needUpdate.add(loc);
+	    	}
+    	}
     }
 
     
     /**
      * Execute deferred updates. Call this at a high level when all updates are complete.
      */
-    public int update() {
-    	int n = 0;
-        synchronized(sm.vet.conn) {
-            for(CLDRLocale l : needUpdate) {
-            	n++;
-                System.err.println("CLDRDBSRCFAC: executing deferred update of " + l +"("+needUpdate.size()+" on queue)");
-                sm.vet.updateResults(l);
-                synchronized(this) {
-	                XMLSource inst = getInstance(l,false);
-	                // TODO: fix broken layering
-	                XMLSource cached = ((MuxedSource)inst).cachedSource;
-	                ((CacheableXMLSource)cached).reloadWinning(((MuxedSource)inst).dbSource);
-	                ((CacheableXMLSource)cached).save();
+    public int update(SurveyTask surveyTask) {
+        int n = 0;
+        CLDRProgressTask progress = null;
+        if(surveyTask!=null) progress = surveyTask.openProgress("DeferredUpdates", needUpdate.size());
+        try {
+            synchronized(needUpdate) {
+                for(CLDRLocale l : needUpdate) {
+                    n++;
+                    if(progress!=null) progress.update(n);
+                    System.err.println("CLDRDBSRCFAC: executing deferred update of " + l +"("+needUpdate.size()+" on queue)");
+                    synchronized(sm.vet.conn) {
+                    	sm.vet.updateResults(l);
+                    }
+                    synchronized(this) {
+                    	XMLSource inst = getInstance(l,false);
+                    	// TODO: fix broken layering
+                    	XMLSource cached = ((MuxedSource)inst).cachedSource;
+                    	((CacheableXMLSource)cached).reloadWinning(((MuxedSource)inst).dbSource);
+                    	((CacheableXMLSource)cached).save();
+                    }
                 }
+                needUpdate.clear();
             }
-            needUpdate.clear();
-         }
+        } finally {
+            if(progress!=null) {
+                progress.close();
+            }
+        }
         return n;
     }
 
@@ -616,14 +633,12 @@ public class CLDRDBSourceFactory {
     public int getSourceId(String tree, String locale) {
         String key = tree + "_" + locale;
         
-        synchronized (srcHash) {
             // first, is it in the hashtable?
             Integer r = null;
             r = (Integer) srcHash.get(key);
             if(r != null) {
                 return r.intValue(); // quick check
             }
-            synchronized(xpt) {
                 synchronized (conn) {
                     try {
                         stmts.querySource.setString(1,locale);
@@ -648,8 +663,6 @@ public class CLDRDBSourceFactory {
                         logger.severe("CLDRDBSource: Failed to find source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
                         return -1;
                     }
-                }
-            }
         }
     }
     
@@ -663,7 +676,6 @@ public class CLDRDBSourceFactory {
         }
         String rev = null;
         synchronized (conn) {
-            synchronized (xpt) {
                 try {
                     stmts.querySourceInfo.setInt(1, id);
                     ResultSet rs = stmts.querySourceInfo.executeQuery();
@@ -681,7 +693,6 @@ public class CLDRDBSourceFactory {
                     throw new InternalError(what);
                 }
             }
-        }
     }
     
     /**
@@ -693,7 +704,6 @@ public class CLDRDBSourceFactory {
      */
     private int setSourceId(String tree, String locale, String rev) {
         synchronized (conn) {
-            synchronized(xpt) {
                 try {
                     stmts.insertSource.setString(1,locale);
                     stmts.insertSource.setString(2,tree);
@@ -711,7 +721,6 @@ public class CLDRDBSourceFactory {
                     throw new InternalError("CLDRDBSource: Failed to set source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
 //                    return -1;
                 }
-            }
         }
     }
 
@@ -1063,125 +1072,135 @@ public class CLDRDBSourceFactory {
         if(srcId != -1) { 
             return true;  // common case. The locale is already loaded. We're done.
         }
+        
+        CLDRLocale updateNeeded = null;
 
         System.err.println("@sl&v: "+locale+"/"+srcId);
+		CLDRProgressTask progress = sm.openProgress("Loading " + locale);
+        try {
+        	synchronized(conn) {  // Synchronize on the conn to ensure that no other state is changing under us..
+        		// double check..
+        		srcId = getSourceId(tree, locale); // double checked lock- noone else loaded the src since then
 
-        synchronized(conn) {  // Synchronize on the conn to ensure that no other state is changing under us..
-            // double check..
-            srcId = getSourceId(tree, locale); // double checked lock- noone else loaded the src since then
-            
-            if(srcId != -1) { 
-                return true;  // common case.
-            }            
-            if(conn == null) {
-                throw new InternalError("loadAndValidate: failed, no DB connection"); // very bad, our DB connection went away.
-            }
-            
-            String rev = LDMLUtilities.loadFileRevision(dir, locale+".xml");  // Load the CVS version # as a string
-            if(rev == null) rev = "null";
-            srcId = setSourceId(tree, locale, rev); // TODO: we had better fill it in..
-        //    synchronized(conn) {            
-               // logger.info("srcid: " + srcId +"/"+locale);
-               // if(locale.equals("el__POLYTON")) locale="el_POLYTON";
-                CLDRFile file = rawXmlFactory.make(locale, false, true); // create the CLDRFile pointing to the raw XML
-                
-                if(file == null) {
-                    System.err.println("Couldn't load CLDRFile for " + locale);
-                    return false ;
-                }
-                
-                System.err.println("loading rev: " + rev + " for " + dir + ":" + srcId +"/"+locale+".xml"); // LOG that a new item is loaded.
-                int rowCount=0;
-                //sm.fora.updateBaseLoc(locale); // in case this is a new locale.
-                // Now, start loading stuff in
-                XPathParts xpp=new XPathParts(null,null); // for parsing various xpaths
-                
-                for (Iterator it = file.iterator(); it.hasNext();) {  // loop over the contents of the raw XML ..
-                    rowCount++;
-                    String rawXpath = (String) it.next();
-                    
-                    // Make it distinguished
-                    String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);
-                    
-                    //if(!xpath.equals(rawXpath)) {
-                    //    logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
-                    //}
-                    
-                    String oxpath = file.getFullXPath(xpath); // orig-xpath.  
-                    
-                    if(!oxpath.equals(file.getFullXPath(rawXpath))) {
-                        // Failed the sanity check.  This should Never Happen(TM)
-                        // What's happened here, is that the full xpath given the raw xpath, ought to be the full xpath given the distinguished xpath.
-                        // SurveyTool depends on this being reversable thus.
-                        throw new InternalError("FATAL: oxpath and file.getFullXPath(raw) are different: " + oxpath + " VS. " + file.getFullXPath(rawXpath));
-                    }
-                    
-                    int xpid = xpt.getByXpath(xpath);       // the numeric ID of the xpath
-                    int oxpid = xpt.getByXpath(oxpath);     // the numeric ID of the orig-xpath
-                    
-                    String value = file.getStringValue(xpath); // data value from XML
-                    
-                    // Now, munge the xpaths around a bit.
-                    xpp.clear();
-                    xpp.initialize(oxpath);
-                    String lelement = xpp.getElement(-1);
-                    /* all of these are always at the end */
-                    String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
-                    String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
-        
-                    /* we call a special function to find the "tiny" xpath.  Which see */
-                    String eType = xpt.typeFromPathToTinyXpath(xpath, xpp);  // etype = the element's type
-                    String tinyXpath = xpp.toString(); // the tiny xpath
-                    
-                    int txpid = xpt.getByXpath(tinyXpath); // the numeric ID of the tiny xpath
-                    
-                    int base_xpid = xpt.xpathToBaseXpathId(xpath);  // the BASE xpath 
-                    
-                    /* Some debugging to print these various things*/ 
-    //                System.out.println(xpath + " l: " + locale);
-    //                System.out.println(" <- " + oxpath);
-    //                System.out.println(" t=" + eType + ", a=" + eAlt + ", d=" + eDraft);
-    //                System.out.println(" => "+txpid+"#" + tinyXpath);
-                      
-                    // insert it into the DB
-                    try {
-                        stmts.insert.setInt(1,xpid); // full
-                        stmts.insert.setString(2,locale);
-                        stmts.insert.setInt(3,srcId);
-                        stmts.insert.setInt(4,oxpid); // Note: assumes XPIX = orig XPID! TODO: fix
-                        SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
-                        stmts.insert.setString(6,eType);
-                        stmts.insert.setString(7,eAlt);
-                        stmts.insert.setInt(8,txpid); // tiny
-                        stmts.insert.setNull(9, java.sql.Types.INTEGER); // Null integer for Submitter. NB: we do NOT ever consider data coming from XML as 'submitter' data.
-                        stmts.insert.setInt(10, base_xpid);
+        		if(srcId != -1) { 
+        			return true;  // common case.
+        		}            
+        		if(conn == null) {
+        			throw new InternalError("loadAndValidate: failed, no DB connection"); // very bad, our DB connection went away.
+        		}
 
-                        stmts.insert.execute();
-                        
-                    } catch(SQLException se) {
-                        String complaint = 
-                            "CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath +
-                                ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
-                        logger.severe(complaint);
-                        throw new InternalError(complaint);
-                    }
-                }
-                
-                try{
-                        conn.commit();
-                } catch(SQLException se) {
-                        String complaint = 
-                            "CLDRDBSource: Couldn't commit " + locale +
-                                ":" + SurveyMain.unchainSqlException(se);
-                        logger.severe(complaint);
-                        throw new InternalError(complaint);
-                }
-                System.err.println("loaded " + rowCount + " rows into  rev: " + rev + " for " + dir + ":" + srcId +"/"+locale+".xml"); // LOG that a new item is loaded.
-                CLDRLocale loc = CLDRLocale.getInstance(locale);
-              	needUpdate(loc);
-                return true;
-         //   }
-        } // end: synch(xpt)
+        		String rev = LDMLUtilities.loadFileRevision(dir, locale+".xml");  // Load the CVS version # as a string
+        		if(rev == null) rev = "null";
+        		srcId = setSourceId(tree, locale, rev); // TODO: we had better fill it in..
+        		//    synchronized(conn) {            
+        		// logger.info("srcid: " + srcId +"/"+locale);
+        		// if(locale.equals("el__POLYTON")) locale="el_POLYTON";
+        		CLDRFile file = rawXmlFactory.make(locale, false, true); // create the CLDRFile pointing to the raw XML
+
+        		if(file == null) {
+        			System.err.println("Couldn't load CLDRFile for " + locale);
+        			return false ;
+        		}
+        		
+
+        		System.err.println("loading rev: " + rev + " for " + dir + ":" + srcId +"/"+locale+".xml"); // LOG that a new item is loaded.
+        		int rowCount=0;
+        		//sm.fora.updateBaseLoc(locale); // in case this is a new locale.
+        		// Now, start loading stuff in
+        		XPathParts xpp=new XPathParts(null,null); // for parsing various xpaths
+
+        		for (Iterator it = file.iterator(); it.hasNext();) {  // loop over the contents of the raw XML ..
+        			rowCount++;
+        			String rawXpath = (String) it.next();
+
+        			// Make it distinguished
+        			String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);
+
+        			//if(!xpath.equals(rawXpath)) {
+        			//    logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
+        			//}
+
+        			String oxpath = file.getFullXPath(xpath); // orig-xpath.  
+
+        			if(!oxpath.equals(file.getFullXPath(rawXpath))) {
+        				// Failed the sanity check.  This should Never Happen(TM)
+        				// What's happened here, is that the full xpath given the raw xpath, ought to be the full xpath given the distinguished xpath.
+        				// SurveyTool depends on this being reversable thus.
+        				throw new InternalError("FATAL: oxpath and file.getFullXPath(raw) are different: " + oxpath + " VS. " + file.getFullXPath(rawXpath));
+        			}
+
+        			int xpid = xpt.getByXpath(xpath);       // the numeric ID of the xpath
+        			int oxpid = xpt.getByXpath(oxpath);     // the numeric ID of the orig-xpath
+        			progress.update("x#"+xpid);
+
+        			String value = file.getStringValue(xpath); // data value from XML
+
+        			// Now, munge the xpaths around a bit.
+        			xpp.clear();
+        			xpp.initialize(oxpath);
+        			String lelement = xpp.getElement(-1);
+        			/* all of these are always at the end */
+        			String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
+        			String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
+
+        			/* we call a special function to find the "tiny" xpath.  Which see */
+        			String eType = xpt.typeFromPathToTinyXpath(xpath, xpp);  // etype = the element's type
+        			String tinyXpath = xpp.toString(); // the tiny xpath
+
+        			int txpid = xpt.getByXpath(tinyXpath); // the numeric ID of the tiny xpath
+
+        			int base_xpid = xpt.xpathToBaseXpathId(xpath);  // the BASE xpath 
+
+        			/* Some debugging to print these various things*/ 
+        			//                System.out.println(xpath + " l: " + locale);
+        			//                System.out.println(" <- " + oxpath);
+        			//                System.out.println(" t=" + eType + ", a=" + eAlt + ", d=" + eDraft);
+        			//                System.out.println(" => "+txpid+"#" + tinyXpath);
+
+        			// insert it into the DB
+        			try {
+        				stmts.insert.setInt(1,xpid); // full
+        				stmts.insert.setString(2,locale);
+        				stmts.insert.setInt(3,srcId);
+        				stmts.insert.setInt(4,oxpid); // Note: assumes XPIX = orig XPID! TODO: fix
+        				SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
+        				stmts.insert.setString(6,eType);
+        				stmts.insert.setString(7,eAlt);
+        				stmts.insert.setInt(8,txpid); // tiny
+        				stmts.insert.setNull(9, java.sql.Types.INTEGER); // Null integer for Submitter. NB: we do NOT ever consider data coming from XML as 'submitter' data.
+        				stmts.insert.setInt(10, base_xpid);
+
+        				stmts.insert.execute();
+
+        			} catch(SQLException se) {
+        				String complaint = 
+        					"CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath +
+        					")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+        				logger.severe(complaint);
+        				throw new InternalError(complaint);
+        			}
+        		}
+
+        		try{
+        			conn.commit();
+        		} catch(SQLException se) {
+        			String complaint = 
+        				"CLDRDBSource: Couldn't commit " + locale +
+        				":" + SurveyMain.unchainSqlException(se);
+        			logger.severe(complaint);
+        			throw new InternalError(complaint);
+        		}
+        		System.err.println("loaded " + rowCount + " rows into  rev: " + rev + " for " + dir + ":" + srcId +"/"+locale+".xml"); // LOG that a new item is loaded.
+        		updateNeeded = CLDRLocale.getInstance(locale); // update out of lock
+        		return true;
+        		//   }
+        	} // end: synch(xpt)
+        } finally {
+        	progress.close();
+        	if(updateNeeded != null) {
+        		needUpdate(updateNeeded);
+        	}
+        }
     }
         
 
@@ -1214,100 +1233,100 @@ public class CLDRDBSourceFactory {
     }
     public String putValueAtPath(String xpath, String value)
     {
-        String loc = getLocaleID();
-        String dpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
-        CLDRLocale locale = CLDRLocale.getInstance(loc);
-        int xpid = sm.xpt.getByXpath(dpath);       // the numeric ID of the xpath
-        int oxpid = sm.xpt.getByXpath(xpath);     // the numeric ID of the orig-xpath
-        // Make it distinguished
-        //if(!xpath.equals(rawXpath)) {
-        //    logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
-        //}
-        
-        //String oxpath = file.getFullXPath(xpath); // orig-xpath.  
-        
-//        if(!oxpath.equals(file.getFullXPath(rawXpath))) {
-//            // Failed the sanity check.  This should Never Happen(TM)
-//            // What's happened here, is that the full xpath given the raw xpath, ought to be the full xpath given the distinguished xpath.
-//            // SurveyTool depends on this being reversable thus.
-//            throw new InternalError("FATAL: oxpath and file.getFullXPath(raw) are different: " + oxpath + " VS. " + file.getFullXPath(rawXpath));
-//        }
-//        
-        
-        XPathParts xpp = new XPathParts(null,null);
-        // Now, munge the xpaths around a bit.
-        xpp.clear();
-        xpp.initialize(xpath);
-        String lelement = xpp.getElement(-1);
-        /* all of these are always at the end */
-        String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
-        int submitter = XPathTable.altProposedToUserid(eAlt);
-        String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
+    	String loc = getLocaleID();
+    	String dpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
+    	CLDRLocale locale = CLDRLocale.getInstance(loc);
+    	int xpid = sm.xpt.getByXpath(dpath);       // the numeric ID of the xpath
+    	int oxpid = sm.xpt.getByXpath(xpath);     // the numeric ID of the orig-xpath
+    	// Make it distinguished
+    	//if(!xpath.equals(rawXpath)) {
+    	//    logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
+    	//}
 
-        /* we call a special function to find the "tiny" xpath.  Which see */
-        String eType = sm.xpt.typeFromPathToTinyXpath(xpath, xpp);  // etype = the element's type
-        String tinyXpath = xpp.toString(); // the tiny xpath
-        
-        int txpid = sm.xpt.getByXpath(tinyXpath); // the numeric ID of the tiny xpath
-        
-        int base_xpid = sm.xpt.xpathToBaseXpathId(dpath);  // the BASE xpath 
-        
-        /* Some debugging to print these various things*/ 
-//                System.out.println(xpath + " l: " + locale);
-//                System.out.println(" <- " + oxpath);
-//                System.out.println(" t=" + eType + ", a=" + eAlt + ", d=" + eDraft);
-//                System.out.println(" => "+txpid+"#" + tinyXpath);
-          
-        // insert it into the DB
+    	//String oxpath = file.getFullXPath(xpath); // orig-xpath.  
+
+    	//        if(!oxpath.equals(file.getFullXPath(rawXpath))) {
+    	//            // Failed the sanity check.  This should Never Happen(TM)
+    	//            // What's happened here, is that the full xpath given the raw xpath, ought to be the full xpath given the distinguished xpath.
+    	//            // SurveyTool depends on this being reversable thus.
+    	//            throw new InternalError("FATAL: oxpath and file.getFullXPath(raw) are different: " + oxpath + " VS. " + file.getFullXPath(rawXpath));
+    	//        }
+    	//        
+
+    	XPathParts xpp = new XPathParts(null,null);
+    	// Now, munge the xpaths around a bit.
+    	xpp.clear();
+    	xpp.initialize(xpath);
+    	String lelement = xpp.getElement(-1);
+    	/* all of these are always at the end */
+    	String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
+    	int submitter = XPathTable.altProposedToUserid(eAlt);
+    	String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
+
+    	/* we call a special function to find the "tiny" xpath.  Which see */
+    	String eType = sm.xpt.typeFromPathToTinyXpath(xpath, xpp);  // etype = the element's type
+    	String tinyXpath = xpp.toString(); // the tiny xpath
+
+    	int txpid = sm.xpt.getByXpath(tinyXpath); // the numeric ID of the tiny xpath
+
+    	int base_xpid = sm.xpt.xpathToBaseXpathId(dpath);  // the BASE xpath 
+
+    	/* Some debugging to print these various things*/ 
+    	//                System.out.println(xpath + " l: " + locale);
+    	//                System.out.println(" <- " + oxpath);
+    	//                System.out.println(" t=" + eType + ", a=" + eAlt + ", d=" + eDraft);
+    	//                System.out.println(" => "+txpid+"#" + tinyXpath);
+
+    	// insert it into the DB
     	synchronized(conn) {
-        try {
-            stmts.insert.setInt(1,xpid);  /// dpath
-            stmts.insert.setString(2,loc);
-            stmts.insert.setInt(3,srcId);
-            stmts.insert.setInt(4,oxpid);  // origxpath = full (original) xpath
-            SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
-            stmts.insert.setString(6,eType);
-            stmts.insert.setString(7,eAlt);
-            stmts.insert.setInt(8,txpid); // tiny xpath
-            if(submitter == -1) {
-                    stmts.insert.setNull(9, java.sql.Types.INTEGER); //  getId(alt...)
-            } else {
-                stmts.insert.setInt(9, submitter);
-            }
-            stmts.insert.setInt(10, base_xpid);
+    		try {
+    			stmts.insert.setInt(1,xpid);  /// dpath
+    			stmts.insert.setString(2,loc);
+    			stmts.insert.setInt(3,srcId);
+    			stmts.insert.setInt(4,oxpid);  // origxpath = full (original) xpath
+    			SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
+    			stmts.insert.setString(6,eType);
+    			stmts.insert.setString(7,eAlt);
+    			stmts.insert.setInt(8,txpid); // tiny xpath
+    			if(submitter == -1) {
+    				stmts.insert.setNull(9, java.sql.Types.INTEGER); //  getId(alt...)
+    			} else {
+    				stmts.insert.setInt(9, submitter);
+    			}
+    			stmts.insert.setInt(10, base_xpid);
 
-            stmts.insert.execute();
-            
-            System.err.println("Inserted: " + xpath);
-            
-        } catch(SQLException se) {
-            String complaint = 
-                "CLDRDBSource: Couldn't insert " + getLocaleID() + ":" + xpid + "(" + xpath +
-                    ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
-            logger.severe(complaint);
-            throw new InternalError(complaint);
-        }
-    
-    try{
-            conn.commit();
-    } catch(SQLException se) {
-            String complaint = 
-                "CLDRDBSource: Couldn't commit " + getLocaleID() +
-                    ":" + SurveyMain.unchainSqlException(se);
-            logger.severe(complaint);
-            throw new InternalError(complaint);
-    }
-//    System.err.println("loaded " + rowCount + " rows into  rev: " + rev + " for " + dir + ":" + srcId +"/"+locale+".xml"); // LOG that a new item is loaded.
-//    if(vetterReady) {
-//        synchronized(sm.vet) {
-//            sm.vet.updateResults(loc);
-//        }
-//    } else {
-//        System.err.println("CLDRDBSource " + loc + " - deferring vet update on " + loc + " until vetter ready.");
-//    }
-    	} /* release the outer conn connection */
-        needUpdate(locale);
-        return dpath;
+    			stmts.insert.execute();
+
+    			System.err.println("Inserted: " + xpath);
+
+    		} catch(SQLException se) {
+    			String complaint = 
+    				"CLDRDBSource: Couldn't insert " + getLocaleID() + ":" + xpid + "(" + xpath +
+    				")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+    			logger.severe(complaint);
+    			throw new InternalError(complaint);
+    		}
+
+    		try{
+    			conn.commit();
+    		} catch(SQLException se) {
+    			String complaint = 
+    				"CLDRDBSource: Couldn't commit " + getLocaleID() +
+    				":" + SurveyMain.unchainSqlException(se);
+    			logger.severe(complaint);
+    			throw new InternalError(complaint);
+    		}
+    		//    System.err.println("loaded " + rowCount + " rows into  rev: " + rev + " for " + dir + ":" + srcId +"/"+locale+".xml"); // LOG that a new item is loaded.
+    		//    if(vetterReady) {
+    		//        synchronized(sm.vet) {
+    		//            sm.vet.updateResults(loc);
+    		//        }
+    		//    } else {
+    		//        System.err.println("CLDRDBSource " + loc + " - deferring vet update on " + loc + " until vetter ready.");
+    		//    }
+    	} /* release the outer conn connection before calling needUpdate */
+    	needUpdate(locale);
+    	return dpath;
     }
 
     /**
@@ -1361,6 +1380,7 @@ public class CLDRDBSourceFactory {
         if(SHOW_TIMES) {
                t0 = System.currentTimeMillis();
         }
+        //System.out.println("srl: hv@dp[f="+(finalData)+"] " + path);
         if(finalData) {
             boolean rv =  (getValueAtDPath(path) != null); // TODO: optimize this
             if(SHOW_TIMES) System.err.println("hasValueAtDPath:final "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
@@ -1438,7 +1458,7 @@ public class CLDRDBSourceFactory {
 	    
 	        String locale = getLocaleID();
 	        int xpath = xpt.getByXpath(path);
-	        if(SHOW_TIMES) System.err.println("hasValueAtDPath:>> "+locale + ":" + xpath + " " + (System.currentTimeMillis()-t0));
+	        if(SHOW_TIMES) System.err.println("getValueAtDPath:>> "+locale + ":" + xpath + " " + (System.currentTimeMillis()-t0));
 	
 	        ///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
 	//        try {
@@ -1460,7 +1480,7 @@ public class CLDRDBSourceFactory {
 	            }
 	            String rv;
 	            if(!rs.next()) {
-	                if(SHOW_TIMES) System.err.println("hasValueAtDPath:0 "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
+	                if(SHOW_TIMES) System.err.println("getValueAtDPath:0 "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
 	                if(!finalData) {
 	                    rs.close();                    
 	                    if(SHOW_DEBUG) System.err.println("Nonfinal - no match for "+locale+":"+xpath + "");
@@ -1483,7 +1503,7 @@ public class CLDRDBSourceFactory {
 	                }                      
 	            }
 	            rv = SurveyMain.getStringUTF8(rs, 1); //            rv = rs.getString(1); // unicode
-	            if(SHOW_TIMES) System.err.println("hasValueAtDPath:+ "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
+	            if(SHOW_TIMES) System.err.println("getValueAtDPath:+ "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
 	            if(rs.next()) {
 	                String complaint = "warning: multi return: " + locale + ":" + path + " #"+xpath;
 	                logger.severe(complaint);
@@ -2359,6 +2379,10 @@ public class CLDRDBSourceFactory {
             System.err.println("CLDRDBSourceFactory: Note: instead of CLDRDBSource.putValueAtDPath() and CLDRDBSource.putFullPathAtDPath(), use CLDRDBSource.putValueAtPath().");
         }
         return;
+    }
+
+    public int update() {
+        return update(null);
     }
 
 }

@@ -1,0 +1,47 @@
+Index: src/org/unicode/cldr/web/SurveyMain.java
+===================================================================
+--- src/org/unicode/cldr/web/SurveyMain.java	(revision 5190)
++++ src/org/unicode/cldr/web/SurveyMain.java	(working copy)
+@@ -17,6 +17,9 @@
+ import java.io.PrintWriter;
+ import java.io.StringWriter;
+ import java.io.UnsupportedEncodingException;
++import java.lang.management.ManagementFactory;
++import java.lang.management.ThreadInfo;
++import java.lang.management.ThreadMXBean;
+ import java.net.InetAddress;
+ import java.net.URLEncoder;
+ import java.sql.Connection;
+@@ -1124,6 +1127,23 @@
+             ctx.println("<hr>");
+             ctx.println("<h2>Threads</h2>");
+             Map<Thread, StackTraceElement[]> s = Thread.getAllStackTraces();
++            
++            try {
++                ThreadMXBean tmx = ManagementFactory.getThreadMXBean();
++                long[] ids = tmx.findDeadlockedThreads();
++                if (ids != null) {
++                   ThreadInfo[] infos = tmx.getThreadInfo(ids, true, true);
++                   ctx.println("The following threads are deadlocked:</br>");
++                   for (ThreadInfo ti : infos) {
++                      ctx.print("<pre>"+ ti + "</pre><hr>");
++                   }
++                }
++            } catch (Throwable t) {
++                t.printStackTrace();
++                ctx.println("<i>Couldn't detect deadlocked threads: " + t.toString()+"</i><br/>");
++            }
++            
++            
+             ctx.print("<ul>");
+             for(Thread t : s.keySet()) {
+             	ctx.println("<li><a href='#"+t.getId()+"'>"+t.getName()+"</a>  - "+t.getState().toString()+"</li>");
+@@ -4129,7 +4149,7 @@
+             } else {
+                 String unlock = (String)ctx.session.get("unlock");
+                 if((unlock==null) || (!unlock.equals(lockOut))) {
+-                    showSpecialHeader(ctx);
++                    printHeader(ctx, "Locked for Maintenance");
+                     ctx.print("<hr><div class='ferrbox'>Sorry, the Survey Tool has been locked for maintenance work. Please try back later.</div>");
+                     printFooter(ctx);
+                     return;

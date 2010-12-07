@@ -601,27 +601,6 @@ public class SurveyForum {
         return ssrh;
     }
     
-    /**
-     * Output the beginning of a data submission form.
-     * @param ctx
-     * @param section_xpath
-     */
-    public static void beginSurveyToolForm(WebContext ctx, String section_xpath) {
-        CLDRLocale loc = ctx.getLocale();
-        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
-        String podBase = DataSection.xpathToSectionBase(section_xpath);
-        ctx.put(WebContext.CAN_MODIFY, canModify);
-        //ctx.sm.printPathListOpen(ctx);
-        if(canModify) {
-            /* hidden fields for that */
-            ctx.println("<input type='hidden' name='_' value='"+ctx.getLocale().toString()+"'>");
-            ctx.println("<input type='submit' value='" + SurveyMain.getSaveButtonText() + "'><br>"); //style='float:right' 
-        }
-    }
-    
-    public static void endSurveyToolForm(WebContext ctx) {
-        ctx.sm.printPathListClose(ctx);    	
-    }
     
     public static void printSectionTableOpenShort(WebContext ctx, String base_xpath) {
     	DataSection section = null;
@@ -679,11 +658,7 @@ public class SurveyForum {
      * Get CLDR File
      */
     public static CLDRFile getCLDRFile(WebContext ctx) {
-        synchronized (ctx.session) { // session sync
-            UserLocaleStuff uf = ctx.sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.getLocale());
-            CLDRFile cf = uf.cldrfile;
-            return cf;
-        }
+       return ctx.sm.getCLDRFile(ctx.session, ctx.getLocale());
     }
     
     public static void showSubmitButton(WebContext baseCtx) {
@@ -1250,7 +1225,7 @@ public class SurveyForum {
         ULocale u = new ULocale(locale);
         return ctx.base()+"?_="+locale+"&"+F_FORUM+"="+u.getLanguage()+"&"+F_XPATH+"="+xpath;
     }
-    static String forumUrl(WebContext ctx, String forum) {
+    static public String forumUrl(WebContext ctx, String forum) {
         return (ctx.base()+"?"+F_FORUM+"="+forum);
     }
     String returnText(WebContext ctx, int base_xpath) {
@@ -1476,7 +1451,7 @@ public boolean doFeed(HttpServletRequest request, HttpServletResponse response)
     
     
     
-    String forumFeedIcon(WebContext ctx, String forum) {
+    public static String forumFeedIcon(WebContext ctx, String forum) {
         if(ctx.session == null ||
            ctx.session.user == null ||
            !UserRegistry.userIsStreet(ctx.session.user)) {

@@ -26,12 +26,14 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.SimpleXMLSource;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
+import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
 /**
  * @author srl
  * 
  */
 public class CLDRFileCache {
+	private long startTime = System.currentTimeMillis();
 	static final private boolean DEBUG_INSANE = true;
 	/**
 	 * @author srl
@@ -461,29 +463,33 @@ public class CLDRFileCache {
 		 */
 		public void load(XMLSource from) {
 			Iterator<String> iter = from.iterator();
-
-			// dos.writeInt(COOKIE);
+			CLDRProgressTask progress = sm.openProgress("Cache " + this.getLocaleID());
 			int n = 0;
-			for (; iter.hasNext();) {
-				n++;
-				String xpath = iter.next();
-				String fxpath = from.getFullPathAtDPath(xpath);
-				String wxpath = from.getWinningPath(xpath);
-				String val = from.getValueAtDPath(xpath);
-				String bxpath = sm.xpt.xpathToBaseXpath(xpath);
-				this.putValueAtDPath(xpath, val);
-				this.putFullPathAtDPath(xpath, fxpath);
-				this.setWinningPath(xpath, wxpath);
-
-				if (!bxpath.equals(xpath)) {
-					String wbxpath = from.getWinningPath(bxpath);
-					this.setWinningPath(bxpath, wbxpath);
+			try {
+				// dos.writeInt(COOKIE);
+				for (; iter.hasNext();) {
+					n++;
+					String xpath = iter.next();
+					String fxpath = from.getFullPathAtDPath(xpath);
+					String wxpath = from.getWinningPath(xpath);
+					String val = from.getValueAtDPath(xpath);
+					String bxpath = sm.xpt.xpathToBaseXpath(xpath);
+					this.putValueAtDPath(xpath, val);
+					this.putFullPathAtDPath(xpath, fxpath);
+					this.setWinningPath(xpath, wxpath);
+	
+					if (!bxpath.equals(xpath)) {
+						String wbxpath = from.getWinningPath(bxpath);
+						this.setWinningPath(bxpath, wbxpath);
+					}
+	
+					// if(xpath.contains("singleCountries")) {
+					// System.err.println(getLocaleID()+"\n/// " + xpath + "\n->- "
+					// + fxpath + "\n$>- "+wxpath+"\n<<< "+bxpath);
+					// }
 				}
-
-				// if(xpath.contains("singleCountries")) {
-				// System.err.println(getLocaleID()+"\n/// " + xpath + "\n->- "
-				// + fxpath + "\n$>- "+wxpath+"\n<<< "+bxpath);
-				// }
+			} finally {
+				progress.close();
 			}
 			System.err.println("## WXP load " + this.getLocaleID() + " from "
 					+ from.getClass().getName() + "  - loaded " + n);
@@ -524,6 +530,11 @@ public class CLDRFileCache {
 			// }
 			try {
 				File f = getCacheFile();
+				if(f.exists() && f.lastModified() < startTime) {
+					f.delete();
+					System.err.println("Expiring old cache file: " + f.getAbsolutePath());
+				}
+				
 				if (f.exists()) {
 					System.err.println("## load: " + f.getAbsolutePath());
 					load(f);
@@ -759,16 +770,18 @@ public class CLDRFileCache {
 			boolean isVetted) {
 		String key = (isVetted ? "w." : "")
 				+ (locale != null ? locale : "null");
-		CacheableXMLSource src = sources.get(key);
+		CacheableXMLSource src = null;
+		
+		src = sources.get(key);
 		if (src != null && src.invalid()) {
 			src.deleteInvalid();
 			System.err.println("## " + serno + " / invalid: " + key);
 			src = null;
 		}
 		if (src == null) {
-			src = makeXMLSource(locale, isVetted);
-			sources.put(key, src);
-			System.err.println("## " + serno + " / + " + key);
+				src = makeXMLSource(locale, isVetted);
+				sources.put(key, src);
+				System.err.println("## " + serno + " / + " + key);
 		} else {
 			// System.err.println("## " + serno + " / reuse " + key);
 		}

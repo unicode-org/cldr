@@ -3,6 +3,9 @@
 <%@ page import="org.unicode.cldr.web.*" %>
 <%@ page import="org.unicode.cldr.util.*" %>
 <%@ page import="java.util.*" %>
+<%@ page import="com.ibm.icu.text.*" %>
+<%@ page import="com.ibm.icu.util.*" %>
+<%@ taglib prefix="st" tagdir="/WEB-INF/tags/st" %> 
 
 <% 
 	JspWebContext ctx = WebContext.fromRequest(request,response,out);
@@ -13,5 +16,6 @@
     Boolean zoomedIn = (Boolean)ctx.get(WebContext.ZOOMED_IN);
     Boolean canModify = (Boolean)ctx.get(WebContext.CAN_MODIFY);
     WebContext.HTMLDirection htmlDirection = ctx.getDirectionForLocale(); // ltr or rtl
+    
     
 %>

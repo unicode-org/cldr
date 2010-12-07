@@ -1,4 +1,4 @@
-/* Copyright (C) 2005-2007, International Business Machines Corporation and   *
+/* Copyright (C) 2005-2010, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               */
 //
 //  CookieSession.java
@@ -29,6 +29,10 @@ public class CookieSession {
     public UserRegistry.User user = null;
     
     private Connection conn = null;
+    
+    public String toString() {
+    	return id;
+    }
     
     public Connection db(SurveyMain sm) {
         if(conn == null) {

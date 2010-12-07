@@ -3,8 +3,11 @@
 	<head>
 		<title>Unicode | CLDR | About the Survey Tool</title>
 		<link rel='stylesheet' type='text/css' href='./surveytool.css' />
+        <script type='text/javascript' src='<%= request.getContextPath()+"/dojoroot/dojo/dojo.js" %>'
+            djConfig='parseOnLoad: true, isDebug: false'></script>
 	</head>
     
+    <body>
     <h2 class="selected">About the Survey Tool</h2>
 
         <p class="hang">For more information about the Survey Tool, see <a href="http://www.unicode.org/cldr">unicode.org/cldr</a>.</p>
@@ -72,7 +75,6 @@
     <%
         }
     %>
-	<body>
 		<hr/>
 		<a href="./survey">Return to Survey Tool</a> |
 		<a href="./index.jsp">Return to CLDR Applications</a> |

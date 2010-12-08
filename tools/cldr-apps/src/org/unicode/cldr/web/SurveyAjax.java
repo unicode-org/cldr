@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +24,18 @@ import org.unicode.cldr.util.CLDRLocale;
 
 /**
  * Servlet implementation class SurveyAjax
+ * 
+ * URL/JSON Usage:  
+ *   get/set prefs
+ *   
+ *     to get a preference:
+ *       http://...../SurveyAjax?s=YOURSESSIONID&what=pref&pref=dummy
+ *       will reply with JSON of  {... "pref":"dummy","_v":"true" ...}
+ *     to set a preference:
+ *       http://...../SurveyAjax?s=YOURSESSIONID&what=pref&pref=dummy&_v=true
+ *       ( can also use a POST instead of the _v parameter )
+ *     Note, add the preference to the settablePrefsList
+ * 
  */
 public class SurveyAjax extends HttpServlet {
 	public static final class JSONWriter {
@@ -80,13 +94,22 @@ public class SurveyAjax extends HttpServlet {
 	public static final String REQ_SESS = "s";
 	public static final String WHAT_STATUS = "status";
 	public static final String AJAX_STATUS_SCRIPT = "ajax_status.jspf";
-	public static final Object WHAT_VERIFY = "verify";
+	public static final String WHAT_VERIFY = "verify";
+	public static final String WHAT_PREF = "pref";
 
+	String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, "dummy" }; // list of prefs OK to get/set
+
+	
+	private Set<String> prefsList = new HashSet<String>();
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public SurveyAjax() {
 		super();
+		
+		for(String p : settablePrefsList) {
+		    prefsList.add(p);
+		}
 	}
 
 
@@ -167,6 +190,22 @@ public class SurveyAjax extends HttpServlet {
 						r.put("dataEmpty", Boolean.toString(file.isEmpty()));
 
 						send(r,out);
+					} else if(what.equals(WHAT_PREF)) {
+					    String pref = request.getParameter("pref");
+					    
+					    
+                        JSONWriter r = newJSONStatus(sm);
+                        r.put("pref",pref);
+                        
+                        if(!prefsList.contains(pref)) {
+                            sendError(out, "Bad or unsupported pref: " + pref);
+                        }
+                        
+                        if(val != null && !val.isEmpty()) {
+                            mySession.settings().set(pref,val);
+                        }
+                        r.put(SurveyMain.QUERY_VALUE_SUFFIX,mySession.settings().get(pref,null));
+                        send(r,out);
 					}
 				}
 			} else {

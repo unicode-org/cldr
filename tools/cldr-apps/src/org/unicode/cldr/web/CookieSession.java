@@ -134,6 +134,7 @@ public class CookieSession {
      */
     public void setUser(UserRegistry.User u) {
         user = u;
+        settings = null;
         synchronized(gHash) {
             uHash.put(user.email, this); // replaces any existing session by this user.
         }
@@ -505,4 +506,17 @@ public class CookieSession {
             }
         }
     }
+
+    public UserSettings settings() {
+        if(settings==null) {
+            if(user==null) {
+                settings = new EphemeralSettings();
+            } else {
+                settings = user.settings();
+            }
+        }
+        return settings;
+    }
+
+    private UserSettings settings;
 }

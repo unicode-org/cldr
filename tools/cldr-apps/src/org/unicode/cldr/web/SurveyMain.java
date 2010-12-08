@@ -263,6 +263,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     static final String PREF_JAVASCRIPT = PREF_NOJAVASCRIPT;
     static final String PREF_ADV = "p_adv"; // show advanced prefs?
     static final String PREF_XPATHS = "p_xpaths"; // show xpaths?
+    public static final String PREF_LISTROWS = "p_listrows";
     public static final String PREF_DEBUGJSP = "p_debugjsp"; // debug JSPs?
     public static final String PREF_COVLEV = "p_covlev"; // covlev
     public static final String PREF_COVTYP = "p_covtyp"; // covtyp
@@ -406,7 +407,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             return;
         }
         
-        if(isBusted==null) {
+        if(!isBusted()) {
             if(startupTime != null) {
                 String startupMsg = null;
                 startupMsg = (startupTime.toString());
@@ -445,7 +446,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         /**
          * Busted: unrecoverable error, do not attempt to go on.
          */
-        if(isBusted != null) {
+        if(isBusted()) {
             String pi = request.getParameter("sql"); // allow sql
             if((pi==null) || (!pi.equals(vap))) {
                 response.setContentType("text/html; charset=utf-8");
@@ -3986,11 +3987,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         nuCtx.addQuery(pref, !val);
 //        nuCtx.println("<div class='pager' style='float: right;'>");
         nuCtx.println("<a href='" + nuCtx.url() + "'>" + what + " is currently ");
-		ctx.println(
-			((val)?"<span class='selected'>On</span>":"<span style='color: #ddd' class='notselected'>On</span>") + 
-				"&nbsp;/&nbsp;" +
-			((!val)?"<span class='selected'>Off</span>":"<span style='color: #ddd' class='notselected'>Off</span>") );
-		ctx.println("</a><br>");
+        ctx.println(
+            ((val)?"<span class='selected'>On</span>":"<span style='color: #ddd' class='notselected'>On</span>") + 
+                "&nbsp;/&nbsp;" +
+            ((!val)?"<span class='selected'>Off</span>":"<span style='color: #ddd' class='notselected'>Off</span>") );
+        ctx.println("</a><br>");
 //        nuCtx.println("</div>");
         return val;
     }
@@ -4086,10 +4087,23 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             showTogglePref(ctx, PREF_XPATHS, "Show full XPaths");
             showTogglePref(ctx, PREF_NOSHOWDELETE, "Suppress controls for deleting unused items in zoomed-in view:");
             showTogglePref(ctx, PREF_NOJAVASCRIPT, "Reduce the use of JavaScript (unimplemented)");
+            
             ctx.println("</div>");
         }
 
         
+        // Dummy, pointless boolean toggle.
+        if(isUnofficial) {
+            ctx.println("(settings type: " + ctx.settings().getClass().getName()+")<br/>");
+            
+            // If a pref (URL) is set, use that, otherwise if there is a setting use that, otherwise false.
+            boolean dummySetting = ctx.prefBool("dummy",ctx.settings().get("dummy",false));
+            // always set.
+            ctx.settings().set("dummy",dummySetting);
+
+            showTogglePref(ctx, "dummy", "A Dummy Setting");
+        }
+                
         printFooter(ctx);
     }
 
@@ -8946,7 +8960,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * Startup function. Called from another thread.
      * @throws ServletException
      */
-    public synchronized void doStartup() throws ServletException {
+    public synchronized void doStartup()  {
         if(isSetup == true) {
             return;
         }
@@ -9145,14 +9159,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         /** 
          * Cause locale alias to be checked.
          */
-//        if(!SurveyMain.isUnofficial) { // only do this for official
+        if(!isBusted()) {
             isLocaleAliased(CLDRLocale.ROOT);
-       // }
+        }
         
         logger.info("SurveyTool ready for requests after "+setupTime+". Memory in use: " + usedK());
         isSetup = true;
     }
 
+    public static boolean isBusted() {
+        return (isBusted != null);
+    }
     public void destroy() {
         CLDRProgressTask progress = openProgress("shutting down");
         try {
@@ -9434,7 +9451,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         } catch(InternalError e) {
             e.printStackTrace();
         }
-        if(isBusted==null) { // Keep original failure message.
+        if(!isBusted()) { // Keep original failure message.
             isBusted = what;
             if(stack == null) {
                 stack = "(no stack)\n";

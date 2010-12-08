@@ -1506,4 +1506,12 @@ public class WebContext implements Cloneable {
     public CLDRFile getCLDRFile() {
     	return getUserFile().cldrfile;
     }
+    
+    /**
+     * Get the user settings.
+     * @return
+     */
+    UserSettings settings() {
+        return session.settings();
+    }
 }

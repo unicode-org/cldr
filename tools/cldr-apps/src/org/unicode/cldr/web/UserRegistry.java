@@ -95,6 +95,7 @@ private static final String INTERNAL = "INTERNAL";
 
     PreparedStatement removeIntLoc = null;
     PreparedStatement updateIntLoc = null;
+    private UserSettingsData userSettings;
     
     /**
      * This nested class is the representation of an individual user. 
@@ -112,7 +113,26 @@ private static final String INTERNAL = "INTERNAL";
         public String intlocs = null;
         public String ip;
         
+        private UserSettings settings;
         
+        /**
+         * @deprecated may not use
+         */
+        private User() {
+            this.id = -1;
+            settings = userSettings.getSettings(id); // may not use settings.
+        }
+        public User(int id) {
+           this.id = id;
+           settings = userSettings.getSettings(id);
+        }
+        /**
+         * Get a settings object for use with this user.
+         * @return
+         */
+        public UserSettings settings() {
+            return settings;
+        }
         public void touch()  {
             UserRegistry.this.touch(id);
         }
@@ -317,11 +337,10 @@ private static final String INTERNAL = "INTERNAL";
                                                             "password varchar(100) not null, " +
                                                             "audit varchar(1024) , " +
                                                             "locales varchar(1024) , " +
-                                                            "prefs varchar(1024) , " +
+                                                            //"prefs varchar(1024) , " + /* deprecated Dec 2010. Not used anywhere */
                                                             "intlocs varchar(1024) , " + // added apr 2006: ALTER table CLDR_USERS ADD COLUMN intlocs VARCHAR(1024)
                                                             "lastlogin " + sm.DB_SQL_TIMESTAMP0 + // added may 2006:  alter table CLDR_USERS ADD COLUMN lastlogin TIMESTAMP
-                                                            (sm.db_Mysql?"":",primary key(id)")+
-                                                                ")"); 
+                                                            (!SurveyMain.db_Mysql?",primary key(id)":"") +  ")"); 
                     s.execute(sql);
                     sql=("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " +
                                                             "VALUES(" + ADMIN +"," + 
@@ -375,7 +394,7 @@ private static final String INTERNAL = "INTERNAL";
             System.err.println("Last SQL run: " + sql);
             throw se;
         }
-            
+        userSettings = UserSettingsData.getInstance(sm);
     }
     
     /**
@@ -583,9 +602,8 @@ private static final String INTERNAL = "INTERNAL";
 //                        System.err.println("Unknown user#:" + id);
                         return null;
                     }
-                    User u = new UserRegistry.User();                    
+                    User u = new UserRegistry.User(id);                    
                     // from params:
-                    u.id = id;
                     u.name = SurveyMain.getStringUTF8(rs, 1);// rs.getString(1);
                     u.org = rs.getString(2);
                     u.email = rs.getString(3);
@@ -635,7 +653,7 @@ private static final String INTERNAL = "INTERNAL";
     }
 
     public final UserRegistry.User get(String pass, String email, String ip) {
-	return get(pass, email, ip, false);
+        return get(pass, email, ip, false);
     }
     
     
@@ -684,7 +702,7 @@ private static final String INTERNAL = "INTERNAL";
                     logger.info("Unknown user or bad login: " + email + " @ " + ip);
                     return null;
                 }
-                User u = new UserRegistry.User();
+                User u = new UserRegistry.User(rs.getInt(1));
                 
                 // from params:
                 u.password = pass;
@@ -693,7 +711,6 @@ private static final String INTERNAL = "INTERNAL";
                 }
                 u.email = email;
                 // from db:   (id,name,userlevel,org,locales)
-                u.id = rs.getInt(1);
                 u.name = SurveyMain.getStringUTF8(rs, 2);//rs.getString(2);
                 u.userlevel = rs.getInt(3);
                 u.org = rs.getString(4);
@@ -737,9 +754,12 @@ private static final String INTERNAL = "INTERNAL";
     public UserRegistry.User get(String email) {
         return get(null,email,INTERNAL);
     }
+    /**
+     * @deprecated
+     * @return
+     */
     public UserRegistry.User getEmptyUser() {
         User u = new User();
-        u.id = -1;
         u.name = "UNKNOWN";
         u.email = "UN@KNOWN.example.com";
         u.org = "NONE"; 
@@ -1535,9 +1555,8 @@ private static final String INTERNAL = "INTERNAL";
                 while(rs.next()){
                     // We don't go through the cache, because not all users may be loaded.
                     
-                    User u = new UserRegistry.User();
+                    User u = new UserRegistry.User(rs.getInt(1));
                     // from params:
-                    u.id = rs.getInt(1);
                     u.userlevel = rs.getInt(2);
                     u.name = SurveyMain.getStringUTF8(rs, 3);
                     u.email = rs.getString(4);

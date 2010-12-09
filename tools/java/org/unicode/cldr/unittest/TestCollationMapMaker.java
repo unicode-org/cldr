@@ -7,15 +7,13 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.tool.GenerateTransformCharts;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CollationMapMaker;
 import org.unicode.cldr.util.Log;
-import com.ibm.icu.dev.test.util.Relation;
-import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.util.CaseIterator;
-import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.PrettyPrinter;
-import com.ibm.icu.impl.MultiComparator;
+import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transliterator;

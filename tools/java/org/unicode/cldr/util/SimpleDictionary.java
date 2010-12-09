@@ -7,9 +7,6 @@
  */
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
-import org.unicode.cldr.util.Dictionary.Matcher.Status;
-
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
@@ -17,6 +14,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Map.Entry;
+
+import org.unicode.cldr.util.Dictionary.Matcher.Status;
 
 /**
  * This is a simple dictionary class used for testing. Should be in the package usertest, but it's a pain to rename files in CVS.

@@ -5,8 +5,12 @@
 package org.unicode.cldr.ooo;
 
 
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.util.Locale;
 
 public class Utilities
 {

@@ -15,13 +15,13 @@
  */
 package org.unicode.cldr.util;
 
-import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
+
+import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 
 public class ExtractCollationRules {
     Map type_rules = new TreeMap();

@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.CldrUtility;
 
 public class FallbackIteratorDataGenerator {
   static TestInfo testInfo = TestInfo.getInstance();

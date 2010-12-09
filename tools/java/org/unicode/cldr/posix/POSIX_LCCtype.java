@@ -11,7 +11,6 @@ package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
 
-
 import org.unicode.cldr.util.CLDRFile;
 
 import com.ibm.icu.lang.UCharacter;

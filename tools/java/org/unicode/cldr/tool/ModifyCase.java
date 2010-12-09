@@ -9,13 +9,17 @@
 
 package org.unicode.cldr.tool;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 import org.w3c.dom.NamedNodeMap;
-import com.ibm.icu.lang.UCharacter;
-import java.io.*;
+import org.w3c.dom.Node;
+
 import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.lang.UCharacter;
 
 /**
  *

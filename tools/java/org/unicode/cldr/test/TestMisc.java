@@ -1,33 +1,5 @@
 package org.unicode.cldr.test;
 
-import org.unicode.cldr.unittest.TestVariantFolder.CaseVariantFolder;
-import org.unicode.cldr.unittest.TestVariantFolder.CompatibilityFolder;
-import org.unicode.cldr.unittest.TestVariantFolder.CanonicalFolder;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Iso639Data;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.VariantFolder;
-import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.Iso639Data.Scope;
-
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.UnicodeProperty;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.CanonicalIterator;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.Currency;
-import com.ibm.icu.util.ULocale;
-
 import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.text.ParsePosition;
@@ -48,6 +20,32 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.unittest.TestVariantFolder.CanonicalFolder;
+import org.unicode.cldr.unittest.TestVariantFolder.CaseVariantFolder;
+import org.unicode.cldr.unittest.TestVariantFolder.CompatibilityFolder;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Iso639Data;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.VariantFolder;
+import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.Iso639Data.Scope;
+
+import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.Currency;
+import com.ibm.icu.util.ULocale;
 
 
 public class TestMisc {

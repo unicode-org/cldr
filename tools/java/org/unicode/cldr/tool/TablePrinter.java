@@ -1,19 +1,17 @@
 package org.unicode.cldr.tool;
 
-import com.ibm.icu.dev.test.util.ArrayComparator;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.util.ULocale;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
-import java.util.TreeSet;
 
 import org.unicode.cldr.util.CldrUtility;
+
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.util.ULocale;
 
 public class TablePrinter {
   public static void main(String[] args) {

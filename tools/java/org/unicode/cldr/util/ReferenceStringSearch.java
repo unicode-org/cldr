@@ -8,17 +8,14 @@
 package org.unicode.cldr.util;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.CollationElementIterator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.StringCharacterIterator;
-import com.ibm.icu.text.StringSearch;
 import com.ibm.icu.util.ULocale;
-
-import java.text.CharacterIterator;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This is intended to be a reference implementation for StringSearch. The

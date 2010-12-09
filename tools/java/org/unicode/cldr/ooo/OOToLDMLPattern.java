@@ -4,8 +4,6 @@
 
 package org.unicode.cldr.ooo;
 
-import com.ibm.icu.lang.UCharacter;
-import java.io.*;
 
 /**
  *

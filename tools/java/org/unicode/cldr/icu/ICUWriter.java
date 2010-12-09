@@ -2,16 +2,16 @@
 
 package org.unicode.cldr.icu;
 
-import org.unicode.cldr.icu.ICUResourceWriter.Resource;
-import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
-import org.unicode.cldr.icu.ResourceSplitter.ResultInfo;
-
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.List;
+
+import org.unicode.cldr.icu.ICUResourceWriter.Resource;
+import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
+import org.unicode.cldr.icu.ResourceSplitter.ResultInfo;
 
 class ICUWriter {
   private static final String LINESEP = System.getProperty("line.separator");

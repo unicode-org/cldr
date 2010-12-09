@@ -1,28 +1,5 @@
 package org.unicode.cldr.tool;
 
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Iso639Data;
-import org.unicode.cldr.util.Log;
-import com.ibm.icu.dev.test.util.Relation;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.Iso639Data.Scope;
-import org.unicode.cldr.util.Iso639Data.Type;
-import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
-
-import com.ibm.icu.dev.test.util.CollectionUtilities;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.util.ULocale;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,6 +16,29 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Iso639Data;
+import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.Iso639Data.Scope;
+import org.unicode.cldr.util.Iso639Data.Type;
+import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+
+import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.util.ULocale;
 
 public class GenerateEnums {
   private static final String CODE_INDENT = "  ";

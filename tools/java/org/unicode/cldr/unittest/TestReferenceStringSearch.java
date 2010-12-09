@@ -1,18 +1,17 @@
 package org.unicode.cldr.unittest;
 
+import java.text.CharacterIterator;
+import java.util.Map;
+import java.util.TreeMap;
+
 import org.unicode.cldr.util.CollationMapMaker;
-import org.unicode.cldr.util.CollationStringByteConverter;
 import org.unicode.cldr.util.Dictionary;
-import org.unicode.cldr.util.IntMap;
 import org.unicode.cldr.util.ReferenceStringSearch;
 import org.unicode.cldr.util.StateDictionary;
 import org.unicode.cldr.util.StateDictionaryBuilder;
-import org.unicode.cldr.util.Utf8StringByteConverter;
 import org.unicode.cldr.util.Timer;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Utf8StringByteConverter;
 import org.unicode.cldr.util.Dictionary.DictionaryCharList;
-import org.unicode.cldr.util.Dictionary.Matcher;
-import org.unicode.cldr.util.Dictionary.Matcher.Status;
 import org.unicode.cldr.util.ReferenceStringSearch.ExtendedRange;
 import org.unicode.cldr.util.ReferenceStringSearch.Range;
 
@@ -24,10 +23,6 @@ import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.StringCharacterIterator;
 import com.ibm.icu.text.StringSearch;
 import com.ibm.icu.util.ULocale;
-
-import java.text.CharacterIterator;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class TestReferenceStringSearch {
   /****************** SIMPLE TESTING ***************/

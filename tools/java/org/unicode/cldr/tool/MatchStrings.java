@@ -1,19 +1,16 @@
 package org.unicode.cldr.tool;
 
-import org.unicode.cldr.util.Pair;
-import com.ibm.icu.dev.test.util.Relation;
-
-import com.ibm.icu.dev.test.util.BagFormatter;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeMap;
+
+import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.Relation;
 
 /**
  * Take mappings to IPA and interleave them.

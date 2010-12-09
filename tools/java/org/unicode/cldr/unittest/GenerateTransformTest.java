@@ -5,7 +5,6 @@ import org.unicode.cldr.tool.GenerateTransform;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
 
 public class GenerateTransformTest extends TestFmwk {
 

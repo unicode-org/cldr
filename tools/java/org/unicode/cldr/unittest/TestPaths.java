@@ -4,16 +4,11 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
 
-import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.PrettyPath;
-import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.CLDRFile.Status;
 
 import com.ibm.icu.dev.test.TestFmwk;

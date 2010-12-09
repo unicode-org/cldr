@@ -5,8 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.ibm.icu.dev.test.util.UnicodeMap;
-import org.unicode.cldr.util.CldrUtility;
-
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 

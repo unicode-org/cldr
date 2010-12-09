@@ -2,8 +2,13 @@
 
 package org.unicode.cldr.icu;
 
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.util.TimeZone;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Locale;
+
+import javax.xml.transform.TransformerException;
 
 import org.unicode.cldr.icu.ICULog.Level;
 import org.unicode.cldr.icu.ICUResourceWriter.Resource;
@@ -18,13 +23,8 @@ import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.w3c.dom.Node;
 
-import java.text.ParseException;
-import java.util.Date;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.Locale;
-
-import javax.xml.transform.TransformerException;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.util.TimeZone;
 
 public class SupplementalDataParser {
   private final ICULog log;

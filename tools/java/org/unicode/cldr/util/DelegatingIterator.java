@@ -2,7 +2,6 @@ package org.unicode.cldr.util;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Set;
 
 public class DelegatingIterator<T> implements Iterator<T> {
 

@@ -1,20 +1,19 @@
 package org.unicode.cldr.tool;
 
-import org.unicode.cldr.util.StandardCodes;
-
-import com.ibm.icu.dev.test.util.BagFormatter;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.util.StandardCodes;
+
+import com.ibm.icu.dev.test.util.BagFormatter;
 
 public class GetDescriptions {
   

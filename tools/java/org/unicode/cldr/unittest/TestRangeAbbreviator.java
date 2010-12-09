@@ -1,17 +1,16 @@
 package org.unicode.cldr.unittest;
 
+import java.io.IOException;
+import java.util.Date;
+
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.RangeAbbreviator;
+
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
-
-import org.unicode.cldr.util.Log;
-import org.unicode.cldr.util.RangeAbbreviator;
-import org.unicode.cldr.util.CldrUtility;
-
-import java.io.IOException;
-import java.util.Date;
-import java.util.Locale;
 
 public class TestRangeAbbreviator {
   static final UnicodeSet DIGITS = new UnicodeSet("[:nd:]");

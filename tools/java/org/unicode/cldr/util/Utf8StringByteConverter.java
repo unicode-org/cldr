@@ -7,10 +7,10 @@
  */
 package org.unicode.cldr.util;
 
+import java.io.IOException;
+
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
-
-import java.io.IOException;
 
 /**
  * @author markdavis

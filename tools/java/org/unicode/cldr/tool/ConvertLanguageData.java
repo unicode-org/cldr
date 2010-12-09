@@ -1,37 +1,6 @@
 package org.unicode.cldr.tool;
 
 
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Iso639Data;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Log;
-import org.unicode.cldr.util.Pair;
-import com.ibm.icu.dev.test.util.Relation;
-import org.unicode.cldr.util.SpreadSheet;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.Iso639Data.Scope;
-import org.unicode.cldr.util.Iso639Data.Source;
-import org.unicode.cldr.util.Iso639Data.Type;
-import org.unicode.cldr.util.LocaleIDParser.Level;
-import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
-import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
-import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
-import org.unicode.cldr.util.XPathParts.Comments;
-
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.util.ULocale;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -53,6 +22,37 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Iso639Data;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.SpreadSheet;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.Iso639Data.Scope;
+import org.unicode.cldr.util.Iso639Data.Source;
+import org.unicode.cldr.util.Iso639Data.Type;
+import org.unicode.cldr.util.LocaleIDParser.Level;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
+import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
+import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+import org.unicode.cldr.util.XPathParts.Comments;
+
+import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.util.ULocale;
 
 /**
  * @author markdavis

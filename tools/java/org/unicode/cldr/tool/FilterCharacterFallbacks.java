@@ -8,24 +8,17 @@
 */
 package org.unicode.cldr.tool;
 
-import java.io.*;
-import java.util.*;
-import java.text.ParseException;
-import java.math.BigInteger;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
-
-import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.lang.*;
-import com.ibm.icu.text.*;
-import com.ibm.icu.impl.*;
-
-import com.ibm.icu.impl.UCharacterProperty;
-import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.CldrUtility;
-
+import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+
+import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.text.Normalizer;
 
 /**
  * Tool to help determine if 

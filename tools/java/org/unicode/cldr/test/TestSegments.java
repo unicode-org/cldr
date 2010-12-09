@@ -13,15 +13,14 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.RandomStringGenerator;
 import org.unicode.cldr.util.Segmenter;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Segmenter.Rule.Breaks;
 
 import com.ibm.icu.dev.test.util.ICUPropertyFactory;
 import com.ibm.icu.dev.test.util.UnicodeProperty;
-
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.RuleBasedBreakIterator;
 import com.ibm.icu.text.UTF16;

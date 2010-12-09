@@ -7,16 +7,6 @@
 
 package org.unicode.cldr.test;
 
-import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.InternalCldrException;
-import org.unicode.cldr.util.CldrUtility;
-
-import com.ibm.icu.dev.test.util.ElapsedTimer;
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.Transliterator;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.text.ParsePosition;
@@ -29,6 +19,16 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.InternalCldrException;
+
+import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.Transliterator;
 
 /**
  * This class provides a foundation for both console-driven CLDR tests, and

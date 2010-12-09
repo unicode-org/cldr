@@ -7,18 +7,18 @@
  */
 package org.unicode.cldr.unittest;
 
-import org.unicode.cldr.util.CompactStringByteConverter;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.Random;
+
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CompactStringByteConverter;
 import org.unicode.cldr.util.StringByteConverter;
 import org.unicode.cldr.util.Utf8StringByteConverter;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.UnicodeSet;
-
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.Random;
 
 public class TestStringByteConverter {
   static Random random = new Random(0);

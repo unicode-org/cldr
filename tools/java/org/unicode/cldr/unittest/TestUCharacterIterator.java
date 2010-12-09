@@ -2,8 +2,6 @@ package org.unicode.cldr.unittest;
 
 import com.ibm.icu.text.UCharacterIterator;
 
-import java.nio.ByteBuffer;
-
 public class TestUCharacterIterator {
   public static void main(String[] args) {
     

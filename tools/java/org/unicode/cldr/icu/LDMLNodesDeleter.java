@@ -13,13 +13,13 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
-import com.ibm.icu.dev.tool.UOption;
-
 import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import com.ibm.icu.dev.tool.UOption;
 /**
  * This allows you to delete LDML nodes in CLDR.
  * 

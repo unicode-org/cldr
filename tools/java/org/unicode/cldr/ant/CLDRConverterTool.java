@@ -8,15 +8,14 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.tools.ant.Task;
-
 import org.unicode.cldr.ant.CLDRBuild.Paths;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
+import org.unicode.cldr.test.CoverageLevel;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CoverageLevel;
 import org.w3c.dom.Node;
 
 /**

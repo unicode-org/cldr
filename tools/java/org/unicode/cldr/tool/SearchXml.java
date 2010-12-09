@@ -1,12 +1,12 @@
 package org.unicode.cldr.tool;
 
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.XMLFileReader;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.XMLFileReader;
 
 public class SearchXml {
   private static Matcher fileMatcher;

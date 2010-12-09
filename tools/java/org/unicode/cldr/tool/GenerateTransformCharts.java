@@ -6,35 +6,39 @@
  */
 package org.unicode.cldr.tool;
 
-import com.ibm.icu.dev.test.util.CollectionUtilities;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
 import org.unicode.cldr.test.TestTransformsSimple;
 import org.unicode.cldr.util.CLDRTransforms;
-import org.unicode.cldr.util.SimpleEquivalenceClass;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.SimpleEquivalenceClass;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
 
-import com.ibm.icu.impl.MultiComparator;
-import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.RuleBasedTransliterator;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.util.ULocale;
-//import com.ibm.icu.dev.test.translit.CompoundTransliteratorTest;
-import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-//import com.ibm.icu.impl.Utility;
-
-import java.util.*;
-import java.util.regex.Pattern;
-import java.io.*;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.ULocale;
 
 public class GenerateTransformCharts {
 

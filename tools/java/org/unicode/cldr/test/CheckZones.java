@@ -9,20 +9,13 @@ package org.unicode.cldr.test;
 import java.util.List;
 import java.util.Map;
 
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.TimezoneFormatter;
-import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.CollectionUtilities;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.ULocale;
 
 public class CheckZones extends CheckCLDR {
 	//private final UnicodeSet commonAndInherited = new UnicodeSet(CheckExemplars.Allowed).complement(); 

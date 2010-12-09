@@ -4,11 +4,9 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Counter;
-import org.unicode.cldr.util.SupplementalData;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 

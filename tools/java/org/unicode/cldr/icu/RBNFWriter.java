@@ -8,15 +8,18 @@
 */
 package org.unicode.cldr.icu;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.math.BigInteger;
+import java.util.Date;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.impl.Utility;
-
 import com.ibm.icu.dev.tool.UOption;
-
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.Calendar;
 

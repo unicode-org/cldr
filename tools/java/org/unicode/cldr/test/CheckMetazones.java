@@ -1,11 +1,10 @@
 package org.unicode.cldr.test;
 
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.XPathParts;
-
 import java.util.List;
 import java.util.Map;
+
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.XPathParts;
 
 public class CheckMetazones extends CheckCLDR {
     // remember to add this class to the list in CheckCLDR.getCheckAll

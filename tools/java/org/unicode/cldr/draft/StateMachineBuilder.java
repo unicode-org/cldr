@@ -10,8 +10,8 @@ import java.util.Set;
 
 import org.unicode.cldr.draft.StateMachine.StateAction;
 import org.unicode.cldr.draft.StateMachine.StateObjectBuilderFactory;
-import com.ibm.icu.dev.test.util.UnicodeMap;
 
+import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 

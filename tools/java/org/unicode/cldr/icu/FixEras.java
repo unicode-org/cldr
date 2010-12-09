@@ -12,10 +12,11 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
+import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
-import org.unicode.cldr.util.LDMLUtilities;
+
 import com.ibm.icu.dev.tool.UOption;
 
 public class FixEras {

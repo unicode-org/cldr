@@ -13,9 +13,9 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;

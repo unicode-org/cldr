@@ -1,37 +1,15 @@
 package org.unicode.cldr.test;
 
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Pair;
-import com.ibm.icu.dev.test.util.Relation;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.Factory;
+import java.io.IOException;
+import java.text.FieldPosition;
+import java.util.Date;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.impl.OlsonTimeZone;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.util.BasicTimeZone;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.TimeZoneTransition;
 import com.ibm.icu.util.TimeZoneRule;
-import com.ibm.icu.util.BasicTimeZone;
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.FieldPosition;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import com.ibm.icu.util.TimeZoneTransition;
 
 /**
  * Verify that all zones in a metazone have the same behavior within the

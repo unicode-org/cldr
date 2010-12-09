@@ -8,20 +8,14 @@
 package org.unicode.cldr.icu;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Hashtable;
 
-import org.unicode.cldr.icu.ICUResourceWriter;
-import org.unicode.cldr.icu.UDataInfo;
-
-import com.ibm.icu.text.RuleBasedCollator;
-//TODO see note in addCollation() 
-//import com.ibm.icu.text.CollatorWriter;
-import com.ibm.icu.text.UTF16;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UCharacterEnums.ECharacterCategory;
+import com.ibm.icu.text.UTF16;
 
 /**
  * The LDML2ICUBinaryWriter class is a set of methods which can be used

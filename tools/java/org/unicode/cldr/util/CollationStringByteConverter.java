@@ -7,11 +7,10 @@
  */
 package org.unicode.cldr.util;
 
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
-
 import java.util.Map;
 import java.util.TreeMap;
+
+import com.ibm.icu.text.RuleBasedCollator;
 
 
 public class CollationStringByteConverter extends DictionaryStringByteConverter {

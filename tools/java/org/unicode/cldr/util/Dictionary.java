@@ -7,16 +7,16 @@
  */
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.util.CharUtilities.CharSourceWrapper;
-import org.unicode.cldr.util.Dictionary.Matcher.Filter;
-import org.unicode.cldr.util.Dictionary.Matcher.Status;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import org.unicode.cldr.util.CharUtilities.CharSourceWrapper;
+import org.unicode.cldr.util.Dictionary.Matcher.Filter;
+import org.unicode.cldr.util.Dictionary.Matcher.Status;
 
 /**
  * Provides for detecting all words starting at a given offset, and returning a

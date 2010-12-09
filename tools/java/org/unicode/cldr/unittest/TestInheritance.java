@@ -156,7 +156,7 @@ public class TestInheritance extends TestFmwk {
             if (canonicalizedLocale.equals(base)) { // eg, id, az
                 continue;
             }
-
+            
             // see if the locale's default script is the same as the base locale's
 
             String maximized = maximize(likelySubtags, canonicalizedLocale);

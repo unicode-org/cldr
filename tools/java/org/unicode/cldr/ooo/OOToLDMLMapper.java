@@ -4,10 +4,14 @@
 
 package org.unicode.cldr.ooo;
 
-import org.unicode.cldr.icu.LDMLConstants;
-import java.util.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Vector;
 
-import java.io.*;
+import org.unicode.cldr.icu.LDMLConstants;
 /**
  *
  * class has static methods to map in memory OO data to in memory LDML data

@@ -10,20 +10,16 @@
 
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.icu.LDMLConstants;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Set;
+import java.util.Vector;
+import java.util.regex.Pattern;
 
-import org.w3c.dom.Attr;
+import org.unicode.cldr.icu.LDMLConstants;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import java.util.Vector;
-import java.util.Hashtable;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.regex.*;
 
 /**
  * A class that abstracts out some of the supplementalData  

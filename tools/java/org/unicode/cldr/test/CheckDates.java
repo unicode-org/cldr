@@ -15,7 +15,6 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.UnicodeProperty.PatternMatcher;

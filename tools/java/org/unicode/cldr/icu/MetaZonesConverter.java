@@ -1,15 +1,9 @@
 package org.unicode.cldr.icu;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
 
 import org.unicode.cldr.icu.ICUResourceWriter.Resource;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceArray;
-import org.unicode.cldr.icu.ICUResourceWriter.ResourceInt;
-import org.unicode.cldr.icu.ICUResourceWriter.ResourceIntVector;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceString;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
 import org.unicode.cldr.util.LDMLUtilities;

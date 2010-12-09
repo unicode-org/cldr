@@ -13,8 +13,8 @@ import java.io.PrintWriter;
 import java.nio.charset.Charset;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.text.UnicodeSet;
 
 /**
  * Class to generate POSIX format from CLDR. 

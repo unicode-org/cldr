@@ -4,17 +4,16 @@
 
 package org.unicode.cldr.ooo;
 
-import org.unicode.cldr.util.LDMLUtilities;
+import java.io.File;
+import java.util.Calendar;
+import java.util.Hashtable;
+import java.util.Set;
+import java.util.Vector;
+
 import org.unicode.cldr.icu.LDMLConstants;
-
-/**
- *
- * reads supplementalData.xml into memory
- */
-
-import java.util.*;
-import org.w3c.dom.*;
-import java.io.*;
+import org.unicode.cldr.util.LDMLUtilities;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 
 public class supplementalData
 {

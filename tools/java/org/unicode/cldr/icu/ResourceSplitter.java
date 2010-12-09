@@ -2,17 +2,17 @@
 
 package org.unicode.cldr.icu;
 
-import org.unicode.cldr.icu.ICUResourceWriter.Resource;
-import org.unicode.cldr.icu.ICUResourceWriter.ResourceInt;
-import org.unicode.cldr.icu.ICUResourceWriter.ResourceString;
-import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import org.unicode.cldr.icu.ICUResourceWriter.Resource;
+import org.unicode.cldr.icu.ICUResourceWriter.ResourceInt;
+import org.unicode.cldr.icu.ICUResourceWriter.ResourceString;
+import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
 
 public class ResourceSplitter {
   private final ICULog log;

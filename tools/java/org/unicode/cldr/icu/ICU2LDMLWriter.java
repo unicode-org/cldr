@@ -7,29 +7,26 @@
 package org.unicode.cldr.icu;
 
 //CLDR imports
-import org.unicode.cldr.ant.CLDRConverterTool;
-import org.unicode.cldr.icu.LDMLConstants;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.XPathParts.Comments;
-//ICU imports
-import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.util.ULocale;
-import com.ibm.icu.impl.ICUData;
-import com.ibm.icu.impl.ICUResourceBundle;
-import com.ibm.icu.util.UResourceTypeMismatchException;
-
-//JDK imports
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.BufferedOutputStream;
-import java.io.PrintWriter;
 import java.io.OutputStreamWriter;
-import java.util.Enumeration;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
-import java.util.Hashtable;
-import java.lang.IndexOutOfBoundsException;
+
+import org.unicode.cldr.ant.CLDRConverterTool;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.XPathParts.Comments;
+
+import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.impl.ICUData;
+import com.ibm.icu.impl.ICUResourceBundle;
+import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.UResourceTypeMismatchException;
 
 /**
  * This class is a user runnable class intended to create LDML documents by

@@ -14,7 +14,17 @@ import static org.unicode.cldr.icu.ICUID.ICU_TITLE;
 import static org.unicode.cldr.icu.ICUID.ICU_WORD;
 import static org.unicode.cldr.icu.ICUID.ICU_XGC;
 
-import com.ibm.icu.util.ULocale;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FilenameFilter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.unicode.cldr.ant.CLDRConverterTool.Alias;
 import org.unicode.cldr.ant.CLDRConverterTool.AliasDeprecates;
@@ -29,17 +39,7 @@ import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FilenameFilter;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import com.ibm.icu.util.ULocale;
 
 public class DeprecatedConverter {
   private final ICULog log;

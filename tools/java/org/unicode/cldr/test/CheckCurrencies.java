@@ -1,10 +1,10 @@
 package org.unicode.cldr.test;
 
-import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.XPathParts;
-
 import java.util.List;
 import java.util.Map;
+
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.lang.UCharacter;
 

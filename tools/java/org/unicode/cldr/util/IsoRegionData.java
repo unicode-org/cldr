@@ -5,11 +5,6 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R4;
 
 public class IsoRegionData {
   static Map<String, String> _numeric = new HashMap<String,String>();

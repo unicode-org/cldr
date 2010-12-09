@@ -1,21 +1,19 @@
 package org.unicode.cldr.tool;
 
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.PrettyPath;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.Factory;
-
-import com.ibm.icu.dev.test.util.CollectionUtilities;
-import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.impl.Utility;
-
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.PrettyPath;
+import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.CLDRFile.Factory;
+
+import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.dev.tool.UOption;
 
 public class SearchCLDR {
   private static final int

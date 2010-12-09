@@ -5,9 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UnicodeSet;
-
 /**
  * Immutable class that performs transformations
  * @author markdavis

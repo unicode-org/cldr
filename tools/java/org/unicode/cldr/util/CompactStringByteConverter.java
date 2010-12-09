@@ -7,9 +7,9 @@
  */
 package org.unicode.cldr.util;
 
-import com.ibm.icu.impl.Utility;
-
 import java.io.IOException;
+
+import com.ibm.icu.impl.Utility;
 
 public class CompactStringByteConverter extends StringByteConverter {
   static public final boolean DEBUG = false;

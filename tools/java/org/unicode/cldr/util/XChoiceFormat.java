@@ -1,11 +1,11 @@
 package org.unicode.cldr.util;
 
+import java.util.Locale;
+
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;
-
-import java.util.Locale;
 
 public class XChoiceFormat {
   /**

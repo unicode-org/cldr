@@ -7,21 +7,18 @@
  */
 package org.unicode.cldr.util;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
 import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
 import org.unicode.cldr.util.IntMap.BasicIntMapFactory;
 import org.unicode.cldr.util.IntMap.IntMapFactory;
 import org.unicode.cldr.util.StateDictionary.Cell;
 import org.unicode.cldr.util.StateDictionary.Row;
 import org.unicode.cldr.util.StateDictionary.Row.Uniqueness;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.Map.Entry;
 
 /**
  * A simple state-table based dictionary builder.

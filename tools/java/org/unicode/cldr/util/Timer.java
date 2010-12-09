@@ -1,7 +1,6 @@
 package org.unicode.cldr.util;
 
 import com.ibm.icu.text.DecimalFormat;
-
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;
 

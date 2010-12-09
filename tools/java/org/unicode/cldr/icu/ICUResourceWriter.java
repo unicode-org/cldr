@@ -10,10 +10,10 @@
  */
 package org.unicode.cldr.icu;
 
-import java.io.OutputStream;
 import java.io.FileOutputStream;
-import java.io.UnsupportedEncodingException;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 
 import com.ibm.icu.text.UTF16;
 

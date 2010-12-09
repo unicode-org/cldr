@@ -7,22 +7,21 @@
  */
 package org.unicode.cldr.unittest;
 
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
 import org.unicode.cldr.util.IntMap;
-import org.unicode.cldr.util.IntMap.IntMapFactory;
 import org.unicode.cldr.util.IntMap.BasicIntMapFactory;
 import org.unicode.cldr.util.IntMap.CompactStringIntMapFactory;
+import org.unicode.cldr.util.IntMap.IntMapFactory;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
-
-import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
 
 public class TestIntMap {
   static NumberFormat format = NumberFormat.getInstance();

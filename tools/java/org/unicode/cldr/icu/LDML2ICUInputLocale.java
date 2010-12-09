@@ -2,17 +2,14 @@
 
 package org.unicode.cldr.icu;
 
-import org.unicode.cldr.icu.LDML2ICUConverter.DocumentPair;
-import org.unicode.cldr.icu.LDML2ICUConverter.LDMLServices;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.LDMLUtilities;
-import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+
+import org.unicode.cldr.icu.LDML2ICUConverter.DocumentPair;
+import org.unicode.cldr.icu.LDML2ICUConverter.LDMLServices;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 
 class LDML2ICUInputLocale {
   private final LDMLServices services;

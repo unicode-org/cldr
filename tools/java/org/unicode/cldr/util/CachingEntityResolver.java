@@ -21,15 +21,13 @@ package org.unicode.cldr.util;
  * 
  * Caching entity resolver
  */
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 
-
-// SAX2 imports
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 

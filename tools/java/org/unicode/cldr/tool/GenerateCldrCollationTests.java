@@ -15,15 +15,12 @@ import java.util.TreeSet;
 import org.unicode.cldr.icu.ICUResourceWriter;
 import org.unicode.cldr.icu.LDML2ICUConverter;
 import org.unicode.cldr.icu.ICUResourceWriter.Resource;
-import org.unicode.cldr.icu.ICUResourceWriter.ResourceString;
-import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transliterator;

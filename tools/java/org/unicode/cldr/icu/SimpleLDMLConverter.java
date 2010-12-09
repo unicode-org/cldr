@@ -7,15 +7,15 @@
 
 package org.unicode.cldr.icu;
 
+import java.io.File;
+import java.io.FilenameFilter;
+import java.io.IOException;
+
 import org.unicode.cldr.icu.ICUResourceWriter.Resource;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import java.io.File;
-import java.io.FilenameFilter;
-import java.io.IOException;
 
 public abstract class SimpleLDMLConverter {
   protected final ICULog log;

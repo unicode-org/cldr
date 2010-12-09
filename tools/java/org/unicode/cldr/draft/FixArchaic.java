@@ -3,7 +3,6 @@ package org.unicode.cldr.draft;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;

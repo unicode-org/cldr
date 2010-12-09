@@ -9,8 +9,6 @@ import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.text.RuleBasedTransliterator;
 import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UnicodeFilter;
-import com.ibm.icu.text.UnicodeSet;
 
 public class TestTransforms {
 

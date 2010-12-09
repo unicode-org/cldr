@@ -13,8 +13,8 @@
 
 package org.unicode.cldr.util;
 
-import java.awt.*;
-import java.io.*;
+import java.io.IOException;
+import java.io.Writer;
 
 final public class DualWriter extends Writer {
 

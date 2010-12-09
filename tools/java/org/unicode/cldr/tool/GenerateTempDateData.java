@@ -1,17 +1,17 @@
 package org.unicode.cldr.tool;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Iterator;
+import java.util.ListResourceBundle;
+import java.util.Set;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Iterator;
-import java.util.ListResourceBundle;
-import java.util.Set;
 
 public class GenerateTempDateData {
     /*

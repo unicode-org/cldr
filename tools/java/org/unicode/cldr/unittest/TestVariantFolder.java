@@ -1,5 +1,9 @@
 package org.unicode.cldr.unittest;
 
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
+
 import org.unicode.cldr.util.VariantFolder;
 
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
@@ -10,12 +14,7 @@ import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.text.Normalizer.Mode;
 import com.ibm.icu.util.ULocale;
-
-import java.util.Comparator;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class TestVariantFolder {
   public static void main(String[] args) {

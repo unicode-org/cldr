@@ -8,34 +8,28 @@
  */
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.test.CoverageLevel;
-import org.unicode.cldr.test.CoverageLevel.Level;
-import org.unicode.cldr.util.Iso639Data.Type;
-
-import java.util.List;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.test.CoverageLevel;
+import org.unicode.cldr.test.CoverageLevel.Level;
+import org.unicode.cldr.util.Iso639Data.Type;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.dev.test.util.XEquivalenceClass;
-import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -286,16 +280,16 @@ public class StandardCodes {
                 loadPlatformLocaleStatus();
             }
         }
-        if (organization == null) return Level.BASIC;
+        if (organization == null) return Level.POSIX;
         Map<String, Level> locale_status = platform_locale_level.get(organization);
-        if (locale_status == null) return Level.BASIC;
+        if (locale_status == null) return Level.POSIX;
         // see if there is a parent
         while (desiredLocale != null) {
             Level status = locale_status.get(desiredLocale);
             if (status != null && status != Level.UNDETERMINED) return status;
             desiredLocale = LocaleIDParser.getParent(desiredLocale);
         }
-        return Level.BASIC;
+        return Level.POSIX;
     }
 
     public Set<String> getLocaleCoverageOrganizations() {

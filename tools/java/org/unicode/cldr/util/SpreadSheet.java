@@ -1,11 +1,10 @@
 package org.unicode.cldr.util;
-import com.ibm.icu.dev.test.util.BagFormatter;
-
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.ibm.icu.dev.test.util.BagFormatter;
 
 public class SpreadSheet {
   static boolean DEBUG = CldrUtility.getProperty("SpreadSheetDebug", false);

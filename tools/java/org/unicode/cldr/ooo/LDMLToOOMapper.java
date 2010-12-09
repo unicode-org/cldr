@@ -7,7 +7,10 @@
 
 package org.unicode.cldr.ooo;
 
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Vector;
+
 import org.unicode.cldr.icu.LDMLConstants;
 
 public class LDMLToOOMapper

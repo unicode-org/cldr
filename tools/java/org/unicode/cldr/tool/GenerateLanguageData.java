@@ -1,17 +1,18 @@
 package org.unicode.cldr.tool;
 
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Iso639Data;
-import com.ibm.icu.dev.test.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Iso639Data.Source;
 import org.unicode.cldr.util.Iso639Data.Type;
 
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import com.ibm.icu.dev.test.util.Relation;
 
 public class GenerateLanguageData {
   //static StandardCodes sc = StandardCodes.make();

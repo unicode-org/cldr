@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -39,14 +38,17 @@ public class GenerateItemCounts {
   private Map<String,List<StackTraceElement>> cantRead = new TreeMap<String,List<StackTraceElement>>();
 
   private static String[] DIRECTORIES = {
-    "cldr-release-1-1",
-    "cldr-release-1-2",
-    "cldr-release-1-3",
-    "cldr-release-1-4",
-    "cldr-release-1-5",
-    "cldr-release-1-6",
-    "cldr-release-1-7/common",
-    "cldr-svn2/common"
+//    "cldr-release-1-1",
+//    "cldr-release-1-2",
+//    "cldr-release-1-3",
+//    "cldr-release-1-4",
+//    "cldr-release-1-5",
+//    "cldr-release-1-6",
+//    "cldr-release-1-7/common",
+//    "cldr-svn2/common"
+      "cldr-1.7.2",
+      "cldr-1.8.1",
+      "cldr/common"
   };
 
   static boolean doChanges = true;

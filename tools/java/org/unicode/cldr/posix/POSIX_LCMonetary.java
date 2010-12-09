@@ -9,7 +9,6 @@
 package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
-import java.lang.Float;
 import java.util.Iterator;
 import java.util.Set;
 

@@ -7,13 +7,13 @@
  */
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.util.Dictionary.Matcher;
-import org.unicode.cldr.util.Dictionary.Matcher.Status;
-
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.Map.Entry;
+
+import org.unicode.cldr.util.Dictionary.Matcher;
+import org.unicode.cldr.util.Dictionary.Matcher.Status;
 
 public class DictionaryStringByteConverter extends StringByteConverter {
   private final Dictionary<String> dictionary;

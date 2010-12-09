@@ -21,8 +21,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 

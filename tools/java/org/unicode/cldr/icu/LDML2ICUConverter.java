@@ -40,7 +40,6 @@ import java.util.TreeSet;
 
 import javax.xml.transform.TransformerException;
 
-import org.unicode.cldr.ant.CLDRBuild;
 import org.unicode.cldr.ant.CLDRConverterTool;
 import org.unicode.cldr.icu.ICUResourceWriter.Resource;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceAlias;
@@ -63,7 +62,6 @@ import org.w3c.dom.NodeList;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UCharacterIterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;

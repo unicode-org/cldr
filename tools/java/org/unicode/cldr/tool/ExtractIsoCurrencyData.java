@@ -1,21 +1,14 @@
 package org.unicode.cldr.tool;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.util.IsoCurrencyParser;
-import com.ibm.icu.dev.test.util.Relation;
-import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.IsoCurrencyParser.Data;
+import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 
 import com.ibm.icu.dev.test.util.BagFormatter;

@@ -1,11 +1,8 @@
 package org.unicode.cldr.tool;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -13,16 +10,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.icu.ConvertTransforms;
-import org.unicode.cldr.tool.SearchXml.MyHandler;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.XMLFileReader;
-import org.unicode.cldr.util.CLDRFile.Factory;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer;

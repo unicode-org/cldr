@@ -2,9 +2,6 @@
 
 package org.unicode.cldr.icu;
 
-import org.unicode.cldr.icu.DeprecatedConverter.MakefileInfo;
-import org.unicode.cldr.util.CLDRFile;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -12,6 +9,9 @@ import java.io.PrintStream;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
+
+import org.unicode.cldr.icu.DeprecatedConverter.MakefileInfo;
+import org.unicode.cldr.util.CLDRFile;
 
 class ICUMakefileWriter {
   private final ICULog log;

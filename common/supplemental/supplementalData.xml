@@ -1394,6 +1394,7 @@ XXX Code for transations where no currency is involved
 		<language type="fi" territories="SE" alt="secondary"/>
 		<language type="fil" scripts="Latn" territories="PH"/>
 		<language type="fil" scripts="Tglg" alt="secondary"/>
+		<language type="fil" scripts="Tglg" territories="PH US" alt="secondary"/>
 		<language type="fiu" scripts="Latn" alt="secondary"/>
 		<language type="fj" scripts="Latn" territories="FJ"/>
 		<language type="fo" scripts="Latn" territories="FO"/>
@@ -1856,8 +1857,6 @@ XXX Code for transations where no currency is involved
 		<language type="tk" scripts="Arab Cyrl Latn" territories="TM"/>
 		<language type="tk" territories="IR" alt="secondary"/>
 		<language type="tkl" scripts="Latn" territories="TK"/>
-		<language type="tl" scripts="Latn"/>
-		<language type="tl" territories="PH US" alt="secondary"/>
 		<language type="tli" scripts="Latn"/>
 		<language type="tmh" scripts="Latn"/>
 		<language type="tn" scripts="Latn" territories="BW ZA"/>
@@ -3087,9 +3086,8 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="ho" writingPercent="5" populationPercent="2.1" officialStatus="official" references="R1058"/>	<!--Hiri Motu-->
 		</territory>
 		<territory type="PH" gdp="324400000000" literacyPercent="92.6" population="99900200">	<!--Philippines-->
-			<languagePopulation type="tl" populationPercent="96" officialStatus="official_regional" references="R1157"/>	<!--Tagalog-->
+			<languagePopulation type="fil" populationPercent="96" officialStatus="official" references="R1157"/>	<!--Tagalog-->
 			<languagePopulation type="en" populationPercent="64" officialStatus="official" references="R1157"/>	<!--English-->
-			<languagePopulation type="fil" populationPercent="60" officialStatus="official" references="R1028"/>	<!--Filipino-->
 			<languagePopulation type="es" populationPercent="31" officialStatus="official"/>	<!--Spanish-->
 			<languagePopulation type="ceb" writingPercent="13" populationPercent="24" officialStatus="official_regional" references="R1157"/>	<!--Cebuano-->
 			<languagePopulation type="ilo" writingPercent="10" populationPercent="9.6" officialStatus="official_regional" references="R1157"/>	<!--Iloko-->

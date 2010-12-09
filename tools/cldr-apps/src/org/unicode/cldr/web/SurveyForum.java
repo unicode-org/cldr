@@ -7,35 +7,31 @@
 
 package org.unicode.cldr.web;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.Writer;
 import java.net.URLEncoder;
-import java.util.*;
-
 import java.sql.Connection;
-import java.sql.Timestamp;
-import java.sql.Statement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Set;
 
-import com.ibm.icu.util.ULocale;
-import com.ibm.icu.dev.test.util.ElapsedTimer;
-
-import org.unicode.cldr.util.*;
-import org.unicode.cldr.web.DataSection.DataRow;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
-import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
-import org.unicode.cldr.test.CheckCLDR;
 
-import com.sun.syndication.feed.synd.*;
-import com.sun.syndication.io.SyndFeedOutput;
-
+import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
-
-// servlet imports
-import javax.servlet.*;
-import javax.servlet.http.*;
+import com.ibm.icu.util.ULocale;
 
 /**
  * This class implements a discussion forum per language (ISO code)

@@ -3,8 +3,6 @@
  */
 package org.unicode.cldr.web;
 
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**

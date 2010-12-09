@@ -1,15 +1,13 @@
 package org.unicode.cldr.web;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-import com.ibm.icu.text.RuleBasedCollator;
-
 import org.unicode.cldr.util.CLDRLocale;
 
+import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.util.ULocale;
 
 public class LocaleTree {

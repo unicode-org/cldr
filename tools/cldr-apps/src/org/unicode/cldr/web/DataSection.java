@@ -10,21 +10,33 @@
 //  class to get a list of displayable items?
 
 package org.unicode.cldr.web;
-import org.unicode.cldr.util.*;
-import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
-import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
-import org.unicode.cldr.web.UserRegistry.User;
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.unicode.cldr.icu.LDMLConstants;
-import org.unicode.cldr.test.*;
+import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.PathUtilities;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.web.UserRegistry.User;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.*;
-import java.util.regex.*;
-
-import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.util.ULocale;
 import com.ibm.icu.text.RuleBasedCollator;
 
 /** A data section represents a group of related data that will be displayed to users in a list

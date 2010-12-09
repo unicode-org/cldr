@@ -10,11 +10,14 @@
 
 package org.unicode.cldr.web;
 
-import java.security.SecureRandom;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.sql.Connection;
-import java.util.*;
+import java.util.Comparator;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.TreeSet;
 
 /**
  * Instances of this class represent the session-persistent data kept on a per-user basis.

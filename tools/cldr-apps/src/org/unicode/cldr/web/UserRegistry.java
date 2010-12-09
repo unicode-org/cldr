@@ -7,21 +7,29 @@
 package org.unicode.cldr.web;
 
 
-import java.io.*;
-import java.util.*;
-
-import java.sql.ResultSet;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
-import com.ibm.icu.util.ULocale;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.util.ULocale;
 
 /**
  * This class represents the list of all registered users.  It contains an inner class, UserRegistry.User, 

@@ -6,7 +6,6 @@ package org.unicode.cldr.web;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
-import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
 
 /**

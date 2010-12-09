@@ -8,39 +8,48 @@
 
 package org.unicode.cldr.web;
 
-import java.io.*;
-import java.util.*;
-import java.lang.ref.*;
-
+import java.io.File;
+import java.io.PrintWriter;
+import java.lang.ref.Reference;
+import java.lang.ref.SoftReference;
 import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
-import com.ibm.icu.util.ULocale;
-
+import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.test.CoverageLevel;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.LDMLUtilities;
-import org.unicode.cldr.icu.LDMLConstants;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
-import org.unicode.cldr.web.UserRegistry.User;
-import org.unicode.cldr.test.CheckCLDR;
-import org.unicode.cldr.test.CoverageLevel;
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
-
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.util.ULocale;
 /**
  * This class does the calculations for which item wins a vetting,
  * and also manages some notifications,

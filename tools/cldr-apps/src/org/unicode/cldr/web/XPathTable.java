@@ -9,17 +9,17 @@
 
 package org.unicode.cldr.web;
 
-import java.io.*;
-import java.util.*;
-
 import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.SQLException;
 import java.sql.ResultSet;
-import org.unicode.cldr.util.*;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Hashtable;
+import java.util.Map;
 
-import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.PrettyPath;
+import org.unicode.cldr.util.XPathParts;
 
 /**
  * This class maps between full and partial xpaths, and the small integers which are actually stored in the database.

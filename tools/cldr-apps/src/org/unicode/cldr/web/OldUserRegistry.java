@@ -8,8 +8,14 @@
 
 package org.unicode.cldr.web;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.Date;
+import java.util.Hashtable;
 
 /**
  * The 'old' format user registry, consisting of a flat text file (cldrvet.txt).

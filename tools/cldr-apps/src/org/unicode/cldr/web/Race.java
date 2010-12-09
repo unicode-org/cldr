@@ -4,11 +4,9 @@ package org.unicode.cldr.web;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -18,7 +16,6 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.Vetting.Status;
 
 /**

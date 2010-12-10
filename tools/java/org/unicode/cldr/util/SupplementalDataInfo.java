@@ -10,11 +10,13 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -576,6 +578,23 @@ public class SupplementalDataInfo {
             return dateFormat.format(date);
         }
     }
+    public static class CoverageLevelInfo implements Comparable<CoverageLevelInfo> {
+        private String match;
+        private Integer value;
+        public CoverageLevelInfo(String match, Integer value) {
+              
+            this.match = match;
+            this.value = value;
+        }
+
+        public int compareTo(CoverageLevelInfo o) {
+            if (value.equals(o.value)) {
+                return match.compareTo(o.match);
+            } else {
+                return value.compareTo(o.value);
+            }
+        }
+    }
 
     private Map<String, PopulationData> territoryToPopulationData = new TreeMap();
 
@@ -815,7 +834,7 @@ public class SupplementalDataInfo {
             try {
                 parts.set(path);
                 String level0 = parts.getElement(0);
-                String level1 = parts.getElement(1);
+                String level1 = parts.size() < 2 ? null : parts.getElement(1);
                 String level2 = parts.size() < 3 ? null : parts.getElement(2);
                 String level3 = parts.size() < 4 ? null : parts.getElement(3);
                 //String level4 = parts.size() < 5 ? null : parts.getElement(4);
@@ -870,6 +889,9 @@ public class SupplementalDataInfo {
                     return;
                 } else if (level1.equals("numberingSystems")) {
                     handleNumberingSystems();
+                    return;
+                } else if (level1.equals("coverageLevels")) {
+                    handleCoverageLevels();
                     return;
                 } else if (level1.equals("metadata")) {
                     if (handleMetadata(level2, value)) {
@@ -943,6 +965,13 @@ public class SupplementalDataInfo {
             numberingSystems.add(name);
         }
 
+        private void handleCoverageLevels() {
+            String match = parts.getAttributeValue(-1,"match");
+            String valueStr = parts.getAttributeValue(-1,"value");
+            Integer value =  ( valueStr != null ) ? Integer.valueOf(valueStr) : Integer.valueOf("101");
+            CoverageLevelInfo ci = new CoverageLevelInfo(match,value);
+            coverageLevels.add(ci);
+        }
         private void handleLikelySubtags() {
             String from = parts.getAttributeValue(-1, "from");
             String to = parts.getAttributeValue(-1, "to");
@@ -1281,9 +1310,9 @@ public class SupplementalDataInfo {
 
     private Map<String, Pair<String, String>> references = new TreeMap();
     private Map<String, String> likelySubtags = new TreeMap();
+    private SortedSet<CoverageLevelInfo> coverageLevels = new TreeSet<CoverageLevelInfo>();
 
     private Set<String> numberingSystems = new TreeSet();
-
     private Set<String> defaultContentLocales;
 
     /**
@@ -1417,6 +1446,16 @@ public class SupplementalDataInfo {
     }
     public Set<String> getNumberingSystems() {
         return numberingSystems;
+    }
+    public int getCoverageValue(String xpath) {
+        Iterator<CoverageLevelInfo> i = coverageLevels.iterator();
+        while (i.hasNext()) {
+            CoverageLevelInfo ci = i.next();
+            if (xpath.matches("//ldml/"+ci.match)) {
+                return ci.value.intValue();
+            }
+        }
+        return 101; // If no match then return highest possible value
     }
     /**
      * Return the canonicalized zone, or null if there is none.

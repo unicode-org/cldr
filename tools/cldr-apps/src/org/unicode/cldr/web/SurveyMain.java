@@ -87,7 +87,6 @@ import org.w3c.dom.NodeList;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
@@ -254,7 +253,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     static final String PREF_SORTMODE_ALPHA = "alpha";
     static final String PREF_SORTMODE_WARNING = "interest";
     static final String PREF_SORTMODE_NAME = "name";
-    static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
+    static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_CODE;
 //	static final String PREF_SHOW_VOTING_ALTS = "p_vetting_details";
     static final String PREF_NOSHOWDELETE = "p_nodelete";
     static final String PREF_DELETEZOOMOUT = "p_deletezoomout";
@@ -7608,7 +7607,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      */
     void showDataRow(WebContext ctx, DataSection section, DataSection.DataRow p, UserLocaleStuff uf, CLDRFile cf, 
         XMLSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr, boolean zoomedIn) {
-
         String ourAlign = "left";
         if(ctx.getDirectionForLocale().equals(HTMLDirection.RIGHT_TO_LEFT)) {
             ourAlign = "right";
@@ -7846,11 +7844,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("</th>");
         
         // ##2 and a half - baseline sample
+        int cv = supplementalDataInfo.getCoverageValue(fullPathFull,ctx.getLocale().toULocale());
         if(baseExample != null) {
             ctx.print("<td rowspan='"+rowSpan+"' align='left' valign='top' class='generatedexample'>"+ 
-                baseExample.replaceAll("\\\\","\u200b\\") + "</td>");
+                baseExample.replaceAll("\\\\","\u200b\\") + "[" + Integer.toString(cv) + "/" + fullPathFull + "]" + "</td>");
         } else {
-            ctx.print("<td rowspan='"+rowSpan+"' ></td>"); // empty box for baseline
+            ctx.print("<td rowspan='"+rowSpan+"' >" + "[" + Integer.toString(cv) + "/" + fullPathFull + "]" + "</td>"); // empty box for baseline
         }
         
 //        if(topCurrent != null) {

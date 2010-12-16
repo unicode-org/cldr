@@ -466,6 +466,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT coverageLevels ( coverageLevel* ) >
 
 <!ELEMENT coverageLevel EMPTY >
+<!ATTLIST coverageLevel inLanguage CDATA #IMPLIED >
+<!ATTLIST coverageLevel inScript CDATA #IMPLIED >
+<!ATTLIST coverageLevel inTerritory CDATA #IMPLIED >
 <!ATTLIST coverageLevel value CDATA #REQUIRED >
 <!ATTLIST coverageLevel match CDATA #REQUIRED >
 

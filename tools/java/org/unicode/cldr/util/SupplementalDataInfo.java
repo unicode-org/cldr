@@ -37,6 +37,7 @@ import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Singleton class to provide API access to supplemental data -- in all the supplemental data files.
@@ -581,8 +582,13 @@ public class SupplementalDataInfo {
     public static class CoverageLevelInfo implements Comparable<CoverageLevelInfo> {
         private String match;
         private Integer value;
-        public CoverageLevelInfo(String match, Integer value) {
-              
+        private String inLanguage;
+        private String inScript;
+        private String inTerritory;
+        public CoverageLevelInfo(String match, Integer value, String language, String script, String territory) {
+            this.inLanguage = language;
+            this.inScript = script;
+            this.inTerritory = territory;
             this.match = match;
             this.value = value;
         }
@@ -852,6 +858,9 @@ public class SupplementalDataInfo {
                     if (handleTerritoryInfo()) {
                         return;
                     }
+                } else if (level1.equals("calendarPreferenceData")) {
+                    handleCalendarPreferenceData();
+                    return;
                 } else if (level1.equals("languageData")) {
                     handleLanguageData();
                     return;
@@ -968,9 +977,22 @@ public class SupplementalDataInfo {
         private void handleCoverageLevels() {
             String match = parts.getAttributeValue(-1,"match");
             String valueStr = parts.getAttributeValue(-1,"value");
+            String inLanguage = parts.getAttributeValue(-1,"inLanguage");
+            String inScript = parts.getAttributeValue(-1,"inScript");
+            String inTerritory = parts.getAttributeValue(-1,"inTerritory");
             Integer value =  ( valueStr != null ) ? Integer.valueOf(valueStr) : Integer.valueOf("101");
-            CoverageLevelInfo ci = new CoverageLevelInfo(match,value);
+            CoverageLevelInfo ci = new CoverageLevelInfo(match,value,inLanguage,inScript,inTerritory);
             coverageLevels.add(ci);
+        }
+        private void handleCalendarPreferenceData() {
+            String territoryString = parts.getAttributeValue(-1, "territories");
+            String orderingString = parts.getAttributeValue(-1,"ordering");
+            String[] calendars = orderingString.split(" ");
+            String[] territories = territoryString.split(" ");
+            List<String> calendarList = Arrays.asList(calendars);
+            for ( int i = 0 ; i < territories.length ; i++ ) {
+                calendarPreferences.put(territories[i], calendarList);
+            }
         }
         private void handleLikelySubtags() {
             String from = parts.getAttributeValue(-1, "from");
@@ -1306,15 +1328,37 @@ public class SupplementalDataInfo {
         }
     }
 
+    private class CoverageVariableInfo {
+        public Set<String> targetScripts;
+        public Set<String> targetTerritories;
+        public Set<String> calendars;
+    }
+
+    public static String toRegexString(Set<String> s) {
+        Iterator<String> it = s.iterator();
+        StringBuilder sb = new StringBuilder("(");
+        int count = 0;
+        while (it.hasNext()) {
+            if ( count > 0 ) {
+                sb.append("|");
+            }
+            sb.append(it.next());
+            count++;
+        }
+        sb.append(")");
+        return sb.toString();
+
+    }
+
     Set<String> skippedElements = new TreeSet();
 
     private Map<String, Pair<String, String>> references = new TreeMap();
     private Map<String, String> likelySubtags = new TreeMap();
     private SortedSet<CoverageLevelInfo> coverageLevels = new TreeSet<CoverageLevelInfo>();
-
+    private Map<String, List<String>> calendarPreferences= new HashMap();
+    private Map<String, CoverageVariableInfo> coverageVariables = new TreeMap();    
     private Set<String> numberingSystems = new TreeSet();
     private Set<String> defaultContentLocales;
-
     /**
      * Get the population data for a language. Warning: if the language has script variants, cycle on those variants.
      * 
@@ -1448,15 +1492,116 @@ public class SupplementalDataInfo {
         return numberingSystems;
     }
     public int getCoverageValue(String xpath) {
+        ULocale loc = new ULocale("und");
+        return getCoverageValue(xpath,loc);
+    }
+    public int getCoverageValue(String xpath, ULocale loc) {
+        CoverageVariableInfo cvi;
+        String targetLanguage = loc.getLanguage();
+       
+        if ( coverageVariables.containsKey(targetLanguage)) {
+            cvi = coverageVariables.get(targetLanguage);
+        } else {
+            cvi = new CoverageVariableInfo();
+            cvi.targetScripts = getTargetScripts(targetLanguage);
+            cvi.targetTerritories = getTargetTerritories(targetLanguage);
+            cvi.calendars = getCalendars(cvi.targetTerritories);
+            coverageVariables.put(targetLanguage, cvi);
+        }
+        String targetScriptString = toRegexString(cvi.targetScripts);
+        String targetTerritoryString = toRegexString(cvi.targetTerritories);
+        String calendarListString = toRegexString(cvi.calendars);
         Iterator<CoverageLevelInfo> i = coverageLevels.iterator();
         while (i.hasNext()) {
             CoverageLevelInfo ci = i.next();
-            if (xpath.matches("//ldml/"+ci.match)) {
+            StringBuilder sb = new StringBuilder(ci.match.replace('\'','"'));
+            String regex = "//ldml/"+ci.match.replace('\'','"')
+                                             .replaceAll("\\[","\\\\[")
+                                             .replaceAll("\\]","\\\\]")
+                                             .replaceAll("\\$\\{Target\\-Language\\}", targetLanguage)
+                                             .replaceAll("\\$\\{Target\\-Scripts\\}", targetScriptString)
+                                             .replaceAll("\\$\\{Target\\-Territories\\}", targetTerritoryString)
+                                             .replaceAll("\\$\\{Calendar\\-List\\}", calendarListString);
+
+            // Special logic added for coverage fields that are only to be applicable
+            // to certain territories
+            if (ci.inTerritory != null) {
+              if (ci.inTerritory.equals("EU")) {
+                  Set<String> containedTerritories = new HashSet<String>();
+                  containedTerritories.addAll(getContained(ci.inTerritory));
+                  containedTerritories.retainAll(cvi.targetTerritories);                  
+                  if ( containedTerritories.isEmpty())  {
+                   continue;
+                  }
+              }
+              else {
+                  if (!cvi.targetTerritories.contains(ci.inTerritory)) {
+                      continue;
+                  }
+              }
+            }
+            // Special logic added for coverage fields that are only to be applicable
+            // to certain languages         
+            if (ci.inLanguage != null && !targetLanguage.matches(ci.inLanguage)) {
+                continue;
+            }
+            
+            // Special logic added for coverage fields that are only to be applicable
+            // to certain scripts
+            if (ci.inScript != null && !cvi.targetScripts.contains(ci.inScript)) {
+                continue;
+            }
+            
+            if (xpath.matches(regex)) {
+                return ci.value.intValue();
+            }
+            
+            if (xpath.matches(regex)) {
                 return ci.value.intValue();
             }
         }
         return 101; // If no match then return highest possible value
     }
+    private Set<String> getTargetScripts(String language) {
+        Set<BasicLanguageData> langData = getBasicLanguageData(language);
+        Set<String> targetScripts = new HashSet<String>();
+        Iterator<BasicLanguageData> ldi = langData.iterator();
+        while ( ldi.hasNext()) {
+            Set<String> addScripts = ldi.next().scripts;
+            if ( addScripts != null ) {
+                targetScripts.addAll(addScripts);              
+            }
+        }
+        return targetScripts;
+    }
+    private Set<String> getTargetTerritories(String language) {
+        Set<BasicLanguageData> langData = getBasicLanguageData(language);
+        Set<String> targetTerritories = new HashSet<String>();
+        Iterator<BasicLanguageData> ldi = langData.iterator();
+        while ( ldi.hasNext()) {
+            Set<String> addTerritories = ldi.next().territories;
+            if ( addTerritories != null ) {
+                targetTerritories.addAll(addTerritories);              
+            }
+        }
+        return targetTerritories;
+    }
+    private Set<String> getCalendars(Set<String> territories) {
+        Set<String> targetCalendars = new HashSet<String>();
+        Iterator<String> it = territories.iterator();
+        while ( it.hasNext()) {
+            List<String> addCalendars = calendarPreferences.get(it.next());
+            if ( addCalendars == null ) {
+                continue;
+            }
+            Iterator<String> it2 = addCalendars.iterator();
+            while ( it2.hasNext() ) {
+                targetCalendars.add(it2.next());
+            }
+        }
+        return targetCalendars;
+    }
+    
     /**
      * Return the canonicalized zone, or null if there is none.
      * 

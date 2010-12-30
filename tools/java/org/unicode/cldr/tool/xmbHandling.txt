@@ -1,0 +1,22 @@
+#Remember to quote any [ character!
+
+^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/appendItems/appendItem\[@request=".*"] ; SKIP
+^//ldml/dates/calendars/calendar\[@type="(?!gregorian) ; SKIP
+^//ldml/references ; SKIP
+^//ldml/dates/timeZoneNames/metazone\[@type=".*"]/commonlyUsed ; SKIP
+^//ldml/layout/inList ; SKIP
+^//ldml/layout/inText ; SKIP
+
+^//ldml/numbers/currencyFormats/currencySpacing ; SKIP
+^//ldml/numbers/defaultNumberingSystem ; SKIP
+
+#Deprecate?
+#^//ldml/localeDisplayNames/codePatterns/codePattern ; SKIP
+
+^//ldml/dates/timeZoneNames/zone\[@type=".*"]/exemplarCity ; The name of a city in: {0}. See cldr.org/xxxx.
+
+^//ldml/localeDisplayNames/languages/language\[@type=".*"] ; ROOT language; The name of the language with BCP47 code = {0}. Before translating, please read cldr.org/xxxx.
+^//ldml/localeDisplayNames/scripts/script\[@type=".*"] ; ROOT script; The name of the script (writing system) with BCP47 code = {0}. Before translating, please read cldr.org/xxxx.
+^//ldml/localeDisplayNames/territories/territory\[@type=".*"] ; ROOT territory; The name of the country or region with BCP47 code = {0}. Before translating, please read cldr.org/xxxx.
+^//ldml/numbers/currencies/currency\[@type=".*"] ; ROOT currency; The name of the currency with BCP47 code = {0}. Before translating, please read cldr.org/xxxx.
+

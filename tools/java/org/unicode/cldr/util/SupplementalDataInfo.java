@@ -406,11 +406,11 @@ public class SupplementalDataInfo {
         private boolean isLegalTender;
         private String errors = "";
 
-        public CurrencyDateInfo(String currency, String startDate, String endDate, boolean isLegalTender) {
+        public CurrencyDateInfo(String currency, String startDate, String endDate, String tender) {
             this.currency = currency;
             start = parseDate(startDate, START_OF_TIME);
             end = parseDate(endDate, END_OF_TIME);
-            this.isLegalTender = isLegalTender;
+            this.isLegalTender = ( tender == null || !tender.equals("false"));
         }
 
         static DateFormat[] simpleFormats = { 
@@ -1233,8 +1233,7 @@ public class SupplementalDataInfo {
                         new CurrencyDateInfo(parts.getAttributeValue(3, "iso4217"),
                                 parts.getAttributeValue(3, "from"),
                                 parts.getAttributeValue(3, "to"),
-                                parts.getAttributeValue(3, "tender") != "false"
-                        ));
+                                parts.getAttributeValue(3, "tender")));
                 return true;
             }
 
@@ -1332,6 +1331,7 @@ public class SupplementalDataInfo {
         public Set<String> targetScripts;
         public Set<String> targetTerritories;
         public Set<String> calendars;
+        public Set<String> targetCurrencies;
     }
 
     public static String toRegexString(Set<String> s) {
@@ -1506,11 +1506,13 @@ public class SupplementalDataInfo {
             cvi.targetScripts = getTargetScripts(targetLanguage);
             cvi.targetTerritories = getTargetTerritories(targetLanguage);
             cvi.calendars = getCalendars(cvi.targetTerritories);
+            cvi.targetCurrencies = getCurrentCurrencies(cvi.targetTerritories);
             coverageVariables.put(targetLanguage, cvi);
         }
         String targetScriptString = toRegexString(cvi.targetScripts);
         String targetTerritoryString = toRegexString(cvi.targetTerritories);
         String calendarListString = toRegexString(cvi.calendars);
+        String targetCurrencyString = toRegexString(cvi.targetCurrencies);
         Iterator<CoverageLevelInfo> i = coverageLevels.iterator();
         while (i.hasNext()) {
             CoverageLevelInfo ci = i.next();
@@ -1521,6 +1523,7 @@ public class SupplementalDataInfo {
                                              .replaceAll("\\$\\{Target\\-Language\\}", targetLanguage)
                                              .replaceAll("\\$\\{Target\\-Scripts\\}", targetScriptString)
                                              .replaceAll("\\$\\{Target\\-Territories\\}", targetTerritoryString)
+                                             .replaceAll("\\$\\{Target\\-Currencies\\}", targetCurrencyString)
                                              .replaceAll("\\$\\{Calendar\\-List\\}", calendarListString);
 
             // Special logic added for coverage fields that are only to be applicable
@@ -1600,6 +1603,26 @@ public class SupplementalDataInfo {
             }
         }
         return targetCalendars;
+    }
+    
+    private Set<String> getCurrentCurrencies(Set<String> territories) {
+        Set<String> targetCurrencies = new HashSet<String>();
+        Iterator<String> it = territories.iterator();
+        Date now = new Date();
+        while ( it.hasNext()) {
+            Set<CurrencyDateInfo> targetCurrencyInfo = getCurrencyDateInfo(it.next());
+            if ( targetCurrencyInfo == null ) {
+                continue;
+            }
+            Iterator<CurrencyDateInfo> it2 = targetCurrencyInfo.iterator();
+            while ( it2.hasNext() ) {
+                CurrencyDateInfo cdi = it2.next();
+                if ( cdi.getStart().before(now) && cdi.getEnd().after(now) && cdi.isLegalTender()) {
+                    targetCurrencies.add(cdi.getCurrency());
+                }
+            }
+        }
+        return targetCurrencies;
     }
     
     /**

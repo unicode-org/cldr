@@ -430,7 +430,7 @@
             </variable>
             <variable id="$collationType" type="choice">
                 big5han
-                dict dictionary direct
+                dict dictionary direct ducet
                 gb2312 gb2312han
                 phonebk phonebook phonetic pinyin
                 reformed
@@ -527,7 +527,7 @@
             <attributeValues elements="territory" attributes="type">$territory</attributeValues>
             <attributeValues elements="territoryAlias" attributes="replacement type">$territory</attributeValues>
             <attributeValues elements="type" attributes="key" type="choice">calendar collation currency numbers</attributeValues>
-            <attributeValues elements="type" attributes="type" type="choice">arab arabext arabic armn armnlow beng big5han buddhist chinese coptic deva direct ethi ethiopic ethiopic-amete-alem fullwide gb2312han geor gregorian grek greklow gujr guru hans hansfin hant hantfin hebr hebrew indian islamic islamic-civil japanese jpan jpanfin knda khmr laoo latn mlym mong mymr orya persian phonebook pinyin roc roman romanlow search stroke taml telu thai tibt traditional</attributeValues>
+            <attributeValues elements="type" attributes="type" type="choice">arab arabext arabic armn armnlow beng big5han buddhist chinese coptic deva direct ducet ethi ethiopic ethiopic-amete-alem fullwide gb2312han geor gregorian grek greklow gujr guru hans hansfin hant hantfin hebr hebrew indian islamic islamic-civil japanese jpan jpanfin knda khmr laoo latn mlym mong mymr orya persian phonebook pinyin roc roman romanlow search stroke taml telu thai tibt traditional</attributeValues>
             <attributeValues elements="variable" attributes="id">$variableID</attributeValues>
             <attributeValues elements="variant" attributes="type">$variant</attributeValues>
             <attributeValues elements="variantAlias" attributes="replacement type">$variant</attributeValues>

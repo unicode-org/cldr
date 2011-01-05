@@ -10,7 +10,7 @@
 		<segmentation type="GraphemeClusterBreak">
 			<variables>
 				<!-- Thai/Lao postfix spacing vowels no longer in $Extend, but want THAI CHARACTER SARA AM & LAO VOWEL SIGN AM -->
-				<variable id="$Extend">[[$Extend] + [\u0E33 \u0EB3]]</variable>
+				<variable id="$Extend">[[$Extend] [\u0E33 \u0EB3]]</variable>
 				<!-- make $Prepend and $SpacingMark empty (we delete the relevant rules below anyway) -->
 				<variable id="$Prepend"/>
 				<variable id="$SpacingMark"/>

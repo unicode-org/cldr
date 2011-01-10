@@ -600,6 +600,15 @@ public class SupplementalDataInfo {
                 return value.compareTo(o.value);
             }
         }
+
+        public static int strToCoverageValue(String str) {
+            if (str.equals("posix")) return 20;
+            if (str.equals("minimal")) return 30;
+            if (str.equals("basic")) return 40;
+            if (str.equals("moderate")) return 60;
+            if (str.equals("modern")) return 80;
+            return 100;
+        }
     }
 
     private Map<String, PopulationData> territoryToPopulationData = new TreeMap();

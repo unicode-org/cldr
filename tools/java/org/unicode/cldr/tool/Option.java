@@ -7,8 +7,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import sun.text.normalizer.UTF16;
-
 /**
  * Simpler mechanism for handling options, where everything can be defined in one place.
  * @author markdavis

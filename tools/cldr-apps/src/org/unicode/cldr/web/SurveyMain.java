@@ -4044,26 +4044,25 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("<h2>My Options</h2>");
   
   
-      if(isPhaseSubmit()) {
-            ctx.println("<h4>Coverage</h4>");
-            ctx.print("<blockquote>");
-            ctx.println("<p class='hang'>For more information on coverage, see "+
-                "<a href='http://www.unicode.org/cldr/data/docs/web/survey_tool.html#Coverage'>Coverage Help</a></p>");
-            String lev = showListPref(ctx, PREF_COVLEV, "Coverage Level", PREF_COVLEV_LIST);
+        ctx.println("<h4>Coverage</h4>");
+        ctx.print("<blockquote>");
+        ctx.println("<p class='hang'>For more information on coverage, see "+
+            "<a href='http://www.unicode.org/cldr/data/docs/web/survey_tool.html#Coverage'>Coverage Help</a></p>");
+        String lev = showListPref(ctx, PREF_COVLEV, "Coverage Level", PREF_COVLEV_LIST);
             
-            if(lev.equals("default")) {
-                ctx.print("&nbsp;");
-                ctx.print("&nbsp;");
-                showListPref(ctx,PREF_COVTYP, "Coverage Type", ctx.getLocaleTypes(), true);
-            } else {
-                ctx.print("&nbsp;");
-                ctx.print("&nbsp;<span class='deactivated'>Coverage Type: <b>n/a</b></span><br>");
-            }
+        if(lev.equals("default")) {
+            ctx.print("&nbsp;");
+            ctx.print("&nbsp;");
+            showListPref(ctx,PREF_COVTYP, "Coverage Type", ctx.getLocaleTypes(), true);
+        } else {
+            ctx.print("&nbsp;");
+            ctx.print("&nbsp;<span class='deactivated'>Coverage Type: <b>n/a</b></span><br>");
+        }
             ctx.println("<br>(Current effective coverage level: <tt class='codebox'>" + ctx.defaultPtype()+"</tt>)<p>");
             
             ctx.println("</blockquote>");
-        }
-        
+            
+   
         ctx.print("<hr>");
 
 		if(UserRegistry.userIsTC(ctx.session.user)) {
@@ -5714,7 +5713,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         // coverage level
         {
             org.unicode.cldr.test.CoverageLevel.Level itsLevel = 
-                    StandardCodes.make().getLocaleCoverageLevel(ctx.getEffectiveLocaleType(ctx.getChosenLocaleType()), ctx.getLocale().toString()) ;
+                    StandardCodes.make().getLocaleCoverageLevel(WebContext.getEffectiveLocaleType(ctx.getChosenLocaleType()), ctx.getLocale().toString()) ;
         
             String def = ctx.pref(SurveyMain.PREF_COVLEV,"default");
             if(def.equals("default")) {
@@ -5722,7 +5721,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             } else {
                 ctx.print("Coverage Level: <tt class='codebox'>"+def+"</tt>  (overriding <tt>"+itsLevel.toString()+"</tt>)<br>");
             }
-            ctx.print("<ul><li>To change your coverage level, see ");
+            ctx.print("<ul><li>To change your default coverage level, see ");
             printMenu(ctx, "", "options", "My Options", QUERY_DO);
             ctx.println("</li></ul>");
         }
@@ -5885,7 +5884,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         
         // the following is highly suspicious. But, CheckCoverage seems to require it.
         options.put("submission", "true");
-        options.put("CheckCoverage.requiredLevel", "minimal");
+        // options.put("CheckCoverage.requiredLevel", "minimal");
         
         // pass in the current ST phase
         if(isPhaseVetting() || isPhaseVettingClosed()) {
@@ -6884,7 +6883,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 sortMode = PREF_SORTMODE_WARNING; // so that disputed shows up on top
             }
             List peas = section.getList(sortMode);
-    
+
+            if ( peas.size() == 0 ) {
+                    ctx.println("<h3>There are no items to display on this page due to the selected coverage level. To see more items," +
+                    		"click on 'My Options' and set your coverage level to a higher value.</h3>");
+                    return;
+            }
+            
         //    boolean exemplarCityOnly = (!partialPeas && pod.exemplarCityOnly);
             boolean exemplarCityOnly = (only_prefix_xpath!=null) && (only_prefix_xpath.equals(DataSection.EXEMPLAR_ONLY));
             if(exemplarCityOnly) {
@@ -8723,7 +8728,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         }
 
         if(showSearchMode) {
-            ctx.println("<div style='float: right;'>Items " + from + " to " + to + " of " + total+"</div>");        
+            ctx.println("<div style='float: right;'>Items " + from + " to " + to + " of " + total+"</div>");
             ctx.println("<p class='hang' > " +  //float: right; tyle='margin-left: 3em;'
                 "<b>Sorted:</b>  ");
             {

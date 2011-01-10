@@ -32,6 +32,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -1418,17 +1419,14 @@ public class DataSection extends Registerable {
     public static final String FAKE_FLEX_SUFFIX = "dateTimes/availableDateFormats/dateFormatItem[@id=\"NEW\"]";
     public static final String FAKE_FLEX_XPATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem";
     
-    private void populateFrom(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map options) {
+    private void populateFrom(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options) {
         init();
         XPathParts xpp = new XPathParts(null,null);
 //        System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
         CLDRFile aFile = new CLDRFile(ourSrc, true);
-        XPathParts pathParts = new XPathParts(null, null);
-        XPathParts fullPathParts = new XPathParts(null, null);
         List examplesResult = new ArrayList();
+        SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
         long lastTime = -1;
-        long longestTime = -1;
-        String longestPath = "NONE";
         String workPrefix = xpathPrefix;
         long nextTime = -1;
         int count=0;
@@ -1436,9 +1434,15 @@ public class DataSection extends Registerable {
         if(SHOW_TIME) {
             lastTime = countStart = System.currentTimeMillis();
         }
-        // what to exclude under 'misc'
-        int t = 10;
         
+        String workingCoverageLevel = options.get("CheckCoverage.requiredLevel");
+        if ( workingCoverageLevel.equals("default")) {
+            org.unicode.cldr.test.CoverageLevel.Level itsLevel = 
+            StandardCodes.make().getLocaleCoverageLevel(WebContext.getEffectiveLocaleType(options.get("CheckCoverage.requiredLocaleType")), locale.toString()) ;
+            workingCoverageLevel = itsLevel.toString();
+        }
+        int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(workingCoverageLevel);
+        // what to exclude under 'misc'
         
         CLDRFile vettedParent = null;
         CLDRLocale parentLoc = locale.getParent();
@@ -1448,16 +1452,13 @@ public class DataSection extends Registerable {
         }
             
         int pn;
-        String exclude = null;
         boolean excludeCurrencies = false;
         boolean excludeCalendars = false;
-        boolean excludeLDN = false;
         boolean excludeGrego = false;
         boolean excludeTimeZones = false;
         boolean excludeMetaZones = false;
         boolean useShorten = false; // 'shorten' xpaths instead of extracting type
         boolean keyTypeSwap = false;
-        boolean hackCurrencyDisplay = false;
         boolean excludeMost = false;
         boolean doExcludeAlways = true;
         boolean isReferences = false;
@@ -1535,6 +1536,15 @@ public class DataSection extends Registerable {
         Set<String> baseXpaths = new HashSet<String>();
         for(Iterator it = aFile.iterator(workPrefix);it.hasNext();) {
             String xpath = (String)it.next();
+            // Filter out data that is higher than the desired coverage level
+            int coverageValue = sdi.getCoverageValue(xpath,locale.toULocale());
+            if ( coverageValue > workingCoverageValue ) {
+                if ( coverageValue <= 100 ) {
+                    // KEEP COUNT OF FILTERED ITEMS
+                }
+                continue;
+            }
+            
 	    if(false) System.err.println("basePath: " + xpath);
             baseXpaths.add(xpath);
         }
@@ -2049,7 +2059,15 @@ public class DataSection extends Registerable {
     /**
      * Makes sure this pod contains the peas we'd like to see.
      */
-    private void ensureComplete(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map options) {
+    private void ensureComplete(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options) {
+        SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
+        String workingCoverageLevel = options.get("CheckCoverage.requiredLevel");
+        if ( workingCoverageLevel.equals("default")) {
+            org.unicode.cldr.test.CoverageLevel.Level itsLevel = 
+            StandardCodes.make().getLocaleCoverageLevel(WebContext.getEffectiveLocaleType(options.get("CheckCoverage.requiredLocaleType")), locale.toString()) ;
+            workingCoverageLevel = itsLevel.toString();
+        }
+        int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(workingCoverageLevel);
         if(xpathPrefix.startsWith("//ldml/"+"dates/timeZoneNames")) {
             // work on zones
             boolean isMetazones = xpathPrefix.startsWith("//ldml/"+"dates/timeZoneNames/metazone");
@@ -2126,7 +2144,15 @@ public class DataSection extends Registerable {
                             continue;
                         }
                     }
-
+                    // Filter out data that is higher than the desired coverage level
+                    int coverageValue = sdi.getCoverageValue(base_xpath_string,locale.toULocale());
+                    if ( coverageValue > workingCoverageValue ) {
+                        if ( coverageValue <= 100 ) {
+                            // KEEP COUNT OF FILTERED ITEMS
+                        }
+                        continue;
+                    }
+                    
                     DataSection.DataRow myp = getDataRow(rowXpath);
                     
                     // set it up..

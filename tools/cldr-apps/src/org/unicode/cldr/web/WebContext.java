@@ -1133,16 +1133,12 @@ public class WebContext implements Cloneable {
      * @see SurveyMain#basicOptionsMap()
      */
     public Map<String, String> getOptionsMap(Map<String, String> options) {
-        if(sm.isPhaseSubmit()) { 
-            String def = pref(SurveyMain.PREF_COVLEV,"default");
-            if(!def.equals("default")) {
-                options.put("CheckCoverage.requiredLevel",def);
-            }
-            
-            String org = getEffectiveLocaleType(getChosenLocaleType());
-            if(org!=null) {
-                options.put("CoverageLevel.localeType",org);
-            }
+        String def = pref(SurveyMain.PREF_COVLEV,"default");
+        options.put("CheckCoverage.requiredLevel",def);
+        
+        String org = getEffectiveLocaleType(getChosenLocaleType());
+        if(org!=null) {
+            options.put("CoverageLevel.localeType",org);
         }
                 
         return options;

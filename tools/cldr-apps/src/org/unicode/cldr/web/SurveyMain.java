@@ -7741,7 +7741,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 if((!p.hasInherited&&!p.hasMultipleProposals) 
                             || (s==0) || (s&Vetting.RES_NO_CHANGE) > 0) {
                     if(p.confirmStatus == Vetting.Status.INDETERMINATE) {
-                        statusIcon = ctx.iconHtml("squo", "No New Values");
+                        statusIcon = ctx.iconHtml("ques", "No New Values");
                     } else if(p.confirmStatus != Vetting.Status.APPROVED) {
                         statusIcon = (ctx.iconHtml("ques-2","Not Approved, but no alternatives"));
                     } else {

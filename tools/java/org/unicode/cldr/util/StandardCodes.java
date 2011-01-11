@@ -19,6 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -29,7 +30,9 @@ import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.Iso639Data.Type;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -698,18 +701,6 @@ public class StandardCodes {
         return WorldBankInfo;
     }
 
-    Set MainTimeZones;
-
-    public Set getMainTimeZones() {
-        if (MainTimeZones == null) {
-            List temp = fillFromCommaFile(CldrUtility.UTIL_DATA_DIR, "MainTimeZones.txt", false);
-            MainTimeZones = new TreeSet();
-            MainTimeZones.addAll(temp);
-            MainTimeZones = CldrUtility.protectCollection(MainTimeZones);
-        }
-        return MainTimeZones;
-    }
-
     Set moribundLanguages;
 
     public Set<String> getMoribundLanguages() {
@@ -985,6 +976,10 @@ public class StandardCodes {
 
     public Map getZoneData() {
         return zoneParser.getZoneData();
+    }
+    
+    public Set<String> getCanonicalTimeZones() {
+        return zoneParser.getZoneData().keySet();
     }
 
     public Map getCountryToZoneSet() {

@@ -19,6 +19,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,6 +38,7 @@ import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -396,47 +398,17 @@ public class SupplementalDataInfo {
      * Information about when currencies are in use in territories
      */
     public static class CurrencyDateInfo implements Comparable<CurrencyDateInfo> {
-        public static final Date END_OF_TIME = new Date(Long.MAX_VALUE);
-        public static final Date START_OF_TIME = new Date(Long.MIN_VALUE);
         private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         private String currency;
-        private Date start;
-        private Date end;
+        private DateRange dateRange;
         private boolean isLegalTender;
         private String errors = "";
 
         public CurrencyDateInfo(String currency, String startDate, String endDate, String tender) {
             this.currency = currency;
-            start = parseDate(startDate, START_OF_TIME);
-            end = parseDate(endDate, END_OF_TIME);
+            this.dateRange = new DateRange(startDate, endDate);
             this.isLegalTender = ( tender == null || !tender.equals("false"));
-        }
-
-        static DateFormat[] simpleFormats = { 
-            new SimpleDateFormat("yyyy-MM-dd"),
-            new SimpleDateFormat("yyyy-MM"), 
-            new SimpleDateFormat("yyyy"), };
-
-        Date parseDate(String dateString, Date defaultDate) {
-            if (dateString == null) {
-                return defaultDate;
-            }
-            ParseException e2 = null;
-            for (int i = 0; i < simpleFormats.length; ++i) {
-                try {
-                    Date result = simpleFormats[i].parse(dateString);
-                    return result;
-                } catch (ParseException e) {
-                    if (i == 0) {
-                        errors += dateString + " ";
-                    }
-                    if (e2 == null) {
-                        e2 = e;
-                    }
-                }
-            }
-            throw (IllegalArgumentException)new IllegalArgumentException().initCause(e2);  
         }
 
         public String getCurrency() {
@@ -444,11 +416,11 @@ public class SupplementalDataInfo {
         }
 
         public Date getStart() {
-            return start;
+            return new Date(dateRange.getFrom());
         }
 
         public Date getEnd() {
-            return end;
+            return new Date(dateRange.getTo());
         }
 
         public String getErrors() {
@@ -460,23 +432,124 @@ public class SupplementalDataInfo {
         }
 
         public int compareTo(CurrencyDateInfo o) {
-            int result = start.getDate() - o.start.getDate();
-            if (result != 0) return result;
-            result = end.getDate() - o.end.getDate();
+            int result = dateRange.compareTo(o.dateRange);
             if (result != 0) return result;
             return currency.compareTo(o.currency);
         }
 
         public String toString() {
-            return "{" + formatDate(start) + ", " + formatDate(end) + ", " + currency + "}";
+            return "{" + dateRange + ", " + currency + "}";
         }
 
         public static String formatDate(Date date) {
-            if (date.equals(START_OF_TIME)) return "-∞";
-            if (date.equals(END_OF_TIME)) return "∞";
-            return dateFormat.format(date);
+            return DateRange.formatDate(date.getTime());
+        }
+
+    }
+    
+    public static final class MetaZoneRange implements Comparable<MetaZoneRange> {
+        final DateRange dateRange;
+        final String metazone;
+        /**
+         * @param metazone
+         * @param from
+         * @param to
+         */
+        public MetaZoneRange(String metazone, String fromString, String toString) {
+            super();
+            this.metazone = metazone;
+            dateRange = new DateRange(fromString, toString);
+        }
+        @Override
+        public int compareTo(MetaZoneRange arg0) {
+            int result;
+            if (0 != (result = dateRange.compareTo(arg0.dateRange))) {
+                return result;
+            }
+            return metazone.compareTo(arg0.metazone);
+        } 
+        public String toString() {
+            return "{" + dateRange + ", " + metazone + "}";
         }
     }
+    
+    public static final class DateRange implements Comparable<DateRange> {
+        static final long START_OF_TIME = Long.MIN_VALUE;
+        static final long END_OF_TIME = Long.MAX_VALUE;
+        private final long from;
+        private final long to;
+        
+        public DateRange(String fromString, String toString) {
+            from = parseDate(fromString, START_OF_TIME);
+            to = parseDate(toString, END_OF_TIME);
+        }
+        
+        public long getFrom() {
+            return from;
+        }
+
+        public long getTo() {
+            return to;
+        }
+
+        static final DateFormat[] simpleFormats = { 
+            new SimpleDateFormat("yyyy-MM-dd HH:mm"),
+            new SimpleDateFormat("yyyy-MM-dd"),
+            new SimpleDateFormat("yyyy-MM"), 
+            new SimpleDateFormat("yyyy"),
+            };
+        static {
+            TimeZone gmt = TimeZone.getTimeZone("GMT");
+            for (DateFormat format : simpleFormats) {
+                format.setTimeZone(gmt);
+            }
+        }
+
+        long parseDate(String dateString, long defaultDate) {
+            if (dateString == null) {
+                return defaultDate;
+            }
+            ParseException e2 = null;
+            for (int i = 0; i < simpleFormats.length; ++i) {
+                try {
+                    synchronized (simpleFormats[i]) {
+                        Date result = simpleFormats[i].parse(dateString);
+                        return result.getTime();
+                    }
+                } catch (ParseException e) {
+                    if (e2 == null) {
+                        e2 = e;
+                    }
+                }
+            }
+            throw new IllegalArgumentException(e2);  
+        }
+        
+        public String toString() {
+            return 
+            "{" + formatDate(from) 
+            + ", " 
+            + formatDate(to) + "}";
+        }
+
+        public static String formatDate(long date) {
+            if (date == START_OF_TIME) {
+                return "-∞";
+            }
+            if (date == END_OF_TIME) {
+                return "∞";
+            }
+            synchronized (simpleFormats[0]) {
+                return simpleFormats[0].format(date);
+            }
+        }
+
+        @Override
+        public int compareTo(DateRange arg0) {
+            return to > arg0.to ? 1 : to < arg0.to ? -1 : from > arg0.from ? 1 : from < arg0.from ? -1 : 0;
+        }
+    }
+
 
     /**
      * Information about telephone code(s) for a given territory
@@ -652,6 +725,7 @@ public class SupplementalDataInfo {
             LinkedHashSet.class);
 
     private  Map<String, Map<String, Map<String,String>>> typeToZoneToRegionToZone = new TreeMap<String, Map<String, Map<String,String>>>();
+    private Relation<String, MetaZoneRange> zoneToMetaZoneRanges = Relation.of(new TreeMap<String, Set<MetaZoneRange>>(), TreeSet.class);
 
     private Map<String, String> metazoneContinentMap = new HashMap<String,String>();
     private Set<String> allMetazones = new TreeSet<String>();
@@ -782,6 +856,8 @@ public class SupplementalDataInfo {
 
         typeToZoneToRegionToZone = CldrUtility.protectCollection(typeToZoneToRegionToZone);
         typeToTagToReplacement = CldrUtility.protectCollection(typeToTagToReplacement);
+        
+        zoneToMetaZoneRanges.freeze();
 
         containment.freeze();
         languageToBasicLanguageData.freeze();
@@ -884,6 +960,10 @@ public class SupplementalDataInfo {
                     //          if (handleTimezoneData(level2)) {
                     //            return;
                     //          }
+                } else if ("metazoneInfo".equals(level2)) {
+                    if (handleMetazoneInfo(level2,level3)) {
+                        return;
+                    }
                 } else if ("mapTimezones".equals(level2)) {
                     if (handleMetazoneData(level2,level3)) {
                         return;
@@ -1046,7 +1126,8 @@ public class SupplementalDataInfo {
         /*
 <supplementalData>
   <metaZones>
-    <metazoneInfo...>
+    <metazoneInfo>
+...
     <mapTimezones type="metazones">
       <mapZone other="Acre" territory="001" type="America/Rio_Branco"/>
 
@@ -1083,6 +1164,29 @@ public class SupplementalDataInfo {
                     }
                     allMetazones.add(mzone);
                 }
+                return true;
+            }
+            return false;
+        }
+
+        /*
+         * 
+<supplementalData>
+  <metaZones>
+    <metazoneInfo>
+            <timezone type="Asia/Yerevan">
+                <usesMetazone to="1991-09-22 20:00" mzone="Yerevan"/>
+                <usesMetazone from="1991-09-22 20:00" mzone="Armenia"/>
+         */
+        
+        private boolean handleMetazoneInfo(String level2, String level3) {
+            if (level3.equals("timezone")) {
+                String zone = parts.getAttributeValue(3,"type");
+                String mzone = parts.getAttributeValue(4,"mzone");
+                String from = parts.getAttributeValue(4,"from");
+                String to = parts.getAttributeValue(4,"to");
+                MetaZoneRange mzoneRange = new MetaZoneRange(mzone, from, to);
+                zoneToMetaZoneRanges.put(zone, mzoneRange);
                 return true;
             }
             return false;
@@ -2076,6 +2180,35 @@ public class SupplementalDataInfo {
      */
     public Relation<R2<String, String>, String> getBcp47Aliases() {
         return bcp47Aliases;
+    }
+    
+    static Set<String> MainTimeZones;;
+
+    /**
+     * Return canonical timezones
+     * @return
+     */
+    public Set<String> getCanonicalTimeZones() {
+        synchronized (SupplementalDataInfo.class) {
+            if (MainTimeZones == null) {
+                MainTimeZones = new TreeSet<String>();
+                SupplementalDataInfo info = SupplementalDataInfo.getInstance();
+                Set<String> keys = info.getBcp47Keys().get("timezone");
+                for (Entry<R2<String, String>, Set<String>> entry : info.getBcp47Aliases().keyValuesSet()) {
+                    R2<String, String> subtype_aliases = entry.getKey();
+                    if (!subtype_aliases.get0().equals("timezone")) {
+                        continue;
+                    }
+                    MainTimeZones.add(entry.getValue().iterator().next());
+                }
+                MainTimeZones = Collections.unmodifiableSet(MainTimeZones);
+            }
+            return MainTimeZones;
+        }
+    }
+
+    public Set<MetaZoneRange> getMetaZoneRanges(String zone) {
+        return zoneToMetaZoneRanges.get(zone);
     }
 }
 

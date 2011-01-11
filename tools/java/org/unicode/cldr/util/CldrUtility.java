@@ -117,6 +117,7 @@ public class CldrUtility {
   public static final String MAIN_DIRECTORY = CldrUtility.getProperty("CLDR_MAIN", getPath(CldrUtility.COMMON_DIRECTORY,  "main"));
   public static final String COLLATION_DIRECTORY = getPath(COMMON_DIRECTORY,"collation/");
   public static final String GEN_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_GEN_DIR", getPath(BASE_DIRECTORY , "../Generated/cldr/"))); 
+  public static final String TMP_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_TMP_DIR", getPath(BASE_DIRECTORY , "../cldr-tmp/"))); 
 
   /**
    * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
@@ -820,6 +821,23 @@ public class CldrUtility {
   }
 
   /**
+ * Simple struct-like class for output parameters.
+ * @param <T> The type of the parameter.
+ */
+public static final class Output<T> {
+    public T value;
+    public String toString() {
+        return value == null ? "null" : value.toString();
+    }
+}
+//    static final class HandlingTransform implements Transform<String, Handling> {
+//        @Override
+//        public Handling transform(String source) {
+//            return Handling.valueOf(source);
+//        }
+//    }
+
+/**
    * Fetch data from jar
    * @param name name of thing to load (org.unicode.cldr.util.name)
    */

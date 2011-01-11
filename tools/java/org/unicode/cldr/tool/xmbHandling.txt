@@ -1,22 +1,67 @@
 #Remember to quote any [ character!
 
-^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/appendItems/appendItem\[@request=".*"] ; SKIP
+# Items that we will skip (at least for now).
+
+# Needs special review, not for average translators
+
+^//ldml/characters/exemplarCharacters\[@type="([^"]*)"] ;   SKIP
+^//ldml/characters/exemplarCharacters   ;   SKIP
+
 ^//ldml/dates/calendars/calendar\[@type="(?!gregorian) ; SKIP
+^//ldml/dates/timeZoneNames/metazone\[@type="([^"]*)"]/commonlyUsed ; SKIP
+^//ldml/numbers/currencyFormats/currencySpacing ; SKIP
+^//ldml/numbers/defaultNumberingSystem ; SKIP
 ^//ldml/references ; SKIP
-^//ldml/dates/timeZoneNames/metazone\[@type=".*"]/commonlyUsed ; SKIP
+
+# Should be deprecated?
+
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/appendItems/appendItem\[@request="([^"]*)"] ; SKIP
+# should use the fields instead?
+
 ^//ldml/layout/inList ; SKIP
 ^//ldml/layout/inText ; SKIP
 
-^//ldml/numbers/currencyFormats/currencySpacing ; SKIP
-^//ldml/numbers/defaultNumberingSystem ; SKIP
+^//ldml/localeDisplayNames/codePatterns/codePattern ; SKIP
 
-#Deprecate?
-#^//ldml/localeDisplayNames/codePatterns/codePattern ; SKIP
+^//ldml/numbers/symbols/list    ;   SKIP
+^//ldml/numbers/symbols/nativeZeroDigit ;   SKIP
+^//ldml/numbers/symbols/patternDigit    ;   SKIP
 
-^//ldml/dates/timeZoneNames/zone\[@type=".*"]/exemplarCity ; The name of a city in: {0}. See cldr.org/xxxx.
+^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/(long|short|commonlyUsed) ; SKIP
 
-^//ldml/localeDisplayNames/languages/language\[@type=".*"] ; ROOT language; The name of the language with BCP47 code = {0}. Before translating, please read cldr.org/xxxx.
-^//ldml/localeDisplayNames/scripts/script\[@type=".*"] ; ROOT script; The name of the script (writing system) with BCP47 code = {0}. Before translating, please read cldr.org/xxxx.
-^//ldml/localeDisplayNames/territories/territory\[@type=".*"] ; ROOT territory; The name of the country or region with BCP47 code = {0}. Before translating, please read cldr.org/xxxx.
-^//ldml/numbers/currencies/currency\[@type=".*"] ; ROOT currency; The name of the currency with BCP47 code = {0}. Before translating, please read cldr.org/xxxx.
+# Skip for now, since we can't handle well:
+^//ldml/numbers/currencies/currency\[@type="([^"]*)"]/displayName\[@count="([^"]*)"] ; SKIP
+^//ldml/numbers/currencyFormats/unitPattern\[@count="([^"]*)"]  ;   DESCRIPTION [[few, many, one, other, two, zero]]
 
+# ROOT descriptions (using special placeholders). Must occur first.
+
+^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/exemplarCity ; ROOT timezone ; The name of a city in: {0}. See cldr.org/translation.
+
+^//ldml/localeDisplayNames/languages/language\[@type="([^"]*)"] ; ROOT language; The name of the language with BCP47 base language code = {0}. Before translating, see cldr.org/translation.
+^//ldml/localeDisplayNames/scripts/script\[@type="([^"]*)"] ; ROOT script; The name of the script (writing system) with BCP47 script code = {0}. Before translating, see cldr.org/translation.
+^//ldml/localeDisplayNames/territories/territory\[@type="([^"]*)"] ; ROOT territory; The name of the country or region with BCP47 region code = {0}. Before translating, see cldr.org/translation.
+^//ldml/numbers/currencies/currency\[@type="([^"]*)"] ; ROOT currency; The name of the currency with ISO 4217 currency code = {0}. Before translating, see cldr.org/translation.
+^//ldml/dates/timeZoneNames/metazone\[@type="([^"]*)"] ; ROOT metazone; The name of the metazone with CLDR code = {0}. Before translating, see cldr.org/translation.
+
+# Descriptions of other items
+
+^//ldml/characters/ellipsis\[@type="([^"]*)"]  ;   Supply the elipsis pattern for when the {1} part of the string is replaced. Before translating, see cldr.org/translation.
+^//ldml/characters/moreInformation  ;   The character or short string used to indicate that more information is available. Before translating, see cldr.org/translation.
+
+^//ldml/delimiters ; Supply the right and left quotation marks. Before translating, see cldr.org/translation/delimiters.
+
+^//ldml/localeDisplayNames/localeDisplayPattern/localePattern   ;   The pattern used to compose locale (language) names. Before translating, see cldr.org/translation/localepattern.
+^//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator ;   The separator used to compose modifiers in locale (language) names. Before translating, see cldr.org/translation/localepattern.
+
+^//ldml/numbers/symbols/(decimal|exponential|group|infinity|list|minusSign|nan|nativeZeroDigit|patternDigit|perMille|percentSign|plusSign)    ;   The {1} symbol used in the localized form of numbers. Before translating, see cldr.org/translation/number-symbols.
+^//ldml/posix/messages/(no|yes)str   ;   The word for "{1}", lowercased, plus any abbreviations separated by a colon. Before translating, see cldr.org/translation/yesno.
+
+^//ldml/dates/timeZoneNames/(fallback|gmtZero|gmt|hour|region)Format  ;   The {1} pattern used to compose time zone names. Before translating, see cldr.org/translation/timezones.
+^//ldml/units/unit\[@type="([^"]*)"]/unitPattern ; [ICU Syntax] Special pattern used to compose plural for {1}, including abbreviated forms. Before translating, be sure to see cldr.org/translation/plurals.
+
+^//ldml/numbers/decimalFormats/decimalFormatLength\[@type="([^"]*)"]/decimalFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]  ;   Special pattern used for a short version of numbers with the same number of digits as {3}. Before translating, be sure to see cldr.org/translation/number-patterns#TOC-Short-Numbers.
+
+^//ldml/numbers/([a-z]*)Formats/[a-z]*FormatLength/[a-z]*Format\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]    ;   Special pattern used to compose {1} numbers. Before translating, be sure to see cldr.org/translation/number-patterns.
+
+^//ldml/listPatterns/listPattern/listPatternPart\[@type="2"]  ;   Special pattern used to make a list out of two elements.
+^//ldml/listPatterns/listPattern/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a list out of more than two elements. This is used for the {1} portion of the list. Before translating, be sure to see cldr.org/translation/lists.

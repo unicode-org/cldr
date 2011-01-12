@@ -394,85 +394,11 @@ public class SupplementalDataInfo {
             return null;
         }
     }
+    
     /**
-     * Information about when currencies are in use in territories
+     * Class for a range of two dates, refactored to share code.
+     * @author markdavis
      */
-    public static class CurrencyDateInfo implements Comparable<CurrencyDateInfo> {
-        private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-        private String currency;
-        private DateRange dateRange;
-        private boolean isLegalTender;
-        private String errors = "";
-
-        public CurrencyDateInfo(String currency, String startDate, String endDate, String tender) {
-            this.currency = currency;
-            this.dateRange = new DateRange(startDate, endDate);
-            this.isLegalTender = ( tender == null || !tender.equals("false"));
-        }
-
-        public String getCurrency() {
-            return currency;
-        }
-
-        public Date getStart() {
-            return new Date(dateRange.getFrom());
-        }
-
-        public Date getEnd() {
-            return new Date(dateRange.getTo());
-        }
-
-        public String getErrors() {
-            return errors;
-        }
-
-        public boolean isLegalTender() {
-            return isLegalTender;
-        }
-
-        public int compareTo(CurrencyDateInfo o) {
-            int result = dateRange.compareTo(o.dateRange);
-            if (result != 0) return result;
-            return currency.compareTo(o.currency);
-        }
-
-        public String toString() {
-            return "{" + dateRange + ", " + currency + "}";
-        }
-
-        public static String formatDate(Date date) {
-            return DateRange.formatDate(date.getTime());
-        }
-
-    }
-    
-    public static final class MetaZoneRange implements Comparable<MetaZoneRange> {
-        final DateRange dateRange;
-        final String metazone;
-        /**
-         * @param metazone
-         * @param from
-         * @param to
-         */
-        public MetaZoneRange(String metazone, String fromString, String toString) {
-            super();
-            this.metazone = metazone;
-            dateRange = new DateRange(fromString, toString);
-        }
-        @Override
-        public int compareTo(MetaZoneRange arg0) {
-            int result;
-            if (0 != (result = dateRange.compareTo(arg0.dateRange))) {
-                return result;
-            }
-            return metazone.compareTo(arg0.metazone);
-        } 
-        public String toString() {
-            return "{" + dateRange + ", " + metazone + "}";
-        }
-    }
-    
     public static final class DateRange implements Comparable<DateRange> {
         static final long START_OF_TIME = Long.MIN_VALUE;
         static final long END_OF_TIME = Long.MAX_VALUE;
@@ -550,7 +476,88 @@ public class SupplementalDataInfo {
         }
     }
 
+    /**
+     * Information about when currencies are in use in territories
+     */
+    public static class CurrencyDateInfo implements Comparable<CurrencyDateInfo> {
+        private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
+        public static final Date END_OF_TIME = new Date(DateRange.END_OF_TIME);
+        public static final Date START_OF_TIME = new Date(DateRange.START_OF_TIME);
+
+        private String currency;
+        private DateRange dateRange;
+        private boolean isLegalTender;
+        private String errors = "";
+
+        public CurrencyDateInfo(String currency, String startDate, String endDate, String tender) {
+            this.currency = currency;
+            this.dateRange = new DateRange(startDate, endDate);
+            this.isLegalTender = ( tender == null || !tender.equals("false"));
+        }
+
+        public String getCurrency() {
+            return currency;
+        }
+
+        public Date getStart() {
+            return new Date(dateRange.getFrom());
+        }
+
+        public Date getEnd() {
+            return new Date(dateRange.getTo());
+        }
+
+        public String getErrors() {
+            return errors;
+        }
+
+        public boolean isLegalTender() {
+            return isLegalTender;
+        }
+
+        public int compareTo(CurrencyDateInfo o) {
+            int result = dateRange.compareTo(o.dateRange);
+            if (result != 0) return result;
+            return currency.compareTo(o.currency);
+        }
+
+        public String toString() {
+            return "{" + dateRange + ", " + currency + "}";
+        }
+
+        public static String formatDate(Date date) {
+            return DateRange.formatDate(date.getTime());
+        }
+
+    }
+    
+    public static final class MetaZoneRange implements Comparable<MetaZoneRange> {
+        final DateRange dateRange;
+        final String metazone;
+        /**
+         * @param metazone
+         * @param from
+         * @param to
+         */
+        public MetaZoneRange(String metazone, String fromString, String toString) {
+            super();
+            this.metazone = metazone;
+            dateRange = new DateRange(fromString, toString);
+        }
+        @Override
+        public int compareTo(MetaZoneRange arg0) {
+            int result;
+            if (0 != (result = dateRange.compareTo(arg0.dateRange))) {
+                return result;
+            }
+            return metazone.compareTo(arg0.metazone);
+        } 
+        public String toString() {
+            return "{" + dateRange + ", " + metazone + "}";
+        }
+    }
+    
     /**
      * Information about telephone code(s) for a given territory
      */

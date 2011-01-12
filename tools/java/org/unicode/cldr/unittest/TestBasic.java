@@ -23,6 +23,7 @@ import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
@@ -36,6 +37,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -630,5 +632,19 @@ public class TestBasic extends TestFmwk {
             logln("\t\t" + localeParent + " fullpath:\t" + parentFullPath);
         }
         logln("\tCount of non-approved:\t" + funnyCount);
+    }
+    
+    public void TestPluralRulesExist() {
+        Set<String> availableLanguages = testInfo.getCldrFactory().getAvailableLanguages();
+        PluralInfo rootRules = testInfo.getSupplementalDataInfo().getPlurals("root");
+        for (String localeID : availableLanguages) {
+            if (localeID.contains("_") || localeID.equals("root")) {
+                continue; // skip script locales
+            }
+            PluralInfo pluralInfo = testInfo.getSupplementalDataInfo().getPlurals(localeID);
+            if (pluralInfo == rootRules) {
+                errln("Missing Plural Rules for\t" + testInfo.getEnglish().getName(localeID) + "\t-\t" + localeID);
+            }
+        }
     }
 }

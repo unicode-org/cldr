@@ -6,7 +6,12 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Locale;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.xml.transform.TransformerException;
 
@@ -113,7 +118,7 @@ public class SupplementalDataParser {
       } else if (name.equals(LDMLConstants.TIMEZONE_DATA)) {
         res = parseTimeZoneData(node, xpath);
       } else if (name.equals(LDMLConstants.WEEK_DATA)) {
-        //res = parseWeekData(node, xpath);
+        res = parseWeekData(node, xpath);
       } else if (name.equals(LDMLConstants.CHARACTERS)) {
         //continue .. these are required for posix
       } else if (name.equals(LDMLConstants.MEASUREMENT_DATA)) {
@@ -871,7 +876,162 @@ public class SupplementalDataParser {
 
     return null;
   }
+  
+  private Resource parseWeekData(Node root, StringBuilder xpath) {
+      Resource current = null;
+      int savedLength = xpath.length();
+      LDML2ICUConverter.getXPath(root, xpath);
 
+      // if the whole node is marked draft then
+      // don't write anything
+      if (isNodeNotConvertible(root, xpath)) {
+        xpath.setLength(savedLength);
+        return null;
+      }
+      
+      ResourceTable table = new ResourceTable();
+      table.name = LDMLConstants.WEEK_DATA;
+      Set<String> useTerritories = new TreeSet<String>();
+      Map<String,Integer> minDaysMap = new HashMap<String,Integer>();
+      Map<String,Integer> firstDayOfWeekMap = new HashMap<String,Integer>();
+      Map<String,Integer[]> weekendStartMap = new HashMap<String,Integer[]>();
+      Map<String,Integer[]> weekendEndMap = new HashMap<String,Integer[]>();
+      for (Node node = root.getFirstChild(); node != null; node = node.getNextSibling()) {
+          if (node.getNodeType() != Node.ELEMENT_NODE ) {
+            continue;
+          }
+          if (LDMLUtilities.getAttributeValue(node,LDMLConstants.ALT)!= null ) {
+              continue; // Only use non-alt values from supplemental
+          }
+          String name = node.getNodeName();
+          if ( name.equals(LDMLConstants.MINDAYS) || name.equals(LDMLConstants.FIRSTDAY)||
+               name.equals(LDMLConstants.WENDSTART) || name.equals(LDMLConstants.WENDEND)) {
+              String territoryString = LDMLUtilities.getAttributeValue(node, LDMLConstants.TERRITORIES);
+              String[] territories = territoryString.split(" ");
+              for ( int i = 0 ; i < territories.length ; i++ ) {
+                  if (name.equals(LDMLConstants.MINDAYS)) {
+                      String countString = LDMLUtilities.getAttributeValue(node, LDMLConstants.COUNT);
+                      Integer countVal = new Integer(countString);
+                      minDaysMap.put(territories[i], countVal);
+                  }
+                  if (name.equals(LDMLConstants.FIRSTDAY)) {
+                      String dayString = LDML2ICUConverter.getDayNumberAsString(LDMLUtilities.getAttributeValue(node, LDMLConstants.DAY));
+                      Integer dayVal = new Integer(dayString);
+                      firstDayOfWeekMap.put(territories[i], dayVal);
+                  }
+                  if (name.equals(LDMLConstants.WENDSTART)) {
+                      Integer[] weekendStart = new Integer[2];
+                      String dayString = LDML2ICUConverter.getDayNumberAsString(LDMLUtilities.getAttributeValue(node, LDMLConstants.DAY));
+                      String timeString = LDMLUtilities.getAttributeValue(node, LDMLConstants.TIME);
+                      weekendStart[0] = Integer.valueOf(dayString);
+                      weekendStart[1] = Integer.valueOf(LDML2ICUConverter.getMillis(timeString == null ? "00:00" : timeString));
+                      weekendStartMap.put(territories[i], weekendStart);
+                  }
+                  if (name.equals(LDMLConstants.WENDEND)) {
+                      Integer[] weekendEnd = new Integer[2];
+                      String dayString = LDML2ICUConverter.getDayNumberAsString(LDMLUtilities.getAttributeValue(node, LDMLConstants.DAY));
+                      String timeString = LDMLUtilities.getAttributeValue(node, LDMLConstants.TIME);
+                      weekendEnd[0] = Integer.valueOf(dayString);
+                      weekendEnd[1] = Integer.valueOf(LDML2ICUConverter.getMillis(timeString == null ? "24:00" : timeString));
+                      weekendEndMap.put(territories[i], weekendEnd);
+                  }
+                  useTerritories.add(territories[i]);
+              }
+          }
+      }
+      
+      Iterator<String> it = useTerritories.iterator();
+      while (it.hasNext()) {
+          ResourceIntVector weekData = new ResourceIntVector();
+          String country = it.next();
+          weekData.name = country;
+          ResourceInt[] weekDataInfo = new ResourceInt[6];
+          Integer firstDayOfWeek = firstDayOfWeekMap.get(country);
+          if ( firstDayOfWeek == null ) {
+              firstDayOfWeek = firstDayOfWeekMap.get("001");
+          }
+          if ( firstDayOfWeek == null ) {
+              log.error("Unable to find firstDayOfWeek element for weekData");
+              System.exit(-1);
+          }
+          
+          Integer minDays = minDaysMap.get(country);
+          if ( minDays == null ) {
+              minDays = minDaysMap.get("001");
+          }
+          if ( minDays == null ) {
+              log.error("Unable to find minDays element for weekData");
+              System.exit(-1);
+          }
+          
+          Integer [] weekendStart = weekendStartMap.get(country);
+          if ( weekendStart == null ) {
+              weekendStart = weekendStartMap.get("001");
+          }
+          if ( weekendStart == null ) {
+              log.error("Unable to find weekendStart element for weekData");
+              System.exit(-1);
+          }
+         
+          Integer [] weekendEnd = weekendEndMap.get(country);
+          if ( weekendEnd == null ) {
+              weekendEnd = weekendEndMap.get("001");
+          }
+          if ( weekendEnd == null ) {
+              log.error("Unable to find weekendEnd element for weekData");
+              System.exit(-1);
+          }
+          
+          ResourceInt int1 = new ResourceInt();
+          int1.val = firstDayOfWeek.toString();
+          weekData.appendContents(int1);
+          
+          ResourceInt int2 = new ResourceInt();
+          int2.val = minDays.toString();
+          weekData.appendContents(int2);
+          
+          ResourceInt int3 = new ResourceInt();
+          int3.val = weekendStart[0].toString();
+          weekData.appendContents(int3);
+          
+          ResourceInt int4 = new ResourceInt();
+          int4.val = weekendStart[1].toString();
+          weekData.appendContents(int4);
+
+          ResourceInt int5 = new ResourceInt();
+          int5.val = weekendEnd[0].toString();
+          weekData.appendContents(int5);
+
+          ResourceInt int6 = new ResourceInt();
+          int6.val = weekendEnd[1].toString();
+          weekData.appendContents(int6);
+         
+//          weekDataInfo[0].val = firstDayOfWeek.toString();
+//          weekDataInfo[1].val = minDays.toString();
+//          weekDataInfo[2].val = weekendStart[0].toString();
+//          weekDataInfo[3].val = weekendStart[1].toString();
+//          weekDataInfo[4].val = weekendEnd[0].toString();
+//          weekDataInfo[5].val = weekendEnd[1].toString();
+
+//          weekData.first = weekDataInfo[0];
+//          for ( int i = 0 ; i < weekDataInfo.length - 1 ; i++ ) {
+//              weekDataInfo[i].next = weekDataInfo[i+1];
+//          }
+          
+          if (table.first == null) {
+              table.first = weekData;
+          } else {
+              current.next = weekData;
+          }
+          current = weekData;
+      }
+      
+      if (table.first != null) {
+          return table;
+      }
+      return null;
+  }
+  
   //
   // TimeZoneData
   //

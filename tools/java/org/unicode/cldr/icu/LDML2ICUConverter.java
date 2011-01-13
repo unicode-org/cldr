@@ -973,30 +973,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             String variant = ULocale.getVariant(locName);
             boolean isRoot = locName.equals("root");
 
-            Resource temp = parseWeek(country, variant, isRoot);
-            if (temp != null) {
-                Resource greg = findResource(mainTable, LDMLConstants.GREGORIAN);
-                Resource cals = findResource(mainTable, LDMLConstants.CALENDAR);
-                if (greg != null) {
-                    greg.first.end().next = temp;
-                } else if (cals != null) {
-                    greg = new ResourceTable();
-                    greg.name = LDMLConstants.GREGORIAN;
-                    greg.first = temp;
-                    cals.first.end().next = greg;
-                } else {
-                    greg = new ResourceTable();
-                    greg.name = LDMLConstants.GREGORIAN;
-                    greg.first = temp;
-
-                    ResourceTable cal = new ResourceTable();
-                    cal.name = LDMLConstants.CALENDAR;
-                    cal.first = greg;
-
-                    mainTable.appendContents(cal);
-                }
-            }
-            temp = parseMeasurement(country, variant, isRoot);
+            Resource temp = parseMeasurement(country, variant, isRoot);
             if (temp != null) {
                 mainTable.appendContents(temp);
             }
@@ -2816,7 +2793,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return null;
     }
 
-    private String getDayNumberAsString(String type) {
+    public static String getDayNumberAsString(String type) {
         if (type.equals("sun")) {
             return "1";
         } else if (type.equals("mon")) {
@@ -3057,31 +3034,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         return map;
     }
-
-    private Resource parseWeek(String country, String variant, boolean isRoot) {
-        Resource ret = null;
-        // optimization
-        if (variant.length() != 0) {
-            return ret;
-        }
-
-        StringBuilder xpath = new StringBuilder("//supplementalData/weekData");
-        Node root = LDMLUtilities.getNode(supplementalDoc, xpath.toString());
-        if (root != null) {
-            Resource week = parseWeekend(root, xpath, country, isRoot);
-            Resource dte = parseDTE(root, xpath, country, isRoot);
-            if (week != null) {
-                week.next = dte;
-                ret = week;
-            } else {
-                ret = dte;
-            }
-        }
-
-        return ret;
-    }
-
-    private static int getMillis(String time) {
+    
+    public static int getMillis(String time) {
         String[] strings = time.split(":"); // time is in hh:mm format
         int hours = Integer.parseInt(strings[0]);
         int minutes = Integer.parseInt(strings[1]);
@@ -3110,103 +3064,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return ret;
     }
 
-    private Resource parseWeekend(Node root, StringBuilder xpath, String country, boolean isRoot) {
-        Node wkendStart = null;
-        Node wkendEnd = null;
-        if (country.length() > 0) {
-            wkendStart = getVettedNode(root, LDMLConstants.WENDSTART, LDMLConstants.TERRITORIES, country, xpath);
-            wkendEnd = getVettedNode(root, LDMLConstants.WENDEND, LDMLConstants.TERRITORIES, country, xpath);
-        }
 
-        if (wkendEnd != null || wkendStart != null || isRoot) {
-            if (wkendStart == null) {
-                wkendStart = getVettedNode(null, root, LDMLConstants.WENDSTART + "[@territories='001']", xpath, true);
-                if (wkendStart == null) {
-                    log.error("Could not find weekendStart resource.");
-                }
-            }
-            if (wkendEnd == null) {
-                wkendEnd = getVettedNode(null, root, LDMLConstants.WENDEND + "[@territories='001']", xpath, true);
-                if (wkendEnd == null) {
-                    log.error("Could not find weekendEnd resource.");
-                }
-            }
-        }
-
-        ResourceIntVector wkend = null;
-        if (wkendStart != null && wkendEnd != null) {
-            try {
-                wkend = new ResourceIntVector();
-                wkend.name = LDMLConstants.WEEKEND;
-                ResourceInt startday = new ResourceInt();
-                startday.val = getDayNumberAsString(LDMLUtilities.getAttributeValue(wkendStart, LDMLConstants.DAY));
-                ResourceInt starttime = new ResourceInt();
-                String time = LDMLUtilities.getAttributeValue(wkendStart, LDMLConstants.TIME);
-                starttime.val = Integer.toString(getMillis(time == null ? "00:00" : time));
-                ResourceInt endday = new ResourceInt();
-                endday.val = getDayNumberAsString(LDMLUtilities.getAttributeValue(wkendEnd, LDMLConstants.DAY));
-                ResourceInt endtime = new ResourceInt();
-
-                time = LDMLUtilities.getAttributeValue(wkendEnd, LDMLConstants.TIME);
-                endtime.val = Integer.toString(getMillis(time == null ? "24:00" : time));
-
-                wkend.first = startday;
-                startday.next = starttime;
-                starttime.next = endday;
-                endday.next = endtime;
-            } catch (NullPointerException ex) {
-                throw new RuntimeException(ex);
-            }
-        }
-
-        return wkend;
-    }
-
-    private Resource parseDTE(Node root, StringBuilder xpath, String country, boolean isRoot) {
-        Node minDays = null;
-        Node firstDay = null;
-        ResourceIntVector dte = null;
-
-        if (country.length() > 0) {
-            minDays = getVettedNode(root, LDMLConstants.MINDAYS, LDMLConstants.TERRITORIES, country, xpath);
-            firstDay = getVettedNode(root, LDMLConstants.FIRSTDAY, LDMLConstants.TERRITORIES, country, xpath);
-        }
-
-        if (minDays != null || firstDay != null || isRoot) {
-            // fetch inherited to complete the resource..
-            if (minDays == null) {
-                minDays = getVettedNode(root, LDMLConstants.MINDAYS, LDMLConstants.TERRITORIES, "001", xpath);
-                if (minDays == null) {
-                    log.error("Could not find minDays resource.");
-                }
-            }
-            if (firstDay == null) {
-                firstDay = getVettedNode(root, LDMLConstants.FIRSTDAY, LDMLConstants.TERRITORIES, "001", xpath);
-                if (firstDay == null) {
-                    log.error("Could not find firstDay resource.");
-                }
-            }
-        }
-
-        if (minDays != null && firstDay != null) {
-            dte = new ResourceIntVector();
-            ResourceInt int1 = new ResourceInt();
-            int1.val = getDayNumberAsString(LDMLUtilities.getAttributeValue(firstDay, LDMLConstants.DAY));
-            ResourceInt int2 = new ResourceInt();
-            int2.val = LDMLUtilities.getAttributeValue(minDays, LDMLConstants.COUNT);
-
-            dte.name = DTE;
-            dte.first = int1;
-            int1.next = int2;
-        }
-
-        if ((minDays == null && firstDay != null) || (minDays != null && firstDay == null)) {
-            log.warning("Could not find minDays = " + minDays + " or firstDay = " + firstDay + " from fullyResolved locale. Not producing the resource. " + xpath.toString());
-            return null;
-        }
-
-        return dte;
-    }
 
     private Resource parseEras(LDML2ICUInputLocale loc, String xpath) {
         ResourceTable table = new ResourceTable();

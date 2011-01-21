@@ -4036,10 +4036,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     } 
 	
     void doOptions(WebContext ctx) {
+        WebContext subCtx = new WebContext(ctx);
+        subCtx.removeQuery(QUERY_DO);
         printHeader(ctx, "My Options");
         printUserTableWithHelp(ctx, "/MyOptions");
         
         ctx.println("<a href='"+ctx.url()+"'>Return to SurveyTool</a><hr>");
+        printRecentLocales(subCtx, ctx);
         ctx.addQuery(QUERY_DO,"options");
         ctx.println("<h2>My Options</h2>");
   
@@ -4246,32 +4249,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
          //   } else {
                 printUserTable(ctx);
          //   }
-
-            Hashtable lh = ctx.session.getLocales();
-            Enumeration e = lh.keys();
-            if(e.hasMoreElements()) {
-                boolean shownHeader = false;
-                for(;e.hasMoreElements();) {
-                    String k = e.nextElement().toString();
-                    if((ctx.getLocale()!=null)&&(ctx.getLocale().toString().equals(k))) {
-                        continue;
-                    }
-                    if(!shownHeader) {
-                        ctx.println("<p align='right'><B>Recent locales: </B> ");
-                        shownHeader = true;
-                    }
-                    boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,CLDRLocale.getInstance(k));
-                    ctx.print("<a href=\"" + baseContext.url() + ctx.urlConnector() + QUERY_LOCALE+"=" + k + "\">" + 
-                                new ULocale(k).getDisplayName(ctx.displayLocale));
-                    if(canModify) {
-                        ctx.print(modifyThing(ctx));
-                    }
-                    ctx.println("</a> ");
-                }
-                if(shownHeader) {
-                    ctx.println("</p>");
-                }
-            }
+            printRecentLocales(baseContext, ctx);
         }
         
         if((ctx.getLocale() != null) && 
@@ -4331,6 +4309,33 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         doLocale(ctx, baseContext, which);
     }
     
+    private void printRecentLocales(WebContext baseContext, WebContext ctx) {
+        Hashtable lh = ctx.session.getLocales();
+        Enumeration e = lh.keys();
+        if(e.hasMoreElements()) {
+            boolean shownHeader = false;
+            for(;e.hasMoreElements();) {
+                String k = e.nextElement().toString();
+                if((ctx.getLocale()!=null)&&(ctx.getLocale().toString().equals(k))) {
+                    continue;
+                }
+                if(!shownHeader) {
+                    ctx.println("<p align='right'><B>Recent locales: </B> ");
+                    shownHeader = true;
+                }
+                boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,CLDRLocale.getInstance(k));
+                ctx.print("<a href=\"" + baseContext.url() + ctx.urlConnector() + QUERY_LOCALE+"=" + k + "\">" + 
+                            new ULocale(k).getDisplayName(ctx.displayLocale));
+                if(canModify) {
+                    ctx.print(modifyThing(ctx));
+                }
+                ctx.println("</a> ");
+            }
+            if(shownHeader) {
+                ctx.println("</p>");
+            }
+        }
+    }
     private static boolean shortHeader(WebContext ctx) {
         // TODO Auto-generated method stub
         return ctx.hasField(QUERY_EXAMPLE) || R_STEPS.equals(ctx.field(SurveyMain.QUERY_SECTION));
@@ -6886,8 +6891,16 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             List peas = section.getList(sortMode);
 
             if ( peas.size() == 0 ) {
-                    ctx.println("<h3>There are no items to display on this page due to the selected coverage level. To see more items," +
-                    		"click on 'My Options' and set your coverage level to a higher value.</h3>");
+                    ctx.println("<h3>There are no items to display on this page due to the selected coverage level. To see more items, " +
+                        "click on ");
+                    
+                    WebContext subCtx2 = new WebContext(ctx);
+                    subCtx2.removeQuery(QUERY_LOCALE);
+                    subCtx2.removeQuery(QUERY_LOCALE);
+                    subCtx2.removeQuery(SurveyForum.F_FORUM);
+                    printMenu(subCtx2, "", "options", "My Options", QUERY_DO);
+
+                    ctx.println("and set your coverage level to a higher value.</h3>");
                     return;
             }
             

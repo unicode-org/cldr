@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2010, International Business Machines Corporation and   *
+ * Copyright (C) 2004-2011, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -7777,7 +7777,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }*/
         }
         
-        ctx.println("<tr class='topbar'>");
+        ctx.println("<tr  id='r_"+p.fullFieldHash()+"'  class='topbar'>");
       //  String baseInfo = "#"+base_xpath+", w["+Vetting.typeToStr(resultType[0])+"]:" + resultXpath_id;
         
          
@@ -7896,7 +7896,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 			|| ( UserRegistry.userIsVetter(ctx.session.user) && ctx.session.user.userIsSpecialForCLDR15(section.locale))
             || ((isPhaseVetting() || isPhaseVettingClosed()) && ( p.hasErrors  ||
                                   p.hasProps ||  (p.getResultType()== Vetting.RES_DISPUTED) ))) {
-            String changetoBox = "<td width='1%' class='noborder' rowspan='"+rowSpan+"' valign='top'>";
+            String changetoBox = "<td id='i_"+p.fullFieldHash()+"' width='1%' class='noborder' rowspan='"+rowSpan+"' valign='top'>";
             // ##7 Change
             if(canModify && canSubmit && (zoomedIn||!p.zoomOnly)) {
                 changetoBox = changetoBox+("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
@@ -7941,7 +7941,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     ctx.println("</select>");
                 } else {
                     // regular change box (text)
-                    ctx.print("<input dir='"+ctx.getDirectionForLocale()+"' onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'>");
+                    ctx.print("<input dir='"+ctx.getDirectionForLocale()+"' onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' " + 
+                            " onchange=\"do_change('"+ p.fullFieldHash() +"',this.value,"+ p.getXpathId() +",'"+p.getLocale() +"', '"+ ctx.session +"')\"" +
+                            " value='"+oldValue+"' class='"+fClass+"'>");
+                    ctx.print("<div id=\"e_"+ p.fullFieldHash() +"\" ><!--  errs for this item --></div>");
                 }
                 // references
                 if(badInputBox) {

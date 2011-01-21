@@ -329,6 +329,9 @@ private static final String INTERNAL = "INTERNAL";
      */
     private void setupDB() throws SQLException
     {
+    	// must be set up first.
+        userSettings = UserSettingsData.getInstance(sm);
+        
         String sql = null;
         try{
             synchronized(conn) {
@@ -402,7 +405,6 @@ private static final String INTERNAL = "INTERNAL";
             System.err.println("Last SQL run: " + sql);
             throw se;
         }
-        userSettings = UserSettingsData.getInstance(sm);
     }
     
     /**

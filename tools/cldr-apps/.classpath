@@ -43,14 +43,11 @@
 			<attribute name="owner.project.facets" value="jst.java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/JOID_LIB"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/cldr-tools"/>
-	<classpathentry exported="true" kind="lib" path="/cldr-tools/cldr.jar">
+	<classpathentry kind="lib" path="/cldr-tools/classes">
 		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/classes"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/XALAN_LIB"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/SERVLET_API_LIB"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

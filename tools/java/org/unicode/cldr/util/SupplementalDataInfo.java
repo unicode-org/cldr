@@ -1452,6 +1452,7 @@ public class SupplementalDataInfo {
         public Set<String> targetTerritories;
         public Set<String> calendars;
         public Set<String> targetCurrencies;
+        public Set<String> targetTimeZones;
     }
 
     public static String toRegexString(Set<String> s) {
@@ -1627,12 +1628,14 @@ public class SupplementalDataInfo {
             cvi.targetTerritories = getTargetTerritories(targetLanguage);
             cvi.calendars = getCalendars(cvi.targetTerritories);
             cvi.targetCurrencies = getCurrentCurrencies(cvi.targetTerritories);
+            cvi.targetTimeZones = getCurrentTimeZones(cvi.targetTerritories);
             coverageVariables.put(targetLanguage, cvi);
         }
         String targetScriptString = toRegexString(cvi.targetScripts);
         String targetTerritoryString = toRegexString(cvi.targetTerritories);
         String calendarListString = toRegexString(cvi.calendars);
         String targetCurrencyString = toRegexString(cvi.targetCurrencies);
+        String targetTimeZoneString = toRegexString(cvi.targetTimeZones);
         Iterator<CoverageLevelInfo> i = coverageLevels.iterator();
         while (i.hasNext()) {
             CoverageLevelInfo ci = i.next();
@@ -1643,6 +1646,7 @@ public class SupplementalDataInfo {
                                              .replaceAll("\\$\\{Target\\-Language\\}", targetLanguage)
                                              .replaceAll("\\$\\{Target\\-Scripts\\}", targetScriptString)
                                              .replaceAll("\\$\\{Target\\-Territories\\}", targetTerritoryString)
+                                             .replaceAll("\\$\\{Target\\-TimeZones\\}", targetTimeZoneString)
                                              .replaceAll("\\$\\{Target\\-Currencies\\}", targetCurrencyString)
                                              .replaceAll("\\$\\{Calendar\\-List\\}", calendarListString);
 
@@ -1743,6 +1747,18 @@ public class SupplementalDataInfo {
             }
         }
         return targetCurrencies;
+    }
+    private Set<String> getCurrentTimeZones(Set<String> territories) {
+        Set<String> targetTimeZones = new HashSet<String>();
+        Iterator<String> it = territories.iterator();
+        Date now = new Date();
+        while ( it.hasNext()) {
+            String[] countryIDs = TimeZone.getAvailableIDs(it.next());
+            for ( int i = 0 ; i < countryIDs.length ; i++ ) {
+                targetTimeZones.add(countryIDs[i]);
+            }
+        }
+        return targetTimeZones;
     }
     
     /**

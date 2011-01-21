@@ -6453,11 +6453,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     public void showTimeZones(WebContext ctx) {
         String zone = ctx.field(QUERY_ZONE);
 
-        try {
-            ctx.println("<div style='float: right'>TZ Version:"+supplemental.getOlsonVersion()+"</div>");
-        } catch(Throwable t) {
-            ctx.println("<div style='float: right' class='warning'>TZ Version: "+ t.toString()+"</div>");
-        }
+//  Removed this since zoneFormatting data ( and thus OlsonVersion ) no longer exists in CLDR
+//        try {
+//            ctx.println("<div style='float: right'>TZ Version:"+supplemental.getOlsonVersion()+"</div>");
+//        } catch(Throwable t) {
+//            ctx.println("<div style='float: right' class='warning'>TZ Version: "+ t.toString()+"</div>");
+//        }
 
         // simple case - show the list of zones.
         if((zone == null)||(zone.length()==0)) {

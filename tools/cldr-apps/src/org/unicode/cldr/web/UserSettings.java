@@ -1,3 +1,7 @@
+/* Copyright (C) 2010-2011 IBM Corporation and Others. All Rights Reserved. */
+
+
+
 package org.unicode.cldr.web;
 
 public abstract class UserSettings implements Comparable<UserSettings>{
@@ -52,4 +56,8 @@ public abstract class UserSettings implements Comparable<UserSettings>{
     public void set(String name, boolean value) {
         set(name,Boolean.toString(value));
     }
+
+	public boolean persistent() {
+		return false;
+	}
 }

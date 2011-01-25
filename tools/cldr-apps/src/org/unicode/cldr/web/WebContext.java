@@ -3,7 +3,7 @@
 //  cldrtools
 //
 //  Created by Steven R. Loomis on 3/11/2005.
-//  Copyright 2005-2008 IBM. All rights reserved.
+//  Copyright 2005-2011 IBM. All rights reserved.
 //
 package org.unicode.cldr.web;
 
@@ -1058,7 +1058,7 @@ public class WebContext implements Cloneable {
      */
     public String defaultPtype() {
         if(sm.isPhaseSubmit()) {
-            String def = pref(SurveyMain.PREF_COVLEV,"default");
+            String def = sm.getCoverageSetting(this);
             if(!def.equals("default")) {
                 return def;
             } else {
@@ -1100,7 +1100,7 @@ public class WebContext implements Cloneable {
     */
     public String getChosenLocaleType() {
         if(sm.isPhaseSubmit()) { 
-            String org = pref(SurveyMain.PREF_COVTYP, "default");
+            String org = sm.getCoverageSetting(this);
             if(org.equals("default")) {
                 org = null;
             }
@@ -1133,7 +1133,7 @@ public class WebContext implements Cloneable {
      * @see SurveyMain#basicOptionsMap()
      */
     public Map<String, String> getOptionsMap(Map<String, String> options) {
-        String def = pref(SurveyMain.PREF_COVLEV,"default");
+        String def = sm.getCoverageSetting(this);
         options.put("CheckCoverage.requiredLevel",def);
         
         String org = getEffectiveLocaleType(getChosenLocaleType());

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2010 IBM Corporation and others. All Rights Reserved.
+ * Copyright (C) 2010-2011 IBM Corporation and others. All Rights Reserved.
  */
 package org.unicode.cldr.web;
 
@@ -25,12 +25,22 @@ public class UserSettingsData {
 
     SurveyMain sm = null;
     
+    private static final boolean debug = false;
+    
     // End caller API
     
     public class DBUserSettings extends UserSettings {
         private int id;
         
-        @Override
+
+        /**
+         * @return true - this type does persist
+         */
+    	public boolean persistent() {
+    		return true;
+    	}
+    	
+    	@Override
         public int compareTo(UserSettings arg0) {
             if(!(arg0 instanceof DBUserSettings)) {
                 return -1;
@@ -192,19 +202,19 @@ public class UserSettingsData {
                 ResultSet rs = ps0.executeQuery();
                 if(rs.next()) {
                     id = rs.getInt(1);
-                    System.err.println("set_kind: " + name + " = " + id);
+                    if(debug) System.err.println("set_kind: " + name + " = " + id);
                     knownSettings.put(name,id);
                 } else {
                     sql = "INSERT INTO " + SET_KINDS + " (set_name) VALUES (?)";
                     PreparedStatement ps = conn.prepareStatement(sql);
                     ps.setString(1,name);
-                    System.err.println("set_kind Trying to add " + name);
+                    if(debug) System.err.println("set_kind Trying to add " + name);
                     ps.executeUpdate();
                     
                     ResultSet rs1 = ps0.executeQuery();
                     if(rs1.next()) {
                         id = rs1.getInt(1);
-                        System.err.println("set_kind: NOW " + name + " = " + id);
+                        if(debug) System.err.println("set_kind: NOW " + name + " = " + id);
                         knownSettings.put(name,id);
                     } else {
                         SurveyMain.busted("Could not insert settings kind " + name);
@@ -236,4 +246,6 @@ public class UserSettingsData {
     
     private Map<Integer,UserSettings> idToSettings = new HashMap<Integer,UserSettings>();
     private Map<String,Integer> knownSettings = new HashMap<String,Integer>();
+
+
 }

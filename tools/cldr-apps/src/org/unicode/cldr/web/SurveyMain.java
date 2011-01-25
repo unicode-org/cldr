@@ -2682,6 +2682,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //            }
             ctx.print(" | ");
             printMenu(ctx, doWhat, "options", "My Options", QUERY_DO);
+            ctx.print(" <smaller>Coverage Level: "+getCoverageSetting(ctx)+"</smaller>");
         } else {
             ctx.println(ctx.session.user.name + " (" + ctx.session.user.org + ") | ");
             ctx.println("<a class='notselected' href='" + ctx.base() + "?do=logout'>Logout</a> | ");
@@ -2690,6 +2691,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //                ctx.print(" | ");
 //            }
             printMenu(ctx, doWhat, "options", "My Options", QUERY_DO);
+            ctx.print(" <smaller>Coverage Level: "+getCoverageSetting(ctx)+"</smaller>");
             ctx.print(" | ");
             printMenu(ctx, doWhat, "listu", "My Account", QUERY_DO);
             //ctx.println(" | <a class='deactivated' _href='"+ctx.url()+ctx.urlConnector()+"do=mylocs"+"'>My locales</a>");
@@ -4016,6 +4018,52 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("<br>");
         return val;
     }
+    String showListSetting(WebContext ctx, String pref, String what, String[] list) {
+    	return showListSetting(ctx,pref,what,list,false);
+    }
+
+    /*
+     *             ctx.println("(settings type: " + ctx.settings().getClass().getName()+")<br/>");
+            
+            // If a pref (URL) is set, use that, otherwise if there is a setting use that, otherwise false.
+            boolean dummySetting = ctx.prefBool("dummy",ctx.settings().get("dummy",false));
+            // always set.
+            ctx.settings().set("dummy",dummySetting);
+
+            showTogglePref(ctx, "dummy", "A Dummy Setting");
+
+     */
+    String getListSetting(WebContext ctx, String pref, String[] list) {
+    	return getListSetting(ctx,pref,list,false);
+    }
+    
+    String getListSetting(WebContext ctx, String pref, String[] list, boolean doDef) {
+        String settingsSet = ctx.settings().get(pref, doDef?"default":list[0]);
+    	String val = ctx.pref(pref, settingsSet);
+    	return val;
+    }
+    String showListSetting(WebContext ctx, String pref, String what, String[] list, boolean doDef) {
+    	String val = getListSetting(ctx,pref,list,doDef);
+        ctx.settings().set(pref, val);
+        
+        ctx.println("<b>"+what+"</b>: ");
+//        ctx.println("<select name='"+pref+"'>");
+        if(doDef) {
+            WebContext nuCtx = (WebContext)ctx.clone();
+            nuCtx.addQuery(pref, "default");
+            ctx.println("<a href='"+nuCtx.url()+"' class='"+(val.equals("default")?"selected":"notselected")+"'>"+"default"+"</a> ");
+        }
+        for(int n=0;n<list.length;n++) {
+//            ctx.println("    <option " + (val.equals(list[n])?" SELECTED ":"") + "value='" + list[n] + "'>"+list[n] +"</option>");
+            WebContext nuCtx = (WebContext)ctx.clone();
+            nuCtx.addQuery(pref, list[n]);
+            ctx.println("<a href='"+nuCtx.url()+"' class='"+(val.equals(list[n])?"selected":"notselected")+"'>"+list[n]+"</a> ");
+        }
+//    ctx.println("</select></label><br>");
+        ctx.println("<br>");
+        return val;
+    }
+
     public static final String PREF_COVLEV_LIST[] = { "default","comprehensive","modern","moderate","basic" };
 	
     void doDisputed(WebContext ctx){
@@ -4051,8 +4099,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.print("<blockquote>");
         ctx.println("<p class='hang'>For more information on coverage, see "+
             "<a href='http://www.unicode.org/cldr/data/docs/web/survey_tool.html#Coverage'>Coverage Help</a></p>");
-        String lev = showListPref(ctx, PREF_COVLEV, "Coverage Level", PREF_COVLEV_LIST);
+        //String lev = showListPref(ctx, PREF_COVLEV, "Coverage Level", PREF_COVLEV_LIST);
+        String lev = showCoverageSetting(ctx);
             
+        
+        
+      /*if(false) { // currently not doing effective coverages
         if(lev.equals("default")) {
             ctx.print("&nbsp;");
             ctx.print("&nbsp;");
@@ -4062,7 +4114,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             ctx.print("&nbsp;<span class='deactivated'>Coverage Type: <b>n/a</b></span><br>");
         }
             ctx.println("<br>(Current effective coverage level: <tt class='codebox'>" + ctx.defaultPtype()+"</tt>)<p>");
-            
+      }*/
+        	ctx.println("<br/>Current coverage level: <tt class='codebox'>" + lev +"</tt>.<br>");
+        	ctx.println("Persistent: " + ctx.settings().persistent());
             ctx.println("</blockquote>");
             
    
@@ -4107,7 +4161,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         printFooter(ctx);
     }
 
-    /**
+    public String showCoverageSetting(WebContext ctx) {
+    	return showListSetting(ctx, PREF_COVLEV, "Coverage Level", PREF_COVLEV_LIST);
+	}
+    public String getCoverageSetting(WebContext ctx) {
+    	return getListSetting(ctx, PREF_COVLEV, PREF_COVLEV_LIST);
+    }
+	/**
      * Print the opening form for a 'shopping cart' (one or more showPathList operations)
      * @see showPathList
      * @see printPathListClose
@@ -5720,7 +5780,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             org.unicode.cldr.test.CoverageLevel.Level itsLevel = 
                     StandardCodes.make().getLocaleCoverageLevel(WebContext.getEffectiveLocaleType(ctx.getChosenLocaleType()), ctx.getLocale().toString()) ;
         
-            String def = ctx.pref(SurveyMain.PREF_COVLEV,"default");
+            String def = getCoverageSetting(ctx);
             if(def.equals("default")) {
                 ctx.print("Coverage Level: <tt class='codebox'>"+itsLevel.toString()+"</tt><br>");
             } else {

@@ -1,7 +1,7 @@
 //  UserRegistry.java
 //
 //  Created by Steven R. Loomis on 14/10/2005.
-//  Copyright 2005-2010 IBM. All rights reserved.
+//  Copyright 2005-2011 IBM. All rights reserved.
 //
 
 package org.unicode.cldr.web;
@@ -668,7 +668,7 @@ private static final String INTERNAL = "INTERNAL";
     
     
     public void touch(int id)  {
-        System.err.println("Touching: " + id);
+        //System.err.println("Touching: " + id);
         synchronized(conn) {
             try {
                 touchStmt.setInt(1, id);

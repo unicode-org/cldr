@@ -4077,7 +4077,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         return val;
     }
 
-    public static final String PREF_COVLEV_LIST[] = { "default","comprehensive","modern","moderate","basic" };
+    public static final String PREF_COVLEV_LIST[] = { "default","comprehensive","modern","moderate","basic","minimal" };
 	
     void doDisputed(WebContext ctx){
         printHeader(ctx, "Disputed Items Page");
@@ -5986,7 +5986,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             //if(phaseVetting) {
             //    checkCldr = CheckCLDR.getCheckAll("(?!.*(DisplayCollisions|CheckCoverage).*).*" /*  ".*" */);
             //} else {
-            checkCldr = CheckCLDR.getCheckAll(".*");
+            checkCldr = CheckCLDR.getCheckAll("(?!.*(CheckCoverage).*).*");
 //                checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
             //}
 
@@ -6008,7 +6008,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             if(false) {  // show ALL ?
                 checkCldr = CheckCLDR.getCheckAll(".*");
             } else {
-                checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
+                checkCldr = CheckCLDR.getCheckAll("(?!.*(DisplayCollisions|CheckCoverage).*).*" /*  ".*" */);
             }
 
             checkCldr.setDisplayInformation(getBaselineFile());

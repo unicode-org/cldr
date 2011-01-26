@@ -12,4 +12,10 @@
 			<type type="roc" key="calendar">en: Minguo Calendar; alts: Republic of China Calendar, Republican Calendar; origin 1912</type>
 		</types>
 	</localeDisplayNames>
+	<units>
+		<unit type="day">
+			<unitPattern count="one">{0} day (here meaning a period of 24 hours, not a period of daylight)</unitPattern>
+			<unitPattern count="other">{0} days (here meaning periods of 24 hours, not periods of daylight)</unitPattern>
+		</unit>
+	</units>
 </ldml>

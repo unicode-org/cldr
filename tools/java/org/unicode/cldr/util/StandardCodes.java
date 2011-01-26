@@ -246,7 +246,7 @@ public class StandardCodes {
         if ((type != null) && (getLocaleCoverageOrganizations().contains(type))) {
             return type;
         } else {
-            return "IBM"; // the default.. for now..
+            return "default"; // the default.. for now..
         }
     }
 
@@ -283,16 +283,16 @@ public class StandardCodes {
                 loadPlatformLocaleStatus();
             }
         }
-        if (organization == null) return Level.POSIX;
+        if (organization == null) return Level.MINIMAL;
         Map<String, Level> locale_status = platform_locale_level.get(organization);
-        if (locale_status == null) return Level.POSIX;
+        if (locale_status == null) return Level.MINIMAL;
         // see if there is a parent
         while (desiredLocale != null) {
             Level status = locale_status.get(desiredLocale);
             if (status != null && status != Level.UNDETERMINED) return status;
             desiredLocale = LocaleIDParser.getParent(desiredLocale);
         }
-        return Level.POSIX;
+        return Level.MINIMAL;
     }
 
     public Set<String> getLocaleCoverageOrganizations() {

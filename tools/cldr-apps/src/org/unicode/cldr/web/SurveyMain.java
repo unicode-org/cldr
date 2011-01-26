@@ -2740,6 +2740,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     public void doNew(WebContext ctx) {
         printHeader(ctx, "New User");
         printUserTableWithHelp(ctx, "/AddModifyUser");
+        if(UserRegistry.userCanCreateUsers(ctx.session.user)) {
+        	showAddUser(ctx);
+        }
         ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool main</b></a><hr>");
         
         String new_name = ctx.field("new_name");
@@ -2857,6 +2860,19 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.print("<tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'>"+lang+"</tt> ("+new ULocale(lang).getDisplayName(ctx.displayLocale)+":<i>"+group+"</i>)</tt>" );
     }
     
+    public void showAddUser(WebContext ctx) {
+    	reg.setOrgList(); // setup the list of orgs
+        String defaultorg = "";
+        
+        if(!UserRegistry.userIsAdmin(ctx.session.user)) {
+        	defaultorg = URLEncoder.encode(ctx.session.user.org);
+        }
+
+        ctx.println("<a href='" + ctx.jspLink("adduser.jsp") 
+                + "&amp;defaultorg="+defaultorg
+                +"'>[Add User]</a> |");
+    }
+    
     public void doCoverage(WebContext ctx) {
         boolean showCodes = false; //ctx.prefBool(PREF_SHOWCODES);
         printHeader(ctx, "Locale Coverage");
@@ -2868,12 +2884,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         
         printUserTableWithHelp(ctx, "/LocaleCoverage");
 
-        ctx.println("<a href='" + ctx.jspLink("adduser.jsp") 
-                + "&amp;defaultorg="+URLEncoder.encode(ctx.session.user.org)
-                +"'>[Add User]</a> |");
+        showAddUser(ctx);
+
 //        ctx.println("<a href='" + ctx.url()+ctx.urlConnector()+"do=list'>[List Users]</a>");
         ctx.print("<br>");
-        ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool main</b></a><hr>");
+        ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool in</b></a><hr>");
         String org = ctx.session.user.org;
         if(UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
             org = null; // all
@@ -3420,9 +3435,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         }
         printUserTableWithHelp(ctx, "/AddModifyUser");
         if(reg.userCanCreateUsers(ctx.session.user)) {
-            ctx.println("<a href='" + ctx.jspLink("adduser.jsp") 
-                    + "&amp;defaultorg="+URLEncoder.encode(ctx.session.user.org)
-                    +"'>[Add User]</a> |");
+            showAddUser(ctx);
 //            ctx.println("<a href='" + ctx.jspLink("adduser.jsp") +"'>[Add User]</a> |");
         }
 //        ctx.println("<a href='" + ctx.url()+ctx.urlConnector()+"do=coverage'>[Locale Coverage Reports]</a>");
@@ -10567,4 +10580,5 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     private boolean choiceNotEmptyOrAllowedEmpty(String choice_r, String path) {
       return choice_r.length()>0 || ALLOWED_EMPTY.matcher(path).matches();
     }
+    
 }

@@ -26,9 +26,11 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -51,7 +53,7 @@ public class UserRegistry {
 	public static final int NO_LEVEL  = -1;  /** min level **/
     
     public static final String FOR_ADDING= "(for adding)"; /** special "IP" value referring to a user being added **/ 
-private static final String INTERNAL = "INTERNAL";
+    private static final String INTERNAL = "INTERNAL";
     
 
     /**
@@ -254,19 +256,7 @@ private static final String INTERNAL = "INTERNAL";
          * @return VoteResolver.Organization format
          */
         private VoteResolver.Organization computeVROrganization() {
-            VoteResolver.Organization o = null;
-            try {
-                String arg = this.org
-                                .replaceAll("Utilika Foundation", "utilika")
-                                .replaceAll("Government of Pakistan - National Language Authority", "pakistan")
-				.replaceAll("ICT Agency of Sri Lanka", "srilanka")
-                                .toLowerCase().replaceAll("[.-]", "_");
-                o = VoteResolver.Organization.valueOf(arg);
-            } catch(IllegalArgumentException iae) {
-                o = VoteResolver.Organization.guest;
-                System.err.println("Unknown organization: "+this.org);
-            }
-            return o;
+        	return UserRegistry.computeVROrganization(this.org);
         }
         
         private String voterOrg = null;
@@ -296,7 +286,24 @@ private static final String INTERNAL = "INTERNAL";
             email + "</a>");
     }
     
-    /**
+    public static Organization computeVROrganization(String org) {
+        VoteResolver.Organization o = null;
+        try {
+            String arg = org
+                            .replaceAll("Utilika Foundation", "utilika")
+                            .replaceAll("Government of Pakistan - National Language Authority", "pakistan")
+			.replaceAll("ICT Agency of Sri Lanka", "srilanka")
+                            .toLowerCase().replaceAll("[.-]", "_");
+            o = VoteResolver.Organization.valueOf(arg);
+        } catch(IllegalArgumentException iae) {
+            o = VoteResolver.Organization.guest;
+            System.err.println("Unknown organization: "+org);
+        }
+        return o;
+	}
+
+
+	/**
      * The name of the user sql database
      */
     public static final String CLDR_USERS = "cldr_users";
@@ -1174,6 +1181,7 @@ private static final String INTERNAL = "INTERNAL";
                     ctx.println("<p>Added user.<p>");
                     User newu =  get(u.password, u.email,FOR_ADDING); // throw away old user
                     updateIntLocs(newu.id);
+                    resetOrgList(); // update with new org  spelling.
                     return newu;
                 } else {
                     ctx.println("Couldn't add user.");
@@ -1603,4 +1611,58 @@ private static final String INTERNAL = "INTERNAL";
      * VoterInfo map
      */
     private Map<Integer, VoterInfo> voterInfo = null;
+    
+    /**
+     * Not yet implemented.
+     * @return
+     */
+    private static String[] orgList = new String[0];
+    public static String[] getOrgList() {
+    	return orgList;
+    }
+    /**
+     * Update the organization list.
+     */
+    public void setOrgList() {
+    	if(orgList.length > 0) {
+    		return; // already set.
+    	}
+    	resetOrgList();
+    }
+    private void resetOrgList() {
+    	// get all orgs in use...
+    	Set<String> orgs = new TreeSet<String>();
+        synchronized(conn) {
+        	try {
+	        	Statement s = conn.createStatement();
+	        	ResultSet rs = s.executeQuery("SELECT distinct org FROM " + CLDR_USERS + " order by org");
+        		//System.err.println("Adding orgs...");
+	        	while(rs.next()) {
+	        		String org = rs.getString(1);
+	        		//System.err.println("Adding org: "+ org);
+	        		orgs.add(org);
+	        	}
+            } catch(SQLException se) {
+                /*logger.severe*/System.err.println(/*java.util.logging.Level.SEVERE,*/ "UserRegistry: SQL error trying to get orgs resultset for: VI "  + " - " + SurveyMain.unchainSqlException(se)/*,se*/);
+            }
+        }
+        
+        // get all possible VR orgs.. 
+        Set<VoteResolver.Organization> allvr = new HashSet<VoteResolver.Organization>();
+        for(VoteResolver.Organization org : VoteResolver.Organization.values()) {
+        	allvr.add(org);
+        }
+        // Subtract out ones already in use
+        for(String org : orgs) {
+        	allvr.remove(UserRegistry.computeVROrganization(org));
+        }
+        // Add back any ones not yet in use
+        for(VoteResolver.Organization org : allvr) {
+        	String orgName = org.name();
+        	orgName = UCharacter.toTitleCase(orgName, null);
+        	orgs.add(orgName);
+        }
+        
+        orgList = orgs.toArray(orgList);
+    }
 }

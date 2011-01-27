@@ -28,7 +28,8 @@ public class CheckForExemplars extends CheckCLDR {
   static String[] EXEMPLAR_SKIPS = {"/currencySpacing", "/hourFormat", "/exemplarCharacters", "/pattern",
     "/localizedPatternChars", "/segmentations", "/dateFormatItem", "/references", "/unitPattern",
     "/intervalFormatItem",
-    "/localeDisplayNames/variants/"
+    "/localeDisplayNames/variants/",
+    "/commonlyUsed"
   };
   
   private UnicodeSet exemplars;

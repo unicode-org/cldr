@@ -146,14 +146,15 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
    */
   public static final Pattern FORCE_ZOOMED_EDIT = Pattern.compile(
           ".*/(" +
-          "exemplarCharacters" +
+          "nothingAtTheMoment"+ // Remove forced zooming since we have inline pre-edit in ST
+          //"exemplarCharacters" +
           /*"|metazone" +*/
-          "|pattern" +
-          "|dateFormatItem" +
-          "|relative" +
-          "|hourFormat" +
-          "|gmtFormat" +
-          "|regionFormat" +
+          //"|pattern" +
+          //"|dateFormatItem" +
+          //"|relative" +
+          //"|hourFormat" +
+          //"|gmtFormat" +
+          //"|regionFormat" +
           ")((\\[|/).*)?", Pattern.COMMENTS); // the last bit is to ensure whole element
 
   /**

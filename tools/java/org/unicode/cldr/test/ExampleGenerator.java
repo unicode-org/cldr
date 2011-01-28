@@ -433,7 +433,6 @@ public class ExampleGenerator {
       // English is special; both values are retrieved based on the count.
       String unitPattern;
       String unitName;
-      System.out.println("unitName needs to be removed before 1.7 starts");
       if (isPattern) {
         // //ldml/numbers/currencies/currency[@type="USD"]/displayName
         unitName = getUnitName(unitType, isCurrency, count);

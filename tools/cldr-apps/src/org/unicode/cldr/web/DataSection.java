@@ -1534,18 +1534,9 @@ public class DataSection extends Registerable {
         
         // iterate over everything in this prefix ..
         Set<String> baseXpaths = new HashSet<String>();
-        for(Iterator it = aFile.iterator(workPrefix);it.hasNext();) {
+        for(Iterator<String> it = aFile.iterator(workPrefix);it.hasNext();) {
             String xpath = (String)it.next();
-            // Filter out data that is higher than the desired coverage level
-            int coverageValue = sdi.getCoverageValue(xpath,locale.toULocale());
-            if ( coverageValue > workingCoverageValue ) {
-                if ( coverageValue <= 100 ) {
-                    // KEEP COUNT OF FILTERED ITEMS
-                }
-                continue;
-            }
             
-	    if(false) System.err.println("basePath: " + xpath);
             baseXpaths.add(xpath);
         }
         Set<String> allXpaths = new HashSet<String>();
@@ -1573,8 +1564,8 @@ public class DataSection extends Registerable {
                 if(false && SurveyMain.isUnofficial) System.err.println("@@ excluded:" + xpath);
                 continue;
             } else if(false) {
-		System.err.println("allPath: " + xpath);
-	    }
+		        System.err.println("allPath: " + xpath);
+	        }
 
             boolean isExtraPath = extraXpaths.contains(xpath); // 'extra' paths get shim treatment
 ///*srl*/  if(xpath.indexOf("Adak")!=-1)
@@ -1615,15 +1606,24 @@ public class DataSection extends Registerable {
 //if(ndebug)     System.err.println("ns1 7 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if( continent != null && !continent.equals(sm.getMetazoneContinent(xpath))) {
-		if(false) System.err.println("Wanted " + continent +" but got " + sm.getMetazoneContinent(xpath) +" for " + xpath);
+//		if(false) System.err.println("Wanted " + continent +" but got " + sm.getMetazoneContinent(xpath) +" for " + xpath);
                 continue;
-            } else if(false && continent != null) {
-		System.err.println("Got " + continent +" for " + xpath);
-	    }
+            } 
+//            else if(false && continent != null) {
+//		System.err.println("Got " + continent +" for " + xpath);
+//	    }
             
             if(CheckCLDR.skipShowingInSurvey.matcher(xpath).matches()) {
 //if(TRACE_TIME)                System.err.println("ns1 8 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
-		if(false) System.err.println("CheckCLDR.skipShowingInSurvey match for "+xpath);
+//		if(false) System.err.println("CheckCLDR.skipShowingInSurvey match for "+xpath);
+                continue;
+            }
+            // Filter out data that is higher than the desired coverage level
+            int coverageValue = sdi.getCoverageValue(xpath,locale.toULocale());
+            if ( coverageValue > workingCoverageValue ) {
+                if ( coverageValue <= 100 ) {
+                    // TODO: KEEP COUNT OF FILTERED ITEMS
+                }
                 continue;
             }
 

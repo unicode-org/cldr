@@ -7936,12 +7936,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("</th>");
         
         // ##2 and a half - baseline sample
-        int cv = supplementalDataInfo.getCoverageValue(fullPathFull,ctx.getLocale().toULocale());
+// DEBUG JCE        int cv = supplementalDataInfo.getCoverageValue(fullPathFull,ctx.getLocale().toULocale());
         if(baseExample != null) {
             ctx.print("<td rowspan='"+rowSpan+"' align='left' valign='top' class='generatedexample'>"+ 
-                baseExample.replaceAll("\\\\","\u200b\\") + "[" + Integer.toString(cv) + "/" + fullPathFull + "]" + "</td>");
+                    baseExample.replaceAll("\\\\","\u200b\\") + "</td>");
+// DEBUG JCE            ctx.print("<td rowspan='"+rowSpan+"' align='left' valign='top' class='generatedexample'>"+ 
+// DEBUG JCE                    baseExample.replaceAll("\\\\","\u200b\\") + "[" + Integer.toString(cv) + "/" + fullPathFull + "]" + "</td>");
         } else {
-            ctx.print("<td rowspan='"+rowSpan+"' >" + "[" + Integer.toString(cv) + "/" + fullPathFull + "]" + "</td>"); // empty box for baseline
+            ctx.print("<td rowspan='"+rowSpan+"' >" + "</td>"); // empty box for baseline
+// DEBUG JCE            ctx.print("<td rowspan='"+rowSpan+"' >" + "[" + Integer.toString(cv) + "/" + fullPathFull + "]" + "</td>"); // empty box for baseline
         }
         
 //        if(topCurrent != null) {

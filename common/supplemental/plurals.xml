@@ -5,8 +5,7 @@
     <generation date="$Date$"/>
     <plurals>
         <!-- if locale is known to have no plurals, there are no rules -->
-        <pluralRules locales="az bm fa ig hu ja kde kea ko my ses sg to tr vi wo yo zh bo dz id jv ka km kn ms th"/> 
-        <!-- 2nd line from Tamplin's data -->
+        <pluralRules locales="az bm bo dz fa id ig ii hu ja jv ka kde kea km kn ko lo ms my ses sg th to tr vi wo yo zh"/> 
         <pluralRules locales="ar">
             <pluralRule count="zero">n is 0</pluralRule>
             <pluralRule count="one">n is 1</pluralRule>
@@ -17,7 +16,7 @@
         <pluralRules locales="bem brx da de el en eo es et fi fo gl he iw it nb nl nn no pt_PT sv af bg bn ca eu fur fy gu ha is ku lb ml mr nah ne om or pa pap ps so sq sw ta te tk ur zu mn gsw chr rm pt"> <!-- 2nd two lines from Tamplin's data, deleting az fa -->
             <pluralRule count="one">n is 1</pluralRule>
         </pluralRules>
-        <pluralRules locales="ak am bh fil tl guw hi ln mg nso ti wa"> <!-- last line from Tamplin's data -->
+        <pluralRules locales="ak am bh fil tl guw hi ln mg nso ti wa">
             <pluralRule count="one">n in 0..1</pluralRule>
         </pluralRules>
         <pluralRules locales="ff fr kab">

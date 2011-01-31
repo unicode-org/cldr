@@ -196,7 +196,15 @@ public class SurveyForum {
     void doForum(WebContext ctx, String sessionMessage) throws IOException { 
         /* OK, let's see what we are doing here. */
         String forum = ctx.field(F_FORUM);
+    	String msg = null;
         int base_xpath = ctx.fieldInt(F_XPATH);
+    	String xstr = ctx.field(F_XPATH);
+    	if(xstr.startsWith("//ldml")) {
+    		base_xpath = sm.xpt.peekByXpath(xstr);
+    		if(base_xpath==-1) {
+        		msg = "XPath lookup failed.";
+    		}
+    	}
         if(ctx.hasField(F_XPATH)&&!ctx.hasField(F_FORUM)) {
             forum = localeToForum(ctx.field("_"));
         }
@@ -215,15 +223,6 @@ public class SurveyForum {
         
         /* can we accept a string xpath? (ignore if 'forum' is set) */
         if(!ctx.hasField(F_FORUM)&&base_xpath==-1 && ctx.hasField(F_XPATH)&&ctx.field(F_XPATH).length()>0) {
-        	String xstr = ctx.field(F_XPATH);
-        	String msg = null;
-
-        	if(xstr.startsWith("//ldml")) {
-        		base_xpath = sm.xpt.peekByXpath(xstr);
-        		if(base_xpath==-1) {
-            		msg = "XPath lookup failed.";
-        		}
-        	}
 
         	if(base_xpath==-1 && !xstr.startsWith("//ldml")) {
         		// try prettypath
@@ -1220,7 +1219,8 @@ public class SurveyForum {
     }
     // "link" UI
     static public String forumUrl(WebContext ctx, DataSection.DataRow p, int xpath) {
-        return ctx.base()+"?_="+ctx.getLocale()+"&"+F_FORUM+"="+p.getIntgroup()+"&"+F_XPATH+"="+xpath;
+    	String xp = ctx.sm.xpt.getById(xpath);
+        return ctx.base()+"?_="+ctx.getLocale()+"&"+F_FORUM+"="+p.getIntgroup()+"&"+F_XPATH+"="+java.net.URLEncoder.encode(xp);
     }
     static public String localeToForum(String locale) {
         return localeToForum(new ULocale(locale));

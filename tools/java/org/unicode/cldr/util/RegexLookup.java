@@ -154,7 +154,7 @@ public class RegexLookup<T> {
         } else if (valueMerger != null) {
             valueMerger.merge(target, old.get1());
         } else {
-            throw new IllegalArgumentException("Duplicate matcher without Merger defined");
+            throw new IllegalArgumentException("Duplicate matcher without Merger defined " + pattern + "; old: " + old + "; new: " + target);
         }
         return this;
     }

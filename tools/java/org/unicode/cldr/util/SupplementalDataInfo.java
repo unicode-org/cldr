@@ -2120,13 +2120,26 @@ public class SupplementalDataInfo {
      * @return
      */
     public PluralInfo getPlurals(String locale) {
+        return getPlurals(locale, true);
+    }
+    
+    /**
+     * Returns the plural info for a given locale.
+     * @param locale
+     * @return
+     */
+    public PluralInfo getPlurals(String locale, boolean allowRoot) {
         while (locale != null) {
+            if (!allowRoot && locale.equals("root")) {
+                break;
+            }
             PluralInfo result = localeToPluralInfo.get(locale);
             if (result != null) return result;
             locale = LanguageTagParser.getParent(locale);
         }
         return null;
     }
+
 
     public DayPeriodInfo getDayPeriods(String locale) {
         while (locale != null) {

@@ -38,7 +38,7 @@ public final class Timer {
   }
   
   public String toString(long iterations, long other) {
-    return nf.format(getDuration()/iterations) + "ns" + " (" + pf.format((double)getDuration()/other - 1D) + ")";
+    return nf.format(getDuration()/iterations) + "ns" + "\t(" + pf.format((double)getDuration()/other - 1D) + ")";
   }
   
   private static DecimalFormat nf = (DecimalFormat) NumberFormat.getNumberInstance(ULocale.ENGLISH);

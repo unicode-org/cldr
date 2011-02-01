@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -107,8 +108,11 @@ public final class FileUtilities {
     //  public static SemiFileReader fillMapFromSemi(Class classLocation, String fileName, SemiFileReader handler) {
     //    return handler.process(classLocation, fileName);
     //  }
-
-    public static BufferedReader openFile(Class class1, String file) {
+    public static BufferedReader openFile(Class<?> class1, String file) {
+        return openFile(class1, file, FileUtilities.UTF8);
+    }
+    
+    public static BufferedReader openFile(Class<?> class1, String file, Charset charset) {
         //URL path = null;
         //String externalForm = null;
         try {
@@ -123,7 +127,7 @@ public final class FileUtilities {
             //      final InputStream resourceAsStream = new FileInputStream(file1);
             final InputStream resourceAsStream = class1.getResourceAsStream(file);
             String foo = class1.getResource(".").toString();
-            InputStreamReader reader = new InputStreamReader(resourceAsStream, FileUtilities.UTF8);
+            InputStreamReader reader = new InputStreamReader(resourceAsStream, charset);
             BufferedReader bufferedReader = new BufferedReader(reader,1024*64);
             return bufferedReader;
         } catch (Exception e) {
@@ -178,4 +182,15 @@ public final class FileUtilities {
         return result.toArray(new String[result.size()]);
     }
 
+    public static void appendFile(Class<?> class1, String filename, PrintWriter out) {
+        appendFile(class1, filename, FileUtilities.UTF8, null, out);
+    }
+
+    public static void appendFile(Class<?> class1, String filename, Charset charset, String[] replacementList, PrintWriter out) {
+        try {
+            com.ibm.icu.dev.test.util.FileUtilities.appendBufferedReader(openFile(class1, filename, charset), out, replacementList); // closes file
+        } catch (IOException e) {
+            throw new IllegalArgumentException(e); // wrap darn'd checked exception
+        }
+    }
 }

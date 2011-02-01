@@ -224,7 +224,7 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!ELEMENT characters (alias | (exemplarCharacters*, ellipsis*, moreInformation*, indexLabels*, mapping*, special*))  >
+<!ELEMENT characters (alias | (exemplarCharacters*, ellipsis*, moreInformation*, stopwords*, indexLabels*, mapping*, special*))  >
 <!ATTLIST characters draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
@@ -245,6 +245,14 @@ $Date$
 <!ATTLIST moreInformation draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST moreInformation references CDATA #IMPLIED >
 <!ATTLIST moreInformation alt NMTOKENS #IMPLIED >
+
+<!ELEMENT stopwords ( stopwordList ) >
+<!ELEMENT stopwordList ( #PCDATA ) >
+<!ATTLIST stopwordList type NMTOKEN #REQUIRED >
+<!ATTLIST stopwordList draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST stopwordList references CDATA #IMPLIED >
+<!ATTLIST stopwordList alt NMTOKENS #IMPLIED >
+
 
 <!ELEMENT indexLabels (indexSeparator*, compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*, indexLabelAfter*, indexLabel*) >
 

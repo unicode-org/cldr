@@ -1220,7 +1220,12 @@ public class SurveyForum {
     // "link" UI
     static public String forumUrl(WebContext ctx, DataSection.DataRow p, int xpath) {
     	String xp = ctx.sm.xpt.getById(xpath);
-        return ctx.base()+"?_="+ctx.getLocale()+"&"+F_FORUM+"="+p.getIntgroup()+"&"+F_XPATH+"="+java.net.URLEncoder.encode(xp);
+    	if((xpath == -1) || (xp==null)) {
+    		xp = Integer.toString(xpath);
+    	} else {
+    		xp = java.net.URLEncoder.encode(xp);
+    	}
+        return ctx.base()+"?_="+ctx.getLocale()+"&"+F_FORUM+"="+p.getIntgroup()+"&"+F_XPATH+"="+xp;
     }
     static public String localeToForum(String locale) {
         return localeToForum(new ULocale(locale));

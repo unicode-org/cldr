@@ -1778,7 +1778,8 @@
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat>{0} Time</regionFormat>
-			<fallbackFormat>{1} ({0})</fallbackFormat>
+            <fallbackFormat>{1} ({0})</fallbackFormat>
+            <fallbackRegionFormat>{1} Time ({0})</fallbackRegionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Unknown City</exemplarCity>
 			</zone>

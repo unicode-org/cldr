@@ -726,7 +726,7 @@ $Date$
 <!ATTLIST greatestDifference validSubLocales CDATA #IMPLIED >
 
 
-<!ELEMENT timeZoneNames (alias | (hourFormat*, hoursFormat*, gmtFormat*, gmtZeroFormat*, regionFormat*, fallbackFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, metazone*, special*)) >
+<!ELEMENT timeZoneNames (alias | (hourFormat*, hoursFormat*, gmtFormat*, gmtZeroFormat*, regionFormat*, fallbackFormat*, fallbackRegionFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, metazone*, special*)) >
 <!ATTLIST timeZoneNames draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST timeZoneNames validSubLocales CDATA #IMPLIED >
 
@@ -759,6 +759,11 @@ $Date$
 <!ATTLIST fallbackFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST fallbackFormat draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST fallbackFormat references CDATA #IMPLIED >
+
+<!ELEMENT fallbackRegionFormat ( #PCDATA ) >
+<!ATTLIST fallbackRegionFormat alt NMTOKENS #IMPLIED >
+<!ATTLIST fallbackRegionFormat draft ( approved | contributed | provisional | unconfirmed) #IMPLIED >
+<!ATTLIST fallbackRegionFormat references CDATA #IMPLIED >
 
 <!ELEMENT abbreviationFallback EMPTY > <!-- deprecated. -->
 <!ATTLIST abbreviationFallback type ( GMT | standard ) #IMPLIED > <!-- deprecated in favor of choice -->

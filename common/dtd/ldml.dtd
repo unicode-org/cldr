@@ -175,7 +175,7 @@ $Date$
 <!ATTLIST measurementSystemName references CDATA #IMPLIED >
 <!ATTLIST measurementSystemName alt NMTOKENS #IMPLIED >
 
-<!ELEMENT localeDisplayPattern ( alias | (localePattern*, localeSeparator*, special*) ) >
+<!ELEMENT localeDisplayPattern ( alias | (localePattern*, localeSeparator*, localeKeyTypePattern*, special*) ) >
 <!ATTLIST localeDisplayPattern draft ( approved | contributed | provisional | unconfirmed) #IMPLIED >
 <!ATTLIST localeDisplayPattern references CDATA #IMPLIED >
 <!ATTLIST localeDisplayPattern alt NMTOKENS #IMPLIED >
@@ -189,6 +189,11 @@ $Date$
 <!ATTLIST localeSeparator draft ( approved | contributed | provisional | unconfirmed) #IMPLIED >
 <!ATTLIST localeSeparator references CDATA #IMPLIED >
 <!ATTLIST localeSeparator alt NMTOKENS #IMPLIED >
+
+<!ELEMENT localeKeyTypePattern ( #PCDATA ) >
+<!ATTLIST localeKeyTypePattern draft ( approved | contributed | provisional | unconfirmed) #IMPLIED >
+<!ATTLIST localeKeyTypePattern references CDATA #IMPLIED >
+<!ATTLIST localeKeyTypePattern alt NMTOKENS #IMPLIED >
 
 <!-- ######################################################### -->
 

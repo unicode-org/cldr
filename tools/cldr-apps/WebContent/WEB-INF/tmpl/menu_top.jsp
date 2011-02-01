@@ -60,7 +60,8 @@
 		writeMenu(out, ctx, "Other Items", SurveyMain.OTHERROOTS_ITEMS);
 		out.flush();
 		ctx.flush();
-		ctx.includeFragment("report_menu.jsp"); /* don't use JSP include, because of variables */
+		// commenting out easy steps until we have time to work on it more
+		/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
 %>
    <%
    	} else {
@@ -114,7 +115,9 @@
         <%
         	out.flush();
         		ctx.flush();
-        		ctx.includeFragment("report_menu.jsp"); /* don't use JSP include, because of variables */
+                // commenting out easy steps until we have time to work on it more
+
+        		/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
         %><%
         	if (canModify) {
         %><p class='hang'>Forum: <%=forum%>

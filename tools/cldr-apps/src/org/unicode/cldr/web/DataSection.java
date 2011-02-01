@@ -77,6 +77,7 @@ public class DataSection extends Registerable {
     }
     // UI strings
     boolean canName = true; // can the Display Name be used for sorting?
+    boolean isCalendar = false; // Is this a calendar section?
 //    boolean simple = false; // is it a 'simple code list'?
     
     public static final String DATASECTION_MISSING = "Inherited";
@@ -834,6 +835,7 @@ public class DataSection extends Registerable {
         }
         String sortMode = null;
         public boolean canName = true; // can use the 'name' view?
+        public boolean isCalendar = false;
         public List<DataRow> rows; // list of peas in sorted order
         public List<DataRow> displayRows; // list of Strings suitable for display
         /**
@@ -875,9 +877,14 @@ public class DataSection extends Registerable {
             
             // fetch partitions..
             Vector<Partition> v = new Vector<Partition>();
-            if(sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) { // priority
-                Partition testPartitions[] = (SurveyMain.isPhaseSubmit()||SurveyMain.isPhaseVetting())?createSubmitPartitions():
-                                                                           createVettingPartitions();
+            if(sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING) || sortMode.equals(SurveyMain.PREF_SORTMODE_CODE_CALENDAR)) { // something with partitions
+                Partition testPartitions[];
+                if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
+                    testPartitions = (SurveyMain.isPhaseSubmit()||SurveyMain.isPhaseVetting())?createSubmitPartitions():createVettingPartitions();
+                } else {
+                    testPartitions = createCalendarPartitions();
+                }
+                                                                        
                 // find the starts
                 int lastGood = 0;
                 DataRow peasArray[] = null;
@@ -941,71 +948,268 @@ public class DataSection extends Registerable {
     }
 
     private Partition[] createSubmitPartitions() {
-      Partition theTestPartitions[] = 
-      {                 
-              new Partition("Errors", 
-                      new PartitionMembership() { 
-                public boolean isMember(DataRow p) {
-                  return (p.hasErrors);
-                }
-              }),
-              new Partition("Disputed", 
-                      new PartitionMembership() { 
-                public boolean isMember(DataRow p) {
-                  return ((p.allVoteType & Vetting.RES_DISPUTED)>0) ; // not sure why "allVoteType" is needed
-                }
-              }),
-              new Partition("Warnings", 
-                      new PartitionMembership() { 
-                public boolean isMember(DataRow p) {
-                  return (p.hasWarnings);
-                }
-              }),
-//            Later, we might want more groups.
-//            INDETERMINATE (-1),
-//            APPROVED (0),
-//            CONTRIBUTED (1),
-//            PROVISIONAL (2),
-//            UNCONFIRMED (3);
-              new Partition("Not (minimally) Approved", 
-                      new PartitionMembership() { 
-                public boolean isMember(DataRow p) {
-                  return p.winningXpathId != -1 
-                  && p.confirmStatus != Vetting.Status.APPROVED
-                  && p.confirmStatus != Vetting.Status.CONTRIBUTED;
-                  // || p.winningXpathId == -1 && p.hasMultipleProposals;
-                }
-              }),
-              new Partition("Approved", 
-                      new PartitionMembership() { 
-                public boolean isMember(DataRow p) {
-                  return p.winningXpathId != -1; // will be APPROVED
-                }
-              }),
-              new Partition("Missing", 
-                      new PartitionMembership() { 
-                public boolean isMember(DataRow p) {
-                  //return "root".equals(p.aliasFromLocale) || XMLSource.CODE_FALLBACK_ID.equals(p.aliasFromLocale);
-                  return p.inheritedValue!=null && // found inherited item (extrapaths and some special paths may not have an inherited item)
-                  ( "root".equals(p.inheritedValue.inheritFrom) 
-                          || XMLSource.CODE_FALLBACK_ID.equals(p.inheritedValue.inheritFrom) );
-                  /*
-       p.winningXpathId==-1 &&    // no winning item
-       p.inheritedValue!=null && // found inherited item (extrapaths and some special paths may not have an inherited item)
-           ( "root".equals(p.inheritedValue.inheritFrom) ||XMLSource.CODE_FALLBACK_ID,equals(p.inheritedValue.inheritFrom) )
-                   */
-                }
-              }),
-              new Partition("Inherited", 
-                      new PartitionMembership() { 
-                public boolean isMember(DataRow p) {
-                  return true;
-                }
-              }),
-      };
-      return theTestPartitions;
-    }        
-    
+        Partition theTestPartitions[] = 
+        {                 
+                new Partition("Errors", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    return (p.hasErrors);
+                  }
+                }),
+                new Partition("Disputed", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    return ((p.allVoteType & Vetting.RES_DISPUTED)>0) ; // not sure why "allVoteType" is needed
+                  }
+                }),
+                new Partition("Warnings", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    return (p.hasWarnings);
+                  }
+                }),
+//              Later, we might want more groups.
+//              INDETERMINATE (-1),
+//              APPROVED (0),
+//              CONTRIBUTED (1),
+//              PROVISIONAL (2),
+//              UNCONFIRMED (3);
+                new Partition("Not (minimally) Approved", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    return p.winningXpathId != -1 
+                    && p.confirmStatus != Vetting.Status.APPROVED
+                    && p.confirmStatus != Vetting.Status.CONTRIBUTED;
+                    // || p.winningXpathId == -1 && p.hasMultipleProposals;
+                  }
+                }),
+                new Partition("Approved", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    return p.winningXpathId != -1; // will be APPROVED
+                  }
+                }),
+                new Partition("Missing", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    //return "root".equals(p.aliasFromLocale) || XMLSource.CODE_FALLBACK_ID.equals(p.aliasFromLocale);
+                    return p.inheritedValue!=null && // found inherited item (extrapaths and some special paths may not have an inherited item)
+                    ( "root".equals(p.inheritedValue.inheritFrom) 
+                            || XMLSource.CODE_FALLBACK_ID.equals(p.inheritedValue.inheritFrom) );
+                    /*
+         p.winningXpathId==-1 &&    // no winning item
+         p.inheritedValue!=null && // found inherited item (extrapaths and some special paths may not have an inherited item)
+             ( "root".equals(p.inheritedValue.inheritFrom) ||XMLSource.CODE_FALLBACK_ID,equals(p.inheritedValue.inheritFrom) )
+                     */
+                  }
+                }),
+                new Partition("Inherited", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    return true;
+                  }
+                }),
+        };
+        return theTestPartitions;
+      }        
+      
+    private Partition[] createCalendarPartitions() {
+        Partition theCalendarPartitions[] = 
+        {                 
+                new Partition("Date Formats", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|pattern\\|date-.*"));
+                  }
+                }),
+                new Partition("Time Formats", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|pattern\\|time-.*"));
+                  }
+                }),
+                new Partition("Date/Time Combination Formats", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|pattern\\|datetime-.*"));
+                  }
+                }),
+                new Partition("Wide Month Names", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|month\\|.*-format-wide"));
+                  }
+                }),
+                new Partition("Abbreviated Month Names", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|month\\|.*-format-abbreviated"));
+                  }
+                }),
+                new Partition("Narrow Month Names", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|month\\|.*-stand-alone-narrow"));
+                  }
+                }),
+                new Partition("Wide Month Names (Stand Alone Context)", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|month\\|.*-stand-alone-wide"));
+                  }
+                }),
+                new Partition("Abbreviated Month Names (Stand Alone Context)", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|month\\|.*-stand-alone-abbreviated"));
+                  }
+                }),
+                new Partition("Narrow Month Names (Format Context)", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|month\\|.*-format-narrow"));
+                  }
+                }),
+                new Partition("Wide Day Names", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:format-wide"));
+                  }
+                }),
+                new Partition("Abbreviated Day Names", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:format-abbreviated"));
+                  }
+                }),
+                new Partition("Narrow Day Names", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:stand-alone-narrow"));
+                  }
+                }),
+                new Partition("Wide Day Names (Stand Alone Context)", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:stand-alone-wide"));
+                  }
+                }),
+                new Partition("Abbreviated Day Names (Stand Alone Context)", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:stand-alone-abbreviated"));
+                  }
+                }),
+                new Partition("Narrow Day Names (Format Context)", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:format-narrow"));
+                  }
+                }),
+                new Partition("Wide Quarter Names", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|quarter\\|.*-format-wide"));
+                  }
+                }),
+                new Partition("Abbreviated Quarter Names", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|quarter\\|.*-format-abbreviated"));
+                  }
+                }),
+                new Partition("Narrow Quarter Names", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|quarter\\|.*-stand-alone-narrow"));
+                  }
+                }),
+                new Partition("Wide Quarter Names (Stand Alone Context)", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|quarter\\|.*-stand-alone-wide"));
+                  }
+                }),
+                new Partition("Abbreviated Quarter Names (Stand Alone Context)", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|quarter\\|.*-stand-alone-abbreviated"));
+                  }
+                }),
+                new Partition("Narrow Quarter Names (Format Context)", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|quarter\\|.*-format-narrow"));
+                  }
+                }),
+                new Partition("Day Periods", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|dayPeriod.*"));
+                  }
+                }),
+                new Partition("Eras", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|era\\|.*"));
+                  }
+                }),
+                new Partition("Relative Field Names", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|fields\\|.*"));
+                  }
+                }),
+                new Partition("Calendar Field Labels", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|field-label\\|.*"));
+                  }
+                }),
+                new Partition("Flexible Date/Time Formats", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    int xpint = p.getXpathId();
+                    String xp = p.getXpath();
+                    return (xpint == -1 || (xp != null && xp.indexOf("availableFormats")>-1));
+                  }
+                }),
+                new Partition("Interval Formats", 
+                        new PartitionMembership() { 
+                  public boolean isMember(DataRow p) {
+                    String xp = p.getXpath();
+                    return (xp != null && xp.indexOf("intervalFormats")>-1);
+                  }
+                }),
+        };
+        return theCalendarPartitions;
+      }        
+      
 
     private Hashtable displayHash = new Hashtable();
     
@@ -1025,6 +1229,7 @@ public class DataSection extends Registerable {
     private DisplaySet createDisplaySet(String sortMode, Pattern matcher) {
         DisplaySet aDisplaySet = new DisplaySet(getList(sortMode, matcher), getDisplayList(sortMode, matcher), sortMode);
         aDisplaySet.canName = canName;
+        aDisplaySet.isCalendar = isCalendar;
         return aDisplaySet;
     }
     
@@ -1053,6 +1258,8 @@ public class DataSection extends Registerable {
         
         if(sortMode.equals(SurveyMain.PREF_SORTMODE_CODE)) {
             newSet = new TreeSet<DataRow>(COMPARE_CODE);
+        } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_CODE_CALENDAR)) {
+            newSet = new TreeSet<DataRow>(COMPARE_CODE_CALENDAR);
         } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
             newSet = new TreeSet<DataRow>(COMPARE_PRIORITY);
         } else if(sortMode.equals(SurveyMain.PREF_SORTMODE_NAME)) {
@@ -1189,6 +1396,49 @@ public class DataSection extends Registerable {
 //        } else {
 //          return 0;
 //        }
+      }
+    };
+
+    /**
+     * Comparator that compares by code, within each partition defined for calendars
+     */
+    final Comparator<DataRow> COMPARE_CODE_CALENDAR = new Comparator<DataRow>() {
+
+      int categorizeDataRow(DataRow p, Partition partitions[]) {
+        int rv = -1;
+        for(int i=0;(rv==-1)&&(i<partitions.length);i++) {
+          if(partitions[i].pm.isMember(p)) {
+            rv = i;
+          }
+        }
+        return rv;
+      }
+
+      final Partition[] calendarCodeSort = createCalendarPartitions();
+
+      public int compare(DataRow p1, DataRow p2){
+        if(p1==p2) {
+          return 0;
+        }
+
+        int rv = 0; // neg:  a < b.  pos: a> b
+
+        if(p1.reservedForSort==-1) {
+          p1.reservedForSort = categorizeDataRow(p1, calendarCodeSort);
+        }
+        if(p2.reservedForSort==-1) {
+          p2.reservedForSort = categorizeDataRow(p2, calendarCodeSort);
+        }
+
+        if(rv == 0) {
+          if(p1.reservedForSort < p2.reservedForSort) {
+            return -1;
+          } else if(p1.reservedForSort > p2.reservedForSort) {
+            return 1;
+          }
+        }
+        return COMPARE_CODE.compare(p1,p2);
+
       }
     };
 
@@ -1530,6 +1780,9 @@ public class DataSection extends Registerable {
             isReferences = true;
             canName = false; // disable 'view by name'  for references
         }
+        
+        isCalendar = xpathPrefix.startsWith("//ldml/dates/calendars");
+
         List checkCldrResult = new ArrayList();
         
         // iterate over everything in this prefix ..

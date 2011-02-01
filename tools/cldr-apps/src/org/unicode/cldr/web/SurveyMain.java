@@ -250,6 +250,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     static final String PREF_XPID = "p_xpid";
     static final String PREF_GROTTY = "p_grotty";
     static final String PREF_SORTMODE_CODE = "code";
+    static final String PREF_SORTMODE_CODE_CALENDAR = "codecal";
     static final String PREF_SORTMODE_ALPHA = "alpha";
     static final String PREF_SORTMODE_WARNING = "interest";
     static final String PREF_SORTMODE_NAME = "name";
@@ -501,6 +502,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         response.setContentType("text/html; charset=utf-8");
 
         // set up users context object
+        
         WebContext ctx = new WebContext(request,response);
         ctx.reqTimer = reqTimer;
         ctx.sm = this;
@@ -6761,12 +6763,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
     String getSortMode(WebContext ctx, String prefix) {
         String sortMode = null;
-        if(prefix.indexOf("timeZone")!=-1 ||
-            prefix.indexOf("localeDisplayName")!=-1) {
-            sortMode = ctx.pref(PREF_SORTMODE, false&&(isPhaseVetting() || isPhaseVettingClosed())?PREF_SORTMODE_WARNING:PREF_SORTMODE_DEFAULT);
-        } else {
-            sortMode = ctx.pref(PREF_SORTMODE, false&&(isPhaseVetting() || isPhaseVettingClosed())?PREF_SORTMODE_WARNING:/*PREF_SORTMODE_CODE*/PREF_SORTMODE_WARNING); // all the rest get Code Mode
-        }
+        sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
         return sortMode;
     }
 
@@ -8780,6 +8777,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     void showSkipBox_menu(WebContext ctx, String sortMode, String aMode, String aDesc) {
         WebContext nuCtx = (WebContext)ctx.clone();
         nuCtx.addQuery(PREF_SORTMODE, aMode);
+        
         if(!sortMode.equals(aMode)) {
             nuCtx.print("<a class='notselected' href='" + nuCtx.url() + "'>");
         } else {
@@ -8812,7 +8810,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         if(skip<=0) {
             skip = 0;
         } 
-
         // calculate nextSkip
         int from = skip+1;
         int to = from + ctx.prefCodesPerPage()-1;
@@ -8829,6 +8826,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 
                 //          showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_ALPHA, "Alphabetically");
                 showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
+                if (displaySet.isCalendar) {
+                    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE_CALENDAR, "Type");
+                }
                 showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Priority");
                 if(displaySet.canName) {
                     showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_NAME, this.BASELINE_LANGUAGE_NAME+"-"+"Name");

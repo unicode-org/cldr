@@ -85,7 +85,7 @@ public class GenerateXMB {
     static final MessageDigest digest;
     static {
         try {
-            digest = MessageDigest.getInstance("SHA");
+            digest = MessageDigest.getInstance("SHA-1");
         } catch (NoSuchAlgorithmException e) {
             throw new IllegalArgumentException(e); // darn'd checked exceptions
         }

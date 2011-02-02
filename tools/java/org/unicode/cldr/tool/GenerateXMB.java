@@ -143,7 +143,7 @@ public class GenerateXMB {
 
         Factory cldrFactory2 = Factory.make(CldrUtility.MAIN_DIRECTORY, fileMatcherString);
         LanguageTagParser ltp = new LanguageTagParser();
-        
+
         for (String file : cldrFactory2.getAvailable()) {
             if (SKIP_LOCALES.contains(file)) {
                 continue;
@@ -155,14 +155,14 @@ public class GenerateXMB {
                     continue;
                 }
             }
-            
+
             // skip anything without plural rules
             final PluralInfo plurals = supplementalDataInfo.getPlurals(file, false);
             if (plurals == null) {
                 System.out.println("Skipping " + file + ", no plural rules");
                 continue;
             }
-            
+
             CLDRFile cldrFile = cldrFactory2.make(file, true);
             writeFile(targetDir + "/wsb/", file, englishInfo, cldrFile, false, false);
             writeFile(targetDir + "/wsb/filtered/", file, englishInfo, cldrFile, false, true);
@@ -183,16 +183,18 @@ public class GenerateXMB {
         Matcher countMatcher = COUNT_OR_ALT_ATTRIBUTE.matcher("");
         int lineCount = 0;
         int wordCount = 0;
-        
+
         StringWriter buffer = new StringWriter();
         PrintWriter out1 = new PrintWriter(buffer);
 
         for (PathInfo pathInfo : englishInfo) {
             String path = pathInfo.getPath();
-            // skip root
-            String locale = cldrFile.getSourceLocaleID(path, null);
-            if (locale.equals("root")) {
-                continue;
+            // skip root if not English
+            if (!isEnglish) {
+                String locale = cldrFile.getSourceLocaleID(path, null);
+                if (locale.equals("root")) {
+                    continue;
+                }
             }
             String value = cldrFile.getStringValue(path);
             boolean isUnits = path.startsWith("//ldml/units/unit");
@@ -231,7 +233,7 @@ public class GenerateXMB {
         wordCount += writeCountPathInfo(out1, cldrFile.getLocaleID(), countItems, isEnglish, filter);
         lineCount += countItems.size();
         out1.flush();
-        
+
         PrintWriter out = BagFormatter.openUTF8Writer(targetDir, file + "." + extension);
 
         if (isEnglish) {
@@ -409,7 +411,7 @@ public class GenerateXMB {
         private final String description;
         private final String starredPath;
         private final int wordCount;
-        
+
         static final BreakIterator bi = BreakIterator.getWordInstance(ULocale.ENGLISH);
         static final UnicodeSet ALPHABETIC = new UnicodeSet("[:Alphabetic:]");
 
@@ -427,12 +429,12 @@ public class GenerateXMB {
             bi.setText(englishValue);
             int start = bi.first();
             for (int end = bi.next();
-                 end != BreakIterator.DONE;
-                 start = end, end = bi.next()) {
-                 String word = englishValue.substring(start,end);
-                 if (ALPHABETIC.containsSome(word)) {
-                     ++tempCount;
-                 }
+            end != BreakIterator.DONE;
+            start = end, end = bi.next()) {
+                String word = englishValue.substring(start,end);
+                if (ALPHABETIC.containsSome(word)) {
+                    ++tempCount;
+                }
             }
             wordCount = tempCount == 0 ? 1 : tempCount;
         }
@@ -497,22 +499,22 @@ public class GenerateXMB {
             } else if (result.contains("{0}")) {
                 // TODO: fix for quoting
                 result = replacePlaceholders(result, placeholderReplacements, isEnglish);
-//            } else {
-//                formatParser.set(value);
-//                StringBuilder buffer = new StringBuilder();
-//                for (Object item : formatParser.getItems()) {
-//                    if (item instanceof DateTimePatternGenerator.VariableField) {
-//                        String variable = item.toString();
-//                        String replacement = placeholderReplacements.get(variable);
-//                        if (replacement == null) {
-//                            throw new IllegalArgumentException("Missing placeholder for " + variable);
-//                        }
-//                        buffer.append(replacement);
-//                    } else {
-//                        buffer.append(item);
-//                    }
-//                }
-//                result = buffer.toString();
+                //            } else {
+                //                formatParser.set(value);
+                //                StringBuilder buffer = new StringBuilder();
+                //                for (Object item : formatParser.getItems()) {
+                //                    if (item instanceof DateTimePatternGenerator.VariableField) {
+                //                        String variable = item.toString();
+                //                        String replacement = placeholderReplacements.get(variable);
+                //                        if (replacement == null) {
+                //                            throw new IllegalArgumentException("Missing placeholder for " + variable);
+                //                        }
+                //                        buffer.append(replacement);
+                //                    } else {
+                //                        buffer.append(item);
+                //                    }
+                //                }
+                //                result = buffer.toString();
             }
             return result;
         }
@@ -525,12 +527,12 @@ public class GenerateXMB {
             }
             return result;
         }
-        
+
         @Override
         public int compareTo(PathInfo arg0) {
             return path.compareTo(arg0.path);
         }
-        
+
         public String toString() {
             return path;
         }
@@ -554,7 +556,7 @@ public class GenerateXMB {
             Merger<Map<String, String>> merger = new MyMerger();
             RegexLookup<Map<String,String>> patternPlaceholders = RegexLookup.of(null, new MapTransform(), merger)
             .loadFromFile(GenerateXMB.class, "xmbPlaceholders.txt");
-            
+
             HashSet<String> metazonePaths = new HashSet<String>();
             //^//ldml/dates/timeZoneNames/metazone\[@type="([^"]*)"]
             for (MetazoneInfo metazoneInfo : MetazoneInfo.METAZONE_LIST) {
@@ -563,11 +565,11 @@ public class GenerateXMB {
                     metazonePaths.add(path);
                 }
             }
-            
+
             // TODO add short countries
             HashSet<String> extraLanguages = new HashSet<String>();
             //ldml/localeDisplayNames/languages/language[@type=".*"]
-            
+
             for (String langId : EXTRA_LANGUAGES) {
                 String langPath = "//ldml/localeDisplayNames/languages/language[@type=\"" + langId + "\"]";
                 extraLanguages.add(langPath);
@@ -603,6 +605,9 @@ public class GenerateXMB {
                         extras.put(path2,path);
                     }
                 }
+                if (path.contains("ellipsis")) {
+                    System.out.println(path);
+                }
             }
             sorted.addAll(extras.keySet());
 
@@ -613,7 +618,7 @@ public class GenerateXMB {
             CldrUtility.Output<String> starredPathOutput = new CldrUtility.Output<String>();
             Set<String> missingDescriptions = new TreeSet<String>();
             CldrUtility.Output<String[]> pathArguments = new CldrUtility.Output<String[]>();
-            
+
             Matcher metazoneMatcher = Pattern.compile("//ldml/dates/timeZoneNames/metazone\\[@type=\"([^\"]*)\"]/(.*)/(.*)").matcher("");
 
             // TODO: for each count='other' path, add the other keywords and values
@@ -682,6 +687,29 @@ public class GenerateXMB {
                         String length = parts.getElement(-2);
                         length = length.equals("long") ? "" : "abbreviated ";
                         code = code + ", " + length + daylightType + " form";
+                    } else if (type.equals("timezone")) {
+                        String country = (String) sc.getZoneToCounty().get(code);
+                        int lastSlash = code.lastIndexOf('/');
+                        String codeName = lastSlash< 0 ? code : code.substring(lastSlash+1).replace('_', ' ');
+
+                        boolean found = false;
+                        if (country.equals("001")) {
+                            code = "the timezone \"" + codeName + '"';
+                            found = true;
+                        } else if (country != null) {
+                            String countryName = english.getName("territory", country);
+                            if (countryName != null) {
+                                if (!codeName.equals(countryName)) {
+                                    code = "the city \"" + codeName + "\" (in " + countryName + ")";
+                                } else {
+                                    code = "the country \"" + codeName + '"';
+                                }
+                                found = true;
+                            }
+                        }
+                        if (!found) {
+                            System.out.println("Missing country for timezone " + code);
+                        }
                     }
                     description = MessageFormat.format(MessageFormat.autoQuoteApostrophe(description), new Object[]{code});
                 } else if (path.contains("exemplarCity")) {
@@ -706,10 +734,10 @@ public class GenerateXMB {
                 pathToPathInfo.put(path, row);
                 longToPathInfo.put(hash, row);
                 if (value.contains("{0}") && patternPlaceholders.get(path) == null) {
-                    System.out.println("ERROR: " + path + " ; " + value);
+                    System.out.println("ERROR, no placeholders for {0}...: " + path + " ; " + value);
                 }
             }
-            
+
             PrintWriter out = BagFormatter.openUTF8Writer(targetDir + "/log/", "en-paths.txt");
             out.println("# " + DATE);
             for (Entry<String, List<Set<String>>> starredPath : starredPaths.entrySet()) {
@@ -842,25 +870,25 @@ public class GenerateXMB {
     static final long END_TIME = new Date(2015-1900, 1-1, 0).getTime();
     static final long DELTA_TIME = 15 * 60 * 1000;
     static final long MIN_DAYLIGHT_PERIOD = 90L * 24 * 60 * 60 * 1000;
-    
+
     static final Set<String> HAS_DAYLIGHT;
     static {
         Set<String> hasDaylightTemp = new HashSet<String>();
         Date date = new Date();
         main:
-        for (String zoneId : sc.getCanonicalTimeZones()) {
-            TimeZone zone = TimeZone.getTimeZone(zoneId);
-            for (long time = START_TIME + MIN_DAYLIGHT_PERIOD; time < END_TIME; time += MIN_DAYLIGHT_PERIOD) {
-                date.setTime(time);
-                if (zone.inDaylightTime(date)) {
-                    hasDaylightTemp.add(zoneId);
-                    if (false && !zone.useDaylightTime()) {
-                        System.out.println(zoneId + "\tuseDaylightTime()==false, but \tinDaylightTime(/" + date + "/)==true");
+            for (String zoneId : sc.getCanonicalTimeZones()) {
+                TimeZone zone = TimeZone.getTimeZone(zoneId);
+                for (long time = START_TIME + MIN_DAYLIGHT_PERIOD; time < END_TIME; time += MIN_DAYLIGHT_PERIOD) {
+                    date.setTime(time);
+                    if (zone.inDaylightTime(date)) {
+                        hasDaylightTemp.add(zoneId);
+                        if (false && !zone.useDaylightTime()) {
+                            System.out.println(zoneId + "\tuseDaylightTime()==false, but \tinDaylightTime(/" + date + "/)==true");
+                        }
+                        continue main;
                     }
-                    continue main;
                 }
             }
-        }
         HAS_DAYLIGHT = Collections.unmodifiableSet(hasDaylightTemp);
     }
 
@@ -874,41 +902,41 @@ public class GenerateXMB {
         Map<String,Set<String>> countryToZoneSet = sc.getCountryToZoneSet();
 
         main:
-        for (Entry<String, Set<String>> countryZones : countryToZoneSet.entrySet()) {
-            String country = countryZones.getKey();
-            if (country.equals("001")) {
-                continue;
-            }
-            Set<String> zones = countryZones.getValue();
-            if (zones.size() == 1) {
-                singularCountries.add(country);
-                continue;
-            }
-            // make a set of sets
-            List<TimeZone> initial = new ArrayList<TimeZone>();
-            for (String s : zones) {
-                initial.add(TimeZone.getTimeZone(s));
-            }
-            // now cycle through the times and see if we find any differences
-            for (long time = START_TIME; time < END_TIME; time += DELTA_TIME) {
-                int firstOffset = Integer.MIN_VALUE;
-                for (TimeZone zone : initial) {
-                    int offset = zone.getOffset(time);
-                    if (firstOffset == Integer.MIN_VALUE) {
-                        firstOffset = offset;
-                    } else {
-                        if (firstOffset != offset) {
-                            if (false) System.out.println(country 
-                            + " Difference at: " + new Date(time) 
-                            + ", " + zone.getDisplayName() + " " + (offset/1000.0/60/60)
-                            + ", " + initial.iterator().next().getDisplayName() + " " + (firstOffset/1000.0/60/60));
-                            continue main;
+            for (Entry<String, Set<String>> countryZones : countryToZoneSet.entrySet()) {
+                String country = countryZones.getKey();
+                if (country.equals("001")) {
+                    continue;
+                }
+                Set<String> zones = countryZones.getValue();
+                if (zones.size() == 1) {
+                    singularCountries.add(country);
+                    continue;
+                }
+                // make a set of sets
+                List<TimeZone> initial = new ArrayList<TimeZone>();
+                for (String s : zones) {
+                    initial.add(TimeZone.getTimeZone(s));
+                }
+                // now cycle through the times and see if we find any differences
+                for (long time = START_TIME; time < END_TIME; time += DELTA_TIME) {
+                    int firstOffset = Integer.MIN_VALUE;
+                    for (TimeZone zone : initial) {
+                        int offset = zone.getOffset(time);
+                        if (firstOffset == Integer.MIN_VALUE) {
+                            firstOffset = offset;
+                        } else {
+                            if (firstOffset != offset) {
+                                if (false) System.out.println(country 
+                                        + " Difference at: " + new Date(time) 
+                                + ", " + zone.getDisplayName() + " " + (offset/1000.0/60/60)
+                                + ", " + initial.iterator().next().getDisplayName() + " " + (firstOffset/1000.0/60/60));
+                                continue main;
+                            }
                         }
                     }
                 }
+                singularCountries.add(country);
             }
-            singularCountries.add(country);
-        }
         SINGULAR_COUNTRIES = Collections.unmodifiableSet(singularCountries);
     }
 
@@ -930,11 +958,11 @@ public class GenerateXMB {
 
         static final String[] GENERIC = {"/long/generic", 
             //"/short/generic"
-            };
+        };
         static final String[] DAYLIGHT = {"/long/generic", "/long/standard", "/long/daylight", 
             //"/short/generic", "/short/standard", "/short/daylight"
-            };
-        
+        };
+
         public String[] getTypes() {
             return hasDaylight ? DAYLIGHT : GENERIC;
         }
@@ -964,7 +992,7 @@ public class GenerateXMB {
                 if (isSingleCountry) {
                     continue;
                 }
-                
+
                 //TimeZone goldenZone = TimeZone.getTimeZone(golden);
 
                 Set<SupplementalDataInfo.MetaZoneRange> metazoneRanges = supplementalDataInfo.getMetaZoneRanges(golden);

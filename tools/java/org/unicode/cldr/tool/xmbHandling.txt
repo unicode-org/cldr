@@ -38,72 +38,78 @@
 
 # ROOT descriptions (using special placeholders). Must occur first.
 
-^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/exemplarCity ; ROOT timezone ; The name of a city in: {1}. See cldr.org/translation/timezones.
+^//ldml/localeDisplayNames/territories/territory\[@type="(CD|DG|CG|003|021|ZA|018|FK|MK|MM|TW|HK|MO)"] ; ROOT territory; Warning - the region {0} requires special attention! Note: before translating, be sure to read http://cldr.org/translation/country-names.
+^//ldml/localeDisplayNames/scripts/script\[@type="(Z[^"]*)"] ; ROOT script; The name of the script (writing system) with BCP47 script code = {0}. Note: before translating, be sure to read http://cldr.org/translation/script-names.
 
-^//ldml/localeDisplayNames/languages/language\[@type="([^"]*)"] ; ROOT language; The name of the language with BCP47 base language code = {0}. Before translating, see cldr.org/translation/language-names.
-^//ldml/localeDisplayNames/scripts/script\[@type="([^"]*)"] ; ROOT script; The name of the script (writing system) with BCP47 script code = {0}. Before translating, see cldr.org/translation/script-names.
-^//ldml/localeDisplayNames/territories/territory\[@type="([^"]*)"] ; ROOT territory; The name of the country or region with BCP47 region code = {0}. Before translating, see cldr.org/translation/country-names.
-^//ldml/numbers/currencies/currency\[@type="([^"]*)"]/symbol ; ROOT currency; The symbol for the currency with ISO 4217 currency code = {0}. Before translating, see cldr.org/translation/currency-names.
-^//ldml/numbers/currencies/currency\[@type="([^"]*)"]/displayName ; ROOT currency; The name of the currency with ISO 4217 currency code = {0}. Before translating, see cldr.org/translation/currency-names.
-^//ldml/dates/timeZoneNames/metazone\[@type="([^"]*)"](.*)/(.*) ; ROOT metazone; The name of the timezone for "{0}". Before translating, see cldr.org/translation/timezones.
+^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/exemplarCity ; ROOT timezone ; The name of {0}. For more information, see http://cldr.org/translation/cities.
+
+^//ldml/localeDisplayNames/languages/language\[@type="([^"]*)"] ; ROOT language; The name of the language with BCP47 language code = {0}. For more information, see http://cldr.org/translation/language-names.
+^//ldml/localeDisplayNames/scripts/script\[@type="([^"]*)"] ; ROOT script; The name of the script (writing system) with BCP47 script code = {0}. For more information, see http://cldr.org/translation/script-names.
+^//ldml/localeDisplayNames/territories/territory\[@type="([^"]*)"] ; ROOT territory; The name of the country or region with BCP47 region code = {0}. For more information, see http://cldr.org/translation/country-names.
+^//ldml/numbers/currencies/currency\[@type="([^"]*)"]/symbol ; ROOT currency; The symbol for the currency with the ISO currency code = {0}. For more information, see http://cldr.org/translation/currency-names.
+^//ldml/numbers/currencies/currency\[@type="([^"]*)"]/displayName ; ROOT currency; The name of the currency with the ISO currency code = {0}. For more information, see http://cldr.org/translation/currency-names.
+^//ldml/dates/timeZoneNames/metazone\[@type="([^"]*)"](.*)/(.*) ; ROOT metazone; The name of the timezone for "{0}". Note: before translating, be sure to read http://cldr.org/translation/timezones.
 # Note: we change the metazones dynamically in code
 
-^//ldml/localeDisplayNames/types/type\[@type="([^"]*)"]\[@key="collation"]    ;   The name of "{1} collation" (sorting order). Before translating, be sure to read cldr.org/translation/transforms.
-^//ldml/localeDisplayNames/types/type\[@type="([^"]*)"]\[@key="numbers"]    ;   The name of "{1} number system". Before translating, be sure to read cldr.org/translation/transforms.
-^//ldml/localeDisplayNames/types/type\[@type="([^"]*)"]\[@key="([^"]*)"]    ;   The name of the "{1} {2}". Before translating, be sure to read cldr.org/translation/transforms.
-^//ldml/localeDisplayNames/keys/key\[@type="([^"]*)"]   ;   The name of the system for "{1}". Before translating, be sure to read cldr.org/translation/key-names.
+# OTHER Descriptions
 
-# Descriptions of other items
+^//ldml/localeDisplayNames/types/type\[@type="([^"]*)"]\[@key="collation"]    ;   The name of "{1} collation" (sorting order). For more information, please see http://cldr.org/translation/transforms.
+^//ldml/localeDisplayNames/types/type\[@type="([^"]*)"]\[@key="numbers"]    ;   The name of "{1} number system". For more information, please see http://cldr.org/translation/transforms.
+^//ldml/localeDisplayNames/types/type\[@type="([^"]*)"]\[@key="([^"]*)"]    ;   The name of the "{1} {2}". For more information, please see http://cldr.org/translation/transforms.
+^//ldml/localeDisplayNames/keys/key\[@type="([^"]*)"]   ;   The name of the system for "{1}". For more information, please see http://cldr.org/translation/key-names.
 
-^//ldml/characters/exemplarCharacters\[@type="([^"]*)"] ;   Supply the characters used in your language for the "{1}" category.  Before translating, see cldr.org/translation/exemplars.
-^//ldml/characters/exemplarCharacters   ;   Supply the characters used in your language for the "standard" category. Before translating, see cldr.org/translation/exemplars.
+^//ldml/characters/exemplarCharacters\[@type="([^"]*)"] ;   Supply the characters used in your language for the "{1}" category.  Note: before translating, be sure to read http://cldr.org/translation/exemplars.
+^//ldml/characters/exemplarCharacters   ;   Supply the characters used in your language for the "standard" category. Note: before translating, be sure to read http://cldr.org/translation/exemplars.
 
-^//ldml/characters/ellipsis\[@type="([^"]*)"]  ;   Supply the elipsis pattern for when the {1} part of the string is replaced. Before translating, see cldr.org/translation/characters.
-^//ldml/characters/moreInformation  ;   The character or short string used to indicate that more information is available. Before translating, see cldr.org/translation/characters.
+^//ldml/characters/ellipsis\[@type="([^"]*)"]  ;   Supply the elipsis pattern for when the {1} part of a string is omitted. Note: before translating, be sure to read http://cldr.org/translation/characters.
+^//ldml/characters/moreInformation  ;   The character or short string used to indicate that more information is available. Note: before translating, be sure to read http://cldr.org/translation/characters.
 
-^//ldml/delimiters ; Supply the right and left quotation marks. Before translating, see cldr.org/translation/delimiters.
+^//ldml/delimiters/alternateQuotationEnd ; Supply the (alternate) ending quotation mark (the right mark except in BIDI languages). Note: before translating, be sure to read http://cldr.org/translation/delimiters.
+^//ldml/delimiters/alternateQuotationStart ; Supply the (alternate) starting quotation mark (the left mark except in BIDI languages). Note: before translating, be sure to read http://cldr.org/translation/delimiters.
+^//ldml/delimiters/quotationEnd ; Supply the ending quotation mark (the right mark except in BIDI languages). Note: before translating, be sure to read http://cldr.org/translation/delimiters.
+^//ldml/delimiters/quotationStart ; Supply the starting quotation mark (the left mark except in BIDI languages). Note: before translating, be sure to read http://cldr.org/translation/delimiters.
 
-^//ldml/localeDisplayNames/localeDisplayPattern/localePattern   ;   The pattern used to compose locale (language) names. Before translating, see cldr.org/translation/localepattern.
-^//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator ;   The separator used to compose modifiers in locale (language) names. Before translating, see cldr.org/translation/localepattern.
+^//ldml/localeDisplayNames/localeDisplayPattern/localePattern   ;   The pattern used to compose locale (language) names. Note: before translating, be sure to read http://cldr.org/translation/localepattern.
+^//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator ;   The separator used to compose modifiers in locale (language) names. Note: before translating, be sure to read http://cldr.org/translation/localepattern.
 
-^//ldml/numbers/symbols/(decimal|exponential|group|infinity|list|minusSign|nan|nativeZeroDigit|patternDigit|perMille|percentSign|plusSign)    ;   The {1} symbol used in the localized form of numbers. Before translating, see cldr.org/translation/number-symbols.
+^//ldml/numbers/symbols/(decimal|exponential|group|infinity|list|minusSign|nan|nativeZeroDigit|patternDigit|perMille|percentSign|plusSign)    ;   The {1} symbol used in the localized form of numbers. Note: before translating, be sure to read http://cldr.org/translation/number-symbols.
 
 
-^//ldml/dates/timeZoneNames/(fallback|gmtZero|gmt|hour|region)Format  ;   The {1} pattern used to compose time zone names. Before translating, see cldr.org/translation/timezones.
-^//ldml/units/unit\[@type="([^"]*)"]/unitPattern.*\[@alt="short"] ; [ICU Syntax] Special pattern used to compose plural for abbreviated forms of "{1}". Before translating, be sure to read cldr.org/translation/plurals.
-^//ldml/units/unit\[@type="([^"]*)"]/unitPattern ; [ICU Syntax] Special pattern used to compose plural for full (non-abbreviated) forms of "{1}". Before translating, be sure to read cldr.org/translation/plurals.
+^//ldml/dates/timeZoneNames/(fallback|gmtZero|gmt|hour|region)Format  ;   The {1} pattern used to compose time zone names. Note: before translating, be sure to read http://cldr.org/translation/timezones.
+^//ldml/units/unit\[@type="([^"]*)"]/unitPattern.*\[@alt="short"] ; [ICU Syntax] Special pattern used to compose plural for abbreviated forms of "{1}". Note: before translating, be sure to read http://cldr.org/translation/plurals.
+^//ldml/units/unit\[@type="([^"]*)"]/unitPattern ; [ICU Syntax] Special pattern used to compose plural for full (non-abbreviated) forms of "{1}". Note: before translating, be sure to read http://cldr.org/translation/plurals.
 
-^//ldml/numbers/decimalFormats/decimalFormatLength\[@type="([^"]*)"]/decimalFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]  ;   Special pattern used for a short version of numbers with the same number of digits as {3}. Before translating, be sure to read cldr.org/translation/number-patterns#TOC-Short-Numbers.
+^//ldml/numbers/decimalFormats/decimalFormatLength\[@type="([^"]*)"]/decimalFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]  ;   Special pattern used for a short version of numbers with the same number of digits as {3}. Note: before translating, be sure to read http://cldr.org/translation/number-patterns#TOC-Short-Numbers.
 
-^//ldml/numbers/([a-z]*)Formats/[a-z]*FormatLength/[a-z]*Format\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]    ;   Special pattern used to compose {1} numbers. Before translating, be sure to read cldr.org/translation/number-patterns.
+^//ldml/numbers/([a-z]*)Formats/[a-z]*FormatLength/[a-z]*Format\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]    ;   Special pattern used to compose {1} numbers. Note: before translating, be sure to read http://cldr.org/translation/number-patterns.
 
-^//ldml/listPatterns/listPattern/listPatternPart\[@type="2"]  ;   Special pattern used to make a list out of two elements. Before translating, be sure to read cldr.org/translation/lists.
-^//ldml/listPatterns/listPattern/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a list out of more than two elements. This is used for the {1} portion of the list. Before translating, be sure to read cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern/listPatternPart\[@type="2"]  ;   Special pattern used to make a list out of two elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a list out of more than two elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
 
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dayPeriods/dayPeriodContext\[@type="([^"]*)"]/dayPeriodWidth\[@type="([^"]*)"]/dayPeriod\[@type="([^"]*)"]   ;   DESCRIPTION [[gregorian], [format, stand-alone], [abbreviated, wide], [am, noon, pm]]
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dayPeriods/dayPeriodContext\[@type="([^"]*)"]/dayPeriodWidth\[@type="([^"]*)"]/dayPeriod\[@type="([^"]*)"]\[@alt="([^"]*)"]  ;   DESCRIPTION [[gregorian], [format, stand-alone], [abbreviated, wide], [am, pm], [variant]]
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/days/dayContext\[@type="([^"]*)"]/dayWidth\[@type="([^"]*)"]/day\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for day-of-the-week {4}. Before translating, be sure to read cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraAbbr/era\[@type="([^"]*)"]   ;   Provide the format-abbreviated version of the name for era {4}. Before translating, be sure to read cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraNames/era\[@type="([^"]*)"]  ;   Provide the format-wide version of the name for era {4}. Before translating, be sure to read cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraNarrow/era\[@type="([^"]*)"] ;   Provide the format-narrow version of the name for era {4}. Before translating, be sure to read cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/months/monthContext\[@type="([^"]*)"]/monthWidth\[@type="([^"]*)"]/month\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for month {4}. Before translating, be sure to read cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/quarters/quarterContext\[@type="([^"]*)"]/quarterWidth\[@type="([^"]*)"]/quarter\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for quarter {4}. Before translating, be sure to read cldr.org/translation/date-time-names.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/days/dayContext\[@type="([^"]*)"]/dayWidth\[@type="([^"]*)"]/day\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for day-of-the-week {4}. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraAbbr/era\[@type="([^"]*)"]   ;   Provide the format-abbreviated version of the name for era {4}. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraNames/era\[@type="([^"]*)"]  ;   Provide the format-wide version of the name for era {4}. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraNarrow/era\[@type="([^"]*)"] ;   Provide the format-narrow version of the name for era {4}. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/months/monthContext\[@type="([^"]*)"]/monthWidth\[@type="([^"]*)"]/month\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for month {4}. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/quarters/quarterContext\[@type="([^"]*)"]/quarterWidth\[@type="([^"]*)"]/quarter\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for quarter {4}. For more information, please see http://cldr.org/translation/date-time-names.
 
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="([^"]*)"]/displayName   ;   Provide the name (as it would appear in menus) for the field "{2}". Before translating, be sure to read cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="day"]/relative\[@type="0"]    ;   Provide the name for today. Before translating, be sure to read cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="day"]/relative\[@type="-([^"]*)"]    ;   Provide a name for the day, {2} before today. Before translating, be sure to read cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="day"]/relative\[@type="([^"]*)"]    ;   Provide a name for the day, {2} after today. Before translating, be sure to read cldr.org/translation/date-time-names.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="([^"]*)"]/displayName   ;   Provide the name (as it would appear in menus) for the field "{2}". For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="day"]/relative\[@type="0"]    ;   Provide the name for today. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="day"]/relative\[@type="-([^"]*)"]    ;   Provide a name for the day, {2} before today. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="day"]/relative\[@type="([^"]*)"]    ;   Provide a name for the day, {2} after today. For more information, please see http://cldr.org/translation/date-time-names.
 
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/dateTimeFormatLength\[@type="([^"]*)"]/dateTimeFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]    ;   Provide the {2} version of the date-time pattern. Before translating, be sure to read cldr.org/translation/date-time-patterns.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateFormats/dateFormatLength\[@type="([^"]*)"]/dateFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]    ;   Provide the {2} version of the basic date pattern. Before translating, be sure to read cldr.org/translation/date-time-patterns.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/timeFormats/timeFormatLength\[@type="([^"]*)"]/timeFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]    ;   Provide the {2} version of the basic time pattern. Before translating, be sure to read cldr.org/translation/date-time-patterns.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/availableFormats/dateFormatItem\[@id="([^"]*)"]  ;   Provide the pattern used in your language for the skeleton "{2}". Before translating, be sure to read cldr.org/translation/date-time-patterns.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/dateTimeFormatLength\[@type="([^"]*)"]/dateTimeFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]    ;   Provide the {2} version of the date-time pattern. Note: before translating, be sure to read http://cldr.org/translation/date-time-patterns.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateFormats/dateFormatLength\[@type="([^"]*)"]/dateFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]    ;   Provide the {2} version of the basic date pattern. Note: before translating, be sure to read http://cldr.org/translation/date-time-patterns.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/timeFormats/timeFormatLength\[@type="([^"]*)"]/timeFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]    ;   Provide the {2} version of the basic time pattern. Note: before translating, be sure to read http://cldr.org/translation/date-time-patterns.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/availableFormats/dateFormatItem\[@id="([^"]*)"]  ;   Provide the pattern used in your language for the skeleton "{2}". Note: before translating, be sure to read http://cldr.org/translation/date-time-patterns.
 
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/intervalFormats/intervalFormatFallback   ;   The pattern used for "fallback" with date/time intervals. Before translating, be sure to read cldr.org/translation/date-time-intervals.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/intervalFormats/intervalFormatItem\[@id="([^"]*)"]/greatestDifference\[@id="([^"]*)"]    ;   The pattern used for the date/time interval skeleton "{1}" when the greatest difference is "{2}". Before translating, be sure to read cldr.org/translation/date-time-intervals.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/intervalFormats/intervalFormatFallback   ;   The pattern used for "fallback" with date/time intervals. Note: before translating, be sure to read http://cldr.org/translation/date-time-intervals.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/intervalFormats/intervalFormatItem\[@id="([^"]*)"]/greatestDifference\[@id="([^"]*)"]    ;   The pattern used for the date/time interval skeleton "{1}" when the greatest difference is "{2}". Note: before translating, be sure to read http://cldr.org/translation/date-time-intervals.
 
 
-^//ldml/localeDisplayNames/transformNames/transformName\[@type="([^"]*)"]   ;   The name of the transform "{1}". Before translating, be sure to read cldr.org/translation/transforms.
+^//ldml/localeDisplayNames/transformNames/transformName\[@type="([^"]*)"]   ;   The name of the transform "{1}". For more information, please see http://cldr.org/translation/transforms.
 
-^//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName\[@type="([^"]*)"]   ;   The name of the measurement system "{1}".  Before translating, be sure to read cldr.org/translation/misc. 
-^//ldml/posix/messages/(no|yes)str   ;   The word for "{1}", lowercased, plus any abbreviations separated by a colon. Before translating, see cldr.org/translation/misc.
+^//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName\[@type="([^"]*)"]   ;   The name of the measurement system "{1}".  For more information, please see http://cldr.org/translation/misc. 
+^//ldml/posix/messages/(no|yes)str   ;   The word for "{1}", lowercased, plus any abbreviations separated by a colon. For more information, see http://cldr.org/translation/misc.
